@@ -1,5 +1,5 @@
 https://misskey.numbertales-radiann.net/@official/pages/creation_guideline
-(更新日 2025.4.11)
+(更新日 2025.7.27)
 
 # 一次創作作品におけるガイドライン
 
@@ -12,7 +12,7 @@ https://misskey.numbertales-radiann.net/@official/pages/creation_guideline
 ## 利用許可について
 
 - 一次創作でありシリーズ名のタグ「 #運命線狐の記録 」「 #フィジカル 9 」「 #ナンバーテールズ 」「 #運命線探偵 OCTOGINTA 」「#運命線探偵 78」「 #獣爾騎兵 」「 #パストダイヴァー 」および「#豹変系女子」のいずれかが付与されている作品（以下、「一次創作作品」）の第三者による画像の利用は原則許可が必要です
-  （許可申請は「ラジアン(柏木主税)」の Misskey アカウントの [こちら](htps://misskey.io/@RadianN_kswg@misskey.numbertales-radiann.net) または [こちら](htps://misskey.io/@RadianN_kswg@misskey.flowers)にて）
+  （許可申請は[「ラジアン(柏木主税)」の Misskey アカウント](htps://misskey.io/@RadianN_kswg@misskey.numbertales-radiann.net) にて）
 
 # 二次創作作品におけるガイドライン
 
