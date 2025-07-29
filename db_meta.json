@@ -38,18 +38,18 @@
       },
       "Def_Day": {
         "List_Month": [
-          { "Month": "Jan", "Num": 1 },
-          { "Month": "Feb", "Num": 2 },
-          { "Month": "Mar", "Num": 3 },
-          { "Month": "Apr", "Num": 4 },
-          { "Month": "May", "Num": 5 },
-          { "Month": "Jun", "Num": 6 },
-          { "Month": "Jul", "Num": 7 },
-          { "Month": "Aug", "Num": 8 },
-          { "Month": "Sep", "Num": 9 },
-          { "Month": "Oct", "Num": 10 },
-          { "Month": "Nov", "Num": 11 },
-          { "Month": "Dec", "Num": 12 }
+          { "Month": 1, "MonthStr_EN": "Jan" },
+          { "Month": 2, "MonthStr_EN": "Feb" },
+          { "Month": 3, "MonthStr_EN": "Mar" },
+          { "Month": 4, "MonthStr_EN": "Apr" },
+          { "Month": 5, "MonthStr_EN": "May" },
+          { "Month": 6, "MonthStr_EN": "Jun" },
+          { "Month": 7, "MonthStr_EN": "Jul" },
+          { "Month": 8, "MonthStr_EN": "Aug" },
+          { "Month": 9, "MonthStr_EN": "Sep" },
+          { "Month": 10, "MonthStr_EN": "Oct" },
+          { "Month": 11, "MonthStr_EN": "Nov" },
+          { "Month": 12, "MonthStr_EN": "Dec" }
         ]
       },
       "Enum_HideText": [

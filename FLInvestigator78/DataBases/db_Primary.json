@@ -20,7 +20,7 @@
       "Height_cm": 161,
       "Weight_kg": 46,
       "Age": 21,
-      "BirthDay": { "Day": { "DayOfMonth": 1, "Month": "Apr" } }
+      "BirthDay": { "Day": { "Month": 4, "DayOfMonth": 1 } }
     },
     "Character": "能天気でどこか浮いている",
     "Hobby": "面白い出来事の散策",
@@ -86,7 +86,7 @@
       "Height_cm": 176,
       "Weight_kg": 59,
       "Age": 37,
-      "BirthDay": { "Day": { "DayOfMonth": 4, "Month": "Jan" } }
+      "BirthDay": { "Day": { "Month": 1, "DayOfMonth": 4 } }
     },
     "Character": "行動的かつ自発的で、何事にも才能にあふれている",
     "Hobby": "起業した自事業の拡大について計画する",
@@ -151,7 +151,7 @@
       "Height_cm": 174,
       "Weight_kg": 54,
       "Age": 29,
-      "BirthDay": { "Day": { "DayOfMonth": 8, "Month": "Mar" } }
+      "BirthDay": { "Day": { "Month": 3, "DayOfMonth": 8 } }
     },
     "Character": "博識かつ知力的で冷淡",
     "Hobby": "教養についての資料を集める/読む",
@@ -216,7 +216,7 @@
       "Height_cm": 166,
       "Weight_kg": [{ "about": { "HideText": "非公開" } }],
       "Age": 19,
-      "BirthDay": { "Day": { "DayOfMonth": 3, "Month": "Apr" } }
+      "BirthDay": { "Day": { "Month": 4, "DayOfMonth": 3 } }
     },
     "Character": "母性と女子力があり、相手の男性を駄目にしがち",
     "Hobby": "晩餐会",

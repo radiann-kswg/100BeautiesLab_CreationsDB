@@ -18,11 +18,11 @@
     "ConceptAge": 14,
     "AnivDay": [
       {
-        "Day": { "DayOfMonth": 1, "Month": "Jan" },
+        "Day": { "Month": 1, "DayOfMonth": 1 },
         "DayAbout": "開発記念"
       },
       {
-        "Day": { "DayOfMonth": 1, "Month": "Sep" },
+        "Day": { "Month": 9, "DayOfMonth": 1 },
         "DayAbout": "第一リリース記念(劇中)"
       }
     ],
@@ -116,11 +116,11 @@
     "ConceptAge": 14,
     "AnivDay": [
       {
-        "Day": { "DayOfMonth": 2, "Month": "Jan" },
+        "Day": { "Month": 1, "DayOfMonth": 2 },
         "DayAbout": "開発記念"
       },
       {
-        "Day": { "DayOfMonth": 20, "Month": "Apr" },
+        "Day": { "Month": 4, "DayOfMonth": 20 },
         "DayAbout": "第一リリース記念(忠実)"
       }
     ],
@@ -212,7 +212,7 @@
     "Height_cm": 160,
     "ConceptAge": 17,
     "AnivDay": [
-      { "Day": { "DayOfMonth": 3, "Month": "Jan" }, "DayAbout": "開発記念" }
+      { "Day": { "Month": 1, "DayOfMonth": 3 }, "DayAbout": "開発記念" }
     ],
     "Weight_kg": 43,
     "BustSize": "AA",
@@ -301,7 +301,7 @@
     "Height_cm": 157,
     "ConceptAge": 17,
     "AnivDay": [
-      { "Day": { "DayOfMonth": 4, "Month": "Jan" }, "DayAbout": "開発記念" }
+      { "Day": { "Month": 1, "DayOfMonth": 4 }, "DayAbout": "開発記念" }
     ],
     "Weight_kg": 42,
     "BustSize": "B",
@@ -392,7 +392,7 @@
     "Height_cm": 156,
     "ConceptAge": 17,
     "AnivDay": [
-      { "Day": { "DayOfMonth": 5, "Month": "Jan" }, "DayAbout": "開発記念" }
+      { "Day": { "Month": 1, "DayOfMonth": 5 }, "DayAbout": "開発記念" }
     ],
     "Weight_kg": 42,
     "BustSize": "AA",
@@ -485,7 +485,7 @@
     "Height_cm": 150,
     "ConceptAge": 16,
     "AnivDay": [
-      { "Day": { "DayOfMonth": 6, "Month": "Jan" }, "DayAbout": "開発記念" }
+      { "Day": { "Month": 1, "DayOfMonth": 6 }, "DayAbout": "開発記念" }
     ],
     "Weight_kg": 41,
     "BustSize": "E",
@@ -573,7 +573,7 @@
     "Height_cm": 162,
     "ConceptAge": 22,
     "AnivDay": [
-      { "Day": { "DayOfMonth": 7, "Month": "Jan" }, "DayAbout": "開発記念" }
+      { "Day": { "Month": 1, "DayOfMonth": 7 }, "DayAbout": "開発記念" }
     ],
     "Weight_kg": 44,
     "BustSize": "AA",
@@ -661,7 +661,7 @@
     "Height_cm": 158,
     "ConceptAge": 19,
     "AnivDay": [
-      { "Day": { "DayOfMonth": 8, "Month": "Jan" }, "DayAbout": "開発記念" }
+      { "Day": { "Month": 1, "DayOfMonth": 8 }, "DayAbout": "開発記念" }
     ],
     "Weight_kg": [{ "value": 43, "about": "推定" }],
     "BustSize": "B",
@@ -751,7 +751,7 @@
     "Height_cm": 160,
     "ConceptAge": 21,
     "AnivDay": [
-      { "Day": { "DayOfMonth": 9, "Month": "Jan" }, "DayAbout": "開発記念" }
+      { "Day": { "Month": 1, "DayOfMonth": 9 }, "DayAbout": "開発記念" }
     ],
     "Weight_kg": 43,
     "BustSize": "E",
@@ -841,11 +841,11 @@
     "ConceptAge": 15,
     "AnivDay": [
       {
-        "Day": { "DayOfMonth": 10, "Month": "Oct" },
+        "Day": { "Month": 10, "DayOfMonth": 10 },
         "DayAbout": "開発記念"
       },
       {
-        "Day": { "DayOfMonth": 10, "Month": "Apr" },
+        "Day": { "Month": 4, "DayOfMonth": 10 },
         "DayAbout": "アンチヴィラン対策記念(劇中)"
       }
     ],
@@ -940,7 +940,7 @@
     "Height_cm": 161,
     "ConceptAge": 17,
     "AnivDay": [
-      { "Day": { "DayOfMonth": 11, "Month": "Nov" }, "DayAbout": "開発記念" }
+      { "Day": { "Month": 11, "DayOfMonth": 11 }, "DayAbout": "開発記念" }
     ],
     "Weight_kg": 43,
     "BustSize": "AA",
@@ -1032,7 +1032,7 @@
     "Height_cm": 148,
     "ConceptAge": 14,
     "AnivDay": [
-      { "Day": { "DayOfMonth": 12, "Month": "Jan" }, "DayAbout": "開発記念" }
+      { "Day": { "Month": 1, "DayOfMonth": 12 }, "DayAbout": "開発記念" }
     ],
     "Weight_kg": 39,
     "BustSize": "B",
@@ -1127,7 +1127,7 @@
     "Height_cm": 148,
     "ConceptAge": 16,
     "AnivDay": [
-      { "Day": { "DayOfMonth": 13, "Month": "Jan" }, "DayAbout": "開発記念" }
+      { "Day": { "Month": 1, "DayOfMonth": 13 }, "DayAbout": "開発記念" }
     ],
     "Weight_kg": 40,
     "BustSize": "A",
@@ -1223,7 +1223,7 @@
     "Height_cm": 146,
     "ConceptAge": 16,
     "AnivDay": [
-      { "Day": { "DayOfMonth": 14, "Month": "Jan" }, "DayAbout": "開発記念" }
+      { "Day": { "Month": 1, "DayOfMonth": 14 }, "DayAbout": "開発記念" }
     ],
     "Weight_kg": 39,
     "BustSize": "F",
@@ -1320,11 +1320,11 @@
     "ConceptAge": 18,
     "AnivDay": [
       {
-        "Day": { "DayOfMonth": 15, "Month": "Jan" },
+        "Day": { "Month": 1, "DayOfMonth": 15 },
         "DayAbout": "開発記念"
       },
       {
-        "Day": { "DayOfMonth": 15, "Month": "Apr" },
+        "Day": { "Month": 4, "DayOfMonth": 15 },
         "DayAbout": "暴走抑止対策記念(劇中)"
       }
     ],
@@ -1426,7 +1426,7 @@
     "Height_cm": 147,
     "ConceptAge": { "value": 18, "about": "？" },
     "AnivDay": [
-      { "Day": { "DayOfMonth": 16, "Month": "Jan" }, "DayAbout": "開発記念" }
+      { "Day": { "Month": 1, "DayOfMonth": 16 }, "DayAbout": "開発記念" }
     ],
     "Weight_kg": { "HideText": "非公開" },
     "BustSize": "H",
@@ -1524,7 +1524,7 @@
     "Height_cm": 151,
     "ConceptAge": 22,
     "AnivDay": [
-      { "Day": { "DayOfMonth": 17, "Month": "Jan" }, "DayAbout": "開発記念" }
+      { "Day": { "Month": 1, "DayOfMonth": 17 }, "DayAbout": "開発記念" }
     ],
     "Weight_kg": [{ "value": 40, "about": "推定" }],
     "BustSize": "AA",
@@ -1620,7 +1620,7 @@
     "Height_cm": 153,
     "ConceptAge": 20,
     "AnivDay": [
-      { "Day": { "DayOfMonth": 18, "Month": "Jan" }, "DayAbout": "開発記念" }
+      { "Day": { "Month": 1, "DayOfMonth": 18 }, "DayAbout": "開発記念" }
     ],
     "Weight_kg": 42,
     "BustSize": "C",
@@ -1711,7 +1711,7 @@
     "Height_cm": 157,
     "ConceptAge": 20,
     "AnivDay": [
-      { "Day": { "DayOfMonth": 19, "Month": "Jan" }, "DayAbout": "開発記念" }
+      { "Day": { "Month": 1, "DayOfMonth": 19 }, "DayAbout": "開発記念" }
     ],
     "Weight_kg": 42,
     "BustSize": "AA",
@@ -1799,7 +1799,7 @@
     "Height_cm": 152,
     "ConceptAge": 17,
     "AnivDay": [
-      { "Day": { "DayOfMonth": 20, "Month": "Jan" }, "DayAbout": "開発記念" }
+      { "Day": { "Month": 1, "DayOfMonth": 20 }, "DayAbout": "開発記念" }
     ],
     "Weight_kg": 41,
     "BustSize": "H",
@@ -1891,7 +1891,7 @@
     "GenderType": "Neutral",
     "Height_cm": 148,
     "AnivDay": [
-      { "Day": { "DayOfMonth": 21, "Month": "Jan" }, "DayAbout": "開発記念" }
+      { "Day": { "Month": 1, "DayOfMonth": 21 }, "DayAbout": "開発記念" }
     ],
     "ConceptAge": 14,
     "Weight_kg": 39,
@@ -1986,7 +1986,7 @@
     "Height_cm": 153,
     "ConceptAge": 16,
     "AnivDay": [
-      { "Day": { "DayOfMonth": 22, "Month": "Nov" }, "DayAbout": "開発記念" }
+      { "Day": { "Month": 11, "DayOfMonth": 22 }, "DayAbout": "開発記念" }
     ],
     "Weight_kg": { "HideText": "非公開" },
     "BustSize": "I",
@@ -2085,7 +2085,7 @@
     "Height_cm": 149,
     "ConceptAge": { "value": 16, "about": "？" },
     "AnivDay": [
-      { "Day": { "DayOfMonth": 3, "Month": "Feb" }, "DayAbout": "開発記念" }
+      { "Day": { "Month": 2, "DayOfMonth": 3 }, "DayAbout": "開発記念" }
     ],
     "Weight_kg": 40,
     "BustSize": "B",
@@ -2180,7 +2180,7 @@
     "Height_cm": 158,
     "ConceptAge": 17,
     "AnivDay": [
-      { "Day": { "DayOfMonth": 4, "Month": "Feb" }, "DayAbout": "開発記念" }
+      { "Day": { "Month": 2, "DayOfMonth": 4 }, "DayAbout": "開発記念" }
     ],
     "Weight_kg": { "HideText": "非公開" },
     "BustSize": "E",
@@ -2274,7 +2274,7 @@
     "Height_cm": 156,
     "ConceptAge": 16,
     "AnivDay": [
-      { "Day": { "DayOfMonth": 5, "Month": "Feb" }, "DayAbout": "開発記念" }
+      { "Day": { "Month": 2, "DayOfMonth": 5 }, "DayAbout": "開発記念" }
     ],
     "Weight_kg": [{ "value": 42, "about": "推定" }],
     "BustSize": "G",
@@ -2366,7 +2366,7 @@
     "Height_cm": 153,
     "ConceptAge": { "value": 22, "about": "？" },
     "AnivDay": [
-      { "Day": { "DayOfMonth": 6, "Month": "Feb" }, "DayAbout": "開発記念" }
+      { "Day": { "Month": 2, "DayOfMonth": 6 }, "DayAbout": "開発記念" }
     ],
     "Weight_kg": { "HideText": "非公開" },
     "BustSize": "G",
@@ -2458,7 +2458,7 @@
     "Height_cm": 162,
     "ConceptAge": 17,
     "AnivDay": [
-      { "Day": { "DayOfMonth": 7, "Month": "Feb" }, "DayAbout": "開発記念" }
+      { "Day": { "Month": 2, "DayOfMonth": 7 }, "DayAbout": "開発記念" }
     ],
     "Weight_kg": 43,
     "BustSize": "B",
@@ -2550,7 +2550,7 @@
     "Height_cm": 164,
     "ConceptAge": 22,
     "AnivDay": [
-      { "Day": { "DayOfMonth": 8, "Month": "Feb" }, "DayAbout": "開発記念" }
+      { "Day": { "Month": 2, "DayOfMonth": 8 }, "DayAbout": "開発記念" }
     ],
     "Weight_kg": { "HideText": "非公開" },
     "TailsUnit": "キツネ(枝分かれ)型8本(上2束2本+下1束6本)",
@@ -2649,7 +2649,7 @@
     "Height_cm": 150,
     "ConceptAge": 16,
     "AnivDay": [
-      { "Day": { "DayOfMonth": 9, "Month": "Feb" }, "DayAbout": "開発記念" }
+      { "Day": { "Month": 2, "DayOfMonth": 9 }, "DayAbout": "開発記念" }
     ],
     "Weight_kg": { "HideText": "非公開" },
     "BustSize": "E",
@@ -2742,7 +2742,7 @@
     "Weight_kg": { "HideText": "非公開" },
     "ConceptAge": { "value": 17, "about": "？" },
     "AnivDay": [
-      { "Day": { "DayOfMonth": 29, "Month": "Feb" }, "DayAbout": "開発記念" }
+      { "Day": { "Month": 2, "DayOfMonth": 29 }, "DayAbout": "開発記念" }
     ],
     "BustSize": "F",
     "TailsUnit": "キツネ型3本",
@@ -2832,7 +2832,7 @@
     "Height_cm": 147,
     "ConceptAge": 16,
     "AnivDay": [
-      { "Day": { "DayOfMonth": 1, "Month": "Mar" }, "DayAbout": "開発記念" }
+      { "Day": { "Month": 3, "DayOfMonth": 1 }, "DayAbout": "開発記念" }
     ],
     "Weight_kg": 40,
     "BustSize": "D",
@@ -2926,7 +2926,7 @@
     "Height_cm": 149,
     "ConceptAge": { "value": 16, "about": "？" },
     "AnivDay": [
-      { "Day": { "DayOfMonth": 2, "Month": "Mar" }, "DayAbout": "開発記念" }
+      { "Day": { "Month": 3, "DayOfMonth": 2 }, "DayAbout": "開発記念" }
     ],
     "Weight_kg": 40,
     "BustSize": "A",
@@ -3017,7 +3017,7 @@
     "Height_cm": 149,
     "ConceptAge": 15,
     "AnivDay": [
-      { "Day": { "DayOfMonth": 3, "Month": "Mar" }, "DayAbout": "開発記念" }
+      { "Day": { "Month": 3, "DayOfMonth": 3 }, "DayAbout": "開発記念" }
     ],
     "Weight_kg": { "HideText": "非公開" },
     "BustSize": "A",
@@ -3118,7 +3118,7 @@
     "Height_cm": 143,
     "ConceptAge": { "value": 15, "about": "？" },
     "AnivDay": [
-      { "Day": { "DayOfMonth": 4, "Month": "Mar" }, "DayAbout": "開発記念" }
+      { "Day": { "Month": 3, "DayOfMonth": 4 }, "DayAbout": "開発記念" }
     ],
     "Weight_kg": { "HideText": "非公開" },
     "BustSize": "A",
@@ -3212,7 +3212,7 @@
     "CodeName": "三五",
     "SPCodeName": "三十五",
     "AnivDay": [
-      { "Day": { "DayOfMonth": 5, "Month": "Mar" }, "DayAbout": "開発記念" }
+      { "Day": { "Month": 3, "DayOfMonth": 5 }, "DayAbout": "開発記念" }
     ],
     "Class": "デュアルエイツ",
     "Class_EN": "Dual Sum-8s",
@@ -3311,7 +3311,7 @@
     "Height_cm": 150,
     "ConceptAge": 16,
     "AnivDay": [
-      { "Day": { "DayOfMonth": 6, "Month": "Mar" }, "DayAbout": "開発記念" }
+      { "Day": { "Month": 3, "DayOfMonth": 6 }, "DayAbout": "開発記念" }
     ],
     "Weight_kg": { "HideText": "非公開" },
     "BustSize": "E",
@@ -3404,7 +3404,7 @@
     "Height_cm": 157,
     "ConceptAge": 19,
     "AnivDay": [
-      { "Day": { "DayOfMonth": 7, "Month": "Mar" }, "DayAbout": "開発記念" }
+      { "Day": { "Month": 3, "DayOfMonth": 7 }, "DayAbout": "開発記念" }
     ],
     "Weight_kg": [{ "value": 42, "about": "推定" }],
     "BustSize": "C",
@@ -3492,7 +3492,7 @@
     "CodeName": "三八",
     "GenderType": "Female",
     "AnivDay": [
-      { "Day": { "DayOfMonth": 8, "Month": "Mar" }, "DayAbout": "開発記念" }
+      { "Day": { "Month": 3, "DayOfMonth": 8 }, "DayAbout": "開発記念" }
     ],
     "Class": "デュアルイレブンズ",
     "Class_EN": "Dual Sum-11s",
@@ -3538,7 +3538,7 @@
     "Height_cm": 162,
     "ConceptAge": 21,
     "AnivDay": [
-      { "Day": { "DayOfMonth": 9, "Month": "Mar" }, "DayAbout": "開発記念" }
+      { "Day": { "Month": 3, "DayOfMonth": 9 }, "DayAbout": "開発記念" }
     ],
     "Weight_kg": 44,
     "TailsUnit": "キツネ(枝分かれ)型9本(上2束3本+下1束6本)",
@@ -3633,7 +3633,7 @@
     "Height_cm": 140,
     "ConceptAge": 16,
     "AnivDay": [
-      { "Day": { "DayOfMonth": 31, "Month": "Mar" }, "DayAbout": "開発記念" }
+      { "Day": { "Month": 3, "DayOfMonth": 31 }, "DayAbout": "開発記念" }
     ],
     "Weight_kg": 39,
     "BustSize": "A",
@@ -3724,7 +3724,7 @@
     "Height_cm": 157,
     "ConceptAge": 16,
     "AnivDay": [
-      { "Day": { "DayOfMonth": 1, "Month": "Apr" }, "DayAbout": "開発記念" }
+      { "Day": { "Month": 4, "DayOfMonth": 1 }, "DayAbout": "開発記念" }
     ],
     "Weight_kg": 41,
     "BustSize": "AA",
@@ -3815,7 +3815,7 @@
     "Height_cm": 157,
     "ConceptAge": 17,
     "AnivDay": [
-      { "Day": { "DayOfMonth": 2, "Month": "Apr" }, "DayAbout": "開発記念" }
+      { "Day": { "Month": 4, "DayOfMonth": 2 }, "DayAbout": "開発記念" }
     ],
     "Weight_kg": { "HideText": "非公開" },
     "BustSize": "C",
@@ -3907,7 +3907,7 @@
     "Height_cm": 134,
     "ConceptAge": 14,
     "AnivDay": [
-      { "Day": { "DayOfMonth": 3, "Month": "Apr" }, "DayAbout": "開発記念" }
+      { "Day": { "Month": 4, "DayOfMonth": 3 }, "DayAbout": "開発記念" }
     ],
     "Weight_kg": { "HideText": "非公開" },
     "Class": "デュアルセブンズ",
@@ -4001,7 +4001,7 @@
     "Height_cm": 150,
     "ConceptAge": 16,
     "AnivDay": [
-      { "Day": { "DayOfMonth": 4, "Month": "Apr" }, "DayAbout": "開発記念" }
+      { "Day": { "Month": 4, "DayOfMonth": 4 }, "DayAbout": "開発記念" }
     ],
     "Weight_kg": { "HideText": "非公開" },
     "TailsUnit": "キツネ(枝分かれ)型 2束x4本",
@@ -4106,7 +4106,7 @@
     "Height_cm": 154,
     "ConceptAge": 16,
     "AnivDay": [
-      { "Day": { "DayOfMonth": 5, "Month": "Apr" }, "DayAbout": "開発記念" }
+      { "Day": { "Month": 4, "DayOfMonth": 5 }, "DayAbout": "開発記念" }
     ],
     "Weight_kg": 42,
     "BustSize": "AA",
@@ -4197,7 +4197,7 @@
     "Height_cm": 147,
     "ConceptAge": 15,
     "AnivDay": [
-      { "Day": { "DayOfMonth": 6, "Month": "Apr" }, "DayAbout": "開発記念" }
+      { "Day": { "Month": 4, "DayOfMonth": 6 }, "DayAbout": "開発記念" }
     ],
     "Weight_kg": 39,
     "BustSize": "A",
@@ -4289,11 +4289,11 @@
     "ConceptAge": 17,
     "AnivDay": [
       {
-        "Day": { "DayOfMonth": 7, "Month": "Apr" },
+        "Day": { "Month": 4, "DayOfMonth": 7 },
         "DayAbout": "開発記念"
       },
       {
-        "Day": { "DayOfMonth": 7, "Month": "Sep" },
+        "Day": { "Month": 9, "DayOfMonth": 7 },
         "DayAbout": "加護観測記念(劇中)"
       }
     ],
@@ -4381,7 +4381,7 @@
     "Height_cm": 161,
     "ConceptAge": 20,
     "AnivDay": [
-      { "Day": { "DayOfMonth": 8, "Month": "Apr" }, "DayAbout": "開発記念" }
+      { "Day": { "Month": 4, "DayOfMonth": 8 }, "DayAbout": "開発記念" }
     ],
     "Weight_kg": { "HideText": "非公開" },
     "TailsUnit": "キツネ(枝分かれ)型8本(上2束4本+下1束4本)",
@@ -4474,7 +4474,7 @@
     "Height_cm": 148,
     "ConceptAge": { "value": 16, "about": "？" },
     "AnivDay": [
-      { "Day": { "DayOfMonth": 9, "Month": "Apr" }, "DayAbout": "開発記念" }
+      { "Day": { "Month": 4, "DayOfMonth": 9 }, "DayAbout": "開発記念" }
     ],
     "Weight_kg": [{ "value": 39, "about": "推定" }],
     "BustSize": "A",
@@ -4559,7 +4559,7 @@
     "SPCodeName": "半",
     "SPCodeName_EN": "Half(of Percent)",
     "AnivDay": [
-      { "Day": { "DayOfMonth": 30, "Month": "Apr" }, "DayAbout": "開発記念" }
+      { "Day": { "Month": 4, "DayOfMonth": 30 }, "DayAbout": "開発記念" }
     ],
     "Class": "10倍番(テンズデジッツ)",
     "Class_EN": "Tens-Digits",
@@ -4597,7 +4597,7 @@
     "SPCodeName": "五十一",
     "GenderType": "Male",
     "AnivDay": [
-      { "Day": { "DayOfMonth": 1, "Month": "May" }, "DayAbout": "開発記念" }
+      { "Day": { "Month": 5, "DayOfMonth": 1 }, "DayAbout": "開発記念" }
     ],
     "Class": "デュアルシックスズ",
     "Class_EN": "Dual Sum-6s",
@@ -4623,11 +4623,11 @@
     "ConceptAge": 16,
     "AnivDay": [
       {
-        "Day": { "DayOfMonth": 2, "Month": "May" },
+        "Day": { "Month": 5, "DayOfMonth": 2 },
         "DayAbout": "開発記念"
       },
       {
-        "Day": { "DayOfMonth": 25, "Month": "Feb" },
+        "Day": { "Month": 2, "DayOfMonth": 25 },
         "DayAbout": "2+5型特殊プラン設立記念(劇中)"
       }
     ],
@@ -4721,7 +4721,7 @@
     "FormalName_EN": "NumberTales #53",
     "CodeName": "五三",
     "AnivDay": [
-      { "Day": { "DayOfMonth": 3, "Month": "May" }, "DayAbout": "開発記念" }
+      { "Day": { "Month": 5, "DayOfMonth": 3 }, "DayAbout": "開発記念" }
     ],
     "Class": "デュアルエイツ",
     "Class_EN": "Dual Sum-8s",
@@ -4808,7 +4808,7 @@
     "FormalName_EN": "NumberTales #54",
     "CodeName": "五四",
     "AnivDay": [
-      { "Day": { "DayOfMonth": 4, "Month": "May" }, "DayAbout": "開発記念" }
+      { "Day": { "Month": 5, "DayOfMonth": 4 }, "DayAbout": "開発記念" }
     ],
     "Class": "9倍2桁番(ナインズデュアルズ)",
     "Class_EN": "Nines Duals",
@@ -4845,7 +4845,7 @@
     "Height_cm": 165,
     "ConceptAge": 21,
     "AnivDay": [
-      { "Day": { "DayOfMonth": 5, "Month": "May" }, "DayAbout": "開発記念" }
+      { "Day": { "Month": 5, "DayOfMonth": 5 }, "DayAbout": "開発記念" }
     ],
     "Weight_kg": { "HideText": "非公開" },
     "BustSize": "AA",
@@ -4940,7 +4940,7 @@
     "Height_cm": 142,
     "ConceptAge": 12,
     "AnivDay": [
-      { "Day": { "DayOfMonth": 6, "Month": "May" }, "DayAbout": "開発記念" }
+      { "Day": { "Month": 5, "DayOfMonth": 6 }, "DayAbout": "開発記念" }
     ],
     "Weight_kg": [{ "value": 39, "about": "推定" }],
     "BustSize": "B",
@@ -5033,7 +5033,7 @@
     "Height_cm": 152,
     "ConceptAge": 17,
     "AnivDay": [
-      { "Day": { "DayOfMonth": 7, "Month": "May" }, "DayAbout": "開発記念" }
+      { "Day": { "Month": 5, "DayOfMonth": 7 }, "DayAbout": "開発記念" }
     ],
     "Weight_kg": 42,
     "BustSize": "AA",
@@ -5127,7 +5127,7 @@
     "Height_cm": 149,
     "ConceptAge": { "value": 17, "about": "？" },
     "AnivDay": [
-      { "Day": { "DayOfMonth": 8, "Month": "May" }, "DayAbout": "開発記念" }
+      { "Day": { "Month": 5, "DayOfMonth": 8 }, "DayAbout": "開発記念" }
     ],
     "Weight_kg": { "HideText": "非公開" },
     "BustSize": "F",
@@ -5213,7 +5213,7 @@
     "FormalName_EN": "NumberTales #59",
     "CodeName": "五九",
     "AnivDay": [
-      { "Day": { "DayOfMonth": 9, "Month": "May" }, "DayAbout": "開発記念" }
+      { "Day": { "Month": 5, "DayOfMonth": 9 }, "DayAbout": "開発記念" }
     ],
     "Class": "デュアルファイブズ",
     "Class_EN": "Dual Sum-5s",
@@ -5247,7 +5247,7 @@
     "Height_cm": 152,
     "ConceptAge": { "value": 16, "about": "？" },
     "AnivDay": [
-      { "Day": { "DayOfMonth": 31, "Month": "May" }, "DayAbout": "開発記念" }
+      { "Day": { "Month": 5, "DayOfMonth": 31 }, "DayAbout": "開発記念" }
     ],
     "Weight_kg": { "HideText": "非公開" },
     "BustSize": "G",
@@ -5353,7 +5353,7 @@
     "Height_cm": 143,
     "ConceptAge": { "about": "不詳" },
     "AnivDay": [
-      { "Day": { "DayOfMonth": 1, "Month": "Jun" }, "DayAbout": "開発記念" }
+      { "Day": { "Month": 6, "DayOfMonth": 1 }, "DayAbout": "開発記念" }
     ],
     "Weight_kg": { "HideText": "非公開" },
     "BustSize": "H",
@@ -5448,7 +5448,7 @@
     "Height_cm": 153,
     "ConceptAge": 22,
     "AnivDay": [
-      { "Day": { "DayOfMonth": 2, "Month": "Jun" }, "DayAbout": "開発記念" }
+      { "Day": { "Month": 6, "DayOfMonth": 2 }, "DayAbout": "開発記念" }
     ],
     "Weight_kg": 43,
     "BustSize": "F",
@@ -5540,7 +5540,7 @@
     "Height_cm": 142,
     "ConceptAge": 15,
     "AnivDay": [
-      { "Day": { "DayOfMonth": 3, "Month": "Jun" }, "DayAbout": "開発記念" }
+      { "Day": { "Month": 6, "DayOfMonth": 3 }, "DayAbout": "開発記念" }
     ],
     "Weight_kg": { "HideText": "非公開" },
     "BustSize": "D",
@@ -5632,7 +5632,7 @@
     "Height_cm": 146,
     "ConceptAge": { "about": "不詳" },
     "AnivDay": [
-      { "Day": { "DayOfMonth": 4, "Month": "Jun" }, "DayAbout": "開発記念" }
+      { "Day": { "Month": 6, "DayOfMonth": 4 }, "DayAbout": "開発記念" }
     ],
     "Weight_kg": { "HideText": "非公開" },
     "Class": "デュアルキャリーズ",
@@ -5731,7 +5731,7 @@
     "Height_cm": 135,
     "ConceptAge": 10,
     "AnivDay": [
-      { "Day": { "DayOfMonth": 5, "Month": "Jun" }, "DayAbout": "開発記念" }
+      { "Day": { "Month": 6, "DayOfMonth": 5 }, "DayAbout": "開発記念" }
     ],
     "Weight_kg": 37,
     "BustSize": "A",
@@ -5822,7 +5822,7 @@
     "Height_cm": 154,
     "ConceptAge": 16,
     "AnivDay": [
-      { "Day": { "DayOfMonth": 6, "Month": "Jun" }, "DayAbout": "開発記念" }
+      { "Day": { "Month": 6, "DayOfMonth": 6 }, "DayAbout": "開発記念" }
     ],
     "Weight_kg": { "HideText": "非公開" },
     "BustSize": "F",
@@ -5915,7 +5915,7 @@
     "Height_cm": 165,
     "ConceptAge": { "value": 22, "about": "？" },
     "AnivDay": [
-      { "Day": { "DayOfMonth": 7, "Month": "Jun" }, "DayAbout": "開発記念" }
+      { "Day": { "Month": 6, "DayOfMonth": 7 }, "DayAbout": "開発記念" }
     ],
     "Class": "デュアルフォーズ",
     "Class_EN": "Dual Sum-4s",
@@ -5974,7 +5974,7 @@
     "Height_cm": 147,
     "ConceptAge": 14,
     "AnivDay": [
-      { "Day": { "DayOfMonth": 8, "Month": "Jun" }, "DayAbout": "開発記念" }
+      { "Day": { "Month": 6, "DayOfMonth": 8 }, "DayAbout": "開発記念" }
     ],
     "Weight_kg": 39,
     "BustSize": "AA",
@@ -6069,7 +6069,7 @@
     "Height_cm": 156,
     "ConceptAge": { "value": 20, "about": "？" },
     "AnivDay": [
-      { "Day": { "DayOfMonth": 9, "Month": "Jun" }, "DayAbout": "開発記念" }
+      { "Day": { "Month": 6, "DayOfMonth": 9 }, "DayAbout": "開発記念" }
     ],
     "Weight_kg": { "HideText": "非公開" },
     "TailsUnit": "キツネ(枝分かれ)型9本(上2束6本+下1束3本)",
@@ -6160,7 +6160,7 @@
     "Height_cm": 159,
     "ConceptAge": 17,
     "AnivDay": [
-      { "Day": { "DayOfMonth": 30, "Month": "Jun" }, "DayAbout": "開発記念" }
+      { "Day": { "Month": 6, "DayOfMonth": 30 }, "DayAbout": "開発記念" }
     ],
     "Weight_kg": 43,
     "TailsUnit": "キツネ型7本",
@@ -6251,7 +6251,7 @@
     "Height_cm": 144,
     "ConceptAge": 17,
     "AnivDay": [
-      { "Day": { "DayOfMonth": 1, "Month": "Jul" }, "DayAbout": "開発記念" }
+      { "Day": { "Month": 7, "DayOfMonth": 1 }, "DayAbout": "開発記念" }
     ],
     "Weight_kg": [{ "value": 40, "about": "推定" }],
     "TailsUnit": "キツネ(枝分かれ)型7本(上1束6本+下2束1本)",
@@ -6340,7 +6340,7 @@
     "Height_cm": 162,
     "ConceptAge": 17,
     "AnivDay": [
-      { "Day": { "DayOfMonth": 2, "Month": "Jul" }, "DayAbout": "開発記念" }
+      { "Day": { "Month": 7, "DayOfMonth": 2 }, "DayAbout": "開発記念" }
     ],
     "Weight_kg": 43,
     "BustSize": "B",
@@ -6438,7 +6438,7 @@
     "Height_cm": 154,
     "ConceptAge": { "value": 16, "about": "？" },
     "AnivDay": [
-      { "Day": { "DayOfMonth": 3, "Month": "Jul" }, "DayAbout": "開発記念" }
+      { "Day": { "Month": 7, "DayOfMonth": 3 }, "DayAbout": "開発記念" }
     ],
     "Weight_kg": { "HideText": "非公開" },
     "BustSize": "C",
@@ -6537,7 +6537,7 @@
     "Height_cm": 148,
     "ConceptAge": 17,
     "AnivDay": [
-      { "Day": { "DayOfMonth": 4, "Month": "Jul" }, "DayAbout": "開発記念" }
+      { "Day": { "Month": 7, "DayOfMonth": 4 }, "DayAbout": "開発記念" }
     ],
     "Weight_kg": [{ "value": 39 }, { "value": 1, "about": "マント" }],
     "BustSize": "B",
@@ -6632,7 +6632,7 @@
     "Height_cm": 152,
     "ConceptAge": 17,
     "AnivDay": [
-      { "Day": { "DayOfMonth": 5, "Month": "Jul" }, "DayAbout": "開発記念" }
+      { "Day": { "Month": 7, "DayOfMonth": 5 }, "DayAbout": "開発記念" }
     ],
     "Weight_kg": 42,
     "BustSize": "AA",
@@ -6725,7 +6725,7 @@
     "Height_cm": 144,
     "ConceptAge": { "value": 14, "about": "？" },
     "AnivDay": [
-      { "Day": { "DayOfMonth": 6, "Month": "Jul" }, "DayAbout": "開発記念" }
+      { "Day": { "Month": 7, "DayOfMonth": 6 }, "DayAbout": "開発記念" }
     ],
     "Weight_kg": { "HideText": "非公開" },
     "BustSize": "G",
@@ -6814,7 +6814,7 @@
     "Height_cm": 147,
     "ConceptAge": { "value": 14, "about": "？" },
     "AnivDay": [
-      { "Day": { "DayOfMonth": 7, "Month": "Jul" }, "DayAbout": "開発記念" }
+      { "Day": { "Month": 7, "DayOfMonth": 7 }, "DayAbout": "開発記念" }
     ],
     "Weight_kg": [{ "value": 39, "about": "推定" }],
     "BustSize": "A",
@@ -6914,7 +6914,7 @@
     "Height_cm": 157,
     "ConceptAge": 25,
     "AnivDay": [
-      { "Day": { "DayOfMonth": 8, "Month": "Jul" }, "DayAbout": "開発記念" }
+      { "Day": { "Month": 7, "DayOfMonth": 8 }, "DayAbout": "開発記念" }
     ],
     "Weight_kg": { "HideText": "非公開" },
     "BustSize": "E",
@@ -7002,7 +7002,7 @@
     "FormalName_EN": "NumberTales #79",
     "CodeName": "七九",
     "AnivDay": [
-      { "Day": { "DayOfMonth": 9, "Month": "Jul" }, "DayAbout": "開発記念" }
+      { "Day": { "Month": 7, "DayOfMonth": 9 }, "DayAbout": "開発記念" }
     ],
     "Class": "デュアルセブンズ",
     "Class_EN": "Dual Sum-7s",
@@ -7028,7 +7028,7 @@
     "CodeName": "八〇",
     "SPCodeName": "八十",
     "AnivDay": [
-      { "Day": { "DayOfMonth": 31, "Month": "Jul" }, "DayAbout": "開発記念" }
+      { "Day": { "Month": 7, "DayOfMonth": 31 }, "DayAbout": "開発記念" }
     ],
     "Class": "10倍番(テンズデジッツ)",
     "Class_EN": "Tens-Digits",
@@ -7069,7 +7069,7 @@
     "Height_cm": 149,
     "ConceptAge": 18,
     "AnivDay": [
-      { "Day": { "DayOfMonth": 1, "Month": "Aug" }, "DayAbout": "開発記念" }
+      { "Day": { "Month": 8, "DayOfMonth": 1 }, "DayAbout": "開発記念" }
     ],
     "Weight_kg": 41,
     "BustSize": "D",
@@ -7154,7 +7154,7 @@
     "CodeName": "八二",
     "SPCodeName": "八十二",
     "AnivDay": [
-      { "Day": { "DayOfMonth": 2, "Month": "Aug" }, "DayAbout": "開発記念" }
+      { "Day": { "Month": 8, "DayOfMonth": 2 }, "DayAbout": "開発記念" }
     ],
     "Class": "デュアルキャリーズ",
     "Class_EN": "Dual Carries",
@@ -7179,7 +7179,7 @@
     "CodeName": "八三",
     "GenderType": "Male",
     "AnivDay": [
-      { "Day": { "DayOfMonth": 3, "Month": "Aug" }, "DayAbout": "開発記念" }
+      { "Day": { "Month": 8, "DayOfMonth": 3 }, "DayAbout": "開発記念" }
     ],
     "Class": "デュアルイレブンズ",
     "Class_EN": "Dual Sum-11s",
@@ -7220,7 +7220,7 @@
     "CodeName": "八四",
     "SPCodeName": "八十四",
     "AnivDay": [
-      { "Day": { "DayOfMonth": 4, "Month": "Aug" }, "DayAbout": "開発記念" }
+      { "Day": { "Month": 8, "DayOfMonth": 4 }, "DayAbout": "開発記念" }
     ],
     "Class": "デュアルスリーズ",
     "Class_EN": "Dual Sum-3s",
@@ -7254,7 +7254,7 @@
     "Height_cm": 147,
     "ConceptAge": 17,
     "AnivDay": [
-      { "Day": { "DayOfMonth": 5, "Month": "Aug" }, "DayAbout": "開発記念" }
+      { "Day": { "Month": 8, "DayOfMonth": 5 }, "DayAbout": "開発記念" }
     ],
     "Weight_kg": { "HideText": "非公開" },
     "BustSize": "A",
@@ -7338,7 +7338,7 @@
     "FormalName_EN": "NumberTales #86",
     "CodeName": "八六",
     "AnivDay": [
-      { "Day": { "DayOfMonth": 6, "Month": "Aug" }, "DayAbout": "開発記念" }
+      { "Day": { "Month": 8, "DayOfMonth": 6 }, "DayAbout": "開発記念" }
     ],
     "Class": "デュアルファイブズ",
     "Class_EN": "Dual Sum-5s",
@@ -7355,7 +7355,7 @@
     "FormalName_EN": "NumberTales #87",
     "CodeName": "八七",
     "AnivDay": [
-      { "Day": { "DayOfMonth": 7, "Month": "Aug" }, "DayAbout": "開発記念" }
+      { "Day": { "Month": 8, "DayOfMonth": 7 }, "DayAbout": "開発記念" }
     ],
     "Class": "デュアルシックスズ",
     "Class_EN": "Dual Sum-6s",
@@ -7379,7 +7379,7 @@
     "Height_cm": 167,
     "ConceptAge": 24,
     "AnivDay": [
-      { "Day": { "DayOfMonth": 8, "Month": "Aug" }, "DayAbout": "開発記念" }
+      { "Day": { "Month": 8, "DayOfMonth": 8 }, "DayAbout": "開発記念" }
     ],
     "Weight_kg": 45,
     "TailsUnit": "キツネ(枝分かれ)型 2束x8本",
@@ -7480,7 +7480,7 @@
     "Height_cm": 158,
     "ConceptAge": 21,
     "AnivDay": [
-      { "Day": { "DayOfMonth": 9, "Month": "Aug" }, "DayAbout": "開発記念" }
+      { "Day": { "Month": 8, "DayOfMonth": 9 }, "DayAbout": "開発記念" }
     ],
     "Weight_kg": { "HideText": "非公開" },
     "BustSize": "B",
@@ -7568,7 +7568,7 @@
     "CodeName": "九〇",
     "SPCodeName": "九十",
     "AnivDay": [
-      { "Day": { "DayOfMonth": 31, "Month": "Aug" }, "DayAbout": "開発記念" }
+      { "Day": { "Month": 8, "DayOfMonth": 31 }, "DayAbout": "開発記念" }
     ],
     "Class": "10倍番(テンズデジッツ)",
     "Class_EN": "Tens-Digits",
@@ -7593,7 +7593,7 @@
     "CodeName": "九一",
     "GenderType": "Neutral",
     "AnivDay": [
-      { "Day": { "DayOfMonth": 1, "Month": "Sep" }, "DayAbout": "開発記念" }
+      { "Day": { "Month": 9, "DayOfMonth": 1 }, "DayAbout": "開発記念" }
     ],
     "Class": "デュアルキャリーズ",
     "Class_EN": "Dual Carries",
@@ -7630,7 +7630,7 @@
     "Height_cm": 142,
     "ConceptAge": 15,
     "AnivDay": [
-      { "Day": { "DayOfMonth": 2, "Month": "Sep" }, "DayAbout": "開発記念" }
+      { "Day": { "Month": 9, "DayOfMonth": 2 }, "DayAbout": "開発記念" }
     ],
     "Weight_kg": 41,
     "TailsUnit": "キツネ(枝分かれ)型9本(上1束7本+下2束3本)",
@@ -7717,9 +7717,9 @@
     "Height_cm": 144,
     "ConceptAge": 15,
     "AnivDay": [
-      { "Day": { "DayOfMonth": 3, "Month": "Sep" }, "DayAbout": "開発記念" },
+      { "Day": { "Month": 9, "DayOfMonth": 3 }, "DayAbout": "開発記念" },
       {
-        "Day": { "DayOfMonth": 13, "Month": "Dec" },
+        "Day": { "Month": 12, "DayOfMonth": 13 },
         "DayAbout": "第一復帰記念(劇中)"
       }
     ],
@@ -7816,7 +7816,7 @@
     "Height_cm": 145,
     "ConceptAge": { "value": 13, "about": "？" },
     "AnivDay": [
-      { "Day": { "DayOfMonth": 4, "Month": "Sep" }, "DayAbout": "開発記念" }
+      { "Day": { "Month": 9, "DayOfMonth": 4 }, "DayAbout": "開発記念" }
     ],
     "Weight_kg": 39,
     "BustSize": "A",
@@ -7902,7 +7902,7 @@
     "FormalName_EN": "NumberTales #95",
     "CodeName": "九五",
     "AnivDay": [
-      { "Day": { "DayOfMonth": 5, "Month": "Sep" }, "DayAbout": "開発記念" }
+      { "Day": { "Month": 9, "DayOfMonth": 5 }, "DayAbout": "開発記念" }
     ],
     "Class": "デュアルファイブズ",
     "Class_EN": "Dual Sum-5s",
@@ -7943,7 +7943,7 @@
     "Height_cm": 153,
     "ConceptAge": { "about": "不詳" },
     "AnivDay": [
-      { "Day": { "DayOfMonth": 6, "Month": "Sep" }, "DayAbout": "開発記念" }
+      { "Day": { "Month": 9, "DayOfMonth": 6 }, "DayAbout": "開発記念" }
     ],
     "Weight_kg": { "HideText": "非公開" },
     "BustSize": "G",
@@ -8034,7 +8034,7 @@
     "Height_cm": 141,
     "ConceptAge": { "about": "不詳" },
     "AnivDay": [
-      { "Day": { "DayOfMonth": 7, "Month": "Sep" }, "DayAbout": "開発記念" }
+      { "Day": { "Month": 9, "DayOfMonth": 7 }, "DayAbout": "開発記念" }
     ],
     "Weight_kg": 39,
     "BustSize": "E",
@@ -8123,7 +8123,7 @@
     "Height_cm": 154,
     "ConceptAge": { "value": 20, "about": "？" },
     "AnivDay": [
-      { "Day": { "DayOfMonth": 8, "Month": "Sep" }, "DayAbout": "開発記念" }
+      { "Day": { "Month": 9, "DayOfMonth": 8 }, "DayAbout": "開発記念" }
     ],
     "Weight_kg": { "HideText": "非公開" },
     "BustSize": "C",
@@ -8219,7 +8219,7 @@
     "Height_cm": 159,
     "ConceptAge": 16,
     "AnivDay": [
-      { "Day": { "DayOfMonth": 31, "Month": "Dec" }, "DayAbout": "開発記念" }
+      { "Day": { "Month": 12, "DayOfMonth": 31 }, "DayAbout": "開発記念" }
     ],
     "Weight_kg": 43,
     "BustSize": "AA",
@@ -8315,11 +8315,11 @@
     "ConceptAge": 17,
     "AnivDay": [
       {
-        "Day": { "DayOfMonth": 2, "Month": "Jan" },
+        "Day": { "Month": 1, "DayOfMonth": 2 },
         "DayAbout": "開発記念"
       },
       {
-        "Day": { "DayOfMonth": 2, "Month": "Feb" },
+        "Day": { "Month": 2, "DayOfMonth": 2 },
         "DayAbout": "試作型2号機開発再開記念(劇中)"
       }
     ],
@@ -8369,9 +8369,9 @@
     "Height_cm": [{ "value": 164, "about": "想定" }],
     "ConceptAge": 17,
     "AnivDay": [
-      { "Day": { "DayOfMonth": 10, "Month": "Jan" }, "DayAbout": "開発記念" },
+      { "Day": { "Month": 1, "DayOfMonth": 10 }, "DayAbout": "開発記念" },
       {
-        "Day": { "DayOfMonth": 13, "Month": "Jan" },
+        "Day": { "Month": 1, "DayOfMonth": 13 },
         "DayAbout": "第一暴走事故(劇中)"
       }
     ],
@@ -8415,7 +8415,7 @@
     "ConceptAge": 25,
     "AnivDay": [
       {
-        "Day": { "DayOfMonth": 15, "Month": "Aug" },
+        "Day": { "Month": 8, "DayOfMonth": 15 },
         "DayAbout": { "HideText": "？？？" }
       }
     ],
@@ -8451,7 +8451,7 @@
     "Height_cm": 165,
     "ConceptAge": 25,
     "AnivDay": [
-      { "Day": { "DayOfMonth": 15, "Month": "Aug" }, "DayAbout": "誕生日" }
+      { "Day": { "Month": 8, "DayOfMonth": 15 }, "DayAbout": "誕生日" }
     ],
     "Weight_kg": { "HideText": "非公開" },
     "BustSize": "D",
@@ -8493,7 +8493,7 @@
     "Height_cm": 165,
     "ConceptAge": 25,
     "AnivDay": [
-      { "Day": { "DayOfMonth": 15, "Month": "Aug" }, "DayAbout": "誕生日" }
+      { "Day": { "Month": 8, "DayOfMonth": 15 }, "DayAbout": "誕生日" }
     ],
     "Weight_kg": { "HideText": "非公開" },
     "Class": "開発者",
