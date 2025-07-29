@@ -51,28 +51,28 @@
       "Def_NumerospecStats": {
         "Def_EffectStats": {
           "EffectTexts_ForRanks": {
-            "R2_Great": ["絶大"],
-            "R3_Good": ["特化", "期待", "期待可能"],
-            "R4plus_BasicOrSpecific": ["特殊"],
-            "R4_Normal": ["普通"],
-            "R5_NotSoGood": ["希薄"],
-            "R6_Bad": ["効果無"],
-            "R7_Worst": ["逆効果", "逆効果(仕様)"],
-            "R2plus_Extended": ["強化済"],
-            "R1_OverLimited": ["過剰", "極めて絶大(場合により逆効果)"],
-            "R8_Dangerous": ["危険"]
+            "#R2_Great": ["絶大"],
+            "#R3_Good": ["特化", "期待", "期待可能"],
+            "#R4plus_BasicOrSpecific": ["特殊"],
+            "#R4_Normal": ["普通"],
+            "#R5_NotSoGood": ["希薄"],
+            "#R6_Bad": ["効果無"],
+            "#R7_Worst": ["逆効果", "逆効果(仕様)"],
+            "#R2plus_Extended": ["強化済"],
+            "#R1_OverLimited": ["過剰", "極めて絶大(場合により逆効果)"],
+            "#R8_Dangerous": ["危険"]
           }
         },
         "Def_SafetyLevel": {
           "SafetyTexts_ForRanks": {
-            "R2_Great": ["保証", "保証(稀に奇行有)"],
-            "R3_Good": ["安全", "安全(奇行有)"],
-            "R4plus_BasicOrSpecific": ["恐らく安全"],
-            "R4_Normal": ["無危害", "無危害(奇行有)"],
-            "R5_NotSoGood": ["調整中", "恐らく無危害"],
-            "R6_Bad": ["注意"],
-            "R7_Worst": ["厳重注意"],
-            "R2plus_Extended": ["完全保証"]
+            "#R2_Great": ["保証", "保証(稀に奇行有)"],
+            "#R3_Good": ["安全", "安全(奇行有)"],
+            "#R4plus_BasicOrSpecific": ["恐らく安全"],
+            "#R4_Normal": ["無危害", "無危害(奇行有)"],
+            "#R5_NotSoGood": ["調整中", "恐らく無危害"],
+            "#R6_Bad": ["注意"],
+            "#R7_Worst": ["厳重注意"],
+            "#R2plus_Extended": ["完全保証"]
           }
         },
         "Def_SpetialPattern": {

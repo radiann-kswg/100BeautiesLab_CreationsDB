@@ -27,66 +27,74 @@
   "General": {
     "VarsLists": {
       "EL_Released": {
-        "yet": null,
-        "nowCreating": "nowCreating",
-        "released": "released"
+        "#yet": "notProceeded",
+        "#nowCreating": "nowCreating",
+        "#released": "released"
       },
       "EL_GenderType": {
-        "Female": "Female",
-        "Male": "Male",
-        "Neutral": "Neutral"
+        "#Female": {
+          "GenderType": "Female",
+          "GenderType_JP": "女性または無性別女性型"
+        },
+        "#Male": {
+          "GenderType": "Male",
+          "GenderType_JP": "男性または無性別男性型"
+        },
+        "#Neutral": { "GenderType": "Neutral", "GenderType_JP": "無性別中性型" }
       },
       "Def_Day": {
-        "List_Month": [
-          { "Month": 1, "MonthStr_EN": "Jan" },
-          { "Month": 2, "MonthStr_EN": "Feb" },
-          { "Month": 3, "MonthStr_EN": "Mar" },
-          { "Month": 4, "MonthStr_EN": "Apr" },
-          { "Month": 5, "MonthStr_EN": "May" },
-          { "Month": 6, "MonthStr_EN": "Jun" },
-          { "Month": 7, "MonthStr_EN": "Jul" },
-          { "Month": 8, "MonthStr_EN": "Aug" },
-          { "Month": 9, "MonthStr_EN": "Sep" },
-          { "Month": 10, "MonthStr_EN": "Oct" },
-          { "Month": 11, "MonthStr_EN": "Nov" },
-          { "Month": 12, "MonthStr_EN": "Dec" }
+        "Enum_Month": [
+          { "Month": 1, "Month_EN": "Jan" },
+          { "Month": 2, "Month_EN": "Feb" },
+          { "Month": 3, "Month_EN": "Mar" },
+          { "Month": 4, "Month_EN": "Apr" },
+          { "Month": 5, "Month_EN": "May" },
+          { "Month": 6, "Month_EN": "Jun" },
+          { "Month": 7, "Month_EN": "Jul" },
+          { "Month": 8, "Month_EN": "Aug" },
+          { "Month": 9, "Month_EN": "Sep" },
+          { "Month": 10, "Month_EN": "Oct" },
+          { "Month": 11, "Month_EN": "Nov" },
+          { "Month": 12, "Month_EN": "Dec" }
         ]
       },
       "Enum_HideText": [
-        "？？？",
-        "データ無",
-        "公開不能",
-        "判定不能",
-        "判定失敗",
-        "検証中",
-        "極秘事項",
-        "非公開希望",
-        "非公開",
-        "条件による"
+        { "HideText": "？？？", "HideText_EN": "????" },
+        { "HideText": "データ無", "HideText_EN": "No Data" },
+        { "HideText": "公開不能", "HideText_EN": "Openly Not" },
+        { "HideText": "判定不能", "HideText_EN": "Unjudgeble" },
+        { "HideText": "判定失敗", "HideText_EN": "Judgement Failed" },
+        { "HideText": "検証中", "HideText_EN": "Now Researching" },
+        { "HideText": "極秘事項", "HideText_EN": "Confidential" },
+        { "HideText": "非公開希望", "HideText_EN": "Non-Public at Pleasure" },
+        { "HideText": "非公開", "HideText_EN": "Non-Public" },
+        { "HideText": "条件による", "HideText_EN": "Depending on Conditions" }
       ],
       "Def_Stats": {
         "EL_Rank": {
-          "R2_Great": "S",
-          "R3_Good": "A",
-          "R4plus_BasicOrSpecific": "B+",
-          "R4_Normal": "B",
-          "R5_NotSoGood": "C",
-          "R6_Bad": "D",
-          "R7_Worst": "E",
-          "R2plus_Extended": "S+",
-          "R1_OverLimited": "Z",
-          "R8_Dangerous": "ZZ"
+          "#R2_Great": "S",
+          "#R3_Good": "A",
+          "#R4plus_BasicOrSpecific": "B+",
+          "#R4_Normal": "B",
+          "#R5_NotSoGood": "C",
+          "#R6_Bad": "D",
+          "#R7_Worst": "E",
+          "#R2plus_Extended": "S+",
+          "#R1_OverLimited": "Z",
+          "#R8_Dangerous": "ZZ"
         },
         "Def_AbilityStats": {
           "AbilityText_ForRanks": {
-            "R2_Great": "卓越",
-            "R3_Good": "優秀",
-            "R4plus_BasicOrSpecific": "標準",
-            "R4_Normal": "普通",
-            "R5_NotSoGood": "稚拙",
-            "R6_Bad": "欠落",
-            "R7_Worst": "障碍有",
-            "R1_OverLimited": "過剰"
+            "#R2_Great": "卓越",
+            "#R3_Good": "優秀",
+            "#R4plus_BasicOrSpecific": "標準",
+            "#R4_Normal": "普通",
+            "#R5_NotSoGood": "稚拙",
+            "#R6_Bad": "欠落",
+            "#R7_Worst": "障碍有",
+            "#R2plus_Extended": null,
+            "#R1_OverLimited": "過剰",
+            "#R8_Dangerous": null
           }
         }
       }

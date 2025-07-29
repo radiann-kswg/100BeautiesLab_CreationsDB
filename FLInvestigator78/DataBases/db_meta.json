@@ -29,22 +29,22 @@
               { "RoleType": "Lead", "ActionTypeText": "律" },
               { "RoleType": "Hide", "ActionTypeText": "秘" }
             ],
-            "ActionTypeText_feedingChar": "+"
+            "#ActionTypeText_feedingChar": "+"
           },
           "List_DualizePattern": [{ "Pattern": "Prop.", "PatternText": "通常" }]
         },
         "Def_EffectStats": {
           "EffectTexts_ForRanks": {
-            "R2_Great": ["絶大"],
-            "R3_Good": ["期待", "期待可能"],
-            "R4plus_BasicOrSpecific": ["特殊"],
-            "R4_Normal": ["普通"],
-            "R5_NotSoGood": ["希薄"],
-            "R6_Bad": ["効果無"],
-            "R7_Worst": ["逆効果", "逆効果(仕様)"],
-            "R2plus_Extended": ["強化済"],
-            "R1_OverLimited": ["過剰"],
-            "R8_Dangerous": ["危険"]
+            "#R2_Great": ["絶大"],
+            "#R3_Good": ["期待", "期待可能"],
+            "#R4plus_BasicOrSpecific": ["特殊"],
+            "#R4_Normal": ["普通"],
+            "#R5_NotSoGood": ["希薄"],
+            "#R6_Bad": ["効果無"],
+            "#R7_Worst": ["逆効果", "逆効果(仕様)"],
+            "#R2plus_Extended": ["強化済"],
+            "#R1_OverLimited": ["過剰"],
+            "#R8_Dangerous": ["危険"]
           }
         },
         "Def_SpetialPattern": {
@@ -52,26 +52,26 @@
         },
         "Def_SafetyLevel": {
           "SafetyTexts_ForRanks": {
-            "R2_Great": ["保証可能"],
-            "R3_Good": ["安全"],
-            "R4_Normal": ["危害無"],
-            "R5_NotSoGood": null,
-            "R6_Bad": ["注意"],
-            "R7_Worst": ["厳重注意"],
-            "R2plus_Extended": null
+            "#R2_Great": ["保証可能"],
+            "#R3_Good": ["安全"],
+            "#R4_Normal": ["危害無"],
+            "#R5_NotSoGood": null,
+            "#R6_Bad": ["注意"],
+            "#R7_Worst": ["厳重注意"],
+            "#R2plus_Extended": null
           }
         },
         "Def_SpecLevel": {
           "SpecLevelText_ForRanks": {
-            "R2_Great": "強力",
-            "R3_Good": "やや強力",
-            "R4_Normal": "標準的",
-            "R5_NotSoGood": "やや弱力",
-            "R6_Bad": "弱力",
-            "R7_Worst": "能力的強度無",
-            "R2plus_Extended": "かなり強力",
-            "R1_OverLimited": "驚異的",
-            "R8_Dangerous": "危険"
+            "#R2_Great": "強力",
+            "#R3_Good": "やや強力",
+            "#R4_Normal": "標準的",
+            "#R5_NotSoGood": "やや弱力",
+            "#R6_Bad": "弱力",
+            "#R7_Worst": "能力的強度無",
+            "#R2plus_Extended": "かなり強力",
+            "#R1_OverLimited": "驚異的",
+            "#R8_Dangerous": "危険"
           }
         }
       }
