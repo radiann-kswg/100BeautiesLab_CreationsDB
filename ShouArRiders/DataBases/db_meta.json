@@ -8,21 +8,126 @@
   "General": {
     "VarsLists": {
       "List_Beast": [
-        { "Beast": "Mouse", "Eto": "子", "about": "鼠", "Num": 1 },
-        { "Beast": "Ox", "Eto": "丑", "about": "牛", "Num": 2 },
-        { "Beast": "Tiger", "Eto": "寅", "about": "虎", "Num": 3 },
-        { "Beast": "Rabbit", "Eto": "卯", "about": "兎", "Num": 4 },
-        { "Beast": "Dragon", "Eto": "辰", "about": "竜", "Num": 5 },
-        { "Beast": "Snake", "Eto": "巳", "about": "蛇", "Num": 6 },
-        { "Beast": "Horse", "Eto": "午", "about": "馬", "Num": 7 },
-        { "Beast": "Sheep", "Eto": "未", "about": "羊", "Num": 8 },
-        { "Beast": "Monkey", "Eto": "申", "about": "猿", "Num": 9 },
-        { "Beast": "Bird", "Eto": "酉", "about": "鳥", "Num": 10 },
-        { "Beast": "Raccoon", "Eto": "戌", "about": "狸", "Num": 11 },
-        { "Beast": "Fox", "Eto": "戌", "about": "狐", "Num": 11 },
-        { "Beast": "Boar", "Eto": "亥", "about": "猪", "Num": 12 },
-        { "Beast": "Cat", "Eto": null, "about": "猫", "Num": 13 },
-        { "Beast": "Dog", "Eto": "戌", "about": "犬", "Num": null }
+        {
+          "Beast": "Mouse",
+          "Eto": "子",
+          "about": "鼠",
+          "Num": 1,
+          "RaceType": "ClonicMouse(Acquired)",
+          "RaceType_JP": "繁殖鼠(後天的)"
+        },
+        {
+          "Beast": "Ox",
+          "Eto": "丑",
+          "about": "牛",
+          "Num": 2,
+          "RaceType": "Taurus(Acquired)",
+          "RaceType_JP": "金牛(後天的)"
+        },
+        {
+          "Beast": "Tiger",
+          "Eto": "寅",
+          "about": "虎",
+          "Num": 3,
+          "RaceType": "LunaTiger(Acquired)",
+          "RaceType_JP": "月虎(後天的)"
+        },
+        {
+          "Beast": "Rabbit",
+          "Eto": "卯",
+          "about": "兎",
+          "Num": 4,
+          "RaceType": "LunaRabbit(Acquired)",
+          "RaceType_JP": "月兎(後天的)"
+        },
+        {
+          "Beast": "Dragon",
+          "Eto": "辰",
+          "about": "竜",
+          "Num": 5,
+          "RaceType": "Dragon(Acquired)",
+          "RaceType_JP": "竜人(後天的)"
+        },
+        {
+          "Beast": "Snake",
+          "Eto": "巳",
+          "about": "蛇",
+          "Num": 6,
+          "RaceType": "Lamia(Acquired)",
+          "RaceType_JP": "蛇人(後天的)"
+        },
+        {
+          "Beast": "Horse",
+          "Eto": "午",
+          "about": "馬",
+          "Num": 7,
+          "RaceType": "Thoroughbreder(Acquired)",
+          "RaceType_JP": "馬人(後天的)"
+        },
+        {
+          "Beast": "Sheep",
+          "Eto": "未",
+          "about": "羊",
+          "Num": 8,
+          "RaceType": "DreamEater(Acquired)",
+          "RaceType_JP": "夢羊(後天的)"
+        },
+        {
+          "Beast": "Monkey",
+          "Eto": "申",
+          "about": "猿",
+          "Num": 9,
+          "RaceType": "OverHuman(Acquired)",
+          "RaceType_JP": "超過人間(後天的)"
+        },
+        {
+          "Beast": "Bird",
+          "Eto": "酉",
+          "about": "鳥",
+          "Num": 10,
+          "RaceType": "Birdman(Acquired)",
+          "RaceType_JP": "鳥人(後天的)"
+        },
+        {
+          "Beast": "Raccoon",
+          "Eto": "戌",
+          "about": "狸",
+          "Num": 11,
+          "RaceType": "Raccornian(Acquired)",
+          "RaceType_JP": "狸人(後天的)"
+        },
+        {
+          "Beast": "Fox",
+          "Eto": "戌",
+          "about": "狐",
+          "Num": 11,
+          "RaceType": "Warfox(Acquired)",
+          "RaceType_JP": "狐人(後天的)"
+        },
+        {
+          "Beast": "Boar",
+          "Eto": "亥",
+          "about": "猪",
+          "Num": 12,
+          "RaceType": "FangSpeeder(Acquired)",
+          "RaceType_JP": "猪突猛進者(後天的)"
+        },
+        {
+          "Beast": "Cat",
+          "Eto": null,
+          "about": "猫",
+          "Num": 13,
+          "RaceType": "Warcat(Acquired)",
+          "RaceType_JP": "猫人(後天的)"
+        },
+        {
+          "Beast": "Dog",
+          "Eto": "戌",
+          "about": "犬",
+          "Num": null,
+          "RaceType": "Komainu(Acquired)",
+          "RaceType_JP": "狛犬(後天的)"
+        }
       ],
       "Def_BeastspecStats": {
         "Def_SpecType": {},

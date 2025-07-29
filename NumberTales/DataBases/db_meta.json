@@ -2,11 +2,17 @@
   "Databases": {
     "Primary": {
       "Summary": "ナンバーテールズのうち、公式一次創作作品に登場するキャラクター。\n99以内の非負整数である数秘をそれぞれ有している。",
-      "VarsLists": null
+      "VarsLists": {
+        "RaceType": "Humanoid(FoxyType)",
+        "RaceType_JP": "ヒューマノイド(妖獣型)"
+      }
     },
     "SemiPrimary": {
       "Summary": "ナンバーテールズのうち、公式の下でアンソロジーとしてデザインされたキャラクターで、こちらは一次創作に準ずる括りとする。\n公式一次創作作品の延長として登場する番号やゾロ目(マスターナンバーとしての33および111の倍数)の非負整数を主とした数秘をそれぞれ有している。",
-      "VarsLists": null
+      "VarsLists": {
+        "RaceType": "Humanoid(FoxyType)",
+        "RaceType_JP": "ヒューマノイド(妖獣型)"
+      }
     },
     "SelfSecondary": {
       "Summary": "ナンバーテールズのうち、公式または公式指導の下で副次創作としてデザインされたキャラクターで、こちらは二次創作に準ずる括りとする。\nゾロ目(111の倍数)などの予約された番号を除く100以上999以下の非負整数である数秘をそれぞれ有している。",
@@ -16,11 +22,15 @@
           "SecondaryWorks": [
             {
               "SecondaryCategory": "公式限定",
-              "SecondarySeriesTitle": null
+              "SecondarySeriesTitle": null,
+              "RaceType": "Humanoid(FoxyType)",
+              "RaceType_JP": "ヒューマノイド(妖獣型)"
             },
             {
               "SecondaryCategory": "リクエストナンバー",
-              "SecondarySeriesTitle": null
+              "SecondarySeriesTitle": null,
+              "RaceType": "Humanoid(FoxyType)",
+              "RaceType_JP": "ヒューマノイド(妖獣型)"
             }
           ]
         }
@@ -35,7 +45,9 @@
             "SecondaryWorks": [
               {
                 "SecondaryCategory": "公式公認うちよそ企画",
-                "SecondarySeriesTitle": ["ヘキサデミカル・テールズ"]
+                "SecondarySeriesTitle": "ヘキサデミカル・テールズ",
+                "RaceType": "Humanoid(FoxyType)",
+                "RaceType_JP": "ヒューマノイド(妖獣型)"
               }
             ]
           }
