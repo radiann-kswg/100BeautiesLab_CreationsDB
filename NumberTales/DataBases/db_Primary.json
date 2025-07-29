@@ -8461,21 +8461,6 @@
     "SecondPersonCalling": "君(,あんた)",
     "ThirdPersonCalling": "彼/彼女/[Name]",
     "ForMasterCalling": "クライアント君",
-    "Character": {
-      "_Jump": { "title": "SinisterChangingGirls", "file": "db_Primary" }
-    },
-    "Hobby": {
-      "_Jump": { "title": "SinisterChangingGirls", "file": "db_Primary" }
-    },
-    "SpetialSkill": {
-      "_Jump": { "title": "SinisterChangingGirls", "file": "db_Primary" }
-    },
-    "Favor": {
-      "_Jump": { "title": "SinisterChangingGirls", "file": "db_Primary" }
-    },
-    "Unlike": {
-      "_Jump": { "title": "SinisterChangingGirls", "file": "db_Primary" }
-    },
     "RelationAbouts": "ハードウェアのことは百を最大に信用し、時に百が思いつかない発想を提供する",
     "NumerospecAbout": "IQ200の頭脳を持つ(学士課程以前で記録)\n飛び級のないキャリアだが裏でAIやROSを自作している",
     "InStory": "ナンバーテールズのROSを開発・保守しながら博士研究に努めている",
