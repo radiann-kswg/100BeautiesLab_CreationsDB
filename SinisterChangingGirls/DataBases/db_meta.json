@@ -1,11 +1,11 @@
 {
   "Databases": {
-    "Primary": {
+    "#DB_Primary": {
       "Summary": "豹変系女子に相当する一次創作キャラクター。\n七つの大罪と方角に関連する属性が付与されている。",
-      "VarsLists": null
+      "_Commons": null
     }
   },
   "General": {
-    "VarsLists": {}
+    "$VarsDef": {}
   }
 }

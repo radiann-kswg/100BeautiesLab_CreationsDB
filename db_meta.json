@@ -1,10 +1,10 @@
 {
   "CreationWorks": {
-    "NumberTales": {
+    "#Works_NumberTales": {
       "Title": "ナンバーテールズ",
       "Title_EN": "NumberTales"
     },
-    "FLInvestigator78": {
+    "#Works_FLInvestigator78": {
       "Title": "運命線探偵78",
       "Title_EN": "the Fate-Line Investigator 78",
       "OldTitles": [
@@ -15,23 +15,23 @@
         }
       ]
     },
-    "ShouArRiders": {
+    "#Works_ShouArRiders": {
       "Title": "獣爾騎兵",
       "Title_EN": "Shou'ar Riders"
     },
-    "SinisterChangingGirls": {
+    "#Works_SinisterChangingGirls": {
       "Title": "豹変系女子",
       "Title_EN": "Sinister Changing Girls"
     }
   },
   "General": {
-    "VarsLists": {
-      "EL_Released": {
+    "$VarsDef": {
+      "$EnumDef_Released": {
         "#yet": "notProceeded",
         "#nowCreating": "nowCreating",
         "#released": "released"
       },
-      "EL_GenderType": {
+      "$EnumDef_GenderType": {
         "#Female": {
           "GenderType": "Female",
           "GenderType_JP": "女性または無性別女性型"
@@ -42,8 +42,8 @@
         },
         "#Neutral": { "GenderType": "Neutral", "GenderType_JP": "無性別中性型" }
       },
-      "Def_Day": {
-        "Enum_Month": [
+      "$Def_Day": {
+        "#Enum_Month": [
           { "Month": 1, "Month_EN": "Jan" },
           { "Month": 2, "Month_EN": "Feb" },
           { "Month": 3, "Month_EN": "Mar" },
@@ -58,7 +58,7 @@
           { "Month": 12, "Month_EN": "Dec" }
         ]
       },
-      "Enum_HideText": [
+      "#Enum_HideText": [
         { "HideText": "？？？", "HideText_EN": "????" },
         { "HideText": "データ無", "HideText_EN": "No Data" },
         { "HideText": "公開不能", "HideText_EN": "Openly Not" },
@@ -70,8 +70,8 @@
         { "HideText": "非公開", "HideText_EN": "Non-Public" },
         { "HideText": "条件による", "HideText_EN": "Depending on Conditions" }
       ],
-      "Def_Stats": {
-        "EL_Rank": {
+      "$Def_Stats": {
+        "$EnumDef_Rank": {
           "#R2_Great": "S",
           "#R3_Good": "A",
           "#R4plus_BasicOrSpecific": "B+",
@@ -83,8 +83,8 @@
           "#R1_OverLimited": "Z",
           "#R8_Dangerous": "ZZ"
         },
-        "Def_AbilityStats": {
-          "AbilityText_ForRanks": {
+        "$Def_AbilityStats": {
+          "#Link(Rank)_AbilityText": {
             "#R2_Great": "卓越",
             "#R3_Good": "優秀",
             "#R4plus_BasicOrSpecific": "標準",

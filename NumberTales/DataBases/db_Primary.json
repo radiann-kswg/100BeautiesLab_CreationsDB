@@ -8441,12 +8441,11 @@
     "_DBLink": {
       "title": "SinisterChangingGirls",
       "file": "db_Primary",
-      "_Search": { "HashTag": "Drc", "Key": "N" }
+      "_Search": { "hashTag": "Drc", "key": "N" }
     },
-    "Name": "(レイ)",
-    "Name_EN": "(Zera)",
     "CodeName": "〇",
     "SPCodeName": "零",
+    "RaceType_JP": "人間(補感器あり)",
     "GenderType": "Female",
     "Height_cm": 165,
     "ConceptAge": 25,
@@ -8469,11 +8468,14 @@
   {
     "Num": "00",
     "Progress": "released",
-    "Name": "(ハゲム)",
-    "Name_EN": "(Hudret)",
+    "Name": "零 百(かずない-はげむ)",
+    "Name_EN": "Hudret Norumber",
+    "FormalName": "千歳 励(はげむ)",
+    "FormalName_EN": "Hadler Thouser",
     "CodeName": "〇〇",
     "SPCodeName": "(百)",
     "SPCodeName_EN": "Double Zero",
+    "RaceType_JP": "人間(補感器あり)",
     "GenderType": "Male",
     "Height_cm": 165,
     "ConceptAge": 25,

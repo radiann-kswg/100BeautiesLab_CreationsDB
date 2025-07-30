@@ -1,40 +1,45 @@
 {
   "Databases": {
-    "Primary": {
+    "#DB_Primary": {
       "Summary": "運命線探偵の公式一次創作作品に登場するキャラクター。\nタロットカードに関連する特性をそれぞれ有している。",
-      "VarsLists": null
+      "_Commons": {
+        "Belonging": "セブンティエイト特殊探偵団",
+        "Belonging_EN": "Team. Special Seventy-Eight Investigators"
+      }
     }
   },
   "General": {
-    "VarsLists": {
-      "Def_ArcanumspecStats": {
-        "Def_SpecType": {
-          "Def_MaterialType": {
-            "List_Material": [
+    "$VarsDef": {
+      "$Def_ArcanumspecStats": {
+        "$Def_SpecType": {
+          "$Def_MaterialType": {
+            "#List_Material": [
               { "Material": "Fire", "MaterialTypeText": "火" },
               { "Material": "Water", "MaterialTypeText": "水" },
               { "Material": "Slash", "MaterialTypeText": "風" },
               { "Material": "Object", "MaterialTypeText": "土" },
               { "Material": "Quart", "MaterialTypeText": "四" }
             ],
-            "MaterialTypeText_feedingChar": "+"
+            "#MaterialTypeText_feedingChar": "+"
           },
-          "Def_ActionType": {
-            "List_KinematicOrStatic": [
+          "$Def_ActionType": {
+            "#List_KinematicOrStatic": [
               { "KinematicOrStatic": "Kinematic", "ActionTypeText": "動" },
               { "KinematicOrStatic": "Static", "ActionTypeText": "静" },
               { "KinematicOrStatic": "Pre-Static", "ActionTypeText": "情" }
             ],
-            "List_RoleType": [
+            "#List_RoleType": [
               { "RoleType": "Lead", "ActionTypeText": "律" },
               { "RoleType": "Hide", "ActionTypeText": "秘" }
             ],
             "#ActionTypeText_feedingChar": "+"
           },
-          "List_DualizePattern": [{ "Pattern": "Prop.", "PatternText": "通常" }]
+          "#List_DualizePattern": [
+            { "Pattern": "Prop.", "PatternText": "通常" }
+          ]
         },
-        "Def_EffectStats": {
-          "EffectTexts_ForRanks": {
+        "$Def_EffectStats": {
+          "#LinkList(Rank)_EffectText": {
             "#R2_Great": ["絶大"],
             "#R3_Good": ["期待", "期待可能"],
             "#R4plus_BasicOrSpecific": ["特殊"],
@@ -47,11 +52,11 @@
             "#R8_Dangerous": ["危険"]
           }
         },
-        "Def_SpetialPattern": {
-          "Enum_SpetialPattern": null
+        "$Def_SpetialPattern": {
+          "#Enum_SpetialPattern": null
         },
-        "Def_SafetyLevel": {
-          "SafetyTexts_ForRanks": {
+        "$Def_SafetyLevel": {
+          "#LinkList(Rank)_SafetyText": {
             "#R2_Great": ["保証可能"],
             "#R3_Good": ["安全"],
             "#R4_Normal": ["危害無"],
@@ -61,8 +66,8 @@
             "#R2plus_Extended": null
           }
         },
-        "Def_SpecLevel": {
-          "SpecLevelText_ForRanks": {
+        "$Def_SpecLevel": {
+          "#Link(Rank)_SpecLevelText": {
             "#R2_Great": "強力",
             "#R3_Good": "やや強力",
             "#R4_Normal": "標準的",

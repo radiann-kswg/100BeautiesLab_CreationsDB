@@ -1,34 +1,42 @@
 {
   "Databases": {
-    "Primary": {
+    "#DB_Primary": {
       "Summary": "ナンバーテールズのうち、公式一次創作作品に登場するキャラクター。\n99以内の非負整数である数秘をそれぞれ有している。",
-      "VarsLists": {
+      "_Commons": {
+        "Belonging": "百花繚乱研究所",
+        "Belonging_EN": "HundredBeauties Laboratory",
         "RaceType": "Humanoid(FoxyType)",
         "RaceType_JP": "ヒューマノイド(妖獣型)"
       }
     },
-    "SemiPrimary": {
+    "#DB_SemiPrimary": {
       "Summary": "ナンバーテールズのうち、公式の下でアンソロジーとしてデザインされたキャラクターで、こちらは一次創作に準ずる括りとする。\n公式一次創作作品の延長として登場する番号やゾロ目(マスターナンバーとしての33および111の倍数)の非負整数を主とした数秘をそれぞれ有している。",
-      "VarsLists": {
+      "_Commons": {
+        "Belonging": "百花繚乱研究所",
+        "Belonging_EN": "HundredBeauties Laboratory",
         "RaceType": "Humanoid(FoxyType)",
         "RaceType_JP": "ヒューマノイド(妖獣型)"
       }
     },
-    "SelfSecondary": {
+    "#DB_SelfSecondary": {
       "Summary": "ナンバーテールズのうち、公式または公式指導の下で副次創作としてデザインされたキャラクターで、こちらは二次創作に準ずる括りとする。\nゾロ目(111の倍数)などの予約された番号を除く100以上999以下の非負整数である数秘をそれぞれ有している。",
-      "VarsLists": {
+      "_Commons": {
         "Secondaries": {
           "SecondaryDesignedBy": "ラジアン(柏木主税)\n@RadianN_kswg@misskey.numbertales-radiann.net",
           "SecondaryWorks": [
             {
               "SecondaryCategory": "公式限定",
               "SecondarySeriesTitle": null,
+              "Belonging": "百花繚乱研究所",
+              "Belonging_EN": "HundredBeauties Laboratory",
               "RaceType": "Humanoid(FoxyType)",
               "RaceType_JP": "ヒューマノイド(妖獣型)"
             },
             {
               "SecondaryCategory": "リクエストナンバー",
               "SecondarySeriesTitle": null,
+              "Belonging": "百花繚乱研究所",
+              "Belonging_EN": "HundredBeauties Laboratory",
               "RaceType": "Humanoid(FoxyType)",
               "RaceType_JP": "ヒューマノイド(妖獣型)"
             }
@@ -36,9 +44,9 @@
         }
       }
     },
-    "Secondary": {
+    "#DB_Secondary": {
       "Summary": "ナンバーテールズのうち、公認された副次創作作品内で登場した二次創作キャラクター。\n有している数秘の制約については、原則としてガイドラインに準拠したものであるならば概ね何でもよい。",
-      "VarsLists": {
+      "_Commons": {
         "Secondaries": [
           {
             "SecondaryDesignedBy": "散狐アタスト\n@atast@misskey.io",
@@ -46,6 +54,8 @@
               {
                 "SecondaryCategory": "公式公認うちよそ企画",
                 "SecondarySeriesTitle": "ヘキサデミカル・テールズ",
+                "Belonging": "百花繚乱研究所\nエイゼルベットの観測世界",
+                "Belonging_EN": "HundredBeauties Laboratory\n∀sellbuet's Observational World",
                 "RaceType": "Humanoid(FoxyType)",
                 "RaceType_JP": "ヒューマノイド(妖獣型)"
               }
@@ -59,10 +69,10 @@
     "Images": {
       "catalog_PNGName": ["chr-dsgn_catalog-summary"]
     },
-    "VarsLists": {
-      "Def_NumerospecStats": {
-        "Def_EffectStats": {
-          "EffectTexts_ForRanks": {
+    "$VarsDef": {
+      "$Def_NumerospecStats": {
+        "$Def_EffectStats": {
+          "#LinkList(Rank)_EffectText": {
             "#R2_Great": ["絶大"],
             "#R3_Good": ["特化", "期待", "期待可能"],
             "#R4plus_BasicOrSpecific": ["特殊"],
@@ -75,8 +85,8 @@
             "#R8_Dangerous": ["危険"]
           }
         },
-        "Def_SafetyLevel": {
-          "SafetyTexts_ForRanks": {
+        "$Def_SafetyLevel": {
+          "#LinkList(Rank)_SafetyText": {
             "#R2_Great": ["保証", "保証(稀に奇行有)"],
             "#R3_Good": ["安全", "安全(奇行有)"],
             "#R4plus_BasicOrSpecific": ["恐らく安全"],
@@ -87,8 +97,8 @@
             "#R2plus_Extended": ["完全保証"]
           }
         },
-        "Def_SpetialPattern": {
-          "Enum_SpetialPattern": [
+        "$Def_SpetialPattern": {
+          "#Enum_SpetialPattern": [
             "Ptn.A(行動補正効果)",
             "Ptn.Ar(能力発揮効果)",
             "Ptn.Av(能力比例作用)",
