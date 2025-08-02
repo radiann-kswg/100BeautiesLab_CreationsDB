@@ -1,0 +1,64 @@
+[
+  {
+    "Generation": 2,
+    "Progress": "released",
+    "_DBLink": {
+      "title": "DestinyFoxsRecords",
+      "file": "db_Primary",
+      "_Search": { "hashTag": "Unit", "key": "Radian" }
+    },
+    "Name": "ラジアン(2代目)",
+    "Name_EN": "RadianN (2nd Gen.)",
+    "Images": {
+      "design_PNGName": "cnsp_imgRN2"
+    },
+    "FormalName": "扇 二春",
+    "FormalName_EN": "Arch Seconec",
+    "RaceType": "Warfox(Acquired)",
+    "RaceType_JP": "妖狐(後天的)",
+    "GenderType": { "about": "任意(ただし中身は男性寄り)" },
+    "BirthDay": { "Day": { "Month": 7, "DayOfMonth": 1 } },
+    "Height_cm": 163,
+    "Weight_kg": { "HideText": "本人すら把握されていない" },
+    "Age": { "value": 21, "about": "自称" },
+    "FirstPersonCalling": "ワテ,僕",
+    "SecondPersonCalling": "君(きみ),[Name]",
+    "ThirdPersonCalling": "彼/彼女;~君/さん;*いつ;*レ",
+    "Character": "",
+    "Hobby": "いろんなものを広く浅く",
+    "SpetialSkill": "創作キャラを管理する",
+    "Favor": "デフォルメ球体化、もふもふとした獣人や布団、数字",
+    "Unlike": { "HideText": "非公開希望" }
+  },
+  {
+    "Generation": 3,
+    "Progress": "released",
+    "Name": "ラジアン(3代目)",
+    "Name_EN": "RadianN (3nd Gen.)",
+    "Images": {
+      "design_PNGName": "cnsp_imgRN3",
+      "designAlt_PNGName": ["cnsp_imgRN3-onCostume"]
+    },
+    "FormalName": "扇 四春.オーバーロール\n扇 四春.オーダーロール",
+    "FormalName_EN": "Arch Fourthal.OvderRoll",
+    "RaceType": "Immaginaries",
+    "RaceType_JP": "概念",
+    "GenderType": { "about": "可変(ただし本人は無性別の女性型が好き)" },
+    "BirthDay": { "Day": { "Month": 7, "DayOfMonth": 1 } },
+    "Height_cm": [
+      {
+        "about": "可変\n(球体化姿時は35～72cmで人型姿時はおよそ160cmでいることが多い)"
+      }
+    ],
+    "Weight_kg": [{ "value": 0, "about": "重量" }],
+    "Age": { "value": 19, "about": "自称" },
+    "FirstPersonCalling": "ボク",
+    "SecondPersonCalling": "キミ,[Name]",
+    "ThirdPersonCalling": "彼/彼女;[Name];~くん/ちゃん;*イツ;*レ",
+    "Character": "",
+    "Hobby": "創作世界を放浪する",
+    "SpetialSkill": "自他を問わず人を(合意の上で)球体化させること",
+    "Favor": "丸い癒しフォルム(にされた人間)、ふかふかの寝床、創作語り",
+    "Unlike": "精神的に負担となるもの全般"
+  }
+]

@@ -1,0 +1,112 @@
+{
+  "Databases": {
+    "#DB_Primary": {
+      "DB_Summary": "「夜月機関」の正式な幹部に相当する一次創作キャラクター。\n和暦の月名に関連するコードネームが付与されている。",
+      "_Commons": {
+        "#List_Lunar": [
+          {
+            "Lunar": "Kamiaridzuki",
+            "Lunar_JP": "神有月",
+            "Num": 0,
+            "Class": "総帥",
+            "Class_EN": "Chief.Executive"
+          },
+          {
+            "Lunar": "Mutsuki",
+            "Lunar_JP": "睦月",
+            "Num": 1,
+            "Class": "第1幹部\n睦月研究所",
+            "Class_EN": "Executive Director.1\nLaboratory.1"
+          },
+          {
+            "Lunar": "Kisaragi",
+            "Lunar_JP": "如月",
+            "Num": 2,
+            "Class": "第2幹部\n如月研究所",
+            "Class_EN": "Executive Director.2\nLaboratory.2"
+          },
+          {
+            "Lunar": "Yayoi",
+            "Lunar_JP": "弥生",
+            "Num": 3,
+            "Class": "第3幹部\n弥生研究所(破滅対策本部2課)",
+            "Class_EN": "Executive Director.3\nLaboratory.3(Pandemic Affairs Countermeasures Headquarter.2)"
+          },
+          {
+            "Lunar": "Udzuki",
+            "Lunar_JP": "卯月",
+            "Num": 4,
+            "Class": "第4幹部\n卯月研究所",
+            "Class_EN": "Executive Director.4\nLaboratory.4"
+          },
+          {
+            "Lunar": "Satsuki",
+            "Lunar_JP": "皐月",
+            "Num": 5,
+            "Class": "第5幹部\n皐月研究所",
+            "Class_EN": "Executive Director.5\nLaboratory.5"
+          },
+          {
+            "Lunar": "Minadzuki",
+            "Lunar_JP": "水無月",
+            "Num": 6,
+            "Class": "第6幹部\n水無月研究所",
+            "Class_EN": "Executive Director.6\nLaboratory.6"
+          },
+          {
+            "Lunar": "Fumdzuki",
+            "Lunar_JP": "文月",
+            "Num": 7,
+            "Class": "第7幹部\n文月研究所",
+            "Class_EN": "Executive Director.7\nLaboratory.7"
+          },
+          {
+            "Lunar": "Hadzuki",
+            "Lunar_JP": "葉月",
+            "Num": 8,
+            "Class": "第8幹部\n葉月研究所(軍事本部)",
+            "Class_EN": "Executive Director.8\nLaboratory.8(Military Headquarter)"
+          },
+          {
+            "Lunar": "Nagatsuki",
+            "Lunar_JP": "長月",
+            "Num": 9,
+            "Class": "第9幹部\n長月研究所(救命本部)",
+            "Class_EN": "Executive Director.9\nLaboratory.9(Lifeguards Headquarter)"
+          },
+          {
+            "Lunar": "Kannadzuki",
+            "Lunar_JP": "神無月",
+            "Num": 10,
+            "Class": "第10幹部\n神無月研究所(破滅対策本部1課)",
+            "Class_EN": "Executive Director.10\nLaboratory.10(Pandemic Affairs Countermeasures Headquarter.1)"
+          },
+          {
+            "Lunar": "Shimotsuki",
+            "Lunar_JP": "霜月",
+            "Num": 11,
+            "Class": "第11幹部\n霜月研究所(仮説)",
+            "Class_EN": "Executive Director.11\nLaboratory.11(Tentative)"
+          },
+          {
+            "Lunar": "Shiwasu",
+            "Lunar_JP": "師走",
+            "Num": 12,
+            "Class": "第12幹部\n師走研究所(仮説)",
+            "Class_EN": "Executive Director.12\nLaboratory.12(Tentative)"
+          },
+          {
+            "Lunar": "Learp",
+            "Lunar_JP": "閏月",
+            "Num": 13,
+            "Class": "AI幹部\n如月研究所",
+            "Class_EN": "Executive Director.AI\nLaboratory.2"
+          }
+        ]
+      }
+    }
+  },
+  "General": {
+    "$VarsDef": {}
+  }
+}
