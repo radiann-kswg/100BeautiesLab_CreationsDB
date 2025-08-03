@@ -1210,7 +1210,7 @@
     "Progress": "released",
     "Images": {
       "concept_PNGName": "cnsp_img14",
-      "conceptAlt_PNGName": ["cnsp_img14-A","cnsp_img14-B"]
+      "conceptAlt_PNGName": ["cnsp_img14-A", "cnsp_img14-B"]
     },
     "Name": "トヨ",
     "Name_EN": "Forteels",
@@ -2539,7 +2539,7 @@
     "Progress": "released",
     "Images": {
       "concept_PNGName": "cnsp_img28",
-      "conceptAlt_PNGName": ["cnsp_img28-onBusiness","cnsp_img28-onPrivate"]
+      "conceptAlt_PNGName": ["cnsp_img28-onBusiness", "cnsp_img28-onPrivate"]
     },
     "Name": "ニハチ",
     "Name_EN": "Tweighan",
@@ -3204,7 +3204,7 @@
     "Progress": "released",
     "Images": {
       "concept_PNGName": "cnsp_img35",
-      "conceptAlt_PNGName": ["cnsp_img35-Normal","cnsp_img35-Miko"]
+      "conceptAlt_PNGName": ["cnsp_img35-Normal", "cnsp_img35-Miko"]
     },
     "Name": "サトコ\nミコ",
     "Name_EN": "Thirfivan\nMíko",
@@ -3828,7 +3828,7 @@
     "Class_EN": "Dual Sum-6s",
     "FirstPersonCalling": "[Name]\n私(あたし)",
     "SecondPersonCalling": "あんた",
-    "ThirdPersonCalling": "*の子;*の人;*れ;[Name]",
+    "ThirdPersonCalling": "*の子;*の人/*れ;[Name]",
     "ForMasterCalling": "あるちゃん",
     "Character": "恐れや心配が全くない自信家\n理想が高く我儘な言動をとることも",
     "Hobby": "グッズ収集",
@@ -3920,7 +3920,7 @@
     "TailsUnit": "キツネ(枝分かれ)型4本(上1束1本+下2束3本)",
     "FirstPersonCalling": "うち",
     "SecondPersonCalling": "[Name]\n~ん",
-    "ThirdPersonCalling": "[二人称];*の人;*れ*いつ",
+    "ThirdPersonCalling": "[二人称];*の人/*れ;*いつ",
     "ForMasterCalling": "あるじん ※例外あり",
     "Character": "なんでも自分の都合よく物事が動くと捉えているメスガキ",
     "Hobby": "対戦ゲーム",
@@ -5046,7 +5046,7 @@
     "Class_EN": "Dual Sum-3s",
     "FirstPersonCalling": "私(わたし）",
     "SecondPersonCalling": "君(きみ)",
-    "ThirdPersonCalling": "彼/彼女/\n*の子;*の人;*れ;[Name]",
+    "ThirdPersonCalling": "彼/彼女/\n*の子;*の人/*れ;[Name]",
     "ForMasterCalling": "～先輩;先輩",
     "Character": "変化からの学びを尊重している\n失敗意識のない楽観的思考は圧巻されがち",
     "Hobby": "景品のあるキャンペーンに\n参加する",
@@ -5238,7 +5238,7 @@
     "Progress": "released",
     "Images": {
       "concept_PNGName": "cnsp_img60",
-      "conceptAlt_PNGName": ["cnsp_img60-Normal","cnsp_img60-Nerd"]
+      "conceptAlt_PNGName": ["cnsp_img60-Normal", "cnsp_img60-Nerd"]
     },
     "Name": "ムソウ",
     "Name_EN": "Sixtina",
@@ -6648,7 +6648,7 @@
     "Class_EN": "Dual Sum-3s",
     "FirstPersonCalling": "私(わたし)",
     "SecondPersonCalling": "君(きみ)",
-    "ThirdPersonCalling": "彼/彼女/\n*の子;*の人;*れ;[Name]",
+    "ThirdPersonCalling": "彼/彼女/\n*の子;*の人/*れ;[Name]",
     "ForMasterCalling": "～先輩;先輩",
     "Character": "真面目で意識高い系\n教訓や知見を重んじている",
     "Hobby": "統計学",
@@ -7353,9 +7353,9 @@
   },
   {
     "Num": 87,
-    "Progress": "notProceeded",
-    "Name": "ヤシナ",
-    "Name_EN": "Eighteven",
+    "Progress": "nowCreating",
+    "Name": "ヤシナ\nハナ",
+    "Name_EN": "Eighteven\nEivee",
     "ModelName": "ナンバーテールズ7+8号機乙(87番機)",
     "ModelNumber": "APHR-NT VII+VIII.B",
     "FormalName": "ナンバーテールズ87番機",
@@ -7366,7 +7366,58 @@
     ],
     "Class": "デュアルシックスズ",
     "Class_EN": "Dual Sum-6s",
-    "NumerospecAbout": "金運を上げ、物欲を叶える\nただしこの効果は対象の物欲の種類に影響されやすい"
+    "GenderType": "Female",
+    "ConceptAge": {"value": 19, "about": "自称"},
+    "Height_cm": 160,
+    "Weight_kg": { "HideText": "非公開" },
+    "BustSize": {"value": "H", "about": "着痩せ時の値(である可能性)"},
+    "TailsUnit": "キツネ(枝分かれ)型8本(上1束1本+下2束7本)",
+    "FirstPersonCalling": "私(わたし)",
+    "SecondPersonCalling": "あなた",
+    "ThirdPersonCalling": "彼/彼女/~さん(さま);*の人/*れ",
+    "ForMasterCalling": "[二人称];ご主人さま",
+    "Character": "ポジティブで明るい女の子だが、欲張りで拝金主義・完璧主義な一面があるのが玉に瑕",
+    "Hobby": "時計修理・時計製作",
+    "SpetialSkill": "はんだ付け（実は溶接もできる）",
+    "Favor": "自己投資(という考え方)",
+    "Unlike": "誤差、やる気を出さない人",
+    "WellmatchedNTsNames": "35(サトコ)",
+    "UnmatchedNTsNames": "42(ヨツグ),94(ツクシ)",
+    "NumerospecAbout": "金運を上げ、物欲を叶える\nただしこの効果は対象の物欲の種類に影響されやすい",
+    "Relation": {
+      "Related": [
+        {
+          "Num": 35,
+          "Comments": "なんでもできちゃって尊敬する！"
+        },
+        {
+          "Num": 42,
+          "Comments": "お姉さまを馬鹿にするなーっ！"
+        },
+        {
+          "Num": 94,
+          "Comments": "寝てばっかりだけど大丈夫……？"
+        }
+      ],
+      "Commented": [
+        {
+          "Num": 17,
+          "Comments": "勉強熱心で良い人だとは思う"
+        },
+        {
+          "Num": 34,
+          "Comments": "逆に面白いと私は思うな♪"
+        },
+        {
+          "Num": 43,
+          "Comments": "逆に面白いと私は思うな♪"
+        },
+        {
+          "Num": 78,
+          "Comments": "お姉さま！そんなに心配しなくても…！"
+        }
+      ]
+    }
   },
   {
     "Num": 88,
