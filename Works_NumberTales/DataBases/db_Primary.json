@@ -7353,7 +7353,10 @@
   },
   {
     "Num": 87,
-    "Progress": "nowCreating",
+    "Progress": "released",
+    "Images": {
+      "concept_PNGName": "cnsp_img87"
+    },
     "Name": "ヤシナ\nハナ",
     "Name_EN": "Eighteven\nEivee",
     "ModelName": "ナンバーテールズ7+8号機乙(87番機)",
@@ -7367,15 +7370,15 @@
     "Class": "デュアルシックスズ",
     "Class_EN": "Dual Sum-6s",
     "GenderType": "Female",
-    "ConceptAge": {"value": 19, "about": "自称"},
-    "Height_cm": 160,
+    "ConceptAge": { "value": 19, "about": "自称" },
+    "Height_cm": 156,
     "Weight_kg": { "HideText": "非公開" },
-    "BustSize": {"value": "H", "about": "着痩せ時の値(である可能性)"},
+    "BustSize": { "value": "H", "about": "着痩せ時の値(である可能性)" },
     "TailsUnit": "キツネ(枝分かれ)型8本(上1束1本+下2束7本)",
     "FirstPersonCalling": "私(わたし)",
-    "SecondPersonCalling": "あなた",
-    "ThirdPersonCalling": "彼/彼女/~さん(さま);*の人/*れ",
-    "ForMasterCalling": "[二人称];ご主人さま",
+    "SecondPersonCalling": "あなた(さま)",
+    "ThirdPersonCalling": "彼/彼女/~さん[さま];*の人/*れ",
+    "ForMasterCalling": "あなたさま,ご主人さま",
     "Character": "ポジティブで明るい女の子だが、欲張りで拝金主義・完璧主義な一面があるのが玉に瑕",
     "Hobby": "時計修理・時計製作",
     "SpetialSkill": "はんだ付け（実は溶接もできる）",
@@ -7384,6 +7387,33 @@
     "WellmatchedNTsNames": "35(サトコ)",
     "UnmatchedNTsNames": "42(ヨツグ),94(ツクシ)",
     "NumerospecAbout": "金運を上げ、物欲を叶える\nただしこの効果は対象の物欲の種類に影響されやすい",
+    "Summary": "社会的信用の向上効果が期待できるとされているナンバーテールズ。\n明るく積極的で技術力も高いことから、男性技術職の主人を筆頭に強い支持を賜っている。\nしかしながらどこか自分の望む完璧なものを得るために過度な出資も惜しまない一面があり、他個体から防犯的・自衛的な身の危険を心配されている。\nとはいえ良識や規範はちゃんと理解しているので、怪しい人や怪しいモノへは貢いでいない……はず。",
+    "NumerospecStats": {
+      "EffectStats": {
+        "Mental": { "Rank": "B", "EffectText": "普通" },
+        "Manetize": {
+          "Rank": "Z",
+          "EffectText": "極めて絶大(場合により逆効果)"
+        },
+        "Working": { "Rank": "B", "EffectText": "普通" },
+        "Luck": { "Rank": "S", "EffectText": "絶大" },
+        "Communication": { "Rank": "B", "EffectText": "普通" }
+      },
+      "SpetialPattern": [
+        "Ptn.Ec-(士気比例作用と思われる)",
+        "Ptn.M(マネタイズ効果または資産操作能力)",
+        "Ptn.Rz-(実現性向上効果がある傾向)"
+      ],
+      "SafetyLevel": { "Rank": { "HideText": "検証中" } }
+    },
+    "AbilityStats": {
+      "Speed": { "Rank": "C" },
+      "Communicating": { "Rank": "A" },
+      "Leading": { "Rank": "A" },
+      "Precision": { "Rank": "S" },
+      "Technic": { "Rank": "S" },
+      "Actuation": { "Rank": "B+" }
+    },
     "Relation": {
       "Related": [
         {
@@ -7410,7 +7440,7 @@
         },
         {
           "Num": 43,
-          "Comments": "逆に面白いと私は思うな♪"
+          "Comments": "不要に本気で逆に面白い人だと私は思うな♪"
         },
         {
           "Num": 78,
