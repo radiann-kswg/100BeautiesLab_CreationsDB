@@ -111,7 +111,7 @@
     "CodeName": "(二)",
     "SPCodeName": "次",
     "SPCodeName_EN": "Next",
-    "GenderType": "Female",
+    "GenderType": "FemaleNeutral",
     "Height_cm": 146,
     "ConceptAge": 14,
     "AnivDay": [
@@ -297,7 +297,7 @@
     "FormalName": "ナンバーテールズ4番機",
     "FormalName_EN": "NumberTales #4",
     "CodeName": "四",
-    "GenderType": "Female",
+    "GenderType": "FemaleNeutral",
     "Height_cm": 157,
     "ConceptAge": 17,
     "AnivDay": [
@@ -388,7 +388,7 @@
     "FormalName": "ナンバーテールズ5番機",
     "FormalName_EN": "NumberTales #5",
     "CodeName": "五",
-    "GenderType": "Female",
+    "GenderType": "FemaleNeutral",
     "Height_cm": 156,
     "ConceptAge": 17,
     "AnivDay": [
@@ -481,7 +481,7 @@
     "FormalName": "ナンバーテールズ6番機",
     "FormalName_EN": "NumberTales #6",
     "CodeName": "六",
-    "GenderType": "Female",
+    "GenderType": "FemaleNeutral",
     "Height_cm": 150,
     "ConceptAge": 16,
     "AnivDay": [
@@ -657,7 +657,7 @@
     "FormalName": "ナンバーテールズ8番機",
     "FormalName_EN": "NumberTales #8",
     "CodeName": "八",
-    "GenderType": "Female",
+    "GenderType": "FemaleNeutral",
     "Height_cm": 158,
     "ConceptAge": 19,
     "AnivDay": [
@@ -747,7 +747,7 @@
     "FormalName": "ナンバーテールズ9番機",
     "FormalName_EN": "NumberTales #9",
     "CodeName": "九",
-    "GenderType": "Female",
+    "GenderType": "FemaleNeutral",
     "Height_cm": 160,
     "ConceptAge": 21,
     "AnivDay": [
@@ -1028,7 +1028,7 @@
     "CodeName": "一二",
     "SPCodeName": "十二",
     "SPCodeName_EN": "Twelve",
-    "GenderType": "Female",
+    "GenderType": "FemaleNeutral",
     "Height_cm": 148,
     "ConceptAge": 14,
     "AnivDay": [
@@ -1123,7 +1123,7 @@
     "FormalName_EN": "NumberTales #13",
     "CodeName": "一三",
     "SPCodeName": "十三",
-    "GenderType": "Female",
+    "GenderType": "FemaleNeutral",
     "Height_cm": 148,
     "ConceptAge": 16,
     "AnivDay": [
@@ -1220,7 +1220,7 @@
     "FormalName_EN": "NumberTales #14",
     "CodeName": "一四",
     "SPCodeName": "十四",
-    "GenderType": "Female",
+    "GenderType": "FemaleNeutral",
     "Height_cm": 146,
     "ConceptAge": 16,
     "AnivDay": [
@@ -1423,7 +1423,7 @@
     "FormalName_EN": "NumberTales #16",
     "CodeName": "一六",
     "SPCodeName": "十六",
-    "GenderType": "Female",
+    "GenderType": "FemaleNeutral",
     "Height_cm": 147,
     "ConceptAge": { "value": 18, "about": "？" },
     "AnivDay": [
@@ -1521,7 +1521,7 @@
     "FormalName_EN": "NumberTales #17",
     "CodeName": "一七",
     "SPCodeName": "十七",
-    "GenderType": "Female",
+    "GenderType": "FemaleNeutral",
     "Height_cm": 151,
     "ConceptAge": 22,
     "AnivDay": [
@@ -1617,7 +1617,7 @@
     "FormalName_EN": "NumberTales #18",
     "CodeName": "一八",
     "SPCodeName": "十八",
-    "GenderType": "Female",
+    "GenderType": "FemaleNeutral",
     "Height_cm": 153,
     "ConceptAge": 20,
     "AnivDay": [
@@ -1796,7 +1796,7 @@
     "FormalName_EN": "NumberTales #20",
     "CodeName": "(二〇)",
     "SPCodeName": "廿",
-    "GenderType": "Female",
+    "GenderType": "FemaleNeutral",
     "Height_cm": 152,
     "ConceptAge": 17,
     "AnivDay": [
@@ -1983,7 +1983,7 @@
     "CodeName": "二二",
     "SPCodeName": "(廿二)",
     "SPCodeName_EN": "Double(Eleven)",
-    "GenderType": "Female",
+    "GenderType": "FemaleNeutral",
     "Height_cm": 153,
     "ConceptAge": 16,
     "AnivDay": [
@@ -2082,7 +2082,7 @@
     "FormalName": "ナンバーテールズ23番機",
     "FormalName_EN": "NumberTales #23",
     "CodeName": "二三",
-    "GenderType": "Female",
+    "GenderType": "FemaleNeutral",
     "Height_cm": 149,
     "ConceptAge": { "value": 16, "about": "？" },
     "AnivDay": [
@@ -2177,7 +2177,7 @@
     "CodeName": "二四",
     "SPCodeName": "二十四",
     "SPCodeName_EN": "Hours(of Day)",
-    "GenderType": "Female",
+    "GenderType": "FemaleNeutral",
     "Height_cm": 158,
     "ConceptAge": 17,
     "AnivDay": [
@@ -2271,7 +2271,7 @@
     "CodeName": "二五",
     "SPCodeName": "(四半)",
     "SPCodeName_EN": "Quarter(of Percent)",
-    "GenderType": "Female",
+    "GenderType": "FemaleNeutral",
     "Height_cm": 156,
     "ConceptAge": 16,
     "AnivDay": [
@@ -2363,7 +2363,7 @@
     "FormalName": "ナンバーテールズ26番機",
     "FormalName_EN": "NumberTales #26",
     "CodeName": "二六",
-    "GenderType": "Female",
+    "GenderType": "FemaleNeutral",
     "Height_cm": 153,
     "ConceptAge": { "value": 22, "about": "？" },
     "AnivDay": [
@@ -2548,7 +2548,7 @@
     "FormalName": "ナンバーテールズ28番機",
     "FormalName_EN": "NumberTales #28",
     "CodeName": "二八",
-    "GenderType": "Female",
+    "GenderType": "FemaleNeutral",
     "Height_cm": 164,
     "ConceptAge": 22,
     "AnivDay": [
@@ -2647,7 +2647,7 @@
     "FormalName_EN": "NumberTales #29",
     "CodeName": "二九",
     "SPCodeName": "二十九",
-    "GenderType": "Female",
+    "GenderType": "FemaleNeutral",
     "Height_cm": 150,
     "ConceptAge": 16,
     "AnivDay": [
@@ -2739,7 +2739,7 @@
     "FormalName_EN": "NumberTales #30",
     "CodeName": "三〇",
     "SPCodeName": "三十",
-    "GenderType": "Female",
+    "GenderType": "FemaleNeutral",
     "Height_cm": 157,
     "Weight_kg": { "HideText": "非公開" },
     "ConceptAge": { "value": 17, "about": "？" },
@@ -2830,7 +2830,7 @@
     "FormalName": "ナンバーテールズ31番機",
     "FormalName_EN": "NumberTales #31",
     "CodeName": "三一",
-    "GenderType": "Female",
+    "GenderType": "FemaleNeutral",
     "Height_cm": 147,
     "ConceptAge": 16,
     "AnivDay": [
@@ -3015,7 +3015,7 @@
     "FormalName": "ナンバーテールズ33番機",
     "FormalName_EN": "NumberTales #33",
     "CodeName": "三三",
-    "GenderType": "Female",
+    "GenderType": "FemaleNeutral",
     "Height_cm": 149,
     "ConceptAge": 15,
     "AnivDay": [
@@ -3310,7 +3310,7 @@
     "FormalName_EN": "NumberTales #36",
     "CodeName": "三六",
     "SPCodeName": "三十六",
-    "GenderType": "Female",
+    "GenderType": "FemaleNeutral",
     "Height_cm": 150,
     "ConceptAge": 16,
     "AnivDay": [
@@ -3403,7 +3403,7 @@
     "FormalName": "ナンバーテールズ37番機",
     "FormalName_EN": "NumberTales #37",
     "CodeName": "三七",
-    "GenderType": "Female",
+    "GenderType": "FemaleNeutral",
     "Height_cm": 157,
     "ConceptAge": 19,
     "AnivDay": [
@@ -3493,7 +3493,7 @@
     "FormalName": "ナンバーテールズ38番機",
     "FormalName_EN": "NumberTales #38",
     "CodeName": "三八",
-    "GenderType": "Female",
+    "GenderType": "FemaleNeutral",
     "AnivDay": [
       { "Day": { "Month": 3, "DayOfMonth": 8 }, "DayAbout": "開発記念" }
     ],
@@ -3537,7 +3537,7 @@
     "FormalName": "ナンバーテールズ39番機",
     "FormalName_EN": "NumberTales #39",
     "CodeName": "三九",
-    "GenderType": "Male",
+    "GenderType": "MaleNeutral",
     "Height_cm": 162,
     "ConceptAge": 21,
     "AnivDay": [
@@ -3815,7 +3815,7 @@
     "FormalName": "ナンバーテールズ42番機",
     "FormalName_EN": "NumberTales #42",
     "CodeName": "四二",
-    "GenderType": "Female",
+    "GenderType": "FemaleNeutral",
     "Height_cm": 157,
     "ConceptAge": 17,
     "AnivDay": [
@@ -3907,7 +3907,7 @@
     "FormalName_EN": "NumberTales #43",
     "CodeName": "四三",
     "SPCodeName": "四十三",
-    "GenderType": "Female",
+    "GenderType": "FemaleNeutral",
     "Height_cm": 134,
     "ConceptAge": 14,
     "AnivDay": [
@@ -4001,7 +4001,7 @@
     "FormalName_EN": "NumberTales #44",
     "CodeName": "四四",
     "SPCodeName": "四十四",
-    "GenderType": "Male",
+    "GenderType": "MaleNeutral",
     "Height_cm": 150,
     "ConceptAge": 16,
     "AnivDay": [
@@ -4288,7 +4288,7 @@
     "FormalName": "ナンバーテールズ47番機",
     "FormalName_EN": "NumberTales #47",
     "CodeName": "四七",
-    "GenderType": "Female",
+    "GenderType": "FemaleNeutral",
     "Height_cm": 148,
     "ConceptAge": 17,
     "AnivDay": [
@@ -4381,7 +4381,7 @@
     "FormalName": "ナンバーテールズ48番機",
     "FormalName_EN": "NumberTales #48",
     "CodeName": "四八",
-    "GenderType": "Male",
+    "GenderType": "MaleNeutral",
     "Height_cm": 161,
     "ConceptAge": 20,
     "AnivDay": [
@@ -4599,7 +4599,7 @@
     "FormalName_EN": "NumberTales #51",
     "CodeName": "五一",
     "SPCodeName": "五十一",
-    "GenderType": "Male",
+    "GenderType": "MaleNeutral",
     "AnivDay": [
       { "Day": { "Month": 5, "DayOfMonth": 1 }, "DayAbout": "開発記念" }
     ],
@@ -4622,7 +4622,7 @@
     "FormalName": "ナンバーテールズ52番機",
     "FormalName_EN": "NumberTales #52",
     "CodeName": "五二",
-    "GenderType": "Female",
+    "GenderType": "FemaleNeutral",
     "Height_cm": 156,
     "ConceptAge": 16,
     "AnivDay": [
@@ -4845,7 +4845,7 @@
     "FormalName_EN": "NumberTales #55",
     "CodeName": "五五",
     "SPCodeName": "五十五",
-    "GenderType": "Female",
+    "GenderType": "FemaleNeutral",
     "Height_cm": 165,
     "ConceptAge": 21,
     "AnivDay": [
@@ -4940,7 +4940,7 @@
     "FormalName_EN": "NumberTales #56",
     "CodeName": "五六",
     "SPCodeName": "五十六(いそろく)",
-    "GenderType": "Female",
+    "GenderType": "FemaleNeutral",
     "Height_cm": 142,
     "ConceptAge": 12,
     "AnivDay": [
@@ -5127,7 +5127,7 @@
     "FormalName_EN": "NumberTales #58",
     "CodeName": "五八",
     "SPCodeName": "五十八",
-    "GenderType": "Female",
+    "GenderType": "FemaleNeutral",
     "Height_cm": 149,
     "ConceptAge": { "value": 17, "about": "？" },
     "AnivDay": [
@@ -5248,7 +5248,7 @@
     "FormalName_EN": "NumberTales #60",
     "CodeName": "六〇",
     "SPCodeName": "六十",
-    "GenderType": "Female",
+    "GenderType": "FemaleNeutral",
     "Height_cm": 152,
     "ConceptAge": { "value": 16, "about": "？" },
     "AnivDay": [
@@ -5355,7 +5355,7 @@
     "FormalName": "ナンバーテールズ61番機",
     "FormalName_EN": "NumberTales #61",
     "CodeName": "六一",
-    "GenderType": "Female",
+    "GenderType": "FemaleNeutral",
     "Height_cm": 143,
     "ConceptAge": { "about": "不詳" },
     "AnivDay": [
@@ -5450,7 +5450,7 @@
     "FormalName": "ナンバーテールズ62番機",
     "FormalName_EN": "NumberTales #62",
     "CodeName": "六二",
-    "GenderType": "Female",
+    "GenderType": "FemaleNeutral",
     "Height_cm": 153,
     "ConceptAge": 22,
     "AnivDay": [
@@ -5542,7 +5542,7 @@
     "FormalName": "ナンバーテールズ63番機",
     "FormalName_EN": "NumberTales #63",
     "CodeName": "六三",
-    "GenderType": "Female",
+    "GenderType": "FemaleNeutral",
     "Height_cm": 142,
     "ConceptAge": 15,
     "AnivDay": [
@@ -5634,7 +5634,7 @@
     "FormalName_EN": "NumberTales #64",
     "CodeName": "六四",
     "SPCodeName": "六十四",
-    "GenderType": "Female",
+    "GenderType": "FemaleNeutral",
     "Height_cm": 146,
     "ConceptAge": { "about": "不詳" },
     "AnivDay": [
@@ -5733,7 +5733,7 @@
     "FormalName": "ナンバーテールズ65番機",
     "FormalName_EN": "NumberTales #65",
     "CodeName": "六五",
-    "GenderType": "Female",
+    "GenderType": "FemaleNeutral",
     "Height_cm": 135,
     "ConceptAge": 10,
     "AnivDay": [
@@ -5825,7 +5825,7 @@
     "FormalName": "ナンバーテールズ66番機",
     "FormalName_EN": "NumberTales #66",
     "CodeName": "六六",
-    "GenderType": "Female",
+    "GenderType": "FemaleNeutral",
     "Height_cm": 154,
     "ConceptAge": 16,
     "AnivDay": [
@@ -5918,7 +5918,7 @@
     "FormalName": "ナンバーテールズ67番機",
     "FormalName_EN": "NumberTales #67",
     "CodeName": "六七",
-    "GenderType": "Male",
+    "GenderType": "MaleNeutral",
     "Height_cm": 165,
     "ConceptAge": { "value": 22, "about": "？" },
     "AnivDay": [
@@ -6072,7 +6072,7 @@
     "FormalName": "ナンバーテールズ69番機",
     "FormalName_EN": "NumberTales #69",
     "CodeName": "六九",
-    "GenderType": "Male",
+    "GenderType": "MaleNeutral",
     "Height_cm": 156,
     "ConceptAge": { "value": 20, "about": "？" },
     "AnivDay": [
@@ -6163,7 +6163,7 @@
     "FormalName_EN": "NumberTales #70",
     "CodeName": "七〇",
     "SPCodeName": "七十",
-    "GenderType": "Male",
+    "GenderType": "MaleNeutral",
     "Height_cm": 159,
     "ConceptAge": 17,
     "AnivDay": [
@@ -6254,7 +6254,7 @@
     "FormalName": "ナンバーテールズ71番機",
     "FormalName_EN": "NumberTales #71",
     "CodeName": "七一",
-    "GenderType": "Male",
+    "GenderType": "MaleNeutral",
     "Height_cm": 144,
     "ConceptAge": 17,
     "AnivDay": [
@@ -6441,7 +6441,7 @@
     "FormalName_EN": "NumberTales #73",
     "CodeName": "七三",
     "SPCodeName": "七十三",
-    "GenderType": "Female",
+    "GenderType": "FemaleNeutral",
     "Height_cm": 154,
     "ConceptAge": { "value": 16, "about": "？" },
     "AnivDay": [
@@ -6540,7 +6540,7 @@
     "FormalName": "ナンバーテールズ74番機",
     "FormalName_EN": "NumberTales #74",
     "CodeName": "七四",
-    "GenderType": "Female",
+    "GenderType": "FemaleNeutral",
     "Height_cm": 148,
     "ConceptAge": 17,
     "AnivDay": [
@@ -6728,7 +6728,7 @@
     "FormalName": "ナンバーテールズ76番機",
     "FormalName_EN": "NumberTales #76",
     "CodeName": "七六",
-    "GenderType": "Female",
+    "GenderType": "FemaleNeutral",
     "Height_cm": 144,
     "ConceptAge": { "value": 14, "about": "？" },
     "AnivDay": [
@@ -6917,7 +6917,7 @@
     "FormalName": "ナンバーテールズ78番機",
     "FormalName_EN": "NumberTales #78",
     "CodeName": "七八",
-    "GenderType": "Female",
+    "GenderType": "FemaleNeutral",
     "Height_cm": 157,
     "ConceptAge": 25,
     "AnivDay": [
@@ -7072,7 +7072,7 @@
     "FormalName": "ナンバーテールズ81番機",
     "FormalName_EN": "NumberTales #81",
     "CodeName": "八一",
-    "GenderType": "Female",
+    "GenderType": "FemaleNeutral",
     "Height_cm": 149,
     "ConceptAge": 18,
     "AnivDay": [
@@ -7184,7 +7184,7 @@
     "FormalName": "ナンバーテールズ83番機",
     "FormalName_EN": "NumberTales #83",
     "CodeName": "八三",
-    "GenderType": "Male",
+    "GenderType": "MaleNeutral",
     "AnivDay": [
       { "Day": { "Month": 8, "DayOfMonth": 3 }, "DayAbout": "開発記念" }
     ],
@@ -7257,7 +7257,7 @@
     "FormalName": "ナンバーテールズ85番機",
     "FormalName_EN": "NumberTales #85",
     "CodeName": "八五",
-    "GenderType": "Female",
+    "GenderType": "FemaleNeutral",
     "Height_cm": 147,
     "ConceptAge": 17,
     "AnivDay": [
@@ -7369,7 +7369,7 @@
     ],
     "Class": "デュアルシックスズ",
     "Class_EN": "Dual Sum-6s",
-    "GenderType": "Female",
+    "GenderType": "FemaleNeutral",
     "ConceptAge": { "value": 19, "about": "自称" },
     "Height_cm": 156,
     "Weight_kg": { "HideText": "非公開" },
@@ -7463,7 +7463,7 @@
     "FormalName_EN": "NumberTales #88",
     "CodeName": "八八",
     "SPCodeName": "八十八(やそはち)",
-    "GenderType": "Male",
+    "GenderType": "MaleNeutral",
     "Height_cm": 167,
     "ConceptAge": 24,
     "AnivDay": [
@@ -7564,7 +7564,7 @@
     "FormalName_EN": "NumberTales #89",
     "CodeName": "八九",
     "SPCodeName": "八十九",
-    "GenderType": "Female",
+    "GenderType": "FemaleNeutral",
     "Height_cm": 158,
     "ConceptAge": 21,
     "AnivDay": [
@@ -7714,7 +7714,7 @@
     "FormalName_EN": "NumberTales #92",
     "CodeName": "九二",
     "SPCodeName": "九十二",
-    "GenderType": "Male",
+    "GenderType": "MaleNeutral",
     "Height_cm": 142,
     "ConceptAge": 15,
     "AnivDay": [
@@ -7801,7 +7801,7 @@
     "FormalName": "ナンバーテールズ93番機",
     "FormalName_EN": "NumberTales #93",
     "CodeName": "九三",
-    "GenderType": "Female",
+    "GenderType": "FemaleNeutral",
     "Height_cm": 144,
     "ConceptAge": 15,
     "AnivDay": [
@@ -8027,7 +8027,7 @@
     "CodeName": "九六",
     "SPCodeName": "(回)",
     "SPCodeName_EN": "(Rotation)",
-    "GenderType": "Female",
+    "GenderType": "FemaleNeutral",
     "Height_cm": 153,
     "ConceptAge": { "about": "不詳" },
     "AnivDay": [
@@ -8118,7 +8118,7 @@
     "FormalName": "ナンバーテールズ97番機",
     "FormalName_EN": "NumberTales #97",
     "CodeName": "九七",
-    "GenderType": "Female",
+    "GenderType": "FemaleNeutral",
     "Height_cm": 141,
     "ConceptAge": { "about": "不詳" },
     "AnivDay": [
@@ -8207,7 +8207,7 @@
     "FormalName": "ナンバーテールズ98番機",
     "FormalName_EN": "NumberTales #98",
     "CodeName": "九八",
-    "GenderType": "Female",
+    "GenderType": "FemaleNeutral",
     "Height_cm": 154,
     "ConceptAge": { "value": 20, "about": "？" },
     "AnivDay": [
@@ -8398,7 +8398,11 @@
     "CodeName": "二",
     "SPCodeName": "二元",
     "SPCodeName_EN": "Two/Binary",
-    "GenderType": "Female",
+    "RaceType": [
+      { "value": "Humanoid(FoxyType)", "about": "最終的な設計目標" },
+      { "value": "Humanoid(FoxyType,SoftwareBody)", "about": "現状" }
+    ],
+    "GenderType": "FemaleNeutral",
     "Height_cm": [{ "value": 150, "about": "想定" }],
     "ConceptAge": 17,
     "AnivDay": [
@@ -8453,7 +8457,7 @@
     "CodeName": "十",
     "SPCodeName": "桁",
     "SPCodeName_EN": "Ten/Decade",
-    "GenderType": "Male",
+    "GenderType": "MaleNeutral",
     "Height_cm": [{ "value": 164, "about": "想定" }],
     "ConceptAge": 17,
     "AnivDay": [
@@ -8536,7 +8540,6 @@
     },
     "CodeName": "〇",
     "SPCodeName": "零",
-    "RaceType_JP": "人間(補感器あり)",
     "GenderType": "Female",
     "Height_cm": 165,
     "ConceptAge": 25,
@@ -8569,6 +8572,7 @@
     "CodeName": "〇〇",
     "SPCodeName": "(百)",
     "SPCodeName_EN": "Double Zero",
+    "RaceType": "Human(withAddon)",
     "RaceType_JP": "人間(補感器あり)",
     "GenderType": "Male",
     "Height_cm": 165,

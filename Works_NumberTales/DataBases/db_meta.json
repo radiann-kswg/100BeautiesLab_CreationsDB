@@ -28,8 +28,7 @@
           "_Commons": {
             "Belonging": "百花繚乱研究所",
             "Belonging_EN": "HundredBeauties Laboratory",
-            "RaceType": "Humanoid(FoxyType)",
-            "RaceType_JP": "ヒューマノイド(妖獣型)"
+            "RaceType": "Humanoid(FoxyType)"
           }
         },
         {
@@ -39,8 +38,7 @@
           "_Commons": {
             "Belonging": "百花繚乱研究所",
             "Belonging_EN": "HundredBeauties Laboratory",
-            "RaceType": "Humanoid(FoxyType)",
-            "RaceType_JP": "ヒューマノイド(妖獣型)"
+            "RaceType": "Humanoid(FoxyType)"
           }
         }
       ]
@@ -55,8 +53,7 @@
           "_Commons": {
             "Belonging": "百花繚乱研究所\nエイゼルベットの観測世界",
             "Belonging_EN": "HundredBeauties Laboratory\n∀sellbuet's Observational World",
-            "RaceType": "Humanoid(FoxyType)",
-            "RaceType_JP": "ヒューマノイド(妖獣型)"
+            "RaceType": "Humanoid(FoxyType,SoftwareBody)"
           }
         }
       ]
@@ -106,7 +103,7 @@
             "Ptn.Dr(目標比例作用)",
             "Ptn.Dr-(目標比例作用がある傾向)",
             "Ptn.Ec(士気比例作用)",
-			"Ptn.Ec-(士気比例作用と思われる)",
+            "Ptn.Ec-(士気比例作用と思われる)",
             "Ptn.Es(自己認知効果)",
             "Ptn.F(超能力保有)",
             "Ptn.F-(超能力保有の可能性)",

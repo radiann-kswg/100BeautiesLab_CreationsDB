@@ -15,8 +15,7 @@
     "FormalName": "扇 二春",
     "FormalName_EN": "Arch Seconec",
     "RaceType": "Warfox(Acquired)",
-    "RaceType_JP": "妖狐(後天的)",
-    "GenderType": { "about": "任意(ただし中身は男性寄り)" },
+    "GenderType": { "value": "Arbitrary", "about": "ただし中身は男性寄り" },
     "BirthDay": { "Day": { "Month": 7, "DayOfMonth": 1 } },
     "Height_cm": 163,
     "Weight_kg": { "HideText": "本人すら把握されていない" },
@@ -42,8 +41,10 @@
     "FormalName": "扇 四春.オーバーロール\n扇 四春.オーダーロール",
     "FormalName_EN": "Arch Fourthal.OvderRoll",
     "RaceType": "Immaginaries",
-    "RaceType_JP": "概念",
-    "GenderType": { "about": "可変(ただし本人は無性別の女性型が好き)" },
+    "GenderType": {
+      "value": "Valiable",
+      "about": "ただし本人は無性別女性型が好き"
+    },
     "BirthDay": { "Day": { "Month": 7, "DayOfMonth": 1 } },
     "Height_cm": [
       {

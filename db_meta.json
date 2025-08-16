@@ -64,7 +64,7 @@
     }
   },
   "Databases": {
-    "#DB_Agents": {
+    "#DB_Proxies": {
       "DB_Summary": "弊創作を執筆している「ラジアン」の代理キャラクター",
       "$Def_Index": { "hashTag": "Generation", "$valType": "#Number" },
       "_Commons": null
@@ -72,22 +72,255 @@
   },
   "General": {
     "$VarsDef": {
-      "$EnumDef_Released": {
-        "#yet": "notProceeded",
-        "#nowCreating": "nowCreating",
-        "#released": "released"
+      "$EnumDef_Progress": {
+        "#yet": {
+          "Progress": "notProceeded",
+          "Progress_JP": "未着手",
+          "isForSecondary": false
+        },
+        "#nowCreating": {
+          "Progress": "nowCreating",
+          "Progress_JP": "制作中",
+          "isForSecondary": false
+        },
+        "#released": {
+          "Progress": "released",
+          "Progress_JP": "公開済み",
+          "isForSecondary": false
+        },
+        "#founded": {
+          "Progress": "founded",
+          "Progress_JP": "確認済み",
+          "isForSecondary": true
+        },
+        "#accepted": {
+          "Progress": "accpeted",
+          "Progress_JP": "公認済み",
+          "isForSecondary": true
+        },
+        "#nowRemaking": {
+          "Progress": "accepted\nnowRemaking",
+          "Progress_JP": "公認済み\nこちらで再制作中",
+          "isForSecondary": true
+        },
+        "#remadeReleased": {
+          "Progress": "accepted\nremadeReleased",
+          "Progress_JP": "公認済み\nこちらからも公開済み",
+          "isForSecondary": true
+        }
       },
       "$EnumDef_GenderType": {
         "#Female": {
           "GenderType": "Female",
-          "GenderType_JP": "女性または無性別女性型"
+          "GenderType_JP": "女性"
+        },
+        "#FemaleNeutral": {
+          "GenderType": "FemaleNeutral",
+          "GenderType_JP": "無性別女性型"
         },
         "#Male": {
           "GenderType": "Male",
-          "GenderType_JP": "男性または無性別男性型"
+          "GenderType_JP": "男性"
         },
-        "#Neutral": { "GenderType": "Neutral", "GenderType_JP": "無性別中性型" }
+        "#MaleNeutral": {
+          "GenderType": "MaleNeutral",
+          "GenderType_JP": "無性別男性型"
+        },
+        "#Neutral": {
+          "GenderType": "Neutral",
+          "GenderType_JP": "無性別中性型"
+        },
+        "#Arbitrary": {
+          "GenderType": "Arbitrary",
+          "GenderType_JP": "任意"
+        }
       },
+      "#Enum_RaceType": [
+        {
+          "RaceType": "Human",
+          "RaceType_JP": "人間"
+        },
+        {
+          "RaceType": "Human(withAddon)",
+          "RaceType_JP": "人間(拡張装備あり)"
+        },
+        {
+          "RaceType": "Human(DoubleIdentity)",
+          "RaceType_JP": "人間(二重人格)"
+        },
+        {
+          "RaceType": "OverHuman",
+          "RaceType_JP": "超過人間"
+        },
+        {
+          "RaceType": "OverHuman(Acquired)",
+          "RaceType_JP": "超過人間(後天的)"
+        },
+        {
+          "RaceType": "Humanoid",
+          "RaceType_JP": "ヒューマノイド(人間型)"
+        },
+        {
+          "RaceType": "Humanoid(FoxyType)",
+          "RaceType_JP": "ヒューマノイド(妖獣型)"
+        },
+        {
+          "RaceType": "Humanoid(FoxyType,SoftwareBody)",
+          "RaceType_JP": "ヒューマノイド(妖獣型,ソフトウェア躯体)"
+        },
+        {
+          "RaceType": "Humanoid(GrizzlyType)",
+          "RaceType_JP": "ヒューマノイド(狗亜型)"
+        },
+        {
+          "RaceType": "Humanoid(GrizzlyType,DeviatingBody)",
+          "RaceType_JP": "ヒューマノイド(狗亜型,乖離可能躯体)"
+        },
+        {
+          "RaceType": "HalfWarfox",
+          "RaceType_JP": "狐惹き"
+        },
+        {
+          "RaceType": "HalfWarfox(ChronoidShifter)",
+          "RaceType_JP": "狐惹き(時空遷移者)"
+        },
+        {
+          "RaceType": "Warfox",
+          "RaceType_JP": "妖狐"
+        },
+        {
+          "RaceType": "Warfox",
+          "RaceType_JP": "妖狐"
+        },
+        {
+          "RaceType": "Raccornian",
+          "RaceType_JP": "化狸"
+        },
+        {
+          "RaceType": "Raccornian(Acquired)",
+          "RaceType_JP": "化狸(後天的)"
+        },
+        {
+          "RaceType": "Nekomata",
+          "RaceType_JP": "猫又"
+        },
+        {
+          "RaceType": "Nekomata(Acquired)",
+          "RaceType_JP": "猫又(後天的)"
+        },
+        {
+          "RaceType": "Nekomata(ChronoidShifter)",
+          "RaceType_JP": "猫又(時空遷移者)"
+        },
+        {
+          "RaceType": "LunaTiger",
+          "RaceType_JP": "月虎"
+        },
+        {
+          "RaceType": "LunaTiger(Acquired)",
+          "RaceType_JP": "月虎(後天的)"
+        },
+        {
+          "RaceType": "Dragon",
+          "RaceType_JP": "竜人"
+        },
+        {
+          "RaceType": "Dragon(Acquired)",
+          "RaceType_JP": "竜人(後天的)"
+        },
+        {
+          "RaceType": "LunaRabbit",
+          "RaceType_JP": "月兎"
+        },
+        {
+          "RaceType": "LunaRabbit(Acquired)",
+          "RaceType_JP": "月兎(後天的)"
+        },
+        {
+          "RaceType": "Komainu",
+          "RaceType_JP": "狛犬"
+        },
+        {
+          "RaceType": "Komainu(Acquired)",
+          "RaceType_JP": "狛犬(後天的)"
+        },
+        {
+          "RaceType": "Lamia",
+          "RaceType_JP": "蛇人"
+        },
+        {
+          "RaceType": "Lamia(Acquired)",
+          "RaceType_JP": "蛇人(後天的)"
+        },
+        {
+          "RaceType": "ClonicMouse",
+          "RaceType_JP": "繁殖鼠"
+        },
+        {
+          "RaceType": "ClonicMouse(Acquired)",
+          "RaceType_JP": "繁殖鼠(後天的)"
+        },
+        {
+          "RaceType": "Warfox(Acquired)",
+          "RaceType_JP": "妖狐(後天的)"
+        },
+        {
+          "RaceType": "Komainu",
+          "RaceType_JP": "狛犬"
+        },
+        {
+          "RaceType": "DreamEater",
+          "RaceType_JP": "夢羊"
+        },
+        {
+          "RaceType": "DreamEater(Acquired)",
+          "RaceType_JP": "夢羊(後天的)"
+        },
+        {
+          "RaceType": "Birdman",
+          "RaceType_JP": "鳥人"
+        },
+        {
+          "RaceType": "Birdman(Acquired)",
+          "RaceType_JP": "鳥人(後天的)"
+        },
+        {
+          "RaceType": "Thoroughbreder",
+          "RaceType_JP": "馬人"
+        },
+        {
+          "RaceType": "Thoroughbreder(Acquired)",
+          "RaceType_JP": "馬人(後天的)"
+        },
+        {
+          "RaceType": "FangSpeeder",
+          "RaceType_JP": "猪突猛進者"
+        },
+        {
+          "RaceType": "FangSpeeder(Acquired)",
+          "RaceType_JP": "猪突猛進者(後天的)"
+        },
+        {
+          "RaceType": "ClonicMouse",
+          "RaceType_JP": "繁殖鼠"
+        },
+        {
+          "RaceType": "ClonicMouse(Acquired)",
+          "RaceType_JP": "繁殖鼠(後天的)"
+        },
+        {
+          "RaceType": "Taurus",
+          "RaceType_JP": "金牛"
+        },
+        {
+          "RaceType": "Taurus(Acquired)",
+          "RaceType_JP": "金牛(後天的)"
+        },
+        {
+          "RaceType": "Immaginaries",
+          "RaceType_JP": "概念"
+        }
+      ],
       "$Def_Day": {
         "#Enum_Month": [
           { "Month": 1, "Month_EN": "Jan" },

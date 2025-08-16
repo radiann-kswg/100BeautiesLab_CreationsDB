@@ -9,120 +9,105 @@
             "Eto": "子",
             "Beast_JP": "鼠",
             "Num": 1,
-            "RaceType": "ClonicMouse(Acquired)",
-            "RaceType_JP": "繁殖鼠(後天的)"
+            "RaceType": "ClonicMouse(Acquired)"
           },
           {
             "Beast": "Ox",
             "Eto": "丑",
             "Beast_JP": "牛",
             "Num": 2,
-            "RaceType": "Taurus(Acquired)",
-            "RaceType_JP": "金牛(後天的)"
+            "RaceType": "Taurus(Acquired)"
           },
           {
             "Beast": "Tiger",
             "Eto": "寅",
             "Beast_JP": "虎",
             "Num": 3,
-            "RaceType": "LunaTiger(Acquired)",
-            "RaceType_JP": "月虎(後天的)"
+            "RaceType": "LunaTiger(Acquired)"
           },
           {
             "Beast": "Rabbit",
             "Eto": "卯",
             "Beast_JP": "兎",
             "Num": 4,
-            "RaceType": "LunaRabbit(Acquired)",
-            "RaceType_JP": "月兎(後天的)"
+            "RaceType": "LunaRabbit(Acquired)"
           },
           {
             "Beast": "Dragon",
             "Eto": "辰",
             "Beast_JP": "竜",
             "Num": 5,
-            "RaceType": "Dragon(Acquired)",
-            "RaceType_JP": "竜人(後天的)"
+            "RaceType": "Dragon(Acquired)"
           },
           {
             "Beast": "Snake",
             "Eto": "巳",
             "Beast_JP": "蛇",
             "Num": 6,
-            "RaceType": "Lamia(Acquired)",
-            "RaceType_JP": "蛇人(後天的)"
+            "RaceType": "Lamia(Acquired)"
           },
           {
             "Beast": "Horse",
             "Eto": "午",
             "Beast_JP": "馬",
             "Num": 7,
-            "RaceType": "Thoroughbreder(Acquired)",
-            "RaceType_JP": "馬人(後天的)"
+            "RaceType": "Thoroughbreder(Acquired)"
           },
           {
             "Beast": "Sheep",
             "Eto": "未",
             "Beast_JP": "羊",
             "Num": 8,
-            "RaceType": "DreamEater(Acquired)",
-            "RaceType_JP": "夢羊(後天的)"
+            "RaceType": "DreamEater(Acquired)"
           },
           {
             "Beast": "Monkey",
             "Eto": "申",
             "Beast_JP": "猿",
             "Num": 9,
-            "RaceType": "OverHuman(Acquired)",
-            "RaceType_JP": "超過人間(後天的)"
+            "RaceType": "OverHuman(Acquired)"
           },
           {
             "Beast": "Bird",
             "Eto": "酉",
             "Beast_JP": "鳥",
             "Num": 10,
-            "RaceType": "Birdman(Acquired)",
-            "RaceType_JP": "鳥人(後天的)"
+            "RaceType": "Birdman(Acquired)"
           },
           {
             "Beast": "Raccoon",
             "Eto": "戌",
             "Beast_JP": "狸",
             "Num": 11,
-            "RaceType": "Raccornian(Acquired)",
-            "RaceType_JP": "狸人(後天的)"
+            "RaceType": "Raccornian(Acquired)"
           },
           {
             "Beast": "Fox",
             "Eto": "戌",
             "Beast_JP": "狐",
             "Num": 11,
-            "RaceType": "Warfox(Acquired)",
-            "RaceType_JP": "妖狐(後天的)"
+            "RaceType": "Warfox(Acquired)"
           },
           {
             "Beast": "Boar",
             "Eto": "亥",
             "Beast_JP": "猪",
             "Num": 12,
-            "RaceType": "FangSpeeder(Acquired)",
-            "RaceType_JP": "猪突猛進者(後天的)"
+            "RaceType": "FangSpeeder(Acquired)"
           },
           {
             "Beast": "Cat",
             "Eto": null,
             "Beast_JP": "猫",
             "Num": 13,
-            "RaceType": "Warcat(Acquired)",
-            "RaceType_JP": "猫人(後天的)"
+            "RaceType": "Nekomata(Acquired)"
           },
           {
             "Beast": "Dog",
             "Eto": "戌",
             "Beast_JP": "犬",
             "Num": null,
-            "RaceType": "Komainu(Acquired)",
-            "RaceType_JP": "狛犬(後天的)"
+            "RaceType": "Komainu(Acquired)"
           }
         ]
       }
