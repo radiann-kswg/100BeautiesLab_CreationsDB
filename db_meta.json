@@ -161,20 +161,16 @@
           "RaceType_JP": "ヒューマノイド(人間型)"
         },
         {
-          "RaceType": "Humanoid(FoxyType)",
-          "RaceType_JP": "ヒューマノイド(妖獣型)"
+          "RaceType": "PortableHumanoid(FoxyType)",
+          "RaceType_JP": "ポータブルヒューマノイド(妖獣型)"
         },
         {
-          "RaceType": "Humanoid(FoxyType,SoftwareBody)",
-          "RaceType_JP": "ヒューマノイド(妖獣型,ソフトウェア躯体)"
+          "RaceType": "PortableHumanoid(FoxyType,SoftwareBody)",
+          "RaceType_JP": "ポータブルヒューマノイド(妖獣型,ソフトウェア躯体)"
         },
         {
-          "RaceType": "Humanoid(GrizzlyType)",
-          "RaceType_JP": "ヒューマノイド(狗亜型)"
-        },
-        {
-          "RaceType": "Humanoid(GrizzlyType,DeviatingBody)",
-          "RaceType_JP": "ヒューマノイド(狗亜型,乖離可能躯体)"
+          "RaceType": "DeviatableHumanoid(GrizzlyType)",
+          "RaceType_JP": "ディビエイタブルヒューマノイド(狗亜型)"
         },
         {
           "RaceType": "HalfWarfox",

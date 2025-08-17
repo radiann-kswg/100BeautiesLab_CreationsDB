@@ -8399,8 +8399,16 @@
     "SPCodeName": "二元",
     "SPCodeName_EN": "Two/Binary",
     "RaceType": [
-      { "value": "Humanoid(FoxyType)", "about": "最終的な設計目標" },
-      { "value": "Humanoid(FoxyType,SoftwareBody)", "about": "現状" }
+      {
+        "value": "PortableHumanoid(FoxyType)",
+        "about_JP": "最終的な設計目標",
+        "about_EN": "Finaly"
+      },
+      {
+        "value": "PortableHumanoid(FoxyType,SoftwareBody)",
+        "about_JP": "現状",
+        "about_EN": "Current"
+      }
     ],
     "GenderType": "FemaleNeutral",
     "Height_cm": [{ "value": 150, "about": "想定" }],
@@ -8502,6 +8510,18 @@
     "CodeName": "〇〇〇",
     "SPCodeName": "千",
     "SPCodeName_EN": "Null/Triple Zero",
+    "RaceType": [
+      {
+        "value": "Human(withAddon)",
+        "about_JP": "本人の思い込みでは",
+        "about_EN": "By Own Belief"
+      },
+      {
+        "value": "PortableHumanoid(FoxyType)",
+        "about_JP": "実際",
+        "about_EN": "Actual"
+      }
+    ],
     "GenderType": "Neutral",
     "Height_cm": 165,
     "ConceptAge": 25,
@@ -8573,7 +8593,6 @@
     "SPCodeName": "(百)",
     "SPCodeName_EN": "Double Zero",
     "RaceType": "Human(withAddon)",
-    "RaceType_JP": "人間(補感器あり)",
     "GenderType": "Male",
     "Height_cm": 165,
     "ConceptAge": 25,

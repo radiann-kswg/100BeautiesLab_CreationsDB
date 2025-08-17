@@ -4,18 +4,14 @@
       "DB_Summary": "ナンバーテールズのうち、公式一次創作作品に登場するキャラクター。\n99以内の非負整数である数秘をそれぞれ有している。",
       "_Commons": {
         "Belonging": "百花繚乱研究所",
-        "Belonging_EN": "HundredBeauties Laboratory",
-        "RaceType": "Humanoid(FoxyType)",
-        "RaceType_JP": "ヒューマノイド(妖獣型)"
+        "RaceType": "PortableHumanoid(FoxyType)"
       }
     },
     "#DB_SemiPrimary": {
       "DB_Summary": "ナンバーテールズのうち、公式の下でアンソロジーとしてデザインされたキャラクターで、こちらは一次創作に準ずる括りとする。\n公式一次創作作品の延長として登場する番号やゾロ目(マスターナンバーとしての33および111の倍数)の非負整数を主とした数秘をそれぞれ有している。",
       "_Commons": {
         "Belonging": "百花繚乱研究所",
-        "Belonging_EN": "HundredBeauties Laboratory",
-        "RaceType": "Humanoid(FoxyType)",
-        "RaceType_JP": "ヒューマノイド(妖獣型)"
+        "RaceType": "PortableHumanoid(FoxyType)"
       }
     },
     "#DB_SelfSecondary": {
@@ -28,7 +24,7 @@
           "_Commons": {
             "Belonging": "百花繚乱研究所",
             "Belonging_EN": "HundredBeauties Laboratory",
-            "RaceType": "Humanoid(FoxyType)"
+            "RaceType": "PortableHumanoid(FoxyType)"
           }
         },
         {
@@ -37,8 +33,7 @@
           "SecondarySeriesTitle": null,
           "_Commons": {
             "Belonging": "百花繚乱研究所",
-            "Belonging_EN": "HundredBeauties Laboratory",
-            "RaceType": "Humanoid(FoxyType)"
+            "RaceType": "PortableHumanoid(FoxyType)"
           }
         }
       ]
