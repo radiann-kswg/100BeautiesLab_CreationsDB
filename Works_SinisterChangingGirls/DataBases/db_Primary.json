@@ -14,7 +14,6 @@
     "CodeName_EN": "Lust o'clock in Midnight",
     "RaceType": "Human(withAddon)",
     "Belonging": "百花繚乱研究所",
-    "Belonging_EN": "HundredBeauties Laboratory",
     "Age": {
       "_Jump": {
         "dataTag": "ConceptAge"
@@ -48,7 +47,6 @@
     "RaceType": "OverHuman",
     "GenderType": "Female",
     "Belonging": "国際情報広報機関『ミハイル』",
-    "Belonging_EN": "\"Mikhail\" the International Information & Public Relations Agency",
     "Height_cm": [
       { "value": 163, "about": "標準体型時" },
       { "about": "食事量により可変" }
@@ -78,8 +76,7 @@
     "CodeName_EN": "Wrath o'clock in Sunrizing",
     "RaceType": "HalfWarfox",
     "GenderType": "Female",
-    "Belonging": "白の六芒星",
-    "Belonging_EN": "WhiteHexagram",
+    "Belonging": "白の六芒星\n夜月機関",
     "Height_cm": 160,
     "Weight_kg": { "HideText": "非公開" },
     "Age": 25,
@@ -106,7 +103,6 @@
     "RaceType": "Nekomata",
     "GenderType": "Female",
     "Belonging": "新生九蓮",
-    "Belonging_EN": "Neo.LotusNinea(n)",
     "Height_cm": 145,
     "Weight_kg": { "HideText": "？？？" },
     "Age": 19,
@@ -134,7 +130,6 @@
     "RaceType": "Human(DoubleIdentity)",
     "GenderType": "Female",
     "Belonging": "ジャンクガレージ『六花陛下』",
-    "Belonging_EN": "JunkGarage \"Majesty Rokka\"",
     "Height_cm": 160,
     "Weight_kg": { "HideText": "非公開" },
     "Age": 25,
@@ -161,8 +156,7 @@
     "CodeName_EN": "Envy o'clock in Afternoon",
     "RaceType": "Lamia",
     "GenderType": "Female",
-    "Belonging": "国際情報広報機関『ミハイル』",
-    "Belonging_EN": "\"Mikhail\" the International Information & Public Relations Agency",
+    "Belonging": "国際情報広報機関『ミハイル』\nシンフォニー.XVI(ゼクズィン)",
     "Height_cm": 159,
     "Weight_kg": { "HideText": "非公開" },
     "Age": { "value": 24, "about": "推定" },
@@ -190,7 +184,6 @@
     "RaceType": "HalfWarfox(ChronoidShifter)",
     "GenderType": "Female",
     "Belonging": "夜月機関",
-    "Belonging_EN": "YadzukiLight Organization",
     "Height_cm": [{ "about": "推定", "value": 143 }],
     "Weight_kg": [{ "about": "不詳" }],
     "Age": { "value": 17, "about": "行方不明となった時点での年齢または享年" },
@@ -219,7 +212,6 @@
     "CodeName": "傲慢の夜",
     "CodeName_EN": "Pride o'clock in Night",
     "RaceType": { "HideText_EN": "????" },
-    "RaceType_JP": { "HideText": "？？？" },
     "GenderType": {
       "about_JP": "推定",
       "about_EN": "Presumption",

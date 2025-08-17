@@ -3,6 +3,7 @@
     "#DB_Primary": {
       "DB_Summary": "「夜月機関」の正式な幹部に相当する一次創作キャラクター。\n和暦の月名に関連するコードネームが付与されている。",
       "_Commons": {
+        "Belonging": "夜月機関",
         "#List_Lunar": [
           {
             "Lunar": "Kamiaridzuki",

@@ -321,6 +321,97 @@
           "RaceType_JP": "概念"
         }
       ],
+      "$Def_Belonging": {
+        "#Enum_Belonging": [
+          {
+            "Belonging": "百花繚乱研究所",
+            "Belonging_EN": "HundredBeauties Laboratory",
+            "BaseArea_JP": "九蓮国",
+            "BaseArea_EN": "LotusNinea",
+            "isForSecondary": false
+          },
+          {
+            "Belonging": "夜月機関",
+            "Belonging_EN": "YadzukiLight Organization",
+            "BaseArea_JP": "九蓮国",
+            "BaseArea_EN": "LotusNinea",
+            "isForSecondary": false
+          },
+          {
+            "Belonging": "獣爾騎兵",
+            "Belonging_EN": "Shou'ar Riders",
+            "BaseArea_JP": "龍天国",
+            "BaseArea_EN": "LóngZhōu's.Republic",
+            "isForSecondary": false
+          },
+          {
+            "Belonging": "セブンティエイト特殊探偵団",
+            "Belonging_EN": "Team. Special Seventy-Eight Investigators",
+            "BaseArea_JP": "英皇国",
+            "BaseArea_EN": "Internic.Kingdom",
+            "isForSecondary": false
+          },
+          {
+            "Belonging": "スターダスト財団",
+            "Belonging_EN": "Stardusts Foundation",
+            "BaseArea_JP": "雄志結国",
+            "BaseArea_EN": "United.Heroic.Nation",
+            "isForSecondary": false
+          },
+          {
+            "Belonging": "白の六芒星",
+            "Belonging_EN": "WhiteHexagram",
+            "BaseArea_JP": "雄志結国",
+            "BaseArea_EN": "United.Heroic.Nation",
+            "isForSecondary": false
+          },
+          {
+            "Belonging": "ジャンクガレージ『六花陛下』",
+            "Belonging_EN": "JunkGarage \"Majesty Rokka\"",
+            "BaseArea_JP": "紅雪連邦",
+            "BaseArea_EN": "United.SnowRed.Republic",
+            "isForSecondary": false
+          },
+          {
+            "Belonging": "シンフォニー.XVI(ゼクズィン)",
+            "Belonging_EN": "Symphony.XVI(Sechzehn)",
+            "BaseArea_JP": "黒薔薇国",
+            "BaseArea_EN": "SchwarzeRoseland",
+            "isForSecondary": false
+          },
+          {
+            "Belonging": "新生九蓮",
+            "Belonging_EN": "Neo.LotusNinea(n)",
+            "BaseArea_JP": { "value": "四蓮島", "about": "名義上の所在地" },
+            "BaseArea_EN": {
+              "value": "LotasQuadrup.Island",
+              "about": "nominal location"
+            },
+            "isForSecondary": false
+          },
+          {
+            "Belonging": "国際情報広報機関『ミハイル』",
+            "Belonging_EN": "\"Mikhail\" the International Information & Public Relations Agency",
+            "BaseArea_JP": {
+              "value": "第７界",
+              "about": "厳密には本拠点を置かない"
+            },
+            "BaseArea_EN": {
+              "value": "Region.7",
+              "about": "strictly speaking, no base area"
+            },
+            "isForSecondary": false
+          },
+          {
+            "Belonging": "エイゼルベットの観測世界",
+            "Belonging_EN": "∀sellbuet's Observational World",
+            "BaseArea_JP": { "about": "別次元の世界" },
+            "BaseArea_EN": { "about": "in another dimension's world" },
+            "isForSecondary": true
+          }
+        ],
+        "#Belonging_splittingChar": "\n"
+      },
       "$Def_Day": {
         "#Enum_Month": [
           { "Month": 1, "Month_EN": "Jan" },
