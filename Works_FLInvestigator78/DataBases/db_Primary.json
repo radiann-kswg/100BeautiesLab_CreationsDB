@@ -80,13 +80,14 @@
     "CodeName": "魔術師",
     "CodeName_EN": "Magician",
     "RaceType": "Human",
-    "GenderType": "Male",
+    "GenderType": "MaleNeutral",
     "Class": "第1幹部/最高幹部",
     "Class_EN": "Executive.1/Top",
     "ThisDealer": {
       "Name": "金田一 卓斗",
       "Name_EN": "Tact Kindaichi",
       "RaceType": "Human",
+      "GenderType": "Male",
       "Height_cm": 176,
       "Weight_kg": 59,
       "Age": 37,
@@ -124,7 +125,7 @@
         "Violent": { "Rank": "C", "EffectText": "希薄" },
         "Rewriting": { "Rank": { "HideText": "検証中" } }
       },
-      "SpetialPattern": ["Ptn.B(士気操作)", "Ptn.Q(天変地異)"],
+      "SpetialPattern": ["Ptn.B(士気操作)", "Ptn.E(元素操作)"],
       "SafetyLevel": { "Rank": "S", "SafetyText": "保証可能" },
       "SpecLevel": { "Rank": "S+" }
     },
@@ -154,6 +155,7 @@
       "Name": "二宮 律",
       "Name_EN": "Liz Ninomiya",
       "RaceType": "Human",
+      "GenderType": "Female",
       "Height_cm": 174,
       "Weight_kg": 54,
       "Age": 29,
@@ -180,7 +182,7 @@
         },
         "ActionType": {
           "KinematicOrStatic": "Static",
-          "RoleType": "Hide"
+          "RoleType": "Keep"
         },
         "DualizePattern": { "Pattern": "Prop." }
       },
@@ -221,6 +223,7 @@
       "Name": "三笠 めぐ",
       "Name_EN": "Meg Mikasa",
       "RaceType": "Human",
+      "GenderType": "Female",
       "Height_cm": 166,
       "Weight_kg": { "HideText": "非公開" },
       "Age": 19,
@@ -247,7 +250,7 @@
         },
         "ActionType": {
           "KinematicOrStatic": "Pre-Static",
-          "RoleType": "Hide"
+          "RoleType": "Heal"
         },
         "DualizePattern": { "Pattern": "Prop." }
       },
@@ -269,6 +272,110 @@
       "Precision": { "Rank": "B+" },
       "Technic": { "Rank": "C" },
       "Actuation": { "Rank": "B" }
+    }
+  },
+  {
+    "Card": { "Stoat": "Major", "Num": 16 },
+    "Progress": "notProceeded",
+    "Name": "バベル",
+    "Name_EN": "Babel",
+    "FormalName": "倒壊の塔\nクライシア.バベル",
+    "FormalName_EN": "Collapse Tower\nCrisia.Babel",
+    "CodeName": "塔",
+    "CodeName_EN": "Tower",
+    "RaceType": "Immaginaries",
+    "GenderType": "FemaleNeutral",
+    "Class": "第16幹部/英皇国支部幹部",
+    "Class_EN": "Executive.16/IK Brunch.Executive",
+    "ThisDealer": {
+      "Name": "ヴェンジー.C.テンペスト",
+      "Name_EN": "Vengy.C.Tempest",
+      "RaceType": "Human",
+      "GenderType": "Female"
+    },
+    "ArcanamspecAbout": "現在の状況を破壊する",
+    "Summary": "",
+    "ArcanumspecStats": {
+      "SpecType": {
+        "MaterialType": {
+          "Material": ["Fire", "Object"]
+        },
+        "ActionType": {
+          "KinematicOrStatic": "Pre-Kinematic",
+          "RoleType": "Fere"
+        },
+        "DualizePattern": { "Pattern": "Prop." }
+      },
+      "EffectStats": {
+        "Physical": { "Rank": "D", "EffectText": "効果無" },
+        "Magical": { "Rank": "A", "EffectText": "期待" },
+        "Healing": { "Rank": "E", "EffectText": "逆効果" },
+        "Violent": { "Rank": "Z", "EffectText": "過剰" },
+        "Rewriting": { "Rank": "S", "EffectText": "絶大" }
+      },
+      "SpetialPattern": ["Ptn.F(妨害)", "Ptn.Q(天変地異)"],
+      "SafetyLevel": { "Rank": "E", "SafetyText": "厳重注意" },
+      "SpecLevel": { "Rank": "Z" }
+    },
+    "AbilityStats": {
+      "Speed": { "Rank": "E" },
+      "Communicating": { "Rank": { "HideText": "？？？" } },
+      "Leading": { "Rank": { "HideText": "？？？" } },
+      "Precision": { "Rank": "S" },
+      "Technic": { "Rank": "Z" },
+      "Actuation": { "Rank": "B+" }
+    }
+  },
+  {
+    "Card": { "Stoat": "Major", "Num": 17 },
+    "Progress": "notProceeded",
+    "Name": "ゲイザー",
+    "Name_EN": "Gazer",
+    "FormalName": "希望の星\nブライト.ゲイザー",
+    "FormalName_EN": "Hopeness Star\nBright.Gazer",
+    "CodeName": "星",
+    "CodeName_EN": "Star",
+    "RaceType": "Human",
+    "GenderType": "FemaleNeutral",
+    "Class": "第17幹部/英皇国支部幹部",
+    "Class_EN": "Executive.17/IK Brunch.Executive",
+    "ThisDealer": {
+      "Name": "ライト.リヴァーブリッジ",
+      "Name_EN": "Light.Reverbbridge",
+      "RaceType": "Human",
+      "GenderType": "Male"
+    },
+    "ArcanamspecAbout": "感情を修復する\n欲望を補填する",
+    "Summary": "",
+    "ArcanumspecStats": {
+      "SpecType": {
+        "MaterialType": {
+          "Material": ["Water"]
+        },
+        "ActionType": {
+          "KinematicOrStatic": "Pre-Static",
+          "RoleType": "Repair"
+        },
+        "DualizePattern": { "Pattern": "Prop." }
+      },
+      "EffectStats": {
+        "Physical": { "Rank": "D", "EffectText": "効果無" },
+        "Magical": { "Rank": "S", "EffectText": "絶大" },
+        "Healing": { "Rank": "S", "EffectText": "絶大" },
+        "Violent": { "Rank": "D", "EffectText": "効果無" },
+        "Rewriting": { "Rank": "E", "EffectText": "逆効果" }
+      },
+      "SpetialPattern": ["Ptn.H(癒術)", "Ptn.L(転化)"],
+      "SafetyLevel": { "Rank": "S", "SafetyText": "保証可能" },
+      "SpecLevel": { "Rank": "B+" }
+    },
+    "AbilityStats": {
+      "Speed": { "Rank": "B+" },
+      "Communicating": { "Rank": "A" },
+      "Leading": { "Rank": "A" },
+      "Precision": { "Rank": "A" },
+      "Technic": { "Rank": "A" },
+      "Actuation": { "Rank": "A" }
     }
   }
 ]

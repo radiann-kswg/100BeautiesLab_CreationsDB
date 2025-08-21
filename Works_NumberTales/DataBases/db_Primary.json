@@ -1553,7 +1553,14 @@
     "TailsUnit": "キツネ(枝分かれ)型7本(上2束1本+下1束6本)",
     "Class": "デュアルエイツ",
     "Class_EN": "Dual Sum-8s",
-    "ThisMasters": "ブライト.ゲイザー/Star（78探偵団 第17幹部）",
+    "ThisMasters": {
+      "value": "ライト.リヴァーブリッジ/ブライト.ゲイザー（78特殊探偵団 第17幹部）",
+      "_DBLink": {
+        "worksTitle": "FLInvestigator78",
+        "dbFile": "db_Primary",
+        "_Search": { "hashTag": "Card", "key": { "Stoat": "Major", "Num": 16 } }
+      }
+    },
     "FirstPersonCalling": "アタシ",
     "SecondPersonCalling": "キミ",
     "ThirdPersonCalling": "彼/彼女/*レ;[Name]",
@@ -6110,7 +6117,14 @@
     "TailsUnit": "キツネ(枝分かれ)型9本(上2束6本+下1束3本)",
     "Class": "デュアルシックスズ",
     "Class_EN": "Dual Sum-6s",
-    "ThisMasters": "クライシア.バベル/Tower（78探偵団 第16幹部）",
+    "ThisMasters": {
+      "value": "ヴェンジー.C.テンペスト/クライシア.バベル（78特殊探偵団 第16幹部）",
+      "_DBLink": {
+        "worksTitle": "FLInvestigator78",
+        "dbFile": "db_Primary",
+        "_Search": { "hashTag": "Card", "key": { "Stoat": "Major", "Num": 16 } }
+      }
+    },
     "FirstPersonCalling": "俺 ※例外あり",
     "SecondPersonCalling": "あんた ※例外あり",
     "ThirdPersonCalling": "[Name] ※例外あり",

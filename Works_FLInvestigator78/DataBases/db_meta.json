@@ -20,7 +20,7 @@
           },
           {
             "Stoat": "SlashSwords",
-            "Class": "風の剣支部",
+            "Class": "風の刀剣支部",
             "Class_EN": "SlashSwords Branch"
           },
           {
@@ -55,11 +55,16 @@
             "#List_KinematicOrStatic": [
               { "KinematicOrStatic": "Kinematic", "ActionTypeText": "動" },
               { "KinematicOrStatic": "Static", "ActionTypeText": "静" },
+              { "KinematicOrStatic": "Pre-Kinematic", "ActionTypeText": "壊" },
               { "KinematicOrStatic": "Pre-Static", "ActionTypeText": "情" }
             ],
             "#List_RoleType": [
               { "RoleType": "Lead", "ActionTypeText": "律" },
-              { "RoleType": "Hide", "ActionTypeText": "秘" }
+              { "RoleType": "Keep", "ActionTypeText": "秘" },
+              { "RoleType": "Control", "ActionTypeText": "操" },
+              { "RoleType": "Heal", "ActionTypeText": "癒" },
+              { "RoleType": "Fere", "ActionTypeText": "妨" },
+              { "RoleType": "Repair", "ActionTypeText": "修" }
             ],
             "#ActionTypeText_feedingChar": "+"
           },
@@ -82,7 +87,16 @@
           }
         },
         "$Def_SpetialPattern": {
-          "#Enum_SpetialPattern": null
+          "#Enum_SpetialPattern": [
+            "Ptn.A(覚醒)",
+            "Ptn.B(士気操作)",
+            "Ptn.E(元素操作)",
+            "Ptn.F(妨害)",
+            "Ptn.H(癒術)",
+            "Ptn.L(転化)",
+            "Ptn.M(精神操作)",
+            "Ptn.Q(天変地異)"
+          ]
         },
         "$Def_SafetyLevel": {
           "#LinkList(Rank)_SafetyText": {
@@ -99,6 +113,7 @@
           "#Link(Rank)_SpecLevelText": {
             "#R2_Great": "強力",
             "#R3_Good": "やや強力",
+            "#R4plus_BasicOrSpecific": "有力",
             "#R4_Normal": "標準的",
             "#R5_NotSoGood": "やや弱力",
             "#R6_Bad": "弱力",
