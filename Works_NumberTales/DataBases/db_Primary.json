@@ -41,7 +41,6 @@
     "SpetialSkill": "たくさんあるらしい",
     "Favor": "新しいこと、新体験",
     "Unlike": "人格否定",
-    "WellmatchedNTsNames": "2(ツグ)",
     "NumerospecAbout": "ありのままに行動する\nおよび主人の自我を強める",
     "Summary": "相手のことを尊重する双子の妹「2(ツグ)」とは反対に、自分のありのままに生活している。\nナンバーテールズの試作過程と共に誕生した唯一の試作型で、外見で尾が1本などと正規型である他の98人と異なる特徴が多い。\nしかし彼女はそれも自分らしさと前向きに受け入れている。\nとはいえ試作型だった影響か、やってみたいことが無数にあり行動意欲が過度に突出している。",
     "NumerospecStats": {
@@ -69,17 +68,19 @@
       "Related": [
         {
           "Num": 2,
-          "Comments": "他の子を大切にしてるいい妹。なんだけどなー"
+          "Comments": "他の子を大切にしてるいい妹。なんだけどなー",
+          "RelationLabel": ["wellMatched", "brother|sister"]
+        },
+        {
+          "Num": 10,
+          "Comments": "ぼくの相棒！ただちょっと怪しいけど",
+          "RelationLabel": ["awkward_aBit", "alternative|redesign"]
         }
       ],
       "Commented": [
         {
           "Num": 3,
           "Comments": "何かあったら任せられて頼れる！"
-        },
-        {
-          "Num": 10,
-          "Comments": "ぼくの相棒！ただちょっと怪しいけど"
         },
         {
           "Num": 11,
@@ -138,8 +139,6 @@
     "SpetialSkill": "人耳無しで眼鏡を掛けられる（ハードウェアの仕様上）",
     "Favor": "よろこんでもらえること\nお姉さん",
     "Unlike": "自分の限界",
-    "WellmatchedNTsNames": "1(ハジメ),3(ナオ)",
-    "UnmatchedNTsNames": "12(トウジ)",
     "RelationAbouts": "「3(ナオ)」と信頼関係がある\n「9(チカ)」に甘えてる一面も",
     "NumerospecAbout": "主人や他ナンバーテールズの日々や人脈をよりよくする",
     "Summary": "自分らしさを貫く双子の姉「1(ハジメ)」とは対称的で、相手との協調を大切にしている。\n他のナンバーテールズを想いながら、毎日をよりよくするための奉仕や人脈の形成を支える、99人にとってのマネージャー的存在。\n一方で彼女が持つ向上心に反して周囲に流されることもしばしばあり、彼女自身も癒しを欲している一面がある。",
@@ -167,17 +166,25 @@
       "Related": [
         {
           "Num": 1,
-          "Comments": "行動力はすごい姉、だけど…"
+          "Comments": "行動力はすごい姉、だけど…",
+          "RelationLabel": [
+            "wellMatched_maybe",
+            "awkward_aBit",
+            "brother|sister"
+          ]
         },
         {
           "Num": 3,
-          "Comments": "同期であり尊敬する存在"
+          "Comments": "同期であり尊敬する存在",
+          "RelationLabel": ["trusted"]
         },
         {
           "Num": 9,
-          "Comments": "甘え相手"
+          "Comments": "甘え相手",
+          "RelationLabel": ["abusing"]
         },
-        { "Num": 12 }
+        { "Num": 12, "RelationLabel": ["awkward", "successor"] },
+        { "Num": "2-alt", "RelationLabel": ["sameNumber"] }
       ],
       "Commented": [
         {
@@ -228,7 +235,6 @@
     "SpetialSkill": "ビギナーズラックがある",
     "Favor": "ロマン",
     "Unlike": "性格の悪い大人",
-    "WellmatchedNTsNames": "1(ハジメ),2(ツグ),5(イズ)",
     "NumerospecAbout": "基本を守り、普遍を破り、固定概念から離れる\nこの効果は主人に感化させることもできる",
     "Summary": "基本を守り、普遍を破り、固定概念から離れるという、物事への「守破離」を極めたナンバーテールズで上位を誇る優等生。\nその秀才な彼(女)は1桁番の中でも、99人を支える最大要因となっている。\nしかし かといって厳格な性格でなく、冒険心や遊び心の高い青年のような気質で、対戦ゲームや交換日記の相手をするなど自然と溶け込みやすい一面も。",
     "NumerospecStats": {
@@ -255,13 +261,15 @@
       "Related": [
         {
           "Num": 1,
-          "Comments": "すごいポテンシャルで突き進んでる"
+          "Comments": "すごいポテンシャルで突き進んでる",
+          "RelationLabel": ["wellMatched"]
         },
         {
           "Num": 2,
-          "Comments": "今後も信頼してるよ"
+          "Comments": "今後も信頼してるよ",
+          "RelationLabel": ["trusted"]
         },
-        { "Num": 5 }
+        { "Num": 5, "RelationLabel": ["wellMatched"] }
       ],
       "Commented": [
         {
@@ -317,8 +325,6 @@
     "SpetialSkill": "白色40000ピースパズルを完成できる",
     "Favor": "ラノベ(ライトノベル)",
     "Unlike": "奇妙なこと全般",
-    "WellmatchedNTsNames": "6(ムイ)",
-    "UnmatchedNTsNames": "5(イズ)",
     "RelationAbouts": "「5(イズ)」に対し強く拒絶している\n「8(ワカツ)」の実験におびえている",
     "NumerospecAbout": "物事の基礎を掴んで現実化する\nこの効果は主人に感化させることもできる",
     "Summary": "安心感と安定感を大切にしており、臆病で感情表現豊かな印象をよく持たれている。\nしかし一方で、物事に対し一つ一つの基礎を掴んで現実化する力を有しており、根はとてもしっかりしていることが評判。\n特技として主人の家事を手伝うことも。\nただ、常に周囲の予想と普通のことを覆してくる「5(イズ)」に対して強い拒絶体質になっている。\n反して「5(イズ)」自身はというと…",
@@ -345,10 +351,12 @@
       "Related": [
         {
           "Num": 5,
-          "Comments": "怖い!!!"
+          "Comments": "怖い!!!",
+          "RelationLabel": ["unmatched"]
         },
         {
-          "Num": 6
+          "Num": 6,
+          "RelationLabel": ["wellMatched"]
         }
       ],
       "Commented": [
@@ -409,8 +417,6 @@
     "SpetialSkill": "バク天",
     "Favor": "いつもと違うこと",
     "Unlike": "型にはまること",
-    "WellmatchedNTsNames": "3(ナオ)",
-    "UnmatchedNTsNames": "6(ムイ)",
     "RelationAbouts": "「3(ナオ)」とは良きライバル関係\n「6(ムイ)」に苦手意識がある",
     "NumerospecAbout": "やり方を常に変える\n主人への効果量は不明だがこれによりマンネリ化を無効化できるらしい",
     "Summary": "他のナンバーテールズと比べても屈指のマイペース。\nその形振りは時に利き手や習慣を変え、時に特技から離れ、時に呼び方が変わるなど、彼女の脱線気味な気分とノリは誰もが予想できていない。\nしかしそれは自分に明確なビジョンがあってのことで、それを楽しんで軌道調整するためと彼女は豪語している。\n挑発に乗りやすく、冷めやすく、かなりチョロい。",
@@ -437,14 +443,16 @@
       "Related": [
         {
           "Num": 3,
-          "Comments": "枠に収まりつつ個性的なオーラを放つ友(ダチ)"
+          "Comments": "枠に収まりつつ個性的なオーラを放つ友(ダチ)",
+          "RelationLabel": ["wellMatched"]
         },
         {
           "Num": 4
         },
         {
           "Num": 6,
-          "Comments": "波長が合わない、悪い人ではないけど…"
+          "Comments": "波長が合わない、悪い人ではないけど…",
+          "RelationLabel": ["awkward"]
         }
       ],
       "Commented": [
@@ -501,9 +509,7 @@
     "SpetialSkill": "画力がある",
     "Favor": "かわいいぬいぐるみ\nスキンシップ",
     "Unlike": { "HideText": "？？？" },
-    "WellmatchedNTsNames": "ほぼ誰でも",
-    "UnmatchedNTsNames": "7(ナナ)",
-    "RelationAbouts": "「7(ナナ)」とは価値観の共有関係と言っているが…\n「4(モチ)」とはルームシェアをするほどの縁",
+    "RelationAbouts": "ほぼどの個体にも好意的に接する\n「7(ナナ)」とは価値観の共有関係と言っているが…\n「4(モチ)」とはルームシェアをするほどの縁",
     "NumerospecAbout": "愛情や感性などにより主人の心の隙間を埋める\nただし副作用として一部スキンシップに過剰反応する",
     "Summary": "愛情や感性・美徳に満ち溢れ、信頼と忠義とそれぞれの個性を大切にしている、ナンバーテールズの「光属性」担当。\nこれにより、1桁番の中はもちろん99人全体でも上位に匹敵する評判を主人層から得ている。\nまた、彼女とはやや対称的な美的センスを持つ「9(チカ)」とセットで認知されることも。\nちなみに感性に優れているあまりか、感覚機能における意外な弱点があるようで…",
     "NumerospecStats": {
@@ -529,11 +535,13 @@
       "Related": [
         {
           "Num": 7,
-          "Comments": "少々内向的ですが、本当は立派な方ですよ"
+          "Comments": "少々内向的ですが、本当は立派な方ですよ",
+          "RelationLabel": ["abusing"]
         },
         {
           "Num": 9,
-          "Comments": "「闇属性」と称されていますが、何故でしょう…？"
+          "Comments": "「闇属性」と称されていますが、何故でしょう…？",
+          "RelationLabel": ["paired"]
         }
       ],
       "Commented": [
@@ -589,8 +597,6 @@
     "SpetialSkill": "習字",
     "Favor": "ハースストーン",
     "Unlike": "非常識",
-    "WellmatchedNTsNames": "9(チカ),70(ナナト)",
-    "UnmatchedNTsNames": "5(イズ)",
     "RelationAbouts": "「5(イズ)」に対し対抗意識がある\n「70(ナナト)」とは就学仲間",
     "NumerospecAbout": "修行や瞑想をする\nこれによる効果は主人にも少し分け与えられる",
     "Summary": "1桁番のナンバーテールズ9人の中でも単独行動を好み、自分なりの正しさを求めて修学や瞑想などをしながら悔いなく主人に従事できるように努めている。\n反面、イメージトレーニングや自分磨きが生活の大半となってしまい思想的になりがちではあるが、その分やることは完璧にこなしている（つもりらしい）。\n神話や伝統に興味がある。",
@@ -617,15 +623,18 @@
       "Related": [
         {
           "Num": 5,
-          "Comments": "こ奴には負けたくない"
+          "Comments": "こ奴には負けたくない",
+          "RelationLabel": ["unmatched"]
         },
         {
           "Num": 9,
-          "Comments": "良からぬことに愛憎がないといいが…"
+          "Comments": "良からぬことに愛憎がないといいが…",
+          "RelationLabel": ["wellMatched"]
         },
         {
           "Num": 70,
-          "Comments": "お互い見習い合える仲"
+          "Comments": "お互い見習い合える仲",
+          "RelationLabel": ["brother|sister", "trusted"]
         }
       ],
       "Commented": [
@@ -678,8 +687,6 @@
     "SpetialSkill": "グレードアップ",
     "Favor": "かっこいいもの\nガジェット",
     "Unlike": "厭なことを強要されること",
-    "WellmatchedNTsNames": "7(ナナ)",
-    "UnmatchedNTsNames": "1(ハジメ)",
     "RelationAbouts": "「1(ハジメ)」に少し苦手意識がある\n「62(ロジ)」とものづくりすることがある",
     "NumerospecAbout": "より高価値のものを生み出す\n付属のVRゴーグルで物の価値を見せることができる",
     "Summary": "お金や技術、さらには人の活力さえ主人のために投資…ではなくファンディング応援のために活躍する、99人のエンジニアポジション。\nガジェットに対し強い熱意を持ち格好いいもの好き。\nしかし一方で限りあるお金と物から高い価値のものを生み出す能力から、「値段の錬金術師」とも称されているんだとか。",
@@ -707,11 +714,13 @@
       "Related": [
         {
           "Num": 1,
-          "Comments": "動力源どこよあの子…"
+          "Comments": "動力源どこよあの子…",
+          "RelationLabel": ["awkward"]
         },
         {
           "Num": 7,
-          "Comments": "あてが理系なら彼(女)は文系？"
+          "Comments": "あてが理系なら彼(女)は文系？",
+          "RelationLabel": ["wellMatched"]
         }
       ],
       "Commented": [
@@ -768,7 +777,6 @@
     "SpetialSkill": "お悩み相談",
     "Favor": "良識\n悩める人たち",
     "Unlike": "良識から極めて離れた行為",
-    "WellmatchedNTsNames": "2(ツグ)",
     "RelationAbouts": "「6(ムイ)」と対で認識されている\n「2(ツグ)」の悩める姿に対して…？",
     "NumerospecAbout": "哀しみから救済する\nただし副作用として落胆している人を見ると興奮する",
     "Summary": "慈愛や寛容・同情が深く、完結とそれぞれが損なわない関係を大切にしている、ナンバーテールズで「闇属性」の癒しを持つ。\nこれにより哀しみに暮れた主人を数多く救済したという評判を多く得ている。\nまた、彼女とはやや対称的な思想を持つ「6(ムイ)」とセットで認知されることも。\nただその慈愛心は、ある特定の境遇の人物を見ると本性が出るためらしく…",
@@ -795,11 +803,13 @@
       "Related": [
         {
           "Num": 2,
-          "Comments": "可愛らしいお嬢さんね"
+          "Comments": "可愛らしいお嬢さんね",
+          "RelationLabel": ["wellMatched"]
         },
         {
           "Num": 6,
-          "Comments": "ロマンチストで素敵だと思うわ"
+          "Comments": "ロマンチストで素敵だと思うわ",
+          "RelationLabel": ["paired"]
         }
       ],
       "Commented": [
@@ -871,8 +881,6 @@
     "SpetialSkill": "護身術",
     "Favor": "純粋なヒューマノイド",
     "Unlike": "ヒューマノイドの暴走",
-    "WellmatchedNTsNames": "1(ハジメ)?,2(ツグ)\nディケ",
-    "UnmatchedNTsNames": "11(トウイチ)",
     "RelationAbouts": "「99(ツクモ)」の記憶について何かを察している",
     "NumerospecAbout": "？？？？という役目を果たす\n？？？？という危機を未然に防ぐ",
     "Summary": "自分とは何者か、何のための存在か、どこで自分の役目は終わり、新たな役目が始まるか、その問いに導かれ答えるかのように様々な行動を起こしている（と本人が供述）。\nそのため思考が読めないと言われているが、主人の危機を未然に感知しているのではと、どこかで噂になっている。\nちなみに彼（女）は元動作試験機で、現在唯一の試作型である「1(ハジメ)」と試作段階の時から縁がある。",
@@ -901,19 +909,27 @@
       "Related": [
         {
           "Num": 1,
-          "Comments": "僕の相棒、いろいろ世話になった"
+          "Comments": "僕の相棒、いろいろ世話になった",
+          "RelationLabel": ["trusted_maybe", "alternative|redesign"]
         },
         {
           "Num": 2,
-          "Comments": "あまり相手重視にしすぎないことだね"
+          "Comments": "あまり相手重視にしすぎないことだね",
+          "RelationLabel": ["wellMatched", "alternative|redesign"]
         },
         {
           "Num": 11,
-          "Comments": "話が通じる"
+          "Comments": "話が通じる",
+          "RelationLabel": ["abusing"]
         },
         {
           "Num": 99,
-          "Comments": "ふむ…なるほど"
+          "Comments": "ふむ…なるほど",
+          "RelationLabel": ["secretRelation"]
+        },
+        {
+          "Num": "10-alt",
+          "RelationLabel": ["wellMatched", "trusted", "sameNumber"]
         }
       ],
       "Commented": [
@@ -963,8 +979,6 @@
     "SpetialSkill": "直観が99.9%的中する",
     "Favor": "風水術",
     "Unlike": "スランプ",
-    "WellmatchedNTsNames": "99(ツクモ)",
-    "UnmatchedNTsNames": "1(ハジメ)",
     "RelationAbouts": "「1(ハジメ)」を「師匠」と過度に慕うあまり…？",
     "NumerospecAbout": "自己認知(ハイパーセルフ)による直観と実現力を強化する\nこの効果は確実に主人に分け与えられる",
     "Summary": "2桁ゾロ目の数字の加護を持つ９人：「マスターテールズ９」の代表といえるべきナンバーテールズ。\n高次に発展した直感と自己認識による他に類を見ない実現力が、数多くの主人の注目を集めている。\n反面、その高まりすぎた直感で行動することも多く、時に暴走してしまうと他のナンバーテールズに指摘？されている。\n特に「1(ハジメ)」を前にすると、彼(女)の様子が明らかにおかしい様で…？",
@@ -993,22 +1007,31 @@
       "Related": [
         {
           "Num": 1,
-          "Comments": "(字が乱れていて「師匠」しか読めない)"
+          "Comments": "(字が乱れていて「師匠」しか読めない)",
+          "RelationLabel": [
+            "pioneer",
+            "trusted",
+            "abusing",
+            "adverselyAffected"
+          ]
+        },
+        {
+          "Num": 22,
+          "Comments": "ああみえて根はしっかりしている妹",
+          "RelationLabel": ["brother|sister"]
         },
         {
           "Num": 55,
-          "Comments": "汝が我より断然「台風の目」だ、誤解するな"
+          "Comments": "汝が我より断然「台風の目」だ、誤解するな",
+          "RelationLabel": ["awkward"]
         },
         {
           "Num": 99,
-          "Comments": "…ひとまず、事情は把握した"
+          "Comments": "…ひとまず、事情は把握した",
+          "RelationLabel": ["wellMatched"]
         }
       ],
       "Commented": [
-        {
-          "Num": 22,
-          "Comments": "ああみえて根はしっかりしている妹"
-        },
         {
           "Num": 38,
           "Comments": "彼女の周りは毎回驚かされる"
@@ -1056,8 +1079,6 @@
     "SpetialSkill": "推理",
     "Favor": "言霊",
     "Unlike": "嘘を吐くこと",
-    "WellmatchedNTsNames": "1(ハジメ)\nバイナ",
-    "UnmatchedNTsNames": "2(ツグ)",
     "RelationAbouts": "「1(ハジメ)」を尊敬している\n「バイナ」を旧名の「2(ツギ)」と呼んで好んでいるが、「2(ツグ)」に対しては……",
     "NumerospecAbout": "主人および自身が自分に正直になるようもたらす\nこれにより、対象が自分に自信を持たせる効果も",
     "Summary": "基本設計を融合させた2種類の数字を持つ複合型のうち、最初に開発された個体。\n自分に正直になり自信を持たせてくれると好評のナンバーテールズで、彼女の素直で正直な気質は周囲から好印象を持たれている。\n試作型の「1(ハジメ)」を慕っており、未完成の「バイナ」においても完成を心から期待して旧名（「2(ツギ)」）で呼んでいる。\nただ、「2(ツグ)」に対しては……",
@@ -1085,22 +1106,26 @@
       "Related": [
         {
           "Num": 1,
-          "Comments": "応援してます！"
+          "Comments": "応援してます！",
+          "RelationLabel": ["pioneer", "trusted"]
         },
         {
           "Num": 2,
-          "Comments": "優しくてとてもいい人、なんだけど……"
+          "Comments": "優しくてとてもいい人、なんだけど……",
+          "RelationLabel": ["pioneer", "awkward"]
+        },
+        {
+          "Num": 21,
+          "Comments": "ちょっと変な妹[弟]",
+          "RelationLabel": ["brother|sister"]
         },
         {
           "Num": "2-alt",
-          "Comments": "皆のもとに来れる日を待ってるよ！"
+          "Comments": "皆のもとに来れる日を待ってるよ！",
+          "RelationLabel": ["pioneer", "wellMatched", "trusted"]
         }
       ],
       "Commented": [
-        {
-          "Num": 21,
-          "Comments": "ちょっと変な妹[弟]"
-        },
         {
           "Num": 30,
           "Comments": "幸福の意味をいつか聞いてみたいな"
@@ -1150,8 +1175,6 @@
     "SpetialSkill": "球技（主に玉を投げるもの）",
     "Favor": "イベント/大会参加",
     "Unlike": "心理戦",
-    "WellmatchedNTsNames": "39(サク)",
-    "UnmatchedNTsNames": "58(イソヤ)",
     "RelationAbouts": "従妹「14(トヨ)」と性格が似ていると言われている\n58(イソヤ)と度々カードゲームで負けている",
     "NumerospecAbout": "妥協と躊躇いをしない\nおよび主人の抱える妥協と躊躇いを中和する",
     "Summary": "これまでの知識と経験・能力からできることに妥協はせず、物事を始めることに躊躇わない。\nそういうスタンスを大切に主人を応援するナンバーテールズの体育会マネージャー系。\nただ稀に地雷要因になるため、不発してお叱りを受けていることもある。\n駆け引きが極めて苦手で、カードゲームでいつも最下位になっている。\nなお「14(トヨ)」と従妹関係にあり、性格がよく似ているとか。",
@@ -1177,15 +1200,23 @@
     "Relation": {
       "Related": [
         {
-          "Num": 14
+          "Num": 14,
+          "RelationLabel": ["cousin", "paired"]
+        },
+        {
+          "Num": 31,
+          "Comments": "出だしは姉の私が補助するよ！ 頑張って！",
+          "RelationLabel": ["brother|sister"]
         },
         {
           "Num": 39,
-          "Comments": "ちょっとかっこいいかも…！"
+          "Comments": "ちょっとかっこいいかも…！",
+          "RelationLabel": ["wellMatched"]
         },
         {
           "Num": 58,
-          "Comments": "なんでいつもいいカードを引くの！インチキ!!"
+          "Comments": "なんでいつもいいカードを引くの！インチキ!!",
+          "RelationLabel": ["unmatched"]
         }
       ],
       "Commented": [
@@ -1200,10 +1231,6 @@
         {
           "Num": 4,
           "Comments": "引っ込み思案だけどとてもいい人だよ！"
-        },
-        {
-          "Num": 31,
-          "Comments": "出だしは姉の私が補助するよ！ 頑張って！"
         },
         {
           "Num": 71,
@@ -1248,8 +1275,6 @@
     "SpetialSkill": "手品",
     "Favor": "カードゲーム",
     "Unlike": "じっとしていること",
-    "WellmatchedNTsNames": "22(フジ)",
-    "UnmatchedNTsNames": "49(ヨチカ)\nコアフォルダ形態全般",
     "NumerospecAbout": "新しいことを始める時に失敗する恐れを和らげる\nこの効果は周辺状況や心理状況に関与していないらしく、詳細は不明",
     "Summary": "新しいことに挑むときは常に失敗を恐れないオールラウンダー。\nいつも活発で元気溌剌な気質は、周囲にも好印象を持たれている。\nただそのせいか、コアフォルダ形態には馴染めていない様子。\n彼女が言うには右脳(感覚)派であるらしいが、左脳(理論)派な一面も持ち合わせているのではと噂されている。",
     "NumerospecStats": {
@@ -1275,20 +1300,23 @@
     "Relation": {
       "Related": [
         {
-          "Num": 22,
-          "Comments": "さすがとしか言いようがないわ"
-        },
-        { "Num": 49 }
-      ],
-      "Commented": [
-        {
           "Num": 13,
-          "Comments": "元気でしっかりしてる従姉"
+          "Comments": "元気でしっかりしてる従姉",
+          "RelationLabel": ["cousin", "paired"]
+        },
+        {
+          "Num": 22,
+          "Comments": "さすがとしか言いようがないわ",
+          "RelationLabel": ["wellMatched"]
         },
         {
           "Num": 41,
-          "Comments": "おめでた頭の妹[弟]"
+          "Comments": "おめでた頭の弟",
+          "RelationLabel": ["brother|sister"]
         },
+        { "Num": 49, "RelationLabel": ["abusing"] }
+      ],
+      "Commented": [
         {
           "Num": 55,
           "Comments": "なにあいつえっぐ……"
@@ -1358,8 +1386,6 @@
     "SpetialSkill": "6時間後の天気を当てる",
     "Favor": "開運グッズ\n何があっても完膚なきこと",
     "Unlike": "邪知暴虐",
-    "WellmatchedNTsNames": "12(トウジ),95(キュウゴ)",
-    "UnmatchedNTsNames": "33(ミサ)",
     "RelationAbouts": "「33(ミサ)」と心配されあっている\n「10(ミツル)」と加護について関係が…？",
     "NumerospecAbout": "奇跡を起こす\nただしこの効果は対象の性格に影響される\n？？？？",
     "Summary": "普段は極めて控えめな気質だが、「自分を律することで因果応報が成立する」と信じており、男気が強い。\n「奇跡を起こす」という”加護”を所持しており、それ目当てで契約する主人も少なくない。\nしかしその力が強力だったため、“安全装置”を背中に装着している。\nその経緯について、「10(ミツル)」と「95(キュウゴ)」が関与しているらしく…？",
@@ -1388,28 +1414,33 @@
       "Related": [
         {
           "Num": 10,
-          "Comments": "よく覚えてないが、世話になった…気がする"
+          "Comments": "よく覚えてないが、世話になった…気がする",
+          "RelationLabel": ["secretRelation"]
         },
         {
-          "Num": 12
+          "Num": 12,
+          "RelationLabel": ["wellMatched"]
         },
         {
           "Num": 33,
-          "Comments": "才能に溺れて無茶しないでくれよ"
+          "Comments": "才能に溺れて無茶しないでくれよ",
+          "RelationLabel": ["awkward"]
+        },
+        {
+          "Num": 51,
+          "Comments": "弟、発想力は認める",
+          "RelationLabel": ["brother|sister", "alternative|redesign"]
         },
         {
           "Num": 95,
-          "Comments": "……善処はした。頼むから、早まるなよ"
+          "Comments": "……善処はした。頼むから、早まるなよ",
+          "RelationLabel": ["wellMatched", "secretRelation"]
         }
       ],
       "Commented": [
         {
           "Num": 23,
           "Comments": "少しは持ち場に居てくれ"
-        },
-        {
-          "Num": 51,
-          "Comments": "弟、発想力は認める"
         },
         {
           "Num": 69,
@@ -1465,8 +1496,6 @@
     "SpetialSkill": "剣道・剣舞",
     "Favor": "知恵の輪",
     "Unlike": "コンディション不良",
-    "WellmatchedNTsNames": "17(トナ)",
-    "UnmatchedNTsNames": "6(ムイ),26(ニロク)",
     "RelationAbouts": "「6(ムイ)」「26(ニロク)」に懐いている？",
     "NumerospecAbout": "才能を奮い立たせる\nこの効果はたとえ手持ちに不利があっても発動する",
     "Summary": "物質的な裕福さよりも己の行動や能力の発揮に重きを置いており、そのポテンシャルは物質的な制約と関係なく自身や主人にモチベーションをもたらしている。\n実績こそ上位を誇る程ではないが、挑戦意欲が旺盛で主人公気質な一面がコアな主人層から人気を浴びており、他のナンバーテールズもその中で活力や陽気に満ち溢れる様子から「幸せな貧乏」と称している。\n「6(ムイ)」と「26(ニロク)」に懐いていて…？",
@@ -1494,14 +1523,22 @@
       "Related": [
         {
           "Num": 6,
-          "Comments": "かわいい♡"
+          "Comments": "かわいい♡",
+          "RelationLabel": ["pioneer", "abusing"]
         },
         {
-          "Num": 17
+          "Num": 17,
+          "RelationLabel": ["cousin", "wellMatched"]
         },
         {
           "Num": 26,
-          "Comments": "いつか彼女に甘えてみたいなぁ…♡"
+          "Comments": "いつか彼女に甘えてみたいなぁ…♡",
+          "RelationLabel": ["cousin", "abusing"]
+        },
+        {
+          "Num": 61,
+          "Comments": "妹、お花畑なところも魅力",
+          "RelationLabel": ["brother|sister"]
         }
       ],
       "Commented": [
@@ -1512,10 +1549,6 @@
         {
           "Num": 7,
           "Comments": "ちょっと孤高だけどしっかり者"
-        },
-        {
-          "Num": 61,
-          "Comments": "妹、お花畑なところも魅力"
         },
         {
           "Num": 71,
@@ -1570,8 +1603,6 @@
     "SpetialSkill": "カジノ",
     "Favor": "知識",
     "Unlike": "貧困\n女性ぽくないと言われること",
-    "WellmatchedNTsNames": "89(ヤスモ)",
-    "UnmatchedNTsNames": "73(ナトミ)",
     "RelationAbouts": "「89(ヤスモ)」とは謎のシンパシーがある？",
     "NumerospecAbout": "対象の能力に応じ結果を保証する",
     "Summary": "知識や実力がいつか自分への報酬として還ってくると信じているナンバーテールズ。\nその信条から、資格取得や勉強のお供として契約する主人も多い。\nただ、周囲から「男性型や中性型ではないか」「女性らしくないのではないか」という感想が寄せられているが、彼女が言うには女性型らしい。\nあまり揶揄わないでいてあげよう。\n「89(ヤスモ)」と謎のシンパシーがあるようだ。",
@@ -1599,22 +1630,26 @@
     "Relation": {
       "Related": [
         {
+          "Num": 16,
+          "Comments": "才色兼備で強そう",
+          "RelationLabel": ["cousin"]
+        },
+        { "Num": 71, "RelationLabel": ["brother|sister", "awkward"] },
+        {
           "Num": 73,
-          "Comments": "良く言えば知識欲旺盛、悪く言えば無知…だね"
+          "Comments": "良く言えば知識欲旺盛、悪く言えば無知…だね",
+          "RelationLabel": ["unmatched"]
         },
         {
           "Num": 89,
-          "Comments": "まぎれもなく同志"
+          "Comments": "まぎれもなく同志",
+          "RelationLabel": ["wellMatched"]
         }
       ],
       "Commented": [
         {
           "Num": 8,
           "Comments": "知識も価値あるものだと教えてやりたい"
-        },
-        {
-          "Num": 16,
-          "Comments": "才色兼備で強そう"
         },
         {
           "Num": 34,
@@ -1665,7 +1700,6 @@
     "SpetialSkill": "喧嘩の仲裁",
     "Favor": "平和",
     "Unlike": "混沌としたこと",
-    "WellmatchedNTsNames": "9(チカ)",
     "RelationAbouts": "「19(トク)」を連れまわしている\n「9(チカ)」を警戒？しているが…",
     "NumerospecAbout": "リーダーシップを奮い立たせる\nこの効果は求められた時ほど効果が高くなる",
     "Summary": "責任感のあるリーダー気質なナンバーテールズで、行動を起こすべき主人の後押しも行っている。\nそのため、他のナンバーテールズから「エースポジション」と呼ばれている。\n「81(ヤイチ)」の姉に相当する個体だが、従姉でもある「19(トク)」と行動をとることもしばしば。\n「9(チカ)」の暴走？に警戒している。",
@@ -1692,10 +1726,17 @@
       "Related": [
         {
           "Num": 9,
-          "Comments": "平和主義、だけど。あのように見えて裏がありそうだから油断はできない存在ね…"
+          "Comments": "平和主義、だけど。あのように見えて裏がありそうだから油断はできない存在ね…",
+          "RelationLabel": ["wellMatched_maybe"]
         },
         {
-          "Num": 19
+          "Num": 19,
+          "RelationLabel": ["cousin", "accompanying"]
+        },
+        {
+          "Num": 81,
+          "Comments": "妹[弟]、需要とか気にしすぎ",
+          "RelationLabel": ["brother|sister"]
         }
       ],
       "Commented": [
@@ -1714,10 +1755,6 @@
         {
           "Num": 54,
           "Comments": "油断だけはしてほしくない"
-        },
-        {
-          "Num": 81,
-          "Comments": "妹[弟]、需要とか気にしすぎ"
         }
       ]
     }
@@ -1756,7 +1793,6 @@
     "SpetialSkill": "チェス",
     "Favor": "サイコロ/ダイス\nルービックキューブ",
     "Unlike": "今乗り気じゃないこと",
-    "UnmatchedNTsNames": "89(ヤスモ)",
     "RelationAbouts": "「89(ヤスモ)」に悪絡みしている",
     "NumerospecAbout": "節目を迎えたときに本領発揮する\n重要な場面で失敗させない",
     "Summary": "これまでの業績から一つの節目を迎える事例に特化した個体。\n完遂した業績に対する誇りや自信で調子に乗りやすいが、その次の業務も難なくこなすため憎みたくても憎めないと（色んな意味で）定評。\nしかしその風格に惹かれ、これから新しい取り組みをするベテラン級スキルを持つ中年層を中心に彼(女)を求める主人も少なくはない様子。\n趣味は“絵画用”ルービックキューブというが…？",
@@ -1783,7 +1819,13 @@
       "Related": [
         {
           "Num": 89,
-          "Comments": "おばあc（文章はここで途切れている）"
+          "Comments": "おばあc（文章はここで途切れている）",
+          "RelationLabel": ["cousin", "abusing"]
+        },
+        {
+          "Num": 91,
+          "Comments": "弟[妹]だけど活発すぎて手に負えないや…",
+          "RelationLabel": ["brother|sister", "awkward"]
         }
       ],
       "Commented": [
@@ -1802,10 +1844,6 @@
         {
           "Num": 46,
           "Comments": "元気があっていいね"
-        },
-        {
-          "Num": 91,
-          "Comments": "弟[妹]だけど活発すぎて手に負えないや…"
         }
       ]
     }
@@ -1845,7 +1883,6 @@
     "SpetialSkill": "手料理",
     "Favor": "大切な人の幸せ",
     "Unlike": "大切な人の不幸",
-    "WellmatchedNTsNames": "24(フトシ),42(ヨツグ)\nバイナ,2(ツグ)",
     "RelationAbouts": "「2(ツグ)」のサポートにも徹している\n「24(フトシ)」「42(ヨツグ)」と仲が良い",
     "NumerospecAbout": "主人を信じる＆主人の心の声を聴く\nこれによる効果は主人との信頼関係に大きく比例する",
     "Summary": "「2(ツグ)」の従妹に相当する個体で、本来2番機となる予定だった未完成個体「バイナ」の妹こと改良機である。\n主人の心の声を聴き主人を信じるという“加護”を持ち、主人との信頼関係が強ければ強いほど高い恩恵を発揮している。\n極めて優しく純粋な性格で、多くの人から好印象を持たれている。\n「24(フトシ)」「42(ヨツグ)」姉妹と仲が良く、3人でガールズトークしている一面も。",
@@ -1873,16 +1910,20 @@
       "Related": [
         {
           "Num": 2,
-          "Comments": "姉の分もよろしくおねがいします"
+          "Comments": "姉の分もよろしくおねがいします",
+          "RelationLabel": ["trusted"]
         },
         {
           "Num": 24,
-          "Comments": "またお話きかせてくださいね♪"
+          "Comments": "またお話きかせてくださいね♪",
+          "RelationLabel": ["wellMatched"]
         },
         {
           "Num": 42,
-          "Comments": "またお話きかせてくださいね♪"
-        }
+          "Comments": "またお話きかせてくださいね♪",
+          "RelationLabel": ["wellMatched"]
+        },
+        { "Num": "2-alt", "RelationLabel": ["brother|sister", "trusted"] }
       ],
       "Commented": [
         {
@@ -1937,8 +1978,6 @@
     "SpetialSkill": "初見でRPG1作を21時間以内にクリアできる",
     "Favor": "感謝されること",
     "Unlike": "邪な思考",
-    "WellmatchedNTsNames": "28(ニハチ)?",
-    "UnmatchedNTsNames": "12(トウジ)?",
     "RelationAbouts": "「28(ニハチ)」の“加護”を暴走させている？\n姉「12(トウジ)」とはすれ違い気味だが…",
     "NumerospecAbout": "心を清らかにする",
     "Summary": "2種類の数字を持つ複合型で最初の個体である「12(トウジ)」の設計が調整された個体。\n無邪気さとポテンシャルの高さが好評のナンバーテールズで、特に人助けに積極的なこともあり周囲から信頼されている。\nただその一方で 他人への粘着など邪な思考に対し強い抵抗があったり、純粋さに反応する「28(ニハチ)」の“加護”を暴走させたりと自身の気質が裏目に出てしまうことも。",
@@ -1965,11 +2004,13 @@
       "Related": [
         {
           "Num": 12,
-          "Comments": "隠し事持たない方が良いのか悪いのか…"
+          "Comments": "隠し事持たない方が良いのか悪いのか…",
+          "RelationLabel": ["brother|sister", "awkward"]
         },
         {
           "Num": 28,
-          "Comments": "わわわ!! もうこれ以上はいらないって!!"
+          "Comments": "わわわ!! もうこれ以上はいらないって!!",
+          "RelationLabel": ["cousin", "wellMatched_maybe"]
         }
       ],
       "Commented": [
@@ -2032,7 +2073,6 @@
     "SpetialSkill": "ビリヤード",
     "Favor": "丸くて転がるもの",
     "Unlike": "手玉に取られること",
-    "WellmatchedNTsNames": "11(トウイチ),44(シトシ)",
     "RelationAbouts": "「44(シトシ)」にライバル意識がある？",
     "NumerospecAbout": "主人の偉業を保証する\n強力な加護のためこの効果の詳細は不明",
     "Summary": "ナンバーテールズ99人で群を抜いて強い加護を持ち、主人の奇跡的な達成を後押しするトップカースト。\nその実績は「マスターテールズ9」の中でも秀でており、主人に起業、新企画の成功、世界的快挙などをもたらすとかなりの評判。\n一方、その業績に反しおっとりでふわふわした性格や立ち振る舞いをするので、ギャップ萌えするとも定評。\nただ、尻尾については…",
@@ -2061,11 +2101,13 @@
       "Related": [
         {
           "Num": 11,
-          "Comments": "時々暴走するから面白い人だよ！"
+          "Comments": "時々暴走するから面白い人だよ！",
+          "RelationLabel": ["brother|sister", "trusted"]
         },
         {
           "Num": 44,
-          "Comments": "ライバルみたいな？負けてられない！"
+          "Comments": "ライバルみたいな？負けてられない！",
+          "RelationLabel": ["wellMatched"]
         }
       ],
       "Commented": [
@@ -2130,8 +2172,6 @@
     "SpetialSkill": "サーフィン",
     "Favor": "スリル\n面白い話",
     "Unlike": "堅苦しい仕事",
-    "WellmatchedNTsNames": "2(ツグ),3(ナオ)",
-    "UnmatchedNTsNames": "55(イソゴ)?,95(キュウゴ)",
     "RelationAbouts": "困ったときは「2(ツグ)」「3(ナオ)」を頼りがち\n「55(イソゴ)」に影響されている？",
     "NumerospecAbout": "主人の発想力を引き立てる",
     "Summary": "積極的で直感が鋭く発想力が旺盛。\n放浪癖があり、その場であった様々な経験からインスピレーションを得ているが、その分ふといなくなっては余計なことを連れて帰ってくることがある。\nおまけに、「2(ツグ)」と「3(ナオ)」へそこで起きたトラブルの後始末を任せている傾向にあるので、一部ナンバーテールズからは迷惑に思われている。\nただ、それは「55(イソゴ)」の影響とも？",
@@ -2159,19 +2199,23 @@
       "Related": [
         {
           "Num": 2,
-          "Comments": "仕事振ってごめんな☆"
+          "Comments": "仕事振ってごめんな☆",
+          "RelationLabel": ["pioneer", "wellMatched_maybe", "abusing"]
         },
         {
           "Num": 3,
-          "Comments": "事後処理ばっかりでごめんな☆"
+          "Comments": "事後処理ばっかりでごめんな☆",
+          "RelationLabel": ["pioneer", "wellMatched", "abusing"]
         },
         {
           "Num": 55,
-          "Comments": "ああいうキャリアも面白そうだよな！"
+          "Comments": "ああいうキャリアも面白そうだよな！",
+          "RelationLabel": ["adverselyAffected"]
         },
         {
           "Num": 95,
-          "Comments": "身を投げ出しそうで怖ぇんだよあいつ…"
+          "Comments": "身を投げ出しそうで怖ぇんだよあいつ…",
+          "RelationLabel": ["unmatched"]
         }
       ],
       "Commented": [
@@ -2225,7 +2269,6 @@
     "SpetialSkill": "片手で12連打できる",
     "Favor": "友情ドラマ",
     "Unlike": "失敗",
-    "WellmatchedNTsNames": "4(モチ),20(ハツカ)",
     "RelationAbouts": "「4(モチ)」と仲が良い\n2号機系[20(ハツカ),バイナ]を信頼している",
     "NumerospecAbout": "相手の望みを叶える\nただしこの効果は、相手が自分の心に正直になることで真価を発揮する",
     "Summary": "主人の心から願っている望みを叶えるという“加護”を（無自覚で）有している。\nそのためか主人との実績や彼女自身の自己実現も、十分にうまくいっており評価されている。\nただその一方で、控えめで受動的な性格が玉に瑕(きず)だと思われている。\n（本当は、望んだことが容易に叶って退屈している。）\n「20(ハツカ)」や「4(モチ)」と相性がいい傾向にある。",
@@ -2253,11 +2296,18 @@
       "Related": [
         {
           "Num": 4,
-          "Comments": "友達のような存在"
+          "Comments": "友達のような存在",
+          "RelationLabel": ["pioneer", "wellMatched"]
         },
         {
           "Num": 20,
-          "Comments": "いつも頼りになるよ、ありがとう"
+          "Comments": "いつも頼りになるよ、ありがとう",
+          "RelationLabel": ["pioneer_nearly", "trusted"]
+        },
+        {
+          "Num": 42,
+          "Comments": "暴走してないか心配な妹",
+          "RelationLabel": ["brother|sister", "awkward"]
         }
       ],
       "Commented": [
@@ -2268,10 +2318,6 @@
         {
           "Num": 40,
           "Comments": "“ランプの魔人”を見てるような気分…"
-        },
-        {
-          "Num": 42,
-          "Comments": "暴走してないか心配な妹"
         },
         {
           "Num": 60,
@@ -2320,7 +2366,6 @@
     "SpetialSkill": "チョコレートづくり（温度管理が必要な料理）",
     "Favor": "先輩たち",
     "Unlike": "知らず知らず疲弊すること",
-    "WellmatchedNTsNames": "2(ツグ),5(イズ)?",
     "RelationAbouts": "「2(ツグ)」「5(イズ)」を「先輩」と慕っている",
     "NumerospecAbout": "どんな状況でもリラックスさせる\n同時に、適応力の向上も促す\nただしこの効果は能動的な作用である",
     "Summary": "勘と直感が鋭く、なおかつ自分が行っていることは何かしらの結果として実ると信じている。\nそのためか、この後何が起きようと適応力とそれに応じた前向き思考が極めて優れており、楽観的な性格ながら自己実現力があり有能。\nちなみに、彼女は他のナンバーテールズのうち「2(ツグ)」と「5(イズ)」のことを「先輩」と呼び尊敬し、2人に対しこの上なく好感を持っている。",
@@ -2347,11 +2392,18 @@
       "Related": [
         {
           "Num": 2,
-          "Comments": "立派で大好きな先輩！"
+          "Comments": "立派で大好きな先輩！",
+          "RelationLabel": ["pioneer", "wellMatched", "trusted"]
         },
         {
           "Num": 5,
-          "Comments": "楽しそうで大好きな先輩！"
+          "Comments": "楽しそうで大好きな先輩！",
+          "RelationLabel": ["pioneer", "wellMatched_maybe", "trusted"]
+        },
+        {
+          "Num": 52,
+          "Comments": "双子の妹。自己掲示欲がもっとあっていいかも",
+          "RelationLabel": ["brother|sister", "paired", "alternative|redesign"]
         }
       ],
       "Commented": [
@@ -2366,10 +2418,6 @@
         {
           "Num": 34,
           "Comments": "大人数の中でもすごく平然としてる"
-        },
-        {
-          "Num": 52,
-          "Comments": "双子の妹。自己掲示欲がもっとあっていいかも"
         },
         {
           "Num": 77,
@@ -2412,8 +2460,6 @@
     "Favor": "愛情，マタニティに対する配慮",
     "Unlike": "無関心，憎悪，マタハラ",
     "RelationAbouts": "「16(ソロク)」を甘やかそうとしている\n「62(ロジ)」のおめかし用にコーディネートをよくしている\n「63(ムツミ)」とはママ友(ママ属性友達)らしいが、「26(ニロク)」自身は「63(ムツミ)」と比較意識があるようで…？",
-    "WellmatchedNTsNames": "16(ソロク),62(ロジ)",
-    "UnmatchedNTsNames": "63(ムツミ)?",
     "NumerospecAbout": "愛情あふれる感性を恵む\n特に女性の魅力を高める効果が期待できる",
     "Summary": "女子力の高く温厚で思いやりの強い個体。\n優しさや愛情に対する理解がかなり深く、ファッションセンスも秀でている。\nしかしながらママ友(=ママ属性友達)である個体同士のコミュニティでは、自分に足りない優しさを追求するあまり「63(ムツミ)」相手を筆頭に少し比較意識がある。\n女子力に乏しい妹個体の「62(ロジ)」を着せ替え人形にしたり、秘かに「16(ソロク)」の甘え待ちをしたりと、稀に行き過ぎた女子本能が見える一面も。",
     "NumerospecStats": {
@@ -2439,15 +2485,18 @@
       "Related": [
         {
           "Num": 16,
-          "Comments": "甘えたいときはいつでもおいで♡"
+          "Comments": "甘えたいときはいつでもおいで♡",
+          "RelationLabel": ["cousin", "wellMatched"]
         },
         {
           "Num": 62,
-          "Comments": "おしゃれなら任せて♡"
+          "Comments": "おしゃれなら任せて♡",
+          "RelationLabel": ["brother|sister", "wellMatched"]
         },
         {
           "Num": 63,
-          "Comments": "わたしも負けてられないな……"
+          "Comments": "わたしも負けてられないな……",
+          "RelationLabel": ["cousin_nearly", "awkward"]
         }
       ],
       "Commented": [
@@ -2503,7 +2552,6 @@
     "SpetialSkill": "推理",
     "Favor": "雑学集",
     "Unlike": "裏切り",
-    "UnmatchedNTsNames": "22(フジ),77(ナヅナ)",
     "RelationAbouts": "「22(フジ)」「77(ナヅナ)」に弟子入りを…？",
     "NumerospecAbout": "知性を向上させる\nただしこの効果は、相手が自分を信じることで真価を発揮する",
     "Summary": "自らが学んできたことや経験を大切にしており、普段は優しい教師のような存在。\nしかしひとたび本気を出すと、自分の信じてきたものや経験をバネにどこまで先へ挑めるかを試そうとする好戦的な一面も併せ持つ。\nその本性じみた彼(女)の側面は、「22(フジ)」や「77(ナヅナ)」に弟子入りしようと考えているとか。\nちなみに仕様は大幅に異なるが、「72(ナフタ)」の同型に相当する。",
@@ -2531,11 +2579,18 @@
       "Related": [
         {
           "Num": 22,
-          "Comments": "(文字が小さすぎて読めない、想うことがかなりあるようだ)"
+          "Comments": "(文字が小さすぎて読めない、想うことがかなりあるようだ)",
+          "RelationLabel": ["adverselyAffected"]
+        },
+        {
+          "Num": 72,
+          "Comments": "同型だし、あまり気遣わなくていいよ",
+          "RelationLabel": ["brother|sister", "alternative|redesign"]
         },
         {
           "Num": 77,
-          "Comments": "(文字が小さすぎて読めない、想うことがかなりあるようだ)"
+          "Comments": "(文字が小さすぎて読めない、想うことがかなりあるようだ)",
+          "RelationLabel": ["adverselyAffected"]
         }
       ],
       "Commented": [
@@ -2550,10 +2605,6 @@
         {
           "Num": 54,
           "Comments": "打たれ強いところもありそう"
-        },
-        {
-          "Num": 72,
-          "Comments": "同型だし、あまり気遣わなくていいよ"
         },
         {
           "Num": 90,
@@ -2595,8 +2646,6 @@
     "SpetialSkill": "素因数分解",
     "Favor": "数学、「28」という数字",
     "Unlike": "凶数の存在、見捨てられること",
-    "WellmatchedNTsNames": "31(ミツイ),78(ナナハ)",
-    "UnmatchedNTsNames": "10(ミツル),86(ハチロ)",
     "RelationAbouts": "「31(ミツイ)」と数学徒としてつながりがある\n「78(ナナハ)」と競っている一面が…？",
     "NumerospecAbout": "物乞いを叶える\nただしこの効果は対象者の純粋さに左右される",
     "Summary": "主人の物乞いや物欲を叶える才能があるとされていたが、最近はあまりその潜在能力の真価を発揮できず実績が下火傾向にある個体。\nその所為か 最近は人間や自分に自信が持てず性格もすれてきてしまった。\n物欲が強くアクセサリー系の収集にハマっているが、耳に付けているイヤリングはとても気に入っているので別の装飾に替えたことがない。\nちなみに、完全数である自分の数字「28」に強い信念がある数学徒のような一面もある。",
@@ -2626,19 +2675,23 @@
       "Related": [
         {
           "Num": 10,
-          "Comments": "余計なお世話よ……"
+          "Comments": "余計なお世話よ……",
+          "RelationLabel": ["unmatched"]
         },
         {
           "Num": 31,
-          "Comments": "またお話聴かせて？"
+          "Comments": "またお話聴かせて？",
+          "RelationLabel": ["wellMatched", "accompanying"]
         },
         {
           "Num": 78,
-          "Comments": "(荒く消されていて読めない)"
+          "Comments": "(荒く消されていて読めない)",
+          "RelationLabel": ["cousin", "trusted", "adverselyAffected_aBit"]
         },
         {
           "Num": 86,
-          "Comments": "似た者同士と思ってたのに……"
+          "Comments": "似た者同士と思ってたのに……",
+          "RelationLabel": ["cousin_nearly", "unmatched", "awkward"]
         }
       ],
       "Commented": [
@@ -2696,8 +2749,6 @@
     "SpetialSkill": "嫌な予感が的中する",
     "Favor": "肌触りのいいもの",
     "Unlike": "サスペンスホラー",
-    "WellmatchedNTsNames": "91(キュウイチ)",
-    "UnmatchedNTsNames": "9(チカ),59(イズク),92(コトジ)",
     "RelationAbouts": "「9(チカ)」と弟「92(コトジ)」とはすれ違い気味\n従弟/従妹「91(キュウイチ)」と仲がいい",
     "NumerospecAbout": "主人の辛い思いや悩みから解放する",
     "Summary": "彼女と契約すると、心の中に抱えている不安が解消されると噂されているが、彼女自身はかなりの不安体質。\nたまに周りのムードに流されたり、巻き込まれたりはするものの、それでも彼女は懸命に頑張っているところが愛おしい。\n先代個体である「9(チカ)」や弟の「92(コトジ)」とはすれ違い気味らしく、あまりやり取りをしていないという。\n代わりに、従弟[妹]の「91(キュウイチ)」とは対称的な性格であるものの仲が良い。",
@@ -2723,18 +2774,22 @@
     "Relation": {
       "Related": [
         {
-          "Num": 9
+          "Num": 9,
+          "RelationLabel": ["pioneer", "awkward"]
         },
         {
           "Num": 59,
-          "Comments": "ぅぅ…（酷く委縮した文字で書かれている）"
+          "Comments": "ぅぅ…（酷く委縮した文字で書かれている）",
+          "RelationLabel": ["cousin", "unmatched"]
         },
         {
           "Num": 91,
-          "Comments": "とても元気をくれる、大切な人"
+          "Comments": "とても元気をくれる、大切な人",
+          "RelationLabel": ["cousin_nearly", "wellMatched"]
         },
         {
-          "Num": 92
+          "Num": 92,
+          "RelationLabel": ["brother|sister", "awkward"]
         }
       ],
       "Commented": [
@@ -2788,7 +2843,6 @@
     "Favor": "コアフォルダ形態\nぬいぐるみ",
     "Unlike": "血",
     "NumerospecAbout": "幸運を味方にする\nこの効果はイメージを具現化し運勢的なものに関与する",
-    "WellmatchedNTsNames": "33(ミサ),36(ミトム)",
     "Summary": "幸福感と創造力に溢れるナンバーテールズのオマセなムードメーカ。\nお人好しで少し背伸びをしたような様子は、周囲から愛着を持たれている。\n手芸やクラフトなどが得意で、妹の様な存在である「33(ミサ)」と一緒にぬいぐるみ製作をしている一面がよく見られる。\nコアフォルダ形態に強い愛着があり、ナンバーテールズの契約特典で贈呈されるコアフォルダ縫い(1/2スケール)の製作を進んで担っているらしい。",
     "NumerospecStats": {
       "EffectStats": {
@@ -2813,19 +2867,22 @@
     "Relation": {
       "Related": [
         {
+          "Num": 3,
+          "Comments": "お兄ちゃんのような存在",
+          "RelationLabel": ["brother|sister"]
+        },
+        {
           "Num": 33,
-          "Comments": "可愛い妹のような存在"
+          "Comments": "可愛い妹のような存在",
+          "RelationLabel": ["brother|sister", "wellMatched"]
         },
         {
           "Num": 36,
-          "Comments": "えへへ…いつもありがとう♡"
+          "Comments": "えへへ…いつもありがとう♡",
+          "RelationLabel": ["successor_nearly", "wellMatched"]
         }
       ],
       "Commented": [
-        {
-          "Num": 3,
-          "Comments": "お兄ちゃんのような存在"
-        },
         {
           "Num": 12,
           "Comments": "真面目さと素直さが裏目にでちゃいそう…"
@@ -2878,7 +2935,6 @@
     "SpetialSkill": "イベントで皆勤賞を取る",
     "Favor": "スタンプカード\n「31」という数字",
     "Unlike": "病欠や事故による欠席",
-    "WellmatchedNTsNames": "28(ニハチ)",
     "RelationAbouts": "「28(ニハチ)」と数学徒としてつながりがある",
     "NumerospecAbout": "主人の行いを引き立てる",
     "Summary": "挑戦したことに対する向上意欲が旺盛で、一度挑んだら諦めないという一途な人柄が評判。\nそのことから、彼女といると日頃の行いが良い方向に広がっていくとも主人たちに支持されている。\n一方で自分の掲げる数字「31」に対する愛着が強く、“メルセンヌ素数”をこよなく好むイタい数学学徒な一面も。\n同様に“完全数”を好む「28(ニハチ)」と縁があるとか。",
@@ -2904,14 +2960,16 @@
     "Relation": {
       "Related": [
         {
-          "Num": 28
+          "Num": 13,
+          "Comments": "姉。いつも助かるけど無茶ぶりはちょっとなぁ",
+          "RelationLabel": ["brother|sister", "awkward_aBit"]
+        },
+        {
+          "Num": 28,
+          "RelationLabel": ["wellMatched", "accompanying"]
         }
       ],
       "Commented": [
-        {
-          "Num": 13,
-          "Comments": "姉。いつも助かるけど無茶ぶりはちょっとなぁ"
-        },
         {
           "Num": 23,
           "Comments": "メーワクばっかり掛けない方がいいよ"
@@ -2972,7 +3030,6 @@
     "SpetialSkill": "チーム開発を取り仕切る",
     "Favor": "二次会\nパーティーゲーム",
     "Unlike": "孤独感\n姉に起因する始末書",
-    "UnmatchedNTsNames": "23(ツグミ)?",
     "RelationAbouts": "姉「23(ツグミ)」に対して難は無いと自称しているが…",
     "NumerospecAbout": "相手の思考を読み交流を深める",
     "Summary": "コミュニケーション力が高く発想も個性的で奇抜。\nそのため、チームやグループでの活動で取り仕切り役として買って出ることが多い。\nその分誰かと交流してない日が続くと、異様に寂しがることがある。\nしかしながら心を読むこともとりわけ得意なため、他人や他のナンバーテールズに悪絡みしたり苦労したりすることは無い。\nただ、姉個体「23(ツグミ)」に対しては…？",
@@ -2999,7 +3056,8 @@
       "Related": [
         {
           "Num": 23,
-          "Comments": "姉やのことで難はねぇよ、ねぇんだけど……"
+          "Comments": "姉やのことで難はねぇよ、ねぇんだけど……",
+          "RelationLabel": ["brother|sister", "awkward"]
         }
       ],
       "Commented": [
@@ -3064,8 +3122,6 @@
     "SpetialSkill": "ほぼなんでも",
     "Favor": "可愛い手芸品",
     "Unlike": "失敗\n自分にできないこと",
-    "WellmatchedNTsNames": "30(ミツト)",
-    "UnmatchedNTsNames": "15(トウゴ),44(シトシ)",
     "RelationAbouts": "「30(ミツト)」に妙な愛着が…？",
     "NumerospecAbout": "全域の知識および技能を習得できる（※ROSの機能）\nただし発動条件としてオンライン状態である必要がある",
     "Summary": "オンライン上で様々な知識と機能を自ら実装するシステムにより、99人の中でも最も万能な個体。\nその優れた性能は「全知全能」と称されるほど。\nそれを追い風に、様々なことに対して自分が「可能であること」と捉え、自信と誇りに満ち溢れている。\nしかし「不可能だったこと」への耐性が極めて弱く、そこを突かれて玩ばれることも。\n「30(ミツト)」に謎の親近感が…？",
@@ -3093,20 +3149,23 @@
     "Relation": {
       "Related": [
         {
+          "Num": 3,
+          "Comments": "先輩であり尊敬する方",
+          "RelationLabel": ["pioneer"]
+        },
+        {
           "Num": 15,
-          "Comments": "何かあればミサにお任せを"
+          "Comments": "何かあればミサにお任せを",
+          "RelationLabel": ["awkward"]
         },
         {
           "Num": 30,
-          "Comments": "お姉c…いえ、なんでもありません"
+          "Comments": "お姉c…いえ、なんでもありません",
+          "RelationLabel": ["pioneer", "wellMatched"]
         },
-        { "Num": 44 }
+        { "Num": 44, "RelationLabel": ["unmatched"] }
       ],
       "Commented": [
-        {
-          "Num": 3,
-          "Comments": "先輩であり尊敬する方"
-        },
         {
           "Num": 6,
           "Comments": "先輩であり尊敬する方"
@@ -3164,8 +3223,6 @@
     "SpetialSkill": "ギャンブルで誰が負けるかの予想",
     "Favor": "一騎当千できるアクションゲーム",
     "Unlike": "妥協",
-    "WellmatchedNTsNames": "32(ミツギ)?",
-    "UnmatchedNTsNames": "43(シトミ)\n百",
     "RelationAbouts": "妹個体「43(シトミ)」に誘発されてあらぬ事態を引き起こすことも……",
     "NumerospecAbout": "規模を発展させる",
     "Summary": "営業力が全個体で群を抜いて高いため、彼(女)が行っている副業は必ず成功している。\nただ主従契約の収益に問題こそないものの、不要に事態を肥大化させようとする蛇足癖があるため、あらぬ被害を招いている。\nそのためナンバーテールズの活動そのものを大きく暴走させかねないことから、開発者「百(ハゲム)」の胃を壊している。\nちなみに、アンチからの通称は「サンジ(惨事)」。",
@@ -3196,15 +3253,18 @@
       "Related": [
         {
           "Num": 32,
-          "Comments": "コイツには負けてられへん…!!"
+          "Comments": "コイツには負けてられへん…!!",
+          "RelationLabel": ["cousin", "trusted_maybe", "adverselyAffected_aBit"]
         },
         {
           "Num": 43,
-          "Comments": "（※検閲で削除されている…）"
+          "Comments": "（※検閲で削除されている…）",
+          "RelationLabel": ["brother|sister", "unmatched", "adverselyAffected"]
         },
         {
           "Num": "00",
-          "Comments": "体調不良か？ならワイにいい考えが……あれ？"
+          "Comments": "体調不良か？ならワイにいい考えが……あれ？",
+          "RelationLabel": ["unmatched"]
         }
       ],
       "Commented": [
@@ -3262,8 +3322,6 @@
     "SpetialSkill": "お祓い",
     "Favor": "掃除・整理整頓",
     "Unlike": "危険予知を疎かにしている環境",
-    "WellmatchedNTsNames": "3(ナオ)",
-    "UnmatchedNTsNames": "32(ミツギ)",
     "NumerospecAbout": "物事や進捗を発展させる",
     "Summary": "感覚的な才能に恵まれており、主人たちの物事の進展に大きく貢献している。\n加えて整理整頓や清掃を得意とする几帳面さも相まって、個人だけでなく企業との主従契約でも今後実績が期待されている。\nちなみに副業で巫女活動も展開しており、その清掃能力から庭園を保全したり、動作が繊細なお祓いの儀式にも定評がある。\nこのことに対し本人は曰く、「番号の語呂で軽率に勧められただけで、本業にするつもりは全くない」とのことだが、本業と同程度に実績があるのは言うまでもない。",
     "NumerospecStats": {
@@ -3289,11 +3347,18 @@
       "Related": [
         {
           "Num": 3,
-          "Comments": "優秀で見習いたい"
+          "Comments": "優秀で見習いたい",
+          "RelationLabel": ["pioneer", "trusted"]
         },
         {
           "Num": 32,
-          "Comments": "副業のことで絡まないでよ…"
+          "Comments": "副業のことで絡まないでよ…",
+          "RelationLabel": ["cousin", "awkward"]
+        },
+        {
+          "Num": 53,
+          "Comments": "ちょっとは気を付けてよ…",
+          "RelationLabel": ["brother|sister", "awkward"]
         }
       ],
       "Commented": [
@@ -3308,10 +3373,6 @@
         {
           "Num": 44,
           "Comments": "懸命なフリした狂犬"
-        },
-        {
-          "Num": 53,
-          "Comments": "ちょっとは気を付けてよ…"
         },
         {
           "Num": 75,
@@ -3359,7 +3420,6 @@
     "SpetialSkill": "ラッピング",
     "Favor": "開運グッズ",
     "Unlike": "お化け",
-    "WellmatchedNTsNames": "6(ムイ),30(ミツト)",
     "RelationAbouts": "「6(ムイ)」「30(ミツト)」に似たものがあり、彼女自身も見習っている一面がある",
     "NumerospecAbout": "豊かさを分け与える\nただしその相手が目前に居る必要がある",
     "Summary": "愛し愛されたい体質で、愛情表現を大切にしている。\n特に、母性的な感性を重んじる「6(ムイ)」と幸愛的な感性を持つ「30(ミツト)」に対しては似たものが大いにあり、彼女自身も見習っている一面がある。\nまた、そばにいる人に豊かさを分け与えるという“加護”を持つ個体で、主人に時の運をもたらすことでも定評。\nしかし彼女自身の運はというと…",
@@ -3387,15 +3447,18 @@
       "Related": [
         {
           "Num": 6,
-          "Comments": "尊敬している人、僕もいつかああなりたいな"
+          "Comments": "尊敬している人、僕もいつかああなりたいな",
+          "RelationLabel": ["pioneer", "trusted"]
         },
         {
           "Num": 30,
-          "Comments": "尊敬している人、僕もいつかああなりたいな"
+          "Comments": "尊敬している人、僕もいつかああなりたいな",
+          "RelationLabel": ["pioneer_nearly", "trusted"]
         },
         {
           "Num": 63,
-          "Comments": "いつも慰めてくれる優しい妹"
+          "Comments": "いつも慰めてくれる優しい妹",
+          "RelationLabel": ["brother|sister", "wellMatched_maybe"]
         }
       ],
       "Commented": [
@@ -3452,7 +3515,6 @@
     "SpetialSkill": "猫に懐かれる",
     "Favor": "頭を撫でられること",
     "Unlike": "針",
-    "WellmatchedNTsNames": "12(トウジ)",
     "RelationAbouts": "従妹「47(シナ)」に興味がある？",
     "NumerospecAbout": "主人の努力を報わせる\nこの効果は主人の努力による学びが深いほど拡大する",
     "Summary": "努力家な主人を報わせると好評なナンバーテールズ。\n勤勉で知的向上心が旺盛な真面目ポジションで、主人層だけでなく他のナンバーテールズからも信頼されているが、褒められると99人の中で群を抜くレベルで甘えてしまう一面がある。\n従妹の「47(シナ)」に対して、他のナンバーテールズとは異なる感性や言動に興味があるようで…？",
@@ -3477,14 +3539,16 @@
     },
     "Relation": {
       "Related": [
-        { "Num": 12 },
+        { "Num": 12, "RelationLabel": ["wellMatched"] },
         {
           "Num": 47,
-          "Comments": "彼女の言う“加護”って一体何なんだろう…？"
+          "Comments": "彼女の言う“加護”って一体何なんだろう…？",
+          "RelationLabel": ["cousin", "interested"]
         },
         {
           "Num": 73,
-          "Comments": "お願いだから変な噂だけは聴いてほしくない妹"
+          "Comments": "お願いだから変な噂だけは聴いてほしくない妹",
+          "RelationLabel": ["brother|sister", "awkward"]
         }
       ],
       "Commented": [
@@ -3586,8 +3650,6 @@
     "Favor": "ボードゲーム",
     "Unlike": "無様な敗北",
     "RelationAbouts": "なぜか女装を勧められる「61(ロクイチ)」とは大の犬猿の仲",
-    "WellmatchedNTsNames": "93(クミ)",
-    "UnmatchedNTsNames": "61(ロクイチ)",
     "NumerospecAbout": "主人の邪魔をするものに対し対抗心を奮い立たせる\nただし発動条件として主人との信頼関係が必要",
     "Summary": "主人と自分の効率のために無駄や不要なことをできるだけ排除することをモットーとしており、使えないことや行動の邪魔になることに対しかなりドライな印象を持たれている。\nただこう見えてリアリストではないようで、夢や意志を貶す人々と差を広げようと対抗心を燃やす熱血漢な一面も。\nなお、ナンバーテールズの中では珍しい男性個体である。",
     "NumerospecStats": {
@@ -3612,21 +3674,24 @@
     "Backgrounds": "（10号機「ディケ」を除くと）初めての男性個体\nこの頃から男性型にも需要があるとみられる",
     "Relation": {
       "Related": [
-        { "Num": 61 },
-        {
-          "Num": 93,
-          "Comments": "俺より野望意識の強い妹、報われることを願ってる"
-        }
-      ],
-      "Commented": [
         {
           "Num": 3,
-          "Comments": "いろいろ世話になる"
+          "Comments": "いろいろ世話になる",
+          "RelationLabel": ["pioneer"]
         },
         {
           "Num": 9,
-          "Comments": "…好きにやってくれ"
+          "Comments": "…好きにやってくれ",
+          "RelationLabel": ["pioneer"]
         },
+        { "Num": 61, "RelationLabel": ["unmatched"] },
+        {
+          "Num": 93,
+          "Comments": "俺より野望意識の強い妹、報われることを願ってる",
+          "RelationLabel": ["brother|sister", "trusted"]
+        }
+      ],
+      "Commented": [
         {
           "Num": 12,
           "Comments": "あいつに邪魔をするつもりなどない"
@@ -3680,8 +3745,6 @@
     "SpetialSkill": "食器の修繕、建前",
     "Favor": "紅茶(の香り)、感謝されること",
     "Unlike": "本音や感情ばかりの気難しい話",
-    "WellmatchedNTsNames": "22(フジ)",
-    "UnmatchedNTsNames": "50(ナカバ),67(ムナ)?",
     "NumerospecAbout": "実現化する\nこの効果は限度制限がある。行動や意志に呼応するらしいが、条件や効果事例が多様なため詳細は不明",
     "Summary": "「願いや望みを４つだけ叶えてくれる」という謎の風の噂が後を絶たず、一部界隈から“魔人”や“仙人”などと言われている。\n当の本人もその評判に恥じない達観した風格をしている……が、それはあくまでも演出にすぎず、珍妙な実績が吹聴されて引くに引けなくなっただけ。\n実際はドが付くほど苦労人であることを、お得意の建前で包み隠しているらしい。",
     "NumerospecStats": {
@@ -3709,23 +3772,27 @@
     "Relation": {
       "Related": [
         {
+          "Num": 4,
+          "Comments": "ソチも大変だな…",
+          "RelationLabel": ["brother|sister"]
+        },
+        {
           "Num": 22,
-          "Comments": "ぼくの憧れです!! 様々な実績を遺し（以下略）"
+          "Comments": "ぼくの憧れです!! 様々な実績を遺し（以下略）",
+          "RelationLabel": ["trusted", "adverselyAffected_aBit"]
         },
         {
           "Num": 50,
-          "Comments": "げっ、近づくな気持ち悪い…"
+          "Comments": "げっ、近づくな気持ち悪い…",
+          "RelationLabel": ["unmatched"]
         },
         {
           "Num": 67,
-          "Comments": "腹が捩れるwww ひぃいwww"
+          "Comments": "腹が捩れるwww ひぃいwww",
+          "RelationLabel": ["abusing"]
         }
       ],
       "Commented": [
-        {
-          "Num": 4,
-          "Comments": "ソチも大変だな…"
-        },
         {
           "Num": 31,
           "Comments": "ちゃんとしておる、よきかな"
@@ -3772,7 +3839,6 @@
     "SpetialSkill": "カード透視（カードなどが配られた場所をほぼすべて把握する）",
     "Favor": "賭けゲーム",
     "Unlike": "胸糞の悪い話",
-    "UnmatchedNTsNames": "58(イソヤ)",
     "RelationAbouts": "確率計算のできる「58(イソヤ)」とは好きなポーカーや賭けゲームを一切持ち込めずにいる",
     "NumerospecAbout": "失敗する恐れ/可能性を中和する\nこれにより自分の行動に自信を持たせることもある",
     "Summary": "新しい試みに怖気づくことなく、常に挑戦的に行動しているチャレンジャー。\nいつも楽観的で自信に溢れている気質は、周囲にも好評価を賜っている。\nただそのせいか、コアフォルダ形態でも無理やり動けると頑固に信じている様子。\n運動機能が優れず身体動作が不器用ではあるが、ほぼ全てのカード位置を記憶する“カード透視”を得意とするため賭けポーカーでは無類の強さを誇っている。",
@@ -3802,18 +3868,20 @@
     "Relation": {
       "Related": [
         {
+          "Num": 14,
+          "Comments": "ちょっと面倒いけど自慢の姉貴",
+          "RelationLabel": ["brother|sister"]
+        },
+        {
           "Num": 58,
-          "Comments": "「インチキ」っていってくる割にはさぁ…"
+          "Comments": "「インチキ」っていってくる割にはさぁ…",
+          "RelationLabel": ["unmatched"]
         }
       ],
       "Commented": [
         {
           "Num": 4,
           "Comments": "もっと積極的になってもいい気はする"
-        },
-        {
-          "Num": 14,
-          "Comments": "ちょっと面倒いけど自慢の姉貴"
         },
         {
           "Num": 50,
@@ -3863,8 +3931,6 @@
     "SpetialSkill": "面倒な男を振り払うこと",
     "Favor": "フィギュア",
     "Unlike": "失敗\n宗教勧誘",
-    "WellmatchedNTsNames": "6(ムイ),64(ムトシ)",
-    "UnmatchedNTsNames": "78(ナナハ)",
     "NumerospecAbout": "心に抱えている弱気を中和する",
     "Summary": "主人が心に抱えている弱気を中和するという“加護”を（無自覚で）有している。\nそのためか、恐れや心配の文字を彼女から連想できないほどの自信家で、理想がやや高く我儘な言動もとりがち。\nしかしそれで中高度に上げられた彼女または主人の思惑が、不思議と欲求不満にならない以上に実現されている事例が多い。\nさらには一部の主人から固執・溺愛されるほどに大好評らしく…？",
     "NumerospecStats": {
@@ -3890,25 +3956,29 @@
       "Related": [
         {
           "Num": 6,
-          "Comments": "奉仕しつつ根は自分らしく動いてるの凄すぎ…！"
+          "Comments": "奉仕しつつ根は自分らしく動いてるの凄すぎ…！",
+          "RelationLabel": ["trusted"]
+        },
+        {
+          "Num": 24,
+          "Comments": "姉。いつも受け身なのが玉に瑕(きず)",
+          "RelationLabel": ["brother|sister"]
         },
         {
           "Num": 64,
-          "Comments": "頭のネジ外れるくらい楽しそうでウケる"
+          "Comments": "頭のネジ外れるくらい楽しそうでウケる",
+          "RelationLabel": ["cousin", "wellMatched"]
         },
         {
           "Num": 78,
-          "Comments": "宗教でもキメてるの？あれ…"
+          "Comments": "宗教でもキメてるの？あれ…",
+          "RelationLabel": ["unmatched"]
         }
       ],
       "Commented": [
         {
           "Num": 15,
           "Comments": "彼(女)の周りで必ず何が起こる気がする"
-        },
-        {
-          "Num": 24,
-          "Comments": "姉。いつも受け身なのが玉に瑕(きず)"
         },
         {
           "Num": 26,
@@ -3955,7 +4025,6 @@
     "SpetialSkill": "挑発",
     "Favor": "ボイスチャット、姉(兄)を弄り倒すこと",
     "Unlike": "配慮",
-    "UnmatchedNTsNames": "34(サトシ)",
     "NumerospecAbout": "望みを広げる",
     "Summary": "消極的思考を抑えるメンター効果があるとされており、一時期注目を浴びていた個体。\nしかし自己中心的で挑発的な性格もあり、ネット上で泣かされキャラが確立してしまっている。\n趣味で対戦ゲームをよくするため、現在は主従契約のご縁よりゲームやボイスチャットでのご縁が多い。\n「34(サトシ)」などといった他個体を煽り、とんでもないフラグを建ててしまうことも。",
     "NumerospecStats": {
@@ -3983,8 +4052,19 @@
     "Relation": {
       "Related": [
         {
+          "Num": 4,
+          "Comments": "可哀そうだからちょっかいはかけない",
+          "RelationLabel": ["pioneer"]
+        },
+        {
           "Num": 34,
-          "Comments": "にぃにのざーこ★ばーか★"
+          "Comments": "にぃにのざーこ★ばーか★",
+          "RelationLabel": ["brother|sister", "unmatched", "abusing"]
+        },
+        {
+          "Num": 46,
+          "Comments": "うるさいからほっといてる",
+          "RelationLabel": ["cousin"]
         }
       ],
       "Commented": [
@@ -3993,16 +4073,8 @@
           "Comments": "めちゃくちゃ強い"
         },
         {
-          "Num": 4,
-          "Comments": "可哀そうだからちょっかいはかけない"
-        },
-        {
           "Num": 25,
           "Comments": "あまり動じてくれない…"
-        },
-        {
-          "Num": 46,
-          "Comments": "うるさいからほっといてる"
         },
         {
           "Num": 70,
@@ -4049,8 +4121,6 @@
     "SpetialSkill": "出目操作",
     "Favor": "感情が昂るもの",
     "Unlike": "絶対に不可能なこと",
-    "WellmatchedNTsNames": "52(イツギ)?,66(ムロク)",
-    "UnmatchedNTsNames": "33(ミサ),72(ナフタ)",
     "RelationAbouts": "「33(ミサ)」に自我が強いだけなどと評され毛嫌いされている\n「72(ナフタ)」を筆頭に煙たがれる\n「52(イツギ)」と友好的だが、すれ違い気味なようで…？",
     "NumerospecAbout": "思いを具現化する",
     "Summary": "「想いを具現化する」“加護”を持ち、これまで数多くの主人が掲げてきた熱意や祈願を叶えてきたナンバーテールズの「ミッションインポッシブル」。\n勇敢で果敢な好青年で、正義感と実現意欲が群を抜いて高い姿勢は、どの主人からも熱い支持を賜っている。\nしかし彼の同クラス「マスターテールズ９」の特定個体からは、「ただ自我が強いだけ」「諦めが悪すぎる」という辛辣な指摘を受けているらしい。\nなお「男（の娘）」である、一応は。",
@@ -4079,25 +4149,30 @@
     "Relation": {
       "Related": [
         {
-          "Num": 33,
-          "Comments": "こいつ……いちいちせっつくなっつの"
+          "Num": 4,
+          "Comments": "肩の力抜けって",
+          "RelationLabel": ["pioneer"]
         },
         {
-          "Num": 52
+          "Num": 33,
+          "Comments": "こいつ……いちいちせっつくなっつの",
+          "RelationLabel": ["unmatched"]
+        },
+        {
+          "Num": 52,
+          "RelationLabel": ["wellMatched_maybe"]
         },
         {
           "Num": 66,
-          "Comments": "…へぇ、以外と解ってるじゃねーか"
+          "Comments": "…へぇ、以外と解ってるじゃねーか",
+          "RelationLabel": ["wellMatched"]
         },
         {
-          "Num": 72
+          "Num": 72,
+          "RelationLabel": ["unmatched"]
         }
       ],
       "Commented": [
-        {
-          "Num": 4,
-          "Comments": "肩の力抜けって"
-        },
         {
           "Num": 8,
           "Comments": "メカロマン好きなのは見てわかる"
@@ -4154,7 +4229,6 @@
     "SpetialSkill": "和太鼓",
     "Favor": "伝統工芸品",
     "Unlike": "風評被害",
-    "WellmatchedNTsNames": "47(シナ)",
     "NumerospecAbout": "主人を奮い立たせる\n特に主人が行動を起こすべき立場にあると発動する",
     "Summary": "稲妻を落とす雷神のように相手に衝動を与え、風を送る風神のように相手を奮い立たせる“加護”を持ち、変化を起こすことを必要としている多くの主人を後押ししている。\nもちろんそれはおおむね攻撃的な目的ではないので、彼(女)が従事した主人が愛と勇気をもった「正義の味方」に成長すると定評。\nただ、本人は平穏とした生き方を好んでおり…",
     "NumerospecStats": {
@@ -4180,19 +4254,22 @@
     "Relation": {
       "Related": [
         {
-          "Num": 47,
-          "Comments": "見えているものが違うんだろうな、きっと"
-        }
-      ],
-      "Commented": [
-        {
           "Num": 4,
-          "Comments": "やればできる"
+          "Comments": "やればできる",
+          "RelationLabel": ["pioneer"]
         },
         {
           "Num": 5,
-          "Comments": "やってることは訳わかんないけどできる"
+          "Comments": "やってることは訳わかんないけどできる",
+          "RelationLabel": ["pioneer"]
         },
+        {
+          "Num": 47,
+          "Comments": "見えているものが違うんだろうな、きっと",
+          "RelationLabel": ["cousin", "trusted"]
+        }
+      ],
+      "Commented": [
         {
           "Num": 18,
           "Comments": "主人を変えるような程度じゃ済まないだろ…"
@@ -4246,7 +4323,6 @@
     "Favor": "楽しいこと全般",
     "Unlike": "楽しめないこと全般\nおとなしくすること",
     "NumerospecAbout": "楽しませる",
-    "WellmatchedNTsNames": "96(クルリ)",
     "Summary": "ナンバーテールズの中では珍しく、「感情的な衝動」を癒し以上にもたらす「4+6型」個体の一つ。\nやや気性の荒く落ち着きがない様子は他の個体を見比べても浮いて見えてしまう程だが、その様子に感化され「楽しむこと」を思い出させてくれたという感想を極めて限られた層から賜っている。\nしかし実績と人気度に長らく恵まれず、実況の副業をして赤字を埋めている。",
     "NumerospecStats": {
       "EffectStats": {
@@ -4271,8 +4347,19 @@
     "Relation": {
       "Related": [
         {
+          "Num": 4,
+          "Comments": "オイラには真似できないけど、それも魅力！",
+          "RelationLabel": ["pioneer"]
+        },
+        {
+          "Num": 64,
+          "Comments": "人の事言えねぇけど…ヤベェよ…",
+          "RelationLabel": ["brother|sister", "awkward"]
+        },
+        {
           "Num": 96,
-          "Comments": "…誰ッスかね？でも、この人となら楽しめそうッス！"
+          "Comments": "…誰ッスかね？でも、この人となら楽しめそうッス！",
+          "RelationLabel": ["cousin", "wellMatched"]
         }
       ],
       "Commented": [
@@ -4281,20 +4368,12 @@
           "Comments": "行動力はいつも見習いたいッス！"
         },
         {
-          "Num": 4,
-          "Comments": "オイラには真似できないけど、それも魅力！"
-        },
-        {
           "Num": 49,
           "Comments": "何か顔が怖ぇッスけど、多分いいヤツ！"
         },
         {
           "Num": 60,
           "Comments": "えぇっ、芸能人志望じゃないンスか!?"
-        },
-        {
-          "Num": 64,
-          "Comments": "人の事言えねぇけど…ヤベェよ…"
         },
         {
           "Num": 82,
@@ -4428,8 +4507,6 @@
     "SpetialSkill": "データ分析",
     "Favor": "学園番長の存在",
     "Unlike": "怠惰な人",
-    "WellmatchedNTsNames": "39(サク)",
-    "UnmatchedNTsNames": "53(イツゾウ),69(ロック)",
     "NumerospecAbout": "現実をよりよくする\nこの効果は対象が現実逃避していない時に真価を発揮する",
     "Summary": "マーケティングやビジネススキルなどに精通しており、副業や事業展開を目標とする主人層から好評を受けている。\n至って紳士的で勤勉な気質だと表向きでは評されているが、本性的には喧嘩っ早く勝気の強い性格にどこか憧れを感じているらしい。\n理想を現実にするためにあの手この手を尽くそうとする頑固な一面も。",
     "NumerospecStats": {
@@ -4453,12 +4530,13 @@
     },
     "Relation": {
       "Related": [
-        { "Num": 39 },
+        { "Num": 39, "RelationLabel": ["wellMatched"] },
         {
           "Num": 53,
-          "Comments": "腹が立つ"
+          "Comments": "腹が立つ",
+          "RelationLabel": ["unmatched"]
         },
-        { "Num": 69 }
+        { "Num": 69, "RelationLabel": ["awkward"] }
       ],
       "Commented": [
         {
@@ -4523,8 +4601,6 @@
     "SpetialSkill": "ヒューマノイド形態の身体動作で\nデータ処理できる",
     "Favor": "時短術",
     "Unlike": "進捗がダメな状況",
-    "WellmatchedNTsNames": "45(シゴ)",
-    "UnmatchedNTsNames": "14(トヨ),94(ツクシ)?",
     "RelationAbouts": "「14(トヨ)」とは犬猿の仲だが……",
     "NumerospecAbout": "間に合わせる\nこの効果は期日が明確であるほど本領を発揮する",
     "Summary": "滞っているプロジェクトの火消案件を数多くこなすナンバーテールズ。\n期日が極めて迫っているときのマネジメント力は極めて秀でているが、せっかちで進捗を出せない状況が何より嫌い。\nそんな本性を隠すためその時は笑顔を繕っているらしいが、もはやバレバレの様だ。\n気質が似ているように思われる「14(トヨ)」とは大の犬猿の仲らしいが…",
@@ -4551,15 +4627,18 @@
       "Related": [
         {
           "Num": 14,
-          "Comments": "（内容が荒く書き乱されていて読めない）"
+          "Comments": "（内容が荒く書き乱されていて読めない）",
+          "RelationLabel": ["cousin_nearly", "awkward"]
         },
         {
           "Num": 45,
-          "Comments": "お互い頑張っていこうよ、ね？"
+          "Comments": "お互い頑張っていこうよ、ね？",
+          "RelationLabel": ["cousin", "wellMatched"]
         },
         {
           "Num": 94,
-          "Comments": "業務中に寝るなー!! 起きろ起きろ起きろーー!!!"
+          "Comments": "業務中に寝るなー!! 起きろ起きろ起きろーー!!!",
+          "RelationLabel": ["brother|sister", "abusing"]
         }
       ],
       "Commented": [
@@ -4678,7 +4757,6 @@
     "SpetialSkill": "麻雀",
     "Favor": "急展開",
     "Unlike": "ネタバレ\n如何様(イカサマ)",
-    "WellmatchedNTsNames": "25(フィズ)",
     "NumerospecAbout": "楽観主義により自己実現と適応力を発揮する\nこの効果は主人に感化させることもできる\nただしこの効果は受動的な作用である",
     "Summary": "自己掲示欲は低いものの、自分が本領を発揮できるタイミングを逃すことが無く勝機を掴みやすい。\n何が起きようと適応力と状況判断力が極めて優れており、受動的な性格ながら自己実現力があり有能。\nちなみに、姉「25(フィズ)」の代替機としても活動しているため、姉妹で交代して主従業務に当たっている一面も見られている。",
     "NumerospecStats": {
@@ -4704,7 +4782,8 @@
     "Relation": {
       "Related": [
         {
-          "Num": 25
+          "Num": 25,
+          "RelationLabel": ["brother|sister", "paired", "alternative|redesign"]
         }
       ],
       "Commented": [
@@ -4772,7 +4851,6 @@
     "SpetialSkill": "ゴルフ",
     "Favor": "アクション映画",
     "Unlike": "挑発\n姉[兄]に避けられていること",
-    "UnmatchedNTsNames": "53(イツゾウ)",
     "Summary": "転機を恵むと一部の層から定評であり、主人たちの活動へ貢献している。\n活動実績は然程大きくはないが、中でも彼(女)の招いたチャンスを最大限に受容できるような主人とは相性が良い傾向にある。\nただ性格で単純さが目立っており、煽(おだ)てられるとすぐに調子に乗ってしまうところなどがある。\nそのため、彼(女)の良し悪しについては主人だけでなく他のナンバーテールズからも意見が分かれている様子。",
     "NumerospecAbout": "転機を連続して招く\nこの効果は対象が積極的に受ければ受けるほど持続する",
     "NumerospecStats": {
@@ -4797,22 +4875,25 @@
     "Relation": {
       "Related": [
         {
+          "Num": 30,
+          "Comments": "見てて和む",
+          "RelationLabel": ["pioneer_nearly"]
+        },
+        {
           "Num": 35,
-          "Comments": "なんで僕のこと避けようとするのさ！"
+          "Comments": "なんで僕のこと避けようとするのさ！",
+          "RelationLabel": ["brother|sister", "awkward"]
+        },
+        {
+          "Num": 50,
+          "Comments": "肝が据わりすぎて逆に怖い",
+          "RelationLabel": ["pioneer_nearly"]
         }
       ],
       "Commented": [
         {
           "Num": 23,
           "Comments": "トラブルメーカっぽいところある"
-        },
-        {
-          "Num": 30,
-          "Comments": "見てて和む"
-        },
-        {
-          "Num": 50,
-          "Comments": "肝が据わりすぎて逆に怖い"
         },
         {
           "Num": 57,
@@ -4893,8 +4974,6 @@
     "SpetialSkill": "現状を打破すること",
     "Favor": "神社のお守り",
     "Unlike": { "HideText": "？？？" },
-    "WellmatchedNTsNames": "41(ヨソイチ)",
-    "UnmatchedNTsNames": "11(トウイチ),74(ナナヨ)",
     "RelationAbouts": "「台風の目」と呼ばれているが、それは「11(トウイチ)」のことだと錯覚している",
     "NumerospecAbout": "想像できないことを周囲に引き起こす\nただし自分自身に適応耐性があるため無自覚となる",
     "Summary": "主人や自分の過去に囚われず、より良いものへ変化すること/変化されること を醍醐味に、適応力と自己実現力の相反する能力を併せ現状を打破することを得意としている。\nただ、彼女の周りで誰も想像しないことが多発することより「台風の目」と呼ばれていることも。\nなお彼女自身はというと、感受性を通り越したのかどんなことが起こっても常に平然としている様で、あまり自覚していないらしい。\n鈍感なのだろうか…",
@@ -4921,20 +5000,23 @@
     "Relation": {
       "Related": [
         {
+          "Num": 5,
+          "Comments": "よくわかんないけどあれが彼女の個性だよね",
+          "RelationLabel": ["pioneer"]
+        },
+        {
           "Num": 11,
-          "Comments": "彼(女)が「台風の目」だよね、え、違う？"
+          "Comments": "彼(女)が「台風の目」だよね、え、違う？",
+          "RelationLabel": ["adverselyAffected"]
         },
         {
           "Num": 41,
-          "Comments": "思い立って失敗したとこ見たことないよ"
+          "Comments": "思い立って失敗したとこ見たことないよ",
+          "RelationLabel": ["trusted"]
         },
-        { "Num": 74 }
+        { "Num": 74, "RelationLabel": ["unmatched"] }
       ],
       "Commented": [
-        {
-          "Num": 5,
-          "Comments": "よくわかんないけどあれが彼女の個性だよね"
-        },
         {
           "Num": 10,
           "Comments": "ああ見えて悩んでいるとこもありそう"
@@ -4988,8 +5070,6 @@
     "SpetialSkill": "迷路\n遠出しても迷子にならない",
     "Favor": "知育玩具",
     "Unlike": "爬虫類\n勉強",
-    "WellmatchedNTsNames": "27(ツギナ)?,29(ニトク)",
-    "UnmatchedNTsNames": "86(ハチロ)",
     "RelationAbouts": "出会いに恵まれるよう他個体から温かく見守られている\n勉強するときは「27(ツギナ)」と「29(ニトク)」に…？",
     "NumerospecAbout": "新しい出会いを恵む\n特に当たり前のことから新しいことへのきっかけを促す",
     "Summary": "小学生程度の外見を想定した「5+6型」の姉個体で、見た目や形振りは至って普通のお子様。\n飽き症で時々サボり癖や放浪癖が見受けられることがあるが、他個体からは新しい出会いに恵まれるよう温かく見守られている。\n勉強が苦手で、少しでも頭を使う訓話や座学ではすぐに気が散ってしまう。だが、「27(ツギナ)」や「29(ニトク)」に教わっている時は…？",
@@ -5016,25 +5096,29 @@
       "Related": [
         {
           "Num": 27,
-          "Comments": "は、はいっ！先生!!"
+          "Comments": "は、はいっ！先生!!",
+          "RelationLabel": ["awkward", "wellMatched_maybe"]
         },
         {
           "Num": 29,
-          "Comments": "すごく安心できるお姉さん"
+          "Comments": "すごく安心できるお姉さん",
+          "RelationLabel": ["wellMatched"]
+        },
+        {
+          "Num": 35,
+          "Comments": "才能が凄すぎて、あたしには手に負えないよ…",
+          "RelationLabel": ["cousin"]
         },
         {
           "Num": 86,
-          "Comments": "日頃の行いとか、なんか堅苦しい…"
+          "Comments": "日頃の行いとか、なんか堅苦しい…",
+          "RelationLabel": ["cousin", "unmatched"]
         }
       ],
       "Commented": [
         {
           "Num": 5,
           "Comments": "なんというか、すごく…変な人"
-        },
-        {
-          "Num": 35,
-          "Comments": "才能が凄すぎて、あたしには手に負えないよ…"
         },
         {
           "Num": 47,
@@ -5081,8 +5165,6 @@
     "SpetialSkill": "漫画制作",
     "Favor": "コミックペン\n宝くじ",
     "Unlike": "炎（焚火や火災）",
-    "WellmatchedNTsNames": "66(ムロク)",
-    "UnmatchedNTsNames": "75(シチゴ)",
     "RelationAbouts": "双子の片割「75(シチゴ)」に生真面目さを憶えている\n「66(ムロク)」を直視できない…？",
     "NumerospecAbout": "いつもと違うことから得た学びや教訓を味方にする（ROSの学習機能に近い）",
     "Summary": "状況から新たな経験を得ることに特化したナンバーテールズ。\n状況の変化からの学びを大切にし、それがいつしか自分に良き教訓や知見となることを信じている。\nただあまりに楽観的な思考は周りから圧巻されている。\nちなみに「75(シチゴ)」と同型双子関係があるが、「75(シチゴ)」と彼(女)でどちらが兄(姉)であるかという年長年弱の区別は無いらしい。",
@@ -5110,11 +5192,13 @@
       "Related": [
         {
           "Num": 66,
-          "Comments": "め…目が…眩しくて…目が…!!"
+          "Comments": "め…目が…眩しくて…目が…!!",
+          "RelationLabel": ["trusted"]
         },
         {
           "Num": 75,
-          "Comments": "双子なんだけどなんか生真面目なんだよね"
+          "Comments": "双子なんだけどなんか生真面目なんだよね",
+          "RelationLabel": ["brother|sister", "awkward"]
         }
       ],
       "Commented": [
@@ -5175,8 +5259,6 @@
     "SpetialSkill": "確率計算",
     "Favor": "大吉の御御籤(おみくじ)\n甘やかされること",
     "Unlike": "クソゲー(理不尽なゲーム)",
-    "WellmatchedNTsNames": "85(ハッコ)",
-    "UnmatchedNTsNames": "41(ヨソイチ)",
     "RelationAbouts": "カードの透視が可能な41(ヨソイチ)を忌避している",
     "NumerospecAbout": "臨時収入を呼ぶ(臨時的な裕福をもたらす)\nこの効果は多岐にわたるため詳細な説明ができない",
     "Summary": "臨時収入などの物質的な幸運をもたらすという“加護”を有しているが、多岐多様な効果が確認されており詳細にどのような効果であるかは説明できない。\n他個体をからかったりおちょくったりするためＳっ気のあるように思われているが、オマセで甘えん坊な一面が拭えないところも含め、非常に可愛がられている。\nカードゲームが好きで13(トミ)たちとよく遊んでいるが、強運の持ち主で確立計算も巧みなためすぐ捻じ伏せて厭きられてしまう。",
@@ -5202,16 +5284,24 @@
     "Relation": {
       "Related": [
         {
+          "Num": 8,
+          "Comments": "…う～ん…ちょっと苦手",
+          "RelationLabel": ["pioneer", "awkward_aBit"]
+        },
+        {
           "Num": 13,
-          "Comments": "負けて悔しがってるところも含めてかわいい♪"
+          "Comments": "負けて悔しがってるところも含めてかわいい♪",
+          "RelationLabel": ["interested"]
         },
         {
           "Num": 41,
-          "Comments": "強運仲間にされるとちょっと違う気がする…"
+          "Comments": "強運仲間にされるとちょっと違う気がする…",
+          "RelationLabel": ["awkward", "unmatched"]
         },
         {
           "Num": 85,
-          "Comments": "かわいい妹ちゃん♡"
+          "Comments": "かわいい妹ちゃん♡",
+          "RelationLabel": ["brother|sister", "wellMatched"]
         }
       ],
       "Commented": [
@@ -5222,10 +5312,6 @@
         {
           "Num": 5,
           "Comments": "嫌いではないけど、なんかヘン"
-        },
-        {
-          "Num": 8,
-          "Comments": "…う～ん…ちょっと苦手"
         },
         {
           "Num": 40,
@@ -5297,8 +5383,6 @@
     "SpetialSkill": "歌唱",
     "Favor": "推し",
     "Unlike": "趣味バレ",
-    "WellmatchedNTsNames": "6(ムイ),42(ヨツグ)",
-    "UnmatchedNTsNames": "61(ロクイチ)",
     "RelationAbouts": "秘密の趣味であるヲタク活動がバレたことを発端に、「61(ロクイチ)」を筆頭とした関係に苦戦している",
     "NumerospecAbout": "心に光を灯す\nこの効果は多岐にわたるため詳細な説明ができない",
     "Summary": "優雅な立ち振る舞い、美麗な容姿、素敵な素性を持つ、ナンバーテールズの中で最高クラスの美女ポジション。\n母なる輝きを持ち合わせているあまり、彼女に女優やアイドルとしてのオファーが殺到するほど。\nただこう見えて重度のムッツリヲタクであるため、お忍びのナードな趣味がバレてしまってからは「61(ロクイチ/ロイ)」を筆頭に弄られている。\nそんな中、彼女は「可愛くふるまうよりも 可愛い少女を見守る存在でありたい」と頑なに主張しているのだが……",
@@ -5325,27 +5409,37 @@
       "Related": [
         {
           "Num": 6,
-          "Comments": "実の姉、いつも尊敬してる"
+          "Comments": "実の姉、いつも尊敬してる",
+          "RelationLabel": ["brother|sister", "trusted"]
         },
         {
           "Num": 42,
-          "Comments": "彼女も大変ね…"
+          "Comments": "彼女も大変ね…",
+          "RelationLabel": ["wellMatched"]
         },
         {
           "Num": 61,
-          "Comments": "私に構うな!!!（この文面だけ字が荒れている）"
+          "Comments": "私に構うな!!!（この文面だけ字が荒れている）",
+          "RelationLabel": [
+            "successor_nearly",
+            "unmatched",
+            "adverselyAffected"
+          ]
         },
         {
           "Num": 63,
-          "Comments": "趣味を知られたのが今でも恥ずかしい…"
+          "Comments": "趣味を知られたのが今でも恥ずかしい…",
+          "RelationLabel": ["successor_nearly", "awkward_aBit"]
         },
         {
           "Num": 66,
-          "Comments": "彼女の目に泥を塗るわけにはいかないわ"
+          "Comments": "彼女の目に泥を塗るわけにはいかないわ",
+          "RelationLabel": ["successor", "trusted"]
         },
         {
           "Num": 69,
-          "Comments": "彼にだけは趣味バレを避けないと…!!"
+          "Comments": "彼にだけは趣味バレを避けないと…!!",
+          "RelationLabel": ["successor_nearly", "awkward"]
         }
       ],
       "Commented": [
@@ -5411,8 +5505,6 @@
     "SpetialSkill": "メイド活動？",
     "Favor": "ファンタジー漫画",
     "Unlike": "G（害虫）",
-    "WellmatchedNTsNames": "97(ココナ)",
-    "UnmatchedNTsNames": "10(ミツル),60(ムソウ)",
     "RelationAbouts": "「60(ムソウ)」とアイドルグループの結成を望んでいる\n「10(ミツル)」に興味を持つあまりしつこく絡む一面も",
     "NumerospecAbout": "惚れさせる\nこの作用は主人から間接的に発させることもあるらしい",
     "Summary": "アイドル意識の強いナンバーテールズで、天真爛漫で可憐な性格をしている。\n加えて、相手を惚れさせる“加護”を持っているため、ファンとなる主人もかなり多い。\nしかしあまりにもメルヘンで不思議な世界観を持っているので、謎がられることもあったりするようだ。\n「60(ムソウ)」とアイドルユニットを結成しようと望んでやまない。\n「10(ミツル)」に興味があるようだが…",
@@ -5441,22 +5533,30 @@
       "Related": [
         {
           "Num": 10,
-          "Comments": "何考えてるの??ねぇ教えて!!"
+          "Comments": "何考えてるの??ねぇ教えて!!",
+          "RelationLabel": [
+            "pioneer_nearly",
+            "interested",
+            "adverselyAffected_aBit"
+          ]
+        },
+        {
+          "Num": 16,
+          "Comments": "幸せ貧乏なお姉ちゃん",
+          "RelationLabel": ["brother|sister"]
         },
         {
           "Num": 60,
-          "Comments": "アイドルグループ作ろーよ～!!"
+          "Comments": "アイドルグループ作ろーよ～!!",
+          "RelationLabel": ["pioneer_nearly", "abusing"]
         },
         {
           "Num": 97,
-          "Comments": "お…おぉう…w"
+          "Comments": "お…おぉう…w",
+          "RelationLabel": ["wellMatched"]
         }
       ],
       "Commented": [
-        {
-          "Num": 16,
-          "Comments": "幸せ貧乏なお姉ちゃん"
-        },
         {
           "Num": 43,
           "Comments": "実績がいつ化けるかわかんないダークホース"
@@ -5505,8 +5605,6 @@
     "SpetialSkill": "バリアフリー化",
     "Favor": "女性をモチーフにしたもの\n女性向けファッション",
     "Unlike": "実用性の全くない魔改造",
-    "WellmatchedNTsNames": "26(ニロク),85(ハッコ)?",
-    "UnmatchedNTsNames": "8(ワカツ)?,81(ヤイチ)",
     "RelationAbouts": "「8(ワカツ)」や「85(ハッコ)」とものづくり関連で縁があるが…\n大切なイベントに着る衣装は「26(ニロク)」に頼りがち",
     "NumerospecAbout": "発想を形にさせる\nこの効果は男性的よりも女性的な作用をもたらす",
     "Summary": "発想力の高く生産的でクリエイティブな個体。\n中でも女性に焦点を当てた意匠やデザインに取分け興味関心を示している。\nしかしながら機械技術的なものや知的要素には抵抗があるらしく、モノづくり関連で縁ができ（てしまっ）た「8(ワカツ)」に振り回されている。\n工芸品に執着するあまり他個体との交流や対人および女子力で難があり、勝負服のコーディネートなどを「26(ニロク)」に任せっきりな一面も。",
@@ -5533,19 +5631,23 @@
       "Related": [
         {
           "Num": 8,
-          "Comments": "もう勘弁してくださいよ…"
+          "Comments": "もう勘弁してくださいよ…",
+          "RelationLabel": ["awkward", "trusted"]
         },
         {
           "Num": 26,
-          "Comments": "女子力が高い自慢の姉貴！"
+          "Comments": "女子力が高い自慢の姉貴！",
+          "RelationLabel": ["brother|sister", "wellMatched"]
         },
         {
           "Num": 81,
-          "Comments": "収益化とか難しいこと言われても…！"
+          "Comments": "収益化とか難しいこと言われても…！",
+          "RelationLabel": ["awkward"]
         },
         {
           "Num": 85,
-          "Comments": "あたしの自信作を鑑定して欲しい！"
+          "Comments": "あたしの自信作を鑑定して欲しい！",
+          "RelationLabel": ["abusing"]
         }
       ],
       "Commented": [
@@ -5598,7 +5700,6 @@
     "SpetialSkill": "子供をあやす",
     "Favor": "姉",
     "Unlike": "グロテスク注意コンテンツ",
-    "WellmatchedNTsNames": "60(ムソウ)",
     "NumerospecAbout": "幸福をもたらす\nこの効果は主に日常生活における感情に作用する",
     "Summary": "面倒見の良い気質で、何事にも愛情を重んじている。\n保護者のような天性の風格の持ち主でもあるため彼女に甘える人も数知れず、姉の「36(ミトム)」に至っては相手が自分の妹であるのもお構いなくとことん甘やかされている。\nまた、日常生活に幸福感をもたらすという「加護」を持つ個体で、家庭安泰の御守り役としても主人から好評を得ている。",
     "NumerospecStats": {
@@ -5623,19 +5724,22 @@
     "Relation": {
       "Related": [
         {
+          "Num": 6,
+          "Comments": "可愛らしい一面も含めて好き",
+          "RelationLabel": ["pioneer"]
+        },
+        {
           "Num": 36,
-          "Comments": "しょうがないお姉ちゃんだなぁ♡"
+          "Comments": "しょうがないお姉ちゃんだなぁ♡",
+          "RelationLabel": ["brother|sister"]
         },
         {
           "Num": 60,
-          "Comments": "素敵な個性してる"
+          "Comments": "素敵な個性してる",
+          "RelationLabel": ["pioneer_nearly", "wellMatched", "interested"]
         }
       ],
       "Commented": [
-        {
-          "Num": 6,
-          "Comments": "可愛らしい一面も含めて好き"
-        },
         {
           "Num": 27,
           "Comments": "怒るとちょっと怖いけどとても優しい"
@@ -5687,8 +5791,6 @@
     "SpetialSkill": "リアクション芸",
     "Favor": "強気でＳっ気のある大人",
     "Unlike": { "HideText": "？？？" },
-    "WellmatchedNTsNames": "42(ヨツグ)",
-    "UnmatchedNTsNames": "67(ムナ)\n零",
     "RelationAbouts": "「67(ムナ)」に“ある意味の”服従意識がある\n兄個体「46(シロー)」を筆頭にドン引きされたり、「42(ヨツグ)」を筆頭に面白がられたりしているが、当の本人はと云うと……",
     "NumerospecAbout": "快感を憶えさせる",
     "Summary": "ナンバーテールズの中では珍しく、「感情的な衝動」を過剰にもたらしている問題児な個体。\nドＭで落ち着きが滅多に見られない様子は他個体と比べる前から突出しているが、その様子に感化され「快感」を思い出させてくれたという異質で異彩なレヴューをなんとか賜って活動を継続している。\nただ実績が赤字であるだけでなく、見過ごせない課題も山積みのため開発者「零(レイ)」の仏の顔を剥いでいる。",
@@ -5720,15 +5822,23 @@
     "Relation": {
       "Related": [
         {
-          "Num": 42
+          "Num": 42,
+          "RelationLabel": ["cousin_nearly", "wellMatched"]
         },
         {
           "Num": 46,
-          "Comments": "そんな憐れむような眼でみないでよぉ!!"
+          "Comments": "そんな憐れむような眼でみないでよぉ!!",
+          "RelationLabel": ["brother|sister", "awkward"]
         },
         {
           "Num": 67,
-          "Comments": "あたちを扱(しご)いてください!!!"
+          "Comments": "あたちを扱(しご)いてください!!!",
+          "RelationLabel": ["cousin", "abusing"]
+        },
+        {
+          "Num": "0",
+          "Comments": "うぅ…反省してますぅ…（※反省してない）",
+          "RelationLabel": ["abusing"]
         }
       ],
       "Commented": [
@@ -5747,10 +5857,6 @@
         {
           "Num": 44,
           "Comments": "“賭けゲーム”、しませんかぁ…？えへへ…"
-        },
-        {
-          "Num": "0",
-          "Comments": "うぅ…反省してますぅ…（※反省してない）"
         }
       ]
     }
@@ -5788,7 +5894,6 @@
     "SpetialSkill": "粘土細工、砂場で城を作る",
     "Favor": "人形、ぬいぐるみ",
     "Unlike": "爬虫類",
-    "WellmatchedNTsNames": "92(コトジ)",
     "NumerospecAbout": "マンネリ化から抜け出す勇気を与える\n特に当たり前のことから新しいことへの挑戦を促す",
     "Summary": "遊んでいることやお気に入りになったものがある一定の期間を経て当たり前のものになると、他のものへと趣向が変わる傾向にある。\nしかしそれは彼女が飽き性だからではなく、その時々で新しいことやものに触れようとする意欲があってのことらしい。\n加えて不思議なことに、彼女のそういう風習は、主人に「当たり前だったことから新しいことへと移る勇気」を与えているようだ。",
     "NumerospecStats": {
@@ -5814,15 +5919,17 @@
     "Relation": {
       "Related": [
         {
+          "Num": 5,
+          "Comments": "なんていうか…すごい",
+          "RelationLabel": ["pioneer"]
+        },
+        {
           "Num": 92,
-          "Comments": "どんな事があってもすぐに立ち直れてすごい"
+          "Comments": "どんな事があってもすぐに立ち直れてすごい",
+          "RelationLabel": ["trusted"]
         }
       ],
       "Commented": [
-        {
-          "Num": 5,
-          "Comments": "なんていうか…すごい"
-        },
         {
           "Num": 20,
           "Comments": "とても正直で嘘はつかない人"
@@ -5881,7 +5988,6 @@
     "SpetialSkill": "ダーツ",
     "Favor": "照明器具",
     "Unlike": "悪天候",
-    "WellmatchedNTsNames": "6(ムイ)",
     "RelationAbouts": "「6(ムイ)」を「姉様」と慕っている",
     "NumerospecAbout": "祈りの恩恵を分け与える",
     "Summary": "「愛があることを信じていれば、何もなくとも輝ける」、そう信じてやまない博愛主義な「マスターテールズ9」のうちの1人。\n自分には強いポテンシャルがあるとも信じているが、その恩恵を主人にも分けてくれると主人層からかなりの好評を得ている。\nちなみに、「6(ムイ)」に対しては「姉様(あねさま)」と称するほど姉妹的な愛着があり、2人で過ごす時間も短くないという。",
@@ -5908,7 +6014,13 @@
       "Related": [
         {
           "Num": 6,
-          "Comments": "親愛なる姉様"
+          "Comments": "親愛なる姉様",
+          "RelationLabel": ["pioneer", "wellMatched", "trusted"]
+        },
+        {
+          "Num": 60,
+          "Comments": "自分らしさが輝いている優美な方",
+          "RelationLabel": ["pioneer"]
         }
       ],
       "Commented": [
@@ -5927,10 +6039,6 @@
         {
           "Num": 48,
           "Comments": "何事も諦めることない立派なお方"
-        },
-        {
-          "Num": 60,
-          "Comments": "自分らしさが輝いている優美な方"
         },
         {
           "Num": 75,
@@ -6032,8 +6140,6 @@
     "SpetialSkill": "掃除\nフリーマーケット",
     "Favor": "髪を整える道具",
     "Unlike": "散らかった部屋",
-    "WellmatchedNTsNames": "16(ソロク),98(キュウヤ)",
-    "UnmatchedNTsNames": "88(ヤソハチ)",
     "RelationAbouts": "加護が強いナンバーテールズを「お化け」と称しがち\n稀にベリーショートヘアで登場し「5(イズ)」に笑われる",
     "NumerospecAbout": "断捨離させる\nこれにより主人や相手の生活の無駄を排除できる",
     "Summary": "古着の処分や機種変更など、物を長期的に保管することより「断捨離すること」を得意としている。\nしかし新品と比べ古い物の見方は異質なところもあり、すぐ手放そうとする傾向にある。\n一方でその価値観が功をなし、ナンバーテールズの中ではトップクラスの整理力と掃除力がある。\nちなみに手放した物の大半はフリーマーケットで売られるため、周囲から助かっているとの声も。",
@@ -6059,16 +6165,18 @@
     "InStory": "ナンバーテールズの掃除担当？",
     "Relation": {
       "Related": [
-        { "Num": 5 },
+        { "Num": 5, "RelationLabel": ["pioneer"] },
         {
           "Num": 16,
-          "Comments": "幸せな貧乏, 欲しいものがあれば手伝う"
+          "Comments": "幸せな貧乏, 欲しいものがあれば手伝う",
+          "RelationLabel": ["cousin_nearly", "wellMatched"]
         },
         {
           "Num": 88,
-          "Comments": "絶対私物にいらない物あるだろ"
+          "Comments": "絶対私物にいらない物あるだろ",
+          "RelationLabel": ["awkward"]
         },
-        { "Num": 98 }
+        { "Num": 98, "RelationLabel": ["cousin", "trusted"] }
       ],
       "Commented": [
         {
@@ -6134,8 +6242,6 @@
     "SpetialSkill": "モノマネ",
     "Favor": "ハリウッド映画",
     "Unlike": "妹",
-    "WellmatchedNTsNames": "60(ムソウ)",
-    "UnmatchedNTsNames": "40(ヨソ)",
     "NumerospecAbout": "自分自身に対する固定概念から解放する",
     "Summary": "主人の望むキャラを演じて従事するという、独特な契約プランを持つナンバーテールズ。\n芸達者で様々な性格を演じることができる一方、素でのコミュニケーションが乏しいことから他のナンバーテールズに「アイデンティティを見失っているのではないか」と心配されている。\nとはいえ妹「96(クルリ)」のキャラ崩壊っぷりの方が彼にとって難儀らしい。\n気分屋で新しいことに戯れるのが好き。",
     "NumerospecStats": {
@@ -6161,25 +6267,29 @@
     "Backgrounds": "契約プランで彼に好きなキャラを演じてもらう、という独自システムがある",
     "Relation": {
       "Related": [
-        { "Num": 40 },
-        {
-          "Num": 60,
-          "Comments": "立ち振る舞いとか見習いたい"
-        },
-        {
-          "Num": 96,
-          "Comments": "俺よりもさらにアイデンティティを見失ってる妹"
-        }
-      ],
-      "Commented": [
         {
           "Num": 6,
-          "Comments": "愛くるしい存在"
+          "Comments": "愛くるしい存在",
+          "RelationLabel": ["pioneer"]
         },
         {
           "Num": 9,
-          "Comments": "本当は本性を隠してそう"
+          "Comments": "本当は本性を隠してそう",
+          "RelationLabel": ["pioneer"]
         },
+        { "Num": 40, "RelationLabel": ["unmatched"] },
+        {
+          "Num": 60,
+          "Comments": "立ち振る舞いとか見習いたい",
+          "RelationLabel": ["pioneer_nearly", "trusted"]
+        },
+        {
+          "Num": 96,
+          "Comments": "俺よりもさらにアイデンティティを見失ってる妹",
+          "RelationLabel": ["brother|sister", "alternative|redesign", "awkward"]
+        }
+      ],
+      "Commented": [
         {
           "Num": 87,
           "Comments": "ほんといつかカツアゲされるぞ…"
@@ -6224,7 +6334,6 @@
     "SpetialSkill": "水晶占い",
     "Favor": "タロットカード、オラクルカード",
     "Unlike": "演出の激しいパーティルーム",
-    "WellmatchedNTsNames": "7(ナナ),25(フィズ)",
     "RelationAbouts": "「25(フィズ)」の占い結果に興味がある",
     "NumerospecAbout": "占術や祭事ができる\nこれにより相手の悩みの整理などができる",
     "Summary": "普段は適当な性格のように見えるが、瞑想能力や（霊的な）勘による有能っぷりを見せている。\n「7(ナナ)」の実の弟機に相当し、一緒に勉強や修行している様子もしばしばあるようだ。\n一方主人に従事する傍らで祭事や占いを趣味/特技とし、他のナンバーテールズの運勢を占ったりもしているらしい。\n中でも「25(フィズ)」を占った時の相に大変興味があるようだが…？",
@@ -6252,11 +6361,13 @@
       "Related": [
         {
           "Num": 7,
-          "Comments": "信頼できる勉強仲間"
+          "Comments": "信頼できる勉強仲間",
+          "RelationLabel": ["brother|sister", "trusted"]
         },
         {
           "Num": 25,
-          "Comments": "毎回占ってるけど悪い相が出ない、幸運者"
+          "Comments": "毎回占ってるけど悪い相が出ない、幸運者",
+          "RelationLabel": ["interested", "wellMatched"]
         }
       ],
       "Commented": [
@@ -6315,8 +6426,6 @@
     "SpetialSkill": "PDCAなどのフレームワーク",
     "Favor": "青春",
     "Unlike": "無知無能",
-    "WellmatchedNTsNames": "35(サトコ)\n零",
-    "UnmatchedNTsNames": "48(シハチ)",
     "NumerospecAbout": "主人へ学びを1日1つ恵む",
     "Summary": "知的好奇心が豊富で努力家であるため、この上ない成長が期待されている。\nその好青年な気質に感化され、契約した主人から感謝状が出ることも。\nこちらは見た目に反し男性型個体であるが、初々しい学生のような愛嬌があると特定の客層から可愛がられている。\nただ、時折その幼い見た目から想像もできない実績を会得していることもあり、カリスマ起業家に標的にされているとか…",
     "NumerospecStats": {
@@ -6345,14 +6454,23 @@
     "Relation": {
       "Related": [
         {
-          "Num": 35,
-          "Comments": "仕事ができてすごく頼れます"
+          "Num": 17,
+          "Comments": "ぼくにとって尊敬できる姉です！",
+          "RelationLabel": ["brother|sister", "trusted"]
         },
-        { "Num": 48 },
-        { "Num": "0", "Comments": "なんだかとっても憧れます…!!" }
+        {
+          "Num": 35,
+          "Comments": "仕事ができてすごく頼れます",
+          "RelationLabel": ["wellMatched"]
+        },
+        { "Num": 48, "RelationLabel": ["unmatched"] },
+        {
+          "Num": "0",
+          "Comments": "なんだかとっても憧れます…!!",
+          "RelationLabel": ["trusted"]
+        }
       ],
       "Commented": [
-        { "Num": 17, "Comments": "ぼくにとって尊敬できる姉です！" },
         {
           "Num": 25,
           "Comments": "どんなときも軽やかでかっこいい"
@@ -6406,8 +6524,6 @@
     "SpetialSkill": "ルーレットが止まる場所を回転中に当てられる",
     "Favor": "コミュニケーション力を伸ばせるビジネス本",
     "Unlike": "如何様(イカサマ)",
-    "WellmatchedNTsNames": "2(ツグ),49(ヨチカ)?",
-    "UnmatchedNTsNames": "27(ツギナ),44(シトシ)",
     "NumerospecAbout": "機械学習能力に特化した特殊なROSの主力機能で、ありとあらゆる学習ができる",
     "Summary": "主人の学びをさらに支えられるよう機能の一部を知識学習用に当てられた、99人の中では珍しい教材型のナンバーテールズ。\n極めて強力な機械学習能力により主人との学びを最大限に引き出すことで、困難な資格の取得や難関校への合格へと導いている。\nそこで彼女の名や機能に「神」などの通称が付くことも。\nただ性格や言動が「人工知能っぽく」なってしまった様で…",
     "NumerospecStats": {
@@ -6436,30 +6552,34 @@
       "Related": [
         {
           "Num": 2,
-          "Comments": "ステータス“気遣い”を繰り返し確認、優しさに感謝していますが、どうか無理なさらず"
+          "Comments": "ステータス“気遣い”を繰り返し確認、優しさに感謝していますが、どうか無理なさらず",
+          "RelationLabel": ["pioneer_nearly", "trusted"]
+        },
+        {
+          "Num": 7,
+          "Comments": "属性“理性”および”感性”を同時に検出，これによる最適化現象も確認…凄い…",
+          "RelationLabel": ["pioneer"]
         },
         {
           "Num": 27,
-          "Comments": "同型ですが、OSの構造が異なる様で…"
+          "Comments": "同型ですが、OSの構造が異なる様で…",
+          "RelationLabel": ["brother|sister", "alternative|redesign", "awkward"]
         },
-        { "Num": 44 }
+        { "Num": 44, "RelationLabel": ["unmatched"] },
+        { "Num": 49, "RelationLabel": ["wellMatched"] }
       ],
       "Commented": [
+        {
+          "Num": 9,
+          "Comments": "“悩み相談”という行為に有力と判断"
+        },
         {
           "Num": 20,
           "Comments": "心理的および感情的な共鳴作用を検出"
         },
         {
-          "Num": 7,
-          "Comments": "属性“理性”および”感性”を同時に検出，これによる最適化現象も確認…凄い…"
-        },
-        {
           "Num": 70,
           "Comments": "属性“理性”および”感性”を同時に検出，これによる最適化現象も確認…凄い…"
-        },
-        {
-          "Num": 9,
-          "Comments": "“悩み相談”という行為に有力と判断"
         },
         {
           "Num": 99,
@@ -6503,8 +6623,6 @@
     "SpetialSkill": "地獄耳",
     "Favor": "配信機材",
     "Unlike": "針\nゴシップ",
-    "WellmatchedNTsNames": "66(ムロク)",
-    "UnmatchedNTsNames": "79(ナチカ)",
     "NumerospecAbout": "知識を深めさせる\nこの作用は主に知識のアウトプットにより発揮される",
     "Summary": "少し世間知らずでなんでも知りたがるナンバーテールズ。\n単純で騙されやすく、一度触れた知識は正誤問わずすぐに共有したがるため、姉の「37(サナ)」にしばしば止められている。\n知識のアウトプットに長けた個体でもあるため、宣伝効果も兼ねてナンバーテールズ公式の配信活動も裏で行っている。\n「66(ムロク)」に憧れている一面があるようで…？",
     "NumerospecStats": {
@@ -6531,18 +6649,22 @@
     "Relation": {
       "Related": [
         {
-          "Num": 37
+          "Num": 37,
+          "RelationLabel": ["brother|sister"]
         },
         {
           "Num": 66,
-          "Comments": "かっこいい……!!"
+          "Comments": "かっこいい……!!",
+          "RelationLabel": ["wellMatched", "interested"]
         },
         {
-          "Num": 79
+          "Num": 79,
+          "RelationLabel": ["cousin", "unmatched"]
         },
         {
           "Num": 97,
-          "Comments": "「彼女の話だけは拡散するな」って言われる"
+          "Comments": "「彼女の話だけは拡散するな」って言われる",
+          "RelationLabel": ["cousin_nearly", "adverselyAffected_aBit"]
         }
       ],
       "Commented": [
@@ -6602,8 +6724,6 @@
     "SpetialSkill": "おみくじで\n誰が大吉を引くか当てる",
     "Favor": "シルク",
     "Unlike": "雷",
-    "WellmatchedNTsNames": "11(トウイチ),40(ヨソ)",
-    "UnmatchedNTsNames": "55(イソゴ)",
     "NumerospecAbout": "「天のお告げ」を聴く",
     "Summary": "ナンバーテールズの中では他に類を見ない、“天のお告げ”を受け取ることができるという極めて高く冴えわたった感性を持ち、預言者のような風格を見せている。\nなおその様子からにより他の98人からは変わり者に思われている様子だが、“天のお告げ”による預言は外れることがあまりないので、神頼み要因として彼女を信頼する（？）ナンバーテールズも居るようだ。",
     "NumerospecStats": {
@@ -6630,24 +6750,32 @@
     "Relation": {
       "Related": [
         {
-          "Num": 11,
-          "Comments": "彼(女)が暴走するお告げは見たくないわ"
+          "Num": 7,
+          "Comments": "心を休めてるか心配ね…",
+          "RelationLabel": ["pioneer"]
         },
-        { "Num": 40 },
-        { "Num": 55 }
+        {
+          "Num": 11,
+          "Comments": "彼(女)が暴走するお告げは見たくないわ",
+          "RelationLabel": ["trusted", "awkward_aBit"]
+        },
+        { "Num": 40, "RelationLabel": ["wellMatched"] },
+        {
+          "Num": 47,
+          "Comments": "“加護”が何なのかはともかく自信家な姉",
+          "RelationLabel": ["brother|sister"]
+        },
+        { "Num": 55, "RelationLabel": ["unmatched"] },
+        {
+          "Num": 97,
+          "Comments": "神様を信じすぎよ…",
+          "RelationLabel": ["cousin_nearly", "awkward_aBit"]
+        }
       ],
       "Commented": [
         {
-          "Num": 7,
-          "Comments": "心を休めてるか心配ね…"
-        },
-        {
           "Num": 38,
           "Comments": "運気は無駄遣いしないでね"
-        },
-        {
-          "Num": 47,
-          "Comments": "“加護”が何なのかはともかく自信家な姉"
         },
         {
           "Num": 56,
@@ -6656,10 +6784,6 @@
         {
           "Num": 94,
           "Comments": "無理しなくて大丈夫よ"
-        },
-        {
-          "Num": 97,
-          "Comments": "神様を信じすぎよ…"
         }
       ]
     }
@@ -6697,8 +6821,6 @@
     "SpetialSkill": "経験則が的確",
     "Favor": "文房具",
     "Unlike": "炎（焚火や火災）",
-    "WellmatchedNTsNames": "25(フィズ)",
-    "UnmatchedNTsNames": "57(イズナ),93(クミ)?",
     "RelationAbouts": "双子の片割「57(イズナ)」は楽観的すぎだと思っている\n「25(フィズ)」に目標意識が…？",
     "NumerospecAbout": "学びや教訓を味方にし、状況を好転させる（ROSの学習機能に近いが、加護としての能力が強い）",
     "Summary": "経験から状況を好転させることに特化したナンバーテールズ。\n教訓と物事からの学びを大切にし、それがいつしか自分に良い結果として返ってくると信じている。\n「25(フィズ)」に目標意識があるのとか無いとか。\nちなみに「57(イズナ)」と同型双子関係があるが、「57(イズナ)」と彼(女)でどちらが弟(妹)であるかという年長年弱の区別は無いらしい。",
@@ -6726,15 +6848,18 @@
       "Related": [
         {
           "Num": 25,
-          "Comments": "優秀だと思う、私もいつか…"
+          "Comments": "優秀だと思う、私もいつか…",
+          "RelationLabel": ["trusted"]
         },
         {
           "Num": 57,
-          "Comments": "双子とはいえ楽観的過ぎる気がする"
+          "Comments": "双子とはいえ楽観的過ぎる気がする",
+          "RelationLabel": ["brother|sister", "awkward"]
         },
         {
           "Num": 93,
-          "Comments": "夢が大きいのはいいことだと思う。ただ…"
+          "Comments": "夢が大きいのはいいことだと思う。ただ…",
+          "RelationLabel": ["trusted_maybe", "awkward"]
         }
       ],
       "Commented": [
@@ -6790,8 +6915,6 @@
     "SpetialSkill": "複数文献の斜め読み",
     "Favor": "専門書、同人誌",
     "Unlike": "非合理的・非常識なこと",
-    "WellmatchedNTsNames": "71(ナナヒ)",
-    "UnmatchedNTsNames": "40(ヨソ)",
     "NumerospecAbout": "知識や教養から自らに磨きを掛ける",
     "Summary": "何かと理論的・知的に物事を考えがちで、読書を何よりも好む事から図書委員の様に周りから風刺されている。\n眼鏡付きのヘッドセットを外した時の容姿に反して本人は性格や内面に自信がないため、敢えてそのような風格を出しているという噂も。\nとはいえ知識を自分の美意識に適応する感性はとりわけ高いので、特定少数の主人層ではそこそこ高い好感度を安定して得ているらしい。",
     "NumerospecStats": {
@@ -6818,11 +6941,13 @@
       "Related": [
         {
           "Num": 40,
-          "Comments": "意味わからないです…"
+          "Comments": "意味わからないです…",
+          "RelationLabel": ["unmatched"]
         },
         {
           "Num": 71,
-          "Comments": "羨ましい、というよりズルいです"
+          "Comments": "羨ましい、というよりズルいです",
+          "RelationLabel": ["cousin", "wellMatched"]
         }
       ],
       "Commented": [
@@ -6879,8 +7004,6 @@
     "SpetialSkill": "集中した時の反射神経",
     "Favor": "集中できる場所",
     "Unlike": "カラオケルーム",
-    "WellmatchedNTsNames": "5(イズ)",
-    "UnmatchedNTsNames": "7(ナナ),55(イソゴ)",
     "RelationAbouts": "「5(イズ)」に才能を認められている\n「7(ナナ)」を良きライバルと思っているが…",
     "NumerospecAbout": "集中力を操作できる\nこの能力は時として霊的現象を呼び覚ますらしい",
     "Summary": "集中することで霊的能力が開花するとどこかで噂されており、実績も今後伸びしろがあると評判のダークホース。\n気さくで軽い口調とどこかふざけたようなあだ名の付け方が特徴的だが、陰で自分を律しており重要なことには極めて真剣に励むことができる、「マスターテールズ９」の中で最大の真面目ポジション。\nただ、真面目な人との人望がやや薄いことをコンプレックスに持つ。",
@@ -6911,15 +7034,18 @@
       "Related": [
         {
           "Num": 5,
-          "Comments": "なんかいつの間にか好いて来るようになった"
+          "Comments": "なんかいつの間にか好いて来るようになった",
+          "RelationLabel": ["wellMatched"]
         },
         {
           "Num": 7,
-          "Comments": "僕相手だとほんと素直じゃないな…"
+          "Comments": "僕相手だとほんと素直じゃないな…",
+          "RelationLabel": ["interested", "awkward"]
         },
         {
           "Num": 55,
-          "Comments": "近寄らないでこの“ハリケーン野郎”"
+          "Comments": "近寄らないでこの“ハリケーン野郎”",
+          "RelationLabel": ["unmatched"]
         }
       ],
       "Commented": [
@@ -6979,8 +7105,6 @@
     "SpetialSkill": "アドリブ祝辞",
     "Favor": "トランプ、タロットカード",
     "Unlike": "傲慢な態度",
-    "WellmatchedNTsNames": "76(シチロク)",
-    "UnmatchedNTsNames": "51(イソイチ)",
     "ThisMasters": "錦野 舞（78特殊探偵団 采配幹部(ディーラー)/シンフォニー.XVI(ゼクズィン)所属 デザインエンジニア）",
     "NumerospecAbout": "経験・報酬を反省から生む\nただしこの効果は対象の性格と相互に影響する",
     "Summary": "反省からの学びを強めることに秀でているとされているナンバーテールズ。\n技術適正が極めて高く、エンジニアとして働いている主人からの支持が手厚い。\nしかしながらどこか自分に自信がなくアイテムに縋ることでしか自分を評価できないところがあり、彼女をよく知る別の個体によっては心配されたり胡散臭がられたりしている。\nとはいえ誠心誠意で自らも反省しながら精進する姿は誰よりも評価されている。",
@@ -7012,30 +7136,35 @@
     "Relation": {
       "Related": [
         {
+          "Num": 7,
+          "Comments": "畏れ多くも、難しいことはよく解りません…",
+          "RelationLabel": ["pioneer"]
+        },
+        {
+          "Num": 8,
+          "Comments": "作業を見てると少し心が躍るような…",
+          "RelationLabel": ["pioneer"]
+        },
+        {
           "Num": 51,
-          "Comments": "後先が心配になってしまいます…"
+          "Comments": "後先が心配になってしまいます…",
+          "RelationLabel": ["awkward"]
         },
         {
           "Num": 76,
-          "Comments": "何処か共感できる部分はあります"
+          "Comments": "何処か共感できる部分はあります",
+          "RelationLabel": ["cousin", "wellMatched"]
+        },
+        {
+          "Num": 87,
+          "Comments": "姉としても今後が怖い存在です…",
+          "RelationLabel": ["brother|sister", "awkward_aBit"]
         }
       ],
       "Commented": [
         {
-          "Num": 7,
-          "Comments": "畏れ多くも、難しいことはよく解りません…"
-        },
-        {
-          "Num": 8,
-          "Comments": "作業を見てると少し心が躍るような…"
-        },
-        {
           "Num": 68,
           "Comments": "吹っ切れたお方で…いえ、すみません…"
-        },
-        {
-          "Num": 87,
-          "Comments": "姉としても今後が怖い存在です…"
         }
       ]
     }
@@ -7081,7 +7210,6 @@
     ],
     "Class": "10倍番(テンズデジッツ)",
     "Class_EN": "Tens-Digits",
-    "WellmatchedNTsNames": "88(ヤソハチ)",
     "RelationAbouts": "「88(ヤソハチ)」と何か関係が…？",
     "NumerospecAbout": "物流を体感できる",
     "Relation": {
@@ -7096,7 +7224,8 @@
           "Num": 62
         },
         {
-          "Num": 88
+          "Num": 88,
+          "RelationLabel": ["successor", "wellMatched"]
         }
       ]
     }
@@ -7134,8 +7263,6 @@
     "SpetialSkill": "会計処理",
     "Favor": "価値感の向上",
     "Unlike": "詐欺（をすること）",
-    "WellmatchedNTsNames": "72(ナフタ)",
-    "UnmatchedNTsNames": "8(ワカツ)",
     "NumerospecAbout": "自信および主人の自己肯定感を高め役目を全うさせる",
     "Summary": "社会貢献に務める主人のサポートに経験が特化しているナンバーテールズ。\n彼女が居ると、主人の行動や活動を支える効果がもたらされ、価値観や収入が向上すると評判。\n社会情勢に敏感で奉仕的。\n趣味として、投資の攻略法についてひそかに研究しているとか。\n「8(ワカツ)」にちょくちょく経理関係でアドバイスをしている一面もあるようだが…",
     "NumerospecStats": {
@@ -7164,21 +7291,24 @@
       "Related": [
         {
           "Num": 8,
-          "Comments": "良かれと思って助言してるんだけどなぁ…"
+          "Comments": "良かれと思って助言してるんだけどなぁ…",
+          "RelationLabel": ["pioneer", "abusing"]
+        },
+        {
+          "Num": 18,
+          "Comments": "優秀すぎる姉",
+          "RelationLabel": ["brother|sister"]
         },
         {
           "Num": 72,
-          "Comments": "学びこそ彼(女)の強みだろうな"
+          "Comments": "学びこそ彼(女)の強みだろうな",
+          "RelationLabel": ["trusted"]
         }
       ],
       "Commented": [
         {
           "Num": 10,
           "Comments": "怪しい目的でも抱えてそう"
-        },
-        {
-          "Num": 18,
-          "Comments": "優秀すぎる姉"
         },
         {
           "Num": 90,
@@ -7320,8 +7450,6 @@
     "SpetialSkill": "勘定",
     "Favor": "宝石",
     "Unlike": "賭け事",
-    "WellmatchedNTsNames": "88(ヤソハチ)?\n百",
-    "UnmatchedNTsNames": "62(ロジ)",
     "RelationAbouts": "百のジャンク漁りに同行することがある\n62(ロジ)に振り回されがち",
     "NumerospecAbout": "必要なものを引き寄せる\nただしこの効果の詳細は不明",
     "Summary": "このナンバーテールズと契約した主人はだいたい最悪の事態にならないとどこかで評判。\nただ少し誰かに甘やかされて育ったかのような気質をしており、金銭感覚やコミュ力に疎いなどの一面が拭えない。\n（しかしそれも愛嬌だと一定層の主人は言っている。）\n趣味として、ナンバーテールズを開発した1人である「百(ハゲム)」とジャンク漁りに行くことも。",
@@ -7349,15 +7477,18 @@
       "Related": [
         {
           "Num": 62,
-          "Comments": "いちいち構わないで…うぅ…"
+          "Comments": "いちいち構わないで…うぅ…",
+          "RelationLabel": ["unmatched"]
         },
         {
           "Num": 88,
-          "Comments": "努力家だし憎めないとこはあんじゃない？"
+          "Comments": "努力家だし憎めないとこはあんじゃない？",
+          "RelationLabel": ["interested", "trusted_maybe"]
         },
         {
           "Num": "00",
-          "Comments": "いいジャンク場あったら連絡よろ"
+          "Comments": "いいジャンク場あったら連絡よろ",
+          "RelationLabel": ["wellMatched"]
         }
       ],
       "Commented": [
@@ -7426,8 +7557,6 @@
     "SpetialSkill": "はんだ付け（実は溶接もできる）",
     "Favor": "自己投資(という考え方)",
     "Unlike": "誤差、やる気を出さない人",
-    "WellmatchedNTsNames": "35(サトコ)",
-    "UnmatchedNTsNames": "42(ヨツグ),94(ツクシ)",
     "NumerospecAbout": "金運を上げ、物欲を叶える\nただしこの効果は対象の物欲の種類に影響されやすい",
     "Summary": "社会的信用の向上効果が期待できるとされているナンバーテールズ。\n明るく積極的で技術力も高いことから、男性技術職の主人を筆頭に強い支持を賜っている。\nしかしながらどこか自分の望む完璧なものを得るために過度な出資も惜しまない一面があり、他個体から防犯的・自衛的な身の危険を心配されている。\nとはいえ良識や規範はちゃんと理解しているので、怪しい人や怪しいモノへは貢いでいない……はず。",
     "NumerospecStats": {
@@ -7460,15 +7589,23 @@
       "Related": [
         {
           "Num": 35,
-          "Comments": "なんでもできちゃって尊敬する！"
+          "Comments": "なんでもできちゃって尊敬する！",
+          "RelationLabel": ["wellMatched"]
         },
         {
           "Num": 42,
-          "Comments": "お姉さまを馬鹿にするなーっ！"
+          "Comments": "お姉さまを馬鹿にするなーっ！",
+          "RelationLabel": ["unmatched"]
+        },
+        {
+          "Num": 78,
+          "Comments": "お姉さま！そんなに心配しなくても…！",
+          "RelationLabel": ["brother|sister", "trusted_maybe"]
         },
         {
           "Num": 94,
-          "Comments": "寝てばっかりだけど大丈夫……？"
+          "Comments": "寝てばっかりだけど大丈夫……？",
+          "RelationLabel": ["awkward"]
         }
       ],
       "Commented": [
@@ -7483,10 +7620,6 @@
         {
           "Num": 43,
           "Comments": "不要に本気で逆に面白い人だと私は思うな♪"
-        },
-        {
-          "Num": 78,
-          "Comments": "お姉さま！そんなに心配しなくても…！"
         }
       ]
     }
@@ -7524,8 +7657,6 @@
     "SpetialSkill": "お金を集めること",
     "Favor": "楽器\n努力",
     "Unlike": "努力やお金を無駄にすること",
-    "WellmatchedNTsNames": "80(ヤソ),85(ハッコ)?",
-    "UnmatchedNTsNames": "68(ロクヤ)",
     "RelationAbouts": "ピアノ型のホログラムは「8(ワカツ)」が調整している",
     "NumerospecAbout": "主人の報酬を保証する\n強力な加護のためこの効果の詳細は不明",
     "Summary": "努力家を好み努力家の幸福を願っており、努力に相応しい報酬の確保を信条としている。\nその成果は驚異的で、物質的にも非物質的にも膨大な量の恩恵を与えていると巷で有名となり、あまりにも高級な効果が期待されると判明されてから、彼との契約料金も99人の中で最上位を誇っている。\nその集金力はもはや異次元で不気味とさえ思われがち。\n趣味はピアノ演奏。",
@@ -7557,19 +7688,23 @@
       "Related": [
         {
           "Num": 8,
-          "Comments": "ホログラムありがとう、新作が楽しみだ"
+          "Comments": "ホログラムありがとう、新作が楽しみだ",
+          "RelationLabel": ["pioneer", "trusted"]
         },
         {
           "Num": 68,
-          "Comments": "物の価値観が違うから、ちょっと苦手"
+          "Comments": "物の価値観が違うから、ちょっと苦手",
+          "RelationLabel": ["unmatched"]
         },
         {
           "Num": 80,
-          "Comments": "（黒塗りされていて読めない、関係はあるようだ）"
+          "Comments": "（黒塗りされていて読めない、関係はあるようだ）",
+          "RelationLabel": ["pioneer", "wellMatched", "secretRelation"]
         },
         {
           "Num": 85,
-          "Comments": "努力無く報酬が得られるのも珍妙な話です"
+          "Comments": "努力無く報酬が得られるのも珍妙な話です",
+          "RelationLabel": ["interested", "trusted_maybe"]
         }
       ],
       "Commented": [
@@ -7627,8 +7762,6 @@
     "SpetialSkill": "生け花",
     "Favor": "因果応報",
     "Unlike": "老けて思われがち",
-    "WellmatchedNTsNames": "17(トナ),71(ナナヒ)",
-    "UnmatchedNTsNames": "19(トク),98(キュウヤ)",
     "NumerospecAbout": "主人の抱える未練を中和する",
     "Summary": "「すべての物事には終わりがあり、終わりにはそこで行ってきたことへの報いがある」と、何事にも最後まで誠実であることを大切にしている。\nそのモットーを主人と共有することが彼女の最大の役目となっているため、定年退職や引退などを控えた中壮年層の主人から評判となっている。\nただ、他のナンバーテールズから老けて思われがちなのが悩みなんだとか。",
     "NumerospecStats": {
@@ -7653,28 +7786,33 @@
     "Relation": {
       "Related": [
         {
-          "Num": 17,
-          "Comments": "私と似てるはずです"
-        },
-        { "Num": 19 },
-        {
-          "Num": 71,
-          "Comments": "私と対称的ですが、いつも励みになります"
-        },
-        {
-          "Num": 98,
-          "Comments": "姉妹の妹。開放的で少し馴染めません…"
-        }
-      ],
-      "Commented": [
-        {
           "Num": 8,
-          "Comments": "裕福なのはきっと日頃の行いのおかげ、のはず…"
+          "Comments": "裕福なのはきっと日頃の行いのおかげ、のはず…",
+          "RelationLabel": ["pioneer", "awkward_aBit"]
         },
         {
           "Num": 9,
-          "Comments": "素敵な方です、ですが…"
+          "Comments": "素敵な方です、ですが…",
+          "RelationLabel": ["pioneer", "awkward_aBit"]
         },
+        {
+          "Num": 17,
+          "Comments": "私と似てるはずです",
+          "RelationLabel": ["wellMatched"]
+        },
+        { "Num": 19, "RelationLabel": ["cousin", "unmatched"] },
+        {
+          "Num": 71,
+          "Comments": "私と対称的ですが、いつも励みになります",
+          "RelationLabel": ["trusted"]
+        },
+        {
+          "Num": 98,
+          "Comments": "姉妹の妹。開放的で少し馴染めません…",
+          "RelationLabel": ["brother|sister", "awkward"]
+        }
+      ],
+      "Commented": [
         {
           "Num": 35,
           "Comments": "感性の素晴らしい方です"
@@ -7775,8 +7913,6 @@
     "SpetialSkill": "感情の整理",
     "Favor": "冬、コアフォルダが寄り添っている様子",
     "Unlike": "姉を筆頭に怖がられていること",
-    "WellmatchedNTsNames": "19(トク)\nコアフォルダ全般",
-    "UnmatchedNTsNames": "90(キュウト)",
     "NumerospecAbout": "心を慰める\nただしこの効果は会話を通してのみ発動する",
     "Summary": "彼と会話を続けていると、心の中に抱えている悩みが解消されると噂されているが、彼の話し口調そのものは冷酷に思われがち。\n時折 威圧的に思われてしまう事があるため率先して相談に乗ることは控えているが、彼なりの優しさがあってこその言動だと支持する主人や他個体も少なくはない。\n姉の「29(ニトク)」に避けられていることをコンプレックスに感じている。\n最近の癒しは寄り添い合うコアフォルダを眺めることだが、彼自身もその中に入りたいというのは別の話。",
     "NumerospecStats": {
@@ -7798,19 +7934,22 @@
       "Technic": { "Rank": "C" },
       "Actuation": { "Rank": "B" }
     },
-    "InStory": "話が長くなりそうなときは聞き専に回ることが多い",
+    "InStory": "話が長くなりそうなときは聞き専に回ることが多い\nコアフォルダ形態に癒しを感じている",
     "Relation": {
       "Related": [
         {
           "Num": 19,
-          "Comments": "うざいけど、すごく有能な人だと思う"
+          "Comments": "うざいけど、すごく有能な人だと思う",
+          "RelationLabel": ["cousin_nearly", "trusted"]
         },
         {
           "Num": 29,
-          "Comments": "……姉ちゃん…"
+          "Comments": "……姉ちゃん…",
+          "RelationLabel": ["brother|sister", "awkward", "trusted"]
         },
         {
-          "Num": 90
+          "Num": 90,
+          "RelationLabel": ["unmatched"]
         }
       ],
       "Commented": [
@@ -7868,7 +8007,6 @@
     "SpetialSkill": "応援（実はヲタ芸もできる）",
     "Favor": "鉢巻\n表彰状（成果がわかるもの）",
     "Unlike": "挫折\n遊園地のアトラクション",
-    "WellmatchedNTsNames": "3(ナオ),9(チカ)",
     "RelationAbouts": "「3(ナオ)」「9(チカ)」を活動の目標に掲げている",
     "NumerospecAbout": "主人の抱える野望を叶える\nただしこの効果は主人との信頼関係に影響される",
     "Summary": "「39(サク)」の妹に相当する個体。\n成し遂げたことは一つの「過程」としてとらえ、より高度な成果を期待してやまない。\nそのため、主人よりも向上意欲が強くなってすれ違ってしまうというミスマッチが発生している傾向にあるが、信頼関係が築かれた主人とは互いに大きな目標に向けて精進しているという話も。\n夢は、「3(ナオ)」と「9(チカ)」よりも強大な実績を手にすること。",
@@ -7897,15 +8035,18 @@
       "Related": [
         {
           "Num": 3,
-          "Comments": "いつかこの人に負けない存在になりたい！"
+          "Comments": "いつかこの人に負けない存在になりたい！",
+          "RelationLabel": ["pioneer", "trusted"]
         },
         {
           "Num": 9,
-          "Comments": "かなり凄い人で尊敬すべき人！"
+          "Comments": "かなり凄い人で尊敬すべき人！",
+          "RelationLabel": ["pioneer", "trusted"]
         },
         {
           "Num": 39,
-          "Comments": "お兄ちゃん、ああ見えてとても主人想いなんだよ！"
+          "Comments": "お兄ちゃん、ああ見えてとても主人想いなんだよ！",
+          "RelationLabel": ["brother|sister", "wellMatched"]
         }
       ],
       "Commented": [
@@ -7963,7 +8104,6 @@
     "SpetialSkill": "どんな状況でも入眠できる",
     "Favor": "丸くなって寝ること",
     "Unlike": "丸い形以外になること",
-    "WellmatchedNTsNames": "4(モチ)\nコアフォルダ全般",
     "RelationAbouts": "「4(モチ)」に安心感を覚えている\n同クラス（デュアルフォーズ）での交流に苦戦中",
     "NumerospecAbout": "休息を与える\nこの効果は物事が終結した後に真価を発揮する",
     "Summary": "物事がひと段落したときの休息を過ごすことに特化したナンバーテールズ。\n休止(寝ている状態)時間が他の個体よりも極めて長いため、限られた活動時間でも従事できる主人とのマッチングの徹底やコアフォルダ形態を活用してなんとか活動を展開している。\nしかし周囲からは愛しく思われていて支持者も多い。\nコアフォルダ形態で他のコアフォルダに埋もれたいくらいにはコアフォルダが好き。",
@@ -7994,7 +8134,13 @@
       "Related": [
         {
           "Num": 4,
-          "Comments": "…この人のそば、落ち着く……zzz…"
+          "Comments": "…この人のそば、落ち着く……zzz…",
+          "RelationLabel": ["pioneer", "wellMatched"]
+        },
+        {
+          "Num": 49,
+          "Comments": "……ちょっと、せっかち…",
+          "RelationLabel": ["brother|sister"]
         }
       ],
       "Commented": [
@@ -8005,10 +8151,6 @@
         {
           "Num": 34,
           "Comments": "……いつも、大げさ…"
-        },
-        {
-          "Num": 49,
-          "Comments": "……ちょっと、せっかち…"
         },
         {
           "Num": 67,
@@ -8041,7 +8183,6 @@
     "SpetialSkill": "ライトノベル執筆",
     "Favor": "転機（転職・転校などの）",
     "Unlike": "現状に拘束されること",
-    "WellmatchedNTsNames": "15(トウゴ)",
     "RelationAbouts": "「15(トウゴ)」を「死神様」と慕っているが…？",
     "NumerospecAbout": "現環境から離れたときの支えになる\nただし発動条件が極めて限られており、情報が少ない",
     "InStory": "滅多に本領が発揮されない個体のため、主人に指名されてもマッチングで契約が頓挫しがち",
@@ -8049,7 +8190,13 @@
     "Relation": {
       "Related": [
         {
-          "Num": 15
+          "Num": 15,
+          "RelationLabel": [
+            "cousin",
+            "secretRelation",
+            "wellMatched",
+            "adverselyAffected"
+          ]
         }
       ]
     }
@@ -8090,8 +8237,6 @@
     "SpetialSkill": "キャラを演じること",
     "Favor": "トレンドもの",
     "Unlike": "水着",
-    "WellmatchedNTsNames": "69(ロック)",
-    "UnmatchedNTsNames": "24(フトシ)",
     "RelationAbouts": "「69(ロック)」にだけ素の自分を打ち明けているが…",
     "NumerospecAbout": "過去の柵(しがらみ)から解放する\nこれにより主人に挑戦意欲を奮わせる効果もある",
     "Summary": "好んで仮面を着用する”キャラブレの激しい”ナンバーテールズ。\n流行に敏感で、それに合わせて容姿や個性が移ろっており、この和服のような衣装も実は部屋着としてでしか着用していない。\nこれには他のナンバーテールズからも「キャラクターが掴めない」と不思議がられている。\n謎ばかり深くなる彼女の素は、ナンバーテールズでさえ兄の「69(ロック)」しか知らないとか。",
@@ -8119,23 +8264,32 @@
     "Relation": {
       "Related": [
         {
-          "Num": 24,
-          "Comments": "(「素直じゃない」と書かれている)"
-        },
-        {
-          "Num": 69,
-          "Comments": "(「兄」としか書かれていない…？)"
-        }
-      ],
-      "Commented": [
-        {
           "Num": 6,
-          "Comments": "(「かわいい」と書かれている)"
+          "Comments": "(「かわいい」と書かれている)",
+          "RelationLabel": ["pioneer"]
         },
         {
           "Num": 9,
-          "Comments": "(「慈悲深い」と書かれている)"
+          "Comments": "(「慈悲深い」と書かれている)",
+          "RelationLabel": ["pioneer"]
         },
+        {
+          "Num": 24,
+          "Comments": "(「素直じゃない」と書かれている)",
+          "RelationLabel": ["unmatched"]
+        },
+        {
+          "Num": 69,
+          "Comments": "(「兄」としか書かれていない…？)",
+          "RelationLabel": [
+            "brother|sister",
+            "wellMatched",
+            "trusted",
+            "alternative|redesign"
+          ]
+        }
+      ],
+      "Commented": [
         {
           "Num": 51,
           "Comments": "(「アイディアマン」と書かれている)"
@@ -8180,8 +8334,6 @@
     "SpetialSkill": "読み聞かせ",
     "Favor": "信仰",
     "Unlike": "叱責や怒号",
-    "WellmatchedNTsNames": "61(ロクイチ),72(ナフタ)",
-    "UnmatchedNTsNames": "74(ナナヨ)?,79(ナチカ)",
     "RelationAbouts": "良かれと思って「61(ロクイチ)」と「72(ナフタ)」に、礼拝を勧めている（なお、相手はうまく受け流している）\n「74(ナナヨ)」に関しては否定こそしないが肯定もしておらず、その時々の感情で共感度合いが変わってしまいがち",
     "NumerospecAbout": "善意や善行を報わせて魂を雪(そそ)ぐ\nこの効果は相手の心が清いものである程大きくなる",
     "Summary": "良かれと思う心を報わせると定評な個体で、日頃から人徳と善行を積んでいる主人ほどその恩恵を最大限に受けている。\n一方で、彼女自身は少し内向的で陰気ではあるものの良かれと思う積極性は高めではある。\nしかし信仰に対し強い執着があり、礼拝を習慣としているなど特殊な生活をしている。\n61(ロクイチ)および72(ナフタ)とは、礼拝を強く勧めるのを受け流されつつも悪くない適切な関係にある。",
@@ -8208,27 +8360,32 @@
     "Relation": {
       "Related": [
         {
+          "Num": 7,
+          "Comments": "信仰にご興味とご理解があるようでなにより",
+          "RelationLabel": ["pioneer"]
+        },
+        {
           "Num": 61,
-          "Comments": "より清く輝くために礼拝を－－"
+          "Comments": "より清く輝くために礼拝を－－",
+          "RelationLabel": ["wellMatched"]
         },
         {
           "Num": 72,
-          "Comments": "礼拝で魂を雪(そそ)がれるべきかと－－"
+          "Comments": "礼拝で魂を雪(そそ)がれるべきかと－－",
+          "RelationLabel": ["wellMatched"]
         },
         {
           "Num": 74,
-          "Comments": "予言も一種の信仰なので否定はしませんよ。肯定もしてませんが"
+          "Comments": "予言も一種の信仰なので否定はしませんよ。肯定もしてませんが",
+          "RelationLabel": ["cousin_nearly", "abusing"]
         },
         {
           "Num": 79,
-          "Comments": "信仰を履き違えないでいただきたいところ"
+          "Comments": "信仰を履き違えないでいただきたいところ",
+          "RelationLabel": ["brother|sister", "unmatched"]
         }
       ],
       "Commented": [
-        {
-          "Num": 7,
-          "Comments": "信仰にご興味とご理解があるようでなにより"
-        },
         {
           "Num": 29,
           "Comments": "救いがあるといいですね…"
@@ -8269,8 +8426,6 @@
     "SpetialSkill": "時間制限や手数制限のある作業",
     "Favor": "キリ番から少し減らされ下2桁が「98」になった数字",
     "Unlike": "残業",
-    "WellmatchedNTsNames": "68(ロクヤ)",
-    "UnmatchedNTsNames": "27(ツギナ)",
     "NumerospecAbout": "諦め時を見極める\nこれにより、より即座に結果を伴わせることがあるらしい",
     "Summary": "何事にも投げ遣り気味ですぐに物事を切り上げようとするため、少し大雑把に思われているナンバーテールズ。\nしかしながら「諦め時を見極める」ことに優れた従事活動を展開しており、結果が即座に出て助かると一部の主人から定評を集めている。\n姉の「89(ヤスモ)」とは少し距離を置かれがちだが、同様の気質を有する「68(ロクヤ)」と時折行動を共にしている。",
     "NumerospecStats": {
@@ -8299,15 +8454,18 @@
       "Related": [
         {
           "Num": 27,
-          "Comments": "スパルタ教…いえ、なんでもありません！"
+          "Comments": "スパルタ教…いえ、なんでもありません！",
+          "RelationLabel": ["awkward"]
         },
         {
           "Num": 68,
-          "Comments": "いつもありが…ってそれも捨てるの!?"
+          "Comments": "いつもありが…ってそれも捨てるの!?",
+          "RelationLabel": ["cousin", "wellMatched"]
         },
         {
           "Num": 89,
-          "Comments": "尊敬できるお姉、なかなか構ってくれない"
+          "Comments": "尊敬できるお姉、なかなか構ってくれない",
+          "RelationLabel": ["brother|sister", "awkward_aBit", "trusted"]
         }
       ],
       "Commented": [
@@ -8365,7 +8523,6 @@
     "SpetialSkill": "運試し",
     "Favor": "サイエンスファンタジー",
     "Unlike": "悲劇",
-    "WellmatchedNTsNames": "11(トウイチ)",
     "RelationAbouts": "「11(トウイチ)」に記憶について事情を相談している\n「10(ミツル)」に心当たりが…？",
     "NumerospecAbout": "？？？？の記憶を持つ",
     "Summary": "――余は誰だ？ここは何処だ？\n世界が終わったのか？望みは無いのか？……いや、確かに“あの時”すべてが終わった。\nしかし、終わりをまた迎えるであろう“此処”にまだ、救いが或るのなら、望みがあるのなら――\n「マスターテールズ9」所属、ナンバーテールズ最大の異能。\n彼(女)が観たもの、そして彼(女)が憶えているものとは……",
@@ -8389,16 +8546,26 @@
       "Actuation": { "Rank": "A" }
     },
     "Backgrounds": "最後の正規型個体\n数字表記は漢数字となっている\n加護については偶然の産物（以下略）",
-
     "Relation": {
       "Related": [
         {
+          "Num": 9,
+          "RelationLabel": ["pioneer"]
+        },
+        {
           "Num": 10,
-          "Comments": "お主は…確か…"
+          "Comments": "お主は…確か…",
+          "RelationLabel": ["secretRelation"]
         },
         {
           "Num": 11,
-          "Comments": "よき理解者"
+          "Comments": "よき理解者",
+          "RelationLabel": ["wellMatched", "trusted"]
+        },
+        {
+          "Num": 90,
+          "Comments": "終わりに悔いは残さぬ輩",
+          "RelationLabel": ["cousin"]
         }
       ],
       "Commented": [
@@ -8417,10 +8584,6 @@
         {
           "Num": 45,
           "Comments": "勇敢でよろしい"
-        },
-        {
-          "Num": 90,
-          "Comments": "終わりに悔いは残さぬ輩"
         }
       ]
     }
@@ -8478,7 +8641,6 @@
     "SpetialSkill": "体調不良を見抜く",
     "Favor": "スキンシップ（コアフォルダ形態時）",
     "Unlike": "妹より幼く見えること",
-    "WellmatchedNTsNames": "3(ナオ),20(ハツカ),24(フトシ)\nディケ",
     "RelationAbouts": "「3(ナオ)」と一緒に活動したかったと思っている\n「ディケ」の悩みに寄り添いたいと願っている",
     "NumerospecAbout": "他ナンバーテールズに託す：この効果の詳細は不明",
     "NumerospecStats": {
@@ -8493,7 +8655,31 @@
       "Actuation": { "Rank": { "HideText": "データ無" } }
     },
     "InStory": "ハードウェアの開発トラブルにより完成前に退役\n現在はROSのみで存在し、開発支援に徹している",
-    "Backgrounds": "百の機械設計が零のファームウェア設計と遅れたことが原因、百の最初の挫折となる"
+    "Backgrounds": "百の機械設計が零のファームウェア設計と遅れたことが原因、百の最初の挫折となる",
+    "Relation": {
+      "Related": [
+        {
+          "Num": 2,
+          "RelationLabel": ["sameNumber"]
+        },
+        {
+          "Num": 3,
+          "RelationLabel": ["trusted", "interested"]
+        },
+        {
+          "Num": 20,
+          "RelationLabel": ["brother|sister", "wellMatched"]
+        },
+        {
+          "Num": 24,
+          "RelationLabel": ["successor", "wellMatched"]
+        },
+        {
+          "Num": "10-alt",
+          "RelationLabel": ["trusted", "awkward"]
+        }
+      ]
+    }
   },
   {
     "Num": "10-alt",
@@ -8524,8 +8710,6 @@
     "SecondPersonCalling": "お前",
     "ThirdPersonCalling": "*奴(*いつ);[Name]",
     "ForMasterCalling": "～先輩",
-    "WellmatchedNTsNames": "10(ミツル)\n1桁番所属ネームド個体全員",
-    "UnmatchedNTsNames": "零,百,000(チトセ)",
     "RelationAbouts": "いつか1桁番の許へ復帰するのを望んでいる\n時々隔離開発室に訪れる「10(ミツル)」に戸惑う一面も",
     "NumerospecAbout": "？？？？を果たす\n暴走により唯一攻撃的な特徴のある加護となった",
     "NumerospecStats": {
@@ -8536,7 +8720,27 @@
       ]
     },
     "InStory": "禁忌的な暴走「過剰自我(EGhOst)」により、現在はコアフォルダ形態かつオフラインで隔離され調整中である",
-    "Backgrounds": "暴走事故により自律行動アルゴリズムや人権など、重大な課題を残し 零の最初の挫折となる"
+    "Backgrounds": "暴走事故により自律行動アルゴリズムや人権など、重大な課題を残し 零の最初の挫折となる",
+    "Relation": {
+      "Related": [
+        {
+          "Num": 10,
+          "RelationLabel": ["sameNumber", "wellMatched"]
+        },
+        {
+          "Num": "0",
+          "RelationLabel": ["unmatched", "abusing"]
+        },
+        {
+          "Num": "00",
+          "RelationLabel": ["unmatched", "abusing"]
+        },
+        {
+          "Num": "000",
+          "RelationLabel": ["unmatched"]
+        }
+      ]
+    }
   },
   {
     "Num": "000",
@@ -8582,12 +8786,26 @@
     "SecondPersonCalling": "君",
     "ThirdPersonCalling": "彼/彼女/[Name]",
     "ForMasterCalling": "クライアント君",
-    "WellmatchedNTsNames": "81(ヤイチ)",
-    "UnmatchedNTsNames": "零,百",
     "RelationAbouts": "零姉弟が自分に恥ずかしく思っているのを知らないのか、零姉弟の前では空気が読めない言動を…？",
     "NumerospecAbout": "開発者 零姉弟の人格と同等のものを持つ\nちなみに名前は、零姉弟の本当の苗字「千歳」から由来",
     "InStory": "量産販売型の発表後、稀に零姉弟の代理として登場する（完成時期は「99(ツクモ)」より後で「100(モモ)」より前）",
-    "Backgrounds": "零姉弟が修士課程での黒歴史を拭うため、余暇で仕方なく完成させた\n修士研究冒頭で誕生した副産物？らしいが…"
+    "Backgrounds": "零姉弟が修士課程での黒歴史を拭うため、余暇で仕方なく完成させた\n修士研究冒頭で誕生した副産物？らしいが…",
+    "Relation": {
+      "Related": [
+        {
+          "Num": 81,
+          "RelationLabel": ["wellMatched"]
+        },
+        {
+          "Num": "0",
+          "RelationLabel": ["secretRelation", "adverselyAffected"]
+        },
+        {
+          "Num": "00",
+          "RelationLabel": ["secretRelation", "adverselyAffected"]
+        }
+      ]
+    }
   },
   {
     "Num": "0",

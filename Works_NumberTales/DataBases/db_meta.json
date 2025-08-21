@@ -141,6 +141,86 @@
             "Ptn.ZZ(逆効能および禁断効果に警戒)"
           ]
         }
+      },
+      "$Def_Relation": {
+        "#Enum_RelationLabel": [
+          {
+            "RelationLabel": "brother|sister",
+            "RelationLabel_JP": "姉妹個体"
+          },
+          { "RelationLabel": "cousin", "RelationLabel_JP": "従姉妹個体" },
+          {
+            "RelationLabel": "cousin_nearly",
+            "RelationLabel_JP": "従姉妹個体に近しい"
+          },
+          { "RelationLabel": "pioneer", "RelationLabel_JP": "先駆設計個体" },
+          {
+            "RelationLabel": "pioneer_nearly",
+            "RelationLabel_JP": "先駆設計の個体に近しい"
+          },
+          { "RelationLabel": "successor", "RelationLabel_JP": "後継設計個体" },
+          {
+            "RelationLabel": "successor_nearly",
+            "RelationLabel_JP": "後継設計の個体に近しい"
+          },
+          {
+            "RelationLabel": "alternative|redesign",
+            "RelationLabel_JP": "代替または再設計の関係にある個体"
+          },
+          { "RelationLabel": "sameNumber", "RelationLabel_JP": "同番号個体" },
+          {
+            "RelationLabel": "wellMatched",
+            "RelationLabel_JP": "相性の良い個体"
+          },
+          {
+            "RelationLabel": "wellMatched_maybe",
+            "RelationLabel_JP": "おそらく相性の良い個体"
+          },
+          {
+            "RelationLabel": "unmatched",
+            "RelationLabel_JP": "相性の悪い個体"
+          },
+          {
+            "RelationLabel": "trusted",
+            "RelationLabel_JP": "信頼している個体"
+          },
+          {
+            "RelationLabel": "trusted_maybe",
+            "RelationLabel_JP": "おそらく信頼している個体"
+          },
+          {
+            "RelationLabel": "awkward",
+            "RelationLabel_JP": "気まずい関係にある個体"
+          },
+          {
+            "RelationLabel": "awkward_aBit",
+            "RelationLabel_JP": "少し気まずい関係にある個体"
+          },
+          {
+            "RelationLabel": "accompanying",
+            "RelationLabel_JP": "よく行動をともにする個体"
+          },
+          {
+            "RelationLabel": "interested",
+            "RelationLabel_JP": "興味を持っている個体"
+          },
+          {
+            "RelationLabel": "adverselyAffected",
+            "RelationLabel_JP": "悪い影響関係にある個体"
+          },
+          {
+            "RelationLabel": "adverselyAffected_aBit",
+            "RelationLabel_JP": "あまり良いとは限らない影響関係にある個体"
+          },
+          {
+            "RelationLabel": "paired",
+            "RelationLabel_JP": "対で認識されている個体"
+          },
+          {
+            "RelationLabel": "secretRelation",
+            "RelationLabel_JP": "あまり明かされない関係にある個体"
+          }
+        ]
       }
     }
   }
