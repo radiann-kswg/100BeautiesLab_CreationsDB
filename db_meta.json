@@ -347,7 +347,7 @@
           },
           {
             "Belonging": "セブンティエイト特殊探偵団",
-            "Belonging_EN": "Team. Special Seventy-Eight Investigators",
+            "Belonging_EN": "Team. z78(Seventy-Eight) Special Investigators",
             "BaseArea_JP": "英皇国",
             "BaseArea_EN": "Internic.Kingdom",
             "isForSecondary": false
@@ -368,7 +368,7 @@
           },
           {
             "Belonging": "ジャンクガレージ『六花陛下』",
-            "Belonging_EN": "JunkGarage \"Majesty Rokka\"",
+            "Belonging_EN": "JunkGarage “Majesty Rokka”",
             "BaseArea_JP": "紅雪連邦",
             "BaseArea_EN": "United.SnowRed.Republic",
             "isForSecondary": false
@@ -392,7 +392,7 @@
           },
           {
             "Belonging": "国際情報広報機関『ミハイル』",
-            "Belonging_EN": "\"Mikhail\" the International Information & Public Relations Agency",
+            "Belonging_EN": "“Mikhail” the International Information & Public Relations Agency",
             "BaseArea_JP": {
               "value": "第７界",
               "about": "厳密には本拠点を置かない"
