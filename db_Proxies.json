@@ -3,8 +3,8 @@
     "Generation": 2,
     "Progress": "released",
     "_DBLink": {
-      "title": "DestinyFoxsRecords",
-      "file": "db_Primary",
+      "worksTitle": "DestinyFoxsRecords",
+      "dbFile": "db_Primary",
       "_Search": { "hashTag": "Unit", "key": "Radian" }
     },
     "Name": "ラジアン(2代目)",

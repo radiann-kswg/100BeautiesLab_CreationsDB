@@ -2,8 +2,8 @@
   {
     "Drc": "N",
     "_DBLink": {
-      "title": "NumberTales",
-      "file": "db_Primary",
+      "worksTitle": "NumberTales",
+      "dbFile": "db_Primary",
       "_Search": { "hashTag": "Num", "key": "0" }
     },
     "Name": "千歳 玲(れい)",
@@ -146,7 +146,7 @@
   },
   {
     "Drc": "SW",
-    "Progress": "notProceeded",
+    "Progress": "stillTentative",
     "Name": "ミル.NuXV(ニュクスフ)",
     "Name_EN": "Lamill.NuXV",
     "FormalName": "獣爾余剰体 巳-拾伍",

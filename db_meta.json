@@ -78,6 +78,11 @@
           "Progress_JP": "未着手",
           "isForSecondary": false
         },
+        "#tenative": {
+          "Progress": "stillTentative",
+          "Progress_JP": "現状は仮公開",
+          "isForSecondary": false
+        },
         "#nowCreating": {
           "Progress": "nowCreating",
           "Progress_JP": "制作中",

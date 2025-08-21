@@ -8554,8 +8554,8 @@
       "concept_PNGName": "cnsp_img0"
     },
     "_DBLink": {
-      "title": "SinisterChangingGirls",
-      "file": "db_Primary",
+      "worksTitle": "SinisterChangingGirls",
+      "dbFile": "db_Primary",
       "_Search": { "hashTag": "Drc", "key": "N" }
     },
     "CodeName": "〇",

@@ -4,8 +4,8 @@
     "Progress": "released",
     "SecondaryCategory": "公式限定",
     "_DBLink": {
-      "title": "NumberTales",
-      "file": "db_SemiPrimary",
+      "worksTitle": "NumberTales",
+      "dbFile": "db_SemiPrimary",
       "_Search": { "hashTag": "Num", "key": 111 }
     },
     "Images": {
@@ -1151,8 +1151,8 @@
     "Progress": "notProceeded",
     "SecondaryCategory": "公式限定",
     "_DBLink": {
-      "title": "NumberTales",
-      "file": "db_SemiPrimary",
+      "worksTitle": "NumberTales",
+      "dbFile": "db_SemiPrimary",
       "_Search": { "hashTag": "Num", "key": 222 }
     },
     "FormalName": "量産型ナンバーテールズ222番機シリーズ",
@@ -2401,8 +2401,8 @@
     "Progress": "notProceeded",
     "SecondaryCategory": "公式限定",
     "_DBLink": {
-      "title": "NumberTales",
-      "file": "db_SemiPrimary",
+      "worksTitle": "NumberTales",
+      "dbFile": "db_SemiPrimary",
       "_Search": { "hashTag": "Num", "key": 333 }
     },
     "FormalName": "量産型ナンバーテールズ333番機シリーズ",
@@ -3627,8 +3627,8 @@
     "Progress": "notProceeded",
     "SecondaryCategory": "公式限定",
     "_DBLink": {
-      "title": "NumberTales",
-      "file": "db_SemiPrimary",
+      "worksTitle": "NumberTales",
+      "dbFile": "db_SemiPrimary",
       "_Search": { "hashTag": "Num", "key": 444 }
     },
     "FormalName": "量産型ナンバーテールズ444番機シリーズ",
@@ -4859,8 +4859,8 @@
     "Progress": "notProceeded",
     "SecondaryCategory": "公式限定",
     "_DBLink": {
-      "title": "NumberTales",
-      "file": "db_SemiPrimary",
+      "worksTitle": "NumberTales",
+      "dbFile": "db_SemiPrimary",
       "_Search": { "hashTag": "Num", "key": 555 }
     },
     "FormalName": "量産型ナンバーテールズ555番機シリーズ",
@@ -6086,8 +6086,8 @@
     "Progress": "released",
     "SecondaryCategory": "公式限定",
     "_DBLink": {
-      "title": "NumberTales",
-      "file": "db_SemiPrimary",
+      "worksTitle": "NumberTales",
+      "dbFile": "db_SemiPrimary",
       "_Search": { "hashTag": "Num", "key": 666 }
     },
     "Images": {
@@ -7331,8 +7331,8 @@
     "Progress": "released",
     "SecondaryCategory": "公式限定",
     "_DBLink": {
-      "title": "NumberTales",
-      "file": "db_SemiPrimary",
+      "worksTitle": "NumberTales",
+      "dbFile": "db_SemiPrimary",
       "_Search": { "hashTag": "Num", "key": 777 }
     },
     "Images": {
@@ -7347,8 +7347,8 @@
     "Progress": "released",
     "SecondaryCategory": "公式限定",
     "_DBLink": {
-      "title": "NumberTales",
-      "file": "db_SelfSecondary",
+      "worksTitle": "NumberTales",
+      "dbFile": "db_SelfSecondary",
       "_Search": { "hashTag": "Num", "key": "777-mp" }
     },
     "FormalName": "量産型ナンバーテールズ777番機[ジャックポット]シリーズ",
@@ -8578,8 +8578,8 @@
     "Progress": "notProceeded",
     "SecondaryCategory": "公式限定",
     "_DBLink": {
-      "title": "NumberTales",
-      "file": "db_SemiPrimary",
+      "worksTitle": "NumberTales",
+      "dbFile": "db_SemiPrimary",
       "_Search": { "hashTag": "Num", "key": 888 }
     },
     "FormalName": "量産型ナンバーテールズ888番機シリーズ",
@@ -9807,8 +9807,8 @@
     "Progress": "notProceeded",
     "SecondaryCategory": "公式限定",
     "_DBLink": {
-      "title": "NumberTales",
-      "file": "db_SemiPrimary",
+      "worksTitle": "NumberTales",
+      "dbFile": "db_SemiPrimary",
       "_Search": { "hashTag": "Num", "key": 999 }
     },
     "FormalName": "量産型ナンバーテールズ999番機シリーズ",

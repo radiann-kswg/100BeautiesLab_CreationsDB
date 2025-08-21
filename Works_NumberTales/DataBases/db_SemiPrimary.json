@@ -550,8 +550,8 @@
     "Num": "777.Jackpot",
     "Progress": "released",
     "_DBLink": {
-      "title": "NumberTales",
-      "file": "db_SemiPrimary",
+      "worksTitle": "NumberTales",
+      "dbFile": "db_SemiPrimary",
       "_Search": { "hashTag": "Num", "key": 777 }
     },
     "ModelName": "ナンバーテールズ特殊個体[ラッキーセブンアール](777番機-ジャックポット)",
