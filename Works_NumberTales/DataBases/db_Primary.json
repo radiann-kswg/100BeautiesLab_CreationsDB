@@ -31,7 +31,16 @@
     "TailsUnit": "キツネ型1本",
     "Class": "試験用個体\n1桁番(ユニデジッツ)",
     "Class_EN": "for Testing\nUni-Digits",
-    "ThisMasters": "雪乙女 しいな（夜月機関 第2幹部）",
+    "ThisMasters": [
+      {
+        "value": null,
+        "about": "(専属契約不可)"
+      },
+      {
+        "value": "雪乙女 しいな/如月（夜月機関 第2幹部）",
+        "about": "試験開発向けの運用"
+      }
+    ],
     "FirstPersonCalling": "ぼく",
     "SecondPersonCalling": "きみ",
     "ThirdPersonCalling": "彼/彼女/～君;[Name]",
@@ -407,7 +416,9 @@
     "TailsUnit": "キツネ型5本",
     "Class": "1桁番(ユニデジッツ)",
     "Class_EN": "Uni-Digits",
-    "ThisMasters": "五剣(いつつるぎ)/Squadpicen（78特殊探偵団 風の刀剣支部 構成員）",
+    "ThisMasters": [
+      "五剣(いつつるぎ)/Squadpicen（78特殊探偵団 風の刀剣支部 構成員）"
+    ],
     "FirstPersonCalling": "アタシ",
     "SecondPersonCalling": "アンタ",
     "ThirdPersonCalling": "[？？？]",
@@ -677,17 +688,19 @@
     "TailsUnit": "キツネ型8本",
     "Class": "1桁番(ユニデジッツ)",
     "Class_EN": "Uni-Digits",
-    "ThisMasters": {
-      "value": "錦野 歌嫁（78特殊探偵団 采配幹部(ディーラー)/百花繚乱研究所(N3US大学 千歳研究室)ゼミアシスタント）",
-      "_DBLink": {
-        "worksTitle": "NumberTales",
-        "dbFile": "db_Secondary",
-        "_Search": {
-          "hashTag": "Num",
-          "key": "%"
+    "ThisMasters": [
+      {
+        "value": "錦野 歌嫁（78特殊探偵団 采配幹部(ディーラー)/百花繚乱研究所(N3US大学 千歳研究室)ゼミアシスタント）",
+        "_DBLink": {
+          "worksTitle": "NumberTales",
+          "dbFile": "db_Secondary",
+          "_Search": {
+            "hashTag": "Num",
+            "key": "%"
+          }
         }
       }
-    },
+    ],
     "FirstPersonCalling": "あて",
     "SecondPersonCalling": "あなた",
     "ThirdPersonCalling": "*の子; *の人/[Name]",
@@ -777,7 +790,7 @@
     "TailsUnit": "キツネ型9本",
     "Class": "1桁番(ユニデジッツ)",
     "Class_EN": "Uni-Digits",
-    "ThisMasters": "中月 カイン.ナイターエイド",
+    "ThisMasters": ["中月 カイン.ナイターエイド"],
     "FirstPersonCalling": "私(わたし)",
     "SecondPersonCalling": "あなた; [主人の呼び方]",
     "ThirdPersonCalling": "*の子; *の方/[Name]",
@@ -874,14 +887,18 @@
     "TailsUnit": "つぼみ型1本（大1束+小9束）",
     "Class": "10倍番(テンズデジッツ)",
     "Class_EN": "Tens-Digits",
-    "ThisMasters": {
-      "value": "(専属契約不可)\n扇三春",
-      "_DBLink": {
-        "worksTitle": "SinisterChangingGirls",
-        "dbFile": "db_Primary",
-        "_Search": { "hashTag": "Drc", "key": "NE" }
+    "ThisMasters": [
+      { "value": null, "about": "(専属契約不可)" },
+      {
+        "value": "扇三春",
+        "about": { "HideText": "？？？" },
+        "_DBLink": {
+          "worksTitle": "SinisterChangingGirls",
+          "dbFile": "db_Primary",
+          "_Search": { "hashTag": "Drc", "key": "NE" }
+        }
       }
-    },
+    ],
     "FirstPersonCalling": "ボク",
     "SecondPersonCalling": "キミ",
     "ThirdPersonCalling": "彼/彼女/[Name]",
@@ -1079,7 +1096,9 @@
     "TailsUnit": "キツネ(枝分かれ)型2本(上2束1本+下1束1本)",
     "Class": "デュアルスリーズ",
     "Class_EN": "Dual Sum-3s",
-    "ThisMasters": "アルジーヌ/Argine（78特殊探偵団 副支部長(火の棍棒支部)）",
+    "ThisMasters": [
+      "オードリー.カッツェ.ブラックフレア/アルジーヌ（78特殊探偵団 副支部長(火の棍棒支部)）"
+    ],
     "FirstPersonCalling": "私(わたし)",
     "SecondPersonCalling": "君",
     "ThirdPersonCalling": "彼/彼女/～さん;[Name]",
@@ -1275,7 +1294,7 @@
     "TailsUnit": "キツネ(枝分かれ)型4本(上2束1本+下1束3本)",
     "Class": "デュアルファイブズ",
     "Class_EN": "Dual Sum-5s",
-    "ThisMasters": "ゼン.エデンズグリーン（夜月機関 第5幹部）",
+    "ThisMasters": ["ゼン.エデンズグリーン/皐月（夜月機関 第5幹部）"],
     "FirstPersonCalling": "私(わたし)",
     "SecondPersonCalling": "君",
     "ThirdPersonCalling": "*いつ;*れ;[Name]",
@@ -1379,14 +1398,16 @@
     "TailsUnit": "キツネ(枝分かれ)型5本(上2束1本+下1束4本)",
     "Class": "デュアルシックスズ",
     "Class_EN": "Dual Sum-6s",
-    "ThisMasters": {
-      "value": "ミル.ニュクスフ",
-      "_DBLink": {
-        "worksTitle": "SinisterChangingGirls",
-        "dbFile": "db_Primary",
-        "_Search": { "hashTag": "Drc", "key": "SW" }
+    "ThisMasters": [
+      {
+        "value": "ミル.ニュクスフ",
+        "_DBLink": {
+          "worksTitle": "SinisterChangingGirls",
+          "dbFile": "db_Primary",
+          "_Search": { "hashTag": "Drc", "key": "SW" }
+        }
       }
-    },
+    ],
     "FirstPersonCalling": "自分\nおれ",
     "SecondPersonCalling": "あんた",
     "ThirdPersonCalling": "彼/彼女;*れ;[Name]\n*いつ;*れ;[Name]",
@@ -1489,14 +1510,16 @@
     "TailsUnit": "キツネ(枝分かれ)型6本(上2束1本+下1束5本)",
     "Class": "デュアルセブンズ",
     "Class_EN": "Dual Sum-7s",
-    "ThisMasters": {
-      "value": "六花 ルノ（夜月機関 先代第6幹部/白の六芒星 技術長）",
-      "_DBLink": {
-        "worksTitle": "SinisterChangingGirls",
-        "dbFile": "db_Primary",
-        "_Search": { "hashTag": "Drc", "key": "E" }
+    "ThisMasters": [
+      {
+        "value": "六花 ルノ（夜月機関 先代第6幹部/白の六芒星 技術長）",
+        "_DBLink": {
+          "worksTitle": "SinisterChangingGirls",
+          "dbFile": "db_Primary",
+          "_Search": { "hashTag": "Drc", "key": "E" }
+        }
       }
-    },
+    ],
     "FirstPersonCalling": "あたし",
     "SecondPersonCalling": "君",
     "ThirdPersonCalling": "彼/彼女/*れ;～君",
@@ -1596,14 +1619,19 @@
     "TailsUnit": "キツネ(枝分かれ)型7本(上2束1本+下1束6本)",
     "Class": "デュアルエイツ",
     "Class_EN": "Dual Sum-8s",
-    "ThisMasters": {
-      "value": "ライト.リヴァーブリッジ/ブライト.ゲイザー（78特殊探偵団 第17幹部）",
-      "_DBLink": {
-        "worksTitle": "FLInvestigator78",
-        "dbFile": "db_Primary",
-        "_Search": { "hashTag": "Card", "key": { "Stoat": "Major", "Num": 16 } }
+    "ThisMasters": [
+      {
+        "value": "ライト.リヴァーブリッジ/ブライト.ゲイザー（78特殊探偵団 第17幹部）",
+        "_DBLink": {
+          "worksTitle": "FLInvestigator78",
+          "dbFile": "db_Primary",
+          "_Search": {
+            "hashTag": "Card",
+            "key": { "Stoat": "Major", "Num": 16 }
+          }
+        }
       }
-    },
+    ],
     "FirstPersonCalling": "アタシ",
     "SecondPersonCalling": "キミ",
     "ThirdPersonCalling": "彼/彼女/*レ;[Name]",
@@ -1883,7 +1911,7 @@
     "TailsUnit": "キツネ型2本",
     "Class": "10倍番(テンズデジッツ)",
     "Class_EN": "Tens-Digits",
-    "ThisMasters": "メルランディア.シラユキ",
+    "ThisMasters": ["メルランディア.シラユキ"],
     "FirstPersonCalling": "わたし",
     "SecondPersonCalling": "あなたさま",
     "ThirdPersonCalling": "彼/彼女/～さま",
@@ -2073,7 +2101,9 @@
     "TailsUnit": "サソリ型2本（それぞれ11束[節]）",
     "Class": "マスターテールズ9",
     "Class_EN": "Master Tales 9",
-    "ThisMasters": "江戸川 笑(えみ)/Ediac-Edmound（78特殊探偵団 金の硬貨支部 構成員）",
+    "ThisMasters": [
+      "江戸川 笑(えみ)/Ediac-Edmound（78特殊探偵団 金の硬貨支部 構成員）"
+    ],
     "FirstPersonCalling": "[Name]",
     "SecondPersonCalling": "きみ",
     "ThirdPersonCalling": "*の子/[Name]",
@@ -2366,7 +2396,9 @@
     "TailsUnit": "キツネ(枝分かれ)型5本(上2束2本+下1束3本)",
     "Class": "デュアルセブンズ",
     "Class_EN": "Dual Sum-7s",
-    "ThisMasters": "足高 蝶蘭(てふらん)/San-Herteve（78特殊探偵団 水の聖杯支部 構成員）",
+    "ThisMasters": [
+      "足高 蝶蘭(てふらん)/San-Herteve（78特殊探偵団 水の聖杯支部 構成員）"
+    ],
     "FirstPersonCalling": "私(わたし)",
     "SecondPersonCalling": "君",
     "ThirdPersonCalling": "[Name]",
@@ -2749,7 +2781,7 @@
     "TailsUnit": "キツネ(枝分かれ)型9本(上2束2本+下1束7本)",
     "Class": "デュアルイレブンズ",
     "Class_EN": "Dual Sum-11s",
-    "ThisMasters": "メイリア.シラユキ",
+    "ThisMasters": ["メイリア.シラユキ"],
     "FirstPersonCalling": "わたし",
     "SecondPersonCalling": "あなた",
     "ThirdPersonCalling": "[Name]",
@@ -3122,7 +3154,7 @@
     "TailsUnit": "キツネ(枝分かれ)型 2束x3本",
     "Class": "マスターテールズ9",
     "Class_EN": "Master Tales 9",
-    "ThisMasters": "手塚 桃/Temon-Diadry（78特殊探偵団 金の硬貨支部 構成員）",
+    "ThisMasters": ["手塚 桃/Temon-Diadry（78特殊探偵団 金の硬貨支部 構成員）"],
     "FirstPersonCalling": "[Name]",
     "SecondPersonCalling": "あなた",
     "ThirdPersonCalling": "[Name]",
@@ -3420,7 +3452,10 @@
     "TailsUnit": "キツネ(枝分かれ)型6本(上2束3本+下1束3本)",
     "Class": "9倍2桁番(ナインズデュアルズ)",
     "Class_EN": "Nines Duals",
-    "ThisMasters": "颯(はやて)姉妹/Pardestry&Deucseadep（78特殊探偵団 風の刀剣 構成員）",
+    "ThisMasters": [
+      "颯 洋(はやて うみ)/Deucseadep（78特殊探偵団 風の刀剣 構成員）",
+      "颯 天(はやて そら)/Pardestry（78特殊探偵団 風の刀剣 構成員）"
+    ],
     "FirstPersonCalling": "僕",
     "SecondPersonCalling": "あなた",
     "ThirdPersonCalling": "[Name]",
@@ -3515,7 +3550,7 @@
     "TailsUnit": "キツネ(枝分かれ)型7本(上2束3本+下1束4本)",
     "Class": "デュアルキャリーズ",
     "Class_EN": "Dual Carries",
-    "ThisMasters": "桜花 訫[信](とき)（夜月機関 第3幹部）",
+    "ThisMasters": ["桜花 訫[信](とき)/弥生（夜月機関 第3幹部）"],
     "FirstPersonCalling": "あたし",
     "SecondPersonCalling": "君",
     "ThirdPersonCalling": "彼/彼女/[Name]",
@@ -3649,7 +3684,7 @@
     "TailsUnit": "キツネ(枝分かれ)型9本(上2束3本+下1束6本)",
     "Class": "デュアルスリーズ",
     "Class_EN": "Dual Sum-3s",
-    "ThisMasters": "乃木 希（VIPマスター;夜月機関 救命本部 推薦所属候補者）",
+    "ThisMasters": ["乃木 希（VIPマスター;夜月機関 救命本部 推薦所属候補者）"],
     "FirstPersonCalling": "俺",
     "SecondPersonCalling": "お前",
     "ThirdPersonCalling": "彼/彼女/*奴(*いつ);[Name]",
@@ -4121,7 +4156,7 @@
     "TailsUnit": "キツネ(枝分かれ)型 2束x4本",
     "Class": "マスターテールズ9",
     "Class_EN": "Master Tales 9",
-    "ThisMasters": "古山 沢海/Bluquecnic（78特殊探偵団 火の棍棒支部 構成員）",
+    "ThisMasters": ["古山 沢海/Bluquecnic（78特殊探偵団 火の棍棒支部 構成員）"],
     "FirstPersonCalling": "オレ",
     "SecondPersonCalling": "[Name]\nオメー ※稀",
     "ThirdPersonCalling": "彼/彼女; [Name]",
@@ -4601,7 +4636,7 @@
     "TailsUnit": "キツネ(枝分かれ)型9本(上1束5本+下2束4本)",
     "Class": "デュアルフォーズ",
     "Class_EN": "Dual Sum-4s",
-    "ThisMasters": "花舞 流(るぅ)（夜月機関 第4幹部）",
+    "ThisMasters": ["花舞 流(るぅ)/卯月（夜月機関 第4幹部）"],
     "FirstPersonCalling": "ボク",
     "SecondPersonCalling": "キミ",
     "ThirdPersonCalling": "彼/彼女/*イツ; [Name]",
@@ -4757,7 +4792,9 @@
     "TailsUnit": "キツネ(枝分かれ)型5本(上1束3本+下2束2本)",
     "Class": "デュアルセブンズ",
     "Class_EN": "Dual Sum-7s",
-    "ThisMasters": "亜高 蝶蘭(てふらん)/SanHerteve（78特殊探偵団 水の聖杯支部 構成員）",
+    "ThisMasters": [
+      "亜高 蝶蘭(てふらん)/SanHerteve（78特殊探偵団 水の聖杯支部 構成員）"
+    ],
     "FirstPersonCalling": "私(わたし)",
     "SecondPersonCalling": "君",
     "ThirdPersonCalling": "[Name]",
@@ -5383,7 +5420,7 @@
     "TailsUnit": "キツネ型6本",
     "Class": "10倍番(テンズデジッツ)",
     "Class_EN": "Tens-Digits",
-    "ThisMasters": "水無瀬 霙(はなゆき)",
+    "ThisMasters": ["水無瀬 霙(はなゆき)"],
     "FirstPersonCalling": "私(わたし)",
     "SecondPersonCalling": "あなた",
     "ThirdPersonCalling": "彼/彼女/～さん;*れ;[Name]",
@@ -5498,14 +5535,16 @@
     "TailsUnit": "キツネ(枝分かれ)型6本(上1束5本+下2束1本)",
     "Class": "デュアルセブンズ",
     "Class_EN": "Dual Sum-7s",
-    "ThisMasters": {
-      "value": "六花(ろくばな) 雙葉",
-      "_DBLink": {
-        "worksTitle": "SinisterChangingGirls",
-        "dbFile": "db_Primary",
-        "_Search": { "hashTag": "Drc", "key": "S" }
+    "ThisMasters": [
+      {
+        "value": "六花(ろくばな) 雙葉",
+        "_DBLink": {
+          "worksTitle": "SinisterChangingGirls",
+          "dbFile": "db_Primary",
+          "_Search": { "hashTag": "Drc", "key": "S" }
+        }
       }
-    },
+    ],
     "FirstPersonCalling": "ロイちゃん\nボク ※稀",
     "SecondPersonCalling": "キミ",
     "ThirdPersonCalling": "*の子;～くん/ちゃん",
@@ -5700,7 +5739,7 @@
     "TailsUnit": "キツネ(枝分かれ)型6本(上1束3本+下2束3本)",
     "Class": "9倍2桁番(ナインズデュアルズ)",
     "Class_EN": "Nines Duals",
-    "ThisMasters": "恵比寿 ことは/Anepisend（78特殊探偵団 風の刀剣 構成員）",
+    "ThisMasters": ["恵比寿 ことは/Anepisend（78特殊探偵団 風の刀剣 構成員）"],
     "FirstPersonCalling": "僕",
     "SecondPersonCalling": "あなた",
     "ThirdPersonCalling": "[Name]\n～くん/ちゃん",
@@ -5988,7 +6027,7 @@
     "TailsUnit": "キツネ(枝分かれ)型 2束x6本",
     "Class": "マスターテールズ9",
     "Class_EN": "Master Tales 9",
-    "ThisMasters": "水無瀬 雫（夜月機関 幹部(水無月支部)）",
+    "ThisMasters": ["水無瀬 雫/水無月（夜月機関 第6幹部）"],
     "FirstPersonCalling": "私(わたくし)",
     "SecondPersonCalling": "あなた様",
     "ThirdPersonCalling": "*のお方;[Name]様",
@@ -6235,14 +6274,19 @@
     "TailsUnit": "キツネ(枝分かれ)型9本(上2束6本+下1束3本)",
     "Class": "デュアルシックスズ",
     "Class_EN": "Dual Sum-6s",
-    "ThisMasters": {
-      "value": "ヴェンジー.C.テンペスト/クライシア.バベル（78特殊探偵団 第16幹部）",
-      "_DBLink": {
-        "worksTitle": "FLInvestigator78",
-        "dbFile": "db_Primary",
-        "_Search": { "hashTag": "Card", "key": { "Stoat": "Major", "Num": 16 } }
+    "ThisMasters": [
+      {
+        "value": "ヴェンジー.C.テンペスト/クライシア.バベル（78特殊探偵団 第16幹部）",
+        "_DBLink": {
+          "worksTitle": "FLInvestigator78",
+          "dbFile": "db_Primary",
+          "_Search": {
+            "hashTag": "Card",
+            "key": { "Stoat": "Major", "Num": 16 }
+          }
+        }
       }
-    },
+    ],
     "FirstPersonCalling": "俺 ※例外あり",
     "SecondPersonCalling": "あんた ※例外あり",
     "ThirdPersonCalling": "[Name] ※例外あり",
@@ -6524,7 +6568,7 @@
     "TailsUnit": "キツネ(枝分かれ)型7本(上1束5本+下2束2本)",
     "Class": "9倍2桁番(ナインズデュアルズ)",
     "Class_EN": "Nines Duals",
-    "ThisMasters": "綾沢 改奈（夜月機関 幹部(文月支部)）",
+    "ThisMasters": ["綾沢 改奈/文月（夜月機関 第7幹部）"],
     "FirstPersonCalling": "[Name ※特殊表記]",
     "SecondPersonCalling": "[三人称]",
     "ThirdPersonCalling": "[Name ※特殊表記]",
@@ -7115,17 +7159,19 @@
     "SpetialSkill": "アドリブ祝辞",
     "Favor": "トランプ、タロットカード",
     "Unlike": "傲慢な態度",
-    "ThisMasters": {
-      "value": "錦野 舞（78特殊探偵団 采配幹部(ディーラー)/シンフォニー.XVI(ゼクズィン)所属 デザインエンジニア）",
-      "_DBLink": {
-        "worksTitle": "NumberTales",
-        "dbFile": "db_Secondary",
-        "_Search": {
-          "hashTag": "Num",
-          "key": "%"
+    "ThisMasters": [
+      {
+        "value": "錦野 舞（78特殊探偵団 采配幹部(ディーラー)/シンフォニー.XVI(ゼクズィン)所属 デザインエンジニア）",
+        "_DBLink": {
+          "worksTitle": "NumberTales",
+          "dbFile": "db_Secondary",
+          "_Search": {
+            "hashTag": "Num",
+            "key": "%"
+          }
         }
       }
-    },
+    ],
     "NumerospecAbout": "経験・報酬を反省から生む\nただしこの効果は対象の性格と相互に影響する",
     "Summary": "反省からの学びを強めることに秀でているとされているナンバーテールズ。\n技術適正が極めて高く、エンジニアとして働いている主人からの支持が手厚い。\nしかしながらどこか自分に自信がなくアイテムに縋ることでしか自分を評価できないところがあり、彼女をよく知る別の個体によっては心配されたり胡散臭がられたりしている。\nとはいえ誠心誠意で自らも反省しながら精進する姿は誰よりも評価されている。",
     "NumerospecStats": {
@@ -7460,7 +7506,9 @@
     "TailsUnit": "キツネ(枝分かれ)型8本(上1束3本+下2束5本)",
     "Class": "デュアルフォーズ",
     "Class_EN": "Dual Sum-4s",
-    "ThisMasters": "レイチェル/Rachel(78特殊探偵団 副支部長(金の硬貨支部))",
+    "ThisMasters": [
+      "リーチェ.エリザベス/レイチェル(78特殊探偵団 金の硬貨支部 副支部長)"
+    ],
     "FirstPersonCalling": "うち",
     "SecondPersonCalling": "おたく",
     "ThirdPersonCalling": "彼/彼女/～くん",
@@ -7562,17 +7610,19 @@
     ],
     "Class": "デュアルシックスズ",
     "Class_EN": "Dual Sum-6s",
-    "ThisMasters": {
-      "value": "錦野 歌嫁（78特殊探偵団 采配幹部(ディーラー)/百花繚乱研究所(N3US大学 千歳研究室)ゼミアシスタント）",
-      "_DBLink": {
-        "worksTitle": "NumberTales",
-        "dbFile": "db_Secondary",
-        "_Search": {
-          "hashTag": "Num",
-          "key": "%"
+    "ThisMasters": [
+      {
+        "value": "錦野 歌嫁（78特殊探偵団 采配幹部(ディーラー)/百花繚乱研究所(N3US大学 千歳研究室)ゼミアシスタント）",
+        "_DBLink": {
+          "worksTitle": "NumberTales",
+          "dbFile": "db_Secondary",
+          "_Search": {
+            "hashTag": "Num",
+            "key": "%"
+          }
         }
       }
-    },
+    ],
     "GenderType": "FemaleNeutral",
     "ConceptAge": { "value": 19, "about": "自称" },
     "Height_cm": 156,
@@ -7783,7 +7833,9 @@
     "TailsUnit": "キツネ(枝分かれ)型9本(上1束6本+下2束3本)",
     "Class": "デュアルエイツ",
     "Class_EN": "Dual Sum-8s",
-    "ThisMasters": "氏原（仮称;夜月機関 第12幹部:キャサリン=アインツヴァイス の専属執事）",
+    "ThisMasters": [
+      "氏原（仮称;夜月機関 第12幹部:キャサリン=アインツヴァイス の専属執事）"
+    ],
     "FirstPersonCalling": "私(わたし)",
     "SecondPersonCalling": "あなた",
     "ThirdPersonCalling": "彼/彼女/～さん;[Name]",
@@ -8028,7 +8080,7 @@
     "TailsUnit": "キツネ(枝分かれ)型9本(上1束6本+下2束3本)",
     "Class": "デュアルスリーズ",
     "Class_EN": "Dual Sum-3s",
-    "ThisMasters": "乃木 希（VIPマスター;夜月機関 救命本部 推薦所属候補者）",
+    "ThisMasters": ["乃木 希（VIPマスター;夜月機関 救命本部 推薦所属候補者）"],
     "FirstPersonCalling": "あたし",
     "SecondPersonCalling": "君",
     "ThirdPersonCalling": "彼/彼女/*の人;[Name]",
@@ -8125,7 +8177,7 @@
     "TailsUnit": "キツネ(枝分かれ)型9本(上1束5本+下2束4本)",
     "Class": "デュアルフォーズ",
     "Class_EN": "Dual Sum-4s",
-    "ThisMasters": "花舞 彗",
+    "ThisMasters": ["花舞 彗"],
     "FirstPersonCalling": "ぼく",
     "SecondPersonCalling": "きみ",
     "ThirdPersonCalling": "*の人;[Name]",
@@ -8258,7 +8310,7 @@
     "TailsUnit": "キツネ(枝分かれ)型9本(上1束3本+下2束6本)",
     "Class": "デュアルシックスズ",
     "Class_EN": "Dual Sum-6s",
-    "ThisMasters": "ジャッヂ=ジャストリー/神谷崎 幻影",
+    "ThisMasters": ["ジャッヂ=ジャストリー/神谷崎 幻影"],
     "FirstPersonCalling": "[？？？]",
     "SecondPersonCalling": "あなた",
     "ThirdPersonCalling": "[Name]",
@@ -8663,6 +8715,12 @@
     "BustSize": "F",
     "Class": "未完成個体\n開発システム用個体",
     "Class_EN": "Progressing to Develop\nfor Developer System",
+    "ThisMasters": [
+      {
+        "value": null,
+        "about": "(専属契約不可,未リリース状態)"
+      }
+    ],
     "FirstPersonCalling": "わたし",
     "SecondPersonCalling": "[Name]",
     "ThirdPersonCalling": "彼/彼女/[Name]",
@@ -8737,6 +8795,12 @@
     "Weight_kg": [{ "about": { "HideText": "データ無" } }],
     "Class": "調整個体\n退任個体",
     "Class_EN": "Tuning/for Tuning System\nRetired",
+    "ThisMasters": [
+      {
+        "value": null,
+        "about": "(専属契約不可,厳重な謹慎処分中)"
+      }
+    ],
     "FirstPersonCalling": "俺",
     "SecondPersonCalling": "お前",
     "ThirdPersonCalling": "*奴(*いつ);[Name]",
@@ -8812,7 +8876,36 @@
     "BustSize": "A",
     "Class": "営業補助用個体",
     "Class_EN": "for Consulting Assistant",
-    "ThisMasters": "(百花繚乱研究所)",
+    "ThisMasters": [
+      {
+        "value": null,
+        "about": "(専属契約不可)"
+      },
+      {
+        "value": "零 零(カズナイ レイ)",
+        "about": "仕方なく所持",
+        "_DBLink": {
+          "worksTitle": "NumberTales",
+          "dbFile": "db_Primary",
+          "_Search": {
+            "hashTag": "Num",
+            "key": "0"
+          }
+        }
+      },
+      {
+        "value": "零 百(カズナイ ハゲム)",
+        "about": "仕方なく所持",
+        "_DBLink": {
+          "worksTitle": "NumberTales",
+          "dbFile": "db_Primary",
+          "_Search": {
+            "hashTag": "Num",
+            "key": "00"
+          }
+        }
+      }
+    ],
     "FirstPersonCalling": "私(わたし)",
     "SecondPersonCalling": "君",
     "ThirdPersonCalling": "彼/彼女/[Name]",
