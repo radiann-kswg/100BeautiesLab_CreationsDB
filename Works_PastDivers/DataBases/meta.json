@@ -3,8 +3,9 @@
     "#DB_Primary": {
       "DB_Summary": "「夜月機関」の正式な幹部に相当する一次創作キャラクター。\n和暦の月名に関連するコードネームが付与されている。",
       "StoryEra": {
-        "fromEra": [{ "eraGen": 8, "yearInEra": 3 }, { "byRealYear": 2047 }],
-        "toEra": [{ "eraGen": 8, "yearInEra": 4 }, { "byRealYear": 2048 }],
+        "FromEra": [{ "EraGen": 8, "YearInEra": 3 }, { "byRealYear": 2047 }],
+        "ToEra": [{ "EraGen": 8, "YearInEra": 4 }, { "byRealYear": 2048 }],
+        "InEra": [{ "EraGen": 8, "YearInEra": 4 }, { "byRealYear": 2048 }],
         "about_JP": "第8創世紀3〜4年(西暦2047〜2048年相当)",
         "about_EN": "between WDCE.VIII.3-4(Equivalent to between: DC.2047-2048)"
       },
@@ -122,11 +123,16 @@
     "#DB_SemiPrimary": {
       "DB_Summary": "「夜月機関」の先代幹部に相当する公式アンソロジー向け一次創作キャラクター。\n和暦の月名に関連するコードネームが付与されているのは通常と同様だが、登場数がまだ不完全なものとなっている。",
       "StoryEra": {
-        "fromEra": [{ "eraGen": 7, "yearInEra": 24 }, { "byRealYear": 2044 }],
-        "toEra": [
-          { "eraGen": 7, "yearInEra": 26 },
-          { "eraGen": 8, "yearInEra": 2 },
+        "FromEra": [{ "EraGen": 7, "YearInEra": 24 }, { "byRealYear": 2044 }],
+        "ToEra": [
+          { "EraGen": 7, "YearInEra": 26 },
+          { "EraGen": 8, "YearInEra": 2 },
           { "byRealYear": 2046 }
+        ],
+        "InEra": [
+          { "EraGen": 7, "YearInEra": 25 },
+          { "EraGen": 8, "YearInEra": 1 },
+          { "byRealYear": 2045 }
         ],
         "about_JP": "第7創世紀24〜26年(西暦2044〜2046年相当)\n『第8の世界破壊』に関する重要な時期となる",
         "about_EN": "between WDCE.VII.24-26(Equivalent to between: DC.2044-2046)\nThis period is significant for the “World Destruction Pandemic VIII”"

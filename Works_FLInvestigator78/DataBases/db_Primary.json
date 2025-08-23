@@ -91,19 +91,19 @@
       "Height_cm": 176,
       "Weight_kg": 59,
       "Age": 37,
-      "BirthDay": { "Day": { "Month": 1, "DayOfMonth": 4 } }
-    },
-    "Character": "行動的かつ自発的で、何事にも才能にあふれている",
-    "Hobby": "起業した自事業の拡大について計画する",
-    "SpetialSkill": "手品",
-    "Favor": "新しいこと、将来有望な若者",
-    "Unlike": "才能が発揮されない事",
-    "FirstPersonCalling": "私(わたし)",
-    "SecondPersonCalling": "君(きみ)",
-    "ThirdPersonCalling": "彼/彼女/～君;[Name]",
-    "For79or80thDealerCalling": {
-      "For79thDealer": "舞(まい)君",
-      "For80thDealer": "歌(うた)君"
+      "BirthDay": { "Day": { "Month": 1, "DayOfMonth": 4 } },
+      "Character": "行動的かつ自発的で、何事にも才能にあふれている",
+      "Hobby": "起業した自事業の拡大について計画する",
+      "SpetialSkill": "手品",
+      "Favor": "新しいこと、将来有望な若者",
+      "Unlike": "才能が発揮されない事",
+      "FirstPersonCalling": "私(わたし)",
+      "SecondPersonCalling": "君(きみ)",
+      "ThirdPersonCalling": "彼/彼女/～君;[Name]",
+      "For79or80thDealerCalling": {
+        "For79thDealer": "舞(まい)君",
+        "For80thDealer": "歌(うた)君"
+      }
     },
     "ArcanamspecAbout": "元素を操る",
     "Summary": "",
@@ -159,19 +159,19 @@
       "Height_cm": 174,
       "Weight_kg": 54,
       "Age": 29,
-      "BirthDay": { "Day": { "Month": 3, "DayOfMonth": 8 } }
-    },
-    "Character": "博識かつ知力的で冷淡",
-    "Hobby": "教養についての資料を集める/読む",
-    "SpetialSkill": "六法全書を暗記している",
-    "Favor": "静かな場所",
-    "Unlike": "女性的ストレス",
-    "FirstPersonCalling": "私(わたくし)",
-    "SecondPersonCalling": "貴方(あなた)",
-    "ThirdPersonCalling": "彼/彼女/[Name]",
-    "For79or80thDealerCalling": {
-      "For79thDealer": "舞",
-      "For80thDealer": "歌"
+      "BirthDay": { "Day": { "Month": 3, "DayOfMonth": 8 } },
+      "Character": "博識かつ知力的で冷淡",
+      "Hobby": "教養についての資料を集める/読む",
+      "SpetialSkill": "六法全書を暗記している",
+      "Favor": "静かな場所",
+      "Unlike": "女性的ストレス",
+      "FirstPersonCalling": "私(わたくし)",
+      "SecondPersonCalling": "貴方(あなた)",
+      "ThirdPersonCalling": "彼/彼女/[Name]",
+      "For79or80thDealerCalling": {
+        "For79thDealer": "舞",
+        "For80thDealer": "歌"
+      }
     },
     "ArcanamspecAbout": "正気度を操る",
     "Summary": "",
@@ -225,21 +225,23 @@
       "RaceType": "Human",
       "GenderType": "Female",
       "Height_cm": 166,
-      "Weight_kg": { "HideText": "非公開" },
+      "Weight_kg": [
+        { "value": { "HideText": "非公開" }, "about": "体型は妖艶で美形" }
+      ],
       "Age": 19,
-      "BirthDay": { "Day": { "Month": 4, "DayOfMonth": 3 } }
-    },
-    "Character": "母性と女子力があり、相手の男性を駄目にしがち",
-    "Hobby": "晩餐会",
-    "SpetialSkill": "泣いている赤子を泣き止ませる",
-    "Favor": "自然豊かな休憩所",
-    "Unlike": "空腹",
-    "FirstPersonCalling": "わたし",
-    "SecondPersonCalling": "あなた",
-    "ThirdPersonCalling": "*のこ/[Name]",
-    "For79or80thDealerCalling": {
-      "For79thDealer": "舞(まい)",
-      "For80thDealer": "歌嫁(うたか)"
+      "BirthDay": { "Day": { "Month": 4, "DayOfMonth": 3 } },
+      "Character": "母性と女子力があり、相手の男性を駄目にしがち",
+      "Hobby": "晩餐会",
+      "SpetialSkill": "泣いている赤子を泣き止ませる",
+      "Favor": "自然豊かな休憩所",
+      "Unlike": "空腹",
+      "FirstPersonCalling": "わたし",
+      "SecondPersonCalling": "あなた",
+      "ThirdPersonCalling": "*のこ/[Name]",
+      "For79or80thDealerCalling": {
+        "For79thDealer": "舞(まい)",
+        "For80thDealer": "歌嫁(うたか)"
+      }
     },
     "ArcanamspecAbout": "自身が止まっている間だけ、周囲の人々の精神状態を操作する",
     "Summary": "",
@@ -343,7 +345,13 @@
       "Name": "ライト.リヴァーブリッジ",
       "Name_EN": "Light.Reverbbridge",
       "RaceType": "Human",
-      "GenderType": "Male"
+      "GenderType": "Male",
+      "Height_cm": 168,
+      "Weight_kg": [
+        { "value": { "HideText": "非公開" }, "about": "体型は美形" }
+      ],
+      "Age": 23,
+      "BirthDay": { "Day": { "Month": 7, "DayOfMonth": 7 } }
     },
     "ArcanamspecAbout": "感情を修復する\n欲望を補填する",
     "Summary": "",
@@ -376,6 +384,154 @@
       "Precision": { "Rank": "A" },
       "Technic": { "Rank": "A" },
       "Actuation": { "Rank": "A" }
+    }
+  },
+  {
+    "Card": {
+      "Stoat": "Dealer",
+      "Num": 79
+    },
+    "Progress": "stillTentative",
+    "Images": {
+      "conceptAlt_PNGName": ["cnsp_imgFLDealer"]
+    },
+    "Name": null,
+    "Name_EN": null,
+    "FormalName": "切り札の展開師\n第79のアルカナ",
+    "FormalName_EN": "Trump Spreadder\n79th Arcana",
+    "CodeName": null,
+    "CodeName_EN": null,
+    "RaceType": { "HideText": "定義不能" },
+    "GenderType": "FemaleNeutral",
+    "ThisDealer": {
+      "_DBLink": {
+        "worksTitle": "NumberTales",
+        "dbFile": "db_Secondary",
+        "_Search": {
+          "hashTag": "Num",
+          "key": "%"
+        }
+      },
+      "Name": "錦野 舞",
+      "Name_EN": "Dancy Actressilk",
+      "RaceType": "Human",
+      "GenderType": "Female",
+      "Height_cm": 166,
+      "Weight_kg": 52,
+      "Age": 17,
+      "BirthDay": { "Day": { "Month": 7, "DayOfMonth": 6 } },
+      "Character": "仲間想いだが極めて受難体質、繊細で涙もろい",
+      "Hobby": "タロット占い、キャラクターデザイン",
+      "SpetialSkill": "タロット占いが的中する",
+      "Favor": "大切な仲間、人とつながる安心感",
+      "Unlike": "自分の弱さ",
+      "FirstPersonCalling": "私(わたし)",
+      "SecondPersonCalling": "あなた",
+      "ThirdPersonCalling": "彼/彼女/[Name]",
+      "For79or80thDealerCalling": {
+        "For79thDealer": null,
+        "For80thDealer": "歌嫁(うたか)"
+      }
+    },
+    "ArcanamspecAbout": "78のアルカナの力を宿す\nこの能力では支援に長けている",
+    "Summary": "",
+    "ArcanumspecStats": {
+      "SpecType": {
+        "MaterialType": { "Material": [] },
+        "ActionType": {
+          "KinematicOrStatic": null,
+          "RoleType": null
+        },
+        "DualizePattern": { "Pattern": null }
+      },
+      "EffectStats": {
+        "Physical": { "Rank": "C", "EffectText": "希薄" },
+        "Magical": { "Rank": "S", "EffectText": "絶大" },
+        "Healing": { "Rank": "A", "EffectText": "期待" },
+        "Violent": { "Rank": "D", "EffectText": "効果無" },
+        "Rewriting": { "Rank": { "HideText": "定義不能" } }
+      },
+      "SpetialPattern": { "HideText": "定義不能" },
+      "SafetyLevel": { "Rank": { "HideText": "定義不能" } },
+      "SpecLevel": { "Rank": "S+" }
+    },
+    "AbilityStats": {
+      "Speed": { "Rank": "C" },
+      "Communicating": { "Rank": "B" },
+      "Leading": { "Rank": "A" },
+      "Precision": { "Rank": "S" },
+      "Technic": { "Rank": "S" },
+      "Actuation": { "Rank": "B+" }
+    }
+  },
+  {
+    "Card": {
+      "Stoat": "Dealer",
+      "Num": 80
+    },
+    "Progress": "stillTentative",
+    "Images": {
+      "conceptAlt_PNGName": ["cnsp_imgFLDealer"]
+    },
+    "Name": null,
+    "Name_EN": null,
+    "FormalName": "切り札の憑英師\n第80のアルカナ",
+    "FormalName_EN": "Trump Engager\n80th Arcana",
+    "CodeName": null,
+    "CodeName_EN": null,
+    "RaceType": { "HideText": "定義不能" },
+    "GenderType": "FemaleNeutral",
+    "ThisDealer": {
+      "Name": "錦野 歌嫁",
+      "Name_EN": "Phonia Actressilk",
+      "RaceType": "Human",
+      "GenderType": "Female",
+      "Height_cm": 166,
+      "Weight_kg": 52,
+      "Age": 17,
+      "BirthDay": { "Day": { "Month": 7, "DayOfMonth": 6 } },
+      "Character": "ムードメーカで友好的だが極めて強気で頑固、裏で悩みを抱え込みやすい",
+      "Hobby": "プラモデル制作",
+      "SpetialSkill": "剣道(※九蓮国では青年部門ベスト4に匹敵)",
+      "Favor": "確かな強さ、自分を誇れる自分だけの理由",
+      "Unlike": "自分の弱さ",
+      "FirstPersonCalling": "私(わたし)",
+      "SecondPersonCalling": "あなた",
+      "ThirdPersonCalling": "彼/彼女/[Name]",
+      "For79or80thDealerCalling": {
+        "For79thDealer": "舞(まい)",
+        "For80thDealer": null
+      }
+    },
+    "ArcanamspecAbout": "78のアルカナの力を宿す\nこの能力では牽制に長けている",
+    "Summary": "",
+    "ArcanumspecStats": {
+      "SpecType": {
+        "MaterialType": { "Material": [] },
+        "ActionType": {
+          "KinematicOrStatic": null,
+          "RoleType": null
+        },
+        "DualizePattern": { "Pattern": null }
+      },
+      "EffectStats": {
+        "Physical": { "Rank": "S", "EffectText": "絶大" },
+        "Magical": { "Rank": "C", "EffectText": "希薄" },
+        "Healing": { "Rank": "D", "EffectText": "効果無" },
+        "Violent": { "Rank": "A", "EffectText": "期待" },
+        "Rewriting": { "Rank": { "HideText": "定義不能" } }
+      },
+      "SpetialPattern": { "HideText": "定義不能" },
+      "SafetyLevel": { "Rank": { "HideText": "定義不能" } },
+      "SpecLevel": { "Rank": "S+" }
+    },
+    "AbilityStats": {
+      "Speed": { "Rank": "S" },
+      "Communicating": { "Rank": "B+" },
+      "Leading": { "Rank": "C" },
+      "Precision": { "Rank": "B" },
+      "Technic": { "Rank": "A" },
+      "Actuation": { "Rank": "S" }
     }
   }
 ]
