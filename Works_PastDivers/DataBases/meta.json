@@ -14,7 +14,7 @@
           {
             "Lunar": "Kamiaridzuki",
             "Lunar_JP": "神有月",
-            "Num": 0,
+            "Num": null,
             "Class": "総帥",
             "Class_EN": "Chief.Executive"
           },
@@ -101,6 +101,115 @@
             "Num": 12,
             "Class": "第12幹部\n師走研究所(仮説)",
             "Class_EN": "Executive Director.12\nLaboratory.12(Tentative)"
+          },
+          {
+            "Lunar": "Learp",
+            "Lunar_JP": "閏月",
+            "Num": 13,
+            "Class": "AI幹部\n如月研究所",
+            "Class_EN": "Executive Director.AI\nLaboratory.2"
+          },
+          {
+            "Lunar": "Zerlunas",
+            "Lunar_JP": "零月",
+            "Num": 0,
+            "Class": { "HideText": "？？？" },
+            "Class_EN": { "HideText_EN": "????" }
+          }
+        ]
+      }
+    },
+    "#DB_SemiPrimary": {
+      "DB_Summary": "「夜月機関」の先代幹部に相当する公式アンソロジー向け一次創作キャラクター。\n和暦の月名に関連するコードネームが付与されているのは通常と同様だが、登場数がまだ不完全なものとなっている。",
+      "StoryEra": {
+        "fromEra": [{ "eraGen": 7, "yearInEra": 24 }, { "byRealYear": 2044 }],
+        "toEra": [
+          { "eraGen": 7, "yearInEra": 26 },
+          { "eraGen": 8, "yearInEra": 2 },
+          { "byRealYear": 2046 }
+        ],
+        "about_JP": "第7創世紀24〜26年(西暦2044〜2046年相当)\n『第8の世界破壊』に関する重要な時期となる",
+        "about_EN": "between WDCE.VII.24-26(Equivalent to between: DC.2044-2046)\nThis period is significant for the “World Destruction Pandemic VIII”"
+      },
+      "_Commons": {
+        "Belonging": "夜月機関",
+        "#List_Lunar": [
+          {
+            "Lunar": "Zerlunas",
+            "Lunar_JP": "零月",
+            "Num": null,
+            "Class": "総帥",
+            "Class_EN": "Chief.Executive"
+          },
+          {
+            "Lunar": "Mutsuki",
+            "Lunar_JP": "睦月",
+            "Num": 1,
+            "Class": "第1幹部\n睦月研究所",
+            "Class_EN": "Executive Director.1\nLaboratory.1"
+          },
+          {
+            "Lunar": "Kisaragi",
+            "Lunar_JP": "如月",
+            "Num": 2,
+            "Class": "第2幹部\n如月研究所",
+            "Class_EN": "Executive Director.2\nLaboratory.2"
+          },
+          {
+            "Lunar": "Yayoi",
+            "Lunar_JP": "弥生",
+            "Num": 3,
+            "Class": "第3幹部",
+            "Class_EN": "Executive Director.3"
+          },
+          {
+            "Lunar": "Udzuki",
+            "Lunar_JP": "卯月",
+            "Num": 4,
+            "Class": "第4幹部\n卯月研究所",
+            "Class_EN": "Executive Director.4\nLaboratory.4"
+          },
+          {
+            "Lunar": "Satsuki",
+            "Lunar_JP": "皐月",
+            "Num": 5,
+            "Class": "第5幹部\n皐月研究所",
+            "Class_EN": "Executive Director.5\nLaboratory.5"
+          },
+          {
+            "Lunar": "Minadzuki",
+            "Lunar_JP": "水無月",
+            "Num": 6,
+            "Class": "第6幹部\n水無月研究所",
+            "Class_EN": "Executive Director.6\nLaboratory.6"
+          },
+          {
+            "Lunar": "Fumdzuki",
+            "Lunar_JP": "文月",
+            "Num": 7,
+            "Class": "第7幹部\n文月研究所",
+            "Class_EN": "Executive Director.7\nLaboratory.7"
+          },
+          {
+            "Lunar": "Hadzuki",
+            "Lunar_JP": "葉月",
+            "Num": 8,
+            "Class": "軍事本部",
+            "Class_EN": "Military Headquarter"
+          },
+          {
+            "Lunar": "Nagatsuki",
+            "Lunar_JP": "長月",
+            "Num": 9,
+            "Class": "救命本部",
+            "Class_EN": "Lifeguards Headquarter"
+          },
+          {
+            "Lunar": "Kannadzuki",
+            "Lunar_JP": "神無月",
+            "Num": 10,
+            "Class": "破滅対策本部",
+            "Class_EN": "Pandemic Affairs Countermeasures Headquarter"
           },
           {
             "Lunar": "Learp",
