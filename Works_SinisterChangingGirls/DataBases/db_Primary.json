@@ -14,14 +14,10 @@
     "CodeName_EN": "Lust o'clock in Midnight",
     "RaceType": "Human(withAddon)",
     "Belonging": "百花繚乱研究所",
-    "Age": {
-      "_Jump": {
-        "dataTag": "ConceptAge"
-      }
-    },
+    "Age": 25,
     "BirthDay": {
       "_Jump": {
-        "dataTag": "AnivDay",
+        "hashTag": "AnivDay",
         "_Search": { "hashTag": "DayAbout", "key": "誕生日" }
       }
     },

@@ -3,11 +3,16 @@
     "#DB_Primary": {
       "DB_Summary": "運命線探偵の公式一次創作作品に登場するキャラクター。\nタロットカードに関連する特性をそれぞれ有している。",
       "StoryEra": {
-        "fromEra": [{ "eraGen": 7, "yearInEra": 24 }, { "byRealYear": 2044 }],
-        "toEra": [
-          { "eraGen": 8, "yearInEra": 2 },
-          { "eraGen": 7, "yearInEra": 26 },
+        "FromEra": [{ "EraGen": 7, "YearInEra": 24 }, { "byRealYear": 2044 }],
+        "ToEra": [
+          { "EraGen": 8, "YearInEra": 2 },
+          { "EraGen": 7, "YearInEra": 26 },
           { "byRealYear": 2046 }
+        ],
+        "InEra": [
+          { "EraGen": 8, "YearInEra": 1 },
+          { "EraGen": 7, "YearInEra": 25 },
+          { "byRealYear": 2045 }
         ],
         "about_JP": "第7創世紀24年〜第8創世紀2年(西暦2044〜2046年相当)\n『第8の世界創造』に関する重要な時期となる",
         "about_EN": "between WDCE.VII.24 to WDCE.VIII.2(Equivalent to between: DC.2044-2046)\n\nThis period is significant for the “World Development Creation VIII” "
