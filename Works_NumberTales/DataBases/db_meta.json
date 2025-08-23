@@ -2,6 +2,20 @@
   "Databases": {
     "#DB_Primary": {
       "DB_Summary": "ナンバーテールズのうち、公式一次創作作品に登場するキャラクター。\n99以内の非負整数である数秘をそれぞれ有している。",
+      "StoryEra": {
+        "fromEra": [
+          { "eraGen": 9, "yearInEra": 3 },
+          { "eraGen": 8, "yearInEra": 6 },
+          { "byRealYear": 2050 }
+        ],
+        "toEra": [
+          { "eraGen": 9, "yearInEra": 4 },
+          { "eraGen": 8, "yearInEra": 7 },
+          { "byRealYear": 2051 }
+        ],
+        "about_JP": "第9創世紀3〜4年(第8創世紀6〜7年,西暦2050〜2051年相当)",
+        "about_EN": "between WDCE.IX.3-4(Equivalent to between: WDCE.VIII.6-7, DC.2050-2051)"
+      },
       "_Commons": {
         "Belonging": "百花繚乱研究所",
         "RaceType": "PortableHumanoid(FoxyType)"
@@ -9,6 +23,20 @@
     },
     "#DB_SemiPrimary": {
       "DB_Summary": "ナンバーテールズのうち、公式の下でアンソロジーとしてデザインされたキャラクターで、こちらは一次創作に準ずる括りとする。\n公式一次創作作品の延長として登場する番号やゾロ目(マスターナンバーとしての33および111の倍数)の非負整数を主とした数秘をそれぞれ有している。",
+      "StoryEra": {
+        "fromEra": [
+          { "eraGen": 9, "yearInEra": 3 },
+          { "eraGen": 8, "yearInEra": 6 },
+          { "byRealYear": 2050 }
+        ],
+        "toEra": [
+          { "eraGen": 9, "yearInEra": 5 },
+          { "eraGen": 8, "yearInEra": 8 },
+          { "byRealYear": 2052 }
+        ],
+        "about_JP": "第9創世紀3〜5年(第8創世紀6〜8年,西暦2050〜2052年相当)",
+        "about_EN": "between WDCE.IX.3-5(Equivalent to between: WDCE.VIII.6-8, DC.2050-2052)"
+      },
       "_Commons": {
         "Belonging": "百花繚乱研究所",
         "RaceType": "PortableHumanoid(FoxyType)"
@@ -46,6 +74,20 @@
           "SecondaryDesignedBy": "散狐アタスト",
           "SecondarySeriesTitle": "ヘキサデミカル・テールズ",
           "SecondarySummary": "散狐アタストさんにより原案がキャラデザされ、現在はラジアン(柏木主税)に権利を譲渡されている。\n異世界から(散狐アタストさんの代理キャラである)「エイゼルベット」によりナンバーテールズを基にして生み出され、(同じく二次創作観測キャラである)「シグマ.クロステールズ」により百花繚乱研究所のある世界へ仲介された、十六進拡張用の数字を持つ６体のバーチャル同位体。現在は百花繚乱研究所に託され、研究開発の一要因として活動している。",
+          "StoryEra": {
+            "fromEra": [
+              { "eraGen": 9, "yearInEra": 4 },
+              { "eraGen": 8, "yearInEra": 7 },
+              { "byRealYear": 2051 }
+            ],
+            "toEra": [
+              { "eraGen": 9, "yearInEra": 5 },
+              { "eraGen": 8, "yearInEra": 8 },
+              { "byRealYear": 2052 }
+            ],
+            "about_JP": "第9創世紀4〜5年(第8創世紀7〜8年,西暦2050〜2052年相当)",
+            "about_EN": "between WDCE.IX.4-5(Equivalent to between: WDCE.VIII.7-8, DC.2051-2052)"
+          },
           "_Commons": {
             "Belonging": "百花繚乱研究所\nエイゼルベットの観測世界",
             "RaceType": "Humanoid(FoxyType,SoftwareBody)"
@@ -56,6 +98,16 @@
           "SecondaryDesignedBy": "ラジアン(柏木主税)\n散狐アタスト",
           "SecondarySeriesTitle": "D-Vines(ディ-ヴァインズ)",
           "SecondarySummary": "散狐アタストさんの提案により考案された。\nシンフォニー.XVI(ゼクズィン)に所属する「錦野舞」によりナンバーテールズの互換プロダクションとして開発された、胴部襷掛け方向に上下体の乖離・組み換え再接続が可能なカスタマイズ特化型ディビエイタブルヒューマノイド。上下の組み換え次第で性格に変化が生じるため、個体の外見デザイン以上のキャラクターバリエーションを有することが特徴。",
+          "StoryEra": {
+            "fromEra": [
+              { "eraGen": 9, "yearInEra": 5 },
+              { "eraGen": 8, "yearInEra": 8 },
+              { "byRealYear": 2052 }
+            ],
+            "toEra": [null],
+            "about_JP": "第9創世紀5年(第8創世紀8年,西暦2052年相当)以降",
+            "about_EN": "hereafter WDCE.IX.5(Equivalent to hereafter: WDCE.VIII.8, DC.2052)"
+          },
           "_Commons": {
             "Belonging": "シンフォニー.XVI(ゼクズィン)\n百花繚乱研究所",
             "RaceType": "DeviatableHumanoid(GrizzlyType)"

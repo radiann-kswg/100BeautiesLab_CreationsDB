@@ -2,6 +2,15 @@
   "Databases": {
     "#DB_Primary": {
       "DB_Summary": "獣爾騎兵の公式一次創作作品に登場するキャラクター。\n十二支に相当する動物のモチーフをそれぞれ有している。",
+      "StoryEra": {
+        "fromEra": {
+          "value": [{ "eraGen": 7, "yearInEra": 19 }, { "byRealYear": 2039 }],
+          "about": "ストーリーの主軸上において"
+        },
+        "toEra": [{ "eraGen": 7, "yearInEra": 23 }, { "byRealYear": 2043 }],
+        "about_JP": "第7創世紀19〜23年(西暦2039〜2043年相当)\n劇中では第7創世紀元前にあたる第6創世紀3年(西暦1985年相当)以降の過去について描写が含まれており、『第7の世界破壊』に関する重大な場面が登場する予定",
+        "about_EN": "between WDCE.VII.19-23(Equivalent to between: DC.2039-2043)\nThis Story contains descriptions of the past hereafter WDCE.VI.3(equivalent to DC.1985) as before WDCE.VII and important seens for the “World Destruction Pandemic VII”"
+      },
       "_Commons": {
         "#List_Beast": [
           {

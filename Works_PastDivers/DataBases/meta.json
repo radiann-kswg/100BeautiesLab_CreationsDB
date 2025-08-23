@@ -2,6 +2,12 @@
   "Databases": {
     "#DB_Primary": {
       "DB_Summary": "「夜月機関」の正式な幹部に相当する一次創作キャラクター。\n和暦の月名に関連するコードネームが付与されている。",
+      "StoryEra": {
+        "fromEra": [{ "eraGen": 8, "yearInEra": 3 }, { "byRealYear": 2047 }],
+        "toEra": [{ "eraGen": 8, "yearInEra": 4 }, { "byRealYear": 2048 }],
+        "about_JP": "第8創世紀3〜4年(西暦2047〜2048年相当)",
+        "about_EN": "between WDCE.VIII.3-4(Equivalent to between: DC.2047-2048)"
+      },
       "_Commons": {
         "Belonging": "夜月機関",
         "#List_Lunar": [
