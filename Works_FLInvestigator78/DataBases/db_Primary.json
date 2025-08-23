@@ -257,7 +257,7 @@
       "EffectStats": {
         "Physical": { "Rank": "C", "EffectText": "希薄" },
         "Magical": { "Rank": "D", "EffectText": "効果無" },
-        "Healing": { "Rank": { "HideText": "条件による" } },
+        "Healing": { "Rank": { "HideText": "定義不能" } },
         "Violent": { "Rank": "D", "EffectText": "効果無" },
         "Rewriting": { "Rank": "C", "EffectText": "希薄" }
       },

@@ -440,6 +440,7 @@
         { "HideText": "非公開希望", "HideText_EN": "Non-Public at Pleasure" },
         { "HideText": "非公開", "HideText_EN": "Non-Public" },
         { "HideText": "条件による", "HideText_EN": "Depending on Conditions" },
+        { "HideText": "定義不能", "HideText_EN": "Undefineble" },
         { "HideText": "本人すら把握されていない", "HideText_EN": "Not Aware" }
       ],
       "$Def_Stats": {

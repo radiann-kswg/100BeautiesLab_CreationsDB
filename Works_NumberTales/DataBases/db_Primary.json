@@ -2654,7 +2654,7 @@
         "Mental": { "Rank": "B", "EffectText": "普通" },
         "Manetize": { "Rank": { "HideText": "条件による" } },
         "Working": { "Rank": "B", "EffectText": "普通" },
-        "Luck": { "Rank": { "HideText": "条件による" } },
+        "Luck": { "Rank": { "HideText": "定義不能" } },
         "Communication": { "Rank": "B", "EffectText": "普通" }
       },
       "SpetialPattern": [
@@ -3242,7 +3242,7 @@
     },
     "AbilityStats": {
       "Speed": { "Rank": "B" },
-      "Communicating": { "Rank": { "HideText": "条件による" } },
+      "Communicating": { "Rank": { "HideText": "定義不能" } },
       "Reading": { "Rank": "Z" },
       "Precision": { "Rank": "D" },
       "Technic": { "Rank": "A" },
@@ -4031,9 +4031,9 @@
       "EffectStats": {
         "Mental": { "Rank": "A", "EffectText": "期待" },
         "Manetize": { "Rank": { "HideText": "条件による" } },
-        "Working": { "Rank": { "HideText": "条件による" } },
+        "Working": { "Rank": { "HideText": "定義不能" } },
         "Luck": { "Rank": "Z", "EffectText": "極めて絶大(場合により逆効果)" },
-        "Communication": { "Rank": { "HideText": "条件による" } }
+        "Communication": { "Rank": { "HideText": "定義不能" } }
       },
       "SpetialPattern": [
         "Ptn.Lr-(条件付き幸福実現効果)",
@@ -4043,7 +4043,7 @@
     },
     "AbilityStats": {
       "Speed": { "Rank": "B" },
-      "Communicating": { "Rank": { "HideText": "条件による" } },
+      "Communicating": { "Rank": { "HideText": "定義不能" } },
       "Reading": { "Rank": "B" },
       "Precision": { "Rank": "S" },
       "Technic": { "Rank": "A" },
