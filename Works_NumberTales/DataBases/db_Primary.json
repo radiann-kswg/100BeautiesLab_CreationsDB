@@ -7562,6 +7562,17 @@
     ],
     "Class": "デュアルシックスズ",
     "Class_EN": "Dual Sum-6s",
+    "ThisMasters": {
+      "value": "錦野 歌嫁（78特殊探偵団 采配幹部(ディーラー)/百花繚乱研究所(N3US大学 千歳研究室)ゼミアシスタント）",
+      "_DBLink": {
+        "worksTitle": "NumberTales",
+        "dbFile": "db_Secondary",
+        "_Search": {
+          "hashTag": "Num",
+          "key": "%"
+        }
+      }
+    },
     "GenderType": "FemaleNeutral",
     "ConceptAge": { "value": 19, "about": "自称" },
     "Height_cm": 156,
@@ -8841,15 +8852,16 @@
     "CodeName": "〇",
     "SPCodeName": "零",
     "GenderType": "Female",
+    "RaceType": "Human(withAddon)",
     "Height_cm": 165,
-    "ConceptAge": 25,
+    "Age": 25,
     "AnivDay": [
       { "Day": { "Month": 8, "DayOfMonth": 15 }, "DayAbout": "誕生日" }
     ],
     "Weight_kg": { "HideText": "非公開" },
     "BustSize": "D",
-    "Class": "開発者",
-    "Class_EN": "Developer",
+    "Class": "開発者\n最高経営所長",
+    "Class_EN": "Developer\nChief Executive Officer",
     "FirstPersonCalling": "私(わたし)",
     "SecondPersonCalling": "君(,あんた)",
     "ThirdPersonCalling": "彼/彼女/[Name]",
@@ -8875,13 +8887,13 @@
     "RaceType": "Human(withAddon)",
     "GenderType": "Male",
     "Height_cm": 165,
-    "ConceptAge": 25,
+    "Age": 25,
     "AnivDay": [
       { "Day": { "Month": 8, "DayOfMonth": 15 }, "DayAbout": "誕生日" }
     ],
     "Weight_kg": { "HideText": "非公開" },
-    "Class": "開発者",
-    "Class_EN": "Developer",
+    "Class": "開発者\n最高技術所長",
+    "Class_EN": "Developer\nChief Technology Officer",
     "FirstPersonCalling": "僕",
     "SecondPersonCalling": "君(,お前)",
     "ThirdPersonCalling": "彼/彼女/[Name]",

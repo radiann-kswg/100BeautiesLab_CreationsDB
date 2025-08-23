@@ -109,7 +109,7 @@
             "about_EN": "in around WDCE.IX.5(Equivalent to in around: WDCE.VIII.8, DC.2052)"
           },
           "_Commons": {
-            "Belonging": "シンフォニー.XVI(ゼクズィン)\n百花繚乱研究所",
+            "Belonging": "シンフォニー.XVI(ゼクズィン)",
             "RaceType": "DeviatableHumanoid(GrizzlyType)"
           }
         }
@@ -198,79 +198,128 @@
         "#Enum_RelationLabel": [
           {
             "RelationLabel": "brother|sister",
-            "RelationLabel_JP": "姉妹個体"
+            "RelationLabel_JP": "姉妹個体(兄弟姉妹)",
+            "isForSecondary": false
           },
-          { "RelationLabel": "cousin", "RelationLabel_JP": "従姉妹個体" },
+          {
+            "RelationLabel": "cousin",
+            "RelationLabel_JP": "従姉妹個体(従姉妹)",
+            "isForSecondary": false
+          },
           {
             "RelationLabel": "cousin_nearly",
-            "RelationLabel_JP": "従姉妹個体に近しい"
+            "RelationLabel_JP": "従姉妹個体に近しい",
+            "isForSecondary": false
           },
-          { "RelationLabel": "pioneer", "RelationLabel_JP": "先駆設計個体" },
+          {
+            "RelationLabel": "pioneer",
+            "RelationLabel_JP": "先駆設計個体(昔からの先輩)",
+            "isForSecondary": false
+          },
           {
             "RelationLabel": "pioneer_nearly",
-            "RelationLabel_JP": "先駆設計の個体に近しい"
+            "RelationLabel_JP": "先駆設計の個体に近しい(かつての先輩)",
+            "isForSecondary": false
           },
-          { "RelationLabel": "successor", "RelationLabel_JP": "後継設計個体" },
+          {
+            "RelationLabel": "successor",
+            "RelationLabel_JP": "後継設計個体(昔からの後輩)",
+            "isForSecondary": false
+          },
           {
             "RelationLabel": "successor_nearly",
-            "RelationLabel_JP": "後継設計の個体に近しい"
+            "RelationLabel_JP": "後継設計の個体に近しい(かつての後輩)",
+            "isForSecondary": false
           },
           {
             "RelationLabel": "alternative|redesign",
-            "RelationLabel_JP": "代替または再設計の関係にある個体"
+            "RelationLabel_JP": "代替または再設計の関係にある個体",
+            "isForSecondary": false
           },
-          { "RelationLabel": "sameNumber", "RelationLabel_JP": "同番号個体" },
+          {
+            "RelationLabel": "sameNumber",
+            "RelationLabel_JP": "同番号個体",
+            "isForSecondary": false
+          },
           {
             "RelationLabel": "wellMatched",
-            "RelationLabel_JP": "相性の良い個体"
+            "RelationLabel_JP": "相性の良い個体",
+            "isForSecondary": false
           },
           {
             "RelationLabel": "wellMatched_maybe",
-            "RelationLabel_JP": "おそらく相性の良い個体"
+            "RelationLabel_JP": "おそらく相性の良い個体",
+            "isForSecondary": false
           },
           {
             "RelationLabel": "unmatched",
-            "RelationLabel_JP": "相性の悪い個体"
+            "RelationLabel_JP": "相性の悪い個体",
+            "isForSecondary": false
           },
           {
             "RelationLabel": "trusted",
-            "RelationLabel_JP": "信頼している個体"
+            "RelationLabel_JP": "信頼している個体",
+            "isForSecondary": false
           },
           {
             "RelationLabel": "trusted_maybe",
-            "RelationLabel_JP": "おそらく信頼している個体"
+            "RelationLabel_JP": "おそらく信頼している個体",
+            "isForSecondary": false
           },
           {
             "RelationLabel": "awkward",
-            "RelationLabel_JP": "気まずい関係にある個体"
+            "RelationLabel_JP": "気まずい関係にある個体",
+            "isForSecondary": false
           },
           {
             "RelationLabel": "awkward_aBit",
-            "RelationLabel_JP": "少し気まずい関係にある個体"
+            "RelationLabel_JP": "少し気まずい関係にある個体",
+            "isForSecondary": false
           },
           {
             "RelationLabel": "accompanying",
-            "RelationLabel_JP": "よく行動をともにする個体"
+            "RelationLabel_JP": "よく行動をともにする個体",
+            "isForSecondary": false
+          },
+          {
+            "RelationLabel": "abusing",
+            "RelationLabel_JP": "過剰干渉しがちな個体",
+            "isForSecondary": false
           },
           {
             "RelationLabel": "interested",
-            "RelationLabel_JP": "興味を持っている個体"
+            "RelationLabel_JP": "興味を持っている個体",
+            "isForSecondary": false
           },
           {
             "RelationLabel": "adverselyAffected",
-            "RelationLabel_JP": "悪い影響関係にある個体"
+            "RelationLabel_JP": "悪い影響関係にある個体",
+            "isForSecondary": false
           },
           {
             "RelationLabel": "adverselyAffected_aBit",
-            "RelationLabel_JP": "あまり良いとは限らない影響関係にある個体"
+            "RelationLabel_JP": "あまり良いとは限らない影響関係にある個体",
+            "isForSecondary": false
           },
           {
             "RelationLabel": "paired",
-            "RelationLabel_JP": "対で認識されている個体"
+            "RelationLabel_JP": "対で認識されている個体",
+            "isForSecondary": false
           },
           {
             "RelationLabel": "secretRelation",
-            "RelationLabel_JP": "あまり明かされない関係にある個体"
+            "RelationLabel_JP": "あまり明かされない関係にある個体",
+            "isForSecondary": false
+          },
+          {
+            "RelationLabel": "sameValue",
+            "RelationLabel_JP": "数量上は同番号に値する個体",
+            "isForSecondary": true
+          },
+          {
+            "RelationLabel": "hadInCommision",
+            "RelationLabel_JP": "契約関係にあった経験あり",
+            "isForSecondary": true
           }
         ]
       }

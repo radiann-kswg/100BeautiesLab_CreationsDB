@@ -14,7 +14,9 @@
     "GenderType": "Neutral",
     "Height_cm": [{ "value": 147, "about": "推定" }],
     "ConceptAge": { "value": 15, "about": "推定" },
-    "AnivDay": { "Day": { "Month": 6, "DayOfMonth": 10 } },
+    "AnivDay": [
+      { "Day": { "Month": 6, "DayOfMonth": 10 }, "DayAbout": "開発記念" }
+    ],
     "Weight_kg": [{ "value": 39, "about": "推定" }],
     "BustSize": "AA",
     "TailsUnit": "つぼみ型1本（大1束+小9束）",
@@ -52,29 +54,52 @@
     },
     "InStory": "「エイゼルベット」の観測者「シグマ-クロステールズ」の元で観測を受けている、ある電脳世界との間で生まれた個体\n彼(女)が切るカードには強い潜在能力が秘められていると推測されているようだが…？",
     "Relation": {
-      "Related": []
+      "Related": [
+        { "Num": "0xF", "RelationLabel": ["trusted", "secletRelation"] }
+      ]
     },
-    "RelationToPrimaryNTs": {
-      "Commented": [
+    "RelationToPrimary": {
+      "Related": [
         {
           "Num": 1,
           "Comments": "どこまで行っても、始まりはこうなんだろうね",
-          "ComeBackedComments": "10(ミツル)とはまた違ったクセの強さを感じる"
+          "ComeBacked": {
+            "Comments": "10(ミツル)とはまた違ったクセの強さを感じる",
+            "RelationLabel": ["awkward_aBit"]
+          }
+        },
+        {
+          "Num": 10,
+          "RelationLabel": ["sameValue", "adverselyAffected", "secletRelation"],
+          "ComeBacked": {
+            "RelationLabel": ["sameValue", "interested", "secletRelation"]
+          }
         },
         {
           "Num": 13,
           "Comments": "ひとつ賭けをしたよ…彼女が勝つか…",
-          "ComeBackedComments": "え!? なんかバクチ始まってる!?"
-        },
+          "RelationLabel": ["abusing", "interested"],
+          "ComeBacked": {
+            "Comments": "え!? なんかバクチ始まってる!?",
+            "RelationLabel": ["awkward_aBit"]
+          }
+        }
+      ],
+      "Commented": [
         {
           "Num": 44,
           "Comments": "恐れ入った。最高役でこちらが負けるとは",
-          "ComeBackedComments": "悪ぃな、“確率操作”は得意なんだ"
+          "ComeBacked": { "Comments": "悪ぃな、“確率操作”は得意なんだ" }
+        },
+        {
+          "Num": 58
         },
         {
           "Num": "2-alt",
           "Comments": "一つの可能性、二つ以上の因果。キミは何を見たんだ？",
-          "ComeBackedComments": "おなじ電脳個体でびっくりしたけど……あなたたちって、いったい“どこから”…？"
+          "ComeBacked": {
+            "Comments": "おなじ電脳個体でびっくりしたけど……あなたたちって、いったい“どこから”…？"
+          }
         }
       ]
     }
@@ -91,10 +116,12 @@
     "FormalName": "ヘキサデミカル-テールズ仮説B番機",
     "FormalName_EN": "HexademicalTales #0xB",
     "ModelNumber": "AVCR-HxT 0xB",
-    "GenderType": "Female",
+    "GenderType": "FemaleNeutral",
     "Height_cm": [{ "value": 144, "about": "推定" }],
     "ConceptAge": { "value": 14, "about": "推定" },
-    "AnivDay": { "Day": { "Month": 6, "DayOfMonth": 11 } },
+    "AnivDay": [
+      { "Day": { "Month": 6, "DayOfMonth": 11 }, "DayAbout": "開発記念" }
+    ],
     "Weight_kg": [{ "value": 36, "about": "推定" }],
     "BustSize": "D",
     "TailsUnit": "猫型2本",
@@ -109,7 +136,6 @@
     "SpetialSkill": "一緒に泣いて慰める",
     "Favor": null,
     "Unlike": null,
-    "WellmatchedNTsNames": "0xA(エース)\n0xF(フォルテ)",
     "RelationAbouts": "「11(トウイチ)」の派生とされている",
     "NumerospecAbout": { "HideText": "極秘事項" },
     "NumerospecStats": {
@@ -133,39 +159,62 @@
     },
     "InStory": "「エイゼルベット」の観測者「シグマ-クロステールズ」の元で観測を受けている、ある電脳世界との間で生まれた個体\n試験を受けた後に突然 自分自身の性能が良くなることがあるらしく……",
     "Relation": {
-      "Related": []
+      "Related": [
+        { "Num": "0xA", "RelationLabel": ["wellMatched"] },
+        { "Num": "0xF", "RelationLabel": ["trusted"] }
+      ]
     },
-    "RelationToPrimaryNTs": {
-      "Commented": [
+    "RelationToPrimary": {
+      "Related": [
         {
-          "Num": 4,
-          "Comments": "ふえぇ…先輩…ちょっとあたしには無理…きゃっ…！",
-          "ComeBackedComments": "あっごごごめんなさい!! そんなつもりじゃなかったのについ…！"
-        },
-        {
-          "Num": 9,
-          "Comments": "何でしょう…なんだか引き込まれるような大きな力を感じます…",
-          "ComeBackedComments": "可愛い子ね…ふふふ…"
+          "Num": 11,
+          "RelationLabel": ["sameValue", "adverselyAffected"],
+          "ComeBacked": {
+            "RelationLabel": ["sameValue"]
+          }
         },
         {
           "Num": 24,
           "Comments": "先輩がいれば、なんだか上手くいく気がします…！",
-          "ComeBackedComments": "頑張ってね"
+          "RelationLabel": ["wellMatched", "trusted"],
+          "ComeBacked": { "Comments": "頑張ってね" }
         },
         {
           "Num": 29,
           "Comments": "あぅぅ…また当たっちゃいましたね……",
-          "ComeBackedComments": "ぅぅぅ……(委縮)"
+          "RelationLabel": ["awkward_aBit"],
+          "ComeBacked": {
+            "Comments": "ぅぅぅ……(委縮)",
+            "RelationLabel": ["awkward_aBit"]
+          }
         },
         {
           "Num": 57,
           "Comments": "ちょっと…引っ張らないでくださいぃぃ…",
-          "ComeBackedComments": "自信持ってこー！"
+          "RelationLabel": ["awkward_aBit"],
+          "ComeBacked": { "Comments": "自信持ってこー！" }
+        }
+      ],
+      "Commented": [
+        {
+          "Num": 4,
+          "Comments": "ふえぇ…先輩…ちょっとあたしには無理…きゃっ…！",
+          "ComeBacked": {
+            "Comments": "あっごごごめんなさい!! そんなつもりじゃなかったのについ…！"
+          }
+        },
+        {
+          "Num": 9,
+          "Comments": "何でしょう…なんだか引き込まれるような大きな力を感じます…",
+          "ComeBacked": { "Comments": "可愛い子ね…ふふふ…" }
+        },
+        {
+          "Num": 40
         },
         {
           "Num": 94,
           "Comments": "…Zzz…はぅっ!? 寝ちゃってました…？",
-          "ComeBackedComments": "……ん、もう朝…？おはよ…"
+          "ComeBacked": { "Comments": "……ん、もう朝…？おはよ…" }
         }
       ]
     }
@@ -182,10 +231,12 @@
     "FormalName": "ヘキサデミカル-テールズ仮説C番機",
     "ModelNumber": "AVCR-HxT 0xC",
     "FormalName_EN": "HexademicalTales #0xC",
-    "GenderType": "Male",
+    "GenderType": "MaleNeutral",
     "Height_cm": [{ "value": 151, "about": "推定" }],
     "ConceptAge": { "value": 17, "about": "推定" },
-    "AnivDay": { "Day": { "Month": 6, "DayOfMonth": 12 } },
+    "AnivDay": [
+      { "Day": { "Month": 6, "DayOfMonth": 12 }, "DayAbout": "開発記念" }
+    ],
     "Weight_kg": { "HideText": "未公開希望" },
     "TailsUnit": "犬型3本",
     "Class": "ヘキサデミカル-テールズ",
@@ -199,8 +250,6 @@
     "SpetialSkill": null,
     "Favor": null,
     "Unlike": "メンタルブレイク",
-    "WellmatchedNTsNames": "93(クミ)",
-    "UnmatchedNTsNames": "61(ロクイチ)",
     "RelationAbouts": "アイドルを志望しているが、アイドルの素質があるナンバーテールズとは少しすれ違い気味らしい",
     "NumerospecAbout": { "HideText": "極秘事項" },
     "NumerospecStats": {
@@ -226,37 +275,65 @@
     "Relation": {
       "Related": []
     },
-    "RelationToPrimaryNTs": {
-      "Commented": [
+    "RelationToPrimary": {
+      "Related": [
         {
-          "Num": 42,
-          "Comments": "おごっ…おご…ちょっとオレはそういうの苦手だぞ…",
-          "ComeBackedComments": "自信持ってるのか持ってないのかはっきりしなさいっ！"
+          "Num": 12,
+          "RelationLabel": ["sameValue", "adverselyAffected"],
+          "ComeBacked": {
+            "RelationLabel": ["sameValue"]
+          }
         },
         {
           "Num": 60,
           "Comments": "師匠！弟子入りさせてください!!",
-          "ComeBackedComments": "いやあなた誰よ!?"
+          "RelationLabel": ["abusing"],
+          "ComeBacked": {
+            "Comments": "いやあなた誰よ!?",
+            "RelationLabel": ["awkward"]
+          }
         },
         {
           "Num": 61,
           "Comments": "今日もアイドルらしく…とは言ってもアイツ何言ってんだァ??",
-          "ComeBackedComments": "ユニット名決めたらドン引きされちゃった……"
-        },
-        {
-          "Num": 66,
-          "Comments": "オレはそういうのじゃねぇって！…でもなんかいい気分だな…",
-          "ComeBackedComments": "迷ったときはいつでもお声掛けしてくださいね"
-        },
-        {
-          "Num": 69,
-          "Comments": "先輩！見ててください！パイを投げねぇでください!!",
-          "ComeBackedComments": "さすがに社交辞令の度を超えてたか…で、美味かったか？"
+          "RelationLabel": ["awkward"],
+          "ComeBacked": {
+            "Comments": "ユニット名決めたらドン引きされちゃった……"
+          }
         },
         {
           "Num": 93,
           "Comments": "アイツと●京ドーム目指すぞッ！",
-          "ComeBackedComments": "何だかよくわからないけど、野望(ユメ)がありそうな人だ…!!"
+          "RelationLabel": ["wellMatched"],
+          "ComeBacked": {
+            "Comments": "何だかよくわからないけど、野望(ユメ)がありそうな人だ…!!"
+          }
+        }
+      ],
+      "Commented": [
+        {
+          "Num": 42,
+          "Comments": "おごっ…おご…ちょっとオレはそういうの苦手だぞ…",
+          "ComeBacked": {
+            "Comments": "自信持ってるのか持ってないのかはっきりしなさいっ！"
+          }
+        },
+        {
+          "Num": 43
+        },
+        {
+          "Num": 66,
+          "Comments": "オレはそういうのじゃねぇって！…でもなんかいい気分だな…",
+          "ComeBacked": {
+            "Comments": "迷ったときはいつでもお声掛けしてくださいね"
+          }
+        },
+        {
+          "Num": 69,
+          "Comments": "先輩！見ててください！パイを投げねぇでください!!",
+          "ComeBacked": {
+            "Comments": "さすがに社交辞令の度を超えてたか…で、美味かったか？"
+          }
         }
       ]
     }
@@ -273,10 +350,12 @@
     "FormalName": "ヘキサデミカル-テールズ仮説D番機",
     "FormalName_EN": "HexademicalTales #0xD",
     "ModelNumber": "AVCR-HxT 0xD",
-    "GenderType": "Female",
+    "GenderType": "FemaleNeutral",
     "Height_cm": [{ "value": 130, "about": "推定" }],
     "ConceptAge": { "value": 12, "about": "推定" },
-    "AnivDay": { "Day": { "Month": 6, "DayOfMonth": 13 } },
+    "AnivDay": [
+      { "Day": { "Month": 6, "DayOfMonth": 13 }, "DayAbout": "開発記念" }
+    ],
     "Weight_kg": { "HideText": "未公開希望" },
     "BustSize": "E",
     "TailsUnit": "狐型4本",
@@ -291,8 +370,6 @@
     "SpetialSkill": null,
     "Favor": "ノート",
     "Unlike": "見られたくないものを見られること",
-    "WellmatchedNTsNames": "75(シチゴ)",
-    "UnmatchedNTsNames": "49(ヨチカ)\n0xE(エネ)",
     "RelationAbouts": "「0xE(エネ)」に特大空ビ化の非検体にされたことがあり…？",
     "NumerospecAbout": { "HideText": "極秘事項" },
     "NumerospecStats": {
@@ -316,39 +393,71 @@
     },
     "InStory": "「エイゼルベット」の観測者「シグマ-クロステールズ」の元で観測を受けている、ある電脳世界との間で生まれた個体\n高い記録能力から、ヘキサデミカル-テールズの躯体開発で途中から記録担当を務めることとなった",
     "Relation": {
-      "Related": []
+      "Related": [{ "Num": "0xE", "RelationLabel": ["unmatched"] }]
     },
-    "RelationToPrimaryNTs": {
-      "Commented": [
+    "RelationToPrimary": {
+      "Related": [
         {
           "Num": 12,
           "Comments": "あの子なかなかいい線行くじゃないの…",
-          "ComeBackedComments": "えへへ…上手い人のプレゼンはよく見てきたので！"
+          "RelationLabel": ["trusted_maybe", "interested"],
+          "ComeBacked": {
+            "Comments": "えへへ…上手い人のプレゼンはよく見てきたので！",
+            "RelationLabel": ["wellMatched_maybe"]
+          }
+        },
+        {
+          "Num": 13,
+          "RelationLabel": ["sameValue", "adverselyAffected"],
+          "ComeBacked": {
+            "RelationLabel": ["sameValue"]
+          }
         },
         {
           "Num": 17,
           "Comments": "…こっ…これは趣味だからねっ！",
-          "ComeBackedComments": "勤勉さと可愛らしさが詰まったノートだね、また見せてよ"
-        },
-        {
-          "Num": 33,
-          "Comments": "えーと…代数学って何のことかしら…教えて？",
-          "ComeBackedComments": "またなにかわからないことがあればお任せを"
+          "ComeBacked": {
+            "Comments": "勤勉さと可愛らしさが詰まったノートだね、また見せてよ",
+            "RelationLabel": ["interested"]
+          }
         },
         {
           "Num": 49,
           "Comments": "何やってるの！メモどおりに…って もうやってある…ｱﾀﾏｲﾀｲ…",
-          "ComeBackedComments": "ノート録るだけでも時間掛かりすぎなのに よくここまで記録できたね？"
+          "RelationLabel": ["awkward"],
+          "ComeBacked": {
+            "Comments": "ノート録るだけでも時間掛かりすぎなのに よくここまで記録できたね？"
+          }
         },
         {
           "Num": 75,
           "Comments": "時々一緒に勉強会をするわ",
-          "ComeBackedComments": "とても気の合う学友ができて、私も嬉しいよ"
+          "RelationLabel": ["wellMatched"],
+          "ComeBacked": {
+            "Comments": "とても気の合う学友ができて、私も嬉しいよ"
+          }
+        }
+      ],
+      "Commented": [
+        {
+          "Num": 33,
+          "Comments": "えーと…代数学って何のことかしら…教えて？",
+          "ComeBacked": {
+            "Comments": "またなにかわからないことがあればお任せを"
+          }
+        },
+        {
+          "Num": 76
         },
         {
           "Num": 85,
           "Comments": "あなた……どこで変な知識をつけてきたの…",
-          "ComeBackedComments": "え？これでなんとかなってるけど、違うん？"
+          "ComeBacked": {
+            "Comments": "え？これでなんとかなってるけど、違うん？"
+          }
+        },
+        {
+          "Num": 99
         }
       ]
     }
@@ -368,7 +477,9 @@
     "GenderType": "Neutral",
     "Height_cm": [{ "value": 143, "about": "推定" }],
     "ConceptAge": { "value": 18, "about": "推定" },
-    "AnivDay": { "Day": { "Month": 6, "DayOfMonth": 14 } },
+    "AnivDay": [
+      { "Day": { "Month": 6, "DayOfMonth": 14 }, "DayAbout": "開発記念" }
+    ],
     "Weight_kg": [{ "value": 39, "about": "推定" }],
     "BustSize": "AA",
     "TailsUnit": "猫型5本",
@@ -383,8 +494,6 @@
     "SpetialSkill": "魔改造",
     "Favor": "（魔）改造",
     "Unlike": "機械で解決できない問題",
-    "WellmatchedNTsNames": "8(ワカツ)",
-    "UnmatchedNTsNames": "62(ロジ)",
     "RelationAbouts": "ナンバーテールズの改造案を出しているが……",
     "NumerospecAbout": { "HideText": "極秘事項" },
     "NumerospecStats": {
@@ -408,29 +517,49 @@
     },
     "InStory": "「エイゼルベット」の観測者「シグマ-クロステールズ」の元で観測を受けている、ある電脳世界との間で生まれた個体\n向こう側の電脳世界でもこちらの世界でも、色んなものの魔改造に勤しんでいる",
     "Relation": {
-      "Related": []
+      "Related": [{ "Num": "0xD", "RelationLabel": ["abusing"] }]
     },
-    "RelationToPrimaryNTs": {
-      "Commented": [
+    "RelationToPrimary": {
+      "Related": [
         {
           "Num": 5,
           "Comments": "貴殿(アイツ)がいる限り俺っちの修理作業は消えないだろうな…",
-          "ComeBackedComments": "悪ぃ、これ壊した！^w^"
+          "RelationLabel": ["awkward"],
+          "ComeBacked": { "Comments": "悪ぃ、これ壊した！^ω^" }
         },
         {
           "Num": 8,
           "Comments": "いやー…貴殿(きでん)のおかげでいいパーツがそろうねぇ…！",
-          "ComeBackedComments": "どんなモノを作ってたかについても聞いてみたいなぁ"
+          "RelationLabel": ["trusted"],
+          "ComeBacked": {
+            "Comments": "どんなモノを作ってたかについても聞いてみたいなぁ",
+            "RelationLabel": ["interested"]
+          }
         },
         {
           "Num": 14,
           "Comments": "ちょっとコイツを使ってみておくれ！今日もテスト頼む！",
-          "ComeBackedComments": "人体改造ではありませんように…人体改造ではありませんように…!!"
+          "RelationLabel": ["sameValue", "adverselyAffected", "interested"],
+          "ComeBacked": {
+            "Comments": "人体改造ではありませんように…人体改造ではありませんように…!!",
+            "RelationLabel": ["sameValue", "awkward"]
+          }
         },
+        {
+          "Num": 62,
+          "RelationLabel": ["abusing"]
+        }
+      ],
+      "Commented": [
         {
           "Num": 31,
           "Comments": "なんで貴殿は型番に興奮するんスか…？",
-          "ComeBackedComments": "メルセンヌ素数の魅力を知ってもらえるかなと思ったけど、やっぱりダメかぁ"
+          "ComeBacked": {
+            "Comments": "メルセンヌ素数の魅力を知ってもらえるかなと思ったけど、やっぱりダメかぁ"
+          }
+        },
+        {
+          "Num": 87
         }
       ]
     }
@@ -447,10 +576,12 @@
     "FormalName": "ヘキサデミカル-テールズ仮説F番機",
     "FormalName_EN": "HexademicalTales #0xF",
     "ModelNumber": "AVCR-HxT 0xF",
-    "GenderType": "Female",
+    "GenderType": "FemaleNeutral",
     "Height_cm": [{ "value": 160, "about": "推定" }],
     "ConceptAge": { "about": "不詳" },
-    "AnivDay": { "Day": { "Month": 6, "DayOfMonth": 15 } },
+    "AnivDay": [
+      { "Day": { "Month": 6, "DayOfMonth": 15 }, "DayAbout": "開発記念" }
+    ],
     "Weight_kg": { "HideText": "？？？" },
     "BustSize": "J",
     "TailsUnit": "狐型6本",
@@ -465,7 +596,6 @@
     "SpetialSkill": "ママになること",
     "Favor": "ママになること",
     "Unlike": "機械",
-    "WellmatchedNTsNames": "63(ムツミ)",
     "RelationAbouts": "他のヘキサデミカル-テールズの心の支えになっているらしい",
     "NumerospecAbout": { "HideText": "公開不能" },
     "NumerospecStats": {
@@ -489,39 +619,161 @@
     },
     "InStory": "「エイゼルベット」の観測者「シグマ-クロステールズ」の元で観測を受けている、ある電脳世界との間で生まれた個体\n彼女を前にした人々は彼女に「ママ」だと甘えだし……",
     "Relation": {
-      "Related": []
+      "Related": [{ "Num": "0xA", "RelationLabel": ["secletRelation"] }]
     },
-    "RelationToPrimaryNTs": {
-      "Commented": [
+    "RelationToPrimary": {
+      "Related": [
         {
           "Num": 2,
           "Comments": "あらっあららっ可愛いくていいコ…ぎゅーっ！",
-          "ComeBackedComments": "うぅ……///"
+          "RelationLabel": ["interested"],
+          "ComeBacked": { "Comments": "うぅ……///" }
         },
         {
-          "Num": 6,
-          "Comments": "このコの癒やし術…一考の余地ありですわ",
-          "ComeBackedComments": "すごい母性を感じます…私(わたくし)も負けてられませんね"
+          "Num": 15,
+          "RelationLabel": ["sameValue", "adverselyAffected"],
+          "ComeBacked": {
+            "RelationLabel": ["sameValue"]
+          }
         },
         {
           "Num": 16,
           "Comments": "応援したくなっちゃいますわね！がんばれ♡",
-          "ComeBackedComments": "……ママぁ…♡ …はっ!?"
-        },
-        {
-          "Num": 36,
-          "Comments": "みんなのママとして…負けてはおられませんわ…！",
-          "ComeBackedComments": "63(ムツミ)と比べたら僕なんてまだまだだよ…！"
+          "ComeBacked": {
+            "Comments": "……ママぁ…♡ …はっ!?",
+            "RelationLabel": ["adverselyAffected"]
+          }
         },
         {
           "Num": 63,
           "Comments": "家事のお手伝いをしてくれますわ！今日はごはん頑張っちゃいますよ！",
-          "ComeBackedComments": "僕もご飯頑張って作るね、お手伝いありがとう♪"
+          "RelationLabel": ["wellMatched"],
+          "ComeBacked": {
+            "Comments": "僕もご飯頑張って作るね、お手伝いありがとう♪"
+          }
+        }
+      ],
+      "Commented": [
+        {
+          "Num": 6,
+          "Comments": "このコの癒やし術…一考の余地ありですわ",
+          "ComeBacked": {
+            "Comments": "すごい母性を感じます…私(わたくし)も負けてられませんね"
+          }
+        },
+        {
+          "Num": 36,
+          "Comments": "みんなのママとして…負けてはおられませんわ…！",
+          "ComeBacked": {
+            "Comments": "63(ムツミ)と比べたら僕なんてまだまだだよ…！"
+          }
         },
         {
           "Num": 94,
           "Comments": "寒くないかしら……",
-          "ComeBackedComments": "……おおきくて…やわらかそうな……まくら…"
+          "ComeBacked": { "Comments": "……おおきくて…やわらかそうな……まくら…" }
+        }
+      ]
+    }
+  },
+  {
+    "Num": "%",
+    "Progress": "notProseed",
+    "SecondarySeriesTitle": "D-Vines(ディ-ヴァインズ)",
+    "Name": "マイ",
+    "Name_EN": "Dancy",
+    "_DBLink": {
+      "worksTitle": "FLInvestigator78",
+      "dbFile": "db_Primary",
+      "_Jump": "ThisDealer",
+      "_Search": {
+        "hashTag": "Card",
+        "key": { "Stoat": "Dealer", "Num": 79 }
+      }
+    },
+    "Age": 24,
+    "AnivDay": [
+      {
+        "_Jump": {
+          "hashTag": "BirthDay"
+        },
+        "DayAbout": "誕生日"
+      }
+    ],
+    "BustSize": "B",
+    "RaceType": "Human",
+    "Class": "開発者\nD-Vine開発部 最高責任部長",
+    "Class_EN": "Developer\nChief Executive in Development Department for D-Vine",
+    "ForMasterCalling": "クライアントさん",
+    "RelationAbouts": "ナンバーテールズ開発者である零(カズナイ)姉弟の後輩。妹:歌嫁は同じくしてかつ百花繚乱研究所のアシスタントを行なっている。",
+    "InStory": "シンフォニー.XVI(ゼクズィン)に所属後、量産販売型ナンバーテールズの相場的販売コストを抑えた互換個体ユニットの開発・提供を百花繚乱研究所（の主に零零(カズナイレイ)）と提携して行なっている\nちなみに運命線探偵としての錦野舞は、妹:歌嫁を含め（別軸の並行世界における）およそ7年前の同一人物に相当する",
+    "Relation": {
+      "Related": [{ "Num": "∞", "RelationLabel": ["brother|sister"] }]
+    },
+    "RelationToPrimary": {
+      "Related": [
+        { "Num": 78, "RelationLabel": ["hadInCommision"] },
+        {
+          "Num": "0",
+          "RelationLabel": ["pioneer"],
+          "ComeBacked": { "RelationLabel": ["successor_nearly"] }
+        },
+        {
+          "Num": "00",
+          "RelationLabel": ["pioneer_nearly"],
+          "ComeBacked": { "RelationLabel": ["successor_nearly"] }
+        }
+      ]
+    }
+  },
+  {
+    "Num": "∞",
+    "Progress": "notProseed",
+    "SecondarySeriesTitle": "D-Vines(ディ-ヴァインズ)",
+    "Name": "ウタカ",
+    "Name_EN": "Phonia",
+    "_DBLink": {
+      "worksTitle": "FLInvestigator78",
+      "dbFile": "db_Primary",
+      "_Jump": "ThisDealer",
+      "_Search": {
+        "hashTag": "Card",
+        "key": { "Stoat": "Dealer", "Num": 80 }
+      }
+    },
+    "Age": 24,
+    "AnivDay": [
+      {
+        "_Jump": {
+          "hashTag": "BirthDay"
+        },
+        "DayAbout": "誕生日"
+      }
+    ],
+    "BustSize": "B",
+    "RaceType": "Human",
+    "Belonging": "百花繚乱研究所",
+    "Class": "ゼミアシスタント",
+    "Class_EN": "Seminar Assistant",
+    "ForMasterCalling": "クライアントさん",
+    "RelationAbouts": "ナンバーテールズ開発者である零(カズナイ)姉弟の後輩。姉:舞は同じくしてシンフォニー.XVI(ゼクズィン)に所属し黒薔薇国へ単身赴任している",
+    "InStory": "百花繚乱研究所の本体である元藤・千歳研究室にてN3US大学の大学院修士課程を卒業後、一時的な就職活動を経て同研究室で博士課程に進学し 主に零百(カズナイハゲム)の作業補助などといったゼミのアシスタントを務めている\nちなみに運命線探偵としての錦野歌嫁は、姉:舞を含め（別軸の並行世界における）およそ7年前の同一人物に相当する",
+    "Relation": {
+      "Related": [{ "Num": "%", "RelationLabel": ["brother|sister"] }]
+    },
+    "RelationToPrimary": {
+      "Related": [
+        { "Num": 8, "RelationLabel": ["hadInCommision"] },
+        { "Num": 87, "RelationLabel": ["hadInCommision"] },
+        {
+          "Num": "0",
+          "RelationLabel": ["pioneer_nearly"],
+          "ComeBacked": { "RelationLabel": ["successor"] }
+        },
+        {
+          "Num": "00",
+          "RelationLabel": ["pioneer"],
+          "ComeBacked": { "RelationLabel": ["successor"] }
         }
       ]
     }
