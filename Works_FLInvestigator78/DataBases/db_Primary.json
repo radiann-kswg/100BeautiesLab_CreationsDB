@@ -22,19 +22,27 @@
       "Height_cm": 161,
       "Weight_kg": 46,
       "Age": 21,
-      "BirthDay": { "Day": { "Month": 4, "DayOfMonth": 1 } }
-    },
-    "Character": "能天気でどこか浮いている",
-    "Hobby": "面白い出来事の散策",
-    "SpetialSkill": "アスレチック競技",
-    "Favor": "犬",
-    "Unlike": "ふとしたときに地雷を踏みやすいこと",
-    "FirstPersonCalling": "ボク",
-    "SecondPersonCalling": "キミ",
-    "ThirdPersonCalling": "彼/彼女/[Name],*れ",
-    "For79or80thDealerCalling": {
-      "For79thDealer": "ウタカ（※毎回逆になる）",
-      "For80thDealer": "マイ（※毎回逆になる）"
+      "BirthDay": { "Day": { "Month": 4, "DayOfMonth": 1 } },
+      "Character": "能天気でどこか浮いている",
+      "Hobby": "面白い出来事の散策",
+      "SpetialSkill": "アスレチック競技",
+      "Favor": "犬",
+      "Unlike": "ふとしたときに地雷を踏みやすいこと",
+      "FirstPersonCalling": "ボク",
+      "SecondPersonCalling": "キミ",
+      "ThirdPersonCalling": "彼/彼女/[Name],*れ",
+      "For79or80thDealerCalling": {
+        "For79thDealer": "ウタカ（※毎回逆になる）",
+        "For80thDealer": "マイ（※毎回逆になる）"
+      },
+      "AbilityStats": {
+        "Speed": { "Rank": "A" },
+        "Communicating": { "Rank": "B+" },
+        "Leading": { "Rank": "B" },
+        "Precision": { "Rank": "A" },
+        "Technic": { "Rank": "B+" },
+        "Actuation": { "Rank": "S" }
+      }
     },
     "ArcanamspecAbout": "火元素の力を纏い、すべての攻撃を躱す\nこの効果が発動中、周囲の危険度が変動する",
     "Summary": "",
@@ -57,14 +65,6 @@
       "SpetialPattern": ["Ptn.A(覚醒)", "Ptn.Q(天変地異)"],
       "SafetyLevel": { "Rank": "B+", "SafetyText": "危険度を有効活用可能" },
       "SpecLevel": { "Rank": "S+" }
-    },
-    "AbilityStats": {
-      "Speed": { "Rank": "A" },
-      "Communicating": { "Rank": "B+" },
-      "Leading": { "Rank": "B" },
-      "Precision": { "Rank": "A" },
-      "Technic": { "Rank": "B+" },
-      "Actuation": { "Rank": "S" }
     }
   },
   {
@@ -103,6 +103,14 @@
       "For79or80thDealerCalling": {
         "For79thDealer": "舞(まい)君",
         "For80thDealer": "歌(うた)君"
+      },
+      "AbilityStats": {
+        "Speed": { "Rank": "A" },
+        "Communicating": { "Rank": "A" },
+        "Leading": { "Rank": "S" },
+        "Precision": { "Rank": "S" },
+        "Technic": { "Rank": "S" },
+        "Actuation": { "Rank": "B+" }
       }
     },
     "ArcanamspecAbout": "元素を操る",
@@ -128,14 +136,6 @@
       "SpetialPattern": ["Ptn.B(士気操作)", "Ptn.E(元素操作)"],
       "SafetyLevel": { "Rank": "S", "SafetyText": "保証可能" },
       "SpecLevel": { "Rank": "S+" }
-    },
-    "AbilityStats": {
-      "Speed": { "Rank": "A" },
-      "Communicating": { "Rank": "A" },
-      "Leading": { "Rank": "S" },
-      "Precision": { "Rank": "S" },
-      "Technic": { "Rank": "S" },
-      "Actuation": { "Rank": "B+" }
     }
   },
   {
@@ -171,6 +171,14 @@
       "For79or80thDealerCalling": {
         "For79thDealer": "舞",
         "For80thDealer": "歌"
+      },
+      "AbilityStats": {
+        "Speed": { "Rank": "C" },
+        "Communicating": { "Rank": "A" },
+        "Leading": { "Rank": "S" },
+        "Precision": { "Rank": "A" },
+        "Technic": { "Rank": "B+" },
+        "Actuation": { "Rank": "B+" }
       }
     },
     "ArcanamspecAbout": "正気度を操る",
@@ -196,14 +204,6 @@
       "SpetialPattern": ["Ptn.L(転化)", "Ptn.M(精神操作)"],
       "SafetyLevel": { "Rank": "S", "SafetyText": "保証可能" },
       "SpecLevel": { "Rank": "S" }
-    },
-    "AbilityStats": {
-      "Speed": { "Rank": "C" },
-      "Communicating": { "Rank": "A" },
-      "Leading": { "Rank": "S" },
-      "Precision": { "Rank": "A" },
-      "Technic": { "Rank": "B+" },
-      "Actuation": { "Rank": "B+" }
     }
   },
   {
@@ -241,6 +241,14 @@
       "For79or80thDealerCalling": {
         "For79thDealer": "舞(まい)",
         "For80thDealer": "歌嫁(うたか)"
+      },
+      "AbilityStats": {
+        "Speed": { "Rank": "D" },
+        "Communicating": { "Rank": "S" },
+        "Leading": { "Rank": "B" },
+        "Precision": { "Rank": "B+" },
+        "Technic": { "Rank": "C" },
+        "Actuation": { "Rank": "B" }
       }
     },
     "ArcanamspecAbout": "自身が止まっている間だけ、周囲の人々の精神状態を操作する",
@@ -266,14 +274,6 @@
       "SpetialPattern": ["Ptn.H(癒術)", "Ptn.M(精神操作)"],
       "SafetyLevel": { "Rank": "S", "SafetyText": "保証可能" },
       "SpecLevel": { "Rank": "A" }
-    },
-    "AbilityStats": {
-      "Speed": { "Rank": "D" },
-      "Communicating": { "Rank": "S" },
-      "Leading": { "Rank": "B" },
-      "Precision": { "Rank": "B+" },
-      "Technic": { "Rank": "C" },
-      "Actuation": { "Rank": "B" }
     }
   },
   {
@@ -293,7 +293,15 @@
       "Name": "ヴェンジー.C.テンペスト",
       "Name_EN": "Vengy.C.Tempest",
       "RaceType": "Human",
-      "GenderType": "Female"
+      "GenderType": "Female",
+      "AbilityStats": {
+        "Speed": { "Rank": "E" },
+        "Communicating": { "Rank": { "HideText": "？？？" } },
+        "Leading": { "Rank": { "HideText": "？？？" } },
+        "Precision": { "Rank": "S" },
+        "Technic": { "Rank": "Z" },
+        "Actuation": { "Rank": "B+" }
+      }
     },
     "ArcanamspecAbout": "現在の状況を破壊する",
     "Summary": "",
@@ -318,14 +326,6 @@
       "SpetialPattern": ["Ptn.F(妨害)", "Ptn.Q(天変地異)"],
       "SafetyLevel": { "Rank": "E", "SafetyText": "厳重注意" },
       "SpecLevel": { "Rank": "Z" }
-    },
-    "AbilityStats": {
-      "Speed": { "Rank": "E" },
-      "Communicating": { "Rank": { "HideText": "？？？" } },
-      "Leading": { "Rank": { "HideText": "？？？" } },
-      "Precision": { "Rank": "S" },
-      "Technic": { "Rank": "Z" },
-      "Actuation": { "Rank": "B+" }
     }
   },
   {
@@ -351,7 +351,15 @@
         { "value": { "HideText": "非公開" }, "about": "体型は美形" }
       ],
       "Age": 23,
-      "BirthDay": { "Day": { "Month": 7, "DayOfMonth": 7 } }
+      "BirthDay": { "Day": { "Month": 7, "DayOfMonth": 7 } },
+      "AbilityStats": {
+        "Speed": { "Rank": "B+" },
+        "Communicating": { "Rank": "A" },
+        "Leading": { "Rank": "A" },
+        "Precision": { "Rank": "A" },
+        "Technic": { "Rank": "A" },
+        "Actuation": { "Rank": "A" }
+      }
     },
     "ArcanamspecAbout": "感情を修復する\n欲望を補填する",
     "Summary": "",
@@ -376,14 +384,6 @@
       "SpetialPattern": ["Ptn.H(癒術)", "Ptn.L(転化)"],
       "SafetyLevel": { "Rank": "S", "SafetyText": "保証可能" },
       "SpecLevel": { "Rank": "B+" }
-    },
-    "AbilityStats": {
-      "Speed": { "Rank": "B+" },
-      "Communicating": { "Rank": "A" },
-      "Leading": { "Rank": "A" },
-      "Precision": { "Rank": "A" },
-      "Technic": { "Rank": "A" },
-      "Actuation": { "Rank": "A" }
     }
   },
   {
@@ -431,6 +431,14 @@
       "For79or80thDealerCalling": {
         "For79thDealer": null,
         "For80thDealer": "歌嫁(うたか)"
+      },
+      "AbilityStats": {
+        "Speed": { "Rank": "C" },
+        "Communicating": { "Rank": "B" },
+        "Leading": { "Rank": "A" },
+        "Precision": { "Rank": "S" },
+        "Technic": { "Rank": "S" },
+        "Actuation": { "Rank": "B+" }
       }
     },
     "ArcanamspecAbout": "78のアルカナの力を宿す\nこの能力では支援に長けている",
@@ -454,14 +462,6 @@
       "SpetialPattern": { "HideText": "定義不能" },
       "SafetyLevel": { "Rank": { "HideText": "定義不能" } },
       "SpecLevel": { "Rank": "S+" }
-    },
-    "AbilityStats": {
-      "Speed": { "Rank": "C" },
-      "Communicating": { "Rank": "B" },
-      "Leading": { "Rank": "A" },
-      "Precision": { "Rank": "S" },
-      "Technic": { "Rank": "S" },
-      "Actuation": { "Rank": "B+" }
     }
   },
   {
@@ -501,6 +501,14 @@
       "For79or80thDealerCalling": {
         "For79thDealer": "舞(まい)",
         "For80thDealer": null
+      },
+      "AbilityStats": {
+        "Speed": { "Rank": "S" },
+        "Communicating": { "Rank": "B+" },
+        "Leading": { "Rank": "C" },
+        "Precision": { "Rank": "B" },
+        "Technic": { "Rank": "A" },
+        "Actuation": { "Rank": "S" }
       }
     },
     "ArcanamspecAbout": "78のアルカナの力を宿す\nこの能力では牽制に長けている",
@@ -524,14 +532,6 @@
       "SpetialPattern": { "HideText": "定義不能" },
       "SafetyLevel": { "Rank": { "HideText": "定義不能" } },
       "SpecLevel": { "Rank": "S+" }
-    },
-    "AbilityStats": {
-      "Speed": { "Rank": "S" },
-      "Communicating": { "Rank": "B+" },
-      "Leading": { "Rank": "C" },
-      "Precision": { "Rank": "B" },
-      "Technic": { "Rank": "A" },
-      "Actuation": { "Rank": "S" }
     }
   }
 ]
