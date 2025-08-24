@@ -5,15 +5,13 @@
     "_DBLink": {
       "worksTitle": "DestinyFoxsRecords",
       "dbFile": "db_Primary",
-      "_Search": { "hashTag": "Unit", "key": "Radian" }
+      "_Search": { "hashTag": "Unit", "key": "rad" }
     },
     "Name": "ラジアン(2代目)",
     "Name_EN": "RadianN (2nd Gen.)",
     "Images": {
       "design_PNGName": "cnsp_imgRN2"
     },
-    "FormalName": "扇 二春",
-    "FormalName_EN": "Arch Seconec",
     "RaceType": "Warfox(Acquired)",
     "GenderType": { "value": "Arbitrary", "about_JP": "ただし中身は男性寄り" },
     "BirthDay": { "Day": { "Month": 7, "DayOfMonth": 1 } },
@@ -23,11 +21,13 @@
     "FirstPersonCalling": "ワテ,僕",
     "SecondPersonCalling": "君(きみ),[Name]",
     "ThirdPersonCalling": "彼/彼女;~君/さん;*いつ;*レ",
-    "Character": "",
+    "Character": "理工学系で知能的かつ技術的だが、やや思慮的で残念な一面がある",
     "Hobby": "いろんなものを広く浅く",
     "SpetialSkill": "創作キャラを管理する",
     "Favor": "デフォルメ球体化、もふもふとした獣人や布団、数字",
-    "Unlike": { "HideText": "非公開希望" }
+    "Unlike": { "HideText": "非公開希望" },
+    "InStory": "日常や思考を代弁するなどといった正なる意味の代理として登場する(という名目だが、作者はこの代理という自分の写し身をあまり良くは思ってないので、実際は作者の特権でパロディや雑コラなどへ煩雑に使われることが多い)",
+    "Background": "作者の現実や性格を忠実にキャラ化した代理のため、日常や思考を代弁したりする分で作者としても代理としての動かしやすさが保証されている"
   },
   {
     "Generation": 3,
@@ -56,10 +56,12 @@
     "FirstPersonCalling": "ボク",
     "SecondPersonCalling": "キミ,[Name]",
     "ThirdPersonCalling": "彼/彼女;[Name];~くん/ちゃん;*イツ;*レ",
-    "Character": "",
+    "Character": "底抜けに明るく悩みや難しいことは一切無縁な陽のヲタク\n特殊なフェチズムに対する執着が全面に出過ぎてしまう一面も",
     "Hobby": "創作世界を放浪する",
     "SpetialSkill": "自他を問わず人を(合意の上で)球体化させること",
     "Favor": "丸い癒しフォルム(にされた人間)、ふかふかの寝床、創作語り",
-    "Unlike": "精神的に負担となるもの全般"
+    "Unlike": "精神的に負担となるもの全般",
+    "InStory": "主に作者のもつ球体化などの(特殊)性癖を全面に出す際に代理として登場する",
+    "Background": "作者の理想や変化欲求を押し固めていつのまにかできていたような代理のため、作者の性格に対してはある点で正方向に誇張されある点で真逆に誇張されたような存在"
   }
 ]
