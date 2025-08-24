@@ -208,7 +208,7 @@
     "Progress": "stillTenative",
     "_DBLink": {
       "worksTitle": null,
-      "dbFile": "db_Proxy",
+      "dbName": "Proxy",
       "_Search": { "hashTag": "Generation", "key": 2 }
     },
     "Name": "ラジアン",

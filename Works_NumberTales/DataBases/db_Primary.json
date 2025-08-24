@@ -693,7 +693,7 @@
         "value": "錦野 歌嫁（78特殊探偵団 采配幹部(ディーラー)/百花繚乱研究所(N3US大学 千歳研究室)ゼミアシスタント）",
         "_DBLink": {
           "worksTitle": "NumberTales",
-          "dbFile": "db_Secondary",
+          "dbName": "Secondary",
           "_Search": {
             "hashTag": "Num",
             "key": "%"
@@ -894,7 +894,7 @@
         "about": { "HideText": "？？？" },
         "_DBLink": {
           "worksTitle": "SinisterChangingGirls",
-          "dbFile": "db_Primary",
+          "dbName": "Primary",
           "_Search": { "hashTag": "Drc", "key": "NE" }
         }
       }
@@ -1403,7 +1403,7 @@
         "value": "ミル.ニュクスフ",
         "_DBLink": {
           "worksTitle": "SinisterChangingGirls",
-          "dbFile": "db_Primary",
+          "dbName": "Primary",
           "_Search": { "hashTag": "Drc", "key": "SW" }
         }
       }
@@ -1515,7 +1515,7 @@
         "value": "六花 ルノ（夜月機関 先代第6幹部/白の六芒星 技術長）",
         "_DBLink": {
           "worksTitle": "SinisterChangingGirls",
-          "dbFile": "db_Primary",
+          "dbName": "Primary",
           "_Search": { "hashTag": "Drc", "key": "E" }
         }
       }
@@ -1624,7 +1624,7 @@
         "value": "ライト.リヴァーブリッジ/ブライト.ゲイザー（78特殊探偵団 第17幹部）",
         "_DBLink": {
           "worksTitle": "FLInvestigator78",
-          "dbFile": "db_Primary",
+          "dbName": "Primary",
           "_Search": {
             "hashTag": "Card",
             "key": { "Stoat": "Major", "Num": 16 }
@@ -5540,7 +5540,7 @@
         "value": "六花(ろくばな) 雙葉",
         "_DBLink": {
           "worksTitle": "SinisterChangingGirls",
-          "dbFile": "db_Primary",
+          "dbName": "Primary",
           "_Search": { "hashTag": "Drc", "key": "S" }
         }
       }
@@ -6279,7 +6279,7 @@
         "value": "ヴェンジー.C.テンペスト/クライシア.バベル（78特殊探偵団 第16幹部）",
         "_DBLink": {
           "worksTitle": "FLInvestigator78",
-          "dbFile": "db_Primary",
+          "dbName": "Primary",
           "_Search": {
             "hashTag": "Card",
             "key": { "Stoat": "Major", "Num": 16 }
@@ -7164,7 +7164,7 @@
         "value": "錦野 舞（78特殊探偵団 采配幹部(ディーラー)/シンフォニー.XVI(ゼクズィン)所属 デザインエンジニア）",
         "_DBLink": {
           "worksTitle": "NumberTales",
-          "dbFile": "db_Secondary",
+          "dbName": "Secondary",
           "_Search": {
             "hashTag": "Num",
             "key": "%"
@@ -7615,7 +7615,7 @@
         "value": "錦野 歌嫁（78特殊探偵団 采配幹部(ディーラー)/百花繚乱研究所(N3US大学 千歳研究室)ゼミアシスタント）",
         "_DBLink": {
           "worksTitle": "NumberTales",
-          "dbFile": "db_Secondary",
+          "dbName": "Secondary",
           "_Search": {
             "hashTag": "Num",
             "key": "%"
@@ -8886,7 +8886,7 @@
         "about": "仕方なく所持",
         "_DBLink": {
           "worksTitle": "NumberTales",
-          "dbFile": "db_Primary",
+          "dbName": "Primary",
           "_Search": {
             "hashTag": "Num",
             "key": "0"
@@ -8898,7 +8898,7 @@
         "about": "仕方なく所持",
         "_DBLink": {
           "worksTitle": "NumberTales",
-          "dbFile": "db_Primary",
+          "dbName": "Primary",
           "_Search": {
             "hashTag": "Num",
             "key": "00"
@@ -8939,7 +8939,7 @@
     },
     "_DBLink": {
       "worksTitle": "SinisterChangingGirls",
-      "dbFile": "db_Primary",
+      "dbName": "Primary",
       "_Search": { "hashTag": "Drc", "key": "N" }
     },
     "CodeName": "〇",

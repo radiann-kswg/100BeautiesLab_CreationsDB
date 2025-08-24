@@ -406,7 +406,7 @@
     "ThisDealer": {
       "_DBLink": {
         "worksTitle": "NumberTales",
-        "dbFile": "db_Secondary",
+        "dbName": "Secondary",
         "_Search": {
           "hashTag": "Num",
           "key": "%"

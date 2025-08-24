@@ -4,7 +4,7 @@
     "Progress": "released",
     "_DBLink": {
       "worksTitle": "DestinyFoxsRecords",
-      "dbFile": "db_Primary",
+      "dbName": "Primary",
       "_Search": { "hashTag": "Unit", "key": "rad" }
     },
     "Name": "ラジアン(2代目)",

@@ -3,7 +3,7 @@
     "Drc": "N",
     "_DBLink": {
       "worksTitle": "NumberTales",
-      "dbFile": "db_Primary",
+      "dbName": "Primary",
       "_Search": { "hashTag": "Num", "key": "0" }
     },
     "Name": "千歳 玲(れい)",

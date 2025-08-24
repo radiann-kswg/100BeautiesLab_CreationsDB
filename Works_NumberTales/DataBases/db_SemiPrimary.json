@@ -14,7 +14,7 @@
     "CodeName": "三倍",
     "SPCodeName": "(丗三)",
     "SPCodeName_EN": "Triple(Eleven)",
-    "GenderType": "Female",
+    "GenderType": "FemaleNeutral",
     "Height_cm": 152,
     "ConceptAge": 18,
     "Weight_kg": { "HideText": "非公開" },
@@ -40,14 +40,14 @@
     "Progress": "notProceeded",
     "Name": "モモ",
     "Name_EN": "Centa",
-    "ModelName": "ナンバーテールズ改良型10号機(100番機)",
-    "ModelNumber": "APHR-NT [R]X",
+    "ModelName": "ナンバーテールズ試作型10号機改(100番機)",
+    "ModelNumber": "APHR-NT [P]X.R(APHR-NT X.R)",
     "FormalName": "ナンバーテールズ100番機",
     "FormalName_EN": "NumberTales #100",
     "CodeName": "一〇〇",
     "SPCodeName": "百",
     "SPCodeName_EN": "Hectade",
-    "GenderType": "Neutral",
+    "GenderType": "FemaleNeutral",
     "Height_cm": 164,
     "ConceptAge": 17,
     "BustSize": "AA",
@@ -57,8 +57,8 @@
     "SecondPersonCalling": "おまえ",
     "ThirdPersonCalling": "[Name]",
     "ForMasterCalling": "センパイ",
-    "RelationAbouts": "開発者専用機では「ディケ」を「アニキ」と慕っている",
-    "Backgrounds": "量産販売型個体：以下「999(カンスト)」まで同様\n10号機系[ディケ]の設計を完成させた"
+    "RelationAbouts": "「ディケ」を「アニキ」と慕っているが、10(ミツル)に対しては少し慣れない様子",
+    "Backgrounds": "量産型のリリースに向けたプロトタイプ\n10号機系[ディケ]の設計を完成させた"
   },
   {
     "Num": 101,
@@ -261,6 +261,21 @@
     "Backgrounds": "初めての販売用上位個体、以下マスタートリプル同様（通常の販売価格より高値がついている）"
   },
   {
+    "Num": "111-mp",
+    "Progress": "released",
+    "_DBLink": {
+      "worksTitle": "NumberTales",
+      "dbName": "SemiPrimary",
+      "_Search": { "hashTag": "Num", "key": 111 }
+    },
+    "Images": {
+      "concept_PNGName": "cnsp_img111-mp"
+    },
+    "FormalName": "量産型ナンバーテールズ111番機シリーズ",
+    "FormalName_EN": "NumberTales #111 Series Mass Production Version for Sales",
+    "ModelNumber": "APHR-NT [MP]111-*****"
+  },
+  {
     "Num": 112,
     "Progress": "notProceeded",
     "Name": "ハクトウジ",
@@ -390,7 +405,7 @@
     "FormalName_EN": "NumberTales #200",
     "CodeName": "二〇〇",
     "SPCodeName": "皕",
-    "SPCodeName_EN": "Coming-back of Leap",
+    "SPCodeName_EN": "Two hundred",
     "GenderType": "Neutral",
     "Class": "百倍番(ハンドレッズデジッツ)",
     "Class_EN": "Hundrets-Digits",
@@ -400,6 +415,18 @@
     "ForMasterCalling": "お兄さま/お姉さま",
     "RelationAbouts": "開発専用機では「バイナ」「20(ハツカ)」を、「お姉さま」と慕っている",
     "Backgrounds": "2号機系直通の後継個体"
+  },
+  {
+    "Num": "200-mp",
+    "Progress": "notProceeded",
+    "_DBLink": {
+      "worksTitle": "NumberTales",
+      "dbName": "SemiPrimary",
+      "_Search": { "hashTag": "Num", "key": 200 }
+    },
+    "FormalName": "量産型ナンバーテールズ200番機シリーズ",
+    "FormalName_EN": "NumberTales #200 Series Mass Production Version for Sales",
+    "ModelNumber": "APHR-NT [MP]200-*****"
   },
   {
     "Num": 222,
@@ -417,6 +444,18 @@
     "Class_EN": "Master Triples 9"
   },
   {
+    "Num": "222-mp",
+    "Progress": "notProceeded",
+    "_DBLink": {
+      "worksTitle": "NumberTales",
+      "dbName": "SemiPrimary",
+      "_Search": { "hashTag": "Num", "key": 222 }
+    },
+    "FormalName": "量産型ナンバーテールズ222番機シリーズ",
+    "FormalName_EN": "NumberTales #222 Series Mass Production Version for Sales",
+    "ModelNumber": "APHR-NT [MP]222-*****"
+  },
+  {
     "Num": 333,
     "Progress": "notProceeded",
     "Name": "トリニティア",
@@ -432,6 +471,18 @@
     "Class_EN": "Master Triples 9"
   },
   {
+    "Num": "333-mp",
+    "Progress": "notProceeded",
+    "_DBLink": {
+      "worksTitle": "NumberTales",
+      "dbName": "SemiPrimary",
+      "_Search": { "hashTag": "Num", "key": 333 }
+    },
+    "FormalName": "量産型ナンバーテールズ333番機シリーズ",
+    "FormalName_EN": "NumberTales #333 Series Mass Production Version for Sales",
+    "ModelNumber": "APHR-NT [MP]333-*****"
+  },
+  {
     "Num": 400,
     "Progress": "notProceeded",
     "Name": "マタウルウ",
@@ -443,6 +494,18 @@
     "Class": "百倍番(ハンドレッズデジッツ)",
     "Class_EN": "Hundrets-Digits",
     "Backgrounds": "「100倍数の年は閏年でないが、400倍数だと閏年」という（グレゴリオ暦の）400年周期法則から命名された"
+  },
+  {
+    "Num": "400-mp",
+    "Progress": "notProceeded",
+    "_DBLink": {
+      "worksTitle": "NumberTales",
+      "dbName": "SemiPrimary",
+      "_Search": { "hashTag": "Num", "key": 400 }
+    },
+    "FormalName": "量産型ナンバーテールズ400番機シリーズ",
+    "FormalName_EN": "NumberTales #400 Series Mass Production Version for Sales",
+    "ModelNumber": "APHR-NT [MP]400-*****"
   },
   {
     "Num": 444,
@@ -459,6 +522,18 @@
     "Class_EN": "Master Triples 9"
   },
   {
+    "Num": "444-mp",
+    "Progress": "notProceeded",
+    "_DBLink": {
+      "worksTitle": "NumberTales",
+      "dbName": "SemiPrimary",
+      "_Search": { "hashTag": "Num", "key": 444 }
+    },
+    "FormalName": "量産型ナンバーテールズ444番機シリーズ",
+    "FormalName_EN": "NumberTales #444 Series Mass Production Version for Sales",
+    "ModelNumber": "APHR-NT [MP]444-*****"
+  },
+  {
     "Num": 555,
     "Progress": "notProceeded",
     "Name": "ハイファイブ",
@@ -471,6 +546,18 @@
     "GenderType": "Neutral",
     "Class": "マスタートリプル",
     "Class_EN": "Master Triples 9"
+  },
+  {
+    "Num": "555-mp",
+    "Progress": "notProceeded",
+    "_DBLink": {
+      "worksTitle": "NumberTales",
+      "dbName": "SemiPrimary",
+      "_Search": { "hashTag": "Num", "key": 555 }
+    },
+    "FormalName": "量産型ナンバーテールズ555番機シリーズ",
+    "FormalName_EN": "NumberTales #555 Series Mass Production Version for Sales",
+    "ModelNumber": "APHR-NT [MP]555-*****"
   },
   {
     "Num": 666,
@@ -487,7 +574,7 @@
     "CodeName": "六六六",
     "SPCodeName": "魔",
     "SPCodeName_EN": "Faith",
-    "GenderType": "Female",
+    "GenderType": "FemaleNeutral",
     "Height_cm": 150,
     "ConceptAge": 16,
     "Weight_kg": { "HideText": "非公開" },
@@ -495,7 +582,7 @@
     "TailsUnit": "キツネ(特殊)型3束x6本",
     "Class": "マスタートリプル",
     "Class_EN": "Master Triples 9",
-    "ThisMasters": "中月 ルイス=ノア.ナイターエイド（夜月機関 医務班長(長月支部)）",
+    "ThisMasters": "中月 ルイス=ノア.ナイターエイド（夜月機関 第9幹部）",
     "FirstPersonCalling": "我\n私(わたくし)",
     "SecondPersonCalling": "汝(なんじ)",
     "ThirdPersonCalling": "彼;彼女;*の者;[Name]",
@@ -507,6 +594,21 @@
     "Unlike": "十字架の有る教会",
     "RelationAbouts": "開発者専用機では、「66(ムロク)」を「眷属」として労わっているが……",
     "NumerospecAbout": "自分の本能を認知し開花させる"
+  },
+  {
+    "Num": "666-mp",
+    "Progress": "released",
+    "_DBLink": {
+      "worksTitle": "NumberTales",
+      "dbName": "SemiPrimary",
+      "_Search": { "hashTag": "Num", "key": 666 }
+    },
+    "Images": {
+      "concept_PNGName": "cnsp_img666-mp"
+    },
+    "FormalName": "量産型ナンバーテールズ666番機シリーズ",
+    "FormalName_EN": "NumberTales #666 Series Mass Production Version for Sales",
+    "ModelNumber": "APHR-NT [MP]666-*****"
   },
   {
     "Num": 777,
@@ -530,7 +632,7 @@
       { "value": 3, "about": "バックパック(拡張I/O機器)" }
     ],
     "BustSize": "AA",
-    "GenderType": "Male",
+    "GenderType": "MaleNeutral",
     "TailsUnit": "キツネ(特殊)型3束x7本",
     "Class": "マスタートリプル",
     "Class_EN": "Master Triples 9",
@@ -551,7 +653,7 @@
     "Progress": "released",
     "_DBLink": {
       "worksTitle": "NumberTales",
-      "dbFile": "db_SemiPrimary",
+      "dbName": "SemiPrimary",
       "_Search": { "hashTag": "Num", "key": 777 }
     },
     "ModelName": "ナンバーテールズ特殊個体[ラッキーセブンアール](777番機-ジャックポット)",
@@ -564,6 +666,33 @@
       { "value": 3, "about": "娯楽装備専用アドオン" }
     ],
     "NumerospecAbout": "スロットゲーム拡張アドオンにより運勢を娯楽的に見せる"
+  },
+  {
+    "Num": "777-mp",
+    "Progress": "released",
+    "_DBLink": {
+      "worksTitle": "NumberTales",
+      "dbName": "SemiPrimary",
+      "_Search": { "hashTag": "Num", "key": 777 }
+    },
+    "Images": {
+      "concept_PNGName": "cnsp_img777-mp"
+    },
+    "FormalName": "量産型ナンバーテールズ777番機シリーズ",
+    "FormalName_EN": "NumberTales #777 Series Mass Production Version for Sales",
+    "ModelNumber": "APHR-NT [MP]777-*****"
+  },
+  {
+    "Num": "777.Jackpot-mp",
+    "Progress": "released",
+    "_DBLink": {
+      "worksTitle": "NumberTales",
+      "dbName": "SelfSecondary",
+      "_Search": { "hashTag": "Num", "key": "777-mp" }
+    },
+    "FormalName": "量産型ナンバーテールズ777番機[ジャックポット]シリーズ",
+    "FormalName_EN": "NumberTales #777.Jackpot Series Mass Production Version for Sales",
+    "ModelNumber": "APHR-NT [MP]777JP-*****"
   },
   {
     "Num": 888,
@@ -580,7 +709,19 @@
     "GenderType": "Neutral",
     "Class": "マスタートリプル",
     "Class_EN": "Master Triples 9",
-    "ThisMasters": "八坂 兵汰(へいた)/ヘクター.キロバスター（夜月機関 軍事兵長(葉月支部)）"
+    "ThisMasters": "八坂 兵汰(へいた)/ヘクター.キロバスター（夜月機関 第8幹部）"
+  },
+  {
+    "Num": "888-mp",
+    "Progress": "notProceeded",
+    "_DBLink": {
+      "worksTitle": "NumberTales",
+      "dbName": "SemiPrimary",
+      "_Search": { "hashTag": "Num", "key": 888 }
+    },
+    "FormalName": "量産型ナンバーテールズ888番機シリーズ",
+    "FormalName_EN": "NumberTales #888 Series Mass Production Version for Sales",
+    "ModelNumber": "APHR-NT [MP]888-*****"
   },
   {
     "Num": 999,
@@ -607,5 +748,17 @@
     "ForMasterCalling": "主君",
     "InStory": "記憶喪失系のキャラとされている\n開発専用機では…？",
     "Backgrounds": "量産販売型含め最後のナンバーテールズ\n「99(ツクモ)」直通の後継個体だが…"
+  },
+  {
+    "Num": "999-mp",
+    "Progress": "notProceeded",
+    "_DBLink": {
+      "worksTitle": "NumberTales",
+      "dbName": "SemiPrimary",
+      "_Search": { "hashTag": "Num", "key": 999 }
+    },
+    "FormalName": "量産型ナンバーテールズ999番機シリーズ",
+    "FormalName_EN": "NumberTales #999 Series Mass Production Version for Sales",
+    "ModelNumber": "APHR-NT [MP]999-*****"
   }
 ]

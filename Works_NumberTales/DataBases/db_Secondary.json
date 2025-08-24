@@ -684,7 +684,7 @@
     "Name_EN": "Dancy",
     "_DBLink": {
       "worksTitle": "FLInvestigator78",
-      "dbFile": "db_Primary",
+      "dbName": "Primary",
       "_Jump": "ThisDealer",
       "_Search": {
         "hashTag": "Card",
@@ -734,7 +734,7 @@
     "Name_EN": "Phonia",
     "_DBLink": {
       "worksTitle": "FLInvestigator78",
-      "dbFile": "db_Primary",
+      "dbName": "Primary",
       "_Jump": "ThisDealer",
       "_Search": {
         "hashTag": "Card",
