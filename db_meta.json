@@ -67,7 +67,9 @@
     "#DB_Proxies": {
       "DB_Summary": "弊創作を執筆している「ラジアン」の代理キャラクター",
       "$Def_Index": { "hashTag": "Generation", "$valType": "#Number" },
-      "_Commons": null
+      "_Commons": {
+        "Belonging": "創造主"
+      }
     }
   },
   "General": {
@@ -138,6 +140,10 @@
         "#Arbitrary": {
           "GenderType": "Arbitrary",
           "GenderType_JP": "任意"
+        },
+        "#Unknown": {
+          "GenderType": "Unknown",
+          "GenderType_JP": "不詳"
         }
       },
       "#Enum_RaceType": [
@@ -190,8 +196,8 @@
           "RaceType_JP": "妖狐"
         },
         {
-          "RaceType": "Warfox",
-          "RaceType_JP": "妖狐"
+          "RaceType": "Warfox(Acquired)",
+          "RaceType_JP": "妖狐(後天的)"
         },
         {
           "RaceType": "Raccornian",
@@ -212,6 +218,10 @@
         {
           "RaceType": "Nekomata(ChronoidShifter)",
           "RaceType_JP": "猫又(時空遷移者)"
+        },
+        {
+          "RaceType": "LunaWolf(Super-dimentional)",
+          "RaceType_JP": "月狼(超次元的)"
         },
         {
           "RaceType": "LunaTiger",
@@ -238,14 +248,6 @@
           "RaceType_JP": "月兎(後天的)"
         },
         {
-          "RaceType": "Komainu",
-          "RaceType_JP": "狛犬"
-        },
-        {
-          "RaceType": "Komainu(Acquired)",
-          "RaceType_JP": "狛犬(後天的)"
-        },
-        {
           "RaceType": "Lamia",
           "RaceType_JP": "蛇人"
         },
@@ -254,20 +256,16 @@
           "RaceType_JP": "蛇人(後天的)"
         },
         {
-          "RaceType": "ClonicMouse",
-          "RaceType_JP": "繁殖鼠"
-        },
-        {
-          "RaceType": "ClonicMouse(Acquired)",
-          "RaceType_JP": "繁殖鼠(後天的)"
-        },
-        {
-          "RaceType": "Warfox(Acquired)",
-          "RaceType_JP": "妖狐(後天的)"
-        },
-        {
           "RaceType": "Komainu",
           "RaceType_JP": "狛犬"
+        },
+        {
+          "RaceType": "Komainu(Acquired)",
+          "RaceType_JP": "狛犬(後天的)"
+        },
+        {
+          "RaceType": "ClonicMouse",
+          "RaceType_JP": "繁殖鼠"
         },
         {
           "RaceType": "DreamEater",
@@ -284,6 +282,10 @@
         {
           "RaceType": "Birdman(Acquired)",
           "RaceType_JP": "鳥人(後天的)"
+        },
+        {
+          "RaceType": "Qílín",
+          "RaceType_JP": "麒麟"
         },
         {
           "RaceType": "Thoroughbreder",
@@ -306,10 +308,6 @@
           "RaceType_JP": "繁殖鼠"
         },
         {
-          "RaceType": "ClonicMouse(Acquired)",
-          "RaceType_JP": "繁殖鼠(後天的)"
-        },
-        {
           "RaceType": "Taurus",
           "RaceType_JP": "金牛"
         },
@@ -323,91 +321,165 @@
         }
       ],
       "$Def_Belonging": {
+        "#Enum_Area": [
+          {
+            "Area": "九蓮国",
+            "Area_EN": "LotusNinea",
+            "isForSecondary": false
+          },
+          {
+            "Area": "龍天国",
+            "Area_EN": "LóngZhōu's.Republic",
+            "isForSecondary": false
+          },
+          {
+            "Area": "英皇国",
+            "Area_EN": "Internic.Kingdom",
+            "isForSecondary": false
+          },
+          {
+            "Area": "雄志結国",
+            "Area_EN": "United.Heroic.Nation",
+            "isForSecondary": false
+          },
+          {
+            "Area": "紅雪連邦",
+            "Area_EN": "United.SnowRed.Republic",
+            "isForSecondary": false
+          },
+          {
+            "Area": "黒薔薇国",
+            "Area_EN": "SchwarzeRoseland",
+            "isForSecondary": false
+          },
+          {
+            "Area": "四蓮島",
+            "Area_EN": "LotasQuadrup.Island",
+            "isForSecondary": false
+          },
+          {
+            "Area": "第８界",
+            "Area_EN": "#REGION.8",
+            "about": "(ただしこのエリアはこの創作世界全域を意味する)",
+            "isForSecondary": false
+          },
+          {
+            "Area": "超次元執筆空間(アトリエ)",
+            "Area_EN": "#ATELIER: the super-dimensional owners space",
+            "about": "(ただしこのエリアは創作世界として属されない)",
+            "isForSecondary": false
+          },
+          {
+            "Area": "第１界",
+            "Area_EN": "#REGION.1",
+            "about": "(ただしこのエリアはこの創作世界の外部にある)",
+            "isForSecondary": true
+          },
+          {
+            "Area": "第２界",
+            "Area_EN": "#REGION.2",
+            "about": "(ただしこのエリアはこの創作世界の外部にある)",
+            "isForSecondary": true
+          },
+          {
+            "Area": "第５界",
+            "Area_EN": "#REGION.5",
+            "about": "(ただしこのエリアはこの創作世界の外部にある)",
+            "isForSecondary": true
+          },
+          {
+            "Area": "第９界",
+            "Area_EN": "#REGION.IX",
+            "about": "(ただしこのエリアはこの創作世界の外部にある)",
+            "isForSecondary": true
+          }
+        ],
         "#Enum_Belonging": [
           {
             "Belonging": "百花繚乱研究所",
             "Belonging_EN": "HundredBeauties Laboratory",
-            "BaseArea_JP": "九蓮国",
-            "BaseArea_EN": "LotusNinea",
+            "BaseArea": { "Area": "九蓮国" },
             "isForSecondary": false
           },
           {
             "Belonging": "夜月機関",
             "Belonging_EN": "YadzukiLight Organization",
-            "BaseArea_JP": "九蓮国",
-            "BaseArea_EN": "LotusNinea",
+            "BaseArea": { "Area": "九蓮国" },
             "isForSecondary": false
           },
           {
             "Belonging": "獣爾騎兵",
             "Belonging_EN": "Shou'ar Riders",
-            "BaseArea_JP": "龍天国",
-            "BaseArea_EN": "LóngZhōu's.Republic",
+            "BaseArea": { "Area": "龍天国" },
             "isForSecondary": false
           },
           {
             "Belonging": "セブンティエイト特殊探偵団",
             "Belonging_EN": "Team. z78(Seventy-Eight) Special Investigators",
-            "BaseArea_JP": "英皇国",
-            "BaseArea_EN": "Internic.Kingdom",
+            "BaseArea": { "Area": "英皇国" },
             "isForSecondary": false
           },
           {
             "Belonging": "スターダスト財団",
             "Belonging_EN": "Stardusts Foundation",
-            "BaseArea_JP": "雄志結国",
-            "BaseArea_EN": "United.Heroic.Nation",
+            "BaseArea": { "Area": "雄志結国" },
             "isForSecondary": false
           },
           {
             "Belonging": "白の六芒星",
             "Belonging_EN": "WhiteHexagram",
-            "BaseArea_JP": "雄志結国",
-            "BaseArea_EN": "United.Heroic.Nation",
+            "BaseArea": { "Area": "雄志結国" },
             "isForSecondary": false
           },
           {
             "Belonging": "ジャンクガレージ『六花陛下』",
             "Belonging_EN": "JunkGarage “Majesty Rokka”",
-            "BaseArea_JP": "紅雪連邦",
-            "BaseArea_EN": "United.SnowRed.Republic",
-            "isForSecondary": false
-          },
-          {
-            "Belonging": "シンフォニー.XVI(ゼクズィン)",
-            "Belonging_EN": "Symphony.XVI(Sechzehn)",
-            "BaseArea_JP": "黒薔薇国",
-            "BaseArea_EN": "SchwarzeRoseland",
-            "isForSecondary": false
+            "BaseArea": {
+              "Area": "紅雪連邦",
+              "isForSecondary": false
+            }
           },
           {
             "Belonging": "新生九蓮",
             "Belonging_EN": "Neo.LotusNinea(n)",
-            "BaseArea_JP": { "value": "四蓮島", "about": "名義上の所在地" },
-            "BaseArea_EN": {
-              "value": "LotasQuadrup.Island",
-              "about": "nominal location"
-            },
+            "BaseArea": { "Area": "四蓮島", "about": "名義上の所在地" },
             "isForSecondary": false
           },
           {
             "Belonging": "国際情報広報機関『ミハイル』",
             "Belonging_EN": "“Mikhail” the International Information & Public Relations Agency",
-            "BaseArea_JP": {
-              "value": "第７界",
+            "BaseArea": {
+              "Area": "第８界",
               "about": "厳密には本拠点を置かない"
-            },
-            "BaseArea_EN": {
-              "value": "Region.7",
-              "about": "strictly speaking, no base area"
             },
             "isForSecondary": false
           },
           {
+            "Belonging": "フィジカル9",
+            "Belonging_EN": "PHYSICAL.9",
+            "BaseArea": {
+              "Area": "超次元執筆空間(アトリエ)"
+            },
+            "isForSecondary": false
+          },
+          {
+            "Belonging": "創造主",
+            "Belonging_EN": "World Owners",
+            "BaseArea": {
+              "Area": "超次元執筆空間(アトリエ)\n第８界"
+            },
+            "isForSecondary": false
+          },
+          {
+            "Belonging": "シンフォニー.XVI(ゼクズィン)",
+            "Belonging_EN": "Symphony.XVI(Sechzehn)",
+            "BaseArea": { "Area": "黒薔薇国" },
+            "isForSecondary": true
+          },
+          {
             "Belonging": "エイゼルベットの観測世界",
             "Belonging_EN": "∀sellbuet's Observational World",
-            "BaseArea_JP": { "about": "別次元の世界" },
-            "BaseArea_EN": { "about": "in another dimension's world" },
+            "BaseArea": { "about": "別次元の世界" },
             "isForSecondary": true
           }
         ],

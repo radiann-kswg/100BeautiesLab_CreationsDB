@@ -15,7 +15,7 @@
     "FormalName": "扇 二春",
     "FormalName_EN": "Arch Seconec",
     "RaceType": "Warfox(Acquired)",
-    "GenderType": { "value": "Arbitrary", "about": "ただし中身は男性寄り" },
+    "GenderType": { "value": "Arbitrary", "about_JP": "ただし中身は男性寄り" },
     "BirthDay": { "Day": { "Month": 7, "DayOfMonth": 1 } },
     "Height_cm": 163,
     "Weight_kg": { "HideText": "本人すら把握されていない" },
@@ -43,7 +43,7 @@
     "RaceType": "Immaginaries",
     "GenderType": {
       "value": "Valiable",
-      "about": "ただし本人は無性別女性型が好き"
+      "about_JP": "ただし本人は無性別女性型が好き"
     },
     "BirthDay": { "Day": { "Month": 7, "DayOfMonth": 1 } },
     "Height_cm": [
