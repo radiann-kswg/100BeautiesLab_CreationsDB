@@ -2435,17 +2435,22 @@
         {
           "Num": 2,
           "Comments": "立派で大好きな先輩！",
-          "RelationLabel": ["pioneer", "wellMatched", "trusted"]
+          "RelationLabel": ["pioneer", "wellMatched"]
         },
         {
           "Num": 5,
           "Comments": "楽しそうで大好きな先輩！",
-          "RelationLabel": ["pioneer", "wellMatched_maybe", "trusted"]
+          "RelationLabel": ["pioneer", "wellMatched_maybe"]
         },
         {
           "Num": 52,
           "Comments": "双子の妹。自己掲示欲がもっとあっていいかも",
-          "RelationLabel": ["brother|sister", "paired", "alternative|redesign"]
+          "RelationLabel": [
+            "brother|sister",
+            "paired",
+            "trusted",
+            "alternative|redesign"
+          ]
         }
       ],
       "Commented": [
@@ -4830,7 +4835,12 @@
       "Related": [
         {
           "Num": 25,
-          "RelationLabel": ["brother|sister", "paired", "alternative|redesign"]
+          "RelationLabel": [
+            "brother|sister",
+            "paired",
+            "trusted",
+            "alternative|redesign"
+          ]
         }
       ],
       "Commented": [
