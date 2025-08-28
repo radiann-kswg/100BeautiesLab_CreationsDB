@@ -159,7 +159,7 @@
         "Luck": { "Rank": "C", "EffectText": "希薄" },
         "Communication": { "Rank": "S", "EffectText": "絶大" }
       },
-      "SafetyLevel": { "Rank": "S", "SafetyText": "保証" }
+      "SafetyLevel": { "Rank": "S", "SafetyLevelText": "保証" }
     },
     "AbilityStats": {
       "Speed": { "Rank": "B+" },
@@ -255,7 +255,7 @@
         "Communication": { "Rank": "A", "EffectText": "期待" }
       },
       "SpetialPattern": ["Ptn.A(行動補正効果)"],
-      "SafetyLevel": { "Rank": "S+", "SafetyText": "完全保証" }
+      "SafetyLevel": { "Rank": "S+", "SafetyLevelText": "完全保証" }
     },
     "AbilityStats": {
       "Speed": { "Rank": "S" },
@@ -346,7 +346,7 @@
         "Communication": { "Rank": "C", "EffectText": "希薄" }
       },
       "SpetialPattern": ["Ptn.Rz(実現性向上効果)"],
-      "SafetyLevel": { "Rank": "S+", "SafetyText": "完全保証" }
+      "SafetyLevel": { "Rank": "S+", "SafetyLevelText": "完全保証" }
     },
     "AbilityStats": {
       "Speed": { "Rank": "B" },
@@ -440,7 +440,7 @@
         "Communication": { "Rank": { "HideText": "判定不能" } }
       },
       "SpetialPattern": ["Ptn.C(状況変化効果)", "Ptn.Ms(自己転化効果)"],
-      "SafetyLevel": { "Rank": "B", "SafetyText": "無危害" }
+      "SafetyLevel": { "Rank": "B", "SafetyLevelText": "無危害" }
     },
     "AbilityStats": {
       "Speed": { "Rank": "Z" },
@@ -532,7 +532,7 @@
         "Communication": { "Rank": "S", "EffectText": "絶大" }
       },
       "SpetialPattern": ["Ptn.S(感性向上効果)"],
-      "SafetyLevel": { "Rank": "S+", "SafetyText": "完全保証" }
+      "SafetyLevel": { "Rank": "S+", "SafetyLevelText": "完全保証" }
     },
     "AbilityStats": {
       "Speed": { "Rank": "B" },
@@ -620,7 +620,7 @@
         "Communication": { "Rank": "C", "EffectText": "希薄" }
       },
       "SpetialPattern": ["Ptn.Hm(心理安定化効果)"],
-      "SafetyLevel": { "Rank": "A", "SafetyText": "安全" }
+      "SafetyLevel": { "Rank": "A", "SafetyLevelText": "安全" }
     },
     "AbilityStats": {
       "Speed": { "Rank": "B" },
@@ -722,7 +722,7 @@
         "Communication": { "Rank": "B", "EffectText": "普通" }
       },
       "SpetialPattern": ["Ptn.M(マネタイズ効果または資産操作能力)"],
-      "SafetyLevel": { "Rank": "S", "SafetyText": "保証" }
+      "SafetyLevel": { "Rank": "S", "SafetyLevelText": "保証" }
     },
     "AbilityStats": {
       "Speed": { "Rank": "B+" },
@@ -812,7 +812,7 @@
         "Communication": { "Rank": "C", "EffectText": "希薄" }
       },
       "SpetialPattern": ["Ptn.Rc(救済効果)"],
-      "SafetyLevel": { "Rank": "B", "SafetyText": "無危害" }
+      "SafetyLevel": { "Rank": "B", "SafetyLevelText": "無危害" }
     },
     "AbilityStats": {
       "Speed": { "Rank": "C" },
@@ -1018,7 +1018,7 @@
         "Communication": { "Rank": "C", "EffectText": "希薄" }
       },
       "SpetialPattern": ["Ptn.Es(自己認知効果)"],
-      "SafetyLevel": { "Rank": "A", "SafetyText": "安全" }
+      "SafetyLevel": { "Rank": "A", "SafetyLevelText": "安全" }
     },
     "AbilityStats": {
       "Speed": { "Rank": "A" },
@@ -1119,7 +1119,7 @@
         "Luck": { "Rank": "C", "EffectText": "希薄" },
         "Communication": { "Rank": "A", "EffectText": "期待" }
       },
-      "SafetyLevel": { "Rank": "A", "SafetyText": "安全" }
+      "SafetyLevel": { "Rank": "A", "SafetyLevelText": "安全" }
     },
     "AbilityStats": {
       "Speed": { "Rank": "C" },
@@ -1215,7 +1215,7 @@
         "Luck": { "Rank": "A", "EffectText": "期待" },
         "Communication": { "Rank": "A", "EffectText": "期待" }
       },
-      "SafetyLevel": { "Rank": "S+", "SafetyText": "完全保証" }
+      "SafetyLevel": { "Rank": "S+", "SafetyLevelText": "完全保証" }
     },
     "AbilityStats": {
       "Speed": { "Rank": "B" },
@@ -1315,7 +1315,7 @@
         "Communication": { "Rank": "B", "EffectText": "普通" }
       },
       "SpetialPattern": ["Ptn.Rz(実現性向上効果)"],
-      "SafetyLevel": { "Rank": "S", "SafetyText": "保証" }
+      "SafetyLevel": { "Rank": "S", "SafetyLevelText": "保証" }
     },
     "AbilityStats": {
       "Speed": { "Rank": "S" },
@@ -1429,7 +1429,7 @@
         "Communication": { "Rank": "A", "EffectText": "期待" }
       },
       "SpetialPattern": { "HideText": "極秘事項" },
-      "SafetyLevel": { "Rank": "C", "SafetyText": "調整中" }
+      "SafetyLevel": { "Rank": "C", "SafetyLevelText": "調整中" }
     },
     "AbilityStats": {
       "Speed": { "Rank": "A" },
@@ -1541,7 +1541,7 @@
         "Communication": { "Rank": "A", "EffectText": "期待" }
       },
       "SpetialPattern": ["Ptn.Ar(能力発揮効果)"],
-      "SafetyLevel": { "Rank": "S+", "SafetyText": "完全保証" }
+      "SafetyLevel": { "Rank": "S+", "SafetyLevelText": "完全保証" }
     },
     "AbilityStats": {
       "Speed": { "Rank": "A" },
@@ -1653,7 +1653,7 @@
         "Communication": { "Rank": "B", "EffectText": "普通" }
       },
       "SpetialPattern": ["Ptn.Av(能力比例作用)"],
-      "SafetyLevel": { "Rank": "S", "SafetyText": "保証" }
+      "SafetyLevel": { "Rank": "S", "SafetyLevelText": "保証" }
     },
     "AbilityStats": {
       "Speed": { "Rank": "B" },
@@ -1750,7 +1750,7 @@
         "Communication": { "Rank": "B", "EffectText": "普通" }
       },
       "SpetialPattern": ["Ptn.Ec(士気比例作用)"],
-      "SafetyLevel": { "Rank": "S+", "SafetyText": "完全保証" }
+      "SafetyLevel": { "Rank": "S+", "SafetyLevelText": "完全保証" }
     },
     "AbilityStats": {
       "Speed": { "Rank": "A" },
@@ -1843,7 +1843,7 @@
         "Communication": { "Rank": "D", "EffectText": "効果無" }
       },
       "SpetialPattern": ["Ptn.St(状況比例作用)"],
-      "SafetyLevel": { "Rank": "B", "SafetyText": "無危害" }
+      "SafetyLevel": { "Rank": "B", "SafetyLevelText": "無危害" }
     },
     "AbilityStats": {
       "Speed": { "Rank": { "HideText": "非公開" } },
@@ -1933,7 +1933,7 @@
         "Communication": { "Rank": "S", "EffectText": "絶大" }
       },
       "SpetialPattern": ["Ptn.Py(読心効果)"],
-      "SafetyLevel": { "Rank": "A", "SafetyText": "安全" }
+      "SafetyLevel": { "Rank": "A", "SafetyLevelText": "安全" }
     },
     "AbilityStats": {
       "Speed": { "Rank": "C" },
@@ -2027,7 +2027,7 @@
         "Luck": { "Rank": "A", "EffectText": "期待可能" },
         "Communication": { "Rank": "A", "EffectText": "期待可能" }
       },
-      "SafetyLevel": { "Rank": "S", "SafetyText": "保証" }
+      "SafetyLevel": { "Rank": "S", "SafetyLevelText": "保証" }
     },
     "AbilityStats": {
       "Speed": { "Rank": "C" },
@@ -2224,7 +2224,7 @@
         "Communication": { "Rank": "B", "EffectText": "普通" }
       },
       "SpetialPattern": ["Ptn.Lg(思考向上効果)"],
-      "SafetyLevel": { "Rank": "A", "SafetyText": "安全(奇行有)" }
+      "SafetyLevel": { "Rank": "A", "SafetyLevelText": "安全(奇行有)" }
     },
     "AbilityStats": {
       "Speed": { "Rank": "A" },
@@ -2321,7 +2321,7 @@
         "Communication": { "Rank": "S", "EffectText": "絶大" }
       },
       "SpetialPattern": ["Ptn.Lr(幸福実現効果)"],
-      "SafetyLevel": { "Rank": "S", "SafetyText": "保証" }
+      "SafetyLevel": { "Rank": "S", "SafetyLevelText": "保証" }
     },
     "AbilityStats": {
       "Speed": { "Rank": "B" },
@@ -2420,7 +2420,7 @@
         "Communication": { "Rank": "B", "EffectText": "普通" }
       },
       "SpetialPattern": ["Ptn.Hm(心理安定化効果)"],
-      "SafetyLevel": { "Rank": "S+", "SafetyText": "完全保証" }
+      "SafetyLevel": { "Rank": "S+", "SafetyLevelText": "完全保証" }
     },
     "AbilityStats": {
       "Speed": { "Rank": "A" },
@@ -2518,7 +2518,7 @@
         "Communication": { "Rank": "A", "EffectText": "期待" }
       },
       "SpetialPattern": ["Ptn.Mt(母性的作用の傾向)"],
-      "SafetyLevel": { "Rank": "S", "SafetyText": "保証" }
+      "SafetyLevel": { "Rank": "S", "SafetyLevelText": "保証" }
     },
     "AbilityStats": {
       "Speed": { "Rank": "C" },
@@ -2611,7 +2611,7 @@
         "Communication": { "Rank": "C", "EffectText": "希薄" }
       },
       "SpetialPattern": ["Ptn.Kn(知性効果)", "Ptn.Z[Eg](過剰自我に注意)"],
-      "SafetyLevel": { "Rank": "D", "SafetyText": "注意" }
+      "SafetyLevel": { "Rank": "D", "SafetyLevelText": "注意" }
     },
     "AbilityStats": {
       "Speed": { "Rank": "B+" },
@@ -2708,7 +2708,7 @@
         "Ptn.Lr-(条件付き幸福実現効果)",
         "Ptn.Z[Fr](欲求不満傾向)"
       ],
-      "SafetyLevel": { "Rank": "C", "SafetyText": "調整中" }
+      "SafetyLevel": { "Rank": "C", "SafetyLevelText": "調整中" }
     },
     "AbilityStats": {
       "Speed": { "Rank": "B+" },
@@ -2808,7 +2808,7 @@
         "Communication": { "Rank": "B", "EffectText": "普通" }
       },
       "SpetialPattern": ["Ptn.Hm(心理安定化効果)", "Ptn.Rc(救済効果)"],
-      "SafetyLevel": { "Rank": "S+", "SafetyText": "完全保証" }
+      "SafetyLevel": { "Rank": "S+", "SafetyLevelText": "完全保証" }
     },
     "AbilityStats": {
       "Speed": { "Rank": "C" },
@@ -2900,7 +2900,7 @@
         "Communication": { "Rank": "B", "EffectText": "普通" }
       },
       "SpetialPattern": ["Ptn.Lr-(条件付き幸福実現効果)"],
-      "SafetyLevel": { "Rank": "S", "SafetyText": "保証" }
+      "SafetyLevel": { "Rank": "S", "SafetyLevelText": "保証" }
     },
     "AbilityStats": {
       "Speed": { "Rank": "C" },
@@ -2994,7 +2994,7 @@
         "Communication": { "Rank": "B", "EffectText": "普通" }
       },
       "SpetialPattern": ["Ptn.Rz(実現性向上効果)"],
-      "SafetyLevel": { "Rank": "S+", "SafetyText": "完全保証" }
+      "SafetyLevel": { "Rank": "S+", "SafetyLevelText": "完全保証" }
     },
     "AbilityStats": {
       "Speed": { "Rank": "B+" },
@@ -3089,7 +3089,7 @@
         "Communication": { "Rank": "Z", "EffectText": "過剰" }
       },
       "SpetialPattern": ["Ptn.Py(読心効果)"],
-      "SafetyLevel": { "Rank": "S", "SafetyText": "保証" }
+      "SafetyLevel": { "Rank": "S", "SafetyLevelText": "保証" }
     },
     "AbilityStats": {
       "Speed": { "Rank": "B+" },
@@ -3285,7 +3285,7 @@
         "Ptn.C(状況変化効果)",
         "Ptn.ZZ(逆効能および禁断効果に警戒)"
       ],
-      "SafetyLevel": { "Rank": "E", "SafetyText": "厳重注意" }
+      "SafetyLevel": { "Rank": "E", "SafetyLevelText": "厳重注意" }
     },
     "AbilityStats": {
       "Speed": { "Rank": "B" },
@@ -3379,7 +3379,7 @@
         "Luck": { "Rank": "S", "EffectText": "絶大" },
         "Communication": { "Rank": "B", "EffectText": "普通" }
       },
-      "SafetyLevel": { "Rank": "S", "SafetyText": "保証" }
+      "SafetyLevel": { "Rank": "S", "SafetyLevelText": "保証" }
     },
     "AbilityStats": {
       "Speed": { "Rank": "B+" },
@@ -3482,7 +3482,7 @@
         "Communication": { "Rank": "C", "EffectText": "希薄" }
       },
       "SpetialPattern": ["Ptn.X(転化・転送効果)"],
-      "SafetyLevel": { "Rank": "B", "SafetyText": "無危害" }
+      "SafetyLevel": { "Rank": "B", "SafetyLevelText": "無危害" }
     },
     "AbilityStats": {
       "Speed": { "Rank": "C" },
@@ -3577,7 +3577,7 @@
         "Communication": { "Rank": "D", "EffectText": "効果無" }
       },
       "SpetialPattern": ["Ptn.Ar(能力発揮効果)"],
-      "SafetyLevel": { "Rank": "S+", "SafetyText": "完全保証" }
+      "SafetyLevel": { "Rank": "S+", "SafetyLevelText": "完全保証" }
     },
     "AbilityStats": {
       "Speed": { "Rank": "C" },
@@ -3711,7 +3711,7 @@
         "Communication": { "Rank": "D", "EffectText": "効果無" }
       },
       "SpetialPattern": ["Ptn.A(行動補正効果)", "Ptn.Z[At](攻撃的思想に注意)"],
-      "SafetyLevel": { "Rank": "C", "SafetyText": "恐らく無危害" }
+      "SafetyLevel": { "Rank": "C", "SafetyLevelText": "恐らく無危害" }
     },
     "AbilityStats": {
       "Speed": { "Rank": "A" },
@@ -3809,7 +3809,7 @@
         "Ptn.Rz-(実現性向上効果がある傾向)",
         "Ptn.Lr-(条件付き幸福実現効果)"
       ],
-      "SafetyLevel": { "Rank": "B+", "SafetyText": "恐らく安全" }
+      "SafetyLevel": { "Rank": "B+", "SafetyLevelText": "恐らく安全" }
     },
     "AbilityStats": {
       "Speed": { "Rank": "C" },
@@ -3904,7 +3904,7 @@
         "Ptn.Hm(心理安定化効果)",
         "Ptn.C-(状況変化効果がある傾向)"
       ],
-      "SafetyLevel": { "Rank": "A", "SafetyText": "安全(奇行有)" }
+      "SafetyLevel": { "Rank": "A", "SafetyLevelText": "安全(奇行有)" }
     },
     "AbilityStats": {
       "Speed": { "Rank": "B+" },
@@ -3991,7 +3991,7 @@
         "Luck": { "Rank": "S", "EffectText": "絶大" },
         "Communication": { "Rank": "B", "EffectText": "普通" }
       },
-      "SafetyLevel": { "Rank": "S", "SafetyText": "保証" }
+      "SafetyLevel": { "Rank": "S", "SafetyLevelText": "保証" }
     },
     "AbilityStats": {
       "Speed": { "Rank": "B+" },
@@ -4089,7 +4089,7 @@
         "Ptn.Lr-(条件付き幸福実現効果)",
         "Ptn.Z[Hd](効果に一定の精神的耐性が必要)"
       ],
-      "SafetyLevel": { "Rank": "D", "SafetyText": "注意" }
+      "SafetyLevel": { "Rank": "D", "SafetyLevelText": "注意" }
     },
     "AbilityStats": {
       "Speed": { "Rank": "B" },
@@ -4186,7 +4186,7 @@
         "Ptn.R-(効果保証作用がある傾向)",
         "Ptn.Z[Eg](過剰自我に注意)"
       ],
-      "SafetyLevel": { "Rank": "C", "SafetyText": "恐らく無危害" }
+      "SafetyLevel": { "Rank": "C", "SafetyLevelText": "恐らく無危害" }
     },
     "AbilityStats": {
       "Speed": { "Rank": "S" },
@@ -4290,7 +4290,7 @@
         "Communication": { "Rank": "B", "EffectText": "普通" }
       },
       "SpetialPattern": ["Ptn.Ec(士気比例作用)"],
-      "SafetyLevel": { "Rank": "B", "SafetyText": "無危害" }
+      "SafetyLevel": { "Rank": "B", "SafetyLevelText": "無危害" }
     },
     "AbilityStats": {
       "Speed": { "Rank": "B+" },
@@ -4383,7 +4383,7 @@
         "Communication": { "Rank": "C", "EffectText": "希薄" }
       },
       "SpetialPattern": ["Ptn.Z[Ex](興奮注意)"],
-      "SafetyLevel": { "Rank": "D", "SafetyText": "注意" }
+      "SafetyLevel": { "Rank": "D", "SafetyLevelText": "注意" }
     },
     "AbilityStats": {
       "Speed": { "Rank": "Z" },
@@ -4568,7 +4568,7 @@
         "Communication": { "Rank": "B", "EffectText": "普通" }
       },
       "SpetialPattern": ["Ptn.Ec(士気比例作用)", "Ptn.Rz(実現性向上効果)"],
-      "SafetyLevel": { "Rank": "S", "SafetyText": "保証" }
+      "SafetyLevel": { "Rank": "S", "SafetyLevelText": "保証" }
     },
     "AbilityStats": {
       "Speed": { "Rank": "B" },
@@ -4663,7 +4663,7 @@
         "Communication": { "Rank": "D", "EffectText": "効果無" }
       },
       "SpetialPattern": ["Ptn.St(状況比例作用)"],
-      "SafetyLevel": { "Rank": "B", "SafetyText": "無危害" }
+      "SafetyLevel": { "Rank": "B", "SafetyLevelText": "無危害" }
     },
     "AbilityStats": {
       "Speed": { "Rank": "A" },
@@ -4820,7 +4820,7 @@
         "Communication": { "Rank": "B", "EffectText": "普通" }
       },
       "SpetialPattern": ["Ptn.Hm(心理安定化効果)"],
-      "SafetyLevel": { "Rank": "S+", "SafetyText": "完全保証" }
+      "SafetyLevel": { "Rank": "S+", "SafetyLevelText": "完全保証" }
     },
     "AbilityStats": {
       "Speed": { "Rank": "B+" },
@@ -4919,7 +4919,7 @@
         "Communication": { "Rank": "C", "EffectText": "希薄" }
       },
       "SpetialPattern": ["Ptn.C(状況変化効果)", "Ptn.Ch(連鎖効果有)"],
-      "SafetyLevel": { "Rank": "B", "SafetyText": "無危害" }
+      "SafetyLevel": { "Rank": "B", "SafetyLevelText": "無危害" }
     },
     "AbilityStats": {
       "Speed": { "Rank": "A" },
@@ -5043,7 +5043,7 @@
         "Communication": { "Rank": "D", "EffectText": "効果無" }
       },
       "SpetialPattern": ["Ptn.C(状況変化効果)"],
-      "SafetyLevel": { "Rank": "C", "SafetyText": "調整中" }
+      "SafetyLevel": { "Rank": "C", "SafetyLevelText": "調整中" }
     },
     "AbilityStats": {
       "Speed": { "Rank": "A" },
@@ -5138,7 +5138,7 @@
         "Luck": { "Rank": "A", "EffectText": "期待" },
         "Communication": { "Rank": "S", "EffectText": "絶大" }
       },
-      "SafetyLevel": { "Rank": "A", "SafetyText": "安全" }
+      "SafetyLevel": { "Rank": "A", "SafetyLevelText": "安全" }
     },
     "AbilityStats": {
       "Speed": { "Rank": "B" },
@@ -5234,7 +5234,7 @@
         "Communication": { "Rank": "C", "EffectText": "希薄" }
       },
       "SpetialPattern": ["Ptn.Kn(知性効果)"],
-      "SafetyLevel": { "Rank": "S", "SafetyText": "保証" }
+      "SafetyLevel": { "Rank": "S", "SafetyLevelText": "保証" }
     },
     "AbilityStats": {
       "Speed": { "Rank": "B" },
@@ -5328,7 +5328,7 @@
         "Communication": { "Rank": "C", "EffectText": "希薄" }
       },
       "SpetialPattern": ["Ptn.Lr(幸福実現効果)"],
-      "SafetyLevel": { "Rank": "S", "SafetyText": "保証" }
+      "SafetyLevel": { "Rank": "S", "SafetyLevelText": "保証" }
     },
     "AbilityStats": {
       "Speed": { "Rank": "A" },
@@ -5452,7 +5452,7 @@
         "Communication": { "Rank": "B", "EffectText": "普通" }
       },
       "SpetialPattern": ["Ptn.S(感性向上効果)"],
-      "SafetyLevel": { "Rank": "S", "SafetyText": "保証" }
+      "SafetyLevel": { "Rank": "S", "SafetyLevelText": "保証" }
     },
     "AbilityStats": {
       "Speed": { "Rank": "A" },
@@ -5576,7 +5576,7 @@
         "Communication": { "Rank": "D", "EffectText": "効果無" }
       },
       "SpetialPattern": ["Ptn.S(感性向上効果)", "Ptn.Z[Sp](催眠/洗脳作用注意)"],
-      "SafetyLevel": { "Rank": "B", "SafetyText": "無危害(奇行有)" }
+      "SafetyLevel": { "Rank": "B", "SafetyLevelText": "無危害(奇行有)" }
     },
     "AbilityStats": {
       "Speed": { "Rank": "S" },
@@ -5676,7 +5676,7 @@
         "Communication": { "Rank": "B", "EffectText": "普通" }
       },
       "SpetialPattern": ["Ptn.Mt(母性的作用の傾向)"],
-      "SafetyLevel": { "Rank": "S+", "SafetyText": "完全保証" }
+      "SafetyLevel": { "Rank": "S+", "SafetyLevelText": "完全保証" }
     },
     "AbilityStats": {
       "Speed": { "Rank": "C" },
@@ -5770,7 +5770,7 @@
         "Communication": { "Rank": "S", "EffectText": "絶大" }
       },
       "SpetialPattern": ["Ptn.Pc(平穏増幅効果)", "Ptn.Mt(母性的作用の傾向)"],
-      "SafetyLevel": { "Rank": "S+", "SafetyText": "完全保証" }
+      "SafetyLevel": { "Rank": "S+", "SafetyLevelText": "完全保証" }
     },
     "AbilityStats": {
       "Speed": { "Rank": "B" },
@@ -5865,7 +5865,7 @@
         "Ptn.Z[Ex](興奮注意)",
         "Ptn.ZZ(逆効能および禁断効果に警戒)"
       ],
-      "SafetyLevel": { "Rank": "E", "SafetyText": "厳重注意" }
+      "SafetyLevel": { "Rank": "E", "SafetyLevelText": "厳重注意" }
     },
     "AbilityStats": {
       "Speed": { "Rank": "A" },
@@ -5964,7 +5964,7 @@
         "Communication": { "Rank": "A", "EffectText": "期待" }
       },
       "SpetialPattern": ["Ptn.A(行動補正効果)"],
-      "SafetyLevel": { "Rank": "S+", "SafetyText": "完全保証" }
+      "SafetyLevel": { "Rank": "S+", "SafetyLevelText": "完全保証" }
     },
     "AbilityStats": {
       "Speed": { "Rank": "C" },
@@ -6059,7 +6059,7 @@
         "Communication": { "Rank": "B", "EffectText": "普通" }
       },
       "SpetialPattern": ["Ptn.S(感性向上効果)"],
-      "SafetyLevel": { "Rank": "S", "SafetyText": "保証" }
+      "SafetyLevel": { "Rank": "S", "SafetyLevelText": "保証" }
     },
     "AbilityStats": {
       "Speed": { "Rank": "B+" },
@@ -6144,7 +6144,7 @@
         "Communication": { "Rank": "A", "EffectText": "期待可能" }
       },
       "SpetialPattern": ["Ptn.B(バイタリティ強化効果)"],
-      "SafetyLevel": { "Rank": "S+", "SafetyText": "完全保証" }
+      "SafetyLevel": { "Rank": "S+", "SafetyLevelText": "完全保証" }
     },
     "AbilityStats": {
       "Speed": { "Rank": "S" },
@@ -6211,7 +6211,7 @@
         "Communication": { "Rank": "C", "EffectText": "希薄" }
       },
       "SpetialPattern": ["Ptn.M(マネタイズ効果または資産操作能力)"],
-      "SafetyLevel": { "Rank": "A", "SafetyText": "安全(奇行有)" }
+      "SafetyLevel": { "Rank": "A", "SafetyLevelText": "安全(奇行有)" }
     },
     "AbilityStats": {
       "Speed": { "Rank": "S" },
@@ -6317,7 +6317,7 @@
         "Communication": { "Rank": "D", "EffectText": "効果無" }
       },
       "SpetialPattern": ["Ptn.Ms(自己転化効果)"],
-      "SafetyLevel": { "Rank": "A", "SafetyText": "安全" }
+      "SafetyLevel": { "Rank": "A", "SafetyLevelText": "安全" }
     },
     "AbilityStats": {
       "Speed": { "Rank": "A" },
@@ -6410,7 +6410,7 @@
         "Communication": { "Rank": "C", "EffectText": "希薄" }
       },
       "SpetialPattern": ["Ptn.F-(超能力保有の可能性)"],
-      "SafetyLevel": { "Rank": "A", "SafetyText": "安全" }
+      "SafetyLevel": { "Rank": "A", "SafetyLevelText": "安全" }
     },
     "AbilityStats": {
       "Speed": { "Rank": "B" },
@@ -6505,7 +6505,7 @@
         "Ptn.Lg(思考向上効果)",
         "Ptn.Rz-(実現性向上効果がある傾向)"
       ],
-      "SafetyLevel": { "Rank": "S+", "SafetyText": "完全保証" }
+      "SafetyLevel": { "Rank": "S+", "SafetyLevelText": "完全保証" }
     },
     "AbilityStats": {
       "Speed": { "Rank": "B" },
@@ -6698,7 +6698,7 @@
         "Communication": { "Rank": "B", "EffectText": "普通" }
       },
       "SpetialPattern": ["Ptn.Kn(知性効果)"],
-      "SafetyLevel": { "Rank": "A", "SafetyText": "安全(奇行有)" }
+      "SafetyLevel": { "Rank": "A", "SafetyLevelText": "安全(奇行有)" }
     },
     "AbilityStats": {
       "Speed": { "Rank": "C" },
@@ -6897,7 +6897,7 @@
         "Communication": { "Rank": "C", "EffectText": "希薄" }
       },
       "SpetialPattern": ["Ptn.Kn(知性効果)"],
-      "SafetyLevel": { "Rank": "S", "SafetyText": "保証" }
+      "SafetyLevel": { "Rank": "S", "SafetyLevelText": "保証" }
     },
     "AbilityStats": {
       "Speed": { "Rank": "B" },
@@ -6990,7 +6990,7 @@
         "Communication": { "Rank": "D", "EffectText": "効果無" }
       },
       "SpetialPattern": ["Ptn.Kn(知性効果)"],
-      "SafetyLevel": { "Rank": "S", "SafetyText": "保証" }
+      "SafetyLevel": { "Rank": "S", "SafetyLevelText": "保証" }
     },
     "AbilityStats": {
       "Speed": { "Rank": "D" },
@@ -7083,7 +7083,7 @@
         "Ptn.Hm(心理安定化効果)",
         "Ptn.F-(超能力保有の可能性)"
       ],
-      "SafetyLevel": { "Rank": "S+", "SafetyText": "完全保証" }
+      "SafetyLevel": { "Rank": "S+", "SafetyLevelText": "完全保証" }
     },
     "AbilityStats": {
       "Speed": { "Rank": "A" },
@@ -7198,7 +7198,7 @@
         "Ptn.Rz-(実現性向上効果がある傾向)",
         "Ptn.Z[Hd](効果に一定の精神的耐性が必要)"
       ],
-      "SafetyLevel": { "Rank": "C", "SafetyText": "恐らく無危害" }
+      "SafetyLevel": { "Rank": "C", "SafetyLevelText": "恐らく無危害" }
     },
     "AbilityStats": {
       "Speed": { "Rank": "B" },
@@ -7353,7 +7353,7 @@
         "Ptn.Ec(士気比例作用)",
         "Ptn.M-(マネタイズ効果または資産操作効果がある傾向)"
       ],
-      "SafetyLevel": { "Rank": "S+", "SafetyText": "完全保証" }
+      "SafetyLevel": { "Rank": "S+", "SafetyLevelText": "完全保証" }
     },
     "AbilityStats": {
       "Speed": { "Rank": "A" },
@@ -7540,7 +7540,7 @@
         "Communication": { "Rank": "B", "EffectText": "普通" }
       },
       "SpetialPattern": ["Ptn.Lr(幸福実現効果)"],
-      "SafetyLevel": { "Rank": "S", "SafetyText": "保証" }
+      "SafetyLevel": { "Rank": "S", "SafetyLevelText": "保証" }
     },
     "AbilityStats": {
       "Speed": { "Rank": "B" },
@@ -7866,7 +7866,7 @@
         "Communication": { "Rank": "C", "EffectText": "希薄" }
       },
       "SpetialPattern": ["Ptn.Rc(救済効果)"],
-      "SafetyLevel": { "Rank": "S+", "SafetyText": "完全保証" }
+      "SafetyLevel": { "Rank": "S+", "SafetyLevelText": "完全保証" }
     },
     "AbilityStats": {
       "Speed": { "Rank": "B" },
@@ -8017,7 +8017,7 @@
         "Communication": { "Rank": "B+", "EffectText": "特殊" }
       },
       "SpetialPattern": ["Ptn.Rc(救済効果)"],
-      "SafetyLevel": { "Rank": "S", "SafetyText": "保証" }
+      "SafetyLevel": { "Rank": "S", "SafetyLevelText": "保証" }
     },
     "AbilityStats": {
       "Speed": { "Rank": "C" },
@@ -8112,7 +8112,7 @@
         "Communication": { "Rank": "D", "EffectText": "効果無" }
       },
       "SpetialPattern": ["Ptn.Dr-(目標比例作用がある傾向)"],
-      "SafetyLevel": { "Rank": "C", "SafetyText": "調整中" }
+      "SafetyLevel": { "Rank": "C", "SafetyLevelText": "調整中" }
     },
     "AbilityStats": {
       "Speed": { "Rank": "A" },
@@ -8212,7 +8212,7 @@
         "Ptn.B(バイタリティ強化効果)",
         "Ptn.Hm(心理安定化効果)"
       ],
-      "SafetyLevel": { "Rank": "S+", "SafetyText": "完全保証" }
+      "SafetyLevel": { "Rank": "S+", "SafetyLevelText": "完全保証" }
     },
     "AbilityStats": {
       "Speed": { "Rank": { "HideText": "データ無" } },
@@ -8342,7 +8342,7 @@
         "Communication": { "Rank": "E", "EffectText": "逆効果(仕様)" }
       },
       "SpetialPattern": ["Ptn.Ms(自己転化効果)"],
-      "SafetyLevel": { "Rank": "B", "SafetyText": "無危害(奇行有)" }
+      "SafetyLevel": { "Rank": "B", "SafetyLevelText": "無危害(奇行有)" }
     },
     "AbilityStats": {
       "Speed": { "Rank": "A" },
@@ -8439,7 +8439,7 @@
         "Communication": { "Rank": "B+", "EffectText": "特殊" }
       },
       "SpetialPattern": ["Ptn.Rc(救済効果)", "Ptn.S-(感性向上効果の可能性)"],
-      "SafetyLevel": { "Rank": "A", "SafetyText": "安全(奇行有)" }
+      "SafetyLevel": { "Rank": "A", "SafetyLevelText": "安全(奇行有)" }
     },
     "AbilityStats": {
       "Speed": { "Rank": "C" },
@@ -8533,7 +8533,7 @@
         "Ptn.Rz-(実現性向上効果がある傾向)",
         "Ptn.Rc-(救済効果がある傾向)"
       ],
-      "SafetyLevel": { "Rank": "S", "SafetyText": "保証(稀に奇行有)" }
+      "SafetyLevel": { "Rank": "S", "SafetyLevelText": "保証(稀に奇行有)" }
     },
     "AbilityStats": {
       "Speed": { "Rank": "B+" },

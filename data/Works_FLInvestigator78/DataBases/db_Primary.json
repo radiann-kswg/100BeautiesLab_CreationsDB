@@ -63,7 +63,10 @@
         "Rewriting": { "Rank": { "HideText": "検証中" } }
       },
       "SpetialPattern": ["Ptn.A(覚醒)", "Ptn.Q(天変地異)"],
-      "SafetyLevel": { "Rank": "B+", "SafetyText": "危険度を有効活用可能" },
+      "SafetyLevel": {
+        "Rank": "B+",
+        "SafetyLevelText": "危険度を有効活用可能"
+      },
       "SpecLevel": { "Rank": "S+" }
     }
   },
@@ -134,7 +137,7 @@
         "Rewriting": { "Rank": { "HideText": "検証中" } }
       },
       "SpetialPattern": ["Ptn.B(士気操作)", "Ptn.E(元素操作)"],
-      "SafetyLevel": { "Rank": "S", "SafetyText": "保証可能" },
+      "SafetyLevel": { "Rank": "S", "SafetyLevelText": "保証可能" },
       "SpecLevel": { "Rank": "S+" }
     }
   },
@@ -202,7 +205,7 @@
         "Rewriting": { "Rank": "C", "EffectText": "希薄" }
       },
       "SpetialPattern": ["Ptn.L(転化)", "Ptn.M(精神操作)"],
-      "SafetyLevel": { "Rank": "S", "SafetyText": "保証可能" },
+      "SafetyLevel": { "Rank": "S", "SafetyLevelText": "保証可能" },
       "SpecLevel": { "Rank": "S" }
     }
   },
@@ -272,7 +275,7 @@
         "Rewriting": { "Rank": "C", "EffectText": "希薄" }
       },
       "SpetialPattern": ["Ptn.H(癒術)", "Ptn.M(精神操作)"],
-      "SafetyLevel": { "Rank": "S", "SafetyText": "保証可能" },
+      "SafetyLevel": { "Rank": "S", "SafetyLevelText": "保証可能" },
       "SpecLevel": { "Rank": "A" }
     }
   },
@@ -324,7 +327,7 @@
         "Rewriting": { "Rank": "S", "EffectText": "絶大" }
       },
       "SpetialPattern": ["Ptn.F(妨害)", "Ptn.Q(天変地異)"],
-      "SafetyLevel": { "Rank": "E", "SafetyText": "厳重注意" },
+      "SafetyLevel": { "Rank": "E", "SafetyLevelText": "厳重注意" },
       "SpecLevel": { "Rank": "Z" }
     }
   },
@@ -382,7 +385,7 @@
         "Rewriting": { "Rank": "E", "EffectText": "逆効果" }
       },
       "SpetialPattern": ["Ptn.H(癒術)", "Ptn.L(転化)"],
-      "SafetyLevel": { "Rank": "S", "SafetyText": "保証可能" },
+      "SafetyLevel": { "Rank": "S", "SafetyLevelText": "保証可能" },
       "SpecLevel": { "Rank": "B+" }
     }
   },

@@ -20,8 +20,8 @@
       "$Def_Index": {
         "hashTag": "Card",
         "$valType": [
-          { "hashTag": "Stoat", "valType": "#ListIndex" },
-          { "hashTag": "Num", "valType": "#Number" }
+          { "hashTag": "Stoat", "$valType": "#ListIndex" },
+          { "hashTag": "Num", "$valType": "#Number" }
         ]
       }
     },
@@ -31,7 +31,7 @@
       "Works_Summary": "龍天国にある山月病(変化病)対策組織「獣爾騎兵」に所属する獣人型改造人間。\n主に十二支などの動物に基づいた獣人キャラクターが存在する。",
       "$Def_Index": {
         "hashTag": "BeastType",
-        "$valType": [{ "hashTag": "Beast", "valType": "#ListIndex" }]
+        "$valType": [{ "hashTag": "Beast", "$valType": "#ListIndex" }]
       }
     },
     "#Works_SinisterChangingGirls": {
@@ -61,15 +61,12 @@
       ],
       "Works_Summary": "弊創作を執筆している「ラジアン」の仲間たち。\n主に科学単位や数学用語に基づいた獣人のキャラクターからなる。\nちなみに、当タイトルのいう「ラジアン」とは作者の２代目代理のことである。",
       "$Def_Index": { "hashTag": "Unit", "$valType": "#String" }
-    }
-  },
-  "Databases": {
-    "#DB_Proxies": {
-      "DB_Summary": "弊創作を執筆している「ラジアン」の代理キャラクター",
-      "$Def_Index": { "hashTag": "Generation", "$valType": "#Number" },
-      "_Commons": {
-        "Belonging": "創造主"
-      }
+    },
+    "#Works_Proxies": {
+      "Title": null,
+      "Title_EN": null,
+      "Works_Summary": "弊創作を執筆している「ラジアン」の代理キャラクター",
+      "$Def_Index": { "hashTag": "Generation", "$valType": "#Number" }
     }
   },
   "General": {

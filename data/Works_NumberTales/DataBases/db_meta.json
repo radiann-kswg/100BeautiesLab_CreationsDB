@@ -127,7 +127,7 @@
           }
         },
         "$Def_SafetyLevel": {
-          "#LinkList(Rank)_SafetyText": {
+          "#LinkList(Rank)_SafetyLevelText": {
             "#R2_Great": ["保証", "保証(稀に奇行有)"],
             "#R3_Good": ["安全", "安全(奇行有)"],
             "#R4plus_BasicOrSpecific": ["恐らく安全"],

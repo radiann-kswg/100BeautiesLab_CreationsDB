@@ -261,7 +261,7 @@
         "Communication": { "Rank": "D", "EffectText": "効果無" }
       },
       "SpetialPattern": { "HideText": "極秘事項" },
-      "SafetyLevel": { "Rank": "E", "SafetyText": "厳重注意" }
+      "SafetyLevel": { "Rank": "E", "SafetyLevelText": "厳重注意" }
     },
     "AbilityStats": {
       "Speed": { "Rank": "A" },
@@ -381,7 +381,7 @@
         "Communication": { "Rank": { "HideText": "検証中" } }
       },
       "SpetialPattern": { "HideText": "極秘事項" },
-      "SafetyLevel": { "Rank": "C", "SafetyText": "調整中" }
+      "SafetyLevel": { "Rank": "C", "SafetyLevelText": "調整中" }
     },
     "AbilityStats": {
       "Speed": { "Rank": "B" },
@@ -505,7 +505,7 @@
         "Communication": { "Rank": "D", "EffectText": "効果無" }
       },
       "SpetialPattern": { "HideText": "極秘事項" },
-      "SafetyLevel": { "Rank": "D", "SafetyText": "注意" }
+      "SafetyLevel": { "Rank": "D", "SafetyLevelText": "注意" }
     },
     "AbilityStats": {
       "Speed": { "Rank": "A" },
