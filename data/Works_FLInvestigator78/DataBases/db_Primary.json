@@ -30,7 +30,7 @@
       "Unlike": "ふとしたときに地雷を踏みやすいこと",
       "FirstPersonCalling": "ボク",
       "SecondPersonCalling": "キミ",
-      "ThirdPersonCalling": "彼/彼女/[Name],*れ",
+      "ThirdPersonCalling": "彼/彼女/[※名前呼び],*れ",
       "For79or80thDealerCalling": {
         "For79thDealer": "ウタカ（※毎回逆になる）",
         "For80thDealer": "マイ（※毎回逆になる）"
@@ -102,7 +102,7 @@
       "Unlike": "才能が発揮されない事",
       "FirstPersonCalling": "私(わたし)",
       "SecondPersonCalling": "君(きみ)",
-      "ThirdPersonCalling": "彼/彼女/～君;[Name]",
+      "ThirdPersonCalling": "彼/彼女/～君;[※名前呼び]",
       "For79or80thDealerCalling": {
         "For79thDealer": "舞(まい)君",
         "For80thDealer": "歌(うた)君"
@@ -170,7 +170,7 @@
       "Unlike": "女性的ストレス",
       "FirstPersonCalling": "私(わたくし)",
       "SecondPersonCalling": "貴方(あなた)",
-      "ThirdPersonCalling": "彼/彼女/[Name]",
+      "ThirdPersonCalling": "彼/彼女/[※名前呼び]",
       "For79or80thDealerCalling": {
         "For79thDealer": "舞",
         "For80thDealer": "歌"
@@ -244,7 +244,7 @@
       "Unlike": "空腹",
       "FirstPersonCalling": "わたし",
       "SecondPersonCalling": "あなた",
-      "ThirdPersonCalling": "*のこ/[Name]",
+      "ThirdPersonCalling": "*のこ/[※名前呼び]",
       "For79or80thDealerCalling": {
         "For79thDealer": "舞(まい)",
         "For80thDealer": "歌嫁(うたか)"
@@ -438,7 +438,7 @@
       "Unlike": "自分の弱さ",
       "FirstPersonCalling": "私(わたし)",
       "SecondPersonCalling": "あなた",
-      "ThirdPersonCalling": "彼/彼女/[Name]",
+      "ThirdPersonCalling": "彼/彼女/[※名前呼び]",
       "For79or80thDealerCalling": {
         "For79thDealer": null,
         "For80thDealer": "歌嫁(うたか)"
@@ -508,7 +508,7 @@
       "Unlike": "自分の弱さ",
       "FirstPersonCalling": "私(わたし)",
       "SecondPersonCalling": "あなた",
-      "ThirdPersonCalling": "彼/彼女/[Name]",
+      "ThirdPersonCalling": "彼/彼女/[※名前呼び]",
       "For79or80thDealerCalling": {
         "For79thDealer": "舞(まい)",
         "For80thDealer": null
