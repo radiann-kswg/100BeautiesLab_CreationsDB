@@ -31,7 +31,8 @@
     "Drc": "NE",
     "Progress": "released",
     "Images": {
-      "concept_PNGName": "cnsp_imgNE"
+      "concept_PNGName": "cnsp_imgDrcNE",
+      "arts_PNGPath": ["art_imgDrcNE-InfrationAerialSwimming"]
     },
     "Name": "扇 三春(ミハイル)",
     "Name_EN": "Mikhail Arch",
@@ -154,11 +155,14 @@
   {
     "Drc": "SW",
     "Progress": "stillTentative",
+    "Images": {
+      "arts_PNGPath": ["art_imgDrcNE-InfrationAerialSwimming"]
+    },
     "Name": "ミル.NuXV(ニュクスフ)",
     "Name_EN": "Lamill.NuXV",
     "FormalName": "獣爾余剰体 巳-拾伍",
     "FormalName_EN": "Shou'arSurpluses VI.15",
-    "ModelNumber": "BABCX SAR-CH.[xS]VI No.XV",
+    "ModelNumber": "BABCX SAR-CI[xS]VI.15",
     "CodeName": "嫉妬の午後",
     "CodeName_EN": "Envy o'clock in Afternoon",
     "RaceType": "Lamia",
@@ -216,7 +220,7 @@
     "Drc": "NW",
     "Progress": "released",
     "Images": {
-      "concept_PNGName": "cnsp_imgNW"
+      "concept_PNGName": "cnsp_imgDrcNW"
     },
     "Name": "終藤(すどう) こさと",
     "Name_EN": "Formar Endrof",
