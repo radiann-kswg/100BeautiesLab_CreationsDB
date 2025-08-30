@@ -177,7 +177,16 @@
     "Weight_kg": { "HideText": "非公開" },
     "BustSize": "G",
     "Age": { "value": 24, "about_JP": "推定", "about_EN": "Presumption" },
-    "BirthDay": { "about": "不詳" },
+    "AnivDay": [
+      {
+        "Day": { "Month": 9, "DayOfMonth": 14 },
+        "DayAbout": "育て主に拾われた日"
+      },
+      {
+        "Day": { "about_JP": "不詳", "about_EN": "Unknown or Undefined" },
+        "DayAbout": "誕生日"
+      }
+    ],
     "FirstPersonCalling": "[Name]",
     "SecondPersonCalling": "[Name],おにいちゃん/おねえちゃん(※表現揺れあり)",
     "ThirdPersonCalling": "[二人称];~おにいちゃん/~おねえちゃん(※表現揺れあり)",
@@ -210,7 +219,7 @@
       "about_JP": "行方不明となった時点での年齢または享年",
       "about_EN": "At the time of disappearance or death"
     },
-    "BirthDay": {},
+    "BirthDay": { "Day": { "Month": 10, "DayOfMonth": 20 } },
     "FirstPersonCalling": "",
     "SecondPersonCalling": "",
     "ThirdPersonCalling": "",
@@ -244,7 +253,9 @@
     "Height_cm": 155,
     "Weight_kg": [{ "about_JP": "不詳", "about_EN": "Unknown or Undefined" }],
     "Age": { "about_JP": "不詳", "about_EN": "Unknown or Undefined" },
-    "BirthDay": { "about": "不詳" },
+    "BirthDay": {
+      "Day": { "about_JP": "不詳", "about_EN": "Unknown or Undefined" }
+    },
     "FirstPersonCalling": "ボク",
     "SecondPersonCalling": "キミ",
     "ThirdPersonCalling": "[Name]",
