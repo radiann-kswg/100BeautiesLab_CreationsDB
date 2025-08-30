@@ -12,12 +12,20 @@
     "FormalName_EN": "HexademicalTales #0xA",
     "ModelNumber": "AVCR-HxT 0xA",
     "GenderType": "Neutral",
-    "Height_cm": [{ "value": 147, "about": "推定" }],
-    "ConceptAge": { "value": 15, "about": "推定" },
+    "Height_cm": [
+      { "value": 147, "about_JP": "推定", "about_EN": "Presumption" }
+    ],
+    "ConceptAge": {
+      "value": 15,
+      "about_JP": "推定",
+      "about_EN": "Presumption"
+    },
     "AnivDay": [
       { "Day": { "Month": 6, "DayOfMonth": 10 }, "DayAbout": "開発記念" }
     ],
-    "Weight_kg": [{ "value": 39, "about": "推定" }],
+    "Weight_kg": [
+      { "value": 39, "about_JP": "推定", "about_EN": "Presumption" }
+    ],
     "BustSize": "AA",
     "TailsUnit": "つぼみ型1本（大1束+小9束）",
     "Class": "ヘキサデミカル-テールズ",
@@ -117,12 +125,20 @@
     "FormalName_EN": "HexademicalTales #0xB",
     "ModelNumber": "AVCR-HxT 0xB",
     "GenderType": "FemaleNeutral",
-    "Height_cm": [{ "value": 144, "about": "推定" }],
-    "ConceptAge": { "value": 14, "about": "推定" },
+    "Height_cm": [
+      { "value": 144, "about_JP": "推定", "about_EN": "Presumption" }
+    ],
+    "ConceptAge": {
+      "value": 14,
+      "about_JP": "推定",
+      "about_EN": "Presumption"
+    },
     "AnivDay": [
       { "Day": { "Month": 6, "DayOfMonth": 11 }, "DayAbout": "開発記念" }
     ],
-    "Weight_kg": [{ "value": 36, "about": "推定" }],
+    "Weight_kg": [
+      { "value": 36, "about_JP": "推定", "about_EN": "Presumption" }
+    ],
     "BustSize": "D",
     "TailsUnit": "猫型2本",
     "Class": "ヘキサデミカル-テールズ",
@@ -232,8 +248,14 @@
     "ModelNumber": "AVCR-HxT 0xC",
     "FormalName_EN": "HexademicalTales #0xC",
     "GenderType": "MaleNeutral",
-    "Height_cm": [{ "value": 151, "about": "推定" }],
-    "ConceptAge": { "value": 17, "about": "推定" },
+    "Height_cm": [
+      { "value": 151, "about_JP": "推定", "about_EN": "Presumption" }
+    ],
+    "ConceptAge": {
+      "value": 17,
+      "about_JP": "推定",
+      "about_EN": "Presumption"
+    },
     "AnivDay": [
       { "Day": { "Month": 6, "DayOfMonth": 12 }, "DayAbout": "開発記念" }
     ],
@@ -351,8 +373,14 @@
     "FormalName_EN": "HexademicalTales #0xD",
     "ModelNumber": "AVCR-HxT 0xD",
     "GenderType": "FemaleNeutral",
-    "Height_cm": [{ "value": 130, "about": "推定" }],
-    "ConceptAge": { "value": 12, "about": "推定" },
+    "Height_cm": [
+      { "value": 130, "about_JP": "推定", "about_EN": "Presumption" }
+    ],
+    "ConceptAge": {
+      "value": 12,
+      "about_JP": "推定",
+      "about_EN": "Presumption"
+    },
     "AnivDay": [
       { "Day": { "Month": 6, "DayOfMonth": 13 }, "DayAbout": "開発記念" }
     ],
@@ -475,12 +503,20 @@
     "FormalName_EN": "HexademicalTales #0xE",
     "ModelNumber": "AVCR-HxT 0xE",
     "GenderType": "Neutral",
-    "Height_cm": [{ "value": 143, "about": "推定" }],
-    "ConceptAge": { "value": 18, "about": "推定" },
+    "Height_cm": [
+      { "value": 143, "about_JP": "推定", "about_EN": "Presumption" }
+    ],
+    "ConceptAge": {
+      "value": 18,
+      "about_JP": "推定",
+      "about_EN": "Presumption"
+    },
     "AnivDay": [
       { "Day": { "Month": 6, "DayOfMonth": 14 }, "DayAbout": "開発記念" }
     ],
-    "Weight_kg": [{ "value": 39, "about": "推定" }],
+    "Weight_kg": [
+      { "value": 39, "about_JP": "推定", "about_EN": "Presumption" }
+    ],
     "BustSize": "AA",
     "TailsUnit": "猫型5本",
     "Class": "ヘキサデミカル-テールズ",
@@ -577,7 +613,9 @@
     "FormalName_EN": "HexademicalTales #0xF",
     "ModelNumber": "AVCR-HxT 0xF",
     "GenderType": "FemaleNeutral",
-    "Height_cm": [{ "value": 160, "about": "推定" }],
+    "Height_cm": [
+      { "value": 160, "about_JP": "推定", "about_EN": "Presumption" }
+    ],
     "ConceptAge": { "about": "不詳" },
     "AnivDay": [
       { "Day": { "Month": 6, "DayOfMonth": 15 }, "DayAbout": "開発記念" }

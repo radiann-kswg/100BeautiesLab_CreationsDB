@@ -14,7 +14,7 @@
     "Class_EN": "Shòu-ěr Rider",
     "Height_cm": 129,
     "Weight_kg": 32,
-    "Age": { "value": 17, "about": "？" },
+    "Age": { "value": 17, "about_JP": "？", "about_EN": "?" },
     "Character": "ドＳでドＭなモルモット？\n生き残りのためなら手段を問わない",
     "Hobby": "投薬実験",
     "SpetialSkill": "自分で自分の身体を手術すること",
@@ -144,7 +144,7 @@
     "Progress": "released",
     "Images": {
       "concept_PNGName": "cnsp_imgEZ13",
-	  "arts_PNGPath": ["art_imgEZ13-meowsday2023"]
+      "arts_PNGPath": ["art_imgEZ13-meowsday2023"]
     },
     "Name": "寅刻ネゝコ",
     "Name_EN": "Meowcats Tigertimes",

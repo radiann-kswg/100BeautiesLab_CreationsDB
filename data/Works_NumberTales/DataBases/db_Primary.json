@@ -683,7 +683,9 @@
     "AnivDay": [
       { "Day": { "Month": 1, "DayOfMonth": 8 }, "DayAbout": "開発記念" }
     ],
-    "Weight_kg": [{ "value": 43, "about": "推定" }],
+    "Weight_kg": [
+      { "value": 43, "about_JP": "推定", "about_EN": "Presumption" }
+    ],
     "BustSize": "B",
     "TailsUnit": "キツネ型8本",
     "Class": "1桁番(ユニデジッツ)",
@@ -1393,7 +1395,10 @@
         "DayAbout": "暴走抑止対策記念(劇中)"
       }
     ],
-    "Weight_kg": [{ "value": 42 }, { "value": 4, "about": "安全装置" }],
+    "Weight_kg": [
+      { "value": 42 },
+      { "value": 4, "about_JP": "安全装置", "about_EN": "Safety Unit" }
+    ],
     "BustSize": "AA",
     "TailsUnit": "キツネ(枝分かれ)型5本(上2束1本+下1束4本)",
     "Class": "デュアルシックスズ",
@@ -1614,7 +1619,9 @@
     "AnivDay": [
       { "Day": { "Month": 1, "DayOfMonth": 17 }, "DayAbout": "開発記念" }
     ],
-    "Weight_kg": [{ "value": 40, "about": "推定" }],
+    "Weight_kg": [
+      { "value": 40, "about_JP": "推定", "about_EN": "Presumption" }
+    ],
     "BustSize": "AA",
     "TailsUnit": "キツネ(枝分かれ)型7本(上2束1本+下1束6本)",
     "Class": "デュアルエイツ",
@@ -2391,7 +2398,9 @@
     "AnivDay": [
       { "Day": { "Month": 2, "DayOfMonth": 5 }, "DayAbout": "開発記念" }
     ],
-    "Weight_kg": [{ "value": 42, "about": "推定" }],
+    "Weight_kg": [
+      { "value": 42, "about_JP": "推定", "about_EN": "Presumption" }
+    ],
     "BustSize": "G",
     "TailsUnit": "キツネ(枝分かれ)型5本(上2束2本+下1束3本)",
     "Class": "デュアルセブンズ",
@@ -3550,7 +3559,9 @@
     "AnivDay": [
       { "Day": { "Month": 3, "DayOfMonth": 7 }, "DayAbout": "開発記念" }
     ],
-    "Weight_kg": [{ "value": 42, "about": "推定" }],
+    "Weight_kg": [
+      { "value": 42, "about_JP": "推定", "about_EN": "Presumption" }
+    ],
     "BustSize": "C",
     "TailsUnit": "キツネ(枝分かれ)型7本(上2束3本+下1束4本)",
     "Class": "デュアルキャリーズ",
@@ -4636,7 +4647,9 @@
     "AnivDay": [
       { "Day": { "Month": 4, "DayOfMonth": 9 }, "DayAbout": "開発記念" }
     ],
-    "Weight_kg": [{ "value": 39, "about": "推定" }],
+    "Weight_kg": [
+      { "value": 39, "about_JP": "推定", "about_EN": "Presumption" }
+    ],
     "BustSize": "A",
     "TailsUnit": "キツネ(枝分かれ)型9本(上1束5本+下2束4本)",
     "Class": "デュアルフォーズ",
@@ -4792,7 +4805,9 @@
         "DayAbout": "2+5型特殊プラン設立記念(劇中)"
       }
     ],
-    "Weight_kg": [{ "value": 42, "about": "推定" }],
+    "Weight_kg": [
+      { "value": 42, "about_JP": "推定", "about_EN": "Presumption" }
+    ],
     "BustSize": "F",
     "TailsUnit": "キツネ(枝分かれ)型5本(上1束3本+下2束2本)",
     "Class": "デュアルセブンズ",
@@ -5113,7 +5128,9 @@
     "AnivDay": [
       { "Day": { "Month": 5, "DayOfMonth": 6 }, "DayAbout": "開発記念" }
     ],
-    "Weight_kg": [{ "value": 39, "about": "推定" }],
+    "Weight_kg": [
+      { "value": 39, "about_JP": "推定", "about_EN": "Presumption" }
+    ],
     "BustSize": "B",
     "TailsUnit": "キツネ(枝分かれ)型6本(上2束5本+下1束1本)",
     "Class": "デュアルイレブンズ",
@@ -6477,7 +6494,9 @@
     "AnivDay": [
       { "Day": { "Month": 7, "DayOfMonth": 1 }, "DayAbout": "開発記念" }
     ],
-    "Weight_kg": [{ "value": 40, "about": "推定" }],
+    "Weight_kg": [
+      { "value": 40, "about_JP": "推定", "about_EN": "Presumption" }
+    ],
     "TailsUnit": "キツネ(枝分かれ)型7本(上1束6本+下2束1本)",
     "Class": "デュアルエイツ",
     "Class_EN": "Dual Sum-8s",
@@ -6774,7 +6793,10 @@
     "AnivDay": [
       { "Day": { "Month": 7, "DayOfMonth": 4 }, "DayAbout": "開発記念" }
     ],
-    "Weight_kg": [{ "value": 39 }, { "value": 1, "about": "マント" }],
+    "Weight_kg": [
+      { "value": 39 },
+      { "value": 1, "about_JP": "マント", "about_EN": "Cloak" }
+    ],
     "BustSize": "B",
     "TailsUnit": "キツネ(枝分かれ)型7本(上1束3本+下2束4本)",
     "Class": "デュアルイレブンズ",
@@ -7054,7 +7076,9 @@
     "AnivDay": [
       { "Day": { "Month": 7, "DayOfMonth": 7 }, "DayAbout": "開発記念" }
     ],
-    "Weight_kg": [{ "value": 39, "about": "推定" }],
+    "Weight_kg": [
+      { "value": 39, "about_JP": "推定", "about_EN": "Presumption" }
+    ],
     "BustSize": "A",
     "TailsUnit": "キツネ(枝分かれ)型 2束x7本",
     "Class": "マスターテールズ9",
@@ -7637,7 +7661,11 @@
     "ConceptAge": { "value": 19, "about": "自称" },
     "Height_cm": 156,
     "Weight_kg": { "HideText": "非公開" },
-    "BustSize": { "value": "H", "about": "着痩せ時の値(である可能性)" },
+    "BustSize": {
+      "value": "H",
+      "about_JP": "着痩せ時(の値である可能性)",
+      "about_EN": "When appearing slimmer (possibly)"
+    },
     "TailsUnit": "キツネ(枝分かれ)型8本(上1束1本+下2束7本)",
     "FirstPersonCalling": "私(わたし)",
     "SecondPersonCalling": "あなた(さま)",
@@ -8709,7 +8737,7 @@
       }
     ],
     "GenderType": "FemaleNeutral",
-    "Height_cm": [{ "value": 150, "about": "想定" }],
+    "Height_cm": [{ "value": 150, "about_JP": "想定", "about_EN": "Scenario" }],
     "ConceptAge": 17,
     "AnivDay": [
       {
@@ -8721,7 +8749,7 @@
         "DayAbout": "試作型2号機開発再開記念(劇中)"
       }
     ],
-    "Weight_kg": [{ "value": 40, "about": "想定" }],
+    "Weight_kg": [{ "value": 40, "about_JP": "想定", "about_EN": "Scenario" }],
     "BustSize": "F",
     "Class": "未完成個体\n開発システム用個体",
     "Class_EN": "Progressing to Develop\nfor Developer System",
@@ -8793,7 +8821,7 @@
     "SPCodeName": "桁",
     "SPCodeName_EN": "Ten/Decade",
     "GenderType": "MaleNeutral",
-    "Height_cm": [{ "value": 164, "about": "想定" }],
+    "Height_cm": [{ "value": 164, "about_JP": "想定", "about_EN": "Scenario" }],
     "ConceptAge": 17,
     "AnivDay": [
       { "Day": { "Month": 1, "DayOfMonth": 10 }, "DayAbout": "開発記念" },
@@ -8802,7 +8830,7 @@
         "DayAbout": "第一暴走事故(劇中)"
       }
     ],
-    "Weight_kg": [{ "about": { "HideText": "データ無" } }],
+    "Weight_kg": { "HideText": "データ無" },
     "Class": "調整個体\n退任個体",
     "Class_EN": "Tuning/for Tuning System\nRetired",
     "ThisMasters": [

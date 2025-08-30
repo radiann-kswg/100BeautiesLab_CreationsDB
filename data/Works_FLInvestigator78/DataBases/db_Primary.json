@@ -229,7 +229,11 @@
       "GenderType": "Female",
       "Height_cm": 166,
       "Weight_kg": [
-        { "value": { "HideText": "非公開" }, "about": "体型は妖艶で美形" }
+        {
+          "value": { "HideText": "非公開" },
+          "about_JP": "体型は妖艶で美形",
+          "about_EN": "Her figure is alluring and beautiful."
+        }
       ],
       "Age": 19,
       "BirthDay": { "Day": { "Month": 4, "DayOfMonth": 3 } },
@@ -351,7 +355,11 @@
       "GenderType": "Male",
       "Height_cm": 168,
       "Weight_kg": [
-        { "value": { "HideText": "非公開" }, "about": "体型は美形" }
+        {
+          "value": { "HideText": "非公開" },
+          "about": "体型は美形",
+          "about_EN": "His figure is beautiful."
+        }
       ],
       "Age": 23,
       "BirthDay": { "Day": { "Month": 7, "DayOfMonth": 7 } },

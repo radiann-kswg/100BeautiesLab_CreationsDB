@@ -241,7 +241,9 @@
     "GenderType": "Neutral",
     "Height_cm": 141,
     "ConceptAge": 14,
-    "Weight_kg": [{ "value": 37, "about": "推定" }],
+    "Weight_kg": [
+      { "value": 37, "about_JP": "推定", "about_EN": "Presumption" }
+    ],
     "BustSize": "AA",
     "TailsUnit": "猫又(特殊)型1本3束[枝]",
     "Class": "マスタートリプル",
@@ -629,7 +631,11 @@
     "ConceptAge": { "value": 32, "about": "概算値" },
     "Weight_kg": [
       { "value": 50 },
-      { "value": 3, "about": "バックパック(拡張I/O機器)" }
+      {
+        "value": 3,
+        "about_JP": "バックパック(拡張I/O機器)",
+        "about_EN": "Backpack(I/O Addon)"
+      }
     ],
     "BustSize": "AA",
     "GenderType": "MaleNeutral",
@@ -662,8 +668,16 @@
     "FormalName_EN": "NumberTales #777.Jackpot",
     "Weight_kg": [
       { "value": 50 },
-      { "value": 5, "about": "バックパック(娯楽装備)" },
-      { "value": 3, "about": "娯楽装備専用アドオン" }
+      {
+        "value": 5,
+        "about_JP": "バックパック(娯楽装備)",
+        "about_EN": "Bakcpack(Amusement Equipment)"
+      },
+      {
+        "value": 3,
+        "about_JP": "娯楽装備専用アドオン",
+        "about_EN": "Addon for Amusement Equipment"
+      }
     ],
     "NumerospecAbout": "スロットゲーム拡張アドオンにより運勢を娯楽的に見せる"
   },

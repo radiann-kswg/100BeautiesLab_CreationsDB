@@ -44,15 +44,23 @@
     "Belonging": "国際情報広報機関『ミハイル』",
     "Height_cm": [
       { "value": 163, "about": "標準体型時" },
-      { "about": "食事量により可変" }
+      {
+        "about_JP": "食事量により可変",
+        "about_EN": "Dependent on the amount of food consumed"
+      }
     ],
-    "Weight_kg": [{ "about": "可変" }],
-    "Age": { "about": "不詳" },
+    "Weight_kg": [
+      {
+        "about_JP": "食事量により可変",
+        "about_EN": "Dependent on the amount of food consumed"
+      }
+    ],
     "BustSize": {
       "value": "B",
       "about_JP": "膨体次第でさらに大きくなる",
       "about_EN": "Will become even larger as body's inflation"
     },
+    "Age": { "about_JP": "不詳", "about_EN": "Unknown or Undefined" },
     "BirthDay": { "Day": { "Month": 7, "DayOfMonth": 1 } },
     "FirstPersonCalling": "私(わたし)",
     "SecondPersonCalling": "君(きみ),~君",
@@ -158,8 +166,8 @@
     "Belonging": "国際情報広報機関『ミハイル』\nシンフォニー.XVI(ゼクズィン)",
     "Height_cm": 159,
     "Weight_kg": { "HideText": "非公開" },
-    "Age": { "value": 24, "about": "推定" },
     "BustSize": "G",
+    "Age": { "value": 24, "about_JP": "推定", "about_EN": "Presumption" },
     "BirthDay": { "about": "不詳" },
     "FirstPersonCalling": "[Name]",
     "SecondPersonCalling": "[Name],おにいちゃん/おねえちゃん(※表現揺れあり)",
@@ -183,10 +191,16 @@
     "RaceType": "HalfWarfox(ChronoidShifter)",
     "GenderType": "Female",
     "Belonging": "夜月機関",
-    "Height_cm": [{ "about": "推定", "value": 143 }],
-    "Weight_kg": [{ "about": "不詳" }],
-    "Age": { "value": 17, "about": "行方不明となった時点での年齢または享年" },
+    "Height_cm": [
+      { "about_JP": "推定", "about_EN": "Presumption", "value": 143 }
+    ],
+    "Weight_kg": [{ "about_JP": "不詳", "about_EN": "Unknown or Undefined" }],
     "BustSize": { "value": "A", "about_JP": "推定", "about_EN": "Presumption" },
+    "Age": {
+      "value": 17,
+      "about_JP": "行方不明となった時点での年齢または享年",
+      "about_EN": "At the time of disappearance or death"
+    },
     "BirthDay": {},
     "FirstPersonCalling": "",
     "SecondPersonCalling": "",
@@ -219,8 +233,8 @@
     "Belonging": null,
     "Belonging_EN": null,
     "Height_cm": 155,
-    "Weight_kg": [{ "about": "不詳" }],
-    "Age": { "about": "不詳" },
+    "Weight_kg": [{ "about_JP": "不詳", "about_EN": "Unknown or Undefined" }],
+    "Age": { "about_JP": "不詳", "about_EN": "Unknown or Undefined" },
     "BirthDay": { "about": "不詳" },
     "FirstPersonCalling": "ボク",
     "SecondPersonCalling": "キミ",

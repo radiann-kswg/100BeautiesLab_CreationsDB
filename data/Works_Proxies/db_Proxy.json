@@ -17,7 +17,7 @@
     "BirthDay": { "Day": { "Month": 7, "DayOfMonth": 1 } },
     "Height_cm": 163,
     "Weight_kg": { "HideText": "本人すら把握されていない" },
-    "Age": { "value": 21, "about": "自称" },
+    "Age": { "value": 21, "about_JP": "自称", "about_EN": "Self-styled" },
     "FirstPersonCalling": "ワテ,僕",
     "SecondPersonCalling": "君(きみ),[Name]",
     "ThirdPersonCalling": "彼/彼女;~君/さん;*いつ;*レ",
@@ -48,11 +48,12 @@
     "BirthDay": { "Day": { "Month": 7, "DayOfMonth": 1 } },
     "Height_cm": [
       {
-        "about": "可変\n(球体化姿時は35～72cmで人型姿時はおよそ160cmでいることが多い)"
+        "about_JP": "可変\n(球体化姿時は35～72cm、人型姿時はおよそ160cmでいることが多い)",
+        "about_EN": "Valiable\n(In its sphericated form, it is usually 35 - 72 cm, whilst in its humanoid form it is usually approximately 160 cm.)"
       }
     ],
-    "Weight_kg": [{ "value": 0, "about": "重量" }],
-    "Age": { "value": 19, "about": "自称" },
+    "Weight_kg": [{ "value": 0, "about_JP": "重量", "about_EN": "In gravity" }],
+    "Age": { "value": 19, "about_JP": "自称", "about_EN": "Self-styled" },
     "FirstPersonCalling": "ボク",
     "SecondPersonCalling": "キミ,[Name]",
     "ThirdPersonCalling": "彼/彼女;[Name];~くん/ちゃん;*イツ;*レ",
