@@ -790,7 +790,7 @@
     ],
     "BustSize": "B",
     "RaceType": "Human",
-    "Belonging": "百花繚乱研究所",
+    "Belonging": ["百花繚乱研究所"],
     "Class": "ゼミアシスタント",
     "Class_EN": "Seminar Assistant",
     "ForMasterCalling": "クライアントさん",

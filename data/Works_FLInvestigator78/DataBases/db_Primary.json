@@ -48,7 +48,7 @@
     "Summary": "",
     "ArcanumspecStats": {
       "SpecType": {
-        "MaterialType": { "Material": ["Fire"] },
+        "MaterialType": [{ "Material": "Fire" }],
         "ActionType": {
           "KinematicOrStatic": "Kinematic",
           "RoleType": "Frier"
@@ -120,9 +120,11 @@
     "Summary": "",
     "ArcanumspecStats": {
       "SpecType": {
-        "MaterialType": {
-          "Material": ["Quart"]
-        },
+        "MaterialType": [
+          {
+            "Material": "Quart"
+          }
+        ],
         "ActionType": {
           "KinematicOrStatic": "Kinematic",
           "RoleType": "Lead"
@@ -188,9 +190,11 @@
     "Summary": "",
     "ArcanumspecStats": {
       "SpecType": {
-        "MaterialType": {
-          "Material": ["Water"]
-        },
+        "MaterialType": [
+          {
+            "Material": "Water"
+          }
+        ],
         "ActionType": {
           "KinematicOrStatic": "Static",
           "RoleType": "Keep"
@@ -262,9 +266,12 @@
     "Summary": "",
     "ArcanumspecStats": {
       "SpecType": {
-        "MaterialType": {
-          "Material": ["Water", "Object"]
-        },
+        "MaterialType": [
+          {
+            "Material": "Water"
+          },
+          { "Material": "Object" }
+        ],
         "ActionType": {
           "KinematicOrStatic": "Pre-Static",
           "RoleType": "Heal"
@@ -314,9 +321,14 @@
     "Summary": "",
     "ArcanumspecStats": {
       "SpecType": {
-        "MaterialType": {
-          "Material": ["Fire", "Object"]
-        },
+        "MaterialType": [
+          {
+            "Material": "Fire"
+          },
+          {
+            "Material": "Object"
+          }
+        ],
         "ActionType": {
           "KinematicOrStatic": "Pre-Kinematic",
           "RoleType": "Fere"
@@ -376,9 +388,11 @@
     "Summary": "",
     "ArcanumspecStats": {
       "SpecType": {
-        "MaterialType": {
-          "Material": ["Water"]
-        },
+        "MaterialType": [
+          {
+            "Material": "Water"
+          }
+        ],
         "ActionType": {
           "KinematicOrStatic": "Pre-Static",
           "RoleType": "Repair"
@@ -456,7 +470,7 @@
     "Summary": "",
     "ArcanumspecStats": {
       "SpecType": {
-        "MaterialType": { "Material": [] },
+        "MaterialType": [],
         "ActionType": {
           "KinematicOrStatic": null,
           "RoleType": null
@@ -526,7 +540,7 @@
     "Summary": "",
     "ArcanumspecStats": {
       "SpecType": {
-        "MaterialType": { "Material": [] },
+        "MaterialType": [],
         "ActionType": {
           "KinematicOrStatic": null,
           "RoleType": null

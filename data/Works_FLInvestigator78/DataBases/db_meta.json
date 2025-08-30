@@ -18,7 +18,7 @@
         "about_EN": "between WDCE.VII.24 to WDCE.VIII.2(Equivalent to between: DC.2044-2046)\n\nThis period is significant for the “World Development Creation VIII” "
       },
       "_Commons": {
-        "Belonging": "セブンティエイト特殊探偵団",
+        "Belonging": ["セブンティエイト特殊探偵団"],
         "#List_Stoat": [
           {
             "Stoat": "Major"
@@ -58,34 +58,41 @@
         "$Def_SpecType": {
           "$Def_MaterialType": {
             "#List_Material": [
-              { "Material": "Fire", "MaterialTypeText": "火" },
-              { "Material": "Water", "MaterialTypeText": "水" },
-              { "Material": "Slash", "MaterialTypeText": "風" },
-              { "Material": "Object", "MaterialTypeText": "土" },
-              { "Material": "Quart", "MaterialTypeText": "四" }
+              { "Material": "Fire", "Material_JP": "火" },
+              { "Material": "Water", "Material_JP": "水" },
+              { "Material": "Slash", "Material_JP": "風" },
+              { "Material": "Object", "Material_JP": "土" },
+              { "Material": "Quart", "Material_JP": "四" }
             ],
-            "#MaterialTypeText_feedingChar": "+"
+            "#Material_feedingChar": "+"
           },
           "$Def_ActionType": {
             "#List_KinematicOrStatic": [
-              { "KinematicOrStatic": "Kinematic", "ActionTypeText": "動" },
-              { "KinematicOrStatic": "Static", "ActionTypeText": "静" },
-              { "KinematicOrStatic": "Pre-Kinematic", "ActionTypeText": "壊" },
-              { "KinematicOrStatic": "Pre-Static", "ActionTypeText": "情" }
+              {
+                "KinematicOrStatic": "Kinematic",
+                "KinematicOrStatic_JP": "動"
+              },
+              { "KinematicOrStatic": "Static", "KinematicOrStatic_JP": "静" },
+              {
+                "KinematicOrStatic": "Pre-Kinematic",
+                "KinematicOrStatic_JP": "壊"
+              },
+              {
+                "KinematicOrStatic": "Pre-Static",
+                "KinematicOrStatic_JP": "情"
+              }
             ],
             "#List_RoleType": [
-              { "RoleType": "Lead", "ActionTypeText": "律" },
-              { "RoleType": "Keep", "ActionTypeText": "秘" },
-              { "RoleType": "Control", "ActionTypeText": "操" },
-              { "RoleType": "Heal", "ActionTypeText": "癒" },
-              { "RoleType": "Fere", "ActionTypeText": "妨" },
-              { "RoleType": "Repair", "ActionTypeText": "修" }
+              { "RoleType": "Lead", "RoleType_JP": "律" },
+              { "RoleType": "Keep", "RoleType_JP": "秘" },
+              { "RoleType": "Control", "RoleType_JP": "操" },
+              { "RoleType": "Heal", "RoleType_JP": "癒" },
+              { "RoleType": "Fere", "RoleType_JP": "妨" },
+              { "RoleType": "Repair", "RoleType_JP": "修" }
             ],
-            "#ActionTypeText_feedingChar": "+"
+            "#RoleType_feedingChar": "+"
           },
-          "#List_DualizePattern": [
-            { "Pattern": "Prop.", "PatternText": "通常" }
-          ]
+          "#List_DualizePattern": [{ "Pattern": "Prop.", "Pattern_JP": "通常" }]
         },
         "$Def_EffectStats": {
           "#LinkList(Rank)_EffectText": {

@@ -479,8 +479,7 @@
             "BaseArea": { "about": "別次元の世界" },
             "isForSecondary": true
           }
-        ],
-        "#Belonging_splittingChar": "\n"
+        ]
       },
       "$Def_Day": {
         "#Enum_Month": [

@@ -10,7 +10,7 @@
         "about_EN": "between WDCE.VIII.3-4(Equivalent to between: DC.2047-2048)"
       },
       "_Commons": {
-        "Belonging": "夜月機関",
+        "Belonging": ["夜月機関"],
         "#List_Lunar": [
           {
             "Lunar": "Kamiaridzuki",
@@ -138,7 +138,7 @@
         "about_EN": "between WDCE.VII.24-26(Equivalent to between: DC.2044-2046)\nThis period is significant for the “World Destruction Pandemic VIII”"
       },
       "_Commons": {
-        "Belonging": "夜月機関",
+        "Belonging": ["夜月機関"],
         "#List_Lunar": [
           {
             "Lunar": "Zerlunas",

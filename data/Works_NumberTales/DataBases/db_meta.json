@@ -22,7 +22,7 @@
         "about_EN": "between WDCE.IX.3-4(Equivalent to between: WDCE.VIII.6-7, DC.2050-2051)"
       },
       "_Commons": {
-        "Belonging": "百花繚乱研究所",
+        "Belonging": ["百花繚乱研究所"],
         "RaceType": "PortableHumanoid(FoxyType)"
       }
     },
@@ -44,7 +44,7 @@
         "about_EN": "between WDCE.IX.3-5(Equivalent to between: WDCE.VIII.6-8, DC.2050-2052)"
       },
       "_Commons": {
-        "Belonging": "百花繚乱研究所",
+        "Belonging": ["百花繚乱研究所"],
         "RaceType": "PortableHumanoid(FoxyType)"
       }
     },
@@ -56,7 +56,7 @@
           "SecondaryDesignedBy": "ラジアン(柏木主税)",
           "SecondarySeriesTitle": null,
           "_Commons": {
-            "Belonging": "百花繚乱研究所",
+            "Belonging": ["百花繚乱研究所"],
             "RaceType": "PortableHumanoid(FoxyType)"
           }
         }
@@ -80,7 +80,7 @@
             "about_EN": "in around WDCE.IX.4(Equivalent to in around: WDCE.VIII.7, DC.2051)"
           },
           "_Commons": {
-            "Belonging": "百花繚乱研究所\nエイゼルベットの観測世界",
+            "Belonging": ["百花繚乱研究所", "エイゼルベットの観測世界"],
             "RaceType": "Humanoid(FoxyType,SoftwareBody)"
           }
         },
@@ -99,7 +99,7 @@
             "about_EN": "in around WDCE.IX.5(Equivalent to in around: WDCE.VIII.8, DC.2052)"
           },
           "_Commons": {
-            "Belonging": "シンフォニー.XVI(ゼクズィン)",
+            "Belonging": ["シンフォニー.XVI(ゼクズィン)"],
             "RaceType": "DeviatableHumanoid(GrizzlyType)"
           }
         }

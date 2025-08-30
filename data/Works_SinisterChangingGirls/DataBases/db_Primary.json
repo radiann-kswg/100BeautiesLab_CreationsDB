@@ -12,7 +12,7 @@
     "FormalName_EN": "Zera Norumber",
     "CodeName": "色欲の正子",
     "CodeName_EN": "Lust o'clock in Midnight",
-    "Belonging": "百花繚乱研究所",
+    "Belonging": ["百花繚乱研究所"],
     "Age": 25,
     "BirthDay": {
       "_Jump": {
@@ -42,7 +42,7 @@
     "CodeName_EN": "Gluttony o'clock in Early",
     "RaceType": "OverHuman",
     "GenderType": "Female",
-    "Belonging": "国際情報広報機関『ミハイル』",
+    "Belonging": ["国際情報広報機関『ミハイル』"],
     "Height_cm": [
       { "value": 163, "about": "標準体型時" },
       {
@@ -84,7 +84,7 @@
     "CodeName_EN": "Wrath o'clock in Sunrizing",
     "RaceType": "HalfWarfox",
     "GenderType": "Female",
-    "Belonging": "白の六芒星\n夜月機関",
+    "Belonging": ["白の六芒星", "夜月機関"],
     "Height_cm": 160,
     "Weight_kg": { "HideText": "非公開" },
     "BustSize": "F",
@@ -111,7 +111,7 @@
     "CodeName_EN": "Slouth o'clock in Morning",
     "RaceType": "Nekomata",
     "GenderType": "Female",
-    "Belonging": "新生九蓮",
+    "Belonging": ["新生九蓮"],
     "Height_cm": 145,
     "Weight_kg": { "HideText": "？？？" },
     "BustSize": "A",
@@ -141,7 +141,7 @@
     "CodeName_EN": "Greed o'clock in Noon",
     "RaceType": "Human(DoubleIdentity)",
     "GenderType": "Female",
-    "Belonging": "ジャンクガレージ『六花陛下』",
+    "Belonging": ["ジャンクガレージ『六花陛下』"],
     "Height_cm": 155,
     "Weight_kg": { "HideText": "非公開" },
     "BustSize": "AA",
@@ -172,7 +172,10 @@
     "CodeName_EN": "Envy o'clock in Afternoon",
     "RaceType": "Lamia",
     "GenderType": "Female",
-    "Belonging": "国際情報広報機関『ミハイル』\nシンフォニー.XVI(ゼクズィン)",
+    "Belonging": [
+      "国際情報広報機関『ミハイル』",
+      "シンフォニー.XVI(ゼクズィン)"
+    ],
     "Height_cm": 159,
     "Weight_kg": { "HideText": "非公開" },
     "BustSize": "G",
@@ -208,7 +211,7 @@
     "CodeName_EN": "Original Sin o'clock in Sunsetting",
     "RaceType": "HalfWarfox(ChronoidShifter)",
     "GenderType": "Female",
-    "Belonging": "夜月機関",
+    "Belonging": ["夜月機関"],
     "Height_cm": [
       { "about_JP": "推定", "about_EN": "Presumption", "value": 143 }
     ],
