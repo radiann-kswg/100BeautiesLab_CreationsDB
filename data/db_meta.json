@@ -27,7 +27,7 @@
     },
     "#Works_ShouArRiders": {
       "Title": "獣爾騎兵",
-      "Title_EN": "Shou'ar Riders",
+      "Title_EN": "Shou'ar Riders\nBeasted Cavalry",
       "Works_Summary": "龍天国にある山月病(変化病)対策組織「獣爾騎兵」に所属する獣人型改造人間。\n主に十二支などの動物に基づいた獣人キャラクターが存在する。",
       "$Def_Index": {
         "hashTag": "BeastType",
@@ -63,8 +63,8 @@
       "$Def_Index": { "hashTag": "Unit", "$valType": "#String" }
     },
     "#Works_Proxies": {
-      "Title": null,
-      "Title_EN": null,
+      "Title": "運命線狐の記録",
+      "Title_EN": "Destiny Fox's Records",
       "Works_Summary": "弊創作を執筆している「ラジアン」の代理キャラクター",
       "$Def_Index": { "hashTag": "Generation", "$valType": "#Number" }
     }
@@ -368,36 +368,63 @@
             "Area": "第８界",
             "Area_EN": "#REGION.8",
             "about": "(ただしこのエリアはこの創作世界全域を意味する)",
+            "about_EN": "(However, this area means the entire creation world)",
             "isForSecondary": false
           },
           {
             "Area": "超次元執筆空間(アトリエ)",
             "Area_EN": "#ATELIER: the super-dimensional owners space",
             "about": "(ただしこのエリアは創作世界として属されない)",
+            "about_EN": "(However, this area does not belong to the creation world)",
             "isForSecondary": false
           },
           {
             "Area": "第１界",
             "Area_EN": "#REGION.1",
             "about": "(ただしこのエリアはこの創作世界の外部にある)",
+            "about_EN": "(However, this area is outside of the creation world)",
             "isForSecondary": true
           },
           {
             "Area": "第２界",
             "Area_EN": "#REGION.2",
             "about": "(ただしこのエリアはこの創作世界の外部にある)",
+            "about_EN": "(However, this area is outside of the creation world)",
+            "isForSecondary": true
+          },
+          {
+            "Area": "第３界",
+            "Area_EN": "#REGION.3",
+            "about": "(ただしこのエリアはこの創作世界の外部にある)",
+            "about_EN": "(However, this area is outside of the creation world)",
+            "isForSecondary": true
+          },
+          {
+            "Area": "第４界",
+            "Area_EN": "#REGION.4",
+            "about": "(ただしこのエリアはこの創作世界の外部にある)",
+            "about_EN": "(However, this area is outside of the creation world)",
             "isForSecondary": true
           },
           {
             "Area": "第５界",
             "Area_EN": "#REGION.5",
             "about": "(ただしこのエリアはこの創作世界の外部にある)",
+            "about_EN": "(However, this area is outside of the creation world)",
             "isForSecondary": true
           },
           {
-            "Area": "第９界",
-            "Area_EN": "#REGION.IX",
+            "Area": "第６界",
+            "Area_EN": "#REGION.6",
             "about": "(ただしこのエリアはこの創作世界の外部にある)",
+            "about_EN": "(However, this area is outside of the creation world)",
+            "isForSecondary": true
+          },
+          {
+            "Area": "第７界",
+            "Area_EN": "#REGION.7",
+            "about": "(ただしこのエリアはこの創作世界の外部にある)",
+            "about_EN": "(However, this area is outside of the creation world)",
             "isForSecondary": true
           }
         ],
@@ -442,14 +469,18 @@
             "Belonging": "ジャンクガレージ『六花陛下』",
             "Belonging_EN": "JunkGarage “Majesty Rokka”",
             "BaseArea": {
-              "Area": "紅雪連邦",
-              "isForSecondary": false
-            }
+              "Area": "紅雪連邦"
+            },
+            "isForSecondary": false
           },
           {
             "Belonging": "新生九蓮",
             "Belonging_EN": "Neo.LotusNinea(n)",
-            "BaseArea": { "Area": "四蓮島", "about": "名義上の所在地" },
+            "BaseArea": {
+              "Area": "四蓮島",
+              "about": "名義上の所在地",
+              "about_EN": "Nominal Location"
+            },
             "isForSecondary": false
           },
           {
@@ -457,7 +488,8 @@
             "Belonging_EN": "“Mikhail” the International Information & Public Relations Agency",
             "BaseArea": {
               "Area": "第８界",
-              "about": "厳密には本拠点を置かない"
+              "about": "厳密には本拠点を置かない",
+              "about_EN": "Strictly speaking, it does not have a headquarters"
             },
             "isForSecondary": false
           },
@@ -473,7 +505,9 @@
             "Belonging": "創造主",
             "Belonging_EN": "World Owners",
             "BaseArea": {
-              "Area": "超次元執筆空間(アトリエ)\n第８界"
+              "Area": "超次元執筆空間(アトリエ)",
+              "about": "第８界の管理を行っている",
+              "about_EN": "Managing #REGION.8"
             },
             "isForSecondary": false
           },
@@ -486,7 +520,10 @@
           {
             "Belonging": "エイゼルベットの観測世界",
             "Belonging_EN": "∀sellbuet's Observational World",
-            "BaseArea": { "about": "別次元の世界" },
+            "BaseArea": {
+              "about": "別次元の世界",
+              "about_EN": "A world of another dimension"
+            },
             "isForSecondary": true
           }
         ]
