@@ -131,16 +131,52 @@
           "#Enum_SpetialPattern": null
         },
         "$Def_SpecLevel": {
-          "#Link(Rank)_SpecLevelText": {
-            "#R2_Great": "強力",
-            "#R3_Good": "やや強力",
-            "#R4_Normal": "標準的",
-            "#R5_NotSoGood": "やや弱力",
-            "#R6_Bad": "弱力",
-            "#R7_Worst": "能力的強度無",
-            "#R2plus_Extended": "かなり強力",
-            "#R1_OverLimited": "驚異的",
-            "#R8_Dangerous": "危険"
+          "$EnumLink_SpecLevelText": {
+            "#Rank0": {
+              "Rank": "ZZ",
+              "SpecLevelText": "危険",
+              "SpecLevelText_EN": "Dangerous"
+            },
+            "#Rank1": {
+              "Rank": "Z",
+              "SpecLevelText": "驚異的",
+              "SpecLevelText_EN": "Incredible"
+            },
+            "#Rank2adv": {
+              "Rank": "S+",
+              "SpecLevelText": "かなり強力",
+              "SpecLevelText_EN": "Quite Powerful"
+            },
+            "#Rank2": {
+              "Rank": "S",
+              "SpecLevelText": "強力",
+              "SpecLevelText_EN": "Powerful"
+            },
+            "#Rank3": {
+              "Rank": "A",
+              "SpecLevelText": "やや強力",
+              "SpecLevelText_EN": "Somewhat Powerful"
+            },
+            "#Rank4": {
+              "Rank": "B",
+              "SpecLevelText": "標準的",
+              "SpecLevelText_EN": "Standard"
+            },
+            "#Rank5": {
+              "Rank": "C",
+              "SpecLevelText": "やや弱力",
+              "SpecLevelText_EN": "Somewhat Weak"
+            },
+            "#Rank6": {
+              "Rank": "D",
+              "SpecLevelText": "弱力",
+              "SpecLevelText_EN": "Weak"
+            },
+            "#Rank7": {
+              "Rank": "E",
+              "SpecLevelText": "能力的強度無",
+              "SpecLevelText_EN": "No Ability Strength"
+            }
           }
         }
       }

@@ -95,18 +95,48 @@
           "#List_DualizePattern": [{ "Pattern": "Prop.", "Pattern_JP": "通常" }]
         },
         "$Def_EffectStats": {
-          "#LinkList(Rank)_EffectText": {
-            "#R2_Great": ["絶大"],
-            "#R3_Good": ["期待", "期待可能"],
-            "#R4plus_BasicOrSpecific": ["特殊"],
-            "#R4_Normal": ["普通"],
-            "#R5_NotSoGood": ["希薄"],
-            "#R6_Bad": ["効果無"],
-            "#R7_Worst": ["逆効果", "逆効果(仕様)"],
-            "#R2plus_Extended": ["強化済"],
-            "#R1_OverLimited": ["過剰"],
-            "#R8_Dangerous": ["危険"]
-          }
+          "#ListLink_EffectText": [
+            {
+              "EffectText": "絶大",
+              "EffectText_EN": "Tremendous",
+              "Rank": "S"
+            },
+            { "EffectText": "期待", "EffectText_EN": "Expected", "Rank": "A" },
+            {
+              "EffectText": "期待可能",
+              "EffectText_EN": "Possible Expectation",
+              "Rank": "A"
+            },
+            { "EffectText": "特殊", "EffectText_EN": "Special", "Rank": "B+" },
+            { "EffectText": "普通", "EffectText_EN": "Normal", "Rank": "B" },
+            { "EffectText": "希薄", "EffectText_EN": "Dilute", "Rank": "C" },
+            {
+              "EffectText": "効果無",
+              "EffectText_EN": "No Benefit",
+              "Rank": "D"
+            },
+            {
+              "EffectText": "逆効果",
+              "EffectText_EN": "Counterproductive",
+              "Rank": "E"
+            },
+            {
+              "EffectText": "逆効果(仕様)",
+              "EffectText_EN": "Counterproductive(Given)",
+              "Rank": "E"
+            },
+            {
+              "EffectText": "強化済",
+              "EffectText_EN": "Extended",
+              "Rank": "S+"
+            },
+            {
+              "EffectText": "過剰",
+              "EffectText_EN": "Over Limited",
+              "Rank": "Z"
+            },
+            { "EffectText": "危険", "EffectText_EN": "Dangerous", "Rank": "ZZ" }
+          ]
         },
         "$Def_SpetialPattern": {
           "#Enum_SpetialPattern": [
@@ -121,28 +151,91 @@
           ]
         },
         "$Def_SafetyLevel": {
-          "#LinkList(Rank)_SafetyLevelText": {
-            "#R2_Great": ["保証可能"],
-            "#R3_Good": ["安全"],
-            "#R4_Normal": ["危害無"],
-            "#R5_NotSoGood": null,
-            "#R6_Bad": ["注意"],
-            "#R7_Worst": ["厳重注意"],
-            "#R2plus_Extended": null
-          }
+          "#ListLink_SafetyLevelText": [
+            {
+              "SafetyLevelText": "危険度を有効活用可能",
+              "SafetyLevelText_EN": "Effective use can be made of hazards",
+              "Rank": "S+"
+            },
+            {
+              "SafetyLevelText": "保証可能",
+              "SafetyLevelText_EN": "Guarantee possible",
+              "Rank": "S"
+            },
+            {
+              "SafetyLevelText": "安全",
+              "SafetyLevelText_EN": "Safe",
+              "Rank": "A"
+            },
+            {
+              "SafetyLevelText": "危害無",
+              "SafetyLevelText_EN": "No Harm",
+              "Rank": "B"
+            },
+            {
+              "SafetyLevelText": "注意",
+              "SafetyLevelText_EN": "Caution",
+              "Rank": "D"
+            },
+            {
+              "SafetyLevelText": "厳重注意",
+              "SafetyLevelText_EN": "Severe Caution",
+              "Rank": "E"
+            }
+          ]
         },
         "$Def_SpecLevel": {
-          "#Link(Rank)_SpecLevelText": {
-            "#R2_Great": "強力",
-            "#R3_Good": "やや強力",
-            "#R4plus_BasicOrSpecific": "有力",
-            "#R4_Normal": "標準的",
-            "#R5_NotSoGood": "やや弱力",
-            "#R6_Bad": "弱力",
-            "#R7_Worst": "能力的強度無",
-            "#R2plus_Extended": "かなり強力",
-            "#R1_OverLimited": "驚異的",
-            "#R8_Dangerous": "危険"
+          "$EnumLink_SpecLevelText": {
+            "#Rank0": {
+              "Rank": "ZZ",
+              "SpecLevelText": "危険",
+              "SpecLevelText_EN": "Dangerous"
+            },
+            "#Rank1": {
+              "Rank": "Z",
+              "SpecLevelText": "驚異的",
+              "SpecLevelText_EN": "Incredible"
+            },
+            "#Rank2adv": {
+              "Rank": "S+",
+              "SpecLevelText": "かなり強力",
+              "SpecLevelText_EN": "Quite Powerful"
+            },
+            "#Rank2": {
+              "Rank": "S",
+              "SpecLevelText": "強力",
+              "SpecLevelText_EN": "Powerful"
+            },
+            "#Rank3": {
+              "Rank": "A",
+              "SpecLevelText": "やや強力",
+              "SpecLevelText_EN": "Somewhat Powerful"
+            },
+            "#Rank4adv": {
+              "Rank": "B+",
+              "SpecLevelText": "有力",
+              "SpecLevelText_EN": "Influential"
+            },
+            "#Rank4": {
+              "Rank": "B",
+              "SpecLevelText": "標準的",
+              "SpecLevelText_EN": "Standard"
+            },
+            "#Rank5": {
+              "Rank": "C",
+              "SpecLevelText": "やや弱力",
+              "SpecLevelText_EN": "Somewhat Weak"
+            },
+            "#Rank6": {
+              "Rank": "D",
+              "SpecLevelText": "弱力",
+              "SpecLevelText_EN": "Weak"
+            },
+            "#Rank7": {
+              "Rank": "E",
+              "SpecLevelText": "能力的強度無",
+              "SpecLevelText_EN": "No Ability Strength"
+            }
           }
         }
       }

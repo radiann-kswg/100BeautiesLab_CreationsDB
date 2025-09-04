@@ -113,30 +113,122 @@
     "$VarsDef": {
       "$Def_NumerospecStats": {
         "$Def_EffectStats": {
-          "#LinkList(Rank)_EffectText": {
-            "#R2_Great": ["絶大"],
-            "#R3_Good": ["特化", "期待", "期待可能"],
-            "#R4plus_BasicOrSpecific": ["特殊"],
-            "#R4_Normal": ["普通"],
-            "#R5_NotSoGood": ["希薄"],
-            "#R6_Bad": ["効果無"],
-            "#R7_Worst": ["逆効果", "逆効果(仕様)"],
-            "#R2plus_Extended": ["強化済"],
-            "#R1_OverLimited": ["過剰", "極めて絶大(場合により逆効果)"],
-            "#R8_Dangerous": ["危険"]
-          }
+          "#ListLink_EffectText": [
+            {
+              "EffectText": "絶大",
+              "EffectText_EN": "Tremendous",
+              "Rank": "S"
+            },
+            {
+              "EffectText": "特化",
+              "EffectText_EN": "Specialized",
+              "Rank": "A"
+            },
+            { "EffectText": "期待", "EffectText_EN": "Expected", "Rank": "A" },
+            {
+              "EffectText": "期待可能",
+              "EffectText_EN": "Possible Expectation",
+              "Rank": "A"
+            },
+            { "EffectText": "特殊", "EffectText_EN": "Special", "Rank": "B+" },
+            { "EffectText": "普通", "EffectText_EN": "Normal", "Rank": "B" },
+            { "EffectText": "希薄", "EffectText_EN": "Dilute", "Rank": "C" },
+            {
+              "EffectText": "効果無",
+              "EffectText_EN": "No Benefit",
+              "Rank": "D"
+            },
+            {
+              "EffectText": "逆効果",
+              "EffectText_EN": "Counterproductive",
+              "Rank": "E"
+            },
+            {
+              "EffectText": "逆効果(仕様)",
+              "EffectText_EN": "Counterproductive(Given)",
+              "Rank": "E"
+            },
+            {
+              "EffectText": "強化済",
+              "EffectText_EN": "Extended",
+              "Rank": "S+"
+            },
+            {
+              "EffectText": "過剰",
+              "EffectText_EN": "Over Limited",
+              "Rank": "Z"
+            },
+            {
+              "EffectText": "極めて絶大(場合により逆効果)",
+              "EffectText_EN": "Extremely Tremendous(May Be Counterproductive)",
+              "Rank": "Z"
+            },
+            { "EffectText": "危険", "EffectText_EN": "Dangerous", "Rank": "ZZ" }
+          ]
         },
         "$Def_SafetyLevel": {
-          "#LinkList(Rank)_SafetyLevelText": {
-            "#R2_Great": ["保証", "保証(稀に奇行有)"],
-            "#R3_Good": ["安全", "安全(奇行有)"],
-            "#R4plus_BasicOrSpecific": ["恐らく安全"],
-            "#R4_Normal": ["無危害", "無危害(奇行有)"],
-            "#R5_NotSoGood": ["調整中", "恐らく無危害"],
-            "#R6_Bad": ["注意"],
-            "#R7_Worst": ["厳重注意"],
-            "#R2plus_Extended": ["完全保証"]
-          }
+          "#ListLink_SafetyLevelText": [
+            {
+              "SafetyLevelText": "完全保証",
+              "SafetyLevelText_EN": "Complete Guarantee",
+              "Rank": "S+"
+            },
+            {
+              "SafetyLevelText": "保証",
+              "SafetyLevelText_EN": "Guarantee",
+              "Rank": "S"
+            },
+            {
+              "SafetyLevelText": "保証(稀に奇行有)",
+              "SafetyLevelText_EN": "Guarantee(Rarely Erratic Behavior)",
+              "Rank": "S"
+            },
+            {
+              "SafetyLevelText": "安全",
+              "SafetyLevelText_EN": "Safe",
+              "Rank": "A"
+            },
+            {
+              "SafetyLevelText": "安全(奇行有)",
+              "SafetyLevelText_EN": "Safe(Rarely Erratic Behavior)",
+              "Rank": "A"
+            },
+            {
+              "SafetyLevelText": "恐らく安全",
+              "SafetyLevelText_EN": "Probably Safe",
+              "Rank": "B+"
+            },
+            {
+              "SafetyLevelText": "無危害",
+              "SafetyLevelText_EN": "No Harm",
+              "Rank": "B"
+            },
+            {
+              "SafetyLevelText": "無危害(奇行有)",
+              "SafetyLevelText_EN": "No Harm(Rarely Erratic Behavior)",
+              "Rank": "B"
+            },
+            {
+              "SafetyLevelText": "調整中",
+              "SafetyLevelText_EN": "In Adjustment",
+              "Rank": "C"
+            },
+            {
+              "SafetyLevelText": "恐らく無危害",
+              "SafetyLevelText_EN": "Probably No Harm",
+              "Rank": "C"
+            },
+            {
+              "SafetyLevelText": "注意",
+              "SafetyLevelText_EN": "Caution",
+              "Rank": "D"
+            },
+            {
+              "SafetyLevelText": "厳重注意",
+              "SafetyLevelText_EN": "Severe Caution",
+              "Rank": "E"
+            }
+          ]
         },
         "$Def_SpetialPattern": {
           "#Enum_SpetialPattern": [

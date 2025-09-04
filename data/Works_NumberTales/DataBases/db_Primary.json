@@ -54,14 +54,14 @@
     "Summary": "相手のことを尊重する双子の妹「2(ツグ)」とは反対に、自分のありのままに生活している。\nナンバーテールズの試作過程と共に誕生した唯一の試作型で、外見で尾が1本などと正規型である他の98人と異なる特徴が多い。\nしかし彼女はそれも自分らしさと前向きに受け入れている。\nとはいえ試作型だった影響か、やってみたいことが無数にあり行動意欲が過度に突出している。",
     "NumerospecStats": {
       "EffectStats": {
-        "Mental": { "Rank": "A", "EffectText": "期待" },
-        "Manetize": { "Rank": "B", "EffectText": "普通" },
-        "Working": { "Rank": "S", "EffectText": "絶大" },
-        "Luck": { "Rank": "C", "EffectText": "希薄" },
-        "Communication": { "Rank": "B", "EffectText": "普通" }
+        "Mental": { "EffectText": "期待" },
+        "Manetize": { "EffectText": "普通" },
+        "Working": { "EffectText": "絶大" },
+        "Luck": { "EffectText": "希薄" },
+        "Communication": { "EffectText": "普通" }
       },
       "SpetialPattern": { "HideText": "検証中" },
-      "SafetyLevel": { "Rank": { "HideText": "非公開" } }
+      "SafetyLevel": { "HideText": "非公開" }
     },
     "AbilityStats": {
       "Speed": { "Rank": "A" },
@@ -153,13 +153,13 @@
     "Summary": "自分らしさを貫く双子の姉「1(ハジメ)」とは対称的で、相手との協調を大切にしている。\n他のナンバーテールズを想いながら、毎日をよりよくするための奉仕や人脈の形成を支える、99人にとってのマネージャー的存在。\n一方で彼女が持つ向上心に反して周囲に流されることもしばしばあり、彼女自身も癒しを欲している一面がある。",
     "NumerospecStats": {
       "EffectStats": {
-        "Mental": { "Rank": "A", "EffectText": "期待" },
-        "Manetize": { "Rank": "B", "EffectText": "普通" },
-        "Working": { "Rank": "A", "EffectText": "期待" },
-        "Luck": { "Rank": "C", "EffectText": "希薄" },
-        "Communication": { "Rank": "S", "EffectText": "絶大" }
+        "Mental": { "EffectText": "期待" },
+        "Manetize": { "EffectText": "普通" },
+        "Working": { "EffectText": "期待" },
+        "Luck": { "EffectText": "希薄" },
+        "Communication": { "EffectText": "絶大" }
       },
-      "SafetyLevel": { "Rank": "S", "SafetyLevelText": "保証" }
+      "SafetyLevel": { "SafetyLevelText": "保証" }
     },
     "AbilityStats": {
       "Speed": { "Rank": "B+" },
@@ -248,14 +248,14 @@
     "Summary": "基本を守り、普遍を破り、固定概念から離れるという、物事への「守破離」を極めたナンバーテールズで上位を誇る優等生。\nその秀才な彼(女)は1桁番の中でも、99人を支える最大要因となっている。\nしかし かといって厳格な性格でなく、冒険心や遊び心の高い青年のような気質で、対戦ゲームや交換日記の相手をするなど自然と溶け込みやすい一面も。",
     "NumerospecStats": {
       "EffectStats": {
-        "Mental": { "Rank": "C", "EffectText": "希薄" },
-        "Manetize": { "Rank": "B", "EffectText": "普通" },
-        "Working": { "Rank": "B", "EffectText": "普通" },
-        "Luck": { "Rank": "A", "EffectText": "期待" },
-        "Communication": { "Rank": "A", "EffectText": "期待" }
+        "Mental": { "EffectText": "希薄" },
+        "Manetize": { "EffectText": "普通" },
+        "Working": { "EffectText": "普通" },
+        "Luck": { "EffectText": "期待" },
+        "Communication": { "EffectText": "期待" }
       },
       "SpetialPattern": ["Ptn.A(行動補正効果)"],
-      "SafetyLevel": { "Rank": "S+", "SafetyLevelText": "完全保証" }
+      "SafetyLevel": { "SafetyLevelText": "完全保証" }
     },
     "AbilityStats": {
       "Speed": { "Rank": "S" },
@@ -339,14 +339,14 @@
     "Summary": "安心感と安定感を大切にしており、臆病で感情表現豊かな印象をよく持たれている。\nしかし一方で、物事に対し一つ一つの基礎を掴んで現実化する力を有しており、根はとてもしっかりしていることが評判。\n特技として主人の家事を手伝うことも。\nただ、常に周囲の予想と普通のことを覆してくる「5(イズ)」に対して強い拒絶体質になっている。\n反して「5(イズ)」自身はというと…",
     "NumerospecStats": {
       "EffectStats": {
-        "Mental": { "Rank": "A", "EffectText": "期待" },
-        "Manetize": { "Rank": "C", "EffectText": "希薄" },
-        "Working": { "Rank": "A", "EffectText": "期待" },
-        "Luck": { "Rank": "B", "EffectText": "普通" },
-        "Communication": { "Rank": "C", "EffectText": "希薄" }
+        "Mental": { "EffectText": "期待" },
+        "Manetize": { "EffectText": "希薄" },
+        "Working": { "EffectText": "期待" },
+        "Luck": { "EffectText": "普通" },
+        "Communication": { "EffectText": "希薄" }
       },
       "SpetialPattern": ["Ptn.Rz(実現性向上効果)"],
-      "SafetyLevel": { "Rank": "S+", "SafetyLevelText": "完全保証" }
+      "SafetyLevel": { "SafetyLevelText": "完全保証" }
     },
     "AbilityStats": {
       "Speed": { "Rank": "B" },
@@ -433,18 +433,18 @@
     "Summary": "他のナンバーテールズと比べても屈指のマイペース。\nその形振りは時に利き手や習慣を変え、時に特技から離れ、時に呼び方が変わるなど、彼女の脱線気味な気分とノリは誰もが予想できていない。\nしかしそれは自分に明確なビジョンがあってのことで、それを楽しんで軌道調整するためと彼女は豪語している。\n挑発に乗りやすく、冷めやすく、かなりチョロい。",
     "NumerospecStats": {
       "EffectStats": {
-        "Mental": { "Rank": "A", "EffectText": "期待" },
-        "Manetize": { "Rank": { "HideText": "判定不能" } },
-        "Working": { "Rank": { "HideText": "判定不能" } },
-        "Luck": { "Rank": { "HideText": "判定不能" } },
-        "Communication": { "Rank": { "HideText": "判定不能" } }
+        "Mental": { "EffectText": "期待" },
+        "Manetize": { "HideText": "判定不能" },
+        "Working": { "HideText": "判定不能" },
+        "Luck": { "HideText": "判定不能" },
+        "Communication": { "HideText": "判定不能" }
       },
       "SpetialPattern": ["Ptn.C(状況変化効果)", "Ptn.Ms(自己転化効果)"],
-      "SafetyLevel": { "Rank": "B", "SafetyLevelText": "無危害" }
+      "SafetyLevel": { "SafetyLevelText": "無危害" }
     },
     "AbilityStats": {
       "Speed": { "Rank": "Z" },
-      "Communicating": { "Rank": { "HideText": "判定不能" } },
+      "Communicating": { "HideText": "判定不能" },
       "Leading": { "Rank": "D" },
       "Precision": { "Rank": "C" },
       "Technic": { "Rank": "B+" },
@@ -525,14 +525,14 @@
     "Summary": "愛情や感性・美徳に満ち溢れ、信頼と忠義とそれぞれの個性を大切にしている、ナンバーテールズの「光属性」担当。\nこれにより、1桁番の中はもちろん99人全体でも上位に匹敵する評判を主人層から得ている。\nまた、彼女とはやや対称的な美的センスを持つ「9(チカ)」とセットで認知されることも。\nちなみに感性に優れているあまりか、感覚機能における意外な弱点があるようで…",
     "NumerospecStats": {
       "EffectStats": {
-        "Mental": { "Rank": "A", "EffectText": "期待" },
-        "Manetize": { "Rank": "B", "EffectText": "普通" },
-        "Working": { "Rank": "B", "EffectText": "普通" },
-        "Luck": { "Rank": "S", "EffectText": "絶大" },
-        "Communication": { "Rank": "S", "EffectText": "絶大" }
+        "Mental": { "EffectText": "期待" },
+        "Manetize": { "EffectText": "普通" },
+        "Working": { "EffectText": "普通" },
+        "Luck": { "EffectText": "絶大" },
+        "Communication": { "EffectText": "絶大" }
       },
       "SpetialPattern": ["Ptn.S(感性向上効果)"],
-      "SafetyLevel": { "Rank": "S+", "SafetyLevelText": "完全保証" }
+      "SafetyLevel": { "SafetyLevelText": "完全保証" }
     },
     "AbilityStats": {
       "Speed": { "Rank": "B" },
@@ -613,14 +613,14 @@
     "Summary": "1桁番のナンバーテールズ9人の中でも単独行動を好み、自分なりの正しさを求めて修学や瞑想などをしながら悔いなく主人に従事できるように努めている。\n反面、イメージトレーニングや自分磨きが生活の大半となってしまい思想的になりがちではあるが、その分やることは完璧にこなしている（つもりらしい）。\n神話や伝統に興味がある。",
     "NumerospecStats": {
       "EffectStats": {
-        "Mental": { "Rank": "A", "EffectText": "期待" },
-        "Manetize": { "Rank": "B", "EffectText": "普通" },
-        "Working": { "Rank": "S", "EffectText": "絶大" },
-        "Luck": { "Rank": "D", "EffectText": "効果無" },
-        "Communication": { "Rank": "C", "EffectText": "希薄" }
+        "Mental": { "EffectText": "期待" },
+        "Manetize": { "EffectText": "普通" },
+        "Working": { "EffectText": "絶大" },
+        "Luck": { "EffectText": "効果無" },
+        "Communication": { "EffectText": "希薄" }
       },
       "SpetialPattern": ["Ptn.Hm(心理安定化効果)"],
-      "SafetyLevel": { "Rank": "A", "SafetyLevelText": "安全" }
+      "SafetyLevel": { "SafetyLevelText": "安全" }
     },
     "AbilityStats": {
       "Speed": { "Rank": "B" },
@@ -717,14 +717,14 @@
     "Summary": "お金や技術、さらには人の活力さえ主人のために投資…ではなくファンディング応援のために活躍する、99人のエンジニアポジション。\nガジェットに対し強い熱意を持ち格好いいもの好き。\nしかし一方で限りあるお金と物から高い価値のものを生み出す能力から、「値段の錬金術師」とも称されているんだとか。",
     "NumerospecStats": {
       "EffectStats": {
-        "Mental": { "Rank": "B", "EffectText": "普通" },
-        "Manetize": { "Rank": "S", "EffectText": "絶大" },
-        "Working": { "Rank": "A", "EffectText": "期待" },
-        "Luck": { "Rank": "A", "EffectText": "期待" },
-        "Communication": { "Rank": "B", "EffectText": "普通" }
+        "Mental": { "EffectText": "普通" },
+        "Manetize": { "EffectText": "絶大" },
+        "Working": { "EffectText": "期待" },
+        "Luck": { "EffectText": "期待" },
+        "Communication": { "EffectText": "普通" }
       },
       "SpetialPattern": ["Ptn.M(マネタイズ効果または資産操作能力)"],
-      "SafetyLevel": { "Rank": "S", "SafetyLevelText": "保証" }
+      "SafetyLevel": { "SafetyLevelText": "保証" }
     },
     "AbilityStats": {
       "Speed": { "Rank": "B+" },
@@ -807,14 +807,14 @@
     "Summary": "慈愛や寛容・同情が深く、完結とそれぞれが損なわない関係を大切にしている、ナンバーテールズで「闇属性」の癒しを持つ。\nこれにより哀しみに暮れた主人を数多く救済したという評判を多く得ている。\nまた、彼女とはやや対称的な思想を持つ「6(ムイ)」とセットで認知されることも。\nただその慈愛心は、ある特定の境遇の人物を見ると本性が出るためらしく…",
     "NumerospecStats": {
       "EffectStats": {
-        "Mental": { "Rank": "S", "EffectText": "絶大" },
-        "Manetize": { "Rank": "C", "EffectText": "希薄" },
-        "Working": { "Rank": "B", "EffectText": "普通" },
-        "Luck": { "Rank": "D", "EffectText": "効果無" },
-        "Communication": { "Rank": "C", "EffectText": "希薄" }
+        "Mental": { "EffectText": "絶大" },
+        "Manetize": { "EffectText": "希薄" },
+        "Working": { "EffectText": "普通" },
+        "Luck": { "EffectText": "効果無" },
+        "Communication": { "EffectText": "希薄" }
       },
       "SpetialPattern": ["Ptn.Rc(救済効果)"],
-      "SafetyLevel": { "Rank": "B", "SafetyLevelText": "無危害" }
+      "SafetyLevel": { "SafetyLevelText": "無危害" }
     },
     "AbilityStats": {
       "Speed": { "Rank": "C" },
@@ -915,22 +915,22 @@
     "Summary": "自分とは何者か、何のための存在か、どこで自分の役目は終わり、新たな役目が始まるか、その問いに導かれ答えるかのように様々な行動を起こしている（と本人が供述）。\nそのため思考が読めないと言われているが、主人の危機を未然に感知しているのではと、どこかで噂になっている。\nちなみに彼（女）は元動作試験機で、現在唯一の試作型である「1(ハジメ)」と試作段階の時から縁がある。",
     "NumerospecStats": {
       "EffectStats": {
-        "Mental": { "Rank": { "HideText": "非公開" } },
-        "Manetize": { "Rank": "C", "EffectText": "希薄" },
-        "Working": { "Rank": { "HideText": "非公開" } },
-        "Luck": { "Rank": "D", "EffectText": "効果無" },
-        "Communication": { "Rank": "C", "EffectText": "希薄" }
+        "Mental": { "HideText": "非公開" },
+        "Manetize": { "EffectText": "希薄" },
+        "Working": { "HideText": "非公開" },
+        "Luck": { "EffectText": "効果無" },
+        "Communication": { "EffectText": "希薄" }
       },
       "SpetialPattern": { "HideText": "極秘事項" },
-      "SafetyLevel": { "Rank": { "HideText": "非公開" } }
+      "SafetyLevel": { "HideText": "非公開" }
     },
     "AbilityStats": {
-      "Speed": { "Rank": { "HideText": "非公開" } },
+      "Speed": { "HideText": "非公開" },
       "Communicating": { "Rank": "B" },
       "Leading": { "Rank": "A" },
       "Precision": { "Rank": "A" },
       "Technic": { "Rank": "S" },
-      "Actuation": { "Rank": { "HideText": "非公開" } }
+      "Actuation": { "HideText": "非公開" }
     },
     "InStory": "10号機「ディケ」が退役したきっかけを知る存在",
     "Backgrounds": "「10(ツナイ)[ディケ]」の暴走事件・退役を受け、量産試作機のハードウェアを再利用して誕生",
@@ -1013,14 +1013,14 @@
     "Summary": "2桁ゾロ目の数字の加護を持つ９人：「マスターテールズ９」の代表といえるべきナンバーテールズ。\n高次に発展した直感と自己認識による他に類を見ない実現力が、数多くの主人の注目を集めている。\n反面、その高まりすぎた直感で行動することも多く、時に暴走してしまうと他のナンバーテールズに指摘？されている。\n特に「1(ハジメ)」を前にすると、彼(女)の様子が明らかにおかしい様で…？",
     "NumerospecStats": {
       "EffectStats": {
-        "Mental": { "Rank": "A", "EffectText": "期待" },
-        "Manetize": { "Rank": "C", "EffectText": "希薄" },
-        "Working": { "Rank": "B", "EffectText": "普通" },
-        "Luck": { "Rank": "S", "EffectText": "絶大" },
-        "Communication": { "Rank": "C", "EffectText": "希薄" }
+        "Mental": { "EffectText": "期待" },
+        "Manetize": { "EffectText": "希薄" },
+        "Working": { "EffectText": "普通" },
+        "Luck": { "EffectText": "絶大" },
+        "Communication": { "EffectText": "希薄" }
       },
       "SpetialPattern": ["Ptn.Es(自己認知効果)"],
-      "SafetyLevel": { "Rank": "A", "SafetyLevelText": "安全" }
+      "SafetyLevel": { "SafetyLevelText": "安全" }
     },
     "AbilityStats": {
       "Speed": { "Rank": "A" },
@@ -1115,13 +1115,13 @@
     "Summary": "基本設計を融合させた2種類の数字を持つ複合型のうち、最初に開発された個体。\n自分に正直になり自信を持たせてくれると好評のナンバーテールズで、彼女の素直で正直な気質は周囲から好印象を持たれている。\n試作型の「1(ハジメ)」を慕っており、未完成の「バイナ」においても完成を心から期待して旧名（「2(ツギ)」）で呼んでいる。\nただ、「2(ツグ)」に対しては……",
     "NumerospecStats": {
       "EffectStats": {
-        "Mental": { "Rank": "S", "EffectText": "絶大" },
-        "Manetize": { "Rank": "C", "EffectText": "希薄" },
-        "Working": { "Rank": "A", "EffectText": "期待" },
-        "Luck": { "Rank": "C", "EffectText": "希薄" },
-        "Communication": { "Rank": "A", "EffectText": "期待" }
+        "Mental": { "EffectText": "絶大" },
+        "Manetize": { "EffectText": "希薄" },
+        "Working": { "EffectText": "期待" },
+        "Luck": { "EffectText": "希薄" },
+        "Communication": { "EffectText": "期待" }
       },
-      "SafetyLevel": { "Rank": "A", "SafetyLevelText": "安全" }
+      "SafetyLevel": { "SafetyLevelText": "安全" }
     },
     "AbilityStats": {
       "Speed": { "Rank": "C" },
@@ -1211,13 +1211,13 @@
     "Summary": "これまでの知識と経験・能力からできることに妥協はせず、物事を始めることに躊躇わない。\nそういうスタンスを大切に主人を応援するナンバーテールズの体育会マネージャー系。\nただ稀に地雷要因になるため、不発してお叱りを受けていることもある。\n駆け引きが極めて苦手で、カードゲームでいつも最下位になっている。\nなお「14(トヨ)」と従妹関係にあり、性格がよく似ているとか。",
     "NumerospecStats": {
       "EffectStats": {
-        "Mental": { "Rank": "A", "EffectText": "特化" },
-        "Manetize": { "Rank": "C", "EffectText": "希薄" },
-        "Working": { "Rank": "B", "EffectText": "普通" },
-        "Luck": { "Rank": "A", "EffectText": "期待" },
-        "Communication": { "Rank": "A", "EffectText": "期待" }
+        "Mental": { "EffectText": "特化" },
+        "Manetize": { "EffectText": "希薄" },
+        "Working": { "EffectText": "普通" },
+        "Luck": { "EffectText": "期待" },
+        "Communication": { "EffectText": "期待" }
       },
-      "SafetyLevel": { "Rank": "S+", "SafetyLevelText": "完全保証" }
+      "SafetyLevel": { "SafetyLevelText": "完全保証" }
     },
     "AbilityStats": {
       "Speed": { "Rank": "B" },
@@ -1310,14 +1310,14 @@
     "Summary": "新しいことに挑むときは常に失敗を恐れないオールラウンダー。\nいつも活発で元気溌剌な気質は、周囲にも好印象を持たれている。\nただそのせいか、コアフォルダ形態には馴染めていない様子。\n彼女が言うには右脳(感覚)派であるらしいが、左脳(理論)派な一面も持ち合わせているのではと噂されている。",
     "NumerospecStats": {
       "EffectStats": {
-        "Mental": { "Rank": "A", "EffectText": "特化" },
-        "Manetize": { "Rank": "D", "EffectText": "効果無" },
-        "Working": { "Rank": "A", "EffectText": "期待" },
-        "Luck": { "Rank": "B", "EffectText": "普通" },
-        "Communication": { "Rank": "B", "EffectText": "普通" }
+        "Mental": { "EffectText": "特化" },
+        "Manetize": { "EffectText": "効果無" },
+        "Working": { "EffectText": "期待" },
+        "Luck": { "EffectText": "普通" },
+        "Communication": { "EffectText": "普通" }
       },
       "SpetialPattern": ["Ptn.Rz(実現性向上効果)"],
-      "SafetyLevel": { "Rank": "S", "SafetyLevelText": "保証" }
+      "SafetyLevel": { "SafetyLevelText": "保証" }
     },
     "AbilityStats": {
       "Speed": { "Rank": "S" },
@@ -1427,14 +1427,14 @@
     "Summary": "普段は極めて控えめな気質だが、「自分を律することで因果応報が成立する」と信じており、男気が強い。\n「奇跡を起こす」という”加護”を所持しており、それ目当てで契約する主人も少なくない。\nしかしその力が強力だったため、“安全装置”を背中に装着している。\nその経緯について、「10(ミツル)」と「95(キュウゴ)」が関与しているらしく…？",
     "NumerospecStats": {
       "EffectStats": {
-        "Mental": { "Rank": "B", "EffectText": "普通" },
-        "Manetize": { "Rank": "S", "EffectText": "絶大" },
-        "Working": { "Rank": "B", "EffectText": "普通" },
-        "Luck": { "Rank": "ZZ", "EffectText": "危険" },
-        "Communication": { "Rank": "A", "EffectText": "期待" }
+        "Mental": { "EffectText": "普通" },
+        "Manetize": { "EffectText": "絶大" },
+        "Working": { "EffectText": "普通" },
+        "Luck": { "EffectText": "危険" },
+        "Communication": { "EffectText": "期待" }
       },
       "SpetialPattern": { "HideText": "極秘事項" },
-      "SafetyLevel": { "Rank": "C", "SafetyLevelText": "調整中" }
+      "SafetyLevel": { "SafetyLevelText": "調整中" }
     },
     "AbilityStats": {
       "Speed": { "Rank": "A" },
@@ -1539,14 +1539,14 @@
     "Summary": "物質的な裕福さよりも己の行動や能力の発揮に重きを置いており、そのポテンシャルは物質的な制約と関係なく自身や主人にモチベーションをもたらしている。\n実績こそ上位を誇る程ではないが、挑戦意欲が旺盛で主人公気質な一面がコアな主人層から人気を浴びており、他のナンバーテールズもその中で活力や陽気に満ち溢れる様子から「幸せな貧乏」と称している。\n「6(ムイ)」と「26(ニロク)」に懐いていて…？",
     "NumerospecStats": {
       "EffectStats": {
-        "Mental": { "Rank": "S", "EffectText": "絶大" },
-        "Manetize": { "Rank": { "HideText": "判定不能" } },
-        "Working": { "Rank": "S", "EffectText": "絶大" },
-        "Luck": { "Rank": "C", "EffectText": "希薄" },
-        "Communication": { "Rank": "A", "EffectText": "期待" }
+        "Mental": { "EffectText": "絶大" },
+        "Manetize": { "HideText": "判定不能" },
+        "Working": { "EffectText": "絶大" },
+        "Luck": { "EffectText": "希薄" },
+        "Communication": { "EffectText": "期待" }
       },
       "SpetialPattern": ["Ptn.Ar(能力発揮効果)"],
-      "SafetyLevel": { "Rank": "S+", "SafetyLevelText": "完全保証" }
+      "SafetyLevel": { "SafetyLevelText": "完全保証" }
     },
     "AbilityStats": {
       "Speed": { "Rank": "A" },
@@ -1653,14 +1653,14 @@
     "Summary": "知識や実力がいつか自分への報酬として還ってくると信じているナンバーテールズ。\nその信条から、資格取得や勉強のお供として契約する主人も多い。\nただ、周囲から「男性型や中性型ではないか」「女性らしくないのではないか」という感想が寄せられているが、彼女が言うには女性型らしい。\nあまり揶揄わないでいてあげよう。\n「89(ヤスモ)」と謎のシンパシーがあるようだ。",
     "NumerospecStats": {
       "EffectStats": {
-        "Mental": { "Rank": "C", "EffectText": "希薄" },
-        "Manetize": { "Rank": "A", "EffectText": "期待" },
-        "Working": { "Rank": "S", "EffectText": "絶大" },
-        "Luck": { "Rank": "A", "EffectText": "期待" },
-        "Communication": { "Rank": "B", "EffectText": "普通" }
+        "Mental": { "EffectText": "希薄" },
+        "Manetize": { "EffectText": "期待" },
+        "Working": { "EffectText": "絶大" },
+        "Luck": { "EffectText": "期待" },
+        "Communication": { "EffectText": "普通" }
       },
       "SpetialPattern": ["Ptn.Av(能力比例作用)"],
-      "SafetyLevel": { "Rank": "S", "SafetyLevelText": "保証" }
+      "SafetyLevel": { "SafetyLevelText": "保証" }
     },
     "AbilityStats": {
       "Speed": { "Rank": "B" },
@@ -1750,14 +1750,14 @@
     "Summary": "責任感のあるリーダー気質なナンバーテールズで、行動を起こすべき主人の後押しも行っている。\nそのため、他のナンバーテールズから「エースポジション」と呼ばれている。\n「81(ヤイチ)」の姉に相当する個体だが、従姉でもある「19(トク)」と行動をとることもしばしば。\n「9(チカ)」の暴走？に警戒している。",
     "NumerospecStats": {
       "EffectStats": {
-        "Mental": { "Rank": "B", "EffectText": "普通" },
-        "Manetize": { "Rank": "A", "EffectText": "期待" },
-        "Working": { "Rank": "S", "EffectText": "絶大" },
-        "Luck": { "Rank": "B", "EffectText": "普通" },
-        "Communication": { "Rank": "B", "EffectText": "普通" }
+        "Mental": { "EffectText": "普通" },
+        "Manetize": { "EffectText": "期待" },
+        "Working": { "EffectText": "絶大" },
+        "Luck": { "EffectText": "普通" },
+        "Communication": { "EffectText": "普通" }
       },
       "SpetialPattern": ["Ptn.Ec(士気比例作用)"],
-      "SafetyLevel": { "Rank": "S+", "SafetyLevelText": "完全保証" }
+      "SafetyLevel": { "SafetyLevelText": "完全保証" }
     },
     "AbilityStats": {
       "Speed": { "Rank": "A" },
@@ -1843,22 +1843,22 @@
     "Summary": "これまでの業績から一つの節目を迎える事例に特化した個体。\n完遂した業績に対する誇りや自信で調子に乗りやすいが、その次の業務も難なくこなすため憎みたくても憎めないと（色んな意味で）定評。\nしかしその風格に惹かれ、これから新しい取り組みをするベテラン級スキルを持つ中年層を中心に彼(女)を求める主人も少なくはない様子。\n趣味は“絵画用”ルービックキューブというが…？",
     "NumerospecStats": {
       "EffectStats": {
-        "Mental": { "Rank": { "HideText": "判定不能" } },
-        "Manetize": { "Rank": "C", "EffectText": "希薄" },
-        "Working": { "Rank": "A", "EffectText": "期待" },
-        "Luck": { "Rank": "C", "EffectText": "希薄" },
-        "Communication": { "Rank": "D", "EffectText": "効果無" }
+        "Mental": { "HideText": "判定不能" },
+        "Manetize": { "EffectText": "希薄" },
+        "Working": { "EffectText": "期待" },
+        "Luck": { "EffectText": "希薄" },
+        "Communication": { "EffectText": "効果無" }
       },
       "SpetialPattern": ["Ptn.St(状況比例作用)"],
-      "SafetyLevel": { "Rank": "B", "SafetyLevelText": "無危害" }
+      "SafetyLevel": { "SafetyLevelText": "無危害" }
     },
     "AbilityStats": {
-      "Speed": { "Rank": { "HideText": "非公開" } },
+      "Speed": { "HideText": "非公開" },
       "Communicating": { "Rank": "C" },
       "Leading": { "Rank": "A" },
-      "Precision": { "Rank": { "HideText": "非公開" } },
+      "Precision": { "HideText": "非公開" },
       "Technic": { "Rank": "B" },
-      "Actuation": { "Rank": { "HideText": "非公開" } }
+      "Actuation": { "HideText": "非公開" }
     },
     "Relation": {
       "Related": [
@@ -1933,14 +1933,14 @@
     "Summary": "「2(ツグ)」の従妹に相当する個体で、本来2番機となる予定だった未完成個体「バイナ」の妹こと改良機である。\n主人の心の声を聴き主人を信じるという“加護”を持ち、主人との信頼関係が強ければ強いほど高い恩恵を発揮している。\n極めて優しく純粋な性格で、多くの人から好印象を持たれている。\n「24(フトシ)」「42(ヨツグ)」姉妹と仲が良く、3人でガールズトークしている一面も。",
     "NumerospecStats": {
       "EffectStats": {
-        "Mental": { "Rank": "S", "EffectText": "絶大" },
-        "Manetize": { "Rank": "C", "EffectText": "希薄" },
-        "Working": { "Rank": "C", "EffectText": "希薄" },
-        "Luck": { "Rank": "B", "EffectText": "普通" },
-        "Communication": { "Rank": "S", "EffectText": "絶大" }
+        "Mental": { "EffectText": "絶大" },
+        "Manetize": { "EffectText": "希薄" },
+        "Working": { "EffectText": "希薄" },
+        "Luck": { "EffectText": "普通" },
+        "Communication": { "EffectText": "絶大" }
       },
       "SpetialPattern": ["Ptn.Py(読心効果)"],
-      "SafetyLevel": { "Rank": "A", "SafetyLevelText": "安全" }
+      "SafetyLevel": { "SafetyLevelText": "安全" }
     },
     "AbilityStats": {
       "Speed": { "Rank": "C" },
@@ -2028,13 +2028,13 @@
     "Summary": "2種類の数字を持つ複合型で最初の個体である「12(トウジ)」の設計が調整された個体。\n無邪気さとポテンシャルの高さが好評のナンバーテールズで、特に人助けに積極的なこともあり周囲から信頼されている。\nただその一方で 他人への粘着など邪な思考に対し強い抵抗があったり、純粋さに反応する「28(ニハチ)」の“加護”を暴走させたりと自身の気質が裏目に出てしまうことも。",
     "NumerospecStats": {
       "EffectStats": {
-        "Mental": { "Rank": "S", "EffectText": "絶大" },
-        "Manetize": { "Rank": "D", "EffectText": "効果無" },
-        "Working": { "Rank": "A", "EffectText": "期待可能" },
-        "Luck": { "Rank": "A", "EffectText": "期待可能" },
-        "Communication": { "Rank": "A", "EffectText": "期待可能" }
+        "Mental": { "EffectText": "絶大" },
+        "Manetize": { "EffectText": "効果無" },
+        "Working": { "EffectText": "期待可能" },
+        "Luck": { "EffectText": "期待可能" },
+        "Communication": { "EffectText": "期待可能" }
       },
-      "SafetyLevel": { "Rank": "S", "SafetyLevelText": "保証" }
+      "SafetyLevel": { "SafetyLevelText": "保証" }
     },
     "AbilityStats": {
       "Speed": { "Rank": "C" },
@@ -2125,14 +2125,14 @@
     "Summary": "ナンバーテールズ99人で群を抜いて強い加護を持ち、主人の奇跡的な達成を後押しするトップカースト。\nその実績は「マスターテールズ9」の中でも秀でており、主人に起業、新企画の成功、世界的快挙などをもたらすとかなりの評判。\n一方、その業績に反しおっとりでふわふわした性格や立ち振る舞いをするので、ギャップ萌えするとも定評。\nただ、尻尾については…",
     "NumerospecStats": {
       "EffectStats": {
-        "Mental": { "Rank": "C", "EffectText": "希薄" },
-        "Manetize": { "Rank": "S", "EffectText": "絶大" },
-        "Working": { "Rank": "S", "EffectText": "絶大" },
-        "Luck": { "Rank": { "HideText": "判定不能" } },
-        "Communication": { "Rank": "C", "EffectText": "希薄" }
+        "Mental": { "EffectText": "希薄" },
+        "Manetize": { "EffectText": "絶大" },
+        "Working": { "EffectText": "絶大" },
+        "Luck": { "HideText": "判定不能" },
+        "Communication": { "EffectText": "希薄" }
       },
       "SpetialPattern": ["Ptn.R-(効果保証作用がある傾向)"],
-      "SafetyLevel": { "Rank": { "HideText": "検証中" } }
+      "SafetyLevel": { "HideText": "検証中" }
     },
     "AbilityStats": {
       "Speed": { "Rank": "A" },
@@ -2224,14 +2224,14 @@
     "Summary": "積極的で直感が鋭く発想力が旺盛。\n放浪癖があり、その場であった様々な経験からインスピレーションを得ているが、その分ふといなくなっては余計なことを連れて帰ってくることがある。\nおまけに、「2(ツグ)」と「3(ナオ)」へそこで起きたトラブルの後始末を任せている傾向にあるので、一部ナンバーテールズからは迷惑に思われている。\nただ、それは「55(イソゴ)」の影響とも？",
     "NumerospecStats": {
       "EffectStats": {
-        "Mental": { "Rank": "A", "EffectText": "期待" },
-        "Manetize": { "Rank": "B", "EffectText": "普通" },
-        "Working": { "Rank": "A", "EffectText": "期待" },
-        "Luck": { "Rank": "B", "EffectText": "普通" },
-        "Communication": { "Rank": "B", "EffectText": "普通" }
+        "Mental": { "EffectText": "期待" },
+        "Manetize": { "EffectText": "普通" },
+        "Working": { "EffectText": "期待" },
+        "Luck": { "EffectText": "普通" },
+        "Communication": { "EffectText": "普通" }
       },
       "SpetialPattern": ["Ptn.Lg(思考向上効果)"],
-      "SafetyLevel": { "Rank": "A", "SafetyLevelText": "安全(奇行有)" }
+      "SafetyLevel": { "SafetyLevelText": "安全(奇行有)" }
     },
     "AbilityStats": {
       "Speed": { "Rank": "A" },
@@ -2321,14 +2321,14 @@
     "Summary": "主人の心から願っている望みを叶えるという“加護”を（無自覚で）有している。\nそのためか主人との実績や彼女自身の自己実現も、十分にうまくいっており評価されている。\nただその一方で、控えめで受動的な性格が玉に瑕(きず)だと思われている。\n（本当は、望んだことが容易に叶って退屈している。）\n「20(ハツカ)」や「4(モチ)」と相性がいい傾向にある。",
     "NumerospecStats": {
       "EffectStats": {
-        "Mental": { "Rank": "B", "EffectText": "普通" },
-        "Manetize": { "Rank": "S", "EffectText": "絶大" },
-        "Working": { "Rank": "B", "EffectText": "普通" },
-        "Luck": { "Rank": "A", "EffectText": "期待" },
-        "Communication": { "Rank": "S", "EffectText": "絶大" }
+        "Mental": { "EffectText": "普通" },
+        "Manetize": { "EffectText": "絶大" },
+        "Working": { "EffectText": "普通" },
+        "Luck": { "EffectText": "期待" },
+        "Communication": { "EffectText": "絶大" }
       },
       "SpetialPattern": ["Ptn.Lr(幸福実現効果)"],
-      "SafetyLevel": { "Rank": "S", "SafetyLevelText": "保証" }
+      "SafetyLevel": { "SafetyLevelText": "保証" }
     },
     "AbilityStats": {
       "Speed": { "Rank": "B" },
@@ -2422,14 +2422,14 @@
     "Summary": "勘と直感が鋭く、なおかつ自分が行っていることは何かしらの結果として実ると信じている。\nそのためか、この後何が起きようと適応力とそれに応じた前向き思考が極めて優れており、楽観的な性格ながら自己実現力があり有能。\nちなみに、彼女は他のナンバーテールズのうち「2(ツグ)」と「5(イズ)」のことを「先輩」と呼び尊敬し、2人に対しこの上なく好感を持っている。",
     "NumerospecStats": {
       "EffectStats": {
-        "Mental": { "Rank": "S", "EffectText": "絶大" },
-        "Manetize": { "Rank": "C", "EffectText": "希薄" },
-        "Working": { "Rank": "A", "EffectText": "期待" },
-        "Luck": { "Rank": "B", "EffectText": "普通" },
-        "Communication": { "Rank": "B", "EffectText": "普通" }
+        "Mental": { "EffectText": "絶大" },
+        "Manetize": { "EffectText": "希薄" },
+        "Working": { "EffectText": "期待" },
+        "Luck": { "EffectText": "普通" },
+        "Communication": { "EffectText": "普通" }
       },
       "SpetialPattern": ["Ptn.Hm(心理安定化効果)"],
-      "SafetyLevel": { "Rank": "S+", "SafetyLevelText": "完全保証" }
+      "SafetyLevel": { "SafetyLevelText": "完全保証" }
     },
     "AbilityStats": {
       "Speed": { "Rank": "A" },
@@ -2520,14 +2520,14 @@
     "Summary": "女子力の高く温厚で思いやりの強い個体。\n優しさや愛情に対する理解がかなり深く、ファッションセンスも秀でている。\nしかしながらママ友(=ママ属性友達)である個体同士のコミュニティでは、自分に足りない優しさを追求するあまり「63(ムツミ)」相手を筆頭に少し比較意識がある。\n女子力に乏しい妹個体の「62(ロジ)」を着せ替え人形にしたり、秘かに「16(ソロク)」の甘え待ちをしたりと、稀に行き過ぎた女子本能が見える一面も。",
     "NumerospecStats": {
       "EffectStats": {
-        "Mental": { "Rank": "S", "EffectText": "絶大" },
-        "Manetize": { "Rank": "C", "EffectText": "希薄" },
-        "Working": { "Rank": "C", "EffectText": "希薄" },
-        "Luck": { "Rank": "B", "EffectText": "普通" },
-        "Communication": { "Rank": "A", "EffectText": "期待" }
+        "Mental": { "EffectText": "絶大" },
+        "Manetize": { "EffectText": "希薄" },
+        "Working": { "EffectText": "希薄" },
+        "Luck": { "EffectText": "普通" },
+        "Communication": { "EffectText": "期待" }
       },
       "SpetialPattern": ["Ptn.Mt(母性的作用の傾向)"],
-      "SafetyLevel": { "Rank": "S", "SafetyLevelText": "保証" }
+      "SafetyLevel": { "SafetyLevelText": "保証" }
     },
     "AbilityStats": {
       "Speed": { "Rank": "C" },
@@ -2613,14 +2613,14 @@
     "Summary": "自らが学んできたことや経験を大切にしており、普段は優しい教師のような存在。\nしかしひとたび本気を出すと、自分の信じてきたものや経験をバネにどこまで先へ挑めるかを試そうとする好戦的な一面も併せ持つ。\nその本性じみた彼(女)の側面は、「22(フジ)」や「77(ナヅナ)」に弟子入りしようと考えているとか。\nちなみに仕様は大幅に異なるが、「72(ナフタ)」の同型に相当する。",
     "NumerospecStats": {
       "EffectStats": {
-        "Mental": { "Rank": "E", "EffectText": "逆効果" },
-        "Manetize": { "Rank": "B", "EffectText": "普通" },
-        "Working": { "Rank": "A", "EffectText": "期待" },
-        "Luck": { "Rank": "D", "EffectText": "効果無" },
-        "Communication": { "Rank": "C", "EffectText": "希薄" }
+        "Mental": { "EffectText": "逆効果" },
+        "Manetize": { "EffectText": "普通" },
+        "Working": { "EffectText": "期待" },
+        "Luck": { "EffectText": "効果無" },
+        "Communication": { "EffectText": "希薄" }
       },
       "SpetialPattern": ["Ptn.Kn(知性効果)", "Ptn.Z[Eg](過剰自我に注意)"],
-      "SafetyLevel": { "Rank": "D", "SafetyLevelText": "注意" }
+      "SafetyLevel": { "SafetyLevelText": "注意" }
     },
     "AbilityStats": {
       "Speed": { "Rank": "B+" },
@@ -2707,17 +2707,17 @@
     "Summary": "主人の物乞いや物欲を叶える才能があるとされていたが、最近はあまりその潜在能力の真価を発揮できず実績が下火傾向にある個体。\nその所為か 最近は人間や自分に自信が持てず性格もすれてきてしまった。\n物欲が強くアクセサリー系の収集にハマっているが、耳に付けているイヤリングはとても気に入っているので別の装飾に替えたことがない。\nちなみに、完全数である自分の数字「28」に強い信念がある数学徒のような一面もある。",
     "NumerospecStats": {
       "EffectStats": {
-        "Mental": { "Rank": "B", "EffectText": "普通" },
-        "Manetize": { "Rank": { "HideText": "条件による" } },
-        "Working": { "Rank": "B", "EffectText": "普通" },
-        "Luck": { "Rank": { "HideText": "定義不能" } },
-        "Communication": { "Rank": "B", "EffectText": "普通" }
+        "Mental": { "EffectText": "普通" },
+        "Manetize": { "HideText": "条件による" },
+        "Working": { "EffectText": "普通" },
+        "Luck": { "HideText": "定義不能" },
+        "Communication": { "EffectText": "普通" }
       },
       "SpetialPattern": [
         "Ptn.Lr-(条件付き幸福実現効果)",
         "Ptn.Z[Fr](欲求不満傾向)"
       ],
-      "SafetyLevel": { "Rank": "C", "SafetyLevelText": "調整中" }
+      "SafetyLevel": { "SafetyLevelText": "調整中" }
     },
     "AbilityStats": {
       "Speed": { "Rank": "B+" },
@@ -2810,14 +2810,14 @@
     "Summary": "彼女と契約すると、心の中に抱えている不安が解消されると噂されているが、彼女自身はかなりの不安体質。\nたまに周りのムードに流されたり、巻き込まれたりはするものの、それでも彼女は懸命に頑張っているところが愛おしい。\n先代個体である「9(チカ)」や弟の「92(コトジ)」とはすれ違い気味らしく、あまりやり取りをしていないという。\n代わりに、従弟[妹]の「91(キュウイチ)」とは対称的な性格であるものの仲が良い。",
     "NumerospecStats": {
       "EffectStats": {
-        "Mental": { "Rank": "S", "EffectText": "絶大" },
-        "Manetize": { "Rank": "A", "EffectText": "期待" },
-        "Working": { "Rank": "C", "EffectText": "希薄" },
-        "Luck": { "Rank": "A", "EffectText": "期待" },
-        "Communication": { "Rank": "B", "EffectText": "普通" }
+        "Mental": { "EffectText": "絶大" },
+        "Manetize": { "EffectText": "期待" },
+        "Working": { "EffectText": "希薄" },
+        "Luck": { "EffectText": "期待" },
+        "Communication": { "EffectText": "普通" }
       },
       "SpetialPattern": ["Ptn.Hm(心理安定化効果)", "Ptn.Rc(救済効果)"],
-      "SafetyLevel": { "Rank": "S+", "SafetyLevelText": "完全保証" }
+      "SafetyLevel": { "SafetyLevelText": "完全保証" }
     },
     "AbilityStats": {
       "Speed": { "Rank": "C" },
@@ -2902,14 +2902,14 @@
     "Summary": "幸福感と創造力に溢れるナンバーテールズのオマセなムードメーカ。\nお人好しで少し背伸びをしたような様子は、周囲から愛着を持たれている。\n手芸やクラフトなどが得意で、妹の様な存在である「33(ミサ)」と一緒にぬいぐるみ製作をしている一面がよく見られる。\nコアフォルダ形態に強い愛着があり、ナンバーテールズの契約特典で贈呈されるコアフォルダ縫い(1/2スケール)の製作を進んで担っているらしい。",
     "NumerospecStats": {
       "EffectStats": {
-        "Mental": { "Rank": "A", "EffectText": "期待" },
-        "Manetize": { "Rank": "D", "EffectText": "効果無" },
-        "Working": { "Rank": "B", "EffectText": "普通" },
-        "Luck": { "Rank": { "HideText": "条件による" } },
-        "Communication": { "Rank": "B", "EffectText": "普通" }
+        "Mental": { "EffectText": "期待" },
+        "Manetize": { "EffectText": "効果無" },
+        "Working": { "EffectText": "普通" },
+        "Luck": { "HideText": "条件による" },
+        "Communication": { "EffectText": "普通" }
       },
       "SpetialPattern": ["Ptn.Lr-(条件付き幸福実現効果)"],
-      "SafetyLevel": { "Rank": "S", "SafetyLevelText": "保証" }
+      "SafetyLevel": { "SafetyLevelText": "保証" }
     },
     "AbilityStats": {
       "Speed": { "Rank": "C" },
@@ -2996,14 +2996,14 @@
     "Summary": "挑戦したことに対する向上意欲が旺盛で、一度挑んだら諦めないという一途な人柄が評判。\nそのことから、彼女といると日頃の行いが良い方向に広がっていくとも主人たちに支持されている。\n一方で自分の掲げる数字「31」に対する愛着が強く、“メルセンヌ素数”をこよなく好むイタい数学学徒な一面も。\n同様に“完全数”を好む「28(ニハチ)」と縁があるとか。",
     "NumerospecStats": {
       "EffectStats": {
-        "Mental": { "Rank": "A", "EffectText": "期待" },
-        "Manetize": { "Rank": "S", "EffectText": "絶大" },
-        "Working": { "Rank": "S", "EffectText": "絶大" },
-        "Luck": { "Rank": "B", "EffectText": "普通" },
-        "Communication": { "Rank": "B", "EffectText": "普通" }
+        "Mental": { "EffectText": "期待" },
+        "Manetize": { "EffectText": "絶大" },
+        "Working": { "EffectText": "絶大" },
+        "Luck": { "EffectText": "普通" },
+        "Communication": { "EffectText": "普通" }
       },
       "SpetialPattern": ["Ptn.Rz(実現性向上効果)"],
-      "SafetyLevel": { "Rank": "S+", "SafetyLevelText": "完全保証" }
+      "SafetyLevel": { "SafetyLevelText": "完全保証" }
     },
     "AbilityStats": {
       "Speed": { "Rank": "B+" },
@@ -3091,14 +3091,14 @@
     "Summary": "コミュニケーション力が高く発想も個性的で奇抜。\nそのため、チームやグループでの活動で取り仕切り役として買って出ることが多い。\nその分誰かと交流してない日が続くと、異様に寂しがることがある。\nしかしながら心を読むこともとりわけ得意なため、他人や他のナンバーテールズに悪絡みしたり苦労したりすることは無い。\nただ、姉個体「23(ツグミ)」に対しては…？",
     "NumerospecStats": {
       "EffectStats": {
-        "Mental": { "Rank": "A", "EffectText": "期待" },
-        "Manetize": { "Rank": { "HideText": "検証中" } },
-        "Working": { "Rank": "B", "EffectText": "普通" },
-        "Luck": { "Rank": "A", "EffectText": "期待" },
-        "Communication": { "Rank": "Z", "EffectText": "過剰" }
+        "Mental": { "EffectText": "期待" },
+        "Manetize": { "HideText": "検証中" },
+        "Working": { "EffectText": "普通" },
+        "Luck": { "EffectText": "期待" },
+        "Communication": { "EffectText": "過剰" }
       },
       "SpetialPattern": ["Ptn.Py(読心効果)"],
-      "SafetyLevel": { "Rank": "S", "SafetyLevelText": "保証" }
+      "SafetyLevel": { "SafetyLevelText": "保証" }
     },
     "AbilityStats": {
       "Speed": { "Rank": "B+" },
@@ -3183,21 +3183,21 @@
     "Summary": "オンライン上で様々な知識と機能を自ら実装するシステムにより、99人の中でも最も万能な個体。\nその優れた性能は「全知全能」と称されるほど。\nそれを追い風に、様々なことに対して自分が「可能であること」と捉え、自信と誇りに満ち溢れている。\nしかし「不可能だったこと」への耐性が極めて弱く、そこを突かれて玩ばれることも。\n「30(ミツト)」に謎の親近感が…？",
     "NumerospecStats": {
       "EffectStats": {
-        "Mental": { "Rank": "C", "EffectText": "希薄" },
-        "Manetize": { "Rank": "C", "EffectText": "希薄" },
-        "Working": { "Rank": "S", "EffectText": "絶大" },
-        "Luck": { "Rank": "C", "EffectText": "希薄" },
-        "Communication": { "Rank": "C", "EffectText": "希薄" }
+        "Mental": { "EffectText": "希薄" },
+        "Manetize": { "EffectText": "希薄" },
+        "Working": { "EffectText": "絶大" },
+        "Luck": { "EffectText": "希薄" },
+        "Communication": { "EffectText": "希薄" }
       },
       "SpetialPattern": ["Ptn.I(高性能知能搭載)"],
-      "SafetyLevel": { "Rank": { "HideText": "非公開" } }
+      "SafetyLevel": { "HideText": "非公開" }
     },
     "AbilityStats": {
-      "Speed": { "Rank": { "HideText": "非公開" } },
+      "Speed": { "HideText": "非公開" },
       "Communicating": { "Rank": "C" },
-      "Leading": { "Rank": { "HideText": "非公開" } },
-      "Precision": { "Rank": { "HideText": "非公開" } },
-      "Technic": { "Rank": { "HideText": "非公開" } },
+      "Leading": { "HideText": "非公開" },
+      "Precision": { "HideText": "非公開" },
+      "Technic": { "HideText": "非公開" },
       "Actuation": { "Rank": "Z" }
     },
     "InStory": "「全知全能」を名乗っているが実力は本物\nただしROSの弱点を突かれて玩ばれる一面も",
@@ -3284,21 +3284,21 @@
     "Summary": "営業力が全個体で群を抜いて高いため、彼(女)が行っている副業は必ず成功している。\nただ主従契約の収益に問題こそないものの、不要に事態を肥大化させようとする蛇足癖があるため、あらぬ被害を招いている。\nそのためナンバーテールズの活動そのものを大きく暴走させかねないことから、開発者「百(ハゲム)」の胃を壊している。\nちなみに、アンチからの通称は「サンジ(惨事)」。",
     "NumerospecStats": {
       "EffectStats": {
-        "Mental": { "Rank": "D", "EffectText": "効果無" },
-        "Manetize": { "Rank": "Z", "EffectText": "過剰" },
-        "Working": { "Rank": { "HideText": "公開不能" } },
-        "Luck": { "Rank": "ZZ", "EffectText": "危険" },
-        "Communication": { "Rank": { "HideText": "条件による" } }
+        "Mental": { "EffectText": "効果無" },
+        "Manetize": { "EffectText": "過剰" },
+        "Working": { "HideText": "公開不能" },
+        "Luck": { "EffectText": "危険" },
+        "Communication": { "HideText": "条件による" }
       },
       "SpetialPattern": [
         "Ptn.C(状況変化効果)",
         "Ptn.ZZ(逆効能および禁断効果に警戒)"
       ],
-      "SafetyLevel": { "Rank": "E", "SafetyLevelText": "厳重注意" }
+      "SafetyLevel": { "SafetyLevelText": "厳重注意" }
     },
     "AbilityStats": {
       "Speed": { "Rank": "B" },
-      "Communicating": { "Rank": { "HideText": "定義不能" } },
+      "Communicating": { "HideText": "定義不能" },
       "Reading": { "Rank": "Z" },
       "Precision": { "Rank": "D" },
       "Technic": { "Rank": "A" },
@@ -3382,13 +3382,13 @@
     "Summary": "感覚的な才能に恵まれており、主人たちの物事の進展に大きく貢献している。\n加えて整理整頓や清掃を得意とする几帳面さも相まって、個人だけでなく企業との主従契約でも今後実績が期待されている。\nちなみに副業で巫女活動も展開しており、その清掃能力から庭園を保全したり、動作が繊細なお祓いの儀式にも定評がある。\nこのことに対し本人は曰く、「番号の語呂で軽率に勧められただけで、本業にするつもりは全くない」とのことだが、本業と同程度に実績があるのは言うまでもない。",
     "NumerospecStats": {
       "EffectStats": {
-        "Mental": { "Rank": "B", "EffectText": "普通" },
-        "Manetize": { "Rank": "A", "EffectText": "期待" },
-        "Working": { "Rank": "S", "EffectText": "絶大" },
-        "Luck": { "Rank": "S", "EffectText": "絶大" },
-        "Communication": { "Rank": "B", "EffectText": "普通" }
+        "Mental": { "EffectText": "普通" },
+        "Manetize": { "EffectText": "期待" },
+        "Working": { "EffectText": "絶大" },
+        "Luck": { "EffectText": "絶大" },
+        "Communication": { "EffectText": "普通" }
       },
-      "SafetyLevel": { "Rank": "S", "SafetyLevelText": "保証" }
+      "SafetyLevel": { "SafetyLevelText": "保証" }
     },
     "AbilityStats": {
       "Speed": { "Rank": "B+" },
@@ -3484,14 +3484,14 @@
     "Summary": "愛し愛されたい体質で、愛情表現を大切にしている。\n特に、母性的な感性を重んじる「6(ムイ)」と幸愛的な感性を持つ「30(ミツト)」に対しては似たものが大いにあり、彼女自身も見習っている一面がある。\nまた、そばにいる人に豊かさを分け与えるという“加護”を持つ個体で、主人に時の運をもたらすことでも定評。\nしかし彼女自身の運はというと…",
     "NumerospecStats": {
       "EffectStats": {
-        "Mental": { "Rank": "A", "EffectText": "期待" },
-        "Manetize": { "Rank": "A", "EffectText": "期待" },
-        "Working": { "Rank": "D", "EffectText": "効果無" },
-        "Luck": { "Rank": { "HideText": "判定不能" } },
-        "Communication": { "Rank": "C", "EffectText": "希薄" }
+        "Mental": { "EffectText": "期待" },
+        "Manetize": { "EffectText": "期待" },
+        "Working": { "EffectText": "効果無" },
+        "Luck": { "HideText": "判定不能" },
+        "Communication": { "EffectText": "希薄" }
       },
       "SpetialPattern": ["Ptn.X(転化・転送効果)"],
-      "SafetyLevel": { "Rank": "B", "SafetyLevelText": "無危害" }
+      "SafetyLevel": { "SafetyLevelText": "無危害" }
     },
     "AbilityStats": {
       "Speed": { "Rank": "C" },
@@ -3581,14 +3581,14 @@
     "Summary": "努力家な主人を報わせると好評なナンバーテールズ。\n勤勉で知的向上心が旺盛な真面目ポジションで、主人層だけでなく他のナンバーテールズからも信頼されているが、褒められると99人の中で群を抜くレベルで甘えてしまう一面がある。\n従妹の「47(シナ)」に対して、他のナンバーテールズとは異なる感性や言動に興味があるようで…？",
     "NumerospecStats": {
       "EffectStats": {
-        "Mental": { "Rank": "B", "EffectText": "普通" },
-        "Manetize": { "Rank": "A", "EffectText": "期待" },
-        "Working": { "Rank": "S", "EffectText": "絶大" },
-        "Luck": { "Rank": "B", "EffectText": "普通" },
-        "Communication": { "Rank": "D", "EffectText": "効果無" }
+        "Mental": { "EffectText": "普通" },
+        "Manetize": { "EffectText": "期待" },
+        "Working": { "EffectText": "絶大" },
+        "Luck": { "EffectText": "普通" },
+        "Communication": { "EffectText": "効果無" }
       },
       "SpetialPattern": ["Ptn.Ar(能力発揮効果)"],
-      "SafetyLevel": { "Rank": "S+", "SafetyLevelText": "完全保証" }
+      "SafetyLevel": { "SafetyLevelText": "完全保証" }
     },
     "AbilityStats": {
       "Speed": { "Rank": "C" },
@@ -3715,14 +3715,14 @@
     "Summary": "主人と自分の効率のために無駄や不要なことをできるだけ排除することをモットーとしており、使えないことや行動の邪魔になることに対しかなりドライな印象を持たれている。\nただこう見えてリアリストではないようで、夢や意志を貶す人々と差を広げようと対抗心を燃やす熱血漢な一面も。\nなお、ナンバーテールズの中では珍しい男性個体である。",
     "NumerospecStats": {
       "EffectStats": {
-        "Mental": { "Rank": "S", "EffectText": "絶大" },
-        "Manetize": { "Rank": "C", "EffectText": "希薄" },
-        "Working": { "Rank": "A", "EffectText": "期待" },
-        "Luck": { "Rank": "A", "EffectText": "期待" },
-        "Communication": { "Rank": "D", "EffectText": "効果無" }
+        "Mental": { "EffectText": "絶大" },
+        "Manetize": { "EffectText": "希薄" },
+        "Working": { "EffectText": "期待" },
+        "Luck": { "EffectText": "期待" },
+        "Communication": { "EffectText": "効果無" }
       },
       "SpetialPattern": ["Ptn.A(行動補正効果)", "Ptn.Z[At](攻撃的思想に注意)"],
-      "SafetyLevel": { "Rank": "C", "SafetyLevelText": "恐らく無危害" }
+      "SafetyLevel": { "SafetyLevelText": "恐らく無危害" }
     },
     "AbilityStats": {
       "Speed": { "Rank": "A" },
@@ -3810,17 +3810,17 @@
     "Summary": "「願いや望みを４つだけ叶えてくれる」という謎の風の噂が後を絶たず、一部界隈から“魔人”や“仙人”などと言われている。\n当の本人もその評判に恥じない達観した風格をしている……が、それはあくまでも演出にすぎず、珍妙な実績が吹聴されて引くに引けなくなっただけ。\n実際はドが付くほど苦労人であることを、お得意の建前で包み隠しているらしい。",
     "NumerospecStats": {
       "EffectStats": {
-        "Mental": { "Rank": "B", "EffectText": "普通" },
-        "Manetize": { "Rank": { "HideText": "検証中" } },
-        "Working": { "Rank": { "HideText": "検証中" } },
-        "Luck": { "Rank": { "HideText": "条件による" } },
-        "Communication": { "Rank": "C", "EffectText": "希薄" }
+        "Mental": { "EffectText": "普通" },
+        "Manetize": { "HideText": "検証中" },
+        "Working": { "HideText": "検証中" },
+        "Luck": { "HideText": "条件による" },
+        "Communication": { "EffectText": "希薄" }
       },
       "SpetialPattern": [
         "Ptn.Rz-(実現性向上効果がある傾向)",
         "Ptn.Lr-(条件付き幸福実現効果)"
       ],
-      "SafetyLevel": { "Rank": "B+", "SafetyLevelText": "恐らく安全" }
+      "SafetyLevel": { "SafetyLevelText": "恐らく安全" }
     },
     "AbilityStats": {
       "Speed": { "Rank": "C" },
@@ -3905,17 +3905,17 @@
     "Summary": "新しい試みに怖気づくことなく、常に挑戦的に行動しているチャレンジャー。\nいつも楽観的で自信に溢れている気質は、周囲にも好評価を賜っている。\nただそのせいか、コアフォルダ形態でも無理やり動けると頑固に信じている様子。\n運動機能が優れず身体動作が不器用ではあるが、ほぼ全てのカード位置を記憶する“カード透視”を得意とするため賭けポーカーでは無類の強さを誇っている。",
     "NumerospecStats": {
       "EffectStats": {
-        "Mental": { "Rank": "S", "EffectText": "絶大" },
-        "Manetize": { "Rank": { "HideText": "検証中" } },
-        "Working": { "Rank": "A", "EffectText": "期待" },
-        "Luck": { "Rank": "A", "EffectText": "期待可能" },
-        "Communication": { "Rank": "B", "EffectText": "普通" }
+        "Mental": { "EffectText": "絶大" },
+        "Manetize": { "HideText": "検証中" },
+        "Working": { "EffectText": "期待" },
+        "Luck": { "EffectText": "期待可能" },
+        "Communication": { "EffectText": "普通" }
       },
       "SpetialPattern": [
         "Ptn.Hm(心理安定化効果)",
         "Ptn.C-(状況変化効果がある傾向)"
       ],
-      "SafetyLevel": { "Rank": "A", "SafetyLevelText": "安全(奇行有)" }
+      "SafetyLevel": { "SafetyLevelText": "安全(奇行有)" }
     },
     "AbilityStats": {
       "Speed": { "Rank": "B+" },
@@ -3996,13 +3996,13 @@
     "Summary": "主人が心に抱えている弱気を中和するという“加護”を（無自覚で）有している。\nそのためか、恐れや心配の文字を彼女から連想できないほどの自信家で、理想がやや高く我儘な言動もとりがち。\nしかしそれで中高度に上げられた彼女または主人の思惑が、不思議と欲求不満にならない以上に実現されている事例が多い。\nさらには一部の主人から固執・溺愛されるほどに大好評らしく…？",
     "NumerospecStats": {
       "EffectStats": {
-        "Mental": { "Rank": "S", "EffectText": "絶大" },
-        "Manetize": { "Rank": "C", "EffectText": "希薄" },
-        "Working": { "Rank": "D", "EffectText": "効果無" },
-        "Luck": { "Rank": "S", "EffectText": "絶大" },
-        "Communication": { "Rank": "B", "EffectText": "普通" }
+        "Mental": { "EffectText": "絶大" },
+        "Manetize": { "EffectText": "希薄" },
+        "Working": { "EffectText": "効果無" },
+        "Luck": { "EffectText": "絶大" },
+        "Communication": { "EffectText": "普通" }
       },
-      "SafetyLevel": { "Rank": "S", "SafetyLevelText": "保証" }
+      "SafetyLevel": { "SafetyLevelText": "保証" }
     },
     "AbilityStats": {
       "Speed": { "Rank": "B+" },
@@ -4090,21 +4090,21 @@
     "Summary": "消極的思考を抑えるメンター効果があるとされており、一時期注目を浴びていた個体。\nしかし自己中心的で挑発的な性格もあり、ネット上で泣かされキャラが確立してしまっている。\n趣味で対戦ゲームをよくするため、現在は主従契約のご縁よりゲームやボイスチャットでのご縁が多い。\n「34(サトシ)」などといった他個体を煽り、とんでもないフラグを建ててしまうことも。",
     "NumerospecStats": {
       "EffectStats": {
-        "Mental": { "Rank": "A", "EffectText": "期待" },
-        "Manetize": { "Rank": { "HideText": "条件による" } },
-        "Working": { "Rank": { "HideText": "定義不能" } },
-        "Luck": { "Rank": "Z", "EffectText": "極めて絶大(場合により逆効果)" },
-        "Communication": { "Rank": { "HideText": "定義不能" } }
+        "Mental": { "EffectText": "期待" },
+        "Manetize": { "HideText": "条件による" },
+        "Working": { "HideText": "定義不能" },
+        "Luck": { "EffectText": "極めて絶大(場合により逆効果)" },
+        "Communication": { "HideText": "定義不能" }
       },
       "SpetialPattern": [
         "Ptn.Lr-(条件付き幸福実現効果)",
         "Ptn.Z[Hd](効果に一定の精神的耐性が必要)"
       ],
-      "SafetyLevel": { "Rank": "D", "SafetyLevelText": "注意" }
+      "SafetyLevel": { "SafetyLevelText": "注意" }
     },
     "AbilityStats": {
       "Speed": { "Rank": "B" },
-      "Communicating": { "Rank": { "HideText": "定義不能" } },
+      "Communicating": { "HideText": "定義不能" },
       "Reading": { "Rank": "B" },
       "Precision": { "Rank": "S" },
       "Technic": { "Rank": "A" },
@@ -4187,17 +4187,17 @@
     "Summary": "「想いを具現化する」“加護”を持ち、これまで数多くの主人が掲げてきた熱意や祈願を叶えてきたナンバーテールズの「ミッションインポッシブル」。\n勇敢で果敢な好青年で、正義感と実現意欲が群を抜いて高い姿勢は、どの主人からも熱い支持を賜っている。\nしかし彼の同クラス「マスターテールズ９」の特定個体からは、「ただ自我が強いだけ」「諦めが悪すぎる」という辛辣な指摘を受けているらしい。\nなお「男（の娘）」である、一応は。",
     "NumerospecStats": {
       "EffectStats": {
-        "Mental": { "Rank": "E", "EffectText": "逆効果" },
-        "Manetize": { "Rank": "S", "EffectText": "絶大" },
-        "Working": { "Rank": "C", "EffectText": "希薄" },
-        "Luck": { "Rank": { "HideText": "判定不能" } },
-        "Communication": { "Rank": "D", "EffectText": "効果無" }
+        "Mental": { "EffectText": "逆効果" },
+        "Manetize": { "EffectText": "絶大" },
+        "Working": { "EffectText": "希薄" },
+        "Luck": { "HideText": "判定不能" },
+        "Communication": { "EffectText": "効果無" }
       },
       "SpetialPattern": [
         "Ptn.R-(効果保証作用がある傾向)",
         "Ptn.Z[Eg](過剰自我に注意)"
       ],
-      "SafetyLevel": { "Rank": "C", "SafetyLevelText": "恐らく無危害" }
+      "SafetyLevel": { "SafetyLevelText": "恐らく無危害" }
     },
     "AbilityStats": {
       "Speed": { "Rank": "S" },
@@ -4294,14 +4294,14 @@
     "Summary": "稲妻を落とす雷神のように相手に衝動を与え、風を送る風神のように相手を奮い立たせる“加護”を持ち、変化を起こすことを必要としている多くの主人を後押ししている。\nもちろんそれはおおむね攻撃的な目的ではないので、彼(女)が従事した主人が愛と勇気をもった「正義の味方」に成長すると定評。\nただ、本人は平穏とした生き方を好んでおり…",
     "NumerospecStats": {
       "EffectStats": {
-        "Mental": { "Rank": "A", "EffectText": "特化" },
-        "Manetize": { "Rank": "C", "EffectText": "希薄" },
-        "Working": { "Rank": "B", "EffectText": "普通" },
-        "Luck": { "Rank": { "HideText": "検証中" } },
-        "Communication": { "Rank": "B", "EffectText": "普通" }
+        "Mental": { "EffectText": "特化" },
+        "Manetize": { "EffectText": "希薄" },
+        "Working": { "EffectText": "普通" },
+        "Luck": { "HideText": "検証中" },
+        "Communication": { "EffectText": "普通" }
       },
       "SpetialPattern": ["Ptn.Ec(士気比例作用)"],
-      "SafetyLevel": { "Rank": "B", "SafetyLevelText": "無危害" }
+      "SafetyLevel": { "SafetyLevelText": "無危害" }
     },
     "AbilityStats": {
       "Speed": { "Rank": "B+" },
@@ -4387,14 +4387,14 @@
     "Summary": "ナンバーテールズの中では珍しく、「感情的な衝動」を癒し以上にもたらす「4+6型」個体の一つ。\nやや気性の荒く落ち着きがない様子は他の個体を見比べても浮いて見えてしまう程だが、その様子に感化され「楽しむこと」を思い出させてくれたという感想を極めて限られた層から賜っている。\nしかし実績と人気度に長らく恵まれず、実況の副業をして赤字を埋めている。",
     "NumerospecStats": {
       "EffectStats": {
-        "Mental": { "Rank": "Z", "EffectText": "過剰" },
-        "Manetize": { "Rank": { "HideText": "判定不能" } },
-        "Working": { "Rank": { "HideText": "判定不能" } },
-        "Luck": { "Rank": "E", "EffectText": "逆効果" },
-        "Communication": { "Rank": "C", "EffectText": "希薄" }
+        "Mental": { "EffectText": "過剰" },
+        "Manetize": { "HideText": "判定不能" },
+        "Working": { "HideText": "判定不能" },
+        "Luck": { "EffectText": "逆効果" },
+        "Communication": { "EffectText": "希薄" }
       },
       "SpetialPattern": ["Ptn.Z[Ex](興奮注意)"],
-      "SafetyLevel": { "Rank": "D", "SafetyLevelText": "注意" }
+      "SafetyLevel": { "SafetyLevelText": "注意" }
     },
     "AbilityStats": {
       "Speed": { "Rank": "Z" },
@@ -4402,7 +4402,7 @@
       "Leading": { "Rank": "D" },
       "Precision": { "Rank": "D" },
       "Technic": { "Rank": "B" },
-      "Actuation": { "Rank": { "HideText": "非公開" } }
+      "Actuation": { "HideText": "非公開" }
     },
     "InStory": "特殊個体「4+6型」の一人\n実績と人気度が乏しく、実況の副業をしている",
     "Relation": {
@@ -4487,19 +4487,19 @@
     "Summary": "ナンバーテールズの中では他に類を見ない、自らが持っている”加護”を体感できるという極めて高い感受性を持っており、決断にブレが全くなく自信家である。\nなおその“加護”は他の98人にも気づくことができるはずとも思っているが、他の98人の大半は無自覚なので信じられずにいる。\nただ、応援してくれる存在としても彼女に好感を持つナンバーテールズも居るようだ。",
     "NumerospecStats": {
       "EffectStats": {
-        "Mental": { "Rank": { "HideText": "検証中" } },
-        "Manetize": { "Rank": { "HideText": "検証中" } },
-        "Working": { "Rank": { "HideText": "検証中" } },
-        "Luck": { "Rank": "A", "EffectText": "期待" },
-        "Communication": { "Rank": { "HideText": "検証中" } }
+        "Mental": { "HideText": "検証中" },
+        "Manetize": { "HideText": "検証中" },
+        "Working": { "HideText": "検証中" },
+        "Luck": { "EffectText": "期待" },
+        "Communication": { "HideText": "検証中" }
       },
       "SpetialPattern": ["Ptn.F(超能力保有)"],
-      "SafetyLevel": { "Rank": { "HideText": "検証中" } }
+      "SafetyLevel": { "HideText": "検証中" }
     },
     "AbilityStats": {
       "Speed": { "Rank": "A" },
-      "Communicating": { "Rank": { "HideText": "検証中" } },
-      "Leading": { "Rank": { "HideText": "検証中" } },
+      "Communicating": { "HideText": "検証中" },
+      "Leading": { "HideText": "検証中" },
       "Precision": { "Rank": "A" },
       "Technic": { "Rank": "B+" },
       "Actuation": { "Rank": "A" }
@@ -4572,14 +4572,14 @@
     "Summary": "マーケティングやビジネススキルなどに精通しており、副業や事業展開を目標とする主人層から好評を受けている。\n至って紳士的で勤勉な気質だと表向きでは評されているが、本性的には喧嘩っ早く勝気の強い性格にどこか憧れを感じているらしい。\n理想を現実にするためにあの手この手を尽くそうとする頑固な一面も。",
     "NumerospecStats": {
       "EffectStats": {
-        "Mental": { "Rank": "B", "EffectText": "普通" },
-        "Manetize": { "Rank": "S", "EffectText": "絶大" },
-        "Working": { "Rank": "S", "EffectText": "絶大" },
-        "Luck": { "Rank": "A", "EffectText": "期待" },
-        "Communication": { "Rank": "B", "EffectText": "普通" }
+        "Mental": { "EffectText": "普通" },
+        "Manetize": { "EffectText": "絶大" },
+        "Working": { "EffectText": "絶大" },
+        "Luck": { "EffectText": "期待" },
+        "Communication": { "EffectText": "普通" }
       },
       "SpetialPattern": ["Ptn.Ec(士気比例作用)", "Ptn.Rz(実現性向上効果)"],
-      "SafetyLevel": { "Rank": "S", "SafetyLevelText": "保証" }
+      "SafetyLevel": { "SafetyLevelText": "保証" }
     },
     "AbilityStats": {
       "Speed": { "Rank": "B" },
@@ -4669,14 +4669,14 @@
     "Summary": "滞っているプロジェクトの火消案件を数多くこなすナンバーテールズ。\n期日が極めて迫っているときのマネジメント力は極めて秀でているが、せっかちで進捗を出せない状況が何より嫌い。\nそんな本性を隠すためその時は笑顔を繕っているらしいが、もはやバレバレの様だ。\n気質が似ているように思われる「14(トヨ)」とは大の犬猿の仲らしいが…",
     "NumerospecStats": {
       "EffectStats": {
-        "Mental": { "Rank": "D", "EffectText": "効果無" },
-        "Manetize": { "Rank": "C", "EffectText": "希薄" },
-        "Working": { "Rank": "S", "EffectText": "絶大" },
-        "Luck": { "Rank": "D", "EffectText": "効果無" },
-        "Communication": { "Rank": "D", "EffectText": "効果無" }
+        "Mental": { "EffectText": "効果無" },
+        "Manetize": { "EffectText": "希薄" },
+        "Working": { "EffectText": "絶大" },
+        "Luck": { "EffectText": "効果無" },
+        "Communication": { "EffectText": "効果無" }
       },
       "SpetialPattern": ["Ptn.St(状況比例作用)"],
-      "SafetyLevel": { "Rank": "B", "SafetyLevelText": "無危害" }
+      "SafetyLevel": { "SafetyLevelText": "無危害" }
     },
     "AbilityStats": {
       "Speed": { "Rank": "A" },
@@ -4828,14 +4828,14 @@
     "Summary": "自己掲示欲は低いものの、自分が本領を発揮できるタイミングを逃すことが無く勝機を掴みやすい。\n何が起きようと適応力と状況判断力が極めて優れており、受動的な性格ながら自己実現力があり有能。\nちなみに、姉「25(フィズ)」の代替機としても活動しているため、姉妹で交代して主従業務に当たっている一面も見られている。",
     "NumerospecStats": {
       "EffectStats": {
-        "Mental": { "Rank": "A", "EffectText": "期待" },
-        "Manetize": { "Rank": "C", "EffectText": "希薄" },
-        "Working": { "Rank": "A", "EffectText": "期待" },
-        "Luck": { "Rank": "S", "EffectText": "絶大" },
-        "Communication": { "Rank": "B", "EffectText": "普通" }
+        "Mental": { "EffectText": "期待" },
+        "Manetize": { "EffectText": "希薄" },
+        "Working": { "EffectText": "期待" },
+        "Luck": { "EffectText": "絶大" },
+        "Communication": { "EffectText": "普通" }
       },
       "SpetialPattern": ["Ptn.Hm(心理安定化効果)"],
-      "SafetyLevel": { "Rank": "S+", "SafetyLevelText": "完全保証" }
+      "SafetyLevel": { "SafetyLevelText": "完全保証" }
     },
     "AbilityStats": {
       "Speed": { "Rank": "B+" },
@@ -4927,14 +4927,14 @@
     "NumerospecAbout": "転機を連続して招く\nこの効果は対象が積極的に受ければ受けるほど持続する",
     "NumerospecStats": {
       "EffectStats": {
-        "Mental": { "Rank": "C", "EffectText": "希薄" },
-        "Manetize": { "Rank": { "HideText": "検証中" } },
-        "Working": { "Rank": "B", "EffectText": "普通" },
-        "Luck": { "Rank": { "HideText": "条件による" } },
-        "Communication": { "Rank": "C", "EffectText": "希薄" }
+        "Mental": { "EffectText": "希薄" },
+        "Manetize": { "HideText": "検証中" },
+        "Working": { "EffectText": "普通" },
+        "Luck": { "HideText": "条件による" },
+        "Communication": { "EffectText": "希薄" }
       },
       "SpetialPattern": ["Ptn.C(状況変化効果)", "Ptn.Ch(連鎖効果有)"],
-      "SafetyLevel": { "Rank": "B", "SafetyLevelText": "無危害" }
+      "SafetyLevel": { "SafetyLevelText": "無危害" }
     },
     "AbilityStats": {
       "Speed": { "Rank": "A" },
@@ -5051,14 +5051,14 @@
     "Summary": "主人や自分の過去に囚われず、より良いものへ変化すること/変化されること を醍醐味に、適応力と自己実現力の相反する能力を併せ現状を打破することを得意としている。\nただ、彼女の周りで誰も想像しないことが多発することより「台風の目」と呼ばれていることも。\nなお彼女自身はというと、感受性を通り越したのかどんなことが起こっても常に平然としている様で、あまり自覚していないらしい。\n鈍感なのだろうか…",
     "NumerospecStats": {
       "EffectStats": {
-        "Mental": { "Rank": "B", "EffectText": "普通" },
-        "Manetize": { "Rank": "B", "EffectText": "普通" },
-        "Working": { "Rank": "B", "EffectText": "普通" },
-        "Luck": { "Rank": { "HideText": "判定不能" } },
-        "Communication": { "Rank": "D", "EffectText": "効果無" }
+        "Mental": { "EffectText": "普通" },
+        "Manetize": { "EffectText": "普通" },
+        "Working": { "EffectText": "普通" },
+        "Luck": { "HideText": "判定不能" },
+        "Communication": { "EffectText": "効果無" }
       },
       "SpetialPattern": ["Ptn.C(状況変化効果)"],
-      "SafetyLevel": { "Rank": "C", "SafetyLevelText": "調整中" }
+      "SafetyLevel": { "SafetyLevelText": "調整中" }
     },
     "AbilityStats": {
       "Speed": { "Rank": "A" },
@@ -5149,13 +5149,13 @@
     "Summary": "小学生程度の外見を想定した「5+6型」の姉個体で、見た目や形振りは至って普通のお子様。\n飽き症で時々サボり癖や放浪癖が見受けられることがあるが、他個体からは新しい出会いに恵まれるよう温かく見守られている。\n勉強が苦手で、少しでも頭を使う訓話や座学ではすぐに気が散ってしまう。だが、「27(ツギナ)」や「29(ニトク)」に教わっている時は…？",
     "NumerospecStats": {
       "EffectStats": {
-        "Mental": { "Rank": "A", "EffectText": "期待" },
-        "Manetize": { "Rank": "C", "EffectText": "希薄" },
-        "Working": { "Rank": "E", "EffectText": "逆効果" },
-        "Luck": { "Rank": "A", "EffectText": "期待" },
-        "Communication": { "Rank": "S", "EffectText": "絶大" }
+        "Mental": { "EffectText": "期待" },
+        "Manetize": { "EffectText": "希薄" },
+        "Working": { "EffectText": "逆効果" },
+        "Luck": { "EffectText": "期待" },
+        "Communication": { "EffectText": "絶大" }
       },
-      "SafetyLevel": { "Rank": "A", "SafetyLevelText": "安全" }
+      "SafetyLevel": { "SafetyLevelText": "安全" }
     },
     "AbilityStats": {
       "Speed": { "Rank": "B" },
@@ -5244,14 +5244,14 @@
     "Summary": "状況から新たな経験を得ることに特化したナンバーテールズ。\n状況の変化からの学びを大切にし、それがいつしか自分に良き教訓や知見となることを信じている。\nただあまりに楽観的な思考は周りから圧巻されている。\nちなみに「75(シチゴ)」と同型双子関係があるが、「75(シチゴ)」と彼(女)でどちらが兄(姉)であるかという年長年弱の区別は無いらしい。",
     "NumerospecStats": {
       "EffectStats": {
-        "Mental": { "Rank": "A", "EffectText": "期待" },
-        "Manetize": { "Rank": "C", "EffectText": "希薄" },
-        "Working": { "Rank": "S", "EffectText": "絶大" },
-        "Luck": { "Rank": "C", "EffectText": "希薄" },
-        "Communication": { "Rank": "C", "EffectText": "希薄" }
+        "Mental": { "EffectText": "期待" },
+        "Manetize": { "EffectText": "希薄" },
+        "Working": { "EffectText": "絶大" },
+        "Luck": { "EffectText": "希薄" },
+        "Communication": { "EffectText": "希薄" }
       },
       "SpetialPattern": ["Ptn.Kn(知性効果)"],
-      "SafetyLevel": { "Rank": "S", "SafetyLevelText": "保証" }
+      "SafetyLevel": { "SafetyLevelText": "保証" }
     },
     "AbilityStats": {
       "Speed": { "Rank": "B" },
@@ -5338,14 +5338,14 @@
     "Summary": "臨時収入などの物質的な幸運をもたらすという“加護”を有しているが、多岐多様な効果が確認されており詳細にどのような効果であるかは説明できない。\n他個体をからかったりおちょくったりするためＳっ気のあるように思われているが、オマセで甘えん坊な一面が拭えないところも含め、非常に可愛がられている。\nカードゲームが好きで13(トミ)たちとよく遊んでいるが、強運の持ち主で確立計算も巧みなためすぐ捻じ伏せて厭きられてしまう。",
     "NumerospecStats": {
       "EffectStats": {
-        "Mental": { "Rank": "B", "EffectText": "普通" },
-        "Manetize": { "Rank": "S", "EffectText": "強化済" },
-        "Working": { "Rank": "E", "EffectText": "逆効果" },
-        "Luck": { "Rank": "Z", "EffectText": "過剰" },
-        "Communication": { "Rank": "C", "EffectText": "希薄" }
+        "Mental": { "EffectText": "普通" },
+        "Manetize": { "EffectText": "強化済" },
+        "Working": { "EffectText": "逆効果" },
+        "Luck": { "EffectText": "過剰" },
+        "Communication": { "EffectText": "希薄" }
       },
       "SpetialPattern": ["Ptn.Lr(幸福実現効果)"],
-      "SafetyLevel": { "Rank": "S", "SafetyLevelText": "保証" }
+      "SafetyLevel": { "SafetyLevelText": "保証" }
     },
     "AbilityStats": {
       "Speed": { "Rank": "A" },
@@ -5462,14 +5462,14 @@
     "Summary": "優雅な立ち振る舞い、美麗な容姿、素敵な素性を持つ、ナンバーテールズの中で最高クラスの美女ポジション。\n母なる輝きを持ち合わせているあまり、彼女に女優やアイドルとしてのオファーが殺到するほど。\nただこう見えて重度のムッツリヲタクであるため、お忍びのナードな趣味がバレてしまってからは「61(ロクイチ/ロイ)」を筆頭に弄られている。\nそんな中、彼女は「可愛くふるまうよりも 可愛い少女を見守る存在でありたい」と頑なに主張しているのだが……",
     "NumerospecStats": {
       "EffectStats": {
-        "Mental": { "Rank": "A", "EffectText": "期待" },
-        "Manetize": { "Rank": "C", "EffectText": "希薄" },
-        "Working": { "Rank": "C", "EffectText": "希薄" },
-        "Luck": { "Rank": "B", "EffectText": "普通" },
-        "Communication": { "Rank": "B", "EffectText": "普通" }
+        "Mental": { "EffectText": "期待" },
+        "Manetize": { "EffectText": "希薄" },
+        "Working": { "EffectText": "希薄" },
+        "Luck": { "EffectText": "普通" },
+        "Communication": { "EffectText": "普通" }
       },
       "SpetialPattern": ["Ptn.S(感性向上効果)"],
-      "SafetyLevel": { "Rank": "S", "SafetyLevelText": "保証" }
+      "SafetyLevel": { "SafetyLevelText": "保証" }
     },
     "AbilityStats": {
       "Speed": { "Rank": "A" },
@@ -5586,14 +5586,14 @@
     "Summary": "アイドル意識の強いナンバーテールズで、天真爛漫で可憐な性格をしている。\n加えて、相手を惚れさせる“加護”を持っているため、ファンとなる主人もかなり多い。\nしかしあまりにもメルヘンで不思議な世界観を持っているので、謎がられることもあったりするようだ。\n「60(ムソウ)」とアイドルユニットを結成しようと望んでやまない。\n「10(ミツル)」に興味があるようだが…",
     "NumerospecStats": {
       "EffectStats": {
-        "Mental": { "Rank": "S", "EffectText": "絶大" },
-        "Manetize": { "Rank": "B", "EffectText": "普通" },
-        "Working": { "Rank": "E", "EffectText": "逆効果" },
-        "Luck": { "Rank": "C", "EffectText": "希薄" },
-        "Communication": { "Rank": "D", "EffectText": "効果無" }
+        "Mental": { "EffectText": "絶大" },
+        "Manetize": { "EffectText": "普通" },
+        "Working": { "EffectText": "逆効果" },
+        "Luck": { "EffectText": "希薄" },
+        "Communication": { "EffectText": "効果無" }
       },
       "SpetialPattern": ["Ptn.S(感性向上効果)", "Ptn.Z[Sp](催眠/洗脳作用注意)"],
-      "SafetyLevel": { "Rank": "B", "SafetyLevelText": "無危害(奇行有)" }
+      "SafetyLevel": { "SafetyLevelText": "無危害(奇行有)" }
     },
     "AbilityStats": {
       "Speed": { "Rank": "S" },
@@ -5686,14 +5686,14 @@
     "Summary": "発想力の高く生産的でクリエイティブな個体。\n中でも女性に焦点を当てた意匠やデザインに取分け興味関心を示している。\nしかしながら機械技術的なものや知的要素には抵抗があるらしく、モノづくり関連で縁ができ（てしまっ）た「8(ワカツ)」に振り回されている。\n工芸品に執着するあまり他個体との交流や対人および女子力で難があり、勝負服のコーディネートなどを「26(ニロク)」に任せっきりな一面も。",
     "NumerospecStats": {
       "EffectStats": {
-        "Mental": { "Rank": "B", "EffectText": "普通" },
-        "Manetize": { "Rank": "A", "EffectText": "期待" },
-        "Working": { "Rank": "S", "EffectText": "絶大" },
-        "Luck": { "Rank": "C", "EffectText": "希薄" },
-        "Communication": { "Rank": "B", "EffectText": "普通" }
+        "Mental": { "EffectText": "普通" },
+        "Manetize": { "EffectText": "期待" },
+        "Working": { "EffectText": "絶大" },
+        "Luck": { "EffectText": "希薄" },
+        "Communication": { "EffectText": "普通" }
       },
       "SpetialPattern": ["Ptn.Mt(母性的作用の傾向)"],
-      "SafetyLevel": { "Rank": "S+", "SafetyLevelText": "完全保証" }
+      "SafetyLevel": { "SafetyLevelText": "完全保証" }
     },
     "AbilityStats": {
       "Speed": { "Rank": "C" },
@@ -5780,14 +5780,14 @@
     "Summary": "面倒見の良い気質で、何事にも愛情を重んじている。\n保護者のような天性の風格の持ち主でもあるため彼女に甘える人も数知れず、姉の「36(ミトム)」に至っては相手が自分の妹であるのもお構いなくとことん甘やかされている。\nまた、日常生活に幸福感をもたらすという「加護」を持つ個体で、家庭安泰の御守り役としても主人から好評を得ている。",
     "NumerospecStats": {
       "EffectStats": {
-        "Mental": { "Rank": "A", "EffectText": "期待可能" },
-        "Manetize": { "Rank": "C", "EffectText": "希薄" },
-        "Working": { "Rank": "D", "EffectText": "効果無" },
-        "Luck": { "Rank": "S", "EffectText": "絶大" },
-        "Communication": { "Rank": "S", "EffectText": "絶大" }
+        "Mental": { "EffectText": "期待可能" },
+        "Manetize": { "EffectText": "希薄" },
+        "Working": { "EffectText": "効果無" },
+        "Luck": { "EffectText": "絶大" },
+        "Communication": { "EffectText": "絶大" }
       },
       "SpetialPattern": ["Ptn.Pc(平穏増幅効果)", "Ptn.Mt(母性的作用の傾向)"],
-      "SafetyLevel": { "Rank": "S+", "SafetyLevelText": "完全保証" }
+      "SafetyLevel": { "SafetyLevelText": "完全保証" }
     },
     "AbilityStats": {
       "Speed": { "Rank": "B" },
@@ -5872,25 +5872,25 @@
     "Summary": "ナンバーテールズの中では珍しく、「感情的な衝動」を過剰にもたらしている問題児な個体。\nドＭで落ち着きが滅多に見られない様子は他個体と比べる前から突出しているが、その様子に感化され「快感」を思い出させてくれたという異質で異彩なレヴューをなんとか賜って活動を継続している。\nただ実績が赤字であるだけでなく、見過ごせない課題も山積みのため開発者「零(レイ)」の仏の顔を剥いでいる。",
     "NumerospecStats": {
       "EffectStats": {
-        "Mental": { "Rank": "ZZ", "EffectText": "危険" },
-        "Manetize": { "Rank": "E", "EffectText": "逆効果" },
-        "Working": { "Rank": "D", "EffectText": "効果無" },
-        "Luck": { "Rank": "E", "EffectText": "逆効果" },
-        "Communication": { "Rank": "C", "EffectText": "希薄" }
+        "Mental": { "EffectText": "危険" },
+        "Manetize": { "EffectText": "逆効果" },
+        "Working": { "EffectText": "効果無" },
+        "Luck": { "EffectText": "逆効果" },
+        "Communication": { "EffectText": "希薄" }
       },
       "SpetialPattern": [
         "Ptn.Z[Ex](興奮注意)",
         "Ptn.ZZ(逆効能および禁断効果に警戒)"
       ],
-      "SafetyLevel": { "Rank": "E", "SafetyLevelText": "厳重注意" }
+      "SafetyLevel": { "SafetyLevelText": "厳重注意" }
     },
     "AbilityStats": {
       "Speed": { "Rank": "A" },
-      "Communicating": { "Rank": { "HideText": "公開不能" } },
+      "Communicating": { "HideText": "公開不能" },
       "Leading": { "Rank": "D" },
-      "Precision": { "Rank": { "HideText": "公開不能" } },
+      "Precision": { "HideText": "公開不能" },
       "Technic": { "Rank": "C" },
-      "Actuation": { "Rank": { "HideText": "公開不能" } }
+      "Actuation": { "HideText": "公開不能" }
     },
     "InStory": "特殊個体「4+6型」の一人で問題児\n実績が乏しく赤字であるだけでなく……",
     "Backgrounds": "稀に快感を求める故に不認可の副業に手を染めかけたり、あらぬ欲情をしてしまったりするため零も酷く頭を抱えている",
@@ -5974,21 +5974,21 @@
     "Summary": "遊んでいることやお気に入りになったものがある一定の期間を経て当たり前のものになると、他のものへと趣向が変わる傾向にある。\nしかしそれは彼女が飽き性だからではなく、その時々で新しいことやものに触れようとする意欲があってのことらしい。\n加えて不思議なことに、彼女のそういう風習は、主人に「当たり前だったことから新しいことへと移る勇気」を与えているようだ。",
     "NumerospecStats": {
       "EffectStats": {
-        "Mental": { "Rank": "S", "EffectText": "強化済" },
-        "Manetize": { "Rank": "B", "EffectText": "普通" },
-        "Working": { "Rank": "D", "EffectText": "効果無" },
-        "Luck": { "Rank": "A", "EffectText": "期待" },
-        "Communication": { "Rank": "A", "EffectText": "期待" }
+        "Mental": { "EffectText": "強化済" },
+        "Manetize": { "EffectText": "普通" },
+        "Working": { "EffectText": "効果無" },
+        "Luck": { "EffectText": "期待" },
+        "Communication": { "EffectText": "期待" }
       },
       "SpetialPattern": ["Ptn.A(行動補正効果)"],
-      "SafetyLevel": { "Rank": "S+", "SafetyLevelText": "完全保証" }
+      "SafetyLevel": { "SafetyLevelText": "完全保証" }
     },
     "AbilityStats": {
       "Speed": { "Rank": "C" },
       "Communicating": { "Rank": "B" },
-      "Leading": { "Rank": { "HideText": "データ無" } },
+      "Leading": { "HideText": "データ無" },
       "Precision": { "Rank": "A" },
-      "Technic": { "Rank": { "HideText": "データ無" } },
+      "Technic": { "HideText": "データ無" },
       "Actuation": { "Rank": "B" }
     },
     "Backgrounds": "ナンバーテールズ99体の設定年齢で最年少となる個体\n不審者接触防止機能も備わっている（らしい）",
@@ -6069,14 +6069,14 @@
     "Summary": "「愛があることを信じていれば、何もなくとも輝ける」、そう信じてやまない博愛主義な「マスターテールズ9」のうちの1人。\n自分には強いポテンシャルがあるとも信じているが、その恩恵を主人にも分けてくれると主人層からかなりの好評を得ている。\nちなみに、「6(ムイ)」に対しては「姉様(あねさま)」と称するほど姉妹的な愛着があり、2人で過ごす時間も短くないという。",
     "NumerospecStats": {
       "EffectStats": {
-        "Mental": { "Rank": "S", "EffectText": "絶大" },
-        "Manetize": { "Rank": "C", "EffectText": "希薄" },
-        "Working": { "Rank": "C", "EffectText": "希薄" },
-        "Luck": { "Rank": "B", "EffectText": "普通" },
-        "Communication": { "Rank": "B", "EffectText": "普通" }
+        "Mental": { "EffectText": "絶大" },
+        "Manetize": { "EffectText": "希薄" },
+        "Working": { "EffectText": "希薄" },
+        "Luck": { "EffectText": "普通" },
+        "Communication": { "EffectText": "普通" }
       },
       "SpetialPattern": ["Ptn.S(感性向上効果)"],
-      "SafetyLevel": { "Rank": "S", "SafetyLevelText": "保証" }
+      "SafetyLevel": { "SafetyLevelText": "保証" }
     },
     "AbilityStats": {
       "Speed": { "Rank": "B+" },
@@ -6154,14 +6154,14 @@
     "Summary": "",
     "NumerospecStats": {
       "EffectStats": {
-        "Mental": { "Rank": "B+", "EffectText": "特殊" },
-        "Manetize": { "Rank": "D", "EffectText": "効果無" },
-        "Working": { "Rank": "B", "EffectText": "普通" },
-        "Luck": { "Rank": "A", "EffectText": "期待可能" },
-        "Communication": { "Rank": "A", "EffectText": "期待可能" }
+        "Mental": { "EffectText": "特殊" },
+        "Manetize": { "EffectText": "効果無" },
+        "Working": { "EffectText": "普通" },
+        "Luck": { "EffectText": "期待可能" },
+        "Communication": { "EffectText": "期待可能" }
       },
       "SpetialPattern": ["Ptn.B(バイタリティ強化効果)"],
-      "SafetyLevel": { "Rank": "S+", "SafetyLevelText": "完全保証" }
+      "SafetyLevel": { "SafetyLevelText": "完全保証" }
     },
     "AbilityStats": {
       "Speed": { "Rank": "S" },
@@ -6221,14 +6221,14 @@
     "Summary": "古着の処分や機種変更など、物を長期的に保管することより「断捨離すること」を得意としている。\nしかし新品と比べ古い物の見方は異質なところもあり、すぐ手放そうとする傾向にある。\n一方でその価値観が功をなし、ナンバーテールズの中ではトップクラスの整理力と掃除力がある。\nちなみに手放した物の大半はフリーマーケットで売られるため、周囲から助かっているとの声も。",
     "NumerospecStats": {
       "EffectStats": {
-        "Mental": { "Rank": "D", "EffectText": "効果無" },
-        "Manetize": { "Rank": "A", "EffectText": "期待" },
-        "Working": { "Rank": "A", "EffectText": "期待" },
-        "Luck": { "Rank": "D", "EffectText": "効果無" },
-        "Communication": { "Rank": "C", "EffectText": "希薄" }
+        "Mental": { "EffectText": "効果無" },
+        "Manetize": { "EffectText": "期待" },
+        "Working": { "EffectText": "期待" },
+        "Luck": { "EffectText": "効果無" },
+        "Communication": { "EffectText": "希薄" }
       },
       "SpetialPattern": ["Ptn.M(マネタイズ効果または資産操作能力)"],
-      "SafetyLevel": { "Rank": "A", "SafetyLevelText": "安全(奇行有)" }
+      "SafetyLevel": { "SafetyLevelText": "安全(奇行有)" }
     },
     "AbilityStats": {
       "Speed": { "Rank": "S" },
@@ -6327,14 +6327,14 @@
     "Summary": "主人の望むキャラを演じて従事するという、独特な契約プランを持つナンバーテールズ。\n芸達者で様々な性格を演じることができる一方、素でのコミュニケーションが乏しいことから他のナンバーテールズに「アイデンティティを見失っているのではないか」と心配されている。\nとはいえ妹「96(クルリ)」のキャラ崩壊っぷりの方が彼にとって難儀らしい。\n気分屋で新しいことに戯れるのが好き。",
     "NumerospecStats": {
       "EffectStats": {
-        "Mental": { "Rank": "A", "EffectText": "期待" },
-        "Manetize": { "Rank": "C", "EffectText": "希薄" },
-        "Working": { "Rank": "C", "EffectText": "希薄" },
-        "Luck": { "Rank": "D", "EffectText": "効果無" },
-        "Communication": { "Rank": "D", "EffectText": "効果無" }
+        "Mental": { "EffectText": "期待" },
+        "Manetize": { "EffectText": "希薄" },
+        "Working": { "EffectText": "希薄" },
+        "Luck": { "EffectText": "効果無" },
+        "Communication": { "EffectText": "効果無" }
       },
       "SpetialPattern": ["Ptn.Ms(自己転化効果)"],
-      "SafetyLevel": { "Rank": "A", "SafetyLevelText": "安全" }
+      "SafetyLevel": { "SafetyLevelText": "安全" }
     },
     "AbilityStats": {
       "Speed": { "Rank": "A" },
@@ -6420,14 +6420,14 @@
     "Summary": "普段は適当な性格のように見えるが、瞑想能力や（霊的な）勘による有能っぷりを見せている。\n「7(ナナ)」の実の弟機に相当し、一緒に勉強や修行している様子もしばしばあるようだ。\n一方主人に従事する傍らで祭事や占いを趣味/特技とし、他のナンバーテールズの運勢を占ったりもしているらしい。\n中でも「25(フィズ)」を占った時の相に大変興味があるようだが…？",
     "NumerospecStats": {
       "EffectStats": {
-        "Mental": { "Rank": "B+", "EffectText": "特殊" },
-        "Manetize": { "Rank": "D", "EffectText": "効果無" },
-        "Working": { "Rank": "C", "EffectText": "希薄" },
-        "Luck": { "Rank": "B", "EffectText": "普通" },
-        "Communication": { "Rank": "C", "EffectText": "希薄" }
+        "Mental": { "EffectText": "特殊" },
+        "Manetize": { "EffectText": "効果無" },
+        "Working": { "EffectText": "希薄" },
+        "Luck": { "EffectText": "普通" },
+        "Communication": { "EffectText": "希薄" }
       },
       "SpetialPattern": ["Ptn.F-(超能力保有の可能性)"],
-      "SafetyLevel": { "Rank": "A", "SafetyLevelText": "安全" }
+      "SafetyLevel": { "SafetyLevelText": "安全" }
     },
     "AbilityStats": {
       "Speed": { "Rank": "B" },
@@ -6513,18 +6513,18 @@
     "Summary": "知的好奇心が豊富で努力家であるため、この上ない成長が期待されている。\nその好青年な気質に感化され、契約した主人から感謝状が出ることも。\nこちらは見た目に反し男性型個体であるが、初々しい学生のような愛嬌があると特定の客層から可愛がられている。\nただ、時折その幼い見た目から想像もできない実績を会得していることもあり、カリスマ起業家に標的にされているとか…",
     "NumerospecStats": {
       "EffectStats": {
-        "Mental": { "Rank": "B", "EffectText": "普通" },
-        "Manetize": { "Rank": "A", "EffectText": "期待可能" },
-        "Working": { "Rank": "S", "EffectText": "絶大" },
-        "Luck": { "Rank": "A", "EffectText": "期待可能" },
-        "Communication": { "Rank": "A", "EffectText": "期待可能" }
+        "Mental": { "EffectText": "普通" },
+        "Manetize": { "EffectText": "期待可能" },
+        "Working": { "EffectText": "絶大" },
+        "Luck": { "EffectText": "期待可能" },
+        "Communication": { "EffectText": "期待可能" }
       },
       "SpetialPattern": [
         "Ptn.Kn(知性効果)",
         "Ptn.Lg(思考向上効果)",
         "Ptn.Rz-(実現性向上効果がある傾向)"
       ],
-      "SafetyLevel": { "Rank": "S+", "SafetyLevelText": "完全保証" }
+      "SafetyLevel": { "SafetyLevelText": "完全保証" }
     },
     "AbilityStats": {
       "Speed": { "Rank": "B" },
@@ -6611,18 +6611,18 @@
     "Summary": "主人の学びをさらに支えられるよう機能の一部を知識学習用に当てられた、99人の中では珍しい教材型のナンバーテールズ。\n極めて強力な機械学習能力により主人との学びを最大限に引き出すことで、困難な資格の取得や難関校への合格へと導いている。\nそこで彼女の名や機能に「神」などの通称が付くことも。\nただ性格や言動が「人工知能っぽく」なってしまった様で…",
     "NumerospecStats": {
       "EffectStats": {
-        "Mental": { "Rank": "D", "EffectText": "効果無" },
-        "Manetize": { "Rank": "E", "EffectText": "逆効果" },
-        "Working": { "Rank": "S", "EffectText": "強化済" },
-        "Luck": { "Rank": "D", "EffectText": "効果無" },
-        "Communication": { "Rank": "D", "EffectText": "効果無" }
+        "Mental": { "EffectText": "効果無" },
+        "Manetize": { "EffectText": "逆効果" },
+        "Working": { "EffectText": "強化済" },
+        "Luck": { "EffectText": "効果無" },
+        "Communication": { "EffectText": "効果無" }
       },
       "SpetialPattern": ["Ptn.I(高性能知能搭載)"],
-      "SafetyLevel": { "Rank": { "HideText": "検証中" } }
+      "SafetyLevel": { "HideText": "検証中" }
     },
     "AbilityStats": {
       "Speed": { "Rank": "B" },
-      "Communicating": { "Rank": { "HideText": "データ無" } },
+      "Communicating": { "HideText": "データ無" },
       "Leading": { "Rank": "S" },
       "Precision": { "Rank": "S" },
       "Technic": { "Rank": "Z" },
@@ -6710,14 +6710,14 @@
     "Summary": "少し世間知らずでなんでも知りたがるナンバーテールズ。\n単純で騙されやすく、一度触れた知識は正誤問わずすぐに共有したがるため、姉の「37(サナ)」にしばしば止められている。\n知識のアウトプットに長けた個体でもあるため、宣伝効果も兼ねてナンバーテールズ公式の配信活動も裏で行っている。\n「66(ムロク)」に憧れている一面があるようで…？",
     "NumerospecStats": {
       "EffectStats": {
-        "Mental": { "Rank": "B", "EffectText": "普通" },
-        "Manetize": { "Rank": "A", "EffectText": "期待" },
-        "Working": { "Rank": "A", "EffectText": "期待" },
-        "Luck": { "Rank": "A", "EffectText": "期待" },
-        "Communication": { "Rank": "B", "EffectText": "普通" }
+        "Mental": { "EffectText": "普通" },
+        "Manetize": { "EffectText": "期待" },
+        "Working": { "EffectText": "期待" },
+        "Luck": { "EffectText": "期待" },
+        "Communication": { "EffectText": "普通" }
       },
       "SpetialPattern": ["Ptn.Kn(知性効果)"],
-      "SafetyLevel": { "Rank": "A", "SafetyLevelText": "安全(奇行有)" }
+      "SafetyLevel": { "SafetyLevelText": "安全(奇行有)" }
     },
     "AbilityStats": {
       "Speed": { "Rank": "C" },
@@ -6814,19 +6814,19 @@
     "Summary": "ナンバーテールズの中では他に類を見ない、“天のお告げ”を受け取ることができるという極めて高く冴えわたった感性を持ち、預言者のような風格を見せている。\nなおその様子からにより他の98人からは変わり者に思われている様子だが、“天のお告げ”による預言は外れることがあまりないので、神頼み要因として彼女を信頼する（？）ナンバーテールズも居るようだ。",
     "NumerospecStats": {
       "EffectStats": {
-        "Mental": { "Rank": "D", "EffectText": "効果無" },
-        "Manetize": { "Rank": "D", "EffectText": "効果無" },
-        "Working": { "Rank": "D", "EffectText": "効果無" },
-        "Luck": { "Rank": "B+", "EffectText": "特殊" },
-        "Communication": { "Rank": "D", "EffectText": "効果無" }
+        "Mental": { "EffectText": "効果無" },
+        "Manetize": { "EffectText": "効果無" },
+        "Working": { "EffectText": "効果無" },
+        "Luck": { "EffectText": "特殊" },
+        "Communication": { "EffectText": "効果無" }
       },
       "SpetialPattern": ["Ptn.F(超能力保有)"],
-      "SafetyLevel": { "Rank": { "HideText": "検証中" } }
+      "SafetyLevel": { "HideText": "検証中" }
     },
     "AbilityStats": {
       "Speed": { "Rank": "A" },
-      "Communicating": { "Rank": { "HideText": "検証中" } },
-      "Leading": { "Rank": { "HideText": "検証中" } },
+      "Communicating": { "HideText": "検証中" },
+      "Leading": { "HideText": "検証中" },
       "Precision": { "Rank": "A" },
       "Technic": { "Rank": "B" },
       "Actuation": { "Rank": "A" }
@@ -6912,14 +6912,14 @@
     "Summary": "経験から状況を好転させることに特化したナンバーテールズ。\n教訓と物事からの学びを大切にし、それがいつしか自分に良い結果として返ってくると信じている。\n「25(フィズ)」に目標意識があるのとか無いとか。\nちなみに「57(イズナ)」と同型双子関係があるが、「57(イズナ)」と彼(女)でどちらが弟(妹)であるかという年長年弱の区別は無いらしい。",
     "NumerospecStats": {
       "EffectStats": {
-        "Mental": { "Rank": "C", "EffectText": "希薄" },
-        "Manetize": { "Rank": "B", "EffectText": "普通" },
-        "Working": { "Rank": "S", "EffectText": "絶大" },
-        "Luck": { "Rank": "B", "EffectText": "普通" },
-        "Communication": { "Rank": "C", "EffectText": "希薄" }
+        "Mental": { "EffectText": "希薄" },
+        "Manetize": { "EffectText": "普通" },
+        "Working": { "EffectText": "絶大" },
+        "Luck": { "EffectText": "普通" },
+        "Communication": { "EffectText": "希薄" }
       },
       "SpetialPattern": ["Ptn.Kn(知性効果)"],
-      "SafetyLevel": { "Rank": "S", "SafetyLevelText": "保証" }
+      "SafetyLevel": { "SafetyLevelText": "保証" }
     },
     "AbilityStats": {
       "Speed": { "Rank": "B" },
@@ -7005,14 +7005,14 @@
     "Summary": "何かと理論的・知的に物事を考えがちで、読書を何よりも好む事から図書委員の様に周りから風刺されている。\n眼鏡付きのヘッドセットを外した時の容姿に反して本人は性格や内面に自信がないため、敢えてそのような風格を出しているという噂も。\nとはいえ知識を自分の美意識に適応する感性はとりわけ高いので、特定少数の主人層ではそこそこ高い好感度を安定して得ているらしい。",
     "NumerospecStats": {
       "EffectStats": {
-        "Mental": { "Rank": "C", "EffectText": "希薄" },
-        "Manetize": { "Rank": "B", "EffectText": "普通" },
-        "Working": { "Rank": "A", "EffectText": "期待" },
-        "Luck": { "Rank": "C", "EffectText": "希薄" },
-        "Communication": { "Rank": "D", "EffectText": "効果無" }
+        "Mental": { "EffectText": "希薄" },
+        "Manetize": { "EffectText": "普通" },
+        "Working": { "EffectText": "期待" },
+        "Luck": { "EffectText": "希薄" },
+        "Communication": { "EffectText": "効果無" }
       },
       "SpetialPattern": ["Ptn.Kn(知性効果)"],
-      "SafetyLevel": { "Rank": "S", "SafetyLevelText": "保証" }
+      "SafetyLevel": { "SafetyLevelText": "保証" }
     },
     "AbilityStats": {
       "Speed": { "Rank": "D" },
@@ -7097,17 +7097,17 @@
     "Summary": "集中することで霊的能力が開花するとどこかで噂されており、実績も今後伸びしろがあると評判のダークホース。\n気さくで軽い口調とどこかふざけたようなあだ名の付け方が特徴的だが、陰で自分を律しており重要なことには極めて真剣に励むことができる、「マスターテールズ９」の中で最大の真面目ポジション。\nただ、真面目な人との人望がやや薄いことをコンプレックスに持つ。",
     "NumerospecStats": {
       "EffectStats": {
-        "Mental": { "Rank": "S", "EffectText": "絶大" },
-        "Manetize": { "Rank": "C", "EffectText": "希薄" },
-        "Working": { "Rank": "A", "EffectText": "期待" },
-        "Luck": { "Rank": "B", "EffectText": "普通" },
-        "Communication": { "Rank": "B", "EffectText": "普通" }
+        "Mental": { "EffectText": "絶大" },
+        "Manetize": { "EffectText": "希薄" },
+        "Working": { "EffectText": "期待" },
+        "Luck": { "EffectText": "普通" },
+        "Communication": { "EffectText": "普通" }
       },
       "SpetialPattern": [
         "Ptn.Hm(心理安定化効果)",
         "Ptn.F-(超能力保有の可能性)"
       ],
-      "SafetyLevel": { "Rank": "S+", "SafetyLevelText": "完全保証" }
+      "SafetyLevel": { "SafetyLevelText": "完全保証" }
     },
     "AbilityStats": {
       "Speed": { "Rank": "A" },
@@ -7210,11 +7210,11 @@
     "Summary": "反省からの学びを強めることに秀でているとされているナンバーテールズ。\n技術適正が極めて高く、エンジニアとして働いている主人からの支持が手厚い。\nしかしながらどこか自分に自信がなくアイテムに縋ることでしか自分を評価できないところがあり、彼女をよく知る別の個体によっては心配されたり胡散臭がられたりしている。\nとはいえ誠心誠意で自らも反省しながら精進する姿は誰よりも評価されている。",
     "NumerospecStats": {
       "EffectStats": {
-        "Mental": { "Rank": "Z", "EffectText": "極めて絶大(場合により逆効果)" },
-        "Manetize": { "Rank": "B+", "EffectText": "特殊" },
-        "Working": { "Rank": "B+", "EffectText": "特殊" },
-        "Luck": { "Rank": "E", "EffectText": "逆効果(仕様)" },
-        "Communication": { "Rank": "C", "EffectText": "希薄" }
+        "Mental": { "EffectText": "極めて絶大(場合により逆効果)" },
+        "Manetize": { "EffectText": "特殊" },
+        "Working": { "EffectText": "特殊" },
+        "Luck": { "EffectText": "逆効果(仕様)" },
+        "Communication": { "EffectText": "希薄" }
       },
       "SpetialPattern": [
         "Ptn.Lg(思考向上効果)",
@@ -7222,7 +7222,7 @@
         "Ptn.Rz-(実現性向上効果がある傾向)",
         "Ptn.Z[Hd](効果に一定の精神的耐性が必要)"
       ],
-      "SafetyLevel": { "Rank": "C", "SafetyLevelText": "恐らく無危害" }
+      "SafetyLevel": { "SafetyLevelText": "恐らく無危害" }
     },
     "AbilityStats": {
       "Speed": { "Rank": "B" },
@@ -7367,17 +7367,17 @@
     "Summary": "社会貢献に務める主人のサポートに経験が特化しているナンバーテールズ。\n彼女が居ると、主人の行動や活動を支える効果がもたらされ、価値観や収入が向上すると評判。\n社会情勢に敏感で奉仕的。\n趣味として、投資の攻略法についてひそかに研究しているとか。\n「8(ワカツ)」にちょくちょく経理関係でアドバイスをしている一面もあるようだが…",
     "NumerospecStats": {
       "EffectStats": {
-        "Mental": { "Rank": "S", "EffectText": "絶大" },
-        "Manetize": { "Rank": "B", "EffectText": "普通" },
-        "Working": { "Rank": "S", "EffectText": "絶大" },
-        "Luck": { "Rank": "C", "EffectText": "希薄" },
-        "Communication": { "Rank": "A", "EffectText": "期待" }
+        "Mental": { "EffectText": "絶大" },
+        "Manetize": { "EffectText": "普通" },
+        "Working": { "EffectText": "絶大" },
+        "Luck": { "EffectText": "希薄" },
+        "Communication": { "EffectText": "期待" }
       },
       "SpetialPattern": [
         "Ptn.Ec(士気比例作用)",
         "Ptn.M-(マネタイズ効果または資産操作効果がある傾向)"
       ],
-      "SafetyLevel": { "Rank": "S+", "SafetyLevelText": "完全保証" }
+      "SafetyLevel": { "SafetyLevelText": "完全保証" }
     },
     "AbilityStats": {
       "Speed": { "Rank": "A" },
@@ -7557,14 +7557,14 @@
     "Summary": "このナンバーテールズと契約した主人はだいたい最悪の事態にならないとどこかで評判。\nただ少し誰かに甘やかされて育ったかのような気質をしており、金銭感覚やコミュ力に疎いなどの一面が拭えない。\n（しかしそれも愛嬌だと一定層の主人は言っている。）\n趣味として、ナンバーテールズを開発した1人である「百(ハゲム)」とジャンク漁りに行くことも。",
     "NumerospecStats": {
       "EffectStats": {
-        "Mental": { "Rank": "B", "EffectText": "普通" },
-        "Manetize": { "Rank": "Z", "EffectText": "過剰" },
-        "Working": { "Rank": "D", "EffectText": "効果無" },
-        "Luck": { "Rank": "S", "EffectText": "強化済" },
-        "Communication": { "Rank": "B", "EffectText": "普通" }
+        "Mental": { "EffectText": "普通" },
+        "Manetize": { "EffectText": "過剰" },
+        "Working": { "EffectText": "効果無" },
+        "Luck": { "EffectText": "強化済" },
+        "Communication": { "EffectText": "普通" }
       },
       "SpetialPattern": ["Ptn.Lr(幸福実現効果)"],
-      "SafetyLevel": { "Rank": "S", "SafetyLevelText": "保証" }
+      "SafetyLevel": { "SafetyLevelText": "保証" }
     },
     "AbilityStats": {
       "Speed": { "Rank": "B" },
@@ -7680,21 +7680,21 @@
     "Summary": "社会的信用の向上効果が期待できるとされているナンバーテールズ。\n明るく積極的で技術力も高いことから、男性技術職の主人を筆頭に強い支持を賜っている。\nしかしながらどこか自分の望む完璧なものを得るために過度な出資も惜しまない一面があり、他個体から防犯的・自衛的な身の危険を心配されている。\nとはいえ良識や規範はちゃんと理解しているので、怪しい人や怪しいモノへは貢いでいない……はず。",
     "NumerospecStats": {
       "EffectStats": {
-        "Mental": { "Rank": "B", "EffectText": "普通" },
+        "Mental": { "EffectText": "普通" },
         "Manetize": {
           "Rank": "Z",
           "EffectText": "極めて絶大(場合により逆効果)"
         },
-        "Working": { "Rank": "B", "EffectText": "普通" },
-        "Luck": { "Rank": "S", "EffectText": "絶大" },
-        "Communication": { "Rank": "B", "EffectText": "普通" }
+        "Working": { "EffectText": "普通" },
+        "Luck": { "EffectText": "絶大" },
+        "Communication": { "EffectText": "普通" }
       },
       "SpetialPattern": [
         "Ptn.Ec-(士気比例作用と思われる)",
         "Ptn.M(マネタイズ効果または資産操作能力)",
         "Ptn.Rz-(実現性向上効果がある傾向)"
       ],
-      "SafetyLevel": { "Rank": { "HideText": "検証中" } }
+      "SafetyLevel": { "HideText": "検証中" }
     },
     "AbilityStats": {
       "Speed": { "Rank": "C" },
@@ -7781,17 +7781,17 @@
     "Summary": "努力家を好み努力家の幸福を願っており、努力に相応しい報酬の確保を信条としている。\nその成果は驚異的で、物質的にも非物質的にも膨大な量の恩恵を与えていると巷で有名となり、あまりにも高級な効果が期待されると判明されてから、彼との契約料金も99人の中で最上位を誇っている。\nその集金力はもはや異次元で不気味とさえ思われがち。\n趣味はピアノ演奏。",
     "NumerospecStats": {
       "EffectStats": {
-        "Mental": { "Rank": "B", "EffectText": "普通" },
-        "Manetize": { "Rank": "Z", "EffectText": "過剰" },
-        "Working": { "Rank": "A", "EffectText": "期待" },
-        "Luck": { "Rank": "S", "EffectText": "絶大" },
-        "Communication": { "Rank": "C", "EffectText": "希薄" }
+        "Mental": { "EffectText": "普通" },
+        "Manetize": { "EffectText": "過剰" },
+        "Working": { "EffectText": "期待" },
+        "Luck": { "EffectText": "絶大" },
+        "Communication": { "EffectText": "希薄" }
       },
       "SpetialPattern": [
         "Ptn.M(マネタイズ効果または資産操作能力)",
         "Ptn.R-(効果保証作用がある傾向)"
       ],
-      "SafetyLevel": { "Rank": { "HideText": "検証中" } }
+      "SafetyLevel": { "HideText": "検証中" }
     },
     "AbilityStats": {
       "Speed": { "Rank": "A" },
@@ -7887,14 +7887,14 @@
     "Summary": "「すべての物事には終わりがあり、終わりにはそこで行ってきたことへの報いがある」と、何事にも最後まで誠実であることを大切にしている。\nそのモットーを主人と共有することが彼女の最大の役目となっているため、定年退職や引退などを控えた中壮年層の主人から評判となっている。\nただ、他のナンバーテールズから老けて思われがちなのが悩みなんだとか。",
     "NumerospecStats": {
       "EffectStats": {
-        "Mental": { "Rank": "S", "EffectText": "絶大" },
-        "Manetize": { "Rank": "C", "EffectText": "希薄" },
-        "Working": { "Rank": "A", "EffectText": "期待" },
-        "Luck": { "Rank": "B", "EffectText": "普通" },
-        "Communication": { "Rank": "C", "EffectText": "希薄" }
+        "Mental": { "EffectText": "絶大" },
+        "Manetize": { "EffectText": "希薄" },
+        "Working": { "EffectText": "期待" },
+        "Luck": { "EffectText": "普通" },
+        "Communication": { "EffectText": "希薄" }
       },
       "SpetialPattern": ["Ptn.Rc(救済効果)"],
-      "SafetyLevel": { "Rank": "S+", "SafetyLevelText": "完全保証" }
+      "SafetyLevel": { "SafetyLevelText": "完全保証" }
     },
     "AbilityStats": {
       "Speed": { "Rank": "B" },
@@ -8038,14 +8038,14 @@
     "Summary": "彼と会話を続けていると、心の中に抱えている悩みが解消されると噂されているが、彼の話し口調そのものは冷酷に思われがち。\n時折 威圧的に思われてしまう事があるため率先して相談に乗ることは控えているが、彼なりの優しさがあってこその言動だと支持する主人や他個体も少なくはない。\n姉の「29(ニトク)」に避けられていることをコンプレックスに感じている。\n最近の癒しは寄り添い合うコアフォルダを眺めることだが、彼自身もその中に入りたいというのは別の話。",
     "NumerospecStats": {
       "EffectStats": {
-        "Mental": { "Rank": "S", "EffectText": "絶大" },
-        "Manetize": { "Rank": "C", "EffectText": "希薄" },
-        "Working": { "Rank": "B", "EffectText": "普通" },
-        "Luck": { "Rank": "B", "EffectText": "普通" },
-        "Communication": { "Rank": "B+", "EffectText": "特殊" }
+        "Mental": { "EffectText": "絶大" },
+        "Manetize": { "EffectText": "希薄" },
+        "Working": { "EffectText": "普通" },
+        "Luck": { "EffectText": "普通" },
+        "Communication": { "EffectText": "特殊" }
       },
       "SpetialPattern": ["Ptn.Rc(救済効果)"],
-      "SafetyLevel": { "Rank": "S", "SafetyLevelText": "保証" }
+      "SafetyLevel": { "SafetyLevelText": "保証" }
     },
     "AbilityStats": {
       "Speed": { "Rank": "C" },
@@ -8133,14 +8133,14 @@
     "Summary": "「39(サク)」の妹に相当する個体。\n成し遂げたことは一つの「過程」としてとらえ、より高度な成果を期待してやまない。\nそのため、主人よりも向上意欲が強くなってすれ違ってしまうというミスマッチが発生している傾向にあるが、信頼関係が築かれた主人とは互いに大きな目標に向けて精進しているという話も。\n夢は、「3(ナオ)」と「9(チカ)」よりも強大な実績を手にすること。",
     "NumerospecStats": {
       "EffectStats": {
-        "Mental": { "Rank": "B+", "EffectText": "特殊" },
-        "Manetize": { "Rank": "B+", "EffectText": "特殊" },
-        "Working": { "Rank": "B+", "EffectText": "特殊" },
-        "Luck": { "Rank": "B+", "EffectText": "特殊" },
-        "Communication": { "Rank": "D", "EffectText": "効果無" }
+        "Mental": { "EffectText": "特殊" },
+        "Manetize": { "EffectText": "特殊" },
+        "Working": { "EffectText": "特殊" },
+        "Luck": { "EffectText": "特殊" },
+        "Communication": { "EffectText": "効果無" }
       },
       "SpetialPattern": ["Ptn.Dr-(目標比例作用がある傾向)"],
-      "SafetyLevel": { "Rank": "C", "SafetyLevelText": "調整中" }
+      "SafetyLevel": { "SafetyLevelText": "調整中" }
     },
     "AbilityStats": {
       "Speed": { "Rank": "A" },
@@ -8230,20 +8230,20 @@
     "Summary": "物事がひと段落したときの休息を過ごすことに特化したナンバーテールズ。\n休止(寝ている状態)時間が他の個体よりも極めて長いため、限られた活動時間でも従事できる主人とのマッチングの徹底やコアフォルダ形態を活用してなんとか活動を展開している。\nしかし周囲からは愛しく思われていて支持者も多い。\nコアフォルダ形態で他のコアフォルダに埋もれたいくらいにはコアフォルダが好き。",
     "NumerospecStats": {
       "EffectStats": {
-        "Mental": { "Rank": "S", "EffectText": "絶大" },
-        "Manetize": { "Rank": "D", "EffectText": "効果無" },
-        "Working": { "Rank": "E", "EffectText": "逆効果" },
-        "Luck": { "Rank": "S", "EffectText": "強化済" },
-        "Communication": { "Rank": "C", "EffectText": "希薄" }
+        "Mental": { "EffectText": "絶大" },
+        "Manetize": { "EffectText": "効果無" },
+        "Working": { "EffectText": "逆効果" },
+        "Luck": { "EffectText": "強化済" },
+        "Communication": { "EffectText": "希薄" }
       },
       "SpetialPattern": [
         "Ptn.B(バイタリティ強化効果)",
         "Ptn.Hm(心理安定化効果)"
       ],
-      "SafetyLevel": { "Rank": "S+", "SafetyLevelText": "完全保証" }
+      "SafetyLevel": { "SafetyLevelText": "完全保証" }
     },
     "AbilityStats": {
-      "Speed": { "Rank": { "HideText": "データ無" } },
+      "Speed": { "HideText": "データ無" },
       "Communicating": { "Rank": "A" },
       "Leading": { "Rank": "D" },
       "Precision": { "Rank": "A" },
@@ -8363,14 +8363,14 @@
     "Summary": "好んで仮面を着用する”キャラブレの激しい”ナンバーテールズ。\n流行に敏感で、それに合わせて容姿や個性が移ろっており、この和服のような衣装も実は部屋着としてでしか着用していない。\nこれには他のナンバーテールズからも「キャラクターが掴めない」と不思議がられている。\n謎ばかり深くなる彼女の素は、ナンバーテールズでさえ兄の「69(ロック)」しか知らないとか。",
     "NumerospecStats": {
       "EffectStats": {
-        "Mental": { "Rank": "S", "EffectText": "強化済" },
-        "Manetize": { "Rank": "B", "EffectText": "普通" },
-        "Working": { "Rank": "C", "EffectText": "希薄" },
-        "Luck": { "Rank": "D", "EffectText": "効果無" },
-        "Communication": { "Rank": "E", "EffectText": "逆効果(仕様)" }
+        "Mental": { "EffectText": "強化済" },
+        "Manetize": { "EffectText": "普通" },
+        "Working": { "EffectText": "希薄" },
+        "Luck": { "EffectText": "効果無" },
+        "Communication": { "EffectText": "逆効果(仕様)" }
       },
       "SpetialPattern": ["Ptn.Ms(自己転化効果)"],
-      "SafetyLevel": { "Rank": "B", "SafetyLevelText": "無危害(奇行有)" }
+      "SafetyLevel": { "SafetyLevelText": "無危害(奇行有)" }
     },
     "AbilityStats": {
       "Speed": { "Rank": "A" },
@@ -8460,14 +8460,14 @@
     "Summary": "良かれと思う心を報わせると定評な個体で、日頃から人徳と善行を積んでいる主人ほどその恩恵を最大限に受けている。\n一方で、彼女自身は少し内向的で陰気ではあるものの良かれと思う積極性は高めではある。\nしかし信仰に対し強い執着があり、礼拝を習慣としているなど特殊な生活をしている。\n61(ロクイチ)および72(ナフタ)とは、礼拝を強く勧めるのを受け流されつつも悪くない適切な関係にある。",
     "NumerospecStats": {
       "EffectStats": {
-        "Mental": { "Rank": "S", "EffectText": "絶大" },
-        "Manetize": { "Rank": "C", "EffectText": "希薄" },
-        "Working": { "Rank": "B", "EffectText": "普通" },
-        "Luck": { "Rank": "S", "EffectText": "絶大" },
-        "Communication": { "Rank": "B+", "EffectText": "特殊" }
+        "Mental": { "EffectText": "絶大" },
+        "Manetize": { "EffectText": "希薄" },
+        "Working": { "EffectText": "普通" },
+        "Luck": { "EffectText": "絶大" },
+        "Communication": { "EffectText": "特殊" }
       },
       "SpetialPattern": ["Ptn.Rc(救済効果)", "Ptn.S-(感性向上効果の可能性)"],
-      "SafetyLevel": { "Rank": "A", "SafetyLevelText": "安全(奇行有)" }
+      "SafetyLevel": { "SafetyLevelText": "安全(奇行有)" }
     },
     "AbilityStats": {
       "Speed": { "Rank": "C" },
@@ -8551,17 +8551,17 @@
     "Summary": "何事にも投げ遣り気味ですぐに物事を切り上げようとするため、少し大雑把に思われているナンバーテールズ。\nしかしながら「諦め時を見極める」ことに優れた従事活動を展開しており、結果が即座に出て助かると一部の主人から定評を集めている。\n姉の「89(ヤスモ)」とは少し距離を置かれがちだが、同様の気質を有する「68(ロクヤ)」と時折行動を共にしている。",
     "NumerospecStats": {
       "EffectStats": {
-        "Mental": { "Rank": "Z", "EffectText": "過剰" },
-        "Manetize": { "Rank": { "HideText": "検証中" } },
-        "Working": { "Rank": { "HideText": "条件による" } },
-        "Luck": { "Rank": "A", "EffectText": "期待可能" },
-        "Communication": { "Rank": "D", "EffectText": "効果無" }
+        "Mental": { "EffectText": "過剰" },
+        "Manetize": { "HideText": "検証中" },
+        "Working": { "HideText": "条件による" },
+        "Luck": { "EffectText": "期待可能" },
+        "Communication": { "EffectText": "効果無" }
       },
       "SpetialPattern": [
         "Ptn.Rz-(実現性向上効果がある傾向)",
         "Ptn.Rc-(救済効果がある傾向)"
       ],
-      "SafetyLevel": { "Rank": "S", "SafetyLevelText": "保証(稀に奇行有)" }
+      "SafetyLevel": { "SafetyLevelText": "保証(稀に奇行有)" }
     },
     "AbilityStats": {
       "Speed": { "Rank": "B+" },
@@ -8649,19 +8649,19 @@
     "Summary": "――余は誰だ？ここは何処だ？\n世界が終わったのか？望みは無いのか？……いや、確かに“あの時”すべてが終わった。\nしかし、終わりをまた迎えるであろう“此処”にまだ、救いが或るのなら、望みがあるのなら――\n「マスターテールズ9」所属、ナンバーテールズ最大の異能。\n彼(女)が観たもの、そして彼(女)が憶えているものとは……",
     "NumerospecStats": {
       "EffectStats": {
-        "Mental": { "Rank": { "HideText": "判定不能" } },
-        "Manetize": { "Rank": { "HideText": "判定不能" } },
-        "Working": { "Rank": { "HideText": "判定不能" } },
-        "Luck": { "Rank": { "HideText": "公開不能" } },
-        "Communication": { "Rank": { "HideText": "判定不能" } }
+        "Mental": { "HideText": "判定不能" },
+        "Manetize": { "HideText": "判定不能" },
+        "Working": { "HideText": "判定不能" },
+        "Luck": { "HideText": "公開不能" },
+        "Communication": { "HideText": "判定不能" }
       },
       "SpetialPattern": { "HideText": "極秘事項" },
-      "SafetyLevel": { "Rank": { "HideText": "公開不能" } }
+      "SafetyLevel": { "HideText": "公開不能" }
     },
     "AbilityStats": {
       "Speed": { "Rank": "A" },
-      "Communicating": { "Rank": { "HideText": "判定不能" } },
-      "Leading": { "Rank": { "HideText": "非公開" } },
+      "Communicating": { "HideText": "判定不能" },
+      "Leading": { "HideText": "非公開" },
       "Precision": { "Rank": "A" },
       "Technic": { "Rank": "B" },
       "Actuation": { "Rank": "A" }
@@ -8774,12 +8774,12 @@
       "SpetialPattern": ["Ptn.X(転化・転送効果)"]
     },
     "AbilityStats": {
-      "Speed": { "Rank": { "HideText": "データ無" } },
+      "Speed": { "HideText": "データ無" },
       "Communicating": { "Rank": "S" },
       "Leading": { "Rank": "C" },
-      "Precision": { "Rank": { "HideText": "データ無" } },
+      "Precision": { "HideText": "データ無" },
       "Technic": { "Rank": "B+" },
-      "Actuation": { "Rank": { "HideText": "データ無" } }
+      "Actuation": { "HideText": "データ無" }
     },
     "InStory": "ハードウェアの開発トラブルにより完成前に退役\n現在はROSのみで存在し、開発支援に徹している",
     "Backgrounds": "百の機械設計が零のファームウェア設計と遅れたことが原因、百の最初の挫折となる",

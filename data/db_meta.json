@@ -513,29 +513,59 @@
       ],
       "$Def_Stats": {
         "$EnumDef_Rank": {
-          "#R2_Great": "S",
-          "#R3_Good": "A",
-          "#R4plus_BasicOrSpecific": "B+",
-          "#R4_Normal": "B",
-          "#R5_NotSoGood": "C",
-          "#R6_Bad": "D",
-          "#R7_Worst": "E",
-          "#R2plus_Extended": "S+",
-          "#R1_OverLimited": "Z",
-          "#R8_Dangerous": "ZZ"
+          "#Rank2": { "Rank": "S" },
+          "#Rank3": { "Rank": "A" },
+          "#Rank4adv": { "Rank": "B+" },
+          "#Rank4": { "Rank": "B" },
+          "#Rank5": { "Rank": "C" },
+          "#Rank6": { "Rank": "D" },
+          "#Rank7": { "Rank": "E" },
+          "#Rank2adv": { "Rank": "S+" },
+          "#Rank1": { "Rank": "Z" },
+          "#Rank0": { "Rank": "ZZ" }
         },
         "$Def_AbilityStats": {
-          "#Link(Rank)_AbilityText": {
-            "#R2_Great": "卓越",
-            "#R3_Good": "優秀",
-            "#R4plus_BasicOrSpecific": "標準",
-            "#R4_Normal": "普通",
-            "#R5_NotSoGood": "稚拙",
-            "#R6_Bad": "欠落",
-            "#R7_Worst": "障碍有",
-            "#R2plus_Extended": null,
-            "#R1_OverLimited": "過剰",
-            "#R8_Dangerous": null
+          "$EnumLink_AbilityText": {
+            "#Rank1": {
+              "Rank": "Z",
+              "AbilityText": "過剰",
+              "AbilityText_EN": "Excessive"
+            },
+            "#Rank2": {
+              "Rank": "S",
+              "AbilityText": "卓越",
+              "AbilityText_EN": "Excellent"
+            },
+            "#Rank3": {
+              "Rank": "A",
+              "AbilityText": "優秀",
+              "AbilityText_EN": "Very Good"
+            },
+            "#Rank4adv": {
+              "Rank": "B+",
+              "AbilityText": "標準",
+              "AbilityText_EN": "Standard"
+            },
+            "#Rank4": {
+              "Rank": "B",
+              "AbilityText": "普通",
+              "AbilityText_EN": "Average"
+            },
+            "#Rank5": {
+              "Rank": "C",
+              "AbilityText": "稚拙",
+              "AbilityText_EN": "Poor"
+            },
+            "#Rank6": {
+              "Rank": "D",
+              "AbilityText": "欠落",
+              "AbilityText_EN": "Missing"
+            },
+            "#Rank7": {
+              "Rank": "E",
+              "AbilityText": "障碍有",
+              "AbilityText_EN": "Obstructed"
+            }
           }
         }
       }

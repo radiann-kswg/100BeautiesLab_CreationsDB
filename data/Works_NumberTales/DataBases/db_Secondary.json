@@ -43,14 +43,14 @@
     "NumerospecAbout": { "HideText": "極秘事項" },
     "NumerospecStats": {
       "EffectStats": {
-        "Mental": { "Rank": { "HideText": "非公開" } },
-        "Manetize": { "Rank": { "HideText": "非公開" } },
-        "Working": { "Rank": { "HideText": "非公開" } },
-        "Luck": { "Rank": { "HideText": "非公開" } },
-        "Communication": { "Rank": { "HideText": "非公開" } }
+        "Mental": { "HideText": "非公開" },
+        "Manetize": { "HideText": "非公開" },
+        "Working": { "HideText": "非公開" },
+        "Luck": { "HideText": "非公開" },
+        "Communication": { "HideText": "非公開" }
       },
       "SpetialPattern": { "HideText": "極秘事項" },
-      "SafetyLevel": { "Rank": { "HideText": "非公開" } }
+      "SafetyLevel": { "HideText": "非公開" }
     },
     "AbilityStats": {
       "Speed": { "Rank": "B+" },
@@ -58,7 +58,7 @@
       "Leading": { "Rank": "A" },
       "Precision": { "Rank": "A" },
       "Technic": { "Rank": "S" },
-      "Actuation": { "Rank": { "HideText": "非公開" } }
+      "Actuation": { "HideText": "非公開" }
     },
     "InStory": "「エイゼルベット」の観測者「シグマ-クロステールズ」の元で観測を受けている、ある電脳世界との間で生まれた個体\n彼(女)が切るカードには強い潜在能力が秘められていると推測されているようだが…？",
     "Relation": {
@@ -156,14 +156,14 @@
     "NumerospecAbout": { "HideText": "極秘事項" },
     "NumerospecStats": {
       "EffectStats": {
-        "Mental": { "Rank": { "HideText": "検証中" } },
-        "Manetize": { "Rank": "D", "EffectText": "効果無" },
-        "Working": { "Rank": "A", "EffectText": "期待" },
-        "Luck": { "Rank": "S", "EffectText": "絶大" },
-        "Communication": { "Rank": "B+", "EffectText": "特殊" }
+        "Mental": { "HideText": "検証中" },
+        "Manetize": { "EffectText": "効果無" },
+        "Working": { "EffectText": "期待" },
+        "Luck": { "EffectText": "絶大" },
+        "Communication": { "EffectText": "特殊" }
       },
       "SpetialPattern": { "HideText": "極秘事項" },
-      "SafetyLevel": { "Rank": { "HideText": "検証中" } }
+      "SafetyLevel": { "HideText": "検証中" }
     },
     "AbilityStats": {
       "Speed": { "Rank": "C" },
@@ -276,14 +276,14 @@
     "NumerospecAbout": { "HideText": "極秘事項" },
     "NumerospecStats": {
       "EffectStats": {
-        "Mental": { "Rank": "B+", "EffectText": "特殊" },
-        "Manetize": { "Rank": { "HideText": "検証中" } },
-        "Working": { "Rank": "D", "EffectText": "効果無" },
-        "Luck": { "Rank": "E", "EffectText": "逆効果" },
-        "Communication": { "Rank": "D", "EffectText": "効果無" }
+        "Mental": { "EffectText": "特殊" },
+        "Manetize": { "HideText": "検証中" },
+        "Working": { "EffectText": "効果無" },
+        "Luck": { "EffectText": "逆効果" },
+        "Communication": { "EffectText": "効果無" }
       },
       "SpetialPattern": { "HideText": "極秘事項" },
-      "SafetyLevel": { "Rank": "E", "SafetyLevelText": "厳重注意" }
+      "SafetyLevel": { "SafetyLevelText": "厳重注意" }
     },
     "AbilityStats": {
       "Speed": { "Rank": "A" },
@@ -402,14 +402,14 @@
     "NumerospecAbout": { "HideText": "極秘事項" },
     "NumerospecStats": {
       "EffectStats": {
-        "Mental": { "Rank": "C", "EffectText": "希薄" },
-        "Manetize": { "Rank": "D", "EffectText": "効果無" },
-        "Working": { "Rank": "S", "EffectText": "絶大" },
-        "Luck": { "Rank": "D", "EffectText": "効果無" },
-        "Communication": { "Rank": { "HideText": "検証中" } }
+        "Mental": { "EffectText": "希薄" },
+        "Manetize": { "EffectText": "効果無" },
+        "Working": { "EffectText": "絶大" },
+        "Luck": { "EffectText": "効果無" },
+        "Communication": { "HideText": "検証中" }
       },
       "SpetialPattern": { "HideText": "極秘事項" },
-      "SafetyLevel": { "Rank": "C", "SafetyLevelText": "調整中" }
+      "SafetyLevel": { "SafetyLevelText": "調整中" }
     },
     "AbilityStats": {
       "Speed": { "Rank": "B" },
@@ -534,21 +534,21 @@
     "NumerospecAbout": { "HideText": "極秘事項" },
     "NumerospecStats": {
       "EffectStats": {
-        "Mental": { "Rank": "D", "EffectText": "効果無" },
-        "Manetize": { "Rank": "A", "EffectText": "期待" },
-        "Working": { "Rank": { "HideText": "検証中" } },
-        "Luck": { "Rank": { "HideText": "検証中" } },
-        "Communication": { "Rank": "D", "EffectText": "効果無" }
+        "Mental": { "EffectText": "効果無" },
+        "Manetize": { "EffectText": "期待" },
+        "Working": { "HideText": "検証中" },
+        "Luck": { "HideText": "検証中" },
+        "Communication": { "EffectText": "効果無" }
       },
       "SpetialPattern": { "HideText": "極秘事項" },
-      "SafetyLevel": { "Rank": "D", "SafetyLevelText": "注意" }
+      "SafetyLevel": { "SafetyLevelText": "注意" }
     },
     "AbilityStats": {
       "Speed": { "Rank": "A" },
       "Communicating": { "Rank": "B" },
       "Leading": { "Rank": { "Rank": "A", "about": "？" } },
       "Precision": { "Rank": "S" },
-      "Technic": { "Rank": { "HideText": "非公開" } },
+      "Technic": { "HideText": "非公開" },
       "Actuation": { "Rank": "S" }
     },
     "InStory": "「エイゼルベット」の観測者「シグマ-クロステールズ」の元で観測を受けている、ある電脳世界との間で生まれた個体\n向こう側の電脳世界でもこちらの世界でも、色んなものの魔改造に勤しんでいる",
@@ -638,22 +638,22 @@
     "NumerospecAbout": { "HideText": "公開不能" },
     "NumerospecStats": {
       "EffectStats": {
-        "Mental": { "Rank": "ZZ", "EffectText": "危険" },
-        "Manetize": { "Rank": { "HideText": "判定失敗" } },
-        "Working": { "Rank": { "HideText": "判定失敗" } },
-        "Luck": { "Rank": { "HideText": "判定失敗" } },
-        "Communication": { "Rank": { "HideText": "判定失敗" } }
+        "Mental": { "EffectText": "危険" },
+        "Manetize": { "HideText": "判定失敗" },
+        "Working": { "HideText": "判定失敗" },
+        "Luck": { "HideText": "判定失敗" },
+        "Communication": { "HideText": "判定失敗" }
       },
       "SpetialPattern": { "HideText": "極秘事項" },
-      "SafetyLevel": { "Rank": { "HideText": "公開不能" } }
+      "SafetyLevel": { "HideText": "公開不能" }
     },
     "AbilityStats": {
       "Speed": { "Rank": "B" },
       "Communicating": { "Rank": "S" },
       "Leading": { "Rank": "A" },
       "Precision": { "Rank": "A" },
-      "Technic": { "Rank": { "HideText": "判定失敗" } },
-      "Actuation": { "Rank": { "HideText": "判定失敗" } }
+      "Technic": { "HideText": "判定失敗" },
+      "Actuation": { "HideText": "判定失敗" }
     },
     "InStory": "「エイゼルベット」の観測者「シグマ-クロステールズ」の元で観測を受けている、ある電脳世界との間で生まれた個体\n彼女を前にした人々は彼女に「ママ」だと甘えだし……",
     "Relation": {
