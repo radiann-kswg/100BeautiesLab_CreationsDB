@@ -72,42 +72,52 @@
   "General": {
     "$VarsDef": {
       "$EnumDef_Progress": {
-        "#yet": {
+        "#Progress_Yet": {
           "Progress": "notProceeded",
           "Progress_JP": "未着手",
           "isForSecondary": false
         },
-        "#tenative": {
+        "#Progress_Tenative": {
           "Progress": "stillTentative",
-          "Progress_JP": "現状は仮公開",
+          "Progress_JP": "現状は仮公開(アルファリリース)",
           "isForSecondary": false
         },
-        "#nowCreating": {
+        "#Progress_Unprofiled": {
+          "Progress": "unprofiled",
+          "Progress_JP": "プロフィール公開は無し",
+          "isForSecondary": false
+        },
+        "#Progress_Creating": {
           "Progress": "nowCreating",
           "Progress_JP": "制作中",
           "isForSecondary": false
         },
-        "#released": {
+        "#Progress_BetaReleased": {
+          "Progress": "released(beta)",
+          "Progress_JP": "公開済み(ベータリリース)",
+          "isForSecondary": false
+        },
+        "#Progress_Released": {
           "Progress": "released",
           "Progress_JP": "公開済み",
           "isForSecondary": false
         },
-        "#founded": {
+        "#Progress_Founded": {
           "Progress": "founded",
           "Progress_JP": "確認済み",
           "isForSecondary": true
         },
-        "#accepted": {
+        "#Progress_Accepted": {
           "Progress": "accpeted",
           "Progress_JP": "公認済み",
           "isForSecondary": true
         },
-        "#nowRemaking": {
+        "#Progress_Remaking": {
           "Progress": "accepted\nnowRemaking",
           "Progress_JP": "公認済み\nこちらで再制作中",
           "isForSecondary": true
         },
-        "#remadeReleased": {
+        "#Progress_Remaded": {
           "Progress": "accepted\nremadeReleased",
           "Progress_JP": "公認済み\nこちらからも公開済み",
           "isForSecondary": true
@@ -412,7 +422,7 @@
           },
           {
             "Belonging": "セブンティエイト特殊探偵団",
-            "Belonging_EN": "Team. z78(Seventy-Eight) Special Investigators",
+            "Belonging_EN": "Team.78(Seventy-Eight) the Special Investigators",
             "BaseArea": { "Area": "英皇国" },
             "isForSecondary": false
           },

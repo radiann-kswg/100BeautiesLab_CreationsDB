@@ -264,7 +264,6 @@
   },
   {
     "Num": "111-mp",
-    "Progress": "released",
     "_DBLink": {
       "worksTitle": "NumberTales",
       "dbName": "SemiPrimary",
@@ -420,7 +419,6 @@
   },
   {
     "Num": "200-mp",
-    "Progress": "notProceeded",
     "_DBLink": {
       "worksTitle": "NumberTales",
       "dbName": "SemiPrimary",
@@ -447,7 +445,6 @@
   },
   {
     "Num": "222-mp",
-    "Progress": "notProceeded",
     "_DBLink": {
       "worksTitle": "NumberTales",
       "dbName": "SemiPrimary",
@@ -474,7 +471,6 @@
   },
   {
     "Num": "333-mp",
-    "Progress": "notProceeded",
     "_DBLink": {
       "worksTitle": "NumberTales",
       "dbName": "SemiPrimary",
@@ -499,7 +495,6 @@
   },
   {
     "Num": "400-mp",
-    "Progress": "notProceeded",
     "_DBLink": {
       "worksTitle": "NumberTales",
       "dbName": "SemiPrimary",
@@ -525,7 +520,6 @@
   },
   {
     "Num": "444-mp",
-    "Progress": "notProceeded",
     "_DBLink": {
       "worksTitle": "NumberTales",
       "dbName": "SemiPrimary",
@@ -551,7 +545,6 @@
   },
   {
     "Num": "555-mp",
-    "Progress": "notProceeded",
     "_DBLink": {
       "worksTitle": "NumberTales",
       "dbName": "SemiPrimary",
@@ -599,7 +592,6 @@
   },
   {
     "Num": "666-mp",
-    "Progress": "released",
     "_DBLink": {
       "worksTitle": "NumberTales",
       "dbName": "SemiPrimary",
@@ -656,7 +648,6 @@
   },
   {
     "Num": "777.Jackpot",
-    "Progress": "released",
     "_DBLink": {
       "worksTitle": "NumberTales",
       "dbName": "SemiPrimary",
@@ -683,7 +674,6 @@
   },
   {
     "Num": "777-mp",
-    "Progress": "released",
     "_DBLink": {
       "worksTitle": "NumberTales",
       "dbName": "SemiPrimary",
@@ -698,7 +688,6 @@
   },
   {
     "Num": "777.Jackpot-mp",
-    "Progress": "released",
     "_DBLink": {
       "worksTitle": "NumberTales",
       "dbName": "SelfSecondary",
@@ -727,7 +716,6 @@
   },
   {
     "Num": "888-mp",
-    "Progress": "notProceeded",
     "_DBLink": {
       "worksTitle": "NumberTales",
       "dbName": "SemiPrimary",
@@ -765,7 +753,6 @@
   },
   {
     "Num": "999-mp",
-    "Progress": "notProceeded",
     "_DBLink": {
       "worksTitle": "NumberTales",
       "dbName": "SemiPrimary",

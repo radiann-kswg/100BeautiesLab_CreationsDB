@@ -1,6 +1,7 @@
 [
   {
     "Drc": "N",
+    "Progress": "released(beta)",
     "_DBLink": {
       "worksTitle": "NumberTales",
       "dbName": "Primary",
@@ -29,7 +30,7 @@
   },
   {
     "Drc": "NE",
-    "Progress": "released",
+    "Progress": "released(beta)",
     "Images": {
       "concept_PNGName": "cnsp_imgDrcNE",
       "arts_PNGPath": ["art_imgDrcNE-InfrationAerialSwimming"]
@@ -129,7 +130,7 @@
   },
   {
     "Drc": "S",
-    "Progress": "released",
+    "Progress": "released(beta)",
     "Images": {
       "concept_PNGName": "cnsp_imgDrcS"
     },
@@ -235,7 +236,7 @@
   },
   {
     "Drc": "NW",
-    "Progress": "released",
+    "Progress": "released(beta)",
     "Images": {
       "concept_PNGName": "cnsp_imgDrcNW"
     },

@@ -8971,7 +8971,7 @@
   },
   {
     "Num": "0",
-    "Progress": "released",
+    "Progress": "released(beta)",
     "Images": {
       "concept_PNGName": "cnsp_img0"
     },
@@ -9004,7 +9004,7 @@
   },
   {
     "Num": "00",
-    "Progress": "released",
+    "Progress": "released(beta)",
     "Images": {
       "concept_PNGName": "cnsp_img00"
     },

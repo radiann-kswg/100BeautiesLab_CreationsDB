@@ -1,7 +1,7 @@
 [
   {
     "Generation": 2,
-    "Progress": "released",
+    "Progress": "unprofiled",
     "_DBLink": {
       "worksTitle": "DestinyFoxsRecords",
       "dbName": "Primary",
@@ -31,7 +31,7 @@
   },
   {
     "Generation": 3,
-    "Progress": "released",
+    "Progress": "unprofiled",
     "Name": "ラジアン(3代目)",
     "Name_EN": "RadianN (3nd Gen.)",
     "Images": {

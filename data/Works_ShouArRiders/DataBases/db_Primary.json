@@ -56,7 +56,7 @@
   },
   {
     "BeastType": { "Beast": "Rabbit" },
-    "Progress": "released",
+    "Progress": "released(beta)",
     "Images": {
       "arts_PNGPath": ["newYear/art_imgEZ4-newyear2023"]
     },
@@ -83,7 +83,7 @@
   },
   {
     "BeastType": { "Beast": "Dragon" },
-    "Progress": "released",
+    "Progress": "released(beta)",
     "Images": {
       "arts_PNGPath": ["newYear/art_imgEZ5-2024"]
     },
@@ -112,7 +112,7 @@
   },
   {
     "BeastType": { "Beast": "Snake" },
-    "Progress": "released",
+    "Progress": "released(beta)",
     "Images": {
       "arts_PNGPath": ["newYear/art_imgEZ6-newyear2025A"]
     },
@@ -141,7 +141,7 @@
   },
   {
     "BeastType": { "Beast": "Cat" },
-    "Progress": "released",
+    "Progress": "released(beta)",
     "Images": {
       "concept_PNGName": "cnsp_imgEZ13",
       "arts_PNGPath": ["art_imgEZ13-meowsday2023"]
