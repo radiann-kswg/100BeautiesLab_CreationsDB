@@ -12,7 +12,7 @@
     },
     "FormalName_EN": {
       "value": "Cesium133:=9192631770clocks",
-      "about": "no one knows how to read this"
+      "about": "no one knows how to read this (number and string)"
     },
     "RaceType": "LunaWolf(Super-dimentional)",
     "GenderType": "Unknown",
@@ -41,7 +41,7 @@
     "Name": "メトレ",
     "Name_EN": "Metre_SI-L",
     "FormalName": "リール ∛竏.絶対尺度(キュービックキロリッター.アンチヤードポンド)",
-    "FormalName_EN": "Reels ∛ℓ.PerfectScale: CubicKiloliter.UntiYardPonds",
+    "FormalName_EN": "Reels ∛kℓ.PerfectScale: CubicKiloliter.UntiYardPonds",
     "RaceType": "Lamia",
     "GenderType": "Female",
     "Height_cm": 137,
