@@ -23,7 +23,7 @@
       },
       "_Commons": {
         "Belonging": ["百花繚乱研究所"],
-        "RaceType": "PortableHumanoid(FoxyType)"
+        "RaceType": "PortableHumanoid(TaleBeastType)"
       }
     },
     "#DB_SemiPrimary": {
@@ -45,7 +45,7 @@
       },
       "_Commons": {
         "Belonging": ["百花繚乱研究所"],
-        "RaceType": "PortableHumanoid(FoxyType)"
+        "RaceType": "PortableHumanoid(TaleBeastType)"
       }
     },
     "#DB_SelfSecondary": {
@@ -57,7 +57,7 @@
           "SecondarySeriesTitle": null,
           "_Commons": {
             "Belonging": ["百花繚乱研究所"],
-            "RaceType": "PortableHumanoid(FoxyType)"
+            "RaceType": "PortableHumanoid(TaleBeastType)"
           }
         }
       ]
@@ -81,7 +81,7 @@
           },
           "_Commons": {
             "Belonging": ["百花繚乱研究所", "エイゼルベットの観測世界"],
-            "RaceType": "Humanoid(FoxyType,SoftwareBody)"
+            "RaceType": "PortableHumanoid(TaleBeastType,SoftwareBody)"
           }
         },
         {
@@ -100,7 +100,7 @@
           },
           "_Commons": {
             "Belonging": ["シンフォニー.XVI(ゼクズィン)"],
-            "RaceType": "DeviatableHumanoid(GrizzlyType)"
+            "RaceType": "DeviatableHumanoid(TaleBeastType)"
           }
         }
       ]

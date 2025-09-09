@@ -8779,12 +8779,12 @@
     "SPCodeName_EN": "Two/Binary",
     "RaceType": [
       {
-        "value": "PortableHumanoid(FoxyType)",
+        "value": "PortableHumanoid(TaleBeastType)",
         "about_JP": "最終的な設計目標",
         "about_EN": "Finaly"
       },
       {
-        "value": "PortableHumanoid(FoxyType,SoftwareBody)",
+        "value": "PortableHumanoid(TaleBeastType,SoftwareBody)",
         "about_JP": "現状",
         "about_EN": "Current"
       }
@@ -8949,7 +8949,7 @@
         "about_EN": "By Own Belief"
       },
       {
-        "value": "PortableHumanoid(FoxyType)",
+        "value": "PortableHumanoid(TaleBeastType)",
         "about_JP": "実際",
         "about_EN": "Actual"
       }
