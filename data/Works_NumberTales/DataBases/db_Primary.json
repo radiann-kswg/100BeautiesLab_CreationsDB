@@ -6129,7 +6129,7 @@
   },
   {
     "Num": "67-old",
-    "Progress": "nowCreating",
+    "Progress": "released",
     "Images": {
       "concept_PNGName": "cnsp_img67-A"
     },
@@ -6142,9 +6142,10 @@
     "ModelNumber": "APHR-NT VI+VII.A",
     "FormalName": "ナンバーテールズ旧67番機",
     "FormalName_EN": "NumberTales #67.OldType",
-    "Height_cm": 165,
+    "Height_cm": 145,
     "ConceptAge": 22,
-    "Summary": "",
+    "Weight_kg": { "HideText": "非公開希望" },
+    "Summary": "体調管理や健康管理に優れており、フィットネスを何よりも好む事から体育系男子の印象を持たれている。\nただ当時でも強かだった印象に反し、本人は「もう少し鍛錬が裏切らない身体を手にしたい」と豪語していた。\nよってつい最近に人間の筋肉構造に限りなく近い躯体を手にしたのだが、そうするまでもなく彼自身の努力や鍛錬意欲は周囲から十分に称賛されているようだ。",
     "NumerospecStats": {
       "EffectStats": {
         "Mental": { "EffectText": "普通" },
@@ -6168,7 +6169,7 @@
   },
   {
     "Num": 67,
-    "Progress": "nowCreating",
+    "Progress": "released",
     "Images": {
       "concept_PNGName": "cnsp_img67-B"
     },
@@ -6181,10 +6182,11 @@
     "CodeName": "六七",
     "GenderType": "MaleNeutral",
     "Height_cm": [
-      { "value": 165, "about_JP": "通常時", "about_EN": "Normal Mode" },
-      { "value": 195, "about_JP": "筋装備時", "about_EN": "Muscle Mode" }
+      { "value": 145, "about_JP": "通常時", "about_EN": "Normal Mode" },
+      { "value": 190, "about_JP": "筋装備時", "about_EN": "Muscle Mode" }
     ],
     "ConceptAge": { "value": 22, "about_JP": "？", "about_EN": "?" },
+    "Weight_kg": { "HideText": "非公開" },
     "AnivDay": [
       { "Day": { "Month": 6, "DayOfMonth": 7 }, "DayAbout": "開発記念" }
     ],
@@ -6194,13 +6196,13 @@
     "SecondPersonCalling": "お前",
     "ThirdPersonCalling": "彼/彼女;＊いつ;[※名前呼び]",
     "ForMasterCalling": "～トレーナー",
-    "Character": "筋肉主義者のトレーナー気質だが、心身ともに無理のないように鍛錬している",
+    "Character": "筋肉主義者のトレーナー気質、無理なく鍛錬することを醍醐味とする\nまだ自分の鍛錬に限界があることを恐れている一面も",
     "Hobby": "筋トレ、食事管理",
     "SpetialSkill": "コーチング",
     "Favor": "人間の栄養管理について",
     "Unlike": "努力不足な人",
     "NumerospecAbout": "心身の健康を保証する",
-    "Summary": "",
+    "Summary": "体調管理や健康管理に優れており、つい最近の躯体の新調によりフィットネスのコーチングにも特化したナンバーテールズの中でもとても珍しい個体。\n旧式時から鍛錬熱心で現在のその分厚い人工筋肉から威圧的？な印象を抱かれるようにもなったが、オーバーワークはしない/させない主義なのでご安心を。\nただ、一部周囲からミーム扱いもされているらしく…",
     "NumerospecStats": {
       "EffectStats": {
         "Mental": { "EffectText": "特殊" },
@@ -6222,12 +6224,56 @@
     },
     "Backgrounds": "ナンバーテールズ99体の中では珍しく、体調面も支援しておりトレーニングジムでコーチングをしている様子も窺われている",
     "Relation": {
-      "Commented": [
+      "Related": [
         {
-          "Num": 49
+          "Num": 39,
+          "Comments": "逞しくとても尊敬できる存在",
+          "RelationLabel": ["wellMatched"]
         },
         {
-          "Num": 64
+          "Num": 49,
+          "Comments": "面倒なやつだな…",
+          "RelationLabel": ["unmatched"]
+        },
+        {
+          "Num": 64,
+          "Comments": "は、はぁ…？",
+          "RelationLabel": ["awkward", "cousin"]
+        },
+        {
+          "Num": 76,
+          "Comments": "いつも情報面で助けられている妹",
+          "RelationLabel": ["brother|sister", "trusted"]
+        }
+      ],
+      "Commented": [
+        {
+          "Num": 4,
+          "Comments": "謙虚だが好感は持てる"
+        },
+        {
+          "Num": 13,
+          "Comments": "活発で可愛らしいところが憎めない"
+        },
+        {
+          "Num": 40,
+          "Comments": "何笑ってんだお前!?",
+          "RelationLabel": ["awkward_aBit"]
+        },
+        {
+          "Num": 65,
+          "Comments": "怯えてないよな…？",
+          "RelationLabel": ["cousin"]
+        },
+        {
+          "Num": 85,
+          "Comments": "可愛いところはあるんだが…",
+          "RelationLabel": ["awkward_aBit"]
+        },
+        {
+          "Num": "00",
+          "Comments": "とても辱いことを頼んでしまったな…",
+          "RelationLabel": ["trusted_maybe", "awkward_aBit"]
         }
       ]
     }
@@ -7096,7 +7142,8 @@
         },
         {
           "Num": 56,
-          "Comments": "ちゃんと勉強しようね"
+          "Comments": "ちゃんと勉強しようね",
+          "RelationLabel": ["cousin"]
         },
         {
           "Num": 94,
