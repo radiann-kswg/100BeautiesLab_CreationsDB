@@ -620,7 +620,11 @@
     "SPCodeName": "㐂",
     "SPCodeName_EN": "Jackpot",
     "Height_cm": 161,
-    "ConceptAge": { "value": 32, "about": "概算値" },
+    "ConceptAge": {
+      "value": 32,
+      "about_JP": "概算値",
+      "about_EN": "Approximation"
+    },
     "Weight_kg": [
       { "value": 50 },
       {

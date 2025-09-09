@@ -1506,7 +1506,7 @@
     "SPCodeName": "十六",
     "GenderType": "FemaleNeutral",
     "Height_cm": 147,
-    "ConceptAge": { "value": 18, "about": "？" },
+    "ConceptAge": { "value": 18, "about_JP": "？", "about_EN": "?" },
     "AnivDay": [
       { "Day": { "Month": 1, "DayOfMonth": 16 }, "DayAbout": "開発記念" }
     ],
@@ -2201,7 +2201,7 @@
     "CodeName": "二三",
     "GenderType": "FemaleNeutral",
     "Height_cm": 149,
-    "ConceptAge": { "value": 16, "about": "？" },
+    "ConceptAge": { "value": 16, "about_JP": "？", "about_EN": "?" },
     "AnivDay": [
       { "Day": { "Month": 2, "DayOfMonth": 3 }, "DayAbout": "開発記念" }
     ],
@@ -2497,7 +2497,7 @@
     "CodeName": "二六",
     "GenderType": "FemaleNeutral",
     "Height_cm": 153,
-    "ConceptAge": { "value": 22, "about": "？" },
+    "ConceptAge": { "value": 22, "about_JP": "？", "about_EN": "?" },
     "AnivDay": [
       { "Day": { "Month": 2, "DayOfMonth": 6 }, "DayAbout": "開発記念" }
     ],
@@ -2881,7 +2881,7 @@
     "GenderType": "FemaleNeutral",
     "Height_cm": 157,
     "Weight_kg": { "HideText": "非公開" },
-    "ConceptAge": { "value": 17, "about": "？" },
+    "ConceptAge": { "value": 17, "about_JP": "？", "about_EN": "?" },
     "AnivDay": [
       { "Day": { "Month": 2, "DayOfMonth": 29 }, "DayAbout": "開発記念" }
     ],
@@ -3068,7 +3068,7 @@
     "CodeName": "三二",
     "GenderType": "Neutral",
     "Height_cm": 149,
-    "ConceptAge": { "value": 16, "about": "？" },
+    "ConceptAge": { "value": 16, "about_JP": "？", "about_EN": "?" },
     "AnivDay": [
       { "Day": { "Month": 3, "DayOfMonth": 2 }, "DayAbout": "開発記念" }
     ],
@@ -3261,7 +3261,7 @@
     "SPCodeName": "三十四",
     "GenderType": "Neutral",
     "Height_cm": 143,
-    "ConceptAge": { "value": 15, "about": "？" },
+    "ConceptAge": { "value": 15, "about_JP": "？", "about_EN": "?" },
     "AnivDay": [
       { "Day": { "Month": 3, "DayOfMonth": 4 }, "DayAbout": "開発記念" }
     ],
@@ -4643,7 +4643,7 @@
     "CodeName": "四九",
     "GenderType": "Neutral",
     "Height_cm": 148,
-    "ConceptAge": { "value": 16, "about": "？" },
+    "ConceptAge": { "value": 16, "about_JP": "？", "about_EN": "?" },
     "AnivDay": [
       { "Day": { "Month": 4, "DayOfMonth": 9 }, "DayAbout": "開発記念" }
     ],
@@ -5315,7 +5315,7 @@
     "SPCodeName": "五十八",
     "GenderType": "FemaleNeutral",
     "Height_cm": 149,
-    "ConceptAge": { "value": 17, "about": "？" },
+    "ConceptAge": { "value": 17, "about_JP": "？", "about_EN": "?" },
     "AnivDay": [
       { "Day": { "Month": 5, "DayOfMonth": 8 }, "DayAbout": "開発記念" }
     ],
@@ -5438,7 +5438,7 @@
     "SPCodeName": "六十",
     "GenderType": "FemaleNeutral",
     "Height_cm": 152,
-    "ConceptAge": { "value": 16, "about": "？" },
+    "ConceptAge": { "value": 16, "about_JP": "？", "about_EN": "?" },
     "AnivDay": [
       { "Day": { "Month": 5, "DayOfMonth": 31 }, "DayAbout": "開発記念" }
     ],
@@ -6138,8 +6138,11 @@
     "FormalName_EN": "NumberTales #67",
     "CodeName": "六七",
     "GenderType": "MaleNeutral",
-    "Height_cm": 165,
-    "ConceptAge": { "value": 22, "about": "？" },
+    "Height_cm": [
+      { "value": 165, "about_JP": "通常時", "about_EN": "Normal Mode" },
+      { "value": 195, "about_JP": "筋装備時", "about_EN": "Muscle Mode" }
+    ],
+    "ConceptAge": { "value": 22, "about_JP": "？", "about_EN": "?" },
     "AnivDay": [
       { "Day": { "Month": 6, "DayOfMonth": 7 }, "DayAbout": "開発記念" }
     ],
@@ -6293,7 +6296,7 @@
     "CodeName": "六九",
     "GenderType": "MaleNeutral",
     "Height_cm": 156,
-    "ConceptAge": { "value": 20, "about": "？" },
+    "ConceptAge": { "value": 20, "about_JP": "？", "about_EN": "?" },
     "AnivDay": [
       { "Day": { "Month": 6, "DayOfMonth": 9 }, "DayAbout": "開発記念" }
     ],
@@ -6688,7 +6691,7 @@
     "SPCodeName": "七十三",
     "GenderType": "FemaleNeutral",
     "Height_cm": 154,
-    "ConceptAge": { "value": 16, "about": "？" },
+    "ConceptAge": { "value": 16, "about_JP": "？", "about_EN": "?" },
     "AnivDay": [
       { "Day": { "Month": 7, "DayOfMonth": 3 }, "DayAbout": "開発記念" }
     ],
@@ -6983,7 +6986,7 @@
     "CodeName": "七六",
     "GenderType": "FemaleNeutral",
     "Height_cm": 144,
-    "ConceptAge": { "value": 14, "about": "？" },
+    "ConceptAge": { "value": 14, "about_JP": "？", "about_EN": "?" },
     "AnivDay": [
       { "Day": { "Month": 7, "DayOfMonth": 6 }, "DayAbout": "開発記念" }
     ],
@@ -7072,7 +7075,7 @@
     "SPCodeName": "七十七",
     "GenderType": "Neutral",
     "Height_cm": 147,
-    "ConceptAge": { "value": 14, "about": "？" },
+    "ConceptAge": { "value": 14, "about_JP": "？", "about_EN": "?" },
     "AnivDay": [
       { "Day": { "Month": 7, "DayOfMonth": 7 }, "DayAbout": "開発記念" }
     ],
@@ -7658,7 +7661,11 @@
       }
     ],
     "GenderType": "FemaleNeutral",
-    "ConceptAge": { "value": 19, "about": "自称" },
+    "ConceptAge": {
+      "value": 19,
+      "about_JP": "自称",
+      "about_EN": "Self-styled"
+    },
     "Height_cm": 156,
     "Weight_kg": { "HideText": "非公開" },
     "BustSize": {
@@ -8206,7 +8213,7 @@
     "SPCodeName": "九十四",
     "GenderType": "Neutral",
     "Height_cm": 145,
-    "ConceptAge": { "value": 13, "about": "？" },
+    "ConceptAge": { "value": 13, "about_JP": "？", "about_EN": "?" },
     "AnivDay": [
       { "Day": { "Month": 9, "DayOfMonth": 4 }, "DayAbout": "開発記念" }
     ],
@@ -8529,7 +8536,7 @@
     "CodeName": "九八",
     "GenderType": "FemaleNeutral",
     "Height_cm": 154,
-    "ConceptAge": { "value": 20, "about": "？" },
+    "ConceptAge": { "value": 20, "about_JP": "？", "about_EN": "?" },
     "AnivDay": [
       { "Day": { "Month": 9, "DayOfMonth": 8 }, "DayAbout": "開発記念" }
     ],
