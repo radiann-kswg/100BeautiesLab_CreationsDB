@@ -6128,12 +6128,54 @@
     }
   },
   {
+    "Num": "67-old",
+    "Progress": "nowCreating",
+    "Images": {
+      "concept_PNGName": "cnsp_img67-A"
+    },
+    "_DBLink": {
+      "worksTitle": "NumberTales",
+      "dbName": "Primary",
+      "_Search": { "hashTag": "Num", "key": 67 }
+    },
+    "ModelName": "ナンバーテールズ6+7号機甲(旧67番機)",
+    "ModelNumber": "APHR-NT VI+VII.A",
+    "FormalName": "ナンバーテールズ旧67番機",
+    "FormalName_EN": "NumberTales #67.OldType",
+    "Height_cm": 165,
+    "ConceptAge": 22,
+    "Summary": "",
+    "NumerospecStats": {
+      "EffectStats": {
+        "Mental": { "EffectText": "普通" },
+        "Manetize": { "EffectText": "効果無" },
+        "Working": { "EffectText": "希薄" },
+        "Luck": { "EffectText": "普通" },
+        "Communication": { "EffectText": "普通" }
+      },
+      "SpetialPattern": ["Ptn.B(バイタリティ強化効果)"],
+      "SafetyLevel": { "SafetyLevelText": "保証" }
+    },
+    "AbilityStats": {
+      "Speed": { "Rank": "A" },
+      "Communicating": { "Rank": "D" },
+      "Leading": { "Rank": "B" },
+      "Precision": { "Rank": "C" },
+      "Technic": { "Rank": "B" },
+      "Actuation": { "Rank": "S" }
+    },
+    "Backgrounds": "ナンバーテールズ99体の中では珍しく、フィットネスに関するメニューも積極的に取り入れているため後に躯体が新調された。"
+  },
+  {
     "Num": 67,
     "Progress": "nowCreating",
+    "Images": {
+      "concept_PNGName": "cnsp_img67-B"
+    },
     "Name": "ムナ",
     "Name_EN": "Sicsevan",
-    "ModelName": "ナンバーテールズ6+7号機甲(67番機)",
-    "ModelNumber": "APHR-NT VI+VII.A",
+    "ModelName": "ナンバーテールズ6+7号機甲.筋装備(新67番機)",
+    "ModelNumber": "APHR-NT VI+VII.AM",
     "FormalName": "ナンバーテールズ67番機",
     "FormalName_EN": "NumberTales #67",
     "CodeName": "六七",
@@ -6153,7 +6195,11 @@
     "ThirdPersonCalling": "彼/彼女;＊いつ;[※名前呼び]",
     "ForMasterCalling": "～トレーナー",
     "Character": "筋肉主義者のトレーナー気質だが、心身ともに無理のないように鍛錬している",
-    "NumerospecAbout": "心の健康を保証する",
+    "Hobby": "筋トレ、食事管理",
+    "SpetialSkill": "コーチング",
+    "Favor": "人間の栄養管理について",
+    "Unlike": "努力不足な人",
+    "NumerospecAbout": "心身の健康を保証する",
     "Summary": "",
     "NumerospecStats": {
       "EffectStats": {
@@ -6163,18 +6209,18 @@
         "Luck": { "EffectText": "期待可能" },
         "Communication": { "EffectText": "期待可能" }
       },
-      "SpetialPattern": ["Ptn.B(バイタリティ強化効果)"],
+      "SpetialPattern": ["Ptn.B+(物理的なバイタリティ効果)"],
       "SafetyLevel": { "SafetyLevelText": "完全保証" }
     },
     "AbilityStats": {
       "Speed": { "Rank": "S" },
-      "Communicating": { "Rank": "D" },
-      "Leading": { "Rank": "B" },
-      "Precision": { "Rank": "D" },
-      "Technic": { "Rank": "B" },
-      "Actuation": { "Rank": "S" }
+      "Communicating": { "Rank": "C" },
+      "Leading": { "Rank": "B+" },
+      "Precision": { "Rank": "E" },
+      "Technic": { "Rank": "B+" },
+      "Actuation": { "Rank": "S+" }
     },
-    "Backgrounds": "ナンバーテールズ99体の中では珍しく、体調面も支援している",
+    "Backgrounds": "ナンバーテールズ99体の中では珍しく、体調面も支援しておりトレーニングジムでコーチングをしている様子も窺われている",
     "Relation": {
       "Commented": [
         {

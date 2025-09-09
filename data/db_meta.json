@@ -578,6 +578,11 @@
               "AbilityText": "過剰",
               "AbilityText_EN": "Excessive"
             },
+            "#Rank2adv": {
+              "Rank": "S+",
+              "AbilityText": "強化済",
+              "AbilityText_EN": "Extended"
+            },
             "#Rank2": {
               "Rank": "S",
               "AbilityText": "卓越",
