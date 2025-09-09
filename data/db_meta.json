@@ -560,16 +560,16 @@
       ],
       "$Def_Stats": {
         "$EnumDef_Rank": {
+          "#Rank0": { "Rank": "ZZ" },
+          "#Rank1": { "Rank": "Z" },
+          "#Rank2adv": { "Rank": "S+" },
           "#Rank2": { "Rank": "S" },
           "#Rank3": { "Rank": "A" },
           "#Rank4adv": { "Rank": "B+" },
           "#Rank4": { "Rank": "B" },
           "#Rank5": { "Rank": "C" },
           "#Rank6": { "Rank": "D" },
-          "#Rank7": { "Rank": "E" },
-          "#Rank2adv": { "Rank": "S+" },
-          "#Rank1": { "Rank": "Z" },
-          "#Rank0": { "Rank": "ZZ" }
+          "#Rank7": { "Rank": "E" }
         },
         "$Def_AbilityStats": {
           "$EnumLink_AbilityText": {

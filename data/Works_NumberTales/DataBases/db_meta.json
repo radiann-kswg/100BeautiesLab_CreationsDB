@@ -115,6 +115,26 @@
         "$Def_EffectStats": {
           "#ListLink_EffectText": [
             {
+              "EffectText": "危険",
+              "EffectText_EN": "Dangerous",
+              "Rank": "ZZ"
+            },
+            {
+              "EffectText": "過剰",
+              "EffectText_EN": "Over Limited",
+              "Rank": "Z"
+            },
+            {
+              "EffectText": "極めて絶大(場合により逆効果)",
+              "EffectText_EN": "Extremely Tremendous(May Be Counterproductive)",
+              "Rank": "Z"
+            },
+            {
+              "EffectText": "強化済",
+              "EffectText_EN": "Extended",
+              "Rank": "S+"
+            },
+            {
               "EffectText": "絶大",
               "EffectText_EN": "Tremendous",
               "Rank": "S"
@@ -147,23 +167,7 @@
               "EffectText": "逆効果(仕様)",
               "EffectText_EN": "Counterproductive(Given)",
               "Rank": "E"
-            },
-            {
-              "EffectText": "強化済",
-              "EffectText_EN": "Extended",
-              "Rank": "S+"
-            },
-            {
-              "EffectText": "過剰",
-              "EffectText_EN": "Over Limited",
-              "Rank": "Z"
-            },
-            {
-              "EffectText": "極めて絶大(場合により逆効果)",
-              "EffectText_EN": "Extremely Tremendous(May Be Counterproductive)",
-              "Rank": "Z"
-            },
-            { "EffectText": "危険", "EffectText_EN": "Dangerous", "Rank": "ZZ" }
+            }
           ]
         },
         "$Def_SafetyLevel": {
