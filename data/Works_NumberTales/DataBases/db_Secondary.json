@@ -724,16 +724,15 @@
       "worksTitle": "FLInvestigator78",
       "dbName": "Primary",
       "_Jump": "ThisDealer",
-      "_Search": {
-        "hashTag": "Card",
-        "key": { "Stoat": "Dealer", "Num": 79 }
-      }
+      "_Search": [
+        { "hashTag": "Card", "key": { "Stoat": "Dealer", "Num": 79 } }
+      ]
     },
     "Age": 24,
     "AnivDay": [
       {
         "_Jump": { "hashTag": "BirthDay" },
-        "_Search": { "hashTag": "DayAbout", "key": "誕生日" }
+        "_Search": [{ "hashTag": "DayAbout", "key": "誕生日" }]
       }
     ],
     "BustSize": "B",
@@ -772,16 +771,15 @@
       "worksTitle": "FLInvestigator78",
       "dbName": "Primary",
       "_Jump": "ThisDealer",
-      "_Search": {
-        "hashTag": "Card",
-        "key": { "Stoat": "Dealer", "Num": 80 }
-      }
+      "_Search": [
+        { "hashTag": "Card", "key": { "Stoat": "Dealer", "Num": 80 } }
+      ]
     },
     "Age": 24,
     "AnivDay": [
       {
         "_Jump": { "hashTag": "BirthDay" },
-        "_Search": { "hashTag": "DayAbout", "key": "誕生日" }
+        "_Search": [{ "hashTag": "DayAbout", "key": "誕生日" }]
       }
     ],
     "BustSize": "B",

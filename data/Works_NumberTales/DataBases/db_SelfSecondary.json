@@ -5,7 +5,7 @@
     "_DBLink": {
       "worksTitle": "NumberTales",
       "dbName": "SemiPrimary",
-      "_Search": { "hashTag": "Num", "key": 101 }
+      "_Search": [{ "hashTag": "Num", "key": 101 }]
     },
     "FormalName": "量産型ナンバーテールズ101番機シリーズ",
     "FormalName_EN": "NumberTales #101 Series Mass Production Version for Sales",
@@ -17,7 +17,7 @@
     "_DBLink": {
       "worksTitle": "NumberTales",
       "dbName": "SemiPrimary",
-      "_Search": { "hashTag": "Num", "key": 102 }
+      "_Search": [{ "hashTag": "Num", "key": 102 }]
     },
     "FormalName": "量産型ナンバーテールズ102番機シリーズ",
     "FormalName_EN": "NumberTales #102 Series Mass Production Version for Sales",
@@ -29,7 +29,7 @@
     "_DBLink": {
       "worksTitle": "NumberTales",
       "dbName": "SemiPrimary",
-      "_Search": { "hashTag": "Num", "key": 103 }
+      "_Search": [{ "hashTag": "Num", "key": 103 }]
     },
     "FormalName": "量産型ナンバーテールズ103番機シリーズ",
     "FormalName_EN": "NumberTales #103 Series Mass Production Version for Sales",
@@ -41,7 +41,7 @@
     "_DBLink": {
       "worksTitle": "NumberTales",
       "dbName": "SemiPrimary",
-      "_Search": { "hashTag": "Num", "key": 104 }
+      "_Search": [{ "hashTag": "Num", "key": 104 }]
     },
     "FormalName": "量産型ナンバーテールズ104番機シリーズ",
     "FormalName_EN": "NumberTales #104 Series Mass Production Version for Sales",
@@ -53,7 +53,7 @@
     "_DBLink": {
       "worksTitle": "NumberTales",
       "dbName": "SemiPrimary",
-      "_Search": { "hashTag": "Num", "key": 105 }
+      "_Search": [{ "hashTag": "Num", "key": 105 }]
     },
     "FormalName": "量産型ナンバーテールズ105番機シリーズ",
     "FormalName_EN": "NumberTales #105 Series Mass Production Version for Sales",
@@ -65,7 +65,7 @@
     "_DBLink": {
       "worksTitle": "NumberTales",
       "dbName": "SemiPrimary",
-      "_Search": { "hashTag": "Num", "key": 106 }
+      "_Search": [{ "hashTag": "Num", "key": 106 }]
     },
     "FormalName": "量産型ナンバーテールズ106番機シリーズ",
     "FormalName_EN": "NumberTales #106 Series Mass Production Version for Sales",
@@ -77,7 +77,7 @@
     "_DBLink": {
       "worksTitle": "NumberTales",
       "dbName": "SemiPrimary",
-      "_Search": { "hashTag": "Num", "key": 107 }
+      "_Search": [{ "hashTag": "Num", "key": 107 }]
     },
     "FormalName": "量産型ナンバーテールズ107番機シリーズ",
     "FormalName_EN": "NumberTales #107 Series Mass Production Version for Sales",
@@ -89,7 +89,7 @@
     "_DBLink": {
       "worksTitle": "NumberTales",
       "dbName": "SemiPrimary",
-      "_Search": { "hashTag": "Num", "key": 108 }
+      "_Search": [{ "hashTag": "Num", "key": 108 }]
     },
     "FormalName": "量産型ナンバーテールズ108番機シリーズ",
     "FormalName_EN": "NumberTales #108 Series Mass Production Version for Sales",
@@ -101,7 +101,7 @@
     "_DBLink": {
       "worksTitle": "NumberTales",
       "dbName": "SemiPrimary",
-      "_Search": { "hashTag": "Num", "key": 109 }
+      "_Search": [{ "hashTag": "Num", "key": 109 }]
     },
     "FormalName": "量産型ナンバーテールズ109番機シリーズ",
     "FormalName_EN": "NumberTales #109 Series Mass Production Version for Sales",
@@ -113,7 +113,7 @@
     "_DBLink": {
       "worksTitle": "NumberTales",
       "dbName": "SemiPrimary",
-      "_Search": { "hashTag": "Num", "key": 110 }
+      "_Search": [{ "hashTag": "Num", "key": 110 }]
     },
     "FormalName": "量産型ナンバーテールズ110番機シリーズ",
     "FormalName_EN": "NumberTales #110 Series Mass Production Version for Sales",
@@ -125,7 +125,7 @@
     "_DBLink": {
       "worksTitle": "NumberTales",
       "dbName": "SemiPrimary",
-      "_Search": { "hashTag": "Num", "key": 112 }
+      "_Search": [{ "hashTag": "Num", "key": 112 }]
     },
     "FormalName": "量産型ナンバーテールズ112番機シリーズ",
     "FormalName_EN": "NumberTales #112 Series Mass Production Version for Sales",
@@ -137,7 +137,7 @@
     "_DBLink": {
       "worksTitle": "NumberTales",
       "dbName": "SemiPrimary",
-      "_Search": { "hashTag": "Num", "key": 113 }
+      "_Search": [{ "hashTag": "Num", "key": 113 }]
     },
     "FormalName": "量産型ナンバーテールズ113番機シリーズ",
     "FormalName_EN": "NumberTales #113 Series Mass Production Version for Sales",
@@ -149,7 +149,7 @@
     "_DBLink": {
       "worksTitle": "NumberTales",
       "dbName": "SemiPrimary",
-      "_Search": { "hashTag": "Num", "key": 114 }
+      "_Search": [{ "hashTag": "Num", "key": 114 }]
     },
     "FormalName": "量産型ナンバーテールズ114番機シリーズ",
     "FormalName_EN": "NumberTales #114 Series Mass Production Version for Sales",
@@ -161,7 +161,7 @@
     "_DBLink": {
       "worksTitle": "NumberTales",
       "dbName": "SemiPrimary",
-      "_Search": { "hashTag": "Num", "key": 115 }
+      "_Search": [{ "hashTag": "Num", "key": 115 }]
     },
     "FormalName": "量産型ナンバーテールズ115番機シリーズ",
     "FormalName_EN": "NumberTales #115 Series Mass Production Version for Sales",
@@ -173,7 +173,7 @@
     "_DBLink": {
       "worksTitle": "NumberTales",
       "dbName": "SemiPrimary",
-      "_Search": { "hashTag": "Num", "key": 116 }
+      "_Search": [{ "hashTag": "Num", "key": 116 }]
     },
     "FormalName": "量産型ナンバーテールズ116番機シリーズ",
     "FormalName_EN": "NumberTales #116 Series Mass Production Version for Sales",
@@ -185,7 +185,7 @@
     "_DBLink": {
       "worksTitle": "NumberTales",
       "dbName": "SemiPrimary",
-      "_Search": { "hashTag": "Num", "key": 117 }
+      "_Search": [{ "hashTag": "Num", "key": 117 }]
     },
     "FormalName": "量産型ナンバーテールズ117番機シリーズ",
     "FormalName_EN": "NumberTales #117 Series Mass Production Version for Sales",
@@ -197,7 +197,7 @@
     "_DBLink": {
       "worksTitle": "NumberTales",
       "dbName": "SemiPrimary",
-      "_Search": { "hashTag": "Num", "key": 118 }
+      "_Search": [{ "hashTag": "Num", "key": 118 }]
     },
     "FormalName": "量産型ナンバーテールズ118番機シリーズ",
     "FormalName_EN": "NumberTales #118 Series Mass Production Version for Sales",
@@ -209,7 +209,7 @@
     "_DBLink": {
       "worksTitle": "NumberTales",
       "dbName": "SemiPrimary",
-      "_Search": { "hashTag": "Num", "key": 119 }
+      "_Search": [{ "hashTag": "Num", "key": 119 }]
     },
     "FormalName": "量産型ナンバーテールズ119番機シリーズ",
     "FormalName_EN": "NumberTales #119 Series Mass Production Version for Sales",

@@ -267,7 +267,7 @@
     "_DBLink": {
       "worksTitle": "NumberTales",
       "dbName": "SemiPrimary",
-      "_Search": { "hashTag": "Num", "key": 111 }
+      "_Search": [{ "hashTag": "Num", "key": 111 }]
     },
     "Images": {
       "concept_PNGName": "cnsp_img111-mp"
@@ -422,7 +422,7 @@
     "_DBLink": {
       "worksTitle": "NumberTales",
       "dbName": "SemiPrimary",
-      "_Search": { "hashTag": "Num", "key": 200 }
+      "_Search": [{ "hashTag": "Num", "key": 200 }]
     },
     "FormalName": "量産型ナンバーテールズ200番機シリーズ",
     "FormalName_EN": "NumberTales #200 Series Mass Production Version for Sales",
@@ -448,7 +448,7 @@
     "_DBLink": {
       "worksTitle": "NumberTales",
       "dbName": "SemiPrimary",
-      "_Search": { "hashTag": "Num", "key": 222 }
+      "_Search": [{ "hashTag": "Num", "key": 222 }]
     },
     "FormalName": "量産型ナンバーテールズ222番機シリーズ",
     "FormalName_EN": "NumberTales #222 Series Mass Production Version for Sales",
@@ -474,7 +474,7 @@
     "_DBLink": {
       "worksTitle": "NumberTales",
       "dbName": "SemiPrimary",
-      "_Search": { "hashTag": "Num", "key": 333 }
+      "_Search": [{ "hashTag": "Num", "key": 333 }]
     },
     "FormalName": "量産型ナンバーテールズ333番機シリーズ",
     "FormalName_EN": "NumberTales #333 Series Mass Production Version for Sales",
@@ -498,7 +498,7 @@
     "_DBLink": {
       "worksTitle": "NumberTales",
       "dbName": "SemiPrimary",
-      "_Search": { "hashTag": "Num", "key": 400 }
+      "_Search": [{ "hashTag": "Num", "key": 400 }]
     },
     "FormalName": "量産型ナンバーテールズ400番機シリーズ",
     "FormalName_EN": "NumberTales #400 Series Mass Production Version for Sales",
@@ -523,7 +523,7 @@
     "_DBLink": {
       "worksTitle": "NumberTales",
       "dbName": "SemiPrimary",
-      "_Search": { "hashTag": "Num", "key": 444 }
+      "_Search": [{ "hashTag": "Num", "key": 444 }]
     },
     "FormalName": "量産型ナンバーテールズ444番機シリーズ",
     "FormalName_EN": "NumberTales #444 Series Mass Production Version for Sales",
@@ -548,7 +548,7 @@
     "_DBLink": {
       "worksTitle": "NumberTales",
       "dbName": "SemiPrimary",
-      "_Search": { "hashTag": "Num", "key": 555 }
+      "_Search": [{ "hashTag": "Num", "key": 555 }]
     },
     "FormalName": "量産型ナンバーテールズ555番機シリーズ",
     "FormalName_EN": "NumberTales #555 Series Mass Production Version for Sales",
@@ -595,7 +595,7 @@
     "_DBLink": {
       "worksTitle": "NumberTales",
       "dbName": "SemiPrimary",
-      "_Search": { "hashTag": "Num", "key": 666 }
+      "_Search": [{ "hashTag": "Num", "key": 666 }]
     },
     "Images": {
       "concept_PNGName": "cnsp_img666-mp"
@@ -655,7 +655,7 @@
     "_DBLink": {
       "worksTitle": "NumberTales",
       "dbName": "SemiPrimary",
-      "_Search": { "hashTag": "Num", "key": 777 }
+      "_Search": [{ "hashTag": "Num", "key": 777 }]
     },
     "ModelName": "ナンバーテールズ特殊個体[ラッキーセブンアール](777番機-ジャックポット)",
     "ModelNumber": "APHR-NT VIIx3.R",
@@ -681,7 +681,7 @@
     "_DBLink": {
       "worksTitle": "NumberTales",
       "dbName": "SemiPrimary",
-      "_Search": { "hashTag": "Num", "key": 777 }
+      "_Search": [{ "hashTag": "Num", "key": 777 }]
     },
     "Images": {
       "concept_PNGName": "cnsp_img777-mp"
@@ -695,7 +695,7 @@
     "_DBLink": {
       "worksTitle": "NumberTales",
       "dbName": "SelfSecondary",
-      "_Search": { "hashTag": "Num", "key": "777-mp" }
+      "_Search": [{ "hashTag": "Num", "key": "777-mp" }]
     },
     "FormalName": "量産型ナンバーテールズ777番機[ジャックポット]シリーズ",
     "FormalName_EN": "NumberTales #777.Jackpot Series Mass Production Version for Sales",
@@ -723,7 +723,7 @@
     "_DBLink": {
       "worksTitle": "NumberTales",
       "dbName": "SemiPrimary",
-      "_Search": { "hashTag": "Num", "key": 888 }
+      "_Search": [{ "hashTag": "Num", "key": 888 }]
     },
     "FormalName": "量産型ナンバーテールズ888番機シリーズ",
     "FormalName_EN": "NumberTales #888 Series Mass Production Version for Sales",
@@ -760,7 +760,7 @@
     "_DBLink": {
       "worksTitle": "NumberTales",
       "dbName": "SemiPrimary",
-      "_Search": { "hashTag": "Num", "key": 999 }
+      "_Search": [{ "hashTag": "Num", "key": 999 }]
     },
     "FormalName": "量産型ナンバーテールズ999番機シリーズ",
     "FormalName_EN": "NumberTales #999 Series Mass Production Version for Sales",

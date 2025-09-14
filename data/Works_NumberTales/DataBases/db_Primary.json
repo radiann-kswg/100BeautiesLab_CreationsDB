@@ -696,10 +696,7 @@
         "_DBLink": {
           "worksTitle": "NumberTales",
           "dbName": "Secondary",
-          "_Search": {
-            "hashTag": "Num",
-            "key": "%"
-          }
+          "_Search": [{ "hashTag": "Num", "key": "%" }]
         }
       }
     ],
@@ -897,7 +894,7 @@
         "_DBLink": {
           "worksTitle": "SinisterChangingGirls",
           "dbName": "Primary",
-          "_Search": { "hashTag": "Drc", "key": "NE" }
+          "_Search": [{ "hashTag": "Drc", "key": "NE" }]
         }
       }
     ],
@@ -1409,7 +1406,7 @@
         "_DBLink": {
           "worksTitle": "SinisterChangingGirls",
           "dbName": "Primary",
-          "_Search": { "hashTag": "Drc", "key": "SW" }
+          "_Search": [{ "hashTag": "Drc", "key": "SW" }]
         }
       }
     ],
@@ -1521,7 +1518,7 @@
         "_DBLink": {
           "worksTitle": "SinisterChangingGirls",
           "dbName": "Primary",
-          "_Search": { "hashTag": "Drc", "key": "E" }
+          "_Search": [{ "hashTag": "Drc", "key": "E" }]
         }
       }
     ],
@@ -1632,10 +1629,9 @@
         "_DBLink": {
           "worksTitle": "FLInvestigator78",
           "dbName": "Primary",
-          "_Search": {
-            "hashTag": "Card",
-            "key": { "Stoat": "Major", "Num": 16 }
-          }
+          "_Search": [
+            { "hashTag": "Card", "key": { "Stoat": "Major", "Num": 16 } }
+          ]
         }
       }
     ],
@@ -5568,7 +5564,7 @@
         "_DBLink": {
           "worksTitle": "SinisterChangingGirls",
           "dbName": "Primary",
-          "_Search": { "hashTag": "Drc", "key": "S" }
+          "_Search": [{ "hashTag": "Drc", "key": "S" }]
         }
       }
     ],
@@ -6136,7 +6132,7 @@
     "_DBLink": {
       "worksTitle": "NumberTales",
       "dbName": "Primary",
-      "_Search": { "hashTag": "Num", "key": 67 }
+      "_Search": [{ "hashTag": "Num", "key": 67 }]
     },
     "ModelName": "ナンバーテールズ6+7号機甲(旧67番機)",
     "ModelNumber": "APHR-NT VI+VII.A",
@@ -6402,10 +6398,9 @@
         "_DBLink": {
           "worksTitle": "FLInvestigator78",
           "dbName": "Primary",
-          "_Search": {
-            "hashTag": "Card",
-            "key": { "Stoat": "Major", "Num": 16 }
-          }
+          "_Search": [
+            { "hashTag": "Card", "key": { "Stoat": "Major", "Num": 16 } }
+          ]
         }
       }
     ],
@@ -7295,10 +7290,7 @@
         "_DBLink": {
           "worksTitle": "NumberTales",
           "dbName": "Secondary",
-          "_Search": {
-            "hashTag": "Num",
-            "key": "%"
-          }
+          "_Search": [{ "hashTag": "Num", "key": "%" }]
         }
       }
     ],
@@ -7746,10 +7738,7 @@
         "_DBLink": {
           "worksTitle": "NumberTales",
           "dbName": "Secondary",
-          "_Search": {
-            "hashTag": "Num",
-            "key": "%"
-          }
+          "_Search": [{ "hashTag": "Num", "key": "%" }]
         }
       }
     ],
@@ -9025,10 +9014,7 @@
         "_DBLink": {
           "worksTitle": "NumberTales",
           "dbName": "Primary",
-          "_Search": {
-            "hashTag": "Num",
-            "key": "0"
-          }
+          "_Search": [{ "hashTag": "Num", "key": "0" }]
         }
       },
       {
@@ -9037,10 +9023,7 @@
         "_DBLink": {
           "worksTitle": "NumberTales",
           "dbName": "Primary",
-          "_Search": {
-            "hashTag": "Num",
-            "key": "00"
-          }
+          "_Search": [{ "hashTag": "Num", "key": "00" }]
         }
       }
     ],
@@ -9078,7 +9061,7 @@
     "_DBLink": {
       "worksTitle": "SinisterChangingGirls",
       "dbName": "Primary",
-      "_Search": { "hashTag": "Drc", "key": "N" }
+      "_Search": [{ "hashTag": "Drc", "key": "N" }]
     },
     "CodeName": "〇",
     "SPCodeName": "零",

@@ -5,12 +5,12 @@
     "_DBLink": {
       "worksTitle": "NumberTales",
       "dbName": "Primary",
-      "_Search": { "hashTag": "Num", "key": "0" }
+      "_Search": [{ "hashTag": "Num", "key": "0" }]
     },
-    "Name": "千歳 玲(れい)",
-    "Name_EN": "Zeena Thouser",
-    "FormalName": "零(かずない) 零(れい)",
-    "FormalName_EN": "Zera Norumber",
+    "Name": "零(かずない) 零(れい)",
+    "Name_EN": "Zera Norumber",
+    "FormalName": "千歳 玲(れい)",
+    "FormalName_EN": "Zeena Thouser",
     "CodeName": "色欲の正子",
     "CodeName_EN": "Lust o'clock in Midnight",
     "Belonging": ["百花繚乱研究所"],
@@ -18,7 +18,7 @@
     "BirthDay": {
       "_Jump": {
         "hashTag": "AnivDay",
-        "_Search": { "hashTag": "DayAbout", "key": "誕生日" }
+        "_Search": [{ "hashTag": "DayAbout", "key": "誕生日" }]
       }
     },
     "Character": "素面(シラフ)時：仲間思いの姉御肌。お調子者なムードメーカ\n泥酔時：甘えん坊極まりなく、成人としての限度を超えてしまうほどの破廉恥（※弟談）",

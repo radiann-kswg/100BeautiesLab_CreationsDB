@@ -5,7 +5,7 @@
     "_DBLink": {
       "worksTitle": "DestinyFoxsRecords",
       "dbName": "Primary",
-      "_Search": { "hashTag": "Unit", "key": "rad" }
+      "_Search": [{ "hashTag": "Unit", "key": "rad" }]
     },
     "Name": "ラジアン(2代目)",
     "Name_EN": "RadianN (2nd Gen.)",

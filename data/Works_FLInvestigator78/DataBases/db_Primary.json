@@ -431,10 +431,7 @@
       "_DBLink": {
         "worksTitle": "NumberTales",
         "dbName": "Secondary",
-        "_Search": {
-          "hashTag": "Num",
-          "key": "%"
-        }
+        "_Search": [{ "hashTag": "Num", "key": "%" }]
       },
       "Name": "錦野 舞",
       "Name_EN": "Dancy Actressilk",
@@ -506,6 +503,11 @@
     "RaceType": { "HideText": "定義不能" },
     "GenderType": "FemaleNeutral",
     "ThisDealer": {
+      "_DBLink": {
+        "worksTitle": "NumberTales",
+        "dbName": "Secondary",
+        "_Search": [{ "hashTag": "Num", "key": "∞" }]
+      },
       "Name": "錦野 歌嫁",
       "Name_EN": "Phonia Actressilk",
       "RaceType": "Human",
