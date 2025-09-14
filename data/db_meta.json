@@ -44,10 +44,13 @@
       "Title": "パストダイヴァー",
       "Title_EN": "PastDivers",
       "Works_Summary": "九蓮国の国家技術と国防を担う「夜月機関」に所属する特殊技術者。\n主に和暦などに基づいたキャラクターが存在する。",
-      "$Def_Index": [
-        { "hashTag": "Lunar", "$valType": "#ListIndex" },
-        { "hashTag": "Generation", "$valType": "#Number" }
-      ]
+      "$Def_Index": {
+        "hashTag": "Chronos",
+        "$valType": [
+          { "hashTag": "Lunar", "$valType": "#ListIndex" },
+          { "hashTag": "Generation", "$valType": "#Num" }
+        ]
+      }
     },
     "#Works_DestinyFoxsRecords": {
       "Title": "運命線狐の記録\nフィジカル9",
@@ -602,66 +605,64 @@
         { "HideText": "定義不能", "HideText_EN": "Undefineble" },
         { "HideText": "本人すら把握されていない", "HideText_EN": "Not Aware" }
       ],
-      "$Def_Stats": {
-        "$EnumDef_Rank": {
-          "#Rank0": { "Rank": "ZZ" },
-          "#Rank1": { "Rank": "Z" },
-          "#Rank2adv": { "Rank": "S+" },
-          "#Rank2": { "Rank": "S" },
-          "#Rank3": { "Rank": "A" },
-          "#Rank4adv": { "Rank": "B+" },
-          "#Rank4": { "Rank": "B" },
-          "#Rank5": { "Rank": "C" },
-          "#Rank6": { "Rank": "D" },
-          "#Rank7": { "Rank": "E" }
-        },
-        "$Def_AbilityStats": {
-          "$EnumLink_AbilityText": {
-            "#Rank1": {
-              "Rank": "Z",
-              "AbilityText": "過剰",
-              "AbilityText_EN": "Excessive"
-            },
-            "#Rank2adv": {
-              "Rank": "S+",
-              "AbilityText": "強化済",
-              "AbilityText_EN": "Extended"
-            },
-            "#Rank2": {
-              "Rank": "S",
-              "AbilityText": "卓越",
-              "AbilityText_EN": "Excellent"
-            },
-            "#Rank3": {
-              "Rank": "A",
-              "AbilityText": "優秀",
-              "AbilityText_EN": "Very Good"
-            },
-            "#Rank4adv": {
-              "Rank": "B+",
-              "AbilityText": "標準",
-              "AbilityText_EN": "Standard"
-            },
-            "#Rank4": {
-              "Rank": "B",
-              "AbilityText": "普通",
-              "AbilityText_EN": "Average"
-            },
-            "#Rank5": {
-              "Rank": "C",
-              "AbilityText": "稚拙",
-              "AbilityText_EN": "Poor"
-            },
-            "#Rank6": {
-              "Rank": "D",
-              "AbilityText": "欠落",
-              "AbilityText_EN": "Missing"
-            },
-            "#Rank7": {
-              "Rank": "E",
-              "AbilityText": "障碍有",
-              "AbilityText_EN": "Obstructed"
-            }
+      "$EnumDef_Rank": {
+        "#Rank0": { "Rank": "ZZ" },
+        "#Rank1": { "Rank": "Z" },
+        "#Rank2adv": { "Rank": "S+" },
+        "#Rank2": { "Rank": "S" },
+        "#Rank3": { "Rank": "A" },
+        "#Rank4adv": { "Rank": "B+" },
+        "#Rank4": { "Rank": "B" },
+        "#Rank5": { "Rank": "C" },
+        "#Rank6": { "Rank": "D" },
+        "#Rank7": { "Rank": "E" }
+      },
+      "$Def_AbilityStats": {
+        "$EnumLink_AbilityText": {
+          "#Rank1": {
+            "Rank": "Z",
+            "AbilityText": "過剰",
+            "AbilityText_EN": "Excessive"
+          },
+          "#Rank2adv": {
+            "Rank": "S+",
+            "AbilityText": "強化済",
+            "AbilityText_EN": "Extended"
+          },
+          "#Rank2": {
+            "Rank": "S",
+            "AbilityText": "卓越",
+            "AbilityText_EN": "Excellent"
+          },
+          "#Rank3": {
+            "Rank": "A",
+            "AbilityText": "優秀",
+            "AbilityText_EN": "Very Good"
+          },
+          "#Rank4adv": {
+            "Rank": "B+",
+            "AbilityText": "標準",
+            "AbilityText_EN": "Standard"
+          },
+          "#Rank4": {
+            "Rank": "B",
+            "AbilityText": "普通",
+            "AbilityText_EN": "Average"
+          },
+          "#Rank5": {
+            "Rank": "C",
+            "AbilityText": "稚拙",
+            "AbilityText_EN": "Poor"
+          },
+          "#Rank6": {
+            "Rank": "D",
+            "AbilityText": "欠落",
+            "AbilityText_EN": "Missing"
+          },
+          "#Rank7": {
+            "Rank": "E",
+            "AbilityText": "障碍有",
+            "AbilityText_EN": "Obstructed"
           }
         }
       }
