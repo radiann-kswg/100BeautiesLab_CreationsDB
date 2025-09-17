@@ -686,6 +686,17 @@
         "#Rank6": { "Rank": "D" },
         "#Rank7": { "Rank": "E" }
       },
+      "$EnumDef_Rarity": {
+        "#Rarity0": { "Rarity": "UR" },
+        "#Rarity1": { "Rarity": "SSR" },
+        "#Rarity2adv": { "Rarity": "SR+" },
+        "#Rarity2": { "Rarity": "SR" },
+        "#Rarity3adv": { "Rarity": "R+" },
+        "#Rarity3": { "Rarity": "R" },
+        "#Rarity4adv": { "Rarity": "N+" },
+        "#Rarity4": { "Rarity": "N" },
+        "#Rarity5": { "Rarity": "C" }
+      },
       "$Def_AbilityStats": {
         "$EnumLink_AbilityText": {
           "#Rank1": {
