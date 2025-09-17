@@ -5668,6 +5668,16 @@
     "TailsUnit": "キツネ(枝分かれ)型6本(上1束4本+下2束2本)",
     "Class": "デュアルエイツ",
     "Class_EN": "Dual Sum-8s",
+    "ThisMasters": [
+      {
+        "value": "六花(ろくばな) 雙葉",
+        "_DBLink": {
+          "worksTitle": "SinisterChangingGirls",
+          "dbName": "Primary",
+          "_Search": [{ "hashTag": "Drc", "key": "S" }]
+        }
+      }
+    ],
     "FirstPersonCalling": "あたし",
     "SecondPersonCalling": "あんた, あなた",
     "ThirdPersonCalling": "[※名前呼び], ～先輩",
