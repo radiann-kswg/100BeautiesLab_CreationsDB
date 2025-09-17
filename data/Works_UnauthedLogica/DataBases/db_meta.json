@@ -1,0 +1,109 @@
+{
+  "Databases": {
+    "#DB_Mobs": {
+      "DB_Summary": "汎用オートマトンである7274オートマトンとして登場するモブ種族。\n現実の7400シリーズICをモチーフにした汎用ロジックを（彼らに最も構成されている72ISシリーズ集積素子として）それぞれ有している。\nなお、一次創作と副次創作の境界は取分け定めていない。",
+      "StoryEra": {
+        "FromEra": [{ "EraGen": 7, "YearInEra": 23 }, { "byRealYear": 2044 }],
+        "ToEra": [
+          { "EraGen": 7, "YearInEra": 31 },
+          { "EraGen": 8, "YearInEra": 7 },
+          { "byRealYear": 2051 }
+        ],
+        "InEra": [{ "EraGen": 7, "YearInEra": 29 }, { "byRealYear": 2049 }],
+        "about_JP": "第7創世紀23〜31年(第8創世紀元前1〜第8創世紀7年,西暦2044〜2051年相当)",
+        "about_EN": "between WDCE.VII.23-31(Equivalent to between: WDC.VIII.BCE.1-WDCE.VIII.7, DC.2044-2051)"
+      },
+      "_Commons": {
+        "Belonging": ["ラストラステクニカ-インストゥルメント"],
+        "RaceType": "Automaton"
+      },
+      "Secondaries": [
+        {
+          "SecondaryCategory": null,
+          "SecondaryDesignedBy": "ラジアン(柏木主税)",
+          "SecondarySeriesTitle": null,
+          "SecondarySummary": "（※一次創作キャラ：当サークル,ラジアン(柏木主税)からキャラデザされたもの）"
+        }
+      ]
+    },
+    "#DB_Primary": {
+      "DB_Summary": "人形兵ゼロイドのうち、公式一次創作作品に登場するキャラクター。\nほとんどがパラレル存在であるナンバーテールズの引用のため、詳細は（細々とした外見を除き）そちらを参照。",
+      "StoryEra": {
+        "FromEra": [
+          { "EraGen": 7, "YearInEra": 28 },
+          { "EraGen": 8, "YearInEra": 4 },
+          { "byRealYear": 2048 }
+        ],
+        "ToEra": [
+          { "EraGen": 7, "YearInEra": 31 },
+          { "EraGen": 8, "YearInEra": 7 },
+          { "byRealYear": 2051 }
+        ],
+        "InEra": [
+          { "EraGen": 7, "YearInEra": 29 },
+          { "EraGen": 8, "YearInEra": 5 },
+          { "byRealYear": 2049 }
+        ],
+        "about_JP": "第7創世紀28〜31年(第8創世紀4〜7年,西暦2048〜2051年相当)",
+        "about_EN": "between WDCE.VII.28-31(Equivalent to between: WDCE.VIII.4-WDCE.VIII.7, DC.2048-2051)"
+      },
+      "_Commons": {
+        "RaceType": "CustomAutomaton(TaleBeastType)"
+      }
+    }
+  },
+  "General": {
+    "$VarsDef": {
+      "$Def_LogicspecStats": {},
+      "$Def_ExistingRarity": {
+        "$EnumLink_ExistingRarity": {
+          "#Rarity0": {
+            "Rarity": "UR",
+            "ExistingRarity": "VeryNerd(UR)",
+            "ExistingRarity_JP": "ベリーナード級(UR)"
+          },
+          "#Rarity1": {
+            "Rarity": "SSR",
+            "ExistingRarity": "ManiacRare(SSR)",
+            "ExistingRarity_JP": "マニアックレア級(SSR)"
+          },
+          "#Rarity2adv": {
+            "Rarity": "SR+",
+            "ExistingRarity": "Maniac(SR+)",
+            "ExistingRarity_JP": "マニア級(SR+)"
+          },
+          "#Rarity2": {
+            "Rarity": "SR",
+            "ExistingRarity": "SuperRare",
+            "ExistingRarity_JP": "スーパーレア級(SR)"
+          },
+          "#Rarity3adv": {
+            "Rarity": "R+",
+            "ExistingRarity": "Abolition(R+)",
+            "ExistingRarity_JP": "アボリット級(R+)"
+          },
+          "#Rarity3": {
+            "Rarity": "R",
+            "ExistingRarity": "Rare",
+            "ExistingRarity_JP": "レア級(R)"
+          },
+          "#Rarity4adv": {
+            "Rarity": "N+",
+            "ExistingRarity": "Normal+",
+            "ExistingRarity_JP": "ノーマル上級(N+)"
+          },
+          "#Rarity4": {
+            "Rarity": "N",
+            "ExistingRarity": "Normal",
+            "ExistingRarity_JP": "ノーマル級(N)"
+          },
+          "#Rarity5": {
+            "Rarity": "C",
+            "ExistingRarity": "Commons",
+            "ExistingRarity_JP": "コモンズ級(C)"
+          }
+        }
+      }
+    }
+  }
+}
