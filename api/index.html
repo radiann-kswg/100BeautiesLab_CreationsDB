@@ -6,14 +6,14 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="stylesheet.css">
 	<title>100BeautiesLab.(百花繚乱研究所) Works/Creations DataBase API</title>
-	<meta name="description" content="自創作サークル『百花繚乱研究所』の創作データベースAPI(Prototype)">
+	<meta name="description" content="自創作サークル『百花繚乱研究所』の創作データベースAPI">
 	<meta name="keywords" content="百花繚乱研究所, 100BeautiesLab, API">
 </head>
 
 <body>
 	<header>
-		<h1>100BeautiesLab Works/Creations DataBase API (Prototype)</h1>
-		<p class="lead">このページは GitHub Pages の静的環境で動作する「百花繚乱研究所」創作キャラクターデータベースの API プロトタイプです。Service Worker が <code>/api/v1/*</code> へのアクセスをフックし、<code>/data/**</code> のJSONからAPI風レスポンスを返します。</p>
+		<h1>100BeautiesLab Works/Creations DataBase API</h1>
+		<p class="lead">このページは GitHub Pages の静的環境で動作する「百花繚乱研究所」創作キャラクターデータベースの APIです。Service Worker が <code>/api/v1/*</code> へのアクセスをフックし、<code>/data/**</code> のJSONからAPI風レスポンスを返します。</p>
 	</header>
 
 	<main>
@@ -27,7 +27,7 @@
 				<li><code>/api/v1/works/{work}/db/{dbName}</code> … 該当DBのレコード配列</li>
 				<li><code>/api/v1/search?works={work}&db={dbName}&hashTag={k}&key={v}</code> … DB内検索</li>
 			</ul>
-			<p class="note">work は <code>#Works_NumberTales</code> などの完全キー、または <code>NumberTales</code> の短縮も使用可能です。</p>
+			<p class="note">work は <code>#Works_NumberTales</code> などの完全キー、または <code>NumberTales</code> などの短縮も使用可能です。</p>
 		</section>
 
 		<section class="card">
