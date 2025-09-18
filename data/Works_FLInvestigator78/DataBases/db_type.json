@@ -16,7 +16,7 @@
           "hashTag": "SpecType",
           "$type": [
             {
-              "hashTag": "MaterialType",
+              "hashTag": "Material",
               "$type": "#ListIndex[]"
             },
             {
@@ -44,6 +44,10 @@
           "$type": [
             { "hashTag": "SafetyLevelText", "$type": "#String_JP,#ListLink" }
           ]
+        },
+        {
+          "hashTag": "SpecLevel",
+          "$type": [{ "hashTag": "Rank", "$type": "$EnumDef_Rank,$EnumLink" }]
         },
         {
           "hashTag": "EffectStats",

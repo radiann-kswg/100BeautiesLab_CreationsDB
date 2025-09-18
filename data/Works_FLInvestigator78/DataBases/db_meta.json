@@ -57,11 +57,11 @@
       "$Def_ArcanumspecStats": {
         "$Def_SpecType": {
           "#List_Material": [
-            { "MaterialType": "Fire", "Material_JP": "火" },
-            { "MaterialType": "Water", "Material_JP": "水" },
-            { "MaterialType": "Slash", "Material_JP": "風" },
-            { "MaterialType": "Object", "Material_JP": "土" },
-            { "MaterialType": "Quart", "Material_JP": "四" }
+            { "Material": "Fire", "Material_JP": "火" },
+            { "Material": "Water", "Material_JP": "水" },
+            { "Material": "Slash", "Material_JP": "風" },
+            { "Material": "Object", "Material_JP": "土" },
+            { "Material": "Quart", "Material_JP": "四" }
           ],
           "$Def_ActionType": {
             "#List_KinematicOrStatic": [
@@ -82,6 +82,7 @@
             "#List_RoleType": [
               { "RoleType": "Lead", "RoleType_JP": "律" },
               { "RoleType": "Keep", "RoleType_JP": "秘" },
+              { "RoleType": "Frier", "RoleType_JP": "遊" },
               { "RoleType": "Control", "RoleType_JP": "操" },
               { "RoleType": "Heal", "RoleType_JP": "癒" },
               { "RoleType": "Fere", "RoleType_JP": "妨" },

@@ -48,7 +48,7 @@
     "Summary": "",
     "ArcanumspecStats": {
       "SpecType": {
-        "MaterialType": [{ "MaterialType": "Fire" }],
+        "Material": [{ "Material": "Fire" }],
         "ActionType": {
           "KinematicOrStatic": "Kinematic",
           "RoleType": "Frier"
@@ -119,9 +119,9 @@
     "Summary": "",
     "ArcanumspecStats": {
       "SpecType": {
-        "MaterialType": [
+        "Material": [
           {
-            "MaterialType": "Quart"
+            "Material": "Quart"
           }
         ],
         "ActionType": {
@@ -189,9 +189,9 @@
     "Summary": "",
     "ArcanumspecStats": {
       "SpecType": {
-        "MaterialType": [
+        "Material": [
           {
-            "MaterialType": "Water"
+            "Material": "Water"
           }
         ],
         "ActionType": {
@@ -265,11 +265,11 @@
     "Summary": "",
     "ArcanumspecStats": {
       "SpecType": {
-        "MaterialType": [
+        "Material": [
           {
-            "MaterialType": "Water"
+            "Material": "Water"
           },
-          { "MaterialType": "Object" }
+          { "Material": "Object" }
         ],
         "ActionType": {
           "KinematicOrStatic": "Pre-Static",
@@ -320,12 +320,12 @@
     "Summary": "",
     "ArcanumspecStats": {
       "SpecType": {
-        "MaterialType": [
+        "Material": [
           {
-            "MaterialType": "Fire"
+            "Material": "Fire"
           },
           {
-            "MaterialType": "Object"
+            "Material": "Object"
           }
         ],
         "ActionType": {
@@ -387,9 +387,9 @@
     "Summary": "",
     "ArcanumspecStats": {
       "SpecType": {
-        "MaterialType": [
+        "Material": [
           {
-            "MaterialType": "Water"
+            "Material": "Water"
           }
         ],
         "ActionType": {
@@ -466,7 +466,7 @@
     "Summary": "",
     "ArcanumspecStats": {
       "SpecType": {
-        "MaterialType": [],
+        "Material": [],
         "ActionType": {
           "KinematicOrStatic": null,
           "RoleType": null
@@ -541,7 +541,7 @@
     "Summary": "",
     "ArcanumspecStats": {
       "SpecType": {
-        "MaterialType": [],
+        "Material": [],
         "ActionType": {
           "KinematicOrStatic": null,
           "RoleType": null

@@ -1,5 +1,6 @@
 {
   "$DefType": [
+    { "hashTag": "ForMasterCalling", "$type": "#String|#Summary" },
     { "hashTag": "NumerospecAbout", "$type": "#Summary" },
     {
       "hashTag": "NumerospecStats",
