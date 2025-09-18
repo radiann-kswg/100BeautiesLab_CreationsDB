@@ -46,6 +46,10 @@
           ]
         },
         {
+          "hashTag": "SpecLevel",
+          "$type": [{ "hashTag": "Rank", "$type": "$EnumDef_Rank,$EnumLink" }]
+        },
+        {
           "hashTag": "EffectStats",
           "$type": [
             {
