@@ -1,0 +1,86 @@
+{
+  "$DefType": [
+    {
+      "hashTag": "For79or80thDealerCalling",
+      "$type": [
+        { "hashTag": "For79thDealer", "$type": "#String|#Null" },
+        { "hashTag": "For80thDealer", "$type": "#String|#Null" }
+      ]
+    },
+    { "hashTag": "ThisDealer", "$type": "#Character" },
+    { "hashTag": "ArcanamspecAbout", "$type": "#Summary" },
+    {
+      "hashTag": "ArcanumspecStats",
+      "$type": [
+        {
+          "hashTag": "SpecType",
+          "$type": [
+            {
+              "hashTag": "MaterialType",
+              "$type": "#ListIndex[]"
+            },
+            {
+              "hashTag": "ActionType",
+              "$type": [
+                {
+                  "hashTag": "KinematicOrStatic",
+                  "$type": "#ListIndex|#Null"
+                },
+                {
+                  "hashTag": "RoleType",
+                  "$type": "#ListIndex|#Null"
+                }
+              ]
+            },
+            {
+              "hashTag": "DualizePattern",
+              "$type": "#ListIndex"
+            }
+          ]
+        },
+        { "hashTag": "SpetialPattern", "$type": "#Enum[]" },
+        {
+          "hashTag": "SafetyLevel",
+          "$type": [
+            { "hashTag": "SafetyLevelText", "$type": "#String_JP,#ListLink" }
+          ]
+        },
+        {
+          "hashTag": "EffectStats",
+          "$type": [
+            {
+              "hashTag": "Physical",
+              "$type": [
+                { "hashTag": "EffectText", "$type": "#String_JP,#ListLink" }
+              ]
+            },
+            {
+              "hashTag": "Magical",
+              "$type": [
+                { "hashTag": "EffectText", "$type": "#String_JP,#ListLink" }
+              ]
+            },
+            {
+              "hashTag": "Healing",
+              "$type": [
+                { "hashTag": "EffectText", "$type": "#String_JP,#ListLink" }
+              ]
+            },
+            {
+              "hashTag": "Violent",
+              "$type": [
+                { "hashTag": "EffectText", "$type": "#String_JP,#ListLink" }
+              ]
+            },
+            {
+              "hashTag": "Rewriting",
+              "$type": [
+                { "hashTag": "EffectText", "$type": "#String_JP,#ListLink" }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

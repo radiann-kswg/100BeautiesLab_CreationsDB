@@ -1,0 +1,74 @@
+// Minimal styles for API prototype page
+$bg: #0e0f12
+$fg: #e7e9ee
+$muted: #9aa3b2
+$card: #171a20
+$accent: #4ea1ff
+
+html, body
+	margin: 0
+	padding: 0
+	font-family: system-ui, -apple-system, Segoe UI, Roboto, "Hiragino Kaku Gothic ProN", Meiryo, sans-serif
+	background: $bg
+	color: $fg
+
+header, footer
+	padding: 16px 20px
+	background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0))
+
+.lead
+	color: $muted
+
+main
+	padding: 20px
+	display: grid
+	gap: 16px
+	grid-template-columns: minmax(0, 1fr)
+
+.card
+	background: $card
+	border: 1px solid rgba(255,255,255,0.08)
+	border-radius: 10px
+	padding: 16px
+	box-shadow: 0 6px 24px rgba(0,0,0,0.36)
+
+.grid
+	display: grid
+	grid-template-columns: repeat(auto-fit, minmax(220px, 1fr))
+	gap: 8px
+
+button
+	background: #1f2430
+	color: $fg
+	border: 1px solid rgba(255,255,255,0.12)
+	border-radius: 8px
+	padding: 10px 12px
+	cursor: pointer
+	transition: background .2s ease, border-color .2s ease
+	&:hover
+		background: #252b39
+		border-color: rgba(255,255,255,0.2)
+
+.endpointInput
+	display: flex
+	align-items: center
+	gap: 8px
+	margin-top: 12px
+	input
+		flex: 1
+		min-width: 260px
+		padding: 10px 12px
+		border-radius: 8px
+		border: 1px solid rgba(255,255,255,0.12)
+		background: #101319
+		color: $fg
+
+.output
+	margin-top: 12px
+	padding: 12px
+	background: #0b0d10
+	border: 1px solid rgba(255,255,255,0.08)
+	border-radius: 8px
+	max-height: 60vh
+	overflow: auto
+	color: #e2f1ff

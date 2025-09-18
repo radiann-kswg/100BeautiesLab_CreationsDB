@@ -4,7 +4,7 @@
       "Title": "ナンバーテールズ",
       "Title_EN": "NumberTales",
       "Works_Summary": "九蓮国にあるヴェンチャーラボ「百花繚乱研究所」で零(レイ)と百(ハゲム)が手掛けている妖獣型生活支援ポータブルヒューマノイド。\n主に数字や数秘に基づいた妖獣型のキャラクターが存在する。",
-      "$Def_Index": { "hashTag": "Num", "valType": "#Number\n#String" }
+      "$DefType_Index": { "hashTag": "Num", "$type": "#Number|#String" }
     },
     "#Works_FLInvestigator78": {
       "Title": "運命線探偵78",
@@ -17,11 +17,11 @@
         }
       ],
       "Works_Summary": "英皇国と九蓮国にある異能調査組織「特殊探偵団セブンティエイト」に所属する少年少女。\n主にタロットカードに基づいた能力の憑依が可能なキャラクターが存在する。",
-      "$Def_Index": {
+      "$DefType_Index": {
         "hashTag": "Card",
-        "$valType": [
-          { "hashTag": "Stoat", "$valType": "#ListIndex" },
-          { "hashTag": "Num", "$valType": "#Number" }
+        "$type": [
+          { "hashTag": "Stoat", "$type": "#ListIndex" },
+          { "hashTag": "Num", "$type": "#Number" }
         ]
       }
     },
@@ -29,16 +29,16 @@
       "Title": "獣爾騎兵",
       "Title_EN": "Shou'ar Riders\nBeasted Cavalry",
       "Works_Summary": "龍天国にある山月病(変化病)対策組織「獣爾騎兵」に所属する獣人型改造人間。\n主に十二支などの動物に基づいた獣人キャラクターが存在する。",
-      "$Def_Index": {
+      "$DefType_Index": {
         "hashTag": "BeastType",
-        "$valType": [{ "hashTag": "Beast", "$valType": "#ListIndex" }]
+        "$type": [{ "hashTag": "Beast", "$type": "#ListIndex" }]
       }
     },
     "#Works_SinisterChangingGirls": {
       "Title": "豹変系女子",
       "Title_EN": "Sinister Changing Girls",
       "Works_Summary": "創作世界の各国を放浪している謎多き少女。\n主に七つの大罪や八方位などに基づいた二面性と特徴を持つガーリッシュな８人のキャラクターからなる。",
-      "$Def_Index": { "hashTag": "Drc", "$valType": "#String" }
+      "$DefType_Index": { "hashTag": "Drc", "$type": "#String" }
     },
     "#Works_UnauthedLogica": {
       "Title": "アンオースドロジカ",
@@ -56,11 +56,11 @@
       "Title": "パストダイヴァー",
       "Title_EN": "PastDivers",
       "Works_Summary": "九蓮国の国家技術と国防を担う「夜月機関」に所属する特殊技術者。\n主に和暦などに基づいたキャラクターが存在する。",
-      "$Def_Index": {
+      "$DefType_Index": {
         "hashTag": "Chronos",
-        "$valType": [
-          { "hashTag": "Lunar", "$valType": "#ListIndex" },
-          { "hashTag": "Generation", "$valType": "#Num" }
+        "$type": [
+          { "hashTag": "Lunar", "$type": "#ListDef" },
+          { "hashTag": "Generation", "$type": "#Number|#Null" }
         ]
       }
     },
@@ -75,13 +75,13 @@
         }
       ],
       "Works_Summary": "弊創作を執筆している「ラジアン」の仲間たち。\n主に科学単位や数学用語に基づいた獣人のキャラクターからなる。\nちなみに、当タイトルのいう「ラジアン」とは作者の２代目代理のことである。",
-      "$Def_Index": { "hashTag": "Unit", "$valType": "#String" }
+      "$DefType_Index": { "hashTag": "Unit", "$type": "#String" }
     },
     "#Works_Proxies": {
       "Title": "運命線狐の記録",
       "Title_EN": "Destiny Fox's Records",
       "Works_Summary": "弊創作を執筆している「ラジアン」の代理キャラクター",
-      "$Def_Index": { "hashTag": "Generation", "$valType": "#Number" }
+      "$DefType_Index": { "hashTag": "Generation", "$type": "#Number" }
     }
   },
   "General": {
@@ -168,7 +168,7 @@
           "GenderType_JP": "不詳"
         }
       },
-      "#Enum_RaceType": [
+      "#List_RaceType": [
         {
           "RaceType": "Human",
           "RaceType_JP": "人間"
@@ -387,7 +387,7 @@
         }
       ],
       "$Def_Belonging": {
-        "#Enum_Area": [
+        "#List_Area": [
           {
             "Area": "九蓮国",
             "Area_EN": "LotusNinea",
@@ -487,7 +487,7 @@
             "isForSecondary": true
           }
         ],
-        "#Enum_Belonging": [
+        "#List_Belonging": [
           {
             "Belonging": "百花繚乱研究所",
             "Belonging_EN": "HundredBeauties Laboratory",
@@ -643,59 +643,6 @@
             "isMaker": null
           }
         ]
-      },
-      "$Def_Day": {
-        "#Enum_Month": [
-          { "Month": 1, "Month_EN": "Jan" },
-          { "Month": 2, "Month_EN": "Feb" },
-          { "Month": 3, "Month_EN": "Mar" },
-          { "Month": 4, "Month_EN": "Apr" },
-          { "Month": 5, "Month_EN": "May" },
-          { "Month": 6, "Month_EN": "Jun" },
-          { "Month": 7, "Month_EN": "Jul" },
-          { "Month": 8, "Month_EN": "Aug" },
-          { "Month": 9, "Month_EN": "Sep" },
-          { "Month": 10, "Month_EN": "Oct" },
-          { "Month": 11, "Month_EN": "Nov" },
-          { "Month": 12, "Month_EN": "Dec" }
-        ]
-      },
-      "#Enum_HideText": [
-        { "HideText": "？？？", "HideText_EN": "????" },
-        { "HideText": "データ無", "HideText_EN": "No Data" },
-        { "HideText": "公開不能", "HideText_EN": "Openly Not" },
-        { "HideText": "判定不能", "HideText_EN": "Unjudgeble" },
-        { "HideText": "判定失敗", "HideText_EN": "Judgement Failed" },
-        { "HideText": "検証中", "HideText_EN": "Now Researching" },
-        { "HideText": "極秘事項", "HideText_EN": "Confidential" },
-        { "HideText": "非公開希望", "HideText_EN": "Non-Public at Pleasure" },
-        { "HideText": "非公開", "HideText_EN": "Non-Public" },
-        { "HideText": "条件による", "HideText_EN": "Depending on Conditions" },
-        { "HideText": "定義不能", "HideText_EN": "Undefineble" },
-        { "HideText": "本人すら把握されていない", "HideText_EN": "Not Aware" }
-      ],
-      "$EnumDef_Rank": {
-        "#Rank0": { "Rank": "ZZ" },
-        "#Rank1": { "Rank": "Z" },
-        "#Rank2adv": { "Rank": "S+" },
-        "#Rank2": { "Rank": "S" },
-        "#Rank3": { "Rank": "A" },
-        "#Rank4adv": { "Rank": "B+" },
-        "#Rank4": { "Rank": "B" },
-        "#Rank5": { "Rank": "C" },
-        "#Rank6": { "Rank": "D" },
-        "#Rank7": { "Rank": "E" }
-      },
-      "$EnumDef_Rarity": {
-        "#Rarity0": { "Rarity": "UR" },
-        "#Rarity1": { "Rarity": "SSR" },
-        "#Rarity2adv": { "Rarity": "SR+" },
-        "#Rarity2": { "Rarity": "SR" },
-        "#Rarity3adv": { "Rarity": "R+" },
-        "#Rarity3": { "Rarity": "R" },
-        "#Rarity4adv": { "Rarity": "N+" },
-        "#Rarity4": { "Rarity": "N" },
-        "#Rarity5": { "Rarity": "C" }
       },
       "$Def_AbilityStats": {
         "$EnumLink_AbilityText": {

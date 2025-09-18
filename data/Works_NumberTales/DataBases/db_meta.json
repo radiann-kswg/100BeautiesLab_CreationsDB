@@ -234,182 +234,180 @@
             }
           ]
         },
-        "$Def_SpetialPattern": {
-          "#Enum_SpetialPattern": [
-            "Ptn.A(行動補正効果)",
-            "Ptn.Ar(能力発揮効果)",
-            "Ptn.Av(能力比例作用)",
-            "Ptn.B(バイタリティ強化効果)",
-            "Ptn.B+(物理的なバイタリティ効果)",
-            "Ptn.C(状況変化効果)",
-            "Ptn.C-(状況変化効果がある傾向)",
-            "Ptn.Ch(連鎖効果有)",
-            "Ptn.Dr(目標比例作用)",
-            "Ptn.Dr-(目標比例作用がある傾向)",
-            "Ptn.Ec(士気比例作用)",
-            "Ptn.Ec-(士気比例作用と思われる)",
-            "Ptn.Es(自己認知効果)",
-            "Ptn.F(超能力保有)",
-            "Ptn.F-(超能力保有の可能性)",
-            "Ptn.Hm(心理安定化効果)",
-            "Ptn.I(高性能知能搭載)",
-            "Ptn.Kn(知性効果)",
-            "Ptn.Lg(思考向上効果)",
-            "Ptn.Lr(幸福実現効果)",
-            "Ptn.Lr-(条件付き幸福実現効果)",
-            "Ptn.M(マネタイズ効果または資産操作能力)",
-            "Ptn.M-(マネタイズ効果または資産操作効果がある傾向)",
-            "Ptn.Ms(自己転化効果)",
-            "Ptn.Mt(母性的作用の傾向)",
-            "Ptn.Pc(平穏増幅効果)",
-            "Ptn.Py(読心効果)",
-            "Ptn.R-(効果保証作用がある傾向)",
-            "Ptn.Rc(救済効果)",
-            "Ptn.Rc-(救済効果がある傾向)",
-            "Ptn.Rz(実現性向上効果)",
-            "Ptn.Rz-(実現性向上効果がある傾向)",
-            "Ptn.S(感性向上効果)",
-            "Ptn.S-(感性向上効果の可能性)",
-            "Ptn.St(状況比例作用)",
-            "Ptn.X(転化・転送効果)",
-            "Ptn.Z[At](攻撃的思想に注意)",
-            "Ptn.Z[Eg](過剰自我注意)",
-            "Ptn.Z[Ex](興奮注意)",
-            "Ptn.Z[Hd](効果に一定の精神的耐性が必要)",
-            "Ptn.Z[Sp](催眠/洗脳作用注意)",
-            "Ptn.ZZ(逆効能および禁断効果に警戒)"
-          ]
-        }
-      },
-      "$Def_Relation": {
-        "#Enum_RelationLabel": [
-          {
-            "RelationLabel": "brother|sister",
-            "RelationLabel_JP": "姉妹個体(兄弟姉妹)",
-            "isForSecondary": false
-          },
-          {
-            "RelationLabel": "cousin",
-            "RelationLabel_JP": "従姉妹個体(従姉妹)",
-            "isForSecondary": false
-          },
-          {
-            "RelationLabel": "cousin_nearly",
-            "RelationLabel_JP": "従姉妹個体に近しい",
-            "isForSecondary": false
-          },
-          {
-            "RelationLabel": "pioneer",
-            "RelationLabel_JP": "先駆設計個体(昔からの先輩)",
-            "isForSecondary": false
-          },
-          {
-            "RelationLabel": "pioneer_nearly",
-            "RelationLabel_JP": "先駆設計の個体に近しい(かつての先輩)",
-            "isForSecondary": false
-          },
-          {
-            "RelationLabel": "successor",
-            "RelationLabel_JP": "後継設計個体(昔からの後輩)",
-            "isForSecondary": false
-          },
-          {
-            "RelationLabel": "successor_nearly",
-            "RelationLabel_JP": "後継設計の個体に近しい(かつての後輩)",
-            "isForSecondary": false
-          },
-          {
-            "RelationLabel": "alternative|redesign",
-            "RelationLabel_JP": "代替または再設計の関係にある個体",
-            "isForSecondary": false
-          },
-          {
-            "RelationLabel": "sameNumber",
-            "RelationLabel_JP": "同番号個体",
-            "isForSecondary": false
-          },
-          {
-            "RelationLabel": "wellMatched",
-            "RelationLabel_JP": "相性の良い個体",
-            "isForSecondary": false
-          },
-          {
-            "RelationLabel": "wellMatched_maybe",
-            "RelationLabel_JP": "おそらく相性の良い個体",
-            "isForSecondary": false
-          },
-          {
-            "RelationLabel": "unmatched",
-            "RelationLabel_JP": "相性の悪い個体",
-            "isForSecondary": false
-          },
-          {
-            "RelationLabel": "trusted",
-            "RelationLabel_JP": "信頼している個体",
-            "isForSecondary": false
-          },
-          {
-            "RelationLabel": "trusted_maybe",
-            "RelationLabel_JP": "おそらく信頼している個体",
-            "isForSecondary": false
-          },
-          {
-            "RelationLabel": "awkward",
-            "RelationLabel_JP": "気まずい関係にある個体",
-            "isForSecondary": false
-          },
-          {
-            "RelationLabel": "awkward_aBit",
-            "RelationLabel_JP": "少し気まずい関係にある個体",
-            "isForSecondary": false
-          },
-          {
-            "RelationLabel": "accompanying",
-            "RelationLabel_JP": "よく行動をともにする個体",
-            "isForSecondary": false
-          },
-          {
-            "RelationLabel": "abusing",
-            "RelationLabel_JP": "過剰干渉しがちな個体",
-            "isForSecondary": false
-          },
-          {
-            "RelationLabel": "interested",
-            "RelationLabel_JP": "興味を持っている個体",
-            "isForSecondary": false
-          },
-          {
-            "RelationLabel": "adverselyAffected",
-            "RelationLabel_JP": "悪い影響関係にある個体",
-            "isForSecondary": false
-          },
-          {
-            "RelationLabel": "adverselyAffected_aBit",
-            "RelationLabel_JP": "あまり良いとは限らない影響関係にある個体",
-            "isForSecondary": false
-          },
-          {
-            "RelationLabel": "paired",
-            "RelationLabel_JP": "対で認識されている個体",
-            "isForSecondary": false
-          },
-          {
-            "RelationLabel": "secretRelation",
-            "RelationLabel_JP": "あまり明かされない関係にある個体",
-            "isForSecondary": false
-          },
-          {
-            "RelationLabel": "sameValue",
-            "RelationLabel_JP": "数量上は同番号に値する個体",
-            "isForSecondary": true
-          },
-          {
-            "RelationLabel": "hadInCommision",
-            "RelationLabel_JP": "契約関係にあった経験あり",
-            "isForSecondary": true
-          }
+        "#List_SpetialPattern": [
+          "Ptn.A(行動補正効果)",
+          "Ptn.Ar(能力発揮効果)",
+          "Ptn.Av(能力比例作用)",
+          "Ptn.B(バイタリティ強化効果)",
+          "Ptn.B+(物理的なバイタリティ効果)",
+          "Ptn.C(状況変化効果)",
+          "Ptn.C-(状況変化効果がある傾向)",
+          "Ptn.Ch(連鎖効果有)",
+          "Ptn.Dr(目標比例作用)",
+          "Ptn.Dr-(目標比例作用がある傾向)",
+          "Ptn.Ec(士気比例作用)",
+          "Ptn.Ec-(士気比例作用と思われる)",
+          "Ptn.Es(自己認知効果)",
+          "Ptn.F(超能力保有)",
+          "Ptn.F-(超能力保有の可能性)",
+          "Ptn.Hm(心理安定化効果)",
+          "Ptn.I(高性能知能搭載)",
+          "Ptn.Kn(知性効果)",
+          "Ptn.Lg(思考向上効果)",
+          "Ptn.Lr(幸福実現効果)",
+          "Ptn.Lr-(条件付き幸福実現効果)",
+          "Ptn.M(マネタイズ効果または資産操作能力)",
+          "Ptn.M-(マネタイズ効果または資産操作効果がある傾向)",
+          "Ptn.Ms(自己転化効果)",
+          "Ptn.Mt(母性的作用の傾向)",
+          "Ptn.Pc(平穏増幅効果)",
+          "Ptn.Py(読心効果)",
+          "Ptn.R-(効果保証作用がある傾向)",
+          "Ptn.Rc(救済効果)",
+          "Ptn.Rc-(救済効果がある傾向)",
+          "Ptn.Rz(実現性向上効果)",
+          "Ptn.Rz-(実現性向上効果がある傾向)",
+          "Ptn.S(感性向上効果)",
+          "Ptn.S-(感性向上効果の可能性)",
+          "Ptn.St(状況比例作用)",
+          "Ptn.X(転化・転送効果)",
+          "Ptn.Z[At](攻撃的思想に注意)",
+          "Ptn.Z[Eg](過剰自我注意)",
+          "Ptn.Z[Ex](興奮注意)",
+          "Ptn.Z[Hd](効果に一定の精神的耐性が必要)",
+          "Ptn.Z[Sp](催眠/洗脳作用注意)",
+          "Ptn.ZZ(逆効能および禁断効果に警戒)"
         ]
       }
+    },
+    "$Def_Relations": {
+      "#List_RelationLabel": [
+        {
+          "RelationLabel": "brother|sister",
+          "RelationLabel_JP": "姉妹個体(兄弟姉妹)",
+          "isForSecondary": false
+        },
+        {
+          "RelationLabel": "cousin",
+          "RelationLabel_JP": "従姉妹個体(従姉妹)",
+          "isForSecondary": false
+        },
+        {
+          "RelationLabel": "cousin_nearly",
+          "RelationLabel_JP": "従姉妹個体に近しい",
+          "isForSecondary": false
+        },
+        {
+          "RelationLabel": "pioneer",
+          "RelationLabel_JP": "先駆設計個体(昔からの先輩)",
+          "isForSecondary": false
+        },
+        {
+          "RelationLabel": "pioneer_nearly",
+          "RelationLabel_JP": "先駆設計の個体に近しい(かつての先輩)",
+          "isForSecondary": false
+        },
+        {
+          "RelationLabel": "successor",
+          "RelationLabel_JP": "後継設計個体(昔からの後輩)",
+          "isForSecondary": false
+        },
+        {
+          "RelationLabel": "successor_nearly",
+          "RelationLabel_JP": "後継設計の個体に近しい(かつての後輩)",
+          "isForSecondary": false
+        },
+        {
+          "RelationLabel": "alternative|redesign",
+          "RelationLabel_JP": "代替または再設計の関係にある個体",
+          "isForSecondary": false
+        },
+        {
+          "RelationLabel": "sameNumber",
+          "RelationLabel_JP": "同番号個体",
+          "isForSecondary": false
+        },
+        {
+          "RelationLabel": "wellMatched",
+          "RelationLabel_JP": "相性の良い個体",
+          "isForSecondary": false
+        },
+        {
+          "RelationLabel": "wellMatched_maybe",
+          "RelationLabel_JP": "おそらく相性の良い個体",
+          "isForSecondary": false
+        },
+        {
+          "RelationLabel": "unmatched",
+          "RelationLabel_JP": "相性の悪い個体",
+          "isForSecondary": false
+        },
+        {
+          "RelationLabel": "trusted",
+          "RelationLabel_JP": "信頼している個体",
+          "isForSecondary": false
+        },
+        {
+          "RelationLabel": "trusted_maybe",
+          "RelationLabel_JP": "おそらく信頼している個体",
+          "isForSecondary": false
+        },
+        {
+          "RelationLabel": "awkward",
+          "RelationLabel_JP": "気まずい関係にある個体",
+          "isForSecondary": false
+        },
+        {
+          "RelationLabel": "awkward_aBit",
+          "RelationLabel_JP": "少し気まずい関係にある個体",
+          "isForSecondary": false
+        },
+        {
+          "RelationLabel": "accompanying",
+          "RelationLabel_JP": "よく行動をともにする個体",
+          "isForSecondary": false
+        },
+        {
+          "RelationLabel": "abusing",
+          "RelationLabel_JP": "過剰干渉しがちな個体",
+          "isForSecondary": false
+        },
+        {
+          "RelationLabel": "interested",
+          "RelationLabel_JP": "興味を持っている個体",
+          "isForSecondary": false
+        },
+        {
+          "RelationLabel": "adverselyAffected",
+          "RelationLabel_JP": "悪い影響関係にある個体",
+          "isForSecondary": false
+        },
+        {
+          "RelationLabel": "adverselyAffected_aBit",
+          "RelationLabel_JP": "あまり良いとは限らない影響関係にある個体",
+          "isForSecondary": false
+        },
+        {
+          "RelationLabel": "paired",
+          "RelationLabel_JP": "対で認識されている個体",
+          "isForSecondary": false
+        },
+        {
+          "RelationLabel": "secretRelation",
+          "RelationLabel_JP": "あまり明かされない関係にある個体",
+          "isForSecondary": false
+        },
+        {
+          "RelationLabel": "sameValue",
+          "RelationLabel_JP": "数量上は同番号に値する個体",
+          "isForSecondary": true
+        },
+        {
+          "RelationLabel": "hadInCommision",
+          "RelationLabel_JP": "契約関係にあった経験あり",
+          "isForSecondary": true
+        }
+      ]
     }
   }
 }
