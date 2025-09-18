@@ -1,0 +1,12 @@
+{
+  "$DefType": [
+    {
+      "hashTag": "ForMasterCalling",
+      "$type": "#String|#Summary",
+      "isForMobs": false
+    },
+    { "hashTag": "LogicspecAbout", "$type": "#Summary", "isForMobs": null },
+    { "hashTag": "ExistingRarity", "$type": "$EnumLink", "isForMobs": true }
+  ],
+  "$VarsDef": {}
+}

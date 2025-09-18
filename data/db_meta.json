@@ -47,8 +47,8 @@
       "$Def_Index": {
         "hashTag": "Model",
         "$valType": [
-          { "hashTag": "LogicSeries", "$valType": "#String\n#Null" },
-          { "hashTag": "Num", "$valType": "#Number\n#String\n#Null" }
+          { "hashTag": "LogicSeries", "$valType": "#String|#Null" },
+          { "hashTag": "Num", "$valType": "#Number|#String|#Null" }
         ]
       }
     },
