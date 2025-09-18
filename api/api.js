@@ -41,6 +41,11 @@
     }
   }
 
+  async function autoBootstrap() {
+    // try light bootstrap first, then optionally heavy with records
+    await fetchEndpoint('/api/v1/bootstrap');
+  }
+
   function setupUI() {
     const btnInstallSW = document.getElementById('btnInstallSW');
     if (btnInstallSW) btnInstallSW.addEventListener('click', registerSW);
@@ -62,5 +67,7 @@
   window.addEventListener('load', () => {
     registerSW();
     setupUI();
+    // auto run
+    setTimeout(autoBootstrap, 500);
   });
 })();
