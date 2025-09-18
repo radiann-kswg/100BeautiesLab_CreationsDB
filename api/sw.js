@@ -501,8 +501,9 @@ function buildEnrichmentIndices(varsDef, workMeta, defTypeMerged) {
   if (Array.isArray(relLabels2)) for (const r of relLabels2) if (r?.RelationLabel) idx.relationLabelByValue[r.RelationLabel] = r;
 
   // FLInvestigator78 lists in $VarsDef
-  const materials = varsDef?.$Def_ArcanumspecStats?.$Def_SpecType?.$Def_MaterialType?.['#List_MaterialType'];
-  if (Array.isArray(materials)) for (const m of materials) if (m?.MaterialType) idx.materialByValue[m.MaterialType] = m;
+  // Material list (unified: '#List_Material' with items like { Material, Material_JP })
+  const materials = varsDef?.$Def_ArcanumspecStats?.$Def_SpecType?.['#List_Material'];
+  if (Array.isArray(materials)) for (const m of materials) if (m?.Material) idx.materialByValue[m.Material] = m;
   const kinstat = varsDef?.$Def_ArcanumspecStats?.$Def_SpecType?.$Def_ActionType?.['#List_KinematicOrStatic'];
   if (Array.isArray(kinstat)) for (const ks of kinstat) if (ks?.KinematicOrStatic) idx.kinStatByValue[ks.KinematicOrStatic] = ks;
   const roletypes = varsDef?.$Def_ArcanumspecStats?.$Def_SpecType?.$Def_ActionType?.['#List_RoleType'];
@@ -639,8 +640,13 @@ function enrichNodeWithDefs(node, path, idx) {
   }
   if (node.SpecType) {
     // FL material/action/role/dualize
-    if (Array.isArray(node.SpecType.MaterialType)) node.SpecType.MaterialType_Resolved = resolveArrayBy(node.SpecType.MaterialType, idx.materialByValue, 'MaterialType');
-    if (Array.isArray(node.SpecType.MaterialType)) node.SpecType.Material_Resolved = node.SpecType.MaterialType.map(v => (typeof v === 'string' ? (idx.materialByValue[v] || v) : v));
+    if (Array.isArray(node.SpecType.Material)) {
+      node.SpecType.Material_Resolved = node.SpecType.Material.map(v => {
+        if (typeof v === 'string') return idx.materialByValue[v] || v;
+        if (isObject(v) && v.Material) return idx.materialByValue[v.Material] || v;
+        return v;
+      });
+    }
     if (node.SpecType.ActionType) {
       const a = node.SpecType.ActionType;
       if (a.KinematicOrStatic) a.KinematicOrStatic_Resolved = resolveSingleBy(a.KinematicOrStatic, idx.kinStatByValue);

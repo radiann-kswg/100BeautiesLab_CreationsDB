@@ -16,7 +16,7 @@
           "hashTag": "SpecType",
           "$type": [
             {
-              "hashTag": "MaterialType",
+              "hashTag": "Material",
               "$type": "#ListIndex[]"
             },
             {
