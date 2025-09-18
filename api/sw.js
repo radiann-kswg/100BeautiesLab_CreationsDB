@@ -5,6 +5,8 @@
 const API_PREFIX = '/api/v1';
 const CACHE_NAME = '100bl-api-v1';
 const ORIGIN = self.location.origin;
+const WORK_CTX_TTL_MS = 15 * 1000; // simple in-memory cache TTL
+const WORK_CTX_CACHE = new Map(); // key: workId -> { t, mergedVars, defTypeMerged, indices }
 
 self.addEventListener('install', (e) => {
   e.waitUntil(Promise.all([
@@ -91,6 +93,22 @@ async function readGlobalMeta() {
   return fetchJSON('/data/db_meta.json');
 }
 
+async function readGlobalType() {
+  try {
+    return await fetchJSON('/data/db_type.json');
+  } catch (_) {
+    return {};
+  }
+}
+
+async function readWorkType(workId) {
+  try {
+    return await fetchJSON(`/data/${workId.replace('#Works_', 'Works_')}/DataBases/db_type.json`);
+  } catch (_) {
+    return {};
+  }
+}
+
 async function readDB(workId, dbName) {
   const map = {
     Primary: 'db_Primary.json',
@@ -169,14 +187,13 @@ async function handleApiRequest(url) {
   if (seg.length === 1 && seg[0] === 'bootstrap') {
     const includeRecordsParam = url.searchParams.get('includeRecords');
     const includeRecords = includeRecordsParam == null ? false : truthy(includeRecordsParam);
-    const g = await readGlobalMeta();
+  const g = await readGlobalMeta();
+  const gType = await readGlobalType();
     const works = Object.keys(g.CreationWorks || {});
     const out = [];
     for (const wk of works) {
       const workId = wk; // already '#Works_*'
-      const meta = await readWorkMeta(workId);
-      const mergedVars = deepMerge(g?.General?.$VarsDef ?? {}, meta?.General?.$VarsDef ?? {});
-      const indices = buildEnrichmentIndices(mergedVars, meta);
+      const { mergedVars, indices } = await getWorkContext(workId);
       const dbs = await listWorkDBs(workId);
       const item = { work: workId, defsMerged: mergedVars, databases: dbs };
       if (includeRecords) {
@@ -204,10 +221,13 @@ async function handleApiRequest(url) {
   if (seg.length === 3 && seg[0] === 'works' && seg[2] === 'defs') {
     const workId = toWorkKey(seg[1]);
     const g = await readGlobalMeta();
+    const gType = await readGlobalType();
     const meta = await readWorkMeta(workId);
-    const mergedVars = deepMerge(g?.General?.$VarsDef ?? {}, meta?.General?.$VarsDef ?? {});
+    const type = await readWorkType(workId);
+    const { mergedVars } = await getWorkContext(workId);
     const indexes = extractDefIndexes(mergedVars);
-    return jsonResponse({ work: workId, $VarsDefMerged: mergedVars, indexes });
+    const defTypeMerged = [...(gType?.$DefType ?? []), ...(type?.$DefType ?? [])];
+    return jsonResponse({ work: workId, $VarsDefMerged: mergedVars, $DefTypeMerged: defTypeMerged, indexes });
   }
 
   // /api/v1/works/{work}
@@ -215,8 +235,7 @@ async function handleApiRequest(url) {
     const workId = toWorkKey(seg[1]);
     const meta = await readWorkMeta(workId);
     if (!resolve) return jsonResponse({ work: workId, meta });
-    const g = await readGlobalMeta();
-    const mergedVars = deepMerge(g?.General?.$VarsDef ?? {}, meta?.General?.$VarsDef ?? {});
+    const { mergedVars } = await getWorkContext(workId);
     return jsonResponse({ work: workId, meta, resolved: { $VarsDefMerged: mergedVars } });
   }
 
@@ -233,17 +252,13 @@ async function handleApiRequest(url) {
     const dbName = seg[3];
     let data = await readDB(workId, dbName);
     if (resolve) {
-      const g = await readGlobalMeta();
-      const meta = await readWorkMeta(workId);
-      const mergedVars = deepMerge(g?.General?.$VarsDef ?? {}, meta?.General?.$VarsDef ?? {});
-      const indices = buildEnrichmentIndices(mergedVars, meta);
+      const { mergedVars, indices } = await getWorkContext(workId);
       data = await resolveAllInAny(data, indices);
     }
     const payload = { work: workId, db: dbName, records: data, resolved: resolve };
     if (includeVars) {
-      const g = await readGlobalMeta();
-      const meta = await readWorkMeta(workId);
-      payload.$VarsDefMerged = deepMerge(g?.General?.$VarsDef ?? {}, meta?.General?.$VarsDef ?? {});
+      const { mergedVars } = await getWorkContext(workId);
+      payload.$VarsDefMerged = mergedVars;
     }
     return jsonResponse(payload);
   }
@@ -262,17 +277,13 @@ async function handleApiRequest(url) {
     const queries = hashTag.map((h, i) => ({ hashTag: h, key: key[i] }));
     let matched = searchRecords(records, queries);
     if (resolve) {
-      const g = await readGlobalMeta();
-      const meta = await readWorkMeta(workId);
-      const mergedVars = deepMerge(g?.General?.$VarsDef ?? {}, meta?.General?.$VarsDef ?? {});
-      const indices = buildEnrichmentIndices(mergedVars, meta);
+      const { indices } = await getWorkContext(workId);
       matched = await resolveAllInAny(matched, indices);
     }
     const payload = { work: workId, db: dbName, queries, count: matched.length, records: matched, resolved: resolve };
     if (includeVars) {
-      const g = await readGlobalMeta();
-      const meta = await readWorkMeta(workId);
-      payload.$VarsDefMerged = deepMerge(g?.General?.$VarsDef ?? {}, meta?.General?.$VarsDef ?? {});
+      const { mergedVars } = await getWorkContext(workId);
+      payload.$VarsDefMerged = mergedVars;
     }
     return jsonResponse(payload);
   }
@@ -360,14 +371,16 @@ async function resolveDBLinkSpec(spec) {
 
 function extractDefIndexes(varsDef) {
   const enums = {};
+  const lists = {};
   const listLinks = {};
   const enumLinks = {};
   walkDefs(varsDef, (path, key, val) => {
     if (key.startsWith('#Enum_')) enums[path.join('.') + '.' + key] = val;
+    if (key.startsWith('#List_')) lists[path.join('.') + '.' + key] = val;
     if (key.startsWith('#ListLink_')) listLinks[path.join('.') + '.' + key] = val;
     if (key.startsWith('$EnumLink_')) enumLinks[path.join('.') + '.' + key] = val;
   });
-  return { enums, listLinks, enumLinks };
+  return { enums, lists, listLinks, enumLinks };
 }
 
 function walkDefs(obj, cb, path = []) {
@@ -378,7 +391,28 @@ function walkDefs(obj, cb, path = []) {
   }
 }
 
-function buildEnrichmentIndices(varsDef, workMeta) {
+async function getWorkContext(workId) {
+  const cached = WORK_CTX_CACHE.get(workId);
+  const now = Date.now();
+  if (cached && (now - cached.t) < WORK_CTX_TTL_MS) return cached;
+  const [g, gType, meta, type] = await Promise.all([
+    readGlobalMeta(),
+    readGlobalType(),
+    readWorkMeta(workId),
+    readWorkType(workId)
+  ]);
+  const mergedVars = deepMerge(
+    deepMerge(gType?.$VarsDef ?? {}, g?.General?.$VarsDef ?? {}),
+    deepMerge(type?.$VarsDef ?? {}, meta?.General?.$VarsDef ?? {})
+  );
+  const defTypeMerged = [...(gType?.$DefType ?? []), ...(type?.$DefType ?? [])];
+  const indices = buildEnrichmentIndices(mergedVars, meta, defTypeMerged);
+  const out = { t: now, mergedVars, defTypeMerged, indices };
+  WORK_CTX_CACHE.set(workId, out);
+  return out;
+}
+
+function buildEnrichmentIndices(varsDef, workMeta, defTypeMerged) {
   const idx = {
     abilityTextByRank: {},
     abilityTextByJP: {},
@@ -403,7 +437,10 @@ function buildEnrichmentIndices(varsDef, workMeta) {
     kinStatByValue: {},
     roleTypeByValue: {},
     dualizePatternByValue: {},
-    spetialPatternByValue: {}
+    spetialPatternByValue: {},
+    // generic #String_JP,#ListLink indices
+    genericListLinks: {}, // by fieldName (e.g., 'EffectText' / 'SafetyLevelText')
+    genericFieldKeyMap: {} // by field key to mapping (includes alias and canonical jpKey)
   };
 
   // AbilityText
@@ -443,36 +480,38 @@ function buildEnrichmentIndices(varsDef, workMeta) {
   const gen = varsDef?.$EnumDef_GenderType;
   if (isObject(gen)) for (const v of Object.values(gen)) if (v?.GenderType) idx.genderTypeByValue[v.GenderType] = v;
 
-  // RaceType
-  const races = varsDef?.['#Enum_RaceType'];
+  // RaceType (new: #List_RaceType, legacy: #Enum_RaceType)
+  const races = varsDef?.['#List_RaceType'] || varsDef?.['#Enum_RaceType'];
   if (Array.isArray(races)) for (const r of races) if (r?.RaceType) idx.raceTypeByValue[r.RaceType] = r;
 
-  // Belonging / Area
-  const belong = varsDef?.$Def_Belonging?.['#Enum_Belonging'];
+  // Belonging / Area (new lists with #List_*, legacy with #Enum_*)
+  const belong = varsDef?.$Def_Belonging?.['#List_Belonging'] || varsDef?.$Def_Belonging?.['#Enum_Belonging'];
   if (Array.isArray(belong)) for (const b of belong) if (b?.Belonging) idx.belongingByValue[b.Belonging] = b;
-  const areas = varsDef?.$Def_Belonging?.['#Enum_Area'];
+  const areas = varsDef?.$Def_Belonging?.['#List_Area'] || varsDef?.$Def_Belonging?.['#Enum_Area'];
   if (Array.isArray(areas)) for (const a of areas) if (a?.Area) idx.areaByValue[a.Area] = a;
 
-  // Month
-  const months = varsDef?.$Def_Day?.['#Enum_Month'] || varsDef?.['#Enum_Month'];
+  // Month (new: #List_Month, legacy: #Enum_Month)
+  const months = varsDef?.$Def_Day?.['#List_Month'] || varsDef?.['#List_Month'] || varsDef?.$Def_Day?.['#Enum_Month'] || varsDef?.['#Enum_Month'];
   if (Array.isArray(months)) for (const m of months) if (m?.Month != null) idx.monthByNum[Number(m.Month)] = m;
 
-  // RelationLabel (NumberTales)
-  const relLabels = varsDef?.$Def_Relation?.['#Enum_RelationLabel'];
+  // RelationLabel (legacy/new)
+  const relLabels = varsDef?.$Def_Relation?.['#List_RelationLabel'];
   if (Array.isArray(relLabels)) for (const r of relLabels) if (r?.RelationLabel) idx.relationLabelByValue[r.RelationLabel] = r;
+  const relLabels2 = varsDef?.$Def_Relations?.['#List_RelationLabel'];
+  if (Array.isArray(relLabels2)) for (const r of relLabels2) if (r?.RelationLabel) idx.relationLabelByValue[r.RelationLabel] = r;
 
   // FLInvestigator78 lists in $VarsDef
-  const materials = varsDef?.$Def_ArcanumspecStats?.$Def_SpecType?.$Def_MaterialType?.['#List_Material'];
-  if (Array.isArray(materials)) for (const m of materials) if (m?.Material) idx.materialByValue[m.Material] = m;
+  const materials = varsDef?.$Def_ArcanumspecStats?.$Def_SpecType?.$Def_MaterialType?.['#List_MaterialType'];
+  if (Array.isArray(materials)) for (const m of materials) if (m?.MaterialType) idx.materialByValue[m.MaterialType] = m;
   const kinstat = varsDef?.$Def_ArcanumspecStats?.$Def_SpecType?.$Def_ActionType?.['#List_KinematicOrStatic'];
   if (Array.isArray(kinstat)) for (const ks of kinstat) if (ks?.KinematicOrStatic) idx.kinStatByValue[ks.KinematicOrStatic] = ks;
   const roletypes = varsDef?.$Def_ArcanumspecStats?.$Def_SpecType?.$Def_ActionType?.['#List_RoleType'];
   if (Array.isArray(roletypes)) for (const r of roletypes) if (r?.RoleType) idx.roleTypeByValue[r.RoleType] = r;
   const dualize = varsDef?.$Def_ArcanumspecStats?.$Def_SpecType?.['#List_DualizePattern'];
   if (Array.isArray(dualize)) for (const d of dualize) if (d?.Pattern) idx.dualizePatternByValue[d.Pattern] = d;
-  const spPtn = varsDef?.$Def_ArcanumspecStats?.$Def_SpetialPattern?.['#Enum_SpetialPattern']
-    || varsDef?.$Def_NumerospecStats?.$Def_SpetialPattern?.['#Enum_SpetialPattern']
-    || varsDef?.$Def_BeastspecStats?.$Def_SpetialPattern?.['#Enum_SpetialPattern'];
+  const spPtn = varsDef?.$Def_ArcanumspecStats?.$Def_SpetialPattern?.['#List_SpetialPattern']
+    || varsDef?.$Def_NumerospecStats?.$Def_SpetialPattern?.['#List_SpetialPattern']
+    || varsDef?.$Def_BeastspecStats?.$Def_SpetialPattern?.['#List_SpetialPattern'];
   if (Array.isArray(spPtn)) for (const p of spPtn) if (typeof p === 'string') idx.spetialPatternByValue[p] = { SpetialPattern: p };
 
   // Work meta _Commons based #List_* (Stoat/Lunar/Beastなど)
@@ -481,6 +520,21 @@ function buildEnrichmentIndices(varsDef, workMeta) {
     if (Array.isArray(commons['#List_Stoat'])) for (const s of commons['#List_Stoat']) if (s?.Stoat) idx.stoatByValue[s.Stoat] = s;
     if (Array.isArray(commons['#List_Lunar'])) for (const l of commons['#List_Lunar']) if (l?.Lunar) idx.lunarByValue[l.Lunar] = l;
     if (Array.isArray(commons['#List_Beast'])) for (const b2 of commons['#List_Beast']) if (b2?.Beast) idx.beastByValue[b2.Beast] = b2;
+  } catch (_) {}
+
+  // Build generic #String_JP,#ListLink indices from $DefTypeMerged and $VarsDef
+  try {
+    const targets = collectListLinkTargets(defTypeMerged);
+    const allListLinks = collectAllListLinks(varsDef);
+    for (const tgt of targets) {
+      const mapping = buildGenericMappingForField(tgt.fieldName, allListLinks);
+      if (mapping) {
+        idx.genericListLinks[tgt.fieldName] = mapping;
+        // Map both alias (declared field name) and canonical JP key to the same mapping for lookup during enrichment
+        idx.genericFieldKeyMap[tgt.fieldName] = mapping;
+        if (mapping.jpKey && mapping.jpKey !== tgt.fieldName) idx.genericFieldKeyMap[mapping.jpKey] = mapping;
+      }
+    }
   } catch (_) {}
 
   return idx;
@@ -567,7 +621,7 @@ function enrichNodeWithDefs(node, path, idx) {
 
   // Month label (Day.Month)
   if (node.Day && typeof node.Day.Month !== 'undefined') {
-    const m = idx.monthByNum[node.Day.Month];
+    const m = idx.monthByNum[Number(node.Day.Month)];
     if (m && m.Month_EN) node.Month_EN_resolved = m.Month_EN;
   }
 
@@ -585,13 +639,15 @@ function enrichNodeWithDefs(node, path, idx) {
   }
   if (node.SpecType) {
     // FL material/action/role/dualize
-    if (Array.isArray(node.SpecType.MaterialType)) node.SpecType.MaterialType_Resolved = resolveArrayBy(node.SpecType.MaterialType, idx.materialByValue, 'Material');
+    if (Array.isArray(node.SpecType.MaterialType)) node.SpecType.MaterialType_Resolved = resolveArrayBy(node.SpecType.MaterialType, idx.materialByValue, 'MaterialType');
+    if (Array.isArray(node.SpecType.MaterialType)) node.SpecType.Material_Resolved = node.SpecType.MaterialType.map(v => (typeof v === 'string' ? (idx.materialByValue[v] || v) : v));
     if (node.SpecType.ActionType) {
       const a = node.SpecType.ActionType;
       if (a.KinematicOrStatic) a.KinematicOrStatic_Resolved = resolveSingleBy(a.KinematicOrStatic, idx.kinStatByValue);
       if (a.RoleType) a.RoleType_Resolved = resolveSingleBy(a.RoleType, idx.roleTypeByValue);
     }
     if (node.SpecType.DualizePattern && node.SpecType.DualizePattern.Pattern) node.SpecType.DualizePattern_Resolved = resolveSingleBy(node.SpecType.DualizePattern.Pattern, idx.dualizePatternByValue);
+    if (typeof node.SpecType.DualizePattern === 'string') node.SpecType.DualizePattern_Resolved = resolveSingleBy(node.SpecType.DualizePattern, idx.dualizePatternByValue);
   }
   if (node.SpetialPattern) {
     if (Array.isArray(node.SpetialPattern)) node.SpetialPattern_Resolved = resolveArrayBy(node.SpetialPattern, idx.spetialPatternByValue);
@@ -601,4 +657,132 @@ function enrichNodeWithDefs(node, path, idx) {
   if (typeof node.Lunar === 'string' && idx.lunarByValue[node.Lunar]) node.Lunar_Resolved = idx.lunarByValue[node.Lunar];
   // ShouArRiders: Beast list
   if (typeof node.Beast === 'string' && idx.beastByValue[node.Beast]) node.Beast_Resolved = idx.beastByValue[node.Beast];
+
+  // Generic enrich: any field typed as #String_JP,#ListLink in $DefType
+  enrichNodeWithGenericListLinks(node, idx);
+}
+
+// ---- Generic #String_JP,#ListLink support ----
+function collectListLinkTargets(defTypeMerged) {
+  // Traverse $DefTypeMerged to find fields where $type contains '#String_JP,#ListLink'
+  const out = [];
+  const visit = (arr, path = []) => {
+    if (!Array.isArray(arr)) return;
+    for (const item of arr) {
+      if (!item || typeof item !== 'object') continue;
+      const tag = item.hashTag;
+      const t = item.$type;
+      if (typeof t === 'string') {
+        if (t.split('|').some(s => s.trim() === '#String_JP,#ListLink')) {
+          out.push({ fieldName: tag, path: [...path, tag] });
+        }
+      } else if (Array.isArray(t)) {
+        visit(t, [...path, tag]);
+      }
+    }
+  };
+  visit(defTypeMerged || []);
+  // Deduplicate by fieldName
+  const seen = new Set();
+  return out.filter(o => (seen.has(o.fieldName) ? false : (seen.add(o.fieldName), true)));
+}
+
+function collectAllListLinks(varsDef) {
+  // Return a map: listKey (e.g., '#ListLink_EffectText') -> { keySuffix: 'EffectText', items: [...] }
+  const map = {};
+  walkDefs(varsDef, (p, k, v) => {
+    if (k.startsWith('#ListLink_') && Array.isArray(v)) {
+      const suffix = k.substring('#ListLink_'.length);
+      map[k] = { keySuffix: suffix, items: v };
+    }
+  });
+  return map;
+}
+
+function buildGenericMappingForField(fieldName, allListLinks) {
+  // Direct match: '#ListLink_' + fieldName
+  const directKey = `#ListLink_${fieldName}`;
+  if (allListLinks[directKey]) {
+    return buildMappingFromList(fieldName, allListLinks[directKey], fieldName);
+  }
+  const aliasCandidates = [];
+  // Try alias by scanning items
+  const best = findBestListByItemKeys(fieldName, aliasCandidates, allListLinks);
+  if (best) return buildMappingFromList(fieldName, best.link, best.jpKeyCandidate);
+  return null;
+}
+
+function findBestListByItemKeys(fieldName, aliasCandidates, allListLinks) {
+  // Score lists by presence of item key equal to fieldName or aliases
+  let best = null;
+  for (const [listKey, link] of Object.entries(allListLinks)) {
+    const items = link.items;
+    const score = { direct: 0, alias: 0 };
+    for (const it of items) {
+      if (Object.prototype.hasOwnProperty.call(it, fieldName)) score.direct++;
+      for (const a of aliasCandidates) if (Object.prototype.hasOwnProperty.call(it, a)) score.alias++;
+    }
+    const total = score.direct * 10 + score.alias; // prefer direct matches
+    if (total > 0 && (!best || total > best.total)) {
+      const jpKeyCandidate = score.direct > 0 ? fieldName : (aliasCandidates.find(a => items.some(it => a in it)) || fieldName);
+      best = { link, total, jpKeyCandidate };
+    }
+  }
+  return best;
+}
+
+function buildMappingFromList(fieldName, link, jpKeyCandidate) {
+  const items = link.items;
+  const jpKey = jpKeyCandidate && items.some(it => Object.prototype.hasOwnProperty.call(it, jpKeyCandidate)) ? jpKeyCandidate : fieldName;
+  // Determine EN key: prefer `${jpKey}_EN`, else find a key ending with '_EN'
+  let enKey = `${jpKey}_EN`;
+  if (!items.some(it => Object.prototype.hasOwnProperty.call(it, enKey))) {
+    const enAlt = Object.keys(items[0] || {}).find(k => k.endsWith('_EN'));
+    if (enAlt) enKey = enAlt;
+  }
+  const byRank = {};
+  const byJP = {};
+  const byEN = {};
+  for (const it of items) {
+    const r = normRank(it.Rank);
+    const jp = it[jpKey];
+    const en = it[enKey];
+    const pack = { [jpKey]: jp, [enKey]: en, Rank: r };
+    if (r && !byRank[r]) byRank[r] = pack;
+    if (jp && !byJP[jp]) byJP[jp] = pack;
+    if (en && !byEN[en]) byEN[en] = pack;
+  }
+  return { fieldName, listKey: `#ListLink_${link.keySuffix}`, jpKey, enKey, byRank, byJP, byEN };
+}
+
+function enrichNodeWithGenericListLinks(node, idx) {
+  const gmap = idx.genericFieldKeyMap;
+  if (!gmap || !isObject(node)) return;
+  // For each key present on node that we know how to enrich
+  for (const [k, v] of Object.entries(node)) {
+    const m = gmap[k];
+    if (!m) continue;
+    // Determine current JP text from either alias field (k) or canonical jpKey
+    const jpVal = typeof node[k] === 'string' ? node[k] : (typeof node[m.jpKey] === 'string' ? node[m.jpKey] : null);
+    const r = normRank(node.Rank);
+    if (r && m.byRank[r]) {
+      const pack = m.byRank[r];
+      // Fill JP/EN if missing (do not overwrite existing)
+      if (!node[m.jpKey] && pack[m.jpKey]) node[m.jpKey] = pack[m.jpKey];
+      const enProp1 = `${m.fieldName}_EN`;
+      if (!node[enProp1] && pack[m.enKey]) node[enProp1] = pack[m.enKey];
+      if (!node[m.enKey] && pack[m.enKey]) node[m.enKey] = pack[m.enKey];
+      // Also reflect alias JP if canonical exists but alias missing
+      if (!node[m.fieldName] && node[m.jpKey]) node[m.fieldName] = node[m.jpKey];
+    } else if (jpVal && m.byJP[jpVal]) {
+      const pack = m.byJP[jpVal];
+      if (!node.Rank && pack.Rank) node.Rank = pack.Rank;
+      if (!node[m.enKey] && pack[m.enKey]) node[m.enKey] = pack[m.enKey];
+      const enProp1 = `${m.fieldName}_EN`;
+      if (!node[enProp1] && pack[m.enKey]) node[enProp1] = pack[m.enKey];
+      // Mirror canonical/alias JP
+      if (!node[m.jpKey] && jpVal) node[m.jpKey] = jpVal;
+      if (!node[m.fieldName] && node[m.jpKey]) node[m.fieldName] = node[m.jpKey];
+    }
+  }
 }

@@ -48,7 +48,7 @@
     "Summary": "",
     "ArcanumspecStats": {
       "SpecType": {
-        "MaterialType": [{ "Material": "Fire" }],
+        "MaterialType": [{ "MaterialType": "Fire" }],
         "ActionType": {
           "KinematicOrStatic": "Kinematic",
           "RoleType": "Frier"
@@ -121,7 +121,7 @@
       "SpecType": {
         "MaterialType": [
           {
-            "Material": "Quart"
+            "MaterialType": "Quart"
           }
         ],
         "ActionType": {
@@ -191,7 +191,7 @@
       "SpecType": {
         "MaterialType": [
           {
-            "Material": "Water"
+            "MaterialType": "Water"
           }
         ],
         "ActionType": {
@@ -267,9 +267,9 @@
       "SpecType": {
         "MaterialType": [
           {
-            "Material": "Water"
+            "MaterialType": "Water"
           },
-          { "Material": "Object" }
+          { "MaterialType": "Object" }
         ],
         "ActionType": {
           "KinematicOrStatic": "Pre-Static",
@@ -322,10 +322,10 @@
       "SpecType": {
         "MaterialType": [
           {
-            "Material": "Fire"
+            "MaterialType": "Fire"
           },
           {
-            "Material": "Object"
+            "MaterialType": "Object"
           }
         ],
         "ActionType": {
@@ -389,7 +389,7 @@
       "SpecType": {
         "MaterialType": [
           {
-            "Material": "Water"
+            "MaterialType": "Water"
           }
         ],
         "ActionType": {

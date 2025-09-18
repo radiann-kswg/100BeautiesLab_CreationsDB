@@ -56,16 +56,13 @@
     "$VarsDef": {
       "$Def_ArcanumspecStats": {
         "$Def_SpecType": {
-          "$Def_MaterialType": {
-            "#List_Material": [
-              { "Material": "Fire", "Material_JP": "火" },
-              { "Material": "Water", "Material_JP": "水" },
-              { "Material": "Slash", "Material_JP": "風" },
-              { "Material": "Object", "Material_JP": "土" },
-              { "Material": "Quart", "Material_JP": "四" }
-            ],
-            "#Material_feedingChar": "+"
-          },
+          "#List_Material": [
+            { "MaterialType": "Fire", "Material_JP": "火" },
+            { "MaterialType": "Water", "Material_JP": "水" },
+            { "MaterialType": "Slash", "Material_JP": "風" },
+            { "MaterialType": "Object", "Material_JP": "土" },
+            { "MaterialType": "Quart", "Material_JP": "四" }
+          ],
           "$Def_ActionType": {
             "#List_KinematicOrStatic": [
               {
@@ -89,8 +86,7 @@
               { "RoleType": "Heal", "RoleType_JP": "癒" },
               { "RoleType": "Fere", "RoleType_JP": "妨" },
               { "RoleType": "Repair", "RoleType_JP": "修" }
-            ],
-            "#RoleType_feedingChar": "+"
+            ]
           },
           "#List_DualizePattern": [{ "Pattern": "Prop.", "Pattern_JP": "通常" }]
         },
@@ -142,18 +138,16 @@
             }
           ]
         },
-        "$Def_SpetialPattern": {
-          "#Enum_SpetialPattern": [
-            "Ptn.A(覚醒)",
-            "Ptn.B(士気操作)",
-            "Ptn.E(元素操作)",
-            "Ptn.F(妨害)",
-            "Ptn.H(癒術)",
-            "Ptn.L(転化)",
-            "Ptn.M(精神操作)",
-            "Ptn.Q(天変地異)"
-          ]
-        },
+        "#List_SpetialPattern": [
+          "Ptn.A(覚醒)",
+          "Ptn.B(士気操作)",
+          "Ptn.E(元素操作)",
+          "Ptn.F(妨害)",
+          "Ptn.H(癒術)",
+          "Ptn.L(転化)",
+          "Ptn.M(精神操作)",
+          "Ptn.Q(天変地異)"
+        ],
         "$Def_SafetyLevel": {
           "#ListLink_SafetyLevelText": [
             {

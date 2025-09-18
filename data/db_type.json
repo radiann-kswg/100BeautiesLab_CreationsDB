@@ -1,0 +1,143 @@
+{
+  "$DefType": [
+    { "hashTag": "Progress", "$type": "$EnumDef" },
+    {
+      "hashTag": "Images",
+      "$type": [
+        { "hashTag": "concept_PNGName", "$type": "#PNGFileName" },
+        { "hashTag": "arts_PNGPath", "$type": "#PNGFilePath[]" }
+      ]
+    },
+    { "hashTag": "Name", "$type": "#Stiring_JP|#Null" },
+    { "hashTag": "Name_EN", "$type": "#Stiring_EN|#Null" },
+    { "hashTag": "FormalName", "$type": "#Stiring_JP|#Null" },
+    { "hashTag": "FormalName_EN", "$type": "#Stiring_EN|#Null" },
+    { "hashTag": "CodeName", "$type": "#Stiring_JP|#Null" },
+    { "hashTag": "CodeName_EN", "$type": "#Stiring_EN|#Null" },
+    { "hashTag": "ModelNumber", "$type": "#Stiring" },
+    { "hashTag": "RaceType", "$type": "#ListIndex" },
+    { "hashTag": "GenderType", "$type": "$EnumDef" },
+    { "hashTag": "Belonging", "$type": "$Def[]" },
+    { "hashTag": "Height_cm", "$type": "#Number|#Number_withAbout[]" },
+    { "hashTag": "Weight_kg", "$type": "#Number|#Number_withAbout[]" },
+    { "hashTag": "BustSize", "$type": "#String|#String_withAbout" },
+    {
+      "hashTag": "Age",
+      "$type": "#Number|#Number_withAbout",
+      "$alt": "ConceptAge"
+    },
+    { "hashTag": "ConceptAge", "$type": "#Number|#Number_withAbout" },
+    { "hashTag": "BirthDay", "$type": "$Def_Day", "$alt": "AnivDay" },
+    { "hashTag": "AnivDay", "$type": "$Def_Day[]" },
+    { "hashTag": "FirstPersonCalling", "$type": "#String|#Summary" },
+    { "hashTag": "SecondPersonCalling", "$type": "#String|#Summary" },
+    { "hashTag": "ThirdPersonCalling", "$type": "#String|#Summary" },
+    { "hashTag": "Character", "$type": "#String|#Summary" },
+    { "hashTag": "Hobby", "$type": "#String|#Summary" },
+    { "hashTag": "SpetialSkill", "$type": "#String|#Summary" },
+    { "hashTag": "Favor", "$type": "#String|#Summary" },
+    { "hashTag": "Unlike", "$type": "#String|#Summary" },
+    { "hashTag": "Strength", "$type": "#String|#Summary" },
+    { "hashTag": "Weekpoint", "$type": "#String|#Summary" },
+    { "hashTag": "RelationAbouts", "$type": "#Summary" },
+    { "hashTag": "Summary", "$type": "#Summary" },
+    {
+      "hashTag": "AbilityStats",
+      "$type": [
+        { "hashTag": "Speed", "$type": "$EnumDef_Rank,$EnumLink" },
+        { "hashTag": "Communicating", "$type": "$EnumDef_Rank,$EnumLink" },
+        { "hashTag": "Leading", "$type": "$EnumDef_Rank,$EnumLink" },
+        { "hashTag": "Precision", "$type": "$EnumDef_Rank,$EnumLink" },
+        { "hashTag": "Technic", "$type": "$EnumDef_Rank,$EnumLink" },
+        { "hashTag": "Actuation", "$type": "$EnumDef_Rank,$EnumLink" }
+      ]
+    },
+    { "hashTag": "Backgrounds", "$type": "#Summary" },
+    { "hashTag": "InStory", "$type": "#Summary" },
+    {
+      "hashTag": "Relation",
+      "$type": [
+        {
+          "hashTag": "Related",
+          "$type": "$Def_Relations"
+        },
+        {
+          "hashTag": "Commented",
+          "$type": "$Def_Relations"
+        }
+      ]
+    }
+  ],
+  "$VarsDef": {
+    "#List_HideText": [
+      { "HideText": "？？？", "HideText_EN": "????" },
+      { "HideText": "データ無", "HideText_EN": "No Data" },
+      { "HideText": "公開不能", "HideText_EN": "Openly Not" },
+      { "HideText": "判定不能", "HideText_EN": "Unjudgeble" },
+      { "HideText": "判定失敗", "HideText_EN": "Judgement Failed" },
+      { "HideText": "検証中", "HideText_EN": "Now Researching" },
+      { "HideText": "極秘事項", "HideText_EN": "Confidential" },
+      { "HideText": "非公開希望", "HideText_EN": "Non-Public at Pleasure" },
+      { "HideText": "非公開", "HideText_EN": "Non-Public" },
+      { "HideText": "条件による", "HideText_EN": "Depending on Conditions" },
+      { "HideText": "定義不能", "HideText_EN": "Undefineble" },
+      { "HideText": "本人すら把握されていない", "HideText_EN": "Not Aware" }
+    ],
+    "$Def_Day": {
+      "$DefType": [
+        { "hashTag": "Month", "$type": "#ListIndex" },
+        { "hashTag": "DayOfMonth", "$type": "#Number" },
+        { "hashTag": "DayAbout", "$type": "#String" }
+      ],
+      "#List_Month": [
+        { "Month": 1, "Month_EN": "Jan" },
+        { "Month": 2, "Month_EN": "Feb" },
+        { "Month": 3, "Month_EN": "Mar" },
+        { "Month": 4, "Month_EN": "Apr" },
+        { "Month": 5, "Month_EN": "May" },
+        { "Month": 6, "Month_EN": "Jun" },
+        { "Month": 7, "Month_EN": "Jul" },
+        { "Month": 8, "Month_EN": "Aug" },
+        { "Month": 9, "Month_EN": "Sep" },
+        { "Month": 10, "Month_EN": "Oct" },
+        { "Month": 11, "Month_EN": "Nov" },
+        { "Month": 12, "Month_EN": "Dec" }
+      ]
+    },
+    "$Def_Relations": {
+      "$TypeDef": [
+        { "hashTag": "Num", "$type": "$Index", "isForSecondary": false },
+        { "hashTag": "Comments", "$type": "#String", "isForSecondary": false },
+        {
+          "hashTag": "ComeBacked",
+          "$type": "$Def_Relations",
+          "isForSecondary": true
+        },
+        { "hashTag": "RelationLabel", "$type": "#ListIndex[]" }
+      ]
+    },
+    "$EnumDef_Rank": {
+      "#Rank0": { "Rank": "ZZ" },
+      "#Rank1": { "Rank": "Z" },
+      "#Rank2adv": { "Rank": "S+" },
+      "#Rank2": { "Rank": "S" },
+      "#Rank3": { "Rank": "A" },
+      "#Rank4adv": { "Rank": "B+" },
+      "#Rank4": { "Rank": "B" },
+      "#Rank5": { "Rank": "C" },
+      "#Rank6": { "Rank": "D" },
+      "#Rank7": { "Rank": "E" }
+    },
+    "$EnumDef_Rarity": {
+      "#Rarity0": { "Rarity": "UR" },
+      "#Rarity1": { "Rarity": "SSR" },
+      "#Rarity2adv": { "Rarity": "SR+" },
+      "#Rarity2": { "Rarity": "SR" },
+      "#Rarity3adv": { "Rarity": "R+" },
+      "#Rarity3": { "Rarity": "R" },
+      "#Rarity4adv": { "Rarity": "N+" },
+      "#Rarity4": { "Rarity": "N" },
+      "#Rarity5": { "Rarity": "C" }
+    }
+  }
+}

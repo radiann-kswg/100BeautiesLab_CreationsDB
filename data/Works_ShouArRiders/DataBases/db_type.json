@@ -1,0 +1,18 @@
+{
+  "$DefType": [
+    { "hashTag": "BeastspecName", "$type": "#String_JP" },
+    { "hashTag": "BeastspecName_EN", "$type": "#String_EN" },
+    {
+      "hashTag": "BeastspecStats",
+      "$type": [
+        { "hashTag": "SpecType", "$type": "$Def" },
+        { "hashTag": "SpetialPattern", "$type": "#Enum[]" },
+        {
+          "hashTag": "SpecLevel",
+          "$type": [{ "hashTag": "Rank", "$type": "$EnumDef_Rank,$EnumLink" }]
+        }
+      ]
+    },
+    { "hashTag": "BeastspecAbout", "$type": "#Summary" }
+  ]
+}
