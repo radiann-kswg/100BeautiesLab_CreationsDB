@@ -35,10 +35,7 @@
     "FormalName_EN": "7IU55[7ИУ55]Series Automaton #ID1: Nixee(compatible 7274Series Automaton #141)",
     "CodeName": "72IS141:冷陰極インディケート",
     "CodeName_EN": "72IS141:Cold-cathodeIndicate",
-    "Belonging": [
-      "ロジケスキーロマンティカ産業",
-      "ジャンクガレージ『六花陛下』"
-    ],
+    "Belonging": ["ロジケスキーロマンティカ産業"],
     "ExistingRarity": "Maniac(SR+)",
     "Height_cm": 65,
     "Weight_kg": 19,
@@ -50,5 +47,65 @@
     "Favor": "電熱燈",
     "Unlike": "最新技術",
     "LogicspecAbout": "電熱燈を点灯させる"
+  },
+  {
+    "SecondaryCategory": null,
+    "Model": { "LogicSeries": "74x", "Num": 181 },
+    "Progress": "notProceeded",
+    "Name": "アリス",
+    "Name_EN": "Arith",
+    "ModelName": "汎用オートマトン7274IS181",
+    "ModelNumber": "AM-LG 7274IS1181",
+    "FormalName": "7274オートマトン181番機：アリス",
+    "FormalName_EN": "7274Series Automaton #181: Arith",
+    "CodeName": "72IS181:アリスメティカ(標準型)",
+    "CodeName_EN": "72IS181:Arithmetica(StandardType)",
+    "ExistingRarity": "ManiacRare(SSR)",
+    "Height_cm": [
+      { "value": 150, "about_JP": "武装時", "about_EN": "armed" },
+      { "value": 82, "about_JP": "非武装時", "about_EN": "unarmed" }
+    ],
+    "Weight_kg": [
+      { "value": 20, "about_JP": "本体", "about_EN": "main unit" },
+      { "value": 61, "about_JP": "武装", "about_EN": "armament unit" }
+    ],
+    "Class": "アリスメティカ",
+    "Class_EN": "Arithmeticas",
+    "Character": "理論生前としており、汎用オートマトンの中ではほぼ唯一人語を理解できる",
+    "Strength": "知的である",
+    "Weekpoint": "指示をするための制約が多い",
+    "Favor": "アーケードゲーム",
+    "Unlike": "最新世代のコンピュータ",
+    "LogicspecAbout": "論理的計算をする"
+  },
+  {
+    "SecondaryCategory": null,
+    "Model": { "LogicSeries": "74x", "Num": 182 },
+    "Progress": "notProceeded",
+    "Name": "ルッカ",
+    "Name_EN": "Looka",
+    "ModelName": "汎用オートマトン7274IS182",
+    "ModelNumber": "AM-LG 7274IS1182",
+    "FormalName": "7274オートマトン182番機：ルッカ",
+    "FormalName_EN": "7274Series Automaton #182: Looka",
+    "CodeName": "72IS181:ルックアヘッドキャリア(標準型)",
+    "CodeName_EN": "72IS181:LookaheadCarrier(StandardType)",
+    "ExistingRarity": "ManiacRare(SSR)",
+    "Height_cm": [
+      { "value": 138, "about_JP": "武装時", "about_EN": "armed" },
+      { "value": 79, "about_JP": "非武装時", "about_EN": "unarmed" }
+    ],
+    "Weight_kg": [
+      { "value": 19, "about_JP": "本体", "about_EN": "main unit" },
+      { "value": 52, "about_JP": "武装", "about_EN": "armament unit" }
+    ],
+    "Class": "エキスパンダ",
+    "Class_EN": "Expanders",
+    "Character": "とても礼儀正しく、躾にとても従順",
+    "Strength": "整理が得意",
+    "Weekpoint": "単体行動や自己判断が苦手",
+    "Favor": "アリスメティアに該当する汎用オートマトン",
+    "Unlike": "ブラックボックス",
+    "LogicspecAbout": "アリスメティアの能力を拡張する"
   }
 ]
