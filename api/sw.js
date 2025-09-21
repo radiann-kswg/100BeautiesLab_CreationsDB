@@ -1,6 +1,10 @@
 // Service Worker: static API router for GitHub Pages
 // - Intercepts /api/v1/* requests
 // - Reads JSON from /data/** and returns pseudo-API responses
+//
+// 本SWはGitHub Pages上で動作する疑似APIです。/data配下の静的JSONを読み取り、
+// 参照解決（定義併載・インデックス解決）と最小限の検索をクライアント側で行います。
+// ブラウザSW前提のため、Nodeから直接importしてのテストは行いません。
 
 const API_PREFIX = '/api/v1';
 const CACHE_NAME = '100bl-api-v1';
@@ -128,11 +132,19 @@ async function readDB(workId, dbName) {
 function capitalize(s) { return s ? s.charAt(0).toUpperCase() + s.slice(1) : s; }
 
 // --- DB _Commons support ---
+/**
+ * DB名をmeta内のキー（例: '#DB_Primary'）に正規化する
+ */
 function normalizeDBKeyForMeta(dbName) {
   const norm = (dbName || '').replace(/^#?DB_/i, '');
   return `#DB_${capitalize(norm)}`;
 }
 
+/**
+ * DBレベルおよびSecondariesレベルの_Commonsをレコードへ非破壊適用する。
+ * 優先順位: レコード入力 > Secondariesレベル _Commons > DBレベル _Commons > グローバル。
+ * - _ListLinkIf_<Field> による条件付き既定値にも対応。
+ */
 function applyCommonsToRecords(records, workMeta, dbName) {
   try {
     const dbKey = normalizeDBKeyForMeta(dbName);
@@ -212,6 +224,10 @@ function applyCommonsToRecords(records, workMeta, dbName) {
   }
 }
 
+/**
+ * 単純なクエリ（フィールド=値）のAND条件でレコードを抽出する。
+ * 置換後に配列/オブジェクトとなったフィールドにも対応して判定を行う。
+ */
 function searchRecords(records, queries) {
   // queries: [{ hashTag, key }]
   return records.filter(rec => {
@@ -270,6 +286,8 @@ async function handleApiRequest(url) {
   // デフォルトで定義併載ON（?includeVars=0 で無効化可能）
   const includeVarsParam = url.searchParams.get('includeVars');
   const includeVars = includeVarsParam == null ? true : truthy(includeVarsParam);
+  // デバッグ出力: ?debug=1 でインデックスサマリなどを返す
+  const debug = truthy(url.searchParams.get('debug'));
 
   // /api/v1/index
   if (seg.length === 1 && seg[0] === 'index') {
@@ -364,11 +382,23 @@ async function handleApiRequest(url) {
     if (resolve) {
       const { mergedVars, indices } = await getWorkContext(workId);
       data = await resolveAllInAny(data, indices);
+      if (debug) {
+        payloadDebugAttach = { indicesSummary: summarizeIndices(indices) };
+      }
     }
     const payload = { work: workId, db: dbName, records: data, resolved: resolve };
     if (includeVars) {
       const { mergedVars } = await getWorkContext(workId);
       payload.$VarsDefMerged = mergedVars;
+    }
+    if (debug) {
+      // 遅延評価のため上で用意していなければContextを取得してサマリを付与
+      if (!payloadDebugAttach) {
+        const { indices } = await getWorkContext(workId);
+        payload.debug = { indicesSummary: summarizeIndices(indices) };
+      } else {
+        payload.debug = payloadDebugAttach;
+      }
     }
     return jsonResponse(payload);
   }
@@ -392,12 +422,14 @@ async function handleApiRequest(url) {
     if (resolve) {
       const { indices } = await getWorkContext(workId);
       matched = await resolveAllInAny(matched, indices);
+      if (debug) debugAttach = { indicesSummary: summarizeIndices(indices) };
     }
     const payload = { work: workId, db: dbName, queries, count: matched.length, records: matched, resolved: resolve };
     if (includeVars) {
       const { mergedVars } = await getWorkContext(workId);
       payload.$VarsDefMerged = mergedVars;
     }
+    if (debug) payload.debug = debugAttach || (await (async () => { const { indices } = await getWorkContext(workId); return { indicesSummary: summarizeIndices(indices) }; })());
     return jsonResponse(payload);
   }
 
@@ -437,6 +469,7 @@ function deepMerge(a, b) {
 }
 
 async function resolveAllInAny(value, indices, path = []) {
+  // 再帰的にノードをたどり、子要素の解決→自身の解決（_DBLink/定義併載）を行う
   if (Array.isArray(value)) {
     const out = [];
     for (let i = 0; i < value.length; i++) out.push(await resolveAllInAny(value[i], indices, [...path, i]));
@@ -483,6 +516,7 @@ async function resolveDBLinkSpec(spec) {
 }
 
 function extractDefIndexes(varsDef) {
+  // $VarsDefから見つけた各種インデックスの生素材（参照用）を抽出します
   const enums = {};
   const lists = {};
   const listLinks = {};
@@ -505,6 +539,7 @@ function walkDefs(obj, cb, path = []) {
 }
 
 async function getWorkContext(workId) {
+  // グローバル/ワークの$VarsDefと$DefTypeをマージし、解決に必要なインデックスを構築してキャッシュします
   const cached = WORK_CTX_CACHE.get(workId);
   const now = Date.now();
   if (cached && (now - cached.t) < WORK_CTX_TTL_MS) return cached;
@@ -526,6 +561,7 @@ async function getWorkContext(workId) {
 }
 
 function buildEnrichmentIndices(varsDef, workMeta, defTypeMerged) {
+  // 参照解決・定義併載に使う辞書/インデックスを構築します。
   const idx = {
     abilityTextByRank: {},
     abilityTextByJP: {},
@@ -675,6 +711,8 @@ function buildEnrichmentIndices(varsDef, workMeta, defTypeMerged) {
 }
 
 function enrichNodeWithDefs(node, path, idx) {
+  // ノード（オブジェクト）単位での参照解決とJP/EN補完を実施。
+  // *_Resolvedは出力せず、元フィールドを解決済みの値に「置換」します。
   if (!isObject(node)) return;
 
   // AbilityStats: add AbilityText by Rank
@@ -809,6 +847,7 @@ function enrichNodeWithDefs(node, path, idx) {
 
 // ---- Generic #String_JP,#ListLink support ----
 function collectListLinkTargets(defTypeMerged) {
+  // $DefTypeMergedから $type: '#String_JP,#ListLink' のフィールドを抽出
   // Traverse $DefTypeMerged to find fields where $type contains '#String_JP,#ListLink'
   const out = [];
   const visit = (arr, path = []) => {
@@ -876,6 +915,7 @@ function buildMappingFromList(fieldName, link, jpKeyCandidate) {
 }
 
 function enrichNodeWithGenericListLinks(node, idx) {
+  // 任意の '#String_JP,#ListLink' タイプに対して、Rank/JPからENやRankを補完
   const gmap = idx.genericFieldKeyMap;
   if (!gmap || !isObject(node)) return;
   // For each key present on node that we know how to enrich
@@ -909,6 +949,7 @@ function enrichNodeWithGenericListLinks(node, idx) {
 
 // ---- Generic #ListIndex support ----
 function collectListIndexTargets(defTypeMerged) {
+  // $DefTypeMergedから $type: '#ListIndex' / '#ListIndex[]' のフィールドを抽出
   const out = [];
   const visit = (arr, path = []) => {
     if (!Array.isArray(arr)) return;
@@ -960,6 +1001,8 @@ function buildGenericListIndexMappingForField(fieldName, allLists) {
 }
 
 function enrichNodeWithGenericListIndex(node, idx) {
+  // '#ListIndex' 型の配列は「解決オブジェクト配列」へ置換。
+  // 単一文字列はJP/EN補完のみを行う（フィールドは文字列のまま維持）。
   const fmap = idx.genericListIndex;
   if (!fmap || !isObject(node)) return;
   for (const [k, v] of Object.entries(node)) {
@@ -976,5 +1019,36 @@ function enrichNodeWithGenericListIndex(node, idx) {
         if (m.enKey && !node[m.enKey]) node[m.enKey] = def[m.enKey];
       }
     }
+  }
+}
+
+// ---- Debug helpers ----
+function summarizeIndices(idx) {
+  try {
+    const pickCount = (obj) => (obj && typeof obj === 'object') ? Object.keys(obj).length : 0;
+    return {
+      abilityTextByRank: pickCount(idx.abilityTextByRank),
+      effectTextByRank: pickCount(idx.effectTextByRank),
+      safetyTextByRank: pickCount(idx.safetyTextByRank),
+      specLevelTextByRank: pickCount(idx.specLevelTextByRank),
+      genderType: pickCount(idx.genderTypeByValue),
+      raceType: pickCount(idx.raceTypeByValue),
+      belonging: pickCount(idx.belongingByValue),
+      area: pickCount(idx.areaByValue),
+      month: pickCount(idx.monthByNum),
+      relationLabel: pickCount(idx.relationLabelByValue),
+      stoat: pickCount(idx.stoatByValue),
+      lunar: pickCount(idx.lunarByValue),
+      beast: pickCount(idx.beastByValue),
+      material: pickCount(idx.materialByValue),
+      kinematicOrStatic: pickCount(idx.kinStatByValue),
+      roleType: pickCount(idx.roleTypeByValue),
+      dualizePattern: pickCount(idx.dualizePatternByValue),
+      spetialPattern: pickCount(idx.spetialPatternByValue),
+      genericListLinks: pickCount(idx.genericListLinks),
+      genericListIndex: pickCount(idx.genericListIndex)
+    };
+  } catch (_) {
+    return { error: 'failed to summarize indices' };
   }
 }
