@@ -126,7 +126,9 @@
   "General": {
     "$VarsDef": {
       "$Def_BeastspecStats": {
-        "$Def_SpecType": {},
+        "$Def_SpecType": {
+          "$TypeDef": []
+        },
         "#List_SpetialPattern": null,
         "$Def_SpecLevel": {
           "$EnumLink_SpecLevelText": {

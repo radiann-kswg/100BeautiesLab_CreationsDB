@@ -127,6 +127,91 @@ async function readDB(workId, dbName) {
 
 function capitalize(s) { return s ? s.charAt(0).toUpperCase() + s.slice(1) : s; }
 
+// --- DB _Commons support ---
+function normalizeDBKeyForMeta(dbName) {
+  const norm = (dbName || '').replace(/^#?DB_/i, '');
+  return `#DB_${capitalize(norm)}`;
+}
+
+function applyCommonsToRecords(records, workMeta, dbName) {
+  try {
+    const dbKey = normalizeDBKeyForMeta(dbName);
+    const commons = workMeta?.Databases?.[dbKey]?._Commons;
+    const secDefs = workMeta?.Databases?.[dbKey]?.Secondaries;
+    if ((!commons && !Array.isArray(secDefs)) || !Array.isArray(records)) return records;
+
+    const CONDITIONAL_PREFIX = '_ListLinkIf_';
+    const isConditionalKey = (k) => k.startsWith(CONDITIONAL_PREFIX);
+    const getFieldNameFromConditional = (k) => k.substring(CONDITIONAL_PREFIX.length);
+
+    const deepFindFirstByKey = (obj, key) => {
+      if (!isObject(obj)) return undefined;
+      if (Object.prototype.hasOwnProperty.call(obj, key)) return obj[key];
+      for (const v of Object.values(obj)) {
+        if (isObject(v)) {
+          const found = deepFindFirstByKey(v, key);
+          if (typeof found !== 'undefined') return found;
+        }
+      }
+      return undefined;
+    };
+
+    const buildDefaultsFromCommons = (cmn, rec) => {
+      if (!cmn || !isObject(cmn)) return {};
+      const out = {};
+      // 1) simple commons
+      for (const [k, v] of Object.entries(cmn)) {
+        if (k.startsWith('_')) continue;
+        out[k] = v;
+      }
+      // 2) conditional commons
+      for (const [k, arr] of Object.entries(cmn)) {
+        if (!isConditionalKey(k) || !Array.isArray(arr)) continue;
+        const field = getFieldNameFromConditional(k);
+        let curVal = typeof rec[field] !== 'undefined' ? rec[field] : undefined;
+        if (typeof curVal === 'undefined' && isObject(rec.Card) && typeof rec.Card[field] !== 'undefined') curVal = rec.Card[field];
+        if (typeof curVal === 'undefined' && isObject(rec.SpecType) && typeof rec.SpecType[field] !== 'undefined') curVal = rec.SpecType[field];
+        if (typeof curVal === 'undefined') curVal = deepFindFirstByKey(rec, field);
+        if (typeof curVal === 'undefined' || curVal === null) continue;
+        const match = arr.find(it => isObject(it) && Object.prototype.hasOwnProperty.call(it, field) && String(it[field]) === String(curVal));
+        if (!match) continue;
+        for (const [ik, iv] of Object.entries(match)) {
+          if (ik === field) continue;
+          out[ik] = iv;
+        }
+      }
+      return out;
+    };
+
+    const findSecondaryCommons = (rec) => {
+      if (!Array.isArray(secDefs)) return null;
+      // Use known discriminator keys when present
+      const keys = ['SecondaryCategory', 'SecondaryDesignedBy', 'SecondarySeriesTitle'];
+      for (const def of secDefs) {
+        if (!isObject(def) || !isObject(def._Commons)) continue;
+        const criteria = keys.filter(k => typeof def[k] !== 'undefined');
+        const ok = criteria.every(k => String(getByPath(rec, k) ?? '') === String(def[k] ?? ''));
+        if (ok) return def._Commons;
+      }
+      return null;
+    };
+
+    return records.map(rec => {
+      if (!isObject(rec)) return rec;
+      const dbDefaults = buildDefaultsFromCommons(commons, rec);
+      const secCommons = findSecondaryCommons(rec);
+      const secDefaults = buildDefaultsFromCommons(secCommons, rec);
+      const defaults = { ...dbDefaults, ...secDefaults }; // sec > db
+      for (const [k, v] of Object.entries(defaults)) {
+        if (typeof rec[k] === 'undefined') rec[k] = v; // record input has highest priority
+      }
+      return rec;
+    });
+  } catch (_) {
+    return records;
+  }
+}
+
 function searchRecords(records, queries) {
   // queries: [{ hashTag, key }]
   return records.filter(rec => {
@@ -134,6 +219,26 @@ function searchRecords(records, queries) {
       // Deep pick by simple key (no dot support here except shallow nested like 'Card.Num')
       const val = getByPath(rec, q.hashTag);
       if (val == null) return false;
+      // Support arrays (e.g., after in-place resolution Belonging becomes array of objects)
+      if (Array.isArray(val)) {
+        return val.some(it => {
+          if (it == null) return false;
+          if (typeof it === 'string' || typeof it === 'number' || typeof it === 'boolean') return String(it) === String(q.key);
+          if (typeof it === 'object') {
+            // try same-named field as discriminator (e.g., 'Belonging' within item of Belonging[])
+            const inner = it[q.hashTag];
+            if (inner != null) return String(inner) === String(q.key);
+            // otherwise fallback to primitive stringification
+            return String(it) === String(q.key);
+          }
+          return false;
+        });
+      }
+      // For objects, try same-named field first
+      if (typeof val === 'object') {
+        const inner = val[q.hashTag];
+        if (inner != null) return String(inner) === String(q.key);
+      }
       return String(val) === String(q.key);
     });
   });
@@ -194,6 +299,7 @@ async function handleApiRequest(url) {
     for (const wk of works) {
       const workId = wk; // already '#Works_*'
       const { mergedVars, indices } = await getWorkContext(workId);
+      const meta = await readWorkMeta(workId);
       const dbs = await listWorkDBs(workId);
       const item = { work: workId, defsMerged: mergedVars, databases: dbs };
       if (includeRecords) {
@@ -201,7 +307,8 @@ async function handleApiRequest(url) {
         for (const db of dbs) {
           try {
             const raw = await readDB(workId, db.key);
-            const resolvedRecs = resolve ? await resolveAllInAny(raw, indices) : raw;
+            const withCommons = applyCommonsToRecords(raw, meta, db.key);
+            const resolvedRecs = resolve ? await resolveAllInAny(withCommons, indices) : withCommons;
             item.data[db.key] = resolvedRecs;
           } catch (e) {
             item.data[db.key] = { error: String(e) };
@@ -251,6 +358,9 @@ async function handleApiRequest(url) {
     const workId = toWorkKey(seg[1]);
     const dbName = seg[3];
     let data = await readDB(workId, dbName);
+    // Apply DB-level _Commons before enrichment
+    const meta = await readWorkMeta(workId);
+    data = applyCommonsToRecords(data, meta, dbName);
     if (resolve) {
       const { mergedVars, indices } = await getWorkContext(workId);
       data = await resolveAllInAny(data, indices);
@@ -274,6 +384,9 @@ async function handleApiRequest(url) {
       return badRequest('Query must include works, db, and pairs of hashTag & key');
     }
     let records = await readDB(workId, dbName);
+    // Include DB-level _Commons so they are part of search semantics
+    const meta = await readWorkMeta(workId);
+    records = applyCommonsToRecords(records, meta, dbName);
     const queries = hashTag.map((h, i) => ({ hashTag: h, key: key[i] }));
     let matched = searchRecords(records, queries);
     if (resolve) {
@@ -440,7 +553,10 @@ function buildEnrichmentIndices(varsDef, workMeta, defTypeMerged) {
     spetialPatternByValue: {},
     // generic #String_JP,#ListLink indices
     genericListLinks: {}, // by fieldName (e.g., 'EffectText' / 'SafetyLevelText')
-    genericFieldKeyMap: {} // by field key to mapping (includes alias and canonical jpKey)
+    genericFieldKeyMap: {}, // by field key to mapping (includes alias and canonical jpKey)
+    // generic #ListIndex indices
+    genericListIndex: {}, // by fieldName
+    genericListIndexFieldMap: {} // by field key to mapping (canonical field name)
   };
 
   // AbilityText
@@ -484,10 +600,14 @@ function buildEnrichmentIndices(varsDef, workMeta, defTypeMerged) {
   const races = varsDef?.['#List_RaceType'] || varsDef?.['#Enum_RaceType'];
   if (Array.isArray(races)) for (const r of races) if (r?.RaceType) idx.raceTypeByValue[r.RaceType] = r;
 
-  // Belonging / Area (new lists with #List_*, legacy with #Enum_*)
-  const belong = varsDef?.$Def_Belonging?.['#List_Belonging'] || varsDef?.$Def_Belonging?.['#Enum_Belonging'];
+  // Belonging / Area (new lists with #List_*, legacy with #Enum_*); include top-level fallbacks
+  const belong = varsDef?.$Def_Belonging?.['#List_Belonging']
+    || varsDef?.$Def_Belonging?.['#Enum_Belonging']
+    || varsDef?.['#List_Belonging'];
   if (Array.isArray(belong)) for (const b of belong) if (b?.Belonging) idx.belongingByValue[b.Belonging] = b;
-  const areas = varsDef?.$Def_Belonging?.['#List_Area'] || varsDef?.$Def_Belonging?.['#Enum_Area'];
+  const areas = varsDef?.$Def_Belonging?.['#List_Area']
+    || varsDef?.$Def_Belonging?.['#Enum_Area']
+    || varsDef?.['#List_Area'];
   if (Array.isArray(areas)) for (const a of areas) if (a?.Area) idx.areaByValue[a.Area] = a;
 
   // Month (new: #List_Month, legacy: #Enum_Month)
@@ -534,6 +654,19 @@ function buildEnrichmentIndices(varsDef, workMeta, defTypeMerged) {
         // Map both alias (declared field name) and canonical JP key to the same mapping for lookup during enrichment
         idx.genericFieldKeyMap[tgt.fieldName] = mapping;
         if (mapping.jpKey && mapping.jpKey !== tgt.fieldName) idx.genericFieldKeyMap[mapping.jpKey] = mapping;
+      }
+    }
+  } catch (_) {}
+
+  // Build generic #ListIndex indices from $DefTypeMerged and $VarsDef
+  try {
+    const idxTargets = collectListIndexTargets(defTypeMerged);
+    const allLists = collectAllLists(varsDef);
+    for (const tgt of idxTargets) {
+      const mapping = buildGenericListIndexMappingForField(tgt.fieldName, allLists);
+      if (mapping) {
+        idx.genericListIndex[tgt.fieldName] = mapping;
+        idx.genericListIndexFieldMap[tgt.fieldName] = mapping;
       }
     }
   } catch (_) {}
@@ -605,30 +738,32 @@ function enrichNodeWithDefs(node, path, idx) {
 
   // Simple enums on the node: GenderType, RaceType, Belonging(s), Area
   if (typeof node.GenderType === 'string' && idx.genderTypeByValue[node.GenderType] && !node.GenderType_JP) {
-    node.GenderType_JP_resolved = idx.genderTypeByValue[node.GenderType].GenderType_JP;
+    node.GenderType_JP = idx.genderTypeByValue[node.GenderType].GenderType_JP;
   }
   if (typeof node.RaceType === 'string' && idx.raceTypeByValue[node.RaceType] && !node.RaceType_JP) {
-    node.RaceType_JP_resolved = idx.raceTypeByValue[node.RaceType].RaceType_JP;
+    node.RaceType_JP = idx.raceTypeByValue[node.RaceType].RaceType_JP;
   }
   if (typeof node.Area === 'string' && idx.areaByValue[node.Area] && !node.Area_EN) {
-    node.Area_EN_resolved = idx.areaByValue[node.Area].Area_EN;
+    node.Area_EN = idx.areaByValue[node.Area].Area_EN;
   }
   if (typeof node.Belonging === 'string' && idx.belongingByValue[node.Belonging] && !node.Belonging_EN) {
-    node.Belonging_EN_resolved = idx.belongingByValue[node.Belonging].Belonging_EN;
+    node.Belonging_EN = idx.belongingByValue[node.Belonging].Belonging_EN;
   }
   if (Array.isArray(node.Belonging)) {
-    node.Belonging_Resolved = node.Belonging.map(b => idx.belongingByValue[b] || b);
+    // Replace array of indices with array of resolved objects
+    node.Belonging = node.Belonging.map(b => idx.belongingByValue[b] || b);
   }
 
   // Month label (Day.Month)
   if (node.Day && typeof node.Day.Month !== 'undefined') {
     const m = idx.monthByNum[Number(node.Day.Month)];
-    if (m && m.Month_EN) node.Month_EN_resolved = m.Month_EN;
+    if (m && m.Month_EN && !node.Month_EN) node.Month_EN = m.Month_EN;
   }
 
   // Relation label expansion
   if (Array.isArray(node.RelationLabel)) {
-    node.RelationLabel_Resolved = node.RelationLabel.map(r => idx.relationLabelByValue[r] || r);
+    // Replace array of indices with array of resolved objects
+    node.RelationLabel = node.RelationLabel.map(r => idx.relationLabelByValue[r] || r);
   }
 
   // Work-specific lists and patterns: resolve values to full objects (and support singular or plural fields)
@@ -636,12 +771,14 @@ function enrichNodeWithDefs(node, path, idx) {
   const resolveSingleBy = (v, map) => (typeof v === 'string' ? (map[v] || v) : v);
 
   if (node.Card && typeof node.Card.Stoat === 'string' && idx.stoatByValue[node.Card.Stoat]) {
-    node.Card.Stoat_Resolved = idx.stoatByValue[node.Card.Stoat];
+    // Replace index with resolved object
+    node.Card.Stoat = idx.stoatByValue[node.Card.Stoat];
   }
   if (node.SpecType) {
     // FL material/action/role/dualize
     if (Array.isArray(node.SpecType.Material)) {
-      node.SpecType.Material_Resolved = node.SpecType.Material.map(v => {
+      // Replace array with resolved objects
+      node.SpecType.Material = node.SpecType.Material.map(v => {
         if (typeof v === 'string') return idx.materialByValue[v] || v;
         if (isObject(v) && v.Material) return idx.materialByValue[v.Material] || v;
         return v;
@@ -649,23 +786,25 @@ function enrichNodeWithDefs(node, path, idx) {
     }
     if (node.SpecType.ActionType) {
       const a = node.SpecType.ActionType;
-      if (a.KinematicOrStatic) a.KinematicOrStatic_Resolved = resolveSingleBy(a.KinematicOrStatic, idx.kinStatByValue);
-      if (a.RoleType) a.RoleType_Resolved = resolveSingleBy(a.RoleType, idx.roleTypeByValue);
+      if (a.KinematicOrStatic) a.KinematicOrStatic = resolveSingleBy(a.KinematicOrStatic, idx.kinStatByValue);
+      if (a.RoleType) a.RoleType = resolveSingleBy(a.RoleType, idx.roleTypeByValue);
     }
-    if (node.SpecType.DualizePattern && node.SpecType.DualizePattern.Pattern) node.SpecType.DualizePattern_Resolved = resolveSingleBy(node.SpecType.DualizePattern.Pattern, idx.dualizePatternByValue);
-    if (typeof node.SpecType.DualizePattern === 'string') node.SpecType.DualizePattern_Resolved = resolveSingleBy(node.SpecType.DualizePattern, idx.dualizePatternByValue);
+    if (node.SpecType.DualizePattern && node.SpecType.DualizePattern.Pattern) node.SpecType.DualizePattern = resolveSingleBy(node.SpecType.DualizePattern.Pattern, idx.dualizePatternByValue);
+    if (typeof node.SpecType.DualizePattern === 'string') node.SpecType.DualizePattern = resolveSingleBy(node.SpecType.DualizePattern, idx.dualizePatternByValue);
   }
   if (node.SpetialPattern) {
-    if (Array.isArray(node.SpetialPattern)) node.SpetialPattern_Resolved = resolveArrayBy(node.SpetialPattern, idx.spetialPatternByValue);
-    else if (typeof node.SpetialPattern === 'string') node.SpetialPattern_Resolved = resolveSingleBy(node.SpetialPattern, idx.spetialPatternByValue);
+    if (Array.isArray(node.SpetialPattern)) node.SpetialPattern = resolveArrayBy(node.SpetialPattern, idx.spetialPatternByValue);
+    else if (typeof node.SpetialPattern === 'string') node.SpetialPattern = resolveSingleBy(node.SpetialPattern, idx.spetialPatternByValue);
   }
   // PastDivers: Lunar list
-  if (typeof node.Lunar === 'string' && idx.lunarByValue[node.Lunar]) node.Lunar_Resolved = idx.lunarByValue[node.Lunar];
+  if (typeof node.Lunar === 'string' && idx.lunarByValue[node.Lunar]) node.Lunar = idx.lunarByValue[node.Lunar];
   // ShouArRiders: Beast list
-  if (typeof node.Beast === 'string' && idx.beastByValue[node.Beast]) node.Beast_Resolved = idx.beastByValue[node.Beast];
+  if (typeof node.Beast === 'string' && idx.beastByValue[node.Beast]) node.Beast = idx.beastByValue[node.Beast];
 
   // Generic enrich: any field typed as #String_JP,#ListLink in $DefType
   enrichNodeWithGenericListLinks(node, idx);
+  // Generic enrich: any field typed as #ListIndex (or #ListIndex[]) in $DefType
+  enrichNodeWithGenericListIndex(node, idx);
 }
 
 // ---- Generic #String_JP,#ListLink support ----
@@ -706,35 +845,10 @@ function collectAllListLinks(varsDef) {
 }
 
 function buildGenericMappingForField(fieldName, allListLinks) {
-  // Direct match: '#ListLink_' + fieldName
+  // Strict match only: '#ListLink_' + fieldName
   const directKey = `#ListLink_${fieldName}`;
-  if (allListLinks[directKey]) {
-    return buildMappingFromList(fieldName, allListLinks[directKey], fieldName);
-  }
-  const aliasCandidates = [];
-  // Try alias by scanning items
-  const best = findBestListByItemKeys(fieldName, aliasCandidates, allListLinks);
-  if (best) return buildMappingFromList(fieldName, best.link, best.jpKeyCandidate);
-  return null;
-}
-
-function findBestListByItemKeys(fieldName, aliasCandidates, allListLinks) {
-  // Score lists by presence of item key equal to fieldName or aliases
-  let best = null;
-  for (const [listKey, link] of Object.entries(allListLinks)) {
-    const items = link.items;
-    const score = { direct: 0, alias: 0 };
-    for (const it of items) {
-      if (Object.prototype.hasOwnProperty.call(it, fieldName)) score.direct++;
-      for (const a of aliasCandidates) if (Object.prototype.hasOwnProperty.call(it, a)) score.alias++;
-    }
-    const total = score.direct * 10 + score.alias; // prefer direct matches
-    if (total > 0 && (!best || total > best.total)) {
-      const jpKeyCandidate = score.direct > 0 ? fieldName : (aliasCandidates.find(a => items.some(it => a in it)) || fieldName);
-      best = { link, total, jpKeyCandidate };
-    }
-  }
-  return best;
+  if (!allListLinks[directKey]) return null;
+  return buildMappingFromList(fieldName, allListLinks[directKey], fieldName);
 }
 
 function buildMappingFromList(fieldName, link, jpKeyCandidate) {
@@ -789,6 +903,78 @@ function enrichNodeWithGenericListLinks(node, idx) {
       // Mirror canonical/alias JP
       if (!node[m.jpKey] && jpVal) node[m.jpKey] = jpVal;
       if (!node[m.fieldName] && node[m.jpKey]) node[m.fieldName] = node[m.jpKey];
+    }
+  }
+}
+
+// ---- Generic #ListIndex support ----
+function collectListIndexTargets(defTypeMerged) {
+  const out = [];
+  const visit = (arr, path = []) => {
+    if (!Array.isArray(arr)) return;
+    for (const item of arr) {
+      if (!item || typeof item !== 'object') continue;
+      const tag = item.hashTag;
+      const t = item.$type;
+      if (typeof t === 'string') {
+        const parts = t.split('|').map(s => s.trim());
+        if (parts.some(s => s === '#ListIndex' || s === '#ListIndex[]')) out.push({ fieldName: tag, path: [...path, tag] });
+      } else if (Array.isArray(t)) {
+        visit(t, [...path, tag]);
+      }
+    }
+  };
+  visit(defTypeMerged || []);
+  const seen = new Set();
+  return out.filter(o => (seen.has(o.fieldName) ? false : (seen.add(o.fieldName), true)));
+}
+
+function collectAllLists(varsDef) {
+  const map = {};
+  walkDefs(varsDef, (p, k, v) => {
+    if (k.startsWith('#List_') && Array.isArray(v)) {
+      const suffix = k.substring('#List_'.length);
+      map[k] = { keySuffix: suffix, items: v };
+    }
+  });
+  return map;
+}
+
+function buildGenericListIndexMappingForField(fieldName, allLists) {
+  const directKey = `#List_${fieldName}`;
+  const link = allLists[directKey];
+  if (!link) return null;
+  const items = link.items;
+  // byValue map
+  const byValue = {};
+  for (const it of items) {
+    if (isObject(it) && Object.prototype.hasOwnProperty.call(it, fieldName)) {
+      byValue[it[fieldName]] = it;
+    }
+  }
+  // Detect JP/EN keys availability
+  const sample = items.find(it => isObject(it)) || {};
+  const jpKey = Object.keys(sample).find(k => k === `${fieldName}_JP`) || null;
+  const enKey = Object.keys(sample).find(k => k === `${fieldName}_EN`) || null;
+  return { fieldName, listKey: directKey, byValue, jpKey, enKey };
+}
+
+function enrichNodeWithGenericListIndex(node, idx) {
+  const fmap = idx.genericListIndex;
+  if (!fmap || !isObject(node)) return;
+  for (const [k, v] of Object.entries(node)) {
+    const m = fmap[k];
+    if (!m) continue;
+    if (Array.isArray(v)) {
+      // Replace with full objects array
+      const resolved = v.map(val => (typeof val === 'string' ? (m.byValue[val] || val) : val));
+      node[k] = resolved;
+    } else if (typeof v === 'string') {
+      const def = m.byValue[v];
+      if (def) {
+        if (m.jpKey && !node[m.jpKey]) node[m.jpKey] = def[m.jpKey];
+        if (m.enKey && !node[m.enKey]) node[m.enKey] = def[m.enKey];
+      }
     }
   }
 }
