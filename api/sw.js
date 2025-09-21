@@ -123,7 +123,8 @@ async function readDB(workId, dbName) {
   };
   // accept '#DB_Primary' style
   const norm = (dbName || '').replace(/^#?DB_/i, '').replace(/^[#]/, '');
-  const fname = map[norm] || map[capitalize(norm)];
+  const key = capitalize(norm);
+  const fname = map[key] || map[norm];
   if (!fname) throw new Error(`Unknown dbName: ${dbName}`);
   const path = `/data/${workId.replace('#Works_', 'Works_')}/DataBases/${fname}`;
   return fetchJSON(path);
@@ -288,6 +289,8 @@ async function handleApiRequest(url) {
   const includeVars = includeVarsParam == null ? true : truthy(includeVarsParam);
   // デバッグ出力: ?debug=1 でインデックスサマリなどを返す
   const debug = truthy(url.searchParams.get('debug'));
+  let payloadDebugAttach = null;
+  let debugAttach = null;
 
   // /api/v1/index
   if (seg.length === 1 && seg[0] === 'index') {
@@ -592,7 +595,10 @@ function buildEnrichmentIndices(varsDef, workMeta, defTypeMerged) {
     genericFieldKeyMap: {}, // by field key to mapping (includes alias and canonical jpKey)
     // generic #ListIndex indices
     genericListIndex: {}, // by fieldName
-    genericListIndexFieldMap: {} // by field key to mapping (canonical field name)
+    genericListIndexFieldMap: {}, // by field key to mapping (canonical field name)
+    // generic $EnumLink indices (e.g., ExistingRarity -> by Rarity)
+    genericEnumLink: {}, // by fieldName
+    genericEnumLinkFieldMap: {} // by field key to mapping
   };
 
   // AbilityText
@@ -704,6 +710,28 @@ function buildEnrichmentIndices(varsDef, workMeta, defTypeMerged) {
         idx.genericListIndex[tgt.fieldName] = mapping;
         idx.genericListIndexFieldMap[tgt.fieldName] = mapping;
       }
+    }
+  } catch (_) {}
+
+  // Build generic $EnumLink indices
+  try {
+    const enumLinks = collectAllEnumLinks(varsDef);
+    const linkKeyMap = detectEnumLinkKeysFromDefType(defTypeMerged);
+    for (const [fieldName, items] of Object.entries(enumLinks)) {
+      const keyName = linkKeyMap[fieldName] || guessEnumLinkKey(items);
+      if (!keyName) continue;
+      const byValue = {};
+      const sample = (Array.isArray(items) ? items : Object.values(items)).find(it => isObject(it)) || {};
+      const jpKey = Object.keys(sample).find(k => k.endsWith('_JP')) || null;
+      const enKey = Object.keys(sample).find(k => k.endsWith('_EN')) || (Object.prototype.hasOwnProperty.call(sample, fieldName) ? fieldName : null);
+      const arr = Array.isArray(items) ? items : Object.values(items);
+      for (const it of arr) {
+        if (!isObject(it)) continue;
+        const k = it[keyName];
+        if (k != null && byValue[k] == null) byValue[k] = it;
+      }
+      idx.genericEnumLink[fieldName] = { fieldName, keyName, byValue, jpKey, enKey };
+      idx.genericEnumLinkFieldMap[fieldName] = idx.genericEnumLink[fieldName];
     }
   } catch (_) {}
 
@@ -843,6 +871,8 @@ function enrichNodeWithDefs(node, path, idx) {
   enrichNodeWithGenericListLinks(node, idx);
   // Generic enrich: any field typed as #ListIndex (or #ListIndex[]) in $DefType
   enrichNodeWithGenericListIndex(node, idx);
+  // Generic enrich: any field backed by $EnumLink_*
+  enrichNodeWithGenericEnumLink(node, idx);
 }
 
 // ---- Generic #String_JP,#ListLink support ----
@@ -981,6 +1011,52 @@ function collectAllLists(varsDef) {
   return map;
 }
 
+function collectAllEnumLinks(varsDef) {
+  // Return map: fieldName -> items (object or array)
+  const out = {};
+  walkDefs(varsDef, (p, k, v) => {
+    if (k.startsWith('$EnumLink_') && (Array.isArray(v) || isObject(v))) {
+      const fieldName = k.substring('$EnumLink_'.length);
+      out[fieldName] = v;
+    }
+  });
+  return out;
+}
+
+function detectEnumLinkKeysFromDefType(defTypeMerged) {
+  // Inspect $DefTypeMerged to find for each field which inner key is used for $EnumLink (e.g., 'ExistingRarity' -> 'Rarity')
+  const map = {};
+  const visit = (arr) => {
+    if (!Array.isArray(arr)) return;
+    for (const item of arr) {
+      if (!item || typeof item !== 'object') continue;
+      const field = item.hashTag;
+      const t = item.$type;
+      if (Array.isArray(t)) {
+        for (const sub of t) {
+          if (!sub || typeof sub !== 'object') continue;
+          const st = sub.$type;
+          if (typeof st === 'string' && st.split(',').some(x => x.trim() === '$EnumLink')) {
+            if (field && sub.hashTag) map[field] = sub.hashTag;
+          }
+        }
+      }
+      // recurse deeper types
+      if (Array.isArray(t)) visit(t);
+    }
+  };
+  visit(defTypeMerged || []);
+  return map;
+}
+
+function guessEnumLinkKey(items) {
+  const arr = Array.isArray(items) ? items : Object.values(items);
+  const sample = arr.find(it => isObject(it)) || {};
+  // heuristic: prefer 'Rarity', then first non _JP/_EN key
+  if (Object.prototype.hasOwnProperty.call(sample, 'Rarity')) return 'Rarity';
+  return Object.keys(sample).find(k => !k.endsWith('_JP') && !k.endsWith('_EN')) || null;
+}
+
 function buildGenericListIndexMappingForField(fieldName, allLists) {
   const directKey = `#List_${fieldName}`;
   const link = allLists[directKey];
@@ -1022,6 +1098,24 @@ function enrichNodeWithGenericListIndex(node, idx) {
   }
 }
 
+function enrichNodeWithGenericEnumLink(node, idx) {
+  const fmap = idx.genericEnumLinkFieldMap;
+  if (!fmap || !isObject(node)) return;
+  for (const [k, v] of Object.entries(node)) {
+    const m = fmap[k];
+    if (!m) continue;
+    let keyVal = null;
+    if (typeof v === 'string') keyVal = v;
+    else if (isObject(v) && Object.prototype.hasOwnProperty.call(v, m.keyName)) keyVal = v[m.keyName];
+    if (keyVal == null) continue;
+    const def = m.byValue[keyVal];
+    if (def) {
+      // 仕様に合わせ、元フィールドを解決オブジェクトで置換
+      node[k] = def;
+    }
+  }
+}
+
 // ---- Debug helpers ----
 function summarizeIndices(idx) {
   try {
@@ -1046,7 +1140,8 @@ function summarizeIndices(idx) {
       dualizePattern: pickCount(idx.dualizePatternByValue),
       spetialPattern: pickCount(idx.spetialPatternByValue),
       genericListLinks: pickCount(idx.genericListLinks),
-      genericListIndex: pickCount(idx.genericListIndex)
+      genericListIndex: pickCount(idx.genericListIndex),
+      genericEnumLink: pickCount(idx.genericEnumLink)
     };
   } catch (_) {
     return { error: 'failed to summarize indices' };
