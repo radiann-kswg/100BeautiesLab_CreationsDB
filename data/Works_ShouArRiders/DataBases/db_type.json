@@ -5,7 +5,7 @@
     {
       "hashTag": "BeastspecStats",
       "$type": [
-        { "hashTag": "SpecType", "$type": "$Def" },
+        { "hashTag": "SpecType", "$type": "$Def_SpecType" },
         { "hashTag": "SpetialPattern", "$type": "#Enum[]" },
         {
           "hashTag": "SpecLevel",

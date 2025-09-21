@@ -19,10 +19,7 @@
       },
       "_Commons": {
         "Belonging": ["セブンティエイト特殊探偵団"],
-        "#List_Stoat": [
-          {
-            "Stoat": "Major"
-          },
+        "_ListLinkIf_Stoat": [
           {
             "Stoat": "FireWands",
             "Class": "火の棍棒支部",

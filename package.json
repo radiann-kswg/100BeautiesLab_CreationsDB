@@ -1,0 +1,18 @@
+{
+  "name": "100beautieslab_creationsdb",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Test setup and data validation for 100BeautiesLab_CreationsDB",
+  "type": "module",
+  "scripts": {
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "devDependencies": {
+    "glob": "^11.0.0",
+    "vitest": "^3.2.4"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

@@ -17,7 +17,7 @@
     { "hashTag": "ModelNumber", "$type": "#Stiring" },
     { "hashTag": "RaceType", "$type": "#ListIndex" },
     { "hashTag": "GenderType", "$type": "$EnumDef" },
-    { "hashTag": "Belonging", "$type": "$Def[]" },
+    { "hashTag": "Belonging", "$type": "#ListIndex" },
     { "hashTag": "Height_cm", "$type": "#Number|#Number_withAbout[]" },
     { "hashTag": "Weight_kg", "$type": "#Number|#Number_withAbout[]" },
     { "hashTag": "BustSize", "$type": "#String|#String_withAbout" },
@@ -104,17 +104,8 @@
         { "Month": 12, "Month_EN": "Dec" }
       ]
     },
-    "$Def_Relations": {
-      "$TypeDef": [
-        { "hashTag": "Num", "$type": "$Index", "isForSecondary": false },
-        { "hashTag": "Comments", "$type": "#String", "isForSecondary": false },
-        {
-          "hashTag": "ComeBacked",
-          "$type": "$Def_Relations",
-          "isForSecondary": true
-        },
-        { "hashTag": "RelationLabel", "$type": "#ListIndex[]" }
-      ]
+    "$Def_BaseArea": {
+      "$TypeDef": [{ "hashTag": "Area", "$type": "#ListIndex" }]
     },
     "$EnumDef_Rank": {
       "#Rank0": { "Rank": "ZZ" },
