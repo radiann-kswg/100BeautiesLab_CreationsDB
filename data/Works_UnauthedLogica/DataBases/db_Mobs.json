@@ -12,7 +12,7 @@
     "CodeName": "72IS14:シュミットトリガインバート",
     "CodeName_EN": "72IS14:Schmitt-triggerInvert",
     "Belonging": ["照梅テクノロジー"],
-    "ExistingRarity": "Commons",
+    "ExistingRarity": { "Rarity": "C" },
     "Height_cm": 74,
     "Weight_kg": 18,
     "Class": "ベーシックコモンズ",
@@ -36,7 +36,7 @@
     "CodeName": "72IS141:冷陰極インディケート",
     "CodeName_EN": "72IS141:Cold-cathodeIndicate",
     "Belonging": ["ロジケスキーロマンティカ産業"],
-    "ExistingRarity": "Maniac(SR+)",
+    "ExistingRarity": { "Rarity": "SR+" },
     "Height_cm": 65,
     "Weight_kg": 19,
     "Class": "キリルマトンズ",
@@ -60,7 +60,7 @@
     "FormalName_EN": "7274Series Automaton #181: Arith",
     "CodeName": "72IS181:アリスメティカ(標準型)",
     "CodeName_EN": "72IS181:Arithmetica(StandardType)",
-    "ExistingRarity": "ManiacRare(SSR)",
+    "ExistingRarity": { "Rarity": "SSR" },
     "Height_cm": [
       { "value": 150, "about_JP": "武装時", "about_EN": "armed" },
       { "value": 82, "about_JP": "非武装時", "about_EN": "unarmed" }
@@ -90,7 +90,7 @@
     "FormalName_EN": "7274Series Automaton #182: Looka",
     "CodeName": "72IS181:ルックアヘッドキャリア(標準型)",
     "CodeName_EN": "72IS181:LookaheadCarrier(StandardType)",
-    "ExistingRarity": "ManiacRare(SSR)",
+    "ExistingRarity": { "Rarity": "SSR" },
     "Height_cm": [
       { "value": 138, "about_JP": "武装時", "about_EN": "armed" },
       { "value": 79, "about_JP": "非武装時", "about_EN": "unarmed" }

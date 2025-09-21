@@ -6,7 +6,11 @@
       "isForMobs": false
     },
     { "hashTag": "LogicspecAbout", "$type": "#Summary", "isForMobs": null },
-    { "hashTag": "ExistingRarity", "$type": "$EnumLink", "isForMobs": true }
+    {
+      "hashTag": "ExistingRarity",
+      "$type": [{ "hashTag": "Rarity", "$type": "$EnumDef_Rarity,$EnumLink" }],
+      "isForMobs": true
+    }
   ],
   "$VarsDef": {}
 }
