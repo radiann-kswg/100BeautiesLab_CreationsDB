@@ -113,6 +113,25 @@ async function readWorkType(workId) {
   }
 }
 
+// --- General.$VarsDef accessors ---
+async function readGeneralVarsDefGlobal() {
+  try {
+    const g = await readGlobalMeta();
+    return g?.General?.$VarsDef ?? {};
+  } catch (_) {
+    return {};
+  }
+}
+
+async function readGeneralVarsDefWork(workId) {
+  try {
+    const meta = await readWorkMeta(workId);
+    return meta?.General?.$VarsDef ?? {};
+  } catch (_) {
+    return {};
+  }
+}
+
 async function readDB(workId, dbName) {
   const map = {
     Primary: 'db_Primary.json',
@@ -284,9 +303,7 @@ async function handleApiRequest(url) {
   // デフォルトで自動解決ON（?resolve=0 で無効化可能）
   const resolveParam = url.searchParams.get('resolve');
   const resolve = resolveParam == null ? true : truthy(resolveParam);
-  // デフォルトで定義併載ON（?includeVars=0 で無効化可能）
-  const includeVarsParam = url.searchParams.get('includeVars');
-  const includeVars = includeVarsParam == null ? true : truthy(includeVarsParam);
+  // 定義($VarsDef/$DefType)は専用エンドポイントのみで出力する方針に変更
   // デバッグ出力: ?debug=1 でインデックスサマリなどを返す
   const debug = truthy(url.searchParams.get('debug'));
   let payloadDebugAttach = null;
@@ -303,6 +320,35 @@ async function handleApiRequest(url) {
     });
   }
 
+  // /api/v1/varsdef (overview): global + all works General.$VarsDef
+  if (seg.length === 1 && seg[0] === 'varsdef') {
+    const g = await readGlobalMeta();
+    const globalVarsDef = await readGeneralVarsDefGlobal();
+    const works = Object.keys(g.CreationWorks || {});
+    const worksVars = {};
+    const merge = truthy(url.searchParams.get('merge'));
+    const merged = {};
+    for (const wk of works) {
+      const workId = wk; // already '#Works_*'
+      const wv = await readGeneralVarsDefWork(workId);
+      worksVars[workId] = wv;
+      if (merge) merged[workId] = deepMerge(globalVarsDef, wv);
+    }
+    return jsonResponse({
+      name: 'varsdef-overview',
+      time: new Date().toISOString(),
+      global: globalVarsDef,
+      works: worksVars,
+      ...(merge ? { merged } : {})
+    });
+  }
+
+  // /api/v1/varsdef/global: only global General.$VarsDef
+  if (seg.length === 2 && seg[0] === 'varsdef' && seg[1] === 'global') {
+    const globalVarsDef = await readGeneralVarsDefGlobal();
+    return jsonResponse({ name: 'varsdef-global', time: new Date().toISOString(), global: globalVarsDef });
+  }
+
   // /api/v1/works
   if (seg.length === 1 && seg[0] === 'works') {
     const g = await readGlobalMeta();
@@ -313,8 +359,7 @@ async function handleApiRequest(url) {
   if (seg.length === 1 && seg[0] === 'bootstrap') {
     const includeRecordsParam = url.searchParams.get('includeRecords');
     const includeRecords = includeRecordsParam == null ? false : truthy(includeRecordsParam);
-  const g = await readGlobalMeta();
-  const gType = await readGlobalType();
+    const g = await readGlobalMeta();
     const works = Object.keys(g.CreationWorks || {});
     const out = [];
     for (const wk of works) {
@@ -362,9 +407,15 @@ async function handleApiRequest(url) {
   if (seg.length === 2 && seg[0] === 'works') {
     const workId = toWorkKey(seg[1]);
     const meta = await readWorkMeta(workId);
-    if (!resolve) return jsonResponse({ work: workId, meta });
-    const { mergedVars } = await getWorkContext(workId);
-    return jsonResponse({ work: workId, meta, resolved: { $VarsDefMerged: mergedVars } });
+    // 定義はここでは出力しない
+    return jsonResponse({ work: workId, meta });
+  }
+
+  // /api/v1/works/{work}/varsdef: work-level General.$VarsDef only
+  if (seg.length === 3 && seg[0] === 'works' && seg[2] === 'varsdef') {
+    const workId = toWorkKey(seg[1]);
+    const varsdef = await readGeneralVarsDefWork(workId);
+    return jsonResponse({ work: workId, name: 'varsdef-work', time: new Date().toISOString(), varsdef });
   }
 
   // /api/v1/works/{work}/db
@@ -390,10 +441,6 @@ async function handleApiRequest(url) {
       }
     }
     const payload = { work: workId, db: dbName, records: data, resolved: resolve };
-    if (includeVars) {
-      const { mergedVars } = await getWorkContext(workId);
-      payload.$VarsDefMerged = mergedVars;
-    }
     if (debug) {
       // 遅延評価のため上で用意していなければContextを取得してサマリを付与
       if (!payloadDebugAttach) {
@@ -428,12 +475,85 @@ async function handleApiRequest(url) {
       if (debug) debugAttach = { indicesSummary: summarizeIndices(indices) };
     }
     const payload = { work: workId, db: dbName, queries, count: matched.length, records: matched, resolved: resolve };
-    if (includeVars) {
-      const { mergedVars } = await getWorkContext(workId);
-      payload.$VarsDefMerged = mergedVars;
-    }
     if (debug) payload.debug = debugAttach || (await (async () => { const { indices } = await getWorkContext(workId); return { indicesSummary: summarizeIndices(indices) }; })());
     return jsonResponse(payload);
+  }
+
+  // ---- TypeDef / DefType endpoints ----
+  // Helpers for typedef output
+  async function getGlobalDefType() {
+    try { const gType = await readGlobalType(); return gType?.$DefType ?? []; } catch { return []; }
+  }
+  async function getWorkDefType(workId) {
+    try { const type = await readWorkType(workId); return type?.$DefType ?? []; } catch { return []; }
+  }
+
+  // /api/v1/typedef and alias /api/v1/deftype (overview)
+  if (seg.length === 1 && (seg[0] === 'typedef' || seg[0] === 'deftype')) {
+    const g = await readGlobalMeta();
+    const globalDefType = await getGlobalDefType();
+    const works = Object.keys(g.CreationWorks || {});
+    const worksTypes = {};
+    for (const wk of works) {
+      const workId = wk;
+      worksTypes[workId] = await getWorkDefType(workId);
+    }
+    return jsonResponse({ name: 'typedef-overview', time: new Date().toISOString(), global: globalDefType, works: worksTypes });
+  }
+
+  // /api/v1/typedef/global and alias /api/v1/deftype/global
+  if (seg.length === 2 && (seg[0] === 'typedef' || seg[0] === 'deftype') && seg[1] === 'global') {
+    const globalDefType = await getGlobalDefType();
+    return jsonResponse({ name: 'typedef-global', time: new Date().toISOString(), global: globalDefType });
+  }
+
+  // /api/v1/works/{work}/typedef and alias /deftype
+  if (seg.length === 3 && seg[0] === 'works' && (seg[2] === 'typedef' || seg[2] === 'deftype')) {
+    const workId = toWorkKey(seg[1]);
+    const defType = await getWorkDefType(workId);
+    return jsonResponse({ work: workId, name: 'typedef-work', time: new Date().toISOString(), typedef: defType });
+  }
+
+  // ---- Hybrid defs endpoints (VarsDef + DefType) ----
+  // /api/v1/defs (overview)
+  if (seg.length === 1 && seg[0] === 'defs') {
+    const g = await readGlobalMeta();
+    const globalVars = await readGeneralVarsDefGlobal();
+    const globalTypes = await getGlobalDefType();
+    const works = Object.keys(g.CreationWorks || {});
+    const worksOut = {};
+    const merge = truthy(url.searchParams.get('merge'));
+    for (const wk of works) {
+      const workId = wk;
+      const varsdef = await readGeneralVarsDefWork(workId);
+      const deftype = await getWorkDefType(workId);
+      const item = { varsdef, deftype };
+      if (merge) item.varsdefMerged = deepMerge(globalVars, varsdef);
+      worksOut[workId] = item;
+    }
+    return jsonResponse({
+      name: 'defs-overview',
+      time: new Date().toISOString(),
+      global: { varsdef: globalVars, deftype: globalTypes },
+      works: worksOut
+    });
+  }
+
+  // /api/v1/defs/global
+  if (seg.length === 2 && seg[0] === 'defs' && seg[1] === 'global') {
+    const globalVars = await readGeneralVarsDefGlobal();
+    const globalTypes = await (async () => { try { const gt = await readGlobalType(); return gt?.$DefType ?? []; } catch { return []; } })();
+    return jsonResponse({ name: 'defs-global', time: new Date().toISOString(), global: { varsdef: globalVars, deftype: globalTypes } });
+  }
+
+  // /api/v1/works/{work}/defs
+  if (seg.length === 3 && seg[0] === 'works' && seg[2] === 'defs') {
+    const workId = toWorkKey(seg[1]);
+    const varsdef = await readGeneralVarsDefWork(workId);
+    const deftype = await (async () => { try { const t = await readWorkType(workId); return t?.$DefType ?? []; } catch { return []; } })();
+    const merge = truthy(url.searchParams.get('merge'));
+    const globalVars = merge ? await readGeneralVarsDefGlobal() : undefined;
+    return jsonResponse({ work: workId, name: 'defs-work', time: new Date().toISOString(), varsdef, deftype, ...(merge ? { varsdefMerged: deepMerge(globalVars, varsdef) } : {}) });
   }
 
   return notFound('Unknown API path');

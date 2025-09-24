@@ -19,15 +19,25 @@
 	<main>
 		<section class="card">
 			<h2>エンドポイント一覧</h2>
+				<h3>データベース本体</h3>
+				<ul>
+					<li><code>/api/v1/index</code> … API 情報と作品一覧</li>
+					<li><code>/api/v1/works</code> … 作品の一覧（キー、タイトル）</li>
+					<li><code>/api/v1/works/{work}</code> … 作品メタ（<code>db_meta.json</code>）</li>
+					<li><code>/api/v1/works/{work}/db</code> … 利用可能なDB（存在検出）</li>
+					<li><code>/api/v1/works/{work}/db/{dbName}</code> … 該当DBのレコード配列</li>
+					<li><code>/api/v1/search?works={work}&db={dbName}&hashTag={k}&key={v}</code> … DB内検索</li>
+				</ul>
+				<p class="note">work は <code>#Works_NumberTales</code> などの完全キー、または <code>NumberTales</code> などの短縮も使用可能です。</p>
+
+			<h3>定義（VarsDef / DefType / defs）</h3>
 			<ul>
-				<li><code>/api/v1/index</code> … API 情報と作品一覧</li>
-				<li><code>/api/v1/works</code> … 作品の一覧（キー、タイトル）</li>
-				<li><code>/api/v1/works/{work}</code> … 作品メタ（<code>db_meta.json</code>）</li>
-				<li><code>/api/v1/works/{work}/db</code> … 利用可能なDB（存在検出）</li>
-				<li><code>/api/v1/works/{work}/db/{dbName}</code> … 該当DBのレコード配列</li>
-				<li><code>/api/v1/search?works={work}&db={dbName}&hashTag={k}&key={v}</code> … DB内検索</li>
+				<li><code>/api/v1/varsdef</code> … グローバルと全作品の <code>General.$VarsDef</code> を俯瞰（<code>?merge=1</code> でグローバル+作品のマージビューも付与）</li>
+				<li><code>/api/v1/varsdef/global</code> / <code>/api/v1/works/{work}/varsdef</code></li>
+				<li><code>/api/v1/typedef</code> または <code>/api/v1/deftype</code> … <code>$DefType</code> を俯瞰（<code>/global</code> や <code>/works/{work}/typedef</code> にも対応）</li>
+				<li><code>/api/v1/defs</code> … <code>VarsDef</code> と <code>DefType</code> の統合出力（<code>?merge=1</code> 対応） / <code>/global</code> / <code>/works/{work}/defs</code></li>
 			</ul>
-			<p class="note">work は <code>#Works_NumberTales</code> などの完全キー、または <code>NumberTales</code> などの短縮も使用可能です。</p>
+			<p class="note">定義情報（<code>General.$VarsDef</code> / <code>$DefType</code>）は上記の専用エンドポイントでのみ出力されます。<code>/works</code>、<code>/db</code>、<code>/search</code> では含まれません。</p>
 		</section>
 
 		<section class="card">
@@ -41,6 +51,22 @@
 				<button data-endpoint="/api/v1/works/NumberTales" class="btnFetch">/api/v1/works/NumberTales</button>
 				<button data-endpoint="/api/v1/works/NumberTales/db" class="btnFetch">/api/v1/works/NumberTales/db</button>
 				<button data-endpoint="/api/v1/works/NumberTales/db/Primary" class="btnFetch">/api/v1/works/NumberTales/db/Primary</button>
+			</div>
+			<div class="grid">
+				<button data-endpoint="/api/v1/varsdef" class="btnFetch">/api/v1/varsdef</button>
+				<button data-endpoint="/api/v1/varsdef?merge=1" class="btnFetch">/api/v1/varsdef?merge=1</button>
+				<button data-endpoint="/api/v1/varsdef/global" class="btnFetch">/api/v1/varsdef/global</button>
+				<button data-endpoint="/api/v1/works/Works_NumberTales/varsdef" class="btnFetch">/api/v1/works/Works_NumberTales/varsdef</button>
+			</div>
+			<div class="grid">
+				<button data-endpoint="/api/v1/typedef" class="btnFetch">/api/v1/typedef</button>
+				<button data-endpoint="/api/v1/deftype/global" class="btnFetch">/api/v1/deftype/global</button>
+				<button data-endpoint="/api/v1/works/Works_NumberTales/typedef" class="btnFetch">/api/v1/works/Works_NumberTales/typedef</button>
+			</div>
+			<div class="grid">
+				<button data-endpoint="/api/v1/defs" class="btnFetch">/api/v1/defs</button>
+				<button data-endpoint="/api/v1/defs?merge=1" class="btnFetch">/api/v1/defs?merge=1</button>
+				<button data-endpoint="/api/v1/works/Works_NumberTales/defs?merge=1" class="btnFetch">/api/v1/works/Works_NumberTales/defs?merge=1</button>
 			</div>
 			<label class="endpointInput">
 				<span>任意エンドポイント:</span>

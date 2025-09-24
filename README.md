@@ -1,4 +1,4 @@
-(更新日/Updated on 2025.8.19)
+(更新日/Updated on 2025.9.24)
 
 # 一次創作作品におけるガイドライン(日本語版)
 
@@ -112,3 +112,54 @@ http://creativecommons.org/licenses/by-nc/4.0/
 ## Secondary Works Permissions(OK/NG) List
 
 [Secondary Works Permissions(OK/NG) List](./SecondaryWorksPermissionList_EN.png)
+
+# API (Service Worker pseudo-API)について
+
+GitHub Pages 上で提供する擬似 API を使って、`data/` 配下の JSON を取得できます。（GUI 付ページは[こちら](./api/)）
+
+## エンドポイント
+
+### 作品データベース本体
+
+- `GET /api/v1/index` … 作品一覧の概要
+- `GET /api/v1/works` … 作品の一覧（キー、タイトル）
+- `GET /api/v1/works/{work}` … 作品メタ情報の閲覧
+- `GET /api/v1/works/{work}/db` … 作品ごとに閲覧可能な DB（存在検出）
+- `GET /api/v1/works/{work}/db/{dbName}` … 各 DB のレコード（`?resolve=0` で解決オフ）
+- `GET /api/v1/search?works={work}&db={dbName}&hashTag={k}&key={v}` … DB 内の単純検索（AND）
+
+例
+
+```
+/api/v1/index
+/api/v1/works
+/api/v1/works/NumberTales
+/api/v1/works/NumberTales/db
+/api/v1/works/NumberTales/db/Primary
+```
+
+### フィールド定義情報
+
+- `GET /api/v1/varsdef` … グローバルと全作品のフィールド定義（`General.$VarsDef`）を俯瞰（`?merge=1` でグローバルと作品のマージビューも同時出力）
+- `GET /api/v1/varsdef/global` … グローバルの `General.$VarsDef` のみ
+- `GET /api/v1/works/{work}/varsdef` … 指定作品の `General.$VarsDef` のみ
+
+例
+
+```
+/api/v1/varsdef
+/api/v1/varsdef/global
+/api/v1/works/Works_NumberTales/varsdef
+```
+
+### 型定義（$DefType）およびハイブリッド俯瞰
+
+- `GET /api/v1/typedef` または `GET /api/v1/deftype` … グローバルと全作品の `$DefType` を俯瞰
+- `GET /api/v1/typedef/global` または `GET /api/v1/deftype/global` … グローバルの `$DefType` のみ
+- `GET /api/v1/works/{work}/typedef` または `GET /api/v1/works/{work}/deftype` … 指定作品の `$DefType` のみ
+
+- `GET /api/v1/defs` … `General.$VarsDef` と `$DefType` の統合出力（`?merge=1` で VarsDef のマージビューも付与）
+- `GET /api/v1/defs/global` … グローバルの `General.$VarsDef` と `$DefType`
+- `GET /api/v1/works/{work}/defs` … 指定作品の `General.$VarsDef` と `$DefType`（`?merge=1` 対応）
+
+注意: `General.$VarsDef` および `$DefType` は、上記の `varsdef` / `typedef(deftype)` / `defs` 系エンドポイントでのみ出力されます。その他のエンドポイント（`/works`、`/db`、`/search` など）では定義情報は含みません。
