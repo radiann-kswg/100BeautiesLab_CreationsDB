@@ -415,7 +415,7 @@
       "Stoat": "Dealer",
       "Num": 79
     },
-    "Progress": "stillTentative",
+    "Progress": "released(beta)",
     "Images": {
       "conceptAlt_PNGName": ["cnsp_imgFLDealer"]
     },
@@ -490,7 +490,7 @@
       "Stoat": "Dealer",
       "Num": 80
     },
-    "Progress": "stillTentative",
+    "Progress": "released(beta)",
     "Images": {
       "conceptAlt_PNGName": ["cnsp_imgFLDealer"]
     },
