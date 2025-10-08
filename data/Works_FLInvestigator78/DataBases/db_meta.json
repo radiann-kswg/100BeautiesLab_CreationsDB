@@ -144,6 +144,7 @@
           "Ptn.H(癒術)",
           "Ptn.L(転化)",
           "Ptn.M(精神操作)",
+          "Ptn.S(感度操作)",
           "Ptn.Q(天変地異)"
         ],
         "$Def_SafetyLevel": {
@@ -162,6 +163,11 @@
               "SafetyLevelText": "安全",
               "SafetyLevelText_EN": "Safe",
               "Rank": "A"
+            },
+            {
+              "SafetyLevelText": "恐らく安全",
+              "SafetyLevelText_EN": "Probably Safe",
+              "Rank": "B+"
             },
             {
               "SafetyLevelText": "危害無",
