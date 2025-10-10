@@ -60,7 +60,7 @@
         "Magical": { "EffectText": "絶大" },
         "Healing": { "EffectText": "期待" },
         "Violent": { "EffectText": "効果無" },
-        "Rewriting": { "HideText": "検証中" }
+        "Rewriting": { "hideText": "検証中" }
       },
       "SpetialPattern": ["Ptn.A(覚醒)", "Ptn.Q(天変地異)"],
       "SafetyLevel": {
@@ -135,7 +135,7 @@
         "Magical": { "EffectText": "絶大" },
         "Healing": { "EffectText": "期待" },
         "Violent": { "EffectText": "希薄" },
-        "Rewriting": { "HideText": "検証中" }
+        "Rewriting": { "hideText": "検証中" }
       },
       "SpetialPattern": ["Ptn.B(士気操作)", "Ptn.E(元素操作)"],
       "SafetyLevel": { "SafetyLevelText": "保証可能" },
@@ -204,7 +204,7 @@
         "Physical": { "EffectText": "効果無" },
         "Magical": { "EffectText": "希薄" },
         "Healing": { "EffectText": "期待" },
-        "Violent": { "HideText": "検証中" },
+        "Violent": { "hideText": "検証中" },
         "Rewriting": { "EffectText": "希薄" }
       },
       "SpetialPattern": ["Ptn.L(転化)", "Ptn.M(精神操作)"],
@@ -233,7 +233,7 @@
       "Height_cm": 166,
       "Weight_kg": [
         {
-          "value": { "HideText": "非公開" },
+          "value": { "hideText": "非公開" },
           "about_JP": "体型は妖艶で美形",
           "about_EN": "Her figure is alluring and beautiful."
         }
@@ -280,7 +280,7 @@
       "EffectStats": {
         "Physical": { "EffectText": "希薄" },
         "Magical": { "EffectText": "効果無" },
-        "Healing": { "HideText": "定義不能" },
+        "Healing": { "hideText": "定義不能" },
         "Violent": { "EffectText": "効果無" },
         "Rewriting": { "EffectText": "希薄" }
       },
@@ -354,7 +354,7 @@
         "Physical": { "EffectText": "希薄" },
         "Magical": { "EffectText": "普通" },
         "Healing": { "EffectText": "期待" },
-        "Violent": { "HideText": "定義不能" },
+        "Violent": { "hideText": "定義不能" },
         "Rewriting": { "EffectText": "普通" }
       },
       "SpetialPattern": ["Ptn.B(士気操作)", "Ptn.M(精神操作)"],
@@ -422,7 +422,7 @@
       },
       "EffectStats": {
         "Physical": { "EffectText": "効果無" },
-        "Magical": { "HideText": "検証中" },
+        "Magical": { "hideText": "検証中" },
         "Healing": { "EffectText": "期待" },
         "Violent": { "EffectText": "希薄" },
         "Rewriting": { "EffectText": "期待" }
@@ -452,8 +452,8 @@
       "GenderType": "Female",
       "AbilityStats": {
         "Speed": { "Rank": "E" },
-        "Communicating": { "Rank": { "HideText": "？？？" } },
-        "Leading": { "Rank": { "HideText": "？？？" } },
+        "Communicating": { "Rank": { "hideText": "？？？" } },
+        "Leading": { "Rank": { "hideText": "？？？" } },
         "Precision": { "Rank": "S" },
         "Technic": { "Rank": "Z" },
         "Actuation": { "Rank": "B+" }
@@ -510,7 +510,7 @@
       "Height_cm": 168,
       "Weight_kg": [
         {
-          "value": { "HideText": "非公開" },
+          "value": { "hideText": "非公開" },
           "about": "体型は美形",
           "about_EN": "His figure is beautiful."
         }
@@ -568,7 +568,7 @@
     "FormalName_EN": "Trump Spreadder\n79th Arcana",
     "CodeName": null,
     "CodeName_EN": null,
-    "RaceType": { "HideText": "定義不能" },
+    "RaceType": { "hideText": "定義不能" },
     "GenderType": "FemaleNeutral",
     "ThisDealer": {
       "_DBLink": {
@@ -621,10 +621,10 @@
         "Magical": { "EffectText": "絶大" },
         "Healing": { "EffectText": "期待" },
         "Violent": { "EffectText": "効果無" },
-        "Rewriting": { "HideText": "定義不能" }
+        "Rewriting": { "hideText": "定義不能" }
       },
-      "SpetialPattern": { "HideText": "定義不能" },
-      "SafetyLevel": { "HideText": "定義不能" },
+      "SpetialPattern": { "hideText": "定義不能" },
+      "SafetyLevel": { "hideText": "定義不能" },
       "SpecLevel": { "Rank": "S+" }
     }
   },
@@ -643,7 +643,7 @@
     "FormalName_EN": "Trump Engager\n80th Arcana",
     "CodeName": null,
     "CodeName_EN": null,
-    "RaceType": { "HideText": "定義不能" },
+    "RaceType": { "hideText": "定義不能" },
     "GenderType": "FemaleNeutral",
     "ThisDealer": {
       "_DBLink": {
@@ -696,10 +696,10 @@
         "Magical": { "EffectText": "希薄" },
         "Healing": { "EffectText": "効果無" },
         "Violent": { "EffectText": "期待" },
-        "Rewriting": { "HideText": "定義不能" }
+        "Rewriting": { "hideText": "定義不能" }
       },
-      "SpetialPattern": { "HideText": "定義不能" },
-      "SafetyLevel": { "HideText": "定義不能" },
+      "SpetialPattern": { "hideText": "定義不能" },
+      "SafetyLevel": { "hideText": "定義不能" },
       "SpecLevel": { "Rank": "S+" }
     }
   }

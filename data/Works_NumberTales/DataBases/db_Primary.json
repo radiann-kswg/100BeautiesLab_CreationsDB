@@ -60,8 +60,8 @@
         "Luck": { "EffectText": "希薄" },
         "Communication": { "EffectText": "普通" }
       },
-      "SpetialPattern": { "HideText": "検証中" },
-      "SafetyLevel": { "HideText": "非公開" }
+      "SpetialPattern": { "hideText": "検証中" },
+      "SafetyLevel": { "hideText": "非公開" }
     },
     "AbilityStats": {
       "Speed": { "Rank": "A" },
@@ -434,17 +434,17 @@
     "NumerospecStats": {
       "EffectStats": {
         "Mental": { "EffectText": "期待" },
-        "Manetize": { "HideText": "判定不能" },
-        "Working": { "HideText": "判定不能" },
-        "Luck": { "HideText": "判定不能" },
-        "Communication": { "HideText": "判定不能" }
+        "Manetize": { "hideText": "判定不能" },
+        "Working": { "hideText": "判定不能" },
+        "Luck": { "hideText": "判定不能" },
+        "Communication": { "hideText": "判定不能" }
       },
       "SpetialPattern": ["Ptn.C(状況変化効果)", "Ptn.Ms(自己転化効果)"],
       "SafetyLevel": { "SafetyLevelText": "無危害" }
     },
     "AbilityStats": {
       "Speed": { "Rank": "Z" },
-      "Communicating": { "HideText": "判定不能" },
+      "Communicating": { "hideText": "判定不能" },
       "Leading": { "Rank": "D" },
       "Precision": { "Rank": "C" },
       "Technic": { "Rank": "B+" },
@@ -519,7 +519,7 @@
     "Hobby": "美術鑑賞",
     "SpetialSkill": "画力がある",
     "Favor": "かわいいぬいぐるみ\nスキンシップ",
-    "Unlike": { "HideText": "？？？" },
+    "Unlike": { "hideText": "？？？" },
     "RelationAbouts": "ほぼどの個体にも好意的に接する\n「7(ナナ)」とは価値観の共有関係と言っているが…\n「4(モチ)」とはルームシェアをするほどの縁",
     "NumerospecAbout": "愛情や感性などにより主人の心の隙間を埋める\nただし副作用として一部スキンシップに過剰反応する",
     "Summary": "愛情や感性・美徳に満ち溢れ、信頼と忠義とそれぞれの個性を大切にしている、ナンバーテールズの「光属性」担当。\nこれにより、1桁番の中はもちろん99人全体でも上位に匹敵する評判を主人層から得ている。\nまた、彼女とはやや対称的な美的センスを持つ「9(チカ)」とセットで認知されることも。\nちなみに感性に優れているあまりか、感覚機能における意外な弱点があるようで…",
@@ -890,7 +890,7 @@
       { "value": null, "about": "(専属契約不可)" },
       {
         "value": "扇三春",
-        "about": { "HideText": "？？？" },
+        "about": { "hideText": "？？？" },
         "_DBLink": {
           "worksTitle": "SinisterChangingGirls",
           "dbName": "Primary",
@@ -912,22 +912,22 @@
     "Summary": "自分とは何者か、何のための存在か、どこで自分の役目は終わり、新たな役目が始まるか、その問いに導かれ答えるかのように様々な行動を起こしている（と本人が供述）。\nそのため思考が読めないと言われているが、主人の危機を未然に感知しているのではと、どこかで噂になっている。\nちなみに彼（女）は元動作試験機で、現在唯一の試作型である「1(ハジメ)」と試作段階の時から縁がある。",
     "NumerospecStats": {
       "EffectStats": {
-        "Mental": { "HideText": "非公開" },
+        "Mental": { "hideText": "非公開" },
         "Manetize": { "EffectText": "希薄" },
-        "Working": { "HideText": "非公開" },
+        "Working": { "hideText": "非公開" },
         "Luck": { "EffectText": "効果無" },
         "Communication": { "EffectText": "希薄" }
       },
-      "SpetialPattern": { "HideText": "極秘事項" },
-      "SafetyLevel": { "HideText": "非公開" }
+      "SpetialPattern": { "hideText": "極秘事項" },
+      "SafetyLevel": { "hideText": "非公開" }
     },
     "AbilityStats": {
-      "Speed": { "HideText": "非公開" },
+      "Speed": { "hideText": "非公開" },
       "Communicating": { "Rank": "B" },
       "Leading": { "Rank": "A" },
       "Precision": { "Rank": "A" },
       "Technic": { "Rank": "S" },
-      "Actuation": { "HideText": "非公開" }
+      "Actuation": { "hideText": "非公開" }
     },
     "InStory": "10号機「ディケ」が退役したきっかけを知る存在",
     "Backgrounds": "「10(ツナイ)[ディケ]」の暴走事件・退役を受け、量産試作機のハードウェアを再利用して誕生",
@@ -1430,7 +1430,7 @@
         "Luck": { "EffectText": "危険" },
         "Communication": { "EffectText": "期待" }
       },
-      "SpetialPattern": { "HideText": "極秘事項" },
+      "SpetialPattern": { "hideText": "極秘事項" },
       "SafetyLevel": { "SafetyLevelText": "調整中" }
     },
     "AbilityStats": {
@@ -1507,7 +1507,7 @@
     "AnivDay": [
       { "Day": { "Month": 1, "DayOfMonth": 16 }, "DayAbout": "開発記念" }
     ],
-    "Weight_kg": { "HideText": "非公開" },
+    "Weight_kg": { "hideText": "非公開" },
     "BustSize": "H",
     "TailsUnit": "キツネ(枝分かれ)型6本(上2束1本+下1束5本)",
     "Class": "デュアルセブンズ",
@@ -1537,7 +1537,7 @@
     "NumerospecStats": {
       "EffectStats": {
         "Mental": { "EffectText": "絶大" },
-        "Manetize": { "HideText": "判定不能" },
+        "Manetize": { "hideText": "判定不能" },
         "Working": { "EffectText": "絶大" },
         "Luck": { "EffectText": "希薄" },
         "Communication": { "EffectText": "期待" }
@@ -1839,7 +1839,7 @@
     "Summary": "これまでの業績から一つの節目を迎える事例に特化した個体。\n完遂した業績に対する誇りや自信で調子に乗りやすいが、その次の業務も難なくこなすため憎みたくても憎めないと（色んな意味で）定評。\nしかしその風格に惹かれ、これから新しい取り組みをするベテラン級スキルを持つ中年層を中心に彼(女)を求める主人も少なくはない様子。\n趣味は“絵画用”ルービックキューブというが…？",
     "NumerospecStats": {
       "EffectStats": {
-        "Mental": { "HideText": "判定不能" },
+        "Mental": { "hideText": "判定不能" },
         "Manetize": { "EffectText": "希薄" },
         "Working": { "EffectText": "期待" },
         "Luck": { "EffectText": "希薄" },
@@ -1849,12 +1849,12 @@
       "SafetyLevel": { "SafetyLevelText": "無危害" }
     },
     "AbilityStats": {
-      "Speed": { "HideText": "非公開" },
+      "Speed": { "hideText": "非公開" },
       "Communicating": { "Rank": "C" },
       "Leading": { "Rank": "A" },
-      "Precision": { "HideText": "非公開" },
+      "Precision": { "hideText": "非公開" },
       "Technic": { "Rank": "B" },
-      "Actuation": { "HideText": "非公開" }
+      "Actuation": { "hideText": "非公開" }
     },
     "Relation": {
       "Related": [
@@ -2099,7 +2099,7 @@
     "AnivDay": [
       { "Day": { "Month": 11, "DayOfMonth": 22 }, "DayAbout": "開発記念" }
     ],
-    "Weight_kg": { "HideText": "非公開" },
+    "Weight_kg": { "hideText": "非公開" },
     "BustSize": "I",
     "TailsUnit": "サソリ型2本（それぞれ11束[節]）",
     "Class": "マスターテールズ9",
@@ -2124,11 +2124,11 @@
         "Mental": { "EffectText": "希薄" },
         "Manetize": { "EffectText": "絶大" },
         "Working": { "EffectText": "絶大" },
-        "Luck": { "HideText": "判定不能" },
+        "Luck": { "hideText": "判定不能" },
         "Communication": { "EffectText": "希薄" }
       },
       "SpetialPattern": ["Ptn.R-(効果保証作用がある傾向)"],
-      "SafetyLevel": { "HideText": "検証中" }
+      "SafetyLevel": { "hideText": "検証中" }
     },
     "AbilityStats": {
       "Speed": { "Rank": "A" },
@@ -2298,7 +2298,7 @@
     "AnivDay": [
       { "Day": { "Month": 2, "DayOfMonth": 4 }, "DayAbout": "開発記念" }
     ],
-    "Weight_kg": { "HideText": "非公開" },
+    "Weight_kg": { "hideText": "非公開" },
     "BustSize": "E",
     "TailsUnit": "キツネ(枝分かれ)型4本(上2束2本+下1束2本)",
     "Class": "デュアルシックスズ",
@@ -2497,7 +2497,7 @@
     "AnivDay": [
       { "Day": { "Month": 2, "DayOfMonth": 6 }, "DayAbout": "開発記念" }
     ],
-    "Weight_kg": { "HideText": "非公開" },
+    "Weight_kg": { "hideText": "非公開" },
     "BustSize": "G",
     "TailsUnit": "キツネ(枝分かれ)型6本(上2束2本+下1束4本)",
     "Class": "デュアルエイツ",
@@ -2685,7 +2685,7 @@
     "AnivDay": [
       { "Day": { "Month": 2, "DayOfMonth": 8 }, "DayAbout": "開発記念" }
     ],
-    "Weight_kg": { "HideText": "非公開" },
+    "Weight_kg": { "hideText": "非公開" },
     "TailsUnit": "キツネ(枝分かれ)型8本(上2束2本+下1束6本)",
     "Class": "デュアルキャリーズ",
     "Class_EN": "Dual Carries",
@@ -2704,9 +2704,9 @@
     "NumerospecStats": {
       "EffectStats": {
         "Mental": { "EffectText": "普通" },
-        "Manetize": { "HideText": "条件による" },
+        "Manetize": { "hideText": "条件による" },
         "Working": { "EffectText": "普通" },
-        "Luck": { "HideText": "定義不能" },
+        "Luck": { "hideText": "定義不能" },
         "Communication": { "EffectText": "普通" }
       },
       "SpetialPattern": [
@@ -2786,7 +2786,7 @@
     "AnivDay": [
       { "Day": { "Month": 2, "DayOfMonth": 9 }, "DayAbout": "開発記念" }
     ],
-    "Weight_kg": { "HideText": "非公開" },
+    "Weight_kg": { "hideText": "非公開" },
     "BustSize": "E",
     "TailsUnit": "キツネ(枝分かれ)型9本(上2束2本+下1束7本)",
     "Class": "デュアルイレブンズ",
@@ -2876,7 +2876,7 @@
     "SPCodeName": "三十",
     "GenderType": "FemaleNeutral",
     "Height_cm": 157,
-    "Weight_kg": { "HideText": "非公開" },
+    "Weight_kg": { "hideText": "非公開" },
     "ConceptAge": { "value": 17, "about_JP": "？", "about_EN": "?" },
     "AnivDay": [
       { "Day": { "Month": 2, "DayOfMonth": 29 }, "DayAbout": "開発記念" }
@@ -2901,7 +2901,7 @@
         "Mental": { "EffectText": "期待" },
         "Manetize": { "EffectText": "効果無" },
         "Working": { "EffectText": "普通" },
-        "Luck": { "HideText": "条件による" },
+        "Luck": { "hideText": "条件による" },
         "Communication": { "EffectText": "普通" }
       },
       "SpetialPattern": ["Ptn.Lr-(条件付き幸福実現効果)"],
@@ -3088,7 +3088,7 @@
     "NumerospecStats": {
       "EffectStats": {
         "Mental": { "EffectText": "期待" },
-        "Manetize": { "HideText": "検証中" },
+        "Manetize": { "hideText": "検証中" },
         "Working": { "EffectText": "普通" },
         "Luck": { "EffectText": "期待" },
         "Communication": { "EffectText": "過剰" }
@@ -3159,7 +3159,7 @@
     "AnivDay": [
       { "Day": { "Month": 3, "DayOfMonth": 3 }, "DayAbout": "開発記念" }
     ],
-    "Weight_kg": { "HideText": "非公開" },
+    "Weight_kg": { "hideText": "非公開" },
     "BustSize": "A",
     "TailsUnit": "キツネ(枝分かれ)型 2束x3本",
     "Class": "マスターテールズ9",
@@ -3186,14 +3186,14 @@
         "Communication": { "EffectText": "希薄" }
       },
       "SpetialPattern": ["Ptn.I(高性能知能搭載)"],
-      "SafetyLevel": { "HideText": "非公開" }
+      "SafetyLevel": { "hideText": "非公開" }
     },
     "AbilityStats": {
-      "Speed": { "HideText": "非公開" },
+      "Speed": { "hideText": "非公開" },
       "Communicating": { "Rank": "C" },
-      "Leading": { "HideText": "非公開" },
-      "Precision": { "HideText": "非公開" },
-      "Technic": { "HideText": "非公開" },
+      "Leading": { "hideText": "非公開" },
+      "Precision": { "hideText": "非公開" },
+      "Technic": { "hideText": "非公開" },
       "Actuation": { "Rank": "Z" }
     },
     "InStory": "「全知全能」を名乗っているが実力は本物\nただしROSの弱点を突かれて玩ばれる一面も",
@@ -3261,7 +3261,7 @@
     "AnivDay": [
       { "Day": { "Month": 3, "DayOfMonth": 4 }, "DayAbout": "開発記念" }
     ],
-    "Weight_kg": { "HideText": "非公開" },
+    "Weight_kg": { "hideText": "非公開" },
     "BustSize": "A",
     "TailsUnit": "キツネ(枝分かれ)型4本(上2束3本+下1束1本)",
     "Class": "デュアルセブンズ",
@@ -3282,9 +3282,9 @@
       "EffectStats": {
         "Mental": { "EffectText": "効果無" },
         "Manetize": { "EffectText": "過剰" },
-        "Working": { "HideText": "公開不能" },
+        "Working": { "hideText": "公開不能" },
         "Luck": { "EffectText": "危険" },
-        "Communication": { "HideText": "条件による" }
+        "Communication": { "hideText": "条件による" }
       },
       "SpetialPattern": [
         "Ptn.C(状況変化効果)",
@@ -3294,7 +3294,7 @@
     },
     "AbilityStats": {
       "Speed": { "Rank": "B" },
-      "Communicating": { "HideText": "定義不能" },
+      "Communicating": { "hideText": "定義不能" },
       "Reading": { "Rank": "Z" },
       "Precision": { "Rank": "D" },
       "Technic": { "Rank": "A" },
@@ -3457,7 +3457,7 @@
     "AnivDay": [
       { "Day": { "Month": 3, "DayOfMonth": 6 }, "DayAbout": "開発記念" }
     ],
-    "Weight_kg": { "HideText": "非公開" },
+    "Weight_kg": { "hideText": "非公開" },
     "BustSize": "E",
     "TailsUnit": "キツネ(枝分かれ)型6本(上2束3本+下1束3本)",
     "Class": "9倍2桁番(ナインズデュアルズ)",
@@ -3483,7 +3483,7 @@
         "Mental": { "EffectText": "期待" },
         "Manetize": { "EffectText": "期待" },
         "Working": { "EffectText": "効果無" },
-        "Luck": { "HideText": "判定不能" },
+        "Luck": { "hideText": "判定不能" },
         "Communication": { "EffectText": "希薄" }
       },
       "SpetialPattern": ["Ptn.X(転化・転送効果)"],
@@ -3807,9 +3807,9 @@
     "NumerospecStats": {
       "EffectStats": {
         "Mental": { "EffectText": "普通" },
-        "Manetize": { "HideText": "検証中" },
-        "Working": { "HideText": "検証中" },
-        "Luck": { "HideText": "条件による" },
+        "Manetize": { "hideText": "検証中" },
+        "Working": { "hideText": "検証中" },
+        "Luck": { "hideText": "条件による" },
         "Communication": { "EffectText": "希薄" }
       },
       "SpetialPattern": [
@@ -3902,7 +3902,7 @@
     "NumerospecStats": {
       "EffectStats": {
         "Mental": { "EffectText": "絶大" },
-        "Manetize": { "HideText": "検証中" },
+        "Manetize": { "hideText": "検証中" },
         "Working": { "EffectText": "期待" },
         "Luck": { "EffectText": "期待可能" },
         "Communication": { "EffectText": "普通" }
@@ -3974,7 +3974,7 @@
     "AnivDay": [
       { "Day": { "Month": 4, "DayOfMonth": 2 }, "DayAbout": "開発記念" }
     ],
-    "Weight_kg": { "HideText": "非公開" },
+    "Weight_kg": { "hideText": "非公開" },
     "BustSize": "C",
     "TailsUnit": "キツネ(枝分かれ)型4本(上1束2本+下2束2本)",
     "Class": "デュアルシックスズ",
@@ -4068,7 +4068,7 @@
     "AnivDay": [
       { "Day": { "Month": 4, "DayOfMonth": 3 }, "DayAbout": "開発記念" }
     ],
-    "Weight_kg": { "HideText": "非公開" },
+    "Weight_kg": { "hideText": "非公開" },
     "Class": "デュアルセブンズ",
     "Class_EN": "Dual Sum-7s",
     "BustSize": "D",
@@ -4087,10 +4087,10 @@
     "NumerospecStats": {
       "EffectStats": {
         "Mental": { "EffectText": "期待" },
-        "Manetize": { "HideText": "条件による" },
-        "Working": { "HideText": "定義不能" },
+        "Manetize": { "hideText": "条件による" },
+        "Working": { "hideText": "定義不能" },
         "Luck": { "EffectText": "極めて絶大(場合により逆効果)" },
-        "Communication": { "HideText": "定義不能" }
+        "Communication": { "hideText": "定義不能" }
       },
       "SpetialPattern": [
         "Ptn.Lr-(条件付き幸福実現効果)",
@@ -4100,7 +4100,7 @@
     },
     "AbilityStats": {
       "Speed": { "Rank": "B" },
-      "Communicating": { "HideText": "定義不能" },
+      "Communicating": { "hideText": "定義不能" },
       "Reading": { "Rank": "B" },
       "Precision": { "Rank": "S" },
       "Technic": { "Rank": "A" },
@@ -4164,7 +4164,7 @@
     "AnivDay": [
       { "Day": { "Month": 4, "DayOfMonth": 4 }, "DayAbout": "開発記念" }
     ],
-    "Weight_kg": { "HideText": "非公開" },
+    "Weight_kg": { "hideText": "非公開" },
     "TailsUnit": "キツネ(枝分かれ)型 2束x4本",
     "Class": "マスターテールズ9",
     "Class_EN": "Master Tales 9",
@@ -4186,7 +4186,7 @@
         "Mental": { "EffectText": "逆効果" },
         "Manetize": { "EffectText": "絶大" },
         "Working": { "EffectText": "希薄" },
-        "Luck": { "HideText": "判定不能" },
+        "Luck": { "hideText": "判定不能" },
         "Communication": { "EffectText": "効果無" }
       },
       "SpetialPattern": [
@@ -4293,7 +4293,7 @@
         "Mental": { "EffectText": "特化" },
         "Manetize": { "EffectText": "希薄" },
         "Working": { "EffectText": "普通" },
-        "Luck": { "HideText": "検証中" },
+        "Luck": { "hideText": "検証中" },
         "Communication": { "EffectText": "普通" }
       },
       "SpetialPattern": ["Ptn.Ec(士気比例作用)"],
@@ -4384,8 +4384,8 @@
     "NumerospecStats": {
       "EffectStats": {
         "Mental": { "EffectText": "過剰" },
-        "Manetize": { "HideText": "判定不能" },
-        "Working": { "HideText": "判定不能" },
+        "Manetize": { "hideText": "判定不能" },
+        "Working": { "hideText": "判定不能" },
         "Luck": { "EffectText": "逆効果" },
         "Communication": { "EffectText": "希薄" }
       },
@@ -4398,7 +4398,7 @@
       "Leading": { "Rank": "D" },
       "Precision": { "Rank": "D" },
       "Technic": { "Rank": "B" },
-      "Actuation": { "HideText": "非公開" }
+      "Actuation": { "hideText": "非公開" }
     },
     "InStory": "特殊個体「4+6型」の一人\n実績と人気度が乏しく、実況の副業をしている",
     "Relation": {
@@ -4483,19 +4483,19 @@
     "Summary": "ナンバーテールズの中では他に類を見ない、自らが持っている”加護”を体感できるという極めて高い感受性を持っており、決断にブレが全くなく自信家である。\nなおその“加護”は他の98人にも気づくことができるはずとも思っているが、他の98人の大半は無自覚なので信じられずにいる。\nただ、応援してくれる存在としても彼女に好感を持つナンバーテールズも居るようだ。",
     "NumerospecStats": {
       "EffectStats": {
-        "Mental": { "HideText": "検証中" },
-        "Manetize": { "HideText": "検証中" },
-        "Working": { "HideText": "検証中" },
+        "Mental": { "hideText": "検証中" },
+        "Manetize": { "hideText": "検証中" },
+        "Working": { "hideText": "検証中" },
         "Luck": { "EffectText": "期待" },
-        "Communication": { "HideText": "検証中" }
+        "Communication": { "hideText": "検証中" }
       },
       "SpetialPattern": ["Ptn.F(超能力保有)"],
-      "SafetyLevel": { "HideText": "検証中" }
+      "SafetyLevel": { "hideText": "検証中" }
     },
     "AbilityStats": {
       "Speed": { "Rank": "A" },
-      "Communicating": { "HideText": "検証中" },
-      "Leading": { "HideText": "検証中" },
+      "Communicating": { "hideText": "検証中" },
+      "Leading": { "hideText": "検証中" },
       "Precision": { "Rank": "A" },
       "Technic": { "Rank": "B+" },
       "Actuation": { "Rank": "A" }
@@ -4551,7 +4551,7 @@
     "AnivDay": [
       { "Day": { "Month": 4, "DayOfMonth": 8 }, "DayAbout": "開発記念" }
     ],
-    "Weight_kg": { "HideText": "非公開" },
+    "Weight_kg": { "hideText": "非公開" },
     "TailsUnit": "キツネ(枝分かれ)型8本(上2束4本+下1束4本)",
     "Class": "デュアルスリーズ",
     "Class_EN": "Dual Sum-3s",
@@ -4924,9 +4924,9 @@
     "NumerospecStats": {
       "EffectStats": {
         "Mental": { "EffectText": "希薄" },
-        "Manetize": { "HideText": "検証中" },
+        "Manetize": { "hideText": "検証中" },
         "Working": { "EffectText": "普通" },
-        "Luck": { "HideText": "条件による" },
+        "Luck": { "hideText": "条件による" },
         "Communication": { "EffectText": "希薄" }
       },
       "SpetialPattern": ["Ptn.C(状況変化効果)", "Ptn.Ch(連鎖効果有)"],
@@ -5028,7 +5028,7 @@
     "AnivDay": [
       { "Day": { "Month": 5, "DayOfMonth": 5 }, "DayAbout": "開発記念" }
     ],
-    "Weight_kg": { "HideText": "非公開" },
+    "Weight_kg": { "hideText": "非公開" },
     "BustSize": "AA",
     "TailsUnit": "キツネ(枝分かれ)型 2束x5本",
     "Class": "マスターテールズ9",
@@ -5041,7 +5041,7 @@
     "Hobby": "普通の生活？",
     "SpetialSkill": "現状を打破すること",
     "Favor": "神社のお守り",
-    "Unlike": { "HideText": "？？？" },
+    "Unlike": { "hideText": "？？？" },
     "RelationAbouts": "「台風の目」と呼ばれているが、それは「11(トウイチ)」のことだと錯覚している",
     "NumerospecAbout": "想像できないことを周囲に引き起こす\nただし自分自身に適応耐性があるため無自覚となる",
     "Summary": "主人や自分の過去に囚われず、より良いものへ変化すること/変化されること を醍醐味に、適応力と自己実現力の相反する能力を併せ現状を打破することを得意としている。\nただ、彼女の周りで誰も想像しないことが多発することより「台風の目」と呼ばれていることも。\nなお彼女自身はというと、感受性を通り越したのかどんなことが起こっても常に平然としている様で、あまり自覚していないらしい。\n鈍感なのだろうか…",
@@ -5050,7 +5050,7 @@
         "Mental": { "EffectText": "普通" },
         "Manetize": { "EffectText": "普通" },
         "Working": { "EffectText": "普通" },
-        "Luck": { "HideText": "判定不能" },
+        "Luck": { "hideText": "判定不能" },
         "Communication": { "EffectText": "効果無" }
       },
       "SpetialPattern": ["Ptn.C(状況変化効果)"],
@@ -5315,7 +5315,7 @@
     "AnivDay": [
       { "Day": { "Month": 5, "DayOfMonth": 8 }, "DayAbout": "開発記念" }
     ],
-    "Weight_kg": { "HideText": "非公開" },
+    "Weight_kg": { "hideText": "非公開" },
     "BustSize": "F",
     "TailsUnit": "キツネ(枝分かれ)型8本(上2束5本+下1束3本)",
     "Class": "デュアルフォーズ",
@@ -5438,7 +5438,7 @@
     "AnivDay": [
       { "Day": { "Month": 5, "DayOfMonth": 31 }, "DayAbout": "開発記念" }
     ],
-    "Weight_kg": { "HideText": "非公開" },
+    "Weight_kg": { "hideText": "非公開" },
     "BustSize": "G",
     "TailsUnit": "キツネ型6本",
     "Class": "10倍番(テンズデジッツ)",
@@ -5553,7 +5553,7 @@
     "AnivDay": [
       { "Day": { "Month": 6, "DayOfMonth": 1 }, "DayAbout": "開発記念" }
     ],
-    "Weight_kg": { "HideText": "非公開" },
+    "Weight_kg": { "hideText": "非公開" },
     "BustSize": "H",
     "TailsUnit": "キツネ(枝分かれ)型6本(上1束5本+下2束1本)",
     "Class": "デュアルセブンズ",
@@ -5767,7 +5767,7 @@
     "AnivDay": [
       { "Day": { "Month": 6, "DayOfMonth": 3 }, "DayAbout": "開発記念" }
     ],
-    "Weight_kg": { "HideText": "非公開" },
+    "Weight_kg": { "hideText": "非公開" },
     "BustSize": "D",
     "TailsUnit": "キツネ(枝分かれ)型6本(上1束3本+下2束3本)",
     "Class": "9倍2桁番(ナインズデュアルズ)",
@@ -5861,7 +5861,7 @@
     "AnivDay": [
       { "Day": { "Month": 6, "DayOfMonth": 4 }, "DayAbout": "開発記念" }
     ],
-    "Weight_kg": { "HideText": "非公開" },
+    "Weight_kg": { "hideText": "非公開" },
     "Class": "デュアルキャリーズ",
     "Class_EN": "Dual Carries",
     "FirstPersonCalling": "あたち",
@@ -5869,10 +5869,10 @@
     "ThirdPersonCalling": "＊のコ;[※名前呼び];～(な)コ\n～先輩;～教官",
     "ForMasterCalling": "教官\n～教官",
     "Character": "常に何かへ発情している\n加えて、ドが付くほどマゾらしく…",
-    "Hobby": { "HideText": "？？？" },
+    "Hobby": { "hideText": "？？？" },
     "SpetialSkill": "リアクション芸",
     "Favor": "強気でＳっ気のある大人",
-    "Unlike": { "HideText": "？？？" },
+    "Unlike": { "hideText": "？？？" },
     "RelationAbouts": "「67(ムナ)」に“ある意味の”服従意識がある\n兄個体「46(シロー)」を筆頭にドン引きされたり、「42(ヨツグ)」を筆頭に面白がられたりしているが、当の本人はと云うと……",
     "NumerospecAbout": "快感を憶えさせる",
     "Summary": "ナンバーテールズの中では珍しく、「感情的な衝動」を過剰にもたらしている問題児な個体。\nドＭで落ち着きが滅多に見られない様子は他個体と比べる前から突出しているが、その様子に感化され「快感」を思い出させてくれたという異質で異彩なレヴューをなんとか賜って活動を継続している。\nただ実績が赤字であるだけでなく、見過ごせない課題も山積みのため開発者「零(レイ)」の仏の顔を剥いでいる。",
@@ -5892,11 +5892,11 @@
     },
     "AbilityStats": {
       "Speed": { "Rank": "A" },
-      "Communicating": { "HideText": "公開不能" },
+      "Communicating": { "hideText": "公開不能" },
       "Leading": { "Rank": "D" },
-      "Precision": { "HideText": "公開不能" },
+      "Precision": { "hideText": "公開不能" },
       "Technic": { "Rank": "C" },
-      "Actuation": { "HideText": "公開不能" }
+      "Actuation": { "hideText": "公開不能" }
     },
     "InStory": "特殊個体「4+6型」の一人で問題児\n実績が乏しく赤字であるだけでなく……",
     "Backgrounds": "稀に快感を求める故に不認可の副業に手を染めかけたり、あらぬ欲情をしてしまったりするため零も酷く頭を抱えている",
@@ -5992,9 +5992,9 @@
     "AbilityStats": {
       "Speed": { "Rank": "C" },
       "Communicating": { "Rank": "B" },
-      "Leading": { "HideText": "データ無" },
+      "Leading": { "hideText": "データ無" },
       "Precision": { "Rank": "A" },
-      "Technic": { "HideText": "データ無" },
+      "Technic": { "hideText": "データ無" },
       "Actuation": { "Rank": "B" }
     },
     "Backgrounds": "ナンバーテールズ99体の設定年齢で最年少となる個体\n不審者接触防止機能も備わっている（らしい）",
@@ -6055,7 +6055,7 @@
     "AnivDay": [
       { "Day": { "Month": 6, "DayOfMonth": 6 }, "DayAbout": "開発記念" }
     ],
-    "Weight_kg": { "HideText": "非公開" },
+    "Weight_kg": { "hideText": "非公開" },
     "BustSize": "F",
     "TailsUnit": "キツネ(枝分かれ)型 2束x6本",
     "Class": "マスターテールズ9",
@@ -6150,7 +6150,7 @@
     "FormalName_EN": "NumberTales #67.OldType",
     "Height_cm": 145,
     "ConceptAge": 22,
-    "Weight_kg": { "HideText": "非公開希望" },
+    "Weight_kg": { "hideText": "非公開希望" },
     "Summary": "体調管理や健康管理に優れており、フィットネスを何よりも好む事から体育系男子の印象を持たれている。\nただ当時でも強かだった印象に反し、本人は「もう少し鍛錬が裏切らない身体を手にしたい」と豪語していた。\nよってつい最近に人間の筋肉構造に限りなく近い躯体を手にしたのだが、そうするまでもなく彼自身の努力や鍛錬意欲は周囲から十分に称賛されているようだ。",
     "NumerospecStats": {
       "EffectStats": {
@@ -6192,7 +6192,7 @@
       { "value": 190, "about_JP": "筋装備時", "about_EN": "Muscle Mode" }
     ],
     "ConceptAge": { "value": 22, "about_JP": "？", "about_EN": "?" },
-    "Weight_kg": { "HideText": "非公開" },
+    "Weight_kg": { "hideText": "非公開" },
     "AnivDay": [
       { "Day": { "Month": 6, "DayOfMonth": 7 }, "DayAbout": "開発記念" }
     ],
@@ -6398,7 +6398,7 @@
     "AnivDay": [
       { "Day": { "Month": 6, "DayOfMonth": 9 }, "DayAbout": "開発記念" }
     ],
-    "Weight_kg": { "HideText": "非公開" },
+    "Weight_kg": { "hideText": "非公開" },
     "TailsUnit": "キツネ(枝分かれ)型9本(上2束6本+下1束3本)",
     "Class": "デュアルシックスズ",
     "Class_EN": "Dual Sum-6s",
@@ -6718,11 +6718,11 @@
         "Communication": { "EffectText": "効果無" }
       },
       "SpetialPattern": ["Ptn.I(高性能知能搭載)"],
-      "SafetyLevel": { "HideText": "検証中" }
+      "SafetyLevel": { "hideText": "検証中" }
     },
     "AbilityStats": {
       "Speed": { "Rank": "B" },
-      "Communicating": { "HideText": "データ無" },
+      "Communicating": { "hideText": "データ無" },
       "Leading": { "Rank": "S" },
       "Precision": { "Rank": "S" },
       "Technic": { "Rank": "Z" },
@@ -6792,7 +6792,7 @@
     "AnivDay": [
       { "Day": { "Month": 7, "DayOfMonth": 3 }, "DayAbout": "開発記念" }
     ],
-    "Weight_kg": { "HideText": "非公開" },
+    "Weight_kg": { "hideText": "非公開" },
     "BustSize": "C",
     "TailsUnit": "キツネ(枝分かれ)型7本(上1束4本+下2束3本)",
     "Class": "デュアルキャリーズ",
@@ -6921,12 +6921,12 @@
         "Communication": { "EffectText": "効果無" }
       },
       "SpetialPattern": ["Ptn.F(超能力保有)"],
-      "SafetyLevel": { "HideText": "検証中" }
+      "SafetyLevel": { "hideText": "検証中" }
     },
     "AbilityStats": {
       "Speed": { "Rank": "A" },
-      "Communicating": { "HideText": "検証中" },
-      "Leading": { "HideText": "検証中" },
+      "Communicating": { "hideText": "検証中" },
+      "Leading": { "hideText": "検証中" },
       "Precision": { "Rank": "A" },
       "Technic": { "Rank": "B" },
       "Actuation": { "Rank": "A" }
@@ -7087,7 +7087,7 @@
     "AnivDay": [
       { "Day": { "Month": 7, "DayOfMonth": 6 }, "DayAbout": "開発記念" }
     ],
-    "Weight_kg": { "HideText": "非公開" },
+    "Weight_kg": { "hideText": "非公開" },
     "BustSize": "G",
     "TailsUnit": "キツネ(枝分かれ)型7本(上1束1本+下2束6本)",
     "Class": "デュアルフォーズ",
@@ -7280,7 +7280,7 @@
     "AnivDay": [
       { "Day": { "Month": 7, "DayOfMonth": 8 }, "DayAbout": "開発記念" }
     ],
-    "Weight_kg": { "HideText": "非公開" },
+    "Weight_kg": { "hideText": "非公開" },
     "BustSize": "E",
     "TailsUnit": "キツネ(枝分かれ)型8本(上2束1本+下1束7本)",
     "Class": "デュアルシックスズ",
@@ -7633,7 +7633,7 @@
     "AnivDay": [
       { "Day": { "Month": 8, "DayOfMonth": 5 }, "DayAbout": "開発記念" }
     ],
-    "Weight_kg": { "HideText": "非公開" },
+    "Weight_kg": { "hideText": "非公開" },
     "BustSize": "A",
     "TailsUnit": "キツネ(枝分かれ)型8本(上1束3本+下2束5本)",
     "Class": "デュアルフォーズ",
@@ -7759,7 +7759,7 @@
       "about_EN": "Self-styled"
     },
     "Height_cm": 156,
-    "Weight_kg": { "HideText": "非公開" },
+    "Weight_kg": { "hideText": "非公開" },
     "BustSize": {
       "value": "H",
       "about_JP": "着痩せ時(の値である可能性)",
@@ -7793,7 +7793,7 @@
         "Ptn.M(マネタイズ効果または資産操作能力)",
         "Ptn.Rz-(実現性向上効果がある傾向)"
       ],
-      "SafetyLevel": { "HideText": "検証中" }
+      "SafetyLevel": { "hideText": "検証中" }
     },
     "AbilityStats": {
       "Speed": { "Rank": "C" },
@@ -7890,7 +7890,7 @@
         "Ptn.M(マネタイズ効果または資産操作能力)",
         "Ptn.R-(効果保証作用がある傾向)"
       ],
-      "SafetyLevel": { "HideText": "検証中" }
+      "SafetyLevel": { "hideText": "検証中" }
     },
     "AbilityStats": {
       "Speed": { "Rank": "A" },
@@ -7965,7 +7965,7 @@
     "AnivDay": [
       { "Day": { "Month": 8, "DayOfMonth": 9 }, "DayAbout": "開発記念" }
     ],
-    "Weight_kg": { "HideText": "非公開" },
+    "Weight_kg": { "hideText": "非公開" },
     "BustSize": "B",
     "TailsUnit": "キツネ(枝分かれ)型9本(上1束6本+下2束3本)",
     "Class": "デュアルエイツ",
@@ -8342,7 +8342,7 @@
       "SafetyLevel": { "SafetyLevelText": "完全保証" }
     },
     "AbilityStats": {
-      "Speed": { "HideText": "データ無" },
+      "Speed": { "hideText": "データ無" },
       "Communicating": { "Rank": "A" },
       "Leading": { "Rank": "D" },
       "Precision": { "Rank": "A" },
@@ -8442,7 +8442,7 @@
     "AnivDay": [
       { "Day": { "Month": 9, "DayOfMonth": 6 }, "DayAbout": "開発記念" }
     ],
-    "Weight_kg": { "HideText": "非公開" },
+    "Weight_kg": { "hideText": "非公開" },
     "BustSize": "G",
     "TailsUnit": "キツネ(枝分かれ)型9本(上1束3本+下2束6本)",
     "Class": "デュアルシックスズ",
@@ -8632,7 +8632,7 @@
     "AnivDay": [
       { "Day": { "Month": 9, "DayOfMonth": 8 }, "DayAbout": "開発記念" }
     ],
-    "Weight_kg": { "HideText": "非公開" },
+    "Weight_kg": { "hideText": "非公開" },
     "BustSize": "C",
     "TailsUnit": "キツネ(枝分かれ)型9本(上1束1本+下2束8本)",
     "Class": "デュアルエイツ",
@@ -8651,8 +8651,8 @@
     "NumerospecStats": {
       "EffectStats": {
         "Mental": { "EffectText": "過剰" },
-        "Manetize": { "HideText": "検証中" },
-        "Working": { "HideText": "条件による" },
+        "Manetize": { "hideText": "検証中" },
+        "Working": { "hideText": "条件による" },
         "Luck": { "EffectText": "期待可能" },
         "Communication": { "EffectText": "効果無" }
       },
@@ -8748,19 +8748,19 @@
     "Summary": "――余は誰だ？ここは何処だ？\n世界が終わったのか？望みは無いのか？……いや、確かに“あの時”すべてが終わった。\nしかし、終わりをまた迎えるであろう“此処”にまだ、救いが或るのなら、望みがあるのなら――\n「マスターテールズ9」所属、ナンバーテールズ最大の異能。\n彼(女)が観たもの、そして彼(女)が憶えているものとは……",
     "NumerospecStats": {
       "EffectStats": {
-        "Mental": { "HideText": "判定不能" },
-        "Manetize": { "HideText": "判定不能" },
-        "Working": { "HideText": "判定不能" },
-        "Luck": { "HideText": "公開不能" },
-        "Communication": { "HideText": "判定不能" }
+        "Mental": { "hideText": "判定不能" },
+        "Manetize": { "hideText": "判定不能" },
+        "Working": { "hideText": "判定不能" },
+        "Luck": { "hideText": "公開不能" },
+        "Communication": { "hideText": "判定不能" }
       },
-      "SpetialPattern": { "HideText": "極秘事項" },
-      "SafetyLevel": { "HideText": "公開不能" }
+      "SpetialPattern": { "hideText": "極秘事項" },
+      "SafetyLevel": { "hideText": "公開不能" }
     },
     "AbilityStats": {
       "Speed": { "Rank": "A" },
-      "Communicating": { "HideText": "判定不能" },
-      "Leading": { "HideText": "非公開" },
+      "Communicating": { "hideText": "判定不能" },
+      "Leading": { "hideText": "非公開" },
       "Precision": { "Rank": "A" },
       "Technic": { "Rank": "B" },
       "Actuation": { "Rank": "A" }
@@ -8873,12 +8873,12 @@
       "SpetialPattern": ["Ptn.X(転化・転送効果)"]
     },
     "AbilityStats": {
-      "Speed": { "HideText": "データ無" },
+      "Speed": { "hideText": "データ無" },
       "Communicating": { "Rank": "S" },
       "Leading": { "Rank": "C" },
-      "Precision": { "HideText": "データ無" },
+      "Precision": { "hideText": "データ無" },
       "Technic": { "Rank": "B+" },
-      "Actuation": { "HideText": "データ無" }
+      "Actuation": { "hideText": "データ無" }
     },
     "InStory": "ハードウェアの開発トラブルにより完成前に退役\n現在はROSのみで存在し、開発支援に徹している",
     "Backgrounds": "百の機械設計が零のファームウェア設計と遅れたことが原因、百の最初の挫折となる",
@@ -8929,7 +8929,7 @@
         "DayAbout": "第一暴走事故(劇中)"
       }
     ],
-    "Weight_kg": { "HideText": "データ無" },
+    "Weight_kg": { "hideText": "データ無" },
     "Class": "調整個体\n退任個体",
     "Class_EN": "Tuning/for Tuning System\nRetired",
     "ThisMasters": [
@@ -9006,10 +9006,10 @@
     "AnivDay": [
       {
         "Day": { "Month": 8, "DayOfMonth": 15 },
-        "DayAbout": { "HideText": "？？？" }
+        "DayAbout": { "hideText": "？？？" }
       }
     ],
-    "Weight_kg": { "HideText": "？？？" },
+    "Weight_kg": { "hideText": "？？？" },
     "BustSize": "A",
     "Class": "営業補助用個体",
     "Class_EN": "for Consulting Assistant",
@@ -9082,7 +9082,7 @@
     "AnivDay": [
       { "Day": { "Month": 8, "DayOfMonth": 15 }, "DayAbout": "誕生日" }
     ],
-    "Weight_kg": { "HideText": "非公開" },
+    "Weight_kg": { "hideText": "非公開" },
     "BustSize": "D",
     "Class": "開発者\n最高経営所長",
     "Class_EN": "Developer\nChief Executive Officer",
@@ -9115,7 +9115,7 @@
     "AnivDay": [
       { "Day": { "Month": 8, "DayOfMonth": 15 }, "DayAbout": "誕生日" }
     ],
-    "Weight_kg": { "HideText": "非公開" },
+    "Weight_kg": { "hideText": "非公開" },
     "Class": "開発者\n最高技術所長",
     "Class_EN": "Developer\nChief Technology Officer",
     "FirstPersonCalling": "僕",

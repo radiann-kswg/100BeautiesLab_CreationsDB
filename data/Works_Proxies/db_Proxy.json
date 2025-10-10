@@ -16,7 +16,7 @@
     "GenderType": { "value": "Arbitrary", "about_JP": "ただし中身は男性寄り" },
     "BirthDay": { "Day": { "Month": 7, "DayOfMonth": 1 } },
     "Height_cm": 163,
-    "Weight_kg": { "HideText": "本人すら把握されていない" },
+    "Weight_kg": { "hideText": "本人すら把握されていない" },
     "Age": { "value": 21, "about_JP": "自称", "about_EN": "Self-styled" },
     "FirstPersonCalling": "ワテ,僕",
     "SecondPersonCalling": "君(きみ),[※名前呼び]",
@@ -25,7 +25,7 @@
     "Hobby": "いろんなものを広く浅く",
     "SpetialSkill": "創作キャラを管理する",
     "Favor": "デフォルメ球体化、もふもふとした獣人や布団、数字",
-    "Unlike": { "HideText": "非公開希望" },
+    "Unlike": { "hideText": "非公開希望" },
     "InStory": "日常や思考を代弁するなどといった正なる意味の代理として登場する(という名目だが、作者はこの代理という自分の写し身をあまり良くは思ってないので、実際は作者の特権でパロディや雑コラなどへ煩雑に使われることが多い)",
     "Background": "作者の現実や性格を忠実にキャラ化した代理のため、日常や思考を代弁したりする分で作者としても代理としての動かしやすさが保証されている"
   },

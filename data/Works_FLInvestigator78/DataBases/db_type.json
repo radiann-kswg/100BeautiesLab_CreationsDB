@@ -5,10 +5,19 @@
       "$type": [
         { "hashTag": "For79thDealer", "$type": "#String|#Null" },
         { "hashTag": "For80thDealer", "$type": "#String|#Null" }
-      ]
+      ],
+      "hashTag_JP": "采配幹部(ディーラーズ;第79・80アルカナ)の呼び方"
     },
-    { "hashTag": "ThisDealer", "$type": "#Character" },
-    { "hashTag": "ArcanamspecAbout", "$type": "#Summary" },
+    {
+      "hashTag": "ThisDealer",
+      "$type": "#Character",
+      "hashTag_JP": "このアルカナを所持している人物について"
+    },
+    {
+      "hashTag": "ArcanamspecAbout",
+      "$type": "#Summary",
+      "hashTag_JP": "アルカナムスペック(アルカナ能力)について"
+    },
     {
       "hashTag": "ArcanumspecStats",
       "$type": [
@@ -17,37 +26,49 @@
           "$type": [
             {
               "hashTag": "Material",
-              "$type": "#ListIndex[]"
+              "$type": "#ListIndex[]",
+              "hashTag_JP": "元素属性"
             },
             {
               "hashTag": "ActionType",
               "$type": [
                 {
                   "hashTag": "KinematicOrStatic",
-                  "$type": "#ListIndex|#Null"
+                  "$type": "#ListIndex|#Null",
+                  "hashTag_JP": "動的か静的か"
                 },
                 {
                   "hashTag": "RoleType",
-                  "$type": "#ListIndex|#Null"
+                  "$type": "#ListIndex|#Null",
+                  "hashTag_JP": "ロール種別"
                 }
-              ]
+              ],
+              "hashTag_JP": "動的属性"
             },
             {
               "hashTag": "DualizePattern",
-              "$type": "#ListIndex"
+              "$type": "#ListIndex",
+              "hashTag_JP": "双極特性パターン"
             }
-          ]
+          ],
+          "hashTag_JP": "能力種別"
         },
-        { "hashTag": "SpetialPattern", "$type": "#Enum[]" },
+        {
+          "hashTag": "SpetialPattern",
+          "$type": "#Enum[]",
+          "hashTag_JP": "特殊パターン"
+        },
         {
           "hashTag": "SafetyLevel",
           "$type": [
             { "hashTag": "SafetyLevelText", "$type": "#String_JP,#ListLink" }
-          ]
+          ],
+          "hashTag_JP": "安全レベル"
         },
         {
           "hashTag": "SpecLevel",
-          "$type": [{ "hashTag": "Rank", "$type": "$EnumDef_Rank,$EnumLink" }]
+          "$type": [{ "hashTag": "Rank", "$type": "$EnumDef_Rank,$EnumLink" }],
+          "hashTag_JP": "能力レベル"
         },
         {
           "hashTag": "EffectStats",
@@ -56,35 +77,41 @@
               "hashTag": "Physical",
               "$type": [
                 { "hashTag": "EffectText", "$type": "#String_JP,#ListLink" }
-              ]
+              ],
+              "hashTag_JP": "物理的作用"
             },
             {
               "hashTag": "Magical",
               "$type": [
                 { "hashTag": "EffectText", "$type": "#String_JP,#ListLink" }
-              ]
+              ],
+              "hashTag_JP": "魔法的作用"
             },
             {
               "hashTag": "Healing",
               "$type": [
                 { "hashTag": "EffectText", "$type": "#String_JP,#ListLink" }
-              ]
+              ],
+              "hashTag_JP": "治癒的作用"
             },
             {
               "hashTag": "Violent",
               "$type": [
                 { "hashTag": "EffectText", "$type": "#String_JP,#ListLink" }
-              ]
+              ],
+              "hashTag_JP": "暴力的作用"
             },
             {
               "hashTag": "Rewriting",
               "$type": [
                 { "hashTag": "EffectText", "$type": "#String_JP,#ListLink" }
-              ]
+              ],
+              "hashTag_JP": "リライト作用"
             }
           ]
         }
-      ]
+      ],
+      "hashTag_JP": "アルカナムスペック(アルカナ能力)の特性"
     }
   ]
 }

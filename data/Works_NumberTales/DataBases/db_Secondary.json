@@ -40,17 +40,17 @@
     "Favor": "カード",
     "Unlike": "",
     "RelationAbouts": "「10(ミツル)」の派生とされている",
-    "NumerospecAbout": { "HideText": "極秘事項" },
+    "NumerospecAbout": { "hideText": "極秘事項" },
     "NumerospecStats": {
       "EffectStats": {
-        "Mental": { "HideText": "非公開" },
-        "Manetize": { "HideText": "非公開" },
-        "Working": { "HideText": "非公開" },
-        "Luck": { "HideText": "非公開" },
-        "Communication": { "HideText": "非公開" }
+        "Mental": { "hideText": "非公開" },
+        "Manetize": { "hideText": "非公開" },
+        "Working": { "hideText": "非公開" },
+        "Luck": { "hideText": "非公開" },
+        "Communication": { "hideText": "非公開" }
       },
-      "SpetialPattern": { "HideText": "極秘事項" },
-      "SafetyLevel": { "HideText": "非公開" }
+      "SpetialPattern": { "hideText": "極秘事項" },
+      "SafetyLevel": { "hideText": "非公開" }
     },
     "AbilityStats": {
       "Speed": { "Rank": "B+" },
@@ -58,7 +58,7 @@
       "Leading": { "Rank": "A" },
       "Precision": { "Rank": "A" },
       "Technic": { "Rank": "S" },
-      "Actuation": { "HideText": "非公開" }
+      "Actuation": { "hideText": "非公開" }
     },
     "InStory": "「エイゼルベット」の観測者「シグマ-クロステールズ」の元で観測を受けている、ある電脳世界との間で生まれた個体\n彼(女)が切るカードには強い潜在能力が秘められていると推測されているようだが…？",
     "Relation": {
@@ -153,17 +153,17 @@
     "Favor": "",
     "Unlike": "",
     "RelationAbouts": "「11(トウイチ)」の派生とされている",
-    "NumerospecAbout": { "HideText": "極秘事項" },
+    "NumerospecAbout": { "hideText": "極秘事項" },
     "NumerospecStats": {
       "EffectStats": {
-        "Mental": { "HideText": "検証中" },
+        "Mental": { "hideText": "検証中" },
         "Manetize": { "EffectText": "効果無" },
         "Working": { "EffectText": "期待" },
         "Luck": { "EffectText": "絶大" },
         "Communication": { "EffectText": "特殊" }
       },
-      "SpetialPattern": { "HideText": "極秘事項" },
-      "SafetyLevel": { "HideText": "検証中" }
+      "SpetialPattern": { "hideText": "極秘事項" },
+      "SafetyLevel": { "hideText": "検証中" }
     },
     "AbilityStats": {
       "Speed": { "Rank": "C" },
@@ -259,7 +259,7 @@
     "AnivDay": [
       { "Day": { "Month": 6, "DayOfMonth": 12 }, "DayAbout": "開発記念" }
     ],
-    "Weight_kg": { "HideText": "未公開希望" },
+    "Weight_kg": { "hideText": "未公開希望" },
     "TailsUnit": "犬型3本",
     "Class": "ヘキサデミカル-テールズ",
     "Class_EN": "HexademicalTales",
@@ -273,16 +273,16 @@
     "Favor": "",
     "Unlike": "メンタルブレイク",
     "RelationAbouts": "アイドルを志望しているが、アイドルの素質があるナンバーテールズとは少しすれ違い気味らしい",
-    "NumerospecAbout": { "HideText": "極秘事項" },
+    "NumerospecAbout": { "hideText": "極秘事項" },
     "NumerospecStats": {
       "EffectStats": {
         "Mental": { "EffectText": "特殊" },
-        "Manetize": { "HideText": "検証中" },
+        "Manetize": { "hideText": "検証中" },
         "Working": { "EffectText": "効果無" },
         "Luck": { "EffectText": "逆効果" },
         "Communication": { "EffectText": "効果無" }
       },
-      "SpetialPattern": { "HideText": "極秘事項" },
+      "SpetialPattern": { "hideText": "極秘事項" },
       "SafetyLevel": { "SafetyLevelText": "厳重注意" }
     },
     "AbilityStats": {
@@ -384,7 +384,7 @@
     "AnivDay": [
       { "Day": { "Month": 6, "DayOfMonth": 13 }, "DayAbout": "開発記念" }
     ],
-    "Weight_kg": { "HideText": "未公開希望" },
+    "Weight_kg": { "hideText": "未公開希望" },
     "BustSize": "E",
     "TailsUnit": "狐型4本",
     "Class": "ヘキサデミカル-テールズ",
@@ -399,16 +399,16 @@
     "Favor": "ノート",
     "Unlike": "見られたくないものを見られること",
     "RelationAbouts": "「0xE(エネ)」に特大空ビ化の非検体にされたことがあり…？",
-    "NumerospecAbout": { "HideText": "極秘事項" },
+    "NumerospecAbout": { "hideText": "極秘事項" },
     "NumerospecStats": {
       "EffectStats": {
         "Mental": { "EffectText": "希薄" },
         "Manetize": { "EffectText": "効果無" },
         "Working": { "EffectText": "絶大" },
         "Luck": { "EffectText": "効果無" },
-        "Communication": { "HideText": "検証中" }
+        "Communication": { "hideText": "検証中" }
       },
-      "SpetialPattern": { "HideText": "極秘事項" },
+      "SpetialPattern": { "hideText": "極秘事項" },
       "SafetyLevel": { "SafetyLevelText": "調整中" }
     },
     "AbilityStats": {
@@ -531,16 +531,16 @@
     "Favor": "（魔）改造",
     "Unlike": "機械で解決できない問題",
     "RelationAbouts": "ナンバーテールズの改造案を出しているが……",
-    "NumerospecAbout": { "HideText": "極秘事項" },
+    "NumerospecAbout": { "hideText": "極秘事項" },
     "NumerospecStats": {
       "EffectStats": {
         "Mental": { "EffectText": "効果無" },
         "Manetize": { "EffectText": "期待" },
-        "Working": { "HideText": "検証中" },
-        "Luck": { "HideText": "検証中" },
+        "Working": { "hideText": "検証中" },
+        "Luck": { "hideText": "検証中" },
         "Communication": { "EffectText": "効果無" }
       },
-      "SpetialPattern": { "HideText": "極秘事項" },
+      "SpetialPattern": { "hideText": "極秘事項" },
       "SafetyLevel": { "SafetyLevelText": "注意" }
     },
     "AbilityStats": {
@@ -548,7 +548,7 @@
       "Communicating": { "Rank": "B" },
       "Leading": { "Rank": { "Rank": "A", "about": "？" } },
       "Precision": { "Rank": "S" },
-      "Technic": { "HideText": "非公開" },
+      "Technic": { "hideText": "非公開" },
       "Actuation": { "Rank": "S" }
     },
     "InStory": "「エイゼルベット」の観測者「シグマ-クロステールズ」の元で観測を受けている、ある電脳世界との間で生まれた個体\n向こう側の電脳世界でもこちらの世界でも、色んなものの魔改造に勤しんでいる",
@@ -620,7 +620,7 @@
     "AnivDay": [
       { "Day": { "Month": 6, "DayOfMonth": 15 }, "DayAbout": "開発記念" }
     ],
-    "Weight_kg": { "HideText": "？？？" },
+    "Weight_kg": { "hideText": "？？？" },
     "BustSize": "J",
     "TailsUnit": "狐型6本",
     "Class": "ヘキサデミカル-テールズ",
@@ -635,25 +635,25 @@
     "Favor": "ママになること",
     "Unlike": "機械",
     "RelationAbouts": "他のヘキサデミカル-テールズの心の支えになっているらしい",
-    "NumerospecAbout": { "HideText": "公開不能" },
+    "NumerospecAbout": { "hideText": "公開不能" },
     "NumerospecStats": {
       "EffectStats": {
         "Mental": { "EffectText": "危険" },
-        "Manetize": { "HideText": "判定失敗" },
-        "Working": { "HideText": "判定失敗" },
-        "Luck": { "HideText": "判定失敗" },
-        "Communication": { "HideText": "判定失敗" }
+        "Manetize": { "hideText": "判定失敗" },
+        "Working": { "hideText": "判定失敗" },
+        "Luck": { "hideText": "判定失敗" },
+        "Communication": { "hideText": "判定失敗" }
       },
-      "SpetialPattern": { "HideText": "極秘事項" },
-      "SafetyLevel": { "HideText": "公開不能" }
+      "SpetialPattern": { "hideText": "極秘事項" },
+      "SafetyLevel": { "hideText": "公開不能" }
     },
     "AbilityStats": {
       "Speed": { "Rank": "B" },
       "Communicating": { "Rank": "S" },
       "Leading": { "Rank": "A" },
       "Precision": { "Rank": "A" },
-      "Technic": { "HideText": "判定失敗" },
-      "Actuation": { "HideText": "判定失敗" }
+      "Technic": { "hideText": "判定失敗" },
+      "Actuation": { "hideText": "判定失敗" }
     },
     "InStory": "「エイゼルベット」の観測者「シグマ-クロステールズ」の元で観測を受けている、ある電脳世界との間で生まれた個体\n彼女を前にした人々は彼女に「ママ」だと甘えだし……",
     "Relation": {

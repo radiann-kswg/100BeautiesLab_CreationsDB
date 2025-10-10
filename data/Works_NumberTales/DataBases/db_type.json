@@ -1,7 +1,15 @@
 {
   "$DefType": [
-    { "hashTag": "ForMasterCalling", "$type": "#String|#Summary" },
-    { "hashTag": "NumerospecAbout", "$type": "#Summary" },
+    {
+      "hashTag": "ForMasterCalling",
+      "$type": "#String|#Summary",
+      "hashTag_JP": "主人の呼び方"
+    },
+    {
+      "hashTag": "NumerospecAbout",
+      "$type": "#Summary",
+      "hashTag_JP": "“カバラの加護”(数秘的加護)について"
+    },
     {
       "hashTag": "NumerospecStats",
       "$type": [
@@ -12,68 +20,97 @@
               "hashTag": "Mental",
               "$type": [
                 { "hashTag": "EffectText", "$type": "#String_JP,#ListLink" }
-              ]
+              ],
+              "hashTag_JP": "精神的作用"
             },
             {
               "hashTag": "Manetize",
               "$type": [
                 { "hashTag": "EffectText", "$type": "#String_JP,#ListLink" }
-              ]
+              ],
+              "hashTag_JP": "金銭的作用"
             },
             {
               "hashTag": "Working",
               "$type": [
                 { "hashTag": "EffectText", "$type": "#String_JP,#ListLink" }
-              ]
+              ],
+              "hashTag_JP": "作業効率への作用"
             },
             {
               "hashTag": "Luck",
               "$type": [
                 { "hashTag": "EffectText", "$type": "#String_JP,#ListLink" }
-              ]
+              ],
+              "hashTag_JP": "幸福度への作用"
             },
             {
               "hashTag": "Communication",
               "$type": [
                 { "hashTag": "EffectText", "$type": "#String_JP,#ListLink" }
-              ]
+              ],
+              "hashTag_JP": "社交能力への作用"
             }
           ]
         },
-        { "hashTag": "SpetialPattern", "$type": "#Enum[]" },
+        {
+          "hashTag": "SpetialPattern",
+          "$type": "#Enum[]",
+          "hashTag_JP": "特殊パターン"
+        },
         {
           "hashTag": "SafetyLevel",
           "$type": [
             { "hashTag": "SafetyLevelText", "$type": "#String_JP,#ListLink" }
-          ]
+          ],
+          "hashTag_JP": "安全レベル"
         }
-      ]
+      ],
+      "hashTag_JP": "“カバラの加護”(数秘的加護)の特性"
     },
     {
       "hashTag": "Relation",
       "$type": [
         {
           "hashTag": "Related",
-          "$type": "$Def_Relations"
+          "$type": "$Def_Relations",
+          "hashTag_JP": "親密な関係"
         },
         {
           "hashTag": "Commented",
-          "$type": "$Def_Relations"
+          "$type": "$Def_Relations",
+          "hashTag_JP": "コメント"
         }
-      ]
+      ],
+      "hashTag_JP": "関係キャラクター"
     }
   ],
   "$VarsDef": {
     "$Def_Relations": {
       "$TypeDef": [
-        { "hashTag": "Num", "$type": "$Index", "isForSecondary": false },
-        { "hashTag": "Comments", "$type": "#String", "isForSecondary": false },
+        {
+          "hashTag": "Num",
+          "$type": "$Index",
+          "isForSecondary": false,
+          "hashTag_JP": "番号"
+        },
+        {
+          "hashTag": "Comments",
+          "$type": "#String",
+          "isForSecondary": false,
+          "hashTag_JP": "コメント"
+        },
         {
           "hashTag": "ComeBacked",
           "$type": "$Def_Relations",
-          "isForSecondary": true
+          "isForSecondary": true,
+          "hashTag_JP": "返答コメント"
         },
-        { "hashTag": "RelationLabel", "$type": "#ListIndex[]" }
+        {
+          "hashTag": "RelationLabel",
+          "$type": "#ListIndex[]",
+          "hashTag_JP": "関係性に関するラベル"
+        }
       ],
       "#List_RelationLabel": [
         {
