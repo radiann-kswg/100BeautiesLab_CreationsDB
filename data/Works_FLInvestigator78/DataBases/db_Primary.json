@@ -60,7 +60,7 @@
         "Magical": { "EffectText": "絶大" },
         "Healing": { "EffectText": "期待" },
         "Violent": { "EffectText": "効果無" },
-        "Rewriting": { "HideText": "検証中" }
+        "Rewriting": { "hideText": "検証中" }
       },
       "SpetialPattern": ["Ptn.A(覚醒)", "Ptn.Q(天変地異)"],
       "SafetyLevel": {
@@ -135,7 +135,7 @@
         "Magical": { "EffectText": "絶大" },
         "Healing": { "EffectText": "期待" },
         "Violent": { "EffectText": "希薄" },
-        "Rewriting": { "HideText": "検証中" }
+        "Rewriting": { "hideText": "検証中" }
       },
       "SpetialPattern": ["Ptn.B(士気操作)", "Ptn.E(元素操作)"],
       "SafetyLevel": { "SafetyLevelText": "保証可能" },
@@ -204,7 +204,7 @@
         "Physical": { "EffectText": "効果無" },
         "Magical": { "EffectText": "希薄" },
         "Healing": { "EffectText": "期待" },
-        "Violent": { "HideText": "検証中" },
+        "Violent": { "hideText": "検証中" },
         "Rewriting": { "EffectText": "希薄" }
       },
       "SpetialPattern": ["Ptn.L(転化)", "Ptn.M(精神操作)"],
@@ -233,7 +233,7 @@
       "Height_cm": 166,
       "Weight_kg": [
         {
-          "value": { "HideText": "非公開" },
+          "value": { "hideText": "非公開" },
           "about_JP": "体型は妖艶で美形",
           "about_EN": "Her figure is alluring and beautiful."
         }
@@ -280,13 +280,156 @@
       "EffectStats": {
         "Physical": { "EffectText": "希薄" },
         "Magical": { "EffectText": "効果無" },
-        "Healing": { "HideText": "定義不能" },
+        "Healing": { "hideText": "定義不能" },
         "Violent": { "EffectText": "効果無" },
         "Rewriting": { "EffectText": "希薄" }
       },
       "SpetialPattern": ["Ptn.H(癒術)", "Ptn.M(精神操作)"],
       "SafetyLevel": { "SafetyLevelText": "保証可能" },
       "SpecLevel": { "Rank": "A" }
+    }
+  },
+  {
+    "Card": {
+      "Stoat": "Major",
+      "Num": 8
+    },
+    "Progress": "nowCreating",
+    "Name": "リオン",
+    "Name_EN": "Lion",
+    "FormalName": "力の獅子遣い\nリオン.インフィニティ",
+    "FormalName_EN": "Tamer of Strength\nLion.Infinity",
+    "CodeName": "力",
+    "CodeName_EN": "Strength",
+    "RaceType": "Lionian",
+    "GenderType": "FemaleNeutral",
+    "Class": "第8幹部/九蓮国支部幹部",
+    "Class_EN": "Executive.8/RN Brunch.Executive",
+    "ThisDealer": {
+      "Name": "熱海 ふれあ",
+      "Name_EN": "Flare Atami",
+      "RaceType": "Human",
+      "GenderType": "Female",
+      "Height_cm": 175,
+      "Weight_kg": 56,
+      "Age": 22,
+      "BirthDay": { "Day": { "Month": 8, "DayOfMonth": 6 } },
+      "Character": "情熱的で活発な体育系女子",
+      "Hobby": "サーカス鑑賞",
+      "SpetialSkill": "アンガーマネジメント",
+      "Favor": "情熱、青春",
+      "Unlike": "感情に負けること",
+      "FirstPersonCalling": "わたし",
+      "SecondPersonCalling": "きみ",
+      "ThirdPersonCalling": "彼/彼女;[※名前呼び]",
+      "For79or80thDealerCalling": {
+        "For79thDealer": "舞(まい)",
+        "For80thDealer": "歌嫁(うたか)"
+      },
+      "AbilityStats": {
+        "Speed": { "Rank": "S" },
+        "Communicating": { "Rank": "B+" },
+        "Leading": { "Rank": "A" },
+        "Precision": { "Rank": "A" },
+        "Technic": { "Rank": "C" },
+        "Actuation": { "Rank": "S" }
+      }
+    },
+    "ArcanamspecAbout": "怒りを操作する",
+    "Summary": "",
+    "ArcanumspecStats": {
+      "SpecType": {
+        "Material": [
+          {
+            "Material": "Fire"
+          }
+        ],
+        "ActionType": {
+          "KinematicOrStatic": "Pre-Kinematic",
+          "RoleType": "Heal"
+        },
+        "DualizePattern": { "Pattern": "Prop.(通常)" }
+      },
+      "EffectStats": {
+        "Physical": { "EffectText": "希薄" },
+        "Magical": { "EffectText": "普通" },
+        "Healing": { "EffectText": "期待" },
+        "Violent": { "hideText": "定義不能" },
+        "Rewriting": { "EffectText": "普通" }
+      },
+      "SpetialPattern": ["Ptn.B(士気操作)", "Ptn.M(精神操作)"],
+      "SafetyLevel": { "SafetyLevelText": "危険度を有効活用可能" },
+      "SpecLevel": { "Rank": "A" }
+    }
+  },
+  {
+    "Card": { "Stoat": "Major", "Num": 9 },
+    "Progress": "nowCreating",
+    "Name": "ヴェール",
+    "Name_EN": "Veil",
+    "FormalName": "秘匿の隠者\nヴェール.コンセントレイト",
+    "FormalName_EN": "Hermit of Secret\nVeil.Concentrates",
+    "CodeName": "隠者",
+    "CodeName_EN": "Hermit",
+    "RaceType": "OverHuman",
+    "GenderType": "Neutral",
+    "Class": "第9幹部/九蓮国支部幹部",
+    "Class_EN": "Executive.9/RN Brunch.Executive",
+    "ThisDealer": {
+      "Name": "仙道 歩浪(ほろー)",
+      "Name_EN": "Hollow Sendō",
+      "RaceType": "Human",
+      "GenderType": "Male",
+      "Height_cm": 181,
+      "Weight_kg": 53,
+      "Age": 36,
+      "BirthDay": { "Day": { "Month": 11, "DayOfMonth": 16 } },
+      "Character": "陰キャで会話が上手でない",
+      "Hobby": "読書",
+      "SpetialSkill": "集中している間の洞察力が極めて高い",
+      "Favor": "寝る前の暗がりで読む専門書",
+      "Unlike": "会話、陽キャ",
+      "FirstPersonCalling": "おれ",
+      "SecondPersonCalling": "おまえ",
+      "ThirdPersonCalling": "*いつ,*れ;[※名前呼び]\n~さん ※信頼している人に対して",
+      "For79or80thDealerCalling": {
+        "For79thDealer": "舞\n舞さん",
+        "For80thDealer": "歌嫁\n歌嫁さん"
+      },
+      "AbilityStats": {
+        "Speed": { "Rank": "D" },
+        "Communicating": { "Rank": "C" },
+        "Leading": { "Rank": "B+" },
+        "Precision": { "Rank": "S" },
+        "Technic": { "Rank": "S" },
+        "Actuation": { "Rank": "E" }
+      }
+    },
+    "ArcanamspecAbout": "一定範囲内の感度を上げ、範囲外の感度を下げる",
+    "Summary": "",
+    "ArcanumspecStats": {
+      "SpecType": {
+        "Material": [
+          {
+            "Material": "Water"
+          }
+        ],
+        "ActionType": {
+          "KinematicOrStatic": "Pre-Static",
+          "RoleType": "Fere"
+        },
+        "DualizePattern": { "Pattern": "Prop." }
+      },
+      "EffectStats": {
+        "Physical": { "EffectText": "効果無" },
+        "Magical": { "hideText": "検証中" },
+        "Healing": { "EffectText": "期待" },
+        "Violent": { "EffectText": "希薄" },
+        "Rewriting": { "EffectText": "期待" }
+      },
+      "SpetialPattern": ["Ptn.M(精神操作)", "Ptn.S(感度操作)"],
+      "SafetyLevel": { "SafetyLevelText": "恐らく安全" },
+      "SpecLevel": { "Rank": "B" }
     }
   },
   {
@@ -309,8 +452,8 @@
       "GenderType": "Female",
       "AbilityStats": {
         "Speed": { "Rank": "E" },
-        "Communicating": { "Rank": { "HideText": "？？？" } },
-        "Leading": { "Rank": { "HideText": "？？？" } },
+        "Communicating": { "Rank": { "hideText": "？？？" } },
+        "Leading": { "Rank": { "hideText": "？？？" } },
         "Precision": { "Rank": "S" },
         "Technic": { "Rank": "Z" },
         "Actuation": { "Rank": "B+" }
@@ -367,7 +510,7 @@
       "Height_cm": 168,
       "Weight_kg": [
         {
-          "value": { "HideText": "非公開" },
+          "value": { "hideText": "非公開" },
           "about": "体型は美形",
           "about_EN": "His figure is beautiful."
         }
@@ -425,7 +568,7 @@
     "FormalName_EN": "Trump Spreadder\n79th Arcana",
     "CodeName": null,
     "CodeName_EN": null,
-    "RaceType": { "HideText": "定義不能" },
+    "RaceType": { "hideText": "定義不能" },
     "GenderType": "FemaleNeutral",
     "ThisDealer": {
       "_DBLink": {
@@ -478,10 +621,10 @@
         "Magical": { "EffectText": "絶大" },
         "Healing": { "EffectText": "期待" },
         "Violent": { "EffectText": "効果無" },
-        "Rewriting": { "HideText": "定義不能" }
+        "Rewriting": { "hideText": "定義不能" }
       },
-      "SpetialPattern": { "HideText": "定義不能" },
-      "SafetyLevel": { "HideText": "定義不能" },
+      "SpetialPattern": { "hideText": "定義不能" },
+      "SafetyLevel": { "hideText": "定義不能" },
       "SpecLevel": { "Rank": "S+" }
     }
   },
@@ -500,7 +643,7 @@
     "FormalName_EN": "Trump Engager\n80th Arcana",
     "CodeName": null,
     "CodeName_EN": null,
-    "RaceType": { "HideText": "定義不能" },
+    "RaceType": { "hideText": "定義不能" },
     "GenderType": "FemaleNeutral",
     "ThisDealer": {
       "_DBLink": {
@@ -553,10 +696,10 @@
         "Magical": { "EffectText": "希薄" },
         "Healing": { "EffectText": "効果無" },
         "Violent": { "EffectText": "期待" },
-        "Rewriting": { "HideText": "定義不能" }
+        "Rewriting": { "hideText": "定義不能" }
       },
-      "SpetialPattern": { "HideText": "定義不能" },
-      "SafetyLevel": { "HideText": "定義不能" },
+      "SpetialPattern": { "hideText": "定義不能" },
+      "SafetyLevel": { "hideText": "定義不能" },
       "SpecLevel": { "Rank": "S+" }
     }
   }

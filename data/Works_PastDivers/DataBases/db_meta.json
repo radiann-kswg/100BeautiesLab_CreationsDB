@@ -114,8 +114,8 @@
             "Lunar": "Zerlunas",
             "Lunar_JP": "零月",
             "Num": 0,
-            "Class": { "HideText": "？？？" },
-            "Class_EN": { "HideText_EN": "????" }
+            "Class": { "hideText": "？？？" },
+            "Class_EN": { "hideText_EN": "????" }
           }
         ]
       }

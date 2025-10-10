@@ -195,7 +195,7 @@ function applyCommonsToRecords(records, workMeta, dbName) {
       const out = {};
       // 1) simple commons
       for (const [k, v] of Object.entries(cmn)) {
-        if (k.startsWith('_')) continue;
+        if (k.startsWith('_') || k.startsWith('#')) continue;
         out[k] = v;
       }
       // 2) conditional commons
@@ -210,7 +210,7 @@ function applyCommonsToRecords(records, workMeta, dbName) {
         const match = arr.find(it => isObject(it) && Object.prototype.hasOwnProperty.call(it, field) && String(it[field]) === String(curVal));
         if (!match) continue;
         for (const [ik, iv] of Object.entries(match)) {
-          if (ik === field) continue;
+          if (ik === field || ik.startsWith('_') || ik.startsWith('#')) continue;
           out[ik] = iv;
         }
       }
@@ -237,6 +237,7 @@ function applyCommonsToRecords(records, workMeta, dbName) {
       const secDefaults = buildDefaultsFromCommons(secCommons, rec);
       const defaults = { ...dbDefaults, ...secDefaults }; // sec > db
       for (const [k, v] of Object.entries(defaults)) {
+        if (k.startsWith('#')) continue;
         if (typeof rec[k] === 'undefined') rec[k] = v; // record input has highest priority
       }
       return rec;

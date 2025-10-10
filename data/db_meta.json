@@ -267,6 +267,10 @@
           ]
         },
         {
+          "RaceType": "Lionian",
+          "RaceType_JP": "獅子"
+        },
+        {
           "RaceType": "Automaton",
           "RaceType_JP": "オートマトン(汎用)"
         },

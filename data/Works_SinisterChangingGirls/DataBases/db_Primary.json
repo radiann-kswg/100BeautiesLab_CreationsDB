@@ -87,7 +87,7 @@
     "GenderType": "Female",
     "Belonging": ["白の六芒星", "夜月機関"],
     "Height_cm": 160,
-    "Weight_kg": { "HideText": "非公開" },
+    "Weight_kg": { "hideText": "非公開" },
     "BustSize": "F",
     "Age": 25,
     "BirthDay": { "Day": { "Month": 4, "DayOfMonth": 7 } },
@@ -114,7 +114,7 @@
     "GenderType": "Female",
     "Belonging": ["新生九蓮"],
     "Height_cm": 145,
-    "Weight_kg": { "HideText": "？？？" },
+    "Weight_kg": { "hideText": "？？？" },
     "BustSize": "A",
     "Age": 19,
     "BirthDay": { "Day": { "Month": 1, "DayOfMonth": 22 } },
@@ -175,7 +175,7 @@
       "シンフォニー.XVI(ゼクズィン)"
     ],
     "Height_cm": 159,
-    "Weight_kg": { "HideText": "非公開" },
+    "Weight_kg": { "hideText": "非公開" },
     "BustSize": "G",
     "Age": { "value": 24, "about_JP": "推定", "about_EN": "Presumption" },
     "AnivDay": [
@@ -243,7 +243,7 @@
     "FormalName_EN": "Foster Empressor\nArch Zerbas",
     "CodeName": "傲慢の夜",
     "CodeName_EN": "Pride o'clock in Night",
-    "RaceType": { "HideText_EN": "????" },
+    "RaceType": { "hideText_EN": "????" },
     "GenderType": {
       "value": "Female",
       "about_JP": "推定",
