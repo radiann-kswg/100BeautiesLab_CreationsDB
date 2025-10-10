@@ -16,7 +16,7 @@
       { "Day": { "Month": 1, "DayOfMonth": 10 }, "DayAbout": "開発記念" }
     ],
     "Height_cm": 164,
-    "Weight_kg": { "HideText": "非公開" },
+    "Weight_kg": { "hideText": "非公開" },
     "LogicspecAbout": { "_Jump": { "hashTag": "NumerospecAbout" } },
     "InStory": "最終1号機「ミツル」が独立宣言した理由を知る存在"
   },
@@ -123,7 +123,7 @@
     "Height_cm": 155,
     "Age": 24,
     "AnivDay": { "_Jump": { "hashTag": "AnivDay" } },
-    "Weight_kg": { "HideText": "非公開" },
+    "Weight_kg": { "hideText": "非公開" },
     "BustSize": "AA",
     "Belonging": ["ジャンクガレージ『六花陛下』"],
     "FirstPersonCalling": "雙葉(表人格)→雙葉(表人格)：私(わたくし)\n雙葉(表人格)→トゥエルヴ(裏人格)：トゥエルヴさん,もう一人の私(わたし)\nトゥエルヴ(裏人格)→トゥエルヴ(裏人格)：ワタシ\nトゥエルヴ(裏人格)→雙葉(表人格)：凡愚メガネ(裏人格→表人格)",
