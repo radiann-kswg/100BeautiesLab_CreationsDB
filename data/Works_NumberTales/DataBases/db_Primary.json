@@ -421,8 +421,8 @@
     ],
     "FirstPersonCalling": "アタシ",
     "SecondPersonCalling": "アンタ",
-    "ThirdPersonCalling": "[？？？]",
-    "ForMasterCalling": "[？？？]",
+    "ThirdPersonCalling": "[※？？？]",
+    "ForMasterCalling": "[※？？？]",
     "Character": "屈指のマイペース\n挑発に乗りやすく冷めやすくチョロい",
     "Hobby": "気分による",
     "SpetialSkill": "バク天",
@@ -458,7 +458,8 @@
           "RelationLabel": ["wellMatched"]
         },
         {
-          "Num": 4
+          "Num": 4,
+          "RelationLabel": ["abusing", "unmatched"]
         },
         {
           "Num": 6,
@@ -3161,7 +3162,7 @@
     ],
     "Weight_kg": { "hideText": "非公開" },
     "BustSize": "A",
-    "TailsUnit": "キツネ(枝分かれ)型 2束x3本",
+    "TailsUnit": "キツネ(枝分かれ)型2束x3本",
     "Class": "マスターテールズ9",
     "Class_EN": "Master Tales 9",
     "ThisMasters": ["手塚 桃/Temon-Diadry（78特殊探偵団 金の硬貨支部 構成員）"],
@@ -3365,7 +3366,7 @@
     "ConceptAge": 14,
     "Weight_kg": 36,
     "BustSize": "A",
-    "TailsUnit": "キツネ(枝分かれ)型 5本(上2束3本+下1束2本)",
+    "TailsUnit": "キツネ(枝分かれ)型5本(上2束3本+下1束2本)",
     "FirstPersonCalling": "私(わたし)",
     "SecondPersonCalling": "あなた",
     "ThirdPersonCalling": "[※名前呼び]",
@@ -4165,7 +4166,7 @@
       { "Day": { "Month": 4, "DayOfMonth": 4 }, "DayAbout": "開発記念" }
     ],
     "Weight_kg": { "hideText": "非公開" },
-    "TailsUnit": "キツネ(枝分かれ)型 2束x4本",
+    "TailsUnit": "キツネ(枝分かれ)型2束x4本",
     "Class": "マスターテールズ9",
     "Class_EN": "Master Tales 9",
     "ThisMasters": ["古山 沢海/Bluquecnic（78特殊探偵団 火の棍棒支部 構成員）"],
@@ -4647,7 +4648,7 @@
       { "value": 39, "about_JP": "推定", "about_EN": "Presumption" }
     ],
     "BustSize": "A",
-    "TailsUnit": "キツネ(枝分かれ)型9本(上1束5本+下2束4本)",
+    "TailsUnit": "キツネ(枝分かれ)型9本(上2束4本+下1束5本)",
     "Class": "デュアルフォーズ",
     "Class_EN": "Dual Sum-4s",
     "ThisMasters": ["花舞 流(るぅ)/卯月（夜月機関 第4幹部）"],
@@ -4718,7 +4719,7 @@
   },
   {
     "Num": 50,
-    "Progress": "notProceeded",
+    "Progress": "nowCreating",
     "Name": "ナカバ",
     "Name_EN": "Halvan",
     "ModelName": "ナンバーテールズ改良型5号機(50番機)",
@@ -4728,17 +4729,65 @@
     "CodeName": "五〇",
     "SPCodeName": "半",
     "SPCodeName_EN": "Half(of Percent)",
+    "GenderType": "Neutral",
+    "Height_cm": 140,
+    "ConceptAge": { "value": 17, "about_JP": "？", "about_EN": "?" },
     "AnivDay": [
       { "Day": { "Month": 4, "DayOfMonth": 30 }, "DayAbout": "開発記念" }
     ],
+    "Weight_kg": 39,
+    "TailsUnit": "キツネ型5本",
     "Class": "10倍番(テンズデジッツ)",
     "Class_EN": "Tens-Digits",
-    "Character": "どんな状況でも落ち着いている",
+    "FirstPersonCalling": "おれ\nぼく",
+    "SecondPersonCalling": "あんた\nきみ",
+    "ThirdPersonCalling": "彼/彼女;＊いつ/＊れ;[※名前呼び]\n＊のこ,＊いつ/＊れ;～くん/～ちゃん/〜さん",
+    "ForMasterCalling": "[※？？？]",
+    "Character": "どんな状況でも落ち着いている（ように見えるが、本当はめちゃくちゃ焦り症）\n天然かマゾの可能性あり",
+    "Hobby": "猫と戯れる（実際は猫に遊ばれてる）",
+    "SpetialSkill": "着地",
+    "Favor": "コアフォルダ姿でいる時間（実際はめちゃくちゃ転がされている）",
+    "Unlike": { "hideText": "定義不能" },
+    "RelationAbouts": "「40(ヨソ)」に敵視され「5(イズ)」を敵視している\n「30(ミツト)」に謎の安心感を憶えている",
+    "NumerospecAbout": "物事を急展開に持ち運ぶ\n詳細かつ具体的な効果は不明だがこれによりマンネリ化を無効化できるらしい",
+    "Summary": "他のナンバーテールズと比べどんな状況にも肝が据わっている……が、そのポーカーフェイスの奥には時に経験や慣れにも裏切られ、時に特技も失敗し、時に悪戯にも遭うなど、彼(女)のこの上ないトラウマと焦りがあることは誰もが知る由もない。\nしかしながら本人も実は満更ではない様子なので、その反応を楽しく弄ばれていることは恐らく自覚してないまである。\n心の声が大きくて煩く、かなりチョロい。",
+    "NumerospecStats": {
+      "EffectStats": {
+        "Mental": { "EffectText": "期待可能" },
+        "Manetize": { "EffectText": "効果無" },
+        "Working": { "hideText": "判定不能" },
+        "Luck": { "EffectText": "極めて絶大(場合により逆効果)" },
+        "Communication": { "hideText": "判定不能" }
+      },
+      "SpetialPattern": [
+        "Ptn.C(状況変化効果)",
+        "Ptn.Ms-(自己転化効果がある可能性)",
+        "Ptn.Z[Hd](効果に一定の精神的耐性が必要)"
+      ],
+      "SafetyLevel": { "SafetyLevelText": "注意" }
+    },
+    "AbilityStats": {
+      "Speed": { "Rank": "Z" },
+      "Communicating": { "hideText": "判定不能" },
+      "Leading": { "Rank": "E" },
+      "Precision": { "Rank": "E" },
+      "Technic": { "Rank": "B+" },
+      "Actuation": { "Rank": "Z" }
+    },
+    "InStory": "猫や知人友人にめちゃくちゃ転がされている",
     "Relation": {
-      "Commented": [
+      "Related": [
         {
           "Num": 5
         },
+        {
+          "Num": 30
+        },
+        {
+          "Num": 40
+        }
+      ],
+      "Commented": [
         {
           "Num": 23
         },
@@ -4756,7 +4805,7 @@
   },
   {
     "Num": 51,
-    "Progress": "notProceeded",
+    "Progress": "nowCreating",
     "Name": "イソイチ",
     "Name_EN": "Fivone",
     "ModelName": "ナンバーテールズ1+5号機改(51番機)",
@@ -4766,14 +4815,50 @@
     "CodeName": "五一",
     "SPCodeName": "五十一",
     "GenderType": "MaleNeutral",
+    "Height_cm": 154,
+    "ConceptAge": 16,
     "AnivDay": [
       { "Day": { "Month": 5, "DayOfMonth": 1 }, "DayAbout": "開発記念" }
     ],
+    "Weight_kg": 44,
+    "TailsUnit": "キツネ(枝分かれ)型5本(上1束4本+下2束1本)",
     "Class": "デュアルシックスズ",
     "Class_EN": "Dual Sum-6s",
+    "FirstPersonCalling": "おれ",
+    "SecondPersonCalling": "おまえ",
+    "ThirdPersonCalling": "＊いつ/＊れ;[※名前呼び]",
+    "ForMasterCalling": "主(あるじ)",
     "Character": "発想力が高くアイディアマンとしても名高い",
+    "Hobby": "ジェンガ",
+    "SpetialSkill": "ツボで弱点を突く",
+    "Favor": "ドキュメンタリー、（漠然とした）期待",
+    "Unlike": "枠に囚われること、長話",
     "NumerospecAbout": "閃きをもたらす",
-    "InStory": "特異個体「1+5型」の安定最適化版"
+    "Summary": "枠にとらわれない思考の持ち主で、発想や着眼点についてはとても注目されている。\nしかし、本人が「“安全装置”を本体設計に組み込むことで“奇跡の個体”を安定最適化した個体」だと豪語している反面、その「奇跡を起こす」と噂される兄姉個体の改良個体としてはとんでもない駄作だと悪評を連ねる主人が一定数存在しているらしく……",
+    "NumerospecStats": {
+      "EffectStats": {
+        "Mental": { "EffectText": "希薄" },
+        "Manetize": { "EffectText": "逆効果" },
+        "Working": { "EffectText": "期待" },
+        "Luck": { "EffectText": "希薄" },
+        "Communication": { "EffectText": "特殊" }
+      },
+      "SpetialPattern": [
+        "Ptn.S(感性向上効果)",
+        "Ptn.C-(状況変化効果がある傾向)"
+      ],
+      "SafetyLevel": { "SafetyLevelText": "恐らく無危害" }
+    },
+    "AbilityStats": {
+      "Speed": { "Rank": "B+" },
+      "Communicating": { "Rank": "B" },
+      "Leading": { "Rank": "C" },
+      "Precision": { "Rank": "B" },
+      "Technic": { "Rank": "B+" },
+      "Actuation": { "Rank": "B" }
+    },
+    "InStory": "特異個体「1+5型」の安定最適化版だが……",
+    "Backgrounds": "兄姉個体「15(トウゴ)」を下方調整したと称されるほど改良機としては駄作個体という悪評がマニアな主人から出回っている。"
   },
   {
     "Num": 52,
@@ -4909,7 +4994,7 @@
     "ConceptAge": 14,
     "Weight_kg": 36,
     "BustSize": "A",
-    "TailsUnit": "キツネ(枝分かれ)型 5本(上1束2本+下2束3本)",
+    "TailsUnit": "キツネ(枝分かれ)型5本(上1束2本+下2束3本)",
     "FirstPersonCalling": "僕",
     "SecondPersonCalling": "あなた",
     "ThirdPersonCalling": "[※名前呼び]",
@@ -5030,7 +5115,7 @@
     ],
     "Weight_kg": { "hideText": "非公開" },
     "BustSize": "AA",
-    "TailsUnit": "キツネ(枝分かれ)型 2束x5本",
+    "TailsUnit": "キツネ(枝分かれ)型2束x5本",
     "Class": "マスターテールズ9",
     "Class_EN": "Master Tales 9",
     "FirstPersonCalling": "あたし",
@@ -6057,7 +6142,7 @@
     ],
     "Weight_kg": { "hideText": "非公開" },
     "BustSize": "F",
-    "TailsUnit": "キツネ(枝分かれ)型 2束x6本",
+    "TailsUnit": "キツネ(枝分かれ)型2束x6本",
     "Class": "マスターテールズ9",
     "Class_EN": "Master Tales 9",
     "ThisMasters": ["水無瀬 雫/水無月（夜月機関 第6幹部）"],
@@ -6151,6 +6236,7 @@
     "Height_cm": 145,
     "ConceptAge": 22,
     "Weight_kg": { "hideText": "非公開希望" },
+    "TailsUnit": "キツネ(枝分かれ)型7本(上2束6本+下1束1本)",
     "Summary": "体調管理や健康管理に優れており、フィットネスを何よりも好む事から体育系男子の印象を持たれている。\nただ当時でも強かだった印象に反し、本人は「もう少し鍛錬が裏切らない身体を手にしたい」と豪語していた。\nよってつい最近に人間の筋肉構造に限りなく近い躯体を手にしたのだが、そうするまでもなく彼自身の努力や鍛錬意欲は周囲から十分に称賛されているようだ。",
     "NumerospecStats": {
       "EffectStats": {
@@ -7181,7 +7267,7 @@
       { "value": 39, "about_JP": "推定", "about_EN": "Presumption" }
     ],
     "BustSize": "A",
-    "TailsUnit": "キツネ(枝分かれ)型 2束x7本",
+    "TailsUnit": "キツネ(枝分かれ)型2束x7本",
     "Class": "マスターテールズ9",
     "Class_EN": "Master Tales 9",
     "FirstPersonCalling": "僕",
@@ -7863,7 +7949,7 @@
       { "Day": { "Month": 8, "DayOfMonth": 8 }, "DayAbout": "開発記念" }
     ],
     "Weight_kg": 45,
-    "TailsUnit": "キツネ(枝分かれ)型 2束x8本",
+    "TailsUnit": "キツネ(枝分かれ)型2束x8本",
     "Class": "マスターテールズ9",
     "Class_EN": "Master Tales 9",
     "FirstPersonCalling": "私(わたし)\n僕",
@@ -8448,7 +8534,7 @@
     "Class": "デュアルシックスズ",
     "Class_EN": "Dual Sum-6s",
     "ThisMasters": ["ジャッヂ=ジャストリー/神谷崎 幻影"],
-    "FirstPersonCalling": "[？？？]",
+    "FirstPersonCalling": "[※？？？]",
     "SecondPersonCalling": "あなた",
     "ThirdPersonCalling": "[※名前呼び]",
     "ForMasterCalling": "ご主人",
@@ -8731,7 +8817,7 @@
     ],
     "Weight_kg": 43,
     "BustSize": "AA",
-    "TailsUnit": "キツネ(枝分かれ)型 2束x9本",
+    "TailsUnit": "キツネ(枝分かれ)型2束x9本",
     "Class": "マスターテールズ9",
     "Class_EN": "Master Tales 9",
     "FirstPersonCalling": "余",
