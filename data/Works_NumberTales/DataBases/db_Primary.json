@@ -2927,7 +2927,7 @@
         {
           "Num": 33,
           "Comments": "可愛い妹のような存在",
-          "RelationLabel": ["brother|sister", "wellMatched"]
+          "RelationLabel": ["successor", "wellMatched"]
         },
         {
           "Num": 36,
@@ -3857,7 +3857,8 @@
         },
         {
           "Num": 44,
-          "Comments": "良くも悪くもヤンキーじみておる"
+          "Comments": "良くも悪くもヤンキーじみておる",
+          "RelationLabel": ["successor"]
         }
       ]
     }
@@ -4241,7 +4242,8 @@
         },
         {
           "Num": 40,
-          "Comments": "面白ぇやつ"
+          "Comments": "面白ぇやつ",
+          "RelationLabel": ["pioneer"]
         },
         {
           "Num": 49,
@@ -4778,27 +4780,38 @@
     "Relation": {
       "Related": [
         {
-          "Num": 5
+          "Num": 5,
+          "Comments": "こいつと一緒にするな！",
+          "RelationLabel": ["brother|sister", "awkward"]
         },
         {
-          "Num": 30
+          "Num": 30,
+          "Comments": "ずっと友達でいたい",
+          "RelationLabel": ["wellMatched", "trusted"]
         },
         {
-          "Num": 40
+          "Num": 40,
+          "RelationLabel": ["unmatched"]
+        },
+        {
+          "Num": 59,
+          "Comments": "もうこれ以上おれを巻き込まないでくれ〜!!",
+          "RelationLabel": ["successor", "accompanying", "adverselyAffected"]
         }
       ],
       "Commented": [
         {
-          "Num": 23
+          "Num": 23,
+          "Comments": "お土産は…遠慮しとこうかな…"
         },
         {
-          "Num": 55
+          "Num": 55,
+          "Comments": "こここ、今度は何をおっぱじめる気だ…!?",
+          "RelationLabel": ["successor", "adverselyAffected_aBit"]
         },
         {
-          "Num": 59
-        },
-        {
-          "Num": 77
+          "Num": 77,
+          "Comments": "（邪魔してないといいけど…）"
         }
       ]
     }
