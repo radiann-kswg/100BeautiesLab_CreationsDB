@@ -4541,6 +4541,9 @@
   {
     "Num": 48,
     "Progress": "released",
+    "Images": {
+      "concept_PNGName": "cnsp_img48"
+    },
     "Name": "シハチ",
     "Name_EN": "Foreighn",
     "ModelName": "ナンバーテールズ4+8号機甲(48番機)",
@@ -4722,6 +4725,9 @@
   {
     "Num": 50,
     "Progress": "nowCreating",
+    "Images": {
+      "concept_PNGName": "cnsp_img50"
+    },
     "Name": "ナカバ",
     "Name_EN": "Halvan",
     "ModelName": "ナンバーテールズ改良型5号機(50番機)",
