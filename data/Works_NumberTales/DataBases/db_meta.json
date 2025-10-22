@@ -67,7 +67,7 @@
       "Secondaries": [
         {
           "SecondaryCategory": "共同二次創作",
-          "SecondaryDesignedBy": "散狐アタスト",
+          "SecondaryDesignedBy": "散狐アタスト(https://misskey.io/@atast)",
           "SecondarySeriesTitle": "ヘキサデミカル・テールズ",
           "SecondarySummary": "散狐アタストさんにより原案がキャラデザされ、現在はラジアン(柏木主税)に権利を譲渡されている。\n異世界から(散狐アタストさんの代理キャラである)「エイゼルベット」によりナンバーテールズを基にして生み出され、(同じく二次創作観測キャラである)「シグマ.クロステールズ」により百花繚乱研究所のある世界へ仲介された、十六進拡張用の数字を持つ６体のバーチャル同位体。現在は百花繚乱研究所に託され、研究開発の一要因として活動している。",
           "StoryEra": {
@@ -85,8 +85,8 @@
           }
         },
         {
-          "SecondaryCategory": "共同一次創作",
-          "SecondaryDesignedBy": "ラジアン(柏木主税)\n散狐アタスト",
+          "SecondaryCategory": "共同二次創作",
+          "SecondaryDesignedBy": "ラジアン(柏木主税)\n散狐アタスト(https://misskey.io/@atast)",
           "SecondarySeriesTitle": "D-Vines(ディ-ヴァインズ)",
           "SecondarySummary": "散狐アタストさんの提案により考案された。\nシンフォニー.XVI(ゼクズィン)に所属する「錦野舞」によりナンバーテールズの互換プロダクションとして開発された、胴部襷掛け方向に上下体の乖離・組み換え再接続が可能なカスタマイズ特化型ディビエイタブルヒューマノイド。上下の組み換え次第で性格に変化が生じるため、個体の外見デザイン以上のキャラクターバリエーションを有することが特徴。",
           "StoryEra": {

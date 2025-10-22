@@ -3,7 +3,8 @@
     "Num": "3x11",
     "Progress": "released",
     "Images": {
-      "concept_PNGName": "cnsp_img3x11"
+      "concept_PNGName": "cnsp_img3x11",
+      "corefolder_PNGPath": ["emstk_corefolder3x11-1", "emstk_corefolder3x11-2"]
     },
     "Name": "トレッド",
     "Name_EN": "Treidre'",
@@ -558,7 +559,8 @@
     "Num": 666,
     "Progress": "released",
     "Images": {
-      "concept_PNGName": "cnsp_img666"
+      "concept_PNGName": "cnsp_img666",
+      "corefolder_PNGPath": ["emstk_corefolder666-mp1"]
     },
     "Name": "リリス",
     "Name_EN": "Lilith",
@@ -598,7 +600,8 @@
       "_Search": [{ "hashTag": "Num", "key": 666 }]
     },
     "Images": {
-      "concept_PNGName": "cnsp_img666-mp"
+      "concept_PNGName": "cnsp_img666-mp",
+      "corefolder_PNGPath": ["emstk_corefolder666-mp1"]
     },
     "FormalName": "量産型ナンバーテールズ666番機シリーズ",
     "FormalName_EN": "NumberTales #666 Series Mass Production Version for Sales",

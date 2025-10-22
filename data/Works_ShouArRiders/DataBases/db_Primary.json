@@ -58,7 +58,8 @@
     "BeastType": { "Beast": "Rabbit" },
     "Progress": "released(beta)",
     "Images": {
-      "arts_PNGPath": ["newYear/art_imgEZ4-newyear2023"]
+      "arts_PNGPath": ["newYear/art_imgEZ4-newyear2023"],
+      "designAlt_PNGPath": ["chattingArt/chart_imgEZ4-private"]
     },
     "Name": "卯刻ハネゝカ",
     "Name_EN": "Boundy Rabbitimes",

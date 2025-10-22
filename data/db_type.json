@@ -10,9 +10,19 @@
           "hashTag_JP": "設定原画PNGファイル名"
         },
         {
+          "hashTag": "conceptAlt_PNGName",
+          "$type": "#PNGFileName[]",
+          "hashTag_JP": "設定原画差分PNGファイル名"
+        },
+        {
+          "hashTag": "designAlt_PNGPath",
+          "$type": "#PNGFilePath[]",
+          "hashTag_JP": "衣装差分などのPNGファイル相対パス"
+        },
+        {
           "hashTag": "arts_PNGPath",
           "$type": "#PNGFilePath[]",
-          "hashTag_JP": "イラストPNGファイルパス"
+          "hashTag_JP": "イラストPNGファイル相対パス"
         }
       ]
     },
@@ -193,7 +203,12 @@
       "$type": "#Summary",
       "hashTag_JP": "キャラクターの背景"
     },
-    { "hashTag": "InStory", "$type": "#Summary", "hashTag_JP": "劇中では" }
+    { "hashTag": "InStory", "$type": "#Summary", "hashTag_JP": "劇中では" },
+    {
+      "hashTag": "AdditionalDesigned",
+      "$type": "#Summary",
+      "hashTag_JP": "追加デザイン協力者について"
+    }
   ],
   "$VarsDef": {
     "#List_hideText": [
