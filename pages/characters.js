@@ -316,12 +316,14 @@ function extractImageFields(typeDef) {
 
 /**
  * Build image URLs from record data based on type definitions
+ * Creates gallery items with appropriate URLs based on database folder
  * @param {string} workId - Work ID
  * @param {Object} record - Character record
  * @param {Array} imageFields - Image field specifications
+ * @param {string} dbName - Database name (e.g., 'Primary', 'Secondary', etc.)
  * @returns {Array} Array of {url, caption, type} objects
  */
-function buildImageGallery(workId, record, imageFields) {
+function buildImageGallery(workId, record, imageFields, dbName = 'Primary') {
   const wdir = workId.replace('#Works_', 'Works_');
   const images = [];
   const imgData = record.Images || {};
@@ -339,14 +341,15 @@ function buildImageGallery(workId, record, imageFields) {
       let url = '';
       if (field.field.includes('concept')) {
         const dir = field.field.includes('Alt') ? 'conceptAlt' : 'concept';
-        url = `/data/${wdir}/Images/Primary/${dir}/${val}.png`;
+        url = `/data/${wdir}/Images/${dbName}/${dir}/${val}.png`;
       } else if (field.field.includes('design')) {
-        url = `/data/${wdir}/Images/Primary/designAlt/${val}`;
+        const dir = field.field.includes('Alt') ? 'designAlt' : 'design';
+        url = `/data/${wdir}/Images/${dbName}/${dir}/${val}`;
       } else if (field.field.includes('corefolder')) {
-        url = `/data/${wdir}/Images/Primary/corefolder/${val}.png`;
+        url = `/data/${wdir}/Images/${dbName}/corefolder/${val}.png`;
       } else {
-        // Generic fallback
-        url = `/data/${wdir}/Images/Primary/${val}`;
+        // Generic fallback - try database folder first
+        url = `/data/${wdir}/Images/${dbName}/${val}`;
       }
 
       images.push({
@@ -383,20 +386,38 @@ function humanWorkLabel(work) {
 
 /**
  * Image handling for character records
- * Attempts multiple common image field patterns and paths
+ * Dynamically resolves image paths based on the selected database folder
  * @param {string} workId - Work identifier (e.g., '#Works_NumberTales')
  * @param {Object} rec - Character record with Images field
+ * @param {string} dbName - Database name (e.g., 'Primary', 'Secondary', etc.)
  * @returns {string} Image URL or empty string if no image found
  */
-function imageFromRecord(workId, rec) {
+function imageFromRecord(workId, rec, dbName = 'Primary') {
   const wdir = workId.replace('#Works_', 'Works_');
   const img = rec.Images || {};
-  // Try common patterns
-  if (img.concept_PNGName) return `/data/${wdir}/Images/Primary/concept/${img.concept_PNGName}.png`;
-  if (img.design_PNGName) return `/data/${wdir}/Images/Primary/design/${img.design_PNGName}.png`;
-  if (Array.isArray(img.corefolder_PNGPath) && img.corefolder_PNGPath[0]) return `/data/${wdir}/Images/Primary/corefolder/${img.corefolder_PNGPath[0]}.png`;
-  // Proxies
+
+  // Use database name as folder name (Primary, Secondary, SemiPrimary, etc.)
+  const dbFolder = dbName;
+
+  // Try common patterns for the specific database folder
+  if (img.concept_PNGName) return `/data/${wdir}/Images/${dbFolder}/concept/${img.concept_PNGName}.png`;
+  if (img.design_PNGName) return `/data/${wdir}/Images/${dbFolder}/design/${img.design_PNGName}.png`;
+  if (Array.isArray(img.corefolder_PNGPath) && img.corefolder_PNGPath[0]) return `/data/${wdir}/Images/${dbFolder}/corefolder/${img.corefolder_PNGPath[0]}.png`;
+
+  // Check for conceptAlt images
+  if (img.conceptAlt_PNGName) return `/data/${wdir}/Images/${dbFolder}/conceptAlt/${img.conceptAlt_PNGName}.png`;
+  if (img.designAlt_PNGName) return `/data/${wdir}/Images/${dbFolder}/designAlt/${img.designAlt_PNGName}.png`;
+
+  // Proxies (usually in specific folders)
   if (img.General && img.General.poster) return `/data/${wdir}/Images/General/${img.General.poster}`;
+
+  // Fallback: try Primary folder if not Primary database and no image found
+  if (dbName !== 'Primary') {
+    if (img.concept_PNGName) return `/data/${wdir}/Images/Primary/concept/${img.concept_PNGName}.png`;
+    if (img.design_PNGName) return `/data/${wdir}/Images/Primary/design/${img.design_PNGName}.png`;
+    if (Array.isArray(img.corefolder_PNGPath) && img.corefolder_PNGPath[0]) return `/data/${wdir}/Images/Primary/corefolder/${img.corefolder_PNGPath[0]}.png`;
+  }
+
   return '';
 }
 
@@ -442,10 +463,15 @@ function renderList(records, workId, onOpen) {
   let shown = 0;
   const qs = getQS();
   const filter = (qs.q || $('#search-input').value || '').trim();
+
+  // Get current database name from global state
+  const state = window.__CHAR_STATE__;
+  const dbName = state ? state.db : 'Primary';
+
   for (const r of records) {
     if (!matchFilter(r, filter)) continue;
     shown++;
-    const img = imageFromRecord(workId, r);
+    const img = imageFromRecord(workId, r, dbName);
     const title = r.Name ? `${r.Name}${r.Num != null ? `（${r.Num}）` : ''}` : (r.FormalName || r.ModelName || r.Name_EN || '(No Name)');
     const sub = r.FormalName_EN || r.Name_EN || r.ModelNumber || '';
     const chipEls = [];
@@ -484,13 +510,17 @@ async function renderDetail(workId, rec) {
   const mount = $('#detail');
   mount.innerHTML = '';
 
-  // Main poster image
-  const poster = imageFromRecord(workId, rec);
+  // Get current database name from global state
+  const state = window.__CHAR_STATE__;
+  const dbName = state ? state.db : 'Primary';
+
+  // Main poster image with database-specific path
+  const poster = imageFromRecord(workId, rec, dbName);
 
   // Build image gallery from type definitions
   const typeDef = await fetchWorkTypeDef(workId);
   const imageFields = extractImageFields(typeDef);
-  const galleryImages = buildImageGallery(workId, rec, imageFields);
+  const galleryImages = buildImageGallery(workId, rec, imageFields, dbName);
 
   // Create left section with poster and gallery
   const imageSection = [
