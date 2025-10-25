@@ -120,10 +120,18 @@ function el(tag, props = {}, children = []) {
     else if (k.startsWith('on') && typeof v === 'function') e.addEventListener(k.substring(2), v);
     else e.setAttribute(k, v);
   }
-  for (const c of [].concat(children)) {
-    if (c == null) continue;
-    if (typeof c === 'string') e.appendChild(document.createTextNode(c)); else e.appendChild(c);
-  }
+  const appendAny = (child) => {
+    if (child == null) return;
+    if (Array.isArray(child)) { child.forEach(appendAny); return; }
+    if (child instanceof Node) { e.appendChild(child); return; }
+    const t = typeof child;
+    if (t === 'string' || t === 'number' || t === 'boolean') {
+      e.appendChild(document.createTextNode(String(child)));
+      return;
+    }
+    // otherwise ignore unsupported types
+  };
+  [].concat(children).forEach(appendAny);
   return e;
 }
 
@@ -252,7 +260,13 @@ function renderDetail(workId, rec) {
   // Belonging/Area/Day
   const belong = rec.Belonging ? (Array.isArray(rec.Belonging) ? rec.Belonging.map(b => b.Belonging || String(b)).join(', ') : (rec.Belonging.Belonging || rec.Belonging)) : '';
   const area = rec.Area ? (rec.Area.Area_EN || rec.Area.Area || rec.Area) : '';
-  const days = Array.isArray(rec.AnivDay) ? rec.AnivDay.map(d => `${d.Day ? `${d.Day.Month}/${d.Day.DayOfMonth}` : ''}${d.DayAbout ? ` ${d.DayAbout}` : ''}`) : [];
+  const days = Array.isArray(rec.AnivDay) ? rec.AnivDay.map(d => {
+    const mm = d?.Day?.Month != null ? String(d.Day.Month) : '';
+    const dd = d?.Day?.DayOfMonth != null ? String(d.Day.DayOfMonth) : '';
+    const date = (mm && dd) ? `${mm}/${dd}` : (mm || dd);
+    const about = d?.DayAbout ? ` ${d.DayAbout}` : '';
+    return `${date}${about}`;
+  }) : [];
 
   const right = el('div', {}, [
     titleRow,
@@ -268,7 +282,10 @@ function renderDetail(workId, rec) {
         days.length ? ['記念日', days.join(' / ')] : null,
       ].filter(Boolean))
     ]) : null,
-    rec.Summary ? el('div', { class: 'section' }, [el('h3', {}, ['概要']), el('div', {}, [rec.Summary.split('\n').map(s => el('p', {}, [s]))])]) : null,
+    rec.Summary ? el('div', { class: 'section' }, [
+      el('h3', {}, ['概要']),
+      el('div', {}, rec.Summary.split('\n').map(s => el('p', {}, [s])))
+    ]) : null,
     rec.Relation && (rec.Relation.Related || rec.Relation.Commented) ? renderRelations(rec.Relation) : null
   ].filter(Boolean));
 
