@@ -1,11 +1,57 @@
+/**
+ * @fileoverview Characters page for 100BeautiesLab Creations Database
+ *
+ * This module provides a responsive character browser that works with GitHub Pages
+ * by using Service Worker-based API routing to avoid ad-blocker interference.
+ *
+ * Key Features:
+ * - Multi-prefix Service Worker registration (/pages/v1, /svc/v1, /api/v1)
+ * - Dynamic work and database selection
+ * - Real-time search filtering with debouncing
+ * - Responsive character list and detail views
+ * - Image gallery based on db_type.json definitions
+ * - Reference resolution and Commons data inheritance
+ * - Cache/Service Worker reset functionality for debugging
+ *
+ * Architecture:
+ * - Vanilla HTML/CSS/JS with CSS Grid responsive layouts
+ * - Service Worker pseudo-API for GitHub Pages compatibility
+ * - Static JSON data consumption with client-side processing
+ * - Type-driven image field extraction and gallery rendering
+ *
+ * @author 100BeautiesLab Creations Database Team
+ * @version 1.0.0
+ */
+
 // Characters page: fetch from /api/v1 and render list/detail
 
+// Global initialization tracking to prevent duplicate setup
+let isInitialized = false;
+
+/**
+ * Utility Functions
+ */
+
+/** @type {function(string): HTMLElement} Query selector shorthand */
 const $ = (sel) => document.querySelector(sel);
+/** @type {function(string): HTMLElement[]} Query selector all shorthand */
 const $$ = (sel) => Array.from(document.querySelectorAll(sel));
+
+/**
+ * Service Worker Management
+ * Ensures API routes work on GitHub Pages by registering page-scoped Service Worker
+ * with fallback strategies to avoid ad-blocker interference
+ */
 
 // Ensure SW is installed so that API routes work on GitHub Pages
 // Prefer /pages to avoid ad-blockers and ensure the page is controlled by its own SW
 let API_BASE_REL = '../pages/';
+
+/**
+ * Register Service Worker with multiple fallback strategies
+ * Tries /pages/, /svc/, then /api/ to bypass ad-blocker restrictions
+ * @returns {Promise<void>} Resolves when SW is ready and controlling the page
+ */
 async function ensureApiSW() {
   if (!('serviceWorker' in navigator)) return;
   try {
@@ -41,6 +87,14 @@ async function ensureApiSW() {
   }
 }
 
+/**
+ * URL Parameter Management
+ */
+
+/**
+ * Get current query string parameters as object
+ * @returns {Object} Object with work, db, num, q properties
+ */
 function getQS() {
   const p = new URLSearchParams(location.search);
   return {
@@ -51,13 +105,25 @@ function getQS() {
   };
 }
 
+/**
+ * Update query string parameters without page reload
+ * @param {Object} next - Object with parameters to update
+ */
 function setQS(next) {
   const cur = getQS();
   const qs = new URLSearchParams({ ...cur, ...next });
   history.replaceState(null, '', `${location.pathname}?${qs.toString()}`);
 }
 
-// Build API URLs relative to API_BASE_REL
+/**
+ * API URL Construction
+ */
+
+/**
+ * Build API URLs relative to current API_BASE_REL
+ * @param {string} path - API path (e.g., 'v1/works' or '/v1/works')
+ * @returns {string} Full API URL
+ */
 function api(path) {
   const base = new URL(API_BASE_REL, location.href);
   // support path like 'v1/...' or '/v1/...'
@@ -65,7 +131,15 @@ function api(path) {
   return new URL(p, base).toString();
 }
 
-// Wait until this page is controlled by a Service Worker
+/**
+ * Service Worker Control Management
+ */
+
+/**
+ * Wait until this page is controlled by a Service Worker
+ * @param {number} timeoutMs - Timeout in milliseconds (default: 3000)
+ * @returns {Promise<void>} Resolves when page is controlled or timeout
+ */
 function waitForController(timeoutMs = 3000) {
   if (navigator.serviceWorker.controller) return Promise.resolve();
   return new Promise((resolve) => {
@@ -81,22 +155,54 @@ function waitForController(timeoutMs = 3000) {
   });
 }
 
+/**
+ * HTTP Request Utilities
+ */
+
+/**
+ * Fetch and parse JSON from URL with error handling
+ * @param {string} url - URL to fetch
+ * @returns {Promise<Object>} Parsed JSON response
+ * @throws {Error} If request fails or response is not OK
+ */
 async function fetchJSON(url) {
   const res = await fetch(url, { headers: { 'Accept': 'application/json' } });
   if (!res.ok) throw new Error(`${res.status} ${url}`);
   return res.json();
 }
 
+/**
+ * Data Fetching Functions
+ */
+
+/**
+ * Get list of available works
+ * @returns {Promise<Array>} Array of work objects
+ */
 async function listWorks() {
   return fetchJSON(api('v1/works'));
 }
 
+/**
+ * Get list of databases for a specific work
+ * @param {string} workKey - Work identifier
+ * @returns {Promise<Array>} Array of database names
+ */
 async function listWorkDBs(workKey) {
   const w = normalizeWorkKey(workKey);
   const r = await fetchJSON(api(`v1/works/${encodeURIComponent(w)}/db`));
   return r.databases || [];
 }
 
+/**
+ * Fetch character database with optional reference resolution and debugging
+ * @param {string} workKey - Work identifier
+ * @param {string} dbName - Database name (e.g., 'Primary', 'Secondary')
+ * @param {Object} options - Fetch options
+ * @param {boolean} options.resolve - Whether to resolve references (default: true)
+ * @param {boolean} options.debug - Whether to include debug information (default: false)
+ * @returns {Promise<Array>} Array of character records
+ */
 async function fetchDB(workKey, dbName, { resolve = true, debug = false } = {}) {
   const w = normalizeWorkKey(workKey);
   const u = new URL(api(`v1/works/${encodeURIComponent(w)}/db/${encodeURIComponent(dbName)}`));
@@ -105,6 +211,15 @@ async function fetchDB(workKey, dbName, { resolve = true, debug = false } = {}) 
   return fetchJSON(u.toString());
 }
 
+/**
+ * Data Normalization Utilities
+ */
+
+/**
+ * Normalize work identifier to ensure proper #Works_ prefix
+ * @param {string} id - Work identifier in various formats
+ * @returns {string} Normalized work ID with #Works_ prefix
+ */
 function normalizeWorkKey(id) {
   if (!id) return id;
   if (id.startsWith('#Works_')) return id;
@@ -112,6 +227,18 @@ function normalizeWorkKey(id) {
   return `#Works_${id}`;
 }
 
+/**
+ * DOM Helper Functions
+ */
+
+/**
+ * Create DOM element with properties and children (type-safe, array-flattening)
+ * Enhanced version that handles arrays and type conversion gracefully
+ * @param {string} tag - HTML tag name
+ * @param {Object} props - Element properties and attributes
+ * @param {Array|*} children - Child elements (supports nested arrays and mixed types)
+ * @returns {HTMLElement} Created DOM element
+ */
 function el(tag, props = {}, children = []) {
   const e = document.createElement(tag);
   for (const [k, v] of Object.entries(props)) {
@@ -135,11 +262,132 @@ function el(tag, props = {}, children = []) {
   return e;
 }
 
+/**
+ * Fetch work type metadata to understand image field definitions
+ * @param {string} workKey - Work key like '#Works_NumberTales'
+ * @returns {Promise<Object>} Type definition object
+ */
+async function fetchWorkTypeDef(workKey) {
+  const w = normalizeWorkKey(workKey);
+  const u = new URL(api(`v1/works/${encodeURIComponent(w)}/typedef`));
+  try {
+    const res = await fetchJSON(u.toString());
+    return res.typedef || [];
+  } catch {
+    return [];
+  }
+}
+
+/**
+ * Extract image field paths from type definitions
+ * @param {Array} typeDef - DefType array from db_type.json
+ * @returns {Array} Array of image field specs like [{field: 'concept_PNGName', type: '#PNGFileName', label: '設定原画'}]
+ */
+function extractImageFields(typeDef) {
+  const imageFields = [];
+
+  const traverse = (items, path = []) => {
+    if (!Array.isArray(items)) return;
+
+    for (const item of items) {
+      if (!item || typeof item !== 'object') continue;
+
+      if (item.hashTag === 'Images' && Array.isArray(item.$type)) {
+        // Found Images container, extract its children
+        for (const child of item.$type) {
+          if (child.hashTag && child.hashTag_JP) {
+            imageFields.push({
+              field: child.hashTag,
+              type: child.$type,
+              label: child.hashTag_JP,
+              path: [...path, 'Images', child.hashTag]
+            });
+          }
+        }
+      } else if (Array.isArray(item.$type)) {
+        traverse(item.$type, [...path, item.hashTag]);
+      }
+    }
+  };
+
+  traverse(typeDef);
+  return imageFields;
+}
+
+/**
+ * Build image URLs from record data based on type definitions
+ * @param {string} workId - Work ID
+ * @param {Object} record - Character record
+ * @param {Array} imageFields - Image field specifications
+ * @returns {Array} Array of {url, caption, type} objects
+ */
+function buildImageGallery(workId, record, imageFields) {
+  const wdir = workId.replace('#Works_', 'Works_');
+  const images = [];
+  const imgData = record.Images || {};
+
+  for (const field of imageFields) {
+    const value = imgData[field.field];
+    if (!value) continue;
+
+    const isArray = field.type.includes('[]');
+    const values = isArray ? (Array.isArray(value) ? value : [value]) : [value];
+
+    for (const val of values) {
+      if (!val) continue;
+
+      let url = '';
+      if (field.field.includes('concept')) {
+        const dir = field.field.includes('Alt') ? 'conceptAlt' : 'concept';
+        url = `/data/${wdir}/Images/Primary/${dir}/${val}.png`;
+      } else if (field.field.includes('design')) {
+        url = `/data/${wdir}/Images/Primary/designAlt/${val}`;
+      } else if (field.field.includes('corefolder')) {
+        url = `/data/${wdir}/Images/Primary/corefolder/${val}.png`;
+      } else {
+        // Generic fallback
+        url = `/data/${wdir}/Images/Primary/${val}`;
+      }
+
+      images.push({
+        url,
+        caption: field.label + (isArray && values.length > 1 ? ` (${values.indexOf(val) + 1})` : ''),
+        type: field.field
+      });
+    }
+  }
+
+  return images;
+}
+
+/**
+ * UI Display Utilities
+ */
+
+/**
+ * Convert work object to human-readable label
+ * @param {Object} work - Work object with WorkKey and Title properties
+ * @returns {string} Human-readable work label
+ */
 function humanWorkLabel(work) {
   const t = work.Title || work.Title_EN || work.key || '';
   return `${t} (${work.key.replace('#Works_', '')})`;
 }
 
+/**
+ * Get primary image for character list thumbnail
+ * @param {string} workId - Work ID
+ * @param {Object} rec - Character record
+ * @returns {string} Image URL or empty string
+ */
+
+/**
+ * Image handling for character records
+ * Attempts multiple common image field patterns and paths
+ * @param {string} workId - Work identifier (e.g., '#Works_NumberTales')
+ * @param {Object} rec - Character record with Images field
+ * @returns {string} Image URL or empty string if no image found
+ */
 function imageFromRecord(workId, rec) {
   const wdir = workId.replace('#Works_', 'Works_');
   const img = rec.Images || {};
@@ -152,8 +400,25 @@ function imageFromRecord(workId, rec) {
   return '';
 }
 
+/**
+ * Convert value to string safely
+ * @param {*} v - Any value
+ * @returns {string} String representation
+ */
+
+/**
+ * Convert value to string safely
+ * @param {*} v - Any value to convert
+ * @returns {string} String representation, empty string for null/undefined
+ */
 function str(v) { return (v == null ? '' : String(v)); }
 
+/**
+ * Check if a record matches the search filter
+ * @param {Object} rec - Character record to test
+ * @param {string} q - Search query string
+ * @returns {boolean} True if record matches filter
+ */
 function matchFilter(rec, q) {
   if (!q) return true;
   const s = q.trim().toLowerCase();
@@ -165,6 +430,12 @@ function matchFilter(rec, q) {
   return keys.some(k => String(k).toLowerCase().includes(s));
 }
 
+/**
+ * Render the character list view with search filtering
+ * @param {Array} records - Array of character records
+ * @param {string} workId - Work identifier (e.g., '#Works_NumberTales')
+ * @param {Function} onOpen - Callback function when a character is selected
+ */
 function renderList(records, workId, onOpen) {
   const list = $('#list');
   list.innerHTML = '';
@@ -191,17 +462,51 @@ function renderList(records, workId, onOpen) {
   $('#list-empty').hidden = shown > 0;
 }
 
+/**
+ * Create a key-value table element
+ * @param {Object} obj - Base object (unused in current implementation)
+ * @param {Array} entries - Array of [key, value] pairs to display
+ * @returns {HTMLElement} Table element with key-value rows
+ */
 function kvTable(obj, entries) {
   const rows = entries.filter(Boolean).map(([k, v]) => el('tr', {}, [ el('th', {}, [k]), el('td', {}, [v ?? '']) ]));
   return el('table', { class: 'kv-table' }, rows);
 }
 
-function renderDetail(workId, rec) {
+/**
+ * Render detailed character view with comprehensive information and image gallery
+ * @param {string} workId - Work identifier (e.g., '#Works_NumberTales')
+ * @param {Object} rec - Character record with all data fields
+ * @returns {Promise<void>} Async function that updates the detail view DOM
+ */
+async function renderDetail(workId, rec) {
   $('#detail-title').textContent = rec.Name ? `${rec.Name}${rec.Num != null ? `（${rec.Num}）` : ''}` : (rec.FormalName || rec.ModelName || rec.Name_EN || '詳細');
   const mount = $('#detail');
   mount.innerHTML = '';
+
+  // Main poster image
   const poster = imageFromRecord(workId, rec);
-  const left = el('div', {}, [ poster ? el('img', { class: 'poster', src: poster, alt: 'poster' }) : el('div', { class: 'poster' }) ]);
+
+  // Build image gallery from type definitions
+  const typeDef = await fetchWorkTypeDef(workId);
+  const imageFields = extractImageFields(typeDef);
+  const galleryImages = buildImageGallery(workId, rec, imageFields);
+
+  // Create left section with poster and gallery
+  const imageSection = [
+    poster ? el('img', { class: 'poster', src: poster, alt: 'poster' }) : el('div', { class: 'poster' }),
+    galleryImages.length > 0 ? el('div', { class: 'image-gallery' }, [
+      el('h4', {}, ['画像ギャラリー']),
+      el('div', { class: 'image-grid' }, galleryImages.map(imgData =>
+        el('div', { class: 'image-item' }, [
+          el('img', { src: imgData.url, alt: imgData.alt, loading: 'lazy' }),
+          imgData.caption ? el('div', { class: 'caption' }, [imgData.caption]) : null
+        ].filter(Boolean))
+      ))
+    ]) : null
+  ].filter(Boolean);
+
+  const left = el('div', {}, imageSection);
 
   const titleRow = el('div', { class: 'kv' }, [
     el('div', { class: 'name' }, rec.Name || rec.FormalName || rec.Name_EN || '(No Name)'),
@@ -292,6 +597,11 @@ function renderDetail(workId, rec) {
   mount.appendChild(el('div', { class: 'detail' }, [left, right]));
 }
 
+/**
+ * Render character relationship information
+ * @param {Object} rel - Relationship object containing Related and Commented arrays
+ * @returns {HTMLElement} Section element with relationship information
+ */
 function renderRelations(rel) {
   const related = Array.isArray(rel.Related) ? rel.Related : [];
   const commented = Array.isArray(rel.Commented) ? rel.Commented : [];
@@ -300,42 +610,101 @@ function renderRelations(rel) {
   return el('div', { class: 'section' }, [el('h3', {}, ['関係'] ), el('div', { class: 'kv-grid' }, [...r1, ...r2])]);
 }
 
+/**
+ * Wire up all UI event handlers and control behaviors
+ * Sets up change handlers for work/DB selection, search input, checkboxes,
+ * navigation buttons, and cache/Service Worker reset functionality
+ */
 function wireControls() {
-  $('#select-work').addEventListener('change', async (e) => {
+  // Store handlers in global namespace to enable proper removal
+  if (!window.__eventHandlers) {
+    window.__eventHandlers = {};
+  }
+
+  // Get elements
+  const selectWork = $('#select-work');
+  const selectDB = $('#select-db');
+  const searchInput = $('#search-input');
+  const chkResolve = $('#chk-resolve');
+  const chkDebug = $('#chk-debug');
+  const btnBack = $('#btn-back');
+
+  // Remove previous handlers if they exist
+  if (window.__eventHandlers.workChange) {
+    selectWork.removeEventListener('change', window.__eventHandlers.workChange);
+  }
+  if (window.__eventHandlers.dbChange) {
+    selectDB.removeEventListener('change', window.__eventHandlers.dbChange);
+  }
+  if (window.__eventHandlers.searchInput) {
+    searchInput.removeEventListener('input', window.__eventHandlers.searchInput);
+  }
+  if (window.__eventHandlers.resolveChange) {
+    chkResolve.removeEventListener('change', window.__eventHandlers.resolveChange);
+  }
+  if (window.__eventHandlers.debugChange) {
+    chkDebug.removeEventListener('change', window.__eventHandlers.debugChange);
+  }
+  if (window.__eventHandlers.backClick) {
+    btnBack.removeEventListener('click', window.__eventHandlers.backClick);
+  }
+
+  // Define and store new handlers
+  window.__eventHandlers.workChange = async (e) => {
     const wk = e.target.value;
     setQS({ work: wk.replace('#', ''), db: '', num: '' });
     await populateDBs(wk);
     await reload();
-  });
-  $('#select-db').addEventListener('change', async (e) => {
+  };
+
+  window.__eventHandlers.dbChange = async (e) => {
     const db = e.target.value;
     setQS({ db, num: '' });
     await reload();
-  });
-  $('#search-input').addEventListener('input', () => {
+  };
+
+  window.__eventHandlers.searchInput = () => {
     setQS({ q: $('#search-input').value });
     filterListOnly();
-  });
-  $('#chk-resolve').addEventListener('change', reload);
-  $('#chk-debug').addEventListener('change', reload);
-  $('#btn-back').addEventListener('click', () => {
+  };
+
+  window.__eventHandlers.resolveChange = reload;
+  window.__eventHandlers.debugChange = reload;
+  window.__eventHandlers.backClick = () => {
     $('#detail-view').hidden = true;
     $('#list-view').hidden = false;
     setQS({ num: '' });
-  });
+  };
 
+  // Add new handlers
+  selectWork.addEventListener('change', window.__eventHandlers.workChange);
+  selectDB.addEventListener('change', window.__eventHandlers.dbChange);
+  searchInput.addEventListener('input', window.__eventHandlers.searchInput);
+  chkResolve.addEventListener('change', window.__eventHandlers.resolveChange);
+  chkDebug.addEventListener('change', window.__eventHandlers.debugChange);
+  btnBack.addEventListener('click', window.__eventHandlers.backClick);
+
+  // Handle reset button
   const btnReset = document.getElementById('btn-reset-sw');
-  if (btnReset) btnReset.addEventListener('click', async () => {
-    try {
-      const keys = await caches.keys();
-      await Promise.all(keys.map(k => caches.delete(k)));
-    } catch {}
-    try {
-      const regs = await navigator.serviceWorker.getRegistrations();
-      await Promise.all(regs.map(r => r.unregister()));
-    } catch {}
-    location.reload();
-  });
+  if (btnReset) {
+    if (window.__eventHandlers.resetClick) {
+      btnReset.removeEventListener('click', window.__eventHandlers.resetClick);
+    }
+
+    window.__eventHandlers.resetClick = async () => {
+      try {
+        const keys = await caches.keys();
+        await Promise.all(keys.map(k => caches.delete(k)));
+      } catch {}
+      try {
+        const regs = await navigator.serviceWorker.getRegistrations();
+        await Promise.all(regs.map(r => r.unregister()));
+      } catch {}
+      location.reload();
+    };
+
+    btnReset.addEventListener('click', window.__eventHandlers.resetClick);
+  }
 }
 
 function filterListOnly() {
@@ -398,6 +767,10 @@ function openDetail(rec) {
 }
 
 async function main() {
+  // Prevent duplicate initialization
+  if (isInitialized) return;
+  isInitialized = true;
+
   await ensureApiSW();
   wireControls();
   const qs = getQS();
@@ -405,5 +778,13 @@ async function main() {
   await populateDBs(wk, qs.db || 'Primary');
   await reload();
 }
+
+/**
+ * Main entry point - initialize application when DOM is loaded
+ */
+main().catch(err => {
+  console.error('Initialization error:', err);
+  document.body.innerHTML = `<div style="padding: 20px; color: red;">初期化エラー: ${err.message}</div>`;
+});
 
 window.addEventListener('load', main);
