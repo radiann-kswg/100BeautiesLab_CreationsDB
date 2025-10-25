@@ -4108,7 +4108,7 @@
     "Num": 43,
     "Progress": "released",
     "Images": {
-      "concsept_PNGName": "cnsp_img43",
+      "concept_PNGName": "cnsp_img43",
       "corefolder_PNGPath": ["emstk_corefolder43-1", "emstk_corefolder43-2"]
     },
     "Name": "シトミ",
