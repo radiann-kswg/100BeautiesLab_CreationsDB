@@ -1,0 +1,68 @@
+@charset "UTF-8";
+:root {
+  --bg: #0b0c10;
+  --fg: #e8f0f2;
+  --muted: #9fb2bd;
+  --card: #12151b;
+  --accent: #37b7c3;
+  --accent-2: #9e77ff;
+  --border: #212836;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; background: var(--bg); color: var(--fg); font-family: system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans JP", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif; }
+a { color: var(--accent); text-decoration: none; }
+.muted { color: var(--muted); }
+
+.site-header { padding: 16px 16px 8px; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: linear-gradient(180deg, rgba(11,12,16,0.95), rgba(11,12,16,0.85) 60%, rgba(11,12,16,0)); backdrop-filter: saturate(120%) blur(8px); z-index: 2; }
+.site-header h1 { margin: 0 0 6px; font-size: 20px; }
+.site-header .lead { margin: 0; font-size: 12px; color: var(--muted); }
+
+.container { max-width: 1200px; margin: 0 auto; padding: 12px; }
+.card { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 14px; margin: 12px 0; }
+.card h2 { margin: 0 0 10px; font-size: 16px; color: #d7f9ff; border-bottom: 1px solid var(--border); padding-bottom: 6px; }
+
+.controls .control-row { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; margin-bottom: 8px; }
+.controls .control-row.small { font-size: 12px; }
+.controls label { display: flex; gap: 6px; align-items: center; color: var(--muted); }
+.controls select, .controls input[type="search"] { background: #0d1117; color: var(--fg); border: 1px solid var(--border); border-radius: 8px; padding: 8px 10px; min-width: 180px; }
+.controls .grow input { width: 100%; min-width: 260px; }
+
+.grid-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 12px; }
+.grid-item { display: flex; flex-direction: column; gap: 8px; padding: 10px; border: 1px solid var(--border); border-radius: 10px; background: #0d1117; }
+.grid-item h3 { margin: 0; font-size: 16px; color: #e6fcff; }
+.grid-item .sub { font-size: 12px; color: var(--muted); }
+.grid-item .thumb { width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: 8px; border: 1px solid var(--border); background: #0b0c10; }
+.grid-item .meta { display: flex; gap: 6px; flex-wrap: wrap; font-size: 11px; color: var(--muted); }
+.chip { background: #111827; color: #b9e5ea; border: 1px solid #1f2937; padding: 2px 6px; border-radius: 6px; font-size: 11px; }
+
+.detail-header { display: flex; align-items: center; gap: 10px; }
+.detail-header h2 { border: none; padding: 0; margin: 0; font-size: 18px; }
+.ghost { background: transparent; color: var(--accent); border: 1px solid var(--accent); padding: 6px 10px; border-radius: 8px; cursor: pointer; }
+.ghost:hover { background: rgba(55,183,195,0.1); }
+
+.detail { display: grid; grid-template-columns: 320px 1fr; gap: 16px; }
+@media (max-width: 900px) { .detail { grid-template-columns: 1fr; } }
+
+.poster { width: 100%; border-radius: 10px; border: 1px solid var(--border); background: #0b0c10; object-fit: cover; aspect-ratio: 3/4; }
+
+.kv { margin-bottom: 8px; }
+.kv .name { font-size: 24px; font-weight: 600; letter-spacing: .02em; }
+.kv .name-en { font-size: 14px; color: var(--muted); }
+.kv .row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 6px; }
+
+.section { margin: 12px 0; }
+.section h3 { font-size: 14px; color: #b9e5ea; margin: 0 0 6px; }
+.kv-table, .kv-table th, .kv-table td { border-collapse: collapse; border: 1px solid var(--border); }
+.kv-table { width: 100%; font-size: 13px; }
+.kv-table th { text-align: left; width: 160px; color: #c0d7e0; padding: 6px; background: #0f1320; }
+.kv-table td { padding: 6px; }
+
+.pill { display: inline-flex; gap: 6px; align-items: center; padding: 3px 8px; border-radius: 999px; border: 1px solid var(--border); background: #0f1320; color: #d9ecf2; font-size: 12px; }
+.tag { display: inline-block; padding: 2px 6px; border-radius: 6px; border: 1px solid #263245; background: #0f1320; font-size: 12px; color: #b6d8e1; }
+
+.kv-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 8px; }
+
+.small { font-size: 12px; }
+
+.site-footer { padding: 20px 12px; border-top: 1px solid var(--border); color: var(--muted); }
