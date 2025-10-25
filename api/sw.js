@@ -6,7 +6,10 @@
 // 参照解決（定義併載・インデックス解決）と最小限の検索をクライアント側で行います。
 // ブラウザSW前提のため、Nodeから直接importしてのテストは行いません。
 
-const API_PREFIX = '/api/v1';
+// Derive paths to work correctly under GitHub Pages project subpath (e.g., /<repo>/)
+const SCOPE_PATH = new URL('./', self.registration?.scope || self.location.href).pathname.replace(/\/$/, ''); // e.g., /repo/api
+const REPO_BASE = SCOPE_PATH.replace(/\/api$/, '/') || '/'; // e.g., /repo/
+const API_PREFIX = `${SCOPE_PATH}/v1`; // e.g., /repo/api/v1
 const CACHE_NAME = '100bl-api-v1';
 const ORIGIN = self.location.origin;
 const WORK_CTX_TTL_MS = 15 * 1000; // simple in-memory cache TTL
@@ -26,7 +29,8 @@ self.addEventListener('activate', (e) => {
 async function precache() {
   try {
     const cache = await caches.open(CACHE_NAME);
-    await cache.addAll(['/data/db_meta.json']);
+    // Precache important indices with repo base
+    await cache.addAll([`${REPO_BASE}data/db_meta.json`]);
   } catch (_) {}
 }
 
@@ -54,8 +58,15 @@ function toWorkKey(id) {
   return `#Works_${id}`;
 }
 
+function withRepoBase(path) {
+  if (!path) return path;
+  if (path.startsWith('http://') || path.startsWith('https://')) return path;
+  if (path.startsWith('/')) return `${REPO_BASE}${path.slice(1)}`;
+  return `${REPO_BASE}${path}`;
+}
+
 async function fetchJSON(path) {
-  const url = new URL(path, ORIGIN).toString();
+  const url = new URL(withRepoBase(path), ORIGIN).toString();
   const res = await fetch(url, { cache: 'no-store' });
   if (!res.ok) throw new Error(`Fetch failed ${res.status} ${url}`);
   return res.json();
@@ -63,7 +74,7 @@ async function fetchJSON(path) {
 
 async function fileExists(path) {
   try {
-    const url = new URL(path, ORIGIN).toString();
+    const url = new URL(withRepoBase(path), ORIGIN).toString();
     const res = await fetch(url, { method: 'HEAD', cache: 'no-store' });
     return res.ok;
   } catch {
@@ -293,7 +304,7 @@ function getByPath(obj, path) {
 
 self.addEventListener('fetch', (event) => {
   const url = new URL(event.request.url);
-  if (!url.pathname.startsWith(API_PREFIX)) return; // ignore
+  if (!url.pathname.startsWith(API_PREFIX)) return; // ignore non-API paths
 
   event.respondWith(handleApiRequest(url).catch(err => jsonResponse({ error: String(err) }, 500)));
 });

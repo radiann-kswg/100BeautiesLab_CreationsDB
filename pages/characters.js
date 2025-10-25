@@ -7,7 +7,10 @@ const $$ = (sel) => Array.from(document.querySelectorAll(sel));
 async function ensureApiSW() {
   if (!('serviceWorker' in navigator)) return;
   try {
-    const reg = await navigator.serviceWorker.register('/api/sw.js', { scope: '/api/' });
+    // Register relative to this page, so it works under project subpath
+    const swUrl = new URL('../api/sw.js', location.href).toString();
+    const scopeUrl = new URL('../api/', location.href).pathname;
+    const reg = await navigator.serviceWorker.register(swUrl, { scope: scopeUrl });
     await navigator.serviceWorker.ready;
     // console.debug('API SW ready', reg.scope);
   } catch (_) {
@@ -31,7 +34,13 @@ function setQS(next) {
   history.replaceState(null, '', `${location.pathname}?${qs.toString()}`);
 }
 
-function api(url) { return url; }
+// Build API URLs relative to ../api/
+function api(path) {
+  const base = new URL('../api/', location.href);
+  // support path like 'v1/...' or '/v1/...'
+  const p = String(path || '').replace(/^\/?/, '');
+  return new URL(p, base).toString();
+}
 
 async function fetchJSON(url) {
   const res = await fetch(url, { headers: { 'Accept': 'application/json' } });
@@ -40,18 +49,18 @@ async function fetchJSON(url) {
 }
 
 async function listWorks() {
-  return fetchJSON(api('/api/v1/works'));
+  return fetchJSON(api('v1/works'));
 }
 
 async function listWorkDBs(workKey) {
   const w = normalizeWorkKey(workKey);
-  const r = await fetchJSON(api(`/api/v1/works/${encodeURIComponent(w)}/db`));
+  const r = await fetchJSON(api(`v1/works/${encodeURIComponent(w)}/db`));
   return r.databases || [];
 }
 
 async function fetchDB(workKey, dbName, { resolve = true, debug = false } = {}) {
   const w = normalizeWorkKey(workKey);
-  const u = new URL(api(`/api/v1/works/${encodeURIComponent(w)}/db/${encodeURIComponent(dbName)}`), location.origin);
+  const u = new URL(api(`v1/works/${encodeURIComponent(w)}/db/${encodeURIComponent(dbName)}`));
   if (resolve) u.searchParams.set('resolve', '1');
   if (debug) u.searchParams.set('debug', '1');
   return fetchJSON(u.toString());
