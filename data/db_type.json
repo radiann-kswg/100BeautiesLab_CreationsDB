@@ -1,31 +1,6 @@
 {
   "$DefType": [
     { "hashTag": "Progress", "$type": "$EnumDef", "hashTag_JP": "進捗" },
-    {
-      "hashTag": "Images",
-      "$type": [
-        {
-          "hashTag": "concept_PNGName",
-          "$type": "#PNGFileName",
-          "hashTag_JP": "設定原画PNGファイル名"
-        },
-        {
-          "hashTag": "conceptAlt_PNGName",
-          "$type": "#PNGFileName[]",
-          "hashTag_JP": "設定原画差分PNGファイル名"
-        },
-        {
-          "hashTag": "designAlt_PNGPath",
-          "$type": "#PNGFilePath[]",
-          "hashTag_JP": "衣装差分などのPNGファイル相対パス"
-        },
-        {
-          "hashTag": "arts_PNGPath",
-          "$type": "#PNGFilePath[]",
-          "hashTag_JP": "イラストPNGファイル相対パス"
-        }
-      ]
-    },
     { "hashTag": "Name", "$type": "#Stiring_JP|#Null", "hashTag_JP": "愛称" },
     {
       "hashTag": "Name_EN",

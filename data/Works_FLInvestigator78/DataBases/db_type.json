@@ -1,6 +1,36 @@
 {
   "$DefType": [
     {
+      "hashTag": "Images",
+      "$type": [
+        {
+          "hashTag": "concept_PNGName",
+          "$type": "#PNGFileName",
+          "hashTag_JP": "設定原画PNGファイル名"
+        },
+        {
+          "hashTag": "conceptAlt_PNGName",
+          "$type": "#PNGFileName[]",
+          "hashTag_JP": "設定原画差分PNGファイル名"
+        },
+        {
+          "hashTag": "cardDesign_PNG",
+          "$type": "#PNGFileName",
+          "hashTag_JP": "衣装差分などのPNGファイル相対パス"
+        },
+        {
+          "hashTag": "designAlt_PNGPath",
+          "$type": "#PNGFilePath[]",
+          "hashTag_JP": "衣装差分などのPNGファイル相対パス"
+        },
+        {
+          "hashTag": "arts_PNGPath",
+          "$type": "#PNGFilePath[]",
+          "hashTag_JP": "イラストPNGファイル相対パス"
+        }
+      ]
+    },
+    {
       "hashTag": "For79or80thDealerCalling",
       "$type": [
         { "hashTag": "For79thDealer", "$type": "#String|#Null" },
