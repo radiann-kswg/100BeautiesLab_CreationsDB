@@ -110,7 +110,8 @@
     "Num": 2,
     "Progress": "released",
     "Images": {
-      "concept_PNGName": "cnsp_img2"
+      "concept_PNGName": "cnsp_img2",
+      "corefolder_PNGPath": ["emstk_corefolder2-1"]
     },
     "Name": "ツグ",
     "Name_EN": "Twiny",
@@ -215,7 +216,8 @@
     "Num": 3,
     "Progress": "released",
     "Images": {
-      "concept_PNGName": "cnsp_img3"
+      "concept_PNGName": "cnsp_img3",
+      "corefolder_PNGPath": ["emstk_corefolder3-1"]
     },
     "Name": "ナオ",
     "Name_EN": "Treiya",
@@ -305,7 +307,12 @@
     "Progress": "released",
     "Images": {
       "concept_PNGName": "cnsp_img4",
-      "catalog_PNGName": "chr-dsgn_catalog4"
+      "catalog_PNGName": "chr-dsgn_catalog4",
+      "corefolder_PNGPath": [
+        "emstk_corefolder4-1",
+        "emstk_corefolder4-2",
+        "emstk_corefolder4-3"
+      ]
     },
     "Name": "モチ",
     "Name_EN": "Forna",
@@ -396,7 +403,8 @@
     "Num": 5,
     "Progress": "released",
     "Images": {
-      "concept_PNGName": "cnsp_img5"
+      "concept_PNGName": "cnsp_img5",
+      "corefolder_PNGPath": ["emstk_corefolder5-1"]
     },
     "Name": "イズ",
     "Name_EN": "Fifa",
@@ -421,8 +429,8 @@
     ],
     "FirstPersonCalling": "アタシ",
     "SecondPersonCalling": "アンタ",
-    "ThirdPersonCalling": "[？？？]",
-    "ForMasterCalling": "[？？？]",
+    "ThirdPersonCalling": "[※？？？]",
+    "ForMasterCalling": "[※？？？]",
     "Character": "屈指のマイペース\n挑発に乗りやすく冷めやすくチョロい",
     "Hobby": "気分による",
     "SpetialSkill": "バク天",
@@ -458,7 +466,8 @@
           "RelationLabel": ["wellMatched"]
         },
         {
-          "Num": 4
+          "Num": 4,
+          "RelationLabel": ["abusing", "unmatched"]
         },
         {
           "Num": 6,
@@ -491,7 +500,8 @@
     "Progress": "released",
     "Images": {
       "concept_PNGName": "cnsp_img6",
-      "catalog_PNGName": "chr-dsgn_catalog6"
+      "catalog_PNGName": "chr-dsgn_catalog6",
+      "corefolder_PNGPath": ["emstk_corefolder6-1"]
     },
     "Name": "ムイ",
     "Name_EN": "Sics",
@@ -579,7 +589,8 @@
     "Num": 7,
     "Progress": "released",
     "Images": {
-      "concept_PNGName": "cnsp_img7"
+      "concept_PNGName": "cnsp_img7",
+      "corefolder_PNGPath": ["emstk_corefolder7-1"]
     },
     "Name": "ナナ",
     "Name_EN": "Sevan",
@@ -668,7 +679,8 @@
     "Num": 8,
     "Progress": "released",
     "Images": {
-      "concept_PNGName": "cnsp_img8"
+      "concept_PNGName": "cnsp_img8",
+      "corefolder_PNGPath": ["emstk_corefolder8-1"]
     },
     "Name": "ワカツ",
     "Name_EN": "Eighas",
@@ -769,7 +781,8 @@
     "Num": 9,
     "Progress": "released",
     "Images": {
-      "concept_PNGName": "cnsp_img9"
+      "concept_PNGName": "cnsp_img9",
+      "corefolder_PNGPath": ["emstk_corefolder9-1"]
     },
     "Name": "チカ",
     "Name_EN": "Nina",
@@ -858,7 +871,8 @@
     "Num": 10,
     "Progress": "released",
     "Images": {
-      "concept_PNGName": "cnsp_img10"
+      "concept_PNGName": "cnsp_img10",
+      "corefolder_PNGPath": ["emstk_corefolder10-1", "emstk_corefolder10-2"]
     },
     "Name": "ミツル",
     "Name_EN": "Tenim",
@@ -974,7 +988,8 @@
     "Num": 11,
     "Progress": "released",
     "Images": {
-      "concept_PNGName": "cnsp_img11"
+      "concept_PNGName": "cnsp_img11",
+      "corefolder_PNGPath": ["emstk_corefolder11-1"]
     },
     "Name": "トウイチ",
     "Name_EN": "Elevan",
@@ -1073,7 +1088,8 @@
     "Num": 12,
     "Progress": "released",
     "Images": {
-      "concept_PNGName": "cnsp_img12"
+      "concept_PNGName": "cnsp_img12",
+      "corefolder_PNGPath": ["emstk_corefolder12-1"]
     },
     "Name": "トウジ",
     "Name_EN": "Twelva",
@@ -1173,7 +1189,8 @@
     "Num": 13,
     "Progress": "released",
     "Images": {
-      "concept_PNGName": "cnsp_img13"
+      "concept_PNGName": "cnsp_img13",
+      "corefolder_PNGPath": ["emstk_corefolder13-1"]
     },
     "Name": "トミ",
     "Name_EN": "Thirteena",
@@ -1272,7 +1289,12 @@
     "Progress": "released",
     "Images": {
       "concept_PNGName": "cnsp_img14",
-      "conceptAlt_PNGName": ["cnsp_img14-A", "cnsp_img14-B"]
+      "conceptAlt_PNGName": ["cnsp_img14-A", "cnsp_img14-B"],
+      "corefolder_PNGPath": [
+        "emstk_corefolder14-1",
+        "emstk_corefolder14-2",
+        "emstk_corefolder14-3"
+      ]
     },
     "Name": "トヨ",
     "Name_EN": "Forteels",
@@ -1368,7 +1390,11 @@
     "Num": 15,
     "Progress": "released",
     "Images": {
-      "concept_PNGName": "cnsp_img15"
+      "concept_PNGName": "cnsp_img15",
+      "corefolder_PNGPath": [
+        "emstk_corefolder15-1",
+        "emstk_corefolder15-nonharness1"
+      ]
     },
     "Name": "トウゴ",
     "Name_EN": "Fifteeld",
@@ -1491,7 +1517,8 @@
     "Progress": "released",
     "Images": {
       "concept_PNGName": "cnsp_img16",
-      "catalog_PNGName": "chr-dsgn_catalog16"
+      "catalog_PNGName": "chr-dsgn_catalog16",
+      "corefolder_PNGPath": ["emstk_corefolder16-1"]
     },
     "Name": "ソロク",
     "Name_EN": "Sixteely",
@@ -1600,7 +1627,8 @@
     "Num": 17,
     "Progress": "released",
     "Images": {
-      "concept_PNGName": "cnsp_img17"
+      "concept_PNGName": "cnsp_img17",
+      "corefolder_PNGPath": ["emstk_corefolder17-1"]
     },
     "Name": "トナ",
     "Name_EN": "Sevteena",
@@ -1711,7 +1739,8 @@
     "Num": 18,
     "Progress": "released",
     "Images": {
-      "concept_PNGName": "cnsp_img18"
+      "concept_PNGName": "cnsp_img18",
+      "corefolder_PNGPath": ["emstk_corefolder18-1", "emstk_corefolder18-2"]
     },
     "Name": "トウヤ",
     "Name_EN": "Eighteeld",
@@ -1804,7 +1833,8 @@
     "Num": 19,
     "Progress": "released",
     "Images": {
-      "concept_PNGName": "cnsp_img19"
+      "concept_PNGName": "cnsp_img19",
+      "corefolder_PNGPath": ["emstk_corefolder19-1"]
     },
     "Name": "トク",
     "Name_EN": "Ninteels",
@@ -1893,7 +1923,8 @@
     "Num": 20,
     "Progress": "released",
     "Images": {
-      "concept_PNGName": "cnsp_img20"
+      "concept_PNGName": "cnsp_img20",
+      "corefolder_PNGPath": ["emstk_corefolder20-1", "emstk_corefolder20-2"]
     },
     "Name": "ハツカ",
     "Name_EN": "Twentia",
@@ -1990,7 +2021,8 @@
     "Num": 21,
     "Progress": "released",
     "Images": {
-      "concept_PNGName": "cnsp_img21"
+      "concept_PNGName": "cnsp_img21",
+      "corefolder_PNGPath": ["emstk_corefolder21-1"]
     },
     "Name": "ハツヒ",
     "Name_EN": "Twinone",
@@ -2082,7 +2114,8 @@
     "Num": 22,
     "Progress": "released",
     "Images": {
-      "concept_PNGName": "cnsp_img22"
+      "concept_PNGName": "cnsp_img22",
+      "corefolder_PNGPath": ["emstk_corefolder22-1", "emstk_corefolder22-2"]
     },
     "Name": "フジ",
     "Name_EN": "Twin-twina",
@@ -2186,7 +2219,8 @@
     "Progress": "released",
     "Images": {
       "concept_PNGName": "cnsp_img23",
-      "catalog_PNGName": "chr-dsgn_catalog23"
+      "catalog_PNGName": "chr-dsgn_catalog23",
+      "corefolder_PNGPath": ["emstk_corefolder23-1"]
     },
     "Name": "ツグミ",
     "Name_EN": "Twinthery",
@@ -2281,7 +2315,8 @@
     "Num": 24,
     "Progress": "released",
     "Images": {
-      "concept_PNGName": "cnsp_img24"
+      "concept_PNGName": "cnsp_img24",
+      "corefolder_PNGPath": ["emstk_corefolder24-1", "emstk_corefolder24-2"]
     },
     "Name": "フトシ",
     "Name_EN": "Hourds",
@@ -2377,7 +2412,8 @@
     "Num": 25,
     "Progress": "released",
     "Images": {
-      "concept_PNGName": "cnsp_img25"
+      "concept_PNGName": "cnsp_img25",
+      "corefolder_PNGPath": ["emstk_corefolder25-1", "emstk_corefolder25-2"]
     },
     "Name": "フィズ",
     "Name_EN": "Quartels",
@@ -2482,7 +2518,8 @@
     "Num": 26,
     "Progress": "released",
     "Images": {
-      "concept_PNGName": "cnsp_img26"
+      "concept_PNGName": "cnsp_img26",
+      "corefolder_PNGPath": ["emstk_corefolder26-1"]
     },
     "Name": "ニロク",
     "Name_EN": "Twinsix",
@@ -2575,7 +2612,8 @@
     "Num": 27,
     "Progress": "released",
     "Images": {
-      "concept_PNGName": "cnsp_img27"
+      "concept_PNGName": "cnsp_img27",
+      "corefolder_PNGPath": ["emstk_corefolder27-1"]
     },
     "Name": "ツギナ",
     "Name_EN": "Twißven",
@@ -2770,7 +2808,8 @@
     "Num": 29,
     "Progress": "released",
     "Images": {
-      "concept_PNGName": "cnsp_img29"
+      "concept_PNGName": "cnsp_img29",
+      "corefolder_PNGPath": ["emstk_corefolder29-1"]
     },
     "Name": "ニトク",
     "Name_EN": "Twenina",
@@ -2864,7 +2903,8 @@
     "Num": 30,
     "Progress": "released",
     "Images": {
-      "concept_PNGName": "cnsp_img30"
+      "concept_PNGName": "cnsp_img30",
+      "corefolder_PNGPath": ["emstk_corefolder30-1", "emstk_corefolder30-2"]
     },
     "Name": "ミツト",
     "Name_EN": "Thirtens",
@@ -2926,7 +2966,7 @@
         {
           "Num": 33,
           "Comments": "可愛い妹のような存在",
-          "RelationLabel": ["brother|sister", "wellMatched"]
+          "RelationLabel": ["successor", "wellMatched"]
         },
         {
           "Num": 36,
@@ -2958,7 +2998,8 @@
     "Num": 31,
     "Progress": "released",
     "Images": {
-      "concept_PNGName": "cnsp_img31"
+      "concept_PNGName": "cnsp_img31",
+      "corefolder_PNGPath": ["emstk_corefolder31-1", "emstk_corefolder31-2"]
     },
     "Name": "ミツイ",
     "Name_EN": "Thirtone",
@@ -3053,7 +3094,8 @@
     "Num": 32,
     "Progress": "released",
     "Images": {
-      "concept_PNGName": "cnsp_img32"
+      "concept_PNGName": "cnsp_img32",
+      "corefolder_PNGPath": ["emstk_corefolder32-1", "emstk_corefolder32-2"]
     },
     "Name": "ミツギ",
     "Name_EN": "Thirtwis",
@@ -3144,7 +3186,12 @@
     "Num": 33,
     "Progress": "released",
     "Images": {
-      "concept_PNGName": "cnsp_img33"
+      "concept_PNGName": "cnsp_img33",
+      "corefolder_PNGPath": [
+        "emstk_corefolder33-1",
+        "emstk_corefolder33-2",
+        "emstk_corefolder33-3"
+      ]
     },
     "Name": "ミサ",
     "Name_EN": "Thirthrey",
@@ -3161,7 +3208,7 @@
     ],
     "Weight_kg": { "hideText": "非公開" },
     "BustSize": "A",
-    "TailsUnit": "キツネ(枝分かれ)型 2束x3本",
+    "TailsUnit": "キツネ(枝分かれ)型2束x3本",
     "Class": "マスターテールズ9",
     "Class_EN": "Master Tales 9",
     "ThisMasters": ["手塚 桃/Temon-Diadry（78特殊探偵団 金の硬貨支部 構成員）"],
@@ -3245,7 +3292,8 @@
     "Num": 34,
     "Progress": "released",
     "Images": {
-      "concept_PNGName": "cnsp_img34"
+      "concept_PNGName": "cnsp_img34",
+      "corefolder_PNGPath": ["emstk_corefolder34-1", "emstk_corefolder34-2"]
     },
     "Name": "サトシ\n(サンジ)",
     "Name_EN": "Thirfory\n(Troubleforcer)",
@@ -3344,7 +3392,8 @@
     "Progress": "released",
     "Images": {
       "concept_PNGName": "cnsp_img35",
-      "conceptAlt_PNGName": ["cnsp_img35-Normal", "cnsp_img35-Miko"]
+      "conceptAlt_PNGName": ["cnsp_img35-Normal", "cnsp_img35-Miko"],
+      "corefolder_PNGPath": ["emstk_corefolder35-1", "emstk_corefolder35-2"]
     },
     "Name": "サトコ\nミコ",
     "Name_EN": "Thirfivan\nMíko",
@@ -3365,7 +3414,7 @@
     "ConceptAge": 14,
     "Weight_kg": 36,
     "BustSize": "A",
-    "TailsUnit": "キツネ(枝分かれ)型 5本(上2束3本+下1束2本)",
+    "TailsUnit": "キツネ(枝分かれ)型5本(上2束3本+下1束2本)",
     "FirstPersonCalling": "私(わたし)",
     "SecondPersonCalling": "あなた",
     "ThirdPersonCalling": "[※名前呼び]",
@@ -3441,7 +3490,8 @@
     "Num": 36,
     "Progress": "released",
     "Images": {
-      "concept_PNGName": "cnsp_img36"
+      "concept_PNGName": "cnsp_img36",
+      "corefolder_PNGPath": ["emstk_corefolder36-1"]
     },
     "Name": "ミトム",
     "Name_EN": "Trisixa",
@@ -3540,7 +3590,8 @@
     "Num": 37,
     "Progress": "released",
     "Images": {
-      "concept_PNGName": "cnsp_img37"
+      "concept_PNGName": "cnsp_img37",
+      "corefolder_PNGPath": ["emstk_corefolder37-1"]
     },
     "Name": "サナ",
     "Name_EN": "Trißven",
@@ -3677,7 +3728,8 @@
     "Progress": "released",
     "Images": {
       "concept_PNGName": "cnsp_img39",
-      "catalog_PNGName": "chr-dsgn_catalog39"
+      "catalog_PNGName": "chr-dsgn_catalog39",
+      "corefolder_PNGPath": ["emstk_corefolder39-1"]
     },
     "Name": "サク",
     "Name_EN": "Trenína",
@@ -3772,7 +3824,8 @@
     "Num": 40,
     "Progress": "released",
     "Images": {
-      "concept_PNGName": "cnsp_img40"
+      "concept_PNGName": "cnsp_img40",
+      "corefolder_PNGPath": ["emstk_corefolder40-1", "emstk_corefolder40-2"]
     },
     "Name": "ヨソ",
     "Name_EN": "Fortty",
@@ -3856,7 +3909,8 @@
         },
         {
           "Num": 44,
-          "Comments": "良くも悪くもヤンキーじみておる"
+          "Comments": "良くも悪くもヤンキーじみておる",
+          "RelationLabel": ["successor"]
         }
       ]
     }
@@ -3866,7 +3920,8 @@
     "Progress": "released",
     "Images": {
       "concept_PNGName": "cnsp_img41",
-      "conceptAlt_PNGName": ["cnsp_img41-A"]
+      "conceptAlt_PNGName": ["cnsp_img41-A"],
+      "corefolder_PNGPath": ["emstk_corefolder41-1"]
     },
     "Name": "ヨソイチ",
     "Name_EN": "Forone",
@@ -3959,7 +4014,8 @@
     "Num": 42,
     "Progress": "released",
     "Images": {
-      "concept_PNGName": "cnsp_img42"
+      "concept_PNGName": "cnsp_img42",
+      "corefolder_PNGPath": ["emstk_corefolder42-1"]
     },
     "Name": "ヨツグ",
     "Name_EN": "Fortwis",
@@ -4052,7 +4108,8 @@
     "Num": 43,
     "Progress": "released",
     "Images": {
-      "concsept_PNGName": "cnsp_img43"
+      "concsept_PNGName": "cnsp_img43",
+      "corefolder_PNGPath": ["emstk_corefolder43-1", "emstk_corefolder43-2"]
     },
     "Name": "シトミ",
     "Name_EN": "Forthren",
@@ -4148,7 +4205,8 @@
     "Num": 44,
     "Progress": "released",
     "Images": {
-      "concept_PNGName": "cnsp_img44"
+      "concept_PNGName": "cnsp_img44",
+      "corefolder_PNGPath": ["emstk_corefolder44-1"]
     },
     "Name": "シトシ",
     "Name_EN": "Folfourn",
@@ -4165,7 +4223,7 @@
       { "Day": { "Month": 4, "DayOfMonth": 4 }, "DayAbout": "開発記念" }
     ],
     "Weight_kg": { "hideText": "非公開" },
-    "TailsUnit": "キツネ(枝分かれ)型 2束x4本",
+    "TailsUnit": "キツネ(枝分かれ)型2束x4本",
     "Class": "マスターテールズ9",
     "Class_EN": "Master Tales 9",
     "ThisMasters": ["古山 沢海/Bluquecnic（78特殊探偵団 火の棍棒支部 構成員）"],
@@ -4240,7 +4298,8 @@
         },
         {
           "Num": 40,
-          "Comments": "面白ぇやつ"
+          "Comments": "面白ぇやつ",
+          "RelationLabel": ["pioneer"]
         },
         {
           "Num": 49,
@@ -4257,7 +4316,8 @@
     "Num": 45,
     "Progress": "released",
     "Images": {
-      "concept_PNGName": "cnsp_img45"
+      "concept_PNGName": "cnsp_img45",
+      "corefolder_PNGPath": ["emstk_corefolder45-1"]
     },
     "Name": "シゴ",
     "Name_EN": "Folfivas",
@@ -4350,7 +4410,8 @@
     "Num": 46,
     "Progress": "released",
     "Images": {
-      "concept_PNGName": "cnsp_img46"
+      "concept_PNGName": "cnsp_img46",
+      "corefolder_PNGPath": ["emstk_corefolder46-1"]
     },
     "Name": "シロー",
     "Name_EN": "Forsixen",
@@ -4443,7 +4504,8 @@
     "Num": 47,
     "Progress": "released",
     "Images": {
-      "concept_PNGName": "cnsp_img47"
+      "concept_PNGName": "cnsp_img47",
+      "corefolder_PNGPath": ["emstk_corefolder47-1"]
     },
     "Name": "シナ",
     "Name_EN": "Fourséve",
@@ -4538,6 +4600,10 @@
   {
     "Num": 48,
     "Progress": "released",
+    "Images": {
+      "concept_PNGName": "cnsp_img48",
+      "corefolder_PNGPath": ["emstk_corefolder48-1"]
+    },
     "Name": "シハチ",
     "Name_EN": "Foreighn",
     "ModelName": "ナンバーテールズ4+8号機甲(48番機)",
@@ -4628,7 +4694,8 @@
     "Progress": "released",
     "Images": {
       "concept_PNGName": "cnsp_img49",
-      "catalog_PNGName": "chr-dsgn_catalog49"
+      "catalog_PNGName": "chr-dsgn_catalog49",
+      "corefolder_PNGPath": ["emstk_corefolder49-1", "emstk_corefolder49-2"]
     },
     "Name": "ヨチカ",
     "Name_EN": "Fornins",
@@ -4647,7 +4714,7 @@
       { "value": 39, "about_JP": "推定", "about_EN": "Presumption" }
     ],
     "BustSize": "A",
-    "TailsUnit": "キツネ(枝分かれ)型9本(上1束5本+下2束4本)",
+    "TailsUnit": "キツネ(枝分かれ)型9本(上2束4本+下1束5本)",
     "Class": "デュアルフォーズ",
     "Class_EN": "Dual Sum-4s",
     "ThisMasters": ["花舞 流(るぅ)/卯月（夜月機関 第4幹部）"],
@@ -4718,7 +4785,11 @@
   },
   {
     "Num": 50,
-    "Progress": "notProceeded",
+    "Progress": "released",
+    "Images": {
+      "concept_PNGName": "cnsp_img50",
+      "corefolder_PNGPath": ["emstk_corefolder50-1", "emstk_corefolder50-2"]
+    },
     "Name": "ナカバ",
     "Name_EN": "Halvan",
     "ModelName": "ナンバーテールズ改良型5号機(50番機)",
@@ -4728,35 +4799,94 @@
     "CodeName": "五〇",
     "SPCodeName": "半",
     "SPCodeName_EN": "Half(of Percent)",
+    "GenderType": "Neutral",
+    "Height_cm": 140,
+    "ConceptAge": { "value": 17, "about_JP": "？", "about_EN": "?" },
     "AnivDay": [
       { "Day": { "Month": 4, "DayOfMonth": 30 }, "DayAbout": "開発記念" }
     ],
+    "Weight_kg": 39,
+    "TailsUnit": "キツネ型5本",
     "Class": "10倍番(テンズデジッツ)",
     "Class_EN": "Tens-Digits",
-    "Character": "どんな状況でも落ち着いている",
+    "FirstPersonCalling": "おれ\nぼく",
+    "SecondPersonCalling": "あんた\nきみ",
+    "ThirdPersonCalling": "彼/彼女;＊いつ/＊れ;[※名前呼び]\n＊のこ,＊いつ/＊れ;～くん/～ちゃん/〜さん",
+    "ForMasterCalling": "[※？？？]",
+    "Character": "どんな状況でも落ち着いている（ように見えるが、本当はめちゃくちゃ焦り症）\n天然かマゾの可能性あり",
+    "Hobby": "猫と戯れる（実際は猫に遊ばれてる）",
+    "SpetialSkill": "着地",
+    "Favor": "コアフォルダ姿でいる時間（実際はめちゃくちゃ転がされている）",
+    "Unlike": { "hideText": "定義不能" },
+    "RelationAbouts": "「40(ヨソ)」に敵視され「5(イズ)」を敵視している\n「30(ミツト)」に謎の安心感を憶えている",
+    "NumerospecAbout": "物事を急展開に持ち運ぶ\n詳細かつ具体的な効果は不明だがこれによりマンネリ化を無効化できるらしい",
+    "Summary": "他のナンバーテールズと比べどんな状況にも肝が据わっている……が、そのポーカーフェイスの奥には時に経験や慣れにも裏切られ、時に特技も失敗し、時に悪戯にも遭うなど、彼(女)のこの上ないトラウマと焦りがあることは誰もが知る由もない。\nしかしながら本人も実は満更ではない様子なので、その反応を楽しく弄ばれていることは恐らく自覚してないまである。\n心の声が大きくて煩く、かなりチョロい。",
+    "NumerospecStats": {
+      "EffectStats": {
+        "Mental": { "EffectText": "期待可能" },
+        "Manetize": { "EffectText": "効果無" },
+        "Working": { "hideText": "判定不能" },
+        "Luck": { "EffectText": "極めて絶大(場合により逆効果)" },
+        "Communication": { "hideText": "判定不能" }
+      },
+      "SpetialPattern": [
+        "Ptn.C(状況変化効果)",
+        "Ptn.Ms-(自己転化効果がある可能性)",
+        "Ptn.Z[Hd](効果に一定の精神的耐性が必要)"
+      ],
+      "SafetyLevel": { "SafetyLevelText": "注意" }
+    },
+    "AbilityStats": {
+      "Speed": { "Rank": "Z" },
+      "Communicating": { "hideText": "判定不能" },
+      "Leading": { "Rank": "E" },
+      "Precision": { "Rank": "E" },
+      "Technic": { "Rank": "B+" },
+      "Actuation": { "Rank": "Z" }
+    },
+    "InStory": "猫や知人友人にめちゃくちゃ転がされている",
     "Relation": {
+      "Related": [
+        {
+          "Num": 5,
+          "Comments": "こいつと一緒にするな！",
+          "RelationLabel": ["brother|sister", "awkward"]
+        },
+        {
+          "Num": 30,
+          "Comments": "ずっと友達でいたい",
+          "RelationLabel": ["wellMatched", "trusted"]
+        },
+        {
+          "Num": 40,
+          "RelationLabel": ["unmatched"]
+        },
+        {
+          "Num": 59,
+          "Comments": "もうこれ以上おれを巻き込まないでくれ〜!!",
+          "RelationLabel": ["successor", "accompanying", "adverselyAffected"]
+        }
+      ],
       "Commented": [
         {
-          "Num": 5
+          "Num": 23,
+          "Comments": "お土産は…遠慮しとこうかな…"
         },
         {
-          "Num": 23
+          "Num": 55,
+          "Comments": "こここ、今度は何をおっぱじめる気だ…!?",
+          "RelationLabel": ["successor", "adverselyAffected_aBit"]
         },
         {
-          "Num": 55
-        },
-        {
-          "Num": 59
-        },
-        {
-          "Num": 77
+          "Num": 77,
+          "Comments": "（邪魔してないといいけど…）"
         }
       ]
     }
   },
   {
     "Num": 51,
-    "Progress": "notProceeded",
+    "Progress": "nowCreating",
     "Name": "イソイチ",
     "Name_EN": "Fivone",
     "ModelName": "ナンバーテールズ1+5号機改(51番機)",
@@ -4766,20 +4896,57 @@
     "CodeName": "五一",
     "SPCodeName": "五十一",
     "GenderType": "MaleNeutral",
+    "Height_cm": 154,
+    "ConceptAge": 16,
     "AnivDay": [
       { "Day": { "Month": 5, "DayOfMonth": 1 }, "DayAbout": "開発記念" }
     ],
+    "Weight_kg": 44,
+    "TailsUnit": "キツネ(枝分かれ)型5本(上1束4本+下2束1本)",
     "Class": "デュアルシックスズ",
     "Class_EN": "Dual Sum-6s",
+    "FirstPersonCalling": "おれ",
+    "SecondPersonCalling": "おまえ",
+    "ThirdPersonCalling": "＊いつ/＊れ;[※名前呼び]",
+    "ForMasterCalling": "主(あるじ)",
     "Character": "発想力が高くアイディアマンとしても名高い",
+    "Hobby": "ジェンガ",
+    "SpetialSkill": "ツボで弱点を突く",
+    "Favor": "ドキュメンタリー、（漠然とした）期待",
+    "Unlike": "枠に囚われること、長話",
     "NumerospecAbout": "閃きをもたらす",
-    "InStory": "特異個体「1+5型」の安定最適化版"
+    "Summary": "枠にとらわれない思考の持ち主で、発想や着眼点についてはとても注目されている。\nしかし、本人が「“安全装置”を本体設計に組み込むことで“奇跡の個体”を安定最適化した個体」だと豪語している反面、その「奇跡を起こす」と噂される兄姉個体の改良個体としてはとんでもない駄作だと悪評を連ねる主人が一定数存在しているらしく……",
+    "NumerospecStats": {
+      "EffectStats": {
+        "Mental": { "EffectText": "希薄" },
+        "Manetize": { "EffectText": "逆効果" },
+        "Working": { "EffectText": "期待" },
+        "Luck": { "EffectText": "希薄" },
+        "Communication": { "EffectText": "特殊" }
+      },
+      "SpetialPattern": [
+        "Ptn.S(感性向上効果)",
+        "Ptn.C-(状況変化効果がある傾向)"
+      ],
+      "SafetyLevel": { "SafetyLevelText": "恐らく無危害" }
+    },
+    "AbilityStats": {
+      "Speed": { "Rank": "B+" },
+      "Communicating": { "Rank": "B" },
+      "Leading": { "Rank": "C" },
+      "Precision": { "Rank": "B" },
+      "Technic": { "Rank": "B+" },
+      "Actuation": { "Rank": "B" }
+    },
+    "InStory": "特異個体「1+5型」の安定最適化版だが……",
+    "Backgrounds": "兄姉個体「15(トウゴ)」を下方調整したと称されるほど改良機としては駄作個体という悪評がマニアな主人から出回っている。"
   },
   {
     "Num": 52,
     "Progress": "released",
     "Images": {
-      "concept_PNGName": "cnsp_img52"
+      "concept_PNGName": "cnsp_img52",
+      "corefolder_PNGPath": ["emstk_corefolder52-1"]
     },
     "Name": "イツギ",
     "Name_EN": "Fiftwis",
@@ -4890,7 +5057,8 @@
     "Num": 53,
     "Progress": "released",
     "Images": {
-      "concept_PNGName": "cnsp_img53"
+      "concept_PNGName": "cnsp_img53",
+      "corefolder_PNGPath": ["emstk_corefolder53-1"]
     },
     "Name": "イツゾウ",
     "Name_EN": "Fifthren",
@@ -4909,7 +5077,7 @@
     "ConceptAge": 14,
     "Weight_kg": 36,
     "BustSize": "A",
-    "TailsUnit": "キツネ(枝分かれ)型 5本(上1束2本+下2束3本)",
+    "TailsUnit": "キツネ(枝分かれ)型5本(上1束2本+下2束3本)",
     "FirstPersonCalling": "僕",
     "SecondPersonCalling": "あなた",
     "ThirdPersonCalling": "[※名前呼び]",
@@ -5030,7 +5198,7 @@
     ],
     "Weight_kg": { "hideText": "非公開" },
     "BustSize": "AA",
-    "TailsUnit": "キツネ(枝分かれ)型 2束x5本",
+    "TailsUnit": "キツネ(枝分かれ)型2束x5本",
     "Class": "マスターテールズ9",
     "Class_EN": "Master Tales 9",
     "FirstPersonCalling": "あたし",
@@ -5108,7 +5276,8 @@
     "Num": 56,
     "Progress": "released",
     "Images": {
-      "concept_PNGName": "cnsp_img56"
+      "concept_PNGName": "cnsp_img56",
+      "corefolder_PNGPath": ["emstk_corefolder56-1"]
     },
     "Name": "イソロク",
     "Name_EN": "Fivsix",
@@ -5206,7 +5375,8 @@
     "Progress": "released",
     "Images": {
       "concept_PNGName": "cnsp_img57",
-      "catalog_PNGName": "chr-dsgn_catalog57"
+      "catalog_PNGName": "chr-dsgn_catalog57",
+      "corefolder_PNGPath": ["emstk_corefolder57-1"]
     },
     "Name": "イズナ",
     "Name_EN": "Fivens",
@@ -5299,7 +5469,8 @@
     "Num": 58,
     "Progress": "released",
     "Images": {
-      "concept_PNGName": "cnsp_img58"
+      "concept_PNGName": "cnsp_img58",
+      "corefolder_PNGPath": ["emstk_corefolder58-1", "emstk_corefolder58-2"]
     },
     "Name": "イソヤ",
     "Name_EN": "Fiveighs",
@@ -5422,7 +5593,8 @@
     "Progress": "released",
     "Images": {
       "concept_PNGName": "cnsp_img60",
-      "conceptAlt_PNGName": ["cnsp_img60-Normal", "cnsp_img60-Nerd"]
+      "conceptAlt_PNGName": ["cnsp_img60-Normal", "cnsp_img60-Nerd"],
+      "corefolder_PNGPath": ["emstk_corefolder60-1", "emstk_corefolder60-2"]
     },
     "Name": "ムソウ",
     "Name_EN": "Sixtina",
@@ -5538,7 +5710,13 @@
     "Images": {
       "concept_PNGName": "cnsp_img61",
       "conceptAlt_PNGName": ["cnsp_img61-B"],
-      "catalog_PNGName": "chr-dsgn_catalog61"
+      "catalog_PNGName": "chr-dsgn_catalog61",
+      "corefolder_PNGPath": [
+        "emstk_corefolder61-1",
+        "emstk_corefolder61-idol1",
+        "emstk_corefolder60-idol2"
+      ],
+      "designAlt_PNGPath": ["subcostumes/chr-design-alt_wip61-idol"]
     },
     "Name": "ロクイチ\nロイ",
     "Name_EN": "Síxone\nSíon",
@@ -5642,13 +5820,15 @@
           "Comments": "よくわかんないw"
         }
       ]
-    }
+    },
+    "AdditionalDesigned": "アイドル衣装デザイン：MUSASHI(https://skeb.jp/@NEO_lapis_/works/43)"
   },
   {
     "Num": 62,
     "Progress": "released",
     "Images": {
-      "concept_PNGName": "cnsp_img62"
+      "concept_PNGName": "cnsp_img62",
+      "corefolder_PNGPath": ["emstk_corefolder62-1"]
     },
     "Name": "ロジ",
     "Name_EN": "Sictwéna",
@@ -5752,7 +5932,8 @@
     "Num": 63,
     "Progress": "released",
     "Images": {
-      "concept_PNGName": "cnsp_img63"
+      "concept_PNGName": "cnsp_img63",
+      "corefolder_PNGPath": ["emstk_corefolder63-1"]
     },
     "Name": "ムツミ",
     "Name_EN": "Sicthrey",
@@ -5845,7 +6026,8 @@
     "Num": 64,
     "Progress": "released",
     "Images": {
-      "concept_PNGName": "cnsp_img64"
+      "concept_PNGName": "cnsp_img64",
+      "corefolder_PNGPath": ["emstk_corefolder64-1"]
     },
     "Name": "ムトシ",
     "Name_EN": "Sixforns",
@@ -5947,7 +6129,8 @@
     "Num": 65,
     "Progress": "released",
     "Images": {
-      "concept_PNGName": "cnsp_img65"
+      "concept_PNGName": "cnsp_img65",
+      "corefolder_PNGPath": ["emstk_corefolder65-1"]
     },
     "Name": "ロクゴ",
     "Name_EN": "Sixfivie",
@@ -6040,7 +6223,8 @@
     "Progress": "released",
     "Images": {
       "concept_PNGName": "cnsp_img66",
-      "conceptAlt_PNGName": ["cnsp_img66-B"]
+      "conceptAlt_PNGName": ["cnsp_img66-B"],
+      "corefolder_PNGPath": ["emstk_corefolder66-1"]
     },
     "Name": "ムロク",
     "Name_EN": "Sixis",
@@ -6057,7 +6241,7 @@
     ],
     "Weight_kg": { "hideText": "非公開" },
     "BustSize": "F",
-    "TailsUnit": "キツネ(枝分かれ)型 2束x6本",
+    "TailsUnit": "キツネ(枝分かれ)型2束x6本",
     "Class": "マスターテールズ9",
     "Class_EN": "Master Tales 9",
     "ThisMasters": ["水無瀬 雫/水無月（夜月機関 第6幹部）"],
@@ -6151,6 +6335,7 @@
     "Height_cm": 145,
     "ConceptAge": 22,
     "Weight_kg": { "hideText": "非公開希望" },
+    "TailsUnit": "キツネ(枝分かれ)型7本(上2束6本+下1束1本)",
     "Summary": "体調管理や健康管理に優れており、フィットネスを何よりも好む事から体育系男子の印象を持たれている。\nただ当時でも強かだった印象に反し、本人は「もう少し鍛錬が裏切らない身体を手にしたい」と豪語していた。\nよってつい最近に人間の筋肉構造に限りなく近い躯体を手にしたのだが、そうするまでもなく彼自身の努力や鍛錬意欲は周囲から十分に称賛されているようだ。",
     "NumerospecStats": {
       "EffectStats": {
@@ -6288,7 +6473,8 @@
     "Num": 68,
     "Progress": "released",
     "Images": {
-      "concept_PNGName": "cnsp_img68"
+      "concept_PNGName": "cnsp_img68",
+      "corefolder_PNGPath": ["emstk_corefolder68-1"]
     },
     "Name": "ロクヤ",
     "Name_EN": "Siceighns",
@@ -6383,7 +6569,8 @@
     "Num": 69,
     "Progress": "released",
     "Images": {
-      "concept_PNGName": "cnsp_img69"
+      "concept_PNGName": "cnsp_img69",
+      "corefolder_PNGPath": ["emstk_corefolder69-1"]
     },
     "Name": "ロック",
     "Name_EN": "Signine",
@@ -6579,7 +6766,8 @@
     "Num": 71,
     "Progress": "released",
     "Images": {
-      "concept_PNGName": "cnsp_img71"
+      "concept_PNGName": "cnsp_img71",
+      "corefolder_PNGPath": ["emstk_corefolder71-1"]
     },
     "Name": "ナナヒ",
     "Name_EN": "Sevone",
@@ -6677,7 +6865,8 @@
     "Num": 72,
     "Progress": "released",
     "Images": {
-      "concept_PNGName": "cnsp_img72"
+      "concept_PNGName": "cnsp_img72",
+      "corefolder_PNGPath": ["emstk_corefolder72-1"]
     },
     "Name": "ナフタ",
     "Name_EN": "Sevtwína",
@@ -6776,7 +6965,8 @@
     "Progress": "released",
     "Images": {
       "concept_PNGName": "cnsp_img73",
-      "catalog_PNGName": "chr-dsgn_catalog73"
+      "catalog_PNGName": "chr-dsgn_catalog73",
+      "corefolder_PNGPath": ["emstk_corefolder73-1", "emstk_corefolder73-2"]
     },
     "Name": "ナトミ",
     "Name_EN": "Sevthira",
@@ -6878,7 +7068,8 @@
     "Num": 74,
     "Progress": "released",
     "Images": {
-      "concept_PNGName": "cnsp_img74"
+      "concept_PNGName": "cnsp_img74",
+      "corefolder_PNGPath": ["emstk_corefolder74-1"]
     },
     "Name": "ナナヨ",
     "Name_EN": "Sefoury",
@@ -6978,7 +7169,8 @@
     "Num": 75,
     "Progress": "released",
     "Images": {
-      "concept_PNGName": "cnsp_img75"
+      "concept_PNGName": "cnsp_img75",
+      "corefolder_PNGPath": ["emstk_corefolder75-1"]
     },
     "Name": "シチゴ",
     "Name_EN": "Sefievn",
@@ -7072,7 +7264,13 @@
     "Num": 76,
     "Progress": "released",
     "Images": {
-      "concept_PNGName": "cnsp_img76"
+      "concept_PNGName": "cnsp_img76",
+      "corefolder_PNGPath": [
+        "emstk_corefolder76-1",
+        "emstk_corefolder76-2",
+        "emstk_corefolder76-3",
+        "emstk_corefolder76-4"
+      ]
     },
     "Name": "シチロク",
     "Name_EN": "Sevsix",
@@ -7161,7 +7359,8 @@
     "Num": 77,
     "Progress": "released",
     "Images": {
-      "concept_PNGName": "cnsp_img77"
+      "concept_PNGName": "cnsp_img77",
+      "corefolder_PNGPath": ["emstk_corefolder77-1", "emstk_corefolder77-2"]
     },
     "Name": "ナヅナ",
     "Name_EN": "Sefvens",
@@ -7181,7 +7380,7 @@
       { "value": 39, "about_JP": "推定", "about_EN": "Presumption" }
     ],
     "BustSize": "A",
-    "TailsUnit": "キツネ(枝分かれ)型 2束x7本",
+    "TailsUnit": "キツネ(枝分かれ)型2束x7本",
     "Class": "マスターテールズ9",
     "Class_EN": "Master Tales 9",
     "FirstPersonCalling": "僕",
@@ -7265,7 +7464,8 @@
     "Num": 78,
     "Progress": "released",
     "Images": {
-      "concept_PNGName": "cnsp_img78"
+      "concept_PNGName": "cnsp_img78",
+      "corefolder_PNGPath": ["emstk_corefolder78-1", "emstk_corefolder78-2"]
     },
     "Name": "ナナハ",
     "Name_EN": "Seveights",
@@ -7432,7 +7632,8 @@
     "Num": 81,
     "Progress": "released",
     "Images": {
-      "concept_PNGName": "cnsp_img81"
+      "concept_PNGName": "cnsp_img81",
+      "corefolder_PNGPath": ["emstk_corefolder81-1"]
     },
     "Name": "ヤイチ",
     "Name_EN": "Eightone",
@@ -7618,7 +7819,8 @@
     "Progress": "released",
     "Images": {
       "concept_PNGName": "cnsp_img85",
-      "catalog_PNGName": "chr-dsgn_catalog85"
+      "catalog_PNGName": "chr-dsgn_catalog85",
+      "corefolder_PNGPath": ["emstk_corefolder85-1", "emstk_corefolder85-2"]
     },
     "Name": "ハッコ\nパコ",
     "Name_EN": "Eightifie\nEigfie",
@@ -7728,7 +7930,8 @@
     "Num": 87,
     "Progress": "released",
     "Images": {
-      "concept_PNGName": "cnsp_img87"
+      "concept_PNGName": "cnsp_img87",
+      "corefolder_PNGPath": ["emstk_corefolder87-1"]
     },
     "Name": "ヤシナ\nハナ",
     "Name_EN": "Eighteven\nEivee",
@@ -7846,7 +8049,8 @@
     "Num": 88,
     "Progress": "released",
     "Images": {
-      "concept_PNGName": "cnsp_img88"
+      "concept_PNGName": "cnsp_img88",
+      "corefolder_PNGPath": ["emstk_corefolder88-1"]
     },
     "Name": "ヤソハチ",
     "Name_EN": "Infinights",
@@ -7863,7 +8067,7 @@
       { "Day": { "Month": 8, "DayOfMonth": 8 }, "DayAbout": "開発記念" }
     ],
     "Weight_kg": 45,
-    "TailsUnit": "キツネ(枝分かれ)型 2束x8本",
+    "TailsUnit": "キツネ(枝分かれ)型2束x8本",
     "Class": "マスターテールズ9",
     "Class_EN": "Master Tales 9",
     "FirstPersonCalling": "私(わたし)\n僕",
@@ -7949,7 +8153,8 @@
     "Num": 89,
     "Progress": "released",
     "Images": {
-      "concept_PNGName": "cnsp_img89"
+      "concept_PNGName": "cnsp_img89",
+      "corefolder_PNGPath": ["emstk_corefolder89-1"]
     },
     "Name": "ヤスモ",
     "Name_EN": "Eightine",
@@ -8104,7 +8309,8 @@
     "Num": 92,
     "Progress": "released",
     "Images": {
-      "concept_PNGName": "cnsp_img92"
+      "concept_PNGName": "cnsp_img92",
+      "corefolder_PNGPath": ["emstk_corefolder92-1"]
     },
     "Name": "コトジ",
     "Name_EN": "Nintwina",
@@ -8193,7 +8399,8 @@
     "Progress": "released",
     "Images": {
       "concept_PNGName": "cnsp_img93",
-      "catalog_PNGName": "chr-dsgn_catalog93"
+      "catalog_PNGName": "chr-dsgn_catalog93",
+      "corefolder_PNGPath": ["emstk_corefolder93-1"]
     },
     "Name": "クミ",
     "Name_EN": "Nintris",
@@ -8293,7 +8500,8 @@
     "Num": 94,
     "Progress": "released",
     "Images": {
-      "concept_PNGName": "cnsp_img94"
+      "concept_PNGName": "cnsp_img94",
+      "corefolder_PNGPath": ["emstk_corefolder94-1"]
     },
     "Name": "ツクシ",
     "Name_EN": "Ninfors",
@@ -8425,7 +8633,8 @@
     "Num": 96,
     "Progress": "released",
     "Images": {
-      "concept_PNGName": "cnsp_img96"
+      "concept_PNGName": "cnsp_img96",
+      "corefolder_PNGPath": ["emstk_corefolder96-1"]
     },
     "Name": "クルリ",
     "Name_EN": "Rota",
@@ -8448,7 +8657,7 @@
     "Class": "デュアルシックスズ",
     "Class_EN": "Dual Sum-6s",
     "ThisMasters": ["ジャッヂ=ジャストリー/神谷崎 幻影"],
-    "FirstPersonCalling": "[？？？]",
+    "FirstPersonCalling": "[※？？？]",
     "SecondPersonCalling": "あなた",
     "ThirdPersonCalling": "[※名前呼び]",
     "ForMasterCalling": "ご主人",
@@ -8525,7 +8734,8 @@
     "Num": 97,
     "Progress": "released",
     "Images": {
-      "concept_PNGName": "cnsp_img97"
+      "concept_PNGName": "cnsp_img97",
+      "corefolder_PNGPath": ["emstk_corefolder97-1"]
     },
     "Name": "ココナ",
     "Name_EN": "Ninsefie",
@@ -8617,7 +8827,8 @@
     "Num": 98,
     "Progress": "released",
     "Images": {
-      "concept_PNGName": "cnsp_img98"
+      "concept_PNGName": "cnsp_img98",
+      "corefolder_PNGPath": ["emstk_corefolder98-1"]
     },
     "Name": "キュウヤ",
     "Name_EN": "Nineigha",
@@ -8712,7 +8923,8 @@
     "Num": 99,
     "Progress": "released",
     "Images": {
-      "concept_PNGName": "cnsp_img99"
+      "concept_PNGName": "cnsp_img99",
+      "corefolder_PNGPath": ["emstk_corefolder99-1", "emstk_corefolder99-2"]
     },
     "Name": "ツクモ",
     "Name_EN": "Thukumo",
@@ -8731,7 +8943,7 @@
     ],
     "Weight_kg": 43,
     "BustSize": "AA",
-    "TailsUnit": "キツネ(枝分かれ)型 2束x9本",
+    "TailsUnit": "キツネ(枝分かれ)型2束x9本",
     "Class": "マスターテールズ9",
     "Class_EN": "Master Tales 9",
     "FirstPersonCalling": "余",
@@ -8812,7 +9024,8 @@
     "Num": "2-alt",
     "Progress": "released",
     "Images": {
-      "concept_PNGName": "cnsp_img2-alt"
+      "concept_PNGName": "cnsp_img2-alt",
+      "corefolder_PNGPath": ["emstk_corefolder2alt-1"]
     },
     "Name": "ツギ\nバイナ",
     "Name_EN": "Binor\nTwicy",
@@ -8910,6 +9123,9 @@
   {
     "Num": "10-alt",
     "Progress": "stillTentative",
+    "Images": {
+      "corefolder_PNGPath": ["emstk_corefolder10alt-ondeck1"]
+    },
     "Name": "ツナイ\nディケ",
     "Name_EN": "Dicat",
     "ModelName": "ナンバーテールズ試作型10号機",
@@ -8978,7 +9194,8 @@
     "Num": "000",
     "Progress": "released",
     "Images": {
-      "concept_PNGName": "cnsp_img000"
+      "concept_PNGName": "cnsp_img000",
+      "corefolder_PNGPath": ["emstk_corefolder000-1"]
     },
     "Name": "チトセ",
     "Name_EN": "Thouser",
