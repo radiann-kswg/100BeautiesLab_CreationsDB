@@ -11,6 +11,31 @@
       "hashTag_JP": "“カバラの加護”(数秘的加護)について"
     },
     {
+      "hashTag": "Images",
+      "$type": [
+        {
+          "hashTag": "concept_PNGName",
+          "$type": "#PNGFileName",
+          "hashTag_JP": "設定原画PNGファイル名"
+        },
+        {
+          "hashTag": "conceptAlt_PNGName",
+          "$type": "#PNGFileName[]",
+          "hashTag_JP": "設定原画差分PNGファイル名"
+        },
+        {
+          "hashTag": "corefolder_PNGPath",
+          "$type": "#PNGFilePath[]",
+          "hashTag_JP": "コアフォルダ画像PNGファイル相対パス"
+        },
+        {
+          "hashTag": "designAlt_PNGPath",
+          "$type": "#PNGFilePath[]",
+          "hashTag_JP": "衣装差分などのPNGファイル相対パス"
+        }
+      ]
+    },
+    {
       "hashTag": "NumerospecStats",
       "$type": [
         {
@@ -93,31 +118,6 @@
           "$type": "$Index",
           "isForSecondary": false,
           "hashTag_JP": "番号"
-        },
-        {
-          "hashTag": "Images",
-          "$type": [
-            {
-              "hashTag": "concept_PNGName",
-              "$type": "#PNGFileName",
-              "hashTag_JP": "設定原画PNGファイル名"
-            },
-            {
-              "hashTag": "conceptAlt_PNGName",
-              "$type": "#PNGFileName[]",
-              "hashTag_JP": "設定原画差分PNGファイル名"
-            },
-            {
-              "hashTag": "corefolder_PNGPath",
-              "$type": "#PNGFilePath[]",
-              "hashTag_JP": "コアフォルダ画像PNGファイル相対パス"
-            },
-            {
-              "hashTag": "designAlt_PNGPath",
-              "$type": "#PNGFilePath[]",
-              "hashTag_JP": "衣装差分などのPNGファイル相対パス"
-            }
-          ]
         },
         {
           "hashTag": "Comments",

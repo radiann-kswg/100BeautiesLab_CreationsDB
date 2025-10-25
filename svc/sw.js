@@ -1,3 +1,12 @@
+// Service Worker alias under /svc to avoid ad-blockers on /api
+// Content mirrors ../api/sw.js; only scope path differs based on registration location.
+
+// Service Worker: static API router for GitHub Pages
+// - Intercepts <scope>/v1/* requests
+// - Reads JSON from /data/** and returns pseudo-API responses
+
+// 本SWはGitHub Pages上で動作する疑似APIです。/data配下の静的JSONを読み取り、
+// 参照解決（定義併載・インデックス解決）と最小限の検索をクライアント側で行います。
 // Service Worker: static API router for GitHub Pages
 // - Intercepts /api/v1/* requests
 // - Reads JSON from /data/** and returns pseudo-API responses
@@ -7,17 +16,9 @@
 // ブラウザSW前提のため、Nodeから直接importしてのテストは行いません。
 
 // Derive paths to work correctly under GitHub Pages project subpath (e.g., /<repo>/)
-const SCOPE_PATH = new URL('./', self.registration?.scope || self.location.href).pathname.replace(/\/$/, ''); // e.g., /repo/api or /api
+const SCOPE_PATH = new URL('./', self.registration?.scope || self.location.href).pathname.replace(/\/$/, ''); // e.g., /repo/api
 // Parent directory of the scope (strip last segment) => repository base
-// NOTE: When deployed at domain root (e.g., https://example.com/api), SCOPE_PATH becomes '/api'.
-// In that case, the parent must be '/' (not '//'). Handle this explicitly.
-function computeRepoBase(scopePath) {
-  const idx = scopePath.lastIndexOf('/');
-  // if no slash or only leading '/', fallback to root
-  if (idx <= 0) return '/';
-  return scopePath.substring(0, idx) + '/';
-}
-const REPO_BASE = computeRepoBase(SCOPE_PATH); // e.g., '/repo/' or '/'
+const REPO_BASE = (SCOPE_PATH.substring(0, SCOPE_PATH.lastIndexOf('/')) || '/') + '/'; // e.g., /repo/
 const API_PREFIX = `${SCOPE_PATH}/v1`; // e.g., /repo/api/v1
 const CACHE_NAME = '100bl-api-v1';
 const ORIGIN = self.location.origin;
@@ -99,8 +100,7 @@ async function listWorkDBs(workId) {
     { name: 'Secondary', file: 'db_Secondary.json' },
     { name: 'SemiPrimary', file: 'db_SemiPrimary.json' },
     { name: 'SelfSecondary', file: 'db_SelfSecondary.json' },
-    { name: 'Proxy', file: 'db_Proxy.json' },
-    { name: 'Mobs', file: 'db_Mobs.json' }
+    { name: 'Proxy', file: 'db_Proxy.json' }
   ];
   const exist = [];
   for (const c of candidates) {
@@ -159,8 +159,7 @@ async function readDB(workId, dbName) {
     Secondary: 'db_Secondary.json',
     SemiPrimary: 'db_SemiPrimary.json',
     SelfSecondary: 'db_SelfSecondary.json',
-    Proxy: 'db_Proxy.json',
-    Mobs: 'db_Mobs.json'
+    Proxy: 'db_Proxy.json'
   };
   // accept '#DB_Primary' style
   const norm = (dbName || '').replace(/^#?DB_/i, '').replace(/^[#]/, '');

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>創作キャラ・キャラシート | 100BeautiesLab Creations DB</title>
+  <meta name="description" content="/data の創作データベースを クライアント内API (/pages/v1 ほか) 経由で取得し、キャラシートとして表示します。" />
+    <link rel="stylesheet" href="./characters.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <h1>創作キャラ・キャラシート</h1>
+      <p class="lead">
+        本ページはクライアント内API（Service Worker）<code>/pages/v1/*</code>（優先）、<code>/svc/v1/*</code>（別名）、<code>/api/v1/*</code>（レガシー）のいずれかを用い、<code>/data/**</code> の情報からキャラシートを生成します。
+      </p>
+    </header>
+
+    <main class="container" id="app">
+      <section class="controls card">
+        <div class="control-row">
+          <label>
+            作品（Works）
+            <select id="select-work" aria-label="作品を選択"></select>
+          </label>
+          <label>
+            DB
+            <select id="select-db" aria-label="DBを選択"></select>
+          </label>
+          <label class="grow">
+            絞り込み（名前/番号 など 部分一致）
+            <input id="search-input" type="search" placeholder="例: ツグ / 2 / Unitta" />
+          </label>
+        </div>
+        <div class="control-row small">
+          <label><input id="chk-resolve" type="checkbox" checked /> 参照解決を有効化（推奨）</label>
+          <label><input id="chk-debug" type="checkbox" /> デバッグ情報</label>
+          <button id="btn-reset-sw" class="ghost" type="button" title="キャッシュとService Workerをリセットしてリロードします">キャッシュ/SWリセット</button>
+        </div>
+      </section>
+
+      <section id="list-view" class="card">
+        <h2>キャラクター一覧</h2>
+        <div id="list" class="grid-list" aria-live="polite"></div>
+        <div id="list-empty" class="muted" hidden>該当するキャラクターが見つかりませんでした。</div>
+      </section>
+
+      <section id="detail-view" class="card" hidden>
+        <div class="detail-header">
+          <button id="btn-back" class="ghost">← 一覧へ戻る</button>
+          <h2 id="detail-title">-</h2>
+        </div>
+        <div id="detail" class="detail"></div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <small>©ラジアン(柏木主税) / ©RadianN_kswg</small>
+    </footer>
+
+    <script src="./characters.js" type="module"></script>
+  </body>
+  </html>

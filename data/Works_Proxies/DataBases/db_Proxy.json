@@ -10,7 +10,7 @@
     "Name": "ラジアン(2代目)",
     "Name_EN": "RadianN (2nd Gen.)",
     "Images": {
-      "design_PNGName": "cnsp_imgRN2"
+      "design_PNGName": "dsgn_imgRN2"
     },
     "RaceType": "Warfox(Acquired)",
     "GenderType": { "value": "Arbitrary", "about_JP": "ただし中身は男性寄り" },
@@ -35,8 +35,8 @@
     "Name": "ラジアン(3代目)",
     "Name_EN": "RadianN (3nd Gen.)",
     "Images": {
-      "design_PNGName": "cnsp_imgRN3",
-      "designAlt_PNGName": ["cnsp_imgRN3-onCostume"]
+      "design_PNGName": "dsgn_imgRN3",
+      "designAlt_PNGName": ["dsgn_imgRN3-onCostume"]
     },
     "FormalName": "扇 四春.オーバーロール\n扇 四春.オーダーロール",
     "FormalName_EN": "Arch Fourthal.OvderRoll",
