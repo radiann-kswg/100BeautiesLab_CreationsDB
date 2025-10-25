@@ -15,6 +15,7 @@ async function ensureApiSW() {
     const reg = await navigator.serviceWorker.register(pageSwUrl, { scope: pageScope });
     API_BASE_REL = '../pages/';
     await navigator.serviceWorker.ready; // wait for activation
+    await waitForController(); // ensure this page is controlled before we start fetching
   } catch (_) {
     try {
       // 2) Fallback to /svc (alias path)
@@ -23,6 +24,7 @@ async function ensureApiSW() {
       const reg2 = await navigator.serviceWorker.register(svcSwUrl, { scope: svcScope });
       API_BASE_REL = '../svc/';
       await navigator.serviceWorker.ready;
+      await waitForController();
     } catch (_) {
       try {
         // 3) Final fallback to /api
@@ -31,6 +33,7 @@ async function ensureApiSW() {
         const reg3 = await navigator.serviceWorker.register(apiSwUrl, { scope: apiScope });
         API_BASE_REL = '../api/';
         await navigator.serviceWorker.ready;
+        await waitForController();
       } catch (_) {
         // no-op; fetch will 404 on GH Pages if SW not available
       }
@@ -60,6 +63,22 @@ function api(path) {
   // support path like 'v1/...' or '/v1/...'
   const p = String(path || '').replace(/^\/?/, '');
   return new URL(p, base).toString();
+}
+
+// Wait until this page is controlled by a Service Worker
+function waitForController(timeoutMs = 3000) {
+  if (navigator.serviceWorker.controller) return Promise.resolve();
+  return new Promise((resolve) => {
+    let done = false;
+    const to = setTimeout(() => { if (!done) { done = true; resolve(); } }, timeoutMs);
+    navigator.serviceWorker.addEventListener('controllerchange', () => {
+      if (!done) {
+        done = true;
+        clearTimeout(to);
+        resolve();
+      }
+    });
+  });
 }
 
 async function fetchJSON(url) {
@@ -286,6 +305,19 @@ function wireControls() {
     $('#detail-view').hidden = true;
     $('#list-view').hidden = false;
     setQS({ num: '' });
+  });
+
+  const btnReset = document.getElementById('btn-reset-sw');
+  if (btnReset) btnReset.addEventListener('click', async () => {
+    try {
+      const keys = await caches.keys();
+      await Promise.all(keys.map(k => caches.delete(k)));
+    } catch {}
+    try {
+      const regs = await navigator.serviceWorker.getRegistrations();
+      await Promise.all(regs.map(r => r.unregister()));
+    } catch {}
+    location.reload();
   });
 }
 
