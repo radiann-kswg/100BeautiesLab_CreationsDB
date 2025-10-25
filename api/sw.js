@@ -7,9 +7,17 @@
 // ブラウザSW前提のため、Nodeから直接importしてのテストは行いません。
 
 // Derive paths to work correctly under GitHub Pages project subpath (e.g., /<repo>/)
-const SCOPE_PATH = new URL('./', self.registration?.scope || self.location.href).pathname.replace(/\/$/, ''); // e.g., /repo/api
+const SCOPE_PATH = new URL('./', self.registration?.scope || self.location.href).pathname.replace(/\/$/, ''); // e.g., /repo/api or /api
 // Parent directory of the scope (strip last segment) => repository base
-const REPO_BASE = (SCOPE_PATH.substring(0, SCOPE_PATH.lastIndexOf('/')) || '/') + '/'; // e.g., /repo/
+// NOTE: When deployed at domain root (e.g., https://example.com/api), SCOPE_PATH becomes '/api'.
+// In that case, the parent must be '/' (not '//'). Handle this explicitly.
+function computeRepoBase(scopePath) {
+  const idx = scopePath.lastIndexOf('/');
+  // if no slash or only leading '/', fallback to root
+  if (idx <= 0) return '/';
+  return scopePath.substring(0, idx) + '/';
+}
+const REPO_BASE = computeRepoBase(SCOPE_PATH); // e.g., '/repo/' or '/'
 const API_PREFIX = `${SCOPE_PATH}/v1`; // e.g., /repo/api/v1
 const CACHE_NAME = '100bl-api-v1';
 const ORIGIN = self.location.origin;
