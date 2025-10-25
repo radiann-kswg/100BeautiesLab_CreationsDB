@@ -1,3 +1,12 @@
+// Service Worker alias under /svc to avoid ad-blockers on /api
+// Content mirrors ../api/sw.js; only scope path differs based on registration location.
+
+// Service Worker: static API router for GitHub Pages
+// - Intercepts <scope>/v1/* requests
+// - Reads JSON from /data/** and returns pseudo-API responses
+
+// 本SWはGitHub Pages上で動作する疑似APIです。/data配下の静的JSONを読み取り、
+// 参照解決（定義併載・インデックス解決）と最小限の検索をクライアント側で行います。
 // Service Worker: static API router for GitHub Pages
 // - Intercepts /api/v1/* requests
 // - Reads JSON from /data/** and returns pseudo-API responses

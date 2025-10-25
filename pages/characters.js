@@ -3,18 +3,28 @@
 const $ = (sel) => document.querySelector(sel);
 const $$ = (sel) => Array.from(document.querySelectorAll(sel));
 
-// Ensure SW for /api is installed so that /api/v1/* works on GitHub Pages
+// Ensure SW is installed so that API routes work on GitHub Pages
+let API_BASE_REL = '../svc/'; // prefer /svc to avoid ad-blockers targeting /api
 async function ensureApiSW() {
   if (!('serviceWorker' in navigator)) return;
   try {
-    // Register relative to this page, so it works under project subpath
-    const swUrl = new URL('../api/sw.js', location.href).toString();
-    const scopeUrl = new URL('../api/', location.href).pathname;
-    const reg = await navigator.serviceWorker.register(swUrl, { scope: scopeUrl });
-    await navigator.serviceWorker.ready;
-    // console.debug('API SW ready', reg.scope);
+    // Try /svc first (less likely to be blocked by ad blockers)
+    const svcSwUrl = new URL('../svc/sw.js', location.href).toString();
+    const svcScope = new URL('../svc/', location.href).pathname;
+    const reg = await navigator.serviceWorker.register(svcSwUrl, { scope: svcScope });
+    API_BASE_REL = '../svc/';
+    await navigator.serviceWorker.ready; // wait for activation
   } catch (_) {
-    // no-op; fetch will 404 on GH Pages if SW not available
+    try {
+      // Fallback to /api if /svc fails for some reason
+      const apiSwUrl = new URL('../api/sw.js', location.href).toString();
+      const apiScope = new URL('../api/', location.href).pathname;
+      const reg2 = await navigator.serviceWorker.register(apiSwUrl, { scope: apiScope });
+      API_BASE_REL = '../api/';
+      await navigator.serviceWorker.ready;
+    } catch (_) {
+      // no-op; fetch will 404 on GH Pages if SW not available
+    }
   }
 }
 
@@ -34,9 +44,9 @@ function setQS(next) {
   history.replaceState(null, '', `${location.pathname}?${qs.toString()}`);
 }
 
-// Build API URLs relative to ../api/
+// Build API URLs relative to API_BASE_REL
 function api(path) {
-  const base = new URL('../api/', location.href);
+  const base = new URL(API_BASE_REL, location.href);
   // support path like 'v1/...' or '/v1/...'
   const p = String(path || '').replace(/^\/?/, '');
   return new URL(p, base).toString();
