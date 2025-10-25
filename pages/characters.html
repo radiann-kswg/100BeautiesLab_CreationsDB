@@ -4,14 +4,14 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>創作キャラ・キャラシート | 100BeautiesLab Creations DB</title>
-    <meta name="description" content="/data の創作データベースを /api/v1 経由で取得し、キャラシートとして表示します。" />
+  <meta name="description" content="/data の創作データベースを クライアント内API (/pages/v1 ほか) 経由で取得し、キャラシートとして表示します。" />
     <link rel="stylesheet" href="./characters.css" />
   </head>
   <body>
     <header class="site-header">
       <h1>創作キャラ・キャラシート</h1>
       <p class="lead">
-        本ページはクライアント内API（Service Worker）<code>/api/v1/*</code> を利用して、<code>/data/**</code> の情報からキャラシートを生成します。
+        本ページはクライアント内API（Service Worker）<code>/pages/v1/*</code>（優先）、<code>/svc/v1/*</code>（別名）、<code>/api/v1/*</code>（レガシー）のいずれかを用い、<code>/data/**</code> の情報からキャラシートを生成します。
       </p>
     </header>
 

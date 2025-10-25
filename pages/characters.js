@@ -4,26 +4,36 @@ const $ = (sel) => document.querySelector(sel);
 const $$ = (sel) => Array.from(document.querySelectorAll(sel));
 
 // Ensure SW is installed so that API routes work on GitHub Pages
-let API_BASE_REL = '../svc/'; // prefer /svc to avoid ad-blockers targeting /api
+// Prefer /pages to avoid ad-blockers and ensure the page is controlled by its own SW
+let API_BASE_REL = '../pages/';
 async function ensureApiSW() {
   if (!('serviceWorker' in navigator)) return;
   try {
-    // Try /svc first (less likely to be blocked by ad blockers)
-    const svcSwUrl = new URL('../svc/sw.js', location.href).toString();
-    const svcScope = new URL('../svc/', location.href).pathname;
-    const reg = await navigator.serviceWorker.register(svcSwUrl, { scope: svcScope });
-    API_BASE_REL = '../svc/';
+    // 1) Register page-scoped SW that intercepts /pages/v1, /svc/v1, /api/v1
+    const pageSwUrl = new URL('./sw.js', location.href).toString();
+    const pageScope = new URL('./', location.href).pathname; // '/pages/'
+    const reg = await navigator.serviceWorker.register(pageSwUrl, { scope: pageScope });
+    API_BASE_REL = '../pages/';
     await navigator.serviceWorker.ready; // wait for activation
   } catch (_) {
     try {
-      // Fallback to /api if /svc fails for some reason
-      const apiSwUrl = new URL('../api/sw.js', location.href).toString();
-      const apiScope = new URL('../api/', location.href).pathname;
-      const reg2 = await navigator.serviceWorker.register(apiSwUrl, { scope: apiScope });
-      API_BASE_REL = '../api/';
+      // 2) Fallback to /svc (alias path)
+      const svcSwUrl = new URL('../svc/sw.js', location.href).toString();
+      const svcScope = new URL('../svc/', location.href).pathname;
+      const reg2 = await navigator.serviceWorker.register(svcSwUrl, { scope: svcScope });
+      API_BASE_REL = '../svc/';
       await navigator.serviceWorker.ready;
     } catch (_) {
-      // no-op; fetch will 404 on GH Pages if SW not available
+      try {
+        // 3) Final fallback to /api
+        const apiSwUrl = new URL('../api/sw.js', location.href).toString();
+        const apiScope = new URL('../api/', location.href).pathname;
+        const reg3 = await navigator.serviceWorker.register(apiSwUrl, { scope: apiScope });
+        API_BASE_REL = '../api/';
+        await navigator.serviceWorker.ready;
+      } catch (_) {
+        // no-op; fetch will 404 on GH Pages if SW not available
+      }
     }
   }
 }
