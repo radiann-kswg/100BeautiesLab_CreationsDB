@@ -91,7 +91,10 @@ self.addEventListener('fetch', (event) => {
 
 async function handleApiRequest(url, apiPrefix) {
   const path = url.pathname.substring(apiPrefix.length);
-  const seg = path.split('/').filter(Boolean); // ['', 'index'] → ['index']
+  // Decode each segment to support encoded work ids like %23Works_NumberTales
+  const seg = path.split('/').filter(Boolean).map(s => {
+    try { return decodeURIComponent(s); } catch { return s; }
+  });
   const resolveParam = url.searchParams.get('resolve');
   const resolve = resolveParam == null ? true : truthy(resolveParam);
   const debug = truthy(url.searchParams.get('debug'));
@@ -483,8 +486,69 @@ async function readWorkMeta(workId) { const metaPath = `/data/${workId.replace('
 async function readWorkType(workId) { try { return await fetchJSON(`/data/${workId.replace('#Works_', 'Works_')}/DataBases/db_type.json`); } catch (_) { return {}; } }
 async function readGeneralVarsDefGlobal() { try { const g = await readGlobalMeta(); return g?.General?.$VarsDef ?? {}; } catch (_) { return {}; } }
 async function readGeneralVarsDefWork(workId) { try { const meta = await readWorkMeta(workId); return meta?.General?.$VarsDef ?? {}; } catch (_) { return {}; } }
-async function readDB(workId, dbName) { const map = { Primary: 'db_Primary.json', Secondary: 'db_Secondary.json', SemiPrimary: 'db_SemiPrimary.json', SelfSecondary: 'db_SelfSecondary.json', Proxy: 'db_Proxy.json' }; const norm = (dbName || '').replace(/^#?DB_/i, '').replace(/^[#]/, ''); const key = capitalize(norm); const fname = map[key] || map[norm]; if (!fname) throw new Error(`Unknown dbName: ${dbName}`); const path = `/data/${workId.replace('#Works_', 'Works_')}/DataBases/${fname}`; return fetchJSON(path); }
-async function listWorkDBs(workId) { const base = `/data/${workId.replace('#Works_', 'Works_')}/DataBases`; const candidates = [ { name: 'Primary', file: 'db_Primary.json' }, { name: 'Secondary', file: 'db_Secondary.json' }, { name: 'SemiPrimary', file: 'db_SemiPrimary.json' }, { name: 'SelfSecondary', file: 'db_SelfSecondary.json' }, { name: 'Proxy', file: 'db_Proxy.json' } ]; const exist = []; for (const c of candidates) { if (await fileExists(`${base}/${c.file}`)) exist.push({ key: c.name, file: c.file }); } return exist; }
+async function readDB(workId, dbName) {
+  const norm = (dbName || '').replace(/^#?DB_/i, '').replace(/^[#]/, '');
+  const key = capitalize(norm);
+  const base = `/data/${workId.replace('#Works_', 'Works_')}/DataBases`;
+  // Known conventional names first
+  const conventional = {
+    Primary: 'db_Primary.json',
+    Secondary: 'db_Secondary.json',
+    SemiPrimary: 'db_SemiPrimary.json',
+    SelfSecondary: 'db_SelfSecondary.json',
+    Proxy: 'db_Proxy.json'
+  };
+  const candidates = [];
+  if (conventional[key]) candidates.push(conventional[key]);
+  if (conventional[norm]) candidates.push(conventional[norm]);
+  // Flexible fallback: db_<Key>.json / db_<norm>.json
+  candidates.push(`db_${key}.json`);
+  if (key.toLowerCase() !== norm.toLowerCase()) candidates.push(`db_${norm}.json`);
+  // Pick first existing file
+  for (const fname of candidates) {
+    if (await fileExists(`${base}/${fname}`)) {
+      return fetchJSON(`${base}/${fname}`);
+    }
+  }
+  throw new Error(`Unknown dbName or missing file for ${dbName}`);
+}
+async function listWorkDBs(workId) {
+  const base = `/data/${workId.replace('#Works_', 'Works_')}/DataBases`;
+  const exist = [];
+  // Prefer meta.Databases keys to be flexible
+  try {
+    const meta = await readWorkMeta(workId);
+    const dbs = Object.keys(meta?.Databases || {});
+    for (const dbKey of dbs) {
+      const norm = (dbKey || '').replace(/^#?DB_/i, '').replace(/^[#]/, '');
+      const name = capitalize(norm);
+      const candidates = [
+        `db_${name}.json`,
+        ...(name.toLowerCase() !== norm.toLowerCase() ? [`db_${norm}.json`] : [])
+      ];
+      for (const fname of candidates) {
+        if (await fileExists(`${base}/${fname}`)) {
+          exist.push({ key: name, file: fname });
+          break;
+        }
+      }
+    }
+  } catch {}
+  // Fallback to conventional probes if meta yielded nothing
+  if (exist.length === 0) {
+    const conventional = [
+      { name: 'Primary', file: 'db_Primary.json' },
+      { name: 'Secondary', file: 'db_Secondary.json' },
+      { name: 'SemiPrimary', file: 'db_SemiPrimary.json' },
+      { name: 'SelfSecondary', file: 'db_SelfSecondary.json' },
+      { name: 'Proxy', file: 'db_Proxy.json' }
+    ];
+    for (const c of conventional) {
+      if (await fileExists(`${base}/${c.file}`)) exist.push({ key: c.name, file: c.file });
+    }
+  }
+  return exist;
+}
 
 // --- Commons application and search ---
 function normalizeDBKeyForMeta(dbName) { const norm = (dbName || '').replace(/^#?DB_/i, ''); return `#DB_${capitalize(norm)}`; }
