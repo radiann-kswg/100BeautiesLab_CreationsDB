@@ -86,7 +86,12 @@ self.addEventListener('fetch', (event) => {
   if (url.origin !== self.location.origin) return;
   const matchedPrefix = API_PREFIXES.find(p => url.pathname.startsWith(p));
   if (!matchedPrefix) return; // ignore non-API paths
-  event.respondWith(handleApiRequest(url, matchedPrefix).catch(err => jsonResponse({ error: String(err) }, 500)));
+
+  console.log('🔄 SW intercepted request:', url.pathname, 'prefix:', matchedPrefix);
+  event.respondWith(handleApiRequest(url, matchedPrefix).catch(err => {
+    console.error('❌ SW API request failed:', url.pathname, err);
+    return jsonResponse({ error: String(err) }, 500);
+  }));
 });
 
 async function handleApiRequest(url, apiPrefix) {
@@ -95,6 +100,13 @@ async function handleApiRequest(url, apiPrefix) {
   const seg = path.split('/').filter(Boolean).map(s => {
     try { return decodeURIComponent(s); } catch { return s; }
   });
+
+  console.log('🎯 SW handling API request:', {
+    path: path,
+    segments: seg,
+    searchParams: Object.fromEntries(url.searchParams.entries())
+  });
+
   const resolveParam = url.searchParams.get('resolve');
   const resolve = resolveParam == null ? true : truthy(resolveParam);
   const debug = truthy(url.searchParams.get('debug'));
@@ -185,11 +197,26 @@ async function handleApiRequest(url, apiPrefix) {
     return jsonResponse({ work: workId, $VarsDefMerged: mergedVars, $DefTypeMerged: defTypeMerged, indexes });
   }
 
+  // /v1/meta (global metadata overview)
+  if (seg.length === 1 && seg[0] === 'meta') {
+    console.log('✅ SW serving /v1/meta endpoint');
+    const g = await readGlobalMeta();
+    return jsonResponse({ name: 'meta-global', time: new Date().toISOString(), meta: g });
+  }
+
   // /v1/works/{work}
   if (seg.length === 2 && seg[0] === 'works') {
     const workId = toWorkKey(seg[1]);
     const meta = await readWorkMeta(workId);
     return jsonResponse({ work: workId, meta });
+  }
+
+  // /v1/works/{work}/meta
+  if (seg.length === 3 && seg[0] === 'works' && seg[2] === 'meta') {
+    const workId = toWorkKey(seg[1]);
+    console.log('✅ SW serving /v1/works/{work}/meta endpoint for work:', workId);
+    const meta = await readWorkMeta(workId);
+    return jsonResponse({ work: workId, name: 'meta-work', time: new Date().toISOString(), meta });
   }
 
   // /v1/works/{work}/varsdef
@@ -281,6 +308,7 @@ async function handleApiRequest(url, apiPrefix) {
   // /v1/works/{work}/typedef and alias /deftype
   if (seg.length === 3 && seg[0] === 'works' && (seg[2] === 'typedef' || seg[2] === 'deftype')) {
     const workId = toWorkKey(seg[1]);
+    console.log('✅ SW serving /v1/works/{work}/typedef endpoint for work:', workId);
     const defType = await getWorkDefType(workId);
     return jsonResponse({ work: workId, name: 'typedef-work', time: new Date().toISOString(), typedef: defType });
   }
@@ -322,6 +350,7 @@ async function handleApiRequest(url, apiPrefix) {
     return jsonResponse({ work: workId, name: 'defs-work', time: new Date().toISOString(), varsdef, deftype, ...(merge ? { varsdefMerged: deepMerge(globalVars, varsdef) } : {}) });
   }
 
+  console.log('❌ SW: Unknown API path:', path, 'segments:', seg);
   return notFound('Unknown API path');
 }
 

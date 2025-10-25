@@ -28,6 +28,12 @@
 // Global initialization tracking to prevent duplicate setup
 let isInitialized = false;
 
+// Global metadata cache to reduce API calls
+let globalMetaCache = null;
+let globalTypeDefCache = null;
+let globalDefTypeCache = null;
+let workTypeDefCache = new Map();
+
 /**
  * Utility Functions
  */
@@ -53,34 +59,55 @@ let API_BASE_REL = '../pages/';
  * @returns {Promise<void>} Resolves when SW is ready and controlling the page
  */
 async function ensureApiSW() {
-  if (!('serviceWorker' in navigator)) return;
+  if (!('serviceWorker' in navigator)) {
+    console.warn('🚫 Service Worker not supported');
+    return;
+  }
+
+  console.log('🔧 Attempting Service Worker registration...');
+
   try {
     // 1) Register page-scoped SW that intercepts /pages/v1, /svc/v1, /api/v1
     const pageSwUrl = new URL('./sw.js', location.href).toString();
     const pageScope = new URL('./', location.href).pathname; // '/pages/'
+    console.log(`🌐 Registering primary SW: ${pageSwUrl} (scope: ${pageScope})`);
     const reg = await navigator.serviceWorker.register(pageSwUrl, { scope: pageScope });
+    console.log('✅ Primary SW registered successfully');
     API_BASE_REL = '../pages/';
     await navigator.serviceWorker.ready; // wait for activation
+    console.log('✅ Primary SW ready');
     await waitForController(); // ensure this page is controlled before we start fetching
-  } catch (_) {
+    console.log('✅ Primary SW controlling page');
+  } catch (err) {
+    console.warn('❌ Primary SW registration failed:', err);
     try {
       // 2) Fallback to /svc (alias path)
       const svcSwUrl = new URL('../svc/sw.js', location.href).toString();
       const svcScope = new URL('../svc/', location.href).pathname;
+      console.log(`🌐 Registering fallback SW: ${svcSwUrl} (scope: ${svcScope})`);
       const reg2 = await navigator.serviceWorker.register(svcSwUrl, { scope: svcScope });
+      console.log('✅ Fallback SW registered successfully');
       API_BASE_REL = '../svc/';
       await navigator.serviceWorker.ready;
+      console.log('✅ Fallback SW ready');
       await waitForController();
-    } catch (_) {
+      console.log('✅ Fallback SW controlling page');
+    } catch (err2) {
+      console.warn('❌ Fallback SW registration failed:', err2);
       try {
         // 3) Final fallback to /api
         const apiSwUrl = new URL('../api/sw.js', location.href).toString();
         const apiScope = new URL('../api/', location.href).pathname;
+        console.log(`🌐 Registering final fallback SW: ${apiSwUrl} (scope: ${apiScope})`);
         const reg3 = await navigator.serviceWorker.register(apiSwUrl, { scope: apiScope });
+        console.log('✅ Final fallback SW registered successfully');
         API_BASE_REL = '../api/';
         await navigator.serviceWorker.ready;
+        console.log('✅ Final fallback SW ready');
         await waitForController();
-      } catch (_) {
+        console.log('✅ Final fallback SW controlling page');
+      } catch (err3) {
+        console.error('❌ All SW registration attempts failed:', err3);
         // no-op; fetch will 404 on GH Pages if SW not available
       }
     }
@@ -160,15 +187,35 @@ function waitForController(timeoutMs = 3000) {
  */
 
 /**
- * Fetch and parse JSON from URL with error handling
+ * Fetch and parse JSON from URL with error handling and debug logging
  * @param {string} url - URL to fetch
  * @returns {Promise<Object>} Parsed JSON response
  * @throws {Error} If request fails or response is not OK
  */
 async function fetchJSON(url) {
-  const res = await fetch(url, { headers: { 'Accept': 'application/json' } });
-  if (!res.ok) throw new Error(`${res.status} ${url}`);
-  return res.json();
+  console.log('🌐 Fetching:', url);
+  try {
+    const res = await fetch(url, { headers: { 'Accept': 'application/json' } });
+    if (!res.ok) {
+      console.error('❌ Fetch failed:', {
+        status: res.status,
+        statusText: res.statusText,
+        url: url,
+        headers: Object.fromEntries(res.headers.entries())
+      });
+      throw new Error(`${res.status} ${res.statusText} ${url}`);
+    }
+    const data = await res.json();
+    console.log('✅ Fetch success:', url, 'Response size:', JSON.stringify(data).length, 'chars');
+    return data;
+  } catch (error) {
+    console.error('❌ Fetch error:', {
+      message: error.message,
+      url: url,
+      type: error.constructor.name
+    });
+    throw error;
+  }
 }
 
 /**
@@ -189,7 +236,7 @@ async function listWorks() {
  * @returns {Promise<Array>} Array of database names
  */
 async function listWorkDBs(workKey) {
-  const w = normalizeWorkKey(workKey);
+  const w = workKeyForAPI(workKey);
   const r = await fetchJSON(api(`v1/works/${encodeURIComponent(w)}/db`));
   return r.databases || [];
 }
@@ -204,7 +251,7 @@ async function listWorkDBs(workKey) {
  * @returns {Promise<Array>} Array of character records
  */
 async function fetchDB(workKey, dbName, { resolve = true, debug = false } = {}) {
-  const w = normalizeWorkKey(workKey);
+  const w = workKeyForAPI(workKey);
   const u = new URL(api(`v1/works/${encodeURIComponent(w)}/db/${encodeURIComponent(dbName)}`));
   if (resolve) u.searchParams.set('resolve', '1');
   if (debug) u.searchParams.set('debug', '1');
@@ -225,6 +272,17 @@ function normalizeWorkKey(id) {
   if (id.startsWith('#Works_')) return id;
   if (id.startsWith('Works_')) return `#${id}`;
   return `#Works_${id}`;
+}
+
+/**
+ * Convert work key to API-safe format for URL encoding
+ * Removes # prefix to avoid encoding issues in URLs
+ * @param {string} workKey - Work key like '#Works_NumberTales'
+ * @returns {string} API-safe work key like 'Works_NumberTales'
+ */
+function workKeyForAPI(workKey) {
+  const normalized = normalizeWorkKey(workKey);
+  return normalized.startsWith('#') ? normalized.substring(1) : normalized;
 }
 
 /**
@@ -263,27 +321,153 @@ function el(tag, props = {}, children = []) {
 }
 
 /**
- * Fetch work type metadata to understand image field definitions
+ * Fetch work metadata including Commons and database info
  * @param {string} workKey - Work key like '#Works_NumberTales'
- * @returns {Promise<Object>} Type definition object
+ * @returns {Promise<Object>} Work metadata object
  */
-async function fetchWorkTypeDef(workKey) {
-  const w = normalizeWorkKey(workKey);
-  const u = new URL(api(`v1/works/${encodeURIComponent(w)}/typedef`));
+async function fetchWorkMeta(workKey) {
+  const w = workKeyForAPI(workKey);
+  const u = new URL(api(`v1/works/${encodeURIComponent(w)}/meta`));
   try {
     const res = await fetchJSON(u.toString());
-    return res.typedef || [];
-  } catch {
-    return [];
+    return res.meta || {};
+  } catch (error) {
+    console.warn('⚠️ Failed to fetch work meta:', workKey, error.message);
+    return {};
   }
 }
 
 /**
- * Extract image field paths from type definitions
- * @param {Array} typeDef - DefType array from db_type.json
+ * Fetch global metadata including work definitions and index info
+ * @returns {Promise<Object>} Global metadata object
+ */
+async function fetchGlobalMeta() {
+  if (globalMetaCache) return globalMetaCache;
+
+  const u = new URL(api('v1/meta'));
+  try {
+    const res = await fetchJSON(u.toString());
+    globalMetaCache = res.meta || {};
+    return globalMetaCache;
+  } catch (error) {
+    console.warn('⚠️ Failed to fetch global meta:', error.message);
+    globalMetaCache = {};
+    return {};
+  }
+}
+
+/**
+ * Fetch global type definitions from ./data/db_type.json
+ * @returns {Promise<Object>} Global type definitions
+ */
+async function fetchGlobalTypeDef() {
+  if (globalTypeDefCache) return globalTypeDefCache;
+
+  const u = new URL(api('v1/typedef'));
+  try {
+    const res = await fetchJSON(u.toString());
+    globalTypeDefCache = res || {};
+    return globalTypeDefCache;
+  } catch (error) {
+    console.warn('⚠️ Failed to fetch global type def:', error.message);
+    globalTypeDefCache = {};
+    return {};
+  }
+}
+
+/**
+ * Fetch global definition types (enum definitions, etc.)
+ * @returns {Promise<Object>} Global definition types
+ */
+async function fetchGlobalDefType() {
+  if (globalDefTypeCache) return globalDefTypeCache;
+
+  const u = new URL(api('v1/deftype/global'));
+  try {
+    const res = await fetchJSON(u.toString());
+    globalDefTypeCache = res || {};
+    return globalDefTypeCache;
+  } catch (error) {
+    console.warn('⚠️ Failed to fetch global def type:', error.message);
+    globalDefTypeCache = {};
+    return {};
+  }
+}
+
+/**
+ * Fetch work-specific type definitions
+ * @param {string} workKey - Work key like '#Works_NumberTales'
+ * @returns {Promise<Object>} Work-specific type definitions
+ */
+async function fetchWorkTypeDef(workKey) {
+  const normalizedKey = normalizeWorkKey(workKey);
+
+  if (workTypeDefCache.has(normalizedKey)) {
+    return workTypeDefCache.get(normalizedKey);
+  }
+
+  const w = workKeyForAPI(workKey);
+  const u = new URL(api(`v1/works/${encodeURIComponent(w)}/typedef`));
+  try {
+    const res = await fetchJSON(u.toString());
+    const typeDef = res.typedef || res || {};
+    workTypeDefCache.set(normalizedKey, typeDef);
+    return typeDef;
+  } catch (error) {
+    console.warn('⚠️ Failed to fetch work type def:', workKey, error.message);
+    workTypeDefCache.set(normalizedKey, {});
+    return {};
+  }
+}/**
+ * Apply Commons data from work metadata to character records
+ * @param {Array} records - Array of character records
+ * @param {Object} workMeta - Work metadata containing Commons data
+ * @param {string} dbName - Database name for specific Commons
+ * @returns {Array} Records with Commons data applied
+ */
+function applyCommonsData(records, workMeta, dbName) {
+  if (!workMeta || !workMeta.Databases) return records;
+
+  const dbKey = `#DB_${dbName}`;
+  const dbMeta = workMeta.Databases[dbKey];
+  if (!dbMeta || !dbMeta._Commons) return records;
+
+  const commons = dbMeta._Commons;
+
+  return records.map(record => {
+    const enriched = { ...record };
+
+    // Apply Commons values for missing fields
+    Object.entries(commons).forEach(([key, value]) => {
+      if (enriched[key] === undefined || enriched[key] === null || enriched[key] === '') {
+        enriched[key] = value;
+      }
+    });
+
+    return enriched;
+  });
+}
+
+/**
+ * Get work index field information from global metadata
+ * @param {string} workKey - Work identifier
+ * @param {Object} globalMeta - Global metadata object
+ * @returns {Object|null} Index field definition or null
+ */
+function getWorkIndexField(workKey, globalMeta) {
+  if (!globalMeta || !globalMeta.CreationWorks) return null;
+
+  const workMeta = globalMeta.CreationWorks[workKey];
+  return workMeta ? workMeta.$DefType_Index : null;
+}
+
+/**
+ * Extract image field paths from type definitions with global fallback support
+ * @param {Array|Object} workTypeDef - Work-specific type definitions
+ * @param {Object} globalTypeDef - Global type definitions from ./data/db_type.json
  * @returns {Array} Array of image field specs like [{field: 'concept_PNGName', type: '#PNGFileName', label: '設定原画'}]
  */
-function extractImageFields(typeDef) {
+function extractImageFields(workTypeDef, globalTypeDef = {}) {
   const imageFields = [];
 
   const traverse = (items, path = []) => {
@@ -310,8 +494,249 @@ function extractImageFields(typeDef) {
     }
   };
 
-  traverse(typeDef);
+  // First process global type definitions
+  if (globalTypeDef.$DefType) {
+    traverse(globalTypeDef.$DefType);
+  }
+
+  // Then process work-specific definitions (will add/override)
+  if (Array.isArray(workTypeDef)) {
+    traverse(workTypeDef);
+  } else if (workTypeDef && workTypeDef.$DefType) {
+    traverse(workTypeDef.$DefType);
+  }
+
   return imageFields;
+}
+
+/**
+ * Build comprehensive field label mapping from global and work-specific type definitions
+ * @param {Array|Object} workTypeDef - Work-specific type definitions
+ * @param {Object} globalTypeDef - Global type definitions from ./data/db_type.json
+ * @returns {Object} Mapping of field names to Japanese labels
+ */
+function buildFieldLabelMap(workTypeDef, globalTypeDef = {}) {
+  const labelMap = {};
+
+  const traverse = (items, path = []) => {
+    if (!Array.isArray(items)) return;
+
+    for (const item of items) {
+      if (!item || typeof item !== 'object') continue;
+
+      const currentPath = item.hashTag ? [...path, item.hashTag] : path;
+
+      // Map this field if it has a Japanese label
+      if (item.hashTag && item.hashTag_JP) {
+        labelMap[item.hashTag] = item.hashTag_JP;
+        labelMap[currentPath.join('.')] = item.hashTag_JP;
+
+        // Also map short path versions for nested access
+        if (currentPath.length > 1) {
+          labelMap[currentPath.slice(-1)[0]] = item.hashTag_JP;
+        }
+      }
+
+      // Recursively process nested fields
+      if (Array.isArray(item.$type)) {
+        traverse(item.$type, currentPath);
+      } else if (item.$type && typeof item.$type === 'object' && !Array.isArray(item.$type)) {
+        // Handle single nested objects
+        traverse([item.$type], currentPath);
+      }
+    }
+  };
+
+  // First process global type definitions (lower priority)
+  if (globalTypeDef.$DefType) {
+    traverse(globalTypeDef.$DefType);
+  }
+
+  // Then process work-specific definitions (higher priority, will override)
+  if (Array.isArray(workTypeDef)) {
+    traverse(workTypeDef);
+  } else if (workTypeDef && workTypeDef.$DefType) {
+    traverse(workTypeDef.$DefType);
+  }
+
+  return labelMap;
+}
+
+/**
+ * Get localized field label from type definitions with global fallback support
+ * @param {string} fieldName - Field name like 'Name' or 'GenderType'
+ * @param {Object} labelMap - Field label mapping from buildFieldLabelMap
+ * @param {Object} workMeta - Work metadata for additional label lookup
+ * @param {Object} globalDefType - Global definition types for enum lookups
+ * @param {string} fallback - Fallback display name
+ * @returns {string} Localized label or fallback
+ */
+function getFieldLabel(fieldName, labelMap, workMeta = null, globalDefType = null, fallback = null) {
+  // Try exact match first
+  if (labelMap[fieldName]) return labelMap[fieldName];
+
+  // Try without path prefixes
+  const simpleName = fieldName.split('.').pop();
+  if (labelMap[simpleName]) return labelMap[simpleName];
+
+  // Try with common prefixes/suffixes
+  const variations = [
+    fieldName + '_JP',
+    fieldName.replace('_JP', ''),
+    fieldName.replace('_EN', ''),
+    fieldName.replace('Text', ''),
+    fieldName.replace('Type', ''),
+    fieldName.replace('Stats', ''),
+    fieldName.replace('Level', '')
+  ];
+
+  for (const variation of variations) {
+    if (labelMap[variation]) return labelMap[variation];
+  }
+
+  // Try lookup in global definition types
+  if (globalDefType && globalDefType.General && globalDefType.General.$VarsDef) {
+    const globalVarsDef = globalDefType.General.$VarsDef;
+
+    // Check enum definitions
+    if (globalVarsDef[`$EnumDef_${fieldName}`]) {
+      return globalVarsDef[`$EnumDef_${fieldName}`][`#${fieldName}`]?.[`${fieldName}_JP`] || fieldName;
+    }
+
+    // Check list definitions
+    if (globalVarsDef[`#List_${fieldName}`]) {
+      const listDef = globalVarsDef[`#List_${fieldName}`];
+      if (Array.isArray(listDef) && listDef[0] && listDef[0][`${fieldName}_JP`]) {
+        return `${fieldName}（複数選択可）`;
+      }
+    }
+  }
+
+  // Try lookup in work metadata
+  if (workMeta && workMeta.$VarsDef) {
+    const varsDef = workMeta.$VarsDef;
+    for (const section of Object.values(varsDef)) {
+      if (section && typeof section === 'object') {
+        for (const subSection of Object.values(section)) {
+          if (subSection && Array.isArray(subSection)) {
+            for (const item of subSection) {
+              if (item && (item.EffectText === fieldName || item.SafetyLevelText === fieldName)) {
+                return item.EffectText_JP || item.SafetyLevelText_JP || fieldName;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  return fallback || fieldName;
+}
+
+/**
+ * Format value for display with global definition type support
+ * @param {any} value - Value to format
+ * @param {Object} labelMap - Field label mapping for nested objects
+ * @param {Object} workMeta - Work metadata for lookup
+ * @param {Object} globalDefType - Global definition types for enum/list lookups
+ * @returns {string} Formatted display value
+ */
+function formatValueForDisplay(value, labelMap = {}, workMeta = null, globalDefType = null) {
+  if (value === null || value === undefined || value === '') {
+    return '';
+  }
+
+  if (typeof value === 'string' || typeof value === 'number' || typeof value === 'boolean') {
+    return String(value);
+  }
+
+  if (Array.isArray(value)) {
+    return value.map(item => formatValueForDisplay(item, labelMap, workMeta, globalDefType)).filter(v => v).join(', ');
+  }
+
+  if (typeof value === 'object') {
+    // Handle objects with common text patterns
+    if (value.Rank && value.EffectText) {
+      const effectLabel = value.EffectText_JP || value.EffectText;
+      return `${value.Rank} (${effectLabel})`;
+    }
+
+    if (value.Rank && value.SafetyLevelText) {
+      const safetyLabel = value.SafetyLevelText_JP || value.SafetyLevelText;
+      return `${value.Rank} (${safetyLabel})`;
+    }
+
+    if (value.Rank && value.AbilityText) {
+      const abilityLabel = value.AbilityText_JP || value.AbilityText;
+      return `${value.Rank} (${abilityLabel})`;
+    }
+
+    // Handle global definition lookups
+    if (globalDefType && globalDefType.General && globalDefType.General.$VarsDef) {
+      const varsDef = globalDefType.General.$VarsDef;
+
+      // Check if this matches a global enum pattern
+      for (const [enumKey, enumDef] of Object.entries(varsDef)) {
+        if (enumKey.startsWith('$EnumDef_') && typeof enumDef === 'object') {
+          for (const [valueKey, valueDef] of Object.entries(enumDef)) {
+            if (typeof valueDef === 'object' && Object.values(valueDef).some(v => v === value.GenderType || v === value.RaceType || v === value.Progress)) {
+              // Return Japanese version if available
+              const jpField = Object.keys(valueDef).find(k => k.endsWith('_JP'));
+              if (jpField && valueDef[jpField]) {
+                return valueDef[jpField];
+              }
+            }
+          }
+        }
+      }
+
+      // Check if this matches a global list pattern
+      for (const [listKey, listDef] of Object.entries(varsDef)) {
+        if (listKey.startsWith('#List_') && Array.isArray(listDef)) {
+          for (const item of listDef) {
+            if (typeof item === 'object' && Object.values(item).some(v => v === value.Area || v === value.Belonging || v === value.RaceType)) {
+              // Return Japanese version if available
+              const jpField = Object.keys(item).find(k => k.endsWith('_JP'));
+              if (jpField && item[jpField]) {
+                return item[jpField];
+              }
+            }
+          }
+        }
+      }
+    }
+
+    // Try Japanese version first, then English, then raw value
+    const jpKeys = Object.keys(value).filter(k => k.endsWith('_JP'));
+    if (jpKeys.length > 0) {
+      return jpKeys.map(k => value[k]).filter(v => v).join(', ');
+    }
+
+    const enKeys = Object.keys(value).filter(k => k.endsWith('_EN'));
+    if (enKeys.length > 0) {
+      return enKeys.map(k => value[k]).filter(v => v).join(', ');
+    }
+
+    // Try common text fields
+    const textFields = ['Text', 'Name', 'Label', 'Value', 'Material', 'Pattern'];
+    for (const field of textFields) {
+      if (value[field]) {
+        return String(value[field]);
+      }
+    }
+
+    // Fallback: show non-empty primitive values
+    const primitives = Object.entries(value)
+      .filter(([k, v]) => typeof v === 'string' || typeof v === 'number')
+      .filter(([k, v]) => v !== '' && v !== null && v !== undefined)
+      .map(([k, v]) => v);
+
+    if (primitives.length > 0) {
+      return primitives.join(', ');
+    }
+  }
+
+  return String(value);
 }
 
 /**
@@ -514,19 +939,30 @@ async function renderDetail(workId, rec) {
   const state = window.__CHAR_STATE__;
   const dbName = state ? state.db : 'Primary';
 
+  // Fetch comprehensive metadata for field localization
+  const [workTypeDef, globalTypeDef, globalDefType, workMeta, globalMeta] = await Promise.all([
+    fetchWorkTypeDef(workId),
+    fetchGlobalTypeDef(),
+    fetchGlobalDefType(),
+    fetchWorkMeta(workId),
+    fetchGlobalMeta()
+  ]);
+
+  // Build comprehensive field label mapping with global fallbacks
+  const fieldLabelMap = buildFieldLabelMap(workTypeDef, globalTypeDef);
+
   // Main poster image with database-specific path
   const poster = imageFromRecord(workId, rec, dbName);
 
-  // Build image gallery from type definitions
-  const typeDef = await fetchWorkTypeDef(workId);
-  const imageFields = extractImageFields(typeDef);
+  // Build image gallery from comprehensive type definitions
+  const imageFields = extractImageFields(workTypeDef, globalTypeDef);
   const galleryImages = buildImageGallery(workId, rec, imageFields, dbName);
 
   // Create left section with poster and gallery
   const imageSection = [
     poster ? el('img', { class: 'poster', src: poster, alt: 'poster' }) : el('div', { class: 'poster' }),
     galleryImages.length > 0 ? el('div', { class: 'image-gallery' }, [
-      el('h4', {}, ['画像ギャラリー']),
+      el('h4', {}, [getFieldLabel('Gallery', fieldLabelMap, workMeta, globalDefType, '画像ギャラリー')]),
       el('div', { class: 'image-grid' }, galleryImages.map(imgData =>
         el('div', { class: 'image-item' }, [
           el('img', { src: imgData.url, alt: imgData.alt, loading: 'lazy' }),
@@ -542,83 +978,98 @@ async function renderDetail(workId, rec) {
     el('div', { class: 'name' }, rec.Name || rec.FormalName || rec.Name_EN || '(No Name)'),
     (rec.Name_EN || rec.FormalName_EN) ? el('div', { class: 'name-en' }, rec.Name_EN || rec.FormalName_EN) : null,
     el('div', { class: 'row small' }, [
-      rec.Num != null ? el('span', { class: 'pill' }, ['Num', String(rec.Num)]) : null,
-      rec.ModelNumber ? el('span', { class: 'pill' }, ['Model', rec.ModelNumber]) : null,
-      rec.Progress ? el('span', { class: 'pill' }, ['Progress', rec.Progress]) : null
+      rec.Num != null ? el('span', { class: 'pill' }, [getFieldLabel('Num', fieldLabelMap, workMeta, 'Num'), String(rec.Num)]) : null,
+      rec.ModelNumber ? el('span', { class: 'pill' }, [getFieldLabel('ModelNumber', fieldLabelMap, workMeta, 'Model'), rec.ModelNumber]) : null,
+      rec.Progress ? el('span', { class: 'pill' }, [getFieldLabel('Progress', fieldLabelMap, workMeta, 'Progress'), rec.Progress]) : null
     ])
   ]);
 
-  const basic = kvTable(rec, [
-    ['正式名', rec.FormalName || ''],
-    ['正式名(EN)', rec.FormalName_EN || ''],
-    ['開発名/通称', rec.ModelName || rec.CodeName || ''],
-    ['SPコード', rec.SPCodeName || rec.SPCodeName_EN || ''],
-    ['性別', rec.GenderType_JP || rec.GenderType || ''],
-    ['身長', rec.Height_cm != null ? `${rec.Height_cm} cm` : ''],
-    ['体重', rec.Weight_kg != null ? `${rec.Weight_kg} kg` : ''],
-    ['設定年齢', rec.ConceptAge != null ? `${rec.ConceptAge}` : ''],
-    ['クラス', rec.Class || rec.Class_EN || ''],
-  ]);
+  // Build basic info table with localized field names
+  const basicFields = [
+    ['FormalName', rec.FormalName || ''],
+    ['FormalName_EN', rec.FormalName_EN || ''],
+    ['ModelName', rec.ModelName || rec.CodeName || ''],
+    ['SPCodeName', rec.SPCodeName || rec.SPCodeName_EN || ''],
+    ['GenderType', rec.GenderType_JP || rec.GenderType || ''],
+    ['Height_cm', rec.Height_cm != null ? `${rec.Height_cm} cm` : ''],
+    ['Weight_kg', rec.Weight_kg != null ? `${rec.Weight_kg} kg` : ''],
+    ['ConceptAge', rec.ConceptAge != null ? `${rec.ConceptAge}` : ''],
+    ['Class', rec.Class || rec.Class_EN || ''],
+  ].filter(([key, value]) => value); // Only show fields with values
 
-  // Abilities
+  const basic = kvTable(rec, basicFields.map(([key, value]) => [
+    getFieldLabel(key, fieldLabelMap, workMeta, globalDefType, key),
+    value
+  ]));
+
+  // Abilities with localized labels
   const ability = rec.AbilityStats || {};
   const abilityGrid = el('div', { class: 'kv-grid' }, Object.entries(ability).map(([k, v]) => {
-    const rank = (v && (v.Rank || v.rank)) || '';
-    const text = (v && (v.AbilityText || v.AbilityText_EN)) || '';
-    return el('div', { class: 'tag' }, [`${k}: ${rank}` + (text ? ` (${text})` : '')]);
+    const fieldLabel = getFieldLabel(`AbilityStats.${k}`, fieldLabelMap, workMeta, globalDefType, k);
+    const displayValue = formatValueForDisplay(v, fieldLabelMap, workMeta, globalDefType);
+    return el('div', { class: 'tag' }, [`${fieldLabel}: ${displayValue}`]);
   }));
 
-  // Effect/Safety
+  // Effect/Safety with localized labels
   const numStats = rec.NumerospecStats || rec.ArcanumspecStats || rec.BeastspecStats || {};
   const eff = numStats.EffectStats || {};
   const effGrid = el('div', { class: 'kv-grid' }, Object.entries(eff).map(([k, v]) => {
-    const r = (v && (v.Rank || '')) || '';
-    const txt = (v && (v.EffectText || v.EffectText_EN)) || '';
-    return el('div', { class: 'tag' }, [`${k}: ${r || txt || '-'}`]);
+    const fieldLabel = getFieldLabel(`EffectStats.${k}`, fieldLabelMap, workMeta, globalDefType, k);
+    const displayValue = formatValueForDisplay(v, fieldLabelMap, workMeta, globalDefType);
+    return el('div', { class: 'tag' }, [`${fieldLabel}: ${displayValue}`]);
   }));
+
   const safety = numStats.SafetyLevel || {};
-  const safetyRow = (safety && (safety.SafetyLevelText || safety.SafetyLevelText_EN || safety.Rank)) ? el('div', { class: 'tag' }, [
-    `Safety: ${safety.Rank || safety.SafetyLevelText || safety.SafetyLevelText_EN}`
+  const safetyRow = safety && Object.keys(safety).length > 0 ? el('div', { class: 'tag' }, [
+    `${getFieldLabel('SafetyLevel', fieldLabelMap, workMeta, globalDefType, 'Safety')}: ${formatValueForDisplay(safety, fieldLabelMap, workMeta, globalDefType)}`
   ]) : null;
 
-  // SpecType
+  // SpecType with localized labels
   const specType = rec.SpecType || {};
   const specNodes = [];
-  if (specType.Material) specNodes.push(el('div', { class: 'tag' }, ['Material: ', Array.isArray(specType.Material) ? specType.Material.map(m => m.Material || String(m)).join(', ') : (specType.Material.Material || String(specType.Material))]));
-  if (specType.ActionType) {
-    const a = specType.ActionType;
-    const aLabel = [a.KinematicOrStatic && (a.KinematicOrStatic.KinematicOrStatic_JP || a.KinematicOrStatic.KinematicOrStatic || String(a.KinematicOrStatic)), a.RoleType && (a.RoleType.RoleType_JP || a.RoleType.RoleType || String(a.RoleType))].filter(Boolean).join(' / ');
-    if (aLabel) specNodes.push(el('div', { class: 'tag' }, ['Action: ', aLabel]));
+  if (specType.Material) {
+    const materialLabel = getFieldLabel('SpecType.Material', fieldLabelMap, workMeta, globalDefType, 'Material');
+    const materialValue = formatValueForDisplay(specType.Material, fieldLabelMap, workMeta, globalDefType);
+    specNodes.push(el('div', { class: 'tag' }, [materialLabel + ': ', materialValue]));
   }
-  if (specType.DualizePattern) specNodes.push(el('div', { class: 'tag' }, ['Dualize: ', specType.DualizePattern.Pattern || String(specType.DualizePattern)]));
+  if (specType.ActionType) {
+    const actionLabel = getFieldLabel('SpecType.ActionType', fieldLabelMap, workMeta, globalDefType, 'Action');
+    const actionValue = formatValueForDisplay(specType.ActionType, fieldLabelMap, workMeta, globalDefType);
+    if (actionValue) specNodes.push(el('div', { class: 'tag' }, [actionLabel + ': ', actionValue]));
+  }
+  if (specType.DualizePattern) {
+    const dualizeLabel = getFieldLabel('SpecType.DualizePattern', fieldLabelMap, workMeta, globalDefType, 'Dualize');
+    const dualizeValue = formatValueForDisplay(specType.DualizePattern, fieldLabelMap, workMeta, globalDefType);
+    specNodes.push(el('div', { class: 'tag' }, [dualizeLabel + ': ', dualizeValue]));
+  }
 
-  // Belonging/Area/Day
-  const belong = rec.Belonging ? (Array.isArray(rec.Belonging) ? rec.Belonging.map(b => b.Belonging || String(b)).join(', ') : (rec.Belonging.Belonging || rec.Belonging)) : '';
-  const area = rec.Area ? (rec.Area.Area_EN || rec.Area.Area || rec.Area) : '';
+  // Belonging/Area/Day with localized labels
+  const belong = formatValueForDisplay(rec.Belonging, fieldLabelMap, workMeta, globalDefType);
+  const area = formatValueForDisplay(rec.Area, fieldLabelMap, workMeta, globalDefType);
   const days = Array.isArray(rec.AnivDay) ? rec.AnivDay.map(d => {
     const mm = d?.Day?.Month != null ? String(d.Day.Month) : '';
     const dd = d?.Day?.DayOfMonth != null ? String(d.Day.DayOfMonth) : '';
     const date = (mm && dd) ? `${mm}/${dd}` : (mm || dd);
     const about = d?.DayAbout ? ` ${d.DayAbout}` : '';
     return `${date}${about}`;
-  }) : [];
+  }).filter(d => d.trim()) : [];
 
   const right = el('div', {}, [
     titleRow,
-    el('div', { class: 'section' }, [el('h3', {}, ['基本情報']), basic]),
-    Object.keys(ability).length ? el('div', { class: 'section' }, [el('h3', {}, ['能力']), abilityGrid]) : null,
-    Object.keys(eff).length || safetyRow ? el('div', { class: 'section' }, [el('h3', {}, ['効果/安全度']), effGrid, safetyRow]) : null,
+    el('div', { class: 'section' }, [el('h3', {}, [getFieldLabel('BasicInfo', fieldLabelMap, workMeta, globalDefType, '基本情報')]), basic]),
+    Object.keys(ability).length ? el('div', { class: 'section' }, [el('h3', {}, [getFieldLabel('AbilityStats', fieldLabelMap, workMeta, globalDefType, '能力')]), abilityGrid]) : null,
+    Object.keys(eff).length || safetyRow ? el('div', { class: 'section' }, [el('h3', {}, [getFieldLabel('EffectStats', fieldLabelMap, workMeta, globalDefType, '効果/安全度')]), effGrid, safetyRow]) : null,
     (specNodes.length || belong || area || days.length) ? el('div', { class: 'section' }, [
       el('h3', {}, ['所属/型/日付など']),
       kvTable({}, [
-        belong ? ['所属', belong] : null,
-        area ? ['地域', area] : null,
-        specNodes.length ? ['型情報', el('div', {}, specNodes)] : null,
-        days.length ? ['記念日', days.join(' / ')] : null,
+        belong ? [getFieldLabel('Belonging', fieldLabelMap, workMeta, globalDefType, '所属'), belong] : null,
+        area ? [getFieldLabel('Area', fieldLabelMap, workMeta, globalDefType, '地域'), area] : null,
+        specNodes.length ? [getFieldLabel('SpecType', fieldLabelMap, workMeta, globalDefType, '型情報'), el('div', {}, specNodes)] : null,
+        days.length ? [getFieldLabel('AnivDay', fieldLabelMap, workMeta, globalDefType, '記念日'), days.join(' / ')] : null,
       ].filter(Boolean))
     ]) : null,
     rec.Summary ? el('div', { class: 'section' }, [
-      el('h3', {}, ['概要']),
+      el('h3', {}, [getFieldLabel('Summary', fieldLabelMap, workMeta, globalDefType, '概要')]),
       el('div', {}, rec.Summary.split('\n').map(s => el('p', {}, [s])))
     ]) : null,
     rec.Relation && (rec.Relation.Related || rec.Relation.Commented) ? renderRelations(rec.Relation) : null
@@ -723,13 +1174,22 @@ function wireControls() {
 
     window.__eventHandlers.resetClick = async () => {
       try {
+        // Clear all browser caches
         const keys = await caches.keys();
         await Promise.all(keys.map(k => caches.delete(k)));
       } catch {}
       try {
+        // Unregister all service workers
         const regs = await navigator.serviceWorker.getRegistrations();
         await Promise.all(regs.map(r => r.unregister()));
       } catch {}
+
+      // Clear in-memory metadata caches
+      globalMetaCache = null;
+      globalTypeDefCache = null;
+      globalDefTypeCache = null;
+      workTypeDefCache.clear();
+
       location.reload();
     };
 
@@ -775,8 +1235,18 @@ async function reload() {
   const db = $('#select-db').value || 'Primary';
   const resolve = $('#chk-resolve').checked;
   const debug = $('#chk-debug').checked;
-  const res = await fetchDB(workId, db, { resolve, debug });
-  const recs = res.records || [];
+
+  // Fetch character data and metadata in parallel
+  const [res, workMeta] = await Promise.all([
+    fetchDB(workId, db, { resolve, debug }),
+    fetchWorkMeta(workId)
+  ]);
+
+  let recs = res.records || [];
+
+  // Apply Commons data for missing fields
+  recs = applyCommonsData(recs, workMeta, db);
+
   window.__CHAR_STATE__ = { workId, db, resolve, debug, records: recs };
   $('#list-view').hidden = false;
   $('#detail-view').hidden = true;
