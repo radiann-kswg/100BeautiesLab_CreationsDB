@@ -363,9 +363,10 @@ async function fetchGlobalMeta() {
 async function fetchGlobalTypeDef() {
   if (globalTypeDefCache) return globalTypeDefCache;
 
-  const u = new URL(api('v1/typedef'));
+  const u = new URL(api('v1/typedef/global'));
   try {
     const res = await fetchJSON(u.toString());
+    console.log('🌐 Global TypeDef response:', res);
     globalTypeDefCache = res || {};
     return globalTypeDefCache;
   } catch (error) {
@@ -410,6 +411,7 @@ async function fetchWorkTypeDef(workKey) {
   const u = new URL(api(`v1/works/${encodeURIComponent(w)}/typedef`));
   try {
     const res = await fetchJSON(u.toString());
+    console.log('🏢 Work TypeDef response for', workKey, ':', res);
     const typeDef = res.typedef || res || {};
     workTypeDefCache.set(normalizedKey, typeDef);
     return typeDef;
@@ -518,7 +520,12 @@ function extractImageFields(workTypeDef, globalTypeDef = {}) {
 function buildFieldLabelMap(workTypeDef, globalTypeDef = {}) {
   const labelMap = {};
 
-  const traverse = (items, path = []) => {
+  console.log('🏷️ Building field label map:', {
+    globalTypeDef: globalTypeDef,
+    workTypeDef: workTypeDef
+  });
+
+  const traverse = (items, path = [], source = '') => {
     if (!Array.isArray(items)) return;
 
     for (const item of items) {
@@ -531,6 +538,8 @@ function buildFieldLabelMap(workTypeDef, globalTypeDef = {}) {
         labelMap[item.hashTag] = item.hashTag_JP;
         labelMap[currentPath.join('.')] = item.hashTag_JP;
 
+        console.log(`📝 Mapped field (${source}):`, item.hashTag, '→', item.hashTag_JP);
+
         // Also map short path versions for nested access
         if (currentPath.length > 1) {
           labelMap[currentPath.slice(-1)[0]] = item.hashTag_JP;
@@ -539,25 +548,37 @@ function buildFieldLabelMap(workTypeDef, globalTypeDef = {}) {
 
       // Recursively process nested fields
       if (Array.isArray(item.$type)) {
-        traverse(item.$type, currentPath);
+        traverse(item.$type, currentPath, source);
       } else if (item.$type && typeof item.$type === 'object' && !Array.isArray(item.$type)) {
         // Handle single nested objects
-        traverse([item.$type], currentPath);
+        traverse([item.$type], currentPath, source);
       }
     }
   };
 
   // First process global type definitions (lower priority)
-  if (globalTypeDef.$DefType) {
-    traverse(globalTypeDef.$DefType);
+  if (globalTypeDef && globalTypeDef.global) {
+    console.log('🌐 Processing global typedef:', globalTypeDef.global);
+    traverse(globalTypeDef.global, [], 'global');
+  } else if (globalTypeDef && globalTypeDef.$DefType) {
+    console.log('🌐 Processing global $DefType:', globalTypeDef.$DefType);
+    traverse(globalTypeDef.$DefType, [], 'global');
   }
 
   // Then process work-specific definitions (higher priority, will override)
   if (Array.isArray(workTypeDef)) {
-    traverse(workTypeDef);
+    console.log('🏢 Processing work typedef array:', workTypeDef);
+    traverse(workTypeDef, [], 'work');
+  } else if (workTypeDef && workTypeDef.typedef) {
+    console.log('🏢 Processing work typedef.typedef:', workTypeDef.typedef);
+    traverse(workTypeDef.typedef, [], 'work');
   } else if (workTypeDef && workTypeDef.$DefType) {
-    traverse(workTypeDef.$DefType);
+    console.log('🏢 Processing work $DefType:', workTypeDef.$DefType);
+    traverse(workTypeDef.$DefType, [], 'work');
   }
+
+  console.log('🏷️ Final label map:', labelMap);
+  return labelMap;
 
   return labelMap;
 }
