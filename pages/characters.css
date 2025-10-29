@@ -352,6 +352,86 @@ img {
   background: #0f1320;
 }
 
+/* Enhanced image display styles for Phase 1 */
+.thumb.placeholder, .poster.placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--card);
+  border: 2px dashed var(--border);
+  color: var(--muted);
+  font-size: 12px;
+  text-align: center;
+}
+
+.thumb.placeholder {
+  width: 100%;
+  aspect-ratio: 4/3;
+  min-height: 100px;
+}
+
+.poster.placeholder {
+  width: 100%;
+  aspect-ratio: 4/3;
+  min-height: 200px;
+}
+
+.no-images {
+  padding: 20px;
+  text-align: center;
+  color: var(--muted);
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+
+/* Enhanced chip styles */
+.chip.accent {
+  background: var(--accent);
+  color: white;
+  font-weight: 600;
+}
+
+.meta .chip {
+  margin-right: 4px;
+  margin-bottom: 4px;
+}
+
+/* Image loading improvements */
+.image-item img {
+  transition: opacity 0.3s ease;
+}
+
+.image-item img[loading=lazy] {
+  opacity: 0.7;
+}
+
+.image-item img[loading=lazy]:loaded {
+  opacity: 1;
+}
+
+/* Image gallery improvements */
+.image-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.image-more button {
+  background: var(--accent-2);
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 12px;
+  transition: background 0.2s ease;
+}
+.image-more button:hover {
+  background: #8a5fff;
+}
+
 .kv-table {
   border-collapse: collapse;
   border: 1px solid var(--border);

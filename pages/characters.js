@@ -494,69 +494,130 @@ function getWorkIndexField(workKey, globalMeta) {
 }
 
 /**
- * Extract image field paths from type definitions with global fallback support
+ * Enhanced dynamic image field extraction from type definitions
+ * Supports comprehensive image field detection across all works
  * @param {Array|Object} workTypeDef - Work-specific type definitions
  * @param {Object} globalTypeDef - Global type definitions from ./data/db_type.json
- * @returns {Array} Array of image field specs like [{field: 'concept_PNGName', type: '#PNGFileName', label: '設定原画'}]
+ * @returns {Array} Array of image field specs like [{field: 'concept_PNGName', type: '#PNGFileName', label: '設定原画', category: 'concept', priority: 1}]
  */
 function extractImageFields(workTypeDef, globalTypeDef = {}) {
   const imageFields = [];
+  const processedFields = new Set(); // Avoid duplicates
 
-  console.log('🖼️ Extracting image fields from type definitions:', { workTypeDef, globalTypeDef });
+  console.log('🖼️ Enhanced image field extraction:', { workTypeDef, globalTypeDef });
 
-  const traverse = (items, path = []) => {
+  // Image field categorization for better organization
+  const getImageCategory = (fieldName, type) => {
+    const field = fieldName.toLowerCase();
+    if (field.includes('concept')) return { category: 'concept', priority: 1 };
+    if (field.includes('design')) return { category: 'design', priority: 2 };
+    if (field.includes('arts') || field.includes('art')) return { category: 'arts', priority: 3 };
+    if (field.includes('card')) return { category: 'card', priority: 2 };
+    if (field.includes('catalog')) return { category: 'catalog', priority: 4 };
+    if (field.includes('core')) return { category: 'core', priority: 2 };
+    if (field.includes('general')) return { category: 'general', priority: 5 };
+    return { category: 'other', priority: 6 };
+  };
+
+  // Enhanced image type detection
+  const isImageField = (fieldName, type) => {
+    if (!fieldName || !type) return false;
+    const field = fieldName.toLowerCase();
+    const typeStr = String(type).toLowerCase();
+
+    // Direct image type indicators
+    if (typeStr.includes('png') || typeStr.includes('jpg') || typeStr.includes('jpeg') ||
+        typeStr.includes('gif') || typeStr.includes('webp') || typeStr.includes('image') ||
+        typeStr.includes('photo') || typeStr.includes('picture')) return true;
+
+    // Field name indicators
+    if (field.includes('image') || field.includes('img') || field.includes('png') ||
+        field.includes('photo') || field.includes('picture') || field.includes('poster') ||
+        field.includes('concept') || field.includes('design') || field.includes('arts') ||
+        field.includes('card') || field.includes('catalog')) return true;
+
+    return false;
+  };
+
+  const traverse = (items, path = [], source = '') => {
     if (!Array.isArray(items)) return;
 
     for (const item of items) {
       if (!item || typeof item !== 'object') continue;
 
+      const currentPath = [...path];
+      if (item.hashTag) currentPath.push(item.hashTag);
+
+      // Process Images container
       if (item.hashTag === 'Images' && Array.isArray(item.$type)) {
-        console.log('🎯 Found Images container with children:', item.$type);
-        // Found Images container, extract its children
+        console.log(`🎯 Found Images container (${source}):`, item.$type);
         for (const child of item.$type) {
-          if (child.hashTag && (child.hashTag_JP || child.hashTag)) {
+          if (child.hashTag && !processedFields.has(child.hashTag)) {
+            const { category, priority } = getImageCategory(child.hashTag, child.$type);
             const fieldSpec = {
               field: child.hashTag,
               type: child.$type || '#PNGFileName',
               label: child.hashTag_JP || child.hashTag,
-              path: [...path, 'Images', child.hashTag]
+              path: ['Images', child.hashTag],
+              category,
+              priority,
+              source
             };
             imageFields.push(fieldSpec);
-            console.log('✅ Added image field:', fieldSpec);
+            processedFields.add(child.hashTag);
+            console.log(`✅ Added image field (${source}):`, fieldSpec);
           }
         }
-      } else if (Array.isArray(item.$type)) {
-        traverse(item.$type, [...path, item.hashTag]);
       }
-      // Also check for potential image fields in top-level items
-      else if (item.hashTag && typeof item.$type === 'string' &&
-               (item.$type.includes('PNG') || item.$type.includes('Image') || item.$type.includes('Photo'))) {
+      // Process standalone image fields
+      else if (item.hashTag && isImageField(item.hashTag, item.$type) && !processedFields.has(item.hashTag)) {
+        const { category, priority } = getImageCategory(item.hashTag, item.$type);
         const fieldSpec = {
           field: item.hashTag,
           type: item.$type,
           label: item.hashTag_JP || item.hashTag,
-          path: [...path, item.hashTag]
+          path: currentPath,
+          category,
+          priority,
+          source
         };
         imageFields.push(fieldSpec);
-        console.log('✅ Added standalone image field:', fieldSpec);
+        processedFields.add(item.hashTag);
+        console.log(`✅ Added standalone image field (${source}):`, fieldSpec);
+      }
+      // Recursively process nested structures
+      else if (Array.isArray(item.$type)) {
+        traverse(item.$type, currentPath, source);
       }
     }
   };
 
-  // First process global type definitions
-  if (globalTypeDef.$DefType) {
+  // Process global type definitions first (lower priority)
+  if (globalTypeDef && globalTypeDef.$DefType) {
     console.log('🌐 Processing global type definitions...');
-    traverse(globalTypeDef.$DefType);
+    traverse(globalTypeDef.$DefType, [], 'global');
+  } else if (globalTypeDef && globalTypeDef.global) {
+    console.log('🌐 Processing global typedef response...');
+    traverse(globalTypeDef.global, [], 'global');
   }
 
-  // Then process work-specific definitions (will add/override)
+  // Process work-specific definitions (higher priority, will override)
   if (Array.isArray(workTypeDef)) {
-    console.log('🏗️ Processing work-specific type definitions (array)...');
-    traverse(workTypeDef);
+    console.log('� Processing work type definitions (array)...');
+    traverse(workTypeDef, [], 'work');
+  } else if (workTypeDef && workTypeDef.typedef) {
+    console.log('� Processing work typedef.typedef...');
+    traverse(workTypeDef.typedef, [], 'work');
   } else if (workTypeDef && workTypeDef.$DefType) {
-    console.log('🏗️ Processing work-specific type definitions (object)...');
-    traverse(workTypeDef.$DefType);
+    console.log('🏢 Processing work $DefType...');
+    traverse(workTypeDef.$DefType, [], 'work');
   }
+
+  // Sort by priority and category for better organization
+  imageFields.sort((a, b) => {
+    if (a.priority !== b.priority) return a.priority - b.priority;
+    return a.field.localeCompare(b.field);
+  });
 
   console.log('🖼️ Final extracted image fields:', imageFields);
   return imageFields;
@@ -812,86 +873,116 @@ function formatValueForDisplay(value, labelMap = {}, workMeta = null, globalDefT
 }
 
 /**
- * Build image URLs from record data based on type definitions
- * Creates gallery items with appropriate URLs based on database folder
+ * Enhanced image gallery building with dynamic field resolution
+ * Creates gallery items with appropriate URLs based on extracted image fields
  * @param {string} workId - Work ID
  * @param {Object} record - Character record
- * @param {Array} imageFields - Image field specifications
+ * @param {Array} imageFields - Image field specifications from extractImageFields
  * @param {string} dbName - Database name (e.g., 'Primary', 'Secondary', etc.)
- * @returns {Array} Array of {url, caption, type} objects
+ * @returns {Array} Array of {url, caption, type, alt, category} objects
  */
 function buildImageGallery(workId, record, imageFields, dbName = 'Primary') {
   const wdir = workId.replace('#Works_', 'Works_');
   const images = [];
   const imgData = record.Images || {};
 
-  console.log('🖼️ Building image gallery:', { workId, dbName, imageFields, imgData });
+  console.log('🖼️ Enhanced gallery building:', {
+    workId,
+    dbName,
+    fieldCount: imageFields.length,
+    recordName: record.Name || record.FormalName || 'Unknown',
+    imgData
+  });
 
-  for (const field of imageFields) {
+  // Sort image fields by priority for consistent ordering
+  const sortedFields = [...imageFields].sort((a, b) => {
+    if (a.priority !== b.priority) return a.priority - b.priority;
+    return a.field.localeCompare(b.field);
+  });
+
+  for (const field of sortedFields) {
     const value = imgData[field.field];
     if (!value) {
       console.log(`⚠️ No value for image field: ${field.field}`);
       continue;
     }
 
-    const isArray = field.type.includes('[]');
+    const isArray = field.type.includes('[]') || Array.isArray(value);
     const values = isArray ? (Array.isArray(value) ? value : [value]) : [value];
 
-    console.log(`🔍 Processing field ${field.field}:`, { value, isArray, values });
+    console.log(`🔍 Processing field '${field.field}' (category: ${field.category}):`, {
+      value,
+      isArray,
+      values,
+      priority: field.priority
+    });
 
-    for (const val of values) {
+    for (let i = 0; i < values.length; i++) {
+      const val = values[i];
       if (!val) continue;
 
-      let url = '';
-      let extension = '';
+      // Use the enhanced buildImagePath function
+      const url = buildImagePath(wdir, dbName, field, val);
 
-      // Determine file extension based on type
-      if (field.type.includes('PNG')) {
-        extension = '.png';
-      } else if (field.type.includes('JPG') || field.type.includes('JPEG')) {
-        extension = '.jpg';
-      } else if (field.type.includes('Path') && !val.includes('.')) {
-        // For paths without extension, try common ones
-        extension = '';
-      }
+      if (url) {
+        const imageItem = {
+          url,
+          caption: field.label + (isArray && values.length > 1 ? ` (${i + 1}/${values.length})` : ''),
+          type: field.field,
+          alt: `${field.label} - ${record.Name || record.FormalName || 'Character'}`,
+          category: field.category,
+          priority: field.priority
+        };
 
-      // Build URL based on field patterns
-      if (field.field.includes('concept')) {
-        const dir = field.field.includes('Alt') ? 'conceptAlt' : 'concept';
-        url = `/data/${wdir}/Images/${dbName}/${dir}/${val}${extension}`;
-      } else if (field.field.includes('design')) {
-        const dir = field.field.includes('Alt') ? 'designAlt' : 'design';
-        url = `/data/${wdir}/Images/${dbName}/${dir}/${val}${extension}`;
-      } else if (field.field.includes('corefolder')) {
-        url = `/data/${wdir}/Images/${dbName}/corefolder/${val}${extension}`;
-      } else if (field.field.includes('catalog')) {
-        url = `/data/${wdir}/Images/${dbName}/catalog/${val}${extension}`;
-      } else if (field.field.includes('arts')) {
-        url = `/data/${wdir}/Images/${dbName}/arts/${val}${extension}`;
+        images.push(imageItem);
+        console.log(`✅ Added gallery image: ${field.field} -> ${url}`);
       } else {
-        // Generic fallback - try database folder first
-        if (val.includes('/')) {
-          // Value contains path
-          url = `/data/${wdir}/Images/${dbName}/${val}`;
-        } else {
-          // Simple filename
-          url = `/data/${wdir}/Images/${dbName}/${val}${extension}`;
-        }
+        console.log(`❌ Failed to build path for field: ${field.field}, value: ${val}`);
       }
-
-      const imageItem = {
-        url,
-        caption: field.label + (isArray && values.length > 1 ? ` (${values.indexOf(val) + 1})` : ''),
-        type: field.field,
-        alt: `${field.label} - ${record.Name || 'Character'}`
-      };
-
-      images.push(imageItem);
-      console.log('✅ Added image:', imageItem);
     }
   }
 
-  console.log('🖼️ Final gallery images:', images);
+  // Also add any unrecognized image fields as fallback
+  for (const [key, value] of Object.entries(imgData)) {
+    // Skip if already processed by field definitions
+    if (sortedFields.some(f => f.field === key)) continue;
+
+    // Only process fields that look like image fields
+    const keyLower = key.toLowerCase();
+    if (keyLower.includes('png') || keyLower.includes('image') || keyLower.includes('photo')) {
+      const vals = Array.isArray(value) ? value : [value];
+
+      for (let i = 0; i < vals.length; i++) {
+        const val = vals[i];
+        if (!val) continue;
+
+        // Create a fallback field definition
+        const fallbackField = {
+          field: key,
+          category: 'other',
+          priority: 99,
+          label: key
+        };
+
+        const url = buildImagePath(wdir, dbName, fallbackField, val);
+        if (url) {
+          const imageItem = {
+            url,
+            caption: `${key}${vals.length > 1 ? ` (${i + 1}/${vals.length})` : ''}`,
+            type: key,
+            alt: `${key} - ${record.Name || record.FormalName || 'Character'}`,
+            category: 'other',
+            priority: 99
+          };
+
+          images.push(imageItem);
+          console.log(`✅ Added fallback gallery image: ${key} -> ${url}`);
+        }
+      }
+    }
+  }
+
+  console.log(`🖼️ Final gallery: ${images.length} images built`);
   return images;
 }
 
@@ -917,79 +1008,265 @@ function humanWorkLabel(work) {
  */
 
 /**
- * Image handling for character records
- * Dynamically resolves image paths based on the selected database folder
+ * Enhanced unified image resolution system
+ * Dynamically resolves image paths based on extracted image fields and database structure
  * @param {string} workId - Work identifier (e.g., '#Works_NumberTales')
  * @param {Object} rec - Character record with Images field
  * @param {string} dbName - Database name (e.g., 'Primary', 'Secondary', etc.)
+ * @param {Array} imageFields - Optional extracted image fields for this work
  * @returns {string} Image URL or empty string if no image found
  */
-function imageFromRecord(workId, rec, dbName = 'Primary') {
+async function imageFromRecord(workId, rec, dbName = 'Primary', imageFields = null) {
   const wdir = workId.replace('#Works_', 'Works_');
   const img = rec.Images || {};
 
-  console.log('🖼️ Finding primary image for record:', { workId, dbName, img, rec: rec.Name });
+  console.log('🖼️ Enhanced image resolution for record:', {
+    workId,
+    dbName,
+    img,
+    recordName: rec.Name || rec.FormalName || 'Unknown',
+    hasImageFields: !!imageFields
+  });
 
-  // Use database name as folder name (Primary, Secondary, SemiPrimary, etc.)
-  const dbFolder = dbName;
+  // If image fields provided, use dynamic resolution
+  if (imageFields && imageFields.length > 0) {
+    console.log('📋 Using dynamic image field resolution...');
+    const primaryImage = await resolveImageFromFields(workId, rec, dbName, imageFields);
+    if (primaryImage) {
+      console.log('✅ Found image via dynamic resolution:', primaryImage);
+      return primaryImage;
+    }
+  }
 
-  // Priority order for thumbnail selection
-  const imagePriority = [
-    // High priority: concept images
-    () => img.concept_PNGName ? `/data/${wdir}/Images/${dbFolder}/concept/${img.concept_PNGName}.png` : null,
-    () => img.conceptAlt_PNGName ?
-      (Array.isArray(img.conceptAlt_PNGName) ?
-        `/data/${wdir}/Images/${dbFolder}/conceptAlt/${img.conceptAlt_PNGName[0]}.png` :
-        `/data/${wdir}/Images/${dbFolder}/conceptAlt/${img.conceptAlt_PNGName}.png`) : null,
+  // Fallback to legacy static resolution with enhanced flexibility
+  console.log('🔄 Using enhanced static image resolution...');
+  return resolveImageStatically(workId, rec, dbName);
+}
 
-    // Medium priority: core folder images
+/**
+ * Resolve image using dynamically extracted image fields
+ * @param {string} workId - Work identifier
+ * @param {Object} rec - Character record
+ * @param {string} dbName - Database name
+ * @param {Array} imageFields - Extracted image field definitions
+ * @returns {Promise<string>} Image URL or empty string
+ */
+async function resolveImageFromFields(workId, rec, dbName, imageFields) {
+  const wdir = workId.replace('#Works_', 'Works_');
+  const img = rec.Images || {};
+
+  // Sort image fields by priority for thumbnail selection
+  const sortedFields = [...imageFields].sort((a, b) => a.priority - b.priority);
+
+  for (const field of sortedFields) {
+    const fieldValue = img[field.field];
+    if (!fieldValue) continue;
+
+    console.log(`🔍 Checking field '${field.field}' (priority: ${field.priority}):`, fieldValue);
+
+    // Handle array values (take first item)
+    const value = Array.isArray(fieldValue) ? fieldValue[0] : fieldValue;
+    if (!value) continue;
+
+    // Build image URL based on field category and type
+    const imageUrl = buildImagePath(wdir, dbName, field, value);
+    if (imageUrl) {
+      console.log(`✅ Built image URL for field '${field.field}':`, imageUrl);
+      return imageUrl;
+    }
+  }
+
+  console.log('❌ No image found via dynamic field resolution');
+  return '';
+}
+
+/**
+ * Build image path based on field definition and value
+ * @param {string} wdir - Work directory name
+ * @param {string} dbName - Database name
+ * @param {Object} field - Image field definition
+ * @param {string} value - Field value
+ * @returns {string} Complete image path or empty string
+ */
+function buildImagePath(wdir, dbName, field, value) {
+  if (!value) return '';
+
+  // Determine file extension
+  const hasExtension = value.includes('.png') || value.includes('.jpg') || value.includes('.jpeg') ||
+                      value.includes('.gif') || value.includes('.webp');
+  const extension = hasExtension ? '' : '.png';
+
+  // Determine directory based on field category and name
+  let directory = '';
+  const fieldLower = field.field.toLowerCase();
+
+  if (field.category === 'concept') {
+    directory = fieldLower.includes('alt') ? 'conceptAlt' : 'concept';
+  } else if (field.category === 'design') {
+    directory = fieldLower.includes('alt') ? 'designAlt' : 'design';
+  } else if (field.category === 'arts') {
+    directory = 'arts';
+  } else if (field.category === 'card') {
+    directory = 'cardDesign';
+  } else if (field.category === 'catalog') {
+    directory = 'catalog';
+  } else if (field.category === 'core') {
+    directory = 'corefolder';
+  } else if (field.category === 'general') {
+    directory = 'General';
+  } else {
+    // Try to infer from field name
+    if (fieldLower.includes('concept')) {
+      directory = fieldLower.includes('alt') ? 'conceptAlt' : 'concept';
+    } else if (fieldLower.includes('design')) {
+      directory = fieldLower.includes('alt') ? 'designAlt' : 'design';
+    } else if (fieldLower.includes('card')) {
+      directory = 'cardDesign';
+    } else if (fieldLower.includes('arts') || fieldLower.includes('art')) {
+      directory = 'arts';
+    } else if (fieldLower.includes('catalog')) {
+      directory = 'catalog';
+    } else if (fieldLower.includes('core')) {
+      directory = 'corefolder';
+    } else {
+      directory = 'concept'; // Default fallback
+    }
+  }
+
+  // Handle path-based values
+  if (value.includes('/')) {
+    // Value already contains path, use as-is relative to Images folder
+    if (field.category === 'general' || directory === 'General') {
+      return `/data/${wdir}/Images/General/${value}`;
+    } else {
+      return `/data/${wdir}/Images/${dbName}/${value}`;
+    }
+  }
+
+  // Build standard path
+  if (field.category === 'general' || directory === 'General') {
+    return `/data/${wdir}/Images/General/${value}${extension}`;
+  } else {
+    return `/data/${wdir}/Images/${dbName}/${directory}/${value}${extension}`;
+  }
+}
+
+/**
+ * Enhanced static image resolution with better fallback support
+ * @param {string} workId - Work identifier
+ * @param {Object} rec - Character record
+ * @param {string} dbName - Database name
+ * @returns {string} Image URL or empty string
+ */
+function resolveImageStatically(workId, rec, dbName) {
+  const wdir = workId.replace('#Works_', 'Works_');
+  const img = rec.Images || {};
+
+  console.log('🔧 Enhanced static resolution for:', { workId, dbName, img });
+
+  // Enhanced priority list with more field types
+  const imageResolvers = [
+    // Concept images (highest priority)
+    () => img.concept_PNGName ? `/data/${wdir}/Images/${dbName}/concept/${img.concept_PNGName}.png` : null,
     () => {
-      if (Array.isArray(img.corefolder_PNGPath) && img.corefolder_PNGPath[0]) {
-        const path = img.corefolder_PNGPath[0];
-        return `/data/${wdir}/Images/${dbFolder}/corefolder/${path}${path.endsWith('.png') ? '' : '.png'}`;
+      if (img.conceptAlt_PNGName) {
+        const val = Array.isArray(img.conceptAlt_PNGName) ? img.conceptAlt_PNGName[0] : img.conceptAlt_PNGName;
+        return `/data/${wdir}/Images/${dbName}/conceptAlt/${val}.png`;
       }
       return null;
     },
 
     // Design images
-    () => img.design_PNGName ? `/data/${wdir}/Images/${dbFolder}/design/${img.design_PNGName}.png` : null,
-    () => img.designAlt_PNGName ?
-      (Array.isArray(img.designAlt_PNGName) ?
-        `/data/${wdir}/Images/${dbFolder}/designAlt/${img.designAlt_PNGName[0]}` :
-        `/data/${wdir}/Images/${dbFolder}/designAlt/${img.designAlt_PNGName}`) : null,
-
-    // Catalog images
+    () => img.design_PNGName ? `/data/${wdir}/Images/${dbName}/design/${img.design_PNGName}.png` : null,
+    () => img.cardDesign_PNGName ? `/data/${wdir}/Images/${dbName}/cardDesign/${img.cardDesign_PNGName}.png` : null,
     () => {
-      if (Array.isArray(img.catalog_PNGPath) && img.catalog_PNGPath[0]) {
-        const path = img.catalog_PNGPath[0];
-        return `/data/${wdir}/Images/${dbFolder}/catalog/${path}${path.endsWith('.png') ? '' : '.png'}`;
+      if (img.designAlt_PNGName) {
+        const val = Array.isArray(img.designAlt_PNGName) ? img.designAlt_PNGName[0] : img.designAlt_PNGName;
+        const ext = val.includes('.') ? '' : '.png';
+        return `/data/${wdir}/Images/${dbName}/designAlt/${val}${ext}`;
+      }
+      return null;
+    },
+    () => {
+      if (img.designAlt_PNGPath) {
+        const val = Array.isArray(img.designAlt_PNGPath) ? img.designAlt_PNGPath[0] : img.designAlt_PNGPath;
+        return `/data/${wdir}/Images/${dbName}/designAlt/${val}`;
       }
       return null;
     },
 
-    // Special cases for Proxies
-    () => img.General && img.General.poster ? `/data/${wdir}/Images/General/${img.General.poster}` : null,
+    // Arts images
+    () => {
+      if (img.arts_PNGPath) {
+        const val = Array.isArray(img.arts_PNGPath) ? img.arts_PNGPath[0] : img.arts_PNGPath;
+        return `/data/${wdir}/Images/${dbName}/arts/${val}`;
+      }
+      return null;
+    },
+
+    // Core folder images
+    () => {
+      if (img.corefolder_PNGPath) {
+        const val = Array.isArray(img.corefolder_PNGPath) ? img.corefolder_PNGPath[0] : img.corefolder_PNGPath;
+        const ext = val.endsWith('.png') ? '' : '.png';
+        return `/data/${wdir}/Images/${dbName}/corefolder/${val}${ext}`;
+      }
+      return null;
+    },
+
+    // Catalog images
+    () => {
+      if (img.catalog_PNGPath) {
+        const val = Array.isArray(img.catalog_PNGPath) ? img.catalog_PNGPath[0] : img.catalog_PNGPath;
+        const ext = val.endsWith('.png') ? '' : '.png';
+        return `/data/${wdir}/Images/${dbName}/catalog/${val}${ext}`;
+      }
+      return null;
+    },
+
+    // General/poster images
+    () => {
+      if (img.General && img.General.poster) {
+        return `/data/${wdir}/Images/General/${img.General.poster}`;
+      }
+      return null;
+    },
+
+    // Generic fallback - try any available image field
+    () => {
+      for (const [key, val] of Object.entries(img)) {
+        if (val && (key.toLowerCase().includes('png') || key.toLowerCase().includes('image'))) {
+          const value = Array.isArray(val) ? val[0] : val;
+          if (value) {
+            const ext = value.includes('.') ? '' : '.png';
+            return `/data/${wdir}/Images/${dbName}/${key}/${value}${ext}`;
+          }
+        }
+      }
+      return null;
+    }
   ];
 
-  // Try each image source in priority order
-  for (const getImageUrl of imagePriority) {
-    const url = getImageUrl();
+  // Try each resolver in order
+  for (const resolver of imageResolvers) {
+    const url = resolver();
     if (url) {
-      console.log('✅ Found primary image:', url);
+      console.log('✅ Found static image:', url);
       return url;
     }
   }
 
-  // Fallback: try Primary folder if not Primary database and no image found
+  // Final fallback: try Primary folder if not already trying Primary
   if (dbName !== 'Primary') {
     console.log('🔄 Trying Primary folder fallback...');
-    const fallbackUrl = imageFromRecord(workId, rec, 'Primary');
+    const fallbackUrl = resolveImageStatically(workId, rec, 'Primary');
     if (fallbackUrl) {
       console.log('✅ Found fallback image:', fallbackUrl);
       return fallbackUrl;
     }
   }
 
+  console.log('❌ No image found for record');
   console.log('❌ No image found for record');
   return '';
 }
@@ -1055,12 +1332,13 @@ function matchFilter(rec, q) {
 }
 
 /**
- * Render the character list view with search filtering
+ * Enhanced render list view with dynamic image resolution
  * @param {Array} records - Array of character records
  * @param {string} workId - Work identifier (e.g., '#Works_NumberTales')
  * @param {Function} onOpen - Callback function when a character is selected
+ * @param {Array} imageFields - Optional extracted image fields for dynamic resolution
  */
-function renderList(records, workId, onOpen) {
+async function renderList(records, workId, onOpen, imageFields = null) {
   const list = $('#list');
   list.innerHTML = '';
   let shown = 0;
@@ -1071,24 +1349,78 @@ function renderList(records, workId, onOpen) {
   const state = window.__CHAR_STATE__;
   const dbName = state ? state.db : 'Primary';
 
-  for (const r of records) {
-    if (!matchFilter(r, filter)) continue;
+  console.log('📋 Rendering list with enhanced image resolution:', {
+    recordCount: records.length,
+    workId,
+    dbName,
+    hasImageFields: !!imageFields
+  });
+
+  // Show loading for image resolution if we have many records
+  const shouldShowProgress = records.length > 10;
+  if (shouldShowProgress) {
+    showLoadingIndicator('キャラクター画像を読み込んでいます...');
+  }
+
+  const filteredRecords = records.filter(r => matchFilter(r, filter));
+
+  for (let i = 0; i < filteredRecords.length; i++) {
+    const r = filteredRecords[i];
     shown++;
-    const img = imageFromRecord(workId, r, dbName);
+
+    // Use enhanced image resolution
+    const img = await imageFromRecord(workId, r, dbName, imageFields);
+
     const title = r.Name ? `${r.Name}${r.Num != null ? `（${r.Num}）` : ''}` : (r.FormalName || r.ModelName || r.Name_EN || '(No Name)');
     const sub = r.FormalName_EN || r.Name_EN || r.ModelNumber || '';
     const chipEls = [];
+
+    // Enhanced chip generation with more field types
     if (r.GenderType_JP || r.GenderType) chipEls.push(el('span', { class: 'chip' }, r.GenderType_JP || r.GenderType));
     if (r.Class || r.Class_EN) chipEls.push(el('span', { class: 'chip' }, r.Class || r.Class_EN));
-    const item = el('article', { class: 'grid-item', role: 'button', tabindex: 0, onkeydown: (ev) => { if (ev.key === 'Enter') onOpen(r); }, onclick: () => onOpen(r) }, [
-      img ? el('img', { class: 'thumb', alt: 'poster', src: img }) : null,
+    if (r.RaceType_JP || r.RaceType) chipEls.push(el('span', { class: 'chip' }, r.RaceType_JP || r.RaceType));
+
+    // Handle special index fields for different works
+    if (r.Num != null && workId.includes('NumberTales')) {
+      chipEls.push(el('span', { class: 'chip accent' }, `#${r.Num}`));
+    } else if (r.Card && r.Card.Num != null && workId.includes('FLInvestigator')) {
+      chipEls.push(el('span', { class: 'chip accent' }, `Card ${r.Card.Num}`));
+    } else if (r.BeastType && r.BeastType.Beast && workId.includes('ShouAr')) {
+      chipEls.push(el('span', { class: 'chip accent' }, r.BeastType.Beast));
+    }
+
+    const item = el('article', {
+      class: 'grid-item',
+      role: 'button',
+      tabindex: 0,
+      onkeydown: (ev) => { if (ev.key === 'Enter') onOpen(r); },
+      onclick: () => onOpen(r)
+    }, [
+      img ? el('img', {
+        class: 'thumb',
+        alt: `${title} thumbnail`,
+        src: img,
+        loading: 'lazy' // Add lazy loading for performance
+      }) : el('div', { class: 'thumb placeholder' }, ['画像なし']),
       el('h3', {}, [title]),
       sub ? el('div', { class: 'sub' }, [sub]) : null,
       chipEls.length ? el('div', { class: 'meta' }, chipEls) : null
     ]);
+
     list.appendChild(item);
+
+    // Progressive rendering: update UI every 5 items for better perceived performance
+    if (shouldShowProgress && i % 5 === 0) {
+      await new Promise(resolve => setTimeout(resolve, 0)); // Allow UI update
+    }
   }
+
+  if (shouldShowProgress) {
+    hideLoadingIndicator();
+  }
+
   $('#list-empty').hidden = shown > 0;
+  console.log(`✅ Rendered ${shown} characters with enhanced image resolution`);
 }
 
 /**
@@ -1113,20 +1445,24 @@ async function renderDetail(workId, rec) {
   const mount = $('#detail');
   mount.innerHTML = '';
 
-  // Get current database name from global state
+  // Get current database name and enhanced state
   const state = window.__CHAR_STATE__;
   const dbName = state ? state.db : 'Primary';
+  const cachedImageFields = state ? state.imageFields : null;
+  const cachedWorkTypeDef = state ? state.workTypeDef : null;
+  const cachedGlobalTypeDef = state ? state.globalTypeDef : null;
+  const cachedWorkMeta = state ? state.workMeta : null;
 
   try {
     // Show minimal loading for detail view
     mount.innerHTML = '<div style="padding: 20px; text-align: center; color: var(--muted);">詳細情報を読み込んでいます...</div>';
 
-    // Fetch comprehensive metadata for field localization with aggressive caching
+    // Use cached data when available, otherwise fetch
     const [workTypeDef, globalTypeDef, globalDefType, workMeta, globalMeta] = await Promise.all([
-      fetchWorkTypeDef(workId),
-      fetchGlobalTypeDef(),
+      cachedWorkTypeDef || fetchWorkTypeDef(workId),
+      cachedGlobalTypeDef || fetchGlobalTypeDef(),
       fetchGlobalDefType(),
-      fetchWorkMeta(workId),
+      cachedWorkMeta || fetchWorkMeta(workId),
       fetchGlobalMeta()
     ]);
 
@@ -1136,35 +1472,58 @@ async function renderDetail(workId, rec) {
     // Build comprehensive field label mapping with global fallbacks
     const fieldLabelMap = buildFieldLabelMap(workTypeDef, globalTypeDef);
 
-  // Main poster image with database-specific path
-  const poster = imageFromRecord(workId, rec, dbName);
+    // Use cached or extract image fields
+    const imageFields = cachedImageFields || extractImageFields(workTypeDef, globalTypeDef);
 
-  // Build image gallery from comprehensive type definitions
-  const imageFields = extractImageFields(workTypeDef, globalTypeDef);
-  const galleryImages = buildImageGallery(workId, rec, imageFields, dbName);
+    // Enhanced poster image with dynamic resolution
+    const poster = await imageFromRecord(workId, rec, dbName, imageFields);
 
-  // Create left section with poster and gallery - optimized loading
-  const imageSection = [
-    poster ? el('img', { class: 'poster', src: poster, alt: 'poster', loading: 'lazy' }) : el('div', { class: 'poster' }),
-    galleryImages.length > 0 ? el('div', { class: 'image-gallery' }, [
-      el('h4', {}, [getFieldLabel('Gallery', fieldLabelMap, workMeta, globalDefType, '画像ギャラリー')]),
-      el('div', { class: 'image-grid' }, galleryImages.slice(0, 6).map(imgData => // Limit initial images for performance
-        el('div', { class: 'image-item' }, [
-          el('img', { src: imgData.url, alt: imgData.alt, loading: 'lazy' }),
-          imgData.caption ? el('div', { class: 'caption' }, [imgData.caption]) : null
-        ].filter(Boolean))
-      ).concat(
-        galleryImages.length > 6 ? [
-          el('div', { class: 'image-more', style: 'text-align: center; padding: 10px;' }, [
-            el('button', {
-              type: 'button',
-              onclick: () => loadMoreImages(workId, rec, imageFields, dbName, fieldLabelMap, workMeta, globalDefType)
-            }, [`さらに ${galleryImages.length - 6} 枚の画像を表示`])
-          ])
-        ] : []
-      ))
-    ]) : null
-  ].filter(Boolean);
+    // Build image gallery with enhanced dynamic resolution
+    const galleryImages = buildImageGallery(workId, rec, imageFields, dbName);
+
+    console.log('🖼️ Detail view images:', {
+      poster,
+      galleryCount: galleryImages.length,
+      imageFieldCount: imageFields.length
+    });
+
+    // Create left section with poster and gallery - optimized loading
+    const imageSection = [
+      poster ? el('img', {
+        class: 'poster',
+        src: poster,
+        alt: `${rec.Name || rec.FormalName || 'Character'} poster`,
+        loading: 'lazy'
+      }) : el('div', { class: 'poster placeholder' }, ['画像なし']),
+      galleryImages.length > 0 ? el('div', { class: 'image-gallery' }, [
+        el('h4', {}, [getFieldLabel('Gallery', fieldLabelMap, workMeta, globalDefType, '画像ギャラリー')]),
+        el('div', { class: 'image-grid' }, galleryImages.slice(0, 6).map(imgData => // Limit initial images for performance
+          el('div', { class: 'image-item' }, [
+            el('img', {
+              src: imgData.url,
+              alt: imgData.alt,
+              loading: 'lazy',
+              title: imgData.caption
+            }),
+            imgData.caption ? el('div', { class: 'caption' }, [imgData.caption]) : null
+          ].filter(Boolean))
+        ).concat(
+          galleryImages.length > 6 ? [
+            el('div', { class: 'image-more', style: 'text-align: center; padding: 10px;' }, [
+              el('button', {
+                type: 'button',
+                onclick: () => loadMoreImages(workId, rec, imageFields, dbName, fieldLabelMap, workMeta, globalDefType)
+              }, [`さらに ${galleryImages.length - 6} 枚の画像を表示`])
+            ])
+          ] : []
+        ))
+      ]) : el('div', { class: 'image-gallery' }, [
+        el('h4', {}, ['画像ギャラリー']),
+        el('div', { class: 'no-images', style: 'padding: 20px; text-align: center; color: var(--muted);' }, [
+          '画像データがありません'
+        ])
+      ])
+    ].filter(Boolean);
 
   const left = el('div', {}, imageSection);
 
@@ -1396,10 +1755,13 @@ function wireControls() {
   }
 }
 
-function filterListOnly() {
+async function filterListOnly() {
   const state = window.__CHAR_STATE__;
   if (!state || !state.records) return;
-  renderList(state.records, state.workId, openDetail);
+
+  // Use enhanced rendering with image fields if available
+  const imageFields = state.imageFields || null;
+  await renderList(state.records, state.workId, openDetail, imageFields);
 }
 
 async function populateWorks(initialWork) {
@@ -1570,7 +1932,7 @@ async function reload(showLoading = true) {
 }
 
 /**
- * Internal reload implementation with configurable loading indicator
+ * Enhanced internal reload implementation with dynamic image field support
  * @param {boolean} showLoading - Whether to manage loading indicator
  */
 async function reloadInternal(showLoading = true) {
@@ -1589,17 +1951,17 @@ async function reloadInternal(showLoading = true) {
       throw new Error('作品が選択されていません');
     }
 
-    console.log('📊 Reloading data:', { workId, db, resolve, debug });
+    console.log('📊 Enhanced reload with dynamic image support:', { workId, db, resolve, debug });
 
     // Enhanced data loading with timeout and step tracking
     const startTime = performance.now();
-    let currentStep = 'データベース読み込み';
+    let currentStep = 'データベース・メタデータ読み込み';
 
     if (showLoading) {
       showLoadingIndicator(`${currentStep}中...`);
     }
 
-    // Fetch character data and metadata with timeout protection
+    // Fetch all required data with timeout protection
     const fetchTimeout = 15000; // 15 second timeout
     const fetchPromises = [
       Promise.race([
@@ -1613,12 +1975,35 @@ async function reloadInternal(showLoading = true) {
         new Promise((_, reject) =>
           setTimeout(() => reject(new Error('Metadata fetch timeout')), fetchTimeout)
         )
+      ]),
+      Promise.race([
+        fetchWorkTypeDef(workId),
+        new Promise((_, reject) =>
+          setTimeout(() => reject(new Error('Work typedef fetch timeout')), fetchTimeout)
+        )
+      ]),
+      Promise.race([
+        fetchGlobalTypeDef(),
+        new Promise((_, reject) =>
+          setTimeout(() => reject(new Error('Global typedef fetch timeout')), fetchTimeout)
+        )
       ])
     ];
 
     const stepStart = performance.now();
-    const [res, workMeta] = await Promise.all(fetchPromises);
+    const [res, workMeta, workTypeDef, globalTypeDef] = await Promise.all(fetchPromises);
     console.log(`⏱️ ${currentStep} completed in ${(performance.now() - stepStart).toFixed(2)}ms`);
+
+    // Image field extraction step
+    currentStep = '画像フィールド解析';
+    if (showLoading) {
+      showLoadingIndicator(`${currentStep}中...`);
+    }
+
+    const imageExtractStart = performance.now();
+    const imageFields = extractImageFields(workTypeDef, globalTypeDef);
+    console.log(`⏱️ ${currentStep} completed in ${(performance.now() - imageExtractStart).toFixed(2)}ms`);
+    console.log(`🖼️ Extracted ${imageFields.length} image fields for ${workId}`);
 
     // Data processing step
     currentStep = 'データ処理';
@@ -1631,26 +2016,40 @@ async function reloadInternal(showLoading = true) {
     if (recs.length === 0) {
       console.warn('⚠️ No records found for:', { workId, db });
     } else {
-      console.log(`📋 Processing ${recs.length} records`);
+      console.log(`📋 Processing ${recs.length} records with enhanced image support`);
     }
 
     // Apply Commons data for missing fields
     recs = applyCommonsData(recs, workMeta, db);
     console.log(`⏱️ ${currentStep} completed in ${(performance.now() - processStart).toFixed(2)}ms`);
 
-    // UI update step
-    currentStep = 'UI更新';
+    // UI update step with enhanced image resolution
+    currentStep = 'UI更新・画像解決';
     if (showLoading) {
       showLoadingIndicator(`${currentStep}中...`);
     }
 
     const uiStart = performance.now();
-    window.__CHAR_STATE__ = { workId, db, resolve, debug, records: recs };
+
+    // Store enhanced state with image fields
+    window.__CHAR_STATE__ = {
+      workId,
+      db,
+      resolve,
+      debug,
+      records: recs,
+      imageFields, // Add image fields to global state
+      workTypeDef,
+      globalTypeDef,
+      workMeta
+    };
+
     $('#list-view').hidden = false;
     $('#detail-view').hidden = true;
     $('#search-input').value = qs.q || '';
 
-    renderList(recs, workId, openDetail);
+    // Use enhanced rendering with image fields
+    await renderList(recs, workId, openDetail, imageFields);
     console.log(`⏱️ ${currentStep} completed in ${(performance.now() - uiStart).toFixed(2)}ms`);
 
     if (qs.num) {
