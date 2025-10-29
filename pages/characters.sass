@@ -1,5 +1,3 @@
-@charset "UTF-8"
-
 \:root
 	--bg: #0b0c10
 	--fg: #e8f0f2
@@ -38,11 +36,17 @@ a
 	right: 0
 	bottom: 0
 	background: rgba(11, 12, 16, 0.9)
-	display: flex
+	display: none
+
+	/* Initially hidden
 	align-items: center
 	justify-content: center
 	z-index: 1000
+	-webkit-backdrop-filter: blur(4px)
 	backdrop-filter: blur(4px)
+
+.loading-overlay.show, .error-overlay.show
+	display: flex
 
 .loading-content, .error-content
 	background: var(--card)
@@ -103,6 +107,7 @@ a
 	position: sticky
 	top: 0
 	background: linear-gradient(180deg, rgba(11, 12, 16, 0.95), rgba(11, 12, 16, 0.85) 60%, rgba(11, 12, 16, 0))
+	-webkit-backdrop-filter: saturate(120%) blur(8px)
 	backdrop-filter: saturate(120%) blur(8px)
 	z-index: 2
 
@@ -134,7 +139,6 @@ h2
 	border-bottom: 1px solid var(--border)
 	padding-bottom: 6px
 
-.controls
 .control-row
 	display: flex
 	gap: 12px
@@ -151,7 +155,7 @@ label
 	align-items: center
 	color: var(--muted)
 
-select, input[type="search"]
+select, input[type=search]
 	background: #0d1117
 	color: var(--fg)
 	border: 1px solid var(--border)
@@ -189,6 +193,7 @@ h3
 .thumb
 	width: 100%
 	aspect-ratio: 4/3
+	-o-object-fit: cover
 	object-fit: cover
 	border-radius: 8px
 	border: 1px solid var(--border)
@@ -235,9 +240,6 @@ h2
 	display: grid
 	grid-template-columns: minmax(280px, 500px) 1fr
 	gap: 16px
-
-@media (max-width: 900px)
-.detail
 	grid-template-columns: 1fr
 
 .poster
@@ -245,6 +247,7 @@ h2
 	border-radius: 10px
 	border: 1px solid var(--border)
 	background: #0b0c10
+	-o-object-fit: cover
 	object-fit: cover
 	aspect-ratio: 4/3
 
@@ -254,7 +257,7 @@ h2
 .name
 	font-size: 24px
 	font-weight: 600
-	letter-spacing: .02em
+	letter-spacing: 0.02em
 
 .name-en
 	font-size: 14px
@@ -307,6 +310,7 @@ img
 	background: #0f1320
 
 /* Enhanced image display styles for Phase 1
+
 .thumb.placeholder, .poster.placeholder
 	display: flex
 	align-items: center
@@ -336,6 +340,7 @@ img
 	border-radius: 8px
 
 /* Enhanced chip styles
+
 .chip.accent
 	background: var(--accent)
 	color: white
@@ -346,16 +351,18 @@ img
 	margin-bottom: 4px
 
 /* Image loading improvements
+
 .image-item img
 	transition: opacity 0.3s ease
 
-.image-item img[loading="lazy"]
-	opacity: 0.7
+	&[loading=lazy]
+		opacity: 0.7
 
-.image-item img[loading="lazy"]:loaded
-	opacity: 1
+		&:loaded
+			opacity: 1
 
 /* Image gallery improvements
+
 .image-grid
 	display: grid
 	grid-template-columns: repeat(auto-fit, minmax(120px, 1fr))
@@ -382,7 +389,6 @@ img
 th, td
 	border-collapse: collapse
 	border: 1px solid var(--border)
-
 	width: 100%
 	font-size: 13px
 
@@ -428,3 +434,5 @@ td
 	padding: 20px 12px
 	border-top: 1px solid var(--border)
 	color: var(--muted)
+
+/*# sourceMappingURL=characters.css.map

@@ -1702,9 +1702,9 @@ function wireControls() {
     await reload();
   };
 
-  window.__eventHandlers.searchInput = () => {
+  window.__eventHandlers.searchInput = async () => {
     setQS({ q: $('#search-input').value });
-    filterListOnly();
+    await filterListOnly();
   };
 
   window.__eventHandlers.resolveChange = reload;
@@ -1804,12 +1804,14 @@ async function main() {
     console.log('⚠️ Application already initialized, skipping...');
     return;
   }
-  isInitialized = true;
 
   const startTime = performance.now();
   console.log('🚀 Initializing character browser application...');
 
   try {
+    // Mark as initializing immediately to prevent race conditions
+    isInitialized = true;
+
     // Show loading indicator
     showLoadingIndicator('アプリケーションを初期化しています...');
 
@@ -1844,12 +1846,41 @@ async function main() {
 
     hideLoadingIndicator();
 
+    // Ensure main content is visible after initialization
+    const mainContent = $('#main-content');
+    if (mainContent) {
+      mainContent.style.display = 'block';
+      mainContent.hidden = false;
+    }
+
+    // Ensure page sections are visible
+    const workSection = $('#work-section');
+    const dbSection = $('#db-section');
+    const listSection = $('#list-section');
+
+    if (workSection) {
+      workSection.style.display = 'block';
+      workSection.hidden = false;
+    }
+    if (dbSection) {
+      dbSection.style.display = 'block';
+      dbSection.hidden = false;
+    }
+    if (listSection) {
+      listSection.style.display = 'block';
+      listSection.hidden = false;
+    }
+
     const totalTime = performance.now() - startTime;
     console.log(`🎉 Application initialization complete in ${totalTime.toFixed(2)}ms`);
 
   } catch (error) {
     const totalTime = performance.now() - startTime;
     console.error(`❌ Application initialization failed after ${totalTime.toFixed(2)}ms:`, error);
+
+    // Reset initialization state on error so user can retry
+    isInitialized = false;
+
     hideLoadingIndicator();
     showErrorMessage('アプリケーションの初期化に失敗しました', error);
   }
@@ -1878,8 +1909,14 @@ function showLoadingIndicator(message = '読み込み中...') {
     document.body.appendChild(indicator);
   } else {
     indicator.querySelector('.loading-message').textContent = message;
-    indicator.hidden = false;
   }
+
+  // Show the indicator using CSS class
+  indicator.classList.add('show');
+  indicator.style.display = 'flex';
+  indicator.hidden = false;
+
+  console.log('🔄 Loading indicator shown:', message);
 }
 
 /**
@@ -1888,7 +1925,10 @@ function showLoadingIndicator(message = '読み込み中...') {
 function hideLoadingIndicator() {
   const indicator = $('#loading-indicator');
   if (indicator) {
+    indicator.classList.remove('show');
+    indicator.style.display = 'none';
     indicator.hidden = true;
+    console.log('✅ Loading indicator hidden');
   }
 }
 
@@ -2136,12 +2176,16 @@ function addPerformanceMonitor() {
 /**
  * Main entry point - initialize application when DOM is loaded
  */
-main().catch(err => {
-  console.error('Initialization error:', err);
-  document.body.innerHTML = `<div style="padding: 20px; color: red;">初期化エラー: ${err.message}</div>`;
-});
+if (document.readyState === 'loading') {
+  // DOM is still loading, wait for DOMContentLoaded
+  document.addEventListener('DOMContentLoaded', main);
+} else {
+  // DOM is already loaded, run immediately
+  main().catch(err => {
+    console.error('Initialization error:', err);
+    document.body.innerHTML = `<div style="padding: 20px; color: red;">初期化エラー: ${err.message}</div>`;
+  });
+}
 
 // Add performance monitor in development
 addPerformanceMonitor();
-
-window.addEventListener('load', main);
