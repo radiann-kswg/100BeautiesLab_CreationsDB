@@ -90,7 +90,32 @@ self.addEventListener('fetch', (event) => {
   console.log('🔄 SW intercepted request:', url.pathname, 'prefix:', matchedPrefix);
   event.respondWith(handleApiRequest(url, matchedPrefix).catch(err => {
     console.error('❌ SW API request failed:', url.pathname, err);
-    return jsonResponse({ error: String(err) }, 500);
+
+    // Enhanced error response with debugging information
+    const errorResponse = {
+      error: String(err),
+      message: err.message || 'Unknown error',
+      timestamp: new Date().toISOString(),
+      path: url.pathname,
+      method: event.request.method,
+      requestId: Math.random().toString(36).substring(7)
+    };
+
+    // Add specific error types for better debugging
+    if (err.name === 'TypeError' && err.message.includes('Failed to fetch')) {
+      errorResponse.type = 'NETWORK_ERROR';
+      errorResponse.suggestion = 'Check if the requested file exists in the repository';
+    } else if (err.message.includes('404')) {
+      errorResponse.type = 'NOT_FOUND';
+      errorResponse.suggestion = 'Verify the file path and database structure';
+    } else if (err.message.includes('JSON')) {
+      errorResponse.type = 'PARSE_ERROR';
+      errorResponse.suggestion = 'Check JSON syntax in the requested file';
+    } else {
+      errorResponse.type = 'UNKNOWN_ERROR';
+    }
+
+    return jsonResponse(errorResponse, 500);
   }));
 });
 
@@ -350,8 +375,197 @@ async function handleApiRequest(url, apiPrefix) {
     return jsonResponse({ work: workId, name: 'defs-work', time: new Date().toISOString(), varsdef, deftype, ...(merge ? { varsdefMerged: deepMerge(globalVars, varsdef) } : {}) });
   }
 
+  // /v1/works/{work}/analyze - New dynamic analysis endpoint
+  if (seg.length === 3 && seg[0] === 'works' && seg[2] === 'analyze') {
+    const workId = toWorkKey(seg[1]);
+    try {
+      const meta = await readWorkMeta(workId);
+      const dbs = await listWorkDBs(workId);
+      const analysis = {
+        work: workId,
+        timestamp: new Date().toISOString(),
+        structure: {
+          metaFiles: [],
+          databases: dbs,
+          imageStructure: {}
+        },
+        imageFields: {},
+        fieldCoverage: {},
+        errors: []
+      };
+
+      // Analyze each database
+      for (const db of dbs) {
+        try {
+          const records = await readDB(workId, db.key);
+          const typeDef = await readWorkType(workId);
+
+          // Extract image fields from type definitions
+          const imageFields = extractImageFieldsFromTypeDef(typeDef);
+          analysis.imageFields[db.key] = imageFields;
+
+          // Analyze field coverage
+          const coverage = analyzeFieldCoverage(records, imageFields);
+          analysis.fieldCoverage[db.key] = coverage;
+
+          // Check for image path issues
+          for (const record of records) {
+            if (record.Images) {
+              for (const [field, value] of Object.entries(record.Images)) {
+                if (value && !await checkImageExists(workId, db.key, field, value)) {
+                  analysis.errors.push({
+                    type: 'MISSING_IMAGE',
+                    database: db.key,
+                    record: record.Name || record.FormalName || 'Unknown',
+                    field: field,
+                    value: value
+                  });
+                }
+              }
+            }
+          }
+        } catch (err) {
+          analysis.errors.push({
+            type: 'DATABASE_ERROR',
+            database: db.key,
+            error: String(err)
+          });
+        }
+      }
+
+      return jsonResponse(analysis);
+    } catch (err) {
+      return jsonResponse({
+        error: 'Analysis failed',
+        message: String(err),
+        work: workId
+      }, 500);
+    }
+  }
+
+  // /v1/works/{work}/defs
+  if (seg.length === 3 && seg[0] === 'works' && seg[2] === 'defs') {
+    const workId = toWorkKey(seg[1]);
+    const varsdef = await readGeneralVarsDefWork(workId);
+    const deftype = await (async () => { try { const t = await readWorkType(workId); return t?.$DefType ?? []; } catch { return []; } })();
+    const merge = truthy(url.searchParams.get('merge'));
+    const globalVars = merge ? await readGeneralVarsDefGlobal() : undefined;
+    return jsonResponse({ work: workId, name: 'defs-work', time: new Date().toISOString(), varsdef, deftype, ...(merge ? { varsdefMerged: deepMerge(globalVars, varsdef) } : {}) });
+  }
+
   console.log('❌ SW: Unknown API path:', path, 'segments:', seg);
   return notFound('Unknown API path');
+}
+
+// --- Helper functions for dynamic analysis ---
+function extractImageFieldsFromTypeDef(typeDef) {
+  const imageFields = [];
+
+  const traverse = (items, path = []) => {
+    if (!Array.isArray(items)) return;
+
+    for (const item of items) {
+      if (!item || typeof item !== 'object') continue;
+
+      if (item.hashTag === 'Images' && Array.isArray(item.$type)) {
+        for (const child of item.$type) {
+          if (child.hashTag && (child.hashTag_JP || child.hashTag)) {
+            imageFields.push({
+              field: child.hashTag,
+              type: child.$type || '#PNGFileName',
+              label: child.hashTag_JP || child.hashTag,
+              path: [...path, 'Images', child.hashTag]
+            });
+          }
+        }
+      } else if (Array.isArray(item.$type)) {
+        traverse(item.$type, [...path, item.hashTag]);
+      }
+    }
+  };
+
+  if (typeDef?.$DefType) {
+    traverse(typeDef.$DefType);
+  }
+
+  return imageFields;
+}
+
+function analyzeFieldCoverage(records, imageFields) {
+  const coverage = {
+    totalRecords: records.length,
+    imageFieldUsage: {},
+    missingImages: 0,
+    recordsWithImages: 0
+  };
+
+  for (const field of imageFields) {
+    coverage.imageFieldUsage[field.field] = {
+      used: 0,
+      total: records.length,
+      percentage: 0,
+      label: field.label
+    };
+  }
+
+  for (const record of records) {
+    let hasAnyImage = false;
+    const images = record.Images || {};
+
+    for (const field of imageFields) {
+      const value = images[field.field];
+      if (value) {
+        coverage.imageFieldUsage[field.field].used++;
+        hasAnyImage = true;
+      }
+    }
+
+    if (hasAnyImage) {
+      coverage.recordsWithImages++;
+    } else {
+      coverage.missingImages++;
+    }
+  }
+
+  // Calculate percentages
+  for (const field in coverage.imageFieldUsage) {
+    const usage = coverage.imageFieldUsage[field];
+    usage.percentage = records.length > 0 ? Math.round((usage.used / records.length) * 100) : 0;
+  }
+
+  return coverage;
+}
+
+async function checkImageExists(workId, dbName, field, value) {
+  // This is a simplified check - in practice you'd want to construct the full path
+  // and check if the file exists using HEAD request
+  const wdir = workId.replace('#Works_', 'Works_');
+
+  if (!value) return false;
+
+  try {
+    // Build potential image paths based on field patterns
+    const potentialPaths = [];
+
+    if (field.includes('concept')) {
+      const dir = field.includes('Alt') ? 'conceptAlt' : 'concept';
+      potentialPaths.push(`data/${wdir}/Images/${dbName}/${dir}/${value}.png`);
+    } else if (field.includes('design')) {
+      const dir = field.includes('Alt') ? 'designAlt' : 'design';
+      potentialPaths.push(`data/${wdir}/Images/${dbName}/${dir}/${value}`);
+    } else if (field.includes('corefolder')) {
+      potentialPaths.push(`data/${wdir}/Images/${dbName}/corefolder/${value}.png`);
+    }
+
+    // Check at least one potential path
+    if (potentialPaths.length > 0) {
+      return await fileExists(potentialPaths[0]);
+    }
+
+    return false;
+  } catch {
+    return false;
+  }
 }
 
 // --- Resolver helpers & enrichment logic (copied from api/sw.js) ---
