@@ -25,31 +25,130 @@
 
 // Prevent external tracking scripts (Cloudflare Insights, etc.) from being injected
 (() => {
+  // Block Cloudflare beacon script injection more comprehensively
+  const originalCreateElement = document.createElement;
   const originalAppendChild = Node.prototype.appendChild;
   const originalInsertBefore = Node.prototype.insertBefore;
+  const originalWrite = document.write;
+  const originalWriteln = document.writeln;
+
+  function isTrackingScript(src) {
+    if (!src) return false;
+    const url = new URL(src, document.baseURI);
+    return url.hostname.includes('cloudflareinsights.com') ||
+           url.hostname.includes('beacon.min.js') ||
+           url.pathname.includes('beacon.min.js') ||
+           src.includes('cloudflareinsights') ||
+           src.includes('beacon.min.js');
+  }
 
   function blockTrackingScript(node) {
-    if (node && node.tagName === 'SCRIPT' && node.src) {
-      const url = new URL(node.src, document.baseURI);
-      if (url.hostname.includes('cloudflareinsights.com') ||
-          url.hostname.includes('beacon.min.js') ||
-          url.pathname.includes('beacon.min.js')) {
-        console.log('🚫 Blocked external tracking script:', node.src);
+    if (node && node.tagName === 'SCRIPT' && (node.src || node.textContent)) {
+      if (isTrackingScript(node.src) ||
+          (node.textContent && node.textContent.includes('cloudflareinsights'))) {
+        console.log('🚫 Blocked external tracking script:', node.src || 'inline');
         return true;
       }
     }
     return false;
   }
 
+  // Override createElement to block script creation
+  document.createElement = function(tagName) {
+    const element = originalCreateElement.call(this, tagName);
+    if (tagName.toLowerCase() === 'script') {
+      const originalSetAttribute = element.setAttribute;
+      element.setAttribute = function(name, value) {
+        if (name === 'src' && isTrackingScript(value)) {
+          console.log('🚫 Blocked script src:', value);
+          return;
+        }
+        return originalSetAttribute.call(this, name, value);
+      };
+    }
+    return element;
+  };
+
+  // Override appendChild
   Node.prototype.appendChild = function(node) {
     if (blockTrackingScript(node)) return node;
     return originalAppendChild.call(this, node);
   };
 
+  // Override insertBefore
   Node.prototype.insertBefore = function(node, before) {
     if (blockTrackingScript(node)) return node;
     return originalInsertBefore.call(this, node, before);
   };
+
+  // Override document.write and document.writeln
+  document.write = function(text) {
+    if (text && (text.includes('cloudflareinsights') || text.includes('beacon.min.js'))) {
+      console.log('🚫 Blocked document.write with tracking script');
+      return;
+    }
+    return originalWrite.call(this, text);
+  };
+
+  document.writeln = function(text) {
+    if (text && (text.includes('cloudflareinsights') || text.includes('beacon.min.js'))) {
+      console.log('🚫 Blocked document.writeln with tracking script');
+      return;
+    }
+    return originalWriteln.call(this, text);
+  };
+
+  // Also block dynamic script injection via innerHTML
+  const originalInnerHTMLSetter = Object.getOwnPropertyDescriptor(Element.prototype, 'innerHTML').set;
+  Object.defineProperty(Element.prototype, 'innerHTML', {
+    set: function(value) {
+      if (typeof value === 'string' &&
+          (value.includes('cloudflareinsights') || value.includes('beacon.min.js'))) {
+        console.log('🚫 Blocked innerHTML with tracking script');
+        return;
+      }
+      return originalInnerHTMLSetter.call(this, value);
+    },
+    get: Object.getOwnPropertyDescriptor(Element.prototype, 'innerHTML').get
+  });
+
+  // Use MutationObserver to catch any scripts that slip through
+  const observer = new MutationObserver((mutations) => {
+    mutations.forEach((mutation) => {
+      mutation.addedNodes.forEach((node) => {
+        if (node.nodeType === Node.ELEMENT_NODE) {
+          // Check for script elements
+          if (node.tagName === 'SCRIPT' && node.src && isTrackingScript(node.src)) {
+            console.log('🚫 MutationObserver blocked tracking script:', node.src);
+            node.remove();
+          }
+          // Check for nested script elements
+          const scripts = node.querySelectorAll ? node.querySelectorAll('script[src]') : [];
+          scripts.forEach((script) => {
+            if (isTrackingScript(script.src)) {
+              console.log('🚫 MutationObserver blocked nested tracking script:', script.src);
+              script.remove();
+            }
+          });
+        }
+      });
+    });
+  });
+
+  // Start observing once DOM is ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => {
+      observer.observe(document.documentElement, {
+        childList: true,
+        subtree: true
+      });
+    });
+  } else {
+    observer.observe(document.documentElement, {
+      childList: true,
+      subtree: true
+    });
+  }
 })();
 
 // Characters page: fetch from /api/v1 and render list/detail
