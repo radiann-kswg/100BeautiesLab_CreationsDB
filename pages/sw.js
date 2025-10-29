@@ -79,55 +79,6 @@ async function fileExists(path) {
   } catch { return false; }
 }
 
-/**
- * Enhanced image existence checker for character images
- * @param {string} workId - Work identifier like '#Works_NumberTales'
- * @param {string} dbName - Database name like 'Primary'
- * @param {string} fieldName - Image field name like 'concept_PNGName'
- * @param {string} filename - Image filename
- * @returns {Promise<boolean>} True if image exists
- */
-async function checkImageExists(workId, dbName, fieldName, filename) {
-  if (!filename) return false;
-
-  const workDir = workId.replace('#Works_', 'Works_');
-
-  // Determine folder from field name
-  let folder = 'General'; // Default
-
-  const lowerField = fieldName.toLowerCase();
-  if (lowerField.includes('concept') && !lowerField.includes('alt')) {
-    folder = 'concept';
-  } else if (lowerField.includes('conceptalt') || (lowerField.includes('concept') && lowerField.includes('alt'))) {
-    folder = 'conceptAlt';
-  } else if (lowerField.includes('corefolder') || lowerField.includes('core')) {
-    folder = 'corefolder';
-  } else if (lowerField.includes('carddesign') || lowerField.includes('card')) {
-    folder = 'cardDesign';
-  } else if (lowerField.includes('design') && !lowerField.includes('alt')) {
-    folder = 'design';
-  } else if (lowerField.includes('designalt') || (lowerField.includes('design') && lowerField.includes('alt'))) {
-    folder = 'designAlt';
-  } else if (lowerField.includes('arts') || lowerField.includes('art')) {
-    folder = 'arts';
-  } else if (lowerField.includes('catalog')) {
-    folder = 'catalog';
-  }
-
-  // Build path
-  let imagePath = '';
-  if (filename.includes('/')) {
-    // Full path provided
-    imagePath = `/data/${workDir}/Images/${dbName}/${filename}`;
-  } else {
-    // Just filename, add folder and extension if needed
-    const extension = filename.includes('.') ? '' : '.png';
-    imagePath = `/data/${workDir}/Images/${dbName}/${folder}/${filename}${extension}`;
-  }
-
-  return await fileExists(imagePath);
-}
-
 // Fetch routing
 self.addEventListener('fetch', (event) => {
   const url = new URL(event.request.url);

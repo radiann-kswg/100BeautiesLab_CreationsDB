@@ -495,68 +495,14 @@ function getWorkIndexField(workKey, globalMeta) {
 
 /**
  * Extract image field paths from type definitions with global fallback support
- * Enhanced to support all image field types across different works
  * @param {Array|Object} workTypeDef - Work-specific type definitions
  * @param {Object} globalTypeDef - Global type definitions from ./data/db_type.json
- * @returns {Array} Array of image field specs like [{field: 'concept_PNGName', type: '#PNGFileName', label: '設定原画', category: 'concept', priority: 1}]
+ * @returns {Array} Array of image field specs like [{field: 'concept_PNGName', type: '#PNGFileName', label: '設定原画'}]
  */
 function extractImageFields(workTypeDef, globalTypeDef = {}) {
   const imageFields = [];
-  const seenFields = new Set(); // Prevent duplicates
 
   console.log('🖼️ Extracting image fields from type definitions:', { workTypeDef, globalTypeDef });
-
-  /**
-   * Categorize image field by its name and type
-   * @param {string} fieldName - Field name like 'concept_PNGName'
-   * @param {string} type - Field type like '#PNGFileName'
-   * @returns {Object} Category info with priority
-   */
-  const categorizeImageField = (fieldName, type) => {
-    const name = fieldName.toLowerCase();
-
-    // Define priority and categories for image types
-    if (name.includes('concept') && !name.includes('alt')) {
-      return { category: 'concept', priority: 1, folder: 'concept' };
-    } else if (name.includes('conceptalt') || (name.includes('concept') && name.includes('alt'))) {
-      return { category: 'conceptAlt', priority: 2, folder: 'conceptAlt' };
-    } else if (name.includes('corefolder') || name.includes('core')) {
-      return { category: 'core', priority: 3, folder: 'corefolder' };
-    } else if (name.includes('carddesign') || name.includes('card')) {
-      return { category: 'card', priority: 4, folder: 'cardDesign' };
-    } else if (name.includes('design') && !name.includes('alt')) {
-      return { category: 'design', priority: 5, folder: 'design' };
-    } else if (name.includes('designalt') || (name.includes('design') && name.includes('alt'))) {
-      return { category: 'designAlt', priority: 6, folder: 'designAlt' };
-    } else if (name.includes('arts') || name.includes('art')) {
-      return { category: 'arts', priority: 7, folder: 'arts' };
-    } else if (name.includes('catalog')) {
-      return { category: 'catalog', priority: 8, folder: 'catalog' };
-    } else if (name.includes('general')) {
-      return { category: 'general', priority: 9, folder: 'General' };
-    } else {
-      // Default categorization based on field type
-      return { category: 'other', priority: 10, folder: 'other' };
-    }
-  };
-
-  /**
-   * Determine if field is array type
-   * @param {string} type - Type definition
-   * @returns {boolean} True if array type
-   */
-  const isArrayType = (type) => {
-    return typeof type === 'string' && (type.includes('[]') || type.includes('Array'));
-  };
-
-  /**
-   * Determine if field is path type (contains full path)
-   * @param {string} fieldName - Field name
-   * @returns {boolean} True if path type
-   */
-  const isPathType = (fieldName) => {
-    return fieldName.toLowerCase().includes('path');
-  };
 
   const traverse = (items, path = []) => {
     if (!Array.isArray(items)) return;
@@ -568,21 +514,14 @@ function extractImageFields(workTypeDef, globalTypeDef = {}) {
         console.log('🎯 Found Images container with children:', item.$type);
         // Found Images container, extract its children
         for (const child of item.$type) {
-          if (child.hashTag && !seenFields.has(child.hashTag)) {
-            const category = categorizeImageField(child.hashTag, child.$type);
+          if (child.hashTag && (child.hashTag_JP || child.hashTag)) {
             const fieldSpec = {
               field: child.hashTag,
               type: child.$type || '#PNGFileName',
               label: child.hashTag_JP || child.hashTag,
-              path: [...path, 'Images', child.hashTag],
-              category: category.category,
-              priority: category.priority,
-              folder: category.folder,
-              isArray: isArrayType(child.$type),
-              isPath: isPathType(child.hashTag)
+              path: [...path, 'Images', child.hashTag]
             };
             imageFields.push(fieldSpec);
-            seenFields.add(child.hashTag);
             console.log('✅ Added image field:', fieldSpec);
           }
         }
@@ -591,35 +530,22 @@ function extractImageFields(workTypeDef, globalTypeDef = {}) {
       }
       // Also check for potential image fields in top-level items
       else if (item.hashTag && typeof item.$type === 'string' &&
-               (item.$type.includes('PNG') || item.$type.includes('Image') || item.$type.includes('Photo') ||
-                item.$type.includes('File') || item.hashTag.toLowerCase().includes('image'))) {
-        if (!seenFields.has(item.hashTag)) {
-          const category = categorizeImageField(item.hashTag, item.$type);
-          const fieldSpec = {
-            field: item.hashTag,
-            type: item.$type,
-            label: item.hashTag_JP || item.hashTag,
-            path: [...path, item.hashTag],
-            category: category.category,
-            priority: category.priority,
-            folder: category.folder,
-            isArray: isArrayType(item.$type),
-            isPath: isPathType(item.hashTag)
-          };
-          imageFields.push(fieldSpec);
-          seenFields.add(item.hashTag);
-          console.log('✅ Added standalone image field:', fieldSpec);
-        }
+               (item.$type.includes('PNG') || item.$type.includes('Image') || item.$type.includes('Photo'))) {
+        const fieldSpec = {
+          field: item.hashTag,
+          type: item.$type,
+          label: item.hashTag_JP || item.hashTag,
+          path: [...path, item.hashTag]
+        };
+        imageFields.push(fieldSpec);
+        console.log('✅ Added standalone image field:', fieldSpec);
       }
     }
   };
 
   // First process global type definitions
-  if (globalTypeDef && globalTypeDef.global) {
+  if (globalTypeDef.$DefType) {
     console.log('🌐 Processing global type definitions...');
-    traverse(globalTypeDef.global);
-  } else if (globalTypeDef && globalTypeDef.$DefType) {
-    console.log('🌐 Processing global $DefType...');
     traverse(globalTypeDef.$DefType);
   }
 
@@ -627,16 +553,10 @@ function extractImageFields(workTypeDef, globalTypeDef = {}) {
   if (Array.isArray(workTypeDef)) {
     console.log('🏗️ Processing work-specific type definitions (array)...');
     traverse(workTypeDef);
-  } else if (workTypeDef && workTypeDef.typedef) {
-    console.log('🏗️ Processing work typedef.typedef...');
-    traverse(workTypeDef.typedef);
   } else if (workTypeDef && workTypeDef.$DefType) {
-    console.log('🏗️ Processing work $DefType...');
+    console.log('🏗️ Processing work-specific type definitions (object)...');
     traverse(workTypeDef.$DefType);
   }
-
-  // Sort by priority for consistent ordering
-  imageFields.sort((a, b) => a.priority - b.priority);
 
   console.log('🖼️ Final extracted image fields:', imageFields);
   return imageFields;
@@ -892,56 +812,20 @@ function formatValueForDisplay(value, labelMap = {}, workMeta = null, globalDefT
 }
 
 /**
- * Enhanced image gallery builder with dynamic field support
- * Creates gallery items with appropriate URLs based on database folder and image field specifications
+ * Build image URLs from record data based on type definitions
+ * Creates gallery items with appropriate URLs based on database folder
  * @param {string} workId - Work ID
  * @param {Object} record - Character record
- * @param {Array} imageFields - Image field specifications from extractImageFields
+ * @param {Array} imageFields - Image field specifications
  * @param {string} dbName - Database name (e.g., 'Primary', 'Secondary', etc.)
- * @returns {Array} Array of {url, caption, type, alt, category} objects
+ * @returns {Array} Array of {url, caption, type} objects
  */
 function buildImageGallery(workId, record, imageFields, dbName = 'Primary') {
   const wdir = workId.replace('#Works_', 'Works_');
   const images = [];
   const imgData = record.Images || {};
 
-  console.log('🖼️ Building enhanced image gallery:', { workId, dbName, imageFields, imgData });
-
-  // If no image fields provided, extract them dynamically
-  if (!imageFields || imageFields.length === 0) {
-    console.log('⚠️ No image fields provided, using fallback logic');
-    return buildLegacyImageGallery(workId, record, dbName);
-  }
-
-  /**
-   * Build image URL with proper folder and extension handling
-   * @param {string} folder - Image folder name
-   * @param {string} filename - Image filename
-   * @param {string} fieldType - Field type for extension detection
-   * @returns {string} Complete image URL
-   */
-  function buildGalleryImageUrl(folder, filename, fieldType) {
-    if (!filename) return '';
-
-    // Handle filenames that already include path or extension
-    if (filename.includes('/')) {
-      return `/data/${wdir}/Images/${dbName}/${filename}`;
-    }
-
-    // Determine extension based on field type
-    let extension = '';
-    if (!filename.includes('.')) {
-      if (fieldType.includes('PNG')) {
-        extension = '.png';
-      } else if (fieldType.includes('JPG') || fieldType.includes('JPEG')) {
-        extension = '.jpg';
-      } else {
-        extension = '.png'; // Default
-      }
-    }
-
-    return `/data/${wdir}/Images/${dbName}/${folder}/${filename}${extension}`;
-  }
+  console.log('🖼️ Building image gallery:', { workId, dbName, imageFields, imgData });
 
   for (const field of imageFields) {
     const value = imgData[field.field];
@@ -950,119 +834,64 @@ function buildImageGallery(workId, record, imageFields, dbName = 'Primary') {
       continue;
     }
 
-    const isArray = field.isArray || Array.isArray(value);
+    const isArray = field.type.includes('[]');
     const values = isArray ? (Array.isArray(value) ? value : [value]) : [value];
 
-    console.log(`🔍 Processing field ${field.field}:`, { value, isArray, values, field });
+    console.log(`🔍 Processing field ${field.field}:`, { value, isArray, values });
 
-    for (let i = 0; i < values.length; i++) {
-      const val = values[i];
-      if (!val) continue;
-
-      const url = buildGalleryImageUrl(field.folder, val, field.type);
-
-      // Create caption with proper numbering for arrays
-      let caption = field.label;
-      if (isArray && values.length > 1) {
-        caption += ` (${i + 1}/${values.length})`;
-      }
-
-      const imageItem = {
-        url,
-        caption,
-        type: field.field,
-        category: field.category,
-        priority: field.priority,
-        alt: `${field.label} - ${record.Name || record.FormalName || 'Character'}`
-      };
-
-      images.push(imageItem);
-      console.log('✅ Added gallery image:', imageItem);
-    }
-  }
-
-  // Sort by priority for consistent display order
-  images.sort((a, b) => a.priority - b.priority);
-
-  console.log('🖼️ Final enhanced gallery images:', images);
-  return images;
-}
-
-/**
- * Legacy image gallery builder for fallback compatibility
- * @param {string} workId - Work ID
- * @param {Object} record - Character record
- * @param {string} dbName - Database name
- * @returns {Array} Array of image objects
- */
-function buildLegacyImageGallery(workId, record, dbName = 'Primary') {
-  const wdir = workId.replace('#Works_', 'Works_');
-  const images = [];
-  const imgData = record.Images || {};
-
-  console.log('🔄 Building legacy image gallery:', { workId, dbName, imgData });
-
-  // Legacy field mappings with priorities
-  const legacyFields = [
-    { field: 'concept_PNGName', folder: 'concept', label: '設定原画', priority: 1 },
-    { field: 'conceptAlt_PNGName', folder: 'conceptAlt', label: '設定原画差分', priority: 2 },
-    { field: 'corefolder_PNGPath', folder: 'corefolder', label: 'コアフォルダ', priority: 3, isPath: true },
-    { field: 'cardDesign_PNGName', folder: 'cardDesign', label: 'カードデザイン', priority: 4 },
-    { field: 'design_PNGName', folder: 'design', label: 'デザイン', priority: 5 },
-    { field: 'designAlt_PNGName', folder: 'designAlt', label: 'デザイン差分', priority: 6 },
-    { field: 'arts_PNGPath', folder: 'arts', label: 'イラスト', priority: 7, isPath: true },
-    { field: 'catalog_PNGPath', folder: 'catalog', label: 'カタログ', priority: 8, isPath: true }
-  ];
-
-  for (const fieldSpec of legacyFields) {
-    const value = imgData[fieldSpec.field];
-    if (!value) continue;
-
-    const isArray = Array.isArray(value);
-    const values = isArray ? value : [value];
-
-    for (let i = 0; i < values.length; i++) {
-      const val = values[i];
+    for (const val of values) {
       if (!val) continue;
 
       let url = '';
-      if (fieldSpec.isPath) {
-        // Handle path fields
-        if (val.includes('/')) {
-          url = `/data/${wdir}/Images/${dbName}/${val}`;
-        } else {
-          const extension = val.includes('.') ? '' : '.png';
-          url = `/data/${wdir}/Images/${dbName}/${fieldSpec.folder}/${val}${extension}`;
-        }
-      } else {
-        // Handle filename fields
-        const extension = val.includes('.') ? '' : '.png';
-        url = `/data/${wdir}/Images/${dbName}/${fieldSpec.folder}/${val}${extension}`;
+      let extension = '';
+
+      // Determine file extension based on type
+      if (field.type.includes('PNG')) {
+        extension = '.png';
+      } else if (field.type.includes('JPG') || field.type.includes('JPEG')) {
+        extension = '.jpg';
+      } else if (field.type.includes('Path') && !val.includes('.')) {
+        // For paths without extension, try common ones
+        extension = '';
       }
 
-      let caption = fieldSpec.label;
-      if (isArray && values.length > 1) {
-        caption += ` (${i + 1}/${values.length})`;
+      // Build URL based on field patterns
+      if (field.field.includes('concept')) {
+        const dir = field.field.includes('Alt') ? 'conceptAlt' : 'concept';
+        url = `/data/${wdir}/Images/${dbName}/${dir}/${val}${extension}`;
+      } else if (field.field.includes('design')) {
+        const dir = field.field.includes('Alt') ? 'designAlt' : 'design';
+        url = `/data/${wdir}/Images/${dbName}/${dir}/${val}${extension}`;
+      } else if (field.field.includes('corefolder')) {
+        url = `/data/${wdir}/Images/${dbName}/corefolder/${val}${extension}`;
+      } else if (field.field.includes('catalog')) {
+        url = `/data/${wdir}/Images/${dbName}/catalog/${val}${extension}`;
+      } else if (field.field.includes('arts')) {
+        url = `/data/${wdir}/Images/${dbName}/arts/${val}${extension}`;
+      } else {
+        // Generic fallback - try database folder first
+        if (val.includes('/')) {
+          // Value contains path
+          url = `/data/${wdir}/Images/${dbName}/${val}`;
+        } else {
+          // Simple filename
+          url = `/data/${wdir}/Images/${dbName}/${val}${extension}`;
+        }
       }
 
       const imageItem = {
         url,
-        caption,
-        type: fieldSpec.field,
-        category: fieldSpec.folder,
-        priority: fieldSpec.priority,
-        alt: `${fieldSpec.label} - ${record.Name || record.FormalName || 'Character'}`
+        caption: field.label + (isArray && values.length > 1 ? ` (${values.indexOf(val) + 1})` : ''),
+        type: field.field,
+        alt: `${field.label} - ${record.Name || 'Character'}`
       };
 
       images.push(imageItem);
-      console.log('✅ Added legacy gallery image:', imageItem);
+      console.log('✅ Added image:', imageItem);
     }
   }
 
-  // Sort by priority
-  images.sort((a, b) => a.priority - b.priority);
-
-  console.log('🖼️ Final legacy gallery images:', images);
+  console.log('🖼️ Final gallery images:', images);
   return images;
 }
 
@@ -1088,170 +917,57 @@ function humanWorkLabel(work) {
  */
 
 /**
- * Enhanced image handling for character records with dynamic field support
- * Dynamically resolves image paths based on extracted image fields and database folder structure
+ * Image handling for character records
+ * Dynamically resolves image paths based on the selected database folder
  * @param {string} workId - Work identifier (e.g., '#Works_NumberTales')
  * @param {Object} rec - Character record with Images field
  * @param {string} dbName - Database name (e.g., 'Primary', 'Secondary', etc.)
- * @param {Array} imageFields - Extracted image field definitions (optional, will be fetched if not provided)
- * @returns {Promise<string>} Promise resolving to image URL or empty string if no image found
+ * @returns {string} Image URL or empty string if no image found
  */
-async function imageFromRecord(workId, rec, dbName = 'Primary', imageFields = null) {
+function imageFromRecord(workId, rec, dbName = 'Primary') {
   const wdir = workId.replace('#Works_', 'Works_');
   const img = rec.Images || {};
 
   console.log('🖼️ Finding primary image for record:', { workId, dbName, img, rec: rec.Name });
 
-  // If no Images field, try to find image data in other fields
-  if (!img || Object.keys(img).length === 0) {
-    console.log('⚠️ No Images field found, checking alternative locations...');
+  // Use database name as folder name (Primary, Secondary, SemiPrimary, etc.)
+  const dbFolder = dbName;
 
-    // Check for direct image fields in record
-    const potentialImageFields = ['poster', 'thumbnail', 'image', 'photo'];
-    for (const field of potentialImageFields) {
-      if (rec[field]) {
-        const url = buildImageUrl(wdir, dbName, 'General', rec[field], '');
-        console.log('✅ Found alternative image field:', field, '→', url);
-        return url;
-      }
-    }
-
-    // For SinisterChangingGirls and other cross-linked records, check if there's a _DBLink
-    if (rec._DBLink) {
-      console.log('🔗 Found cross-link, checking linked record for images...');
-      // Return empty for now, could implement cross-link resolution in the future
-      return '';
-    }
-
-    console.log('❌ No images found in record');
-    return '';
-  }
-
-  // Get image fields if not provided
-  if (!imageFields) {
-    try {
-      const [workTypeDef, globalTypeDef] = await Promise.all([
-        fetchWorkTypeDef(workId),
-        fetchGlobalTypeDef()
-      ]);
-      imageFields = extractImageFields(workTypeDef, globalTypeDef);
-    } catch (error) {
-      console.warn('⚠️ Failed to fetch image fields, using fallback:', error);
-      imageFields = []; // Will fall back to legacy logic
-    }
-  }
-
-  /**
-   * Build image URL with proper extension handling
-   * @param {string} workDir - Work directory name
-   * @param {string} dbName - Database name
-   * @param {string} folder - Image folder name
-   * @param {string} filename - Image filename
-   * @param {string} defaultExt - Default extension
-   * @returns {string} Complete image URL
-   */
-  function buildImageUrl(workDir, dbName, folder, filename, defaultExt = '.png') {
-    if (!filename) return '';
-
-    // Handle filenames that already include path
-    if (filename.includes('/')) {
-      return `/data/${workDir}/Images/${dbName}/${filename}`;
-    }
-
-    // Add extension if not present
-    const hasExtension = filename.includes('.');
-    const extension = hasExtension ? '' : defaultExt;
-
-    return `/data/${workDir}/Images/${dbName}/${folder}/${filename}${extension}`;
-  }
-
-  // If we have dynamic image fields, use them with priority order
-  if (imageFields && imageFields.length > 0) {
-    console.log('🎯 Using dynamic image fields for image resolution:', imageFields);
-
-    // Sort by priority (already sorted in extractImageFields)
-    for (const field of imageFields) {
-      const value = img[field.field];
-
-      if (!value) continue;
-
-      console.log(`🔍 Checking field ${field.field}:`, value);
-
-      let filename = '';
-
-      if (Array.isArray(value)) {
-        // Use first available image from array
-        filename = value[0];
-      } else {
-        filename = value;
-      }
-
-      if (filename) {
-        const url = buildImageUrl(
-          wdir,
-          dbName,
-          field.folder,
-          filename,
-          field.type.includes('PNG') ? '.png' :
-          field.type.includes('JPG') ? '.jpg' : '.png'
-        );
-
-        console.log('✅ Found image using dynamic field:', field.field, '→', url);
-        return url;
-      }
-    }
-  }
-
-  // Fallback to legacy static logic if dynamic fields didn't find anything
-  console.log('🔄 Falling back to legacy image resolution...');
-
-  // Priority order for thumbnail selection (legacy logic)
+  // Priority order for thumbnail selection
   const imagePriority = [
     // High priority: concept images
-    () => img.concept_PNGName ? buildImageUrl(wdir, dbName, 'concept', img.concept_PNGName) : null,
+    () => img.concept_PNGName ? `/data/${wdir}/Images/${dbFolder}/concept/${img.concept_PNGName}.png` : null,
     () => img.conceptAlt_PNGName ?
       (Array.isArray(img.conceptAlt_PNGName) ?
-        buildImageUrl(wdir, dbName, 'conceptAlt', img.conceptAlt_PNGName[0]) :
-        buildImageUrl(wdir, dbName, 'conceptAlt', img.conceptAlt_PNGName)) : null,
+        `/data/${wdir}/Images/${dbFolder}/conceptAlt/${img.conceptAlt_PNGName[0]}.png` :
+        `/data/${wdir}/Images/${dbFolder}/conceptAlt/${img.conceptAlt_PNGName}.png`) : null,
 
     // Medium priority: core folder images
     () => {
       if (Array.isArray(img.corefolder_PNGPath) && img.corefolder_PNGPath[0]) {
         const path = img.corefolder_PNGPath[0];
-        return buildImageUrl(wdir, dbName, 'corefolder', path, path.endsWith('.png') ? '' : '.png');
+        return `/data/${wdir}/Images/${dbFolder}/corefolder/${path}${path.endsWith('.png') ? '' : '.png'}`;
       }
       return null;
     },
-
-    // Card design images (FLInvestigator78)
-    () => img.cardDesign_PNGName ? buildImageUrl(wdir, dbName, 'cardDesign', img.cardDesign_PNGName) : null,
 
     // Design images
-    () => img.design_PNGName ? buildImageUrl(wdir, dbName, 'design', img.design_PNGName) : null,
+    () => img.design_PNGName ? `/data/${wdir}/Images/${dbFolder}/design/${img.design_PNGName}.png` : null,
     () => img.designAlt_PNGName ?
       (Array.isArray(img.designAlt_PNGName) ?
-        buildImageUrl(wdir, dbName, 'designAlt', img.designAlt_PNGName[0]) :
-        buildImageUrl(wdir, dbName, 'designAlt', img.designAlt_PNGName)) : null,
-
-    // Arts images (FLInvestigator78)
-    () => {
-      if (Array.isArray(img.arts_PNGPath) && img.arts_PNGPath[0]) {
-        const path = img.arts_PNGPath[0];
-        return buildImageUrl(wdir, dbName, 'arts', path, path.endsWith('.png') ? '' : '.png');
-      }
-      return null;
-    },
+        `/data/${wdir}/Images/${dbFolder}/designAlt/${img.designAlt_PNGName[0]}` :
+        `/data/${wdir}/Images/${dbFolder}/designAlt/${img.designAlt_PNGName}`) : null,
 
     // Catalog images
     () => {
       if (Array.isArray(img.catalog_PNGPath) && img.catalog_PNGPath[0]) {
         const path = img.catalog_PNGPath[0];
-        return buildImageUrl(wdir, dbName, 'catalog', path, path.endsWith('.png') ? '' : '.png');
+        return `/data/${wdir}/Images/${dbFolder}/catalog/${path}${path.endsWith('.png') ? '' : '.png'}`;
       }
       return null;
     },
 
-    // Special cases for Proxies and other works
+    // Special cases for Proxies
     () => img.General && img.General.poster ? `/data/${wdir}/Images/General/${img.General.poster}` : null,
   ];
 
@@ -1259,7 +975,7 @@ async function imageFromRecord(workId, rec, dbName = 'Primary', imageFields = nu
   for (const getImageUrl of imagePriority) {
     const url = getImageUrl();
     if (url) {
-      console.log('✅ Found image using legacy logic:', url);
+      console.log('✅ Found primary image:', url);
       return url;
     }
   }
@@ -1267,7 +983,7 @@ async function imageFromRecord(workId, rec, dbName = 'Primary', imageFields = nu
   // Fallback: try Primary folder if not Primary database and no image found
   if (dbName !== 'Primary') {
     console.log('🔄 Trying Primary folder fallback...');
-    const fallbackUrl = await imageFromRecord(workId, rec, 'Primary', imageFields);
+    const fallbackUrl = imageFromRecord(workId, rec, 'Primary');
     if (fallbackUrl) {
       console.log('✅ Found fallback image:', fallbackUrl);
       return fallbackUrl;
@@ -1339,13 +1055,12 @@ function matchFilter(rec, q) {
 }
 
 /**
- * Render the character list view with search filtering and enhanced image support
+ * Render the character list view with search filtering
  * @param {Array} records - Array of character records
  * @param {string} workId - Work identifier (e.g., '#Works_NumberTales')
  * @param {Function} onOpen - Callback function when a character is selected
- * @returns {Promise<void>} Async function that updates the list view DOM
  */
-async function renderList(records, workId, onOpen) {
+function renderList(records, workId, onOpen) {
   const list = $('#list');
   list.innerHTML = '';
   let shown = 0;
@@ -1355,94 +1070,24 @@ async function renderList(records, workId, onOpen) {
   // Get current database name from global state
   const state = window.__CHAR_STATE__;
   const dbName = state ? state.db : 'Primary';
-  const imageFields = state ? state.imageFields : null;
 
-  // Show loading indicator for list images
-  const loadingPlaceholder = (title) => el('article', { class: 'grid-item loading', role: 'button', tabindex: 0 }, [
-    el('div', { class: 'thumb placeholder' }, ['📷']),
-    el('h3', {}, [title]),
-    el('div', { class: 'sub' }, ['読み込み中...'])
-  ]);
-
-  // Process records in batches for better performance
-  const batchSize = 10;
-  const batches = [];
-  for (let i = 0; i < records.length; i += batchSize) {
-    batches.push(records.slice(i, i + batchSize));
+  for (const r of records) {
+    if (!matchFilter(r, filter)) continue;
+    shown++;
+    const img = imageFromRecord(workId, r, dbName);
+    const title = r.Name ? `${r.Name}${r.Num != null ? `（${r.Num}）` : ''}` : (r.FormalName || r.ModelName || r.Name_EN || '(No Name)');
+    const sub = r.FormalName_EN || r.Name_EN || r.ModelNumber || '';
+    const chipEls = [];
+    if (r.GenderType_JP || r.GenderType) chipEls.push(el('span', { class: 'chip' }, r.GenderType_JP || r.GenderType));
+    if (r.Class || r.Class_EN) chipEls.push(el('span', { class: 'chip' }, r.Class || r.Class_EN));
+    const item = el('article', { class: 'grid-item', role: 'button', tabindex: 0, onkeydown: (ev) => { if (ev.key === 'Enter') onOpen(r); }, onclick: () => onOpen(r) }, [
+      img ? el('img', { class: 'thumb', alt: 'poster', src: img }) : null,
+      el('h3', {}, [title]),
+      sub ? el('div', { class: 'sub' }, [sub]) : null,
+      chipEls.length ? el('div', { class: 'meta' }, chipEls) : null
+    ]);
+    list.appendChild(item);
   }
-
-  for (const batch of batches) {
-    const batchPromises = batch.map(async (r) => {
-      if (!matchFilter(r, filter)) return null;
-
-      const title = r.Name ? `${r.Name}${r.Num != null ? `（${r.Num}）` : ''}` : (r.FormalName || r.ModelName || r.Name_EN || '(No Name)');
-
-      try {
-        // Get image with enhanced async support
-        const img = await imageFromRecord(workId, r, dbName, imageFields);
-
-        const sub = r.FormalName_EN || r.Name_EN || r.ModelNumber || '';
-        const chipEls = [];
-        if (r.GenderType_JP || r.GenderType) chipEls.push(el('span', { class: 'chip' }, r.GenderType_JP || r.GenderType));
-        if (r.Class || r.Class_EN) chipEls.push(el('span', { class: 'chip' }, r.Class || r.Class_EN));
-
-        return {
-          element: el('article', {
-            class: 'grid-item',
-            role: 'button',
-            tabindex: 0,
-            onkeydown: (ev) => { if (ev.key === 'Enter') onOpen(r); },
-            onclick: () => onOpen(r)
-          }, [
-            img ? el('img', { class: 'thumb', alt: 'poster', src: img, loading: 'lazy' }) :
-                  el('div', { class: 'thumb placeholder' }, ['📷']),
-            el('h3', {}, [title]),
-            sub ? el('div', { class: 'sub' }, [sub]) : null,
-            chipEls.length ? el('div', { class: 'meta' }, chipEls) : null
-          ].filter(Boolean)),
-          record: r
-        };
-      } catch (error) {
-        console.warn('⚠️ Failed to load image for record:', r.Name, error);
-
-        // Fallback to no-image display
-        const sub = r.FormalName_EN || r.Name_EN || r.ModelNumber || '';
-        const chipEls = [];
-        if (r.GenderType_JP || r.GenderType) chipEls.push(el('span', { class: 'chip' }, r.GenderType_JP || r.GenderType));
-        if (r.Class || r.Class_EN) chipEls.push(el('span', { class: 'chip' }, r.Class || r.Class_EN));
-
-        return {
-          element: el('article', {
-            class: 'grid-item',
-            role: 'button',
-            tabindex: 0,
-            onkeydown: (ev) => { if (ev.key === 'Enter') onOpen(r); },
-            onclick: () => onOpen(r)
-          }, [
-            el('div', { class: 'thumb placeholder' }, ['📷']),
-            el('h3', {}, [title]),
-            sub ? el('div', { class: 'sub' }, [sub]) : null,
-            chipEls.length ? el('div', { class: 'meta' }, chipEls) : null
-          ].filter(Boolean)),
-          record: r
-        };
-      }
-    });
-
-    // Wait for batch to complete and add to DOM
-    const batchResults = await Promise.all(batchPromises);
-
-    for (const result of batchResults) {
-      if (result) {
-        list.appendChild(result.element);
-        shown++;
-      }
-    }
-
-    // Allow UI to update between batches
-    await new Promise(resolve => setTimeout(resolve, 0));
-  }
-
   $('#list-empty').hidden = shown > 0;
 }
 
@@ -1491,12 +1136,12 @@ async function renderDetail(workId, rec) {
     // Build comprehensive field label mapping with global fallbacks
     const fieldLabelMap = buildFieldLabelMap(workTypeDef, globalTypeDef);
 
-    // Main poster image with database-specific path (async)
-    const poster = await imageFromRecord(workId, rec, dbName);
+  // Main poster image with database-specific path
+  const poster = imageFromRecord(workId, rec, dbName);
 
-    // Build image gallery from comprehensive type definitions
-    const imageFields = extractImageFields(workTypeDef, globalTypeDef);
-    const galleryImages = buildImageGallery(workId, rec, imageFields, dbName);
+  // Build image gallery from comprehensive type definitions
+  const imageFields = extractImageFields(workTypeDef, globalTypeDef);
+  const galleryImages = buildImageGallery(workId, rec, imageFields, dbName);
 
   // Create left section with poster and gallery - optimized loading
   const imageSection = [
@@ -2000,38 +1645,12 @@ async function reloadInternal(showLoading = true) {
     }
 
     const uiStart = performance.now();
-
-    // Fetch image field definitions for enhanced image support
-    try {
-      const [workTypeDef, globalTypeDef] = await Promise.all([
-        fetchWorkTypeDef(workId),
-        fetchGlobalTypeDef()
-      ]);
-      const imageFields = extractImageFields(workTypeDef, globalTypeDef);
-
-      window.__CHAR_STATE__ = {
-        workId,
-        db,
-        resolve,
-        debug,
-        records: recs,
-        imageFields,
-        workTypeDef,
-        globalTypeDef
-      };
-
-      console.log(`🖼️ Extracted ${imageFields.length} image fields for work: ${workId}`, imageFields);
-
-    } catch (error) {
-      console.warn('⚠️ Failed to extract image fields, using fallback:', error);
-      window.__CHAR_STATE__ = { workId, db, resolve, debug, records: recs };
-    }
-
+    window.__CHAR_STATE__ = { workId, db, resolve, debug, records: recs };
     $('#list-view').hidden = false;
     $('#detail-view').hidden = true;
     $('#search-input').value = qs.q || '';
 
-    await renderList(recs, workId, openDetail);
+    renderList(recs, workId, openDetail);
     console.log(`⏱️ ${currentStep} completed in ${(performance.now() - uiStart).toFixed(2)}ms`);
 
     if (qs.num) {

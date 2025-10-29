@@ -198,17 +198,6 @@ select, input[type=search] {
   border: 1px solid var(--border);
   border-radius: 10px;
   background: #0d1117;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-.grid-item:hover, .grid-item:focus-visible {
-  border-color: var(--accent);
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(55, 183, 195, 0.15);
-}
-.grid-item.loading {
-  opacity: 0.7;
-  animation: pulse 1.5s ease-in-out infinite alternate;
 }
 
 h3 {
@@ -231,23 +220,7 @@ h3 {
   border: 1px solid var(--border);
   background: #0b0c10;
 }
-.thumb.placeholder {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 24px;
-  color: var(--muted);
-  background: linear-gradient(135deg, var(--card) 0%, var(--bg) 100%);
-}
 
-@keyframes pulse {
-  0% {
-    opacity: 0.7;
-  }
-  100% {
-    opacity: 1;
-  }
-}
 .meta {
   display: flex;
   gap: 6px;
