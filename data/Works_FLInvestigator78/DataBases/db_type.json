@@ -14,7 +14,7 @@
           "hashTag_JP": "設定原画差分PNGファイル名"
         },
         {
-          "hashTag": "cardDesign_PNG",
+          "hashTag": "cardDesign_PNGName",
           "$type": "#PNGFileName",
           "hashTag_JP": "衣装差分などのPNGファイル相対パス"
         },
