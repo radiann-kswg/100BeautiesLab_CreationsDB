@@ -23,134 +23,6 @@
  * @version 1.0.0
  */
 
-// Prevent external tracking scripts (Cloudflare Insights, etc.) from being injected
-(() => {
-  // Block Cloudflare beacon script injection more comprehensively
-  const originalCreateElement = document.createElement;
-  const originalAppendChild = Node.prototype.appendChild;
-  const originalInsertBefore = Node.prototype.insertBefore;
-  const originalWrite = document.write;
-  const originalWriteln = document.writeln;
-
-  function isTrackingScript(src) {
-    if (!src) return false;
-    const url = new URL(src, document.baseURI);
-    return url.hostname.includes('cloudflareinsights.com') ||
-           url.hostname.includes('beacon.min.js') ||
-           url.pathname.includes('beacon.min.js') ||
-           src.includes('cloudflareinsights') ||
-           src.includes('beacon.min.js');
-  }
-
-  function blockTrackingScript(node) {
-    if (node && node.tagName === 'SCRIPT' && (node.src || node.textContent)) {
-      if (isTrackingScript(node.src) ||
-          (node.textContent && node.textContent.includes('cloudflareinsights'))) {
-        console.log('🚫 Blocked external tracking script:', node.src || 'inline');
-        return true;
-      }
-    }
-    return false;
-  }
-
-  // Override createElement to block script creation
-  document.createElement = function(tagName) {
-    const element = originalCreateElement.call(this, tagName);
-    if (tagName.toLowerCase() === 'script') {
-      const originalSetAttribute = element.setAttribute;
-      element.setAttribute = function(name, value) {
-        if (name === 'src' && isTrackingScript(value)) {
-          console.log('🚫 Blocked script src:', value);
-          return;
-        }
-        return originalSetAttribute.call(this, name, value);
-      };
-    }
-    return element;
-  };
-
-  // Override appendChild
-  Node.prototype.appendChild = function(node) {
-    if (blockTrackingScript(node)) return node;
-    return originalAppendChild.call(this, node);
-  };
-
-  // Override insertBefore
-  Node.prototype.insertBefore = function(node, before) {
-    if (blockTrackingScript(node)) return node;
-    return originalInsertBefore.call(this, node, before);
-  };
-
-  // Override document.write and document.writeln
-  document.write = function(text) {
-    if (text && (text.includes('cloudflareinsights') || text.includes('beacon.min.js'))) {
-      console.log('🚫 Blocked document.write with tracking script');
-      return;
-    }
-    return originalWrite.call(this, text);
-  };
-
-  document.writeln = function(text) {
-    if (text && (text.includes('cloudflareinsights') || text.includes('beacon.min.js'))) {
-      console.log('🚫 Blocked document.writeln with tracking script');
-      return;
-    }
-    return originalWriteln.call(this, text);
-  };
-
-  // Also block dynamic script injection via innerHTML
-  const originalInnerHTMLSetter = Object.getOwnPropertyDescriptor(Element.prototype, 'innerHTML').set;
-  Object.defineProperty(Element.prototype, 'innerHTML', {
-    set: function(value) {
-      if (typeof value === 'string' &&
-          (value.includes('cloudflareinsights') || value.includes('beacon.min.js'))) {
-        console.log('🚫 Blocked innerHTML with tracking script');
-        return;
-      }
-      return originalInnerHTMLSetter.call(this, value);
-    },
-    get: Object.getOwnPropertyDescriptor(Element.prototype, 'innerHTML').get
-  });
-
-  // Use MutationObserver to catch any scripts that slip through
-  const observer = new MutationObserver((mutations) => {
-    mutations.forEach((mutation) => {
-      mutation.addedNodes.forEach((node) => {
-        if (node.nodeType === Node.ELEMENT_NODE) {
-          // Check for script elements
-          if (node.tagName === 'SCRIPT' && node.src && isTrackingScript(node.src)) {
-            console.log('🚫 MutationObserver blocked tracking script:', node.src);
-            node.remove();
-          }
-          // Check for nested script elements
-          const scripts = node.querySelectorAll ? node.querySelectorAll('script[src]') : [];
-          scripts.forEach((script) => {
-            if (isTrackingScript(script.src)) {
-              console.log('🚫 MutationObserver blocked nested tracking script:', script.src);
-              script.remove();
-            }
-          });
-        }
-      });
-    });
-  });
-
-  // Start observing once DOM is ready
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', () => {
-      observer.observe(document.documentElement, {
-        childList: true,
-        subtree: true
-      });
-    });
-  } else {
-    observer.observe(document.documentElement, {
-      childList: true,
-      subtree: true
-    });
-  }
-})();
-
 // Characters page: fetch from /api/v1 and render list/detail
 
 // Global initialization tracking to prevent duplicate setup
@@ -1460,13 +1332,13 @@ function matchFilter(rec, q) {
 }
 
 /**
- * Enhanced render list view with non-blocking image resolution
+ * Enhanced render list view with dynamic image resolution
  * @param {Array} records - Array of character records
  * @param {string} workId - Work identifier (e.g., '#Works_NumberTales')
  * @param {Function} onOpen - Callback function when a character is selected
  * @param {Array} imageFields - Optional extracted image fields for dynamic resolution
  */
-function renderList(records, workId, onOpen, imageFields = null) {
+async function renderList(records, workId, onOpen, imageFields = null) {
   const list = $('#list');
   list.innerHTML = '';
   let shown = 0;
@@ -1477,18 +1349,27 @@ function renderList(records, workId, onOpen, imageFields = null) {
   const state = window.__CHAR_STATE__;
   const dbName = state ? state.db : 'Primary';
 
-  console.log('📋 Rendering list with non-blocking image resolution:', {
+  console.log('📋 Rendering list with enhanced image resolution:', {
     recordCount: records.length,
     workId,
     dbName,
     hasImageFields: !!imageFields
   });
 
+  // Show loading for image resolution if we have many records
+  const shouldShowProgress = records.length > 10;
+  if (shouldShowProgress) {
+    showLoadingIndicator('キャラクター画像を読み込んでいます...');
+  }
+
   const filteredRecords = records.filter(r => matchFilter(r, filter));
 
-  // Render items immediately without waiting for images
-  filteredRecords.forEach((r, i) => {
+  for (let i = 0; i < filteredRecords.length; i++) {
+    const r = filteredRecords[i];
     shown++;
+
+    // Use enhanced image resolution
+    const img = await imageFromRecord(workId, r, dbName, imageFields);
 
     const title = r.Name ? `${r.Name}${r.Num != null ? `（${r.Num}）` : ''}` : (r.FormalName || r.ModelName || r.Name_EN || '(No Name)');
     const sub = r.FormalName_EN || r.Name_EN || r.ModelNumber || '';
@@ -1508,9 +1389,6 @@ function renderList(records, workId, onOpen, imageFields = null) {
       chipEls.push(el('span', { class: 'chip accent' }, r.BeastType.Beast));
     }
 
-    // Create placeholder image initially
-    const imgElement = el('div', { class: 'thumb placeholder' }, ['画像読み込み中...']);
-
     const item = el('article', {
       class: 'grid-item',
       role: 'button',
@@ -1518,7 +1396,12 @@ function renderList(records, workId, onOpen, imageFields = null) {
       onkeydown: (ev) => { if (ev.key === 'Enter') onOpen(r); },
       onclick: () => onOpen(r)
     }, [
-      imgElement,
+      img ? el('img', {
+        class: 'thumb',
+        alt: `${title} thumbnail`,
+        src: img,
+        loading: 'lazy' // Add lazy loading for performance
+      }) : el('div', { class: 'thumb placeholder' }, ['画像なし']),
       el('h3', {}, [title]),
       sub ? el('div', { class: 'sub' }, [sub]) : null,
       chipEls.length ? el('div', { class: 'meta' }, chipEls) : null
@@ -1526,55 +1409,18 @@ function renderList(records, workId, onOpen, imageFields = null) {
 
     list.appendChild(item);
 
-    // Resolve image asynchronously without blocking
-    resolveImageAsync(workId, r, dbName, imageFields).then(imgUrl => {
-      if (imgUrl) {
-        const imgTag = el('img', {
-          class: 'thumb',
-          alt: `${title} thumbnail`,
-          src: imgUrl,
-          loading: 'lazy'
-        });
-        imgElement.replaceWith(imgTag);
-      } else {
-        imgElement.textContent = '画像なし';
-        imgElement.className = 'thumb placeholder';
-      }
-    }).catch(err => {
-      console.warn('⚠️ Image resolution failed for:', r.Name, err);
-      imgElement.textContent = '画像なし';
-      imgElement.className = 'thumb placeholder';
-    });
-  });
+    // Progressive rendering: update UI every 5 items for better perceived performance
+    if (shouldShowProgress && i % 5 === 0) {
+      await new Promise(resolve => setTimeout(resolve, 0)); // Allow UI update
+    }
+  }
+
+  if (shouldShowProgress) {
+    hideLoadingIndicator();
+  }
 
   $('#list-empty').hidden = shown > 0;
-  console.log(`✅ Rendered ${shown} characters (images loading asynchronously)`);
-}
-
-/**
- * Asynchronous image resolution that doesn't block UI
- * @param {string} workId - Work identifier
- * @param {Object} rec - Character record
- * @param {string} dbName - Database name
- * @param {Array} imageFields - Image field definitions
- * @returns {Promise<string>} Promise that resolves to image URL
- */
-async function resolveImageAsync(workId, rec, dbName, imageFields) {
-  try {
-    // Use enhanced image resolution with timeout
-    const timeoutPromise = new Promise((_, reject) =>
-      setTimeout(() => reject(new Error('Image resolution timeout')), 3000)
-    );
-
-    const imagePromise = imageFields
-      ? resolveImageFromFields(workId, rec, dbName, imageFields)
-      : resolveImageStatically(workId, rec, dbName);
-
-    return await Promise.race([imagePromise, timeoutPromise]);
-  } catch (error) {
-    console.warn('⚠️ Async image resolution failed:', error.message);
-    return '';
-  }
+  console.log(`✅ Rendered ${shown} characters with enhanced image resolution`);
 }
 
 /**
@@ -1909,13 +1755,13 @@ function wireControls() {
   }
 }
 
-function filterListOnly() {
+async function filterListOnly() {
   const state = window.__CHAR_STATE__;
   if (!state || !state.records) return;
 
   // Use enhanced rendering with image fields if available
   const imageFields = state.imageFields || null;
-  renderList(state.records, state.workId, openDetail, imageFields);
+  await renderList(state.records, state.workId, openDetail, imageFields);
 }
 
 async function populateWorks(initialWork) {
@@ -2202,8 +2048,8 @@ async function reloadInternal(showLoading = true) {
     $('#detail-view').hidden = true;
     $('#search-input').value = qs.q || '';
 
-    // Use enhanced rendering with image fields (non-blocking)
-    renderList(recs, workId, openDetail, imageFields);
+    // Use enhanced rendering with image fields
+    await renderList(recs, workId, openDetail, imageFields);
     console.log(`⏱️ ${currentStep} completed in ${(performance.now() - uiStart).toFixed(2)}ms`);
 
     if (qs.num) {
