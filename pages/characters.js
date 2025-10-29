@@ -23,6 +23,35 @@
  * @version 1.0.0
  */
 
+// Prevent external tracking scripts (Cloudflare Insights, etc.) from being injected
+(() => {
+  const originalAppendChild = Node.prototype.appendChild;
+  const originalInsertBefore = Node.prototype.insertBefore;
+
+  function blockTrackingScript(node) {
+    if (node && node.tagName === 'SCRIPT' && node.src) {
+      const url = new URL(node.src, document.baseURI);
+      if (url.hostname.includes('cloudflareinsights.com') ||
+          url.hostname.includes('beacon.min.js') ||
+          url.pathname.includes('beacon.min.js')) {
+        console.log('🚫 Blocked external tracking script:', node.src);
+        return true;
+      }
+    }
+    return false;
+  }
+
+  Node.prototype.appendChild = function(node) {
+    if (blockTrackingScript(node)) return node;
+    return originalAppendChild.call(this, node);
+  };
+
+  Node.prototype.insertBefore = function(node, before) {
+    if (blockTrackingScript(node)) return node;
+    return originalInsertBefore.call(this, node, before);
+  };
+})();
+
 // Characters page: fetch from /api/v1 and render list/detail
 
 // Global initialization tracking to prevent duplicate setup

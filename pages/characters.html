@@ -4,7 +4,12 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>創作キャラ・キャラシート | 100BeautiesLab Creations DB</title>
-  <meta name="description" content="/data の創作データベースを クライアント内API (/pages/v1 ほか) 経由で取得し、キャラシートとして表示します。" />
+    <meta name="description" content="/data の創作データベースを クライアント内API (/pages/v1 ほか) 経由で取得し、キャラシートとして表示します。" />
+
+    <!-- Security headers to prevent unwanted external scripts -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self';">
+    <meta name="referrer" content="no-referrer">
+
     <link rel="stylesheet" href="./characters.css" />
   </head>
   <body>

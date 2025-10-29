@@ -82,8 +82,21 @@ async function fileExists(path) {
 // Fetch routing
 self.addEventListener('fetch', (event) => {
   const url = new URL(event.request.url);
-  // Only same-origin
+
+  // Only same-origin requests
   if (url.origin !== self.location.origin) return;
+
+  // Skip external tracking scripts (Cloudflare Insights, etc.)
+  if (url.hostname !== self.location.hostname) return;
+
+  // Skip static assets and non-API paths
+  if (url.pathname.includes('.js') || url.pathname.includes('.css') ||
+      url.pathname.includes('.html') || url.pathname.includes('.png') ||
+      url.pathname.includes('.jpg') || url.pathname.includes('.gif') ||
+      url.pathname.includes('.svg') || url.pathname.includes('.ico')) {
+    return;
+  }
+
   const matchedPrefix = API_PREFIXES.find(p => url.pathname.startsWith(p));
   if (!matchedPrefix) return; // ignore non-API paths
 
