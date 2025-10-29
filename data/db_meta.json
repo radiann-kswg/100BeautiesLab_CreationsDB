@@ -107,6 +107,11 @@
           "Progress_JP": "制作中",
           "isForSecondary": false
         },
+        "#Progress_Secret": {
+          "Progress": "unreleased",
+          "Progress_JP": "公開待ち",
+          "isForSecondary": false
+        },
         "#Progress_BetaReleased": {
           "Progress": "released(beta)",
           "Progress_JP": "公開済み(ベータリリース)",

@@ -4,7 +4,10 @@
       "Stoat": "Major",
       "Num": 0
     },
-    "Progress": "nowCreating",
+    "Progress": "released(beta)",
+    "Images": {
+      "cardDesign_PNGName": "crddsn_imgFLM0-sample"
+    },
     "Name": "フェニクス",
     "Name_EN": "Tripper",
     "FormalName": "愚かな旅人\nフェニクス.ゼロウス",
@@ -74,7 +77,10 @@
       "Stoat": "Major",
       "Num": 1
     },
-    "Progress": "nowCreating",
+    "Progress": "unreleased",
+    "Images": {
+      "cardDesign_PNGName": "crddsn_imgFLM1-sample"
+    },
     "Name": "オリジン",
     "Name_EN": "Dr.Origin",
     "FormalName": "四元の魔術師\nオリジン.マギカルテット",
@@ -214,7 +220,10 @@
   },
   {
     "Card": { "Stoat": "Major", "Num": 3 },
-    "Progress": "nowCreating",
+    "Progress": "unreleased",
+    "Images": {
+      "cardDesign_PNGName": "crddsn_imgFLM3-sample"
+    },
     "Name": "ウェヌス",
     "Name_EN": "Venus",
     "FormalName": "九星の女帝\nウェヌス.ハピネス",
@@ -560,7 +569,8 @@
     },
     "Progress": "released(beta)",
     "Images": {
-      "conceptAlt_PNGName": ["cnsp_imgFLDealer"]
+      "conceptAlt_PNGName": ["cnsp_imgFLDealer"],
+      "arts_PNGPath": ["arts_imgFLDealer"]
     },
     "Name": null,
     "Name_EN": null,
@@ -635,7 +645,8 @@
     },
     "Progress": "released(beta)",
     "Images": {
-      "conceptAlt_PNGName": ["cnsp_imgFLDealer"]
+      "conceptAlt_PNGName": ["cnsp_imgFLDealer"],
+      "arts_PNGPath": ["arts_imgFLDealer"]
     },
     "Name": null,
     "Name_EN": null,
