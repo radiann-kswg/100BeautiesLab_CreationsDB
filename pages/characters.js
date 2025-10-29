@@ -1390,9 +1390,10 @@ async function renderList(records, workId, onOpen, imageFields = null) {
     }
 
     const item = el('article', {
-      class: 'grid-item',
+      class: 'grid-item fade-in',
       role: 'button',
       tabindex: 0,
+      style: `animation-delay: ${Math.min(i * 0.05, 1)}s`,
       onkeydown: (ev) => { if (ev.key === 'Enter') onOpen(r); },
       onclick: () => onOpen(r)
     }, [
