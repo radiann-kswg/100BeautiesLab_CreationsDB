@@ -4,6 +4,9 @@
     "Unit_FullEN": "second",
     "Unit_JP": "時刻(KMS法)",
     "Progress": "stillTentative",
+    "Image": {
+      "design_PNGName": "design_imgPhysU-sec"
+    },
     "Name": "セコンド",
     "Name_EN": "Second_SI-T",
     "FormalName": {
@@ -38,6 +41,9 @@
     "Unit_FullEN": "Meter/Metre",
     "Unit_JP": "寸法(KMS法)",
     "Progress": "stillTentative",
+    "Image": {
+      "design_PNGName": "design_imgPhysU-m"
+    },
     "Name": "メトレ",
     "Name_EN": "Metre_SI-L",
     "FormalName": "リール ∛竏.絶対尺度(キュービックキロリッター.アンチヤードポンド)",
@@ -66,6 +72,9 @@
     "Unit_FullEN": "KiloGram",
     "Unit_JP": "質量(KMS法)",
     "Progress": "stillTentative",
+    "Image": {
+      "design_PNGName": "design_imgPhysU-kg"
+    },
     "Name": "キログラ",
     "Name_EN": "Kilogra_SI-M",
     "FormalName": "瓩=砲丸 リキ吉(せんがわら=ショットシェルズ りきち)",
@@ -94,6 +103,9 @@
     "Unit_FullEN": "Candela",
     "Unit_JP": "光度",
     "Progress": "stillTentative",
+    "Image": {
+      "design_PNGName": "design_imgPhysU-cd"
+    },
     "Name": "カンデラ",
     "Name_EN": "Candela_SI-J",
     "FormalName": "燈[橙](あかりの)希灯(ネオン)ブライトゲイン",
@@ -122,6 +134,9 @@
     "Unit_FullEN": "Kelvin",
     "Unit_JP": "絶対温度",
     "Progress": "stillTentative",
+    "Image": {
+      "design_PNGName": "design_imgPhysU-K"
+    },
     "Name": "ケルビン",
     "Name_EN": "Kelvin_SI-Θ",
     "FormalName": "熱(ほとぼり)ウルスネムリ",
@@ -150,6 +165,9 @@
     "Unit_FullEN": "Anpere",
     "Unit_JP": "電流値",
     "Progress": "stillTentative",
+    "Image": {
+      "design_PNGName": "design_imgPhysU-A"
+    },
     "Name": "アンプ",
     "Name_EN": "Amp'_SI-I",
     "FormalName": "電(いなずま)カレン=ソー",
@@ -178,6 +196,9 @@
     "Unit_FullEN": "mol",
     "Unit_JP": "物質量",
     "Progress": "stillTentative",
+    "Image": {
+      "design_PNGName": "design_imgPhysU-mol"
+    },
     "Name": "モル",
     "Name_EN": "Mol_SI-N",
     "FormalName": "掌 大気(たなごころ えあ)",
@@ -206,6 +227,9 @@
     "Unit_FullEN": "radian",
     "Unit_JP": "角度(弧度法)",
     "Progress": "stillTentative",
+    "Image": {
+      "design_PNGName": "design_imgPhysU-rad"
+    },
     "_DBLink": {
       "worksTitle": "Proxies",
       "dbName": "Proxy",
@@ -227,10 +251,13 @@
     "Unlike": "制御できないもの"
   },
   {
-    "Unit": "str",
+    "Unit": "sr",
     "Unit_FullEN": "steradian",
     "Unit_JP": "立体角(弧度法)",
     "Progress": "stillTentative",
+    "Image": {
+      "design_PNGName": "design_imgPhysU-sr"
+    },
     "Name": "ステラ",
     "Name_EN": "Srera'N",
     "FormalName": "環(たまき)ひかり.フラッシュレイ",
