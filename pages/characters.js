@@ -965,6 +965,36 @@ function imageFromRecord(workId, rec, dbName = 'Primary') {
 }
 
 /**
+ * Load more images in gallery (performance optimization)
+ * @param {string} workId - Work identifier
+ * @param {Object} rec - Character record
+ * @param {Array} imageFields - Image field definitions
+ * @param {string} dbName - Database name
+ * @param {Object} fieldLabelMap - Field label mapping
+ * @param {Object} workMeta - Work metadata
+ * @param {Object} globalDefType - Global type definitions
+ */
+function loadMoreImages(workId, rec, imageFields, dbName, fieldLabelMap, workMeta, globalDefType) {
+  const galleryImages = buildImageGallery(workId, rec, imageFields, dbName);
+  const imageGrid = document.querySelector('.image-grid');
+  const moreButton = document.querySelector('.image-more');
+
+  if (imageGrid && moreButton) {
+    // Remove the "more" button
+    moreButton.remove();
+
+    // Add remaining images
+    galleryImages.slice(6).forEach(imgData => {
+      const imageItem = el('div', { class: 'image-item' }, [
+        el('img', { src: imgData.url, alt: imgData.alt, loading: 'lazy' }),
+        imgData.caption ? el('div', { class: 'caption' }, [imgData.caption]) : null
+      ].filter(Boolean));
+      imageGrid.appendChild(imageItem);
+    });
+  }
+}
+
+/**
  * Convert value to string safely
  * @param {*} v - Any value
  * @returns {string} String representation
@@ -1057,17 +1087,24 @@ async function renderDetail(workId, rec) {
   const state = window.__CHAR_STATE__;
   const dbName = state ? state.db : 'Primary';
 
-  // Fetch comprehensive metadata for field localization
-  const [workTypeDef, globalTypeDef, globalDefType, workMeta, globalMeta] = await Promise.all([
-    fetchWorkTypeDef(workId),
-    fetchGlobalTypeDef(),
-    fetchGlobalDefType(),
-    fetchWorkMeta(workId),
-    fetchGlobalMeta()
-  ]);
+  try {
+    // Show minimal loading for detail view
+    mount.innerHTML = '<div style="padding: 20px; text-align: center; color: var(--muted);">詳細情報を読み込んでいます...</div>';
 
-  // Build comprehensive field label mapping with global fallbacks
-  const fieldLabelMap = buildFieldLabelMap(workTypeDef, globalTypeDef);
+    // Fetch comprehensive metadata for field localization with aggressive caching
+    const [workTypeDef, globalTypeDef, globalDefType, workMeta, globalMeta] = await Promise.all([
+      fetchWorkTypeDef(workId),
+      fetchGlobalTypeDef(),
+      fetchGlobalDefType(),
+      fetchWorkMeta(workId),
+      fetchGlobalMeta()
+    ]);
+
+    // Clear loading message
+    mount.innerHTML = '';
+
+    // Build comprehensive field label mapping with global fallbacks
+    const fieldLabelMap = buildFieldLabelMap(workTypeDef, globalTypeDef);
 
   // Main poster image with database-specific path
   const poster = imageFromRecord(workId, rec, dbName);
@@ -1076,16 +1113,25 @@ async function renderDetail(workId, rec) {
   const imageFields = extractImageFields(workTypeDef, globalTypeDef);
   const galleryImages = buildImageGallery(workId, rec, imageFields, dbName);
 
-  // Create left section with poster and gallery
+  // Create left section with poster and gallery - optimized loading
   const imageSection = [
-    poster ? el('img', { class: 'poster', src: poster, alt: 'poster' }) : el('div', { class: 'poster' }),
+    poster ? el('img', { class: 'poster', src: poster, alt: 'poster', loading: 'lazy' }) : el('div', { class: 'poster' }),
     galleryImages.length > 0 ? el('div', { class: 'image-gallery' }, [
       el('h4', {}, [getFieldLabel('Gallery', fieldLabelMap, workMeta, globalDefType, '画像ギャラリー')]),
-      el('div', { class: 'image-grid' }, galleryImages.map(imgData =>
+      el('div', { class: 'image-grid' }, galleryImages.slice(0, 6).map(imgData => // Limit initial images for performance
         el('div', { class: 'image-item' }, [
           el('img', { src: imgData.url, alt: imgData.alt, loading: 'lazy' }),
           imgData.caption ? el('div', { class: 'caption' }, [imgData.caption]) : null
         ].filter(Boolean))
+      ).concat(
+        galleryImages.length > 6 ? [
+          el('div', { class: 'image-more', style: 'text-align: center; padding: 10px;' }, [
+            el('button', {
+              type: 'button',
+              onclick: () => loadMoreImages(workId, rec, imageFields, dbName, fieldLabelMap, workMeta, globalDefType)
+            }, [`さらに ${galleryImages.length - 6} 枚の画像を表示`])
+          ])
+        ] : []
       ))
     ]) : null
   ].filter(Boolean);
@@ -1194,6 +1240,11 @@ async function renderDetail(workId, rec) {
   ].filter(Boolean));
 
   mount.appendChild(el('div', { class: 'detail' }, [left, right]));
+
+  } catch (error) {
+    console.error('Error rendering detail view:', error);
+    mount.innerHTML = `<div style="padding: 20px; text-align: center; color: red;">エラー: 詳細情報の読み込みに失敗しました (${error.message})</div>`;
+  }
 }
 
 /**
@@ -1347,35 +1398,6 @@ async function populateDBs(workKey, initialDB) {
   return sel.value;
 }
 
-async function reload() {
-  const qs = getQS();
-  const workId = $('#select-work').value;
-  const db = $('#select-db').value || 'Primary';
-  const resolve = $('#chk-resolve').checked;
-  const debug = $('#chk-debug').checked;
-
-  // Fetch character data and metadata in parallel
-  const [res, workMeta] = await Promise.all([
-    fetchDB(workId, db, { resolve, debug }),
-    fetchWorkMeta(workId)
-  ]);
-
-  let recs = res.records || [];
-
-  // Apply Commons data for missing fields
-  recs = applyCommonsData(recs, workMeta, db);
-
-  window.__CHAR_STATE__ = { workId, db, resolve, debug, records: recs };
-  $('#list-view').hidden = false;
-  $('#detail-view').hidden = true;
-  $('#search-input').value = qs.q || '';
-  renderList(recs, workId, openDetail);
-  if (qs.num) {
-    const target = recs.find(r => String(r.Num) === String(qs.num));
-    if (target) openDetail(target);
-  }
-}
-
 function openDetail(rec) {
   const state = window.__CHAR_STATE__;
   $('#list-view').hidden = true;
@@ -1411,7 +1433,10 @@ async function main() {
     await populateDBs(wk, qs.db || 'Primary');
     console.log('✅ Databases populated');
 
-    await reload();
+    // Update loading message for data loading phase
+    showLoadingIndicator('キャラクターデータを読み込んでいます...');
+
+    await reloadInternal(false); // Pass false to skip duplicate loading indicator
     console.log('✅ Initial data loaded');
 
     hideLoadingIndicator();
@@ -1494,10 +1519,21 @@ function showErrorMessage(title, error) {
 
 /**
  * Enhanced reload function with better error handling
+ * @param {boolean} showLoading - Whether to show/hide loading indicator (default: true)
  */
-async function reload() {
+async function reload(showLoading = true) {
+  return reloadInternal(showLoading);
+}
+
+/**
+ * Internal reload implementation with configurable loading indicator
+ * @param {boolean} showLoading - Whether to manage loading indicator
+ */
+async function reloadInternal(showLoading = true) {
   try {
-    showLoadingIndicator('キャラクターデータを読み込んでいます...');
+    if (showLoading) {
+      showLoadingIndicator('キャラクターデータを読み込んでいます...');
+    }
 
     const qs = getQS();
     const workId = $('#select-work').value;
@@ -1541,12 +1577,16 @@ async function reload() {
       }
     }
 
-    hideLoadingIndicator();
+    if (showLoading) {
+      hideLoadingIndicator();
+    }
     console.log('✅ Data reload complete:', recs.length, 'records');
 
   } catch (error) {
     console.error('❌ Reload failed:', error);
-    hideLoadingIndicator();
+    if (showLoading) {
+      hideLoadingIndicator();
+    }
     showErrorMessage('データの読み込みに失敗しました', error);
   }
 }

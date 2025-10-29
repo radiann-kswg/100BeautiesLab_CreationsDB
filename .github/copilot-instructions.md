@@ -71,7 +71,8 @@
 │   └── sw.js                  # Service Worker (JavaScript)
 ├── pages/                     # キャラシート生成機能 (メイン)
 │   ├── characters.html        # キャラシート表示ページ本体
-│   ├── characters.css         # スタイルシート
+│   ├── characters.css         # スタイルシート本体
+│   ├── characters.sass        # 編集用スタイルシート
 │   ├── characters.js          # ページ処理用スクリプト
 │   ├── characters_final.js    # 最終版ページ処理スクリプト
 │   └── sw.js                  # Service Worker (JavaScript)
