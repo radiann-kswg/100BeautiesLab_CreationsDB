@@ -187,31 +187,61 @@ function waitForController(timeoutMs = 3000) {
  */
 
 /**
- * Fetch and parse JSON from URL with error handling and debug logging
+ * Fetch and parse JSON from URL with timeout and enhanced error handling
  * @param {string} url - URL to fetch
+ * @param {number} timeout - Timeout in milliseconds (default: 10 seconds)
  * @returns {Promise<Object>} Parsed JSON response
  * @throws {Error} If request fails or response is not OK
  */
-async function fetchJSON(url) {
+async function fetchJSON(url, timeout = 10000) {
   console.log('🌐 Fetching:', url);
+  const startTime = performance.now();
+
   try {
-    const res = await fetch(url, { headers: { 'Accept': 'application/json' } });
+    // Create timeout promise
+    const timeoutPromise = new Promise((_, reject) =>
+      setTimeout(() => reject(new Error(`Request timeout after ${timeout}ms`)), timeout)
+    );
+
+    // Race between fetch and timeout
+    const fetchPromise = fetch(url, {
+      headers: { 'Accept': 'application/json' },
+      cache: 'default' // Use browser cache to improve performance
+    });
+
+    const res = await Promise.race([fetchPromise, timeoutPromise]);
+    const fetchTime = performance.now() - startTime;
+
     if (!res.ok) {
       console.error('❌ Fetch failed:', {
         status: res.status,
         statusText: res.statusText,
         url: url,
+        time: `${fetchTime.toFixed(2)}ms`,
         headers: Object.fromEntries(res.headers.entries())
       });
       throw new Error(`${res.status} ${res.statusText} ${url}`);
     }
+
+    const parseStart = performance.now();
     const data = await res.json();
-    console.log('✅ Fetch success:', url, 'Response size:', JSON.stringify(data).length, 'chars');
+    const parseTime = performance.now() - parseStart;
+    const totalTime = performance.now() - startTime;
+
+    console.log('✅ Fetch success:', url, {
+      fetchTime: `${fetchTime.toFixed(2)}ms`,
+      parseTime: `${parseTime.toFixed(2)}ms`,
+      totalTime: `${totalTime.toFixed(2)}ms`,
+      responseSize: `${JSON.stringify(data).length} chars`
+    });
+
     return data;
   } catch (error) {
+    const totalTime = performance.now() - startTime;
     console.error('❌ Fetch error:', {
       message: error.message,
       url: url,
+      time: `${totalTime.toFixed(2)}ms`,
       type: error.constructor.name
     });
     throw error;
@@ -1414,36 +1444,50 @@ async function main() {
   }
   isInitialized = true;
 
-  try {
-    console.log('🚀 Initializing character browser application...');
+  const startTime = performance.now();
+  console.log('🚀 Initializing character browser application...');
 
+  try {
     // Show loading indicator
     showLoadingIndicator('アプリケーションを初期化しています...');
 
+    // Step 1: Service Worker initialization
+    let stepStart = performance.now();
     await ensureApiSW();
-    console.log('✅ Service Worker initialized');
+    console.log(`✅ Service Worker initialized in ${(performance.now() - stepStart).toFixed(2)}ms`);
 
+    // Step 2: Wire UI controls
+    stepStart = performance.now();
     wireControls();
-    console.log('✅ UI controls wired');
+    console.log(`✅ UI controls wired in ${(performance.now() - stepStart).toFixed(2)}ms`);
 
+    // Step 3: Populate works list
+    stepStart = performance.now();
     const qs = getQS();
     const wk = await populateWorks(qs.work);
-    console.log('✅ Works populated:', wk);
+    console.log(`✅ Works populated in ${(performance.now() - stepStart).toFixed(2)}ms:`, wk);
 
+    // Step 4: Populate databases
+    stepStart = performance.now();
     await populateDBs(wk, qs.db || 'Primary');
-    console.log('✅ Databases populated');
+    console.log(`✅ Databases populated in ${(performance.now() - stepStart).toFixed(2)}ms`);
 
     // Update loading message for data loading phase
     showLoadingIndicator('キャラクターデータを読み込んでいます...');
 
+    // Step 5: Load initial data
+    stepStart = performance.now();
     await reloadInternal(false); // Pass false to skip duplicate loading indicator
-    console.log('✅ Initial data loaded');
+    console.log(`✅ Initial data loaded in ${(performance.now() - stepStart).toFixed(2)}ms`);
 
     hideLoadingIndicator();
-    console.log('🎉 Application initialization complete');
+
+    const totalTime = performance.now() - startTime;
+    console.log(`🎉 Application initialization complete in ${totalTime.toFixed(2)}ms`);
 
   } catch (error) {
-    console.error('❌ Application initialization failed:', error);
+    const totalTime = performance.now() - startTime;
+    console.error(`❌ Application initialization failed after ${totalTime.toFixed(2)}ms:`, error);
     hideLoadingIndicator();
     showErrorMessage('アプリケーションの初期化に失敗しました', error);
   }
@@ -1547,26 +1591,67 @@ async function reloadInternal(showLoading = true) {
 
     console.log('📊 Reloading data:', { workId, db, resolve, debug });
 
-    // Fetch character data and metadata in parallel
-    const [res, workMeta] = await Promise.all([
-      fetchDB(workId, db, { resolve, debug }),
-      fetchWorkMeta(workId)
-    ]);
+    // Enhanced data loading with timeout and step tracking
+    const startTime = performance.now();
+    let currentStep = 'データベース読み込み';
 
+    if (showLoading) {
+      showLoadingIndicator(`${currentStep}中...`);
+    }
+
+    // Fetch character data and metadata with timeout protection
+    const fetchTimeout = 15000; // 15 second timeout
+    const fetchPromises = [
+      Promise.race([
+        fetchDB(workId, db, { resolve, debug }),
+        new Promise((_, reject) =>
+          setTimeout(() => reject(new Error('Database fetch timeout')), fetchTimeout)
+        )
+      ]),
+      Promise.race([
+        fetchWorkMeta(workId),
+        new Promise((_, reject) =>
+          setTimeout(() => reject(new Error('Metadata fetch timeout')), fetchTimeout)
+        )
+      ])
+    ];
+
+    const stepStart = performance.now();
+    const [res, workMeta] = await Promise.all(fetchPromises);
+    console.log(`⏱️ ${currentStep} completed in ${(performance.now() - stepStart).toFixed(2)}ms`);
+
+    // Data processing step
+    currentStep = 'データ処理';
+    if (showLoading) {
+      showLoadingIndicator(`${currentStep}中...`);
+    }
+
+    const processStart = performance.now();
     let recs = res.records || [];
     if (recs.length === 0) {
       console.warn('⚠️ No records found for:', { workId, db });
+    } else {
+      console.log(`📋 Processing ${recs.length} records`);
     }
 
     // Apply Commons data for missing fields
     recs = applyCommonsData(recs, workMeta, db);
+    console.log(`⏱️ ${currentStep} completed in ${(performance.now() - processStart).toFixed(2)}ms`);
 
+    // UI update step
+    currentStep = 'UI更新';
+    if (showLoading) {
+      showLoadingIndicator(`${currentStep}中...`);
+    }
+
+    const uiStart = performance.now();
     window.__CHAR_STATE__ = { workId, db, resolve, debug, records: recs };
     $('#list-view').hidden = false;
     $('#detail-view').hidden = true;
     $('#search-input').value = qs.q || '';
 
     renderList(recs, workId, openDetail);
+    console.log(`⏱️ ${currentStep} completed in ${(performance.now() - uiStart).toFixed(2)}ms`);
 
     if (qs.num) {
       const target = recs.find(r => String(r.Num) === String(qs.num));
@@ -1580,15 +1665,73 @@ async function reloadInternal(showLoading = true) {
     if (showLoading) {
       hideLoadingIndicator();
     }
-    console.log('✅ Data reload complete:', recs.length, 'records');
+
+    const totalTime = performance.now() - startTime;
+    console.log(`🎉 Data reload complete: ${recs.length} records in ${totalTime.toFixed(2)}ms`);
 
   } catch (error) {
-    console.error('❌ Reload failed:', error);
+    const currentStep = error.message.includes('timeout') ? 'タイムアウト' : 'データ読み込み';
+    console.error(`❌ Reload failed at step "${currentStep}":`, error);
     if (showLoading) {
       hideLoadingIndicator();
     }
-    showErrorMessage('データの読み込みに失敗しました', error);
+
+    // Enhanced error message with specific guidance
+    let errorMessage = error.message;
+    if (error.message.includes('timeout')) {
+      errorMessage = 'データの読み込みがタイムアウトしました。ネットワーク接続を確認するか、しばらく時間をおいて再試行してください。';
+    }
+    showErrorMessage('データの読み込みに失敗しました', errorMessage);
   }
+}
+
+/**
+ * Debug helper: Add performance monitoring overlay (only in development)
+ */
+function addPerformanceMonitor() {
+  if (location.hostname !== '127.0.0.1' && location.hostname !== 'localhost') {
+    return; // Only show in local development
+  }
+
+  const overlay = el('div', {
+    id: 'perf-monitor',
+    style: `
+      position: fixed; top: 10px; right: 10px;
+      background: rgba(0,0,0,0.8); color: white;
+      padding: 10px; border-radius: 5px;
+      font-family: monospace; font-size: 12px;
+      z-index: 10000; max-width: 300px;
+      display: none;
+    `
+  }, [
+    el('div', {}, ['Performance Monitor']),
+    el('div', { id: 'perf-content' }, ['Initializing...'])
+  ]);
+
+  document.body.appendChild(overlay);
+
+  // Toggle with Ctrl+Shift+P
+  document.addEventListener('keydown', (e) => {
+    if (e.ctrlKey && e.shiftKey && e.key === 'P') {
+      overlay.style.display = overlay.style.display === 'none' ? 'block' : 'none';
+    }
+  });
+
+  // Update performance info
+  setInterval(() => {
+    if (overlay.style.display !== 'none') {
+      const content = document.getElementById('perf-content');
+      if (content) {
+        const memory = performance.memory || {};
+        content.innerHTML = `
+          <div>Used: ${(memory.usedJSHeapSize / 1024 / 1024).toFixed(1)}MB</div>
+          <div>Total: ${(memory.totalJSHeapSize / 1024 / 1024).toFixed(1)}MB</div>
+          <div>Time: ${performance.now().toFixed(0)}ms</div>
+          <div>Records: ${window.__CHAR_STATE__?.records?.length || 0}</div>
+        `;
+      }
+    }
+  }, 1000);
 }
 
 /**
@@ -1598,5 +1741,8 @@ main().catch(err => {
   console.error('Initialization error:', err);
   document.body.innerHTML = `<div style="padding: 20px; color: red;">初期化エラー: ${err.message}</div>`;
 });
+
+// Add performance monitor in development
+addPerformanceMonitor();
 
 window.addEventListener('load', main);

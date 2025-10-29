@@ -260,26 +260,101 @@ async function handleApiRequest(url, apiPrefix) {
 
   // /v1/works/{work}/db/{dbName}
   if (seg.length === 4 && seg[0] === 'works' && seg[2] === 'db') {
+    const startTime = performance.now();
     const workId = toWorkKey(seg[1]);
     const dbName = seg[3];
-    let data = await readDB(workId, dbName);
-    const meta = await readWorkMeta(workId);
-    data = applyCommonsToRecords(data, meta, dbName);
-    if (resolve) {
-      const { mergedVars, indices } = await getWorkContext(workId);
-      data = await resolveAllInAny(data, indices);
-      if (debug) payloadDebugAttach = { indicesSummary: summarizeIndices(indices) };
-    }
-    const payload = { work: workId, db: dbName, records: data, resolved: resolve };
-    if (debug) {
-      if (!payloadDebugAttach) {
-        const { indices } = await getWorkContext(workId);
-        payload.debug = { indicesSummary: summarizeIndices(indices) };
-      } else {
-        payload.debug = payloadDebugAttach;
+
+    console.log('🔄 SW: Starting database fetch for', { workId, dbName, resolve, debug });
+
+    try {
+      // Step 1: Load raw data with timeout
+      const dbPromise = readDB(workId, dbName);
+      const metaPromise = readWorkMeta(workId);
+
+      // Race with timeout (10 seconds)
+      const dataTimeout = 10000;
+      const [data, meta] = await Promise.race([
+        Promise.all([dbPromise, metaPromise]),
+        new Promise((_, reject) =>
+          setTimeout(() => reject(new Error('Database read timeout')), dataTimeout)
+        )
+      ]);
+
+      const fetchTime = performance.now() - startTime;
+      console.log(`⏱️ SW: DB fetch completed in ${fetchTime.toFixed(2)}ms`);
+
+      // Step 2: Apply commons data
+      const processStart = performance.now();
+      let processedData = applyCommonsToRecords(data, meta, dbName);
+      const applyTime = performance.now() - processStart;
+      console.log(`⏱️ SW: Commons applied in ${applyTime.toFixed(2)}ms`);
+
+      // Step 3: Conditional reference resolution (only if resolve=true and not too many records)
+      if (resolve) {
+        const resolveStart = performance.now();
+        const recordCount = Array.isArray(processedData) ? processedData.length : 0;
+
+        // Skip resolution for large datasets or add timeout
+        if (recordCount > 100) {
+          console.warn('⚠️ SW: Skipping reference resolution for large dataset:', recordCount, 'records');
+        } else {
+          try {
+            const { mergedVars, indices } = await getWorkContext(workId);
+
+            // Add timeout for resolution process
+            const resolveTimeout = 5000; // 5 second timeout for resolution
+            const resolvePromise = resolveAllInAny(processedData, indices);
+
+            processedData = await Promise.race([
+              resolvePromise,
+              new Promise((_, reject) =>
+                setTimeout(() => reject(new Error('Reference resolution timeout')), resolveTimeout)
+              )
+            ]);
+
+            if (debug) payloadDebugAttach = { indicesSummary: summarizeIndices(indices) };
+
+            const resolveTime = performance.now() - resolveStart;
+            console.log(`⏱️ SW: Reference resolution completed in ${resolveTime.toFixed(2)}ms`);
+          } catch (resolveError) {
+            console.warn('⚠️ SW: Reference resolution failed, continuing without:', resolveError.message);
+            // Continue without resolution rather than failing completely
+          }
+        }
       }
+
+      const payload = { work: workId, db: dbName, records: processedData, resolved: resolve };
+      if (debug) {
+        if (!payloadDebugAttach) {
+          try {
+            const { indices } = await getWorkContext(workId);
+            payload.debug = { indicesSummary: summarizeIndices(indices) };
+          } catch (debugError) {
+            payload.debug = { error: 'Debug info unavailable' };
+          }
+        } else {
+          payload.debug = payloadDebugAttach;
+        }
+      }
+
+      const totalTime = performance.now() - startTime;
+      console.log(`🎉 SW: Database request completed in ${totalTime.toFixed(2)}ms`);
+
+      return jsonResponse(payload);
+
+    } catch (error) {
+      const totalTime = performance.now() - startTime;
+      console.error(`❌ SW: Database request failed after ${totalTime.toFixed(2)}ms:`, error);
+
+      // Return error response instead of throwing
+      return jsonResponse({
+        error: error.message,
+        work: workId,
+        db: dbName,
+        timestamp: new Date().toISOString(),
+        processingTime: `${totalTime.toFixed(2)}ms`
+      }, 500);
     }
-    return jsonResponse(payload);
   }
 
   // /v1/search
