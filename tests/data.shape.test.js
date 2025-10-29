@@ -21,8 +21,9 @@ describe('database shapes', () => {
       'Works_SinisterChangingGirls',
       'Works_FLInvestigator78',
       'Works_PastDivers',
+      'Works_UnauthedLogica',
     ];
-    const dbFiles = ['db_Primary.json', 'db_Secondary.json', 'db_SemiPrimary.json', 'db_SelfSecondary.json'];
+    const dbFiles = ['db_Primary.json', 'db_Secondary.json', 'db_SemiPrimary.json', 'db_SelfSecondary.json', 'db_Mobs.json'];
     for (const wk of works) {
       for (const db of dbFiles) {
         try {

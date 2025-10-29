@@ -1,0 +1,23 @@
+{
+  "$DefType": [
+    {
+      "hashTag": "ForMasterCalling",
+      "$type": "#String|#Summary",
+      "isForMobs": false,
+      "hashtag_JP": "主人の呼び方"
+    },
+    {
+      "hashTag": "LogicspecAbout",
+      "$type": "#Summary",
+      "isForMobs": null,
+      "hashtag_JP": "ロジカ(論理特殊能力)について"
+    },
+    {
+      "hashTag": "ExistingRarity",
+      "$type": [{ "hashTag": "Rarity", "$type": "$EnumDef_Rarity,$EnumLink" }],
+      "isForMobs": true,
+      "hashtag_JP": "残存レア度"
+    }
+  ],
+  "$VarsDef": {}
+}

@@ -99,7 +99,8 @@ async function listWorkDBs(workId) {
     { name: 'Secondary', file: 'db_Secondary.json' },
     { name: 'SemiPrimary', file: 'db_SemiPrimary.json' },
     { name: 'SelfSecondary', file: 'db_SelfSecondary.json' },
-    { name: 'Proxy', file: 'db_Proxy.json' }
+    { name: 'Proxy', file: 'db_Proxy.json' },
+    { name: 'Mobs', file: 'db_Mobs.json' }
   ];
   const exist = [];
   for (const c of candidates) {
@@ -158,7 +159,8 @@ async function readDB(workId, dbName) {
     Secondary: 'db_Secondary.json',
     SemiPrimary: 'db_SemiPrimary.json',
     SelfSecondary: 'db_SelfSecondary.json',
-    Proxy: 'db_Proxy.json'
+    Proxy: 'db_Proxy.json',
+    Mobs: 'db_Mobs.json'
   };
   // accept '#DB_Primary' style
   const norm = (dbName || '').replace(/^#?DB_/i, '').replace(/^[#]/, '');
