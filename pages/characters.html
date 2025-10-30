@@ -5,9 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>創作キャラ・キャラシート | 100BeautiesLab Creations DB</title>
   <meta name="description" content="/data の創作データベースを クライアント内API (/pages/v1 ほか) 経由で取得し、キャラシートとして表示します。" />
+    <!-- メインスタイルシート（SASS から自動生成） -->
     <link rel="stylesheet" href="./characters.css" />
   </head>
   <body>
+    <!-- サイトヘッダー：アプリケーションタイトルと説明 -->
     <header class="site-header">
       <h1>創作キャラ・キャラシート</h1>
       <p class="lead">
@@ -15,22 +17,28 @@
       </p>
     </header>
 
+    <!-- メインアプリケーションコンテナ -->
     <main class="container" id="app">
+      <!-- コントロールパネル：作品選択、DB選択、検索、オプション -->
       <section class="controls card">
         <div class="control-row">
+          <!-- 作品選択ドロップダウン -->
           <label>
             作品（Works）
             <select id="select-work" aria-label="作品を選択"></select>
           </label>
+          <!-- データベース選択ドロップダウン -->
           <label>
             DB
             <select id="select-db" aria-label="DBを選択"></select>
           </label>
+          <!-- 検索・絞り込み入力フィールド -->
           <label class="grow">
             絞り込み（名前/番号 など 部分一致）
             <input id="search-input" type="search" placeholder="例: ツグ / 2 / Unitta" />
           </label>
         </div>
+        <!-- オプション設定行 -->
         <div class="control-row small">
           <label><input id="chk-resolve" type="checkbox" checked /> 参照解決を有効化（推奨）</label>
           <label><input id="chk-debug" type="checkbox" /> デバッグ情報</label>
@@ -38,25 +46,34 @@
         </div>
       </section>
 
+      <!-- キャラクター一覧表示セクション -->
       <section id="list-view" class="card">
         <h2>キャラクター一覧</h2>
+        <!-- グリッドレイアウトによるキャラクターリスト -->
         <div id="list" class="grid-list" aria-live="polite"></div>
+        <!-- 空状態メッセージ -->
         <div id="list-empty" class="muted" hidden>該当するキャラクターが見つかりませんでした。</div>
       </section>
 
+      <!-- キャラクター詳細表示セクション -->
       <section id="detail-view" class="card" hidden>
         <div class="detail-header">
+          <!-- 一覧へ戻るボタン -->
           <button id="btn-back" class="ghost">← 一覧へ戻る</button>
+          <!-- 詳細タイトル -->
           <h2 id="detail-title">-</h2>
         </div>
+        <!-- 詳細コンテンツエリア -->
         <div id="detail" class="detail"></div>
       </section>
     </main>
 
+    <!-- サイトフッター：著作権表示 -->
     <footer class="site-footer">
       <small>©ラジアン(柏木主税) / ©RadianN_kswg</small>
     </footer>
 
+    <!-- メインアプリケーションスクリプト（ES6モジュール） -->
     <script src="./characters.js" type="module"></script>
   </body>
   </html>

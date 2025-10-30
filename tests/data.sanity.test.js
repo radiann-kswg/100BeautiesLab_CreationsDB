@@ -1,3 +1,7 @@
+/**
+ * データ整合性テスト
+ * /data 配下の全 JSON ファイルの構文検証を実行
+ */
 import { describe, it, expect } from 'vitest';
 import { readFileSync, readdirSync, statSync } from 'node:fs';
 import { join, dirname } from 'node:path';
@@ -8,6 +12,11 @@ const __dirname = dirname(__filename);
 const repoRoot = dirname(__dirname);
 const dataRoot = join(repoRoot, 'data');
 
+/**
+ * ディレクトリを再帰的に走査してファイルパスを生成
+ * @param {string} dir - 走査するディレクトリパス
+ * @yields {string} ファイルパス
+ */
 function* walk(dir) {
   const items = readdirSync(dir);
   for (const name of items) {
@@ -24,6 +33,7 @@ function* walk(dir) {
 describe('data json sanity', () => {
   it('all .json files under /data are valid JSON', () => {
     let count = 0;
+    // /data 配下の全 .json ファイルを検査
     for (const file of walk(dataRoot)) {
       if (!file.endsWith('.json')) continue;
       const txt = readFileSync(file, 'utf-8');
@@ -34,6 +44,7 @@ describe('data json sanity', () => {
       }
       count += 1;
     }
+    // 少なくとも1つの JSON ファイルが処理されたことを確認
     expect(count).toBeGreaterThan(0);
   });
 });

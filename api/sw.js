@@ -1,28 +1,29 @@
-// Service Worker: static API router for GitHub Pages
-// - Intercepts /api/v1/* requests
-// - Reads JSON from /data/** and returns pseudo-API responses
+// Service Worker: GitHub Pages 用の静的 API ルーター
+// - /api/v1/* リクエストをインターセプト
+// - /data/** から JSON を読み取り、疑似 API レスポンスを返す
 //
 // 本SWはGitHub Pages上で動作する疑似APIです。/data配下の静的JSONを読み取り、
 // 参照解決（定義併載・インデックス解決）と最小限の検索をクライアント側で行います。
 // ブラウザSW前提のため、Nodeから直接importしてのテストは行いません。
 
-// Derive paths to work correctly under GitHub Pages project subpath (e.g., /<repo>/)
-const SCOPE_PATH = new URL('./', self.registration?.scope || self.location.href).pathname.replace(/\/$/, ''); // e.g., /repo/api or /api
-// Parent directory of the scope (strip last segment) => repository base
-// NOTE: When deployed at domain root (e.g., https://example.com/api), SCOPE_PATH becomes '/api'.
-// In that case, the parent must be '/' (not '//'). Handle this explicitly.
+// GitHub Pages プロジェクトサブパス（例: /<repo>/）下で正しく動作するようパスを導出
+const SCOPE_PATH = new URL('./', self.registration?.scope || self.location.href).pathname.replace(/\/$/, ''); // 例: /repo/api または /api
+
+// スコープの親ディレクトリ（最後のセグメントを除去）=> リポジトリベース
+// 注意: ドメインルートにデプロイされた場合（例: https://example.com/api）、SCOPE_PATH は '/api' になる。
+// その場合、親は '/' でなければならない（'//' ではない）。これを明示的に処理する。
 function computeRepoBase(scopePath) {
   const idx = scopePath.lastIndexOf('/');
-  // if no slash or only leading '/', fallback to root
+  // スラッシュがないか先頭の '/' のみの場合、ルートにフォールバック
   if (idx <= 0) return '/';
   return scopePath.substring(0, idx) + '/';
 }
-const REPO_BASE = computeRepoBase(SCOPE_PATH); // e.g., '/repo/' or '/'
-const API_PREFIX = `${SCOPE_PATH}/v1`; // e.g., /repo/api/v1
+const REPO_BASE = computeRepoBase(SCOPE_PATH); // 例: '/repo/' または '/'
+const API_PREFIX = `${SCOPE_PATH}/v1`; // 例: /repo/api/v1
 const CACHE_NAME = '100bl-api-v1';
 const ORIGIN = self.location.origin;
-const WORK_CTX_TTL_MS = 15 * 1000; // simple in-memory cache TTL
-const WORK_CTX_CACHE = new Map(); // key: workId -> { t, mergedVars, defTypeMerged, indices }
+const WORK_CTX_TTL_MS = 15 * 1000; // シンプルなインメモリキャッシュの TTL
+const WORK_CTX_CACHE = new Map(); // キー: workId -> { t, mergedVars, defTypeMerged, indices }
 
 self.addEventListener('install', (e) => {
   e.waitUntil(Promise.all([
@@ -35,15 +36,18 @@ self.addEventListener('activate', (e) => {
   e.waitUntil(self.clients.claim());
 });
 
+/**
+ * 重要なインデックスを事前キャッシュ
+ */
 async function precache() {
   try {
     const cache = await caches.open(CACHE_NAME);
-    // Precache important indices with repo base
+    // リポジトリベース付きで重要なインデックスを事前キャッシュ
     await cache.addAll([`${REPO_BASE}data/db_meta.json`]);
   } catch (_) {}
 }
 
-// Utilities
+// ユーティリティ関数群
 function jsonResponse(obj, status = 200, headers = {}) {
   return new Response(JSON.stringify(obj, null, 2), {
     status,
@@ -59,14 +63,24 @@ function badRequest(message = 'Bad Request') {
   return jsonResponse({ error: message }, 400);
 }
 
+/**
+ * 作品IDを正規化して #Works_ プレフィックス付きの形式に変換
+ * @param {string} id - 入力ID（様々な形式をサポート）
+ * @returns {string|null} 正規化された作品キー
+ */
 function toWorkKey(id) {
-  // Accept variants: '#Works_NumberTales' | 'Works_NumberTales' | 'NumberTales'
+  // バリエーションを受け入れ: '#Works_NumberTales' | 'Works_NumberTales' | 'NumberTales'
   if (!id) return null;
   if (id.startsWith('#Works_')) return id;
   if (id.startsWith('Works_')) return '#' + id;
   return `#Works_${id}`;
 }
 
+/**
+ * パスにリポジトリベースを付加
+ * @param {string} path - 変換するパス
+ * @returns {string} リポジトリベース付きのパス
+ */
 function withRepoBase(path) {
   if (!path) return path;
   if (path.startsWith('http://') || path.startsWith('https://')) return path;
@@ -74,6 +88,11 @@ function withRepoBase(path) {
   return `${REPO_BASE}${path}`;
 }
 
+/**
+ * JSON ファイルをフェッチして解析
+ * @param {string} path - フェッチするパス
+ * @returns {Promise<Object>} 解析された JSON オブジェクト
+ */
 async function fetchJSON(path) {
   const url = new URL(withRepoBase(path), ORIGIN).toString();
   const res = await fetch(url, { cache: 'no-store' });
@@ -81,6 +100,11 @@ async function fetchJSON(path) {
   return res.json();
 }
 
+/**
+ * ファイルの存在を確認
+ * @param {string} path - 確認するファイルパス
+ * @returns {Promise<boolean>} ファイルが存在する場合は true
+ */
 async function fileExists(path) {
   try {
     const url = new URL(withRepoBase(path), ORIGIN).toString();
@@ -91,8 +115,13 @@ async function fileExists(path) {
   }
 }
 
+/**
+ * 作品の利用可能なデータベースをリストアップ
+ * @param {string} workId - 作品識別子
+ * @returns {Promise<Array>} データベース名の配列
+ */
 async function listWorkDBs(workId) {
-  // Probe known DB file names by convention
+  // 規約により既知のDBファイル名を探査
   const base = `/data/${workId.replace('#Works_', 'Works_')}/DataBases`;
   const candidates = [
     { name: 'Primary', file: 'db_Primary.json' },
@@ -320,6 +349,12 @@ self.addEventListener('fetch', (event) => {
   event.respondWith(handleApiRequest(url).catch(err => jsonResponse({ error: String(err) }, 500)));
 });
 
+/**
+ * メインAPI リクエストハンドラー
+ * URL パスを解析し、適切な API エンドポイントにルーティング
+ * @param {URL} url - リクエストURL オブジェクト
+ * @returns {Promise<Response>} API レスポンス
+ */
 async function handleApiRequest(url) {
   const path = url.pathname.substring(API_PREFIX.length);
   const seg = path.split('/').filter(Boolean); // ['', 'index'] → ['index']
@@ -332,7 +367,7 @@ async function handleApiRequest(url) {
   let payloadDebugAttach = null;
   let debugAttach = null;
 
-  // /api/v1/index
+  // /api/v1/index - API インデックス情報
   if (seg.length === 1 && seg[0] === 'index') {
     const g = await readGlobalMeta();
     return jsonResponse({

@@ -1,33 +1,34 @@
-// Service Worker: API router scoped to /pages/ controlling the characters page
-// - Intercepts multiple prefixes to avoid ad blockers and scope pitfalls:
-//   /pages/v1/* (primary), plus aliases /svc/v1/* and /api/v1/*
-// - Reads JSON from /data/** and returns pseudo-API responses
+// Service Worker: /pages/ スコープのAPIルーター（キャラクターページ制御用）
+// - 広告ブロッカーとスコープの落とし穴を避けるため複数のプレフィックスをインターセプト:
+//   /pages/v1/* (プライマリ)、および /svc/v1/*、/api/v1/* のエイリアス
+// - /data/** から JSON を読み取り、疑似APIレスポンスを返す
 //
 // 本SWはGitHub Pages上で動作する疑似APIです。/data配下の静的JSONを読み取り、
 // 参照解決（定義併載・インデックス解決）と最小限の検索をクライアント側で行います。
 
-// Scope-aware paths
+// スコープ対応パス
 const SCOPE_PATH = new URL('./', self.registration?.scope || self.location.href)
-  .pathname.replace(/\/$/, ''); // e.g., '/repo/pages' or '/pages'
-// Parent directory of the scope (repository base)
+  .pathname.replace(/\/$/, ''); // 例: '/repo/pages' または '/pages'
+
+// スコープの親ディレクトリ（リポジトリベース）
 function computeRepoBase(scopePath) {
   const idx = scopePath.lastIndexOf('/');
   if (idx <= 0) return '/';
   return scopePath.substring(0, idx) + '/';
 }
-const REPO_BASE = computeRepoBase(SCOPE_PATH); // e.g., '/repo/' or '/'
+const REPO_BASE = computeRepoBase(SCOPE_PATH); // 例: '/repo/' または '/'
 
-// Intercept these API path prefixes
+// インターセプトする API パスプレフィックス
 const API_PREFIXES = [
   `${SCOPE_PATH}/v1`,       // '/pages/v1'
-  `${REPO_BASE}svc/v1`,     // '/svc/v1' under repo base
-  `${REPO_BASE}api/v1`      // '/api/v1' under repo base
+  `${REPO_BASE}svc/v1`,     // リポジトリベース下の '/svc/v1'
+  `${REPO_BASE}api/v1`      // リポジトリベース下の '/api/v1'
 ];
 
 const CACHE_NAME = '100bl-api-v1';
 const ORIGIN = self.location.origin;
-const WORK_CTX_TTL_MS = 15 * 1000; // simple in-memory cache TTL
-const WORK_CTX_CACHE = new Map(); // key: workId -> { t, mergedVars, defTypeMerged, indices }
+const WORK_CTX_TTL_MS = 15 * 1000; // シンプルなインメモリキャッシュのTTL
+const WORK_CTX_CACHE = new Map(); // キー: workId -> { t, mergedVars, defTypeMerged, indices }
 
 self.addEventListener('install', (e) => {
   e.waitUntil(Promise.all([
@@ -47,7 +48,7 @@ async function precache() {
   } catch (_) {}
 }
 
-// Utilities
+// ユーティリティ関数群
 function jsonResponse(obj, status = 200, headers = {}) {
   return new Response(JSON.stringify(obj, null, 2), {
     status,
@@ -79,19 +80,19 @@ async function fileExists(path) {
   } catch { return false; }
 }
 
-// Fetch routing
+// フェッチルーティング
 self.addEventListener('fetch', (event) => {
   const url = new URL(event.request.url);
-  // Only same-origin
+  // 同一オリジンのみ
   if (url.origin !== self.location.origin) return;
   const matchedPrefix = API_PREFIXES.find(p => url.pathname.startsWith(p));
-  if (!matchedPrefix) return; // ignore non-API paths
+  if (!matchedPrefix) return; // API以外のパスは無視
 
-  console.log('🔄 SW intercepted request:', url.pathname, 'prefix:', matchedPrefix);
+  console.log('🔄 SW がリクエストをインターセプト:', url.pathname, 'プレフィックス:', matchedPrefix);
   event.respondWith(handleApiRequest(url, matchedPrefix).catch(err => {
-    console.error('❌ SW API request failed:', url.pathname, err);
+    console.error('❌ SW API リクエストが失敗:', url.pathname, err);
 
-    // Enhanced error response with debugging information
+    // デバッグ情報付きの拡張エラーレスポンス
     const errorResponse = {
       error: String(err),
       message: err.message || 'Unknown error',

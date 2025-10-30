@@ -1,10 +1,21 @@
-// Minimal styles for API prototype page
-$bg: #0e0f12
-$fg: #e7e9ee
-$muted: #9aa3b2
-$card: #171a20
-$accent: #4ea1ff
+// ==================================================
+// API プロトタイプページ用最小限スタイルシート
+// 100BeautiesLab Creations DB (Web) - api/index.html 用
+// GitHub Pages での API テスト用の軽量スタイル
+// ==================================================
 
+// SASS 変数定義（カラーパレット）
+$bg: #0e0f12 // 背景色（ダークブルーグレー）
+$fg: #e7e9ee // 前景色（明るいグレー）
+$muted: #9aa3b2 // ミュート色（中間グレー）
+$card: #171a20 // カード背景色（暗いグレー）
+$accent: #4ea1ff // アクセント色（ブルー）
+
+// ==================================================
+// ベーススタイル
+// ==================================================
+
+// HTML・BODY の基本設定
 html, body
 	margin: 0
 	padding: 0
@@ -12,19 +23,31 @@ html, body
 	background: $bg
 	color: $fg
 
+// ==================================================
+// レイアウトコンポーネント
+// ==================================================
+
+// ヘッダー・フッター（グラデーション背景）
 header, footer
 	padding: 16px 20px
 	background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0))
 
+// リード文（説明文）
 .lead
 	color: $muted
 
+// メインコンテンツエリア（グリッドレイアウト）
 main
 	padding: 20px
 	display: grid
 	gap: 16px
 	grid-template-columns: minmax(0, 1fr)
 
+// ==================================================
+// UI コンポーネント
+// ==================================================
+
+// カードコンポーネント（セクション容器）
 .card
 	background: $card
 	border: 1px solid rgba(255,255,255,0.08)
@@ -32,11 +55,17 @@ main
 	padding: 16px
 	box-shadow: 0 6px 24px rgba(0,0,0,0.36)
 
+// グリッドレイアウト（ボタン配置用）
 .grid
 	display: grid
 	grid-template-columns: repeat(auto-fit, minmax(220px, 1fr))
 	gap: 8px
 
+// ==================================================
+// インタラクティブ要素
+// ==================================================
+
+// ボタンスタイル（エンドポイントテスト用）
 button
 	background: #1f2430
 	color: $fg
@@ -45,15 +74,20 @@ button
 	padding: 10px 12px
 	cursor: pointer
 	transition: background .2s ease, border-color .2s ease
+
+	// ホバー効果
 	&:hover
 		background: #252b39
 		border-color: rgba(255,255,255,0.2)
 
+// カスタムエンドポイント入力エリア
 .endpointInput
 	display: flex
 	align-items: center
 	gap: 8px
 	margin-top: 12px
+
+	// 入力フィールド
 	input
 		flex: 1
 		min-width: 260px
@@ -63,6 +97,11 @@ button
 		background: #101319
 		color: $fg
 
+// ==================================================
+// レスポンス出力エリア
+// ==================================================
+
+// JSON レスポンス表示用プリフォーマットエリア
 .output
 	margin-top: 12px
 	padding: 12px

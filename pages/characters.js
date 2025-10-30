@@ -44,83 +44,83 @@ const $ = (sel) => document.querySelector(sel);
 const $$ = (sel) => Array.from(document.querySelectorAll(sel));
 
 /**
- * Service Worker Management
- * Ensures API routes work on GitHub Pages by registering page-scoped Service Worker
- * with fallback strategies to avoid ad-blocker interference
+ * Service Worker 管理
+ * GitHub Pages 上で API ルートが動作するように、ページスコープの Service Worker を登録
+ * 広告ブロッカーによる干渉を避けるためのフォールバック戦略を実装
  */
 
-// Ensure SW is installed so that API routes work on GitHub Pages
-// Prefer /pages to avoid ad-blockers and ensure the page is controlled by its own SW
+// GitHub Pages で API ルートが動作するように SW をインストール
+// 広告ブロッカーを避けるために /pages を優先し、ページが独自の SW で制御されることを保証
 let API_BASE_REL = '../pages/';
 
 /**
- * Register Service Worker with multiple fallback strategies
- * Tries /pages/, /svc/, then /api/ to bypass ad-blocker restrictions
- * @returns {Promise<void>} Resolves when SW is ready and controlling the page
+ * Service Worker の登録（複数のフォールバック戦略付き）
+ * 広告ブロッカーの制限を回避するため、/pages/, /svc/, /api/ の順で試行
+ * @returns {Promise<void>} SW が準備完了してページを制御した時点で解決
  */
 async function ensureApiSW() {
   if (!('serviceWorker' in navigator)) {
-    console.warn('🚫 Service Worker not supported');
+    console.warn('🚫 Service Worker はサポートされていません');
     return;
   }
 
-  console.log('🔧 Attempting Service Worker registration...');
+  console.log('🔧 Service Worker の登録を試行中...');
 
   try {
-    // 1) Register page-scoped SW that intercepts /pages/v1, /svc/v1, /api/v1
+    // 1) /pages/v1, /svc/v1, /api/v1 をインターセプトするページスコープ SW を登録
     const pageSwUrl = new URL('./sw.js', location.href).toString();
     const pageScope = new URL('./', location.href).pathname; // '/pages/'
-    console.log(`🌐 Registering primary SW: ${pageSwUrl} (scope: ${pageScope})`);
+    console.log(`🌐 プライマリ SW を登録: ${pageSwUrl} (スコープ: ${pageScope})`);
     const reg = await navigator.serviceWorker.register(pageSwUrl, { scope: pageScope });
-    console.log('✅ Primary SW registered successfully');
+    console.log('✅ プライマリ SW の登録に成功');
     API_BASE_REL = '../pages/';
-    await navigator.serviceWorker.ready; // wait for activation
-    console.log('✅ Primary SW ready');
-    await waitForController(); // ensure this page is controlled before we start fetching
-    console.log('✅ Primary SW controlling page');
+    await navigator.serviceWorker.ready; // アクティベーションを待機
+    console.log('✅ プライマリ SW の準備完了');
+    await waitForController(); // フェッチを開始する前にこのページが制御されることを保証
+    console.log('✅ プライマリ SW がページを制御中');
   } catch (err) {
-    console.warn('❌ Primary SW registration failed:', err);
+    console.warn('❌ プライマリ SW の登録に失敗:', err);
     try {
-      // 2) Fallback to /svc (alias path)
+      // 2) /svc へのフォールバック（エイリアスパス）
       const svcSwUrl = new URL('../svc/sw.js', location.href).toString();
       const svcScope = new URL('../svc/', location.href).pathname;
-      console.log(`🌐 Registering fallback SW: ${svcSwUrl} (scope: ${svcScope})`);
+      console.log(`🌐 フォールバック SW を登録: ${svcSwUrl} (スコープ: ${svcScope})`);
       const reg2 = await navigator.serviceWorker.register(svcSwUrl, { scope: svcScope });
-      console.log('✅ Fallback SW registered successfully');
+      console.log('✅ フォールバック SW の登録に成功');
       API_BASE_REL = '../svc/';
       await navigator.serviceWorker.ready;
-      console.log('✅ Fallback SW ready');
+      console.log('✅ フォールバック SW の準備完了');
       await waitForController();
-      console.log('✅ Fallback SW controlling page');
+      console.log('✅ フォールバック SW がページを制御中');
     } catch (err2) {
-      console.warn('❌ Fallback SW registration failed:', err2);
+      console.warn('❌ フォールバック SW の登録に失敗:', err2);
       try {
-        // 3) Final fallback to /api
+        // 3) /api への最終フォールバック
         const apiSwUrl = new URL('../api/sw.js', location.href).toString();
         const apiScope = new URL('../api/', location.href).pathname;
-        console.log(`🌐 Registering final fallback SW: ${apiSwUrl} (scope: ${apiScope})`);
+        console.log(`🌐 最終フォールバック SW を登録: ${apiSwUrl} (スコープ: ${apiScope})`);
         const reg3 = await navigator.serviceWorker.register(apiSwUrl, { scope: apiScope });
-        console.log('✅ Final fallback SW registered successfully');
+        console.log('✅ 最終フォールバック SW の登録に成功');
         API_BASE_REL = '../api/';
         await navigator.serviceWorker.ready;
-        console.log('✅ Final fallback SW ready');
+        console.log('✅ 最終フォールバック SW の準備完了');
         await waitForController();
-        console.log('✅ Final fallback SW controlling page');
+        console.log('✅ 最終フォールバック SW がページを制御中');
       } catch (err3) {
-        console.error('❌ All SW registration attempts failed:', err3);
-        // no-op; fetch will 404 on GH Pages if SW not available
+        console.error('❌ すべての SW 登録試行が失敗:', err3);
+        // no-op; SW が利用できない場合、GH Pages でフェッチは 404 になる
       }
     }
   }
 }
 
 /**
- * URL Parameter Management
+ * URL パラメータ管理
  */
 
 /**
- * Get current query string parameters as object
- * @returns {Object} Object with work, db, num, q properties
+ * 現在のクエリ文字列パラメータをオブジェクトとして取得
+ * @returns {Object} work, db, num, q プロパティを持つオブジェクト
  */
 function getQS() {
   const p = new URLSearchParams(location.search);
@@ -133,8 +133,8 @@ function getQS() {
 }
 
 /**
- * Update query string parameters without page reload
- * @param {Object} next - Object with parameters to update
+ * ページリロードなしでクエリ文字列パラメータを更新
+ * @param {Object} next - 更新するパラメータのオブジェクト
  */
 function setQS(next) {
   const cur = getQS();
@@ -143,29 +143,29 @@ function setQS(next) {
 }
 
 /**
- * API URL Construction
+ * API URL 構築
  */
 
 /**
- * Build API URLs relative to current API_BASE_REL
- * @param {string} path - API path (e.g., 'v1/works' or '/v1/works')
- * @returns {string} Full API URL
+ * 現在の API_BASE_REL を基準とした API URL を構築
+ * @param {string} path - API パス (例: 'v1/works' または '/v1/works')
+ * @returns {string} 完全な API URL
  */
 function api(path) {
   const base = new URL(API_BASE_REL, location.href);
-  // support path like 'v1/...' or '/v1/...'
+  // 'v1/...' または '/v1/...' のようなパスをサポート
   const p = String(path || '').replace(/^\/?/, '');
   return new URL(p, base).toString();
 }
 
 /**
- * Service Worker Control Management
+ * Service Worker 制御管理
  */
 
 /**
- * Wait until this page is controlled by a Service Worker
- * @param {number} timeoutMs - Timeout in milliseconds (default: 3000)
- * @returns {Promise<void>} Resolves when page is controlled or timeout
+ * このページが Service Worker によって制御されるまで待機
+ * @param {number} timeoutMs - タイムアウト時間（ミリ秒、デフォルト: 3000）
+ * @returns {Promise<void>} ページが制御されるかタイムアウト時に解決
  */
 function waitForController(timeoutMs = 3000) {
   if (navigator.serviceWorker.controller) return Promise.resolve();
@@ -183,18 +183,18 @@ function waitForController(timeoutMs = 3000) {
 }
 
 /**
- * HTTP Request Utilities
+ * HTTP リクエストユーティリティ
  */
 
 /**
- * Fetch and parse JSON from URL with timeout and enhanced error handling
- * @param {string} url - URL to fetch
- * @param {number} timeout - Timeout in milliseconds (default: 10 seconds)
- * @returns {Promise<Object>} Parsed JSON response
- * @throws {Error} If request fails or response is not OK
+ * URL から JSON をフェッチして解析（タイムアウトと拡張エラーハンドリング付き）
+ * @param {string} url - フェッチする URL
+ * @param {number} timeout - タイムアウト時間（ミリ秒、デフォルト: 10秒）
+ * @returns {Promise<Object>} 解析された JSON レスポンス
+ * @throws {Error} リクエストが失敗するかレスポンスが OK でない場合
  */
 async function fetchJSON(url, timeout = 10000) {
-  console.log('🌐 Fetching:', url);
+  console.log('🌐 フェッチ中:', url);
   const startTime = performance.now();
 
   try {
@@ -249,21 +249,21 @@ async function fetchJSON(url, timeout = 10000) {
 }
 
 /**
- * Data Fetching Functions
+ * データフェッチ関数群
  */
 
 /**
- * Get list of available works
- * @returns {Promise<Array>} Array of work objects
+ * 利用可能な作品のリストを取得
+ * @returns {Promise<Array>} 作品オブジェクトの配列
  */
 async function listWorks() {
   return fetchJSON(api('v1/works'));
 }
 
 /**
- * Get list of databases for a specific work
- * @param {string} workKey - Work identifier
- * @returns {Promise<Array>} Array of database names
+ * 特定の作品のデータベースリストを取得
+ * @param {string} workKey - 作品識別子
+ * @returns {Promise<Array>} データベース名の配列
  */
 async function listWorkDBs(workKey) {
   const w = workKeyForAPI(workKey);
@@ -272,13 +272,13 @@ async function listWorkDBs(workKey) {
 }
 
 /**
- * Fetch character database with optional reference resolution and debugging
- * @param {string} workKey - Work identifier
- * @param {string} dbName - Database name (e.g., 'Primary', 'Secondary')
- * @param {Object} options - Fetch options
- * @param {boolean} options.resolve - Whether to resolve references (default: true)
- * @param {boolean} options.debug - Whether to include debug information (default: false)
- * @returns {Promise<Array>} Array of character records
+ * 参照解決とデバッグ情報を含むキャラクターデータベースをフェッチ
+ * @param {string} workKey - 作品識別子
+ * @param {string} dbName - データベース名 (例: 'Primary', 'Secondary')
+ * @param {Object} options - フェッチオプション
+ * @param {boolean} options.resolve - 参照を解決するかどうか（デフォルト: true）
+ * @param {boolean} options.debug - デバッグ情報を含めるかどうか（デフォルト: false）
+ * @returns {Promise<Array>} キャラクターレコードの配列
  */
 async function fetchDB(workKey, dbName, { resolve = true, debug = false } = {}) {
   const w = workKeyForAPI(workKey);
@@ -289,13 +289,13 @@ async function fetchDB(workKey, dbName, { resolve = true, debug = false } = {}) 
 }
 
 /**
- * Data Normalization Utilities
+ * データ正規化ユーティリティ
  */
 
 /**
- * Normalize work identifier to ensure proper #Works_ prefix
- * @param {string} id - Work identifier in various formats
- * @returns {string} Normalized work ID with #Works_ prefix
+ * 作品識別子を正規化して適切な #Works_ プレフィックスを確保
+ * @param {string} id - 様々な形式の作品識別子
+ * @returns {string} #Works_ プレフィックス付きの正規化された作品ID
  */
 function normalizeWorkKey(id) {
   if (!id) return id;
@@ -1332,11 +1332,12 @@ function matchFilter(rec, q) {
 }
 
 /**
- * Enhanced render list view with dynamic image resolution
- * @param {Array} records - Array of character records
- * @param {string} workId - Work identifier (e.g., '#Works_NumberTales')
- * @param {Function} onOpen - Callback function when a character is selected
- * @param {Array} imageFields - Optional extracted image fields for dynamic resolution
+/**
+ * 動的画像解決を含む拡張リストビューレンダリング
+ * @param {Array} records - キャラクターレコードの配列
+ * @param {string} workId - 作品識別子 (例: '#Works_NumberTales')
+ * @param {Function} onOpen - キャラクターが選択された時のコールバック関数
+ * @param {Array} imageFields - 動的解決用の抽出された画像フィールド（オプション）
  */
 async function renderList(records, workId, onOpen, imageFields = null) {
   const list = $('#list');
@@ -1345,18 +1346,18 @@ async function renderList(records, workId, onOpen, imageFields = null) {
   const qs = getQS();
   const filter = (qs.q || $('#search-input').value || '').trim();
 
-  // Get current database name from global state
+  // グローバルステートから現在のデータベース名を取得
   const state = window.__CHAR_STATE__;
   const dbName = state ? state.db : 'Primary';
 
-  console.log('📋 Rendering list with enhanced image resolution:', {
+  console.log('📋 拡張画像解決でリストをレンダリング中:', {
     recordCount: records.length,
     workId,
     dbName,
     hasImageFields: !!imageFields
   });
 
-  // Show loading for image resolution if we have many records
+  // レコード数が多い場合は画像解決のためのローディングを表示
   const shouldShowProgress = records.length > 10;
   if (shouldShowProgress) {
     showLoadingIndicator('キャラクター画像を読み込んでいます...');
@@ -1436,17 +1437,18 @@ function kvTable(obj, entries) {
 }
 
 /**
- * Render detailed character view with comprehensive information and image gallery
- * @param {string} workId - Work identifier (e.g., '#Works_NumberTales')
- * @param {Object} rec - Character record with all data fields
- * @returns {Promise<void>} Async function that updates the detail view DOM
+/**
+ * 包括的な情報と画像ギャラリーを含む詳細キャラクタービューをレンダリング
+ * @param {string} workId - 作品識別子 (例: '#Works_NumberTales')
+ * @param {Object} rec - すべてのデータフィールドを含むキャラクターレコード
+ * @returns {Promise<void>} 詳細ビューのDOMを更新する非同期関数
  */
 async function renderDetail(workId, rec) {
   $('#detail-title').textContent = rec.Name ? `${rec.Name}${rec.Num != null ? `（${rec.Num}）` : ''}` : (rec.FormalName || rec.ModelName || rec.Name_EN || '詳細');
   const mount = $('#detail');
   mount.innerHTML = '';
 
-  // Get current database name and enhanced state
+  // 現在のデータベース名と拡張ステートを取得
   const state = window.__CHAR_STATE__;
   const dbName = state ? state.db : 'Primary';
   const cachedImageFields = state ? state.imageFields : null;
@@ -1455,7 +1457,7 @@ async function renderDetail(workId, rec) {
   const cachedWorkMeta = state ? state.workMeta : null;
 
   try {
-    // Show minimal loading for detail view
+    // 詳細ビューの最小限のローディング表示
     mount.innerHTML = '<div style="padding: 20px; text-align: center; color: var(--muted);">詳細情報を読み込んでいます...</div>';
 
     // Use cached data when available, otherwise fetch
@@ -1799,55 +1801,59 @@ function openDetail(rec) {
   if (rec.Num != null) setQS({ num: String(rec.Num) });
 }
 
+/**
+ * メインアプリケーション初期化関数
+ * Service Worker の登録、UI の配線、データの読み込みを段階的に実行
+ */
 async function main() {
-  // Prevent duplicate initialization
+  // 重複初期化を防止
   if (isInitialized) {
-    console.log('⚠️ Application already initialized, skipping...');
+    console.log('⚠️ アプリケーションは既に初期化済みです、スキップします...');
     return;
   }
 
   const startTime = performance.now();
-  console.log('🚀 Initializing character browser application...');
+  console.log('🚀 キャラクターブラウザアプリケーションを初期化中...');
 
   try {
-    // Mark as initializing immediately to prevent race conditions
+    // 競合状態を防ぐため、即座に初期化中としてマーク
     isInitialized = true;
 
-    // Show loading indicator
+    // ローディングインジケーターを表示
     showLoadingIndicator('アプリケーションを初期化しています...');
 
-    // Step 1: Service Worker initialization
+    // ステップ1: Service Worker の初期化
     let stepStart = performance.now();
     await ensureApiSW();
-    console.log(`✅ Service Worker initialized in ${(performance.now() - stepStart).toFixed(2)}ms`);
+    console.log(`✅ Service Worker を ${(performance.now() - stepStart).toFixed(2)}ms で初期化`);
 
-    // Step 2: Wire UI controls
+    // ステップ2: UI コントロールの配線
     stepStart = performance.now();
     wireControls();
-    console.log(`✅ UI controls wired in ${(performance.now() - stepStart).toFixed(2)}ms`);
+    console.log(`✅ UI コントロールを ${(performance.now() - stepStart).toFixed(2)}ms で配線`);
 
-    // Step 3: Populate works list
+    // ステップ3: 作品リストの入力
     stepStart = performance.now();
     const qs = getQS();
     const wk = await populateWorks(qs.work);
-    console.log(`✅ Works populated in ${(performance.now() - stepStart).toFixed(2)}ms:`, wk);
+    console.log(`✅ 作品を ${(performance.now() - stepStart).toFixed(2)}ms で入力:`, wk);
 
-    // Step 4: Populate databases
+    // ステップ4: データベースの入力
     stepStart = performance.now();
     await populateDBs(wk, qs.db || 'Primary');
-    console.log(`✅ Databases populated in ${(performance.now() - stepStart).toFixed(2)}ms`);
+    console.log(`✅ データベースを ${(performance.now() - stepStart).toFixed(2)}ms で入力`);
 
-    // Update loading message for data loading phase
+    // データ読み込みフェーズのローディングメッセージを更新
     showLoadingIndicator('キャラクターデータを読み込んでいます...');
 
-    // Step 5: Load initial data
+    // ステップ5: 初期データの読み込み
     stepStart = performance.now();
-    await reloadInternal(false); // Pass false to skip duplicate loading indicator
-    console.log(`✅ Initial data loaded in ${(performance.now() - stepStart).toFixed(2)}ms`);
+    await reloadInternal(false); // 重複するローディングインジケーターをスキップするため false を渡す
+    console.log(`✅ 初期データを ${(performance.now() - stepStart).toFixed(2)}ms で読み込み`);
 
     hideLoadingIndicator();
 
-    // Ensure main content is visible after initialization
+    // 初期化後にメインコンテンツが確実に表示されるようにする
     const mainContent = $('#main-content');
     if (mainContent) {
       mainContent.style.display = 'block';

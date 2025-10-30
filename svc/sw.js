@@ -1,29 +1,29 @@
-// Service Worker alias under /svc to avoid ad-blockers on /api
-// Content mirrors ../api/sw.js; only scope path differs based on registration location.
+// Service Worker エイリアス（/api での広告ブロッカーを回避するため /svc 下に配置）
+// 内容は ../api/sw.js をミラー。登録場所に基づくスコープパスのみが異なる。
 
-// Service Worker: static API router for GitHub Pages
-// - Intercepts <scope>/v1/* requests
-// - Reads JSON from /data/** and returns pseudo-API responses
+// Service Worker: GitHub Pages 用の静的 API ルーター
+// - <scope>/v1/* リクエストをインターセプト
+// - /data/** から JSON を読み取り、疑似 API レスポンスを返す
 
 // 本SWはGitHub Pages上で動作する疑似APIです。/data配下の静的JSONを読み取り、
 // 参照解決（定義併載・インデックス解決）と最小限の検索をクライアント側で行います。
-// Service Worker: static API router for GitHub Pages
-// - Intercepts /api/v1/* requests
-// - Reads JSON from /data/** and returns pseudo-API responses
+// Service Worker: GitHub Pages 用の静的 API ルーター
+// - /api/v1/* リクエストをインターセプト
+// - /data/** から JSON を読み取り、疑似 API レスポンスを返す
 //
 // 本SWはGitHub Pages上で動作する疑似APIです。/data配下の静的JSONを読み取り、
 // 参照解決（定義併載・インデックス解決）と最小限の検索をクライアント側で行います。
 // ブラウザSW前提のため、Nodeから直接importしてのテストは行いません。
 
-// Derive paths to work correctly under GitHub Pages project subpath (e.g., /<repo>/)
-const SCOPE_PATH = new URL('./', self.registration?.scope || self.location.href).pathname.replace(/\/$/, ''); // e.g., /repo/api
-// Parent directory of the scope (strip last segment) => repository base
-const REPO_BASE = (SCOPE_PATH.substring(0, SCOPE_PATH.lastIndexOf('/')) || '/') + '/'; // e.g., /repo/
-const API_PREFIX = `${SCOPE_PATH}/v1`; // e.g., /repo/api/v1
+// GitHub Pages プロジェクトサブパス（例: /<repo>/）下で正しく動作するようパスを導出
+const SCOPE_PATH = new URL('./', self.registration?.scope || self.location.href).pathname.replace(/\/$/, ''); // 例: /repo/api
+// スコープの親ディレクトリ（最後のセグメントを除去）=> リポジトリベース
+const REPO_BASE = (SCOPE_PATH.substring(0, SCOPE_PATH.lastIndexOf('/')) || '/') + '/'; // 例: /repo/
+const API_PREFIX = `${SCOPE_PATH}/v1`; // 例: /repo/api/v1
 const CACHE_NAME = '100bl-api-v1';
 const ORIGIN = self.location.origin;
-const WORK_CTX_TTL_MS = 15 * 1000; // simple in-memory cache TTL
-const WORK_CTX_CACHE = new Map(); // key: workId -> { t, mergedVars, defTypeMerged, indices }
+const WORK_CTX_TTL_MS = 15 * 1000; // シンプルなインメモリキャッシュの TTL
+const WORK_CTX_CACHE = new Map(); // キー: workId -> { t, mergedVars, defTypeMerged, indices }
 
 self.addEventListener('install', (e) => {
   e.waitUntil(Promise.all([
@@ -36,15 +36,18 @@ self.addEventListener('activate', (e) => {
   e.waitUntil(self.clients.claim());
 });
 
+/**
+ * 重要なインデックスを事前キャッシュ
+ */
 async function precache() {
   try {
     const cache = await caches.open(CACHE_NAME);
-    // Precache important indices with repo base
+    // リポジトリベース付きで重要なインデックスを事前キャッシュ
     await cache.addAll([`${REPO_BASE}data/db_meta.json`]);
   } catch (_) {}
 }
 
-// Utilities
+// ユーティリティ関数群
 function jsonResponse(obj, status = 200, headers = {}) {
   return new Response(JSON.stringify(obj, null, 2), {
     status,

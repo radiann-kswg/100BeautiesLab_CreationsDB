@@ -1,30 +1,41 @@
-// API Prototype bootstrap and demo UI
-// - Registers Service Worker (sw.js)
-// - Provides small UI to test endpoints
+// API プロトタイプブートストラップとデモ UI
+// - Service Worker (sw.js) を登録
+// - エンドポイントをテストするための小さな UI を提供
 
 (function () {
   const swUrl = new URL('sw.js', location.href).toString();
 
+  /**
+   * Service Worker を登録
+   */
   async function registerSW() {
     if (!('serviceWorker' in navigator)) {
-      log({ error: 'Service Worker not supported in this browser.' });
+      log({ error: 'このブラウザでは Service Worker がサポートされていません。' });
       return;
     }
     try {
       const reg = await navigator.serviceWorker.register(swUrl, { scope: './' });
       await navigator.serviceWorker.ready;
-      log({ info: 'Service Worker registered.', scope: reg.scope });
+      log({ info: 'Service Worker が登録されました。', scope: reg.scope });
     } catch (e) {
-      log({ error: 'Service Worker register failed', details: String(e) });
+      log({ error: 'Service Worker の登録に失敗しました', details: String(e) });
     }
   }
 
+  /**
+   * 出力エリアにログを表示
+   * @param {Object} obj - ログ出力するオブジェクト
+   */
   function log(obj) {
     const el = document.getElementById('output');
     if (!el) return;
     el.textContent = JSON.stringify(obj, null, 2);
   }
 
+  /**
+   * 指定されたエンドポイントをフェッチしてレスポンスを表示
+   * @param {string} path - フェッチするエンドポイントパス
+   */
   async function fetchEndpoint(path) {
     try {
       const res = await fetch(path, { headers: { 'Accept': 'application/json' } });
@@ -37,15 +48,21 @@
       }
       log({ status: res.status, ok: res.ok, url: res.url, body });
     } catch (e) {
-      log({ error: 'Fetch failed', details: String(e), endpoint: path });
+      log({ error: 'フェッチに失敗しました', details: String(e), endpoint: path });
     }
   }
 
+  /**
+   * 自動ブートストラップ処理
+   */
   async function autoBootstrap() {
-    // try light bootstrap first, then optionally heavy with records
+    // 最初に軽量ブートストラップを試行、その後オプションでレコード付きの重い処理
     await fetchEndpoint('/api/v1/bootstrap');
   }
 
+  /**
+   * UI コントロールを設定
+   */
   function setupUI() {
     const btnInstallSW = document.getElementById('btnInstallSW');
     if (btnInstallSW) btnInstallSW.addEventListener('click', registerSW);
@@ -63,11 +80,11 @@
     }
   }
 
-  // Kick
+  // 初期化
   window.addEventListener('load', () => {
     registerSW();
     setupUI();
-    // auto run
+    // 自動実行
     setTimeout(autoBootstrap, 500);
   });
 })();
