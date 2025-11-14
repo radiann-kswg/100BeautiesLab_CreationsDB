@@ -1,4 +1,4 @@
-(更新日/Updated on 2025.9.24)
+(更新日/Updated on 2025.11.14)
 
 # 一次創作作品におけるガイドライン(日本語版)
 
@@ -19,7 +19,7 @@
 
 ## タグ活用について
 
-- 一次創作作品の登場キャラクターを元に二次創作をする場合は、「ラジアン(柏木主税)」の Misskey、もしくは「百花繚乱研究所」公式の Misskey（[こちら](https://misskey.io/@official@misskey.numbertales-radiann.net) または [こちら](https://misskey.io/@100BTYsLab_official@misskey.io)）のアカウントリンクを明記するか、以下にある該当シリーズの二次創作タグを活用するようお願いします
+- 一次創作作品の登場キャラクターを元に二次創作をする場合は、「ラジアン(柏木主税)」の Misskey、もしくは「百花繚乱研究所」公式の Misskey（[こちら](https://numbertales-radiann.net/@official) または [こちら](https://misskey.io/@100BTYsLab_official@misskey.io)）のアカウントリンクを明記するか、以下にある該当シリーズの二次創作タグを活用するようお願いします
   （タグの明記は任意ですが、活用していただけると大変助かります！）
 
 * ①「ナンバーテールズ」シリーズ →「#ナンバーテールズの主人より」
@@ -48,7 +48,7 @@
 - ⑤**以下に記載の設定から著しく相違があり 公式設定について混乱を招きかねない描写**
 
 * [ナンバーテールズ公式サイト](http://www.numbertales-radiann.com)
-* [「百花繚乱研究所」公式 Misskey アカウント](https://misskey.io/@offical/@https://numbertales-radiann.net)
+* [「百花繚乱研究所」公式 Misskey アカウント](https://numbertales-radiann.net/@offical)
   （ある程度は黙認しますが、**明らかに公式設定から逸する二次創作はご遠慮願います。**）
 
 ※なお 以上の違反行為を見かけた際は、まずラジアン(柏木主税)(メールアドレス：radiann.kswg6631＠gmail.com)にご一報ください。こちらから然るべき対応を取らせていただきます。
@@ -69,14 +69,14 @@ http://creativecommons.org/licenses/by-nc/4.0/
 ## Permissions
 
 - In principle, permission is required for third parties to use images of works that are primary works and are tagged with one of the following tags: #運命線狐の記録 (the Destiny Fox's Records), #フィジカル 9 (Physical-9), #ナンバーテールズ (NumberTales), #運命線探偵 OCTOGINTA (OCTOGINTA the Destiny Detectives), #運命線探偵 78 (the Fate-Line Investigators 78) #獣爾騎兵 (Shau'er Riders), #パストダイヴァー (PastDivers) or #豹変系女子 (Sinister Changing Girls) (hereinafter referred to as "Primary Works").
-  (For permission, please contact to these author "RadianN_kswg"("ラジアン(柏木主税)") by Misskey ( [here](htps://misskey.io/@RadianN_kswg@misskey.numbertales-radiann.net))).
+  (For permission, please contact to these author "RadianN_kswg"("ラジアン(柏木主税)") by Misskey ( [here](htps://misskey.numbertales-radiann.net/@RadianN_kswg))).
 
 # Secondary Works Guideline
 
 ## Tagging
 
 - if you would like to create a secondary works based on a character from a primary works, please provide a link to Misskey of these author:
-  "RadianN_kswg"("ラジアン(柏木主税)") or Misskey of the official "100BeautiesLab"("百花繚乱研究所") ( [here](htps://misskey.io/@official@misskey.numbertales-radiann.net) or [here](htps://misskey.io/@100BtysLab_official) ).
+  "RadianN_kswg"("ラジアン(柏木主税)") or Misskey of the official "100BeautiesLab"("百花繚乱研究所") ( [here](htps://numbertales-radiann.net/@official) or [here](htps://misskey.io/@100BtysLab_official) ).
   (Although it is optional, we would appreciate it if you could make use of the following tags for the relevant series.)
 
 * (1) "#ナンバーテールズ" (NumberTales) series
@@ -104,14 +104,14 @@ http://creativecommons.org/licenses/by-nc/4.0/
 - (5) **Depictions that differ significantly from the settings described on the following them and may lead to confusion about the official settings.**
 
 * [NumberTales Official Site](http://www.numbertales-radiann.com/) (JAPANESE ONLY)
-* [100BeautiesLab. Official Misskey Account](https://misskey.io/@offical/@https://numbertales-radiann.net) (JAPANESE ONLY)
+* [100BeautiesLab. Official Misskey Account](https://numbertales-radiann.net/@offical) (JAPANESE ONLY)
   （To a certain extent, we will tolerate, **but please refrain from creating derivative works that deviate too much from the official setting.**）
 
 ※If you see any of the above violations, please inform "RadianN_kswg"("ラジアン(柏木主税)", e-mail address: radiann.kswg6631＠gmail.com) first. We will take appropriate action.
 
 ## Secondary Works Permissions(OK/NG) List
 
-[Secondary Works Permissions(OK/NG) List](./SecondaryWorksPermissionList_EN.png)
+[Secondary Works Permissions List](./SecondaryWorksPermissionList_EN.png)
 
 # API (Service Worker pseudo-API)について
 
