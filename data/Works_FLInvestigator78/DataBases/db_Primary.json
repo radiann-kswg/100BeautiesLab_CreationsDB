@@ -1,9 +1,6 @@
 [
   {
-    "Card": {
-      "Stoat": "Major",
-      "Num": 0
-    },
+    "Card": { "Stoat": "Major", "Num": 0 },
     "Progress": "released(beta)",
     "Images": {
       "cardDesign_PNGName": "crddsn_imgFLM0-sample"
@@ -73,10 +70,7 @@
     }
   },
   {
-    "Card": {
-      "Stoat": "Major",
-      "Num": 1
-    },
+    "Card": { "Stoat": "Major", "Num": 1 },
     "Progress": "released(beta)",
     "Images": {
       "cardDesign_PNGName": "crddsn_imgFLM1-sample"
@@ -299,11 +293,11 @@
     }
   },
   {
-    "Card": {
-      "Stoat": "Major",
-      "Num": 8
+    "Card": { "Stoat": "Major", "Num": 8 },
+    "Progress": "released(beta)",
+    "Images": {
+      "cardDesign_PNGName": "crddsn_imgFLM8-sample"
     },
-    "Progress": "unreleased",
     "Name": "リオン",
     "Name_EN": "Lion",
     "FormalName": "力の獅子遣い\nリオン.インフィニティ",
@@ -373,7 +367,10 @@
   },
   {
     "Card": { "Stoat": "Major", "Num": 9 },
-    "Progress": "unreleased",
+    "Progress": "released(beta)",
+    "Images": {
+      "cardDesign_PNGName": "crddsn_imgFLM9-sample"
+    },
     "Name": "ヴェール",
     "Name_EN": "Veil",
     "FormalName": "秘匿の隠者\nヴェール.コンセントレイト",
@@ -563,10 +560,7 @@
     }
   },
   {
-    "Card": {
-      "Stoat": "Dealer",
-      "Num": 79
-    },
+    "Card": { "Stoat": "Dealer", "Num": 79 },
     "Progress": "released(beta)",
     "Images": {
       "conceptAlt_PNGName": ["cnsp_imgFLDealer"],
@@ -639,10 +633,7 @@
     }
   },
   {
-    "Card": {
-      "Stoat": "Dealer",
-      "Num": 80
-    },
+    "Card": { "Stoat": "Dealer", "Num": 80 },
     "Progress": "released(beta)",
     "Images": {
       "conceptAlt_PNGName": ["cnsp_imgFLDealer"],
