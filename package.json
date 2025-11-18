@@ -9,7 +9,7 @@
     "test:watch": "vitest"
   },
   "devDependencies": {
-    "glob": "^11.0.0",
+    "glob": "^11.1.0",
     "vitest": "^3.2.4"
   },
   "engines": {
