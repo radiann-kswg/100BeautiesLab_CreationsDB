@@ -6,57 +6,56 @@
 // CSS カスタムプロパティ（デザインシステムの基盤）
 \:root
 	// カラーパレット（ダークテーマベース）
-	--bg: #0b0c10 // 背景色（濃紺）
-	--fg: #e8f0f2 // 前景色（明るいグレー）
-	--muted: #9fb2bd // ミュート色（中間グレー）
-	--card: #12151b // カード背景色（暗いグレー）
-	--accent: #37b7c3 // アクセント色（シアン）
-	--accent-2: #9e77ff // セカンダリアクセント色（パープル）
-	--border: #212836 // ボーダー色（暗いグレー）
-	--success: #00a86b // 成功色（グリーン）
-	--warning: #f7931e // 警告色（オレンジ）
-	--error: #e74c3c // エラー色（レッド）
+	--bg: #0b0c10 /* 背景色（濃紺） */
+	--fg: #e8f0f2 /* 前景色（明るいグレー） */
+	--muted: #9fb2bd /* ミュート色（中間グレー） */
+	--card: #12151b /* カード背景色（暗いグレー） */
+	--accent: #37b7c3 /* アクセント色（シアン） */
+	--accent-2: #9e77ff /* セカンダリアクセント色（パープル） */
+	--border: #212836 /* ボーダー色（暗いグレー） */
+	--success: #00a86b /* 成功色（グリーン） */
+	--warning: #f7931e /* 警告色（オレンジ） */
+	--error: #e74c3c /* エラー色（レッド） */
 
-	// 拡張デザインシステム変数
 	// スペーシングシステム
-	--spacing-xs: 4px // 最小スペース
-	--spacing-sm: 8px // 小スペース
-	--spacing-md: 12px // 中スペース
-	--spacing-lg: 16px // 大スペース
-	--spacing-xl: 24px // 特大スペース
-	--spacing-2xl: 32px // 最大スペース
+	--spacing-xs: 4px /* 最小スペース */
+	--spacing-sm: 8px /* 小スペース */
+	--spacing-md: 12px /* 中スペース */
+	--spacing-lg: 16px /* 大スペース */
+	--spacing-xl: 24px /* 特大スペース */
+	--spacing-2xl: 32px /* 最大スペース */
 
 	// ボーダー半径システム
-	--border-radius-sm: 6px // 小さい角丸
-	--border-radius-md: 8px // 中角丸
-	--border-radius-lg: 12px // 大角丸
-	--border-radius-xl: 16px // 特大角丸
+	--border-radius-sm: 6px /* 小さい角丸 */
+	--border-radius-md: 8px /* 中角丸 */
+	--border-radius-lg: 12px /* 大角丸 */
+	--border-radius-xl: 16px /* 特大角丸 */
 
 	// フォントサイズシステム
-	--font-size-xs: 12px // 最小フォント
-	--font-size-sm: 14px // 小フォント
-	--font-size-base: 16px // 基本フォント
-	--font-size-lg: 18px // 大フォント
-	--font-size-xl: 20px // 特大フォント
-	--font-size-2xl: 24px // 見出し中
-	--font-size-3xl: 32px // 見出し大
+	--font-size-xs: 12px /* 最小フォント */
+	--font-size-sm: 14px /* 小フォント */
+	--font-size-base: 16px /* 基本フォント */
+	--font-size-lg: 18px /* 大フォント */
+	--font-size-xl: 20px /* 特大フォント */
+	--font-size-2xl: 24px /* 見出し中 */
+	--font-size-3xl: 32px /* 見出し大 */
 
 	// 行高システム
-	--line-height-tight: 1.25 // 密な行高
-	--line-height-normal: 1.5 // 標準行高
-	--line-height-relaxed: 1.75 // ゆったり行高
+	--line-height-tight: 1.25 /* 密な行高 */
+	--line-height-normal: 1.5 /* 標準行高 */
+	--line-height-relaxed: 1.75 /* ゆったり行高 */
 
 	// レスポンシブブレークポイント
-	--breakpoint-sm: 640px // スマートフォン境界
-	--breakpoint-md: 768px // タブレット境界
-	--breakpoint-lg: 1024px // デスクトップ境界
-	--breakpoint-xl: 1280px // 大画面境界
+	--breakpoint-sm: 640px /* スマートフォン境界 */
+	--breakpoint-md: 768px /* タブレット境界 */
+	--breakpoint-lg: 1024px /* デスクトップ境界 */
+	--breakpoint-xl: 1280px /* 大画面境界 */
 
 	// シャドウシステム（奥行き表現）
-	--shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.2) // 軽いシャドウ
-	--shadow-md: 0 4px 6px rgba(0, 0, 0, 0.3) // 中シャドウ
-	--shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.4) // 大シャドウ
-	--shadow-xl: 0 16px 32px rgba(0, 0, 0, 0.5) // 最大シャドウ
+	--shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.2) /* 軽いシャドウ */
+	--shadow-md: 0 4px 6px rgba(0, 0, 0, 0.3) /* 中シャドウ */
+	--shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.4) /* 大シャドウ */
+	--shadow-xl: 0 16px 32px rgba(0, 0, 0, 0.5) /* 最大シャドウ */
 
 // ==================================================
 // 基本リセットとベーススタイル
@@ -134,52 +133,7 @@ p
 	margin: 0 0 var(--spacing-md)
 	line-height: var(--line-height-normal)
 
-/* Enhanced responsive container
-
-.container
-	width: 100%
-	max-width: 1200px
-	margin: 0 auto
-	padding: 0 var(--spacing-md)
-
-@media (min-width: 640px)
-	.container
-		padding: 0 var(--spacing-lg)
-
-@media (min-width: 1024px)
-	.container
-		padding: 0 var(--spacing-xl)
-
-/* Typography improvements
-
-h1, h2, h3, h4, h5, h6
-	margin: 0
-	line-height: var(--line-height-tight)
-	font-weight: 600
-
-h1
-	font-size: var(--font-size-3xl)
-
-@media (min-width: 768px)
-	h1
-		font-size: 36px
-
-h2
-	font-size: var(--font-size-2xl)
-
-@media (min-width: 768px)
-	h2
-		font-size: 28px
-
-h3
-	font-size: var(--font-size-xl)
-
-h4
-	font-size: var(--font-size-lg)
-
-p
-	margin: 0 0 var(--spacing-md)
-	line-height: var(--line-height-normal)
+/* Typography improvements - Already defined above, removing duplicates
 
 a
 	color: var(--accent)
@@ -377,7 +331,7 @@ h1
 	padding: 14px
 	margin: 12px 0
 
-h2
+.card h2
 	margin: 0 0 10px
 	font-size: 16px
 	color: #d7f9ff
@@ -576,7 +530,23 @@ h3
 	object-fit: cover
 	border-radius: 8px
 	border: 1px solid var(--border)
-	background: #0b0c10
+	background: var(--card)
+	transition: opacity 0.3s ease
+
+	&:not([src]),
+	&[src=""],
+	&[src="#"]
+		background: var(--card)
+		border: 2px dashed var(--border)
+		display: flex
+		align-items: center
+		justify-content: center
+		color: var(--muted)
+		font-size: 12px
+		text-align: center
+
+		&::before
+			content: "画像なし"
 
 .meta
 	display: flex
@@ -637,7 +607,7 @@ h3
 	align-items: center
 	gap: 10px
 
-h2
+.detail-header h2
 	border: none
 	padding: 0
 	margin: 0
@@ -664,10 +634,26 @@ h2
 	width: 100%
 	border-radius: 10px
 	border: 1px solid var(--border)
-	background: #0b0c10
+	background: var(--card)
 	-o-object-fit: cover
 	object-fit: cover
 	aspect-ratio: 4/3
+	transition: opacity 0.3s ease
+
+	&:not([src]),
+	&[src=""],
+	&[src="#"]
+		background: var(--card)
+		border: 2px dashed var(--border)
+		display: flex
+		align-items: center
+		justify-content: center
+		color: var(--muted)
+		font-size: 14px
+		text-align: center
+
+		&::before
+			content: "メイン画像なし"
 
 .kv
 	margin-bottom: var(--spacing-sm)
