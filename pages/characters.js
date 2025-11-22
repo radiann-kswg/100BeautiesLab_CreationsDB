@@ -550,7 +550,7 @@ function extractImageFields(workTypeDef, globalTypeDef = {}) {
 
       // Process Images container
       if (item.hashTag === 'Images' && Array.isArray(item.$type)) {
-        console.log(`🎯 Found Images container (${source}):`, item.$type);
+        console.log(`🎯 Found ${item.hashTag} container (${source}):`, item.$type);
         for (const child of item.$type) {
           if (child.hashTag && !processedFields.has(child.hashTag)) {
             const { category, priority } = getImageCategory(child.hashTag, child.$type);
@@ -884,6 +884,7 @@ function formatValueForDisplay(value, labelMap = {}, workMeta = null, globalDefT
 function buildImageGallery(workId, record, imageFields, dbName = 'Primary') {
   const wdir = workId.replace('#Works_', 'Works_');
   const images = [];
+  // Support both "Images" field names
   const imgData = record.Images || {};
 
   console.log('🖼️ Enhanced gallery building:', {
@@ -1018,6 +1019,7 @@ function humanWorkLabel(work) {
  */
 async function imageFromRecord(workId, rec, dbName = 'Primary', imageFields = null) {
   const wdir = workId.replace('#Works_', 'Works_');
+  // Support both "Images" field names
   const img = rec.Images || {};
 
   console.log('🖼️ Enhanced image resolution for record:', {
@@ -1053,6 +1055,7 @@ async function imageFromRecord(workId, rec, dbName = 'Primary', imageFields = nu
  */
 async function resolveImageFromFields(workId, rec, dbName, imageFields) {
   const wdir = workId.replace('#Works_', 'Works_');
+  // Support both "Images" field names
   const img = rec.Images || {};
 
   // Sort image fields by priority for thumbnail selection
@@ -1160,9 +1163,18 @@ function buildImagePath(wdir, dbName, field, value) {
  */
 function resolveImageStatically(workId, rec, dbName) {
   const wdir = workId.replace('#Works_', 'Works_');
+  // Support both "Images" field names
   const img = rec.Images || {};
 
-  console.log('🔧 Enhanced static resolution for:', { workId, dbName, img });
+  console.log('🔧 Enhanced static resolution for:', {
+    workId,
+    dbName,
+    img,
+    hasImages: !!rec.Images,
+    hasImage: !!rec.Image,
+    availableFields: Object.keys(img),
+    recordName: rec.Name || rec.FormalName || 'Unknown'
+  });
 
   // Enhanced priority list with more field types
   const imageResolvers = [
@@ -1177,8 +1189,22 @@ function resolveImageStatically(workId, rec, dbName) {
     },
 
     // Design images
-    () => img.design_PNGName ? `/data/${wdir}/Images/${dbName}/design/${img.design_PNGName}.png` : null,
-    () => img.cardDesign_PNGName ? `/data/${wdir}/Images/${dbName}/cardDesign/${img.cardDesign_PNGName}.png` : null,
+    () => {
+      if (img.design_PNGName) {
+        const path = `/data/${wdir}/Images/${dbName}/design/${img.design_PNGName}.png`;
+        console.log('🎨 Design image path resolved:', { field: 'design_PNGName', value: img.design_PNGName, path });
+        return path;
+      }
+      return null;
+    },
+    () => {
+      if (img.cardDesign_PNGName) {
+        const path = `/data/${wdir}/Images/${dbName}/cardDesign/${img.cardDesign_PNGName}.png`;
+        console.log('🃏 Card design image path resolved:', { field: 'cardDesign_PNGName', value: img.cardDesign_PNGName, path });
+        return path;
+      }
+      return null;
+    },
     () => {
       if (img.designAlt_PNGName) {
         const val = Array.isArray(img.designAlt_PNGName) ? img.designAlt_PNGName[0] : img.designAlt_PNGName;
