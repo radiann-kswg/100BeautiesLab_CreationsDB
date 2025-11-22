@@ -509,6 +509,13 @@ function extractImageFields(workTypeDef, globalTypeDef = {}) {
   // Image field categorization for better organization
   const getImageCategory = (fieldName, type) => {
     const field = fieldName.toLowerCase();
+
+    // より具体的なマッチングを優先（cardDesign_PNGNameがcardカテゴリになるように）
+    if (field.includes('carddesign')) return { category: 'card', priority: 2 };
+    if (field.includes('conceptalt')) return { category: 'concept', priority: 1 };
+    if (field.includes('designalt')) return { category: 'design', priority: 2 };
+
+    // 一般的なマッチング
     if (field.includes('concept')) return { category: 'concept', priority: 1 };
     if (field.includes('design')) return { category: 'design', priority: 2 };
     if (field.includes('arts') || field.includes('art')) return { category: 'arts', priority: 3 };
@@ -1094,6 +1101,8 @@ async function resolveImageFromFields(workId, rec, dbName, imageFields) {
 function buildImagePath(wdir, dbName, field, value) {
   if (!value) return '';
 
+  console.log('🔍 Building image path:', { field: field.field, category: field.category, value });
+
   // Determine file extension
   const hasExtension = value.includes('.png') || value.includes('.jpg') || value.includes('.jpeg') ||
                       value.includes('.gif') || value.includes('.webp');
@@ -1118,8 +1127,14 @@ function buildImagePath(wdir, dbName, field, value) {
   } else if (field.category === 'general') {
     directory = 'General';
   } else {
-    // Try to infer from field name
-    if (fieldLower.includes('concept')) {
+    // Try to infer from field name with specific matches first
+    if (fieldLower.includes('carddesign')) {
+      directory = 'cardDesign';
+    } else if (fieldLower.includes('conceptalt')) {
+      directory = 'conceptAlt';
+    } else if (fieldLower.includes('designalt')) {
+      directory = 'designAlt';
+    } else if (fieldLower.includes('concept')) {
       directory = fieldLower.includes('alt') ? 'conceptAlt' : 'concept';
     } else if (fieldLower.includes('design')) {
       directory = fieldLower.includes('alt') ? 'designAlt' : 'design';
@@ -1147,11 +1162,13 @@ function buildImagePath(wdir, dbName, field, value) {
   }
 
   // Build standard path
-  if (field.category === 'general' || directory === 'General') {
-    return `/data/${wdir}/Images/General/${value}${extension}`;
-  } else {
-    return `/data/${wdir}/Images/${dbName}/${directory}/${value}${extension}`;
-  }
+  const finalPath = field.category === 'general' || directory === 'General'
+    ? `/data/${wdir}/Images/General/${value}${extension}`
+    : `/data/${wdir}/Images/${dbName}/${directory}/${value}${extension}`;
+
+  console.log('📁 Final image path:', { field: field.field, category: field.category, directory, finalPath });
+
+  return finalPath;
 }
 
 /**
@@ -1654,7 +1671,9 @@ async function renderDetail(workId, rec) {
       el('h3', {}, [getFieldLabel('Summary', fieldLabelMap, workMeta, globalDefType, '概要')]),
       el('div', {}, rec.Summary.split('\n').map(s => el('p', {}, [s])))
     ]) : null,
-    rec.Relation && (rec.Relation.Related || rec.Relation.Commented) ? renderRelations(rec.Relation) : null
+    rec.Relation && (rec.Relation.Related || rec.Relation.Commented) ? renderRelations(rec.Relation) : null,
+    // 参照解決結果の表示（_DBLinkResolved）
+    rec._DBLinkResolved ? renderDBLinkResolved(rec._DBLinkResolved, fieldLabelMap, workMeta, globalDefType) : null
   ].filter(Boolean));
 
   mount.appendChild(el('div', { class: 'detail' }, [left, right]));
@@ -1676,6 +1695,89 @@ function renderRelations(rel) {
   const r1 = related.map(r => el('div', { class: 'tag' }, [`→ ${r.Num}: ${(r.RelationLabel || []).join(', ')} ${r.Comments ? `- ${r.Comments}` : ''}`]));
   const r2 = commented.map(r => el('div', { class: 'tag' }, [`← ${r.Num}: ${r.Comments || ''}`]));
   return el('div', { class: 'section' }, [el('h3', {}, ['関係'] ), el('div', { class: 'kv-grid' }, [...r1, ...r2])]);
+}
+
+/**
+ * _DBLink参照解決結果を表示するセクションを構築する
+ * API機能と同様の出力形式でリンク先データを表示
+ *
+ * @param {Array} dbLinkResolved - 参照解決結果の配列
+ * @param {Object} fieldLabelMap - フィールドラベルのマッピング
+ * @param {Object} workMeta - 作品メタデータ
+ * @param {Object} globalDefType - グローバル型定義
+ * @returns {HTMLElement} 参照解決結果セクション
+ */
+function renderDBLinkResolved(dbLinkResolved, fieldLabelMap, workMeta, globalDefType) {
+  if (!Array.isArray(dbLinkResolved) || dbLinkResolved.length === 0) {
+    return null;
+  }
+
+  console.log('🔗 Rendering _DBLink resolved data:', dbLinkResolved);
+
+  const referenceItems = [];
+
+  for (const linkResult of dbLinkResolved) {
+    if (linkResult.error) {
+      // エラーがある場合の表示
+      referenceItems.push(
+        el('div', { class: 'reference-error', style: 'padding: 12px; border: 1px solid var(--error); border-radius: 8px; background: rgba(231, 76, 60, 0.1); margin-bottom: 12px;' }, [
+          el('h5', { style: 'margin: 0 0 8px; color: var(--error); font-size: var(--font-size-sm);' }, [
+            `❌ 参照エラー: ${linkResult.worksTitle || 'Unknown'} / ${linkResult.dbName || 'Unknown'}`
+          ]),
+          el('div', { style: 'color: var(--muted); font-size: var(--font-size-xs);' }, [linkResult.error])
+        ])
+      );
+      continue;
+    }
+
+    // 正常な参照結果の表示
+    const { worksTitle, dbName, count, records } = linkResult;
+
+    referenceItems.push(
+      el('div', { class: 'reference-result', style: 'padding: 12px; border: 1px solid var(--border); border-radius: 8px; background: var(--card); margin-bottom: 12px;' }, [
+        // 参照先の作品・DB情報
+        el('h5', { style: 'margin: 0 0 8px; color: var(--accent); font-size: var(--font-size-sm);' }, [
+          `🔗 ${worksTitle} / ${dbName} (${count}件)`
+        ]),
+
+        // 取得したレコードの表示
+        count > 0 ? el('div', { class: 'referenced-records' },
+          records.slice(0, 3).map((record, index) => // 最初の3件のみ表示
+            el('div', {
+              class: 'referenced-record',
+              style: 'margin: 8px 0; padding: 8px; border-left: 3px solid var(--accent-2); background: rgba(158, 119, 255, 0.1);'
+            }, [
+              el('div', { style: 'font-weight: 600; font-size: var(--font-size-sm);' }, [
+                record.Name || record.FormalName || record.ModelName || record.Name_EN || `Record #${index + 1}`
+              ]),
+              record.Name_EN || record.FormalName_EN ?
+                el('div', { style: 'color: var(--muted); font-size: var(--font-size-xs); margin: 2px 0;' }, [
+                  record.Name_EN || record.FormalName_EN
+                ]) : null,
+              record.Class || record.RaceType || record.GenderType ?
+                el('div', { style: 'margin-top: 4px;' }, [
+                  record.Class ? el('span', { class: 'chip', style: 'margin-right: 4px;' }, [record.Class]) : null,
+                  record.RaceType ? el('span', { class: 'chip', style: 'margin-right: 4px;' }, [record.RaceType]) : null,
+                  record.GenderType ? el('span', { class: 'chip', style: 'margin-right: 4px;' }, [record.GenderType]) : null
+                ].filter(Boolean)) : null
+            ].filter(Boolean))
+          ).concat(
+            // 3件を超える場合の省略表示
+            count > 3 ? [
+              el('div', { style: 'margin: 8px 0; color: var(--muted); font-size: var(--font-size-xs); text-align: center;' }, [
+                `... 他 ${count - 3} 件`
+              ])
+            ] : []
+          )
+        ) : el('div', { style: 'color: var(--muted); font-size: var(--font-size-xs);' }, ['該当するレコードがありません'])
+      ])
+    );
+  }
+
+  return el('div', { class: 'section' }, [
+    el('h3', {}, ['🔗 参照情報 (_DBLink)']),
+    el('div', { class: 'reference-links' }, referenceItems)
+  ]);
 }
 
 /**

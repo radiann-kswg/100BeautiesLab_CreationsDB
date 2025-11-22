@@ -655,28 +655,97 @@ function normRank(v) { if (v == null) return null; return String(v).trim(); }
 function toArray(v) { return Array.isArray(v) ? v : (v == null ? [] : [v]); }
 function deepMerge(a, b) { if (Array.isArray(a) && Array.isArray(b)) return [...a, ...b]; if (isObject(a) && isObject(b)) { const out = { ...a }; for (const [k, v] of Object.entries(b)) { if (k in out) out[k] = deepMerge(out[k], v); else out[k] = v; } return out; } return b ?? a; }
 
+/**
+ * 参照解決とデータ拡張を再帰的に実行する統合関数
+ * API機能との統一を図るため、詳細なログとエラーハンドリングを追加
+ *
+ * @param {any} value - 処理対象の値（オブジェクト、配列、プリミティブ）
+ * @param {Object} indices - 定義解決用のインデックス
+ * @param {Array} path - 現在のパス（デバッグ用）
+ * @returns {Promise<any>} 解決済みの値
+ */
 async function resolveAllInAny(value, indices, path = []) {
-  if (Array.isArray(value)) { const out = []; for (let i = 0; i < value.length; i++) out.push(await resolveAllInAny(value[i], indices, [...path, i])); return out; }
+  // 配列の場合は各要素を再帰的に処理
+  if (Array.isArray(value)) {
+    const out = [];
+    for (let i = 0; i < value.length; i++) {
+      out.push(await resolveAllInAny(value[i], indices, [...path, i]));
+    }
+    return out;
+  }
+
+  // プリミティブ値の場合はそのまま返す
   if (!isObject(value)) return value;
-  const out = {}; for (const [k, v] of Object.entries(value)) out[k] = await resolveAllInAny(v, indices, [...path, k]);
-  if (value._DBLink) { try { out._DBLinkResolved = await resolveDBLinkSpec(value._DBLink); } catch (e) { out._DBLinkResolved = { error: String(e) }; } }
+
+  // オブジェクトの場合：まず子要素を処理
+  const out = {};
+  for (const [k, v] of Object.entries(value)) {
+    out[k] = await resolveAllInAny(v, indices, [...path, k]);
+  }
+
+  // _DBLink の解決処理
+  if (value._DBLink) {
+    try {
+      console.log('🔗 SW: Resolving _DBLink at path:', path.join('.'), value._DBLink);
+      out._DBLinkResolved = await resolveDBLinkSpec(value._DBLink);
+      console.log('✅ SW: _DBLink resolved successfully:', out._DBLinkResolved.length || 0, 'results');
+    } catch (e) {
+      console.error('❌ SW: _DBLink resolution failed:', e.message);
+      out._DBLinkResolved = { error: String(e) };
+    }
+  }
+
+  // 定義併載処理
   enrichNodeWithDefs(out, path, indices);
   return out;
 }
 
+/**
+ * _DBLink仕様に基づいて他のデータベースから関連レコードを取得する
+ * API機能との統一を図るため、詳細なログとエラーハンドリングを追加
+ *
+ * @param {Object|Array} spec - _DBLink仕様（単一または配列）
+ * @returns {Promise<Array>} 解決結果の配列
+ */
 async function resolveDBLinkSpec(spec) {
   const specs = Array.isArray(spec) ? spec : [spec];
   const results = [];
+
   for (const s of specs) {
     const workId = toWorkKey(s.worksTitle);
     const dbName = s.dbName;
     const queries = Array.isArray(s._Search) ? s._Search : [];
+
+    console.log('🔍 SW: Resolving _DBLink:', { workId, dbName, queries });
+
     try {
+      // データベース読み込み
       const records = await readDB(workId, dbName);
+      console.log('📖 SW: Loaded DB records:', records.length);
+
+      // 検索条件に基づくフィルタリング
       const matched = searchRecords(records, queries);
-      results.push({ worksTitle: workId, dbName, _Search: queries, _Jump: s._Jump, count: matched.length, records: matched });
-    } catch (e) { results.push({ worksTitle: s.worksTitle, dbName, _Search: queries, error: String(e) }); }
+      console.log('🎯 SW: Matched records:', matched.length);
+
+      results.push({
+        worksTitle: workId,
+        dbName,
+        _Search: queries,
+        _Jump: s._Jump,
+        count: matched.length,
+        records: matched
+      });
+    } catch (e) {
+      console.error('❌ SW: DB resolution error:', e.message);
+      results.push({
+        worksTitle: s.worksTitle,
+        dbName,
+        _Search: queries,
+        error: String(e)
+      });
+    }
   }
+
   return results;
 }
 

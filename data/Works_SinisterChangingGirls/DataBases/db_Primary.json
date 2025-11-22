@@ -132,7 +132,7 @@
     "Drc": "S",
     "Progress": "released(beta)",
     "_DBLink": {
-      "worksTitle": "UnautherLogica",
+      "worksTitle": "UnauthedLogica",
       "dbName": "Primary",
       "_Search": [
         { "hashTag": "LogicSeries", "key": null },
