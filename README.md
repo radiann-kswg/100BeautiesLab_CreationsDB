@@ -166,33 +166,53 @@ http://creativecommons.org/licenses/by-nc/4.0/
 - **CSS3 + SASS**: CSS Grid/Flexbox によるレスポンシブレイアウト
 - **JavaScript ES6+**: モジュール化された非同期処理
 - **Service Worker**: 疑似 API 実装とキャッシング
+- **共通ライブラリ**: `lib/sw-common.js`, `lib/data-common.js` による機能統合
 
-### データ処理・API 統合
+### データ処理・ API 統合
 
 - **JSON データベース**: `/data/Works_*/DataBases/` 配下の構造化データ
 - **参照解決エンジン**: `_DBLink` 仕様に基づくクロスリファレンス処理
+- **エンリッチメント機能**: キャラクターデータの充実化処理（画像情報、検索インデックス）
 - **画像パス解決**: `db_type.json` の型定義に基づく画像ファイル自動検出
 - **キャッシング戦略**: Service Worker による効率的なデータキャッシュ
+- **StandardEndpointHandlers**: Service Worker間の重複コード削減と統一API
 
 ### ファイル構成
 
 ```
+lib/                         # 共通ライブラリ
+├── sw-common.js             # Service Worker共通機能（StandardEndpointHandlers等）
+└── data-common.js           # データ処理共通機能（EnrichmentProcessor等）
+
 pages/
 ├── characters.html      # メインHTMLページ
 ├── characters.js        # アプリケーションロジック
 ├── characters.css       # コンパイル済みスタイルシート
 ├── characters.sass      # SASS ソースファイル
-└── sw.js               # Service Worker（疑似API実装）
+└── sw.js               # Service Worker（疑似 API 実装）
+
+api/                         # APIスコープ用Service Worker
+└── sw.js               # 標準APIエンドポイント
+
+svc/                         # 広告ブロッカー回避用Service Worker  
+└── sw.js               # APIミラーエンドポイント
 ```
 
 ### 主要 JavaScript 関数
 
-- `loadWorks()`: 作品データ読み込み・UI 初期化
+#### アプリケーションレベル (`characters.js`)
+- `loadWorks()`: 作品データ読み込み・ UI 初期化
 - `loadCharacters(workId, dbType)`: キャラクターデータ取得・表示
 - `renderCharacterList(characters)`: キャラクターリスト動的生成
 - `showCharacterDetails(character)`: 詳細プロフィール表示
 - `buildImagePath()`: 画像パス自動構築
 - `renderDBLinkResolved()`: 参照解決結果表示
+
+#### 共通ライブラリレベル
+- `StandardEndpointHandlers`: Service Worker間の統一APIエンドポイント処理
+- `EnrichmentProcessor.enrichRecords()`: キャラクターデータの充実化処理
+- `ImageProcessor.imageFromRecord()`: 画像情報の自動抽出と処理
+- `ApiEndpointHandlers`: 共通 API エンドポイントの処理
 
 ### レスポンシブ対応
 
@@ -382,12 +402,20 @@ GitHub Pages 上で`data/` 配下のキャラクター情報に関するプロ�
 
 - `GET /pages/characters.html` … キャラシート生成メインページ
 
-### Service Worker API
+### Service Worker API (マルチスコープ対応)
 
+#### キャラクターページ用 API (`/pages/v1/*`)
 - `GET /pages/v1/works` … 作品一覧取得
 - `GET /pages/v1/works/{work}/db` … 作品の利用可能データベース一覧
-- `GET /pages/v1/works/{work}/db/{dbName}` … キャラクターデータ取得（参照解決込み）
-- `GET /pages/v1/image-resolve/{work}/{dbType}/{characterId}` … キャラクター画像パス解決
+- `GET /pages/v1/works/{work}/db/{dbName}` … キャラクターデータ取得（エンリッチメント付き）
+- `GET /pages/v1/bootstrap` … 全データブートストラップ（エンリッチメント付き）
+- `GET /pages/v1/search` … 検索機能（エンリッチメント付き）
+
+#### 標準 API (`/api/v1/*`)
+- 同様のエンドポイント（エンリッチメントなし）
+
+#### 広告ブロッカー回避 API (`/svc/v1/*`)
+- 標準APIのミラー（エンリッチメントなし）
 
 例:
 
@@ -450,33 +478,53 @@ GitHub Pages 上で`data/` 配下のキャラクター情報に関するプロ�
 - **CSS3 + SASS**: Responsive layout using CSS Grid/Flexbox
 - **JavaScript ES6+**: Modularized asynchronous processing
 - **Service Worker**: Pseudo API implementation and caching
+- **Shared Libraries**: Unified functionality through `lib/sw-common.js`, `lib/data-common.js`
 
 ### Data Processing and API Integration
 
 - **JSON Database**: Structured data under `/data/Works_*/DataBases/`
 - **Reference Resolution Engine**: Cross-reference processing based on `_DBLink` specifications
+- **Enrichment Features**: Character data enhancement (image information, search indexing)
 - **Image Path Resolution**: Automatic image file detection based on type definitions in `db_type.json`
 - **Caching Strategy**: Efficient data caching by Service Worker
+- **StandardEndpointHandlers**: Unified API with reduced code duplication across Service Workers
 
 ### File Structure
 
 ```
+lib/                         # Shared Libraries
+├── sw-common.js             # Service Worker common functions (StandardEndpointHandlers, etc.)
+└── data-common.js           # Data processing common functions (EnrichmentProcessor, etc.)
+
 pages/
 ├── characters.html      # Main HTML page
 ├── characters.js        # Application logic
 ├── characters.css       # Compiled stylesheet
 ├── characters.sass      # SASS source file
 └── sw.js               # Service Worker (pseudo API implementation)
+
+api/                         # API Scope Service Worker
+└── sw.js               # Standard API endpoints
+
+svc/                         # Ad-blocker Avoidance Service Worker  
+└── sw.js               # API mirror endpoints
 ```
 
 ### Main JavaScript Functions
 
+#### Application Level (`characters.js`)
 - `loadWorks()`: Work data loading and UI initialization
 - `loadCharacters(workId, dbType)`: Character data acquisition and display
 - `renderCharacterList(characters)`: Dynamic generation of character lists
 - `showCharacterDetails(character)`: Detailed profile display
 - `buildImagePath()`: Automatic image path construction
 - `renderDBLinkResolved()`: Reference resolution result display
+
+#### Shared Library Level
+- `StandardEndpointHandlers`: Unified API endpoint processing across Service Workers
+- `EnrichmentProcessor.enrichRecords()`: Character data enrichment processing
+- `ImageProcessor.imageFromRecord()`: Automatic image information extraction and processing
+- `ApiEndpointHandlers`: Common API endpoint processing
 
 ### Responsive Support
 
