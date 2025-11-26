@@ -425,7 +425,7 @@
     "Class": "1桁番(ユニデジッツ)",
     "Class_EN": "Uni-Digits",
     "ThisMasters": [
-      "五剣(いつつるぎ)/Squadpicen（78特殊探偵団 風の刀剣支部 構成員）"
+      "五剣(いつつるぎ)/Spade.5(Cinque)（78特殊探偵団 風の刀剣支部 構成員）"
     ],
     "FirstPersonCalling": "アタシ",
     "SecondPersonCalling": "アンタ",
@@ -2138,7 +2138,7 @@
     "Class": "マスターテールズ9",
     "Class_EN": "Master Tales 9",
     "ThisMasters": [
-      "江戸川 笑(えみ)/Ediac-Edmound（78特殊探偵団 金の硬貨支部 構成員）"
+      "江戸川 笑(えみ)/Diamond.2(Duece)（78特殊探偵団 金の硬貨支部 構成員）"
     ],
     "FirstPersonCalling": "フジ ※名前呼び",
     "SecondPersonCalling": "きみ",
@@ -2438,7 +2438,7 @@
     "Class": "デュアルセブンズ",
     "Class_EN": "Dual Sum-7s",
     "ThisMasters": [
-      "足高 蝶蘭(てふらん)/San-Herteve（78特殊探偵団 水の聖杯支部 構成員）"
+      "亜高 蝶嵐(てふらん)/Heart.7(Seven)（78特殊探偵団 水の聖杯支部 構成員）"
     ],
     "FirstPersonCalling": "私(わたし)",
     "SecondPersonCalling": "君",
@@ -3211,7 +3211,9 @@
     "TailsUnit": "キツネ(枝分かれ)型2束x3本",
     "Class": "マスターテールズ9",
     "Class_EN": "Master Tales 9",
-    "ThisMasters": ["手塚 桃/Temon-Diadry（78特殊探偵団 金の硬貨支部 構成員）"],
+    "ThisMasters": [
+      "手塚 桃/Diamond.3(Trey)（78特殊探偵団 金の硬貨支部 構成員）"
+    ],
     "FirstPersonCalling": "ミサ ※名前呼び",
     "SecondPersonCalling": "あなた",
     "ThirdPersonCalling": "[※名前呼び]",
@@ -3513,8 +3515,8 @@
     "Class": "9倍2桁番(ナインズデュアルズ)",
     "Class_EN": "Nines Duals",
     "ThisMasters": [
-      "颯 洋(はやて うみ)/Deucseadep（78特殊探偵団 風の刀剣 構成員）",
-      "颯 天(はやて そら)/Pardestry（78特殊探偵団 風の刀剣 構成員）"
+      "颯 洋(はやて うみ)/Spade.2(Duece)（78特殊探偵団 風の刀剣 構成員）",
+      "颯 天(はやて そら)/Spade.3(Trey)（78特殊探偵団 風の刀剣 構成員）"
     ],
     "FirstPersonCalling": "僕",
     "SecondPersonCalling": "あなた",
@@ -4226,7 +4228,9 @@
     "TailsUnit": "キツネ(枝分かれ)型2束x4本",
     "Class": "マスターテールズ9",
     "Class_EN": "Master Tales 9",
-    "ThisMasters": ["古山 沢海/Bluquecnic（78特殊探偵団 火の棍棒支部 構成員）"],
+    "ThisMasters": [
+      "古山 沢海/Club.5(Cinque)（78特殊探偵団 火の棍棒支部 構成員）"
+    ],
     "FirstPersonCalling": "オレ",
     "SecondPersonCalling": "[※名前呼び]\nオメー ※稀",
     "ThirdPersonCalling": "彼/彼女; [※名前呼び]",
@@ -4976,7 +4980,7 @@
     "Class": "デュアルセブンズ",
     "Class_EN": "Dual Sum-7s",
     "ThisMasters": [
-      "亜高 蝶蘭(てふらん)/SanHerteve（78特殊探偵団 水の聖杯支部 構成員）"
+      "亜高 蝶嵐(てふらん)/Heart.7(Seven)（78特殊探偵団 水の聖杯支部 構成員）"
     ],
     "FirstPersonCalling": "私(わたし)",
     "SecondPersonCalling": "君",
@@ -5953,7 +5957,9 @@
     "TailsUnit": "キツネ(枝分かれ)型6本(上1束3本+下2束3本)",
     "Class": "9倍2桁番(ナインズデュアルズ)",
     "Class_EN": "Nines Duals",
-    "ThisMasters": ["恵比寿 ことは/Anepisend（78特殊探偵団 風の刀剣 構成員）"],
+    "ThisMasters": [
+      "恵比寿 ことは/Spade.9(Nine)（78特殊探偵団 風の刀剣 構成員）"
+    ],
     "FirstPersonCalling": "僕",
     "SecondPersonCalling": "あなた",
     "ThirdPersonCalling": "[※名前呼び]\n～くん/ちゃん",
