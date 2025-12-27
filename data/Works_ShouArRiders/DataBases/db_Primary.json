@@ -141,6 +141,32 @@
     "Summary": "大きな尻尾と鱗肌が特徴的な獣爾騎兵の6番手。\n大蛇への変身能力を持ち、この形態から蛇特有な潜入動作と拘束技を得意としている。\n呑気で温厚な性格と、生い立ちなど一切の個人情報が謎に包まれていることから、“のじゃロリ”として神秘的に親しまれている一面がある。\nただ、お酒が入ったときや欲情気味になっているときは極めて危険な悪絡みを仕掛けてくるため、宴席へ誘う際は覚悟をしないといけないとも。"
   },
   {
+    "BeastType": { "Beast": "Horse" },
+    "Progress": "unreleased",
+    "Name": "午刻ハヤテ",
+    "Name_EN": "Windrush Horsetimes",
+    "FormalName": "ルドルフ.コーナー",
+    "FormalName_EN": "Rudolf.Korner",
+    "GenderType": "Male",
+    "Class": "獣爾騎兵",
+    "Class_EN": "Shòu-ěr Rider",
+    "Height_cm": 180,
+    "Weight_kg": 63,
+    "Age": 33,
+    "Character": "競技意識や団結意識の高い異国風",
+    "Hobby": "賭け事",
+    "SpetialSkill": null,
+    "Favor": "ランニング",
+    "Unlike": "怪我や病欠",
+    "FirstPersonCalling": "オレ",
+    "SecondPersonCalling": "アンタ",
+    "ThirdPersonCalling": "＊イツ/＊レ;[※名前呼び]",
+    "BeastspecName": "牽引突破",
+    "BeastspecName_EN": "PullingBreakthrough",
+    "BeastspecAbout": "馬力と俊敏性の高い走破で移動戦に持ち込む",
+    "Summary": ""
+  },
+  {
     "BeastType": { "Beast": "Cat" },
     "Progress": "released(beta)",
     "Images": {
