@@ -142,7 +142,7 @@
   },
   {
     "BeastType": { "Beast": "Horse" },
-    "Progress": "unreleased",
+    "Progress": "released(beta)",
     "Name": "午刻ハヤテ",
     "Name_EN": "Windrush Horsetimes",
     "FormalName": "ルドルフ.コーナー",
@@ -164,7 +164,7 @@
     "BeastspecName": "牽引突破",
     "BeastspecName_EN": "PullingBreakthrough",
     "BeastspecAbout": "馬力と俊敏性の高い走破で移動戦に持ち込む",
-    "Summary": ""
+    "Summary": "褐色肌から生える立耳と長くしなやかな尻尾が特徴的な改造人間「獣爾騎兵」の7番手。\n高い走破性と車両などの牽引能力を持ち、体の身軽さからは考えられない強靭で高機動力な移動戦を得意としている。\n龍天国に本拠点を持つ獣爾騎兵の中では唯一 雄姿結国の出身であるためか、兵員から異国風な印象を受けられているようだ。\nそんな中 競技や共闘に極めて積極的な性格である彼には、雄姿結国と龍天国の関係が日々悪化するばかりの世界情勢に ある使命感を抱いているとか。"
   },
   {
     "BeastType": { "Beast": "Cat" },
