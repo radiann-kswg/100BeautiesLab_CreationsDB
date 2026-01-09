@@ -84,6 +84,10 @@
       "dbName": "Primary",
       "_Search": [{ "hashTag": "Drc", "key": "N" }]
     },
+    "Name": "零(かずない) 零(れい)",
+    "Name_EN": "Zera Norumber",
+    "FormalName": "千歳 玲(れい)",
+    "FormalName_EN": "Zeena Thouser",
     "CodeName": null,
     "CodeName_EN": null,
     "RaceType": "Human(withAddon)",
@@ -94,13 +98,17 @@
     "InStory": "もともと百戦錬磨開発所（の前身）の一員として弟と人形兵ゼロイドの開発に携わっていたが、“第７の世界破壊”に伴う素子メーカとの企業戦争の激化による人形兵ゼロイドの兵役個体化に反対しているため、偶然その首謀者であるロジケスキーロマンティカ産業に釣られたクィーン-トゥエルヴと出会い軍事運用されてしまった人形兵ゼロイドの鎮圧に協力するよう要請する"
   },
   {
-    "Model": { "LogicSeries": null, "Num": "0" },
+    "Model": { "LogicSeries": null, "Num": "00" },
     "Progress": "stillTentative",
     "_DBLink": {
       "worksTitle": "NumberTales",
       "dbName": "Primary",
-      "_Search": [{ "hashTag": "Num", "key": "0" }]
+      "_Search": [{ "hashTag": "Num", "key": "00" }]
     },
+    "Name": "零 百(かずない-はげむ)",
+    "Name_EN": "Hudret Norumber",
+    "FormalName": "千歳 励(はげむ)",
+    "FormalName_EN": "Hadler Thouser",
     "CodeName": null,
     "CodeName_EN": null,
     "RaceType": "Human(withAddon)",
@@ -117,6 +125,10 @@
       "dbName": "Primary",
       "_Search": [{ "hashTag": "Drc", "key": "S" }]
     },
+    "Name": "六花 雙葉(ろくばな-ふたは)\nクィーン.トゥエルヴ",
+    "Name_EN": "Dozenne Hexacrys\nQueen.XII",
+    "FormalName": null,
+    "FormalName_EN": null,
     "CodeName": null,
     "CodeName_EN": null,
     "RaceType": "Human(DoubleIdentity)",
