@@ -3,7 +3,8 @@
     "Num": 1,
     "Progress": "released",
     "Images": {
-      "concept_PNGName": "cnsp_img1"
+      "concept_PNGName": "cnsp_img1",
+      "arts_PNGPath": ["humanoids/art_img1-humanoid"]
     },
     "Name": "ハジメ",
     "Name_EN": "Unitta",
@@ -111,7 +112,8 @@
     "Progress": "released",
     "Images": {
       "concept_PNGName": "cnsp_img2",
-      "corefolder_PNGPath": ["emstk_corefolder2-1"]
+      "corefolder_PNGPath": ["emstk_corefolder2-1"],
+      "arts_PNGPath": ["coreFolders/art_img2-corefolderWinter"]
     },
     "Name": "ツグ",
     "Name_EN": "Twiny",
@@ -590,7 +592,8 @@
     "Progress": "released",
     "Images": {
       "concept_PNGName": "cnsp_img7",
-      "corefolder_PNGPath": ["emstk_corefolder7-1"]
+      "corefolder_PNGPath": ["emstk_corefolder7-1"],
+      "arts_PNGPath": ["humanoids/art_img7-humanoid"]
     },
     "Name": "ナナ",
     "Name_EN": "Sevan",
@@ -1089,7 +1092,8 @@
     "Progress": "released",
     "Images": {
       "concept_PNGName": "cnsp_img12",
-      "corefolder_PNGPath": ["emstk_corefolder12-1"]
+      "corefolder_PNGPath": ["emstk_corefolder12-1"],
+      "arts_PNGPath": ["humanoids/art_img12-humanoid"]
     },
     "Name": "トウジ",
     "Name_EN": "Twelva",
@@ -1394,7 +1398,8 @@
       "corefolder_PNGPath": [
         "emstk_corefolder15-1",
         "emstk_corefolder15-nonharness1"
-      ]
+      ],
+      "arts_PNGPath": ["humanoids/art_img15-humanoid"]
     },
     "Name": "トウゴ",
     "Name_EN": "Fifteeld",
@@ -1924,7 +1929,8 @@
     "Progress": "released",
     "Images": {
       "concept_PNGName": "cnsp_img20",
-      "corefolder_PNGPath": ["emstk_corefolder20-1", "emstk_corefolder20-2"]
+      "corefolder_PNGPath": ["emstk_corefolder20-1", "emstk_corefolder20-2"],
+      "arts_PNGPath": ["humanoids/art_img20-humanoid"]
     },
     "Name": "ハツカ",
     "Name_EN": "Twentia",
@@ -2115,7 +2121,8 @@
     "Progress": "released",
     "Images": {
       "concept_PNGName": "cnsp_img22",
-      "corefolder_PNGPath": ["emstk_corefolder22-1", "emstk_corefolder22-2"]
+      "corefolder_PNGPath": ["emstk_corefolder22-1", "emstk_corefolder22-2"],
+      "arts_PNGPath": ["AutumnMoon/art_AutumnMoon2023"]
     },
     "Name": "フジ",
     "Name_EN": "Twin-twina",
@@ -2220,7 +2227,8 @@
     "Images": {
       "concept_PNGName": "cnsp_img23",
       "catalog_PNGName": "chr-dsgn_catalog23",
-      "corefolder_PNGPath": ["emstk_corefolder23-1"]
+      "corefolder_PNGPath": ["emstk_corefolder23-1"],
+      "arts_PNGPath": ["humanoids/art_img23-humanoid"]
     },
     "Name": "ツグミ",
     "Name_EN": "Twinthery",
@@ -2316,7 +2324,8 @@
     "Progress": "released",
     "Images": {
       "concept_PNGName": "cnsp_img24",
-      "corefolder_PNGPath": ["emstk_corefolder24-1", "emstk_corefolder24-2"]
+      "corefolder_PNGPath": ["emstk_corefolder24-1", "emstk_corefolder24-2"],
+      "arts_PNGPath": ["humanoids/art_img24-humanoid"]
     },
     "Name": "フトシ",
     "Name_EN": "Hourds",
@@ -2413,7 +2422,8 @@
     "Progress": "released",
     "Images": {
       "concept_PNGName": "cnsp_img25",
-      "corefolder_PNGPath": ["emstk_corefolder25-1", "emstk_corefolder25-2"]
+      "corefolder_PNGPath": ["emstk_corefolder25-1", "emstk_corefolder25-2"],
+      "arts_PNGPath": ["coreFolders/art_img25-corefolder"]
     },
     "Name": "フィズ",
     "Name_EN": "Quartels",
@@ -2809,7 +2819,12 @@
     "Progress": "released",
     "Images": {
       "concept_PNGName": "cnsp_img29",
-      "corefolder_PNGPath": ["emstk_corefolder29-1"]
+      "corefolder_PNGPath": ["emstk_corefolder29-1"],
+      "arts_PNGPath": [
+        "coreFolders/art_img29-corefolderA",
+        "coreFolders/art_img29-corefolderB",
+        "autumnMoon/art_autumnMoon2023"
+      ]
     },
     "Name": "ニトク",
     "Name_EN": "Twenina",
@@ -2999,7 +3014,8 @@
     "Progress": "released",
     "Images": {
       "concept_PNGName": "cnsp_img31",
-      "corefolder_PNGPath": ["emstk_corefolder31-1", "emstk_corefolder31-2"]
+      "corefolder_PNGPath": ["emstk_corefolder31-1", "emstk_corefolder31-2"],
+      "arts_PNGPath": ["coreFolders/art_img31-corefolder"]
     },
     "Name": "ミツイ",
     "Name_EN": "Thirtone",
@@ -3593,7 +3609,8 @@
     "Progress": "released",
     "Images": {
       "concept_PNGName": "cnsp_img37",
-      "corefolder_PNGPath": ["emstk_corefolder37-1"]
+      "corefolder_PNGPath": ["emstk_corefolder37-1"],
+      "arts_PNGPath": ["humanoids/art_img37-humanoid"]
     },
     "Name": "サナ",
     "Name_EN": "Trißven",
@@ -3731,7 +3748,11 @@
     "Images": {
       "concept_PNGName": "cnsp_img39",
       "catalog_PNGName": "chr-dsgn_catalog39",
-      "corefolder_PNGPath": ["emstk_corefolder39-1"]
+      "corefolder_PNGPath": ["emstk_corefolder39-1"],
+      "arts_PNGPath": [
+        "humanoids/art_img39-humanoidA",
+        "humanoids/art_img39-humanoidB"
+      ]
     },
     "Name": "サク",
     "Name_EN": "Trenína",
@@ -4017,7 +4038,11 @@
     "Progress": "released",
     "Images": {
       "concept_PNGName": "cnsp_img42",
-      "corefolder_PNGPath": ["emstk_corefolder42-1"]
+      "corefolder_PNGPath": ["emstk_corefolder42-1"],
+      "arts_PNGPath": [
+        "humanoids/art_img42-humanoidA",
+        "humanoids/art_img42-humanoidB"
+      ]
     },
     "Name": "ヨツグ",
     "Name_EN": "Fortwis",
@@ -4509,7 +4534,8 @@
     "Progress": "released",
     "Images": {
       "concept_PNGName": "cnsp_img47",
-      "corefolder_PNGPath": ["emstk_corefolder47-1"]
+      "corefolder_PNGPath": ["emstk_corefolder47-1"],
+      "arts_PNGPath": ["humanoids/art_img47-humanoid"]
     },
     "Name": "シナ",
     "Name_EN": "Fourséve",
@@ -4699,7 +4725,11 @@
     "Images": {
       "concept_PNGName": "cnsp_img49",
       "catalog_PNGName": "chr-dsgn_catalog49",
-      "corefolder_PNGPath": ["emstk_corefolder49-1", "emstk_corefolder49-2"]
+      "corefolder_PNGPath": ["emstk_corefolder49-1", "emstk_corefolder49-2"],
+      "arts_PNGPath": [
+        "humanoids/art_img49-humanoid",
+        "coreFolders/art_img49-corefolder"
+      ]
     },
     "Name": "ヨチカ",
     "Name_EN": "Fornins",
@@ -4950,7 +4980,8 @@
     "Progress": "released",
     "Images": {
       "concept_PNGName": "cnsp_img52",
-      "corefolder_PNGPath": ["emstk_corefolder52-1"]
+      "corefolder_PNGPath": ["emstk_corefolder52-1"],
+      "arts_PNGPath": ["coreFolders/art_img52-corefolder"]
     },
     "Name": "イツギ",
     "Name_EN": "Fiftwis",
@@ -5184,7 +5215,8 @@
     "Num": 55,
     "Progress": "released",
     "Images": {
-      "concept_PNGName": "cnsp_img55"
+      "concept_PNGName": "cnsp_img55",
+      "arts_PNGPath": ["humanoids/art_img55-humanoidTroubled"]
     },
     "Name": "イソゴ",
     "Name_EN": "Fifívan",
@@ -5380,7 +5412,8 @@
     "Images": {
       "concept_PNGName": "cnsp_img57",
       "catalog_PNGName": "chr-dsgn_catalog57",
-      "corefolder_PNGPath": ["emstk_corefolder57-1"]
+      "corefolder_PNGPath": ["emstk_corefolder57-1"],
+      "arts_PNGPath": ["humanoids/art_img57-humanoid"]
     },
     "Name": "イズナ",
     "Name_EN": "Fivens",
@@ -5598,7 +5631,8 @@
     "Images": {
       "concept_PNGName": "cnsp_img60",
       "conceptAlt_PNGName": ["cnsp_img60-Normal", "cnsp_img60-Nerd"],
-      "corefolder_PNGPath": ["emstk_corefolder60-1", "emstk_corefolder60-2"]
+      "corefolder_PNGPath": ["emstk_corefolder60-1", "emstk_corefolder60-2"],
+      "arts_PNGPath": ["humanoids/art_img60-humanoid"]
     },
     "Name": "ムソウ",
     "Name_EN": "Sixtina",
@@ -5720,7 +5754,8 @@
         "emstk_corefolder61-idol1",
         "emstk_corefolder60-idol2"
       ],
-      "designAlt_PNGPath": ["subcostumes/chr-design-alt_wip61-idol"]
+      "designAlt_PNGPath": ["subcostumes/chr-design-alt_wip61-idol"],
+      "arts_PNGPath": ["humanoids/art_img61-humanoid"]
     },
     "Name": "ロクイチ\nロイ",
     "Name_EN": "Síxone\nSíon",
@@ -6230,7 +6265,8 @@
     "Images": {
       "concept_PNGName": "cnsp_img66",
       "conceptAlt_PNGName": ["cnsp_img66-B"],
-      "corefolder_PNGPath": ["emstk_corefolder66-1"]
+      "corefolder_PNGPath": ["emstk_corefolder66-1"],
+      "arts_PNGPath": ["humanoids/art_img66-humanoid"]
     },
     "Name": "ムロク",
     "Name_EN": "Sixis",
@@ -6480,7 +6516,11 @@
     "Progress": "released",
     "Images": {
       "concept_PNGName": "cnsp_img68",
-      "corefolder_PNGPath": ["emstk_corefolder68-1"]
+      "corefolder_PNGPath": ["emstk_corefolder68-1"],
+      "arts_PNGPath": [
+        "humanoids/art_img68-humanoidOnWorkSuit",
+        "coreFolders/art_img68-corefolder"
+      ]
     },
     "Name": "ロクヤ",
     "Name_EN": "Siceighns",
@@ -6576,7 +6616,11 @@
     "Progress": "released",
     "Images": {
       "concept_PNGName": "cnsp_img69",
-      "corefolder_PNGPath": ["emstk_corefolder69-1"]
+      "corefolder_PNGPath": ["emstk_corefolder69-1"],
+      "arts_PNGPath": [
+        "humanoids/art_img69-humanoid",
+        "humanoids/art_img69-humanoidOnMask"
+      ]
     },
     "Name": "ロック",
     "Name_EN": "Signine",
@@ -6972,7 +7016,8 @@
     "Images": {
       "concept_PNGName": "cnsp_img73",
       "catalog_PNGName": "chr-dsgn_catalog73",
-      "corefolder_PNGPath": ["emstk_corefolder73-1", "emstk_corefolder73-2"]
+      "corefolder_PNGPath": ["emstk_corefolder73-1", "emstk_corefolder73-2"],
+      "arts_PNGPath": ["humanoids/art_img73-humanoid"]
     },
     "Name": "ナトミ",
     "Name_EN": "Sevthira",
@@ -7075,7 +7120,11 @@
     "Progress": "released",
     "Images": {
       "concept_PNGName": "cnsp_img74",
-      "corefolder_PNGPath": ["emstk_corefolder74-1"]
+      "corefolder_PNGPath": ["emstk_corefolder74-1"],
+      "arts_PNGPath": [
+        "coreFolders/art_img74-corefolderAsObjectA",
+        "coreFolders/art_img74-corefolderAsObjectB"
+      ]
     },
     "Name": "ナナヨ",
     "Name_EN": "Sefoury",
@@ -7826,7 +7875,8 @@
     "Images": {
       "concept_PNGName": "cnsp_img85",
       "catalog_PNGName": "chr-dsgn_catalog85",
-      "corefolder_PNGPath": ["emstk_corefolder85-1", "emstk_corefolder85-2"]
+      "corefolder_PNGPath": ["emstk_corefolder85-1", "emstk_corefolder85-2"],
+      "arts_PNGPath": ["coreFolders/art_img85-corefolder"]
     },
     "Name": "ハッコ\nパコ",
     "Name_EN": "Eightifie\nEigfie",
@@ -8507,7 +8557,8 @@
     "Progress": "released",
     "Images": {
       "concept_PNGName": "cnsp_img94",
-      "corefolder_PNGPath": ["emstk_corefolder94-1"]
+      "corefolder_PNGPath": ["emstk_corefolder94-1"],
+      "arts_PNGPath": ["coreFolders/art_img94-corefolder"]
     },
     "Name": "ツクシ",
     "Name_EN": "Ninfors",
@@ -8640,7 +8691,11 @@
     "Progress": "released",
     "Images": {
       "concept_PNGName": "cnsp_img96",
-      "corefolder_PNGPath": ["emstk_corefolder96-1"]
+      "corefolder_PNGPath": ["emstk_corefolder96-1"],
+      "arts_PNGPath": [
+        "humanoids/art_img96-humanoid",
+        "humanoids/art_img96-humanoidCastOff"
+      ]
     },
     "Name": "クルリ",
     "Name_EN": "Rota",
@@ -9289,7 +9344,8 @@
     "Num": "0",
     "Progress": "released(beta)",
     "Images": {
-      "concept_PNGName": "cnsp_img0"
+      "concept_PNGName": "cnsp_img0",
+      "arts_PNGPath": ["art_img0-developper"]
     },
     "_DBLink": {
       "worksTitle": "SinisterChangingGirls",
@@ -9322,7 +9378,8 @@
     "Num": "00",
     "Progress": "released(beta)",
     "Images": {
-      "concept_PNGName": "cnsp_img00"
+      "concept_PNGName": "cnsp_img00",
+      "arts_PNGPath": ["art_img00-developper"]
     },
     "Name": "零 百(かずない-はげむ)",
     "Name_EN": "Hudret Norumber",

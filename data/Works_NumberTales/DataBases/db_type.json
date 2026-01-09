@@ -32,6 +32,11 @@
           "hashTag": "designAlt_PNGPath",
           "$type": "#PNGFilePath[]",
           "hashTag_JP": "衣装差分などのPNGファイル相対パス"
+        },
+        {
+          "hashTag": "arts_PNGPath",
+          "$type": "#PNGFilePath[]",
+          "hashTag_JP": "イラストPNGファイル相対パス"
         }
       ]
     },
