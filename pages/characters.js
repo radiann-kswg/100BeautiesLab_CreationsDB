@@ -1103,10 +1103,42 @@ function buildImagePath(wdir, dbName, field, value) {
 
   console.log('🔍 Building image path:', { field: field.field, category: field.category, value });
 
-  // Determine file extension
-  const hasExtension = value.includes('.png') || value.includes('.jpg') || value.includes('.jpeg') ||
-                      value.includes('.gif') || value.includes('.webp');
-  const extension = hasExtension ? '' : '.png';
+  // Determine file extension (prefer type-driven default)
+  const normalizeSlashes = (p) => String(p || '').replace(/\\/g, '/');
+  const lower = (s) => String(s || '').toLowerCase();
+  const hasAnyExtension = (v) => /\.(png|jpe?g|gif|webp|svg|bmp)$/i.test(String(v || ''));
+  const pickDefaultExtension = () => {
+    const t = lower(field?.type);
+    if (t.includes('jpg') || t.includes('jpeg')) return '.jpg';
+    if (t.includes('webp')) return '.webp';
+    if (t.includes('gif')) return '.gif';
+    if (t.includes('svg')) return '.svg';
+    return '.png';
+  };
+  const defaultExt = pickDefaultExtension();
+  const appendExtIfMissing = (p) => {
+    if (!p) return p;
+    return hasAnyExtension(p) ? p : `${p}${defaultExt}`;
+  };
+
+  // Directory segment normalization for GitHub Pages (case-sensitive)
+  // NOTE: 末尾(ファイル名)はケースを変更しない
+  const CANON_DIR_SEGMENTS = [
+    'arts', 'concept', 'conceptAlt', 'design', 'designAlt', 'cardDesign', 'catalog', 'corefolder',
+    // NumberTales で実在することが多いサブディレクトリ
+    'autumnMoon', 'corefolders', 'humanoids', 'newYear'
+  ];
+  const normalizeDirSegments = (relPath) => {
+    const parts = normalizeSlashes(relPath).split('/').filter(Boolean);
+    if (parts.length <= 1) return parts.join('/');
+    const out = parts.map((seg, idx) => {
+      if (idx === parts.length - 1) return seg; // file name
+      const segLower = seg.toLowerCase();
+      const canon = CANON_DIR_SEGMENTS.find(c => c.toLowerCase() === segLower);
+      return canon || seg;
+    });
+    return out.join('/');
+  };
 
   // Determine directory based on field category and name
   let directory = '';
@@ -1152,19 +1184,34 @@ function buildImagePath(wdir, dbName, field, value) {
   }
 
   // Handle path-based values
-  if (value.includes('/')) {
-    // Value already contains path, use as-is relative to Images folder
-    if (field.category === 'general' || directory === 'General') {
-      return `/data/${wdir}/Images/General/${value}`;
-    } else {
-      return `/data/${wdir}/Images/${dbName}/${value}`;
+  const normalizedValue = normalizeSlashes(value).replace(/^\/+/, '');
+  if (normalizedValue.includes('/')) {
+    // Value contains a subpath. Treat it as relative to the category directory (arts/design/...)
+    // and ensure extension is present.
+    const isGeneral = field.category === 'general' || directory === 'General';
+
+    // If the value already starts with the directory (e.g. 'arts/foo'), strip it to avoid duplication.
+    let rel = normalizedValue;
+    if (!isGeneral && directory) {
+      const dirPrefixLower = `${directory.toLowerCase()}/`;
+      if (rel.toLowerCase().startsWith(dirPrefixLower)) {
+        rel = rel.slice(directory.length + 1);
+      }
     }
+
+    rel = normalizeDirSegments(rel);
+    rel = appendExtIfMissing(rel);
+
+    if (isGeneral) {
+      return `/data/${wdir}/Images/General/${rel}`;
+    }
+    return `/data/${wdir}/Images/${dbName}/${directory}/${rel}`;
   }
 
   // Build standard path
   const finalPath = field.category === 'general' || directory === 'General'
-    ? `/data/${wdir}/Images/General/${value}${extension}`
-    : `/data/${wdir}/Images/${dbName}/${directory}/${value}${extension}`;
+    ? `/data/${wdir}/Images/General/${appendExtIfMissing(normalizedValue)}`
+    : `/data/${wdir}/Images/${dbName}/${directory}/${appendExtIfMissing(normalizedValue)}`;
 
   console.log('📁 Final image path:', { field: field.field, category: field.category, directory, finalPath });
 
