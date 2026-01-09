@@ -891,8 +891,8 @@ function formatValueForDisplay(value, labelMap = {}, workMeta = null, globalDefT
 function buildImageGallery(workId, record, imageFields, dbName = 'Primary') {
   const wdir = workId.replace('#Works_', 'Works_');
   const images = [];
-  // Support both "Images" field names
-  const imgData = record.Images || {};
+  // Support common "Images" key variants (typos / case)
+  const imgData = getRecordImages(record);
 
   console.log('🖼️ Enhanced gallery building:', {
     workId,
@@ -995,6 +995,22 @@ function buildImageGallery(workId, record, imageFields, dbName = 'Primary') {
 }
 
 /**
+ * レコードから画像コンテナ（Images）を安全に取得
+ * @param {Object} rec - レコード
+ * @returns {Object} 画像コンテナ（存在しない場合は空オブジェクト）
+ */
+function getRecordImages(rec) {
+  if (!rec || typeof rec !== 'object') return {};
+  // 正式: Images
+  if (rec.Images && typeof rec.Images === 'object') return rec.Images;
+  // ありがちな揺れ・誤字
+  if (rec.images && typeof rec.images === 'object') return rec.images;
+  if (rec.Iamges && typeof rec.Iamges === 'object') return rec.Iamges;
+  if (rec.Image && typeof rec.Image === 'object') return rec.Image;
+  return {};
+}
+
+/**
  * UI Display Utilities
  */
 
@@ -1026,8 +1042,7 @@ function humanWorkLabel(work) {
  */
 async function imageFromRecord(workId, rec, dbName = 'Primary', imageFields = null) {
   const wdir = workId.replace('#Works_', 'Works_');
-  // Support both "Images" field names
-  const img = rec.Images || {};
+  const img = getRecordImages(rec);
 
   console.log('🖼️ Enhanced image resolution for record:', {
     workId,
@@ -1062,8 +1077,7 @@ async function imageFromRecord(workId, rec, dbName = 'Primary', imageFields = nu
  */
 async function resolveImageFromFields(workId, rec, dbName, imageFields) {
   const wdir = workId.replace('#Works_', 'Works_');
-  // Support both "Images" field names
-  const img = rec.Images || {};
+  const img = getRecordImages(rec);
 
   // Sort image fields by priority for thumbnail selection
   const sortedFields = [...imageFields].sort((a, b) => a.priority - b.priority);
@@ -1227,14 +1241,13 @@ function buildImagePath(wdir, dbName, field, value) {
  */
 function resolveImageStatically(workId, rec, dbName) {
   const wdir = workId.replace('#Works_', 'Works_');
-  // Support both "Images" field names
-  const img = rec.Images || {};
+  const img = getRecordImages(rec);
 
   console.log('🔧 Enhanced static resolution for:', {
     workId,
     dbName,
     img,
-    hasImages: !!rec.Images,
+    hasImages: !!(rec && (rec.Images || rec.images || rec.Iamges || rec.Image)),
     hasImage: !!rec.Image,
     availableFields: Object.keys(img),
     recordName: rec.Name || rec.FormalName || 'Unknown'
