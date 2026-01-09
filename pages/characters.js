@@ -1225,15 +1225,14 @@ function resolveImageStatically(workId, rec, dbName) {
     () => {
       if (img.designAlt_PNGName) {
         const val = Array.isArray(img.designAlt_PNGName) ? img.designAlt_PNGName[0] : img.designAlt_PNGName;
-        const ext = val.includes('.') ? '' : '.png';
-        return `/data/${wdir}/Images/${dbName}/designAlt/${val}${ext}`;
+        return `/data/${wdir}/Images/${dbName}/designAlt/${val}.png`;
       }
       return null;
     },
     () => {
       if (img.designAlt_PNGPath) {
         const val = Array.isArray(img.designAlt_PNGPath) ? img.designAlt_PNGPath[0] : img.designAlt_PNGPath;
-        return `/data/${wdir}/Images/${dbName}/designAlt/${val}`;
+        return `/data/${wdir}/Images/${dbName}/designAlt/${val}.png`;
       }
       return null;
     },
@@ -1242,7 +1241,7 @@ function resolveImageStatically(workId, rec, dbName) {
     () => {
       if (img.arts_PNGPath) {
         const val = Array.isArray(img.arts_PNGPath) ? img.arts_PNGPath[0] : img.arts_PNGPath;
-        return `/data/${wdir}/Images/${dbName}/arts/${val}`;
+        return `/data/${wdir}/Images/${dbName}/arts/${val}.png`;
       }
       return null;
     },
@@ -1251,8 +1250,7 @@ function resolveImageStatically(workId, rec, dbName) {
     () => {
       if (img.corefolder_PNGPath) {
         const val = Array.isArray(img.corefolder_PNGPath) ? img.corefolder_PNGPath[0] : img.corefolder_PNGPath;
-        const ext = val.endsWith('.png') ? '' : '.png';
-        return `/data/${wdir}/Images/${dbName}/corefolder/${val}${ext}`;
+        return `/data/${wdir}/Images/${dbName}/corefolder/${val}.png`;
       }
       return null;
     },
