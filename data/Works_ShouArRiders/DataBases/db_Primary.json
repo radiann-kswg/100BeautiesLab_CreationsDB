@@ -115,7 +115,10 @@
     "BeastType": { "Beast": "Snake" },
     "Progress": "released(beta)",
     "Images": {
-      "arts_PNGPath": ["newYear/art_imgEZ6-newyear2025A"]
+      "arts_PNGPath": [
+        "newYear/art_imgEZ6-newyear2025A",
+        "newYear/art_imgEZ6-newyear2025B"
+      ]
     },
     "Name": "巳刻カミツ",
     "Name_EN": "Ciderin Snaketimes",
@@ -143,6 +146,9 @@
   {
     "BeastType": { "Beast": "Horse" },
     "Progress": "released(beta)",
+    "Images": {
+      "arts_PNGPath": ["newYear/art_imgEZ7-newyear2026"]
+    },
     "Name": "午刻ハヤテ",
     "Name_EN": "Windrush Horsetimes",
     "FormalName": "ルドルフ.コーナー",
