@@ -6590,7 +6590,8 @@
       "Commented": [
         {
           "Num": 36,
-          "Comments": "神引きおばけ"
+          "Comments": "神引きおばけ",
+          "RelationLabel": ["cousin_nearly"]
         },
         {
           "Num": 41,
@@ -6602,7 +6603,8 @@
         },
         {
           "Num": 81,
-          "Comments": "高収入おばけ"
+          "Comments": "高収入おばけ",
+          "RelationLabel": ["cousin_nearly"]
         },
         {
           "Num": 95,
@@ -7967,7 +7969,7 @@
   },
   {
     "Num": 86,
-    "Progress": "notProceeded",
+    "Progress": "nowCreating",
     "Name": "ハチロ",
     "Name_EN": "Eightix",
     "ModelName": "ナンバーテールズ6+8号機乙(86番機)",
@@ -7980,7 +7982,77 @@
     ],
     "Class": "デュアルファイブズ",
     "Class_EN": "Dual Sum-5s",
-    "NumerospecAbout": "富と才能を恵む\nただしこの効果の大きさは日頃の行いの良さに比例する"
+    "TailsUnit": "キツネ(枝分かれ)型8本(上1束2本+下2束6本)",
+    "FirstPersonCalling": "自分\n私(わたし)",
+    "SecondPersonCalling": "君(きみ)",
+    "ThirdPersonCalling": "彼/彼女/[※名前呼び]",
+    "ForMasterCalling": "主人",
+    "Character": "人当たりはよいがやや生真面目\n収集癖の強い一面がある",
+    "Hobby": "コレクション収集",
+    "SpetialSkill": "ブラック案件を見抜く",
+    "Favor": "フリーマーケット、68(ロクヤ)の手放したレアアイテム",
+    "Unlike": "断捨離、68(ロクヤ)本人",
+    "NumerospecAbout": "富と才能を恵む\nただしこの効果の大きさは日頃の行いの良さに比例する",
+    "Summary": "",
+    "NumerospecStats": {
+      "EffectStats": {
+        "Mental": { "EffectText": "効果無" },
+        "Manetize": { "EffectText": "希薄" },
+        "Working": { "EffectText": "期待可能" },
+        "Luck": { "EffectText": "期待" },
+        "Communication": { "EffectText": "普通" }
+      },
+      "SpetialPattern": ["Ptn.M(マネタイズ効果または資産操作能力)"],
+      "SafetyLevel": { "SafetyLevelText": "安全" }
+    },
+    "AbilityStats": {
+      "Speed": { "Rank": "A" },
+      "Communicating": { "Rank": "B+" },
+      "Leading": { "Rank": "B" },
+      "Precision": { "Rank": "S" },
+      "Technic": { "Rank": "C" },
+      "Actuation": { "Rank": "B+" }
+    },
+    "Relation": {
+      "Related": [
+        {
+          "Num": 60,
+          "Comments": "趣味が通ずるような……気のせい？",
+          "RelationLabel": ["interested"]
+        },
+        {
+          "Num": 68,
+          "Comments": "勿体ないことしないで！",
+          "RelationLabel": ["brother|sister", "unmatched"]
+        }
+      ],
+      "Commented": [
+        {
+          "Num": 18,
+          "Comments": "頼ってもいい存在",
+          "RelationLabel": ["cousin_nearly", "trusted_maybe"]
+        },
+        {
+          "Num": 51,
+          "Comments": "ちょっと残念というか…"
+        },
+        {
+          "Num": 61,
+          "Comments": "いや……ええ…？",
+          "RelationLabel": ["cousin", "awkward_aBit"]
+        },
+        {
+          "Num": 63,
+          "Comments": "なんだか安心できる",
+          "RelationLabel": ["cousin_nearly"]
+        },
+        {
+          "Num": 80,
+          "Comments": "ちょっと苦手かな…",
+          "RelationLabel": ["pioneer_nearly", "awkward_aBit"]
+        }
+      ]
+    }
   },
   {
     "Num": 87,
