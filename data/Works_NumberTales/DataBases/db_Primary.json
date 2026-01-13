@@ -79,7 +79,7 @@
         {
           "Num": 2,
           "Comments": "他の子を大切にしてるいい妹。なんだけどなー",
-          "RelationLabel": ["wellMatched", "brother|sister"]
+          "RelationLabel": ["wellMatched", "brother|sister", "classmate"]
         },
         {
           "Num": 10,
@@ -90,7 +90,8 @@
       "Commented": [
         {
           "Num": 3,
-          "Comments": "何かあったら任せられて頼れる！"
+          "Comments": "何かあったら任せられて頼れる！",
+          "RelationLabel": ["classmate"]
         },
         {
           "Num": 11,
@@ -102,7 +103,8 @@
         },
         {
           "Num": 91,
-          "Comments": "スタートダッシュもゴールインもカッコいい人！"
+          "Comments": "スタートダッシュもゴールインもカッコいい人！",
+          "RelationLabel": ["successor"]
         }
       ]
     }
@@ -182,18 +184,19 @@
           "RelationLabel": [
             "wellMatched_maybe",
             "awkward_aBit",
-            "brother|sister"
+            "brother|sister",
+            "classmate"
           ]
         },
         {
           "Num": 3,
           "Comments": "同期であり尊敬する存在",
-          "RelationLabel": ["trusted"]
+          "RelationLabel": ["trusted", "classmate"]
         },
         {
           "Num": 9,
           "Comments": "甘え相手",
-          "RelationLabel": ["abusing"]
+          "RelationLabel": ["abusing", "classmate"]
         },
         { "Num": 12, "RelationLabel": ["awkward", "successor"] },
         { "Num": "2-alt", "RelationLabel": ["sameNumber"] }
@@ -275,19 +278,20 @@
         {
           "Num": 1,
           "Comments": "すごいポテンシャルで突き進んでる",
-          "RelationLabel": ["wellMatched"]
+          "RelationLabel": ["wellMatched", "classmate"]
         },
         {
           "Num": 2,
           "Comments": "今後も信頼してるよ",
-          "RelationLabel": ["trusted"]
+          "RelationLabel": ["trusted", "classmate"]
         },
-        { "Num": 5, "RelationLabel": ["wellMatched"] }
+        { "Num": 5, "RelationLabel": ["wellMatched", "classmate"] }
       ],
       "Commented": [
         {
           "Num": 6,
-          "Comments": "世界観がなんだか憎めない"
+          "Comments": "世界観がなんだか憎めない",
+          "RelationLabel": ["classmate"]
         },
         {
           "Num": 22,
@@ -370,21 +374,23 @@
         {
           "Num": 5,
           "Comments": "怖い!!!",
-          "RelationLabel": ["unmatched"]
+          "RelationLabel": ["unmatched", "classmate"]
         },
         {
           "Num": 6,
-          "RelationLabel": ["wellMatched"]
+          "RelationLabel": ["wellMatched", "classmate"]
         }
       ],
       "Commented": [
         {
           "Num": 2,
-          "Comments": "とてもいい人だからすぐ疲れちゃいそう…"
+          "Comments": "とてもいい人だからすぐ疲れちゃいそう…",
+          "RelationLabel": ["classmate"]
         },
         {
           "Num": 8,
-          "Comments": "作業中はもっと慎重にやってほしいよぉ…"
+          "Comments": "作業中はもっと慎重にやってほしいよぉ…",
+          "RelationLabel": ["classmate"]
         },
         {
           "Num": 22,
@@ -465,16 +471,16 @@
         {
           "Num": 3,
           "Comments": "枠に収まりつつ個性的なオーラを放つ友(ダチ)",
-          "RelationLabel": ["wellMatched"]
+          "RelationLabel": ["wellMatched", "classmate"]
         },
         {
           "Num": 4,
-          "RelationLabel": ["abusing", "unmatched"]
+          "RelationLabel": ["abusing", "unmatched", "classmate"]
         },
         {
           "Num": 6,
           "Comments": "波長が合わない、悪い人ではないけど…",
-          "RelationLabel": ["awkward"]
+          "RelationLabel": ["awkward", "classmate"]
         }
       ],
       "Commented": [
@@ -559,22 +565,24 @@
         {
           "Num": 7,
           "Comments": "少々内向的ですが、本当は立派な方ですよ",
-          "RelationLabel": ["abusing"]
+          "RelationLabel": ["abusing", "trusted_maybe", "classmate"]
         },
         {
           "Num": 9,
           "Comments": "「闇属性」と称されていますが、何故でしょう…？",
-          "RelationLabel": ["paired"]
+          "RelationLabel": ["paired", "classmate"]
         }
       ],
       "Commented": [
         {
           "Num": 3,
-          "Comments": "あなた様の活躍、今後も期待しております"
+          "Comments": "あなた様の活躍、今後も期待しております",
+          "RelationLabel": ["classmate"]
         },
         {
           "Num": 5,
-          "Comments": "いつまでも観飽きない子です♪"
+          "Comments": "いつまでも観飽きない子です♪",
+          "RelationLabel": ["classmate"]
         },
         {
           "Num": 33,
@@ -649,12 +657,12 @@
         {
           "Num": 5,
           "Comments": "こ奴には負けたくない",
-          "RelationLabel": ["unmatched"]
+          "RelationLabel": ["unmatched", "classmate"]
         },
         {
           "Num": 9,
           "Comments": "良からぬことに愛憎がないといいが…",
-          "RelationLabel": ["wellMatched"]
+          "RelationLabel": ["wellMatched", "classmate"]
         },
         {
           "Num": 70,
@@ -665,7 +673,8 @@
       "Commented": [
         {
           "Num": 6,
-          "Comments": "彼女なりの生きがいを感じる"
+          "Comments": "彼女なりの生きがいを感じる",
+          "RelationLabel": ["classmate"]
         },
         {
           "Num": 25,
@@ -752,12 +761,12 @@
         {
           "Num": 1,
           "Comments": "動力源どこよあの子…",
-          "RelationLabel": ["awkward"]
+          "RelationLabel": ["awkward", "classmate"]
         },
         {
           "Num": 7,
           "Comments": "あてが理系なら彼(女)は文系？",
-          "RelationLabel": ["wellMatched"]
+          "RelationLabel": ["wellMatched", "classmate"]
         }
       ],
       "Commented": [
@@ -842,18 +851,19 @@
         {
           "Num": 2,
           "Comments": "可愛らしいお嬢さんね",
-          "RelationLabel": ["wellMatched"]
+          "RelationLabel": ["wellMatched", "classmate"]
         },
         {
           "Num": 6,
           "Comments": "ロマンチストで素敵だと思うわ",
-          "RelationLabel": ["paired"]
+          "RelationLabel": ["paired", "classmate"]
         }
       ],
       "Commented": [
         {
           "Num": 4,
-          "Comments": "もっと大胆にいってもいいのよ？"
+          "Comments": "もっと大胆にいってもいいのよ？",
+          "RelationLabel": ["classmate"]
         },
         {
           "Num": 10,
@@ -865,7 +875,8 @@
         },
         {
           "Num": 99,
-          "Comments": "記憶って、不思議なものね…"
+          "Comments": "記憶って、不思議なものね…",
+          "RelationLabel": ["successor"]
         }
       ]
     }
@@ -963,7 +974,7 @@
         {
           "Num": 11,
           "Comments": "話が通じる",
-          "RelationLabel": ["abusing"]
+          "RelationLabel": ["abusing", "trusted_maybe"]
         },
         {
           "Num": 99,
@@ -1052,27 +1063,22 @@
         {
           "Num": 1,
           "Comments": "(字が乱れていて「師匠」しか読めない)",
-          "RelationLabel": [
-            "pioneer",
-            "trusted",
-            "abusing",
-            "adverselyAffected"
-          ]
+          "RelationLabel": ["trusted", "abusing", "adverselyAffected"]
         },
         {
           "Num": 22,
           "Comments": "ああみえて根はしっかりしている妹",
-          "RelationLabel": ["brother|sister"]
+          "RelationLabel": ["brother|sister", "classmate"]
         },
         {
           "Num": 55,
           "Comments": "汝が我より断然「台風の目」だ、誤解するな",
-          "RelationLabel": ["awkward"]
+          "RelationLabel": ["awkward", "classmate"]
         },
         {
           "Num": 99,
           "Comments": "…ひとまず、事情は把握した",
-          "RelationLabel": ["wellMatched"]
+          "RelationLabel": ["wellMatched", "classmate"]
         }
       ],
       "Commented": [
@@ -1165,7 +1171,7 @@
         {
           "Num": 21,
           "Comments": "ちょっと変な妹[弟]",
-          "RelationLabel": ["brother|sister"]
+          "RelationLabel": ["brother|sister", "classmate"]
         },
         {
           "Num": "2-alt",
@@ -1180,11 +1186,13 @@
         },
         {
           "Num": 48,
-          "Comments": "理想主義？リアリスト？どっちだろう…？"
+          "Comments": "理想主義？リアリスト？どっちだろう…？",
+          "RelationLabel": ["classmate"]
         },
         {
           "Num": 75,
-          "Comments": "変に真面目だけど、しっかりもの"
+          "Comments": "変に真面目だけど、しっかりもの",
+          "RelationLabel": ["classmate"]
         }
       ]
     }
@@ -1255,27 +1263,29 @@
         {
           "Num": 31,
           "Comments": "出だしは姉の私が補助するよ！ 頑張って！",
-          "RelationLabel": ["brother|sister"]
+          "RelationLabel": ["brother|sister", "classmate"]
         },
         {
           "Num": 39,
           "Comments": "ちょっとかっこいいかも…！",
-          "RelationLabel": ["wellMatched"]
+          "RelationLabel": ["wellMatched", "cousin_nearly"]
         },
         {
           "Num": 58,
           "Comments": "なんでいつもいいカードを引くの！インチキ!!",
-          "RelationLabel": ["unmatched"]
+          "RelationLabel": ["unmatched", "classmate"]
         }
       ],
       "Commented": [
         {
           "Num": 1,
-          "Comments": "あの行動力には敵わないなぁ"
+          "Comments": "あの行動力には敵わないなぁ",
+          "RelationLabel": ["pioneer"]
         },
         {
           "Num": 3,
-          "Comments": "私も見習わないと！"
+          "Comments": "私も見習わないと！",
+          "RelationLabel": ["pioneer"]
         },
         {
           "Num": 4,
@@ -1283,7 +1293,8 @@
         },
         {
           "Num": 71,
-          "Comments": "最初あんなにすごい子だったっけ…"
+          "Comments": "最初あんなにすごい子だったっけ…",
+          "RelationLabel": ["cousin_nearly"]
         }
       ]
     }
@@ -1366,9 +1377,9 @@
         {
           "Num": 41,
           "Comments": "おめでた頭の弟",
-          "RelationLabel": ["brother|sister"]
+          "RelationLabel": ["brother|sister", "classmate"]
         },
-        { "Num": 49, "RelationLabel": ["abusing"] }
+        { "Num": 49, "RelationLabel": ["abusing", "cousin_nearly"] }
       ],
       "Commented": [
         {
@@ -1377,7 +1388,8 @@
         },
         {
           "Num": 64,
-          "Comments": "かなりぶっ飛んでる"
+          "Comments": "かなりぶっ飛んでる",
+          "RelationLabel": ["cousin"]
         },
         {
           "Num": 77,
@@ -1385,7 +1397,8 @@
         },
         {
           "Num": 86,
-          "Comments": "貢がれてそう"
+          "Comments": "貢がれてそう",
+          "RelationLabel": ["classmate"]
         }
       ]
     }
@@ -1479,11 +1492,11 @@
         {
           "Num": 10,
           "Comments": "よく覚えてないが、世話になった…気がする",
-          "RelationLabel": ["secretRelation"]
+          "RelationLabel": ["pioneer_nearly", "secretRelation"]
         },
         {
           "Num": 12,
-          "RelationLabel": ["wellMatched"]
+          "RelationLabel": ["wellMatched", "cousin"]
         },
         {
           "Num": 33,
@@ -1493,12 +1506,16 @@
         {
           "Num": 51,
           "Comments": "弟、発想力は認める",
-          "RelationLabel": ["brother|sister", "alternative|redesign"]
+          "RelationLabel": [
+            "brother|sister",
+            "alternative|redesign",
+            "classmate"
+          ]
         },
         {
           "Num": 95,
           "Comments": "……善処はした。頼むから、早まるなよ",
-          "RelationLabel": ["wellMatched", "secretRelation"]
+          "RelationLabel": ["wellMatched", "cousin", "secretRelation"]
         }
       ],
       "Commented": [
@@ -1508,11 +1525,13 @@
         },
         {
           "Num": 69,
-          "Comments": "ちょっとは自分を見つめ直した方がいい"
+          "Comments": "ちょっとは自分を見つめ直した方がいい",
+          "RelationLabel": ["classmate"]
         },
         {
           "Num": 91,
-          "Comments": "どんな結果でも挫けないのは認めるべき"
+          "Comments": "どんな結果でも挫けないのは認めるべき",
+          "RelationLabel": ["cousin_nearly"]
         }
       ]
     }
@@ -1605,13 +1624,14 @@
         {
           "Num": 61,
           "Comments": "妹、お花畑なところも魅力",
-          "RelationLabel": ["brother|sister"]
+          "RelationLabel": ["brother|sister", "classmate"]
         }
       ],
       "Commented": [
         {
           "Num": 1,
-          "Comments": "すごいポテンシャルの持ち主"
+          "Comments": "すごいポテンシャルの持ち主",
+          "RelationLabel": ["pioneer"]
         },
         {
           "Num": 7,
@@ -1619,11 +1639,13 @@
         },
         {
           "Num": 71,
-          "Comments": "いや～…青春だね♪"
+          "Comments": "いや～…青春だね♪",
+          "RelationLabel": ["cousin_nearly"]
         },
         {
           "Num": 79,
-          "Comments": "なんだか宗教勧誘してる人みたいで可哀想"
+          "Comments": "なんだか宗教勧誘してる人みたいで可哀想",
+          "RelationLabel": ["classmate"]
         }
       ]
     }
@@ -1708,16 +1730,19 @@
           "Comments": "才色兼備で強そう",
           "RelationLabel": ["cousin"]
         },
-        { "Num": 71, "RelationLabel": ["brother|sister", "awkward"] },
+        {
+          "Num": 71,
+          "RelationLabel": ["brother|sister", "awkward_aBit", "classmate"]
+        },
         {
           "Num": 73,
           "Comments": "良く言えば知識欲旺盛、悪く言えば無知…だね",
-          "RelationLabel": ["unmatched"]
+          "RelationLabel": ["unmatched", "cousin_nearly"]
         },
         {
           "Num": 89,
           "Comments": "まぎれもなく同志",
-          "RelationLabel": ["wellMatched"]
+          "RelationLabel": ["wellMatched", "classmate"]
         }
       ],
       "Commented": [
@@ -1735,7 +1760,8 @@
         },
         {
           "Num": 62,
-          "Comments": "女性の味方なアイディア、期待してるよ"
+          "Comments": "女性の味方なアイディア、期待してるよ",
+          "RelationLabel": ["classmate"]
         }
       ]
     }
@@ -1811,25 +1837,29 @@
         {
           "Num": 81,
           "Comments": "妹[弟]、需要とか気にしすぎ",
-          "RelationLabel": ["brother|sister"]
+          "RelationLabel": ["brother|sister", "classmate"]
         }
       ],
       "Commented": [
         {
           "Num": 8,
-          "Comments": "ときどき変なもの作ってそう"
+          "Comments": "ときどき変なもの作ってそう",
+          "RelationLabel": ["pioneer"]
         },
         {
           "Num": 27,
-          "Comments": "真面目だけど潰れないようにね"
+          "Comments": "真面目だけど潰れないようにね",
+          "RelationLabel": ["classmate"]
         },
         {
           "Num": 38,
-          "Comments": "運も力のうち、というわけね"
+          "Comments": "運も力のうち、というわけね",
+          "RelationLabel": ["cousin"]
         },
         {
           "Num": 54,
-          "Comments": "油断だけはしてほしくない"
+          "Comments": "油断だけはしてほしくない",
+          "RelationLabel": ["classmate"]
         }
       ]
     }
@@ -1901,25 +1931,29 @@
         {
           "Num": 91,
           "Comments": "弟[妹]だけど活発すぎて手に負えないや…",
-          "RelationLabel": ["brother|sister", "awkward"]
+          "RelationLabel": ["brother|sister", "awkward", "classmate"]
         }
       ],
       "Commented": [
         {
           "Num": 1,
-          "Comments": "君が極めたものは幾つあるんだい？"
+          "Comments": "君が極めたものは幾つあるんだい？",
+          "RelationLabel": ["pioneer"]
         },
         {
           "Num": 9,
-          "Comments": "バーテンダー、似合うと思うよ"
+          "Comments": "バーテンダー、似合うと思うよ",
+          "RelationLabel": ["pioneer"]
         },
         {
           "Num": 10,
-          "Comments": "怪しい"
+          "Comments": "怪しい",
+          "RelationLabel": ["pioneer_nearly"]
         },
         {
           "Num": 46,
-          "Comments": "元気があっていいね"
+          "Comments": "元気があっていいね",
+          "RelationLabel": ["classmate"]
         }
       ]
     }
@@ -1989,12 +2023,12 @@
         {
           "Num": 2,
           "Comments": "姉の分もよろしくおねがいします",
-          "RelationLabel": ["trusted"]
+          "RelationLabel": ["trusted", "cousin_nearly"]
         },
         {
           "Num": 24,
           "Comments": "またお話きかせてくださいね♪",
-          "RelationLabel": ["wellMatched"]
+          "RelationLabel": ["wellMatched", "cousin", "successor_nearly"]
         },
         {
           "Num": 42,
@@ -2010,11 +2044,13 @@
         },
         {
           "Num": 22,
-          "Comments": "困ったら頼りたい"
+          "Comments": "困ったら頼りたい",
+          "RelationLabel": ["successor"]
         },
         {
           "Num": 25,
-          "Comments": "臨んでいなくても本領発揮できる方です"
+          "Comments": "臨んでいなくても本領発揮できる方です",
+          "RelationLabel": ["successor_nearly"]
         },
         {
           "Num": 62,
@@ -2084,7 +2120,7 @@
         {
           "Num": 12,
           "Comments": "隠し事持たない方が良いのか悪いのか…",
-          "RelationLabel": ["brother|sister", "awkward"]
+          "RelationLabel": ["brother|sister", "awkward", "classmate"]
         },
         {
           "Num": 28,
@@ -2103,15 +2139,18 @@
         },
         {
           "Num": 20,
-          "Comments": "いつか気負い過ぎで倒れそうだなぁ…"
+          "Comments": "いつか気負い過ぎで倒れそうだなぁ…",
+          "RelationLabel": ["pioneer_nearly"]
         },
         {
           "Num": 57,
-          "Comments": "楽観的なとこは見習うべき"
+          "Comments": "楽観的なとこは見習うべき",
+          "RelationLabel": ["classmate"]
         },
         {
           "Num": 84,
-          "Comments": "変なところで理屈っぽい"
+          "Comments": "変なところで理屈っぽい",
+          "RelationLabel": ["classmate"]
         }
       ]
     }
@@ -2185,12 +2224,12 @@
         {
           "Num": 11,
           "Comments": "時々暴走するから面白い人だよ！",
-          "RelationLabel": ["brother|sister", "trusted"]
+          "RelationLabel": ["brother|sister", "trusted", "classmate"]
         },
         {
           "Num": 44,
           "Comments": "ライバルみたいな？負けてられない！",
-          "RelationLabel": ["wellMatched"]
+          "RelationLabel": ["wellMatched", "classmate"]
         }
       ],
       "Commented": [
@@ -2216,7 +2255,8 @@
         },
         {
           "Num": 99,
-          "Comments": "なんか…異世界転生とか経験してる…？"
+          "Comments": "なんか…異世界転生とか経験してる…？",
+          "RelationLabel": ["classmate"]
         }
       ]
     }
@@ -2285,7 +2325,7 @@
         {
           "Num": 2,
           "Comments": "仕事振ってごめんな☆",
-          "RelationLabel": ["pioneer", "wellMatched_maybe", "abusing"]
+          "RelationLabel": ["pioneer_nearly", "wellMatched_maybe", "abusing"]
         },
         {
           "Num": 3,
@@ -2300,21 +2340,24 @@
         {
           "Num": 95,
           "Comments": "身を投げ出しそうで怖ぇんだよあいつ…",
-          "RelationLabel": ["unmatched"]
+          "RelationLabel": ["unmatched", "classmate"]
         }
       ],
       "Commented": [
         {
           "Num": 29,
-          "Comments": "まぁ…強く生きてくれ"
+          "Comments": "まぁ…強く生きてくれ",
+          "RelationLabel": ["cousin"]
         },
         {
           "Num": 32,
-          "Comments": "双子の片割れ, あの言動で素なの面白いよな"
+          "Comments": "双子の片割れ, あの言動で素なの面白いよな",
+          "RelationLabel": ["brother|sister", "classmate"]
         },
         {
           "Num": 39,
-          "Comments": "本気出すと侮れないやつ"
+          "Comments": "本気出すと侮れないやつ",
+          "RelationLabel": ["cousin_nearly"]
         }
       ]
     }
@@ -2394,13 +2437,14 @@
         {
           "Num": 42,
           "Comments": "暴走してないか心配な妹",
-          "RelationLabel": ["brother|sister", "awkward"]
+          "RelationLabel": ["brother|sister", "awkward", "classmate"]
         }
       ],
       "Commented": [
         {
           "Num": 25,
-          "Comments": "軽いように見えるけど優秀な人"
+          "Comments": "軽いように見えるけど優秀な人",
+          "RelationLabel": ["cousin"]
         },
         {
           "Num": 40,
@@ -2412,7 +2456,8 @@
         },
         {
           "Num": 96,
-          "Comments": "ちょっと時間が経ったら別人になってる気が…"
+          "Comments": "ちょっと時間が経ったら別人になってる気が…",
+          "RelationLabel": ["classmate"]
         }
       ]
     }
@@ -2486,7 +2531,7 @@
         {
           "Num": 2,
           "Comments": "立派で大好きな先輩！",
-          "RelationLabel": ["pioneer", "wellMatched"]
+          "RelationLabel": ["pioneer_nearly", "wellMatched"]
         },
         {
           "Num": 5,
@@ -2500,7 +2545,8 @@
             "brother|sister",
             "paired",
             "trusted",
-            "alternative|redesign"
+            "alternative|redesign",
+            "classmate"
           ]
         }
       ],
@@ -2515,7 +2561,8 @@
         },
         {
           "Num": 34,
-          "Comments": "大人数の中でもすごく平然としてる"
+          "Comments": "大人数の中でもすごく平然としてる",
+          "RelationLabel": ["classmate"]
         },
         {
           "Num": 77,
@@ -2590,7 +2637,7 @@
         {
           "Num": 62,
           "Comments": "おしゃれなら任せて♡",
-          "RelationLabel": ["brother|sister", "wellMatched"]
+          "RelationLabel": ["brother|sister", "wellMatched", "classmate"]
         },
         {
           "Num": 63,
@@ -2601,19 +2648,23 @@
       "Commented": [
         {
           "Num": 17,
-          "Comments": "いつも勤勉で頑張ってるね"
+          "Comments": "いつも勤勉で頑張ってるね",
+          "RelationLabel": ["classmate"]
         },
         {
           "Num": 20,
-          "Comments": "いつも優しくて尊敬できる"
+          "Comments": "いつも優しくて尊敬できる",
+          "RelationLabel": ["pioneer_nearly"]
         },
         {
           "Num": 24,
-          "Comments": "どこかつまらなさそう"
+          "Comments": "どこかつまらなさそう",
+          "RelationLabel": ["cousin"]
         },
         {
           "Num": 53,
-          "Comments": "お調子者でなんだかかわいい"
+          "Comments": "お調子者でなんだかかわいい",
+          "RelationLabel": ["classmate"]
         }
       ]
     }
@@ -2685,7 +2736,11 @@
         {
           "Num": 72,
           "Comments": "同型だし、あまり気遣わなくていいよ",
-          "RelationLabel": ["brother|sister", "alternative|redesign"]
+          "RelationLabel": [
+            "brother|sister",
+            "alternative|redesign",
+            "classmate"
+          ]
         },
         {
           "Num": 77,
@@ -2696,15 +2751,18 @@
       "Commented": [
         {
           "Num": 20,
-          "Comments": "優しい方、怒ってるのをみたことない"
+          "Comments": "優しい方、怒ってるのをみたことない",
+          "RelationLabel": ["pioneer_nearly"]
         },
         {
           "Num": 36,
-          "Comments": "あのように見えても幸運の持ち主だけどね"
+          "Comments": "あのように見えても幸運の持ち主だけどね",
+          "RelationLabel": ["classmate"]
         },
         {
           "Num": 54,
-          "Comments": "打たれ強いところもありそう"
+          "Comments": "打たれ強いところもありそう",
+          "RelationLabel": ["classmate"]
         },
         {
           "Num": 90,
@@ -2801,15 +2859,18 @@
         },
         {
           "Num": 24,
-          "Comments": "素直じゃない（他人のことはいえないけど）"
+          "Comments": "素直じゃない（他人のことはいえないけど）",
+          "RelationLabel": ["cousin"]
         },
         {
           "Num": 46,
-          "Comments": "うるさい"
+          "Comments": "うるさい",
+          "RelationLabel": ["classmate"]
         },
         {
           "Num": 73,
-          "Comments": "世間知らずすぎ"
+          "Comments": "世間知らずすぎ",
+          "RelationLabel": ["classmate"]
         }
       ]
     }
@@ -2901,15 +2962,18 @@
       "Commented": [
         {
           "Num": 12,
-          "Comments": "とても明るくて、ちょっと絡みにくい…"
+          "Comments": "とても明るくて、ちょっと絡みにくい…",
+          "RelationLabel": ["cousin_nearly"]
         },
         {
           "Num": 20,
-          "Comments": "ちょっと遠慮しちゃう…"
+          "Comments": "ちょっと遠慮しちゃう…",
+          "RelationLabel": ["pioneer_nearly"]
         },
         {
           "Num": 83,
-          "Comments": "いつも圧倒されちゃうよ…"
+          "Comments": "いつも圧倒されちゃうよ…",
+          "RelationLabel": ["classmate"]
         }
       ]
     }
@@ -2981,7 +3045,7 @@
         {
           "Num": 33,
           "Comments": "可愛い妹のような存在",
-          "RelationLabel": ["successor", "wellMatched"]
+          "RelationLabel": ["successor", "accompanying", "wellMatched"]
         },
         {
           "Num": 36,
@@ -2996,7 +3060,8 @@
         },
         {
           "Num": 39,
-          "Comments": "ちょっと怖いけど、いい人だと思う"
+          "Comments": "ちょっと怖いけど、いい人だと思う",
+          "RelationLabel": ["successor_nearly"]
         },
         {
           "Num": 63,
@@ -3081,7 +3146,8 @@
       "Commented": [
         {
           "Num": 23,
-          "Comments": "メーワクばっかり掛けない方がいいよ"
+          "Comments": "メーワクばっかり掛けない方がいいよ",
+          "RelationLabel": ["cousin_nearly"]
         },
         {
           "Num": 40,
@@ -3089,19 +3155,23 @@
         },
         {
           "Num": 58,
-          "Comments": "すぐ一発逆転するからゲームに誘いたくない"
+          "Comments": "すぐ一発逆転するからゲームに誘いたくない",
+          "RelationLabel": ["classmate"]
         },
         {
           "Num": 61,
-          "Comments": "“乙女”…っていうのかな…？"
+          "Comments": "“乙女”…っていうのかな…？",
+          "RelationLabel": ["cousin"]
         },
         {
           "Num": 76,
-          "Comments": "ヘンな人……"
+          "Comments": "ヘンな人……",
+          "RelationLabel": ["classmate"]
         },
         {
           "Num": 94,
-          "Comments": "退屈だったりしないのかな？"
+          "Comments": "退屈だったりしないのかな？",
+          "RelationLabel": ["classmate"]
         }
       ]
     }
@@ -3173,19 +3243,23 @@
       "Commented": [
         {
           "Num": 12,
-          "Comments": "わかりやすいやつ、まぁそれがいいんだが"
+          "Comments": "わかりやすいやつ、まぁそれがいいんだが",
+          "RelationLabel": ["cousin"]
         },
         {
           "Num": 14,
-          "Comments": "優等生ではあるんだけどなぁ"
+          "Comments": "優等生ではあるんだけどなぁ",
+          "RelationLabel": ["classmate"]
         },
         {
           "Num": 38,
-          "Comments": "実は幸運の秘訣とかありそう、ねぇの？"
+          "Comments": "実は幸運の秘訣とかありそう、ねぇの？",
+          "RelationLabel": ["cousin"]
         },
         {
           "Num": 59,
-          "Comments": "身構えたくなるんだよなこいつの前だと…"
+          "Comments": "身構えたくなるんだよなこいつの前だと…",
+          "RelationLabel": ["classmate"]
         },
         {
           "Num": 77,
@@ -3193,7 +3267,8 @@
         },
         {
           "Num": 86,
-          "Comments": "金目のトラブルは用心しとけよ"
+          "Comments": "金目のトラブルは用心しとけよ",
+          "RelationLabel": ["classmate"]
         }
       ]
     }
@@ -3278,9 +3353,9 @@
         {
           "Num": 30,
           "Comments": "お姉c…いえ、なんでもありません",
-          "RelationLabel": ["pioneer", "wellMatched"]
+          "RelationLabel": ["pioneer", "accompanying", "wellMatched"]
         },
-        { "Num": 44, "RelationLabel": ["unmatched"] }
+        { "Num": 44, "RelationLabel": ["unmatched", "classmate"] }
       ],
       "Commented": [
         {
@@ -3297,7 +3372,8 @@
         },
         {
           "Num": 66,
-          "Comments": "強いポテンシャルを感じます"
+          "Comments": "強いポテンシャルを感じます",
+          "RelationLabel": ["classmate"]
         },
         {
           "Num": 84,
@@ -3377,7 +3453,12 @@
         {
           "Num": 43,
           "Comments": "（検閲で削除されている…）",
-          "RelationLabel": ["brother|sister", "unmatched", "adverselyAffected"]
+          "RelationLabel": [
+            "brother|sister",
+            "unmatched",
+            "adverselyAffected",
+            "classmate"
+          ]
         },
         {
           "Num": "00",
@@ -3392,7 +3473,8 @@
         },
         {
           "Num": 30,
-          "Comments": "初々しいところも可愛え子"
+          "Comments": "初々しいところも可愛え子",
+          "RelationLabel": ["pioneer_nearly"]
         },
         {
           "Num": 40,
@@ -3477,13 +3559,14 @@
         {
           "Num": 53,
           "Comments": "ちょっとは気を付けてよ…",
-          "RelationLabel": ["brother|sister", "awkward"]
+          "RelationLabel": ["brother|sister", "awkward", "classmate"]
         }
       ],
       "Commented": [
         {
           "Num": 5,
-          "Comments": "危なっかしい"
+          "Comments": "危なっかしい",
+          "RelationLabel": ["pioneer"]
         },
         {
           "Num": 8,
@@ -3495,11 +3578,13 @@
         },
         {
           "Num": 75,
-          "Comments": "真面目でいい子"
+          "Comments": "真面目でいい子",
+          "RelationLabel": ["cousin"]
         },
         {
           "Num": 98,
-          "Comments": "何かに焦っていそうまであるけど"
+          "Comments": "何かに焦っていそうまであるけど",
+          "RelationLabel": ["classmate"]
         }
       ]
     }
@@ -3581,25 +3666,29 @@
         {
           "Num": 63,
           "Comments": "いつも慰めてくれる優しい妹",
-          "RelationLabel": ["brother|sister", "wellMatched_maybe"]
+          "RelationLabel": ["brother|sister", "wellMatched_maybe", "classmate"]
         }
       ],
       "Commented": [
         {
           "Num": 38,
-          "Comments": "できるなら僕にも運を分けてほしい…"
+          "Comments": "できるなら僕にも運を分けてほしい…",
+          "RelationLabel": ["cousin"]
         },
         {
           "Num": 54,
-          "Comments": "いつも好調そう、凄いと思う"
+          "Comments": "いつも好調そう、凄いと思う",
+          "RelationLabel": ["classmate"]
         },
         {
           "Num": 69,
-          "Comments": "自分を見失ってないといいな…"
+          "Comments": "自分を見失ってないといいな…",
+          "RelationLabel": ["cousin_nearly"]
         },
         {
           "Num": 72,
-          "Comments": "成長を感じる、頑張ってほしい"
+          "Comments": "成長を感じる、頑張ってほしい",
+          "RelationLabel": ["classmate"]
         }
       ]
     }
@@ -3675,7 +3764,7 @@
         {
           "Num": 73,
           "Comments": "お願いだから変な噂だけは聴いてほしくない妹",
-          "RelationLabel": ["brother|sister", "awkward"]
+          "RelationLabel": ["brother|sister", "awkward", "classmate"]
         }
       ],
       "Commented": [
@@ -3685,19 +3774,23 @@
         },
         {
           "Num": 28,
-          "Comments": "物に頼りすぎはいけないよ"
+          "Comments": "物に頼りすぎはいけないよ",
+          "RelationLabel": ["classmate"]
         },
         {
           "Num": 31,
-          "Comments": "本気出すと危険を顧みないところがある"
+          "Comments": "本気出すと危険を顧みないところがある",
+          "RelationLabel": ["cousin"]
         },
         {
           "Num": 64,
-          "Comments": "あの空元気には敵わないというか変というか…"
+          "Comments": "あの空元気には敵わないというか変というか…",
+          "RelationLabel": ["classmate"]
         },
         {
           "Num": 97,
-          "Comments": "信仰に振り回されてないといいけど"
+          "Comments": "信仰に振り回されてないといいけど",
+          "RelationLabel": ["cousin"]
         }
       ]
     }
@@ -3728,16 +3821,20 @@
           "Num": 20
         },
         {
-          "Num": 28
+          "Num": 28,
+          "RelationLabel": ["cousin"]
         },
         {
-          "Num": 56
+          "Num": 56,
+          "RelationLabel": ["classmate"]
         },
         {
-          "Num": 63
+          "Num": 63,
+          "RelationLabel": ["cousin_nearly"]
         },
         {
-          "Num": 83
+          "Num": 83,
+          "RelationLabel": ["brother|sister", "classmate"]
         }
       ]
     }
@@ -3820,21 +3917,24 @@
         {
           "Num": 93,
           "Comments": "俺より野望意識の強い妹、報われることを願ってる",
-          "RelationLabel": ["brother|sister", "trusted"]
+          "RelationLabel": ["brother|sister", "trusted", "classmate"]
         }
       ],
       "Commented": [
         {
           "Num": 12,
-          "Comments": "あいつに邪魔をするつもりなどない"
+          "Comments": "あいつに邪魔をするつもりなどない",
+          "RelationLabel": ["classmate"]
         },
         {
           "Num": 19,
-          "Comments": "気味悪いが侮れるような奴ではない"
+          "Comments": "気味悪いが侮れるような奴ではない",
+          "RelationLabel": ["cousin"]
         },
         {
           "Num": 37,
-          "Comments": "努力は認めるべき存在"
+          "Comments": "努力は認めるべき存在",
+          "RelationLabel": ["cousin"]
         },
         {
           "Num": 66,
@@ -3917,7 +4017,7 @@
         {
           "Num": 50,
           "Comments": "げっ、近づくな気持ち悪い…",
-          "RelationLabel": ["unmatched"]
+          "RelationLabel": ["unmatched", "classmate"]
         },
         {
           "Num": 67,
@@ -4005,18 +4105,19 @@
         {
           "Num": 14,
           "Comments": "ちょっと面倒いけど自慢の姉貴",
-          "RelationLabel": ["brother|sister"]
+          "RelationLabel": ["brother|sister", "classmate"]
         },
         {
           "Num": 58,
           "Comments": "「インチキ」っていってくる割にはさぁ…",
-          "RelationLabel": ["unmatched"]
+          "RelationLabel": ["unmatched", "classmate"]
         }
       ],
       "Commented": [
         {
           "Num": 4,
-          "Comments": "もっと積極的になってもいい気はする"
+          "Comments": "もっと積極的になってもいい気はする",
+          "RelationLabel": ["pioneer"]
         },
         {
           "Num": 50,
@@ -4024,11 +4125,13 @@
         },
         {
           "Num": 61,
-          "Comments": "馬鹿と天才は紙一重だなー…"
+          "Comments": "馬鹿と天才は紙一重だなー…",
+          "RelationLabel": ["cousin"]
         },
         {
           "Num": 95,
-          "Comments": "なんなんだよこいつ……"
+          "Comments": "なんなんだよこいつ……",
+          "RelationLabel": ["classmate"]
         }
       ]
     }
@@ -4102,7 +4205,7 @@
         {
           "Num": 24,
           "Comments": "姉。いつも受け身なのが玉に瑕(きず)",
-          "RelationLabel": ["brother|sister"]
+          "RelationLabel": ["brother|sister", "classmate"]
         },
         {
           "Num": 64,
@@ -4112,17 +4215,19 @@
         {
           "Num": 78,
           "Comments": "宗教でもキメてるの？あれ…",
-          "RelationLabel": ["unmatched"]
+          "RelationLabel": ["unmatched", "classmate"]
         }
       ],
       "Commented": [
         {
           "Num": 15,
-          "Comments": "彼(女)の周りで必ず何が起こる気がする"
+          "Comments": "彼(女)の周りで必ず何が起こる気がする",
+          "RelationLabel": ["classmate"]
         },
         {
           "Num": 26,
-          "Comments": "女神の権化のような母性の化身！"
+          "Comments": "女神の権化のような母性の化身！",
+          "RelationLabel": ["cousin_nearly"]
         },
         {
           "Num": 33,
@@ -4200,22 +4305,29 @@
         {
           "Num": 34,
           "Comments": "にぃにのざーこ★ばーか★",
-          "RelationLabel": ["brother|sister", "unmatched", "abusing"]
+          "RelationLabel": [
+            "brother|sister",
+            "unmatched",
+            "abusing",
+            "classmate"
+          ]
         },
         {
           "Num": 46,
           "Comments": "うるさいからほっといてる",
-          "RelationLabel": ["cousin"]
+          "RelationLabel": ["cousin", "awkward"]
         }
       ],
       "Commented": [
         {
           "Num": 3,
-          "Comments": "めちゃくちゃ強い"
+          "Comments": "めちゃくちゃ強い",
+          "RelationLabel": ["pioneer"]
         },
         {
           "Num": 25,
-          "Comments": "あまり動じてくれない…"
+          "Comments": "あまり動じてくれない…",
+          "RelationLabel": ["classmate"]
         },
         {
           "Num": 70,
@@ -4223,7 +4335,8 @@
         },
         {
           "Num": 79,
-          "Comments": "なにいってんのこいつ…"
+          "Comments": "なにいってんのこいつ…",
+          "RelationLabel": ["classmate"]
         }
       ]
     }
@@ -4300,7 +4413,7 @@
         {
           "Num": 33,
           "Comments": "こいつ……いちいちせっつくなっつの",
-          "RelationLabel": ["unmatched"]
+          "RelationLabel": ["unmatched", "classmate"]
         },
         {
           "Num": 52,
@@ -4309,7 +4422,7 @@
         {
           "Num": 66,
           "Comments": "…へぇ、以外と解ってるじゃねーか",
-          "RelationLabel": ["wellMatched"]
+          "RelationLabel": ["wellMatched", "classmate"]
         },
         {
           "Num": 72,
@@ -4323,7 +4436,8 @@
         },
         {
           "Num": 22,
-          "Comments": "オレと勝負したいのか？良いぜ"
+          "Comments": "オレと勝負したいのか？良いぜ",
+          "RelationLabel": ["accompanying", "classmate"]
         },
         {
           "Num": 40,
@@ -4336,7 +4450,8 @@
         },
         {
           "Num": 88,
-          "Comments": "しっかりしていて助かるぜ"
+          "Comments": "しっかりしていて助かるぜ",
+          "RelationLabel": ["trusted_maybe", "classmate"]
         }
       ]
     }
@@ -4418,15 +4533,18 @@
       "Commented": [
         {
           "Num": 18,
-          "Comments": "主人を変えるような程度じゃ済まないだろ…"
+          "Comments": "主人を変えるような程度じゃ済まないだろ…",
+          "RelationLabel": ["classmate"]
         },
         {
           "Num": 36,
-          "Comments": "相手がいないと無力化するのがなぁ…"
+          "Comments": "相手がいないと無力化するのがなぁ…",
+          "RelationLabel": ["classmate"]
         },
         {
           "Num": 85,
-          "Comments": "困っても最後は物で解決できる"
+          "Comments": "困っても最後は物で解決できる",
+          "RelationLabel": ["cousin"]
         },
         {
           "Num": 90,
@@ -4501,7 +4619,7 @@
         {
           "Num": 64,
           "Comments": "人の事言えねぇけど…ヤベェよ…",
-          "RelationLabel": ["brother|sister", "awkward"]
+          "RelationLabel": ["brother|sister", "awkward", "classmate"]
         },
         {
           "Num": 96,
@@ -4516,7 +4634,8 @@
         },
         {
           "Num": 49,
-          "Comments": "何か顔が怖ぇッスけど、多分いいヤツ！"
+          "Comments": "何か顔が怖ぇッスけど、多分いいヤツ！",
+          "RelationLabel": ["cousin"]
         },
         {
           "Num": 60,
@@ -4524,7 +4643,8 @@
         },
         {
           "Num": 82,
-          "Comments": "物欲センサーどうなってンスか…？"
+          "Comments": "物欲センサーどうなってンスか…？",
+          "RelationLabel": ["classmate"]
         }
       ]
     }
@@ -4595,34 +4715,43 @@
     "InStory": "特異個体「4+7型」の一人。応援は通じるが、加護の認知については話が嚙み合わない傾向にある",
     "Backgrounds": "加護については偶然の産物と言ってもいいほどで、零姉弟も彼女の加護について全く知見が無いようだ",
     "Relation": {
-      "Commented": [
+      "Related": [
         {
           "Num": 2,
-          "Comments": "この子により大きな“加護”が与えられてる…？"
-        },
-        {
-          "Num": 14,
-          "Comments": "世界がこの子を後押ししてるようにも見える"
-        },
-        {
-          "Num": 29,
-          "Comments": "“加護”が辛い思いを消し去ってくれてるね"
-        },
-        {
-          "Num": 37,
-          "Comments": "勉強熱心だからきっと“加護”も味方に付くよ！"
+          "Comments": "この子により大きな“加護”が与えられてる…？",
+          "RelationLabel": ["interested", "secretRelation"]
         },
         {
           "Num": 45,
-          "Comments": "“加護”を巧みに使ってる様にも見えるけどなぁ…"
+          "Comments": "“加護”を巧みに使ってる様にも見えるけどなぁ…",
+          "RelationLabel": ["cousin", "interested"]
         },
         {
           "Num": 72,
-          "Comments": "大丈夫！君はいつか報われるよ！"
+          "Comments": "大丈夫！君はいつか報われるよ！",
+          "RelationLabel": ["classmate", "trusted_maybe"]
+        }
+      ],
+      "Commented": [
+        {
+          "Num": 14,
+          "Comments": "世界がこの子を後押ししてるようにも見える",
+          "RelationLabel": ["cousin_nearly"]
+        },
+        {
+          "Num": 29,
+          "Comments": "“加護”が辛い思いを消し去ってくれてるね",
+          "RelationLabel": ["classmate"]
+        },
+        {
+          "Num": 37,
+          "Comments": "勉強熱心だからきっと“加護”も味方に付くよ！",
+          "RelationLabel": ["cousin"]
         },
         {
           "Num": 83,
-          "Comments": "この子の“加護”、かなり大きい…すごいよ!!"
+          "Comments": "この子の“加護”、かなり大きい…すごいよ!!",
+          "RelationLabel": ["classmate"]
         }
       ]
     }
@@ -4683,7 +4812,7 @@
     },
     "Relation": {
       "Related": [
-        { "Num": 39, "RelationLabel": ["wellMatched"] },
+        { "Num": 39, "RelationLabel": ["wellMatched", "classmate"] },
         {
           "Num": 53,
           "Comments": "腹が立つ",
@@ -4694,7 +4823,8 @@
       "Commented": [
         {
           "Num": 12,
-          "Comments": "妙に幼いところがある"
+          "Comments": "妙に幼いところがある",
+          "RelationLabel": ["classmate"]
         },
         {
           "Num": 30,
@@ -4702,19 +4832,23 @@
         },
         {
           "Num": 34,
-          "Comments": "ちょっとは加減を知れ……"
+          "Comments": "ちょっとは加減を知れ……",
+          "RelationLabel": ["cousin_nearly"]
         },
         {
           "Num": 75,
-          "Comments": "知的積極性はあるから話は通じる"
+          "Comments": "知的積極性はあるから話は通じる",
+          "RelationLabel": ["classmate"]
         },
         {
           "Num": 83,
-          "Comments": "卑怯すぎるぞ全く……"
+          "Comments": "卑怯すぎるぞ全く……",
+          "RelationLabel": ["cousin_nearly", "awkward_aBit"]
         },
         {
           "Num": 94,
-          "Comments": "それで主従契約が成り立つのか…？"
+          "Comments": "それで主従契約が成り立つのか…？",
+          "RelationLabel": ["cousin_nearly"]
         }
       ]
     }
@@ -4798,7 +4932,7 @@
         {
           "Num": 94,
           "Comments": "業務中に寝るなー!! 起きろ起きろ起きろーー!!!",
-          "RelationLabel": ["brother|sister", "abusing"]
+          "RelationLabel": ["brother|sister", "abusing", "classmate"]
         }
       ],
       "Commented": [
@@ -4808,11 +4942,13 @@
         },
         {
           "Num": 69,
-          "Comments": "へーんなの"
+          "Comments": "へーんなの",
+          "RealationLabel": ["cousin"]
         },
         {
           "Num": 76,
-          "Comments": "生真面目なヤツ…"
+          "Comments": "生真面目なヤツ…",
+          "RealationLabel": ["classmate"]
         }
       ]
     }
@@ -4889,16 +5025,20 @@
         {
           "Num": 30,
           "Comments": "ずっと友達でいたい",
-          "RelationLabel": ["wellMatched", "trusted"]
+          "RelationLabel": ["wellMatched", "trusted", "classmate"]
         },
         {
           "Num": 40,
-          "RelationLabel": ["unmatched"]
+          "RelationLabel": ["unmatched", "classmate"]
         },
         {
           "Num": 59,
           "Comments": "もうこれ以上おれを巻き込まないでくれ〜!!",
-          "RelationLabel": ["successor", "accompanying", "adverselyAffected"]
+          "RelationLabel": [
+            "successor_nearly",
+            "accompanying",
+            "adverselyAffected"
+          ]
         }
       ],
       "Commented": [
@@ -5052,7 +5192,8 @@
             "brother|sister",
             "paired",
             "trusted",
-            "alternative|redesign"
+            "alternative|redesign",
+            "classmate"
           ]
         }
       ],
@@ -5063,27 +5204,33 @@
         },
         {
           "Num": 16,
-          "Comments": "素敵な人"
+          "Comments": "素敵な人",
+          "RelationLabel": ["classmate"]
         },
         {
           "Num": 32,
-          "Comments": "ちょっとキャラが濃いかも…"
+          "Comments": "ちょっとキャラが濃いかも…",
+          "RelationLabel": ["cousin"]
         },
         {
           "Num": 43,
-          "Comments": "すごく期待できる"
+          "Comments": "すごく期待できる",
+          "RelationLabel": ["classmate"]
         },
         {
           "Num": 65,
-          "Comments": "癒される"
+          "Comments": "癒される",
+          "RelationLabel": ["cousin_nearly", "wellMatched_maybe"]
         },
         {
           "Num": 75,
-          "Comments": "しっかりしてる"
+          "Comments": "しっかりしてる",
+          "RelationLabel": ["cousin_nearly"]
         },
         {
           "Num": 79,
-          "Comments": "いい人なんだろけど…ちょっと不安になる"
+          "Comments": "いい人なんだろけど…ちょっと不安になる",
+          "RelationLabel": ["classmate", "awkward_aBit"]
         }
       ]
     }
@@ -5148,27 +5295,29 @@
         {
           "Num": 30,
           "Comments": "見てて和む",
-          "RelationLabel": ["pioneer_nearly"]
+          "RelationLabel": ["pioneer_nearly", "wellMatched"]
         },
         {
           "Num": 35,
           "Comments": "なんで僕のこと避けようとするのさ！",
-          "RelationLabel": ["brother|sister", "awkward"]
+          "RelationLabel": ["brother|sister", "awkward", "classmate"]
         },
         {
           "Num": 50,
           "Comments": "肝が据わりすぎて逆に怖い",
-          "RelationLabel": ["pioneer_nearly"]
+          "RelationLabel": ["pioneer_nearly", "unmatched"]
         }
       ],
       "Commented": [
         {
           "Num": 23,
-          "Comments": "トラブルメーカっぽいところある"
+          "Comments": "トラブルメーカっぽいところある",
+          "RelationLabel": ["cousin"]
         },
         {
           "Num": 57,
-          "Comments": "勝負強そう"
+          "Comments": "勝負強そう",
+          "RelationLabel": ["cousin"]
         },
         {
           "Num": 80,
@@ -5176,7 +5325,8 @@
         },
         {
           "Num": 89,
-          "Comments": "あれでも僕のずっと下の代なんだよね…？"
+          "Comments": "あれでも僕のずっと下の代なんだよね…？",
+          "RelationLabel": ["classmate"]
         }
       ]
     }
@@ -5200,10 +5350,12 @@
     "Relation": {
       "Commented": [
         {
-          "Num": 59
+          "Num": 59,
+          "RelationLabel": ["cousin"]
         },
         {
-          "Num": 72
+          "Num": 72,
+          "RelationLabel": ["classmate"]
         },
         {
           "Num": 99
@@ -5279,7 +5431,7 @@
         {
           "Num": 11,
           "Comments": "彼(女)が「台風の目」だよね、え、違う？",
-          "RelationLabel": ["adverselyAffected"]
+          "RelationLabel": ["adverselyAffected", "classmate"]
         },
         {
           "Num": 41,
@@ -5303,7 +5455,8 @@
         },
         {
           "Num": 77,
-          "Comments": "カッコいいのに人柄を知ると、なんか…ねぇ…"
+          "Comments": "カッコいいのに人柄を知ると、なんか…ねぇ…",
+          "RelationLabel": ["awkward_aBit", "classmate"]
         }
       ]
     }
@@ -5377,12 +5530,12 @@
         {
           "Num": 29,
           "Comments": "すごく安心できるお姉さん",
-          "RelationLabel": ["wellMatched"]
+          "RelationLabel": ["wellMatched", "classmate"]
         },
         {
           "Num": 35,
           "Comments": "才能が凄すぎて、あたしには手に負えないよ…",
-          "RelationLabel": ["cousin"]
+          "RelationLabel": ["cousin_nearly", "awkward"]
         },
         {
           "Num": 86,
@@ -5393,15 +5546,18 @@
       "Commented": [
         {
           "Num": 5,
-          "Comments": "なんというか、すごく…変な人"
+          "Comments": "なんというか、すごく…変な人",
+          "RelationLabel": ["pioneer", "awkward_aBit"]
         },
         {
           "Num": 47,
-          "Comments": "…ええと、応援ありがとう…？"
+          "Comments": "…ええと、応援ありがとう…？",
+          "RelationLabel": ["classmate"]
         },
         {
           "Num": 63,
-          "Comments": "優しくて落ち着くお姉さん…いや、お母さん？"
+          "Comments": "優しくて落ち着くお姉さん…いや、お母さん？",
+          "RelationLabel": ["cousin_nearly"]
         }
       ]
     }
@@ -5475,7 +5631,7 @@
         {
           "Num": 75,
           "Comments": "双子なんだけどなんか生真面目なんだよね",
-          "RelationLabel": ["brother|sister", "awkward"]
+          "RelationLabel": ["brother|sister", "awkward", "classmate"]
         }
       ],
       "Commented": [
@@ -5485,19 +5641,23 @@
         },
         {
           "Num": 12,
-          "Comments": "自分を持っている凄い人なんだとは思う"
+          "Comments": "自分を持っている凄い人なんだとは思う",
+          "RelationLabel": ["classmate"]
         },
         {
           "Num": 37,
-          "Comments": "勉強熱心だし自信家なところもカッコいい"
+          "Comments": "勉強熱心だし自信家なところもカッコいい",
+          "RelationLabel": ["cousin"]
         },
         {
           "Num": 52,
-          "Comments": "控えめなのに色んな運が味方になってる…!?"
+          "Comments": "控えめなのに色んな運が味方になってる…!?",
+          "RelationLabel": ["cousin"]
         },
         {
           "Num": 93,
-          "Comments": "野望があるとかカッコいいじゃん！"
+          "Comments": "野望があるとかカッコいいじゃん！",
+          "RelationLabel": ["classmate"]
         }
       ]
     }
@@ -5569,7 +5729,7 @@
         {
           "Num": 13,
           "Comments": "負けて悔しがってるところも含めてかわいい♪",
-          "RelationLabel": ["interested"]
+          "RelationLabel": ["interested", "classmate"]
         },
         {
           "Num": 41,
@@ -5579,7 +5739,7 @@
         {
           "Num": 85,
           "Comments": "かわいい妹ちゃん♡",
-          "RelationLabel": ["brother|sister", "wellMatched"]
+          "RelationLabel": ["brother|sister", "wellMatched", "classmate"]
         }
       ],
       "Commented": [
@@ -5589,7 +5749,8 @@
         },
         {
           "Num": 5,
-          "Comments": "嫌いではないけど、なんかヘン"
+          "Comments": "嫌いではないけど、なんかヘン",
+          "RelationLabel": ["pioneer", "awkward_aBit"]
         },
         {
           "Num": 40,
@@ -5617,10 +5778,12 @@
     "Relation": {
       "Commented": [
         {
-          "Num": 50
+          "Num": 50,
+          "RelationLabel": ["pioneer_nearly"]
         },
         {
-          "Num": 97
+          "Num": 97,
+          "RelationLabel": ["cousin_nearly"]
         }
       ]
     }
@@ -5709,7 +5872,11 @@
         {
           "Num": 63,
           "Comments": "趣味を知られたのが今でも恥ずかしい…",
-          "RelationLabel": ["successor_nearly", "awkward_aBit"]
+          "RelationLabel": [
+            "successor_nearly",
+            "awkward_aBit",
+            "wellMatched_maybe"
+          ]
         },
         {
           "Num": 66,
@@ -5823,16 +5990,12 @@
         {
           "Num": 10,
           "Comments": "何考えてるの??ねぇ教えて!!",
-          "RelationLabel": [
-            "pioneer_nearly",
-            "interested",
-            "adverselyAffected_aBit"
-          ]
+          "RelationLabel": ["interested", "adverselyAffected_aBit"]
         },
         {
           "Num": 16,
           "Comments": "幸せ貧乏なお姉ちゃん",
-          "RelationLabel": ["brother|sister"]
+          "RelationLabel": ["brother|sister", "classmate"]
         },
         {
           "Num": 60,
@@ -5842,17 +6005,19 @@
         {
           "Num": 97,
           "Comments": "お…おぉう…w",
-          "RelationLabel": ["wellMatched"]
+          "RelationLabel": ["wellMatched", "classmate"]
         }
       ],
       "Commented": [
         {
           "Num": 43,
-          "Comments": "実績がいつ化けるかわかんないダークホース"
+          "Comments": "実績がいつ化けるかわかんないダークホース",
+          "RelationLabel": ["classmate"]
         },
         {
           "Num": 52,
-          "Comments": "もっと自信もっていいと思うけどな～"
+          "Comments": "もっと自信もっていいと思うけどな～",
+          "RelationLabel": ["classmate"]
         },
         {
           "Num": 70,
@@ -5938,7 +6103,7 @@
         {
           "Num": 26,
           "Comments": "女子力が高い自慢の姉貴！",
-          "RelationLabel": ["brother|sister", "wellMatched"]
+          "RelationLabel": ["brother|sister", "wellMatched", "classmate"]
         },
         {
           "Num": 81,
@@ -5954,15 +6119,18 @@
       "Commented": [
         {
           "Num": 35,
-          "Comments": "すごい人なのはわかる"
+          "Comments": "すごい人なのはわかる",
+          "RelationLabel": ["classmate"]
         },
         {
           "Num": 68,
-          "Comments": "あたしの作品は捨ててないよね…？"
+          "Comments": "あたしの作品は捨ててないよね…？",
+          "RelationLabel": ["cousin"]
         },
         {
           "Num": 71,
-          "Comments": "すごすぎて、話聞くと頭が痛くなる…"
+          "Comments": "すごすぎて、話聞くと頭が痛くなる…",
+          "RelationLabel": ["classmate"]
         }
       ]
     }
@@ -6035,7 +6203,7 @@
         {
           "Num": 36,
           "Comments": "しょうがないお姉ちゃんだなぁ♡",
-          "RelationLabel": ["brother|sister"]
+          "RelationLabel": ["brother|sister", "wellMatched_maybe", "classmate"]
         },
         {
           "Num": 60,
@@ -6046,7 +6214,8 @@
       "Commented": [
         {
           "Num": 27,
-          "Comments": "怒るとちょっと怖いけどとても優しい"
+          "Comments": "怒るとちょっと怖いけどとても優しい",
+          "RelationLabel": ["classmate"]
         },
         {
           "Num": 30,
@@ -6054,7 +6223,8 @@
         },
         {
           "Num": 45,
-          "Comments": "色々大変そう"
+          "Comments": "色々大変そう",
+          "RelationLabel": ["classmate"]
         },
         {
           "Num": 90,
@@ -6133,7 +6303,7 @@
         {
           "Num": 46,
           "Comments": "そんな憐れむような眼でみないでよぉ!!",
-          "RelationLabel": ["brother|sister", "awkward"]
+          "RelationLabel": ["brother|sister", "awkward", "classmate"]
         },
         {
           "Num": 67,
@@ -6149,15 +6319,18 @@
       "Commented": [
         {
           "Num": 10,
-          "Comments": "ふぇえ、なんで止めるんですかぁ!!"
+          "Comments": "ふぇえ、なんで止めるんですかぁ!!",
+          "RelationLabel": ["awkward_aBit"]
         },
         {
           "Num": 24,
-          "Comments": "なんか消極的でもったいないです…"
+          "Comments": "なんか消極的でもったいないです…",
+          "RelationLabel": ["cousin"]
         },
         {
           "Num": 28,
-          "Comments": "あたちの“物乞い”だけ叶わない、なんで…"
+          "Comments": "あたちの“物乞い”だけ叶わない、なんで…",
+          "RelationLabel": ["classmate"]
         },
         {
           "Num": 44,
@@ -6227,12 +6400,12 @@
         {
           "Num": 5,
           "Comments": "なんていうか…すごい",
-          "RelationLabel": ["pioneer"]
+          "RelationLabel": ["pioneer", "interested"]
         },
         {
           "Num": 92,
           "Comments": "どんな事があってもすぐに立ち直れてすごい",
-          "RelationLabel": ["trusted"]
+          "RelationLabel": ["trusted", "classmate"]
         }
       ],
       "Commented": [
@@ -6242,19 +6415,23 @@
         },
         {
           "Num": 36,
-          "Comments": "どうして他の人のためだと運がいいの？"
+          "Comments": "どうして他の人のためだと運がいいの？",
+          "RelationLabel": ["cousin_nearly"]
         },
         {
           "Num": 52,
-          "Comments": "控えめなのにそれ以上のものを得てる？"
+          "Comments": "控えめなのにそれ以上のものを得てる？",
+          "RelationLabel": ["cousin_nearly"]
         },
         {
           "Num": 63,
-          "Comments": "いい人だからたくさん報われてるんだろうな"
+          "Comments": "いい人だからたくさん報われてるんだろうな",
+          "RelationLabel": ["cousin"]
         },
         {
           "Num": 74,
-          "Comments": "色んなメッセージが聞こえてるの？変な人…"
+          "Comments": "色んなメッセージが聞こえてるの？変な人…",
+          "RelationLabel": ["classmate"]
         }
       ]
     }
@@ -6342,7 +6519,8 @@
         },
         {
           "Num": 33,
-          "Comments": "彼女の眼はすべてお見通しでしょう"
+          "Comments": "彼女の眼はすべてお見通しでしょう",
+          "RelationLabel": ["classmate"]
         },
         {
           "Num": 48,
@@ -6466,7 +6644,7 @@
         {
           "Num": 49,
           "Comments": "面倒なやつだな…",
-          "RelationLabel": ["unmatched"]
+          "RelationLabel": ["unmatched", "classmate"]
         },
         {
           "Num": 64,
@@ -6476,7 +6654,7 @@
         {
           "Num": 76,
           "Comments": "いつも情報面で助けられている妹",
-          "RelationLabel": ["brother|sister", "trusted"]
+          "RelationLabel": ["brother|sister", "trusted", "classmate"]
         }
       ],
       "Commented": [
@@ -6486,7 +6664,8 @@
         },
         {
           "Num": 13,
-          "Comments": "活発で可愛らしいところが憎めない"
+          "Comments": "活発で可愛らしいところが憎めない",
+          "RelationLabel": ["classmate"]
         },
         {
           "Num": 40,
@@ -6496,12 +6675,12 @@
         {
           "Num": 65,
           "Comments": "怯えてないよな…？",
-          "RelationLabel": ["cousin"]
+          "RelationLabel": ["cousin", "awkward_aBit"]
         },
         {
           "Num": 85,
           "Comments": "可愛いところはあるんだが…",
-          "RelationLabel": ["awkward_aBit"]
+          "RelationLabel": ["awkward_aBit", "classmate"]
         },
         {
           "Num": "00",
@@ -6595,7 +6774,8 @@
         },
         {
           "Num": 41,
-          "Comments": "フラグ建築おばけ"
+          "Comments": "フラグ建築おばけ",
+          "RelationLabel": ["classmate"]
         },
         {
           "Num": 50,
@@ -6608,7 +6788,8 @@
         },
         {
           "Num": 95,
-          "Comments": "考え方からして余命1日なのか？"
+          "Comments": "考え方からして余命1日なのか？",
+          "RelationLabel": ["classmate"]
         }
       ]
     }
@@ -6706,17 +6887,24 @@
         {
           "Num": 96,
           "Comments": "俺よりもさらにアイデンティティを見失ってる妹",
-          "RelationLabel": ["brother|sister", "alternative|redesign", "awkward"]
+          "RelationLabel": [
+            "brother|sister",
+            "alternative|redesign",
+            "awkward",
+            "classmate"
+          ]
         }
       ],
       "Commented": [
         {
           "Num": 87,
-          "Comments": "ほんといつかカツアゲされるぞ…"
+          "Comments": "ほんといつかカツアゲされるぞ…",
+          "RelationLabel": ["classmate"]
         },
         {
           "Num": 94,
-          "Comments": "起きて従事してるの想像できないな…"
+          "Comments": "起きて従事してるの想像できないな…",
+          "RelationLabel": ["cousin_nearly"]
         }
       ]
     }
@@ -6801,11 +6989,13 @@
         },
         {
           "Num": 72,
-          "Comments": "ああ見えて人間味はあると思う"
+          "Comments": "ああ見えて人間味はあると思う",
+          "RelationLabel": ["successor_nearly"]
         },
         {
           "Num": 79,
-          "Comments": "変な情報広げてないといいんだが"
+          "Comments": "変な情報広げてないといいんだが",
+          "RelationLabel": ["successor_nearly"]
         },
         {
           "Num": 87,
@@ -6879,12 +7069,12 @@
         {
           "Num": 17,
           "Comments": "ぼくにとって尊敬できる姉です！",
-          "RelationLabel": ["brother|sister", "trusted"]
+          "RelationLabel": ["brother|sister", "trusted", "classmate"]
         },
         {
           "Num": 35,
           "Comments": "仕事ができてすごく頼れます",
-          "RelationLabel": ["wellMatched"]
+          "RelationLabel": ["wellMatched", "classmate"]
         },
         { "Num": 48, "RelationLabel": ["unmatched"] },
         {
@@ -6908,7 +7098,8 @@
         },
         {
           "Num": 98,
-          "Comments": "途中で投げ出すのもどうかと思うけどなぁ…"
+          "Comments": "途中で投げ出すのもどうかと思うけどなぁ…",
+          "RelationLabel": ["classmate"]
         }
       ]
     }
@@ -6987,7 +7178,12 @@
         {
           "Num": 27,
           "Comments": "同型ですが、OSの構造が異なる様で…",
-          "RelationLabel": ["brother|sister", "alternative|redesign", "awkward"]
+          "RelationLabel": [
+            "brother|sister",
+            "alternative|redesign",
+            "awkward",
+            "classmate"
+          ]
         },
         { "Num": 44, "RelationLabel": ["unmatched"] },
         { "Num": 49, "RelationLabel": ["wellMatched"] }
@@ -7003,7 +7199,8 @@
         },
         {
           "Num": 70,
-          "Comments": "属性“理性”および”感性”を同時に検出，これによる最適化現象も確認…凄い…"
+          "Comments": "属性“理性”および”感性”を同時に検出，これによる最適化現象も確認…凄い…",
+          "RelationLabel": ["successor_nearly"]
         },
         {
           "Num": 99,
@@ -7076,7 +7273,7 @@
       "Related": [
         {
           "Num": 37,
-          "RelationLabel": ["brother|sister"]
+          "RelationLabel": ["brother|sister", "classmate"]
         },
         {
           "Num": 66,
@@ -7096,19 +7293,23 @@
       "Commented": [
         {
           "Num": 13,
-          "Comments": "頼もしい"
+          "Comments": "頼もしい",
+          "RelationLabel": ["cousin"]
         },
         {
           "Num": 46,
-          "Comments": "現実をたのしんでそう"
+          "Comments": "現実をたのしんでそう",
+          "RelationLabel": ["classmate"]
         },
         {
           "Num": 70,
-          "Comments": "わかんないけどいいアドバイスをくれる"
+          "Comments": "わかんないけどいいアドバイスをくれる",
+          "RelationLabel": ["successor_nearly"]
         },
         {
           "Num": 82,
-          "Comments": "どうしてああいうふうにあたしも稼げないんだろう？"
+          "Comments": "どうしてああいうふうにあたしも稼げないんだろう？",
+          "RelationLabel": ["classmate"]
         },
         {
           "Num": 90,
@@ -7197,7 +7398,7 @@
         {
           "Num": 47,
           "Comments": "“加護”が何なのかはともかく自信家な姉",
-          "RelationLabel": ["brother|sister"]
+          "RelationLabel": ["brother|sister", "classmate"]
         },
         { "Num": 55, "RelationLabel": ["unmatched"] },
         {
@@ -7209,15 +7410,18 @@
       "Commented": [
         {
           "Num": 38,
-          "Comments": "運気は無駄遣いしないでね"
+          "Comments": "運気は無駄遣いしないでね",
+          "RelationLabel": ["classmate"]
         },
         {
           "Num": 56,
-          "Comments": "素晴らしい出会いがありますように"
+          "Comments": "素晴らしい出会いがありますように",
+          "RelationLabel": ["classmate"]
         },
         {
           "Num": 94,
-          "Comments": "無理しなくて大丈夫よ"
+          "Comments": "無理しなくて大丈夫よ",
+          "RelationLabel": ["cousin"]
         }
       ]
     }
@@ -7284,27 +7488,29 @@
         {
           "Num": 25,
           "Comments": "優秀だと思う、私もいつか…",
-          "RelationLabel": ["trusted"]
+          "RelationLabel": ["cousin", "trusted"]
         },
         {
           "Num": 57,
           "Comments": "双子とはいえ楽観的過ぎる気がする",
-          "RelationLabel": ["brother|sister", "awkward"]
+          "RelationLabel": ["brother|sister", "awkward", "classmate"]
         },
         {
           "Num": 93,
           "Comments": "夢が大きいのはいいことだと思う。ただ…",
-          "RelationLabel": ["trusted_maybe", "awkward"]
+          "RelationLabel": ["trusted_maybe", "awkward", "classmate"]
         }
       ],
       "Commented": [
         {
           "Num": 21,
-          "Comments": "変な意味で神々しい人"
+          "Comments": "変な意味で神々しい人",
+          "RelationLabel": ["classmate"]
         },
         {
           "Num": 48,
-          "Comments": "何か足りなくても実現力が凄い人"
+          "Comments": "何か足りなくても実現力が凄い人",
+          "RelationLabel": ["classmate"]
         },
         {
           "Num": 50,
@@ -7312,7 +7518,8 @@
         },
         {
           "Num": 84,
-          "Comments": "私としては実績強者としか…"
+          "Comments": "私としては実績強者としか…",
+          "RelationLabel": ["classmate"]
         }
       ]
     }
@@ -7398,7 +7605,8 @@
         },
         {
           "Num": 31,
-          "Comments": "わからなくもないですが…"
+          "Comments": "わからなくもないですが…",
+          "RelationLabel": ["classmate"]
         },
         {
           "Num": 56,
@@ -7407,7 +7615,8 @@
         },
         {
           "Num": 94,
-          "Comments": "絵本や漫画でも寝ちゃうんですね…"
+          "Comments": "絵本や漫画でも寝ちゃうんですね…",
+          "RelationLabel": ["classmate"]
         }
       ]
     }
@@ -7485,12 +7694,12 @@
         {
           "Num": 7,
           "Comments": "僕相手だとほんと素直じゃないな…",
-          "RelationLabel": ["interested", "awkward"]
+          "RelationLabel": ["pioneer", "interested", "awkward"]
         },
         {
           "Num": 55,
           "Comments": "近寄らないでこの“ハリケーン野郎”",
-          "RelationLabel": ["unmatched"]
+          "RelationLabel": ["unmatched", "classmate"]
         }
       ],
       "Commented": [
@@ -7512,7 +7721,8 @@
         },
         {
           "Num": 88,
-          "Comments": "色んな意味で“高級ピアノ君”"
+          "Comments": "色んな意味で“高級ピアノ君”",
+          "RelationLabel": ["classmate"]
         }
       ]
     }
@@ -7542,15 +7752,6 @@
     "TailsUnit": "キツネ(枝分かれ)型8本(上2束1本+下1束7本)",
     "Class": "デュアルシックスズ",
     "Class_EN": "Dual Sum-6s",
-    "FirstPersonCalling": "私(わたくし)",
-    "SecondPersonCalling": "あなた様",
-    "ThirdPersonCalling": "彼/彼女;＊ちら;～様",
-    "ForMasterCalling": "[※二人称];ご主人様",
-    "Character": "清く美しい精神の持ち主だが、ややネガティヴ気味で胡散臭がられているのが玉に瑕",
-    "Hobby": "タロットカード",
-    "SpetialSkill": "アドリブ祝辞",
-    "Favor": "トランプ、タロットカード",
-    "Unlike": "傲慢な態度",
     "ThisMasters": [
       {
         "value": "錦野 舞（78特殊探偵団 采配幹部(ディーラー)/シンフォニー.XVI(ゼクズィン)所属 デザインエンジニア）",
@@ -7561,6 +7762,15 @@
         }
       }
     ],
+    "FirstPersonCalling": "私(わたくし)",
+    "SecondPersonCalling": "あなた様",
+    "ThirdPersonCalling": "彼/彼女;＊ちら;～様",
+    "ForMasterCalling": "[※二人称];ご主人様",
+    "Character": "清く美しい精神の持ち主だが、ややネガティヴ気味で胡散臭がられているのが玉に瑕",
+    "Hobby": "タロットカード",
+    "SpetialSkill": "アドリブ祝辞",
+    "Favor": "トランプ、タロットカード",
+    "Unlike": "傲慢な態度",
     "NumerospecAbout": "経験・報酬を反省から生む\nただしこの効果は対象の性格と相互に影響する",
     "Summary": "反省からの学びを強めることに秀でているとされているナンバーテールズ。\n技術適正が極めて高く、エンジニアとして働いている主人からの支持が手厚い。\nしかしながらどこか自分に自信がなくアイテムに縋ることでしか自分を評価できないところがあり、彼女をよく知る別の個体によっては心配されたり胡散臭がられたりしている。\nとはいえ誠心誠意で自らも反省しながら精進する姿は誰よりも評価されている。",
     "NumerospecStats": {
@@ -7603,7 +7813,7 @@
         {
           "Num": 51,
           "Comments": "後先が心配になってしまいます…",
-          "RelationLabel": ["awkward"]
+          "RelationLabel": ["awkward", "classmate"]
         },
         {
           "Num": 76,
@@ -7613,13 +7823,14 @@
         {
           "Num": 87,
           "Comments": "姉としても今後が怖い存在です…",
-          "RelationLabel": ["brother|sister", "awkward_aBit"]
+          "RelationLabel": ["brother|sister", "awkward_aBit", "classmate"]
         }
       ],
       "Commented": [
         {
           "Num": 68,
-          "Comments": "吹っ切れたお方で…いえ、すみません…"
+          "Comments": "吹っ切れたお方で…いえ、すみません…",
+          "RelationLabel": ["cousin"]
         }
       ]
     }
@@ -7644,7 +7855,8 @@
     "Relation": {
       "Commented": [
         {
-          "Num": 7
+          "Num": 7,
+          "RelationLabel": ["pioneer"]
         }
       ]
     }
@@ -7670,7 +7882,8 @@
     "Relation": {
       "Commented": [
         {
-          "Num": 8
+          "Num": 8,
+          "RelationLabel": ["brother|sister"]
         },
         {
           "Num": 53
@@ -7753,12 +7966,12 @@
         {
           "Num": 18,
           "Comments": "優秀すぎる姉",
-          "RelationLabel": ["brother|sister"]
+          "RelationLabel": ["brother|sister", "classmate"]
         },
         {
           "Num": 72,
           "Comments": "学びこそ彼(女)の強みだろうな",
-          "RelationLabel": ["trusted"]
+          "RelationLabel": ["trusted", "classmate"]
         }
       ],
       "Commented": [
@@ -7772,7 +7985,8 @@
         },
         {
           "Num": 91,
-          "Comments": "ちょっと思考が…う～ん…"
+          "Comments": "ちょっと思考が…う～ん…",
+          "RelationLabel": ["cousin", "awkward_aBit"]
         }
       ]
     }
@@ -7797,7 +8011,8 @@
     "Relation": {
       "Commented": [
         {
-          "Num": 28
+          "Num": 28,
+          "RelationLabel": ["brother|sister", "classmate"]
         }
       ]
     }
@@ -7826,19 +8041,24 @@
           "Num": 11
         },
         {
-          "Num": 23
+          "Num": 23,
+          "RelationLabel": ["cousin_nearly"]
         },
         {
-          "Num": 38
+          "Num": 38,
+          "RelationLabel": ["brother|sister", "classmate"]
         },
         {
-          "Num": 65
+          "Num": 65,
+          "RelationLabel": ["classmate"]
         },
         {
-          "Num": 82
+          "Num": 82,
+          "RelationLabel": ["cousin"]
         },
         {
-          "Num": 92
+          "Num": 92,
+          "RelationLabel": ["classmate"]
         }
       ]
     }
@@ -7863,10 +8083,12 @@
     "Relation": {
       "Commented": [
         {
-          "Num": 48
+          "Num": 48,
+          "RelationLabel": ["brother|sister", "classmate"]
         },
         {
-          "Num": 93
+          "Num": 93,
+          "RelationLabel": ["classmate"]
         }
       ]
     }
@@ -7954,15 +8176,18 @@
       "Commented": [
         {
           "Num": 35,
-          "Comments": "センスがイカしてる"
+          "Comments": "センスがイカしてる",
+          "RelationLabel": ["cousin"]
         },
         {
           "Num": 49,
-          "Comments": "笑顔がキショい(=気色悪い)"
+          "Comments": "笑顔がキショい(=気色悪い)",
+          "RelationLabel": ["classmate"]
         },
         {
           "Num": 67,
-          "Comments": "ムサい(=むさ苦しい)、63番機か？"
+          "Comments": "ムサい(=むさ苦しい)、63番機か？",
+          "RelationLabel": ["classmate"]
         }
       ]
     }
@@ -7977,9 +8202,14 @@
     "FormalName": "ナンバーテールズ86番機",
     "FormalName_EN": "NumberTales #86",
     "CodeName": "八六",
+    "GenderType": "FemaleNeutral",
+    "Height_cm": 145,
+    "ConceptAge": 14,
     "AnivDay": [
       { "Day": { "Month": 8, "DayOfMonth": 6 }, "DayAbout": "開発記念" }
     ],
+    "Weight_kg": { "hideText": "非公開" },
+    "BustSize": "B",
     "Class": "デュアルファイブズ",
     "Class_EN": "Dual Sum-5s",
     "TailsUnit": "キツネ(枝分かれ)型8本(上1束2本+下2束6本)",
@@ -8023,7 +8253,7 @@
         {
           "Num": 68,
           "Comments": "勿体ないことしないで！",
-          "RelationLabel": ["brother|sister", "unmatched"]
+          "RelationLabel": ["brother|sister", "unmatched", "classmate"]
         }
       ],
       "Commented": [
@@ -8071,18 +8301,6 @@
     "AnivDay": [
       { "Day": { "Month": 8, "DayOfMonth": 7 }, "DayAbout": "開発記念" }
     ],
-    "Class": "デュアルシックスズ",
-    "Class_EN": "Dual Sum-6s",
-    "ThisMasters": [
-      {
-        "value": "錦野 歌嫁（78特殊探偵団 采配幹部(ディーラー)/百花繚乱研究所(N3US大学 千歳研究室)ゼミアシスタント）",
-        "_DBLink": {
-          "worksTitle": "NumberTales",
-          "dbName": "Secondary",
-          "_Search": [{ "hashTag": "Num", "key": "%" }]
-        }
-      }
-    ],
     "GenderType": "FemaleNeutral",
     "ConceptAge": {
       "value": 19,
@@ -8097,6 +8315,18 @@
       "about_EN": "When appearing slimmer (possibly)"
     },
     "TailsUnit": "キツネ(枝分かれ)型8本(上1束1本+下2束7本)",
+    "Class": "デュアルシックスズ",
+    "Class_EN": "Dual Sum-6s",
+    "ThisMasters": [
+      {
+        "value": "錦野 歌嫁（78特殊探偵団 采配幹部(ディーラー)/百花繚乱研究所(N3US大学 千歳研究室)ゼミアシスタント）",
+        "_DBLink": {
+          "worksTitle": "NumberTales",
+          "dbName": "Secondary",
+          "_Search": [{ "hashTag": "Num", "key": "%" }]
+        }
+      }
+    ],
     "FirstPersonCalling": "私(わたし)",
     "SecondPersonCalling": "あなた(さま)",
     "ThirdPersonCalling": "彼/彼女;＊の人/＊れ;～さん[さま]",
@@ -8144,12 +8374,12 @@
         {
           "Num": 42,
           "Comments": "お姉さまを馬鹿にするなーっ！",
-          "RelationLabel": ["unmatched"]
+          "RelationLabel": ["unmatched", "classmate"]
         },
         {
           "Num": 78,
           "Comments": "お姉さま！そんなに心配しなくても…！",
-          "RelationLabel": ["brother|sister", "trusted_maybe"]
+          "RelationLabel": ["brother|sister", "trusted_maybe", "classmate"]
         },
         {
           "Num": 94,
@@ -8160,7 +8390,8 @@
       "Commented": [
         {
           "Num": 17,
-          "Comments": "勉強熱心で良い人だとは思う"
+          "Comments": "勉強熱心で良い人だとは思う",
+          "RelationLabel": ["cousin"]
         },
         {
           "Num": 34,
@@ -8260,7 +8491,8 @@
       "Commented": [
         {
           "Num": 44,
-          "Comments": "現実性のある思考をお持ちで頼れる方"
+          "Comments": "現実性のある思考をお持ちで頼れる方",
+          "RelationLabel": ["classmate"]
         },
         {
           "Num": 61,
@@ -8268,7 +8500,8 @@
         },
         {
           "Num": 77,
-          "Comments": "彼(女)が精神統一をしているときは、極力邪魔をしないであげてくださいね"
+          "Comments": "彼(女)が精神統一をしているときは、極力邪魔をしないであげてくださいね",
+          "RelationLabel": ["classmate"]
         },
         {
           "Num": 78,
@@ -8351,24 +8584,25 @@
         {
           "Num": 17,
           "Comments": "私と似てるはずです",
-          "RelationLabel": ["wellMatched"]
+          "RelationLabel": ["wellMatched", "classmate"]
         },
         { "Num": 19, "RelationLabel": ["cousin", "unmatched"] },
         {
           "Num": 71,
           "Comments": "私と対称的ですが、いつも励みになります",
-          "RelationLabel": ["trusted"]
+          "RelationLabel": ["trusted", "classmate"]
         },
         {
           "Num": 98,
           "Comments": "姉妹の妹。開放的で少し馴染めません…",
-          "RelationLabel": ["brother|sister", "awkward"]
+          "RelationLabel": ["brother|sister", "awkward", "classmate"]
         }
       ],
       "Commented": [
         {
           "Num": 35,
-          "Comments": "感性の素晴らしい方です"
+          "Comments": "感性の素晴らしい方です",
+          "RelationLabel": ["classmate"]
         },
         {
           "Num": 88,
@@ -8397,7 +8631,8 @@
     "Relation": {
       "Commented": [
         {
-          "Num": 99
+          "Num": 99,
+          "RelationLabel": ["successor_nearly"]
         }
       ]
     }
@@ -8422,13 +8657,16 @@
     "Relation": {
       "Commented": [
         {
-          "Num": 18
+          "Num": 18,
+          "RelationLabel": ["cousin_nearly"]
         },
         {
-          "Num": 19
+          "Num": 19,
+          "RelationLabel": ["brother|sister", "classmate"]
         },
         {
-          "Num": 81
+          "Num": 81,
+          "RelationLabel": ["cousin"]
         }
       ]
     }
@@ -8499,25 +8737,28 @@
         {
           "Num": 29,
           "Comments": "……姉ちゃん…",
-          "RelationLabel": ["brother|sister", "awkward", "trusted"]
+          "RelationLabel": ["brother|sister", "awkward", "trusted", "classmate"]
         },
         {
           "Num": 90,
-          "RelationLabel": ["unmatched"]
+          "RelationLabel": ["pioneer_nearly", "unmatched"]
         }
       ],
       "Commented": [
         {
           "Num": 2,
-          "Comments": "もっと肩の力を抜いた方がいい"
+          "Comments": "もっと肩の力を抜いた方がいい",
+          "RelationLabel": ["pioneer_nearly"]
         },
         {
           "Num": 38,
-          "Comments": "時々見せる奇抜さと斬新さは尊敬できる"
+          "Comments": "時々見せる奇抜さと斬新さは尊敬できる",
+          "RelationLabel": ["classmate"]
         },
         {
           "Num": 74,
-          "Comments": "よくわからないけど…何？"
+          "Comments": "よくわからないけど…何？",
+          "RelationLabel": ["awkward_aBit", "classmate"]
         }
       ]
     }
@@ -8601,17 +8842,19 @@
         {
           "Num": 39,
           "Comments": "お兄ちゃん、ああ見えてとても主人想いなんだよ！",
-          "RelationLabel": ["brother|sister", "wellMatched"]
+          "RelationLabel": ["brother|sister", "wellMatched", "classmate"]
         }
       ],
       "Commented": [
         {
           "Num": 57,
-          "Comments": "いろんな経験積んでそう"
+          "Comments": "いろんな経験積んでそう",
+          "RelationLabel": ["classmate"]
         },
         {
           "Num": 63,
-          "Comments": "あれはもう“お母さん”だよね…"
+          "Comments": "あれはもう“お母さん”だよね…",
+          "RelationLabel": ["cousin"]
         },
         {
           "Num": 66,
@@ -8619,7 +8862,8 @@
         },
         {
           "Num": 95,
-          "Comments": "異世界に行く準備でもしてるのかな…"
+          "Comments": "異世界に行く準備でもしてるのかな…",
+          "RelationLabel": ["cousin"]
         }
       ]
     }
@@ -8697,25 +8941,29 @@
         {
           "Num": 49,
           "Comments": "……ちょっと、せっかち…",
-          "RelationLabel": ["brother|sister"]
+          "RelationLabel": ["brother|sister", "classmate"]
         }
       ],
       "Commented": [
         {
           "Num": 13,
-          "Comments": "……物腰軽すぎ…"
+          "Comments": "……物腰軽すぎ…",
+          "RelationLabel": ["classmate"]
         },
         {
           "Num": 34,
-          "Comments": "……いつも、大げさ…"
+          "Comments": "……いつも、大げさ…",
+          "RelationLabel": ["cousin"]
         },
         {
           "Num": 67,
-          "Comments": "……暑苦しい…"
+          "Comments": "……暑苦しい…",
+          "RelationLabel": ["classmate"]
         },
         {
           "Num": 95,
-          "Comments": "…む…、この人大丈夫かな…"
+          "Comments": "…む…、この人大丈夫かな…",
+          "RelationLabel": ["cousin"]
         }
       ]
     }
@@ -8838,7 +9086,7 @@
         {
           "Num": 24,
           "Comments": "(「素直じゃない」と書かれている)",
-          "RelationLabel": ["unmatched"]
+          "RelationLabel": ["unmatched", "classmate"]
         },
         {
           "Num": 69,
@@ -8847,18 +9095,21 @@
             "brother|sister",
             "wellMatched",
             "trusted",
-            "alternative|redesign"
+            "alternative|redesign",
+            "classmate"
           ]
         }
       ],
       "Commented": [
         {
           "Num": 51,
-          "Comments": "(「アイディアマン」と書かれている)"
+          "Comments": "(「アイディアマン」と書かれている)",
+          "RelationLabel": ["classmate"]
         },
         {
           "Num": 78,
-          "Comments": "(「知性が古い」と書かれている)"
+          "Comments": "(「知性が古い」と書かれている)",
+          "RelationLabel": ["classmate"]
         }
       ]
     }
@@ -8930,12 +9181,12 @@
         {
           "Num": 61,
           "Comments": "より清く輝くために礼拝を－－",
-          "RelationLabel": ["wellMatched"]
+          "RelationLabel": ["wellMatched", "classmate"]
         },
         {
           "Num": 72,
           "Comments": "礼拝で魂を雪(そそ)がれるべきかと－－",
-          "RelationLabel": ["wellMatched"]
+          "RelationLabel": ["cousin_nearly", "wellMatched"]
         },
         {
           "Num": 74,
@@ -8945,13 +9196,14 @@
         {
           "Num": 79,
           "Comments": "信仰を履き違えないでいただきたいところ",
-          "RelationLabel": ["brother|sister", "unmatched"]
+          "RelationLabel": ["brother|sister", "unmatched", "classmate"]
         }
       ],
       "Commented": [
         {
           "Num": 29,
-          "Comments": "救いがあるといいですね…"
+          "Comments": "救いがあるといいですね…",
+          "RelationLabel": ["cousin_nearly"]
         }
       ]
     }
@@ -9017,6 +9269,11 @@
     "Relation": {
       "Related": [
         {
+          "Num": 19,
+          "Comments": "お姉に近寄らないで。しっ、しっ！",
+          "RelationLabel": ["cousin_nearly", "unmatched"]
+        },
+        {
           "Num": 27,
           "Comments": "スパルタ教…いえ、なんでもありません！",
           "RelationLabel": ["awkward"]
@@ -9029,21 +9286,23 @@
         {
           "Num": 89,
           "Comments": "尊敬できるお姉、なかなか構ってくれない",
-          "RelationLabel": ["brother|sister", "awkward_aBit", "trusted"]
+          "RelationLabel": [
+            "brother|sister",
+            "awkward_aBit",
+            "trusted",
+            "classmate"
+          ]
         }
       ],
       "Commented": [
-        {
-          "Num": 19,
-          "Comments": "お姉に近寄らないで。しっ、しっ！"
-        },
         {
           "Num": 44,
           "Comments": "あんな不良男児の何がいいの？"
         },
         {
           "Num": 53,
-          "Comments": "単純というかおバカというか…"
+          "Comments": "単純というかおバカというか…",
+          "RelationLabel": ["classmate"]
         },
         {
           "Num": 80,
@@ -9125,12 +9384,12 @@
         {
           "Num": 11,
           "Comments": "よき理解者",
-          "RelationLabel": ["wellMatched", "trusted"]
+          "RelationLabel": ["wellMatched", "trusted", "classmate"]
         },
         {
           "Num": 90,
           "Comments": "終わりに悔いは残さぬ輩",
-          "RelationLabel": ["cousin"]
+          "RelationLabel": ["pioneer_nearly", "cousin"]
         }
       ],
       "Commented": [
@@ -9144,7 +9403,8 @@
         },
         {
           "Num": 22,
-          "Comments": "幸運に恵まれておるものだな"
+          "Comments": "幸運に恵まれておるものだな",
+          "RelationLabel": ["classmate"]
         },
         {
           "Num": 45,
@@ -9232,11 +9492,11 @@
       "Related": [
         {
           "Num": 2,
-          "RelationLabel": ["sameNumber"]
+          "RelationLabel": ["sameNumber", "classmate"]
         },
         {
           "Num": 3,
-          "RelationLabel": ["trusted", "interested"]
+          "RelationLabel": ["trusted", "interested", "classmate"]
         },
         {
           "Num": 20,
@@ -9248,7 +9508,7 @@
         },
         {
           "Num": "10-alt",
-          "RelationLabel": ["trusted", "awkward"]
+          "RelationLabel": ["trusted", "awkward", "classmate"]
         }
       ]
     }

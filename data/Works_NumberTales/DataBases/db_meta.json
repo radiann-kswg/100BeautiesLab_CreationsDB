@@ -329,6 +329,11 @@
           "isForSecondary": false
         },
         {
+          "RelationLabel": "classmate",
+          "RelationLabel_JP": "同クラス個体",
+          "isForSecondary": false
+        },
+        {
           "RelationLabel": "wellMatched",
           "RelationLabel_JP": "相性の良い個体",
           "isForSecondary": false
