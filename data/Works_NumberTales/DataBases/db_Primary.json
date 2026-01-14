@@ -8065,7 +8065,7 @@
   },
   {
     "Num": 84,
-    "Progress": "notProceeded",
+    "Progress": "nowCreating",
     "Name": "ヤソヨ",
     "Name_EN": "Eightifort",
     "ModelName": "ナンバーテールズ4+8号機乙(84番機)",
@@ -8074,11 +8074,22 @@
     "FormalName_EN": "NumberTales #84",
     "CodeName": "八四",
     "SPCodeName": "八十四",
+    "GenderType": "FemaleNeutral",
+    "Height_cm": 157,
+    "ConceptAge": 20,
     "AnivDay": [
       { "Day": { "Month": 8, "DayOfMonth": 4 }, "DayAbout": "開発記念" }
     ],
+    "Weight_kg": { "hideText": "非公開" },
+    "BustSize": {
+      "value": "C",
+      "about_JP": "着痩せ時(の値である可能性)",
+      "about_EN": "When appearing slimmer (possibly)"
+    },
+    "TailsUnit": "キツネ(枝分かれ)型8本(上1束4本+下2束4本)",
     "Class": "デュアルスリーズ",
     "Class_EN": "Dual Sum-3s",
+    "Character": "行動意欲と実行力が高く積極的\n欲望に従順だが計画性における理屈っぽさも併せ持つ",
     "NumerospecAbout": "計画性に比例した結果を呼び寄せる",
     "Relation": {
       "Commented": [
