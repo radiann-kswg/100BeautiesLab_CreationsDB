@@ -692,7 +692,8 @@
     "Progress": "released",
     "Images": {
       "concept_PNGName": "cnsp_img8",
-      "corefolder_PNGPath": ["emstk_corefolder8-1"]
+      "corefolder_PNGPath": ["emstk_corefolder8-1"],
+      "arts_PNGPath": ["corefolders/sphericateDay/art_sphericateDay202111"]
     },
     "Name": "ワカツ",
     "Name_EN": "Eighas",
@@ -794,7 +795,8 @@
     "Progress": "released",
     "Images": {
       "concept_PNGName": "cnsp_img9",
-      "corefolder_PNGPath": ["emstk_corefolder9-1"]
+      "corefolder_PNGPath": ["emstk_corefolder9-1"],
+      "arts_PNGPath": ["corefolders/sphericateDay/art_sphericateDay202309-img9"]
     },
     "Name": "チカ",
     "Name_EN": "Nina",
@@ -1202,7 +1204,8 @@
     "Progress": "released",
     "Images": {
       "concept_PNGName": "cnsp_img13",
-      "corefolder_PNGPath": ["emstk_corefolder13-1"]
+      "corefolder_PNGPath": ["emstk_corefolder13-1"],
+      "arts_PNGPath": ["corefolders/sphericateDay/art_sphericateDay202306"]
     },
     "Name": "トミ",
     "Name_EN": "Thirteena",
@@ -1309,6 +1312,10 @@
         "emstk_corefolder14-1",
         "emstk_corefolder14-2",
         "emstk_corefolder14-3"
+      ],
+      "arts_PNGPath": [
+        "corefolders/sphericateDay/art_sphericateDay202306",
+        "corefolders/sphericateDay/art_sphericateDay202309-Overall"
       ]
     },
     "Name": "トヨ",
@@ -1969,7 +1976,10 @@
     "Images": {
       "concept_PNGName": "cnsp_img20",
       "corefolder_PNGPath": ["emstk_corefolder20-1", "emstk_corefolder20-2"],
-      "arts_PNGPath": ["humanoids/2023/art_img20-humanoid"]
+      "arts_PNGPath": [
+        "corefolders/sphericateDay/art_sphericateDay202112",
+        "humanoids/2023/art_img20-humanoid"
+      ]
     },
     "Name": "ハツカ",
     "Name_EN": "Twentia",
@@ -3296,7 +3306,8 @@
         "emstk_corefolder33-1",
         "emstk_corefolder33-2",
         "emstk_corefolder33-3"
-      ]
+      ],
+      "arts_PNGPath": ["corefolders/sphericateDay/art_sphericateDay202202"]
     },
     "Name": "ミサ",
     "Name_EN": "Thirthrey",
@@ -4674,7 +4685,10 @@
     "Images": {
       "concept_PNGName": "cnsp_img47",
       "corefolder_PNGPath": ["emstk_corefolder47-1"],
-      "arts_PNGPath": ["humanoids/2023/art_img47-humanoid"]
+      "arts_PNGPath": [
+        "humanoids/2023/art_img47-humanoid",
+        "corefolders/sphericateDay/art_sphericateDay202307"
+      ]
     },
     "Name": "シナ",
     "Name_EN": "Fourséve",
@@ -5592,7 +5606,10 @@
       "concept_PNGName": "cnsp_img57",
       "catalog_PNGName": "chr-dsgn_catalog57",
       "corefolder_PNGPath": ["emstk_corefolder57-1"],
-      "arts_PNGPath": ["humanoids/2023/art_img57-humanoid"]
+      "arts_PNGPath": [
+        "humanoids/2023/art_img57-humanoid",
+        "corefolders/sphericateDay/art_sphericateDay202305-img57"
+      ]
     },
     "Name": "イズナ",
     "Name_EN": "Fivens",
@@ -7355,6 +7372,7 @@
       "concept_PNGName": "cnsp_img74",
       "corefolder_PNGPath": ["emstk_corefolder74-1"],
       "arts_PNGPath": [
+        "corefolders/sphericateDay/art_sphericateDay202307",
         "corefolders/2023/art_img74-corefolderAsObjectA",
         "corefolders/2023/art_img74-corefolderAsObjectB"
       ]
@@ -7461,7 +7479,10 @@
     "Progress": "released",
     "Images": {
       "concept_PNGName": "cnsp_img75",
-      "corefolder_PNGPath": ["emstk_corefolder75-1"]
+      "corefolder_PNGPath": ["emstk_corefolder75-1"],
+      "arts_PNGPath": [
+        "corefolders/sphericateDay/art_sphericateDay202305-img75"
+      ]
     },
     "Name": "シチゴ",
     "Name_EN": "Sefievn",
@@ -8887,7 +8908,8 @@
     "Images": {
       "concept_PNGName": "cnsp_img93",
       "catalog_PNGName": "chr-dsgn_catalog93",
-      "corefolder_PNGPath": ["emstk_corefolder93-1"]
+      "corefolder_PNGPath": ["emstk_corefolder93-1"],
+      "arts_PNGPath": ["corefolders/sphericateDay/art_sphericateDay202201"]
     },
     "Name": "クミ",
     "Name_EN": "Nintris",
@@ -9536,7 +9558,8 @@
     "Progress": "released",
     "Images": {
       "concept_PNGName": "cnsp_img2-alt",
-      "corefolder_PNGPath": ["emstk_corefolder2alt-1"]
+      "corefolder_PNGPath": ["emstk_corefolder2alt-1"],
+      "arts_PNGPath": ["corefolders/sphericateDay/art_sphericateDay202112"]
     },
     "Name": "ツギ\nバイナ",
     "Name_EN": "Binor\nTwicy",

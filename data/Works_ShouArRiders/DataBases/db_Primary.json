@@ -177,7 +177,12 @@
     "Progress": "released(beta)",
     "Images": {
       "concept_PNGName": "cnsp_imgEZ13",
-      "arts_PNGPath": ["art_imgEZ13-meowsday2023"]
+      "arts_PNGPath": [
+        "art_imgEZ13-meowsday2023",
+        "sphericateDay/art_imgEZ13-sphericateDay202309A",
+        "sphericateDay/art_imgEZ13-sphericateDay202309B",
+        "sphericateDay/art_imgEZ13-sphericateDay202309C"
+      ]
     },
     "Name": "寅刻ネゝコ",
     "Name_EN": "Meowcats Tigertimes",
