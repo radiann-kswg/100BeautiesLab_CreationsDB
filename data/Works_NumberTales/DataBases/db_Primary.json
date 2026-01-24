@@ -115,7 +115,10 @@
     "Images": {
       "concept_PNGName": "cnsp_img2",
       "corefolder_PNGPath": ["emstk_corefolder2-1"],
-      "arts_PNGPath": ["corefolders/2023/art_img2-corefolderWinter"]
+      "arts_PNGPath": [
+        "art_numbertalesAniv2nd",
+        "corefolders/2023/art_img2-corefolderWinter"
+      ]
     },
     "Name": "ツグ",
     "Name_EN": "Twiny",
@@ -318,7 +321,8 @@
         "emstk_corefolder4-1",
         "emstk_corefolder4-2",
         "emstk_corefolder4-3"
-      ]
+      ],
+      "arts_PNGPath": ["art_numbertalesAniv4th"]
     },
     "Name": "モチ",
     "Name_EN": "Forna",
@@ -3619,7 +3623,8 @@
     "Progress": "released",
     "Images": {
       "concept_PNGName": "cnsp_img36",
-      "corefolder_PNGPath": ["emstk_corefolder36-1"]
+      "corefolder_PNGPath": ["emstk_corefolder36-1"],
+      "arts_PNGPath": ["art_mothersDay2023"]
     },
     "Name": "ミトム",
     "Name_EN": "Trisixa",
@@ -6180,7 +6185,8 @@
     "Progress": "released",
     "Images": {
       "concept_PNGName": "cnsp_img63",
-      "corefolder_PNGPath": ["emstk_corefolder63-1"]
+      "corefolder_PNGPath": ["emstk_corefolder63-1"],
+      "arts_PNGPath": ["art_mothersDay2023"]
     },
     "Name": "ムツミ",
     "Name_EN": "Sicthrey",
@@ -9559,7 +9565,10 @@
     "Images": {
       "concept_PNGName": "cnsp_img2-alt",
       "corefolder_PNGPath": ["emstk_corefolder2alt-1"],
-      "arts_PNGPath": ["corefolders/sphericateDay/art_sphericateDay202112"]
+      "arts_PNGPath": [
+        "corefolders/sphericateDay/art_sphericateDay202112",
+        "art_numbertalesAniv2nd"
+      ]
     },
     "Name": "ツギ\nバイナ",
     "Name_EN": "Binor\nTwicy",
