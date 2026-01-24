@@ -41,8 +41,8 @@
     "Progress": "notProceeded",
     "Name": "モモ",
     "Name_EN": "Centa",
-    "ModelName": "ナンバーテールズ試作型10号機改(100番機)",
-    "ModelNumber": "APHR-NT [P]X.R(APHR-NT X.R)",
+    "ModelName": "ナンバーテールズ試作正規型10号機改(100番機)",
+    "ModelNumber": "APHR-NT [PS]X.R(APHR-NT X.R)",
     "FormalName": "ナンバーテールズ100番機",
     "FormalName_EN": "NumberTales #100",
     "CodeName": "一〇〇",
@@ -213,8 +213,8 @@
     "Progress": "notProceeded",
     "Name": "ハクト",
     "Name_EN": "Elevantis",
-    "ModelName": "ナンバーテールズ汎用型11号機(110番機)",
-    "ModelNumber": "APHR-NT [MP]XI",
+    "ModelName": "ナンバーテールズ汎用改良型11号機(110番機)",
+    "ModelNumber": "APHR-NT [GR]XI",
     "FormalName": "ナンバーテールズ110番機",
     "FormalName_EN": "NumberTales #110",
     "CodeName": "一一〇",
@@ -404,7 +404,7 @@
     "Name": "バイセンテ",
     "Name_EN": "Bicentenny",
     "ModelName": "ナンバーテールズ汎用型2号機改(200番機)",
-    "ModelNumber": "APHR-NT [MP]II.R",
+    "ModelNumber": "APHR-NT [GP]II.R",
     "FormalName": "ナンバーテールズ200番機",
     "FormalName_EN": "NumberTales #200",
     "CodeName": "二〇〇",
@@ -421,30 +421,20 @@
     "Backgrounds": "2号機系直通の後継個体"
   },
   {
-    "Num": "200-mp",
-    "_DBLink": {
-      "worksTitle": "NumberTales",
-      "dbName": "SemiPrimary",
-      "_Search": [{ "hashTag": "Num", "key": 200 }]
-    },
-    "FormalName": "量産型ナンバーテールズ200番機シリーズ",
-    "FormalName_EN": "NumberTales #200 Series Mass Production Version for Sales",
-    "ModelNumber": "APHR-NT [MP]200-*****"
-  },
-  {
     "Num": 222,
     "Progress": "notProceeded",
-    "Name": "ドッペル",
-    "Name_EN": "Doppelgäns",
+    "Name": "ドッペル|ペルゲン\nドッペルゲンズ",
+    "Name_EN": "Doppels|Pelgäns\nDoppelgäns",
     "ModelName": "ナンバーテールズ仮説111番2倍機または3倍型2号機(222番機)",
-    "ModelNumber": "APHR-NT [Px]#111.2|[P-x3]II",
+    "ModelNumber": "APHR-NT [Px]#111.2|[x3]II",
     "FormalName": "ナンバーテールズ222番機",
     "FormalName_EN": "NumberTales #222",
     "CodeName": "二二二",
     "SPCodeName_EN": "Cloned I-s",
     "GenderType": "Neutral",
     "Class": "マスタートリプル",
-    "Class_EN": "Master Triples 9"
+    "Class_EN": "Master Triples 9",
+    "Backgrounds": "仮説111番2倍機が現「ドッペル」、3倍型2号機が現「ペルゲン」にあたる別個体として設計が進められていたが、開発の事情により最終的に同一個体として統合された。そのため開発用オリジナル機は、ナンバーテールズで唯一の二重人格個体となる"
   },
   {
     "Num": "222-mp",
@@ -488,6 +478,8 @@
     "Progress": "notProceeded",
     "Name": "マタウルウ",
     "Name_EN": "Leap-againer",
+    "ModelName": "ナンバーテールズ汎用型4号機改(400番機)",
+    "ModelNumber": "APHR-NT [GP]IV.R",
     "FormalName": "ナンバーテールズ400番機",
     "FormalName_EN": "NumberTales #400",
     "CodeName": "四〇〇",
@@ -495,17 +487,6 @@
     "Class": "百倍番(ハンドレッズデジッツ)",
     "Class_EN": "Hundrets-Digits",
     "Backgrounds": "「100倍数の年は閏年でないが、400倍数だと閏年」という（グレゴリオ暦の）400年周期法則から命名された"
-  },
-  {
-    "Num": "400-mp",
-    "_DBLink": {
-      "worksTitle": "NumberTales",
-      "dbName": "SemiPrimary",
-      "_Search": [{ "hashTag": "Num", "key": 400 }]
-    },
-    "FormalName": "量産型ナンバーテールズ400番機シリーズ",
-    "FormalName_EN": "NumberTales #400 Series Mass Production Version for Sales",
-    "ModelNumber": "APHR-NT [MP]400-*****"
   },
   {
     "Num": 444,

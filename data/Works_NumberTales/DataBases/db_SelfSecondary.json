@@ -1113,6 +1113,17 @@
     "Class_EN": "Duet Triples I.B"
   },
   {
+    "Num": "200-mp",
+    "_DBLink": {
+      "worksTitle": "NumberTales",
+      "dbName": "SemiPrimary",
+      "_Search": [{ "hashTag": "Num", "key": 200 }]
+    },
+    "FormalName": "量産型ナンバーテールズ200番機シリーズ",
+    "FormalName_EN": "NumberTales #200 Series Mass Production Version for Sales",
+    "ModelNumber": "APHR-NT [MP]200-*****"
+  },
+  {
     "Num": 201,
     "Progress": "notProceeded",
     "FormalName": "量産型ナンバーテールズ201番機シリーズ",
@@ -3322,6 +3333,17 @@
     "GenderType": "Neutral",
     "Class": "デュオトリプル3型乙組",
     "Class_EN": "Duet Triples III.B"
+  },
+  {
+    "Num": "400-mp",
+    "_DBLink": {
+      "worksTitle": "NumberTales",
+      "dbName": "SemiPrimary",
+      "_Search": [{ "hashTag": "Num", "key": 400 }]
+    },
+    "FormalName": "量産型ナンバーテールズ400番機シリーズ",
+    "FormalName_EN": "NumberTales #400 Series Mass Production Version for Sales",
+    "ModelNumber": "APHR-NT [MP]400-*****"
   },
   {
     "Num": 401,
