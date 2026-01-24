@@ -228,6 +228,11 @@
               "Rank": "D"
             },
             {
+              "SafetyLevelText": "用法により厳重注意",
+              "SafetyLevelText_EN": "Usage Caution",
+              "Rank": "D"
+            },
+            {
               "SafetyLevelText": "厳重注意",
               "SafetyLevelText_EN": "Severe Caution",
               "Rank": "E"
@@ -254,10 +259,12 @@
           "Ptn.I(高性能知能搭載)",
           "Ptn.Kn(知性効果)",
           "Ptn.Lg(思考向上効果)",
+          "Ptn.Lg-(思考向上効果がある可能性)",
           "Ptn.Lr(幸福実現効果)",
           "Ptn.Lr-(条件付き幸福実現効果)",
           "Ptn.M(マネタイズ効果または資産操作能力)",
           "Ptn.M-(マネタイズ効果または資産操作効果がある傾向)",
+          "Ptn.MRn(マネタイズまたは資産運用に対する乱数的な効果)",
           "Ptn.Ms(自己転化効果)",
           "Ptn.Ms-(自己転化効果がある可能性)",
           "Ptn.Mt(母性的作用の傾向)",
@@ -276,6 +283,7 @@
           "Ptn.Z[Eg](過剰自我注意)",
           "Ptn.Z[Ex](興奮注意)",
           "Ptn.Z[Hd](効果に一定の精神的耐性が必要)",
+          "Ptn.Z[MT](不安またはモラトリアム思想に注意)",
           "Ptn.Z[Sp](催眠/洗脳作用注意)",
           "Ptn.ZZ(逆効能および禁断効果に警戒)"
         ]

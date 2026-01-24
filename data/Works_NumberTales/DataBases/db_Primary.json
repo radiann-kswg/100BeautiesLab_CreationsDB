@@ -2792,6 +2792,7 @@
       { "Day": { "Month": 2, "DayOfMonth": 8 }, "DayAbout": "開発記念" }
     ],
     "Weight_kg": { "hideText": "非公開" },
+    "BustSize": "D",
     "TailsUnit": "キツネ(枝分かれ)型8本(上2束2本+下1束6本)",
     "Class": "デュアルキャリーズ",
     "Class_EN": "Dual Carries",
@@ -7863,7 +7864,7 @@
   },
   {
     "Num": 80,
-    "Progress": "notProceeded",
+    "Progress": "nowCreating",
     "Name": "ヤソ",
     "Name_EN": "Eightis",
     "ModelName": "ナンバーテールズ改良型8号機(80番機)",
@@ -7872,13 +7873,53 @@
     "FormalName_EN": "NumberTales #80",
     "CodeName": "八〇",
     "SPCodeName": "八十",
+    "GenderType": "FemaleNeutral",
+    "Height_cm": 144,
+    "ConceptAge": 27,
     "AnivDay": [
       { "Day": { "Month": 7, "DayOfMonth": 31 }, "DayAbout": "開発記念" }
     ],
+    "Weight_kg": [
+      { "value": 45, "about_JP": "推定", "about_EN": "Presumption" }
+    ],
+    "BustSize": "G",
+    "TailsUnit": "キツネ型8本",
     "Class": "10倍番(テンズデジッツ)",
     "Class_EN": "Tens-Digits",
+    "FirstPersonCalling": "わたくしめ\nおれ",
+    "SecondPersonCalling": "あなたサマ\nあんた",
+    "ThirdPersonCalling": "～サマ\n＊いつ/＊れ;[※名前呼び]",
+    "ForMasterCalling": "ダンナ/奥サマ\nダンナ/奥サマ;[※名前呼び]",
+    "Character": "相場や価値の流れに敏感\n不安症な一面もあり悪い意味で現金主義かつギャンブラーな本性を持つ",
+    "Hobby": "自動売買の運用",
+    "SpetialSkill": "宝くじの当選番号予想",
+    "Favor": "FX・仮想通貨",
+    "Unlike": "大暴落（景気の悪化,倒産,壊滅 など）",
     "RelationAbouts": "「88(ヤソハチ)」と何か関係が…？",
     "NumerospecAbout": "物流を体感できる",
+    "NumerospecStats": {
+      "EffectStats": {
+        "Mental": { "EffectText": "逆効果" },
+        "Manetize": { "EffectText": "極めて絶大(場合により逆効果)" },
+        "Working": { "EffectText": "期待可能" },
+        "Luck": { "hideText": "判定不能" },
+        "Communication": { "EffectText": "効果無" }
+      },
+      "SpetialPattern": [
+        "Ptn.MRn(マネタイズまたは資産運用に対する乱数的な効果)",
+        "Ptn.Z[Hd](効果に一定の精神的耐性が必要)",
+        "Ptn.Z[MT](不安またはモラトリアム思想に注意)"
+      ],
+      "SafetyLevel": { "SafetyLevelText": "用法により厳重注意" }
+    },
+    "AbilityStats": {
+      "Speed": { "Rank": "B+" },
+      "Communicating": { "Rank": "C" },
+      "Leading": { "Rank": "A" },
+      "Precision": { "Rank": "D" },
+      "Technic": { "hideText": "判定不能" },
+      "Actuation": { "Rank": "C" }
+    },
     "Relation": {
       "Commented": [
         {
@@ -7993,7 +8034,7 @@
   },
   {
     "Num": 82,
-    "Progress": "notProceeded",
+    "Progress": "nowCreating",
     "Name": "ヤソジ",
     "Name_EN": "Eightwis",
     "ModelName": "ナンバーテールズ2+8号機乙(82番機)",
@@ -8002,11 +8043,21 @@
     "FormalName_EN": "NumberTales #82",
     "CodeName": "八二",
     "SPCodeName": "八十二",
+    "GenderType": "Neutral",
+    "Height_cm": 158,
+    "ConceptAge": 20,
     "AnivDay": [
       { "Day": { "Month": 8, "DayOfMonth": 2 }, "DayAbout": "開発記念" }
     ],
+    "Weight_kg": { "hideText": "非公開" },
+    "BustSize": "B",
+    "TailsUnit": "キツネ(枝分かれ)型8本(上1束6本+下2束2本)",
     "Class": "デュアルキャリーズ",
     "Class_EN": "Dual Carries",
+    "FirstPersonCalling": "私(わたし)",
+    "SecondPersonCalling": "あなた",
+    "ThirdPersonCalling": "[※名前呼び]",
+    "ForMasterCalling": "ご主人",
     "NumerospecAbout": "物乞いを叶える\nただしこの効果は周囲の物品状況に影響されやすい",
     "Relation": {
       "Commented": [
@@ -8066,7 +8117,7 @@
   {
     "Num": 84,
     "Progress": "nowCreating",
-    "Name": "ヤソヨ",
+    "Name": "ヤツヨ",
     "Name_EN": "Eightifort",
     "ModelName": "ナンバーテールズ4+8号機乙(84番機)",
     "ModelNumber": "APHR-NT IV+VIII.B",
@@ -8090,7 +8141,34 @@
     "Class": "デュアルスリーズ",
     "Class_EN": "Dual Sum-3s",
     "Character": "行動意欲と実行力が高く積極的\n欲望に従順だが計画性における理屈っぽさも併せ持つ",
+    "Hobby": "貯金と大人買い",
+    "SpetialSkill": "家計簿処理、主人の趣味のマネタイズ",
+    "Favor": "等価交換・社会的信用というお金の考え方",
+    "Unlike": "窃盗、高額転売",
     "NumerospecAbout": "計画性に比例した結果を呼び寄せる",
+    "NumerospecStats": {
+      "EffectStats": {
+        "Mental": { "EffectText": "期待可能" },
+        "Manetize": { "EffectText": "絶大" },
+        "Working": { "EffectText": "絶大" },
+        "Luck": { "EffectText": "期待" },
+        "Communication": { "EffectText": "普通" }
+      },
+      "SpetialPattern": [
+        "Ptn.Dr(目標比例作用)",
+        "Ptn.Lg-(思考向上効果がある可能性)",
+        "Ptn.Rz(実現性向上効果)"
+      ],
+      "SafetyLevel": { "SafetyLevelText": "安全" }
+    },
+    "AbilityStats": {
+      "Speed": { "Rank": "C" },
+      "Communicating": { "Rank": "B+" },
+      "Leading": { "Rank": "S" },
+      "Precision": { "Rank": "B" },
+      "Technic": { "Rank": "S" },
+      "Actuation": { "Rank": "C" }
+    },
     "Relation": {
       "Commented": [
         {
@@ -8543,7 +8621,7 @@
       { "Day": { "Month": 8, "DayOfMonth": 9 }, "DayAbout": "開発記念" }
     ],
     "Weight_kg": { "hideText": "非公開" },
-    "BustSize": "B",
+    "BustSize": "C",
     "TailsUnit": "キツネ(枝分かれ)型9本(上1束6本+下2束3本)",
     "Class": "デュアルエイツ",
     "Class_EN": "Dual Sum-8s",
@@ -9240,7 +9318,7 @@
       { "Day": { "Month": 9, "DayOfMonth": 8 }, "DayAbout": "開発記念" }
     ],
     "Weight_kg": { "hideText": "非公開" },
-    "BustSize": "C",
+    "BustSize": "D",
     "TailsUnit": "キツネ(枝分かれ)型9本(上1束1本+下2束8本)",
     "Class": "デュアルエイツ",
     "Class_EN": "Dual Sum-8s",
