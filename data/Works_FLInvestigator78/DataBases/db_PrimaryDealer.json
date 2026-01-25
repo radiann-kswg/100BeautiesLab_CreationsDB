@@ -1,0 +1,380 @@
+[
+  {
+    "Card": { "Stoat": "Major", "Num": 0 },
+    "Progress": "notProceeded",
+    "Images": {
+      "cardDesign_PNGName": "crddsn_imgFLM0-sample"
+    },
+    "_DBLink": {
+      "worksTitle": "FLInvestigator78",
+      "dbName": "Primary",
+      "_Search": [{ "hashTag": "Card", "key": { "Stoat": "Major", "Num": 0 } }]
+    },
+    "FormalName": "恐山 ユート",
+    "FormalName_EN": "Uto' Osoreyama",
+    "RaceType": "Human",
+    "Height_cm": 161,
+    "Weight_kg": 46,
+    "Age": 21,
+    "BirthDay": { "Day": { "Month": 4, "DayOfMonth": 1 } },
+    "Character": "能天気でどこか浮いている",
+    "Hobby": "面白い出来事の散策",
+    "SpetialSkill": "アスレチック競技",
+    "Favor": "犬",
+    "Unlike": "ふとしたときに地雷を踏みやすいこと",
+    "FirstPersonCalling": "ボク",
+    "SecondPersonCalling": "キミ",
+    "ThirdPersonCalling": "彼/彼女;*れ;[※名前呼び]",
+    "For79or80thDealerCalling": {
+      "For79thDealer": "ウタカ（※毎回逆になる）",
+      "For80thDealer": "マイ（※毎回逆になる）"
+    },
+    "AbilityStats": {
+      "Speed": { "Rank": "A" },
+      "Communicating": { "Rank": "B+" },
+      "Leading": { "Rank": "B" },
+      "Precision": { "Rank": "A" },
+      "Technic": { "Rank": "B+" },
+      "Actuation": { "Rank": "S" }
+    }
+  },
+  {
+    "Card": { "Stoat": "Major", "Num": 1 },
+    "Progress": "notProceeded",
+    "Images": {
+      "cardDesign_PNGName": "crddsn_imgFLM1-sample"
+    },
+    "_DBLink": {
+      "worksTitle": "FLInvestigator78",
+      "dbName": "Primary",
+      "_Search": [{ "hashTag": "Card", "key": { "Stoat": "Major", "Num": 1 } }]
+    },
+    "FormalName": "金田一 卓斗",
+    "FormalName_EN": "Tact Kindaichi",
+    "RaceType": "Human",
+    "GenderType": "Male",
+    "Height_cm": 176,
+    "Weight_kg": 59,
+    "Age": 37,
+    "BirthDay": { "Day": { "Month": 1, "DayOfMonth": 4 } },
+    "Character": "行動的かつ自発的で、何事にも才能にあふれている",
+    "Hobby": "起業した自事業の拡大について計画する",
+    "SpetialSkill": "手品",
+    "Favor": "新しいこと、将来有望な若者",
+    "Unlike": "才能が発揮されない事",
+    "FirstPersonCalling": "私(わたし)",
+    "SecondPersonCalling": "君(きみ)",
+    "ThirdPersonCalling": "彼/彼女;[※名前呼び],～君",
+    "For79or80thDealerCalling": {
+      "For79thDealer": "舞(まい)君",
+      "For80thDealer": "歌(うた)君"
+    },
+    "AbilityStats": {
+      "Speed": { "Rank": "A" },
+      "Communicating": { "Rank": "A" },
+      "Leading": { "Rank": "S" },
+      "Precision": { "Rank": "S" },
+      "Technic": { "Rank": "S" },
+      "Actuation": { "Rank": "B+" }
+    }
+  },
+  {
+    "Card": { "Stoat": "Major", "Num": 2 },
+    "Progress": "notProceeded",
+    "_DBLink": {
+      "worksTitle": "FLInvestigator78",
+      "dbName": "Primary",
+      "_Search": [{ "hashTag": "Card", "key": { "Stoat": "Major", "Num": 2 } }]
+    },
+    "FormalName": "二宮 律",
+    "FormalName_EN": "Liz Ninomiya",
+    "RaceType": "Human",
+    "GenderType": "Female",
+    "Height_cm": 174,
+    "Weight_kg": 54,
+    "Age": 29,
+    "BirthDay": { "Day": { "Month": 3, "DayOfMonth": 8 } },
+    "Character": "博識かつ知力的で冷淡",
+    "Hobby": "教養についての資料を集める/読む",
+    "SpetialSkill": "六法全書を暗記している",
+    "Favor": "静かな場所",
+    "Unlike": "女性的ストレス",
+    "FirstPersonCalling": "私(わたくし)",
+    "SecondPersonCalling": "貴方(あなた)",
+    "ThirdPersonCalling": "彼/彼女;[※名前呼び]",
+    "For79or80thDealerCalling": {
+      "For79thDealer": "舞",
+      "For80thDealer": "歌"
+    },
+    "AbilityStats": {
+      "Speed": { "Rank": "C" },
+      "Communicating": { "Rank": "A" },
+      "Leading": { "Rank": "S" },
+      "Precision": { "Rank": "A" },
+      "Technic": { "Rank": "B+" },
+      "Actuation": { "Rank": "B+" }
+    }
+  },
+  {
+    "Card": { "Stoat": "Major", "Num": 3 },
+    "Progress": "notProceeded",
+    "Images": {
+      "cardDesign_PNGName": "crddsn_imgFLM3-sample"
+    },
+    "_DBLink": {
+      "worksTitle": "FLInvestigator78",
+      "dbName": "Primary",
+      "_Search": [{ "hashTag": "Card", "key": { "Stoat": "Major", "Num": 3 } }]
+    },
+    "FormalName": "三笠 めぐ",
+    "FormalName_EN": "Meg Mikasa",
+    "RaceType": "Human",
+    "GenderType": "Female",
+    "Height_cm": 166,
+    "Weight_kg": [
+      {
+        "value": { "hideText": "非公開" },
+        "about_JP": "体型は妖艶で美形",
+        "about_EN": "Her figure is alluring and beautiful."
+      }
+    ],
+    "Age": 19,
+    "BirthDay": { "Day": { "Month": 4, "DayOfMonth": 3 } },
+    "Character": "母性と女子力があり、相手の男性を駄目にしがち",
+    "Hobby": "晩餐会",
+    "SpetialSkill": "泣いている赤子を泣き止ませる",
+    "Favor": "自然豊かな休憩所",
+    "Unlike": "空腹",
+    "FirstPersonCalling": "わたし",
+    "SecondPersonCalling": "あなた",
+    "ThirdPersonCalling": "*のこ;[※名前呼び]",
+    "For79or80thDealerCalling": {
+      "For79thDealer": "舞(まい)",
+      "For80thDealer": "歌嫁(うたか)"
+    },
+    "AbilityStats": {
+      "Speed": { "Rank": "D" },
+      "Communicating": { "Rank": "S" },
+      "Leading": { "Rank": "B" },
+      "Precision": { "Rank": "B+" },
+      "Technic": { "Rank": "C" },
+      "Actuation": { "Rank": "B" }
+    }
+  },
+  {
+    "Card": { "Stoat": "Major", "Num": 8 },
+    "Progress": "notProceeded",
+    "Images": {
+      "cardDesign_PNGName": "crddsn_imgFLM8-sample"
+    },
+    "_DBLink": {
+      "worksTitle": "FLInvestigator78",
+      "dbName": "Primary",
+      "_Search": [{ "hashTag": "Card", "key": { "Stoat": "Major", "Num": 8 } }]
+    },
+    "FormalName": "熱海 ふれあ",
+    "FormalName_EN": "Flare Atami",
+    "RaceType": "Human",
+    "GenderType": "Female",
+    "Height_cm": 175,
+    "Weight_kg": 56,
+    "Age": 22,
+    "BirthDay": { "Day": { "Month": 8, "DayOfMonth": 6 } },
+    "Character": "情熱的で活発な体育系女子",
+    "Hobby": "サーカス鑑賞",
+    "SpetialSkill": "アンガーマネジメント",
+    "Favor": "情熱、青春",
+    "Unlike": "感情に負けること",
+    "FirstPersonCalling": "わたし",
+    "SecondPersonCalling": "きみ",
+    "ThirdPersonCalling": "彼/彼女;[※名前呼び]",
+    "For79or80thDealerCalling": {
+      "For79thDealer": "舞(まい)",
+      "For80thDealer": "歌嫁(うたか)"
+    },
+    "AbilityStats": {
+      "Speed": { "Rank": "S" },
+      "Communicating": { "Rank": "B+" },
+      "Leading": { "Rank": "A" },
+      "Precision": { "Rank": "A" },
+      "Technic": { "Rank": "C" },
+      "Actuation": { "Rank": "S" }
+    }
+  },
+  {
+    "Card": { "Stoat": "Major", "Num": 9 },
+    "Progress": "notProceeded",
+    "Images": {
+      "cardDesign_PNGName": "crddsn_imgFLM9-sample"
+    },
+    "_DBLink": {
+      "worksTitle": "FLInvestigator78",
+      "dbName": "Primary",
+      "_Search": [{ "hashTag": "Card", "key": { "Stoat": "Major", "Num": 9 } }]
+    },
+    "FormalName": "仙道 歩浪(ほろー)",
+    "FormalName_EN": "Hollow Sendō",
+    "RaceType": "Human",
+    "GenderType": "Male",
+    "Height_cm": 181,
+    "Weight_kg": 53,
+    "Age": 36,
+    "BirthDay": { "Day": { "Month": 11, "DayOfMonth": 16 } },
+    "Character": "陰キャで会話が上手でない",
+    "Hobby": "読書",
+    "SpetialSkill": "集中している間の洞察力が極めて高い",
+    "Favor": "寝る前の暗がりで読む専門書",
+    "Unlike": "会話、陽キャ",
+    "FirstPersonCalling": "おれ",
+    "SecondPersonCalling": "おまえ",
+    "ThirdPersonCalling": "*いつ,*れ;[※名前呼び]\n~さん ※信頼している人に対して",
+    "For79or80thDealerCalling": {
+      "For79thDealer": "舞\n舞さん",
+      "For80thDealer": "歌嫁\n歌嫁さん"
+    },
+    "AbilityStats": {
+      "Speed": { "Rank": "D" },
+      "Communicating": { "Rank": "C" },
+      "Leading": { "Rank": "B+" },
+      "Precision": { "Rank": "S" },
+      "Technic": { "Rank": "S" },
+      "Actuation": { "Rank": "E" }
+    }
+  },
+  {
+    "Card": { "Stoat": "Major", "Num": 16 },
+    "Progress": "notProceeded",
+    "_DBLink": {
+      "worksTitle": "FLInvestigator78",
+      "dbName": "Primary",
+      "_Search": [{ "hashTag": "Card", "key": { "Stoat": "Major", "Num": 16 } }]
+    },
+    "FormalName": "ヴェンジー.C.テンペスト",
+    "FormalName_EN": "Vengy.C.Tempest",
+    "RaceType": "Human",
+    "GenderType": "Female",
+    "AbilityStats": {
+      "Speed": { "Rank": "E" },
+      "Communicating": { "Rank": { "hideText": "？？？" } },
+      "Leading": { "Rank": { "hideText": "？？？" } },
+      "Precision": { "Rank": "S" },
+      "Technic": { "Rank": "Z" },
+      "Actuation": { "Rank": "B+" }
+    }
+  },
+  {
+    "Card": { "Stoat": "Major", "Num": 17 },
+    "Progress": "notProceeded",
+    "_DBLink": {
+      "worksTitle": "FLInvestigator78",
+      "dbName": "Primary",
+      "_Search": [{ "hashTag": "Card", "key": { "Stoat": "Major", "Num": 17 } }]
+    },
+    "FormalName": "ライト.リヴァーブリッジ",
+    "FormalName_EN": "Light.Reverbbridge",
+    "RaceType": "Human",
+    "GenderType": "Male",
+    "Height_cm": 168,
+    "Weight_kg": [
+      {
+        "value": { "hideText": "非公開" },
+        "about": "体型は美形",
+        "about_EN": "His figure is beautiful."
+      }
+    ],
+    "Age": 23,
+    "BirthDay": { "Day": { "Month": 7, "DayOfMonth": 7 } },
+    "AbilityStats": {
+      "Speed": { "Rank": "B+" },
+      "Communicating": { "Rank": "A" },
+      "Leading": { "Rank": "A" },
+      "Precision": { "Rank": "A" },
+      "Technic": { "Rank": "A" },
+      "Actuation": { "Rank": "A" }
+    }
+  },
+  {
+    "Card": { "Stoat": "Dealer", "Num": 79 },
+    "Progress": "released(beta)",
+    "Images": {
+      "conceptAlt_PNGName": ["cnsp_imgFLDealer"]
+    },
+    "_DBLink": {
+      "worksTitle": "FLInvestigator78",
+      "dbName": "Primary",
+      "_Search": [
+        { "hashTag": "Card", "key": { "Stoat": "Dealer", "Num": 79 } }
+      ]
+    },
+    "FormalName": "錦野 舞",
+    "FormalName_EN": "Dancy Actressilk",
+    "RaceType": "Human",
+    "GenderType": "Female",
+    "Height_cm": 166,
+    "Weight_kg": 52,
+    "Age": 17,
+    "BirthDay": { "Day": { "Month": 7, "DayOfMonth": 6 } },
+    "Character": "仲間想いだが極めて受難体質、繊細で涙もろい",
+    "Hobby": "タロット占い、キャラクターデザイン",
+    "SpetialSkill": "タロット占いが的中する",
+    "Favor": "大切な仲間、人とつながる安心感",
+    "Unlike": "自分の弱さ",
+    "FirstPersonCalling": "私(わたし)",
+    "SecondPersonCalling": "あなた",
+    "ThirdPersonCalling": "彼/彼女/[※名前呼び]",
+    "For79or80thDealerCalling": {
+      "For79thDealer": null,
+      "For80thDealer": "歌嫁(うたか)"
+    },
+    "AbilityStats": {
+      "Speed": { "Rank": "C" },
+      "Communicating": { "Rank": "B" },
+      "Leading": { "Rank": "A" },
+      "Precision": { "Rank": "S" },
+      "Technic": { "Rank": "S" },
+      "Actuation": { "Rank": "B+" }
+    }
+  },
+  {
+    "Card": { "Stoat": "Dealer", "Num": 80 },
+    "Progress": "released(beta)",
+    "Images": {
+      "conceptAlt_PNGName": ["cnsp_imgFLDealer"]
+    },
+    "_DBLink": {
+      "worksTitle": "FLInvestigator78",
+      "dbName": "Primary",
+      "_Search": [
+        { "hashTag": "Card", "key": { "Stoat": "Dealer", "Num": 80 } }
+      ]
+    },
+    "FormalName": "錦野 歌嫁",
+    "FormalName_EN": "Phonia Actressilk",
+    "RaceType": "Human",
+    "GenderType": "Female",
+    "Height_cm": 166,
+    "Weight_kg": 52,
+    "Age": 17,
+    "BirthDay": { "Day": { "Month": 7, "DayOfMonth": 6 } },
+    "Character": "ムードメーカで友好的だが極めて強気で頑固、裏で悩みを抱え込みやすい",
+    "Hobby": "プラモデル制作",
+    "SpetialSkill": "剣道(九蓮国では青年部門ベスト4に匹敵)",
+    "Favor": "確かな強さ、自分を誇れる自分だけの理由",
+    "Unlike": "自分の弱さ",
+    "FirstPersonCalling": "私(わたし)",
+    "SecondPersonCalling": "あなた",
+    "ThirdPersonCalling": "彼/彼女/[※名前呼び]",
+    "For79or80thDealerCalling": {
+      "For79thDealer": "舞(まい)",
+      "For80thDealer": null
+    },
+    "AbilityStats": {
+      "Speed": { "Rank": "S" },
+      "Communicating": { "Rank": "B+" },
+      "Leading": { "Rank": "C" },
+      "Precision": { "Rank": "B" },
+      "Technic": { "Rank": "A" },
+      "Actuation": { "Rank": "S" }
+    }
+  }
+]

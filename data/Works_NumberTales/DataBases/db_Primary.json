@@ -1699,7 +1699,7 @@
         "value": "ライト.リヴァーブリッジ/ブライト.ゲイザー（78特殊探偵団 第17幹部）",
         "_DBLink": {
           "worksTitle": "FLInvestigator78",
-          "dbName": "Primary",
+          "dbName": "PrimaryDealer",
           "_Search": [
             { "hashTag": "Card", "key": { "Stoat": "Major", "Num": 16 } }
           ]
@@ -6877,7 +6877,7 @@
         "value": "ヴェンジー.C.テンペスト/クライシア.バベル（78特殊探偵団 第16幹部）",
         "_DBLink": {
           "worksTitle": "FLInvestigator78",
-          "dbName": "Primary",
+          "dbName": "PrimaryDealer",
           "_Search": [
             { "hashTag": "Card", "key": { "Stoat": "Major", "Num": 16 } }
           ]
@@ -8468,7 +8468,7 @@
         "_DBLink": {
           "worksTitle": "NumberTales",
           "dbName": "Secondary",
-          "_Search": [{ "hashTag": "Num", "key": "%" }]
+          "_Search": [{ "hashTag": "Num", "key": "∞" }]
         }
       }
     ],

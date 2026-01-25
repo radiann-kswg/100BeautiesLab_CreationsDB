@@ -39,11 +39,6 @@
       "hashTag_JP": "采配幹部(ディーラーズ;第79・80アルカナ)の呼び方"
     },
     {
-      "hashTag": "ThisDealer",
-      "$type": "#Character",
-      "hashTag_JP": "このアルカナを所持している人物について"
-    },
-    {
       "hashTag": "ArcanamspecAbout",
       "$type": "#Summary",
       "hashTag_JP": "アルカナムスペック(アルカナ能力)について"
