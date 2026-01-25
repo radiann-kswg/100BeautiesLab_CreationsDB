@@ -297,7 +297,7 @@
     "Card": { "Stoat": "Dealer", "Num": 79 },
     "Progress": "released(beta)",
     "Images": {
-      "conceptAlt_PNGName": ["cnsp_imgFLDealer"]
+      "concept_PNGName": ["cnsp_imgFLDealer"]
     },
     "_DBLink": {
       "worksTitle": "FLInvestigator78",
@@ -339,7 +339,7 @@
     "Card": { "Stoat": "Dealer", "Num": 80 },
     "Progress": "released(beta)",
     "Images": {
-      "conceptAlt_PNGName": ["cnsp_imgFLDealer"]
+      "concept_PNGName": ["cnsp_imgFLDealer"]
     },
     "_DBLink": {
       "worksTitle": "FLInvestigator78",
