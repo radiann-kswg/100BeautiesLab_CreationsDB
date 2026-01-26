@@ -1,8 +1,6 @@
-(更新日/Updated on 2025.11.23)
+(更新日/Updated on 2026.1.27)
 
 # 一次創作作品におけるガイドライン(日本語版)
-
-元文：https://misskey.numbertales-radiann.net/@official/pages/creation_guideline
 
 ## ライセンス
 
@@ -19,7 +17,7 @@
 
 ## タグ活用について
 
-- 一次創作作品の登場キャラクターを元に二次創作をする場合は、「ラジアン(柏木主税)」の Misskey、もしくは「百花繚乱研究所」公式の Misskey（[こちら](https://numbertales-radiann.net/@official) または [こちら](https://misskey.io/@100BTYsLab_official@misskey.io)）のアカウントリンクを明記するか、以下にある該当シリーズの二次創作タグを活用するようお願いします
+- 一次創作作品の登場キャラクターを元に二次創作をする場合は、「ラジアン(柏木主税)」の Misskeyのアカウントリンクを明記するか、以下にある該当シリーズの二次創作タグを活用するようお願いします
   （タグの明記は任意ですが、活用していただけると大変助かります！）
 
 * ①「ナンバーテールズ」シリーズ →「#ナンバーテールズの主人より」
@@ -39,7 +37,7 @@
   　**原作者がﾌﾞﾁｷﾞﾚてしまい今後の創作活動に支障をきたす恐れがあります。**）、
 
 - ③**作者の活動を著しく妨害する行為への運用**
-  （百花繚乱研究所 Misskey サーバへの攻撃、有料配布されたコンテンツの無断転載・転売、
+  （サーバへの攻撃、有料配布されたコンテンツの無断転載・転売、
   　 AI 生成/学習により著作権の侵害に著しく関与し作品全体の信用を失うような運用 など。
   　**原作者からしたら普通に軽犯罪と同罪です。**）
 
@@ -48,7 +46,6 @@
 - ⑤**以下に記載の設定から著しく相違があり 公式設定について混乱を招きかねない描写**
 
 * [ナンバーテールズ公式サイト](http://www.numbertales-radiann.com)
-* [「百花繚乱研究所」公式 Misskey アカウント](https://numbertales-radiann.net/@offical)
   （ある程度は黙認しますが、**明らかに公式設定から逸する二次創作はご遠慮願います。**）
 
 ※なお 以上の違反行為を見かけた際は、まずラジアン(柏木主税)(メールアドレス：radiann.kswg6631＠gmail.com)にご一報ください。こちらから然るべき対応を取らせていただきます。
@@ -58,8 +55,6 @@
 [二次創作作品の OK/NG リスト](./SecondaryWorksPermissionList_JP.png)
 
 # Primary Works Guideline (English Version)
-
-Original Page: https://misskey.numbertales-radiann.net/@official/pages/creation_guideline_EN
 
 ## LICENSE
 
@@ -76,7 +71,7 @@ http://creativecommons.org/licenses/by-nc/4.0/
 ## Tagging
 
 - if you would like to create a secondary works based on a character from a primary works, please provide a link to Misskey of these author:
-  "RadianN_kswg"("ラジアン(柏木主税)") or Misskey of the official "100BeautiesLab"("百花繚乱研究所") ( [here](htps://numbertales-radiann.net/@official) or [here](htps://misskey.io/@100BtysLab_official) ).
+  "RadianN_kswg"("ラジアン(柏木主税)") .
   (Although it is optional, we would appreciate it if you could make use of the following tags for the relevant series.)
 
 * (1) "#ナンバーテールズ" (NumberTales) series
@@ -96,7 +91,7 @@ http://creativecommons.org/licenses/by-nc/4.0/
   　**becuz: Author may be offended and this may hinder future creative activities.**）
 
 - (3) **Operation against acts that seriously obstruct the author's activities.**
-  （i.g. Attacks on this the 100BeautiesLab.'s Misskey server, unauthorised reprinting or resale of contents distributed for a fee, and operation that significantly engages in copyright infringement through AI generation/learning and causes the work as a whole to lose credibility, etc.
+  （i.g. Attacks on any server, unauthorised reprinting or resale of contents distributed for a fee, and operation that significantly engages in copyright infringement through AI generation/learning and causes the work as a whole to lose credibility, etc.
   　**becuz: From the perspective of the author, these operations are usuallythe same as a misdemeanour.**）
 
 - (4) **Use of the work in violation of other creations' guidelines.**
@@ -104,7 +99,6 @@ http://creativecommons.org/licenses/by-nc/4.0/
 - (5) **Depictions that differ significantly from the settings described on the following them and may lead to confusion about the official settings.**
 
 * [NumberTales Official Site](http://www.numbertales-radiann.com/) (JAPANESE ONLY)
-* [100BeautiesLab. Official Misskey Account](https://numbertales-radiann.net/@offical) (JAPANESE ONLY)
   （To a certain extent, we will tolerate, **but please refrain from creating derivative works that deviate too much from the official setting.**）
 
 ※If you see any of the above violations, please inform "RadianN_kswg"("ラジアン(柏木主税)", e-mail address: radiann.kswg6631＠gmail.com) first. We will take appropriate action.
@@ -194,13 +188,14 @@ pages/
 api/                         # APIスコープ用Service Worker
 └── sw.js               # 標準APIエンドポイント
 
-svc/                         # 広告ブロッカー回避用Service Worker  
+svc/                         # 広告ブロッカー回避用Service Worker
 └── sw.js               # APIミラーエンドポイント
 ```
 
 ### 主要 JavaScript 関数
 
 #### アプリケーションレベル (`characters.js`)
+
 - `loadWorks()`: 作品データ読み込み・ UI 初期化
 - `loadCharacters(workId, dbType)`: キャラクターデータ取得・表示
 - `renderCharacterList(characters)`: キャラクターリスト動的生成
@@ -209,6 +204,7 @@ svc/                         # 広告ブロッカー回避用Service Worker
 - `renderDBLinkResolved()`: 参照解決結果表示
 
 #### 共通ライブラリレベル
+
 - `StandardEndpointHandlers`: Service Worker間の統一APIエンドポイント処理
 - `EnrichmentProcessor.enrichRecords()`: キャラクターデータの充実化処理
 - `ImageProcessor.imageFromRecord()`: 画像情報の自動抽出と処理
@@ -405,6 +401,7 @@ GitHub Pages 上で`data/` 配下のキャラクター情報に関するプロ�
 ### Service Worker API (マルチスコープ対応)
 
 #### キャラクターページ用 API (`/pages/v1/*`)
+
 - `GET /pages/v1/works` … 作品一覧取得
 - `GET /pages/v1/works/{work}/db` … 作品の利用可能データベース一覧
 - `GET /pages/v1/works/{work}/db/{dbName}` … キャラクターデータ取得（エンリッチメント付き）
@@ -412,9 +409,11 @@ GitHub Pages 上で`data/` 配下のキャラクター情報に関するプロ�
 - `GET /pages/v1/search` … 検索機能（エンリッチメント付き）
 
 #### 標準 API (`/api/v1/*`)
+
 - 同様のエンドポイント（エンリッチメントなし）
 
 #### 広告ブロッカー回避 API (`/svc/v1/*`)
+
 - 標準APIのミラー（エンリッチメントなし）
 
 例:
@@ -506,13 +505,14 @@ pages/
 api/                         # API Scope Service Worker
 └── sw.js               # Standard API endpoints
 
-svc/                         # Ad-blocker Avoidance Service Worker  
+svc/                         # Ad-blocker Avoidance Service Worker
 └── sw.js               # API mirror endpoints
 ```
 
 ### Main JavaScript Functions
 
 #### Application Level (`characters.js`)
+
 - `loadWorks()`: Work data loading and UI initialization
 - `loadCharacters(workId, dbType)`: Character data acquisition and display
 - `renderCharacterList(characters)`: Dynamic generation of character lists
@@ -521,6 +521,7 @@ svc/                         # Ad-blocker Avoidance Service Worker
 - `renderDBLinkResolved()`: Reference resolution result display
 
 #### Shared Library Level
+
 - `StandardEndpointHandlers`: Unified API endpoint processing across Service Workers
 - `EnrichmentProcessor.enrichRecords()`: Character data enrichment processing
 - `ImageProcessor.imageFromRecord()`: Automatic image information extraction and processing
