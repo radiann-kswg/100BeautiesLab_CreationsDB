@@ -11,13 +11,13 @@
 ## 利用許可について
 
 - 一次創作でありシリーズ名のタグ「 #運命線狐の記録 」「 #フィジカル 9 」「 #ナンバーテールズ 」「 #運命線探偵 OCTOGINTA 」「#運命線探偵 78」「 #獣爾騎兵 」「 #パストダイヴァー 」および「#豹変系女子」のいずれかが付与されている作品（以下、「一次創作作品」）の第三者による画像の利用は原則許可が必要です
-  （許可申請は[「ラジアン(柏木主税)」の Misskey アカウント](htps://misskey.io/@RadianN_kswg@misskey.numbertales-radiann.net) にて）
+  （許可申請は[ホームページ](htps://www.numbertales-radiann.net) にて）
 
 # 二次創作作品におけるガイドライン
 
 ## タグ活用について
 
-- 一次創作作品の登場キャラクターを元に二次創作をする場合は、「ラジアン(柏木主税)」の Misskeyのアカウントリンクを明記するか、以下にある該当シリーズの二次創作タグを活用するようお願いします
+- 一次創作作品の登場キャラクターを元に二次創作をする場合は、「ラジアン(柏木主税)」の ホームページのアカウントリンクを明記するか、以下にある該当シリーズの二次創作タグを活用するようお願いします
   （タグの明記は任意ですが、活用していただけると大変助かります！）
 
 * ①「ナンバーテールズ」シリーズ →「#ナンバーテールズの主人より」
@@ -64,13 +64,13 @@ http://creativecommons.org/licenses/by-nc/4.0/
 ## Permissions
 
 - In principle, permission is required for third parties to use images of works that are primary works and are tagged with one of the following tags: #運命線狐の記録 (the Destiny Fox's Records), #フィジカル 9 (Physical-9), #ナンバーテールズ (NumberTales), #運命線探偵 OCTOGINTA (OCTOGINTA the Destiny Detectives), #運命線探偵 78 (the Fate-Line Investigators 78) #獣爾騎兵 (Shau'er Riders), #パストダイヴァー (PastDivers) or #豹変系女子 (Sinister Changing Girls) (hereinafter referred to as "Primary Works").
-  (For permission, please contact to these author "RadianN_kswg"("ラジアン(柏木主税)") by Misskey ( [here](htps://misskey.numbertales-radiann.net/@RadianN_kswg))).
+  (For permission, please contact to these author "RadianN_kswg"("ラジアン(柏木主税)") ( [here](htps://www.numbertales-radiann.net/))).
 
 # Secondary Works Guideline
 
 ## Tagging
 
-- if you would like to create a secondary works based on a character from a primary works, please provide a link to Misskey of these author:
+- if you would like to create a secondary works based on a character from a primary works, please provide a link to home page of these author:
   "RadianN_kswg"("ラジアン(柏木主税)") .
   (Although it is optional, we would appreciate it if you could make use of the following tags for the relevant series.)
 
