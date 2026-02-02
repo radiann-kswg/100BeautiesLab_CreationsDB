@@ -273,9 +273,19 @@
     "Images": {
       "concept_PNGName": "cnsp_img111-mp"
     },
+    "Name": "アイズ",
+    "Name_EN": "Ize",
     "FormalName": "量産型ナンバーテールズ111番機シリーズ",
     "FormalName_EN": "NumberTales #111 Series Mass Production Version for Sales",
-    "ModelNumber": "APHR-NT [MP]111-*****"
+    "ModelNumber": "APHR-NT [MP]111-*****",
+    "GenderType": "Neutral",
+    "Height_cm": 141,
+    "ConceptAge": 14,
+    "Weight_kg": [
+      { "value": 37, "about_JP": "推定", "about_EN": "Presumption" }
+    ],
+    "BustSize": "AA",
+    "TailsUnit": "猫又(特殊)型1本3束[枝]"
   },
   {
     "Num": 112,
@@ -422,7 +432,7 @@
   },
   {
     "Num": 222,
-    "Progress": "notProceeded",
+    "Progress": "nowCreating",
     "Name": "ドッペル|ペルゲン\nドッペルゲンズ",
     "Name_EN": "Doppels|Pelgäns\nDoppelgäns",
     "ModelName": "ナンバーテールズ仮説111番2倍機または3倍型2号機(222番機)",
@@ -431,10 +441,19 @@
     "FormalName_EN": "NumberTales #222",
     "CodeName": "二二二",
     "SPCodeName_EN": "Cloned I-s",
-    "GenderType": "Neutral",
+    "GenderType": "FemaleNeutral",
+    "Height_cm": [{ "value": 148, "about_JP": "平均", "about_EN": "Average" }],
+    "ConceptAge": 16,
+    "Weight_kg": [{ "value": 42, "about_JP": "平均", "about_EN": "Average" }],
+    "BustSize": {
+      "value": "A",
+      "about_JP": "平均",
+      "about_EN": "Average"
+    },
+    "TailsUnit": "尾鰭(特殊)型3本2枝",
     "Class": "マスタートリプル",
     "Class_EN": "Master Triples 9",
-    "Backgrounds": "仮説111番2倍機が現「ドッペル」、3倍型2号機が現「ペルゲン」にあたる別個体として設計が進められていたが、開発の事情により最終的に同一個体として統合された。そのため開発用オリジナル機は、ナンバーテールズで唯一の二重人格個体となる"
+    "Backgrounds": "仮説111番2倍機が現「ドッペル」、3倍型2号機が現「ペルゲン」にあたる別個体として設計が進められていたが、開発の事情により最終的に同型式の別個体として設計が統合された。そのため開発用オリジナル機は、形式上1体として扱われる2体1式の個体となっている。"
   },
   {
     "Num": "222-mp",
@@ -443,9 +462,19 @@
       "dbName": "SemiPrimary",
       "_Search": [{ "hashTag": "Num", "key": 222 }]
     },
+    "Name": "ドッペルゲン",
+    "Name_EN": "Doppelgän",
     "FormalName": "量産型ナンバーテールズ222番機シリーズ",
     "FormalName_EN": "NumberTales #222 Series Mass Production Version for Sales",
-    "ModelNumber": "APHR-NT [MP]222-*****"
+    "ModelNumber": "APHR-NT [MP]222-*****",
+    "CodeName": "二二二",
+    "SPCodeName_EN": "Cloned I-s",
+    "GenderType": "FemaleNeutral",
+    "Height_cm": 148,
+    "ConceptAge": 16,
+    "Weight_kg": 42,
+    "BustSize": "A",
+    "TailsUnit": "尾鰭(特殊)型3本2枝"
   },
   {
     "Num": 333,
@@ -469,6 +498,8 @@
       "dbName": "SemiPrimary",
       "_Search": [{ "hashTag": "Num", "key": 333 }]
     },
+    "Name": "トリニティア",
+    "Name_EN": "Trinitia",
     "FormalName": "量産型ナンバーテールズ333番機シリーズ",
     "FormalName_EN": "NumberTales #333 Series Mass Production Version for Sales",
     "ModelNumber": "APHR-NT [MP]333-*****"
@@ -509,6 +540,8 @@
       "dbName": "SemiPrimary",
       "_Search": [{ "hashTag": "Num", "key": 444 }]
     },
+    "Name": "シテン",
+    "Name_EN": "Quad-emperone",
     "FormalName": "量産型ナンバーテールズ444番機シリーズ",
     "FormalName_EN": "NumberTales #444 Series Mass Production Version for Sales",
     "ModelNumber": "APHR-NT [MP]444-*****"
@@ -534,6 +567,8 @@
       "dbName": "SemiPrimary",
       "_Search": [{ "hashTag": "Num", "key": 555 }]
     },
+    "Name": "ハイファイブ",
+    "Name_EN": "High-Fiver",
     "FormalName": "量産型ナンバーテールズ555番機シリーズ",
     "FormalName_EN": "NumberTales #555 Series Mass Production Version for Sales",
     "ModelNumber": "APHR-NT [MP]555-*****"
@@ -586,9 +621,17 @@
       "concept_PNGName": "cnsp_img666-mp",
       "corefolder_PNGPath": ["emstk_corefolder666-mp1"]
     },
+    "Name": "リリス",
+    "Name_EN": "Lilith",
     "FormalName": "量産型ナンバーテールズ666番機シリーズ",
     "FormalName_EN": "NumberTales #666 Series Mass Production Version for Sales",
-    "ModelNumber": "APHR-NT [MP]666-*****"
+    "ModelNumber": "APHR-NT [MP]666-*****",
+    "GenderType": "FemaleNeutral",
+    "Height_cm": 150,
+    "ConceptAge": 16,
+    "Weight_kg": { "hideText": "非公開" },
+    "BustSize": "E",
+    "TailsUnit": "キツネ(特殊)型3束x6本"
   },
   {
     "Num": 777,
@@ -643,16 +686,26 @@
       "dbName": "SemiPrimary",
       "_Search": [{ "hashTag": "Num", "key": 777 }]
     },
+    "Name": "ヨロコビ",
+    "Name_EN": "Lucky-sevens\nLuckies",
     "ModelName": "ナンバーテールズ特殊個体[ラッキーセブンアール](777番機-ジャックポット)",
     "ModelNumber": "APHR-NT VIIx3.R",
     "FormalName": "ナンバーテールズ777番機-ジャックポット",
     "FormalName_EN": "NumberTales #777.Jackpot",
+    "Height_cm": 161,
+    "ConceptAge": {
+      "value": 32,
+      "about_JP": "概算値",
+      "about_EN": "Approximation"
+    },
+    "BustSize": "AA",
+    "GenderType": "MaleNeutral",
     "Weight_kg": [
       { "value": 50 },
       {
         "value": 5,
         "about_JP": "バックパック(娯楽装備)",
-        "about_EN": "Bakcpack(Amusement Equipment)"
+        "about_EN": "Backpack(Amusement Equipment)"
       },
       {
         "value": 3,
@@ -660,6 +713,7 @@
         "about_EN": "Addon for Amusement Equipment"
       }
     ],
+    "TailsUnit": "キツネ(特殊)型3束x7本",
     "NumerospecAbout": "スロットゲーム拡張アドオンにより運勢を娯楽的に見せる"
   },
   {
@@ -672,9 +726,28 @@
     "Images": {
       "concept_PNGName": "cnsp_img777-mp"
     },
+    "Name": "ヨロコビ",
+    "Name_EN": "Lucky-sevens\nLuckies",
     "FormalName": "量産型ナンバーテールズ777番機シリーズ",
     "FormalName_EN": "NumberTales #777 Series Mass Production Version for Sales",
-    "ModelNumber": "APHR-NT [MP]777-*****"
+    "ModelNumber": "APHR-NT [MP]777-*****",
+    "Height_cm": 161,
+    "ConceptAge": {
+      "value": 32,
+      "about_JP": "概算値",
+      "about_EN": "Approximation"
+    },
+    "Weight_kg": [
+      { "value": 50 },
+      {
+        "value": 3,
+        "about_JP": "バックパック(拡張I/O機器)",
+        "about_EN": "Backpack(I/O Addon)"
+      }
+    ],
+    "BustSize": "AA",
+    "GenderType": "MaleNeutral",
+    "TailsUnit": "キツネ(特殊)型3束x7本"
   },
   {
     "Num": "777.Jackpot-mp",
@@ -683,9 +756,33 @@
       "dbName": "SelfSecondary",
       "_Search": [{ "hashTag": "Num", "key": "777-mp" }]
     },
+    "Name": "ヨロコビ",
+    "Name_EN": "Lucky-sevens\nLuckies",
     "FormalName": "量産型ナンバーテールズ777番機[ジャックポット]シリーズ",
     "FormalName_EN": "NumberTales #777.Jackpot Series Mass Production Version for Sales",
-    "ModelNumber": "APHR-NT [MP]777JP-*****"
+    "ModelNumber": "APHR-NT [MP]777JP-*****",
+    "GenderType": "MaleNeutral",
+    "Height_cm": 161,
+    "ConceptAge": {
+      "value": 32,
+      "about_JP": "概算値",
+      "about_EN": "Approximation"
+    },
+    "Weight_kg": [
+      { "value": 50 },
+      {
+        "value": 5,
+        "about_JP": "バックパック(娯楽装備)",
+        "about_EN": "Backpack(Amusement Equipment)"
+      },
+      {
+        "value": 3,
+        "about_JP": "娯楽装備専用アドオン",
+        "about_EN": "Addon for Amusement Equipment"
+      }
+    ],
+    "BustSize": "AA",
+    "TailsUnit": "キツネ(特殊)型3束x7本"
   },
   {
     "Num": 888,
@@ -711,6 +808,8 @@
       "dbName": "SemiPrimary",
       "_Search": [{ "hashTag": "Num", "key": 888 }]
     },
+    "Name": "ムゲン",
+    "Name_EN": "Infy",
     "FormalName": "量産型ナンバーテールズ888番機シリーズ",
     "FormalName_EN": "NumberTales #888 Series Mass Production Version for Sales",
     "ModelNumber": "APHR-NT [MP]888-*****"
@@ -720,7 +819,7 @@
     "Progress": "notProceeded",
     "Name": "カンスト",
     "Name_EN": "Counstop",
-    "ModelName": "ナンバーテールズ最終型9号機(999番機)",
+    "ModelName": "ナンバーテールズ改良最終型9号機(999番機)",
     "ModelNumber": "APHR-NT [RZ]IX",
     "FormalName": "ナンバーテールズ999番機",
     "FormalName_EN": "NumberTales #999",
@@ -748,6 +847,8 @@
       "dbName": "SemiPrimary",
       "_Search": [{ "hashTag": "Num", "key": 999 }]
     },
+    "Name": "カンスト",
+    "Name_EN": "Counstop",
     "FormalName": "量産型ナンバーテールズ999番機シリーズ",
     "FormalName_EN": "NumberTales #999 Series Mass Production Version for Sales",
     "ModelNumber": "APHR-NT [MP]999-*****"
