@@ -435,8 +435,8 @@
     "Progress": "nowCreating",
     "Name": "ドッペル|ペルゲン\nドッペルゲンズ",
     "Name_EN": "Doppels|Pelgäns\nDoppelgäns",
-    "ModelName": "ナンバーテールズ仮説111番2倍機または3倍型2号機(222番機)",
-    "ModelNumber": "APHR-NT [Px]#111.2|[x3]II",
+    "ModelName": "ナンバーテールズ1+11号2倍機または3倍型2号機(222番機)",
+    "ModelNumber": "APHR-NT I+XI.2|[x3]II",
     "FormalName": "ナンバーテールズ222番機",
     "FormalName_EN": "NumberTales #222",
     "CodeName": "二二二",
@@ -445,15 +445,21 @@
     "Height_cm": [{ "value": 148, "about_JP": "平均", "about_EN": "Average" }],
     "ConceptAge": 16,
     "Weight_kg": [{ "value": 42, "about_JP": "平均", "about_EN": "Average" }],
-    "BustSize": {
-      "value": "A",
-      "about_JP": "平均",
-      "about_EN": "Average"
-    },
+    "BustSize": { "value": "A", "about_JP": "平均", "about_EN": "Average" },
     "TailsUnit": "尾鰭(特殊)型3本2枝",
     "Class": "マスタートリプル",
     "Class_EN": "Master Triples 9",
-    "Backgrounds": "仮説111番2倍機が現「ドッペル」、3倍型2号機が現「ペルゲン」にあたる別個体として設計が進められていたが、開発の事情により最終的に同型式の別個体として設計が統合された。そのため開発用オリジナル機は、形式上1体として扱われる2体1式の個体となっている。"
+    "FirstPersonCalling": "ドッペル：僕\nペルゲン：私",
+    "SecondPersonCalling": "ドッペル→他人：君\nドッペル→ペルゲン：ペーちゃん\nペルゲン→他人：貴方\nペルゲン→ドッペル：ドペさん",
+    "ThirdPersonCalling": "ドッペル：彼/彼女;~の人,＊れ;~くん/~ちゃん,~樣\nペルゲン：彼/彼女;~の方,＊方(＊ちら);~さん,~樣",
+    "ForMasterCalling": "兄樣/姉樣",
+    "Character": "ドッペル：人と一緒にいるのが好きでよく会話の輪に溶け込もうとする\nペルゲン：ふんわりと落ち着いた優しい気質でよく周りのことをみている",
+    "Hobby": "躯体共通：ボイスチャット（主に雑談）\nドッペル：友人と番組を同時視聴すること\nペルゲン：民泊で友人と過ごすこと",
+    "SpetialSkill": "ドッペル：喧嘩の仲裁\nペルゲン：寝具や居室回りの掃除、ベッドメイキング",
+    "Favor": "躯体共通：猫、コアフォルダ\nドッペル：親しい人とのスキンシップ\nペルゲン：親しい人との会合",
+    "Unlike": "躯体共通：自分勝手や私利私欲およびそのような態度の人\nドッペル：挟みな状況、頑なに（特定/不特定を問わず）他者を拒絶する人\nペルゲン：魔女狩り、美徳に反して他者を傷つける人",
+    "NumerospecAbout": "疎外感を解消し縁を育む",
+    "Backgrounds": "1+11号2倍機が現「ドッペル」、3倍型2号機が現「ペルゲン」にあたる別個体として設計が進められていたが、開発の事情により最終的に同型式の別個体として設計が統合された。そのため開発用オリジナル機は、形式上1体として扱われる2体1式の個体となっている。"
   },
   {
     "Num": "222-mp",
