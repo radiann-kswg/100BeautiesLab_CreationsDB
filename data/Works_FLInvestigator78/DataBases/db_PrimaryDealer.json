@@ -64,7 +64,7 @@
     "Unlike": "才能が発揮されない事",
     "FirstPersonCalling": "私(わたし)",
     "SecondPersonCalling": "君(きみ)",
-    "ThirdPersonCalling": "彼/彼女;[※名前呼び],～君",
+    "ThirdPersonCalling": "彼/彼女;[※名前呼び],~君",
     "For79or80thDealerCalling": {
       "For79thDealer": "舞(まい)君",
       "For80thDealer": "歌(うた)君"
@@ -321,7 +321,7 @@
     "Unlike": "自分の弱さ",
     "FirstPersonCalling": "私(わたし)",
     "SecondPersonCalling": "あなた",
-    "ThirdPersonCalling": "彼/彼女/[※名前呼び]",
+    "ThirdPersonCalling": "彼/彼女;[※名前呼び]",
     "For79or80thDealerCalling": {
       "For79thDealer": null,
       "For80thDealer": "歌嫁(うたか)"
@@ -363,7 +363,7 @@
     "Unlike": "自分の弱さ",
     "FirstPersonCalling": "私(わたし)",
     "SecondPersonCalling": "あなた",
-    "ThirdPersonCalling": "彼/彼女/[※名前呼び]",
+    "ThirdPersonCalling": "彼/彼女;[※名前呼び]",
     "For79or80thDealerCalling": {
       "For79thDealer": "舞(まい)",
       "For80thDealer": null

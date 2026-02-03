@@ -246,7 +246,7 @@
     "Age": { "value": 21, "about_JP": "自称", "about_EN": "Self-styled" },
     "FirstPersonCalling": "ワテ,僕",
     "SecondPersonCalling": "君(きみ),[※名前呼び]",
-    "ThirdPersonCalling": "彼/彼女;＊いつ/＊レ;~君/さん",
+    "ThirdPersonCalling": "彼/彼女;*いつ/*レ;~君/さん",
     "Belonging": ["フィジカル9"],
     "Class": "第８界担当",
     "Class_EN": "Owner of #REGION.8",
