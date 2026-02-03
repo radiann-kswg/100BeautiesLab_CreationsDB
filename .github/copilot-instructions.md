@@ -11,6 +11,9 @@
 - 回答は必ず日本語でしてください。
 - コードの変更をする際、変更量が 500 行を超える可能性が高い場合は、事前に「この指示では変更量が 500 行を超える可能性がありますが、実行しますか?」とユーザーに確認をとるようにしてください。
 - 何か大きい変更を加える場合、まず何をするのか計画を立てた上で、ユーザーに「このような計画で進めようと思います。」と提案してください。この時、ユーザーから計画の修正を求められた場合は計画を修正して、再提案をしてください。
+- 大規模な対応（例: 一括整形、広範囲な置換、複数ファイルへの横断的な変更、運用ルールの追加など）を行った場合は、`./_work_in_progress/` に対応ログ（Markdown）を残してください。
+  - 推奨ファイル名: `YYYY-MM-DD_<topic>.md`
+  - 推奨ログ内容: 目的 / 背景・課題 / 合意事項（ルール）/ 実装方針 / 変更ファイル一覧 / 検証（テスト・確認観点）/ 補足（今後の運用）
 
 ## アプリ概要
 
@@ -82,10 +85,14 @@
 │   └── sw.js                  # Service Worker (JavaScript)
 ├── svc/                       # 参照解決用スクリプト
 │   └── sw.js                  # Service Worker (JavaScript)
-└── tests/                     # テストユーティリティ
-    ├── data.sanity.test.js    # JSONファイルの整合性テスト
-    ├── data.shape.test.js     # データ構造テスト
-    └── sw.enrich.basic.test.js # Service Worker機能テスト
+├── tests/                     # テストユーティリティ
+│   ├── data.sanity.test.js    # JSONファイルの整合性テスト
+│   ├── data.shape.test.js     # データ構造テスト
+│   └── sw.enrich.basic.test.js # Service Worker機能テスト
+├── _work_in_progress/                    # 進捗状況ドキュメント
+│   └── *.md                   # Copilot作業進捗・説明用マークダウン
+└── .github/                    # GitHub設定
+    └── copilot-instructions.md # この指示書
 ```
 
 ## アーキテクチャ指針
