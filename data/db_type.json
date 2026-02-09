@@ -127,7 +127,7 @@
       "hashTag_JP": "強み"
     },
     {
-      "hashTag": "Weekpoint",
+      "hashTag": "Weakpoint",
       "$type": "#String|#Summary",
       "hashTag_JP": "弱み"
     },
