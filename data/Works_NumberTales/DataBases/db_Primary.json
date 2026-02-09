@@ -5114,7 +5114,10 @@
   },
   {
     "Num": 51,
-    "Progress": "nowCreating",
+    "Progress": "released",
+    "Images": {
+      "concept_PNGName": "cnsp_img51"
+    },
     "Name": "イソイチ",
     "Name_EN": "Fivone",
     "ModelName": "ナンバーテールズ1+5号機改(51番機)",
@@ -5145,7 +5148,7 @@
     "Strength": "発想が奇抜でアイディア性にたける",
     "Weakpoint": "他人の地雷を踏み抜きやすい",
     "NumerospecAbout": "閃きをもたらす",
-    "Summary": "枠にとらわれない思考の持ち主で、発想や着眼点についてはとても注目されている。\nしかし、本人が「“安全装置”を本体設計に組み込むことで“奇跡の個体”を安定最適化した個体」だと豪語している反面、その「奇跡を起こす」と噂される兄姉個体の改良個体としてはとんでもない駄作だと悪評を連ねる主人が一定数存在しているらしく……",
+    "Summary": "枠にとらわれない思考の持ち主で、発想や着眼点についてはとても注目されている。\nしかし、本人が「“安全装置”を本体設計に組み込むことで“奇跡の個体”を安定最適化した個体」だと豪語している反面、その「奇跡を起こす」と噂される兄姉個体の改良個体としてはとんでもない駄作だと悪評を連ねる主人が一定数存在している。\n本人は「59(イヅク)」よりマシだと自覚していないようだが……",
     "NumerospecStats": {
       "EffectStats": {
         "Mental": { "EffectText": "希薄" },
@@ -5170,7 +5173,41 @@
       "Actuation": { "Rank": "B" }
     },
     "InStory": "特異個体「1+5型」の安定最適化版だが……",
-    "Backgrounds": "兄姉個体「15(トウゴ)」を下方調整したと称されるほど改良機としては駄作個体という悪評がマニアな主人から出回っている。"
+    "Backgrounds": "兄姉個体「15(トウゴ)」を下方調整したと称されるほど改良機としては駄作個体という悪評がマニアな主人から出回っている。",
+    "Relation": {
+      "Related": [
+        {
+          "Num": 15,
+          "Comments": "おれの自慢の兄[姉]だ！",
+          "RelationLabel": ["brother|sister", "classmate"]
+        },
+        {
+          "Num": 59,
+          "Comments": "おれの方がまだ優秀だな！",
+          "RelationLabel": ["cousin", "unmatched", "adverselyAffected"]
+        }
+      ],
+      "Commented": [
+        {
+          "Num": 19,
+          "Comments": "掴みどころが無い",
+          "RelationLabel": ["cousin_nearly"]
+        },
+        {
+          "Num": 32,
+          "Comments": "できる人というのは見るだけでわかる"
+        },
+        {
+          "Num": 60,
+          "Comments": "魅力的で感性を刺激される"
+        },
+        {
+          "Num": 96,
+          "Comments": "ん？誰だおまえ…？",
+          "RelationLabel": ["classmate"]
+        }
+      ]
+    }
   },
   {
     "Num": 52,
