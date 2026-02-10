@@ -412,6 +412,11 @@
           "isForSecondary": false
         },
         {
+          "Area": "海陸国(シーバイランド)諸島",
+          "Area_EN": "Seabyislands",
+          "isForSecondary": false
+        },
+        {
           "Area": "雄志結国",
           "Area_EN": "United.Heroic.Nation",
           "isForSecondary": false
@@ -422,28 +427,53 @@
           "isForSecondary": false
         },
         {
-          "Area": "黒薔薇国",
-          "Area_EN": "SchwarzeRoseland",
-          "isForSecondary": false
-        },
-        {
           "Area": "四蓮島",
           "Area_EN": "LotasQuadrup.Island",
           "isForSecondary": false
+        },
+        {
+          "Area": "黒薔薇国",
+          "Area_EN": "SchwarzeRoseland",
+          "isForSecondary": null
+        },
+        {
+          "Area": "神皇国",
+          "Area_EN": "SaintPapis",
+          "isForSecondary": null
+        },
+        {
+          "Area": "算象(アリスマ)諸国",
+          "Area_EN": "Alismathians",
+          "isForSecondary": null
+        },
+        {
+          "Area": "金源(アウルムゲン)諸国",
+          "Area_EN": "Aurumgenics",
+          "isForSecondary": null
+        },
+        {
+          "Area": "南雌(イヴソース)大陸",
+          "Area_EN": "Evesouth Mainland",
+          "isForSecondary": null
+        },
+        {
+          "Area": "然天(ネーザ)大陸",
+          "Area_EN": "Naitus Mainland",
+          "isForSecondary": null
         },
         {
           "Area": "第８界",
           "Area_EN": "#REGION.8",
           "about": "(ただしこのエリアはこの創作世界全域を意味する)",
           "about_EN": "(However, this area means the entire creation world)",
-          "isForSecondary": false
+          "isForSecondary": null
         },
         {
           "Area": "超次元執筆空間(アトリエ)",
           "Area_EN": "#ATELIER: the super-dimensional owners space",
           "about": "(ただしこのエリアは創作世界として属されない)",
           "about_EN": "(However, this area does not belong to the creation world)",
-          "isForSecondary": false
+          "isForSecondary": null
         },
         {
           "Area": "第１界",
