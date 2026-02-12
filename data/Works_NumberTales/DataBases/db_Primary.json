@@ -4,6 +4,7 @@
     "Progress": "released",
     "Images": {
       "concept_PNGName": "cnsp_img1",
+      "corefolder_PNGPath": ["emstk_corefolder1-1", "emstk_corefolder1-2"],
       "arts_PNGPath": ["humanoids/2023/art_img1-humanoid"]
     },
     "Name": "ハジメ",
@@ -116,7 +117,7 @@
     "Progress": "released",
     "Images": {
       "concept_PNGName": "cnsp_img2",
-      "corefolder_PNGPath": ["emstk_corefolder2-1"],
+      "corefolder_PNGPath": ["emstk_corefolder2-1", "emstk_corefolder2-2"],
       "arts_PNGPath": [
         "art_numbertalesAniv2nd",
         "corefolders/2023/art_img2-corefolderWinter"
@@ -424,7 +425,11 @@
     "Progress": "released",
     "Images": {
       "concept_PNGName": "cnsp_img5",
-      "corefolder_PNGPath": ["emstk_corefolder5-1"]
+      "corefolder_PNGPath": [
+        "emstk_corefolder5-1",
+        "emstk_corefolder5-2",
+        "emstk_corefolder5-3"
+      ]
     },
     "Name": "イズ",
     "Name_EN": "Fifa",
@@ -523,7 +528,11 @@
     "Images": {
       "concept_PNGName": "cnsp_img6",
       "catalog_PNGName": "chr-dsgn_catalog6",
-      "corefolder_PNGPath": ["emstk_corefolder6-1"]
+      "corefolder_PNGPath": [
+        "emstk_corefolder6-1",
+        "emstk_corefolder6-2",
+        "emstk_corefolder6-3"
+      ]
     },
     "Name": "ムイ",
     "Name_EN": "Sics",
@@ -1120,7 +1129,7 @@
     "Progress": "released",
     "Images": {
       "concept_PNGName": "cnsp_img12",
-      "corefolder_PNGPath": ["emstk_corefolder12-1"],
+      "corefolder_PNGPath": ["emstk_corefolder12-1", "emstk_corefolder12-2"],
       "arts_PNGPath": ["humanoids/2023/art_img12-humanoid"]
     },
     "Name": "トウジ",
@@ -1569,7 +1578,11 @@
     "Images": {
       "concept_PNGName": "cnsp_img16",
       "catalog_PNGName": "chr-dsgn_catalog16",
-      "corefolder_PNGPath": ["emstk_corefolder16-1"],
+      "corefolder_PNGPath": [
+        "emstk_corefolder16-1",
+        "emstk_corefolder16-2",
+        "emstk_corefolder16-3"
+      ],
       "arts_PNGPath": [
         "corefolders/2024/art_img16-corefolderA",
         "corefolders/2024/art_img16-corefolderB"
@@ -2195,7 +2208,11 @@
     "Progress": "released",
     "Images": {
       "concept_PNGName": "cnsp_img22",
-      "corefolder_PNGPath": ["emstk_corefolder22-1", "emstk_corefolder22-2"],
+      "corefolder_PNGPath": [
+        "emstk_corefolder22-1",
+        "emstk_corefolder22-2",
+        "emstk_corefolder22-3"
+      ],
       "arts_PNGPath": [
         "AutumnMoon/art_AutumnMoon2023",
         "AutumnMoon/art_AutumnMoon2024"
@@ -3895,7 +3912,11 @@
     "Images": {
       "concept_PNGName": "cnsp_img39",
       "catalog_PNGName": "chr-dsgn_catalog39",
-      "corefolder_PNGPath": ["emstk_corefolder39-1"],
+      "corefolder_PNGPath": [
+        "emstk_corefolder39-1",
+        "emstk_corefolder39-2",
+        "emstk_corefolder39-3"
+      ],
       "arts_PNGPath": [
         "humanoids/2023/art_img39-humanoidA",
         "humanoids/2023/art_img39-humanoidB"
@@ -4191,7 +4212,7 @@
     "Progress": "released",
     "Images": {
       "concept_PNGName": "cnsp_img42",
-      "corefolder_PNGPath": ["emstk_corefolder42-1"],
+      "corefolder_PNGPath": ["emstk_corefolder42-1", "emstk_corefolder42-2"],
       "arts_PNGPath": [
         "humanoids/2023/art_img42-humanoidA",
         "humanoids/2023/art_img42-humanoidB"
@@ -4705,7 +4726,7 @@
     "Progress": "released",
     "Images": {
       "concept_PNGName": "cnsp_img47",
-      "corefolder_PNGPath": ["emstk_corefolder47-1"],
+      "corefolder_PNGPath": ["emstk_corefolder47-1", "emstk_corefolder47-2"],
       "arts_PNGPath": [
         "humanoids/2023/art_img47-humanoid",
         "corefolders/sphericateDay/art_sphericateDay202307"
@@ -6241,7 +6262,11 @@
     "Progress": "released",
     "Images": {
       "concept_PNGName": "cnsp_img63",
-      "corefolder_PNGPath": ["emstk_corefolder63-1"],
+      "corefolder_PNGPath": [
+        "emstk_corefolder63-1",
+        "emstk_corefolder63-2",
+        "emstk_corefolder63-3"
+      ],
       "arts_PNGPath": ["art_mothersDay2023"]
     },
     "Name": "ムツミ",
@@ -8229,6 +8254,7 @@
   {
     "Num": 84,
     "Progress": "nowCreating",
+    "Images": { "corefolder_PNGPath": ["emstk_corefolder84-1"] },
     "Name": "ヤツヨ",
     "Name_EN": "Eightifort",
     "ModelName": "ナンバーテールズ4+8号機乙(84番機)",
@@ -8396,6 +8422,7 @@
   {
     "Num": 86,
     "Progress": "nowCreating",
+    "Images": { "corefolder_PNGPath": ["emstk_corefolder86-1"] },
     "Name": "ハチロ",
     "Name_EN": "Eightix",
     "ModelName": "ナンバーテールズ6+8号機乙(86番機)",
@@ -8490,7 +8517,11 @@
     "Progress": "released",
     "Images": {
       "concept_PNGName": "cnsp_img87",
-      "corefolder_PNGPath": ["emstk_corefolder87-1"]
+      "corefolder_PNGPath": [
+        "emstk_corefolder87-1",
+        "emstk_corefolder87-2",
+        "emstk_corefolder87-3"
+      ]
     },
     "Name": "ヤシナ\nハナ",
     "Name_EN": "Eighteven\nEivee",
@@ -9213,7 +9244,7 @@
     "Progress": "released",
     "Images": {
       "concept_PNGName": "cnsp_img96",
-      "corefolder_PNGPath": ["emstk_corefolder96-1"],
+      "corefolder_PNGPath": ["emstk_corefolder96-1", "emstk_corefolder96-2"],
       "arts_PNGPath": [
         "humanoids/2023/art_img96-humanoid",
         "humanoids/2023/art_img96-humanoidCastOff"
@@ -9321,7 +9352,11 @@
     "Progress": "released",
     "Images": {
       "concept_PNGName": "cnsp_img97",
-      "corefolder_PNGPath": ["emstk_corefolder97-1"]
+      "corefolder_PNGPath": [
+        "emstk_corefolder97-1",
+        "emstk_corefolder97-2",
+        "emstk_corefolder97-3"
+      ]
     },
     "Name": "ココナ",
     "Name_EN": "Ninsefie",
@@ -9620,7 +9655,10 @@
     "Progress": "released",
     "Images": {
       "concept_PNGName": "cnsp_img2-alt",
-      "corefolder_PNGPath": ["emstk_corefolder2alt-1"],
+      "corefolder_PNGPath": [
+        "emstk_corefolder2alt-1",
+        "emstk_corefolder2alt-2"
+      ],
       "arts_PNGPath": [
         "corefolders/sphericateDay/art_sphericateDay202112",
         "art_numbertalesAniv2nd"
@@ -9796,7 +9834,11 @@
     "Progress": "released",
     "Images": {
       "concept_PNGName": "cnsp_img000",
-      "corefolder_PNGPath": ["emstk_corefolder000-1"]
+      "corefolder_PNGPath": [
+        "emstk_corefolder000-1",
+        "emstk_corefolder000-2",
+        "emstk_corefolder000-3"
+      ]
     },
     "Name": "チトセ",
     "Name_EN": "Thouser",
