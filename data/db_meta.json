@@ -4,7 +4,12 @@
       "Title": "ナンバーテールズ",
       "Title_EN": "NumberTales",
       "Works_Summary": "九蓮国にあるヴェンチャーラボ「百花繚乱研究所」で零(レイ)と百(ハゲム)が手掛けている妖獣型生活支援ポータブルヒューマノイド。\n主に数字や数秘に基づいた妖獣型のキャラクターが存在する。",
-      "$DefType_Index": { "hashTag": "Num", "$type": "#Number|#String" }
+      "$DefType_Index": {
+        "hashTag": "Num",
+        "$type": "#Number|#String",
+        "hashTagName_JP": "番号",
+        "hashTagName_EN": "Number"
+      }
     },
     "#Works_FLInvestigator78": {
       "Title": "運命線探偵78",
@@ -20,8 +25,18 @@
       "$DefType_Index": {
         "hashTag": "Card",
         "$type": [
-          { "hashTag": "Stoat", "$type": "#ListIndex" },
-          { "hashTag": "Num", "$type": "#Number" }
+          {
+            "hashTag": "Stoat",
+            "$type": "#ListIndex",
+            "hashTagName_JP": "カード種別",
+            "hashTagName_EN": "CardType"
+          },
+          {
+            "hashTag": "Num",
+            "$type": "#Number",
+            "hashTagName_JP": "カード番号",
+            "hashTagName_EN": "CardNumber"
+          }
         ]
       }
     },
@@ -31,14 +46,28 @@
       "Works_Summary": "龍天国にある山月病(変化病)対策組織「獣爾騎兵」に所属する獣人型改造人間。\n主に十二支などの動物に基づいた獣人キャラクターが存在する。",
       "$DefType_Index": {
         "hashTag": "BeastType",
-        "$type": [{ "hashTag": "Beast", "$type": "#ListIndex" }]
+        "$type": [
+          {
+            "hashTag": "Beast",
+            "$type": "#ListIndex",
+            "hashTagName_JP": "動物",
+            "hashTagName_EN": "Beast"
+          }
+        ],
+        "hashTagName_JP": "獣種",
+        "hashTagName_EN": "BeastType"
       }
     },
     "#Works_SinisterChangingGirls": {
       "Title": "豹変系女子",
       "Title_EN": "Sinister Changing Girls",
       "Works_Summary": "創作世界の各国を放浪している謎多き少女。\n主に七つの大罪や八方位などに基づいた二面性と特徴を持つガーリッシュな８人のキャラクターからなる。",
-      "$DefType_Index": { "hashTag": "Drc", "$type": "#String" }
+      "$DefType_Index": {
+        "hashTag": "Drc",
+        "$type": "#String",
+        "hashTagName_JP": "方角",
+        "hashTagName_EN": "Direction"
+      }
     },
     "#Works_UnauthedLogica": {
       "Title": "アンオースドロジカ",
@@ -47,8 +76,18 @@
       "$Def_Index": {
         "hashTag": "Model",
         "$valType": [
-          { "hashTag": "LogicSeries", "$valType": "#String|#Null" },
-          { "hashTag": "Num", "$valType": "#Number|#String|#Null" }
+          {
+            "hashTag": "LogicSeries",
+            "$valType": "#String|#Null",
+            "hashTagName_JP": "ロジック系統",
+            "hashTagName_EN": "LogicSeries"
+          },
+          {
+            "hashTag": "Num",
+            "$valType": "#Number|#String|#Null",
+            "hashTagName_JP": "ロジック番号",
+            "hashTagName_EN": "LogicNumber"
+          }
         ]
       }
     },
@@ -59,8 +98,18 @@
       "$DefType_Index": {
         "hashTag": "Chronos",
         "$type": [
-          { "hashTag": "Lunar", "$type": "#ListDef" },
-          { "hashTag": "Generation", "$type": "#Number|#Null" }
+          {
+            "hashTag": "Lunar",
+            "$type": "#ListDef",
+            "hashTagName_JP": "和暦",
+            "hashTagName_EN": "Lunar"
+          },
+          {
+            "hashTag": "Generation",
+            "$type": "#Number|#Null",
+            "hashTagName_JP": "世代",
+            "hashTagName_EN": "Generation"
+          }
         ]
       }
     },
@@ -75,13 +124,23 @@
         }
       ],
       "Works_Summary": "弊創作を執筆している「ラジアン」の仲間たち。\n主に科学単位や数学用語に基づいた獣人のキャラクターからなる。\nちなみに、当タイトルのいう「ラジアン」とは作者の２代目代理のことである。",
-      "$DefType_Index": { "hashTag": "Unit", "$type": "#String" }
+      "$DefType_Index": {
+        "hashTag": "Unit",
+        "$type": "#String",
+        "hashTagName_JP": "理学単位次元",
+        "hashTagName_EN": "UnitalDimention"
+      }
     },
     "#Works_Proxies": {
       "Title": "運命線狐の記録",
       "Title_EN": "Destiny Fox's Records",
       "Works_Summary": "弊創作を執筆している「ラジアン」の代理キャラクター",
-      "$DefType_Index": { "hashTag": "Generation", "$type": "#Number" }
+      "$DefType_Index": {
+        "hashTag": "Generation",
+        "$type": "#Number",
+        "hashTagName_JP": "代理の世代",
+        "hashTagName_EN": "ProxyGeneration"
+      }
     }
   },
   "General": {

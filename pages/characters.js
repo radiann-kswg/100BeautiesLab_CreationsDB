@@ -490,7 +490,104 @@ function getWorkIndexField(workKey, globalMeta) {
   if (!globalMeta || !globalMeta.CreationWorks) return null;
 
   const workMeta = globalMeta.CreationWorks[workKey];
-  return workMeta ? workMeta.$DefType_Index : null;
+  if (!workMeta) return null;
+  // 作品ごとに Index 定義のキーが揺れている場合があるためフォールバック対応
+  // - $DefType_Index: 現行
+  // - $Def_Index: 旧/暫定
+  return workMeta.$DefType_Index || workMeta.$Def_Index || null;
+}
+
+/**
+ * Index 定義からラベルを取得
+ * @param {Object} def - $DefType_Index もしくはその子要素
+ * @returns {string} 表示用ラベル（日本語優先）
+ */
+function getIndexLabel(def) {
+  if (!def || typeof def !== 'object') return '';
+  return (
+    def.hashTagName_JP ||
+    def.hashTag_JP ||
+    def.hashtag_JP ||
+    def.hashTagName_EN ||
+    def.hashTag ||
+    ''
+  );
+}
+
+/**
+ * Index 定義から子フィールド定義配列を取得（$type / $valType の揺れを吸収）
+ * @param {Object} indexDef - $DefType_Index
+ * @returns {Array|null}
+ */
+function getIndexSubDefs(indexDef) {
+  if (!indexDef || typeof indexDef !== 'object') return null;
+  if (Array.isArray(indexDef.$type)) return indexDef.$type;
+  if (Array.isArray(indexDef.$valType)) return indexDef.$valType;
+  return null;
+}
+
+/**
+ * Index 定義から「主要」サブフィールドを推定
+ * - typedef の $type から #Number/#ListIndex を優先
+ * @param {Array} subDefs - indexDef.$type の配列
+ * @returns {Object|null}
+ */
+function pickPrimaryIndexSubDef(subDefs) {
+  if (!Array.isArray(subDefs) || subDefs.length === 0) return null;
+
+  const score = (d) => {
+    if (!d || typeof d !== 'object') return -1;
+    const t = d.$type ?? d.$valType;
+    const tStr = typeof t === 'string' ? t : JSON.stringify(t);
+    if (tStr && tStr.includes('#Number')) return 30;
+    if (tStr && tStr.includes('#ListIndex')) return 20;
+    if (tStr && tStr.includes('#String')) return 10;
+    return 0;
+  };
+
+  return subDefs
+    .filter(d => d && typeof d === 'object' && typeof d.hashTag === 'string')
+    .slice()
+    .sort((a, b) => score(b) - score(a))[0] || null;
+}
+
+/**
+ * レコードと Index 定義から、一覧用のアクセントチップ文字列を生成
+ * @param {Object} rec - レコード
+ * @param {Object|null} indexDef - $DefType_Index
+ * @returns {string|null}
+ */
+function buildIndexChipText(rec, indexDef) {
+  if (!rec || typeof rec !== 'object') return null;
+  if (!indexDef || typeof indexDef !== 'object') return null;
+
+  const rootKey = indexDef.hashTag;
+  if (!rootKey || typeof rootKey !== 'string') return null;
+
+  const subDefs = getIndexSubDefs(indexDef);
+  const rootVal = rec[rootKey];
+
+  // ネスト構造（例: Card.Num / BeastType.Beast）
+  if (Array.isArray(subDefs) && subDefs.length > 0 && rootVal && typeof rootVal === 'object') {
+    const primarySub = pickPrimaryIndexSubDef(subDefs);
+    const candidates = primarySub ? [primarySub, ...subDefs.filter(d => d !== primarySub)] : subDefs;
+    for (const sub of candidates) {
+      const subKey = sub?.hashTag;
+      if (!subKey || typeof subKey !== 'string') continue;
+      const v = rootVal[subKey];
+      const formatted = formatValueForDisplay(v, {});
+      if (!formatted) continue;
+      const label = getIndexLabel(sub) || getIndexLabel(indexDef);
+      return label ? `${label}: ${formatted}` : formatted;
+    }
+    return null;
+  }
+
+  // スカラー（例: Num / Drc / Unit）
+  const formatted = formatValueForDisplay(rootVal, {});
+  if (!formatted) return null;
+  const label = getIndexLabel(indexDef);
+  return label ? `${label}: ${formatted}` : formatted;
 }
 
 /**
@@ -701,6 +798,54 @@ function buildFieldLabelMap(workTypeDef, globalTypeDef = {}) {
   return labelMap;
 
   return labelMap;
+}
+
+/**
+ * db_type.json($DefType) から、トップレベルのフィールド定義（順序付き）を抽出
+ * - work の定義を優先し、同名フィールドは global を追加しない
+ * - Images コンテナは除外（ギャラリー処理が担当）
+ * @param {Object|Array} workTypeDef - 作品ごとの typedef（/v1/works/{work}/typedef）
+ * @param {Object|Array} globalTypeDef - グローバル typedef（/v1/typedef/global）
+ * @returns {Array<{key:string,label:string,type:any,source:string}>}
+ */
+function extractTopLevelSchemaFields(workTypeDef, globalTypeDef = {}) {
+  const out = [];
+  const seen = new Set();
+
+  const pickDefArray = (def) => {
+    if (!def) return null;
+    if (Array.isArray(def)) return def;
+    if (Array.isArray(def?.$DefType)) return def.$DefType;
+    if (Array.isArray(def?.typedef?.$DefType)) return def.typedef.$DefType;
+    if (Array.isArray(def?.global)) return def.global;
+    return null;
+  };
+
+  const addFrom = (def, source) => {
+    const arr = pickDefArray(def);
+    if (!Array.isArray(arr)) return;
+
+    for (const item of arr) {
+      if (!item || typeof item !== 'object') continue;
+      const key = item.hashTag;
+      if (!key || typeof key !== 'string') continue;
+      if (key === 'Images') continue;
+      if (seen.has(key)) continue;
+
+      const label = item.hashTag_JP || item.hashtag_JP || key;
+      out.push({
+        key,
+        label,
+        type: item.$type,
+        source
+      });
+      seen.add(key);
+    }
+  };
+
+  addFrom(workTypeDef, 'work');
+  addFrom(globalTypeDef, 'global');
+  return out;
 }
 
 /**
@@ -1481,6 +1626,10 @@ async function renderList(records, workId, onOpen, imageFields = null) {
   const qs = getQS();
   const filter = (qs.q || $('#search-input').value || '').trim();
 
+  // 作品ごとのインデックス定義（表示名含む）を取得
+  const globalMeta = await fetchGlobalMeta();
+  const indexDef = getWorkIndexField(workId, globalMeta);
+
   // グローバルステートから現在のデータベース名を取得
   const state = window.__CHAR_STATE__;
   const dbName = state ? state.db : 'Primary';
@@ -1516,13 +1665,10 @@ async function renderList(records, workId, onOpen, imageFields = null) {
     if (r.Class || r.Class_EN) chipEls.push(el('span', { class: 'chip' }, r.Class || r.Class_EN));
     if (r.RaceType_JP || r.RaceType) chipEls.push(el('span', { class: 'chip' }, r.RaceType_JP || r.RaceType));
 
-    // Handle special index fields for different works
-    if (r.Num != null && workId.includes('NumberTales')) {
-      chipEls.push(el('span', { class: 'chip accent' }, `#${r.Num}`));
-    } else if (r.Card && r.Card.Num != null && workId.includes('FLInvestigator')) {
-      chipEls.push(el('span', { class: 'chip accent' }, `Card ${r.Card.Num}`));
-    } else if (r.BeastType && r.BeastType.Beast && workId.includes('ShouAr')) {
-      chipEls.push(el('span', { class: 'chip accent' }, r.BeastType.Beast));
+    // Index chip (schema-driven via db_meta.json $DefType_Index)
+    const indexChipText = buildIndexChipText(r, indexDef);
+    if (indexChipText) {
+      chipEls.push(el('span', { class: 'chip accent' }, indexChipText));
     }
 
     const item = el('article', {
@@ -1669,7 +1815,12 @@ async function renderDetail(workId, rec) {
     el('div', { class: 'name' }, rec.Name || rec.FormalName || rec.Name_EN || '(No Name)'),
     (rec.Name_EN || rec.FormalName_EN) ? el('div', { class: 'name-en' }, rec.Name_EN || rec.FormalName_EN) : null,
     el('div', { class: 'row small' }, [
-      rec.Num != null ? el('span', { class: 'pill' }, [getFieldLabel('Num', fieldLabelMap, workMeta, 'Num'), String(rec.Num)]) : null,
+      (() => {
+        const workIndexDef = getWorkIndexField(workId, globalMeta);
+        const indexChipText = buildIndexChipText(rec, workIndexDef);
+        if (!indexChipText) return null;
+        return el('span', { class: 'pill' }, [indexChipText]);
+      })(),
       rec.ModelNumber ? el('span', { class: 'pill' }, [getFieldLabel('ModelNumber', fieldLabelMap, workMeta, 'Model'), rec.ModelNumber]) : null,
       rec.Progress ? el('span', { class: 'pill' }, [getFieldLabel('Progress', fieldLabelMap, workMeta, 'Progress'), rec.Progress]) : null
     ])
@@ -1759,14 +1910,29 @@ async function renderDetail(workId, rec) {
     '_DBLinkResolved'
   ]);
 
-  // 長文・プロフィール系はテーブルではなく改行保持で表示
-  const profileTextKeys = [
+  // db_type.json 由来の表示順（トップレベル）
+  const schemaFields = extractTopLevelSchemaFields(workTypeDef, globalTypeDef);
+  const schemaKeySet = new Set(schemaFields.map(f => f.key));
+
+  // スキーマから #Summary（長文）系を抽出し、プロフィールセクションに回す
+  const isSummaryType = (t) => {
+    const s = String(t ?? '');
+    return s.includes('#Summary');
+  };
+
+  // 既存の慣習キー（db_type 側が未整備でも表示が落ちないように残す）
+  const legacyProfileTextKeys = [
     'Character', 'Hobby', 'SpetialSkill',
     'Strength', 'Weakpoint', 'Favor', 'Unlike',
     'InStory', 'Background',
-    'BeastspecName', 'BeastspecName_EN', 'BeastspecAbout',
-    'ArcanamspecAbout'
+    'BeastspecAbout', 'NumerospecAbout', 'ArcanamspecAbout', 'LogicspecAbout'
   ];
+
+  const schemaProfileTextKeys = schemaFields
+    .filter(f => f.key !== 'Summary' && isSummaryType(f.type))
+    .map(f => f.key);
+
+  const profileTextKeys = Array.from(new Set([...schemaProfileTextKeys, ...legacyProfileTextKeys]));
 
   const profileItems = profileTextKeys
     .filter((k) => rec && rec[k] != null && rec[k] !== '')
@@ -1783,28 +1949,58 @@ async function renderDetail(workId, rec) {
     })
     .filter(Boolean);
 
-  // 未表示の残り項目を包括表示（作品ごとの差分を吸収）
-  const extras = Object.entries(rec || {})
+  const isEmptyValue = (v) => v === null || v === undefined || v === '';
+  const isInternalButAllowed = (k) => k === '_DBLink';
+  const shouldSkipKey = (k, v) => {
+    if (shownKeys.has(k)) return true;
+    if (k === 'Images') return true;
+    if (k.startsWith('_') && !isInternalButAllowed(k)) return true;
+    if (isEmptyValue(v)) return true;
+    return false;
+  };
+
+  const toDisplayNode = (k, v, schemaType = null) => {
+    // スキーマ的に Summary 系 or 文字列改行は pre-wrap
+    if (typeof v === 'string' && v.includes('\n')) return preWrapText(v);
+    if (schemaType != null && isSummaryType(schemaType)) {
+      const formatted = typeof v === 'string' ? v : formatValueForDisplay(v, fieldLabelMap, workMeta, globalDefType);
+      if (formatted && String(formatted).includes('\n')) return preWrapText(formatted);
+      // Summary でも単行の場合は preWrap にしておく（安全側）
+      return preWrapText(formatted);
+    }
+    const formatted = formatValueForDisplay(v, fieldLabelMap, workMeta, globalDefType);
+    if (typeof formatted === 'string' && formatted.includes('\n')) return preWrapText(formatted);
+    return formatted;
+  };
+
+  // 1) スキーマ順で未表示フィールドを表示
+  const extrasSchema = schemaFields
+    .filter(f => !shownKeys.has(f.key))
+    .map(f => {
+      const v = rec?.[f.key];
+      if (shouldSkipKey(f.key, v)) return null;
+      shownKeys.add(f.key);
+      return [
+        getFieldLabel(f.key, fieldLabelMap, workMeta, globalDefType, f.label),
+        toDisplayNode(f.key, v, f.type)
+      ];
+    })
+    .filter(Boolean);
+
+  // 2) スキーマ外（追加/互換/暫定）のフィールドをフォールバックで表示
+  const extrasOther = Object.entries(rec || {})
     .filter(([k, v]) => {
-      if (shownKeys.has(k)) return false;
-      // 内部情報のうち、表示が有用なもの（_DBLink）は残す
-      if (k.startsWith('_') && k !== '_DBLink') return false;
-      if (v === null || v === undefined || v === '') return false;
-      // 画像コンテナはギャラリーで表示する
-      if (k === 'Images') return false;
-      return true;
+      if (schemaKeySet.has(k)) return false;
+      return !shouldSkipKey(k, v);
     })
     .map(([k, v]) => {
-      const label = getFieldLabel(k, fieldLabelMap, workMeta, globalDefType, k);
-      let display;
-      if (typeof v === 'string' && v.includes('\n')) {
-        display = preWrapText(v);
-      } else {
-        const formatted = formatValueForDisplay(v, fieldLabelMap, workMeta, globalDefType);
-        display = (typeof formatted === 'string' && formatted.includes('\n')) ? preWrapText(formatted) : formatted;
-      }
-      return [label, display];
+      return [
+        getFieldLabel(k, fieldLabelMap, workMeta, globalDefType, k),
+        toDisplayNode(k, v, null)
+      ];
     });
+
+  const extras = [...extrasSchema, ...extrasOther];
 
   const right = el('div', {}, [
     titleRow,

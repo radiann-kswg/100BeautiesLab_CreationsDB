@@ -170,7 +170,7 @@ class PagesServiceWorker extends ServiceWorkerBase {
     }
 
     // 充実化処理
-    records = await this.enrichmentProcessor.enrichRecords(records, workId);
+    records = await this.enrichmentProcessor.enrichRecords(records, workId, dbName);
 
     const response = {
       work: workId,
