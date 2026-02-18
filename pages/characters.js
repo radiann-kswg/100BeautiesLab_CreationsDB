@@ -128,6 +128,9 @@ function getQS() {
     work: p.get('work') || '',
     db: p.get('db') || '',
     num: p.get('num') || '',
+    // 汎用インデックス直リンク（作品ごとの $DefType_Index に対応）
+    idx: p.get('idx') || '',
+    idxKey: p.get('idxKey') || '',
     q: p.get('q') || ''
   };
 }
@@ -549,6 +552,70 @@ function pickPrimaryIndexSubDef(subDefs) {
     .filter(d => d && typeof d === 'object' && typeof d.hashTag === 'string')
     .slice()
     .sort((a, b) => score(b) - score(a))[0] || null;
+}
+
+/**
+ * レコードと Index 定義から、直リンク用の識別子（keyPath + value）を抽出
+ * @param {Object} rec - レコード
+ * @param {Object|null} indexDef - $DefType_Index
+ * @returns {{keyPath:string,value:string}|null}
+ */
+function getIndexIdentifierFromRecord(rec, indexDef) {
+  if (!rec || typeof rec !== 'object') return null;
+  if (!indexDef || typeof indexDef !== 'object') return null;
+
+  const rootKey = indexDef.hashTag;
+  if (!rootKey || typeof rootKey !== 'string') return null;
+
+  const subDefs = getIndexSubDefs(indexDef);
+  const rootVal = rec[rootKey];
+
+  // ネスト構造（例: Card.Num / BeastType.Beast）
+  if (Array.isArray(subDefs) && subDefs.length > 0 && rootVal && typeof rootVal === 'object') {
+    const primarySub = pickPrimaryIndexSubDef(subDefs);
+    const candidates = primarySub ? [primarySub, ...subDefs.filter(d => d !== primarySub)] : subDefs;
+    for (const sub of candidates) {
+      const subKey = sub?.hashTag;
+      if (!subKey || typeof subKey !== 'string') continue;
+      const v = rootVal[subKey];
+      const formatted = formatValueForDisplay(v, {});
+      if (!formatted) continue;
+      return { keyPath: `${rootKey}.${subKey}`, value: String(formatted) };
+    }
+    return null;
+  }
+
+  // スカラー（例: Num / Drc / Unit）
+  const formatted = formatValueForDisplay(rootVal, {});
+  if (!formatted) return null;
+  return { keyPath: rootKey, value: String(formatted) };
+}
+
+/**
+ * 直リンククエリ（idx/idxKey/num）に一致するかどうか
+ * @param {Object} rec - レコード
+ * @param {Object|null} indexDef - $DefType_Index
+ * @param {string} idxValue - クエリの値
+ * @param {string} idxKeyPath - クエリのキー（任意）
+ * @param {string} legacyNum - 旧 ?num= の値（任意）
+ * @returns {boolean}
+ */
+function recordMatchesIndexQuery(rec, indexDef, idxValue, idxKeyPath, legacyNum = '') {
+  const qVal = String(idxValue || '').trim();
+  if (!qVal) {
+    const legacy = String(legacyNum || '').trim();
+    if (!legacy) return false;
+    return rec && rec.Num != null && String(rec.Num) === legacy;
+  }
+
+  const id = getIndexIdentifierFromRecord(rec, indexDef);
+  if (id) {
+    if (idxKeyPath && id.keyPath !== idxKeyPath) return false;
+    return String(id.value) === qVal;
+  }
+
+  // indexDef が無い場合の最小互換（NumberTales の ?num= など）
+  return rec && rec.Num != null && String(rec.Num) === qVal;
 }
 
 /**
@@ -2179,14 +2246,14 @@ function wireControls() {
   // Define and store new handlers
   window.__eventHandlers.workChange = async (e) => {
     const wk = e.target.value;
-    setQS({ work: wk.replace('#', ''), db: '', num: '' });
+    setQS({ work: wk.replace('#', ''), db: '', num: '', idx: '', idxKey: '' });
     await populateDBs(wk);
     await reload();
   };
 
   window.__eventHandlers.dbChange = async (e) => {
     const db = e.target.value;
-    setQS({ db, num: '' });
+    setQS({ db, num: '', idx: '', idxKey: '' });
     await reload();
   };
 
@@ -2200,7 +2267,7 @@ function wireControls() {
   window.__eventHandlers.backClick = () => {
     $('#detail-view').hidden = true;
     $('#list-view').hidden = false;
-    setQS({ num: '' });
+    setQS({ num: '', idx: '', idxKey: '' });
   };
 
   // Add new handlers
@@ -2278,12 +2345,27 @@ async function populateDBs(workKey, initialDB) {
   return sel.value;
 }
 
-function openDetail(rec) {
+async function openDetail(rec) {
   const state = window.__CHAR_STATE__;
   $('#list-view').hidden = true;
   $('#detail-view').hidden = false;
   renderDetail(state.workId, rec);
-  if (rec.Num != null) setQS({ num: String(rec.Num) });
+
+  // 作品ごとのインデックス定義に従って、直リンク用パラメータを更新
+  try {
+    const globalMeta = await fetchGlobalMeta();
+    const indexDef = getWorkIndexField(state.workId, globalMeta);
+    const id = getIndexIdentifierFromRecord(rec, indexDef);
+    if (id) {
+      const legacyNum = id.keyPath === 'Num' ? id.value : '';
+      setQS({ idx: id.value, idxKey: id.keyPath, num: legacyNum });
+    } else if (rec.Num != null) {
+      // 最小互換
+      setQS({ num: String(rec.Num), idx: '', idxKey: '' });
+    }
+  } catch {
+    if (rec.Num != null) setQS({ num: String(rec.Num) });
+  }
 }
 
 /**
@@ -2584,12 +2666,17 @@ async function reloadInternal(showLoading = true) {
     await renderList(recs, workId, openDetail, imageFields);
     console.log(`⏱️ ${currentStep} completed in ${(performance.now() - uiStart).toFixed(2)}ms`);
 
-    if (qs.num) {
-      const target = recs.find(r => String(r.Num) === String(qs.num));
+    // 直リンク: idx/idxKey（汎用） または num（旧互換）
+    const globalMeta = await fetchGlobalMeta();
+    const indexDef = getWorkIndexField(workId, globalMeta);
+    const idxValue = qs.idx || qs.num;
+    const idxKeyPath = qs.idxKey || (qs.num ? 'Num' : '');
+    if (idxValue) {
+      const target = recs.find(r => recordMatchesIndexQuery(r, indexDef, idxValue, idxKeyPath, qs.num));
       if (target) {
         openDetail(target);
       } else {
-        console.warn('⚠️ Character not found for number:', qs.num);
+        console.warn('⚠️ Character not found for index:', { idxValue, idxKeyPath, legacyNum: qs.num });
       }
     }
 
