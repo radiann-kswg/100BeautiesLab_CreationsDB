@@ -564,7 +564,7 @@ function extractImageFields(workTypeDef, globalTypeDef = {}) {
             const fieldSpec = {
               field: child.hashTag,
               type: child.$type || '#PNGFileName',
-              label: child.hashTag_JP || child.hashTag,
+              label: child.hashTag_JP || child.hashtag_JP || child.hashTag,
               path: ['Images', child.hashTag],
               category,
               priority,
@@ -582,7 +582,7 @@ function extractImageFields(workTypeDef, globalTypeDef = {}) {
         const fieldSpec = {
           field: item.hashTag,
           type: item.$type,
-          label: item.hashTag_JP || item.hashTag,
+          label: item.hashTag_JP || item.hashtag_JP || item.hashTag,
           path: currentPath,
           category,
           priority,
@@ -653,15 +653,16 @@ function buildFieldLabelMap(workTypeDef, globalTypeDef = {}) {
       const currentPath = item.hashTag ? [...path, item.hashTag] : path;
 
       // Map this field if it has a Japanese label
-      if (item.hashTag && item.hashTag_JP) {
-        labelMap[item.hashTag] = item.hashTag_JP;
-        labelMap[currentPath.join('.')] = item.hashTag_JP;
+      const jpLabel = item.hashTag_JP || item.hashtag_JP;
+      if (item.hashTag && jpLabel) {
+        labelMap[item.hashTag] = jpLabel;
+        labelMap[currentPath.join('.')] = jpLabel;
 
-        console.log(`📝 Mapped field (${source}):`, item.hashTag, '→', item.hashTag_JP);
+        console.log(`📝 Mapped field (${source}):`, item.hashTag, '→', jpLabel);
 
         // Also map short path versions for nested access
         if (currentPath.length > 1) {
-          labelMap[currentPath.slice(-1)[0]] = item.hashTag_JP;
+          labelMap[currentPath.slice(-1)[0]] = jpLabel;
         }
       }
 
@@ -795,6 +796,30 @@ function formatValueForDisplay(value, labelMap = {}, workMeta = null, globalDefT
   }
 
   if (typeof value === 'object') {
+    // Common “masked” pattern used across databases
+    if (typeof value.hideText === 'string' && value.hideText.trim()) {
+      return value.hideText;
+    }
+
+    // Common value/about pattern (e.g., Age: {value, about_JP/about_EN})
+    if (Object.prototype.hasOwnProperty.call(value, 'value')) {
+      const base = value.value;
+      const about = value.about_JP || value.about_EN || value.about;
+      const baseText = (base === null || base === undefined || base === '') ? '' : String(base);
+      if (about && baseText) return `${baseText}（${about}）`;
+      if (baseText) return baseText;
+    }
+
+    // Common birthday/day pattern
+    if (value.Day && typeof value.Day === 'object') {
+      const mm = value.Day.Month != null ? String(value.Day.Month) : '';
+      const dd = value.Day.DayOfMonth != null ? String(value.Day.DayOfMonth) : '';
+      const date = (mm && dd) ? `${mm}/${dd}` : (mm || dd);
+      const about = value.about_JP || value.about_EN || value.about;
+      if (date && about) return `${date}（${about}）`;
+      if (date) return date;
+    }
+
     // Handle objects with common text patterns
     if (value.Rank && value.EffectText) {
       const effectLabel = value.EffectText_JP || value.EffectText;
@@ -877,6 +902,15 @@ function formatValueForDisplay(value, labelMap = {}, workMeta = null, globalDefT
   }
 
   return String(value);
+}
+
+/**
+ * 改行を保持してテキストを表示するためのノードを作成
+ * @param {string} text - 表示文字列
+ * @returns {HTMLElement}
+ */
+function preWrapText(text) {
+  return el('div', { style: 'white-space: pre-wrap;' }, [String(text ?? '')]);
 }
 
 /**
@@ -1711,6 +1745,67 @@ async function renderDetail(workId, rec) {
     return `${date}${about}`;
   }).filter(d => d.trim()) : [];
 
+  // ここまでで明示的に表示したフィールドを控えておき、未表示項目を後段で包括表示する
+  const shownKeys = new Set([
+    'Name', 'Name_EN', 'FormalName', 'FormalName_EN',
+    'Num', 'ModelNumber', 'Progress',
+    'ModelName', 'CodeName', 'SPCodeName', 'SPCodeName_EN',
+    'GenderType', 'Height_cm', 'Weight_kg', 'ConceptAge', 'Class', 'Class_EN',
+    'AbilityStats',
+    'NumerospecStats', 'ArcanumspecStats', 'BeastspecStats',
+    'SpecType', 'Belonging', 'Area', 'AnivDay',
+    'Summary', 'Relation',
+    'Images',
+    '_DBLinkResolved'
+  ]);
+
+  // 長文・プロフィール系はテーブルではなく改行保持で表示
+  const profileTextKeys = [
+    'Character', 'Hobby', 'SpetialSkill',
+    'Strength', 'Weakpoint', 'Favor', 'Unlike',
+    'InStory', 'Background',
+    'BeastspecName', 'BeastspecName_EN', 'BeastspecAbout',
+    'ArcanamspecAbout'
+  ];
+
+  const profileItems = profileTextKeys
+    .filter((k) => rec && rec[k] != null && rec[k] !== '')
+    .map((k) => {
+      const label = getFieldLabel(k, fieldLabelMap, workMeta, globalDefType, k);
+      const v = rec[k];
+      shownKeys.add(k);
+      const text = typeof v === 'string' ? v : formatValueForDisplay(v, fieldLabelMap, workMeta, globalDefType);
+      if (!text) return null;
+      return el('div', { style: 'margin-bottom: 10px;' }, [
+        el('div', { class: 'tag', style: 'margin-bottom: 6px;' }, [label]),
+        preWrapText(text)
+      ]);
+    })
+    .filter(Boolean);
+
+  // 未表示の残り項目を包括表示（作品ごとの差分を吸収）
+  const extras = Object.entries(rec || {})
+    .filter(([k, v]) => {
+      if (shownKeys.has(k)) return false;
+      // 内部情報のうち、表示が有用なもの（_DBLink）は残す
+      if (k.startsWith('_') && k !== '_DBLink') return false;
+      if (v === null || v === undefined || v === '') return false;
+      // 画像コンテナはギャラリーで表示する
+      if (k === 'Images') return false;
+      return true;
+    })
+    .map(([k, v]) => {
+      const label = getFieldLabel(k, fieldLabelMap, workMeta, globalDefType, k);
+      let display;
+      if (typeof v === 'string' && v.includes('\n')) {
+        display = preWrapText(v);
+      } else {
+        const formatted = formatValueForDisplay(v, fieldLabelMap, workMeta, globalDefType);
+        display = (typeof formatted === 'string' && formatted.includes('\n')) ? preWrapText(formatted) : formatted;
+      }
+      return [label, display];
+    });
+
   const right = el('div', {}, [
     titleRow,
     el('div', { class: 'section' }, [el('h3', {}, [getFieldLabel('BasicInfo', fieldLabelMap, workMeta, globalDefType, '基本情報')]), basic]),
@@ -1728,6 +1823,14 @@ async function renderDetail(workId, rec) {
     rec.Summary ? el('div', { class: 'section' }, [
       el('h3', {}, [getFieldLabel('Summary', fieldLabelMap, workMeta, globalDefType, '概要')]),
       el('div', {}, rec.Summary.split('\n').map(s => el('p', {}, [s])))
+    ]) : null,
+    profileItems.length ? el('div', { class: 'section' }, [
+      el('h3', {}, [getFieldLabel('Profile', fieldLabelMap, workMeta, globalDefType, 'プロフィール/テキスト')]),
+      el('div', {}, profileItems)
+    ]) : null,
+    extras.length ? el('div', { class: 'section' }, [
+      el('h3', {}, [getFieldLabel('AllFields', fieldLabelMap, workMeta, globalDefType, 'その他の項目')]),
+      kvTable({}, extras)
     ]) : null,
     rec.Relation && (rec.Relation.Related || rec.Relation.Commented) ? renderRelations(rec.Relation) : null,
     // 参照解決結果の表示（_DBLinkResolved）
