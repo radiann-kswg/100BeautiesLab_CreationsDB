@@ -2,9 +2,6 @@
   {
     "Card": { "Stoat": "Major", "Num": 0 },
     "Progress": "notProceeded",
-    "Images": {
-      "cardDesign_PNGName": "crddsn_imgFLM0-sample"
-    },
     "_DBLink": {
       "worksTitle": "FLInvestigator78",
       "dbName": "Primary",
@@ -41,9 +38,6 @@
   {
     "Card": { "Stoat": "Major", "Num": 1 },
     "Progress": "notProceeded",
-    "Images": {
-      "cardDesign_PNGName": "crddsn_imgFLM1-sample"
-    },
     "_DBLink": {
       "worksTitle": "FLInvestigator78",
       "dbName": "Primary",
@@ -118,9 +112,6 @@
   {
     "Card": { "Stoat": "Major", "Num": 3 },
     "Progress": "notProceeded",
-    "Images": {
-      "cardDesign_PNGName": "crddsn_imgFLM3-sample"
-    },
     "_DBLink": {
       "worksTitle": "FLInvestigator78",
       "dbName": "Primary",
@@ -164,9 +155,6 @@
   {
     "Card": { "Stoat": "Major", "Num": 8 },
     "Progress": "notProceeded",
-    "Images": {
-      "cardDesign_PNGName": "crddsn_imgFLM8-sample"
-    },
     "_DBLink": {
       "worksTitle": "FLInvestigator78",
       "dbName": "Primary",
@@ -204,9 +192,6 @@
   {
     "Card": { "Stoat": "Major", "Num": 9 },
     "Progress": "notProceeded",
-    "Images": {
-      "cardDesign_PNGName": "crddsn_imgFLM9-sample"
-    },
     "_DBLink": {
       "worksTitle": "FLInvestigator78",
       "dbName": "Primary",
