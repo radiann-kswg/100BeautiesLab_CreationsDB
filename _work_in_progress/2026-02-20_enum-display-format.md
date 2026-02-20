@@ -26,6 +26,12 @@
   - typedef の `$display.enumLinkKey` で、参照する `$EnumLink_*` をフィールド単位に指定できるようにした（例: `AbilityStats` → `AbilityText`、`SpecLevel` → `SpecLevelText`）。
   - 詳細表示では work meta と global meta の `General.$VarsDef` を統合して、共通辞書を参照できるようにした。
 
+  ## 追記（2026-02-20）: #ListLink（文字列ラッパー）→Rank 表示
+  - 対象例: `EffectStats` / `SafetyLevel` のように、データが `{ EffectText: '絶大' }` / `{ SafetyLevelText: '安全' }` といった「文字列ラッパー」で、typedef に `#ListLink` が宣言されているフィールド。
+  - 対応内容:
+    - UI 側で `#ListLink_*`（`db_meta.json`）を逆引きし、該当項目に `Rank` が含まれる場合は `S（絶大）` のように `alphaLabel` として表示できるようにした。
+    - これにより、EnumDef/EnumLink と同じ “コード＋説明” の見た目を、ListLink ベースの文字列フィールドにも適用できる。
+
 ## 影響範囲（編集したファイル）
 
 - [pages/characters.js](../pages/characters.js)

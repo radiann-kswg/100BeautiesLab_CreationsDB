@@ -1402,6 +1402,60 @@ function formatValueForDisplay(value, labelMap = {}, workMeta = null, globalDefT
     return (typeof code === 'string' && code.trim()) ? code.trim() : '';
   };
 
+  /**
+   * $VarsDef のネストから指定キー（#ListLink_XXX 等）を探索
+   * @param {any} obj
+   * @param {string} key
+   * @param {number} depth
+   * @returns {any}
+   */
+  const findNestedKey = (obj, key, depth = 0) => {
+    if (!obj || typeof obj !== 'object') return null;
+    if (depth > 6) return null;
+    if (Object.prototype.hasOwnProperty.call(obj, key)) return obj[key];
+
+    if (Array.isArray(obj)) {
+      for (const it of obj) {
+        const found = findNestedKey(it, key, depth + 1);
+        if (found) return found;
+      }
+      return null;
+    }
+
+    for (const v of Object.values(obj)) {
+      if (!v || typeof v !== 'object') continue;
+      const found = findNestedKey(v, key, depth + 1);
+      if (found) return found;
+    }
+    return null;
+  };
+
+  /**
+   * #ListLink_XXX（db_meta.json）から項目を逆引き
+   * @param {string} listFieldName - 'EffectText' 等
+   * @param {string} rawValue - '絶大' 等
+   * @returns {any|null}
+   */
+  const resolveListLinkItem = (listFieldName, rawValue) => {
+    const fn = String(listFieldName || '').trim();
+    const rv = String(rawValue ?? '').trim();
+    if (!fn || !rv) return null;
+
+    const vars = workMeta?.General?.$VarsDef || workMeta?.$VarsDef;
+    if (!vars || typeof vars !== 'object') return null;
+
+    const listKey = `#ListLink_${fn}`;
+    const listDef = findNestedKey(vars, listKey);
+    if (!Array.isArray(listDef)) return null;
+
+    for (const item of listDef) {
+      if (!item || typeof item !== 'object') continue;
+      const v = item[fn];
+      if (typeof v === 'string' && v.trim() === rv) return item;
+    }
+    return null;
+  };
+
   const normalizeEnumFormat = (f) => {
     const s = String(f ?? '').trim();
     if (s === 'alpha' || s === 'code') return 'alpha';
@@ -1687,6 +1741,42 @@ function formatValueForDisplay(value, labelMap = {}, workMeta = null, globalDefT
       const about = value.about_JP || value.about_EN || value.about;
       if (date && about) return `${date}（${about}）`;
       if (date) return date;
+    }
+
+    // #ListLink_*（EffectText/SafetyLevelText 等）のラッパーを typedef-driven に整形
+    // - 例: { EffectText: '絶大' } で、db_meta.json の #ListLink_EffectText から { Rank:'S', EffectText:'絶大' } を逆引き
+    // - Rank が取れる場合は alphaLabel（コード＋説明）として返す
+    if (schemaTypeIncludes(opt?.schemaType, '#ListLink')) {
+      // 値が { EffectText: '...' } のような形なら、キー名から ListLink を探索する
+      for (const [k, v] of Object.entries(value)) {
+        const kk = String(k || '').trim();
+        if (!kk || kk.startsWith('_')) continue;
+        if (typeof v !== 'string' && typeof v !== 'number' && typeof v !== 'boolean') continue;
+        const vv = String(v).trim();
+        if (!vv) continue;
+
+        const item = resolveListLinkItem(kk, vv);
+        if (!item || typeof item !== 'object') continue;
+
+        const label = (
+          (typeof item[`${kk}_JP`] === 'string' && item[`${kk}_JP`].trim())
+            ? item[`${kk}_JP`].trim()
+            : (typeof item[kk] === 'string' && item[kk].trim())
+              ? item[kk].trim()
+              : vv
+        );
+
+        // Rank を持っている場合は enum 的に扱って alphaLabel を返す
+        if (typeof item.Rank === 'string' && item.Rank.trim()) {
+          const rawRank = item.Rank.trim();
+          const resolvedRank = resolveEnumKey('Rank', rawRank);
+          const code = (resolvedRank || rawRank).trim();
+          if (code) return formatEnumWithAbout('Rank', code, label);
+        }
+
+        // Rank が無い場合は label のみ
+        return label;
+      }
     }
 
     // $EnumDef_*（Rank/Rarity 等）に追従して整形（typedef-driven）
@@ -2799,12 +2889,23 @@ async function renderDetail(workId, rec) {
   const effGrid = el('div', { class: 'kv-grid' }, Object.entries(eff).map(([k, v]) => {
     const fieldLabel = getFieldLabel(`EffectStats.${k}`, fieldLabelMap, metaForLookup, globalDefType, k);
     const schemaType = pickSchemaType(
+      // まず「葉（EffectText）」の schemaType を優先（#ListLink 等の解釈に必要）
+      `EffectStats.${k}.EffectText`,
+      `NumerospecStats.EffectStats.${k}.EffectText`,
+      `ArcanumspecStats.EffectStats.${k}.EffectText`,
+      `BeastspecStats.EffectStats.${k}.EffectText`,
+      // フォールバック（定義が親にしか無い場合）
       `EffectStats.${k}`,
       `NumerospecStats.EffectStats.${k}`,
       `ArcanumspecStats.EffectStats.${k}`,
       `BeastspecStats.EffectStats.${k}`
     );
     const schemaDisplay = pickSchemaDisplay(
+      // 葉の display（あれば）
+      `EffectStats.${k}.EffectText`,
+      `NumerospecStats.EffectStats.${k}.EffectText`,
+      `ArcanumspecStats.EffectStats.${k}.EffectText`,
+      `BeastspecStats.EffectStats.${k}.EffectText`,
       `EffectStats.${k}`,
       'EffectStats',
       `NumerospecStats.EffectStats.${k}`,
@@ -2820,7 +2921,29 @@ async function renderDetail(workId, rec) {
 
   const safety = numStats.SafetyLevel || {};
   const safetyRow = safety && Object.keys(safety).length > 0 ? el('div', { class: 'tag' }, [
-    `${getFieldLabel('SafetyLevel', fieldLabelMap, metaForLookup, globalDefType, 'Safety')}: ${formatValueForDisplay(safety, fieldLabelMap, metaForLookup, globalDefType)}`
+    `${getFieldLabel('SafetyLevel', fieldLabelMap, metaForLookup, globalDefType, 'Safety')}: ${formatValueForDisplay(safety, fieldLabelMap, metaForLookup, globalDefType, {
+      schemaType: pickSchemaType(
+        'SafetyLevel.SafetyLevelText',
+        'NumerospecStats.SafetyLevel.SafetyLevelText',
+        'ArcanumspecStats.SafetyLevel.SafetyLevelText',
+        'BeastspecStats.SafetyLevel.SafetyLevelText',
+        'SafetyLevel',
+        'NumerospecStats.SafetyLevel',
+        'ArcanumspecStats.SafetyLevel',
+        'BeastspecStats.SafetyLevel'
+      ),
+      display: pickSchemaDisplay(
+        'SafetyLevel.SafetyLevelText',
+        'NumerospecStats.SafetyLevel.SafetyLevelText',
+        'ArcanumspecStats.SafetyLevel.SafetyLevelText',
+        'BeastspecStats.SafetyLevel.SafetyLevelText',
+        'SafetyLevel',
+        'NumerospecStats.SafetyLevel',
+        'ArcanumspecStats.SafetyLevel',
+        'BeastspecStats.SafetyLevel'
+      ),
+      fieldKey: 'SafetyLevel'
+    })}`
   ]) : null;
 
   // SpecType with localized labels
