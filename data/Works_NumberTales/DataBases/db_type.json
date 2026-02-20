@@ -50,35 +50,75 @@
             {
               "hashTag": "Mental",
               "$type": [
-                { "hashTag": "EffectText", "$type": "#String_JP,#ListLink" }
+                {
+                  "hashTag": "EffectText",
+                  "$type": "#String_JP,#ListLink",
+                  "$display": {
+                    "rankFormat": "alphaLabel",
+                    "listLinkEnumName": "Rank",
+                    "listLinkShowEnum": true
+                  }
+                }
               ],
               "hashTag_JP": "精神的作用"
             },
             {
               "hashTag": "Manetize",
               "$type": [
-                { "hashTag": "EffectText", "$type": "#String_JP,#ListLink" }
+                {
+                  "hashTag": "EffectText",
+                  "$type": "#String_JP,#ListLink",
+                  "$display": {
+                    "rankFormat": "alphaLabel",
+                    "listLinkEnumName": "Rank",
+                    "listLinkShowEnum": true
+                  }
+                }
               ],
               "hashTag_JP": "金銭的作用"
             },
             {
               "hashTag": "Working",
               "$type": [
-                { "hashTag": "EffectText", "$type": "#String_JP,#ListLink" }
+                {
+                  "hashTag": "EffectText",
+                  "$type": "#String_JP,#ListLink",
+                  "$display": {
+                    "rankFormat": "alphaLabel",
+                    "listLinkEnumName": "Rank",
+                    "listLinkShowEnum": true
+                  }
+                }
               ],
               "hashTag_JP": "作業効率への作用"
             },
             {
               "hashTag": "Luck",
               "$type": [
-                { "hashTag": "EffectText", "$type": "#String_JP,#ListLink" }
+                {
+                  "hashTag": "EffectText",
+                  "$type": "#String_JP,#ListLink",
+                  "$display": {
+                    "rankFormat": "alphaLabel",
+                    "listLinkEnumName": "Rank",
+                    "listLinkShowEnum": true
+                  }
+                }
               ],
               "hashTag_JP": "幸福度への作用"
             },
             {
               "hashTag": "Communication",
               "$type": [
-                { "hashTag": "EffectText", "$type": "#String_JP,#ListLink" }
+                {
+                  "hashTag": "EffectText",
+                  "$type": "#String_JP,#ListLink",
+                  "$display": {
+                    "rankFormat": "alphaLabel",
+                    "listLinkEnumName": "Rank",
+                    "listLinkShowEnum": true
+                  }
+                }
               ],
               "hashTag_JP": "社交能力への作用"
             }
@@ -93,7 +133,15 @@
         {
           "hashTag": "SafetyLevel",
           "$type": [
-            { "hashTag": "SafetyLevelText", "$type": "#String_JP,#ListLink" }
+            {
+              "hashTag": "SafetyLevelText",
+              "$type": "#String_JP,#ListLink",
+              "$display": {
+                "rankFormat": "alphaLabel",
+                "listLinkEnumName": "Rank",
+                "listLinkShowEnum": true
+              }
+            }
           ],
           "hashTag_JP": "安全レベル"
         }

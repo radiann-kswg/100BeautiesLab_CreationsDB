@@ -98,7 +98,15 @@
         {
           "hashTag": "SafetyLevel",
           "$type": [
-            { "hashTag": "SafetyLevelText", "$type": "#String_JP,#ListLink" }
+            {
+              "hashTag": "SafetyLevelText",
+              "$type": "#String_JP,#ListLink",
+              "$display": {
+                "rankFormat": "alphaLabel",
+                "listLinkEnumName": "Rank",
+                "listLinkShowEnum": true
+              }
+            }
           ],
           "hashTag_JP": "安全レベル"
         },
@@ -106,7 +114,12 @@
           "hashTag": "SpecLevel",
           "$type": [{ "hashTag": "Rank", "$type": "$EnumDef_Rank,$EnumLink" }],
           "hashTag_JP": "能力レベル",
-          "$display": { "section": "spec", "tagSpace": "creation", "rankFormat": "alphaLabel", "enumLinkKey": "SpecLevelText" }
+          "$display": {
+            "section": "spec",
+            "tagSpace": "creation",
+            "rankFormat": "alphaLabel",
+            "enumLinkKey": "SpecLevelText"
+          }
         },
         {
           "hashTag": "EffectStats",
@@ -114,35 +127,75 @@
             {
               "hashTag": "Physical",
               "$type": [
-                { "hashTag": "EffectText", "$type": "#String_JP,#ListLink" }
+                {
+                  "hashTag": "EffectText",
+                  "$type": "#String_JP,#ListLink",
+                  "$display": {
+                    "rankFormat": "alphaLabel",
+                    "listLinkEnumName": "Rank",
+                    "listLinkShowEnum": true
+                  }
+                }
               ],
               "hashTag_JP": "物理的作用"
             },
             {
               "hashTag": "Magical",
               "$type": [
-                { "hashTag": "EffectText", "$type": "#String_JP,#ListLink" }
+                {
+                  "hashTag": "EffectText",
+                  "$type": "#String_JP,#ListLink",
+                  "$display": {
+                    "rankFormat": "alphaLabel",
+                    "listLinkEnumName": "Rank",
+                    "listLinkShowEnum": true
+                  }
+                }
               ],
               "hashTag_JP": "魔法的作用"
             },
             {
               "hashTag": "Healing",
               "$type": [
-                { "hashTag": "EffectText", "$type": "#String_JP,#ListLink" }
+                {
+                  "hashTag": "EffectText",
+                  "$type": "#String_JP,#ListLink",
+                  "$display": {
+                    "rankFormat": "alphaLabel",
+                    "listLinkEnumName": "Rank",
+                    "listLinkShowEnum": true
+                  }
+                }
               ],
               "hashTag_JP": "治癒的作用"
             },
             {
               "hashTag": "Violent",
               "$type": [
-                { "hashTag": "EffectText", "$type": "#String_JP,#ListLink" }
+                {
+                  "hashTag": "EffectText",
+                  "$type": "#String_JP,#ListLink",
+                  "$display": {
+                    "rankFormat": "alphaLabel",
+                    "listLinkEnumName": "Rank",
+                    "listLinkShowEnum": true
+                  }
+                }
               ],
               "hashTag_JP": "暴力的作用"
             },
             {
               "hashTag": "Rewriting",
               "$type": [
-                { "hashTag": "EffectText", "$type": "#String_JP,#ListLink" }
+                {
+                  "hashTag": "EffectText",
+                  "$type": "#String_JP,#ListLink",
+                  "$display": {
+                    "rankFormat": "alphaLabel",
+                    "listLinkEnumName": "Rank",
+                    "listLinkShowEnum": true
+                  }
+                }
               ],
               "hashTag_JP": "リライト作用"
             }
