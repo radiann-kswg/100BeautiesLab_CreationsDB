@@ -55,12 +55,18 @@
     {
       "hashTag": "Height_cm",
       "$type": "#Number|#Number_withAbout[]",
-      "hashTag_JP": "身長_cm"
+      "hashTag_JP": "身長_cm",
+      "$display": {
+        "unit": "cm"
+      }
     },
     {
       "hashTag": "Weight_kg",
       "$type": "#Number|#Number_withAbout[]",
-      "hashTag_JP": "体重_kg"
+      "hashTag_JP": "体重_kg",
+      "$display": {
+        "unit": "kg"
+      }
     },
     {
       "hashTag": "BustSize",
