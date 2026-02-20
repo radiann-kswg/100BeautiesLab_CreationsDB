@@ -916,6 +916,18 @@ function buildFieldTypeMap(workTypeDef, globalTypeDef = {}) {
           if (!Object.prototype.hasOwnProperty.call(tmp, full)) tmp[full] = t;
           if (!Object.prototype.hasOwnProperty.call(tmp, item.hashTag)) tmp[item.hashTag] = t;
         }
+
+        // ラッパー型（例: ExistingRarity: [{hashTag:'Rarity', $type:'$EnumDef_Rarity,$EnumLink'}]）を検出
+        // - トップレベル自動表示でも enum/link 判定できるよう、親キーにも子の $type 文字列を付与する
+        if (Array.isArray(item.$type) && item.$type.length === 1) {
+          const child = item.$type[0];
+          const childType = normalizeTypeText(child?.$type);
+          if (child && typeof child?.hashTag === 'string' && childType) {
+            const full = currentPath.join('.');
+            if (!Object.prototype.hasOwnProperty.call(tmp, full)) tmp[full] = childType;
+            if (!Object.prototype.hasOwnProperty.call(tmp, item.hashTag)) tmp[item.hashTag] = childType;
+          }
+        }
         if (Array.isArray(item.$type)) traverseTmp(item.$type, currentPath);
         else if (isPlainObject(item.$type)) traverseTmp([item.$type], currentPath);
       }
@@ -1201,7 +1213,7 @@ function getFieldLabel(fieldName, labelMap, workMeta = null, globalDefType = nul
  * @param {Object} labelMap - Field label mapping for nested objects
  * @param {Object} workMeta - Work metadata for lookup
  * @param {Object} globalDefType - Global definition types for enum/list lookups
- * @param {{display?: any, schemaType?: any}|null} opt - display hint (e.g., { unit: 'cm' }) + schema type hint
+ * @param {{display?: any, schemaType?: any, fieldKey?: string}|null} opt - display hint (e.g., { unit: 'cm' }) + schema type hint
  * @returns {string} Formatted display value
  */
 function formatValueForDisplay(value, labelMap = {}, workMeta = null, globalDefType = null, opt = null) {
@@ -1314,6 +1326,47 @@ function formatValueForDisplay(value, labelMap = {}, workMeta = null, globalDefT
   };
 
   /**
+   * $EnumDef_* 用の「値」と「注釈」を分離して抽出
+   * @param {any} obj
+   * @param {string} enumName
+   * @returns {{ code: string, about?: string } | { hideText: string } | null}
+   */
+  const extractEnumParts = (obj, enumName) => {
+    const en = String(enumName || '').trim();
+    if (!en) return null;
+    if (!isPlainObject(obj)) return null;
+    if (!Object.prototype.hasOwnProperty.call(obj, en)) return null;
+
+    const aboutOuter = obj.about_JP || obj.about_EN || obj.about;
+    const raw = obj[en];
+
+    if (typeof raw === 'string' || typeof raw === 'number' || typeof raw === 'boolean') {
+      const code = String(raw).trim();
+      if (!code) return null;
+      return aboutOuter ? { code, about: String(aboutOuter) } : { code };
+    }
+
+    if (isPlainObject(raw) && typeof raw.hideText === 'string' && raw.hideText.trim()) {
+      return { hideText: raw.hideText };
+    }
+
+    if (isPlainObject(raw) && Object.prototype.hasOwnProperty.call(raw, en)) {
+      const nested = raw[en];
+      const aboutNested = raw.about_JP || raw.about_EN || raw.about;
+      const about = aboutNested || aboutOuter;
+      if (typeof nested === 'string' || typeof nested === 'number' || typeof nested === 'boolean') {
+        const code = String(nested).trim();
+        if (!code) return null;
+        return about ? { code, about: String(about) } : { code };
+      }
+      if (isPlainObject(nested) && typeof nested.hideText === 'string' && nested.hideText.trim()) {
+        return { hideText: nested.hideText };
+      }
+    }
+    return null;
+  };
+
+  /**
    * schema の $type 文字列に定義型が含まれるか（簡易）
    * @param {any} t
    * @param {string} needle
@@ -1324,86 +1377,119 @@ function formatValueForDisplay(value, labelMap = {}, workMeta = null, globalDefT
   };
 
   /**
-   * $EnumDef_Rank の参照（#Rank3 等）を解決
-   * @param {string} key
+   * schemaType から $EnumDef_XXX を抽出
+   * @param {any} t
+   * @returns {string}
    */
-  const resolveEnumRankKey = (key) => {
-    const k = String(key || '').trim();
-    if (!k.startsWith('#')) return '';
-
-    const g = globalDefType?.General?.$VarsDef?.$EnumDef_Rank;
-    const v = g && typeof g === 'object' ? g[k] : null;
-    const rank = v && typeof v === 'object' ? v.Rank : null;
-    return (typeof rank === 'string' && rank.trim()) ? rank.trim() : '';
+  const pickEnumNameFromSchemaType = (t) => {
+    const s = (typeof t === 'string') ? t : '';
+    const m = s.match(/\$EnumDef_([A-Za-z0-9_]+)/);
+    return m && m[1] ? m[1] : '';
   };
 
   /**
-   * $EnumDef_Rank の定義オブジェクトを取得
+   * $EnumDef_XXX の参照（#XXX1 等）を解決
+   * @param {string} enumName
    * @param {string} key
-   * @returns {any|null}
    */
-  const getEnumRankDefByKey = (key) => {
+  const resolveEnumKey = (enumName, key) => {
+    const en = String(enumName || '').trim();
     const k = String(key || '').trim();
-    if (!k.startsWith('#')) return null;
-    const g = globalDefType?.General?.$VarsDef?.$EnumDef_Rank;
+    if (!en || !k.startsWith('#')) return '';
+    const g = globalDefType?.General?.$VarsDef?.[`$EnumDef_${en}`];
     const v = g && typeof g === 'object' ? g[k] : null;
-    return (v && typeof v === 'object') ? v : null;
+    const code = v && typeof v === 'object' ? v[en] : null;
+    return (typeof code === 'string' && code.trim()) ? code.trim() : '';
   };
 
-  /**
-   * $EnumDef_Rank を「アルファベット等のランク文字（A/B/S+ 等）」から逆引き
-   * @param {string} alpha
-   * @returns {any|null}
-   */
-  const findEnumRankDefByAlpha = (alpha) => {
-    const a = String(alpha || '').trim();
-    if (!a) return null;
-    const g = globalDefType?.General?.$VarsDef?.$EnumDef_Rank;
-    if (!g || typeof g !== 'object') return null;
-    for (const v of Object.values(g)) {
-      if (v && typeof v === 'object' && typeof v.Rank === 'string' && v.Rank.trim() === a) return v;
-    }
-    return null;
-  };
-
-  const normalizeRankFormat = (f) => {
+  const normalizeEnumFormat = (f) => {
     const s = String(f ?? '').trim();
-    if (s === 'alpha' || s === 'label' || s === 'alphaLabel' || s === 'labelAlpha') return s;
+    if (s === 'alpha' || s === 'code') return 'alpha';
+    if (s === 'label') return 'label';
+    if (s === 'alphaLabel' || s === 'codeLabel') return 'alphaLabel';
+    if (s === 'labelAlpha' || s === 'labelCode') return 'labelAlpha';
     return '';
   };
 
-  const pickRankLabel = (def) => {
-    if (!def || typeof def !== 'object') return '';
-    const label = def.Rank_JP || def.RankLabel_JP || def.Label_JP || def.RankText_JP || def.RankAbout_JP;
-    return (typeof label === 'string' && label.trim()) ? label.trim() : '';
+  const getEnumFormatFor = (enumName) => {
+    const en = String(enumName || '').trim();
+    const d = opt?.display;
+    if (!d || typeof d !== 'object') return '';
+    if (en === 'Rank' && d.rankFormat) return d.rankFormat;
+    if (en === 'Rarity' && d.rarityFormat) return d.rarityFormat;
+    return d.enumFormat || '';
   };
 
-  const formatEnumRank = (alpha, def, rankFormat) => {
-    const a = String(alpha ?? '').trim();
-    if (!a) return '';
-    const fmt = normalizeRankFormat(rankFormat);
-    if (!fmt) return a;
+  /**
+   * $EnumLink_${Field}（db_meta.json）から表示名を解決
+   * @param {string} fieldKey
+   * @param {string} enumName
+   * @param {string} code
+   */
+  const resolveEnumLinkLabel = (fieldKey, enumName, code) => {
+    const fk = String(fieldKey || '').trim();
+    const en = String(enumName || '').trim();
+    const c = String(code || '').trim();
+    if (!fk || !en || !c) return '';
 
-    const label = pickRankLabel(def);
-    if (!label) return a;
+    const simple = fk.split('.').pop();
+    const vars = workMeta?.General?.$VarsDef || workMeta?.$VarsDef;
+    const linkDef = vars && typeof vars === 'object' ? vars[`$EnumLink_${simple}`] : null;
+    if (!linkDef || typeof linkDef !== 'object') return '';
 
-    if (fmt === 'alpha') return a;
-    if (fmt === 'label') return label;
-    if (fmt === 'alphaLabel') return `${a}（${label}）`;
-    if (fmt === 'labelAlpha') return `${label}（${a}）`;
-    return a;
-  };
-
-  // Rank 定義型（$EnumDef_Rank）の場合、プリミティブ値でも参照解決を試す
-  // 例: '#Rank3' → 'A'（db_type.json の $VarsDef.$EnumDef_Rank に依存）
-  if (opt && typeof opt === 'object' && typeof value !== 'object') {
-    if (schemaTypeIncludes(opt.schemaType, '$EnumDef_Rank')) {
-      const s = String(value ?? '').trim();
-      const resolved = resolveEnumRankKey(s);
-      if (resolved) {
-        const def = getEnumRankDefByKey(s);
-        return formatEnumRank(resolved, def, opt?.display?.rankFormat);
+    for (const v of Object.values(linkDef)) {
+      if (!v || typeof v !== 'object') continue;
+      const vv = v[en];
+      if (typeof vv === 'string' && vv.trim() === c) {
+        const jp = v[`${simple}_JP`];
+        const raw = v[simple];
+        const enText = v[`${simple}_EN`];
+        if (typeof jp === 'string' && jp.trim()) return jp.trim();
+        if (typeof raw === 'string' && raw.trim()) return raw.trim();
+        if (typeof enText === 'string' && enText.trim()) return enText.trim();
       }
+    }
+    return '';
+  };
+
+  const formatEnumWithAbout = (enumName, code, about) => {
+    const c = String(code ?? '').trim();
+    if (!c) return '';
+    const a = (about === null || about === undefined) ? '' : String(about).trim();
+    const fmt = normalizeEnumFormat(getEnumFormatFor(enumName));
+
+    // 既定（互換）: about があれば alphaLabel 相当、なければ alpha
+    if (!fmt) {
+      if (a) return `${c}（${a}）`;
+      return c;
+    }
+
+    if (fmt === 'alpha') return c;
+    if (fmt === 'label') return a || c;
+    if (fmt === 'alphaLabel') return a ? `${c}（${a}）` : c;
+    if (fmt === 'labelAlpha') return a ? `${a}（${c}）` : c;
+    return c;
+  };
+
+  // $EnumDef_*（Rank/Rarity 等）の場合、プリミティブ値でも参照解決/EnumLink解決を試す
+  if (opt && typeof opt === 'object' && typeof value !== 'object') {
+    const enumName = pickEnumNameFromSchemaType(opt.schemaType);
+    if (enumName && schemaTypeIncludes(opt.schemaType, '$EnumDef_')) {
+      const s = String(value ?? '').trim();
+      const resolved = resolveEnumKey(enumName, s);
+      const code = resolved || (typeof value === 'string' ? s : '');
+
+      if (schemaTypeIncludes(opt.schemaType, '$EnumLink') && opt.fieldKey && code) {
+        const linked = resolveEnumLinkLabel(opt.fieldKey, enumName, code);
+        if (linked) {
+          const fmt = normalizeEnumFormat(getEnumFormatFor(enumName));
+          // 既定（互換）: EnumLink があれば label 扱い（コード優先ではなく、人間向け表記を優先）
+          if (!fmt) return linked;
+          return formatEnumWithAbout(enumName, code, linked);
+        }
+      }
+
+      if (resolved) return formatEnumWithAbout(enumName, resolved, null);
       if (typeof value === 'boolean') return String(value);
       return withUnit(value);
     }
@@ -1556,30 +1642,40 @@ function formatValueForDisplay(value, labelMap = {}, workMeta = null, globalDefT
       if (date) return date;
     }
 
-    // Rank 定義型（$EnumDef_Rank）に追従して整形
-    // - field 名ではなく typedef の $type で判断する（ソフトコード）
-    if (schemaTypeIncludes(opt?.schemaType, '$EnumDef_Rank')) {
-      const parts = extractRankParts(value);
-      if (parts && Object.prototype.hasOwnProperty.call(parts, 'hideText')) {
-        return parts.hideText;
-      }
-      if (parts && Object.prototype.hasOwnProperty.call(parts, 'rank')) {
-        const resolved = resolveEnumRankKey(parts.rank);
-        const baseAlpha = (resolved || parts.rank).trim();
-        const def = parts.rank.startsWith('#')
-          ? getEnumRankDefByKey(parts.rank)
-          : findEnumRankDefByAlpha(baseAlpha);
-        const base = formatEnumRank(baseAlpha, def, opt?.display?.rankFormat);
-        if (!base) return '';
-        if (parts.about) return `${base}（${parts.about}）`;
-        return base;
+    // $EnumDef_*（Rank/Rarity 等）に追従して整形（typedef-driven）
+    if (schemaTypeIncludes(opt?.schemaType, '$EnumDef_')) {
+      const enumName = pickEnumNameFromSchemaType(opt?.schemaType);
+      if (enumName) {
+        const parts = extractEnumParts(value, enumName);
+        if (parts && Object.prototype.hasOwnProperty.call(parts, 'hideText')) {
+          return parts.hideText;
+        }
+        if (parts && Object.prototype.hasOwnProperty.call(parts, 'code')) {
+          const resolved = resolveEnumKey(enumName, parts.code);
+          const code = (resolved || parts.code).trim();
+          if (!code) return '';
+
+          let linkedLabel = '';
+          if (schemaTypeIncludes(opt?.schemaType, '$EnumLink') && opt?.fieldKey) {
+            linkedLabel = resolveEnumLinkLabel(opt.fieldKey, enumName, code);
+          }
+
+          // label も about もある場合は両方出せるように合成（/ 区切り）
+          const aboutText = linkedLabel
+            ? (parts.about ? `${linkedLabel} / ${parts.about}` : linkedLabel)
+            : parts.about;
+
+          // 既定（互換）: EnumLink があれば label 扱い（コード優先ではなく、人間向け表記を優先）
+          const fmt = normalizeEnumFormat(getEnumFormatFor(enumName));
+          if (linkedLabel && !fmt) return linkedLabel;
+          return formatEnumWithAbout(enumName, code, aboutText);
+        }
       }
 
-      // 最後の保険（schemaType が合っているのに抽出できない場合）
-      const rankText = formatRankLike(value);
-      if (rankText) {
-        const resolved = resolveEnumRankKey(rankText);
-        return resolved || rankText;
+      // 互換保険（古い Rank オブジェクト形が来た場合）
+      if (schemaTypeIncludes(opt?.schemaType, '$EnumDef_Rank')) {
+        const rankText = formatRankLike(value);
+        if (rankText) return rankText;
       }
     }
 
@@ -2497,7 +2593,8 @@ async function renderDetail(workId, rec) {
   const formatFieldValue = (fieldKey, raw) => {
     return formatValueForDisplay(raw, fieldLabelMap, workMeta, globalDefType, {
       display: topLevelDisplayMap?.[fieldKey] ?? null,
-      schemaType: fieldTypeMap?.[fieldKey] ?? null
+      schemaType: fieldTypeMap?.[fieldKey] ?? null,
+      fieldKey
     });
   };
 
@@ -2525,7 +2622,9 @@ async function renderDetail(workId, rec) {
           nodes.push(el('span', { class: 'pill' }, [
             getFieldLabel(usedKey || key, fieldLabelMap, workMeta, globalDefType, usedKey || key),
             formatValueForDisplay(v, fieldLabelMap, workMeta, globalDefType, {
-              schemaType: fieldTypeMap?.[usedKey || key] ?? null
+              schemaType: fieldTypeMap?.[usedKey || key] ?? null,
+              display: topLevelDisplayMap?.[usedKey || key] ?? null,
+              fieldKey: usedKey || key
             })
           ]));
         }
@@ -2628,7 +2727,7 @@ async function renderDetail(workId, rec) {
       `BeastspecStats.AbilityStats.${k}`,
       'BeastspecStats.AbilityStats'
     );
-    const displayValue = formatValueForDisplay(v, fieldLabelMap, workMeta, globalDefType, { schemaType, display: schemaDisplay });
+    const displayValue = formatValueForDisplay(v, fieldLabelMap, workMeta, globalDefType, { schemaType, display: schemaDisplay, fieldKey: `AbilityStats.${k}` });
     return el('div', { class: 'tag' }, [`${fieldLabel}: ${displayValue}`]);
   }));
 
@@ -2653,7 +2752,7 @@ async function renderDetail(workId, rec) {
       `BeastspecStats.EffectStats.${k}`,
       'BeastspecStats.EffectStats'
     );
-    const displayValue = formatValueForDisplay(v, fieldLabelMap, workMeta, globalDefType, { schemaType, display: schemaDisplay });
+    const displayValue = formatValueForDisplay(v, fieldLabelMap, workMeta, globalDefType, { schemaType, display: schemaDisplay, fieldKey: `EffectStats.${k}` });
     return el('div', { class: 'tag' }, [`${fieldLabel}: ${displayValue}`]);
   }));
 
@@ -2669,7 +2768,8 @@ async function renderDetail(workId, rec) {
     const materialLabel = getFieldLabel('SpecType.Material', fieldLabelMap, workMeta, globalDefType, 'Material');
     const materialValue = formatValueForDisplay(specType.Material, fieldLabelMap, workMeta, globalDefType, {
       schemaType: pickSchemaType('SpecType.Material'),
-      display: pickSchemaDisplay('SpecType.Material', 'SpecType')
+      display: pickSchemaDisplay('SpecType.Material', 'SpecType'),
+      fieldKey: 'SpecType.Material'
     });
     specNodes.push(el('div', { class: 'tag' }, [materialLabel + ': ', materialValue]));
   }
@@ -2677,7 +2777,8 @@ async function renderDetail(workId, rec) {
     const actionLabel = getFieldLabel('SpecType.ActionType', fieldLabelMap, workMeta, globalDefType, 'Action');
     const actionValue = formatValueForDisplay(specType.ActionType, fieldLabelMap, workMeta, globalDefType, {
       schemaType: pickSchemaType('SpecType.ActionType'),
-      display: pickSchemaDisplay('SpecType.ActionType', 'SpecType')
+      display: pickSchemaDisplay('SpecType.ActionType', 'SpecType'),
+      fieldKey: 'SpecType.ActionType'
     });
     if (actionValue) specNodes.push(el('div', { class: 'tag' }, [actionLabel + ': ', actionValue]));
   }
@@ -2685,7 +2786,8 @@ async function renderDetail(workId, rec) {
     const dualizeLabel = getFieldLabel('SpecType.DualizePattern', fieldLabelMap, workMeta, globalDefType, 'Dualize');
     const dualizeValue = formatValueForDisplay(specType.DualizePattern, fieldLabelMap, workMeta, globalDefType, {
       schemaType: pickSchemaType('SpecType.DualizePattern'),
-      display: pickSchemaDisplay('SpecType.DualizePattern', 'SpecType')
+      display: pickSchemaDisplay('SpecType.DualizePattern', 'SpecType'),
+      fieldKey: 'SpecType.DualizePattern'
     });
     specNodes.push(el('div', { class: 'tag' }, [dualizeLabel + ': ', dualizeValue]));
   }
@@ -2801,12 +2903,14 @@ async function renderDetail(workId, rec) {
     // スキーマ的に Summary 系 or 文字列改行は pre-wrap
     if (typeof v === 'string' && v.includes('\n')) return preWrapText(v);
     if (schemaType != null && isSummaryType(schemaType)) {
-      const formatted = typeof v === 'string' ? v : formatValueForDisplay(v, fieldLabelMap, workMeta, globalDefType, { display: schemaDisplay, schemaType });
+      const formatted = typeof v === 'string'
+        ? v
+        : formatValueForDisplay(v, fieldLabelMap, workMeta, globalDefType, { display: schemaDisplay, schemaType, fieldKey: k });
       if (formatted && String(formatted).includes('\n')) return preWrapText(formatted);
       // Summary でも単行の場合は preWrap にしておく（安全側）
       return preWrapText(formatted);
     }
-    const formatted = formatValueForDisplay(v, fieldLabelMap, workMeta, globalDefType, { display: schemaDisplay, schemaType });
+    const formatted = formatValueForDisplay(v, fieldLabelMap, workMeta, globalDefType, { display: schemaDisplay, schemaType, fieldKey: k });
     if (typeof formatted === 'string' && formatted.includes('\n')) return preWrapText(formatted);
     return formatted;
   };

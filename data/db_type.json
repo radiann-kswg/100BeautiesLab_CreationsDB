@@ -242,7 +242,10 @@
           "hashTag_JP": "動作性"
         }
       ],
-      "hashTag_JP": "能力値"
+      "hashTag_JP": "能力値",
+      "$display": {
+        "rankFormat": "alphaLabel"
+      }
     },
     {
       "hashTag": "Backgrounds",

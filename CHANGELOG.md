@@ -160,6 +160,14 @@
 - 設計メモを `_work_in_progress/2026-02-20_schema-driven-display-format.md` に整理。
 - `db_type.json($DefType)` の `$alt`（代替フィールド参照）を UI と enrich 出力が解釈し、該当キーが無い場合に代替キーを参照できるようにした。
 
+### EnumDef/EnumLink 表示のフィールド単位制御（Rank/Rarity）
+
+- UI（`pages/characters.js`）で、typedef 由来の `$type` に含まれる `$EnumDef_*` / `$EnumLink` を汎用的に解釈し、Rank/Rarity などの定義型を共通ロジックで表示整形できるようにした。
+- UI（`pages/characters.js`）の表示整形（`formatValueForDisplay()`）へ `fieldKey` を伝播し、作品別 `db_meta.json` の `$EnumLink_${Field}`（例: `$EnumLink_ExistingRarity`）から表示名を解決できるようにした。
+- `$EnumLink` が存在する場合の既定表示は「label 優先」（互換・人間向け）としつつ、`db_type.json($DefType)` の `$display` に `rankFormat` / `rarityFormat` / `enumFormat` を指定することでフィールド単位に表記を切り替えられるようにした。
+- Data: `data/db_type.json` の `AbilityStats` に `$display.rankFormat` を追記（例示）。
+- Data: `data/Works_UnauthedLogica/DataBases/db_type.json` の `ExistingRarity` に `$display.rarityFormat` を追記（例示）。
+
 #### 影響範囲（代表）
 
 - `data/db_type.json`

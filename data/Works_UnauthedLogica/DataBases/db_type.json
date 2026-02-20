@@ -17,7 +17,11 @@
       "$type": [{ "hashTag": "Rarity", "$type": "$EnumDef_Rarity,$EnumLink" }],
       "isForMobs": true,
       "hashtag_JP": "残存レア度",
-      "$display": { "section": "spec", "tagSpace": "creation" }
+      "$display": {
+        "section": "spec",
+        "tagSpace": "creation",
+        "rarityFormat": "label"
+      }
     }
   ],
   "$VarsDef": {}
