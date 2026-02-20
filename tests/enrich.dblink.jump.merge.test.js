@@ -88,4 +88,40 @@ describe('_DBLink / _Jump merge (in-process)', () => {
 
     expect(e.Name).toBe('TEST_NAME_OVERRIDE');
   });
+
+  it('別DB参照の場合、画像系フィールドは参照先で穴埋めされない', async () => {
+    class MemoryDataFetcher extends TestDataFetcher {
+      async readDB(workId, dbName) {
+        // 参照先DB（別JSON）
+        if (workId === '#Works_OtherWork' && dbName === 'OtherDB') {
+          return [{ Id: 'X', Test_PNGName: 'linked_image.png' }];
+        }
+        // 呼び出し元DB（このテストではファイル読込不要）
+        return [];
+      }
+      async readGlobalType() {
+        // Test_PNGName を画像フィールドとして認識させる
+        return { $DefType: [{ hashTag: 'Test_PNGName', $type: 'PNGFileName' }] };
+      }
+    }
+
+    const dataFetcher = new MemoryDataFetcher();
+    const proc = new globalThis.EnrichmentProcessor(dataFetcher, testConfig);
+
+    const rec = {
+      Id: 'BASE',
+      Test_PNGName: '',
+      _DBLink: {
+        worksTitle: 'OtherWork',
+        dbName: 'OtherDB',
+        _Search: [{ hashTag: 'Id', key: 'X' }]
+      }
+    };
+
+    const out = await proc.enrichRecords([rec], '#Works_MainWork', 'Primary');
+    const e = out[0];
+
+    // 別DBからの画像はマージしない
+    expect(e.Test_PNGName).toBe('');
+  });
 });
