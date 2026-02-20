@@ -12,7 +12,7 @@
   - typedef の `$type` に `$EnumDef_*` が含まれる場合、参照キー（例: `#Rank3` / `#Rarity5`）を解決して表示整形。
   - `$EnumLink` が付く場合、作品メタ（`db_meta.json`）の `$EnumLink_${Field}` から label を解決。
   - `$display.rankFormat` / `$display.rarityFormat` / `$display.enumFormat` で、alpha/label の出し分けをフィールド単位に制御可能。
-    - 既定（互換）: `$EnumLink` が解決できた場合は label 優先。
+    - 既定（仮設定）: `$EnumLink` が解決できた場合は alphaLabel（コード＋ラベル）優先。
 
 - Data
   - [data/db_type.json](../data/db_type.json) に `AbilityStats.$display.rankFormat` を追記（例示）。

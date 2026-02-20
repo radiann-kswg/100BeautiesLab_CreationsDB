@@ -49,7 +49,7 @@
           "hashTag": "SpecLevel",
           "$type": [{ "hashTag": "Rank", "$type": "$EnumDef_Rank,$EnumLink" }],
           "hashTag_JP": "能力レベル",
-          "$display": { "section": "spec", "tagSpace": "creation" }
+          "$display": { "section": "spec", "tagSpace": "creation", "rankFormat": "alphaLabel" }
         }
       ],
       "hashTag_JP": "獣騎能力の特性"

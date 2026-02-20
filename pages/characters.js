@@ -1483,8 +1483,9 @@ function formatValueForDisplay(value, labelMap = {}, workMeta = null, globalDefT
         const linked = resolveEnumLinkLabel(opt.fieldKey, enumName, code);
         if (linked) {
           const fmt = normalizeEnumFormat(getEnumFormatFor(enumName));
-          // 既定（互換）: EnumLink があれば label 扱い（コード優先ではなく、人間向け表記を優先）
-          if (!fmt) return linked;
+          // 既定: EnumLink があれば alphaLabel（コード＋ラベル）扱い
+          // - ラベル側にコードが含まれる場合もあるが、その調整は db_meta.json 側で行えるようにする
+          if (!fmt) return formatEnumWithAbout(enumName, code, linked);
           return formatEnumWithAbout(enumName, code, linked);
         }
       }
@@ -1667,7 +1668,7 @@ function formatValueForDisplay(value, labelMap = {}, workMeta = null, globalDefT
 
           // 既定（互換）: EnumLink があれば label 扱い（コード優先ではなく、人間向け表記を優先）
           const fmt = normalizeEnumFormat(getEnumFormatFor(enumName));
-          if (linkedLabel && !fmt) return linkedLabel;
+          if (linkedLabel && !fmt) return formatEnumWithAbout(enumName, code, aboutText);
           return formatEnumWithAbout(enumName, code, aboutText);
         }
       }

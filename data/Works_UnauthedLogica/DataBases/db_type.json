@@ -20,7 +20,7 @@
       "$display": {
         "section": "spec",
         "tagSpace": "creation",
-        "rarityFormat": "label"
+        "rarityFormat": "alphaLabel"
       }
     }
   ],

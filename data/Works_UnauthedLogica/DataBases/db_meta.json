@@ -58,48 +58,48 @@
       "$EnumLink_ExistingRarity": {
         "#Rarity0": {
           "Rarity": "UR",
-          "ExistingRarity": "VeryNerd(UR)",
-          "ExistingRarity_JP": "ベリーナード級(UR)"
+          "ExistingRarity": "VeryNerd",
+          "ExistingRarity_JP": "ベリーナード級"
         },
         "#Rarity1": {
           "Rarity": "SSR",
-          "ExistingRarity": "ManiacRare(SSR)",
-          "ExistingRarity_JP": "マニアックレア級(SSR)"
+          "ExistingRarity": "ManiacRare",
+          "ExistingRarity_JP": "マニアックレア級"
         },
         "#Rarity2adv": {
           "Rarity": "SR+",
-          "ExistingRarity": "Maniac(SR+)",
-          "ExistingRarity_JP": "マニア級(SR+)"
+          "ExistingRarity": "Maniac",
+          "ExistingRarity_JP": "マニア級"
         },
         "#Rarity2": {
           "Rarity": "SR",
           "ExistingRarity": "SuperRare",
-          "ExistingRarity_JP": "スーパーレア級(SR)"
+          "ExistingRarity_JP": "スーパーレア級"
         },
         "#Rarity3adv": {
           "Rarity": "R+",
-          "ExistingRarity": "Abolition(R+)",
-          "ExistingRarity_JP": "アボリット級(R+)"
+          "ExistingRarity": "Abolition",
+          "ExistingRarity_JP": "アボリット級"
         },
         "#Rarity3": {
           "Rarity": "R",
           "ExistingRarity": "Rare",
-          "ExistingRarity_JP": "レア級(R)"
+          "ExistingRarity_JP": "レア級"
         },
         "#Rarity4adv": {
           "Rarity": "N+",
           "ExistingRarity": "Normal+",
-          "ExistingRarity_JP": "ノーマル上級(N+)"
+          "ExistingRarity_JP": "ノーマル上級"
         },
         "#Rarity4": {
           "Rarity": "N",
           "ExistingRarity": "Normal",
-          "ExistingRarity_JP": "ノーマル級(N)"
+          "ExistingRarity_JP": "ノーマル級"
         },
         "#Rarity5": {
           "Rarity": "C",
           "ExistingRarity": "Commons",
-          "ExistingRarity_JP": "コモンズ級(C)"
+          "ExistingRarity_JP": "コモンズ級"
         }
       }
     }
