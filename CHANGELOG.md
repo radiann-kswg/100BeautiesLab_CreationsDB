@@ -168,6 +168,7 @@
 - `$EnumLink_*` 定義が `db_meta.json` の `$VarsDef` 内でネストしているケース（例: `$Def_AbilityStats.$EnumLink_AbilityText`）を想定し、UI 側でネスト探索して解決できるようにした。
 - `db_type.json($DefType)` の `$display.enumLinkKey` により、参照する `$EnumLink_*` をフィールド単位に指定できるようにした（例: `AbilityStats` → `AbilityText`、`SpecLevel` → `SpecLevelText`）。
 - `#ListLink_*` が typedef で宣言されている「文字列ラッパー」（例: `{ EffectText: '絶大' }` / `{ SafetyLevelText: '安全' }`）について、`db_meta.json` の `#ListLink_*` 定義から逆引きして `Rank` を取り出せる場合は `alphaLabel`（例: `S（絶大）`）として表示できるようにした。
+- `db_type.json($DefType).$display` に `listLinkShowEnum`（boolean）/ `listLinkEnumName`（string）を追加し、#ListLink の enum 併記可否・参照する enum キーを JSON 側で制御できるようにした（JS 側のハードコード削減）。
 - Data: `data/db_type.json` の `AbilityStats` に `$display.rankFormat` を追記（例示）。
 - Data: `data/Works_UnauthedLogica/DataBases/db_type.json` の `ExistingRarity` に `$display.rarityFormat` を追記（例示）。
 

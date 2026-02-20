@@ -1377,6 +1377,22 @@ function formatValueForDisplay(value, labelMap = {}, workMeta = null, globalDefT
   };
 
   /**
+   * globalDefType から利用可能な Enum 名（$EnumDef_XXX の XXX）を抽出
+   * @returns {string[]}
+   */
+  const listAvailableEnumNames = () => {
+    const varsDef = globalDefType?.General?.$VarsDef;
+    if (!varsDef || typeof varsDef !== 'object') return [];
+    const out = [];
+    for (const k of Object.keys(varsDef)) {
+      if (!k || typeof k !== 'string') continue;
+      const m = k.match(/^\$EnumDef_([A-Za-z0-9_]+)$/);
+      if (m && m[1]) out.push(m[1]);
+    }
+    return out;
+  };
+
+  /**
    * schemaType から $EnumDef_XXX を抽出
    * @param {any} t
    * @returns {string}
@@ -1472,6 +1488,17 @@ function formatValueForDisplay(value, labelMap = {}, workMeta = null, globalDefT
     if (en === 'Rank' && d.rankFormat) return d.rankFormat;
     if (en === 'Rarity' && d.rarityFormat) return d.rarityFormat;
     return d.enumFormat || '';
+  };
+
+  /**
+   * #ListLink_* の表示オプション（$display）を解釈
+   * @returns {{ showEnum: boolean, enumName: string }}
+   */
+  const getListLinkDisplayOpt = () => {
+    const d = opt?.display;
+    const showEnum = (d && typeof d === 'object' && typeof d.listLinkShowEnum === 'boolean') ? d.listLinkShowEnum : true;
+    const enumName = (d && typeof d === 'object' && typeof d.listLinkEnumName === 'string') ? d.listLinkEnumName.trim() : '';
+    return { showEnum, enumName };
   };
 
   /**
@@ -1747,6 +1774,7 @@ function formatValueForDisplay(value, labelMap = {}, workMeta = null, globalDefT
     // - 例: { EffectText: '絶大' } で、db_meta.json の #ListLink_EffectText から { Rank:'S', EffectText:'絶大' } を逆引き
     // - Rank が取れる場合は alphaLabel（コード＋説明）として返す
     if (schemaTypeIncludes(opt?.schemaType, '#ListLink')) {
+      const listOpt = getListLinkDisplayOpt();
       // 値が { EffectText: '...' } のような形なら、キー名から ListLink を探索する
       for (const [k, v] of Object.entries(value)) {
         const kk = String(k || '').trim();
@@ -1766,15 +1794,30 @@ function formatValueForDisplay(value, labelMap = {}, workMeta = null, globalDefT
               : vv
         );
 
-        // Rank を持っている場合は enum 的に扱って alphaLabel を返す
-        if (typeof item.Rank === 'string' && item.Rank.trim()) {
-          const rawRank = item.Rank.trim();
-          const resolvedRank = resolveEnumKey('Rank', rawRank);
-          const code = (resolvedRank || rawRank).trim();
-          if (code) return formatEnumWithAbout('Rank', code, label);
+        // $display で enum 併記を抑制する場合は label のみ
+        if (!listOpt.showEnum) return label;
+
+        // ListLink の項目が enum 値を持っている場合は enum 的に扱って alphaLabel を返す
+        // - 既定: globalDefType に存在する Enum 名のうち、item が持つキーを優先
+        // - $display.listLinkEnumName が指定されていればそれを優先
+        const availableEnums = listAvailableEnumNames();
+        const preferredEnum = listOpt.enumName;
+        const enumCandidates = [];
+        if (preferredEnum) enumCandidates.push(preferredEnum);
+        for (const en of availableEnums) enumCandidates.push(en);
+
+        for (const en of enumCandidates) {
+          if (!en) continue;
+          const raw = item[en];
+          if (typeof raw !== 'string' || !raw.trim()) continue;
+          const rawCode = raw.trim();
+          const resolvedCode = resolveEnumKey(en, rawCode);
+          const code = (resolvedCode || rawCode).trim();
+          if (!code) continue;
+          return formatEnumWithAbout(en, code, label);
         }
 
-        // Rank が無い場合は label のみ
+        // enum が取れない場合は label のみ
         return label;
       }
     }
@@ -2859,6 +2902,39 @@ async function renderDetail(workId, rec) {
     return null;
   };
 
+  /**
+   * 値オブジェクトの「葉キー」を元に、schemaType/schemaDisplay を推定する
+   * - #ListLink など「葉の型情報」が必要なケースに対応
+   * - JS 側の固定キー（EffectText 等）依存を減らし、typedef に寄せて柔軟に動作させる
+   * @param {string[]} basePaths - 例: ['NumerospecStats.EffectStats.Mental', 'EffectStats.Mental']
+   * @param {any} obj - 例: { EffectText: '絶大' }
+   * @returns {{ schemaType: string|null, schemaDisplay: any|null }}
+   */
+  const pickSchemaHintsForObjectLeaf = (basePaths, obj) => {
+    const leafKeys = (obj && typeof obj === 'object' && !Array.isArray(obj))
+      ? Object.keys(obj).filter(k => k && typeof k === 'string' && !k.startsWith('_'))
+      : [];
+
+    const candidatesType = [];
+    const candidatesDisplay = [];
+
+    for (const base of basePaths) {
+      if (!base) continue;
+      for (const leaf of leafKeys) {
+        candidatesType.push(`${base}.${leaf}`);
+        candidatesDisplay.push(`${base}.${leaf}`);
+      }
+      // フォールバック（親）
+      candidatesType.push(base);
+      candidatesDisplay.push(base);
+    }
+
+    return {
+      schemaType: pickSchemaType(...candidatesType),
+      schemaDisplay: pickSchemaDisplay(...candidatesDisplay)
+    };
+  };
+
   // Abilities with localized labels
   const ability = rec.AbilityStats || {};
   const abilityGrid = el('div', { class: 'kv-grid' }, Object.entries(ability).map(([k, v]) => {
@@ -2888,62 +2964,31 @@ async function renderDetail(workId, rec) {
   const eff = numStats.EffectStats || {};
   const effGrid = el('div', { class: 'kv-grid' }, Object.entries(eff).map(([k, v]) => {
     const fieldLabel = getFieldLabel(`EffectStats.${k}`, fieldLabelMap, metaForLookup, globalDefType, k);
-    const schemaType = pickSchemaType(
-      // まず「葉（EffectText）」の schemaType を優先（#ListLink 等の解釈に必要）
-      `EffectStats.${k}.EffectText`,
-      `NumerospecStats.EffectStats.${k}.EffectText`,
-      `ArcanumspecStats.EffectStats.${k}.EffectText`,
-      `BeastspecStats.EffectStats.${k}.EffectText`,
-      // フォールバック（定義が親にしか無い場合）
+    const { schemaType, schemaDisplay } = pickSchemaHintsForObjectLeaf([
       `EffectStats.${k}`,
       `NumerospecStats.EffectStats.${k}`,
       `ArcanumspecStats.EffectStats.${k}`,
-      `BeastspecStats.EffectStats.${k}`
-    );
-    const schemaDisplay = pickSchemaDisplay(
-      // 葉の display（あれば）
-      `EffectStats.${k}.EffectText`,
-      `NumerospecStats.EffectStats.${k}.EffectText`,
-      `ArcanumspecStats.EffectStats.${k}.EffectText`,
-      `BeastspecStats.EffectStats.${k}.EffectText`,
-      `EffectStats.${k}`,
-      'EffectStats',
-      `NumerospecStats.EffectStats.${k}`,
-      'NumerospecStats.EffectStats',
-      `ArcanumspecStats.EffectStats.${k}`,
-      'ArcanumspecStats.EffectStats',
       `BeastspecStats.EffectStats.${k}`,
-      'BeastspecStats.EffectStats'
-    );
+    ], v);
     const displayValue = formatValueForDisplay(v, fieldLabelMap, metaForLookup, globalDefType, { schemaType, display: schemaDisplay, fieldKey: `EffectStats.${k}` });
     return el('div', { class: 'tag' }, [`${fieldLabel}: ${displayValue}`]);
   }));
 
   const safety = numStats.SafetyLevel || {};
   const safetyRow = safety && Object.keys(safety).length > 0 ? el('div', { class: 'tag' }, [
-    `${getFieldLabel('SafetyLevel', fieldLabelMap, metaForLookup, globalDefType, 'Safety')}: ${formatValueForDisplay(safety, fieldLabelMap, metaForLookup, globalDefType, {
-      schemaType: pickSchemaType(
-        'SafetyLevel.SafetyLevelText',
-        'NumerospecStats.SafetyLevel.SafetyLevelText',
-        'ArcanumspecStats.SafetyLevel.SafetyLevelText',
-        'BeastspecStats.SafetyLevel.SafetyLevelText',
+    `${getFieldLabel('SafetyLevel', fieldLabelMap, metaForLookup, globalDefType, 'Safety')}: ${(() => {
+      const { schemaType, schemaDisplay } = pickSchemaHintsForObjectLeaf([
         'SafetyLevel',
         'NumerospecStats.SafetyLevel',
         'ArcanumspecStats.SafetyLevel',
         'BeastspecStats.SafetyLevel'
-      ),
-      display: pickSchemaDisplay(
-        'SafetyLevel.SafetyLevelText',
-        'NumerospecStats.SafetyLevel.SafetyLevelText',
-        'ArcanumspecStats.SafetyLevel.SafetyLevelText',
-        'BeastspecStats.SafetyLevel.SafetyLevelText',
-        'SafetyLevel',
-        'NumerospecStats.SafetyLevel',
-        'ArcanumspecStats.SafetyLevel',
-        'BeastspecStats.SafetyLevel'
-      ),
-      fieldKey: 'SafetyLevel'
-    })}`
+      ], safety);
+      return formatValueForDisplay(safety, fieldLabelMap, metaForLookup, globalDefType, {
+        schemaType,
+        display: schemaDisplay,
+        fieldKey: 'SafetyLevel'
+      });
+    })()}`
   ]) : null;
 
   // SpecType with localized labels

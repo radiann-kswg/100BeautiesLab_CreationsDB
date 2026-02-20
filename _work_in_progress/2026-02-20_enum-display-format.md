@@ -32,6 +32,14 @@
     - UI 側で `#ListLink_*`（`db_meta.json`）を逆引きし、該当項目に `Rank` が含まれる場合は `S（絶大）` のように `alphaLabel` として表示できるようにした。
     - これにより、EnumDef/EnumLink と同じ “コード＋説明” の見た目を、ListLink ベースの文字列フィールドにも適用できる。
 
+  ### $display による抑制スイッチ
+  - `db_type.json($DefType).$display.listLinkShowEnum`（boolean）
+    - `true`（既定）: ListLink 逆引きで enum（例: Rank）が取れる場合は `alphaLabel` 表示
+    - `false`: 常に label（例: `絶大`）のみ表示（コード併記を抑制）
+  - `db_type.json($DefType).$display.listLinkEnumName`（string, optional）
+    - ListLink 定義項目（例: `#ListLink_EffectText` の各要素）から参照する enum キー名を明示する
+    - 例: `Rank` / `Rarity` など（指定が無い場合は global deftype の `$EnumDef_*` を参照して推定）
+
 ## 影響範囲（編集したファイル）
 
 - [pages/characters.js](../pages/characters.js)
