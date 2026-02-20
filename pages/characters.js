@@ -2032,6 +2032,45 @@ async function renderDetail(workId, rec) {
     ])
   ]);
 
+  // 身長/体重など「単位付き」項目の表示を、Object/配列でも破綻しないよう統一
+  const formatWithUnit = (raw, unit) => {
+    if (raw == null || raw === '') return '';
+
+    // hideText はそのまま表示（単位は付けない）
+    if (raw && typeof raw === 'object' && !Array.isArray(raw) && typeof raw.hideText === 'string' && raw.hideText.trim()) {
+      return raw.hideText;
+    }
+
+    if (Array.isArray(raw)) {
+      return raw.map(v => formatWithUnit(v, unit)).filter(Boolean).join(', ');
+    }
+
+    // { value, about_* } パターンは value に単位を付与し、about は括弧で追記
+    if (raw && typeof raw === 'object' && !Array.isArray(raw) && Object.prototype.hasOwnProperty.call(raw, 'value')) {
+      const v = raw.value;
+      const about = raw.about_JP || raw.about_EN || raw.about;
+      if (v == null || v === '') return '';
+      const base = `${String(v)} ${unit}`.trim();
+      return about ? `${base}（${about}）` : base;
+    }
+
+    // プリミティブは単位付きにする
+    if (typeof raw === 'number' || typeof raw === 'string') {
+      const base = String(raw).trim();
+      if (!base) return '';
+      return unit ? `${base} ${unit}` : base;
+    }
+
+    // その他の Object は既存フォーマッタへ
+    return formatValueForDisplay(raw, fieldLabelMap, workMeta, globalDefType);
+  };
+
+  const formatBasicValue = (raw, opt = {}) => {
+    const unit = opt?.unit;
+    if (unit) return formatWithUnit(raw, unit);
+    return formatValueForDisplay(raw, fieldLabelMap, workMeta, globalDefType);
+  };
+
   // Build basic info table with localized field names
   const basicFields = [
     ['FormalName', rec.FormalName || ''],
@@ -2039,9 +2078,9 @@ async function renderDetail(workId, rec) {
     ['ModelName', rec.ModelName || rec.CodeName || ''],
     ['SPCodeName', rec.SPCodeName || rec.SPCodeName_EN || ''],
     ['GenderType', rec.GenderType_JP || rec.GenderType || ''],
-    ['Height_cm', rec.Height_cm != null ? `${rec.Height_cm} cm` : ''],
-    ['Weight_kg', rec.Weight_kg != null ? `${rec.Weight_kg} kg` : ''],
-    ['ConceptAge', rec.ConceptAge != null ? `${rec.ConceptAge}` : ''],
+    ['Height_cm', rec.Height_cm != null ? formatBasicValue(rec.Height_cm, { unit: 'cm' }) : ''],
+    ['Weight_kg', rec.Weight_kg != null ? formatBasicValue(rec.Weight_kg, { unit: 'kg' }) : ''],
+    ['ConceptAge', rec.ConceptAge != null ? formatBasicValue(rec.ConceptAge) : ''],
     ['Class', rec.Class || rec.Class_EN || ''],
   ].filter(([key, value]) => value); // Only show fields with values
 
