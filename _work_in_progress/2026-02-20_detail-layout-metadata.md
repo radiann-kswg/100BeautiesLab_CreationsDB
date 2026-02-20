@@ -11,6 +11,7 @@
   - `basicFields`: 基本情報テーブルの表示キー配列（未指定時は従来の固定セット + `ModelNumber` を含む）。
   - `suppressKeys`: 自動表示（schema-driven buckets）から除外するキー配列（任意）。
 - UI: `data/db_type.json` の `"$display"` で `auto:false` を尊重し、スキーマ駆動の自動表示から除外できるようにした（別名/統合表示用途）。
+- UI/Data: `data/db_type.json` の `$alt` を解釈し、該当フィールドが存在しない場合に代替フィールドを参照できるようにした（例: `Age` が無い場合に `ConceptAge` を参照）。
 - Data: `data/db_type.json` に `ModelName`/`Class`/`Class_EN` を追加し、`CodeName`/`SPCodeName_EN`/`Class_EN` に `auto:false` + `aliasOf` を付与。
 - Data: `data/db_meta.json` に全作品へ `$DetailLayout` の初期値（同一テンプレ）を追記。
 

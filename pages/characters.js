@@ -958,6 +958,52 @@ function buildTopLevelDisplayMap(workTypeDef, globalTypeDef = {}) {
 }
 
 /**
+ * db_type.json($DefType) からトップレベルの `$alt` を抽出してマップ化
+ * - work を優先し、同名キーは global を上書きしない
+ * - Images コンテナは除外（ギャラリー処理が担当）
+ * @param {Object|Array} workTypeDef
+ * @param {Object|Array} globalTypeDef
+ * @returns {Record<string, string[]>}
+ */
+function buildTopLevelAltMap(workTypeDef, globalTypeDef = {}) {
+  const map = {};
+
+  const pickDefArray = (def) => {
+    if (!def) return null;
+    if (Array.isArray(def)) return def;
+    if (Array.isArray(def?.$DefType)) return def.$DefType;
+    if (Array.isArray(def?.typedef?.$DefType)) return def.typedef.$DefType;
+    if (Array.isArray(def?.global)) return def.global;
+    return null;
+  };
+
+  const normalizeAlt = (alt) => {
+    if (!alt) return [];
+    if (typeof alt === 'string') return [alt];
+    if (Array.isArray(alt)) return alt.filter(x => typeof x === 'string');
+    return [];
+  };
+
+  const addFrom = (def) => {
+    const arr = pickDefArray(def);
+    if (!Array.isArray(arr)) return;
+    for (const item of arr) {
+      if (!item || typeof item !== 'object') continue;
+      const key = item.hashTag;
+      if (!key || typeof key !== 'string') continue;
+      if (key === 'Images') continue;
+      if (Object.prototype.hasOwnProperty.call(map, key)) continue;
+      const alts = normalizeAlt(item.$alt);
+      if (alts.length) map[key] = alts;
+    }
+  };
+
+  addFrom(workTypeDef);
+  addFrom(globalTypeDef);
+  return map;
+}
+
+/**
  * Get localized field label from type definitions with global fallback support
  * @param {string} fieldName - Field name like 'Name' or 'GenderType'
  * @param {Object} labelMap - Field label mapping from buildFieldLabelMap
@@ -2069,6 +2115,53 @@ async function renderDetail(workId, rec) {
 
   const left = el('div', {}, imageSection);
 
+  // トップレベルの `$display` / `$alt` を map 化（work 優先）
+  const topLevelDisplayMap = buildTopLevelDisplayMap(workTypeDef, globalTypeDef);
+  const topLevelAltMap = buildTopLevelAltMap(workTypeDef, globalTypeDef);
+
+  const isEmptyForAlt = (v) => {
+    if (v === null || v === undefined) return true;
+    if (v === '') return true;
+    if (Array.isArray(v)) return v.length === 0;
+    if (typeof v === 'object') {
+      // { hideText } は意図的マスクなので空扱いしない
+      if (typeof v.hideText === 'string' && v.hideText) return false;
+      return Object.keys(v).length === 0;
+    }
+    return false;
+  };
+
+  /**
+   * `$alt` を考慮して値を取り出す（primary が空なら alt を参照）
+   * - enrich 側で $alt 穴埋めが走った場合も、_enrichment.altFallbacks を見てラベル優先を維持する
+   * @param {string} key
+   * @returns {{ value: any, usedKey: string }}
+   */
+  const getValueWithAlt = (key) => {
+    // enrich 側で「primary は alt 由来」と記録されている場合、ラベルは alt 側を優先
+    const altUsed = rec?._enrichment?.altFallbacks?.[key];
+    if (typeof altUsed === 'string' && altUsed && !isEmptyForAlt(rec?.[key])) {
+      return { value: rec?.[key], usedKey: altUsed };
+    }
+
+    const primary = rec?.[key];
+    if (!isEmptyForAlt(primary)) return { value: primary, usedKey: key };
+
+    const alts = topLevelAltMap?.[key];
+    if (!Array.isArray(alts) || alts.length === 0) return { value: primary, usedKey: key };
+    for (const altKey of alts) {
+      const v = rec?.[altKey];
+      if (!isEmptyForAlt(v)) return { value: v, usedKey: altKey };
+    }
+    return { value: primary, usedKey: key };
+  };
+
+  const formatFieldValue = (fieldKey, raw) => {
+    return formatValueForDisplay(raw, fieldLabelMap, workMeta, globalDefType, {
+      display: topLevelDisplayMap?.[fieldKey] ?? null
+    });
+  };
+
   const titleRow = el('div', { class: 'kv' }, [
     el('div', { class: 'name' }, rec.Name || rec.FormalName || rec.Name_EN || '(No Name)'),
     (rec.Name_EN || rec.FormalName_EN) ? el('div', { class: 'name-en' }, rec.Name_EN || rec.FormalName_EN) : null,
@@ -2088,10 +2181,10 @@ async function renderDetail(workId, rec) {
         const nodes = [];
         for (const key of headerPills) {
           if (!key || typeof key !== 'string') continue;
-          const v = rec?.[key];
+          const { value: v, usedKey } = getValueWithAlt(key);
           if (v === null || v === undefined || v === '') continue;
           nodes.push(el('span', { class: 'pill' }, [
-            getFieldLabel(key, fieldLabelMap, workMeta, globalDefType, key),
+            getFieldLabel(usedKey || key, fieldLabelMap, workMeta, globalDefType, usedKey || key),
             formatValueForDisplay(v, fieldLabelMap, workMeta, globalDefType)
           ]));
         }
@@ -2100,58 +2193,60 @@ async function renderDetail(workId, rec) {
     ])
   ]);
 
-  // トップレベルの `$display` を map 化（work 優先）
-  const topLevelDisplayMap = buildTopLevelDisplayMap(workTypeDef, globalTypeDef);
-  const formatFieldValue = (fieldKey, raw) => {
-    return formatValueForDisplay(raw, fieldLabelMap, workMeta, globalDefType, {
-      display: topLevelDisplayMap?.[fieldKey] ?? null
-    });
-  };
-
   // Build basic info table with localized field names (layout-driven via db_meta.json $DetailLayout)
   const detailLayout = globalMeta?.CreationWorks?.[workId]?.$DetailLayout || null;
   const basicFieldKeys = Array.isArray(detailLayout?.basicFields)
     ? detailLayout.basicFields
-    : ['FormalName', 'FormalName_EN', 'ModelName', 'ModelNumber', 'SPCodeName', 'GenderType', 'Height_cm', 'Weight_kg', 'ConceptAge', 'Class'];
+    : ['FormalName', 'FormalName_EN', 'ModelName', 'ModelNumber', 'SPCodeName', 'GenderType', 'Height_cm', 'Weight_kg', 'Age', 'Class'];
 
-  const resolveBasicFieldValue = (key) => {
-    if (!key || typeof key !== 'string') return '';
+  /**
+   * 基本情報テーブル用の値解決
+   * - `$alt` により代替した場合、ラベルは代替元キー（usedKey）を優先
+   * @param {string} key
+   * @returns {{ value: any, labelKey: string, sourceKey: string }}
+   */
+  const resolveBasicField = (key) => {
+    if (!key || typeof key !== 'string') return { value: '', labelKey: String(key || ''), sourceKey: String(key || '') };
     switch (key) {
       case 'FormalName':
-        return rec.FormalName || '';
+        return { value: rec.FormalName || '', labelKey: 'FormalName', sourceKey: 'FormalName' };
       case 'FormalName_EN':
-        return rec.FormalName_EN || '';
+        return { value: rec.FormalName_EN || '', labelKey: 'FormalName_EN', sourceKey: 'FormalName_EN' };
       case 'ModelName':
-        return rec.ModelName || rec.CodeName || '';
+        return { value: rec.ModelName || rec.CodeName || '', labelKey: 'ModelName', sourceKey: 'ModelName' };
       case 'ModelNumber':
-        return rec.ModelNumber || '';
+        return { value: rec.ModelNumber || '', labelKey: 'ModelNumber', sourceKey: 'ModelNumber' };
       case 'SPCodeName':
-        return rec.SPCodeName || rec.SPCodeName_EN || '';
+        return { value: rec.SPCodeName || rec.SPCodeName_EN || '', labelKey: 'SPCodeName', sourceKey: 'SPCodeName' };
       case 'GenderType':
-        return rec.GenderType_JP || rec.GenderType || '';
+        return { value: rec.GenderType_JP || rec.GenderType || '', labelKey: 'GenderType', sourceKey: 'GenderType' };
       case 'Height_cm':
-        return rec.Height_cm != null ? formatFieldValue('Height_cm', rec.Height_cm) : '';
+        return { value: rec.Height_cm != null ? formatFieldValue('Height_cm', rec.Height_cm) : '', labelKey: 'Height_cm', sourceKey: 'Height_cm' };
       case 'Weight_kg':
-        return rec.Weight_kg != null ? formatFieldValue('Weight_kg', rec.Weight_kg) : '';
+        return { value: rec.Weight_kg != null ? formatFieldValue('Weight_kg', rec.Weight_kg) : '', labelKey: 'Weight_kg', sourceKey: 'Weight_kg' };
+      case 'Age': {
+        const { value: v, usedKey } = getValueWithAlt('Age');
+        return { value: v != null ? formatFieldValue(usedKey || 'Age', v) : '', labelKey: usedKey || 'Age', sourceKey: 'Age' };
+      }
       case 'ConceptAge':
-        return rec.ConceptAge != null ? formatFieldValue('ConceptAge', rec.ConceptAge) : '';
+        return { value: rec.ConceptAge != null ? formatFieldValue('ConceptAge', rec.ConceptAge) : '', labelKey: 'ConceptAge', sourceKey: 'ConceptAge' };
       case 'Class':
-        return rec.Class || rec.Class_EN || '';
+        return { value: rec.Class || rec.Class_EN || '', labelKey: 'Class', sourceKey: 'Class' };
       default: {
-        const v = rec?.[key];
-        if (v === null || v === undefined || v === '') return '';
-        return formatFieldValue(key, v);
+        const { value: v, usedKey } = getValueWithAlt(key);
+        if (v === null || v === undefined || v === '') return { value: '', labelKey: key, sourceKey: key };
+        return { value: formatFieldValue(usedKey || key, v), labelKey: usedKey || key, sourceKey: key };
       }
     }
   };
 
   const basicFields = basicFieldKeys
-    .map((key) => [key, resolveBasicFieldValue(key)])
-    .filter(([, value]) => value); // Only show fields with values
+    .map((key) => resolveBasicField(key))
+    .filter((it) => it && it.value); // Only show fields with values
 
-  const basic = kvTable(rec, basicFields.map(([key, value]) => [
-    getFieldLabel(key, fieldLabelMap, workMeta, globalDefType, key),
-    value
+  const basic = kvTable(rec, basicFields.map((it) => [
+    getFieldLabel(it.labelKey, fieldLabelMap, workMeta, globalDefType, it.labelKey),
+    it.value
   ]));
 
   // Abilities with localized labels
@@ -2231,18 +2326,27 @@ async function renderDetail(workId, rec) {
     if (rec.ModelNumber) s.add('ModelNumber');
     if (rec.Progress) s.add('Progress');
 
-    // 基本情報テーブルに出したキー（空値は表示されないが、空値は後段でもスキップされるため安全側）
-    for (const [k] of basicFields) s.add(k);
+    // 基本情報テーブルに出したキー（$alt を含めて二重表示抑止）
+    for (const it of basicFields) {
+      if (!it || typeof it !== 'object') continue;
+      if (it.sourceKey) s.add(it.sourceKey);
+      if (it.labelKey) s.add(it.labelKey);
+
+      const alts = topLevelAltMap?.[it.sourceKey];
+      if (Array.isArray(alts)) {
+        for (const ak of alts) s.add(ak);
+      }
+    }
 
     // 互換/別名/派生表示に伴う重複抑止
     // - ModelName は CodeName をフォールバックに持つため、どちらが値を持っていても二重表示を避ける
-    if (basicFields.some(([k]) => k === 'ModelName')) s.add('CodeName');
+    if (basicFields.some(it => it?.sourceKey === 'ModelName')) s.add('CodeName');
     // - SPCodeName は SPCodeName_EN をフォールバックに持つため、二重表示を避ける
-    if (basicFields.some(([k]) => k === 'SPCodeName')) s.add('SPCodeName_EN');
+    if (basicFields.some(it => it?.sourceKey === 'SPCodeName')) s.add('SPCodeName_EN');
     // - Class は Class_EN を併記している作品があるため、二重表示を避ける
-    if (basicFields.some(([k]) => k === 'Class')) s.add('Class_EN');
+    if (basicFields.some(it => it?.sourceKey === 'Class')) s.add('Class_EN');
     // - GenderType_JP のような派生キーが混入する場合があるため、基本情報で表示したら抑止
-    if (basicFields.some(([k]) => k === 'GenderType')) s.add('GenderType_JP');
+    if (basicFields.some(it => it?.sourceKey === 'GenderType')) s.add('GenderType_JP');
 
     // スペック/能力セクションで個別表示するトップレベルキー
     if (rec.AbilityStats && typeof rec.AbilityStats === 'object' && Object.keys(rec.AbilityStats).length > 0) {
@@ -2344,19 +2448,32 @@ async function renderDetail(workId, rec) {
       continue;
     }
 
-    const v = rec?.[f.key];
+    const { value: v, usedKey } = getValueWithAlt(f.key);
+
+    // $alt で代替キーを使う場合、代替側が既に表示済みなら二重表示しない
+    if (usedKey && usedKey !== f.key && shownKeys.has(usedKey)) {
+      shownKeys.add(f.key);
+      continue;
+    }
+
     if (shouldSkipKey(f.key, v)) continue;
 
     const sec = normalizeSection(f.display?.section) || (isSummaryType(f.type) ? 'profile' : 'other');
     // section が未指定/不正の場合は other
+    const labelKey = (usedKey && usedKey !== f.key) ? usedKey : f.key;
     pushToBucket(sec || 'other', {
       key: f.key,
-      label: getFieldLabel(f.key, fieldLabelMap, workMeta, globalDefType, f.label),
+      label: getFieldLabel(labelKey, fieldLabelMap, workMeta, globalDefType, labelKey),
       type: f.type,
       display: f.display,
       value: v
     });
     shownKeys.add(f.key);
+
+    // $alt で参照した代替キーも抑止対象にする
+    if (usedKey && usedKey !== f.key) {
+      shownKeys.add(usedKey);
+    }
   }
 
   // 2) スキーマ外（追加/互換/暫定）は other 扱いでフォールバック表示
