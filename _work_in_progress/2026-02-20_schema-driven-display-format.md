@@ -82,6 +82,33 @@
 ※ union（`|`）や複合（`,`）がある場合は「含まれている要素で最も優先度が高いもの」を採用する。
 （例: `#Number|#Number_withAbout[]` は number + array とみなす）
 
+#### データセット参照型（列挙/リスト）も `$type` で扱う
+
+`$type` に `$EnumDef` や `#ListIndex/#ListLink` が入っている場合、
+「列挙体（データセット）が VarsDef に宣言されている」前提で **値→表示名（JP/EN）** を引ける。
+
+このリポジトリでは、データセット宣言は主に meta 側（例: data/db*meta.json の `General.$VarsDef`）にあり、
+`$EnumDef*<Field>`/`#List\_<Field>` 形式で定義されている。
+
+推奨ルックアップ規則（後方互換重視）:
+
+1. まずレコードに `${field}_JP` / `${field}_EN` があればそれを優先（既存データ互換）
+2. 無ければ VarsDef からデータセットを引き、値で一致する要素を探して `${field}_JP` / `${field}_EN` を返す
+3. それも無ければ raw 値（`String(value)`）を表示
+
+データセット名の決め方:
+
+- `$type` に `$EnumDef_<Name>` が含まれる（例: `$EnumDef_Rank,$EnumLink`）
+  - データセットキーは **そのまま** `$EnumDef_<Name>`
+  - 値キーは通常、フィールド名に依存（例: `Rank` → `Rank_JP`）
+- `$type` が `$EnumDef`（サフィックスなし）の場合（例: `GenderType`）
+  - データセットキーは `$EnumDef_${field}`（例: `$EnumDef_GenderType`）
+- `$type` が `#ListIndex` / `#ListLink` の場合（例: `RaceType`）
+  - データセットキーは `#List_${field}`（例: `#List_RaceType`）
+
+※ work ごとの上書き（作品固有の list/enum）も想定するため、VarsDef は「global meta → work meta → global type → work type」順で deep merge したものを参照する。
+（SW 側はすでに `EnrichmentProcessor.getWorkContext()` でこの merge を行っている）
+
 ### 2) 既存の Object パターン（hideText / {value, about\_\*}）との整合
 
 表示処理の優先順位は以下を標準化する。
