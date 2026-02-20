@@ -1208,6 +1208,77 @@ function getFieldLabel(fieldName, labelMap, workMeta = null, globalDefType = nul
 }
 
 /**
+ * db_meta.json の $VarsDef（$EnumDef_* / #List_*）から、カテゴリ値の表示名を解決する
+ * - 例: GenderType: 'Female' → '女性'
+ * - 例: RaceType: 'Human' → '人間'
+ * - 入力が既に *_JP / *_EN の文字列だった場合も、そのまま一致させる
+ *
+ * @param {string} fieldName - 'GenderType' / 'RaceType' 等
+ * @param {any} rawValue - 生の値（プリミティブを想定）
+ * @param {Object|null} globalDefType - fetchGlobalDefType() の結果（通常は data/db_meta.json）
+ * @param {Object|null} metaForLookup - workMeta/globalMeta を統合した参照用メタ（任意）
+ * @returns {string} 表示名（既定は日本語優先、なければ生値）
+ */
+function resolveVarsDefLabel(fieldName, rawValue, globalDefType = null, metaForLookup = null) {
+  const fn = String(fieldName || '').trim();
+  if (!fn) return '';
+
+  if (rawValue === null || rawValue === undefined || rawValue === '') return '';
+  const rv = String(rawValue).trim();
+  if (!rv) return '';
+
+  const varsDef = (
+    (metaForLookup && metaForLookup.General && metaForLookup.General.$VarsDef && typeof metaForLookup.General.$VarsDef === 'object')
+      ? metaForLookup.General.$VarsDef
+      : (globalDefType && globalDefType.General && globalDefType.General.$VarsDef && typeof globalDefType.General.$VarsDef === 'object')
+        ? globalDefType.General.$VarsDef
+        : null
+  );
+  if (!varsDef) return rv;
+
+  const pickLabel = (item) => {
+    if (!item || typeof item !== 'object') return '';
+    const jp = item[`${fn}_JP`];
+    const raw = item[fn];
+    const en = item[`${fn}_EN`];
+    if (typeof jp === 'string' && jp.trim()) return jp.trim();
+    if (typeof raw === 'string' && raw.trim()) return raw.trim();
+    if (typeof en === 'string' && en.trim()) return en.trim();
+    return '';
+  };
+
+  // $EnumDef_XXX は { '#XXX1': { XXX:'...', XXX_JP:'...' }, ... } 形式
+  const enumDef = varsDef[`$EnumDef_${fn}`];
+  if (enumDef && typeof enumDef === 'object') {
+    for (const v of Object.values(enumDef)) {
+      if (!v || typeof v !== 'object') continue;
+      const raw = v[fn];
+      const jp = v[`${fn}_JP`];
+      const en = v[`${fn}_EN`];
+      if ((typeof raw === 'string' && raw.trim() === rv) || (typeof jp === 'string' && jp.trim() === rv) || (typeof en === 'string' && en.trim() === rv)) {
+        return pickLabel(v) || rv;
+      }
+    }
+  }
+
+  // #List_XXX は [{ XXX:'...', XXX_JP:'...' }, ...] 形式
+  const listDef = varsDef[`#List_${fn}`];
+  if (Array.isArray(listDef)) {
+    for (const item of listDef) {
+      if (!item || typeof item !== 'object') continue;
+      const raw = item[fn];
+      const jp = item[`${fn}_JP`];
+      const en = item[`${fn}_EN`];
+      if ((typeof raw === 'string' && raw.trim() === rv) || (typeof jp === 'string' && jp.trim() === rv) || (typeof en === 'string' && en.trim() === rv)) {
+        return pickLabel(item) || rv;
+      }
+    }
+  }
+
+  return rv;
+}
+
+/**
  * Format value for display with global definition type support
  * @param {any} value - Value to format
  * @param {Object} labelMap - Field label mapping for nested objects
@@ -1620,6 +1691,16 @@ function formatValueForDisplay(value, labelMap = {}, workMeta = null, globalDefT
       if (resolved) return formatEnumWithAbout(enumName, resolved, null);
       if (typeof value === 'boolean') return String(value);
       return withUnit(value);
+    }
+
+    // #ListIndex（RaceType 等）の場合、db_meta.json の #List_* から表示名を解決する
+    // - 例: RaceType: 'Human' → '人間'
+    if (schemaTypeIncludes(opt.schemaType, '#ListIndex') && opt.fieldKey) {
+      const simple = String(opt.fieldKey).split('.').pop();
+      if (simple) {
+        const resolved = resolveVarsDefLabel(simple, value, globalDefType, workMeta);
+        if (resolved) return withUnit(resolved);
+      }
     }
   }
 
@@ -2545,7 +2626,10 @@ async function renderList(records, workId, onOpen, imageFields = null) {
   const filter = (qs.q || $('#search-input').value || '').trim();
 
   // 作品ごとのインデックス定義（表示名含む）を取得
-  const globalMeta = await fetchGlobalMeta();
+  const [globalMeta, globalDefType] = await Promise.all([
+    fetchGlobalMeta(),
+    fetchGlobalDefType()
+  ]);
   const indexDef = getWorkIndexField(workId, globalMeta);
 
   // グローバルステートから現在のデータベース名を取得
@@ -2579,9 +2663,17 @@ async function renderList(records, workId, onOpen, imageFields = null) {
     const chipEls = [];
 
     // Enhanced chip generation with more field types
-    if (r.GenderType_JP || r.GenderType) chipEls.push(el('span', { class: 'chip' }, r.GenderType_JP || r.GenderType));
+    if (r.GenderType_JP || r.GenderType) {
+      const raw = r.GenderType_JP || r.GenderType;
+      const label = resolveVarsDefLabel('GenderType', raw, globalDefType, null);
+      if (label) chipEls.push(el('span', { class: 'chip' }, label));
+    }
     if (r.Class || r.Class_EN) chipEls.push(el('span', { class: 'chip' }, r.Class || r.Class_EN));
-    if (r.RaceType_JP || r.RaceType) chipEls.push(el('span', { class: 'chip' }, r.RaceType_JP || r.RaceType));
+    if (r.RaceType_JP || r.RaceType) {
+      const raw = r.RaceType_JP || r.RaceType;
+      const label = resolveVarsDefLabel('RaceType', raw, globalDefType, null);
+      if (label) chipEls.push(el('span', { class: 'chip' }, label));
+    }
 
     // Index chip (schema-driven via db_meta.json $DefType_Index)
     const indexChipText = buildIndexChipText(r, indexDef);
@@ -2882,7 +2974,7 @@ async function renderDetail(workId, rec) {
           if (v === null || v === undefined || v === '') continue;
           nodes.push(el('span', { class: 'pill' }, [
             getFieldLabel(usedKey || key, fieldLabelMap, workMeta, globalDefType, usedKey || key),
-            formatValueForDisplay(v, fieldLabelMap, workMeta, globalDefType, {
+            formatValueForDisplay(v, fieldLabelMap, metaForLookup, globalDefType, {
               schemaType: fieldTypeMap?.[usedKey || key] ?? null,
               display: topLevelDisplayMap?.[usedKey || key] ?? null,
               fieldKey: usedKey || key
@@ -2946,7 +3038,11 @@ async function renderDetail(workId, rec) {
       case 'SPCodeName':
         return { value: rec.SPCodeName || rec.SPCodeName_EN || '', labelKey: 'SPCodeName', sourceKey: 'SPCodeName' };
       case 'GenderType':
-        return { value: rec.GenderType_JP || rec.GenderType || '', labelKey: 'GenderType', sourceKey: 'GenderType' };
+        return {
+          value: resolveVarsDefLabel('GenderType', rec.GenderType_JP || rec.GenderType || '', globalDefType, metaForLookup),
+          labelKey: 'GenderType',
+          sourceKey: 'GenderType'
+        };
       case 'Height_cm':
         return { value: rec.Height_cm != null ? formatFieldValue('Height_cm', rec.Height_cm) : '', labelKey: 'Height_cm', sourceKey: 'Height_cm' };
       case 'Weight_kg':
@@ -3232,12 +3328,12 @@ async function renderDetail(workId, rec) {
     if (schemaType != null && isSummaryType(schemaType)) {
       const formatted = typeof v === 'string'
         ? v
-        : formatValueForDisplay(v, fieldLabelMap, workMeta, globalDefType, { display: schemaDisplay, schemaType, fieldKey: k });
+        : formatValueForDisplay(v, fieldLabelMap, metaForLookup, globalDefType, { display: schemaDisplay, schemaType, fieldKey: k });
       if (formatted && String(formatted).includes('\n')) return preWrapText(formatted);
       // Summary でも単行の場合は preWrap にしておく（安全側）
       return preWrapText(formatted);
     }
-    const formatted = formatValueForDisplay(v, fieldLabelMap, workMeta, globalDefType, { display: schemaDisplay, schemaType, fieldKey: k });
+    const formatted = formatValueForDisplay(v, fieldLabelMap, metaForLookup, globalDefType, { display: schemaDisplay, schemaType, fieldKey: k });
     if (typeof formatted === 'string' && formatted.includes('\n')) return preWrapText(formatted);
     return formatted;
   };
@@ -3434,7 +3530,7 @@ async function renderDetail(workId, rec) {
     otherSection,
     rec.Relation && (rec.Relation.Related || rec.Relation.Commented) ? renderRelations(rec.Relation) : null,
     // 参照解決結果の表示（_DBLinkResolved）
-    rec._DBLinkResolved ? renderDBLinkResolved(rec._DBLinkResolved, fieldLabelMap, workMeta, globalDefType) : null
+    rec._DBLinkResolved ? renderDBLinkResolved(rec._DBLinkResolved, fieldLabelMap, metaForLookup, globalDefType) : null
   ].filter(Boolean));
 
   mount.appendChild(el('div', { class: 'detail' }, [left, right]));
@@ -3518,8 +3614,8 @@ function renderDBLinkResolved(dbLinkResolved, fieldLabelMap, workMeta, globalDef
               record.Class || record.RaceType || record.GenderType ?
                 el('div', { style: 'margin-top: 4px;' }, [
                   record.Class ? el('span', { class: 'chip', style: 'margin-right: 4px;' }, [record.Class]) : null,
-                  record.RaceType ? el('span', { class: 'chip', style: 'margin-right: 4px;' }, [record.RaceType]) : null,
-                  record.GenderType ? el('span', { class: 'chip', style: 'margin-right: 4px;' }, [record.GenderType]) : null
+                  record.RaceType ? el('span', { class: 'chip', style: 'margin-right: 4px;' }, [resolveVarsDefLabel('RaceType', record.RaceType, globalDefType, workMeta)]) : null,
+                  record.GenderType ? el('span', { class: 'chip', style: 'margin-right: 4px;' }, [resolveVarsDefLabel('GenderType', record.GenderType, globalDefType, workMeta)]) : null
                 ].filter(Boolean)) : null
             ].filter(Boolean))
           ).concat(
