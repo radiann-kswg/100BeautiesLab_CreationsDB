@@ -42,6 +42,7 @@
     "Unit_JP": "寸法(KMS法)",
     "Progress": "stillTentative",
     "Images": {
+      "concept_PNGName": "cnsp_imgPhysU-m",
       "design_PNGName": "design_imgPhysU-m"
     },
     "Name": "メトレ",
