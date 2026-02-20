@@ -1,6 +1,14 @@
 {
   "$DefType": [
-    { "hashTag": "Progress", "$type": "$EnumDef", "hashTag_JP": "進捗" },
+    {
+      "hashTag": "Progress",
+      "$type": "$EnumDef",
+      "hashTag_JP": "進捗",
+      "$display": {
+        "section": "basic",
+        "tagSpace": "creatorProgress"
+      }
+    },
     { "hashTag": "Name", "$type": "#Stiring_JP|#Null", "hashTag_JP": "愛称" },
     {
       "hashTag": "Name_EN",
@@ -38,9 +46,33 @@
       "hashTag_JP": "特殊な名称コード_EN"
     },
     { "hashTag": "ModelNumber", "$type": "#Stiring", "hashTag_JP": "型番" },
-    { "hashTag": "RaceType", "$type": "#ListIndex", "hashTag_JP": "種族" },
-    { "hashTag": "GenderType", "$type": "$EnumDef", "hashTag_JP": "性別" },
-    { "hashTag": "Belonging", "$type": "#ListIndex", "hashTag_JP": "所属" },
+    {
+      "hashTag": "RaceType",
+      "$type": "#ListIndex",
+      "hashTag_JP": "種族",
+      "$display": {
+        "section": "basic",
+        "tagSpace": "creation"
+      }
+    },
+    {
+      "hashTag": "GenderType",
+      "$type": "$EnumDef",
+      "hashTag_JP": "性別",
+      "$display": {
+        "section": "basic",
+        "tagSpace": "creation"
+      }
+    },
+    {
+      "hashTag": "Belonging",
+      "$type": "#ListIndex",
+      "hashTag_JP": "所属",
+      "$display": {
+        "section": "basic",
+        "tagSpace": "creation"
+      }
+    },
     {
       "hashTag": "BelongingArea",
       "$type": "$Def_BaseArea",

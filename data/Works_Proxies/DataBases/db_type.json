@@ -13,7 +13,8 @@
           "$type": "#PNGFileName[]",
           "hashTag_JP": "設定原画差分PNGファイル名"
         }
-      ]
+      ],
+      "$display": { "section": "images", "tagSpace": "internal" }
     }
   ]
 }

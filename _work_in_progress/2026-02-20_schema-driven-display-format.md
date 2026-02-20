@@ -57,9 +57,28 @@
 - `unit`（任意）: `"cm"`, `"kg"`, `"歳"` など
 - `arrayJoin`（任意）: 配列表示の join 文字（デフォルト `", "`）
 - `section`（任意）: `"basic" | "profile" | "spec" | "images" | "other"`
-  - 既に `TypeDefUtils.pickDisplaySection()` が参照可能。
+  - **UI上の表示セクション**（どこに出すか）。既に `TypeDefUtils.pickDisplaySection()` が参照可能。
+- `tagSpace`（任意）: `"creation" | "creatorProgress" | "system" | "internal"`（案）
+  - **タグ（管理用ステータス等）の名前空間**（誰が/何が管理する情報か）。
+  - `creation`: **創作作品上の設定**（種族/所属/能力種別など）に関する値。
+  - `creatorProgress`: **創作者が制作進捗を管理**する値（現状は `Progress` のみを想定）。
+  - `system` は enrich/search 等の処理で付与/派生する値、`internal` は `_DBLink` 等の制御用を想定。
 - `kind`（任意・原則不要）: `"number" | "string" | "date" | "enum" | "list" | "object"`
   - **正は `$type`** とし、`$type` から推定できない/推定が誤りやすい場合の上書き用途。
+
+例: `Progress`（創作者が管理する進捗タグ）
+
+```json
+{
+  "hashTag": "Progress",
+  "$type": "$EnumDef",
+  "hashTag_JP": "進捗",
+  "$display": {
+    "section": "basic",
+    "tagSpace": "creatorProgress"
+  }
+}
+```
 
 ### 1.5) `$type` を活用して kind を推定する（今回の提案の要点）
 

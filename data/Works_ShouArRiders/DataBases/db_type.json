@@ -18,7 +18,8 @@
           "$type": "#PNGFilePath[]",
           "hashTag_JP": "イラストPNGファイル相対パス"
         }
-      ]
+      ],
+      "$display": { "section": "images", "tagSpace": "internal" }
     },
     {
       "hashTag": "BeastspecName",
@@ -41,12 +42,14 @@
         {
           "hashTag": "SpetialPattern",
           "$type": "#Enum[]",
-          "hashTag_JP": "特殊パターン"
+          "hashTag_JP": "特殊パターン",
+          "$display": { "section": "spec", "tagSpace": "creation" }
         },
         {
           "hashTag": "SpecLevel",
           "$type": [{ "hashTag": "Rank", "$type": "$EnumDef_Rank,$EnumLink" }],
-          "hashTag_JP": "能力レベル"
+          "hashTag_JP": "能力レベル",
+          "$display": { "section": "spec", "tagSpace": "creation" }
         }
       ],
       "hashTag_JP": "獣騎能力の特性"

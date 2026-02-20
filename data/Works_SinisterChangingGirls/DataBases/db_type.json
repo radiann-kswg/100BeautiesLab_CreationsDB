@@ -13,7 +13,8 @@
           "$type": "#PNGFilePath[]",
           "hashTag_JP": "イラストPNGファイル相対パス"
         }
-      ]
+      ],
+      "$display": { "section": "images", "tagSpace": "internal" }
     }
   ]
 }

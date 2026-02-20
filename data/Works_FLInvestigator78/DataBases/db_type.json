@@ -28,7 +28,8 @@
           "$type": "#PNGFilePath[]",
           "hashTag_JP": "イラストPNGファイル相対パス"
         }
-      ]
+      ],
+      "$display": { "section": "images", "tagSpace": "internal" }
     },
     {
       "hashTag": "For79or80thDealerCalling",
@@ -52,7 +53,8 @@
             {
               "hashTag": "Material",
               "$type": "#ListIndex[]",
-              "hashTag_JP": "元素属性"
+              "hashTag_JP": "元素属性",
+              "$display": { "section": "spec", "tagSpace": "creation" }
             },
             {
               "hashTag": "ActionType",
@@ -60,12 +62,20 @@
                 {
                   "hashTag": "KinematicOrStatic",
                   "$type": "#ListIndex|#Null",
-                  "hashTag_JP": "動的か静的か"
+                  "hashTag_JP": "動的か静的か",
+                  "$display": {
+                    "section": "spec",
+                    "tagSpace": "creation"
+                  }
                 },
                 {
                   "hashTag": "RoleType",
                   "$type": "#ListIndex|#Null",
-                  "hashTag_JP": "ロール種別"
+                  "hashTag_JP": "ロール種別",
+                  "$display": {
+                    "section": "spec",
+                    "tagSpace": "creation"
+                  }
                 }
               ],
               "hashTag_JP": "動的属性"
@@ -73,7 +83,8 @@
             {
               "hashTag": "DualizePattern",
               "$type": "#ListIndex",
-              "hashTag_JP": "双極特性パターン"
+              "hashTag_JP": "双極特性パターン",
+              "$display": { "section": "spec", "tagSpace": "creation" }
             }
           ],
           "hashTag_JP": "能力種別"
@@ -81,7 +92,8 @@
         {
           "hashTag": "SpetialPattern",
           "$type": "#Enum[]",
-          "hashTag_JP": "特殊パターン"
+          "hashTag_JP": "特殊パターン",
+          "$display": { "section": "spec", "tagSpace": "creation" }
         },
         {
           "hashTag": "SafetyLevel",
@@ -93,7 +105,8 @@
         {
           "hashTag": "SpecLevel",
           "$type": [{ "hashTag": "Rank", "$type": "$EnumDef_Rank,$EnumLink" }],
-          "hashTag_JP": "能力レベル"
+          "hashTag_JP": "能力レベル",
+          "$display": { "section": "spec", "tagSpace": "creation" }
         },
         {
           "hashTag": "EffectStats",

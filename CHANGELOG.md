@@ -149,3 +149,22 @@
 - `lib/data-common.js`
 - `tests/enrich.dblink.jump.merge.test.js`
 - `_work_in_progress/2026-02-20_dblink-jump-merge.md`
+
+### typedef 表示メタデータ（`$display`）の試験導入
+
+- `db_type.json($DefType)` に後方互換な表示メタ情報 `"$display"` を追加（宣言のみ・既存挙動は維持）。
+- まず `unit`（例: `Height_cm`/`Weight_kg`）と、UI分類用の `section`、管理主体/タグ領域を表す `tagSpace`（`creation`/`creatorProgress`/`system`/`internal` 案）を導入。
+- グローバルだけでなく、作品別 `data/Works_*/DataBases/db_type.json` にも `Images` や enum/list 系フィールドへ `section/tagSpace` を追記し、スキーマ駆動表示への移行準備を開始。
+- 設計メモを `_work_in_progress/2026-02-20_schema-driven-display-format.md` に整理。
+
+#### 影響範囲（代表）
+
+- `data/db_type.json`
+- `data/Works_FLInvestigator78/DataBases/db_type.json`
+- `data/Works_NumberTales/DataBases/db_type.json`
+- `data/Works_ShouArRiders/DataBases/db_type.json`
+- `data/Works_SinisterChangingGirls/DataBases/db_type.json`
+- `data/Works_Proxies/DataBases/db_type.json`
+- `data/Works_DestinyFoxsRecords/DataBases/db_type.json`
+- `data/Works_UnauthedLogica/DataBases/db_type.json`
+- `_work_in_progress/2026-02-20_schema-driven-display-format.md`

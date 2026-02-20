@@ -38,7 +38,8 @@
           "$type": "#PNGFilePath[]",
           "hashTag_JP": "イラストPNGファイル相対パス"
         }
-      ]
+      ],
+      "$display": { "section": "images", "tagSpace": "internal" }
     },
     {
       "hashTag": "NumerospecStats",
@@ -86,7 +87,8 @@
         {
           "hashTag": "SpetialPattern",
           "$type": "#Enum[]",
-          "hashTag_JP": "特殊パターン"
+          "hashTag_JP": "特殊パターン",
+          "$display": { "section": "spec", "tagSpace": "creation" }
         },
         {
           "hashTag": "SafetyLevel",
@@ -139,7 +141,8 @@
         {
           "hashTag": "RelationLabel",
           "$type": "#ListIndex[]",
-          "hashTag_JP": "関係性に関するラベル"
+          "hashTag_JP": "関係性に関するラベル",
+          "$display": { "section": "profile", "tagSpace": "creation" }
         }
       ],
       "#List_RelationLabel": [
