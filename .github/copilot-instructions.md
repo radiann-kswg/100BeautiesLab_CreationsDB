@@ -19,12 +19,19 @@
   - 対象の目安: Service Worker のルーティング/API、`lib/` の共通処理、参照解決（enrich/search）、`db_type.json`/`db_meta.json` の仕様、`pages/characters.js` の表示仕様など。
   - 原則: 変更と同じコミット/PR 内で `CHANGELOG.md` に追記し、必要に応じて `_work_in_progress/` に補足ログを残します。
 
+### 最近の重要方針（要点）
+
+- **スキーマ駆動（最優先）**: UI/Service Worker ともに、挙動や表示項目は可能な限り `db_type.json($DefType)` をソース・オブ・トゥルースとして追従させます。
+- **typedef 駆動の優先順位**: enrich/search 等で typedef を解釈する場合、優先順位は **表示分類 → 正規化 → 画像 → 検索** とします。
+- **enrich 出力メタ**: enrich の結果には、UI が表示制御に使えるメタ情報（例: `_enrichment.displaySections`）を付与する設計を許容します。
+- **作業の粒度**: 注釈追加やリファクタは「今回触る範囲に限定」し、全体の一括整形・一括注釈化は避けます（必要な場合は計画提示のうえ段階導入）。
+
 ### 大規模更新時の確認対応（重要）
 
 今後、**大規模更新**（例: `data/` の大量更新、Service Worker のルーティング改修、`lib/` の共通処理変更、複数ページ横断の修正など）を行う場合は、実装後に最低限以下を確認してください。
 
 - **自動テスト**: `npm test` が成功していること（Vitest）。
-  - 目安: `tests/data.sanity.test.js`（JSON 構文・存在） / `tests/data.shape.test.js`（構造・型） / `tests/sw.enrich.basic.test.js`（参照解決・エンドポイント）
+  - 目安: `tests/data.sanity.test.js`（JSON 構文・存在） / `tests/data.shape.test.js`（構造・型） / `tests/sw.enrich.basic.test.js`（参照解決・エンドポイント） / `tests/enrich.dblink.jump.merge.test.js`（参照マージ回帰）
 - **データ更新時**: `db_meta.json` / `db_type.json` の整合、および参照解決（関連データ取得）が破綻しないこと。
 - **Service Worker 更新時**: キャッシュ名・バージョン管理、`/api/v1`・`/pages/v1`・`/svc/v1` の基本ルーティングが想定通りであること。
 - **UI 更新時**: ローカルの HTTP サーバー上で主要ページ（例: `pages/characters.html`）の基本動作（データ取得・表示・検索等）が成立すること。
@@ -153,7 +160,7 @@
 ### 作品シリーズ
 
 1. **ナンバーテールズ(NumberTales)**: 数字・数秘術ベースの妖獣型キャラクター
-2. **運命線探偵 78(FLInvastigators78)**: タロットカードベースの異能調査組織
+2. **運命線探偵 78(FLInvestigator78)**: タロットカードベースの異能調査組織
 3. **獣爾騎兵(ShouArRiders)**: 十二支ベースの獣人型改造人間
 4. **豹変系女子(SinisterChangingGirls)**: 七つの大罪・八方位ベースのキャラクター
 5. **アンオースドロジカ(UnauthedLogica)**: 論理 IC・姓名診断ベースの人造キャラクターなど(構想途中)
@@ -196,6 +203,7 @@
 
 - **表示項目の追従**: キャラシート（`pages/characters.js`）は `db_type.json($DefType)` を参照して表示項目・順序・ラベルを可能な限りスキーマ駆動で生成します。
 - **ラベルの優先順**: `hashTag_JP` / `hashtag_JP`（綴り揺れ吸収）を優先し、無い場合はフィールド名をフォールバックします。
+- **ラベルのデータ運用**: 新規追加や修正では `hashTag_JP` に寄せます（`hashtag_JP` は後方互換の読み取り対象）。
 - **インデックス表示名**: 作品ごとのインデックス（一覧チップ/詳細ピル）は `data/db_meta.json` の `CreationWorks.<work>.$DefType_Index` を参照し、`hashTagName_JP/EN` を表示名として利用します（旧形式の `CreationWorks.<work>.$Def_Index` はフォールバック）。
 
 ### 直リンク（URL クエリ）
@@ -215,6 +223,8 @@
 - **キャッシュ戦略**: 頻繁にアクセスするメタデータの効率的キャッシュ
 - **エラー処理**: 404/400 エラーの適切なハンドリング
 - **typedef 駆動**: enrich/search 等の振る舞いは `db_type.json($DefType)` を参照して補助（表示分類・正規化・画像ヒント・検索対象テキストなど）する設計を優先します。
+- **typedef 駆動の優先順位**: 表示分類 → 正規化 → 画像 → 検索（上位ほど破壊的変更になりやすいため、下位の拡張は慎重に段階導入）。
+- **enrich のメタ情報**: enrich 応答に `_enrichment` 等のメタ情報を含め、UI がセクション分けや表示制御に利用できるようにします（例: `_enrichment.displaySections`）。
 
 ### 参照マージ（`_DBLink` / `_Jump`）運用ルール（重要）
 
@@ -333,6 +343,7 @@
 - **Unicode 対応**: 日本語・英語での適切な文字エンコーディング
 - **必須フィールド**: 定義された必須フィールドの確実な記載
 - **参照整合性**: 他のデータベースへの参照の正確性
+- **ラベルキーの統一**: 新規のラベルは `hashTag_JP` を使用し、既存の `hashtag_JP` は段階的に解消します（読み取り側は当面両方を許容）。
 
 ### 非同期処理
 
@@ -645,7 +656,7 @@ describe("[テスト対象]", () => {
 
 ### Service Worker セキュリティ
 
-- **CORS 設定**: 適切な CROS ヘッダーの設定
+- **CORS 設定**: 適切な CORS ヘッダーの設定
 - **キャッシュセキュリティ**: 機密データのキャッシュ回避
 - **オリジン検証**: 同一オリジンからのリクエストのみ処理
 
