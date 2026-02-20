@@ -13,7 +13,9 @@
 - 作品（Works）と DB を選択 → 一覧が表示されます。
 - 名前や番号などで部分一致検索ができます。
 - 一覧のカードをクリックすると詳細（キャラシート）表示に切り替わります。
-- URL パラメータ `?work=NumberTales&db=Primary&num=2` のように直接指定もできます。
+- URL パラメータで直接指定もできます（例：`?work=NumberTales&db=Primary&idx=2&idxKey=Num`）。
+	- `work` は作品ドロップダウンの値（例: `NumberTales`）です。
+	- 旧互換として `num` も解釈されます（主に `Num` インデックス想定）。
 
 ## 表示ポリシー（公開情報）
 

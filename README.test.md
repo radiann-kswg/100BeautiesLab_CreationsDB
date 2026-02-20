@@ -28,4 +28,4 @@ npm run test:watch
 ## Notes
 
 - We do not import `api/sw.js` directly because it targets a browser Service Worker runtime.
-- If you want to add logic-level tests for enrichment, consider extracting pure functions into a separate module (e.g., `api/lib/enrich.js`) and import them in tests.
+- If you want to add logic-level tests for enrichment, prefer importing pure logic from `lib/data-common.js` (and avoid depending on a Service Worker runtime).

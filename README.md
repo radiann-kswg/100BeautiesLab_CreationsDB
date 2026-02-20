@@ -109,6 +109,11 @@ http://creativecommons.org/licenses/by-nc/4.0/
 
 # 当リポジトリについて(日本語版)
 
+## 開発・貢献
+
+- 開発ルールと貢献手順: [CONTRIBUTING.md](CONTRIBUTING.md)
+- テスト実行手順: [README.test.md](README.test.md)
+
 ## 利用方法
 
 ### 基本的な使用手順
