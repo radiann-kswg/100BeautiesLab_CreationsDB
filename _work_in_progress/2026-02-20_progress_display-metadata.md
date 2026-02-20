@@ -31,7 +31,9 @@
 
 ## 未完了タスク
 
-- UI/SW 実装側で `"$display"` を解釈し、既存のハードコード（単位表示/分類など）をスキーマ駆動へ移行。
+- UI/SW 実装側で `"$display"` を解釈し、既存のハードコード（分類など）をスキーマ駆動へ移行。
+- UI（`pages/characters.js`）は `"$display.unit"` を参照して単位表示を typedef 駆動化済み（cm/kg ハードコード撤去）。
+- UI（`pages/characters.js`）は `"$display.section"` を参照して、未表示のトップレベル項目を `basic/profile/spec/other` に自動振り分けして表示するよう対応済み。
 - `section`/`tagSpace` の値（`basic/profile/spec/images/other`、`creation/creatorProgress/system/internal` 等）をどこまで厳格にするかの確定。
 
 ## 参考リンク

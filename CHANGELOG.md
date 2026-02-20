@@ -155,6 +155,8 @@
 - `db_type.json($DefType)` に後方互換な表示メタ情報 `"$display"` を追加（宣言のみ・既存挙動は維持）。
 - まず `unit`（例: `Height_cm`/`Weight_kg`）と、UI分類用の `section`、管理主体/タグ領域を表す `tagSpace`（`creation`/`creatorProgress`/`system`/`internal` 案）を導入。
 - グローバルだけでなく、作品別 `data/Works_*/DataBases/db_type.json` にも `Images` や enum/list 系フィールドへ `section/tagSpace` を追記し、スキーマ駆動表示への移行準備を開始。
+- クライアント（`pages/characters.js`）で `"$display.unit"` を参照し、身長/体重などの単位付き表示を typedef 駆動へ移行（cm/kg のハードコードを撤去）。
+- クライアント（`pages/characters.js`）で `"$display.section"` を参照し、未表示のトップレベル項目を `basic/profile/spec/other` へ自動振り分けして表示するよう対応。
 - 設計メモを `_work_in_progress/2026-02-20_schema-driven-display-format.md` に整理。
 
 #### 影響範囲（代表）

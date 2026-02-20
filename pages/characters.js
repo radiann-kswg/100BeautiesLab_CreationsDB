@@ -876,7 +876,7 @@ function buildFieldLabelMap(workTypeDef, globalTypeDef = {}) {
  * - Images コンテナは除外（ギャラリー処理が担当）
  * @param {Object|Array} workTypeDef - 作品ごとの typedef（/v1/works/{work}/typedef）
  * @param {Object|Array} globalTypeDef - グローバル typedef（/v1/typedef/global）
- * @returns {Array<{key:string,label:string,type:any,source:string}>}
+ * @returns {Array<{key:string,label:string,type:any,display:any,source:string}>}
  */
 function extractTopLevelSchemaFields(workTypeDef, globalTypeDef = {}) {
   const out = [];
@@ -907,6 +907,7 @@ function extractTopLevelSchemaFields(workTypeDef, globalTypeDef = {}) {
         key,
         label,
         type: item.$type,
+        display: item.$display ?? null,
         source
       });
       seen.add(key);
@@ -916,6 +917,44 @@ function extractTopLevelSchemaFields(workTypeDef, globalTypeDef = {}) {
   addFrom(workTypeDef, 'work');
   addFrom(globalTypeDef, 'global');
   return out;
+}
+
+/**
+ * db_type.json($DefType) からトップレベルの `$display` を抽出してマップ化
+ * - work を優先し、同名キーは global を上書きしない
+ * - Images コンテナは除外（ギャラリー処理が担当）
+ * @param {Object|Array} workTypeDef
+ * @param {Object|Array} globalTypeDef
+ * @returns {Record<string, any>}
+ */
+function buildTopLevelDisplayMap(workTypeDef, globalTypeDef = {}) {
+  const map = {};
+
+  const pickDefArray = (def) => {
+    if (!def) return null;
+    if (Array.isArray(def)) return def;
+    if (Array.isArray(def?.$DefType)) return def.$DefType;
+    if (Array.isArray(def?.typedef?.$DefType)) return def.typedef.$DefType;
+    if (Array.isArray(def?.global)) return def.global;
+    return null;
+  };
+
+  const addFrom = (def) => {
+    const arr = pickDefArray(def);
+    if (!Array.isArray(arr)) return;
+    for (const item of arr) {
+      if (!item || typeof item !== 'object') continue;
+      const key = item.hashTag;
+      if (!key || typeof key !== 'string') continue;
+      if (key === 'Images') continue;
+      if (Object.prototype.hasOwnProperty.call(map, key)) continue;
+      map[key] = item.$display ?? null;
+    }
+  };
+
+  addFrom(workTypeDef);
+  addFrom(globalTypeDef);
+  return map;
 }
 
 /**
@@ -995,12 +1034,20 @@ function getFieldLabel(fieldName, labelMap, workMeta = null, globalDefType = nul
  * @param {Object} labelMap - Field label mapping for nested objects
  * @param {Object} workMeta - Work metadata for lookup
  * @param {Object} globalDefType - Global definition types for enum/list lookups
+ * @param {{display?: any}|null} opt - display hint (e.g., { unit: 'cm' })
  * @returns {string} Formatted display value
  */
-function formatValueForDisplay(value, labelMap = {}, workMeta = null, globalDefType = null) {
+function formatValueForDisplay(value, labelMap = {}, workMeta = null, globalDefType = null, opt = null) {
   if (value === null || value === undefined || value === '') {
     return '';
   }
+
+  const unit = opt?.display?.unit ? String(opt.display.unit).trim() : '';
+  const withUnit = (text) => {
+    const base = String(text ?? '').trim();
+    if (!base) return '';
+    return unit ? `${base} ${unit}`.trim() : base;
+  };
 
   /**
    * 値が「配列ではないObject」かどうか
@@ -1099,11 +1146,12 @@ function formatValueForDisplay(value, labelMap = {}, workMeta = null, globalDefT
   };
 
   if (typeof value === 'string' || typeof value === 'number' || typeof value === 'boolean') {
-    return String(value);
+    if (typeof value === 'boolean') return String(value);
+    return withUnit(value);
   }
 
   if (Array.isArray(value)) {
-    return value.map(item => formatValueForDisplay(item, labelMap, workMeta, globalDefType)).filter(v => v).join(', ');
+    return value.map(item => formatValueForDisplay(item, labelMap, workMeta, globalDefType, opt)).filter(v => v).join(', ');
   }
 
   if (typeof value === 'object') {
@@ -1140,8 +1188,9 @@ function formatValueForDisplay(value, labelMap = {}, workMeta = null, globalDefT
       const base = value.value;
       const about = value.about_JP || value.about_EN || value.about;
       const baseText = (base === null || base === undefined || base === '') ? '' : String(base);
-      if (about && baseText) return `${baseText}（${about}）`;
-      if (baseText) return baseText;
+      const baseWithUnit = baseText ? withUnit(baseText) : '';
+      if (about && baseWithUnit) return `${baseWithUnit}（${about}）`;
+      if (baseWithUnit) return baseWithUnit;
     }
 
     // Common birthday/day pattern
@@ -2035,43 +2084,12 @@ async function renderDetail(workId, rec) {
     ])
   ]);
 
-  // 身長/体重など「単位付き」項目の表示を、Object/配列でも破綻しないよう統一
-  const formatWithUnit = (raw, unit) => {
-    if (raw == null || raw === '') return '';
-
-    // hideText はそのまま表示（単位は付けない）
-    if (raw && typeof raw === 'object' && !Array.isArray(raw) && typeof raw.hideText === 'string' && raw.hideText.trim()) {
-      return raw.hideText;
-    }
-
-    if (Array.isArray(raw)) {
-      return raw.map(v => formatWithUnit(v, unit)).filter(Boolean).join(', ');
-    }
-
-    // { value, about_* } パターンは value に単位を付与し、about は括弧で追記
-    if (raw && typeof raw === 'object' && !Array.isArray(raw) && Object.prototype.hasOwnProperty.call(raw, 'value')) {
-      const v = raw.value;
-      const about = raw.about_JP || raw.about_EN || raw.about;
-      if (v == null || v === '') return '';
-      const base = `${String(v)} ${unit}`.trim();
-      return about ? `${base}（${about}）` : base;
-    }
-
-    // プリミティブは単位付きにする
-    if (typeof raw === 'number' || typeof raw === 'string') {
-      const base = String(raw).trim();
-      if (!base) return '';
-      return unit ? `${base} ${unit}` : base;
-    }
-
-    // その他の Object は既存フォーマッタへ
-    return formatValueForDisplay(raw, fieldLabelMap, workMeta, globalDefType);
-  };
-
-  const formatBasicValue = (raw, opt = {}) => {
-    const unit = opt?.unit;
-    if (unit) return formatWithUnit(raw, unit);
-    return formatValueForDisplay(raw, fieldLabelMap, workMeta, globalDefType);
+  // トップレベルの `$display` を map 化（work 優先）
+  const topLevelDisplayMap = buildTopLevelDisplayMap(workTypeDef, globalTypeDef);
+  const formatFieldValue = (fieldKey, raw) => {
+    return formatValueForDisplay(raw, fieldLabelMap, workMeta, globalDefType, {
+      display: topLevelDisplayMap?.[fieldKey] ?? null
+    });
   };
 
   // Build basic info table with localized field names
@@ -2081,9 +2099,9 @@ async function renderDetail(workId, rec) {
     ['ModelName', rec.ModelName || rec.CodeName || ''],
     ['SPCodeName', rec.SPCodeName || rec.SPCodeName_EN || ''],
     ['GenderType', rec.GenderType_JP || rec.GenderType || ''],
-    ['Height_cm', rec.Height_cm != null ? formatBasicValue(rec.Height_cm, { unit: 'cm' }) : ''],
-    ['Weight_kg', rec.Weight_kg != null ? formatBasicValue(rec.Weight_kg, { unit: 'kg' }) : ''],
-    ['ConceptAge', rec.ConceptAge != null ? formatBasicValue(rec.ConceptAge) : ''],
+    ['Height_cm', rec.Height_cm != null ? formatFieldValue('Height_cm', rec.Height_cm) : ''],
+    ['Weight_kg', rec.Weight_kg != null ? formatFieldValue('Weight_kg', rec.Weight_kg) : ''],
+    ['ConceptAge', rec.ConceptAge != null ? formatFieldValue('ConceptAge', rec.ConceptAge) : ''],
     ['Class', rec.Class || rec.Class_EN || ''],
   ].filter(([key, value]) => value); // Only show fields with values
 
@@ -2168,35 +2186,6 @@ async function renderDetail(workId, rec) {
     return s.includes('#Summary');
   };
 
-  // 既存の慣習キー（db_type 側が未整備でも表示が落ちないように残す）
-  const legacyProfileTextKeys = [
-    'Character', 'Hobby', 'SpetialSkill',
-    'Strength', 'Weakpoint', 'Favor', 'Unlike',
-    'InStory', 'Background',
-    'BeastspecAbout', 'NumerospecAbout', 'ArcanamspecAbout', 'LogicspecAbout'
-  ];
-
-  const schemaProfileTextKeys = schemaFields
-    .filter(f => f.key !== 'Summary' && isSummaryType(f.type))
-    .map(f => f.key);
-
-  const profileTextKeys = Array.from(new Set([...schemaProfileTextKeys, ...legacyProfileTextKeys]));
-
-  const profileItems = profileTextKeys
-    .filter((k) => rec && rec[k] != null && rec[k] !== '')
-    .map((k) => {
-      const label = getFieldLabel(k, fieldLabelMap, workMeta, globalDefType, k);
-      const v = rec[k];
-      shownKeys.add(k);
-      const text = typeof v === 'string' ? v : formatValueForDisplay(v, fieldLabelMap, workMeta, globalDefType);
-      if (!text) return null;
-      return el('div', { style: 'margin-bottom: 10px;' }, [
-        el('div', { class: 'tag', style: 'margin-bottom: 6px;' }, [label]),
-        preWrapText(text)
-      ]);
-    })
-    .filter(Boolean);
-
   const isEmptyValue = (v) => v === null || v === undefined || v === '';
   const isInternalButAllowed = (k) => k === '_DBLink';
   const shouldSkipKey = (k, v) => {
@@ -2207,75 +2196,136 @@ async function renderDetail(workId, rec) {
     return false;
   };
 
-  const toDisplayNode = (k, v, schemaType = null) => {
+  const toDisplayNode = (k, v, schemaType = null, schemaDisplay = null) => {
     // スキーマ的に Summary 系 or 文字列改行は pre-wrap
     if (typeof v === 'string' && v.includes('\n')) return preWrapText(v);
     if (schemaType != null && isSummaryType(schemaType)) {
-      const formatted = typeof v === 'string' ? v : formatValueForDisplay(v, fieldLabelMap, workMeta, globalDefType);
+      const formatted = typeof v === 'string' ? v : formatValueForDisplay(v, fieldLabelMap, workMeta, globalDefType, { display: schemaDisplay });
       if (formatted && String(formatted).includes('\n')) return preWrapText(formatted);
       // Summary でも単行の場合は preWrap にしておく（安全側）
       return preWrapText(formatted);
     }
-    const formatted = formatValueForDisplay(v, fieldLabelMap, workMeta, globalDefType);
+    const formatted = formatValueForDisplay(v, fieldLabelMap, workMeta, globalDefType, { display: schemaDisplay });
     if (typeof formatted === 'string' && formatted.includes('\n')) return preWrapText(formatted);
     return formatted;
   };
 
-  // 1) スキーマ順で未表示フィールドを表示
-  const extrasSchema = schemaFields
-    .filter(f => !shownKeys.has(f.key))
-    .map(f => {
-      const v = rec?.[f.key];
-      if (shouldSkipKey(f.key, v)) return null;
-      shownKeys.add(f.key);
-      return [
-        getFieldLabel(f.key, fieldLabelMap, workMeta, globalDefType, f.label),
-        toDisplayNode(f.key, v, f.type)
-      ];
+  // $display.section に基づいて未表示フィールドを自動分類（basic/profile/spec/other）
+  const normalizeSection = (s) => {
+    const v = String(s ?? '').trim();
+    if (v === 'basic' || v === 'profile' || v === 'spec' || v === 'other') return v;
+    // Images は左カラムのギャラリー担当（ここには出さない）
+    return '';
+  };
+
+  const sectionBuckets = {
+    basic: /** @type {Array<{key:string,label:string,type:any,display:any,value:any}>} */ ([]),
+    profile: /** @type {Array<{key:string,label:string,type:any,display:any,value:any}>} */ ([]),
+    spec: /** @type {Array<{key:string,label:string,type:any,display:any,value:any}>} */ ([]),
+    other: /** @type {Array<{key:string,label:string,type:any,display:any,value:any}>} */ ([]),
+  };
+
+  const pushToBucket = (section, item) => {
+    const sec = sectionBuckets[section] ? section : 'other';
+    sectionBuckets[sec].push(item);
+  };
+
+  // 1) スキーマ順（トップレベル）で分類
+  for (const f of schemaFields) {
+    if (!f || typeof f !== 'object') continue;
+    if (shownKeys.has(f.key)) continue;
+    const v = rec?.[f.key];
+    if (shouldSkipKey(f.key, v)) continue;
+
+    const sec = normalizeSection(f.display?.section) || (isSummaryType(f.type) ? 'profile' : 'other');
+    // section が未指定/不正の場合は other
+    pushToBucket(sec || 'other', {
+      key: f.key,
+      label: getFieldLabel(f.key, fieldLabelMap, workMeta, globalDefType, f.label),
+      type: f.type,
+      display: f.display,
+      value: v
+    });
+    shownKeys.add(f.key);
+  }
+
+  // 2) スキーマ外（追加/互換/暫定）は other 扱いでフォールバック表示
+  for (const [k, v] of Object.entries(rec || {})) {
+    if (schemaKeySet.has(k)) continue;
+    if (shouldSkipKey(k, v)) continue;
+    pushToBucket('other', {
+      key: k,
+      label: getFieldLabel(k, fieldLabelMap, workMeta, globalDefType, k),
+      type: null,
+      display: null,
+      value: v
+    });
+  }
+
+  const buildKvRows = (items) => items.map(it => [it.label, toDisplayNode(it.key, it.value, it.type, it.display)]);
+
+  const profileItems = sectionBuckets.profile
+    .map((it) => {
+      const node = toDisplayNode(it.key, it.value, it.type, it.display);
+      const text = (typeof node === 'string') ? node : (node?.textContent ?? '');
+      if (!text) return null;
+      return el('div', { style: 'margin-bottom: 10px;' }, [
+        el('div', { class: 'tag', style: 'margin-bottom: 6px;' }, [it.label]),
+        (typeof node === 'string') ? preWrapText(node) : node
+      ]);
     })
     .filter(Boolean);
 
-  // 2) スキーマ外（追加/互換/暫定）のフィールドをフォールバックで表示
-  const extrasOther = Object.entries(rec || {})
-    .filter(([k, v]) => {
-      if (schemaKeySet.has(k)) return false;
-      return !shouldSkipKey(k, v);
-    })
-    .map(([k, v]) => {
-      return [
-        getFieldLabel(k, fieldLabelMap, workMeta, globalDefType, k),
-        toDisplayNode(k, v, null)
-      ];
-    });
+  const otherRows = buildKvRows(sectionBuckets.other);
+  const specRows = buildKvRows(sectionBuckets.spec);
+  const basicExtraRows = buildKvRows(sectionBuckets.basic);
 
-  const extras = [...extrasSchema, ...extrasOther];
+  // basic セクションは「基本情報テーブル + スキーマで basic 指定された追加項目」をまとめて表示
+  const basicSection = el('div', { class: 'section' }, [
+    el('h3', {}, [getFieldLabel('BasicInfo', fieldLabelMap, workMeta, globalDefType, '基本情報')]),
+    basic,
+    basicExtraRows.length ? kvTable({}, basicExtraRows) : null,
+    (belong || area || days.length) ? kvTable({}, [
+      belong ? [getFieldLabel('Belonging', fieldLabelMap, workMeta, globalDefType, '所属'), belong] : null,
+      area ? [getFieldLabel('Area', fieldLabelMap, workMeta, globalDefType, '地域'), area] : null,
+      days.length ? [getFieldLabel('AnivDay', fieldLabelMap, workMeta, globalDefType, '記念日'), days.join(' / ')] : null,
+    ].filter(Boolean)) : null,
+  ].filter(Boolean));
+
+  const specSection = (Object.keys(ability).length || Object.keys(eff).length || safetyRow || specNodes.length || specRows.length)
+    ? el('div', { class: 'section' }, [
+        el('h3', {}, ['スペック/能力']),
+        Object.keys(ability).length ? abilityGrid : null,
+        (Object.keys(eff).length || safetyRow) ? el('div', {}, [effGrid, safetyRow].filter(Boolean)) : null,
+        specNodes.length ? kvTable({}, [[getFieldLabel('SpecType', fieldLabelMap, workMeta, globalDefType, '型情報'), el('div', {}, specNodes)]]) : null,
+        specRows.length ? kvTable({}, specRows) : null,
+      ].filter(Boolean))
+    : null;
+
+  const profileSection = (rec.Summary || profileItems.length)
+    ? el('div', { class: 'section' }, [
+        el('h3', {}, [getFieldLabel('Profile', fieldLabelMap, workMeta, globalDefType, 'プロフィール/テキスト')]),
+        rec.Summary ? el('div', {}, [
+          el('div', { class: 'tag', style: 'margin-bottom: 6px;' }, [getFieldLabel('Summary', fieldLabelMap, workMeta, globalDefType, '概要')]),
+          preWrapText(rec.Summary)
+        ]) : null,
+        profileItems.length ? el('div', {}, profileItems) : null,
+      ].filter(Boolean))
+    : null;
+
+  const otherSection = otherRows.length
+    ? el('div', { class: 'section' }, [
+        el('h3', {}, [getFieldLabel('AllFields', fieldLabelMap, workMeta, globalDefType, 'その他の項目')]),
+        kvTable({}, otherRows)
+      ])
+    : null;
 
   const right = el('div', {}, [
     titleRow,
-    el('div', { class: 'section' }, [el('h3', {}, [getFieldLabel('BasicInfo', fieldLabelMap, workMeta, globalDefType, '基本情報')]), basic]),
-    Object.keys(ability).length ? el('div', { class: 'section' }, [el('h3', {}, [getFieldLabel('AbilityStats', fieldLabelMap, workMeta, globalDefType, '能力')]), abilityGrid]) : null,
-    Object.keys(eff).length || safetyRow ? el('div', { class: 'section' }, [el('h3', {}, [getFieldLabel('EffectStats', fieldLabelMap, workMeta, globalDefType, '効果/安全度')]), effGrid, safetyRow]) : null,
-    (specNodes.length || belong || area || days.length) ? el('div', { class: 'section' }, [
-      el('h3', {}, ['所属/型/日付など']),
-      kvTable({}, [
-        belong ? [getFieldLabel('Belonging', fieldLabelMap, workMeta, globalDefType, '所属'), belong] : null,
-        area ? [getFieldLabel('Area', fieldLabelMap, workMeta, globalDefType, '地域'), area] : null,
-        specNodes.length ? [getFieldLabel('SpecType', fieldLabelMap, workMeta, globalDefType, '型情報'), el('div', {}, specNodes)] : null,
-        days.length ? [getFieldLabel('AnivDay', fieldLabelMap, workMeta, globalDefType, '記念日'), days.join(' / ')] : null,
-      ].filter(Boolean))
-    ]) : null,
-    rec.Summary ? el('div', { class: 'section' }, [
-      el('h3', {}, [getFieldLabel('Summary', fieldLabelMap, workMeta, globalDefType, '概要')]),
-      el('div', {}, rec.Summary.split('\n').map(s => el('p', {}, [s])))
-    ]) : null,
-    profileItems.length ? el('div', { class: 'section' }, [
-      el('h3', {}, [getFieldLabel('Profile', fieldLabelMap, workMeta, globalDefType, 'プロフィール/テキスト')]),
-      el('div', {}, profileItems)
-    ]) : null,
-    extras.length ? el('div', { class: 'section' }, [
-      el('h3', {}, [getFieldLabel('AllFields', fieldLabelMap, workMeta, globalDefType, 'その他の項目')]),
-      kvTable({}, extras)
-    ]) : null,
+    basicSection,
+    specSection,
+    profileSection,
+    otherSection,
     rec.Relation && (rec.Relation.Related || rec.Relation.Commented) ? renderRelations(rec.Relation) : null,
     // 参照解決結果の表示（_DBLinkResolved）
     rec._DBLinkResolved ? renderDBLinkResolved(rec._DBLinkResolved, fieldLabelMap, workMeta, globalDefType) : null
