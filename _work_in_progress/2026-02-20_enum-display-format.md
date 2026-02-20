@@ -18,10 +18,20 @@
   - [data/db_type.json](../data/db_type.json) に `AbilityStats.$display.rankFormat` を追記（例示）。
   - [data/Works_UnauthedLogica/DataBases/db_type.json](../data/Works_UnauthedLogica/DataBases/db_type.json) に `ExistingRarity.$display.rarityFormat` を追記（例示）。
 
+## 追記（2026-02-20）: EnumLink の解決強化
+
+- 課題: `AbilityStats` などで `$EnumLink` が付いていても、EnumLink 定義が `db_meta.json` の `$VarsDef` 内でネストしている（例: `data/db_meta.json` の `$Def_AbilityStats.$EnumLink_AbilityText`）場合、UI が辞書を見つけられず `alphaLabel` が `alpha` 相当に見えることがある。
+- 対応:
+  - UI（[pages/characters.js](../pages/characters.js)）で、`$VarsDef` のネストから `$EnumLink_*` を探索して解決できるようにした。
+  - typedef の `$display.enumLinkKey` で、参照する `$EnumLink_*` をフィールド単位に指定できるようにした（例: `AbilityStats` → `AbilityText`、`SpecLevel` → `SpecLevelText`）。
+  - 詳細表示では work meta と global meta の `General.$VarsDef` を統合して、共通辞書を参照できるようにした。
+
 ## 影響範囲（編集したファイル）
 
 - [pages/characters.js](../pages/characters.js)
 - [data/db_type.json](../data/db_type.json)
+- [data/Works_FLInvestigator78/DataBases/db_type.json](../data/Works_FLInvestigator78/DataBases/db_type.json)
+- [data/Works_ShouArRiders/DataBases/db_type.json](../data/Works_ShouArRiders/DataBases/db_type.json)
 - [data/Works_UnauthedLogica/DataBases/db_type.json](../data/Works_UnauthedLogica/DataBases/db_type.json)
 - [CHANGELOG.md](../CHANGELOG.md)
 

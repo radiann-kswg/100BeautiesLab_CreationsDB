@@ -244,7 +244,8 @@
       ],
       "hashTag_JP": "能力値",
       "$display": {
-        "rankFormat": "alphaLabel"
+        "rankFormat": "alphaLabel",
+        "enumLinkKey": "AbilityText"
       }
     },
     {

@@ -1432,18 +1432,64 @@ function formatValueForDisplay(value, labelMap = {}, workMeta = null, globalDefT
     const c = String(code || '').trim();
     if (!fk || !en || !c) return '';
 
-    const simple = fk.split('.').pop();
+    /**
+     * $VarsDef のネストから指定キー（$EnumLink_XXX 等）を探索
+     * @param {any} obj
+     * @param {string} key
+     * @param {number} depth
+     * @returns {any}
+     */
+    const findNestedKey = (obj, key, depth = 0) => {
+      if (!obj || typeof obj !== 'object') return null;
+      if (depth > 6) return null;
+      if (Object.prototype.hasOwnProperty.call(obj, key)) return obj[key];
+
+      if (Array.isArray(obj)) {
+        for (const it of obj) {
+          const found = findNestedKey(it, key, depth + 1);
+          if (found) return found;
+        }
+        return null;
+      }
+
+      for (const v of Object.values(obj)) {
+        if (!v || typeof v !== 'object') continue;
+        const found = findNestedKey(v, key, depth + 1);
+        if (found) return found;
+      }
+      return null;
+    };
+
     const vars = workMeta?.General?.$VarsDef || workMeta?.$VarsDef;
-    const linkDef = vars && typeof vars === 'object' ? vars[`$EnumLink_${simple}`] : null;
-    if (!linkDef || typeof linkDef !== 'object') return '';
+    if (!vars || typeof vars !== 'object') return '';
+
+    const explicitLinkKey = opt?.display?.enumLinkKey ? String(opt.display.enumLinkKey).trim() : '';
+    const simple = fk.split('.').pop();
+    const candidates = [];
+    if (explicitLinkKey) candidates.push(explicitLinkKey);
+    // 既定: フィールド末尾（ExistingRarity 等）→ enumName（Rank/Rarity）
+    if (simple) candidates.push(simple);
+    if (en) candidates.push(en);
+
+    /** @type {{suffix:string, def:any}[]} */
+    const defs = [];
+    for (const suffix of candidates) {
+      const key = `$EnumLink_${suffix}`;
+      const def = findNestedKey(vars, key);
+      if (def && typeof def === 'object') defs.push({ suffix, def });
+    }
+    if (!defs.length) return '';
+
+    // 最初に見つかった定義を採用（enumLinkKey を指定した場合は優先される）
+    const { suffix: pickedSuffix, def: linkDef } = defs[0];
 
     for (const v of Object.values(linkDef)) {
       if (!v || typeof v !== 'object') continue;
       const vv = v[en];
       if (typeof vv === 'string' && vv.trim() === c) {
-        const jp = v[`${simple}_JP`];
-        const raw = v[simple];
-        const enText = v[`${simple}_EN`];
+        const jp = v[`${pickedSuffix}_JP`];
+        const raw = v[pickedSuffix];
+        const enText = v[`${pickedSuffix}_EN`];
         if (typeof jp === 'string' && jp.trim()) return jp.trim();
         if (typeof raw === 'string' && raw.trim()) return raw.trim();
         if (typeof enText === 'string' && enText.trim()) return enText.trim();
@@ -2485,6 +2531,21 @@ async function renderDetail(workId, rec) {
       fetchGlobalMeta()
     ]);
 
+    // workMeta / globalMeta の $VarsDef を統合（EnumLink / ListLink の共通辞書を参照しやすくする）
+    const metaForLookup = (() => {
+      const wm = workMeta && typeof workMeta === 'object' ? workMeta : {};
+      const gm = globalMeta && typeof globalMeta === 'object' ? globalMeta : {};
+
+      const gmGeneral = (gm.General && typeof gm.General === 'object') ? gm.General : {};
+      const wmGeneral = (wm.General && typeof wm.General === 'object') ? wm.General : {};
+
+      const gmVars = (gmGeneral.$VarsDef && typeof gmGeneral.$VarsDef === 'object') ? gmGeneral.$VarsDef : {};
+      const wmVars = (wmGeneral.$VarsDef && typeof wmGeneral.$VarsDef === 'object') ? wmGeneral.$VarsDef : {};
+
+      const mergedGeneral = { ...gmGeneral, ...wmGeneral, $VarsDef: { ...gmVars, ...wmVars } };
+      return { ...gm, ...wm, General: mergedGeneral };
+    })();
+
     // Clear loading message
     mount.innerHTML = '';
 
@@ -2519,7 +2580,7 @@ async function renderDetail(workId, rec) {
         loading: 'lazy'
       }) : el('div', { class: 'poster placeholder' }, ['画像なし']),
       galleryImages.length > 0 ? el('div', { class: 'image-gallery' }, [
-        el('h4', {}, [getFieldLabel('Gallery', fieldLabelMap, workMeta, globalDefType, '画像ギャラリー')]),
+        el('h4', {}, [getFieldLabel('Gallery', fieldLabelMap, metaForLookup, globalDefType, '画像ギャラリー')]),
         el('div', { class: 'image-grid' }, galleryImages.slice(0, 6).map(imgData => // Limit initial images for performance
           el('div', { class: 'image-item' }, [
             el('img', {
@@ -2686,7 +2747,7 @@ async function renderDetail(workId, rec) {
     .filter((it) => it && it.value); // Only show fields with values
 
   const basic = kvTable(rec, basicFields.map((it) => [
-    getFieldLabel(it.labelKey, fieldLabelMap, workMeta, globalDefType, it.labelKey),
+    getFieldLabel(it.labelKey, fieldLabelMap, metaForLookup, globalDefType, it.labelKey),
     it.value
   ]));
 
@@ -2711,7 +2772,7 @@ async function renderDetail(workId, rec) {
   // Abilities with localized labels
   const ability = rec.AbilityStats || {};
   const abilityGrid = el('div', { class: 'kv-grid' }, Object.entries(ability).map(([k, v]) => {
-    const fieldLabel = getFieldLabel(`AbilityStats.${k}`, fieldLabelMap, workMeta, globalDefType, k);
+    const fieldLabel = getFieldLabel(`AbilityStats.${k}`, fieldLabelMap, metaForLookup, globalDefType, k);
     const schemaType = pickSchemaType(
       `AbilityStats.${k}`,
       `NumerospecStats.AbilityStats.${k}`,
@@ -2728,7 +2789,7 @@ async function renderDetail(workId, rec) {
       `BeastspecStats.AbilityStats.${k}`,
       'BeastspecStats.AbilityStats'
     );
-    const displayValue = formatValueForDisplay(v, fieldLabelMap, workMeta, globalDefType, { schemaType, display: schemaDisplay, fieldKey: `AbilityStats.${k}` });
+    const displayValue = formatValueForDisplay(v, fieldLabelMap, metaForLookup, globalDefType, { schemaType, display: schemaDisplay, fieldKey: `AbilityStats.${k}` });
     return el('div', { class: 'tag' }, [`${fieldLabel}: ${displayValue}`]);
   }));
 
@@ -2736,7 +2797,7 @@ async function renderDetail(workId, rec) {
   const numStats = rec.NumerospecStats || rec.ArcanumspecStats || rec.BeastspecStats || {};
   const eff = numStats.EffectStats || {};
   const effGrid = el('div', { class: 'kv-grid' }, Object.entries(eff).map(([k, v]) => {
-    const fieldLabel = getFieldLabel(`EffectStats.${k}`, fieldLabelMap, workMeta, globalDefType, k);
+    const fieldLabel = getFieldLabel(`EffectStats.${k}`, fieldLabelMap, metaForLookup, globalDefType, k);
     const schemaType = pickSchemaType(
       `EffectStats.${k}`,
       `NumerospecStats.EffectStats.${k}`,
@@ -2753,21 +2814,21 @@ async function renderDetail(workId, rec) {
       `BeastspecStats.EffectStats.${k}`,
       'BeastspecStats.EffectStats'
     );
-    const displayValue = formatValueForDisplay(v, fieldLabelMap, workMeta, globalDefType, { schemaType, display: schemaDisplay, fieldKey: `EffectStats.${k}` });
+    const displayValue = formatValueForDisplay(v, fieldLabelMap, metaForLookup, globalDefType, { schemaType, display: schemaDisplay, fieldKey: `EffectStats.${k}` });
     return el('div', { class: 'tag' }, [`${fieldLabel}: ${displayValue}`]);
   }));
 
   const safety = numStats.SafetyLevel || {};
   const safetyRow = safety && Object.keys(safety).length > 0 ? el('div', { class: 'tag' }, [
-    `${getFieldLabel('SafetyLevel', fieldLabelMap, workMeta, globalDefType, 'Safety')}: ${formatValueForDisplay(safety, fieldLabelMap, workMeta, globalDefType)}`
+    `${getFieldLabel('SafetyLevel', fieldLabelMap, metaForLookup, globalDefType, 'Safety')}: ${formatValueForDisplay(safety, fieldLabelMap, metaForLookup, globalDefType)}`
   ]) : null;
 
   // SpecType with localized labels
   const specType = rec.SpecType || {};
   const specNodes = [];
   if (specType.Material) {
-    const materialLabel = getFieldLabel('SpecType.Material', fieldLabelMap, workMeta, globalDefType, 'Material');
-    const materialValue = formatValueForDisplay(specType.Material, fieldLabelMap, workMeta, globalDefType, {
+    const materialLabel = getFieldLabel('SpecType.Material', fieldLabelMap, metaForLookup, globalDefType, 'Material');
+    const materialValue = formatValueForDisplay(specType.Material, fieldLabelMap, metaForLookup, globalDefType, {
       schemaType: pickSchemaType('SpecType.Material'),
       display: pickSchemaDisplay('SpecType.Material', 'SpecType'),
       fieldKey: 'SpecType.Material'
@@ -2775,8 +2836,8 @@ async function renderDetail(workId, rec) {
     specNodes.push(el('div', { class: 'tag' }, [materialLabel + ': ', materialValue]));
   }
   if (specType.ActionType) {
-    const actionLabel = getFieldLabel('SpecType.ActionType', fieldLabelMap, workMeta, globalDefType, 'Action');
-    const actionValue = formatValueForDisplay(specType.ActionType, fieldLabelMap, workMeta, globalDefType, {
+    const actionLabel = getFieldLabel('SpecType.ActionType', fieldLabelMap, metaForLookup, globalDefType, 'Action');
+    const actionValue = formatValueForDisplay(specType.ActionType, fieldLabelMap, metaForLookup, globalDefType, {
       schemaType: pickSchemaType('SpecType.ActionType'),
       display: pickSchemaDisplay('SpecType.ActionType', 'SpecType'),
       fieldKey: 'SpecType.ActionType'
@@ -2784,8 +2845,8 @@ async function renderDetail(workId, rec) {
     if (actionValue) specNodes.push(el('div', { class: 'tag' }, [actionLabel + ': ', actionValue]));
   }
   if (specType.DualizePattern) {
-    const dualizeLabel = getFieldLabel('SpecType.DualizePattern', fieldLabelMap, workMeta, globalDefType, 'Dualize');
-    const dualizeValue = formatValueForDisplay(specType.DualizePattern, fieldLabelMap, workMeta, globalDefType, {
+    const dualizeLabel = getFieldLabel('SpecType.DualizePattern', fieldLabelMap, metaForLookup, globalDefType, 'Dualize');
+    const dualizeValue = formatValueForDisplay(specType.DualizePattern, fieldLabelMap, metaForLookup, globalDefType, {
       schemaType: pickSchemaType('SpecType.DualizePattern'),
       display: pickSchemaDisplay('SpecType.DualizePattern', 'SpecType'),
       fieldKey: 'SpecType.DualizePattern'
@@ -2794,8 +2855,8 @@ async function renderDetail(workId, rec) {
   }
 
   // Belonging/Area/Day with localized labels
-  const belong = formatValueForDisplay(rec.Belonging, fieldLabelMap, workMeta, globalDefType);
-  const area = formatValueForDisplay(rec.Area, fieldLabelMap, workMeta, globalDefType);
+  const belong = formatValueForDisplay(rec.Belonging, fieldLabelMap, metaForLookup, globalDefType);
+  const area = formatValueForDisplay(rec.Area, fieldLabelMap, metaForLookup, globalDefType);
   const days = Array.isArray(rec.AnivDay) ? rec.AnivDay.map(d => {
     const mm = d?.Day?.Month != null ? String(d.Day.Month) : '';
     const dd = d?.Day?.DayOfMonth != null ? String(d.Day.DayOfMonth) : '';
@@ -2966,11 +3027,15 @@ async function renderDetail(workId, rec) {
     const sec = normalizeSection(f.display?.section) || (isSummaryType(f.type) ? 'profile' : 'other');
     // section が未指定/不正の場合は other
     const labelKey = (usedKey && usedKey !== f.key) ? usedKey : f.key;
+
+    // 表示整形は fieldTypeMap/fieldDisplayMap を優先（schemaFields 側の type が配列/オブジェクトの場合でも enum 判定できるようにする）
+    const resolvedType = fieldTypeMap?.[labelKey] ?? fieldTypeMap?.[f.key] ?? f.type ?? null;
+    const resolvedDisplay = fieldDisplayMap?.[labelKey] ?? fieldDisplayMap?.[f.key] ?? f.display ?? null;
     pushToBucket(sec || 'other', {
-      key: f.key,
+      key: labelKey,
       label: getFieldLabel(labelKey, fieldLabelMap, workMeta, globalDefType, labelKey),
-      type: f.type,
-      display: f.display,
+      type: resolvedType,
+      display: resolvedDisplay,
       value: v
     });
     shownKeys.add(f.key);
@@ -2985,11 +3050,15 @@ async function renderDetail(workId, rec) {
   for (const [k, v] of Object.entries(rec || {})) {
     if (schemaKeySet.has(k)) continue;
     if (shouldSkipKey(k, v)) continue;
+
+    // スキーマ外でも typedef 由来の type/display が分かる場合は表示整形に活用
+    const resolvedType = fieldTypeMap?.[k] ?? null;
+    const resolvedDisplay = fieldDisplayMap?.[k] ?? null;
     pushToBucket('other', {
       key: k,
       label: getFieldLabel(k, fieldLabelMap, workMeta, globalDefType, k),
-      type: null,
-      display: null,
+      type: resolvedType,
+      display: resolvedDisplay,
       value: v
     });
   }
