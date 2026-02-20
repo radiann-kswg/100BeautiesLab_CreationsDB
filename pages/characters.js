@@ -474,6 +474,9 @@ function applyCommonsData(records, workMeta, dbName) {
 
     // Apply Commons values for missing fields
     Object.entries(commons).forEach(([key, value]) => {
+      // メタ定義（#List_* 等）や制御キー（_ListLinkIf_* 等）は、レコード値として混入させない
+      // - SW 側の CommonsProcessor と同じ安全側ルール
+      if (String(key).startsWith('#') || String(key).startsWith('_')) return;
       if (enriched[key] === undefined || enriched[key] === null || enriched[key] === '') {
         enriched[key] = value;
       }

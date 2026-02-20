@@ -126,6 +126,7 @@
    - `pages/characters.js` で、Object 型値が `[object Object]` にならないよう表示整形を強化
    - `_Jump` / `_DBLink` / `_Search` などの参照系オブジェクトを人間が読める形に整形
    - `Weight_kg` / `Height_cm` など単位付きの基本項目でも、`{ value, about_* }[]` / `{ hideText }` を含めて表示可能に
+   - `_Commons` 適用時に `#List_*` 等のメタ定義がレコードへ混入しないよう、`#`/`_` 始まりキーを除外
 
 2. **検索（EnrichmentProcessor.searchRecords）の Object 値比較を強化**
    - Object/配列/ラッパー（`{ value, about_* }` / `{ hideText }` 等）の揺れを吸収し、検索一致判定の耐性を向上
