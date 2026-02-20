@@ -183,3 +183,12 @@
 - `data/Works_DestinyFoxsRecords/DataBases/db_type.json`
 - `data/Works_UnauthedLogica/DataBases/db_type.json`
 - `_work_in_progress/2026-02-20_schema-driven-display-format.md`
+
+## 2026.02.21
+
+### 2言語対応フィールド（_\_JP / _\_EN）の同義解釈
+
+- UI（`pages/characters.js`）: 詳細ビューの基本情報テーブルとスキーマ駆動の自動表示で、`*_JP`/`*_EN` を同義フィールドとして1行に統合し、重複表示を抑止。
+- UI（`pages/characters.js`）: リスト側の簡易検索（`matchFilter`）に `Name_JP`/`FormalName_JP` などの互換キーも追加。
+- SW（`lib/data-common.js`）: `EnrichmentProcessor.searchRecords()` が、クエリ hashTag の `base`/`*_JP`/`*_EN` を相互にエイリアス扱いして一致判定できるように拡張。
+- Test: `tests/bilingual-fields.test.js` を追加。

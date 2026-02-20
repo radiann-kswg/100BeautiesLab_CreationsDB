@@ -2519,8 +2519,12 @@ function matchFilter(rec, q) {
   const s = q.trim().toLowerCase();
   if (!s) return true;
   const keys = [
-    rec.Name, rec.Name_EN, rec.FormalName, rec.FormalName_EN, rec.ModelName, rec.ModelNumber,
-    rec.CodeName, rec.SPCodeName, rec.SPCodeName_EN, rec.Num
+    // 互換: *_JP / *_EN の言語別フィールドも検索対象に含める
+    rec.Name, rec.Name_JP, rec.Name_EN,
+    rec.FormalName, rec.FormalName_JP, rec.FormalName_EN,
+    rec.ModelName, rec.ModelNumber,
+    rec.CodeName, rec.SPCodeName, rec.SPCodeName_EN,
+    rec.Num
   ].map(str);
   return keys.some(k => String(k).toLowerCase().includes(s));
 }
@@ -2748,6 +2752,68 @@ async function renderDetail(workId, rec) {
   const topLevelDisplayMap = buildTopLevelDisplayMap(workTypeDef, globalTypeDef);
   const topLevelAltMap = buildTopLevelAltMap(workTypeDef, globalTypeDef);
 
+  /**
+   * *_JP / *_EN の言語サフィックスを解析
+   * @param {string} k
+   * @returns {{ base: string, lang: 'JP'|'EN' }|null}
+   */
+  const parseLangSuffix = (k) => {
+    const s = String(k || '').trim();
+    const m = s.match(/^(.*)_(JP|EN)$/);
+    if (!m || !m[1] || !m[2]) return null;
+    return { base: m[1], lang: m[2] === 'JP' ? 'JP' : 'EN' };
+  };
+
+  /**
+   * 空値判定（`$alt` と同様の扱い）
+   * @param {any} v
+   */
+  const isEmptyValueLoose = (v) => {
+    if (v === null || v === undefined) return true;
+    if (v === '') return true;
+    if (Array.isArray(v)) return v.length === 0;
+    if (typeof v === 'object') {
+      if (typeof v.hideText === 'string' && v.hideText) return false;
+      return Object.keys(v).length === 0;
+    }
+    return false;
+  };
+
+  /**
+   * 同義（言語別）フィールドの値を 1 つの表示文字列にまとめる
+   * - base / base_JP / base_EN の順に拾い、空値は除外
+   * - 同一文字列は重複排除
+   * @param {string} baseKey
+   * @returns {{ text: string, usedKeys: string[] }}
+   */
+  const formatBilingualGroup = (baseKey) => {
+    const base = String(baseKey || '').trim();
+    if (!base) return { text: '', usedKeys: [] };
+
+    const candidates = [base, `${base}_JP`, `${base}_EN`];
+    const pieces = [];
+    const usedKeys = [];
+    const seenText = new Set();
+
+    for (const k of candidates) {
+      const v = rec?.[k];
+      if (isEmptyValueLoose(v)) continue;
+      const formatted = formatValueForDisplay(v, fieldLabelMap, workMeta, globalDefType, {
+        schemaType: fieldTypeMap?.[k] ?? fieldTypeMap?.[base] ?? null,
+        display: topLevelDisplayMap?.[k] ?? topLevelDisplayMap?.[base] ?? null,
+        fieldKey: k
+      });
+      const t = String(formatted ?? '').trim();
+      if (!t) continue;
+      if (seenText.has(t)) continue;
+      seenText.add(t);
+      pieces.push(t);
+      usedKeys.push(k);
+    }
+
+    return { text: pieces.join(' / '), usedKeys };
+  };
+
   const isEmptyForAlt = (v) => {
     if (v === null || v === undefined) return true;
     if (v === '') return true;
@@ -2834,6 +2900,23 @@ async function renderDetail(workId, rec) {
     ? detailLayout.basicFields
     : ['FormalName', 'FormalName_EN', 'ModelName', 'ModelNumber', 'SPCodeName', 'GenderType', 'Height_cm', 'Weight_kg', 'Age', 'Class'];
 
+  // basicFields のキー配列から、*_JP/_EN の同義ペアによる二重表示を抑止
+  const normalizeBasicFieldKeys = (keys) => {
+    const out = [];
+    const seenBase = new Set();
+    for (const k of keys || []) {
+      if (!k || typeof k !== 'string') continue;
+      const info = parseLangSuffix(k);
+      const base = info ? info.base : k;
+      if (seenBase.has(base)) continue;
+      out.push(base);
+      seenBase.add(base);
+    }
+    return out;
+  };
+
+  const normalizedBasicFieldKeys = normalizeBasicFieldKeys(basicFieldKeys);
+
   /**
    * 基本情報テーブル用の値解決
    * - `$alt` により代替した場合、ラベルは代替元キー（usedKey）を優先
@@ -2842,11 +2925,20 @@ async function renderDetail(workId, rec) {
    */
   const resolveBasicField = (key) => {
     if (!key || typeof key !== 'string') return { value: '', labelKey: String(key || ''), sourceKey: String(key || '') };
+
+    // *_JP/_EN の同義ペアを 1 行に統合（基本情報テーブル）
+    // - key が base の場合に base/base_JP/base_EN をまとめて表示
+    // - base 自体が空でも JP/EN があれば表示する
+    if (rec && (Object.prototype.hasOwnProperty.call(rec, `${key}_JP`) || Object.prototype.hasOwnProperty.call(rec, `${key}_EN`))) {
+      const { text, usedKeys } = formatBilingualGroup(key);
+      if (text) {
+        return { value: text, labelKey: key, sourceKey: key, _usedKeys: usedKeys };
+      }
+    }
+
     switch (key) {
       case 'FormalName':
         return { value: rec.FormalName || '', labelKey: 'FormalName', sourceKey: 'FormalName' };
-      case 'FormalName_EN':
-        return { value: rec.FormalName_EN || '', labelKey: 'FormalName_EN', sourceKey: 'FormalName_EN' };
       case 'ModelName':
         return { value: rec.ModelName || rec.CodeName || '', labelKey: 'ModelName', sourceKey: 'ModelName' };
       case 'ModelNumber':
@@ -2875,7 +2967,7 @@ async function renderDetail(workId, rec) {
     }
   };
 
-  const basicFields = basicFieldKeys
+  const basicFields = normalizedBasicFieldKeys
     .map((key) => resolveBasicField(key))
     .filter((it) => it && it.value); // Only show fields with values
 
@@ -3064,6 +3156,11 @@ async function renderDetail(workId, rec) {
       if (it.sourceKey) s.add(it.sourceKey);
       if (it.labelKey) s.add(it.labelKey);
 
+      // 同義（言語別）統合で実際に参照したキーも抑止対象にする
+      if (Array.isArray(it._usedKeys)) {
+        for (const uk of it._usedKeys) s.add(uk);
+      }
+
       const alts = topLevelAltMap?.[it.sourceKey];
       if (Array.isArray(alts)) {
         for (const ak of alts) s.add(ak);
@@ -3169,6 +3266,46 @@ async function renderDetail(workId, rec) {
   for (const f of schemaFields) {
     if (!f || typeof f !== 'object') continue;
     if (shownKeys.has(f.key)) continue;
+
+    // *_JP/_EN の同義ペアは 1 つの base キーとしてまとめて表示
+    // - スキーマに base が無くても、JP/EN があれば base として表示できる
+    const langInfo = parseLangSuffix(f.key);
+    if (langInfo && langInfo.base) {
+      const base = langInfo.base;
+      const variantKeys = [base, `${base}_JP`, `${base}_EN`];
+      const anyShown = variantKeys.some(k => shownKeys.has(k));
+      if (!anyShown) {
+        // suppressKeys / auto:false を尊重（どれかが抑止対象なら表示しない）
+        const suppressed = Array.isArray(detailLayout?.suppressKeys)
+          && (detailLayout.suppressKeys.includes(base) || detailLayout.suppressKeys.includes(`${base}_JP`) || detailLayout.suppressKeys.includes(`${base}_EN`));
+        if (!suppressed) {
+          const { text, usedKeys } = formatBilingualGroup(base);
+          if (text) {
+            // 表示セクションは JP/EN 側の $display.section を優先して解釈
+            const displayHint = fieldDisplayMap?.[f.key] ?? fieldDisplayMap?.[base] ?? null;
+            if (!(displayHint && typeof displayHint === 'object' && displayHint.auto === false)) {
+              const sec = normalizeSection(displayHint?.section) || (isSummaryType(f.type) ? 'profile' : 'other');
+              pushToBucket(sec || 'other', {
+                key: base,
+                label: getFieldLabel(base, fieldLabelMap, workMeta, globalDefType, base),
+                // すでに統合済み文字列のため、後段の formatValueForDisplay を避ける
+                type: null,
+                display: null,
+                value: text
+              });
+              // base/JP/EN すべて抑止対象にする
+              shownKeys.add(base);
+              for (const uk of usedKeys) shownKeys.add(uk);
+              continue;
+            }
+          }
+        }
+      }
+
+      // ここに来た場合は統合表示しない（または既に表示済み）ので、このキー自体は抑止
+      shownKeys.add(f.key);
+      continue;
+    }
 
     // db_meta.json の $DetailLayout で抑止されたキーは自動表示しない
     if (Array.isArray(detailLayout?.suppressKeys) && detailLayout.suppressKeys.includes(f.key)) {
