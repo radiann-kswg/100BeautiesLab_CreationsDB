@@ -9,6 +9,21 @@
         "$type": "#Number|#String",
         "hashTagName_JP": "番号",
         "hashTagName_EN": "Number"
+      },
+      "$DetailLayout": {
+        "headerPills": ["Progress"],
+        "basicFields": [
+          "FormalName",
+          "FormalName_EN",
+          "ModelName",
+          "ModelNumber",
+          "SPCodeName",
+          "GenderType",
+          "Height_cm",
+          "Weight_kg",
+          "ConceptAge",
+          "Class"
+        ]
       }
     },
     "#Works_FLInvestigator78": {
@@ -38,6 +53,21 @@
             "hashTagName_EN": "CardNumber"
           }
         ]
+      },
+      "$DetailLayout": {
+        "headerPills": ["Progress"],
+        "basicFields": [
+          "FormalName",
+          "FormalName_EN",
+          "ModelName",
+          "ModelNumber",
+          "SPCodeName",
+          "GenderType",
+          "Height_cm",
+          "Weight_kg",
+          "ConceptAge",
+          "Class"
+        ]
       }
     },
     "#Works_ShouArRiders": {
@@ -56,6 +86,21 @@
         ],
         "hashTagName_JP": "獣種",
         "hashTagName_EN": "BeastType"
+      },
+      "$DetailLayout": {
+        "headerPills": ["Progress"],
+        "basicFields": [
+          "FormalName",
+          "FormalName_EN",
+          "ModelName",
+          "ModelNumber",
+          "SPCodeName",
+          "GenderType",
+          "Height_cm",
+          "Weight_kg",
+          "ConceptAge",
+          "Class"
+        ]
       }
     },
     "#Works_SinisterChangingGirls": {
@@ -67,6 +112,21 @@
         "$type": "#String",
         "hashTagName_JP": "方角",
         "hashTagName_EN": "Direction"
+      },
+      "$DetailLayout": {
+        "headerPills": ["Progress"],
+        "basicFields": [
+          "FormalName",
+          "FormalName_EN",
+          "ModelName",
+          "ModelNumber",
+          "SPCodeName",
+          "GenderType",
+          "Height_cm",
+          "Weight_kg",
+          "ConceptAge",
+          "Class"
+        ]
       }
     },
     "#Works_UnauthedLogica": {
@@ -88,6 +148,21 @@
             "hashTagName_JP": "ロジック番号",
             "hashTagName_EN": "LogicNumber"
           }
+        ]
+      },
+      "$DetailLayout": {
+        "headerPills": ["Progress"],
+        "basicFields": [
+          "FormalName",
+          "FormalName_EN",
+          "ModelName",
+          "ModelNumber",
+          "SPCodeName",
+          "GenderType",
+          "Height_cm",
+          "Weight_kg",
+          "ConceptAge",
+          "Class"
         ]
       }
     },
@@ -111,6 +186,21 @@
             "hashTagName_EN": "Generation"
           }
         ]
+      },
+      "$DetailLayout": {
+        "headerPills": ["Progress"],
+        "basicFields": [
+          "FormalName",
+          "FormalName_EN",
+          "ModelName",
+          "ModelNumber",
+          "SPCodeName",
+          "GenderType",
+          "Height_cm",
+          "Weight_kg",
+          "ConceptAge",
+          "Class"
+        ]
       }
     },
     "#Works_DestinyFoxsRecords": {
@@ -129,6 +219,21 @@
         "$type": "#String",
         "hashTagName_JP": "理学単位次元",
         "hashTagName_EN": "UnitalDimention"
+      },
+      "$DetailLayout": {
+        "headerPills": ["Progress"],
+        "basicFields": [
+          "FormalName",
+          "FormalName_EN",
+          "ModelName",
+          "ModelNumber",
+          "SPCodeName",
+          "GenderType",
+          "Height_cm",
+          "Weight_kg",
+          "ConceptAge",
+          "Class"
+        ]
       }
     },
     "#Works_Proxies": {
@@ -140,6 +245,21 @@
         "$type": "#Number",
         "hashTagName_JP": "代理の世代",
         "hashTagName_EN": "ProxyGeneration"
+      },
+      "$DetailLayout": {
+        "headerPills": ["Progress"],
+        "basicFields": [
+          "FormalName",
+          "FormalName_EN",
+          "ModelName",
+          "ModelNumber",
+          "SPCodeName",
+          "GenderType",
+          "Height_cm",
+          "Weight_kg",
+          "ConceptAge",
+          "Class"
+        ]
       }
     }
   },

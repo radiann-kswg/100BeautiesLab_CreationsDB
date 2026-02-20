@@ -28,7 +28,11 @@
     {
       "hashTag": "CodeName",
       "$type": "#Stiring_JP|#Null",
-      "hashTag_JP": "名称コード"
+      "hashTag_JP": "名称コード",
+      "$display": {
+        "auto": false,
+        "aliasOf": "ModelName"
+      }
     },
     {
       "hashTag": "CodeName_EN",
@@ -43,9 +47,21 @@
     {
       "hashTag": "SPCodeName_EN",
       "$type": "#Stiring_EN|#Null",
-      "hashTag_JP": "特殊な名称コード_EN"
+      "hashTag_JP": "特殊な名称コード_EN",
+      "$display": {
+        "auto": false,
+        "aliasOf": "SPCodeName"
+      }
     },
     { "hashTag": "ModelNumber", "$type": "#Stiring", "hashTag_JP": "型番" },
+    {
+      "hashTag": "ModelName",
+      "$type": "#Stiring_JP|#Summary|#Null",
+      "hashTag_JP": "モデル名",
+      "$display": {
+        "section": "basic"
+      }
+    },
     {
       "hashTag": "RaceType",
       "$type": "#ListIndex",
@@ -83,6 +99,23 @@
       "hashTag": "ClassType_EN",
       "$type": "#String",
       "hashTag_JP": "クラス_EN"
+    },
+    {
+      "hashTag": "Class",
+      "$type": "#Stiring_JP|#Summary|#Null",
+      "hashTag_JP": "クラス名",
+      "$display": {
+        "section": "basic"
+      }
+    },
+    {
+      "hashTag": "Class_EN",
+      "$type": "#Stiring_EN|#Summary|#Null",
+      "hashTag_JP": "クラス名_EN",
+      "$display": {
+        "auto": false,
+        "aliasOf": "Class"
+      }
     },
     {
       "hashTag": "Height_cm",

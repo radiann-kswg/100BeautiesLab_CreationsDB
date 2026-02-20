@@ -36,15 +36,15 @@
 #### 実装された変更内容
 
 1. **SharedLibrary アーキテクチャの導入**
-   - `lib/sw-common.js`: Service Worker 共通機能の統合
-   - `lib/data-common.js`: データ処理共通機能の統合
-   - 全 Service Worker 間での機能統一とコード重複削減
-
 2. **StandardEndpointHandlers クラスの実装**
    - Service Worker 間で重複していた標準エンドポイント処理を統合
-   - スコープ対応機能（API、Pages、SVC）
-   - エンリッチメント制御（Pages スコープでのみ有効）
-   - 約 300 行以上の重複コード削除を実現
+
+- UI: 詳細ビューの表示制御を拡張し、`data/db_meta.json` の `CreationWorks.<work>.$DetailLayout`（`headerPills`/`basicFields`/`suppressKeys`）に追従できるようにした。
+- UI: `data/db_type.json` の `"$display"` に `auto:false` を追加し、自動表示から除外できるようにした（別名/統合表示向け）。
+- Data: `data/db_type.json` に `ModelName`/`Class`/`Class_EN` のトップレベル定義を追加し、`CodeName`/`SPCodeName_EN`/`Class_EN` へ `auto:false` と `aliasOf` を付与した。
+  - スコープ対応機能（API、Pages、SVC）
+  - エンリッチメント制御（Pages スコープでのみ有効）
+  - 約 300 行以上の重複コード削除を実現
 
 3. **EnrichmentProcessor.enrichRecords()メソッドの追加**
    - キャラクターデータの充実化処理機能

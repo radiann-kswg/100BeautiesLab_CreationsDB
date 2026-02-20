@@ -2079,8 +2079,24 @@ async function renderDetail(workId, rec) {
         if (!indexChipText) return null;
         return el('span', { class: 'pill' }, [indexChipText]);
       })(),
-      rec.ModelNumber ? el('span', { class: 'pill' }, [getFieldLabel('ModelNumber', fieldLabelMap, workMeta, 'Model'), rec.ModelNumber]) : null,
-      rec.Progress ? el('span', { class: 'pill' }, [getFieldLabel('Progress', fieldLabelMap, workMeta, 'Progress'), rec.Progress]) : null
+      (() => {
+        const detailLayout = globalMeta?.CreationWorks?.[workId]?.$DetailLayout || null;
+        const headerPills = Array.isArray(detailLayout?.headerPills)
+          ? detailLayout.headerPills
+          : ['Progress'];
+
+        const nodes = [];
+        for (const key of headerPills) {
+          if (!key || typeof key !== 'string') continue;
+          const v = rec?.[key];
+          if (v === null || v === undefined || v === '') continue;
+          nodes.push(el('span', { class: 'pill' }, [
+            getFieldLabel(key, fieldLabelMap, workMeta, globalDefType, key),
+            formatValueForDisplay(v, fieldLabelMap, workMeta, globalDefType)
+          ]));
+        }
+        return nodes;
+      })()
     ])
   ]);
 
@@ -2092,18 +2108,46 @@ async function renderDetail(workId, rec) {
     });
   };
 
-  // Build basic info table with localized field names
-  const basicFields = [
-    ['FormalName', rec.FormalName || ''],
-    ['FormalName_EN', rec.FormalName_EN || ''],
-    ['ModelName', rec.ModelName || rec.CodeName || ''],
-    ['SPCodeName', rec.SPCodeName || rec.SPCodeName_EN || ''],
-    ['GenderType', rec.GenderType_JP || rec.GenderType || ''],
-    ['Height_cm', rec.Height_cm != null ? formatFieldValue('Height_cm', rec.Height_cm) : ''],
-    ['Weight_kg', rec.Weight_kg != null ? formatFieldValue('Weight_kg', rec.Weight_kg) : ''],
-    ['ConceptAge', rec.ConceptAge != null ? formatFieldValue('ConceptAge', rec.ConceptAge) : ''],
-    ['Class', rec.Class || rec.Class_EN || ''],
-  ].filter(([key, value]) => value); // Only show fields with values
+  // Build basic info table with localized field names (layout-driven via db_meta.json $DetailLayout)
+  const detailLayout = globalMeta?.CreationWorks?.[workId]?.$DetailLayout || null;
+  const basicFieldKeys = Array.isArray(detailLayout?.basicFields)
+    ? detailLayout.basicFields
+    : ['FormalName', 'FormalName_EN', 'ModelName', 'ModelNumber', 'SPCodeName', 'GenderType', 'Height_cm', 'Weight_kg', 'ConceptAge', 'Class'];
+
+  const resolveBasicFieldValue = (key) => {
+    if (!key || typeof key !== 'string') return '';
+    switch (key) {
+      case 'FormalName':
+        return rec.FormalName || '';
+      case 'FormalName_EN':
+        return rec.FormalName_EN || '';
+      case 'ModelName':
+        return rec.ModelName || rec.CodeName || '';
+      case 'ModelNumber':
+        return rec.ModelNumber || '';
+      case 'SPCodeName':
+        return rec.SPCodeName || rec.SPCodeName_EN || '';
+      case 'GenderType':
+        return rec.GenderType_JP || rec.GenderType || '';
+      case 'Height_cm':
+        return rec.Height_cm != null ? formatFieldValue('Height_cm', rec.Height_cm) : '';
+      case 'Weight_kg':
+        return rec.Weight_kg != null ? formatFieldValue('Weight_kg', rec.Weight_kg) : '';
+      case 'ConceptAge':
+        return rec.ConceptAge != null ? formatFieldValue('ConceptAge', rec.ConceptAge) : '';
+      case 'Class':
+        return rec.Class || rec.Class_EN || '';
+      default: {
+        const v = rec?.[key];
+        if (v === null || v === undefined || v === '') return '';
+        return formatFieldValue(key, v);
+      }
+    }
+  };
+
+  const basicFields = basicFieldKeys
+    .map((key) => [key, resolveBasicFieldValue(key)])
+    .filter(([, value]) => value); // Only show fields with values
 
   const basic = kvTable(rec, basicFields.map(([key, value]) => [
     getFieldLabel(key, fieldLabelMap, workMeta, globalDefType, key),
@@ -2287,6 +2331,19 @@ async function renderDetail(workId, rec) {
   for (const f of schemaFields) {
     if (!f || typeof f !== 'object') continue;
     if (shownKeys.has(f.key)) continue;
+
+    // db_meta.json の $DetailLayout で抑止されたキーは自動表示しない
+    if (Array.isArray(detailLayout?.suppressKeys) && detailLayout.suppressKeys.includes(f.key)) {
+      shownKeys.add(f.key);
+      continue;
+    }
+
+    // db_type.json の $display.auto=false は自動表示しない（別名/統合表示用）
+    if (f.display && typeof f.display === 'object' && f.display.auto === false) {
+      shownKeys.add(f.key);
+      continue;
+    }
+
     const v = rec?.[f.key];
     if (shouldSkipKey(f.key, v)) continue;
 
