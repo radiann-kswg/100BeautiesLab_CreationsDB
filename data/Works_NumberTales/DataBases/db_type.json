@@ -6,6 +6,11 @@
       "hashTag_JP": "主人の呼び方"
     },
     {
+      "hashTag": "TailsUnit",
+      "$type": "#String",
+      "hashTag_JP": "尻尾の形状"
+    },
+    {
       "hashTag": "NumerospecAbout",
       "$type": "#Summary",
       "hashTag_JP": "“カバラの加護”(数秘的加護)について"
