@@ -871,6 +871,69 @@ function buildFieldLabelMap(workTypeDef, globalTypeDef = {}) {
 }
 
 /**
+ * typedef（db_type.json）から、フィールドパス→$type（文字列）のマップを構築
+ * - 表示整形を「フィールド名ハードコード」ではなく「定義型（$EnumDef_* / $Def_*）」に寄せるための補助
+ * - work 定義を優先し、同一キーは global を上書きしない
+ * @param {Array|Object} workTypeDef - 作品ごとの typedef
+ * @param {Object} globalTypeDef - グローバル typedef
+ * @returns {Record<string, string>}
+ */
+function buildFieldTypeMap(workTypeDef, globalTypeDef = {}) {
+  /** @type {Record<string, string>} */
+  const typeMap = {};
+
+  const pickDefArray = (def) => {
+    if (!def) return null;
+    if (Array.isArray(def)) return def;
+    if (Array.isArray(def?.$DefType)) return def.$DefType;
+    if (Array.isArray(def?.typedef?.$DefType)) return def.typedef.$DefType;
+    if (Array.isArray(def?.global)) return def.global;
+    return null;
+  };
+
+  const isPlainObject = (v) => !!v && typeof v === 'object' && !Array.isArray(v);
+  const normalizeTypeText = (t) => (typeof t === 'string' ? t.trim() : '');
+
+  // 優先度: work → global（同一キーは上書きしない）
+  const addFrom = (def) => {
+    const arr = pickDefArray(def);
+    if (!Array.isArray(arr)) return;
+
+    // traverse が typeMap を直接書くので、上書き抑止のために一時マップで受けて merge
+    /** @type {Record<string, string>} */
+    const tmp = {};
+    // 一時的に tmp を書き込み先にする
+    // eslint-disable-next-line no-inner-declarations
+    const traverseTmp = (items, path = []) => {
+      if (!Array.isArray(items)) return;
+      for (const item of items) {
+        if (!isPlainObject(item)) continue;
+        if (!item.hashTag || typeof item.hashTag !== 'string') continue;
+        const currentPath = [...path, item.hashTag];
+        const t = normalizeTypeText(item.$type);
+        if (t) {
+          const full = currentPath.join('.');
+          if (!Object.prototype.hasOwnProperty.call(tmp, full)) tmp[full] = t;
+          if (!Object.prototype.hasOwnProperty.call(tmp, item.hashTag)) tmp[item.hashTag] = t;
+        }
+        if (Array.isArray(item.$type)) traverseTmp(item.$type, currentPath);
+        else if (isPlainObject(item.$type)) traverseTmp([item.$type], currentPath);
+      }
+    };
+    traverseTmp(arr, []);
+
+    // merge（既存を上書きしない）
+    for (const [k, v] of Object.entries(tmp)) {
+      if (!Object.prototype.hasOwnProperty.call(typeMap, k)) typeMap[k] = v;
+    }
+  };
+
+  addFrom(workTypeDef);
+  addFrom(globalTypeDef);
+  return typeMap;
+}
+
+/**
  * db_type.json($DefType) から、トップレベルのフィールド定義（順序付き）を抽出
  * - work の定義を優先し、同名フィールドは global を追加しない
  * - Images コンテナは除外（ギャラリー処理が担当）
@@ -1080,7 +1143,7 @@ function getFieldLabel(fieldName, labelMap, workMeta = null, globalDefType = nul
  * @param {Object} labelMap - Field label mapping for nested objects
  * @param {Object} workMeta - Work metadata for lookup
  * @param {Object} globalDefType - Global definition types for enum/list lookups
- * @param {{display?: any}|null} opt - display hint (e.g., { unit: 'cm' })
+ * @param {{display?: any, schemaType?: any}|null} opt - display hint (e.g., { unit: 'cm' }) + schema type hint
  * @returns {string} Formatted display value
  */
 function formatValueForDisplay(value, labelMap = {}, workMeta = null, globalDefType = null, opt = null) {
@@ -1101,6 +1164,88 @@ function formatValueForDisplay(value, labelMap = {}, workMeta = null, globalDefT
    * @returns {boolean}
    */
   const isPlainObject = (v) => !!v && typeof v === 'object' && !Array.isArray(v);
+
+  /**
+   * Rank 表現を人間向け表示に正規化
+   * - { Rank: 'A' } / { Rank: { hideText: '???' } } / { Rank: { Rank: 'A', about: '...' } }
+   * - { Rank: 'A', about: '...' } のような「Rank + 注釈」も扱う
+   * @param {any} obj
+   * @returns {string}
+   */
+  const formatRankLike = (obj) => {
+    if (!isPlainObject(obj)) return '';
+    if (!Object.prototype.hasOwnProperty.call(obj, 'Rank')) return '';
+
+    const rawRank = obj.Rank;
+    const about = obj.about_JP || obj.about_EN || obj.about;
+
+    // Rank がプリミティブ
+    if (typeof rawRank === 'string' || typeof rawRank === 'number' || typeof rawRank === 'boolean') {
+      const base = String(rawRank).trim();
+      if (!base) return '';
+      if (about) return `${base}（${about}）`;
+      return base;
+    }
+
+    // Rank が { hideText: '...' }
+    if (isPlainObject(rawRank) && typeof rawRank.hideText === 'string' && rawRank.hideText.trim()) {
+      return rawRank.hideText;
+    }
+
+    // Rank が { Rank: 'A', about: '...' } のようなネスト
+    if (isPlainObject(rawRank) && Object.prototype.hasOwnProperty.call(rawRank, 'Rank')) {
+      const nestedBaseRaw = rawRank.Rank;
+      const nestedAbout = rawRank.about_JP || rawRank.about_EN || rawRank.about;
+
+      if (typeof nestedBaseRaw === 'string' || typeof nestedBaseRaw === 'number' || typeof nestedBaseRaw === 'boolean') {
+        const base = String(nestedBaseRaw).trim();
+        if (!base) return '';
+        if (nestedAbout) return `${base}（${nestedAbout}）`;
+        return base;
+      }
+      if (isPlainObject(nestedBaseRaw) && typeof nestedBaseRaw.hideText === 'string' && nestedBaseRaw.hideText.trim()) {
+        return nestedBaseRaw.hideText;
+      }
+    }
+
+    return '';
+  };
+
+  /**
+   * schema の $type 文字列に定義型が含まれるか（簡易）
+   * @param {any} t
+   * @param {string} needle
+   */
+  const schemaTypeIncludes = (t, needle) => {
+    const s = (typeof t === 'string') ? t : '';
+    return s.includes(needle);
+  };
+
+  /**
+   * $EnumDef_Rank の参照（#Rank3 等）を解決
+   * @param {string} key
+   */
+  const resolveEnumRankKey = (key) => {
+    const k = String(key || '').trim();
+    if (!k.startsWith('#')) return '';
+
+    const g = globalDefType?.General?.$VarsDef?.$EnumDef_Rank;
+    const v = g && typeof g === 'object' ? g[k] : null;
+    const rank = v && typeof v === 'object' ? v.Rank : null;
+    return (typeof rank === 'string' && rank.trim()) ? rank.trim() : '';
+  };
+
+  // Rank 定義型（$EnumDef_Rank）の場合、プリミティブ値でも参照解決を試す
+  // 例: '#Rank3' → 'A'（db_type.json の $VarsDef.$EnumDef_Rank に依存）
+  if (opt && typeof opt === 'object' && typeof value !== 'object') {
+    if (schemaTypeIncludes(opt.schemaType, '$EnumDef_Rank')) {
+      const s = String(value ?? '').trim();
+      const resolved = resolveEnumRankKey(s);
+      if (resolved) return resolved;
+      if (typeof value === 'boolean') return String(value);
+      return withUnit(value);
+    }
+  }
 
   /**
    * `_Search` などの {hashTag, key} 配列を表示用に整形
@@ -1247,6 +1392,16 @@ function formatValueForDisplay(value, labelMap = {}, workMeta = null, globalDefT
       const about = value.about_JP || value.about_EN || value.about;
       if (date && about) return `${date}（${about}）`;
       if (date) return date;
+    }
+
+    // Rank 定義型（$EnumDef_Rank）に追従して整形
+    // - field 名ではなく typedef の $type で判断する（ソフトコード）
+    if (schemaTypeIncludes(opt?.schemaType, '$EnumDef_Rank')) {
+      const rankText = formatRankLike(value);
+      if (rankText) {
+        const resolved = resolveEnumRankKey(rankText);
+        return resolved || rankText;
+      }
     }
 
     // Handle objects with common text patterns
@@ -2060,6 +2215,9 @@ async function renderDetail(workId, rec) {
     // Build comprehensive field label mapping with global fallbacks
     const fieldLabelMap = buildFieldLabelMap(workTypeDef, globalTypeDef);
 
+    // Build field path → $type map (typedef-driven formatting)
+    const fieldTypeMap = buildFieldTypeMap(workTypeDef, globalTypeDef);
+
     // Use cached or extract image fields
     const imageFields = cachedImageFields || extractImageFields(workTypeDef, globalTypeDef);
 
@@ -2158,7 +2316,8 @@ async function renderDetail(workId, rec) {
 
   const formatFieldValue = (fieldKey, raw) => {
     return formatValueForDisplay(raw, fieldLabelMap, workMeta, globalDefType, {
-      display: topLevelDisplayMap?.[fieldKey] ?? null
+      display: topLevelDisplayMap?.[fieldKey] ?? null,
+      schemaType: fieldTypeMap?.[fieldKey] ?? null
     });
   };
 
@@ -2185,7 +2344,9 @@ async function renderDetail(workId, rec) {
           if (v === null || v === undefined || v === '') continue;
           nodes.push(el('span', { class: 'pill' }, [
             getFieldLabel(usedKey || key, fieldLabelMap, workMeta, globalDefType, usedKey || key),
-            formatValueForDisplay(v, fieldLabelMap, workMeta, globalDefType)
+            formatValueForDisplay(v, fieldLabelMap, workMeta, globalDefType, {
+              schemaType: fieldTypeMap?.[usedKey || key] ?? null
+            })
           ]));
         }
         return nodes;
@@ -2249,11 +2410,26 @@ async function renderDetail(workId, rec) {
     it.value
   ]));
 
+  const pickSchemaType = (...candidates) => {
+    for (const c of candidates) {
+      if (!c) continue;
+      const t = fieldTypeMap?.[c];
+      if (typeof t === 'string' && t) return t;
+    }
+    return null;
+  };
+
   // Abilities with localized labels
   const ability = rec.AbilityStats || {};
   const abilityGrid = el('div', { class: 'kv-grid' }, Object.entries(ability).map(([k, v]) => {
     const fieldLabel = getFieldLabel(`AbilityStats.${k}`, fieldLabelMap, workMeta, globalDefType, k);
-    const displayValue = formatValueForDisplay(v, fieldLabelMap, workMeta, globalDefType);
+    const schemaType = pickSchemaType(
+      `AbilityStats.${k}`,
+      `NumerospecStats.AbilityStats.${k}`,
+      `ArcanumspecStats.AbilityStats.${k}`,
+      `BeastspecStats.AbilityStats.${k}`
+    );
+    const displayValue = formatValueForDisplay(v, fieldLabelMap, workMeta, globalDefType, { schemaType });
     return el('div', { class: 'tag' }, [`${fieldLabel}: ${displayValue}`]);
   }));
 
@@ -2262,7 +2438,13 @@ async function renderDetail(workId, rec) {
   const eff = numStats.EffectStats || {};
   const effGrid = el('div', { class: 'kv-grid' }, Object.entries(eff).map(([k, v]) => {
     const fieldLabel = getFieldLabel(`EffectStats.${k}`, fieldLabelMap, workMeta, globalDefType, k);
-    const displayValue = formatValueForDisplay(v, fieldLabelMap, workMeta, globalDefType);
+    const schemaType = pickSchemaType(
+      `EffectStats.${k}`,
+      `NumerospecStats.EffectStats.${k}`,
+      `ArcanumspecStats.EffectStats.${k}`,
+      `BeastspecStats.EffectStats.${k}`
+    );
+    const displayValue = formatValueForDisplay(v, fieldLabelMap, workMeta, globalDefType, { schemaType });
     return el('div', { class: 'tag' }, [`${fieldLabel}: ${displayValue}`]);
   }));
 
@@ -2276,17 +2458,23 @@ async function renderDetail(workId, rec) {
   const specNodes = [];
   if (specType.Material) {
     const materialLabel = getFieldLabel('SpecType.Material', fieldLabelMap, workMeta, globalDefType, 'Material');
-    const materialValue = formatValueForDisplay(specType.Material, fieldLabelMap, workMeta, globalDefType);
+    const materialValue = formatValueForDisplay(specType.Material, fieldLabelMap, workMeta, globalDefType, {
+      schemaType: pickSchemaType('SpecType.Material')
+    });
     specNodes.push(el('div', { class: 'tag' }, [materialLabel + ': ', materialValue]));
   }
   if (specType.ActionType) {
     const actionLabel = getFieldLabel('SpecType.ActionType', fieldLabelMap, workMeta, globalDefType, 'Action');
-    const actionValue = formatValueForDisplay(specType.ActionType, fieldLabelMap, workMeta, globalDefType);
+    const actionValue = formatValueForDisplay(specType.ActionType, fieldLabelMap, workMeta, globalDefType, {
+      schemaType: pickSchemaType('SpecType.ActionType')
+    });
     if (actionValue) specNodes.push(el('div', { class: 'tag' }, [actionLabel + ': ', actionValue]));
   }
   if (specType.DualizePattern) {
     const dualizeLabel = getFieldLabel('SpecType.DualizePattern', fieldLabelMap, workMeta, globalDefType, 'Dualize');
-    const dualizeValue = formatValueForDisplay(specType.DualizePattern, fieldLabelMap, workMeta, globalDefType);
+    const dualizeValue = formatValueForDisplay(specType.DualizePattern, fieldLabelMap, workMeta, globalDefType, {
+      schemaType: pickSchemaType('SpecType.DualizePattern')
+    });
     specNodes.push(el('div', { class: 'tag' }, [dualizeLabel + ': ', dualizeValue]));
   }
 
@@ -2401,12 +2589,12 @@ async function renderDetail(workId, rec) {
     // スキーマ的に Summary 系 or 文字列改行は pre-wrap
     if (typeof v === 'string' && v.includes('\n')) return preWrapText(v);
     if (schemaType != null && isSummaryType(schemaType)) {
-      const formatted = typeof v === 'string' ? v : formatValueForDisplay(v, fieldLabelMap, workMeta, globalDefType, { display: schemaDisplay });
+      const formatted = typeof v === 'string' ? v : formatValueForDisplay(v, fieldLabelMap, workMeta, globalDefType, { display: schemaDisplay, schemaType });
       if (formatted && String(formatted).includes('\n')) return preWrapText(formatted);
       // Summary でも単行の場合は preWrap にしておく（安全側）
       return preWrapText(formatted);
     }
-    const formatted = formatValueForDisplay(v, fieldLabelMap, workMeta, globalDefType, { display: schemaDisplay });
+    const formatted = formatValueForDisplay(v, fieldLabelMap, workMeta, globalDefType, { display: schemaDisplay, schemaType });
     if (typeof formatted === 'string' && formatted.includes('\n')) return preWrapText(formatted);
     return formatted;
   };
