@@ -2163,18 +2163,71 @@ async function renderDetail(workId, rec) {
   }).filter(d => d.trim()) : [];
 
   // ここまでで明示的に表示したフィールドを控えておき、未表示項目を後段で包括表示する
-  const shownKeys = new Set([
-    'Name', 'Name_EN', 'FormalName', 'FormalName_EN',
-    'Num', 'ModelNumber', 'Progress',
-    'ModelName', 'CodeName', 'SPCodeName', 'SPCodeName_EN',
-    'GenderType', 'Height_cm', 'Weight_kg', 'ConceptAge', 'Class', 'Class_EN',
-    'AbilityStats',
-    'NumerospecStats', 'ArcanumspecStats', 'BeastspecStats',
-    'SpecType', 'Belonging', 'Area', 'AnivDay',
-    'Summary', 'Relation',
-    'Images',
-    '_DBLinkResolved'
-  ]);
+  const shownKeys = (() => {
+    /** @type {Set<string>} */
+    const s = new Set();
+
+    // タイトル行（表示に使った実体キーを記録）
+    if (rec.Name) s.add('Name');
+    else if (rec.FormalName) s.add('FormalName');
+    else if (rec.Name_EN) s.add('Name_EN');
+
+    if (rec.Name_EN) s.add('Name_EN');
+    else if (rec.FormalName_EN) s.add('FormalName_EN');
+
+    // 作品ごとのインデックス定義（db_meta.json の $DefType_Index / $Def_Index に追従）
+    const workIndexDef = getWorkIndexField(workId, globalMeta);
+    if (workIndexDef?.hashTag && typeof workIndexDef.hashTag === 'string') {
+      s.add(workIndexDef.hashTag);
+    } else if (rec.Num != null) {
+      // indexDef が無い場合の最小互換
+      s.add('Num');
+    }
+
+    if (rec.ModelNumber) s.add('ModelNumber');
+    if (rec.Progress) s.add('Progress');
+
+    // 基本情報テーブルに出したキー（空値は表示されないが、空値は後段でもスキップされるため安全側）
+    for (const [k] of basicFields) s.add(k);
+
+    // 互換/別名/派生表示に伴う重複抑止
+    // - ModelName は CodeName をフォールバックに持つため、どちらが値を持っていても二重表示を避ける
+    if (basicFields.some(([k]) => k === 'ModelName')) s.add('CodeName');
+    // - SPCodeName は SPCodeName_EN をフォールバックに持つため、二重表示を避ける
+    if (basicFields.some(([k]) => k === 'SPCodeName')) s.add('SPCodeName_EN');
+    // - Class は Class_EN を併記している作品があるため、二重表示を避ける
+    if (basicFields.some(([k]) => k === 'Class')) s.add('Class_EN');
+    // - GenderType_JP のような派生キーが混入する場合があるため、基本情報で表示したら抑止
+    if (basicFields.some(([k]) => k === 'GenderType')) s.add('GenderType_JP');
+
+    // スペック/能力セクションで個別表示するトップレベルキー
+    if (rec.AbilityStats && typeof rec.AbilityStats === 'object' && Object.keys(rec.AbilityStats).length > 0) {
+      s.add('AbilityStats');
+    }
+    // 数秘/タロット/獣爾のいずれか（存在するものは二重表示を避ける）
+    for (const k of ['NumerospecStats', 'ArcanumspecStats', 'BeastspecStats']) {
+      const v = rec?.[k];
+      if (v && typeof v === 'object' && Object.keys(v).length > 0) s.add(k);
+    }
+    if (rec.SpecType && typeof rec.SpecType === 'object' && Object.keys(rec.SpecType).length > 0) {
+      s.add('SpecType');
+    }
+
+    // basic セクションの個別テーブルで表示するフィールド
+    if (belong) s.add('Belonging');
+    if (area) s.add('Area');
+    if (days.length) s.add('AnivDay');
+
+    // profile/relations/DBLinkResolved は個別表示する
+    if (rec.Summary) s.add('Summary');
+    if (rec.Relation) s.add('Relation');
+    if (rec._DBLinkResolved) s.add('_DBLinkResolved');
+
+    // Images は左カラムのギャラリー担当（キーとして持っていれば抑止）
+    if (rec.Images) s.add('Images');
+
+    return s;
+  })();
 
   // db_type.json 由来の表示順（トップレベル）
   const schemaFields = extractTopLevelSchemaFields(workTypeDef, globalTypeDef);
