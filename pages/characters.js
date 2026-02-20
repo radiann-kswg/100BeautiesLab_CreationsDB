@@ -999,6 +999,102 @@ function formatValueForDisplay(value, labelMap = {}, workMeta = null, globalDefT
     return '';
   }
 
+  /**
+   * 値が「配列ではないObject」かどうか
+   * @param {any} v
+   * @returns {boolean}
+   */
+  const isPlainObject = (v) => !!v && typeof v === 'object' && !Array.isArray(v);
+
+  /**
+   * `_Search` などの {hashTag, key} 配列を表示用に整形
+   * @param {any} pairs
+   * @returns {string}
+   */
+  const formatSearchPairs = (pairs) => {
+    if (!Array.isArray(pairs) || pairs.length === 0) return '';
+    const parts = [];
+    for (const p of pairs) {
+      if (!isPlainObject(p)) continue;
+      const h = typeof p.hashTag === 'string' ? p.hashTag.trim() : '';
+      const k = (p.key === null || p.key === undefined) ? '' : String(p.key).trim();
+      if (!h && !k) continue;
+      if (h && k) parts.push(`${h}=${k}`);
+      else parts.push(h || k);
+    }
+    return parts.join(', ');
+  };
+
+  /**
+   * `_Jump` オブジェクトを表示用に整形
+   * 例: { hashTag: 'AnivDay', _Search: [{hashTag:'DayAbout', key:'誕生日'}] }
+   * @param {any} jump
+   * @returns {string}
+   */
+  const formatJump = (jump) => {
+    if (!isPlainObject(jump)) return '';
+    const rawTarget = typeof jump.hashTag === 'string' ? jump.hashTag.trim() : '';
+    const target = rawTarget
+      ? getFieldLabel(rawTarget, labelMap, workMeta, globalDefType, rawTarget)
+      : '';
+    const q = formatSearchPairs(jump._Search);
+    if (target && q) return `${target}（${q}）`;
+    return target || q || '';
+  };
+
+  /**
+   * ネストObject/配列から表示可能なプリミティブ文字列を抽出
+   * - `hideText` は上位で処理するためここでは無視
+   * - 取り過ぎ防止のため深さ/件数に上限を設ける
+   * @param {any} v
+   * @param {{depth?: number, maxItems?: number, includePrivate?: boolean}} opt
+   * @param {number} cur
+   * @param {string[]} out
+   */
+  const collectLeafText = (v, opt, cur, out) => {
+    const depth = opt?.depth ?? 4;
+    const maxItems = opt?.maxItems ?? 40;
+    const includePrivate = !!opt?.includePrivate;
+    if (out.length >= maxItems) return;
+    if (cur > depth) return;
+
+    if (v === null || v === undefined) return;
+    if (typeof v === 'string') {
+      const t = v.trim();
+      if (t) out.push(t);
+      return;
+    }
+    if (typeof v === 'number' || typeof v === 'boolean') {
+      out.push(String(v));
+      return;
+    }
+    if (Array.isArray(v)) {
+      for (const it of v) {
+        collectLeafText(it, opt, cur + 1, out);
+        if (out.length >= maxItems) return;
+      }
+      return;
+    }
+    if (!isPlainObject(v)) return;
+
+    // {hashTag, key} 形式は専用表記で取り出す
+    if (typeof v.hashTag === 'string' && Object.prototype.hasOwnProperty.call(v, 'key') && Object.keys(v).length <= 3) {
+      const h = v.hashTag.trim();
+      const k = (v.key === null || v.key === undefined) ? '' : String(v.key).trim();
+      if (h && k) out.push(`${h}=${k}`);
+      else if (h) out.push(h);
+      else if (k) out.push(k);
+      return;
+    }
+
+    for (const [k, vv] of Object.entries(v)) {
+      if (!includePrivate && String(k).startsWith('_')) continue;
+      if (k === 'hideText') continue;
+      collectLeafText(vv, opt, cur + 1, out);
+      if (out.length >= maxItems) return;
+    }
+  };
+
   if (typeof value === 'string' || typeof value === 'number' || typeof value === 'boolean') {
     return String(value);
   }
@@ -1011,6 +1107,29 @@ function formatValueForDisplay(value, labelMap = {}, workMeta = null, globalDefT
     // Common “masked” pattern used across databases
     if (typeof value.hideText === 'string' && value.hideText.trim()) {
       return value.hideText;
+    }
+
+    // _Jump wrapper pattern (e.g., BirthDay: { _Jump: {hashTag, _Search:[{hashTag,key}] } })
+    if (value._Jump && typeof value._Jump === 'object') {
+      const j = formatJump(value._Jump);
+      if (j) return j;
+    }
+
+    // _Jump object itself
+    if (typeof value.hashTag === 'string' && (value._Search || value.key != null) && Object.keys(value).some(k => k === 'hashTag' || k === '_Search' || k === 'key')) {
+      const j = formatJump(value);
+      if (j) return j;
+    }
+
+    // _DBLink-like object (worksTitle/dbName/_Search)
+    if (typeof value.worksTitle === 'string' && typeof value.dbName === 'string' && (Array.isArray(value._Search) || isPlainObject(value._Search))) {
+      const ws = value.worksTitle.trim();
+      const db = value.dbName.trim();
+      const q = formatSearchPairs(value._Search);
+      const head = (ws && db) ? `${ws}/${db}` : (ws || db);
+      if (head && q) return `${head}（${q}）`;
+      if (head) return head;
+      if (q) return q;
     }
 
     // Common value/about pattern (e.g., Age: {value, about_JP/about_EN})
@@ -1110,6 +1229,26 @@ function formatValueForDisplay(value, labelMap = {}, workMeta = null, globalDefT
 
     if (primitives.length > 0) {
       return primitives.join(', ');
+    }
+
+    // Deep fallback: nested object/array の葉を抽出して `[object Object]` を回避
+    const keys = Object.keys(value);
+    const onlyPrivate = keys.length > 0 && keys.every(k => String(k).startsWith('_'));
+    const leaf = [];
+    collectLeafText(value, { includePrivate: onlyPrivate, depth: 4, maxItems: 40 }, 0, leaf);
+    if (leaf.length > 0) {
+      // 同一要素が多い場合を軽く圧縮
+      const uniq = Array.from(new Set(leaf));
+      return uniq.join(', ');
+    }
+
+    // 最終フォールバック: JSON（短縮）
+    try {
+      const json = JSON.stringify(value);
+      if (typeof json === 'string' && json.length <= 240) return json;
+      if (typeof json === 'string') return `${json.slice(0, 240)}…`;
+    } catch (e) {
+      // ignore
     }
   }
 
