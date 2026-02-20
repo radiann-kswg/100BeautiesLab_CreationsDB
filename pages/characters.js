@@ -934,6 +934,64 @@ function buildFieldTypeMap(workTypeDef, globalTypeDef = {}) {
 }
 
 /**
+ * typedef（db_type.json）から、フィールドパス→$display（Object）のマップを構築
+ * - 値の表示整形（unit / rankFormat 等）を typedef 駆動に寄せるための補助
+ * - work 定義を優先し、同一キーは global を上書きしない
+ * @param {Array|Object} workTypeDef - 作品ごとの typedef
+ * @param {Object} globalTypeDef - グローバル typedef
+ * @returns {Record<string, any>}
+ */
+function buildFieldDisplayMap(workTypeDef, globalTypeDef = {}) {
+  /** @type {Record<string, any>} */
+  const displayMap = {};
+
+  const pickDefArray = (def) => {
+    if (!def) return null;
+    if (Array.isArray(def)) return def;
+    if (Array.isArray(def?.$DefType)) return def.$DefType;
+    if (Array.isArray(def?.typedef?.$DefType)) return def.typedef.$DefType;
+    if (Array.isArray(def?.global)) return def.global;
+    return null;
+  };
+
+  const isPlainObject = (v) => !!v && typeof v === 'object' && !Array.isArray(v);
+
+  const addFrom = (def) => {
+    const arr = pickDefArray(def);
+    if (!Array.isArray(arr)) return;
+
+    const tmp = {};
+    const traverseTmp = (items, path = []) => {
+      if (!Array.isArray(items)) return;
+      for (const item of items) {
+        if (!isPlainObject(item)) continue;
+        if (!item.hashTag || typeof item.hashTag !== 'string') continue;
+
+        const currentPath = [...path, item.hashTag];
+        const d = item.$display;
+        if (d && typeof d === 'object') {
+          const full = currentPath.join('.');
+          if (!Object.prototype.hasOwnProperty.call(tmp, full)) tmp[full] = d;
+          if (!Object.prototype.hasOwnProperty.call(tmp, item.hashTag)) tmp[item.hashTag] = d;
+        }
+
+        if (Array.isArray(item.$type)) traverseTmp(item.$type, currentPath);
+        else if (isPlainObject(item.$type)) traverseTmp([item.$type], currentPath);
+      }
+    };
+
+    traverseTmp(arr, []);
+    for (const [k, v] of Object.entries(tmp)) {
+      if (!Object.prototype.hasOwnProperty.call(displayMap, k)) displayMap[k] = v;
+    }
+  };
+
+  addFrom(workTypeDef);
+  addFrom(globalTypeDef);
+  return displayMap;
+}
+
+/**
  * db_type.json($DefType) から、トップレベルのフィールド定義（順序付き）を抽出
  * - work の定義を優先し、同名フィールドは global を追加しない
  * - Images コンテナは除外（ギャラリー処理が担当）
@@ -1212,6 +1270,50 @@ function formatValueForDisplay(value, labelMap = {}, workMeta = null, globalDefT
   };
 
   /**
+   * Rank 表現の「値」と「注釈」を分離して抽出
+   * - enum参照（#Rank3 等）を先に解決してから about を付けるため
+   * @param {any} obj
+   * @returns {{ rank: string, about?: string } | { hideText: string } | null}
+   */
+  const extractRankParts = (obj) => {
+    if (!isPlainObject(obj)) return null;
+    if (!Object.prototype.hasOwnProperty.call(obj, 'Rank')) return null;
+
+    const aboutOuter = obj.about_JP || obj.about_EN || obj.about;
+    const rawRank = obj.Rank;
+
+    // Rank がプリミティブ
+    if (typeof rawRank === 'string' || typeof rawRank === 'number' || typeof rawRank === 'boolean') {
+      const rank = String(rawRank).trim();
+      if (!rank) return null;
+      return aboutOuter ? { rank, about: String(aboutOuter) } : { rank };
+    }
+
+    // Rank が { hideText: '...' }
+    if (isPlainObject(rawRank) && typeof rawRank.hideText === 'string' && rawRank.hideText.trim()) {
+      return { hideText: rawRank.hideText };
+    }
+
+    // Rank が { Rank: 'A', about: '...' } のようなネスト
+    if (isPlainObject(rawRank) && Object.prototype.hasOwnProperty.call(rawRank, 'Rank')) {
+      const nestedBaseRaw = rawRank.Rank;
+      const aboutNested = rawRank.about_JP || rawRank.about_EN || rawRank.about;
+      const about = aboutNested || aboutOuter;
+
+      if (typeof nestedBaseRaw === 'string' || typeof nestedBaseRaw === 'number' || typeof nestedBaseRaw === 'boolean') {
+        const rank = String(nestedBaseRaw).trim();
+        if (!rank) return null;
+        return about ? { rank, about: String(about) } : { rank };
+      }
+      if (isPlainObject(nestedBaseRaw) && typeof nestedBaseRaw.hideText === 'string' && nestedBaseRaw.hideText.trim()) {
+        return { hideText: nestedBaseRaw.hideText };
+      }
+    }
+
+    return null;
+  };
+
+  /**
    * schema の $type 文字列に定義型が含まれるか（簡易）
    * @param {any} t
    * @param {string} needle
@@ -1235,13 +1337,73 @@ function formatValueForDisplay(value, labelMap = {}, workMeta = null, globalDefT
     return (typeof rank === 'string' && rank.trim()) ? rank.trim() : '';
   };
 
+  /**
+   * $EnumDef_Rank の定義オブジェクトを取得
+   * @param {string} key
+   * @returns {any|null}
+   */
+  const getEnumRankDefByKey = (key) => {
+    const k = String(key || '').trim();
+    if (!k.startsWith('#')) return null;
+    const g = globalDefType?.General?.$VarsDef?.$EnumDef_Rank;
+    const v = g && typeof g === 'object' ? g[k] : null;
+    return (v && typeof v === 'object') ? v : null;
+  };
+
+  /**
+   * $EnumDef_Rank を「アルファベット等のランク文字（A/B/S+ 等）」から逆引き
+   * @param {string} alpha
+   * @returns {any|null}
+   */
+  const findEnumRankDefByAlpha = (alpha) => {
+    const a = String(alpha || '').trim();
+    if (!a) return null;
+    const g = globalDefType?.General?.$VarsDef?.$EnumDef_Rank;
+    if (!g || typeof g !== 'object') return null;
+    for (const v of Object.values(g)) {
+      if (v && typeof v === 'object' && typeof v.Rank === 'string' && v.Rank.trim() === a) return v;
+    }
+    return null;
+  };
+
+  const normalizeRankFormat = (f) => {
+    const s = String(f ?? '').trim();
+    if (s === 'alpha' || s === 'label' || s === 'alphaLabel' || s === 'labelAlpha') return s;
+    return '';
+  };
+
+  const pickRankLabel = (def) => {
+    if (!def || typeof def !== 'object') return '';
+    const label = def.Rank_JP || def.RankLabel_JP || def.Label_JP || def.RankText_JP || def.RankAbout_JP;
+    return (typeof label === 'string' && label.trim()) ? label.trim() : '';
+  };
+
+  const formatEnumRank = (alpha, def, rankFormat) => {
+    const a = String(alpha ?? '').trim();
+    if (!a) return '';
+    const fmt = normalizeRankFormat(rankFormat);
+    if (!fmt) return a;
+
+    const label = pickRankLabel(def);
+    if (!label) return a;
+
+    if (fmt === 'alpha') return a;
+    if (fmt === 'label') return label;
+    if (fmt === 'alphaLabel') return `${a}（${label}）`;
+    if (fmt === 'labelAlpha') return `${label}（${a}）`;
+    return a;
+  };
+
   // Rank 定義型（$EnumDef_Rank）の場合、プリミティブ値でも参照解決を試す
   // 例: '#Rank3' → 'A'（db_type.json の $VarsDef.$EnumDef_Rank に依存）
   if (opt && typeof opt === 'object' && typeof value !== 'object') {
     if (schemaTypeIncludes(opt.schemaType, '$EnumDef_Rank')) {
       const s = String(value ?? '').trim();
       const resolved = resolveEnumRankKey(s);
-      if (resolved) return resolved;
+      if (resolved) {
+        const def = getEnumRankDefByKey(s);
+        return formatEnumRank(resolved, def, opt?.display?.rankFormat);
+      }
       if (typeof value === 'boolean') return String(value);
       return withUnit(value);
     }
@@ -1397,6 +1559,23 @@ function formatValueForDisplay(value, labelMap = {}, workMeta = null, globalDefT
     // Rank 定義型（$EnumDef_Rank）に追従して整形
     // - field 名ではなく typedef の $type で判断する（ソフトコード）
     if (schemaTypeIncludes(opt?.schemaType, '$EnumDef_Rank')) {
+      const parts = extractRankParts(value);
+      if (parts && Object.prototype.hasOwnProperty.call(parts, 'hideText')) {
+        return parts.hideText;
+      }
+      if (parts && Object.prototype.hasOwnProperty.call(parts, 'rank')) {
+        const resolved = resolveEnumRankKey(parts.rank);
+        const baseAlpha = (resolved || parts.rank).trim();
+        const def = parts.rank.startsWith('#')
+          ? getEnumRankDefByKey(parts.rank)
+          : findEnumRankDefByAlpha(baseAlpha);
+        const base = formatEnumRank(baseAlpha, def, opt?.display?.rankFormat);
+        if (!base) return '';
+        if (parts.about) return `${base}（${parts.about}）`;
+        return base;
+      }
+
+      // 最後の保険（schemaType が合っているのに抽出できない場合）
       const rankText = formatRankLike(value);
       if (rankText) {
         const resolved = resolveEnumRankKey(rankText);
@@ -2215,8 +2394,9 @@ async function renderDetail(workId, rec) {
     // Build comprehensive field label mapping with global fallbacks
     const fieldLabelMap = buildFieldLabelMap(workTypeDef, globalTypeDef);
 
-    // Build field path → $type map (typedef-driven formatting)
+    // Build field path → $type / $display maps (typedef-driven formatting)
     const fieldTypeMap = buildFieldTypeMap(workTypeDef, globalTypeDef);
+    const fieldDisplayMap = buildFieldDisplayMap(workTypeDef, globalTypeDef);
 
     // Use cached or extract image fields
     const imageFields = cachedImageFields || extractImageFields(workTypeDef, globalTypeDef);
@@ -2419,6 +2599,15 @@ async function renderDetail(workId, rec) {
     return null;
   };
 
+  const pickSchemaDisplay = (...candidates) => {
+    for (const c of candidates) {
+      if (!c) continue;
+      const d = fieldDisplayMap?.[c];
+      if (d && typeof d === 'object') return d;
+    }
+    return null;
+  };
+
   // Abilities with localized labels
   const ability = rec.AbilityStats || {};
   const abilityGrid = el('div', { class: 'kv-grid' }, Object.entries(ability).map(([k, v]) => {
@@ -2429,7 +2618,17 @@ async function renderDetail(workId, rec) {
       `ArcanumspecStats.AbilityStats.${k}`,
       `BeastspecStats.AbilityStats.${k}`
     );
-    const displayValue = formatValueForDisplay(v, fieldLabelMap, workMeta, globalDefType, { schemaType });
+    const schemaDisplay = pickSchemaDisplay(
+      `AbilityStats.${k}`,
+      'AbilityStats',
+      `NumerospecStats.AbilityStats.${k}`,
+      'NumerospecStats.AbilityStats',
+      `ArcanumspecStats.AbilityStats.${k}`,
+      'ArcanumspecStats.AbilityStats',
+      `BeastspecStats.AbilityStats.${k}`,
+      'BeastspecStats.AbilityStats'
+    );
+    const displayValue = formatValueForDisplay(v, fieldLabelMap, workMeta, globalDefType, { schemaType, display: schemaDisplay });
     return el('div', { class: 'tag' }, [`${fieldLabel}: ${displayValue}`]);
   }));
 
@@ -2444,7 +2643,17 @@ async function renderDetail(workId, rec) {
       `ArcanumspecStats.EffectStats.${k}`,
       `BeastspecStats.EffectStats.${k}`
     );
-    const displayValue = formatValueForDisplay(v, fieldLabelMap, workMeta, globalDefType, { schemaType });
+    const schemaDisplay = pickSchemaDisplay(
+      `EffectStats.${k}`,
+      'EffectStats',
+      `NumerospecStats.EffectStats.${k}`,
+      'NumerospecStats.EffectStats',
+      `ArcanumspecStats.EffectStats.${k}`,
+      'ArcanumspecStats.EffectStats',
+      `BeastspecStats.EffectStats.${k}`,
+      'BeastspecStats.EffectStats'
+    );
+    const displayValue = formatValueForDisplay(v, fieldLabelMap, workMeta, globalDefType, { schemaType, display: schemaDisplay });
     return el('div', { class: 'tag' }, [`${fieldLabel}: ${displayValue}`]);
   }));
 
@@ -2459,21 +2668,24 @@ async function renderDetail(workId, rec) {
   if (specType.Material) {
     const materialLabel = getFieldLabel('SpecType.Material', fieldLabelMap, workMeta, globalDefType, 'Material');
     const materialValue = formatValueForDisplay(specType.Material, fieldLabelMap, workMeta, globalDefType, {
-      schemaType: pickSchemaType('SpecType.Material')
+      schemaType: pickSchemaType('SpecType.Material'),
+      display: pickSchemaDisplay('SpecType.Material', 'SpecType')
     });
     specNodes.push(el('div', { class: 'tag' }, [materialLabel + ': ', materialValue]));
   }
   if (specType.ActionType) {
     const actionLabel = getFieldLabel('SpecType.ActionType', fieldLabelMap, workMeta, globalDefType, 'Action');
     const actionValue = formatValueForDisplay(specType.ActionType, fieldLabelMap, workMeta, globalDefType, {
-      schemaType: pickSchemaType('SpecType.ActionType')
+      schemaType: pickSchemaType('SpecType.ActionType'),
+      display: pickSchemaDisplay('SpecType.ActionType', 'SpecType')
     });
     if (actionValue) specNodes.push(el('div', { class: 'tag' }, [actionLabel + ': ', actionValue]));
   }
   if (specType.DualizePattern) {
     const dualizeLabel = getFieldLabel('SpecType.DualizePattern', fieldLabelMap, workMeta, globalDefType, 'Dualize');
     const dualizeValue = formatValueForDisplay(specType.DualizePattern, fieldLabelMap, workMeta, globalDefType, {
-      schemaType: pickSchemaType('SpecType.DualizePattern')
+      schemaType: pickSchemaType('SpecType.DualizePattern'),
+      display: pickSchemaDisplay('SpecType.DualizePattern', 'SpecType')
     });
     specNodes.push(el('div', { class: 'tag' }, [dualizeLabel + ': ', dualizeValue]));
   }
