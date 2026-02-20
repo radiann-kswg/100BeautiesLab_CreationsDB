@@ -2,6 +2,9 @@
   {
     "Drc": "N",
     "Progress": "released(beta)",
+    "Images": {
+      "concept_PNGName": "cnsp_imgDrcN"
+    },
     "_DBLink": {
       "worksTitle": "NumberTales",
       "dbName": "Primary",
@@ -103,14 +106,17 @@
   },
   {
     "Drc": "SE",
-    "Progress": "notProceeded",
+    "Progress": "unreleased",
+    "Images": {
+      "concept_PNGName": "cnsp_imgDrcSE"
+    },
     "Name": "九 叶(いちじく-かな)",
-    "Name_EN": "Kana Ninie",
+    "Name_EN": "Canna Ninie",
     "FormalName": "九.蓮縢(ヂュウ.レンテン)",
     "FormalName_EN": "Jiǔ.Lián Téng",
     "CodeName": "怠惰の朝",
     "CodeName_EN": "Slouth o'clock in Morning",
-    "RaceType": "Nekomata",
+    "RaceType": "HalfNekomata",
     "GenderType": "Female",
     "Belonging": ["新生九蓮"],
     "Height_cm": 145,
@@ -121,12 +127,12 @@
     "FirstPersonCalling": "あたし",
     "SecondPersonCalling": "あんた",
     "ThirdPersonCalling": "*いつ;[※二人称]",
-    "Character": "",
-    "Hobby": "",
+    "Character": "天邪鬼で普段は素直さとは無縁だが、猫と寝具の前ではこの上なく素直",
+    "Hobby": "（模索中）",
     "SpetialSkill": "猫と会話できる",
     "Favor": "ふかふかもふもふの寝具、桜花 悌(やすし)",
     "Unlike": "拠り所も無く束縛されること、九蓮国、桜花 仁・義(よしぎ)",
-    "Summary": ""
+    "Summary": "「新生九蓮」という新国家革命軍を名乗る少女。\n努力や安心を経験したことがなく常に他人への不信感を抱いている素直でない「怠惰」な戦争孤児。\nしかし猫相手と寝具の中ではこの上ない安らぎを感じているためか、普段見せることのない甘えた様子を露にすることも。"
   },
   {
     "Drc": "S",
@@ -243,16 +249,16 @@
     "FormalName_EN": "Foster Empressor\nArch Zerbas",
     "CodeName": "傲慢の夜",
     "CodeName_EN": "Pride o'clock in Night",
-    "RaceType": { "hideText_EN": "????" },
+    "RaceType": { "hideText_EN": "Judgement Failed" },
     "GenderType": {
       "value": "Female",
       "about_JP": "推定",
       "about_EN": "Presumption"
     },
-    "Belonging": null,
-    "Belonging_EN": null,
+    "Belonging": { "hideText": "判定失敗" },
+    "Belonging_EN": { "hideText_EN": "Judgement Failed" },
     "Height_cm": 155,
-    "Weight_kg": [{ "about_JP": "不詳", "about_EN": "Unknown or Undefined" }],
+    "Weight_kg": { "hideText": "判定失敗" },
     "Age": { "about_JP": "不詳", "about_EN": "Unknown or Undefined" },
     "BirthDay": {
       "Day": { "about_JP": "不詳", "about_EN": "Unknown or Undefined" }
@@ -260,11 +266,11 @@
     "FirstPersonCalling": "ボク",
     "SecondPersonCalling": "キミ",
     "ThirdPersonCalling": "[※名前呼び]",
-    "Character": "",
-    "Hobby": "",
-    "SpetialSkill": "",
+    "Character": "好戦的で傲慢\n不謹慎なものでさえ「エンタメ」を望む",
+    "Hobby": "エンターテイメント（という名の邪知暴虐）",
+    "SpetialSkill": { "hideText": "判定失敗" },
     "Favor": "人が争い勝者が権力に溺れ敗者が絶望に打ちのめされる光景",
-    "Unlike": "",
+    "Unlike": { "hideText": "判定失敗" },
     "Summary": "もともと「財前 こさと」として若手超大物政治ジャーナリストをしていた謎の若人。\n十数年前に突如 電撃引退を宣言し各メディアから姿を消していたが、ある時この名で目撃されたという情報が相次いでおり真相を迫られている。\n好奇心旺盛で遊戯意識が強く 周りの出来事はすべて“エンタメ”として楽しんでいるが、時にその遊び心が「傲慢」さに変わり 夜月機関や運命線探偵、獣爾騎兵などへ強大な敵として牙を向くことも……"
   }
 ]

@@ -331,6 +331,10 @@
           ]
         },
         {
+          "RaceType": "HalfNekomata",
+          "RaceType_JP": "猫惹き"
+        },
+        {
           "RaceType": "Lionian",
           "RaceType_JP": "獅子"
         },
