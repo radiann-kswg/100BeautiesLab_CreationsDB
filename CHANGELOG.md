@@ -207,6 +207,7 @@
 - UI（`pages/characters.js`）: グローバル定義辞書の取得失敗時に「空オブジェクトをキャッシュして固定化」しないようにし、Service Worker が制御状態になった後に再試行で復旧できるようにした。
 - UI（`pages/characters.js`）: グローバル辞書/typedef キャッシュが期待形でない場合は自動的に破棄して再フェッチする自己復旧を追加（古いキャッシュ等で辞書解決できずコード表示に戻るケースの緩和）。
 - UI（`pages/characters.js`）: Service Worker の controller 待ちで「タイムアウトでも成功扱い」になっていたため未制御のまま `/pages/v1/works` を叩いて 404 になる問題を修正（制御されるまで待機し、失敗は初期化エラーとして扱う）。
+- UI（`pages/characters.js`）: controller が付与されないケースの救済として、SW ready 後に `clients.claim()` を先に依頼し、短い待機→再試行の段階的待機に変更（SW/キャッシュリセット直後の初期化が 15s 固定で遅くなる問題を緩和）。
 - UI（`pages/characters.js`）: `$display` 抽出拡張に伴う `ReferenceError`（`traverseTmp` 未定義）で初期描画が落ちる不具合を修正。
 - UI（`pages/characters.js`）: `#List_Belonging` のように「ベースキーがJP文字列で \*\_JP が無い」辞書定義でも、JP/EN 併記が EN-only にならないようフォールバックを改善。
 - `data/Works_SinisterChangingGirls/DataBases/db_type.json`
@@ -242,6 +243,14 @@
 - UI（`pages/characters.js`）: 空配列/空オブジェクト等を「表示不要」とみなす判定を強化し、空の能力種別が余分に出るケースを抑制。
 - UI（`pages/characters.js`）: `_DBLink` 解決結果のチップ（`RaceType`/`GenderType`）を typedef/meta 駆動の整形へ統一。
 - SW（`lib/sw-common.js`）: `v1/deftype/global` が誤って `db_type.json` を返していたため、`db_meta.json`（`General.$VarsDef` の定義辞書）を返すよう修正。これにより `GenderType` / `RelationLabel` 等の和文化が安定して動作する。
+- UI（`pages/characters.js`）: `fetchGlobalDefType()` がラッパー形式（例: `{ meta: ... }`）のレスポンスを受け取った場合でも辞書本体を復元できるようにし、`GenderType` などが英語コード表示にフォールバックするケースを緩和。
+- UI（`pages/characters.js`）: 詳細ビューの基本情報テーブルで、値整形に `metaForLookup`（work+global 統合メタ）を使うよう統一し、グローバル辞書（`$EnumDef_GenderType`）を確実に参照できるようにした。
 - UI（`pages/characters.js`）: `#ListIndex` の表示名解決で「値一致を確認せずに先頭要素のラベルを返してしまう」不具合を修正。これにより `Belonging` 等が“常に同一値”になる問題を解消。
 - UI（`pages/characters.js`）: typedef が `$EnumDef(|$EnumDef_withAbout)` / `#ListIndex[]` のフィールドについて、辞書定義に応じて「JP/EN 併記（例: `日本語 / English`）」で表示できるようにした（例: `GenderType`, `Belonging`, `RelationLabel`）。
 - Data（NumberTales）: `Relation.Related` / `Relation.Commented` / `ComeBacked` の typedef を `$Def_Relations[]` に揃え、実データ（配列）と現行 UI ロジックに合わせて堅牢化。
+
+### GenderType 辞書表示の堅牢化 / `Valiable` 統合
+
+- UI（`pages/characters.js`）: `resolveVarsDefLabelPack()` で `$EnumDef_*` の辞書解決を「キー直引き（例: `#FemaleNeutral`）」優先にし、スキャン依存による取りこぼしを低減。
+- UI（`pages/characters.js`）: `GenderType` の typo コード `Valiable` を `Variable` として正規化し、辞書に無くても表示が崩れないよう後方互換を追加。
+- Data（`data/db_meta.json`）: `$EnumDef_GenderType` から `#Valiable` を削除し、`#Variable` に統合。

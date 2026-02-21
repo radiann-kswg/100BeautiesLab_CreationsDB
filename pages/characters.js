@@ -67,6 +67,49 @@ const $$ = (sel) => Array.from(document.querySelectorAll(sel));
 // 広告ブロッカーを避けるために /pages を優先し、ページが独自の SW で制御されることを保証
 let API_BASE_REL = '../pages/';
 
+// SW 初期化の失敗ログはリロードで流れやすいため、sessionStorage に退避して次回表示できるようにする
+const SW_INIT_ERROR_KEY = '100bl.lastSwInitError';
+
+/**
+ * SW 初期化失敗の情報を sessionStorage に保存
+ * @param {string} stage - 'primary' | 'fallback-svc' | 'fallback-api' | etc
+ * @param {any} info
+ */
+function rememberSwInitError(stage, info) {
+  try {
+    const payload = {
+      time: new Date().toISOString(),
+      stage: String(stage || '').trim() || 'unknown',
+      href: String(location?.href || ''),
+      origin: String(location?.origin || ''),
+      protocol: String(location?.protocol || ''),
+      info
+    };
+    sessionStorage.setItem(SW_INIT_ERROR_KEY, JSON.stringify(payload));
+  } catch {
+    // no-op
+  }
+}
+
+/**
+ * 前回のSW初期化失敗ログをコンソールへ再出力（引用できるようにする）
+ */
+function replayRememberedSwInitError() {
+  try {
+    const raw = sessionStorage.getItem(SW_INIT_ERROR_KEY);
+    if (!raw) return;
+    const payload = JSON.parse(raw);
+    // 1回は必ず目立つ形で出す（ただし勝手に消さない）
+    console.warn('🧾 前回のService Worker初期化失敗ログ（引用用）:', payload);
+  } catch {
+    // no-op
+  }
+}
+
+function clearRememberedSwInitError() {
+  try { sessionStorage.removeItem(SW_INIT_ERROR_KEY); } catch { /* no-op */ }
+}
+
 /**
  * Service Worker の登録（複数のフォールバック戦略付き）
  * 広告ブロッカーの制限を回避するため、/pages/, /svc/, /api/ の順で試行
@@ -78,7 +121,62 @@ async function ensureApiSW() {
     return;
   }
 
+  // Service Worker は secure context（https or localhost）でのみ有効
+  // - file:// などでは必ず失敗するため、早めに理由を出す
+  try {
+    const p = String(location?.protocol || '');
+    if (p && p !== 'https:' && p !== 'http:') {
+      const err = new Error(`Unsupported protocol for Service Worker: ${p}`);
+      rememberSwInitError('precheck', { message: err.message, name: err.name, stack: err.stack });
+      console.warn('🚫 Service Worker はこのプロトコルでは利用できません:', p);
+      throw err;
+    }
+  } catch (e) {
+    // throw された場合は呼び元に伝播
+    throw e;
+  }
+
   const CONTROLLER_RELOAD_FLAG = '100bl.swControllerReloaded';
+
+  /**
+   * active な SW に対して clients.claim() を再実行するよう依頼
+   * - controller が付かない環境の救済
+   */
+  const requestClaimClients = async (label) => {
+    try {
+      const reg = await navigator.serviceWorker.ready;
+      if (reg?.active) {
+        console.warn(`📨 SWに clients.claim() を依頼します: ${label || ''}`.trim());
+        reg.active.postMessage({ type: '100bl.claimClients', label: String(label || '') });
+      }
+    } catch {
+      // no-op
+    }
+  };
+
+  /**
+   * controller が付与されない環境向けに、SW ready 後すぐに claim を依頼しつつ段階的に待機する
+   * @param {string} baseLabel
+   */
+  const ensureControlledBySw = async (baseLabel) => {
+    if (navigator.serviceWorker.controller) return;
+
+    // 先に claim を依頼して、短い待機で controllerchange を待つ（15s待ちを回避）
+    await requestClaimClients(`${baseLabel}/after-ready`);
+    try {
+      await waitForController(2000);
+      return;
+    } catch (e) {
+      const msg = String(e?.message || e || '');
+      if (!msg.includes('controller timeout')) throw e;
+    }
+
+    if (navigator.serviceWorker.controller) return;
+
+    // それでもダメならもう一度 claim して、少し長めに待つ
+    await requestClaimClients(`${baseLabel}/retry`);
+    await waitForController(8000);
+  };
 
   console.log('🔧 Service Worker の登録を試行中...');
 
@@ -94,19 +192,31 @@ async function ensureApiSW() {
     API_BASE_REL = '../pages/';
     await navigator.serviceWorker.ready; // アクティベーションを待機
     console.log('✅ プライマリ SW の準備完了');
-    await waitForController(); // フェッチを開始する前にこのページが制御されることを保証
+    // フェッチを開始する前にこのページが制御されることを保証
+    // - controller が付かないケースでは、SWに claim を依頼して再試行する
+    await ensureControlledBySw('primary');
     if (!navigator.serviceWorker.controller) throw new Error('Primary SW is ready but did not take control of this page');
     console.log('✅ プライマリ SW がページを制御中');
+
+    // 成功したら、前回エラーの退避はクリア
+    clearRememberedSwInitError();
 
     // 成功したら、リロード済みフラグは解除
     try { sessionStorage.removeItem(CONTROLLER_RELOAD_FLAG); } catch (_) { /* no-op */ }
   } catch (err) {
     console.warn('❌ プライマリ SW の登録に失敗:', err);
+    rememberSwInitError('primary', {
+      message: String(err?.message || err || ''),
+      name: String(err?.name || ''),
+      stack: String(err?.stack || ''),
+      pageSwUrl: (() => { try { return new URL('./sw.js', location.href).toString(); } catch { return ''; } })(),
+      pageScope: (() => { try { return new URL('./', location.href).pathname; } catch { return ''; } })(),
+    });
 
     // キャッシュの消去＋ハードリロード等では、その1回のナビゲーションがSW制御されないことがある。
     // この場合、次の通常リロードで controller が付与されるため、1回だけ自動リロードして復旧する。
     const msg = String(err?.message || err || '');
-    if (msg.includes('controller timeout')) {
+    if (msg.includes('controller timeout') || msg.includes('did not take control')) {
       let alreadyReloaded = false;
       try { alreadyReloaded = sessionStorage.getItem(CONTROLLER_RELOAD_FLAG) === '1'; } catch (_) { /* no-op */ }
 
@@ -137,8 +247,17 @@ async function ensureApiSW() {
       await waitForController();
       if (!navigator.serviceWorker.controller) throw new Error('Fallback SW is ready but did not take control of this page');
       console.log('✅ フォールバック SW がページを制御中');
+
+      clearRememberedSwInitError();
     } catch (err2) {
       console.warn('❌ フォールバック SW の登録に失敗:', err2);
+      rememberSwInitError('fallback-svc', {
+        message: String(err2?.message || err2 || ''),
+        name: String(err2?.name || ''),
+        stack: String(err2?.stack || ''),
+        svcSwUrl: (() => { try { return new URL('../svc/sw.js', location.href).toString(); } catch { return ''; } })(),
+        svcScope: (() => { try { return new URL('../svc/', location.href).pathname; } catch { return ''; } })(),
+      });
       try {
         // 3) /api への最終フォールバック
         const apiSwUrl = new URL('../api/sw.js', location.href).toString();
@@ -153,8 +272,17 @@ async function ensureApiSW() {
         await waitForController();
         if (!navigator.serviceWorker.controller) throw new Error('Last-resort SW is ready but did not take control of this page');
         console.log('✅ 最終フォールバック SW がページを制御中');
+
+        clearRememberedSwInitError();
       } catch (err3) {
         console.error('❌ すべての SW 登録試行が失敗:', err3);
+        rememberSwInitError('fallback-api', {
+          message: String(err3?.message || err3 || ''),
+          name: String(err3?.name || ''),
+          stack: String(err3?.stack || ''),
+          apiSwUrl: (() => { try { return new URL('../api/sw.js', location.href).toString(); } catch { return ''; } })(),
+          apiScope: (() => { try { return new URL('../api/', location.href).pathname; } catch { return ''; } })(),
+        });
         // SW が利用できない場合、/pages/v1 は静的ホスティングでは 404 になるため、ここで失敗として扱う
         throw err3;
       }
@@ -509,6 +637,28 @@ async function fetchGlobalDefType() {
     return Object.keys(vars).some(k => typeof k === 'string' && (k.startsWith('$EnumDef_') || k.startsWith('#List_')));
   };
 
+  /**
+   * SW/キャッシュの揺れ（{meta:{...}} など）を吸収して「辞書本体」を取り出す
+   * @param {any} res
+   */
+  const unwrap = (res) => {
+    if (!res || typeof res !== 'object') return {};
+    if (isValid(res)) return res;
+
+    // よくあるラッパー形式
+    const candidates = [
+      res.meta,
+      res.deftype,
+      res.defType,
+      res.def_type,
+      res.data,
+    ];
+    for (const c of candidates) {
+      if (isValid(c)) return c;
+    }
+    return res;
+  };
+
   if (globalDefTypeCache && isValid(globalDefTypeCache)) return globalDefTypeCache;
   // 無効キャッシュは破棄して再取得
   globalDefTypeCache = null;
@@ -516,7 +666,7 @@ async function fetchGlobalDefType() {
   const u = new URL(api('v1/deftype/global'));
   try {
     const res = await fetchJSON(u.toString());
-    globalDefTypeCache = (res && typeof res === 'object') ? res : {};
+    globalDefTypeCache = unwrap(res);
     return globalDefTypeCache;
   } catch (error) {
     console.warn('⚠️ Failed to fetch global def type:', error.message);
@@ -1810,7 +1960,17 @@ function resolveVarsDefLabelPack(fieldName, rawValue, globalDefType = null, meta
   if (!fn) return null;
   if (rawValue === null || rawValue === undefined || rawValue === '') return null;
 
-  const rv = String(rawValue).trim();
+  const normalizeKnownEnumCode = (field, code) => {
+    const f = String(field || '').trim();
+    const c = String(code || '').trim();
+    if (!f || !c) return c;
+    // 互換: typo 'Valiable' は 'Variable' として扱う（辞書からは削除済み）
+    if (f === 'GenderType' && c === 'Valiable') return 'Variable';
+    return c;
+  };
+
+  const rvRaw = String(rawValue).trim();
+  const rv = normalizeKnownEnumCode(fn, rvRaw);
   if (!rv) return null;
 
   const trimStr = (v) => (typeof v === 'string' && v.trim()) ? v.trim() : '';
@@ -1937,6 +2097,19 @@ function resolveVarsDefLabelPack(fieldName, rawValue, globalDefType = null, meta
     }
 
     if (enumDef && typeof enumDef === 'object') {
+      // 可能ならキー直引き（#FemaleNeutral 等）を優先して高速・確実に解決する
+      // NOTE: この形式は db_meta.json の $EnumDef_* が採用している典型形
+      const directKey = `#${rv}`;
+      if (Object.prototype.hasOwnProperty.call(enumDef, directKey)) {
+        const item = enumDef[directKey];
+        if (item && typeof item === 'object' && !Array.isArray(item)) {
+          const raw = trimStr(item[fn]);
+          const jp = trimStr(item[`${fn}_JP`]);
+          const en = trimStr(item[`${fn}_EN`]);
+          return { raw: raw || rv, jp: jp || raw || '', en: en || raw || rv };
+        }
+      }
+
       for (const v of Object.values(enumDef)) {
         if (!v || typeof v !== 'object') continue;
         const raw = trimStr(v[fn]);
@@ -2483,6 +2656,19 @@ function formatValueForDisplay(value, labelMap = {}, workMeta = null, globalDefT
         if (text) return withUnit(text);
       }
     }
+
+    // schemaType が欠けている（または typedef が取得できない）場合でも、
+    // db_meta.json($VarsDef) に定義があれば表示名解決を試みる。
+    // - 例: GenderType の schemaType が取れない経路で 'FemaleNeutral' がコード表示に退避するのを防ぐ
+    if ((!opt.schemaType || opt.schemaType === '') && opt.fieldKey) {
+      const simple = String(opt.fieldKey).split('.').pop();
+      const raw = (value === null || value === undefined) ? '' : String(value).trim();
+      if (simple && raw) {
+        const pack = resolveVarsDefLabelPack(simple, raw, globalDefType, workMeta, opt.fieldKey);
+        const text = formatBilingualLabel(pack, raw, opt?.display);
+        if (text && text !== raw) return withUnit(text);
+      }
+    }
   }
 
   /**
@@ -2613,11 +2799,37 @@ function formatValueForDisplay(value, labelMap = {}, workMeta = null, globalDefT
     }
 
     // Common value/about pattern (e.g., Age: {value, about_JP/about_EN})
+    // NOTE: value が Enum/List のコード値のケースがあるため、schemaType に応じて辞書解決して表示する
     if (Object.prototype.hasOwnProperty.call(value, 'value')) {
       const base = value.value;
       const about = value.about_JP || value.about_EN || value.about;
-      const baseText = (base === null || base === undefined || base === '') ? '' : String(base);
-      const baseWithUnit = baseText ? withUnit(baseText) : '';
+
+      // value 自体がマスク表現の場合
+      if (isPlainObject(base) && typeof base.hideText === 'string' && base.hideText.trim()) {
+        return base.hideText;
+      }
+
+      const isPrimitive = (v) => (typeof v === 'string' || typeof v === 'number' || typeof v === 'boolean');
+      const baseRaw = isPrimitive(base) ? String(base).trim() : '';
+      let displayText = baseRaw;
+
+      // Enum/List の value を辞書解決（GenderType: { value: 'Female', about_JP: '...' } など）
+      if (baseRaw && opt?.fieldKey) {
+        const simple = String(opt.fieldKey).split('.').pop();
+        if (simple && schemaTypeIncludes(opt?.schemaType, '$EnumDef')) {
+          const resolvedCode = baseRaw.startsWith('#') ? (resolveEnumKey(simple, baseRaw) || baseRaw) : baseRaw;
+          const code = String(resolvedCode || '').trim();
+          const pack = resolveVarsDefLabelPack(simple, code, globalDefType, workMeta, opt.fieldKey);
+          const label = formatBilingualLabel(pack, code, opt?.display);
+          if (label) displayText = label;
+        } else if (simple && schemaTypeIncludes(opt?.schemaType, '#ListIndex')) {
+          const pack = resolveVarsDefLabelPack(simple, baseRaw, globalDefType, workMeta, opt.fieldKey);
+          const label = formatBilingualLabel(pack, baseRaw, opt?.display);
+          if (label) displayText = label;
+        }
+      }
+
+      const baseWithUnit = displayText ? withUnit(displayText) : '';
       if (about && baseWithUnit) return `${baseWithUnit}（${about}）`;
       if (baseWithUnit) return baseWithUnit;
     }
@@ -3650,6 +3862,23 @@ async function renderDetail(workId, rec) {
     const fieldTypeMap = buildFieldTypeMap(workTypeDef, globalTypeDef);
     const fieldDisplayMap = buildFieldDisplayMap(workTypeDef, globalTypeDef);
 
+    // GenderType の辞書解決が効いているかの最小診断（表示が変わらない場合の切り分け用）
+    // - 通常時はログを出さない（デバッグチェック時のみ）
+    try {
+      if ($('#chk-debug')?.checked) {
+        const rawGT = rec?.GenderType;
+        if (typeof rawGT === 'string' && rawGT.trim()) {
+          const schemaGT = fieldTypeMap?.GenderType ?? fieldTypeMap?.['GenderType'] ?? null;
+          const dispGT = fieldDisplayMap?.GenderType ?? fieldDisplayMap?.['GenderType'] ?? null;
+          const packGT = resolveVarsDefLabelPack('GenderType', rawGT.trim(), globalDefType, metaForLookup, 'GenderType');
+          const textGT = formatBilingualLabel(packGT, rawGT.trim(), dispGT);
+          console.log('🧩 GenderType resolve debug:', { raw: rawGT, schemaType: schemaGT, pack: packGT, text: textGT });
+        }
+      }
+    } catch (e) {
+      console.warn('⚠️ GenderType debug log failed:', e);
+    }
+
     // Use cached or extract image fields
     const imageFields = cachedImageFields || extractImageFields(workTypeDef, globalTypeDef);
 
@@ -3756,7 +3985,7 @@ async function renderDetail(workId, rec) {
     for (const k of candidates) {
       const v = rec?.[k];
       if (isEmptyValueLoose(v)) continue;
-      const formatted = formatValueForDisplay(v, fieldLabelMap, workMeta, globalDefType, {
+      const formatted = formatValueForDisplay(v, fieldLabelMap, metaForLookup, globalDefType, {
         schemaType: fieldTypeMap?.[k] ?? fieldTypeMap?.[base] ?? null,
         display: topLevelDisplayMap?.[k] ?? topLevelDisplayMap?.[base] ?? null,
         fieldKey: k
@@ -3819,7 +4048,7 @@ async function renderDetail(workId, rec) {
   };
 
   const formatFieldValue = (fieldKey, raw) => {
-    return formatValueForDisplay(raw, fieldLabelMap, workMeta, globalDefType, {
+    return formatValueForDisplay(raw, fieldLabelMap, metaForLookup, globalDefType, {
       display: topLevelDisplayMap?.[fieldKey] ?? null,
       schemaType: fieldTypeMap?.[fieldKey] ?? null,
       fieldKey
@@ -5045,6 +5274,9 @@ async function main() {
     console.log('⚠️ アプリケーションは既に初期化済みです、スキップします...');
     return;
   }
+
+  // リロードで流れたSW失敗ログを、初期化前に再掲（引用できるようにする）
+  replayRememberedSwInitError();
 
   const startTime = performance.now();
   console.log('🚀 キャラクターブラウザアプリケーションを初期化中...');

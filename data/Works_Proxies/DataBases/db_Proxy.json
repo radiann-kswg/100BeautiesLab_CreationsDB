@@ -42,14 +42,14 @@
     "FormalName_EN": "Arch Fourthal.OvderRoll",
     "RaceType": "Immaginaries",
     "GenderType": {
-      "value": "Valiable",
+      "value": "Variable",
       "about_JP": "ただし本人は無性別女性型が好き"
     },
     "BirthDay": { "Day": { "Month": 7, "DayOfMonth": 1 } },
     "Height_cm": [
       {
         "about_JP": "可変\n(球体化姿時は35～72cm、人型姿時はおよそ160cmでいることが多い)",
-        "about_EN": "Valiable\n(In its sphericated form, it is usually 35 - 72 cm, whilst in its humanoid form it is usually approximately 160 cm.)"
+        "about_EN": "Variable\n(In its sphericated form, it is usually 35 - 72 cm, whilst in its humanoid form it is usually approximately 160 cm.)"
       }
     ],
     "Weight_kg": [{ "value": 0, "about_JP": "重量", "about_EN": "In gravity" }],

@@ -347,6 +347,10 @@
           "GenderType": "Arbitrary",
           "GenderType_JP": "任意"
         },
+        "#Variable": {
+          "GenderType": "Variable",
+          "GenderType_JP": "可変"
+        },
         "#Unknown": {
           "GenderType": "Unknown",
           "GenderType_JP": "不詳"
