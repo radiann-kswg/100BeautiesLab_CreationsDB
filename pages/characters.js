@@ -1414,15 +1414,18 @@ function resolveVarsDefLabel(fieldName, rawValue, globalDefType = null, metaForL
   const pickLabelFlexible = (item, preferredKey) => {
     if (!item || typeof item !== 'object') return '';
 
-    // まずは従来通り preferredKey（例: RaceType）ベースで拾う
+    // まずは preferredKey（例: RaceType）ベースで「値が一致する場合のみ」拾う
     const pk = String(preferredKey || '').trim();
     if (pk) {
       const jp = item[`${pk}_JP`];
       const raw = item[pk];
       const en = item[`${pk}_EN`];
-      if (typeof jp === 'string' && jp.trim()) return jp.trim();
-      if (typeof raw === 'string' && raw.trim()) return raw.trim();
-      if (typeof en === 'string' && en.trim()) return en.trim();
+      const hit = [jp, raw, en].some(v => (typeof v === 'string' && v.trim() === rv));
+      if (hit) {
+        if (typeof jp === 'string' && jp.trim()) return jp.trim();
+        if (typeof raw === 'string' && raw.trim()) return raw.trim();
+        if (typeof en === 'string' && en.trim()) return en.trim();
+      }
     }
 
     // 次に「値が一致するキー」を探索して、その *_JP を返す（例: #List_DualizePattern の Pattern）
@@ -1443,7 +1446,32 @@ function resolveVarsDefLabel(fieldName, rawValue, globalDefType = null, metaForL
     if (!varsDef || typeof varsDef !== 'object') continue;
 
     // $EnumDef_XXX は { '#XXX1': { XXX:'...', XXX_JP:'...' }, ... } 形式
-    const enumDef = varsDef[`$EnumDef_${fn}`];
+    // - 作品別 meta では $Def_* 配下にネストしているケースがあるため、list と同様に探索する
+    const enumKey = `$EnumDef_${fn}`;
+    /** @type {any|null} */
+    let enumDef = null;
+
+    // context-first
+    if (fkSegs.length) {
+      const contexts = collectVarsDefContexts(varsDef);
+      for (let i = contexts.length - 1; i >= 0; i--) {
+        const ctx = contexts[i];
+        if (ctx && typeof ctx === 'object' && ctx[enumKey] && typeof ctx[enumKey] === 'object' && !Array.isArray(ctx[enumKey])) {
+          enumDef = ctx[enumKey];
+          break;
+        }
+      }
+    }
+    // direct
+    if (!enumDef && varsDef[enumKey] && typeof varsDef[enumKey] === 'object' && !Array.isArray(varsDef[enumKey])) {
+      enumDef = varsDef[enumKey];
+    }
+    // nested fallback
+    if (!enumDef) {
+      const found = findNestedKey(varsDef, enumKey);
+      if (found && typeof found === 'object' && !Array.isArray(found)) enumDef = found;
+    }
+
     if (enumDef && typeof enumDef === 'object') {
       for (const v of Object.values(enumDef)) {
         if (!v || typeof v !== 'object') continue;
