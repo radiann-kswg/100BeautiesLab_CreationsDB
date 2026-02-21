@@ -144,6 +144,12 @@ npm run test:watch
 - 入口（ルール/手順）は `CONTRIBUTING.md`
 - 詳細仕様や長い検討ログは `_work_in_progress/` に残す（必要に応じて README / pages/README に要点を反映）
 
+## 第三者利用（運用規約）
+
+第三者によるデータ/API 利用（商用利用の扱い、AI 学習、再配布の方針）については、以下に集約します。
+
+- `docs/third-party-policy.md`
+
 ## セキュリティ
 
 - 機密情報を JSON やログに含めないでください
