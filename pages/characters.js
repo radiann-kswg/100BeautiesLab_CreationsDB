@@ -1137,6 +1137,71 @@ function buildTopLevelAltMap(workTypeDef, globalTypeDef = {}) {
 }
 
 /**
+ * db_type.json($DefType) からトップレベルの「別名（aliasOf）」定義を抽出してマップ化
+ * - `$display.aliasOf` で指定されたキーに対し、「別名側キー」を紐づける
+ * - 例: CodeName.$display.aliasOf === 'ModelName' → { ModelName: ['CodeName'] }
+ * - work を優先し、同名キーは global を上書きしない
+ * - Images コンテナは除外（ギャラリー処理が担当）
+ * @param {Object|Array} workTypeDef
+ * @param {Object|Array} globalTypeDef
+ * @returns {Record<string, string[]>}
+ */
+function buildTopLevelAliasMap(workTypeDef, globalTypeDef = {}) {
+  /** @type {Record<string, string[]>} */
+  const map = {};
+
+  const pickDefArray = (def) => {
+    if (!def) return null;
+    if (Array.isArray(def)) return def;
+    if (Array.isArray(def?.$DefType)) return def.$DefType;
+    if (Array.isArray(def?.typedef?.$DefType)) return def.typedef.$DefType;
+    if (Array.isArray(def?.global)) return def.global;
+    return null;
+  };
+
+  const pushUnique = (key, aliasKey) => {
+    if (!key || !aliasKey) return;
+    if (!Object.prototype.hasOwnProperty.call(map, key)) map[key] = [];
+    if (!map[key].includes(aliasKey)) map[key].push(aliasKey);
+  };
+
+  const addFrom = (def) => {
+    const arr = pickDefArray(def);
+    if (!Array.isArray(arr)) return;
+    for (const item of arr) {
+      if (!item || typeof item !== 'object') continue;
+      const aliasKey = item.hashTag;
+      if (!aliasKey || typeof aliasKey !== 'string') continue;
+      if (aliasKey === 'Images') continue;
+      const d = item.$display;
+      const baseKey = (d && typeof d === 'object' && typeof d.aliasOf === 'string') ? d.aliasOf.trim() : '';
+      if (!baseKey) continue;
+      pushUnique(baseKey, aliasKey);
+    }
+  };
+
+  // work を先に入れて、global は既存キーを上書きしない
+  addFrom(workTypeDef);
+  const mapKeysBeforeGlobal = new Set(Object.keys(map));
+  const globalArr = pickDefArray(globalTypeDef);
+  if (Array.isArray(globalArr)) {
+    for (const item of globalArr) {
+      if (!item || typeof item !== 'object') continue;
+      const aliasKey = item.hashTag;
+      if (!aliasKey || typeof aliasKey !== 'string') continue;
+      if (aliasKey === 'Images') continue;
+      const d = item.$display;
+      const baseKey = (d && typeof d === 'object' && typeof d.aliasOf === 'string') ? d.aliasOf.trim() : '';
+      if (!baseKey) continue;
+      if (mapKeysBeforeGlobal.has(baseKey)) continue;
+      pushUnique(baseKey, aliasKey);
+    }
+  }
+
+  return map;
+}
+
+/**
  * Get localized field label from type definitions with global fallback support
  * @param {string} fieldName - Field name like 'Name' or 'GenderType'
  * @param {Object} labelMap - Field label mapping from buildFieldLabelMap
@@ -1672,6 +1737,19 @@ function formatValueForDisplay(value, labelMap = {}, workMeta = null, globalDefT
   // $EnumDef_*（Rank/Rarity 等）の場合、プリミティブ値でも参照解決/EnumLink解決を試す
   if (opt && typeof opt === 'object' && typeof value !== 'object') {
     const enumName = pickEnumNameFromSchemaType(opt.schemaType);
+    // $EnumDef（サフィックス無し）は「フィールド名の EnumDef を参照」する運用を許容
+    // - 例: GenderType.$type === '$EnumDef' でも $VarsDef.$EnumDef_GenderType を見て表示名へ
+    if (!enumName && schemaTypeIncludes(opt.schemaType, '$EnumDef') && opt.fieldKey) {
+      const simple = String(opt.fieldKey).split('.').pop();
+      const raw = (value === null || value === undefined) ? '' : String(value).trim();
+      if (simple && raw) {
+        const code = raw.startsWith('#') ? (resolveEnumKey(simple, raw) || raw) : raw;
+        const resolved = resolveVarsDefLabel(simple, code, globalDefType, workMeta);
+        if (resolved) return withUnit(resolved);
+        return withUnit(code);
+      }
+    }
+
     if (enumName && schemaTypeIncludes(opt.schemaType, '$EnumDef_')) {
       const s = String(value ?? '').trim();
       const resolved = resolveEnumKey(enumName, s);
@@ -2843,6 +2921,7 @@ async function renderDetail(workId, rec) {
   // トップレベルの `$display` / `$alt` を map 化（work 優先）
   const topLevelDisplayMap = buildTopLevelDisplayMap(workTypeDef, globalTypeDef);
   const topLevelAltMap = buildTopLevelAltMap(workTypeDef, globalTypeDef);
+  const topLevelAliasMap = buildTopLevelAliasMap(workTypeDef, globalTypeDef);
 
   /**
    * *_JP / *_EN の言語サフィックスを解析
@@ -2934,8 +3013,17 @@ async function renderDetail(workId, rec) {
     const primary = rec?.[key];
     if (!isEmptyForAlt(primary)) return { value: primary, usedKey: key };
 
-    const alts = topLevelAltMap?.[key];
+    const alts = (() => {
+      const a1 = topLevelAltMap?.[key];
+      const a2 = topLevelAliasMap?.[key];
+      const out = [];
+      if (Array.isArray(a1)) out.push(...a1);
+      if (Array.isArray(a2)) out.push(...a2);
+      // 重複排除
+      return Array.from(new Set(out.filter(x => typeof x === 'string' && x.trim())));
+    })();
     if (!Array.isArray(alts) || alts.length === 0) return { value: primary, usedKey: key };
+
     for (const altKey of alts) {
       const v = rec?.[altKey];
       if (!isEmptyForAlt(v)) return { value: v, usedKey: altKey };
@@ -3028,39 +3116,13 @@ async function renderDetail(workId, rec) {
       }
     }
 
-    switch (key) {
-      case 'FormalName':
-        return { value: rec.FormalName || '', labelKey: 'FormalName', sourceKey: 'FormalName' };
-      case 'ModelName':
-        return { value: rec.ModelName || rec.CodeName || '', labelKey: 'ModelName', sourceKey: 'ModelName' };
-      case 'ModelNumber':
-        return { value: rec.ModelNumber || '', labelKey: 'ModelNumber', sourceKey: 'ModelNumber' };
-      case 'SPCodeName':
-        return { value: rec.SPCodeName || rec.SPCodeName_EN || '', labelKey: 'SPCodeName', sourceKey: 'SPCodeName' };
-      case 'GenderType':
-        return {
-          value: resolveVarsDefLabel('GenderType', rec.GenderType_JP || rec.GenderType || '', globalDefType, metaForLookup),
-          labelKey: 'GenderType',
-          sourceKey: 'GenderType'
-        };
-      case 'Height_cm':
-        return { value: rec.Height_cm != null ? formatFieldValue('Height_cm', rec.Height_cm) : '', labelKey: 'Height_cm', sourceKey: 'Height_cm' };
-      case 'Weight_kg':
-        return { value: rec.Weight_kg != null ? formatFieldValue('Weight_kg', rec.Weight_kg) : '', labelKey: 'Weight_kg', sourceKey: 'Weight_kg' };
-      case 'Age': {
-        const { value: v, usedKey } = getValueWithAlt('Age');
-        return { value: v != null ? formatFieldValue(usedKey || 'Age', v) : '', labelKey: usedKey || 'Age', sourceKey: 'Age' };
-      }
-      case 'ConceptAge':
-        return { value: rec.ConceptAge != null ? formatFieldValue('ConceptAge', rec.ConceptAge) : '', labelKey: 'ConceptAge', sourceKey: 'ConceptAge' };
-      case 'Class':
-        return { value: rec.Class || rec.Class_EN || '', labelKey: 'Class', sourceKey: 'Class' };
-      default: {
-        const { value: v, usedKey } = getValueWithAlt(key);
-        if (v === null || v === undefined || v === '') return { value: '', labelKey: key, sourceKey: key };
-        return { value: formatFieldValue(usedKey || key, v), labelKey: usedKey || key, sourceKey: key };
-      }
-    }
+    const { value: v, usedKey } = getValueWithAlt(key);
+    if (v === null || v === undefined || v === '') return { value: '', labelKey: key, sourceKey: key };
+
+    // 表示名（ラベル）は、実際に値を参照したキー（usedKey）を優先
+    // - 例: ModelName が空で CodeName を使った場合 → CodeName の表示名を採用
+    const labelKey = usedKey || key;
+    return { value: formatFieldValue(labelKey, v), labelKey, sourceKey: key };
   };
 
   const basicFields = normalizedBasicFieldKeys
@@ -3123,58 +3185,91 @@ async function renderDetail(workId, rec) {
     };
   };
 
+  // Abilities / Effect / Safety（typedef-driven）
+  // - specStats のどれを使っているか（Numerospec/Arcanum/Beast）を実データから推定し、schema 参照もそれに追従
+  const specStatsKeysInOrder = ['NumerospecStats', 'ArcanumspecStats', 'BeastspecStats'];
+  const pickedSpecStatsKey = specStatsKeysInOrder.find(k => {
+    const v = rec?.[k];
+    return v && typeof v === 'object' && !Array.isArray(v) && Object.keys(v).length > 0;
+  }) || '';
+  const numStats = pickedSpecStatsKey ? (rec?.[pickedSpecStatsKey] || {}) : {};
+
+  /**
+   * typedef の存在に基づき、最も妥当な schemaPath を選ぶ
+   * @param {string[]} candidates
+   * @param {string} fallback
+   */
+  const pickSchemaPath = (candidates, fallback) => {
+    for (const c of candidates || []) {
+      if (!c || typeof c !== 'string') continue;
+      if (fieldTypeMap?.[c] || fieldDisplayMap?.[c]) return c;
+    }
+    return fallback;
+  };
+
   // Abilities with localized labels
   const ability = rec.AbilityStats || {};
   const abilityGrid = el('div', { class: 'kv-grid' }, Object.entries(ability).map(([k, v]) => {
-    const fieldLabel = getFieldLabel(`AbilityStats.${k}`, fieldLabelMap, metaForLookup, globalDefType, k);
-    const schemaType = pickSchemaType(
-      `AbilityStats.${k}`,
-      `NumerospecStats.AbilityStats.${k}`,
-      `ArcanumspecStats.AbilityStats.${k}`,
-      `BeastspecStats.AbilityStats.${k}`
-    );
+    const fallbackPath = `AbilityStats.${k}`;
+    const schemaPath = pickSchemaPath([
+      fallbackPath,
+      pickedSpecStatsKey ? `${pickedSpecStatsKey}.AbilityStats.${k}` : ''
+    ], fallbackPath);
+
+    const fieldLabel = getFieldLabel(schemaPath, fieldLabelMap, metaForLookup, globalDefType, k);
+    const schemaType = pickSchemaType(schemaPath, fallbackPath, pickedSpecStatsKey ? `${pickedSpecStatsKey}.AbilityStats.${k}` : '');
     const schemaDisplay = pickSchemaDisplay(
-      `AbilityStats.${k}`,
+      schemaPath,
       'AbilityStats',
-      `NumerospecStats.AbilityStats.${k}`,
-      'NumerospecStats.AbilityStats',
-      `ArcanumspecStats.AbilityStats.${k}`,
-      'ArcanumspecStats.AbilityStats',
-      `BeastspecStats.AbilityStats.${k}`,
-      'BeastspecStats.AbilityStats'
+      pickedSpecStatsKey ? `${pickedSpecStatsKey}.AbilityStats.${k}` : '',
+      pickedSpecStatsKey ? `${pickedSpecStatsKey}.AbilityStats` : ''
     );
-    const displayValue = formatValueForDisplay(v, fieldLabelMap, metaForLookup, globalDefType, { schemaType, display: schemaDisplay, fieldKey: `AbilityStats.${k}` });
+    const displayValue = formatValueForDisplay(v, fieldLabelMap, metaForLookup, globalDefType, {
+      schemaType,
+      display: schemaDisplay,
+      fieldKey: schemaPath
+    });
     return el('div', { class: 'tag' }, [`${fieldLabel}: ${displayValue}`]);
   }));
 
   // Effect/Safety with localized labels
-  const numStats = rec.NumerospecStats || rec.ArcanumspecStats || rec.BeastspecStats || {};
   const eff = numStats.EffectStats || {};
   const effGrid = el('div', { class: 'kv-grid' }, Object.entries(eff).map(([k, v]) => {
-    const fieldLabel = getFieldLabel(`EffectStats.${k}`, fieldLabelMap, metaForLookup, globalDefType, k);
+    const fallbackPath = `EffectStats.${k}`;
+    const schemaPath = pickSchemaPath([
+      fallbackPath,
+      pickedSpecStatsKey ? `${pickedSpecStatsKey}.EffectStats.${k}` : ''
+    ], fallbackPath);
+
+    const fieldLabel = getFieldLabel(schemaPath, fieldLabelMap, metaForLookup, globalDefType, k);
     const { schemaType, schemaDisplay } = pickSchemaHintsForObjectLeaf([
-      `EffectStats.${k}`,
-      `NumerospecStats.EffectStats.${k}`,
-      `ArcanumspecStats.EffectStats.${k}`,
-      `BeastspecStats.EffectStats.${k}`,
-    ], v);
-    const displayValue = formatValueForDisplay(v, fieldLabelMap, metaForLookup, globalDefType, { schemaType, display: schemaDisplay, fieldKey: `EffectStats.${k}` });
+      schemaPath,
+      fallbackPath,
+      pickedSpecStatsKey ? `${pickedSpecStatsKey}.EffectStats.${k}` : ''
+    ].filter(Boolean), v);
+    const displayValue = formatValueForDisplay(v, fieldLabelMap, metaForLookup, globalDefType, {
+      schemaType,
+      display: schemaDisplay,
+      fieldKey: schemaPath
+    });
     return el('div', { class: 'tag' }, [`${fieldLabel}: ${displayValue}`]);
   }));
 
   const safety = numStats.SafetyLevel || {};
+  const safetyFieldPath = pickSchemaPath([
+    pickedSpecStatsKey ? `${pickedSpecStatsKey}.SafetyLevel` : '',
+    'SafetyLevel'
+  ], 'SafetyLevel');
   const safetyRow = safety && Object.keys(safety).length > 0 ? el('div', { class: 'tag' }, [
-    `${getFieldLabel('SafetyLevel', fieldLabelMap, metaForLookup, globalDefType, 'Safety')}: ${(() => {
+    `${getFieldLabel(safetyFieldPath, fieldLabelMap, metaForLookup, globalDefType, 'Safety')}: ${(() => {
       const { schemaType, schemaDisplay } = pickSchemaHintsForObjectLeaf([
-        'SafetyLevel',
-        'NumerospecStats.SafetyLevel',
-        'ArcanumspecStats.SafetyLevel',
-        'BeastspecStats.SafetyLevel'
+        safetyFieldPath,
+        'SafetyLevel'
       ], safety);
       return formatValueForDisplay(safety, fieldLabelMap, metaForLookup, globalDefType, {
         schemaType,
         display: schemaDisplay,
-        fieldKey: 'SafetyLevel'
+        fieldKey: safetyFieldPath
       });
     })()}`
   ]) : null;
@@ -3263,15 +3358,9 @@ async function renderDetail(workId, rec) {
       }
     }
 
-    // 互換/別名/派生表示に伴う重複抑止
-    // - ModelName は CodeName をフォールバックに持つため、どちらが値を持っていても二重表示を避ける
-    if (basicFields.some(it => it?.sourceKey === 'ModelName')) s.add('CodeName');
-    // - SPCodeName は SPCodeName_EN をフォールバックに持つため、二重表示を避ける
-    if (basicFields.some(it => it?.sourceKey === 'SPCodeName')) s.add('SPCodeName_EN');
-    // - Class は Class_EN を併記している作品があるため、二重表示を避ける
-    if (basicFields.some(it => it?.sourceKey === 'Class')) s.add('Class_EN');
-    // - GenderType_JP のような派生キーが混入する場合があるため、基本情報で表示したら抑止
-    if (basicFields.some(it => it?.sourceKey === 'GenderType')) s.add('GenderType_JP');
+    // 互換/派生キーが混入する場合があるため、基本情報で表示したら抑止
+    // - GenderType_JP のような派生キー（データ側に残っている場合）を二重表示しない
+    if (basicFields.some(it => it?.sourceKey === 'GenderType' || it?.labelKey === 'GenderType')) s.add('GenderType_JP');
 
     // スペック/能力セクションで個別表示するトップレベルキー
     if (rec.AbilityStats && typeof rec.AbilityStats === 'object' && Object.keys(rec.AbilityStats).length > 0) {
