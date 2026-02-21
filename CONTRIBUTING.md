@@ -79,6 +79,10 @@ npm run test:watch
 このリポジトリは「スキーマ駆動」を基本方針としています。
 新しいフィールドを追加する場合、原則として **データ（db\_\*.json）と型定義（db_type.json）をセットで更新**してください。
 
+詳細な更新手順・ルール（`db_type.json` / `db_meta.json` の更新目安、enum/list辞書、影響範囲、テスト観点）は以下に集約します。
+
+- `docs/db-update-guidelines.md`
+
 ### どのファイルを触る？（最小チェック）
 
 - 作品データ: `data/Works_<作品名>/DataBases/db_<種別>.json`

@@ -113,6 +113,7 @@ http://creativecommons.org/licenses/by-nc/4.0/
 
 - 開発ルールと貢献手順: [CONTRIBUTING.md](CONTRIBUTING.md)
 - テスト実行手順: [README.test.md](README.test.md)
+- データベース更新ガイドライン: [docs/db-update-guidelines.md](docs/db-update-guidelines.md)
 
 ## 利用方法
 
