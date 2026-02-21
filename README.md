@@ -107,9 +107,31 @@ http://creativecommons.org/licenses/by-nc/4.0/
 
 [Secondary Works Permissions List](./SecondaryWorksPermissionList_EN.png)
 
+---
+
+# README ナビゲーション / Navigation
+
+この README は、冒頭に **一次/二次創作ガイドライン（JP/EN）**、後半に **リポジトリの技術情報** をまとめています。
+
+> 注意: README 冒頭のガイドライン章（日本語/英語）は、権利・運用上の重要情報のため **作者が手動で管理**しています。
+> そのため、この章の本文は原則として編集せず、技術ドキュメント側で導線・補足・翻訳の整備を行います。
+
+- まず閲覧する（UI）: `pages/characters.html`
+- 閲覧者向けガイド: `docs/viewer-guide.md`
+- データ更新ガイドライン（編集者向け）: `docs/db-update-guidelines.md`
+- 第三者ポリシー（再配布/商用/AI 学習など）: `docs/third-party-policy.md`
+- English (technical README): `docs/readme.en.md`
+- English (guidelines translation): `docs/guidelines.en.md`
+
 # 当リポジトリについて(日本語版)
 
-## 開発・貢献
+## まず見る（閲覧者向け）
+
+- メインUI: `pages/characters.html`
+- UI の使い方: `pages/README.md`
+- 直リンクやデータ構造の説明: `docs/viewer-guide.md`
+
+## 開発・貢献（編集者/開発者向け）
 
 - 開発ルールと貢献手順: [CONTRIBUTING.md](CONTRIBUTING.md)
 - テスト実行手順: [README.test.md](README.test.md)
@@ -117,9 +139,9 @@ http://creativecommons.org/licenses/by-nc/4.0/
 - 第三者のデータベース運用規約: [docs/third-party-policy.md](docs/third-party-policy.md)
 - 閲覧者向けガイド: [docs/viewer-guide.md](docs/viewer-guide.md)
 
-## 利用方法
+## 利用方法（概要）
 
-### 基本的な使用手順
+### 基本的な手順
 
 1. **ページアクセス**: `/pages/characters.html` にアクセス
 2. **作品選択**: ドロップダウンから閲覧したい作品を選択
@@ -159,6 +181,11 @@ http://creativecommons.org/licenses/by-nc/4.0/
 - **\_DBLink 参照**: 他のデータベース・キャラクターへの関連情報
 - **クロスリファレンス**: 作品間・DB 間の関係性表示
 - **動的リンク**: 関連キャラクターへの直接ジャンプ機能
+
+---
+
+<details>
+<summary>技術仕様（詳細）</summary>
 
 ## 技術仕様
 
@@ -333,6 +360,13 @@ data/Works_{作品名}/Images/{データベース種別}/
 - **参照整合性**: `_DBLink` 参照先の存在確認
 - **画像ファイル整合性**: 定義された画像ファイルの存在検証
 
+</details>
+
+---
+
+<details>
+<summary>API（Service Worker pseudo-API）仕様（詳細）</summary>
+
 # API (Service Worker pseudo-API)について
 
 GitHub Pages 上で提供する擬似 API を使って、`data/` 配下の JSON を取得できます。（GUI 付ページは[こちら](./api/)）
@@ -384,6 +418,13 @@ GitHub Pages 上で提供する擬似 API を使って、`data/` 配下の JSON 
 
 注意: `General.$VarsDef` および `$DefType` は、上記の `varsdef` / `typedef(deftype)` / `defs` 系エンドポイントでのみ出力されます。その他のエンドポイント（`/works`、`/db`、`/search` など）では定義情報は含みません。
 
+</details>
+
+---
+
+<details>
+<summary>キャラシート生成機能（UI）と /pages/v1 API（詳細）</summary>
+
 # キャラシート生成機能(beta)について
 
 GitHub Pages 上で`data/` 配下のキャラクター情報に関するプロフィールページを生成します。（キャラシート生成機能ページは[こちら](./pages/characters.html)）
@@ -432,220 +473,11 @@ GitHub Pages 上で`data/` 配下のキャラクター情報に関するプロ�
 /pages/v1/image-resolve/NumberTales/Primary/nt_NumberTwins_TwoSpade
 ```
 
+</details>
+
 # About This Repository (English Version)
 
-## Usage
+This README is primarily maintained in Japanese.
 
-### Basic Usage Steps
-
-1. **Page Access**: Access `/pages/characters.html`
-2. **Select Works**: Choose the work you want to browse from the dropdown
-3. **Character Search**:
-   - Search for character names and setting keywords in the search box
-   - Filter by specific work using the work filter
-4. **Detail View**: Click on character cards to display detailed profiles
-
-### Search and Filtering Features
-
-- **Text Search**: Partial match search for character names, descriptions, and setting information
-- **Work Filter**: Filter display by "All Works" or specific works
-- **Real-time Updates**: Search results update simultaneously with input using debounced processing
-
-### Displayed Information
-
-#### Basic Information Section
-
-- **Character Name**: Japanese name, English name, aliases
-- **Basic Attributes**: Physical characteristics such as gender, age, height, weight
-- **Affiliation/Position**: Social status such as organization name, position, rank
-
-#### Detailed Settings Section
-
-- **Personality/Characteristics**: Personality settings, behavior patterns, values
-- **Background/History**: Upbringing, important events, relationships
-- **Abilities/Skills**: Special abilities, combat skills, specialized knowledge
-
-#### Image Gallery
-
-- **Character Illustrations**: Automatically collected from concept, design, arts folders
-- **Setting Materials**: Derivative designs such as designAlt, conceptAlt
-- **Other Related Images**: Special images such as cardDesign, catalog
-
-#### Related Information (Reference Resolution)
-
-- **\_DBLink References**: Related information to other databases and characters
-- **Cross-References**: Relationship display between works and databases
-- **Dynamic Links**: Direct jump function to related characters
-
-## Technical Specifications
-
-### Frontend Technologies
-
-- **HTML5**: Structuring with semantic markup
-- **CSS3 + SASS**: Responsive layout using CSS Grid/Flexbox
-- **JavaScript ES6+**: Modularized asynchronous processing
-- **Service Worker**: Pseudo API implementation and caching
-- **Shared Libraries**: Unified functionality through `lib/sw-common.js`, `lib/data-common.js`
-
-### Data Processing and API Integration
-
-- **JSON Database**: Structured data under `/data/Works_*/DataBases/`
-- **Reference Resolution Engine**: Cross-reference processing based on `_DBLink` specifications
-- **Enrichment Features**: Character data enhancement (image information, search indexing)
-- **Image Path Resolution**: Automatic image file detection based on type definitions in `db_type.json`
-- **Caching Strategy**: Efficient data caching by Service Worker
-- **StandardEndpointHandlers**: Unified API with reduced code duplication across Service Workers
-
-### File Structure
-
-```
-lib/                         # Shared Libraries
-├── sw-common.js             # Service Worker common functions (StandardEndpointHandlers, etc.)
-└── data-common.js           # Data processing common functions (EnrichmentProcessor, etc.)
-
-pages/
-├── characters.html      # Main HTML page
-├── characters.js        # Application logic
-├── characters.css       # Compiled stylesheet
-├── characters.sass      # SASS source file
-└── sw.js               # Service Worker (pseudo API implementation)
-
-api/                         # API Scope Service Worker
-└── sw.js               # Standard API endpoints
-
-svc/                         # Ad-blocker Avoidance Service Worker
-└── sw.js               # API mirror endpoints
-```
-
-### Main JavaScript Functions
-
-#### Application Level (`characters.js`)
-
-- `loadWorks()`: Work data loading and UI initialization
-- `loadCharacters(workId, dbType)`: Character data acquisition and display
-- `renderCharacterList(characters)`: Dynamic generation of character lists
-- `showCharacterDetails(character)`: Detailed profile display
-- `buildImagePath()`: Automatic image path construction
-- `renderDBLinkResolved()`: Reference resolution result display
-
-#### Shared Library Level
-
-- `StandardEndpointHandlers`: Unified API endpoint processing across Service Workers
-- `EnrichmentProcessor.enrichRecords()`: Character data enrichment processing
-- `ImageProcessor.imageFromRecord()`: Automatic image information extraction and processing
-- `ApiEndpointHandlers`: Common API endpoint processing
-
-### Responsive Support
-
-- **Mobile (~767px)**: 1-column vertical stacking layout
-- **Tablet (768px~1023px)**: 2-column layout
-- **Desktop (1024px~)**: 3-column grid layout
-- **Large Screen (1200px~)**: Maximum 4-column display
-
-## Database Integration
-
-### Supported Database Types
-
-- **Primary**: Primary creation characters (main settings)
-- **Secondary**: Authorized secondary creation characters
-- **SemiPrimary**: Official anthology characters
-- **SelfSecondary**: Official self-secondary creation characters
-- **Proxy**: Proxy characters
-- **Mobs**: Mob characters
-
-### Reference Resolution (\_DBLink) Feature
-
-A feature that automatically detects `_DBLink` fields in character data and retrieves and displays data from referenced sources.
-
-#### Supported Reference Format
-
-```json
-{
-  "_DBLink": {
-    "WorkName": {
-      "DatabaseName": ["CharacterID1", "CharacterID2"]
-    }
-  }
-}
-```
-
-#### Display Format
-
-- Display basic information (name, image, overview) of referenced characters in card format
-- Direct link function to referenced sources
-- Visual hierarchical display of reference relationships
-
-## Image Management System
-
-### Image Directory Structure
-
-```
-data/Works_{WorkName}/Images/{DatabaseType}/
-├── concept/           # Concept art
-├── design/           # Character design
-├── arts/             # Finished illustrations
-├── designAlt/        # Alternative designs
-├── conceptAlt/       # Alternative concepts
-├── cardDesign/       # Card designs
-└── catalog/          # Catalog images
-```
-
-### Image Display Priority
-
-1. **Main Images**: Priority display of `design` and `concept` folders
-2. **Sub Images**: Supplementary display of `arts`, `designAlt`, `conceptAlt`
-3. **Special Images**: Special purpose images such as `cardDesign`, `catalog`
-
-### Image Path Resolution Logic
-
-- Automatic path construction based on `$image` definitions in `db_type.json`
-- File name pattern matching (supporting PNGName, JPGName fields)
-- Placeholder display for non-existent images
-
-## Performance Optimization
-
-### Service Worker Caching
-
-- **Metadata**: Efficient caching of work information and DB information
-- **Character Data**: Persistent caching of frequently accessed data
-- **Image Resources**: Utilization of browser cache for image files
-
-### Lazy Loading
-
-- **Lazy Image Loading**: Efficient image loading using Intersection Observer API
-- **Dynamic Detail Data Acquisition**: Retrieve detailed information from API only when needed
-- **Staged Display of Search Results**: Support for segmented display of large amounts of data
-
-### UI/UX Optimization
-
-- **Debounce Processing**: Prevention of excessive API calls during search input
-- **Loading Display**: Clear feedback during processing
-- **Error Handling**: User-friendly error messages for failures
-
-## Future Development Plans
-
-- **Advanced Search Function**: Advanced search function by attributes and setting items
-- **Character Comparison Function**: Parallel display and comparison of multiple characters
-- **Favorites Function**: User character saving and management function
-- **Export Function**: PDF and image output of character sheets
-- **Accessibility Improvement**: Screen reader support and keyboard navigation enhancement
-
-## Technical Notes
-
-### GitHub Pages Constraint Response
-
-- **Static Site Design**: Full operation without server-side processing
-- **CORS Settings**: Proper header processing by Service Worker
-- **Relative Path Management**: Support for GitHub Pages project pages
-
-### Browser Support
-
-- **Modern Browsers**: Chrome 60+, Firefox 55+, Safari 11+, Edge 79+
-- **Service Worker**: Full functionality available only on supported browsers
-- **Fallback**: Basic display guarantee for unsupported browsers
-
-### Data Integrity
-
-- **JSON Schema Validation**: Data structure validation by `db_type.json`
-- **Reference Integrity**: Existence confirmation of `_DBLink` reference destinations
-- **Image File Integrity**: Existence validation of defined image files
+- Full English technical README: [docs/readme.en.md](docs/readme.en.md)
+- English translation of the guidelines at the beginning of this README (reader-friendly): [docs/guidelines.en.md](docs/guidelines.en.md)
