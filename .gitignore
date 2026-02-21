@@ -2,6 +2,9 @@
 .[tT]emp/
 .[dD]ocuments/
 
+# _work_in_progress の完了ログ退避先（リポジトリ管轄外）
+_work_in_progress/.completed/
+
 *_temp.json
 
 ## Ignore Visual Studio temporary files, build results, and

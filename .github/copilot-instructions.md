@@ -15,6 +15,9 @@
   - 推奨ファイル名: `YYYY-MM-DD_progress.md`（同日に複数ある場合は `YYYY-MM-DD_progress_<topic>.md` でも可）
   - 最低限入れる内容: 目的 / 変更点の要約 / 影響範囲（編集したファイル）/ 未完了タスク / 参考リンク
   - 追加で入れて良い内容: 背景・課題 / 合意事項（ルール）/ 実装方針 / 検証（テスト・確認観点）/ 補足（今後の運用）
+- `_work_in_progress/` の完了ログは `_work_in_progress/.completed/` に退避します（Git 管轄外 / `.gitignore` 対象）。
+  - 原則: 進行中のログのみ `_work_in_progress/` 直下に残す
+  - 退避先（`.completed`）への書き込み/移動は、ユーザーの依頼がある場合のみ行う
 - **重要な仕様変更時は `CHANGELOG.md` も更新してください。**
   - 対象の目安: Service Worker のルーティング/API、`lib/` の共通処理、参照解決（enrich/search）、`db_type.json`/`db_meta.json` の仕様、`pages/characters.js` の表示仕様など。
   - 原則: 変更と同じコミット/PR 内で `CHANGELOG.md` に追記し、必要に応じて `_work_in_progress/` に補足ログを残します。
