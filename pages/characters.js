@@ -627,7 +627,7 @@ function recordMatchesIndexQuery(rec, indexDef, idxValue, idxKeyPath, legacyNum 
  * @param {Object|null} indexDef - $DefType_Index
  * @returns {string|null}
  */
-function buildIndexChipText(rec, indexDef) {
+function buildIndexChipText(rec, indexDef, metaForLookup = null, globalDefType = null) {
   if (!rec || typeof rec !== 'object') return null;
   if (!indexDef || typeof indexDef !== 'object') return null;
 
@@ -645,7 +645,11 @@ function buildIndexChipText(rec, indexDef) {
       const subKey = sub?.hashTag;
       if (!subKey || typeof subKey !== 'string') continue;
       const v = rootVal[subKey];
-      const formatted = formatValueForDisplay(v, {});
+      const subType = sub?.$type ?? sub?.$valType ?? null;
+      const formatted = formatValueForDisplay(v, {}, metaForLookup, globalDefType, {
+        schemaType: subType,
+        fieldKey: `${rootKey}.${subKey}`
+      });
       if (!formatted) continue;
       const label = getIndexLabel(sub) || getIndexLabel(indexDef);
       return label ? `${label}: ${formatted}` : formatted;
@@ -654,7 +658,11 @@ function buildIndexChipText(rec, indexDef) {
   }
 
   // スカラー（例: Num / Drc / Unit）
-  const formatted = formatValueForDisplay(rootVal, {});
+  const rootType = indexDef?.$type ?? indexDef?.$valType ?? null;
+  const formatted = formatValueForDisplay(rootVal, {}, metaForLookup, globalDefType, {
+    schemaType: rootType,
+    fieldKey: rootKey
+  });
   if (!formatted) return null;
   const label = getIndexLabel(indexDef);
   return label ? `${label}: ${formatted}` : formatted;
@@ -1645,9 +1653,21 @@ function formatValueForDisplay(value, labelMap = {}, workMeta = null, globalDefT
    * @param {any} t
    * @param {string} needle
    */
-  const schemaTypeIncludes = (t, needle) => {
-    const s = (typeof t === 'string') ? t : '';
-    return s.includes(needle);
+  const schemaTypeIncludes = (t, needle, depth = 0) => {
+    if (!needle) return false;
+    if (depth > 6) return false;
+    if (t === null || t === undefined) return false;
+    if (typeof t === 'string') return t.includes(needle);
+    if (Array.isArray(t)) return t.some(x => schemaTypeIncludes(x, needle, depth + 1));
+    if (typeof t === 'object') {
+      // よくある { $type: ... } 形式
+      if (Object.prototype.hasOwnProperty.call(t, '$type')) {
+        return schemaTypeIncludes(t.$type, needle, depth + 1);
+      }
+      // フォールバック: 値を走査（過剰な探索を避けるため深さ制限あり）
+      return Object.values(t).some(x => schemaTypeIncludes(x, needle, depth + 1));
+    }
+    return false;
   };
 
   /**
@@ -2145,6 +2165,27 @@ function formatValueForDisplay(value, labelMap = {}, workMeta = null, globalDefT
 
         // enum が取れない場合は label のみ
         return label;
+      }
+    }
+
+    // $EnumDef（サフィックス無し）/ $EnumDef_withAbout の「ラッパー」を typedef-driven に整形
+    // - 例: GenderType: { GenderType: 'Male', about_JP: '...' } → '男性（...）'
+    if (schemaTypeIncludes(opt?.schemaType, '$EnumDef') && opt?.fieldKey && isPlainObject(value)) {
+      const simple = String(opt.fieldKey).split('.').pop();
+      if (simple) {
+        const parts = extractEnumParts(value, simple);
+        if (parts && Object.prototype.hasOwnProperty.call(parts, 'hideText')) {
+          return parts.hideText;
+        }
+        if (parts && Object.prototype.hasOwnProperty.call(parts, 'code')) {
+          const resolvedCode = parts.code.startsWith('#') ? (resolveEnumKey(simple, parts.code) || parts.code) : parts.code;
+          const code = String(resolvedCode || '').trim();
+          if (!code) return '';
+
+          const resolvedLabel = resolveVarsDefLabel(simple, code, globalDefType, workMeta, opt.fieldKey) || code;
+          if (parts.about) return `${resolvedLabel}（${parts.about}）`;
+          return resolvedLabel;
+        }
       }
     }
 
@@ -2881,6 +2922,22 @@ async function renderList(records, workId, onOpen, imageFields = null) {
   const state = window.__CHAR_STATE__;
   const dbName = state ? state.db : 'Primary';
 
+  // workMeta を参照できる場合は、表示名解決（#List_*）に利用
+  const workMeta = state?.workMeta || null;
+  const metaForLookup = (() => {
+    const wm = workMeta && typeof workMeta === 'object' ? workMeta : {};
+    const gm = globalMeta && typeof globalMeta === 'object' ? globalMeta : {};
+
+    const gmGeneral = (gm.General && typeof gm.General === 'object') ? gm.General : {};
+    const wmGeneral = (wm.General && typeof wm.General === 'object') ? wm.General : {};
+
+    const gmVars = (gmGeneral.$VarsDef && typeof gmGeneral.$VarsDef === 'object') ? gmGeneral.$VarsDef : {};
+    const wmVars = (wmGeneral.$VarsDef && typeof wmGeneral.$VarsDef === 'object') ? wmGeneral.$VarsDef : {};
+
+    const mergedGeneral = { ...gmGeneral, ...wmGeneral, $VarsDef: { ...gmVars, ...wmVars } };
+    return { ...gm, ...wm, General: mergedGeneral };
+  })();
+
   console.log('📋 拡張画像解決でリストをレンダリング中:', {
     recordCount: records.length,
     workId,
@@ -2910,18 +2967,24 @@ async function renderList(records, workId, onOpen, imageFields = null) {
     // Enhanced chip generation with more field types
     if (r.GenderType_JP || r.GenderType) {
       const raw = r.GenderType_JP || r.GenderType;
-      const label = resolveVarsDefLabel('GenderType', raw, globalDefType, null);
-      if (label) chipEls.push(el('span', { class: 'chip' }, label));
+      const text = formatValueForDisplay(raw, {}, metaForLookup, globalDefType, {
+        schemaType: '$EnumDef|$EnumDef_withAbout',
+        fieldKey: 'GenderType'
+      });
+      if (text) chipEls.push(el('span', { class: 'chip' }, text));
     }
     if (r.Class || r.Class_EN) chipEls.push(el('span', { class: 'chip' }, r.Class || r.Class_EN));
     if (r.RaceType_JP || r.RaceType) {
       const raw = r.RaceType_JP || r.RaceType;
-      const label = resolveVarsDefLabel('RaceType', raw, globalDefType, null);
-      if (label) chipEls.push(el('span', { class: 'chip' }, label));
+      const text = formatValueForDisplay(raw, {}, metaForLookup, globalDefType, {
+        schemaType: '#ListIndex|#ListIndex_withAbout[]',
+        fieldKey: 'RaceType'
+      });
+      if (text) chipEls.push(el('span', { class: 'chip' }, text));
     }
 
     // Index chip (schema-driven via db_meta.json $DefType_Index)
-    const indexChipText = buildIndexChipText(r, indexDef);
+    const indexChipText = buildIndexChipText(r, indexDef, metaForLookup, globalDefType);
     if (indexChipText) {
       chipEls.push(el('span', { class: 'chip accent' }, indexChipText));
     }
@@ -3212,7 +3275,7 @@ async function renderDetail(workId, rec) {
     el('div', { class: 'row small' }, [
       (() => {
         const workIndexDef = getWorkIndexField(workId, globalMeta);
-        const indexChipText = buildIndexChipText(rec, workIndexDef);
+        const indexChipText = buildIndexChipText(rec, workIndexDef, metaForLookup, globalDefType);
         if (!indexChipText) return null;
         return el('span', { class: 'pill' }, [indexChipText]);
       })(),
@@ -3366,9 +3429,19 @@ async function renderDetail(workId, rec) {
    * @param {any} t
    * @param {string} needle
    */
-  const schemaTypeIncludes = (t, needle) => {
-    const s = (typeof t === 'string') ? t : '';
-    return s.includes(needle);
+  const schemaTypeIncludes = (t, needle, depth = 0) => {
+    if (!needle) return false;
+    if (depth > 6) return false;
+    if (t === null || t === undefined) return false;
+    if (typeof t === 'string') return t.includes(needle);
+    if (Array.isArray(t)) return t.some(x => schemaTypeIncludes(x, needle, depth + 1));
+    if (typeof t === 'object') {
+      if (Object.prototype.hasOwnProperty.call(t, '$type')) {
+        return schemaTypeIncludes(t.$type, needle, depth + 1);
+      }
+      return Object.values(t).some(x => schemaTypeIncludes(x, needle, depth + 1));
+    }
+    return false;
   };
 
   /**
@@ -3513,20 +3586,32 @@ async function renderDetail(workId, rec) {
   })();
 
   const ability = abilityKey ? (rec?.[abilityKey] || {}) : {};
-  const abilityGrid = el('div', { class: 'kv-grid' }, Object.entries(ability).map(([k, v]) => {
-    const fallbackPath = abilityKey ? `${abilityKey}.${k}` : k;
-    const schemaPath = pickSchemaPath([fallbackPath], fallbackPath);
+  const abilityTags = Object.entries(ability)
+    .map(([k, v]) => {
+      if (!k || typeof k !== 'string') return null;
+      if (k.startsWith('_')) return null;
+      if (isEmptyValueLoose(v)) return null;
 
-    const fieldLabel = getFieldLabel(schemaPath, fieldLabelMap, metaForLookup, globalDefType, k);
-    const schemaType = pickSchemaType(schemaPath);
-    const schemaDisplay = pickSchemaDisplay(schemaPath, abilityKey);
-    const displayValue = formatValueForDisplay(v, fieldLabelMap, metaForLookup, globalDefType, {
-      schemaType,
-      display: schemaDisplay,
-      fieldKey: schemaPath
-    });
-    return el('div', { class: 'tag' }, [`${fieldLabel}: ${displayValue}`]);
-  }));
+      const fallbackPath = abilityKey ? `${abilityKey}.${k}` : k;
+      const schemaPath = pickSchemaPath([fallbackPath], fallbackPath);
+
+      const fieldLabel = getFieldLabel(schemaPath, fieldLabelMap, metaForLookup, globalDefType, k);
+      const schemaType = pickSchemaType(schemaPath);
+      const schemaDisplay = pickSchemaDisplay(schemaPath, abilityKey);
+      const displayValue = formatValueForDisplay(v, fieldLabelMap, metaForLookup, globalDefType, {
+        schemaType,
+        display: schemaDisplay,
+        fieldKey: schemaPath
+      });
+
+      const fl = String(fieldLabel ?? '').trim();
+      const dv = String(displayValue ?? '').trim();
+      if (!fl || !dv) return null;
+      return el('div', { class: 'tag' }, [`${fl}: ${dv}`]);
+    })
+    .filter(Boolean);
+
+  const abilityGrid = abilityTags.length ? el('div', { class: 'kv-grid' }, abilityTags) : null;
 
   // Effect/Safety with localized labels
   // - specStats 内のキーを走査し、「単一葉オブジェクトの集合」かつ葉型に #ListLink を含むものを EffectStats 相当として推定
@@ -3549,19 +3634,31 @@ async function renderDetail(workId, rec) {
   })();
 
   const eff = effectKey ? (numStats?.[effectKey] || {}) : {};
-  const effGrid = el('div', { class: 'kv-grid' }, Object.entries(eff).map(([k, v]) => {
-    const fallbackPath = pickedSpecStatsKey && effectKey ? `${pickedSpecStatsKey}.${effectKey}.${k}` : k;
-    const schemaPath = pickSchemaPath([fallbackPath], fallbackPath);
+  const effTags = Object.entries(eff)
+    .map(([k, v]) => {
+      if (!k || typeof k !== 'string') return null;
+      if (k.startsWith('_')) return null;
+      if (isEmptyValueLoose(v)) return null;
 
-    const fieldLabel = getFieldLabel(schemaPath, fieldLabelMap, metaForLookup, globalDefType, k);
-    const { schemaType, schemaDisplay } = pickSchemaHintsForObjectLeaf([schemaPath], v);
-    const displayValue = formatValueForDisplay(v, fieldLabelMap, metaForLookup, globalDefType, {
-      schemaType,
-      display: schemaDisplay,
-      fieldKey: schemaPath
-    });
-    return el('div', { class: 'tag' }, [`${fieldLabel}: ${displayValue}`]);
-  }));
+      const fallbackPath = pickedSpecStatsKey && effectKey ? `${pickedSpecStatsKey}.${effectKey}.${k}` : k;
+      const schemaPath = pickSchemaPath([fallbackPath], fallbackPath);
+
+      const fieldLabel = getFieldLabel(schemaPath, fieldLabelMap, metaForLookup, globalDefType, k);
+      const { schemaType, schemaDisplay } = pickSchemaHintsForObjectLeaf([schemaPath], v);
+      const displayValue = formatValueForDisplay(v, fieldLabelMap, metaForLookup, globalDefType, {
+        schemaType,
+        display: schemaDisplay,
+        fieldKey: schemaPath
+      });
+
+      const fl = String(fieldLabel ?? '').trim();
+      const dv = String(displayValue ?? '').trim();
+      if (!fl || !dv) return null;
+      return el('div', { class: 'tag' }, [`${fl}: ${dv}`]);
+    })
+    .filter(Boolean);
+
+  const effGrid = effTags.length ? el('div', { class: 'kv-grid' }, effTags) : null;
 
   // - specStats 内のキーを走査し、「単一葉オブジェクト」かつ葉型に #ListLink を含むものを Safety 相当として推定
   const safetyKey = (() => {
@@ -3663,8 +3760,16 @@ async function renderDetail(workId, rec) {
   }
 
   // Belonging/Area/Day with localized labels
-  const belong = formatValueForDisplay(rec.Belonging, fieldLabelMap, metaForLookup, globalDefType);
-  const area = formatValueForDisplay(rec.Area, fieldLabelMap, metaForLookup, globalDefType);
+  const belong = formatValueForDisplay(rec.Belonging, fieldLabelMap, metaForLookup, globalDefType, {
+    schemaType: fieldTypeMap?.Belonging ?? null,
+    display: topLevelDisplayMap?.Belonging ?? null,
+    fieldKey: 'Belonging'
+  });
+  const area = formatValueForDisplay(rec.Area, fieldLabelMap, metaForLookup, globalDefType, {
+    schemaType: fieldTypeMap?.Area ?? null,
+    display: topLevelDisplayMap?.Area ?? null,
+    fieldKey: 'Area'
+  });
   const days = Array.isArray(rec.AnivDay) ? rec.AnivDay.map(d => {
     const mm = d?.Day?.Month != null ? String(d.Day.Month) : '';
     const dd = d?.Day?.DayOfMonth != null ? String(d.Day.DayOfMonth) : '';
@@ -3918,7 +4023,15 @@ async function renderDetail(workId, rec) {
     });
   }
 
-  const buildKvRows = (items) => items.map(it => [it.label, toDisplayNode(it.key, it.value, it.type, it.display)]);
+  const buildKvRows = (items) => (items || [])
+    .map((it) => {
+      if (!it) return null;
+      const node = toDisplayNode(it.key, it.value, it.type, it.display);
+      const text = (typeof node === 'string') ? node.trim() : String(node?.textContent ?? '').trim();
+      if (!text) return null;
+      return [it.label, node];
+    })
+    .filter(Boolean);
 
   const profileItems = sectionBuckets.profile
     .map((it) => {
@@ -3948,11 +4061,11 @@ async function renderDetail(workId, rec) {
     ].filter(Boolean)) : null,
   ].filter(Boolean));
 
-  const specSection = (Object.keys(ability).length || Object.keys(eff).length || safetyRow || specNodes.length || specRows.length)
+  const specSection = (abilityTags.length || effTags.length || safetyRow || specNodes.length || specRows.length)
     ? el('div', { class: 'section' }, [
         el('h3', {}, ['スペック/能力']),
-        Object.keys(ability).length ? abilityGrid : null,
-        (Object.keys(eff).length || safetyRow) ? el('div', {}, [effGrid, safetyRow].filter(Boolean)) : null,
+        abilityGrid,
+        (effGrid || safetyRow) ? el('div', {}, [effGrid, safetyRow].filter(Boolean)) : null,
         specNodes.length ? kvTable({}, [[getFieldLabel('SpecType', fieldLabelMap, workMeta, globalDefType, '型情報'), el('div', {}, specNodes)]]) : null,
         specRows.length ? kvTable({}, specRows) : null,
       ].filter(Boolean))
@@ -4008,11 +4121,24 @@ function renderRelations(rel, fieldLabelMap, workMeta, globalDefType) {
   const related = Array.isArray(rel?.Related) ? rel.Related : [];
   const commented = Array.isArray(rel?.Commented) ? rel.Commented : [];
 
+  const isPlainObject = (v) => !!v && typeof v === 'object' && !Array.isArray(v);
+
+  const pickRelationLabelCode = (x) => {
+    if (x === null || x === undefined) return '';
+    if (typeof x === 'string' || typeof x === 'number' || typeof x === 'boolean') return String(x).trim();
+    if (!isPlainObject(x)) return '';
+    const jp = x.RelationLabel_JP || x.relationLabel_JP;
+    const raw = x.RelationLabel || x.relationLabel;
+    const en = x.RelationLabel_EN || x.relationLabel_EN;
+    const picked = (typeof jp === 'string' && jp.trim()) ? jp : (typeof raw === 'string' && raw.trim()) ? raw : (typeof en === 'string' && en.trim()) ? en : '';
+    return String(picked || '').trim();
+  };
+
   const localizeRelationLabels = (labels) => {
     const arr = Array.isArray(labels) ? labels : [];
     return arr
       .map((x) => {
-        const raw = (x === null || x === undefined) ? '' : String(x).trim();
+        const raw = pickRelationLabelCode(x);
         if (!raw) return '';
         return resolveVarsDefLabel('RelationLabel', raw, globalDefType, workMeta, 'Relation.Related.RelationLabel');
       })
