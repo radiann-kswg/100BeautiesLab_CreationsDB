@@ -3186,13 +3186,23 @@ async function renderDetail(workId, rec) {
   };
 
   // Abilities / Effect / Safety（typedef-driven）
-  // - specStats のどれを使っているか（Numerospec/Arcanum/Beast）を実データから推定し、schema 参照もそれに追従
-  const specStatsKeysInOrder = ['NumerospecStats', 'ArcanumspecStats', 'BeastspecStats'];
-  const pickedSpecStatsKey = specStatsKeysInOrder.find(k => {
-    const v = rec?.[k];
-    return v && typeof v === 'object' && !Array.isArray(v) && Object.keys(v).length > 0;
-  }) || '';
-  const numStats = pickedSpecStatsKey ? (rec?.[pickedSpecStatsKey] || {}) : {};
+  // - JS 側に特定の JSON キー名を極力持たせず、実データ＋typedef（fieldTypeMap/fieldDisplayMap）から推定して表示する
+
+  /**
+   * 値が「配列ではないObject」かどうか
+   * @param {any} v
+   */
+  const isPlainObject = (v) => !!v && typeof v === 'object' && !Array.isArray(v);
+
+  /**
+   * schema の $type 文字列に needle が含まれるか（簡易）
+   * @param {any} t
+   * @param {string} needle
+   */
+  const schemaTypeIncludes = (t, needle) => {
+    const s = (typeof t === 'string') ? t : '';
+    return s.includes(needle);
+  };
 
   /**
    * typedef の存在に基づき、最も妥当な schemaPath を選ぶ
@@ -3207,23 +3217,90 @@ async function renderDetail(workId, rec) {
     return fallback;
   };
 
+  /**
+   * 「specStats っぽい」トップレベルキーを推定
+   * - 末尾が specStats（大文字小文字は許容）
+   * - 中身が object
+   * @returns {string}
+   */
+  const inferSpecStatsKey = () => {
+    const keys = Object.keys(rec || {});
+    const candidates = keys.filter(k => /specStats$/i.test(k) && isPlainObject(rec?.[k]) && Object.keys(rec?.[k] || {}).length > 0);
+    if (!candidates.length) return '';
+    // 複数ある場合は「要素数が多い」方を優先（安定性のため）
+    candidates.sort((a, b) => Object.keys(rec?.[b] || {}).length - Object.keys(rec?.[a] || {}).length);
+    return candidates[0] || '';
+  };
+
+  const pickedSpecStatsKey = inferSpecStatsKey();
+  const numStats = pickedSpecStatsKey ? (rec?.[pickedSpecStatsKey] || {}) : {};
+
+  /**
+   * Object が「単一の葉」かどうか
+   * - { X: '...' } / { X: 1 } / { X: { hideText: '...' } } を想定
+   * @param {any} obj
+   */
+  const isSingleLeafObject = (obj) => {
+    if (!isPlainObject(obj)) return false;
+    const ks = Object.keys(obj).filter(k => k && typeof k === 'string' && !k.startsWith('_'));
+    if (ks.length !== 1) return false;
+    const v = obj[ks[0]];
+    if (v === null || v === undefined) return false;
+    if (typeof v === 'string' || typeof v === 'number' || typeof v === 'boolean') return true;
+    if (isPlainObject(v) && typeof v.hideText === 'string' && v.hideText.trim()) return true;
+    return false;
+  };
+
+  /**
+   * Object が「単一葉オブジェクトの集合」かどうか
+   * - { A: { X:'...' }, B:{ X:'...' } } の形
+   * @param {any} obj
+   */
+  const isObjectOfSingleLeafObjects = (obj) => {
+    if (!isPlainObject(obj)) return false;
+    const ks = Object.keys(obj).filter(k => k && typeof k === 'string' && !k.startsWith('_'));
+    if (!ks.length) return false;
+    return ks.every(k => isSingleLeafObject(obj[k]));
+  };
+
+  /**
+   * 単一葉オブジェクトの「葉パス」の schemaType を拾う
+   * @param {string} parentPath
+   * @param {any} obj
+   */
+  const getSingleLeafSchemaType = (parentPath, obj) => {
+    if (!isPlainObject(obj)) return '';
+    const ks = Object.keys(obj).filter(k => k && typeof k === 'string' && !k.startsWith('_'));
+    if (ks.length !== 1) return '';
+    const leaf = ks[0];
+    const full = parentPath ? `${parentPath}.${leaf}` : leaf;
+    const t = fieldTypeMap?.[full];
+    return (typeof t === 'string') ? t : '';
+  };
+
   // Abilities with localized labels
-  const ability = rec.AbilityStats || {};
+  // - top-level の object を走査し、「子が $EnumDef_Rank を含む」ものを能力値候補として推定
+  const abilityKey = (() => {
+    const keys = Object.keys(rec || {});
+    for (const k of keys) {
+      const obj = rec?.[k];
+      if (!isPlainObject(obj)) continue;
+      const childKeys = Object.keys(obj).filter(x => x && typeof x === 'string' && !x.startsWith('_'));
+      if (!childKeys.length) continue;
+      const hit = childKeys.some(ck => schemaTypeIncludes(fieldTypeMap?.[`${k}.${ck}`], '$EnumDef_Rank'));
+      if (hit) return k;
+    }
+    return '';
+  })();
+
+  const ability = abilityKey ? (rec?.[abilityKey] || {}) : {};
   const abilityGrid = el('div', { class: 'kv-grid' }, Object.entries(ability).map(([k, v]) => {
-    const fallbackPath = `AbilityStats.${k}`;
-    const schemaPath = pickSchemaPath([
-      fallbackPath,
-      pickedSpecStatsKey ? `${pickedSpecStatsKey}.AbilityStats.${k}` : ''
-    ], fallbackPath);
+    const fallbackPath = abilityKey ? `${abilityKey}.${k}` : k;
+    const schemaPath = pickSchemaPath([fallbackPath], fallbackPath);
 
     const fieldLabel = getFieldLabel(schemaPath, fieldLabelMap, metaForLookup, globalDefType, k);
-    const schemaType = pickSchemaType(schemaPath, fallbackPath, pickedSpecStatsKey ? `${pickedSpecStatsKey}.AbilityStats.${k}` : '');
-    const schemaDisplay = pickSchemaDisplay(
-      schemaPath,
-      'AbilityStats',
-      pickedSpecStatsKey ? `${pickedSpecStatsKey}.AbilityStats.${k}` : '',
-      pickedSpecStatsKey ? `${pickedSpecStatsKey}.AbilityStats` : ''
-    );
+    const schemaType = pickSchemaType(schemaPath);
+    const schemaDisplay = pickSchemaDisplay(schemaPath, abilityKey);
     const displayValue = formatValueForDisplay(v, fieldLabelMap, metaForLookup, globalDefType, {
       schemaType,
       display: schemaDisplay,
@@ -3233,20 +3310,32 @@ async function renderDetail(workId, rec) {
   }));
 
   // Effect/Safety with localized labels
-  const eff = numStats.EffectStats || {};
+  // - specStats 内のキーを走査し、「単一葉オブジェクトの集合」かつ葉型に #ListLink を含むものを EffectStats 相当として推定
+  const effectKey = (() => {
+    if (!pickedSpecStatsKey || !isPlainObject(numStats)) return '';
+    for (const k of Object.keys(numStats)) {
+      if (!k || typeof k !== 'string') continue;
+      const obj = numStats[k];
+      if (!isObjectOfSingleLeafObjects(obj)) continue;
+      const groupPath = `${pickedSpecStatsKey}.${k}`;
+      // いずれかの子が #ListLink を含むなら Effect 系として扱う
+      const subKeys = Object.keys(obj);
+      const hit = subKeys.some(sk => {
+        const t = getSingleLeafSchemaType(`${groupPath}.${sk}`, obj[sk]);
+        return schemaTypeIncludes(t, '#ListLink');
+      });
+      if (hit) return k;
+    }
+    return '';
+  })();
+
+  const eff = effectKey ? (numStats?.[effectKey] || {}) : {};
   const effGrid = el('div', { class: 'kv-grid' }, Object.entries(eff).map(([k, v]) => {
-    const fallbackPath = `EffectStats.${k}`;
-    const schemaPath = pickSchemaPath([
-      fallbackPath,
-      pickedSpecStatsKey ? `${pickedSpecStatsKey}.EffectStats.${k}` : ''
-    ], fallbackPath);
+    const fallbackPath = pickedSpecStatsKey && effectKey ? `${pickedSpecStatsKey}.${effectKey}.${k}` : k;
+    const schemaPath = pickSchemaPath([fallbackPath], fallbackPath);
 
     const fieldLabel = getFieldLabel(schemaPath, fieldLabelMap, metaForLookup, globalDefType, k);
-    const { schemaType, schemaDisplay } = pickSchemaHintsForObjectLeaf([
-      schemaPath,
-      fallbackPath,
-      pickedSpecStatsKey ? `${pickedSpecStatsKey}.EffectStats.${k}` : ''
-    ].filter(Boolean), v);
+    const { schemaType, schemaDisplay } = pickSchemaHintsForObjectLeaf([schemaPath], v);
     const displayValue = formatValueForDisplay(v, fieldLabelMap, metaForLookup, globalDefType, {
       schemaType,
       display: schemaDisplay,
@@ -3255,17 +3344,24 @@ async function renderDetail(workId, rec) {
     return el('div', { class: 'tag' }, [`${fieldLabel}: ${displayValue}`]);
   }));
 
-  const safety = numStats.SafetyLevel || {};
-  const safetyFieldPath = pickSchemaPath([
-    pickedSpecStatsKey ? `${pickedSpecStatsKey}.SafetyLevel` : '',
-    'SafetyLevel'
-  ], 'SafetyLevel');
-  const safetyRow = safety && Object.keys(safety).length > 0 ? el('div', { class: 'tag' }, [
-    `${getFieldLabel(safetyFieldPath, fieldLabelMap, metaForLookup, globalDefType, 'Safety')}: ${(() => {
-      const { schemaType, schemaDisplay } = pickSchemaHintsForObjectLeaf([
-        safetyFieldPath,
-        'SafetyLevel'
-      ], safety);
+  // - specStats 内のキーを走査し、「単一葉オブジェクト」かつ葉型に #ListLink を含むものを Safety 相当として推定
+  const safetyKey = (() => {
+    if (!pickedSpecStatsKey || !isPlainObject(numStats)) return '';
+    for (const k of Object.keys(numStats)) {
+      if (!k || typeof k !== 'string') continue;
+      const obj = numStats[k];
+      if (!isSingleLeafObject(obj)) continue;
+      const t = getSingleLeafSchemaType(`${pickedSpecStatsKey}.${k}`, obj);
+      if (schemaTypeIncludes(t, '#ListLink')) return k;
+    }
+    return '';
+  })();
+
+  const safety = safetyKey ? (numStats?.[safetyKey] || {}) : {};
+  const safetyFieldPath = (pickedSpecStatsKey && safetyKey) ? `${pickedSpecStatsKey}.${safetyKey}` : '';
+  const safetyRow = safetyKey && safety && Object.keys(safety).length > 0 ? el('div', { class: 'tag' }, [
+    `${getFieldLabel(safetyFieldPath, fieldLabelMap, metaForLookup, globalDefType, safetyKey)}: ${(() => {
+      const { schemaType, schemaDisplay } = pickSchemaHintsForObjectLeaf([safetyFieldPath], safety);
       return formatValueForDisplay(safety, fieldLabelMap, metaForLookup, globalDefType, {
         schemaType,
         display: schemaDisplay,
@@ -3274,35 +3370,58 @@ async function renderDetail(workId, rec) {
     })()}`
   ]) : null;
 
-  // SpecType with localized labels
-  const specType = rec.SpecType || {};
+  // SpecType with localized labels（typedef-driven）
+  // - top-level の object を走査し、「子孫に section=spec が存在しうる」ものを候補として推定
+  // - 特定のキー名（SpecType/Material 等）を JS に固定で持たない
+  const specTypeKey = (() => {
+    const keys = Object.keys(rec || {});
+    for (const k of keys) {
+      const obj = rec?.[k];
+      if (!isPlainObject(obj)) continue;
+      const childKeys = Object.keys(obj).filter(x => x && typeof x === 'string' && !x.startsWith('_'));
+      if (!childKeys.length) continue;
+
+      // 子のいずれかに typedef があり、かつ $display.section=spec を持つ（または持ちうる）なら SpecType 候補
+      const hit = childKeys.some(ck => {
+        const path = `${k}.${ck}`;
+        const d = fieldDisplayMap?.[path] ?? fieldDisplayMap?.[ck] ?? null;
+        if (d && typeof d === 'object' && d.section === 'spec') return true;
+
+        // 直接 section が無くても、さらに下位に typedef がある（ネスト）場合は候補として許容
+        // - 例: ActionType のように親に $display が無いケース
+        const prefix = `${path}.`;
+        return Object.keys(fieldTypeMap || {}).some(tk => typeof tk === 'string' && tk.startsWith(prefix));
+      });
+      if (hit) return k;
+    }
+    return '';
+  })();
+
+  const specType = specTypeKey ? (rec?.[specTypeKey] || {}) : {};
   const specNodes = [];
-  if (specType.Material) {
-    const materialLabel = getFieldLabel('SpecType.Material', fieldLabelMap, metaForLookup, globalDefType, 'Material');
-    const materialValue = formatValueForDisplay(specType.Material, fieldLabelMap, metaForLookup, globalDefType, {
-      schemaType: pickSchemaType('SpecType.Material'),
-      display: pickSchemaDisplay('SpecType.Material', 'SpecType'),
-      fieldKey: 'SpecType.Material'
-    });
-    specNodes.push(el('div', { class: 'tag' }, [materialLabel + ': ', materialValue]));
-  }
-  if (specType.ActionType) {
-    const actionLabel = getFieldLabel('SpecType.ActionType', fieldLabelMap, metaForLookup, globalDefType, 'Action');
-    const actionValue = formatValueForDisplay(specType.ActionType, fieldLabelMap, metaForLookup, globalDefType, {
-      schemaType: pickSchemaType('SpecType.ActionType'),
-      display: pickSchemaDisplay('SpecType.ActionType', 'SpecType'),
-      fieldKey: 'SpecType.ActionType'
-    });
-    if (actionValue) specNodes.push(el('div', { class: 'tag' }, [actionLabel + ': ', actionValue]));
-  }
-  if (specType.DualizePattern) {
-    const dualizeLabel = getFieldLabel('SpecType.DualizePattern', fieldLabelMap, metaForLookup, globalDefType, 'Dualize');
-    const dualizeValue = formatValueForDisplay(specType.DualizePattern, fieldLabelMap, metaForLookup, globalDefType, {
-      schemaType: pickSchemaType('SpecType.DualizePattern'),
-      display: pickSchemaDisplay('SpecType.DualizePattern', 'SpecType'),
-      fieldKey: 'SpecType.DualizePattern'
-    });
-    specNodes.push(el('div', { class: 'tag' }, [dualizeLabel + ': ', dualizeValue]));
+  if (specTypeKey && isPlainObject(specType)) {
+    for (const [k, v] of Object.entries(specType)) {
+      if (!k || typeof k !== 'string') continue;
+      if (isEmptyValueLoose(v)) continue;
+
+      const fieldPath = `${specTypeKey}.${k}`;
+      const schemaPath = pickSchemaPath([fieldPath], fieldPath);
+      const fieldLabel = getFieldLabel(schemaPath, fieldLabelMap, metaForLookup, globalDefType, k);
+
+      // object leaf の型推定も併用（#ListLink 等）
+      const hints = (isPlainObject(v) && !Array.isArray(v))
+        ? pickSchemaHintsForObjectLeaf([schemaPath, fieldPath], v)
+        : { schemaType: pickSchemaType(schemaPath, fieldPath), schemaDisplay: pickSchemaDisplay(schemaPath, fieldPath, specTypeKey) };
+
+      const displayValue = formatValueForDisplay(v, fieldLabelMap, metaForLookup, globalDefType, {
+        schemaType: hints.schemaType,
+        display: hints.schemaDisplay,
+        fieldKey: schemaPath
+      });
+
+      if (!displayValue) continue;
+      specNodes.push(el('div', { class: 'tag' }, [`${fieldLabel}: ${displayValue}`]));
+    }
   }
 
   // Belonging/Area/Day with localized labels
@@ -3363,16 +3482,21 @@ async function renderDetail(workId, rec) {
     if (basicFields.some(it => it?.sourceKey === 'GenderType' || it?.labelKey === 'GenderType')) s.add('GenderType_JP');
 
     // スペック/能力セクションで個別表示するトップレベルキー
-    if (rec.AbilityStats && typeof rec.AbilityStats === 'object' && Object.keys(rec.AbilityStats).length > 0) {
-      s.add('AbilityStats');
+    if (abilityKey) {
+      const v = rec?.[abilityKey];
+      if (v && typeof v === 'object' && Object.keys(v).length > 0) s.add(abilityKey);
     }
-    // 数秘/タロット/獣爾のいずれか（存在するものは二重表示を避ける）
-    for (const k of ['NumerospecStats', 'ArcanumspecStats', 'BeastspecStats']) {
+    // specStats 系（作品ごとに存在するものは二重表示を避ける）
+    // - JS 側に固定キーを持たせないため、末尾が specStats のものを抑止対象とする
+    for (const k of Object.keys(rec || {})) {
+      if (!k || typeof k !== 'string') continue;
+      if (!/specStats$/i.test(k)) continue;
       const v = rec?.[k];
       if (v && typeof v === 'object' && Object.keys(v).length > 0) s.add(k);
     }
-    if (rec.SpecType && typeof rec.SpecType === 'object' && Object.keys(rec.SpecType).length > 0) {
-      s.add('SpecType');
+    if (specTypeKey) {
+      const v = rec?.[specTypeKey];
+      if (v && typeof v === 'object' && Object.keys(v).length > 0) s.add(specTypeKey);
     }
 
     // basic セクションの個別テーブルで表示するフィールド
