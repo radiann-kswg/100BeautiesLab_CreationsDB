@@ -16,6 +16,8 @@
 ## いま進行中のファイル
 
 - 2026-02-21_progress_typedef-driven-detail.md
+- 2026-02-21_progress_bilingual-enum-listindex.md
+- 2026-02-21_remaining-task.md
 
 ## 完了ログ（ローカル退避: `_work_in_progress/.completed/`）
 

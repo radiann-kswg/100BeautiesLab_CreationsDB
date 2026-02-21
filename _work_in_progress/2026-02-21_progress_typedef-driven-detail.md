@@ -47,6 +47,7 @@
 
 - ブラウザ上での表示最終確認（特に Works_FLInvestigator78 の SpecType 表示と、NumberTales の Relation 表示）。
 - Secondary DB（例: `db=Secondary`）で、`RelationToPrimary` が関係セクションとして出ること、`isForSecondary` により Primary/Secondary で表示フィールドが適切に切り替わることを確認。
+- （完了）`GenderType` が raw コード（例: `FemaleNeutral`）で残存せず、JP/EN併記で表示されることを確認。
 
 ## 参考リンク
 

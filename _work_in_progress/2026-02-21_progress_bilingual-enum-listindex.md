@@ -26,8 +26,25 @@
 
 ## 未完了タスク
 
-- ブラウザ上で、対象フィールド（`GenderType`, `Belonging`, `RelationLabel` など）が期待どおり「JP/EN併記」になっているか確認。
-  - 併せて、必要に応じて typedef 側の `$display.langMode` で「片言語表示」へ切り替えられるか確認。
+- （完了）ブラウザ上で、対象フィールド（`GenderType`, `Belonging`, `RelationLabel` など）が期待どおり「JP/EN併記」になっているか確認。
+  - `GenderType` については「kv-table の性別行だけ raw（例: `FemaleNeutral`）が残る」残件があったが、後述の追補で解消。
+  - 必要に応じて typedef 側の `$display.langMode` で「片言語表示」へ切り替えられることも確認（設計上の期待）。
+
+## 追補: kv-table の GenderType（性別）だけ raw が残る件の解消
+
+### 症状
+
+- 詳細ビューの `table.kv-table` の「性別」セルが、辞書に定義があるにも関わらず `FemaleNeutral` のような raw コード単体で表示される。
+
+### 対応
+
+- UI（`pages/characters.js`）: VarsDef 参照用の `fieldKey` を `*_JP/_EN` からベースキーへ正規化して辞書解決できるよう改善。
+- UI（`pages/characters.js`）: 詳細ビューの basicFields 生成経路（`formatFieldValue()`）に、`GenderType` の辞書直引きフォールバックを追加し、raw コード単体が残らないよう最終固定。
+- UI（`pages/characters.html`）: `characters.js?v=...` のキャッシュバスターを更新し、ブラウザ反映を確実化。
+
+### 結果
+
+- `GenderType` が和文/英文で併記されることを確認（例: `無性別女性型 / FemaleNeutral`）。
 
 ## 検証（確認観点）
 
