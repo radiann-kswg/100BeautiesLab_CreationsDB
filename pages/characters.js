@@ -64,6 +64,8 @@ async function ensureApiSW() {
     return;
   }
 
+  const CONTROLLER_RELOAD_FLAG = '100bl.swControllerReloaded';
+
   console.log('🔧 Service Worker の登録を試行中...');
 
   try {
@@ -73,13 +75,40 @@ async function ensureApiSW() {
     console.log(`🌐 プライマリ SW を登録: ${pageSwUrl} (スコープ: ${pageScope})`);
     const reg = await navigator.serviceWorker.register(pageSwUrl, { scope: pageScope });
     console.log('✅ プライマリ SW の登録に成功');
+    // ブラウザが SW スクリプトを強くキャッシュしている場合に備え、更新を促す
+    try { await reg.update(); } catch (_) { /* no-op */ }
     API_BASE_REL = '../pages/';
     await navigator.serviceWorker.ready; // アクティベーションを待機
     console.log('✅ プライマリ SW の準備完了');
     await waitForController(); // フェッチを開始する前にこのページが制御されることを保証
+    if (!navigator.serviceWorker.controller) throw new Error('Primary SW is ready but did not take control of this page');
     console.log('✅ プライマリ SW がページを制御中');
+
+    // 成功したら、リロード済みフラグは解除
+    try { sessionStorage.removeItem(CONTROLLER_RELOAD_FLAG); } catch (_) { /* no-op */ }
   } catch (err) {
     console.warn('❌ プライマリ SW の登録に失敗:', err);
+
+    // キャッシュの消去＋ハードリロード等では、その1回のナビゲーションがSW制御されないことがある。
+    // この場合、次の通常リロードで controller が付与されるため、1回だけ自動リロードして復旧する。
+    const msg = String(err?.message || err || '');
+    if (msg.includes('controller timeout')) {
+      let alreadyReloaded = false;
+      try { alreadyReloaded = sessionStorage.getItem(CONTROLLER_RELOAD_FLAG) === '1'; } catch (_) { /* no-op */ }
+
+      if (!alreadyReloaded) {
+        try { sessionStorage.setItem(CONTROLLER_RELOAD_FLAG, '1'); } catch (_) { /* no-op */ }
+        console.warn('🔁 SW controller が取得できないため、通常リロードで復旧を試行します');
+        location.reload();
+        throw new Error('SW_CONTROLLER_RELOAD');
+      }
+    }
+
+    // このページが SW に制御されない限り /pages/v1/* は解決できないため、
+    // controller 系の失敗はフォールバックしても回復しない（スコープが一致しない）
+    if (msg.includes('controller timeout') || msg.includes('did not take control')) {
+      throw err;
+    }
     try {
       // 2) /svc へのフォールバック（エイリアスパス）
       const svcSwUrl = new URL('../svc/sw.js', location.href).toString();
@@ -87,10 +116,12 @@ async function ensureApiSW() {
       console.log(`🌐 フォールバック SW を登録: ${svcSwUrl} (スコープ: ${svcScope})`);
       const reg2 = await navigator.serviceWorker.register(svcSwUrl, { scope: svcScope });
       console.log('✅ フォールバック SW の登録に成功');
+      try { await reg2.update(); } catch (_) { /* no-op */ }
       API_BASE_REL = '../svc/';
       await navigator.serviceWorker.ready;
       console.log('✅ フォールバック SW の準備完了');
       await waitForController();
+      if (!navigator.serviceWorker.controller) throw new Error('Fallback SW is ready but did not take control of this page');
       console.log('✅ フォールバック SW がページを制御中');
     } catch (err2) {
       console.warn('❌ フォールバック SW の登録に失敗:', err2);
@@ -101,14 +132,17 @@ async function ensureApiSW() {
         console.log(`🌐 最終フォールバック SW を登録: ${apiSwUrl} (スコープ: ${apiScope})`);
         const reg3 = await navigator.serviceWorker.register(apiSwUrl, { scope: apiScope });
         console.log('✅ 最終フォールバック SW の登録に成功');
+        try { await reg3.update(); } catch (_) { /* no-op */ }
         API_BASE_REL = '../api/';
         await navigator.serviceWorker.ready;
         console.log('✅ 最終フォールバック SW の準備完了');
         await waitForController();
+        if (!navigator.serviceWorker.controller) throw new Error('Last-resort SW is ready but did not take control of this page');
         console.log('✅ 最終フォールバック SW がページを制御中');
       } catch (err3) {
         console.error('❌ すべての SW 登録試行が失敗:', err3);
-        // no-op; SW が利用できない場合、GH Pages でフェッチは 404 になる
+        // SW が利用できない場合、/pages/v1 は静的ホスティングでは 404 になるため、ここで失敗として扱う
+        throw err3;
       }
     }
   }
@@ -170,18 +204,43 @@ function api(path) {
  * @param {number} timeoutMs - タイムアウト時間（ミリ秒、デフォルト: 3000）
  * @returns {Promise<void>} ページが制御されるかタイムアウト時に解決
  */
-function waitForController(timeoutMs = 3000) {
+function waitForController(timeoutMs = 15000) {
   if (navigator.serviceWorker.controller) return Promise.resolve();
-  return new Promise((resolve) => {
+
+  return new Promise((resolve, reject) => {
     let done = false;
-    const to = setTimeout(() => { if (!done) { done = true; resolve(); } }, timeoutMs);
-    navigator.serviceWorker.addEventListener('controllerchange', () => {
-      if (!done) {
-        done = true;
-        clearTimeout(to);
-        resolve();
-      }
-    });
+
+    /** @type {ReturnType<typeof setTimeout>|null} */
+    let to = null;
+
+    const cleanup = () => {
+      navigator.serviceWorker.removeEventListener('controllerchange', onControllerChange);
+    };
+
+    const onControllerChange = () => {
+      if (done) return;
+      if (!navigator.serviceWorker.controller) return;
+      done = true;
+      if (to != null) clearTimeout(to);
+      cleanup();
+      resolve();
+    };
+
+    // レース対策: リスナーを先に登録してから controller を再チェック
+    navigator.serviceWorker.addEventListener('controllerchange', onControllerChange);
+    if (navigator.serviceWorker.controller) {
+      done = true;
+      cleanup();
+      resolve();
+      return;
+    }
+
+    to = setTimeout(() => {
+      if (done) return;
+      done = true;
+      cleanup();
+      reject(new Error(`Service Worker controller timeout after ${timeoutMs}ms`));
+    }, timeoutMs);
   });
 }
 
@@ -393,13 +452,26 @@ async function fetchGlobalMeta() {
  * @returns {Promise<Object>} Global type definitions
  */
 async function fetchGlobalTypeDef() {
-  if (globalTypeDefCache) return globalTypeDefCache;
+  // NOTE: キャッシュが「空」や「異形（古いSWのレスポンス等）」を掴んでいると
+  // fieldTypeMap が作れず、GenderType などがコード表示に退避してしまう。
+  // 期待形（$DefType 配列 or global 配列）でない場合は自動で再フェッチする。
+  const isValid = (obj) => {
+    if (!obj || typeof obj !== 'object') return false;
+    if (Array.isArray(obj?.$DefType)) return true;
+    if (Array.isArray(obj?.typedef?.$DefType)) return true;
+    if (Array.isArray(obj?.global)) return true;
+    return false;
+  };
+
+  if (globalTypeDefCache && isValid(globalTypeDefCache)) return globalTypeDefCache;
+  // 無効キャッシュは破棄して再取得
+  globalTypeDefCache = null;
 
   const u = new URL(api('v1/typedef/global'));
   try {
     const res = await fetchJSON(u.toString());
     console.log('🌐 Global TypeDef response:', res);
-    globalTypeDefCache = res || {};
+    globalTypeDefCache = (res && typeof res === 'object') ? res : {};
     return globalTypeDefCache;
   } catch (error) {
     console.warn('⚠️ Failed to fetch global type def:', error.message);
@@ -412,12 +484,25 @@ async function fetchGlobalTypeDef() {
  * @returns {Promise<Object>} Global definition types
  */
 async function fetchGlobalDefType() {
-  if (globalDefTypeCache) return globalDefTypeCache;
+  // NOTE: v1/deftype/global は「db_meta.json（辞書）」を返す。
+  // 古いSWやブラウザキャッシュで typedef（db_type.json）を掴むと、
+  // $EnumDef/#ListIndex の表示名解決ができずコード表示に退避する。
+  // 期待形（General.$VarsDef が存在）でない場合は自動で再フェッチする。
+  const isValid = (obj) => {
+    const vars = obj?.General?.$VarsDef;
+    if (!vars || typeof vars !== 'object' || Array.isArray(vars)) return false;
+    // 最小チェック: $EnumDef_ / #List_ のどちらかがある
+    return Object.keys(vars).some(k => typeof k === 'string' && (k.startsWith('$EnumDef_') || k.startsWith('#List_')));
+  };
+
+  if (globalDefTypeCache && isValid(globalDefTypeCache)) return globalDefTypeCache;
+  // 無効キャッシュは破棄して再取得
+  globalDefTypeCache = null;
 
   const u = new URL(api('v1/deftype/global'));
   try {
     const res = await fetchJSON(u.toString());
-    globalDefTypeCache = res || {};
+    globalDefTypeCache = (res && typeof res === 'object') ? res : {};
     return globalDefTypeCache;
   } catch (error) {
     console.warn('⚠️ Failed to fetch global def type:', error.message);
@@ -4927,6 +5012,11 @@ async function main() {
   } catch (error) {
     const totalTime = performance.now() - startTime;
     console.error(`❌ Application initialization failed after ${totalTime.toFixed(2)}ms:`, error);
+
+    // SW controller を取得するための自動リロード中は、エラー表示を出さない
+    if (String(error?.message || error || '') === 'SW_CONTROLLER_RELOAD') {
+      return;
+    }
 
     // Reset initialization state on error so user can retry
     isInitialized = false;

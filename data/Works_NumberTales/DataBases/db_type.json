@@ -168,7 +168,25 @@
           "hashTag_JP": "コメント"
         }
       ],
-      "hashTag_JP": "関係キャラクター"
+      "hashTag_JP": "関係キャラクター",
+      "isForSecondary": false
+    },
+    {
+      "hashTag": "RelationToPrimary",
+      "$type": [
+        {
+          "hashTag": "Related",
+          "$type": "$Def_Relations[]",
+          "hashTag_JP": "親密な関係"
+        },
+        {
+          "hashTag": "Commented",
+          "$type": "$Def_Relations[]",
+          "hashTag_JP": "コメント"
+        }
+      ],
+      "hashTag_JP": "原作との関係",
+      "isForSecondary": true
     }
   ],
   "$VersDef": {

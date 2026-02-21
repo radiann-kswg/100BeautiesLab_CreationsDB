@@ -12,6 +12,8 @@
 - UI: `General.$VarsDef` だけでなく `General.$Def_*` 配下（例: `General.$Def_Relations.#List_RelationLabel`）の `#List_*` も辞書探索対象に含め、JP が引けずコード（英語）にフォールバックするケースを防止。
 - UI: typedef の `$display.langMode`（任意）で、JP/EN の表示切替・併記抑制ができるようにした（`jp` / `en` / `enJp` / `raw` など）。
 - UI: 定義辞書のフェッチ失敗時に「空オブジェクトをキャッシュして固定化」しないようにし、SW が制御状態になった後の再試行で復旧できるようにした。
+- UI: グローバル辞書/typedef キャッシュが期待形でない場合は自動的に破棄して再フェッチする自己復旧を追加（古いキャッシュ等で辞書解決できずコード表示に戻るケースの緩和）。
+- UI: SW controller 待ちが「タイムアウトでも成功扱い」になっていたため未制御のまま `/pages/v1/works` を叩いて 404 になる問題を修正（制御されるまで待機し、失敗は初期化エラーとして扱う）。
 - UI: 起動時に `buildFieldDisplayMap()` が `ReferenceError`（`traverseTmp` 未定義）で落ちる不具合を修正（表示仕様は変更せず、クラッシュのみ解消）。
 - UI: `#List_Belonging` のように「ベースキーがJP文字列で \*\_JP が無い」辞書定義でも、JP/EN 併記が EN-only にならないようフォールバックを改善。
 - Data（NumberTales）: `Relation.Related`/`Relation.Commented`/`ComeBacked` の typedef を `$Def_Relations[]` に揃えた（実データが配列のため）。
