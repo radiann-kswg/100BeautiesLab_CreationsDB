@@ -633,8 +633,20 @@ async function fetchGlobalDefType() {
   const isValid = (obj) => {
     const vars = obj?.General?.$VarsDef;
     if (!vars || typeof vars !== 'object' || Array.isArray(vars)) return false;
-    // 最小チェック: $EnumDef_ / #List_ のどちらかがある
-    return Object.keys(vars).some(k => typeof k === 'string' && (k.startsWith('$EnumDef_') || k.startsWith('#List_')));
+
+    // NOTE:
+    // 以前は「$EnumDef_ / #List_ が何か1つでもあればOK」だったが、
+    // 誤って “別のメタ（例: 作品別 meta の #List_* だけ）” を掴んだ場合でも true になり得た。
+    // その状態でキャッシュされると、GenderType の辞書（$EnumDef_GenderType）が無く、
+    // 「性別だけ FemaleNeutral のまま残る」現象が発生する。
+    const hasGenderEnum = (() => {
+      const def = vars?.$EnumDef_GenderType;
+      return !!def && typeof def === 'object' && !Array.isArray(def);
+    })();
+    if (hasGenderEnum) return true;
+
+    // 後方互換の最低条件: enum/list キーが存在する（ただし上記が無ければ invalid 扱い）
+    return false;
   };
 
   /**
@@ -659,6 +671,32 @@ async function fetchGlobalDefType() {
     return res;
   };
 
+  /**
+   * API経由の辞書取得が壊れている場合の最終フォールバック:
+   * pages/characters.html から見て ../data/db_meta.json を「直 fetch」する。
+   * - SW/広告ブロッカー/キャッシュの揺れで /pages/v1/deftype/global が期待形でないケースの救済
+   * - cache:'no-store' で古い辞書を掴みにくくする
+   */
+  const fetchDirectDbMeta = async () => {
+    const directUrl = new URL('../data/db_meta.json', location.href).toString();
+    try {
+      const res = await fetch(directUrl, {
+        headers: { 'Accept': 'application/json' },
+        cache: 'no-store'
+      });
+      if (!res.ok) throw new Error(`${res.status} ${res.statusText} ${directUrl}`);
+      const json = await res.json();
+      const unwrapped = unwrap(json);
+      if (isValid(unwrapped)) {
+        console.warn('🛟 fetchGlobalDefType: recovered via direct /data/db_meta.json fetch');
+        return unwrapped;
+      }
+    } catch (e) {
+      console.warn('⚠️ fetchGlobalDefType: direct /data/db_meta.json fetch failed:', e?.message || e);
+    }
+    return {};
+  };
+
   if (globalDefTypeCache && isValid(globalDefTypeCache)) return globalDefTypeCache;
   // 無効キャッシュは破棄して再取得
   globalDefTypeCache = null;
@@ -666,11 +704,20 @@ async function fetchGlobalDefType() {
   const u = new URL(api('v1/deftype/global'));
   try {
     const res = await fetchJSON(u.toString());
-    globalDefTypeCache = unwrap(res);
+    const unwrapped = unwrap(res);
+    if (isValid(unwrapped)) {
+      globalDefTypeCache = unwrapped;
+      return globalDefTypeCache;
+    }
+
+    // APIレスポンスが期待形でない場合は直 fetch で救済
+    const recovered = await fetchDirectDbMeta();
+    globalDefTypeCache = recovered;
     return globalDefTypeCache;
   } catch (error) {
     console.warn('⚠️ Failed to fetch global def type:', error.message);
-    return {};
+    globalDefTypeCache = await fetchDirectDbMeta();
+    return globalDefTypeCache;
   }
 }
 
@@ -1964,8 +2011,6 @@ function resolveVarsDefLabelPack(fieldName, rawValue, globalDefType = null, meta
     const f = String(field || '').trim();
     const c = String(code || '').trim();
     if (!f || !c) return c;
-    // 互換: typo 'Valiable' は 'Variable' として扱う（辞書からは削除済み）
-    if (f === 'GenderType' && c === 'Valiable') return 'Variable';
     return c;
   };
 
@@ -2219,6 +2264,17 @@ function formatValueForDisplay(value, labelMap = {}, workMeta = null, globalDefT
   if (value === null || value === undefined || value === '') {
     return '';
   }
+
+  /**
+   * VarsDef（$EnumDef_* / #List_*）参照のために、言語サフィックスを除去してベースキーへ正規化する
+   * - opt.fieldKey が 'GenderType_JP' 等になっていても $EnumDef_GenderType を参照できるようにする
+   * @param {string} k
+   */
+  const normalizeVarsDefKey = (k) => {
+    const s = String(k || '').trim();
+    const m = s.match(/^(.*)_(JP|EN)$/);
+    return (m && m[1]) ? m[1] : s;
+  };
 
   const unit = opt?.display?.unit ? String(opt.display.unit).trim() : '';
   const withUnit = (text) => {
@@ -2615,7 +2671,7 @@ function formatValueForDisplay(value, labelMap = {}, workMeta = null, globalDefT
     // $EnumDef（サフィックス無し）は「フィールド名の EnumDef を参照」する運用を許容
     // - 例: GenderType.$type === '$EnumDef' でも $VarsDef.$EnumDef_GenderType を見て表示名へ
     if (!enumName && schemaTypeIncludes(opt.schemaType, '$EnumDef') && opt.fieldKey) {
-      const simple = String(opt.fieldKey).split('.').pop();
+      const simple = normalizeVarsDefKey(String(opt.fieldKey).split('.').pop());
       const raw = (value === null || value === undefined) ? '' : String(value).trim();
       if (simple && raw) {
         const code = raw.startsWith('#') ? (resolveEnumKey(simple, raw) || raw) : raw;
@@ -2649,7 +2705,7 @@ function formatValueForDisplay(value, labelMap = {}, workMeta = null, globalDefT
     // #ListIndex（RaceType 等）の場合、db_meta.json の #List_* から表示名を解決する
     // - 例: RaceType: 'Human' → '人間'
     if (schemaTypeIncludes(opt.schemaType, '#ListIndex') && opt.fieldKey) {
-      const simple = String(opt.fieldKey).split('.').pop();
+      const simple = normalizeVarsDefKey(String(opt.fieldKey).split('.').pop());
       if (simple) {
         const pack = resolveVarsDefLabelPack(simple, value, globalDefType, workMeta, opt.fieldKey);
         const text = formatBilingualLabel(pack, String(value ?? '').trim(), opt?.display);
@@ -2661,7 +2717,20 @@ function formatValueForDisplay(value, labelMap = {}, workMeta = null, globalDefT
     // db_meta.json($VarsDef) に定義があれば表示名解決を試みる。
     // - 例: GenderType の schemaType が取れない経路で 'FemaleNeutral' がコード表示に退避するのを防ぐ
     if ((!opt.schemaType || opt.schemaType === '') && opt.fieldKey) {
-      const simple = String(opt.fieldKey).split('.').pop();
+      const simple = normalizeVarsDefKey(String(opt.fieldKey).split('.').pop());
+      const raw = (value === null || value === undefined) ? '' : String(value).trim();
+      if (simple && raw) {
+        const pack = resolveVarsDefLabelPack(simple, raw, globalDefType, workMeta, opt.fieldKey);
+        const text = formatBilingualLabel(pack, raw, opt?.display);
+        if (text && text !== raw) return withUnit(text);
+      }
+    }
+
+    // 最終保険:
+    // schemaType が '#String' 等で Enum/List として判定できない場合でも、
+    // db_meta.json($VarsDef) に定義があれば表示名解決を試みる（GenderType 等の取りこぼし対策）。
+    if (opt.fieldKey) {
+      const simple = normalizeVarsDefKey(String(opt.fieldKey).split('.').pop());
       const raw = (value === null || value === undefined) ? '' : String(value).trim();
       if (simple && raw) {
         const pack = resolveVarsDefLabelPack(simple, raw, globalDefType, workMeta, opt.fieldKey);
@@ -2815,7 +2884,7 @@ function formatValueForDisplay(value, labelMap = {}, workMeta = null, globalDefT
 
       // Enum/List の value を辞書解決（GenderType: { value: 'Female', about_JP: '...' } など）
       if (baseRaw && opt?.fieldKey) {
-        const simple = String(opt.fieldKey).split('.').pop();
+        const simple = normalizeVarsDefKey(String(opt.fieldKey).split('.').pop());
         if (simple && schemaTypeIncludes(opt?.schemaType, '$EnumDef')) {
           const resolvedCode = baseRaw.startsWith('#') ? (resolveEnumKey(simple, baseRaw) || baseRaw) : baseRaw;
           const code = String(resolvedCode || '').trim();
@@ -2849,7 +2918,7 @@ function formatValueForDisplay(value, labelMap = {}, workMeta = null, globalDefT
     // - 例: Material: [{ Material: 'Fire' }] を #List_Material で '火' に
     // - 例: RaceType: [{ RaceType: 'Human', about_JP: '...' }] を '人間（...）' に
     if (schemaTypeIncludes(opt?.schemaType, '#ListIndex_withAbout') && opt?.fieldKey && isPlainObject(value)) {
-      const simple = String(opt.fieldKey).split('.').pop();
+      const simple = normalizeVarsDefKey(String(opt.fieldKey).split('.').pop());
       const about = value.about_JP || value.about_EN || value.about;
       const codeRaw = simple && Object.prototype.hasOwnProperty.call(value, simple) ? value[simple] : null;
       if (simple && (typeof codeRaw === 'string' || typeof codeRaw === 'number' || typeof codeRaw === 'boolean')) {
@@ -2861,7 +2930,7 @@ function formatValueForDisplay(value, labelMap = {}, workMeta = null, globalDefT
     }
 
     if (schemaTypeIncludes(opt?.schemaType, '#ListIndex') && opt?.fieldKey && isPlainObject(value)) {
-      const simple = String(opt.fieldKey).split('.').pop();
+      const simple = normalizeVarsDefKey(String(opt.fieldKey).split('.').pop());
       const ks = Object.keys(value).filter(k => k && typeof k === 'string' && !k.startsWith('_'));
       if (simple && ks.length === 1) {
         const leaf = ks[0];
@@ -2929,7 +2998,7 @@ function formatValueForDisplay(value, labelMap = {}, workMeta = null, globalDefT
     // $EnumDef（サフィックス無し）/ $EnumDef_withAbout の「ラッパー」を typedef-driven に整形
     // - 例: GenderType: { GenderType: 'Male', about_JP: '...' } → '男性（...）'
     if (schemaTypeIncludes(opt?.schemaType, '$EnumDef') && opt?.fieldKey && isPlainObject(value)) {
-      const simple = String(opt.fieldKey).split('.').pop();
+      const simple = normalizeVarsDefKey(String(opt.fieldKey).split('.').pop());
       if (simple) {
         const parts = extractEnumParts(value, simple);
         if (parts && Object.prototype.hasOwnProperty.call(parts, 'hideText')) {
@@ -4048,9 +4117,52 @@ async function renderDetail(workId, rec) {
   };
 
   const formatFieldValue = (fieldKey, raw) => {
+    // VarsDef 参照用に *_JP/_EN をベースキーへ正規化
+    const baseKey = (() => {
+      const s = String(fieldKey || '').trim();
+      const m = s.match(/^(.*)_(JP|EN)$/);
+      return (m && m[1]) ? m[1] : s;
+    })();
+
+    // 最終固定: GenderType は db_meta.json の $EnumDef_GenderType で必ず解決できる想定のため、
+    // ここで辞書直引きのフォールバックを行い「rawコード単体が残る」ケースを潰す。
+    // - formatValueForDisplay() 側で schema/display/map が欠けた場合や、basicFields の経路差異があっても確実に効かせる
+    if (baseKey === 'GenderType') {
+      const code = (raw === null || raw === undefined) ? '' : String(raw).trim();
+      if (code) {
+        const displayOpt = topLevelDisplayMap?.[fieldKey] ?? topLevelDisplayMap?.[baseKey] ?? null;
+        const pack = resolveVarsDefLabelPack('GenderType', code, globalDefType, metaForLookup, baseKey);
+        const label = formatBilingualLabel(pack, code, displayOpt);
+        if (label && label !== code) return label;
+
+        // デバッグ時のみ、辞書解決できているのに raw になる経路を追跡する
+        try {
+          if ($('#chk-debug')?.checked) {
+            console.warn('🧩 GenderType basicFields fallback kept raw:', {
+              fieldKey,
+              baseKey,
+              code,
+              displayOpt,
+              pack,
+              label
+            });
+          }
+        } catch (e) {
+          // noop
+        }
+      }
+    }
+
+    // 性別はグローバル辞書（db_meta.json の $EnumDef_GenderType）で必ず解決できる前提のため、
+    // schemaType の揺れ（古いキャッシュ/typedef差分/欠落等）に影響されないよう常に Enum 扱いに固定する。
+    // - 「基本情報テーブルの性別だけ英語コードが残る」ケースの根本対策
+    const schemaType = (fieldKey === 'GenderType')
+      ? '$EnumDef|$EnumDef_withAbout'
+      : (fieldTypeMap?.[fieldKey] ?? null);
+
     return formatValueForDisplay(raw, fieldLabelMap, metaForLookup, globalDefType, {
       display: topLevelDisplayMap?.[fieldKey] ?? null,
-      schemaType: fieldTypeMap?.[fieldKey] ?? null,
+      schemaType,
       fieldKey
     });
   };
@@ -4929,6 +5041,61 @@ async function renderDetail(workId, rec) {
   ].filter(Boolean));
 
   mount.appendChild(el('div', { class: 'detail' }, [left, right]));
+
+  // デバッグ: 画面内に「生コード（例: FemaleNeutral）」が残っている箇所を自動検出
+  // - 辞書解決自体は成功しているのに表示が変わらない場合、どのDOMノードが raw を出しているかを特定する
+  try {
+    if ($('#chk-debug')?.checked) {
+      const rawGT = rec?.GenderType;
+      if (typeof rawGT === 'string' && rawGT.trim()) {
+        const needle = rawGT.trim();
+
+        /**
+         * 要素の簡易パス（tag#id.class...）を作る
+         * @param {Element|null} el
+         */
+        const briefElPath = (el) => {
+          if (!el || !(el instanceof Element)) return '';
+          const parts = [];
+          let cur = el;
+          for (let i = 0; i < 6 && cur; i++) {
+            const tag = (cur.tagName || '').toLowerCase();
+            const id = cur.id ? `#${cur.id}` : '';
+            const cls = (cur.classList && cur.classList.length)
+              ? `.${Array.from(cur.classList).slice(0, 3).join('.')}`
+              : '';
+            parts.push(`${tag}${id}${cls}`);
+            cur = cur.parentElement;
+            if (cur === mount) break;
+          }
+          return parts.join(' <- ');
+        };
+
+        const hits = [];
+        const walker = document.createTreeWalker(mount, NodeFilter.SHOW_TEXT);
+        while (walker.nextNode()) {
+          const node = walker.currentNode;
+          const text = String(node?.nodeValue ?? '').trim();
+          if (!text) continue;
+          if (!text.includes(needle)) continue;
+
+          const parent = node.parentElement;
+          const tr = parent ? parent.closest('tr') : null;
+          const thText = tr ? String(tr.querySelector('th')?.textContent ?? '').trim() : '';
+          hits.push({ text, th: thText, path: briefElPath(parent) });
+          if (hits.length >= 12) break;
+        }
+
+        if (hits.length) {
+          console.warn('🧭 raw GenderType appears in rendered detail DOM:', { needle, hits });
+        } else {
+          console.log('🧭 raw GenderType not found in rendered detail DOM:', { needle });
+        }
+      }
+    }
+  } catch (e) {
+    console.warn('⚠️ raw GenderType DOM scan failed:', e);
+  }
 
   } catch (error) {
     console.error('Error rendering detail view:', error);

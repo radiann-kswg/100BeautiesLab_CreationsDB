@@ -206,8 +206,12 @@
 - UI（`pages/characters.js`）: typedef の `$display.langMode`（任意）で、JP/EN の表示切替・併記抑制ができるようにした（例: `'jp' | 'en' | 'enJp' | 'raw'`）。
 - UI（`pages/characters.js`）: グローバル定義辞書の取得失敗時に「空オブジェクトをキャッシュして固定化」しないようにし、Service Worker が制御状態になった後に再試行で復旧できるようにした。
 - UI（`pages/characters.js`）: グローバル辞書/typedef キャッシュが期待形でない場合は自動的に破棄して再フェッチする自己復旧を追加（古いキャッシュ等で辞書解決できずコード表示に戻るケースの緩和）。
+- UI（`pages/characters.js`）: `fetchGlobalDefType()` の API 応答が期待形でない場合に、`/data/db_meta.json` を `cache:'no-store'` で直 fetch する最終フォールバックを追加（GenderType 等がコード表示に戻るケースの最終救済）。
+- UI（`pages/characters.js`）: `fetchGlobalDefType()` の妥当性判定を強化し、`General.$VarsDef.$EnumDef_GenderType` を含まない不完全な辞書（誤レスポンス等）を有効キャッシュしないよう修正（「性別だけ FemaleNeutral が残る」根本原因の可能性に対応）。
 - UI（`pages/characters.js`）: Service Worker の controller 待ちで「タイムアウトでも成功扱い」になっていたため未制御のまま `/pages/v1/works` を叩いて 404 になる問題を修正（制御されるまで待機し、失敗は初期化エラーとして扱う）。
 - UI（`pages/characters.js`）: controller が付与されないケースの救済として、SW ready 後に `clients.claim()` を先に依頼し、短い待機→再試行の段階的待機に変更（SW/キャッシュリセット直後の初期化が 15s 固定で遅くなる問題を緩和）。
+- UI（`pages/characters.js`）: `schemaType` 推定が `#String` 等になってしまう経路でも、`fieldKey` があれば `db_meta.json($VarsDef)` を最後に参照して Enum/List の表示名解決を試すよう改善（GenderType が英語コードのまま残るケースの緩和）。
+- UI（`pages/characters.js`）: `fieldKey` が `GenderType_JP` のような言語サフィックス付きで伝播した場合でも、VarsDef 参照用のキーをベース名（`GenderType`）へ正規化して Enum/List の表示名解決ができるよう修正（kv-table の性別が `FemaleNeutral` のまま残るケースの根治）。
 - UI（`pages/characters.js`）: `$display` 抽出拡張に伴う `ReferenceError`（`traverseTmp` 未定義）で初期描画が落ちる不具合を修正。
 - UI（`pages/characters.js`）: `#List_Belonging` のように「ベースキーがJP文字列で \*\_JP が無い」辞書定義でも、JP/EN 併記が EN-only にならないようフォールバックを改善。
 - `data/Works_SinisterChangingGirls/DataBases/db_type.json`
@@ -254,3 +258,5 @@
 - UI（`pages/characters.js`）: `resolveVarsDefLabelPack()` で `$EnumDef_*` の辞書解決を「キー直引き（例: `#FemaleNeutral`）」優先にし、スキャン依存による取りこぼしを低減。
 - UI（`pages/characters.js`）: `GenderType` の typo コード `Valiable` を `Variable` として正規化し、辞書に無くても表示が崩れないよう後方互換を追加。
 - Data（`data/db_meta.json`）: `$EnumDef_GenderType` から `#Valiable` を削除し、`#Variable` に統合。
+- UI（`pages/characters.js`）: typedef から `GenderType` の `schemaType` が取得できない経路でも、`$EnumDef` として辞書解決を試すフォールバックを追加（英語コード表示の取りこぼし対策）。
+- UI（`pages/characters.js`）: デバッグON時に、詳細ビューDOM内に `GenderType` の生コードが残っている箇所を自動検出してコンソールへ出力（表示経路特定用）。
