@@ -710,6 +710,13 @@
       ],
       "#List_Belonging": [
         {
+          "Belonging": "百花繚乱研究所",
+          "Belonging_EN": "HundredBeauties Laboratory",
+          "BaseArea": { "Area": "九蓮国" },
+          "isForSecondary": false,
+          "isMaker": null
+        },
+        {
           "Belonging": "百戦錬磨開発所",
           "Belonging_EN": "HundredBattlers DevelopPlant",
           "BaseArea": { "Area": "九蓮国" },

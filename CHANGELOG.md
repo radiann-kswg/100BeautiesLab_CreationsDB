@@ -212,3 +212,16 @@
 - UI（`pages/characters.js`）: リスト側の簡易検索（`matchFilter`）に `Name_JP`/`FormalName_JP` などの互換キーも追加。
 - SW（`lib/data-common.js`）: `EnrichmentProcessor.searchRecords()` が、クエリ hashTag の `base`/`*_JP`/`*_EN` を相互にエイリアス扱いして一致判定できるように拡張。
 - Test: `tests/bilingual-fields.test.js` を追加。
+
+### `_Commons` 既定値の適用強化（空値も未設定扱い）
+
+- SW（`lib/sw-common.js`）: `CommonsProcessor.applyCommonsToRecords()` の既定値適用で、`undefined` だけでなく `null` / `''` / `[]` / `{}` も未設定扱いにして `_Commons` を適用するよう拡張。
+- `{ hideText: '...' }` は意図的マスクとして扱い、空値として上書きしない。
+- これにより、作品別 `db_meta.json` の `_Commons` で指定した初期値が、後段の `_DBLink` 参照で穴埋めされる値より優先される。
+
+### キャラシート: JP/EN 併記・辞書表示・空表示抑止の追補
+
+- UI（`pages/characters.js`）: スキーマ上に base キーしか無い場合でも、実データに `*_JP` / `*_EN` があれば 1 行に統合して表示するよう拡張。
+- UI（`pages/characters.js`）: base キーが表示済みの場合は `*_JP` / `*_EN` を二重表示しないよう抑止。
+- UI（`pages/characters.js`）: 空配列/空オブジェクト等を「表示不要」とみなす判定を強化し、空の能力種別が余分に出るケースを抑制。
+- UI（`pages/characters.js`）: `_DBLink` 解決結果のチップ（`RaceType`/`GenderType`）を typedef/meta 駆動の整形へ統一。

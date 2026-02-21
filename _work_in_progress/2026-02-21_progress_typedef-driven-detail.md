@@ -15,9 +15,18 @@
 - Data（NumberTales）: `$Def_Relations.$TypeDef` を `db_type.json` から `db_meta.json` に移動し、型=スキーマ / メタ=VarsDef の役割分離を改善。
 - Data（ShouArRiders）: `BeastspecName` / `BeastspecName_EN` を `profile` セクションへ分類。
 
+### 追補（\_Commons 優先 / JP/EN 併記 / 表示ノイズ抑止）
+
+- SW: 作品別 `db_meta.json` の `_Commons` を「空値も未設定扱い」で適用するよう拡張し、後段の `_DBLink` 参照より初期値が優先されるようにした（例: NumberTales の `Belonging`）。
+- UI: スキーマが base キーのみでも、実データに `*_JP` / `*_EN` があれば 1 行に統合して表示するよう拡張。
+- UI: base が表示済みなら `*_JP` / `*_EN` は二重表示しない。
+- UI: 空配列/空オブジェクト等の自動表示を抑止し、空の能力種別が余分に出るケースを抑制。
+- UI: `_DBLink` 解決結果のチップ（`RaceType`/`GenderType`）を typedef/meta 駆動の整形へ統一。
+
 ## 影響範囲（編集したファイル）
 
 - pages/characters.js
+- lib/sw-common.js
 - data/Works_NumberTales/DataBases/db_meta.json
 - data/Works_NumberTales/DataBases/db_type.json
 - data/Works_ShouArRiders/DataBases/db_type.json

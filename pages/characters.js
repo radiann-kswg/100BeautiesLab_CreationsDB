@@ -463,11 +463,26 @@ async function fetchWorkTypeDef(workKey) {
 function applyCommonsData(records, workMeta, dbName) {
   if (!workMeta || !workMeta.Databases) return records;
 
-  const dbKey = `#DB_${dbName}`;
+  const norm = String(dbName || '').replace(/^#?DB_/i, '');
+  const dbKey = norm ? `#DB_${norm.charAt(0).toUpperCase()}${norm.slice(1)}` : '';
   const dbMeta = workMeta.Databases[dbKey];
   if (!dbMeta || !dbMeta._Commons) return records;
 
   const commons = dbMeta._Commons;
+
+  // SW 側の CommonsProcessor と同等の「空値」判定に寄せる
+  // - undefined/null/空文字/空配列/空オブジェクトは未設定扱い
+  // - { hideText: '...' } は意図的マスクなので空扱いしない
+  const isEmptyForCommons = (v) => {
+    if (v === null || typeof v === 'undefined') return true;
+    if (v === '') return true;
+    if (Array.isArray(v)) return v.length === 0;
+    if (v && typeof v === 'object' && !Array.isArray(v)) {
+      if (typeof v.hideText === 'string' && v.hideText) return false;
+      return Object.keys(v).length === 0;
+    }
+    return false;
+  };
 
   return records.map(record => {
     const enriched = { ...record };
@@ -477,7 +492,7 @@ function applyCommonsData(records, workMeta, dbName) {
       // メタ定義（#List_* 等）や制御キー（_ListLinkIf_* 等）は、レコード値として混入させない
       // - SW 側の CommonsProcessor と同じ安全側ルール
       if (String(key).startsWith('#') || String(key).startsWith('_')) return;
-      if (enriched[key] === undefined || enriched[key] === null || enriched[key] === '') {
+      if (typeof enriched[key] === 'undefined' || isEmptyForCommons(enriched[key])) {
         enriched[key] = value;
       }
     });
@@ -3865,9 +3880,12 @@ async function renderDetail(workId, rec) {
     return s.includes('#Summary');
   };
 
-  const isEmptyValue = (v) => v === null || v === undefined || v === '';
+  const isEmptyValue = (v) => isEmptyValueLoose(v);
   const isInternalButAllowed = (k) => k === '_DBLink';
   const shouldSkipKey = (k, v) => {
+    // base が表示済みなら *_JP/_EN は二重表示しない
+    const lang = parseLangSuffix(k);
+    if (lang?.base && shownKeys.has(lang.base)) return true;
     if (shownKeys.has(k)) return true;
     if (k === 'Images') return true;
     if (k.startsWith('_') && !isInternalButAllowed(k)) return true;
@@ -3960,6 +3978,39 @@ async function renderDetail(workId, rec) {
       // ここに来た場合は統合表示しない（または既に表示済み）ので、このキー自体は抑止
       shownKeys.add(f.key);
       continue;
+    }
+
+    // スキーマが base キーのみでも、実データに *_JP/_EN がある場合は統合して表示
+    if (f.key && typeof f.key === 'string') {
+      const base = f.key;
+      const hasBilingual = rec && (Object.prototype.hasOwnProperty.call(rec, `${base}_JP`) || Object.prototype.hasOwnProperty.call(rec, `${base}_EN`));
+      if (hasBilingual) {
+        const suppressed = Array.isArray(detailLayout?.suppressKeys)
+          && (detailLayout.suppressKeys.includes(base) || detailLayout.suppressKeys.includes(`${base}_JP`) || detailLayout.suppressKeys.includes(`${base}_EN`));
+        if (!suppressed) {
+          const { text, usedKeys } = formatBilingualGroup(base);
+          if (text) {
+            const displayHint = fieldDisplayMap?.[`${base}_JP`] ?? fieldDisplayMap?.[`${base}_EN`] ?? fieldDisplayMap?.[base] ?? null;
+            if (!(displayHint && typeof displayHint === 'object' && displayHint.auto === false)) {
+              const sec = normalizeSection(displayHint?.section) || (isSummaryType(f.type) ? 'profile' : 'other');
+              pushToBucket(sec || 'other', {
+                key: base,
+                label: getFieldLabel(base, fieldLabelMap, workMeta, globalDefType, base),
+                type: null,
+                display: null,
+                value: text
+              });
+              shownKeys.add(base);
+              for (const uk of usedKeys) shownKeys.add(uk);
+              continue;
+            }
+          }
+        }
+
+        // 統合表示しない場合でも、派生キーは二重表示しない
+        shownKeys.add(`${base}_JP`);
+        shownKeys.add(`${base}_EN`);
+      }
     }
 
     // db_meta.json の $DetailLayout で抑止されたキーは自動表示しない
@@ -4230,8 +4281,18 @@ function renderDBLinkResolved(dbLinkResolved, fieldLabelMap, workMeta, globalDef
               record.Class || record.RaceType || record.GenderType ?
                 el('div', { style: 'margin-top: 4px;' }, [
                   record.Class ? el('span', { class: 'chip', style: 'margin-right: 4px;' }, [record.Class]) : null,
-                  record.RaceType ? el('span', { class: 'chip', style: 'margin-right: 4px;' }, [resolveVarsDefLabel('RaceType', record.RaceType, globalDefType, workMeta)]) : null,
-                  record.GenderType ? el('span', { class: 'chip', style: 'margin-right: 4px;' }, [resolveVarsDefLabel('GenderType', record.GenderType, globalDefType, workMeta)]) : null
+                  record.RaceType ? el('span', { class: 'chip', style: 'margin-right: 4px;' }, [
+                    formatValueForDisplay(record.RaceType, {}, workMeta, globalDefType, {
+                      schemaType: '#ListIndex|#ListIndex_withAbout[]',
+                      fieldKey: 'RaceType'
+                    })
+                  ]) : null,
+                  record.GenderType ? el('span', { class: 'chip', style: 'margin-right: 4px;' }, [
+                    formatValueForDisplay(record.GenderType, {}, workMeta, globalDefType, {
+                      schemaType: '$EnumDef|$EnumDef_withAbout',
+                      fieldKey: 'GenderType'
+                    })
+                  ]) : null
                 ].filter(Boolean)) : null
             ].filter(Boolean))
           ).concat(
