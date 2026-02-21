@@ -18,6 +18,7 @@
 - `_work_in_progress/` の完了ログは `_work_in_progress/.completed/` に退避します（Git 管轄外 / `.gitignore` 対象）。
   - 原則: 進行中のログのみ `_work_in_progress/` 直下に残す
   - 退避先（`.completed`）への書き込み/移動は、ユーザーの依頼がある場合のみ行う
+  - 整理（退避）を行った場合は、`_work_in_progress/README.md` の「進行中/完了」一覧も更新して見通しを維持する
 - **重要な仕様変更時は `CHANGELOG.md` も更新してください。**
   - 対象の目安: Service Worker のルーティング/API、`lib/` の共通処理、参照解決（enrich/search）、`db_type.json`/`db_meta.json` の仕様、`pages/characters.js` の表示仕様など。
   - 原則: 変更と同じコミット/PR 内で `CHANGELOG.md` に追記し、必要に応じて `_work_in_progress/` に補足ログを残します。
