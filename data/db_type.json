@@ -73,7 +73,7 @@
     },
     {
       "hashTag": "GenderType",
-      "$type": "$EnumDef",
+      "$type": "$EnumDef|$EnumDef_withAbout",
       "hashTag_JP": "性別",
       "$display": {
         "section": "basic",
@@ -82,7 +82,7 @@
     },
     {
       "hashTag": "Belonging",
-      "$type": "#ListIndex|#ListIndex_withAbout[]",
+      "$type": "#ListIndex[]",
       "hashTag_JP": "所属",
       "$display": {
         "section": "basic",

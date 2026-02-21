@@ -172,6 +172,8 @@
 - UI（`pages/characters.js`）: `Relation.Related[].RelationLabel` を `db_meta.json($VarsDef.#List_RelationLabel)` でJP化して表示するようにした。
 - Data（NumberTales）: `data/Works_NumberTales/DataBases/db_type.json` の `$VarsDef.$Def_Relations.$TypeDef` を `data/Works_NumberTales/DataBases/db_meta.json(General.$VarsDef.$Def_Relations.$TypeDef)` へ移動し、`db_type.json` からは `$VarsDef` を削除。
 - Data（ShouArRiders）: `BeastspecName` / `BeastspecName_EN` に `$display.section:"profile"` を追加し、「プロフィール/テキスト」へ自動分類されるようにした。
+- UI（`pages/characters.js`）: `resolveVarsDefLabel()` が `Databases.*._Commons`（例: ShouArRiders の `#List_Beast`）も探索して `#ListIndex` の表示名解決に利用できるようにした。
+- UI（`pages/characters.js`）: `#ListIndex_withAbout[]`（例: `RaceType`）の `{ <Field>: code, about(_JP|EN) }` を「表示名（about）」として整形できるようにした。
 
 #### 影響範囲（代表）
 

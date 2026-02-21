@@ -10,6 +10,8 @@
 
 - UI: typedef 上で子フィールドが定義されている object 値を「子ラベル: 値」形式に展開して表示する処理を追加（SpecType 表示と汎用表示の双方）。
 - UI: `RelationLabel` を `db_meta.json($VarsDef.#List_RelationLabel)` から解決して JP 表示。
+- UI: `resolveVarsDefLabel()` が `Databases.*._Commons`（例: ShouArRiders の `#List_Beast`）も探索できるようにし、`#ListIndex` の表示名解決に利用。
+- UI: `#ListIndex_withAbout[]`（例: `RaceType`）の `{ <Field>: code, about(_JP|EN) }` を「表示名（about）」として整形できるようにした。
 - Data（NumberTales）: `$Def_Relations.$TypeDef` を `db_type.json` から `db_meta.json` に移動し、型=スキーマ / メタ=VarsDef の役割分離を改善。
 - Data（ShouArRiders）: `BeastspecName` / `BeastspecName_EN` を `profile` セクションへ分類。
 

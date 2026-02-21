@@ -1296,6 +1296,17 @@ function resolveVarsDefLabel(fieldName, rawValue, globalDefType = null, metaForL
   const varsDefRoots = [];
   if (metaForLookup?.General?.$VarsDef && typeof metaForLookup.General.$VarsDef === 'object') varsDefRoots.push(metaForLookup.General.$VarsDef);
   if (metaForLookup?.$VarsDef && typeof metaForLookup.$VarsDef === 'object') varsDefRoots.push(metaForLookup.$VarsDef);
+
+  // 作品ごとの Commons（Databases 配下）も参照対象に含める
+  // - 例: Works_ShouArRiders の Databases.#DB_Primary._Commons.#List_Beast
+  if (metaForLookup?.Databases && typeof metaForLookup.Databases === 'object') {
+    for (const dbMeta of Object.values(metaForLookup.Databases)) {
+      if (!dbMeta || typeof dbMeta !== 'object') continue;
+      const commons = dbMeta._Commons;
+      if (commons && typeof commons === 'object') varsDefRoots.push(commons);
+    }
+  }
+
   if (globalDefType?.General?.$VarsDef && typeof globalDefType.General.$VarsDef === 'object') varsDefRoots.push(globalDefType.General.$VarsDef);
 
   // 参照が同一のケースを除外
@@ -2059,6 +2070,19 @@ function formatValueForDisplay(value, labelMap = {}, workMeta = null, globalDefT
     // #ListIndex の「ラッパー（単一キーObject）」を typedef-driven に整形
     // - 例: DualizePattern: { Pattern: 'Prop.' } を #List_DualizePattern（db_meta.json）で '通常' に
     // - 例: Material: [{ Material: 'Fire' }] を #List_Material で '火' に
+    // - 例: RaceType: [{ RaceType: 'Human', about_JP: '...' }] を '人間（...）' に
+    if (schemaTypeIncludes(opt?.schemaType, '#ListIndex_withAbout') && opt?.fieldKey && isPlainObject(value)) {
+      const simple = String(opt.fieldKey).split('.').pop();
+      const about = value.about_JP || value.about_EN || value.about;
+      const codeRaw = simple && Object.prototype.hasOwnProperty.call(value, simple) ? value[simple] : null;
+      if (simple && (typeof codeRaw === 'string' || typeof codeRaw === 'number' || typeof codeRaw === 'boolean')) {
+        const resolved = resolveVarsDefLabel(simple, codeRaw, globalDefType, workMeta, opt.fieldKey);
+        const label = resolved || String(codeRaw).trim();
+        if (about && label) return `${label}（${about}）`;
+        if (label) return label;
+      }
+    }
+
     if (schemaTypeIncludes(opt?.schemaType, '#ListIndex') && opt?.fieldKey && isPlainObject(value)) {
       const simple = String(opt.fieldKey).split('.').pop();
       const ks = Object.keys(value).filter(k => k && typeof k === 'string' && !k.startsWith('_'));

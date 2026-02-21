@@ -313,7 +313,7 @@
         {
           "hashTag": "RelationLabel",
           "$type": "#ListIndex[]",
-          "hashTag_JP": "関係性に関するラベル",
+          "hashTag_JP": "関係性タグ",
           "$display": { "section": "profile", "tagSpace": "creation" }
         }
       ],
