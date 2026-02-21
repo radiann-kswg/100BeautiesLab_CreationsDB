@@ -384,7 +384,6 @@ async function fetchGlobalMeta() {
     return globalMetaCache;
   } catch (error) {
     console.warn('⚠️ Failed to fetch global meta:', error.message);
-    globalMetaCache = {};
     return {};
   }
 }
@@ -404,7 +403,6 @@ async function fetchGlobalTypeDef() {
     return globalTypeDefCache;
   } catch (error) {
     console.warn('⚠️ Failed to fetch global type def:', error.message);
-    globalTypeDefCache = {};
     return {};
   }
 }
@@ -423,7 +421,6 @@ async function fetchGlobalDefType() {
     return globalDefTypeCache;
   } catch (error) {
     console.warn('⚠️ Failed to fetch global def type:', error.message);
-    globalDefTypeCache = {};
     return {};
   }
 }
@@ -450,7 +447,6 @@ async function fetchWorkTypeDef(workKey) {
     return typeDef;
   } catch (error) {
     console.warn('⚠️ Failed to fetch work type def:', workKey, error.message);
-    workTypeDefCache.set(normalizedKey, {});
     return {};
   }
 }/**
@@ -991,34 +987,96 @@ function buildFieldDisplayMap(workTypeDef, globalTypeDef = {}) {
 
   const isPlainObject = (v) => !!v && typeof v === 'object' && !Array.isArray(v);
 
+  /**
+   * items（$DefType/$TypeDef 由来）を再帰走査して $display を抽出する
+   * @param {any[]} items
+   * @param {string[]} path
+   * @param {Record<string, any>} out
+   * @param {number} depth
+   */
+  const traverseDisplayItems = (items, path, out, depth = 0) => {
+    if (!Array.isArray(items)) return;
+    if (depth > 8) return;
+    for (const item of items) {
+      if (!isPlainObject(item)) continue;
+      if (!item.hashTag || typeof item.hashTag !== 'string') continue;
+
+      const currentPath = [...path, item.hashTag];
+      const d = item.$display;
+      if (d && typeof d === 'object') {
+        const full = currentPath.join('.');
+        if (!Object.prototype.hasOwnProperty.call(out, full)) out[full] = d;
+        if (!Object.prototype.hasOwnProperty.call(out, item.hashTag)) out[item.hashTag] = d;
+      }
+
+      if (Array.isArray(item.$type)) traverseDisplayItems(item.$type, currentPath, out, depth + 1);
+      else if (isPlainObject(item.$type)) traverseDisplayItems([item.$type], currentPath, out, depth + 1);
+    }
+  };
+
+  /**
+   * typedef の「型定義コンテナ」（$VarsDef / $VersDef 配下の $Def_* 等）から $display を抽出する
+   * - 例: Works_NumberTales の $VersDef.$Def_Relations.$TypeDef[].$display.langMode
+   * - ここで抽出した値は、少なくとも hashTag キー（例: RelationLabel）で参照できれば十分。
+   * @param {any} def
+   */
+  const addFromTypeDefContainers = (def) => {
+    if (!def || typeof def !== 'object') return;
+
+    const varsDef = (
+      (def.$VarsDef && typeof def.$VarsDef === 'object') ? def.$VarsDef
+        : (def.$VersDef && typeof def.$VersDef === 'object') ? def.$VersDef
+          : (def.typedef?.$VarsDef && typeof def.typedef.$VarsDef === 'object') ? def.typedef.$VarsDef
+            : (def.typedef?.$VersDef && typeof def.typedef.$VersDef === 'object') ? def.typedef.$VersDef
+              : null
+    );
+    if (!varsDef || typeof varsDef !== 'object') return;
+
+    /** @type {Record<string, any>} */
+    const tmp = {};
+
+    const scanContainer = (container, basePath = []) => {
+      if (!container || typeof container !== 'object') return;
+      for (const [k, v] of Object.entries(container)) {
+        if (!k || typeof k !== 'string') continue;
+        if (!k.startsWith('$Def_')) continue;
+        if (!v || typeof v !== 'object') continue;
+
+        // `$Def_*` 配下の定義配列（$TypeDef / $DefType など）を走査
+        const arr = Array.isArray(v.$TypeDef) ? v.$TypeDef
+          : Array.isArray(v.$DefType) ? v.$DefType
+            : null;
+        if (Array.isArray(arr)) {
+          // basePath を付けると `$Def_Relations.RelationLabel` のようなキーも作れる
+          // - ただし render 側では hashTag（RelationLabel）参照も行うため、十分に効く
+          traverseDisplayItems(arr, [...basePath, k], tmp);
+        }
+
+        // ネストした $Def_* がある場合も考慮（深くなり過ぎない範囲で）
+        scanContainer(v, [...basePath, k]);
+      }
+    };
+
+    scanContainer(varsDef, []);
+
+    // merge（既存を上書きしない）
+    for (const [k, v] of Object.entries(tmp)) {
+      if (!Object.prototype.hasOwnProperty.call(displayMap, k)) displayMap[k] = v;
+    }
+  };
+
   const addFrom = (def) => {
     const arr = pickDefArray(def);
     if (!Array.isArray(arr)) return;
 
     const tmp = {};
-    const traverseTmp = (items, path = []) => {
-      if (!Array.isArray(items)) return;
-      for (const item of items) {
-        if (!isPlainObject(item)) continue;
-        if (!item.hashTag || typeof item.hashTag !== 'string') continue;
-
-        const currentPath = [...path, item.hashTag];
-        const d = item.$display;
-        if (d && typeof d === 'object') {
-          const full = currentPath.join('.');
-          if (!Object.prototype.hasOwnProperty.call(tmp, full)) tmp[full] = d;
-          if (!Object.prototype.hasOwnProperty.call(tmp, item.hashTag)) tmp[item.hashTag] = d;
-        }
-
-        if (Array.isArray(item.$type)) traverseTmp(item.$type, currentPath);
-        else if (isPlainObject(item.$type)) traverseTmp([item.$type], currentPath);
-      }
-    };
-
-    traverseTmp(arr, []);
+    traverseDisplayItems(arr, [], tmp);
     for (const [k, v] of Object.entries(tmp)) {
       if (!Object.prototype.hasOwnProperty.call(displayMap, k)) displayMap[k] = v;
     }
+
+    // `$DefType` 以外（$VarsDef / $VersDef の型定義コンテナ）も補足
+    addFromTypeDefContainers(def);
   };
 
   addFrom(workTypeDef);
@@ -1317,7 +1375,26 @@ function resolveVarsDefLabel(fieldName, rawValue, globalDefType = null, metaForL
 
   /** @type {any[]} */
   const varsDefRoots = [];
-  if (metaForLookup?.General?.$VarsDef && typeof metaForLookup.General.$VarsDef === 'object') varsDefRoots.push(metaForLookup.General.$VarsDef);
+
+  /**
+   * General 配下の `$Def_*` コンテナも探索対象に含める
+   * - 例: Works_NumberTales の General.$Def_Relations.#List_RelationLabel
+   * @param {any} general
+   */
+  const pushGeneralDefContainers = (general) => {
+    if (!general || typeof general !== 'object' || Array.isArray(general)) return;
+    for (const [k, v] of Object.entries(general)) {
+      if (!k || typeof k !== 'string') continue;
+      if (!k.startsWith('$Def_')) continue;
+      if (!v || typeof v !== 'object') continue;
+      varsDefRoots.push(v);
+    }
+  };
+
+  if (metaForLookup?.General && typeof metaForLookup.General === 'object') {
+    if (metaForLookup.General.$VarsDef && typeof metaForLookup.General.$VarsDef === 'object') varsDefRoots.push(metaForLookup.General.$VarsDef);
+    pushGeneralDefContainers(metaForLookup.General);
+  }
   if (metaForLookup?.$VarsDef && typeof metaForLookup.$VarsDef === 'object') varsDefRoots.push(metaForLookup.$VarsDef);
 
   // 作品ごとの Commons（Databases 配下）も参照対象に含める
@@ -1330,7 +1407,10 @@ function resolveVarsDefLabel(fieldName, rawValue, globalDefType = null, metaForL
     }
   }
 
-  if (globalDefType?.General?.$VarsDef && typeof globalDefType.General.$VarsDef === 'object') varsDefRoots.push(globalDefType.General.$VarsDef);
+  if (globalDefType?.General && typeof globalDefType.General === 'object') {
+    if (globalDefType.General.$VarsDef && typeof globalDefType.General.$VarsDef === 'object') varsDefRoots.push(globalDefType.General.$VarsDef);
+    pushGeneralDefContainers(globalDefType.General);
+  }
 
   // 参照が同一のケースを除外
   const uniqRoots = [];
@@ -1530,6 +1610,247 @@ function resolveVarsDefLabel(fieldName, rawValue, globalDefType = null, metaForL
   }
 
   return rv;
+}
+
+/**
+ * db_meta.json の $VarsDef（$EnumDef_* / #List_*）から、カテゴリ値のJP/ENペアを取得する
+ * - 既存の resolveVarsDefLabel() は「JP優先の単一文字列」だが、
+ *   こちらは「JP/EN両方の表示」に利用するための薄い補助。
+ * - EN は *_EN を優先し、無い場合は raw（コード）をフォールバックとして返す。
+ *
+ * @param {string} fieldName
+ * @param {any} rawValue
+ * @param {Object|null} globalDefType
+ * @param {Object|null} metaForLookup
+ * @param {string|null} fieldKey
+ * @returns {{ jp?: string, en?: string, raw?: string } | null}
+ */
+function resolveVarsDefLabelPack(fieldName, rawValue, globalDefType = null, metaForLookup = null, fieldKey = null) {
+  const fn = String(fieldName || '').trim();
+  if (!fn) return null;
+  if (rawValue === null || rawValue === undefined || rawValue === '') return null;
+
+  const rv = String(rawValue).trim();
+  if (!rv) return null;
+
+  const trimStr = (v) => (typeof v === 'string' && v.trim()) ? v.trim() : '';
+
+  /** @type {any[]} */
+  const varsDefRoots = [];
+
+  /** @param {any} general */
+  const pushGeneralDefContainers = (general) => {
+    if (!general || typeof general !== 'object' || Array.isArray(general)) return;
+    for (const [k, v] of Object.entries(general)) {
+      if (!k || typeof k !== 'string') continue;
+      if (!k.startsWith('$Def_')) continue;
+      if (!v || typeof v !== 'object') continue;
+      varsDefRoots.push(v);
+    }
+  };
+
+  if (metaForLookup?.General && typeof metaForLookup.General === 'object') {
+    if (metaForLookup.General.$VarsDef && typeof metaForLookup.General.$VarsDef === 'object') varsDefRoots.push(metaForLookup.General.$VarsDef);
+    pushGeneralDefContainers(metaForLookup.General);
+  }
+  if (metaForLookup?.$VarsDef && typeof metaForLookup.$VarsDef === 'object') varsDefRoots.push(metaForLookup.$VarsDef);
+  if (metaForLookup?.Databases && typeof metaForLookup.Databases === 'object') {
+    for (const dbMeta of Object.values(metaForLookup.Databases)) {
+      if (!dbMeta || typeof dbMeta !== 'object') continue;
+      const commons = dbMeta._Commons;
+      if (commons && typeof commons === 'object') varsDefRoots.push(commons);
+    }
+  }
+  if (globalDefType?.General && typeof globalDefType.General === 'object') {
+    if (globalDefType.General.$VarsDef && typeof globalDefType.General.$VarsDef === 'object') varsDefRoots.push(globalDefType.General.$VarsDef);
+    pushGeneralDefContainers(globalDefType.General);
+  }
+
+  const uniqRoots = [];
+  for (const r of varsDefRoots) {
+    if (!r || typeof r !== 'object') continue;
+    if (uniqRoots.includes(r)) continue;
+    uniqRoots.push(r);
+  }
+  if (!uniqRoots.length) return null;
+
+  const fk = String(fieldKey || '').trim();
+  const fkSegs = fk ? fk.split('.').map(s => String(s || '').trim()).filter(Boolean) : [];
+
+  const findNestedKey = (obj, key, depth = 0) => {
+    if (!obj || typeof obj !== 'object') return null;
+    if (depth > 8) return null;
+    if (Object.prototype.hasOwnProperty.call(obj, key)) return obj[key];
+
+    if (Array.isArray(obj)) {
+      for (const it of obj) {
+        const found = findNestedKey(it, key, depth + 1);
+        if (found) return found;
+      }
+      return null;
+    }
+
+    for (const v of Object.values(obj)) {
+      if (!v || typeof v !== 'object') continue;
+      const found = findNestedKey(v, key, depth + 1);
+      if (found) return found;
+    }
+    return null;
+  };
+
+  const collectVarsDefContexts = (varsDefRoot) => {
+    /** @type {any[]} */
+    const contexts = [varsDefRoot];
+    if (!fkSegs.length) return contexts;
+    let cur = varsDefRoot;
+    const upto = Math.max(0, fkSegs.length - 1);
+    for (let i = 0; i < upto; i++) {
+      const seg = fkSegs[i];
+      const key = `$Def_${seg}`;
+      if (cur && typeof cur === 'object' && Object.prototype.hasOwnProperty.call(cur, key) && cur[key] && typeof cur[key] === 'object') {
+        cur = cur[key];
+        contexts.push(cur);
+      } else {
+        break;
+      }
+    }
+    return contexts;
+  };
+
+  const makePack = (item, keyName) => {
+    const k = String(keyName || fn).trim();
+    const raw = trimStr(item?.[k]);
+    const jp = trimStr(item?.[`${k}_JP`]);
+    const en = trimStr(item?.[`${k}_EN`]);
+    return {
+      raw: raw || rv,
+      // NOTE: #List_Belonging のように「ベースキーがJP文字列」で *_JP が無いケースを許容する
+      // - *_JP が無い場合は raw（ベース値）を JP とみなす
+      jp: jp || raw || '',
+      en: en || raw || rv
+    };
+  };
+
+  for (const varsDef of uniqRoots) {
+    if (!varsDef || typeof varsDef !== 'object') continue;
+
+    // $EnumDef_XXX
+    const enumKey = `$EnumDef_${fn}`;
+    let enumDef = null;
+
+    if (fkSegs.length) {
+      const contexts = collectVarsDefContexts(varsDef);
+      for (let i = contexts.length - 1; i >= 0; i--) {
+        const ctx = contexts[i];
+        if (ctx && typeof ctx === 'object' && ctx[enumKey] && typeof ctx[enumKey] === 'object' && !Array.isArray(ctx[enumKey])) {
+          enumDef = ctx[enumKey];
+          break;
+        }
+      }
+    }
+    if (!enumDef && varsDef[enumKey] && typeof varsDef[enumKey] === 'object' && !Array.isArray(varsDef[enumKey])) {
+      enumDef = varsDef[enumKey];
+    }
+    if (!enumDef) {
+      const found = findNestedKey(varsDef, enumKey);
+      if (found && typeof found === 'object' && !Array.isArray(found)) enumDef = found;
+    }
+
+    if (enumDef && typeof enumDef === 'object') {
+      for (const v of Object.values(enumDef)) {
+        if (!v || typeof v !== 'object') continue;
+        const raw = trimStr(v[fn]);
+        const jp = trimStr(v[`${fn}_JP`]);
+        const en = trimStr(v[`${fn}_EN`]);
+        const hit = [raw, jp, en].some(x => x && x === rv);
+        if (hit) return { raw: raw || rv, jp: jp || raw || '', en: en || raw || rv };
+      }
+    }
+
+    // #List_XXX
+    const listKey = `#List_${fn}`;
+    let listDef = null;
+
+    if (fkSegs.length) {
+      const contexts = collectVarsDefContexts(varsDef);
+      for (let i = contexts.length - 1; i >= 0; i--) {
+        const ctx = contexts[i];
+        if (ctx && typeof ctx === 'object' && Array.isArray(ctx[listKey])) {
+          listDef = ctx[listKey];
+          break;
+        }
+      }
+    }
+    if (!listDef && Array.isArray(varsDef[listKey])) listDef = varsDef[listKey];
+    if (!listDef) {
+      const found = findNestedKey(varsDef, listKey);
+      if (Array.isArray(found)) listDef = found;
+    }
+
+    if (Array.isArray(listDef)) {
+      for (const item of listDef) {
+        if (!item || typeof item !== 'object') continue;
+
+        // preferred key で一致する場合
+        const raw = trimStr(item[fn]);
+        const jp = trimStr(item[`${fn}_JP`]);
+        const en = trimStr(item[`${fn}_EN`]);
+        const hit = [raw, jp, en].some(x => x && x === rv);
+        if (hit) return { raw: raw || rv, jp: jp || raw || '', en: en || raw || rv };
+
+        // フィールド名が一致しないケース（DualizePattern: Pattern など）
+        for (const [k, v] of Object.entries(item)) {
+          if (!k || typeof k !== 'string') continue;
+          if (k.endsWith('_JP') || k.endsWith('_EN')) continue;
+          if (k.startsWith('_')) continue;
+          if (typeof v !== 'string') continue;
+          if (v.trim() !== rv) continue;
+          return makePack(item, k);
+        }
+      }
+    }
+  }
+
+  return null;
+}
+
+/**
+ * resolveVarsDefLabelPack() の結果から「JP/ENの両方があれば併記」した文字列を作る
+ * @param {{jp?: string, en?: string, raw?: string} | null} pack
+ * @param {string} fallback
+ */
+function formatBilingualLabel(pack, fallback, displayOpt = null) {
+  const raw = (pack?.raw || String(fallback || '')).trim();
+  const jp = (pack?.jp || '').trim();
+  const en = (pack?.en || '').trim();
+
+  const modeRaw = (displayOpt && typeof displayOpt === 'object' && typeof displayOpt.langMode === 'string')
+    ? displayOpt.langMode.trim()
+    : '';
+  const mode = modeRaw
+    .replace(/\s+/g, '')
+    .replace(/-/g, '')
+    .replace(/_/g, '')
+    .toLowerCase();
+
+  const pickJp = () => jp || en || raw;
+  const pickEn = () => en || raw || jp;
+
+  if (mode === 'jp' || mode === 'ja') return pickJp();
+  if (mode === 'en' || mode === 'eng') return pickEn();
+  if (mode === 'raw' || mode === 'code') return raw;
+  if (mode === 'enj' || mode === 'enjp' || mode === 'enjpn') {
+    const primary = pickEn();
+    if (!primary) return '';
+    if (en && jp && en !== jp) return `${en} / ${jp}`;
+    return primary;
+  }
+
+  // default: jp/en (bilingual)
+  const primary = pickJp();
+  if (!primary) return '';
+  if (jp && en && jp !== en) return `${jp} / ${en}`;
+  return primary;
 }
 
 /**
@@ -1945,9 +2266,9 @@ function formatValueForDisplay(value, labelMap = {}, workMeta = null, globalDefT
       const raw = (value === null || value === undefined) ? '' : String(value).trim();
       if (simple && raw) {
         const code = raw.startsWith('#') ? (resolveEnumKey(simple, raw) || raw) : raw;
-        const resolved = resolveVarsDefLabel(simple, code, globalDefType, workMeta);
-        if (resolved) return withUnit(resolved);
-        return withUnit(code);
+        const pack = resolveVarsDefLabelPack(simple, code, globalDefType, workMeta, opt.fieldKey);
+        const text = formatBilingualLabel(pack, code, opt?.display);
+        return withUnit(text);
       }
     }
 
@@ -1977,8 +2298,9 @@ function formatValueForDisplay(value, labelMap = {}, workMeta = null, globalDefT
     if (schemaTypeIncludes(opt.schemaType, '#ListIndex') && opt.fieldKey) {
       const simple = String(opt.fieldKey).split('.').pop();
       if (simple) {
-        const resolved = resolveVarsDefLabel(simple, value, globalDefType, workMeta, opt.fieldKey);
-        if (resolved) return withUnit(resolved);
+        const pack = resolveVarsDefLabelPack(simple, value, globalDefType, workMeta, opt.fieldKey);
+        const text = formatBilingualLabel(pack, String(value ?? '').trim(), opt?.display);
+        if (text) return withUnit(text);
       }
     }
   }
@@ -2139,8 +2461,8 @@ function formatValueForDisplay(value, labelMap = {}, workMeta = null, globalDefT
       const about = value.about_JP || value.about_EN || value.about;
       const codeRaw = simple && Object.prototype.hasOwnProperty.call(value, simple) ? value[simple] : null;
       if (simple && (typeof codeRaw === 'string' || typeof codeRaw === 'number' || typeof codeRaw === 'boolean')) {
-        const resolved = resolveVarsDefLabel(simple, codeRaw, globalDefType, workMeta, opt.fieldKey);
-        const label = resolved || String(codeRaw).trim();
+        const pack = resolveVarsDefLabelPack(simple, codeRaw, globalDefType, workMeta, opt.fieldKey);
+        const label = formatBilingualLabel(pack, String(codeRaw).trim(), opt?.display);
         if (about && label) return `${label}（${about}）`;
         if (label) return label;
       }
@@ -2153,8 +2475,9 @@ function formatValueForDisplay(value, labelMap = {}, workMeta = null, globalDefT
         const leaf = ks[0];
         const raw = value?.[leaf];
         if (typeof raw === 'string' || typeof raw === 'number' || typeof raw === 'boolean') {
-          const resolved = resolveVarsDefLabel(simple, raw, globalDefType, workMeta, opt.fieldKey);
-          if (resolved) return withUnit(resolved);
+          const pack = resolveVarsDefLabelPack(simple, raw, globalDefType, workMeta, opt.fieldKey);
+          const text = formatBilingualLabel(pack, String(raw).trim(), opt?.display);
+          if (text) return withUnit(text);
         }
       }
     }
@@ -2225,9 +2548,10 @@ function formatValueForDisplay(value, labelMap = {}, workMeta = null, globalDefT
           const code = String(resolvedCode || '').trim();
           if (!code) return '';
 
-          const resolvedLabel = resolveVarsDefLabel(simple, code, globalDefType, workMeta, opt.fieldKey) || code;
-          if (parts.about) return `${resolvedLabel}（${parts.about}）`;
-          return resolvedLabel;
+          const pack = resolveVarsDefLabelPack(simple, code, globalDefType, workMeta, opt.fieldKey);
+          const label = formatBilingualLabel(pack, code, opt?.display);
+          if (parts.about) return `${label}（${parts.about}）`;
+          return label;
         }
       }
     }
@@ -2965,6 +3289,14 @@ async function renderList(records, workId, onOpen, imageFields = null) {
   const state = window.__CHAR_STATE__;
   const dbName = state ? state.db : 'Primary';
 
+  // typedef-driven の $display（unit / langMode 等）をリスト側でも参照できるようにする
+  const fieldDisplayMap = (() => {
+    const wtd = state?.workTypeDef || null;
+    const gtd = state?.globalTypeDef || null;
+    if (!wtd && !gtd) return {};
+    return buildFieldDisplayMap(wtd || {}, gtd || {});
+  })();
+
   // workMeta を参照できる場合は、表示名解決（#List_*）に利用
   const workMeta = state?.workMeta || null;
   const metaForLookup = (() => {
@@ -3011,6 +3343,7 @@ async function renderList(records, workId, onOpen, imageFields = null) {
     if (r.GenderType_JP || r.GenderType) {
       const raw = r.GenderType_JP || r.GenderType;
       const text = formatValueForDisplay(raw, {}, metaForLookup, globalDefType, {
+        display: fieldDisplayMap.GenderType || fieldDisplayMap['GenderType'] || null,
         schemaType: '$EnumDef|$EnumDef_withAbout',
         fieldKey: 'GenderType'
       });
@@ -3020,6 +3353,7 @@ async function renderList(records, workId, onOpen, imageFields = null) {
     if (r.RaceType_JP || r.RaceType) {
       const raw = r.RaceType_JP || r.RaceType;
       const text = formatValueForDisplay(raw, {}, metaForLookup, globalDefType, {
+        display: fieldDisplayMap.RaceType || fieldDisplayMap['RaceType'] || null,
         schemaType: '#ListIndex|#ListIndex_withAbout[]',
         fieldKey: 'RaceType'
       });
@@ -4174,7 +4508,7 @@ async function renderDetail(workId, rec) {
     specSection,
     profileSection,
     otherSection,
-    rec.Relation && (rec.Relation.Related || rec.Relation.Commented) ? renderRelations(rec.Relation, fieldLabelMap, metaForLookup, globalDefType) : null,
+    rec.Relation && (rec.Relation.Related || rec.Relation.Commented) ? renderRelations(rec.Relation, fieldLabelMap, metaForLookup, globalDefType, fieldDisplayMap) : null,
     // 参照解決結果の表示（_DBLinkResolved）
     rec._DBLinkResolved ? renderDBLinkResolved(rec._DBLinkResolved, fieldLabelMap, metaForLookup, globalDefType) : null
   ].filter(Boolean));
@@ -4196,7 +4530,7 @@ async function renderDetail(workId, rec) {
  * @param {Object} globalDefType
  * @returns {HTMLElement}
  */
-function renderRelations(rel, fieldLabelMap, workMeta, globalDefType) {
+function renderRelations(rel, fieldLabelMap, workMeta, globalDefType, fieldDisplayMap = null) {
   const related = Array.isArray(rel?.Related) ? rel.Related : [];
   const commented = Array.isArray(rel?.Commented) ? rel.Commented : [];
 
@@ -4214,12 +4548,16 @@ function renderRelations(rel, fieldLabelMap, workMeta, globalDefType) {
   };
 
   const localizeRelationLabels = (labels) => {
+    const displayOpt = (fieldDisplayMap && typeof fieldDisplayMap === 'object')
+      ? (fieldDisplayMap['Relation.Related.RelationLabel'] || fieldDisplayMap.RelationLabel || null)
+      : null;
     const arr = Array.isArray(labels) ? labels : [];
     return arr
       .map((x) => {
         const raw = pickRelationLabelCode(x);
         if (!raw) return '';
-        return resolveVarsDefLabel('RelationLabel', raw, globalDefType, workMeta, 'Relation.Related.RelationLabel');
+        const pack = resolveVarsDefLabelPack('RelationLabel', raw, globalDefType, workMeta, 'Relation.Related.RelationLabel');
+        return formatBilingualLabel(pack, raw, displayOpt);
       })
       .filter(Boolean);
   };

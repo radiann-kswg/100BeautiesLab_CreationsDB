@@ -198,6 +198,15 @@
 - `data/Works_FLInvestigator78/DataBases/db_type.json`
 - `data/Works_NumberTales/DataBases/db_type.json`
 - `data/Works_ShouArRiders/DataBases/db_type.json`
+
+### EnumDef/#ListIndex: JP/EN 併記と表示制御（langMode）
+
+- UI（`pages/characters.js`）: `$EnumDef(|$EnumDef_withAbout)` および `#ListIndex(|#ListIndex_withAbout)` の表示で、辞書（`db_meta.json`）から JP/EN を取得し `JP / EN` 形式で併記できるようにした。
+- UI（`pages/characters.js`）: 作品別メタで `#List_*` が `General.$VarsDef` 以外（例: `General.$Def_Relations.#List_RelationLabel`）に定義されている場合も探索して解決できるようにし、RelationLabel がコード（英語）だけになる問題を回避。
+- UI（`pages/characters.js`）: typedef の `$display.langMode`（任意）で、JP/EN の表示切替・併記抑制ができるようにした（例: `'jp' | 'en' | 'enJp' | 'raw'`）。
+- UI（`pages/characters.js`）: グローバル定義辞書の取得失敗時に「空オブジェクトをキャッシュして固定化」しないようにし、Service Worker が制御状態になった後に再試行で復旧できるようにした。
+- UI（`pages/characters.js`）: `$display` 抽出拡張に伴う `ReferenceError`（`traverseTmp` 未定義）で初期描画が落ちる不具合を修正。
+- UI（`pages/characters.js`）: `#List_Belonging` のように「ベースキーがJP文字列で \*\_JP が無い」辞書定義でも、JP/EN 併記が EN-only にならないようフォールバックを改善。
 - `data/Works_SinisterChangingGirls/DataBases/db_type.json`
 - `data/Works_Proxies/DataBases/db_type.json`
 - `data/Works_DestinyFoxsRecords/DataBases/db_type.json`
@@ -227,3 +236,5 @@
 - UI（`pages/characters.js`）: `_DBLink` 解決結果のチップ（`RaceType`/`GenderType`）を typedef/meta 駆動の整形へ統一。
 - SW（`lib/sw-common.js`）: `v1/deftype/global` が誤って `db_type.json` を返していたため、`db_meta.json`（`General.$VarsDef` の定義辞書）を返すよう修正。これにより `GenderType` / `RelationLabel` 等の和文化が安定して動作する。
 - UI（`pages/characters.js`）: `#ListIndex` の表示名解決で「値一致を確認せずに先頭要素のラベルを返してしまう」不具合を修正。これにより `Belonging` 等が“常に同一値”になる問題を解消。
+- UI（`pages/characters.js`）: typedef が `$EnumDef(|$EnumDef_withAbout)` / `#ListIndex[]` のフィールドについて、辞書定義に応じて「JP/EN 併記（例: `日本語 / English`）」で表示できるようにした（例: `GenderType`, `Belonging`, `RelationLabel`）。
+- Data（NumberTales）: `Relation.Related` / `Relation.Commented` / `ComeBacked` の typedef を `$Def_Relations[]` に揃え、実データ（配列）と現行 UI ロジックに合わせて堅牢化。

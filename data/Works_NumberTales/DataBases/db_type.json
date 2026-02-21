@@ -159,16 +159,50 @@
       "$type": [
         {
           "hashTag": "Related",
-          "$type": "$Def_Relations",
+          "$type": "$Def_Relations[]",
           "hashTag_JP": "親密な関係"
         },
         {
           "hashTag": "Commented",
-          "$type": "$Def_Relations",
+          "$type": "$Def_Relations[]",
           "hashTag_JP": "コメント"
         }
       ],
       "hashTag_JP": "関係キャラクター"
     }
-  ]
+  ],
+  "$VersDef": {
+    "$Def_Relations": {
+      "$TypeDef": [
+        {
+          "hashTag": "Num",
+          "$type": "$Index",
+          "isForSecondary": false,
+          "hashTag_JP": "番号"
+        },
+        {
+          "hashTag": "Comments",
+          "$type": "#String",
+          "isForSecondary": false,
+          "hashTag_JP": "コメント"
+        },
+        {
+          "hashTag": "ComeBacked",
+          "$type": "$Def_Relations[]",
+          "isForSecondary": true,
+          "hashTag_JP": "返答コメント"
+        },
+        {
+          "hashTag": "RelationLabel",
+          "$type": "#ListIndex[]",
+          "hashTag_JP": "関係性タグ",
+          "$display": {
+            "section": "profile",
+            "tagSpace": "creation",
+            "langMode": "jp"
+          }
+        }
+      ]
+    }
+  }
 }
