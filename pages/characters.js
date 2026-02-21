@@ -1284,7 +1284,7 @@ function getFieldLabel(fieldName, labelMap, workMeta = null, globalDefType = nul
  * @param {Object|null} metaForLookup - workMeta/globalMeta を統合した参照用メタ（任意）
  * @returns {string} 表示名（既定は日本語優先、なければ生値）
  */
-function resolveVarsDefLabel(fieldName, rawValue, globalDefType = null, metaForLookup = null) {
+function resolveVarsDefLabel(fieldName, rawValue, globalDefType = null, metaForLookup = null, fieldKey = null) {
   const fn = String(fieldName || '').trim();
   if (!fn) return '';
 
@@ -1292,14 +1292,79 @@ function resolveVarsDefLabel(fieldName, rawValue, globalDefType = null, metaForL
   const rv = String(rawValue).trim();
   if (!rv) return '';
 
-  const varsDef = (
-    (metaForLookup && metaForLookup.General && metaForLookup.General.$VarsDef && typeof metaForLookup.General.$VarsDef === 'object')
-      ? metaForLookup.General.$VarsDef
-      : (globalDefType && globalDefType.General && globalDefType.General.$VarsDef && typeof globalDefType.General.$VarsDef === 'object')
-        ? globalDefType.General.$VarsDef
-        : null
-  );
-  if (!varsDef) return rv;
+  /** @type {any[]} */
+  const varsDefRoots = [];
+  if (metaForLookup?.General?.$VarsDef && typeof metaForLookup.General.$VarsDef === 'object') varsDefRoots.push(metaForLookup.General.$VarsDef);
+  if (metaForLookup?.$VarsDef && typeof metaForLookup.$VarsDef === 'object') varsDefRoots.push(metaForLookup.$VarsDef);
+  if (globalDefType?.General?.$VarsDef && typeof globalDefType.General.$VarsDef === 'object') varsDefRoots.push(globalDefType.General.$VarsDef);
+
+  // 参照が同一のケースを除外
+  const uniqRoots = [];
+  for (const r of varsDefRoots) {
+    if (!r || typeof r !== 'object') continue;
+    if (uniqRoots.includes(r)) continue;
+    uniqRoots.push(r);
+  }
+  if (!uniqRoots.length) return rv;
+
+  const fk = String(fieldKey || '').trim();
+  const fkSegs = fk ? fk.split('.').map(s => String(s || '').trim()).filter(Boolean) : [];
+
+  /**
+   * $VarsDef のネストから指定キー（#List_XXX 等）を探索
+   * @param {any} obj
+   * @param {string} key
+   * @param {number} depth
+   * @returns {any}
+   */
+  const findNestedKey = (obj, key, depth = 0) => {
+    if (!obj || typeof obj !== 'object') return null;
+    if (depth > 8) return null;
+    if (Object.prototype.hasOwnProperty.call(obj, key)) return obj[key];
+
+    if (Array.isArray(obj)) {
+      for (const it of obj) {
+        const found = findNestedKey(it, key, depth + 1);
+        if (found) return found;
+      }
+      return null;
+    }
+
+    for (const v of Object.values(obj)) {
+      if (!v || typeof v !== 'object') continue;
+      const found = findNestedKey(v, key, depth + 1);
+      if (found) return found;
+    }
+    return null;
+  };
+
+  /**
+   * fieldKey（schemaPath）を手がかりに `$Def_<Segment>` を辿って「その周辺の VarsDef コンテキスト」を集める
+   * - 例: ArcanumspecStats.SpecType.ActionType.KinematicOrStatic
+   *   → $Def_ArcanumspecStats → $Def_SpecType → $Def_ActionType
+   * @param {any} varsDefRoot
+   * @returns {any[]}
+   */
+  const collectVarsDefContexts = (varsDefRoot) => {
+    /** @type {any[]} */
+    const contexts = [varsDefRoot];
+    if (!fkSegs.length) return contexts;
+    let cur = varsDefRoot;
+    // leaf 自体は $Def を持たないことが多いので、最後は探索対象にしない（Material 等は親に #List がある）
+    const upto = Math.max(0, fkSegs.length - 1);
+    for (let i = 0; i < upto; i++) {
+      const seg = fkSegs[i];
+      const key = `$Def_${seg}`;
+      if (cur && typeof cur === 'object' && Object.prototype.hasOwnProperty.call(cur, key) && cur[key] && typeof cur[key] === 'object') {
+        cur = cur[key];
+        contexts.push(cur);
+      } else {
+        // 途中で切れても、以降は辿れない
+        break;
+      }
+    }
+    return contexts;
+  };
 
   const pickLabel = (item) => {
     if (!item || typeof item !== 'object') return '';
@@ -1312,30 +1377,92 @@ function resolveVarsDefLabel(fieldName, rawValue, globalDefType = null, metaForL
     return '';
   };
 
-  // $EnumDef_XXX は { '#XXX1': { XXX:'...', XXX_JP:'...' }, ... } 形式
-  const enumDef = varsDef[`$EnumDef_${fn}`];
-  if (enumDef && typeof enumDef === 'object') {
-    for (const v of Object.values(enumDef)) {
-      if (!v || typeof v !== 'object') continue;
-      const raw = v[fn];
-      const jp = v[`${fn}_JP`];
-      const en = v[`${fn}_EN`];
-      if ((typeof raw === 'string' && raw.trim() === rv) || (typeof jp === 'string' && jp.trim() === rv) || (typeof en === 'string' && en.trim() === rv)) {
-        return pickLabel(v) || rv;
+  const pickLabelFlexible = (item, preferredKey) => {
+    if (!item || typeof item !== 'object') return '';
+
+    // まずは従来通り preferredKey（例: RaceType）ベースで拾う
+    const pk = String(preferredKey || '').trim();
+    if (pk) {
+      const jp = item[`${pk}_JP`];
+      const raw = item[pk];
+      const en = item[`${pk}_EN`];
+      if (typeof jp === 'string' && jp.trim()) return jp.trim();
+      if (typeof raw === 'string' && raw.trim()) return raw.trim();
+      if (typeof en === 'string' && en.trim()) return en.trim();
+    }
+
+    // 次に「値が一致するキー」を探索して、その *_JP を返す（例: #List_DualizePattern の Pattern）
+    for (const [k, v] of Object.entries(item)) {
+      if (!k || typeof k !== 'string') continue;
+      if (k.endsWith('_JP') || k.endsWith('_EN')) continue;
+      if (k.startsWith('_')) continue;
+      if (typeof v !== 'string') continue;
+      if (v.trim() !== rv) continue;
+      const jp = item[`${k}_JP`];
+      if (typeof jp === 'string' && jp.trim()) return jp.trim();
+      return v.trim();
+    }
+    return '';
+  };
+
+  for (const varsDef of uniqRoots) {
+    if (!varsDef || typeof varsDef !== 'object') continue;
+
+    // $EnumDef_XXX は { '#XXX1': { XXX:'...', XXX_JP:'...' }, ... } 形式
+    const enumDef = varsDef[`$EnumDef_${fn}`];
+    if (enumDef && typeof enumDef === 'object') {
+      for (const v of Object.values(enumDef)) {
+        if (!v || typeof v !== 'object') continue;
+        const raw = v[fn];
+        const jp = v[`${fn}_JP`];
+        const en = v[`${fn}_EN`];
+        if ((typeof raw === 'string' && raw.trim() === rv) || (typeof jp === 'string' && jp.trim() === rv) || (typeof en === 'string' && en.trim() === rv)) {
+          return pickLabel(v) || rv;
+        }
       }
     }
-  }
 
-  // #List_XXX は [{ XXX:'...', XXX_JP:'...' }, ...] 形式
-  const listDef = varsDef[`#List_${fn}`];
-  if (Array.isArray(listDef)) {
-    for (const item of listDef) {
-      if (!item || typeof item !== 'object') continue;
-      const raw = item[fn];
-      const jp = item[`${fn}_JP`];
-      const en = item[`${fn}_EN`];
-      if ((typeof raw === 'string' && raw.trim() === rv) || (typeof jp === 'string' && jp.trim() === rv) || (typeof en === 'string' && en.trim() === rv)) {
-        return pickLabel(item) || rv;
+    // #List_XXX は [{ ... }, ...] 形式
+    // - work 側では `$Def_*` のネスト配下にあることがあるため、fieldKey を手がかりに「その周辺」→ 無ければ再帰探索
+    const listKey = `#List_${fn}`;
+    /** @type {any[]|null} */
+    let listDef = null;
+
+    // context-first
+    if (fkSegs.length) {
+      const contexts = collectVarsDefContexts(varsDef);
+      for (let i = contexts.length - 1; i >= 0; i--) {
+        const ctx = contexts[i];
+        if (ctx && typeof ctx === 'object' && Array.isArray(ctx[listKey])) {
+          listDef = ctx[listKey];
+          break;
+        }
+      }
+    }
+    // direct
+    if (!listDef && Array.isArray(varsDef[listKey])) listDef = varsDef[listKey];
+    // nested fallback
+    if (!listDef) {
+      const found = findNestedKey(varsDef, listKey);
+      if (Array.isArray(found)) listDef = found;
+    }
+
+    if (Array.isArray(listDef)) {
+      for (const item of listDef) {
+        if (!item || typeof item !== 'object') continue;
+        const raw = item[fn];
+        const jp = item[`${fn}_JP`];
+        const en = item[`${fn}_EN`];
+        const hit = (
+          (typeof raw === 'string' && raw.trim() === rv)
+          || (typeof jp === 'string' && jp.trim() === rv)
+          || (typeof en === 'string' && en.trim() === rv)
+        );
+        if (hit) return pickLabel(item) || rv;
+
+        // フィールド名が一致しないケース（DualizePattern: Pattern を持つ等）
+        const flex = pickLabelFlexible(item, fn);
+        if (flex) return flex;
       }
     }
   }
@@ -1776,7 +1903,7 @@ function formatValueForDisplay(value, labelMap = {}, workMeta = null, globalDefT
     if (schemaTypeIncludes(opt.schemaType, '#ListIndex') && opt.fieldKey) {
       const simple = String(opt.fieldKey).split('.').pop();
       if (simple) {
-        const resolved = resolveVarsDefLabel(simple, value, globalDefType, workMeta);
+        const resolved = resolveVarsDefLabel(simple, value, globalDefType, workMeta, opt.fieldKey);
         if (resolved) return withUnit(resolved);
       }
     }
@@ -1927,6 +2054,22 @@ function formatValueForDisplay(value, labelMap = {}, workMeta = null, globalDefT
       const about = value.about_JP || value.about_EN || value.about;
       if (date && about) return `${date}（${about}）`;
       if (date) return date;
+    }
+
+    // #ListIndex の「ラッパー（単一キーObject）」を typedef-driven に整形
+    // - 例: DualizePattern: { Pattern: 'Prop.' } を #List_DualizePattern（db_meta.json）で '通常' に
+    // - 例: Material: [{ Material: 'Fire' }] を #List_Material で '火' に
+    if (schemaTypeIncludes(opt?.schemaType, '#ListIndex') && opt?.fieldKey && isPlainObject(value)) {
+      const simple = String(opt.fieldKey).split('.').pop();
+      const ks = Object.keys(value).filter(k => k && typeof k === 'string' && !k.startsWith('_'));
+      if (simple && ks.length === 1) {
+        const leaf = ks[0];
+        const raw = value?.[leaf];
+        if (typeof raw === 'string' || typeof raw === 'number' || typeof raw === 'boolean') {
+          const resolved = resolveVarsDefLabel(simple, raw, globalDefType, workMeta, opt.fieldKey);
+          if (resolved) return withUnit(resolved);
+        }
+      }
     }
 
     // #ListLink_*（EffectText/SafetyLevelText 等）のラッパーを typedef-driven に整形
@@ -3278,6 +3421,58 @@ async function renderDetail(workId, rec) {
     return (typeof t === 'string') ? t : '';
   };
 
+  // typedef 由来で「子フィールド定義が存在するobject」を検出・整形する
+  // - 例: For79or80thDealerCalling.{For79thDealer,For80thDealer}
+  // - 例: ArcanumspecStats.SpecType.ActionType.{KinematicOrStatic,RoleType}
+  const nestedSchemaCache = new Map();
+  const hasNestedSchema = (prefix) => {
+    const p = String(prefix || '').trim();
+    if (!p) return false;
+    if (nestedSchemaCache.has(p)) return !!nestedSchemaCache.get(p);
+    const dot = `${p}.`;
+    const ok = (
+      Object.keys(fieldTypeMap || {}).some(k => typeof k === 'string' && k.startsWith(dot))
+      || Object.keys(fieldDisplayMap || {}).some(k => typeof k === 'string' && k.startsWith(dot))
+      || Object.keys(fieldLabelMap || {}).some(k => typeof k === 'string' && k.startsWith(dot))
+    );
+    nestedSchemaCache.set(p, ok);
+    return ok;
+  };
+
+  const formatObjectChildren = (parentSchemaPath, obj, opt2 = null) => {
+    if (!isPlainObject(obj)) return '';
+    const parent = String(parentSchemaPath || '').trim();
+    if (!parent) return '';
+
+    const separator = (opt2 && typeof opt2 === 'object' && typeof opt2.separator === 'string') ? opt2.separator : '\n';
+    const parts = [];
+
+    for (const [ck, cv] of Object.entries(obj)) {
+      if (!ck || typeof ck !== 'string') continue;
+      if (ck.startsWith('_')) continue;
+      if (isEmptyValueLoose(cv)) continue;
+
+      const childPath = `${parent}.${ck}`;
+      const schemaPath = pickSchemaPath([childPath], childPath);
+      const childLabel = getFieldLabel(schemaPath, fieldLabelMap, metaForLookup, globalDefType, ck);
+
+      const hints = (isPlainObject(cv) && !Array.isArray(cv))
+        ? pickSchemaHintsForObjectLeaf([schemaPath, childPath], cv)
+        : { schemaType: pickSchemaType(schemaPath, childPath), schemaDisplay: pickSchemaDisplay(schemaPath, childPath, parent) };
+
+      const childValue = formatValueForDisplay(cv, fieldLabelMap, metaForLookup, globalDefType, {
+        schemaType: hints.schemaType,
+        display: hints.schemaDisplay,
+        fieldKey: schemaPath
+      });
+      if (!childValue) continue;
+
+      parts.push(`${childLabel}: ${childValue}`);
+    }
+
+    return parts.join(separator);
+  };
+
   // Abilities with localized labels
   // - top-level の object を走査し、「子が $EnumDef_Rank を含む」ものを能力値候補として推定
   const abilityKey = (() => {
@@ -3427,7 +3622,12 @@ async function renderDetail(workId, rec) {
         ? pickSchemaHintsForObjectLeaf([schemaPath, fieldPath], v)
         : { schemaType: pickSchemaType(schemaPath, fieldPath), schemaDisplay: pickSchemaDisplay(schemaPath, fieldPath, `${pickedSpecStatsKey}.${specTypeSubKey}`) };
 
-      const displayValue = formatValueForDisplay(v, fieldLabelMap, metaForLookup, globalDefType, {
+      // ActionType のような「子が定義されているobject」は、子ラベル付きで展開して表示する
+      const expanded = (isPlainObject(v) && hasNestedSchema(schemaPath))
+        ? formatObjectChildren(schemaPath, v, { separator: ' / ' })
+        : '';
+
+      const displayValue = expanded || formatValueForDisplay(v, fieldLabelMap, metaForLookup, globalDefType, {
         schemaType: hints.schemaType,
         display: hints.schemaDisplay,
         fieldKey: schemaPath
@@ -3547,6 +3747,12 @@ async function renderDetail(workId, rec) {
   };
 
   const toDisplayNode = (k, v, schemaType = null, schemaDisplay = null) => {
+    // typedef 上で「子フィールド定義が存在するobject」は、子ごとに表示（[object Object]回避 + 分離表示）
+    if (isPlainObject(v) && k && typeof k === 'string' && hasNestedSchema(k)) {
+      const expanded = formatObjectChildren(k, v, { separator: '\n' });
+      if (expanded) return expanded.includes('\n') ? preWrapText(expanded) : expanded;
+    }
+
     // スキーマ的に Summary 系 or 文字列改行は pre-wrap
     if (typeof v === 'string' && v.includes('\n')) return preWrapText(v);
     if (schemaType != null && isSummaryType(schemaType)) {
@@ -3752,7 +3958,7 @@ async function renderDetail(workId, rec) {
     specSection,
     profileSection,
     otherSection,
-    rec.Relation && (rec.Relation.Related || rec.Relation.Commented) ? renderRelations(rec.Relation) : null,
+    rec.Relation && (rec.Relation.Related || rec.Relation.Commented) ? renderRelations(rec.Relation, fieldLabelMap, metaForLookup, globalDefType) : null,
     // 参照解決結果の表示（_DBLinkResolved）
     rec._DBLinkResolved ? renderDBLinkResolved(rec._DBLinkResolved, fieldLabelMap, metaForLookup, globalDefType) : null
   ].filter(Boolean));
@@ -3766,16 +3972,52 @@ async function renderDetail(workId, rec) {
 }
 
 /**
- * Render character relationship information
- * @param {Object} rel - Relationship object containing Related and Commented arrays
- * @returns {HTMLElement} Section element with relationship information
+ * 関係（Relation）を typedef/meta 駆動で表示する
+ * - RelationLabel は #List_RelationLabel（db_meta.json の $VarsDef）を参照してJP化
+ * @param {Object} rel
+ * @param {Object} fieldLabelMap
+ * @param {Object} workMeta
+ * @param {Object} globalDefType
+ * @returns {HTMLElement}
  */
-function renderRelations(rel) {
-  const related = Array.isArray(rel.Related) ? rel.Related : [];
-  const commented = Array.isArray(rel.Commented) ? rel.Commented : [];
-  const r1 = related.map(r => el('div', { class: 'tag' }, [`→ ${r.Num}: ${(r.RelationLabel || []).join(', ')} ${r.Comments ? `- ${r.Comments}` : ''}`]));
-  const r2 = commented.map(r => el('div', { class: 'tag' }, [`← ${r.Num}: ${r.Comments || ''}`]));
-  return el('div', { class: 'section' }, [el('h3', {}, ['関係'] ), el('div', { class: 'kv-grid' }, [...r1, ...r2])]);
+function renderRelations(rel, fieldLabelMap, workMeta, globalDefType) {
+  const related = Array.isArray(rel?.Related) ? rel.Related : [];
+  const commented = Array.isArray(rel?.Commented) ? rel.Commented : [];
+
+  const localizeRelationLabels = (labels) => {
+    const arr = Array.isArray(labels) ? labels : [];
+    return arr
+      .map((x) => {
+        const raw = (x === null || x === undefined) ? '' : String(x).trim();
+        if (!raw) return '';
+        return resolveVarsDefLabel('RelationLabel', raw, globalDefType, workMeta, 'Relation.Related.RelationLabel');
+      })
+      .filter(Boolean);
+  };
+
+  const renderRelTag = (prefix, r, withLabels) => {
+    const num = (r?.Num === null || r?.Num === undefined) ? '' : String(r.Num).trim();
+    const comments = (r?.Comments === null || r?.Comments === undefined) ? '' : String(r.Comments);
+    const labels = withLabels ? localizeRelationLabels(r?.RelationLabel) : [];
+    const labelText = labels.length ? labels.join(', ') : '';
+
+    const main = [
+      `${prefix} ${num || '?'}`,
+      labelText ? `: ${labelText}` : '',
+      comments ? `${labelText ? ' ' : ': '}- ${comments}` : ''
+    ].join('');
+
+    const node = (typeof main === 'string' && main.includes('\n')) ? preWrapText(main) : main;
+    return el('div', { class: 'tag' }, [node]);
+  };
+
+  const r1 = related.map(r => renderRelTag('→', r, true));
+  const r2 = commented.map(r => renderRelTag('←', r, false));
+
+  return el('div', { class: 'section' }, [
+    el('h3', {}, [getFieldLabel('Relation', fieldLabelMap, workMeta, globalDefType, '関係')]),
+    el('div', { class: 'kv-grid' }, [...r1, ...r2])
+  ]);
 }
 
 /**

@@ -291,6 +291,32 @@
       }
     },
     "$Def_Relations": {
+      "$TypeDef": [
+        {
+          "hashTag": "Num",
+          "$type": "$Index",
+          "isForSecondary": false,
+          "hashTag_JP": "番号"
+        },
+        {
+          "hashTag": "Comments",
+          "$type": "#String",
+          "isForSecondary": false,
+          "hashTag_JP": "コメント"
+        },
+        {
+          "hashTag": "ComeBacked",
+          "$type": "$Def_Relations",
+          "isForSecondary": true,
+          "hashTag_JP": "返答コメント"
+        },
+        {
+          "hashTag": "RelationLabel",
+          "$type": "#ListIndex[]",
+          "hashTag_JP": "関係性に関するラベル",
+          "$display": { "section": "profile", "tagSpace": "creation" }
+        }
+      ],
       "#List_RelationLabel": [
         {
           "RelationLabel": "brother|sister",

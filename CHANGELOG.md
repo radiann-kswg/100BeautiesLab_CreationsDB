@@ -158,6 +158,24 @@
 - クライアント（`pages/characters.js`）で `"$display.unit"` を参照し、身長/体重などの単位付き表示を typedef 駆動へ移行（cm/kg のハードコードを撤去）。
 - クライアント（`pages/characters.js`）で `"$display.section"` を参照し、未表示のトップレベル項目を `basic/profile/spec/other` へ自動振り分けして表示するよう対応。
 - 設計メモを `_work_in_progress/2026-02-20_schema-driven-display-format.md` に整理。
+
+## 2026.02.21
+
+### キャラシート: db_meta.json（$VarsDef）ネスト定義の参照強化
+
+- `pages/characters.js` の `#ListIndex` 表示解決で、作品別 `db_meta.json` にある `$Def_*` 配下の `#List_*`（例: `$Def_ArcanumspecStats.$Def_SpecType.#List_Material`）も参照して表示名を解決できるようにした。
+- `DualizePattern` のように `#List_<Field>` 内の実値キーが `Pattern` になるケースも、値一致による柔軟な逆引きで表示名へ解決するよう改善。
+
+### キャラシート: object子要素の分解表示 / Relation表示の宣言駆動化
+
+- UI（`pages/characters.js`）: typedef 上で子フィールドが定義されている object 値（例: `For79or80thDealerCalling` / `SpecType.ActionType`）を、子ラベル付きで展開して表示するようにし、`[object Object]` 表示を回避。
+- UI（`pages/characters.js`）: `Relation.Related[].RelationLabel` を `db_meta.json($VarsDef.#List_RelationLabel)` でJP化して表示するようにした。
+- Data（NumberTales）: `data/Works_NumberTales/DataBases/db_type.json` の `$VarsDef.$Def_Relations.$TypeDef` を `data/Works_NumberTales/DataBases/db_meta.json(General.$VarsDef.$Def_Relations.$TypeDef)` へ移動し、`db_type.json` からは `$VarsDef` を削除。
+- Data（ShouArRiders）: `BeastspecName` / `BeastspecName_EN` に `$display.section:"profile"` を追加し、「プロフィール/テキスト」へ自動分類されるようにした。
+
+#### 影響範囲（代表）
+
+- `pages/characters.js`
 - `db_type.json($DefType)` の `$alt`（代替フィールド参照）を UI と enrich 出力が解釈し、該当キーが無い場合に代替キーを参照できるようにした。
 
 ### EnumDef/EnumLink 表示のフィールド単位制御（Rank/Rarity）

@@ -15,7 +15,7 @@
 
 ## いま進行中のファイル
 
-- （なし）
+- 2026-02-21_progress_typedef-driven-detail.md
 
 ## 完了ログ（ローカル退避: `_work_in_progress/.completed/`）
 

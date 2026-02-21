@@ -24,12 +24,14 @@
     {
       "hashTag": "BeastspecName",
       "$type": "#String_JP",
-      "hashTag_JP": "獣騎能力名"
+      "hashTag_JP": "獣騎能力名",
+      "$display": { "section": "profile" }
     },
     {
       "hashTag": "BeastspecName_EN",
       "$type": "#String_EN",
-      "hashTag_JP": "獣騎能力名_EN"
+      "hashTag_JP": "獣騎能力名_EN",
+      "$display": { "section": "profile" }
     },
     {
       "hashTag": "BeastspecStats",
@@ -49,7 +51,12 @@
           "hashTag": "SpecLevel",
           "$type": [{ "hashTag": "Rank", "$type": "$EnumDef_Rank,$EnumLink" }],
           "hashTag_JP": "能力レベル",
-          "$display": { "section": "spec", "tagSpace": "creation", "rankFormat": "alphaLabel", "enumLinkKey": "SpecLevelText" }
+          "$display": {
+            "section": "spec",
+            "tagSpace": "creation",
+            "rankFormat": "alphaLabel",
+            "enumLinkKey": "SpecLevelText"
+          }
         }
       ],
       "hashTag_JP": "獣騎能力の特性"

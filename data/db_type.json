@@ -64,7 +64,7 @@
     },
     {
       "hashTag": "RaceType",
-      "$type": "#ListIndex",
+      "$type": "#ListIndex|#ListIndex_withAbout[]",
       "hashTag_JP": "種族",
       "$display": {
         "section": "basic",
@@ -82,7 +82,7 @@
     },
     {
       "hashTag": "Belonging",
-      "$type": "#ListIndex",
+      "$type": "#ListIndex|#ListIndex_withAbout[]",
       "hashTag_JP": "所属",
       "$display": {
         "section": "basic",
