@@ -3371,47 +3371,61 @@ async function renderDetail(workId, rec) {
   ]) : null;
 
   // SpecType with localized labels（typedef-driven）
-  // - top-level の object を走査し、「子孫に section=spec が存在しうる」ものを候補として推定
-  // - 特定のキー名（SpecType/Material 等）を JS に固定で持たない
-  const specTypeKey = (() => {
-    const keys = Object.keys(rec || {});
-    for (const k of keys) {
-      const obj = rec?.[k];
+  // - specStats の直下から「能力種別（Material/ActionType 等の入れ子）」に該当するオブジェクトを推定し、その配下だけタグ表示する
+  // - specStats 全体（SafetyLevel/EffectStats 等）を誤って列挙しない
+  const specTypeSubKey = (() => {
+    if (!pickedSpecStatsKey || !isPlainObject(numStats)) return '';
+
+    /** @type {{ key: string, score: number }[]} */
+    const scored = [];
+
+    for (const k of Object.keys(numStats)) {
+      if (!k || typeof k !== 'string') continue;
+      const obj = numStats?.[k];
       if (!isPlainObject(obj)) continue;
-      const childKeys = Object.keys(obj).filter(x => x && typeof x === 'string' && !x.startsWith('_'));
-      if (!childKeys.length) continue;
 
-      // 子のいずれかに typedef があり、かつ $display.section=spec を持つ（または持ちうる）なら SpecType 候補
-      const hit = childKeys.some(ck => {
-        const path = `${k}.${ck}`;
-        const d = fieldDisplayMap?.[path] ?? fieldDisplayMap?.[ck] ?? null;
-        if (d && typeof d === 'object' && d.section === 'spec') return true;
+      // Effect/Safety として推定済みのものは除外
+      if (k === effectKey) continue;
+      if (k === safetyKey) continue;
 
-        // 直接 section が無くても、さらに下位に typedef がある（ネスト）場合は候補として許容
-        // - 例: ActionType のように親に $display が無いケース
-        const prefix = `${path}.`;
-        return Object.keys(fieldTypeMap || {}).some(tk => typeof tk === 'string' && tk.startsWith(prefix));
-      });
-      if (hit) return k;
+      const prefix = `${pickedSpecStatsKey}.${k}.`;
+      let score = 0;
+
+      // typedef 上で、この prefix 配下に $display.section === 'spec' がどれだけあるかでスコアリング
+      for (const [path, d] of Object.entries(fieldDisplayMap || {})) {
+        if (!path || typeof path !== 'string') continue;
+        if (!path.startsWith(prefix)) continue;
+        if (d && typeof d === 'object' && d.section === 'spec') score += 1;
+      }
+
+      // さらに「配下に typedef が存在する」こと自体も加点（ActionType のように親に section が無いケース向け）
+      if (score === 0) {
+        const hasNested = Object.keys(fieldTypeMap || {}).some(tk => typeof tk === 'string' && tk.startsWith(prefix));
+        if (hasNested) score += 1;
+      }
+
+      if (score > 0) scored.push({ key: k, score });
     }
-    return '';
+
+    if (!scored.length) return '';
+    scored.sort((a, b) => b.score - a.score);
+    return scored[0].key;
   })();
 
-  const specType = specTypeKey ? (rec?.[specTypeKey] || {}) : {};
+  const specType = (specTypeSubKey && isPlainObject(numStats?.[specTypeSubKey])) ? (numStats?.[specTypeSubKey] || {}) : {};
   const specNodes = [];
-  if (specTypeKey && isPlainObject(specType)) {
+  if (specTypeSubKey && isPlainObject(specType)) {
     for (const [k, v] of Object.entries(specType)) {
       if (!k || typeof k !== 'string') continue;
       if (isEmptyValueLoose(v)) continue;
 
-      const fieldPath = `${specTypeKey}.${k}`;
+      const fieldPath = `${pickedSpecStatsKey}.${specTypeSubKey}.${k}`;
       const schemaPath = pickSchemaPath([fieldPath], fieldPath);
       const fieldLabel = getFieldLabel(schemaPath, fieldLabelMap, metaForLookup, globalDefType, k);
 
-      // object leaf の型推定も併用（#ListLink 等）
       const hints = (isPlainObject(v) && !Array.isArray(v))
         ? pickSchemaHintsForObjectLeaf([schemaPath, fieldPath], v)
-        : { schemaType: pickSchemaType(schemaPath, fieldPath), schemaDisplay: pickSchemaDisplay(schemaPath, fieldPath, specTypeKey) };
+        : { schemaType: pickSchemaType(schemaPath, fieldPath), schemaDisplay: pickSchemaDisplay(schemaPath, fieldPath, `${pickedSpecStatsKey}.${specTypeSubKey}`) };
 
       const displayValue = formatValueForDisplay(v, fieldLabelMap, metaForLookup, globalDefType, {
         schemaType: hints.schemaType,
@@ -3494,10 +3508,7 @@ async function renderDetail(workId, rec) {
       const v = rec?.[k];
       if (v && typeof v === 'object' && Object.keys(v).length > 0) s.add(k);
     }
-    if (specTypeKey) {
-      const v = rec?.[specTypeKey];
-      if (v && typeof v === 'object' && Object.keys(v).length > 0) s.add(specTypeKey);
-    }
+    // SpecType は specStats 配下で表示するため、ここではトップレベル抑止不要
 
     // basic セクションの個別テーブルで表示するフィールド
     if (belong) s.add('Belonging');
