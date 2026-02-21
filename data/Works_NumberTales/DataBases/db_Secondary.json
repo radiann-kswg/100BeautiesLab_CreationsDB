@@ -2,7 +2,7 @@
   {
     "Num": "0xA",
     "Progress": "accepted\nremadeReleased",
-    "SecondarySeriesTitle": "ヘキサデミカル・テールズ",
+    "sec_SeriesTitle": "ヘキサデミカル・テールズ",
     "Images": {
       "concept_PNGName": "cnsp_img0xA"
     },
@@ -115,7 +115,7 @@
   {
     "Num": "0xB",
     "Progress": "accepted\nremadeReleased",
-    "SecondarySeriesTitle": "ヘキサデミカル・テールズ",
+    "sec_SeriesTitle": "ヘキサデミカル・テールズ",
     "Images": {
       "concept_PNGName": "cnsp_img0xB"
     },
@@ -238,7 +238,7 @@
   {
     "Num": "0xC",
     "Progress": "accepted\nremadeReleased",
-    "SecondarySeriesTitle": "ヘキサデミカル・テールズ",
+    "sec_SeriesTitle": "ヘキサデミカル・テールズ",
     "Images": {
       "concept_PNGName": "cnsp_img0xC"
     },
@@ -363,7 +363,7 @@
   {
     "Num": "0xD",
     "Progress": "accepted\nremadeReleased",
-    "SecondarySeriesTitle": "ヘキサデミカル・テールズ",
+    "sec_SeriesTitle": "ヘキサデミカル・テールズ",
     "Images": {
       "concept_PNGName": "cnsp_img0xD"
     },
@@ -493,7 +493,7 @@
   {
     "Num": "0xE",
     "Progress": "accepted\nremadeReleased",
-    "SecondarySeriesTitle": "ヘキサデミカル・テールズ",
+    "sec_SeriesTitle": "ヘキサデミカル・テールズ",
     "Images": {
       "concept_PNGName": "cnsp_img0xE"
     },
@@ -603,7 +603,7 @@
   {
     "Num": "0xF",
     "Progress": "accepted\nremadeReleased",
-    "SecondarySeriesTitle": "ヘキサデミカル・テールズ",
+    "sec_SeriesTitle": "ヘキサデミカル・テールズ",
     "Images": {
       "concept_PNGName": "cnsp_img0xF"
     },
@@ -717,7 +717,7 @@
   {
     "Num": "%",
     "Progress": "notProseed",
-    "SecondarySeriesTitle": "D-Vines(ディ-ヴァインズ)",
+    "sec_SeriesTitle": "D-Vines(ディ-ヴァインズ)",
     "Name": "マイ",
     "Name_EN": "Dancy",
     "_DBLink": {
@@ -764,7 +764,7 @@
   {
     "Num": "∞",
     "Progress": "notProseed",
-    "SecondarySeriesTitle": "D-Vines(ディ-ヴァインズ)",
+    "sec_SeriesTitle": "D-Vines(ディ-ヴァインズ)",
     "Name": "ウタカ",
     "Name_EN": "Phonia",
     "_DBLink": {

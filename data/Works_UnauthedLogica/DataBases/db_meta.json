@@ -1,6 +1,6 @@
 {
   "Databases": {
-    "#DB_Mobs": {
+    "#DB_PrimaryMobs": {
       "DB_Summary": "汎用オートマトンである7274オートマトンとして登場するモブ種族。\n現実の7400シリーズICをモチーフにした汎用ロジックを（彼らに最も構成されている72ISシリーズ集積素子として）それぞれ有している。\nなお、一次創作と副次創作の境界は取分け定めていない。",
       "StoryEra": {
         "FromEra": [{ "EraGen": 7, "YearInEra": 23 }, { "byRealYear": 2044 }],
@@ -16,15 +16,7 @@
       "_Commons": {
         "Belonging": ["ラストラステクニカ-インストゥルメント"],
         "RaceType": "Automaton"
-      },
-      "Secondaries": [
-        {
-          "SecondaryCategory": null,
-          "SecondaryDesignedBy": "ラジアン(柏木主税)",
-          "SecondarySeriesTitle": null,
-          "SecondarySummary": "（※一次創作キャラ：当サークル,ラジアン(柏木主税)からキャラデザされたもの）"
-        }
-      ]
+      }
     },
     "#DB_Primary": {
       "DB_Summary": "人形兵ゼロイドのうち、公式一次創作作品に登場するキャラクター。\nほとんどがパラレル存在であるナンバーテールズの引用のため、詳細は（細々とした外見を除き）そちらを参照。",

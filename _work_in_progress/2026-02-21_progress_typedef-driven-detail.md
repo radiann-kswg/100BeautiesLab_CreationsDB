@@ -10,6 +10,8 @@
 
 - UI: typedef 上で子フィールドが定義されている object 値を「子ラベル: 値」形式に展開して表示する処理を追加（SpecType 表示と汎用表示の双方）。
 - UI: `RelationLabel` を `db_meta.json($VarsDef.#List_RelationLabel)` から解決して JP 表示。
+- UI: Secondary DB（二次創作DB）文脈で、typedef の `isForSecondary` を考慮してトップレベル自動表示フィールドを選別するようにした。
+- UI: `RelationToPrimary` を関係セクションとして描画し、Secondary レコードで「原作との関係」を表示できるようにした。
 - UI: `resolveVarsDefLabel()` が `Databases.*._Commons`（例: ShouArRiders の `#List_Beast`）も探索できるようにし、`#ListIndex` の表示名解決に利用。
 - UI: `#ListIndex_withAbout[]`（例: `RaceType`）の `{ <Field>: code, about(_JP|EN) }` を「表示名（about）」として整形できるようにした。
 - Data（NumberTales）: `$Def_Relations.$TypeDef` を `db_type.json` から `db_meta.json` に移動し、型=スキーマ / メタ=VarsDef の役割分離を改善。
@@ -44,6 +46,7 @@
 ## 未完了タスク
 
 - ブラウザ上での表示最終確認（特に Works_FLInvestigator78 の SpecType 表示と、NumberTales の Relation 表示）。
+- Secondary DB（例: `db=Secondary`）で、`RelationToPrimary` が関係セクションとして出ること、`isForSecondary` により Primary/Secondary で表示フィールドが適切に切り替わることを確認。
 
 ## 参考リンク
 

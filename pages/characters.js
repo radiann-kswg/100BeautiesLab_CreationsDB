@@ -35,6 +35,20 @@ let globalDefTypeCache = null;
 let workTypeDefCache = new Map();
 
 /**
+ * DB名から「二次創作（Secondary系）」文脈かを推定
+ * - isForSecondary フィールドの表示切替に使用
+ * @param {string} dbName
+ * @returns {boolean}
+ */
+function isSecondaryDbName(dbName) {
+  const n = String(dbName || '').toLowerCase();
+  if (!n) return false;
+  // SemiPrimary は一次創作に準ずる扱いなので除外
+  if (n.includes('semiprimary')) return false;
+  return n.includes('secondary');
+}
+
+/**
  * Utility Functions
  */
 
@@ -547,9 +561,10 @@ function applyCommonsData(records, workMeta, dbName) {
   const norm = String(dbName || '').replace(/^#?DB_/i, '');
   const dbKey = norm ? `#DB_${norm.charAt(0).toUpperCase()}${norm.slice(1)}` : '';
   const dbMeta = workMeta.Databases[dbKey];
-  if (!dbMeta || !dbMeta._Commons) return records;
+  if (!dbMeta) return records;
 
-  const commons = dbMeta._Commons;
+  const commons = dbMeta._Commons || null;
+  const secDefs = dbMeta._Secondaries || dbMeta.Secondaries || null;
 
   // SW 側の CommonsProcessor と同等の「空値」判定に寄せる
   // - undefined/null/空文字/空配列/空オブジェクトは未設定扱い
@@ -568,8 +583,73 @@ function applyCommonsData(records, workMeta, dbName) {
   return records.map(record => {
     const enriched = { ...record };
 
+    // Secondary系: sec_SeriesTitle（等）で _Secondaries[] を参照し、シリーズ別の _Commons を適用
+    // - def側の値が null/undefined/'' の場合は「条件なし」とみなす
+    const findSecondaryCommons = () => {
+      if (!Array.isArray(secDefs)) return null;
+
+      const normStr = (v) => (v === null || typeof v === 'undefined') ? '' : String(v);
+      const getDef = (def, keys) => {
+        for (const k of keys) {
+          if (!k) continue;
+          if (Object.prototype.hasOwnProperty.call(def, k)) return def[k];
+        }
+        return undefined;
+      };
+
+      const criteriaDefs = [
+        {
+          primary: true,
+          defKeys: ['sec_SeriesTitle', 'SecondarySeriesTitle'],
+          recKeys: ['sec_SeriesTitle', 'SecondarySeriesTitle']
+        },
+        {
+          primary: false,
+          defKeys: ['sec_Category', 'SecondaryCategory'],
+          recKeys: ['sec_Category', 'SecondaryCategory']
+        },
+        {
+          primary: false,
+          defKeys: ['sec_DesignedBy', 'SecondaryDesignedBy'],
+          recKeys: ['sec_DesignedBy', 'SecondaryDesignedBy']
+        }
+      ];
+
+      let best = null;
+      let bestScore = -1;
+
+      for (const def of secDefs) {
+        if (!def || typeof def !== 'object') continue;
+        if (!def._Commons || typeof def._Commons !== 'object') continue;
+
+        let score = 0;
+        let ok = true;
+        for (const c of criteriaDefs) {
+          const defVal = getDef(def, c.defKeys);
+          if (defVal === null || typeof defVal === 'undefined' || normStr(defVal).trim() === '') continue;
+
+          const recVal = c.recKeys.map(k => enriched[k]).find(v => v !== null && typeof v !== 'undefined');
+          if (normStr(recVal) !== normStr(defVal)) {
+            ok = false;
+            break;
+          }
+          score += c.primary ? 10 : 1;
+        }
+        if (!ok) continue;
+
+        if (score > bestScore) {
+          bestScore = score;
+          best = def._Commons;
+        }
+      }
+      return best;
+    };
+
+    const secCommons = findSecondaryCommons();
+    const defaults = { ...(commons || {}), ...(secCommons || {}) };
+
     // Apply Commons values for missing fields
-    Object.entries(commons).forEach(([key, value]) => {
+    Object.entries(defaults).forEach(([key, value]) => {
       // メタ定義（#List_* 等）や制御キー（_ListLinkIf_* 等）は、レコード値として混入させない
       // - SW 側の CommonsProcessor と同じ安全側ルール
       if (String(key).startsWith('#') || String(key).startsWith('_')) return;
@@ -1177,9 +1257,15 @@ function buildFieldDisplayMap(workTypeDef, globalTypeDef = {}) {
  * @param {Object|Array} globalTypeDef - グローバル typedef（/v1/typedef/global）
  * @returns {Array<{key:string,label:string,type:any,display:any,source:string}>}
  */
-function extractTopLevelSchemaFields(workTypeDef, globalTypeDef = {}) {
+function extractTopLevelSchemaFields(workTypeDef, globalTypeDef = {}, options = {}) {
   const out = [];
   const seen = new Set();
+
+  const isSecondary = (() => {
+    if (typeof options?.isSecondary === 'boolean') return options.isSecondary;
+    if (typeof options?.dbName === 'string') return isSecondaryDbName(options.dbName);
+    return null;
+  })();
 
   const pickDefArray = (def) => {
     if (!def) return null;
@@ -1200,6 +1286,15 @@ function extractTopLevelSchemaFields(workTypeDef, globalTypeDef = {}) {
       if (!key || typeof key !== 'string') continue;
       if (key === 'Images') continue;
       if (seen.has(key)) continue;
+
+      // 二次創作向けフィールドの表示切替（isForSecondary）
+      // - undefined は「共通扱い」で常に表示
+      // - Secondary 文脈: true/undefined を表示、false は非表示
+      // - Primary 等の文脈: false/undefined を表示、true は非表示
+      if (isSecondary !== null && typeof item.isForSecondary === 'boolean') {
+        if (isSecondary && item.isForSecondary === false) continue;
+        if (!isSecondary && item.isForSecondary === true) continue;
+      }
 
       const label = item.hashTag_JP || item.hashtag_JP || key;
       out.push({
@@ -4309,6 +4404,7 @@ async function renderDetail(workId, rec) {
     // profile/relations/DBLinkResolved は個別表示する
     if (rec.Summary) s.add('Summary');
     if (rec.Relation) s.add('Relation');
+    if (rec.RelationToPrimary) s.add('RelationToPrimary');
     if (rec._DBLinkResolved) s.add('_DBLinkResolved');
 
     // Images は左カラムのギャラリー担当（キーとして持っていれば抑止）
@@ -4318,7 +4414,7 @@ async function renderDetail(workId, rec) {
   })();
 
   // db_type.json 由来の表示順（トップレベル）
-  const schemaFields = extractTopLevelSchemaFields(workTypeDef, globalTypeDef);
+  const schemaFields = extractTopLevelSchemaFields(workTypeDef, globalTypeDef, { dbName });
   const schemaKeySet = new Set(schemaFields.map(f => f.key));
 
   // スキーマから #Summary（長文）系を抽出し、プロフィールセクションに回す
@@ -4593,7 +4689,12 @@ async function renderDetail(workId, rec) {
     specSection,
     profileSection,
     otherSection,
-    rec.Relation && (rec.Relation.Related || rec.Relation.Commented) ? renderRelations(rec.Relation, fieldLabelMap, metaForLookup, globalDefType, fieldDisplayMap) : null,
+    rec.Relation && (rec.Relation.Related || rec.Relation.Commented)
+      ? renderRelations(rec.Relation, fieldLabelMap, metaForLookup, globalDefType, fieldDisplayMap, { containerKey: 'Relation' })
+      : null,
+    rec.RelationToPrimary && (rec.RelationToPrimary.Related || rec.RelationToPrimary.Commented)
+      ? renderRelations(rec.RelationToPrimary, fieldLabelMap, metaForLookup, globalDefType, fieldDisplayMap, { containerKey: 'RelationToPrimary' })
+      : null,
     // 参照解決結果の表示（_DBLinkResolved）
     rec._DBLinkResolved ? renderDBLinkResolved(rec._DBLinkResolved, fieldLabelMap, metaForLookup, globalDefType) : null
   ].filter(Boolean));
@@ -4615,7 +4716,11 @@ async function renderDetail(workId, rec) {
  * @param {Object} globalDefType
  * @returns {HTMLElement}
  */
-function renderRelations(rel, fieldLabelMap, workMeta, globalDefType, fieldDisplayMap = null) {
+function renderRelations(rel, fieldLabelMap, workMeta, globalDefType, fieldDisplayMap = null, options = {}) {
+  const containerKey = (typeof options?.containerKey === 'string' && options.containerKey.trim())
+    ? options.containerKey.trim()
+    : 'Relation';
+
   const related = Array.isArray(rel?.Related) ? rel.Related : [];
   const commented = Array.isArray(rel?.Commented) ? rel.Commented : [];
 
@@ -4633,15 +4738,16 @@ function renderRelations(rel, fieldLabelMap, workMeta, globalDefType, fieldDispl
   };
 
   const localizeRelationLabels = (labels) => {
+    const pathKey = `${containerKey}.Related.RelationLabel`;
     const displayOpt = (fieldDisplayMap && typeof fieldDisplayMap === 'object')
-      ? (fieldDisplayMap['Relation.Related.RelationLabel'] || fieldDisplayMap.RelationLabel || null)
+      ? (fieldDisplayMap[pathKey] || fieldDisplayMap.RelationLabel || null)
       : null;
     const arr = Array.isArray(labels) ? labels : [];
     return arr
       .map((x) => {
         const raw = pickRelationLabelCode(x);
         if (!raw) return '';
-        const pack = resolveVarsDefLabelPack('RelationLabel', raw, globalDefType, workMeta, 'Relation.Related.RelationLabel');
+        const pack = resolveVarsDefLabelPack('RelationLabel', raw, globalDefType, workMeta, pathKey);
         return formatBilingualLabel(pack, raw, displayOpt);
       })
       .filter(Boolean);
@@ -4667,7 +4773,7 @@ function renderRelations(rel, fieldLabelMap, workMeta, globalDefType, fieldDispl
   const r2 = commented.map(r => renderRelTag('←', r, false));
 
   return el('div', { class: 'section' }, [
-    el('h3', {}, [getFieldLabel('Relation', fieldLabelMap, workMeta, globalDefType, '関係')]),
+    el('h3', {}, [getFieldLabel(containerKey, fieldLabelMap, workMeta, globalDefType, containerKey === 'RelationToPrimary' ? '原作との関係' : '関係')]),
     el('div', { class: 'kv-grid' }, [...r1, ...r2])
   ]);
 }

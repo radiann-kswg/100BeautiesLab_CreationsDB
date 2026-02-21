@@ -1,6 +1,5 @@
 [
   {
-    "SecondaryCategory": null,
     "Model": { "LogicSeries": "74x", "Num": 14 },
     "Progress": "notProceeded",
     "Name": "シュミッツ",
@@ -25,7 +24,6 @@
     "LogicspecAbout": "状態を切り下げ/切り上げする"
   },
   {
-    "SecondaryCategory": null,
     "Model": { "LogicSeries": "74x", "Num": 141 },
     "Progress": "notProceeded",
     "Name": "ニッキー",
@@ -49,7 +47,6 @@
     "LogicspecAbout": "電熱燈を点灯させる"
   },
   {
-    "SecondaryCategory": null,
     "Model": { "LogicSeries": "74x", "Num": 181 },
     "Progress": "nowCreating",
     "Name": "アリス",
@@ -79,7 +76,6 @@
     "LogicspecAbout": "論理的計算をする"
   },
   {
-    "SecondaryCategory": null,
     "Model": { "LogicSeries": "74x", "Num": 182 },
     "Progress": "nowCreating",
     "Name": "ルッカ",

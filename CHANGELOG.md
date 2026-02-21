@@ -215,6 +215,11 @@
 - `data/Works_UnauthedLogica/DataBases/db_type.json`
 - `_work_in_progress/2026-02-20_schema-driven-display-format.md`
 
+### Secondary DB（二次創作DB）の表示追従（isForSecondary / RelationToPrimary）
+
+- UI（`pages/characters.js`）: `db_type.json($DefType)` のトップレベル項目抽出で `isForSecondary` を DB 文脈（Primary/Secondary）に応じてフィルタし、Secondary 専用フィールドが Primary 側に出ないよう制御を追加。
+- UI（`pages/characters.js`）: `RelationToPrimary` を「関係」系セクションとして描画し、Secondary レコードで「原作との関係」を表示できるようにした。
+
 ## 2026.02.21
 
 ### 2言語対応フィールド（_\_JP / _\_EN）の同義解釈

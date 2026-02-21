@@ -1358,7 +1358,7 @@
     "Class_EN": "Duet Triples V.A"
   },
   {
-    "SecondaryCategory": "リクエストナンバー",
+    "sec_Category": "リクエストナンバー",
     "Num": 223,
     "Progress": "released",
     "Images": {
@@ -7203,7 +7203,7 @@
     "Class_EN": "II+V+VII Triples"
   },
   {
-    "SecondaryCategory": "リクエストナンバー",
+    "sec_Category": "リクエストナンバー",
     "Num": 753,
     "Progress": "released",
     "Images": {
