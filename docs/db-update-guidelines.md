@@ -72,6 +72,29 @@
 - `enumFormat` / `rankFormat` / `rarityFormat`: 表示形式のヒント
 - `auto:false`: 自動表示（スキーマ駆動の列挙）から除外したいとき
 
+### 3.5 予約語/機械処理キーの命名（フェーズ3）
+
+このDBは、**予約語のプレフィックス（`_` / `$` / `#`）**で「データ」なのか「宣言/機械処理」なのかを機械的に区別できる設計を優先します。
+
+- `_`（手続き/機械処理）
+  - 参照解決や補完など、SW/API が特別扱いする制御キーです。
+  - 例: `_DBLink`, `_Jump`, `_Search`（データ側の参照解決）、`_Commons`, `_Secondaries`（メタ側の補完）
+- `$`（宣言/定義）
+  - `db_type.json` / `db_meta.json` 内で「定義」を表すためのキーです。
+  - 例: `$DefType`, `$VarsDef`, `$IndexDef`, `$EnumDef_*`
+- `#`（辞書キー/特殊型）
+  - 辞書エントリや特殊な `$type`（例: `#Index`）などで使います。
+  - 例: `#List_RaceType`, `#DB_Primary`
+
+運用上の目安:
+
+- **ユーザーが自由に追加する“通常フィールド”は先頭大文字（例: `Name`, `Age`, `AbilityStats`）を推奨**します。
+- 先頭小文字（例: `hashTag`, `key`, `val`）は、API の引数/内部構造で使う前提のキーとして扱い、DBフィールド名には原則使いません。
+- サフィックスによる意味づけ（既存運用）:
+  - 言語: `_JP`, `_EN`
+  - 単位: `_cm`, `_kg` など（可能なら `$display.unit` で宣言的に表現するのを優先）
+  - 拡張子/形式: `_PNG`, `_JPG` 等（画像フィールド運用）
+
 ---
 
 ## 4. `db_meta.json`（メタ定義）更新ルール
@@ -118,6 +141,10 @@
 
 - `Databases.#DB_<DbName>._Commons`: DB 全体に適用したい共通フィールド（穴埋め）
 - `Databases.#DB_<DbName>._Secondaries[]`: `sec_**`（例: `sec_SeriesTitle`, `sec_Category`）で適用する `_Commons` を分岐
+
+後方互換:
+
+- 旧キー `Secondaries` も読み取り対象ですが、**正は `_Secondaries`** です（移行期間中は開発者向け警告が出ます）。
 
 注意:
 

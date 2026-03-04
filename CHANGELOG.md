@@ -301,3 +301,10 @@
 
 - Test（`tests/docs.links.test.js`）: Markdown 内の既知誤リンク（例: `pages/characters.html` の単数表記）を継続検知する軽量テストを追加。
 - Docs（`README.test.md`, `CONTRIBUTING.md` ほか）: Windows/PowerShell の実行ポリシーで `npm.ps1` がブロックされる環境向けに、`npm.cmd test` / `.\node_modules\.bin\vitest.cmd run` の回避策を追記。
+
+### フェーズ3: 予約語/機械処理キーの整理（命名の言語化・ハードコード削減）
+
+- SW 共通（`lib/sw-common.js`）: 予約語（`_`/`$`/`#`）の判定・既知キー定数・`warnOnce` をまとめた `SchemaNaming` を追加。
+- SW 共通（`lib/data-common.js`）: `_DBLink/_Jump/_Search/_enrichment` 等の処理で、`SchemaNaming` を参照して予約語判定・システムキー除外を統一（`startsWith('_')` 等の散在を削減）。
+- 互換警告: 作品メタの旧キー `Secondaries` を参照した場合に、開発者向けに一度だけ警告を出す（正は `_Secondaries`）。
+- Docs（`docs/db-update-guidelines.md`）: 予約語プレフィックスと命名運用の目安を追記。

@@ -21,6 +21,7 @@
 - 2026-03-04_remaining-task.md
 - 2026-03-04_progress_phase0.md
 - 2026-03-04_progress_phase1_index.md
+- 2026-03-04_progress_phase3_reserved-keys.md
 
 ## 完了（.completed へ退避済み）
 
