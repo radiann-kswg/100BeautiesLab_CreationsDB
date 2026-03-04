@@ -105,4 +105,51 @@ describe('CommonsProcessor secondary series commons', () => {
     // 他のフィールド（未設定）は補完される
     expect(out0.RaceType).toBe('DeviatableHumanoid(TaleBeastType)');
   });
+
+  it('applies _Secondaries _Commons by sec_Category (and requires match when no sec_SeriesTitle)', () => {
+    const ctx = loadSwCommonIntoContext();
+    expect(ctx?.self?.CommonsProcessor).toBeTypeOf('function');
+
+    const meta = {
+      Databases: {
+        '#DB_SelfSecondary': {
+          _Commons: { Belonging: ['DB'] },
+          _Secondaries: [
+            { sec_Category: 'A', _Commons: { Belonging: ['A'] } },
+            { sec_Category: null, _Commons: { Belonging: ['DEFAULT'] } }
+          ]
+        }
+      }
+    };
+
+    // 1) sec_Category がある場合は、その一致定義を適用
+    const outAJson = vm.runInNewContext(
+      `(() => {
+        const meta = ${JSON.stringify(meta)};
+        const rec = { sec_Category: 'A' };
+        const out = self.CommonsProcessor.applyCommonsToRecords([rec], meta, 'SelfSecondary');
+        return JSON.stringify(out[0]);
+      })()`
+      ,
+      ctx,
+      { filename: 'tests/commons.secondaries.test.js#sec_category_A' }
+    );
+    const outA = JSON.parse(outAJson);
+    expect(outA.Belonging).toEqual(['A']);
+
+    // 2) sec_Category が無い場合は、sec_Category 指定の定義を誤適用せず、デフォルト定義を適用
+    const outNoCatJson = vm.runInNewContext(
+      `(() => {
+        const meta = ${JSON.stringify(meta)};
+        const rec = { Name: 'no-cat' };
+        const out = self.CommonsProcessor.applyCommonsToRecords([rec], meta, 'SelfSecondary');
+        return JSON.stringify(out[0]);
+      })()`
+      ,
+      ctx,
+      { filename: 'tests/commons.secondaries.test.js#sec_category_none' }
+    );
+    const outNoCat = JSON.parse(outNoCatJson);
+    expect(outNoCat.Belonging).toEqual(['DEFAULT']);
+  });
 });

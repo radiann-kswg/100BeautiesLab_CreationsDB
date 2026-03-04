@@ -287,3 +287,12 @@
 - Test（`tests/enrich.dblink.jump.merge.test.js`）: `#Index` 検索（スカラー/ネスト）の回帰テストを追加。
 - Data（作品別 typedef）: 作品ごとの index ルートキー（例: `Num` / `Card` / `BeastType` / `Drc` / `Unit` / `Generation` / `Model`）を、各 `data/Works_*/DataBases/db_type.json($DefType)` に `"$type":"#Index"` として明示。
 - Data（Breaking）: 作品ごとの index 定義（表示名/ネスト構造）は `data/Works_*/DataBases/db_type.json.$IndexDef` に集約し、`data/db_meta.json(CreationWorks.*.$DefType_Index / $Def_Index)` から削除。
+
+### フェーズ2: DB 種別多様化への耐性（メタ欠損フォールバック）
+
+- SW 共通（`lib/sw-common.js`, `pages/sw.js`）: 作品別 `db_meta.json` の欠損/取得失敗時に、DB取得/検索/エンリッチが 500 で落ちないようにし、`_Commons` 適用のみスキップして継続。
+- SW 共通（`lib/sw-common.js`）: メタが欠損している場合の DB 列挙フォールバック候補に `PrimaryDealer` / `PrimaryMobs` / `UnproceededSecondary` を追加。
+- SW 共通（`lib/sw-common.js`）: `db_meta.json.Databases.#DB_*._Secondaries[]` の `sec_Category` / `sec_DesignedBy` / `sec_SeriesTitle` による `_Commons` 分岐適用を調整。
+   - `sec_SeriesTitle` が未指定の定義では、`sec_Category` 等の指定がある場合はレコード側でも必須一致として扱い、誤適用を防止。
+- Test（`tests/sw.dbmeta.tolerance.test.js`）: `readWorkMeta()` 失敗時の耐性に関する回帰テストを追加。
+- Test（`tests/commons.secondaries.test.js`）: `sec_Category` による `_Secondaries` 分岐（primary未指定時の必須一致）の回帰テストを追加。

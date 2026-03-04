@@ -160,8 +160,12 @@ class PagesServiceWorker extends ServiceWorkerBase {
     if (!DataUtils.isValidDbName(dbName)) return ResponseUtils.badRequest('Invalid db parameter');
 
     let records = await this.dataFetcher.readDB(workId, dbName);
-    const workMeta = await this.dataFetcher.readWorkMeta(workId);
-    records = CommonsProcessor.applyCommonsToRecords(records, workMeta, dbName);
+    try {
+      const workMeta = await this.dataFetcher.readWorkMeta(workId);
+      records = CommonsProcessor.applyCommonsToRecords(records, workMeta, dbName);
+    } catch {
+      // メタ欠損時は _Commons 適用をスキップ
+    }
 
     const resolveCache = new Map();
     if (resolve) {
