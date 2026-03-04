@@ -19,9 +19,9 @@
 
 擬似 API はおおむね次の役割です。
 
-- `/api/v1/*`: 標準 API（エンリッチ無し）
-- `/pages/v1/*`: UI 用 API（エンリッチ有り）
-- `/svc/v1/*`: 広告ブロッカー回避用のミラー
+- `/api/v1/*`: 標準 API（既定はエンリッチ無し、`?enrich=1` で有効化）
+- `/pages/v1/*`: UI 用 API（既定でエンリッチ有り）
+- `/svc/v1/*`: 広告ブロッカー回避用のミラー（既定はエンリッチ無し、`?enrich=1` で有効化）
 
 > 補足（アプリ機能について）
 >
@@ -100,9 +100,13 @@ GitHub Pages の静的配信上でバックエンドの代わりに Service Work
 
 - `GET /api/v1/index` : 作品一覧概要
 - `GET /api/v1/works` : 作品一覧
-- `GET /api/v1/works/{work}/db/{dbName}` : 指定DBのレコード
+- `GET /api/v1/works/{work}/db/{dbName}` : 指定DBのレコード（`?resolve=1` / `?enrich=1`）
 - `GET /api/v1/varsdef` : `General.$VarsDef` 俯瞰
 - `GET /api/v1/typedef` : `$DefType` 俯瞰
+
+補足:
+
+- `enrich=1` を付けると、参照マージ（`_DBLink` / `_Jump`）、`$alt` フォールバック、画像メタ（`_enrichment.images`）など「UI での表示に便利な付加情報」も含めた出力になります。
 
 > 注意: 擬似 API はサービス提供を保証するものではありません（SLA/レート保証なし）。短時間の大量アクセスは避け、可能ならキャッシュを利用してください。
 

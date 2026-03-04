@@ -66,7 +66,11 @@ class ApiServiceWorker extends ServiceWorkerBase {
     // デバッグフラグ
     const debug = DataUtils.truthy(url.searchParams.get('debug'));
 
-    return this.routeApiRequest(seg, url, resolve, debug);
+    // エンリッチフラグ（デフォルトは無効、?enrich=1で有効化）
+    // - /pages は常時 enrich だが、/api は互換維持のため opt-in とする
+    const enrich = DataUtils.truthy(url.searchParams.get('enrich'));
+
+    return this.routeApiRequest(seg, url, resolve, debug, enrich);
   }
 
   /**
@@ -77,7 +81,7 @@ class ApiServiceWorker extends ServiceWorkerBase {
    * @param {boolean} debug - デバッグフラグ
    * @returns {Promise<Response>} APIレスポンス
    */
-  async routeApiRequest(seg, url, resolve, debug) {
+  async routeApiRequest(seg, url, resolve, debug, enrich) {
     // 共通エンドポイントを先にチェック
     const commonResponse = await this.apiHandlers.routeCommonEndpoints(seg, url);
     if (commonResponse) {
@@ -112,7 +116,7 @@ class ApiServiceWorker extends ServiceWorkerBase {
 
     // /api/v1/works/{work}/db/{dbName} - データベース取得
     if (seg.length === 4 && seg[0] === 'works' && seg[2] === 'db') {
-      return this.standardHandlers.handleDbEndpoint(seg[1], seg[3], resolve, debug, false);
+      return this.standardHandlers.handleDbEndpoint(seg[1], seg[3], resolve, debug, enrich);
     }
 
     // /api/v1/works/{work}/varsdef - 作品変数定義取得
@@ -122,7 +126,7 @@ class ApiServiceWorker extends ServiceWorkerBase {
 
     // /api/v1/search - 検索エンドポイント
     if (seg.length === 1 && seg[0] === 'search') {
-      return this.standardHandlers.handleSearchEndpoint(url, resolve, debug, false);
+      return this.standardHandlers.handleSearchEndpoint(url, resolve, debug, enrich);
     }
 
     // その他のエンドポイント（varsdef, typedef など）

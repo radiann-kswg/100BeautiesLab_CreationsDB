@@ -316,3 +316,9 @@
 - 互換警告: 作品メタの旧キー `Secondaries` を参照した場合に、開発者向けに一度だけ警告を出す（正は `_Secondaries`）。
 - Docs（`docs/db-update-guidelines.md`）: 予約語プレフィックスと命名運用の目安を追記。
 - Data（UnauthedLogica）: typedef の legacy ラベルキー `hashtag_JP` を廃止し、`hashTag_JP` に統一。
+
+### フェーズ4: API への統合（エンリッチ/マージの段階移行）
+
+- API（`api/sw.js`）: `GET /api/v1/works/{work}/db/{dbName}` と `GET /api/v1/search` で `?enrich=1` を受け取り、UI 用 API（`/pages/v1`）と同等のエンリッチ出力（参照マージ・`$alt` フォールバック・`_enrichment` 付与など）を opt-in で返せるようにした（既定は互換維持のため enrich 無し）。
+- SVC（`svc/sw.js`）: `/svc/v1` でも同様に `?enrich=1` をサポート。
+- Docs（`docs/viewer-guide.md`）: `/api`/`/svc` の enrich opt-in を明記。
