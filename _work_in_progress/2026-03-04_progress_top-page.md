@@ -13,7 +13,7 @@ GitHub Pages のトップ（`/`）に入口ページを設け、UI/API/ガイド
 - GitHub Pages トップ用に `index.html` を追加し、以下へ誘導するボタンを配置
   - キャラシート UI: `/pages/characters.html`
   - API（GUI）: `/api/`
-  - ガイドライン: GitHub の README（JP ガイドライン章）
+  - ガイドライン: GitHub の README（JP ガイドライン章）/ `docs/guidelines.en.md`（EN）
 - `README.md` のナビゲーションを「デプロイ先 URL（CNAME）」中心に整理し、入口リンクを明確化
 - `README.md` の `<details>` に `markdown="1"` を付与し、Markdown パーサ差異による崩れを起こしづらくした
 
