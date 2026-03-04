@@ -235,35 +235,35 @@
         }
       },
       "$EnumDef_GenderType": {
-        "#Female": {
+        "#GenderType_Female": {
           "GenderType": "Female",
           "GenderType_JP": "女性"
         },
-        "#FemaleNeutral": {
+        "#GenderType_FemaleNeutral": {
           "GenderType": "FemaleNeutral",
           "GenderType_JP": "無性別女性型"
         },
-        "#Male": {
+        "#GenderType_Male": {
           "GenderType": "Male",
           "GenderType_JP": "男性"
         },
-        "#MaleNeutral": {
+        "#GenderType_MaleNeutral": {
           "GenderType": "MaleNeutral",
           "GenderType_JP": "無性別男性型"
         },
-        "#Neutral": {
+        "#GenderType_Neutral": {
           "GenderType": "Neutral",
           "GenderType_JP": "無性別中性型"
         },
-        "#Arbitrary": {
+        "#GenderType_Arbitrary": {
           "GenderType": "Arbitrary",
           "GenderType_JP": "任意"
         },
-        "#Variable": {
+        "#GenderType_Variable": {
           "GenderType": "Variable",
           "GenderType_JP": "可変"
         },
-        "#Unknown": {
+        "#GenderType_Unknown": {
           "GenderType": "Unknown",
           "GenderType_JP": "不詳"
         }

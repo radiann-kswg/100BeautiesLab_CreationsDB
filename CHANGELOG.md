@@ -288,6 +288,13 @@
 - Data（作品別 typedef）: 作品ごとの index ルートキー（例: `Num` / `Card` / `BeastType` / `Drc` / `Unit` / `Generation` / `Model`）を、各 `data/Works_*/DataBases/db_type.json($DefType)` に `"$type":"#Index"` として明示。
 - Data（Breaking）: 作品ごとの index 定義（表示名/ネスト構造）は `data/Works_*/DataBases/db_type.json.$IndexDef` に集約し、`data/db_meta.json(CreationWorks.*.$DefType_Index / $Def_Index)` から削除。
 
+### Enum/List 表示名解決の堅牢化（一覧の GenderType 回帰対策）
+
+- UI（`pages/characters.js`）: `resolveVarsDefLabelPack()` が `#FemaleNeutral` のような「#付きコード」を受け取っても辞書（`$EnumDef_*` / `#List_*`）から JP/EN 表示名を解決できるようにし、一覧で英語コード表示へ退避する回帰を緩和。
+- UI（`pages/characters.js`）: デバッグON時に、一覧の GenderType が生コードに退避した場合のみ最小ログを出力し、辞書欠損/値形式の切り分けを容易化。
+- UI（`pages/characters.js`）: 一覧の GenderType チップ表示では `$display.langMode` を適用せず、既定の JP/EN 併記を優先（意図しない `langMode:'en'` 混入で英語コードのみになる回帰の暫定回避）。
+- UI（`pages/characters.js`）: `schemaType:'$EnumDef|$EnumDef_withAbout'` を `$EnumDef_withAbout` の文字列一致で誤って enum 名扱いしないよう修正し、EnumDef の辞書解決がスキップされて raw（英語コード）に退避する問題を修正。
+
 ### フェーズ2: DB 種別多様化への耐性（メタ欠損フォールバック）
 
 - SW 共通（`lib/sw-common.js`, `pages/sw.js`）: 作品別 `db_meta.json` の欠損/取得失敗時に、DB取得/検索/エンリッチが 500 で落ちないようにし、`_Commons` 適用のみスキップして継続。

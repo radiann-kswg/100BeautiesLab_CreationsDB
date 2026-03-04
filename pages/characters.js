@@ -2028,6 +2028,12 @@ function resolveVarsDefLabelPack(fieldName, rawValue, globalDefType = null, meta
   const rv = normalizeKnownEnumCode(fn, rvRaw);
   if (!rv) return null;
 
+  // '#FemaleNeutral' のような「#付きコード」でも解決できるように正規化
+  // - UI 側の schemaType が欠ける経路や、値が参照キーのまま流れてくる経路でも
+  //   JP/EN 表示名解決が外れて raw のまま残るのを避ける
+  const rvStripped = rv.startsWith('#') ? rv.slice(1).trim() : rv;
+  const rvCandidates = [rv, rvStripped].filter(Boolean);
+
   const trimStr = (v) => (typeof v === 'string' && v.trim()) ? v.trim() : '';
 
   /** @type {any[]} */
@@ -2154,8 +2160,13 @@ function resolveVarsDefLabelPack(fieldName, rawValue, globalDefType = null, meta
     if (enumDef && typeof enumDef === 'object') {
       // 可能ならキー直引き（#FemaleNeutral 等）を優先して高速・確実に解決する
       // NOTE: この形式は db_meta.json の $EnumDef_* が採用している典型形
-      const directKey = `#${rv}`;
-      if (Object.prototype.hasOwnProperty.call(enumDef, directKey)) {
+      const directKeys = Array.from(new Set([
+        rv.startsWith('#') ? rv : `#${rv}`,
+        rvStripped ? `#${rvStripped}` : '',
+      ].filter(Boolean)));
+
+      for (const directKey of directKeys) {
+        if (!Object.prototype.hasOwnProperty.call(enumDef, directKey)) continue;
         const item = enumDef[directKey];
         if (item && typeof item === 'object' && !Array.isArray(item)) {
           const raw = trimStr(item[fn]);
@@ -2170,7 +2181,7 @@ function resolveVarsDefLabelPack(fieldName, rawValue, globalDefType = null, meta
         const raw = trimStr(v[fn]);
         const jp = trimStr(v[`${fn}_JP`]);
         const en = trimStr(v[`${fn}_EN`]);
-        const hit = [raw, jp, en].some(x => x && x === rv);
+        const hit = [raw, jp, en].some(x => x && rvCandidates.includes(x));
         if (hit) return { raw: raw || rv, jp: jp || raw || '', en: en || raw || rv };
       }
     }
@@ -2203,7 +2214,7 @@ function resolveVarsDefLabelPack(fieldName, rawValue, globalDefType = null, meta
         const raw = trimStr(item[fn]);
         const jp = trimStr(item[`${fn}_JP`]);
         const en = trimStr(item[`${fn}_EN`]);
-        const hit = [raw, jp, en].some(x => x && x === rv);
+        const hit = [raw, jp, en].some(x => x && rvCandidates.includes(x));
         if (hit) return { raw: raw || rv, jp: jp || raw || '', en: en || raw || rv };
 
         // フィールド名が一致しないケース（DualizePattern: Pattern など）
@@ -2212,7 +2223,7 @@ function resolveVarsDefLabelPack(fieldName, rawValue, globalDefType = null, meta
           if (k.endsWith('_JP') || k.endsWith('_EN')) continue;
           if (k.startsWith('_')) continue;
           if (typeof v !== 'string') continue;
-          if (v.trim() !== rv) continue;
+          if (!rvCandidates.includes(v.trim())) continue;
           return makePack(item, k);
         }
       }
@@ -2540,7 +2551,11 @@ function formatValueForDisplay(value, labelMap = {}, workMeta = null, globalDefT
   const pickEnumNameFromSchemaType = (t) => {
     const s = (typeof t === 'string') ? t : '';
     const m = s.match(/\$EnumDef_([A-Za-z0-9_]+)/);
-    return m && m[1] ? m[1] : '';
+    const picked = (m && m[1]) ? String(m[1]).trim() : '';
+    // NOTE: '$EnumDef_withAbout' は「enum名」ではなく型バリアント。
+    // これを enumName='withAbout' と誤認すると、辞書解決が走らず raw（英語コード）に退避してしまう。
+    if (picked && picked.replace(/\s+/g, '').toLowerCase() === 'withabout') return '';
+    return picked;
   };
 
   /**
@@ -3839,6 +3854,24 @@ async function renderList(records, workId, onOpen, imageFields = null) {
     return buildFieldDisplayMap(wtd || {}, gtd || {});
   })();
 
+  /**
+   * 一覧チップ表示では「言語モードの取りこぼし（意図せず en になる）」が起きやすいため、
+   * 既定では bilingual（JP/EN 併記）に戻す。
+   * - GenderType は実データが英語コードで、辞書に JP があることが多い。
+   * - ここで langMode が混入すると「英語コードのみ」に退避してしまう。
+   * @param {string} field
+   * @param {any} display
+   */
+  const sanitizeListChipDisplay = (field, display) => {
+    const f = String(field || '').trim();
+    if (!display || typeof display !== 'object') return display;
+    if (f !== 'GenderType') return display;
+    // shallow clone して langMode を除去（他の display 設定は維持）
+    const next = { ...display };
+    if (Object.prototype.hasOwnProperty.call(next, 'langMode')) delete next.langMode;
+    return next;
+  };
+
   // workMeta を参照できる場合は、表示名解決（#List_*）に利用
   const workMeta = state?.workMeta || null;
   const metaForLookup = (() => {
@@ -3884,11 +3917,34 @@ async function renderList(records, workId, onOpen, imageFields = null) {
     // Enhanced chip generation with more field types
     if (r.GenderType_JP || r.GenderType) {
       const raw = r.GenderType_JP || r.GenderType;
+      const dispRaw = fieldDisplayMap.GenderType || fieldDisplayMap['GenderType'] || null;
       const text = formatValueForDisplay(raw, {}, metaForLookup, globalDefType, {
-        display: fieldDisplayMap.GenderType || fieldDisplayMap['GenderType'] || null,
+        display: sanitizeListChipDisplay('GenderType', dispRaw),
         schemaType: '$EnumDef|$EnumDef_withAbout',
         fieldKey: 'GenderType'
       });
+      // 一覧側で辞書解決が外れて raw（コード）に退避していないかの切り分け用ログ
+      // - デバッグON時のみ出力
+      try {
+        if ($('#chk-debug')?.checked) {
+          const rawStr = (raw === null || raw === undefined) ? '' : String(raw).trim();
+          const textStr = (text === null || text === undefined) ? '' : String(text).trim();
+          const isLikelyFallback = rawStr && textStr && rawStr === textStr;
+          if (isLikelyFallback) {
+            const pack = resolveVarsDefLabelPack('GenderType', rawStr, globalDefType, metaForLookup, 'GenderType');
+            const lm = (dispRaw && typeof dispRaw === 'object' && typeof dispRaw.langMode === 'string') ? dispRaw.langMode : '';
+            console.log('📋 list GenderType fallback check:', {
+              raw: rawStr,
+              text: textStr,
+              pack,
+              hasGenderEnum: !!globalDefType?.General?.$VarsDef?.$EnumDef_GenderType,
+              displayLangMode: lm,
+            });
+          }
+        }
+      } catch {
+        // no-op
+      }
       if (text) chipEls.push(el('span', { class: 'chip' }, text));
     }
     if (r.Class || r.Class_EN) chipEls.push(el('span', { class: 'chip' }, r.Class || r.Class_EN));
