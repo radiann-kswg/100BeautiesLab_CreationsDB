@@ -33,6 +33,7 @@ npm.cmd run test:watch
 
 - Sanity check for all JSON files under `data/`.
 - Presence checks for key meta/type definitions used by the Service Worker enrichers.
+- Minimal doc link sanity checks for known broken UI paths.
 
 ## Notes
 

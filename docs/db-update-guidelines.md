@@ -81,6 +81,10 @@
 - 作品ごとのインデックス（一覧チップ/直リンクの基準）は、作品別 typedef（`data/Works_<作品名>/DataBases/db_type.json`）の `$IndexDef` を更新して追従させます
 - `data/db_meta.json(CreationWorks.*.$DefType_Index / $Def_Index)` は廃止され、Index 定義の置き場は typedef 側に集約されました
 
+補足:
+
+- 作品別メタ（`data/Works_<作品>/DataBases/db_meta.json`）が未整備の作品もあります。Service Worker 側は欠損を許容しますが、`_Commons` / `_Secondaries` 等の付加（補完）処理は適用されません。
+
 ### 4.2 詳細表示レイアウト
 
 - 詳細の基本情報・ヘッダピル・抑制キーは `CreationWorks.<work>.$DetailLayout` で制御します
@@ -107,6 +111,17 @@
 - `value` は DB に格納される raw 値（コード値）と一致させます
 
 ---
+
+### 4.4 二次創作系DBの `_Commons` / `_Secondaries`（必要な場合）
+
+二次創作 DB（例: `db_Secondary.json`, `db_SelfSecondary.json`）で「一次創作側の共通情報を補完したい」場合、作品別 `db_meta.json` の `_Commons` と `_Secondaries` で宣言的に制御できます。
+
+- `Databases.#DB_<DbName>._Commons`: DB 全体に適用したい共通フィールド（穴埋め）
+- `Databases.#DB_<DbName>._Secondaries[]`: `sec_**`（例: `sec_SeriesTitle`, `sec_Category`）で適用する `_Commons` を分岐
+
+注意:
+
+- `sec_Category` 等の条件で分岐したい場合、レコード側にもそのフィールドを持たせ、定義と一致するようにしてください（曖昧な定義は誤適用防止のため適用されません）。
 
 ## 5. 2言語（JP/EN）フィールド運用ルール（最小）
 
@@ -140,12 +155,14 @@
 
 ```powershell
 npm test
+npm.cmd test
 ```
 
 - `tests/data.sanity.test.js`: JSON 構文・存在
 - `tests/data.shape.test.js`: スキーマ/メタとの整合
 - `tests/sw.enrich.basic.test.js`: enrich と基本エンドポイント
 - `tests/enrich.dblink.jump.merge.test.js`: 参照マージの回帰
+- `tests/docs.links.test.js`: ドキュメント内の既知誤リンク（例: `pages/characters.html` の単数表記）を継続検知
 
 ### 8.2 実機確認（UI/SWに影響する変更の場合）
 

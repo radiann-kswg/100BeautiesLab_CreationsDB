@@ -227,9 +227,18 @@
 - **参照解決機能**: データベース間の関連データ自動取得
 - **キャッシュ戦略**: 頻繁にアクセスするメタデータの効率的キャッシュ
 - **エラー処理**: 404/400 エラーの適切なハンドリング
+- **作品別メタの欠損耐性**: `data/Works_<work>/DataBases/db_meta.json` は未整備の作品では欠損し得ます。この場合でも DB 取得/検索/enrich は 500 で落とさず、`_Commons` 等の付加処理はスキップして継続します（メタは追加価値）。
 - **typedef 駆動**: enrich/search 等の振る舞いは `db_type.json($DefType)` を参照して補助（表示分類・正規化・画像ヒント・検索対象テキストなど）する設計を優先します。
 - **typedef 駆動の優先順位**: 表示分類 → 正規化 → 画像 → 検索（上位ほど破壊的変更になりやすいため、下位の拡張は慎重に段階導入）。
 - **enrich のメタ情報**: enrich 応答に `_enrichment` 等のメタ情報を含め、UI がセクション分けや表示制御に利用できるようにします（例: `_enrichment.displaySections`）。
+
+#### 作品別 `db_meta.json` の `_Commons` / `_Secondaries`（運用の要点）
+
+- 作品別メタ（`data/Works_<work>/DataBases/db_meta.json`）では、DB ごとの `Databases.#DB_<DbName>._Commons` で共通フィールドの補完（穴埋め）を定義できます。
+- 二次創作等（Secondary/SelfSecondary など）では `Databases.#DB_<DbName>._Secondaries[]` により、レコードの `sec_**` 相当フィールド（例: `sec_SeriesTitle`, `sec_Category`）で適用する `_Commons` を分岐できます。
+- 分岐条件の考え方（誤適用防止）:
+  - `sec_SeriesTitle` が指定されている定義は「シリーズ（一次創作側）を主キー」として扱い、追加の `sec_**` 条件は **レコード側に値がある場合のみ一致チェック**します（値が無いレコードには強制しない）。
+  - `sec_SeriesTitle` が未指定で `sec_Category` 等の条件がある定義は、その条件を **必須一致**として扱い、条件フィールドを持たないレコードへ誤適用しないようにします。
 
 ### 参照マージ（`_DBLink` / `_Jump`）運用ルール（重要）
 
@@ -264,6 +273,10 @@
 - **テストフレームワーク**: Vitest (高速・軽量なテストランナー)
 - **テスト実行**: `npm test` (全テスト実行), `npm run test:watch` (ウォッチモード)
 - **Node.js 要件**: Node.js 18.0.0 以上
+
+補足（Windows/PowerShell）:
+
+- PowerShell の実行ポリシーによって `npm.ps1` がブロックされる環境では、`npm.cmd test` または `.\\node_modules\\.bin\\vitest.cmd run` を使用してください。
 
 ### テスト分類
 
