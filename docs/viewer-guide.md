@@ -6,6 +6,23 @@
 - 仕組みを知る: 擬似 API（Service Worker）と `data/**` の JSON DB
 - フィールド定義を見る: `db_type.json($DefType)` と `db_meta.json($VarsDef)`
 
+---
+
+## 0. 用語ミニ辞書（Works / DB / DefType / VarsDef）
+
+このリポジトリは「データ（JSON）＋定義（型/辞書）＋擬似 API（Service Worker）」で構成されています。
+
+- **Works（作品）**: `data/Works_<作品>/` の単位（例: `Works_NumberTales`）
+- **DB（データベース種別）**: 作品内の DB ファイル（例: `DataBases/db_Primary.json`）
+- **`$DefType`（型定義）**: `db_type.json` にあるフィールドの型・表示ヒント（例: `hashTag_JP`、`$display`）
+- **`$VarsDef`（辞書/メタ）**: `db_meta.json` にある enum/list の辞書や補助情報（例: `#List_*`、`$EnumDef_*`）
+
+擬似 API はおおむね次の役割です。
+
+- `/api/v1/*`: 標準 API（エンリッチ無し）
+- `/pages/v1/*`: UI 用 API（エンリッチ有り）
+- `/svc/v1/*`: 広告ブロッカー回避用のミラー
+
 > 補足（アプリ機能について）
 >
 > - 本リポジトリのアプリ機能（Service Worker による擬似 API、キャラシート UI 等）の整備には、GitHub Copilot の支援が含まれます。

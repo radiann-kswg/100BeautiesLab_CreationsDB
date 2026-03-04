@@ -17,7 +17,7 @@ GitHub Pagesのトップページで折りたたまれている箇所のMarkdown
 
 ### 3. トップページの誘導改善
 
-[API本体](./api/)や[キャラシート生成機能本体のページ](./pages/character.html)がどこにあるかがわかりづらいので、これらのリンクを明確化する。GitHub Pagesのトップを`pages/character.html`とガイドラインへ視覚的に誘導する形式に変更する。（GitHub側の設定が必要ならuserに提案してもらう）
+[API本体](./api/)や[キャラシート生成機能本体のページ](./pages/characters.html)がどこにあるかがわかりづらいので、これらのリンクを明確化する。GitHub Pagesのトップを`pages/characters.html`とガイドラインへ視覚的に誘導する形式に変更する。（GitHub側の設定が必要ならuserに提案してもらう）
 
 ## 希望タスク（規模,優先順位順）
 
