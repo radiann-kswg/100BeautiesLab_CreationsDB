@@ -44,7 +44,7 @@ describe('docs link sanity', () => {
 
       // `pages/character.html` をコード表記で書いているケース
       if (txt.includes('`pages/character.html`') || txt.includes('`/pages/character.html`')) {
-        errors.push(`${rel}: contains \\`pages/character.html\\``);
+        errors.push(`${rel}: contains \`pages/character.html\``);
       }
     }
 

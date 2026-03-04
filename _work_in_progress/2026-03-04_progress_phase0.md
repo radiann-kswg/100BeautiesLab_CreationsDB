@@ -7,7 +7,7 @@
 ## 変更点の要約
 
 - 閲覧者向けガイドに「用語ミニ辞書（Works/DB/DefType/VarsDef + APIスコープ）」を追加
-- 進捗ログ原文で混入していた誤リンク `pages/character.html` を `pages/characters.html` に修正
+- 進捗ログ原文で混入していた誤リンク（`pages/character(s).html` の単数表記）を `pages/characters.html` に修正
 - Markdown 内の既知誤リンクを継続検知する Vitest を追加
 
 ## 影響範囲（編集したファイル）

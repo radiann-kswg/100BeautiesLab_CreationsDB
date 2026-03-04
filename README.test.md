@@ -15,10 +15,19 @@ npm install
 ## Run tests
 
 ```powershell
+# 通常
 npm test
+
+# PowerShell の実行ポリシーにより npm.ps1 がブロックされる環境では npm.cmd を使います
+npm.cmd test
 # or watch mode
 npm run test:watch
+npm.cmd run test:watch
 ```
+
+補足：
+
+- `cmd /c npm test` や `.\\node_modules\\.bin\\vitest.cmd run` でも実行できます。
 
 ## What is covered
 

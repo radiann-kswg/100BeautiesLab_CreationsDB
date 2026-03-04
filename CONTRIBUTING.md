@@ -54,9 +54,14 @@ python -m http.server 5500
 ## テスト
 
 ```powershell
+# 通常
 npm test
+
+# PowerShell の実行ポリシーにより npm.ps1 がブロックされる環境では npm.cmd を使います
+npm.cmd test
 # or
 npm run test:watch
+npm.cmd run test:watch
 ```
 
 主に以下をカバーします。
