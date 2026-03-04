@@ -308,3 +308,4 @@
 - SW 共通（`lib/data-common.js`）: `_DBLink/_Jump/_Search/_enrichment` 等の処理で、`SchemaNaming` を参照して予約語判定・システムキー除外を統一（`startsWith('_')` 等の散在を削減）。
 - 互換警告: 作品メタの旧キー `Secondaries` を参照した場合に、開発者向けに一度だけ警告を出す（正は `_Secondaries`）。
 - Docs（`docs/db-update-guidelines.md`）: 予約語プレフィックスと命名運用の目安を追記。
+- Data（UnauthedLogica）: typedef の legacy ラベルキー `hashtag_JP` を廃止し、`hashTag_JP` に統一。
