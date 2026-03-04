@@ -1,6 +1,11 @@
 {
   "$DefType": [
     {
+      "hashTag": "Card",
+      "$type": "#Index",
+      "hashTag_JP": "カード"
+    },
+    {
       "hashTag": "Images",
       "$type": [
         {

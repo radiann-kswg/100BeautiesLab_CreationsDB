@@ -1,6 +1,11 @@
 {
   "$DefType": [
     {
+      "hashTag": "Drc",
+      "$type": "#Index",
+      "hashTag_JP": "方角"
+    },
+    {
       "hashTag": "Images",
       "$type": [
         {

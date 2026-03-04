@@ -2444,14 +2444,14 @@ function formatValueForDisplay(value, labelMap = {}, workMeta = null, globalDefT
   };
 
   /**
-   * #Index / $Index 型の値を、作品ごとの $DefType_Index（data/db_meta.json）に合わせて整形
+   * #Index 型の値を、作品ごとの $DefType_Index（data/db_meta.json）に合わせて整形
    * - 詳細表示（Relation 等）の「インデックス参照」をスキーマ駆動で扱えるようにする
    * @param {any} v
    * @returns {string}
    */
   const formatIndexLikeValue = (v) => {
     if (!opt || typeof opt !== 'object') return '';
-    if (!schemaTypeIncludes(opt.schemaType, '#Index') && !schemaTypeIncludes(opt.schemaType, '$Index')) return '';
+    if (!schemaTypeIncludes(opt.schemaType, '#Index')) return '';
 
     // 現在の作品（UI状態）を元に indexDef を引く（無い場合はフォールバック）
     const workId = window?.__CHAR_STATE__?.workId;
@@ -2730,7 +2730,7 @@ function formatValueForDisplay(value, labelMap = {}, workMeta = null, globalDefT
 
   // $EnumDef_*（Rank/Rarity 等）の場合、プリミティブ値でも参照解決/EnumLink解決を試す
   if (opt && typeof opt === 'object' && typeof value !== 'object') {
-    // #Index / $Index の場合は、作品の $DefType_Index に合わせて整形する
+    // #Index の場合は、作品の $DefType_Index に合わせて整形する
     const idxText = formatIndexLikeValue(value);
     if (idxText) return withUnit(idxText);
 
@@ -2906,7 +2906,7 @@ function formatValueForDisplay(value, labelMap = {}, workMeta = null, globalDefT
   }
 
   if (typeof value === 'object') {
-    // #Index / $Index の場合（object 値も含む）
+    // #Index の場合（object 値も含む）
     const idxText = formatIndexLikeValue(value);
     if (idxText) return idxText;
 
@@ -3895,7 +3895,37 @@ async function renderList(records, workId, onOpen, imageFields = null) {
     // Index chip (schema-driven via db_meta.json $DefType_Index)
     const indexChipText = buildIndexChipText(r, indexDef, metaForLookup, globalDefType);
     if (indexChipText) {
-      chipEls.push(el('span', { class: 'chip accent' }, indexChipText));
+      const id = getIndexIdentifierFromRecord(r, indexDef);
+      const href = (() => {
+        if (!id) return '';
+        const cur = getQS();
+        const db = window?.__CHAR_STATE__?.db || cur.db || 'Primary';
+        const legacyNum = id.keyPath === 'Num' ? id.value : '';
+        const qs = new URLSearchParams({
+          ...cur,
+          work: workId,
+          db,
+          idx: id.value,
+          idxKey: id.keyPath,
+          num: legacyNum,
+        });
+        return `${location.pathname}?${qs.toString()}`;
+      })();
+
+      chipEls.push(
+        id && href
+          ? el('a', {
+              class: 'chip accent',
+              href,
+              title: '直リンクをコピーできます',
+              onclick: (ev) => {
+                ev.preventDefault();
+                ev.stopPropagation();
+                onOpen(r);
+              }
+            }, [indexChipText])
+          : el('span', { class: 'chip accent' }, indexChipText)
+      );
     }
 
     const item = el('article', {
@@ -4249,7 +4279,40 @@ async function renderDetail(workId, rec) {
         const workIndexDef = getWorkIndexField(workId, globalMeta);
         const indexChipText = buildIndexChipText(rec, workIndexDef, metaForLookup, globalDefType);
         if (!indexChipText) return null;
-        return el('span', { class: 'pill' }, [indexChipText]);
+        const id = getIndexIdentifierFromRecord(rec, workIndexDef);
+        const href = (() => {
+          if (!id) return '';
+          const cur = getQS();
+          const legacyNum = id.keyPath === 'Num' ? id.value : '';
+          const qs = new URLSearchParams({
+            ...cur,
+            work: workId,
+            db: dbName,
+            idx: id.value,
+            idxKey: id.keyPath,
+            num: legacyNum,
+          });
+          return `${location.pathname}?${qs.toString()}`;
+        })();
+
+        return (id && href)
+          ? el('a', {
+              class: 'pill',
+              href,
+              title: '直リンクをコピーできます',
+              onclick: (ev) => {
+                // 表示中のレコードなので、遷移（リロード）は不要。
+                ev.preventDefault();
+                ev.stopPropagation();
+                try {
+                  const legacyNum = id.keyPath === 'Num' ? id.value : '';
+                  setQS({ idx: id.value, idxKey: id.keyPath, num: legacyNum });
+                } catch {
+                  // noop
+                }
+              }
+            }, [indexChipText])
+          : el('span', { class: 'pill' }, [indexChipText]);
       })(),
       (() => {
         const detailLayout = globalMeta?.CreationWorks?.[workId]?.$DetailLayout || null;
@@ -4851,6 +4914,63 @@ async function renderDetail(workId, rec) {
     return false;
   };
 
+  const buildIndexLinkInfoFromValue = (value, indexDef, keyPathHint = '') => {
+    if (!indexDef || typeof indexDef !== 'object') return null;
+    const rootKey = typeof indexDef.hashTag === 'string' ? indexDef.hashTag.trim() : '';
+    if (!rootKey) return null;
+
+    const subDefs = getIndexSubDefs(indexDef);
+    const nested = Array.isArray(subDefs) && subDefs.length > 0;
+    const isObj = (v) => !!v && typeof v === 'object' && !Array.isArray(v);
+
+    // ネスト型
+    if (nested) {
+      const primarySub = pickPrimaryIndexSubDef(subDefs);
+      const candidates = primarySub ? [primarySub, ...subDefs.filter(d => d !== primarySub)] : subDefs;
+
+      // { Root:{Sub:...} } or { Sub:... }
+      if (isObj(value)) {
+        const rootObj = isObj(value?.[rootKey]) ? value[rootKey] : value;
+        if (isObj(rootObj)) {
+          for (const sub of candidates) {
+            const subKey = sub?.hashTag;
+            if (!subKey || typeof subKey !== 'string') continue;
+            const leaf = rootObj[subKey];
+            if (leaf === null || leaf === undefined || leaf === '') continue;
+            return { idxKeyPath: `${rootKey}.${subKey}`, idxValue: String(leaf) };
+          }
+        }
+      }
+
+      // プリミティブ（どの sub か曖昧な場合は primary を採用）
+      const subKey = (typeof keyPathHint === 'string' && keyPathHint.startsWith(`${rootKey}.`))
+        ? keyPathHint.substring(rootKey.length + 1)
+        : (primarySub?.hashTag || subDefs[0]?.hashTag);
+      if (!subKey || typeof subKey !== 'string') return null;
+      if (value === null || value === undefined || value === '') return null;
+      return { idxKeyPath: `${rootKey}.${subKey}`, idxValue: String(value) };
+    }
+
+    // スカラー型
+    const leaf = (isObj(value) && Object.prototype.hasOwnProperty.call(value, rootKey)) ? value[rootKey] : value;
+    if (leaf === null || leaf === undefined || leaf === '') return null;
+    return { idxKeyPath: rootKey, idxValue: String(leaf) };
+  };
+
+  const buildIndexHref = (workId, dbName, idxValue, idxKeyPath) => {
+    const cur = getQS();
+    const legacyNum = idxKeyPath === 'Num' ? idxValue : '';
+    const qs = new URLSearchParams({
+      ...cur,
+      work: workId,
+      db: dbName,
+      idx: String(idxValue ?? ''),
+      idxKey: String(idxKeyPath ?? ''),
+      num: legacyNum,
+    });
+    return `${location.pathname}?${qs.toString()}`;
+  };
+
   const toDisplayNode = (k, v, schemaType = null, schemaDisplay = null) => {
     // typedef 上で「子フィールド定義が存在するobject」は、子ごとに表示（[object Object]回避 + 分離表示）
     if (isPlainObject(v) && k && typeof k === 'string' && hasNestedSchema(k)) {
@@ -4870,6 +4990,41 @@ async function renderDetail(workId, rec) {
     }
     const formatted = formatValueForDisplay(v, fieldLabelMap, metaForLookup, globalDefType, { display: schemaDisplay, schemaType, fieldKey: k });
     if (typeof formatted === 'string' && formatted.includes('\n')) return preWrapText(formatted);
+
+    // #Index 型はリンク化（直リンク共有を容易にする）
+    try {
+      if (schemaTypeIncludes(schemaType, '#Index') && typeof formatted === 'string' && formatted.trim()) {
+        const workIndexDef = getWorkIndexField(workId, globalMeta);
+        const info = buildIndexLinkInfoFromValue(v, workIndexDef, k);
+        if (info?.idxValue && info?.idxKeyPath) {
+          const href = buildIndexHref(workId, dbName, info.idxValue, info.idxKeyPath);
+          return el('a', {
+            href,
+            title: '直リンクをコピーできます',
+            onclick: async (ev) => {
+              // 可能なら SPA 内で開く（失敗時は通常遷移にフォールバック）
+              ev.preventDefault();
+              ev.stopPropagation();
+              try {
+                const state = window.__CHAR_STATE__;
+                const recs = Array.isArray(state?.records) ? state.records : [];
+                const indexDef = getWorkIndexField(workId, globalMeta);
+                const target = recs.find(r => recordMatchesIndexQuery(r, indexDef, info.idxValue, info.idxKeyPath, info.idxKeyPath === 'Num' ? info.idxValue : '')) || null;
+                if (target) {
+                  await openDetail(target);
+                  return;
+                }
+              } catch {
+                // noop
+              }
+              location.href = href;
+            }
+          }, [formatted]);
+        }
+      }
+    } catch {
+      // noop
+    }
     return formatted;
   };
 

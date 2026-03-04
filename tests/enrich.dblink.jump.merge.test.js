@@ -167,4 +167,24 @@ describe('_DBLink / _Jump merge (in-process)', () => {
     // FLInvestigator78 の Card:{Stoat:'Major',Num:0} は Name が「フェニクス」
     expect(e.Name).toBe('フェニクス');
   });
+
+  it('旧メタ（$Def_Index）しか無い作品でも、hashTag="#Index" を $Def_Index にフォールバックして参照先を特定できる（UnauthedLogica）', async () => {
+    const dataFetcher = new TestDataFetcher();
+    const proc = new globalThis.EnrichmentProcessor(dataFetcher, testConfig);
+
+    const rec = {
+      Id: 'BASE',
+      _DBLink: {
+        worksTitle: 'UnauthedLogica',
+        dbName: 'Primary',
+        _Search: [{ hashTag: '#Index', key: { LogicSeries: null, Num: 62 } }]
+      }
+    };
+
+    const out = await proc.enrichRecords([rec], '#Works_MainWork', 'Primary');
+    const e = out[0];
+
+    // UnauthedLogica の Model:{LogicSeries:null,Num:62} は FormalName が「人形兵ゼロイド62番機」
+    expect(e.FormalName).toBe('人形兵ゼロイド62番機');
+  });
 });

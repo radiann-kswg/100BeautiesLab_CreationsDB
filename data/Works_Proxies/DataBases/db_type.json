@@ -1,6 +1,11 @@
 {
   "$DefType": [
     {
+      "hashTag": "Generation",
+      "$type": "#Index",
+      "hashTag_JP": "代理の世代"
+    },
+    {
       "hashTag": "Images",
       "$type": [
         {

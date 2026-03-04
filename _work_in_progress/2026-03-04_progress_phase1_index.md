@@ -7,23 +7,38 @@
 
 ## 変更点の要約
 
-- UI: `#Index/$Index` 型の値を `$DefType_Index` に基づき整形表示できるようにした（値のラベル・ネスト型対応の土台）。
+- UI: `#Index` 型の値を `$DefType_Index` に基づき整形表示できるようにした（値のラベル・ネスト型対応の土台）。
+- UI: 一覧/詳細の `#Index` 表示（チップ/ピル/テーブル値）を直リンク（`idx/idxKey`）としてリンク化し、共有しやすくした。
 - UI: `Relation` の `Num` をクリックすると、同一作品・同一DB内で該当キャラを開けるようにした（該当レコードが見つかる場合）。
-- typedef: `Works_NumberTales` の `Relation` 定義で `Num` の型宣言を `$Index` → `#Index` に更新。
+- 仕様整理（Breaking）: `$Index` 互換を削除し、`#Index` に統一。
+- typedef: `Works_NumberTales` の `Relation` 定義で `Num` の型宣言を `#Index` に統一。
 
-- API（SW共通）: `EnrichmentProcessor.searchRecords()` に `hashTag:'#Index'`（互換として `'$Index'`）の解釈を追加し、作品別 index 定義（`data/db_meta.json(CreationWorks.<work>.$DefType_Index)`）に従って実フィールドへ展開して検索できるようにした。
+- Data（typedef）: 各作品の index ルートキー（例: `Num` / `Card` / `BeastType` / `Drc` / `Unit` / `Generation` / `Model`）を、作品別 `db_type.json($DefType)` に `"$type":"#Index"` として明示し、typedef 駆動で同一の扱いに寄せた。
+
+- API（SW共通）: `EnrichmentProcessor.searchRecords()` に `hashTag:'#Index'` の解釈を追加し、作品別 index 定義（`data/db_meta.json(CreationWorks.<work>.$DefType_Index)`）に従って実フィールドへ展開して検索できるようにした。
   - スカラー index（例: `key: 1`）
   - ネスト index（例: `key: { Stoat: 'Major', Num: 0 }`）※ AND 条件として展開
+- API（SW共通）: 作品メタの index 定義が旧形式（`$Def_Index`）のみの場合でも `#Index` を解釈できるよう、`getWorkContext()` で `$DefType_Index` → `$Def_Index` のフォールバックを追加。
 - 回帰修正: index 子要素が `#Number|#String` のような union の場合に数値比較をしてしまうと、`'0'` が `'000'` 等へ誤一致して複数ヒット扱いになり参照解決がスキップされ得るため、union に `#String` を含む場合は数値比較を抑止して厳密一致に寄せた。
-- Test: `#Index` 検索（スカラー/ネスト）の回帰テストを追加。
+- 回帰修正: ネスト index のサブキーに `null` を含める検索（例: `{ LogicSeries: null, Num: 62 }`）で一致判定が常に不一致になっていたため、検索キーが `null` の場合は `val===null` を一致扱いにした（明示的に null を検索したいケース向け）。
+- Test: `#Index` 検索（スカラー/ネスト）に加え、旧メタ（`$Def_Index`）フォールバック（UnauthedLogica）を含む回帰テストを追加。
 
 ## 影響範囲（編集したファイル）
 
 - `pages/characters.js`
+- `CHANGELOG.md`
 - `data/Works_NumberTales/DataBases/db_type.json`
 
 - `lib/data-common.js`
 - `tests/enrich.dblink.jump.merge.test.js`
+
+- `data/Works_NumberTales/DataBases/db_type.json`
+- `data/Works_FLInvestigator78/DataBases/db_type.json`
+- `data/Works_ShouArRiders/DataBases/db_type.json`
+- `data/Works_SinisterChangingGirls/DataBases/db_type.json`
+- `data/Works_DestinyFoxsRecords/DataBases/db_type.json`
+- `data/Works_Proxies/DataBases/db_type.json`
+- `data/Works_UnauthedLogica/DataBases/db_type.json`
 
 ## 検証（観点）
 
@@ -38,5 +53,4 @@
 
 ## 未完了タスク
 
-- `#Index` の利用箇所を他作品にも広げるか（`$Index` 互換の整理方針含む）
-- `#Index` の利用箇所を他作品にも広げるか（特にネスト index の実運用）
+- `#Index` の運用整理（DB/typedef/メタの責務分担、ネスト index の扱い方針など）

@@ -1,6 +1,11 @@
 {
   "$DefType": [
     {
+      "hashTag": "BeastType",
+      "$type": "#Index",
+      "hashTag_JP": "獣種"
+    },
+    {
       "hashTag": "Images",
       "$type": [
         {

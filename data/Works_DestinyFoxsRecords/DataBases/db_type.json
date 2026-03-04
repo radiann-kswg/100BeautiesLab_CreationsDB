@@ -1,6 +1,11 @@
 {
   "$DefType": [
     {
+      "hashTag": "Unit",
+      "$type": "#Index",
+      "hashTag_JP": "理学単位次元"
+    },
+    {
       "hashTag": "Images",
       "$type": [
         {

@@ -1,6 +1,11 @@
 {
   "$DefType": [
     {
+      "hashTag": "Model",
+      "$type": "#Index",
+      "hashtag_JP": "型式"
+    },
+    {
       "hashTag": "ForMasterCalling",
       "$type": "#String|#Summary",
       "isForMobs": false,
