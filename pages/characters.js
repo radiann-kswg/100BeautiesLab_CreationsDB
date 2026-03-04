@@ -542,13 +542,18 @@ function el(tag, props = {}, children = []) {
   const appendAny = (child) => {
     if (child == null) return;
     if (Array.isArray(child)) { child.forEach(appendAny); return; }
-    if (child instanceof Node) { e.appendChild(child); return; }
+    // Only append trusted DOM Nodes directly; everything else becomes text
+    if (child instanceof Node) {
+      e.appendChild(child);
+      return;
+    }
     const t = typeof child;
     if (t === 'string' || t === 'number' || t === 'boolean') {
       e.appendChild(document.createTextNode(String(child)));
       return;
     }
-    // otherwise ignore unsupported types
+    // Fallback: render other types as text to avoid interpreting them as HTML
+    e.appendChild(document.createTextNode(String(child)));
   };
   [].concat(children).forEach(appendAny);
   return e;
@@ -5974,7 +5979,7 @@ function hideLoadingIndicator() {
  * @param {Error|string} error - Error object or message
  */
 function showErrorMessage(title, error) {
-  const errorDetails = error instanceof Error ? error.message : String(error);
+  const errorDetails = getSafeErrorMessage(error);
   const errorContainer = el('div', {
     class: 'error-overlay',
     role: 'alert'
@@ -5997,6 +6002,23 @@ function showErrorMessage(title, error) {
       errorContainer.remove();
     }
   }, 10000);
+}
+
+/**
+ * Normalize any error-like value to a safe text message.
+ * Ensures we only ever render plain text into the DOM.
+ * @param {unknown} error
+ * @returns {string}
+ */
+function getSafeErrorMessage(error) {
+  if (error instanceof Error) {
+    return String(error.message || '');
+  }
+  try {
+    return String(error ?? '');
+  } catch {
+    return '';
+  }
 }
 
 /**
