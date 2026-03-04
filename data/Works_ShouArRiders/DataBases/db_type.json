@@ -1,4 +1,17 @@
 {
+  "$IndexDef": {
+    "hashTag": "BeastType",
+    "$type": [
+      {
+        "hashTag": "Beast",
+        "$type": "#ListIndex",
+        "hashTagName_JP": "動物",
+        "hashTagName_EN": "Beast"
+      }
+    ],
+    "hashTagName_JP": "獣種",
+    "hashTagName_EN": "BeastType"
+  },
   "$DefType": [
     {
       "hashTag": "BeastType",

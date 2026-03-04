@@ -278,12 +278,12 @@
 
 ### `#Index` 型の段階導入（API 側: search/enrich）
 
-- SW 共通（`lib/data-common.js`）: `EnrichmentProcessor.searchRecords()` が `hashTag:'#Index'` を解釈し、作品メタ（`data/db_meta.json(CreationWorks.<work>.$DefType_Index)`）に基づいて実フィールドへ展開できるようにした。
+- SW 共通（`lib/data-common.js`）: `EnrichmentProcessor.searchRecords()` が `hashTag:'#Index'` を解釈し、作品 typedef（`data/Works_*/DataBases/db_type.json.$IndexDef`）に基づいて実フィールドへ展開できるようにした。
   - スカラー（例: `key: 1`）だけでなく、ネスト index（例: `key: { Stoat: 'Major', Num: 0 }`）も AND 条件として展開して検索できる。
 - 回帰修正（`lib/data-common.js`）: index 子要素が `#Number|#String` のような union の場合は数値比較を抑止し、`'0'` が `'000'` 等に誤一致して複数ヒットになるケースを回避。
-- 互換対応（`lib/data-common.js`）: 作品メタの index 定義が旧形式（`$Def_Index`）のみの場合でも `#Index` を解釈できるようフォールバックを追加。
 - 回帰修正（`lib/data-common.js`）: 検索クエリで `key:null` を明示した場合は `val:null` を一致扱いにし、`#String|#Null` のような Null 許容サブキー（ネスト index）を含む検索が成立するようにした。
 - 仕様整理（Breaking）（`lib/data-common.js`, `pages/characters.js`）: `$Index` 互換を削除し、`#Index` に統一。
 - UI（`pages/characters.js`）: 一覧・詳細の `#Index` 表示（チップ/ピル/テーブル値）を直リンク（`idx/idxKey`）としてリンク化。
 - Test（`tests/enrich.dblink.jump.merge.test.js`）: `#Index` 検索（スカラー/ネスト）の回帰テストを追加。
 - Data（作品別 typedef）: 作品ごとの index ルートキー（例: `Num` / `Card` / `BeastType` / `Drc` / `Unit` / `Generation` / `Model`）を、各 `data/Works_*/DataBases/db_type.json($DefType)` に `"$type":"#Index"` として明示。
+- Data（Breaking）: 作品ごとの index 定義（表示名/ネスト構造）は `data/Works_*/DataBases/db_type.json.$IndexDef` に集約し、`data/db_meta.json(CreationWorks.*.$DefType_Index / $Def_Index)` から削除。

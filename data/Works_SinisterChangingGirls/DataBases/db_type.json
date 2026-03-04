@@ -1,4 +1,10 @@
 {
+  "$IndexDef": {
+    "hashTag": "Drc",
+    "$type": "#String",
+    "hashTagName_JP": "方角",
+    "hashTagName_EN": "Direction"
+  },
   "$DefType": [
     {
       "hashTag": "Drc",

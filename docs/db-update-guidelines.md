@@ -78,9 +78,8 @@
 
 ### 4.1 インデックス表示/直リンク
 
-- 作品ごとのインデックス（一覧チップ/直リンクの基準）を変える場合は、まず `data/db_meta.json` の
-  `CreationWorks.<work>.$DefType_Index` を更新して追従させます
-- 旧形式 `CreationWorks.<work>.$Def_Index` はフォールバックとして扱われます
+- 作品ごとのインデックス（一覧チップ/直リンクの基準）は、作品別 typedef（`data/Works_<作品名>/DataBases/db_type.json`）の `$IndexDef` を更新して追従させます
+- `data/db_meta.json(CreationWorks.*.$DefType_Index / $Def_Index)` は廃止され、Index 定義の置き場は typedef 側に集約されました
 
 ### 4.2 詳細表示レイアウト
 

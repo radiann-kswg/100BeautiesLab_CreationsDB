@@ -1,4 +1,10 @@
 {
+  "$IndexDef": {
+    "hashTag": "Num",
+    "$type": "#Number|#String",
+    "hashTagName_JP": "番号",
+    "hashTagName_EN": "Number"
+  },
   "$DefType": [
     {
       "hashTag": "Num",

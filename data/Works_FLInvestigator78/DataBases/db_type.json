@@ -1,4 +1,21 @@
 {
+  "$IndexDef": {
+    "hashTag": "Card",
+    "$type": [
+      {
+        "hashTag": "Stoat",
+        "$type": "#ListIndex",
+        "hashTagName_JP": "カード種別",
+        "hashTagName_EN": "CardType"
+      },
+      {
+        "hashTag": "Num",
+        "$type": "#Number",
+        "hashTagName_JP": "カード番号",
+        "hashTagName_EN": "CardNumber"
+      }
+    ]
+  },
   "$DefType": [
     {
       "hashTag": "Card",

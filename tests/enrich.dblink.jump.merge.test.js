@@ -40,7 +40,14 @@ class TestDataFetcher {
   async readGeneralVarsDefGlobal() { return {}; }
   async readGeneralVarsDefWork() { return {}; }
   async readGlobalType() { return {}; }
-  async readWorkType() { return {}; }
+  async readWorkType(workId) {
+    const wdir = String(workId).replace('#Works_', 'Works_');
+    try {
+      return loadJson(`data/${wdir}/DataBases/db_type.json`);
+    } catch {
+      return {};
+    }
+  }
 }
 
 /**
@@ -128,7 +135,7 @@ describe('_DBLink / _Jump merge (in-process)', () => {
     expect(e.Test_PNGName).toBe('');
   });
 
-  it('_DBLink._Search で hashTag="#Index" を使うと、作品の $DefType_Index に基づいて参照先を特定できる（スカラーIndex）', async () => {
+  it('_DBLink._Search で hashTag="#Index" を使うと、作品の $IndexDef（typedef）に基づいて参照先を特定できる（スカラーIndex）', async () => {
     const dataFetcher = new TestDataFetcher();
     const proc = new globalThis.EnrichmentProcessor(dataFetcher, testConfig);
 
@@ -168,7 +175,7 @@ describe('_DBLink / _Jump merge (in-process)', () => {
     expect(e.Name).toBe('フェニクス');
   });
 
-  it('旧メタ（$Def_Index）しか無い作品でも、hashTag="#Index" を $Def_Index にフォールバックして参照先を特定できる（UnauthedLogica）', async () => {
+  it('hashTag="#Index" は UnauthedLogica の $IndexDef（ネスト型・null許容）でも参照先を特定できる', async () => {
     const dataFetcher = new TestDataFetcher();
     const proc = new globalThis.EnrichmentProcessor(dataFetcher, testConfig);
 

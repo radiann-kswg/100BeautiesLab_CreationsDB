@@ -304,7 +304,7 @@ function getQS() {
     work: p.get('work') || '',
     db: p.get('db') || '',
     num: p.get('num') || '',
-    // 汎用インデックス直リンク（作品ごとの $DefType_Index に対応）
+    // 汎用インデックス直リンク（作品ごとの $IndexDef に対応）
     idx: p.get('idx') || '',
     idxKey: p.get('idxKey') || '',
     q: p.get('q') || ''
@@ -860,25 +860,35 @@ function applyCommonsData(records, workMeta, dbName) {
 }
 
 /**
- * Get work index field information from global metadata
+ * 作品ごとの Index 定義を取得
+ * - 既定: work typedef（db_type.json）の `$IndexDef`
+ * - 後方互換: global meta（data/db_meta.json）の `$DefType_Index` / `$Def_Index`
  * @param {string} workKey - Work identifier
  * @param {Object} globalMeta - Global metadata object
  * @returns {Object|null} Index field definition or null
  */
 function getWorkIndexField(workKey, globalMeta) {
-  if (!globalMeta || !globalMeta.CreationWorks) return null;
+  try {
+    const state = window.__CHAR_STATE__;
+    if (state && state.workId === workKey) {
+      const wtd = state.workTypeDef;
+      if (wtd && typeof wtd === 'object' && wtd.$IndexDef && typeof wtd.$IndexDef === 'object') {
+        return wtd.$IndexDef;
+      }
+    }
+  } catch {
+    // noop
+  }
 
+  if (!globalMeta || !globalMeta.CreationWorks) return null;
   const workMeta = globalMeta.CreationWorks[workKey];
   if (!workMeta) return null;
-  // 作品ごとに Index 定義のキーが揺れている場合があるためフォールバック対応
-  // - $DefType_Index: 現行
-  // - $Def_Index: 旧/暫定
   return workMeta.$DefType_Index || workMeta.$Def_Index || null;
 }
 
 /**
  * Index 定義からラベルを取得
- * @param {Object} def - $DefType_Index もしくはその子要素
+ * @param {Object} def - $IndexDef もしくはその子要素
  * @returns {string} 表示用ラベル（日本語優先）
  */
 function getIndexLabel(def) {
@@ -895,7 +905,7 @@ function getIndexLabel(def) {
 
 /**
  * Index 定義から子フィールド定義配列を取得（$type / $valType の揺れを吸収）
- * @param {Object} indexDef - $DefType_Index
+ * @param {Object} indexDef - $IndexDef
  * @returns {Array|null}
  */
 function getIndexSubDefs(indexDef) {
@@ -933,7 +943,7 @@ function pickPrimaryIndexSubDef(subDefs) {
 /**
  * レコードと Index 定義から、直リンク用の識別子（keyPath + value）を抽出
  * @param {Object} rec - レコード
- * @param {Object|null} indexDef - $DefType_Index
+ * @param {Object|null} indexDef - $IndexDef
  * @returns {{keyPath:string,value:string}|null}
  */
 function getIndexIdentifierFromRecord(rec, indexDef) {
@@ -970,7 +980,7 @@ function getIndexIdentifierFromRecord(rec, indexDef) {
 /**
  * 直リンククエリ（idx/idxKey/num）に一致するかどうか
  * @param {Object} rec - レコード
- * @param {Object|null} indexDef - $DefType_Index
+ * @param {Object|null} indexDef - $IndexDef
  * @param {string} idxValue - クエリの値
  * @param {string} idxKeyPath - クエリのキー（任意）
  * @param {string} legacyNum - 旧 ?num= の値（任意）
@@ -997,7 +1007,7 @@ function recordMatchesIndexQuery(rec, indexDef, idxValue, idxKeyPath, legacyNum 
 /**
  * レコードと Index 定義から、一覧用のアクセントチップ文字列を生成
  * @param {Object} rec - レコード
- * @param {Object|null} indexDef - $DefType_Index
+ * @param {Object|null} indexDef - $IndexDef
  * @returns {string|null}
  */
 function buildIndexChipText(rec, indexDef, metaForLookup = null, globalDefType = null) {
@@ -2444,7 +2454,7 @@ function formatValueForDisplay(value, labelMap = {}, workMeta = null, globalDefT
   };
 
   /**
-   * #Index 型の値を、作品ごとの $DefType_Index（data/db_meta.json）に合わせて整形
+  * #Index 型の値を、作品ごとの $IndexDef（typedef）に合わせて整形
    * - 詳細表示（Relation 等）の「インデックス参照」をスキーマ駆動で扱えるようにする
    * @param {any} v
    * @returns {string}
@@ -2730,7 +2740,7 @@ function formatValueForDisplay(value, labelMap = {}, workMeta = null, globalDefT
 
   // $EnumDef_*（Rank/Rarity 等）の場合、プリミティブ値でも参照解決/EnumLink解決を試す
   if (opt && typeof opt === 'object' && typeof value !== 'object') {
-    // #Index の場合は、作品の $DefType_Index に合わせて整形する
+    // #Index の場合は、作品の $IndexDef に合わせて整形する
     const idxText = formatIndexLikeValue(value);
     if (idxText) return withUnit(idxText);
 
@@ -3892,7 +3902,7 @@ async function renderList(records, workId, onOpen, imageFields = null) {
       if (text) chipEls.push(el('span', { class: 'chip' }, text));
     }
 
-    // Index chip (schema-driven via db_meta.json $DefType_Index)
+    // Index chip (schema-driven via typedef $IndexDef)
     const indexChipText = buildIndexChipText(r, indexDef, metaForLookup, globalDefType);
     if (indexChipText) {
       const id = getIndexIdentifierFromRecord(r, indexDef);
@@ -4826,7 +4836,7 @@ async function renderDetail(workId, rec) {
     if (rec.Name_EN) s.add('Name_EN');
     else if (rec.FormalName_EN) s.add('FormalName_EN');
 
-    // 作品ごとのインデックス定義（db_meta.json の $DefType_Index / $Def_Index に追従）
+    // 作品ごとのインデックス定義（typedef の $IndexDef に追従）
     const workIndexDef = getWorkIndexField(workId, globalMeta);
     if (workIndexDef?.hashTag && typeof workIndexDef.hashTag === 'string') {
       s.add(workIndexDef.hashTag);
@@ -5354,7 +5364,7 @@ function renderRelations(rel, fieldLabelMap, workMeta, globalDefType, fieldDispl
 
   const isPlainObject = (v) => !!v && typeof v === 'object' && !Array.isArray(v);
 
-  // 作品の Index 定義（data/db_meta.json の $DefType_Index）を取得し、Relation の Num から該当キャラへジャンプできるようにする
+  // 作品の Index 定義（typedef の $IndexDef）を取得し、Relation の Num から該当キャラへジャンプできるようにする
   const state = window.__CHAR_STATE__;
   const workId = state?.workId || '';
   const indexDef = workId ? getWorkIndexField(workId, workMeta) : null;

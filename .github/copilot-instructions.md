@@ -209,7 +209,7 @@
 - **表示項目の追従**: キャラシート（`pages/characters.js`）は `db_type.json($DefType)` を参照して表示項目・順序・ラベルを可能な限りスキーマ駆動で生成します。
 - **ラベルの優先順**: `hashTag_JP` / `hashtag_JP`（綴り揺れ吸収）を優先し、無い場合はフィールド名をフォールバックします。
 - **ラベルのデータ運用**: 新規追加や修正では `hashTag_JP` に寄せます（`hashtag_JP` は後方互換の読み取り対象）。
-- **インデックス表示名**: 作品ごとのインデックス（一覧チップ/詳細ピル）は `data/db_meta.json` の `CreationWorks.<work>.$DefType_Index` を参照し、`hashTagName_JP/EN` を表示名として利用します（旧形式の `CreationWorks.<work>.$Def_Index` はフォールバック）。
+- **インデックス表示名**: 作品ごとのインデックス（一覧チップ/詳細ピル）は、作品別 typedef（`data/Works_<作品名>/DataBases/db_type.json`）の `$IndexDef` を参照し、`hashTagName_JP/EN` を表示名として利用します。
 
 ### 直リンク（URL クエリ）
 
@@ -217,7 +217,7 @@
   - `idx`: インデックス値（例: 番号、カード番号、方角など）
   - `idxKey`: インデックスキー（`<root>` または `<root>.<child>` 形式。例: `Num`, `Card.Num`, `BeastType.Beast`）
 - **後方互換**: 旧パラメータの `num` は互換として解釈されます（主に `Num` インデックスを想定）。
-- **運用方針**: 新規の仕様追加・作品追加で直リンク挙動を変える場合は、基本的にコード変更ではなく `data/db_meta.json` の `$DefType_Index` を更新して追従させます。
+- **運用方針**: 新規の仕様追加・作品追加で直リンク挙動を変える場合は、基本的にコード変更ではなく作品別 typedef（`data/Works_<作品名>/DataBases/db_type.json`）の `$IndexDef` を更新して追従させます。
 
 ## API 通信とデータ管理
 

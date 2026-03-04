@@ -97,7 +97,7 @@ npm run test:watch
 
 ### `db_meta.json` 更新の目安
 
-- 作品のインデックス表示や直リンク挙動を変えるときは、まず `data/db_meta.json` の `CreationWorks.<work>.$DefType_Index` を更新して追従させます
+- 作品のインデックス表示や直リンク挙動を変えるときは、まず作品別 typedef（`data/Works_<作品名>/DataBases/db_type.json`）の `$IndexDef` を更新して追従させます
 - 詳細表示の抑制や並び替えは `CreationWorks.<work>.$DetailLayout` のメタで制御します
 
 ### 画像の追加

@@ -1,4 +1,21 @@
 {
+  "$IndexDef": {
+    "hashTag": "Model",
+    "$type": [
+      {
+        "hashTag": "LogicSeries",
+        "$type": "#String|#Null",
+        "hashTagName_JP": "ロジック系統",
+        "hashTagName_EN": "LogicSeries"
+      },
+      {
+        "hashTag": "Num",
+        "$type": "#Number|#String|#Null",
+        "hashTagName_JP": "ロジック番号",
+        "hashTagName_EN": "LogicNumber"
+      }
+    ]
+  },
   "$DefType": [
     {
       "hashTag": "Model",

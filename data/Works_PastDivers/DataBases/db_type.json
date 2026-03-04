@@ -1,0 +1,21 @@
+{
+  "$IndexDef": {
+    "hashTag": "Chronos",
+    "$type": [
+      {
+        "hashTag": "Lunar",
+        "$type": "#ListDef",
+        "hashTagName_JP": "和暦",
+        "hashTagName_EN": "Lunar"
+      },
+      {
+        "hashTag": "Generation",
+        "$type": "#Number|#Null",
+        "hashTagName_JP": "世代",
+        "hashTagName_EN": "Generation"
+      }
+    ]
+  },
+  "$DefType": [],
+  "$VarsDef": {}
+}
