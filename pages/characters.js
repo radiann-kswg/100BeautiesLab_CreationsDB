@@ -5833,7 +5833,11 @@ if (document.readyState === 'loading') {
   // DOM is already loaded, run immediately
   main().catch(err => {
     console.error('Initialization error:', err);
-    document.body.innerHTML = `<div style="padding: 20px; color: red;">初期化エラー: ${err.message}</div>`;
+    const fallbackError = el('div', {
+      style: 'padding: 20px; color: red;'
+    }, [`初期化エラー: ${err && err.message ? err.message : String(err)}`]);
+    document.body.innerHTML = '';
+    document.body.appendChild(fallbackError);
   });
 }
 
