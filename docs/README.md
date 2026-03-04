@@ -6,6 +6,7 @@ This folder contains documentation for **100BeautiesLab. Creations DB (Web)**.
 
 - Viewer guide (JP): `viewer-guide.md`
 - Pseudo API / UI entry point (repo paths):
+  - Top (landing): `index.html`
   - UI: `pages/characters.html`
   - API: `/api/v1/*`, `/pages/v1/*`, `/svc/v1/*`
 
