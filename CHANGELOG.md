@@ -269,3 +269,9 @@
 - SW（`lib/sw-common.js`）: `works/db` の不正入力や DB 不存在を 500 で落とさず、400/404 で返すようハンドリングを改善。
 - UI（`pages/characters.js`, `pages/characters_final.js`）: `innerHTML` による動的文字列描画を廃止し、`textContent` と DOM 構築で表示（DOM XSS 対策）。
 - UI共通（`lib/frontend-common.js`）: `DOMUtils.createElement()` で `innerHTML` を直接セットしないよう変更。
+
+### トップページ導線（GitHub Pages / README）改善
+
+- GitHub Pages: ルートに `index.html` を追加し、UI / API / ガイドラインへの入口を明確化。
+- README（`README.md`）: トップ導線をデプロイ先 URL（`database.numbertales-radiann.net`）中心に整理。
+- README（`README.md`）: 折りたたみ（`<details>`）内の Markdown 互換性向上のため `markdown="1"` を付与。

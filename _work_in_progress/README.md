@@ -18,3 +18,5 @@
 - 2026-02-21_progress_typedef-driven-detail.md
 - 2026-02-21_progress_bilingual-enum-listindex.md
 - 2026-02-21_remaining-task.md
+- 2026-03-04_progress_security-alert.md
+- 2026-03-04_progress_top-page.md

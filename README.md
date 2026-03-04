@@ -116,12 +116,16 @@ http://creativecommons.org/licenses/by-nc/4.0/
 > 注意: README 冒頭のガイドライン章（日本語/英語）は、権利・運用上の重要情報のため **作者が手動で管理**しています。
 > そのため、この章の本文は原則として編集せず、技術ドキュメント側で導線・補足・翻訳の整備を行います。
 
-- まず閲覧する（UI）: `pages/characters.html`
-- 閲覧者向けガイド: `docs/viewer-guide.md`
-- データ更新ガイドライン（編集者向け）: `docs/db-update-guidelines.md`
-- 第三者ポリシー（再配布/商用/AI 学習など）: `docs/third-party-policy.md`
-- English (technical README): `docs/readme.en.md`
-- English (guidelines translation): `docs/guidelines.en.md`
+- GitHub Pages トップ: https://database.numbertales-radiann.net/
+- まず閲覧する（UI）: https://database.numbertales-radiann.net/pages/characters.html
+- API（GUI 付）: https://database.numbertales-radiann.net/api/
+- 擬似 API: `https://database.numbertales-radiann.net/api/v1/*` / `https://database.numbertales-radiann.net/pages/v1/*` / `https://database.numbertales-radiann.net/svc/v1/*`
+- ガイドライン（GitHub で閲覧）: https://github.com/radiann-kswg/100BeautiesLab_CreationsDB#%E4%B8%80%E6%AC%A1%E5%89%B5%E4%BD%9C%E4%BD%9C%E5%93%81%E3%81%AB%E3%81%8A%E3%81%91%E3%82%8B%E3%82%AC%E3%82%A4%E3%83%89%E3%83%A9%E3%82%A4%E3%83%B3%E6%97%A5%E6%9C%AC%E8%AA%9E%E7%89%88
+- 閲覧者向けガイド: [docs/viewer-guide.md](docs/viewer-guide.md)
+- データ更新ガイドライン（編集者向け）: [docs/db-update-guidelines.md](docs/db-update-guidelines.md)
+- 第三者ポリシー（再配布/商用/AI 学習など）: [docs/third-party-policy.md](docs/third-party-policy.md)
+- English (technical README): [docs/readme.en.md](docs/readme.en.md)
+- English (guidelines translation): [docs/guidelines.en.md](docs/guidelines.en.md)
 
 # 当リポジトリについて(日本語版)
 
@@ -184,7 +188,7 @@ http://creativecommons.org/licenses/by-nc/4.0/
 
 ---
 
-<details>
+<details markdown="1">
 <summary>技術仕様（詳細）</summary>
 
 ## 技術仕様
@@ -364,12 +368,12 @@ data/Works_{作品名}/Images/{データベース種別}/
 
 ---
 
-<details>
+<details markdown="1">
 <summary>API（Service Worker pseudo-API）仕様（詳細）</summary>
 
 # API (Service Worker pseudo-API)について
 
-GitHub Pages 上で提供する擬似 API を使って、`data/` 配下の JSON を取得できます。（GUI 付ページは[こちら](./api/)）
+GitHub Pages 上で提供する擬似 API を使って、`data/` 配下の JSON を取得できます。（GUI 付ページは https://database.numbertales-radiann.net/api/ ）
 
 ## エンドポイント
 
@@ -422,12 +426,12 @@ GitHub Pages 上で提供する擬似 API を使って、`data/` 配下の JSON 
 
 ---
 
-<details>
+<details markdown="1">
 <summary>キャラシート生成機能（UI）と /pages/v1 API（詳細）</summary>
 
 # キャラシート生成機能(beta)について
 
-GitHub Pages 上で`data/` 配下のキャラクター情報に関するプロフィールページを生成します。（キャラシート生成機能ページは[こちら](./pages/characters.html)）
+GitHub Pages 上で`data/` 配下のキャラクター情報に関するプロフィールページを生成します。（キャラシート生成機能ページは https://database.numbertales-radiann.net/pages/characters.html ）
 
 ## 機能概要
 
