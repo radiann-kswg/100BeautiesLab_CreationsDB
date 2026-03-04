@@ -20,6 +20,7 @@
 - 2026-02-21_remaining-task.md
 - 2026-03-04_remaining-task.md
 - 2026-03-04_progress_phase0.md
+- 2026-03-04_progress_phase1_index.md
 
 ## 完了（.completed へ退避済み）
 

@@ -9,25 +9,25 @@
         "tagSpace": "creatorProgress"
       }
     },
-    { "hashTag": "Name", "$type": "#Stiring_JP|#Null", "hashTag_JP": "愛称" },
+    { "hashTag": "Name", "$type": "##String_JP|#Null", "hashTag_JP": "愛称" },
     {
       "hashTag": "Name_EN",
-      "$type": "#Stiring_EN|#Null",
+      "$type": "##String_EN|#Null",
       "hashTag_JP": "愛称_EN"
     },
     {
       "hashTag": "FormalName",
-      "$type": "#Stiring_JP|#Null",
+      "$type": "##String_JP|#Null",
       "hashTag_JP": "正式名称"
     },
     {
       "hashTag": "FormalName_EN",
-      "$type": "#Stiring_EN|#Null",
+      "$type": "##String_EN|#Null",
       "hashTag_JP": "正式名称_EN"
     },
     {
       "hashTag": "CodeName",
-      "$type": "#Stiring_JP|#Null",
+      "$type": "##String_JP|#Null",
       "hashTag_JP": "名称コード",
       "$display": {
         "auto": false,
@@ -36,27 +36,27 @@
     },
     {
       "hashTag": "CodeName_EN",
-      "$type": "#Stiring_EN|#Null",
+      "$type": "##String_EN|#Null",
       "hashTag_JP": "名称コード_EN"
     },
     {
       "hashTag": "SPCodeName",
-      "$type": "#Stiring_JP|#Null",
+      "$type": "##String_JP|#Null",
       "hashTag_JP": "特殊な名称コード"
     },
     {
       "hashTag": "SPCodeName_EN",
-      "$type": "#Stiring_EN|#Null",
+      "$type": "##String_EN|#Null",
       "hashTag_JP": "特殊な名称コード_EN",
       "$display": {
         "auto": false,
         "aliasOf": "SPCodeName"
       }
     },
-    { "hashTag": "ModelNumber", "$type": "#Stiring", "hashTag_JP": "型番" },
+    { "hashTag": "ModelNumber", "$type": "##String", "hashTag_JP": "型番" },
     {
       "hashTag": "ModelName",
-      "$type": "#Stiring_JP|#Summary|#Null",
+      "$type": "##String_JP|#Summary|#Null",
       "hashTag_JP": "モデル名",
       "$display": {
         "section": "basic"
@@ -102,7 +102,7 @@
     },
     {
       "hashTag": "Class",
-      "$type": "#Stiring_JP|#Summary|#Null",
+      "$type": "##String_JP|#Summary|#Null",
       "hashTag_JP": "クラス名",
       "$display": {
         "section": "basic"
@@ -110,7 +110,7 @@
     },
     {
       "hashTag": "Class_EN",
-      "$type": "#Stiring_EN|#Summary|#Null",
+      "$type": "##String_EN|#Summary|#Null",
       "hashTag_JP": "クラス名_EN",
       "$display": {
         "auto": false,

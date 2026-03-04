@@ -194,7 +194,7 @@
       "$TypeDef": [
         {
           "hashTag": "Num",
-          "$type": "$Index",
+          "$type": "#Index",
           "isForSecondary": false,
           "hashTag_JP": "番号"
         },

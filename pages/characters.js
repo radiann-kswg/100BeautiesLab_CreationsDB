@@ -2444,6 +2444,69 @@ function formatValueForDisplay(value, labelMap = {}, workMeta = null, globalDefT
   };
 
   /**
+   * #Index / $Index 型の値を、作品ごとの $DefType_Index（data/db_meta.json）に合わせて整形
+   * - 詳細表示（Relation 等）の「インデックス参照」をスキーマ駆動で扱えるようにする
+   * @param {any} v
+   * @returns {string}
+   */
+  const formatIndexLikeValue = (v) => {
+    if (!opt || typeof opt !== 'object') return '';
+    if (!schemaTypeIncludes(opt.schemaType, '#Index') && !schemaTypeIncludes(opt.schemaType, '$Index')) return '';
+
+    // 現在の作品（UI状態）を元に indexDef を引く（無い場合はフォールバック）
+    const workId = window?.__CHAR_STATE__?.workId;
+    const indexDef = opt.indexDef || (workId ? getWorkIndexField(workId, workMeta) : null);
+    if (!indexDef || typeof indexDef !== 'object') return '';
+
+    const rootKey = indexDef.hashTag;
+    if (!rootKey || typeof rootKey !== 'string') return '';
+
+    const subDefs = getIndexSubDefs(indexDef);
+
+    // ネスト型（例: Card.Num / BeastType.Beast）
+    if (Array.isArray(subDefs) && subDefs.length > 0) {
+      // 値が { Card:{...} } でも { Stoat:'...', Num:1 } でも扱えるように、2段階で読む
+      const rootObj = (isPlainObject(v) && isPlainObject(v?.[rootKey])) ? v[rootKey] : v;
+      if (!isPlainObject(rootObj)) return '';
+
+      const primarySub = pickPrimaryIndexSubDef(subDefs);
+      const candidates = primarySub ? [primarySub, ...subDefs.filter(d => d !== primarySub)] : subDefs;
+      for (const sub of candidates) {
+        const subKey = sub?.hashTag;
+        if (!subKey || typeof subKey !== 'string') continue;
+        const leaf = rootObj[subKey];
+        if (leaf === null || leaf === undefined || leaf === '') continue;
+        const subType = sub?.$type ?? sub?.$valType ?? null;
+        const formatted = formatValueForDisplay(leaf, labelMap, workMeta, globalDefType, {
+          display: opt.display,
+          schemaType: subType,
+          fieldKey: `${rootKey}.${subKey}`
+        });
+        const text = String(formatted ?? '').trim();
+        if (!text) continue;
+
+        const label = getIndexLabel(sub) || getIndexLabel(indexDef);
+        return label ? `${label}: ${text}` : text;
+      }
+      return '';
+    }
+
+    // スカラー型（例: Num / Drc）
+    const leaf = (isPlainObject(v) && Object.prototype.hasOwnProperty.call(v, rootKey)) ? v[rootKey] : v;
+    if (leaf === null || leaf === undefined || leaf === '') return '';
+    const rootType = indexDef?.$type ?? indexDef?.$valType ?? null;
+    const formatted = formatValueForDisplay(leaf, labelMap, workMeta, globalDefType, {
+      display: opt.display,
+      schemaType: rootType,
+      fieldKey: rootKey
+    });
+    const text = String(formatted ?? '').trim();
+    if (!text) return '';
+    const label = getIndexLabel(indexDef);
+    return label ? `${label}: ${text}` : text;
+  };
+
+  /**
    * globalDefType から利用可能な Enum 名（$EnumDef_XXX の XXX）を抽出
    * @returns {string[]}
    */
@@ -2667,6 +2730,10 @@ function formatValueForDisplay(value, labelMap = {}, workMeta = null, globalDefT
 
   // $EnumDef_*（Rank/Rarity 等）の場合、プリミティブ値でも参照解決/EnumLink解決を試す
   if (opt && typeof opt === 'object' && typeof value !== 'object') {
+    // #Index / $Index の場合は、作品の $DefType_Index に合わせて整形する
+    const idxText = formatIndexLikeValue(value);
+    if (idxText) return withUnit(idxText);
+
     const enumName = pickEnumNameFromSchemaType(opt.schemaType);
     // $EnumDef（サフィックス無し）は「フィールド名の EnumDef を参照」する運用を許容
     // - 例: GenderType.$type === '$EnumDef' でも $VarsDef.$EnumDef_GenderType を見て表示名へ
@@ -2839,6 +2906,10 @@ function formatValueForDisplay(value, labelMap = {}, workMeta = null, globalDefT
   }
 
   if (typeof value === 'object') {
+    // #Index / $Index の場合（object 値も含む）
+    const idxText = formatIndexLikeValue(value);
+    if (idxText) return idxText;
+
     // Common “masked” pattern used across databases
     if (typeof value.hideText === 'string' && value.hideText.trim()) {
       return value.hideText;
@@ -5128,6 +5199,71 @@ function renderRelations(rel, fieldLabelMap, workMeta, globalDefType, fieldDispl
 
   const isPlainObject = (v) => !!v && typeof v === 'object' && !Array.isArray(v);
 
+  // 作品の Index 定義（data/db_meta.json の $DefType_Index）を取得し、Relation の Num から該当キャラへジャンプできるようにする
+  const state = window.__CHAR_STATE__;
+  const workId = state?.workId || '';
+  const indexDef = workId ? getWorkIndexField(workId, workMeta) : null;
+
+  const findRecordByIndex = (id) => {
+    if (!id || typeof id !== 'object') return null;
+    if (!state || !Array.isArray(state.records)) return null;
+    const idxValue = String(id.value || '').trim();
+    const idxKeyPath = String(id.keyPath || '').trim();
+    if (!idxValue) return null;
+    return state.records.find(r => recordMatchesIndexQuery(r, indexDef, idxValue, idxKeyPath, idxKeyPath === 'Num' ? idxValue : '')) || null;
+  };
+
+  const buildIndexHref = (id) => {
+    try {
+      const cur = getQS();
+      const qs = new URLSearchParams({
+        work: String(cur.work || ''),
+        db: String(cur.db || ''),
+        q: String(cur.q || ''),
+        idx: String(id?.value || ''),
+        idxKey: String(id?.keyPath || ''),
+        num: (id?.keyPath === 'Num') ? String(id?.value || '') : ''
+      });
+      return `${location.pathname}?${qs.toString()}`;
+    } catch {
+      return '#';
+    }
+  };
+
+  const getIndexIdentifierFromRelation = (r) => {
+    if (!r || typeof r !== 'object') return null;
+    if (!indexDef || typeof indexDef !== 'object') return null;
+    const rootKey = indexDef.hashTag;
+    if (!rootKey || typeof rootKey !== 'string') return null;
+
+    const subDefs = getIndexSubDefs(indexDef);
+
+    // ネスト型
+    if (Array.isArray(subDefs) && subDefs.length > 0) {
+      const rootObj = isPlainObject(r?.[rootKey]) ? r[rootKey] : r;
+      if (!isPlainObject(rootObj)) return null;
+
+      const primarySub = pickPrimaryIndexSubDef(subDefs);
+      const candidates = primarySub ? [primarySub, ...subDefs.filter(d => d !== primarySub)] : subDefs;
+      for (const sub of candidates) {
+        const subKey = sub?.hashTag;
+        if (!subKey || typeof subKey !== 'string') continue;
+        const v = rootObj[subKey];
+        if (v === null || v === undefined || v === '') continue;
+        return { keyPath: `${rootKey}.${subKey}`, value: String(v).trim() };
+      }
+      return null;
+    }
+
+    // スカラー型
+    const v = (r?.[rootKey] === null || r?.[rootKey] === undefined || r?.[rootKey] === '')
+      ? r?.Num
+      : r?.[rootKey];
+    const vv = (v === null || v === undefined) ? '' : String(v).trim();
+    if (!vv) return null;
+    return { keyPath: rootKey, value: vv };
+  };
+
   const pickRelationLabelCode = (x) => {
     if (x === null || x === undefined) return '';
     if (typeof x === 'string' || typeof x === 'number' || typeof x === 'boolean') return String(x).trim();
@@ -5161,14 +5297,42 @@ function renderRelations(rel, fieldLabelMap, workMeta, globalDefType, fieldDispl
     const labels = withLabels ? localizeRelationLabels(r?.RelationLabel) : [];
     const labelText = labels.length ? labels.join(', ') : '';
 
-    const main = [
-      `${prefix} ${num || '?'}`,
-      labelText ? `: ${labelText}` : '',
-      comments ? `${labelText ? ' ' : ': '}- ${comments}` : ''
-    ].join('');
+    // クリックで該当キャラへ移動できるように、Index 定義がある場合はリンク化
+    const id = getIndexIdentifierFromRelation(r);
+    const target = id ? findRecordByIndex(id) : null;
 
-    const node = (typeof main === 'string' && main.includes('\n')) ? preWrapText(main) : main;
-    return el('div', { class: 'tag' }, [node]);
+    const hasNewline = (s) => (typeof s === 'string' && s.includes('\n'));
+    if (hasNewline(comments) || hasNewline(labelText)) {
+      // 改行がある場合は従来どおり preWrapText を優先（リンクは諦める）
+      const main = [
+        `${prefix} ${num || (id?.value || '?')}`,
+        labelText ? `: ${labelText}` : '',
+        comments ? `${labelText ? ' ' : ': '}- ${comments}` : ''
+      ].join('');
+      return el('div', { class: 'tag' }, [(main.includes('\n')) ? preWrapText(main) : main]);
+    }
+
+    const children = [];
+    children.push(`${prefix} `);
+
+    if (id && target) {
+      const name = target?.Name || target?.FormalName || target?.ModelName || target?.Name_EN || '';
+      children.push(el('a', {
+        href: buildIndexHref(id),
+        title: name ? `開く: ${name}` : '開く',
+        onclick: (ev) => {
+          try { ev.preventDefault(); } catch (_) { /* no-op */ }
+          openDetail(target);
+        }
+      }, [id.value]));
+    } else {
+      children.push(num || (id?.value || '?'));
+    }
+
+    if (labelText) children.push(`: ${labelText}`);
+    if (comments) children.push(`${labelText ? ' ' : ': '}- ${comments}`);
+
+    return el('div', { class: 'tag' }, children);
   };
 
   const r1 = related.map(r => renderRelTag('→', r, true));

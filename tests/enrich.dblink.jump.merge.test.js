@@ -34,6 +34,9 @@ class TestDataFetcher {
     const p = `data/${wdir}/DataBases/db_${dbName}.json`;
     return loadJson(p);
   }
+  async readGlobalMeta() {
+    return loadJson('data/db_meta.json');
+  }
   async readGeneralVarsDefGlobal() { return {}; }
   async readGeneralVarsDefWork() { return {}; }
   async readGlobalType() { return {}; }
@@ -123,5 +126,45 @@ describe('_DBLink / _Jump merge (in-process)', () => {
 
     // 別DBからの画像はマージしない
     expect(e.Test_PNGName).toBe('');
+  });
+
+  it('_DBLink._Search で hashTag="#Index" を使うと、作品の $DefType_Index に基づいて参照先を特定できる（スカラーIndex）', async () => {
+    const dataFetcher = new TestDataFetcher();
+    const proc = new globalThis.EnrichmentProcessor(dataFetcher, testConfig);
+
+    const rec = {
+      Id: 'BASE',
+      _DBLink: {
+        worksTitle: 'NumberTales',
+        dbName: 'Primary',
+        _Search: [{ hashTag: '#Index', key: 1 }]
+      }
+    };
+
+    const out = await proc.enrichRecords([rec], '#Works_MainWork', 'Primary');
+    const e = out[0];
+
+    // NumberTales の Num=1 は Name が「ハジメ」
+    expect(e.Name).toBe('ハジメ');
+  });
+
+  it('_DBLink._Search で hashTag="#Index" + key=object を使うと、ネストIndex（例: Card.Stoat + Card.Num）をAND条件で特定できる', async () => {
+    const dataFetcher = new TestDataFetcher();
+    const proc = new globalThis.EnrichmentProcessor(dataFetcher, testConfig);
+
+    const rec = {
+      Id: 'BASE',
+      _DBLink: {
+        worksTitle: 'FLInvestigator78',
+        dbName: 'Primary',
+        _Search: [{ hashTag: '#Index', key: { Stoat: 'Major', Num: 0 } }]
+      }
+    };
+
+    const out = await proc.enrichRecords([rec], '#Works_MainWork', 'Primary');
+    const e = out[0];
+
+    // FLInvestigator78 の Card:{Stoat:'Major',Num:0} は Name が「フェニクス」
+    expect(e.Name).toBe('フェニクス');
   });
 });

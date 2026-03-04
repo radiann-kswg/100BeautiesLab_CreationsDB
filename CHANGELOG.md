@@ -275,3 +275,10 @@
 - GitHub Pages: ルートに `index.html` を追加し、UI / API / ガイドラインへの入口を明確化。
 - README（`README.md`）: トップ導線をデプロイ先 URL（`database.numbertales-radiann.net`）中心に整理。
 - README（`README.md`）: 折りたたみ（`<details>`）内の Markdown 互換性向上のため `markdown="1"` を付与。
+
+### `#Index` 型の段階導入（API 側: search/enrich）
+
+- SW 共通（`lib/data-common.js`）: `EnrichmentProcessor.searchRecords()` が `hashTag:'#Index'`（互換として `'$Index'`）を解釈し、作品メタ（`data/db_meta.json(CreationWorks.<work>.$DefType_Index)`）に基づいて実フィールドへ展開できるようにした。
+  - スカラー（例: `key: 1`）だけでなく、ネスト index（例: `key: { Stoat: 'Major', Num: 0 }`）も AND 条件として展開して検索できる。
+- 回帰修正（`lib/data-common.js`）: index 子要素が `#Number|#String` のような union の場合は数値比較を抑止し、`'0'` が `'000'` 等に誤一致して複数ヒットになるケースを回避。
+- Test（`tests/enrich.dblink.jump.merge.test.js`）: `#Index` 検索（スカラー/ネスト）の回帰テストを追加。
