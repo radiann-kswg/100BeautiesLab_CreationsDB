@@ -49,7 +49,7 @@
       }
     },
     "#DB_SelfSecondary": {
-      "DB_Summary": "ナンバーテールズのうち、公式または公式指導の下で副次創作としてデザインされたキャラクターで、こちらは二次創作に準ずる括りとする。\nゾロ目(111の倍数)などの予約された番号を除く101以上999以下の非負整数である数秘をそれぞれ有している。",
+      "DB_Summary": "ナンバーテールズのうち、公式または公式指導の下で副次創作としてデザインされたキャラクターで、こちらは二次創作に準ずる括りとする。\nゾロ目(111の倍数)などの予約された番号を除く101以上999未満の非負整数である数秘をそれぞれ有している。",
       "_Secondaries": [
         {
           "sec_Category": "リクエストナンバー",
@@ -60,6 +60,20 @@
             "RaceType": "PortableHumanoid(TaleBeastType)"
           }
         },
+        {
+          "sec_Category": null,
+          "sec_DesignedBy": null,
+          "sec_SeriesTitle": null,
+          "_Commons": {
+            "Belonging": ["百花繚乱研究所"],
+            "RaceType": "PortableHumanoid(TaleBeastType)"
+          }
+        }
+      ]
+    },
+    "#DB_UnproceededSecondary": {
+      "DB_Summary": "ナンバーテールズのうち、まだ制作予定のない3桁の番号をもつキャラクターの空き枠で、こちらは二次創作に準ずる括りとする。\nゾロ目(111の倍数)などの予約された番号を除く101以上999未満の非負整数である数秘をそれぞれ有している。",
+      "_Secondaries": [
         {
           "sec_Category": null,
           "sec_DesignedBy": null,

@@ -63,170 +63,6 @@
     "Backgrounds": "量産型のリリースに向けたプロトタイプ\n10号機系[ディケ]の設計を完成させた"
   },
   {
-    "Num": 101,
-    "Progress": "notProceeded",
-    "Name": "ヒノマルイ",
-    "Name_EN": "Sunrizer=Origin",
-    "ModelName": "ナンバーテールズ試作正規型1+10号機(101番機)",
-    "ModelNumber": "APHR-NT [PS]I+X",
-    "FormalName": "ナンバーテールズ101番機",
-    "FormalName_EN": "NumberTales #101",
-    "CodeName": "一〇一",
-    "SPCodeName": "百一",
-    "SPCodeName_EN": "Hundred One",
-    "GenderType": "Neutral",
-    "Class": "サイドシングルス",
-    "Class_EN": "Side Singles",
-    "Backgrounds": "1号機系[1(ハジメ),2(ツグ),10(ミツル)]の類似個体で、こちらは販売用"
-  },
-  {
-    "Num": 102,
-    "Progress": "notProceeded",
-    "Name": "ヒノマルフ",
-    "Name_EN": "Sunrizer=Twens",
-    "ModelName": "ナンバーテールズ試作正規型2+10号機(102番機)",
-    "ModelNumber": "APHR-NT [PS]II+X",
-    "FormalName": "ナンバーテールズ102番機",
-    "FormalName_EN": "NumberTales #102",
-    "CodeName": "一〇二",
-    "SPCodeName": "百二",
-    "SPCodeName_EN": "Hundred Two",
-    "GenderType": "Neutral",
-    "Class": "サイドデュアルスリーズ",
-    "Class_EN": "Side Dual Sum-3s",
-    "Backgrounds": "2号機系[バイナ,20(ハツカ)]の類似個体で、こちらは販売用"
-  },
-  {
-    "Num": 103,
-    "Progress": "notProceeded",
-    "Name": "ヒノマルミ",
-    "Name_EN": "Sunrizer=Treiya",
-    "ModelName": "ナンバーテールズ3+10号機(103番機)",
-    "ModelNumber": "APHR-NT III+X",
-    "FormalName": "ナンバーテールズ103番機",
-    "FormalName_EN": "NumberTales #103",
-    "CodeName": "一〇三",
-    "SPCodeName": "百三",
-    "SPCodeName_EN": "Hundred Three",
-    "GenderType": "Neutral",
-    "Class": "サイドデュアルフォーズ",
-    "Class_EN": "Side Dual Sum-4s",
-    "Backgrounds": "「3(ナオ)」の類似個体で、こちらは販売用\n以下「109(ヒノマルク)」まで同様（下1桁に対応）"
-  },
-  {
-    "Num": 104,
-    "Progress": "notProceeded",
-    "Name": "ヒノマルヨ",
-    "Name_EN": "Sunrizer=Forna",
-    "ModelName": "ナンバーテールズ4+10号機(104番機)",
-    "ModelNumber": "APHR-NT IV+X",
-    "FormalName": "ナンバーテールズ104番機",
-    "FormalName_EN": "NumberTales #104",
-    "CodeName": "一〇四",
-    "SPCodeName": "百四",
-    "SPCodeName_EN": "Hundred Four",
-    "GenderType": "Neutral",
-    "Class": "サイドデュアルファイブズ",
-    "Class_EN": "Side Dual Sum-5s"
-  },
-  {
-    "Num": 105,
-    "Progress": "notProceeded",
-    "Name": "ヒノマルゴ",
-    "Name_EN": "Sunrizer=Fifa",
-    "ModelName": "ナンバーテールズ5+10号機(105番機)",
-    "ModelNumber": "APHR-NT V+X",
-    "FormalName": "ナンバーテールズ105番機",
-    "FormalName_EN": "NumberTales #105",
-    "CodeName": "一〇五",
-    "SPCodeName": "百五",
-    "SPCodeName_EN": "Hundred Five",
-    "GenderType": "Neutral",
-    "Class": "サイドデュアルシックスズ",
-    "Class_EN": "Side Dual Sum-6s"
-  },
-  {
-    "Num": 106,
-    "Progress": "notProceeded",
-    "Name": "ヒノマルム",
-    "Name_EN": "Sunrizer=Sics",
-    "ModelName": "ナンバーテールズ6+10号機(106番機)",
-    "ModelNumber": "APHR-NT VI+X",
-    "FormalName": "ナンバーテールズ106番機",
-    "FormalName_EN": "NumberTales #106",
-    "CodeName": "一〇六",
-    "SPCodeName": "百六",
-    "SPCodeName_EN": "Hundred Six",
-    "GenderType": "Neutral",
-    "Class": "サイドデュアルセブンズ",
-    "Class_EN": "Side Dual Sum-7s"
-  },
-  {
-    "Num": 107,
-    "Progress": "notProceeded",
-    "Name": "ヒノマルナ",
-    "Name_EN": "Sunrizer=Sevan",
-    "ModelName": "ナンバーテールズ7+10号機(107番機)",
-    "ModelNumber": "APHR-NT VII+X",
-    "FormalName": "ナンバーテールズ107番機",
-    "FormalName_EN": "NumberTales #107",
-    "CodeName": "一〇七",
-    "SPCodeName": "百七",
-    "SPCodeName_EN": "Hundred Seven",
-    "GenderType": "Neutral",
-    "Class": "サイドデュアルエイツ",
-    "Class_EN": "Side Dual Sum-8s"
-  },
-  {
-    "Num": 108,
-    "Progress": "notProceeded",
-    "Name": "ヒノマルヤ",
-    "Name_EN": "Sunrizer=Eighas",
-    "ModelName": "ナンバーテールズ8+10号機(108番機)",
-    "ModelNumber": "APHR-NT VIII+X",
-    "FormalName": "ナンバーテールズ108番機",
-    "FormalName_EN": "NumberTales #108",
-    "CodeName": "一〇八",
-    "SPCodeName": "百八",
-    "SPCodeName_EN": "Hundred Eight",
-    "GenderType": "Neutral",
-    "Class": "ナインズサイドデュアルズ",
-    "Class_EN": "Nines Side Duals"
-  },
-  {
-    "Num": 109,
-    "Progress": "notProceeded",
-    "Name": "ヒノマルク",
-    "Name_EN": "Sunrizer=Nina",
-    "ModelName": "ナンバーテールズ9+10号機(109番機)",
-    "ModelNumber": "APHR-NT IX+X",
-    "FormalName": "ナンバーテールズ109番機",
-    "FormalName_EN": "NumberTales #109",
-    "CodeName": "一〇九",
-    "SPCodeName": "百九",
-    "SPCodeName_EN": "Hundred Nine",
-    "GenderType": "Neutral",
-    "Class": "サイドデュアルキャリーズ",
-    "Class_EN": "Side Dual Carries"
-  },
-  {
-    "Num": 110,
-    "Progress": "notProceeded",
-    "Name": "ハクト",
-    "Name_EN": "Elevantis",
-    "ModelName": "ナンバーテールズ汎用改良型11号機(110番機)",
-    "ModelNumber": "APHR-NT [GR]XI",
-    "FormalName": "ナンバーテールズ110番機",
-    "FormalName_EN": "NumberTales #110",
-    "CodeName": "一一〇",
-    "SPCodeName": "百十",
-    "SPCodeName_EN": "Eleventy",
-    "GenderType": "Neutral",
-    "Class": "マスターテンズデュアルズ9",
-    "Class_EN": "Master 110s 9",
-    "Backgrounds": "「11(トウイチ)」の類似個体で、こちらは販売用"
-  },
-  {
     "Num": 111,
     "Progress": "released",
     "Images": {
@@ -264,151 +100,6 @@
     "NumerospecAbout": "自分のやるべきことを認識させる",
     "Summary": "量産販売型ではあるが、3桁ゾロ目の数字を持つ「マスタートリプル」という特殊クラスの個体で、2桁以内の通常個体と引け目を取らない性能をもつ。\nとりわけその開発専用機ことオリジナル版である彼(女)は、「1(ハジメ)」や「11(トウイチ)」をも遥かに超える行動意欲の持ち主で、空き時間は自由奔放・猪突猛進に好きなことへ没頭するのを好む。\nしかし転じて、唯我独尊な一面もあるらしく……",
     "Backgrounds": "初めての販売用上位個体、以下マスタートリプル同様（通常の販売価格より高値がついている）"
-  },
-  {
-    "Num": "111-mp",
-    "_DBLink": {
-      "worksTitle": "NumberTales",
-      "dbName": "SemiPrimary",
-      "_Search": [{ "hashTag": "Num", "key": 111 }]
-    },
-    "Images": {
-      "concept_PNGName": "cnsp_img111-mp"
-    },
-    "Name": "アイズ",
-    "Name_EN": "Ize",
-    "FormalName": "量産型ナンバーテールズ111番機シリーズ",
-    "FormalName_EN": "NumberTales #111 Series Mass Production Version for Sales",
-    "ModelNumber": "APHR-NT [MP]111-*****",
-    "GenderType": "Neutral",
-    "Height_cm": 141,
-    "ConceptAge": 14,
-    "Weight_kg": [
-      { "value": 37, "about_JP": "推定", "about_EN": "Presumption" }
-    ],
-    "BustSize": "AA",
-    "TailsUnit": "猫又(特殊)型1本3束[枝]"
-  },
-  {
-    "Num": 112,
-    "Progress": "notProceeded",
-    "Name": "ハクトウジ",
-    "Name_EN": "Hudres=Twelva",
-    "ModelName": "ナンバーテールズ2+11号機(112番機)",
-    "ModelNumber": "APHR-NT II+XI",
-    "FormalName": "ナンバーテールズ112番機",
-    "FormalName_EN": "NumberTales #112",
-    "CodeName": "一一二",
-    "SPCodeName_EN": "Eleventy Two",
-    "GenderType": "Neutral",
-    "Class": "デュオトリプル4型甲組",
-    "Class_EN": "Duet Triples IV.A",
-    "Backgrounds": "「12(トウジ)」の類似個体で、こちらは販売用\n以下「119(ハクトク)」まで同様（下2桁に対応）"
-  },
-  {
-    "Num": 113,
-    "Progress": "notProceeded",
-    "Name": "ハクトミ",
-    "Name_EN": "Hudres=Thirteena",
-    "ModelName": "ナンバーテールズ3+11号機(113番機)",
-    "ModelNumber": "APHR-NT III+XI",
-    "FormalName": "ナンバーテールズ113番機",
-    "FormalName_EN": "NumberTales #113",
-    "CodeName": "一一三",
-    "SPCodeName_EN": "Eleventy Three",
-    "GenderType": "Neutral",
-    "Class": "デュオトリプル5型甲組",
-    "Class_EN": "Duet Triples V.A"
-  },
-  {
-    "Num": 114,
-    "Progress": "notProceeded",
-    "Name": "ハクトヨ",
-    "Name_EN": "Hudres=Forteels",
-    "ModelName": "ナンバーテールズ4+11号機(114番機)",
-    "ModelNumber": "APHR-NT IV+XI",
-    "FormalName": "ナンバーテールズ114番機",
-    "FormalName_EN": "NumberTales #114",
-    "CodeName": "一一四",
-    "SPCodeName_EN": "Eleventy Four",
-    "GenderType": "Neutral",
-    "Class": "デュオトリプル6型甲組",
-    "Class_EN": "Duet Triples VI.A"
-  },
-  {
-    "Num": 115,
-    "Progress": "notProceeded",
-    "Name": "ハクトウゴ",
-    "Name_EN": "Hudres=Fifteeld",
-    "ModelName": "ナンバーテールズ5+11号機(115番機)",
-    "ModelNumber": "APHR-NT V+XI",
-    "FormalName": "ナンバーテールズ115番機",
-    "FormalName_EN": "NumberTales #115",
-    "CodeName": "一一五",
-    "SPCodeName_EN": "Eleventy Five",
-    "GenderType": "Neutral",
-    "Class": "デュオトリプル7型甲組",
-    "Class_EN": "Duet Triples VII.A"
-  },
-  {
-    "Num": 116,
-    "Progress": "notProceeded",
-    "Name": "ハクソロク",
-    "Name_EN": "Hudres=Sixteely",
-    "ModelName": "ナンバーテールズ6+11号機(116番機)",
-    "ModelNumber": "APHR-NT VI+XI",
-    "FormalName": "ナンバーテールズ116番機",
-    "FormalName_EN": "NumberTales #116",
-    "CodeName": "一一六",
-    "SPCodeName_EN": "Eleventy Six",
-    "GenderType": "Neutral",
-    "Class": "デュオトリプル8型甲組",
-    "Class_EN": "Duet Triples VIII.A"
-  },
-  {
-    "Num": 117,
-    "Progress": "notProceeded",
-    "Name": "ハクトナ",
-    "Name_EN": "Hudres=Sevteena",
-    "ModelName": "ナンバーテールズ7+11号機(117番機)",
-    "ModelNumber": "APHR-NT VII+XI",
-    "FormalName": "ナンバーテールズ117番機",
-    "FormalName_EN": "NumberTales #117",
-    "CodeName": "一一七",
-    "SPCodeName_EN": "Eleventy Seven",
-    "GenderType": "Neutral",
-    "Class": "デュオトリプル9型甲組",
-    "Class_EN": "Duet Triples IX.A"
-  },
-  {
-    "Num": 118,
-    "Progress": "notProceeded",
-    "Name": "ハクトウヤ",
-    "Name_EN": "Hudres=Eighteeld",
-    "ModelName": "ナンバーテールズ8+11号機(118番機)",
-    "ModelNumber": "APHR-NT VIII+XI",
-    "FormalName": "ナンバーテールズ118番機",
-    "FormalName_EN": "NumberTales #118",
-    "CodeName": "一一八",
-    "SPCodeName_EN": "Eleventy Eight",
-    "GenderType": "Neutral",
-    "Class": "デュオトリプル1型甲組",
-    "Class_EN": "Duet Triples I.A"
-  },
-  {
-    "Num": 119,
-    "Progress": "notProceeded",
-    "Name": "ハクトク",
-    "Name_EN": "Hudres=Ninteels",
-    "ModelName": "ナンバーテールズ9+11号機(119番機)",
-    "ModelNumber": "APHR-NT IX+XI",
-    "FormalName": "ナンバーテールズ119番機",
-    "FormalName_EN": "NumberTales #119",
-    "CodeName": "一一九",
-    "SPCodeName_EN": "Eleventy Nine",
-    "GenderType": "Neutral",
-    "Class": "デュオトリプル2型甲組",
-    "Class_EN": "Duet Triples II.A"
   },
   {
     "Num": 200,
@@ -470,27 +161,6 @@
     "Backgrounds": "1+11号2倍機が現「222(ドッペル)」、3倍型2号機が現「222(ペルゲン)」にあたりそれぞれ別個体として設計が進められていたが、開発の事情で最終的にひとつの型式として統合された。そのため開発用オリジナル機は、形式上1体として扱われる2体1式の個体となっている。"
   },
   {
-    "Num": "222-mp",
-    "_DBLink": {
-      "worksTitle": "NumberTales",
-      "dbName": "SemiPrimary",
-      "_Search": [{ "hashTag": "Num", "key": 222 }]
-    },
-    "Name": "ドッペルゲン",
-    "Name_EN": "Doppelgän",
-    "FormalName": "量産型ナンバーテールズ222番機シリーズ",
-    "FormalName_EN": "NumberTales #222 Series Mass Production Version for Sales",
-    "ModelNumber": "APHR-NT [MP]222-*****",
-    "CodeName": "二二二",
-    "SPCodeName_EN": "Cloned I-s",
-    "GenderType": "FemaleNeutral",
-    "Height_cm": 148,
-    "ConceptAge": 16,
-    "Weight_kg": 42,
-    "BustSize": "A",
-    "TailsUnit": "尾鰭(特殊)型3本2枝"
-  },
-  {
     "Num": 333,
     "Progress": "notProceeded",
     "Name": "トリニティア",
@@ -504,19 +174,6 @@
     "GenderType": "Neutral",
     "Class": "マスタートリプル",
     "Class_EN": "Master Triples 9"
-  },
-  {
-    "Num": "333-mp",
-    "_DBLink": {
-      "worksTitle": "NumberTales",
-      "dbName": "SemiPrimary",
-      "_Search": [{ "hashTag": "Num", "key": 333 }]
-    },
-    "Name": "トリニティア",
-    "Name_EN": "Trinitia",
-    "FormalName": "量産型ナンバーテールズ333番機シリーズ",
-    "FormalName_EN": "NumberTales #333 Series Mass Production Version for Sales",
-    "ModelNumber": "APHR-NT [MP]333-*****"
   },
   {
     "Num": 400,
@@ -548,19 +205,6 @@
     "Class_EN": "Master Triples 9"
   },
   {
-    "Num": "444-mp",
-    "_DBLink": {
-      "worksTitle": "NumberTales",
-      "dbName": "SemiPrimary",
-      "_Search": [{ "hashTag": "Num", "key": 444 }]
-    },
-    "Name": "シテン",
-    "Name_EN": "Quad-emperone",
-    "FormalName": "量産型ナンバーテールズ444番機シリーズ",
-    "FormalName_EN": "NumberTales #444 Series Mass Production Version for Sales",
-    "ModelNumber": "APHR-NT [MP]444-*****"
-  },
-  {
     "Num": 555,
     "Progress": "notProceeded",
     "Name": "ハイファイブ",
@@ -573,19 +217,6 @@
     "GenderType": "Neutral",
     "Class": "マスタートリプル",
     "Class_EN": "Master Triples 9"
-  },
-  {
-    "Num": "555-mp",
-    "_DBLink": {
-      "worksTitle": "NumberTales",
-      "dbName": "SemiPrimary",
-      "_Search": [{ "hashTag": "Num", "key": 555 }]
-    },
-    "Name": "ハイファイブ",
-    "Name_EN": "High-Fiver",
-    "FormalName": "量産型ナンバーテールズ555番機シリーズ",
-    "FormalName_EN": "NumberTales #555 Series Mass Production Version for Sales",
-    "ModelNumber": "APHR-NT [MP]555-*****"
   },
   {
     "Num": 666,
@@ -624,29 +255,6 @@
     "RelationAbouts": "開発者専用機では、「66(ムロク)」を「眷属」として労わっているが……",
     "NumerospecAbout": "自分の本能を認知し開花させる",
     "Summary": "量産販売型ではあるが、3桁ゾロ目の数字を持つ「マスタートリプル」という特殊クラスの個体で、2桁以内の通常個体と引け目を取らない性能をもつ。\nとりわけその開発専用機ことオリジナル版である彼女は、「6(ムイ)」や「66(ムロク)」とも引け目を取らない感性や優美さの持ち主で、自身の才能に対し自信にあふれている。\nただ、その妖艶としたポテンシャルから時々“悪魔”の如く大罪的な衝動に駆られてしまうことがあり……"
-  },
-  {
-    "Num": "666-mp",
-    "_DBLink": {
-      "worksTitle": "NumberTales",
-      "dbName": "SemiPrimary",
-      "_Search": [{ "hashTag": "Num", "key": 666 }]
-    },
-    "Images": {
-      "concept_PNGName": "cnsp_img666-mp",
-      "corefolder_PNGPath": ["emstk_corefolder666-mp1"]
-    },
-    "Name": "リリス",
-    "Name_EN": "Lilith",
-    "FormalName": "量産型ナンバーテールズ666番機シリーズ",
-    "FormalName_EN": "NumberTales #666 Series Mass Production Version for Sales",
-    "ModelNumber": "APHR-NT [MP]666-*****",
-    "GenderType": "FemaleNeutral",
-    "Height_cm": 150,
-    "ConceptAge": 16,
-    "Weight_kg": { "hideText": "非公開" },
-    "BustSize": "E",
-    "TailsUnit": "キツネ(特殊)型3束x6本"
   },
   {
     "Num": 777,
@@ -733,74 +341,6 @@
     "NumerospecAbout": "スロットゲーム拡張アドオンにより運勢を娯楽的に見せる"
   },
   {
-    "Num": "777-mp",
-    "_DBLink": {
-      "worksTitle": "NumberTales",
-      "dbName": "SemiPrimary",
-      "_Search": [{ "hashTag": "Num", "key": 777 }]
-    },
-    "Images": {
-      "concept_PNGName": "cnsp_img777-mp"
-    },
-    "Name": "ヨロコビ",
-    "Name_EN": "Lucky-sevens\nLuckies",
-    "FormalName": "量産型ナンバーテールズ777番機シリーズ",
-    "FormalName_EN": "NumberTales #777 Series Mass Production Version for Sales",
-    "ModelNumber": "APHR-NT [MP]777-*****",
-    "Height_cm": 161,
-    "ConceptAge": {
-      "value": 32,
-      "about_JP": "概算値",
-      "about_EN": "Approximation"
-    },
-    "Weight_kg": [
-      { "value": 50 },
-      {
-        "value": 3,
-        "about_JP": "バックパック(拡張I/O機器)",
-        "about_EN": "Backpack(I/O Addon)"
-      }
-    ],
-    "BustSize": "AA",
-    "GenderType": "MaleNeutral",
-    "TailsUnit": "キツネ(特殊)型3束x7本"
-  },
-  {
-    "Num": "777.Jackpot-mp",
-    "_DBLink": {
-      "worksTitle": "NumberTales",
-      "dbName": "SelfSecondary",
-      "_Search": [{ "hashTag": "Num", "key": "777-mp" }]
-    },
-    "Name": "ヨロコビ",
-    "Name_EN": "Lucky-sevens\nLuckies",
-    "FormalName": "量産型ナンバーテールズ777番機[ジャックポット]シリーズ",
-    "FormalName_EN": "NumberTales #777.Jackpot Series Mass Production Version for Sales",
-    "ModelNumber": "APHR-NT [MP]777JP-*****",
-    "GenderType": "MaleNeutral",
-    "Height_cm": 161,
-    "ConceptAge": {
-      "value": 32,
-      "about_JP": "概算値",
-      "about_EN": "Approximation"
-    },
-    "Weight_kg": [
-      { "value": 50 },
-      {
-        "value": 5,
-        "about_JP": "バックパック(娯楽装備)",
-        "about_EN": "Backpack(Amusement Equipment)"
-      },
-      {
-        "value": 3,
-        "about_JP": "娯楽装備専用アドオン",
-        "about_EN": "Addon for Amusement Equipment"
-      }
-    ],
-    "BustSize": "AA",
-    "TailsUnit": "キツネ(特殊)型3束x7本"
-  },
-  {
     "Num": 888,
     "Progress": "notProceeded",
     "Name": "ムゲン",
@@ -816,19 +356,6 @@
     "Class": "マスタートリプル",
     "Class_EN": "Master Triples 9",
     "ThisMasters": "八坂 兵汰(へいた)/ヘクター.キロバスター（夜月機関 第8幹部）"
-  },
-  {
-    "Num": "888-mp",
-    "_DBLink": {
-      "worksTitle": "NumberTales",
-      "dbName": "SemiPrimary",
-      "_Search": [{ "hashTag": "Num", "key": 888 }]
-    },
-    "Name": "ムゲン",
-    "Name_EN": "Infy",
-    "FormalName": "量産型ナンバーテールズ888番機シリーズ",
-    "FormalName_EN": "NumberTales #888 Series Mass Production Version for Sales",
-    "ModelNumber": "APHR-NT [MP]888-*****"
   },
   {
     "Num": 999,
@@ -855,18 +382,5 @@
     "ForMasterCalling": "主君",
     "InStory": "記憶喪失系のキャラとされている\n開発専用機では…？",
     "Backgrounds": "量産販売型含め最後のナンバーテールズ\n「99(ツクモ)」直通の後継個体だが…"
-  },
-  {
-    "Num": "999-mp",
-    "_DBLink": {
-      "worksTitle": "NumberTales",
-      "dbName": "SemiPrimary",
-      "_Search": [{ "hashTag": "Num", "key": 999 }]
-    },
-    "Name": "カンスト",
-    "Name_EN": "Counstop",
-    "FormalName": "量産型ナンバーテールズ999番機シリーズ",
-    "FormalName_EN": "NumberTales #999 Series Mass Production Version for Sales",
-    "ModelNumber": "APHR-NT [MP]999-*****"
   }
 ]
