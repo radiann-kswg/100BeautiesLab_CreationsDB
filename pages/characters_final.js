@@ -3,5 +3,10 @@
  */
 main().catch(err => {
   console.error('Initialization error:', err);
-  document.body.innerHTML = `<div style="padding: 20px; color: red;">初期化エラー: ${err.message}</div>`;
+  const box = document.createElement('div');
+  box.style.padding = '20px';
+  box.style.color = 'red';
+  box.textContent = `初期化エラー: ${err && err.message ? err.message : String(err)}`;
+  document.body.textContent = '';
+  document.body.appendChild(box);
 });

@@ -156,9 +156,8 @@ class PagesServiceWorker extends ServiceWorkerBase {
     const workId = DataUtils.toWorkKey(params.get('works'));
     const dbName = params.get('db');
 
-    if (!workId || !dbName) {
-      return ResponseUtils.badRequest('Query must include works and db parameters');
-    }
+    if (!workId || !dbName) return ResponseUtils.badRequest('Query must include works and db parameters');
+    if (!DataUtils.isValidDbName(dbName)) return ResponseUtils.badRequest('Invalid db parameter');
 
     let records = await this.dataFetcher.readDB(workId, dbName);
     const workMeta = await this.dataFetcher.readWorkMeta(workId);
@@ -195,6 +194,7 @@ class PagesServiceWorker extends ServiceWorkerBase {
    */
   async handleWorkVarsdefEndpoint(workIdParam) {
     const workId = DataUtils.toWorkKey(workIdParam);
+    if (!workId) return ResponseUtils.badRequest('Invalid works parameter');
     const workVars = await this.dataFetcher.readGeneralVarsDefWork(workId);
     const globalVars = await this.dataFetcher.readGeneralVarsDefGlobal();
 

@@ -3734,7 +3734,7 @@ function matchFilter(rec, q) {
  */
 async function renderList(records, workId, onOpen, imageFields = null) {
   const list = $('#list');
-  list.innerHTML = '';
+  list.textContent = '';
   let shown = 0;
   const qs = getQS();
   const filter = (qs.q || $('#search-input').value || '').trim();
@@ -3883,7 +3883,7 @@ function kvTable(obj, entries) {
 async function renderDetail(workId, rec) {
   $('#detail-title').textContent = rec.Name ? `${rec.Name}${rec.Num != null ? `（${rec.Num}）` : ''}` : (rec.FormalName || rec.ModelName || rec.Name_EN || '詳細');
   const mount = $('#detail');
-  mount.innerHTML = '';
+  mount.textContent = '';
 
   // 現在のデータベース名と拡張ステートを取得
   const state = window.__CHAR_STATE__;
@@ -3895,7 +3895,10 @@ async function renderDetail(workId, rec) {
 
   try {
     // 詳細ビューの最小限のローディング表示
-    mount.innerHTML = '<div style="padding: 20px; text-align: center; color: var(--muted);">詳細情報を読み込んでいます...</div>';
+    mount.textContent = '';
+    mount.appendChild(el('div', {
+      style: 'padding: 20px; text-align: center; color: var(--muted);'
+    }, ['詳細情報を読み込んでいます...']));
 
     // Use cached data when available, otherwise fetch
     const [workTypeDef, globalTypeDef, globalDefType, workMeta, globalMeta] = await Promise.all([
@@ -3922,7 +3925,7 @@ async function renderDetail(workId, rec) {
     })();
 
     // Clear loading message
-    mount.innerHTML = '';
+    mount.textContent = '';
 
     // Build comprehensive field label mapping with global fallbacks
     const fieldLabelMap = buildFieldLabelMap(workTypeDef, globalTypeDef);
@@ -5099,7 +5102,10 @@ async function renderDetail(workId, rec) {
 
   } catch (error) {
     console.error('Error rendering detail view:', error);
-    mount.innerHTML = `<div style="padding: 20px; text-align: center; color: red;">エラー: 詳細情報の読み込みに失敗しました (${error.message})</div>`;
+    mount.textContent = '';
+    mount.appendChild(el('div', {
+      style: 'padding: 20px; text-align: center; color: red;'
+    }, [`エラー: 詳細情報の読み込みに失敗しました (${error && error.message ? error.message : String(error)})`]));
   }
 }
 
@@ -5384,7 +5390,7 @@ async function filterListOnly() {
 
 async function populateWorks(initialWork) {
   const sel = $('#select-work');
-  sel.innerHTML = '';
+  sel.textContent = '';
   const items = await listWorks();
   for (const w of items) {
     const opt = el('option', { value: w.key }, [humanWorkLabel(w)]);
@@ -5397,7 +5403,7 @@ async function populateWorks(initialWork) {
 
 async function populateDBs(workKey, initialDB) {
   const sel = $('#select-db');
-  sel.innerHTML = '';
+  sel.textContent = '';
   const dbs = await listWorkDBs(workKey);
   for (const d of dbs) {
     const opt = el('option', { value: d.key }, [d.key]);
@@ -5812,12 +5818,11 @@ function addPerformanceMonitor() {
       const content = document.getElementById('perf-content');
       if (content) {
         const memory = performance.memory || {};
-        content.innerHTML = `
-          <div>Used: ${(memory.usedJSHeapSize / 1024 / 1024).toFixed(1)}MB</div>
-          <div>Total: ${(memory.totalJSHeapSize / 1024 / 1024).toFixed(1)}MB</div>
-          <div>Time: ${performance.now().toFixed(0)}ms</div>
-          <div>Records: ${window.__CHAR_STATE__?.records?.length || 0}</div>
-        `;
+        content.textContent = '';
+        content.appendChild(el('div', {}, [`Used: ${((memory.usedJSHeapSize || 0) / 1024 / 1024).toFixed(1)}MB`]));
+        content.appendChild(el('div', {}, [`Total: ${((memory.totalJSHeapSize || 0) / 1024 / 1024).toFixed(1)}MB`]));
+        content.appendChild(el('div', {}, [`Time: ${performance.now().toFixed(0)}ms`]));
+        content.appendChild(el('div', {}, [`Records: ${window.__CHAR_STATE__?.records?.length || 0}`]));
       }
     }
   }, 1000);
@@ -5836,7 +5841,7 @@ if (document.readyState === 'loading') {
     const fallbackError = el('div', {
       style: 'padding: 20px; color: red;'
     }, [`初期化エラー: ${err && err.message ? err.message : String(err)}`]);
-    document.body.innerHTML = '';
+    document.body.textContent = '';
     document.body.appendChild(fallbackError);
   });
 }
