@@ -203,6 +203,45 @@
       "hashTag_JP": "弱み"
     },
     {
+      "hashTag": "ConversationPattern",
+      "$type": [
+        {
+          "hashTag": "TalkingTone",
+          "$type": "#Summary|#Null",
+          "hashTag_JP": "口調"
+        },
+        {
+          "hashTag": "TopicPreference",
+          "$type": "#Summary|#Null",
+          "hashTag_JP": "話題提供の傾向"
+        },
+        {
+          "hashTag": "TalkFrequency",
+          "$type": "#Summary|#Null",
+          "hashTag_JP": "会話頻度"
+        },
+        {
+          "hashTag": "DoTalk",
+          "$type": "#Summary|#Null",
+          "hashTag_JP": "やりがちな話題"
+        },
+        {
+          "hashTag": "DontTalk",
+          "$type": "#Summary|#Null",
+          "hashTag_JP": "避けがちな話題"
+        },
+        {
+          "hashTag": "ConversationNotes",
+          "$type": "#Summary|#Null",
+          "hashTag_JP": "会話における補足"
+        }
+      ],
+      "hashTag_JP": "会話パターンについて",
+      "$display": {
+        "section": "profile"
+      }
+    },
+    {
       "hashTag": "RelationAbouts",
       "$type": "#Summary",
       "hashTag_JP": "関連性について"

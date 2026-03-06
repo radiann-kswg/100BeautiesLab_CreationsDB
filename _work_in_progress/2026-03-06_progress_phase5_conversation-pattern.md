@@ -139,6 +139,22 @@
 - `ConversationPattern`（仮）を `db_type.json` に追加し、最小サブ項目を定義。
 - `hashTag_JP`（表示名）を付与し、表示/検索の挙動は typedef-driven に寄せる。
 
+#### Step 1 実施内容（2026-03-06）
+
+- 追加先: `data/db_type.json`（全作品共通の `$DefType`）
+- 追加キー: `ConversationPattern`
+- 表示分類: `$display.section = 'profile'`
+  - 理由: UI（`pages/characters.js`）の自動分類が `basic/profile/spec/other` のみ許容するため。
+- サブ項目（最小）
+  - `TalkingTone`（口調）: `#Summary|#Null`
+  - `TopicPreference`（話題提供の傾向）: `#Summary|#Null`
+  - `TalkFrequency`（会話頻度）: `#Summary|#Null`
+  - `DoTalk`（やりがちな話題）: `#Summary|#Null`
+  - `DontTalk`（避けがちな話題）: `#Summary|#Null`
+  - `ConversationNotes`（会話における補足）: `#Summary|#Null`
+
+※本セッションでは「会話本文の自動生成」を避ける方針のため、台詞例のようなフィールドは追加していない。
+
 ### Step 2: API/SW での取り回し確認
 
 - 新フィールドが欠損でも落ちない（`null`/未定義耐性）。
