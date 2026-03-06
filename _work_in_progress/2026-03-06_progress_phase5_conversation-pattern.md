@@ -108,6 +108,32 @@
 - work 別 `db_type.json` とルート `data/db_type.json` の優先順位（どちらを UI/API が参照しているか）を確認。
 - `pages/characters.js` の `$display.section` の分類仕様（`basic/profile/spec/other`）に合わせ、会話項目の割当を決める。
 
+#### Step 0 確認結果（2026-03-06）
+
+- typedef の取得経路（UI）
+  - `pages/characters.js` は `api('v1/typedef/global')` と `api('v1/works/{work}/typedef')` を呼び出す。
+  - `api()` は `API_BASE_REL`（既定は `../pages/`）を基準に URL を作るため、通常は `/pages/v1/...` 系の SW ルート経由で取得する。
+  - SW 登録のフォールバックにより、状況によっては `../svc/` → `../api/` を基準にする可能性がある（広告ブロッカー回避）。
+
+- typedef の参照優先順位（UI）
+  - フィールド型マップ: `buildFieldTypeMap(work, global)` は **work → global の順に取り込み**、同一キーは後勝ちしない（= work が優先、global はフォールバック）。
+  - フィールド表示ヒント（$display）: `buildFieldDisplayMap(work, global)` も同様に **work が優先**。
+  - トップレベル表示順: `extractTopLevelSchemaFields(work, global)` は **work を先に列挙**し、同名キーは global 側を追加しない（= work が優先）。
+  - 備考: UI は `Images` キーをトップレベル自動表示の対象から除外（ギャラリー処理が担当）。
+
+- typedef の参照優先順位（SW/共通ライブラリ）
+  - `lib/sw-common.js` では、グローバルを `/data/db_type.json`、作品別を `/data/Works_*/DataBases/db_type.json` として読み込む実装がある。
+  - `lib/data-common.js` の `TypeDefUtils.mergeDefTypes(global, work)` は、**順序は global を優先しつつ、同名エントリは work 側で上書き**する（= work 優先・global 順序維持）。
+
+- `$display.section` の分類仕様（UI）
+  - UI の正規化関数は `basic | profile | spec | other` のみを許容し、それ以外は未指定扱い。
+  - 未指定時のフォールバックは、概ね「Summary 系は profile、それ以外は other」。
+  - `Images` は左カラムのギャラリー担当のため、この自動分類には出さない。
+
+- `$display.section` の分類仕様（SW/共通ライブラリ）
+  - `TypeDefUtils.pickDisplaySection(entry)` は `basic | profile | spec | images | other` を扱い、
+    明示指定（`displaySection` または `$display.section`）がなければ `hashTag` や型から推定する。
+
 ### Step 1: スキーマ追加（typedef）
 
 - `ConversationPattern`（仮）を `db_type.json` に追加し、最小サブ項目を定義。
