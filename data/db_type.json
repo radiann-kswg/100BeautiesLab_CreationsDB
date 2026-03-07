@@ -234,6 +234,11 @@
           "hashTag": "ConversationNotes",
           "$type": "#Summary|#Null",
           "hashTag_JP": "会話における補足"
+        },
+        {
+          "hashTag": "DialogueExamples",
+          "$type": "#Summary[]|#Summary_withAbout[]|#Null",
+          "hashTag_JP": "台詞の例"
         }
       ],
       "hashTag_JP": "会話パターンについて",

@@ -2932,7 +2932,16 @@ function formatValueForDisplay(value, labelMap = {}, workMeta = null, globalDefT
   }
 
   if (Array.isArray(value)) {
-    return value.map(item => formatValueForDisplay(item, labelMap, workMeta, globalDefType, opt)).filter(v => v).join(', ');
+    const formattedItems = value
+      .map(item => formatValueForDisplay(item, labelMap, workMeta, globalDefType, opt))
+      .filter(v => v);
+    if (formattedItems.length === 0) return '';
+
+    if (schemaTypeIncludes(opt?.schemaType, '#Summary')) {
+      return formattedItems.join('\n');
+    }
+
+    return formattedItems.join(', ');
   }
 
   if (typeof value === 'object') {

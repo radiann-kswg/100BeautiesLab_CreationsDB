@@ -123,8 +123,10 @@
 ### 会話パターン情報追加のためのスキーマ拡張（typedef）
 
 - `data/db_type.json($DefType)` に `ConversationPattern` を追加し、会話パターン（口調/話題傾向/頻度等）を格納できるようにした。
+- `ConversationPattern` 配下に `DialogueExamples`（`#Summary[]|#Summary_withAbout[]|#Null`）を追加し、閲覧者向けに会話パターン理解を補助する「台詞の例」を保持できるようにした。
 - 値（コンテンツ）は User 手動入力を前提とし、Copilot による創作内容の自動生成を避ける運用を想定。
 - `ConversationPattern` は当面 `searchable:false` とし、表示は可能だが検索インデックスへは含めない方針を明示した。
+- `#Summary[]|#Summary_withAbout[]|#Null` の運用補強として、ネストした array union 型の enrich 正規化と、Summary 配列の改行表示に対応した。
 
 ### Object 型フィールド処理の強化（その1〜3）
 
