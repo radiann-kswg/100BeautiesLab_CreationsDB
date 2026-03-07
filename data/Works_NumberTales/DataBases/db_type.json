@@ -211,7 +211,7 @@
         },
         {
           "hashTag": "Comments",
-          "$type": "#String",
+          "$type": "#Dialogue",
           "isForSecondary": false,
           "hashTag_JP": "コメント"
         },

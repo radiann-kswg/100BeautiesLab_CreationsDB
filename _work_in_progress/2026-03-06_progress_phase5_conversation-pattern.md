@@ -80,7 +80,7 @@
 - `PreferredTopics`（やりがちな話題）: `#Summary|#Null`
 - `AvoidedTopics`（避けがちな話題）: `#Summary|#Null`
 - `ConversationNotes`（会話における補足）: `#Summary|#Null`
-- `DialogueExamples`（台詞の例）: `#String[]|#String_withAbout[]|#Null`
+- `DialogueExamples`（台詞の例）: `#Dialogue[]|#Dialogue_withAbout[]|#Null`
 
 ※ `DialogueExamples` は User 提案に基づき追加した。値は User 手動入力を前提とし、Copilot は本文自動生成を行わない。
 
@@ -164,7 +164,7 @@
   - `PreferredTopics`（やりがちな話題）: `#Summary|#Null`
   - `AvoidedTopics`（避けがちな話題）: `#Summary|#Null`
   - `ConversationNotes`（会話における補足）: `#Summary|#Null`
-  - `DialogueExamples`（台詞の例）: `#String[]|#String_withAbout[]|#Null`
+  - `DialogueExamples`（台詞の例）: `#Dialogue[]|#Dialogue_withAbout[]|#Null`
 
 ※本セッションでは「会話本文の自動生成」は避ける方針を維持し、`DialogueExamples` の値は User 手動入力を前提とする。
 
@@ -197,19 +197,26 @@
   - `tests/conversation-pattern.test.js` を追加し、欠損耐性・表示分類・検索除外を確認した。
   - 併せて `tests/data.shape.test.js` / `tests/data.sanity.test.js` / `tests/sw.enrich.basic.test.js` / `tests/enrich.dblink.jump.merge.test.js` を再実行し、回帰がないことを確認した。
 
-#### `#String[]|#String_withAbout[]|#Null` 対応確認（2026-03-07）
+#### `#Dialogue[]|#Dialogue_withAbout[]|#Null` 対応確認（2026-03-07）
 
 - 確認した点
   - API/SW 側では、`searchable:false` により `DialogueExamples` を検索インデックスから除外できる。
-  - `#String_withAbout` の値形式としては、既存の `{ value, about_JP/about_EN/about }` パターンが利用可能。
+  - `#Dialogue_withAbout` の値形式としては、既存の `{ value, about_JP/about_EN/about }` パターンが利用可能。
   - ただし、現行実装のままでは `ConversationPattern.DialogueExamples` のような **ネストした array union 型**は enrich 正規化で自動配列化されなかった。
   - また、`ConversationPattern` は object まとまりで表示されるため、そのままだと台詞例を含む複数項目が一覧しづらい。
 
 - 追加対応
   - `lib/data-common.js`: typedef にネストされた子フィールドまで再帰的に正規化するよう補強した。
   - `pages/characters.js`: `ConversationPattern` をテーブル表示し、NumberTales の「その他の項目」に近い読み方へ寄せた。
-  - `docs/db-update-guidelines.md`: `#String_withAbout[]` / `#Summary_withAbout[]` の想定値形式を整理した。
+  - `docs/db-update-guidelines.md`: `#Dialogue_withAbout[]` を含む想定値形式を整理した。
   - `tests/conversation-pattern.test.js`: 単体オブジェクト入力が `DialogueExamples` 配列へ正規化されることを追加検証した。
+
+#### 実レコード表示確認と `#Dialogue` 導入方針（2026-03-07）
+
+- `data/Works_NumberTales/DataBases/db_Primary.json` の `26(ニロク)` に仮入力された `ConversationPattern` を表示確認用の実データとして利用できる状態を確認した。
+- 画面上では、`ConversationPattern` はプロフィール欄内の独立ブロックとして表示され、各子項目は 2 列のキー・バリューテーブルで並ぶ。
+- `DialogueExamples` は `#Dialogue[]|#Dialogue_withAbout[]|#Null` として扱うことで、各台詞例を改行優先で表示できるようにした。
+- あわせて、`NumberTales` の `Relation.*.Comments` も `#Dialogue` とし、関係欄コメントを型ベースで複数行表示できる下地を整えた。
 
 ### Step 3: テスト（最低限）
 

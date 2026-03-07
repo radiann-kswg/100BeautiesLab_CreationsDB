@@ -47,7 +47,6 @@ function isSecondaryDbName(dbName) {
   if (n.includes('semiprimary')) return false;
   return n.includes('secondary');
 }
-
 /**
  * Utility Functions
  */
@@ -2941,6 +2940,10 @@ function formatValueForDisplay(value, labelMap = {}, workMeta = null, globalDefT
       return formattedItems.join('\n');
     }
 
+    if (schemaTypeIncludes(opt?.schemaType, '#Dialogue')) {
+      return formattedItems.join('\n\n');
+    }
+
     return formattedItems.join(', ');
   }
 
@@ -5028,6 +5031,11 @@ async function renderDetail(workId, rec) {
     return s.includes('#Summary');
   };
 
+  const isDialogueType = (t) => {
+    const s = String(t ?? '');
+    return s.includes('#Dialogue');
+  };
+
   const isEmptyValue = (v) => isEmptyValueLoose(v);
   const isInternalButAllowed = (k) => k === '_DBLink';
   const shouldSkipKey = (k, v) => {
@@ -5113,6 +5121,13 @@ async function renderDetail(workId, rec) {
         : formatValueForDisplay(v, fieldLabelMap, metaForLookup, globalDefType, { display: schemaDisplay, schemaType, fieldKey: k });
       if (formatted && String(formatted).includes('\n')) return preWrapText(formatted);
       // Summary でも単行の場合は preWrap にしておく（安全側）
+      return preWrapText(formatted);
+    }
+    if (schemaType != null && isDialogueType(schemaType)) {
+      const formatted = typeof v === 'string'
+        ? v
+        : formatValueForDisplay(v, fieldLabelMap, metaForLookup, globalDefType, { display: schemaDisplay, schemaType, fieldKey: k });
+      if (!formatted) return '';
       return preWrapText(formatted);
     }
     const formatted = formatValueForDisplay(v, fieldLabelMap, metaForLookup, globalDefType, { display: schemaDisplay, schemaType, fieldKey: k });
@@ -5387,10 +5402,10 @@ async function renderDetail(workId, rec) {
     profileSection,
     otherSection,
     rec.Relation && (rec.Relation.Related || rec.Relation.Commented)
-      ? renderRelations(rec.Relation, fieldLabelMap, metaForLookup, globalDefType, fieldDisplayMap, { containerKey: 'Relation' })
+      ? renderRelations(rec.Relation, fieldLabelMap, metaForLookup, globalDefType, fieldDisplayMap, { containerKey: 'Relation', fieldTypeMap })
       : null,
     rec.RelationToPrimary && (rec.RelationToPrimary.Related || rec.RelationToPrimary.Commented)
-      ? renderRelations(rec.RelationToPrimary, fieldLabelMap, metaForLookup, globalDefType, fieldDisplayMap, { containerKey: 'RelationToPrimary' })
+      ? renderRelations(rec.RelationToPrimary, fieldLabelMap, metaForLookup, globalDefType, fieldDisplayMap, { containerKey: 'RelationToPrimary', fieldTypeMap })
       : null,
     // 参照解決結果の表示（_DBLinkResolved）
     rec._DBLinkResolved ? renderDBLinkResolved(rec._DBLinkResolved, fieldLabelMap, metaForLookup, globalDefType) : null
@@ -5475,6 +5490,7 @@ function renderRelations(rel, fieldLabelMap, workMeta, globalDefType, fieldDispl
   const containerKey = (typeof options?.containerKey === 'string' && options.containerKey.trim())
     ? options.containerKey.trim()
     : 'Relation';
+  const fieldTypeMap = (options?.fieldTypeMap && typeof options.fieldTypeMap === 'object') ? options.fieldTypeMap : null;
 
   const related = Array.isArray(rel?.Related) ? rel.Related : [];
   const commented = Array.isArray(rel?.Commented) ? rel.Commented : [];
@@ -5573,9 +5589,50 @@ function renderRelations(rel, fieldLabelMap, workMeta, globalDefType, fieldDispl
       .filter(Boolean);
   };
 
+  const schemaTypeIncludes = (t, needle, depth = 0) => {
+    if (!needle) return false;
+    if (depth > 6) return false;
+    if (t === null || t === undefined) return false;
+    if (typeof t === 'string') return t.includes(needle);
+    if (Array.isArray(t)) return t.some(x => schemaTypeIncludes(x, needle, depth + 1));
+    if (typeof t === 'object') {
+      if (Object.prototype.hasOwnProperty.call(t, '$type')) {
+        return schemaTypeIncludes(t.$type, needle, depth + 1);
+      }
+      return Object.values(t).some(x => schemaTypeIncludes(x, needle, depth + 1));
+    }
+    return false;
+  };
+
+  const formatRelationComments = (commentsRaw, withLabels) => {
+    if (commentsRaw === null || commentsRaw === undefined || commentsRaw === '') {
+      return { text: '', node: null, isDialogue: false };
+    }
+
+    const pathKey = `${containerKey}.${withLabels ? 'Related' : 'Commented'}.Comments`;
+    const schemaType = fieldTypeMap?.[pathKey] ?? null;
+    const displayOpt = (fieldDisplayMap && typeof fieldDisplayMap === 'object')
+      ? (fieldDisplayMap[pathKey] || fieldDisplayMap.Comments || null)
+      : null;
+    const formatted = formatValueForDisplay(commentsRaw, fieldLabelMap, workMeta, globalDefType, {
+      schemaType,
+      display: displayOpt,
+      fieldKey: pathKey
+    });
+    const text = String(formatted ?? '').trim();
+    const isDialogue = schemaTypeIncludes(schemaType, '#Dialogue');
+    const node = (!text)
+      ? null
+      : (isDialogue || text.includes('\n'))
+        ? preWrapText(text)
+        : text;
+
+    return { text, node, isDialogue };
+  };
+
   const renderRelTag = (prefix, r, withLabels) => {
     const num = (r?.Num === null || r?.Num === undefined) ? '' : String(r.Num).trim();
-    const comments = (r?.Comments === null || r?.Comments === undefined) ? '' : String(r.Comments);
+    const comments = formatRelationComments(r?.Comments, withLabels);
     const labels = withLabels ? localizeRelationLabels(r?.RelationLabel) : [];
     const labelText = labels.length ? labels.join(', ') : '';
 
@@ -5584,15 +5641,6 @@ function renderRelations(rel, fieldLabelMap, workMeta, globalDefType, fieldDispl
     const target = id ? findRecordByIndex(id) : null;
 
     const hasNewline = (s) => (typeof s === 'string' && s.includes('\n'));
-    if (hasNewline(comments) || hasNewline(labelText)) {
-      // 改行がある場合は従来どおり preWrapText を優先（リンクは諦める）
-      const main = [
-        `${prefix} ${num || (id?.value || '?')}`,
-        labelText ? `: ${labelText}` : '',
-        comments ? `${labelText ? ' ' : ': '}- ${comments}` : ''
-      ].join('');
-      return el('div', { class: 'tag' }, [(main.includes('\n')) ? preWrapText(main) : main]);
-    }
 
     const children = [];
     children.push(`${prefix} `);
@@ -5612,9 +5660,20 @@ function renderRelations(rel, fieldLabelMap, workMeta, globalDefType, fieldDispl
     }
 
     if (labelText) children.push(`: ${labelText}`);
-    if (comments) children.push(`${labelText ? ' ' : ': '}- ${comments}`);
 
-    return el('div', { class: 'tag' }, children);
+    if (comments.text && !(comments.isDialogue || hasNewline(comments.text))) {
+      children.push(`${labelText ? ' ' : ': '}- ${comments.text}`);
+      return el('div', { class: 'tag' }, children);
+    }
+
+    if (!comments.text) {
+      return el('div', { class: 'tag' }, children);
+    }
+
+    return el('div', { class: 'tag' }, [
+      el('div', {}, children),
+      el('div', { style: 'margin-top: 4px;' }, [comments.node])
+    ]);
   };
 
   const r1 = related.map(r => renderRelTag('→', r, true));
