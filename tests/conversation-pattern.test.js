@@ -37,7 +37,7 @@ function createDataFetcher() {
             { hashTag: 'PreferredTopics', $type: '#Summary|#Null', hashTag_JP: 'やりがちな話題' },
             { hashTag: 'AvoidedTopics', $type: '#Summary|#Null', hashTag_JP: '避けがちな話題' },
             { hashTag: 'ConversationNotes', $type: '#Summary|#Null', hashTag_JP: '会話における補足' },
-            { hashTag: 'DialogueExamples', $type: '#Summary[]|#Summary_withAbout[]|#Null', hashTag_JP: '台詞の例' },
+            { hashTag: 'DialogueExamples', $type: '#String[]|#String_withAbout[]|#Null', hashTag_JP: '台詞の例' },
           ]
         }
       ]

@@ -80,7 +80,7 @@
 - `PreferredTopics`（やりがちな話題）: `#Summary|#Null`
 - `AvoidedTopics`（避けがちな話題）: `#Summary|#Null`
 - `ConversationNotes`（会話における補足）: `#Summary|#Null`
-- `DialogueExamples`（台詞の例）: `#Summary[]|#Summary_withAbout[]|#Null`
+- `DialogueExamples`（台詞の例）: `#String[]|#String_withAbout[]|#Null`
 
 ※ `DialogueExamples` は User 提案に基づき追加した。値は User 手動入力を前提とし、Copilot は本文自動生成を行わない。
 
@@ -164,7 +164,7 @@
   - `PreferredTopics`（やりがちな話題）: `#Summary|#Null`
   - `AvoidedTopics`（避けがちな話題）: `#Summary|#Null`
   - `ConversationNotes`（会話における補足）: `#Summary|#Null`
-  - `DialogueExamples`（台詞の例）: `#Summary[]|#Summary_withAbout[]|#Null`
+  - `DialogueExamples`（台詞の例）: `#String[]|#String_withAbout[]|#Null`
 
 ※本セッションでは「会話本文の自動生成」は避ける方針を維持し、`DialogueExamples` の値は User 手動入力を前提とする。
 
@@ -197,18 +197,18 @@
   - `tests/conversation-pattern.test.js` を追加し、欠損耐性・表示分類・検索除外を確認した。
   - 併せて `tests/data.shape.test.js` / `tests/data.sanity.test.js` / `tests/sw.enrich.basic.test.js` / `tests/enrich.dblink.jump.merge.test.js` を再実行し、回帰がないことを確認した。
 
-#### `#Summary[]|#Summary_withAbout[]|#Null` 対応確認（2026-03-07）
+#### `#String[]|#String_withAbout[]|#Null` 対応確認（2026-03-07）
 
 - 確認した点
   - API/SW 側では、`searchable:false` により `DialogueExamples` を検索インデックスから除外できる。
-  - `#Summary_withAbout` の値形式としては、既存の `{ value, about_JP/about_EN/about }` パターンが利用可能。
+  - `#String_withAbout` の値形式としては、既存の `{ value, about_JP/about_EN/about }` パターンが利用可能。
   - ただし、現行実装のままでは `ConversationPattern.DialogueExamples` のような **ネストした array union 型**は enrich 正規化で自動配列化されなかった。
-  - また、UI 側の Summary 配列表示は既定でカンマ連結のため、台詞例のような複数本文では見づらい。
+  - また、`ConversationPattern` は object まとまりで表示されるため、そのままだと台詞例を含む複数項目が一覧しづらい。
 
 - 追加対応
   - `lib/data-common.js`: typedef にネストされた子フィールドまで再帰的に正規化するよう補強した。
-  - `pages/characters.js`: `#Summary` 系の配列は改行区切りで表示するよう補強した。
-  - `docs/db-update-guidelines.md`: `#Summary_withAbout[]` の想定値形式と union 例を追記した。
+  - `pages/characters.js`: `ConversationPattern` をテーブル表示し、NumberTales の「その他の項目」に近い読み方へ寄せた。
+  - `docs/db-update-guidelines.md`: `#String_withAbout[]` / `#Summary_withAbout[]` の想定値形式を整理した。
   - `tests/conversation-pattern.test.js`: 単体オブジェクト入力が `DialogueExamples` 配列へ正規化されることを追加検証した。
 
 ### Step 3: テスト（最低限）

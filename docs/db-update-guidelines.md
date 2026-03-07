@@ -55,12 +55,12 @@
 - 数値系: `#Number`
 - 配列: `...[]`
 - union（複数許容）: `A|B`（例: `#Number|#Number_withAbout[]`）
-- 補足付き本文の配列（例）: `#Summary[]|#Summary_withAbout[]|#Null`
+- 補足付き短文/本文の配列（例）: `#String[]|#String_withAbout[]|#Null`, `#Summary[]|#Summary_withAbout[]|#Null`
 - 列挙/辞書参照:
   - enum: `$EnumDef` / `$EnumDef_<Name>`
   - list: `#ListIndex` / `#ListLink`（用途に応じて）
 
-`#Summary_withAbout` 系は、原則として `{ value, about_JP/about_EN/about }` の形を想定します。
+`#String_withAbout` / `#Summary_withAbout` 系は、原則として `{ value, about_JP/about_EN/about }` の形を想定します。
 
 例:
 
@@ -71,7 +71,7 @@
 }
 ```
 
-配列型の `#Summary_withAbout[]` では、このオブジェクトを複数並べられます。`#Summary[]|#Summary_withAbout[]|#Null` のような union では、文字列配列・補足付き本文配列・null のいずれも許容します。
+配列型の `#String_withAbout[]` / `#Summary_withAbout[]` では、このオブジェクトを複数並べられます。`#String[]|#String_withAbout[]|#Null` や `#Summary[]|#Summary_withAbout[]|#Null` のような union では、文字列配列・補足付き配列・null のいずれも許容します。
 
 > 注意: `$type` は UI/SW の挙動にも影響します。迷う場合は既存フィールドの近い例を探して合わせてください。
 

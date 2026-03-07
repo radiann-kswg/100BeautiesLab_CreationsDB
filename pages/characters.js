@@ -4363,6 +4363,53 @@ async function renderDetail(workId, rec) {
         const href = (() => {
           if (!id) return '';
           const cur = getQS();
+    const renderConversationPatternBlock = (it) => {
+      if (!it || it.key !== 'ConversationPattern' || !isPlainObject(it.value)) return null;
+
+      const rows = [];
+      for (const [childKey, childValue] of Object.entries(it.value)) {
+        if (!childKey || typeof childKey !== 'string') continue;
+        if (childKey.startsWith('_')) continue;
+        if (isEmptyValueLoose(childValue)) continue;
+
+        const childPath = `ConversationPattern.${childKey}`;
+        const schemaPath = pickSchemaPath([childPath], childPath);
+        const childLabel = getFieldLabel(schemaPath, fieldLabelMap, metaForLookup, globalDefType, childKey);
+        const hints = (isPlainObject(childValue) && !Array.isArray(childValue))
+          ? pickSchemaHintsForObjectLeaf([schemaPath, childPath], childValue)
+          : {
+              schemaType: pickSchemaType(schemaPath, childPath),
+              schemaDisplay: pickSchemaDisplay(schemaPath, childPath, 'ConversationPattern')
+            };
+
+        let node = null;
+        if (Array.isArray(childValue)) {
+          const lines = childValue
+            .map((item) => formatValueForDisplay(item, fieldLabelMap, metaForLookup, globalDefType, {
+              schemaType: hints.schemaType,
+              display: hints.schemaDisplay,
+              fieldKey: schemaPath
+            }))
+            .filter(Boolean);
+          if (!lines.length) continue;
+          const joined = lines.join('\n');
+          node = joined.includes('\n') ? preWrapText(joined) : joined;
+        } else {
+          node = toDisplayNode(schemaPath, childValue, hints.schemaType, hints.schemaDisplay);
+        }
+
+        const text = (typeof node === 'string') ? node.trim() : String(node?.textContent ?? '').trim();
+        if (!text) continue;
+        rows.push([childLabel, node]);
+      }
+
+      if (!rows.length) return null;
+
+      return el('div', { style: 'margin-bottom: 10px;' }, [
+        el('div', { class: 'tag', style: 'margin-bottom: 6px;' }, [it.label]),
+        kvTable({}, rows)
+      ]);
+    };
           const legacyNum = id.keyPath === 'Num' ? id.value : '';
           const qs = new URLSearchParams({
             ...cur,
