@@ -134,6 +134,17 @@
 - `pages/characters.js` 先頭に関数内コード断片が混入し、ブラウザで `Illegal return statement` が発生してキャラシートが表示不能になる不具合を修正した。
 - あわせて `tests/pages.characters.syntax.test.js` を追加し、`node --check` による構文スモークテストで同種の破損を検知できるようにした。
 
+### `#Dialogue` 表示統一と nullable 型の整理
+
+- `#Dialogue` 型は `Relation.Comments` の本文と同じ共通ノードで描画するようにし、会話例と関係コメントの表示書式を統一した。
+- `Hobby` / `SpetialSkill` / `Favor` / `Unlike` / `Strength` / `Weakpoint` を `#String|#Summary|#Null` に統一した。
+- `ConversationPattern` の `TalkingTone` / `TopicPreference` / `TalkFrequency` / `PreferredTopics` / `AvoidedTopics` / `ConversationNotes` も `#String|#Summary|#Null` に統一した。
+
+### `ConversationPattern` の詳細表示レイアウト調整
+
+- `ConversationPattern` は表形式ではなく、項目ごとの「見出し枠 + 本文」で表示するように変更した。
+- `DialogueExamples` は `Relation` セクションに近い `kv-grid` の複数枠表示へ寄せ、各台詞例を独立した枠として表示するようにした。
+
 ### Object 型フィールド処理の強化（その1〜3）
 
 #### 変更内容

@@ -31,12 +31,12 @@ function createDataFetcher() {
           searchable: false,
           $display: { section: 'profile' },
           $type: [
-            { hashTag: 'TalkingTone', $type: '#Summary|#Null', hashTag_JP: '口調' },
-            { hashTag: 'TopicPreference', $type: '#Summary|#Null', hashTag_JP: '話題嗜好' },
-            { hashTag: 'TalkFrequency', $type: '#Summary|#Null', hashTag_JP: '会話頻度' },
-            { hashTag: 'PreferredTopics', $type: '#Summary|#Null', hashTag_JP: 'やりがちな話題' },
-            { hashTag: 'AvoidedTopics', $type: '#Summary|#Null', hashTag_JP: '避けがちな話題' },
-            { hashTag: 'ConversationNotes', $type: '#Summary|#Null', hashTag_JP: '会話における補足' },
+            { hashTag: 'TalkingTone', $type: '#String|#Summary|#Null', hashTag_JP: '口調' },
+            { hashTag: 'TopicPreference', $type: '#String|#Summary|#Null', hashTag_JP: '話題嗜好' },
+            { hashTag: 'TalkFrequency', $type: '#String|#Summary|#Null', hashTag_JP: '会話頻度' },
+            { hashTag: 'PreferredTopics', $type: '#String|#Summary|#Null', hashTag_JP: 'やりがちな話題' },
+            { hashTag: 'AvoidedTopics', $type: '#String|#Summary|#Null', hashTag_JP: '避けがちな話題' },
+            { hashTag: 'ConversationNotes', $type: '#String|#Summary|#Null', hashTag_JP: '会話における補足' },
             { hashTag: 'DialogueExamples', $type: '#Dialogue[]|#Dialogue_withAbout[]|#Null', hashTag_JP: '台詞の例' },
           ]
         }

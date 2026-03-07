@@ -176,30 +176,34 @@
       "$type": "#String|#Summary",
       "hashTag_JP": "性格"
     },
-    { "hashTag": "Hobby", "$type": "#String|#Summary", "hashTag_JP": "趣味" },
+    {
+      "hashTag": "Hobby",
+      "$type": "#String|#Summary|#Null",
+      "hashTag_JP": "趣味"
+    },
     {
       "hashTag": "SpetialSkill",
-      "$type": "#String|#Summary",
+      "$type": "#String|#Summary|#Null",
       "hashTag_JP": "特技"
     },
     {
       "hashTag": "Favor",
-      "$type": "#String|#Summary",
+      "$type": "#String|#Summary|#Null",
       "hashTag_JP": "好きなもの"
     },
     {
       "hashTag": "Unlike",
-      "$type": "#String|#Summary",
+      "$type": "#String|#Summary|#Null",
       "hashTag_JP": "苦手なもの"
     },
     {
       "hashTag": "Strength",
-      "$type": "#String|#Summary",
+      "$type": "#String|#Summary|#Null",
       "hashTag_JP": "強み"
     },
     {
       "hashTag": "Weakpoint",
-      "$type": "#String|#Summary",
+      "$type": "#String|#Summary|#Null",
       "hashTag_JP": "弱み"
     },
     {
@@ -207,32 +211,32 @@
       "$type": [
         {
           "hashTag": "TalkingTone",
-          "$type": "#Summary|#Null",
+          "$type": "#String|#Summary|#Null",
           "hashTag_JP": "口調"
         },
         {
           "hashTag": "TopicPreference",
-          "$type": "#Summary|#Null",
+          "$type": "#String|#Summary|#Null",
           "hashTag_JP": "話題嗜好"
         },
         {
           "hashTag": "TalkFrequency",
-          "$type": "#Summary|#Null",
+          "$type": "#String|#Summary|#Null",
           "hashTag_JP": "会話頻度"
         },
         {
           "hashTag": "PreferredTopics",
-          "$type": "#Summary|#Null",
+          "$type": "#String|#Summary|#Null",
           "hashTag_JP": "やりがちな話題"
         },
         {
           "hashTag": "AvoidedTopics",
-          "$type": "#Summary|#Null",
+          "$type": "#String|#Summary|#Null",
           "hashTag_JP": "避けがちな話題"
         },
         {
           "hashTag": "ConversationNotes",
-          "$type": "#Summary|#Null",
+          "$type": "#String|#Summary|#Null",
           "hashTag_JP": "会話における補足"
         },
         {

@@ -218,6 +218,17 @@
 - `DialogueExamples` は `#Dialogue[]|#Dialogue_withAbout[]|#Null` として扱うことで、各台詞例を改行優先で表示できるようにした。
 - あわせて、`NumberTales` の `Relation.*.Comments` も `#Dialogue` とし、関係欄コメントを型ベースで複数行表示できる下地を整えた。
 
+#### 型統一調整（2026-03-07）
+
+- `#Dialogue` 型の表示は、`$DefType_Relations.Comments` の本文と同じ共通ノードで描画するように統一した。
+- `Hobby` / `SpetialSkill` / `Favor` / `Unlike` / `Strength` / `Weakpoint` は `#String|#Summary|#Null` に統一した。
+- `ConversationPattern` の `TalkingTone` / `TopicPreference` / `TalkFrequency` / `PreferredTopics` / `AvoidedTopics` / `ConversationNotes` も `#String|#Summary|#Null` に統一した。
+
+#### 表示レイアウト調整（2026-03-07）
+
+- `ConversationPattern` は 2 列テーブルではなく、各項目を「見出し枠 + 本文」の縦積みで表示するように変更した。
+- `DialogueExamples` は `Relation` セクションに近い複数枠表示とし、各台詞例を独立したカードとして並べるようにした。
+
 ### Step 3: テスト（最低限）
 
 - `npm test` を通し、既存テストの回帰がないことを確認。

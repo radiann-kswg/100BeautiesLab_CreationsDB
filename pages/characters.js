@@ -3281,6 +3281,16 @@ function preWrapText(text) {
 }
 
 /**
+ * 台詞系テキストの本文ノードを構築する
+ * - `#Dialogue` は Relation.Comments と同じ本文表現へ寄せる
+ * @param {string} text
+ * @returns {HTMLElement}
+ */
+function dialogueBodyText(text) {
+  return preWrapText(String(text ?? ''));
+}
+
+/**
  * Enhanced image gallery building with dynamic field resolution
  * Creates gallery items with appropriate URLs based on extracted image fields
  * @param {string} workId - Work ID
@@ -4366,53 +4376,6 @@ async function renderDetail(workId, rec) {
         const href = (() => {
           if (!id) return '';
           const cur = getQS();
-    const renderConversationPatternBlock = (it) => {
-      if (!it || it.key !== 'ConversationPattern' || !isPlainObject(it.value)) return null;
-
-      const rows = [];
-      for (const [childKey, childValue] of Object.entries(it.value)) {
-        if (!childKey || typeof childKey !== 'string') continue;
-        if (childKey.startsWith('_')) continue;
-        if (isEmptyValueLoose(childValue)) continue;
-
-        const childPath = `ConversationPattern.${childKey}`;
-        const schemaPath = pickSchemaPath([childPath], childPath);
-        const childLabel = getFieldLabel(schemaPath, fieldLabelMap, metaForLookup, globalDefType, childKey);
-        const hints = (isPlainObject(childValue) && !Array.isArray(childValue))
-          ? pickSchemaHintsForObjectLeaf([schemaPath, childPath], childValue)
-          : {
-              schemaType: pickSchemaType(schemaPath, childPath),
-              schemaDisplay: pickSchemaDisplay(schemaPath, childPath, 'ConversationPattern')
-            };
-
-        let node = null;
-        if (Array.isArray(childValue)) {
-          const lines = childValue
-            .map((item) => formatValueForDisplay(item, fieldLabelMap, metaForLookup, globalDefType, {
-              schemaType: hints.schemaType,
-              display: hints.schemaDisplay,
-              fieldKey: schemaPath
-            }))
-            .filter(Boolean);
-          if (!lines.length) continue;
-          const joined = lines.join('\n');
-          node = joined.includes('\n') ? preWrapText(joined) : joined;
-        } else {
-          node = toDisplayNode(schemaPath, childValue, hints.schemaType, hints.schemaDisplay);
-        }
-
-        const text = (typeof node === 'string') ? node.trim() : String(node?.textContent ?? '').trim();
-        if (!text) continue;
-        rows.push([childLabel, node]);
-      }
-
-      if (!rows.length) return null;
-
-      return el('div', { style: 'margin-bottom: 10px;' }, [
-        el('div', { class: 'tag', style: 'margin-bottom: 6px;' }, [it.label]),
-        kvTable({}, rows)
-      ]);
-    };
           const legacyNum = id.keyPath === 'Num' ? id.value : '';
           const qs = new URLSearchParams({
             ...cur,
@@ -5128,7 +5091,7 @@ async function renderDetail(workId, rec) {
         ? v
         : formatValueForDisplay(v, fieldLabelMap, metaForLookup, globalDefType, { display: schemaDisplay, schemaType, fieldKey: k });
       if (!formatted) return '';
-      return preWrapText(formatted);
+      return dialogueBodyText(formatted);
     }
     const formatted = formatValueForDisplay(v, fieldLabelMap, metaForLookup, globalDefType, { display: schemaDisplay, schemaType, fieldKey: k });
     if (typeof formatted === 'string' && formatted.includes('\n')) return preWrapText(formatted);
@@ -5339,8 +5302,69 @@ async function renderDetail(workId, rec) {
     })
     .filter(Boolean);
 
+  const renderConversationPatternBlock = (it) => {
+    if (!it || it.key !== 'ConversationPattern' || !isPlainObject(it.value)) return null;
+
+    const blocks = [];
+
+    for (const [childKey, childValue] of Object.entries(it.value)) {
+      if (!childKey || typeof childKey !== 'string') continue;
+      if (childKey.startsWith('_')) continue;
+      if (isEmptyValueLoose(childValue)) continue;
+
+      const childPath = `ConversationPattern.${childKey}`;
+      const schemaPath = pickSchemaPath([childPath], childPath);
+      const childLabel = getFieldLabel(schemaPath, fieldLabelMap, metaForLookup, globalDefType, childKey);
+      const hints = (isPlainObject(childValue) && !Array.isArray(childValue))
+        ? pickSchemaHintsForObjectLeaf([schemaPath, childPath], childValue)
+        : {
+            schemaType: pickSchemaType(schemaPath, childPath),
+            schemaDisplay: pickSchemaDisplay(schemaPath, childPath, 'ConversationPattern')
+          };
+
+      if (childKey === 'DialogueExamples' && Array.isArray(childValue)) {
+        const cards = childValue
+          .map((item) => formatValueForDisplay(item, fieldLabelMap, metaForLookup, globalDefType, {
+            schemaType: hints.schemaType,
+            display: hints.schemaDisplay,
+            fieldKey: schemaPath
+          }))
+          .map((text) => String(text ?? '').trim())
+          .filter(Boolean)
+          .map((text) => el('div', { class: 'tag' }, [dialogueBodyText(text)]));
+
+        if (!cards.length) continue;
+
+        blocks.push(el('div', { style: 'margin-bottom: 10px;' }, [
+          el('div', { class: 'tag', style: 'margin-bottom: 6px;' }, [childLabel]),
+          el('div', { class: 'kv-grid' }, cards)
+        ]));
+        continue;
+      }
+
+      const node = toDisplayNode(schemaPath, childValue, hints.schemaType, hints.schemaDisplay);
+      const text = (typeof node === 'string') ? node.trim() : String(node?.textContent ?? '').trim();
+      if (!text) continue;
+
+      blocks.push(el('div', { style: 'margin-bottom: 10px;' }, [
+        el('div', { class: 'tag', style: 'margin-bottom: 6px;' }, [childLabel]),
+        (typeof node === 'string') ? preWrapText(node) : node
+      ]));
+    }
+
+    if (!blocks.length) return null;
+
+    return el('div', { style: 'margin-bottom: 10px;' }, [
+      el('div', { class: 'tag', style: 'margin-bottom: 6px;' }, [it.label]),
+      el('div', {}, blocks)
+    ]);
+  };
+
   const profileItems = sectionBuckets.profile
     .map((it) => {
+      const specialBlock = renderConversationPatternBlock(it);
+      if (specialBlock) return specialBlock;
+
       const node = toDisplayNode(it.key, it.value, it.type, it.display);
       const text = (typeof node === 'string') ? node : (node?.textContent ?? '');
       if (!text) return null;
@@ -5624,7 +5648,7 @@ function renderRelations(rel, fieldLabelMap, workMeta, globalDefType, fieldDispl
     const node = (!text)
       ? null
       : (isDialogue || text.includes('\n'))
-        ? preWrapText(text)
+        ? dialogueBodyText(text)
         : text;
 
     return { text, node, isDialogue };
