@@ -74,13 +74,24 @@
 
 ### `ConversationPattern` 配下の最小サブ項目案（例）
 
-- `Tone`（口調/文体のメモ）: `#Summary|#Null`
-- `TopicPreference`（話題の傾向）: `#Summary|#Null` または `#String[]|#Null`
-- `Frequency`（会話頻度/スタンス）: `#Summary|#Null`
-- `Do` / `Dont`（会話でやりがちな/避けがちな振る舞い）: `#Summary|#Null`
-- `Notes`（補足）: `#Summary|#Null`
+- `TalkingTone`（口調）: `#Summary|#Null`
+- `TopicPreference`（話題嗜好）: `#Summary|#Null`
+- `TalkFrequency`（会話頻度）: `#Summary|#Null`
+- `PreferredTopics`（やりがちな話題）: `#Summary|#Null`
+- `AvoidedTopics`（避けがちな話題）: `#Summary|#Null`
+- `ConversationNotes`（会話における補足）: `#Summary|#Null`
 
 ※ここに「台詞例」フィールドを置くかは慎重に扱う（置くなら User が手入力する前提だが、誤生成を誘発しやすい）。
+
+#### フィールド名の整合メモ（2026-03-07）
+
+- 実装と進捗ログは、User 提案ベースの名称へ統一した。
+- 採用した修正
+  - `DoTalk` → `PreferredTopics`
+  - `DontTalk` → `AvoidedTopics`
+  - `TopicPreference` の日本語表示: 「話題提供の傾向」→「話題嗜好」
+- 補足
+  - `PreferredTopics` / `AvoidedTopics` は、旧名称より意味が明確で、将来的な API/UI の読解性にも有利。
 
 ### 命名に関する注意
 
@@ -147,10 +158,10 @@
   - 理由: UI（`pages/characters.js`）の自動分類が `basic/profile/spec/other` のみ許容するため。
 - サブ項目（最小）
   - `TalkingTone`（口調）: `#Summary|#Null`
-  - `TopicPreference`（話題提供の傾向）: `#Summary|#Null`
+  - `TopicPreference`（話題嗜好）: `#Summary|#Null`
   - `TalkFrequency`（会話頻度）: `#Summary|#Null`
-  - `DoTalk`（やりがちな話題）: `#Summary|#Null`
-  - `DontTalk`（避けがちな話題）: `#Summary|#Null`
+  - `PreferredTopics`（やりがちな話題）: `#Summary|#Null`
+  - `AvoidedTopics`（避けがちな話題）: `#Summary|#Null`
   - `ConversationNotes`（会話における補足）: `#Summary|#Null`
 
 ※本セッションでは「会話本文の自動生成」を避ける方針のため、台詞例のようなフィールドは追加していない。

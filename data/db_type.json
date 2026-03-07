@@ -213,7 +213,7 @@
         {
           "hashTag": "TopicPreference",
           "$type": "#Summary|#Null",
-          "hashTag_JP": "話題提供の傾向"
+          "hashTag_JP": "話題嗜好"
         },
         {
           "hashTag": "TalkFrequency",
@@ -221,12 +221,12 @@
           "hashTag_JP": "会話頻度"
         },
         {
-          "hashTag": "DoTalk",
+          "hashTag": "PreferredTopics",
           "$type": "#Summary|#Null",
           "hashTag_JP": "やりがちな話題"
         },
         {
-          "hashTag": "DontTalk",
+          "hashTag": "AvoidedTopics",
           "$type": "#Summary|#Null",
           "hashTag_JP": "避けがちな話題"
         },
