@@ -124,6 +124,7 @@
 
 - `data/db_type.json($DefType)` に `ConversationPattern` を追加し、会話パターン（口調/話題傾向/頻度等）を格納できるようにした。
 - 値（コンテンツ）は User 手動入力を前提とし、Copilot による創作内容の自動生成を避ける運用を想定。
+- `ConversationPattern` は当面 `searchable:false` とし、表示は可能だが検索インデックスへは含めない方針を明示した。
 
 ### Object 型フィールド処理の強化（その1〜3）
 

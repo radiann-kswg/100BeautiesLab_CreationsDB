@@ -171,6 +171,30 @@
 - 新フィールドが欠損でも落ちない（`null`/未定義耐性）。
 - enrich/search の対象に含める/含めないの方針を決める（まずは “表示はするが検索には入れない” などの段階導入も可）。
 
+#### Step 2 実施内容（2026-03-07）
+
+- 確認結果
+  - API/SW 側の enrich では、typedef に存在していてもレコード値が `undefined` のフィールドは安全にスキップされる。
+  - UI 側の詳細表示では、typedef 上に子フィールド定義がある object 値は子項目ごとに展開表示されるため、`ConversationPattern` は存在時も `[object Object]` になりにくい。
+  - `/search` API は `hashTag` / `key` による構造検索であり、一覧 UI の自由検索も名前系フィールド中心のため、現状の検索導線へ直接は影響しない。
+
+- 方針決定
+  - `ConversationPattern` は **表示対象には含めるが、検索インデックス（`searchableText`）には含めない**。
+  - 理由: 会話パターン情報は自由記述が中心であり、初期段階から全文検索対象にするとノイズや意図しない露出が増えやすいため。
+
+- 実装反映
+  - `data/db_type.json` の `ConversationPattern` に `"searchable": false` を追加した。
+  - これにより enrich 時の `searchableFields` から `ConversationPattern` が除外され、ネスト下の会話情報は `searchableText` に投入されない。
+
+- テスト方針
+  - 欠損時に enrich が失敗しないこと。
+  - 値が存在する場合は `displaySections.profile` に分類されること。
+  - 値が存在しても `searchable:false` により `searchableText` へ混入しないこと。
+
+- 検証結果
+  - `tests/conversation-pattern.test.js` を追加し、欠損耐性・表示分類・検索除外を確認した。
+  - 併せて `tests/data.shape.test.js` / `tests/data.sanity.test.js` / `tests/sw.enrich.basic.test.js` / `tests/enrich.dblink.jump.merge.test.js` を再実行し、回帰がないことを確認した。
+
 ### Step 3: テスト（最低限）
 
 - `npm test` を通し、既存テストの回帰がないことを確認。

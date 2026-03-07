@@ -237,6 +237,7 @@
         }
       ],
       "hashTag_JP": "会話パターンについて",
+      "searchable": false,
       "$display": {
         "section": "profile"
       }
