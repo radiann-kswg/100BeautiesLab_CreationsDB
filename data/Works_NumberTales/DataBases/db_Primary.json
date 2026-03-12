@@ -8445,8 +8445,11 @@
   },
   {
     "Num": 86,
-    "Progress": "nowCreating",
-    "Images": { "corefolder_PNGPath": ["emstk_corefolder86-1"] },
+    "Progress": "released",
+    "Images": {
+      "concept_PNGName": "cnsp_img86",
+      "corefolder_PNGPath": ["emstk_corefolder86-1"]
+    },
     "Name": "ハチロ",
     "Name_EN": "Eightix",
     "ModelName": "ナンバーテールズ6+8号機乙(86番機)",
@@ -8475,7 +8478,7 @@
     "Favor": "フリーマーケット、68(ロクヤ)の手放したレアアイテム",
     "Unlike": "断捨離、68(ロクヤ)本人",
     "NumerospecAbout": "富と才能を恵む\nただしこの効果の大きさは日頃の行いの良さに比例する",
-    "Summary": "",
+    "Summary": "在庫の整理や補完など、物を定期的に処分することより「使えるものを使うこと」を得意としている。\nしかし物の管理において少し生真面な部分や収集癖が強めに出る一面がある。\n一方で人当たりは良いので、ナンバーテールズの中では人も物の両方を大切にする良心が顕著に出やすい。\nちなみに、フリーマーケットにおけるレアなキャラクターグッズの物流状況にかなり詳しい。",
     "NumerospecStats": {
       "EffectStats": {
         "Mental": { "EffectText": "効果無" },
@@ -8499,12 +8502,12 @@
       "Related": [
         {
           "Num": 60,
-          "Comments": "趣味が通ずるような……気のせい？",
+          "Comments": "趣味が通じるような……気のせい？",
           "RelationLabel": ["interested"]
         },
         {
           "Num": 68,
-          "Comments": "勿体ないことしないで！",
+          "Comments": "勿体ないことしないでよ！",
           "RelationLabel": ["brother|sister", "unmatched", "classmate"]
         }
       ],
