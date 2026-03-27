@@ -177,6 +177,94 @@ workflow 実行後は、少なくとも次を確認する。
 - 最初から `fail_on_vuln_severity=High` を入れると、設定が正しくても scan 結果次第でジョブが失敗する。
 - 初回はまず scan 実行と SARIF 連携の成立確認を優先し、その後に fail 条件を強めるほうが切り分けしやすい。
 
+## 今回の登録内容に合わせた具体値
+
+User が今回 APISec 登録に使ったファイル `api/.private/openapi.yml` では、少なくとも以下の値が確認できる。
+
+- `info.title`: `100BeautiesLab_CreationsDB API`
+- `servers[0].url`: `https://database.numbertales-radiann.net/api/v1`
+
+このため、GitHub 側で最初に試す値は以下を基準にする。
+
+### 1. まず GitHub Variables に入れる候補
+
+- `APISEC_PROJECT`
+  - 第一候補: `100BeautiesLab_CreationsDB API`
+  - ただし、APISec 画面で project 作成時に別名を手入力しているなら、そちらを優先する。
+  - 判定基準は「APISec の project 一覧に表示されている名前と完全一致する文字列」。
+
+### 2. 今は入れない方がよい値
+
+- `APISEC_OPENAPI_SPEC_URL`
+  - 今回は未設定推奨。
+  - 理由: `api/.private/openapi.yml` はローカルの private ファイルであり、そのパス自体を GitHub Actions や APISec に渡しても参照できない。
+  - すでに APISec 登録を手動で済ませているため、最初の GitHub 動作確認では不要。
+
+### 3. 任意であとから検討する値
+
+- `APISEC_PROFILE`
+  - APISec 画面上で default profile が `Master` なら未設定でよい。
+  - `Master` 以外しか無い場合は、APISec に表示されている profile 名をそのまま入れる。
+- `APISEC_REGION`
+  - region を明示指定しないと動かない場合のみ設定する。
+  - 最初は未設定推奨。
+
+### 4. 現時点の推奨設定セット
+
+最初の GitHub 実行では、以下の 3 つだけでよい。
+
+- Secret: `APISEC_USERNAME`
+- Secret: `APISEC_PASSWORD`
+- Variable: `APISEC_PROJECT=100BeautiesLab_CreationsDB API`
+
+これで workflow を手動実行し、APISec 側に既存 project があれば scan 実行まで進む想定。
+
+## 今回のケースでの推奨実行順
+
+### 1. GitHub Settings に値を投入
+
+- `Settings` → `Secrets and variables` → `Actions`
+- `Secrets`
+  - `APISEC_USERNAME`
+  - `APISEC_PASSWORD`
+- `Variables`
+  - `APISEC_PROJECT = 100BeautiesLab_CreationsDB API`
+
+### 2. workflow を手動実行
+
+- `Actions` → `APIsec` → `Run workflow`
+- いったん入力欄は空のままで実行する
+  - `apisec_project`: 空
+  - `apisec_profile`: 空
+  - `apisec_region`: 空
+  - `openapi_spec_url`: 空
+  - `refresh_playbooks`: `false`
+  - `fail_on_vuln_severity`: `none`
+
+### 3. 実行結果の見方
+
+- `APIsec scan skipped`
+  - Secret / Variable の不足。
+- `Trigger APIsec scan` が失敗
+  - `APISEC_PROJECT` 名が APISec 画面の project 名とズレている可能性が高い。
+- `Detect SARIF output` で生成成功
+  - GitHub Code Scanning 側への連携候補ができている。
+
+## 将来的に自動更新もしたい場合
+
+今回は「手動登録済み project を GitHub から scan する」段階に留めるのが安全。
+
+もし将来的に `APISEC_OPENAPI_SPEC_URL` を使って registration / update も自動化したいなら、以下が必要。
+
+- OpenAPI ファイルを APISec から到達可能な URL に置く
+- その URL を `APISEC_OPENAPI_SPEC_URL` に設定する
+- 必要に応じて `APISEC_REFRESH_PLAYBOOKS=true` を追加する
+
+補足:
+
+- 現在の `api/.private/openapi.yml` は private 運用前提のため、GitHub Actions / APISec の自動登録元としては使わない。
+- 自動更新をするなら、公開可能な専用の OpenAPI 配置場所を別途用意するほうがよい。
+
 ## 参考リンク
 
 - APIsec action: https://github.com/apisec-inc/apisec-run-scan

@@ -176,7 +176,6 @@ jobs:
           apisec-region: ${{ steps.config.outputs.region }}
           apisec-email-report: ${{ steps.config.outputs.email_report }}
           apisec-fail-on-vuln-severity: ${{ steps.config.outputs.fail_on_vuln_severity }}
-          apisec-oas: ${{ steps.config.outputs.register_project }}
           apisec-openapi-spec-url: ${{ steps.config.outputs.openapi_spec_url }}
           apisec-refresh-playbooks: ${{ steps.config.outputs.refresh_playbooks }}
           sarif-result-file: ${{ env.APISEC_SARIF_FILE }}
