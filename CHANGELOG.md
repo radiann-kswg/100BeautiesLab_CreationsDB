@@ -6,6 +6,7 @@
 
 - `.github/workflows/apisec-scan.yml` をテンプレート状態から実運用向けに更新し、固定のサンプルプロジェクト名依存を解消した。
 - `workflow_dispatch` 入力と Repository Variables / Secrets を併用できるようにし、`APISEC_PROJECT`・認証情報・任意の OpenAPI Spec URL から APISec スキャンを構成できるようにした。
+- `APISEC_HOST` と `workflow_dispatch` の `apisec_host` に対応し、`cloud.apisec.ai` 既定値ではなく利用中テナントの APISec ホストへ明示接続できるようにした。
 - 必須設定が未投入の push / pull_request ではジョブを即失敗させず、サマリー上で不足設定を通知してスキップするようにした。
 - 生成された SARIF を `github/codeql-action/upload-sarif` 経由で Code Scanning にアップロードし、APISec ステップが失敗した場合も結果を取り込んだ上でジョブ失敗を反映するようにした。
 

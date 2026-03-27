@@ -11,6 +11,8 @@
 - 必須設定未投入時はジョブ失敗ではなくスキップとサマリー通知へ変更。
 - APISec 実行後に SARIF 生成有無を判定し、生成時のみ GitHub Code Scanning へアップロードする処理を追加。
 - APISec ステップ自体が失敗した場合でも、SARIF 取り込み後にジョブ失敗を返すように制御を整理。
+- APISec action の既定ホストが `https://cloud.apisec.ai` であることを踏まえ、`APISEC_HOST` / `apisec_host` で接続先ホストを明示できるようにした。
+- undocumented input に依存しないよう、workflow から upstream の `apisec-run-scan.sh` を直接実行する構成へ切り替えた。
 
 ## 影響範囲
 
@@ -21,6 +23,7 @@
 ## 未完了タスク
 
 - GitHub Repository 側で `APISEC_PROJECT` などの Variables と `APISEC_USERNAME` / `APISEC_PASSWORD` Secrets を投入する。
+- 利用中テナントが `cloud.apisecapps.com` 系であれば、`APISEC_HOST` にそのベース URL を投入する。
 - 必要に応じて `APISEC_OPENAPI_SPEC_URL` を設定し、APIsec 上で対象 API の登録/更新を自動化する。
 - 実際の GitHub Actions 実行結果を確認し、プロファイル名やリージョン名が APIsec 側設定と一致するか検証する。
 
@@ -71,6 +74,10 @@ GitHub Repository の `Settings` → `Secrets and variables` → `Actions` → `
   - 任意。
   - 入れると、workflow 実行時に API 定義を APISec に登録または更新してからスキャンする。
   - まだ APISec 側の project 登録が固まっていない場合や、OpenAPI 定義を workflow から同期したい場合に使う。
+- `APISEC_HOST`
+  - 任意。
+  - APISec の利用テナントが既定の `https://cloud.apisec.ai` ではない場合に設定する。
+  - 今回のようにブラウザ上で `https://cloud.apisecapps.com` にログインしている場合は、そのテナント URL をここへ入れないと GitHub Actions 側だけ別ホストへログインし、`Bad Credentials` になる可能性がある。
 - `APISEC_REFRESH_PLAYBOOKS`
   - 任意。
   - `true` または `false`。
@@ -94,6 +101,8 @@ GitHub Repository の `Settings` → `Secrets and variables` → `Actions` → `
   - `APISEC_PASSWORD`
 - Variables
   - `APISEC_PROJECT`
+- 利用テナントが既定ホストでない場合のみ追加
+  - `APISEC_HOST`
 - まずは未設定でよいもの
   - `APISEC_PROFILE`
   - `APISEC_REGION`
@@ -152,6 +161,7 @@ workflow 実行後は、少なくとも次を確認する。
   - profile 名不一致。
   - region 名不一致。
   - APISec の認証情報不正。
+  - APISec の接続先ホスト不一致。
 - SARIF が生成されない
   - APISec 側の scan が完了していない、または失敗している可能性がある。
   - まず `Trigger APIsec scan` のログを確認する。
@@ -193,6 +203,14 @@ User が今回 APISec 登録に使ったファイル `api/.private/openapi.yml` 
   - ただし、APISec 画面で project 作成時に別名を手入力しているなら、そちらを優先する。
   - 判定基準は「APISec の project 一覧に表示されている名前と完全一致する文字列」。
 
+### 1.5 今回の認証エラーで追加確認する値
+
+- `APISEC_HOST`
+  - APISec をブラウザで開いているホスト名と合わせる。
+  - 今回の調査では upstream の `apisec-run-scan.sh` が host 未指定時に `https://cloud.apisec.ai` へログインする実装だった。
+  - そのため、User が `https://cloud.apisecapps.com` 側のテナントを使っているなら、認証情報が正しくても host 不一致で `Bad Credentials` になり得る。
+  - まずは User が実際にログインしている APISec 画面のベース URL をそのまま `APISEC_HOST` に入れて再実行する。
+
 ### 2. 今は入れない方がよい値
 
 - `APISEC_OPENAPI_SPEC_URL`
@@ -216,6 +234,7 @@ User が今回 APISec 登録に使ったファイル `api/.private/openapi.yml` 
 - Secret: `APISEC_USERNAME`
 - Secret: `APISEC_PASSWORD`
 - Variable: `APISEC_PROJECT=100BeautiesLab_CreationsDB API`
+- 利用テナントが `cloud.apisec.ai` 以外なら Variable: `APISEC_HOST=<User が実際にログインしている APISec のベース URL>`
 
 これで workflow を手動実行し、APISec 側に既存 project があれば scan 実行まで進む想定。
 

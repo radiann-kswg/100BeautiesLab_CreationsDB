@@ -23,6 +23,11 @@ on:
         required: false
         default: ""
         type: string
+      apisec_host:
+        description: "任意の APIsec ホスト URL。未指定時は APISEC_HOST または action の既定値を使用"
+        required: false
+        default: ""
+        type: string
       openapi_spec_url:
         description: "任意の OpenAPI Spec URL。指定時は APIsec へ登録/更新してからスキャン"
         required: false
@@ -62,6 +67,7 @@ jobs:
       APISEC_PROJECT: ${{ github.event.inputs.apisec_project || vars.APISEC_PROJECT }}
       APISEC_PROFILE: ${{ github.event.inputs.apisec_profile || vars.APISEC_PROFILE || 'Master' }}
       APISEC_REGION: ${{ github.event.inputs.apisec_region || vars.APISEC_REGION }}
+      APISEC_HOST: ${{ github.event.inputs.apisec_host || vars.APISEC_HOST }}
       APISEC_OPENAPI_SPEC_URL: ${{ github.event.inputs.openapi_spec_url || vars.APISEC_OPENAPI_SPEC_URL }}
       APISEC_REFRESH_PLAYBOOKS: ${{ github.event.inputs.refresh_playbooks || vars.APISEC_REFRESH_PLAYBOOKS || 'false' }}
       APISEC_FAIL_ON_VULN_SEVERITY: ${{ github.event.inputs.fail_on_vuln_severity || vars.APISEC_FAIL_ON_VULN_SEVERITY || 'none' }}
@@ -116,6 +122,17 @@ jobs:
             esac
           fi
 
+          if [ -n "$APISEC_HOST" ]; then
+            case "$APISEC_HOST" in
+              http://*|https://*)
+                ;;
+              *)
+                echo "APISEC_HOST は http:// または https:// から始まる URL を指定してください: $APISEC_HOST" >&2
+                exit 1
+                ;;
+            esac
+          fi
+
           if [ "${#missing[@]}" -gt 0 ]; then
             echo "ready=false" >> "$GITHUB_OUTPUT"
             {
@@ -138,6 +155,7 @@ jobs:
           echo "project=$APISEC_PROJECT" >> "$GITHUB_OUTPUT"
           echo "profile=$APISEC_PROFILE" >> "$GITHUB_OUTPUT"
           echo "region=$APISEC_REGION" >> "$GITHUB_OUTPUT"
+          echo "host=$APISEC_HOST" >> "$GITHUB_OUTPUT"
           echo "openapi_spec_url=$APISEC_OPENAPI_SPEC_URL" >> "$GITHUB_OUTPUT"
           echo "refresh_playbooks=$refresh_value" >> "$GITHUB_OUTPUT"
           echo "register_project=$register_project" >> "$GITHUB_OUTPUT"
@@ -149,6 +167,9 @@ jobs:
             echo
             echo "- Project: $APISEC_PROJECT"
             echo "- Profile: $APISEC_PROFILE"
+            if [ -n "$APISEC_HOST" ]; then
+              echo "- Host: $APISEC_HOST"
+            fi
             if [ -n "$APISEC_REGION" ]; then
               echo "- Region: $APISEC_REGION"
             fi
@@ -167,18 +188,30 @@ jobs:
         id: apisec
         if: steps.config.outputs.ready == 'true'
         continue-on-error: true
-        uses: apisec-inc/apisec-run-scan@v1.0.7
-        with:
-          apisec-username: ${{ env.APISEC_USERNAME }}
-          apisec-password: ${{ env.APISEC_PASSWORD }}
-          apisec-project: ${{ steps.config.outputs.project }}
-          apisec-profile: ${{ steps.config.outputs.profile }}
-          apisec-region: ${{ steps.config.outputs.region }}
-          apisec-email-report: ${{ steps.config.outputs.email_report }}
-          apisec-fail-on-vuln-severity: ${{ steps.config.outputs.fail_on_vuln_severity }}
-          apisec-openapi-spec-url: ${{ steps.config.outputs.openapi_spec_url }}
-          apisec-refresh-playbooks: ${{ steps.config.outputs.refresh_playbooks }}
-          sarif-result-file: ${{ env.APISEC_SARIF_FILE }}
+        shell: bash
+        run: |
+          curl -fsSL https://raw.githubusercontent.com/apisec-inc/apisec-run-scan/v1.0.7/apisec-run-scan.sh -o apisec-run-scan.sh
+          chmod +x apisec-run-scan.sh
+
+          cmd=(
+            ./apisec-run-scan.sh
+            --username "$APISEC_USERNAME"
+            --password "$APISEC_PASSWORD"
+            --project "${{ steps.config.outputs.project }}"
+            --profile "${{ steps.config.outputs.profile }}"
+            --scanner "${{ steps.config.outputs.region }}"
+            --outputfile "$APISEC_SARIF_FILE"
+            --refresh-playbooks "${{ steps.config.outputs.refresh_playbooks }}"
+            --emailReport "${{ steps.config.outputs.email_report }}"
+            --fail-on-vuln-severity "${{ steps.config.outputs.fail_on_vuln_severity }}"
+            --openAPISpecUrl "${{ steps.config.outputs.openapi_spec_url }}"
+          )
+
+          if [ -n "${{ steps.config.outputs.host }}" ]; then
+            cmd+=(--host "${{ steps.config.outputs.host }}")
+          fi
+
+          "${cmd[@]}"
 
       - name: Detect SARIF output
         id: sarif
