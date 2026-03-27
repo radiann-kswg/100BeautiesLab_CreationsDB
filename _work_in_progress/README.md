@@ -15,7 +15,6 @@
 
 ## いま進行中のファイル
 
-- 2026-03-23_progress_apisec-scan.md
 - 2026-02-21_progress_typedef-driven-detail.md
 - 2026-02-21_progress_bilingual-enum-listindex.md
 - 2026-02-21_remaining-task.md

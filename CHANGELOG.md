@@ -1,17 +1,5 @@
 # 最新のリファクタリング・仕様変更履歴
 
-## 2026.03.23
-
-### APIsec による API コードスキャンを GitHub Code Scanning へ連携
-
-- `.github/workflows/apisec-scan.yml` をテンプレート状態から実運用向けに更新し、固定のサンプルプロジェクト名依存を解消した。
-- `workflow_dispatch` 入力と Repository Variables / Secrets を併用できるようにし、`APISEC_PROJECT`・認証情報・任意の OpenAPI Spec URL から APISec スキャンを構成できるようにした。
-- `APISEC_HOST` と `workflow_dispatch` の `apisec_host` に対応し、`cloud.apisec.ai` 既定値ではなく利用中テナントの APISec ホストへ明示接続できるようにした。
-- APISec ログインの事前確認を追加し、レスポンス種別と HTTP status を Job summary に出すことで、認証失敗とホスト不一致を切り分けやすくした。
-- upstream スクリプトのログイン JSON 組み立てを workflow 実行時に安全な `jq` ベースへ差し替え、認証情報内の記号による失敗を避けるようにした。
-- 必須設定が未投入の push / pull_request ではジョブを即失敗させず、サマリー上で不足設定を通知してスキップするようにした。
-- 生成された SARIF を `github/codeql-action/upload-sarif` 経由で Code Scanning にアップロードし、APISec ステップが失敗した場合も結果を取り込んだ上でジョブ失敗を反映するようにした。
-
 ### API テスト UI のエンドポイント検証を強化
 
 - `api/api.js` で、API テスト UI の入力値をそのまま `fetch()` しないよう変更した。
