@@ -223,6 +223,9 @@ jobs:
             echo "login_http_status=$http_status"
             echo "login_content_type=$content_type"
             echo "login_first_key=$first_key"
+            echo "login_message<<EOF"
+            printf '%s\n' "$api_message"
+            echo "EOF"
           } >> "$GITHUB_OUTPUT"
 
           {
@@ -313,6 +316,13 @@ jobs:
         shell: bash
         run: |
           echo "APIsec login preflight failed. HTTP status: ${{ steps.auth.outputs.login_http_status }}, first response key: ${{ steps.auth.outputs.login_first_key }}" >&2
+          if [ -n "${{ steps.auth.outputs.login_message }}" ]; then
+            echo "API message: ${{ steps.auth.outputs.login_message }}" >&2
+          fi
+          echo "Likely causes:" >&2
+          echo "- APISEC_USERNAME / APISEC_PASSWORD が APISec API 用ユーザーとして無効" >&2
+          echo "- ブラウザの SSO ログイン用アカウントで、API ログイン用のローカルパスワードが未設定" >&2
+          echo "- APISec 側で API 実行に使うユーザー権限が不足している" >&2
           exit 1
 
       - name: Fail workflow when APIsec scan fails
