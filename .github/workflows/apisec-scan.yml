@@ -131,6 +131,8 @@ jobs:
                 exit 1
                 ;;
             esac
+
+            APISEC_HOST="${APISEC_HOST%/}"
           fi
 
           if [ "${#missing[@]}" -gt 0 ]; then
@@ -169,6 +171,11 @@ jobs:
             echo "- Profile: $APISEC_PROFILE"
             if [ -n "$APISEC_HOST" ]; then
               echo "- Host: $APISEC_HOST"
+              case "$APISEC_HOST" in
+                *apisecapps.com)
+                  echo "- Warning: この Host はブラウザ UI 用ホストの可能性があります。/login が HTML を返す場合、API 用ホスト https://cloud.apisec.ai の利用確認が必要です"
+                  ;;
+              esac
             fi
             if [ -n "$APISEC_REGION" ]; then
               echo "- Region: $APISEC_REGION"
