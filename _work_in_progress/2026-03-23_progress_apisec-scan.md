@@ -13,6 +13,8 @@
 - APISec ステップ自体が失敗した場合でも、SARIF 取り込み後にジョブ失敗を返すように制御を整理。
 - APISec action の既定ホストが `https://cloud.apisec.ai` であることを踏まえ、`APISEC_HOST` / `apisec_host` で接続先ホストを明示できるようにした。
 - undocumented input に依存しないよう、workflow から upstream の `apisec-run-scan.sh` を直接実行する構成へ切り替えた。
+- `Preflight APIsec login` を追加し、scan 実行前に `/login` の HTTP status / Content-Type / JSON key を summary に出して切り分けできるようにした。
+- upstream スクリプト内のログイン JSON 組み立てが記号を含む認証情報で壊れる可能性に備え、workflow 実行時に `jq` ベースの安全な JSON 組み立てへ置換するようにした。
 
 ## 影響範囲
 
@@ -162,6 +164,7 @@ workflow 実行後は、少なくとも次を確認する。
   - region 名不一致。
   - APISec の認証情報不正。
   - APISec の接続先ホスト不一致。
+  - 認証情報に含まれる記号で upstream スクリプトのログイン JSON が壊れている。
 - SARIF が生成されない
   - APISec 側の scan が完了していない、または失敗している可能性がある。
   - まず `Trigger APIsec scan` のログを確認する。
@@ -210,6 +213,13 @@ User が今回 APISec 登録に使ったファイル `api/.private/openapi.yml` 
   - 今回の調査では upstream の `apisec-run-scan.sh` が host 未指定時に `https://cloud.apisec.ai` へログインする実装だった。
   - そのため、User が `https://cloud.apisecapps.com` 側のテナントを使っているなら、認証情報が正しくても host 不一致で `Bad Credentials` になり得る。
   - まずは User が実際にログインしている APISec 画面のベース URL をそのまま `APISEC_HOST` に入れて再実行する。
+
+### 1.6 それでも `Bad Credentials` が出る場合の追加切り分け
+
+- Job summary の `APIsec login preflight` を確認する。
+- `HTTP status` と `Response keys` に `token` が出ていれば、資格情報自体は通っており、その後段の script 側問題を疑う。
+- `Response keys` が `message` のみで `token` が無い場合は、APISec 側がその認証情報を受け付けていない。
+- 認証情報に `"` や `\` などの記号を含むと upstream script の生文字列連結で JSON が壊れる可能性があるため、workflow 側で `jq` による安全な JSON 組み立てへ置換した。これでも失敗する場合は、より直接的に APISec 側ユーザー権限またはアカウント種別を疑う。
 
 ### 2. 今は入れない方がよい値
 

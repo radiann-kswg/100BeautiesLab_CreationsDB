@@ -191,14 +191,78 @@ jobs:
             fi
           } >> "$GITHUB_STEP_SUMMARY"
 
+      - name: Preflight APIsec login
+        id: auth
+        if: steps.config.outputs.ready == 'true'
+        shell: bash
+        run: |
+          api_host="${{ steps.config.outputs.host }}"
+          if [ -z "$api_host" ]; then
+            api_host="https://cloud.apisec.ai"
+          fi
+
+          login_payload=$(jq -cn --arg username "$APISEC_USERNAME" --arg password "$APISEC_PASSWORD" '{username:$username, password:$password}')
+
+          tmp_headers=$(mktemp)
+          tmp_body=$(mktemp)
+          http_status=$(curl -sS -D "$tmp_headers" -o "$tmp_body" -w "%{http_code}" -H "Content-Type: application/json" -X POST --data-raw "$login_payload" "$api_host/login")
+          content_type=$(awk 'BEGIN{IGNORECASE=1} /^Content-Type:/ {gsub("\r", "", $0); sub(/^Content-Type:[[:space:]]*/, "", $0); print; exit}' "$tmp_headers")
+
+          first_key=$(jq -r 'keys[0] // empty' "$tmp_body" 2>/dev/null || true)
+          response_keys=$(jq -r 'keys | .[:5] | join(", ")' "$tmp_body" 2>/dev/null || true)
+          api_message=$(jq -r '.message // empty' "$tmp_body" 2>/dev/null || true)
+
+          if jq -e '.token? != null' "$tmp_body" >/dev/null 2>&1; then
+            login_ok=true
+          else
+            login_ok=false
+          fi
+
+          {
+            echo "login_ok=$login_ok"
+            echo "login_http_status=$http_status"
+            echo "login_content_type=$content_type"
+            echo "login_first_key=$first_key"
+          } >> "$GITHUB_OUTPUT"
+
+          {
+            echo "### APIsec login preflight"
+            echo
+            echo "- Host: $api_host"
+            echo "- HTTP status: $http_status"
+            if [ -n "$content_type" ]; then
+              echo "- Content-Type: $content_type"
+            fi
+            if [ -n "$response_keys" ]; then
+              echo "- Response keys: $response_keys"
+            fi
+            if [ "$login_ok" = true ]; then
+              echo "- Result: token acquisition succeeded"
+            else
+              echo "- Result: token acquisition failed"
+              if [ -n "$api_message" ]; then
+                echo "- API message: $api_message"
+              fi
+            fi
+          } >> "$GITHUB_STEP_SUMMARY"
+
+          rm -f "$tmp_headers" "$tmp_body"
+
       - name: Trigger APIsec scan
         id: apisec
-        if: steps.config.outputs.ready == 'true'
+        if: steps.config.outputs.ready == 'true' && steps.auth.outputs.login_ok == 'true'
         continue-on-error: true
         shell: bash
         run: |
           curl -fsSL https://raw.githubusercontent.com/apisec-inc/apisec-run-scan/v1.0.7/apisec-run-scan.sh -o apisec-run-scan.sh
           chmod +x apisec-run-scan.sh
+
+          perl -0pi -e 's/tokenResp=\$\(curl -s -H "Content-Type: application\/json" -X POST -d '\''\{"username": "'\''\$\{FX_USER\}'\''", "password": "'\''\$\{FX_PWD\}'\''"\}'\'' \$\{FX_HOST\}\/login \)/login_payload=\$\(jq -cn --arg username "\$FX_USER" --arg password "\$FX_PWD" '\''\{username:\$username, password:\$password\}'\''\)\ntokenResp=\$\(curl -s -H "Content-Type: application\/json" -X POST --data-raw "\$login_payload" "\$\{FX_HOST\}\/login" \)/s' apisec-run-scan.sh
+
+          grep -F 'login_payload=$(jq -cn --arg username "$FX_USER" --arg password "$FX_PWD"' apisec-run-scan.sh >/dev/null || {
+            echo "Failed to patch upstream APIsec login request" >&2
+            exit 1
+          }
 
           cmd=(
             ./apisec-run-scan.sh
@@ -222,7 +286,7 @@ jobs:
 
       - name: Detect SARIF output
         id: sarif
-        if: always() && steps.config.outputs.ready == 'true'
+        if: always() && steps.config.outputs.ready == 'true' && steps.auth.outputs.login_ok == 'true'
         shell: bash
         run: |
           if [ -f "$APISEC_SARIF_FILE" ]; then
@@ -238,14 +302,21 @@ jobs:
           fi
 
       - name: Upload APIsec SARIF
-        if: always() && steps.config.outputs.ready == 'true' && steps.sarif.outputs.exists == 'true'
+        if: always() && steps.config.outputs.ready == 'true' && steps.auth.outputs.login_ok == 'true' && steps.sarif.outputs.exists == 'true'
         uses: github/codeql-action/upload-sarif@v4
         with:
           sarif_file: ${{ env.APISEC_SARIF_FILE }}
           category: apisec
 
+      - name: Fail workflow when APIsec login fails
+        if: always() && steps.config.outputs.ready == 'true' && steps.auth.outputs.login_ok != 'true'
+        shell: bash
+        run: |
+          echo "APIsec login preflight failed. HTTP status: ${{ steps.auth.outputs.login_http_status }}, first response key: ${{ steps.auth.outputs.login_first_key }}" >&2
+          exit 1
+
       - name: Fail workflow when APIsec scan fails
-        if: always() && steps.config.outputs.ready == 'true' && steps.apisec.outcome == 'failure'
+        if: always() && steps.config.outputs.ready == 'true' && steps.auth.outputs.login_ok == 'true' && steps.apisec.outcome == 'failure'
         shell: bash
         run: |
           echo "APIsec scan failed. Review the APIsec step log and uploaded SARIF results." >&2
