@@ -543,16 +543,6 @@ textarea::placeholder {
     }
   }
 }
-@media (min-width: 1280px) {
-  .grid-item {
-    width: calc(25% - var(--spacing-lg) * 3 / 4);
-  }
-  @supports (display: grid) {
-    .grid-list {
-      grid-template-columns: repeat(4, 1fr);
-    }
-  }
-}
 .grid-item {
   display: flex;
   flex-direction: column;
@@ -1207,4 +1197,218 @@ html {
   top: 6px;
 }
 
+html, body {
+  max-width: 100%;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+.site-header {
+  padding: clamp(12px, 3vw, 20px);
+}
+.site-header h1 {
+  overflow-wrap: anywhere;
+}
+
+.lead {
+  overflow-wrap: anywhere;
+}
+.lead code {
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
+.container {
+  width: min(100%, 1200px);
+  padding: clamp(12px, 3vw, 24px);
+}
+
+#app, .card, #list-view, #detail-view, .controls {
+  min-width: 0;
+}
+
+.card {
+  padding: clamp(12px, 2.5vw, 18px);
+  overflow: hidden;
+}
+
+.controls .control-row {
+  align-items: flex-end;
+  min-width: 0;
+}
+.controls .control-row > * {
+  min-width: 0;
+}
+
+.controls .control-row:not(.small) label {
+  display: flex;
+  flex: 1 1 180px;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 6px;
+  min-width: 0;
+  white-space: normal;
+}
+
+.controls .control-row:not(.small) .grow {
+  flex: 2 1 320px;
+}
+
+.controls .control-row.small {
+  align-items: center;
+}
+
+.controls .control-row.small label {
+  display: inline-flex;
+  flex: 1 1 220px;
+  align-items: center;
+  gap: var(--spacing-sm);
+  min-width: 0;
+  white-space: normal;
+}
+
+.controls .control-row.small .ghost {
+  flex: 0 1 auto;
+  max-width: 100%;
+  white-space: normal;
+}
+
+.controls select,
+.controls input[type=search],
+.controls input[type=text],
+.controls textarea {
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+}
+
+.controls input[type=checkbox] {
+  flex: 0 0 auto;
+}
+
+@media (max-width: 767px) {
+  .controls .control-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .controls .control-row.small {
+    align-items: stretch;
+  }
+  .controls .control-row:not(.small) label,
+  .controls .control-row.small label,
+  .controls .control-row.small .ghost {
+    width: 100%;
+    flex-basis: auto;
+  }
+  .controls .control-row.small .ghost {
+    justify-content: center;
+  }
+}
+#list.grid-list {
+  width: 100%;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  gap: clamp(12px, 2vw, 16px);
+}
+
+#list.grid-list > .grid-item {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  flex: 1 1 100%;
+  height: 100%;
+}
+
+@media (min-width: 700px) {
+  #list.grid-list > .grid-item {
+    flex-basis: calc(50% - 8px);
+    width: calc(50% - 8px);
+  }
+}
+@media (min-width: 1080px) {
+  #list.grid-list > .grid-item {
+    flex-basis: calc(33.333% - 10.67px);
+    width: calc(33.333% - 10.67px);
+  }
+}
+@supports (display: grid) {
+  #list.grid-list {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+  #list.grid-list > .grid-item {
+    width: auto;
+    flex-basis: auto;
+  }
+  @media (min-width: 700px) {
+    #list.grid-list {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  @media (min-width: 1080px) {
+    #list.grid-list {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+}
+#list.grid-list .grid-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: var(--spacing-sm);
+}
+
+#list.grid-list .thumb {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  min-height: 180px;
+  aspect-ratio: 4/3;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+@media (min-width: 1080px) {
+  #list.grid-list .thumb {
+    min-height: 200px;
+  }
+}
+#list.grid-list h3,
+#list.grid-list .sub,
+#list.grid-list .meta,
+#list.grid-list .chip {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+#list.grid-list .meta {
+  align-content: flex-start;
+}
+
+#list.grid-list .chip {
+  max-width: 100%;
+  white-space: normal;
+}
+
+#list-empty {
+  padding: var(--spacing-md) 0;
+}
+
+.detail-header {
+  flex-wrap: wrap;
+}
+
+@media (max-width: 767px) {
+  .detail-header {
+    align-items: stretch;
+  }
+  .detail-header .ghost {
+    width: 100%;
+    text-align: center;
+  }
+}
 /*# sourceMappingURL=characters.css.map */
