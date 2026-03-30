@@ -7,6 +7,17 @@
         "$type": "#ListIndex",
         "hashTagName_JP": "動物",
         "hashTagName_EN": "Beast"
+      },
+      {
+        "hashTag": "Eto",
+        "$type": "#String_JP",
+        "hashTag_JP": "干支"
+      },
+      {
+        "hashTag": "Num",
+        "$type": "#Number|#Number_withAbout[]|#Null",
+        "hashTagName_JP": "干支番号",
+        "hashTag_EN": "EtoNumber"
       }
     ],
     "hashTagName_JP": "獣種",
@@ -43,12 +54,6 @@
       "hashTag": "BeastspecName",
       "$type": "#String_JP",
       "hashTag_JP": "獣騎能力名",
-      "$display": { "section": "profile" }
-    },
-    {
-      "hashTag": "BeastspecName_EN",
-      "$type": "#String_EN",
-      "hashTag_JP": "獣騎能力名_EN",
       "$display": { "section": "profile" }
     },
     {

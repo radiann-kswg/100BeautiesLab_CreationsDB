@@ -1730,7 +1730,7 @@
           "worksTitle": "FLInvestigator78",
           "dbName": "PrimaryDealer",
           "_Search": [
-            { "hashTag": "Card", "key": { "Stoat": "Major", "Num": 16 } }
+            { "hashTag": "Card", "key": { "Stoat": "Major", "StoatNum": 17 } }
           ]
         }
       }
@@ -6984,7 +6984,7 @@
           "worksTitle": "FLInvestigator78",
           "dbName": "PrimaryDealer",
           "_Search": [
-            { "hashTag": "Card", "key": { "Stoat": "Major", "Num": 16 } }
+            { "hashTag": "Card", "key": { "Stoat": "Major", "StoatNum": 16 } }
           ]
         }
       }

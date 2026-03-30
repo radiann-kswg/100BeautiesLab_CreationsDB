@@ -1,11 +1,13 @@
 [
   {
-    "Card": { "Stoat": "Major", "Num": 0 },
+    "Card": { "Stoat": "Major", "StoatNum": 0 },
     "Progress": "notProceeded",
     "_DBLink": {
       "worksTitle": "FLInvestigator78",
       "dbName": "Primary",
-      "_Search": [{ "hashTag": "Card", "key": { "Stoat": "Major", "Num": 0 } }]
+      "_Search": [
+        { "hashTag": "Card", "key": { "Stoat": "Major", "StoatNum": 0 } }
+      ]
     },
     "FormalName": "恐山 ユート",
     "FormalName_EN": "Uto' Osoreyama",
@@ -36,12 +38,14 @@
     }
   },
   {
-    "Card": { "Stoat": "Major", "Num": 1 },
+    "Card": { "Stoat": "Major", "StoatNum": 1 },
     "Progress": "notProceeded",
     "_DBLink": {
       "worksTitle": "FLInvestigator78",
       "dbName": "Primary",
-      "_Search": [{ "hashTag": "Card", "key": { "Stoat": "Major", "Num": 1 } }]
+      "_Search": [
+        { "hashTag": "Card", "key": { "Stoat": "Major", "StoatNum": 1 } }
+      ]
     },
     "FormalName": "金田一 卓斗",
     "FormalName_EN": "Tact Kindaichi",
@@ -73,12 +77,14 @@
     }
   },
   {
-    "Card": { "Stoat": "Major", "Num": 2 },
+    "Card": { "Stoat": "Major", "StoatNum": 2 },
     "Progress": "notProceeded",
     "_DBLink": {
       "worksTitle": "FLInvestigator78",
       "dbName": "Primary",
-      "_Search": [{ "hashTag": "Card", "key": { "Stoat": "Major", "Num": 2 } }]
+      "_Search": [
+        { "hashTag": "Card", "key": { "Stoat": "Major", "StoatNum": 2 } }
+      ]
     },
     "FormalName": "二宮 律",
     "FormalName_EN": "Liz Ninomiya",
@@ -110,12 +116,14 @@
     }
   },
   {
-    "Card": { "Stoat": "Major", "Num": 3 },
+    "Card": { "Stoat": "Major", "StoatNum": 3 },
     "Progress": "notProceeded",
     "_DBLink": {
       "worksTitle": "FLInvestigator78",
       "dbName": "Primary",
-      "_Search": [{ "hashTag": "Card", "key": { "Stoat": "Major", "Num": 3 } }]
+      "_Search": [
+        { "hashTag": "Card", "key": { "Stoat": "Major", "StoatNum": 3 } }
+      ]
     },
     "FormalName": "三笠 めぐ",
     "FormalName_EN": "Meg Mikasa",
@@ -153,12 +161,14 @@
     }
   },
   {
-    "Card": { "Stoat": "Major", "Num": 8 },
+    "Card": { "Stoat": "Major", "StoatNum": 8 },
     "Progress": "notProceeded",
     "_DBLink": {
       "worksTitle": "FLInvestigator78",
       "dbName": "Primary",
-      "_Search": [{ "hashTag": "Card", "key": { "Stoat": "Major", "Num": 8 } }]
+      "_Search": [
+        { "hashTag": "Card", "key": { "Stoat": "Major", "StoatNum": 8 } }
+      ]
     },
     "FormalName": "熱海 ふれあ",
     "FormalName_EN": "Flare Atami",
@@ -190,12 +200,14 @@
     }
   },
   {
-    "Card": { "Stoat": "Major", "Num": 9 },
+    "Card": { "Stoat": "Major", "StoatNum": 9 },
     "Progress": "notProceeded",
     "_DBLink": {
       "worksTitle": "FLInvestigator78",
       "dbName": "Primary",
-      "_Search": [{ "hashTag": "Card", "key": { "Stoat": "Major", "Num": 9 } }]
+      "_Search": [
+        { "hashTag": "Card", "key": { "Stoat": "Major", "StoatNum": 9 } }
+      ]
     },
     "FormalName": "仙道 歩浪(ほろー)",
     "FormalName_EN": "Hollow Sendō",
@@ -227,12 +239,14 @@
     }
   },
   {
-    "Card": { "Stoat": "Major", "Num": 16 },
+    "Card": { "Stoat": "Major", "StoatNum": 16 },
     "Progress": "notProceeded",
     "_DBLink": {
       "worksTitle": "FLInvestigator78",
       "dbName": "Primary",
-      "_Search": [{ "hashTag": "Card", "key": { "Stoat": "Major", "Num": 16 } }]
+      "_Search": [
+        { "hashTag": "Card", "key": { "Stoat": "Major", "StoatNum": 16 } }
+      ]
     },
     "FormalName": "ヴェンジー.C.テンペスト",
     "FormalName_EN": "Vengy.C.Tempest",
@@ -248,12 +262,14 @@
     }
   },
   {
-    "Card": { "Stoat": "Major", "Num": 17 },
+    "Card": { "Stoat": "Major", "StoatNum": 17 },
     "Progress": "notProceeded",
     "_DBLink": {
       "worksTitle": "FLInvestigator78",
       "dbName": "Primary",
-      "_Search": [{ "hashTag": "Card", "key": { "Stoat": "Major", "Num": 17 } }]
+      "_Search": [
+        { "hashTag": "Card", "key": { "Stoat": "Major", "StoatNum": 17 } }
+      ]
     },
     "FormalName": "ライト.リヴァーブリッジ",
     "FormalName_EN": "Light.Reverbbridge",
@@ -287,9 +303,7 @@
     "_DBLink": {
       "worksTitle": "FLInvestigator78",
       "dbName": "Primary",
-      "_Search": [
-        { "hashTag": "Card", "key": { "Stoat": "Dealer", "Num": 79 } }
-      ]
+      "_Search": [{ "hashTag": "Card", "key": { "Num": 79 } }]
     },
     "FormalName": "錦野 舞",
     "FormalName_EN": "Dancy Actressilk",
@@ -329,9 +343,7 @@
     "_DBLink": {
       "worksTitle": "FLInvestigator78",
       "dbName": "Primary",
-      "_Search": [
-        { "hashTag": "Card", "key": { "Stoat": "Dealer", "Num": 80 } }
-      ]
+      "_Search": [{ "hashTag": "Card", "key": { "Num": 80 } }]
     },
     "FormalName": "錦野 歌嫁",
     "FormalName_EN": "Phonia Actressilk",

@@ -13,110 +13,65 @@
         "about_EN": "between WDCE.VII.19-23(Equivalent to between: DC.2039-2043)\nThis Story contains descriptions of the past hereafter WDCE.VI.3(equivalent to DC.1985) as before WDCE.VII and important seens for the “World Destruction Pandemic VII”"
       },
       "_Commons": {
-        "#List_Beast": [
+        "_ListLinkIf_Beast": [
           {
             "Beast": "Mouse",
-            "Eto": "子",
-            "Beast_JP": "鼠",
-            "Num": 1,
             "RaceType": "ClonicMouse"
           },
           {
             "Beast": "Ox",
-            "Eto": "丑",
-            "Beast_JP": "牛",
-            "Num": 2,
             "RaceType": "Taurus(Acquired)"
           },
           {
             "Beast": "Tiger",
-            "Eto": "寅",
-            "Beast_JP": "虎",
-            "Num": 3,
             "RaceType": "LunaTiger(Acquired)"
           },
           {
             "Beast": "Rabbit",
-            "Eto": "卯",
-            "Beast_JP": "兎",
-            "Num": 4,
             "RaceType": "LunaRabbit(Acquired)"
           },
           {
             "Beast": "Dragon",
-            "Eto": "辰",
-            "Beast_JP": "竜",
-            "Num": 5,
             "RaceType": "Dragon(Acquired)"
           },
           {
             "Beast": "Snake",
-            "Eto": "巳",
-            "Beast_JP": "蛇",
-            "Num": 6,
             "RaceType": "Lamia(Acquired)"
           },
           {
             "Beast": "Horse",
-            "Eto": "午",
-            "Beast_JP": "馬",
-            "Num": 7,
             "RaceType": "Thoroughbreder(Acquired)"
           },
           {
             "Beast": "Sheep",
-            "Eto": "未",
-            "Beast_JP": "羊",
-            "Num": 8,
             "RaceType": "DreamEater(Acquired)"
           },
           {
             "Beast": "Monkey",
-            "Eto": "申",
-            "Beast_JP": "猿",
-            "Num": 9,
             "RaceType": "OverHuman(Acquired)"
           },
           {
             "Beast": "Bird",
-            "Eto": "酉",
-            "Beast_JP": "鳥",
-            "Num": 10,
             "RaceType": "Birdman(Acquired)"
           },
           {
             "Beast": "Raccoon",
-            "Eto": "戌",
-            "Beast_JP": "狸",
-            "Num": 11,
-            "RaceType": "Raccornian(Acquired)"
+            "RaceType": "Raccoonian(Acquired)"
           },
           {
             "Beast": "Fox",
-            "Eto": "戌",
-            "Beast_JP": "狐",
-            "Num": 11,
             "RaceType": "Warfox(Acquired)"
           },
           {
             "Beast": "Boar",
-            "Eto": "亥",
-            "Beast_JP": "猪",
-            "Num": 12,
             "RaceType": "FangSpeeder(Acquired)"
           },
           {
             "Beast": "Cat",
-            "Eto": null,
-            "Beast_JP": "猫",
-            "Num": 13,
             "RaceType": "Nekomata(Acquired)"
           },
           {
             "Beast": "Dog",
-            "Eto": "戌",
-            "Beast_JP": "犬",
-            "Num": null,
             "RaceType": "Komainu(Acquired)"
           }
         ]
@@ -125,6 +80,133 @@
   },
   "General": {
     "$VarsDef": {
+      "$Def_BeastType": {
+        "#List_Beast": [
+          {
+            "Beast": "Mouse",
+            "Beast_JP": "鼠",
+            "Beast_EN": "Mouse",
+            "Num": 1
+          },
+          {
+            "Beast": "Ox",
+            "Eto": "丑",
+            "Beast_JP": "牛",
+            "Beast_EN": "Ox",
+            "Num": 2
+          },
+          {
+            "Beast": "Tiger",
+            "Eto": "寅",
+            "Beast_JP": "虎",
+            "Beast_EN": "Tiger",
+            "Num": 3
+          },
+          {
+            "Beast": "Rabbit",
+            "Eto": "卯",
+            "Beast_JP": "兎",
+            "Beast_EN": "Rabbit",
+            "Num": 4
+          },
+          {
+            "Beast": "Dragon",
+            "Eto": "辰",
+            "Beast_JP": "竜",
+            "Beast_EN": "Dragon",
+            "Num": 5
+          },
+          {
+            "Beast": "Snake",
+            "Eto": "巳",
+            "Beast_JP": "蛇",
+            "Beast_EN": "Snake",
+            "Num": 6
+          },
+          {
+            "Beast": "Horse",
+            "Eto": "午",
+            "Beast_JP": "馬",
+            "Beast_EN": "Horse",
+            "Num": 7
+          },
+          {
+            "Beast": "Sheep",
+            "Eto": "未",
+            "Beast_JP": "羊",
+            "Beast_EN": "Sheep",
+            "Num": 8
+          },
+          {
+            "Beast": "Monkey",
+            "Eto": "申",
+            "Beast_JP": "猿",
+            "Beast_EN": "Monkey",
+            "Num": 9
+          },
+          {
+            "Beast": "Bird",
+            "Eto": "酉",
+            "Beast_JP": "鳥",
+            "Beast_EN": "Bird",
+            "Num": 10
+          },
+          {
+            "Beast": "Raccoon",
+            "Eto": "戌",
+            "Beast_JP": "狸",
+            "Beast_EN": "Raccoon",
+            "Num": 11
+          },
+          {
+            "Beast": "Fox",
+            "Eto": "戌",
+            "Beast_JP": "狐",
+            "Beast_EN": "Fox",
+            "Num": 11
+          },
+          {
+            "Beast": "Boar",
+            "Eto": "亥",
+            "Beast_JP": "猪",
+            "Beast_EN": "Boar",
+            "Num": 12
+          },
+          {
+            "Beast": "Cat",
+            "Eto": null,
+            "Beast_JP": "猫",
+            "Beast_EN": "Cat",
+            "Num": [
+              {
+                "value": 13,
+                "about_JP": "便宜上",
+                "about_EN": "for convenience"
+              },
+              { "value": 3, "about_JP": "種族上", "about_EN": "for race" },
+              {
+                "value": null,
+                "about_JP": "正確には",
+                "about_EN": "accurately"
+              }
+            ]
+          },
+          {
+            "Beast": "Dog",
+            "Eto": "戌",
+            "Beast_JP": "犬",
+            "Beast_EN": "Dog",
+            "Num": [
+              { "value": 11, "about_JP": "種族上", "about_EN": "for race" },
+              {
+                "value": null,
+                "about_JP": "現状",
+                "about_EN": "currently"
+              }
+            ]
+          }
+        ]
+      },
       "$Def_BeastspecStats": {
         "$Def_SpecType": {
           "$TypeDef": []

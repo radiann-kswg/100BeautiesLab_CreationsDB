@@ -183,7 +183,7 @@
           "Progress_JP": "未着手",
           "isForSecondary": false
         },
-        "#Progress_Tenative": {
+        "#Progress_Tentative": {
           "Progress": "stillTentative",
           "Progress_JP": "現状は仮公開(アルファリリース)",
           "isForSecondary": false
@@ -335,18 +335,18 @@
           "basis": [{ "RaceType": "Humanoid" }, { "RaceType": "Warfox" }]
         },
         {
-          "RaceType": "Raccornian",
+          "RaceType": "Raccoonian",
           "RaceType_JP": "化狸"
         },
         {
-          "RaceType": "Raccornian(Acquired)",
+          "RaceType": "Raccoonian(Acquired)",
           "RaceType_JP": "化狸(後天的)",
-          "basis": [{ "RaceType": "Human" }, { "RaceType": "Raccornian" }]
+          "basis": [{ "RaceType": "Human" }, { "RaceType": "Raccoonian" }]
         },
         {
           "RaceType": "DeviatableHumanoid(TaleBeastType)",
           "RaceType_JP": "妖獣型ディビエイタブルヒューマノイド",
-          "basis": [{ "RaceType": "Humanoid" }, { "RaceType": "Raccornian" }]
+          "basis": [{ "RaceType": "Humanoid" }, { "RaceType": "Raccoonian" }]
         },
         {
           "RaceType": "Nekomata",
@@ -641,7 +641,7 @@
         },
         {
           "Belonging": "夜月機関",
-          "Belonging_EN": "YadzukiLight Organization",
+          "Belonging_EN": "Yadzuki Organization",
           "BaseArea": { "Area": "九蓮国" },
           "isForSecondary": false,
           "isMaker": false

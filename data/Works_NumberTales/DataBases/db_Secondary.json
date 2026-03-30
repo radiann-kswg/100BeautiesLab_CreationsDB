@@ -724,9 +724,7 @@
       "worksTitle": "FLInvestigator78",
       "dbName": "PrimaryDealer",
       "_Jump": "ThisDealer",
-      "_Search": [
-        { "hashTag": "Card", "key": { "Stoat": "Dealer", "Num": 79 } }
-      ]
+      "_Search": [{ "hashTag": "Card", "key": { "Num": 79 } }]
     },
     "Age": 24,
     "AnivDay": [
@@ -771,9 +769,7 @@
       "worksTitle": "FLInvestigator78",
       "dbName": "PrimaryDealer",
       "_Jump": "ThisDealer",
-      "_Search": [
-        { "hashTag": "Card", "key": { "Stoat": "Dealer", "Num": 80 } }
-      ]
+      "_Search": [{ "hashTag": "Card", "key": { "Num": 80 } }]
     },
     "Age": 24,
     "AnivDay": [
