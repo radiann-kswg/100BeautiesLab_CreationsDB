@@ -1301,4 +1301,61 @@ body
 		width: 100%
 		text-align: center
 
+.detail > :first-child
+	width: 100%
+
+.detail .image-gallery
+	width: 100%
+	margin-top: var(--spacing-md)
+
+.detail .image-grid
+	width: 100%
+	display: flex
+	flex-wrap: wrap
+	align-items: stretch
+	gap: clamp(10px, 2vw, 14px)
+	margin-bottom: var(--spacing-md)
+
+.detail .image-item
+	width: 100%
+	max-width: 100%
+	min-width: 0
+	flex: 1 1 100%
+
+.detail .image-item img
+	width: 100%
+	height: auto
+	aspect-ratio: 4/3
+	object-fit: cover
+	display: block
+
+.detail .image-more
+	width: 100%
+
+@media (min-width: 480px)
+	.detail .image-item
+		flex-basis: calc(50% - 7px)
+		width: calc(50% - 7px)
+
+@supports (display: grid)
+	.detail .image-grid
+		display: grid
+		grid-template-columns: 1fr
+
+	.detail .image-item
+		width: auto
+		flex-basis: auto
+
+	@media (min-width: 480px)
+		.detail .image-grid
+			grid-template-columns: repeat(2, 1fr)
+
+@media (min-width: 1280px)
+	.detail > :first-child
+		flex-basis: 420px
+
+	@supports (display: grid)
+		.detail
+			grid-template-columns: 420px 1fr
+
 /*# sourceMappingURL=characters.css.map
