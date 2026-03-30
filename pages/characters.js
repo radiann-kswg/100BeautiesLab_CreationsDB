@@ -4698,6 +4698,24 @@ async function renderDetail(workId, rec) {
     return parts.join(separator);
   };
 
+  /**
+   * 詳細画面のタグ群を、要素数に応じた等幅グリッドへまとめる。
+   * - 一覧系で使う kv-grid とは分離し、能力/効果/型情報専用のレイアウトにする
+   * @param {HTMLElement[]} nodes
+   * @returns {HTMLElement|null}
+   */
+  const createDetailTagGrid = (nodes) => {
+    const items = Array.isArray(nodes) ? nodes.filter(Boolean) : [];
+    if (!items.length) return null;
+
+    const classNames = ['detail-tag-grid'];
+    if (items.length === 1) classNames.push('detail-tag-grid--single');
+    else if (items.length === 2 || items.length === 4) classNames.push('detail-tag-grid--double');
+    else classNames.push('detail-tag-grid--triple');
+
+    return el('div', { class: classNames.join(' ') }, items);
+  };
+
   // Abilities with localized labels
   // - top-level の object を走査し、「子が $EnumDef_Rank を含む」ものを能力値候補として推定
   const abilityKey = (() => {
@@ -4739,7 +4757,7 @@ async function renderDetail(workId, rec) {
     })
     .filter(Boolean);
 
-  const abilityGrid = abilityTags.length ? el('div', { class: 'kv-grid' }, abilityTags) : null;
+  const abilityGrid = createDetailTagGrid(abilityTags);
 
   // Effect/Safety with localized labels
   // - specStats 内のキーを走査し、「単一葉オブジェクトの集合」かつ葉型に #ListLink を含むものを EffectStats 相当として推定
@@ -4786,8 +4804,6 @@ async function renderDetail(workId, rec) {
     })
     .filter(Boolean);
 
-  const effGrid = effTags.length ? el('div', { class: 'kv-grid' }, effTags) : null;
-
   // - specStats 内のキーを走査し、「単一葉オブジェクト」かつ葉型に #ListLink を含むものを Safety 相当として推定
   const safetyKey = (() => {
     if (!pickedSpecStatsKey || !isPlainObject(numStats)) return '';
@@ -4813,6 +4829,9 @@ async function renderDetail(workId, rec) {
       });
     })()}`
   ]) : null;
+
+  const detailEffectNodes = [...effTags, safetyRow].filter(Boolean);
+  const effGrid = createDetailTagGrid(detailEffectNodes);
 
   // SpecType with localized labels（typedef-driven）
   // - specStats の直下から「能力種別（Material/ActionType 等の入れ子）」に該当するオブジェクトを推定し、その配下だけタグ表示する
@@ -5395,8 +5414,8 @@ async function renderDetail(workId, rec) {
     ? el('div', { class: 'section' }, [
         el('h3', {}, ['スペック/能力']),
         abilityGrid,
-        (effGrid || safetyRow) ? el('div', {}, [effGrid, safetyRow].filter(Boolean)) : null,
-        specNodes.length ? kvTable({}, [[getFieldLabel('SpecType', fieldLabelMap, workMeta, globalDefType, '型情報'), el('div', {}, specNodes)]]) : null,
+        effGrid,
+        specNodes.length ? kvTable({}, [[getFieldLabel('SpecType', fieldLabelMap, workMeta, globalDefType, '型情報'), createDetailTagGrid(specNodes)]]) : null,
         specRows.length ? kvTable({}, specRows) : null,
       ].filter(Boolean))
     : null;
