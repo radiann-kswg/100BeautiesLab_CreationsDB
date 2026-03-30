@@ -11,109 +11,109 @@
       },
       "_Commons": {
         "Belonging": ["夜月機関"],
-        "#List_Lunar": [
+        "_ListLinkIf_Lunar": [
           {
             "Lunar": "Kamiaridzuki",
-            "Lunar_JP": "神有月",
-            "Num": null,
+            "CodeName_JP": "神有月",
+            "CodeName_EN": "Zeus",
             "Class": "総帥",
             "Class_EN": "Chief.Executive"
           },
           {
             "Lunar": "Mutsuki",
-            "Lunar_JP": "睦月",
-            "Num": 1,
+            "CodeName_JP": "睦月",
+            "CodeName_EN": "January",
             "Class": "第1幹部\n睦月研究所",
             "Class_EN": "Executive Director.1\nLaboratory.1"
           },
           {
             "Lunar": "Kisaragi",
-            "Lunar_JP": "如月",
-            "Num": 2,
+            "CodeName_JP": "如月",
+            "CodeName_EN": "February",
             "Class": "第2幹部\n如月研究所",
             "Class_EN": "Executive Director.2\nLaboratory.2"
           },
           {
             "Lunar": "Yayoi",
-            "Lunar_JP": "弥生",
-            "Num": 3,
+            "CodeName_JP": "弥生",
+            "CodeName_EN": "March",
             "Class": "第3幹部\n弥生研究所(破滅対策本部2課)",
             "Class_EN": "Executive Director.3\nLaboratory.3(Pandemic Affairs Countermeasures Headquarter.2)"
           },
           {
             "Lunar": "Udzuki",
-            "Lunar_JP": "卯月",
-            "Num": 4,
+            "CodeName_JP": "卯月",
+            "CodeName_EN": "April",
             "Class": "第4幹部\n卯月研究所",
             "Class_EN": "Executive Director.4\nLaboratory.4"
           },
           {
             "Lunar": "Satsuki",
-            "Lunar_JP": "皐月",
-            "Num": 5,
+            "CodeName_JP": "皐月",
+            "CodeName_EN": "May",
             "Class": "第5幹部\n皐月研究所",
             "Class_EN": "Executive Director.5\nLaboratory.5"
           },
           {
             "Lunar": "Minadzuki",
-            "Lunar_JP": "水無月",
-            "Num": 6,
+            "CodeName_JP": "水無月",
+            "CodeName_EN": "June",
             "Class": "第6幹部\n水無月研究所",
             "Class_EN": "Executive Director.6\nLaboratory.6"
           },
           {
             "Lunar": "Fumdzuki",
-            "Lunar_JP": "文月",
-            "Num": 7,
+            "CodeName_JP": "文月",
+            "CodeName_EN": "July",
             "Class": "第7幹部\n文月研究所",
             "Class_EN": "Executive Director.7\nLaboratory.7"
           },
           {
             "Lunar": "Hadzuki",
-            "Lunar_JP": "葉月",
-            "Num": 8,
+            "CodeName_JP": "葉月",
+            "CodeName_EN": "August",
             "Class": "第8幹部\n葉月研究所(軍事本部)",
             "Class_EN": "Executive Director.8\nLaboratory.8(Military Headquarter)"
           },
           {
             "Lunar": "Nagatsuki",
-            "Lunar_JP": "長月",
-            "Num": 9,
+            "CodeName_JP": "長月",
+            "CodeName_EN": "September",
             "Class": "第9幹部\n長月研究所(救命本部)",
             "Class_EN": "Executive Director.9\nLaboratory.9(Lifeguards Headquarter)"
           },
           {
             "Lunar": "Kannadzuki",
-            "Lunar_JP": "神無月",
-            "Num": 10,
+            "CodeName_JP": "神無月",
+            "CodeName_EN": "October",
             "Class": "第10幹部\n神無月研究所(破滅対策本部1課)",
             "Class_EN": "Executive Director.10\nLaboratory.10(Pandemic Affairs Countermeasures Headquarter.1)"
           },
           {
             "Lunar": "Shimotsuki",
-            "Lunar_JP": "霜月",
-            "Num": 11,
+            "CodeName_JP": "霜月",
+            "CodeName_EN": "November",
             "Class": "第11幹部\n霜月研究所(仮説)",
             "Class_EN": "Executive Director.11\nLaboratory.11(Tentative)"
           },
           {
             "Lunar": "Shiwasu",
-            "Lunar_JP": "師走",
-            "Num": 12,
+            "CodeName_JP": "師走",
+            "CodeName_EN": "December",
             "Class": "第12幹部\n師走研究所(仮説)",
             "Class_EN": "Executive Director.12\nLaboratory.12(Tentative)"
           },
           {
-            "Lunar": "Learp",
-            "Lunar_JP": "閏月",
-            "Num": 13,
+            "Lunar": "Leap",
+            "CodeName_JP": "閏月",
+            "CodeName_EN": "Leap",
             "Class": "AI幹部\n如月研究所",
             "Class_EN": "Executive Director.AI\nLaboratory.2"
           },
           {
-            "Lunar": "Zerlunas",
-            "Lunar_JP": "零月",
-            "Num": 0,
+            "Lunar": "Zeroth",
+            "CodeName_JP": "初零月",
+            "CodeName_EN": "Zeroth",
             "Class": { "hideText": "？？？" },
             "Class_EN": { "hideText_EN": "????" }
           }
@@ -139,96 +139,291 @@
       },
       "_Commons": {
         "Belonging": ["夜月機関"],
-        "#List_Lunar": [
+        "_ListLinkIf_Lunar": [
           {
-            "Lunar": "Zerlunas",
-            "Lunar_JP": "零月",
-            "Num": null,
+            "Lunar": "Nullius",
+            "CodeName_JP": "神有月",
+            "CodeName_EN": "Zeus",
             "Class": "総帥",
             "Class_EN": "Chief.Executive"
           },
           {
-            "Lunar": "Mutsuki",
-            "Lunar_JP": "睦月",
-            "Num": 1,
+            "Lunar": "Januarius",
+            "CodeName_JP": "睦月",
+            "CodeName_EN": "January",
             "Class": "第1幹部\n睦月研究所",
             "Class_EN": "Executive Director.1\nLaboratory.1"
           },
           {
-            "Lunar": "Kisaragi",
-            "Lunar_JP": "如月",
-            "Num": 2,
+            "Lunar": "Februarius",
+            "CodeName_JP": "如月",
+            "CodeName_EN": "February",
+
             "Class": "第2幹部\n如月研究所",
             "Class_EN": "Executive Director.2\nLaboratory.2"
           },
           {
-            "Lunar": "Yayoi",
-            "Lunar_JP": "弥生",
-            "Num": 3,
+            "Lunar": "Martius.II",
+            "CodeName_JP": "弥生",
+            "CodeName_EN": "March",
             "Class": "第3幹部",
             "Class_EN": "Executive Director.3"
           },
           {
-            "Lunar": "Udzuki",
-            "Lunar_JP": "卯月",
-            "Num": 4,
+            "Lunar": "Aprilis",
+            "CodeName_JP": "卯月",
+            "CodeName_EN": "April",
+
             "Class": "第4幹部\n卯月研究所",
             "Class_EN": "Executive Director.4\nLaboratory.4"
           },
           {
-            "Lunar": "Satsuki",
-            "Lunar_JP": "皐月",
-            "Num": 5,
+            "Lunar": "Maius",
+            "CodeName_JP": "皐月",
+            "CodeName_EN": "May",
             "Class": "第5幹部\n皐月研究所",
             "Class_EN": "Executive Director.5\nLaboratory.5"
           },
           {
-            "Lunar": "Minadzuki",
-            "Lunar_JP": "水無月",
-            "Num": 6,
+            "Lunar": "Junius.II",
+            "CodeName_JP": "水無月",
+            "CodeName_EN": "June",
             "Class": "第6幹部\n水無月研究所",
             "Class_EN": "Executive Director.6\nLaboratory.6"
           },
           {
-            "Lunar": "Fumdzuki",
-            "Lunar_JP": "文月",
-            "Num": 7,
+            "Lunar": "Julius",
+            "CodeName_JP": "文月",
+            "CodeName_EN": "July",
             "Class": "第7幹部\n文月研究所",
             "Class_EN": "Executive Director.7\nLaboratory.7"
           },
           {
-            "Lunar": "Hadzuki",
-            "Lunar_JP": "葉月",
-            "Num": 8,
+            "Lunar": "Augustus",
+            "CodeName_JP": "葉月",
+            "CodeName_EN": "August",
             "Class": "軍事本部",
             "Class_EN": "Military Headquarter"
           },
           {
-            "Lunar": "Nagatsuki",
-            "Lunar_JP": "長月",
-            "Num": 9,
+            "Lunar": "September",
+            "CodeName_JP": "長月",
+            "CodeName_EN": "September",
             "Class": "救命本部",
             "Class_EN": "Lifeguards Headquarter"
           },
           {
-            "Lunar": "Kannadzuki",
-            "Lunar_JP": "神無月",
-            "Num": 10,
+            "Lunar": "October",
+            "CodeName_JP": "神無月",
+            "CodeName_EN": "October",
             "Class": "破滅対策本部",
             "Class_EN": "Pandemic Affairs Countermeasures Headquarter"
           },
           {
-            "Lunar": "Learp",
-            "Lunar_JP": "閏月",
-            "Num": 13,
-            "Class": "AI幹部\n如月研究所",
-            "Class_EN": "Executive Director.AI\nLaboratory.2"
+            "Lunar": "Martius",
+            "CodeName_JP": "弥生",
+            "CodeName_EN": "March",
+            "Class": "第3幹部",
+            "Class_EN": "Executive Director.3"
+          },
+          {
+            "Lunar": "Junius",
+            "CodeName_JP": "水無月",
+            "CodeName_EN": "June",
+            "Class": "第6幹部\n水無月研究所",
+            "Class_EN": "Executive Director.6\nLaboratory.6"
+          },
+          {
+            "Lunar": "Chronos",
+            "CodeName_JP": "創世月",
+            "CodeName_EN": "Chronos",
+            "Class": "機関創設者",
+            "Class_EN": "First Organizer"
           }
         ]
       }
     }
   },
   "General": {
-    "$VarsDef": {}
+    "$VarsDef": {
+      "$Def_Chronos": {
+        "#List_Lunar": [
+          {
+            "Lunar": "Kamiaridzuki",
+            "Lunar_JP": "神有月",
+            "Num": null,
+            "Generation": 3
+          },
+          {
+            "Lunar": "Nullius",
+            "Lunar_JP": "原初月",
+            "Num": null,
+            "Generation": 2
+          },
+          {
+            "Lunar": "Chronos",
+            "Lunar_JP": "創世月",
+            "Num": null,
+            "Generation": 1
+          },
+          {
+            "Lunar": "Zeroth",
+            "Lunar_JP": "初零月",
+            "Num": 0,
+            "Generation": null
+          },
+          {
+            "Lunar": "Mutsuki",
+            "Lunar_JP": "睦月",
+            "Num": 1,
+            "Generation": 2
+          },
+          {
+            "Lunar": "Januarius",
+            "Lunar_JP": "睦月(初代)",
+            "Num": 1,
+            "Generation": 1
+          },
+          {
+            "Lunar": "Kisaragi",
+            "Lunar_JP": "如月",
+            "Num": 2,
+            "Generation": 2
+          },
+          {
+            "Lunar": "Februarius",
+            "Lunar_JP": "如月(初代)",
+            "Num": 2,
+            "Generation": 1
+          },
+          {
+            "Lunar": "Yayoi",
+            "Lunar_JP": "弥生",
+            "Num": 3,
+            "Generation": 3
+          },
+          {
+            "Lunar": "Martius",
+            "Lunar_JP": "弥生(初代)",
+            "Num": 3,
+            "Generation": 1
+          },
+          {
+            "Lunar": "Martius.II",
+            "Lunar_JP": "弥生(先代)",
+            "Num": 3,
+            "Generation": 2
+          },
+          {
+            "Lunar": "Udzuki",
+            "Lunar_JP": "卯月",
+            "Num": 4,
+            "Generation": 2
+          },
+          {
+            "Lunar": "Aprilis",
+            "Lunar_JP": "卯月(初代)",
+            "Num": 4,
+            "Generation": 1
+          },
+          {
+            "Lunar": "Satsuki",
+            "Lunar_JP": "皐月",
+            "Num": 5,
+            "Generation": 2
+          },
+          {
+            "Lunar": "Maius",
+            "Lunar_JP": "皐月(初代)",
+            "Num": 5,
+            "Generation": 1
+          },
+          {
+            "Lunar": "Minadzuki",
+            "Lunar_JP": "水無月",
+            "Num": 6,
+            "Generation": 3
+          },
+          {
+            "Lunar": "Junius",
+            "Lunar_JP": "水無月(初代)",
+            "Num": 6,
+            "Generation": 1
+          },
+          {
+            "Lunar": "Junius.II",
+            "Lunar_JP": "水無月(先代)",
+            "Num": 6,
+            "Generation": 2
+          },
+          {
+            "Lunar": "Fumdzuki",
+            "Lunar_JP": "文月",
+            "Num": 7,
+            "Generation": 2
+          },
+          {
+            "Lunar": "Julius",
+            "Lunar_JP": "文月(初代)",
+            "Num": 7,
+            "Generation": 1
+          },
+          {
+            "Lunar": "Hadzuki",
+            "Lunar_JP": "葉月",
+            "Num": 8,
+            "Generation": 2
+          },
+          {
+            "Lunar": "Augustus",
+            "Lunar_JP": "葉月(初代)",
+            "Num": 8,
+            "Generation": 1
+          },
+          {
+            "Lunar": "Nagatsuki",
+            "Lunar_JP": "長月",
+            "Num": 9,
+            "Generation": 3
+          },
+          {
+            "Lunar": "September",
+            "Lunar_JP": "長月(先代)",
+            "Num": 9,
+            "Generation": 2
+          },
+          {
+            "Lunar": "Kannadzuki",
+            "Lunar_JP": "神無月",
+            "Num": 10,
+            "Generation": 2
+          },
+          {
+            "Lunar": "October",
+            "Lunar_JP": "神有月(初代)",
+            "Num": 10,
+            "Generation": 1
+          },
+          {
+            "Lunar": "Shimotsuki",
+            "Lunar_JP": "霜月",
+            "Num": 11,
+            "Generation": 1
+          },
+          {
+            "Lunar": "Shiwasu",
+            "Lunar_JP": "師走",
+            "Num": 12,
+            "Generation": 1
+          },
+          {
+            "Lunar": "Leap",
+            "Lunar_JP": "閏月",
+            "Num": 13,
+            "Generation": null
+          }
+        ]
+      }
+    }
   }
 }

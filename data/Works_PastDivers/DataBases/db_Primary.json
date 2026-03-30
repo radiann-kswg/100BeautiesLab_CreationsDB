@@ -1,0 +1,52 @@
+[
+  {
+    "Chronos": { "Lunar": "Yayoi" },
+    "Progress": "stillTentative",
+    "Images": {
+      "concept_PNGName": "cnsp_imgCL3G3"
+    },
+    "Name": "桜花 信(とき)",
+    "Name_EN": "Trustia Cherrybroom",
+    "FormalName": "桜花 訫(とき)",
+    "FormalName_EN": "Trustia Cherrybroom",
+    "GenderType": "Female",
+    "Height_cm": 159,
+    "Weight_kg": { "hideText": "非公開希望" },
+    "Age": 19,
+    "Character": "発想力の高いムードメーカーで、技術力が高く（味覚以外では）天性の才能を持つ。",
+    "Hobby": "勉強、努力",
+    "SpetialSkill": "暗記",
+    "Favor": "花言葉\n桜花兄弟姉妹のこと",
+    "Unlike": { "hideText": "非公開希望" },
+    "Strength": "信用できる人から信頼される",
+    "Weakpoint": "料理が下手すぎる（有機物だけで無機物の味を創ってしまう）",
+    "FirstPersonCalling": "あたし",
+    "SecondPersonCalling": "きみ",
+    "ThirdPersonCalling": "彼/彼女;[※名前呼び]"
+  },
+  {
+    "Chronos": { "Lunar": "Minadzuki" },
+    "Progress": "stillTentative",
+    "Images": {
+      "concept_PNGName": "cnsp_imgCL6G3"
+    },
+    "Name": "水無瀬 雫",
+    "Name_EN": "Aquanne Afterains",
+    "FormalName": "水無瀬 雫",
+    "FormalName_EN": "Aquanne Afterains",
+    "GenderType": "Female",
+    "Height_cm": 140,
+    "Weight_kg": { "hideText": "？？？" },
+    "Age": 14,
+    "Character": "繊細で涙もろく臆病だが、仲間を守るため健気に奮闘している。",
+    "Hobby": "みんなを守ること",
+    "SpetialSkill": "癒術",
+    "Favor": "縫い包み\n大切な仲間たちのこと",
+    "Unlike": "臆病で弱い自分",
+    "Strength": "小さくもろい存在ながら努力と才能は人一倍強い",
+    "Weakpoint": "繊細過ぎる",
+    "FirstPersonCalling": "わたし",
+    "SecondPersonCalling": "あなた;[※名前呼び]",
+    "ThirdPersonCalling": "[※名前呼び]"
+  }
+]
