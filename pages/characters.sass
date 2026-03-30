@@ -480,19 +480,54 @@ textarea::placeholder
 /* Enhanced Grid System
 
 .grid-list
-	display: grid
-	grid-template-columns: repeat(auto-fill, minmax(280px, 1fr))
+	display: flex
+	flex-wrap: wrap
 	gap: var(--spacing-md)
+
+.grid-item
+	width: 100%
+
+@supports (display: grid)
+	.grid-list
+		display: grid
+		grid-template-columns: repeat(1, 1fr)
+
+	.grid-item
+		width: auto
+
+@media (min-width: 640px)
+	.grid-item
+		width: calc(50% - (var(--spacing-md) / 2))
+
+	@supports (display: grid)
+		.grid-list
+			grid-template-columns: repeat(2, 1fr)
 
 @media (max-width: 640px)
 	.grid-list
-		grid-template-columns: 1fr
 		gap: var(--spacing-sm)
+
+	.grid-item
+		width: 100%
 
 @media (min-width: 1024px)
 	.grid-list
-		grid-template-columns: repeat(auto-fill, minmax(320px, 1fr))
 		gap: var(--spacing-lg)
+
+	.grid-item
+		width: calc(33.333% - ((var(--spacing-lg) * 2) / 3))
+
+	@supports (display: grid)
+		.grid-list
+			grid-template-columns: repeat(3, 1fr)
+
+@media (min-width: 1280px)
+	.grid-item
+		width: calc(25% - ((var(--spacing-lg) * 3) / 4))
+
+	@supports (display: grid)
+		.grid-list
+			grid-template-columns: repeat(4, 1fr)
 
 .grid-item
 	display: flex
@@ -625,15 +660,35 @@ h3
 		background: rgba(55, 183, 195, 0.1)
 
 .detail
-	display: grid
-	grid-template-columns: 1fr
+	display: block
 	gap: 16px
 	align-items: start
 
 // 幅がある環境では「画像（左） + 情報（右）」の2カラムにする
 @media (min-width: 768px)
 	.detail
-		grid-template-columns: minmax(260px, 420px) 1fr
+		display: flex
+		gap: 16px
+
+	.detail > :first-child
+		flex: 0 0 320px
+
+	.detail > :last-child
+		flex: 1 1 auto
+		min-width: 0
+
+	@supports (display: grid)
+		.detail
+			display: grid
+			grid-template-columns: 320px 1fr
+
+@media (min-width: 1024px)
+	.detail > :first-child
+		flex-basis: 380px
+
+	@supports (display: grid)
+		.detail
+			grid-template-columns: 380px 1fr
 
 // グリッド内の要素が内容で横に膨張しないようにする
 .detail > div
@@ -714,14 +769,47 @@ h4
 	font-weight: 600
 
 .image-grid
-	display: grid
-	grid-template-columns: repeat(auto-fit, minmax(120px, 1fr))
+	display: flex
+	flex-wrap: wrap
 	gap: var(--spacing-sm)
+
+.image-item
+	width: calc(50% - (var(--spacing-sm) / 2))
+
+@supports (display: grid)
+	.image-grid
+		display: grid
+		grid-template-columns: repeat(2, 1fr)
+
+	.image-item
+		width: auto
+
+@media (min-width: 640px)
+	.image-item
+		width: calc(33.333% - ((var(--spacing-sm) * 2) / 3))
+
+	@supports (display: grid)
+		.image-grid
+			grid-template-columns: repeat(3, 1fr)
 
 @media (min-width: 768px)
 	.image-grid
-		grid-template-columns: repeat(auto-fit, minmax(150px, 1fr))
 		gap: var(--spacing-md)
+
+	.image-item
+		width: calc(25% - ((var(--spacing-md) * 3) / 4))
+
+	@supports (display: grid)
+		.image-grid
+			grid-template-columns: repeat(4, 1fr)
+
+@media (min-width: 1024px)
+	.image-item
+		width: calc(20% - ((var(--spacing-md) * 4) / 5))
+
+	@supports (display: grid)
+		.image-grid
+			grid-template-columns: repeat(5, 1fr)
 
 .image-item
 	border: 1px solid var(--border)
@@ -815,10 +903,45 @@ h4
 /* Image gallery improvements
 
 .image-grid
-	display: grid
-	grid-template-columns: repeat(auto-fit, minmax(120px, 1fr))
+	display: flex
+	flex-wrap: wrap
 	gap: 8px
 	margin-bottom: 16px
+
+.image-item
+	width: calc(50% - 4px)
+
+@supports (display: grid)
+	.image-grid
+		display: grid
+		grid-template-columns: repeat(2, 1fr)
+
+	.image-item
+		width: auto
+
+@media (min-width: 640px)
+	.image-item
+		width: calc(33.333% - ((8px * 2) / 3))
+
+	@supports (display: grid)
+		.image-grid
+			grid-template-columns: repeat(3, 1fr)
+
+@media (min-width: 768px)
+	.image-item
+		width: calc(25% - 6px)
+
+	@supports (display: grid)
+		.image-grid
+			grid-template-columns: repeat(4, 1fr)
+
+@media (min-width: 1024px)
+	.image-item
+		width: calc(20% - 6.4px)
+
+	@supports (display: grid)
+		.image-grid
+			grid-template-columns: repeat(5, 1fr)
 
 .image-more button
 	background: var(--accent-2)
@@ -883,9 +1006,36 @@ td
 	color: #b6d8e1
 
 .kv-grid
-	display: grid
-	grid-template-columns: repeat(auto-fit, minmax(280px, 1fr))
+	display: flex
+	flex-wrap: wrap
 	gap: 8px
+
+.kv-grid > *
+	width: 100%
+
+@supports (display: grid)
+	.kv-grid
+		display: grid
+		grid-template-columns: repeat(1, 1fr)
+
+	.kv-grid > *
+		width: auto
+
+@media (min-width: 768px)
+	.kv-grid > *
+		width: calc(50% - 4px)
+
+	@supports (display: grid)
+		.kv-grid
+			grid-template-columns: repeat(2, 1fr)
+
+@media (min-width: 1280px)
+	.kv-grid > *
+		width: calc(33.333% - ((8px * 2) / 3))
+
+	@supports (display: grid)
+		.kv-grid
+			grid-template-columns: repeat(3, 1fr)
 
 /* Utility Classes
 
