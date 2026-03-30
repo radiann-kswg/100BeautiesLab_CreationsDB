@@ -352,7 +352,8 @@ label {
   color: var(--muted);
   font-size: var(--font-size-sm);
   font-weight: 500;
-  white-space: nowrap;
+  white-space: normal;
+  overflow-wrap: anywhere;
 }
 
 @media (max-width: 640px) {
@@ -616,7 +617,8 @@ h3 {
   border-radius: var(--border-radius-sm);
   font-size: var(--font-size-xs);
   font-weight: 500;
-  white-space: nowrap;
+  white-space: normal;
+  overflow-wrap: anywhere;
   transition: all 0.2s ease;
 }
 .chip:hover {
@@ -1030,8 +1032,9 @@ th {
   color: #c0d7e0;
   padding: 6px;
   background: #0f1320;
-  white-space: nowrap;
-  word-break: keep-all;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  word-break: normal;
 }
 
 @media (min-width: 768px) {
