@@ -358,6 +358,7 @@
 
 - **SASS 必須**: スタイルシートの編集は必ず SASS ファイル（`.sass`）で行う
 - **CSS 自動変換**: SASS から CSS への変換は VS Code の拡張機能により自動的に実行されるため、手動変換は不要
+- **キャッシュバスターの更新**: `pages/characters.html` の `<meta name="asset-version">` は `characters.css` と `characters.js` の共通バージョンです。`pages/characters.sass` / `pages/characters.css` / `pages/characters.js` の更新で本番反映にキャッシュ影響が出る可能性がある場合は、この値も更新してください
 - **レスポンシブ設計**: モバイルファースト設計
 - **BEM 命名**: Block-Element-Modifier による明確なクラス命名
 - **CSS Grid/Flexbox**: モダンレイアウト手法の活用

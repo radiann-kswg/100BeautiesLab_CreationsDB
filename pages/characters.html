@@ -4,9 +4,20 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>創作キャラ・キャラシート | 100BeautiesLab Creations DB</title>
-  <meta name="description" content="/data の創作データベースを クライアント内API (/pages/v1 ほか) 経由で取得し、キャラシートとして表示します。" />
+    <meta name="description" content="/data の創作データベースを クライアント内API (/pages/v1 ほか) 経由で取得し、キャラシートとして表示します。" />
+    <meta name="asset-version" content="2026.03.30.1" />
     <!-- メインスタイルシート（SASS から自動生成） -->
-    <link rel="stylesheet" href="./characters.css?v=2026.03.30.1" />
+    <script>
+      (() => {
+        const version = (document.querySelector('meta[name="asset-version"]')?.content || '').trim();
+        const href = version ? `./characters.css?v=${encodeURIComponent(version)}` : './characters.css';
+        const stylesheet = document.createElement('link');
+        stylesheet.rel = 'stylesheet';
+        stylesheet.href = href;
+        document.head.appendChild(stylesheet);
+        window.__CHARACTERS_ASSET_VERSION__ = version;
+      })();
+    </script>
   </head>
   <body>
     <!-- サイトヘッダー：アプリケーションタイトルと説明 -->
@@ -74,6 +85,10 @@
     </footer>
 
     <!-- メインアプリケーションスクリプト（ES6モジュール） -->
-    <script src="./characters.js?v=2026.03.30.1" type="module"></script>
+    <script type="module">
+      const version = (window.__CHARACTERS_ASSET_VERSION__ || document.querySelector('meta[name="asset-version"]')?.content || '').trim();
+      const scriptPath = version ? `./characters.js?v=${encodeURIComponent(version)}` : './characters.js';
+      import(scriptPath);
+    </script>
   </body>
   </html>
