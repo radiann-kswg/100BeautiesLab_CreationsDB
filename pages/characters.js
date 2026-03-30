@@ -559,6 +559,24 @@ function el(tag, props = {}, children = []) {
 }
 
 /**
+ * 詳細画面のタグ群を、要素数に応じた等幅グリッドへまとめる。
+ * - 一覧系で使う kv-grid とは分離し、能力/効果/会話例/関係表示専用のレイアウトにする
+ * @param {HTMLElement[]} nodes
+ * @returns {HTMLElement|null}
+ */
+function createDetailTagGrid(nodes) {
+  const items = Array.isArray(nodes) ? nodes.filter(Boolean) : [];
+  if (!items.length) return null;
+
+  const classNames = ['detail-tag-grid'];
+  if (items.length === 1) classNames.push('detail-tag-grid--single');
+  else if (items.length === 2 || items.length === 4) classNames.push('detail-tag-grid--double');
+  else classNames.push('detail-tag-grid--triple');
+
+  return el('div', { class: classNames.join(' ') }, items);
+}
+
+/**
  * Fetch work metadata including Commons and database info
  * @param {string} workKey - Work key like '#Works_NumberTales'
  * @returns {Promise<Object>} Work metadata object
@@ -4698,24 +4716,6 @@ async function renderDetail(workId, rec) {
     return parts.join(separator);
   };
 
-  /**
-   * 詳細画面のタグ群を、要素数に応じた等幅グリッドへまとめる。
-   * - 一覧系で使う kv-grid とは分離し、能力/効果/型情報専用のレイアウトにする
-   * @param {HTMLElement[]} nodes
-   * @returns {HTMLElement|null}
-   */
-  const createDetailTagGrid = (nodes) => {
-    const items = Array.isArray(nodes) ? nodes.filter(Boolean) : [];
-    if (!items.length) return null;
-
-    const classNames = ['detail-tag-grid'];
-    if (items.length === 1) classNames.push('detail-tag-grid--single');
-    else if (items.length === 2 || items.length === 4) classNames.push('detail-tag-grid--double');
-    else classNames.push('detail-tag-grid--triple');
-
-    return el('div', { class: classNames.join(' ') }, items);
-  };
-
   // Abilities with localized labels
   // - top-level の object を走査し、「子が $EnumDef_Rank を含む」ものを能力値候補として推定
   const abilityKey = (() => {
@@ -5356,7 +5356,7 @@ async function renderDetail(workId, rec) {
 
         blocks.push(el('div', { style: 'margin-bottom: 10px;' }, [
           el('div', { class: 'tag', style: 'margin-bottom: 6px;' }, [childLabel]),
-          el('div', { class: 'kv-grid' }, cards)
+          createDetailTagGrid(cards)
         ]));
         continue;
       }
@@ -5724,7 +5724,7 @@ function renderRelations(rel, fieldLabelMap, workMeta, globalDefType, fieldDispl
 
   return el('div', { class: 'section' }, [
     el('h3', {}, [getFieldLabel(containerKey, fieldLabelMap, workMeta, globalDefType, containerKey === 'RelationToPrimary' ? '原作との関係' : '関係')]),
-    el('div', { class: 'kv-grid' }, [...r1, ...r2])
+    createDetailTagGrid([...r1, ...r2])
   ]);
 }
 
