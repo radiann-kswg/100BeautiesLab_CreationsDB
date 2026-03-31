@@ -8278,7 +8278,10 @@
   {
     "Num": 84,
     "Progress": "nowCreating",
-    "Images": { "corefolder_PNGPath": ["emstk_corefolder84-1"] },
+    "Images": {
+      "concept_PNGName": "cnsp_img84",
+      "corefolder_PNGPath": ["emstk_corefolder84-1"]
+    },
     "Name": "ヤツヨ",
     "Name_EN": "Eightifort",
     "ModelName": "ナンバーテールズ4+8号機乙(84番機)",
