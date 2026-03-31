@@ -59,7 +59,8 @@
       "$type": "##String_JP|#Summary|#Null",
       "hashTag_JP": "モデル名",
       "$display": {
-        "section": "basic"
+        "section": "basic",
+        "tagSpace": "creation"
       }
     },
     {
@@ -105,7 +106,8 @@
       "$type": "##String_JP|#Summary|#Null",
       "hashTag_JP": "クラス名",
       "$display": {
-        "section": "basic"
+        "section": "basic",
+        "tagSpace": "creation"
       }
     },
     {
@@ -306,7 +308,8 @@
     {
       "hashTag": "AdditionalDesigned",
       "$type": "#Summary",
-      "hashTag_JP": "追加デザイン協力者について"
+      "hashTag_JP": "追加デザイン協力者について",
+      "searchable": false
     }
   ],
   "$VarsDef": {

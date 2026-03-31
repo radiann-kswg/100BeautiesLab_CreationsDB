@@ -38,7 +38,8 @@
         "SafetyLevelText": "危険度を有効活用可能"
       },
       "SpecLevel": { "Rank": "S+" }
-    }
+    },
+    "AdditionalDesigned": "カードイラスト：REITO_KYUN♡(https://piku.page/@REITO_KYUN)\nカード背景：喜雨(https://kiucouch.myportfolio.com/)"
   },
   {
     "Card": { "Stoat": "Major", "StoatNum": 1, "Num": 1 },
@@ -81,7 +82,8 @@
       "SpetialPattern": ["Ptn.B(士気操作)", "Ptn.E(元素操作)"],
       "SafetyLevel": { "SafetyLevelText": "保証可能" },
       "SpecLevel": { "Rank": "S+" }
-    }
+    },
+    "AdditionalDesigned": "カードイラスト：REITO_KYUN♡(https://piku.page/@REITO_KYUN)\nカード背景：喜雨(https://kiucouch.myportfolio.com/)"
   },
   {
     "Card": { "Stoat": "Major", "StoatNum": 2, "Num": 2 },
@@ -165,7 +167,8 @@
       "SpetialPattern": ["Ptn.H(癒術)", "Ptn.M(精神操作)"],
       "SafetyLevel": { "SafetyLevelText": "保証可能" },
       "SpecLevel": { "Rank": "A" }
-    }
+    },
+    "AdditionalDesigned": "カードイラスト：REITO_KYUN♡(https://piku.page/@REITO_KYUN)\nカード背景：喜雨(https://kiucouch.myportfolio.com/)"
   },
   {
     "Card": { "Stoat": "Major", "StoatNum": 8, "Num": 8 },
@@ -208,7 +211,8 @@
       "SpetialPattern": ["Ptn.B(士気操作)", "Ptn.M(精神操作)"],
       "SafetyLevel": { "SafetyLevelText": "危険度を有効活用可能" },
       "SpecLevel": { "Rank": "A" }
-    }
+    },
+    "AdditionalDesigned": "カードイラスト：REITO_KYUN♡(https://piku.page/@REITO_KYUN)\nカード背景：喜雨(https://kiucouch.myportfolio.com/)"
   },
   {
     "Card": { "Stoat": "Major", "StoatNum": 9, "Num": 9 },
@@ -251,7 +255,8 @@
       "SpetialPattern": ["Ptn.M(精神操作)", "Ptn.S(感度操作)"],
       "SafetyLevel": { "SafetyLevelText": "恐らく安全" },
       "SpecLevel": { "Rank": "B" }
-    }
+    },
+    "AdditionalDesigned": "カードイラスト：REITO_KYUN♡(https://piku.page/@REITO_KYUN)\nカード背景：喜雨(https://kiucouch.myportfolio.com/)"
   },
   {
     "Card": { "Stoat": "Major", "StoatNum": 16, "Num": 16 },

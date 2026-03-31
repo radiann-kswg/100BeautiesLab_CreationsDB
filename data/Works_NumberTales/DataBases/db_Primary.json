@@ -3473,7 +3473,8 @@
     "Progress": "released",
     "Images": {
       "concept_PNGName": "cnsp_img34",
-      "corefolder_PNGPath": ["emstk_corefolder34-1", "emstk_corefolder34-2"]
+      "corefolder_PNGPath": ["emstk_corefolder34-1", "emstk_corefolder34-2"],
+      "arts_PNGPath": ["humanoids/parody/art_img34,43-parody"]
     },
     "Name": "サトシ\n(サンジ)",
     "Name_EN": "Thirfory\n(Troubleforcer)",
@@ -4239,7 +4240,8 @@
       "corefolder_PNGPath": ["emstk_corefolder42-1", "emstk_corefolder42-2"],
       "arts_PNGPath": [
         "humanoids/2023/art_img42-humanoidA",
-        "humanoids/2023/art_img42-humanoidB"
+        "humanoids/2023/art_img42-humanoidB",
+        "humanoids/parody/art_img42-homage"
       ]
     },
     "Name": "ヨツグ",
@@ -4336,7 +4338,8 @@
     "Progress": "released",
     "Images": {
       "concept_PNGName": "cnsp_img43",
-      "corefolder_PNGPath": ["emstk_corefolder43-1", "emstk_corefolder43-2"]
+      "corefolder_PNGPath": ["emstk_corefolder43-1", "emstk_corefolder43-2"],
+      "arts_PNGPath": ["humanoids/parody/art_img34,43-parody"]
     },
     "Name": "シトミ",
     "Name_EN": "Forthren",
@@ -7373,6 +7376,7 @@
       "corefolder_PNGPath": ["emstk_corefolder73-1", "emstk_corefolder73-2"],
       "arts_PNGPath": [
         "humanoids/2023/art_img73-humanoid",
+        "humanoids/parody/art_img73-parody",
         "AutumnMoon/art_AutumnMoon2024"
       ]
     },
@@ -7894,7 +7898,8 @@
     "Progress": "released",
     "Images": {
       "concept_PNGName": "cnsp_img78",
-      "corefolder_PNGPath": ["emstk_corefolder78-1", "emstk_corefolder78-2"]
+      "corefolder_PNGPath": ["emstk_corefolder78-1", "emstk_corefolder78-2"],
+      "arts_PNGPath": ["corefolders/2025-2026/art_img78-corefolder"]
     },
     "Name": "ナナハ",
     "Name_EN": "Seveights",
