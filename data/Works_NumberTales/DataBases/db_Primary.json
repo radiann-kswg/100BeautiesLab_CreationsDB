@@ -824,7 +824,7 @@
     "Progress": "released",
     "Images": {
       "concept_PNGName": "cnsp_img9",
-      "corefolder_PNGPath": ["emstk_corefolder9-1"],
+      "corefolder_PNGPath": ["emstk_corefolder9-1", "emstk_corefolder9-2"],
       "arts_PNGPath": ["corefolders/sphericateDay/art_sphericateDay202309-img9"]
     },
     "Name": "チカ",
@@ -3786,7 +3786,7 @@
     "Progress": "released",
     "Images": {
       "concept_PNGName": "cnsp_img37",
-      "corefolder_PNGPath": ["emstk_corefolder37-1"],
+      "corefolder_PNGPath": ["emstk_corefolder37-1", "emstk_corefolder37-2"],
       "arts_PNGPath": [
         "humanoids/2023/art_img37-humanoid",
         "corefolders/2024/art_img37-corefolderA",
@@ -5510,6 +5510,7 @@
     "Progress": "released",
     "Images": {
       "concept_PNGName": "cnsp_img55",
+      "corefolder_PNGPath": ["emstk_corefolder55-1"],
       "arts_PNGPath": ["humanoids/2023/art_img55-humanoidTroubled"]
     },
     "Name": "イソゴ",
@@ -8782,7 +8783,7 @@
     "Progress": "released",
     "Images": {
       "concept_PNGName": "cnsp_img89",
-      "corefolder_PNGPath": ["emstk_corefolder89-1"]
+      "corefolder_PNGPath": ["emstk_corefolder89-1", "emstk_corefolder89-2"]
     },
     "Name": "ヤスモ",
     "Name_EN": "Eightine",
