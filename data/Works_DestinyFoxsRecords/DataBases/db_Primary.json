@@ -48,7 +48,7 @@
     "Name": "メトレ",
     "Name_EN": "Metre_SI-L",
     "FormalName": "リール ∛竏.絶対尺度(キュービックキロリッター.アンチヤードポンド)",
-    "FormalName_EN": "Reels ∛kℓ(CubicKiloliter).PerfectScale:UntiYardPonds",
+    "FormalName_EN": "Reels ∛kℓ(CubicKiloliter).PerfectScale/UntiYardPonds",
     "RaceType": "Lamia",
     "GenderType": "Female",
     "Height_cm": 137,
