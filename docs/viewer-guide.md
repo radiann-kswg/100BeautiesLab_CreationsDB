@@ -87,14 +87,17 @@
 ### 4.2 `db_meta.json`（`General.$VarsDef`）
 
 - enum/list の辞書（例: `GenderType` や `RaceType` の日本語表示名）
+- `db_type.json($VarsDef)` 由来の辞書と API 上で合成される補助情報
 - 直リンクの基準（作品インデックス定義）
 - 詳細レイアウト補助（作品ごとの `CreationWorks.<work>.$DetailLayout` など）
+
+キャラシートは、これらの定義を使って表示名や表示セクションを決めます。内部補助用の `_DBLink` などは enrich で使われても、そのまま画面へは表示しません。
 
 ---
 
 ## 5. 擬似 API（Service Worker）を使う
 
-GitHub Pages の静的配信上でバックエンドの代わりに Service Worker を使い、`/api/v1/*` 等の擬似 API を提供します。
+GitHub Pages の静的配信上でバックエンドの代わりに Service Worker を使い、`/pages/v1/*` を優先しつつ `/api/v1/*` / `/svc/v1/*` も含む擬似 API を提供します。
 
 代表例:
 
@@ -107,6 +110,7 @@ GitHub Pages の静的配信上でバックエンドの代わりに Service Work
 補足:
 
 - `enrich=1` を付けると、参照マージ（`_DBLink` / `_Jump`）、`$alt` フォールバック、画像メタ（`_enrichment.images`）など「UI での表示に便利な付加情報」も含めた出力になります。
+- UI は enrich 済みデータをそのまま全表示するのではなく、typedef / meta で定義された公開向け項目に限定してキャラシートを構成します。
 
 > 注意: 擬似 API はサービス提供を保証するものではありません（SLA/レート保証なし）。短時間の大量アクセスは避け、可能ならキャッシュを利用してください。
 

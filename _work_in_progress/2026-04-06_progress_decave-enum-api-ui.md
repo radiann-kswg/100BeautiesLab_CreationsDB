@@ -41,9 +41,17 @@
 - ブラウザ上で `BirthDay` が basic 情報へ移動し、「その他の項目」や `_DBLink` 表示が消えていることを確認する。
 - `Works_FLInvestigator78` で「安全レベル」と「能力レベル」の表示統一が視覚的にも崩れていないかを最終確認する。
 
+## 検証
+
+- `tests/pages.characters.syntax.test.js` : pass
+- `tests/enrich.dblink.jump.merge.test.js` : pass
+- `pages/characters.js` のエラー検査 : 問題なし
+- ブラウザでの最終目視確認 : 未実施（このセッションではコードとテスト整備を優先）
+
 ## 参考リンク
 
 - `data/db_type.json` の `$EnumDef_Decave`
 - `data/Works_PastDivers/DataBases/db_type.json` の `ChronospecStats.ChronoizedDecave`
 - `data/Works_FLInvestigator78/DataBases/db_type.json` の `ArcanumspecStats.SpecType` / `EffectStats`
 - `data/Works_UnauthedLogica/DataBases/db_type.json` の `ExistingRarity`
+- `data/db_type.json` の `BirthDay` / `AnivDay`
