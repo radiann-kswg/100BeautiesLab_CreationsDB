@@ -409,7 +409,8 @@ async function fetchJSON(url, timeout = 10000) {
     // Race between fetch and timeout
     const fetchPromise = fetch(url, {
       headers: { 'Accept': 'application/json' },
-      cache: 'default' // Use browser cache to improve performance
+      // SW/API 側の enrich 仕様変更を即時反映しやすくするため、疑似API応答は都度取得する
+      cache: 'no-store'
     });
 
     const res = await Promise.race([fetchPromise, timeoutPromise]);
@@ -4684,13 +4685,44 @@ async function renderDetail(workId, rec) {
   const numStats = pickedSpecStatsKey ? (rec?.[pickedSpecStatsKey] || {}) : {};
 
   /**
+   * SW enrich により補完された補助キーを除き、実質的な葉キーを取り出す
+   * - 例: { EffectText:'脆弱', EffectText_EN:'Fragile', Rank:'E' } -> ['EffectText']
+   * - 例: { Rank:'S+' } -> ['Rank']
+   * @param {any} obj
+   * @returns {string[]}
+   */
+  const getPrimaryLeafKeys = (obj) => {
+    if (!isPlainObject(obj)) return [];
+
+    const keys = Object.keys(obj).filter(k => k && typeof k === 'string' && !k.startsWith('_'));
+    if (!keys.length) return [];
+
+    const hasBaseKey = (k) => {
+      const m = String(k || '').match(/^(.*)_(JP|EN)$/);
+      if (!m) return false;
+      return keys.includes(m[1]);
+    };
+
+    const supplemental = new Set(['about', 'about_JP', 'about_EN', 'hideText']);
+    const primary = keys.filter((k) => {
+      if (supplemental.has(k)) return false;
+      if (hasBaseKey(k)) return false;
+      // Rank/Rarity/Decave は単独なら本体値、他キーと同居するときは補助情報として扱う
+      if ((k === 'Rank' || k === 'Rarity' || k === 'Decave') && keys.length > 1) return false;
+      return true;
+    });
+
+    return primary.length ? primary : keys;
+  };
+
+  /**
    * Object が「単一の葉」かどうか
    * - { X: '...' } / { X: 1 } / { X: { hideText: '...' } } を想定
    * @param {any} obj
    */
   const isSingleLeafObject = (obj) => {
     if (!isPlainObject(obj)) return false;
-    const ks = Object.keys(obj).filter(k => k && typeof k === 'string' && !k.startsWith('_'));
+    const ks = getPrimaryLeafKeys(obj);
     if (ks.length !== 1) return false;
     const v = obj[ks[0]];
     if (v === null || v === undefined) return false;
@@ -4718,7 +4750,7 @@ async function renderDetail(workId, rec) {
    */
   const getSingleLeafSchemaType = (parentPath, obj) => {
     if (!isPlainObject(obj)) return '';
-    const ks = Object.keys(obj).filter(k => k && typeof k === 'string' && !k.startsWith('_'));
+    const ks = getPrimaryLeafKeys(obj);
     if (ks.length !== 1) return '';
     const leaf = ks[0];
     const full = parentPath ? `${parentPath}.${leaf}` : leaf;
@@ -4908,7 +4940,43 @@ async function renderDetail(workId, rec) {
     })()}`
   ]) : null;
 
-  const detailEffectNodes = [...effTags, safetyRow].filter(Boolean);
+  // SpecLevel のような rank 系の spec 指定値は、安全レベルと同じタグ群に寄せる
+  const specMetricTagKeys = new Set();
+  const specMetricTags = [];
+  if (pickedSpecStatsKey && isPlainObject(numStats)) {
+    for (const [k, v] of Object.entries(numStats)) {
+      if (!k || typeof k !== 'string') continue;
+      if (k.startsWith('_')) continue;
+      if (k === effectKey) continue;
+      if (k === safetyKey) continue;
+      if (!isSingleLeafObject(v)) continue;
+
+      const schemaPath = `${pickedSpecStatsKey}.${k}`;
+      const schemaType = pickSchemaType(schemaPath, k);
+      const schemaDisplay = pickSchemaDisplay(schemaPath, k, pickedSpecStatsKey);
+      const section = (() => {
+        const raw = String(schemaDisplay?.section ?? '').trim();
+        return raw === 'spec' ? raw : '';
+      })();
+      if (section !== 'spec') continue;
+      if (!schemaTypeIncludes(schemaType, '$EnumDef_Rank')) continue;
+
+      const displayValue = formatValueForDisplay(v, fieldLabelMap, metaForLookup, globalDefType, {
+        schemaType,
+        display: schemaDisplay,
+        fieldKey: schemaPath
+      });
+      const dv = String(displayValue ?? '').trim();
+      if (!dv) continue;
+
+      specMetricTagKeys.add(k);
+      specMetricTags.push(el('div', { class: 'tag' }, [
+        `${getFieldLabel(schemaPath, fieldLabelMap, metaForLookup, globalDefType, k)}: ${dv}`
+      ]));
+    }
+  }
+
+  const detailEffectNodes = [...effTags, safetyRow, ...specMetricTags].filter(Boolean);
   const effGrid = createDetailTagGrid(detailEffectNodes);
 
   // SpecType with localized labels（typedef-driven）
@@ -5417,6 +5485,7 @@ async function renderDetail(workId, rec) {
       if (k === effectKey) continue;
       if (k === safetyKey) continue;
       if (k === specTypeSubKey) continue;
+      if (specMetricTagKeys.has(k)) continue;
       if (isEmptyValueLoose(v)) continue;
 
       const schemaPath = `${pickedSpecStatsKey}.${k}`;

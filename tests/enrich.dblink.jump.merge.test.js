@@ -59,6 +59,50 @@ const testConfig = {
 };
 
 describe('_DBLink / _Jump merge (in-process)', () => {
+  it('#ListLink wrapper は varsdef から Rank などの補助情報を補完できる', async () => {
+    class ListLinkDataFetcher extends TestDataFetcher {
+      async readGeneralVarsDefWork() {
+        return {
+          '#ListLink_EffectText': [
+            { EffectText: '脆弱', EffectText_EN: 'Fragile', Rank: 'E' }
+          ],
+          '$Def_SafetyLevel': {
+            '#ListLink_SafetyLevelText': [
+              { SafetyLevelText: '訓練中', SafetyLevelText_EN: 'Training', Rank: 'B+' }
+            ]
+          }
+        };
+      }
+    }
+
+    const dataFetcher = new ListLinkDataFetcher();
+    const proc = new globalThis.EnrichmentProcessor(dataFetcher, testConfig);
+
+    const rec = {
+      Id: 'BASE',
+      EffectStats: {
+        EffectText: '脆弱'
+      },
+      SafetyLevel: {
+        SafetyLevelText: '訓練中'
+      }
+    };
+
+    const out = await proc.enrichRecords([rec], '#Works_Test', 'Primary');
+    const e = out[0];
+
+    expect(e.EffectStats).toEqual({
+      EffectText: '脆弱',
+      EffectText_EN: 'Fragile',
+      Rank: 'E'
+    });
+    expect(e.SafetyLevel).toEqual({
+      SafetyLevelText: '訓練中',
+      SafetyLevelText_EN: 'Training',
+      Rank: 'B+'
+    });
+  });
+
   it('SinisterChangingGirls -> NumberTales の _DBLink を解決し、BirthDay._Jump を実値に置換できる', async () => {
     const dataFetcher = new TestDataFetcher();
     // data-common.js 側で global に公開される

@@ -15,6 +15,13 @@
 - `pages/characters.html` の `asset-version` を更新し、ブラウザ側で新しい `characters.js` を確実に取得できるようにした。
 - `pages/characters.js` で `specStats` コンテナ自体を能力値グリッド推定から除外し、`Works_FLInvestigator78` の `ArcanumspecStats` が `能力種別: [object Object]` / `効果詳細: 普通, ...` として誤描画される経路を遮断した。
 - `pages/characters.js` で `specStats` 配下の未処理フィールドを `$display.section` に従って spec/profile セクションへ合流するよう変更し、`Works_PastDivers` の `ChronoizedPurity` と `ChronoizedAbout` が表示されるようにした。
+- `lib/data-common.js` の enrich 処理で `#ListLink_*` を varsdef から逆引きし、`EffectText` / `SafetyLevelText` などの wrapper object に `Rank` と補助ラベルを再帰補完するよう変更した。
+- これにより、作品ごとの差分ではなく SW 側の共通正規化で「スペック/能力」の表示書式を揃えやすくした。
+- 回帰防止として `tests/enrich.dblink.jump.merge.test.js` に `#ListLink` 補完テストを追加した。
+- `pages/characters.js` の API fetch を `cache: 'no-store'` に変更し、ブラウザが古い enrich 応答を再利用して表示差分が反映されない状況を避けるようにした。
+- `pages/characters.html` の `asset-version` を `2026.04.06.5` へ更新し、最新の `characters.js` を取得しやすくした。
+- `pages/characters.js` の spec/effect 判定で使う「単一葉オブジェクト」判定を緩和し、SW enrich によって `Rank` や `*_EN` が補完された `#ListLink` wrapper でも `EffectStats` / `SafetyLevel` を表示対象として維持するよう修正した。
+- `pages/characters.js` で `SpecLevel` のような rank 系 spec 項目を `SafetyLevel` と同じタグ群へ寄せ、`運命線探偵78` の「安全レベル」と「能力レベル」で表示レイアウトが分かれる問題を解消した。
 
 ### API テスト UI のエンドポイント検証を強化
 
