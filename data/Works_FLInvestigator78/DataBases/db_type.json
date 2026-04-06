@@ -73,7 +73,8 @@
           "hashTag_JP": "錦野歌嫁(第80アルカナ)の呼び方"
         }
       ],
-      "hashTag_JP": "采配幹部(ディーラーズ;第79・80アルカナ)の呼び方"
+      "hashTag_JP": "采配幹部(ディーラーズ;第79・80アルカナ)の呼び方",
+      "$display": { "section": "profile" }
     },
     {
       "hashTag": "ArcanamspecAbout",
@@ -93,28 +94,22 @@
               "$display": { "section": "spec", "tagSpace": "creation" }
             },
             {
-              "hashTag": "ActionType",
-              "$type": [
-                {
-                  "hashTag": "KinematicOrStatic",
-                  "$type": "#ListIndex|#Null",
-                  "hashTag_JP": "動的か静的か",
-                  "$display": {
-                    "section": "spec",
-                    "tagSpace": "creation"
-                  }
-                },
-                {
-                  "hashTag": "RoleType",
-                  "$type": "#ListIndex|#Null",
-                  "hashTag_JP": "ロール種別",
-                  "$display": {
-                    "section": "spec",
-                    "tagSpace": "creation"
-                  }
-                }
-              ],
-              "hashTag_JP": "動的属性"
+              "hashTag": "KinematicOrStatic",
+              "$type": "#ListIndex|#Null",
+              "hashTag_JP": "動的か静的か",
+              "$display": {
+                "section": "spec",
+                "tagSpace": "creation"
+              }
+            },
+            {
+              "hashTag": "RoleType",
+              "$type": "#ListIndex|#Null",
+              "hashTag_JP": "ロール種別",
+              "$display": {
+                "section": "spec",
+                "tagSpace": "creation"
+              }
             },
             {
               "hashTag": "DualizePattern",

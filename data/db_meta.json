@@ -15,6 +15,8 @@
           "GenderType",
           "Height_cm",
           "Weight_kg",
+          "BustSize",
+          "TailsUnit",
           "Age",
           "Class"
         ]
@@ -36,8 +38,6 @@
         "basicFields": [
           "FormalName",
           "FormalName_EN",
-          "ModelName",
-          "ModelNumber",
           "SPCodeName",
           "GenderType",
           "Height_cm",
@@ -82,6 +82,7 @@
           "GenderType",
           "Height_cm",
           "Weight_kg",
+          "BustSize",
           "Age",
           "Class"
         ]

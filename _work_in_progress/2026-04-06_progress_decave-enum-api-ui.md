@@ -22,6 +22,8 @@
 - `pages/characters.html` の `asset-version` を `2026.04.06.5` へ更新。
 - `pages/characters.js` の単一葉オブジェクト判定を補強し、SW enrich によって `Rank` / `*_EN` などの補助キーが追加された `#ListLink` wrapper でも `EffectStats` / `SafetyLevel` の描画候補から外れないよう修正。
 - `pages/characters.js` で `SpecLevel` のような rank 系 spec 項目を `SafetyLevel` と同じタグ群へ寄せ、`Works_FLInvestigator78` の「安全レベル」と「能力レベル」で表示レイアウトが分かれていた点を統一。
+- `pages/characters.js` で `BirthDay` を basic 補助行へ追加し、`AnivDay` の代替表示と同系統の扱いで基本情報内に表示するよう修正。
+- `pages/characters.js` で typedef / meta に存在しないトップレベル項目を「その他の項目」へ自動表示するフォールバックを停止し、`_DBLink` / `_DBLinkResolved` など内部補助情報をキャラシートへ出さない方針へ変更。
 
 ## 影響範囲
 
@@ -36,8 +38,8 @@
 
 ## 未完了タスク
 
-- ブラウザ上で `Works_PastDivers` の `ChronoizedPurity` / `ChronoizedAbout` が期待通りに見えることを最終確認する。
-- SW 側の `#ListLink` 補完で、実際の `Works_PastDivers` / `Works_FLInvestigator78` の「スペック/能力」表示差分が十分に解消されるかをブラウザで確認する。
+- ブラウザ上で `BirthDay` が basic 情報へ移動し、「その他の項目」や `_DBLink` 表示が消えていることを確認する。
+- `Works_FLInvestigator78` で「安全レベル」と「能力レベル」の表示統一が視覚的にも崩れていないかを最終確認する。
 
 ## 参考リンク
 

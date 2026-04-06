@@ -5081,6 +5081,11 @@ async function renderDetail(workId, rec) {
     display: topLevelDisplayMap?.Area ?? null,
     fieldKey: 'Area'
   });
+  const birthDay = formatValueForDisplay(rec.BirthDay, fieldLabelMap, metaForLookup, globalDefType, {
+    schemaType: fieldTypeMap?.BirthDay ?? null,
+    display: topLevelDisplayMap?.BirthDay ?? null,
+    fieldKey: 'BirthDay'
+  });
   const days = Array.isArray(rec.AnivDay) ? rec.AnivDay.map(d => {
     const mm = d?.Day?.Month != null ? String(d.Day.Month) : '';
     const dd = d?.Day?.DayOfMonth != null ? String(d.Day.DayOfMonth) : '';
@@ -5153,13 +5158,13 @@ async function renderDetail(workId, rec) {
     // basic セクションの個別テーブルで表示するフィールド
     if (belong) s.add('Belonging');
     if (area) s.add('Area');
+    if (birthDay) s.add('BirthDay');
     if (days.length) s.add('AnivDay');
 
     // profile/relations/DBLinkResolved は個別表示する
     if (rec.Summary) s.add('Summary');
     if (rec.Relation) s.add('Relation');
     if (rec.RelationToPrimary) s.add('RelationToPrimary');
-    if (rec._DBLinkResolved) s.add('_DBLinkResolved');
 
     // Images は左カラムのギャラリー担当（キーとして持っていれば抑止）
     if (rec.Images) s.add('Images');
@@ -5183,7 +5188,7 @@ async function renderDetail(workId, rec) {
   };
 
   const isEmptyValue = (v) => isEmptyValueLoose(v);
-  const isInternalButAllowed = (k) => k === '_DBLink';
+  const isInternalButAllowed = () => false;
   const shouldSkipKey = (k, v) => {
     // base が表示済みなら *_JP/_EN は二重表示しない
     const lang = parseLangSuffix(k);
@@ -5436,14 +5441,18 @@ async function renderDetail(workId, rec) {
 
     if (shouldSkipKey(f.key, v)) continue;
 
-    const sec = normalizeSection(f.display?.section) || (isSummaryType(f.type) ? 'profile' : 'other');
-    // section が未指定/不正の場合は other
+    const sec = normalizeSection(f.display?.section) || (isSummaryType(f.type) ? 'profile' : '');
+    if (!sec) {
+      shownKeys.add(f.key);
+      if (usedKey && usedKey !== f.key) shownKeys.add(usedKey);
+      continue;
+    }
     const labelKey = (usedKey && usedKey !== f.key) ? usedKey : f.key;
 
     // 表示整形は fieldTypeMap/fieldDisplayMap を優先（schemaFields 側の type が配列/オブジェクトの場合でも enum 判定できるようにする）
     const resolvedType = fieldTypeMap?.[labelKey] ?? fieldTypeMap?.[f.key] ?? f.type ?? null;
     const resolvedDisplay = fieldDisplayMap?.[labelKey] ?? fieldDisplayMap?.[f.key] ?? f.display ?? null;
-    pushToBucket(sec || 'other', {
+    pushToBucket(sec, {
       key: labelKey,
       label: getFieldLabel(labelKey, fieldLabelMap, workMeta, globalDefType, labelKey),
       type: resolvedType,
@@ -5458,22 +5467,7 @@ async function renderDetail(workId, rec) {
     }
   }
 
-  // 2) スキーマ外（追加/互換/暫定）は other 扱いでフォールバック表示
-  for (const [k, v] of Object.entries(rec || {})) {
-    if (schemaKeySet.has(k)) continue;
-    if (shouldSkipKey(k, v)) continue;
-
-    // スキーマ外でも typedef 由来の type/display が分かる場合は表示整形に活用
-    const resolvedType = fieldTypeMap?.[k] ?? null;
-    const resolvedDisplay = fieldDisplayMap?.[k] ?? null;
-    pushToBucket('other', {
-      key: k,
-      label: getFieldLabel(k, fieldLabelMap, workMeta, globalDefType, k),
-      type: resolvedType,
-      display: resolvedDisplay,
-      value: v
-    });
-  }
+  // 2) スキーマ外（追加/互換/暫定）はキャラシートへ自動表示しない
 
   // 3) specStats 配下の追加フィールドを、typedef の $display.section に従って各セクションへ合流
   // - 例: PastDivers の ChronoizedPurity（spec）/ ChronoizedAbout（profile）
@@ -5596,9 +5590,10 @@ async function renderDetail(workId, rec) {
     el('h3', {}, [getFieldLabel('BasicInfo', fieldLabelMap, workMeta, globalDefType, '基本情報')]),
     basic,
     basicExtraRows.length ? kvTable({}, basicExtraRows) : null,
-    (belong || area || days.length) ? kvTable({}, [
+    (belong || area || birthDay || days.length) ? kvTable({}, [
       belong ? [getFieldLabel('Belonging', fieldLabelMap, workMeta, globalDefType, '所属'), belong] : null,
       area ? [getFieldLabel('Area', fieldLabelMap, workMeta, globalDefType, '地域'), area] : null,
+      birthDay ? [getFieldLabel('BirthDay', fieldLabelMap, workMeta, globalDefType, '誕生日'), birthDay] : null,
       days.length ? [getFieldLabel('AnivDay', fieldLabelMap, workMeta, globalDefType, '記念日'), days.join(' / ')] : null,
     ].filter(Boolean)) : null,
   ].filter(Boolean));
@@ -5631,27 +5626,17 @@ async function renderDetail(workId, rec) {
       ].filter(Boolean))
     : null;
 
-  const otherSection = otherRows.length
-    ? el('div', { class: 'section' }, [
-        el('h3', {}, [getFieldLabel('AllFields', fieldLabelMap, workMeta, globalDefType, 'その他の項目')]),
-        kvTable({}, otherRows)
-      ])
-    : null;
-
   const right = el('div', {}, [
     titleRow,
     basicSection,
     specSection,
     profileSection,
-    otherSection,
     rec.Relation && (rec.Relation.Related || rec.Relation.Commented)
       ? renderRelations(rec.Relation, fieldLabelMap, metaForLookup, globalDefType, fieldDisplayMap, { containerKey: 'Relation', fieldTypeMap })
       : null,
     rec.RelationToPrimary && (rec.RelationToPrimary.Related || rec.RelationToPrimary.Commented)
       ? renderRelations(rec.RelationToPrimary, fieldLabelMap, metaForLookup, globalDefType, fieldDisplayMap, { containerKey: 'RelationToPrimary', fieldTypeMap })
-      : null,
-    // 参照解決結果の表示（_DBLinkResolved）
-    rec._DBLinkResolved ? renderDBLinkResolved(rec._DBLinkResolved, fieldLabelMap, metaForLookup, globalDefType) : null
+      : null
   ].filter(Boolean));
 
   mount.appendChild(el('div', { class: 'detail' }, [left, right]));

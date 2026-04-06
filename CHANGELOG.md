@@ -22,6 +22,8 @@
 - `pages/characters.html` の `asset-version` を `2026.04.06.5` へ更新し、最新の `characters.js` を取得しやすくした。
 - `pages/characters.js` の spec/effect 判定で使う「単一葉オブジェクト」判定を緩和し、SW enrich によって `Rank` や `*_EN` が補完された `#ListLink` wrapper でも `EffectStats` / `SafetyLevel` を表示対象として維持するよう修正した。
 - `pages/characters.js` で `SpecLevel` のような rank 系 spec 項目を `SafetyLevel` と同じタグ群へ寄せ、`運命線探偵78` の「安全レベル」と「能力レベル」で表示レイアウトが分かれる問題を解消した。
+- `pages/characters.js` で `BirthDay` を `AnivDay` と同じ basic 補助行として扱うよう修正し、`誕生日` が「その他の項目」へ落ちる不具合を解消した。
+- `pages/characters.js` の詳細表示を typedef / meta 駆動へ寄せ、未定義のトップレベル項目を自動的に「その他の項目」へ流すフォールバック、および `_DBLink` / `_DBLinkResolved` の表示を停止した。
 
 ### API テスト UI のエンドポイント検証を強化
 

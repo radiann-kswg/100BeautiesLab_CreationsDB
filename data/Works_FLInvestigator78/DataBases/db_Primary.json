@@ -20,10 +20,8 @@
     "ArcanumspecStats": {
       "SpecType": {
         "Material": [{ "Material": "Fire" }],
-        "ActionType": {
-          "KinematicOrStatic": "Kinematic",
-          "RoleType": "Frier"
-        },
+        "KinematicOrStatic": "Kinematic",
+        "RoleType": "Frier",
         "DualizePattern": { "Pattern": "Prop." }
       },
       "EffectStats": {
@@ -66,10 +64,8 @@
             "Material": "Quart"
           }
         ],
-        "ActionType": {
-          "KinematicOrStatic": "Kinematic",
-          "RoleType": "Lead"
-        },
+        "KinematicOrStatic": "Kinematic",
+        "RoleType": "Lead",
         "DualizePattern": { "Pattern": "Prop.(通常)" }
       },
       "EffectStats": {
@@ -107,10 +103,8 @@
             "Material": "Water"
           }
         ],
-        "ActionType": {
-          "KinematicOrStatic": "Static",
-          "RoleType": "Keep"
-        },
+        "KinematicOrStatic": "Static",
+        "RoleType": "Keep",
         "DualizePattern": { "Pattern": "Prop." }
       },
       "EffectStats": {
@@ -151,10 +145,8 @@
           },
           { "Material": "Object" }
         ],
-        "ActionType": {
-          "KinematicOrStatic": "Pre-Static",
-          "RoleType": "Heal"
-        },
+        "KinematicOrStatic": "Pre-Static",
+        "RoleType": "Heal",
         "DualizePattern": { "Pattern": "Prop." }
       },
       "EffectStats": {
@@ -195,10 +187,8 @@
             "Material": "Fire"
           }
         ],
-        "ActionType": {
-          "KinematicOrStatic": "Pre-Kinematic",
-          "RoleType": "Heal"
-        },
+        "KinematicOrStatic": "Pre-Kinematic",
+        "RoleType": "Heal",
         "DualizePattern": { "Pattern": "Prop.(通常)" }
       },
       "EffectStats": {
@@ -239,10 +229,8 @@
             "Material": "Water"
           }
         ],
-        "ActionType": {
-          "KinematicOrStatic": "Pre-Static",
-          "RoleType": "Fere"
-        },
+        "KinematicOrStatic": "Pre-Static",
+        "RoleType": "Fere",
         "DualizePattern": { "Pattern": "Prop." }
       },
       "EffectStats": {
@@ -283,10 +271,8 @@
             "Material": "Object"
           }
         ],
-        "ActionType": {
-          "KinematicOrStatic": "Pre-Kinematic",
-          "RoleType": "Fere"
-        },
+        "KinematicOrStatic": "Pre-Kinematic",
+        "RoleType": "Fere",
         "DualizePattern": { "Pattern": "Prop." }
       },
       "EffectStats": {
@@ -323,10 +309,8 @@
             "Material": "Water"
           }
         ],
-        "ActionType": {
-          "KinematicOrStatic": "Pre-Static",
-          "RoleType": "Repair"
-        },
+        "KinematicOrStatic": "Pre-Static",
+        "RoleType": "Repair",
         "DualizePattern": { "Pattern": "Prop." }
       },
       "EffectStats": {
@@ -360,10 +344,8 @@
     "ArcanumspecStats": {
       "SpecType": {
         "Material": [],
-        "ActionType": {
-          "KinematicOrStatic": null,
-          "RoleType": null
-        },
+        "KinematicOrStatic": null,
+        "RoleType": null,
         "DualizePattern": { "Pattern": null }
       },
       "EffectStats": {
@@ -397,10 +379,8 @@
     "ArcanumspecStats": {
       "SpecType": {
         "Material": [],
-        "ActionType": {
-          "KinematicOrStatic": null,
-          "RoleType": null
-        },
+        "KinematicOrStatic": null,
+        "RoleType": null,
         "DualizePattern": { "Pattern": null }
       },
       "EffectStats": {
