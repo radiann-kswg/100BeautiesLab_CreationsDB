@@ -1,5 +1,21 @@
 # 最新のリファクタリング・仕様変更履歴
 
+### Decave enum 辞書の API/UI 合成対応
+
+- `lib/sw-common.js` の `v1/deftype/global` で、`db_meta.json` に加えて `data/db_type.json($VarsDef)` も `General.$VarsDef` へ合流して返すようにした。
+- `lib/sw-common.js` の `v1/works/{work}/meta` でも、作品別 `db_type.json($VarsDef)` を `meta.General.$VarsDef` に含めるようにした。
+- `pages/characters.js` の `fetchGlobalDefType()` で、API 応答が古い/不完全な場合でも `db_type.json` 側の `$EnumDef_*` を補完し、`Decave` の表示解決を維持するようにした。
+- 回帰防止として `tests/sw.deftype.merge.test.js` を追加した。
+
+### キャラシートの wrapper/spec 表示修正
+
+- `pages/characters.js` で、`$EnumDef_*` / `#ListIndex` / `#ListLink` / `#Index` の wrapper object を汎用 object 展開より優先して整形するよう変更した。
+- これにより、`Works_UnauthedLogica` の `ExistingRarity` が `Rarity: SSR` のような内部キー表示へ崩れる問題を修正した。
+- `pages/characters.js` で `specStats` 内の `SpecType` 候補推定を補強し、`Works_FLInvestigator78` で `EffectStats` を誤って能力種別扱いしにくいよう調整した。
+- `pages/characters.html` の `asset-version` を更新し、ブラウザ側で新しい `characters.js` を確実に取得できるようにした。
+- `pages/characters.js` で `specStats` コンテナ自体を能力値グリッド推定から除外し、`Works_FLInvestigator78` の `ArcanumspecStats` が `能力種別: [object Object]` / `効果詳細: 普通, ...` として誤描画される経路を遮断した。
+- `pages/characters.js` で `specStats` 配下の未処理フィールドを `$display.section` に従って spec/profile セクションへ合流するよう変更し、`Works_PastDivers` の `ChronoizedPurity` と `ChronoizedAbout` が表示されるようにした。
+
 ### API テスト UI のエンドポイント検証を強化
 
 - `api/api.js` で、API テスト UI の入力値をそのまま `fetch()` しないよう変更した。

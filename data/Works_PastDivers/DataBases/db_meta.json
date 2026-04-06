@@ -424,6 +424,64 @@
           }
         ]
       }
+    },
+    "$Def_ChoronospecStats": {
+      "#ListLink_EffectText": [
+        { "EffectText": "危険", "EffectText_EN": "Dangerous", "Rank": "ZZ" },
+        { "EffectText": "過剰", "EffectText_EN": "Over Limited", "Rank": "Z" },
+        { "EffectText": "強化済", "EffectText_EN": "Extended", "Rank": "S+" },
+        { "EffectText": "絶大", "EffectText_EN": "Tremendous", "Rank": "S" },
+        { "EffectText": "強力", "EffectText_EN": "Powerful", "Rank": "A" },
+        { "EffectText": "特殊", "EffectText_EN": "Special", "Rank": "B+" },
+        { "EffectText": "標準", "EffectText_EN": "Normal", "Rank": "B" },
+        { "EffectText": "弱小", "EffectText_EN": "Weak", "Rank": "C" },
+        { "EffectText": "無能力", "EffectText_EN": "Powerless", "Rank": "D" },
+        { "EffectText": "脆弱", "EffectText_EN": "Fragile", "Rank": "E" },
+        {
+          "EffectText": "脆弱(仕様)",
+          "EffectText_EN": "Fragile(Given)",
+          "Rank": "E"
+        }
+      ],
+      "$Def_SafetyLevel": {
+        "#ListLink_SafetyLevelText": [
+          {
+            "SafetyLevelText": "制御可能",
+            "SafetyLevelText_EN": "Controllable",
+            "Rank": "S"
+          },
+          {
+            "SafetyLevelText": "抑制可能",
+            "SafetyLevelText_EN": "Suppressible",
+            "Rank": "A"
+          },
+          {
+            "SafetyLevelText": "訓練中",
+            "SafetyLevelText_EN": "Now training",
+            "Rank": "B+"
+          },
+          {
+            "SafetyLevelText": "現状は問題無",
+            "SafetyLevelText_EN": "No Incidents Reported",
+            "Rank": "B"
+          },
+          {
+            "SafetyLevelText": "要検証",
+            "SafetyLevelText_EN": "Needs verification",
+            "Rank": "C"
+          },
+          {
+            "SafetyLevelText": "KY事例有",
+            "SafetyLevelText_EN": "Low Incidents Reported",
+            "Rank": "C"
+          },
+          {
+            "SafetyLevelText": "事故事例有",
+            "SafetyLevelText_EN": "High Incidents Reported",
+            "Rank": "D"
+          }
+        ]
+      }
     }
   }
 }

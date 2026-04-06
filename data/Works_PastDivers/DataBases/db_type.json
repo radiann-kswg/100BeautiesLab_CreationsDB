@@ -42,6 +42,207 @@
       "hashTag": "ChronospecAbout",
       "$type": "#Summary",
       "hashTag_JP": "時空遷移能力について"
+    },
+    {
+      "hashTag": "ChronospecStats",
+      "$type": [
+        {
+          "hashTag": "ChronoizedDecave",
+          "$type": [
+            {
+              "hashTag": "Decave",
+              "$type": "$EnumDef_Decave,$EnumLink"
+            }
+          ],
+          "hashTag_JP": "時空遷移(クロノイド)級数",
+          "$display": {
+            "section": "spec",
+            "tagSpace": "creation",
+            "listLinkEnumName": "Decave",
+            "decaveFormat": "alphaLabel"
+          }
+        },
+        {
+          "hashTag": "ChronoizedPurity",
+          "$type": "#String|#String_withAbout",
+          "hashTag_JP": "時空遷移(クロノイド)純度",
+          "$display": {
+            "section": "spec",
+            "tagSpace": "creation"
+          }
+        },
+        {
+          "hashTag": "ChronoizedAbout",
+          "$type": "#Summary",
+          "hashTag_JP": "時空遷移(クロノイド)状態に関する概要",
+          "$display": { "section": "profile" }
+        },
+        {
+          "hashTag": "EffectStats",
+          "$type": [
+            {
+              "hashTag": "Physical",
+              "$type": [
+                {
+                  "hashTag": "EffectText",
+                  "$type": "#String_JP,#ListLink",
+                  "$display": {
+                    "rankFormat": "alphaLabel",
+                    "listLinkEnumName": "Rank",
+                    "listLinkShowEnum": true
+                  }
+                }
+              ],
+              "hashTag_JP": "物理的作用"
+            },
+            {
+              "hashTag": "Acceleration",
+              "$type": [
+                {
+                  "hashTag": "EffectText",
+                  "$type": "#String_JP,#ListLink",
+                  "$display": {
+                    "rankFormat": "alphaLabel",
+                    "listLinkEnumName": "Rank",
+                    "listLinkShowEnum": true
+                  }
+                }
+              ],
+              "hashTag_JP": "加速作用/減速作用"
+            },
+            {
+              "hashTag": "Enforcing",
+              "$type": [
+                {
+                  "hashTag": "EffectText",
+                  "$type": "#String_JP,#ListLink",
+                  "$display": {
+                    "rankFormat": "alphaLabel",
+                    "listLinkEnumName": "Rank",
+                    "listLinkShowEnum": true
+                  }
+                }
+              ],
+              "hashTag_JP": "斥力効果/引力効果"
+            },
+            {
+              "hashTag": "Healing",
+              "$type": [
+                {
+                  "hashTag": "EffectText",
+                  "$type": "#String_JP,#ListLink",
+                  "$display": {
+                    "rankFormat": "alphaLabel",
+                    "listLinkEnumName": "Rank",
+                    "listLinkShowEnum": true
+                  }
+                }
+              ],
+              "hashTag_JP": "治癒効果"
+            },
+            {
+              "hashTag": "Rewriting",
+              "$type": [
+                {
+                  "hashTag": "EffectText",
+                  "$type": "#String_JP,#ListLink",
+                  "$display": {
+                    "rankFormat": "alphaLabel",
+                    "listLinkEnumName": "Rank",
+                    "listLinkShowEnum": true
+                  }
+                }
+              ],
+              "hashTag_JP": "時空改竄の恐れ"
+            }
+          ],
+          "hashTag_JP": "効果度数"
+        },
+        {
+          "hashTag": "SafetyLevel",
+          "$type": [
+            {
+              "hashTag": "SafetyLevelText",
+              "$type": "#String_JP,#ListLink",
+              "$display": {
+                "rankFormat": "alphaLabel",
+                "listLinkEnumName": "Rank",
+                "listLinkShowEnum": true
+              }
+            }
+          ],
+          "hashTag_JP": "安全レベル"
+        }
+      ],
+      "hashTag_JP": "時空遷移能力の特性"
+    },
+    {
+      "hashTag": "Relation",
+      "$type": [
+        {
+          "hashTag": "Related",
+          "$type": "$Def_Relations[]",
+          "hashTag_JP": "親密な関係"
+        },
+        {
+          "hashTag": "Commented",
+          "$type": "$Def_Relations[]",
+          "hashTag_JP": "コメント"
+        }
+      ],
+      "hashTag_JP": "関係キャラクター",
+      "isForSecondary": false
+    },
+    {
+      "hashTag": "RelationToPrimary",
+      "$type": [
+        {
+          "hashTag": "Related",
+          "$type": "$Def_Relations[]",
+          "hashTag_JP": "親密な関係"
+        },
+        {
+          "hashTag": "Commented",
+          "$type": "$Def_Relations[]",
+          "hashTag_JP": "コメント"
+        }
+      ],
+      "hashTag_JP": "原作との関係",
+      "isForSecondary": true
     }
-  ]
+  ],
+  "$VersDef": {
+    "$Def_Relations": {
+      "$TypeDef": [
+        {
+          "hashTag": "Lunar",
+          "$type": "#Index",
+          "isForSecondary": false,
+          "hashTag_JP": "月暦"
+        },
+        {
+          "hashTag": "Comments",
+          "$type": "#Dialogue",
+          "isForSecondary": false,
+          "hashTag_JP": "コメント"
+        },
+        {
+          "hashTag": "ComeBacked",
+          "$type": "$Def_Relations[]",
+          "isForSecondary": true,
+          "hashTag_JP": "返答コメント"
+        },
+        {
+          "hashTag": "RelationLabel",
+          "$type": "#ListIndex[]",
+          "hashTag_JP": "関係性タグ",
+          "$display": {
+            "section": "profile",
+            "tagSpace": "creation",
+            "langMode": "jp"
+          }
+        }
+      ]
+    }
+  }
 }

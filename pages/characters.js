@@ -648,10 +648,9 @@ async function fetchGlobalTypeDef() {
  * @returns {Promise<Object>} Global definition types
  */
 async function fetchGlobalDefType() {
-  // NOTE: v1/deftype/global は「db_meta.json（辞書）」を返す。
-  // 古いSWやブラウザキャッシュで typedef（db_type.json）を掴むと、
-  // $EnumDef/#ListIndex の表示名解決ができずコード表示に退避する。
-  // 期待形（General.$VarsDef が存在）でない場合は自動で再フェッチする。
+  // NOTE: v1/deftype/global は「表示辞書」を返すが、
+  // 古いSWやブラウザキャッシュでは db_meta.json 単体しか返らない場合がある。
+  // その場合でも db_type.json 側の `$VarsDef` を併合して辞書解決を維持する。
   const isValid = (obj) => {
     const vars = obj?.General?.$VarsDef;
     if (!vars || typeof vars !== 'object' || Array.isArray(vars)) return false;
@@ -669,6 +668,35 @@ async function fetchGlobalDefType() {
 
     // 後方互換の最低条件: enum/list キーが存在する（ただし上記が無ければ invalid 扱い）
     return false;
+  };
+
+  /**
+   * db_meta.json と db_type.json の `$VarsDef` を UI 用の辞書としてマージ
+   * @param {any} metaLike
+   * @param {any} typeLike
+   * @returns {Object}
+   */
+  const mergeMetaAndTypeVars = (metaLike, typeLike) => {
+    const meta = (metaLike && typeof metaLike === 'object' && !Array.isArray(metaLike)) ? metaLike : {};
+    const type = (typeLike && typeof typeLike === 'object' && !Array.isArray(typeLike)) ? typeLike : {};
+
+    const metaGeneral = (meta.General && typeof meta.General === 'object' && !Array.isArray(meta.General)) ? meta.General : {};
+    const metaVars = (metaGeneral.$VarsDef && typeof metaGeneral.$VarsDef === 'object' && !Array.isArray(metaGeneral.$VarsDef))
+      ? metaGeneral.$VarsDef
+      : {};
+    const typeVars = (type.$VarsDef && typeof type.$VarsDef === 'object' && !Array.isArray(type.$VarsDef))
+      ? type.$VarsDef
+      : {};
+
+    if (!Object.keys(typeVars).length) return meta;
+
+    return {
+      ...meta,
+      General: {
+        ...metaGeneral,
+        $VarsDef: { ...metaVars, ...typeVars }
+      }
+    };
   };
 
   /**
@@ -694,27 +722,39 @@ async function fetchGlobalDefType() {
   };
 
   /**
+   * 直 fetch 用の JSON ローダー
+   * @param {string} relPath
+   * @returns {Promise<Object>}
+   */
+  const fetchDirectJson = async (relPath) => {
+    const directUrl = new URL(relPath, location.href).toString();
+    const res = await fetch(directUrl, {
+      headers: { 'Accept': 'application/json' },
+      cache: 'no-store'
+    });
+    if (!res.ok) throw new Error(`${res.status} ${res.statusText} ${directUrl}`);
+    return res.json();
+  };
+
+  /**
    * API経由の辞書取得が壊れている場合の最終フォールバック:
-   * pages/characters.html から見て ../data/db_meta.json を「直 fetch」する。
+   * pages/characters.html から見て ../data/db_meta.json / ../data/db_type.json を「直 fetch」する。
    * - SW/広告ブロッカー/キャッシュの揺れで /pages/v1/deftype/global が期待形でないケースの救済
    * - cache:'no-store' で古い辞書を掴みにくくする
    */
   const fetchDirectDbMeta = async () => {
-    const directUrl = new URL('../data/db_meta.json', location.href).toString();
     try {
-      const res = await fetch(directUrl, {
-        headers: { 'Accept': 'application/json' },
-        cache: 'no-store'
-      });
-      if (!res.ok) throw new Error(`${res.status} ${res.statusText} ${directUrl}`);
-      const json = await res.json();
-      const unwrapped = unwrap(json);
-      if (isValid(unwrapped)) {
-        console.warn('🛟 fetchGlobalDefType: recovered via direct /data/db_meta.json fetch');
-        return unwrapped;
+      const [metaJson, typeJson] = await Promise.all([
+        fetchDirectJson('../data/db_meta.json'),
+        fetchDirectJson('../data/db_type.json')
+      ]);
+      const merged = mergeMetaAndTypeVars(unwrap(metaJson), typeJson);
+      if (isValid(merged)) {
+        console.warn('🛟 fetchGlobalDefType: recovered via direct /data/db_meta.json + /data/db_type.json fetch');
+        return merged;
       }
     } catch (e) {
-      console.warn('⚠️ fetchGlobalDefType: direct /data/db_meta.json fetch failed:', e?.message || e);
+      console.warn('⚠️ fetchGlobalDefType: direct dictionary fetch failed:', e?.message || e);
     }
     return {};
   };
@@ -727,8 +767,10 @@ async function fetchGlobalDefType() {
   try {
     const res = await fetchJSON(u.toString());
     const unwrapped = unwrap(res);
-    if (isValid(unwrapped)) {
-      globalDefTypeCache = unwrapped;
+    const globalType = await fetchGlobalTypeDef();
+    const merged = mergeMetaAndTypeVars(unwrapped, globalType);
+    if (isValid(merged)) {
+      globalDefTypeCache = merged;
       return globalDefTypeCache;
     }
 
@@ -1894,8 +1936,14 @@ function resolveVarsDefLabel(fieldName, rawValue, globalDefType = null, metaForL
     const jp = item[`${fn}_JP`];
     const raw = item[fn];
     const en = item[`${fn}_EN`];
+    const labelJp = item[`${fn}Text_JP`];
+    const labelRaw = item[`${fn}Text`];
+    const labelEn = item[`${fn}Text_EN`];
     if (typeof jp === 'string' && jp.trim()) return jp.trim();
+    if (typeof labelJp === 'string' && labelJp.trim()) return labelJp.trim();
+    if (typeof labelRaw === 'string' && labelRaw.trim()) return labelRaw.trim();
     if (typeof raw === 'string' && raw.trim()) return raw.trim();
+    if (typeof labelEn === 'string' && labelEn.trim()) return labelEn.trim();
     if (typeof en === 'string' && en.trim()) return en.trim();
     return '';
   };
@@ -2145,12 +2193,15 @@ function resolveVarsDefLabelPack(fieldName, rawValue, globalDefType = null, meta
     const raw = trimStr(item?.[k]);
     const jp = trimStr(item?.[`${k}_JP`]);
     const en = trimStr(item?.[`${k}_EN`]);
+    const labelRaw = trimStr(item?.[`${k}Text`]);
+    const labelJp = trimStr(item?.[`${k}Text_JP`]);
+    const labelEn = trimStr(item?.[`${k}Text_EN`]);
     return {
       raw: raw || rv,
       // NOTE: #List_Belonging のように「ベースキーがJP文字列」で *_JP が無いケースを許容する
       // - *_JP が無い場合は raw（ベース値）を JP とみなす
-      jp: jp || raw || '',
-      en: en || raw || rv
+      jp: jp || labelJp || labelRaw || raw || '',
+      en: en || labelEn || labelRaw || raw || rv
     };
   };
 
@@ -2191,10 +2242,7 @@ function resolveVarsDefLabelPack(fieldName, rawValue, globalDefType = null, meta
         if (!Object.prototype.hasOwnProperty.call(enumDef, directKey)) continue;
         const item = enumDef[directKey];
         if (item && typeof item === 'object' && !Array.isArray(item)) {
-          const raw = trimStr(item[fn]);
-          const jp = trimStr(item[`${fn}_JP`]);
-          const en = trimStr(item[`${fn}_EN`]);
-          return { raw: raw || rv, jp: jp || raw || '', en: en || raw || rv };
+          return makePack(item, fn);
         }
       }
 
@@ -2203,8 +2251,11 @@ function resolveVarsDefLabelPack(fieldName, rawValue, globalDefType = null, meta
         const raw = trimStr(v[fn]);
         const jp = trimStr(v[`${fn}_JP`]);
         const en = trimStr(v[`${fn}_EN`]);
-        const hit = [raw, jp, en].some(x => x && rvCandidates.includes(x));
-        if (hit) return { raw: raw || rv, jp: jp || raw || '', en: en || raw || rv };
+        const labelRaw = trimStr(v[`${fn}Text`]);
+        const labelJp = trimStr(v[`${fn}Text_JP`]);
+        const labelEn = trimStr(v[`${fn}Text_EN`]);
+        const hit = [raw, jp, en, labelRaw, labelJp, labelEn].some(x => x && rvCandidates.includes(x));
+        if (hit) return makePack(v, fn);
       }
     }
 
@@ -2664,6 +2715,7 @@ function formatValueForDisplay(value, labelMap = {}, workMeta = null, globalDefT
     if (!d || typeof d !== 'object') return '';
     if (en === 'Rank' && d.rankFormat) return d.rankFormat;
     if (en === 'Rarity' && d.rarityFormat) return d.rarityFormat;
+    if (en === 'Decave' && d.decaveFormat) return d.decaveFormat;
     return d.enumFormat || '';
   };
 
@@ -2799,6 +2851,8 @@ function formatValueForDisplay(value, labelMap = {}, workMeta = null, globalDefT
       const s = String(value ?? '').trim();
       const resolved = resolveEnumKey(enumName, s);
       const code = resolved || (typeof value === 'string' ? s : '');
+      const enumPack = code ? resolveVarsDefLabelPack(enumName, code, globalDefType, workMeta, opt.fieldKey) : null;
+      const enumLabel = code ? formatBilingualLabel(enumPack, code, opt?.display) : '';
 
       if (schemaTypeIncludes(opt.schemaType, '$EnumLink') && opt.fieldKey && code) {
         const linked = resolveEnumLinkLabel(opt.fieldKey, enumName, code);
@@ -2809,6 +2863,10 @@ function formatValueForDisplay(value, labelMap = {}, workMeta = null, globalDefT
           if (!fmt) return formatEnumWithAbout(enumName, code, linked);
           return formatEnumWithAbout(enumName, code, linked);
         }
+      }
+
+      if (code && enumLabel && enumLabel !== code) {
+        return formatEnumWithAbout(enumName, code, enumLabel);
       }
 
       if (resolved) return formatEnumWithAbout(enumName, resolved, null);
@@ -3166,14 +3224,18 @@ function formatValueForDisplay(value, labelMap = {}, workMeta = null, globalDefT
             linkedLabel = resolveEnumLinkLabel(opt.fieldKey, enumName, code);
           }
 
+          const enumPack = resolveVarsDefLabelPack(enumName, code, globalDefType, workMeta, opt.fieldKey);
+          const enumLabel = formatBilingualLabel(enumPack, code, opt?.display);
+
           // label も about もある場合は両方出せるように合成（/ 区切り）
-          const aboutText = linkedLabel
-            ? (parts.about ? `${linkedLabel} / ${parts.about}` : linkedLabel)
+          const resolvedLabel = linkedLabel || ((enumLabel && enumLabel !== code) ? enumLabel : '');
+          const aboutText = resolvedLabel
+            ? (parts.about ? `${resolvedLabel} / ${parts.about}` : resolvedLabel)
             : parts.about;
 
           // 既定（互換）: EnumLink があれば label 扱い（コード優先ではなく、人間向け表記を優先）
           const fmt = normalizeEnumFormat(getEnumFormatFor(enumName));
-          if (linkedLabel && !fmt) return formatEnumWithAbout(enumName, code, aboutText);
+          if (resolvedLabel && !fmt) return formatEnumWithAbout(enumName, code, aboutText);
           return formatEnumWithAbout(enumName, code, aboutText);
         }
       }
@@ -4682,6 +4744,20 @@ async function renderDetail(workId, rec) {
     return ok;
   };
 
+  const isSchemaWrapperLike = (schemaPath, value, schemaTypeHint = null) => {
+    if (!isPlainObject(value)) return false;
+
+    const schemaType = schemaTypeHint ?? pickSchemaType(schemaPath);
+    if (!schemaType) return false;
+
+    return (
+      schemaTypeIncludes(schemaType, '#Index')
+      || schemaTypeIncludes(schemaType, '#ListIndex')
+      || schemaTypeIncludes(schemaType, '#ListLink')
+      || schemaTypeIncludes(schemaType, '$EnumDef')
+    );
+  };
+
   const formatObjectChildren = (parentSchemaPath, obj, opt2 = null) => {
     if (!isPlainObject(obj)) return '';
     const parent = String(parentSchemaPath || '').trim();
@@ -4721,6 +4797,8 @@ async function renderDetail(workId, rec) {
   const abilityKey = (() => {
     const keys = Object.keys(rec || {});
     for (const k of keys) {
+      // specStats 系は専用の spec/effect/safety 描画へ回すため、能力値推定から除外する
+      if (pickedSpecStatsKey && k === pickedSpecStatsKey) continue;
       const obj = rec?.[k];
       if (!isPlainObject(obj)) continue;
       const childKeys = Object.keys(obj).filter(x => x && typeof x === 'string' && !x.startsWith('_'));
@@ -4867,6 +4945,11 @@ async function renderDetail(workId, rec) {
         if (hasNested) score += 1;
       }
 
+      const childKeys = Object.keys(obj).filter(childKey => childKey && typeof childKey === 'string' && !childKey.startsWith('_'));
+      if (childKeys.some(childKey => Array.isArray(obj?.[childKey]))) score += 1;
+      if (childKeys.some(childKey => isPlainObject(obj?.[childKey]) && !isSingleLeafObject(obj?.[childKey]))) score += 3;
+      if (childKeys.length > 0 && childKeys.every(childKey => isSingleLeafObject(obj?.[childKey]))) score -= 2;
+
       if (score > 0) scored.push({ key: k, score });
     }
 
@@ -4876,11 +4959,24 @@ async function renderDetail(workId, rec) {
   })();
 
   const specType = (specTypeSubKey && isPlainObject(numStats?.[specTypeSubKey])) ? (numStats?.[specTypeSubKey] || {}) : {};
+  const specTypeFieldPath = (pickedSpecStatsKey && specTypeSubKey) ? `${pickedSpecStatsKey}.${specTypeSubKey}` : '';
+  const specTypeSingleLeafText = (() => {
+    if (!specTypeFieldPath || !isPlainObject(specType) || !isSingleLeafObject(specType)) return '';
+    const hints = pickSchemaHintsForObjectLeaf([specTypeFieldPath], specType);
+    const displayText = formatValueForDisplay(specType, fieldLabelMap, metaForLookup, globalDefType, {
+      schemaType: hints.schemaType,
+      display: pickSchemaDisplay(specTypeFieldPath, pickedSpecStatsKey) ?? hints.schemaDisplay,
+      fieldKey: specTypeFieldPath
+    });
+    return String(displayText ?? '').trim();
+  })();
   const specNodes = [];
   if (specTypeSubKey && isPlainObject(specType)) {
     for (const [k, v] of Object.entries(specType)) {
       if (!k || typeof k !== 'string') continue;
       if (isEmptyValueLoose(v)) continue;
+
+      if (specTypeSingleLeafText) break;
 
       const fieldPath = `${pickedSpecStatsKey}.${specTypeSubKey}.${k}`;
       const schemaPath = pickSchemaPath([fieldPath], fieldPath);
@@ -4891,7 +4987,7 @@ async function renderDetail(workId, rec) {
         : { schemaType: pickSchemaType(schemaPath, fieldPath), schemaDisplay: pickSchemaDisplay(schemaPath, fieldPath, `${pickedSpecStatsKey}.${specTypeSubKey}`) };
 
       // ActionType のような「子が定義されているobject」は、子ラベル付きで展開して表示する
-      const expanded = (isPlainObject(v) && hasNestedSchema(schemaPath))
+      const expanded = (isPlainObject(v) && hasNestedSchema(schemaPath) && !isSchemaWrapperLike(schemaPath, v, hints.schemaType))
         ? formatObjectChildren(schemaPath, v, { separator: ' / ' })
         : '';
 
@@ -5090,7 +5186,7 @@ async function renderDetail(workId, rec) {
 
   const toDisplayNode = (k, v, schemaType = null, schemaDisplay = null) => {
     // typedef 上で「子フィールド定義が存在するobject」は、子ごとに表示（[object Object]回避 + 分離表示）
-    if (isPlainObject(v) && k && typeof k === 'string' && hasNestedSchema(k)) {
+    if (isPlainObject(v) && k && typeof k === 'string' && hasNestedSchema(k) && !isSchemaWrapperLike(k, v, schemaType)) {
       const expanded = formatObjectChildren(k, v, { separator: '\n' });
       if (expanded) return expanded.includes('\n') ? preWrapText(expanded) : expanded;
     }
@@ -5311,6 +5407,34 @@ async function renderDetail(workId, rec) {
     });
   }
 
+  // 3) specStats 配下の追加フィールドを、typedef の $display.section に従って各セクションへ合流
+  // - 例: PastDivers の ChronoizedPurity（spec）/ ChronoizedAbout（profile）
+  // - EffectStats / SafetyLevel / SpecType は専用描画済みなので重複追加しない
+  if (pickedSpecStatsKey && isPlainObject(numStats)) {
+    for (const [k, v] of Object.entries(numStats)) {
+      if (!k || typeof k !== 'string') continue;
+      if (k.startsWith('_')) continue;
+      if (k === effectKey) continue;
+      if (k === safetyKey) continue;
+      if (k === specTypeSubKey) continue;
+      if (isEmptyValueLoose(v)) continue;
+
+      const schemaPath = `${pickedSpecStatsKey}.${k}`;
+      const schemaType = pickSchemaType(schemaPath, k);
+      const schemaDisplay = pickSchemaDisplay(schemaPath, k, pickedSpecStatsKey);
+      const section = normalizeSection(schemaDisplay?.section) || (isSummaryType(schemaType) ? 'profile' : '');
+      if (!section) continue;
+
+      pushToBucket(section, {
+        key: schemaPath,
+        label: getFieldLabel(schemaPath, fieldLabelMap, workMeta, globalDefType, k),
+        type: schemaType,
+        display: schemaDisplay,
+        value: v
+      });
+    }
+  }
+
   const buildKvRows = (items) => (items || [])
     .map((it) => {
       if (!it) return null;
@@ -5415,7 +5539,14 @@ async function renderDetail(workId, rec) {
         el('h3', {}, ['スペック/能力']),
         abilityGrid,
         effGrid,
-        specNodes.length ? kvTable({}, [[getFieldLabel('SpecType', fieldLabelMap, workMeta, globalDefType, '型情報'), createDetailTagGrid(specNodes)]]) : null,
+        (specTypeSingleLeafText || specNodes.length)
+          ? kvTable({}, [[
+              getFieldLabel(specTypeFieldPath || 'SpecType', fieldLabelMap, workMeta, globalDefType, specTypeSubKey || '型情報'),
+              specTypeSingleLeafText
+                ? createDetailTagGrid([el('div', { class: 'tag' }, [specTypeSingleLeafText])])
+                : createDetailTagGrid(specNodes)
+            ]])
+          : null,
         specRows.length ? kvTable({}, specRows) : null,
       ].filter(Boolean))
     : null;

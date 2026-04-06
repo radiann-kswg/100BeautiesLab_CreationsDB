@@ -383,6 +383,98 @@
       "#Rarity4adv": { "Rarity": "N+" },
       "#Rarity4": { "Rarity": "N" },
       "#Rarity5": { "Rarity": "C" }
+    },
+    "$EnumDef_Decave": {
+      "#Decave0": {
+        "Decave": "<1%",
+        "DecaveText": "1%未満",
+        "DecaveText_JP": "1%未満",
+        "DecaveText_EN": "less than 1%"
+      },
+      "Decave0adv": {
+        "Decave": "<50%",
+        "DecaveText": "50%未満",
+        "DecaveText_JP": "50%未満",
+        "DecaveText_EN": "less than 50%"
+      },
+      "#Decave1": {
+        "Decave": "50%+",
+        "DecaveText": "50%以上",
+        "DecaveText_JP": "50%以上",
+        "DecaveText_EN": "50% or more"
+      },
+      "#Decave1adv": {
+        "Decave": "90%+",
+        "DecaveText": "90%以上",
+        "DecaveText_JP": "90%以上",
+        "DecaveText_EN": "90% or more"
+      },
+      "#Decave2": {
+        "Decave": "95%+",
+        "DecaveText": "95%以上",
+        "DecaveText_JP": "95%以上",
+        "DecaveText_EN": "95% or more"
+      },
+      "#Decave2adv": {
+        "Decave": "99%+",
+        "DecaveText": "99%以上",
+        "DecaveText_JP": "99%以上",
+        "DecaveText_EN": "99% or more"
+      },
+      "#Decave3": {
+        "Decave": "99.9%+",
+        "DecaveText": "トリナイン",
+        "DecaveText_JP": "トリナイン(99.9%以上)",
+        "DecaveText_EN": "Trinine(99.9% or more)"
+      },
+      "#Decave4": {
+        "Decave": "99.99%+",
+        "DecaveText": "クァッドナイン",
+        "DecaveText_JP": "クァッドナイン(99.99%以上)",
+        "DecaveText_EN": "Quadnine(99.99% or more)"
+      },
+      "#Decave5": {
+        "Decave": "9xV",
+        "DecaveText": "クィントナイン",
+        "DecaveText_JP": "クィントナイン(99.999%以上)",
+        "DecaveText_EN": "Quintnine(99.999% or more)"
+      },
+      "#Decave6": {
+        "Decave": "9xVI",
+        "DecaveText": "セクストナイン",
+        "DecaveText_JP": "セクストナイン(99.9999%以上)",
+        "DecaveText_EN": "Sextnine(99.9999% or more)"
+      },
+      "#Decave7": {
+        "Decave": "9xVII",
+        "DecaveText": "セプトナイン",
+        "DecaveText_JP": "セプトナイン(99.99999%以上)",
+        "DecaveText_EN": "Septnine(99.99999% or more)"
+      },
+      "#Decave8": {
+        "Decave": "9xVIII",
+        "DecaveText": "オクトナイン",
+        "DecaveText_JP": "オクトナイン(99.999999%以上)",
+        "DecaveText_EN": "Octonine(99.999999% or more)"
+      },
+      "#Decave9": {
+        "Decave": "9xIX",
+        "DecaveText": "ノヴェナイン",
+        "DecaveText_JP": "ノヴェナイン(99.9999999%以上)",
+        "DecaveText_EN": "Novenine(99.9999999% or more)"
+      },
+      "#Decave10": {
+        "Decave": "9xX",
+        "DecaveText": "デカナイン",
+        "DecaveText_JP": "デカナイン(99.99999999%以上)",
+        "DecaveText_EN": "Decanine(99.99999999% or more)"
+      },
+      "#Decave10adv": {
+        "Decave": "100%",
+        "DecaveText": "フルナイン",
+        "DecaveText_JP": "フルナイン(99.999999999-100%)",
+        "DecaveText_EN": "Fullnine(99.999999999-100%)"
+      }
     }
   }
 }

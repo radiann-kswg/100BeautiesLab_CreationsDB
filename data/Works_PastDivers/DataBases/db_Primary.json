@@ -26,7 +26,20 @@
     "ChronoholderName_EN": "ChronoRize",
     "ChronospecName": "衝動の始(はじまり)",
     "ChronospecName_EN": "Beginning of Impulse",
-    "ChronospecAbout": "時間の進行を加速させる"
+    "ChronospecAbout": "時間の進行を加速させる",
+    "ChronospecStats": {
+      "ChronoizedDecave": { "Decave": "95%+" },
+      "ChronoizedPurity": "91.70-97.11%",
+      "ChronoizedAbout": "バイタリティに影響が出るほどの能力行使や適性は見られず。引き続き鎮圧任務などへ戦力投入が可能と思われる。\nまた、能力行使により時刻観測に異常がみられたなどの報告があるが、「当幹部の時空遷移能力による副作用でありこちらで被害の抑制対応を行う予定である」と弊機関は回答している。",
+      "EffectStats": {
+        "Physical": { "EffectText": "標準" },
+        "Acceleration": { "EffectText": "絶大" },
+        "Enforcing": { "EffectText": "強力" },
+        "Healing": { "EffectText": "弱小" },
+        "Rewriting": { "EffectText": "標準" }
+      },
+      "SafetyLevel": { "SafetyLevelText": "抑制可能" }
+    }
   },
   {
     "Chronos": { "Lunar": "Kisaragi" },
@@ -53,7 +66,20 @@
     "ChronoholderName_EN": "ChronoFreeze",
     "ChronospecName": "粛清の氷",
     "ChronospecName_EN": "Ice of Purification",
-    "ChronospecAbout": "時間の進行を止めて動きを封じる"
+    "ChronospecAbout": "時間の進行を止めて動きを封じる",
+    "ChronospecStats": {
+      "ChronoizedDecave": { "Decave": "99%+" },
+      "ChronoizedPurity": "99.29-99.44%",
+      "ChronoizedAbout": "バイタルおよび能力行使についての問題は一切見られない。時空遷移状態の計測値も変動が一切見られないため、安定した制御が可能と弊機関は判断。\n鎮圧任務でもかなりの功績を挙げているが、能力行使を受けた対象個体のバイタルサインが不安定になる現象が確認されているため、以後は生命体に対する攻撃手段としての行使を控えるよう注意している。",
+      "EffectStats": {
+        "Physical": { "EffectText": "脆弱(仕様)" },
+        "Acceleration": { "EffectText": "絶大" },
+        "Enforcing": { "EffectText": "標準" },
+        "Healing": { "EffectText": "脆弱" },
+        "Rewriting": { "EffectText": "標準" }
+      },
+      "SafetyLevel": { "SafetyLevelText": "制御可能" }
+    }
   },
   {
     "Chronos": { "Lunar": "Yayoi" },
@@ -83,7 +109,20 @@
     "ChronoholderName_EN": "ChronoBloom",
     "ChronospecName": "焦燥の花",
     "ChronospecName_EN": "Flower of Impatience",
-    "ChronospecAbout": "時間が進行するエネルギーを吸収する"
+    "ChronospecAbout": "時間が進行するエネルギーを吸収する",
+    "ChronospecStats": {
+      "ChronoizedDecave": { "hideText": "公開不能" },
+      "ChronoizedPurity": { "hideText": "公開不能" },
+      "ChronoizedAbout": "能力の制御力や生命への影響やインシデントはないと思われていたが、ある幹部KY会議にて 自身による過剰な能力強化訓練を行っていたことが判明。すぐにバイタルチェックの確認を行ったところ－－（※文章はここで途切れている）",
+      "EffectStats": {
+        "Physical": { "EffectText": "標準" },
+        "Acceleration": { "EffectText": "絶大" },
+        "Enforcing": { "EffectText": "強力" },
+        "Healing": { "hideText": "公開不能" },
+        "Rewriting": { "hideText": "？？？" }
+      },
+      "SafetyLevel": { "hideText": "公開不能" }
+    }
   },
   {
     "Chronos": { "Lunar": "Udzuki" },
@@ -110,7 +149,24 @@
     "ChronoholderName_EN": "ChronoFill",
     "ChronospecName": "愛執の満(みたし)",
     "ChronospecName_EN": "Full of Love",
-    "ChronospecAbout": "力・斥力を発生させる程の強い波動を生み出す"
+    "ChronospecAbout": "力・斥力を発生させる程の強い波動を生み出す",
+    "ChronospecStats": {
+      "ChronoizedDecave": { "Decave": "50%+" },
+      "ChronoizedPurity": {
+        "value": "64%",
+        "about_JP": "概算値",
+        "about_EN": "Estimated value"
+      },
+      "ChronoizedAbout": "弊機関に加入時は能力適正が著しく低く 戦闘要員としての招集は困難とみていたが、本人の希望により実践投与に向けて適正強化訓練を行っている。\nただ任務中 精神状態が著しく安定しない時があり、能力制御不能時に発生するスパイク反応で時空遷移状態がバイタルに悪影響を及ぼす可能性があるとみて、医療班にメンタルケアを手配する必要がある。",
+      "EffectStats": {
+        "Physical": { "EffectText": "強力" },
+        "Acceleration": { "EffectText": "標準" },
+        "Enforcing": { "EffectText": "絶大" },
+        "Healing": { "EffectText": "弱小" },
+        "Rewriting": { "EffectText": "標準" }
+      },
+      "SafetyLevel": { "SafetyLevelText": "KY事例有" }
+    }
   },
   {
     "Chronos": { "Lunar": "Satsuki" },
@@ -137,7 +193,20 @@
     "ChronoholderName_EN": "ChronoLeave",
     "ChronospecName": "怒号の葉",
     "ChronospecName_EN": "Leaf of Anger",
-    "ChronospecAbout": "時空を細動状態にし、空間を揺るがす"
+    "ChronospecAbout": "時空を細動状態にし、空間を揺るがす",
+    "ChronospecStats": {
+      "ChronoizedDecave": { "Decave": "99.9%+" },
+      "ChronoizedPurity": "95.50-99.935%",
+      "ChronoizedAbout": "精神状態により適正計測値が大きく変動する傾向にあり、段階の判別が困難となっている。そのため、リスク管理の観点から 最高値（「トリナイン」(段階.III)相当）を概要値として情報開示するよう弊機関は対応。\n能力行使によるバイタルサインの変動および精密検査については、症状の特定が難しいことから経過観察を余儀なくされているため 確定的な情報判断ができかねている。（備考：生活習慣にいくつか問題あり）",
+      "EffectStats": {
+        "Physical": { "EffectText": "強力" },
+        "Acceleration": { "EffectText": "絶大" },
+        "Enforcing": { "EffectText": "強力" },
+        "Healing": { "EffectText": "脆弱" },
+        "Rewriting": { "EffectText": "弱小" }
+      },
+      "SafetyLevel": { "SafetyLevelText": "要検証" }
+    }
   },
   {
     "Chronos": { "Lunar": "Minadzuki" },
@@ -167,7 +236,20 @@
     "ChronoholderName_EN": "ChronoDrop",
     "ChronospecName": "追悼の涙",
     "ChronospecName_EN": "Tears of Remembrance",
-    "ChronospecAbout": "時間を逆行し傷を癒す"
+    "ChronospecAbout": "時間を逆行し傷を癒す",
+    "ChronospecStats": {
+      "ChronoizedDecave": { "Decave": "9xV" },
+      "ChronoizedPurity": "99.99906-99.999**%",
+      "ChronoizedAbout": "能力適性検査および生体精密検査の結果、常時「クィントナイン」（段階.V）を超える高い適性を観測しているため、能力行使に関する許可は先代幹部と同様 バイタル面と能力制御の厳重な教育が絶対条件と思われる。\n（※そのあとの文章は検閲により閲覧できない）",
+      "EffectStats": {
+        "Physical": { "EffectText": "脆弱" },
+        "Acceleration": { "hideText": "判定不能" },
+        "Enforcing": { "EffectText": "弱小" },
+        "Healing": { "EffectText": "過剰" },
+        "Rewriting": { "hideText": "？？？" }
+      },
+      "SafetyLevel": { "SafetyLevelText": "訓練中" }
+    }
   },
   {
     "Chronos": { "Lunar": "Fumdzuki" },

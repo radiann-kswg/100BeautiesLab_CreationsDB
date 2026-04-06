@@ -18,6 +18,7 @@
 - 2026-02-21_progress_typedef-driven-detail.md
 - 2026-02-21_progress_bilingual-enum-listindex.md
 - 2026-02-21_remaining-task.md
+- 2026-04-06_progress_decave-enum-api-ui.md
 - 2026-03-04_remaining-task.md
 - 2026-03-04_progress_phase0.md
 - 2026-03-04_progress_phase1_index.md
