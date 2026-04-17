@@ -2214,8 +2214,10 @@
         "emstk_corefolder22-3"
       ],
       "arts_PNGPath": [
-        "AutumnMoon/art_AutumnMoon2023",
-        "AutumnMoon/art_AutumnMoon2024"
+        "corefolders/autumnMoon/art_AutumnMoon2023",
+        "chattingArt/chart_img22-humanoid",
+        "corefolders/autumnMoon/art_AutumnMoon2024",
+        "../../SemiPrimary/arts/corefolders/autumnMoon/art_AutumnMoon2025"
       ]
     },
     "Name": "フジ",
@@ -2969,7 +2971,7 @@
       "arts_PNGPath": [
         "corefolders/2023/art_img29-corefolderA",
         "corefolders/2023/art_img29-corefolderB",
-        "autumnMoon/art_autumnMoon2023"
+        "corefolders/autumnMoon/art_autumnMoon2023"
       ]
     },
     "Name": "ニトク",
@@ -3068,7 +3070,8 @@
     "Progress": "released",
     "Images": {
       "concept_PNGName": "cnsp_img30",
-      "corefolder_PNGPath": ["emstk_corefolder30-1", "emstk_corefolder30-2"]
+      "corefolder_PNGPath": ["emstk_corefolder30-1", "emstk_corefolder30-2"],
+      "arts_PNGPath": ["chattingArt/chart_img30-corefolder"]
     },
     "Name": "ミツト",
     "Name_EN": "Thirtens",
@@ -3580,7 +3583,8 @@
     "Images": {
       "concept_PNGName": "cnsp_img35",
       "conceptAlt_PNGName": ["cnsp_img35-Normal", "cnsp_img35-Miko"],
-      "corefolder_PNGPath": ["emstk_corefolder35-1", "emstk_corefolder35-2"]
+      "corefolder_PNGPath": ["emstk_corefolder35-1", "emstk_corefolder35-2"],
+      "designAlt_PNGPath": ["chattingArt/chart_img35-swimwear"]
     },
     "Name": "サトコ\nミコ",
     "Name_EN": "Thirfivan\nMíko",
@@ -3682,7 +3686,10 @@
     "Images": {
       "concept_PNGName": "cnsp_img36",
       "corefolder_PNGPath": ["emstk_corefolder36-1"],
-      "arts_PNGPath": ["art_mothersDay2023"]
+      "arts_PNGPath": [
+        "art_mothersDay2023",
+        "chattingArt/chart_img36-corefolder"
+      ]
     },
     "Name": "ミトム",
     "Name_EN": "Trisixa",
@@ -4241,7 +4248,8 @@
       "arts_PNGPath": [
         "humanoids/2023/art_img42-humanoidA",
         "humanoids/2023/art_img42-humanoidB",
-        "humanoids/parody/art_img42-homage"
+        "humanoids/parody/art_img42-homage",
+        "chattingArt/chart_img42-corefolder"
       ]
     },
     "Name": "ヨツグ",
@@ -4445,6 +4453,10 @@
     "Images": {
       "concept_PNGName": "cnsp_img44",
       "corefolder_PNGPath": ["emstk_corefolder44-1"],
+      "designAlt_PNGPath": [
+        "eventArt/art_halloween2023A",
+        "eventArt/art_halloween2023B"
+      ],
       "arts_PNGPath": ["humanoids/2024/art-wip_img44-humanoid"]
     },
     "Name": "シトシ",
@@ -4964,7 +4976,8 @@
       "corefolder_PNGPath": ["emstk_corefolder49-1", "emstk_corefolder49-2"],
       "arts_PNGPath": [
         "humanoids/2023/art_img49-humanoid",
-        "corefolders/2023/art_img49-corefolder"
+        "corefolders/2023/art_img49-corefolder",
+        "chattingArt/chart_img49-humanoid"
       ]
     },
     "Name": "ヨチカ",
@@ -5060,7 +5073,8 @@
     "Progress": "released",
     "Images": {
       "concept_PNGName": "cnsp_img50",
-      "corefolder_PNGPath": ["emstk_corefolder50-1", "emstk_corefolder50-2"]
+      "corefolder_PNGPath": ["emstk_corefolder50-1", "emstk_corefolder50-2"],
+      "arts_PNGPath": ["chattingArt/chart_img50-ballingRole"]
     },
     "Name": "ナカバ",
     "Name_EN": "Halvan",
@@ -5612,7 +5626,8 @@
       "corefolder_PNGPath": ["emstk_corefolder56-1"],
       "arts_PNGPath": [
         "corefolders/2024/art_img56,65-corefolderA",
-        "corefolders/2024/art_img56-corefolderB"
+        "corefolders/2024/art_img56-corefolderB",
+        "chattingArt/chart_img56-humanoid"
       ]
     },
     "Name": "イソロク",
@@ -5817,7 +5832,8 @@
     "Progress": "released",
     "Images": {
       "concept_PNGName": "cnsp_img58",
-      "corefolder_PNGPath": ["emstk_corefolder58-1", "emstk_corefolder58-2"]
+      "corefolder_PNGPath": ["emstk_corefolder58-1", "emstk_corefolder58-2"],
+      "arts_PNGPath": ["chattingArt/chart_img58-noNipples"]
     },
     "Name": "イソヤ",
     "Name_EN": "Fiveighs",
@@ -6602,6 +6618,11 @@
       "concept_PNGName": "cnsp_img66",
       "conceptAlt_PNGName": ["cnsp_img66-B"],
       "corefolder_PNGPath": ["emstk_corefolder66-1"],
+      "designAlt_PNGPath": [
+        "eventArt/art_halloween2023A",
+        "eventArt/art_halloween2023B",
+        "chattingArt/chart_img66-corefolderHalloween"
+      ],
       "arts_PNGPath": ["humanoids/2023/art_img66-humanoid"]
     },
     "Name": "ムロク",
@@ -7378,7 +7399,8 @@
       "arts_PNGPath": [
         "humanoids/2023/art_img73-humanoid",
         "humanoids/parody/art_img73-parody",
-        "AutumnMoon/art_AutumnMoon2024"
+        "corefolders/autumnMoon/art_AutumnMoon2024",
+        "chattingArt/chart_img73-whereIsEho"
       ]
     },
     "Name": "ナトミ",
@@ -8360,6 +8382,10 @@
       "concept_PNGName": "cnsp_img85",
       "catalog_PNGName": "chr-dsgn_catalog85",
       "corefolder_PNGPath": ["emstk_corefolder85-1", "emstk_corefolder85-2"],
+      "designAlt_PNGPath": [
+        "eventArt/art_halloween2023A",
+        "eventArt/art_halloween2023B"
+      ],
       "arts_PNGPath": ["corefolders/2023/art_img85-corefolder"]
     },
     "Name": "ハッコ\nパコ",
@@ -8557,7 +8583,8 @@
         "emstk_corefolder87-1",
         "emstk_corefolder87-2",
         "emstk_corefolder87-3"
-      ]
+      ],
+      "arts_PNGPath": ["chattingArt/chart_img87-tooOrdered"]
     },
     "Name": "ヤシナ\nハナ",
     "Name_EN": "Eighteven\nEivee",
@@ -9392,7 +9419,8 @@
         "emstk_corefolder97-1",
         "emstk_corefolder97-2",
         "emstk_corefolder97-3"
-      ]
+      ],
+      "arts_PNGPath": ["chattingArt/chart_img97-humanoid"]
     },
     "Name": "ココナ",
     "Name_EN": "Ninsefie",
