@@ -36,7 +36,10 @@
     "Progress": "released(beta)",
     "Images": {
       "concept_PNGName": "cnsp_imgDrcNE",
-      "arts_PNGPath": ["art_imgDrcNE-InfrationAerialSwimming"]
+      "arts_PNGPath": [
+        "art_imgDrcNE-InfrationAerialSwimming",
+        "chart_imgDrcNE-ramen"
+      ]
     },
     "Name": "扇 三春(ミハイル)",
     "Name_EN": "Mikhail Arch",
@@ -82,8 +85,8 @@
     "Progress": "notProceeded",
     "Name": "六花(ろくばな) ルノ",
     "Name_EN": "Luno Hexacrys",
-    "FormalName": null,
-    "FormalName_EN": null,
+    "FormalName": "ルノ.ヘクスクリス",
+    "FormalName_EN": "Luno Hexacrys",
     "CodeName": "憤怒の早朝",
     "CodeName_EN": "Wrath o'clock in Sunrizing",
     "RaceType": "HalfWarfox",
@@ -113,7 +116,7 @@
     "Name": "九 叶(いちじく-かな)",
     "Name_EN": "Canna Ninie",
     "FormalName": "九.蓮縢(ヂュウ.レンテン)",
-    "FormalName_EN": "Jiǔ.Lián Téng",
+    "FormalName_EN": "Jiǔ.LiánTéng",
     "CodeName": "怠惰の朝",
     "CodeName_EN": "Slouth o'clock in Morning",
     "RaceType": "HalfNekomata",
@@ -150,8 +153,8 @@
     },
     "Name": "六花 雙葉(ろくばな-ふたは)\nクィーン.トゥエルヴ",
     "Name_EN": "Dozenne Hexacrys\nQueen.XII",
-    "FormalName": null,
-    "FormalName_EN": null,
+    "FormalName": "六花 雙葉(ろくばな-ふたは)",
+    "FormalName_EN": "Dozenne Hexacrys",
     "CodeName": "強欲の正午",
     "CodeName_EN": "Greed o'clock in Noon",
     "RaceType": "Human(DoubleIdentity)",
@@ -237,12 +240,13 @@
     "Drc": "NW",
     "Progress": "released(beta)",
     "Images": {
-      "concept_PNGName": "cnsp_imgDrcNW"
+      "concept_PNGName": "cnsp_imgDrcNW",
+      "arts_PNGPath": ["chart_imgDrcNW"]
     },
-    "Name": "終藤(すどう) こさと",
-    "Name_EN": "Formar Endrof",
-    "FormalName": "財前 小里\n扇 残冬",
-    "FormalName_EN": "Foster Empressor\nArch Zerbas",
+    "Name": "財前 小里\n終藤(すどう) こさと",
+    "Name_EN": "Foster Empressor\nFormar Endrof",
+    "FormalName": "終藤(すどう) こさと\n扇 残冬",
+    "FormalName_EN": "Formar Endrof\nArch Zerbas",
     "CodeName": "傲慢の夜",
     "CodeName_EN": "Pride o'clock in Night",
     "RaceType": { "hideText_EN": "Judgement Failed" },
@@ -252,7 +256,6 @@
       "about_EN": "Presumption"
     },
     "Belonging": { "hideText": "判定失敗" },
-    "Belonging_EN": { "hideText_EN": "Judgement Failed" },
     "Height_cm": 155,
     "Weight_kg": { "hideText": "判定失敗" },
     "Age": { "about_JP": "不詳", "about_EN": "Unknown or Undefined" },
