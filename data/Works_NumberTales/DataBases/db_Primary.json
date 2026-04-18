@@ -8305,7 +8305,7 @@
   },
   {
     "Num": 84,
-    "Progress": "nowCreating",
+    "Progress": "released",
     "Images": {
       "concept_PNGName": "cnsp_img84",
       "corefolder_PNGPath": ["emstk_corefolder84-1"]
@@ -8333,12 +8333,17 @@
     "TailsUnit": "キツネ(枝分かれ)型8本(上1束4本+下2束4本)",
     "Class": "デュアルスリーズ",
     "Class_EN": "Dual Sum-3s",
-    "Character": "行動意欲と実行力が高く積極的\n欲望に従順だが計画性における理屈っぽさも併せ持つ",
+    "FirstPersonCalling": "あたし\nわたし ※時々",
+    "SecondPersonCalling": "あんた\nあなた ※時々",
+    "ThirdPersonCalling": "彼/彼女;*れ,*の[な]~;[※名前呼び]",
+    "ForMasterCalling": "主(あるじ)",
+    "Character": "欲望に従順だが計画性における理屈っぽさも併せ持つ",
     "Hobby": "貯金と大人買い",
     "SpetialSkill": "家計簿処理、主人の趣味のマネタイズ",
     "Favor": "等価交換・社会的信用というお金の考え方",
     "Unlike": "窃盗、高額転売",
     "NumerospecAbout": "計画性に比例した結果を呼び寄せる",
+    "Summary": "マネタイズや実行計画などを得意分野とし、社会的な自己実現を望む主人層から定評と信頼を得ている。\nプライベートでは貪欲に物事へ積極的な姿勢をみせる一面があるものの、根本的には若干 理屈っぽくどこか社会的思想の強い部分が否めていないと言われている。\n果たして自分の行動意欲の源にあるものは、感情的な欲求なのか あるいは……",
     "NumerospecStats": {
       "EffectStats": {
         "Mental": { "EffectText": "期待可能" },
@@ -8363,13 +8368,45 @@
       "Actuation": { "Rank": "C" }
     },
     "Relation": {
-      "Commented": [
+      "Related": [
+        {
+          "Num": 38,
+          "Comments": "……ずるいよね、あれ",
+          "RelationLabel": ["cousin_nearly", "unmatched"]
+        },
         {
           "Num": 48,
           "RelationLabel": ["brother|sister", "classmate"]
         },
         {
           "Num": 93,
+          "Comments": "無理せず頑張ってね、ファイト！",
+          "RelationLabel": ["classmate", "trusted"]
+        }
+      ],
+      "Commented": [
+        {
+          "Num": 21,
+          "Comments": "なんかちょっとうらやましくなるなぁ",
+          "RelationLabel": ["classmate"]
+        },
+        {
+          "Num": 35,
+          "Comments": "断るときはちゃんと断っていいんよ？"
+        },
+        {
+          "Num": 43,
+          "Comments": "嫌な子だな…近寄らないでおこ",
+          "RelationLabel": ["cousin_nearly"]
+        },
+        {
+          "Num": 49,
+          "Comments": "もうちょっと正直になってもよくない？",
+          "RelationLabel": ["cousin_nearly"]
+        },
+        {
+          "Num": 57,
+          "Comments": "見習う部分は大いにあるんよね",
           "RelationLabel": ["classmate"]
         }
       ]
