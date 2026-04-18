@@ -842,8 +842,11 @@ h4
 	position: relative
 	display: block
 	width: 100%
+	height: 100%
 	padding: 0
 	border: 0
+	border-radius: inherit
+	overflow: hidden
 	background: transparent
 	color: inherit
 	text-align: inherit
@@ -854,6 +857,8 @@ h4
 		outline-offset: -2px
 
 	img
+		display: block
+		width: 100%
 		pointer-events: none
 
 .image-zoom-hint
@@ -887,6 +892,7 @@ h4
 	font-size: 11px
 	color: var(--muted)
 	background: #0f1320
+	border-top: 1px solid rgba(255, 255, 255, 0.06)
 
 /* Enhanced image display styles for Phase 1
 
@@ -1366,10 +1372,16 @@ body
 	margin-bottom: var(--spacing-md)
 
 .detail .image-item
+	display: flex
+	flex-direction: column
 	width: 100%
 	max-width: 100%
 	min-width: 0
 	flex: 1 1 100%
+
+.detail .image-item .image-zoom-trigger
+	flex: 1 1 auto
+	min-height: 0
 
 .detail .image-item img
 	width: 100%
@@ -1380,6 +1392,13 @@ body
 
 .detail .image-more
 	width: 100%
+	display: flex
+	align-items: center
+	justify-content: center
+	padding: var(--spacing-md)
+	border: 1px dashed var(--border)
+	border-radius: var(--border-radius-md)
+	background: rgba(255, 255, 255, 0.02)
 
 .image-lightbox
 	position: fixed
@@ -1404,6 +1423,8 @@ body
 	position: relative
 	width: min(100%, 1040px)
 	max-height: 100%
+	overflow: auto
+	overscroll-behavior: contain
 	padding: clamp(14px, 2vw, 20px)
 	border: 1px solid rgba(255, 255, 255, 0.08)
 	border-radius: clamp(16px, 2vw, 22px)
@@ -1442,11 +1463,13 @@ body
 	display: flex
 	flex-direction: column
 	gap: var(--spacing-md)
+	min-width: 0
 
 .image-lightbox__image-frame
 	display: flex
 	align-items: center
 	justify-content: center
+	min-width: 0
 	min-height: 0
 	max-height: min(80vh, 900px)
 	overflow: hidden
