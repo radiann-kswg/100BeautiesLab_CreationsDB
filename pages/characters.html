@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>創作キャラ・キャラシート | 100BeautiesLab Creations DB</title>
     <meta name="description" content="/data の創作データベースを クライアント内API (/pages/v1 ほか) 経由で取得し、キャラシートとして表示します。" />
-    <meta name="asset-version" content="2026.04.06.5" />
+    <meta name="asset-version" content="2026.04.18.1" />
     <!-- メインスタイルシート（SASS から自動生成） -->
     <script>
       (() => {
@@ -78,6 +78,20 @@
         <div id="detail"></div>
       </section>
     </main>
+
+    <!-- 画像ギャラリー拡大表示用ライトボックス -->
+    <div id="image-lightbox" class="image-lightbox" hidden aria-hidden="true">
+      <div id="image-lightbox-dialog" class="image-lightbox__dialog" role="dialog" aria-modal="true" aria-labelledby="image-lightbox-title">
+        <h2 id="image-lightbox-title" class="sr-only">画像拡大表示</h2>
+        <button id="image-lightbox-close" class="image-lightbox__close" type="button" aria-label="画像ポップアップを閉じる">×</button>
+        <figure class="image-lightbox__figure">
+          <div class="image-lightbox__image-frame">
+            <img id="image-lightbox-image" class="image-lightbox__image" src="" alt="" />
+          </div>
+          <figcaption id="image-lightbox-caption" class="image-lightbox__caption" hidden></figcaption>
+        </figure>
+      </div>
+    </div>
 
     <!-- サイトフッター：著作権表示 -->
     <footer class="site-footer">

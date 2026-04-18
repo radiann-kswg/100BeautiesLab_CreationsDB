@@ -34,6 +34,18 @@ let globalTypeDefCache = null;
 let globalDefTypeCache = null;
 let workTypeDefCache = new Map();
 
+const IMAGE_LIGHTBOX_IDS = {
+  root: 'image-lightbox',
+  dialog: 'image-lightbox-dialog',
+  image: 'image-lightbox-image',
+  caption: 'image-lightbox-caption',
+  close: 'image-lightbox-close'
+};
+
+const imageLightboxState = {
+  lastTrigger: null
+};
+
 /**
  * DB名から「二次創作（Secondary系）」文脈かを推定
  * - isForSecondary フィールドの表示切替に使用
@@ -575,6 +587,115 @@ function createDetailTagGrid(nodes) {
   else classNames.push('detail-tag-grid--triple');
 
   return el('div', { class: classNames.join(' ') }, items);
+}
+
+/**
+ * 画像ライトボックスの要素参照を取得
+ * @returns {{root: HTMLElement|null, dialog: HTMLElement|null, image: HTMLImageElement|null, caption: HTMLElement|null, close: HTMLElement|null}}
+ */
+function getImageLightboxRefs() {
+  return {
+    root: document.getElementById(IMAGE_LIGHTBOX_IDS.root),
+    dialog: document.getElementById(IMAGE_LIGHTBOX_IDS.dialog),
+    image: document.getElementById(IMAGE_LIGHTBOX_IDS.image),
+    caption: document.getElementById(IMAGE_LIGHTBOX_IDS.caption),
+    close: document.getElementById(IMAGE_LIGHTBOX_IDS.close)
+  };
+}
+
+/**
+ * 画像ライトボックスを閉じる
+ * @param {{restoreFocus?: boolean}} options
+ */
+function closeImageLightbox(options = {}) {
+  const { restoreFocus = true } = options;
+  const refs = getImageLightboxRefs();
+  if (!refs.root || refs.root.hidden) return;
+
+  refs.root.hidden = true;
+  refs.root.setAttribute('aria-hidden', 'true');
+  document.body.classList.remove('lightbox-open');
+
+  if (refs.image) {
+    refs.image.removeAttribute('src');
+    refs.image.alt = '';
+  }
+
+  if (refs.caption) {
+    refs.caption.textContent = '';
+    refs.caption.hidden = true;
+  }
+
+  if (restoreFocus && imageLightboxState.lastTrigger instanceof HTMLElement && imageLightboxState.lastTrigger.isConnected) {
+    imageLightboxState.lastTrigger.focus();
+  }
+
+  imageLightboxState.lastTrigger = null;
+}
+
+/**
+ * 画像ライトボックスを開く
+ * @param {{url?: string, alt?: string, caption?: string}} imgData
+ * @param {HTMLElement|null} triggerEl
+ */
+function openImageLightbox(imgData, triggerEl = null) {
+  const refs = getImageLightboxRefs();
+  const src = String(imgData?.url || '').trim();
+  if (!refs.root || !refs.image || !refs.close || !src) return;
+
+  const altText = str(imgData?.alt).trim() || '拡大画像';
+  const captionText = str(imgData?.caption).trim();
+
+  imageLightboxState.lastTrigger = triggerEl instanceof HTMLElement
+    ? triggerEl
+    : (document.activeElement instanceof HTMLElement ? document.activeElement : null);
+
+  refs.image.src = src;
+  refs.image.alt = altText;
+
+  if (refs.caption) {
+    refs.caption.textContent = captionText;
+    refs.caption.hidden = !captionText;
+  }
+
+  refs.root.hidden = false;
+  refs.root.setAttribute('aria-hidden', 'false');
+  document.body.classList.add('lightbox-open');
+  refs.close.focus();
+}
+
+/**
+ * ギャラリー用の拡大ボタン付き画像カードを生成
+ * @param {{url?: string, alt?: string, caption?: string}} imgData
+ * @returns {HTMLElement}
+ */
+function createGalleryImageItem(imgData) {
+  const altText = str(imgData?.alt).trim() || '画像';
+  const captionText = str(imgData?.caption).trim();
+  const previewLabel = captionText || altText;
+
+  return el('div', { class: 'image-item' }, [
+    el('button', {
+      type: 'button',
+      class: 'image-zoom-trigger',
+      'aria-label': `${previewLabel} を拡大表示`,
+      title: previewLabel,
+      onclick: (event) => openImageLightbox({
+        url: imgData?.url,
+        alt: altText,
+        caption: captionText || altText
+      }, event.currentTarget)
+    }, [
+      el('img', {
+        src: imgData?.url || '',
+        alt: altText,
+        loading: 'lazy',
+        title: previewLabel
+      }),
+      el('span', { class: 'image-zoom-hint', 'aria-hidden': 'true' }, ['拡大'])
+    ]),
+    captionText ? el('div', { class: 'caption' }, [captionText]) : null
+  ].filter(Boolean));
 }
 
 /**
@@ -3885,11 +4006,7 @@ function loadMoreImages(workId, rec, imageFields, dbName, fieldLabelMap, workMet
 
     // Add remaining images
     galleryImages.slice(6).forEach(imgData => {
-      const imageItem = el('div', { class: 'image-item' }, [
-        el('img', { src: imgData.url, alt: imgData.alt, loading: 'lazy' }),
-        imgData.caption ? el('div', { class: 'caption' }, [imgData.caption]) : null
-      ].filter(Boolean));
-      imageGrid.appendChild(imageItem);
+      imageGrid.appendChild(createGalleryImageItem(imgData));
     });
   }
 }
@@ -4252,15 +4369,7 @@ async function renderDetail(workId, rec) {
       galleryImages.length > 0 ? el('div', { class: 'image-gallery' }, [
         el('h4', {}, [getFieldLabel('Gallery', fieldLabelMap, metaForLookup, globalDefType, '画像ギャラリー')]),
         el('div', { class: 'image-grid' }, galleryImages.slice(0, 6).map(imgData => // Limit initial images for performance
-          el('div', { class: 'image-item' }, [
-            el('img', {
-              src: imgData.url,
-              alt: imgData.alt,
-              loading: 'lazy',
-              title: imgData.caption
-            }),
-            imgData.caption ? el('div', { class: 'caption' }, [imgData.caption]) : null
-          ].filter(Boolean))
+          createGalleryImageItem(imgData)
         ).concat(
           galleryImages.length > 6 ? [
             el('div', { class: 'image-more', style: 'text-align: center; padding: 10px;' }, [
@@ -6024,6 +6133,8 @@ function wireControls() {
   const chkResolve = $('#chk-resolve');
   const chkDebug = $('#chk-debug');
   const btnBack = $('#btn-back');
+  const imageLightbox = $('#image-lightbox');
+  const imageLightboxClose = $('#image-lightbox-close');
 
   // Remove previous handlers if they exist
   if (window.__eventHandlers.workChange) {
@@ -6043,6 +6154,15 @@ function wireControls() {
   }
   if (window.__eventHandlers.backClick) {
     btnBack.removeEventListener('click', window.__eventHandlers.backClick);
+  }
+  if (window.__eventHandlers.lightboxBackdropClick && imageLightbox) {
+    imageLightbox.removeEventListener('click', window.__eventHandlers.lightboxBackdropClick);
+  }
+  if (window.__eventHandlers.lightboxCloseClick && imageLightboxClose) {
+    imageLightboxClose.removeEventListener('click', window.__eventHandlers.lightboxCloseClick);
+  }
+  if (window.__eventHandlers.lightboxKeydown) {
+    document.removeEventListener('keydown', window.__eventHandlers.lightboxKeydown);
   }
 
   // Define and store new handlers
@@ -6067,9 +6187,27 @@ function wireControls() {
   window.__eventHandlers.resolveChange = reload;
   window.__eventHandlers.debugChange = reload;
   window.__eventHandlers.backClick = () => {
+    closeImageLightbox({ restoreFocus: false });
     $('#detail-view').hidden = true;
     $('#list-view').hidden = false;
     setQS({ num: '', idx: '', idxKey: '' });
+  };
+
+  window.__eventHandlers.lightboxBackdropClick = (event) => {
+    if (event.target === imageLightbox) {
+      closeImageLightbox();
+    }
+  };
+
+  window.__eventHandlers.lightboxCloseClick = () => {
+    closeImageLightbox();
+  };
+
+  window.__eventHandlers.lightboxKeydown = (event) => {
+    if (event.key === 'Escape' && imageLightbox && !imageLightbox.hidden) {
+      event.preventDefault();
+      closeImageLightbox();
+    }
   };
 
   // Add new handlers
@@ -6079,6 +6217,13 @@ function wireControls() {
   chkResolve.addEventListener('change', window.__eventHandlers.resolveChange);
   chkDebug.addEventListener('change', window.__eventHandlers.debugChange);
   btnBack.addEventListener('click', window.__eventHandlers.backClick);
+  if (imageLightbox) {
+    imageLightbox.addEventListener('click', window.__eventHandlers.lightboxBackdropClick);
+  }
+  if (imageLightboxClose) {
+    imageLightboxClose.addEventListener('click', window.__eventHandlers.lightboxCloseClick);
+  }
+  document.addEventListener('keydown', window.__eventHandlers.lightboxKeydown);
 
   // Handle reset button
   const btnReset = document.getElementById('btn-reset-sw');
@@ -6149,6 +6294,7 @@ async function populateDBs(workKey, initialDB) {
 
 async function openDetail(rec) {
   const state = window.__CHAR_STATE__;
+  closeImageLightbox({ restoreFocus: false });
   $('#list-view').hidden = true;
   $('#detail-view').hidden = false;
   renderDetail(state.workId, rec);

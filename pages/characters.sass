@@ -75,6 +75,20 @@ html, body
 	font-size: var(--font-size-base)
 	line-height: var(--line-height-normal)
 
+body.lightbox-open
+	overflow: hidden
+
+.sr-only
+	position: absolute
+	width: 1px
+	height: 1px
+	padding: 0
+	margin: -1px
+	overflow: hidden
+	clip: rect(0, 0, 0, 0)
+	white-space: nowrap
+	border: 0
+
 // ==================================================
 // レスポンシブコンテナシステム
 // ==================================================
@@ -824,6 +838,38 @@ h4
 		border-radius: var(--border-radius-md)
 		transition: transform 0.3s ease
 
+.image-zoom-trigger
+	position: relative
+	display: block
+	width: 100%
+	padding: 0
+	border: 0
+	background: transparent
+	color: inherit
+	text-align: inherit
+	cursor: zoom-in
+
+	&:focus-visible
+		outline: 2px solid var(--accent)
+		outline-offset: -2px
+
+	img
+		pointer-events: none
+
+.image-zoom-hint
+	position: absolute
+	right: var(--spacing-sm)
+	bottom: var(--spacing-sm)
+	padding: 4px 8px
+	border-radius: 999px
+	background: rgba(11, 12, 16, 0.82)
+	color: var(--fg)
+	font-size: var(--font-size-xs)
+	font-weight: 600
+	letter-spacing: 0.04em
+	box-shadow: var(--shadow-sm)
+	pointer-events: none
+
 /* Enhanced Image Styling
 
 .poster
@@ -1335,6 +1381,94 @@ body
 .detail .image-more
 	width: 100%
 
+.image-lightbox
+	position: fixed
+	inset: 0
+	display: flex
+	align-items: center
+	justify-content: center
+	padding: clamp(16px, 4vw, 32px)
+	background: rgba(5, 8, 12, 0.88)
+	opacity: 0
+	pointer-events: none
+	transition: opacity 0.24s ease
+	z-index: 1200
+	-webkit-backdrop-filter: blur(10px)
+	backdrop-filter: blur(10px)
+
+	&:not([hidden])
+		opacity: 1
+		pointer-events: auto
+
+.image-lightbox__dialog
+	position: relative
+	width: min(100%, 1040px)
+	max-height: 100%
+	padding: clamp(14px, 2vw, 20px)
+	border: 1px solid rgba(255, 255, 255, 0.08)
+	border-radius: clamp(16px, 2vw, 22px)
+	background: linear-gradient(180deg, rgba(18, 21, 27, 0.98), rgba(11, 12, 16, 0.96))
+	box-shadow: var(--shadow-xl)
+
+.image-lightbox__close
+	position: absolute
+	top: 10px
+	right: 10px
+	width: 40px
+	height: 40px
+	display: inline-flex
+	align-items: center
+	justify-content: center
+	border: 1px solid rgba(255, 255, 255, 0.14)
+	border-radius: 999px
+	background: rgba(255, 255, 255, 0.08)
+	color: var(--fg)
+	font-size: 24px
+	line-height: 1
+	cursor: pointer
+	transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease
+
+	&:hover
+		background: rgba(255, 255, 255, 0.14)
+		border-color: rgba(255, 255, 255, 0.28)
+		transform: scale(1.04)
+
+	&:focus-visible
+		outline: 2px solid var(--accent)
+		outline-offset: 2px
+
+.image-lightbox__figure
+	margin: 0
+	display: flex
+	flex-direction: column
+	gap: var(--spacing-md)
+
+.image-lightbox__image-frame
+	display: flex
+	align-items: center
+	justify-content: center
+	min-height: 0
+	max-height: min(80vh, 900px)
+	overflow: hidden
+	border-radius: var(--border-radius-lg)
+	background: rgba(255, 255, 255, 0.03)
+
+.image-lightbox__image
+	display: block
+	width: auto
+	height: auto
+	max-width: 100%
+	max-height: min(74vh, 860px)
+	object-fit: contain
+	border-radius: var(--border-radius-md)
+	box-shadow: var(--shadow-lg)
+
+.image-lightbox__caption
+	color: var(--fg)
+	font-size: var(--font-size-sm)
+	line-height: var(--line-height-relaxed)
+	word-break: break-word
+
 .detail-tag-grid
 	width: 100%
 	display: flex
@@ -1407,5 +1541,15 @@ body
 	@supports (display: grid)
 		.detail
 			grid-template-columns: 420px 1fr
+
+@media (max-width: 639px)
+	.image-lightbox
+		padding: 12px
+
+	.image-lightbox__dialog
+		padding: 48px 12px 12px
+
+	.image-lightbox__caption
+		font-size: var(--font-size-xs)
 
 /*# sourceMappingURL=characters.css.map
