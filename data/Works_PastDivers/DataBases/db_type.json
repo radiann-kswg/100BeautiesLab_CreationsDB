@@ -25,6 +25,17 @@
     "hashTagName_EN": "Chronos"
   },
   "$DefType": [
+    {
+      "hashTag": "Images",
+      "$type": [
+        {
+          "hashTag": "concept_PNGName",
+          "$type": "#PNGFileName",
+          "hashTag_JP": "設定原画"
+        }
+      ],
+      "$display": { "section": "images", "tagSpace": "internal" }
+    },
     { "hashTag": "Chronos", "$type": "#Index", "hashTag_JP": "クロノス" },
     {
       "hashTag": "ChronoholderName",

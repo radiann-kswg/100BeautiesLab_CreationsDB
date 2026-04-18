@@ -34,27 +34,27 @@
         {
           "hashTag": "concept_PNGName",
           "$type": "#PNGFileName",
-          "hashTag_JP": "設定原画PNGファイル名"
+          "hashTag_JP": "設定原画"
         },
         {
           "hashTag": "conceptAlt_PNGName",
           "$type": "#PNGFileName[]",
-          "hashTag_JP": "設定原画差分PNGファイル名"
+          "hashTag_JP": "設定原画差分"
         },
         {
           "hashTag": "cardDesign_PNGName",
           "$type": "#PNGFileName",
-          "hashTag_JP": "衣装差分などのPNGファイル相対パス"
+          "hashTag_JP": "衣装差分など"
         },
         {
           "hashTag": "designAlt_PNGPath",
           "$type": "#PNGFilePath[]",
-          "hashTag_JP": "衣装差分などのPNGファイル相対パス"
+          "hashTag_JP": "衣装差分など"
         },
         {
           "hashTag": "arts_PNGPath",
           "$type": "#PNGFilePath[]",
-          "hashTag_JP": "イラストPNGファイル相対パス"
+          "hashTag_JP": "イラスト作品"
         }
       ],
       "$display": { "section": "images", "tagSpace": "internal" }

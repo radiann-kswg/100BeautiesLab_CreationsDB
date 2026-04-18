@@ -249,7 +249,7 @@
     "FormalName_EN": "Formar Endrof\nArch Zerbas",
     "CodeName": "傲慢の夜",
     "CodeName_EN": "Pride o'clock in Night",
-    "RaceType": { "hideText_EN": "Judgement Failed" },
+    "RaceType": { "hideText": "判定失敗" },
     "GenderType": {
       "value": "Female",
       "about_JP": "推定",
