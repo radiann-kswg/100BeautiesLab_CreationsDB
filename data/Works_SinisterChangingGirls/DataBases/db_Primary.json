@@ -38,7 +38,7 @@
       "concept_PNGName": "cnsp_imgDrcNE",
       "arts_PNGPath": [
         "art_imgDrcNE-InfrationAerialSwimming",
-        "chart_imgDrcNE-ramen"
+        "chattingArt/chart_imgDrcNE-ramen"
       ]
     },
     "Name": "扇 三春(ミハイル)",
@@ -241,7 +241,7 @@
     "Progress": "released(beta)",
     "Images": {
       "concept_PNGName": "cnsp_imgDrcNW",
-      "arts_PNGPath": ["chart_imgDrcNW"]
+      "arts_PNGPath": ["chattingArt/chart_imgDrcNW"]
     },
     "Name": "財前 小里\n終藤(すどう) こさと",
     "Name_EN": "Foster Empressor\nFormar Endrof",
