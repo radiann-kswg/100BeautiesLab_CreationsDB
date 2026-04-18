@@ -111,7 +111,8 @@
     "Drc": "SE",
     "Progress": "unreleased",
     "Images": {
-      "concept_PNGName": "cnsp_imgDrcSE"
+      "concept_PNGName": "cnsp_imgDrcSE",
+      "arts_PNGPath": ["chattingArt/chart_imgDrcSE-checkIntoAlive"]
     },
     "Name": "九 叶(いちじく-かな)",
     "Name_EN": "Canna Ninie",
@@ -168,7 +169,10 @@
     "Drc": "SW",
     "Progress": "stillTentative",
     "Images": {
-      "arts_PNGPath": ["art_imgDrcNE-InfrationAerialSwimming"]
+      "arts_PNGPath": [
+        "chattingArt/chart_imgDrcSW-whereBabiesFrom",
+        "art_imgDrcNE-InfrationAerialSwimming"
+      ]
     },
     "Name": "ミル.NuXV(ニュクスフ)",
     "Name_EN": "Lamill.NuXV",
