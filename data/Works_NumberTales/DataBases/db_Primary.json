@@ -3685,10 +3685,10 @@
     "Progress": "released",
     "Images": {
       "concept_PNGName": "cnsp_img36",
-      "corefolder_PNGPath": ["emstk_corefolder36-1"],
+      "corefolder_PNGPath": ["emstk_corefolder36-1", "emstk_corefolder36-2"],
       "arts_PNGPath": [
         "art_mothersDay2023",
-        "chattingArt/chart_img36-corefolder"
+        "chattingArt/chart_img36-corefolderMyNewGear"
       ]
     },
     "Name": "ミトム",
