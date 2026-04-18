@@ -133,7 +133,11 @@
     "Images": {
       "concept_PNGName": "cnsp_img222",
       "conceptAlt_PNGName": ["cnsp_img222-origA", "cnsp_img222-origB"],
-      "corefolder_PNGPath": ["emstk_corefolder222-1"]
+      "corefolder_PNGPath": [
+        "emstk_corefolder222-1",
+        "emstk_corefolder222-2a",
+        "emstk_corefolder222-2b"
+      ]
     },
     "Name": "ドッペル|ペルゲン\nドッペルゲンズ",
     "Name_EN": "Doppels|Pelgäns\nDoppelgäns",
