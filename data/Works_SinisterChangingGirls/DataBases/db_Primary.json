@@ -190,7 +190,11 @@
     "Height_cm": 159,
     "Weight_kg": { "hideText": "非公開" },
     "BustSize": "G",
-    "Age": { "value": 24, "about_JP": "推定", "about_EN": "Presumption" },
+    "Age": {
+      "value": 24,
+      "about_JP": "推定（精神年齢はおよそ6）",
+      "about_EN": "Presumption (mental age is about: 6)"
+    },
     "AnivDay": [
       {
         "Day": { "Month": 9, "DayOfMonth": 14 },
