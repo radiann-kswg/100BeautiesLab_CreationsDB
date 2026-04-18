@@ -15,18 +15,27 @@
 
 ## いま進行中のファイル
 
-- 2026-02-21_progress_typedef-driven-detail.md
-- 2026-02-21_progress_bilingual-enum-listindex.md
-- 2026-02-21_remaining-task.md
-- 2026-04-06_progress_decave-enum-api-ui.md （Decave / #ListLink 補完 / BirthDay 表示 / fallback 表示停止）
+- 2026-03-31_remaining-task.md
 - 2026-04-18_progress_image-lightbox.md （キャラシート画像ギャラリーのポップアップ拡大表示）
-- 2026-03-04_remaining-task.md
-- 2026-03-04_progress_phase0.md
-- 2026-03-04_progress_phase1_index.md
-- 2026-03-04_progress_phase3_reserved-keys.md
-- 2026-03-06_progress_phase5_conversation-pattern.md
+
+補足:
+
+- 2026-04-18 に旧進捗ログを整理し、未完了事項は `2026-03-31_remaining-task.md` へ集約しました。
 
 ## 完了（.completed へ退避済み）
 
 - 2026-03-04_progress_security-alert.md
 - 2026-03-04_progress_top-page.md
+- 2026-02-21_progress_typedef-driven-detail.md
+- 2026-02-21_progress_bilingual-enum-listindex.md
+- 2026-02-21_remaining-task.md
+- 2026-03-04_progress_phase0.md
+- 2026-03-04_progress_phase1_index.md
+- 2026-03-04_progress_phase2_dbtype-resilience.md
+- 2026-03-04_progress_phase3-prompt.md
+- 2026-03-04_progress_phase3_reserved-keys.md
+- 2026-03-04_progress_phase4_api-integration.md
+- 2026-03-04_progress_phase5-prompt.md
+- 2026-03-04_remaining-task.md
+- 2026-03-06_progress_phase5_conversation-pattern.md
+- 2026-04-06_progress_decave-enum-api-ui.md
