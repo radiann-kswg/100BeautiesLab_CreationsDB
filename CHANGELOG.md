@@ -1,5 +1,14 @@
 # 最新のリファクタリング・仕様変更履歴
 
+### データ schema の typo・命名修正
+
+- 共有 schema と作品別データで、relation label の typo `secletRelation` を `secretRelation` へ統一した。
+- 共有 schema / NumberTales / PastDivers の relation 応答キー `ComeBacked` を `Reply` へ改名した。
+- 共有 schema と NumberTales 系データの関連メモ項目 `RelationAbouts` を `RelationNotes` へ改名した。
+- 共有 schema と複数作品データの能力値キー `Communicating` を `Communication` へ統一した。
+- 共有 schema と複数作品データの弱点項目 `Weakpoint` を `Weakness` へ改名した。
+- 回帰確認として `tests/data.sanity.test.js` / `tests/data.shape.test.js` / `tests/sw.deftype.merge.test.js` / `tests/sw.enrich.basic.test.js` を実行し、通過を確認した。
+
 ### Decave enum 辞書の API/UI 合成対応
 
 - `lib/sw-common.js` の `v1/deftype/global` で、`db_meta.json` に加えて `data/db_type.json($VarsDef)` も `General.$VarsDef` へ合流して返すようにした。

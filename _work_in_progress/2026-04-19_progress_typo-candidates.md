@@ -10,6 +10,7 @@
 - `data/**/*.json` / `lib/**/*.js` / `tests/**/*.js` を中心に、英単語として不自然な識別子や綴り揺れを確認した。
 - typo として確度が高い候補、命名改善寄りの候補、作品IDやファイル名まで波及する候補に分類した。
 - 影響範囲と注意点を、後続でそのまま着手判断できる粒度で整理した。
+- 2026-04-19 時点で A と C は実施済みとし、B のみ検討待ちに更新した。
 
 ## 候補一覧
 
@@ -57,7 +58,7 @@
 
 ### C. typo というより命名改善候補
 
-#### 4. `ComeBacked`
+#### 4. `ComeBacked` → `Reply` （2026-04-19 対応済み）
 
 - 判定理由:
   - 英語としてはかなり不自然。
@@ -67,10 +68,10 @@
   - `data/Works_PastDivers/DataBases/db_type.json`
   - `data/Works_NumberTales/DataBases/db_Secondary.json`
 - 影響メモ:
-  - typo 修正というより、`Reply` / `Replied` / `Response` 等へのリネーム設計が必要。
-  - データ構造キーの変更なので、互換性対応が必要になる可能性が高い。
+  - `Reply` へ改名して schema と実データを統一した。
+  - `data/Works_NumberTales/DataBases/db_Secondary.json` と typedef 側の整合確認済み。
 
-#### 5. `Weakpoint`
+#### 5. `Weakpoint` → `Weakness` （2026-04-19 対応済み）
 
 - 判定理由:
   - 英語としては `WeakPoint` または `Weakness` の方が自然。
@@ -79,9 +80,10 @@
   - `data/db_type.json`
   - 各作品の実データ JSON 全般
 - 影響メモ:
-  - 現状は typo 修正よりも、互換性を伴う命名統一タスクになる。
+  - `Weakness` へ改名し、共有 schema と該当作品データを更新した。
+  - データ shape テストと enrich 系テストで回帰なしを確認した。
 
-#### 6. `RelationAbouts`
+#### 6. `RelationAbouts` → `RelationNotes` （2026-04-19 対応済み）
 
 - 判定理由:
   - 英語としてはぎこちない。
@@ -90,9 +92,10 @@
   - `data/db_type.json`
   - 各作品の実データ JSON 全般
 - 影響メモ:
-  - `RelationNotes` や `RelationAbout` のような再命名候補はあるが、現時点では typo 断定まではしない。
+  - `RelationNotes` へ改名し、共有 schema と NumberTales 系データを更新した。
+  - 表示文意は `関連性について` を維持している。
 
-#### 7. `Communicating`
+#### 7. `Communicating` → `Communication` （2026-04-19 対応済み）
 
 - 判定理由:
   - 社交性を表す enum key としては `Communication` や `Sociability` の方が自然。
@@ -101,15 +104,13 @@
   - `data/db_type.json`
   - 複数作品の実データ JSON
 - 影響メモ:
-  - typo 修正というより命名改善。
-  - 変更時は UI 表示・検索・比較ロジックの確認も必要。
+  - `AbilityStats` 配下のキーを `Communication` へ統一した。
+  - `EffectStats.Communication` と同名だが階層が異なるため schema 上の衝突はない。
 
 ## 優先順位の提案
 
-1. `secletRelation` を先に修正する。
-2. `UnproceededSecondary` は正しい置換先を先に決めてから着手する。
-3. `DestinyFoxsRecords` は作品識別子改名タスクとして別立てで扱う。
-4. `ComeBacked` / `Weakpoint` / `RelationAbouts` / `Communicating` は typo 修正ではなく命名改善タスクとして扱う。
+1. `UnproceededSecondary` は正しい置換先を先に決めてから着手する。
+2. `DestinyFoxsRecords` は作品識別子改名タスクとして別立てで扱う。
 
 ## 影響範囲（今回の整理ログ作成）
 
@@ -121,7 +122,6 @@
 - `secletRelation` の実修正を行うか判断する。 -> 対応済み
 - `UnproceededSecondary` の正式名称を決める。
 - `DestinyFoxsRecords` を識別子改名対象として扱うか判断する。
-- 命名改善候補を「互換あり段階移行」で扱うか、「現状維持」にするか整理する。
 
 ## 参考リンク
 
