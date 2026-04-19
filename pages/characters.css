@@ -1633,12 +1633,14 @@ body {
   min-width: 0;
 }
 .detail-tag-grid .tag {
-  display: flex;
-  align-items: center;
+  display: block;
   min-height: 100%;
   width: 100%;
   max-width: 100%;
   overflow-wrap: anywhere;
+}
+.detail-tag-grid .tag a {
+  display: inline;
 }
 
 @media (min-width: 640px) {
