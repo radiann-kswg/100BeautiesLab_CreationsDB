@@ -19,6 +19,7 @@
 - 2026-04-18_progress_image-lightbox.md （キャラシート画像ギャラリーのポップアップ拡大表示）
 - 2026-04-19_progress_visual-qa-checklist.md （作品別の一覧/詳細 目視確認チェックリスト）
 - 2026-04-19_progress_typo-candidates.md （スペルミス修正候補の整理）
+- 2026-04-19_progress_dblink-schema-guard.md （別作品 `_DBLink` の schema 未宣言項目を抑止）
 
 補足:
 

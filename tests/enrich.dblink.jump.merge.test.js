@@ -203,6 +203,60 @@ describe('_DBLink / _Jump merge (in-process)', () => {
     expect(e.Name).toBe('ハジメ');
   });
 
+  it('別作品からの _DBLink マージでは、対象作品の schema に無いトップレベル項目を持ち込まない', async () => {
+    class CrossWorkSchemaGuardFetcher extends TestDataFetcher {
+      async readDB(workId, dbName) {
+        if (workId === '#Works_OtherWork' && dbName === 'Primary') {
+          return [{
+            Id: 'X',
+            Name: '参照先の名前',
+            Relations: [{ About: '別作品の関係情報' }]
+          }];
+        }
+        return [];
+      }
+
+      async readGlobalType() {
+        return {
+          $DefType: [
+            { hashTag: 'Id', $type: '#String' },
+            { hashTag: 'Name', $type: '#String' }
+          ]
+        };
+      }
+
+      async readWorkType(workId) {
+        if (workId === '#Works_MainWork') {
+          return {
+            $DefType: [
+              { hashTag: 'FormalName', $type: '#String' }
+            ]
+          };
+        }
+        return {};
+      }
+    }
+
+    const dataFetcher = new CrossWorkSchemaGuardFetcher();
+    const proc = new globalThis.EnrichmentProcessor(dataFetcher, testConfig);
+
+    const rec = {
+      Id: 'BASE',
+      Name: '',
+      _DBLink: {
+        worksTitle: 'OtherWork',
+        dbName: 'Primary',
+        _Search: [{ hashTag: 'Id', key: 'X' }]
+      }
+    };
+
+    const out = await proc.enrichRecords([rec], '#Works_MainWork', 'Primary');
+    const e = out[0];
+
+    expect(e.Name).toBe('参照先の名前');
+    expect(e.Relations).toBeUndefined();
+  });
+
   it('_DBLink._Search で hashTag="#Index" + key=object を使うと、ネストIndex（例: Card.Stoat + Card.Num）をAND条件で特定できる', async () => {
     const dataFetcher = new TestDataFetcher();
     const proc = new globalThis.EnrichmentProcessor(dataFetcher, testConfig);

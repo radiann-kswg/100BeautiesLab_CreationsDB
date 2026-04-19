@@ -36,6 +36,11 @@
       ],
       "$display": { "section": "images", "tagSpace": "internal" }
     },
+    {
+      "hashTag": "Career",
+      "$type": "#Summary",
+      "hashTag_JP": "経歴について"
+    },
     { "hashTag": "Chronos", "$type": "#Index", "hashTag_JP": "クロノス" },
     {
       "hashTag": "ChronoholderName",

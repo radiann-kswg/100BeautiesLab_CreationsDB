@@ -1,5 +1,11 @@
 # 最新のリファクタリング・仕様変更履歴
 
+### `_DBLink` の別作品参照で schema 未宣言項目を抑止
+
+- `lib/data-common.js` の `_DBLink` 穴埋めマージで、別作品から参照する場合は対象作品の `db_type.json($DefType)` とグローバル `data/db_type.json($DefType)` に宣言されたトップレベル項目だけを取り込むようにした。
+- これにより、`Works_UnauthedLogica` から `Works_NumberTales` を `_DBLink` 参照した際に、UnauthedLogica 側で宣言していない `Relations` などのトップレベル項目が不要に混入する経路を遮断した。
+- 回帰防止として `tests/enrich.dblink.jump.merge.test.js` に「別作品 + schema 未宣言キーはマージしない」テストを追加した。
+
 ### データ schema の typo・命名修正
 
 - 共有 schema と作品別データで、relation label の typo `secletRelation` を `secretRelation` へ統一した。
