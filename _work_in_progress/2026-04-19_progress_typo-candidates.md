@@ -44,17 +44,18 @@
   - DB キー名と実ファイル名を `UnprocessedSecondary` / `db_UnprocessedSecondary.json` に統一する。
   - テスト参照は見当たらないため、データ整合性と SW 系テストで回帰確認する。
 
-#### 3. `DestinyFoxsRecords` → 候補要検討
+#### 3. `DestinyFoxsRecords` → `DestinyFoxRecords` （2026-04-19 対応済み）
 
 - 判定理由:
-  - 英語タイトルは `Destiny Fox's Records` であり、識別子 `Foxs` はかなり不自然。
-  - ただし正式な識別子を `DestinyFoxRecords` / `DestinyFoxesRecords` のどちらへ寄せるかは要判断。
+  - 英語タイトルは `Destiny Fox's Records` で、日本語タイトルも「狐の記録」と単数のため、識別子は `DestinyFoxRecords` が最も自然。
+  - `DestinyFoxesRecords` は複数形の意味合いが強く、現行タイトルとはずれる。
 - 主な影響範囲:
   - `data/db_meta.json`
   - `data/Works_Proxies/DataBases/db_Proxy.json`
-  - 作品ID・ディレクトリ名・参照文字列まで広がる可能性あり。
+  - `data/Works_DestinyFoxRecords/`
+  - 作品ID・ディレクトリ名・参照文字列
 - 影響メモ:
-  - 単純なキー置換では済まず、作品識別子の改名タスクに近い。
+  - 作品キー・プロキシ参照・ディレクトリ名を `DestinyFoxRecords` に統一する。
 
 ### C. typo というより命名改善候補
 
@@ -109,8 +110,6 @@
 
 ## 優先順位の提案
 
-1. `DestinyFoxsRecords` は作品識別子改名タスクとして別立てで扱う。
-
 ## 影響範囲（今回の整理ログ作成）
 
 - `_work_in_progress/2026-04-19_progress_typo-candidates.md`
@@ -119,7 +118,6 @@
 ## 未完了タスク
 
 - `secletRelation` の実修正を行うか判断する。 -> 対応済み
-- `DestinyFoxsRecords` を識別子改名対象として扱うか判断する。
 
 ## 参考リンク
 

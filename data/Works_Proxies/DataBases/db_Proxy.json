@@ -3,7 +3,7 @@
     "Generation": 2,
     "Progress": "unprofiled",
     "_DBLink": {
-      "worksTitle": "DestinyFoxsRecords",
+      "worksTitle": "DestinyFoxRecords",
       "dbName": "Primary",
       "_Search": [{ "hashTag": "Unit", "key": "rad" }]
     },

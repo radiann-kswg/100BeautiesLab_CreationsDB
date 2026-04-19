@@ -7,6 +7,7 @@
 - 共有 schema と NumberTales 系データの関連メモ項目 `RelationAbouts` を `RelationNotes` へ改名した。
 - 共有 schema と複数作品データの能力値キー `Communicating` を `Communication` へ統一した。
 - 共有 schema と複数作品データの弱点項目 `Weakpoint` を `Weakness` へ改名した。
+- 作品識別子 `DestinyFoxsRecords` を `DestinyFoxRecords` へ更新した。
 - 回帰確認として `tests/data.sanity.test.js` / `tests/data.shape.test.js` / `tests/sw.deftype.merge.test.js` / `tests/sw.enrich.basic.test.js` を実行し、通過を確認した。
 
 ### Decave enum 辞書の API/UI 合成対応
@@ -45,7 +46,7 @@
 
 ### DB大規模拡張・データ構造整備 / APIテストページ整備
 
-- 複数作品（NumberTales / FLInvestigator78 / ShouArRiders / SinisterChangingGirls / Proxies / DestinyFoxsRecords 等）の DB 更新と、`db_meta.json` などメタ情報の整理を実施。
+- 複数作品（NumberTales / FLInvestigator78 / ShouArRiders / SinisterChangingGirls / Proxies / DestinyFoxRecords 等）の DB 更新と、`db_meta.json` などメタ情報の整理を実施。
 - `api/` 側のテストページ・スクリプトの整備を進め、疑似 API の動作確認導線を改善。
 
 #### 影響範囲（代表）
@@ -284,7 +285,7 @@
 - UI（`pages/characters.js`）: `#List_Belonging` のように「ベースキーがJP文字列で \*\_JP が無い」辞書定義でも、JP/EN 併記が EN-only にならないようフォールバックを改善。
 - `data/Works_SinisterChangingGirls/DataBases/db_type.json`
 - `data/Works_Proxies/DataBases/db_type.json`
-- `data/Works_DestinyFoxsRecords/DataBases/db_type.json`
+- `data/Works_DestinyFoxRecords/DataBases/db_type.json`
 - `data/Works_UnauthedLogica/DataBases/db_type.json`
 - `_work_in_progress/2026-02-20_schema-driven-display-format.md`
 

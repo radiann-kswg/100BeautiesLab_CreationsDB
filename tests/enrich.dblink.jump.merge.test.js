@@ -24,13 +24,17 @@ function loadJson(relPath) {
   return JSON.parse(readFileSync(join(repoRoot, relPath), 'utf-8'));
 }
 
+function resolveWorkDirName(workId) {
+  return String(workId || '').replace('#Works_', 'Works_');
+}
+
 /**
  * Node 用の最小 DataFetcher スタブ
  * - EnrichmentProcessor が必要とする readDB / read*Type を提供
  */
 class TestDataFetcher {
   async readDB(workId, dbName) {
-    const wdir = String(workId).replace('#Works_', 'Works_');
+    const wdir = resolveWorkDirName(workId);
     const p = `data/${wdir}/DataBases/db_${dbName}.json`;
     return loadJson(p);
   }
@@ -41,7 +45,7 @@ class TestDataFetcher {
   async readGeneralVarsDefWork() { return {}; }
   async readGlobalType() { return {}; }
   async readWorkType(workId) {
-    const wdir = String(workId).replace('#Works_', 'Works_');
+    const wdir = resolveWorkDirName(workId);
     try {
       return loadJson(`data/${wdir}/DataBases/db_type.json`);
     } catch {

@@ -3492,6 +3492,10 @@ function dialogueBodyText(text) {
   return preWrapText(String(text ?? ''));
 }
 
+function resolveWorkDirName(workId) {
+  return String(workId || '').replace('#Works_', 'Works_');
+}
+
 /**
  * Enhanced image gallery building with dynamic field resolution
  * Creates gallery items with appropriate URLs based on extracted image fields
@@ -3502,7 +3506,7 @@ function dialogueBodyText(text) {
  * @returns {Array} Array of {url, caption, type, alt, category} objects
  */
 function buildImageGallery(workId, record, imageFields, dbName = 'Primary') {
-  const wdir = workId.replace('#Works_', 'Works_');
+  const wdir = resolveWorkDirName(workId);
   const images = [];
   // Support common "Images" key variants (typos / case)
   const imgData = getRecordImages(record);
@@ -3654,7 +3658,7 @@ function humanWorkLabel(work) {
  * @returns {string} Image URL or empty string if no image found
  */
 async function imageFromRecord(workId, rec, dbName = 'Primary', imageFields = null) {
-  const wdir = workId.replace('#Works_', 'Works_');
+  const wdir = resolveWorkDirName(workId);
   const img = getRecordImages(rec);
 
   console.log('🖼️ Enhanced image resolution for record:', {
@@ -3689,7 +3693,7 @@ async function imageFromRecord(workId, rec, dbName = 'Primary', imageFields = nu
  * @returns {Promise<string>} Image URL or empty string
  */
 async function resolveImageFromFields(workId, rec, dbName, imageFields) {
-  const wdir = workId.replace('#Works_', 'Works_');
+  const wdir = resolveWorkDirName(workId);
   const img = getRecordImages(rec);
 
   // Sort image fields by priority for thumbnail selection
@@ -3853,7 +3857,7 @@ function buildImagePath(wdir, dbName, field, value) {
  * @returns {string} Image URL or empty string
  */
 function resolveImageStatically(workId, rec, dbName) {
-  const wdir = workId.replace('#Works_', 'Works_');
+  const wdir = resolveWorkDirName(workId);
   const img = getRecordImages(rec);
 
   console.log('🔧 Enhanced static resolution for:', {
