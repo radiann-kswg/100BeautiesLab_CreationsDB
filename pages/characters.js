@@ -6013,8 +6013,8 @@ function renderRelations(rel, fieldLabelMap, workMeta, globalDefType, fieldDispl
     ]);
   };
 
-  const r1 = related.map(r => renderRelTag('→', r, true));
-  const r2 = commented.map(r => renderRelTag('←', r, false));
+  const r1 = related.map(r => renderRelTag('⇒', r, true));
+  const r2 = commented.map(r => renderRelTag('→', r, false));
 
   return el('div', { class: 'section' }, [
     el('h3', {}, [getFieldLabel(containerKey, fieldLabelMap, workMeta, globalDefType, containerKey === 'RelationToPrimary' ? '原作との関係' : '関係')]),
