@@ -39,7 +39,7 @@
     "SpecialSkill": "ディール",
     "Favor": "カード",
     "Unlike": "",
-    "RelationAbouts": "「10(ミツル)」の派生とされている",
+    "RelationNotes": "「10(ミツル)」の派生とされている",
     "NumerospecAbout": { "hideText": "極秘事項" },
     "NumerospecStats": {
       "EffectStats": {
@@ -152,7 +152,7 @@
     "SpecialSkill": "一緒に泣いて慰める",
     "Favor": "",
     "Unlike": "",
-    "RelationAbouts": "「11(トウイチ)」の派生とされている",
+    "RelationNotes": "「11(トウイチ)」の派生とされている",
     "NumerospecAbout": { "hideText": "極秘事項" },
     "NumerospecStats": {
       "EffectStats": {
@@ -272,7 +272,7 @@
     "SpecialSkill": "",
     "Favor": "",
     "Unlike": "メンタルブレイク",
-    "RelationAbouts": "アイドルを志望しているが、アイドルの素質があるナンバーテールズとは少しすれ違い気味らしい",
+    "RelationNotes": "アイドルを志望しているが、アイドルの素質があるナンバーテールズとは少しすれ違い気味らしい",
     "NumerospecAbout": { "hideText": "極秘事項" },
     "NumerospecStats": {
       "EffectStats": {
@@ -398,7 +398,7 @@
     "SpecialSkill": "",
     "Favor": "ノート",
     "Unlike": "見られたくないものを見られること",
-    "RelationAbouts": "「0xE(エネ)」に特大空ビ化の非検体にされたことがあり…？",
+    "RelationNotes": "「0xE(エネ)」に特大空ビ化の非検体にされたことがあり…？",
     "NumerospecAbout": { "hideText": "極秘事項" },
     "NumerospecStats": {
       "EffectStats": {
@@ -530,7 +530,7 @@
     "SpecialSkill": "魔改造",
     "Favor": "（魔）改造",
     "Unlike": "機械で解決できない問題",
-    "RelationAbouts": "ナンバーテールズの改造案を出しているが……",
+    "RelationNotes": "ナンバーテールズの改造案を出しているが……",
     "NumerospecAbout": { "hideText": "極秘事項" },
     "NumerospecStats": {
       "EffectStats": {
@@ -634,7 +634,7 @@
     "SpecialSkill": "ママになること",
     "Favor": "ママになること",
     "Unlike": "機械",
-    "RelationAbouts": "他のヘキサデミカル-テールズの心の支えになっているらしい",
+    "RelationNotes": "他のヘキサデミカル-テールズの心の支えになっているらしい",
     "NumerospecAbout": { "hideText": "公開不能" },
     "NumerospecStats": {
       "EffectStats": {
@@ -738,7 +738,7 @@
     "Class": "開発者\nD-Vine開発部 最高責任部長",
     "Class_EN": "Developer\nChief Executive in Development Department for D-Vine",
     "ForMasterCalling": "クライアントさん",
-    "RelationAbouts": "ナンバーテールズ開発者である零(カズナイ)姉弟の後輩。妹:歌嫁は同じくしてかつ百花繚乱研究所のアシスタントを行なっている。",
+    "RelationNotes": "ナンバーテールズ開発者である零(カズナイ)姉弟の後輩。妹:歌嫁は同じくしてかつ百花繚乱研究所のアシスタントを行なっている。",
     "InStory": "シンフォニー.XVI(ゼクズィン)に所属後、量産販売型ナンバーテールズの相場的販売コストを抑えた互換個体ユニットの開発・提供を百花繚乱研究所（の主に零零(カズナイレイ)）と提携して行なっている\nちなみに運命線探偵としての錦野舞は、妹:歌嫁を含めおよそ7年前のパラレル存在に相当する",
     "Relation": {
       "Related": [{ "Num": "∞", "RelationLabel": ["brother|sister"] }]
@@ -784,7 +784,7 @@
     "Class": "ゼミアシスタント",
     "Class_EN": "Seminar Assistant",
     "ForMasterCalling": "クライアントさん",
-    "RelationAbouts": "ナンバーテールズ開発者である零(カズナイ)姉弟の後輩。姉:舞は同じくしてシンフォニー.XVI(ゼクズィン)に所属し黒薔薇国へ単身赴任している",
+    "RelationNotes": "ナンバーテールズ開発者である零(カズナイ)姉弟の後輩。姉:舞は同じくしてシンフォニー.XVI(ゼクズィン)に所属し黒薔薇国へ単身赴任している",
     "InStory": "百花繚乱研究所の本体である元藤・千歳研究室にてN3US大学の大学院修士課程を卒業後、一時的な就職活動を経て同研究室で博士課程に進学し 主に零百(カズナイハゲム)の作業補助などといったゼミのアシスタントを務めている\nちなみに運命線探偵としての錦野歌嫁は、姉:舞を含めおよそ7年前のパラレル存在に相当する",
     "Relation": {
       "Related": [{ "Num": "%", "RelationLabel": ["brother|sister"] }]
