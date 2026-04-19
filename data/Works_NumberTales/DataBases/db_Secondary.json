@@ -44,7 +44,7 @@
     "NumerospecStats": {
       "EffectStats": {
         "Mental": { "hideText": "非公開" },
-        "Manetize": { "hideText": "非公開" },
+        "Monetize": { "hideText": "非公開" },
         "Working": { "hideText": "非公開" },
         "Luck": { "hideText": "非公開" },
         "Communication": { "hideText": "非公開" }
@@ -157,7 +157,7 @@
     "NumerospecStats": {
       "EffectStats": {
         "Mental": { "hideText": "検証中" },
-        "Manetize": { "EffectText": "効果無" },
+        "Monetize": { "EffectText": "効果無" },
         "Working": { "EffectText": "期待" },
         "Luck": { "EffectText": "絶大" },
         "Communication": { "EffectText": "特殊" }
@@ -277,7 +277,7 @@
     "NumerospecStats": {
       "EffectStats": {
         "Mental": { "EffectText": "特殊" },
-        "Manetize": { "hideText": "検証中" },
+        "Monetize": { "hideText": "検証中" },
         "Working": { "EffectText": "効果無" },
         "Luck": { "EffectText": "逆効果" },
         "Communication": { "EffectText": "効果無" }
@@ -403,7 +403,7 @@
     "NumerospecStats": {
       "EffectStats": {
         "Mental": { "EffectText": "希薄" },
-        "Manetize": { "EffectText": "効果無" },
+        "Monetize": { "EffectText": "効果無" },
         "Working": { "EffectText": "絶大" },
         "Luck": { "EffectText": "効果無" },
         "Communication": { "hideText": "検証中" }
@@ -535,7 +535,7 @@
     "NumerospecStats": {
       "EffectStats": {
         "Mental": { "EffectText": "効果無" },
-        "Manetize": { "EffectText": "期待" },
+        "Monetize": { "EffectText": "期待" },
         "Working": { "hideText": "検証中" },
         "Luck": { "hideText": "検証中" },
         "Communication": { "EffectText": "効果無" }
@@ -639,7 +639,7 @@
     "NumerospecStats": {
       "EffectStats": {
         "Mental": { "EffectText": "危険" },
-        "Manetize": { "hideText": "判定失敗" },
+        "Monetize": { "hideText": "判定失敗" },
         "Working": { "hideText": "判定失敗" },
         "Luck": { "hideText": "判定失敗" },
         "Communication": { "hideText": "判定失敗" }
