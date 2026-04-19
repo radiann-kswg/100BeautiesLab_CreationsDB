@@ -3491,6 +3491,28 @@ function preWrapText(text) {
 }
 
 /**
+ * 改行を含む日英ペアを 2 列レイアウトで表示するノードを構築
+ * @param {string} jpText
+ * @param {string} enText
+ * @returns {HTMLElement}
+ */
+function bilingualColumnsText(jpText, enText) {
+  const splitLines = (text) => String(text ?? '')
+    .split('\n')
+    .map(line => line.trim())
+    .filter(Boolean);
+
+  const buildColumn = (lines, langClass) => el('div', {
+    class: `bilingual-lines bilingual-lines--${langClass}`
+  }, lines.map(line => el('div', { class: 'bilingual-lines__line' }, [line])));
+
+  return el('div', { class: 'bilingual-lines-grid' }, [
+    buildColumn(splitLines(jpText), 'jp'),
+    buildColumn(splitLines(enText), 'en')
+  ]);
+}
+
+/**
  * 台詞系テキストの本文ノードを構築する
  * - `#Dialogue` は Relation.Comments と同じ本文表現へ寄せる
  * @param {string} text
@@ -4443,16 +4465,17 @@ async function renderDetail(workId, rec) {
    * - base / base_JP / base_EN の順に拾い、空値は除外
    * - 同一文字列は重複排除
    * @param {string} baseKey
-   * @returns {{ text: string, usedKeys: string[] }}
+   * @returns {{ text: string, usedKeys: string[], node: (Node|null) }}
    */
   const formatBilingualGroup = (baseKey) => {
     const base = String(baseKey || '').trim();
-    if (!base) return { text: '', usedKeys: [] };
+    if (!base) return { text: '', usedKeys: [], node: null };
 
     const candidates = [base, `${base}_JP`, `${base}_EN`];
     const pieces = [];
     const usedKeys = [];
     const seenText = new Set();
+    const textByKey = new Map();
 
     for (const k of candidates) {
       const v = rec?.[k];
@@ -4468,9 +4491,16 @@ async function renderDetail(workId, rec) {
       seenText.add(t);
       pieces.push(t);
       usedKeys.push(k);
+      textByKey.set(k, t);
     }
 
-    return { text: pieces.join(' / '), usedKeys };
+    const baseText = textByKey.get(base) || textByKey.get(`${base}_JP`) || '';
+    const enText = textByKey.get(`${base}_EN`) || '';
+    const hasBilingualPair = !!baseText && !!enText;
+    const hasMultiline = hasBilingualPair && (baseText.includes('\n') || enText.includes('\n'));
+    const node = hasMultiline ? bilingualColumnsText(baseText, enText) : null;
+
+    return { text: pieces.join(' / '), usedKeys, node };
   };
 
   const isEmptyForAlt = (v) => {
@@ -4675,9 +4705,9 @@ async function renderDetail(workId, rec) {
     // - key が base の場合に base/base_JP/base_EN をまとめて表示
     // - base 自体が空でも JP/EN があれば表示する
     if (rec && (Object.prototype.hasOwnProperty.call(rec, `${key}_JP`) || Object.prototype.hasOwnProperty.call(rec, `${key}_EN`))) {
-      const { text, usedKeys } = formatBilingualGroup(key);
+      const { text, usedKeys, node } = formatBilingualGroup(key);
       if (text) {
-        return { value: text, labelKey: key, sourceKey: key, _usedKeys: usedKeys };
+        return { value: node || text, labelKey: key, sourceKey: key, _usedKeys: usedKeys };
       }
     }
 
@@ -5384,6 +5414,8 @@ async function renderDetail(workId, rec) {
   };
 
   const toDisplayNode = (k, v, schemaType = null, schemaDisplay = null) => {
+    if (v instanceof Node) return v;
+
     // typedef 上で「子フィールド定義が存在するobject」は、子ごとに表示（[object Object]回避 + 分離表示）
     if (isPlainObject(v) && k && typeof k === 'string' && hasNestedSchema(k) && !isSchemaWrapperLike(k, v, schemaType)) {
       const expanded = formatObjectChildren(k, v, { separator: '\n' });
@@ -5484,7 +5516,7 @@ async function renderDetail(workId, rec) {
         const suppressed = Array.isArray(detailLayout?.suppressKeys)
           && (detailLayout.suppressKeys.includes(base) || detailLayout.suppressKeys.includes(`${base}_JP`) || detailLayout.suppressKeys.includes(`${base}_EN`));
         if (!suppressed) {
-          const { text, usedKeys } = formatBilingualGroup(base);
+          const { text, usedKeys, node } = formatBilingualGroup(base);
           if (text) {
             // 表示セクションは JP/EN 側の $display.section を優先して解釈
             const displayHint = fieldDisplayMap?.[f.key] ?? fieldDisplayMap?.[base] ?? null;
@@ -5496,7 +5528,7 @@ async function renderDetail(workId, rec) {
                 // すでに統合済み文字列のため、後段の formatValueForDisplay を避ける
                 type: null,
                 display: null,
-                value: text
+                value: node || text
               });
               // base/JP/EN すべて抑止対象にする
               shownKeys.add(base);
@@ -5520,7 +5552,7 @@ async function renderDetail(workId, rec) {
         const suppressed = Array.isArray(detailLayout?.suppressKeys)
           && (detailLayout.suppressKeys.includes(base) || detailLayout.suppressKeys.includes(`${base}_JP`) || detailLayout.suppressKeys.includes(`${base}_EN`));
         if (!suppressed) {
-          const { text, usedKeys } = formatBilingualGroup(base);
+          const { text, usedKeys, node } = formatBilingualGroup(base);
           if (text) {
             const displayHint = fieldDisplayMap?.[`${base}_JP`] ?? fieldDisplayMap?.[`${base}_EN`] ?? fieldDisplayMap?.[base] ?? null;
             if (!(displayHint && typeof displayHint === 'object' && displayHint.auto === false)) {
@@ -5530,7 +5562,7 @@ async function renderDetail(workId, rec) {
                 label: getFieldLabel(base, fieldLabelMap, workMeta, globalDefType, base),
                 type: null,
                 display: null,
-                value: text
+                value: node || text
               });
               shownKeys.add(base);
               for (const uk of usedKeys) shownKeys.add(uk);

@@ -10,6 +10,9 @@
   - `formatValueForDisplay()` で `#ListIndex[]` / `#ListLink[]` を改行連結へ変更
   - `kvTable()` で改行文字列を `preWrapText()` へ通し、td 内で改行が潰れないように調整
   - basic 補助テーブルは、`db_meta.json($DetailLayout.basicFields)` に既に含まれる `Belonging` / `Area` / `BirthDay` / `AnivDay` を重複表示しないよう調整
+  - `##String_JP` / `##String_EN` の bilingual multiline 値は、詳細テーブル内で JP/EN 2 列の専用ノードへ変換
+- `pages/characters.sass`
+  - bilingual multiline 用の 2 列レイアウトスタイルを追加
 - `CHANGELOG.md`
   - 上記 UI 表示仕様を追記
 

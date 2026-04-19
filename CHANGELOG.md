@@ -11,6 +11,7 @@
 - `pages/characters.js` の表示整形で、typedef 上の `#ListIndex[]` / `#ListLink[]` は配列要素を `, ` 連結せず改行連結するようにした。
 - `kvTable()` 側でも改行文字列を `white-space: pre-wrap` で表示するようにし、`Belonging` のような複数所属が 1 要素 1 行で読めるようにした。
 - 詳細ビューの basic 補助テーブルでは、`Belonging` / `Area` / `BirthDay` / `AnivDay` が `db_meta.json($DetailLayout.basicFields)` ですでに表示されている場合に重複追加しないようにした。
+- `##String_JP` / `##String_EN` の名称系フィールドで、和英のどちらかに改行が含まれる場合は詳細テーブル内で JP/EN を左右 2 列に分けて表示するようにした。
 
 ### データ schema の typo・命名修正
 

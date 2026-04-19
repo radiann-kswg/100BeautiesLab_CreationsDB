@@ -1102,6 +1102,39 @@ td {
   padding: 6px;
 }
 
+.bilingual-lines-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 12px;
+  align-items: start;
+}
+
+.bilingual-lines {
+  min-width: 0;
+  display: grid;
+  gap: 4px;
+  overflow-wrap: anywhere;
+}
+
+.bilingual-lines--jp {
+  padding-right: 4px;
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.bilingual-lines--en {
+  padding-left: 4px;
+  color: var(--muted);
+}
+
+.bilingual-lines__line {
+  line-height: 1.45;
+}
+
+@media (max-width: 639px) {
+  .bilingual-lines-grid {
+    gap: 8px;
+  }
+}
 .pill {
   display: inline-flex;
   gap: 6px;
