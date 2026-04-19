@@ -11,14 +11,16 @@
           "FormalName_EN",
           "ModelName",
           "ModelNumber",
-          "SPCodeName",
+          "CodeName",
+          "Belonging",
+          "Class",
+          "RaceType",
           "GenderType",
           "Height_cm",
           "Weight_kg",
-          "BustSize",
-          "TailsUnit",
           "Age",
-          "Class"
+          "BustSize",
+          "TailsUnit"
         ]
       }
     },
@@ -38,12 +40,14 @@
         "basicFields": [
           "FormalName",
           "FormalName_EN",
-          "SPCodeName",
+          "CodeName",
+          "Belonging",
+          "Class",
+          "RaceType",
           "GenderType",
           "Height_cm",
           "Weight_kg",
-          "Age",
-          "Class"
+          "Age"
         ]
       }
     },
@@ -58,12 +62,14 @@
           "FormalName_EN",
           "ModelName",
           "ModelNumber",
-          "SPCodeName",
+          "CodeName",
+          "RaceType",
           "GenderType",
           "Height_cm",
           "Weight_kg",
           "Age",
-          "Class"
+          "Class",
+          "BeastspecName"
         ]
       }
     },
@@ -78,13 +84,15 @@
           "FormalName_EN",
           "ModelName",
           "ModelNumber",
-          "SPCodeName",
+          "CodeName",
+          "Belonging",
+          "Class",
+          "RaceType",
           "GenderType",
           "Height_cm",
           "Weight_kg",
           "BustSize",
-          "Age",
-          "Class"
+          "Age"
         ]
       }
     },
@@ -99,12 +107,13 @@
           "FormalName_EN",
           "ModelName",
           "ModelNumber",
-          "SPCodeName",
+          "Belonging",
+          "Class",
+          "RaceType",
           "GenderType",
           "Height_cm",
           "Weight_kg",
-          "Age",
-          "Class"
+          "Age"
         ]
       }
     },
@@ -119,12 +128,16 @@
           "FormalName_EN",
           "ModelName",
           "ModelNumber",
-          "SPCodeName",
+          "CodeName",
+          "Belonging",
+          "Class",
+          "RaceType",
           "GenderType",
           "Height_cm",
           "Weight_kg",
           "Age",
-          "Class"
+          "ChronoholderName",
+          "ChronospecName"
         ]
       }
     },
@@ -146,12 +159,14 @@
           "FormalName_EN",
           "ModelName",
           "ModelNumber",
-          "SPCodeName",
+          "CodeName",
+          "Belonging",
+          "Class",
+          "RaceType",
           "GenderType",
           "Height_cm",
           "Weight_kg",
-          "Age",
-          "Class"
+          "Age"
         ]
       }
     },
@@ -166,12 +181,14 @@
           "FormalName_EN",
           "ModelName",
           "ModelNumber",
-          "SPCodeName",
+          "CodeName",
+          "Belonging",
+          "Class",
+          "RaceType",
           "GenderType",
           "Height_cm",
           "Weight_kg",
-          "Age",
-          "Class"
+          "Age"
         ]
       }
     }

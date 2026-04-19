@@ -53,8 +53,7 @@
     {
       "hashTag": "BeastspecName",
       "$type": "#String_JP",
-      "hashTag_JP": "獣騎能力名",
-      "$display": { "section": "profile" }
+      "hashTag_JP": "獣騎能力名"
     },
     {
       "hashTag": "BeastspecStats",

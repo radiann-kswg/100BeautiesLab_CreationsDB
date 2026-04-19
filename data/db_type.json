@@ -28,29 +28,37 @@
     {
       "hashTag": "CodeName",
       "$type": "##String_JP|#Null",
-      "hashTag_JP": "名称コード",
+      "$alt": "SPCodeName",
+      "hashTag_JP": "コードネーム",
       "$display": {
-        "auto": false,
-        "aliasOf": "ModelName"
+        "auto": false
       }
     },
     {
       "hashTag": "CodeName_EN",
       "$type": "##String_EN|#Null",
-      "hashTag_JP": "名称コード_EN"
+      "$alt": "SPCodeName_EN",
+      "hashTag_JP": "コードネーム_EN",
+      "$display": {
+        "auto": false
+      }
     },
     {
       "hashTag": "SPCodeName",
       "$type": "##String_JP|#Null",
-      "hashTag_JP": "特殊な名称コード"
+      "hashTag_JP": "特殊なコードネーム",
+      "$display": {
+        "auto": false,
+        "aliasOf": "CodeName"
+      }
     },
     {
       "hashTag": "SPCodeName_EN",
       "$type": "##String_EN|#Null",
-      "hashTag_JP": "特殊な名称コード_EN",
+      "hashTag_JP": "特殊なコードネーム_EN",
       "$display": {
         "auto": false,
-        "aliasOf": "SPCodeName"
+        "aliasOf": "CodeName_EN"
       }
     },
     { "hashTag": "ModelNumber", "$type": "##String", "hashTag_JP": "型番" },

@@ -40,14 +40,12 @@
     {
       "hashTag": "ChronoholderName",
       "$type": "#String_JP",
-      "hashTag_JP": "時空象器能力名",
-      "$display": { "section": "profile" }
+      "hashTag_JP": "時空象器能力名"
     },
     {
       "hashTag": "ChronospecName",
       "$type": "#String_JP",
-      "hashTag_JP": "時空遷移能力名",
-      "$display": { "section": "profile" }
+      "hashTag_JP": "時空遷移能力名"
     },
     {
       "hashTag": "ChronospecAbout",
