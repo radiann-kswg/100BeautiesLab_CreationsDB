@@ -18,7 +18,7 @@
     "Class_EN": "BasicCommons",
     "Character": "気分が“零か百”で、極端に元気なこともあれば極端に落ち込んでいることもある",
     "Strength": "表裏が一切ない",
-    "Weakpoint": "気分の振れ幅が激しい",
+    "Weakness": "気分の振れ幅が激しい",
     "Favor": "秒針のチック(１秒ごとに針が断続的に動く様子)",
     "Unlike": "曖昧なこと",
     "LogicspecAbout": "状態を切り下げ/切り上げする"
@@ -41,7 +41,7 @@
     "Class_EN": "CyrillicMatons",
     "Character": "癇癪を起こしやすく、物へのこだわりが強い",
     "Strength": "過圧に耐久できる",
-    "Weakpoint": "我が強い",
+    "Weakness": "我が強い",
     "Favor": "電熱燈",
     "Unlike": "最新技術",
     "LogicspecAbout": "電熱燈を点灯させる"
@@ -70,7 +70,7 @@
     "Class_EN": "Arithmeticas",
     "Character": "理論生前としており、汎用オートマトンの中ではほぼ唯一人語を理解できる",
     "Strength": "知的である",
-    "Weakpoint": "指示をするための制約が多い",
+    "Weakness": "指示をするための制約が多い",
     "Favor": "アーケードゲーム",
     "Unlike": "最新世代のコンピュータ",
     "LogicspecAbout": "論理的計算をする"
@@ -99,7 +99,7 @@
     "Class_EN": "Expanders",
     "Character": "とても礼儀正しく、躾にとても従順",
     "Strength": "整理が得意",
-    "Weakpoint": "単体行動や自己判断が苦手",
+    "Weakness": "単体行動や自己判断が苦手",
     "Favor": "アリスメティアに該当する汎用オートマトン",
     "Unlike": "ブラックボックス",
     "LogicspecAbout": "アリスメティアの能力を拡張する"
