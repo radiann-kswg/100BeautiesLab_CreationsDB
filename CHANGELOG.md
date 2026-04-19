@@ -6,6 +6,12 @@
 - これにより、`Works_UnauthedLogica` から `Works_NumberTales` を `_DBLink` 参照した際に、UnauthedLogica 側で宣言していない `Relations` などのトップレベル項目が不要に混入する経路を遮断した。
 - 回帰防止として `tests/enrich.dblink.jump.merge.test.js` に「別作品 + schema 未宣言キーはマージしない」テストを追加した。
 
+### `#ListIndex[]` / `#ListLink[]` の詳細表示を要素ごと改行
+
+- `pages/characters.js` の表示整形で、typedef 上の `#ListIndex[]` / `#ListLink[]` は配列要素を `, ` 連結せず改行連結するようにした。
+- `kvTable()` 側でも改行文字列を `white-space: pre-wrap` で表示するようにし、`Belonging` のような複数所属が 1 要素 1 行で読めるようにした。
+- 詳細ビューの basic 補助テーブルでは、`Belonging` / `Area` / `BirthDay` / `AnivDay` が `db_meta.json($DetailLayout.basicFields)` ですでに表示されている場合に重複追加しないようにした。
+
 ### データ schema の typo・命名修正
 
 - 共有 schema と作品別データで、relation label の typo `secletRelation` を `secretRelation` へ統一した。

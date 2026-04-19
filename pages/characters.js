@@ -3134,6 +3134,14 @@ function formatValueForDisplay(value, labelMap = {}, workMeta = null, globalDefT
       .filter(v => v);
     if (formattedItems.length === 0) return '';
 
+    const hasArraySchema = /\[\]/.test(String(opt?.schemaType || ''));
+    const isListIndexArray = hasArraySchema && schemaTypeIncludes(opt?.schemaType, '#ListIndex');
+    const isListLinkArray = hasArraySchema && schemaTypeIncludes(opt?.schemaType, '#ListLink');
+
+    if (isListIndexArray || isListLinkArray) {
+      return formattedItems.join('\n');
+    }
+
     if (schemaTypeIncludes(opt?.schemaType, '#Summary')) {
       return formattedItems.join('\n');
     }
@@ -4265,7 +4273,11 @@ async function renderList(records, workId, onOpen, imageFields = null) {
  * @returns {HTMLElement} Table element with key-value rows
  */
 function kvTable(obj, entries) {
-  const rows = entries.filter(Boolean).map(([k, v]) => el('tr', {}, [ el('th', {}, [k]), el('td', {}, [v ?? '']) ]));
+  const rows = entries.filter(Boolean).map(([k, v]) => {
+    const text = typeof v === 'string' ? v : '';
+    const cellValue = (typeof text === 'string' && text.includes('\n')) ? preWrapText(text) : (v ?? '');
+    return el('tr', {}, [ el('th', {}, [k]), el('td', {}, [cellValue]) ]);
+  });
   return el('table', { class: 'kv-table' }, rows);
 }
 
@@ -4648,6 +4660,7 @@ async function renderDetail(workId, rec) {
   };
 
   const normalizedBasicFieldKeys = normalizeBasicFieldKeys(basicFieldKeys);
+  const normalizedBasicFieldKeySet = new Set(normalizedBasicFieldKeys);
 
   /**
    * 基本情報テーブル用の値解決
@@ -5697,18 +5710,27 @@ async function renderDetail(workId, rec) {
   const otherRows = buildKvRows(sectionBuckets.other);
   const specRows = buildKvRows(sectionBuckets.spec);
   const basicExtraRows = buildKvRows(sectionBuckets.basic);
+  const supplementalBasicRows = [
+    (!normalizedBasicFieldKeySet.has('Belonging') && belong)
+      ? [getFieldLabel('Belonging', fieldLabelMap, workMeta, globalDefType, '所属'), belong]
+      : null,
+    (!normalizedBasicFieldKeySet.has('Area') && area)
+      ? [getFieldLabel('Area', fieldLabelMap, workMeta, globalDefType, '地域'), area]
+      : null,
+    (!normalizedBasicFieldKeySet.has('BirthDay') && birthDay)
+      ? [getFieldLabel('BirthDay', fieldLabelMap, workMeta, globalDefType, '誕生日'), birthDay]
+      : null,
+    (!normalizedBasicFieldKeySet.has('AnivDay') && days.length)
+      ? [getFieldLabel('AnivDay', fieldLabelMap, workMeta, globalDefType, '記念日'), days.join(' / ')]
+      : null,
+  ].filter(Boolean);
 
   // basic セクションは「基本情報テーブル + スキーマで basic 指定された追加項目」をまとめて表示
   const basicSection = el('div', { class: 'section' }, [
     el('h3', {}, [getFieldLabel('BasicInfo', fieldLabelMap, workMeta, globalDefType, '基本情報')]),
     basic,
     basicExtraRows.length ? kvTable({}, basicExtraRows) : null,
-    (belong || area || birthDay || days.length) ? kvTable({}, [
-      belong ? [getFieldLabel('Belonging', fieldLabelMap, workMeta, globalDefType, '所属'), belong] : null,
-      area ? [getFieldLabel('Area', fieldLabelMap, workMeta, globalDefType, '地域'), area] : null,
-      birthDay ? [getFieldLabel('BirthDay', fieldLabelMap, workMeta, globalDefType, '誕生日'), birthDay] : null,
-      days.length ? [getFieldLabel('AnivDay', fieldLabelMap, workMeta, globalDefType, '記念日'), days.join(' / ')] : null,
-    ].filter(Boolean)) : null,
+    supplementalBasicRows.length ? kvTable({}, supplementalBasicRows) : null,
   ].filter(Boolean));
 
   const specSection = (abilityTags.length || effTags.length || safetyRow || specNodes.length || specRows.length)
