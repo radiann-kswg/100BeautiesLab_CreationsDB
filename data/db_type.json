@@ -258,6 +258,11 @@
       "$type": "#Summary",
       "hashTag_JP": "関連性について"
     },
+    {
+      "hashTag": "Career",
+      "$type": "#Summary",
+      "hashTag_JP": "経歴について"
+    },
     { "hashTag": "Summary", "$type": "#Summary", "hashTag_JP": "概要・紹介文" },
     {
       "hashTag": "AbilityStats",
