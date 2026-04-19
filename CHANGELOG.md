@@ -1,5 +1,12 @@
 # 最新のリファクタリング・仕様変更履歴
 
+### API / SW 周辺の技術仕様ドキュメントと注釈を補強
+
+- `docs/api-sw-spec.md` を追加し、`/api/v1` / `/pages/v1` / `/svc/v1` の役割差、`db_type.json` / `db_meta.json` / 予約語の責務分担、`_enrichment` の出力仕様、`db_meta.json` 欠損時ポリシーを整理した。
+- `docs/README.md` と `docs/viewer-guide.md` から新しい API/SW 技術メモへ辿れるようにした。
+- `lib/sw-common.js` に、bootstrap / DB取得 / search / varsdef の設計意図が分かる注釈を追加した。
+- `lib/data-common.js` に、work context の辞書合成、cross-work `_DBLink` の schema 制約、`_enrichment` / `displaySections` の位置づけが分かる注釈を追加した。
+
 ### `_DBLink` の別作品参照で schema 未宣言項目を抑止
 
 - `lib/data-common.js` の `_DBLink` 穴埋めマージで、別作品から参照する場合は対象作品の `db_type.json($DefType)` とグローバル `data/db_type.json($DefType)` に宣言されたトップレベル項目だけを取り込むようにした。
