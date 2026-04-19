@@ -8,10 +8,10 @@
         "headerPills": ["Progress"],
         "basicFields": [
           "FormalName",
-          "FormalName_EN",
           "ModelName",
           "ModelNumber",
           "CodeName",
+          "SPCodeName",
           "Belonging",
           "Class",
           "RaceType",
@@ -39,7 +39,6 @@
         "headerPills": ["Progress"],
         "basicFields": [
           "FormalName",
-          "FormalName_EN",
           "CodeName",
           "Belonging",
           "Class",
@@ -59,7 +58,6 @@
         "headerPills": ["Progress"],
         "basicFields": [
           "FormalName",
-          "FormalName_EN",
           "ModelName",
           "ModelNumber",
           "CodeName",
@@ -81,7 +79,6 @@
         "headerPills": ["Progress"],
         "basicFields": [
           "FormalName",
-          "FormalName_EN",
           "ModelName",
           "ModelNumber",
           "CodeName",
