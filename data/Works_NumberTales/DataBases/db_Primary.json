@@ -69,7 +69,7 @@
     },
     "AbilityStats": {
       "Speed": { "Rank": "A" },
-      "Communicating": { "Rank": "B" },
+      "Communication": { "Rank": "B" },
       "Leading": { "Rank": "S" },
       "Precision": { "Rank": "A" },
       "Technic": { "Rank": "A" },
@@ -176,7 +176,7 @@
     },
     "AbilityStats": {
       "Speed": { "Rank": "B+" },
-      "Communicating": { "Rank": "A" },
+      "Communication": { "Rank": "A" },
       "Leading": { "Rank": "A" },
       "Precision": { "Rank": "B" },
       "Technic": { "Rank": "B" },
@@ -276,7 +276,7 @@
     },
     "AbilityStats": {
       "Speed": { "Rank": "S" },
-      "Communicating": { "Rank": "A" },
+      "Communication": { "Rank": "A" },
       "Leading": { "Rank": "A" },
       "Precision": { "Rank": "B" },
       "Technic": { "Rank": "B" },
@@ -376,7 +376,7 @@
     },
     "AbilityStats": {
       "Speed": { "Rank": "B" },
-      "Communicating": { "Rank": "A" },
+      "Communication": { "Rank": "A" },
       "Leading": { "Rank": "C" },
       "Precision": { "Rank": "S" },
       "Technic": { "Rank": "B+" },
@@ -479,7 +479,7 @@
     },
     "AbilityStats": {
       "Speed": { "Rank": "Z" },
-      "Communicating": { "hideText": "判定不能" },
+      "Communication": { "hideText": "判定不能" },
       "Leading": { "Rank": "D" },
       "Precision": { "Rank": "C" },
       "Technic": { "Rank": "B+" },
@@ -579,7 +579,7 @@
     },
     "AbilityStats": {
       "Speed": { "Rank": "B" },
-      "Communicating": { "Rank": "S" },
+      "Communication": { "Rank": "S" },
       "Leading": { "Rank": "A" },
       "Precision": { "Rank": "A" },
       "Technic": { "Rank": "B+" },
@@ -673,7 +673,7 @@
     },
     "AbilityStats": {
       "Speed": { "Rank": "B" },
-      "Communicating": { "Rank": "C" },
+      "Communication": { "Rank": "C" },
       "Leading": { "Rank": "A" },
       "Precision": { "Rank": "A" },
       "Technic": { "Rank": "B" },
@@ -779,7 +779,7 @@
     },
     "AbilityStats": {
       "Speed": { "Rank": "B+" },
-      "Communicating": { "Rank": "B" },
+      "Communication": { "Rank": "B" },
       "Leading": { "Rank": "S" },
       "Precision": { "Rank": "B+" },
       "Technic": { "Rank": "S" },
@@ -871,7 +871,7 @@
     },
     "AbilityStats": {
       "Speed": { "Rank": "C" },
-      "Communicating": { "Rank": "Z" },
+      "Communication": { "Rank": "Z" },
       "Leading": { "Rank": "B+" },
       "Precision": { "Rank": "B" },
       "Technic": { "Rank": "A" },
@@ -982,7 +982,7 @@
     },
     "AbilityStats": {
       "Speed": { "hideText": "非公開" },
-      "Communicating": { "Rank": "B" },
+      "Communication": { "Rank": "B" },
       "Leading": { "Rank": "A" },
       "Precision": { "Rank": "A" },
       "Technic": { "Rank": "S" },
@@ -1081,7 +1081,7 @@
     },
     "AbilityStats": {
       "Speed": { "Rank": "A" },
-      "Communicating": { "Rank": "C" },
+      "Communication": { "Rank": "C" },
       "Leading": { "Rank": "A" },
       "Precision": { "Rank": "A" },
       "Technic": { "Rank": "B" },
@@ -1179,7 +1179,7 @@
     },
     "AbilityStats": {
       "Speed": { "Rank": "C" },
-      "Communicating": { "Rank": "S" },
+      "Communication": { "Rank": "S" },
       "Leading": { "Rank": "S" },
       "Precision": { "Rank": "B" },
       "Technic": { "Rank": "B+" },
@@ -1279,7 +1279,7 @@
     },
     "AbilityStats": {
       "Speed": { "Rank": "B" },
-      "Communicating": { "Rank": "A" },
+      "Communication": { "Rank": "A" },
       "Leading": { "Rank": "A" },
       "Precision": { "Rank": "B" },
       "Technic": { "Rank": "B+" },
@@ -1391,7 +1391,7 @@
     },
     "AbilityStats": {
       "Speed": { "Rank": "S" },
-      "Communicating": { "Rank": "D" },
+      "Communication": { "Rank": "D" },
       "Leading": { "Rank": "S" },
       "Precision": { "Rank": "A" },
       "Technic": { "Rank": "B" },
@@ -1515,7 +1515,7 @@
     },
     "AbilityStats": {
       "Speed": { "Rank": "A" },
-      "Communicating": { "Rank": "B" },
+      "Communication": { "Rank": "B" },
       "Leading": { "Rank": "B" },
       "Precision": { "Rank": "B" },
       "Technic": { "Rank": "B" },
@@ -1642,7 +1642,7 @@
     },
     "AbilityStats": {
       "Speed": { "Rank": "A" },
-      "Communicating": { "Rank": "A" },
+      "Communication": { "Rank": "A" },
       "Leading": { "Rank": "S" },
       "Precision": { "Rank": "A" },
       "Technic": { "Rank": "B" },
@@ -1760,7 +1760,7 @@
     },
     "AbilityStats": {
       "Speed": { "Rank": "B" },
-      "Communicating": { "Rank": "C" },
+      "Communication": { "Rank": "C" },
       "Leading": { "Rank": "A" },
       "Precision": { "Rank": "B+" },
       "Technic": { "Rank": "S" },
@@ -1862,7 +1862,7 @@
     },
     "AbilityStats": {
       "Speed": { "Rank": "A" },
-      "Communicating": { "Rank": "B+" },
+      "Communication": { "Rank": "B+" },
       "Leading": { "Rank": "B+" },
       "Precision": { "Rank": "B" },
       "Technic": { "Rank": "A" },
@@ -1960,7 +1960,7 @@
     },
     "AbilityStats": {
       "Speed": { "hideText": "非公開" },
-      "Communicating": { "Rank": "C" },
+      "Communication": { "Rank": "C" },
       "Leading": { "Rank": "A" },
       "Precision": { "hideText": "非公開" },
       "Technic": { "Rank": "B" },
@@ -2059,7 +2059,7 @@
     },
     "AbilityStats": {
       "Speed": { "Rank": "C" },
-      "Communicating": { "Rank": "Z" },
+      "Communication": { "Rank": "Z" },
       "Leading": { "Rank": "C" },
       "Precision": { "Rank": "B+" },
       "Technic": { "Rank": "C" },
@@ -2156,7 +2156,7 @@
     },
     "AbilityStats": {
       "Speed": { "Rank": "C" },
-      "Communicating": { "Rank": "A" },
+      "Communication": { "Rank": "A" },
       "Leading": { "Rank": "A" },
       "Precision": { "Rank": "C" },
       "Technic": { "Rank": "B+" },
@@ -2268,7 +2268,7 @@
     },
     "AbilityStats": {
       "Speed": { "Rank": "A" },
-      "Communicating": { "Rank": "D" },
+      "Communication": { "Rank": "D" },
       "Leading": { "Rank": "S" },
       "Precision": { "Rank": "A" },
       "Technic": { "Rank": "B" },
@@ -2370,7 +2370,7 @@
     },
     "AbilityStats": {
       "Speed": { "Rank": "A" },
-      "Communicating": { "Rank": "B" },
+      "Communication": { "Rank": "B" },
       "Leading": { "Rank": "A" },
       "Precision": { "Rank": "B" },
       "Technic": { "Rank": "B+" },
@@ -2472,7 +2472,7 @@
     },
     "AbilityStats": {
       "Speed": { "Rank": "B" },
-      "Communicating": { "Rank": "A" },
+      "Communication": { "Rank": "A" },
       "Leading": { "Rank": "B" },
       "Precision": { "Rank": "A" },
       "Technic": { "Rank": "C" },
@@ -2581,7 +2581,7 @@
     },
     "AbilityStats": {
       "Speed": { "Rank": "A" },
-      "Communicating": { "Rank": "A" },
+      "Communication": { "Rank": "A" },
       "Leading": { "Rank": "B" },
       "Precision": { "Rank": "B" },
       "Technic": { "Rank": "A" },
@@ -2682,7 +2682,7 @@
     },
     "AbilityStats": {
       "Speed": { "Rank": "C" },
-      "Communicating": { "Rank": "A" },
+      "Communication": { "Rank": "A" },
       "Leading": { "Rank": "B+" },
       "Precision": { "Rank": "A" },
       "Technic": { "Rank": "D" },
@@ -2805,7 +2805,7 @@
     },
     "AbilityStats": {
       "Speed": { "Rank": "B+" },
-      "Communicating": { "Rank": "B+" },
+      "Communication": { "Rank": "B+" },
       "Leading": { "Rank": "A" },
       "Precision": { "Rank": "A" },
       "Technic": { "Rank": "S" },
@@ -2910,7 +2910,7 @@
     },
     "AbilityStats": {
       "Speed": { "Rank": "B+" },
-      "Communicating": { "Rank": "B" },
+      "Communication": { "Rank": "B" },
       "Leading": { "Rank": "C" },
       "Precision": { "Rank": "B" },
       "Technic": { "Rank": "A" },
@@ -3019,7 +3019,7 @@
     },
     "AbilityStats": {
       "Speed": { "Rank": "C" },
-      "Communicating": { "Rank": "S" },
+      "Communication": { "Rank": "S" },
       "Leading": { "Rank": "C" },
       "Precision": { "Rank": "B" },
       "Technic": { "Rank": "B" },
@@ -3116,7 +3116,7 @@
     },
     "AbilityStats": {
       "Speed": { "Rank": "C" },
-      "Communicating": { "Rank": "B+" },
+      "Communication": { "Rank": "B+" },
       "Leading": { "Rank": "B" },
       "Precision": { "Rank": "S" },
       "Technic": { "Rank": "S" },
@@ -3213,7 +3213,7 @@
     },
     "AbilityStats": {
       "Speed": { "Rank": "B+" },
-      "Communicating": { "Rank": "B" },
+      "Communication": { "Rank": "B" },
       "Leading": { "Rank": "S" },
       "Precision": { "Rank": "A" },
       "Technic": { "Rank": "S" },
@@ -3314,7 +3314,7 @@
     },
     "AbilityStats": {
       "Speed": { "Rank": "B+" },
-      "Communicating": { "Rank": "S" },
+      "Communication": { "Rank": "S" },
       "Leading": { "Rank": "S" },
       "Precision": { "Rank": "B+" },
       "Technic": { "Rank": "A" },
@@ -3419,7 +3419,7 @@
     },
     "AbilityStats": {
       "Speed": { "hideText": "非公開" },
-      "Communicating": { "Rank": "C" },
+      "Communication": { "Rank": "C" },
       "Leading": { "hideText": "非公開" },
       "Precision": { "hideText": "非公開" },
       "Technic": { "hideText": "非公開" },
@@ -3526,7 +3526,7 @@
     },
     "AbilityStats": {
       "Speed": { "Rank": "B" },
-      "Communicating": { "hideText": "定義不能" },
+      "Communication": { "hideText": "定義不能" },
       "Reading": { "Rank": "Z" },
       "Precision": { "Rank": "D" },
       "Technic": { "Rank": "A" },
@@ -3628,7 +3628,7 @@
     },
     "AbilityStats": {
       "Speed": { "Rank": "B+" },
-      "Communicating": { "Rank": "A" },
+      "Communication": { "Rank": "A" },
       "Leading": { "Rank": "A" },
       "Precision": { "Rank": "A" },
       "Technic": { "Rank": "C" },
@@ -3739,7 +3739,7 @@
     },
     "AbilityStats": {
       "Speed": { "Rank": "C" },
-      "Communicating": { "Rank": "A" },
+      "Communication": { "Rank": "A" },
       "Leading": { "Rank": "C" },
       "Precision": { "Rank": "S" },
       "Technic": { "Rank": "B+" },
@@ -3846,7 +3846,7 @@
     },
     "AbilityStats": {
       "Speed": { "Rank": "C" },
-      "Communicating": { "Rank": "A" },
+      "Communication": { "Rank": "A" },
       "Leading": { "Rank": "B+" },
       "Precision": { "Rank": "C" },
       "Technic": { "Rank": "A" },
@@ -3997,7 +3997,7 @@
     },
     "AbilityStats": {
       "Speed": { "Rank": "A" },
-      "Communicating": { "Rank": "B+" },
+      "Communication": { "Rank": "B+" },
       "Leading": { "Rank": "B" },
       "Precision": { "Rank": "B" },
       "Technic": { "Rank": "B" },
@@ -4099,7 +4099,7 @@
     },
     "AbilityStats": {
       "Speed": { "Rank": "C" },
-      "Communicating": { "Rank": "B+" },
+      "Communication": { "Rank": "B+" },
       "Leading": { "Rank": "C" },
       "Precision": { "Rank": "S" },
       "Technic": { "Rank": "B" },
@@ -4196,7 +4196,7 @@
     },
     "AbilityStats": {
       "Speed": { "Rank": "B+" },
-      "Communicating": { "Rank": "B" },
+      "Communication": { "Rank": "B" },
       "Leading": { "Rank": "A" },
       "Precision": { "Rank": "D" },
       "Technic": { "Rank": "B+" },
@@ -4293,7 +4293,7 @@
     },
     "AbilityStats": {
       "Speed": { "Rank": "B+" },
-      "Communicating": { "Rank": "B" },
+      "Communication": { "Rank": "B" },
       "Leading": { "Rank": "A" },
       "Precision": { "Rank": "B" },
       "Technic": { "Rank": "B" },
@@ -4395,7 +4395,7 @@
     },
     "AbilityStats": {
       "Speed": { "Rank": "B" },
-      "Communicating": { "hideText": "定義不能" },
+      "Communication": { "hideText": "定義不能" },
       "Reading": { "Rank": "B" },
       "Precision": { "Rank": "S" },
       "Technic": { "Rank": "A" },
@@ -4508,7 +4508,7 @@
     },
     "AbilityStats": {
       "Speed": { "Rank": "S" },
-      "Communicating": { "Rank": "D" },
+      "Communication": { "Rank": "D" },
       "Leading": { "Rank": "C" },
       "Precision": { "Rank": "Z" },
       "Technic": { "Rank": "B" },
@@ -4616,7 +4616,7 @@
     },
     "AbilityStats": {
       "Speed": { "Rank": "B+" },
-      "Communicating": { "Rank": "B+" },
+      "Communication": { "Rank": "B+" },
       "Leading": { "Rank": "S" },
       "Precision": { "Rank": "B" },
       "Technic": { "Rank": "A" },
@@ -4713,7 +4713,7 @@
     },
     "AbilityStats": {
       "Speed": { "Rank": "Z" },
-      "Communicating": { "Rank": "D" },
+      "Communication": { "Rank": "D" },
       "Leading": { "Rank": "D" },
       "Precision": { "Rank": "D" },
       "Technic": { "Rank": "B" },
@@ -4820,7 +4820,7 @@
     },
     "AbilityStats": {
       "Speed": { "Rank": "A" },
-      "Communicating": { "hideText": "検証中" },
+      "Communication": { "hideText": "検証中" },
       "Leading": { "hideText": "検証中" },
       "Precision": { "Rank": "A" },
       "Technic": { "Rank": "B+" },
@@ -4918,7 +4918,7 @@
     },
     "AbilityStats": {
       "Speed": { "Rank": "B" },
-      "Communicating": { "Rank": "B+" },
+      "Communication": { "Rank": "B+" },
       "Leading": { "Rank": "S" },
       "Precision": { "Rank": "A" },
       "Technic": { "Rank": "S+" },
@@ -5026,7 +5026,7 @@
     },
     "AbilityStats": {
       "Speed": { "Rank": "A" },
-      "Communicating": { "Rank": "C" },
+      "Communication": { "Rank": "C" },
       "Leading": { "Rank": "S" },
       "Precision": { "Rank": "B+" },
       "Technic": { "Rank": "S" },
@@ -5124,7 +5124,7 @@
     },
     "AbilityStats": {
       "Speed": { "Rank": "Z" },
-      "Communicating": { "hideText": "判定不能" },
+      "Communication": { "hideText": "判定不能" },
       "Leading": { "Rank": "E" },
       "Precision": { "Rank": "E" },
       "Technic": { "Rank": "B+" },
@@ -5228,7 +5228,7 @@
     },
     "AbilityStats": {
       "Speed": { "Rank": "B+" },
-      "Communicating": { "Rank": "B" },
+      "Communication": { "Rank": "B" },
       "Leading": { "Rank": "C" },
       "Precision": { "Rank": "B" },
       "Technic": { "Rank": "B+" },
@@ -5333,7 +5333,7 @@
     },
     "AbilityStats": {
       "Speed": { "Rank": "B+" },
-      "Communicating": { "Rank": "A" },
+      "Communication": { "Rank": "A" },
       "Leading": { "Rank": "S" },
       "Precision": { "Rank": "B" },
       "Technic": { "Rank": "S" },
@@ -5440,7 +5440,7 @@
     },
     "AbilityStats": {
       "Speed": { "Rank": "A" },
-      "Communicating": { "Rank": "C" },
+      "Communication": { "Rank": "C" },
       "Leading": { "Rank": "C" },
       "Precision": { "Rank": "B+" },
       "Technic": { "Rank": "B+" },
@@ -5571,7 +5571,7 @@
     },
     "AbilityStats": {
       "Speed": { "Rank": "A" },
-      "Communicating": { "Rank": "B" },
+      "Communication": { "Rank": "B" },
       "Leading": { "Rank": "B" },
       "Precision": { "Rank": "B" },
       "Technic": { "Rank": "C" },
@@ -5675,7 +5675,7 @@
     },
     "AbilityStats": {
       "Speed": { "Rank": "B" },
-      "Communicating": { "Rank": "B" },
+      "Communication": { "Rank": "B" },
       "Leading": { "Rank": "D" },
       "Precision": { "Rank": "B" },
       "Technic": { "Rank": "B" },
@@ -5779,7 +5779,7 @@
     },
     "AbilityStats": {
       "Speed": { "Rank": "B" },
-      "Communicating": { "Rank": "B" },
+      "Communication": { "Rank": "B" },
       "Leading": { "Rank": "B+" },
       "Precision": { "Rank": "B" },
       "Technic": { "Rank": "A" },
@@ -5879,7 +5879,7 @@
     },
     "AbilityStats": {
       "Speed": { "Rank": "A" },
-      "Communicating": { "Rank": "B" },
+      "Communication": { "Rank": "B" },
       "Leading": { "Rank": "B" },
       "Precision": { "Rank": "A" },
       "Technic": { "Rank": "A" },
@@ -6008,7 +6008,7 @@
     },
     "AbilityStats": {
       "Speed": { "Rank": "A" },
-      "Communicating": { "Rank": "B+" },
+      "Communication": { "Rank": "B+" },
       "Leading": { "Rank": "A" },
       "Precision": { "Rank": "S" },
       "Technic": { "Rank": "A" },
@@ -6143,7 +6143,7 @@
     },
     "AbilityStats": {
       "Speed": { "Rank": "S" },
-      "Communicating": { "Rank": "C" },
+      "Communication": { "Rank": "C" },
       "Leading": { "Rank": "D" },
       "Precision": { "Rank": "S" },
       "Technic": { "Rank": "A" },
@@ -6253,7 +6253,7 @@
     },
     "AbilityStats": {
       "Speed": { "Rank": "C" },
-      "Communicating": { "Rank": "B" },
+      "Communication": { "Rank": "B" },
       "Leading": { "Rank": "C" },
       "Precision": { "Rank": "S" },
       "Technic": { "Rank": "B+" },
@@ -6358,7 +6358,7 @@
     },
     "AbilityStats": {
       "Speed": { "Rank": "B" },
-      "Communicating": { "Rank": "S" },
+      "Communication": { "Rank": "S" },
       "Leading": { "Rank": "B+" },
       "Precision": { "Rank": "B" },
       "Technic": { "Rank": "C" },
@@ -6456,7 +6456,7 @@
     },
     "AbilityStats": {
       "Speed": { "Rank": "A" },
-      "Communicating": { "hideText": "公開不能" },
+      "Communication": { "hideText": "公開不能" },
       "Leading": { "Rank": "D" },
       "Precision": { "hideText": "公開不能" },
       "Technic": { "Rank": "C" },
@@ -6563,7 +6563,7 @@
     },
     "AbilityStats": {
       "Speed": { "Rank": "C" },
-      "Communicating": { "Rank": "B" },
+      "Communication": { "Rank": "B" },
       "Leading": { "hideText": "データ無" },
       "Precision": { "Rank": "A" },
       "Technic": { "hideText": "データ無" },
@@ -6669,7 +6669,7 @@
     },
     "AbilityStats": {
       "Speed": { "Rank": "B+" },
-      "Communicating": { "Rank": "A" },
+      "Communication": { "Rank": "A" },
       "Leading": { "Rank": "A" },
       "Precision": { "Rank": "S" },
       "Technic": { "Rank": "A" },
@@ -6750,7 +6750,7 @@
     },
     "AbilityStats": {
       "Speed": { "Rank": "A" },
-      "Communicating": { "Rank": "D" },
+      "Communication": { "Rank": "D" },
       "Leading": { "Rank": "B" },
       "Precision": { "Rank": "C" },
       "Technic": { "Rank": "B" },
@@ -6807,7 +6807,7 @@
     },
     "AbilityStats": {
       "Speed": { "Rank": "S" },
-      "Communicating": { "Rank": "C" },
+      "Communication": { "Rank": "C" },
       "Leading": { "Rank": "B+" },
       "Precision": { "Rank": "E" },
       "Technic": { "Rank": "B+" },
@@ -6924,7 +6924,7 @@
     },
     "AbilityStats": {
       "Speed": { "Rank": "S" },
-      "Communicating": { "Rank": "D" },
+      "Communication": { "Rank": "D" },
       "Leading": { "Rank": "B+" },
       "Precision": { "Rank": "S" },
       "Technic": { "Rank": "A" },
@@ -7038,7 +7038,7 @@
     },
     "AbilityStats": {
       "Speed": { "Rank": "A" },
-      "Communicating": { "Rank": "B+" },
+      "Communication": { "Rank": "B+" },
       "Leading": { "Rank": "A" },
       "Precision": { "Rank": "Z" },
       "Technic": { "Rank": "B+" },
@@ -7138,7 +7138,7 @@
     },
     "AbilityStats": {
       "Speed": { "Rank": "B" },
-      "Communicating": { "Rank": "C" },
+      "Communication": { "Rank": "C" },
       "Leading": { "Rank": "A" },
       "Precision": { "Rank": "A" },
       "Technic": { "Rank": "C" },
@@ -7238,7 +7238,7 @@
     },
     "AbilityStats": {
       "Speed": { "Rank": "B" },
-      "Communicating": { "Rank": "A" },
+      "Communication": { "Rank": "A" },
       "Leading": { "Rank": "B+" },
       "Precision": { "Rank": "B+" },
       "Technic": { "Rank": "A" },
@@ -7334,7 +7334,7 @@
     },
     "AbilityStats": {
       "Speed": { "Rank": "B" },
-      "Communicating": { "hideText": "データ無" },
+      "Communication": { "hideText": "データ無" },
       "Leading": { "Rank": "S" },
       "Precision": { "Rank": "S" },
       "Technic": { "Rank": "Z" },
@@ -7446,7 +7446,7 @@
     },
     "AbilityStats": {
       "Speed": { "Rank": "C" },
-      "Communicating": { "Rank": "C" },
+      "Communication": { "Rank": "C" },
       "Leading": { "Rank": "E" },
       "Precision": { "Rank": "C" },
       "Technic": { "Rank": "C", "AbilityText": "極端" },
@@ -7560,7 +7560,7 @@
     },
     "AbilityStats": {
       "Speed": { "Rank": "A" },
-      "Communicating": { "hideText": "検証中" },
+      "Communication": { "hideText": "検証中" },
       "Leading": { "hideText": "検証中" },
       "Precision": { "Rank": "A" },
       "Technic": { "Rank": "B" },
@@ -7665,7 +7665,7 @@
     },
     "AbilityStats": {
       "Speed": { "Rank": "B" },
-      "Communicating": { "Rank": "B" },
+      "Communication": { "Rank": "B" },
       "Leading": { "Rank": "S" },
       "Precision": { "Rank": "B" },
       "Technic": { "Rank": "A" },
@@ -7767,7 +7767,7 @@
     },
     "AbilityStats": {
       "Speed": { "Rank": "D" },
-      "Communicating": { "Rank": "D" },
+      "Communication": { "Rank": "D" },
       "Leading": { "Rank": "B+" },
       "Precision": { "Rank": "C" },
       "Technic": { "Rank": "S" },
@@ -7866,7 +7866,7 @@
     },
     "AbilityStats": {
       "Speed": { "Rank": "A" },
-      "Communicating": { "Rank": "C" },
+      "Communication": { "Rank": "C" },
       "Leading": { "Rank": "B+" },
       "Precision": { "Rank": "S" },
       "Technic": { "Rank": "B" },
@@ -7981,7 +7981,7 @@
     },
     "AbilityStats": {
       "Speed": { "Rank": "B" },
-      "Communicating": { "Rank": "D" },
+      "Communication": { "Rank": "D" },
       "Leading": { "Rank": "C" },
       "Precision": { "Rank": "C" },
       "Technic": { "Rank": "S+" },
@@ -8103,7 +8103,7 @@
     },
     "AbilityStats": {
       "Speed": { "Rank": "B+" },
-      "Communicating": { "Rank": "C" },
+      "Communication": { "Rank": "C" },
       "Leading": { "Rank": "A" },
       "Precision": { "Rank": "D" },
       "Technic": { "hideText": "判定不能" },
@@ -8180,7 +8180,7 @@
     },
     "AbilityStats": {
       "Speed": { "Rank": "A" },
-      "Communicating": { "Rank": "C" },
+      "Communication": { "Rank": "C" },
       "Leading": { "Rank": "A" },
       "Precision": { "Rank": "B" },
       "Technic": { "Rank": "A" },
@@ -8361,7 +8361,7 @@
     },
     "AbilityStats": {
       "Speed": { "Rank": "C" },
-      "Communicating": { "Rank": "B+" },
+      "Communication": { "Rank": "B+" },
       "Leading": { "Rank": "S" },
       "Precision": { "Rank": "B" },
       "Technic": { "Rank": "S" },
@@ -8471,7 +8471,7 @@
     },
     "AbilityStats": {
       "Speed": { "Rank": "B" },
-      "Communicating": { "Rank": "D" },
+      "Communication": { "Rank": "D" },
       "Leading": { "Rank": "C" },
       "Precision": { "Rank": "A" },
       "Technic": { "Rank": "S" },
@@ -8564,7 +8564,7 @@
     },
     "AbilityStats": {
       "Speed": { "Rank": "A" },
-      "Communicating": { "Rank": "B+" },
+      "Communication": { "Rank": "B+" },
       "Leading": { "Rank": "B" },
       "Precision": { "Rank": "S" },
       "Technic": { "Rank": "C" },
@@ -8690,7 +8690,7 @@
     },
     "AbilityStats": {
       "Speed": { "Rank": "C" },
-      "Communicating": { "Rank": "A" },
+      "Communication": { "Rank": "A" },
       "Leading": { "Rank": "A" },
       "Precision": { "Rank": "S" },
       "Technic": { "Rank": "S" },
@@ -8789,7 +8789,7 @@
     },
     "AbilityStats": {
       "Speed": { "Rank": "A" },
-      "Communicating": { "Rank": "A" },
+      "Communication": { "Rank": "A" },
       "Leading": { "Rank": "S" },
       "Precision": { "Rank": "S" },
       "Technic": { "Rank": "B" },
@@ -8895,7 +8895,7 @@
     },
     "AbilityStats": {
       "Speed": { "Rank": "B" },
-      "Communicating": { "Rank": "S" },
+      "Communication": { "Rank": "S" },
       "Leading": { "Rank": "A" },
       "Precision": { "Rank": "A" },
       "Technic": { "Rank": "D" },
@@ -9052,7 +9052,7 @@
     },
     "AbilityStats": {
       "Speed": { "Rank": "C" },
-      "Communicating": { "Rank": "S" },
+      "Communication": { "Rank": "S" },
       "Leading": { "Rank": "B" },
       "Precision": { "Rank": "A" },
       "Technic": { "Rank": "C" },
@@ -9152,7 +9152,7 @@
     },
     "AbilityStats": {
       "Speed": { "Rank": "A" },
-      "Communicating": { "Rank": "B" },
+      "Communication": { "Rank": "B" },
       "Leading": { "Rank": "A" },
       "Precision": { "Rank": "B" },
       "Technic": { "Rank": "B" },
@@ -9257,7 +9257,7 @@
     },
     "AbilityStats": {
       "Speed": { "hideText": "データ無" },
-      "Communicating": { "Rank": "A" },
+      "Communication": { "Rank": "A" },
       "Leading": { "Rank": "D" },
       "Precision": { "Rank": "A" },
       "Technic": { "Rank": "C" },
@@ -9396,7 +9396,7 @@
     },
     "AbilityStats": {
       "Speed": { "Rank": "A" },
-      "Communicating": { "Rank": "E" },
+      "Communication": { "Rank": "E" },
       "Leading": { "Rank": "B+" },
       "Precision": { "Rank": "A" },
       "Technic": { "Rank": "B" },
@@ -9502,7 +9502,7 @@
     },
     "AbilityStats": {
       "Speed": { "Rank": "C" },
-      "Communicating": { "Rank": "C" },
+      "Communication": { "Rank": "C" },
       "Leading": { "Rank": "C", "AbilityText": "極端" },
       "Precision": { "Rank": "B" },
       "Technic": { "Rank": "C", "AbilityText": "極端" },
@@ -9598,7 +9598,7 @@
     },
     "AbilityStats": {
       "Speed": { "Rank": "B+" },
-      "Communicating": { "Rank": "D" },
+      "Communication": { "Rank": "D" },
       "Leading": { "Rank": "B+" },
       "Precision": { "Rank": "B" },
       "Technic": { "Rank": "C" },
@@ -9701,7 +9701,7 @@
     },
     "AbilityStats": {
       "Speed": { "Rank": "A" },
-      "Communicating": { "hideText": "判定不能" },
+      "Communication": { "hideText": "判定不能" },
       "Leading": { "hideText": "非公開" },
       "Precision": { "Rank": "A" },
       "Technic": { "Rank": "B" },
@@ -9827,7 +9827,7 @@
     },
     "AbilityStats": {
       "Speed": { "hideText": "データ無" },
-      "Communicating": { "Rank": "S" },
+      "Communication": { "Rank": "S" },
       "Leading": { "Rank": "C" },
       "Precision": { "hideText": "データ無" },
       "Technic": { "Rank": "B+" },

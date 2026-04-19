@@ -30,7 +30,7 @@
     },
     "AbilityStats": {
       "Speed": { "Rank": "A" },
-      "Communicating": { "Rank": "B+" },
+      "Communication": { "Rank": "B+" },
       "Leading": { "Rank": "B" },
       "Precision": { "Rank": "A" },
       "Technic": { "Rank": "B+" },
@@ -69,7 +69,7 @@
     },
     "AbilityStats": {
       "Speed": { "Rank": "A" },
-      "Communicating": { "Rank": "A" },
+      "Communication": { "Rank": "A" },
       "Leading": { "Rank": "S" },
       "Precision": { "Rank": "S" },
       "Technic": { "Rank": "S" },
@@ -108,7 +108,7 @@
     },
     "AbilityStats": {
       "Speed": { "Rank": "C" },
-      "Communicating": { "Rank": "A" },
+      "Communication": { "Rank": "A" },
       "Leading": { "Rank": "S" },
       "Precision": { "Rank": "A" },
       "Technic": { "Rank": "B+" },
@@ -153,7 +153,7 @@
     },
     "AbilityStats": {
       "Speed": { "Rank": "D" },
-      "Communicating": { "Rank": "S" },
+      "Communication": { "Rank": "S" },
       "Leading": { "Rank": "B" },
       "Precision": { "Rank": "B+" },
       "Technic": { "Rank": "C" },
@@ -192,7 +192,7 @@
     },
     "AbilityStats": {
       "Speed": { "Rank": "S" },
-      "Communicating": { "Rank": "B+" },
+      "Communication": { "Rank": "B+" },
       "Leading": { "Rank": "A" },
       "Precision": { "Rank": "A" },
       "Technic": { "Rank": "C" },
@@ -231,7 +231,7 @@
     },
     "AbilityStats": {
       "Speed": { "Rank": "D" },
-      "Communicating": { "Rank": "C" },
+      "Communication": { "Rank": "C" },
       "Leading": { "Rank": "B+" },
       "Precision": { "Rank": "S" },
       "Technic": { "Rank": "S" },
@@ -254,7 +254,7 @@
     "GenderType": "Female",
     "AbilityStats": {
       "Speed": { "Rank": "E" },
-      "Communicating": { "Rank": { "hideText": "？？？" } },
+      "Communication": { "Rank": { "hideText": "？？？" } },
       "Leading": { "Rank": { "hideText": "？？？" } },
       "Precision": { "Rank": "S" },
       "Technic": { "Rank": "Z" },
@@ -287,7 +287,7 @@
     "BirthDay": { "Day": { "Month": 7, "DayOfMonth": 7 } },
     "AbilityStats": {
       "Speed": { "Rank": "B+" },
-      "Communicating": { "Rank": "A" },
+      "Communication": { "Rank": "A" },
       "Leading": { "Rank": "A" },
       "Precision": { "Rank": "A" },
       "Technic": { "Rank": "A" },
@@ -327,7 +327,7 @@
     },
     "AbilityStats": {
       "Speed": { "Rank": "C" },
-      "Communicating": { "Rank": "B" },
+      "Communication": { "Rank": "B" },
       "Leading": { "Rank": "A" },
       "Precision": { "Rank": "S" },
       "Technic": { "Rank": "S" },
@@ -367,7 +367,7 @@
     },
     "AbilityStats": {
       "Speed": { "Rank": "S" },
-      "Communicating": { "Rank": "B+" },
+      "Communication": { "Rank": "B+" },
       "Leading": { "Rank": "C" },
       "Precision": { "Rank": "B" },
       "Technic": { "Rank": "A" },

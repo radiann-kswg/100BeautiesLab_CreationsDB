@@ -281,7 +281,7 @@
           "hashTag_JP": "俊敏性"
         },
         {
-          "hashTag": "Communicating",
+          "hashTag": "Communication",
           "$type": "$EnumDef_Rank,$EnumLink",
           "hashTag_JP": "社交性"
         },
