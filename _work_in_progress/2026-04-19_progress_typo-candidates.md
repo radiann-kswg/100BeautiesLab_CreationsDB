@@ -15,7 +15,7 @@
 
 ### A. そのまま修正してよい確度が高い候補
 
-#### 1. `secletRelation` → `secretRelation`
+#### 1. `secletRelation` → `secretRelation` （2026-04-19 対応済み）
 
 - 判定理由:
   - 同じ作品の relation label 定義には `secretRelation` が既に存在する。
@@ -118,7 +118,7 @@
 
 ## 未完了タスク
 
-- `secletRelation` の実修正を行うか判断する。
+- `secletRelation` の実修正を行うか判断する。 -> 対応済み
 - `UnproceededSecondary` の正式名称を決める。
 - `DestinyFoxsRecords` を識別子改名対象として扱うか判断する。
 - 命名改善候補を「互換あり段階移行」で扱うか、「現状維持」にするか整理する。

@@ -63,7 +63,7 @@
     "InStory": "「エイゼルベット」の観測者「シグマ-クロステールズ」の元で観測を受けている、ある電脳世界との間で生まれた個体\n彼(女)が切るカードには強い潜在能力が秘められていると推測されているようだが…？",
     "Relation": {
       "Related": [
-        { "Num": "0xF", "RelationLabel": ["trusted", "secletRelation"] }
+        { "Num": "0xF", "RelationLabel": ["trusted", "secretRelation"] }
       ]
     },
     "RelationToPrimary": {
@@ -78,9 +78,9 @@
         },
         {
           "Num": 10,
-          "RelationLabel": ["sameValue", "adverselyAffected", "secletRelation"],
+          "RelationLabel": ["sameValue", "adverselyAffected", "secretRelation"],
           "ComeBacked": {
-            "RelationLabel": ["sameValue", "interested", "secletRelation"]
+            "RelationLabel": ["sameValue", "interested", "secretRelation"]
           }
         },
         {
@@ -657,7 +657,7 @@
     },
     "InStory": "「エイゼルベット」の観測者「シグマ-クロステールズ」の元で観測を受けている、ある電脳世界との間で生まれた個体\n彼女を前にした人々は彼女に「ママ」だと甘えだし……",
     "Relation": {
-      "Related": [{ "Num": "0xA", "RelationLabel": ["secletRelation"] }]
+      "Related": [{ "Num": "0xA", "RelationLabel": ["secretRelation"] }]
     },
     "RelationToPrimary": {
       "Related": [
