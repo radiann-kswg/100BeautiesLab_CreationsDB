@@ -211,7 +211,7 @@
         "$Def_SpecType": {
           "$TypeDef": []
         },
-        "#List_SpetialPattern": null,
+        "#List_SpecialPattern": null,
         "$Def_SpecLevel": {
           "$EnumLink_SpecLevelText": {
             "#Rank0": {

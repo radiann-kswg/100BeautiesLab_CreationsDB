@@ -36,7 +36,7 @@
     "ForMasterCalling": "センパイ",
     "Character": "胸に秘めている思考か読めない不思議系\n「10(ミツル)」と似ている",
     "Hobby": "賭け事",
-    "SpetialSkill": "ディール",
+    "SpecialSkill": "ディール",
     "Favor": "カード",
     "Unlike": "",
     "RelationAbouts": "「10(ミツル)」の派生とされている",
@@ -49,7 +49,7 @@
         "Luck": { "hideText": "非公開" },
         "Communication": { "hideText": "非公開" }
       },
-      "SpetialPattern": { "hideText": "極秘事項" },
+      "SpecialPattern": { "hideText": "極秘事項" },
       "SafetyLevel": { "hideText": "非公開" }
     },
     "AbilityStats": {
@@ -149,7 +149,7 @@
     "ForMasterCalling": "",
     "Character": "繊細で泣き虫\n時々単独行動に出ることがある",
     "Hobby": "",
-    "SpetialSkill": "一緒に泣いて慰める",
+    "SpecialSkill": "一緒に泣いて慰める",
     "Favor": "",
     "Unlike": "",
     "RelationAbouts": "「11(トウイチ)」の派生とされている",
@@ -162,7 +162,7 @@
         "Luck": { "EffectText": "絶大" },
         "Communication": { "EffectText": "特殊" }
       },
-      "SpetialPattern": { "hideText": "極秘事項" },
+      "SpecialPattern": { "hideText": "極秘事項" },
       "SafetyLevel": { "hideText": "検証中" }
     },
     "AbilityStats": {
@@ -269,7 +269,7 @@
     "ForMasterCalling": "",
     "Character": "自分を信じて動いているが、メンタルの変動が激しく少し単純。かわいい\nアイドルを志望している",
     "Hobby": "アイドルを目指すこと",
-    "SpetialSkill": "",
+    "SpecialSkill": "",
     "Favor": "",
     "Unlike": "メンタルブレイク",
     "RelationAbouts": "アイドルを志望しているが、アイドルの素質があるナンバーテールズとは少しすれ違い気味らしい",
@@ -282,7 +282,7 @@
         "Luck": { "EffectText": "逆効果" },
         "Communication": { "EffectText": "効果無" }
       },
-      "SpetialPattern": { "hideText": "極秘事項" },
+      "SpecialPattern": { "hideText": "極秘事項" },
       "SafetyLevel": { "SafetyLevelText": "厳重注意" }
     },
     "AbilityStats": {
@@ -395,7 +395,7 @@
     "ForMasterCalling": "",
     "Character": "勤勉で几帳面\n仕事熱心で少しストイック\nアニヲタの可能性あり",
     "Hobby": "興味持ったことをメモすること",
-    "SpetialSkill": "",
+    "SpecialSkill": "",
     "Favor": "ノート",
     "Unlike": "見られたくないものを見られること",
     "RelationAbouts": "「0xE(エネ)」に特大空ビ化の非検体にされたことがあり…？",
@@ -408,7 +408,7 @@
         "Luck": { "EffectText": "効果無" },
         "Communication": { "hideText": "検証中" }
       },
-      "SpetialPattern": { "hideText": "極秘事項" },
+      "SpecialPattern": { "hideText": "極秘事項" },
       "SafetyLevel": { "SafetyLevelText": "調整中" }
     },
     "AbilityStats": {
@@ -527,7 +527,7 @@
     "ForMasterCalling": "",
     "Character": "優しく明るい\nなんでも技術で解決しようとしないと気が済まない",
     "Hobby": "メンテナンス（魔改造付き）",
-    "SpetialSkill": "魔改造",
+    "SpecialSkill": "魔改造",
     "Favor": "（魔）改造",
     "Unlike": "機械で解決できない問題",
     "RelationAbouts": "ナンバーテールズの改造案を出しているが……",
@@ -540,7 +540,7 @@
         "Luck": { "hideText": "検証中" },
         "Communication": { "EffectText": "効果無" }
       },
-      "SpetialPattern": { "hideText": "極秘事項" },
+      "SpecialPattern": { "hideText": "極秘事項" },
       "SafetyLevel": { "SafetyLevelText": "注意" }
     },
     "AbilityStats": {
@@ -631,7 +631,7 @@
     "ForMasterCalling": "",
     "Character": "母性の化身\n全人類のママになろうとしている",
     "Hobby": "ママになること",
-    "SpetialSkill": "ママになること",
+    "SpecialSkill": "ママになること",
     "Favor": "ママになること",
     "Unlike": "機械",
     "RelationAbouts": "他のヘキサデミカル-テールズの心の支えになっているらしい",
@@ -644,7 +644,7 @@
         "Luck": { "hideText": "判定失敗" },
         "Communication": { "hideText": "判定失敗" }
       },
-      "SpetialPattern": { "hideText": "極秘事項" },
+      "SpecialPattern": { "hideText": "極秘事項" },
       "SafetyLevel": { "hideText": "公開不能" }
     },
     "AbilityStats": {

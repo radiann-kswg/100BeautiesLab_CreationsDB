@@ -31,7 +31,7 @@
         "Violent": { "EffectText": "効果無" },
         "Rewriting": { "hideText": "検証中" }
       },
-      "SpetialPattern": ["Ptn.A(覚醒)", "Ptn.Q(天変地異)"],
+      "SpecialPattern": ["Ptn.A(覚醒)", "Ptn.Q(天変地異)"],
       "SafetyLevel": {
         "SafetyLevelText": "危険度を有効活用可能"
       },
@@ -75,7 +75,7 @@
         "Violent": { "EffectText": "希薄" },
         "Rewriting": { "hideText": "検証中" }
       },
-      "SpetialPattern": ["Ptn.B(士気操作)", "Ptn.E(元素操作)"],
+      "SpecialPattern": ["Ptn.B(士気操作)", "Ptn.E(元素操作)"],
       "SafetyLevel": { "SafetyLevelText": "保証可能" },
       "SpecLevel": { "Rank": "S+" }
     },
@@ -114,7 +114,7 @@
         "Violent": { "hideText": "検証中" },
         "Rewriting": { "EffectText": "希薄" }
       },
-      "SpetialPattern": ["Ptn.L(転化)", "Ptn.M(精神操作)"],
+      "SpecialPattern": ["Ptn.L(転化)", "Ptn.M(精神操作)"],
       "SafetyLevel": { "SafetyLevelText": "保証可能" },
       "SpecLevel": { "Rank": "S" }
     }
@@ -156,7 +156,7 @@
         "Violent": { "EffectText": "効果無" },
         "Rewriting": { "EffectText": "希薄" }
       },
-      "SpetialPattern": ["Ptn.H(癒術)", "Ptn.M(精神操作)"],
+      "SpecialPattern": ["Ptn.H(癒術)", "Ptn.M(精神操作)"],
       "SafetyLevel": { "SafetyLevelText": "保証可能" },
       "SpecLevel": { "Rank": "A" }
     },
@@ -198,7 +198,7 @@
         "Violent": { "hideText": "定義不能" },
         "Rewriting": { "EffectText": "普通" }
       },
-      "SpetialPattern": ["Ptn.B(士気操作)", "Ptn.M(精神操作)"],
+      "SpecialPattern": ["Ptn.B(士気操作)", "Ptn.M(精神操作)"],
       "SafetyLevel": { "SafetyLevelText": "危険度を有効活用可能" },
       "SpecLevel": { "Rank": "A" }
     },
@@ -240,7 +240,7 @@
         "Violent": { "EffectText": "希薄" },
         "Rewriting": { "EffectText": "期待" }
       },
-      "SpetialPattern": ["Ptn.M(精神操作)", "Ptn.S(感度操作)"],
+      "SpecialPattern": ["Ptn.M(精神操作)", "Ptn.S(感度操作)"],
       "SafetyLevel": { "SafetyLevelText": "恐らく安全" },
       "SpecLevel": { "Rank": "B" }
     },
@@ -282,7 +282,7 @@
         "Violent": { "EffectText": "過剰" },
         "Rewriting": { "EffectText": "絶大" }
       },
-      "SpetialPattern": ["Ptn.F(妨害)", "Ptn.Q(天変地異)"],
+      "SpecialPattern": ["Ptn.F(妨害)", "Ptn.Q(天変地異)"],
       "SafetyLevel": { "SafetyLevelText": "厳重注意" },
       "SpecLevel": { "Rank": "Z" }
     }
@@ -320,7 +320,7 @@
         "Violent": { "EffectText": "効果無" },
         "Rewriting": { "EffectText": "逆効果" }
       },
-      "SpetialPattern": ["Ptn.H(癒術)", "Ptn.L(転化)"],
+      "SpecialPattern": ["Ptn.H(癒術)", "Ptn.L(転化)"],
       "SafetyLevel": { "SafetyLevelText": "保証可能" },
       "SpecLevel": { "Rank": "B+" }
     }
@@ -355,7 +355,7 @@
         "Violent": { "EffectText": "効果無" },
         "Rewriting": { "hideText": "定義不能" }
       },
-      "SpetialPattern": { "hideText": "定義不能" },
+      "SpecialPattern": { "hideText": "定義不能" },
       "SafetyLevel": { "hideText": "定義不能" },
       "SpecLevel": { "Rank": "S+" }
     }
@@ -390,7 +390,7 @@
         "Violent": { "EffectText": "期待" },
         "Rewriting": { "hideText": "定義不能" }
       },
-      "SpetialPattern": { "hideText": "定義不能" },
+      "SpecialPattern": { "hideText": "定義不能" },
       "SafetyLevel": { "hideText": "定義不能" },
       "SpecLevel": { "Rank": "S+" }
     }

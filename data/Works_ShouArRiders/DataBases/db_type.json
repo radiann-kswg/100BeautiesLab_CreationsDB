@@ -61,10 +61,11 @@
         {
           "hashTag": "SpecType",
           "$type": "$Def_SpecType",
-          "hashTag_JP": "能力種別"
+          "hashTag_JP": "能力種別",
+          "$display": { "section": "spec", "tagSpace": "creation" }
         },
         {
-          "hashTag": "SpetialPattern",
+          "hashTag": "SpecialPattern",
           "$type": "#Enum[]",
           "hashTag_JP": "特殊パターン",
           "$display": { "section": "spec", "tagSpace": "creation" }

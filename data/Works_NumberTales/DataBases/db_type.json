@@ -147,7 +147,7 @@
           "hashTag_JP": "効果度数"
         },
         {
-          "hashTag": "SpetialPattern",
+          "hashTag": "SpecialPattern",
           "$type": "#Enum[]",
           "hashTag_JP": "特殊パターン",
           "$display": { "section": "spec", "tagSpace": "creation" }

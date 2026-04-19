@@ -262,7 +262,7 @@
             }
           ]
         },
-        "#List_SpetialPattern": [
+        "#List_SpecialPattern": [
           "Ptn.A(行動補正効果)",
           "Ptn.Ar(能力発揮効果)",
           "Ptn.Av(能力比例作用)",

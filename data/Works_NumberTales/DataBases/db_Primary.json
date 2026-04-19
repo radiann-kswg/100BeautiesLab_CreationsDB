@@ -49,7 +49,7 @@
     "ForMasterCalling": "～兄(にぃ)/～姉(ねぇ)",
     "Character": "行動意欲が突出している怖いもの知らず\n自分らしさを前向きに受け入れている",
     "Hobby": "なんでも",
-    "SpetialSkill": "たくさんあるらしい",
+    "SpecialSkill": "たくさんあるらしい",
     "Favor": "新しいこと、新体験",
     "Unlike": "人格否定",
     "Strength": "行動力が非常に高い、他個体の元祖(はじまり)を担っている",
@@ -64,7 +64,7 @@
         "Luck": { "EffectText": "希薄" },
         "Communication": { "EffectText": "普通" }
       },
-      "SpetialPattern": { "hideText": "検証中" },
+      "SpecialPattern": { "hideText": "検証中" },
       "SafetyLevel": { "hideText": "非公開" }
     },
     "AbilityStats": {
@@ -156,7 +156,7 @@
     "ForMasterCalling": "～兄(にぃ)/～姉(ねぇ)",
     "Character": "他人想いでマネージャー的存在\n周囲と欲求が相反して癒しを求める一面も",
     "Hobby": "他のナンバーテールズも支えること",
-    "SpetialSkill": "人耳無しで眼鏡を掛けられる（ハードウェアの仕様上）",
+    "SpecialSkill": "人耳無しで眼鏡を掛けられる（ハードウェアの仕様上）",
     "Favor": "よろこんでもらえること\nお姉さん",
     "Unlike": "自分の限界",
     "Strength": "聞き役に回り状況を俯瞰することができる",
@@ -256,7 +256,7 @@
     "ForMasterCalling": "相棒",
     "Character": "真面目な優等生\n厳格でなく遊び心の高い青年のような気質",
     "Hobby": "デジタルゲーム",
-    "SpetialSkill": "ビギナーズラックがある",
+    "SpecialSkill": "ビギナーズラックがある",
     "Favor": "ロマン",
     "Unlike": "性格の悪い大人",
     "Strength": "好感の持てる優等生タイプ",
@@ -271,7 +271,7 @@
         "Luck": { "EffectText": "期待" },
         "Communication": { "EffectText": "期待" }
       },
-      "SpetialPattern": ["Ptn.A(行動補正効果)"],
+      "SpecialPattern": ["Ptn.A(行動補正効果)"],
       "SafetyLevel": { "SafetyLevelText": "完全保証" }
     },
     "AbilityStats": {
@@ -355,7 +355,7 @@
     "ForMasterCalling": "お兄ちゃん/お姉ちゃん",
     "Character": "感情表現豊かで臆病\n根はとてもしっかりしている",
     "Hobby": "パズル\n物語鑑賞",
-    "SpetialSkill": "白色40000ピースパズルを完成できる",
+    "SpecialSkill": "白色40000ピースパズルを完成できる",
     "Favor": "ラノベ(ライトノベル)",
     "Unlike": "奇妙なこと全般",
     "Strength": "しっかり者で慎重",
@@ -371,7 +371,7 @@
         "Luck": { "EffectText": "普通" },
         "Communication": { "EffectText": "希薄" }
       },
-      "SpetialPattern": ["Ptn.Rz(実現性向上効果)"],
+      "SpecialPattern": ["Ptn.Rz(実現性向上効果)"],
       "SafetyLevel": { "SafetyLevelText": "完全保証" }
     },
     "AbilityStats": {
@@ -458,7 +458,7 @@
     "ForMasterCalling": "[※？？？]",
     "Character": "屈指のマイペース\n挑発に乗りやすく冷めやすくチョロい",
     "Hobby": "気分による",
-    "SpetialSkill": "バク天",
+    "SpecialSkill": "バク天",
     "Favor": "いつもと違うこと",
     "Unlike": "型にはまること",
     "Strength": "広く浅く物事の大枠を掴み状況を瞬時に理解できる",
@@ -474,7 +474,7 @@
         "Luck": { "hideText": "判定不能" },
         "Communication": { "hideText": "判定不能" }
       },
-      "SpetialPattern": ["Ptn.C(状況変化効果)", "Ptn.Ms(自己転化効果)"],
+      "SpecialPattern": ["Ptn.C(状況変化効果)", "Ptn.Ms(自己転化効果)"],
       "SafetyLevel": { "SafetyLevelText": "無危害" }
     },
     "AbilityStats": {
@@ -558,7 +558,7 @@
     "ForMasterCalling": "ご主人様（/お嬢様）",
     "Character": "美徳に満ち溢れており個性を大切にしている「光属性」\nとても温厚で穏やか",
     "Hobby": "美術鑑賞",
-    "SpetialSkill": "画力がある",
+    "SpecialSkill": "画力がある",
     "Favor": "かわいいぬいぐるみ\nスキンシップ",
     "Unlike": { "hideText": "？？？" },
     "Strength": "原則嫌いなものはない",
@@ -574,7 +574,7 @@
         "Luck": { "EffectText": "絶大" },
         "Communication": { "EffectText": "絶大" }
       },
-      "SpetialPattern": ["Ptn.S(感性向上効果)"],
+      "SpecialPattern": ["Ptn.S(感性向上効果)"],
       "SafetyLevel": { "SafetyLevelText": "完全保証" }
     },
     "AbilityStats": {
@@ -652,7 +652,7 @@
     "ForMasterCalling": "主殿",
     "Character": "意識が高く、単独行動を好む\nイメトレで思想的になりがち",
     "Hobby": "イメトレ(イメージトレーニング)\n神話・伝承に興味",
-    "SpetialSkill": "習字",
+    "SpecialSkill": "習字",
     "Favor": "ハースストーン",
     "Unlike": "非常識",
     "Strength": "洞察力と探求心が高い",
@@ -668,7 +668,7 @@
         "Luck": { "EffectText": "効果無" },
         "Communication": { "EffectText": "希薄" }
       },
-      "SpetialPattern": ["Ptn.Hm(心理安定化効果)"],
+      "SpecialPattern": ["Ptn.Hm(心理安定化効果)"],
       "SafetyLevel": { "SafetyLevelText": "安全" }
     },
     "AbilityStats": {
@@ -758,7 +758,7 @@
     "ForMasterCalling": "兄貴/姉貴",
     "Character": "格好いいもの好き、エンジニアポジション\n欲しいものややりたいことに貪欲で自分で作る",
     "Hobby": "機械いじり\nガジェット鑑賞",
-    "SpetialSkill": "グレードアップ",
+    "SpecialSkill": "グレードアップ",
     "Favor": "かっこいいもの\nガジェット",
     "Unlike": "厭なことを強要されること",
     "Strength": "技術価値や社会的価値として一定の良識がある",
@@ -774,7 +774,7 @@
         "Luck": { "EffectText": "期待" },
         "Communication": { "EffectText": "普通" }
       },
-      "SpetialPattern": ["Ptn.M(マネタイズ効果または資産操作能力)"],
+      "SpecialPattern": ["Ptn.M(マネタイズ効果または資産操作能力)"],
       "SafetyLevel": { "SafetyLevelText": "保証" }
     },
     "AbilityStats": {
@@ -852,7 +852,7 @@
     "ForMasterCalling": "坊や/お嬢さん",
     "Character": "博愛主義で悩みを相談しやすく落ち着いている\n同情を大切にしている「闇属性」の癒し担当で、哀しみを救済してくれると評判",
     "Hobby": "バラード音楽鑑賞",
-    "SpetialSkill": "お悩み相談",
+    "SpecialSkill": "お悩み相談",
     "Favor": "良識\n悩める人たち",
     "Unlike": "良識から極めて離れた行為",
     "RelationAbouts": "「6(ムイ)」と対で認識されている\n「2(ツグ)」の悩める姿に対して…？",
@@ -866,7 +866,7 @@
         "Luck": { "EffectText": "効果無" },
         "Communication": { "EffectText": "希薄" }
       },
-      "SpetialPattern": ["Ptn.Rc(救済効果)"],
+      "SpecialPattern": ["Ptn.Rc(救済効果)"],
       "SafetyLevel": { "SafetyLevelText": "無危害" }
     },
     "AbilityStats": {
@@ -963,7 +963,7 @@
     "ForMasterCalling": "センパイ",
     "Character": "胸に秘めている思考か読めない不思議系\n自分は何の為にいるかを常に問い、何かに導かれるような振舞いをしている",
     "Hobby": "自分探し",
-    "SpetialSkill": "護身術",
+    "SpecialSkill": "護身術",
     "Favor": "純粋なヒューマノイド",
     "Unlike": "ヒューマノイドの暴走",
     "RelationAbouts": "「99(ツクモ)」の記憶について何かを察している",
@@ -977,7 +977,7 @@
         "Luck": { "EffectText": "効果無" },
         "Communication": { "EffectText": "希薄" }
       },
-      "SpetialPattern": { "hideText": "極秘事項" },
+      "SpecialPattern": { "hideText": "極秘事項" },
       "SafetyLevel": { "hideText": "非公開" }
     },
     "AbilityStats": {
@@ -1062,7 +1062,7 @@
     "ForMasterCalling": "卿(けい)/姫 ※後者は稀",
     "Character": "自我と自己認識が強く稀に暴走する\nどこか神々しい振る舞いをしている",
     "Hobby": "パワースポット巡り",
-    "SpetialSkill": "直観が99.9%的中する",
+    "SpecialSkill": "直観が99.9%的中する",
     "Favor": "風水術",
     "Unlike": "スランプ",
     "RelationAbouts": "「1(ハジメ)」を「師匠」と過度に慕うあまり…？",
@@ -1076,7 +1076,7 @@
         "Luck": { "EffectText": "絶大" },
         "Communication": { "EffectText": "希薄" }
       },
-      "SpetialPattern": ["Ptn.Es(自己認知効果)"],
+      "SpecialPattern": ["Ptn.Es(自己認知効果)"],
       "SafetyLevel": { "SafetyLevelText": "安全" }
     },
     "AbilityStats": {
@@ -1161,7 +1161,7 @@
     "ForMasterCalling": "お兄(にぃ)/お姉(ねぇ)",
     "Character": "素直で正直\n自分がやると決めたことには物腰が極めて軽い",
     "Hobby": "プレゼン鑑賞",
-    "SpetialSkill": "推理",
+    "SpecialSkill": "推理",
     "Favor": "言霊",
     "Unlike": "嘘を吐くこと",
     "RelationAbouts": "「1(ハジメ)」を尊敬している\n「バイナ」を旧名の「2(ツギ)」と呼んで好んでいるが、「2(ツグ)」に対しては……",
@@ -1261,7 +1261,7 @@
     "ForMasterCalling": "ご主人",
     "Character": "チャレンジ精神旺盛な体育会系\nただし駆け引きが苦手で地雷要因になることも",
     "Hobby": "スポーツセンター巡り",
-    "SpetialSkill": "球技（主に玉を投げるもの）",
+    "SpecialSkill": "球技（主に玉を投げるもの）",
     "Favor": "イベント/大会参加",
     "Unlike": "心理戦",
     "RelationAbouts": "従妹「14(トヨ)」と性格が似ていると言われている\n58(イソヤ)と度々カードゲームで負けている",
@@ -1373,7 +1373,7 @@
     "ForMasterCalling": "主人",
     "Character": "元気溌剌で挑戦的な右脳(感覚)派\nかなりのオールラウンダーであるため、左脳(理論)派な一面もあるのではという噂も",
     "Hobby": "自分試し",
-    "SpetialSkill": "手品",
+    "SpecialSkill": "手品",
     "Favor": "カードゲーム",
     "Unlike": "じっとしていること",
     "NumerospecAbout": "新しいことを始める時に失敗する恐れを和らげる\nこの効果は周辺状況や心理状況に関与していないらしく、詳細は不明",
@@ -1386,7 +1386,7 @@
         "Luck": { "EffectText": "普通" },
         "Communication": { "EffectText": "普通" }
       },
-      "SpetialPattern": ["Ptn.Rz(実現性向上効果)"],
+      "SpecialPattern": ["Ptn.Rz(実現性向上効果)"],
       "SafetyLevel": { "SafetyLevelText": "保証" }
     },
     "AbilityStats": {
@@ -1496,7 +1496,7 @@
     "ForMasterCalling": "主(あるじ)",
     "Character": "極めて控えめに見えて実は男気のある気質\n自分を律することで因果応報が成立すると、信じている",
     "Hobby": "遠景を眺める",
-    "SpetialSkill": "6時間後の天気を当てる",
+    "SpecialSkill": "6時間後の天気を当てる",
     "Favor": "開運グッズ\n何があっても完膚なきこと",
     "Unlike": "邪知暴虐",
     "RelationAbouts": "「33(ミサ)」と心配されあっている\n「10(ミツル)」と加護について関係が…？",
@@ -1510,7 +1510,7 @@
         "Luck": { "EffectText": "危険" },
         "Communication": { "EffectText": "期待" }
       },
-      "SpetialPattern": { "hideText": "極秘事項" },
+      "SpecialPattern": { "hideText": "極秘事項" },
       "SafetyLevel": { "SafetyLevelText": "調整中" }
     },
     "AbilityStats": {
@@ -1623,7 +1623,7 @@
     "ForMasterCalling": "マスター君",
     "Character": "才色兼備で、物質的なものより行動や能力を重んじる\n主人公意識が強く挑戦意欲がある",
     "Hobby": "演劇",
-    "SpetialSkill": "剣道・剣舞",
+    "SpecialSkill": "剣道・剣舞",
     "Favor": "知恵の輪",
     "Unlike": "コンディション不良",
     "RelationAbouts": "「6(ムイ)」「26(ニロク)」に懐いている？",
@@ -1637,7 +1637,7 @@
         "Luck": { "EffectText": "希薄" },
         "Communication": { "EffectText": "期待" }
       },
-      "SpetialPattern": ["Ptn.Ar(能力発揮効果)"],
+      "SpecialPattern": ["Ptn.Ar(能力発揮効果)"],
       "SafetyLevel": { "SafetyLevelText": "完全保証" }
     },
     "AbilityStats": {
@@ -1741,7 +1741,7 @@
     "ForMasterCalling": "センセ",
     "Character": "知識欲旺盛だが少し現金\n知識や自己研鑽が自分の報酬となると信じている",
     "Hobby": "資格取得",
-    "SpetialSkill": "カジノ",
+    "SpecialSkill": "カジノ",
     "Favor": "知識",
     "Unlike": "貧困\n女性ぽくないと言われること",
     "RelationAbouts": "「89(ヤスモ)」とは謎のシンパシーがある？",
@@ -1755,7 +1755,7 @@
         "Luck": { "EffectText": "期待" },
         "Communication": { "EffectText": "普通" }
       },
-      "SpetialPattern": ["Ptn.Av(能力比例作用)"],
+      "SpecialPattern": ["Ptn.Av(能力比例作用)"],
       "SafetyLevel": { "SafetyLevelText": "保証" }
     },
     "AbilityStats": {
@@ -1843,7 +1843,7 @@
     "ForMasterCalling": "親分(おやびん)",
     "Character": "責任感の強いエースポジション\n信頼感が圧倒的にある",
     "Hobby": "偉人伝を読むこと",
-    "SpetialSkill": "喧嘩の仲裁",
+    "SpecialSkill": "喧嘩の仲裁",
     "Favor": "平和",
     "Unlike": "混沌としたこと",
     "RelationAbouts": "「19(トク)」を連れまわしている\n「9(チカ)」を警戒？しているが…",
@@ -1857,7 +1857,7 @@
         "Luck": { "EffectText": "普通" },
         "Communication": { "EffectText": "普通" }
       },
-      "SpetialPattern": ["Ptn.Ec(士気比例作用)"],
+      "SpecialPattern": ["Ptn.Ec(士気比例作用)"],
       "SafetyLevel": { "SafetyLevelText": "完全保証" }
     },
     "AbilityStats": {
@@ -1941,7 +1941,7 @@
     "ForMasterCalling": "(～)兄さん/(～)姉さん",
     "Character": "調子に乗りやすく、やり切った時はドヤる\nやるときはやるので、憎みたくても憎めない",
     "Hobby": "ルービックキューブ（で絵を描く）",
-    "SpetialSkill": "チェス",
+    "SpecialSkill": "チェス",
     "Favor": "サイコロ/ダイス\nルービックキューブ",
     "Unlike": "今乗り気じゃないこと",
     "RelationAbouts": "「89(ヤスモ)」に悪絡みしている",
@@ -1955,7 +1955,7 @@
         "Luck": { "EffectText": "希薄" },
         "Communication": { "EffectText": "効果無" }
       },
-      "SpetialPattern": ["Ptn.St(状況比例作用)"],
+      "SpecialPattern": ["Ptn.St(状況比例作用)"],
       "SafetyLevel": { "SafetyLevelText": "無危害" }
     },
     "AbilityStats": {
@@ -2040,7 +2040,7 @@
     "ForMasterCalling": "～兄さま/～姉さま",
     "Character": "極めて優しく純粋なので好印象を持たれている\n献身的で怒ることが無い\n信頼を大切にしている",
     "Hobby": "誰かといること",
-    "SpetialSkill": "手料理",
+    "SpecialSkill": "手料理",
     "Favor": "大切な人の幸せ",
     "Unlike": "大切な人の不幸",
     "RelationAbouts": "「2(ツグ)」のサポートにも徹している\n「24(フトシ)」「42(ヨツグ)」と仲が良い",
@@ -2054,7 +2054,7 @@
         "Luck": { "EffectText": "普通" },
         "Communication": { "EffectText": "絶大" }
       },
-      "SpetialPattern": ["Ptn.Py(読心効果)"],
+      "SpecialPattern": ["Ptn.Py(読心効果)"],
       "SafetyLevel": { "SafetyLevelText": "安全" }
     },
     "AbilityStats": {
@@ -2138,7 +2138,7 @@
     "ForMasterCalling": "お兄(にぃ)/お姉(ねぇ)",
     "Character": "無邪気で童心をくすぐるような気質\nどこか強いポテンシャルを持つ",
     "Hobby": "人助け",
-    "SpetialSkill": "初見でRPG1作を21時間以内にクリアできる",
+    "SpecialSkill": "初見でRPG1作を21時間以内にクリアできる",
     "Favor": "感謝されること",
     "Unlike": "邪な思考",
     "RelationAbouts": "「28(ニハチ)」の“加護”を暴走させている？\n姉「12(トウジ)」とはすれ違い気味だが…",
@@ -2249,7 +2249,7 @@
     "ForMasterCalling": "ルーキー君",
     "Character": "偉才な実績とは相反して、おっとりふわふわな立ち振る舞いをしている",
     "Hobby": "天体観測",
-    "SpetialSkill": "ビリヤード",
+    "SpecialSkill": "ビリヤード",
     "Favor": "丸くて転がるもの",
     "Unlike": "手玉に取られること",
     "RelationAbouts": "「44(シトシ)」にライバル意識がある？",
@@ -2263,7 +2263,7 @@
         "Luck": { "hideText": "判定不能" },
         "Communication": { "EffectText": "希薄" }
       },
-      "SpetialPattern": ["Ptn.R-(効果保証作用がある傾向)"],
+      "SpecialPattern": ["Ptn.R-(効果保証作用がある傾向)"],
       "SafetyLevel": { "hideText": "検証中" }
     },
     "AbilityStats": {
@@ -2351,7 +2351,7 @@
     "ForMasterCalling": "リーダー",
     "Character": "積極的で発想力が高く直感が鋭い\n放浪癖があり様々な経験に感化されている",
     "Hobby": "旅行、放浪",
-    "SpetialSkill": "サーフィン",
+    "SpecialSkill": "サーフィン",
     "Favor": "スリル\n面白い話",
     "Unlike": "堅苦しい仕事",
     "RelationAbouts": "困ったときは「2(ツグ)」「3(ナオ)」を頼りがち\n「55(イソゴ)」に影響されている？",
@@ -2365,7 +2365,7 @@
         "Luck": { "EffectText": "普通" },
         "Communication": { "EffectText": "普通" }
       },
-      "SpetialPattern": ["Ptn.Lg(思考向上効果)"],
+      "SpecialPattern": ["Ptn.Lg(思考向上効果)"],
       "SafetyLevel": { "SafetyLevelText": "安全(奇行有)" }
     },
     "AbilityStats": {
@@ -2453,7 +2453,7 @@
     "ForMasterCalling": "主さん",
     "Character": "実現力はあるものの、受動的で控えめ\n相手の思いに応えてくれる\n退屈症だが本当は高望みしやすい気質",
     "Hobby": "談笑",
-    "SpetialSkill": "片手で12連打できる",
+    "SpecialSkill": "片手で12連打できる",
     "Favor": "友情ドラマ",
     "Unlike": "失敗",
     "RelationAbouts": "「4(モチ)」と仲が良い\n2号機系[20(ハツカ),バイナ]を信頼している",
@@ -2467,7 +2467,7 @@
         "Luck": { "EffectText": "期待" },
         "Communication": { "EffectText": "絶大" }
       },
-      "SpetialPattern": ["Ptn.Lr(幸福実現効果)"],
+      "SpecialPattern": ["Ptn.Lr(幸福実現効果)"],
       "SafetyLevel": { "SafetyLevelText": "保証" }
     },
     "AbilityStats": {
@@ -2562,7 +2562,7 @@
     "ForMasterCalling": "主人さん",
     "Character": "直感が鋭く適応力が高い\nあらゆる結果に対して楽観的で前向き",
     "Hobby": "ヒットアンドブロウ（数当てゲーム）",
-    "SpetialSkill": "チョコレートづくり（温度管理が必要な料理）",
+    "SpecialSkill": "チョコレートづくり（温度管理が必要な料理）",
     "Favor": "先輩たち",
     "Unlike": "知らず知らず疲弊すること",
     "RelationAbouts": "「2(ツグ)」「5(イズ)」を「先輩」と慕っている",
@@ -2576,7 +2576,7 @@
         "Luck": { "EffectText": "普通" },
         "Communication": { "EffectText": "普通" }
       },
-      "SpetialPattern": ["Ptn.Hm(心理安定化効果)"],
+      "SpecialPattern": ["Ptn.Hm(心理安定化効果)"],
       "SafetyLevel": { "SafetyLevelText": "完全保証" }
     },
     "AbilityStats": {
@@ -2663,7 +2663,7 @@
     "ForMasterCalling": "ご主人さま",
     "Character": "愛情に対する感性が優れている\n優しくて思いやりの良い姉のような存在",
     "Hobby": "ドラマ鑑賞",
-    "SpetialSkill": "コーディネート",
+    "SpecialSkill": "コーディネート",
     "Favor": "愛情，マタニティに対する配慮",
     "Unlike": "無関心，憎悪，マタハラ",
     "RelationAbouts": "「16(ソロク)」を甘やかそうとしている\n「62(ロジ)」のおめかし用にコーディネートをよくしている\n「63(ムツミ)」とはママ友(ママ属性友達)らしいが、「26(ニロク)」自身は「63(ムツミ)」と比較意識があるようで…？",
@@ -2677,7 +2677,7 @@
         "Luck": { "EffectText": "普通" },
         "Communication": { "EffectText": "期待" }
       },
-      "SpetialPattern": ["Ptn.Mt(母性的作用の傾向)"],
+      "SpecialPattern": ["Ptn.Mt(母性的作用の傾向)"],
       "SafetyLevel": { "SafetyLevelText": "保証" }
     },
     "AbilityStats": {
@@ -2786,7 +2786,7 @@
     "ForMasterCalling": "ご主人",
     "Character": "自分らが学んできたことを大切にしている\n普段は寛容な教師のような気質だが、経験や信念の限界を試している好戦的な一面も",
     "Hobby": "教室訪問",
-    "SpetialSkill": "推理",
+    "SpecialSkill": "推理",
     "Favor": "雑学集",
     "Unlike": "裏切り",
     "RelationAbouts": "「22(フジ)」「77(ナヅナ)」に弟子入りを…？",
@@ -2800,7 +2800,7 @@
         "Luck": { "EffectText": "効果無" },
         "Communication": { "EffectText": "希薄" }
       },
-      "SpetialPattern": ["Ptn.Kn(知性効果)", "Ptn.Z[Eg](過剰自我に注意)"],
+      "SpecialPattern": ["Ptn.Kn(知性効果)", "Ptn.Z[Eg](過剰自我に注意)"],
       "SafetyLevel": { "SafetyLevelText": "注意" }
     },
     "AbilityStats": {
@@ -2888,7 +2888,7 @@
     "ForMasterCalling": "ご主人",
     "Character": "物欲が激しく少しやさぐれているが、根は優しい\n完全数が好きな痛い数学徒でもある",
     "Hobby": "アクセサリー収集",
-    "SpetialSkill": "素因数分解",
+    "SpecialSkill": "素因数分解",
     "Favor": "数学、「28」という数字",
     "Unlike": "凶数の存在、見捨てられること",
     "RelationAbouts": "「31(ミツイ)」と数学徒としてつながりがある\n「78(ナナハ)」と競っている一面が…？",
@@ -2902,7 +2902,7 @@
         "Luck": { "hideText": "定義不能" },
         "Communication": { "EffectText": "普通" }
       },
-      "SpetialPattern": [
+      "SpecialPattern": [
         "Ptn.Lr-(条件付き幸福実現効果)",
         "Ptn.Z[Fr](欲求不満傾向)"
       ],
@@ -3000,7 +3000,7 @@
     "ForMasterCalling": "お兄ちゃん/お姉ちゃん",
     "Character": "繊細で不安症\n少し巻き込まれ体質",
     "Hobby": "映画鑑賞",
-    "SpetialSkill": "嫌な予感が的中する",
+    "SpecialSkill": "嫌な予感が的中する",
     "Favor": "肌触りのいいもの",
     "Unlike": "サスペンスホラー",
     "RelationAbouts": "「9(チカ)」と弟「92(コトジ)」とはすれ違い気味\n従弟/従妹「91(キュウイチ)」と仲がいい",
@@ -3014,7 +3014,7 @@
         "Luck": { "EffectText": "期待" },
         "Communication": { "EffectText": "普通" }
       },
-      "SpetialPattern": ["Ptn.Hm(心理安定化効果)", "Ptn.Rc(救済効果)"],
+      "SpecialPattern": ["Ptn.Hm(心理安定化効果)", "Ptn.Rc(救済効果)"],
       "SafetyLevel": { "SafetyLevelText": "完全保証" }
     },
     "AbilityStats": {
@@ -3098,7 +3098,7 @@
     "ForMasterCalling": "ご主人",
     "Character": "幸福感あふれる気質で、創造力にあふれている\n少しオマセで背伸びしているような風格",
     "Hobby": "手芸、クラフト",
-    "SpetialSkill": "ゲーム開発",
+    "SpecialSkill": "ゲーム開発",
     "Favor": "コアフォルダ形態\nぬいぐるみ",
     "Unlike": "血",
     "NumerospecAbout": "幸運を味方にする\nこの効果はイメージを具現化し運勢的なものに関与する",
@@ -3111,7 +3111,7 @@
         "Luck": { "hideText": "条件による" },
         "Communication": { "EffectText": "普通" }
       },
-      "SpetialPattern": ["Ptn.Lr-(条件付き幸福実現効果)"],
+      "SpecialPattern": ["Ptn.Lr-(条件付き幸福実現効果)"],
       "SafetyLevel": { "SafetyLevelText": "保証" }
     },
     "AbilityStats": {
@@ -3194,7 +3194,7 @@
     "ForMasterCalling": "ご主人",
     "Character": "一度挑んだことは諦めず、向上意欲が旺盛\nメルセンヌ素数が好きな痛い数学徒でもある",
     "Hobby": "探検",
-    "SpetialSkill": "イベントで皆勤賞を取る",
+    "SpecialSkill": "イベントで皆勤賞を取る",
     "Favor": "スタンプカード\n「31」という数字",
     "Unlike": "病欠や事故による欠席",
     "RelationAbouts": "「28(ニハチ)」と数学徒としてつながりがある",
@@ -3208,7 +3208,7 @@
         "Luck": { "EffectText": "普通" },
         "Communication": { "EffectText": "普通" }
       },
-      "SpetialPattern": ["Ptn.Rz(実現性向上効果)"],
+      "SpecialPattern": ["Ptn.Rz(実現性向上効果)"],
       "SafetyLevel": { "SafetyLevelText": "完全保証" }
     },
     "AbilityStats": {
@@ -3295,7 +3295,7 @@
     "ForMasterCalling": "リーダー",
     "Character": "コミュニケーション力が高く創造的\n奇抜な発想と個性を持つ",
     "Hobby": "大喜利",
-    "SpetialSkill": "チーム開発を取り仕切る",
+    "SpecialSkill": "チーム開発を取り仕切る",
     "Favor": "二次会\nパーティーゲーム",
     "Unlike": "孤独感\n姉に起因する始末書",
     "RelationAbouts": "姉「23(ツグミ)」に対して難は無いと自称しているが…",
@@ -3309,7 +3309,7 @@
         "Luck": { "EffectText": "期待" },
         "Communication": { "EffectText": "過剰" }
       },
-      "SpetialPattern": ["Ptn.Py(読心効果)"],
+      "SpecialPattern": ["Ptn.Py(読心効果)"],
       "SafetyLevel": { "SafetyLevelText": "保証" }
     },
     "AbilityStats": {
@@ -3400,7 +3400,7 @@
     "ForMasterCalling": "ご主人様（/お嬢様）",
     "Character": "オンライン時：高飛車で過度の自信家で、自分にできないことなど何もないと思っている\nオフライン時：幼児退行気味で泣き虫",
     "Hobby": "やったことないことを試す",
-    "SpetialSkill": "ほぼなんでも",
+    "SpecialSkill": "ほぼなんでも",
     "Favor": "可愛い手芸品",
     "Unlike": "失敗\n自分にできないこと",
     "RelationAbouts": "「30(ミツト)」に妙な愛着が…？",
@@ -3414,7 +3414,7 @@
         "Luck": { "EffectText": "希薄" },
         "Communication": { "EffectText": "希薄" }
       },
-      "SpetialPattern": ["Ptn.I(高性能知能搭載)"],
+      "SpecialPattern": ["Ptn.I(高性能知能搭載)"],
       "SafetyLevel": { "hideText": "非公開" }
     },
     "AbilityStats": {
@@ -3504,7 +3504,7 @@
     "ForMasterCalling": "旦那様（/奥様）\nご主人様（/お嬢様）",
     "Character": "少し頑固で不器用、一寸膨大にとらえがち\n小規模なことより大規模なことを好んでいる",
     "Hobby": "怪しい交渉を持ちかける",
-    "SpetialSkill": "ギャンブルで誰が負けるかの予想",
+    "SpecialSkill": "ギャンブルで誰が負けるかの予想",
     "Favor": "一騎当千できるアクションゲーム",
     "Unlike": "妥協",
     "RelationAbouts": "妹個体「43(シトミ)」に誘発されてあらぬ事態を引き起こすことも……",
@@ -3518,7 +3518,7 @@
         "Luck": { "EffectText": "危険" },
         "Communication": { "hideText": "条件による" }
       },
-      "SpetialPattern": [
+      "SpecialPattern": [
         "Ptn.C(状況変化効果)",
         "Ptn.ZZ(逆効能および禁断効果に警戒)"
       ],
@@ -3611,7 +3611,7 @@
     "ThirdPersonCalling": "[※名前呼び]",
     "ForMasterCalling": "兄者(あにしゃ)/姉者(あねしゃ)",
     "Hobby": "企画",
-    "SpetialSkill": "お祓い",
+    "SpecialSkill": "お祓い",
     "Favor": "掃除・整理整頓",
     "Unlike": "危険予知を疎かにしている環境",
     "NumerospecAbout": "物事や進捗を発展させる",
@@ -3720,7 +3720,7 @@
     "ForMasterCalling": "主さん",
     "Character": "愛情表現が豊か\n運を分け与えるあまり、不運体質なのがコンプレックス",
     "Hobby": "デートスポット巡り",
-    "SpetialSkill": "ラッピング",
+    "SpecialSkill": "ラッピング",
     "Favor": "開運グッズ",
     "Unlike": "お化け",
     "RelationAbouts": "「6(ムイ)」「30(ミツト)」に似たものがあり、彼女自身も見習っている一面がある",
@@ -3734,7 +3734,7 @@
         "Luck": { "hideText": "判定不能" },
         "Communication": { "EffectText": "希薄" }
       },
-      "SpetialPattern": ["Ptn.X(転化・転送効果)"],
+      "SpecialPattern": ["Ptn.X(転化・転送効果)"],
       "SafetyLevel": { "SafetyLevelText": "無危害" }
     },
     "AbilityStats": {
@@ -3827,7 +3827,7 @@
     "ForMasterCalling": "リーダー\nお兄(にぃ)/お姉(ねぇ)",
     "Character": "勤勉で知的向上心旺盛\n褒められると甘えがち",
     "Hobby": "書斎(本屋,図書館)に行く",
-    "SpetialSkill": "猫に懐かれる",
+    "SpecialSkill": "猫に懐かれる",
     "Favor": "頭を撫でられること",
     "Unlike": "針",
     "RelationAbouts": "従妹「47(シナ)」に興味がある？",
@@ -3841,7 +3841,7 @@
         "Luck": { "EffectText": "普通" },
         "Communication": { "EffectText": "効果無" }
       },
-      "SpetialPattern": ["Ptn.Ar(能力発揮効果)"],
+      "SpecialPattern": ["Ptn.Ar(能力発揮効果)"],
       "SafetyLevel": { "SafetyLevelText": "完全保証" }
     },
     "AbilityStats": {
@@ -3978,7 +3978,7 @@
     "ForMasterCalling": "[※二人称]\n相棒",
     "Character": "無駄や邪魔者には容赦しないドライな気質\nしかし信頼した人にとっては頼れる熱血漢",
     "Hobby": "ストラテジーゲーム",
-    "SpetialSkill": "スタント",
+    "SpecialSkill": "スタント",
     "Favor": "ボードゲーム",
     "Unlike": "無様な敗北",
     "RelationAbouts": "なぜか女装を勧められる「61(ロクイチ)」とは大の犬猿の仲",
@@ -3992,7 +3992,7 @@
         "Luck": { "EffectText": "期待" },
         "Communication": { "EffectText": "効果無" }
       },
-      "SpetialPattern": ["Ptn.A(行動補正効果)", "Ptn.Z[At](攻撃的思想に注意)"],
+      "SpecialPattern": ["Ptn.A(行動補正効果)", "Ptn.Z[At](攻撃的思想に注意)"],
       "SafetyLevel": { "SafetyLevelText": "恐らく無危害" }
     },
     "AbilityStats": {
@@ -4078,7 +4078,7 @@
     "ForMasterCalling": "主君\n主人さん",
     "Character": "普段は大袋を拡げながら魔人ぶっているが本当はかなりの苦労人、陰の努力家",
     "Hobby": "砂金集め",
-    "SpetialSkill": "食器の修繕、建前",
+    "SpecialSkill": "食器の修繕、建前",
     "Favor": "紅茶(の香り)、感謝されること",
     "Unlike": "本音や感情ばかりの気難しい話",
     "NumerospecAbout": "実現化する\nこの効果は限度制限がある。行動や意志に呼応するらしいが、条件や効果事例が多様なため詳細は不明",
@@ -4091,7 +4091,7 @@
         "Luck": { "hideText": "条件による" },
         "Communication": { "EffectText": "希薄" }
       },
-      "SpetialPattern": [
+      "SpecialPattern": [
         "Ptn.Rz-(実現性向上効果がある傾向)",
         "Ptn.Lr-(条件付き幸福実現効果)"
       ],
@@ -4174,7 +4174,7 @@
     "ForMasterCalling": "主人",
     "Character": "挑戦的で楽観的だが、不器用で少し頑固。ほんの若干マゾ",
     "Hobby": "ポーカー",
-    "SpetialSkill": "カード透視（カードなどが配られた場所をほぼすべて把握する）",
+    "SpecialSkill": "カード透視（カードなどが配られた場所をほぼすべて把握する）",
     "Favor": "賭けゲーム",
     "Unlike": "胸糞の悪い話",
     "RelationAbouts": "確率計算のできる「58(イソヤ)」とは好きなポーカーや賭けゲームを一切持ち込めずにいる",
@@ -4188,7 +4188,7 @@
         "Luck": { "EffectText": "期待可能" },
         "Communication": { "EffectText": "普通" }
       },
-      "SpetialPattern": [
+      "SpecialPattern": [
         "Ptn.Hm(心理安定化効果)",
         "Ptn.C-(状況変化効果がある傾向)"
       ],
@@ -4276,7 +4276,7 @@
     "ForMasterCalling": "あるちゃん",
     "Character": "恐れや心配が全くない自信家\n理想が高く我儘な言動をとることも",
     "Hobby": "グッズ収集",
-    "SpetialSkill": "面倒な男を振り払うこと",
+    "SpecialSkill": "面倒な男を振り払うこと",
     "Favor": "フィギュア",
     "Unlike": "失敗\n宗教勧誘",
     "NumerospecAbout": "心に抱えている弱気を中和する",
@@ -4374,7 +4374,7 @@
     "ForMasterCalling": "あるじん ※例外あり",
     "Character": "なんでも自分の都合よく物事が動くと捉えているメスガキ",
     "Hobby": "対戦ゲーム",
-    "SpetialSkill": "挑発",
+    "SpecialSkill": "挑発",
     "Favor": "ボイスチャット、姉(兄)を弄り倒すこと",
     "Unlike": "配慮",
     "NumerospecAbout": "望みを広げる",
@@ -4387,7 +4387,7 @@
         "Luck": { "EffectText": "極めて絶大(場合により逆効果)" },
         "Communication": { "hideText": "定義不能" }
       },
-      "SpetialPattern": [
+      "SpecialPattern": [
         "Ptn.Lr-(条件付き幸福実現効果)",
         "Ptn.Z[Hd](効果に一定の精神的耐性が必要)"
       ],
@@ -4486,7 +4486,7 @@
     "ForMasterCalling": "[※名前呼び]\nアニキ/アネキ",
     "Character": "勇敢で思い（自我？）の強い好青年気質",
     "Hobby": "ゲームセンターのアーケード巡り",
-    "SpetialSkill": "出目操作",
+    "SpecialSkill": "出目操作",
     "Favor": "感情が昂るもの",
     "Unlike": "絶対に不可能なこと",
     "RelationAbouts": "「33(ミサ)」に自我が強いだけなどと評され毛嫌いされている\n「72(ナフタ)」を筆頭に煙たがれる\n「52(イツギ)」と友好的だが、すれ違い気味なようで…？",
@@ -4500,7 +4500,7 @@
         "Luck": { "hideText": "判定不能" },
         "Communication": { "EffectText": "効果無" }
       },
-      "SpetialPattern": [
+      "SpecialPattern": [
         "Ptn.R-(効果保証作用がある傾向)",
         "Ptn.Z[Eg](過剰自我に注意)"
       ],
@@ -4598,7 +4598,7 @@
     "ForMasterCalling": "主人",
     "Character": "善意の味方に付きたい系、良心がよく威勢のいい",
     "Hobby": "縁側でくつろぐ",
-    "SpetialSkill": "和太鼓",
+    "SpecialSkill": "和太鼓",
     "Favor": "伝統工芸品",
     "Unlike": "風評被害",
     "NumerospecAbout": "主人を奮い立たせる\n特に主人が行動を起こすべき立場にあると発動する",
@@ -4611,7 +4611,7 @@
         "Luck": { "hideText": "検証中" },
         "Communication": { "EffectText": "普通" }
       },
-      "SpetialPattern": ["Ptn.Ec(士気比例作用)"],
+      "SpecialPattern": ["Ptn.Ec(士気比例作用)"],
       "SafetyLevel": { "SafetyLevelText": "無危害" }
     },
     "AbilityStats": {
@@ -4695,7 +4695,7 @@
     "ForMasterCalling": "先輩\n～先輩",
     "Character": "少し気性の荒い万事エンジョイ勢\n落ち着きがない",
     "Hobby": "親睦会に参加する",
-    "SpetialSkill": "会話の話題作り",
+    "SpecialSkill": "会話の話題作り",
     "Favor": "楽しいこと全般",
     "Unlike": "楽しめないこと全般\nおとなしくすること",
     "NumerospecAbout": "楽しませる",
@@ -4708,7 +4708,7 @@
         "Luck": { "EffectText": "逆効果" },
         "Communication": { "EffectText": "希薄" }
       },
-      "SpetialPattern": ["Ptn.Z[Ex](興奮注意)"],
+      "SpecialPattern": ["Ptn.Z[Ex](興奮注意)"],
       "SafetyLevel": { "SafetyLevelText": "注意" }
     },
     "AbilityStats": {
@@ -4802,7 +4802,7 @@
     "ForMasterCalling": "マスターさん\n兄さん/姉さん",
     "Character": "決断にブレがない自信家、少し熱血癖がある\n自分だけが認知している加護の存在を伝えたい",
     "Hobby": "才能のある人に会いに行く",
-    "SpetialSkill": "ババ抜き",
+    "SpecialSkill": "ババ抜き",
     "Favor": "七夕",
     "Unlike": "雷",
     "NumerospecAbout": "ナンバーテールズの加護を認知できる（なお認知できるものはこの限りではない）",
@@ -4815,7 +4815,7 @@
         "Luck": { "EffectText": "期待" },
         "Communication": { "hideText": "検証中" }
       },
-      "SpetialPattern": ["Ptn.F(超能力保有)"],
+      "SpecialPattern": ["Ptn.F(超能力保有)"],
       "SafetyLevel": { "hideText": "検証中" }
     },
     "AbilityStats": {
@@ -4900,7 +4900,7 @@
     "ForMasterCalling": "主様(あるじさま)",
     "Character": "根性強く諦めの悪い\n理想と現実の両方を尊重している",
     "Hobby": "クラウドソーシングで副収入を得ること",
-    "SpetialSkill": "データ分析",
+    "SpecialSkill": "データ分析",
     "Favor": "学園番長の存在",
     "Unlike": "怠惰な人",
     "NumerospecAbout": "現実をよりよくする\nこの効果は対象が現実逃避していない時に真価を発揮する",
@@ -4913,7 +4913,7 @@
         "Luck": { "EffectText": "期待" },
         "Communication": { "EffectText": "普通" }
       },
-      "SpetialPattern": ["Ptn.Ec(士気比例作用)", "Ptn.Rz(実現性向上効果)"],
+      "SpecialPattern": ["Ptn.Ec(士気比例作用)", "Ptn.Rz(実現性向上効果)"],
       "SafetyLevel": { "SafetyLevelText": "保証" }
     },
     "AbilityStats": {
@@ -5007,7 +5007,7 @@
     "ForMasterCalling": "主人サマ",
     "Character": "せっかちで、今のうちにできることを増やしたい\n進捗が無い中で待っていると不穏な表情をしがち",
     "Hobby": "ハッカソン参加\n(即興開発イベントのこと)",
-    "SpetialSkill": "ヒューマノイド形態の身体動作で\nデータ処理できる",
+    "SpecialSkill": "ヒューマノイド形態の身体動作で\nデータ処理できる",
     "Favor": "時短術",
     "Unlike": "進捗がダメな状況",
     "RelationAbouts": "「14(トヨ)」とは犬猿の仲だが……",
@@ -5021,7 +5021,7 @@
         "Luck": { "EffectText": "効果無" },
         "Communication": { "EffectText": "効果無" }
       },
-      "SpetialPattern": ["Ptn.St(状況比例作用)"],
+      "SpecialPattern": ["Ptn.St(状況比例作用)"],
       "SafetyLevel": { "SafetyLevelText": "無危害" }
     },
     "AbilityStats": {
@@ -5101,7 +5101,7 @@
     "ForMasterCalling": "[※？？？]",
     "Character": "どんな状況でも落ち着いている（ように見えるが、本当はめちゃくちゃ焦り症）\n天然かマゾの可能性あり",
     "Hobby": "猫と戯れる（実際は猫に遊ばれてる）",
-    "SpetialSkill": "着地",
+    "SpecialSkill": "着地",
     "Favor": "コアフォルダ姿でいる時間（実際はめちゃくちゃ転がされている）",
     "Unlike": { "hideText": "定義不能" },
     "RelationAbouts": "「40(ヨソ)」に敵視され「5(イズ)」を敵視している\n「30(ミツト)」に謎の安心感を憶えている",
@@ -5115,7 +5115,7 @@
         "Luck": { "EffectText": "極めて絶大(場合により逆効果)" },
         "Communication": { "hideText": "判定不能" }
       },
-      "SpetialPattern": [
+      "SpecialPattern": [
         "Ptn.C(状況変化効果)",
         "Ptn.Ms-(自己転化効果がある可能性)",
         "Ptn.Z[Hd](効果に一定の精神的耐性が必要)"
@@ -5204,7 +5204,7 @@
     "ForMasterCalling": "主(あるじ)",
     "Character": "発想力が高くアイディアマンとしても名高い",
     "Hobby": "ジェンガ",
-    "SpetialSkill": "ツボで弱点を突く",
+    "SpecialSkill": "ツボで弱点を突く",
     "Favor": "ドキュメンタリー、（漠然とした）期待",
     "Unlike": "枠に囚われること、長話",
     "Strength": "発想が奇抜でアイディア性にたける",
@@ -5219,7 +5219,7 @@
         "Luck": { "EffectText": "希薄" },
         "Communication": { "EffectText": "特殊" }
       },
-      "SpetialPattern": [
+      "SpecialPattern": [
         "Ptn.S(感性向上効果)",
         "Ptn.C-(状況変化効果がある傾向)",
         "Ptn.ZNE(効果の需要性や必然性についてのデータが著しく欠如)"
@@ -5315,7 +5315,7 @@
     "ForMasterCalling": "主人さん",
     "Character": "受け身姿勢でいつも流され気味だが、自分の本領を発揮できるタイミングを掌握できる",
     "Hobby": "戦略ゲーム",
-    "SpetialSkill": "麻雀",
+    "SpecialSkill": "麻雀",
     "Favor": "急展開",
     "Unlike": "ネタバレ\n如何様(イカサマ)",
     "NumerospecAbout": "楽観主義により自己実現と適応力を発揮する\nこの効果は主人に感化させることもできる\nただしこの効果は受動的な作用である",
@@ -5328,7 +5328,7 @@
         "Luck": { "EffectText": "絶大" },
         "Communication": { "EffectText": "普通" }
       },
-      "SpetialPattern": ["Ptn.Hm(心理安定化効果)"],
+      "SpecialPattern": ["Ptn.Hm(心理安定化効果)"],
       "SafetyLevel": { "SafetyLevelText": "完全保証" }
     },
     "AbilityStats": {
@@ -5422,7 +5422,7 @@
     "ForMasterCalling": "兄者(あにしゃ)/姉者(あねしゃ)",
     "Character": "単純で調子に乗りやすい",
     "Hobby": "ボードゲーム",
-    "SpetialSkill": "ゴルフ",
+    "SpecialSkill": "ゴルフ",
     "Favor": "アクション映画",
     "Unlike": "挑発\n姉[兄]に避けられていること",
     "Summary": "転機を恵むと一部の層から定評であり、主人たちの活動へ貢献している。\n活動実績は然程大きくはないが、中でも彼(女)の招いたチャンスを最大限に受容できるような主人とは相性が良い傾向にある。\nただ性格で単純さが目立っており、煽(おだ)てられるとすぐに調子に乗ってしまうところなどがある。\nそのため、彼(女)の良し悪しについては主人だけでなく他のナンバーテールズからも意見が分かれている様子。",
@@ -5435,7 +5435,7 @@
         "Luck": { "hideText": "条件による" },
         "Communication": { "EffectText": "希薄" }
       },
-      "SpetialPattern": ["Ptn.C(状況変化効果)", "Ptn.Ch(連鎖効果有)"],
+      "SpecialPattern": ["Ptn.C(状況変化効果)", "Ptn.Ch(連鎖効果有)"],
       "SafetyLevel": { "SafetyLevelText": "無危害" }
     },
     "AbilityStats": {
@@ -5552,7 +5552,7 @@
     "ForMasterCalling": "君,彼/彼女",
     "Character": "適応力と自己実現力を併せ持つ\n何が起こっても平然としている、鈍感？",
     "Hobby": "普通の生活？",
-    "SpetialSkill": "現状を打破すること",
+    "SpecialSkill": "現状を打破すること",
     "Favor": "神社のお守り",
     "Unlike": { "hideText": "？？？" },
     "RelationAbouts": "「台風の目」と呼ばれているが、それは「11(トウイチ)」のことだと錯覚している",
@@ -5566,7 +5566,7 @@
         "Luck": { "hideText": "判定不能" },
         "Communication": { "EffectText": "効果無" }
       },
-      "SpetialPattern": ["Ptn.C(状況変化効果)"],
+      "SpecialPattern": ["Ptn.C(状況変化効果)"],
       "SafetyLevel": { "SafetyLevelText": "調整中" }
     },
     "AbilityStats": {
@@ -5657,7 +5657,7 @@
     "ForMasterCalling": "～兄さん/～姉さん",
     "Character": "ごく普通のお子様。気が散りやすく飽き症で、怠け癖と放浪癖がそれぞれ少しだけある",
     "Hobby": "子供と遊ぶこと",
-    "SpetialSkill": "迷路\n遠出しても迷子にならない",
+    "SpecialSkill": "迷路\n遠出しても迷子にならない",
     "Favor": "知育玩具",
     "Unlike": "爬虫類\n勉強",
     "RelationAbouts": "出会いに恵まれるよう他個体から温かく見守られている\n勉強するときは「27(ツギナ)」と「29(ニトク)」に…？",
@@ -5760,7 +5760,7 @@
     "ForMasterCalling": "～先輩;先輩",
     "Character": "変化からの学びを尊重している\n失敗意識のない楽観的思考は圧巻されがち",
     "Hobby": "景品のあるキャンペーンに\n参加する",
-    "SpetialSkill": "漫画制作",
+    "SpecialSkill": "漫画制作",
     "Favor": "コミックペン\n宝くじ",
     "Unlike": "炎（焚火や火災）",
     "RelationAbouts": "双子の片割「75(シチゴ)」に生真面目さを憶えている\n「66(ムロク)」を直視できない…？",
@@ -5774,7 +5774,7 @@
         "Luck": { "EffectText": "希薄" },
         "Communication": { "EffectText": "希薄" }
       },
-      "SpetialPattern": ["Ptn.Kn(知性効果)"],
+      "SpecialPattern": ["Ptn.Kn(知性効果)"],
       "SafetyLevel": { "SafetyLevelText": "保証" }
     },
     "AbilityStats": {
@@ -5860,7 +5860,7 @@
     "ForMasterCalling": "主人ちゃん",
     "Character": "エスっ気のあるからかい好きで、強運の持ち主\nオマセで甘えん坊",
     "Hobby": "カードゲーム全般",
-    "SpetialSkill": "確率計算",
+    "SpecialSkill": "確率計算",
     "Favor": "大吉の御御籤(おみくじ)\n甘やかされること",
     "Unlike": "クソゲー(理不尽なゲーム)",
     "RelationAbouts": "カードの透視が可能な41(ヨソイチ)を忌避している",
@@ -5874,7 +5874,7 @@
         "Luck": { "EffectText": "過剰" },
         "Communication": { "EffectText": "希薄" }
       },
-      "SpetialPattern": ["Ptn.Lr(幸福実現効果)"],
+      "SpecialPattern": ["Ptn.Lr(幸福実現効果)"],
       "SafetyLevel": { "SafetyLevelText": "保証" }
     },
     "AbilityStats": {
@@ -5989,7 +5989,7 @@
     "ForMasterCalling": "ミスター/ミセス",
     "Character": "優美で強い母性を持ち、立ち振る舞いが素敵\n趣味趣向が少しナード",
     "Hobby": "ファン活動",
-    "SpetialSkill": "歌唱",
+    "SpecialSkill": "歌唱",
     "Favor": "推し",
     "Unlike": "趣味バレ",
     "RelationAbouts": "秘密の趣味であるヲタク活動がバレたことを発端に、「61(ロクイチ)」を筆頭とした関係に苦戦している",
@@ -6003,7 +6003,7 @@
         "Luck": { "EffectText": "普通" },
         "Communication": { "EffectText": "普通" }
       },
-      "SpetialPattern": ["Ptn.S(感性向上効果)"],
+      "SpecialPattern": ["Ptn.S(感性向上効果)"],
       "SafetyLevel": { "SafetyLevelText": "保証" }
     },
     "AbilityStats": {
@@ -6124,7 +6124,7 @@
     "ForMasterCalling": "マネちゃん",
     "Character": "天真爛漫で可憐だが、メルヘンチックで独特な世界観を持っている",
     "Hobby": "アイドル活動？",
-    "SpetialSkill": "メイド活動？",
+    "SpecialSkill": "メイド活動？",
     "Favor": "ファンタジー漫画",
     "Unlike": "G（害虫）",
     "RelationAbouts": "「60(ムソウ)」とアイドルグループの結成を望んでいる\n「10(ミツル)」に興味を持つあまりしつこく絡む一面も",
@@ -6138,7 +6138,7 @@
         "Luck": { "EffectText": "希薄" },
         "Communication": { "EffectText": "効果無" }
       },
-      "SpetialPattern": ["Ptn.S(感性向上効果)", "Ptn.Z[Sp](催眠/洗脳作用注意)"],
+      "SpecialPattern": ["Ptn.S(感性向上効果)", "Ptn.Z[Sp](催眠/洗脳作用注意)"],
       "SafetyLevel": { "SafetyLevelText": "無危害(奇行有)" }
     },
     "AbilityStats": {
@@ -6234,7 +6234,7 @@
     "ForMasterCalling": "ご主人先輩",
     "Character": "発想力が高く生産的\n女々しい一面も",
     "Hobby": "工芸品づくり",
-    "SpetialSkill": "バリアフリー化",
+    "SpecialSkill": "バリアフリー化",
     "Favor": "女性をモチーフにしたもの\n女性向けファッション",
     "Unlike": "実用性の全くない魔改造",
     "RelationAbouts": "「8(ワカツ)」や「85(ハッコ)」とものづくり関連で縁があるが…\n大切なイベントに着る衣装は「26(ニロク)」に頼りがち",
@@ -6248,7 +6248,7 @@
         "Luck": { "EffectText": "希薄" },
         "Communication": { "EffectText": "普通" }
       },
-      "SpetialPattern": ["Ptn.Mt(母性的作用の傾向)"],
+      "SpecialPattern": ["Ptn.Mt(母性的作用の傾向)"],
       "SafetyLevel": { "SafetyLevelText": "完全保証" }
     },
     "AbilityStats": {
@@ -6340,7 +6340,7 @@
     "ForMasterCalling": "主さん",
     "Character": "面倒見がよく世話焼き",
     "Hobby": "日記を書くこと",
-    "SpetialSkill": "子供をあやす",
+    "SpecialSkill": "子供をあやす",
     "Favor": "姉",
     "Unlike": "グロテスク注意コンテンツ",
     "NumerospecAbout": "幸福をもたらす\nこの効果は主に日常生活における感情に作用する",
@@ -6353,7 +6353,7 @@
         "Luck": { "EffectText": "絶大" },
         "Communication": { "EffectText": "絶大" }
       },
-      "SpetialPattern": ["Ptn.Pc(平穏増幅効果)", "Ptn.Mt(母性的作用の傾向)"],
+      "SpecialPattern": ["Ptn.Pc(平穏増幅効果)", "Ptn.Mt(母性的作用の傾向)"],
       "SafetyLevel": { "SafetyLevelText": "完全保証" }
     },
     "AbilityStats": {
@@ -6434,7 +6434,7 @@
     "ForMasterCalling": "教官\n～教官",
     "Character": "常に何かへ発情している\n加えて、ドが付くほどマゾらしく…",
     "Hobby": { "hideText": "？？？" },
-    "SpetialSkill": "リアクション芸",
+    "SpecialSkill": "リアクション芸",
     "Favor": "強気でＳっ気のある大人",
     "Unlike": { "hideText": "？？？" },
     "RelationAbouts": "「67(ムナ)」に“ある意味の”服従意識がある\n兄個体「46(シロー)」を筆頭にドン引きされたり、「42(ヨツグ)」を筆頭に面白がられたりしているが、当の本人はと云うと……",
@@ -6448,7 +6448,7 @@
         "Luck": { "EffectText": "逆効果" },
         "Communication": { "EffectText": "希薄" }
       },
-      "SpetialPattern": [
+      "SpecialPattern": [
         "Ptn.Z[Ex](興奮注意)",
         "Ptn.ZZ(逆効能および禁断効果に警戒)"
       ],
@@ -6545,7 +6545,7 @@
     "ForMasterCalling": "～兄さん/～姉さん",
     "Character": "飽き性で気分屋だが、好奇心旺盛で育ちざかりなキャラ",
     "Hobby": "子供と遊ぶこと",
-    "SpetialSkill": "粘土細工、砂場で城を作る",
+    "SpecialSkill": "粘土細工、砂場で城を作る",
     "Favor": "人形、ぬいぐるみ",
     "Unlike": "爬虫類",
     "NumerospecAbout": "マンネリ化から抜け出す勇気を与える\n特に当たり前のことから新しいことへの挑戦を促す",
@@ -6558,7 +6558,7 @@
         "Luck": { "EffectText": "期待" },
         "Communication": { "EffectText": "期待" }
       },
-      "SpetialPattern": ["Ptn.A(行動補正効果)"],
+      "SpecialPattern": ["Ptn.A(行動補正効果)"],
       "SafetyLevel": { "SafetyLevelText": "完全保証" }
     },
     "AbilityStats": {
@@ -6650,7 +6650,7 @@
     "ForMasterCalling": "迷い子さん\n神父様/聖母様",
     "Character": "博愛でロマンチスト\n修道女(シスター)に憧れている",
     "Hobby": "輝きがあらんことを祈る",
-    "SpetialSkill": "ダーツ",
+    "SpecialSkill": "ダーツ",
     "Favor": "照明器具",
     "Unlike": "悪天候",
     "RelationAbouts": "「6(ムイ)」を「姉様」と慕っている",
@@ -6664,7 +6664,7 @@
         "Luck": { "EffectText": "普通" },
         "Communication": { "EffectText": "普通" }
       },
-      "SpetialPattern": ["Ptn.S(感性向上効果)"],
+      "SpecialPattern": ["Ptn.S(感性向上効果)"],
       "SafetyLevel": { "SafetyLevelText": "保証" }
     },
     "AbilityStats": {
@@ -6745,7 +6745,7 @@
         "Luck": { "EffectText": "普通" },
         "Communication": { "EffectText": "普通" }
       },
-      "SpetialPattern": ["Ptn.B(バイタリティ強化効果)"],
+      "SpecialPattern": ["Ptn.B(バイタリティ強化効果)"],
       "SafetyLevel": { "SafetyLevelText": "保証" }
     },
     "AbilityStats": {
@@ -6789,7 +6789,7 @@
     "ForMasterCalling": "～トレーナー",
     "Character": "筋肉主義者のトレーナー気質、無理なく鍛錬することを醍醐味とする\nまだ自分の鍛錬に限界があることを恐れている一面も",
     "Hobby": "筋トレ、食事管理",
-    "SpetialSkill": "コーチング",
+    "SpecialSkill": "コーチング",
     "Favor": "人間の栄養管理について",
     "Unlike": "努力不足な人",
     "NumerospecAbout": "心身の健康を保証する",
@@ -6802,7 +6802,7 @@
         "Luck": { "EffectText": "期待可能" },
         "Communication": { "EffectText": "期待可能" }
       },
-      "SpetialPattern": ["Ptn.B+(物理的なバイタリティ効果)"],
+      "SpecialPattern": ["Ptn.B+(物理的なバイタリティ効果)"],
       "SafetyLevel": { "SafetyLevelText": "完全保証" }
     },
     "AbilityStats": {
@@ -6905,7 +6905,7 @@
     "ForMasterCalling": "主人",
     "Character": "執着心が無く何事にも塩反応、潔癖症\n古い物への価値観が辛辣",
     "Hobby": "整理整頓",
-    "SpetialSkill": "掃除\nフリーマーケット",
+    "SpecialSkill": "掃除\nフリーマーケット",
     "Favor": "髪を整える道具",
     "Unlike": "散らかった部屋",
     "RelationAbouts": "加護が強いナンバーテールズを「お化け」と称しがち\n稀にベリーショートヘアで登場し「5(イズ)」に笑われる",
@@ -6919,7 +6919,7 @@
         "Luck": { "EffectText": "効果無" },
         "Communication": { "EffectText": "希薄" }
       },
-      "SpetialPattern": ["Ptn.M(マネタイズ効果または資産操作能力)"],
+      "SpecialPattern": ["Ptn.M(マネタイズ効果または資産操作能力)"],
       "SafetyLevel": { "SafetyLevelText": "安全(奇行有)" }
     },
     "AbilityStats": {
@@ -7020,7 +7020,7 @@
     "ForMasterCalling": "[Free Style]\n※主人の趣向に応じる",
     "Character": "芸達者で主人の趣向に合うキャラで従事できる\nほんの若干アイデンティティを見失い気味？\n気分屋",
     "Hobby": "新しいことに戯れること",
-    "SpetialSkill": "モノマネ",
+    "SpecialSkill": "モノマネ",
     "Favor": "ハリウッド映画",
     "Unlike": "妹",
     "NumerospecAbout": "自分自身に対する固定概念から解放する",
@@ -7033,7 +7033,7 @@
         "Luck": { "EffectText": "効果無" },
         "Communication": { "EffectText": "効果無" }
       },
-      "SpetialPattern": ["Ptn.Ms(自己転化効果)"],
+      "SpecialPattern": ["Ptn.Ms(自己転化効果)"],
       "SafetyLevel": { "SafetyLevelText": "安全" }
     },
     "AbilityStats": {
@@ -7119,7 +7119,7 @@
     "ForMasterCalling": "～師(し) ※例外あり",
     "Character": "適当に見えて霊的？な才能を発揮している\n実はとても勤勉",
     "Hobby": "占い、祭事",
-    "SpetialSkill": "水晶占い",
+    "SpecialSkill": "水晶占い",
     "Favor": "タロットカード、オラクルカード",
     "Unlike": "演出の激しいパーティルーム",
     "RelationAbouts": "「25(フィズ)」の占い結果に興味がある",
@@ -7133,7 +7133,7 @@
         "Luck": { "EffectText": "普通" },
         "Communication": { "EffectText": "希薄" }
       },
-      "SpetialPattern": ["Ptn.F-(超能力保有の可能性)"],
+      "SpecialPattern": ["Ptn.F-(超能力保有の可能性)"],
       "SafetyLevel": { "SafetyLevelText": "安全" }
     },
     "AbilityStats": {
@@ -7216,7 +7216,7 @@
     "ForMasterCalling": "先生",
     "Character": "知的思考が豊富で努力家な好青年",
     "Hobby": "研究",
-    "SpetialSkill": "PDCAなどのフレームワーク",
+    "SpecialSkill": "PDCAなどのフレームワーク",
     "Favor": "青春",
     "Unlike": "無知無能",
     "NumerospecAbout": "主人へ学びを1日1つ恵む",
@@ -7229,7 +7229,7 @@
         "Luck": { "EffectText": "期待可能" },
         "Communication": { "EffectText": "期待可能" }
       },
-      "SpetialPattern": [
+      "SpecialPattern": [
         "Ptn.Kn(知性効果)",
         "Ptn.Lg(思考向上効果)",
         "Ptn.Rz-(実現性向上効果がある傾向)"
@@ -7316,7 +7316,7 @@
     "ForMasterCalling": "主(root: ルート)",
     "Character": "機械のような振る舞いが癖となっている（本当は感情表現が苦手なだけだとも？）",
     "Hobby": "天気予報を見る",
-    "SpetialSkill": "ルーレットが止まる場所を回転中に当てられる",
+    "SpecialSkill": "ルーレットが止まる場所を回転中に当てられる",
     "Favor": "コミュニケーション力を伸ばせるビジネス本",
     "Unlike": "如何様(イカサマ)",
     "NumerospecAbout": "機械学習能力に特化した特殊なROSの主力機能で、ありとあらゆる学習ができる",
@@ -7329,7 +7329,7 @@
         "Luck": { "EffectText": "効果無" },
         "Communication": { "EffectText": "効果無" }
       },
-      "SpetialPattern": ["Ptn.I(高性能知能搭載)"],
+      "SpecialPattern": ["Ptn.I(高性能知能搭載)"],
       "SafetyLevel": { "hideText": "検証中" }
     },
     "AbilityStats": {
@@ -7428,7 +7428,7 @@
     "ForMasterCalling": "おにぃ/おねぇ",
     "Character": "世間知らずで知りたがり\n単純で騙されやすく、知識はすぐに共有したがる",
     "Hobby": "情報共有",
-    "SpetialSkill": "地獄耳",
+    "SpecialSkill": "地獄耳",
     "Favor": "配信機材",
     "Unlike": "針\nゴシップ",
     "NumerospecAbout": "知識を深めさせる\nこの作用は主に知識のアウトプットにより発揮される",
@@ -7441,7 +7441,7 @@
         "Luck": { "EffectText": "期待" },
         "Communication": { "EffectText": "普通" }
       },
-      "SpetialPattern": ["Ptn.Kn(知性効果)"],
+      "SpecialPattern": ["Ptn.Kn(知性効果)"],
       "SafetyLevel": { "SafetyLevelText": "安全(奇行有)" }
     },
     "AbilityStats": {
@@ -7542,7 +7542,7 @@
     "ForMasterCalling": "マスター君",
     "Character": "感覚が冴えわたった預言者のような存在\nその様子は「天のお告げ」のお蔭とも",
     "Hobby": "神社参拝",
-    "SpetialSkill": "おみくじで\n誰が大吉を引くか当てる",
+    "SpecialSkill": "おみくじで\n誰が大吉を引くか当てる",
     "Favor": "シルク",
     "Unlike": "雷",
     "NumerospecAbout": "「天のお告げ」を聴く",
@@ -7555,7 +7555,7 @@
         "Luck": { "EffectText": "特殊" },
         "Communication": { "EffectText": "効果無" }
       },
-      "SpetialPattern": ["Ptn.F(超能力保有)"],
+      "SpecialPattern": ["Ptn.F(超能力保有)"],
       "SafetyLevel": { "hideText": "検証中" }
     },
     "AbilityStats": {
@@ -7646,7 +7646,7 @@
     "ForMasterCalling": "～先輩;先輩",
     "Character": "真面目で意識高い系\n教訓や知見を重んじている",
     "Hobby": "統計学",
-    "SpetialSkill": "経験則が的確",
+    "SpecialSkill": "経験則が的確",
     "Favor": "文房具",
     "Unlike": "炎（焚火や火災）",
     "RelationAbouts": "双子の片割「57(イズナ)」は楽観的すぎだと思っている\n「25(フィズ)」に目標意識が…？",
@@ -7660,7 +7660,7 @@
         "Luck": { "EffectText": "普通" },
         "Communication": { "EffectText": "希薄" }
       },
-      "SpetialPattern": ["Ptn.Kn(知性効果)"],
+      "SpecialPattern": ["Ptn.Kn(知性効果)"],
       "SafetyLevel": { "SafetyLevelText": "保証" }
     },
     "AbilityStats": {
@@ -7749,7 +7749,7 @@
     "ForMasterCalling": "主人先生",
     "Character": "知識欲旺盛、自分に自信がなく不要に理知的",
     "Hobby": "読書",
-    "SpetialSkill": "複数文献の斜め読み",
+    "SpecialSkill": "複数文献の斜め読み",
     "Favor": "専門書、同人誌",
     "Unlike": "非合理的・非常識なこと",
     "NumerospecAbout": "知識や教養から自らに磨きを掛ける",
@@ -7762,7 +7762,7 @@
         "Luck": { "EffectText": "希薄" },
         "Communication": { "EffectText": "効果無" }
       },
-      "SpetialPattern": ["Ptn.Kn(知性効果)"],
+      "SpecialPattern": ["Ptn.Kn(知性効果)"],
       "SafetyLevel": { "SafetyLevelText": "保証" }
     },
     "AbilityStats": {
@@ -7844,7 +7844,7 @@
     "ForMasterCalling": "リーダー",
     "Character": "気さくで口調も軽いが実は自分を律せる真面目\n真面目な人と人望が薄いことがコンプレックス",
     "Hobby": "ヨガ",
-    "SpetialSkill": "集中した時の反射神経",
+    "SpecialSkill": "集中した時の反射神経",
     "Favor": "集中できる場所",
     "Unlike": "カラオケルーム",
     "RelationAbouts": "「5(イズ)」に才能を認められている\n「7(ナナ)」を良きライバルと思っているが…",
@@ -7858,7 +7858,7 @@
         "Luck": { "EffectText": "普通" },
         "Communication": { "EffectText": "普通" }
       },
-      "SpetialPattern": [
+      "SpecialPattern": [
         "Ptn.Hm(心理安定化効果)",
         "Ptn.F-(超能力保有の可能性)"
       ],
@@ -7958,7 +7958,7 @@
     "ForMasterCalling": "[※二人称];ご主人様",
     "Character": "清く美しい精神の持ち主だが、ややネガティヴ気味で胡散臭がられているのが玉に瑕",
     "Hobby": "タロットカード",
-    "SpetialSkill": "アドリブ祝辞",
+    "SpecialSkill": "アドリブ祝辞",
     "Favor": "トランプ、タロットカード",
     "Unlike": "傲慢な態度",
     "NumerospecAbout": "経験・報酬を反省から生む\nただしこの効果は対象の性格と相互に影響する",
@@ -7971,7 +7971,7 @@
         "Luck": { "EffectText": "逆効果(仕様)" },
         "Communication": { "EffectText": "希薄" }
       },
-      "SpetialPattern": [
+      "SpecialPattern": [
         "Ptn.Lg(思考向上効果)",
         "Ptn.Rc-(救済効果がある傾向)",
         "Ptn.Rz-(実現性向上効果がある傾向)",
@@ -8081,7 +8081,7 @@
     "ForMasterCalling": "ダンナ/奥サマ\nダンナ/奥サマ;[※名前呼び]",
     "Character": "相場や価値の流れに敏感\n不安症な一面もあり悪い意味で現金主義かつギャンブラーな本性を持つ",
     "Hobby": "自動売買の運用",
-    "SpetialSkill": "宝くじの当選番号予想",
+    "SpecialSkill": "宝くじの当選番号予想",
     "Favor": "FX・仮想通貨",
     "Unlike": "大暴落（景気の悪化,倒産,壊滅 など）",
     "RelationAbouts": "「88(ヤソハチ)」と何か関係が…？",
@@ -8094,7 +8094,7 @@
         "Luck": { "hideText": "判定不能" },
         "Communication": { "EffectText": "効果無" }
       },
-      "SpetialPattern": [
+      "SpecialPattern": [
         "Ptn.MRn(マネタイズまたは資産運用に対する乱数的な効果)",
         "Ptn.Z[Hd](効果に一定の精神的耐性が必要)",
         "Ptn.Z[MT](不安またはモラトリアム思想に注意)"
@@ -8159,7 +8159,7 @@
     "ForMasterCalling": "上方(かみかた)",
     "Character": "価値に敏感で奉仕的\n社会情勢に敏感な貢献家",
     "Hobby": "投資",
-    "SpetialSkill": "会計処理",
+    "SpecialSkill": "会計処理",
     "Favor": "価値感の向上",
     "Unlike": "詐欺（をすること）",
     "NumerospecAbout": "自信および主人の自己肯定感を高め役目を全うさせる",
@@ -8172,7 +8172,7 @@
         "Luck": { "EffectText": "希薄" },
         "Communication": { "EffectText": "期待" }
       },
-      "SpetialPattern": [
+      "SpecialPattern": [
         "Ptn.Ec(士気比例作用)",
         "Ptn.M-(マネタイズ効果または資産操作効果がある傾向)"
       ],
@@ -8339,7 +8339,7 @@
     "ForMasterCalling": "主(あるじ)",
     "Character": "欲望に従順だが計画性における理屈っぽさも併せ持つ",
     "Hobby": "貯金と大人買い",
-    "SpetialSkill": "家計簿処理、主人の趣味のマネタイズ",
+    "SpecialSkill": "家計簿処理、主人の趣味のマネタイズ",
     "Favor": "等価交換・社会的信用というお金の考え方",
     "Unlike": "窃盗、高額転売",
     "NumerospecAbout": "計画性に比例した結果を呼び寄せる",
@@ -8352,7 +8352,7 @@
         "Luck": { "EffectText": "期待" },
         "Communication": { "EffectText": "普通" }
       },
-      "SpetialPattern": [
+      "SpecialPattern": [
         "Ptn.Dr(目標比例作用)",
         "Ptn.Lg-(思考向上効果がある可能性)",
         "Ptn.Rz(実現性向上効果)"
@@ -8452,7 +8452,7 @@
     "ForMasterCalling": "[※三人称],主人くん",
     "Character": "少し甘やかされ気質で金銭感覚などに疎い",
     "Hobby": "ジャンク漁り",
-    "SpetialSkill": "勘定",
+    "SpecialSkill": "勘定",
     "Favor": "宝石",
     "Unlike": "賭け事",
     "RelationAbouts": "百のジャンク漁りに同行することがある\n62(ロジ)に振り回されがち",
@@ -8466,7 +8466,7 @@
         "Luck": { "EffectText": "強化済" },
         "Communication": { "EffectText": "普通" }
       },
-      "SpetialPattern": ["Ptn.Lr(幸福実現効果)"],
+      "SpecialPattern": ["Ptn.Lr(幸福実現効果)"],
       "SafetyLevel": { "SafetyLevelText": "保証" }
     },
     "AbilityStats": {
@@ -8546,7 +8546,7 @@
     "ForMasterCalling": "主人",
     "Character": "人当たりはよいがやや生真面目\n収集癖の強い一面がある",
     "Hobby": "コレクション収集",
-    "SpetialSkill": "ブラック案件を見抜く",
+    "SpecialSkill": "ブラック案件を見抜く",
     "Favor": "フリーマーケット、68(ロクヤ)の手放したレアアイテム",
     "Unlike": "断捨離、68(ロクヤ)本人",
     "NumerospecAbout": "富と才能を恵む\nただしこの効果の大きさは日頃の行いの良さに比例する",
@@ -8559,7 +8559,7 @@
         "Luck": { "EffectText": "期待" },
         "Communication": { "EffectText": "普通" }
       },
-      "SpetialPattern": ["Ptn.M(マネタイズ効果または資産操作能力)"],
+      "SpecialPattern": ["Ptn.M(マネタイズ効果または資産操作能力)"],
       "SafetyLevel": { "SafetyLevelText": "安全" }
     },
     "AbilityStats": {
@@ -8665,7 +8665,7 @@
     "ForMasterCalling": "あなたさま,ご主人さま",
     "Character": "ポジティブで明るい女の子だが、欲張りで拝金主義・完璧主義な一面があるのが玉に瑕",
     "Hobby": "時計修理・時計製作",
-    "SpetialSkill": "はんだ付け（実は溶接もできる）",
+    "SpecialSkill": "はんだ付け（実は溶接もできる）",
     "Favor": "自己投資(という考え方)",
     "Unlike": "誤差、やる気を出さない人",
     "NumerospecAbout": "金運を上げ、物欲を叶える\nただしこの効果は対象の物欲の種類に影響されやすい",
@@ -8681,7 +8681,7 @@
         "Luck": { "EffectText": "絶大" },
         "Communication": { "EffectText": "普通" }
       },
-      "SpetialPattern": [
+      "SpecialPattern": [
         "Ptn.Ec-(士気比例作用と思われる)",
         "Ptn.M(マネタイズ効果または資産操作能力)",
         "Ptn.Rz-(実現性向上効果がある傾向)"
@@ -8767,7 +8767,7 @@
     "ForMasterCalling": "旦那様/奥様\n[※三人称]",
     "Character": "執事のような存在で、貢ぎ癖が少しある\n努力に相応の成果を主人が得ることが信条",
     "Hobby": "ピアノ、音ゲー",
-    "SpetialSkill": "お金を集めること",
+    "SpecialSkill": "お金を集めること",
     "Favor": "楽器\n努力",
     "Unlike": "努力やお金を無駄にすること",
     "RelationAbouts": "ピアノ型のホログラムは「8(ワカツ)」が調整している",
@@ -8781,7 +8781,7 @@
         "Luck": { "EffectText": "絶大" },
         "Communication": { "EffectText": "希薄" }
       },
-      "SpetialPattern": [
+      "SpecialPattern": [
         "Ptn.M(マネタイズ効果または資産操作能力)",
         "Ptn.R-(効果保証作用がある傾向)"
       ],
@@ -8877,7 +8877,7 @@
     "ForMasterCalling": "～先生",
     "Character": "穏やかで静かな気質、誠実でしっかり者\n物事の締めくくりを大切にしている",
     "Hobby": "長編小説",
-    "SpetialSkill": "生け花",
+    "SpecialSkill": "生け花",
     "Favor": "因果応報",
     "Unlike": "老けて思われがち",
     "NumerospecAbout": "主人の抱える未練を中和する",
@@ -8890,7 +8890,7 @@
         "Luck": { "EffectText": "普通" },
         "Communication": { "EffectText": "希薄" }
       },
-      "SpetialPattern": ["Ptn.Rc(救済効果)"],
+      "SpecialPattern": ["Ptn.Rc(救済効果)"],
       "SafetyLevel": { "SafetyLevelText": "完全保証" }
     },
     "AbilityStats": {
@@ -9034,7 +9034,7 @@
     "ForMasterCalling": "兄さん/姉さん",
     "Character": "接し方は淡泊でドライだが根はとても寛容",
     "Hobby": "エンタメ番組を見ること",
-    "SpetialSkill": "感情の整理",
+    "SpecialSkill": "感情の整理",
     "Favor": "冬、コアフォルダが寄り添っている様子",
     "Unlike": "姉を筆頭に怖がられていること",
     "NumerospecAbout": "心を慰める\nただしこの効果は会話を通してのみ発動する",
@@ -9047,7 +9047,7 @@
         "Luck": { "EffectText": "普通" },
         "Communication": { "EffectText": "特殊" }
       },
-      "SpetialPattern": ["Ptn.Rc(救済効果)"],
+      "SpecialPattern": ["Ptn.Rc(救済効果)"],
       "SafetyLevel": { "SafetyLevelText": "保証" }
     },
     "AbilityStats": {
@@ -9133,7 +9133,7 @@
     "ForMasterCalling": "[※二人称]\n相棒",
     "Character": "理想が高く、成果を一つの過程として捉えている\n夢ある少女で、強大な野望を掲げている",
     "Hobby": "偉人記念館巡り",
-    "SpetialSkill": "応援（実はヲタ芸もできる）",
+    "SpecialSkill": "応援（実はヲタ芸もできる）",
     "Favor": "鉢巻\n表彰状（成果がわかるもの）",
     "Unlike": "挫折\n遊園地のアトラクション",
     "RelationAbouts": "「3(ナオ)」「9(チカ)」を活動の目標に掲げている",
@@ -9147,7 +9147,7 @@
         "Luck": { "EffectText": "特殊" },
         "Communication": { "EffectText": "効果無" }
       },
-      "SpetialPattern": ["Ptn.Dr-(目標比例作用がある傾向)"],
+      "SpecialPattern": ["Ptn.Dr-(目標比例作用がある傾向)"],
       "SafetyLevel": { "SafetyLevelText": "調整中" }
     },
     "AbilityStats": {
@@ -9235,7 +9235,7 @@
     "ForMasterCalling": "主人さま",
     "Character": "常に眠そうにしており、休止時間が活動時間よりも長くよく寝ている\nコアフォルダ形態が大好き",
     "Hobby": "休養",
-    "SpetialSkill": "どんな状況でも入眠できる",
+    "SpecialSkill": "どんな状況でも入眠できる",
     "Favor": "丸くなって寝ること",
     "Unlike": "丸い形以外になること",
     "RelationAbouts": "「4(モチ)」に安心感を覚えている\n同クラス（デュアルフォーズ）での交流に苦戦中",
@@ -9249,7 +9249,7 @@
         "Luck": { "EffectText": "強化済" },
         "Communication": { "EffectText": "希薄" }
       },
-      "SpetialPattern": [
+      "SpecialPattern": [
         "Ptn.B(バイタリティ強化効果)",
         "Ptn.Hm(心理安定化効果)"
       ],
@@ -9318,7 +9318,7 @@
     "Class_EN": "Dual Sum-5s",
     "Character": "癖で万が一のことを考えている\n異世界転生に興味があるらしいが…",
     "Hobby": "対策、災害などへの備え",
-    "SpetialSkill": "ライトノベル執筆",
+    "SpecialSkill": "ライトノベル執筆",
     "Favor": "転機（転職・転校などの）",
     "Unlike": "現状に拘束されること",
     "RelationAbouts": "「15(トウゴ)」を「死神様」と慕っているが…？",
@@ -9377,7 +9377,7 @@
     "ForMasterCalling": "ご主人",
     "Character": "流行に詳しく今時なトレンドに敏感\n普段は仮面をつけている（流行に乗っている自分を模るためらしい）\n素を知られていない",
     "Hobby": "ファッション購入",
-    "SpetialSkill": "キャラを演じること",
+    "SpecialSkill": "キャラを演じること",
     "Favor": "トレンドもの",
     "Unlike": "水着",
     "RelationAbouts": "「69(ロック)」にだけ素の自分を打ち明けているが…",
@@ -9391,7 +9391,7 @@
         "Luck": { "EffectText": "効果無" },
         "Communication": { "EffectText": "逆効果(仕様)" }
       },
-      "SpetialPattern": ["Ptn.Ms(自己転化効果)"],
+      "SpecialPattern": ["Ptn.Ms(自己転化効果)"],
       "SafetyLevel": { "SafetyLevelText": "無危害(奇行有)" }
     },
     "AbilityStats": {
@@ -9483,7 +9483,7 @@
     "ForMasterCalling": "神官さま",
     "Character": "自発的だが、少し内向的でもあり陰気\n杓子定規な一面も",
     "Hobby": "祈願・礼拝",
-    "SpetialSkill": "読み聞かせ",
+    "SpecialSkill": "読み聞かせ",
     "Favor": "信仰",
     "Unlike": "叱責や怒号",
     "RelationAbouts": "良かれと思って「61(ロクイチ)」と「72(ナフタ)」に、礼拝を勧めている（なお、相手はうまく受け流している）\n「74(ナナヨ)」に関しては否定こそしないが肯定もしておらず、その時々の感情で共感度合いが変わってしまいがち",
@@ -9497,7 +9497,7 @@
         "Luck": { "EffectText": "絶大" },
         "Communication": { "EffectText": "特殊" }
       },
-      "SpetialPattern": ["Ptn.Rc(救済効果)", "Ptn.S-(感性向上効果の可能性)"],
+      "SpecialPattern": ["Ptn.Rc(救済効果)", "Ptn.S-(感性向上効果の可能性)"],
       "SafetyLevel": { "SafetyLevelText": "安全(奇行有)" }
     },
     "AbilityStats": {
@@ -9577,7 +9577,7 @@
     "ForMasterCalling": "～先生",
     "Character": "飽き症で何事にも投げ遣り気味。ほんの少しだけシスターコンプレックス",
     "Hobby": "買い出し",
-    "SpetialSkill": "時間制限や手数制限のある作業",
+    "SpecialSkill": "時間制限や手数制限のある作業",
     "Favor": "キリ番から少し減らされ下2桁が「98」になった数字",
     "Unlike": "残業",
     "NumerospecAbout": "諦め時を見極める\nこれにより、より即座に結果を伴わせることがあるらしい",
@@ -9590,7 +9590,7 @@
         "Luck": { "EffectText": "期待可能" },
         "Communication": { "EffectText": "効果無" }
       },
-      "SpetialPattern": [
+      "SpecialPattern": [
         "Ptn.Rz-(実現性向上効果がある傾向)",
         "Ptn.Rc-(救済効果がある傾向)"
       ],
@@ -9682,7 +9682,7 @@
     "ForMasterCalling": "主君",
     "Character": "異世界転生者疑惑がある？\n異世界の王族だったような雰囲気を持つ",
     "Hobby": "記憶を探ること",
-    "SpetialSkill": "運試し",
+    "SpecialSkill": "運試し",
     "Favor": "サイエンスファンタジー",
     "Unlike": "悲劇",
     "RelationAbouts": "「11(トウイチ)」に記憶について事情を相談している\n「10(ミツル)」に心当たりが…？",
@@ -9696,7 +9696,7 @@
         "Luck": { "hideText": "公開不能" },
         "Communication": { "hideText": "判定不能" }
       },
-      "SpetialPattern": { "hideText": "極秘事項" },
+      "SpecialPattern": { "hideText": "極秘事項" },
       "SafetyLevel": { "hideText": "公開不能" }
     },
     "AbilityStats": {
@@ -9815,7 +9815,7 @@
     "ForMasterCalling": "兄さま/姉さま",
     "Character": "控えめだけど可憐で仲間想い\n少し世間知らず",
     "Hobby": "皆を思いやること",
-    "SpetialSkill": "体調不良を見抜く",
+    "SpecialSkill": "体調不良を見抜く",
     "Favor": "スキンシップ（コアフォルダ形態時）",
     "Unlike": "妹より幼く見えること",
     "Strength": "葛藤しながらも周りや仲間のことを無下にしない",
@@ -9823,7 +9823,7 @@
     "RelationAbouts": "「3(ナオ)」と一緒に活動したかったと思っている\n「ディケ」の悩みに寄り添いたいと願っている",
     "NumerospecAbout": "他ナンバーテールズに託す：この効果の詳細は不明",
     "NumerospecStats": {
-      "SpetialPattern": ["Ptn.X(転化・転送効果)"]
+      "SpecialPattern": ["Ptn.X(転化・転送効果)"]
     },
     "AbilityStats": {
       "Speed": { "hideText": "データ無" },
@@ -9901,7 +9901,7 @@
     "RelationAbouts": "いつか1桁番の許へ復帰するのを望んでいる\n時々隔離開発室に訪れる「10(ミツル)」に戸惑う一面も",
     "NumerospecAbout": "？？？？を果たす\n暴走により唯一攻撃的な特徴のある加護となった",
     "NumerospecStats": {
-      "SpetialPattern": [
+      "SpecialPattern": [
         "Ptn.Z[At](攻撃的思想に注意)",
         "Ptn.Z[Eg](過剰自我に注意)",
         "Ptn.ZZ(逆効能および禁断効果に警戒)"

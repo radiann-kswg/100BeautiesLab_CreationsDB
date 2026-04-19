@@ -192,7 +192,7 @@
       "hashTag_JP": "趣味"
     },
     {
-      "hashTag": "SpetialSkill",
+      "hashTag": "SpecialSkill",
       "$type": "#String|#Summary|#Null",
       "hashTag_JP": "特技"
     },
