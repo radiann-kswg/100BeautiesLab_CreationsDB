@@ -22,6 +22,7 @@
 - 2026-04-19_progress_dblink-schema-guard.md （別作品 `_DBLink` の schema 未宣言項目を抑止）
 - 2026-04-19_progress_listindex-multiline.md （`#ListIndex[]` / `#ListLink[]` の詳細表示を改行化）
 - 2026-04-19_progress_api-sw-docs.md （API/SW 技術仕様メモと注釈の補強）
+- 2026-04-19_progress_playbook-copilot-rules.md （実装運用プレイブックと Copilot 指示書の更新）
 
 補足:
 

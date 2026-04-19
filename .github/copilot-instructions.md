@@ -29,6 +29,18 @@
 - **typedef 駆動の優先順位**: enrich/search 等で typedef を解釈する場合、優先順位は **表示分類 → 正規化 → 画像 → 検索** とします。
 - **enrich 出力メタ**: enrich の結果には、UI が表示制御に使えるメタ情報（例: `_enrichment.displaySections`）を付与する設計を許容します。
 - **作業の粒度**: 注釈追加やリファクタは「今回触る範囲に限定」し、全体の一括整形・一括注釈化は避けます（必要な場合は計画提示のうえ段階導入）。
+- **docs と指示書の同期**: セッション内で仕様判断や運用ルールが固まった場合、今後も再利用する内容は `docs/` と `.github/copilot-instructions.md` の両方へ反映する前提で扱います。
+
+### 最近の実装運用ルール（2026-04 セッション反映）
+
+- **UI 表示修正の第一候補**: 画面崩れや表示漏れは、まず `db_type.json($DefType)` / `$display` / `db_meta.json($DetailLayout)` で制御できないかを確認し、UI のハードコード追加は最後の手段とします。
+- **List 系詳細表示**: `#ListIndex[]` / `#ListLink[]` の object 配列は、詳細表示では 1 要素 1 行の multiline 表示を優先します。
+- **bilingual multiline 表示**: `##String_JP` / `##String_EN` 系で和英のどちらかに改行が含まれる場合、詳細テーブルでは JP/EN を左右 2 列に分ける表示を優先します。
+- **basic 補助項目の重複抑制**: `Belonging` / `Area` / `BirthDay` / `AnivDay` などの basic 補助行は、`$DetailLayout.basicFields` に既に含まれる場合は重複表示しないでください。
+- **cross-work `_DBLink` 制約**: 別作品から `_DBLink` 参照で値を持ち込む場合は、対象作品の `db_type.json($DefType)` とグローバル `data/db_type.json($DefType)` に宣言されたトップレベル項目だけを許可します。
+- **作品別 `db_meta.json` 欠損耐性**: 作品別 `db_meta.json` は追加価値レイヤーとして扱い、欠損時でも DB取得 / 検索 / enrich を 500 で落とさず `_Commons` / `_Secondaries` だけをスキップして継続します。
+- **API/SW 技術説明の参照先**: API / SW 周辺の仕様整理や説明追加では、まず `docs/api-sw-spec.md` を参照・更新対象に含めてください。
+- **横断運用の参照先**: 実装判断の横断ルールは `docs/implementation-playbook.md` を先に確認し、必要な差分だけ追加してください。
 
 ### 会話パターン情報追加時の運用制約（重要）
 
@@ -220,6 +232,8 @@
 - **ラベルのデータ運用**: 新規追加や修正では `hashTag_JP` に寄せます（`hashtag_JP` は後方互換の読み取り対象）。
 - **インデックス表示名**: 作品ごとのインデックス（一覧チップ/詳細ピル）は、作品別 typedef（`data/Works_<作品名>/DataBases/db_type.json`）の `$IndexDef` を参照し、`hashTagName_JP/EN` を表示名として利用します。
 - **basic 補助項目の扱い**: `BirthDay` のように typedef 上は基本情報だが作品別 `basicFields` へ必ずしも列挙されない項目は、既存の basic 補助行（例: `AnivDay`）と同系統で扱うことを許容します。
+- **List 系詳細表示**: `#ListIndex[]` / `#ListLink[]` の object 配列は、カンマ結合ではなく改行ベースで表示する方針を優先します。
+- **2言語 multiline 表示**: `##String_JP` / `##String_EN` の名称系フィールドで和英のどちらかに改行が含まれる場合、1 つの pre-wrap 文字列へ潰さず、可能な限り JP/EN 列を分けた DOM で表示します。
 
 ### 直リンク（URL クエリ）
 
@@ -242,6 +256,7 @@
 - **typedef 駆動**: enrich/search 等の振る舞いは `db_type.json($DefType)` を参照して補助（表示分類・正規化・画像ヒント・検索対象テキストなど）する設計を優先します。
 - **typedef 駆動の優先順位**: 表示分類 → 正規化 → 画像 → 検索（上位ほど破壊的変更になりやすいため、下位の拡張は慎重に段階導入）。
 - **enrich のメタ情報**: enrich 応答に `_enrichment` 等のメタ情報を含め、UI がセクション分けや表示制御に利用できるようにします（例: `_enrichment.displaySections`）。
+- **API/SW 仕様メモの同期**: ルーティング、`_enrichment`、`varsdef` / `typedef` / `deftype` の責務、`db_meta.json` 欠損耐性を変更した場合は、`docs/api-sw-spec.md` も同時に更新してください。
 
 #### 作品別 `db_meta.json` の `_Commons` / `_Secondaries`（運用の要点）
 
@@ -258,6 +273,7 @@
 - **同名フィールド穴埋め**: 参照先レコードの同名フィールドは、ベース側が空値（`undefined/null/''/[]` 等）の場合のみ埋めます（既存値は上書きしません）。
 - **`hideText` の尊重**: `{ hideText: '...' }` は意図的マスクとして扱い、参照先値で上書きしません。
 - **曖昧一致の扱い**: `_Search` による参照先特定は **1件一致のみ採用**し、曖昧一致・複数一致はスキップします（解決/置換しない）。
+- **別作品からの持ち込み制限**: cross-work の `_DBLink` では、対象作品の schema に未宣言なトップレベル項目を持ち込まないでください。
 - **画像の扱い**: 画像系フィールドは **別DB（別JSON）から参照・穴埋めしません**。同一DB（同一JSON）参照の場合のみ、画像の穴埋めを許可します。
 - **複数 `_DBLink`**: `_DBLink` が配列の場合の合成仕様は未確定のため、現状は先頭要素のみ参照対象として扱います（仕様確定後に拡張）。
 

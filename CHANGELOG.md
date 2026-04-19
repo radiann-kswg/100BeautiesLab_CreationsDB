@@ -1,5 +1,11 @@
 # 最新のリファクタリング・仕様変更履歴
 
+### 実装運用プレイブックと Copilot 指示書を更新
+
+- `docs/implementation-playbook.md` を追加し、UI / API / SW / data / docs の各レイヤーで「まずどこを正にするか」「どのファイルを先に確認するか」「変更後にどの docs を同期するか」を整理した。
+- `.github/copilot-instructions.md` に、2026-04 セッションで確定した運用ルールとして、List 系詳細の multiline 表示、bilingual multiline の 2 列表示、basic 補助行の重複抑制、cross-work `_DBLink` 制約、`db_meta.json` 欠損耐性、docs 同期方針を追記した。
+- `docs/README.md` から新しい実装運用プレイブックへ辿れるようにした。
+
 ### API / SW 周辺の技術仕様ドキュメントと注釈を補強
 
 - `docs/api-sw-spec.md` を追加し、`/api/v1` / `/pages/v1` / `/svc/v1` の役割差、`db_type.json` / `db_meta.json` / 予約語の責務分担、`_enrichment` の出力仕様、`db_meta.json` 欠損時ポリシーを整理した。

@@ -14,6 +14,7 @@ This folder contains documentation for **100BeautiesLab. Creations DB (Web)**.
 
 - DB update guidelines (JP): `db-update-guidelines.md`
 - API / SW technical note (JP): `api-sw-spec.md`
+- Implementation playbook (JP): `implementation-playbook.md`
 - Third-party policy (JP): `third-party-policy.md`
 
 ## English
