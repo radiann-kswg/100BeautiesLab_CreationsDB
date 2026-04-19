@@ -1651,11 +1651,6 @@ body {
     width: calc(50% - 4px);
   }
 }
-@media (min-width: 1024px) {
-  .detail-tag-grid--triple > * {
-    width: calc(33.333% - 5.34px);
-  }
-}
 @supports (display: grid) {
   .detail-tag-grid {
     display: grid;
@@ -1668,11 +1663,6 @@ body {
     .detail-tag-grid--double,
     .detail-tag-grid--triple {
       grid-template-columns: repeat(2, 1fr);
-    }
-  }
-  @media (min-width: 1024px) {
-    .detail-tag-grid--triple {
-      grid-template-columns: repeat(3, 1fr);
     }
   }
 }
