@@ -236,7 +236,7 @@
           "hashTag_JP": "コメント"
         },
         {
-          "hashTag": "ComeBacked",
+          "hashTag": "Reply",
           "$type": "$Def_Relations[]",
           "isForSecondary": true,
           "hashTag_JP": "返答コメント"
