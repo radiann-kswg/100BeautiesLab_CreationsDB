@@ -17,6 +17,7 @@
 
 - 2026-03-31_remaining-task.md
 - 2026-04-18_progress_image-lightbox.md （キャラシート画像ギャラリーのポップアップ拡大表示）
+- 2026-04-19_progress_visual-qa-checklist.md （作品別の一覧/詳細 目視確認チェックリスト）
 - 2026-04-19_progress_typo-candidates.md （スペルミス修正候補の整理）
 
 補足:
