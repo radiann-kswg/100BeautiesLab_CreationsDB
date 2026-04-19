@@ -31,18 +31,18 @@
 
 ### B. 修正候補だが、置換先の語を先に決める必要がある候補
 
-#### 2. `UnproceededSecondary` → 候補要検討
+#### 2. `UnproceededSecondary` → `UnprocessedSecondary` （2026-04-19 対応済み）
 
 - 判定理由:
-  - `unproceeded` は英語としてかなり不自然。
-  - ただし意味としては `UnprocessedSecondary` なのか `UnproducedSecondary` なのかが即断しづらい。
+  - `unproceeded` は英語として不自然で、DB の説明文も「まだ制作予定のない空き枠」であるため、状態表現としては `UnprocessedSecondary` が最も自然。
+  - `UnproducedSecondary` だと「未制作キャラクターそのもの」に寄りすぎ、既存の DB 分類名としてはやや強すぎる。
 - 主な影響範囲:
   - `data/Works_NumberTales/DataBases/db_meta.json`
   - `lib/sw-common.js`
-  - 将来的には DB キー名・列挙名・必要に応じてファイル名変更が波及する可能性あり。
+  - `data/Works_NumberTales/DataBases/db_UnprocessedSecondary.json`
 - 影響メモ:
-  - 置換先を決めずに着手すると、かえって命名がぶれる。
-  - もしファイル名も合わせるなら `db_UnproceededSecondary.json` の扱い確認が必要。
+  - DB キー名と実ファイル名を `UnprocessedSecondary` / `db_UnprocessedSecondary.json` に統一する。
+  - テスト参照は見当たらないため、データ整合性と SW 系テストで回帰確認する。
 
 #### 3. `DestinyFoxsRecords` → 候補要検討
 
@@ -109,8 +109,7 @@
 
 ## 優先順位の提案
 
-1. `UnproceededSecondary` は正しい置換先を先に決めてから着手する。
-2. `DestinyFoxsRecords` は作品識別子改名タスクとして別立てで扱う。
+1. `DestinyFoxsRecords` は作品識別子改名タスクとして別立てで扱う。
 
 ## 影響範囲（今回の整理ログ作成）
 
@@ -120,7 +119,6 @@
 ## 未完了タスク
 
 - `secletRelation` の実修正を行うか判断する。 -> 対応済み
-- `UnproceededSecondary` の正式名称を決める。
 - `DestinyFoxsRecords` を識別子改名対象として扱うか判断する。
 
 ## 参考リンク
