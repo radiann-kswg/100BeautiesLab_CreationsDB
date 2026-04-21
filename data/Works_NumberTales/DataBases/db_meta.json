@@ -61,6 +61,25 @@
           }
         },
         {
+          "sec_Category": "ナンバーテールズ化企画",
+          "sec_DesignedBy": "ラジアン(柏木主税)",
+          "sec_SeriesTitle": null,
+          "_Commons": {
+            "Belonging": [],
+            "RaceType": [
+              {
+                "value": "PortableHumanoid(TaleBeastType)",
+                "about_JP": "自創作キャラ化の便宜上",
+                "about_EN": "For the convenience of being adapted into our creations"
+              },
+              {
+                "about_JP": "実際の種族はわずかに異なる部分あり",
+                "about_EN": "The actual species may differ slightly"
+              }
+            ]
+          }
+        },
+        {
           "sec_Category": null,
           "sec_DesignedBy": null,
           "sec_SeriesTitle": null,

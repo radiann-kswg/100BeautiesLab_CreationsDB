@@ -155,6 +155,7 @@
 
 - `Databases.#DB_<DbName>._Commons`: DB 全体に適用したい共通フィールド（穴埋め）
 - `Databases.#DB_<DbName>._Secondaries[]`: `sec_**`（例: `sec_SeriesTitle`, `sec_Category`）で適用する `_Commons` を分岐
+- 全ての `sec_**` が `null` / 空のオブジェクトはデフォルト fallback 用として扱われ、`null` 以外の条件を持つオブジェクトが一致した場合はそちらが優先されます。
 
 後方互換:
 

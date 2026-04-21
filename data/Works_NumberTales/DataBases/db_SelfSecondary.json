@@ -249,6 +249,31 @@
     "Class_EN": "Duet Triples VII.A"
   },
   {
+    "Num": "115-mp",
+    "Progress": "stillTentative",
+    "_DBLink": {
+      "worksTitle": "NumberTales",
+      "dbName": "SemiPrimary",
+      "_Search": [{ "hashTag": "Num", "key": 115 }]
+    },
+    "FormalName": "量産型ナンバーテールズ115番機シリーズ",
+    "FormalName_EN": "NumberTales #115 Series Mass Production Version for Sales",
+    "ModelNumber": "APHR-NT [MP]115-*****"
+  },
+  {
+    "sec_Category": "ナンバーテールズ化企画",
+    "sec_DesignedBy": "ラジアン(柏木主税)",
+    "Num": "115-numberize",
+    "Progress": "released",
+    "Images": {
+      "concept_PNGName": "numberize/cnsp_img115-numberize",
+      "conceptAlt_PNGPath": ["numberize/cnsp_img115-numberize-image"]
+    },
+    "Name": "(ナンバーテールズ化企画絵)",
+    "Name_EN": "(Illustration of NumberizeTales Project)",
+    "AdditionalDesigned": "企画参加者：おゆうわちゃん さん(https://www.pixiv.net/artworks/137497481)"
+  },
+  {
     "Num": 116,
     "Progress": "notProceeded",
     "Name": "ハクソロク",
@@ -309,7 +334,31 @@
     "Class_EN": "Duet Triples II.A"
   },
   {
+    "Num": 148,
+    "Progress": "notProceeded",
+    "FormalName": "量産型ナンバーテールズ148番機シリーズ",
+    "FormalName_EN": "NumberTales #148 Series Mass Production Version for Sales",
+    "ModelNumber": "APHR-NT [MP]148-*****",
+    "CodeName": "一四八",
+    "GenderType": "Neutral",
+    "Class": "トリプル1+4+8組",
+    "Class_EN": "I+IV+VIII Triples"
+  },
+  {
+    "sec_Category": "ナンバーテールズ化企画",
+    "sec_DesignedBy": "ラジアン(柏木主税)",
+    "Num": "148-numberize",
+    "Progress": "released",
+    "Images": {
+      "concept_PNGName": "numberize/cnsp_img148-numberize"
+    },
+    "Name": "(ナンバーテールズ化企画絵)",
+    "Name_EN": "(Illustration of NumberizeTales Project)",
+    "AdditionalDesigned": "企画参加者：よだれ さん(https://www.pixiv.net/artworks/137497481)"
+  },
+  {
     "Num": "222-mp",
+    "Progress": "notProceeded",
     "_DBLink": {
       "worksTitle": "NumberTales",
       "dbName": "SemiPrimary",
@@ -331,6 +380,7 @@
   },
   {
     "sec_Category": "リクエストナンバー",
+    "sec_DesignedBy": "ラジアン(柏木主税)",
     "Num": 223,
     "Progress": "released",
     "Images": {
@@ -352,7 +402,215 @@
     "Class_EN": "Duet Triples VII.A"
   },
   {
+    "Num": 227,
+    "Progress": "stillTentative",
+    "FormalName": "量産型ナンバーテールズ227番機シリーズ",
+    "FormalName_EN": "NumberTales #227 Series Mass Production Version for Sales",
+    "ModelNumber": "APHR-NT [MP]227-*****",
+    "CodeName": "二二七",
+    "GenderType": "Neutral",
+    "Class": "デュオトリプル2型甲組",
+    "Class_EN": "Duet Triples II.A"
+  },
+  {
+    "sec_Category": "ナンバーテールズ化企画",
+    "sec_DesignedBy": "ラジアン(柏木主税)",
+    "Num": "227-numberize",
+    "Progress": "released",
+    "Images": {
+      "concept_PNGName": "numberize/cnsp_img227-numberize"
+    },
+    "Name": "(ナンバーテールズ化企画絵)",
+    "Name_EN": "(Illustration of NumberizeTales Project)",
+    "AdditionalDesigned": "企画参加者：散狐アタスト さん(https://www.pixiv.net/artworks/137497481)"
+  },
+  {
+    "Num": 232,
+    "Progress": "stillTentative",
+    "FormalName": "量産型ナンバーテールズ232番機シリーズ",
+    "FormalName_EN": "NumberTales #232 Series Mass Production Version for Sales",
+    "ModelNumber": "APHR-NT [MP]232-*****",
+    "CodeName": "二三二",
+    "GenderType": "Neutral",
+    "Class": "デュオトリプル7型丙組",
+    "Class_EN": "Duet Triples VII.C"
+  },
+  {
+    "sec_Category": "ナンバーテールズ化企画",
+    "sec_DesignedBy": "ラジアン(柏木主税)",
+    "Num": "232-numberize",
+    "Progress": "released",
+    "Images": {
+      "concept_PNGName": "numberize/cnsp_img232-numberize"
+    },
+    "Name": "(ナンバーテールズ化企画絵)",
+    "Name_EN": "(Illustration of NumberizeTales Project)",
+    "AdditionalDesigned": "企画参加者：広小路トトカ さん(https://www.pixiv.net/artworks/137497481)"
+  },
+  {
+    "Num": 238,
+    "Progress": "stillTentative",
+    "FormalName": "量産型ナンバーテールズ238番機シリーズ",
+    "FormalName_EN": "NumberTales #238 Series Mass Production Version for Sales",
+    "ModelNumber": "APHR-NT [MP]238-*****",
+    "CodeName": "二三八",
+    "GenderType": "Neutral",
+    "Class": "トリプル2+3+8組",
+    "Class_EN": "II+III+VIII Triples"
+  },
+  {
+    "sec_Category": "ナンバーテールズ化企画",
+    "sec_DesignedBy": "ラジアン(柏木主税)",
+    "Num": "238-numberize",
+    "Progress": "released",
+    "Images": {
+      "concept_PNGName": "numberize/cnsp_img238-numberize"
+    },
+    "Name": "(ナンバーテールズ化企画絵)",
+    "Name_EN": "(Illustration of NumberizeTales Project)",
+    "AdditionalDesigned": "企画参加者：「み」のひと さん(https://www.pixiv.net/artworks/137497481)"
+  },
+  {
+    "Num": 241,
+    "Progress": "stillTentative",
+    "FormalName": "量産型ナンバーテールズ241番機シリーズ",
+    "FormalName_EN": "NumberTales #241 Series Mass Production Version for Sales",
+    "ModelNumber": "APHR-NT [MP]241-*****",
+    "CodeName": "二四一",
+    "GenderType": "Neutral",
+    "Class": "トリプル1+2+4組",
+    "Class_EN": "I+II+IV Triples"
+  },
+  {
+    "sec_Category": "ナンバーテールズ化企画",
+    "sec_DesignedBy": "ラジアン(柏木主税)",
+    "Num": "241-numberize",
+    "Progress": "released",
+    "Images": {
+      "concept_PNGName": "numberize/cnsp_img241-numberize"
+    },
+    "Name": "(ナンバーテールズ化企画絵)",
+    "Name_EN": "(Illustration of NumberizeTales Project)",
+    "AdditionalDesigned": "企画参加者：SIANO さん(https://www.pixiv.net/artworks/137497481)"
+  },
+  {
+    "Num": 258,
+    "Progress": "stillTentative",
+    "FormalName": "量産型ナンバーテールズ258番機シリーズ",
+    "FormalName_EN": "NumberTales #258 Series Mass Production Version for Sales",
+    "ModelNumber": "APHR-NT [MP]258-*****",
+    "CodeName": "二五八",
+    "GenderType": "Neutral",
+    "Class": "トリプル2+5+8組",
+    "Class_EN": "II+V+VIII Triples"
+  },
+  {
+    "sec_Category": "ナンバーテールズ化企画",
+    "sec_DesignedBy": "ラジアン(柏木主税)",
+    "Num": "258-numberize",
+    "Progress": "released",
+    "Images": {
+      "concept_PNGName": "numberize/cnsp_img258-numberize"
+    },
+    "Name": "(ナンバーテールズ化企画絵)",
+    "Name_EN": "(Illustration of NumberizeTales Project)",
+    "AdditionalDesigned": "企画参加者：CoiL25 さん(https://www.pixiv.net/artworks/137497481)"
+  },
+  {
+    "Num": 263,
+    "Progress": "stillTentative",
+    "FormalName": "量産型ナンバーテールズ263番機シリーズ",
+    "FormalName_EN": "NumberTales #263 Series Mass Production Version for Sales",
+    "ModelNumber": "APHR-NT [MP]263-*****",
+    "CodeName": "二六三",
+    "GenderType": "Neutral",
+    "Class": "トリプル2+3+6組",
+    "Class_EN": "II+III+VI Triples"
+  },
+  {
+    "sec_Category": "ナンバーテールズ化企画",
+    "sec_DesignedBy": "ラジアン(柏木主税)",
+    "Num": "263-numberize",
+    "Progress": "released",
+    "Images": {
+      "concept_PNGName": "numberize/cnsp_img263-numberize"
+    },
+    "Name": "(ナンバーテールズ化企画絵)",
+    "Name_EN": "(Illustration of NumberizeTales Project)",
+    "AdditionalDesigned": "企画参加者：月凪葉茶 さん(https://www.pixiv.net/artworks/137497481)"
+  },
+  {
+    "Num": 265,
+    "Progress": "stillTentative",
+    "FormalName": "量産型ナンバーテールズ265番機シリーズ",
+    "FormalName_EN": "NumberTales #265 Series Mass Production Version for Sales",
+    "ModelNumber": "APHR-NT [MP]265-*****",
+    "CodeName": "二六五",
+    "GenderType": "Neutral",
+    "Class": "トリプル2+5+6組",
+    "Class_EN": "II+V+VI Triples"
+  },
+  {
+    "sec_Category": "ナンバーテールズ化企画",
+    "sec_DesignedBy": "ラジアン(柏木主税)",
+    "Num": "265-numberize",
+    "Progress": "released",
+    "Images": {
+      "concept_PNGName": "numberize/cnsp_img265-numberize"
+    },
+    "Name": "(ナンバーテールズ化企画絵)",
+    "Name_EN": "(Illustration of NumberizeTales Project)",
+    "AdditionalDesigned": "企画参加者：青木凪 さん(https://www.pixiv.net/artworks/137497481)"
+  },
+  {
+    "Num": 294,
+    "Progress": "stillTentative",
+    "FormalName": "量産型ナンバーテールズ294番機シリーズ",
+    "FormalName_EN": "NumberTales #294 Series Mass Production Version for Sales",
+    "ModelNumber": "APHR-NT [MP]294-*****",
+    "CodeName": "二九四",
+    "GenderType": "Neutral",
+    "Class": "トリプル2+4+9組",
+    "Class_EN": "II+IV+IX Triples"
+  },
+  {
+    "sec_Category": "ナンバーテールズ化企画",
+    "sec_DesignedBy": "ラジアン(柏木主税)",
+    "Num": "294-numberize",
+    "Progress": "released",
+    "Images": {
+      "concept_PNGName": "numberize/cnsp_img294-numberize"
+    },
+    "Name": "(ナンバーテールズ化企画絵)",
+    "Name_EN": "(Illustration of NumberizeTales Project)",
+    "AdditionalDesigned": "企画参加者：ALK!(プロトタイプ) さん(https://www.pixiv.net/artworks/137497481)"
+  },
+  {
+    "Num": 295,
+    "Progress": "stillTentative",
+    "FormalName": "量産型ナンバーテールズ295番機シリーズ",
+    "FormalName_EN": "NumberTales #295 Series Mass Production Version for Sales",
+    "ModelNumber": "APHR-NT [MP]295-*****",
+    "CodeName": "二九五",
+    "GenderType": "Neutral",
+    "Class": "トリプル2+5+9組",
+    "Class_EN": "II+V+IX Triples"
+  },
+  {
+    "sec_Category": "ナンバーテールズ化企画",
+    "sec_DesignedBy": "ラジアン(柏木主税)",
+    "Num": "295-numberize",
+    "Progress": "released",
+    "Images": {
+      "concept_PNGName": "numberize/cnsp_img295-numberize"
+    },
+    "Name": "(ナンバーテールズ化企画絵)",
+    "Name_EN": "(Illustration of NumberizeTales Project)",
+    "AdditionalDesigned": "企画参加者：いるいる さん(https://www.pixiv.net/artworks/137497481)"
+  },
+  {
     "Num": "333-mp",
+    "Progress": "notProceeded",
     "_DBLink": {
       "worksTitle": "NumberTales",
       "dbName": "SemiPrimary",
@@ -365,7 +623,196 @@
     "ModelNumber": "APHR-NT [MP]333-*****"
   },
   {
+    "Num": 337,
+    "Progress": "stillTentative",
+    "FormalName": "量産型ナンバーテールズ337番機シリーズ",
+    "FormalName_EN": "NumberTales #337 Series Mass Production Version for Sales",
+    "ModelNumber": "APHR-NT [MP]337-*****",
+    "CodeName": "三三七",
+    "GenderType": "Neutral",
+    "Class": "デュオトリプル4型甲組",
+    "Class_EN": "Duet Triples IV.A"
+  },
+  {
+    "sec_Category": "ナンバーテールズ化企画",
+    "sec_DesignedBy": "ラジアン(柏木主税)",
+    "Num": "337-numberize",
+    "Progress": "released",
+    "Images": {
+      "concept_PNGName": "numberize/cnsp_img337-numberize"
+    },
+    "Name": "(ナンバーテールズ化企画絵)",
+    "Name_EN": "(Illustration of NumberizeTales Project)",
+    "AdditionalDesigned": "企画参加者：猫吉よりお さん(https://www.pixiv.net/artworks/137497481)"
+  },
+  {
+    "Num": 366,
+    "Progress": "stillTentative",
+    "Name": "ウルウネ",
+    "Name_EN": "Leaper",
+    "FormalName": "量産型ナンバーテールズ366番機シリーズ",
+    "FormalName_EN": "NumberTales #366 Series Mass Production Version for Sales",
+    "ModelNumber": "APHR-NT [MP]366-*****",
+    "CodeName": "三六六",
+    "SPCodeName_EN": "Days of Leaped-Year",
+    "GenderType": "Neutral",
+    "Class": "デュオトリプル6型乙組",
+    "Class_EN": "Duet Triples VI.B",
+    "Backgrounds": "閏年の日数(366日)から由来\nなお「200(マタウルウ)」や「365(イヤース)」とは、姉妹関係はない"
+  },
+  {
+    "sec_Category": "ナンバーテールズ化企画",
+    "sec_DesignedBy": "ラジアン(柏木主税)",
+    "Num": "366-numberize",
+    "Progress": "released",
+    "Images": {
+      "concept_PNGName": "numberize/cnsp_img366-numberize"
+    },
+    "Name": "(ナンバーテールズ化企画絵)",
+    "Name_EN": "(Illustration of NumberizeTales Project)",
+    "AdditionalDesigned": "企画参加者：うどん さん(https://www.pixiv.net/artworks/137497481)"
+  },
+  {
+    "Num": 376,
+    "Progress": "stillTentative",
+    "FormalName": "量産型ナンバーテールズ376番機シリーズ",
+    "FormalName_EN": "NumberTales #376 Series Mass Production Version for Sales",
+    "ModelNumber": "APHR-NT [MP]376-*****",
+    "CodeName": "三七六",
+    "GenderType": "Neutral",
+    "Class": "トリプル3+6+7組",
+    "Class_EN": "III+VI+VII Triples"
+  },
+  {
+    "sec_Category": "ナンバーテールズ化企画",
+    "sec_DesignedBy": "ラジアン(柏木主税)",
+    "Num": "376-numberize",
+    "Progress": "released",
+    "Images": {
+      "concept_PNGName": "numberize/cnsp_img376-numberize"
+    },
+    "Name": "(ナンバーテールズ化企画絵)",
+    "Name_EN": "(Illustration of NumberizeTales Project)",
+    "AdditionalDesigned": "企画参加者：きたやこ さん(https://www.pixiv.net/artworks/137497481)"
+  },
+  {
+    "Num": 377,
+    "Progress": "stillTentative",
+    "FormalName": "量産型ナンバーテールズ377番機シリーズ",
+    "FormalName_EN": "NumberTales #377 Series Mass Production Version for Sales",
+    "ModelNumber": "APHR-NT [MP]377-*****",
+    "CodeName": "三七七",
+    "GenderType": "Neutral",
+    "Class": "デュオトリプル8型乙組",
+    "Class_EN": "Duet Triples VIII.B"
+  },
+  {
+    "sec_Category": "ナンバーテールズ化企画",
+    "sec_DesignedBy": "ラジアン(柏木主税)",
+    "Num": "377-numberize",
+    "Progress": "released",
+    "Images": {
+      "concept_PNGName": "numberize/cnsp_img377-numberize"
+    },
+    "Name": "(ナンバーテールズ化企画絵)",
+    "Name_EN": "(Illustration of NumberizeTales Project)",
+    "AdditionalDesigned": "企画参加者：爪葉京 さん(https://www.pixiv.net/artworks/137497481)"
+  },
+  {
+    "Num": 387,
+    "Progress": "stillTentative",
+    "FormalName": "量産型ナンバーテールズ387番機シリーズ",
+    "FormalName_EN": "NumberTales #387 Series Mass Production Version for Sales",
+    "ModelNumber": "APHR-NT [MP]387-*****",
+    "CodeName": "三八七",
+    "GenderType": "Neutral",
+    "Class": "トリプル3+7+8組",
+    "Class_EN": "III+VII+VIII Triples"
+  },
+  {
+    "sec_Category": "ナンバーテールズ化企画",
+    "sec_DesignedBy": "ラジアン(柏木主税)",
+    "Num": "387-numberize",
+    "Progress": "released",
+    "Images": {
+      "concept_PNGName": "numberize/cnsp_img387-numberize"
+    },
+    "Name": "(ナンバーテールズ化企画絵)",
+    "Name_EN": "(Illustration of NumberizeTales Project)",
+    "AdditionalDesigned": "企画参加者：つくえちゃん さん(https://www.pixiv.net/artworks/137497481)"
+  },
+  {
+    "Num": 401,
+    "Progress": "stillTentative",
+    "FormalName": "量産型ナンバーテールズ401番機シリーズ",
+    "FormalName_EN": "NumberTales #401 Series Mass Production Version for Sales",
+    "ModelNumber": "APHR-NT [MP]401-*****",
+    "CodeName": "四〇一",
+    "GenderType": "Neutral",
+    "Class": "サイドデュアルファイブズ",
+    "Class_EN": "Side Dual Sum-5s"
+  },
+  {
+    "sec_Category": "ナンバーテールズ化企画",
+    "sec_DesignedBy": "ラジアン(柏木主税)",
+    "Num": "401-numberize",
+    "Progress": "released",
+    "Images": {
+      "concept_PNGName": "numberize/cnsp_img401-numberize"
+    },
+    "Name": "(ナンバーテールズ化企画絵)",
+    "Name_EN": "(Illustration of NumberizeTales Project)",
+    "AdditionalDesigned": "企画参加者：江小森えこ さん(https://www.pixiv.net/artworks/137497481)"
+  },
+  {
+    "Num": 411,
+    "Progress": "stillTentative",
+    "FormalName": "量産型ナンバーテールズ411番機シリーズ",
+    "FormalName_EN": "NumberTales #411 Series Mass Production Version for Sales",
+    "ModelNumber": "APHR-NT [MP]411-*****",
+    "CodeName": "四一一",
+    "GenderType": "Neutral",
+    "Class": "デュオトリプル6型甲組",
+    "Class_EN": "Duet Triples VI.A"
+  },
+  {
+    "sec_Category": "ナンバーテールズ化企画",
+    "sec_DesignedBy": "ラジアン(柏木主税)",
+    "Num": "411-numberize",
+    "Progress": "released",
+    "Images": {
+      "concept_PNGName": "numberize/cnsp_img411-numberize"
+    },
+    "Name": "(ナンバーテールズ化企画絵)",
+    "Name_EN": "(Illustration of NumberizeTales Project)",
+    "AdditionalDesigned": "企画参加者：Nor東 さん(https://www.pixiv.net/artworks/137497481)"
+  },
+  {
+    "Num": 421,
+    "Progress": "stillTentative",
+    "FormalName": "量産型ナンバーテールズ421番機シリーズ",
+    "FormalName_EN": "NumberTales #421 Series Mass Production Version for Sales",
+    "ModelNumber": "APHR-NT [MP]421-*****",
+    "CodeName": "四二一",
+    "GenderType": "Neutral",
+    "Class": "トリプル1+2+4組",
+    "Class_EN": "I+II+IV Triples"
+  },
+  {
+    "sec_Category": "ナンバーテールズ化企画",
+    "sec_DesignedBy": "ラジアン(柏木主税)",
+    "Num": "421-numberize",
+    "Progress": "released",
+    "Images": {
+      "concept_PNGName": "numberize/cnsp_img421-numberize"
+    },
+    "Name": "(ナンバーテールズ化企画絵)",
+    "Name_EN": "(Illustration of NumberizeTales Project)",
+    "AdditionalDesigned": "企画参加者：でんねこ さん(https://www.pixiv.net/artworks/137497481)"
+  },
+  {
     "Num": "444-mp",
+    "Progress": "notProceeded",
     "_DBLink": {
       "worksTitle": "NumberTales",
       "dbName": "SemiPrimary",
@@ -378,7 +825,77 @@
     "ModelNumber": "APHR-NT [MP]444-*****"
   },
   {
+    "Num": 467,
+    "Progress": "stillTentative",
+    "FormalName": "量産型ナンバーテールズ467番機シリーズ",
+    "FormalName_EN": "NumberTales #467 Series Mass Production Version for Sales",
+    "ModelNumber": "APHR-NT [MP]467-*****",
+    "CodeName": "四六七",
+    "GenderType": "Neutral",
+    "Class": "トリプル4+6+7組",
+    "Class_EN": "IV+VI+VII Triples"
+  },
+  {
+    "sec_Category": "ナンバーテールズ化企画",
+    "sec_DesignedBy": "ラジアン(柏木主税)",
+    "Num": "467-numberize",
+    "Progress": "released",
+    "Images": {
+      "concept_PNGName": "numberize/cnsp_img467-numberize"
+    },
+    "Name": "(ナンバーテールズ化企画絵)",
+    "Name_EN": "(Illustration of NumberizeTales Project)",
+    "AdditionalDesigned": "企画参加者：キノアダモスデキノ さん(https://www.pixiv.net/artworks/137497481)"
+  },
+  {
+    "Num": 476,
+    "Progress": "stillTentative",
+    "FormalName": "量産型ナンバーテールズ476番機シリーズ",
+    "FormalName_EN": "NumberTales #476 Series Mass Production Version for Sales",
+    "ModelNumber": "APHR-NT [MP]476-*****",
+    "CodeName": "四七六",
+    "GenderType": "Neutral",
+    "Class": "トリプル4+6+7組",
+    "Class_EN": "IV+VI+VII Triples"
+  },
+  {
+    "sec_Category": "ナンバーテールズ化企画",
+    "sec_DesignedBy": "ラジアン(柏木主税)",
+    "Num": "476-numberize",
+    "Progress": "released",
+    "Images": {
+      "concept_PNGName": "numberize/cnsp_img476-numberize"
+    },
+    "Name": "(ナンバーテールズ化企画絵)",
+    "Name_EN": "(Illustration of NumberizeTales Project)",
+    "AdditionalDesigned": "企画参加者：ヨシアミさん(https://www.pixiv.net/artworks/137497481)"
+  },
+  {
+    "Num": 510,
+    "Progress": "stillTentative",
+    "FormalName": "量産型ナンバーテールズ510番機シリーズ",
+    "FormalName_EN": "NumberTales #510 Series Mass Production Version for Sales",
+    "ModelNumber": "APHR-NT [MP]510-*****",
+    "CodeName": "五一〇",
+    "GenderType": "Neutral",
+    "Class": "テンズデュアルシックスズ",
+    "Class_EN": "Tens Dual Sum-6s"
+  },
+  {
+    "sec_Category": "ナンバーテールズ化企画",
+    "sec_DesignedBy": "ラジアン(柏木主税)",
+    "Num": "510-numberize",
+    "Progress": "released",
+    "Images": {
+      "concept_PNGName": "numberize/cnsp_img510-numberize"
+    },
+    "Name": "(ナンバーテールズ化企画絵)",
+    "Name_EN": "(Illustration of NumberizeTales Project)",
+    "AdditionalDesigned": "企画参加者：エメラルド さん(https://www.pixiv.net/artworks/137497481)"
+  },
+  {
     "Num": "555-mp",
+    "Progress": "notProceeded",
     "_DBLink": {
       "worksTitle": "NumberTales",
       "dbName": "SemiPrimary",
@@ -391,7 +908,100 @@
     "ModelNumber": "APHR-NT [MP]555-*****"
   },
   {
+    "Num": 558,
+    "Progress": "stillTentative",
+    "FormalName": "量産型ナンバーテールズ558番機シリーズ",
+    "FormalName_EN": "NumberTales #558 Series Mass Production Version for Sales",
+    "ModelNumber": "APHR-NT [MP]558-*****",
+    "CodeName": "五五八",
+    "GenderType": "Neutral",
+    "Class": "デュオトリプル9型甲組",
+    "Class_EN": "Duet Triples IX.A"
+  },
+  {
+    "sec_Category": "ナンバーテールズ化企画",
+    "sec_DesignedBy": "ラジアン(柏木主税)",
+    "Num": "558-numberize",
+    "Progress": "released",
+    "Images": {
+      "concept_PNGName": "numberize/cnsp_img558-numberize"
+    },
+    "Name": "(ナンバーテールズ化企画絵)",
+    "Name_EN": "(Illustration of NumberizeTales Project)",
+    "AdditionalDesigned": "企画参加者：さふ さん(https://www.pixiv.net/artworks/137497481)"
+  },
+  {
+    "Num": 605,
+    "Progress": "stillTentative",
+    "FormalName": "量産型ナンバーテールズ605番機シリーズ",
+    "FormalName_EN": "NumberTales #605 Series Mass Production Version for Sales",
+    "ModelNumber": "APHR-NT [MP]605-*****",
+    "CodeName": "六〇五",
+    "GenderType": "Neutral",
+    "Class": "サイドデュアルイレブンズ",
+    "Class_EN": "Side Dual Sum-11s"
+  },
+  {
+    "sec_Category": "ナンバーテールズ化企画",
+    "sec_DesignedBy": "ラジアン(柏木主税)",
+    "Num": "605-numberize",
+    "Progress": "released",
+    "Images": {
+      "concept_PNGName": "numberize/cnsp_img605-numberize"
+    },
+    "Name": "(ナンバーテールズ化企画絵)",
+    "Name_EN": "(Illustration of NumberizeTales Project)",
+    "AdditionalDesigned": "企画参加者：蓬 さん(https://www.pixiv.net/artworks/137497481)"
+  },
+  {
+    "Num": 625,
+    "Progress": "stillTentative",
+    "FormalName": "量産型ナンバーテールズ625番機シリーズ",
+    "FormalName_EN": "NumberTales #625 Series Mass Production Version for Sales",
+    "ModelNumber": "APHR-NT [MP]625-*****",
+    "CodeName": "六二五",
+    "GenderType": "Neutral",
+    "Class": "トリプル2+5+6組",
+    "Class_EN": "II+V+VI Triples"
+  },
+  {
+    "sec_Category": "ナンバーテールズ化企画",
+    "sec_DesignedBy": "ラジアン(柏木主税)",
+    "Num": "625-numberize",
+    "Progress": "released",
+    "Images": {
+      "concept_PNGName": "numberize/cnsp_img625-numberize"
+    },
+    "Name": "(ナンバーテールズ化企画絵)",
+    "Name_EN": "(Illustration of NumberizeTales Project)",
+    "AdditionalDesigned": "企画参加者：リヘナラ人形 さん(https://www.pixiv.net/artworks/137497481)"
+  },
+  {
+    "Num": 638,
+    "Progress": "stillTentative",
+    "FormalName": "量産型ナンバーテールズ638番機シリーズ",
+    "FormalName_EN": "NumberTales #638 Series Mass Production Version for Sales",
+    "ModelNumber": "APHR-NT [MP]638-*****",
+    "CodeName": "六三八",
+    "GenderType": "Neutral",
+    "Class": "トリプル3+6+8組",
+    "Class_EN": "III+VI+VIII Triples"
+  },
+  {
+    "sec_Category": "ナンバーテールズ化企画",
+    "sec_DesignedBy": "ラジアン(柏木主税)",
+    "Num": "638-numberize",
+    "Progress": "released",
+    "Images": {
+      "concept_PNGName": "numberize/cnsp_img638-numberize"
+    },
+    "Name": "(ナンバーテールズ化企画絵)",
+    "Name_EN": "(Illustration of NumberizeTales Project)",
+    "AdditionalDesigned": "企画参加者：猫餅 さん(https://www.pixiv.net/artworks/137497481)"
+  },
+  {
     "Num": "666-mp",
+    "Progress": "released",
     "_DBLink": {
       "worksTitle": "NumberTales",
       "dbName": "SemiPrimary",
@@ -414,7 +1024,54 @@
     "TailsUnit": "キツネ(特殊)型3束x6本"
   },
   {
+    "Num": 670,
+    "Progress": "stillTentative",
+    "FormalName": "量産型ナンバーテールズ670番機シリーズ",
+    "FormalName_EN": "NumberTales #670 Series Mass Production Version for Sales",
+    "ModelNumber": "APHR-NT [MP]670-*****",
+    "CodeName": "六七〇",
+    "GenderType": "Neutral",
+    "Class": "テンズデュアルフォーズ",
+    "Class_EN": "Tens Dual Sum-4s"
+  },
+  {
+    "sec_Category": "ナンバーテールズ化企画",
+    "sec_DesignedBy": "ラジアン(柏木主税)",
+    "Num": "670-numberize",
+    "Progress": "released",
+    "Images": {
+      "concept_PNGName": "numberize/cnsp_img670-numberize"
+    },
+    "Name": "(ナンバーテールズ化企画絵)",
+    "Name_EN": "(Illustration of NumberizeTales Project)",
+    "AdditionalDesigned": "企画参加者：みとにゃん/Mitten さん(https://www.pixiv.net/artworks/137497481)"
+  },
+  {
+    "Num": 736,
+    "Progress": "stillTentative",
+    "FormalName": "量産型ナンバーテールズ736番機シリーズ",
+    "FormalName_EN": "NumberTales #736 Series Mass Production Version for Sales",
+    "ModelNumber": "APHR-NT [MP]736-*****",
+    "CodeName": "七三六",
+    "GenderType": "Neutral",
+    "Class": "トリプル3+6+7組",
+    "Class_EN": "III+VI+VII Triples"
+  },
+  {
+    "sec_Category": "ナンバーテールズ化企画",
+    "sec_DesignedBy": "ラジアン(柏木主税)",
+    "Num": "736-numberize",
+    "Progress": "released",
+    "Images": {
+      "concept_PNGName": "numberize/cnsp_img736-numberize"
+    },
+    "Name": "(ナンバーテールズ化企画絵)",
+    "Name_EN": "(Illustration of NumberizeTales Project)",
+    "AdditionalDesigned": "企画参加者：みるく・フローランス さん(https://www.pixiv.net/artworks/137497481)"
+  },
+  {
     "sec_Category": "リクエストナンバー",
+    "sec_DesignedBy": "ラジアン(柏木主税)",
     "Num": 753,
     "Progress": "released",
     "Images": {
@@ -435,7 +1092,31 @@
     "Class_EN": "III+V+VII Triples"
   },
   {
+    "Num": 773,
+    "Progress": "stillTentative",
+    "FormalName": "量産型ナンバーテールズ773番機シリーズ",
+    "FormalName_EN": "NumberTales #773 Series Mass Production Version for Sales",
+    "ModelNumber": "APHR-NT [MP]773-*****",
+    "CodeName": "七七三",
+    "GenderType": "Neutral",
+    "Class": "デュオトリプル8型甲組",
+    "Class_EN": "Duet Triples VIII.A"
+  },
+  {
+    "sec_Category": "ナンバーテールズ化企画",
+    "sec_DesignedBy": "ラジアン(柏木主税)",
+    "Num": "773-numberize",
+    "Progress": "released",
+    "Images": {
+      "concept_PNGName": "numberize/cnsp_img773-numberize"
+    },
+    "Name": "(ナンバーテールズ化企画絵)",
+    "Name_EN": "(Illustration of NumberizeTales Project)",
+    "AdditionalDesigned": "企画参加者：テンタクル七海 さん(https://www.pixiv.net/artworks/137497481)"
+  },
+  {
     "Num": "777-mp",
+    "Progress": "released",
     "_DBLink": {
       "worksTitle": "NumberTales",
       "dbName": "SemiPrimary",
@@ -469,6 +1150,7 @@
   },
   {
     "Num": "777.Jackpot-mp",
+    "Progress": "released",
     "_DBLink": {
       "worksTitle": "NumberTales",
       "dbName": "SelfSecondary",
@@ -504,6 +1186,7 @@
   },
   {
     "Num": "888-mp",
+    "Progress": "notProceeded",
     "_DBLink": {
       "worksTitle": "NumberTales",
       "dbName": "SemiPrimary",
@@ -516,7 +1199,31 @@
     "ModelNumber": "APHR-NT [MP]888-*****"
   },
   {
+    "Num": 979,
+    "Progress": "stillTentative",
+    "FormalName": "量産型ナンバーテールズ979番機シリーズ",
+    "FormalName_EN": "NumberTales #979 Series Mass Production Version for Sales",
+    "ModelNumber": "APHR-NT [MP]979-*****",
+    "CodeName": "九七九",
+    "GenderType": "Neutral",
+    "Class": "デュオトリプル7型丙組",
+    "Class_EN": "Duet Triples VII.C"
+  },
+  {
+    "sec_Category": "ナンバーテールズ化企画",
+    "sec_DesignedBy": "ラジアン(柏木主税)",
+    "Num": "979-numberize",
+    "Progress": "released",
+    "Images": {
+      "concept_PNGName": "numberize/cnsp_img979-numberize"
+    },
+    "Name": "(ナンバーテールズ化企画絵)",
+    "Name_EN": "(Illustration of NumberizeTales Project)",
+    "AdditionalDesigned": "企画参加者：さくらば さん(https://www.pixiv.net/artworks/137497481)"
+  },
+  {
     "Num": "999-mp",
+    "Progress": "notProceeded",
     "_DBLink": {
       "worksTitle": "NumberTales",
       "dbName": "SemiPrimary",
@@ -527,5 +1234,17 @@
     "FormalName": "量産型ナンバーテールズ999番機シリーズ",
     "FormalName_EN": "NumberTales #999 Series Mass Production Version for Sales",
     "ModelNumber": "APHR-NT [MP]999-*****"
+  },
+  {
+    "sec_Category": "ナンバーテールズ化企画",
+    "sec_DesignedBy": "ラジアン(柏木主税)",
+    "Num": "1122-numberize",
+    "Progress": "released",
+    "Images": {
+      "concept_PNGName": "numberize/cnsp_img1122-numberize"
+    },
+    "Name": "(ナンバーテールズ化企画絵)",
+    "Name_EN": "(Illustration of NumberizeTales Project)",
+    "AdditionalDesigned": "企画参加者：しおん/猫又紫苑 さん(https://www.pixiv.net/artworks/137497481)"
   }
 ]

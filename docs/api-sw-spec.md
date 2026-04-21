@@ -79,6 +79,7 @@ UI と enrich/search は、可能な限りこの `db_type.json($DefType)` に追
   - `CreationWorks.<work>.$DetailLayout`: 詳細表示レイアウト補助
   - `Databases.#DB_<DbName>._Commons`: DB 全体の共通穴埋め
   - `Databases.#DB_<DbName>._Secondaries`: `sec_**` 条件に応じた `_Commons` 分岐
+    - 全ての `sec_**` 条件が `null` / 空の定義はデフォルト fallback として扱い、`null` 以外の条件を持つ定義が一致した場合はそちらを優先します
 
 補足:
 

@@ -998,12 +998,31 @@ function applyCommonsData(records, workMeta, dbName) {
         }
       ];
 
+      const hasSpecifiedSecondaryCondition = (def) => criteriaDefs.some((c) => {
+        const defVal = getDef(def, c.defKeys);
+        return !(defVal === null || typeof defVal === 'undefined' || normStr(defVal).trim() === '');
+      });
+
+      let defaultCommons = null;
       let best = null;
       let bestScore = -1;
 
       for (const def of secDefs) {
         if (!def || typeof def !== 'object') continue;
         if (!def._Commons || typeof def._Commons !== 'object') continue;
+
+        if (!hasSpecifiedSecondaryCondition(def)) {
+          if (defaultCommons === null) defaultCommons = def._Commons;
+          continue;
+        }
+
+        const hasPrimaryCondition = (() => {
+          const primaryCriteria = criteriaDefs.find((c) => c.primary);
+          if (!primaryCriteria) return false;
+          const defVal = getDef(def, primaryCriteria.defKeys);
+          if (defVal === null || typeof defVal === 'undefined') return false;
+          return normStr(defVal).trim() !== '';
+        })();
 
         let score = 0;
         let ok = true;
@@ -1012,11 +1031,31 @@ function applyCommonsData(records, workMeta, dbName) {
           if (defVal === null || typeof defVal === 'undefined' || normStr(defVal).trim() === '') continue;
 
           const recVal = c.recKeys.map(k => enriched[k]).find(v => v !== null && typeof v !== 'undefined');
-          if (normStr(recVal) !== normStr(defVal)) {
+          if (c.primary) {
+            if (normStr(recVal) !== normStr(defVal)) {
+              ok = false;
+              break;
+            }
+            score += 10;
+            continue;
+          }
+
+          const recEmpty = recVal === null || typeof recVal === 'undefined' || normStr(recVal).trim() === '';
+          if (hasPrimaryCondition) {
+            if (recEmpty) continue;
+            if (normStr(recVal) !== normStr(defVal)) {
+              ok = false;
+              break;
+            }
+            score += 1;
+            continue;
+          }
+
+          if (recEmpty || normStr(recVal) !== normStr(defVal)) {
             ok = false;
             break;
           }
-          score += c.primary ? 10 : 1;
+          score += 1;
         }
         if (!ok) continue;
 
@@ -1025,7 +1064,7 @@ function applyCommonsData(records, workMeta, dbName) {
           best = def._Commons;
         }
       }
-      return best;
+      return best || defaultCommons;
     };
 
     const secCommons = findSecondaryCommons();

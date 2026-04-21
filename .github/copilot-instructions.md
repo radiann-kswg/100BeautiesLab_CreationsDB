@@ -262,6 +262,7 @@
 
 - 作品別メタ（`data/Works_<work>/DataBases/db_meta.json`）では、DB ごとの `Databases.#DB_<DbName>._Commons` で共通フィールドの補完（穴埋め）を定義できます。
 - 二次創作等（Secondary/SelfSecondary など）では `Databases.#DB_<DbName>._Secondaries[]` により、レコードの `sec_**` 相当フィールド（例: `sec_SeriesTitle`, `sec_Category`）で適用する `_Commons` を分岐できます。
+- `sec_**` が全て `null` / 空の定義はデフォルト fallback として扱い、`null` 以外の条件を持つ定義が一致した場合はそちらを優先します。
 - 分岐条件の考え方（誤適用防止）:
   - `sec_SeriesTitle` が指定されている定義は「シリーズ（一次創作側）を主キー」として扱い、追加の `sec_**` 条件は **レコード側に値がある場合のみ一致チェック**します（値が無いレコードには強制しない）。
   - `sec_SeriesTitle` が未指定で `sec_Category` 等の条件がある定義は、その条件を **必須一致**として扱い、条件フィールドを持たないレコードへ誤適用しないようにします。

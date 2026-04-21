@@ -152,4 +152,99 @@ describe('CommonsProcessor secondary series commons', () => {
     const outNoCat = JSON.parse(outNoCatJson);
     expect(outNoCat.Belonging).toEqual(['DEFAULT']);
   });
+
+  it('treats all-null sec_** definition as fallback default and prefers specified definitions', () => {
+    const ctx = loadSwCommonIntoContext();
+    expect(ctx?.self?.CommonsProcessor).toBeTypeOf('function');
+
+    const meta = {
+      Databases: {
+        '#DB_SelfSecondary': {
+          _Secondaries: [
+            {
+              sec_Category: null,
+              sec_DesignedBy: null,
+              sec_SeriesTitle: null,
+              _Commons: { Belonging: ['DEFAULT'], RaceType: 'DefaultRace' }
+            },
+            {
+              sec_Category: '企画A',
+              sec_DesignedBy: null,
+              sec_SeriesTitle: null,
+              _Commons: { Belonging: ['A'], RaceType: 'SpecificRace' }
+            }
+          ]
+        }
+      }
+    };
+
+    const outSpecifiedJson = vm.runInNewContext(
+      `(() => {
+        const meta = ${JSON.stringify(meta)};
+        const rec = { sec_Category: '企画A' };
+        const out = self.CommonsProcessor.applyCommonsToRecords([rec], meta, 'SelfSecondary');
+        return JSON.stringify(out[0]);
+      })()`
+      ,
+      ctx,
+      { filename: 'tests/commons.secondaries.test.js#default_fallback_specific' }
+    );
+    const outSpecified = JSON.parse(outSpecifiedJson);
+    expect(outSpecified.Belonging).toEqual(['A']);
+    expect(outSpecified.RaceType).toBe('SpecificRace');
+
+    const outDefaultJson = vm.runInNewContext(
+      `(() => {
+        const meta = ${JSON.stringify(meta)};
+        const rec = { Name: 'fallback' };
+        const out = self.CommonsProcessor.applyCommonsToRecords([rec], meta, 'SelfSecondary');
+        return JSON.stringify(out[0]);
+      })()`
+      ,
+      ctx,
+      { filename: 'tests/commons.secondaries.test.js#default_fallback_default' }
+    );
+    const outDefault = JSON.parse(outDefaultJson);
+    expect(outDefault.Belonging).toEqual(['DEFAULT']);
+    expect(outDefault.RaceType).toBe('DefaultRace');
+  });
+
+  it('applies NumberTales SelfSecondary commons to numberize records with sec_DesignedBy', () => {
+    const ctx = loadSwCommonIntoContext();
+    expect(ctx?.self?.CommonsProcessor).toBeTypeOf('function');
+
+    const meta = loadJSON('data/Works_NumberTales/DataBases/db_meta.json');
+    const records = loadJSON('data/Works_NumberTales/DataBases/db_SelfSecondary.json');
+    const target = records.find((record) => record.Num === '115-numberize');
+
+    expect(target).toBeTruthy();
+    expect(target.sec_Category).toBe('ナンバーテールズ化企画');
+    expect(target.sec_DesignedBy).toBe('ラジアン(柏木主税)');
+
+    const out0Json = vm.runInNewContext(
+      `(() => {
+        const meta = ${JSON.stringify(meta)};
+        const rec = ${JSON.stringify(target)};
+        const out = self.CommonsProcessor.applyCommonsToRecords([rec], meta, 'SelfSecondary');
+        return JSON.stringify(out[0]);
+      })()`
+      ,
+      ctx,
+      { filename: 'tests/commons.secondaries.test.js#numberize_selfsecondary' }
+    );
+    const out0 = JSON.parse(out0Json);
+
+    expect(out0.Belonging).toEqual([]);
+    expect(out0.RaceType).toEqual([
+      {
+        value: 'PortableHumanoid(TaleBeastType)',
+        about_JP: '自創作キャラ化の便宜上',
+        about_EN: 'For the convenience of being adapted into our creations'
+      },
+      {
+        about_JP: '実際の種族はわずかに異なる部分あり',
+        about_EN: 'The actual species may differ slightly'
+      }
+    ]);
+  });
 });
