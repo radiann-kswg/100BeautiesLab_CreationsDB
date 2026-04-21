@@ -69,6 +69,16 @@ const $ = (sel) => document.querySelector(sel);
 const $$ = (sel) => Array.from(document.querySelectorAll(sel));
 
 /**
+ * プレーンオブジェクト判定
+ * - トップレベル helper でも使うため、関数ローカルではなく共通位置に置く
+ * @param {any} value
+ * @returns {boolean}
+ */
+function isPlainObject(value) {
+  return !!value && typeof value === 'object' && !Array.isArray(value);
+}
+
+/**
  * Service Worker 管理
  * GitHub Pages 上で API ルートが動作するように、ページスコープの Service Worker を登録
  * 広告ブロッカーによる干渉を避けるためのフォールバック戦略を実装
@@ -1166,40 +1176,195 @@ function pickPrimaryIndexSubDef(subDefs) {
 }
 
 /**
+ * Index サブフィールドの $display.index 設定を正規化
+ * - 未指定時は「一覧/直リンク=主要要素のみ」「詳細/値表示=全要素」を既定にする
+ * @param {Object|null} subDef - $IndexDef.$type[] の要素
+ * @param {boolean} isPrimary - 既定の主要サブフィールドかどうか
+ * @returns {{list:boolean,detail:boolean,value:boolean,link:boolean,priority:number,order:number|null}}
+ */
+function getIndexSubDefDisplayConfig(subDef, isPrimary = false) {
+  const defaults = {
+    list: isPrimary,
+    detail: true,
+    value: true,
+    link: isPrimary,
+    priority: isPrimary ? 100 : 0,
+    order: null,
+  };
+
+  const raw = subDef?.$display?.index;
+  if (raw === null || raw === undefined) return defaults;
+
+  if (typeof raw === 'boolean') {
+    return {
+      ...defaults,
+      list: raw,
+      detail: raw,
+      value: raw,
+      link: raw,
+    };
+  }
+
+  if (typeof raw === 'string') {
+    const token = raw.trim().toLowerCase();
+    if (!token) return defaults;
+    if (token === 'all') {
+      return { ...defaults, list: true, detail: true, value: true, link: true };
+    }
+    if (token === 'detail') {
+      return { ...defaults, list: false, detail: true, value: true, link: false };
+    }
+    if (token === 'list') {
+      return { ...defaults, list: true, detail: false, value: false, link: false };
+    }
+    if (token === 'link') {
+      return { ...defaults, list: false, detail: false, value: false, link: true };
+    }
+    if (token === 'none' || token === 'hidden' || token === 'off') {
+      return { ...defaults, list: false, detail: false, value: false, link: false };
+    }
+    return defaults;
+  }
+
+  if (!isPlainObject(raw)) return defaults;
+
+  const pickBool = (keys, fallback) => {
+    for (const key of keys) {
+      if (typeof raw?.[key] === 'boolean') return raw[key];
+    }
+    return fallback;
+  };
+
+  const priority = Number.isFinite(raw?.priority)
+    ? Number(raw.priority)
+    : defaults.priority;
+  const order = Number.isFinite(raw?.order)
+    ? Number(raw.order)
+    : defaults.order;
+
+  return {
+    list: pickBool(['list', 'chip'], defaults.list),
+    detail: pickBool(['detail', 'header'], defaults.detail),
+    value: pickBool(['value', 'field'], defaults.value),
+    link: pickBool(['link'], defaults.link),
+    priority,
+    order,
+  };
+}
+
+/**
+ * Index 値を列挙して、表示/直リンク/検索で共用できる形に揃える
+ * @param {Object} source - レコードまたは index 値
+ * @param {Object|null} indexDef - $IndexDef
+ * @param {Object|null} metaForLookup - 表示辞書
+ * @param {Object|null} globalDefType - グローバル typedef
+ * @param {{context?:'record'|'value', preferKeyPath?:string}} [options]
+ * @returns {Array<{keyPath:string,value:string,text:string,label:string,contexts:Object,priority:number,order:number,index:number}>}
+ */
+function collectIndexEntries(source, indexDef, metaForLookup = null, globalDefType = null, options = {}) {
+  if (!source || typeof source !== 'object') return [];
+  if (!indexDef || typeof indexDef !== 'object') return [];
+
+  const rootKey = typeof indexDef.hashTag === 'string' ? indexDef.hashTag.trim() : '';
+  if (!rootKey) return [];
+
+  const preferKeyPath = typeof options?.preferKeyPath === 'string' ? options.preferKeyPath.trim() : '';
+  const rootType = indexDef?.$type ?? indexDef?.$valType ?? null;
+  const subDefs = getIndexSubDefs(indexDef);
+  const primarySub = Array.isArray(subDefs) && subDefs.length > 0 ? pickPrimaryIndexSubDef(subDefs) : null;
+  const context = options?.context === 'value' ? 'value' : 'record';
+
+  const sortEntries = (entries) => entries
+    .slice()
+    .sort((a, b) => {
+      const preferA = preferKeyPath && a.keyPath === preferKeyPath ? 1 : 0;
+      const preferB = preferKeyPath && b.keyPath === preferKeyPath ? 1 : 0;
+      if (preferA !== preferB) return preferB - preferA;
+      if (a.priority !== b.priority) return b.priority - a.priority;
+      const orderA = Number.isFinite(a.order) ? a.order : Number.POSITIVE_INFINITY;
+      const orderB = Number.isFinite(b.order) ? b.order : Number.POSITIVE_INFINITY;
+      if (orderA !== orderB) return orderA - orderB;
+      return a.index - b.index;
+    });
+
+  if (Array.isArray(subDefs) && subDefs.length > 0) {
+    const sourceRoot = context === 'value'
+      ? (isPlainObject(source?.[rootKey]) ? source[rootKey] : source)
+      : source?.[rootKey];
+    const rootObj = isPlainObject(sourceRoot) ? sourceRoot : null;
+    if (!rootObj) return [];
+
+    const entries = subDefs
+      .map((subDef, index) => {
+        const subKey = typeof subDef?.hashTag === 'string' ? subDef.hashTag.trim() : '';
+        if (!subKey) return null;
+        const leaf = rootObj[subKey];
+        if (leaf === null || leaf === undefined || leaf === '') return null;
+
+        const subType = subDef?.$type ?? subDef?.$valType ?? null;
+        const formatted = formatValueForDisplay(leaf, {}, metaForLookup, globalDefType, {
+          schemaType: subType,
+          fieldKey: `${rootKey}.${subKey}`
+        });
+        const text = String(formatted ?? '').trim();
+        if (!text) return null;
+
+        const label = getIndexLabel(subDef) || getIndexLabel(indexDef) || '';
+        const display = getIndexSubDefDisplayConfig(subDef, subDef === primarySub);
+        return {
+          keyPath: `${rootKey}.${subKey}`,
+          value: text,
+          text: label ? `${label}: ${text}` : text,
+          label,
+          contexts: {
+            list: display.list,
+            detail: display.detail,
+            value: display.value,
+            link: display.link,
+          },
+          priority: display.priority,
+          order: display.order,
+          index,
+        };
+      })
+      .filter(Boolean);
+
+    return sortEntries(entries);
+  }
+
+  const rawValue = context === 'value'
+    ? (source?.[rootKey] === null || source?.[rootKey] === undefined || source?.[rootKey] === '' ? source : source?.[rootKey])
+    : (source?.[rootKey] === null || source?.[rootKey] === undefined || source?.[rootKey] === '' ? source?.Num : source?.[rootKey]);
+  const formatted = formatValueForDisplay(rawValue, {}, metaForLookup, globalDefType, {
+    schemaType: rootType,
+    fieldKey: rootKey
+  });
+  const text = String(formatted ?? '').trim();
+  if (!text) return [];
+
+  const label = getIndexLabel(indexDef) || '';
+  return [{
+    keyPath: rootKey,
+    value: text,
+    text: label ? `${label}: ${text}` : text,
+    label,
+    contexts: { list: true, detail: true, value: true, link: true },
+    priority: 100,
+    order: null,
+    index: 0,
+  }];
+}
+
+/**
  * レコードと Index 定義から、直リンク用の識別子（keyPath + value）を抽出
  * @param {Object} rec - レコード
  * @param {Object|null} indexDef - $IndexDef
  * @returns {{keyPath:string,value:string}|null}
  */
 function getIndexIdentifierFromRecord(rec, indexDef) {
-  if (!rec || typeof rec !== 'object') return null;
-  if (!indexDef || typeof indexDef !== 'object') return null;
-
-  const rootKey = indexDef.hashTag;
-  if (!rootKey || typeof rootKey !== 'string') return null;
-
-  const subDefs = getIndexSubDefs(indexDef);
-  const rootVal = rec[rootKey];
-
-  // ネスト構造（例: Card.Num / BeastType.Beast）
-  if (Array.isArray(subDefs) && subDefs.length > 0 && rootVal && typeof rootVal === 'object') {
-    const primarySub = pickPrimaryIndexSubDef(subDefs);
-    const candidates = primarySub ? [primarySub, ...subDefs.filter(d => d !== primarySub)] : subDefs;
-    for (const sub of candidates) {
-      const subKey = sub?.hashTag;
-      if (!subKey || typeof subKey !== 'string') continue;
-      const v = rootVal[subKey];
-      const formatted = formatValueForDisplay(v, {});
-      if (!formatted) continue;
-      return { keyPath: `${rootKey}.${subKey}`, value: String(formatted) };
-    }
-    return null;
-  }
-
-  // スカラー（例: Num / Drc / Unit）
-  const formatted = formatValueForDisplay(rootVal, {});
-  if (!formatted) return null;
-  return { keyPath: rootKey, value: String(formatted) };
+  const entries = collectIndexEntries(rec, indexDef, null, null, { context: 'record' });
+  if (!entries.length) return null;
+  return entries.find(entry => entry?.contexts?.link) || entries[0] || null;
 }
 
 /**
@@ -1219,10 +1384,15 @@ function recordMatchesIndexQuery(rec, indexDef, idxValue, idxKeyPath, legacyNum 
     return rec && rec.Num != null && String(rec.Num) === legacy;
   }
 
-  const id = getIndexIdentifierFromRecord(rec, indexDef);
-  if (id) {
-    if (idxKeyPath && id.keyPath !== idxKeyPath) return false;
-    return String(id.value) === qVal;
+  const entries = collectIndexEntries(rec, indexDef, null, null, {
+    context: 'record',
+    preferKeyPath: idxKeyPath,
+  });
+  if (entries.length) {
+    return entries.some((entry) => {
+      if (idxKeyPath && entry.keyPath !== idxKeyPath) return false;
+      return String(entry.value) === qVal;
+    });
   }
 
   // indexDef が無い場合の最小互換（NumberTales の ?num= など）
@@ -1236,44 +1406,24 @@ function recordMatchesIndexQuery(rec, indexDef, idxValue, idxKeyPath, legacyNum 
  * @returns {string|null}
  */
 function buildIndexChipText(rec, indexDef, metaForLookup = null, globalDefType = null) {
-  if (!rec || typeof rec !== 'object') return null;
-  if (!indexDef || typeof indexDef !== 'object') return null;
+  const entries = collectIndexEntries(rec, indexDef, metaForLookup, globalDefType, { context: 'record' })
+    .filter(entry => entry?.contexts?.list);
+  return entries[0]?.text || null;
+}
 
-  const rootKey = indexDef.hashTag;
-  if (!rootKey || typeof rootKey !== 'string') return null;
-
-  const subDefs = getIndexSubDefs(indexDef);
-  const rootVal = rec[rootKey];
-
-  // ネスト構造（例: Card.Num / BeastType.Beast）
-  if (Array.isArray(subDefs) && subDefs.length > 0 && rootVal && typeof rootVal === 'object') {
-    const primarySub = pickPrimaryIndexSubDef(subDefs);
-    const candidates = primarySub ? [primarySub, ...subDefs.filter(d => d !== primarySub)] : subDefs;
-    for (const sub of candidates) {
-      const subKey = sub?.hashTag;
-      if (!subKey || typeof subKey !== 'string') continue;
-      const v = rootVal[subKey];
-      const subType = sub?.$type ?? sub?.$valType ?? null;
-      const formatted = formatValueForDisplay(v, {}, metaForLookup, globalDefType, {
-        schemaType: subType,
-        fieldKey: `${rootKey}.${subKey}`
-      });
-      if (!formatted) continue;
-      const label = getIndexLabel(sub) || getIndexLabel(indexDef);
-      return label ? `${label}: ${formatted}` : formatted;
-    }
-    return null;
-  }
-
-  // スカラー（例: Num / Drc / Unit）
-  const rootType = indexDef?.$type ?? indexDef?.$valType ?? null;
-  const formatted = formatValueForDisplay(rootVal, {}, metaForLookup, globalDefType, {
-    schemaType: rootType,
-    fieldKey: rootKey
-  });
-  if (!formatted) return null;
-  const label = getIndexLabel(indexDef);
-  return label ? `${label}: ${formatted}` : formatted;
+/**
+ * レコードと Index 定義から、一覧/詳細表示用の複数インデックス項目を生成
+ * @param {Object} rec - レコード
+ * @param {Object|null} indexDef - $IndexDef
+ * @param {Object|null} metaForLookup - 表示辞書
+ * @param {Object|null} globalDefType - グローバル typedef
+ * @param {'list'|'detail'} [context='list'] - 表示コンテキスト
+ * @returns {Array<{keyPath:string,value:string,text:string,contexts:Object}>}
+ */
+function buildIndexChipItems(rec, indexDef, metaForLookup = null, globalDefType = null, context = 'list') {
+  const targetContext = context === 'detail' ? 'detail' : 'list';
+  return collectIndexEntries(rec, indexDef, metaForLookup, globalDefType, { context: 'record' })
+    .filter(entry => entry?.contexts?.[targetContext]);
 }
 
 /**
@@ -1622,43 +1772,24 @@ function buildFieldDisplayMap(workTypeDef, globalTypeDef = {}) {
 
     const varsDef = (
       (def.$VarsDef && typeof def.$VarsDef === 'object') ? def.$VarsDef
-        : (def.$VersDef && typeof def.$VersDef === 'object') ? def.$VersDef
-          : (def.typedef?.$VarsDef && typeof def.typedef.$VarsDef === 'object') ? def.typedef.$VarsDef
-            : (def.typedef?.$VersDef && typeof def.typedef.$VersDef === 'object') ? def.typedef.$VersDef
-              : null
+      : ((def.$VersDef && typeof def.$VersDef === 'object') ? def.$VersDef : null)
     );
     if (!varsDef || typeof varsDef !== 'object') return;
 
-    /** @type {Record<string, any>} */
-    const tmp = {};
+    for (const val of Object.values(varsDef)) {
+      if (!val || typeof val !== 'object') continue;
+      const typeArr = Array.isArray(val?.$TypeDef)
+        ? val.$TypeDef
+        : (Array.isArray(val?.$type)
+            ? val.$type
+            : (Array.isArray(val?.$DefType) ? val.$DefType : null));
+      if (!Array.isArray(typeArr) || typeArr.length === 0) continue;
 
-    const scanContainer = (container, basePath = []) => {
-      if (!container || typeof container !== 'object') return;
-      for (const [k, v] of Object.entries(container)) {
-        if (!k || typeof k !== 'string') continue;
-        if (!k.startsWith('$Def_')) continue;
-        if (!v || typeof v !== 'object') continue;
-
-        // `$Def_*` 配下の定義配列（$TypeDef / $DefType など）を走査
-        const arr = Array.isArray(v.$TypeDef) ? v.$TypeDef
-          : Array.isArray(v.$DefType) ? v.$DefType
-            : null;
-        if (Array.isArray(arr)) {
-          // basePath を付けると `$Def_Relations.RelationLabel` のようなキーも作れる
-          // - ただし render 側では hashTag（RelationLabel）参照も行うため、十分に効く
-          traverseDisplayItems(arr, [...basePath, k], tmp);
-        }
-
-        // ネストした $Def_* がある場合も考慮（深くなり過ぎない範囲で）
-        scanContainer(v, [...basePath, k]);
+      const tmp = {};
+      traverseDisplayItems(typeArr, [], tmp);
+      for (const [k, v] of Object.entries(tmp)) {
+        if (!Object.prototype.hasOwnProperty.call(displayMap, k)) displayMap[k] = v;
       }
-    };
-
-    scanContainer(varsDef, []);
-
-    // merge（既存を上書きしない）
-    for (const [k, v] of Object.entries(tmp)) {
-      if (!Object.prototype.hasOwnProperty.call(displayMap, k)) displayMap[k] = v;
     }
   };
 
@@ -2720,30 +2851,10 @@ function formatValueForDisplay(value, labelMap = {}, workMeta = null, globalDefT
 
     // ネスト型（例: Card.Num / BeastType.Beast）
     if (Array.isArray(subDefs) && subDefs.length > 0) {
-      // 値が { Card:{...} } でも { Stoat:'...', Num:1 } でも扱えるように、2段階で読む
-      const rootObj = (isPlainObject(v) && isPlainObject(v?.[rootKey])) ? v[rootKey] : v;
-      if (!isPlainObject(rootObj)) return '';
-
-      const primarySub = pickPrimaryIndexSubDef(subDefs);
-      const candidates = primarySub ? [primarySub, ...subDefs.filter(d => d !== primarySub)] : subDefs;
-      for (const sub of candidates) {
-        const subKey = sub?.hashTag;
-        if (!subKey || typeof subKey !== 'string') continue;
-        const leaf = rootObj[subKey];
-        if (leaf === null || leaf === undefined || leaf === '') continue;
-        const subType = sub?.$type ?? sub?.$valType ?? null;
-        const formatted = formatValueForDisplay(leaf, labelMap, workMeta, globalDefType, {
-          display: opt.display,
-          schemaType: subType,
-          fieldKey: `${rootKey}.${subKey}`
-        });
-        const text = String(formatted ?? '').trim();
-        if (!text) continue;
-
-        const label = getIndexLabel(sub) || getIndexLabel(indexDef);
-        return label ? `${label}: ${text}` : text;
-      }
-      return '';
+      const valueItems = collectIndexEntries(v, indexDef, workMeta, globalDefType, { context: 'value' })
+        .filter(item => item?.contexts?.value);
+      if (!valueItems.length) return '';
+      return valueItems.map(item => item.text).join(' / ');
     }
 
     // スカラー型（例: Num / Drc）
@@ -4257,39 +4368,39 @@ async function renderList(records, workId, onOpen, imageFields = null) {
     }
 
     // Index chip (schema-driven via typedef $IndexDef)
-    const indexChipText = buildIndexChipText(r, indexDef, metaForLookup, globalDefType);
-    if (indexChipText) {
-      const id = getIndexIdentifierFromRecord(r, indexDef);
-      const href = (() => {
-        if (!id) return '';
-        const cur = getQS();
-        const db = window?.__CHAR_STATE__?.db || cur.db || 'Primary';
-        const legacyNum = id.keyPath === 'Num' ? id.value : '';
-        const qs = new URLSearchParams({
-          ...cur,
-          work: workId,
-          db,
-          idx: id.value,
-          idxKey: id.keyPath,
-          num: legacyNum,
-        });
-        return `${location.pathname}?${qs.toString()}`;
-      })();
+    const indexChipItems = buildIndexChipItems(r, indexDef, metaForLookup, globalDefType, 'list');
+    if (indexChipItems.length) {
+      const cur = getQS();
+      const db = window?.__CHAR_STATE__?.db || cur.db || 'Primary';
+      for (const item of indexChipItems) {
+        const legacyNum = item.keyPath === 'Num' ? item.value : '';
+        const href = (() => {
+          const qs = new URLSearchParams({
+            ...cur,
+            work: workId,
+            db,
+            idx: item.value,
+            idxKey: item.keyPath,
+            num: legacyNum,
+          });
+          return `${location.pathname}?${qs.toString()}`;
+        })();
 
-      chipEls.push(
-        id && href
-          ? el('a', {
-              class: 'chip accent',
-              href,
-              title: '直リンクをコピーできます',
-              onclick: (ev) => {
-                ev.preventDefault();
-                ev.stopPropagation();
-                onOpen(r);
-              }
-            }, [indexChipText])
-          : el('span', { class: 'chip accent' }, indexChipText)
-      );
+        chipEls.push(
+          item?.contexts?.link
+            ? el('a', {
+                class: 'chip accent',
+                href,
+                title: '直リンクをコピーできます',
+                onclick: (ev) => {
+                  ev.preventDefault();
+                  ev.stopPropagation();
+                  onOpen(r);
+                }
+              }, [item.text])
+            : el('span', { class: 'chip accent' }, item.text)
+        );
+      }
     }
 
     const item = el('article', {
@@ -4645,42 +4756,39 @@ async function renderDetail(workId, rec) {
     el('div', { class: 'row small' }, [
       (() => {
         const workIndexDef = getWorkIndexField(workId, globalMeta);
-        const indexChipText = buildIndexChipText(rec, workIndexDef, metaForLookup, globalDefType);
-        if (!indexChipText) return null;
-        const id = getIndexIdentifierFromRecord(rec, workIndexDef);
-        const href = (() => {
-          if (!id) return '';
-          const cur = getQS();
-          const legacyNum = id.keyPath === 'Num' ? id.value : '';
+        const indexChipItems = buildIndexChipItems(rec, workIndexDef, metaForLookup, globalDefType, 'detail');
+        if (!indexChipItems.length) return null;
+        const cur = getQS();
+        return indexChipItems.map((item) => {
+          const legacyNum = item.keyPath === 'Num' ? item.value : '';
           const qs = new URLSearchParams({
             ...cur,
             work: workId,
             db: dbName,
-            idx: id.value,
-            idxKey: id.keyPath,
+            idx: item.value,
+            idxKey: item.keyPath,
             num: legacyNum,
           });
-          return `${location.pathname}?${qs.toString()}`;
-        })();
+          const href = `${location.pathname}?${qs.toString()}`;
 
-        return (id && href)
-          ? el('a', {
-              class: 'pill',
-              href,
-              title: '直リンクをコピーできます',
-              onclick: (ev) => {
-                // 表示中のレコードなので、遷移（リロード）は不要。
-                ev.preventDefault();
-                ev.stopPropagation();
-                try {
-                  const legacyNum = id.keyPath === 'Num' ? id.value : '';
-                  setQS({ idx: id.value, idxKey: id.keyPath, num: legacyNum });
-                } catch {
-                  // noop
+          return item?.contexts?.link
+            ? el('a', {
+                class: 'pill',
+                href,
+                title: '直リンクをコピーできます',
+                onclick: (ev) => {
+                  // 表示中のレコードなので、遷移（リロード）は不要。
+                  ev.preventDefault();
+                  ev.stopPropagation();
+                  try {
+                    setQS({ idx: item.value, idxKey: item.keyPath, num: legacyNum });
+                  } catch {
+                    // noop
+                  }
                 }
-              }
-            }, [indexChipText])
-          : el('span', { class: 'pill' }, [indexChipText]);
+              }, [item.text])
+            : el('span', { class: 'pill' }, [item.text]);
+        });
       })(),
       (() => {
         const detailLayout = globalMeta?.CreationWorks?.[workId]?.$DetailLayout || null;

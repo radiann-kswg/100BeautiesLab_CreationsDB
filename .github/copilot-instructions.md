@@ -231,6 +231,7 @@
 - **ラベルの優先順**: `hashTag_JP` / `hashtag_JP`（綴り揺れ吸収）を優先し、無い場合はフィールド名をフォールバックします。
 - **ラベルのデータ運用**: 新規追加や修正では `hashTag_JP` に寄せます（`hashtag_JP` は後方互換の読み取り対象）。
 - **インデックス表示名**: 作品ごとのインデックス（一覧チップ/詳細ピル）は、作品別 typedef（`data/Works_<作品名>/DataBases/db_type.json`）の `$IndexDef` を参照し、`hashTagName_JP/EN` を表示名として利用します。
+- **複数 Index 要素の表示制御**: object 形式の `$IndexDef` は、既定で「一覧/直リンクは主要要素」「詳細/値表示は全要素」を採用し、各子要素の `$display.index` で `list/detail/value/link/priority/order` を上書きします。
 - **basic 補助項目の扱い**: `BirthDay` のように typedef 上は基本情報だが作品別 `basicFields` へ必ずしも列挙されない項目は、既存の basic 補助行（例: `AnivDay`）と同系統で扱うことを許容します。
 - **List 系詳細表示**: `#ListIndex[]` / `#ListLink[]` の object 配列は、カンマ結合ではなく改行ベースで表示する方針を優先します。
 - **2言語 multiline 表示**: `##String_JP` / `##String_EN` の名称系フィールドで和英のどちらかに改行が含まれる場合、1 つの pre-wrap 文字列へ潰さず、可能な限り JP/EN 列を分けた DOM で表示します。
@@ -240,6 +241,7 @@
 - **汎用インデックス直リンク**: キャラ詳細の直リンクは `idx` / `idxKey` を使用します。
   - `idx`: インデックス値（例: 番号、カード番号、方角など）
   - `idxKey`: インデックスキー（`<root>` または `<root>.<child>` 形式。例: `Num`, `Card.Num`, `BeastType.Beast`）
+- **複数要素 Index の直リンク制約**: `idx` / `idxKey` は単一 key-path 前提です。object 形式の `$IndexDef` で `link:true` を付ける子要素は、単独で識別に使う前提が崩れないか確認してください。
 - **後方互換**: 旧パラメータの `num` は互換として解釈されます（主に `Num` インデックスを想定）。
 - **運用方針**: 新規の仕様追加・作品追加で直リンク挙動を変える場合は、基本的にコード変更ではなく作品別 typedef（`data/Works_<作品名>/DataBases/db_type.json`）の `$IndexDef` を更新して追従させます。
 

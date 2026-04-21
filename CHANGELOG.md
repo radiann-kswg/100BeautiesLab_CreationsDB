@@ -1,5 +1,19 @@
 # 最新のリファクタリング・仕様変更履歴
 
+### object 形式 `#Index` の複数要素表示と `$display.index` 制御を追加
+
+- `pages/characters.js` で object 形式の `#Index` を複数要素として収集できるようにし、一覧 chip / 詳細 pill / `#Index` 値整形 / `idx` `idxKey` 一致判定を同じ helper 群へ統一した。
+- 既定値として、一覧 chip と canonical な直リンクは主要サブ要素を優先しつつ、詳細ヘッダと `#Index` 値表示では非空の全サブ要素を表示するようにした。
+- 各サブ要素の `"$display": { "index": { list, detail, value, link, priority, order } }` により、作品別 typedef 側で表示対象と優先順位を宣言的に調整できるようにした。
+- 運用ルールを `docs/db-update-guidelines.md`、`docs/implementation-playbook.md`、`.github/copilot-instructions.md` へ同期した。
+
+### `_Secondaries` の default fallback 優先順位を明確化
+
+- `lib/sw-common.js` と `pages/characters.js` で、`Databases.#DB_<DbName>._Secondaries[]` のうち全 `sec_**` 条件が `null` / 空の定義をデフォルト fallback として扱い、条件付き定義が一致した場合はそちらを優先するように整理した。
+- これにより、`_Secondaries` 配列の並び順に依存せず、`sec_Category` / `sec_DesignedBy` / `sec_SeriesTitle` を持つ具体定義が fallback 定義より優先されるようにした。
+- `data/Works_NumberTales/DataBases/db_SelfSecondary.json` では、一部レコードの `sec_DesignedBy` typo を正規キーへ揃え、`ナンバーテールズ化企画` 向け `_Commons` に一致するよう修正した。
+- 回帰確認として `tests/commons.secondaries.test.js`、`tests/sw.enrich.basic.test.js`、`tests/sw.dbmeta.tolerance.test.js` を実行し、通過を確認した。
+
 ### 実装運用プレイブックと Copilot 指示書を更新
 
 - `docs/implementation-playbook.md` を追加し、UI / API / SW / data / docs の各レイヤーで「まずどこを正にするか」「どのファイルを先に確認するか」「変更後にどの docs を同期するか」を整理した。

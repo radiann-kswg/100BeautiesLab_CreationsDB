@@ -16,20 +16,24 @@
 ## いま進行中のファイル
 
 - 2026-03-31_remaining-task.md
-- 2026-04-18_progress_image-lightbox.md （キャラシート画像ギャラリーのポップアップ拡大表示）
-- 2026-04-19_progress_visual-qa-checklist.md （作品別の一覧/詳細 目視確認チェックリスト）
-- 2026-04-19_progress_typo-candidates.md （スペルミス修正候補の整理）
-- 2026-04-19_progress_dblink-schema-guard.md （別作品 `_DBLink` の schema 未宣言項目を抑止）
-- 2026-04-19_progress_listindex-multiline.md （`#ListIndex[]` / `#ListLink[]` の詳細表示を改行化）
-- 2026-04-19_progress_api-sw-docs.md （API/SW 技術仕様メモと注釈の補強）
-- 2026-04-19_progress_playbook-copilot-rules.md （実装運用プレイブックと Copilot 指示書の更新）
+- 2026-04-21_progress_multi-index-display.md
 
 補足:
 
 - 2026-04-18 に旧進捗ログを整理し、未完了事項は `2026-03-31_remaining-task.md` へ集約しました。
+- 2026-04-21 に、4/18 と 4/19 の完了済み progress ログを `.completed` へ整理しました。
+- 2026-04-21 に、`_Secondaries` の fallback 優先順位整理ログも完了扱いとして `.completed` へ退避しました。
 
 ## 完了（.completed へ退避済み）
 
+- 2026-04-21_progress_secondary-commons-defaults.md
+- 2026-04-18_progress_image-lightbox.md
+- 2026-04-19_progress_visual-qa-checklist.md
+- 2026-04-19_progress_typo-candidates.md
+- 2026-04-19_progress_dblink-schema-guard.md
+- 2026-04-19_progress_listindex-multiline.md
+- 2026-04-19_progress_api-sw-docs.md
+- 2026-04-19_progress_playbook-copilot-rules.md
 - 2026-03-04_progress_security-alert.md
 - 2026-03-04_progress_top-page.md
 - 2026-02-21_progress_typedef-driven-detail.md

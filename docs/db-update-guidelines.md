@@ -85,6 +85,21 @@
 - `unit`: `cm/kg/歳` など（単位表示）
 - `enumFormat` / `rankFormat` / `rarityFormat`: 表示形式のヒント
 - `auto:false`: 自動表示（スキーマ駆動の列挙）から除外したいとき
+- object 形式の `#Index` では、各子要素の `"$display": { "index": { ... } }` で一覧/詳細/値表示/直リンクの対象を宣言できます
+
+`$display.index` の主なキー:
+
+- `list`: 一覧カードの accent chip に含めるか
+- `detail`: 詳細ヘッダの pill に含めるか
+- `value`: `#Index` フィールド本体を文字列整形するときに含めるか
+- `link`: `idx` / `idxKey` 付き直リンクの候補にするか
+- `priority`: 複数候補があるときの優先順位（大きいほど優先）
+- `order`: 同 priority 内の並び順（小さいほど先）
+
+未指定時の既定値:
+
+- 一覧 chip / 直リンクは「主要」サブ要素のみ
+- 詳細 pill / 値表示は非空の全サブ要素
 
 ### 3.5 予約語/機械処理キーの命名（フェーズ3）
 
@@ -117,6 +132,8 @@
 
 - 作品ごとのインデックス（一覧チップ/直リンクの基準）は、作品別 typedef（`data/Works_<作品名>/DataBases/db_type.json`）の `$IndexDef` を更新して追従させます
 - `data/db_meta.json(CreationWorks.*.$DefType_Index / $Def_Index)` は廃止され、Index 定義の置き場は typedef 側に集約されました
+- object 形式の `$IndexDef` で複数要素を持つ場合、一覧/詳細/値表示/直リンクの対象は各子要素の `$display.index` で制御します
+- `idx` / `idxKey` による直リンクは単一 key-path 前提です。`link:true` を付ける子要素は、同一作品/同一DB内で識別に使って問題ないものを優先してください
 
 補足:
 

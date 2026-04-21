@@ -51,6 +51,7 @@
 - `#ListIndex[]` / `#ListLink[]` の object 配列は、詳細テーブルで 1 要素 1 行表示を優先します
 - `##String_JP` / `##String_EN` の bilingual 名称系フィールドで、和英のどちらかに改行がある場合は JP/EN 2 列表示を優先します
 - `Belonging` / `Area` / `BirthDay` / `AnivDay` のような basic 補助項目は、`$DetailLayout.basicFields` に既に含まれているなら重複表示しません
+- object 形式の `#Index` は、既定で「一覧/直リンクは主要要素」「詳細/値表示は全要素」とし、必要なら子要素の `$display.index` で `list/detail/value/link/priority/order` を上書きします
 
 ### 2.2 API / SW 修正
 
@@ -91,6 +92,7 @@
 
 - 新フィールドを追加したら、原則として `$DefType` も追加します
 - インデックス表示や直リンクの基準変更は、まず `$IndexDef` で表現できるかを確認します
+- object 形式の `$IndexDef` で複数要素を出し分けたい場合は、コード分岐を増やす前に各子要素の `$display.index` で制御できないかを確認します
 - 表示名辞書や list/link 補助は、`$VarsDef` で宣言的に足せるならコード変更より先にそちらを選びます
 
 ---
