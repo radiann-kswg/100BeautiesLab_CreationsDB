@@ -6,6 +6,14 @@
 - `pages/characters.html` / `pages/characters.js` / `pages/characters.sass` に、選択中の作品情報と DB情報を表示する概要パネルを追加し、作品概要・旧題・年代メモ・DB概要を閲覧できるようにした。
 - 回帰確認として `tests/sw.work-meta-info.test.js` と `tests/pages.characters.syntax.test.js` を実行し、通過を確認した。
 
+### DB 表示名とカタログ用 schema 宣言を追加
+
+- 作品別 `data/Works_*/DataBases/db_meta.json` の各 `Databases.#DB_*` に `DB_Label` / `DB_Label_EN` を追加し、DB セレクトや概要表示で人間向けラベルを使えるようにした。
+- `lib/sw-common.js` の DB カタログ整形で `DB_Label` / `DB_Label_EN` を返し、旧メタには既定ラベルを補完するようにした。
+- `pages/characters.js` と `pages/characters.html` で DB キー直表示をやめ、表示名優先で選択肢と概要ヘッダを描画するようにした。
+- `data/db_type.json` に `$MetaType` を追加し、CreationWorks / OldTitles / DatabaseCatalog / StoryEra の補助 schema 宣言を持たせた。
+- 回帰確認として `tests/sw.work-meta-info.test.js`、`tests/pages.characters.syntax.test.js`、`tests/meta.catalog.schema.test.js` を実行し、通過を確認した。
+
 ### object 形式 `#Index` の複数要素表示と `$display.index` 制御を追加
 
 - `pages/characters.js` で object 形式の `#Index` を複数要素として収集できるようにし、一覧 chip / 詳細 pill / `#Index` 値整形 / `idx` `idxKey` 一致判定を同じ helper 群へ統一した。

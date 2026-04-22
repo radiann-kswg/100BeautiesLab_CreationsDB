@@ -1,6 +1,8 @@
 {
   "Databases": {
     "#DB_Primary": {
+      "DB_Label": "一次創作",
+      "DB_Label_EN": "Primary",
       "DB_Summary": "豹変系女子に相当する８人の一次創作キャラクター。\n七つの大罪と八方位に関連する属性が付与されている。",
       "StoryEra": {
         "InEra": [{ "EraGen": 8, "YearInEra": 6 }, { "byRealYear": 2050 }],

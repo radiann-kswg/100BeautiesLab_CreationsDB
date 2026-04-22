@@ -1,6 +1,8 @@
 {
   "Databases": {
     "#DB_Primary": {
+      "DB_Label": "一次創作",
+      "DB_Label_EN": "Primary",
       "DB_Summary": "運命線探偵の公式一次創作作品に登場するキャラクター。\nタロットカードに関連する特性をそれぞれ有している。",
       "StoryEra": {
         "FromEra": [{ "EraGen": 7, "YearInEra": 24 }, { "byRealYear": 2044 }],
@@ -49,6 +51,8 @@
       }
     },
     "#DB_PrimaryDealer": {
+      "DB_Label": "一次創作(アルカナ保有者)",
+      "DB_Label_EN": "Primary(Arcana Holders)",
       "DB_Summary": "運命線探偵の公式一次創作作品に登場するキャラクター。\nこちらにはタロットをモチーフにした能力の保有者に関する情報をまとめている。",
       "StoryEra": {
         "FromEra": [{ "EraGen": 7, "YearInEra": 24 }, { "byRealYear": 2044 }],

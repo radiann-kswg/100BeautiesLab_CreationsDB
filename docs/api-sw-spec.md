@@ -76,9 +76,10 @@ UI と enrich/search は、可能な限りこの `db_type.json($DefType)` に追
 - 補助メタ情報です
 - 主な役割:
   - `General.$VarsDef`: enum/list 辞書
+  - `$MetaType`: 作品/DB カタログ向けメタ情報の補助 schema 宣言
   - `CreationWorks.<work>.Title` / `Title_EN` / `Works_Summary` / `OldTitles`: 作品一覧・作品概要のカタログ情報
   - `CreationWorks.<work>.$DetailLayout`: 詳細表示レイアウト補助
-  - `Databases.#DB_<DbName>.DB_Summary` / `StoryEra`: DB 一覧・DB概要のカタログ情報
+  - `Databases.#DB_<DbName>.DB_Label` / `DB_Label_EN` / `DB_Summary` / `StoryEra`: DB 一覧・DB概要のカタログ情報
   - `Databases.#DB_<DbName>._Commons`: DB 全体の共通穴埋め
   - `Databases.#DB_<DbName>._Secondaries`: `sec_**` 条件に応じた `_Commons` 分岐
     - 全ての `sec_**` 条件が `null` / 空の定義はデフォルト fallback として扱い、`null` 以外の条件を持つ定義が一致した場合はそちらを優先します
@@ -133,7 +134,7 @@ UI と enrich/search は、可能な限りこの `db_type.json($DefType)` に追
 - `GET /pages/v1/works/{work}`
   - `meta` に加えて `workInfo` を返し、グローバル `CreationWorks.<work>` のカタログ情報を参照できます
 - `GET /pages/v1/works/{work}/db`
-  - 各 DB ごとに `key`, `file`, `metaKey`, `DB_Summary`, `StoryEra`, `SecondarySummary` を返します
+  - 各 DB ごとに `key`, `file`, `metaKey`, `DB_Label`, `DB_Label_EN`, `DB_Summary`, `StoryEra`, `SecondarySummary` を返します
 - `GET /pages/v1/bootstrap`
   - 各作品項目に `workInfo` を含め、`databases[]` も上記の DB カタログ情報付きで返します
 
@@ -141,6 +142,22 @@ UI と enrich/search は、可能な限りこの `db_type.json($DefType)` に追
 
 - `works/{work}/db` は作品別 `db_meta.json` が欠損していても 200 を維持し、概要情報だけ空文字 / `null` になります
 - `StoryEra` は構造化データのまま返すため、UI 側では `about_JP` / `about_EN` を優先して整形します
+- `DB_Label` / `DB_Label_EN` が未定義の旧メタでも、SW 側で既定表示名を補完して UI の破綻を避けます
+
+### 5.2 カタログ用メタ schema 宣言
+
+グローバル `data/db_type.json` では、作品/DB のカタログ情報を補助的に宣言するために `General.$MetaType` ではなくトップレベルの `$MetaType` を持ちます。
+
+- `$Def_CreationWorkCatalog`
+  - `Title`, `Title_EN`, `Works_Summary`, `OldTitles[]`
+- `$Def_OldTitleCatalog`
+  - `Title`, `Title_EN`, `ArchivedYear`
+- `$Def_DatabaseCatalog`
+  - `DB_Label`, `DB_Label_EN`, `DB_Summary`, `StoryEra`, `SecondarySummary`
+- `$Def_StoryEraCatalog`
+  - `about_JP`, `about_EN`
+
+これは現状の UI/SW が使うカタログ情報の宣言面を明示するための補助ブロックで、既存のキャラクター本体 schema (`$DefType`) を置き換えるものではありません。
 
 ---
 

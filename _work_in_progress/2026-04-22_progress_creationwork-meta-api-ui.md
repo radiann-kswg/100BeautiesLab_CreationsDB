@@ -5,19 +5,25 @@
   - `lib/sw-common.js` の `works` / `works/{work}` / `works/{work}/db` / `bootstrap` 応答へ、`CreationWorks` と `Databases` 由来の概要情報を正規化して付与
   - `pages/characters.html` / `pages/characters.sass` / `pages/characters.js` に、選択中の作品情報 / DB情報パネルを追加
   - works/db カタログの meta 返却を確認するテストを追加
+  - 作品別 `db_meta.json` の各 DB に `DB_Label` / `DB_Label_EN` を追加し、UI が DB key ではなく表示名を使えるようにした
+  - `data/db_type.json` に `$MetaType` を追加し、作品/DB カタログ情報の補助 schema 宣言を追加した
 - 影響範囲:
   - `lib/sw-common.js`
   - `pages/characters.html`
   - `pages/characters.sass`
   - `pages/characters.js`
+  - `data/db_type.json`
+  - `data/Works_*/DataBases/db_meta.json`
   - `tests/sw.work-meta-info.test.js`
+  - `tests/meta.catalog.schema.test.js`
   - `docs/api-sw-spec.md`
   - `CHANGELOG.md`
 - 未完了タスク:
-  - 必要なら `db_type.json` / `db_meta.json` 拡張案の整理
+  - ブラウザ上で DB 表示名の実見た目を確認
 - 検証:
   - `tests/sw.work-meta-info.test.js`: pass
   - `tests/pages.characters.syntax.test.js`: pass
+  - `tests/meta.catalog.schema.test.js`: pass
   - `get_errors(lib/sw-common.js, pages/characters.js, pages/characters.html, pages/characters.sass)`: 問題なし
 - 参考リンク:
   - `2026-03-31_remaining-task.md`

@@ -60,7 +60,7 @@ describe('StandardEndpointHandlers exposes work/db catalog meta info', () => {
     expect(Array.isArray(json[0].OldTitles)).toBe(true);
   });
 
-  it('handleWorkDbListEndpoint includes DB summary and story era from work meta', async () => {
+  it('handleWorkDbListEndpoint includes DB labels, summary and story era from work meta', async () => {
     const ctx = loadSwCommonIntoContext();
     const StandardEndpointHandlers = ctx?.self?.StandardEndpointHandlers;
     expect(StandardEndpointHandlers).toBeTypeOf('function');
@@ -70,6 +70,8 @@ describe('StandardEndpointHandlers exposes work/db catalog meta info', () => {
       readWorkMeta: async () => ({
         Databases: {
           '#DB_Primary': {
+            DB_Label: '一次創作',
+            DB_Label_EN: 'Primary',
             DB_Summary: 'DB概要です。',
             StoryEra: { about_JP: '第9創世紀3年ごろ' }
           }
@@ -82,6 +84,8 @@ describe('StandardEndpointHandlers exposes work/db catalog meta info', () => {
     const json = await res.json();
 
     expect(res.status).toBe(200);
+    expect(json.databases[0].DB_Label).toBe('一次創作');
+    expect(json.databases[0].DB_Label_EN).toBe('Primary');
     expect(json.databases[0].DB_Summary).toBe('DB概要です。');
     expect(json.databases[0].StoryEra.about_JP).toBe('第9創世紀3年ごろ');
     expect(json.databases[0].metaKey).toBe('#DB_Primary');

@@ -1,6 +1,8 @@
 {
   "Databases": {
     "#DB_Primary": {
+      "DB_Label": "一次創作",
+      "DB_Label_EN": "Primary",
       "DB_Summary": "「夜月機関」の正式な幹部に相当する一次創作キャラクター。\n和暦の月名に関連するコードネームが付与されている。",
       "StoryEra": {
         "FromEra": [{ "EraGen": 8, "YearInEra": 3 }, { "byRealYear": 2047 }],
@@ -121,6 +123,8 @@
       }
     },
     "#DB_SemiPrimary": {
+      "DB_Label": "準一次創作",
+      "DB_Label_EN": "Semi-Primary",
       "DB_Summary": "「夜月機関」の先代幹部に相当する公式アンソロジー向け一次創作キャラクター。\n和暦の月名に関連するコードネームが付与されているのは通常と同様だが、登場数がまだ不完全なものとなっている。",
       "StoryEra": {
         "FromEra": [{ "EraGen": 7, "YearInEra": 24 }, { "byRealYear": 2044 }],

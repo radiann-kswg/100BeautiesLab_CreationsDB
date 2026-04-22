@@ -505,6 +505,17 @@ async function listWorkDBs(workKey) {
 }
 
 /**
+ * DB カタログ項目から表示名を解決
+ * @param {Object|null} db
+ * @param {string} fallback
+ * @returns {string}
+ */
+function getDbDisplayLabel(db, fallback = '') {
+  const label = String(db?.DB_Label || db?.DB_Label_EN || db?.key || fallback || '').trim();
+  return label || String(fallback || '-');
+}
+
+/**
  * 参照解決とデバッグ情報を含むキャラクターデータベースをフェッチ
  * @param {string} workKey - 作品識別子
  * @param {string} dbName - データベース名 (例: 'Primary', 'Secondary')
@@ -3879,7 +3890,7 @@ async function renderSelectionMeta(workKey, dbKey) {
   setTextAndHidden('#meta-work-sub', [work?.Title_EN, formatOldTitles(work?.OldTitles)].filter(Boolean).join('\n'));
   setTextAndHidden('#meta-work-summary', work?.Works_Summary || '');
 
-  $('#meta-db-title').textContent = db?.key || dbKey || '-';
+  $('#meta-db-title').textContent = getDbDisplayLabel(db, dbKey || '-');
   setTextAndHidden('#meta-db-era', getStoryEraSummary(db?.StoryEra));
   setTextAndHidden('#meta-db-summary', db?.DB_Summary || db?.SecondarySummary || '');
 
@@ -6558,10 +6569,11 @@ async function populateDBs(workKey, initialDB) {
   sel.textContent = '';
   const dbs = await listWorkDBs(workKey);
   for (const d of dbs) {
+    const label = getDbDisplayLabel(d, d.key);
     const opt = el('option', {
       value: d.key,
-      title: d.DB_Summary || getStoryEraSummary(d.StoryEra) || d.key
-    }, [d.key]);
+      title: [d.DB_Label_EN, d.DB_Summary || getStoryEraSummary(d.StoryEra) || d.key].filter(Boolean).join('\n')
+    }, [label]);
     if (d.key === initialDB) opt.selected = true;
     sel.appendChild(opt);
   }

@@ -1,6 +1,8 @@
 {
   "Databases": {
     "#DB_Primary": {
+      "DB_Label": "一次創作",
+      "DB_Label_EN": "Primary",
       "DB_Summary": "ナンバーテールズのうち、公式一次創作作品に登場するキャラクター。\n99以内の非負整数である数秘をそれぞれ有している。",
       "StoryEra": {
         "FromEra": [
@@ -27,6 +29,8 @@
       }
     },
     "#DB_SemiPrimary": {
+      "DB_Label": "準一次創作",
+      "DB_Label_EN": "Semi-Primary",
       "DB_Summary": "ナンバーテールズのうち、公式の下でアンソロジーとしてデザインされたキャラクターで、こちらは一次創作に準ずる括りとする。\n公式一次創作作品の延長として登場する番号やゾロ目(マスターナンバーとしての33および111の倍数)や一部キリ番などの非負整数を主とした数秘をそれぞれ有している。",
       "StoryEra": {
         "FromEra": [
@@ -49,6 +53,8 @@
       }
     },
     "#DB_SelfSecondary": {
+      "DB_Label": "セルフ二次創作",
+      "DB_Label_EN": "Self-Secondary",
       "DB_Summary": "ナンバーテールズのうち、公式または公式指導の下で副次創作としてデザインされたキャラクターで、こちらは二次創作に準ずる括りとする。\nゾロ目(111の倍数)などの予約された番号を除く101以上999未満の非負整数である数秘をそれぞれ有している。",
       "_Secondaries": [
         {
@@ -91,6 +97,8 @@
       ]
     },
     "#DB_UnprocessedSecondary": {
+      "DB_Label": "未着工の二次創作",
+      "DB_Label_EN": "Unprocessed Secondary",
       "DB_Summary": "ナンバーテールズのうち、まだ制作予定のない3桁の番号をもつキャラクターの空き枠で、こちらは二次創作に準ずる括りとする。\nゾロ目(111の倍数)などの予約された番号を除く101以上999未満の非負整数である数秘をそれぞれ有している。",
       "_Secondaries": [
         {
@@ -105,6 +113,8 @@
       ]
     },
     "#DB_Secondary": {
+      "DB_Label": "二次創作",
+      "DB_Label_EN": "Secondary",
       "DB_Summary": "ナンバーテールズのうち、公認された副次創作作品内で登場した二次創作キャラクター。\n有している数秘の制約については、原則としてガイドラインに準拠したものであるならば概ね何でもよい。",
       "_Secondaries": [
         {
@@ -118,7 +128,7 @@
               { "EraGen": 8, "YearInEra": 7 },
               { "byRealYear": 2051 }
             ],
-            "about_JP": "第9創世紀4年(第8創世紀7年,西暦2050年相当)周辺",
+            "about_JP": "第9創世紀4年(第8創世紀7年,西暦2051年相当)周辺",
             "about_EN": "in around WDCE.IX.4(Equivalent to in around: WDCE.VIII.7, DC.2051)"
           },
           "_Commons": {

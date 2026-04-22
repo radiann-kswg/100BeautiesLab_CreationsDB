@@ -327,6 +327,94 @@
       "searchable": false
     }
   ],
+  "$MetaType": {
+    "$Def_OldTitleCatalog": {
+      "$DefType": [
+        {
+          "hashTag": "Title",
+          "$type": "##String_JP|#Summary|#Null",
+          "hashTag_JP": "旧題"
+        },
+        {
+          "hashTag": "Title_EN",
+          "$type": "##String_EN|#Summary|#Null",
+          "hashTag_JP": "旧題_EN"
+        },
+        {
+          "hashTag": "ArchivedYear",
+          "$type": "#Number|#Null",
+          "hashTag_JP": "旧題の使用終了年"
+        }
+      ]
+    },
+    "$Def_StoryEraCatalog": {
+      "$DefType": [
+        {
+          "hashTag": "about_JP",
+          "$type": "#Summary|#Null",
+          "hashTag_JP": "年代概要"
+        },
+        {
+          "hashTag": "about_EN",
+          "$type": "#Summary|#Null",
+          "hashTag_JP": "年代概要_EN"
+        }
+      ]
+    },
+    "$Def_CreationWorkCatalog": {
+      "$DefType": [
+        {
+          "hashTag": "Title",
+          "$type": "##String_JP|#Summary|#Null",
+          "hashTag_JP": "作品名"
+        },
+        {
+          "hashTag": "Title_EN",
+          "$type": "##String_EN|#Summary|#Null",
+          "hashTag_JP": "作品名_EN"
+        },
+        {
+          "hashTag": "Works_Summary",
+          "$type": "#Summary|#Null",
+          "hashTag_JP": "作品概要"
+        },
+        {
+          "hashTag": "OldTitles",
+          "$type": "$Def_OldTitleCatalog[]|#Null",
+          "hashTag_JP": "旧題一覧"
+        }
+      ]
+    },
+    "$Def_DatabaseCatalog": {
+      "$DefType": [
+        {
+          "hashTag": "DB_Label",
+          "$type": "##String_JP|#Summary|#Null",
+          "hashTag_JP": "DB表示名"
+        },
+        {
+          "hashTag": "DB_Label_EN",
+          "$type": "##String_EN|#Summary|#Null",
+          "hashTag_JP": "DB表示名_EN"
+        },
+        {
+          "hashTag": "DB_Summary",
+          "$type": "#Summary|#Null",
+          "hashTag_JP": "DB概要"
+        },
+        {
+          "hashTag": "StoryEra",
+          "$type": "$Def_StoryEraCatalog|#Null",
+          "hashTag_JP": "物語上の年代"
+        },
+        {
+          "hashTag": "SecondarySummary",
+          "$type": "#Summary|#Null",
+          "hashTag_JP": "二次創作概要"
+        }
+      ]
+    }
+  },
   "$VarsDef": {
     "#List_hideText": [
       { "hideText": "？？？", "hideText_EN": "????" },

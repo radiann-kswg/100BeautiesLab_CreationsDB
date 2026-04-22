@@ -1,6 +1,8 @@
 {
   "Databases": {
     "#DB_Primary": {
+      "DB_Label": "一次創作",
+      "DB_Label_EN": "Primary",
       "DB_Summary": "獣爾騎兵の公式一次創作作品に登場するキャラクター。\n十二支に相当する動物のモチーフをそれぞれ有している。",
       "StoryEra": {
         "FromEra": {
