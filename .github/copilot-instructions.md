@@ -34,11 +34,15 @@
 ### 最近の実装運用ルール（2026-04 セッション反映）
 
 - **UI 表示修正の第一候補**: 画面崩れや表示漏れは、まず `db_type.json($DefType)` / `$display` / `db_meta.json($DetailLayout)` で制御できないかを確認し、UI のハードコード追加は最後の手段とします。
+- **schema/meta 詳解の参照先**: `db_type.json` / `db_meta.json` の宣言面と SW/UI/enrich 内部での合流順を説明する場合は、まず `docs/schema-meta-processing.md` を参照・更新対象に含めてください。
 - **List 系詳細表示**: `#ListIndex[]` / `#ListLink[]` の object 配列は、詳細表示では 1 要素 1 行の multiline 表示を優先します。
 - **bilingual multiline 表示**: `##String_JP` / `##String_EN` 系で和英のどちらかに改行が含まれる場合、詳細テーブルでは JP/EN を左右 2 列に分ける表示を優先します。
 - **basic 補助項目の重複抑制**: `Belonging` / `Area` / `BirthDay` / `AnivDay` などの basic 補助行は、`$DetailLayout.basicFields` に既に含まれる場合は重複表示しないでください。
 - **cross-work `_DBLink` 制約**: 別作品から `_DBLink` 参照で値を持ち込む場合は、対象作品の `db_type.json($DefType)` とグローバル `data/db_type.json($DefType)` に宣言されたトップレベル項目だけを許可します。
 - **作品別 `db_meta.json` 欠損耐性**: 作品別 `db_meta.json` は追加価値レイヤーとして扱い、欠損時でも DB取得 / 検索 / enrich を 500 で落とさず `_Commons` / `_Secondaries` だけをスキップして継続します。
+- **辞書の実行時合流**: enum/list 辞書は `db_meta.json(General.$VarsDef)` と `db_type.json($VarsDef)` の両方から合成される前提で扱い、片側だけを正とみなして説明しないでください。
+- **カタログ用メタ宣言**: 作品/DB の概要メタ（`CreationWorks`, `Databases.#DB_*`）に関する正式な補助 schema は、グローバル `data/db_type.json` のトップレベル `$MetaType` で管理します。
+- **DB 表示名の正**: DB セレクトや作品概要の DB 見出しに出す表示名は、作品別 `db_meta.json` の `Databases.#DB_<DbName>.DB_Label` / `DB_Label_EN` を優先し、未定義時のみ SW の既定ラベル補完に依存します。
 - **API/SW 技術説明の参照先**: API / SW 周辺の仕様整理や説明追加では、まず `docs/api-sw-spec.md` を参照・更新対象に含めてください。
 - **横断運用の参照先**: 実装判断の横断ルールは `docs/implementation-playbook.md` を先に確認し、必要な差分だけ追加してください。
 

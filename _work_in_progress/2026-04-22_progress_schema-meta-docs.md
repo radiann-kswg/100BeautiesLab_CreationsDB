@@ -13,7 +13,7 @@
   - `docs/implementation-playbook.md`
   - `CHANGELOG.md`
 - 未完了タスク:
-  - 必要なら後日 English docs 側の案内を追加
+  - なし（このログの対象は完了）
 - 検証:
   - `tests/docs.links.test.js`: pass
 - 参考リンク:

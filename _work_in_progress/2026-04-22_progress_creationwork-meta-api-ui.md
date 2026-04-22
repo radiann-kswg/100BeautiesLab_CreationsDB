@@ -19,7 +19,7 @@
   - `docs/api-sw-spec.md`
   - `CHANGELOG.md`
 - 未完了タスク:
-  - ブラウザ上で DB 表示名の実見た目を確認
+  - なし（このログの対象は完了）
 - 検証:
   - `tests/sw.work-meta-info.test.js`: pass
   - `tests/pages.characters.syntax.test.js`: pass

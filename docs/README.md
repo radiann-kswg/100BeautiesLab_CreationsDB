@@ -18,6 +18,11 @@ This folder contains documentation for **100BeautiesLab. Creations DB (Web)**.
 - Implementation playbook (JP): `implementation-playbook.md`
 - Third-party policy (JP): `third-party-policy.md`
 
+Session-added references:
+
+- Work / DB catalog meta (`CreationWorks`, `Databases.#DB_*`) and `$MetaType`: `schema-meta-processing.md`
+- Session-wide implementation rules and decision order: `implementation-playbook.md`
+
 ## English
 
 - Technical README (EN): `readme.en.md`

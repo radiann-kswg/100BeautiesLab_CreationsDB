@@ -12,7 +12,7 @@
   - `.github/copilot-instructions.md`
   - `CHANGELOG.md`
 - 未完了タスク:
-  - HTTP サーバー上での目視確認（複数 index pill/chip の見え方）
+  - なし（このログの対象は完了）
 - 検証:
   - `tests/pages.characters.syntax.test.js`: pass
   - `tests/docs.links.test.js`: pass

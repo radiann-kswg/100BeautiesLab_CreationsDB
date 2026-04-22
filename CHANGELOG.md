@@ -6,6 +6,12 @@
 - `docs/db-update-guidelines.md` に、作品/DB カタログ schema、DB 表示名、`$VarsDef` 合流方針への補足を追加した。
 - `docs/README.md`、`docs/api-sw-spec.md`、`docs/implementation-playbook.md` から新しい技術メモへ辿れるようにした。
 
+### セッション完了状態に合わせて指示書と進捗ログを同期
+
+- `.github/copilot-instructions.md` に、`docs/schema-meta-processing.md` の参照方針、`$MetaType` / `DB_Label` の運用、`$VarsDef` の実行時合流前提を追記した。
+- `_work_in_progress/2026-03-31_remaining-task.md` に、希望タスク 1〜3 の完了状況を追記した。
+- `_work_in_progress/2026-04-21_progress_multi-index-display.md`、`_work_in_progress/2026-04-22_progress_creationwork-meta-api-ui.md`、`_work_in_progress/2026-04-22_progress_schema-meta-docs.md` の未完了タスク欄を完了状態へ更新した。
+
 ### `db_meta.json` の創作タイトル情報を API/UI で参照可能に拡張
 
 - `lib/sw-common.js` の `works` / `works/{work}` / `works/{work}/db` / `bootstrap` 応答へ、`CreationWorks` の `Title` / `Title_EN` / `Works_Summary` / `OldTitles` と、作品別 `Databases` の `DB_Summary` / `StoryEra` を正規化して含めるようにした。
