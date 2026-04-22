@@ -227,7 +227,7 @@
   ],
   "$VersDef": {
     "$Def_Relations": {
-      "$TypeDef": [
+      "$DefType": [
         {
           "hashTag": "Lunar",
           "$type": "#Index",

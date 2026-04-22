@@ -1753,7 +1753,7 @@ function buildFieldDisplayMap(workTypeDef, globalTypeDef = {}) {
   const isPlainObject = (v) => !!v && typeof v === 'object' && !Array.isArray(v);
 
   /**
-   * items（$DefType/$TypeDef 由来）を再帰走査して $display を抽出する
+   * items（$DefType 由来）を再帰走査して $display を抽出する
    * @param {any[]} items
    * @param {string[]} path
    * @param {Record<string, any>} out
@@ -1780,8 +1780,8 @@ function buildFieldDisplayMap(workTypeDef, globalTypeDef = {}) {
   };
 
   /**
-   * typedef の「型定義コンテナ」（$VarsDef / $VersDef 配下の $Def_* 等）から $display を抽出する
-   * - 例: Works_NumberTales の $VersDef.$Def_Relations.$TypeDef[].$display.langMode
+  * typedef の「型定義コンテナ」（$VarsDef / $VersDef 配下の $Def_* 等）から $display を抽出する
+  * - 例: Works_NumberTales の $VersDef.$Def_Relations.$DefType[].$display.langMode
    * - ここで抽出した値は、少なくとも hashTag キー（例: RelationLabel）で参照できれば十分。
    * @param {any} def
    */
@@ -1796,11 +1796,9 @@ function buildFieldDisplayMap(workTypeDef, globalTypeDef = {}) {
 
     for (const val of Object.values(varsDef)) {
       if (!val || typeof val !== 'object') continue;
-      const typeArr = Array.isArray(val?.$TypeDef)
-        ? val.$TypeDef
-        : (Array.isArray(val?.$type)
-            ? val.$type
-            : (Array.isArray(val?.$DefType) ? val.$DefType : null));
+      const typeArr = Array.isArray(val?.$type)
+        ? val.$type
+        : (Array.isArray(val?.$DefType) ? val.$DefType : null);
       if (!Array.isArray(typeArr) || typeArr.length === 0) continue;
 
       const tmp = {};
@@ -3418,11 +3416,17 @@ function formatValueForDisplay(value, labelMap = {}, workMeta = null, globalDefT
     }
 
     if (schemaTypeIncludes(opt?.schemaType, '$Def_BaseArea') && Object.prototype.hasOwnProperty.call(value, 'Area')) {
-      return formatValueForDisplay(value.Area, labelMap, workMeta, globalDefType, {
+      const areaLabel = formatValueForDisplay(value.Area, labelMap, workMeta, globalDefType, {
         ...opt,
         schemaType: '#ListIndex',
         fieldKey: 'Area'
       });
+      const aboutValue = value.about_JP ?? value.about_EN ?? value.about;
+      const about = isPlainObject(aboutValue)
+        ? (typeof aboutValue.hideText === 'string' && aboutValue.hideText.trim() ? aboutValue.hideText.trim() : '')
+        : (aboutValue == null ? '' : String(aboutValue).trim());
+      if (areaLabel && about) return `${areaLabel}（${about}）`;
+      return areaLabel;
     }
 
     // #ListIndex の「ラッパー（単一キーObject）」を typedef-driven に整形
@@ -5476,13 +5480,6 @@ async function renderDetail(workId, rec) {
     }
   }
 
-  // Area は現状トップレベル schema 宣言が薄いため、当面は互換用の補助行を維持する
-  const area = formatValueForDisplay(rec.Area, fieldLabelMap, metaForLookup, globalDefType, {
-    schemaType: fieldTypeMap?.Area ?? null,
-    display: topLevelDisplayMap?.Area ?? null,
-    fieldKey: 'Area'
-  });
-
   // ここまでで明示的に表示したフィールドを控えておき、未表示項目を後段で包括表示する
   const shownKeys = (() => {
     /** @type {Set<string>} */
@@ -5543,9 +5540,6 @@ async function renderDetail(workId, rec) {
       if (v && typeof v === 'object' && Object.keys(v).length > 0) s.add(k);
     }
     // SpecType は specStats 配下で表示するため、ここではトップレベル抑止不要
-
-    // Area は現状 schema 外の補助表示として扱う
-    if (area) s.add('Area');
 
     // profile/relations/DBLinkResolved は個別表示する
     if (rec.Summary) s.add('Summary');
@@ -5972,18 +5966,12 @@ async function renderDetail(workId, rec) {
   const otherRows = buildKvRows(sectionBuckets.other);
   const specRows = buildKvRows(sectionBuckets.spec);
   const basicExtraRows = buildKvRows(sectionBuckets.basic);
-  const supplementalBasicRows = [
-    (!normalizedBasicFieldKeySet.has('Area') && area)
-      ? [getFieldLabel('Area', fieldLabelMap, workMeta, globalDefType, '地域'), area]
-      : null,
-  ].filter(Boolean);
 
   // basic セクションは「基本情報テーブル + スキーマで basic 指定された追加項目」をまとめて表示
   const basicSection = el('div', { class: 'section' }, [
     el('h3', {}, [getFieldLabel('BasicInfo', fieldLabelMap, workMeta, globalDefType, '基本情報')]),
     basic,
     basicExtraRows.length ? kvTable({}, basicExtraRows) : null,
-    supplementalBasicRows.length ? kvTable({}, supplementalBasicRows) : null,
   ].filter(Boolean));
 
   const specSection = (abilityTags.length || effTags.length || safetyRow || specNodes.length || specRows.length)

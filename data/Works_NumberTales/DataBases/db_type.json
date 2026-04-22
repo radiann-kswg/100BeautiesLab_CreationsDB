@@ -207,7 +207,7 @@
   ],
   "$VersDef": {
     "$Def_Relations": {
-      "$TypeDef": [
+      "$DefType": [
         {
           "hashTag": "Num",
           "$type": "#Index",

@@ -113,6 +113,14 @@
         "section": "basic"
       }
     },
+    {
+      "hashTag": "Area",
+      "$type": "#ListIndex",
+      "hashTag_JP": "地域",
+      "$display": {
+        "section": "basic"
+      }
+    },
     { "hashTag": "ClassType", "$type": "#String", "hashTag_JP": "クラス" },
     {
       "hashTag": "ClassType_EN",
@@ -469,13 +477,25 @@
       ]
     },
     "$Def_BaseArea": {
-      "$TypeDef": [
+      "$DefType": [
         {
           "hashTag": "Area",
           "$type": "#ListIndex",
           "hashTag_JP": "地域(エリア)"
+        },
+        {
+          "hashTag": "about",
+          "$type": "#Summary|#Null",
+          "hashTag_JP": "地域補足"
+        },
+        {
+          "hashTag": "about_EN",
+          "$type": "#Summary|#Null",
+          "hashTag_JP": "地域補足_EN"
         }
-      ]
+      ],
+      "hashTagName_JP": "活動地域",
+      "hashTagName_EN": "Base Area"
     },
     "$EnumDef_Rank": {
       "#Rank0": { "Rank": "ZZ" },

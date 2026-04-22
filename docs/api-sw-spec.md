@@ -73,7 +73,7 @@ UI と enrich/search は、可能な限りこの `db_type.json($DefType)` に追
 
 補足:
 
-- 既存データには `$Def_*` 配下で `$TypeDef` キーを使っている宣言も残っているため、SW 側では `$DefType` に加えて `$TypeDef` も互換的に解釈します。
+- live data 上の `$Def_*` 宣言は `$DefType` に統一します。新規追加・更新では `$TypeDef` を使わず、SW/UI も `$DefType` を前提に扱います。
 
 ### 3.3 `db_meta.json`
 

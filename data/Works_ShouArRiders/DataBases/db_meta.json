@@ -211,7 +211,7 @@
       },
       "$Def_BeastspecStats": {
         "$Def_SpecType": {
-          "$TypeDef": []
+          "$DefType": []
         },
         "#List_SpecialPattern": null,
         "$Def_SpecLevel": {

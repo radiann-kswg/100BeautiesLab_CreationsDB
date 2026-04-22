@@ -48,4 +48,18 @@ describe('database shapes', () => {
       }
     }
   });
+
+  it('global area typedef keeps BaseArea and Area separated', () => {
+    const dbType = load('data/db_type.json');
+    const defType = Array.isArray(dbType?.$DefType) ? dbType.$DefType : [];
+    const areaField = defType.find((entry) => entry?.hashTag === 'Area');
+    const belongingAreaField = defType.find((entry) => entry?.hashTag === 'BelongingArea');
+    const baseAreaDef = dbType?.$VarsDef?.$Def_BaseArea;
+    const baseAreaEntries = Array.isArray(baseAreaDef?.$DefType) ? baseAreaDef.$DefType : [];
+    const nestedArea = baseAreaEntries.find((entry) => entry?.hashTag === 'Area');
+
+    expect(areaField?.$type).toBe('#ListIndex');
+    expect(belongingAreaField?.$type).toBe('$Def_BaseArea');
+    expect(nestedArea?.$type).toBe('#ListIndex');
+  });
 });

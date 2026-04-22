@@ -13,6 +13,7 @@
           "CodeName",
           "SPCodeName",
           "Belonging",
+          "BaseArea",
           "Class",
           "RaceType",
           "GenderType",
@@ -41,6 +42,7 @@
           "FormalName",
           "CodeName",
           "Belonging",
+          "BaseArea",
           "Class",
           "RaceType",
           "GenderType",
@@ -61,6 +63,8 @@
           "ModelName",
           "ModelNumber",
           "CodeName",
+          "Belonging",
+          "BaseArea",
           "RaceType",
           "GenderType",
           "Height_cm",
@@ -83,6 +87,7 @@
           "ModelNumber",
           "CodeName",
           "Belonging",
+          "BaseArea",
           "Class",
           "RaceType",
           "GenderType",
@@ -105,6 +110,7 @@
           "ModelName",
           "ModelNumber",
           "Belonging",
+          "BaseArea",
           "Class",
           "RaceType",
           "GenderType",
@@ -127,6 +133,7 @@
           "ModelNumber",
           "CodeName",
           "Belonging",
+          "BaseArea",
           "Class",
           "RaceType",
           "GenderType",
@@ -158,6 +165,7 @@
           "ModelNumber",
           "CodeName",
           "Belonging",
+          "BaseArea",
           "Class",
           "RaceType",
           "GenderType",
@@ -179,7 +187,6 @@
           "ModelName",
           "ModelNumber",
           "CodeName",
-          "Belonging",
           "Class",
           "RaceType",
           "GenderType",
@@ -578,63 +585,63 @@
         {
           "Area": "第８界",
           "Area_EN": "#REGION.8",
-          "about": "(ただしこのエリアはこの創作世界全域を意味する)",
+          "about_JP": "(ただしこのエリアはこの創作世界全域を意味する)",
           "about_EN": "(However, this area means the entire creation world)",
           "isForSecondary": null
         },
         {
           "Area": "超次元執筆空間(アトリエ)",
           "Area_EN": "#ATELIER: the super-dimensional owners space",
-          "about": "(ただしこのエリアは創作世界として属されない)",
+          "about_JP": "(ただしこのエリアは創作世界として属されない)",
           "about_EN": "(However, this area does not belong to the creation world)",
           "isForSecondary": null
         },
         {
           "Area": "第１界",
           "Area_EN": "#REGION.1",
-          "about": "(ただしこのエリアはこの創作世界の外部にある)",
+          "about_JP": "(ただしこのエリアはこの創作世界の外部にある)",
           "about_EN": "(However, this area is outside of the creation world)",
           "isForSecondary": true
         },
         {
           "Area": "第２界",
           "Area_EN": "#REGION.2",
-          "about": "(ただしこのエリアはこの創作世界の外部にある)",
+          "about_JP": "(ただしこのエリアはこの創作世界の外部にある)",
           "about_EN": "(However, this area is outside of the creation world)",
           "isForSecondary": true
         },
         {
           "Area": "第３界",
           "Area_EN": "#REGION.3",
-          "about": "(ただしこのエリアはこの創作世界の外部にある)",
+          "about_JP": "(ただしこのエリアはこの創作世界の外部にある)",
           "about_EN": "(However, this area is outside of the creation world)",
           "isForSecondary": true
         },
         {
           "Area": "第４界",
           "Area_EN": "#REGION.4",
-          "about": "(ただしこのエリアはこの創作世界の外部にある)",
+          "about_JP": "(ただしこのエリアはこの創作世界の外部にある)",
           "about_EN": "(However, this area is outside of the creation world)",
           "isForSecondary": true
         },
         {
           "Area": "第５界",
           "Area_EN": "#REGION.5",
-          "about": "(ただしこのエリアはこの創作世界の外部にある)",
+          "about_JP": "(ただしこのエリアはこの創作世界の外部にある)",
           "about_EN": "(However, this area is outside of the creation world)",
           "isForSecondary": true
         },
         {
           "Area": "第６界",
           "Area_EN": "#REGION.6",
-          "about": "(ただしこのエリアはこの創作世界の外部にある)",
+          "about_JP": "(ただしこのエリアはこの創作世界の外部にある)",
           "about_EN": "(However, this area is outside of the creation world)",
           "isForSecondary": true
         },
         {
           "Area": "第７界",
           "Area_EN": "#REGION.7",
-          "about": "(ただしこのエリアはこの創作世界の外部にある)",
+          "about_JP": "(ただしこのエリアはこの創作世界の外部にある)",
           "about_EN": "(However, this area is outside of the creation world)",
           "isForSecondary": true
         }
@@ -722,7 +729,7 @@
           "Belonging_EN": "DeusMakhina",
           "BaseArea": {
             "Area": "紅雪連邦",
-            "about": "名義上の所在地",
+            "about_JP": "名義上の所在地",
             "about_EN": "Nominal Location"
           },
           "isForSecondary": null,
@@ -740,7 +747,7 @@
           "Belonging_EN": "Neo.LotusNinea(n)",
           "BaseArea": {
             "Area": "四蓮島",
-            "about": "名義上の所在地",
+            "about_JP": "名義上の所在地",
             "about_EN": "Nominal Location"
           },
           "isForSecondary": false,
@@ -751,7 +758,7 @@
           "Belonging_EN": "“Mikhail” the International Information & Public Relations Agency",
           "BaseArea": {
             "Area": "第８界",
-            "about": "厳密には本拠点を置かない",
+            "about_JP": "厳密には本拠点を置かない",
             "about_EN": "Strictly speaking, it does not have a headquarters"
           },
           "isForSecondary": false,
@@ -771,7 +778,7 @@
           "Belonging_EN": "World Owners",
           "BaseArea": {
             "Area": "超次元執筆空間(アトリエ)",
-            "about": "第８界の管理を行っている",
+            "about_JP": "第８界の管理を行っている",
             "about_EN": "Managing #REGION.8"
           },
           "isForSecondary": false,
@@ -788,7 +795,7 @@
           "Belonging": "エイゼルベットの観測世界",
           "Belonging_EN": "∀sellbuet's Observational World",
           "BaseArea": {
-            "about": "別次元の世界",
+            "about_JP": "別次元の世界",
             "about_EN": "A world of another dimension"
           },
           "isForSecondary": true,

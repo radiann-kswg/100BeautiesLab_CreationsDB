@@ -24,8 +24,8 @@
 #### 2026-04-22 追加対応メモ
 
 - `Belonging` 辞書（`#List_Belonging`）にネストされた `BaseArea` を API/SW の enrich が認識し、`BelongingArea` 未設定レコードに対して補助展開できるようにした。
-- 併せて `data/db_type.json` の `BelongingArea` を basic 表示対象へ寄せ、UI 側のハードコードではなく schema 側の表示宣言で扱いやすくした。
-- 既存宣言との互換のため、SW 側では `$Def_*` 配下の `$TypeDef` も読めるようにしている。
+- 併せて `data/db_type.json` の `BelongingArea` は `$Def_BaseArea` を使う object typedef、top-level `Area` は `#ListIndex` の独立宣言として分離し、`BaseArea` が `Area` を要素に持つ形へ整理した。
+- `data/db_type.json` / 作品別 `db_type.json` / `db_meta.json` に残っていた `$TypeDef` は `$DefType` へ統一した。
 
 #### 現状
 

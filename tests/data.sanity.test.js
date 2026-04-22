@@ -47,4 +47,14 @@ describe('data json sanity', () => {
     // 少なくとも1つの JSON ファイルが処理されたことを確認
     expect(count).toBeGreaterThan(0);
   });
+
+  it('data json files do not use deprecated $TypeDef keys', () => {
+    const offenders = [];
+    for (const file of walk(dataRoot)) {
+      if (!file.endsWith('.json')) continue;
+      const txt = readFileSync(file, 'utf-8');
+      if (txt.includes('"$TypeDef"')) offenders.push(file);
+    }
+    expect(offenders).toEqual([]);
+  });
 });

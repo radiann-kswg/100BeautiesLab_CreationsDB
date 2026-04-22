@@ -4,9 +4,11 @@
 
 - `lib/data-common.js` で `#List_Belonging` の各項目に含まれる `BaseArea` を逆引きできる index を構築し、`Belonging` だけを持つレコードでも enrich 時に `BelongingArea` を補助展開できるようにした。
 - `BelongingArea` が未設定で、所属から一意に活動拠点を導ける場合のみ top-level `BelongingArea` に反映し、複数候補がある場合は `_enrichment.derivedBelongingAreas` に保持するようにした。
-- `lib/data-common.js` の typedef 解釈で `$TypeDef` も互換的に読めるようにし、`$Def_BaseArea` のような既存宣言を SW 側で扱いやすくした。
-- `data/db_type.json` の `BelongingArea` に `$display.section: basic` を追加し、キャラシートが schema 駆動で「活動拠点」を基本情報へ載せられるようにした。
+- `data/db_type.json` / 作品別 `db_type.json` / `db_meta.json` に残っていた `$TypeDef` を `$DefType` へ統一し、live data 上の旧キー依存を解消した。
+- `data/db_type.json` の `$Def_BaseArea` を `$DefType` ベースへ正規化し、`about` / `about_EN` を含む宣言へ拡張した。`BelongingArea` はこの object typedef を使い、top-level `Area` は `#ListIndex` の独立宣言として分離した。
+- `pages/characters.js` では `$Def_BaseArea` の表示整形を `Area + about` 対応へ寄せ、`Area` の補助ハードコードを削減した。
 - 回帰防止として `tests/enrich.dblink.jump.merge.test.js` に `Belonging -> BaseArea -> BelongingArea` の補助展開テストを追加し、通過を確認した。
+- 追加で `tests/data.sanity.test.js` に「`/data` 配下で `$TypeDef` を使わない」検証を追加し、通過を確認した。
 
 ### `Day` / `StoryEra` の表示を typedef 駆動へ寄せ、basic 補助行ハードコードを削減
 
