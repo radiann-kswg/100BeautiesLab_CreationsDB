@@ -73,12 +73,17 @@
 
 - `CreationWorks.<work>` による作品カタログ
 - `CreationWorks.<work>.$DetailLayout` による詳細補助レイアウト
-- `General.$VarsDef` による共通表示辞書
+- `General.$VarsDef` による共通表示辞書の合流先
 
 典型用途:
 
 - 作品名、英語名、作品概要、旧題一覧の保持
 - 作品単位での `basicFields` / `headerPills` の制御
+
+補足:
+
+- `Area` / `Belonging` のような共通辞書本体は、`data/Dictionaries/` 配下の辞書 DB へ分離できます。
+- SW/UI は `data/db_meta.json` だけを直接参照せず、必要に応じて `data/Dictionaries/db_meta.json` と各 `db_*.json` を追加ロードして `General.$VarsDef` へ合流します。
 
 ### 2.4 作品別 `data/Works_<作品>/DataBases/db_meta.json`
 
@@ -93,6 +98,20 @@
 - `DB_Label`, `DB_Summary`, `StoryEra` の定義
 - 二次創作 DB ごとの `_Secondaries` 分岐
 - 作品専用 list/link 辞書の補足
+
+### 2.5 グローバル / 作品別 `Dictionaries/`
+
+主な責務:
+
+- 辞書専用 DB カタログ (`db_meta.json`)
+- 辞書専用型補助 (`db_type.json`)
+- `db_Area.json`, `db_Belonging.json` のような辞書本体
+
+典型用途:
+
+- トップレベル field 名と無関係に流用したい辞書の分離管理
+- `#DictIndex` + `$dict` で参照する共通辞書の保存先
+- 作品別辞書追加時に `DataBases/` と分離して管理するための拡張ポイント
 
 ---
 
@@ -163,8 +182,8 @@
 補足:
 
 - `#DictIndex` は「辞書参照である」という宣言を typedef 側に寄せるための型名です。
-- 現段階の live data では、実際の辞書本体は引き続き `db_meta.json(General.$VarsDef)` の `#List_*` を主に使います。
-- UI 側は `#Dict_*` も読めるよう互換を持たせているため、将来的に辞書用 DB や `#Dict_*` への分離を進めやすくしています。
+- `Area` / `Belonging` のような共通辞書は、実体を `data/Dictionaries/db_*.json` へ置き、SW/UI が runtime で `General.$VarsDef` へ合流して使います。
+- runtime 合流時には `#Dict_*` を正としつつ、既存実装の互換用に `#List_*` も同じ内容で補完します。
 
 ### 3.3 `$display`
 
@@ -228,8 +247,8 @@
 補足:
 
 - `#List_*` は既存の list 辞書キーです。
-- `#Dict_*` は将来の辞書専用 DB / 辞書 namespace への移行を見据えた互換キーとして扱えます。
-- `#DictIndex` を宣言した field でも、当面は `#List_*` を backing store にしたまま運用できます。
+- `#Dict_*` は辞書 DB 由来の正式キーとして扱い、runtime では必要に応じて `#List_*` へも互換展開します。
+- `#DictIndex` を宣言した field は、`$dict` 名に対応する辞書 DB を参照できれば field 名そのものに縛られません。
 
 ### 3.5 `$IndexDef`
 

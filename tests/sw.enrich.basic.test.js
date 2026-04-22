@@ -57,22 +57,22 @@ function walk(obj, cb, path = []) {
 // meta/type ファイルに期待されるインデックスが存在することをアサートし、データ回帰の早期シグナルを提供します。
 
 describe('enrichment invariants (static)', () => {
-  it('global meta/type exist and contain expected lists', () => {
-    // グローバルメタデータとタイプ定義が期待されるリストを含むことを確認
+  it('global dictionary bodies are separated from db_meta.json into data/Dictionaries', () => {
+    // グローバルメタデータ本体から Area / Belonging 辞書が外れ、専用ディレクトリ側に存在することを確認
     const meta = load('data/db_meta.json');
+    const dictMeta = load('data/Dictionaries/db_meta.json');
+    const areaDb = load('data/Dictionaries/db_Area.json');
+    const belongingDb = load('data/Dictionaries/db_Belonging.json');
+
     expect(meta).toBeTypeOf('object');
-    const type = tryLoad('data/db_type.json') || {};
-    const candidates = [meta?.General?.$VarsDef, type?.$VarsDef, meta, type];
-    let hasBelonging = false;
-    let hasArea = false;
-    for (const c of candidates) {
-      walk(c, (_p, k, v) => {
-        if (k === '#List_Belonging' && Array.isArray(v)) hasBelonging = true;
-        if (k === '#List_Area' && Array.isArray(v)) hasArea = true;
-      });
-    }
-    // 少なくとも Belonging または Area リストが存在することを確認
-    expect(hasBelonging || hasArea).toBe(true);
+    expect(meta?.General?.$VarsDef?.['#List_Area']).toBeUndefined();
+    expect(meta?.General?.$VarsDef?.['#List_Belonging']).toBeUndefined();
+    expect(dictMeta?.Dictionaries?.['#Dict_Area']?.file).toBe('db_Area.json');
+    expect(dictMeta?.Dictionaries?.['#Dict_Belonging']?.file).toBe('db_Belonging.json');
+    expect(Array.isArray(areaDb)).toBe(true);
+    expect(Array.isArray(belongingDb)).toBe(true);
+    expect(areaDb.length).toBeGreaterThan(0);
+    expect(belongingDb.length).toBeGreaterThan(0);
   });
 
   it('per-work meta exist for known works', () => {

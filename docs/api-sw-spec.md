@@ -87,12 +87,14 @@ UI と enrich/search は、可能な限りこの `db_type.json($DefType)` に追
   - `Databases.#DB_<DbName>._Commons`: DB 全体の共通穴埋め
   - `Databases.#DB_<DbName>._Secondaries`: `sec_**` 条件に応じた `_Commons` 分岐
     - 全ての `sec_**` 条件が `null` / 空の定義はデフォルト fallback として扱い、`null` 以外の条件を持つ定義が一致した場合はそちらを優先します
-  - `General.$VarsDef.#List_Belonging[*].BelongingArea`: 所属辞書に紐づく活動拠点の補助情報。辞書項目の詳細表示や将来の辞書 DB 分離時の参照元として使います
+  - `General.$VarsDef.#List_Belonging[*].BelongingArea`: 所属辞書に紐づく活動拠点の補助情報。辞書項目の詳細表示に使います
+  - top-level `Dictionaries`: 辞書 DB カタログ。`data/Dictionaries/` や `data/Works_<work>/Dictionaries/` の `db_meta.json` を runtime で合流したものです
 
 補足:
 
 - 作品別 `db_meta.json` は未整備の作品が存在します
 - そのため SW は `db_meta.json` 欠損を 500 エラーにせず、追加価値の処理だけをスキップして継続します
+- `Area` / `Belonging` のような共通辞書は `db_meta.json` 本体ではなく `Dictionaries/db_*.json` に分離でき、`DataFetcher.readGlobalMeta()` / `readWorkMeta()` が `General.$VarsDef` へ runtime 合流します
 
 ---
 
@@ -245,6 +247,7 @@ UI と enrich/search は、可能な限りこの `db_type.json($DefType)` に追
   - scope から `REPO_BASE` と `API_PREFIX` を計算します
 - `DataFetcher`
   - `data/**` の JSON 読み込み、ファイル存在確認、DB 一覧取得を担当します
+  - `readGlobalMeta()` / `readWorkMeta()` は `Dictionaries/` も読み、辞書 DB を `General.$VarsDef` と top-level `Dictionaries` へ合流します
 - `ApiEndpointHandlers`
   - `meta`, `typedef`, `deftype` など定義系エンドポイントを担当します
 - `StandardEndpointHandlers`

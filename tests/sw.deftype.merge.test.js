@@ -18,16 +18,18 @@ function loadText(relPath) {
   return readFileSync(join(repoRoot, relPath), 'utf-8');
 }
 
-function loadSwCommonIntoContext() {
+function loadSwCommonIntoContext(overrides = {}) {
   const code = loadText('lib/sw-common.js');
   const context = {
     console,
     Response: globalThis.Response,
     Headers: globalThis.Headers,
     URL: globalThis.URL,
+    fetch: globalThis.fetch,
     self: {
       location: { origin: 'https://example.invalid', pathname: '/' }
-    }
+    },
+    ...overrides
   };
 
   vm.runInNewContext(code, context, { filename: 'lib/sw-common.js' });
@@ -100,5 +102,71 @@ describe('ApiEndpointHandlers merges vars defs across meta/type sources', () => 
     expect(json.work).toBe('#Works_PastDivers');
     expect(Array.isArray(json?.meta?.General?.$VarsDef?.['#List_RelationLabel'])).toBe(true);
     expect(json?.meta?.General?.$VarsDef?.$EnumDef_Decave?.['#Decave3']?.Decave).toBe('99.9%+');
+  });
+
+  it('DataFetcher merges dictionary DBs into global meta vars defs', async () => {
+    const jsonByPath = {
+      '/data/db_meta.json': {
+        General: {
+          $VarsDef: {
+            $EnumDef_GenderType: {
+              '#Female': { GenderType: 'Female', GenderType_JP: '女性' }
+            }
+          }
+        }
+      },
+      '/data/Dictionaries/db_meta.json': {
+        Dictionaries: {
+          '#Dict_Area': {
+            file: 'db_Area.json',
+            keyField: 'Area',
+            compatListKey: '#List_Area'
+          },
+          '#Dict_Belonging': {
+            file: 'db_Belonging.json',
+            keyField: 'Belonging',
+            compatListKey: '#List_Belonging'
+          }
+        }
+      },
+      '/data/Dictionaries/db_type.json': {
+        $VarsDef: {}
+      },
+      '/data/Dictionaries/db_Area.json': [
+        { Area: '九蓮国', Area_EN: 'LotusNinea' }
+      ],
+      '/data/Dictionaries/db_Belonging.json': [
+        { Belonging: '百花繚乱研究所', BelongingArea: { Area: '九蓮国' } }
+      ]
+    };
+
+    const fetchStub = async (url, opt = {}) => {
+      const pathname = new URL(url).pathname;
+      const body = jsonByPath[pathname];
+      if ((opt?.method || 'GET').toUpperCase() === 'HEAD') {
+        return new Response('', { status: body ? 200 : 404 });
+      }
+      if (!body) {
+        return new Response('not found', { status: 404 });
+      }
+      return new Response(JSON.stringify(body), {
+        status: 200,
+        headers: { 'content-type': 'application/json; charset=utf-8' }
+      });
+    };
+
+    const ctx = loadSwCommonIntoContext({ fetch: fetchStub });
+    const SWConfig = ctx?.self?.SWConfig;
+    const DataFetcher = ctx?.self?.DataFetcher;
+    expect(SWConfig).toBeTypeOf('function');
+    expect(DataFetcher).toBeTypeOf('function');
+
+    const fetcher = new DataFetcher(new SWConfig('/pages'));
+    const meta = await fetcher.readGlobalMeta();
+
+    expect(Array.isArray(meta?.General?.$VarsDef?.['#Dict_Area'])).toBe(true);
+    expect(Array.isArray(meta?.General?.$VarsDef?.['#List_Area'])).toBe(true);
+    expect(meta?.General?.$VarsDef?.['#Dict_Belonging']?.[0]?.BelongingArea?.Area).toBe('九蓮国');
+    expect(meta?.Dictionaries?.['#Dict_Area']?.file).toBe('db_Area.json');
   });
 });

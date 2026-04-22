@@ -66,6 +66,6 @@ describe('database shapes', () => {
     expect(belongingField?.$dict).toBe('Belonging');
     expect(belongingAreaField?.$type).toBe('$Def_BaseArea');
     expect(legacyBaseAreaField).toBeUndefined();
-    expect(nestedArea?.$type).toBe('#ListIndex');
+    expect(nestedArea?.$type).toBe('#DictIndex');
   });
 });

@@ -1,0 +1,18 @@
+{
+  "Dictionaries": {
+    "#Dict_Area": {
+      "DB_Label": "地域辞書",
+      "DB_Label_EN": "Area Dictionary",
+      "file": "db_Area.json",
+      "keyField": "Area",
+      "compatListKey": "#List_Area"
+    },
+    "#Dict_Belonging": {
+      "DB_Label": "所属辞書",
+      "DB_Label_EN": "Belonging Dictionary",
+      "file": "db_Belonging.json",
+      "keyField": "Belonging",
+      "compatListKey": "#List_Belonging"
+    }
+  }
+}

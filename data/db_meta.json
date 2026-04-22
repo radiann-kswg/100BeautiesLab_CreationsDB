@@ -13,7 +13,6 @@
           "CodeName",
           "SPCodeName",
           "Belonging",
-          "BelongingArea",
           "Class",
           "Age",
           "AnivDay",
@@ -43,7 +42,6 @@
           "FormalName",
           "CodeName",
           "Belonging",
-          "BelongingArea",
           "Class",
           "Age",
           "RaceType",
@@ -65,7 +63,6 @@
           "ModelNumber",
           "CodeName",
           "Belonging",
-          "BelongingArea",
           "Class",
           "Age",
           "RaceType",
@@ -88,7 +85,6 @@
           "ModelNumber",
           "CodeName",
           "Belonging",
-          "BelongingArea",
           "Class",
           "Age",
           "RaceType",
@@ -111,7 +107,6 @@
           "ModelName",
           "ModelNumber",
           "Belonging",
-          "BelongingArea",
           "Class",
           "Age",
           "RaceType",
@@ -134,7 +129,6 @@
           "ModelNumber",
           "CodeName",
           "Belonging",
-          "BelongingArea",
           "Class",
           "Age",
           "RaceType",
@@ -166,7 +160,6 @@
           "ModelNumber",
           "CodeName",
           "Belonging",
-          "BelongingArea",
           "Class",
           "Age",
           "RaceType",
@@ -515,292 +508,6 @@
         {
           "RaceType": "Immaginaries",
           "RaceType_JP": "概念"
-        }
-      ],
-      "#List_Area": [
-        {
-          "Area": "九蓮国",
-          "Area_EN": "LotusNinea",
-          "isForSecondary": false
-        },
-        {
-          "Area": "龍天国",
-          "Area_EN": "LóngZhōu's.Republic",
-          "isForSecondary": false
-        },
-        {
-          "Area": "英皇国",
-          "Area_EN": "Internic.Kingdom",
-          "isForSecondary": false
-        },
-        {
-          "Area": "海陸国(シーバイランド)諸島",
-          "Area_EN": "Seabyislands",
-          "isForSecondary": false
-        },
-        {
-          "Area": "雄志結国",
-          "Area_EN": "United.Heroic.Nation",
-          "isForSecondary": false
-        },
-        {
-          "Area": "紅雪連邦",
-          "Area_EN": "United.SnowRed.Republic",
-          "isForSecondary": false
-        },
-        {
-          "Area": "四蓮島",
-          "Area_EN": "LotasQuadrup.Island",
-          "isForSecondary": false
-        },
-        {
-          "Area": "黒薔薇国",
-          "Area_EN": "SchwarzeRoseland",
-          "isForSecondary": null
-        },
-        {
-          "Area": "神皇国",
-          "Area_EN": "SaintPapis",
-          "isForSecondary": null
-        },
-        {
-          "Area": "算象(アリスマ)諸国",
-          "Area_EN": "Alismathians",
-          "isForSecondary": null
-        },
-        {
-          "Area": "金源(アウルムゲン)諸国",
-          "Area_EN": "Aurumgenics",
-          "isForSecondary": null
-        },
-        {
-          "Area": "南雌(イヴソース)大陸",
-          "Area_EN": "Evesouth Mainland",
-          "isForSecondary": null
-        },
-        {
-          "Area": "然天(ネーザ)大陸",
-          "Area_EN": "Naitus Mainland",
-          "isForSecondary": null
-        },
-        {
-          "Area": "第８界",
-          "Area_EN": "#REGION.8",
-          "about_JP": "(ただしこのエリアはこの創作世界全域を意味する)",
-          "about_EN": "(However, this area means the entire creation world)",
-          "isForSecondary": null
-        },
-        {
-          "Area": "超次元執筆空間(アトリエ)",
-          "Area_EN": "#ATELIER: the super-dimensional owners space",
-          "about_JP": "(ただしこのエリアは創作世界として属されない)",
-          "about_EN": "(However, this area does not belong to the creation world)",
-          "isForSecondary": null
-        },
-        {
-          "Area": "第１界",
-          "Area_EN": "#REGION.1",
-          "about_JP": "(ただしこのエリアはこの創作世界の外部にある)",
-          "about_EN": "(However, this area is outside of the creation world)",
-          "isForSecondary": true
-        },
-        {
-          "Area": "第２界",
-          "Area_EN": "#REGION.2",
-          "about_JP": "(ただしこのエリアはこの創作世界の外部にある)",
-          "about_EN": "(However, this area is outside of the creation world)",
-          "isForSecondary": true
-        },
-        {
-          "Area": "第３界",
-          "Area_EN": "#REGION.3",
-          "about_JP": "(ただしこのエリアはこの創作世界の外部にある)",
-          "about_EN": "(However, this area is outside of the creation world)",
-          "isForSecondary": true
-        },
-        {
-          "Area": "第４界",
-          "Area_EN": "#REGION.4",
-          "about_JP": "(ただしこのエリアはこの創作世界の外部にある)",
-          "about_EN": "(However, this area is outside of the creation world)",
-          "isForSecondary": true
-        },
-        {
-          "Area": "第５界",
-          "Area_EN": "#REGION.5",
-          "about_JP": "(ただしこのエリアはこの創作世界の外部にある)",
-          "about_EN": "(However, this area is outside of the creation world)",
-          "isForSecondary": true
-        },
-        {
-          "Area": "第６界",
-          "Area_EN": "#REGION.6",
-          "about_JP": "(ただしこのエリアはこの創作世界の外部にある)",
-          "about_EN": "(However, this area is outside of the creation world)",
-          "isForSecondary": true
-        },
-        {
-          "Area": "第７界",
-          "Area_EN": "#REGION.7",
-          "about_JP": "(ただしこのエリアはこの創作世界の外部にある)",
-          "about_EN": "(However, this area is outside of the creation world)",
-          "isForSecondary": true
-        }
-      ],
-      "#List_Belonging": [
-        {
-          "Belonging": "百花繚乱研究所",
-          "Belonging_EN": "HundredBeauties Laboratory",
-          "BelongingArea": { "Area": "九蓮国" },
-          "isForSecondary": false,
-          "isMaker": null
-        },
-        {
-          "Belonging": "百戦錬磨開発所",
-          "Belonging_EN": "HundredBattlers DevelopPlant",
-          "BelongingArea": { "Area": "九蓮国" },
-          "isForSecondary": false,
-          "isMaker": null
-        },
-        {
-          "Belonging": "夜月機関",
-          "Belonging_EN": "Yadzuki Organization",
-          "BelongingArea": { "Area": "九蓮国" },
-          "isForSecondary": false,
-          "isMaker": false
-        },
-        {
-          "Belonging": "照梅テクノロジー",
-          "Belonging_EN": "Shôbai Technology",
-          "BelongingArea": { "Area": "九蓮国" },
-          "isForSecondary": null,
-          "isMaker": true
-        },
-        {
-          "Belonging": "獣爾騎兵",
-          "Belonging_EN": "Shou'ar Riders",
-          "BelongingArea": { "Area": "龍天国" },
-          "isForSecondary": false,
-          "isMaker": false
-        },
-        {
-          "Belonging": "界座",
-          "Belonging_EN": "JièZuò",
-          "BelongingArea": { "Area": "龍天国" },
-          "isForSecondary": null,
-          "isMaker": true
-        },
-        {
-          "Belonging": "セブンティエイト特殊探偵団",
-          "Belonging_EN": "Team.78(Seventy-Eight) the Special Investigators",
-          "BelongingArea": { "Area": "英皇国" },
-          "isForSecondary": false,
-          "isMaker": false
-        },
-        {
-          "Belonging": "スターダスト財団",
-          "Belonging_EN": "Stardusts Foundation",
-          "BelongingArea": { "Area": "雄志結国" },
-          "isForSecondary": false,
-          "isMaker": false
-        },
-        {
-          "Belonging": "ラストラステクニカ-インストゥルメント",
-          "Belonging_EN": "LustrousTechnica Instrument",
-          "BelongingArea": { "Area": "雄志結国" },
-          "isForSecondary": null,
-          "isMaker": true
-        },
-        {
-          "Belonging": "白の六芒星",
-          "Belonging_EN": "WhiteHexagram",
-          "BelongingArea": { "Area": "雄志結国" },
-          "isForSecondary": false,
-          "isMaker": false
-        },
-        {
-          "Belonging": "ジャンクガレージ『六花陛下』",
-          "Belonging_EN": "JunkGarage “Majesty Rokka”",
-          "BelongingArea": { "Area": "紅雪連邦" },
-          "isForSecondary": false,
-          "isMaker": null
-        },
-        {
-          "Belonging": "デウスマキナ",
-          "Belonging_EN": "DeusMakhina",
-          "BelongingArea": {
-            "Area": "紅雪連邦",
-            "about_JP": "名義上の所在地",
-            "about_EN": "Nominal Location"
-          },
-          "isForSecondary": null,
-          "isMaker": false
-        },
-        {
-          "Belonging": "ロジケスキーロマンティカ産業",
-          "Belonging_EN": "LogicheskiyRomantika Industry",
-          "BelongingArea": { "Area": "紅雪連邦" },
-          "isForSecondary": null,
-          "isMaker": false
-        },
-        {
-          "Belonging": "新生九蓮",
-          "Belonging_EN": "Neo.LotusNinea(n)",
-          "BelongingArea": {
-            "Area": "四蓮島",
-            "about_JP": "名義上の所在地",
-            "about_EN": "Nominal Location"
-          },
-          "isForSecondary": false,
-          "isMaker": false
-        },
-        {
-          "Belonging": "国際情報広報機関『ミハイル』",
-          "Belonging_EN": "“Mikhail” the International Information & Public Relations Agency",
-          "BelongingArea": {
-            "Area": "第８界",
-            "about_JP": "厳密には本拠点を置かない",
-            "about_EN": "Strictly speaking, it does not have a headquarters"
-          },
-          "isForSecondary": false,
-          "isMaker": false
-        },
-        {
-          "Belonging": "フィジカル9",
-          "Belonging_EN": "PHYSICAL.9",
-          "BelongingArea": {
-            "Area": "超次元執筆空間(アトリエ)"
-          },
-          "isForSecondary": false,
-          "isMaker": false
-        },
-        {
-          "Belonging": "創造主",
-          "Belonging_EN": "World Owners",
-          "BelongingArea": {
-            "Area": "超次元執筆空間(アトリエ)",
-            "about_JP": "第８界の管理を行っている",
-            "about_EN": "Managing #REGION.8"
-          },
-          "isForSecondary": false,
-          "isMaker": false
-        },
-        {
-          "Belonging": "シンフォニー.XVI(ゼクズィン)",
-          "Belonging_EN": "Symphony.XVI(Sechzehn)",
-          "BelongingArea": { "Area": "黒薔薇国" },
-          "isForSecondary": null,
-          "isMaker": null
-        },
-        {
-          "Belonging": "エイゼルベットの観測世界",
-          "Belonging_EN": "∀sellbuet's Observational World",
-          "BelongingArea": {
-            "about_JP": "別次元の世界",
-            "about_EN": "A world of another dimension"
-          },
-          "isForSecondary": true,
-          "isMaker": null
         }
       ],
       "$Def_AbilityStats": {

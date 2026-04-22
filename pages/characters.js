@@ -887,6 +887,55 @@ async function fetchGlobalDefType() {
   };
 
   /**
+   * Dictionary ディレクトリを直 fetch し、`$VarsDef` 互換の辞書定義へ変換する
+   * @param {string} baseRelPath
+   * @returns {Promise<{meta: Object, vars: Object}>}
+   */
+  const fetchDirectDictionaryBundle = async (baseRelPath) => {
+    try {
+      const [dictMeta, dictType] = await Promise.all([
+        fetchDirectJson(`${baseRelPath}/db_meta.json`),
+        fetchDirectJson(`${baseRelPath}/db_type.json`).catch(() => ({}))
+      ]);
+
+      const catalogs = (dictMeta?.Dictionaries && typeof dictMeta.Dictionaries === 'object' && !Array.isArray(dictMeta.Dictionaries))
+        ? dictMeta.Dictionaries
+        : {};
+      const typeVars = (dictType?.$VarsDef && typeof dictType.$VarsDef === 'object' && !Array.isArray(dictType.$VarsDef))
+        ? dictType.$VarsDef
+        : {};
+      const vars = { ...typeVars };
+
+      for (const [rawDictKey, info] of Object.entries(catalogs)) {
+        if (!info || typeof info !== 'object' || Array.isArray(info)) continue;
+
+        const keyField = typeof info.keyField === 'string' ? info.keyField.trim() : '';
+        const derivedName = keyField || String(rawDictKey || '').replace(/^#Dict_/, '').trim();
+        if (!derivedName) continue;
+
+        const dictKey = String(rawDictKey || '').startsWith('#Dict_')
+          ? String(rawDictKey).trim()
+          : `#Dict_${derivedName}`;
+        const compatListKey = typeof info.compatListKey === 'string' && info.compatListKey.trim()
+          ? info.compatListKey.trim()
+          : `#List_${derivedName}`;
+        const fileName = typeof info.file === 'string' && info.file.trim()
+          ? info.file.trim()
+          : `db_${derivedName}.json`;
+
+        const rows = await fetchDirectJson(`${baseRelPath}/${fileName}`);
+        if (!Array.isArray(rows)) continue;
+        vars[dictKey] = rows;
+        if (compatListKey && !vars[compatListKey]) vars[compatListKey] = rows;
+      }
+
+      return { meta: dictMeta, vars };
+    } catch {
+      return { meta: {}, vars: {} };
+    }
+  };
+
+  /**
    * API経由の辞書取得が壊れている場合の最終フォールバック:
    * pages/characters.html から見て ../data/db_meta.json / ../data/db_type.json を「直 fetch」する。
    * - SW/広告ブロッカー/キャッシュの揺れで /pages/v1/deftype/global が期待形でないケースの救済
@@ -894,11 +943,24 @@ async function fetchGlobalDefType() {
    */
   const fetchDirectDbMeta = async () => {
     try {
-      const [metaJson, typeJson] = await Promise.all([
+      const [metaJson, typeJson, dictBundle] = await Promise.all([
         fetchDirectJson('../data/db_meta.json'),
-        fetchDirectJson('../data/db_type.json')
+        fetchDirectJson('../data/db_type.json'),
+        fetchDirectDictionaryBundle('../data/Dictionaries')
       ]);
-      const merged = mergeMetaAndTypeVars(unwrap(metaJson), typeJson);
+      const metaBase = unwrap(metaJson);
+      const mergedMeta = {
+        ...metaBase,
+        ...(dictBundle?.meta?.Dictionaries ? { Dictionaries: { ...(metaBase?.Dictionaries || {}), ...dictBundle.meta.Dictionaries } } : {})
+      };
+      const mergedType = {
+        ...(typeJson && typeof typeJson === 'object' ? typeJson : {}),
+        $VarsDef: {
+          ...((typeJson?.$VarsDef && typeof typeJson.$VarsDef === 'object' && !Array.isArray(typeJson.$VarsDef)) ? typeJson.$VarsDef : {}),
+          ...((dictBundle?.vars && typeof dictBundle.vars === 'object' && !Array.isArray(dictBundle.vars)) ? dictBundle.vars : {})
+        }
+      };
+      const merged = mergeMetaAndTypeVars(mergedMeta, mergedType);
       if (isValid(merged)) {
         console.warn('🛟 fetchGlobalDefType: recovered via direct /data/db_meta.json + /data/db_type.json fetch');
         return merged;

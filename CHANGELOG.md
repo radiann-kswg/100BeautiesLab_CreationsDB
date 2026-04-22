@@ -1,5 +1,14 @@
 # 最新のリファクタリング・仕様変更履歴
 
+### `data/Dictionaries/` と作品別 `Dictionaries/` を追加し、`Area` / `Belonging` 辞書本体を分離
+
+- グローバル辞書用に `data/Dictionaries/` を追加し、`db_meta.json` の辞書カタログと `db_Area.json` / `db_Belonging.json` の実体ファイルへ `Area` / `Belonging` 辞書を分離した。
+- 作品別にも `data/Works_*/Dictionaries/` を追加し、作品固有辞書を今後増やせる受け皿として `db_meta.json` / `db_type.json` の空プレースホルダを用意した。
+- `lib/sw-common.js` の `readGlobalMeta()` / `readWorkMeta()` は `Dictionaries/` 側のカタログと各 `db_*.json` を runtime で読み込み、`General.$VarsDef` へ `#Dict_*` と後方互換の `#List_*` の両方を合流して返すようにした。
+- `pages/characters.js` の direct fetch fallback も `data/Dictionaries/` を読むようにし、Service Worker を経由できない環境でも `BelongingArea` を含む辞書表示が崩れないようにした。
+- `data/db_meta.json` からは `#List_Area` / `#List_Belonging` の実体配列を削除し、静的実体は辞書 DB 側を正とする構成へ切り替えた。
+- 回帰確認として `tests/sw.deftype.merge.test.js`、`tests/sw.enrich.basic.test.js`、`tests/pages.characters.syntax.test.js`、`tests/data.shape.test.js`、`tests/enrich.dblink.jump.merge.test.js` を実行し、通過を確認した。
+
 ### `Area` / `Belonging` を `#DictIndex` 化し、`BelongingArea` 補助展開を廃止
 
 - `data/db_type.json` で `Area` を `#DictIndex`、`Belonging` を `#DictIndex[]` として宣言し、いずれも `$dict` で辞書名を持てるようにした。

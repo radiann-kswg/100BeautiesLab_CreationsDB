@@ -1,0 +1,34 @@
+{
+  "$VarsDef": {},
+  "$MetaType": {
+    "$Def_DictionaryCatalog": {
+      "$DefType": [
+        {
+          "hashTag": "DB_Label",
+          "$type": "##String_JP|#Summary|#Null",
+          "hashTag_JP": "辞書表示名"
+        },
+        {
+          "hashTag": "DB_Label_EN",
+          "$type": "##String_EN|#Summary|#Null",
+          "hashTag_JP": "辞書表示名_EN"
+        },
+        {
+          "hashTag": "file",
+          "$type": "#String",
+          "hashTag_JP": "辞書ファイル"
+        },
+        {
+          "hashTag": "keyField",
+          "$type": "#String",
+          "hashTag_JP": "代表キー"
+        },
+        {
+          "hashTag": "compatListKey",
+          "$type": "#String|#Null",
+          "hashTag_JP": "互換リストキー"
+        }
+      ]
+    }
+  }
+}

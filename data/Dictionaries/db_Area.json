@@ -1,0 +1,130 @@
+[
+  {
+    "Area": "九蓮国",
+    "Area_EN": "LotusNinea",
+    "isForSecondary": false
+  },
+  {
+    "Area": "龍天国",
+    "Area_EN": "LóngZhōu's.Republic",
+    "isForSecondary": false
+  },
+  {
+    "Area": "英皇国",
+    "Area_EN": "Internic.Kingdom",
+    "isForSecondary": false
+  },
+  {
+    "Area": "海陸国(シーバイランド)諸島",
+    "Area_EN": "Seabyislands",
+    "isForSecondary": false
+  },
+  {
+    "Area": "雄志結国",
+    "Area_EN": "United.Heroic.Nation",
+    "isForSecondary": false
+  },
+  {
+    "Area": "紅雪連邦",
+    "Area_EN": "United.SnowRed.Republic",
+    "isForSecondary": false
+  },
+  {
+    "Area": "四蓮島",
+    "Area_EN": "LotasQuadrup.Island",
+    "isForSecondary": false
+  },
+  {
+    "Area": "黒薔薇国",
+    "Area_EN": "SchwarzeRoseland",
+    "isForSecondary": null
+  },
+  {
+    "Area": "神皇国",
+    "Area_EN": "SaintPapis",
+    "isForSecondary": null
+  },
+  {
+    "Area": "算象(アリスマ)諸国",
+    "Area_EN": "Alismathians",
+    "isForSecondary": null
+  },
+  {
+    "Area": "金源(アウルムゲン)諸国",
+    "Area_EN": "Aurumgenics",
+    "isForSecondary": null
+  },
+  {
+    "Area": "南雌(イヴソース)大陸",
+    "Area_EN": "Evesouth Mainland",
+    "isForSecondary": null
+  },
+  {
+    "Area": "然天(ネーザ)大陸",
+    "Area_EN": "Naitus Mainland",
+    "isForSecondary": null
+  },
+  {
+    "Area": "第８界",
+    "Area_EN": "#REGION.8",
+    "about_JP": "(ただしこのエリアはこの創作世界全域を意味する)",
+    "about_EN": "(However, this area means the entire creation world)",
+    "isForSecondary": null
+  },
+  {
+    "Area": "超次元執筆空間(アトリエ)",
+    "Area_EN": "#ATELIER: the super-dimensional owners space",
+    "about_JP": "(ただしこのエリアは創作世界として属されない)",
+    "about_EN": "(However, this area does not belong to the creation world)",
+    "isForSecondary": null
+  },
+  {
+    "Area": "第１界",
+    "Area_EN": "#REGION.1",
+    "about_JP": "(ただしこのエリアはこの創作世界の外部にある)",
+    "about_EN": "(However, this area is outside of the creation world)",
+    "isForSecondary": true
+  },
+  {
+    "Area": "第２界",
+    "Area_EN": "#REGION.2",
+    "about_JP": "(ただしこのエリアはこの創作世界の外部にある)",
+    "about_EN": "(However, this area is outside of the creation world)",
+    "isForSecondary": true
+  },
+  {
+    "Area": "第３界",
+    "Area_EN": "#REGION.3",
+    "about_JP": "(ただしこのエリアはこの創作世界の外部にある)",
+    "about_EN": "(However, this area is outside of the creation world)",
+    "isForSecondary": true
+  },
+  {
+    "Area": "第４界",
+    "Area_EN": "#REGION.4",
+    "about_JP": "(ただしこのエリアはこの創作世界の外部にある)",
+    "about_EN": "(However, this area is outside of the creation world)",
+    "isForSecondary": true
+  },
+  {
+    "Area": "第５界",
+    "Area_EN": "#REGION.5",
+    "about_JP": "(ただしこのエリアはこの創作世界の外部にある)",
+    "about_EN": "(However, this area is outside of the creation world)",
+    "isForSecondary": true
+  },
+  {
+    "Area": "第６界",
+    "Area_EN": "#REGION.6",
+    "about_JP": "(ただしこのエリアはこの創作世界の外部にある)",
+    "about_EN": "(However, this area is outside of the creation world)",
+    "isForSecondary": true
+  },
+  {
+    "Area": "第７界",
+    "Area_EN": "#REGION.7",
+    "about_JP": "(ただしこのエリアはこの創作世界の外部にある)",
+    "about_EN": "(However, this area is outside of the creation world)",
+    "isForSecondary": true
+  }
+]
