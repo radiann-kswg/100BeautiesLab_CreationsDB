@@ -108,7 +108,10 @@
     {
       "hashTag": "BelongingArea",
       "$type": "$Def_BaseArea",
-      "hashTag_JP": "活動拠点"
+      "hashTag_JP": "活動拠点",
+      "$display": {
+        "section": "basic"
+      }
     },
     { "hashTag": "ClassType", "$type": "#String", "hashTag_JP": "クラス" },
     {

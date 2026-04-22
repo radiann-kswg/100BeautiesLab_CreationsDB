@@ -21,6 +21,12 @@
 
 ### 1. `Day`,`Era`,`Area`型などのtypedef/meta宣言強化およびハードコーディングの緩和
 
+#### 2026-04-22 追加対応メモ
+
+- `Belonging` 辞書（`#List_Belonging`）にネストされた `BaseArea` を API/SW の enrich が認識し、`BelongingArea` 未設定レコードに対して補助展開できるようにした。
+- 併せて `data/db_type.json` の `BelongingArea` を basic 表示対象へ寄せ、UI 側のハードコードではなく schema 側の表示宣言で扱いやすくした。
+- 既存宣言との互換のため、SW 側では `$Def_*` 配下の `$TypeDef` も読めるようにしている。
+
 #### 現状
 
 API/SW側では`Day`,`Area`,`Era`型などの特定の`$Def`宣言で定義すべきtypedefを伴うフィールド（例：`BirthDay/AnivDay`, `Belonging`, `StoryEra`(`FromEra`/`ToEra`/`InEra`)など）について、複雑な型宣言を伴うことから API/SW側で処理されない、あるいはフィールド名を直接コードに含めることによるハードコーディングで処理が行われている箇所がある。

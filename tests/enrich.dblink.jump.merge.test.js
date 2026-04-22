@@ -107,6 +107,36 @@ describe('_DBLink / _Jump merge (in-process)', () => {
     });
   });
 
+  it('Belonging の varsdef に BaseArea があれば、BelongingArea を補助展開できる', async () => {
+    class BelongingAreaDataFetcher extends TestDataFetcher {
+      async readGeneralVarsDefGlobal() {
+        return {
+          '#List_Belonging': [
+            {
+              Belonging: '百花繚乱研究所',
+              Belonging_EN: 'HundredBeauties Laboratory',
+              BaseArea: { Area: '九蓮国' }
+            }
+          ]
+        };
+      }
+    }
+
+    const dataFetcher = new BelongingAreaDataFetcher();
+    const proc = new globalThis.EnrichmentProcessor(dataFetcher, testConfig);
+
+    const rec = {
+      Id: 'BASE',
+      Belonging: ['百花繚乱研究所']
+    };
+
+    const out = await proc.enrichRecords([rec], '#Works_Test', 'Primary');
+    const e = out[0];
+
+    expect(e.BelongingArea).toEqual({ Area: '九蓮国' });
+    expect(e._enrichment?.derivedBelongingAreas).toEqual([{ Area: '九蓮国' }]);
+  });
+
   it('SinisterChangingGirls -> NumberTales の _DBLink を解決し、BirthDay._Jump を実値に置換できる', async () => {
     const dataFetcher = new TestDataFetcher();
     // data-common.js 側で global に公開される

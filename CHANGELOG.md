@@ -1,5 +1,13 @@
 # 最新のリファクタリング・仕様変更履歴
 
+### `Belonging` 辞書内の `BaseArea` を enrich で `BelongingArea` として補助展開
+
+- `lib/data-common.js` で `#List_Belonging` の各項目に含まれる `BaseArea` を逆引きできる index を構築し、`Belonging` だけを持つレコードでも enrich 時に `BelongingArea` を補助展開できるようにした。
+- `BelongingArea` が未設定で、所属から一意に活動拠点を導ける場合のみ top-level `BelongingArea` に反映し、複数候補がある場合は `_enrichment.derivedBelongingAreas` に保持するようにした。
+- `lib/data-common.js` の typedef 解釈で `$TypeDef` も互換的に読めるようにし、`$Def_BaseArea` のような既存宣言を SW 側で扱いやすくした。
+- `data/db_type.json` の `BelongingArea` に `$display.section: basic` を追加し、キャラシートが schema 駆動で「活動拠点」を基本情報へ載せられるようにした。
+- 回帰防止として `tests/enrich.dblink.jump.merge.test.js` に `Belonging -> BaseArea -> BelongingArea` の補助展開テストを追加し、通過を確認した。
+
 ### `Day` / `StoryEra` の表示を typedef 駆動へ寄せ、basic 補助行ハードコードを削減
 
 - `data/db_type.json` の `BirthDay` / `AnivDay` に `$display.section: basic` を追加し、キャラシートが schema に従って基本情報へ載せられるようにした。
