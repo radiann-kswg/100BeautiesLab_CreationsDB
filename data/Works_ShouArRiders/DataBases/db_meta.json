@@ -16,66 +16,21 @@
       },
       "_Commons": {
         "_ListLinkIf_Beast": [
-          {
-            "Beast": "Mouse",
-            "RaceType": "ClonicMouse"
-          },
-          {
-            "Beast": "Ox",
-            "RaceType": "Taurus(Acquired)"
-          },
-          {
-            "Beast": "Tiger",
-            "RaceType": "LunaTiger(Acquired)"
-          },
-          {
-            "Beast": "Rabbit",
-            "RaceType": "LunaRabbit(Acquired)"
-          },
-          {
-            "Beast": "Dragon",
-            "RaceType": "Dragon(Acquired)"
-          },
-          {
-            "Beast": "Snake",
-            "RaceType": "Lamia(Acquired)"
-          },
-          {
-            "Beast": "Horse",
-            "RaceType": "Thoroughbreder(Acquired)"
-          },
-          {
-            "Beast": "Sheep",
-            "RaceType": "DreamEater(Acquired)"
-          },
-          {
-            "Beast": "Monkey",
-            "RaceType": "OverHuman(Acquired)"
-          },
-          {
-            "Beast": "Bird",
-            "RaceType": "Birdman(Acquired)"
-          },
-          {
-            "Beast": "Raccoon",
-            "RaceType": "Raccoonian(Acquired)"
-          },
-          {
-            "Beast": "Fox",
-            "RaceType": "Warfox(Acquired)"
-          },
-          {
-            "Beast": "Boar",
-            "RaceType": "FangSpeeder(Acquired)"
-          },
-          {
-            "Beast": "Cat",
-            "RaceType": "Nekomata(Acquired)"
-          },
-          {
-            "Beast": "Dog",
-            "RaceType": "Komainu(Acquired)"
-          }
+          { "Beast": "Mouse", "RaceType": "ClonicMouse" },
+          { "Beast": "Ox", "RaceType": "Taurus(Acquired)" },
+          { "Beast": "Tiger", "RaceType": "LunaTiger(Acquired)" },
+          { "Beast": "Rabbit", "RaceType": "LunaRabbit(Acquired)" },
+          { "Beast": "Dragon", "RaceType": "Dragon(Acquired)" },
+          { "Beast": "Snake", "RaceType": "Lamia(Acquired)" },
+          { "Beast": "Horse", "RaceType": "Thoroughbreder(Acquired)" },
+          { "Beast": "Sheep", "RaceType": "DreamEater(Acquired)" },
+          { "Beast": "Monkey", "RaceType": "OverHuman(Acquired)" },
+          { "Beast": "Bird", "RaceType": "Birdman(Acquired)" },
+          { "Beast": "Raccoon", "RaceType": "Raccoonian(Acquired)" },
+          { "Beast": "Fox", "RaceType": "Warfox(Acquired)" },
+          { "Beast": "Boar", "RaceType": "FangSpeeder(Acquired)" },
+          { "Beast": "Cat", "RaceType": "Nekomata(Acquired)" },
+          { "Beast": "Dog", "RaceType": "Komainu(Acquired)" }
         ]
       }
     }
@@ -84,12 +39,7 @@
     "$VarsDef": {
       "$Def_BeastType": {
         "#List_Beast": [
-          {
-            "Beast": "Mouse",
-            "Beast_JP": "鼠",
-            "Beast_EN": "Mouse",
-            "Num": 1
-          },
+          { "Beast": "Mouse", "Beast_JP": "鼠", "Beast_EN": "Mouse", "Num": 1 },
           {
             "Beast": "Ox",
             "Eto": "丑",
@@ -200,19 +150,13 @@
             "Beast_EN": "Dog",
             "Num": [
               { "value": 11, "about_JP": "種族上", "about_EN": "for race" },
-              {
-                "value": null,
-                "about_JP": "現状",
-                "about_EN": "currently"
-              }
+              { "value": null, "about_JP": "現状", "about_EN": "currently" }
             ]
           }
         ]
       },
       "$Def_BeastspecStats": {
-        "$Def_SpecType": {
-          "$DefType": []
-        },
+        "$Def_SpecType": { "$DefType": [] },
         "#List_SpecialPattern": null,
         "$Def_SpecLevel": {
           "$EnumLink_SpecLevelText": {

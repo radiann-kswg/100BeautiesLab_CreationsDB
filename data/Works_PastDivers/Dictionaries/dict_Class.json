@@ -1,0 +1,48 @@
+[
+  { "Class": "？？？", "Class_EN": "????" },
+  { "Class": "総帥", "Class_EN": "Chief.Executive" },
+  { "Class": "第1幹部", "Class_EN": "Executive Director.1" },
+  { "Class": "睦月研究所", "Class_EN": "Laboratory.1" },
+  { "Class": "第2幹部", "Class_EN": "Executive Director.2" },
+  { "Class": "如月研究所", "Class_EN": "Laboratory.2" },
+  { "Class": "第3幹部", "Class_EN": "Executive Director.3" },
+  {
+    "Class": "弥生研究所(破滅対策本部2課)",
+    "Class_EN": "Laboratory.3(Pandemic Affairs Countermeasures Headquarter.2)"
+  },
+  { "Class": "第4幹部", "Class_EN": "Executive Director.4" },
+  { "Class": "卯月研究所", "Class_EN": "Laboratory.4" },
+  { "Class": "第5幹部", "Class_EN": "Executive Director.5" },
+  { "Class": "皐月研究所", "Class_EN": "Laboratory.5" },
+  { "Class": "第6幹部", "Class_EN": "Executive Director.6" },
+  { "Class": "水無月研究所", "Class_EN": "Laboratory.6" },
+  { "Class": "第7幹部", "Class_EN": "Executive Director.7" },
+  { "Class": "文月研究所", "Class_EN": "Laboratory.7" },
+  { "Class": "第8幹部", "Class_EN": "Executive Director.8" },
+  {
+    "Class": "葉月研究所(軍事本部)",
+    "Class_EN": "Laboratory.8(Military Headquarter)"
+  },
+  { "Class": "第9幹部", "Class_EN": "Executive Director.9" },
+  {
+    "Class": "長月研究所(救命本部)",
+    "Class_EN": "Laboratory.9(Lifeguards Headquarter)"
+  },
+  { "Class": "第10幹部", "Class_EN": "Executive Director.10" },
+  {
+    "Class": "神無月研究所(破滅対策本部1課)",
+    "Class_EN": "Laboratory.10(Pandemic Affairs Countermeasures Headquarter.1)"
+  },
+  { "Class": "第11幹部", "Class_EN": "Executive Director.11" },
+  { "Class": "霜月研究所(仮説)", "Class_EN": "Laboratory.11(Tentative)" },
+  { "Class": "第12幹部", "Class_EN": "Executive Director.12" },
+  { "Class": "師走研究所(仮説)", "Class_EN": "Laboratory.12(Tentative)" },
+  { "Class": "AI幹部", "Class_EN": "Executive Director.AI" },
+  { "Class": "軍事本部", "Class_EN": "Military Headquarter" },
+  { "Class": "救命本部", "Class_EN": "Lifeguards Headquarter" },
+  {
+    "Class": "破滅対策本部",
+    "Class_EN": "Pandemic Affairs Countermeasures Headquarter"
+  },
+  { "Class": "機関創設者", "Class_EN": "First Organizer" }
+]

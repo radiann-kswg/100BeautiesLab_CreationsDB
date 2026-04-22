@@ -60,7 +60,10 @@
           "hashTag_JP": "イラスト作品"
         }
       ],
-      "$display": { "section": "images", "tagSpace": "internal" }
+      "$display": {
+        "section": "images",
+        "tagSpace": "internal"
+      }
     },
     {
       "hashTag": "NumerospecStats",
@@ -150,7 +153,10 @@
           "hashTag": "SpecialPattern",
           "$type": "#Enum[]",
           "hashTag_JP": "特殊パターン",
-          "$display": { "section": "spec", "tagSpace": "creation" }
+          "$display": {
+            "section": "spec",
+            "tagSpace": "creation"
+          }
         },
         {
           "hashTag": "SafetyLevel",

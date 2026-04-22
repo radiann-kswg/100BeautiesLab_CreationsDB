@@ -3,9 +3,7 @@
     "Num": "0xA",
     "Progress": "accepted\nremadeReleased",
     "sec_SeriesTitle": "ヘキサデミカル・テールズ",
-    "Images": {
-      "concept_PNGName": "cnsp_img0xA"
-    },
+    "Images": { "concept_PNGName": "cnsp_img0xA" },
     "Name": "エース",
     "Name_EN": "Ace",
     "FormalName": "ヘキサデミカル-テールズ仮説A番機",
@@ -28,8 +26,7 @@
     ],
     "BustSize": "AA",
     "TailsUnit": "つぼみ型1本（大1束+小9束）",
-    "Class": "ヘキサデミカル-テールズ",
-    "Class_EN": "HexademicalTales",
+    "Class": ["ヘキサデミカル-テールズ"],
     "FirstPersonCalling": "ボク",
     "SecondPersonCalling": "キミ",
     "ThirdPersonCalling": "彼/彼女;[※名前呼び],~クン",
@@ -99,9 +96,7 @@
           "Comments": "恐れ入った。最高役でこちらが負けるとは",
           "Reply": { "Comments": "悪ぃな、“確率操作”は得意なんだ" }
         },
-        {
-          "Num": 58
-        },
+        { "Num": 58 },
         {
           "Num": "2-alt",
           "Comments": "一つの可能性、二つ以上の因果。キミは何を見たんだ？",
@@ -116,9 +111,7 @@
     "Num": "0xB",
     "Progress": "accepted\nremadeReleased",
     "sec_SeriesTitle": "ヘキサデミカル・テールズ",
-    "Images": {
-      "concept_PNGName": "cnsp_img0xB"
-    },
+    "Images": { "concept_PNGName": "cnsp_img0xB" },
     "Name": "ベータ",
     "Name_EN": "Beta",
     "FormalName": "ヘキサデミカル-テールズ仮説B番機",
@@ -141,8 +134,7 @@
     ],
     "BustSize": "D",
     "TailsUnit": "猫型2本",
-    "Class": "ヘキサデミカル-テールズ",
-    "Class_EN": "HexademicalTales",
+    "Class": ["ヘキサデミカル-テールズ"],
     "FirstPersonCalling": "わたし",
     "SecondPersonCalling": "",
     "ThirdPersonCalling": "~さん\nナンバーテールズに対して：先輩",
@@ -185,9 +177,7 @@
         {
           "Num": 11,
           "RelationLabel": ["sameValue", "adverselyAffected"],
-          "Reply": {
-            "RelationLabel": ["sameValue"]
-          }
+          "Reply": { "RelationLabel": ["sameValue"] }
         },
         {
           "Num": 24,
@@ -224,9 +214,7 @@
           "Comments": "何でしょう…なんだか引き込まれるような大きな力を感じます…",
           "Reply": { "Comments": "可愛い子ね…ふふふ…" }
         },
-        {
-          "Num": 40
-        },
+        { "Num": 40 },
         {
           "Num": 94,
           "Comments": "…Zzz…はぅっ!? 寝ちゃってました…？",
@@ -239,9 +227,7 @@
     "Num": "0xC",
     "Progress": "accepted\nremadeReleased",
     "sec_SeriesTitle": "ヘキサデミカル・テールズ",
-    "Images": {
-      "concept_PNGName": "cnsp_img0xC"
-    },
+    "Images": { "concept_PNGName": "cnsp_img0xC" },
     "Name": "セレス",
     "Name_EN": "Ceres",
     "FormalName": "ヘキサデミカル-テールズ仮説C番機",
@@ -261,8 +247,7 @@
     ],
     "Weight_kg": { "hideText": "未公開希望" },
     "TailsUnit": "犬型3本",
-    "Class": "ヘキサデミカル-テールズ",
-    "Class_EN": "HexademicalTales",
+    "Class": ["ヘキサデミカル-テールズ"],
     "FirstPersonCalling": "オレ\nぼく(※ナイーヴ時)",
     "SecondPersonCalling": "",
     "ThirdPersonCalling": "*イツ;[※名前呼び]\nナンバーテールズに対して：先輩",
@@ -294,17 +279,13 @@
       "Actuation": { "Rank": "C" }
     },
     "InStory": "「エイゼルベット」の観測者「シグマ-クロステールズ」の元で観測を受けている、ある電脳世界との間で生まれた個体\n試験中に機材を暴走させることがあり……",
-    "Relation": {
-      "Related": []
-    },
+    "Relation": { "Related": [] },
     "RelationToPrimary": {
       "Related": [
         {
           "Num": 12,
           "RelationLabel": ["sameValue", "adverselyAffected"],
-          "Reply": {
-            "RelationLabel": ["sameValue"]
-          }
+          "Reply": { "RelationLabel": ["sameValue"] }
         },
         {
           "Num": 60,
@@ -319,9 +300,7 @@
           "Num": 61,
           "Comments": "今日もアイドルらしく…とは言ってもアイツ何言ってんだァ??",
           "RelationLabel": ["awkward"],
-          "Reply": {
-            "Comments": "ユニット名決めたらドン引きされちゃった……"
-          }
+          "Reply": { "Comments": "ユニット名決めたらドン引きされちゃった……" }
         },
         {
           "Num": 93,
@@ -340,15 +319,11 @@
             "Comments": "自信持ってるのか持ってないのかはっきりしなさいっ！"
           }
         },
-        {
-          "Num": 43
-        },
+        { "Num": 43 },
         {
           "Num": 66,
           "Comments": "オレはそういうのじゃねぇって！…でもなんかいい気分だな…",
-          "Reply": {
-            "Comments": "迷ったときはいつでもお声掛けしてくださいね"
-          }
+          "Reply": { "Comments": "迷ったときはいつでもお声掛けしてくださいね" }
         },
         {
           "Num": 69,
@@ -364,9 +339,7 @@
     "Num": "0xD",
     "Progress": "accepted\nremadeReleased",
     "sec_SeriesTitle": "ヘキサデミカル・テールズ",
-    "Images": {
-      "concept_PNGName": "cnsp_img0xD"
-    },
+    "Images": { "concept_PNGName": "cnsp_img0xD" },
     "Name": "デプス",
     "Name_EN": "Depth",
     "FormalName": "ヘキサデミカル-テールズ仮説D番機",
@@ -387,8 +360,7 @@
     "Weight_kg": { "hideText": "未公開希望" },
     "BustSize": "E",
     "TailsUnit": "狐型4本",
-    "Class": "ヘキサデミカル-テールズ",
-    "Class_EN": "HexademicalTales",
+    "Class": ["ヘキサデミカル-テールズ"],
     "FirstPersonCalling": "こっち",
     "SecondPersonCalling": "あなた",
     "ThirdPersonCalling": "*の子/*っち;[※名前呼び]",
@@ -437,9 +409,7 @@
         {
           "Num": 13,
           "RelationLabel": ["sameValue", "adverselyAffected"],
-          "Reply": {
-            "RelationLabel": ["sameValue"]
-          }
+          "Reply": { "RelationLabel": ["sameValue"] }
         },
         {
           "Num": 17,
@@ -461,32 +431,22 @@
           "Num": 75,
           "Comments": "時々一緒に勉強会をするわ",
           "RelationLabel": ["wellMatched"],
-          "Reply": {
-            "Comments": "とても気の合う学友ができて、私も嬉しいよ"
-          }
+          "Reply": { "Comments": "とても気の合う学友ができて、私も嬉しいよ" }
         }
       ],
       "Commented": [
         {
           "Num": 33,
           "Comments": "えーと…代数学って何のことかしら…教えて？",
-          "Reply": {
-            "Comments": "またなにかわからないことがあればお任せを"
-          }
+          "Reply": { "Comments": "またなにかわからないことがあればお任せを" }
         },
-        {
-          "Num": 76
-        },
+        { "Num": 76 },
         {
           "Num": 85,
           "Comments": "あなた……どこで変な知識をつけてきたの…",
-          "Reply": {
-            "Comments": "え？これでなんとかなってるけど、違うん？"
-          }
+          "Reply": { "Comments": "え？これでなんとかなってるけど、違うん？" }
         },
-        {
-          "Num": 99
-        }
+        { "Num": 99 }
       ]
     }
   },
@@ -494,9 +454,7 @@
     "Num": "0xE",
     "Progress": "accepted\nremadeReleased",
     "sec_SeriesTitle": "ヘキサデミカル・テールズ",
-    "Images": {
-      "concept_PNGName": "cnsp_img0xE"
-    },
+    "Images": { "concept_PNGName": "cnsp_img0xE" },
     "Name": "エネ",
     "Name_EN": "Enè",
     "FormalName": "ヘキサデミカル-テールズ仮説E番機",
@@ -519,8 +477,7 @@
     ],
     "BustSize": "AA",
     "TailsUnit": "猫型5本",
-    "Class": "ヘキサデミカル-テールズ",
-    "Class_EN": "HexademicalTales",
+    "Class": ["ヘキサデミカル-テールズ"],
     "FirstPersonCalling": "オイラ\n俺っち",
     "SecondPersonCalling": "[※三人称]\n貴殿(きでん) ※稀",
     "ThirdPersonCalling": "~殿/*イツ",
@@ -552,9 +509,7 @@
       "Actuation": { "Rank": "S" }
     },
     "InStory": "「エイゼルベット」の観測者「シグマ-クロステールズ」の元で観測を受けている、ある電脳世界との間で生まれた個体\n向こう側の電脳世界でもこちらの世界でも、色んなものの魔改造に勤しんでいる",
-    "Relation": {
-      "Related": [{ "Num": "0xD", "RelationLabel": ["abusing"] }]
-    },
+    "Relation": { "Related": [{ "Num": "0xD", "RelationLabel": ["abusing"] }] },
     "RelationToPrimary": {
       "Related": [
         {
@@ -581,10 +536,7 @@
             "RelationLabel": ["sameValue", "awkward"]
           }
         },
-        {
-          "Num": 62,
-          "RelationLabel": ["abusing"]
-        }
+        { "Num": 62, "RelationLabel": ["abusing"] }
       ],
       "Commented": [
         {
@@ -594,9 +546,7 @@
             "Comments": "メルセンヌ素数の魅力を知ってもらえるかなと思ったけど、やっぱりダメかぁ"
           }
         },
-        {
-          "Num": 87
-        }
+        { "Num": 87 }
       ]
     }
   },
@@ -604,9 +554,7 @@
     "Num": "0xF",
     "Progress": "accepted\nremadeReleased",
     "sec_SeriesTitle": "ヘキサデミカル・テールズ",
-    "Images": {
-      "concept_PNGName": "cnsp_img0xF"
-    },
+    "Images": { "concept_PNGName": "cnsp_img0xF" },
     "Name": "フォルテ",
     "Name_EN": "Forte",
     "FormalName": "ヘキサデミカル-テールズ仮説F番機",
@@ -623,8 +571,7 @@
     "Weight_kg": { "hideText": "？？？" },
     "BustSize": "J",
     "TailsUnit": "狐型6本",
-    "Class": "ヘキサデミカル-テールズ",
-    "Class_EN": "HexademicalTales",
+    "Class": ["ヘキサデミカル-テールズ"],
     "FirstPersonCalling": "ママ",
     "SecondPersonCalling": "",
     "ThirdPersonCalling": "~ちゃん;~(な)コ",
@@ -670,9 +617,7 @@
         {
           "Num": 15,
           "RelationLabel": ["sameValue", "adverselyAffected"],
-          "Reply": {
-            "RelationLabel": ["sameValue"]
-          }
+          "Reply": { "RelationLabel": ["sameValue"] }
         },
         {
           "Num": 16,
@@ -686,9 +631,7 @@
           "Num": 63,
           "Comments": "家事のお手伝いをしてくれますわ！今日はごはん頑張っちゃいますよ！",
           "RelationLabel": ["wellMatched"],
-          "Reply": {
-            "Comments": "僕もご飯頑張って作るね、お手伝いありがとう♪"
-          }
+          "Reply": { "Comments": "僕もご飯頑張って作るね、お手伝いありがとう♪" }
         }
       ],
       "Commented": [
@@ -702,9 +645,7 @@
         {
           "Num": 36,
           "Comments": "みんなのママとして…負けてはおられませんわ…！",
-          "Reply": {
-            "Comments": "63(ムツミ)と比べたら僕なんてまだまだだよ…！"
-          }
+          "Reply": { "Comments": "63(ムツミ)と比べたら僕なんてまだまだだよ…！" }
         },
         {
           "Num": 94,
@@ -735,8 +676,7 @@
     ],
     "BustSize": "B",
     "RaceType": "Human",
-    "Class": "開発者\nD-Vine開発部 最高責任部長",
-    "Class_EN": "Developer\nChief Executive in Development Department for D-Vine",
+    "Class": ["開発者", "D-Vine開発部 最高責任部長"],
     "ForMasterCalling": "クライアントさん",
     "RelationNotes": "ナンバーテールズ開発者である零(カズナイ)姉弟の後輩。妹:歌嫁は同じくしてかつ百花繚乱研究所のアシスタントを行なっている。",
     "InStory": "シンフォニー.XVI(ゼクズィン)に所属後、量産販売型ナンバーテールズの相場的販売コストを抑えた互換個体ユニットの開発・提供を百花繚乱研究所（の主に零零(カズナイレイ)）と提携して行なっている\nちなみに運命線探偵としての錦野舞は、妹:歌嫁を含めおよそ7年前のパラレル存在に相当する",
@@ -781,8 +721,7 @@
     "BustSize": "B",
     "RaceType": "Human",
     "Belonging": ["百花繚乱研究所"],
-    "Class": "ゼミアシスタント",
-    "Class_EN": "Seminar Assistant",
+    "Class": ["ゼミアシスタント"],
     "ForMasterCalling": "クライアントさん",
     "RelationNotes": "ナンバーテールズ開発者である零(カズナイ)姉弟の後輩。姉:舞は同じくしてシンフォニー.XVI(ゼクズィン)に所属し黒薔薇国へ単身赴任している",
     "InStory": "百花繚乱研究所の本体である元藤・千歳研究室にてN3US大学の大学院修士課程を卒業後、一時的な就職活動を経て同研究室で博士課程に進学し 主に零百(カズナイハゲム)の作業補助などといったゼミのアシスタントを務めている\nちなみに運命線探偵としての錦野歌嫁は、姉:舞を含めおよそ7年前のパラレル存在に相当する",

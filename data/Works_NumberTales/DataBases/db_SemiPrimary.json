@@ -25,8 +25,7 @@
     "Weight_kg": { "hideText": "非公開" },
     "BustSize": "D",
     "TailsUnit": "サソリ型3本（それぞれ11束[節]）",
-    "Class": "仮説型ハイナンバー",
-    "Class_EN": "Tentative HighNumbers",
+    "Class": ["仮説型ハイナンバー"],
     "FirstPersonCalling": "あーし",
     "SecondPersonCalling": "あんた",
     "ThirdPersonCalling": "~君,パイセン",
@@ -57,8 +56,7 @@
     "Height_cm": 164,
     "ConceptAge": 17,
     "BustSize": "AA",
-    "Class": "百倍番(ハンドレッズデジッツ)",
-    "Class_EN": "Hundrets-Digits",
+    "Class": ["百倍番(ハンドレッズデジッツ)"],
     "FirstPersonCalling": "おれ",
     "SecondPersonCalling": "おまえ",
     "ThirdPersonCalling": "[※名前呼び]",
@@ -69,9 +67,7 @@
   {
     "Num": 111,
     "Progress": "released",
-    "Images": {
-      "concept_PNGName": "cnsp_img111"
-    },
+    "Images": { "concept_PNGName": "cnsp_img111" },
     "Name": "アイズ",
     "Name_EN": "Ize",
     "ModelName": "ナンバーテールズ1+11号機(111番機)",
@@ -88,8 +84,7 @@
     ],
     "BustSize": "AA",
     "TailsUnit": "猫又(特殊)型1本3束[枝]",
-    "Class": "マスタートリプル",
-    "Class_EN": "Master Triples 9",
+    "Class": ["マスタートリプル"],
     "ThisMasters": "霧島 博(とおる)（夜月機関 幹部(霜月支部)）",
     "FirstPersonCalling": "私(わたし)",
     "SecondPersonCalling": "貴樣/貴様",
@@ -118,8 +113,7 @@
     "SPCodeName": "皕",
     "SPCodeName_EN": "Two hundred",
     "GenderType": "Neutral",
-    "Class": "百倍番(ハンドレッズデジッツ)",
-    "Class_EN": "Hundrets-Digits",
+    "Class": ["百倍番(ハンドレッズデジッツ)"],
     "FirstPersonCalling": "わたし",
     "SecondPersonCalling": "~さん",
     "ThirdPersonCalling": "~さん",
@@ -153,8 +147,7 @@
     "Weight_kg": [{ "value": 42, "about_JP": "平均", "about_EN": "Average" }],
     "BustSize": { "value": "A", "about_JP": "平均", "about_EN": "Average" },
     "TailsUnit": "尾鰭(特殊)型3本2枝",
-    "Class": "マスタートリプル",
-    "Class_EN": "Master Triples 9",
+    "Class": ["マスタートリプル"],
     "FirstPersonCalling": "ドッペル：僕\nペルゲン：私(わたし)",
     "SecondPersonCalling": "ドッペル→他人：君\nドッペル→ペルゲン：ペーちゃん\nペルゲン→他人：貴方\nペルゲン→ドッペル：ドペさん",
     "ThirdPersonCalling": "ドッペル：彼/彼女;~の人,*れ;~くん/~ちゃん,~樣\nペルゲン：彼/彼女;~の方,*方(*ちら);~さん,~樣",
@@ -180,8 +173,7 @@
     "CodeName": "三三三",
     "SPCodeName_EN": "Triple",
     "GenderType": "Neutral",
-    "Class": "マスタートリプル",
-    "Class_EN": "Master Triples 9"
+    "Class": ["マスタートリプル"]
   },
   {
     "Num": 400,
@@ -194,8 +186,7 @@
     "FormalName_EN": "NumberTales #400",
     "CodeName": "四〇〇",
     "GenderType": "Neutral",
-    "Class": "百倍番(ハンドレッズデジッツ)",
-    "Class_EN": "Hundrets-Digits",
+    "Class": ["百倍番(ハンドレッズデジッツ)"],
     "Backgrounds": "「100倍数の年は閏年でないが、400倍数だと閏年」という（グレゴリオ暦の）400年周期法則から命名された"
   },
   {
@@ -209,8 +200,7 @@
     "FormalName_EN": "NumberTales #444",
     "CodeName": "四四四",
     "GenderType": "Neutral",
-    "Class": "マスタートリプル",
-    "Class_EN": "Master Triples 9"
+    "Class": ["マスタートリプル"]
   },
   {
     "Num": 555,
@@ -223,8 +213,7 @@
     "FormalName_EN": "NumberTales #555",
     "CodeName": "五五五",
     "GenderType": "Neutral",
-    "Class": "マスタートリプル",
-    "Class_EN": "Master Triples 9"
+    "Class": ["マスタートリプル"]
   },
   {
     "Num": 666,
@@ -248,8 +237,7 @@
     "Weight_kg": { "hideText": "非公開" },
     "BustSize": "E",
     "TailsUnit": "キツネ(特殊)型3束x6本",
-    "Class": "マスタートリプル",
-    "Class_EN": "Master Triples 9",
+    "Class": ["マスタートリプル"],
     "ThisMasters": "中月 ルイス=ノア.ナイターエイド（夜月機関 第9幹部）",
     "FirstPersonCalling": "我\n私(わたくし)",
     "SecondPersonCalling": "汝(なんじ)",
@@ -267,9 +255,7 @@
   {
     "Num": 777,
     "Progress": "released",
-    "Images": {
-      "concept_PNGName": "cnsp_img777"
-    },
+    "Images": { "concept_PNGName": "cnsp_img777" },
     "Name": "ヨロコビ",
     "Name_EN": "Lucky-sevens\nLuckies",
     "ModelName": "ナンバーテールズ3倍型7号機(777番機)",
@@ -296,8 +282,7 @@
     "BustSize": "AA",
     "GenderType": "MaleNeutral",
     "TailsUnit": "キツネ(特殊)型3束x7本",
-    "Class": "マスタートリプル",
-    "Class_EN": "Master Triples 9",
+    "Class": ["マスタートリプル"],
     "FirstPersonCalling": "おれ",
     "SecondPersonCalling": "あんた",
     "ThirdPersonCalling": "彼/彼女;*いつ/*れ;[※名前呼び]",
@@ -361,8 +346,7 @@
     "SPCodeName": "（無限）",
     "SPCodeName_EN": "Infinity",
     "GenderType": "Neutral",
-    "Class": "マスタートリプル",
-    "Class_EN": "Master Triples 9",
+    "Class": ["マスタートリプル"],
     "ThisMasters": "八坂 兵汰(へいた)/ヘクター.キロバスター（夜月機関 第8幹部）"
   },
   {
@@ -382,8 +366,7 @@
     "ConceptAge": 14,
     "BustSize": "A",
     "TailsUnit": "キツネ(枝分かれ)型9本x各3束",
-    "Class": "マスタートリプル",
-    "Class_EN": "Master Triples 9",
+    "Class": ["マスタートリプル"],
     "FirstPersonCalling": "わらわ",
     "SecondPersonCalling": "お主",
     "ThirdPersonCalling": "*の者;[※名前呼び]",

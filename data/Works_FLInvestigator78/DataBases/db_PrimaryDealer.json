@@ -297,9 +297,7 @@
   {
     "Card": { "Stoat": "Dealer", "Num": 79 },
     "Progress": "released(beta)",
-    "Images": {
-      "concept_PNGName": ["cnsp_imgFLDealer"]
-    },
+    "Images": { "concept_PNGName": ["cnsp_imgFLDealer"] },
     "_DBLink": {
       "worksTitle": "FLInvestigator78",
       "dbName": "Primary",
@@ -337,9 +335,7 @@
   {
     "Card": { "Stoat": "Dealer", "Num": 80 },
     "Progress": "released(beta)",
-    "Images": {
-      "concept_PNGName": ["cnsp_imgFLDealer"]
-    },
+    "Images": { "concept_PNGName": ["cnsp_imgFLDealer"] },
     "_DBLink": {
       "worksTitle": "FLInvestigator78",
       "dbName": "Primary",

@@ -1,0 +1,32 @@
+# 2026-04-22 progress: class-dict-migration
+
+- 目的: `Class` / `Class_EN` の重複値を作品別 `dict_Class.json` へ集約し、レコード側は辞書キー配列だけを保持する形へ移行する。
+- 変更点の要約:
+  - 残存していた 6 ファイルの `Class` / `Class_EN` を、作品別 `Dictionaries/dict_Class.json` を基準に `Class` 配列へ再変換
+  - `data/db_type.json` のトップレベル `Class` を `#DictIndex[]` + `$dict: "Class"` へ変更
+  - `pages/characters.js` の一覧 chip と `_DBLink` 参照表示を、辞書配列の Class 表示に対応
+  - `CHANGELOG.md` と `_work_in_progress/README.md` を更新
+- 影響範囲:
+  - `data/db_type.json`
+  - `pages/characters.js`
+  - `data/Works_NumberTales/DataBases/db_SelfSecondary.json`
+  - `data/Works_NumberTales/DataBases/db_SemiPrimary.json`
+  - `data/Works_NumberTales/DataBases/db_UnprocessedSecondary.json`
+  - `data/Works_UnauthedLogica/DataBases/db_PrimaryMobs.json`
+  - `data/Works_ShouArRiders/DataBases/db_Primary.json`
+  - `data/Works_PastDivers/DataBases/db_meta.json`
+  - `_work_in_progress/README.md`
+  - `CHANGELOG.md`
+- 未完了タスク:
+  - なし
+- 検証:
+  - 残存 6 ファイルの `Class_EN` 除去を一括変換後に確認
+  - `tests/pages.characters.syntax.test.js`: pass
+  - `tests/data.sanity.test.js`: pass
+  - `tests/data.shape.test.js`: pass
+  - `tests/sw.deftype.merge.test.js`: pass
+  - `tests/sw.enrich.basic.test.js`: pass
+- 参考リンク:
+  - `data/db_type.json`
+  - `pages/characters.js`
+  - `data/Works_NumberTales/Dictionaries/dict_Class.json`

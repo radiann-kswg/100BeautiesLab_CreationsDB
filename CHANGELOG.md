@@ -1,5 +1,13 @@
 # 最新のリファクタリング・仕様変更履歴
 
+### `Class` を作品別 `dict_Class` 辞書参照へ移行
+
+- `data/Works_NumberTales/DataBases/db_SelfSecondary.json`、`db_SemiPrimary.json`、`db_UnprocessedSecondary.json`、`data/Works_UnauthedLogica/DataBases/db_PrimaryMobs.json`、`data/Works_ShouArRiders/DataBases/db_Primary.json`、`data/Works_PastDivers/DataBases/db_meta.json` の `Class` / `Class_EN` を、作品別 `Dictionaries/dict_Class.json` を正とした `Class` 配列へ変換した。
+- `data/Works_PastDivers/DataBases/db_meta.json` の隠し値 `{ hideText: "？？？" }` / `{ hideText_EN: "????" }` も、辞書プレースホルダ `"？？？"` を使う配列形式へ揃えた。
+- `data/db_type.json` ではトップレベル `Class` を `#DictIndex[]` + `$dict: "Class"` へ変更し、旧 `Class_EN` のトップレベル宣言を削除した。
+- `pages/characters.js` では一覧 chip と `_DBLink` 参照結果の Class 表示を `formatValueForDisplay()` 経由へ寄せ、配列化された辞書キーからラベル解決するようにした。
+- 回帰確認として、対象 6 ファイルから `Class_EN` が消えていることを確認し、関連テストを実行して検証した。
+
 ### `Belonging` の参照先辞書を `Faction` へ改名し、`$dict` ベースで表示解決するよう統一
 
 - `data/db_type.json` でトップレベル `Belonging` の `$dict` を `Faction` へ変更し、表示フィールド名と辞書名を分離した。

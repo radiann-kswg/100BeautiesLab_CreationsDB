@@ -1,0 +1,790 @@
+[
+  { "Class": "試験用個体", "Class_EN": "for Testing", "isSecondary": true },
+  {
+    "Class": "1桁番(ユニデジッツ)",
+    "Class_EN": "Uni-Digits",
+    "isSecondary": false
+  },
+  {
+    "Class": "10倍番(テンズデジッツ)",
+    "Class_EN": "Tens-Digits",
+    "isSecondary": false
+  },
+  {
+    "Class": "マスターテールズ9",
+    "Class_EN": "Master Tales 9",
+    "isSecondary": false
+  },
+  {
+    "Class": "デュアルスリーズ",
+    "Class_EN": "Dual Sum-3s",
+    "isSecondary": false
+  },
+  {
+    "Class": "デュアルフォーズ",
+    "Class_EN": "Dual Sum-4s",
+    "isSecondary": false
+  },
+  {
+    "Class": "デュアルファイブズ",
+    "Class_EN": "Dual Sum-5s",
+    "isSecondary": false
+  },
+  {
+    "Class": "デュアルシックスズ",
+    "Class_EN": "Dual Sum-6s",
+    "isSecondary": false
+  },
+  {
+    "Class": "デュアルセブンズ",
+    "Class_EN": "Dual Sum-7s",
+    "isSecondary": false
+  },
+  {
+    "Class": "デュアルエイツ",
+    "Class_EN": "Dual Sum-8s",
+    "isSecondary": false
+  },
+  {
+    "Class": "9倍2桁番(ナインズデュアルズ)",
+    "Class_EN": "Nines Duals",
+    "isSecondary": false
+  },
+  {
+    "Class": "デュアルキャリーズ",
+    "Class_EN": "Dual Carries",
+    "isSecondary": false
+  },
+  {
+    "Class": "デュアルイレブンズ",
+    "Class_EN": "Dual Sum-11s",
+    "isSecondary": false
+  },
+  {
+    "Class": "未完成個体",
+    "Class_EN": "Progressing to Develop",
+    "isSecondary": true
+  },
+  {
+    "Class": "開発システム用個体",
+    "Class_EN": "for Developer System",
+    "isSecondary": true
+  },
+  {
+    "Class": "調整個体",
+    "Class_EN": "Tuning/for Tuning System",
+    "isSecondary": true
+  },
+  { "Class": "退任個体", "Class_EN": "Retired", "isSecondary": true },
+  {
+    "Class": "営業補助用個体",
+    "Class_EN": "for Consulting Assistant",
+    "isSecondary": true
+  },
+  { "Class": "開発者", "Class_EN": "Developer", "isSecondary": false },
+  {
+    "Class": "最高経営所長",
+    "Class_EN": "Chief Executive Officer",
+    "isSecondary": true
+  },
+  {
+    "Class": "最高技術所長",
+    "Class_EN": "Chief Technology Officer",
+    "isSecondary": true
+  },
+  {
+    "Class": "マスタートリプル",
+    "Class_EN": "Master Triples 9",
+    "isSecondary": null
+  },
+  {
+    "Class": "ゼミアシスタント",
+    "Class_EN": "Seminar Assistant",
+    "isSecondary": null
+  },
+  {
+    "Class": "仮説型ハイナンバー",
+    "Class_EN": "Tentative HighNumbers",
+    "isSecondary": null
+  },
+  {
+    "Class": "ヘキサデミカル-テールズ",
+    "Class_EN": "HexademicalTales",
+    "isSecondary": true
+  },
+  {
+    "Class": "D-Vine開発部 最高責任部長",
+    "Class_EN": "Chief Executive in Development Department for D-Vine",
+    "isSecondary": true
+  },
+  {
+    "Class": "ナンバーテールズ化",
+    "Class_EN": "NumberizingTales",
+    "isSecondary": true
+  },
+  {
+    "Class": "百倍番(ハンドレッズデジッツ)",
+    "Class_EN": "Hundrets-Digits",
+    "isSecondary": null
+  },
+  {
+    "Class": "サイドシングルス",
+    "Class_EN": "Side Singles",
+    "isSecondary": true
+  },
+  {
+    "Class": "サイドデュアルスリーズ",
+    "Class_EN": "Side Dual Sum-3s",
+    "isSecondary": true
+  },
+  {
+    "Class": "サイドデュアルフォーズ",
+    "Class_EN": "Side Dual Sum-4s",
+    "isSecondary": true
+  },
+  {
+    "Class": "サイドデュアルファイブズ",
+    "Class_EN": "Side Dual Sum-5s",
+    "isSecondary": true
+  },
+  {
+    "Class": "サイドデュアルシックスズ",
+    "Class_EN": "Side Dual Sum-6s",
+    "isSecondary": true
+  },
+  {
+    "Class": "サイドデュアルセブンズ",
+    "Class_EN": "Side Dual Sum-7s",
+    "isSecondary": true
+  },
+  {
+    "Class": "サイドデュアルエイツ",
+    "Class_EN": "Side Dual Sum-8s",
+    "isSecondary": true
+  },
+  {
+    "Class": "ナインズサイドデュアルズ",
+    "Class_EN": "Nines Side Duals",
+    "isSecondary": true
+  },
+  {
+    "Class": "サイドデュアルキャリーズ",
+    "Class_EN": "Side Dual Carries",
+    "isSecondary": true
+  },
+  {
+    "Class": "マスターテンズデュアルズ9",
+    "Class_EN": "Master 110s 9",
+    "isSecondary": true
+  },
+  {
+    "Class": "デュオトリプル4型甲組",
+    "Class_EN": "Duet Triples IV.A",
+    "isSecondary": true
+  },
+  {
+    "Class": "デュオトリプル5型甲組",
+    "Class_EN": "Duet Triples V.A",
+    "isSecondary": true
+  },
+  {
+    "Class": "デュオトリプル6型甲組",
+    "Class_EN": "Duet Triples VI.A",
+    "isSecondary": true
+  },
+  {
+    "Class": "デュオトリプル7型甲組",
+    "Class_EN": "Duet Triples VII.A",
+    "isSecondary": true
+  },
+  {
+    "Class": "デュオトリプル8型甲組",
+    "Class_EN": "Duet Triples VIII.A",
+    "isSecondary": true
+  },
+  {
+    "Class": "デュオトリプル9型甲組",
+    "Class_EN": "Duet Triples IX.A",
+    "isSecondary": true
+  },
+  {
+    "Class": "デュオトリプル1型甲組",
+    "Class_EN": "Duet Triples I.A",
+    "isSecondary": true
+  },
+  {
+    "Class": "デュオトリプル2型甲組",
+    "Class_EN": "Duet Triples II.A",
+    "isSecondary": true
+  },
+  {
+    "Class": "トリプル1+4+8組",
+    "Class_EN": "I+IV+VIII Triples",
+    "isSecondary": true
+  },
+  {
+    "Class": "デュオトリプル7型丙組",
+    "Class_EN": "Duet Triples VII.C",
+    "isSecondary": true
+  },
+  {
+    "Class": "トリプル2+3+8組",
+    "Class_EN": "II+III+VIII Triples",
+    "isSecondary": true
+  },
+  {
+    "Class": "トリプル1+2+4組",
+    "Class_EN": "I+II+IV Triples",
+    "isSecondary": true
+  },
+  {
+    "Class": "トリプル2+5+8組",
+    "Class_EN": "II+V+VIII Triples",
+    "isSecondary": true
+  },
+  {
+    "Class": "トリプル2+3+6組",
+    "Class_EN": "II+III+VI Triples",
+    "isSecondary": true
+  },
+  {
+    "Class": "トリプル2+5+6組",
+    "Class_EN": "II+V+VI Triples",
+    "isSecondary": true
+  },
+  {
+    "Class": "トリプル2+4+9組",
+    "Class_EN": "II+IV+IX Triples",
+    "isSecondary": true
+  },
+  {
+    "Class": "トリプル2+5+9組",
+    "Class_EN": "II+V+IX Triples",
+    "isSecondary": true
+  },
+  {
+    "Class": "デュオトリプル6型乙組",
+    "Class_EN": "Duet Triples VI.B",
+    "isSecondary": true
+  },
+  {
+    "Class": "トリプル3+6+7組",
+    "Class_EN": "III+VI+VII Triples",
+    "isSecondary": true
+  },
+  {
+    "Class": "デュオトリプル8型乙組",
+    "Class_EN": "Duet Triples VIII.B",
+    "isSecondary": true
+  },
+  {
+    "Class": "トリプル3+7+8組",
+    "Class_EN": "III+VII+VIII Triples",
+    "isSecondary": true
+  },
+  {
+    "Class": "トリプル4+6+7組",
+    "Class_EN": "IV+VI+VII Triples",
+    "isSecondary": true
+  },
+  {
+    "Class": "テンズデュアルシックスズ",
+    "Class_EN": "Tens Dual Sum-6s",
+    "isSecondary": true
+  },
+  {
+    "Class": "サイドデュアルイレブンズ",
+    "Class_EN": "Side Dual Sum-11s",
+    "isSecondary": true
+  },
+  {
+    "Class": "トリプル3+6+8組",
+    "Class_EN": "III+VI+VIII Triples",
+    "isSecondary": true
+  },
+  {
+    "Class": "テンズデュアルフォーズ",
+    "Class_EN": "Tens Dual Sum-4s",
+    "isSecondary": true
+  },
+  {
+    "Class": "トリプル3+5+7組",
+    "Class_EN": "III+V+VII Triples",
+    "isSecondary": true
+  },
+  {
+    "Class": "テンズデュアルスリーズ",
+    "Class_EN": "Tens Dual Sum-3s",
+    "isSecondary": true
+  },
+  {
+    "Class": "デュオトリプル4型丙組",
+    "Class_EN": "Duet Triples IV.C",
+    "isSecondary": true
+  },
+  {
+    "Class": "デュオトリプル5型乙組",
+    "Class_EN": "Duet Triples V.B",
+    "isSecondary": true
+  },
+  {
+    "Class": "トリプル1+2+3組",
+    "Class_EN": "I+II+III Triples",
+    "isSecondary": true
+  },
+  {
+    "Class": "トリプル1+2+5組",
+    "Class_EN": "I+II+V Triples",
+    "isSecondary": true
+  },
+  {
+    "Class": "トリプル1+2+6組",
+    "Class_EN": "I+II+VI Triples",
+    "isSecondary": true
+  },
+  {
+    "Class": "トリプル1+2+7組",
+    "Class_EN": "I+II+VII Triples",
+    "isSecondary": true
+  },
+  {
+    "Class": "トリプル1+2+8組",
+    "Class_EN": "I+II+VIII Triples",
+    "isSecondary": true
+  },
+  {
+    "Class": "トリプル1+2+9組",
+    "Class_EN": "I+II+IX Triples",
+    "isSecondary": true
+  },
+  {
+    "Class": "デュオトリプル5型丙組",
+    "Class_EN": "Duet Triples V.C",
+    "isSecondary": true
+  },
+  {
+    "Class": "デュオトリプル7型乙組",
+    "Class_EN": "Duet Triples VII.B",
+    "isSecondary": true
+  },
+  {
+    "Class": "トリプル1+3+4組",
+    "Class_EN": "I+III+IV Triples",
+    "isSecondary": true
+  },
+  {
+    "Class": "トリプル1+3+5組",
+    "Class_EN": "I+III+V Triples",
+    "isSecondary": true
+  },
+  {
+    "Class": "トリプル1+3+6組",
+    "Class_EN": "I+III+VI Triples",
+    "isSecondary": true
+  },
+  {
+    "Class": "トリプル1+3+7組",
+    "Class_EN": "I+III+VII Triples",
+    "isSecondary": true
+  },
+  {
+    "Class": "トリプル1+3+8組",
+    "Class_EN": "I+III+VIII Triples",
+    "isSecondary": true
+  },
+  {
+    "Class": "トリプル1+3+9組",
+    "Class_EN": "I+III+IX Triples",
+    "isSecondary": true
+  },
+  {
+    "Class": "テンズデュアルファイブズ",
+    "Class_EN": "Tens Dual Sum-5s",
+    "isSecondary": true
+  },
+  {
+    "Class": "デュオトリプル9型乙組",
+    "Class_EN": "Duet Triples IX.B",
+    "isSecondary": true
+  },
+  {
+    "Class": "トリプル1+4+5組",
+    "Class_EN": "I+IV+V Triples",
+    "isSecondary": true
+  },
+  {
+    "Class": "トリプル1+4+6組",
+    "Class_EN": "I+IV+VI Triples",
+    "isSecondary": true
+  },
+  {
+    "Class": "トリプル1+4+7組",
+    "Class_EN": "I+IV+VII Triples",
+    "isSecondary": true
+  },
+  {
+    "Class": "トリプル1+4+9組",
+    "Class_EN": "I+IV+IX Triples",
+    "isSecondary": true
+  },
+  {
+    "Class": "デュオトリプル2型乙組",
+    "Class_EN": "Duet Triples II.B",
+    "isSecondary": true
+  },
+  {
+    "Class": "トリプル1+5+6組",
+    "Class_EN": "I+V+VI Triples",
+    "isSecondary": true
+  },
+  {
+    "Class": "トリプル1+5+7組",
+    "Class_EN": "I+V+VII Triples",
+    "isSecondary": true
+  },
+  {
+    "Class": "トリプル1+5+8組",
+    "Class_EN": "I+V+VIII Triples",
+    "isSecondary": true
+  },
+  {
+    "Class": "トリプル1+5+9組",
+    "Class_EN": "I+V+IX Triples",
+    "isSecondary": true
+  },
+  {
+    "Class": "テンズデュアルセブンズ",
+    "Class_EN": "Tens Dual Sum-7s",
+    "isSecondary": true
+  },
+  {
+    "Class": "デュオトリプル8型丙組",
+    "Class_EN": "Duet Triples VIII.C",
+    "isSecondary": true
+  },
+  {
+    "Class": "デュオトリプル4型乙組",
+    "Class_EN": "Duet Triples IV.B",
+    "isSecondary": true
+  },
+  {
+    "Class": "トリプル1+6+7組",
+    "Class_EN": "I+VI+VII Triples",
+    "isSecondary": true
+  },
+  {
+    "Class": "トリプル1+6+8組",
+    "Class_EN": "I+VI+VIII Triples",
+    "isSecondary": true
+  },
+  {
+    "Class": "トリプル1+6+9組",
+    "Class_EN": "I+VI+IX Triples",
+    "isSecondary": true
+  },
+  {
+    "Class": "テンズデュアルエイツ",
+    "Class_EN": "Tens Dual Sum-8s",
+    "isSecondary": true
+  },
+  {
+    "Class": "トリプル1+7+8組",
+    "Class_EN": "I+VII+VIII Triples",
+    "isSecondary": true
+  },
+  {
+    "Class": "トリプル1+7+9組",
+    "Class_EN": "I+VII+IX Triples",
+    "isSecondary": true
+  },
+  {
+    "Class": "ナインティデュアルズ",
+    "Class_EN": "90s Duals",
+    "isSecondary": true
+  },
+  {
+    "Class": "デュオトリプル1型丙組",
+    "Class_EN": "Duet Triples I.C",
+    "isSecondary": true
+  },
+  {
+    "Class": "トリプル1+8+9組",
+    "Class_EN": "I+VIII+IX Triples",
+    "isSecondary": true
+  },
+  {
+    "Class": "テンズデュアルキャリーズ",
+    "Class_EN": "Tens Dual Carries",
+    "isSecondary": true
+  },
+  {
+    "Class": "デュオトリプル2型丙組",
+    "Class_EN": "Duet Triples II.C",
+    "isSecondary": true
+  },
+  {
+    "Class": "デュオトリプル1型乙組",
+    "Class_EN": "Duet Triples I.B",
+    "isSecondary": true
+  },
+  {
+    "Class": "サイドシングルズ",
+    "Class_EN": "Side Singles",
+    "isSecondary": true
+  },
+  {
+    "Class": "サイドナインズデュアルズ",
+    "Class_EN": "Side Nines Duals",
+    "isSecondary": true
+  },
+  {
+    "Class": "デュオトリプル9型甲組",
+    "Class_EN": "Duet Triples IX.A",
+    "isSecondary": true
+  },
+  {
+    "Class": "デュオトリプル3型甲組",
+    "Class_EN": "Duet Triples III.A",
+    "isSecondary": true
+  },
+  {
+    "Class": "トリプル2+3+4組",
+    "Class_EN": "II+III+IV Triples",
+    "isSecondary": true
+  },
+  {
+    "Class": "トリプル2+3+5組",
+    "Class_EN": "II+III+V Triples",
+    "isSecondary": true
+  },
+  {
+    "Class": "トリプル2+3+7組",
+    "Class_EN": "II+III+VII Triples",
+    "isSecondary": true
+  },
+  {
+    "Class": "トリプル2+3+9組",
+    "Class_EN": "II+III+IX Triples",
+    "isSecondary": true
+  },
+  {
+    "Class": "トリプル2+4+5組",
+    "Class_EN": "II+IV+V Triples",
+    "isSecondary": true
+  },
+  {
+    "Class": "トリプル2+4+6組",
+    "Class_EN": "II+IV+VI Triples",
+    "isSecondary": true
+  },
+  {
+    "Class": "トリプル2+4+7組",
+    "Class_EN": "II+IV+VII Triples",
+    "isSecondary": true
+  },
+  {
+    "Class": "トリプル2+4+8組",
+    "Class_EN": "II+IV+VIII Triples",
+    "isSecondary": true
+  },
+  {
+    "Class": "デュオトリプル3型乙組",
+    "Class_EN": "Duet Triples III.B",
+    "isSecondary": true
+  },
+  {
+    "Class": "トリプル2+5+7組",
+    "Class_EN": "II+V+VII Triples",
+    "isSecondary": true
+  },
+  {
+    "Class": "トリプル2+6+7組",
+    "Class_EN": "II+VI+VII Triples",
+    "isSecondary": true
+  },
+  {
+    "Class": "トリプル2+6+8組",
+    "Class_EN": "II+VI+VIII Triples",
+    "isSecondary": true
+  },
+  {
+    "Class": "トリプル2+6+9組",
+    "Class_EN": "II+VI+IX Triples",
+    "isSecondary": true
+  },
+  {
+    "Class": "トリプル2+7+8組",
+    "Class_EN": "II+VII+VIII Triples",
+    "isSecondary": true
+  },
+  {
+    "Class": "トリプル2+7+9組",
+    "Class_EN": "II+VII+IX Triples",
+    "isSecondary": true
+  },
+  {
+    "Class": "デュオトリプル3型甲組",
+    "Class_EN": "Duet Triples III.A",
+    "isSecondary": true
+  },
+  {
+    "Class": "トリプル2+8+9組",
+    "Class_EN": "II+VIII+IX Triples",
+    "isSecondary": true
+  },
+  {
+    "Class": "テンズデュアルイレブンズ",
+    "Class_EN": "Tens Dual Sum-11s",
+    "isSecondary": true
+  },
+  {
+    "Class": "トリプル3+4+5組",
+    "Class_EN": "III+IV+V Triples",
+    "isSecondary": true
+  },
+  {
+    "Class": "トリプル3+4+6組",
+    "Class_EN": "III+IV+VI Triples",
+    "isSecondary": true
+  },
+  {
+    "Class": "トリプル3+4+7組",
+    "Class_EN": "III+IV+VII Triples",
+    "isSecondary": true
+  },
+  {
+    "Class": "トリプル3+4+8組",
+    "Class_EN": "III+IV+VIII Triples",
+    "isSecondary": true
+  },
+  {
+    "Class": "トリプル3+4+9組",
+    "Class_EN": "III+IV+IX Triples",
+    "isSecondary": true
+  },
+  {
+    "Class": "トリプル3+5+6組",
+    "Class_EN": "III+V+VI Triples",
+    "isSecondary": true
+  },
+  {
+    "Class": "トリプル3+5+8組",
+    "Class_EN": "III+V+VIII Triples",
+    "isSecondary": true
+  },
+  {
+    "Class": "トリプル3+5+9組",
+    "Class_EN": "III+V+IX Triples",
+    "isSecondary": true
+  },
+  {
+    "Class": "トリプル3+6+9組",
+    "Class_EN": "III+VI+IX Triples",
+    "isSecondary": true
+  },
+  {
+    "Class": "トリプル3+7+9組",
+    "Class_EN": "III+VII+IX Triples",
+    "isSecondary": true
+  },
+  {
+    "Class": "トリプル3+8+9組",
+    "Class_EN": "III+VIII+IX Triples",
+    "isSecondary": true
+  },
+  {
+    "Class": "トリプル4+5+6組",
+    "Class_EN": "IV+V+VI Triples",
+    "isSecondary": true
+  },
+  {
+    "Class": "トリプル4+5+7組",
+    "Class_EN": "IV+V+VII Triples",
+    "isSecondary": true
+  },
+  {
+    "Class": "トリプル4+5+8組",
+    "Class_EN": "IV+V+VIII Triples",
+    "isSecondary": true
+  },
+  {
+    "Class": "トリプル4+5+9組",
+    "Class_EN": "IV+V+IX Triples",
+    "isSecondary": true
+  },
+  {
+    "Class": "トリプル4+6+8組",
+    "Class_EN": "IV+VI+VIII Triples",
+    "isSecondary": true
+  },
+  {
+    "Class": "トリプル4+6+9組",
+    "Class_EN": "IV+VI+IX Triples",
+    "isSecondary": true
+  },
+  {
+    "Class": "トリプル4+7+8組",
+    "Class_EN": "IV+VII+VIII Triples",
+    "isSecondary": true
+  },
+  {
+    "Class": "トリプル4+7+9組",
+    "Class_EN": "IV+VII+IX Triples",
+    "isSecondary": true
+  },
+  {
+    "Class": "トリプル4+8+9組",
+    "Class_EN": "IV+VIII+IX Triples",
+    "isSecondary": true
+  },
+  {
+    "Class": "トリプル5+6+7組",
+    "Class_EN": "V+VI+VII Triples",
+    "isSecondary": true
+  },
+  {
+    "Class": "トリプル5+6+8組",
+    "Class_EN": "V+VI+VIII Triples",
+    "isSecondary": true
+  },
+  {
+    "Class": "トリプル5+6+9組",
+    "Class_EN": "V+VI+IX Triples",
+    "isSecondary": true
+  },
+  {
+    "Class": "トリプル5+7+8組",
+    "Class_EN": "V+VII+VIII Triples",
+    "isSecondary": true
+  },
+  {
+    "Class": "トリプル5+7+9組",
+    "Class_EN": "V+VII+IX Triples",
+    "isSecondary": true
+  },
+  {
+    "Class": "トリプル5+8+9組",
+    "Class_EN": "V+VIII+IX Triples",
+    "isSecondary": true
+  },
+  {
+    "Class": "トリプル6+7+8組",
+    "Class_EN": "VI+VII+VIII Triples",
+    "isSecondary": true
+  },
+  {
+    "Class": "トリプル6+7+9組",
+    "Class_EN": "VI+VII+IX Triples",
+    "isSecondary": true
+  },
+  {
+    "Class": "トリプル6+8+9組",
+    "Class_EN": "VI+VIII+IX Triples",
+    "isSecondary": true
+  },
+  {
+    "Class": "トリプル7+8+9組",
+    "Class_EN": "VII+VIII+IX Triples",
+    "isSecondary": true
+  }
+]

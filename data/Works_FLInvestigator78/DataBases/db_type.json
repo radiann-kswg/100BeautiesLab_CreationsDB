@@ -23,11 +23,7 @@
     ]
   },
   "$DefType": [
-    {
-      "hashTag": "Card",
-      "$type": "#Index",
-      "hashTag_JP": "カード"
-    },
+    { "hashTag": "Card", "$type": "#Index", "hashTag_JP": "カード" },
     {
       "hashTag": "Images",
       "$type": [
@@ -97,19 +93,13 @@
               "hashTag": "KinematicOrStatic",
               "$type": "#ListIndex|#Null",
               "hashTag_JP": "動的か静的か",
-              "$display": {
-                "section": "spec",
-                "tagSpace": "creation"
-              }
+              "$display": { "section": "spec", "tagSpace": "creation" }
             },
             {
               "hashTag": "RoleType",
               "$type": "#ListIndex|#Null",
               "hashTag_JP": "ロール種別",
-              "$display": {
-                "section": "spec",
-                "tagSpace": "creation"
-              }
+              "$display": { "section": "spec", "tagSpace": "creation" }
             },
             {
               "hashTag": "DualizePattern",

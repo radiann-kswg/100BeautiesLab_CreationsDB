@@ -4,9 +4,7 @@
     "Unit_FullEN": "second",
     "Unit_JP": "時刻(KMS法)",
     "Progress": "stillTentative",
-    "Images": {
-      "design_PNGName": "design_imgPhysU-sec"
-    },
+    "Images": { "design_PNGName": "design_imgPhysU-sec" },
     "Name": "セコンド",
     "Name_EN": "Second_SI-T",
     "FormalName": {
@@ -23,8 +21,7 @@
     "Weight_kg": { "hideText": "？？？" },
     "Age": { "hideText": "？？？" },
     "Belonging": ["フィジカル9"],
-    "Class": "組織長\n第１界担当",
-    "Class_EN": "Chief/Leader\nOwner of #REGION.1",
+    "Class": ["組織長", "第１界担当"],
     "FirstPersonCalling": "自分",
     "SecondPersonCalling": "[※名前呼び]",
     "ThirdPersonCalling": "[※名前呼び]",
@@ -55,8 +52,7 @@
     "Weight_kg": { "hideText": "非公開" },
     "Age": 16,
     "Belonging": ["フィジカル9"],
-    "Class": "第２界担当",
-    "Class_EN": "Owner of #REGION.2",
+    "Class": ["第２界担当"],
     "FirstPersonCalling": "あたし",
     "SecondPersonCalling": "あんた",
     "ThirdPersonCalling": "[※名前呼び];*いつ,*れ",
@@ -73,9 +69,7 @@
     "Unit_FullEN": "KiloGram",
     "Unit_JP": "質量(KMS法)",
     "Progress": "stillTentative",
-    "Images": {
-      "design_PNGName": "design_imgPhysU-kg"
-    },
+    "Images": { "design_PNGName": "design_imgPhysU-kg" },
     "Name": "キログラ",
     "Name_EN": "Kilogra_SI-M",
     "FormalName": "瓩=砲丸 リキ吉(せんがわら=ショットシェルズ りきち)",
@@ -86,8 +80,7 @@
     "Weight_kg": { "hideText": "判定不能" },
     "Age": 51,
     "Belonging": ["フィジカル9"],
-    "Class": "第３界担当",
-    "Class_EN": "Owner of #REGION.3",
+    "Class": ["第３界担当"],
     "FirstPersonCalling": "あっし",
     "SecondPersonCalling": "おぬし,てめえ",
     "ThirdPersonCalling": "[※名前呼び];*いつ,*れ",
@@ -104,9 +97,7 @@
     "Unit_FullEN": "Candela",
     "Unit_JP": "光度",
     "Progress": "stillTentative",
-    "Images": {
-      "design_PNGName": "design_imgPhysU-cd"
-    },
+    "Images": { "design_PNGName": "design_imgPhysU-cd" },
     "Name": "カンデラ",
     "Name_EN": "Candela_SI-J",
     "FormalName": "燈[橙](あかりの)希灯(ネオン)ブライトゲイン",
@@ -117,8 +108,7 @@
     "Weight_kg": { "hideText": "判定不能" },
     "Age": 19,
     "Belonging": ["フィジカル9"],
-    "Class": "第４界担当",
-    "Class_EN": "Owner of #REGION.4",
+    "Class": ["第４界担当"],
     "FirstPersonCalling": "わっち",
     "SecondPersonCalling": "あんた,てめえ",
     "ThirdPersonCalling": "[※名前呼び];*イツ,*レ",
@@ -135,9 +125,7 @@
     "Unit_FullEN": "Kelvin",
     "Unit_JP": "絶対温度",
     "Progress": "stillTentative",
-    "Images": {
-      "design_PNGName": "design_imgPhysU-K"
-    },
+    "Images": { "design_PNGName": "design_imgPhysU-K" },
     "Name": "ケルビン",
     "Name_EN": "Kelvin_SI-Θ",
     "FormalName": "熱(ほとぼり)ウルスネムリ",
@@ -148,8 +136,7 @@
     "Weight_kg": { "hideText": "判定不能" },
     "Age": { "about_JP": "不詳", "about_EN": "Unknown or Undefined" },
     "Belonging": ["フィジカル9"],
-    "Class": "第５界担当",
-    "Class_EN": "Owner of #REGION.5",
+    "Class": ["第５界担当"],
     "FirstPersonCalling": "あたい\nわたし ※時々",
     "SecondPersonCalling": "あんた\nあなた ※時々",
     "ThirdPersonCalling": "[※二人称],[※名前呼び];*れ",
@@ -166,9 +153,7 @@
     "Unit_FullEN": "Anpere",
     "Unit_JP": "電流値",
     "Progress": "stillTentative",
-    "Images": {
-      "design_PNGName": "design_imgPhysU-A"
-    },
+    "Images": { "design_PNGName": "design_imgPhysU-A" },
     "Name": "アンプ",
     "Name_EN": "Amp'_SI-I",
     "FormalName": "電(いなずま)カレン=ソー",
@@ -179,8 +164,7 @@
     "Weight_kg": { "hideText": "非公開" },
     "Age": 22,
     "Belonging": ["フィジカル9"],
-    "Class": "第６界担当",
-    "Class_EN": "Owner of #REGION.6",
+    "Class": ["第６界担当"],
     "FirstPersonCalling": "ぼく\nわたし ※稀",
     "SecondPersonCalling": "きみ\nあなた ※稀",
     "ThirdPersonCalling": "[※名前呼び]",
@@ -197,9 +181,7 @@
     "Unit_FullEN": "mol",
     "Unit_JP": "物質量",
     "Progress": "stillTentative",
-    "Images": {
-      "design_PNGName": "design_imgPhysU-mol"
-    },
+    "Images": { "design_PNGName": "design_imgPhysU-mol" },
     "Name": "モル",
     "Name_EN": "Mol_SI-N",
     "FormalName": "掌 大気(たなごころ えあ)",
@@ -210,8 +192,7 @@
     "Weight_kg": { "hideText": "本人すら把握されていない" },
     "Age": 19,
     "Belonging": ["フィジカル9"],
-    "Class": "第７界担当",
-    "Class_EN": "Owner of #REGION.7",
+    "Class": ["第７界担当"],
     "FirstPersonCalling": "俺",
     "SecondPersonCalling": "お前",
     "ThirdPersonCalling": "[※名前呼び];*レ",
@@ -228,9 +209,7 @@
     "Unit_FullEN": "radian",
     "Unit_JP": "角度(弧度法)",
     "Progress": "stillTentative",
-    "Images": {
-      "design_PNGName": "design_imgPhysU-rad"
-    },
+    "Images": { "design_PNGName": "design_imgPhysU-rad" },
     "_DBLink": {
       "worksTitle": "Proxies",
       "dbName": "Proxy",
@@ -249,8 +228,7 @@
     "SecondPersonCalling": "君(きみ),[※名前呼び]",
     "ThirdPersonCalling": "彼/彼女;*いつ/*レ;~君/さん",
     "Belonging": ["フィジカル9"],
-    "Class": "第８界担当",
-    "Class_EN": "Owner of #REGION.8",
+    "Class": ["第８界担当"],
     "Hobby": "時計の構造解析、データベース作成",
     "SpecialSkill": "プログラミング",
     "Strength": "知的積極性が比較的ある",
@@ -263,9 +241,7 @@
     "Unit_FullEN": "steradian",
     "Unit_JP": "立体角(弧度法)",
     "Progress": "stillTentative",
-    "Images": {
-      "design_PNGName": "design_imgPhysU-sr"
-    },
+    "Images": { "design_PNGName": "design_imgPhysU-sr" },
     "Name": "ステラ",
     "Name_EN": "Srera'N",
     "FormalName": "環(たまき)ひかり.フラッシュレイ",
@@ -277,8 +253,7 @@
     "Weight_kg": { "hideText": "非公開希望" },
     "Age": 18,
     "Belonging": ["フィジカル9"],
-    "Class": "マネージャー\n第８界担当補佐",
-    "Class_EN": "Keeper\nSupporter for owning #REGION.8",
+    "Class": ["マネージャー", "第８界担当補佐"],
     "FirstPersonCalling": "あて",
     "SecondPersonCalling": "あなた,[※名前呼び]",
     "ThirdPersonCalling": "[※名前呼び];~さん",

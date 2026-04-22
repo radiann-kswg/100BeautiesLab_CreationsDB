@@ -88,9 +88,7 @@
   {
     "Chronos": { "Lunar": "Yayoi" },
     "Progress": "stillTentative",
-    "Images": {
-      "concept_PNGName": "cnsp_imgCL3G3"
-    },
+    "Images": { "concept_PNGName": "cnsp_imgCL3G3" },
     "Name": "桜花 信(とき)",
     "Name_EN": "Trustia Cherrybroom",
     "FormalName": "桜花 訫(とき)",
@@ -221,9 +219,7 @@
   {
     "Chronos": { "Lunar": "Minadzuki" },
     "Progress": "stillTentative",
-    "Images": {
-      "concept_PNGName": "cnsp_imgCL6G3"
-    },
+    "Images": { "concept_PNGName": "cnsp_imgCL6G3" },
     "Name": "水無瀬 雫",
     "Name_EN": "Aquanne Afterains",
     "FormalName": "水無瀬 雫",

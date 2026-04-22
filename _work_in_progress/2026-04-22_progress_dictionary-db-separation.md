@@ -12,6 +12,9 @@
   - `Belonging` フィールドの参照先辞書名を `Faction` へ変更し、`data/db_type.json` の `$dict` を `Faction` に更新
   - 辞書カタログを `#Dict_Faction` / `keyField: Faction` へ改名し、実体ファイルも `dict_Faction.json` へ変更
   - `pages/characters.js` の `#DictIndex` 表示解決で typedef の `$dict` を優先するよう更新
+  - `DestinyFoxRecords` / `FLInvestigator78` / `NumberTales` / `PastDivers` / `ShouArRiders` / `UnauthedLogica` に作品別 `Dictionaries/dict_Class.json` を追加し、既存 `Class` / `Class_EN` のユニーク組を辞書 seed として集約
+  - 上記 6 作品の `Dictionaries/db_meta.json` に `#Dict_Class` カタログを追加し、後続の `Class -> #DictIndex[]` 移行準備を行った
+  - `DestinyFoxRecords` / `NumberTales` / `PastDivers` の `dict_Class.json` では、改行区切りで複合化されていた `Class` / `Class_EN` を行単位の個別辞書項目へ分割し、和英の並び順を 1:1 で揃えた
 - 影響範囲:
   - `lib/sw-common.js`
   - `pages/characters.js`
@@ -27,9 +30,11 @@
   - `docs/api-sw-spec.md`
   - `CHANGELOG.md`
 - 未完了タスク:
-  - なし
+  - レコード側 `Class` / `Class_EN` を `#DictIndex[]` ベースへ移行する
+  - `data/db_type.json` と `pages/characters.js` を `Class` 辞書参照前提へ追従する
 - 検証:
   - `npm.cmd test -- tests/sw.deftype.merge.test.js tests/sw.enrich.basic.test.js tests/pages.characters.syntax.test.js tests/data.shape.test.js tests/enrich.dblink.jump.merge.test.js`: pass
+  - `npm.cmd test -- tests/data.sanity.test.js`: pass
 - 参考リンク:
   - `data/Dictionaries/db_meta.json`
   - `data/Dictionaries/dict_Area.json`

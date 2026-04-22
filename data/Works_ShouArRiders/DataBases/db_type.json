@@ -8,11 +8,7 @@
         "hashTagName_JP": "動物",
         "hashTagName_EN": "Beast"
       },
-      {
-        "hashTag": "Eto",
-        "$type": "#String_JP",
-        "hashTag_JP": "干支"
-      },
+      { "hashTag": "Eto", "$type": "#String_JP", "hashTag_JP": "干支" },
       {
         "hashTag": "Num",
         "$type": "#Number|#Number_withAbout[]|#Null",
@@ -24,11 +20,7 @@
     "hashTagName_EN": "BeastType"
   },
   "$DefType": [
-    {
-      "hashTag": "BeastType",
-      "$type": "#Index",
-      "hashTag_JP": "獣種"
-    },
+    { "hashTag": "BeastType", "$type": "#Index", "hashTag_JP": "獣種" },
     {
       "hashTag": "Images",
       "$type": [

@@ -2,9 +2,7 @@
   {
     "Card": { "Stoat": "Major", "StoatNum": 0, "Num": 0 },
     "Progress": "released(beta)",
-    "Images": {
-      "cardDesign_PNGName": "crddsn_imgFLM0-sample"
-    },
+    "Images": { "cardDesign_PNGName": "crddsn_imgFLM0-sample" },
     "Name": "フェニクス",
     "Name_EN": "Tripper",
     "FormalName": "愚かな旅人\nフェニクス.ゼロウス",
@@ -13,8 +11,7 @@
     "CodeName_EN": "Fool",
     "RaceType": "Komainu",
     "GenderType": "Male",
-    "Class": "情報屋",
-    "Class_EN": "Informant",
+    "Class": ["情報屋"],
     "ArcanamspecAbout": "火元素の力を纏い、すべての攻撃を躱す\nこの効果が発動中、周囲の危険度が変動する",
     "Summary": "“未来消失”という神隠し現象を悪用した特殊事件の情報を得るため、各所に視察任務行っている異能組織『セブンティエイト特殊探偵団』（通称『運命線探偵』）の情報屋。\n【愚かな旅人】のアルカナムスペックを行使する彼は、不死鳥を宿した能力で相手の攻撃を軽やかに躱し 浄化の炎で敵を薙ぎ払います。\nただ、どうやら采配幹部(ディーラーズ)の２人の呼び名はいつも姉妹で逆になってしまう模様…",
     "ArcanumspecStats": {
@@ -32,9 +29,7 @@
         "Rewriting": { "hideText": "検証中" }
       },
       "SpecialPattern": ["Ptn.A(覚醒)", "Ptn.Q(天変地異)"],
-      "SafetyLevel": {
-        "SafetyLevelText": "危険度を有効活用可能"
-      },
+      "SafetyLevel": { "SafetyLevelText": "危険度を有効活用可能" },
       "SpecLevel": { "Rank": "S+" }
     },
     "AdditionalDesigned": "カードイラスト：REITO_KYUN♡(https://piku.page/@REITO_KYUN)\nカード背景：喜雨(https://kiucouch.myportfolio.com/)"
@@ -42,9 +37,7 @@
   {
     "Card": { "Stoat": "Major", "StoatNum": 1, "Num": 1 },
     "Progress": "released(beta)",
-    "Images": {
-      "cardDesign_PNGName": "crddsn_imgFLM1-sample"
-    },
+    "Images": { "cardDesign_PNGName": "crddsn_imgFLM1-sample" },
     "Name": "オリジン",
     "Name_EN": "Dr.Origin",
     "FormalName": "四元の魔術師\nオリジン.マギカルテット",
@@ -53,17 +46,12 @@
     "CodeName_EN": "Magician",
     "RaceType": "Human",
     "GenderType": "MaleNeutral",
-    "Class": "第1幹部/最高幹部",
-    "Class_EN": "Executive.1/Top",
+    "Class": ["第1幹部/最高幹部"],
     "ArcanamspecAbout": "元素を操る",
     "Summary": "“未来消失”という神隠し現象を巡る幾つもの特殊事件を解決し、異能組織『セブンティエイト特殊探偵団』（通称『運命線探偵』）の中でも名探偵と称される最高幹部。\n【四元の魔術師】のアルカナムスペックを行使する彼は、まるで錬金術のような元素操作を得意とし 改竄された運命線の手掛かりと証拠を迅速に掴みます。\nちなみに、副業として自営業も営んでいることから 運命線探偵の人事にも強く関わりがある様子。",
     "ArcanumspecStats": {
       "SpecType": {
-        "Material": [
-          {
-            "Material": "Quart"
-          }
-        ],
+        "Material": [{ "Material": "Quart" }],
         "KinematicOrStatic": "Kinematic",
         "RoleType": "Lead",
         "DualizePattern": { "Pattern": "Prop.(通常)" }
@@ -92,17 +80,12 @@
     "CodeName_EN": "High-Priestess",
     "RaceType": "Human",
     "GenderType": "Female",
-    "Class": "第2幹部/最高幹部",
-    "Class_EN": "Executive.2/Top",
+    "Class": ["第2幹部/最高幹部"],
     "ArcanamspecAbout": "正気度を操る",
     "Summary": "",
     "ArcanumspecStats": {
       "SpecType": {
-        "Material": [
-          {
-            "Material": "Water"
-          }
-        ],
+        "Material": [{ "Material": "Water" }],
         "KinematicOrStatic": "Static",
         "RoleType": "Keep",
         "DualizePattern": { "Pattern": "Prop." }
@@ -122,9 +105,7 @@
   {
     "Card": { "Stoat": "Major", "StoatNum": 3, "Num": 3 },
     "Progress": "released(beta)",
-    "Images": {
-      "cardDesign_PNGName": "crddsn_imgFLM3-sample"
-    },
+    "Images": { "cardDesign_PNGName": "crddsn_imgFLM3-sample" },
     "Name": "ウェヌス",
     "Name_EN": "Venus",
     "FormalName": "九星の女帝\nウェヌス.ハピネス",
@@ -133,18 +114,12 @@
     "CodeName_EN": "Empress",
     "RaceType": "OverHuman",
     "GenderType": "Female",
-    "Class": "第3幹部",
-    "Class_EN": "Executive.3",
+    "Class": ["第3幹部"],
     "ArcanamspecAbout": "自身が止まっている間だけ、周囲の人々の精神状態を操作する",
     "Summary": "“未来消失”という神隠し現象を取り巻く特殊事件の未然防止に努める、異能組織『セブンティエイト特殊探偵団』（通称『運命線探偵』）の第３幹部。\n【九星の女帝】のアルカナムスペックを行使する彼女は、周囲の精神状態を静かに操作する力があり 引き金となるアリバイから特殊事件を丸く収めることに長けています。\nただ、周りの男性を駄目にしてしまうほどの母性と包容力があるせいで、宴会ではお持ち帰り（をする）役に立ちまわりがちという噂があり…",
     "ArcanumspecStats": {
       "SpecType": {
-        "Material": [
-          {
-            "Material": "Water"
-          },
-          { "Material": "Object" }
-        ],
+        "Material": [{ "Material": "Water" }, { "Material": "Object" }],
         "KinematicOrStatic": "Pre-Static",
         "RoleType": "Heal",
         "DualizePattern": { "Pattern": "Prop." }
@@ -165,9 +140,7 @@
   {
     "Card": { "Stoat": "Major", "StoatNum": 8, "Num": 8 },
     "Progress": "released(beta)",
-    "Images": {
-      "cardDesign_PNGName": "crddsn_imgFLM8-sample"
-    },
+    "Images": { "cardDesign_PNGName": "crddsn_imgFLM8-sample" },
     "Name": "リオン",
     "Name_EN": "Lion",
     "FormalName": "力の獅子遣い\nリオン.インフィニティ",
@@ -176,17 +149,12 @@
     "CodeName_EN": "Strength",
     "RaceType": "Lionian",
     "GenderType": "FemaleNeutral",
-    "Class": "第8幹部/九蓮国支部幹部",
-    "Class_EN": "Executive.8/RN Brunch.Executive",
+    "Class": ["第8幹部/九蓮国支部幹部"],
     "ArcanamspecAbout": "怒りを操作する",
     "Summary": "運命線の乱れの原因となる暴走したアルカナム存在の鎮圧をこなしている、異能組織『セブンティエイト特殊探偵団』（通称『運命線探偵』）の第８幹部。\n【力の獅子遣い】のアルカナムスペックを行使する彼女は、相手の怒りや熱情を操作する力を有しており、九蓮国に出現した凶悪な犯行を取り押さえてきました。\nちなみに彼女はサーカス鑑賞という趣味があり、自分も興味本位で獅子を手名付けたいという一心から生まれた「レオ」という召喚獣と行動を共にすることも。",
     "ArcanumspecStats": {
       "SpecType": {
-        "Material": [
-          {
-            "Material": "Fire"
-          }
-        ],
+        "Material": [{ "Material": "Fire" }],
         "KinematicOrStatic": "Pre-Kinematic",
         "RoleType": "Heal",
         "DualizePattern": { "Pattern": "Prop.(通常)" }
@@ -207,9 +175,7 @@
   {
     "Card": { "Stoat": "Major", "StoatNum": 9, "Num": 9 },
     "Progress": "released(beta)",
-    "Images": {
-      "cardDesign_PNGName": "crddsn_imgFLM9-sample"
-    },
+    "Images": { "cardDesign_PNGName": "crddsn_imgFLM9-sample" },
     "Name": "ヴェール",
     "Name_EN": "Veil",
     "FormalName": "秘匿の隠者\nヴェール.コンセントレイト",
@@ -218,17 +184,12 @@
     "CodeName_EN": "Hermit",
     "RaceType": "OverHuman",
     "GenderType": "Neutral",
-    "Class": "第9幹部/九蓮国支部幹部",
-    "Class_EN": "Executive.9/RN Brunch.Executive",
+    "Class": ["第9幹部/九蓮国支部幹部"],
     "ArcanamspecAbout": "一定範囲内の感度を上げ、範囲外の感度を下げる",
     "Summary": "“未来消失”という神隠し現象について 表向きでは九蓮国の大学助教授として科学的な研究を、裏向きでは異能組織『セブンティエイト特殊探偵団』（通称『運命線探偵』）の第９幹部として事件の科捜研を担っています。\n【秘匿の隠者】のアルカナムスペックを行使する彼は、知覚や感覚を自分の近辺に結集させることで 敵の注意を掻い潜ったり高い洞察力を発揮したりするなど戦闘でも迷彩的な状況掌握能力を有しています。\nしかしチームでの事件捜索にはまだ慣れない様子で……",
     "ArcanumspecStats": {
       "SpecType": {
-        "Material": [
-          {
-            "Material": "Water"
-          }
-        ],
+        "Material": [{ "Material": "Water" }],
         "KinematicOrStatic": "Pre-Static",
         "RoleType": "Fere",
         "DualizePattern": { "Pattern": "Prop." }
@@ -257,20 +218,12 @@
     "CodeName_EN": "Tower",
     "RaceType": "Immaginaries",
     "GenderType": "FemaleNeutral",
-    "Class": "第16幹部/英皇国支部幹部",
-    "Class_EN": "Executive.16/IK Brunch.Executive",
+    "Class": ["第16幹部/英皇国支部幹部"],
     "ArcanamspecAbout": "現在の状況を破壊する",
     "Summary": "",
     "ArcanumspecStats": {
       "SpecType": {
-        "Material": [
-          {
-            "Material": "Fire"
-          },
-          {
-            "Material": "Object"
-          }
-        ],
+        "Material": [{ "Material": "Fire" }, { "Material": "Object" }],
         "KinematicOrStatic": "Pre-Kinematic",
         "RoleType": "Fere",
         "DualizePattern": { "Pattern": "Prop." }
@@ -298,17 +251,12 @@
     "CodeName_EN": "Star",
     "RaceType": "Human",
     "GenderType": "FemaleNeutral",
-    "Class": "第17幹部/英皇国支部幹部",
-    "Class_EN": "Executive.17/IK Brunch.Executive",
+    "Class": ["第17幹部/英皇国支部幹部"],
     "ArcanamspecAbout": "感情を修復する\n欲望を補填する",
     "Summary": "",
     "ArcanumspecStats": {
       "SpecType": {
-        "Material": [
-          {
-            "Material": "Water"
-          }
-        ],
+        "Material": [{ "Material": "Water" }],
         "KinematicOrStatic": "Pre-Static",
         "RoleType": "Repair",
         "DualizePattern": { "Pattern": "Prop." }
@@ -328,9 +276,7 @@
   {
     "Card": { "Stoat": "Dealer", "StoatNum": null, "Num": 79 },
     "Progress": "released(beta)",
-    "Images": {
-      "arts_PNGPath": ["arts_imgFLDealer"]
-    },
+    "Images": { "arts_PNGPath": ["arts_imgFLDealer"] },
     "Name": null,
     "Name_EN": null,
     "FormalName": "切り札の展開師\n第79のアルカナ",
@@ -363,9 +309,7 @@
   {
     "Card": { "Stoat": "Dealer", "StoatNum": null, "Num": 80 },
     "Progress": "released(beta)",
-    "Images": {
-      "arts_PNGPath": ["arts_imgFLDealer"]
-    },
+    "Images": { "arts_PNGPath": ["arts_imgFLDealer"] },
     "Name": null,
     "Name_EN": null,
     "FormalName": "切り札の憑英師\n第80のアルカナ",

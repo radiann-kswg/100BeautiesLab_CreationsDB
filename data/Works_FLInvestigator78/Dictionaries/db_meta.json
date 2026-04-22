@@ -1,3 +1,10 @@
 {
-  "Dictionaries": {}
+  "Dictionaries": {
+    "#Dict_Class": {
+      "DB_Label": "クラス辞書",
+      "DB_Label_EN": "Class Dictionary",
+      "keyField": "Class",
+      "compatListKey": "#List_Class"
+    }
+  }
 }

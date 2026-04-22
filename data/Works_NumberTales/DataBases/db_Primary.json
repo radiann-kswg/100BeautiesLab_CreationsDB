@@ -19,10 +19,7 @@
     "Height_cm": 146,
     "ConceptAge": 14,
     "AnivDay": [
-      {
-        "Day": { "Month": 1, "DayOfMonth": 1 },
-        "DayAbout": "開発記念"
-      },
+      { "Day": { "Month": 1, "DayOfMonth": 1 }, "DayAbout": "開発記念" },
       {
         "Day": { "Month": 9, "DayOfMonth": 1 },
         "DayAbout": "第一リリース記念(劇中)"
@@ -31,13 +28,9 @@
     "Weight_kg": 39,
     "BustSize": "AA",
     "TailsUnit": "キツネ型1本",
-    "Class": "試験用個体\n1桁番(ユニデジッツ)",
-    "Class_EN": "for Testing\nUni-Digits",
+    "Class": ["試験用個体", "1桁番(ユニデジッツ)"],
     "ThisMasters": [
-      {
-        "value": null,
-        "about": "(専属契約不可)"
-      },
+      { "value": null, "about": "(専属契約不可)" },
       {
         "value": "雪乙女 しいな/如月（夜月機関 第2幹部）",
         "about": "試験開発向けの運用"
@@ -96,14 +89,8 @@
           "Comments": "何かあったら任せられて頼れる！",
           "RelationLabel": ["classmate"]
         },
-        {
-          "Num": 11,
-          "Comments": "すごい挑戦をするときによくいる"
-        },
-        {
-          "Num": 55,
-          "Comments": "根本は違うけどぼくと似たり寄ったり？"
-        },
+        { "Num": 11, "Comments": "すごい挑戦をするときによくいる" },
+        { "Num": 55, "Comments": "根本は違うけどぼくと似たり寄ったり？" },
         {
           "Num": 91,
           "Comments": "スタートダッシュもゴールインもカッコいい人！",
@@ -136,10 +123,7 @@
     "Height_cm": 146,
     "ConceptAge": 14,
     "AnivDay": [
-      {
-        "Day": { "Month": 1, "DayOfMonth": 2 },
-        "DayAbout": "開発記念"
-      },
+      { "Day": { "Month": 1, "DayOfMonth": 2 }, "DayAbout": "開発記念" },
       {
         "Day": { "Month": 4, "DayOfMonth": 20 },
         "DayAbout": "第一リリース記念(忠実)"
@@ -148,8 +132,7 @@
     "Weight_kg": 39,
     "BustSize": "C",
     "TailsUnit": "キツネ型2本",
-    "Class": "1桁番(ユニデジッツ)",
-    "Class_EN": "Uni-Digits",
+    "Class": ["1桁番(ユニデジッツ)"],
     "FirstPersonCalling": "私(わたし)",
     "SecondPersonCalling": "君",
     "ThirdPersonCalling": "彼/彼女;~さん,[※名前呼び]",
@@ -210,18 +193,9 @@
         { "Num": "2-alt", "RelationLabel": ["sameNumber"] }
       ],
       "Commented": [
-        {
-          "Num": 11,
-          "Comments": "迷ったら彼(女)に頼りたい"
-        },
-        {
-          "Num": 47,
-          "Comments": "応援してくれて嬉しい"
-        },
-        {
-          "Num": 65,
-          "Comments": "色んなもの持ってて羨ましい"
-        }
+        { "Num": 11, "Comments": "迷ったら彼(女)に頼りたい" },
+        { "Num": 47, "Comments": "応援してくれて嬉しい" },
+        { "Num": 65, "Comments": "色んなもの持ってて羨ましい" }
       ]
     }
   },
@@ -248,8 +222,7 @@
     "Weight_kg": 43,
     "BustSize": "AA",
     "TailsUnit": "キツネ型3本",
-    "Class": "1桁番(ユニデジッツ)",
-    "Class_EN": "Uni-Digits",
+    "Class": ["1桁番(ユニデジッツ)"],
     "FirstPersonCalling": "僕",
     "SecondPersonCalling": "君",
     "ThirdPersonCalling": "彼/彼女;[※名前呼び]",
@@ -303,18 +276,9 @@
           "Comments": "世界観がなんだか憎めない",
           "RelationLabel": ["classmate"]
         },
-        {
-          "Num": 22,
-          "Comments": "簡単に馬鹿にできない"
-        },
-        {
-          "Num": 57,
-          "Comments": "仙人にでもなるつもりなのかな…"
-        },
-        {
-          "Num": 66,
-          "Comments": "信者多そう"
-        }
+        { "Num": 22, "Comments": "簡単に馬鹿にできない" },
+        { "Num": 57, "Comments": "仙人にでもなるつもりなのかな…" },
+        { "Num": 66, "Comments": "信者多そう" }
       ]
     }
   },
@@ -347,8 +311,7 @@
     "Weight_kg": 42,
     "BustSize": "B",
     "TailsUnit": "キツネ型4本",
-    "Class": "1桁番(ユニデジッツ)",
-    "Class_EN": "Uni-Digits",
+    "Class": ["1桁番(ユニデジッツ)"],
     "FirstPersonCalling": "私(わたし)",
     "SecondPersonCalling": "あなた",
     "ThirdPersonCalling": "*の子,*の人;[※名前呼び]",
@@ -389,10 +352,7 @@
           "Comments": "怖い!!!",
           "RelationLabel": ["unmatched", "classmate"]
         },
-        {
-          "Num": 6,
-          "RelationLabel": ["wellMatched", "classmate"]
-        }
+        { "Num": 6, "RelationLabel": ["wellMatched", "classmate"] }
       ],
       "Commented": [
         {
@@ -405,18 +365,9 @@
           "Comments": "作業中はもっと慎重にやってほしいよぉ…",
           "RelationLabel": ["classmate"]
         },
-        {
-          "Num": 22,
-          "Comments": "すごすぎて言葉が出ない…"
-        },
-        {
-          "Num": 58,
-          "Comments": "急に運がよくなるから、よくわからない…"
-        },
-        {
-          "Num": 76,
-          "Comments": "怪しまれそう…多分いい人なのになぁ"
-        }
+        { "Num": 22, "Comments": "すごすぎて言葉が出ない…" },
+        { "Num": 58, "Comments": "急に運がよくなるから、よくわからない…" },
+        { "Num": 76, "Comments": "怪しまれそう…多分いい人なのになぁ" }
       ]
     }
   },
@@ -447,8 +398,7 @@
     "Weight_kg": 42,
     "BustSize": "AA",
     "TailsUnit": "キツネ型5本",
-    "Class": "1桁番(ユニデジッツ)",
-    "Class_EN": "Uni-Digits",
+    "Class": ["1桁番(ユニデジッツ)"],
     "ThisMasters": [
       "五剣(いつつるぎ)/Spade.5(Cinque)（78特殊探偵団 風の刀剣支部 構成員）"
     ],
@@ -492,10 +442,7 @@
           "Comments": "枠に収まりつつ個性的なオーラを放つ友(ダチ)",
           "RelationLabel": ["wellMatched", "classmate"]
         },
-        {
-          "Num": 4,
-          "RelationLabel": ["abusing", "unmatched", "classmate"]
-        },
+        { "Num": 4, "RelationLabel": ["abusing", "unmatched", "classmate"] },
         {
           "Num": 6,
           "Comments": "波長が合わない、悪い人ではないけど…",
@@ -503,22 +450,10 @@
         }
       ],
       "Commented": [
-        {
-          "Num": 10,
-          "Comments": "一体彼(女)の先の何を見てるんだろ…"
-        },
-        {
-          "Num": 32,
-          "Comments": "彼(女)の出し物は何回見ても飽きない!"
-        },
-        {
-          "Num": 68,
-          "Comments": "急に見た目が変わった時なんかは笑う"
-        },
-        {
-          "Num": 77,
-          "Comments": "めっちゃ有能で面白い、参った!"
-        }
+        { "Num": 10, "Comments": "一体彼(女)の先の何を見てるんだろ…" },
+        { "Num": 32, "Comments": "彼(女)の出し物は何回見ても飽きない!" },
+        { "Num": 68, "Comments": "急に見た目が変わった時なんかは笑う" },
+        { "Num": 77, "Comments": "めっちゃ有能で面白い、参った!" }
       ]
     }
   },
@@ -550,8 +485,7 @@
     "Weight_kg": 41,
     "BustSize": "E",
     "TailsUnit": "キツネ型6本",
-    "Class": "1桁番(ユニデジッツ)",
-    "Class_EN": "Uni-Digits",
+    "Class": ["1桁番(ユニデジッツ)"],
     "FirstPersonCalling": "私(わたくし),ムイ ※名前呼び",
     "SecondPersonCalling": "あなた様",
     "ThirdPersonCalling": "*のお方;~様",
@@ -609,14 +543,8 @@
           "Comments": "いつまでも観飽きない子です♪",
           "RelationLabel": ["classmate"]
         },
-        {
-          "Num": 33,
-          "Comments": "偉才な方ですが、彼女が失敗した際はご注意を"
-        },
-        {
-          "Num": 42,
-          "Comments": "無茶も承知でお好きな様にと、いった子ですね"
-        }
+        { "Num": 33, "Comments": "偉才な方ですが、彼女が失敗した際はご注意を" },
+        { "Num": 42, "Comments": "無茶も承知でお好きな様にと、いった子ですね" }
       ]
     }
   },
@@ -644,8 +572,7 @@
     "Weight_kg": 44,
     "BustSize": "AA",
     "TailsUnit": "キツネ型7本",
-    "Class": "1桁番(ユニデジッツ)",
-    "Class_EN": "Uni-Digits",
+    "Class": ["1桁番(ユニデジッツ)"],
     "FirstPersonCalling": "拙者(せっしゃ)",
     "SecondPersonCalling": "其方(そなた)",
     "ThirdPersonCalling": "*の方,*奴(*やつ);~殿",
@@ -703,14 +630,8 @@
           "Comments": "彼女なりの生きがいを感じる",
           "RelationLabel": ["classmate"]
         },
-        {
-          "Num": 25,
-          "Comments": "悪くない意味で恐ろしい感性がある"
-        },
-        {
-          "Num": 88,
-          "Comments": "あれは資産力の化け物"
-        }
+        { "Num": 25, "Comments": "悪くない意味で恐ろしい感性がある" },
+        { "Num": 88, "Comments": "あれは資産力の化け物" }
       ]
     }
   },
@@ -740,8 +661,7 @@
     ],
     "BustSize": "B",
     "TailsUnit": "キツネ型8本",
-    "Class": "1桁番(ユニデジッツ)",
-    "Class_EN": "Uni-Digits",
+    "Class": ["1桁番(ユニデジッツ)"],
     "ThisMasters": [
       {
         "value": "錦野 歌嫁（78特殊探偵団 采配幹部(ディーラー)/百花繚乱研究所(N3US大学 千歳研究室)ゼミアシスタント）",
@@ -800,22 +720,10 @@
         }
       ],
       "Commented": [
-        {
-          "Num": 10,
-          "Comments": "古代兵器みがある"
-        },
-        {
-          "Num": 35,
-          "Comments": "まれに才能開花してそう"
-        },
-        {
-          "Num": 44,
-          "Comments": "守護神でもいそうまである"
-        },
-        {
-          "Num": 62,
-          "Comments": "何かいいの閃いたらあてが作るよ！"
-        }
+        { "Num": 10, "Comments": "古代兵器みがある" },
+        { "Num": 35, "Comments": "まれに才能開花してそう" },
+        { "Num": 44, "Comments": "守護神でもいそうまである" },
+        { "Num": 62, "Comments": "何かいいの閃いたらあてが作るよ！" }
       ]
     }
   },
@@ -843,8 +751,7 @@
     "Weight_kg": 43,
     "BustSize": "E",
     "TailsUnit": "キツネ型9本",
-    "Class": "1桁番(ユニデジッツ)",
-    "Class_EN": "Uni-Digits",
+    "Class": ["1桁番(ユニデジッツ)"],
     "ThisMasters": ["中月 カイン.ナイターエイド"],
     "FirstPersonCalling": "私(わたし)",
     "SecondPersonCalling": "あなた;[主人の呼び方]",
@@ -896,14 +803,8 @@
           "Comments": "もっと大胆にいってもいいのよ？",
           "RelationLabel": ["classmate"]
         },
-        {
-          "Num": 10,
-          "Comments": "自分を見失ってないといいわね"
-        },
-        {
-          "Num": 27,
-          "Comments": "あの子の果てを観てみたいわ"
-        },
+        { "Num": 10, "Comments": "自分を見失ってないといいわね" },
+        { "Num": 27, "Comments": "あの子の果てを観てみたいわ" },
         {
           "Num": 99,
           "Comments": "記憶って、不思議なものね…",
@@ -931,10 +832,7 @@
     "Height_cm": 147,
     "ConceptAge": 15,
     "AnivDay": [
-      {
-        "Day": { "Month": 10, "DayOfMonth": 10 },
-        "DayAbout": "開発記念"
-      },
+      { "Day": { "Month": 10, "DayOfMonth": 10 }, "DayAbout": "開発記念" },
       {
         "Day": { "Month": 4, "DayOfMonth": 10 },
         "DayAbout": "アンチヴィラン対策記念(劇中)"
@@ -943,8 +841,7 @@
     "Weight_kg": 39,
     "BustSize": "AA",
     "TailsUnit": "つぼみ型1本（大1束+小9束）",
-    "Class": "10倍番(テンズデジッツ)",
-    "Class_EN": "Tens-Digits",
+    "Class": ["10倍番(テンズデジッツ)"],
     "ThisMasters": [
       { "value": null, "about": "(専属契約不可)" },
       {
@@ -1018,14 +915,8 @@
         }
       ],
       "Commented": [
-        {
-          "Num": 9,
-          "Comments": "裏がある優しさを持ってる、悪くない"
-        },
-        {
-          "Num": 19,
-          "Comments": "因果応報を信じてやまないね"
-        }
+        { "Num": 9, "Comments": "裏がある優しさを持ってる、悪くない" },
+        { "Num": 19, "Comments": "因果応報を信じてやまないね" }
       ]
     }
   },
@@ -1054,8 +945,7 @@
     "Weight_kg": 43,
     "BustSize": "AA",
     "TailsUnit": "猫又型11本",
-    "Class": "マスターテールズ9",
-    "Class_EN": "Master Tales 9",
+    "Class": ["マスターテールズ9"],
     "FirstPersonCalling": "我",
     "SecondPersonCalling": "汝\n卿(けい)/姫(ひめ) ※稀",
     "ThirdPersonCalling": "[※名前呼び]",
@@ -1113,14 +1003,8 @@
         }
       ],
       "Commented": [
-        {
-          "Num": 38,
-          "Comments": "彼女の周りは毎回驚かされる"
-        },
-        {
-          "Num": 56,
-          "Comments": "多様な輩に恵まれているものだな"
-        }
+        { "Num": 38, "Comments": "彼女の周りは毎回驚かされる" },
+        { "Num": 56, "Comments": "多様な輩に恵まれているものだな" }
       ]
     }
   },
@@ -1150,8 +1034,7 @@
     "Weight_kg": 39,
     "BustSize": "B",
     "TailsUnit": "キツネ(枝分かれ)型2本(上2束1本+下1束1本)",
-    "Class": "デュアルスリーズ",
-    "Class_EN": "Dual Sum-3s",
+    "Class": ["デュアルスリーズ"],
     "ThisMasters": [
       "オードリー.カッツェ.ブラックフレア/アルジーヌ（78特殊探偵団 副支部長(火の棍棒支部)）"
     ],
@@ -1211,10 +1094,7 @@
         }
       ],
       "Commented": [
-        {
-          "Num": 30,
-          "Comments": "幸福の意味をいつか聞いてみたいな"
-        },
+        { "Num": 30, "Comments": "幸福の意味をいつか聞いてみたいな" },
         {
           "Num": 48,
           "Comments": "理想主義？リアリスト？どっちだろう…？",
@@ -1253,8 +1133,7 @@
     "Weight_kg": 40,
     "BustSize": "A",
     "TailsUnit": "キツネ(枝分かれ)型3本(上2束1本+下1束2本)",
-    "Class": "デュアルフォーズ",
-    "Class_EN": "Dual Sum-4s",
+    "Class": ["デュアルフォーズ"],
     "FirstPersonCalling": "私(わたし)",
     "SecondPersonCalling": "君",
     "ThirdPersonCalling": "[※名前呼び]",
@@ -1288,10 +1167,7 @@
     "Backgrounds": "初めて他のナンバーテールズとの並行開発により完成\nこの個体以後、開発が安定し同時リリースも行われる",
     "Relation": {
       "Related": [
-        {
-          "Num": 14,
-          "RelationLabel": ["cousin", "paired"]
-        },
+        { "Num": 14, "RelationLabel": ["cousin", "paired"] },
         {
           "Num": 31,
           "Comments": "出だしは姉の私が補助するよ！ 頑張って！",
@@ -1319,10 +1195,7 @@
           "Comments": "私も見習わないと！",
           "RelationLabel": ["pioneer"]
         },
-        {
-          "Num": 4,
-          "Comments": "引っ込み思案だけどとてもいい人だよ！"
-        },
+        { "Num": 4, "Comments": "引っ込み思案だけどとてもいい人だよ！" },
         {
           "Num": 71,
           "Comments": "最初あんなにすごい子だったっけ…",
@@ -1364,8 +1237,7 @@
     "Weight_kg": 39,
     "BustSize": "F",
     "TailsUnit": "キツネ(枝分かれ)型4本(上2束1本+下1束3本)",
-    "Class": "デュアルファイブズ",
-    "Class_EN": "Dual Sum-5s",
+    "Class": ["デュアルファイブズ"],
     "ThisMasters": ["ゼン.エデンズグリーン/皐月（夜月機関 第5幹部）"],
     "FirstPersonCalling": "私(わたし)",
     "SecondPersonCalling": "君",
@@ -1418,19 +1290,13 @@
         { "Num": 49, "RelationLabel": ["abusing", "cousin_nearly"] }
       ],
       "Commented": [
-        {
-          "Num": 55,
-          "Comments": "なにあいつえっぐ……"
-        },
+        { "Num": 55, "Comments": "なにあいつえっぐ……" },
         {
           "Num": 64,
           "Comments": "かなりぶっ飛んでる",
           "RelationLabel": ["cousin"]
         },
-        {
-          "Num": 77,
-          "Comments": "本当はド真面目なのが憎めない"
-        },
+        { "Num": 77, "Comments": "本当はド真面目なのが憎めない" },
         {
           "Num": 86,
           "Comments": "貢がれてそう",
@@ -1463,10 +1329,7 @@
     "Height_cm": 158,
     "ConceptAge": 18,
     "AnivDay": [
-      {
-        "Day": { "Month": 1, "DayOfMonth": 15 },
-        "DayAbout": "開発記念"
-      },
+      { "Day": { "Month": 1, "DayOfMonth": 15 }, "DayAbout": "開発記念" },
       {
         "Day": { "Month": 4, "DayOfMonth": 15 },
         "DayAbout": "暴走抑止対策記念(劇中)"
@@ -1478,8 +1341,7 @@
     ],
     "BustSize": "AA",
     "TailsUnit": "キツネ(枝分かれ)型5本(上2束1本+下1束4本)",
-    "Class": "デュアルシックスズ",
-    "Class_EN": "Dual Sum-6s",
+    "Class": ["デュアルシックスズ"],
     "ThisMasters": [
       {
         "value": "ミル.ニュクスフ",
@@ -1530,10 +1392,7 @@
           "Comments": "よく覚えてないが、世話になった…気がする",
           "RelationLabel": ["pioneer_nearly", "secretRelation"]
         },
-        {
-          "Num": 12,
-          "RelationLabel": ["wellMatched", "cousin"]
-        },
+        { "Num": 12, "RelationLabel": ["wellMatched", "cousin"] },
         {
           "Num": 33,
           "Comments": "才能に溺れて無茶しないでくれよ",
@@ -1555,10 +1414,7 @@
         }
       ],
       "Commented": [
-        {
-          "Num": 23,
-          "Comments": "少しは持ち場に居てくれ"
-        },
+        { "Num": 23, "Comments": "少しは持ち場に居てくれ" },
         {
           "Num": 69,
           "Comments": "ちょっとは自分を見つめ直した方がいい",
@@ -1605,8 +1461,7 @@
     "Weight_kg": { "hideText": "非公開" },
     "BustSize": "H",
     "TailsUnit": "キツネ(枝分かれ)型6本(上2束1本+下1束5本)",
-    "Class": "デュアルセブンズ",
-    "Class_EN": "Dual Sum-7s",
+    "Class": ["デュアルセブンズ"],
     "ThisMasters": [
       {
         "value": "六花 ルノ（夜月機関 先代第6幹部/白の六芒星 技術長）",
@@ -1656,10 +1511,7 @@
           "Comments": "かわいい♡",
           "RelationLabel": ["pioneer", "abusing"]
         },
-        {
-          "Num": 17,
-          "RelationLabel": ["cousin", "wellMatched"]
-        },
+        { "Num": 17, "RelationLabel": ["cousin", "wellMatched"] },
         {
           "Num": 26,
           "Comments": "いつか彼女に甘えてみたいなぁ…♡",
@@ -1677,10 +1529,7 @@
           "Comments": "すごいポテンシャルの持ち主",
           "RelationLabel": ["pioneer"]
         },
-        {
-          "Num": 7,
-          "Comments": "ちょっと孤高だけどしっかり者"
-        },
+        { "Num": 7, "Comments": "ちょっと孤高だけどしっかり者" },
         {
           "Num": 71,
           "Comments": "いや～…青春だね♪",
@@ -1721,8 +1570,7 @@
     ],
     "BustSize": "AA",
     "TailsUnit": "キツネ(枝分かれ)型7本(上2束1本+下1束6本)",
-    "Class": "デュアルエイツ",
-    "Class_EN": "Dual Sum-8s",
+    "Class": ["デュアルエイツ"],
     "ThisMasters": [
       {
         "value": "ライト.リヴァーブリッジ/ブライト.ゲイザー（78特殊探偵団 第17幹部）",
@@ -1791,18 +1639,9 @@
         }
       ],
       "Commented": [
-        {
-          "Num": 8,
-          "Comments": "知識も価値あるものだと教えてやりたい"
-        },
-        {
-          "Num": 34,
-          "Comments": "数で勝負してるのかな"
-        },
-        {
-          "Num": 43,
-          "Comments": "ポテンシャルが計り知れない"
-        },
+        { "Num": 8, "Comments": "知識も価値あるものだと教えてやりたい" },
+        { "Num": 34, "Comments": "数で勝負してるのかな" },
+        { "Num": 43, "Comments": "ポテンシャルが計り知れない" },
         {
           "Num": 62,
           "Comments": "女性の味方なアイディア、期待してるよ",
@@ -1835,8 +1674,7 @@
     "Weight_kg": 42,
     "BustSize": "C",
     "TailsUnit": "キツネ(枝分かれ)型8本(上2束1本+下1束7本)",
-    "Class": "9倍2桁番(ナインズデュアルズ)",
-    "Class_EN": "Nines Duals",
+    "Class": ["9倍2桁番(ナインズデュアルズ)"],
     "FirstPersonCalling": "あたい",
     "SecondPersonCalling": "あんた",
     "ThirdPersonCalling": "*いつ/*れ;[※名前呼び]",
@@ -1875,10 +1713,7 @@
           "Comments": "平和主義、だけど。あのように見えて裏がありそうだから油断はできない存在ね…",
           "RelationLabel": ["wellMatched_maybe"]
         },
-        {
-          "Num": 19,
-          "RelationLabel": ["cousin", "accompanying"]
-        },
+        { "Num": 19, "RelationLabel": ["cousin", "accompanying"] },
         {
           "Num": 81,
           "Comments": "妹[弟]、需要とか気にしすぎ",
@@ -1933,8 +1768,7 @@
     "Weight_kg": 42,
     "BustSize": "AA",
     "TailsUnit": "キツネ(枝分かれ)型9本(上2束1本+下1束8本)",
-    "Class": "デュアルキャリーズ",
-    "Class_EN": "Dual Carries",
+    "Class": ["デュアルキャリーズ"],
     "FirstPersonCalling": "僕",
     "SecondPersonCalling": "君",
     "ThirdPersonCalling": "彼/彼女;~君/~さん",
@@ -2031,8 +1865,7 @@
     "Weight_kg": 41,
     "BustSize": "H",
     "TailsUnit": "キツネ型2本",
-    "Class": "10倍番(テンズデジッツ)",
-    "Class_EN": "Tens-Digits",
+    "Class": ["10倍番(テンズデジッツ)"],
     "ThisMasters": ["メルランディア.シラユキ"],
     "FirstPersonCalling": "わたし",
     "SecondPersonCalling": "あなたさま",
@@ -2086,10 +1919,7 @@
         { "Num": "2-alt", "RelationLabel": ["brother|sister", "trusted"] }
       ],
       "Commented": [
-        {
-          "Num": 11,
-          "Comments": "すごいお方ですが…なんというか…"
-        },
+        { "Num": 11, "Comments": "すごいお方ですが…なんというか…" },
         {
           "Num": 22,
           "Comments": "困ったら頼りたい",
@@ -2100,10 +1930,7 @@
           "Comments": "臨んでいなくても本領発揮できる方です",
           "RelationLabel": ["successor_nearly"]
         },
-        {
-          "Num": 62,
-          "Comments": "芸術作品に興味がありそうです"
-        }
+        { "Num": 62, "Comments": "芸術作品に興味がありそうです" }
       ]
     }
   },
@@ -2130,8 +1957,7 @@
     "Weight_kg": 39,
     "BustSize": "A",
     "TailsUnit": "キツネ(枝分かれ)型2本(上2束1本+下1束1本)",
-    "Class": "デュアルスリーズ",
-    "Class_EN": "Dual Sum-3s",
+    "Class": ["デュアルスリーズ"],
     "FirstPersonCalling": "僕",
     "SecondPersonCalling": "君",
     "ThirdPersonCalling": "彼/彼女;~さん,[※名前呼び]",
@@ -2177,14 +2003,8 @@
         }
       ],
       "Commented": [
-        {
-          "Num": 3,
-          "Comments": "敵にしたら相手にならなさそう"
-        },
-        {
-          "Num": 11,
-          "Comments": "とにかく半端なく凄い存在"
-        },
+        { "Num": 3, "Comments": "敵にしたら相手にならなさそう" },
+        { "Num": 11, "Comments": "とにかく半端なく凄い存在" },
         {
           "Num": 20,
           "Comments": "いつか気負い過ぎで倒れそうだなぁ…",
@@ -2238,8 +2058,7 @@
     "Weight_kg": { "hideText": "非公開" },
     "BustSize": "I",
     "TailsUnit": "サソリ型2本（それぞれ11束[節]）",
-    "Class": "マスターテールズ9",
-    "Class_EN": "Master Tales 9",
+    "Class": ["マスターテールズ9"],
     "ThisMasters": [
       "江戸川 笑(えみ)/Diamond.2(Duece)（78特殊探偵団 金の硬貨支部 構成員）"
     ],
@@ -2290,26 +2109,11 @@
         }
       ],
       "Commented": [
-        {
-          "Num": 2,
-          "Comments": "優しくていい子！"
-        },
-        {
-          "Num": 4,
-          "Comments": "しっかり者だから見習わないとなぁ～"
-        },
-        {
-          "Num": 47,
-          "Comments": "“加護”って何だろ？でもありがとう！"
-        },
-        {
-          "Num": 62,
-          "Comments": "何か閃いたら教えて！やってみたい！"
-        },
-        {
-          "Num": 84,
-          "Comments": "実現力が本当にすごい！"
-        },
+        { "Num": 2, "Comments": "優しくていい子！" },
+        { "Num": 4, "Comments": "しっかり者だから見習わないとなぁ～" },
+        { "Num": 47, "Comments": "“加護”って何だろ？でもありがとう！" },
+        { "Num": 62, "Comments": "何か閃いたら教えて！やってみたい！" },
+        { "Num": 84, "Comments": "実現力が本当にすごい！" },
         {
           "Num": 99,
           "Comments": "なんか…異世界転生とか経験してる…？",
@@ -2343,8 +2147,7 @@
     "Weight_kg": 40,
     "BustSize": "B",
     "TailsUnit": "キツネ(枝分かれ)型3本(上2束2本+下1束1本)",
-    "Class": "デュアルファイブズ",
-    "Class_EN": "Dual Sum-5s",
+    "Class": ["デュアルファイブズ"],
     "FirstPersonCalling": "ツグミ ※名前呼び\nおれ ※稀",
     "SecondPersonCalling": "おまえ",
     "ThirdPersonCalling": "彼/彼女;*いつ/*れ;[※名前呼び]",
@@ -2445,8 +2248,7 @@
     "Weight_kg": { "hideText": "非公開" },
     "BustSize": "E",
     "TailsUnit": "キツネ(枝分かれ)型4本(上2束2本+下1束2本)",
-    "Class": "デュアルシックスズ",
-    "Class_EN": "Dual Sum-6s",
+    "Class": ["デュアルシックスズ"],
     "FirstPersonCalling": "フトシ ※名前呼び\n私(わたし)",
     "SecondPersonCalling": "あなた",
     "ThirdPersonCalling": "*の子,*の人;[※名前呼び]",
@@ -2503,14 +2305,8 @@
           "Comments": "軽いように見えるけど優秀な人",
           "RelationLabel": ["cousin"]
         },
-        {
-          "Num": 40,
-          "Comments": "“ランプの魔人”を見てるような気分…"
-        },
-        {
-          "Num": 60,
-          "Comments": "アイドルにでもなったらいいのに"
-        },
+        { "Num": 40, "Comments": "“ランプの魔人”を見てるような気分…" },
+        { "Num": 60, "Comments": "アイドルにでもなったらいいのに" },
         {
           "Num": 96,
           "Comments": "ちょっと時間が経ったら別人になってる気が…",
@@ -2551,8 +2347,7 @@
     ],
     "BustSize": "G",
     "TailsUnit": "キツネ(枝分かれ)型5本(上2束2本+下1束3本)",
-    "Class": "デュアルセブンズ",
-    "Class_EN": "Dual Sum-7s",
+    "Class": ["デュアルセブンズ"],
     "ThisMasters": [
       "亜高 蝶嵐(てふらん)/Heart.7(Seven)（78特殊探偵団 水の聖杯支部 構成員）"
     ],
@@ -2612,23 +2407,14 @@
         }
       ],
       "Commented": [
-        {
-          "Num": 11,
-          "Comments": "勘が強すぎる…すごい…"
-        },
-        {
-          "Num": 17,
-          "Comments": "RPGやってるみたいに成長する強キャラ"
-        },
+        { "Num": 11, "Comments": "勘が強すぎる…すごい…" },
+        { "Num": 17, "Comments": "RPGやってるみたいに成長する強キャラ" },
         {
           "Num": 34,
           "Comments": "大人数の中でもすごく平然としてる",
           "RelationLabel": ["classmate"]
         },
-        {
-          "Num": 77,
-          "Comments": "自信家で何やっても筋が通ってる、ヤバそう"
-        }
+        { "Num": 77, "Comments": "自信家で何やっても筋が通ってる、ヤバそう" }
       ]
     }
   },
@@ -2655,8 +2441,7 @@
     "Weight_kg": { "hideText": "非公開" },
     "BustSize": "G",
     "TailsUnit": "キツネ(枝分かれ)型6本(上2束2本+下1束4本)",
-    "Class": "デュアルエイツ",
-    "Class_EN": "Dual Sum-8s",
+    "Class": ["デュアルエイツ"],
     "FirstPersonCalling": "わたし",
     "SecondPersonCalling": "あなた",
     "ThirdPersonCalling": "[※名前呼び],~さん\n~さま",
@@ -2778,8 +2563,7 @@
     "Weight_kg": 43,
     "BustSize": "B",
     "TailsUnit": "キツネ(枝分かれ)型7本(上2束2本+下1束5本)",
-    "Class": "9倍2桁番(ナインズデュアルズ)",
-    "Class_EN": "Nines Duals",
+    "Class": ["9倍2桁番(ナインズデュアルズ)"],
     "FirstPersonCalling": "ツギナ ※名前呼び\n私(わたし) ※稀",
     "SecondPersonCalling": "[※名前呼び]",
     "ThirdPersonCalling": "[※名前呼び]",
@@ -2850,10 +2634,7 @@
           "Comments": "打たれ強いところもありそう",
           "RelationLabel": ["classmate"]
         },
-        {
-          "Num": 90,
-          "Comments": "最終局面は見どころだと思う"
-        }
+        { "Num": 90, "Comments": "最終局面は見どころだと思う" }
       ]
     }
   },
@@ -2880,8 +2661,7 @@
     "Weight_kg": { "hideText": "非公開" },
     "BustSize": "D",
     "TailsUnit": "キツネ(枝分かれ)型8本(上2束2本+下1束6本)",
-    "Class": "デュアルキャリーズ",
-    "Class_EN": "Dual Carries",
+    "Class": ["デュアルキャリーズ"],
     "FirstPersonCalling": "私(わたし)",
     "SecondPersonCalling": "あなた",
     "ThirdPersonCalling": "[※名前呼び]",
@@ -2940,20 +2720,13 @@
         }
       ],
       "Commented": [
-        {
-          "Num": 1,
-          "Comments": "裏方は似合ってないと思うけど"
-        },
+        { "Num": 1, "Comments": "裏方は似合ってないと思うけど" },
         {
           "Num": 24,
           "Comments": "素直じゃない（他人のことはいえないけど）",
           "RelationLabel": ["cousin"]
         },
-        {
-          "Num": 46,
-          "Comments": "うるさい",
-          "RelationLabel": ["classmate"]
-        },
+        { "Num": 46, "Comments": "うるさい", "RelationLabel": ["classmate"] },
         {
           "Num": 73,
           "Comments": "世間知らずすぎ",
@@ -2991,8 +2764,7 @@
     "Weight_kg": { "hideText": "非公開" },
     "BustSize": "E",
     "TailsUnit": "キツネ(枝分かれ)型9本(上2束2本+下1束7本)",
-    "Class": "デュアルイレブンズ",
-    "Class_EN": "Dual Sum-11s",
+    "Class": ["デュアルイレブンズ"],
     "ThisMasters": ["メイリア.シラユキ"],
     "FirstPersonCalling": "わたし",
     "SecondPersonCalling": "あなた",
@@ -3027,10 +2799,7 @@
     },
     "Relation": {
       "Related": [
-        {
-          "Num": 9,
-          "RelationLabel": ["pioneer", "awkward"]
-        },
+        { "Num": 9, "RelationLabel": ["pioneer", "awkward"] },
         {
           "Num": 59,
           "Comments": "ぅぅ…（酷く委縮した文字で書かれている）",
@@ -3041,10 +2810,7 @@
           "Comments": "とても元気をくれる、大切な人",
           "RelationLabel": ["cousin_nearly", "wellMatched"]
         },
-        {
-          "Num": 92,
-          "RelationLabel": ["brother|sister", "awkward"]
-        }
+        { "Num": 92, "RelationLabel": ["brother|sister", "awkward"] }
       ],
       "Commented": [
         {
@@ -3090,8 +2856,7 @@
     ],
     "BustSize": "F",
     "TailsUnit": "キツネ型3本",
-    "Class": "10倍番(テンズデジッツ)",
-    "Class_EN": "Tens-Digits",
+    "Class": ["10倍番(テンズデジッツ)"],
     "FirstPersonCalling": "ミツト ※名前呼び\nわたし",
     "SecondPersonCalling": "あなた",
     "ThirdPersonCalling": "~ちゃん",
@@ -3142,23 +2907,14 @@
         }
       ],
       "Commented": [
-        {
-          "Num": 12,
-          "Comments": "真面目さと素直さが裏目にでちゃいそう…"
-        },
+        { "Num": 12, "Comments": "真面目さと素直さが裏目にでちゃいそう…" },
         {
           "Num": 39,
           "Comments": "ちょっと怖いけど、いい人だと思う",
           "RelationLabel": ["successor_nearly"]
         },
-        {
-          "Num": 63,
-          "Comments": "すごく優しくて落ち着く"
-        },
-        {
-          "Num": 93,
-          "Comments": "無理しないでね…？"
-        }
+        { "Num": 63, "Comments": "すごく優しくて落ち着く" },
+        { "Num": 93, "Comments": "無理しないでね…？" }
       ]
     }
   },
@@ -3186,8 +2942,7 @@
     "Weight_kg": 40,
     "BustSize": "D",
     "TailsUnit": "キツネ(枝分かれ)型3本(上1束2本+下2束1本)",
-    "Class": "デュアルフォーズ",
-    "Class_EN": "Dual Sum-4s",
+    "Class": ["デュアルフォーズ"],
     "FirstPersonCalling": "私(わたし)",
     "SecondPersonCalling": "君",
     "ThirdPersonCalling": "[※名前呼び]",
@@ -3226,10 +2981,7 @@
           "Comments": "姉。いつも助かるけど無茶ぶりはちょっとなぁ",
           "RelationLabel": ["brother|sister", "awkward_aBit"]
         },
-        {
-          "Num": 28,
-          "RelationLabel": ["wellMatched", "accompanying"]
-        }
+        { "Num": 28, "RelationLabel": ["wellMatched", "accompanying"] }
       ],
       "Commented": [
         {
@@ -3237,10 +2989,7 @@
           "Comments": "メーワクばっかり掛けない方がいいよ",
           "RelationLabel": ["cousin_nearly"]
         },
-        {
-          "Num": 40,
-          "Comments": "回数制限とかないなら願い事してみようかな～"
-        },
+        { "Num": 40, "Comments": "回数制限とかないなら願い事してみようかな～" },
         {
           "Num": 58,
           "Comments": "すぐ一発逆転するからゲームに誘いたくない",
@@ -3251,11 +3000,7 @@
           "Comments": "“乙女”…っていうのかな…？",
           "RelationLabel": ["cousin"]
         },
-        {
-          "Num": 76,
-          "Comments": "ヘンな人……",
-          "RelationLabel": ["classmate"]
-        },
+        { "Num": 76, "Comments": "ヘンな人……", "RelationLabel": ["classmate"] },
         {
           "Num": 94,
           "Comments": "退屈だったりしないのかな？",
@@ -3287,8 +3032,7 @@
     "Weight_kg": 40,
     "BustSize": "A",
     "TailsUnit": "キツネ(枝分かれ)型3本(上1束1本+下2束2本)",
-    "Class": "デュアルファイブズ",
-    "Class_EN": "Dual Sum-5s",
+    "Class": ["デュアルファイブズ"],
     "FirstPersonCalling": "シトシ ※名前呼び\nおれ",
     "SecondPersonCalling": "あんた",
     "ThirdPersonCalling": "*いつ/*れ;[※名前呼び]",
@@ -3349,10 +3093,7 @@
           "Comments": "身構えたくなるんだよなこいつの前だと…",
           "RelationLabel": ["classmate"]
         },
-        {
-          "Num": 77,
-          "Comments": "……邪魔したら悪ぃし、そっとしとくか…"
-        },
+        { "Num": 77, "Comments": "……邪魔したら悪ぃし、そっとしとくか…" },
         {
           "Num": 86,
           "Comments": "金目のトラブルは用心しとけよ",
@@ -3389,8 +3130,7 @@
     "Weight_kg": { "hideText": "非公開" },
     "BustSize": "A",
     "TailsUnit": "キツネ(枝分かれ)型2束x3本",
-    "Class": "マスターテールズ9",
-    "Class_EN": "Master Tales 9",
+    "Class": ["マスターテールズ9"],
     "ThisMasters": [
       "手塚 桃/Diamond.3(Trey)（78特殊探偵団 金の硬貨支部 構成員）"
     ],
@@ -3447,27 +3187,15 @@
         { "Num": 44, "RelationLabel": ["unmatched", "classmate"] }
       ],
       "Commented": [
-        {
-          "Num": 6,
-          "Comments": "先輩であり尊敬する方"
-        },
-        {
-          "Num": 21,
-          "Comments": "自己満足に囚われぬよう願います"
-        },
-        {
-          "Num": 57,
-          "Comments": "何があっても前向きで、正直奇妙です"
-        },
+        { "Num": 6, "Comments": "先輩であり尊敬する方" },
+        { "Num": 21, "Comments": "自己満足に囚われぬよう願います" },
+        { "Num": 57, "Comments": "何があっても前向きで、正直奇妙です" },
         {
           "Num": 66,
           "Comments": "強いポテンシャルを感じます",
           "RelationLabel": ["classmate"]
         },
-        {
-          "Num": 84,
-          "Comments": "因果応報とは言いますが、過信しすぎでは？"
-        }
+        { "Num": 84, "Comments": "因果応報とは言いますが、過信しすぎでは？" }
       ]
     }
   },
@@ -3496,8 +3224,7 @@
     "Weight_kg": { "hideText": "非公開" },
     "BustSize": "A",
     "TailsUnit": "キツネ(枝分かれ)型4本(上2束3本+下1束1本)",
-    "Class": "デュアルセブンズ",
-    "Class_EN": "Dual Sum-7s",
+    "Class": ["デュアルセブンズ"],
     "FirstPersonCalling": "ワイ",
     "SecondPersonCalling": "旦那さん/奥さん\nアンタ",
     "ThirdPersonCalling": "[※二人称]\n*イツ;[※名前呼び]",
@@ -3557,23 +3284,14 @@
         }
       ],
       "Commented": [
-        {
-          "Num": 7,
-          "Comments": "生真面目なやっちゃなぁ"
-        },
+        { "Num": 7, "Comments": "生真面目なやっちゃなぁ" },
         {
           "Num": 30,
           "Comments": "初々しいところも可愛え子",
           "RelationLabel": ["pioneer_nearly"]
         },
-        {
-          "Num": 40,
-          "Comments": "なんかずるいわアイツ…"
-        },
-        {
-          "Num": 70,
-          "Comments": "ようわからんけどやりおるな…"
-        }
+        { "Num": 40, "Comments": "なんかずるいわアイツ…" },
+        { "Num": 70, "Comments": "ようわからんけどやりおるな…" }
       ]
     }
   },
@@ -3597,8 +3315,7 @@
     "AnivDay": [
       { "Day": { "Month": 3, "DayOfMonth": 5 }, "DayAbout": "開発記念" }
     ],
-    "Class": "デュアルエイツ",
-    "Class_EN": "Dual Sum-8s",
+    "Class": ["デュアルエイツ"],
     "Character": "感性が高い才能肌\n几帳面な一面も",
     "GenderType": "Neutral",
     "Height_cm": 139,
@@ -3654,19 +3371,9 @@
         }
       ],
       "Commented": [
-        {
-          "Num": 5,
-          "Comments": "危なっかしい",
-          "RelationLabel": ["pioneer"]
-        },
-        {
-          "Num": 8,
-          "Comments": "工場から案件でももらえそう"
-        },
-        {
-          "Num": 44,
-          "Comments": "懸命なフリした狂犬"
-        },
+        { "Num": 5, "Comments": "危なっかしい", "RelationLabel": ["pioneer"] },
+        { "Num": 8, "Comments": "工場から案件でももらえそう" },
+        { "Num": 44, "Comments": "懸命なフリした狂犬" },
         {
           "Num": 75,
           "Comments": "真面目でいい子",
@@ -3708,8 +3415,7 @@
     "Weight_kg": { "hideText": "非公開" },
     "BustSize": "E",
     "TailsUnit": "キツネ(枝分かれ)型6本(上2束3本+下1束3本)",
-    "Class": "9倍2桁番(ナインズデュアルズ)",
-    "Class_EN": "Nines Duals",
+    "Class": ["9倍2桁番(ナインズデュアルズ)"],
     "ThisMasters": [
       "颯 洋(はやて うみ)/Spade.2(Duece)（78特殊探偵団 風の刀剣 構成員）",
       "颯 天(はやて そら)/Spade.3(Trey)（78特殊探偵団 風の刀剣 構成員）"
@@ -3818,8 +3524,7 @@
     ],
     "BustSize": "C",
     "TailsUnit": "キツネ(枝分かれ)型7本(上2束3本+下1束4本)",
-    "Class": "デュアルキャリーズ",
-    "Class_EN": "Dual Carries",
+    "Class": ["デュアルキャリーズ"],
     "ThisMasters": ["桜花 訫[信](とき)/弥生（夜月機関 第3幹部）"],
     "FirstPersonCalling": "あたし",
     "SecondPersonCalling": "君",
@@ -3867,10 +3572,7 @@
         }
       ],
       "Commented": [
-        {
-          "Num": 10,
-          "Comments": "ちょっとウザい"
-        },
+        { "Num": 10, "Comments": "ちょっとウザい" },
         {
           "Num": 28,
           "Comments": "物に頼りすぎはいけないよ",
@@ -3908,33 +3610,16 @@
     "AnivDay": [
       { "Day": { "Month": 3, "DayOfMonth": 8 }, "DayAbout": "開発記念" }
     ],
-    "Class": "デュアルイレブンズ",
-    "Class_EN": "Dual Sum-11s",
+    "Class": ["デュアルイレブンズ"],
     "NumerospecAbout": "幸運を味方にする\nこの効果は物質的なものにも大いに影響される",
     "Relation": {
       "Commented": [
-        {
-          "Num": 11
-        },
-        {
-          "Num": 20
-        },
-        {
-          "Num": 28,
-          "RelationLabel": ["cousin"]
-        },
-        {
-          "Num": 56,
-          "RelationLabel": ["classmate"]
-        },
-        {
-          "Num": 63,
-          "RelationLabel": ["cousin_nearly"]
-        },
-        {
-          "Num": 83,
-          "RelationLabel": ["brother|sister", "classmate"]
-        }
+        { "Num": 11 },
+        { "Num": 20 },
+        { "Num": 28, "RelationLabel": ["cousin"] },
+        { "Num": 56, "RelationLabel": ["classmate"] },
+        { "Num": 63, "RelationLabel": ["cousin_nearly"] },
+        { "Num": 83, "RelationLabel": ["brother|sister", "classmate"] }
       ]
     }
   },
@@ -3969,8 +3654,7 @@
     ],
     "Weight_kg": 44,
     "TailsUnit": "キツネ(枝分かれ)型9本(上2束3本+下1束6本)",
-    "Class": "デュアルスリーズ",
-    "Class_EN": "Dual Sum-3s",
+    "Class": ["デュアルスリーズ"],
     "ThisMasters": ["乃木 希（VIPマスター;夜月機関 救命本部 推薦所属候補者）"],
     "FirstPersonCalling": "俺",
     "SecondPersonCalling": "お前",
@@ -4039,10 +3723,7 @@
           "Comments": "努力は認めるべき存在",
           "RelationLabel": ["cousin"]
         },
-        {
-          "Num": 66,
-          "Comments": "いちいち眩しい"
-        }
+        { "Num": 66, "Comments": "いちいち眩しい" }
       ]
     }
   },
@@ -4070,8 +3751,7 @@
     "Weight_kg": 39,
     "BustSize": "A",
     "TailsUnit": "キツネ型4本",
-    "Class": "10倍番(テンズデジッツ)",
-    "Class_EN": "Tens-Digits",
+    "Class": ["10倍番(テンズデジッツ)"],
     "FirstPersonCalling": "ヨ\nぼく",
     "SecondPersonCalling": "ソチ\nきみ",
     "ThirdPersonCalling": "彼/彼女;*レ;[※名前呼び]\n彼/彼女;*れ;~くん/~さん",
@@ -4129,10 +3809,7 @@
         }
       ],
       "Commented": [
-        {
-          "Num": 31,
-          "Comments": "ちゃんとしておる、よきかな"
-        },
+        { "Num": 31, "Comments": "ちゃんとしておる、よきかな" },
         {
           "Num": 44,
           "Comments": "良くも悪くもヤンキーじみておる",
@@ -4166,8 +3843,7 @@
     "Weight_kg": 41,
     "BustSize": "AA",
     "TailsUnit": "キツネ(枝分かれ)型4本(上1束3本+下2束1本)",
-    "Class": "デュアルファイブズ",
-    "Class_EN": "Dual Sum-5s",
+    "Class": ["デュアルファイブズ"],
     "FirstPersonCalling": "俺",
     "SecondPersonCalling": "君(,あんた)",
     "ThirdPersonCalling": "*いつ/*れ;[※名前呼び]",
@@ -4222,10 +3898,7 @@
           "Comments": "もっと積極的になってもいい気はする",
           "RelationLabel": ["pioneer"]
         },
-        {
-          "Num": 50,
-          "Comments": "流石に流されすぎじゃないか？"
-        },
+        { "Num": 50, "Comments": "流石に流されすぎじゃないか？" },
         {
           "Num": 61,
           "Comments": "馬鹿と天才は紙一重だなー…",
@@ -4268,8 +3941,7 @@
     "Weight_kg": { "hideText": "非公開" },
     "BustSize": "C",
     "TailsUnit": "キツネ(枝分かれ)型4本(上1束2本+下2束2本)",
-    "Class": "デュアルシックスズ",
-    "Class_EN": "Dual Sum-6s",
+    "Class": ["デュアルシックスズ"],
     "FirstPersonCalling": "ヨツグ ※名前呼び,ヨツグちゃん\n私(あたし)",
     "SecondPersonCalling": "あんた",
     "ThirdPersonCalling": "*の子,*の人/*れ;[※名前呼び],~ちゃん",
@@ -4334,10 +4006,7 @@
           "Comments": "女神の権化のような母性の化身！",
           "RelationLabel": ["cousin_nearly"]
         },
-        {
-          "Num": 33,
-          "Comments": "全知全能とか絶対ヤバい人でしょ…"
-        }
+        { "Num": 33, "Comments": "全知全能とか絶対ヤバい人でしょ…" }
       ]
     }
   },
@@ -4364,8 +4033,7 @@
       { "Day": { "Month": 4, "DayOfMonth": 3 }, "DayAbout": "開発記念" }
     ],
     "Weight_kg": { "hideText": "非公開" },
-    "Class": "デュアルセブンズ",
-    "Class_EN": "Dual Sum-7s",
+    "Class": ["デュアルセブンズ"],
     "BustSize": "D",
     "TailsUnit": "キツネ(枝分かれ)型4本(上1束1本+下2束3本)",
     "FirstPersonCalling": "うち",
@@ -4435,10 +4103,7 @@
           "Comments": "あまり動じてくれない…",
           "RelationLabel": ["classmate"]
         },
-        {
-          "Num": 70,
-          "Comments": "真面目癖を侵してみたい"
-        },
+        { "Num": 70, "Comments": "真面目癖を侵してみたい" },
         {
           "Num": 79,
           "Comments": "なにいってんのこいつ…",
@@ -4475,8 +4140,7 @@
     ],
     "Weight_kg": { "hideText": "非公開" },
     "TailsUnit": "キツネ(枝分かれ)型2束x4本",
-    "Class": "マスターテールズ9",
-    "Class_EN": "Master Tales 9",
+    "Class": ["マスターテールズ9"],
     "ThisMasters": [
       "古山 沢海/Club.5(Cinque)（78特殊探偵団 火の棍棒支部 構成員）"
     ],
@@ -4526,39 +4190,23 @@
           "Comments": "こいつ……いちいちせっつくなっつの",
           "RelationLabel": ["unmatched", "classmate"]
         },
-        {
-          "Num": 52,
-          "RelationLabel": ["wellMatched_maybe"]
-        },
+        { "Num": 52, "RelationLabel": ["wellMatched_maybe"] },
         {
           "Num": 66,
           "Comments": "…へぇ、以外と解ってるじゃねーか",
           "RelationLabel": ["wellMatched", "classmate"]
         },
-        {
-          "Num": 72,
-          "RelationLabel": ["unmatched"]
-        }
+        { "Num": 72, "RelationLabel": ["unmatched"] }
       ],
       "Commented": [
-        {
-          "Num": 8,
-          "Comments": "メカロマン好きなのは見てわかる"
-        },
+        { "Num": 8, "Comments": "メカロマン好きなのは見てわかる" },
         {
           "Num": 22,
           "Comments": "オレと勝負したいのか？良いぜ",
           "RelationLabel": ["accompanying", "classmate"]
         },
-        {
-          "Num": 40,
-          "Comments": "面白ぇやつ",
-          "RelationLabel": ["pioneer"]
-        },
-        {
-          "Num": 49,
-          "Comments": "気苦労が顔に出てやがる"
-        },
+        { "Num": 40, "Comments": "面白ぇやつ", "RelationLabel": ["pioneer"] },
+        { "Num": 49, "Comments": "気苦労が顔に出てやがる" },
         {
           "Num": 88,
           "Comments": "しっかりしていて助かるぜ",
@@ -4590,8 +4238,7 @@
     "Weight_kg": 42,
     "BustSize": "AA",
     "TailsUnit": "キツネ(枝分かれ)型5本(上2束4本+下1束1本)",
-    "Class": "9倍2桁番(ナインズデュアルズ)",
-    "Class_EN": "Nines Duals",
+    "Class": ["9倍2桁番(ナインズデュアルズ)"],
     "FirstPersonCalling": "わっち",
     "SecondPersonCalling": "おぬし",
     "ThirdPersonCalling": "[※名前呼び]",
@@ -4625,11 +4272,7 @@
     "InStory": "火消案件で活躍している",
     "Relation": {
       "Related": [
-        {
-          "Num": 4,
-          "Comments": "やればできる",
-          "RelationLabel": ["pioneer"]
-        },
+        { "Num": 4, "Comments": "やればできる", "RelationLabel": ["pioneer"] },
         {
           "Num": 5,
           "Comments": "やってることは訳わかんないけどできる",
@@ -4657,10 +4300,7 @@
           "Comments": "困っても最後は物で解決できる",
           "RelationLabel": ["cousin"]
         },
-        {
-          "Num": 90,
-          "Comments": "最後の最後で本気になるの凄いよな"
-        }
+        { "Num": 90, "Comments": "最後の最後で本気になるの凄いよな" }
       ]
     }
   },
@@ -4687,8 +4327,7 @@
     "Weight_kg": 39,
     "BustSize": "A",
     "TailsUnit": "キツネ(枝分かれ)型6本(上2束4本+下1束2本)",
-    "Class": "デュアルキャリーズ",
-    "Class_EN": "Dual Carries",
+    "Class": ["デュアルキャリーズ"],
     "FirstPersonCalling": "オイラ",
     "SecondPersonCalling": "[※三人称]\nオメー ※稀",
     "ThirdPersonCalling": "*イツ;[※名前呼び];~(な)ヤツ\n~先輩",
@@ -4739,19 +4378,13 @@
         }
       ],
       "Commented": [
-        {
-          "Num": 1,
-          "Comments": "行動力はいつも見習いたいッス！"
-        },
+        { "Num": 1, "Comments": "行動力はいつも見習いたいッス！" },
         {
           "Num": 49,
           "Comments": "何か顔が怖ぇッスけど、多分いいヤツ！",
           "RelationLabel": ["cousin"]
         },
-        {
-          "Num": 60,
-          "Comments": "えぇっ、芸能人志望じゃないンスか!?"
-        },
+        { "Num": 60, "Comments": "えぇっ、芸能人志望じゃないンスか!?" },
         {
           "Num": 82,
           "Comments": "物欲センサーどうなってンスか…？",
@@ -4782,10 +4415,7 @@
     "Height_cm": 148,
     "ConceptAge": 17,
     "AnivDay": [
-      {
-        "Day": { "Month": 4, "DayOfMonth": 7 },
-        "DayAbout": "開発記念"
-      },
+      { "Day": { "Month": 4, "DayOfMonth": 7 }, "DayAbout": "開発記念" },
       {
         "Day": { "Month": 9, "DayOfMonth": 7 },
         "DayAbout": "加護観測記念(劇中)"
@@ -4794,8 +4424,7 @@
     "Weight_kg": 39,
     "BustSize": "B",
     "TailsUnit": "キツネ(枝分かれ)型7本(上2束4本+下1束3本)",
-    "Class": "デュアルイレブンズ",
-    "Class_EN": "Dual Sum-11s",
+    "Class": ["デュアルイレブンズ"],
     "FirstPersonCalling": "私(わたし)",
     "SecondPersonCalling": "君",
     "ThirdPersonCalling": "[※名前呼び]",
@@ -4892,8 +4521,7 @@
     ],
     "Weight_kg": { "hideText": "非公開" },
     "TailsUnit": "キツネ(枝分かれ)型8本(上2束4本+下1束4本)",
-    "Class": "デュアルスリーズ",
-    "Class_EN": "Dual Sum-3s",
+    "Class": ["デュアルスリーズ"],
     "FirstPersonCalling": "私(わたし)\n俺(おれ)",
     "SecondPersonCalling": "貴方(あなた)\nお前",
     "ThirdPersonCalling": "彼/彼女;*ちら;~さん\n*いつ/*れ;[※名前呼び]",
@@ -4927,11 +4555,7 @@
     "Relation": {
       "Related": [
         { "Num": 39, "RelationLabel": ["wellMatched", "classmate"] },
-        {
-          "Num": 53,
-          "Comments": "腹が立つ",
-          "RelationLabel": ["unmatched"]
-        },
+        { "Num": 53, "Comments": "腹が立つ", "RelationLabel": ["unmatched"] },
         { "Num": 69, "RelationLabel": ["awkward"] }
       ],
       "Commented": [
@@ -4940,10 +4564,7 @@
           "Comments": "妙に幼いところがある",
           "RelationLabel": ["classmate"]
         },
-        {
-          "Num": 30,
-          "Comments": "見ていてなぜか和む"
-        },
+        { "Num": 30, "Comments": "見ていてなぜか和む" },
         {
           "Num": 34,
           "Comments": "ちょっとは加減を知れ……",
@@ -4998,8 +4619,7 @@
     ],
     "BustSize": "A",
     "TailsUnit": "キツネ(枝分かれ)型9本(上2束4本+下1束5本)",
-    "Class": "デュアルフォーズ",
-    "Class_EN": "Dual Sum-4s",
+    "Class": ["デュアルフォーズ"],
     "ThisMasters": ["花舞 流(るぅ)/卯月（夜月機関 第4幹部）"],
     "FirstPersonCalling": "ボク",
     "SecondPersonCalling": "キミ",
@@ -5051,15 +4671,8 @@
         }
       ],
       "Commented": [
-        {
-          "Num": 22,
-          "Comments": "ボクの仕事を奪いそうなくらい万能"
-        },
-        {
-          "Num": 69,
-          "Comments": "へーんなの",
-          "RealationLabel": ["cousin"]
-        },
+        { "Num": 22, "Comments": "ボクの仕事を奪いそうなくらい万能" },
+        { "Num": 69, "Comments": "へーんなの", "RealationLabel": ["cousin"] },
         {
           "Num": 76,
           "Comments": "生真面目なヤツ…",
@@ -5093,8 +4706,7 @@
     ],
     "Weight_kg": 39,
     "TailsUnit": "キツネ型5本",
-    "Class": "10倍番(テンズデジッツ)",
-    "Class_EN": "Tens-Digits",
+    "Class": ["10倍番(テンズデジッツ)"],
     "FirstPersonCalling": "おれ\nぼく",
     "SecondPersonCalling": "あんた\nきみ",
     "ThirdPersonCalling": "彼/彼女;*いつ/*れ;[※名前呼び]\n*のこ,*いつ/*れ;~くん/~ちゃん/~さん",
@@ -5143,10 +4755,7 @@
           "Comments": "ずっと友達でいたい",
           "RelationLabel": ["wellMatched", "trusted", "classmate"]
         },
-        {
-          "Num": 40,
-          "RelationLabel": ["unmatched", "classmate"]
-        },
+        { "Num": 40, "RelationLabel": ["unmatched", "classmate"] },
         {
           "Num": 59,
           "Comments": "もうこれ以上おれを巻き込まないでくれ〜!!",
@@ -5158,28 +4767,20 @@
         }
       ],
       "Commented": [
-        {
-          "Num": 23,
-          "Comments": "お土産は…遠慮しとこうかな…"
-        },
+        { "Num": 23, "Comments": "お土産は…遠慮しとこうかな…" },
         {
           "Num": 55,
           "Comments": "こここ、今度は何をおっぱじめる気だ…!?",
           "RelationLabel": ["successor", "adverselyAffected_aBit"]
         },
-        {
-          "Num": 77,
-          "Comments": "（邪魔してないといいけど…）"
-        }
+        { "Num": 77, "Comments": "（邪魔してないといいけど…）" }
       ]
     }
   },
   {
     "Num": 51,
     "Progress": "released",
-    "Images": {
-      "concept_PNGName": "cnsp_img51"
-    },
+    "Images": { "concept_PNGName": "cnsp_img51" },
     "Name": "イソイチ",
     "Name_EN": "Fivone",
     "ModelName": "ナンバーテールズ1+5号機改(51番機)",
@@ -5196,8 +4797,7 @@
     ],
     "Weight_kg": 44,
     "TailsUnit": "キツネ(枝分かれ)型5本(上1束4本+下2束1本)",
-    "Class": "デュアルシックスズ",
-    "Class_EN": "Dual Sum-6s",
+    "Class": ["デュアルシックスズ"],
     "FirstPersonCalling": "おれ",
     "SecondPersonCalling": "おまえ",
     "ThirdPersonCalling": "*いつ/*れ;[※名前呼び]",
@@ -5255,14 +4855,8 @@
           "Comments": "掴みどころが無い",
           "RelationLabel": ["cousin_nearly"]
         },
-        {
-          "Num": 32,
-          "Comments": "できる人というのは見るだけでわかる"
-        },
-        {
-          "Num": 60,
-          "Comments": "魅力的で感性を刺激される"
-        },
+        { "Num": 32, "Comments": "できる人というのは見るだけでわかる" },
+        { "Num": 60, "Comments": "魅力的で感性を刺激される" },
         {
           "Num": 96,
           "Comments": "ん？誰だおまえ…？",
@@ -5290,10 +4884,7 @@
     "Height_cm": 156,
     "ConceptAge": 16,
     "AnivDay": [
-      {
-        "Day": { "Month": 5, "DayOfMonth": 2 },
-        "DayAbout": "開発記念"
-      },
+      { "Day": { "Month": 5, "DayOfMonth": 2 }, "DayAbout": "開発記念" },
       {
         "Day": { "Month": 2, "DayOfMonth": 25 },
         "DayAbout": "2+5型特殊プラン設立記念(劇中)"
@@ -5304,8 +4895,7 @@
     ],
     "BustSize": "F",
     "TailsUnit": "キツネ(枝分かれ)型5本(上1束3本+下2束2本)",
-    "Class": "デュアルセブンズ",
-    "Class_EN": "Dual Sum-7s",
+    "Class": ["デュアルセブンズ"],
     "ThisMasters": [
       "亜高 蝶嵐(てふらん)/Heart.7(Seven)（78特殊探偵団 水の聖杯支部 構成員）"
     ],
@@ -5354,15 +4944,8 @@
         }
       ],
       "Commented": [
-        {
-          "Num": 7,
-          "Comments": "憎めない"
-        },
-        {
-          "Num": 16,
-          "Comments": "素敵な人",
-          "RelationLabel": ["classmate"]
-        },
+        { "Num": 7, "Comments": "憎めない" },
+        { "Num": 16, "Comments": "素敵な人", "RelationLabel": ["classmate"] },
         {
           "Num": 32,
           "Comments": "ちょっとキャラが濃いかも…",
@@ -5408,8 +4991,7 @@
     "AnivDay": [
       { "Day": { "Month": 5, "DayOfMonth": 3 }, "DayAbout": "開発記念" }
     ],
-    "Class": "デュアルエイツ",
-    "Class_EN": "Dual Sum-8s",
+    "Class": ["デュアルエイツ"],
     "GenderType": "Neutral",
     "Height_cm": 139,
     "ConceptAge": 14,
@@ -5470,15 +5052,8 @@
           "Comments": "トラブルメーカっぽいところある",
           "RelationLabel": ["cousin"]
         },
-        {
-          "Num": 57,
-          "Comments": "勝負強そう",
-          "RelationLabel": ["cousin"]
-        },
-        {
-          "Num": 80,
-          "Comments": "良く解んないことを平然とやってのけてる"
-        },
+        { "Num": 57, "Comments": "勝負強そう", "RelationLabel": ["cousin"] },
+        { "Num": 80, "Comments": "良く解んないことを平然とやってのけてる" },
         {
           "Num": 89,
           "Comments": "あれでも僕のずっと下の代なんだよね…？",
@@ -5500,22 +5075,13 @@
     "AnivDay": [
       { "Day": { "Month": 5, "DayOfMonth": 4 }, "DayAbout": "開発記念" }
     ],
-    "Class": "9倍2桁番(ナインズデュアルズ)",
-    "Class_EN": "Nines Duals",
+    "Class": ["9倍2桁番(ナインズデュアルズ)"],
     "NumerospecAbout": "主人に転機を与える\nこの効果は逆境を問わず発動する",
     "Relation": {
       "Commented": [
-        {
-          "Num": 59,
-          "RelationLabel": ["cousin"]
-        },
-        {
-          "Num": 72,
-          "RelationLabel": ["classmate"]
-        },
-        {
-          "Num": 99
-        }
+        { "Num": 59, "RelationLabel": ["cousin"] },
+        { "Num": 72, "RelationLabel": ["classmate"] },
+        { "Num": 99 }
       ]
     }
   },
@@ -5544,8 +5110,7 @@
     "Weight_kg": { "hideText": "非公開" },
     "BustSize": "AA",
     "TailsUnit": "キツネ(枝分かれ)型2束x5本",
-    "Class": "マスターテールズ9",
-    "Class_EN": "Master Tales 9",
+    "Class": ["マスターテールズ9"],
     "FirstPersonCalling": "あたし",
     "SecondPersonCalling": "君",
     "ThirdPersonCalling": "彼/彼女;[※名前呼び]",
@@ -5598,18 +5163,9 @@
         { "Num": 74, "RelationLabel": ["unmatched"] }
       ],
       "Commented": [
-        {
-          "Num": 10,
-          "Comments": "ああ見えて悩んでいるとこもありそう"
-        },
-        {
-          "Num": 28,
-          "Comments": "だいたい物に困らないから不思議"
-        },
-        {
-          "Num": 73,
-          "Comments": "たまにデマを鵜呑みにして拡散しそうな気が…"
-        },
+        { "Num": 10, "Comments": "ああ見えて悩んでいるとこもありそう" },
+        { "Num": 28, "Comments": "だいたい物に困らないから不思議" },
+        { "Num": 73, "Comments": "たまにデマを鵜呑みにして拡散しそうな気が…" },
         {
           "Num": 77,
           "Comments": "カッコいいのに人柄を知ると、なんか…ねぇ…",
@@ -5649,8 +5205,7 @@
     ],
     "BustSize": "B",
     "TailsUnit": "キツネ(枝分かれ)型6本(上2束5本+下1束1本)",
-    "Class": "デュアルイレブンズ",
-    "Class_EN": "Dual Sum-11s",
+    "Class": ["デュアルイレブンズ"],
     "FirstPersonCalling": "あたし\nイソロク ※名前呼び,やや稀",
     "SecondPersonCalling": "あなた",
     "ThirdPersonCalling": "*の人,~さん;[※名前呼び]",
@@ -5752,8 +5307,7 @@
     "Weight_kg": 42,
     "BustSize": "AA",
     "TailsUnit": "キツネ(枝分かれ)型7本(上2束5本+下1束2本)",
-    "Class": "デュアルスリーズ",
-    "Class_EN": "Dual Sum-3s",
+    "Class": ["デュアルスリーズ"],
     "FirstPersonCalling": "私(わたし）",
     "SecondPersonCalling": "君(きみ)",
     "ThirdPersonCalling": "彼/彼女;*の子,*の人/*れ;[※名前呼び]",
@@ -5800,10 +5354,7 @@
         }
       ],
       "Commented": [
-        {
-          "Num": 3,
-          "Comments": "頼れるリーダー…ではないか、なんだろ"
-        },
+        { "Num": 3, "Comments": "頼れるリーダー…ではないか、なんだろ" },
         {
           "Num": 12,
           "Comments": "自分を持っている凄い人なんだとは思う",
@@ -5852,8 +5403,7 @@
     "Weight_kg": { "hideText": "非公開" },
     "BustSize": "F",
     "TailsUnit": "キツネ(枝分かれ)型8本(上2束5本+下1束3本)",
-    "Class": "デュアルフォーズ",
-    "Class_EN": "Dual Sum-4s",
+    "Class": ["デュアルフォーズ"],
     "FirstPersonCalling": "こっち",
     "SecondPersonCalling": "きみ",
     "ThirdPersonCalling": "彼/彼女;*っち/*れ;[※名前呼び]\n~ちゃん",
@@ -5909,19 +5459,13 @@
         }
       ],
       "Commented": [
-        {
-          "Num": 4,
-          "Comments": "安心できるお姉ちゃん"
-        },
+        { "Num": 4, "Comments": "安心できるお姉ちゃん" },
         {
           "Num": 5,
           "Comments": "嫌いではないけど、なんかヘン",
           "RelationLabel": ["pioneer", "awkward_aBit"]
         },
-        {
-          "Num": 40,
-          "Comments": "どうしても甘えちゃいたくなる"
-        }
+        { "Num": 40, "Comments": "どうしても甘えちゃいたくなる" }
       ]
     }
   },
@@ -5938,19 +5482,12 @@
     "AnivDay": [
       { "Day": { "Month": 5, "DayOfMonth": 9 }, "DayAbout": "開発記念" }
     ],
-    "Class": "デュアルファイブズ",
-    "Class_EN": "Dual Sum-5s",
+    "Class": ["デュアルファイブズ"],
     "NumerospecAbout": "不測の事態を招く\nこの効果にもメリットがあるらしいが、詳細は不明",
     "Relation": {
       "Commented": [
-        {
-          "Num": 50,
-          "RelationLabel": ["pioneer_nearly"]
-        },
-        {
-          "Num": 97,
-          "RelationLabel": ["cousin_nearly"]
-        }
+        { "Num": 50, "RelationLabel": ["pioneer_nearly"] },
+        { "Num": 97, "RelationLabel": ["cousin_nearly"] }
       ]
     }
   },
@@ -5980,8 +5517,7 @@
     "Weight_kg": { "hideText": "非公開" },
     "BustSize": "G",
     "TailsUnit": "キツネ型6本",
-    "Class": "10倍番(テンズデジッツ)",
-    "Class_EN": "Tens-Digits",
+    "Class": ["10倍番(テンズデジッツ)"],
     "ThisMasters": ["水無瀬 霙(はなゆき)"],
     "FirstPersonCalling": "私(わたし)",
     "SecondPersonCalling": "あなた",
@@ -6056,22 +5592,10 @@
         }
       ],
       "Commented": [
-        {
-          "Num": 24,
-          "Comments": "憐れむよりも庇護してほしい…"
-        },
-        {
-          "Num": 33,
-          "Comments": "実力に自惚れすぎないように"
-        },
-        {
-          "Num": 51,
-          "Comments": "思考は認めるべき、少し奇抜ともいえるけど"
-        },
-        {
-          "Num": 87,
-          "Comments": "金絡みのご縁に振り回されてないかしら…"
-        }
+        { "Num": 24, "Comments": "憐れむよりも庇護してほしい…" },
+        { "Num": 33, "Comments": "実力に自惚れすぎないように" },
+        { "Num": 51, "Comments": "思考は認めるべき、少し奇抜ともいえるけど" },
+        { "Num": 87, "Comments": "金絡みのご縁に振り回されてないかしら…" }
       ]
     }
   },
@@ -6106,8 +5630,7 @@
     "Weight_kg": { "hideText": "非公開" },
     "BustSize": "H",
     "TailsUnit": "キツネ(枝分かれ)型6本(上1束5本+下2束1本)",
-    "Class": "デュアルセブンズ",
-    "Class_EN": "Dual Sum-7s",
+    "Class": ["デュアルセブンズ"],
     "ThisMasters": [
       {
         "value": "六花(ろくばな) 雙葉",
@@ -6185,10 +5708,7 @@
           "Comments": "もっと自信もっていいと思うけどな～",
           "RelationLabel": ["classmate"]
         },
-        {
-          "Num": 70,
-          "Comments": "よくわかんないw"
-        }
+        { "Num": 70, "Comments": "よくわかんないw" }
       ]
     },
     "AdditionalDesigned": "アイドル衣装デザイン：MUSASHI(https://skeb.jp/@NEO_lapis_/works/43)"
@@ -6216,8 +5736,7 @@
     "Weight_kg": 43,
     "BustSize": "F",
     "TailsUnit": "キツネ(枝分かれ)型6本(上1束4本+下2束2本)",
-    "Class": "デュアルエイツ",
-    "Class_EN": "Dual Sum-8s",
+    "Class": ["デュアルエイツ"],
     "ThisMasters": [
       {
         "value": "六花(ろくばな) 雙葉",
@@ -6329,8 +5848,7 @@
     "Weight_kg": { "hideText": "非公開" },
     "BustSize": "D",
     "TailsUnit": "キツネ(枝分かれ)型6本(上1束3本+下2束3本)",
-    "Class": "9倍2桁番(ナインズデュアルズ)",
-    "Class_EN": "Nines Duals",
+    "Class": ["9倍2桁番(ナインズデュアルズ)"],
     "ThisMasters": [
       "恵比寿 ことは/Spade.9(Nine)（78特殊探偵団 風の刀剣 構成員）"
     ],
@@ -6388,19 +5906,13 @@
           "Comments": "怒るとちょっと怖いけどとても優しい",
           "RelationLabel": ["classmate"]
         },
-        {
-          "Num": 30,
-          "Comments": "背伸びしてるところも憎めない"
-        },
+        { "Num": 30, "Comments": "背伸びしてるところも憎めない" },
         {
           "Num": 45,
           "Comments": "色々大変そう",
           "RelationLabel": ["classmate"]
         },
-        {
-          "Num": 90,
-          "Comments": "頼もしい"
-        }
+        { "Num": 90, "Comments": "頼もしい" }
       ]
     }
   },
@@ -6426,8 +5938,7 @@
       { "Day": { "Month": 6, "DayOfMonth": 4 }, "DayAbout": "開発記念" }
     ],
     "Weight_kg": { "hideText": "非公開" },
-    "Class": "デュアルキャリーズ",
-    "Class_EN": "Dual Carries",
+    "Class": ["デュアルキャリーズ"],
     "FirstPersonCalling": "あたち",
     "SecondPersonCalling": "[※三人称]\nあなた ※稀",
     "ThirdPersonCalling": "*のコ;[※名前呼び];~(な)コ\n~先輩;~教官",
@@ -6464,13 +5975,9 @@
     },
     "InStory": "特殊個体「4+6型」の一人で問題児\n実績が乏しく赤字であるだけでなく……",
     "Backgrounds": "稀に快感を求める故に不認可の副業に手を染めかけたり、あらぬ欲情をしてしまったりするため零も酷く頭を抱えている",
-
     "Relation": {
       "Related": [
-        {
-          "Num": 42,
-          "RelationLabel": ["cousin_nearly", "wellMatched"]
-        },
+        { "Num": 42, "RelationLabel": ["cousin_nearly", "wellMatched"] },
         {
           "Num": 46,
           "Comments": "そんな憐れむような眼でみないでよぉ!!",
@@ -6503,10 +6010,7 @@
           "Comments": "あたちの“物乞い”だけ叶わない、なんで…",
           "RelationLabel": ["classmate"]
         },
-        {
-          "Num": 44,
-          "Comments": "“賭けゲーム”、しませんかぁ…？えへへ…"
-        }
+        { "Num": 44, "Comments": "“賭けゲーム”、しませんかぁ…？えへへ…" }
       ]
     }
   },
@@ -6537,8 +6041,7 @@
     "Weight_kg": 37,
     "BustSize": "A",
     "TailsUnit": "キツネ(枝分かれ)型6本(上1束1本+下2束5本)",
-    "Class": "デュアルイレブンズ",
-    "Class_EN": "Dual Sum-11s",
+    "Class": ["デュアルイレブンズ"],
     "FirstPersonCalling": "あたし",
     "SecondPersonCalling": "あなた",
     "ThirdPersonCalling": "*の人;[※名前呼び],~さん",
@@ -6584,10 +6087,7 @@
         }
       ],
       "Commented": [
-        {
-          "Num": 20,
-          "Comments": "とても正直で嘘はつかない人"
-        },
+        { "Num": 20, "Comments": "とても正直で嘘はつかない人" },
         {
           "Num": 36,
           "Comments": "どうして他の人のためだと運がいいの？",
@@ -6641,8 +6141,7 @@
     "Weight_kg": { "hideText": "非公開" },
     "BustSize": "F",
     "TailsUnit": "キツネ(枝分かれ)型2束x6本",
-    "Class": "マスターテールズ9",
-    "Class_EN": "Master Tales 9",
+    "Class": ["マスターテールズ9"],
     "ThisMasters": ["水無瀬 雫/水無月（夜月機関 第6幹部）"],
     "FirstPersonCalling": "私(わたくし)",
     "SecondPersonCalling": "あなた様",
@@ -6689,40 +6188,23 @@
         }
       ],
       "Commented": [
-        {
-          "Num": 3,
-          "Comments": "素晴らしいお方"
-        },
-        {
-          "Num": 12,
-          "Comments": "何事も躊躇いない様子が素敵です"
-        },
+        { "Num": 3, "Comments": "素晴らしいお方" },
+        { "Num": 12, "Comments": "何事も躊躇いない様子が素敵です" },
         {
           "Num": 33,
           "Comments": "彼女の眼はすべてお見通しでしょう",
           "RelationLabel": ["classmate"]
         },
-        {
-          "Num": 48,
-          "Comments": "何事も諦めることない立派なお方"
-        },
-        {
-          "Num": 75,
-          "Comments": "勤勉さは報われるのを証明できるお方"
-        },
-        {
-          "Num": 96,
-          "Comments": "「タイムリーな方」、というべきでしょうか…"
-        }
+        { "Num": 48, "Comments": "何事も諦めることない立派なお方" },
+        { "Num": 75, "Comments": "勤勉さは報われるのを証明できるお方" },
+        { "Num": 96, "Comments": "「タイムリーな方」、というべきでしょうか…" }
       ]
     }
   },
   {
     "Num": "67-old",
     "Progress": "released",
-    "Images": {
-      "concept_PNGName": "cnsp_img67-A"
-    },
+    "Images": { "concept_PNGName": "cnsp_img67-A" },
     "_DBLink": {
       "worksTitle": "NumberTales",
       "dbName": "Primary",
@@ -6761,9 +6243,7 @@
   {
     "Num": 67,
     "Progress": "released",
-    "Images": {
-      "concept_PNGName": "cnsp_img67-B"
-    },
+    "Images": { "concept_PNGName": "cnsp_img67-B" },
     "Name": "ムナ",
     "Name_EN": "Sicsevan",
     "ModelName": "ナンバーテールズ6+7号機甲.筋装備(新67番機)",
@@ -6781,8 +6261,7 @@
     "AnivDay": [
       { "Day": { "Month": 6, "DayOfMonth": 7 }, "DayAbout": "開発記念" }
     ],
-    "Class": "デュアルフォーズ",
-    "Class_EN": "Dual Sum-4s",
+    "Class": ["デュアルフォーズ"],
     "FirstPersonCalling": "俺",
     "SecondPersonCalling": "お前",
     "ThirdPersonCalling": "彼/彼女;*いつ;[※名前呼び]",
@@ -6838,10 +6317,7 @@
         }
       ],
       "Commented": [
-        {
-          "Num": 4,
-          "Comments": "謙虚だが好感は持てる"
-        },
+        { "Num": 4, "Comments": "謙虚だが好感は持てる" },
         {
           "Num": 13,
           "Comments": "活発で可愛らしいところが憎めない",
@@ -6897,8 +6373,7 @@
     "Weight_kg": 39,
     "BustSize": "AA",
     "TailsUnit": "キツネ(枝分かれ)型8本(上2束6本+下1束2本)",
-    "Class": "デュアルファイブズ",
-    "Class_EN": "Dual Sum-5s",
+    "Class": ["デュアルファイブズ"],
     "FirstPersonCalling": "自分\n僕",
     "SecondPersonCalling": "君(きみ)",
     "ThirdPersonCalling": "彼/彼女;[※名前呼び]",
@@ -6957,10 +6432,7 @@
           "Comments": "フラグ建築おばけ",
           "RelationLabel": ["classmate"]
         },
-        {
-          "Num": 50,
-          "Comments": "適応力おばけ"
-        },
+        { "Num": 50, "Comments": "適応力おばけ" },
         {
           "Num": 81,
           "Comments": "高収入おばけ",
@@ -7000,8 +6472,7 @@
     ],
     "Weight_kg": { "hideText": "非公開" },
     "TailsUnit": "キツネ(枝分かれ)型9本(上2束6本+下1束3本)",
-    "Class": "デュアルシックスズ",
-    "Class_EN": "Dual Sum-6s",
+    "Class": ["デュアルシックスズ"],
     "ThisMasters": [
       {
         "value": "ヴェンジー.C.テンペスト/クライシア.バベル（78特殊探偵団 第16幹部）",
@@ -7092,9 +6563,7 @@
   {
     "Num": 70,
     "Progress": "released",
-    "Images": {
-      "concept_PNGName": "cnsp_img70"
-    },
+    "Images": { "concept_PNGName": "cnsp_img70" },
     "Name": "ナナト",
     "Name_EN": "Seventia",
     "ModelName": "ナンバーテールズ改良型7号機(70番機)",
@@ -7111,8 +6580,7 @@
     ],
     "Weight_kg": 43,
     "TailsUnit": "キツネ型7本",
-    "Class": "10倍番(テンズデジッツ)",
-    "Class_EN": "Tens-Digits",
+    "Class": ["10倍番(テンズデジッツ)"],
     "FirstPersonCalling": "俺",
     "SecondPersonCalling": "お前",
     "ThirdPersonCalling": "*奴(*いつ);[※名前呼び]",
@@ -7159,14 +6627,8 @@
         }
       ],
       "Commented": [
-        {
-          "Num": 16,
-          "Comments": "急に思い立つから手に負えねぇ…"
-        },
-        {
-          "Num": 43,
-          "Comments": "いつの間にかすごい成果出してたりする"
-        },
+        { "Num": 16, "Comments": "急に思い立つから手に負えねぇ…" },
+        { "Num": 43, "Comments": "いつの間にかすごい成果出してたりする" },
         {
           "Num": 72,
           "Comments": "ああ見えて人間味はあると思う",
@@ -7177,10 +6639,7 @@
           "Comments": "変な情報広げてないといいんだが",
           "RelationLabel": ["successor_nearly"]
         },
-        {
-          "Num": 87,
-          "Comments": "金運操作してんのか？"
-        }
+        { "Num": 87, "Comments": "金運操作してんのか？" }
       ]
     }
   },
@@ -7208,8 +6667,7 @@
       { "value": 40, "about_JP": "推定", "about_EN": "Presumption" }
     ],
     "TailsUnit": "キツネ(枝分かれ)型7本(上1束6本+下2束1本)",
-    "Class": "デュアルエイツ",
-    "Class_EN": "Dual Sum-8s",
+    "Class": ["デュアルエイツ"],
     "FirstPersonCalling": "ぼく",
     "SecondPersonCalling": "きみ",
     "ThirdPersonCalling": "彼/彼女;*れ;[※名前呼び]",
@@ -7264,18 +6722,9 @@
         }
       ],
       "Commented": [
-        {
-          "Num": 25,
-          "Comments": "どんなときも軽やかでかっこいい"
-        },
-        {
-          "Num": 52,
-          "Comments": "一緒にいるととても安心します"
-        },
-        {
-          "Num": 80,
-          "Comments": "妙にソワソワするんですよね…"
-        },
+        { "Num": 25, "Comments": "どんなときも軽やかでかっこいい" },
+        { "Num": 52, "Comments": "一緒にいるととても安心します" },
+        { "Num": 80, "Comments": "妙にソワソワするんですよね…" },
         {
           "Num": 98,
           "Comments": "途中で投げ出すのもどうかと思うけどなぁ…",
@@ -7307,8 +6756,7 @@
     "Weight_kg": 43,
     "BustSize": "B",
     "TailsUnit": "キツネ(枝分かれ)型7本(上1束5本+下2束2本)",
-    "Class": "9倍2桁番(ナインズデュアルズ)",
-    "Class_EN": "Nines Duals",
+    "Class": ["9倍2桁番(ナインズデュアルズ)"],
     "ThisMasters": ["綾沢 改奈/文月（夜月機関 第7幹部）"],
     "FirstPersonCalling": "[Name ※特殊表記]",
     "SecondPersonCalling": "[※三人称]",
@@ -7342,7 +6790,6 @@
     },
     "InStory": "彼(女)の機械寄りな人間味や個性について、他のナンバーテールズからの見解は様々らしい",
     "Backgrounds": "ROSの機能が学習という別の目的で強化された、唯一の教材型個体\nROS完成以来零は彼女に罪悪感を…？",
-
     "Relation": {
       "Related": [
         {
@@ -7369,23 +6816,14 @@
         { "Num": 49, "RelationLabel": ["wellMatched"] }
       ],
       "Commented": [
-        {
-          "Num": 9,
-          "Comments": "“悩み相談”という行為に有力と判断"
-        },
-        {
-          "Num": 20,
-          "Comments": "心理的および感情的な共鳴作用を検出"
-        },
+        { "Num": 9, "Comments": "“悩み相談”という行為に有力と判断" },
+        { "Num": 20, "Comments": "心理的および感情的な共鳴作用を検出" },
         {
           "Num": 70,
           "Comments": "属性“理性”および”感性”を同時に検出，これによる最適化現象も確認…凄い…",
           "RelationLabel": ["successor_nearly"]
         },
-        {
-          "Num": 99,
-          "Comments": "推定失敗，“記憶” 解析不能…謎です…"
-        }
+        { "Num": 99, "Comments": "推定失敗，“記憶” 解析不能…謎です…" }
       ]
     }
   },
@@ -7420,8 +6858,7 @@
     "Weight_kg": { "hideText": "非公開" },
     "BustSize": "C",
     "TailsUnit": "キツネ(枝分かれ)型7本(上1束4本+下2束3本)",
-    "Class": "デュアルキャリーズ",
-    "Class_EN": "Dual Carries",
+    "Class": ["デュアルキャリーズ"],
     "FirstPersonCalling": "あたし",
     "SecondPersonCalling": "きみ",
     "ThirdPersonCalling": "彼/彼女;[※名前呼び]",
@@ -7456,19 +6893,13 @@
     "Backgrounds": "宣伝効果も兼ねて動画配信も行っている",
     "Relation": {
       "Related": [
-        {
-          "Num": 37,
-          "RelationLabel": ["brother|sister", "classmate"]
-        },
+        { "Num": 37, "RelationLabel": ["brother|sister", "classmate"] },
         {
           "Num": 66,
           "Comments": "かっこいい……!!",
           "RelationLabel": ["wellMatched", "interested"]
         },
-        {
-          "Num": 79,
-          "RelationLabel": ["cousin", "unmatched"]
-        },
+        { "Num": 79, "RelationLabel": ["cousin", "unmatched"] },
         {
           "Num": 97,
           "Comments": "「彼女の話だけは拡散するな」って言われる",
@@ -7476,11 +6907,7 @@
         }
       ],
       "Commented": [
-        {
-          "Num": 13,
-          "Comments": "頼もしい",
-          "RelationLabel": ["cousin"]
-        },
+        { "Num": 13, "Comments": "頼もしい", "RelationLabel": ["cousin"] },
         {
           "Num": 46,
           "Comments": "現実をたのしんでそう",
@@ -7496,10 +6923,7 @@
           "Comments": "どうしてああいうふうにあたしも稼げないんだろう？",
           "RelationLabel": ["classmate"]
         },
-        {
-          "Num": 90,
-          "Comments": "なんかそういう演出使いなのかな"
-        }
+        { "Num": 90, "Comments": "なんかそういう演出使いなのかな" }
       ]
     }
   },
@@ -7534,8 +6958,7 @@
     ],
     "BustSize": "B",
     "TailsUnit": "キツネ(枝分かれ)型7本(上1束3本+下2束4本)",
-    "Class": "デュアルイレブンズ",
-    "Class_EN": "Dual Sum-11s",
+    "Class": ["デュアルイレブンズ"],
     "FirstPersonCalling": "私(わたし)",
     "SecondPersonCalling": "あなた",
     "ThirdPersonCalling": "~君\n~さん",
@@ -7638,8 +7061,7 @@
     "Weight_kg": 42,
     "BustSize": "AA",
     "TailsUnit": "キツネ(枝分かれ)型7本(上1束2本+下2束5本)",
-    "Class": "デュアルスリーズ",
-    "Class_EN": "Dual Sum-3s",
+    "Class": ["デュアルスリーズ"],
     "FirstPersonCalling": "私(わたし)",
     "SecondPersonCalling": "君(きみ)",
     "ThirdPersonCalling": "彼/彼女;*の子,*の人/*れ;[※名前呼び]",
@@ -7701,10 +7123,7 @@
           "Comments": "何か足りなくても実現力が凄い人",
           "RelationLabel": ["classmate"]
         },
-        {
-          "Num": 50,
-          "Comments": "流されすぎじゃないのあれ…？"
-        },
+        { "Num": 50, "Comments": "流されすぎじゃないのあれ…？" },
         {
           "Num": 84,
           "Comments": "私としては実績強者としか…",
@@ -7741,8 +7160,7 @@
     "Weight_kg": { "hideText": "非公開" },
     "BustSize": "G",
     "TailsUnit": "キツネ(枝分かれ)型7本(上1束1本+下2束6本)",
-    "Class": "デュアルフォーズ",
-    "Class_EN": "Dual Sum-4s",
+    "Class": ["デュアルフォーズ"],
     "FirstPersonCalling": "わたし",
     "SecondPersonCalling": "あなた",
     "ThirdPersonCalling": "彼/彼女;~さん",
@@ -7788,10 +7206,7 @@
         }
       ],
       "Commented": [
-        {
-          "Num": 4,
-          "Comments": "真面目でいい人"
-        },
+        { "Num": 4, "Comments": "真面目でいい人" },
         {
           "Num": 31,
           "Comments": "わからなくもないですが…",
@@ -7836,8 +7251,7 @@
     ],
     "BustSize": "A",
     "TailsUnit": "キツネ(枝分かれ)型2束x7本",
-    "Class": "マスターテールズ9",
-    "Class_EN": "Master Tales 9",
+    "Class": ["マスターテールズ9"],
     "FirstPersonCalling": "僕",
     "SecondPersonCalling": "君(きみ)",
     "ThirdPersonCalling": "[※名前呼び]",
@@ -7892,22 +7306,10 @@
         }
       ],
       "Commented": [
-        {
-          "Num": 14,
-          "Comments": "助走付けなくても走り高跳びできる系だと思う"
-        },
-        {
-          "Num": 34,
-          "Comments": "質より量を重視してる…とも言い切れない"
-        },
-        {
-          "Num": 50,
-          "Comments": "何があっても肝が据わってる"
-        },
-        {
-          "Num": 86,
-          "Comments": "現金主義じゃないだけマシ"
-        },
+        { "Num": 14, "Comments": "助走付けなくても走り高跳びできる系だと思う" },
+        { "Num": 34, "Comments": "質より量を重視してる…とも言い切れない" },
+        { "Num": 50, "Comments": "何があっても肝が据わってる" },
+        { "Num": 86, "Comments": "現金主義じゃないだけマシ" },
         {
           "Num": 88,
           "Comments": "色んな意味で“高級ピアノ君”",
@@ -7940,8 +7342,7 @@
     "Weight_kg": { "hideText": "非公開" },
     "BustSize": "E",
     "TailsUnit": "キツネ(枝分かれ)型8本(上2束1本+下1束7本)",
-    "Class": "デュアルシックスズ",
-    "Class_EN": "Dual Sum-6s",
+    "Class": ["デュアルシックスズ"],
     "ThisMasters": [
       {
         "value": "錦野 舞（78特殊探偵団 采配幹部(ディーラー)/シンフォニー.XVI(ゼクズィン)所属 デザインエンジニア）",
@@ -8038,18 +7439,10 @@
     "AnivDay": [
       { "Day": { "Month": 7, "DayOfMonth": 9 }, "DayAbout": "開発記念" }
     ],
-    "Class": "デュアルセブンズ",
-    "Class_EN": "Dual Sum-7s",
+    "Class": ["デュアルセブンズ"],
     "Favor": "開運情報",
     "InStory": "宗教勧誘者のように疑われがち",
-    "Relation": {
-      "Commented": [
-        {
-          "Num": 7,
-          "RelationLabel": ["pioneer"]
-        }
-      ]
-    }
+    "Relation": { "Commented": [{ "Num": 7, "RelationLabel": ["pioneer"] }] }
   },
   {
     "Num": 80,
@@ -8073,8 +7466,7 @@
     ],
     "BustSize": "G",
     "TailsUnit": "キツネ型8本",
-    "Class": "10倍番(テンズデジッツ)",
-    "Class_EN": "Tens-Digits",
+    "Class": ["10倍番(テンズデジッツ)"],
     "FirstPersonCalling": "わたくしめ\nおれ",
     "SecondPersonCalling": "あなたサマ\nあんた",
     "ThirdPersonCalling": "~サマ\n*いつ/*れ;[※名前呼び]",
@@ -8111,20 +7503,10 @@
     },
     "Relation": {
       "Commented": [
-        {
-          "Num": 8,
-          "RelationLabel": ["brother|sister"]
-        },
-        {
-          "Num": 53
-        },
-        {
-          "Num": 62
-        },
-        {
-          "Num": 88,
-          "RelationLabel": ["successor", "wellMatched"]
-        }
+        { "Num": 8, "RelationLabel": ["brother|sister"] },
+        { "Num": 53 },
+        { "Num": 62 },
+        { "Num": 88, "RelationLabel": ["successor", "wellMatched"] }
       ]
     }
   },
@@ -8151,8 +7533,7 @@
     "Weight_kg": 41,
     "BustSize": "D",
     "TailsUnit": "キツネ(枝分かれ)型8本(上1束7本+下2束1本)",
-    "Class": "9倍2桁番(ナインズデュアルズ)",
-    "Class_EN": "Nines Duals",
+    "Class": ["9倍2桁番(ナインズデュアルズ)"],
     "FirstPersonCalling": "私(わたし)",
     "SecondPersonCalling": "あなた",
     "ThirdPersonCalling": "[※名前呼び]",
@@ -8205,14 +7586,8 @@
         }
       ],
       "Commented": [
-        {
-          "Num": 10,
-          "Comments": "怪しい目的でも抱えてそう"
-        },
-        {
-          "Num": 90,
-          "Comments": "いざというときは本気を出せる"
-        },
+        { "Num": 10, "Comments": "怪しい目的でも抱えてそう" },
+        { "Num": 90, "Comments": "いざというときは本気を出せる" },
         {
           "Num": 91,
           "Comments": "ちょっと思考が…う～ん…",
@@ -8241,8 +7616,7 @@
     "Weight_kg": { "hideText": "非公開" },
     "BustSize": "B",
     "TailsUnit": "キツネ(枝分かれ)型8本(上1束6本+下2束2本)",
-    "Class": "デュアルキャリーズ",
-    "Class_EN": "Dual Carries",
+    "Class": ["デュアルキャリーズ"],
     "FirstPersonCalling": "私(わたし)",
     "SecondPersonCalling": "あなた",
     "ThirdPersonCalling": "[※名前呼び]",
@@ -8250,10 +7624,7 @@
     "NumerospecAbout": "物乞いを叶える\nただしこの効果は周囲の物品状況に影響されやすい",
     "Relation": {
       "Commented": [
-        {
-          "Num": 28,
-          "RelationLabel": ["brother|sister", "classmate"]
-        }
+        { "Num": 28, "RelationLabel": ["brother|sister", "classmate"] }
       ]
     }
   },
@@ -8271,35 +7642,17 @@
     "AnivDay": [
       { "Day": { "Month": 8, "DayOfMonth": 3 }, "DayAbout": "開発記念" }
     ],
-    "Class": "デュアルイレブンズ",
-    "Class_EN": "Dual Sum-11s",
+    "Class": ["デュアルイレブンズ"],
     "SecondPersonCalling": "お前",
     "NumerospecAbout": "勝機を恵む\nこの効果は報酬的な効果として作用する",
     "Relation": {
       "Commented": [
-        {
-          "Num": 11
-        },
-        {
-          "Num": 23,
-          "RelationLabel": ["cousin_nearly"]
-        },
-        {
-          "Num": 38,
-          "RelationLabel": ["brother|sister", "classmate"]
-        },
-        {
-          "Num": 65,
-          "RelationLabel": ["classmate"]
-        },
-        {
-          "Num": 82,
-          "RelationLabel": ["cousin"]
-        },
-        {
-          "Num": 92,
-          "RelationLabel": ["classmate"]
-        }
+        { "Num": 11 },
+        { "Num": 23, "RelationLabel": ["cousin_nearly"] },
+        { "Num": 38, "RelationLabel": ["brother|sister", "classmate"] },
+        { "Num": 65, "RelationLabel": ["classmate"] },
+        { "Num": 82, "RelationLabel": ["cousin"] },
+        { "Num": 92, "RelationLabel": ["classmate"] }
       ]
     }
   },
@@ -8331,8 +7684,7 @@
       "about_EN": "When appearing slimmer (possibly)"
     },
     "TailsUnit": "キツネ(枝分かれ)型8本(上1束4本+下2束4本)",
-    "Class": "デュアルスリーズ",
-    "Class_EN": "Dual Sum-3s",
+    "Class": ["デュアルスリーズ"],
     "FirstPersonCalling": "あたし\nわたし ※時々",
     "SecondPersonCalling": "あんた\nあなた ※時々",
     "ThirdPersonCalling": "彼/彼女;*れ,*の[な]~;[※名前呼び]",
@@ -8374,10 +7726,7 @@
           "Comments": "……ずるいよね、あれ",
           "RelationLabel": ["cousin_nearly", "unmatched"]
         },
-        {
-          "Num": 48,
-          "RelationLabel": ["brother|sister", "classmate"]
-        },
+        { "Num": 48, "RelationLabel": ["brother|sister", "classmate"] },
         {
           "Num": 93,
           "Comments": "無理せず頑張ってね、ファイト！",
@@ -8390,10 +7739,7 @@
           "Comments": "なんかちょっとうらやましくなるなぁ",
           "RelationLabel": ["classmate"]
         },
-        {
-          "Num": 35,
-          "Comments": "断るときはちゃんと断っていいんよ？"
-        },
+        { "Num": 35, "Comments": "断るときはちゃんと断っていいんよ？" },
         {
           "Num": 43,
           "Comments": "嫌な子だな…近寄らないでおこ",
@@ -8441,8 +7787,7 @@
     "Weight_kg": { "hideText": "非公開" },
     "BustSize": "A",
     "TailsUnit": "キツネ(枝分かれ)型8本(上1束3本+下2束5本)",
-    "Class": "デュアルフォーズ",
-    "Class_EN": "Dual Sum-4s",
+    "Class": ["デュアルフォーズ"],
     "ThisMasters": [
       "リーチェ.エリザベス/レイチェル(78特殊探偵団 金の硬貨支部 副支部長)"
     ],
@@ -8537,8 +7882,7 @@
     ],
     "Weight_kg": { "hideText": "非公開" },
     "BustSize": "B",
-    "Class": "デュアルファイブズ",
-    "Class_EN": "Dual Sum-5s",
+    "Class": ["デュアルファイブズ"],
     "TailsUnit": "キツネ(枝分かれ)型8本(上1束2本+下2束6本)",
     "FirstPersonCalling": "自分\n私(わたし)",
     "SecondPersonCalling": "君(きみ)",
@@ -8589,10 +7933,7 @@
           "Comments": "頼ってもいい存在",
           "RelationLabel": ["cousin_nearly", "trusted_maybe"]
         },
-        {
-          "Num": 51,
-          "Comments": "ちょっと残念というか…"
-        },
+        { "Num": 51, "Comments": "ちょっと残念というか…" },
         {
           "Num": 61,
           "Comments": "いや……ええ…？",
@@ -8647,8 +7988,7 @@
       "about_EN": "When appearing slimmer (possibly)"
     },
     "TailsUnit": "キツネ(枝分かれ)型8本(上1束1本+下2束7本)",
-    "Class": "デュアルシックスズ",
-    "Class_EN": "Dual Sum-6s",
+    "Class": ["デュアルシックスズ"],
     "ThisMasters": [
       {
         "value": "錦野 歌嫁（78特殊探偵団 采配幹部(ディーラー)/百花繚乱研究所(N3US大学 千歳研究室)ゼミアシスタント）",
@@ -8725,14 +8065,8 @@
           "Comments": "勉強熱心で良い人だとは思う",
           "RelationLabel": ["cousin"]
         },
-        {
-          "Num": 34,
-          "Comments": "逆に面白いと私は思うな♪"
-        },
-        {
-          "Num": 43,
-          "Comments": "不要に本気で逆に面白い人だと私は思うな♪"
-        }
+        { "Num": 34, "Comments": "逆に面白いと私は思うな♪" },
+        { "Num": 43, "Comments": "不要に本気で逆に面白い人だと私は思うな♪" }
       ]
     }
   },
@@ -8759,8 +8093,7 @@
     ],
     "Weight_kg": 45,
     "TailsUnit": "キツネ(枝分かれ)型2束x8本",
-    "Class": "マスターテールズ9",
-    "Class_EN": "Master Tales 9",
+    "Class": ["マスターテールズ9"],
     "FirstPersonCalling": "私(わたし)\n僕",
     "SecondPersonCalling": "あなた様\n君(きみ)",
     "ThirdPersonCalling": "~様\n[※名前呼び]",
@@ -8826,19 +8159,13 @@
           "Comments": "現実性のある思考をお持ちで頼れる方",
           "RelationLabel": ["classmate"]
         },
-        {
-          "Num": 61,
-          "Comments": "幸せそうで何より"
-        },
+        { "Num": 61, "Comments": "幸せそうで何より" },
         {
           "Num": 77,
           "Comments": "彼(女)が精神統一をしているときは、極力邪魔をしないであげてくださいね",
           "RelationLabel": ["classmate"]
         },
-        {
-          "Num": 78,
-          "Comments": "錬金術でもする気なのでしょうか…"
-        }
+        { "Num": 78, "Comments": "錬金術でもする気なのでしょうか…" }
       ]
     }
   },
@@ -8866,8 +8193,7 @@
     "Weight_kg": { "hideText": "非公開" },
     "BustSize": "C",
     "TailsUnit": "キツネ(枝分かれ)型9本(上1束6本+下2束3本)",
-    "Class": "デュアルエイツ",
-    "Class_EN": "Dual Sum-8s",
+    "Class": ["デュアルエイツ"],
     "ThisMasters": [
       "氏原（仮称;夜月機関 第12幹部:キャサリン=アインツヴァイス の専属執事）"
     ],
@@ -8936,10 +8262,7 @@
           "Comments": "感性の素晴らしい方です",
           "RelationLabel": ["classmate"]
         },
-        {
-          "Num": 88,
-          "Comments": "裕福なのはきっと日頃の行いのおかげ、のはず…"
-        }
+        { "Num": 88, "Comments": "裕福なのはきっと日頃の行いのおかげ、のはず…" }
       ]
     }
   },
@@ -8957,16 +8280,10 @@
     "AnivDay": [
       { "Day": { "Month": 8, "DayOfMonth": 31 }, "DayAbout": "開発記念" }
     ],
-    "Class": "10倍番(テンズデジッツ)",
-    "Class_EN": "Tens-Digits",
+    "Class": ["10倍番(テンズデジッツ)"],
     "NumerospecAbout": "締めくくりや最終手段で本領発揮させる",
     "Relation": {
-      "Commented": [
-        {
-          "Num": 99,
-          "RelationLabel": ["successor_nearly"]
-        }
-      ]
+      "Commented": [{ "Num": 99, "RelationLabel": ["successor_nearly"] }]
     }
   },
   {
@@ -8983,23 +8300,13 @@
     "AnivDay": [
       { "Day": { "Month": 9, "DayOfMonth": 1 }, "DayAbout": "開発記念" }
     ],
-    "Class": "デュアルキャリーズ",
-    "Class_EN": "Dual Carries",
+    "Class": ["デュアルキャリーズ"],
     "NumerospecAbout": "気持ちを切り替えさせる\nこの効果は物事の節目に最大となる",
     "Relation": {
       "Commented": [
-        {
-          "Num": 18,
-          "RelationLabel": ["cousin_nearly"]
-        },
-        {
-          "Num": 19,
-          "RelationLabel": ["brother|sister", "classmate"]
-        },
-        {
-          "Num": 81,
-          "RelationLabel": ["cousin"]
-        }
+        { "Num": 18, "RelationLabel": ["cousin_nearly"] },
+        { "Num": 19, "RelationLabel": ["brother|sister", "classmate"] },
+        { "Num": 81, "RelationLabel": ["cousin"] }
       ]
     }
   },
@@ -9026,8 +8333,7 @@
     ],
     "Weight_kg": 41,
     "TailsUnit": "キツネ(枝分かれ)型9本(上1束7本+下2束3本)",
-    "Class": "デュアルイレブンズ",
-    "Class_EN": "Dual Sum-11s",
+    "Class": ["デュアルイレブンズ"],
     "FirstPersonCalling": "僕",
     "SecondPersonCalling": "君\n貴方",
     "ThirdPersonCalling": "彼/彼女;[※名前呼び]",
@@ -9071,10 +8377,7 @@
           "Comments": "……姉ちゃん…",
           "RelationLabel": ["brother|sister", "awkward", "trusted", "classmate"]
         },
-        {
-          "Num": 90,
-          "RelationLabel": ["pioneer_nearly", "unmatched"]
-        }
+        { "Num": 90, "RelationLabel": ["pioneer_nearly", "unmatched"] }
       ],
       "Commented": [
         {
@@ -9124,8 +8427,7 @@
     "Weight_kg": 39,
     "BustSize": "A",
     "TailsUnit": "キツネ(枝分かれ)型9本(上1束6本+下2束3本)",
-    "Class": "デュアルスリーズ",
-    "Class_EN": "Dual Sum-3s",
+    "Class": ["デュアルスリーズ"],
     "ThisMasters": ["乃木 希（VIPマスター;夜月機関 救命本部 推薦所属候補者）"],
     "FirstPersonCalling": "あたし",
     "SecondPersonCalling": "君",
@@ -9189,10 +8491,7 @@
           "Comments": "あれはもう“お母さん”だよね…",
           "RelationLabel": ["cousin"]
         },
-        {
-          "Num": 66,
-          "Comments": "きれいで、不思議で、なんというか…"
-        },
+        { "Num": 66, "Comments": "きれいで、不思議で、なんというか…" },
         {
           "Num": 95,
           "Comments": "異世界に行く準備でもしてるのかな…",
@@ -9226,8 +8525,7 @@
     "Weight_kg": 39,
     "BustSize": "A",
     "TailsUnit": "キツネ(枝分かれ)型9本(上1束5本+下2束4本)",
-    "Class": "デュアルフォーズ",
-    "Class_EN": "Dual Sum-4s",
+    "Class": ["デュアルフォーズ"],
     "ThisMasters": ["花舞 彗"],
     "FirstPersonCalling": "ぼく",
     "SecondPersonCalling": "きみ",
@@ -9314,8 +8612,7 @@
     "AnivDay": [
       { "Day": { "Month": 9, "DayOfMonth": 5 }, "DayAbout": "開発記念" }
     ],
-    "Class": "デュアルファイブズ",
-    "Class_EN": "Dual Sum-5s",
+    "Class": ["デュアルファイブズ"],
     "Character": "癖で万が一のことを考えている\n異世界転生に興味があるらしいが…",
     "Hobby": "対策、災害などへの備え",
     "SpecialSkill": "ライトノベル執筆",
@@ -9368,8 +8665,7 @@
     "Weight_kg": { "hideText": "非公開" },
     "BustSize": "G",
     "TailsUnit": "キツネ(枝分かれ)型9本(上1束3本+下2束6本)",
-    "Class": "デュアルシックスズ",
-    "Class_EN": "Dual Sum-6s",
+    "Class": ["デュアルシックスズ"],
     "ThisMasters": ["ジャッヂ=ジャストリー/神谷崎 幻影"],
     "FirstPersonCalling": "[※？？？]",
     "SecondPersonCalling": "あなた",
@@ -9475,8 +8771,7 @@
     "Weight_kg": 39,
     "BustSize": "E",
     "TailsUnit": "キツネ(枝分かれ)型9本(上1束2本+下2束7本)",
-    "Class": "デュアルセブンズ",
-    "Class_EN": "Dual Sum-7s",
+    "Class": ["デュアルセブンズ"],
     "FirstPersonCalling": "わたくしめ",
     "SecondPersonCalling": "あなた(さま) ※稀\n[※名前呼び],~さま",
     "ThirdPersonCalling": "[※名前呼び]\n~さま",
@@ -9569,8 +8864,7 @@
     "Weight_kg": { "hideText": "非公開" },
     "BustSize": "D",
     "TailsUnit": "キツネ(枝分かれ)型9本(上1束1本+下2束8本)",
-    "Class": "デュアルエイツ",
-    "Class_EN": "Dual Sum-8s",
+    "Class": ["デュアルエイツ"],
     "FirstPersonCalling": "私(わたし)",
     "SecondPersonCalling": "あなた",
     "ThirdPersonCalling": "彼/彼女;~さん;[※名前呼び]",
@@ -9633,19 +8927,13 @@
         }
       ],
       "Commented": [
-        {
-          "Num": 44,
-          "Comments": "あんな不良男児の何がいいの？"
-        },
+        { "Num": 44, "Comments": "あんな不良男児の何がいいの？" },
         {
           "Num": 53,
           "Comments": "単純というかおバカというか…",
           "RelationLabel": ["classmate"]
         },
-        {
-          "Num": 80,
-          "Comments": "ゲンキン(現金主義)でなんかやだ"
-        }
+        { "Num": 80, "Comments": "ゲンキン(現金主義)でなんかやだ" }
       ]
     }
   },
@@ -9674,8 +8962,7 @@
     "Weight_kg": 43,
     "BustSize": "AA",
     "TailsUnit": "キツネ(枝分かれ)型2束x9本",
-    "Class": "マスターテールズ9",
-    "Class_EN": "Master Tales 9",
+    "Class": ["マスターテールズ9"],
     "FirstPersonCalling": "余",
     "SecondPersonCalling": "お主",
     "ThirdPersonCalling": "*の者;[※名前呼び]",
@@ -9710,10 +8997,7 @@
     "Backgrounds": "最後の正規型個体\n数字表記は漢数字となっている\n加護については偶然の産物（以下略）",
     "Relation": {
       "Related": [
-        {
-          "Num": 9,
-          "RelationLabel": ["pioneer"]
-        },
+        { "Num": 9, "RelationLabel": ["pioneer"] },
         {
           "Num": 10,
           "Comments": "お主は…確か…",
@@ -9731,23 +9015,14 @@
         }
       ],
       "Commented": [
-        {
-          "Num": 1,
-          "Comments": "此処で患い無きことを願う"
-        },
-        {
-          "Num": 18,
-          "Comments": "無茶してはならぬぞ"
-        },
+        { "Num": 1, "Comments": "此処で患い無きことを願う" },
+        { "Num": 18, "Comments": "無茶してはならぬぞ" },
         {
           "Num": 22,
           "Comments": "幸運に恵まれておるものだな",
           "RelationLabel": ["classmate"]
         },
-        {
-          "Num": 45,
-          "Comments": "勇敢でよろしい"
-        }
+        { "Num": 45, "Comments": "勇敢でよろしい" }
       ]
     }
   },
@@ -9790,10 +9065,7 @@
     "Height_cm": [{ "value": 150, "about_JP": "想定", "about_EN": "Scenario" }],
     "ConceptAge": 17,
     "AnivDay": [
-      {
-        "Day": { "Month": 1, "DayOfMonth": 2 },
-        "DayAbout": "開発記念"
-      },
+      { "Day": { "Month": 1, "DayOfMonth": 2 }, "DayAbout": "開発記念" },
       {
         "Day": { "Month": 2, "DayOfMonth": 2 },
         "DayAbout": "試作型2号機開発再開記念(劇中)"
@@ -9801,13 +9073,9 @@
     ],
     "Weight_kg": [{ "value": 40, "about_JP": "想定", "about_EN": "Scenario" }],
     "BustSize": "F",
-    "Class": "未完成個体\n開発システム用個体",
-    "Class_EN": "Progressing to Develop\nfor Developer System",
+    "Class": ["未完成個体", "開発システム用個体"],
     "ThisMasters": [
-      {
-        "value": null,
-        "about": "(専属契約不可,未リリース状態)"
-      }
+      { "value": null, "about": "(専属契約不可,未リリース状態)" }
     ],
     "FirstPersonCalling": "わたし",
     "SecondPersonCalling": "[※名前呼び]",
@@ -9822,9 +9090,7 @@
     "Weakness": "正式な実体を得ることがない間に「スキンシップができるならどんな姿や形になってもいい」とどこかで思うようになった",
     "RelationNotes": "「3(ナオ)」と一緒に活動したかったと思っている\n「ディケ」の悩みに寄り添いたいと願っている",
     "NumerospecAbout": "他ナンバーテールズに託す：この効果の詳細は不明",
-    "NumerospecStats": {
-      "SpecialPattern": ["Ptn.X(転化・転送効果)"]
-    },
+    "NumerospecStats": { "SpecialPattern": ["Ptn.X(転化・転送効果)"] },
     "AbilityStats": {
       "Speed": { "hideText": "データ無" },
       "Communication": { "Rank": "S" },
@@ -9837,22 +9103,10 @@
     "Backgrounds": "百の機械設計が零のファームウェア設計と遅れたことが原因、百の最初の挫折となる",
     "Relation": {
       "Related": [
-        {
-          "Num": 2,
-          "RelationLabel": ["sameNumber", "classmate"]
-        },
-        {
-          "Num": 3,
-          "RelationLabel": ["trusted", "interested", "classmate"]
-        },
-        {
-          "Num": 20,
-          "RelationLabel": ["brother|sister", "wellMatched"]
-        },
-        {
-          "Num": 24,
-          "RelationLabel": ["successor", "wellMatched"]
-        },
+        { "Num": 2, "RelationLabel": ["sameNumber", "classmate"] },
+        { "Num": 3, "RelationLabel": ["trusted", "interested", "classmate"] },
+        { "Num": 20, "RelationLabel": ["brother|sister", "wellMatched"] },
+        { "Num": 24, "RelationLabel": ["successor", "wellMatched"] },
         {
           "Num": "10-alt",
           "RelationLabel": ["trusted", "awkward", "classmate"]
@@ -9863,9 +9117,7 @@
   {
     "Num": "10-alt",
     "Progress": "stillTentative",
-    "Images": {
-      "corefolder_PNGPath": ["emstk_corefolder10alt-ondeck1"]
-    },
+    "Images": { "corefolder_PNGPath": ["emstk_corefolder10alt-ondeck1"] },
     "Name": "ツナイ\nディケ",
     "Name_EN": "Dicat",
     "ModelName": "ナンバーテールズ試作型10号機",
@@ -9886,13 +9138,9 @@
       }
     ],
     "Weight_kg": { "hideText": "データ無" },
-    "Class": "調整個体\n退任個体",
-    "Class_EN": "Tuning/for Tuning System\nRetired",
+    "Class": ["調整個体", "退任個体"],
     "ThisMasters": [
-      {
-        "value": null,
-        "about": "(専属契約不可,厳重な謹慎処分中)"
-      }
+      { "value": null, "about": "(専属契約不可,厳重な謹慎処分中)" }
     ],
     "FirstPersonCalling": "俺",
     "SecondPersonCalling": "お前",
@@ -9911,22 +9159,10 @@
     "Backgrounds": "暴走事故により自律行動アルゴリズムや人権など、重大な課題を残し 零の最初の挫折となる",
     "Relation": {
       "Related": [
-        {
-          "Num": 10,
-          "RelationLabel": ["sameNumber", "wellMatched"]
-        },
-        {
-          "Num": "0",
-          "RelationLabel": ["unmatched", "abusing"]
-        },
-        {
-          "Num": "00",
-          "RelationLabel": ["unmatched", "abusing"]
-        },
-        {
-          "Num": "000",
-          "RelationLabel": ["unmatched"]
-        }
+        { "Num": 10, "RelationLabel": ["sameNumber", "wellMatched"] },
+        { "Num": "0", "RelationLabel": ["unmatched", "abusing"] },
+        { "Num": "00", "RelationLabel": ["unmatched", "abusing"] },
+        { "Num": "000", "RelationLabel": ["unmatched"] }
       ]
     }
   },
@@ -9972,13 +9208,9 @@
     ],
     "Weight_kg": { "hideText": "？？？" },
     "BustSize": "A",
-    "Class": "営業補助用個体",
-    "Class_EN": "for Consulting Assistant",
+    "Class": ["営業補助用個体"],
     "ThisMasters": [
-      {
-        "value": null,
-        "about": "(専属契約不可)"
-      },
+      { "value": null, "about": "(専属契約不可)" },
       {
         "value": "零 零(カズナイ レイ)",
         "about": "仕方なく所持",
@@ -10010,10 +9242,7 @@
     "Backgrounds": "零姉弟が修士課程での黒歴史を拭うため、余暇で仕方なく完成させた\n修士研究冒頭で誕生した副産物？らしいが…",
     "Relation": {
       "Related": [
-        {
-          "Num": 81,
-          "RelationLabel": ["wellMatched"]
-        },
+        { "Num": 81, "RelationLabel": ["wellMatched"] },
         {
           "Num": "0",
           "RelationLabel": ["secretRelation", "adverselyAffected"]
@@ -10052,8 +9281,7 @@
     ],
     "Weight_kg": { "hideText": "非公開" },
     "BustSize": "D",
-    "Class": "開発者\n最高経営所長",
-    "Class_EN": "Developer\nChief Executive Officer",
+    "Class": ["開発者", "最高経営所長"],
     "FirstPersonCalling": "私(わたし)",
     "SecondPersonCalling": "君(,あんた)",
     "ThirdPersonCalling": "彼/彼女;[※名前呼び]",
@@ -10087,8 +9315,7 @@
       { "Day": { "Month": 8, "DayOfMonth": 15 }, "DayAbout": "誕生日" }
     ],
     "Weight_kg": { "hideText": "非公開" },
-    "Class": "開発者\n最高技術所長",
-    "Class_EN": "Developer\nChief Technology Officer",
+    "Class": ["開発者", "最高技術所長"],
     "FirstPersonCalling": "僕",
     "SecondPersonCalling": "君\nお前",
     "ThirdPersonCalling": "彼/彼女;[※名前呼び]",

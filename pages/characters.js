@@ -4580,7 +4580,17 @@ async function renderList(records, workId, onOpen, imageFields = null) {
       }
       if (text) chipEls.push(el('span', { class: 'chip' }, text));
     }
-    if (r.Class || r.Class_EN) chipEls.push(el('span', { class: 'chip' }, r.Class || r.Class_EN));
+    if (r.Class) {
+      const dispRaw = fieldDisplayMap.Class || fieldDisplayMap['Class'] || null;
+      const text = formatValueForDisplay(r.Class, {}, metaForLookup, globalDefType, {
+        display: sanitizeListChipDisplay('Class', dispRaw),
+        schemaType: '#DictIndex[]',
+        fieldKey: 'Class'
+      });
+      if (text) chipEls.push(el('span', { class: 'chip' }, text));
+    } else if (r.Class_EN) {
+      chipEls.push(el('span', { class: 'chip' }, r.Class_EN));
+    }
     if (r.RaceType_JP || r.RaceType) {
       const raw = r.RaceType_JP || r.RaceType;
       const text = formatValueForDisplay(raw, {}, metaForLookup, globalDefType, {
@@ -6466,7 +6476,17 @@ function renderDBLinkResolved(dbLinkResolved, fieldLabelMap, workMeta, globalDef
                 ]) : null,
               record.Class || record.RaceType || record.GenderType ?
                 el('div', { style: 'margin-top: 4px;' }, [
-                  record.Class ? el('span', { class: 'chip', style: 'margin-right: 4px;' }, [record.Class]) : null,
+                  (() => {
+                    const classText = record.Class
+                      ? formatValueForDisplay(record.Class, {}, workMeta, globalDefType, {
+                          schemaType: '#DictIndex[]',
+                          fieldKey: 'Class'
+                        })
+                      : (record.Class_EN || '');
+                    return classText
+                      ? el('span', { class: 'chip', style: 'margin-right: 4px;' }, [classText])
+                      : null;
+                  })(),
                   record.RaceType ? el('span', { class: 'chip', style: 'margin-right: 4px;' }, [
                     formatValueForDisplay(record.RaceType, {}, workMeta, globalDefType, {
                       schemaType: '#ListIndex|#ListIndex_withAbout[]',

@@ -36,11 +36,7 @@
       ],
       "$display": { "section": "images", "tagSpace": "internal" }
     },
-    {
-      "hashTag": "Career",
-      "$type": "#Summary",
-      "hashTag_JP": "経歴について"
-    },
+    { "hashTag": "Career", "$type": "#Summary", "hashTag_JP": "経歴について" },
     { "hashTag": "Chronos", "$type": "#Index", "hashTag_JP": "クロノス" },
     {
       "hashTag": "ChronoholderName",
@@ -63,10 +59,7 @@
         {
           "hashTag": "ChronoizedDecave",
           "$type": [
-            {
-              "hashTag": "Decave",
-              "$type": "$EnumDef_Decave,$EnumLink"
-            }
+            { "hashTag": "Decave", "$type": "$EnumDef_Decave,$EnumLink" }
           ],
           "hashTag_JP": "時空遷移(クロノイド)級数",
           "$display": {
@@ -80,10 +73,7 @@
           "hashTag": "ChronoizedPurity",
           "$type": "#String|#String_withAbout",
           "hashTag_JP": "時空遷移(クロノイド)純度",
-          "$display": {
-            "section": "spec",
-            "tagSpace": "creation"
-          }
+          "$display": { "section": "spec", "tagSpace": "creation" }
         },
         {
           "hashTag": "ChronoizedAbout",

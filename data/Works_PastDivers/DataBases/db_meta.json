@@ -18,106 +18,91 @@
             "Lunar": "Kamiaridzuki",
             "CodeName_JP": "神有月",
             "CodeName_EN": "Zeus",
-            "Class": "総帥",
-            "Class_EN": "Chief.Executive"
+            "Class": ["総帥"]
           },
           {
             "Lunar": "Mutsuki",
             "CodeName_JP": "睦月",
             "CodeName_EN": "January",
-            "Class": "第1幹部\n睦月研究所",
-            "Class_EN": "Executive Director.1\nLaboratory.1"
+            "Class": ["第1幹部", "睦月研究所"]
           },
           {
             "Lunar": "Kisaragi",
             "CodeName_JP": "如月",
             "CodeName_EN": "February",
-            "Class": "第2幹部\n如月研究所",
-            "Class_EN": "Executive Director.2\nLaboratory.2"
+            "Class": ["第2幹部", "如月研究所"]
           },
           {
             "Lunar": "Yayoi",
             "CodeName_JP": "弥生",
             "CodeName_EN": "March",
-            "Class": "第3幹部\n弥生研究所(破滅対策本部2課)",
-            "Class_EN": "Executive Director.3\nLaboratory.3(Pandemic Affairs Countermeasures Headquarter.2)"
+            "Class": ["第3幹部", "弥生研究所(破滅対策本部2課)"]
           },
           {
             "Lunar": "Udzuki",
             "CodeName_JP": "卯月",
             "CodeName_EN": "April",
-            "Class": "第4幹部\n卯月研究所",
-            "Class_EN": "Executive Director.4\nLaboratory.4"
+            "Class": ["第4幹部", "卯月研究所"]
           },
           {
             "Lunar": "Satsuki",
             "CodeName_JP": "皐月",
             "CodeName_EN": "May",
-            "Class": "第5幹部\n皐月研究所",
-            "Class_EN": "Executive Director.5\nLaboratory.5"
+            "Class": ["第5幹部", "皐月研究所"]
           },
           {
             "Lunar": "Minadzuki",
             "CodeName_JP": "水無月",
             "CodeName_EN": "June",
-            "Class": "第6幹部\n水無月研究所",
-            "Class_EN": "Executive Director.6\nLaboratory.6"
+            "Class": ["第6幹部", "水無月研究所"]
           },
           {
             "Lunar": "Fumdzuki",
             "CodeName_JP": "文月",
             "CodeName_EN": "July",
-            "Class": "第7幹部\n文月研究所",
-            "Class_EN": "Executive Director.7\nLaboratory.7"
+            "Class": ["第7幹部", "文月研究所"]
           },
           {
             "Lunar": "Hadzuki",
             "CodeName_JP": "葉月",
             "CodeName_EN": "August",
-            "Class": "第8幹部\n葉月研究所(軍事本部)",
-            "Class_EN": "Executive Director.8\nLaboratory.8(Military Headquarter)"
+            "Class": ["第8幹部", "葉月研究所(軍事本部)"]
           },
           {
             "Lunar": "Nagatsuki",
             "CodeName_JP": "長月",
             "CodeName_EN": "September",
-            "Class": "第9幹部\n長月研究所(救命本部)",
-            "Class_EN": "Executive Director.9\nLaboratory.9(Lifeguards Headquarter)"
+            "Class": ["第9幹部", "長月研究所(救命本部)"]
           },
           {
             "Lunar": "Kannadzuki",
             "CodeName_JP": "神無月",
             "CodeName_EN": "October",
-            "Class": "第10幹部\n神無月研究所(破滅対策本部1課)",
-            "Class_EN": "Executive Director.10\nLaboratory.10(Pandemic Affairs Countermeasures Headquarter.1)"
+            "Class": ["第10幹部", "神無月研究所(破滅対策本部1課)"]
           },
           {
             "Lunar": "Shimotsuki",
             "CodeName_JP": "霜月",
             "CodeName_EN": "November",
-            "Class": "第11幹部\n霜月研究所(仮説)",
-            "Class_EN": "Executive Director.11\nLaboratory.11(Tentative)"
+            "Class": ["第11幹部", "霜月研究所(仮説)"]
           },
           {
             "Lunar": "Shiwasu",
             "CodeName_JP": "師走",
             "CodeName_EN": "December",
-            "Class": "第12幹部\n師走研究所(仮説)",
-            "Class_EN": "Executive Director.12\nLaboratory.12(Tentative)"
+            "Class": ["第12幹部", "師走研究所(仮説)"]
           },
           {
             "Lunar": "Leap",
             "CodeName_JP": "閏月",
             "CodeName_EN": "Leap",
-            "Class": "AI幹部\n如月研究所",
-            "Class_EN": "Executive Director.AI\nLaboratory.2"
+            "Class": ["AI幹部", "如月研究所"]
           },
           {
             "Lunar": "Zeroth",
             "CodeName_JP": "初零月",
             "CodeName_EN": "Zeroth",
-            "Class": { "hideText": "？？？" },
-            "Class_EN": { "hideText_EN": "????" }
+            "Class": ["？？？"]
           }
         ]
       }
@@ -148,101 +133,85 @@
             "Lunar": "Nullius",
             "CodeName_JP": "神有月",
             "CodeName_EN": "Zeus",
-            "Class": "総帥",
-            "Class_EN": "Chief.Executive"
+            "Class": ["総帥"]
           },
           {
             "Lunar": "Januarius",
             "CodeName_JP": "睦月",
             "CodeName_EN": "January",
-            "Class": "第1幹部\n睦月研究所",
-            "Class_EN": "Executive Director.1\nLaboratory.1"
+            "Class": ["第1幹部", "睦月研究所"]
           },
           {
             "Lunar": "Februarius",
             "CodeName_JP": "如月",
             "CodeName_EN": "February",
-
-            "Class": "第2幹部\n如月研究所",
-            "Class_EN": "Executive Director.2\nLaboratory.2"
+            "Class": ["第2幹部", "如月研究所"]
           },
           {
             "Lunar": "Martius.II",
             "CodeName_JP": "弥生",
             "CodeName_EN": "March",
-            "Class": "第3幹部",
-            "Class_EN": "Executive Director.3"
+            "Class": ["第3幹部"]
           },
           {
             "Lunar": "Aprilis",
             "CodeName_JP": "卯月",
             "CodeName_EN": "April",
-
-            "Class": "第4幹部\n卯月研究所",
-            "Class_EN": "Executive Director.4\nLaboratory.4"
+            "Class": ["第4幹部", "卯月研究所"]
           },
           {
             "Lunar": "Maius",
             "CodeName_JP": "皐月",
             "CodeName_EN": "May",
-            "Class": "第5幹部\n皐月研究所",
-            "Class_EN": "Executive Director.5\nLaboratory.5"
+            "Class": ["第5幹部", "皐月研究所"]
           },
           {
             "Lunar": "Junius.II",
             "CodeName_JP": "水無月",
             "CodeName_EN": "June",
-            "Class": "第6幹部\n水無月研究所",
-            "Class_EN": "Executive Director.6\nLaboratory.6"
+            "Class": ["第6幹部", "水無月研究所"]
           },
           {
             "Lunar": "Julius",
             "CodeName_JP": "文月",
             "CodeName_EN": "July",
-            "Class": "第7幹部\n文月研究所",
-            "Class_EN": "Executive Director.7\nLaboratory.7"
+            "Class": ["第7幹部", "文月研究所"]
           },
           {
             "Lunar": "Augustus",
             "CodeName_JP": "葉月",
             "CodeName_EN": "August",
-            "Class": "軍事本部",
-            "Class_EN": "Military Headquarter"
+            "Class": ["軍事本部"]
           },
           {
             "Lunar": "September",
             "CodeName_JP": "長月",
             "CodeName_EN": "September",
-            "Class": "救命本部",
-            "Class_EN": "Lifeguards Headquarter"
+            "Class": ["救命本部"]
           },
           {
             "Lunar": "October",
             "CodeName_JP": "神無月",
             "CodeName_EN": "October",
-            "Class": "破滅対策本部",
-            "Class_EN": "Pandemic Affairs Countermeasures Headquarter"
+            "Class": ["破滅対策本部"]
           },
           {
             "Lunar": "Martius",
             "CodeName_JP": "弥生",
             "CodeName_EN": "March",
-            "Class": "第3幹部",
-            "Class_EN": "Executive Director.3"
+            "Class": ["第3幹部"]
           },
           {
             "Lunar": "Junius",
             "CodeName_JP": "水無月",
             "CodeName_EN": "June",
-            "Class": "第6幹部\n水無月研究所",
-            "Class_EN": "Executive Director.6\nLaboratory.6"
+            "Class": ["第6幹部", "水無月研究所"]
           },
           {
             "Lunar": "Chronos",
             "CodeName_JP": "創世月",
             "CodeName_EN": "Chronos",
-            "Class": "機関創設者",
-            "Class_EN": "First Organizer"
+            "Class": ["機関創設者"]
           }
         ]
       }
@@ -276,12 +245,7 @@
             "Num": 0,
             "Generation": null
           },
-          {
-            "Lunar": "Mutsuki",
-            "Lunar_JP": "睦月",
-            "Num": 1,
-            "Generation": 2
-          },
+          { "Lunar": "Mutsuki", "Lunar_JP": "睦月", "Num": 1, "Generation": 2 },
           {
             "Lunar": "Januarius",
             "Lunar_JP": "睦月(初代)",
@@ -300,12 +264,7 @@
             "Num": 2,
             "Generation": 1
           },
-          {
-            "Lunar": "Yayoi",
-            "Lunar_JP": "弥生",
-            "Num": 3,
-            "Generation": 3
-          },
+          { "Lunar": "Yayoi", "Lunar_JP": "弥生", "Num": 3, "Generation": 3 },
           {
             "Lunar": "Martius",
             "Lunar_JP": "弥生(初代)",
@@ -318,24 +277,14 @@
             "Num": 3,
             "Generation": 2
           },
-          {
-            "Lunar": "Udzuki",
-            "Lunar_JP": "卯月",
-            "Num": 4,
-            "Generation": 2
-          },
+          { "Lunar": "Udzuki", "Lunar_JP": "卯月", "Num": 4, "Generation": 2 },
           {
             "Lunar": "Aprilis",
             "Lunar_JP": "卯月(初代)",
             "Num": 4,
             "Generation": 1
           },
-          {
-            "Lunar": "Satsuki",
-            "Lunar_JP": "皐月",
-            "Num": 5,
-            "Generation": 2
-          },
+          { "Lunar": "Satsuki", "Lunar_JP": "皐月", "Num": 5, "Generation": 2 },
           {
             "Lunar": "Maius",
             "Lunar_JP": "皐月(初代)",
@@ -372,12 +321,7 @@
             "Num": 7,
             "Generation": 1
           },
-          {
-            "Lunar": "Hadzuki",
-            "Lunar_JP": "葉月",
-            "Num": 8,
-            "Generation": 2
-          },
+          { "Lunar": "Hadzuki", "Lunar_JP": "葉月", "Num": 8, "Generation": 2 },
           {
             "Lunar": "Augustus",
             "Lunar_JP": "葉月(初代)",
@@ -420,12 +364,7 @@
             "Num": 12,
             "Generation": 1
           },
-          {
-            "Lunar": "Leap",
-            "Lunar_JP": "閏月",
-            "Num": 13,
-            "Generation": null
-          }
+          { "Lunar": "Leap", "Lunar_JP": "閏月", "Num": 13, "Generation": null }
         ]
       },
       "$Def_ChronospecStats": {

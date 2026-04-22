@@ -4,10 +4,7 @@
       "hashTag": "Progress",
       "$type": "$EnumDef",
       "hashTag_JP": "進捗",
-      "$display": {
-        "section": "basic",
-        "tagSpace": "creatorProgress"
-      }
+      "$display": { "section": "basic", "tagSpace": "creatorProgress" }
     },
     { "hashTag": "Name", "$type": "##String_JP|#Null", "hashTag_JP": "愛称" },
     {
@@ -30,132 +27,84 @@
       "$type": "##String_JP|#Null",
       "$alt": "SPCodeName",
       "hashTag_JP": "コードネーム",
-      "$display": {
-        "auto": false
-      }
+      "$display": { "auto": false }
     },
     {
       "hashTag": "CodeName_EN",
       "$type": "##String_EN|#Null",
       "$alt": "SPCodeName_EN",
       "hashTag_JP": "コードネーム_EN",
-      "$display": {
-        "auto": false
-      }
+      "$display": { "auto": false }
     },
     {
       "hashTag": "SPCodeName",
       "$type": "##String_JP|#Null",
       "hashTag_JP": "特殊なコードネーム",
-      "$display": {
-        "auto": false
-      }
+      "$display": { "auto": false }
     },
     {
       "hashTag": "SPCodeName_EN",
       "$type": "##String_EN|#Null",
       "hashTag_JP": "特殊なコードネーム_EN",
-      "$display": {
-        "auto": false
-      }
+      "$display": { "auto": false }
     },
     { "hashTag": "ModelNumber", "$type": "##String", "hashTag_JP": "型番" },
     {
       "hashTag": "ModelName",
       "$type": "##String_JP|#Summary|#Null",
       "hashTag_JP": "モデル名",
-      "$display": {
-        "section": "basic",
-        "tagSpace": "creation"
-      }
+      "$display": { "section": "basic", "tagSpace": "creation" }
     },
     {
       "hashTag": "ModelName_EN",
       "$type": "##String_EN|#Summary|#Null",
       "hashTag_JP": "モデル名_EN",
-      "$display": {
-        "section": "basic",
-        "tagSpace": "creation"
-      }
+      "$display": { "section": "basic", "tagSpace": "creation" }
     },
     {
       "hashTag": "RaceType",
       "$type": "#DictIndex|#DictIndex_withAbout[]",
       "$dict": "RaceType",
       "hashTag_JP": "種族",
-      "$display": {
-        "section": "basic",
-        "tagSpace": "creation"
-      }
+      "$display": { "section": "basic", "tagSpace": "creation" }
     },
     {
       "hashTag": "GenderType",
       "$type": "$EnumDef|$EnumDef_withAbout",
       "hashTag_JP": "性別",
-      "$display": {
-        "section": "basic",
-        "tagSpace": "creation"
-      }
+      "$display": { "section": "basic", "tagSpace": "creation" }
     },
     {
       "hashTag": "Belonging",
       "$type": "#DictIndex[]",
       "$dict": "Faction",
       "hashTag_JP": "所属",
-      "$display": {
-        "section": "basic",
-        "tagSpace": "creation"
-      }
+      "$display": { "section": "basic", "tagSpace": "creation" }
     },
-    {
-      "hashTag": "FromArea",
-      "$type": "$Def_BaseArea",
-      "hashTag_JP": "出身地"
-    },
+    { "hashTag": "FromArea", "$type": "$Def_BaseArea", "hashTag_JP": "出身地" },
     {
       "hashTag": "BelongingArea",
       "$type": "$Def_BaseArea",
       "hashTag_JP": "活動拠点"
     },
-    { "hashTag": "ClassType", "$type": "#String", "hashTag_JP": "クラス" },
-    {
-      "hashTag": "ClassType_EN",
-      "$type": "#String",
-      "hashTag_JP": "クラス_EN"
-    },
     {
       "hashTag": "Class",
-      "$type": "##String_JP|#Summary|#Null",
+      "$type": "#DictIndex[]",
+      "$dict": "Class",
       "hashTag_JP": "クラス名",
-      "$display": {
-        "section": "basic",
-        "tagSpace": "creation"
-      }
-    },
-    {
-      "hashTag": "Class_EN",
-      "$type": "##String_EN|#Summary|#Null",
-      "hashTag_JP": "クラス名_EN",
-      "$display": {
-        "auto": false,
-        "aliasOf": "Class"
-      }
+      "$display": { "section": "basic", "tagSpace": "creation" }
     },
     {
       "hashTag": "Height_cm",
       "$type": "#Number|#Number_withAbout[]",
       "hashTag_JP": "身長_cm",
-      "$display": {
-        "unit": "cm"
-      }
+      "$display": { "unit": "cm" }
     },
     {
       "hashTag": "Weight_kg",
       "$type": "#Number|#Number_withAbout[]",
       "hashTag_JP": "体重_kg",
-      "$display": {
-        "unit": "kg"
-      }
+      "$display": { "unit": "kg" }
     },
     {
       "hashTag": "BustSize",
@@ -178,18 +127,13 @@
       "$type": "$Def_Day",
       "$alt": "AnivDay",
       "hashTag_JP": "誕生日",
-      "$display": {
-        "section": "basic",
-        "aliasOf": "AnivDay"
-      }
+      "$display": { "section": "basic", "aliasOf": "AnivDay" }
     },
     {
       "hashTag": "AnivDay",
       "$type": "$Def_Day[]",
       "hashTag_JP": "記念日",
-      "$display": {
-        "section": "basic"
-      }
+      "$display": { "section": "basic" }
     },
     {
       "hashTag": "FirstPersonCalling",
@@ -282,9 +226,7 @@
       ],
       "hashTag_JP": "会話パターンについて",
       "searchable": false,
-      "$display": {
-        "section": "profile"
-      }
+      "$display": { "section": "profile" }
     },
     {
       "hashTag": "RelationNotes",
@@ -327,10 +269,7 @@
         }
       ],
       "hashTag_JP": "能力値",
-      "$display": {
-        "rankFormat": "alphaLabel",
-        "enumLinkKey": "AbilityText"
-      }
+      "$display": { "rankFormat": "alphaLabel", "enumLinkKey": "AbilityText" }
     },
     {
       "hashTag": "Backgrounds",
