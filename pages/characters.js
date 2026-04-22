@@ -2474,6 +2474,31 @@ function resolveVarsDefLabelPack(fieldName, rawValue, globalDefType = null, meta
   const rvCandidates = [rv, rvStripped].filter(Boolean);
 
   const trimStr = (v) => (typeof v === 'string' && v.trim()) ? v.trim() : '';
+  const normalizeBaseKey = (v) => normalizeVarsDefKey(String(v || '').trim());
+
+  const findDictNameInSchema = (node, targetKey, depth = 0) => {
+    if (!targetKey || !node || typeof node !== 'object') return '';
+    if (depth > 8) return '';
+
+    if (Array.isArray(node)) {
+      for (const item of node) {
+        const found = findDictNameInSchema(item, targetKey, depth + 1);
+        if (found) return found;
+      }
+      return '';
+    }
+
+    if (node.hashTag === targetKey && typeof node.$dict === 'string' && node.$dict.trim()) {
+      return node.$dict.trim();
+    }
+
+    for (const value of Object.values(node)) {
+      if (!value || typeof value !== 'object') continue;
+      const found = findDictNameInSchema(value, targetKey, depth + 1);
+      if (found) return found;
+    }
+    return '';
+  };
 
   /** @type {any[]} */
   const varsDefRoots = [];
@@ -2516,6 +2541,15 @@ function resolveVarsDefLabelPack(fieldName, rawValue, globalDefType = null, meta
 
   const fk = String(fieldKey || '').trim();
   const fkSegs = fk ? fk.split('.').map(s => String(s || '').trim()).filter(Boolean) : [];
+  const keyBase = fkSegs.length ? normalizeBaseKey(fkSegs[fkSegs.length - 1]) : '';
+  const dictLookupName = (() => {
+    const candidates = Array.from(new Set([keyBase, normalizeBaseKey(fn)].filter(Boolean)));
+    for (const candidate of candidates) {
+      const found = findDictNameInSchema(globalDefType, candidate);
+      if (found) return found;
+    }
+    return '';
+  })();
 
   const findNestedKey = (obj, key, depth = 0) => {
     if (!obj || typeof obj !== 'object') return null;
@@ -2567,7 +2601,7 @@ function resolveVarsDefLabelPack(fieldName, rawValue, globalDefType = null, meta
     const labelEn = trimStr(item?.[`${k}Text_EN`]);
     return {
       raw: raw || rv,
-      // NOTE: #List_Belonging のように「ベースキーがJP文字列」で *_JP が無いケースを許容する
+      // NOTE: #Dict_Faction のように「ベースキーがJP文字列」で *_JP が無いケースを許容する
       // - *_JP が無い場合は raw（ベース値）を JP とみなす
       jp: jp || labelJp || labelRaw || raw || '',
       en: en || labelEn || labelRaw || raw || rv
@@ -2629,34 +2663,42 @@ function resolveVarsDefLabelPack(fieldName, rawValue, globalDefType = null, meta
     }
 
     // #List_XXX / #Dict_XXX
-    const listKeys = [`#List_${fn}`, `#Dict_${fn}`];
+    const lookupNames = Array.from(new Set([dictLookupName, fn, keyBase].filter(Boolean)));
+    const listSpecs = lookupNames.flatMap((name) => ([
+      { listKey: `#List_${name}`, valueKey: name },
+      { listKey: `#Dict_${name}`, valueKey: name }
+    ]));
     let listDef = null;
+    let listValueKey = fn;
 
     if (fkSegs.length) {
       const contexts = collectVarsDefContexts(varsDef);
       for (let i = contexts.length - 1; i >= 0; i--) {
         const ctx = contexts[i];
         if (!ctx || typeof ctx !== 'object') continue;
-        for (const listKey of listKeys) {
-          if (!Array.isArray(ctx[listKey])) continue;
-          listDef = ctx[listKey];
+        for (const spec of listSpecs) {
+          if (!Array.isArray(ctx[spec.listKey])) continue;
+          listDef = ctx[spec.listKey];
+          listValueKey = spec.valueKey;
           break;
         }
         if (listDef) break;
       }
     }
     if (!listDef) {
-      for (const listKey of listKeys) {
-        if (!Array.isArray(varsDef[listKey])) continue;
-        listDef = varsDef[listKey];
+      for (const spec of listSpecs) {
+        if (!Array.isArray(varsDef[spec.listKey])) continue;
+        listDef = varsDef[spec.listKey];
+        listValueKey = spec.valueKey;
         break;
       }
     }
     if (!listDef) {
-      for (const listKey of listKeys) {
-        const found = findNestedKey(varsDef, listKey);
+      for (const spec of listSpecs) {
+        const found = findNestedKey(varsDef, spec.listKey);
         if (!Array.isArray(found)) continue;
         listDef = found;
+        listValueKey = spec.valueKey;
         break;
       }
     }
@@ -2666,11 +2708,11 @@ function resolveVarsDefLabelPack(fieldName, rawValue, globalDefType = null, meta
         if (!item || typeof item !== 'object') continue;
 
         // preferred key で一致する場合
-        const raw = trimStr(item[fn]);
-        const jp = trimStr(item[`${fn}_JP`]);
-        const en = trimStr(item[`${fn}_EN`]);
+        const raw = trimStr(item[listValueKey]);
+        const jp = trimStr(item[`${listValueKey}_JP`]);
+        const en = trimStr(item[`${listValueKey}_EN`]);
         const hit = [raw, jp, en].some(x => x && rvCandidates.includes(x));
-        if (hit) return { raw: raw || rv, jp: jp || raw || '', en: en || raw || rv };
+        if (hit) return makePack(item, listValueKey);
 
         // フィールド名が一致しないケース（DualizePattern: Pattern など）
         for (const [k, v] of Object.entries(item)) {
@@ -2728,6 +2770,18 @@ function formatBilingualLabel(pack, fallback, displayOpt = null) {
 }
 
 /**
+ * VarsDef（$EnumDef_* / #List_* / #Dict_*）参照のために、言語サフィックスを除去してベースキーへ正規化する
+ * - fieldKey が 'GenderType_JP' 等でも $EnumDef_GenderType を参照できるようにする
+ * @param {string} k
+ * @returns {string}
+ */
+function normalizeVarsDefKey(k) {
+  const s = String(k || '').trim();
+  const m = s.match(/^(.*)_(JP|EN)$/);
+  return (m && m[1]) ? m[1] : s;
+}
+
+/**
  * Format value for display with global definition type support
  * @param {any} value - Value to format
  * @param {Object} labelMap - Field label mapping for nested objects
@@ -2740,17 +2794,6 @@ function formatValueForDisplay(value, labelMap = {}, workMeta = null, globalDefT
   if (value === null || value === undefined || value === '') {
     return '';
   }
-
-  /**
-   * VarsDef（$EnumDef_* / #List_*）参照のために、言語サフィックスを除去してベースキーへ正規化する
-   * - opt.fieldKey が 'GenderType_JP' 等になっていても $EnumDef_GenderType を参照できるようにする
-   * @param {string} k
-   */
-  const normalizeVarsDefKey = (k) => {
-    const s = String(k || '').trim();
-    const m = s.match(/^(.*)_(JP|EN)$/);
-    return (m && m[1]) ? m[1] : s;
-  };
 
   const unit = opt?.display?.unit ? String(opt.display.unit).trim() : '';
   const withUnit = (text) => {

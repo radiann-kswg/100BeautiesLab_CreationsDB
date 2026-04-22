@@ -105,7 +105,7 @@
 
 - 辞書専用 DB カタログ (`db_meta.json`)
 - 辞書専用型補助 (`db_type.json`)
-- `dict_Area.json`, `dict_Belonging.json` のような辞書本体
+- `dict_Area.json`, `dict_Faction.json` のような辞書本体
 
 典型用途:
 
@@ -187,7 +187,7 @@
 補足:
 
 - `#DictIndex` は「辞書参照である」という宣言を typedef 側に寄せるための型名です。
-- `Area` / `Belonging` のような共通辞書は、実体を `data/Dictionaries/db_*.json` へ置き、SW/UI が runtime で `General.$VarsDef` へ合流して使います。
+- `Area` / `Faction` のような共通辞書は、実体を `data/Dictionaries/dict_*.json` へ置き、SW/UI が runtime で `General.$VarsDef` へ合流して使います。
 - runtime 合流時には `#Dict_*` を正としつつ、既存実装の互換用に `#List_*` も同じ内容で補完します。
 
 ### 3.3 `$display`

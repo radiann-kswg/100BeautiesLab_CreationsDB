@@ -121,9 +121,9 @@ describe('ApiEndpointHandlers merges vars defs across meta/type sources', () => 
             keyField: 'Area',
             compatListKey: '#List_Area'
           },
-          '#Dict_Belonging': {
-            keyField: 'Belonging',
-            compatListKey: '#List_Belonging'
+          '#Dict_Faction': {
+            keyField: 'Faction',
+            compatListKey: '#List_Faction'
           }
         }
       },
@@ -133,8 +133,8 @@ describe('ApiEndpointHandlers merges vars defs across meta/type sources', () => 
       '/data/Dictionaries/dict_Area.json': [
         { Area: '九蓮国', Area_EN: 'LotusNinea' }
       ],
-      '/data/Dictionaries/dict_Belonging.json': [
-        { Belonging: '百花繚乱研究所', BelongingArea: { Area: '九蓮国' } }
+      '/data/Dictionaries/dict_Faction.json': [
+        { Faction: '百花繚乱研究所', BelongingArea: { Area: '九蓮国' } }
       ]
     };
 
@@ -164,8 +164,9 @@ describe('ApiEndpointHandlers merges vars defs across meta/type sources', () => 
 
     expect(Array.isArray(meta?.General?.$VarsDef?.['#Dict_Area'])).toBe(true);
     expect(Array.isArray(meta?.General?.$VarsDef?.['#List_Area'])).toBe(true);
-    expect(meta?.General?.$VarsDef?.['#Dict_Belonging']?.[0]?.BelongingArea?.Area).toBe('九蓮国');
+    expect(meta?.General?.$VarsDef?.['#Dict_Faction']?.[0]?.BelongingArea?.Area).toBe('九蓮国');
     expect(meta?.Dictionaries?.['#Dict_Area']?.file).toBeUndefined();
     expect(meta?.Dictionaries?.['#Dict_Area']?.keyField).toBe('Area');
+    expect(meta?.Dictionaries?.['#Dict_Faction']?.keyField).toBe('Faction');
   });
 });

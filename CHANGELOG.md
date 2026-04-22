@@ -1,5 +1,13 @@
 # 最新のリファクタリング・仕様変更履歴
 
+### `Belonging` の参照先辞書を `Faction` へ改名し、`$dict` ベースで表示解決するよう統一
+
+- `data/db_type.json` でトップレベル `Belonging` の `$dict` を `Faction` へ変更し、表示フィールド名と辞書名を分離した。
+- `data/Dictionaries/db_meta.json` では辞書カタログを `#Dict_Faction` / `keyField: Faction` へ改名し、実体ファイルも `dict_Belonging.json` から `dict_Faction.json` へ変更した。
+- `pages/characters.js` の辞書表示解決は、`#DictIndex` 系フィールドについて `fieldKey` 名ではなく typedef の `$dict` を優先して `#Dict_*` / `#List_*` を参照するようにした。
+- これにより、record 側のフィールド名が `Belonging` のままでも、辞書項目側は `Faction` / `Faction_EN` を代表キーとして保持できるようにした。
+- 回帰確認として `tests/data.shape.test.js`、`tests/sw.deftype.merge.test.js`、`tests/sw.enrich.basic.test.js`、`tests/pages.characters.syntax.test.js` を実行し、通過を確認した。
+
 ### `data/Dictionaries/` と作品別 `Dictionaries/` を追加し、`Area` / `Belonging` 辞書本体を分離
 
 - グローバル辞書用に `data/Dictionaries/` を追加し、`db_meta.json` の辞書カタログと `dict_Area.json` / `dict_Belonging.json` の実体ファイルへ `Area` / `Belonging` 辞書を分離した。

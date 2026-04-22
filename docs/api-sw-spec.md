@@ -87,7 +87,7 @@ UI と enrich/search は、可能な限りこの `db_type.json($DefType)` に追
   - `Databases.#DB_<DbName>._Commons`: DB 全体の共通穴埋め
   - `Databases.#DB_<DbName>._Secondaries`: `sec_**` 条件に応じた `_Commons` 分岐
     - 全ての `sec_**` 条件が `null` / 空の定義はデフォルト fallback として扱い、`null` 以外の条件を持つ定義が一致した場合はそちらを優先します
-  - `General.$VarsDef.#List_Belonging[*].BelongingArea`: 所属辞書に紐づく活動拠点の補助情報。辞書項目の詳細表示に使います
+  - `General.$VarsDef.#Dict_Faction[*].BelongingArea`: 陣営辞書に紐づく活動拠点の補助情報。`Belonging.$dict = Faction` のような参照先辞書として使います
   - top-level `Dictionaries`: 辞書 DB カタログ。`data/Dictionaries/` や `data/Works_<work>/Dictionaries/` の `db_meta.json` を runtime で合流したものです
 
 補足:

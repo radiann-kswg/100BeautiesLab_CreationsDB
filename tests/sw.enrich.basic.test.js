@@ -58,23 +58,23 @@ function walk(obj, cb, path = []) {
 
 describe('enrichment invariants (static)', () => {
   it('global dictionary bodies are separated from db_meta.json into data/Dictionaries', () => {
-    // グローバルメタデータ本体から Area / Belonging 辞書が外れ、専用ディレクトリ側に存在することを確認
+    // グローバルメタデータ本体から Area / Faction 辞書が外れ、専用ディレクトリ側に存在することを確認
     const meta = load('data/db_meta.json');
     const dictMeta = load('data/Dictionaries/db_meta.json');
     const areaDb = load('data/Dictionaries/dict_Area.json');
-    const belongingDb = load('data/Dictionaries/dict_Belonging.json');
+    const factionDb = load('data/Dictionaries/dict_Faction.json');
 
     expect(meta).toBeTypeOf('object');
     expect(meta?.General?.$VarsDef?.['#List_Area']).toBeUndefined();
-    expect(meta?.General?.$VarsDef?.['#List_Belonging']).toBeUndefined();
+    expect(meta?.General?.$VarsDef?.['#List_Faction']).toBeUndefined();
     expect(dictMeta?.Dictionaries?.['#Dict_Area']?.file).toBeUndefined();
-    expect(dictMeta?.Dictionaries?.['#Dict_Belonging']?.file).toBeUndefined();
+    expect(dictMeta?.Dictionaries?.['#Dict_Faction']?.file).toBeUndefined();
     expect(dictMeta?.Dictionaries?.['#Dict_Area']?.keyField).toBe('Area');
-    expect(dictMeta?.Dictionaries?.['#Dict_Belonging']?.keyField).toBe('Belonging');
+    expect(dictMeta?.Dictionaries?.['#Dict_Faction']?.keyField).toBe('Faction');
     expect(Array.isArray(areaDb)).toBe(true);
-    expect(Array.isArray(belongingDb)).toBe(true);
+    expect(Array.isArray(factionDb)).toBe(true);
     expect(areaDb.length).toBeGreaterThan(0);
-    expect(belongingDb.length).toBeGreaterThan(0);
+    expect(factionDb.length).toBeGreaterThan(0);
   });
 
   it('per-work meta exist for known works', () => {

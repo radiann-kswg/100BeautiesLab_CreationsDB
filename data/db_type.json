@@ -100,7 +100,7 @@
     {
       "hashTag": "Belonging",
       "$type": "#DictIndex[]",
-      "$dict": "Belonging",
+      "$dict": "Faction",
       "hashTag_JP": "所属",
       "$display": {
         "section": "basic",

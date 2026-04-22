@@ -60,12 +60,12 @@ describe('database shapes', () => {
     const baseAreaEntries = Array.isArray(baseAreaDef?.$DefType) ? baseAreaDef.$DefType : [];
     const nestedArea = baseAreaEntries.find((entry) => entry?.hashTag === 'Area');
 
-    expect(areaField?.$type).toBe('#DictIndex');
-    expect(areaField?.$dict).toBe('Area');
+    expect(areaField).toBeUndefined();
     expect(belongingField?.$type).toBe('#DictIndex[]');
-    expect(belongingField?.$dict).toBe('Belonging');
+    expect(belongingField?.$dict).toBe('Faction');
     expect(belongingAreaField?.$type).toBe('$Def_BaseArea');
     expect(legacyBaseAreaField).toBeUndefined();
     expect(nestedArea?.$type).toBe('#DictIndex');
+    expect(nestedArea?.$dict).toBe('Area');
   });
 });

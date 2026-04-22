@@ -6,11 +6,11 @@
       "keyField": "Area",
       "compatListKey": "#List_Area"
     },
-    "#Dict_Belonging": {
-      "DB_Label": "陣営(所属)辞書",
-      "DB_Label_EN": "Faction(Belonging) Dictionary",
-      "keyField": "Belonging",
-      "compatListKey": "#List_Belonging"
+    "#Dict_Faction": {
+      "DB_Label": "陣営辞書",
+      "DB_Label_EN": "Faction Dictionary",
+      "keyField": "Faction",
+      "compatListKey": "#List_Faction"
     },
     "#Dict_RaceType": {
       "DB_Label": "種族辞書",
