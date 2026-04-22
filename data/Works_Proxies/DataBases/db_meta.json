@@ -1,6 +1,6 @@
 {
   "Databases": {
-    "#DB_Proxies": {
+    "#DB_Proxy": {
       "DB_Label": "代理",
       "DB_Label_EN": "Proxies",
       "DB_Summary": "弊創作を執筆している「ラジアン」の代理キャラクター",
