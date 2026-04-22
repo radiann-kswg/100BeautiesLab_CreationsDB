@@ -51,6 +51,7 @@
 - `#ListIndex[]` / `#ListLink[]` の object 配列は、詳細テーブルで 1 要素 1 行表示を優先します
 - `##String_JP` / `##String_EN` の bilingual 名称系フィールドで、和英のどちらかに改行がある場合は JP/EN 2 列表示を優先します
 - `Belonging` / `Area` / `BirthDay` / `AnivDay` のような basic 補助項目は、`$DetailLayout.basicFields` に既に含まれているなら重複表示しません
+- basic セクションへ出す項目は、`$DetailLayout.basicFields` に列挙されたものと、typedef 側で `$display.section = basic` を持つものだけに限定します
 - `BirthDay` / `AnivDay` のような `Day` 型の基本情報は、可能な限り `$display.section = basic` を schema 側で宣言し、UI の補助行ハードコードより typedef 駆動を優先します
 - object 形式の `#Index` は、既定で「一覧/直リンクは主要要素」「詳細/値表示は全要素」とし、必要なら子要素の `$display.index` で `list/detail/value/link/priority/order` を上書きします
 

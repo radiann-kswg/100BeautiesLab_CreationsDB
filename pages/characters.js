@@ -4926,7 +4926,7 @@ async function renderDetail(workId, rec) {
   const detailLayout = globalMeta?.CreationWorks?.[workId]?.$DetailLayout || null;
   const basicFieldKeys = Array.isArray(detailLayout?.basicFields)
     ? detailLayout.basicFields
-    : ['FormalName', 'FormalName_EN', 'ModelName', 'ModelNumber', 'SPCodeName', 'GenderType', 'Height_cm', 'Weight_kg', 'Age', 'Class'];
+    : [];
 
   // basicFields のキー配列から、*_JP/_EN の同義ペアによる二重表示を抑止
   const normalizeBasicFieldKeys = (keys) => {

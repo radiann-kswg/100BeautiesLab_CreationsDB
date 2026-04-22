@@ -21,7 +21,7 @@
 
 #### 現状認識
 
-- グローバル schema にはすでに `BirthDay`, `AnivDay` 向けの `$Def_Day`、`BelongingArea` 向けの `$Def_BaseArea`、カタログ用 `StoryEra` 宣言が存在する。
+- グローバル schema にはすでに `BirthDay`, `AnivDay` 向けの `$Def_Day`、`BaseArea` 向けの `$Def_BaseArea`、カタログ用 `StoryEra` 宣言が存在する。
 - 一方で UI 側には `Belonging`, `Area`, `BirthDay`, `AnivDay`, `StoryEra` を個別に整形する分岐が残っている。
 - つまり「型宣言がまったく無い」のではなく、「既存の宣言を SW/UI が十分に汎用利用できていない」状態である。
 

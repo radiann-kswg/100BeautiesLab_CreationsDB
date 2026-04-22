@@ -15,11 +15,12 @@
           "Belonging",
           "BaseArea",
           "Class",
+          "Age",
+          "AnivDay",
           "RaceType",
           "GenderType",
           "Height_cm",
           "Weight_kg",
-          "Age",
           "BustSize",
           "TailsUnit"
         ]
@@ -44,11 +45,11 @@
           "Belonging",
           "BaseArea",
           "Class",
+          "Age",
           "RaceType",
           "GenderType",
           "Height_cm",
-          "Weight_kg",
-          "Age"
+          "Weight_kg"
         ]
       }
     },
@@ -65,12 +66,12 @@
           "CodeName",
           "Belonging",
           "BaseArea",
+          "Class",
+          "Age",
           "RaceType",
           "GenderType",
           "Height_cm",
           "Weight_kg",
-          "Age",
-          "Class",
           "BeastspecName"
         ]
       }
@@ -89,12 +90,12 @@
           "Belonging",
           "BaseArea",
           "Class",
+          "Age",
           "RaceType",
           "GenderType",
           "Height_cm",
           "Weight_kg",
-          "BustSize",
-          "Age"
+          "BustSize"
         ]
       }
     },
@@ -112,11 +113,11 @@
           "Belonging",
           "BaseArea",
           "Class",
+          "Age",
           "RaceType",
           "GenderType",
           "Height_cm",
-          "Weight_kg",
-          "Age"
+          "Weight_kg"
         ]
       }
     },
@@ -135,11 +136,11 @@
           "Belonging",
           "BaseArea",
           "Class",
+          "Age",
           "RaceType",
           "GenderType",
           "Height_cm",
           "Weight_kg",
-          "Age",
           "ChronoholderName",
           "ChronospecName"
         ]
@@ -167,11 +168,11 @@
           "Belonging",
           "BaseArea",
           "Class",
+          "Age",
           "RaceType",
           "GenderType",
           "Height_cm",
-          "Weight_kg",
-          "Age"
+          "Weight_kg"
         ]
       }
     },
@@ -188,11 +189,11 @@
           "ModelNumber",
           "CodeName",
           "Class",
+          "Age",
           "RaceType",
           "GenderType",
           "Height_cm",
-          "Weight_kg",
-          "Age"
+          "Weight_kg"
         ]
       }
     }

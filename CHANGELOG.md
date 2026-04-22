@@ -1,9 +1,16 @@
 # 最新のリファクタリング・仕様変更履歴
 
-### `Belonging` 辞書内の `BaseArea` を enrich で `BelongingArea` として補助展開
+### basic セクションの既定表示を `basicFields` / typedef 指定のみに限定
 
-- `lib/data-common.js` で `#List_Belonging` の各項目に含まれる `BaseArea` を逆引きできる index を構築し、`Belonging` だけを持つレコードでも enrich 時に `BelongingArea` を補助展開できるようにした。
-- `BelongingArea` が未設定で、所属から一意に活動拠点を導ける場合のみ top-level `BelongingArea` に反映し、複数候補がある場合は `_enrichment.derivedBelongingAreas` に保持するようにした。
+- `pages/characters.js` で、`$DetailLayout.basicFields` 未指定時に使っていた固定 fallback 配列を廃止した。
+- これにより、basic セクションへ出る項目は、作品別 `db_meta.json($DetailLayout.basicFields)` に列挙されたものと、`db_type.json($DefType).$display.section = basic` を持つものだけになった。
+- `Belonging` / `BirthDay` / `AnivDay` / `BaseArea` / `Area` など schema 側で basic 指定がある項目は従来どおり表示されるが、未指定作品での `FormalName` / `ModelName` / `ModelNumber` などの自動 fallback 表示は行わないようにした。
+- `pages/characters.html` の `asset-version` を更新し、ブラウザが新しい `characters.js` を取得しやすくした。
+
+### `Belonging` 辞書内の `BaseArea` を enrich で `BaseArea` として補助展開
+
+- `lib/data-common.js` で `#List_Belonging` の各項目に含まれる `BaseArea` を逆引きできる index を構築し、`Belonging` だけを持つレコードでも enrich 時に `BaseArea` を補助展開できるようにした。
+- `BaseArea` が未設定で、所属から一意に活動拠点を導ける場合のみ top-level `BaseArea` に反映し、複数候補がある場合は `_enrichment.derivedBaseAreas` に保持するようにした。
 - `data/db_type.json` / 作品別 `db_type.json` / `db_meta.json` に残っていた `$TypeDef` を `$DefType` へ統一し、live data 上の旧キー依存を解消した。
 - `data/db_type.json` の `$Def_BaseArea` を `$DefType` ベースへ正規化し、`about` / `about_EN` を含む宣言へ拡張した。`BelongingArea` はこの object typedef を使い、top-level `Area` は `#ListIndex` の独立宣言として分離した。
 - `pages/characters.js` では `$Def_BaseArea` の表示整形を `Area + about` 対応へ寄せ、`Area` の補助ハードコードを削減した。

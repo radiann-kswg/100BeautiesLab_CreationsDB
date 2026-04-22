@@ -106,19 +106,22 @@
       }
     },
     {
-      "hashTag": "BelongingArea",
+      "hashTag": "Area",
+      "$type": "#ListIndex",
+      "hashTag_JP": "地域"
+    },
+    {
+      "hashTag": "FromArea",
+      "$type": "$Def_BaseArea",
+      "hashTag_JP": "出身地"
+    },
+    {
+      "hashTag": "BaseArea",
       "$type": "$Def_BaseArea",
       "hashTag_JP": "活動拠点",
       "$display": {
-        "section": "basic"
-      }
-    },
-    {
-      "hashTag": "Area",
-      "$type": "#ListIndex",
-      "hashTag_JP": "地域",
-      "$display": {
-        "section": "basic"
+        "section": "basic",
+        "tagSpace": "creation"
       }
     },
     { "hashTag": "ClassType", "$type": "#String", "hashTag_JP": "クラス" },
@@ -183,7 +186,8 @@
       "$alt": "AnivDay",
       "hashTag_JP": "誕生日",
       "$display": {
-        "section": "basic"
+        "section": "basic",
+        "aliasOf": "AnivDay"
       }
     },
     {
