@@ -80,7 +80,8 @@
     },
     {
       "hashTag": "RaceType",
-      "$type": "#ListIndex|#ListIndex_withAbout[]",
+      "$type": "#DictIndex|#DictIndex_withAbout[]",
+      "$dict": "RaceType",
       "hashTag_JP": "種族",
       "$display": {
         "section": "basic",
@@ -105,12 +106,6 @@
         "section": "basic",
         "tagSpace": "creation"
       }
-    },
-    {
-      "hashTag": "Area",
-      "$type": "#DictIndex",
-      "$dict": "Area",
-      "hashTag_JP": "地域"
     },
     {
       "hashTag": "FromArea",

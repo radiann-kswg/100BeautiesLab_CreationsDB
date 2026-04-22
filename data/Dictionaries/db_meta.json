@@ -11,6 +11,12 @@
       "DB_Label_EN": "Faction(Belonging) Dictionary",
       "keyField": "Belonging",
       "compatListKey": "#List_Belonging"
+    },
+    "#Dict_RaceType": {
+      "DB_Label": "種族辞書",
+      "DB_Label_EN": "Race Dictionary",
+      "keyField": "RaceType",
+      "compatListKey": "#List_RaceType"
     }
   }
 }
