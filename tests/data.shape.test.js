@@ -54,12 +54,18 @@ describe('database shapes', () => {
     const defType = Array.isArray(dbType?.$DefType) ? dbType.$DefType : [];
     const areaField = defType.find((entry) => entry?.hashTag === 'Area');
     const belongingAreaField = defType.find((entry) => entry?.hashTag === 'BelongingArea');
+    const legacyBaseAreaField = defType.find((entry) => entry?.hashTag === 'BaseArea');
+    const belongingField = defType.find((entry) => entry?.hashTag === 'Belonging');
     const baseAreaDef = dbType?.$VarsDef?.$Def_BaseArea;
     const baseAreaEntries = Array.isArray(baseAreaDef?.$DefType) ? baseAreaDef.$DefType : [];
     const nestedArea = baseAreaEntries.find((entry) => entry?.hashTag === 'Area');
 
-    expect(areaField?.$type).toBe('#ListIndex');
+    expect(areaField?.$type).toBe('#DictIndex');
+    expect(areaField?.$dict).toBe('Area');
+    expect(belongingField?.$type).toBe('#DictIndex[]');
+    expect(belongingField?.$dict).toBe('Belonging');
     expect(belongingAreaField?.$type).toBe('$Def_BaseArea');
+    expect(legacyBaseAreaField).toBeUndefined();
     expect(nestedArea?.$type).toBe('#ListIndex');
   });
 });

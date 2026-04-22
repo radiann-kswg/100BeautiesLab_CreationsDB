@@ -98,7 +98,8 @@
     },
     {
       "hashTag": "Belonging",
-      "$type": "#ListIndex[]",
+      "$type": "#DictIndex[]",
+      "$dict": "Belonging",
       "hashTag_JP": "所属",
       "$display": {
         "section": "basic",
@@ -107,7 +108,8 @@
     },
     {
       "hashTag": "Area",
-      "$type": "#ListIndex",
+      "$type": "#DictIndex",
+      "$dict": "Area",
       "hashTag_JP": "地域"
     },
     {
@@ -116,13 +118,9 @@
       "hashTag_JP": "出身地"
     },
     {
-      "hashTag": "BaseArea",
+      "hashTag": "BelongingArea",
       "$type": "$Def_BaseArea",
-      "hashTag_JP": "活動拠点",
-      "$display": {
-        "section": "basic",
-        "tagSpace": "creation"
-      }
+      "hashTag_JP": "活動拠点"
     },
     { "hashTag": "ClassType", "$type": "#String", "hashTag_JP": "クラス" },
     {
@@ -484,7 +482,8 @@
       "$DefType": [
         {
           "hashTag": "Area",
-          "$type": "#ListIndex",
+          "$type": "#DictIndex",
+          "$dict": "Area",
           "hashTag_JP": "地域(エリア)"
         },
         {

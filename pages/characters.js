@@ -2378,7 +2378,7 @@ function resolveVarsDefLabel(fieldName, rawValue, globalDefType = null, metaForL
 }
 
 /**
- * db_meta.json の $VarsDef（$EnumDef_* / #List_*）から、カテゴリ値のJP/ENペアを取得する
+ * db_meta.json の $VarsDef（$EnumDef_* / #List_* / #Dict_*）から、カテゴリ値のJP/ENペアを取得する
  * - 既存の resolveVarsDefLabel() は「JP優先の単一文字列」だが、
  *   こちらは「JP/EN両方の表示」に利用するための薄い補助。
  * - EN は *_EN を優先し、無い場合は raw（コード）をフォールバックとして返す。
@@ -2567,24 +2567,37 @@ function resolveVarsDefLabelPack(fieldName, rawValue, globalDefType = null, meta
       }
     }
 
-    // #List_XXX
-    const listKey = `#List_${fn}`;
+    // #List_XXX / #Dict_XXX
+    const listKeys = [`#List_${fn}`, `#Dict_${fn}`];
     let listDef = null;
 
     if (fkSegs.length) {
       const contexts = collectVarsDefContexts(varsDef);
       for (let i = contexts.length - 1; i >= 0; i--) {
         const ctx = contexts[i];
-        if (ctx && typeof ctx === 'object' && Array.isArray(ctx[listKey])) {
+        if (!ctx || typeof ctx !== 'object') continue;
+        for (const listKey of listKeys) {
+          if (!Array.isArray(ctx[listKey])) continue;
           listDef = ctx[listKey];
           break;
         }
+        if (listDef) break;
       }
     }
-    if (!listDef && Array.isArray(varsDef[listKey])) listDef = varsDef[listKey];
     if (!listDef) {
-      const found = findNestedKey(varsDef, listKey);
-      if (Array.isArray(found)) listDef = found;
+      for (const listKey of listKeys) {
+        if (!Array.isArray(varsDef[listKey])) continue;
+        listDef = varsDef[listKey];
+        break;
+      }
+    }
+    if (!listDef) {
+      for (const listKey of listKeys) {
+        const found = findNestedKey(varsDef, listKey);
+        if (!Array.isArray(found)) continue;
+        listDef = found;
+        break;
+      }
     }
 
     if (Array.isArray(listDef)) {
@@ -3162,9 +3175,9 @@ function formatValueForDisplay(value, labelMap = {}, workMeta = null, globalDefT
       return withUnit(value);
     }
 
-    // #ListIndex（RaceType 等）の場合、db_meta.json の #List_* から表示名を解決する
+    // #ListIndex / #DictIndex（RaceType / Area 等）の場合、db_meta.json の辞書から表示名を解決する
     // - 例: RaceType: 'Human' → '人間'
-    if (schemaTypeIncludes(opt.schemaType, '#ListIndex') && opt.fieldKey) {
+    if ((schemaTypeIncludes(opt.schemaType, '#ListIndex') || schemaTypeIncludes(opt.schemaType, '#DictIndex')) && opt.fieldKey) {
       const simple = normalizeVarsDefKey(String(opt.fieldKey).split('.').pop());
       if (simple) {
         const pack = resolveVarsDefLabelPack(simple, value, globalDefType, workMeta, opt.fieldKey);
@@ -3301,7 +3314,7 @@ function formatValueForDisplay(value, labelMap = {}, workMeta = null, globalDefT
     if (formattedItems.length === 0) return '';
 
     const hasArraySchema = /\[\]/.test(String(opt?.schemaType || ''));
-    const isListIndexArray = hasArraySchema && schemaTypeIncludes(opt?.schemaType, '#ListIndex');
+    const isListIndexArray = hasArraySchema && (schemaTypeIncludes(opt?.schemaType, '#ListIndex') || schemaTypeIncludes(opt?.schemaType, '#DictIndex'));
     const isListLinkArray = hasArraySchema && schemaTypeIncludes(opt?.schemaType, '#ListLink');
 
     if (isListIndexArray || isListLinkArray) {
@@ -3380,7 +3393,7 @@ function formatValueForDisplay(value, labelMap = {}, workMeta = null, globalDefT
           const pack = resolveVarsDefLabelPack(simple, code, globalDefType, workMeta, opt.fieldKey);
           const label = formatBilingualLabel(pack, code, opt?.display);
           if (label) displayText = label;
-        } else if (simple && schemaTypeIncludes(opt?.schemaType, '#ListIndex')) {
+        } else if (simple && (schemaTypeIncludes(opt?.schemaType, '#ListIndex') || schemaTypeIncludes(opt?.schemaType, '#DictIndex'))) {
           const pack = resolveVarsDefLabelPack(simple, baseRaw, globalDefType, workMeta, opt.fieldKey);
           const label = formatBilingualLabel(pack, baseRaw, opt?.display);
           if (label) displayText = label;
@@ -3418,7 +3431,7 @@ function formatValueForDisplay(value, labelMap = {}, workMeta = null, globalDefT
     if (schemaTypeIncludes(opt?.schemaType, '$Def_BaseArea') && Object.prototype.hasOwnProperty.call(value, 'Area')) {
       const areaLabel = formatValueForDisplay(value.Area, labelMap, workMeta, globalDefType, {
         ...opt,
-        schemaType: '#ListIndex',
+        schemaType: '#DictIndex',
         fieldKey: 'Area'
       });
       const aboutValue = value.about_JP ?? value.about_EN ?? value.about;
@@ -3433,7 +3446,7 @@ function formatValueForDisplay(value, labelMap = {}, workMeta = null, globalDefT
     // - 例: DualizePattern: { Pattern: 'Prop.' } を #List_DualizePattern（db_meta.json）で '通常' に
     // - 例: Material: [{ Material: 'Fire' }] を #List_Material で '火' に
     // - 例: RaceType: [{ RaceType: 'Human', about_JP: '...' }] を '人間（...）' に
-    if (schemaTypeIncludes(opt?.schemaType, '#ListIndex_withAbout') && opt?.fieldKey && isPlainObject(value)) {
+    if ((schemaTypeIncludes(opt?.schemaType, '#ListIndex_withAbout') || schemaTypeIncludes(opt?.schemaType, '#DictIndex_withAbout')) && opt?.fieldKey && isPlainObject(value)) {
       const simple = normalizeVarsDefKey(String(opt.fieldKey).split('.').pop());
       const about = value.about_JP || value.about_EN || value.about;
       const codeRaw = simple && Object.prototype.hasOwnProperty.call(value, simple) ? value[simple] : null;
@@ -3445,7 +3458,7 @@ function formatValueForDisplay(value, labelMap = {}, workMeta = null, globalDefT
       }
     }
 
-    if (schemaTypeIncludes(opt?.schemaType, '#ListIndex') && opt?.fieldKey && isPlainObject(value)) {
+    if ((schemaTypeIncludes(opt?.schemaType, '#ListIndex') || schemaTypeIncludes(opt?.schemaType, '#DictIndex')) && opt?.fieldKey && isPlainObject(value)) {
       const simple = normalizeVarsDefKey(String(opt.fieldKey).split('.').pop());
       const ks = Object.keys(value).filter(k => k && typeof k === 'string' && !k.startsWith('_'));
       if (simple && ks.length === 1) {
@@ -5195,6 +5208,7 @@ async function renderDetail(workId, rec) {
     return (
       schemaTypeIncludes(schemaType, '#Index')
       || schemaTypeIncludes(schemaType, '#ListIndex')
+      || schemaTypeIncludes(schemaType, '#DictIndex')
       || schemaTypeIncludes(schemaType, '#ListLink')
       || schemaTypeIncludes(schemaType, '$EnumDef')
     );

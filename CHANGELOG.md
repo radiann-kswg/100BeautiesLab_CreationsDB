@@ -1,5 +1,14 @@
 # 最新のリファクタリング・仕様変更履歴
 
+### `Area` / `Belonging` を `#DictIndex` 化し、`BelongingArea` 補助展開を廃止
+
+- `data/db_type.json` で `Area` を `#DictIndex`、`Belonging` を `#DictIndex[]` として宣言し、いずれも `$dict` で辞書名を持てるようにした。
+- これにより `BaseArea` は `$Def_BaseArea` という object typedef 名へ役割を限定し、トップレベル実フィールドは `BelongingArea` に統一した。
+- `data/db_meta.json` の `#List_Belonging` でも、所属辞書の補助情報キーを `BaseArea` から `BelongingArea` へ改名した。
+- `lib/data-common.js` では、`#List_Belonging` から top-level `BelongingArea` を自動補助展開する処理を削除し、所属辞書の拠点情報は辞書項目側の情報としてのみ保持するようにした。
+- `pages/characters.js` は `#DictIndex` を `#ListIndex` と同系統の辞書参照型として表示解決できるようにし、将来 `#Dict_*` へ辞書定義を分離する準備を入れた。
+- 回帰防止として `tests/data.shape.test.js` と `tests/enrich.dblink.jump.merge.test.js` を更新し、対象テストと `tests/pages.characters.syntax.test.js` の通過を確認した。
+
 ### basic セクションの既定表示を `basicFields` / typedef 指定のみに限定
 
 - `pages/characters.js` で、`$DetailLayout.basicFields` 未指定時に使っていた固定 fallback 配列を廃止した。

@@ -107,7 +107,7 @@ describe('_DBLink / _Jump merge (in-process)', () => {
     });
   });
 
-  it('Belonging の varsdef に BaseArea があれば、BelongingArea を補助展開できる', async () => {
+  it('Belonging の辞書項目に BelongingArea があっても、top-level へは補助展開しない', async () => {
     class BelongingAreaDataFetcher extends TestDataFetcher {
       async readGeneralVarsDefGlobal() {
         return {
@@ -115,7 +115,7 @@ describe('_DBLink / _Jump merge (in-process)', () => {
             {
               Belonging: '百花繚乱研究所',
               Belonging_EN: 'HundredBeauties Laboratory',
-              BaseArea: { Area: '九蓮国' }
+              BelongingArea: { Area: '九蓮国' }
             }
           ]
         };
@@ -133,8 +133,8 @@ describe('_DBLink / _Jump merge (in-process)', () => {
     const out = await proc.enrichRecords([rec], '#Works_Test', 'Primary');
     const e = out[0];
 
-    expect(e.BelongingArea).toEqual({ Area: '九蓮国' });
-    expect(e._enrichment?.derivedBelongingAreas).toEqual([{ Area: '九蓮国' }]);
+    expect(e.BelongingArea).toBeUndefined();
+    expect(e._enrichment?.derivedBelongingAreas).toBeUndefined();
   });
 
   it('SinisterChangingGirls -> NumberTales の _DBLink を解決し、BirthDay._Jump を実値に置換できる', async () => {

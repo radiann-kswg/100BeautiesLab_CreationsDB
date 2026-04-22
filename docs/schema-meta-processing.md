@@ -147,6 +147,8 @@
   - enum 辞書参照
 - `#ListIndex`, `#ListLink`
   - list 辞書参照
+- `#DictIndex`
+  - 辞書参照。`$dict` に辞書名を持たせる前提で、`Area` / `Belonging` のように field 名と辞書名を切り離したい項目に使う
 - `A|B|#Null`
   - union 型
 - `...[]`
@@ -157,6 +159,12 @@
 - `TypeDefUtils.looksSearchableType()` による検索対象の推定
 - `TypeDefUtils.normalizeValueByTypeSpec()` による軽い正規化
 - `TypeDefUtils.looksNumberType()` による index / search 比較
+
+補足:
+
+- `#DictIndex` は「辞書参照である」という宣言を typedef 側に寄せるための型名です。
+- 現段階の live data では、実際の辞書本体は引き続き `db_meta.json(General.$VarsDef)` の `#List_*` を主に使います。
+- UI 側は `#Dict_*` も読めるよう互換を持たせているため、将来的に辞書用 DB や `#Dict_*` への分離を進めやすくしています。
 
 ### 3.3 `$display`
 
@@ -216,6 +224,12 @@
 - SW の `mergeMetaAndTypeVars()` が `db_meta.json` の辞書と合成する
 - `EnrichmentProcessor.getWorkContext()` が global/work の meta/type すべてから辞書を合成する
 - `#ListLink_*` の補助情報を wrapper object に補完する
+
+補足:
+
+- `#List_*` は既存の list 辞書キーです。
+- `#Dict_*` は将来の辞書専用 DB / 辞書 namespace への移行を見据えた互換キーとして扱えます。
+- `#DictIndex` を宣言した field でも、当面は `#List_*` を backing store にしたまま運用できます。
 
 ### 3.5 `$IndexDef`
 

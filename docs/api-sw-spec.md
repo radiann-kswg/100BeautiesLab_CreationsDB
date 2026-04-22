@@ -42,7 +42,7 @@
 2. `StandardEndpointHandlers.handleDbEndpoint()` が対象 DB JSON を読む
 3. 作品別 `db_meta.json` が読めれば `_Commons` / `_Secondaries` を適用する
 4. `resolve=1` の場合、`ReferenceResolver.resolveAllInAny()` で `#Works` / `#DB` / `#$image` を解決する
-5. `enrich=1` の場合、`EnrichmentProcessor.enrichRecords()` で `_DBLink` / `_Jump` / `$alt` / `Belonging -> BaseArea -> BelongingArea` の補助展開 / 画像情報 / searchableText / displaySections を付与する
+5. `enrich=1` の場合、`EnrichmentProcessor.enrichRecords()` で `_DBLink` / `_Jump` / `$alt` / 画像情報 / searchableText / displaySections を付与する
 6. JSON レスポンスとして返す
 
 補足:
@@ -87,7 +87,7 @@ UI と enrich/search は、可能な限りこの `db_type.json($DefType)` に追
   - `Databases.#DB_<DbName>._Commons`: DB 全体の共通穴埋め
   - `Databases.#DB_<DbName>._Secondaries`: `sec_**` 条件に応じた `_Commons` 分岐
     - 全ての `sec_**` 条件が `null` / 空の定義はデフォルト fallback として扱い、`null` 以外の条件を持つ定義が一致した場合はそちらを優先します
-  - `General.$VarsDef.#List_Belonging[*].BaseArea`: 所属辞書に紐づく活動拠点の補助情報。`/pages/v1/*?enrich=1` では、レコード側に `BelongingArea` が無い場合の補助展開元としても使います
+  - `General.$VarsDef.#List_Belonging[*].BelongingArea`: 所属辞書に紐づく活動拠点の補助情報。辞書項目の詳細表示や将来の辞書 DB 分離時の参照元として使います
 
 補足:
 

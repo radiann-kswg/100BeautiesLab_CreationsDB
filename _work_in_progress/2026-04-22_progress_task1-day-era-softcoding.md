@@ -7,18 +7,28 @@
   - `pages/characters.js` で `StoryEra` を `about_JP/about_EN/about` ベースの schema 型として整形できるようにし、選択中 DB 概要の年代表示も同じ formatter を使うようにした。
   - `pages/characters.js` で `$Def_BaseArea` の最小整形を追加し、`Area` を内包する object 型を formatter 側で吸収できるようにした。
   - `pages/characters.js` では `Belonging` / `BirthDay` / `AnivDay` の basic 補助行ハードコードを外し、schema / detail layout 側へ役割を寄せた。
+  - `data/db_type.json` で `Area` / `Belonging` を `#DictIndex` / `#DictIndex[]` として宣言し、`$dict` による辞書名指定を追加した。
+  - トップレベルの実フィールド名は `BaseArea` ではなく `BelongingArea` に統一し、`BaseArea` は `$Def_BaseArea` という object typedef 名としてのみ残した。
+  - `data/db_meta.json` の `#List_Belonging` 内キーも `BelongingArea` に統一し、`lib/data-common.js` の `Belonging -> BelongingArea` 自動補助展開を削除した。
+  - `pages/characters.js` は `#DictIndex` と将来の `#Dict_*` を `#ListIndex` 系と同じ辞書表示経路で扱えるようにした。
 - 影響範囲:
   - `data/db_type.json`
+  - `data/db_meta.json`
+  - `lib/data-common.js`
   - `pages/characters.js`
+  - `docs/schema-meta-processing.md`
+  - `docs/api-sw-spec.md`
   - `docs/implementation-playbook.md`
   - `CHANGELOG.md`
 - 現時点で保留した点:
   - トップレベル `Area` は現状の schema 宣言が十分に揃っておらず、今回の段階では互換用の補助行を維持した。
   - `Day` / `Era` / `Area` 系の完全な汎用化には、作品別 schema 実態の追加確認が必要。
 - 検証:
+  - `tests/data.shape.test.js`: pass
+  - `tests/enrich.dblink.jump.merge.test.js`: pass
   - `tests/pages.characters.syntax.test.js`: pass
 - 未完了タスク:
-  - `Area` 系のトップレベル schema 宣言整理
+  - `Area` / `Belonging` 辞書を `data/Dictionaries/` などの専用配置へ分離する段階実装
   - `StoryEra` / `Era` 系の record 本体表示ルールの追加確認
   - SW enrich/search 側で残る型名依存分岐の洗い出し
 - 参考リンク:
