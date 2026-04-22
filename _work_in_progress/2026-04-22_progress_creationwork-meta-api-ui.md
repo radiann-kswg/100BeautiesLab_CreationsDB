@@ -1,0 +1,25 @@
+# 2026-04-22 progress: creationwork-meta-api-ui
+
+- 目的: `db_meta.json` の創作タイトル情報と DB 情報を API/SW が理解し、キャラシート UI でも選択中の作品/DB の概要を表示できるようにする。
+- 変更点の要約:
+  - `lib/sw-common.js` の `works` / `works/{work}` / `works/{work}/db` / `bootstrap` 応答へ、`CreationWorks` と `Databases` 由来の概要情報を正規化して付与
+  - `pages/characters.html` / `pages/characters.sass` / `pages/characters.js` に、選択中の作品情報 / DB情報パネルを追加
+  - works/db カタログの meta 返却を確認するテストを追加
+- 影響範囲:
+  - `lib/sw-common.js`
+  - `pages/characters.html`
+  - `pages/characters.sass`
+  - `pages/characters.js`
+  - `tests/sw.work-meta-info.test.js`
+  - `docs/api-sw-spec.md`
+  - `CHANGELOG.md`
+- 未完了タスク:
+  - 必要なら `db_type.json` / `db_meta.json` 拡張案の整理
+- 検証:
+  - `tests/sw.work-meta-info.test.js`: pass
+  - `tests/pages.characters.syntax.test.js`: pass
+  - `get_errors(lib/sw-common.js, pages/characters.js, pages/characters.html, pages/characters.sass)`: 問題なし
+- 参考リンク:
+  - `2026-03-31_remaining-task.md`
+  - `data/db_meta.json`
+  - `data/Works_NumberTales/DataBases/db_meta.json`

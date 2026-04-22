@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>創作キャラ・キャラシート | 100BeautiesLab Creations DB</title>
     <meta name="description" content="/data の創作データベースを クライアント内API (/pages/v1 ほか) 経由で取得し、キャラシートとして表示します。" />
-    <meta name="asset-version" content="2026.04.19.1" />
+    <meta name="asset-version" content="2026.04.22.1" />
     <!-- メインスタイルシート（SASS から自動生成） -->
     <script>
       (() => {
@@ -54,6 +54,23 @@
           <label><input id="chk-resolve" type="checkbox" checked /> 参照解決を有効化（推奨）</label>
           <label><input id="chk-debug" type="checkbox" /> デバッグ情報</label>
           <button id="btn-reset-sw" class="ghost" type="button" title="キャッシュとService Workerをリセットしてリロードします">キャッシュ/SWリセット</button>
+        </div>
+      </section>
+
+      <section id="meta-overview" class="card meta-overview" hidden>
+        <div class="meta-overview__grid">
+          <article class="meta-overview__panel">
+            <p class="meta-overview__eyebrow">作品情報</p>
+            <h2 id="meta-work-title" class="meta-overview__title">-</h2>
+            <p id="meta-work-sub" class="meta-overview__sub muted" hidden></p>
+            <p id="meta-work-summary" class="meta-overview__summary" hidden></p>
+          </article>
+          <article class="meta-overview__panel">
+            <p class="meta-overview__eyebrow">DB情報</p>
+            <h2 id="meta-db-title" class="meta-overview__title">-</h2>
+            <p id="meta-db-era" class="meta-overview__sub muted" hidden></p>
+            <p id="meta-db-summary" class="meta-overview__summary" hidden></p>
+          </article>
         </div>
       </section>
 

@@ -1,5 +1,11 @@
 # 最新のリファクタリング・仕様変更履歴
 
+### `db_meta.json` の創作タイトル情報を API/UI で参照可能に拡張
+
+- `lib/sw-common.js` の `works` / `works/{work}` / `works/{work}/db` / `bootstrap` 応答へ、`CreationWorks` の `Title` / `Title_EN` / `Works_Summary` / `OldTitles` と、作品別 `Databases` の `DB_Summary` / `StoryEra` を正規化して含めるようにした。
+- `pages/characters.html` / `pages/characters.js` / `pages/characters.sass` に、選択中の作品情報と DB情報を表示する概要パネルを追加し、作品概要・旧題・年代メモ・DB概要を閲覧できるようにした。
+- 回帰確認として `tests/sw.work-meta-info.test.js` と `tests/pages.characters.syntax.test.js` を実行し、通過を確認した。
+
 ### object 形式 `#Index` の複数要素表示と `$display.index` 制御を追加
 
 - `pages/characters.js` で object 形式の `#Index` を複数要素として収集できるようにし、一覧 chip / 詳細 pill / `#Index` 値整形 / `idx` `idxKey` 一致判定を同じ helper 群へ統一した。

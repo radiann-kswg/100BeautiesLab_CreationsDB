@@ -33,6 +33,8 @@ let globalMetaCache = null;
 let globalTypeDefCache = null;
 let globalDefTypeCache = null;
 let workTypeDefCache = new Map();
+let worksCatalogCache = null;
+let workDbCatalogCache = new Map();
 
 const IMAGE_LIGHTBOX_IDS = {
   root: 'image-lightbox',
@@ -483,7 +485,9 @@ async function fetchJSON(url, timeout = 10000) {
  * @returns {Promise<Array>} 作品オブジェクトの配列
  */
 async function listWorks() {
-  return fetchJSON(api('v1/works'));
+  if (Array.isArray(worksCatalogCache)) return worksCatalogCache;
+  worksCatalogCache = await fetchJSON(api('v1/works'));
+  return worksCatalogCache;
 }
 
 /**
@@ -493,8 +497,11 @@ async function listWorks() {
  */
 async function listWorkDBs(workKey) {
   const w = workKeyForAPI(workKey);
+  if (workDbCatalogCache.has(w)) return workDbCatalogCache.get(w) || [];
   const r = await fetchJSON(api(`v1/works/${encodeURIComponent(w)}/db`));
-  return r.databases || [];
+  const dbs = r.databases || [];
+  workDbCatalogCache.set(w, dbs);
+  return dbs;
 }
 
 /**
@@ -3821,6 +3828,64 @@ function humanWorkLabel(work) {
   return `${t} (${work.key.replace('#Works_', '')})`;
 }
 
+function getStoryEraSummary(storyEra) {
+  if (!storyEra || typeof storyEra !== 'object') return '';
+  return String(storyEra.about_JP || storyEra.about_EN || '').trim();
+}
+
+function formatOldTitles(oldTitles) {
+  if (!Array.isArray(oldTitles) || oldTitles.length === 0) return '';
+  return oldTitles
+    .map((entry) => {
+      if (!entry || typeof entry !== 'object') return '';
+      const label = String(entry.Title || entry.Title_EN || '').trim();
+      const year = entry.ArchivedYear == null ? '' : ` (${entry.ArchivedYear})`;
+      return label ? `旧題: ${label}${year}` : '';
+    })
+    .filter(Boolean)
+    .join('\n');
+}
+
+function setTextAndHidden(selector, text) {
+  const node = $(selector);
+  if (!node) return;
+  const normalized = String(text || '').trim();
+  node.textContent = normalized;
+  node.hidden = !normalized;
+}
+
+async function renderSelectionMeta(workKey, dbKey) {
+  const root = $('#meta-overview');
+  if (!root) return;
+
+  const [works, dbs] = await Promise.all([
+    listWorks(),
+    listWorkDBs(workKey)
+  ]);
+
+  const work = Array.isArray(works)
+    ? works.find((item) => item?.key === normalizeWorkKey(workKey)) || null
+    : null;
+  const db = Array.isArray(dbs)
+    ? dbs.find((item) => item?.key === dbKey) || null
+    : null;
+
+  if (!work && !db) {
+    root.hidden = true;
+    return;
+  }
+
+  $('#meta-work-title').textContent = work?.Title || work?.Title_EN || normalizeWorkKey(workKey) || '-';
+  setTextAndHidden('#meta-work-sub', [work?.Title_EN, formatOldTitles(work?.OldTitles)].filter(Boolean).join('\n'));
+  setTextAndHidden('#meta-work-summary', work?.Works_Summary || '');
+
+  $('#meta-db-title').textContent = db?.key || dbKey || '-';
+  setTextAndHidden('#meta-db-era', getStoryEraSummary(db?.StoryEra));
+  setTextAndHidden('#meta-db-summary', db?.DB_Summary || db?.SecondarySummary || '');
+
+  root.hidden = false;
+}
+
 /**
  * Get primary image for character list thumbnail
  * @param {string} workId - Work ID
@@ -6375,12 +6440,14 @@ function wireControls() {
     const wk = e.target.value;
     setQS({ work: wk.replace('#', ''), db: '', num: '', idx: '', idxKey: '' });
     await populateDBs(wk);
+    await renderSelectionMeta(wk, $('#select-db').value || '');
     await reload();
   };
 
   window.__eventHandlers.dbChange = async (e) => {
     const db = e.target.value;
     setQS({ db, num: '', idx: '', idxKey: '' });
+    await renderSelectionMeta($('#select-work').value, db);
     await reload();
   };
 
@@ -6454,6 +6521,8 @@ function wireControls() {
       globalTypeDefCache = null;
       globalDefTypeCache = null;
       workTypeDefCache.clear();
+      worksCatalogCache = null;
+      workDbCatalogCache.clear();
 
       location.reload();
     };
@@ -6489,11 +6558,15 @@ async function populateDBs(workKey, initialDB) {
   sel.textContent = '';
   const dbs = await listWorkDBs(workKey);
   for (const d of dbs) {
-    const opt = el('option', { value: d.key }, [d.key]);
+    const opt = el('option', {
+      value: d.key,
+      title: d.DB_Summary || getStoryEraSummary(d.StoryEra) || d.key
+    }, [d.key]);
     if (d.key === initialDB) opt.selected = true;
     sel.appendChild(opt);
   }
   if (!sel.value && dbs[0]) sel.value = dbs[0].key;
+  await renderSelectionMeta(workKey, sel.value);
   return sel.value;
 }
 

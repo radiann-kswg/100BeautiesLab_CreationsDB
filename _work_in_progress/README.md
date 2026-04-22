@@ -17,6 +17,7 @@
 
 - 2026-03-31_remaining-task.md
 - 2026-04-21_progress_multi-index-display.md
+- 2026-04-22_progress_creationwork-meta-api-ui.md
 
 補足:
 
