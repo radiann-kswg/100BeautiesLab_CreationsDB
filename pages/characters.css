@@ -1367,6 +1367,50 @@ body {
   white-space: normal;
 }
 
+.meta-overview {
+  padding: clamp(12px, 2.5vw, 18px);
+}
+
+.meta-overview__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: var(--spacing-lg);
+}
+
+.meta-overview__panel {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-md);
+  border: 1px solid color-mix(in srgb, var(--accent) 24%, var(--border));
+  border-radius: var(--border-radius-lg);
+  background: linear-gradient(180deg, color-mix(in srgb, var(--accent) 8%, var(--card)) 0%, var(--card) 100%);
+}
+
+.meta-overview__eyebrow {
+  margin: 0;
+  font-size: var(--font-size-xs);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.meta-overview__title {
+  margin: 0;
+  font-size: var(--font-size-xl);
+  color: #d7f9ff;
+}
+
+.meta-overview__sub,
+.meta-overview__summary {
+  margin: 0;
+  white-space: pre-wrap;
+}
+
+.meta-overview__summary {
+  color: var(--muted);
+}
+
 .controls select,
 .controls input[type=search],
 .controls input[type=text],
