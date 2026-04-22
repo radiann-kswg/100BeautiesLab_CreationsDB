@@ -170,9 +170,19 @@
       "hashTag": "BirthDay",
       "$type": "$Def_Day",
       "$alt": "AnivDay",
-      "hashTag_JP": "誕生日"
+      "hashTag_JP": "誕生日",
+      "$display": {
+        "section": "basic"
+      }
     },
-    { "hashTag": "AnivDay", "$type": "$Def_Day[]", "hashTag_JP": "記念日" },
+    {
+      "hashTag": "AnivDay",
+      "$type": "$Def_Day[]",
+      "hashTag_JP": "記念日",
+      "$display": {
+        "section": "basic"
+      }
+    },
     {
       "hashTag": "FirstPersonCalling",
       "$type": "#String|#Summary",

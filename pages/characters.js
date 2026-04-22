@@ -3310,6 +3310,10 @@ function formatValueForDisplay(value, labelMap = {}, workMeta = null, globalDefT
       return formattedItems.join('\n');
     }
 
+    if (hasArraySchema && schemaTypeIncludes(opt?.schemaType, '$Def_Day')) {
+      return formattedItems.join('\n');
+    }
+
     if (schemaTypeIncludes(opt?.schemaType, '#Summary')) {
       return formattedItems.join('\n');
     }
@@ -3395,9 +3399,30 @@ function formatValueForDisplay(value, labelMap = {}, workMeta = null, globalDefT
       const mm = value.Day.Month != null ? String(value.Day.Month) : '';
       const dd = value.Day.DayOfMonth != null ? String(value.Day.DayOfMonth) : '';
       const date = (mm && dd) ? `${mm}/${dd}` : (mm || dd);
-      const about = value.about_JP || value.about_EN || value.about;
+      const aboutValue = value.DayAbout ?? value.about_JP ?? value.about_EN ?? value.about;
+      const about = isPlainObject(aboutValue)
+        ? (typeof aboutValue.hideText === 'string' && aboutValue.hideText.trim() ? aboutValue.hideText.trim() : '')
+        : (aboutValue == null ? '' : String(aboutValue).trim());
       if (date && about) return `${date}（${about}）`;
       if (date) return date;
+    }
+
+    if (schemaTypeIncludes(opt?.schemaType, '$Def_StoryEraCatalog')) {
+      const about = value.about_JP ?? value.about_EN ?? value.about;
+      if (about == null) return '';
+      if (isPlainObject(about)) {
+        if (typeof about.hideText === 'string' && about.hideText.trim()) return about.hideText.trim();
+        return '';
+      }
+      return String(about).trim();
+    }
+
+    if (schemaTypeIncludes(opt?.schemaType, '$Def_BaseArea') && Object.prototype.hasOwnProperty.call(value, 'Area')) {
+      return formatValueForDisplay(value.Area, labelMap, workMeta, globalDefType, {
+        ...opt,
+        schemaType: '#ListIndex',
+        fieldKey: 'Area'
+      });
     }
 
     // #ListIndex の「ラッパー（単一キーObject）」を typedef-driven に整形
@@ -3840,8 +3865,10 @@ function humanWorkLabel(work) {
 }
 
 function getStoryEraSummary(storyEra) {
-  if (!storyEra || typeof storyEra !== 'object') return '';
-  return String(storyEra.about_JP || storyEra.about_EN || '').trim();
+  return String(formatValueForDisplay(storyEra, {}, null, null, {
+    schemaType: '$Def_StoryEraCatalog|#Null',
+    fieldKey: 'StoryEra'
+  }) || '').trim();
 }
 
 function formatOldTitles(oldTitles) {
@@ -5449,29 +5476,12 @@ async function renderDetail(workId, rec) {
     }
   }
 
-  // Belonging/Area/Day with localized labels
-  const belong = formatValueForDisplay(rec.Belonging, fieldLabelMap, metaForLookup, globalDefType, {
-    schemaType: fieldTypeMap?.Belonging ?? null,
-    display: topLevelDisplayMap?.Belonging ?? null,
-    fieldKey: 'Belonging'
-  });
+  // Area は現状トップレベル schema 宣言が薄いため、当面は互換用の補助行を維持する
   const area = formatValueForDisplay(rec.Area, fieldLabelMap, metaForLookup, globalDefType, {
     schemaType: fieldTypeMap?.Area ?? null,
     display: topLevelDisplayMap?.Area ?? null,
     fieldKey: 'Area'
   });
-  const birthDay = formatValueForDisplay(rec.BirthDay, fieldLabelMap, metaForLookup, globalDefType, {
-    schemaType: fieldTypeMap?.BirthDay ?? null,
-    display: topLevelDisplayMap?.BirthDay ?? null,
-    fieldKey: 'BirthDay'
-  });
-  const days = Array.isArray(rec.AnivDay) ? rec.AnivDay.map(d => {
-    const mm = d?.Day?.Month != null ? String(d.Day.Month) : '';
-    const dd = d?.Day?.DayOfMonth != null ? String(d.Day.DayOfMonth) : '';
-    const date = (mm && dd) ? `${mm}/${dd}` : (mm || dd);
-    const about = d?.DayAbout ? ` ${d.DayAbout}` : '';
-    return `${date}${about}`;
-  }).filter(d => d.trim()) : [];
 
   // ここまでで明示的に表示したフィールドを控えておき、未表示項目を後段で包括表示する
   const shownKeys = (() => {
@@ -5534,11 +5544,8 @@ async function renderDetail(workId, rec) {
     }
     // SpecType は specStats 配下で表示するため、ここではトップレベル抑止不要
 
-    // basic セクションの個別テーブルで表示するフィールド
-    if (belong) s.add('Belonging');
+    // Area は現状 schema 外の補助表示として扱う
     if (area) s.add('Area');
-    if (birthDay) s.add('BirthDay');
-    if (days.length) s.add('AnivDay');
 
     // profile/relations/DBLinkResolved は個別表示する
     if (rec.Summary) s.add('Summary');
@@ -5966,17 +5973,8 @@ async function renderDetail(workId, rec) {
   const specRows = buildKvRows(sectionBuckets.spec);
   const basicExtraRows = buildKvRows(sectionBuckets.basic);
   const supplementalBasicRows = [
-    (!normalizedBasicFieldKeySet.has('Belonging') && belong)
-      ? [getFieldLabel('Belonging', fieldLabelMap, workMeta, globalDefType, '所属'), belong]
-      : null,
     (!normalizedBasicFieldKeySet.has('Area') && area)
       ? [getFieldLabel('Area', fieldLabelMap, workMeta, globalDefType, '地域'), area]
-      : null,
-    (!normalizedBasicFieldKeySet.has('BirthDay') && birthDay)
-      ? [getFieldLabel('BirthDay', fieldLabelMap, workMeta, globalDefType, '誕生日'), birthDay]
-      : null,
-    (!normalizedBasicFieldKeySet.has('AnivDay') && days.length)
-      ? [getFieldLabel('AnivDay', fieldLabelMap, workMeta, globalDefType, '記念日'), days.join(' / ')]
       : null,
   ].filter(Boolean);
 

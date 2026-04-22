@@ -1,0 +1,27 @@
+# 2026-04-22 progress: task1 day-era softcoding
+
+- 目的: タスク1の初動として、既存 schema を活かしながら `Day` / `Era` / `Area` 系の表示・整形ハードコードを減らし、UI をより typedef 駆動へ寄せる。
+- 変更点の要約:
+  - `data/db_type.json` の `BirthDay` / `AnivDay` に `$display.section = basic` を追加し、補助行の専用ハンドリングへ依存しなくても基本情報へ出せるようにした。
+  - `pages/characters.js` の `formatValueForDisplay()` で `$Def_Day[]` を multiline 表示し、`DayAbout` を含めて generic に整形できるようにした。
+  - `pages/characters.js` で `StoryEra` を `about_JP/about_EN/about` ベースの schema 型として整形できるようにし、選択中 DB 概要の年代表示も同じ formatter を使うようにした。
+  - `pages/characters.js` で `$Def_BaseArea` の最小整形を追加し、`Area` を内包する object 型を formatter 側で吸収できるようにした。
+  - `pages/characters.js` では `Belonging` / `BirthDay` / `AnivDay` の basic 補助行ハードコードを外し、schema / detail layout 側へ役割を寄せた。
+- 影響範囲:
+  - `data/db_type.json`
+  - `pages/characters.js`
+  - `docs/implementation-playbook.md`
+  - `CHANGELOG.md`
+- 現時点で保留した点:
+  - トップレベル `Area` は現状の schema 宣言が十分に揃っておらず、今回の段階では互換用の補助行を維持した。
+  - `Day` / `Era` / `Area` 系の完全な汎用化には、作品別 schema 実態の追加確認が必要。
+- 検証:
+  - `tests/pages.characters.syntax.test.js`: pass
+- 未完了タスク:
+  - `Area` 系のトップレベル schema 宣言整理
+  - `StoryEra` / `Era` 系の record 本体表示ルールの追加確認
+  - SW enrich/search 側で残る型名依存分岐の洗い出し
+- 参考リンク:
+  - `_work_in_progress/2026-04-22_progress_requested-tasks-overview.md`
+  - `data/db_type.json`
+  - `pages/characters.js`

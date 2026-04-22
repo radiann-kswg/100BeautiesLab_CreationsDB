@@ -1,5 +1,13 @@
 # 最新のリファクタリング・仕様変更履歴
 
+### `Day` / `StoryEra` の表示を typedef 駆動へ寄せ、basic 補助行ハードコードを削減
+
+- `data/db_type.json` の `BirthDay` / `AnivDay` に `$display.section: basic` を追加し、キャラシートが schema に従って基本情報へ載せられるようにした。
+- `pages/characters.js` の表示整形で、`$Def_Day` / `$Def_Day[]` を `DayAbout` 含みで generic に整形し、`AnivDay` 配列は改行ベースで表示するようにした。
+- `pages/characters.js` で `StoryEra` の概要表示を共通 formatter 経由へ寄せ、DB 概要パネルの年代メモも `about_JP/about_EN/about` ベースの typedef 的な扱いへ揃えた。
+- `pages/characters.js` では `Belonging` / `BirthDay` / `AnivDay` の basic 補助行ハードコードを減らし、schema と `$DetailLayout.basicFields` 側の責務を優先するようにした。
+- 回帰確認として `tests/pages.characters.syntax.test.js` を実行し、通過を確認した。
+
 ### `db_type.json` / `db_meta.json` の宣言面と内部処理ドキュメントを補強
 
 - `docs/schema-meta-processing.md` を追加し、`$DefType` / `$VarsDef` / `$IndexDef` / `$MetaType` と `CreationWorks` / `Databases` / `_Commons` / `_Secondaries` の責務、および SW/enrich/UI での合流順を整理した。
