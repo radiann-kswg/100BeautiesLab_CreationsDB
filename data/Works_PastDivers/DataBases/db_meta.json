@@ -102,7 +102,7 @@
             "Lunar": "Zeroth",
             "CodeName_JP": "初零月",
             "CodeName_EN": "Zeroth",
-            "Class": ["？？？"]
+            "Class": { "hideText": "？？？" }
           }
         ]
       }
