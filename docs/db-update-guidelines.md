@@ -5,6 +5,8 @@
 このリポジトリの基本方針は **スキーマ駆動（`db_type.json($DefType)` を正）**です。
 データ（`db_*.json`）の追加・修正だけでなく、表示/検索/参照解決の挙動が破綻しないよう、必要に応じて型定義・メタ定義もセットで更新します。
 
+`db_type.json` / `db_meta.json` の各宣言面と、SW/UI 内部での合流順を詳しく追いたい場合は、`docs/schema-meta-processing.md` を参照してください。
+
 ---
 
 ## 1. まず決めること（どこを更新するか）
@@ -139,6 +141,12 @@
 
 - 作品別メタ（`data/Works_<作品>/DataBases/db_meta.json`）が未整備の作品もあります。Service Worker 側は欠損を許容しますが、`_Commons` / `_Secondaries` 等の付加（補完）処理は適用されません。
 
+### 4.1.1 作品/DB カタログの補助 schema
+
+- グローバル `data/db_type.json` のトップレベル `$MetaType` には、`CreationWorks` / `OldTitles` / `DatabaseCatalog` / `StoryEra` の補助 schema 宣言を置きます
+- これはキャラクター本体の `$DefType` とは別系統で、作品一覧や DB 一覧、概要 UI で使うメタ項目の宣言面です
+- 実データは引き続き `data/db_meta.json(CreationWorks)` と作品別 `db_meta.json(Databases.#DB_*)` に置きます
+
 ### 4.2 詳細表示レイアウト
 
 - 詳細の基本情報・ヘッダピル・抑制キーは `CreationWorks.<work>.$DetailLayout` で制御します
@@ -164,6 +172,11 @@
 - `*_JP` / `*_EN` のキー名は **フィールド名に合わせる**（例: `RaceType_JP`）
 - `value` は DB に格納される raw 値（コード値）と一致させます
 
+補足:
+
+- 実行時には `db_meta.json(General.$VarsDef)` だけでなく `db_type.json($VarsDef)` も合成されます
+- 「どちらに置くべきか」を迷う場合は、共有辞書は meta、作品固有の schema と一体で管理したい辞書は typedef 側、を基本にしてください
+
 ---
 
 ### 4.4 二次創作系DBの `_Commons` / `_Secondaries`（必要な場合）
@@ -181,6 +194,25 @@
 注意:
 
 - `sec_Category` 等の条件で分岐したい場合、レコード側にもそのフィールドを持たせ、定義と一致するようにしてください（曖昧な定義は誤適用防止のため適用されません）。
+
+### 4.5 DB カタログ表示名
+
+作品別 `db_meta.json` の `Databases.#DB_<DbName>` では、次のようなカタログ項目を持てます。
+
+- `DB_Label`
+- `DB_Label_EN`
+- `DB_Summary`
+- `StoryEra`
+- `SecondarySummary`
+
+用途:
+
+- `DB_Label` / `DB_Label_EN`: DB セレクトや概要ヘッダの表示名
+- `DB_Summary`: DB 概要文
+- `StoryEra`: DB 単位の年代メモ
+- `SecondarySummary`: 二次創作系の補足概要
+
+未定義時は SW 側で既定ラベルへフォールバックしますが、原則として明示定義を推奨します。
 
 ## 5. 2言語（JP/EN）フィールド運用ルール（最小）
 

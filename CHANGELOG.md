@@ -1,5 +1,11 @@
 # 最新のリファクタリング・仕様変更履歴
 
+### `db_type.json` / `db_meta.json` の宣言面と内部処理ドキュメントを補強
+
+- `docs/schema-meta-processing.md` を追加し、`$DefType` / `$VarsDef` / `$IndexDef` / `$MetaType` と `CreationWorks` / `Databases` / `_Commons` / `_Secondaries` の責務、および SW/enrich/UI での合流順を整理した。
+- `docs/db-update-guidelines.md` に、作品/DB カタログ schema、DB 表示名、`$VarsDef` 合流方針への補足を追加した。
+- `docs/README.md`、`docs/api-sw-spec.md`、`docs/implementation-playbook.md` から新しい技術メモへ辿れるようにした。
+
 ### `db_meta.json` の創作タイトル情報を API/UI で参照可能に拡張
 
 - `lib/sw-common.js` の `works` / `works/{work}` / `works/{work}/db` / `bootstrap` 応答へ、`CreationWorks` の `Title` / `Title_EN` / `Works_Summary` / `OldTitles` と、作品別 `Databases` の `DB_Summary` / `StoryEra` を正規化して含めるようにした。

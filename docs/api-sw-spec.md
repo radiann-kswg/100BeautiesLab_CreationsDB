@@ -275,4 +275,5 @@ UI と enrich/search は、可能な限りこの `db_type.json($DefType)` に追
 
 - `docs/viewer-guide.md`: 閲覧者向けの入口説明
 - `docs/db-update-guidelines.md`: DB 更新時の運用ルール
+- `docs/schema-meta-processing.md`: `db_type.json` / `db_meta.json` の宣言面と内部処理の詳細
 - `.github/copilot-instructions.md`: 現在の実装方針と運用制約の詳細

@@ -165,5 +165,6 @@
 
 - `docs/api-sw-spec.md`
 - `docs/db-update-guidelines.md`
+- `docs/schema-meta-processing.md`
 - `docs/viewer-guide.md`
 - `.github/copilot-instructions.md`

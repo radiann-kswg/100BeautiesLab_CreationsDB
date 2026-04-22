@@ -1,0 +1,23 @@
+# 2026-04-22 progress: schema-meta-docs
+
+- 目的: `db_type.json` / `db_meta.json` のフィールド宣言面と、SW/UI/enrich 内部での処理経路を整理した詳細ドキュメントを整備する。
+- 変更点の要約:
+  - `docs/schema-meta-processing.md` を追加し、`$DefType` / `$VarsDef` / `$IndexDef` / `$MetaType` と `CreationWorks` / `Databases` / `_Commons` / `_Secondaries` の責務差、および実行時の合流順を整理
+  - `docs/db-update-guidelines.md` に、カタログ schema・DB 表示名・辞書合流方針の補足を追記
+  - `docs/README.md` / `docs/api-sw-spec.md` / `docs/implementation-playbook.md` / `CHANGELOG.md` から関連情報へ辿れるように更新
+- 影響範囲:
+  - `docs/schema-meta-processing.md`
+  - `docs/db-update-guidelines.md`
+  - `docs/README.md`
+  - `docs/api-sw-spec.md`
+  - `docs/implementation-playbook.md`
+  - `CHANGELOG.md`
+- 未完了タスク:
+  - 必要なら後日 English docs 側の案内を追加
+- 検証:
+  - `tests/docs.links.test.js`: pass
+- 参考リンク:
+  - `docs/db-update-guidelines.md`
+  - `docs/api-sw-spec.md`
+  - `lib/sw-common.js`
+  - `lib/data-common.js`
