@@ -61,14 +61,16 @@ describe('enrichment invariants (static)', () => {
     // グローバルメタデータ本体から Area / Belonging 辞書が外れ、専用ディレクトリ側に存在することを確認
     const meta = load('data/db_meta.json');
     const dictMeta = load('data/Dictionaries/db_meta.json');
-    const areaDb = load('data/Dictionaries/db_Area.json');
-    const belongingDb = load('data/Dictionaries/db_Belonging.json');
+    const areaDb = load('data/Dictionaries/dict_Area.json');
+    const belongingDb = load('data/Dictionaries/dict_Belonging.json');
 
     expect(meta).toBeTypeOf('object');
     expect(meta?.General?.$VarsDef?.['#List_Area']).toBeUndefined();
     expect(meta?.General?.$VarsDef?.['#List_Belonging']).toBeUndefined();
-    expect(dictMeta?.Dictionaries?.['#Dict_Area']?.file).toBe('db_Area.json');
-    expect(dictMeta?.Dictionaries?.['#Dict_Belonging']?.file).toBe('db_Belonging.json');
+    expect(dictMeta?.Dictionaries?.['#Dict_Area']?.file).toBeUndefined();
+    expect(dictMeta?.Dictionaries?.['#Dict_Belonging']?.file).toBeUndefined();
+    expect(dictMeta?.Dictionaries?.['#Dict_Area']?.keyField).toBe('Area');
+    expect(dictMeta?.Dictionaries?.['#Dict_Belonging']?.keyField).toBe('Belonging');
     expect(Array.isArray(areaDb)).toBe(true);
     expect(Array.isArray(belongingDb)).toBe(true);
     expect(areaDb.length).toBeGreaterThan(0);

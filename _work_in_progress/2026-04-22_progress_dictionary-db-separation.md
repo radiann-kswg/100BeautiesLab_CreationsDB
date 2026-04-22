@@ -2,9 +2,9 @@
 
 - 目的: `Area` / `Belonging` の辞書本体を `data/db_meta.json` から分離し、`data/Dictionaries/` と作品別 `Dictionaries/` を runtime で API/UI へ合流できるようにする。
 - 変更点の要約:
-  - `data/Dictionaries/` を追加し、`db_meta.json`・`db_type.json`・`db_Area.json`・`db_Belonging.json` を作成
+  - `data/Dictionaries/` を追加し、`db_meta.json`・`db_type.json`・`dict_Area.json`・`dict_Belonging.json` を作成
   - 各 `data/Works_*/Dictionaries/` を追加し、作品別辞書拡張用の `db_meta.json` / `db_type.json` プレースホルダを作成
-  - `lib/sw-common.js` に辞書 DB 読み込み処理を追加し、`readGlobalMeta()` / `readWorkMeta()` が `General.$VarsDef` と top-level `Dictionaries` へ辞書情報を合流するよう変更
+  - `lib/sw-common.js` に辞書 DB 読み込み処理を追加し、`readGlobalMeta()` / `readWorkMeta()` が `#Dict_*` 名から `dict_{DictName}.json` を推論しつつ、`General.$VarsDef` と top-level `Dictionaries` へ辞書情報を合流するよう変更
   - `pages/characters.js` の direct fetch fallback でも `data/Dictionaries/` を読むように変更
   - `data/db_meta.json` から `#List_Area` / `#List_Belonging` の実体配列を削除
   - `tests/sw.deftype.merge.test.js`・`tests/sw.enrich.basic.test.js`・`tests/data.shape.test.js` を更新
@@ -28,7 +28,7 @@
   - `npm.cmd test -- tests/sw.deftype.merge.test.js tests/sw.enrich.basic.test.js tests/pages.characters.syntax.test.js tests/data.shape.test.js tests/enrich.dblink.jump.merge.test.js`: pass
 - 参考リンク:
   - `data/Dictionaries/db_meta.json`
-  - `data/Dictionaries/db_Area.json`
-  - `data/Dictionaries/db_Belonging.json`
+  - `data/Dictionaries/dict_Area.json`
+  - `data/Dictionaries/dict_Belonging.json`
   - `docs/schema-meta-processing.md`
   - `docs/api-sw-spec.md`

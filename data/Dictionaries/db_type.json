@@ -14,11 +14,6 @@
           "hashTag_JP": "辞書表示名_EN"
         },
         {
-          "hashTag": "file",
-          "$type": "#String",
-          "hashTag_JP": "辞書ファイル"
-        },
-        {
           "hashTag": "keyField",
           "$type": "#String",
           "hashTag_JP": "代表キー"

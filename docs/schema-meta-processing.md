@@ -83,7 +83,7 @@
 補足:
 
 - `Area` / `Belonging` のような共通辞書本体は、`data/Dictionaries/` 配下の辞書 DB へ分離できます。
-- SW/UI は `data/db_meta.json` だけを直接参照せず、必要に応じて `data/Dictionaries/db_meta.json` と各 `db_*.json` を追加ロードして `General.$VarsDef` へ合流します。
+- SW/UI は `data/db_meta.json` だけを直接参照せず、必要に応じて `data/Dictionaries/db_meta.json` と各 `dict_*.json` を追加ロードして `General.$VarsDef` へ合流します。
 
 ### 2.4 作品別 `data/Works_<作品>/DataBases/db_meta.json`
 
@@ -105,13 +105,18 @@
 
 - 辞書専用 DB カタログ (`db_meta.json`)
 - 辞書専用型補助 (`db_type.json`)
-- `db_Area.json`, `db_Belonging.json` のような辞書本体
+- `dict_Area.json`, `dict_Belonging.json` のような辞書本体
 
 典型用途:
 
 - トップレベル field 名と無関係に流用したい辞書の分離管理
 - `#DictIndex` + `$dict` で参照する共通辞書の保存先
 - 作品別辞書追加時に `DataBases/` と分離して管理するための拡張ポイント
+
+命名規則:
+
+- 辞書実体ファイルは `dict_{DictName}.json` を正とします。
+- `data/Dictionaries/db_meta.json` の各 `Dictionaries.#Dict_*` では、JSON ファイル選択用の `file` フィールドは持たず、SW/UI が `#Dict_*` 名から自動的に `dict_{DictName}.json` を推論します。
 
 ---
 

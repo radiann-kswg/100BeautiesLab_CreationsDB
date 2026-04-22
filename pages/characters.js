@@ -909,8 +909,9 @@ async function fetchGlobalDefType() {
       for (const [rawDictKey, info] of Object.entries(catalogs)) {
         if (!info || typeof info !== 'object' || Array.isArray(info)) continue;
 
+        const dictName = String(rawDictKey || '').replace(/^#Dict_/, '').trim();
         const keyField = typeof info.keyField === 'string' ? info.keyField.trim() : '';
-        const derivedName = keyField || String(rawDictKey || '').replace(/^#Dict_/, '').trim();
+        const derivedName = dictName || keyField;
         if (!derivedName) continue;
 
         const dictKey = String(rawDictKey || '').startsWith('#Dict_')
@@ -919,9 +920,7 @@ async function fetchGlobalDefType() {
         const compatListKey = typeof info.compatListKey === 'string' && info.compatListKey.trim()
           ? info.compatListKey.trim()
           : `#List_${derivedName}`;
-        const fileName = typeof info.file === 'string' && info.file.trim()
-          ? info.file.trim()
-          : `db_${derivedName}.json`;
+        const fileName = `dict_${derivedName}.json`;
 
         const rows = await fetchDirectJson(`${baseRelPath}/${fileName}`);
         if (!Array.isArray(rows)) continue;
