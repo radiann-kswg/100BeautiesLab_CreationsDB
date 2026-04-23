@@ -17,6 +17,9 @@
 - Phase D の資料系 schema 整理として、`data/Works_NumberTales/References/db_type.json` に置いていた References 用 typedef は global `data/db_type.json` ではなく shared layer の `data/References/db_type.json` を正本にする形へ揃えた。
 - これにより、作品別 `References/db_type.json` は空のローカル上書きで維持しつつ、`Term` / `Title` / `RelatedCreations` などの資料系フィールドは shared references schema を共通宣言として扱える状態になった。
 - 回帰確認として `tests/data.shape.test.js` を実行し、3 件成功を確認した。
+- 追加で、`pages/characters.js` では `DB_Layer: References` の DB を開いた際に shared `data/References/db_type.json` を UI 側で読み込んで work typedef へマージし、References レコードの `Title` / `Term` / `BodyBlocks` などをキャラシート詳細へ表示できるようにした。
+- あわせて一覧・詳細タイトルの fallback を `Title` / `Term` 対応へ拡張し、References レコードでも `'(No Name)'` にならないようにした。
+- 回帰確認として `tests/pages.characters.ui-output.test.js` の 6 件成功と `tests/pages.characters.syntax.test.js` の成功を確認した。
 
 ## 現時点の基本方針
 

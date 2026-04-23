@@ -92,6 +92,8 @@ const imageLightboxState = {
   lastTrigger: null
 };
 
+const sharedLayerTypeDefCache = new Map();
+
 /**
  * DB名から「二次創作（Secondary系）」文脈かを推定
  * - isForSecondary フィールドの表示切替に使用
@@ -104,6 +106,81 @@ function isSecondaryDbName(dbName) {
   // SemiPrimary は一次創作に準ずる扱いなので除外
   if (n.includes('semiprimary')) return false;
   return n.includes('secondary');
+}
+
+function findDbCatalogEntry(workMeta, dbName) {
+  const databases = (workMeta && typeof workMeta === 'object' && workMeta.Databases && typeof workMeta.Databases === 'object')
+    ? workMeta.Databases
+    : null;
+  if (!databases) return null;
+
+  const rawName = String(dbName || '').replace(/^#?(DB|Ref)_/i, '').trim();
+  if (!rawName) return null;
+  const normalized = `${rawName.charAt(0).toUpperCase()}${rawName.slice(1)}`;
+  return databases[`#DB_${normalized}`] || databases[`#Ref_${normalized}`] || null;
+}
+
+function getRecordPrimaryTitle(rec) {
+  if (!rec || typeof rec !== 'object') return '(No Name)';
+  const base = [
+    rec.Name, rec.FormalName, rec.ModelName, rec.Title, rec.Term,
+    rec.Name_EN, rec.FormalName_EN, rec.Title_EN, rec.Term_EN
+  ].find((value) => typeof value === 'string' && value.trim());
+  return String(base || '(No Name)').trim();
+}
+
+function getRecordSecondaryTitle(rec) {
+  if (!rec || typeof rec !== 'object') return '';
+  const sub = [rec.FormalName_EN, rec.Name_EN, rec.Title_EN, rec.Term_EN, rec.ModelNumber]
+    .find((value) => typeof value === 'string' && value.trim());
+  return String(sub || '').trim();
+}
+
+async function fetchSharedLayerTypeDef(layerName) {
+  const layer = String(layerName || '').trim();
+  if (!layer) return {};
+  if (sharedLayerTypeDefCache.has(layer)) {
+    return sharedLayerTypeDefCache.get(layer) || {};
+  }
+
+  const u = new URL(`../data/${encodeURIComponent(layer)}/db_type.json`, location.href);
+  try {
+    const res = await fetchJSON(u.toString());
+    const typeDef = (res && typeof res === 'object') ? res : {};
+    sharedLayerTypeDefCache.set(layer, typeDef);
+    return typeDef;
+  } catch (error) {
+    console.warn('⚠️ Failed to fetch shared layer type def:', layer, error.message);
+    sharedLayerTypeDefCache.set(layer, {});
+    return {};
+  }
+}
+
+function mergeTypeDefSources(primaryTypeDef, secondaryTypeDef) {
+  const primary = (primaryTypeDef && typeof primaryTypeDef === 'object' && !Array.isArray(primaryTypeDef))
+    ? primaryTypeDef
+    : {};
+  const secondary = (secondaryTypeDef && typeof secondaryTypeDef === 'object' && !Array.isArray(secondaryTypeDef))
+    ? secondaryTypeDef
+    : {};
+
+  const primaryDef = Array.isArray(primary.$DefType) ? primary.$DefType : [];
+  const secondaryDef = Array.isArray(secondary.$DefType) ? secondary.$DefType : [];
+  const primaryVars = (primary.$VarsDef && typeof primary.$VarsDef === 'object' && !Array.isArray(primary.$VarsDef))
+    ? primary.$VarsDef
+    : {};
+  const secondaryVars = (secondary.$VarsDef && typeof secondary.$VarsDef === 'object' && !Array.isArray(secondary.$VarsDef))
+    ? secondary.$VarsDef
+    : {};
+
+  return {
+    ...secondary,
+    ...primary,
+    ...(secondaryDef.length || primaryDef.length ? { $DefType: [...secondaryDef, ...primaryDef] } : {}),
+    ...(Object.keys(secondaryVars).length || Object.keys(primaryVars).length
+      ? { $VarsDef: { ...secondaryVars, ...primaryVars } }
+      : {})
+  };
 }
 /**
  * Utility Functions
@@ -4639,8 +4716,11 @@ async function renderList(records, workId, onOpen, imageFields = null) {
     // Use enhanced image resolution
     const img = await imageFromRecord(workId, r, dbName, imageFields);
 
-    const title = r.Name ? `${r.Name}${r.Num != null ? `（${r.Num}）` : ''}` : (r.FormalName || r.ModelName || r.Name_EN || '(No Name)');
-    const sub = r.FormalName_EN || r.Name_EN || r.ModelNumber || '';
+    const primaryTitle = getRecordPrimaryTitle(r);
+    const title = r.Num != null && String(r.Num).trim()
+      ? `${primaryTitle}（${r.Num}）`
+      : primaryTitle;
+    const sub = getRecordSecondaryTitle(r);
     const chipEls = [];
 
     // Enhanced chip generation with more field types
@@ -4801,7 +4881,10 @@ export async function renderDetail(workId, rec) {
     return;
   }
 
-  $('#detail-title').textContent = rec.Name ? `${rec.Name}${rec.Num != null ? `（${rec.Num}）` : ''}` : (rec.FormalName || rec.ModelName || rec.Name_EN || '詳細');
+  const detailTitleBase = getRecordPrimaryTitle(rec);
+  $('#detail-title').textContent = rec.Num != null && String(rec.Num).trim()
+    ? `${detailTitleBase}（${rec.Num}）`
+    : (detailTitleBase || '詳細');
   const mount = $('#detail');
   mount.textContent = '';
 
@@ -4821,13 +4904,19 @@ export async function renderDetail(workId, rec) {
     }, ['詳細情報を読み込んでいます...']));
 
     // Use cached data when available, otherwise fetch
-    const [workTypeDef, globalTypeDef, globalDefType, workMeta, globalMeta] = await Promise.all([
+    const [rawWorkTypeDef, globalTypeDef, globalDefType, workMeta, globalMeta] = await Promise.all([
       cachedWorkTypeDef || fetchWorkTypeDef(workId),
       cachedGlobalTypeDef || fetchGlobalTypeDef(),
       fetchGlobalDefType(),
       cachedWorkMeta || fetchWorkMeta(workId),
       fetchGlobalMeta()
     ]);
+
+    const dbCatalogEntry = findDbCatalogEntry(workMeta, dbName);
+    const sharedLayerTypeDef = String(dbCatalogEntry?.DB_Layer || '').trim() === 'References'
+      ? await fetchSharedLayerTypeDef('References')
+      : {};
+    const workTypeDef = mergeTypeDefSources(rawWorkTypeDef, sharedLayerTypeDef);
 
     // workMeta / globalMeta の $VarsDef を統合（EnumLink / ListLink の共通辞書を参照しやすくする）
     const metaForLookup = (() => {
@@ -4892,7 +4981,7 @@ export async function renderDetail(workId, rec) {
       poster ? el('img', {
         class: 'poster',
         src: poster,
-        alt: `${rec.Name || rec.FormalName || 'Character'} poster`,
+        alt: `${getRecordPrimaryTitle(rec) || 'Character'} poster`,
         loading: 'lazy'
       }) : el('div', { class: 'poster placeholder' }, ['画像なし']),
       galleryImages.length > 0 ? el('div', { class: 'image-gallery' }, [
@@ -5092,8 +5181,8 @@ export async function renderDetail(workId, rec) {
   };
 
   const titleRow = el('div', { class: 'kv' }, [
-    el('div', { class: 'name' }, rec.Name || rec.FormalName || rec.Name_EN || '(No Name)'),
-    (rec.Name_EN || rec.FormalName_EN) ? el('div', { class: 'name-en' }, rec.Name_EN || rec.FormalName_EN) : null,
+    el('div', { class: 'name' }, getRecordPrimaryTitle(rec)),
+    getRecordSecondaryTitle(rec) ? el('div', { class: 'name-en' }, getRecordSecondaryTitle(rec)) : null,
     el('div', { class: 'row small' }, [
       (() => {
         const workIndexDef = getWorkIndexField(workId, globalMeta);

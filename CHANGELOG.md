@@ -1,5 +1,12 @@
 # 最新のリファクタリング・仕様変更履歴
 
+### References レイヤーの DB をキャラシート UI で表示可能にした
+
+- `pages/characters.js` で、現在選択中 DB の catalog entry を参照し、`DB_Layer: References` の場合は shared `data/References/db_type.json` を追加で読み込んで work typedef へマージするようにした。
+- これにより、`Title` / `Term` / `BodyBlocks` / `RelatedCreations` など、通常キャラクター DB とは異なる資料系フィールドでも、キャラシート詳細で label / section / 表示整形を shared references typedef に従って解釈できるようにした。
+- 一覧・詳細の見出し fallback も `Name` / `FormalName` だけでなく `Title` / `Term` を使えるようにし、References レコードでもタイトル未設定扱いにならないようにした。
+- 回帰確認として `tests/pages.characters.ui-output.test.js` に References 表示ケースを追加し、6 件成功、および `tests/pages.characters.syntax.test.js` の成功を確認した。
+
 ### References typedef を shared `data/References/db_type.json` へ集約
 
 - References 用の共通 typedef は global `data/db_type.json` ではなく、shared layer の `data/References/db_type.json` を正本として扱う構成へ揃えた。

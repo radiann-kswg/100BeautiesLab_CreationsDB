@@ -172,8 +172,11 @@ const numberTalesWorkTypeDef = loadJson('data/Works_NumberTales/DataBases/db_typ
 const numberTalesWorkMeta = buildWorkMetaFixture('Works_NumberTales');
 const numberTalesSecondaryRecords = loadJson('data/Works_NumberTales/DataBases/db_Secondary.json');
 const numberTalesSelfSecondaryRecords = loadJson('data/Works_NumberTales/DataBases/db_SelfSecondary.json');
+const sharedReferencesTypeDef = loadJson('data/References/db_type.json');
+const numberTalesReferenceRecords = loadJson('data/Works_NumberTales/References/ref_Reference.json');
 const hexademicalRecord = numberTalesSecondaryRecords.find((record) => record?.Num === '0xA');
 const requestNumberRecord = numberTalesSelfSecondaryRecords.find((record) => record?.Num === 223);
+const numberTalesReferenceRecord = numberTalesReferenceRecords.find((record) => record?.Title === 'ナンバーテールズについて');
 
 const yayoiRecord = {
   ...yayoiRecordBase,
@@ -295,5 +298,43 @@ describe('pages/characters.js UI output', () => {
     expect(document.querySelector('#detail-title')?.textContent?.trim()).toBe('非公開');
     expect(document.querySelector('#detail')?.textContent?.trim()).toContain('このキャラクターは非公開です。');
     expect(document.querySelector('#detail')?.textContent?.includes('桜花 訫')).toBe(false);
+  });
+
+  it('renders references layer records with shared references typedef labels', async () => {
+    charactersModule.__setCharactersTestState({
+      charState: {
+        db: 'Reference',
+        workTypeDef: numberTalesWorkTypeDef,
+        globalTypeDef,
+        workMeta: numberTalesWorkMeta,
+        imageFields: []
+      }
+    });
+
+    const originalFetch = globalThis.fetch;
+    globalThis.fetch = async (input) => {
+      const url = String(input);
+      if (url.includes('/data/References/db_type.json')) {
+        return new Response(JSON.stringify(sharedReferencesTypeDef), {
+          status: 200,
+          headers: { 'Content-Type': 'application/json' }
+        });
+      }
+      throw new Error(`Unexpected fetch in references typedef test: ${url}`);
+    };
+
+    try {
+      await charactersModule.renderDetail('#Works_NumberTales', numberTalesReferenceRecord);
+    } finally {
+      globalThis.fetch = originalFetch;
+    }
+
+    expect(document.querySelector('#detail-title')?.textContent?.trim()).toBe('ナンバーテールズについて');
+    expect(getBasicFieldValue('資料名')).toBe('ナンバーテールズについて / About NumberTales');
+    expect(getBasicFieldValue('分類')).toBe('キャラクターの基本情報');
+    const profileSectionText = getSectionText('プロフィール/テキスト');
+    expect(profileSectionText).toContain('概要');
+    expect(profileSectionText).toContain('本文ブロック');
+    expect(profileSectionText).toContain('普段人類がなんの違和感もなく数える数字だが');
   });
 });
