@@ -1,5 +1,12 @@
 # 最新のリファクタリング・仕様変更履歴
 
+### References typedef の `RelatedWorks` を object 配列化
+
+- `data/Works_NumberTales/References/db_type.json` では、資料系の関連先フィールドを `RelatedWorks` から `RelatedCreations` へ改名し、object 配列 typedef として各要素が `RelatedWorks` と `RelatedDB` を持てるようにした。
+- これにより、資料系 DB でも `_DBLink` に近い粒度で「どの作品に紐づく関連か」「その作品内のどの DB まで紐づくか」を 1 要素ごとに表現できるようにした。
+- 新構造の代表キーは `RelatedCreations[]` とし、その子要素に `RelatedWorks` / `RelatedDB` を持たせる形へ整理した。
+- 回帰確認として `tests/data.shape.test.js` を更新し、`tests/data.shape.test.js` の 3 件成功を確認した。
+
 ### NumberTales の資料系 DB を `References/ref_*.json` へ統合
 
 - `data/Works_NumberTales/DataBases/db_meta.json` と `data/Works_NumberTales/References/db_meta.json` の資料系 catalog key を `#DB_Glossary` / `#DB_Reference` から `#Ref_Glossary` / `#Ref_Reference` へ変更した。

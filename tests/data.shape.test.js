@@ -68,4 +68,17 @@ describe('database shapes', () => {
     expect(nestedArea?.$type).toBe('#DictIndex');
     expect(nestedArea?.$dict).toBe('Area');
   });
+
+  it('references typedef can bind RelatedDB per RelatedCreations entry', () => {
+    const refsType = load('data/Works_NumberTales/References/db_type.json');
+    const defType = Array.isArray(refsType?.$DefType) ? refsType.$DefType : [];
+    const relatedCreationsField = defType.find((entry) => entry?.hashTag === 'RelatedCreations');
+    const relatedCreationEntries = Array.isArray(relatedCreationsField?.$type) ? relatedCreationsField.$type : [];
+    const nestedWork = relatedCreationEntries.find((entry) => entry?.hashTag === 'RelatedWorks');
+    const nestedDb = relatedCreationEntries.find((entry) => entry?.hashTag === 'RelatedDB');
+
+    expect(Array.isArray(relatedCreationsField?.$type)).toBe(true);
+    expect(nestedWork?.$type).toBe('#String');
+    expect(nestedDb?.$type).toBe('#String|#Null');
+  });
 });

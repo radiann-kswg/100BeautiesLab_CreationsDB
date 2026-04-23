@@ -279,6 +279,7 @@
 - `data/Works_NumberTales/DataBases/db_meta.json` には `#DB_Glossary` / `#DB_Reference` を追加し、既存の works/{work}/db 導線から新レイヤー DB を列挙できるようにした。
 - 追加データ投入後の構成変更として、Glossary / Reference の実体ファイルを `References/ref_Glossary.json` / `References/ref_Reference.json` へ統合し、catalog key も `#Ref_Glossary` / `#Ref_Reference` へ変更した。
 - SW 側は `#Ref_` prefix から `ref_*.json` を既定推論できるようにし、NumberTales の資料系 meta では `DB_File` 指定を不要化した。
+- 続けて References typedef の関連先フィールドを `RelatedCreations` へ整理し、その object 配列の各要素が `RelatedWorks` と `RelatedDB` を持てるようにした。資料系レコードで per-work / per-db の関連先を 1 要素ごとに表現するための下地である。
 
 ## 優先順の再設定
 

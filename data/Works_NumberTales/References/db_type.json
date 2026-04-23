@@ -53,14 +53,20 @@
       "hashTag_JP": "関連用語"
     },
     {
-      "hashTag": "RelatedWorks",
-      "$type": "#String[]|#Null",
-      "hashTag_JP": "関連作品"
-    },
-    {
-      "hashTag": "RelatedDB",
-      "$type": "#String[]|#Null",
-      "hashTag_JP": "関連DB"
+      "hashTag": "RelatedCreations",
+      "$type": [
+        {
+          "hashTag": "RelatedWorks",
+          "$type": "#String",
+          "hashTag_JP": "関連作品"
+        },
+        {
+          "hashTag": "RelatedDB",
+          "$type": "#String|#Null",
+          "hashTag_JP": "関連DB"
+        }
+      ],
+      "hashTag_JP": "関連創作"
     },
     {
       "hashTag": "Aliases",
