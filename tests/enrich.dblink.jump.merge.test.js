@@ -287,6 +287,48 @@ describe('_DBLink / _Jump merge (in-process)', () => {
     expect(e.Relations).toBeUndefined();
   });
 
+  it('_DBLink 参照先探索では isPrivate=true の候補を採用しない', async () => {
+    class PrivateLinkedRecordFetcher extends TestDataFetcher {
+      async readDB(workId, dbName) {
+        if (workId === '#Works_OtherWork' && dbName === 'Primary') {
+          return [
+            { Id: 'X', Name: 'private name', isPrivate: true },
+            { Id: 'X', Name: 'public name' }
+          ];
+        }
+        return [];
+      }
+
+      async readGlobalType() {
+        return {
+          $DefType: [
+            { hashTag: 'Id', $type: '#String' },
+            { hashTag: 'Name', $type: '#String' },
+            { hashTag: 'isPrivate', $type: '#Boolean' }
+          ]
+        };
+      }
+    }
+
+    const dataFetcher = new PrivateLinkedRecordFetcher();
+    const proc = new globalThis.EnrichmentProcessor(dataFetcher, testConfig);
+
+    const rec = {
+      Id: 'BASE',
+      Name: '',
+      _DBLink: {
+        worksTitle: 'OtherWork',
+        dbName: 'Primary',
+        _Search: [{ hashTag: 'Id', key: 'X' }]
+      }
+    };
+
+    const out = await proc.enrichRecords([rec], '#Works_MainWork', 'Primary');
+    const e = out[0];
+
+    expect(e.Name).toBe('public name');
+  });
+
   it('_DBLink._Search で hashTag="#Index" + key=object を使うと、ネストIndex（例: Card.Stoat + Card.Num）をAND条件で特定できる', async () => {
     const dataFetcher = new TestDataFetcher();
     const proc = new globalThis.EnrichmentProcessor(dataFetcher, testConfig);
