@@ -40,6 +40,16 @@ function isCharactersTestMode() {
   return Boolean(globalThis.__CHARACTERS_TEST_MODE__ || import.meta.vitest);
 }
 
+function isPublicCharacterRecord(record) {
+  if (!record || typeof record !== 'object' || Array.isArray(record)) return true;
+  return !(record.isPrivate === true || String(record.isPrivate || '').trim().toLowerCase() === 'true');
+}
+
+function filterPublicCharacterRecords(records) {
+  if (!Array.isArray(records)) return [];
+  return records.filter(isPublicCharacterRecord);
+}
+
 export function __setCharactersTestState(state = {}) {
   if (Object.prototype.hasOwnProperty.call(state, 'globalMeta')) globalMetaCache = state.globalMeta;
   if (Object.prototype.hasOwnProperty.call(state, 'globalTypeDef')) globalTypeDefCache = state.globalTypeDef;
@@ -4781,6 +4791,16 @@ function kvTable(obj, entries) {
  * @returns {Promise<void>} 詳細ビューのDOMを更新する非同期関数
  */
 export async function renderDetail(workId, rec) {
+  if (!isPublicCharacterRecord(rec)) {
+    $('#detail-title').textContent = '非公開';
+    const mount = $('#detail');
+    mount.textContent = '';
+    mount.appendChild(el('div', {
+      style: 'padding: 20px; text-align: center; color: var(--muted);'
+    }, ['このキャラクターは非公開です。']));
+    return;
+  }
+
   $('#detail-title').textContent = rec.Name ? `${rec.Name}${rec.Num != null ? `（${rec.Num}）` : ''}` : (rec.FormalName || rec.ModelName || rec.Name_EN || '詳細');
   const mount = $('#detail');
   mount.textContent = '';
@@ -6794,7 +6814,7 @@ async function filterListOnly() {
 
   // Use enhanced rendering with image fields if available
   const imageFields = state.imageFields || null;
-  await renderList(state.records, state.workId, openDetail, imageFields);
+  await renderList(filterPublicCharacterRecords(state.records), state.workId, openDetail, imageFields);
 }
 
 async function populateWorks(initialWork) {
@@ -6830,6 +6850,7 @@ async function populateDBs(workKey, initialDB) {
 
 async function openDetail(rec) {
   const state = window.__CHAR_STATE__;
+  if (!isPublicCharacterRecord(rec)) return;
   closeImageLightbox({ restoreFocus: false });
   $('#list-view').hidden = true;
   $('#detail-view').hidden = false;
@@ -7135,7 +7156,7 @@ async function reloadInternal(showLoading = true) {
     }
 
     const processStart = performance.now();
-    let recs = res.records || [];
+    let recs = filterPublicCharacterRecords(res.records || []);
     if (recs.length === 0) {
       console.warn('⚠️ No records found for:', { workId, db });
     } else {

@@ -90,4 +90,54 @@ describe('StandardEndpointHandlers tolerates missing work meta', () => {
     expect(json.count).toBe(1);
     expect(json.records[0].Num).toBe(2);
   });
+
+  it('handleDbEndpoint excludes records with isPrivate=true', async () => {
+    const ctx = loadSwCommonIntoContext();
+    const StandardEndpointHandlers = ctx?.self?.StandardEndpointHandlers;
+    expect(StandardEndpointHandlers).toBeTypeOf('function');
+
+    const stubFetcher = {
+      readDB: async () => [
+        { Num: 1, Name: 'public' },
+        { Num: 2, Name: 'private', isPrivate: true }
+      ],
+      readWorkMeta: async () => ({ Databases: {} }),
+    };
+
+    const handlers = new StandardEndpointHandlers(stubFetcher, null, null, 'Test');
+    const res = await handlers.handleDbEndpoint('Works_NumberTales', 'Primary', false, false, false);
+    expect(res.status).toBe(200);
+
+    const json = await res.json();
+    expect(json.records.map((record) => record.Num)).toEqual([1]);
+  });
+
+  it('handleSearchEndpoint ignores records with isPrivate=true', async () => {
+    const ctx = loadSwCommonIntoContext();
+    const StandardEndpointHandlers = ctx?.self?.StandardEndpointHandlers;
+    expect(StandardEndpointHandlers).toBeTypeOf('function');
+
+    const stubFetcher = {
+      readDB: async () => [
+        { Num: 1, Name: 'public target' },
+        { Num: 2, Name: 'private target', isPrivate: true }
+      ],
+      readWorkMeta: async () => ({ Databases: {} }),
+    };
+
+    const handlers = new StandardEndpointHandlers(stubFetcher, null, null, 'Test');
+
+    const url = new URL('https://example.invalid/v1/search');
+    url.searchParams.set('works', 'Works_NumberTales');
+    url.searchParams.set('db', 'Primary');
+    url.searchParams.append('hashTag', 'Name');
+    url.searchParams.append('key', 'private target');
+
+    const res = await handlers.handleSearchEndpoint(url, false, false, false);
+    expect(res.status).toBe(200);
+
+    const json = await res.json();
+    expect(json.count).toBe(0);
+    expect(json.records).toEqual([]);
+  });
 });

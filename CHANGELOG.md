@@ -1,5 +1,12 @@
 # 最新のリファクタリング・仕様変更履歴
 
+### 最小の `isPrivate` 公開制御を追加
+
+- `lib/sw-common.js` の `db` / `search` エンドポイントで `isPrivate: true` のレコードを除外し、公開 API 応答へ含めないようにした。
+- `lib/data-common.js` でも typedef 駆動検索と `_DBLink` 参照先探索から private レコードを除外し、enrich 経路での露出を抑えた。
+- `pages/characters.js` では一覧再描画時に public レコードだけを扱い、private レコードが直接渡された場合も詳細画面に本文を描かず「非公開」表示で止めるようにした。
+- 回帰確認として `tests/sw.dbmeta.tolerance.test.js` と `tests/pages.characters.ui-output.test.js` を更新し、通過を確認した。
+
 ### `_Secondaries` 要素用の `$MetaType` を追加し、二次創作情報 UI の hardcode を削減
 
 - `data/db_type.json` のトップレベル `$MetaType` に `$Def_SecondaryMeta` を追加し、`sec_Category` / `sec_DesignedBy` など `_Secondaries[]` 要素で使う補助フィールドのラベルと型を宣言できるようにした。

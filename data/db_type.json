@@ -378,7 +378,7 @@
           "hashTag": "sec_SeriesTitle",
           "$type": "##String_JP|#Summary|#Null",
           "hashTag_JP": "二次創作シリーズ名",
-          "$display": { "auto": false }
+          "$display": { "section": "secondaryInfo" }
         },
         {
           "hashTag": "sec_Category",

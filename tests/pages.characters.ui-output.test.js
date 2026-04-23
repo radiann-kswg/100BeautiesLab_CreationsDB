@@ -256,7 +256,7 @@ describe('pages/characters.js UI output', () => {
     const secondarySectionText = getSectionText('二次創作情報');
     expect(secondarySectionText).toContain('二次創作分類');
     expect(secondarySectionText).toContain('リクエストナンバー');
-    expect(secondarySectionText).toContain('制作・考案');
+    expect(secondarySectionText).toContain('キャラクターデザイン・考案');
     expect(secondarySectionText).toContain('ラジアン(柏木主税)');
   });
 
@@ -282,7 +282,18 @@ describe('pages/characters.js UI output', () => {
     const secondarySectionText = getSectionText('二次創作情報');
     expect(secondarySectionText).toContain('二次創作分類');
     expect(secondarySectionText).toContain('共同二次創作');
-    expect(secondarySectionText).toContain('制作・考案');
+    expect(secondarySectionText).toContain('キャラクターデザイン・考案');
     expect(secondarySectionText).toContain('散狐アタスト(https://misskey.io/@atast)');
+  });
+
+  it('does not render private records in detail view', async () => {
+    await charactersModule.renderDetail('#Works_PastDivers', {
+      ...yayoiRecord,
+      isPrivate: true
+    });
+
+    expect(document.querySelector('#detail-title')?.textContent?.trim()).toBe('非公開');
+    expect(document.querySelector('#detail')?.textContent?.trim()).toContain('このキャラクターは非公開です。');
+    expect(document.querySelector('#detail')?.textContent?.includes('桜花 訫')).toBe(false);
   });
 });

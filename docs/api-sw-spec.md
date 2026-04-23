@@ -50,6 +50,8 @@
 - `/pages/v1/*` は UI がそのまま使うため、既定で enrich 有効です
 - `/api/v1/*` と `/svc/v1/*` は既存互換を優先し、`?enrich=1` を付けたときだけ enrich します
 - `resolve=0` を付けると、`#Works` や `#DB` などの参照解決をスキップできます
+- `isPrivate: true` を持つレコードは、`db` / `search` / `enrich` 系レスポンスから除外します
+- `_DBLink` の参照先探索でも `isPrivate: true` の候補は採用しません
 
 ---
 
@@ -123,6 +125,7 @@ UI と enrich/search は、可能な限りこの `db_type.json($DefType)` に追
 - `works/{work}/db/{dbName}` は継続します
 - `search` も継続します
 - `_Commons` / `_Secondaries` は適用されません
+- `isPrivate: true` のレコードは、meta 欠損有無に関わらず公開 API 応答へ含めません
 
 この方針は、DB ファイル自体は存在するが作品メタが未整備な作品でも、最低限の API 利用を成立させるためです。
 
