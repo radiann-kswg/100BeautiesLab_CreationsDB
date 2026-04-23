@@ -28,8 +28,11 @@ describe('catalog meta schema declarations', () => {
   it('work-local db_meta databases can expose DB labels', () => {
     const workMeta = load('data/Works_NumberTales/DataBases/db_meta.json');
     const primary = workMeta?.Databases?.['#DB_Primary'];
+    const glossary = workMeta?.Databases?.['#Ref_Glossary'];
 
     expect(primary?.DB_Label).toBe('一次創作');
     expect(primary?.DB_Label_EN).toBe('Primary');
+    expect(glossary?.DB_Label).toBe('創作用語');
+    expect(glossary?.DB_Label_EN).toBe('Glossary');
   });
 });

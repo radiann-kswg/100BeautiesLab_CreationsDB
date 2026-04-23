@@ -277,6 +277,8 @@
 - `tests/sw.db-layer-routing.test.js` を追加し、layer-aware な DB 読み込みと一覧応答を回帰で固定した。
 - 続けて NumberTales に `Glossaries/` と `References/` の実テンプレートを追加し、各レイヤーへ `db_meta.json`, `db_type.json`, 空の `db_Glossary.json` / `db_Reference.json` を配置した。
 - `data/Works_NumberTales/DataBases/db_meta.json` には `#DB_Glossary` / `#DB_Reference` を追加し、既存の works/{work}/db 導線から新レイヤー DB を列挙できるようにした。
+- 追加データ投入後の構成変更として、Glossary / Reference の実体ファイルを `References/ref_Glossary.json` / `References/ref_Reference.json` へ統合し、catalog key も `#Ref_Glossary` / `#Ref_Reference` へ変更した。
+- SW 側は `#Ref_` prefix から `ref_*.json` を既定推論できるようにし、NumberTales の資料系 meta では `DB_File` 指定を不要化した。
 
 ## 優先順の再設定
 

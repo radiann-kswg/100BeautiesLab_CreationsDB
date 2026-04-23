@@ -33,17 +33,17 @@ function loadSwCommonIntoContext(extra = {}) {
 }
 
 describe('DB layer aware routing', () => {
-  it('DataFetcher.readDB uses DB_Layer from work meta when reading a DB file', async () => {
+  it('DataFetcher.readDB uses #Ref_ catalog keys to resolve ref_*.json by default', async () => {
     const jsonByPath = {
       '/data/Works_Test/DataBases/db_meta.json': {
         Databases: {
-          '#DB_Glossary': {
+          '#Ref_Glossary': {
             DB_Label: '創作用語',
-            DB_Layer: 'Glossaries'
+            DB_Layer: 'References'
           }
         }
       },
-      '/data/Works_Test/Glossaries/db_Glossary.json': [
+      '/data/Works_Test/References/ref_Glossary.json': [
         { Term: '百花繚乱研究所' }
       ]
     };
@@ -75,19 +75,19 @@ describe('DB layer aware routing', () => {
     expect(records).toEqual([{ Term: '百花繚乱研究所' }]);
   });
 
-  it('handleWorkDbListEndpoint exposes DB_Layer from work meta for non-DataBases entries', async () => {
+  it('handleWorkDbListEndpoint keeps custom file and layer information for non-DataBases entries', async () => {
     const ctx = loadSwCommonIntoContext();
     const StandardEndpointHandlers = ctx?.self?.StandardEndpointHandlers;
     expect(StandardEndpointHandlers).toBeTypeOf('function');
 
     const stubFetcher = {
-      listWorkDBs: async () => [{ key: 'Glossary', file: 'db_Glossary.json', layer: 'Glossaries' }],
+      listWorkDBs: async () => [{ key: 'Glossary', file: 'ref_Glossary.json', layer: 'References' }],
       readWorkMeta: async () => ({
         Databases: {
-          '#DB_Glossary': {
+          '#Ref_Glossary': {
             DB_Label: '創作用語',
             DB_Label_EN: 'Glossary',
-            DB_Layer: 'Glossaries',
+            DB_Layer: 'References',
             DB_Summary: '作品用語の一覧。'
           }
         }
@@ -100,7 +100,8 @@ describe('DB layer aware routing', () => {
 
     expect(res.status).toBe(200);
     expect(json.databases[0].key).toBe('Glossary');
-    expect(json.databases[0].DB_Layer).toBe('Glossaries');
+    expect(json.databases[0].DB_Layer).toBe('References');
+    expect(json.databases[0].file).toBe('ref_Glossary.json');
     expect(json.databases[0].DB_Label).toBe('創作用語');
   });
 });

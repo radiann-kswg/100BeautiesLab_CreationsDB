@@ -1,5 +1,12 @@
 # 最新のリファクタリング・仕様変更履歴
 
+### NumberTales の資料系 DB を `References/ref_*.json` へ統合
+
+- `data/Works_NumberTales/DataBases/db_meta.json` と `data/Works_NumberTales/References/db_meta.json` の資料系 catalog key を `#DB_Glossary` / `#DB_Reference` から `#Ref_Glossary` / `#Ref_Reference` へ変更した。
+- `data/Works_NumberTales/References/` へ glossary / reference の実データを統合し、`ref_Glossary.json` と `ref_Reference.json` に改名した。
+- `lib/sw-common.js` は `#Ref_` prefix を資料系 catalog key として扱い、`References/ref_*.json` を `DB_File` なしで既定解決できるようにした。
+- 回帰確認として `tests/sw.db-layer-routing.test.js`、`tests/data.sanity.test.js`、`tests/sw.work-meta-info.test.js` を実行し、通過を確認した。
+
 ### NumberTales に Glossaries / References の空テンプレートを追加
 
 - `data/Works_NumberTales/DataBases/db_meta.json` に `#DB_Glossary` と `#DB_Reference` を追加し、それぞれ `DB_Layer: Glossaries` / `References` を宣言した。

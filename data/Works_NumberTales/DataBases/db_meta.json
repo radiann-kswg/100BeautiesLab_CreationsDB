@@ -157,17 +157,17 @@
         }
       ]
     },
-    "#DB_Glossary": {
+    "#Ref_Glossary": {
       "DB_Label": "創作用語",
       "DB_Label_EN": "Glossary",
-      "DB_Layer": "Glossaries",
-      "DB_Summary": "ナンバーテールズ固有の用語や固有名詞を、User 手入力前提で整理するための空テンプレート DB。"
+      "DB_Layer": "References",
+      "DB_Summary": "ナンバーテールズ固有の用語に関する資料。"
     },
-    "#DB_Reference": {
+    "#Ref_Reference": {
       "DB_Label": "創作基本資料",
       "DB_Label_EN": "Reference",
       "DB_Layer": "References",
-      "DB_Summary": "ナンバーテールズの世界観補助資料や年表メモを、User 手入力前提で整理するための空テンプレート DB。"
+      "DB_Summary": "ナンバーテールズの世界観に関する基本資料。"
     }
   },
   "General": {

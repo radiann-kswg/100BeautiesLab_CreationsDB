@@ -1,16 +1,35 @@
 {
   "$DefType": [
     {
+      "hashTag": "Term",
+      "$type": "##String_JP|#Null",
+      "hashTag_JP": "用語名",
+      "$display": { "section": "basic", "aliasOf": "Name" }
+    },
+    {
+      "hashTag": "Term_EN",
+      "$type": "##String_EN|#Null",
+      "hashTag_JP": "用語名_EN",
+      "$display": { "section": "basic", "aliasOf": "Name_EN" }
+    },
+    {
+      "hashTag": "Term_JPReading",
+      "$type": "##String_JP|#Null",
+      "hashTag_JP": "読み仮名"
+    },
+    {
       "hashTag": "Title",
-      "$type": "##String_JP",
+      "$type": "##String_JP|#Null",
       "hashTag_JP": "資料名",
-      "$display": { "section": "basic" }
+      "$alt": "Term",
+      "$display": { "section": "basic", "aliasOf": "Name" }
     },
     {
       "hashTag": "Title_EN",
       "$type": "##String_EN|#Null",
       "hashTag_JP": "資料名_EN",
-      "$display": { "section": "basic" }
+      "$alt": "Term_EN",
+      "$display": { "section": "basic", "aliasOf": "Name_EN" }
     },
     {
       "hashTag": "Category",
@@ -42,6 +61,16 @@
       "hashTag": "RelatedDB",
       "$type": "#String[]|#Null",
       "hashTag_JP": "関連DB"
+    },
+    {
+      "hashTag": "Aliases",
+      "$type": "#String[]|#Null",
+      "hashTag_JP": "別表記一覧"
+    },
+    {
+      "hashTag": "Links",
+      "$type": "#String[]|#Null",
+      "hashTag_JP": "関連リンク"
     },
     {
       "hashTag": "Visibility",

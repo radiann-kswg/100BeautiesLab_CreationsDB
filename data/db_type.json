@@ -365,6 +365,11 @@
           "hashTag_JP": "DB配置レイヤー"
         },
         {
+          "hashTag": "DB_File",
+          "$type": "##String|#Null",
+          "hashTag_JP": "DBファイル名"
+        },
+        {
           "hashTag": "StoryEra",
           "$type": "$Def_StoryEraCatalog|#Null",
           "hashTag_JP": "物語上の年代"
