@@ -1939,6 +1939,42 @@ function buildFieldDisplayMap(workTypeDef, globalTypeDef = {}) {
   return displayMap;
 }
 
+function getMetaTypeDefinition(globalTypeDef = {}, metaTypeKey = '') {
+  const key = String(metaTypeKey || '').trim();
+  if (!key) return null;
+  const metaTypes = (globalTypeDef && typeof globalTypeDef === 'object' && !Array.isArray(globalTypeDef))
+    ? globalTypeDef.$MetaType
+    : null;
+  if (!metaTypes || typeof metaTypes !== 'object' || Array.isArray(metaTypes)) return null;
+  const def = metaTypes[key];
+  if (!def || typeof def !== 'object' || Array.isArray(def)) return null;
+  if (!Array.isArray(def.$DefType)) return null;
+  return def;
+}
+
+function buildMetaTypeFieldContext(globalTypeDef = {}, metaTypeKey = '') {
+  const schema = getMetaTypeDefinition(globalTypeDef, metaTypeKey);
+  const fields = Array.isArray(schema?.$DefType) ? schema.$DefType : [];
+  if (!fields.length) {
+    return {
+      schema: null,
+      fields: [],
+      labelMap: {},
+      typeMap: {},
+      displayMap: {}
+    };
+  }
+
+  const wrapper = { $DefType: fields };
+  return {
+    schema,
+    fields,
+    labelMap: buildFieldLabelMap(wrapper, {}),
+    typeMap: buildFieldTypeMap(wrapper, {}),
+    displayMap: buildFieldDisplayMap(wrapper, {})
+  };
+}
+
 /**
  * db_type.json($DefType) から、トップレベルのフィールド定義（順序付き）を抽出
  * - work の定義を優先し、同名フィールドは global を追加しない
@@ -4797,6 +4833,7 @@ export async function renderDetail(workId, rec) {
     // Build field path → $type / $display maps (typedef-driven formatting)
     const fieldTypeMap = buildFieldTypeMap(workTypeDef, globalTypeDef);
     const fieldDisplayMap = buildFieldDisplayMap(workTypeDef, globalTypeDef);
+    const secondaryMetaFieldContext = buildMetaTypeFieldContext(globalTypeDef, '$Def_SecondaryMeta');
 
     // GenderType の辞書解決が効いているかの最小診断（表示が変わらない場合の切り分け用）
     // - 通常時はログを出さない（デバッグチェック時のみ）
@@ -6180,28 +6217,36 @@ export async function renderDetail(workId, rec) {
       ].filter(Boolean))
     : null;
 
-  const secondaryInfoItems = [
-    {
-      label: getFieldLabel('sec_Category', fieldLabelMap, workMeta, globalDefType, '二次創作分類'),
-      value: rec.sec_Category
-    },
-    {
-      label: getFieldLabel('sec_DesignedBy', fieldLabelMap, workMeta, globalDefType, '制作・考案'),
-      value: rec.sec_DesignedBy
-    }
-  ]
-    .map((item) => ({
-      ...item,
-      text: (item.value === null || typeof item.value === 'undefined') ? '' : String(item.value).trim()
-    }))
-    .filter((item) => item.text);
+  const secondaryInfoItems = (secondaryMetaFieldContext.fields || [])
+    .map((fieldDef) => {
+      const labelKey = typeof fieldDef?.hashTag === 'string' ? fieldDef.hashTag.trim() : '';
+      if (!labelKey) return null;
+
+      const displayHint = secondaryMetaFieldContext.displayMap?.[labelKey] ?? fieldDef?.$display ?? null;
+      if (displayHint && typeof displayHint === 'object' && displayHint.auto === false) return null;
+      if (String(displayHint?.section || '').trim() !== 'secondaryInfo') return null;
+
+      const value = rec?.[labelKey];
+      if (isEmptyValueLoose(value)) return null;
+
+      const schemaType = secondaryMetaFieldContext.typeMap?.[labelKey] ?? fieldDef?.$type ?? null;
+      const node = toDisplayNode(labelKey, value, schemaType, displayHint);
+      const text = (typeof node === 'string') ? node.trim() : String(node?.textContent ?? '').trim();
+      if (!text) return null;
+
+      return {
+        label: getFieldLabel(labelKey, secondaryMetaFieldContext.labelMap, workMeta, globalDefType, labelKey),
+        node
+      };
+    })
+    .filter(Boolean);
 
   const secondaryInfoSection = secondaryInfoItems.length
     ? el('div', { class: 'section' }, [
-        el('h3', {}, [getFieldLabel('SecondaryInfo', fieldLabelMap, workMeta, globalDefType, '二次創作情報')]),
+        el('h3', {}, [String(secondaryMetaFieldContext.schema?.hashTag_JP || '二次創作情報')]),
         el('div', {}, secondaryInfoItems.map((item) => el('div', { style: 'margin-bottom: 10px;' }, [
           el('div', { class: 'tag', style: 'margin-bottom: 6px;' }, [item.label]),
-          preWrapText(item.text)
+          (typeof item.node === 'string') ? preWrapText(item.node) : item.node
         ])))
       ])
     : null;

@@ -370,6 +370,41 @@
           "hashTag_JP": "二次創作概要"
         }
       ]
+    },
+    "$Def_SecondaryMeta": {
+      "hashTag_JP": "二次創作情報",
+      "$DefType": [
+        {
+          "hashTag": "sec_SeriesTitle",
+          "$type": "##String_JP|#Summary|#Null",
+          "hashTag_JP": "二次創作シリーズ名",
+          "$display": { "auto": false }
+        },
+        {
+          "hashTag": "sec_Category",
+          "$type": "##String_JP|#Summary|#Null",
+          "hashTag_JP": "二次創作分類",
+          "$display": { "section": "secondaryInfo" }
+        },
+        {
+          "hashTag": "sec_DesignedBy",
+          "$type": "#Summary|#Null",
+          "hashTag_JP": "キャラクターデザイン・考案",
+          "$display": { "section": "secondaryInfo" }
+        },
+        {
+          "hashTag": "SecondarySummary",
+          "$type": "#Summary|#Null",
+          "hashTag_JP": "二次創作概要",
+          "$display": { "auto": false }
+        },
+        {
+          "hashTag": "StoryEra",
+          "$type": "$Def_StoryEraCatalog|#Null",
+          "hashTag_JP": "物語上の年代",
+          "$display": { "auto": false }
+        }
+      ]
     }
   },
   "$VarsDef": {

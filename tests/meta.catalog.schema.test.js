@@ -22,6 +22,7 @@ describe('catalog meta schema declarations', () => {
     expect(dbType?.$MetaType?.$Def_DatabaseCatalog?.$DefType).toBeInstanceOf(Array);
     expect(dbType?.$MetaType?.$Def_OldTitleCatalog?.$DefType).toBeInstanceOf(Array);
     expect(dbType?.$MetaType?.$Def_StoryEraCatalog?.$DefType).toBeInstanceOf(Array);
+    expect(dbType?.$MetaType?.$Def_SecondaryMeta?.$DefType).toBeInstanceOf(Array);
   });
 
   it('work-local db_meta databases can expose DB labels', () => {

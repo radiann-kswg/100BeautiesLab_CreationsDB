@@ -249,6 +249,7 @@
 - 既存 schema に新規宣言を足さず、UI 補助表示として切り出す方式を採用した。
 - `tests/pages.characters.ui-output.test.js` に NumberTales の SelfSecondary レコードを使った回帰テストを追加し、二次創作補助属性が描画されることを確認した。
 - 追加要望に対応し、`sec_SeriesTitle` のみを持つ Secondary レコードでも、meta の `_Secondaries` 一致定義から `sec_Category` / `sec_DesignedBy` を補完するよう SW/UI を更新した。
+- 続けて、`_Secondaries[]` 要素用の `$MetaType.$Def_SecondaryMeta` を追加し、`pages/characters.js` 側の二次創作情報セクションを schema 駆動へ寄せた。
 - 次の候補は、`RelationToPrimary` の見せ方強化またはタスク 4 の最小非公開フラグ案である。
 
 ### フェーズ C. 最小機能の実装と検証

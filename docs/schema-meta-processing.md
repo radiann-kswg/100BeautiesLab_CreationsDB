@@ -84,6 +84,7 @@
 
 - `Area` / `Belonging` のような共通辞書本体は、`data/Dictionaries/` 配下の辞書 DB へ分離できます。
 - SW/UI は `data/db_meta.json` だけを直接参照せず、必要に応じて `data/Dictionaries/db_meta.json` と各 `dict_*.json` を追加ロードして `General.$VarsDef` へ合流します。
+- `_Secondaries[]` 要素の補助表示に使う schema は、トップレベル `$MetaType.$Def_SecondaryMeta` へ置けます。
 
 ### 2.4 作品別 `data/Works_<作品>/DataBases/db_meta.json`
 
@@ -383,6 +384,7 @@ UI 側は厳密構造より `about_JP` / `about_EN` を優先して整形表示�
 - 条件付き要素が一致したらそちらを優先
 - 曖昧な条件は誤適用しないように扱う
 - `sec_SeriesTitle` で要素が特定できた場合は、その要素の `sec_Category` / `sec_DesignedBy` も空欄時にレコードへ補完できる
+- UI 側の二次創作 meta 表示は、必要に応じて `$MetaType.$Def_SecondaryMeta` を参照して項目とラベルを決められる
 
 これは主に `Secondary` / `SelfSecondary` のような二次創作系 DB で使います。
 

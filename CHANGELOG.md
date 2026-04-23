@@ -1,5 +1,11 @@
 # 最新のリファクタリング・仕様変更履歴
 
+### `_Secondaries` 要素用の `$MetaType` を追加し、二次創作情報 UI の hardcode を削減
+
+- `data/db_type.json` のトップレベル `$MetaType` に `$Def_SecondaryMeta` を追加し、`sec_Category` / `sec_DesignedBy` など `_Secondaries[]` 要素で使う補助フィールドのラベルと型を宣言できるようにした。
+- `pages/characters.js` の「二次創作情報」セクションは、この `$Def_SecondaryMeta` を参照して描画項目を決めるように変更し、sec 系フィールド配列のハードコードを外した。
+- 回帰確認として `tests/meta.catalog.schema.test.js` と `tests/pages.characters.ui-output.test.js` を更新対象に含める前提を整えた。
+
 ### `_Secondaries` の series 一致から `sec_Category` / `sec_DesignedBy` も補完
 
 - `lib/sw-common.js` と `pages/characters.js` で、`Databases.#DB_*._Secondaries[]` のうち `sec_SeriesTitle` などで一致した定義を保持し、その `_Commons` だけでなく `sec_Category` / `sec_DesignedBy` も空欄時にレコードへ補完するようにした。
