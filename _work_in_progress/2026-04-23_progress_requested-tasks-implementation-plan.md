@@ -115,6 +115,128 @@
 - タスク 2 の新規 DB テンプレート案を提示する。
 - 大きな一括変更を避けるため、各タスクの段階実装単位を確定する。
 
+#### 2026-04-23 提案内容
+
+##### A-1. タスク 1 の schema 拡張要否整理
+
+###### 既存宣言で先に吸収する範囲
+
+- `Day` 系
+  - 対象: `BirthDay`, `AnivDay`
+  - 方針: 既存の `$Def_Day` と typedef 側の `$display.section = basic` を優先し、UI/SW の個別分岐を減らす。
+- `Area` 系
+  - 対象: `FromArea`, `BelongingArea`, `Belonging` 内の `BaseArea`
+  - 方針: 既存の `$Def_BaseArea` と `Belonging.$dict = Faction` による補助展開を優先し、`Area` 名ハードコードを減らす。
+- `Era` 系
+  - 対象: `StoryEra`, `FromEra`, `ToEra`, `InEra` のうち、すでにカタログ・概要用途で扱っている範囲
+  - 方針: 既存の `$Def_StoryEraCatalog` を優先し、まず works / database catalog 表示と UI 整形を typedef/meta ベースへ寄せる。
+
+###### 新規書式候補として承認を取りたい範囲
+
+- 候補 1: `Era` 系の共通 object typedef を top-level / works catalog / database catalog の横断利用向けに整理する。
+  - 目的: `StoryEra` とレコード側年代情報を同じ整形系へ寄せやすくする。
+  - 初期案: 既存 `$Def_StoryEraCatalog` を拡張するのではなく、必要ならレコード用の別 `$Def_*` を追加して責務分離する。
+- 候補 2: `Area` / `Day` 系の表示ヒントを `$display` へ追加し、UI の field-name 依存分岐をさらに減らす。
+  - 目的: `pages/characters.js` 側の特殊扱い縮小。
+  - 初期案: 新しい大分類を増やさず、既存 `$display.section` / `aliasOf` / unit に準じた最小拡張に留める。
+
+###### 承認前の結論
+
+- タスク 1 は、まず新規書式なしで進められる範囲を先に実装候補として扱う。
+- 新規 schema 追加は、`Era` 系の責務分離が本当に必要と判明した時点で別案として提示する。
+
+##### A-2. タスク 2 の新規 DB テンプレート案
+
+###### 提案する追加レイヤー
+
+- 追加案 1: 作品別 `Glossaries/` 配下に「創作用語 DB」を置く。
+- 追加案 2: 作品別 `References/` 配下に「創作基本資料 DB」を置く。
+
+###### 保存場所の初期案
+
+- `data/Works_<work>/Glossaries/`
+  - `db_meta.json`
+  - `db_type.json`
+  - `db_Glossary.json`
+- `data/Works_<work>/References/`
+  - `db_meta.json`
+  - `db_type.json`
+  - `db_Reference.json`
+
+###### 創作用語 DB の最小フィールド案
+
+- `Term`
+  - 用語の日本語表記
+- `Term_EN`
+  - 英語表記またはローマナイズ表記
+- `Term_JPReading`
+  - 読み仮名補助
+- `Category`
+  - 地名 / 組織 / 能力 / 種族 / アイテム などの分類
+- `Summary`
+  - 用語の短い説明
+- `RelatedWorks`
+  - 関連作品の識別子
+- `RelatedDB`
+  - 関連 DB の識別子
+- `Aliases`
+  - 別表記・旧表記
+- `Links`
+  - 将来の相互参照用
+
+###### 創作基本資料 DB の最小フィールド案
+
+- `Title`
+  - 資料名
+- `Title_EN`
+  - 英語表記
+- `Category`
+  - 世界観 / 年表 / 組織資料 / 地理 / 制度 など
+- `Summary`
+  - 資料の短い概要
+- `BodyBlocks`
+  - User 手入力前提の本文ブロック配列
+- `RelatedTerms`
+  - 用語 DB との関連
+- `RelatedWorks`
+  - 関連作品
+- `RelatedDB`
+  - 関連 DB
+- `Visibility`
+  - 将来の公開制御連携余地。ただし初期実装では任意
+
+###### API / UI の初期方針
+
+- 初期段階では、キャラクター詳細へ直接全文を埋め込まず、API で参照可能な独立 DB として読むことを優先する。
+- UI はまず「作品/DB 概要から参照できる一覧入口」を想定し、キャラシート本文への自動混入は避ける。
+- 造語抽出は自動確定せず、既存フィールドからの候補抽出を将来の補助機能候補として扱う。
+
+###### 承認前の結論
+
+- タスク 2 は、まずテンプレートと API 入口の追加を最小スコープとし、本文データ投入や相互リンク自動化は後段に分ける。
+- 保存場所は既存 `DataBases/` や `Dictionaries/` と責務を分けるため、`Glossaries/` と `References/` の別レイヤー案を第一候補とする。
+
+##### A-3. 段階実装単位の確定案
+
+- 単位 1: 提案のみ
+  - タスク 1 の新規 schema 候補確認
+  - タスク 2 の保存場所・最小フィールド確認
+- 単位 2: schema 新設なしの既存改善
+  - タスク 3 の UI/API 改善
+  - タスク 4 の最小非公開フラグ案
+- 単位 3: 承認済み schema 拡張
+  - タスク 1 の必要最小限の typedef/meta 追加
+- 単位 4: 新規 DB レイヤー追加
+  - タスク 2 のテンプレート導入と API 入口整備
+- 単位 5: docs / CHANGELOG / テスト拡張
+  - 各単位ごとに差分同期
+
+##### A-4. User 承認を取りたい点
+
+- タスク 1 では、`Era` 系についてレコード用の追加 `$Def_*` を将来候補として検討してよいか。
+- タスク 2 では、新規 DB の保存場所を `Glossaries/` / `References/` の別レイヤーとして切ってよいか。
+- タスク 2 では、初期実装を「独立 DB と API 入口の整備」までに留め、キャラシートへの全文統合は後段にしてよいか。
+
 ### フェーズ B. 既存 schema で進めやすい実装
 
 - タスク 3 の API/SW/UI 改善のうち、既存 schema で対応できる範囲から着手する。
