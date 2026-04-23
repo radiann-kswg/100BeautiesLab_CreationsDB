@@ -1,0 +1,9 @@
+{
+  "Databases": {
+    "#DB_Reference": {
+      "DB_Label": "創作基本資料",
+      "DB_Label_EN": "Reference",
+      "DB_Summary": "ナンバーテールズの世界観に関する基本資料。"
+    }
+  }
+}

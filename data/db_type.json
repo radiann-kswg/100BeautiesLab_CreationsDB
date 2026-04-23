@@ -360,6 +360,11 @@
           "hashTag_JP": "DB概要"
         },
         {
+          "hashTag": "DB_Layer",
+          "$type": "##String|#Null",
+          "hashTag_JP": "DB配置レイヤー"
+        },
+        {
           "hashTag": "StoryEra",
           "$type": "$Def_StoryEraCatalog|#Null",
           "hashTag_JP": "物語上の年代"
@@ -378,7 +383,7 @@
           "hashTag": "sec_SeriesTitle",
           "$type": "##String_JP|#Summary|#Null",
           "hashTag_JP": "二次創作シリーズ名",
-          "$display": { "section": "secondaryInfo" }
+          "$display": { "auto": false }
         },
         {
           "hashTag": "sec_Category",

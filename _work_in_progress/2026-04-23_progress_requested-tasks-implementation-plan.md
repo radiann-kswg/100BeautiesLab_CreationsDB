@@ -270,6 +270,14 @@
 - タスク 2 の新規 DB 追加と API/UI 入口整備を行う。
 - 関連 docs / CHANGELOG / 進捗ログを同期更新する。
 
+#### 2026-04-23 着手メモ
+
+- タスク 2 の最小着手として、作品別 `Databases.#DB_<DbName>` に `DB_Layer` を持たせ、`Glossaries/` や `References/` のような非 `DataBases/` レイヤーの受け皿を SW 側へ追加した。
+- `lib/sw-common.js` の `readDB()` / `listWorkDBs()` は `DB_Layer` を参照して対象ディレクトリを切り替えるようにし、DB 一覧カタログにも `DB_Layer` を返すようにした。
+- `tests/sw.db-layer-routing.test.js` を追加し、layer-aware な DB 読み込みと一覧応答を回帰で固定した。
+- 続けて NumberTales に `Glossaries/` と `References/` の実テンプレートを追加し、各レイヤーへ `db_meta.json`, `db_type.json`, 空の `db_Glossary.json` / `db_Reference.json` を配置した。
+- `data/Works_NumberTales/DataBases/db_meta.json` には `#DB_Glossary` / `#DB_Reference` を追加し、既存の works/{work}/db 導線から新レイヤー DB を列挙できるようにした。
+
 ## 優先順の再設定
 
 - 最優先は「提案が必要なもの」と「既存 schema で安全に進められるもの」を切り分けること。

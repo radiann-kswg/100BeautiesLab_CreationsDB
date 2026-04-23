@@ -1,5 +1,18 @@
 # 最新のリファクタリング・仕様変更履歴
 
+### NumberTales に Glossaries / References の空テンプレートを追加
+
+- `data/Works_NumberTales/DataBases/db_meta.json` に `#DB_Glossary` と `#DB_Reference` を追加し、それぞれ `DB_Layer: Glossaries` / `References` を宣言した。
+- `data/Works_NumberTales/Glossaries/` と `data/Works_NumberTales/References/` に `db_meta.json`, `db_type.json`, 空の `db_Glossary.json` / `db_Reference.json` を追加し、User 手入力前提の最小テンプレートを配置した。
+- これにより、既存の works/{work}/db 導線から NumberTales の新規レイヤー DB を段階的に増やせる土台を実ファイルとして用意した。
+
+### `Databases.#DB_*` に `DB_Layer` を追加し、非 `DataBases/` レイヤーの受け皿を実装
+
+- `data/db_type.json` の `$MetaType.$Def_DatabaseCatalog` に `DB_Layer` を追加し、作品別 `db_meta.json` から DB 実体の配置レイヤーを宣言できるようにした。
+- `lib/sw-common.js` の `DataFetcher.readDB()` / `listWorkDBs()` は `Databases.#DB_<DbName>.DB_Layer` を参照して、`Glossaries/` や `References/` のような非 `DataBases/` レイヤー配下の `db_<DbName>.json` を読めるようにした。
+- DB 一覧カタログでも `DB_Layer` を返すようにし、UI/API 側が各 DB の配置レイヤーを参照できるようにした。
+- 回帰確認として `tests/sw.db-layer-routing.test.js` を追加し、layer-aware な DB 読み込みと一覧応答を検証した。
+
 ### 最小の `isPrivate` 公開制御を追加
 
 - `lib/sw-common.js` の `db` / `search` エンドポイントで `isPrivate: true` のレコードを除外し、公開 API 応答へ含めないようにした。

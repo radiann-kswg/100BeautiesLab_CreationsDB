@@ -156,6 +156,18 @@
           }
         }
       ]
+    },
+    "#DB_Glossary": {
+      "DB_Label": "創作用語",
+      "DB_Label_EN": "Glossary",
+      "DB_Layer": "Glossaries",
+      "DB_Summary": "ナンバーテールズ固有の用語や固有名詞を、User 手入力前提で整理するための空テンプレート DB。"
+    },
+    "#DB_Reference": {
+      "DB_Label": "創作基本資料",
+      "DB_Label_EN": "Reference",
+      "DB_Layer": "References",
+      "DB_Summary": "ナンバーテールズの世界観補助資料や年表メモを、User 手入力前提で整理するための空テンプレート DB。"
     }
   },
   "General": {

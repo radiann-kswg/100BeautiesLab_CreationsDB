@@ -1,0 +1,52 @@
+{
+  "$DefType": [
+    {
+      "hashTag": "Title",
+      "$type": "##String_JP",
+      "hashTag_JP": "資料名",
+      "$display": { "section": "basic" }
+    },
+    {
+      "hashTag": "Title_EN",
+      "$type": "##String_EN|#Null",
+      "hashTag_JP": "資料名_EN",
+      "$display": { "section": "basic" }
+    },
+    {
+      "hashTag": "Category",
+      "$type": "##String_JP|#Null",
+      "hashTag_JP": "分類",
+      "$display": { "section": "basic" }
+    },
+    {
+      "hashTag": "Summary",
+      "$type": "#Summary|#Null",
+      "hashTag_JP": "概要"
+    },
+    {
+      "hashTag": "BodyBlocks",
+      "$type": "#Summary[]|#Null",
+      "hashTag_JP": "本文ブロック"
+    },
+    {
+      "hashTag": "RelatedTerms",
+      "$type": "#String[]|#Null",
+      "hashTag_JP": "関連用語"
+    },
+    {
+      "hashTag": "RelatedWorks",
+      "$type": "#String[]|#Null",
+      "hashTag_JP": "関連作品"
+    },
+    {
+      "hashTag": "RelatedDB",
+      "$type": "#String[]|#Null",
+      "hashTag_JP": "関連DB"
+    },
+    {
+      "hashTag": "Visibility",
+      "$type": "#String|#Null",
+      "hashTag_JP": "公開区分"
+    }
+  ]
+}

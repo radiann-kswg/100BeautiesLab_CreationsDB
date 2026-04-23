@@ -85,7 +85,7 @@ UI と enrich/search は、可能な限りこの `db_type.json($DefType)` に追
   - `$MetaType`: 作品/DB カタログ向けメタ情報の補助 schema 宣言
   - `CreationWorks.<work>.Title` / `Title_EN` / `Works_Summary` / `OldTitles`: 作品一覧・作品概要のカタログ情報
   - `CreationWorks.<work>.$DetailLayout`: 詳細表示レイアウト補助
-  - `Databases.#DB_<DbName>.DB_Label` / `DB_Label_EN` / `DB_Summary` / `StoryEra`: DB 一覧・DB概要のカタログ情報
+  - `Databases.#DB_<DbName>.DB_Label` / `DB_Label_EN` / `DB_Summary` / `DB_Layer` / `StoryEra`: DB 一覧・DB概要のカタログ情報
   - `Databases.#DB_<DbName>._Commons`: DB 全体の共通穴埋め
   - `Databases.#DB_<DbName>._Secondaries`: `sec_**` 条件に応じた `_Commons` 分岐
     - 全ての `sec_**` 条件が `null` / 空の定義はデフォルト fallback として扱い、`null` 以外の条件を持つ定義が一致した場合はそちらを優先します
@@ -144,7 +144,7 @@ UI と enrich/search は、可能な限りこの `db_type.json($DefType)` に追
 - `GET /pages/v1/works/{work}`
   - `meta` に加えて `workInfo` を返し、グローバル `CreationWorks.<work>` のカタログ情報を参照できます
 - `GET /pages/v1/works/{work}/db`
-  - 各 DB ごとに `key`, `file`, `metaKey`, `DB_Label`, `DB_Label_EN`, `DB_Summary`, `StoryEra`, `SecondarySummary` を返します
+  - 各 DB ごとに `key`, `file`, `layer`, `metaKey`, `DB_Label`, `DB_Label_EN`, `DB_Summary`, `DB_Layer`, `StoryEra`, `SecondarySummary` を返します
 - `GET /pages/v1/bootstrap`
   - 各作品項目に `workInfo` を含め、`databases[]` も上記の DB カタログ情報付きで返します
 
@@ -153,6 +153,7 @@ UI と enrich/search は、可能な限りこの `db_type.json($DefType)` に追
 - `works/{work}/db` は作品別 `db_meta.json` が欠損していても 200 を維持し、概要情報だけ空文字 / `null` になります
 - `StoryEra` は構造化データのまま返すため、UI 側では `about_JP` / `about_EN` を優先して整形します
 - `DB_Label` / `DB_Label_EN` が未定義の旧メタでも、SW 側で既定表示名を補完して UI の破綻を避けます
+- `DB_Layer` を作品別 `Databases.#DB_<DbName>` に置くと、SW は `DataBases/` 固定ではなく指定レイヤー配下の `db_<DbName>.json` を探索します
 
 ### 5.2 カタログ用メタ schema 宣言
 
@@ -163,7 +164,7 @@ UI と enrich/search は、可能な限りこの `db_type.json($DefType)` に追
 - `$Def_OldTitleCatalog`
   - `Title`, `Title_EN`, `ArchivedYear`
 - `$Def_DatabaseCatalog`
-  - `DB_Label`, `DB_Label_EN`, `DB_Summary`, `StoryEra`, `SecondarySummary`
+  - `DB_Label`, `DB_Label_EN`, `DB_Summary`, `DB_Layer`, `StoryEra`, `SecondarySummary`
 - `$Def_StoryEraCatalog`
   - `about_JP`, `about_EN`
 

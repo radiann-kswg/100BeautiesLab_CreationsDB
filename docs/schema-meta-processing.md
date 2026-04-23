@@ -97,8 +97,14 @@
 典型用途:
 
 - `DB_Label`, `DB_Summary`, `StoryEra` の定義
+- `DB_Layer` による DB 実体の配置レイヤー指定
 - 二次創作 DB ごとの `_Secondaries` 分岐
 - 作品専用 list/link 辞書の補足
+
+補足:
+
+- `Databases.#DB_<DbName>.DB_Layer` を指定すると、SW の DB 読み込みと DB 一覧列挙は `DataBases/` 固定ではなく、そのレイヤー配下の `db_<DbName>.json` を探索します。
+- 未指定時は従来どおり `DataBases/` を使うため、既存作品のレイアウトは変更不要です。
 
 ### 2.5 グローバル / 作品別 `Dictionaries/`
 
@@ -281,6 +287,8 @@
 - `$Def_DatabaseCatalog`
 - `$Def_StoryEraCatalog`
 
+`$Def_DatabaseCatalog` は現在、`DB_Label`, `DB_Label_EN`, `DB_Summary`, `DB_Layer`, `StoryEra`, `SecondarySummary` を補助宣言します。
+
 用途:
 
 - `CreationWorks` / `Databases` のメタ項目を docs 上で明示する
@@ -329,12 +337,15 @@
 - `DB_Label`
 - `DB_Label_EN`
 - `DB_Summary`
+- `DB_Layer`
 - `StoryEra`
 - `SecondarySummary`
 - `_Commons`
 - `_Secondaries`
 
 `DB_Label` / `DB_Label_EN` は、works/{work}/db 一覧と UI の DB セレクト・概要ヘッダで使われます。未定義時は `StandardEndpointHandlers.buildDefaultDatabaseCatalogLabels()` が既定ラベルを補います。
+
+`DB_Layer` は DB 実体の配置ディレクトリを表す補助キーで、未指定時は `DataBases` とみなされます。`Glossaries` や `References` を段階導入する際の入口として使います。
 
 ### 4.4 `StoryEra`
 
