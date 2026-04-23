@@ -1,5 +1,11 @@
 # 最新のリファクタリング・仕様変更履歴
 
+### References typedef を shared `data/References/db_type.json` へ集約
+
+- References 用の共通 typedef は global `data/db_type.json` ではなく、shared layer の `data/References/db_type.json` を正本として扱う構成へ揃えた。
+- `data/Works_NumberTales/References/db_type.json` は作品固有 typedef を持たない空オブジェクトへ縮退し、資料系フィールド宣言は shared references layer から供給する前提へ整理した。
+- `tests/data.shape.test.js` を `data/References/db_type.json` 前提へ更新し、`tests/data.shape.test.js` の 3 件成功を確認した。
+
 ### References typedef の `RelatedWorks` を object 配列化
 
 - `data/Works_NumberTales/References/db_type.json` では、資料系の関連先フィールドを `RelatedWorks` から `RelatedCreations` へ改名し、object 配列 typedef として各要素が `RelatedWorks` と `RelatedDB` を持てるようにした。

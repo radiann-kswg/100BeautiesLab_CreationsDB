@@ -12,6 +12,12 @@
 - `Belonging -> Faction` のような schema alias 解決が UI でも検証可能になり、API/SW 側の整合だけでは拾えなかった UI 回帰も段階導入で検知できるようになった。
 - したがって、今後の 4 タスクは「API/SW テストのみ」ではなく「API/SW + UI 回帰テスト」を前提に段階実装する。
 
+## 2026-04-23 追記
+
+- Phase D の資料系 schema 整理として、`data/Works_NumberTales/References/db_type.json` に置いていた References 用 typedef は global `data/db_type.json` ではなく shared layer の `data/References/db_type.json` を正本にする形へ揃えた。
+- これにより、作品別 `References/db_type.json` は空のローカル上書きで維持しつつ、`Term` / `Title` / `RelatedCreations` などの資料系フィールドは shared references schema を共通宣言として扱える状態になった。
+- 回帰確認として `tests/data.shape.test.js` を実行し、3 件成功を確認した。
+
 ## 現時点の基本方針
 
 - 既存機能の改悪防止を最優先とし、変更は小さな単位で段階導入する。
