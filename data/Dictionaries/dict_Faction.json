@@ -2,13 +2,17 @@
   {
     "Faction": "百花繚乱研究所",
     "Faction_EN": "HundredBeauties Laboratory",
+    "Belonging": "百花繚乱研究所",
+    "Belonging_EN": "HundredBeauties Laboratory",
     "BelongingArea": { "Area": "九蓮国" },
     "isForSecondary": false,
     "isMaker": null
   },
   {
     "Faction": "百戦錬磨開発所",
-    "Faction_EN": "HundredBattlers DevelopPlant",
+    "Faction_EN": "HundredBattlers Development",
+    "Belonging": "百戦錬磨開発所",
+    "Belonging_EN": "HundredBattlers Development",
     "BelongingArea": { "Area": "九蓮国" },
     "isForSecondary": false,
     "isMaker": null
@@ -16,6 +20,8 @@
   {
     "Faction": "夜月機関",
     "Faction_EN": "Yadzuki Organization",
+    "Belonging": "夜月機関",
+    "Belonging_EN": "Yadzuki Organization",
     "BelongingArea": { "Area": "九蓮国" },
     "isForSecondary": false,
     "isMaker": false
@@ -23,6 +29,8 @@
   {
     "Faction": "照梅テクノロジー",
     "Faction_EN": "Shôbai Technology",
+    "Belonging": "照梅テクノロジー",
+    "Belonging_EN": "Shôbai Technology",
     "BelongingArea": { "Area": "九蓮国" },
     "isForSecondary": null,
     "isMaker": true
@@ -30,6 +38,8 @@
   {
     "Faction": "獣爾騎兵",
     "Faction_EN": "Shou'ar Riders",
+    "Belonging": "獣爾騎兵",
+    "Belonging_EN": "Shou'ar Riders",
     "BelongingArea": { "Area": "龍天国" },
     "isForSecondary": false,
     "isMaker": false
@@ -37,6 +47,8 @@
   {
     "Faction": "界座",
     "Faction_EN": "JièZuò",
+    "Belonging": "界座",
+    "Belonging_EN": "JièZuò",
     "BelongingArea": { "Area": "龍天国" },
     "isForSecondary": null,
     "isMaker": true
@@ -44,6 +56,8 @@
   {
     "Faction": "セブンティエイト特殊探偵団",
     "Faction_EN": "Team.78(Seventy-Eight) the Special Investigators",
+    "Belonging": "セブンティエイト特殊探偵団",
+    "Belonging_EN": "Team.78(Seventy-Eight) the Special Investigators",
     "BelongingArea": { "Area": "英皇国" },
     "isForSecondary": false,
     "isMaker": false
@@ -51,6 +65,8 @@
   {
     "Faction": "スターダスト財団",
     "Faction_EN": "Stardusts Foundation",
+    "Belonging": "スターダスト財団",
+    "Belonging_EN": "Stardusts Foundation",
     "BelongingArea": { "Area": "雄志結国" },
     "isForSecondary": false,
     "isMaker": false
@@ -58,6 +74,8 @@
   {
     "Faction": "ラストラステクニカ-インストゥルメント",
     "Faction_EN": "LustrousTechnica Instrument",
+    "Belonging": "ラストラステクニカ-インストゥルメント",
+    "Belonging_EN": "LustrousTechnica Instrument",
     "BelongingArea": { "Area": "雄志結国" },
     "isForSecondary": null,
     "isMaker": true
@@ -65,6 +83,8 @@
   {
     "Faction": "白の六芒星",
     "Faction_EN": "WhiteHexagram",
+    "Belonging": "白の六芒星",
+    "Belonging_EN": "WhiteHexagram",
     "BelongingArea": { "Area": "雄志結国" },
     "isForSecondary": false,
     "isMaker": false
@@ -72,6 +92,8 @@
   {
     "Faction": "ジャンクガレージ『六花陛下』",
     "Faction_EN": "JunkGarage “Majesty Rokka”",
+    "Belonging": "ジャンクガレージ『六花陛下』",
+    "Belonging_EN": "JunkGarage “Majesty Rokka”",
     "BelongingArea": { "Area": "紅雪連邦" },
     "isForSecondary": false,
     "isMaker": null
@@ -79,6 +101,8 @@
   {
     "Faction": "デウスマキナ",
     "Faction_EN": "DeusMakhina",
+    "Belonging": "デウスマキナ",
+    "Belonging_EN": "DeusMakhina",
     "BelongingArea": {
       "Area": "紅雪連邦",
       "about_JP": "名義上の所在地",
@@ -89,7 +113,9 @@
   },
   {
     "Faction": "ロジケスキーロマンティカ産業",
-    "Faction_EN": "LogicheskiyRomantika Industry",
+    "Faction_EN": "Logicheskiy Romantika Industry",
+    "Belonging": "ロジケスキーロマンティカ産業",
+    "Belonging_EN": "Logicheskiy Romantika Industry",
     "BelongingArea": { "Area": "紅雪連邦" },
     "isForSecondary": null,
     "isMaker": false
@@ -97,6 +123,8 @@
   {
     "Faction": "新生九蓮",
     "Faction_EN": "Neo.LotusNinea(n)",
+    "Belonging": "新生九蓮",
+    "Belonging_EN": "Neo.LotusNinea(n)",
     "BelongingArea": {
       "Area": "四蓮島",
       "about_JP": "名義上の所在地",
@@ -108,6 +136,8 @@
   {
     "Faction": "国際情報広報機関『ミハイル』",
     "Faction_EN": "“Mikhail” the International Information & Public Relations Agency",
+    "Belonging": "国際情報広報機関『ミハイル』",
+    "Belonging_EN": "“Mikhail” the International Information & Public Relations Agency",
     "BelongingArea": {
       "Area": "第８界",
       "about_JP": "厳密には本拠点を置かない",
@@ -119,6 +149,8 @@
   {
     "Faction": "フィジカル9",
     "Faction_EN": "PHYSICAL.9",
+    "Belonging": "フィジカル9",
+    "Belonging_EN": "PHYSICAL.9",
     "BelongingArea": {
       "Area": "超次元執筆空間(アトリエ)"
     },
@@ -128,6 +160,8 @@
   {
     "Faction": "創造主",
     "Faction_EN": "World Owners",
+    "Belonging": "創造主",
+    "Belonging_EN": "World Owners",
     "BelongingArea": {
       "Area": "超次元執筆空間(アトリエ)",
       "about_JP": "第８界の管理を行っている",
@@ -139,6 +173,8 @@
   {
     "Faction": "シンフォニー.XVI(ゼクズィン)",
     "Faction_EN": "Symphony.XVI(Sechzehn)",
+    "Belonging": "シンフォニー.XVI(ゼクズィン)",
+    "Belonging_EN": "Symphony.XVI(Sechzehn)",
     "BelongingArea": { "Area": "黒薔薇国" },
     "isForSecondary": null,
     "isMaker": null
@@ -146,6 +182,8 @@
   {
     "Faction": "エイゼルベットの観測世界",
     "Faction_EN": "∀sellbuet's Observational World",
+    "Belonging": "エイゼルベットの観測世界",
+    "Belonging_EN": "∀sellbuet's Observational World",
     "BelongingArea": {
       "about_JP": "別次元の世界",
       "about_EN": "A world of another dimension"
