@@ -1129,7 +1129,7 @@ function applyCommonsData(records, workMeta, dbName) {
         return !(defVal === null || typeof defVal === 'undefined' || normStr(defVal).trim() === '');
       });
 
-      let defaultCommons = null;
+      let defaultSecondaryDef = null;
       let best = null;
       let bestScore = -1;
 
@@ -1138,7 +1138,7 @@ function applyCommonsData(records, workMeta, dbName) {
         if (!def._Commons || typeof def._Commons !== 'object') continue;
 
         if (!hasSpecifiedSecondaryCondition(def)) {
-          if (defaultCommons === null) defaultCommons = def._Commons;
+          if (defaultSecondaryDef === null) defaultSecondaryDef = def;
           continue;
         }
 
@@ -1187,14 +1187,15 @@ function applyCommonsData(records, workMeta, dbName) {
 
         if (score > bestScore) {
           bestScore = score;
-          best = def._Commons;
+          best = def;
         }
       }
-      return best || defaultCommons;
+      return best || defaultSecondaryDef;
     };
 
-    const secCommons = findSecondaryCommons();
-    const defaults = { ...(commons || {}), ...(secCommons || {}) };
+    const matchedSecondaryDef = findSecondaryCommons();
+    const secDefaults = matchedSecondaryDef?._Commons || null;
+    const defaults = { ...(commons || {}), ...(secDefaults || {}) };
 
     // Apply Commons values for missing fields
     Object.entries(defaults).forEach(([key, value]) => {
@@ -1206,8 +1207,20 @@ function applyCommonsData(records, workMeta, dbName) {
       }
     });
 
+    ['sec_Category', 'sec_DesignedBy'].forEach((key) => {
+      const metaValue = matchedSecondaryDef?.[key];
+      if (typeof metaValue === 'undefined' || metaValue === null || String(metaValue).trim() === '') return;
+      if (typeof enriched[key] === 'undefined' || isEmptyForCommons(enriched[key])) {
+        enriched[key] = metaValue;
+      }
+    });
+
     return enriched;
   });
+}
+
+export function __applyCharactersCommonsForTest(records, workMeta, dbName) {
+  return applyCommonsData(records, workMeta, dbName);
 }
 
 /**
@@ -6167,9 +6180,36 @@ export async function renderDetail(workId, rec) {
       ].filter(Boolean))
     : null;
 
+  const secondaryInfoItems = [
+    {
+      label: getFieldLabel('sec_Category', fieldLabelMap, workMeta, globalDefType, '二次創作分類'),
+      value: rec.sec_Category
+    },
+    {
+      label: getFieldLabel('sec_DesignedBy', fieldLabelMap, workMeta, globalDefType, '制作・考案'),
+      value: rec.sec_DesignedBy
+    }
+  ]
+    .map((item) => ({
+      ...item,
+      text: (item.value === null || typeof item.value === 'undefined') ? '' : String(item.value).trim()
+    }))
+    .filter((item) => item.text);
+
+  const secondaryInfoSection = secondaryInfoItems.length
+    ? el('div', { class: 'section' }, [
+        el('h3', {}, [getFieldLabel('SecondaryInfo', fieldLabelMap, workMeta, globalDefType, '二次創作情報')]),
+        el('div', {}, secondaryInfoItems.map((item) => el('div', { style: 'margin-bottom: 10px;' }, [
+          el('div', { class: 'tag', style: 'margin-bottom: 6px;' }, [item.label]),
+          preWrapText(item.text)
+        ])))
+      ])
+    : null;
+
   const right = el('div', {}, [
     titleRow,
     basicSection,
+    secondaryInfoSection,
     specSection,
     profileSection,
     rec.Relation && (rec.Relation.Related || rec.Relation.Commented)

@@ -79,6 +79,37 @@ describe('CommonsProcessor secondary series commons', () => {
     expect(out0.RaceType).toBe('PortableHumanoid(TaleBeastType,SoftwareBody)');
   });
 
+  it('backfills sec_Category and sec_DesignedBy from matched series meta when only sec_SeriesTitle exists', () => {
+    const ctx = loadSwCommonIntoContext();
+    expect(ctx?.self?.CommonsProcessor).toBeTypeOf('function');
+
+    const meta = loadJSON('data/Works_NumberTales/DataBases/db_meta.json');
+    const records = loadJSON('data/Works_NumberTales/DataBases/db_Secondary.json');
+    const target = records.find((record) => record.Num === '0xA');
+
+    expect(target).toBeTruthy();
+    expect(target.sec_SeriesTitle).toBe('ヘキサデミカル・テールズ');
+    expect(target.sec_Category).toBeUndefined();
+    expect(target.sec_DesignedBy).toBeUndefined();
+
+    const out0Json = vm.runInNewContext(
+      `(() => {
+        const meta = ${JSON.stringify(meta)};
+        const rec = ${JSON.stringify(target)};
+        const out = self.CommonsProcessor.applyCommonsToRecords([rec], meta, 'Secondary');
+        return JSON.stringify(out[0]);
+      })()`
+      ,
+      ctx,
+      { filename: 'tests/commons.secondaries.test.js#series_backfill_secondary_meta' }
+    );
+    const out0 = JSON.parse(out0Json);
+
+    expect(out0.sec_Category).toBe('共同二次創作');
+    expect(out0.sec_DesignedBy).toBe('散狐アタスト(https://misskey.io/@atast)');
+    expect(out0.Belonging).toEqual(['百花繚乱研究所', 'エイゼルベットの観測世界']);
+  });
+
   it('does not override non-empty record values', () => {
     const ctx = loadSwCommonIntoContext();
     expect(ctx?.self?.CommonsProcessor).toBeTypeOf('function');

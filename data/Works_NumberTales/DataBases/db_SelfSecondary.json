@@ -245,8 +245,7 @@
     "ModelNumber": "APHR-NT [MP]115-*****"
   },
   {
-    "sec_Category": "ナンバーテールズ化企画",
-    "sec_DesignedBy": "ラジアン(柏木主税)",
+    "sec_SeriesTitle": "ナンバーテールズ化企画",
     "Num": "115-numberize",
     "Progress": "released",
     "Images": {
@@ -325,8 +324,7 @@
     "Class": ["トリプル1+4+8組"]
   },
   {
-    "sec_Category": "ナンバーテールズ化企画",
-    "sec_DesignedBy": "ラジアン(柏木主税)",
+    "sec_SeriesTitle": "ナンバーテールズ化企画",
     "Num": "148-numberize",
     "Progress": "released",
     "Images": { "concept_PNGName": "numberize/cnsp_img148-numberize" },
@@ -388,8 +386,7 @@
     "Class": ["デュオトリプル2型甲組"]
   },
   {
-    "sec_Category": "ナンバーテールズ化企画",
-    "sec_DesignedBy": "ラジアン(柏木主税)",
+    "sec_SeriesTitle": "ナンバーテールズ化企画",
     "Num": "227-numberize",
     "Progress": "released",
     "Images": { "concept_PNGName": "numberize/cnsp_img227-numberize" },
@@ -409,8 +406,7 @@
     "Class": ["デュオトリプル7型丙組"]
   },
   {
-    "sec_Category": "ナンバーテールズ化企画",
-    "sec_DesignedBy": "ラジアン(柏木主税)",
+    "sec_SeriesTitle": "ナンバーテールズ化企画",
     "Num": "232-numberize",
     "Progress": "released",
     "Images": { "concept_PNGName": "numberize/cnsp_img232-numberize" },
@@ -430,8 +426,7 @@
     "Class": ["トリプル2+3+8組"]
   },
   {
-    "sec_Category": "ナンバーテールズ化企画",
-    "sec_DesignedBy": "ラジアン(柏木主税)",
+    "sec_SeriesTitle": "ナンバーテールズ化企画",
     "Num": "238-numberize",
     "Progress": "released",
     "Images": { "concept_PNGName": "numberize/cnsp_img238-numberize" },
@@ -451,8 +446,7 @@
     "Class": ["トリプル1+2+4組"]
   },
   {
-    "sec_Category": "ナンバーテールズ化企画",
-    "sec_DesignedBy": "ラジアン(柏木主税)",
+    "sec_SeriesTitle": "ナンバーテールズ化企画",
     "Num": "241-numberize",
     "Progress": "released",
     "Images": { "concept_PNGName": "numberize/cnsp_img241-numberize" },
@@ -472,8 +466,7 @@
     "Class": ["トリプル2+5+8組"]
   },
   {
-    "sec_Category": "ナンバーテールズ化企画",
-    "sec_DesignedBy": "ラジアン(柏木主税)",
+    "sec_SeriesTitle": "ナンバーテールズ化企画",
     "Num": "258-numberize",
     "Progress": "released",
     "Images": { "concept_PNGName": "numberize/cnsp_img258-numberize" },
@@ -493,8 +486,7 @@
     "Class": ["トリプル2+3+6組"]
   },
   {
-    "sec_Category": "ナンバーテールズ化企画",
-    "sec_DesignedBy": "ラジアン(柏木主税)",
+    "sec_SeriesTitle": "ナンバーテールズ化企画",
     "Num": "263-numberize",
     "Progress": "released",
     "Images": { "concept_PNGName": "numberize/cnsp_img263-numberize" },
@@ -514,8 +506,7 @@
     "Class": ["トリプル2+5+6組"]
   },
   {
-    "sec_Category": "ナンバーテールズ化企画",
-    "sec_DesignedBy": "ラジアン(柏木主税)",
+    "sec_SeriesTitle": "ナンバーテールズ化企画",
     "Num": "265-numberize",
     "Progress": "released",
     "Images": { "concept_PNGName": "numberize/cnsp_img265-numberize" },
@@ -535,8 +526,7 @@
     "Class": ["トリプル2+4+9組"]
   },
   {
-    "sec_Category": "ナンバーテールズ化企画",
-    "sec_DesignedBy": "ラジアン(柏木主税)",
+    "sec_SeriesTitle": "ナンバーテールズ化企画",
     "Num": "294-numberize",
     "Progress": "released",
     "Images": { "concept_PNGName": "numberize/cnsp_img294-numberize" },
@@ -556,8 +546,7 @@
     "Class": ["トリプル2+5+9組"]
   },
   {
-    "sec_Category": "ナンバーテールズ化企画",
-    "sec_DesignedBy": "ラジアン(柏木主税)",
+    "sec_SeriesTitle": "ナンバーテールズ化企画",
     "Num": "295-numberize",
     "Progress": "released",
     "Images": { "concept_PNGName": "numberize/cnsp_img295-numberize" },
@@ -591,8 +580,7 @@
     "Class": ["デュオトリプル4型甲組"]
   },
   {
-    "sec_Category": "ナンバーテールズ化企画",
-    "sec_DesignedBy": "ラジアン(柏木主税)",
+    "sec_SeriesTitle": "ナンバーテールズ化企画",
     "Num": "337-numberize",
     "Progress": "released",
     "Images": { "concept_PNGName": "numberize/cnsp_img337-numberize" },
@@ -616,8 +604,7 @@
     "Backgrounds": "閏年の日数(366日)から由来\nなお「200(マタウルウ)」や「365(イヤース)」とは、姉妹関係はない"
   },
   {
-    "sec_Category": "ナンバーテールズ化企画",
-    "sec_DesignedBy": "ラジアン(柏木主税)",
+    "sec_SeriesTitle": "ナンバーテールズ化企画",
     "Num": "366-numberize",
     "Progress": "released",
     "Images": { "concept_PNGName": "numberize/cnsp_img366-numberize" },
@@ -637,8 +624,7 @@
     "Class": ["トリプル3+6+7組"]
   },
   {
-    "sec_Category": "ナンバーテールズ化企画",
-    "sec_DesignedBy": "ラジアン(柏木主税)",
+    "sec_SeriesTitle": "ナンバーテールズ化企画",
     "Num": "376-numberize",
     "Progress": "released",
     "Images": { "concept_PNGName": "numberize/cnsp_img376-numberize" },
@@ -658,8 +644,7 @@
     "Class": ["デュオトリプル8型乙組"]
   },
   {
-    "sec_Category": "ナンバーテールズ化企画",
-    "sec_DesignedBy": "ラジアン(柏木主税)",
+    "sec_SeriesTitle": "ナンバーテールズ化企画",
     "Num": "377-numberize",
     "Progress": "released",
     "Images": { "concept_PNGName": "numberize/cnsp_img377-numberize" },
@@ -679,8 +664,7 @@
     "Class": ["トリプル3+7+8組"]
   },
   {
-    "sec_Category": "ナンバーテールズ化企画",
-    "sec_DesignedBy": "ラジアン(柏木主税)",
+    "sec_SeriesTitle": "ナンバーテールズ化企画",
     "Num": "387-numberize",
     "Progress": "released",
     "Images": { "concept_PNGName": "numberize/cnsp_img387-numberize" },
@@ -700,8 +684,7 @@
     "Class": ["サイドデュアルファイブズ"]
   },
   {
-    "sec_Category": "ナンバーテールズ化企画",
-    "sec_DesignedBy": "ラジアン(柏木主税)",
+    "sec_SeriesTitle": "ナンバーテールズ化企画",
     "Num": "401-numberize",
     "Progress": "released",
     "Images": { "concept_PNGName": "numberize/cnsp_img401-numberize" },
@@ -721,8 +704,7 @@
     "Class": ["デュオトリプル6型甲組"]
   },
   {
-    "sec_Category": "ナンバーテールズ化企画",
-    "sec_DesignedBy": "ラジアン(柏木主税)",
+    "sec_SeriesTitle": "ナンバーテールズ化企画",
     "Num": "411-numberize",
     "Progress": "released",
     "Images": { "concept_PNGName": "numberize/cnsp_img411-numberize" },
@@ -742,8 +724,7 @@
     "Class": ["トリプル1+2+4組"]
   },
   {
-    "sec_Category": "ナンバーテールズ化企画",
-    "sec_DesignedBy": "ラジアン(柏木主税)",
+    "sec_SeriesTitle": "ナンバーテールズ化企画",
     "Num": "421-numberize",
     "Progress": "released",
     "Images": { "concept_PNGName": "numberize/cnsp_img421-numberize" },
@@ -777,8 +758,7 @@
     "Class": ["トリプル4+6+7組"]
   },
   {
-    "sec_Category": "ナンバーテールズ化企画",
-    "sec_DesignedBy": "ラジアン(柏木主税)",
+    "sec_SeriesTitle": "ナンバーテールズ化企画",
     "Num": "467-numberize",
     "Progress": "released",
     "Images": { "concept_PNGName": "numberize/cnsp_img467-numberize" },
@@ -798,8 +778,7 @@
     "Class": ["トリプル4+6+7組"]
   },
   {
-    "sec_Category": "ナンバーテールズ化企画",
-    "sec_DesignedBy": "ラジアン(柏木主税)",
+    "sec_SeriesTitle": "ナンバーテールズ化企画",
     "Num": "476-numberize",
     "Progress": "released",
     "Images": { "concept_PNGName": "numberize/cnsp_img476-numberize" },
@@ -819,8 +798,7 @@
     "Class": ["テンズデュアルシックスズ"]
   },
   {
-    "sec_Category": "ナンバーテールズ化企画",
-    "sec_DesignedBy": "ラジアン(柏木主税)",
+    "sec_SeriesTitle": "ナンバーテールズ化企画",
     "Num": "510-numberize",
     "Progress": "released",
     "Images": { "concept_PNGName": "numberize/cnsp_img510-numberize" },
@@ -854,8 +832,7 @@
     "Class": ["デュオトリプル9型甲組"]
   },
   {
-    "sec_Category": "ナンバーテールズ化企画",
-    "sec_DesignedBy": "ラジアン(柏木主税)",
+    "sec_SeriesTitle": "ナンバーテールズ化企画",
     "Num": "558-numberize",
     "Progress": "released",
     "Images": { "concept_PNGName": "numberize/cnsp_img558-numberize" },
@@ -875,8 +852,7 @@
     "Class": ["サイドデュアルイレブンズ"]
   },
   {
-    "sec_Category": "ナンバーテールズ化企画",
-    "sec_DesignedBy": "ラジアン(柏木主税)",
+    "sec_SeriesTitle": "ナンバーテールズ化企画",
     "Num": "605-numberize",
     "Progress": "released",
     "Images": { "concept_PNGName": "numberize/cnsp_img605-numberize" },
@@ -896,8 +872,7 @@
     "Class": ["トリプル2+5+6組"]
   },
   {
-    "sec_Category": "ナンバーテールズ化企画",
-    "sec_DesignedBy": "ラジアン(柏木主税)",
+    "sec_SeriesTitle": "ナンバーテールズ化企画",
     "Num": "625-numberize",
     "Progress": "released",
     "Images": { "concept_PNGName": "numberize/cnsp_img625-numberize" },
@@ -917,8 +892,7 @@
     "Class": ["トリプル3+6+8組"]
   },
   {
-    "sec_Category": "ナンバーテールズ化企画",
-    "sec_DesignedBy": "ラジアン(柏木主税)",
+    "sec_SeriesTitle": "ナンバーテールズ化企画",
     "Num": "638-numberize",
     "Progress": "released",
     "Images": { "concept_PNGName": "numberize/cnsp_img638-numberize" },
@@ -962,8 +936,7 @@
     "Class": ["テンズデュアルフォーズ"]
   },
   {
-    "sec_Category": "ナンバーテールズ化企画",
-    "sec_DesignedBy": "ラジアン(柏木主税)",
+    "sec_SeriesTitle": "ナンバーテールズ化企画",
     "Num": "670-numberize",
     "Progress": "released",
     "Images": { "concept_PNGName": "numberize/cnsp_img670-numberize" },
@@ -983,8 +956,7 @@
     "Class": ["トリプル3+6+7組"]
   },
   {
-    "sec_Category": "ナンバーテールズ化企画",
-    "sec_DesignedBy": "ラジアン(柏木主税)",
+    "sec_SeriesTitle": "ナンバーテールズ化企画",
     "Num": "736-numberize",
     "Progress": "released",
     "Images": { "concept_PNGName": "numberize/cnsp_img736-numberize" },
@@ -1023,8 +995,7 @@
     "Class": ["デュオトリプル8型甲組"]
   },
   {
-    "sec_Category": "ナンバーテールズ化企画",
-    "sec_DesignedBy": "ラジアン(柏木主税)",
+    "sec_SeriesTitle": "ナンバーテールズ化企画",
     "Num": "773-numberize",
     "Progress": "released",
     "Images": { "concept_PNGName": "numberize/cnsp_img773-numberize" },
@@ -1126,8 +1097,7 @@
     "Class": ["デュオトリプル7型丙組"]
   },
   {
-    "sec_Category": "ナンバーテールズ化企画",
-    "sec_DesignedBy": "ラジアン(柏木主税)",
+    "sec_SeriesTitle": "ナンバーテールズ化企画",
     "Num": "979-numberize",
     "Progress": "released",
     "Images": { "concept_PNGName": "numberize/cnsp_img979-numberize" },
@@ -1151,8 +1121,7 @@
     "ModelNumber": "APHR-NT [MP]999-*****"
   },
   {
-    "sec_Category": "ナンバーテールズ化企画",
-    "sec_DesignedBy": "ラジアン(柏木主税)",
+    "sec_SeriesTitle": "ナンバーテールズ化企画",
     "Num": "1122-numberize",
     "Progress": "released",
     "Images": { "concept_PNGName": "numberize/cnsp_img1122-numberize" },

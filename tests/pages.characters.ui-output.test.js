@@ -155,6 +155,12 @@ function getBasicFieldValue(label) {
   return row?.querySelector('td')?.textContent?.trim() || '';
 }
 
+function getSectionText(title) {
+  const section = Array.from(document.querySelectorAll('.section'))
+    .find((node) => node.querySelector('h3')?.textContent?.trim() === title);
+  return section?.textContent?.replace(/\s+/g, ' ').trim() || '';
+}
+
 const globalMeta = loadJson('data/db_meta.json');
 const globalTypeDef = loadJson('data/db_type.json');
 const globalDefType = buildGlobalDefTypeFixture();
@@ -162,6 +168,12 @@ const workTypeDef = loadJson('data/Works_PastDivers/DataBases/db_type.json');
 const workMeta = buildWorkMetaFixture('Works_PastDivers');
 const records = loadJson('data/Works_PastDivers/DataBases/db_Primary.json');
 const yayoiRecordBase = records.find((record) => record?.Chronos?.Lunar === 'Yayoi');
+const numberTalesWorkTypeDef = loadJson('data/Works_NumberTales/DataBases/db_type.json');
+const numberTalesWorkMeta = buildWorkMetaFixture('Works_NumberTales');
+const numberTalesSecondaryRecords = loadJson('data/Works_NumberTales/DataBases/db_Secondary.json');
+const numberTalesSelfSecondaryRecords = loadJson('data/Works_NumberTales/DataBases/db_SelfSecondary.json');
+const hexademicalRecord = numberTalesSecondaryRecords.find((record) => record?.Num === '0xA');
+const requestNumberRecord = numberTalesSelfSecondaryRecords.find((record) => record?.Num === 223);
 
 const yayoiRecord = {
   ...yayoiRecordBase,
@@ -226,5 +238,51 @@ describe('pages/characters.js UI output', () => {
     expect(getBasicFieldValue('性別')).toBe('女性 / Female');
     expect(getBasicFieldValue('体重_kg')).toBe('非公開希望');
     expect(getBasicFieldValue('時空象器能力名')).toBe('時空開花 / ChronoBloom');
+  });
+
+  it('renders secondary metadata fields in a dedicated detail section', async () => {
+    charactersModule.__setCharactersTestState({
+      charState: {
+        db: 'SelfSecondary',
+        workTypeDef: numberTalesWorkTypeDef,
+        globalTypeDef,
+        workMeta: numberTalesWorkMeta,
+        imageFields: []
+      }
+    });
+
+    await charactersModule.renderDetail('#Works_NumberTales', requestNumberRecord);
+
+    const secondarySectionText = getSectionText('二次創作情報');
+    expect(secondarySectionText).toContain('二次創作分類');
+    expect(secondarySectionText).toContain('リクエストナンバー');
+    expect(secondarySectionText).toContain('制作・考案');
+    expect(secondarySectionText).toContain('ラジアン(柏木主税)');
+  });
+
+  it('renders series-backed secondary metadata when only sec_SeriesTitle exists on the record', async () => {
+    charactersModule.__setCharactersTestState({
+      charState: {
+        db: 'Secondary',
+        workTypeDef: numberTalesWorkTypeDef,
+        globalTypeDef,
+        workMeta: numberTalesWorkMeta,
+        imageFields: []
+      }
+    });
+
+    const [enrichedSecondaryRecord] = charactersModule.__applyCharactersCommonsForTest(
+      [structuredClone(hexademicalRecord)],
+      numberTalesWorkMeta,
+      'Secondary'
+    );
+
+    await charactersModule.renderDetail('#Works_NumberTales', enrichedSecondaryRecord);
+
+    const secondarySectionText = getSectionText('二次創作情報');
+    expect(secondarySectionText).toContain('二次創作分類');
+    expect(secondarySectionText).toContain('共同二次創作');
+    expect(secondarySectionText).toContain('制作・考案');
+    expect(secondarySectionText).toContain('散狐アタスト(https://misskey.io/@atast)');
   });
 });

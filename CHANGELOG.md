@@ -1,5 +1,11 @@
 # 最新のリファクタリング・仕様変更履歴
 
+### `_Secondaries` の series 一致から `sec_Category` / `sec_DesignedBy` も補完
+
+- `lib/sw-common.js` と `pages/characters.js` で、`Databases.#DB_*._Secondaries[]` のうち `sec_SeriesTitle` などで一致した定義を保持し、その `_Commons` だけでなく `sec_Category` / `sec_DesignedBy` も空欄時にレコードへ補完するようにした。
+- これにより、`db_Secondary.json` 側で `sec_SeriesTitle` のみを持つレコードでも、meta 側のシリーズ定義から二次創作分類と制作・考案者を UI/API で一貫して扱えるようにした。
+- 回帰確認として `tests/commons.secondaries.test.js` と `tests/pages.characters.ui-output.test.js` を更新し、通過を確認した。
+
 ### `Class` を作品別 `dict_Class` 辞書参照へ移行
 
 - `data/Works_NumberTales/DataBases/db_SelfSecondary.json`、`db_SemiPrimary.json`、`db_UnprocessedSecondary.json`、`data/Works_UnauthedLogica/DataBases/db_PrimaryMobs.json`、`data/Works_ShouArRiders/DataBases/db_Primary.json`、`data/Works_PastDivers/DataBases/db_meta.json` の `Class` / `Class_EN` を、作品別 `Dictionaries/dict_Class.json` を正とした `Class` 配列へ変換した。

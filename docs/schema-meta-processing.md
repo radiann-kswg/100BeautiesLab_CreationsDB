@@ -382,6 +382,7 @@ UI 側は厳密構造より `about_JP` / `about_EN` を優先して整形表示�
 - すべての `sec_**` が `null` / 空の要素は fallback
 - 条件付き要素が一致したらそちらを優先
 - 曖昧な条件は誤適用しないように扱う
+- `sec_SeriesTitle` で要素が特定できた場合は、その要素の `sec_Category` / `sec_DesignedBy` も空欄時にレコードへ補完できる
 
 これは主に `Secondary` / `SelfSecondary` のような二次創作系 DB で使います。
 
