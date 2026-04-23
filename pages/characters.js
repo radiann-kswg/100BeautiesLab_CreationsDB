@@ -36,6 +36,40 @@ let workTypeDefCache = new Map();
 let worksCatalogCache = null;
 let workDbCatalogCache = new Map();
 
+function isCharactersTestMode() {
+  return Boolean(globalThis.__CHARACTERS_TEST_MODE__ || import.meta.vitest);
+}
+
+export function __setCharactersTestState(state = {}) {
+  if (Object.prototype.hasOwnProperty.call(state, 'globalMeta')) globalMetaCache = state.globalMeta;
+  if (Object.prototype.hasOwnProperty.call(state, 'globalTypeDef')) globalTypeDefCache = state.globalTypeDef;
+  if (Object.prototype.hasOwnProperty.call(state, 'globalDefType')) globalDefTypeCache = state.globalDefType;
+  if (Object.prototype.hasOwnProperty.call(state, 'worksCatalog')) worksCatalogCache = state.worksCatalog;
+  if (Object.prototype.hasOwnProperty.call(state, 'workDbCatalogs')) {
+    workDbCatalogCache = new Map(Object.entries(state.workDbCatalogs || {}));
+  }
+  if (Object.prototype.hasOwnProperty.call(state, 'workTypeDefs')) {
+    workTypeDefCache = new Map(Object.entries(state.workTypeDefs || {}));
+  }
+  if (Object.prototype.hasOwnProperty.call(state, 'charState') && typeof window !== 'undefined') {
+    window.__CHAR_STATE__ = state.charState;
+  }
+}
+
+export function __resetCharactersTestState() {
+  isInitialized = false;
+  globalMetaCache = null;
+  globalTypeDefCache = null;
+  globalDefTypeCache = null;
+  workTypeDefCache = new Map();
+  worksCatalogCache = null;
+  workDbCatalogCache = new Map();
+  API_BASE_REL = '../pages/';
+  if (typeof window !== 'undefined' && window.__CHAR_STATE__) {
+    delete window.__CHAR_STATE__;
+  }
+}
+
 const IMAGE_LIGHTBOX_IDS = {
   root: 'image-lightbox',
   dialog: 'image-lightbox-dialog',
@@ -842,6 +876,9 @@ async function fetchGlobalDefType() {
 
     return {
       ...meta,
+      ...(Array.isArray(type.$DefType) ? { $DefType: type.$DefType } : {}),
+      ...(Array.isArray(type.global) ? { global: type.global } : {}),
+      ...(type.typedef && typeof type.typedef === 'object' ? { typedef: type.typedef } : {}),
       General: {
         ...metaGeneral,
         $VarsDef: { ...metaVars, ...typeVars }
@@ -4694,7 +4731,7 @@ function kvTable(obj, entries) {
  * @param {Object} rec - すべてのデータフィールドを含むキャラクターレコード
  * @returns {Promise<void>} 詳細ビューのDOMを更新する非同期関数
  */
-async function renderDetail(workId, rec) {
+export async function renderDetail(workId, rec) {
   $('#detail-title').textContent = rec.Name ? `${rec.Name}${rec.Num != null ? `（${rec.Num}）` : ''}` : (rec.FormalName || rec.ModelName || rec.Name_EN || '詳細');
   const mount = $('#detail');
   mount.textContent = '';
@@ -7141,20 +7178,22 @@ function addPerformanceMonitor() {
 /**
  * Main entry point - initialize application when DOM is loaded
  */
-if (document.readyState === 'loading') {
-  // DOM is still loading, wait for DOMContentLoaded
-  document.addEventListener('DOMContentLoaded', main);
-} else {
-  // DOM is already loaded, run immediately
-  main().catch(err => {
-    console.error('Initialization error:', err);
-    const fallbackError = el('div', {
-      style: 'padding: 20px; color: red;'
-    }, [`初期化エラー: ${err && err.message ? err.message : String(err)}`]);
-    document.body.textContent = '';
-    document.body.appendChild(fallbackError);
-  });
-}
+if (!isCharactersTestMode()) {
+  if (document.readyState === 'loading') {
+    // DOM is still loading, wait for DOMContentLoaded
+    document.addEventListener('DOMContentLoaded', main);
+  } else {
+    // DOM is already loaded, run immediately
+    main().catch(err => {
+      console.error('Initialization error:', err);
+      const fallbackError = el('div', {
+        style: 'padding: 20px; color: red;'
+      }, [`初期化エラー: ${err && err.message ? err.message : String(err)}`]);
+      document.body.textContent = '';
+      document.body.appendChild(fallbackError);
+    });
+  }
 
-// Add performance monitor in development
-addPerformanceMonitor();
+  // Add performance monitor in development
+  addPerformanceMonitor();
+}
