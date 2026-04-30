@@ -161,7 +161,7 @@ function getRecordPrimaryTitle(rec) {
 
 function getRecordSecondaryTitle(rec) {
   if (!rec || typeof rec !== 'object') return '';
-  const sub = [rec.FormalName_EN, rec.Name_EN, rec.Title_EN, rec.Term_EN, rec.ModelNumber]
+  const sub = [rec.Name_EN, rec.FormalName_EN, rec.Term_EN, rec.Title_EN, rec.ModelNumber]
     .find((value) => typeof value === 'string' && value.trim());
   return String(sub || '').trim();
 }
@@ -4793,10 +4793,7 @@ async function renderList(records, workId, onOpen, imageFields = null) {
     // Use enhanced image resolution
     const img = await imageFromRecord(workId, r, dbName, imageFields);
 
-    const primaryTitle = getRecordPrimaryTitle(r);
-    const title = r.Num != null && String(r.Num).trim()
-      ? `${primaryTitle}（${r.Num}）`
-      : primaryTitle;
+    const title = getRecordPrimaryTitle(r);
     const sub = getRecordSecondaryTitle(r);
     const chipEls = [];
 
@@ -4965,9 +4962,7 @@ export async function renderDetail(workId, rec) {
   }
 
   const detailTitleBase = getRecordPrimaryTitle(rec);
-  $('#detail-title').textContent = rec.Num != null && String(rec.Num).trim()
-    ? `${detailTitleBase}（${rec.Num}）`
-    : (detailTitleBase || '詳細');
+  $('#detail-title').textContent = detailTitleBase || '詳細';
   const mount = $('#detail');
   mount.textContent = '';
 

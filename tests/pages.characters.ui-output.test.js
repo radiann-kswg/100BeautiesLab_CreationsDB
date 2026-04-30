@@ -177,6 +177,10 @@ function getListTitles() {
   return Array.from(document.querySelectorAll('#list h3')).map((node) => node.textContent?.trim() || '');
 }
 
+function getListSubtitles() {
+  return Array.from(document.querySelectorAll('#list .sub')).map((node) => node.textContent?.trim() || '');
+}
+
 const globalMeta = loadJson('data/db_meta.json');
 const globalTypeDef = loadJson('data/db_type.json');
 const globalDefType = buildGlobalDefTypeFixture();
@@ -186,6 +190,7 @@ const records = loadJson('data/Works_PastDivers/DataBases/db_Primary.json');
 const yayoiRecordBase = records.find((record) => record?.Chronos?.Lunar === 'Yayoi');
 const numberTalesWorkTypeDef = loadJson('data/Works_NumberTales/DataBases/db_type.json');
 const numberTalesWorkMeta = buildWorkMetaFixture('Works_NumberTales');
+const numberTalesPrimaryRecords = loadJson('data/Works_NumberTales/DataBases/db_Primary.json');
 const numberTalesSecondaryRecords = loadJson('data/Works_NumberTales/DataBases/db_Secondary.json');
 const numberTalesSelfSecondaryRecords = loadJson('data/Works_NumberTales/DataBases/db_SelfSecondary.json');
 const sharedReferencesTypeDef = loadJson('data/References/db_type.json');
@@ -196,6 +201,7 @@ const hexademicalRecord = numberTalesSecondaryRecords.find((record) => record?.N
 const requestNumberRecord = numberTalesSelfSecondaryRecords.find((record) => record?.Num === 223);
 const numberTalesGlossaryImageRecord = numberTalesGlossaryRecords.find((record) => record?.Term === 'ヒューマノイド形態');
 const numberTalesReferenceRecord = numberTalesReferenceRecords.find((record) => record?.Title === 'ナンバーテールズについて');
+const firstNumberTalesPrimaryRecord = numberTalesPrimaryRecords.find((record) => String(record?.Num) === '1');
 
 const yayoiRecord = {
   ...yayoiRecordBase,
@@ -280,6 +286,23 @@ describe('pages/characters.js UI output', () => {
     expect(secondarySectionText).toContain('リクエストナンバー');
     expect(secondarySectionText).toContain('キャラクターデザイン・考案');
     expect(secondarySectionText).toContain('ラジアン(柏木主税)');
+  });
+
+  it('renders NumberTales detail headers using only the character name', async () => {
+    charactersModule.__setCharactersTestState({
+      charState: {
+        db: 'Primary',
+        workTypeDef: numberTalesWorkTypeDef,
+        globalTypeDef,
+        workMeta: numberTalesWorkMeta,
+        imageFields: []
+      }
+    });
+
+    await charactersModule.renderDetail('#Works_NumberTales', firstNumberTalesPrimaryRecord);
+
+    expect(document.querySelector('#detail-title')?.textContent?.trim()).toBe('1(ハジメ)');
+    expect(document.querySelector('.name-en')?.textContent?.trim()).toBe('1(Unitta)');
   });
 
   it('renders series-backed secondary metadata when only sec_SeriesTitle exists on the record', async () => {
@@ -411,6 +434,7 @@ describe('pages/characters.js UI output', () => {
 
     await charactersModule.__renderListForTest(numberTalesGlossaryRecords, '#Works_NumberTales', { imageFields: [] });
     expect(getListTitles()).toContain('数秘加護');
+    expect(getListSubtitles()).toContain('Numerospec');
 
     charactersModule.__setCharactersTestState({
       charState: {
@@ -425,6 +449,26 @@ describe('pages/characters.js UI output', () => {
 
     await charactersModule.__renderListForTest(numberTalesReferenceRecords, '#Works_NumberTales', { imageFields: [] });
     expect(getListTitles()).toContain('ナンバーテールズについて');
+    expect(getListSubtitles()).toContain('About NumberTales');
+  });
+
+  it('renders NumberTales list headings using only the character name', async () => {
+    charactersModule.__setCharactersTestState({
+      charState: {
+        db: 'Primary',
+        workId: '#Works_NumberTales',
+        workTypeDef: numberTalesWorkTypeDef,
+        globalTypeDef,
+        workMeta: numberTalesWorkMeta,
+        imageFields: []
+      }
+    });
+
+    await charactersModule.__renderListForTest([firstNumberTalesPrimaryRecord], '#Works_NumberTales', { imageFields: [] });
+
+    expect(getListTitles()).toContain('1(ハジメ)');
+    expect(getListTitles()).not.toContain('1(ハジメ)（1）');
+    expect(getListSubtitles()).toContain('1(Unitta)');
   });
 
   it('builds list thumbnail paths under Ref image directories for references dbs', async () => {
