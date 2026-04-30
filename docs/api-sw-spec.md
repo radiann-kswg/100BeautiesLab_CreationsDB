@@ -156,6 +156,7 @@ UI と enrich/search は、可能な限りこの `db_type.json($DefType)` に追
 - `DB_Layer` を作品別 `Databases.#DB_<DbName>` または `Databases.#Ref_<RefName>` に置くと、SW は `DataBases/` 固定ではなく指定レイヤー配下を探索します
 - `#Ref_` prefix の catalog key は既定で `ref_<Name>.json` を優先探索するため、資料系を `References/ref_Glossary.json` / `References/ref_Reference.json` のようにまとめる場合は `DB_File` 省略でも動作します
 - `DB_File` は、`db_<DbName>.json` / `ref_<Name>.json` の既定名からさらに外したい場合だけ使います
+- UI / enrich の画像解決は DB key と同じ接頭辞を使い、`Images/DB_<DbName>/...` または `Images/Ref_<RefName>/...` を既定として扱います。作品共通画像のみ `Images/General/` を使います
 
 ### 5.2 カタログ用メタ schema 宣言
 

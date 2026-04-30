@@ -117,11 +117,12 @@
 │       │   └── db_Proxy.json        # プロキシDB (作品により異なる)
 │       └── Images/            # 創作に関する画像データ
 │           ├── General/       # 一般画像
-│           ├── Primary/       # 一次創作キャラクター画像
-│           ├── Secondary/     # 公認二次創作キャラクター画像
-│           ├── SemiPrimary/   # 公式アンソロジーキャラクター画像
-│           ├── SelfSecondary/ # 公式セルフ二次創作キャラクター画像
-│           └── Proxy/         # プロキシ画像
+│           ├── DB_Primary/       # 一次創作キャラクター画像
+│           ├── DB_Secondary/     # 公認二次創作キャラクター画像
+│           ├── DB_SemiPrimary/   # 公式アンソロジーキャラクター画像
+│           ├── DB_SelfSecondary/ # 公式セルフ二次創作キャラクター画像
+│           ├── DB_Proxy/         # プロキシ画像
+│           └── Ref_Glossary/     # 資料系DB画像の例
 ├── api/                       # API機能 (レガシー)
 │   ├── api.js                 # ページ処理用スクリプト
 │   ├── index.html             # API テストページ
@@ -181,7 +182,7 @@
 
 ### 画像ファイル
 
-- **ディレクトリ構造**: `Images/[DB種別]/[サブカテゴリ]/`
+- **ディレクトリ構造**: `Images/DB_[DB種別]/[サブカテゴリ]/`、資料系は `Images/Ref_[Ref種別]/[サブカテゴリ]/`、共通画像は `Images/General/`
 - **ファイル命名**: キャラクター ID または設定に基づく命名
 
 ## 作品・キャラクター設定指針
@@ -260,6 +261,7 @@
 - **作品別メタの欠損耐性**: `data/Works_<work>/DataBases/db_meta.json` は未整備の作品では欠損し得ます。この場合でも DB 取得/検索/enrich は 500 で落とさず、`_Commons` 等の付加処理はスキップして継続します（メタは追加価値）。
 - **辞書の合成**: enum/list 辞書は `db_meta.json` だけでなく `db_type.json($VarsDef)` にも分散し得るため、API/UI ともに両者を合成して扱う前提で実装します。
 - **typedef 駆動**: enrich/search 等の振る舞いは `db_type.json($DefType)` を参照して補助（表示分類・正規化・画像ヒント・検索対象テキストなど）する設計を優先します。
+- **画像ディレクトリ規約**: 画像解決は catalog key に対応する `Images/DB_*` / `Images/Ref_*` を正とし、旧 `Images/Primary` のような裸の DB 名ディレクトリは新規運用しません。
 - **typedef 駆動の優先順位**: 表示分類 → 正規化 → 画像 → 検索（上位ほど破壊的変更になりやすいため、下位の拡張は慎重に段階導入）。
 - **enrich のメタ情報**: enrich 応答に `_enrichment` 等のメタ情報を含め、UI がセクション分けや表示制御に利用できるようにします（例: `_enrichment.displaySections`）。
 - **API/SW 仕様メモの同期**: ルーティング、`_enrichment`、`varsdef` / `typedef` / `deftype` の責務、`db_meta.json` 欠損耐性を変更した場合は、`docs/api-sw-spec.md` も同時に更新してください。

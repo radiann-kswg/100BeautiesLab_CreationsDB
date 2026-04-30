@@ -189,10 +189,12 @@ const numberTalesWorkMeta = buildWorkMetaFixture('Works_NumberTales');
 const numberTalesSecondaryRecords = loadJson('data/Works_NumberTales/DataBases/db_Secondary.json');
 const numberTalesSelfSecondaryRecords = loadJson('data/Works_NumberTales/DataBases/db_SelfSecondary.json');
 const sharedReferencesTypeDef = loadJson('data/References/db_type.json');
+const numberTalesReferencesTypeDef = loadJson('data/Works_NumberTales/References/db_type.json');
 const numberTalesGlossaryRecords = loadJson('data/Works_NumberTales/References/ref_Glossary.json');
 const numberTalesReferenceRecords = loadJson('data/Works_NumberTales/References/ref_Reference.json');
 const hexademicalRecord = numberTalesSecondaryRecords.find((record) => record?.Num === '0xA');
 const requestNumberRecord = numberTalesSelfSecondaryRecords.find((record) => record?.Num === 223);
+const numberTalesGlossaryImageRecord = numberTalesGlossaryRecords.find((record) => record?.Term === 'ヒューマノイド形態');
 const numberTalesReferenceRecord = numberTalesReferenceRecords.find((record) => record?.Title === 'ナンバーテールズについて');
 
 const yayoiRecord = {
@@ -355,6 +357,46 @@ describe('pages/characters.js UI output', () => {
     expect(profileSectionText).toContain('普段人類がなんの違和感もなく数える数字だが');
   });
 
+  it('renders references poster images using work-local image typedef folder hints', async () => {
+    charactersModule.__setCharactersTestState({
+      charState: {
+        db: 'Glossary',
+        workTypeDef: numberTalesWorkTypeDef,
+        globalTypeDef,
+        workMeta: numberTalesWorkMeta,
+        imageFields: []
+      }
+    });
+
+    const originalFetch = globalThis.fetch;
+    globalThis.fetch = async (input) => {
+      const url = String(input);
+      if (url.includes('/data/References/db_type.json')) {
+        return new Response(JSON.stringify(sharedReferencesTypeDef), {
+          status: 200,
+          headers: { 'Content-Type': 'application/json' }
+        });
+      }
+      if (url.includes('/data/Works_NumberTales/References/db_type.json')) {
+        return new Response(JSON.stringify(numberTalesReferencesTypeDef), {
+          status: 200,
+          headers: { 'Content-Type': 'application/json' }
+        });
+      }
+      throw new Error(`Unexpected fetch in references image typedef test: ${url}`);
+    };
+
+    try {
+      await charactersModule.renderDetail('#Works_NumberTales', numberTalesGlossaryImageRecord);
+    } finally {
+      globalThis.fetch = originalFetch;
+    }
+
+    const poster = document.querySelector('img.poster');
+    expect(poster).not.toBeNull();
+    expect(poster.getAttribute('src')).toBe('/data/Works_NumberTales/Images/Ref_Glossary/concept-figure/cnsp-fg_NTsHumanoid.png');
+  });
+
   it('renders glossary and reference list cards using Term and Title fallbacks', async () => {
     charactersModule.__setCharactersTestState({
       charState: {
@@ -383,6 +425,50 @@ describe('pages/characters.js UI output', () => {
 
     await charactersModule.__renderListForTest(numberTalesReferenceRecords, '#Works_NumberTales', { imageFields: [] });
     expect(getListTitles()).toContain('ナンバーテールズについて');
+  });
+
+  it('builds list thumbnail paths under Ref image directories for references dbs', async () => {
+    charactersModule.__setCharactersTestState({
+      charState: {
+        db: 'Glossary',
+        workId: '#Works_NumberTales',
+        workTypeDef: numberTalesWorkTypeDef,
+        globalTypeDef,
+        workMeta: numberTalesWorkMeta,
+        imageFields: [
+          {
+            field: 'concept-figure_PNGName',
+            folderHint: 'concept-figure',
+            category: 'concept',
+            type: '#Image|#PNG',
+            priority: 1
+          }
+        ]
+      }
+    });
+
+    await charactersModule.__renderListForTest([
+      {
+        Term: '画像付き用語',
+        Images: {
+          'concept-figure_PNGName': 'glossary-sample'
+        }
+      }
+    ], '#Works_NumberTales', {
+      imageFields: [
+        {
+          field: 'concept-figure_PNGName',
+          folderHint: 'concept-figure',
+          category: 'concept',
+          type: '#Image|#PNG',
+          priority: 1
+        }
+      ]
+    });
+
+    const img = document.querySelector('#list img.thumb');
+    expect(img).not.toBeNull();
+    expect(img.getAttribute('src')).toBe('/data/Works_NumberTales/Images/Ref_Glossary/concept-figure/glossary-sample.png');
   });
 
   it('renders related terms and related creations as navigable links for references records', async () => {

@@ -356,6 +356,8 @@
 
 `DB_File` は DB 実体のファイル名を表す補助キーで、未指定時は `#DB_*` なら `db_<DbName>.json`、`#Ref_*` なら `ref_<Name>.json` を使います。既定名から外したい場合だけ明示します。
 
+画像ディレクトリ名もこの catalog key 系に揃え、通常 DB は `Images/DB_<DbName>/...`、資料系 DB は `Images/Ref_<RefName>/...` を既定とします。作品共通画像のみ `Images/General/` を使います。
+
 ### 4.4 `StoryEra`
 
 `StoryEra` は厳密な日付型ではなく、物語年代を表す構造化メタです。

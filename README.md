@@ -294,7 +294,7 @@ svc/                         # 広告ブロッカー回避用Service Worker
 ### 画像ディレクトリ構造
 
 ```
-data/Works_{作品名}/Images/{データベース種別}/
+data/Works_{作品名}/Images/{DB_種別 または Ref_種別}/
 ├── concept/           # コンセプトアート
 ├── design/           # キャラクターデザイン
 ├── arts/             # 完成イラスト
@@ -303,6 +303,10 @@ data/Works_{作品名}/Images/{データベース種別}/
 ├── cardDesign/       # カードデザイン
 └── catalog/          # カタログ用画像
 ```
+
+- 通常のキャラクター DB は `Images/DB_Primary/` や `Images/DB_Secondary/` のように、catalog key に対応する `DB_*` サブフォルダへ配置します。
+- References 系 DB は `Images/Ref_Glossary/` や `Images/Ref_Reference/` のように、`#Ref_*` catalog key に対応する `Ref_*` サブフォルダへ配置します。
+- 作品共通画像だけは従来どおり `Images/General/` を使います。
 
 ### 画像表示優先順位
 

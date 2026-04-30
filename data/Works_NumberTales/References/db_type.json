@@ -1,1 +1,28 @@
-{}
+{
+  "$DefType": [
+    {
+      "hashTag": "Images",
+      "$type": [
+        {
+          "hashTag": "concept-figure_PNGName",
+          "$type": "#PNGFileName[]",
+          "hashTag_JP": "デザイン資料用原画"
+        },
+        {
+          "hashTag": "catalog_PNGName",
+          "$type": "#PNGFileName[]",
+          "hashTag_JP": "設定資料"
+        },
+        {
+          "hashTag": "arts_PNGPath",
+          "$type": "#PNGFilePath[]",
+          "hashTag_JP": "イラスト作品"
+        }
+      ],
+      "$display": {
+        "section": "images",
+        "tagSpace": "internal"
+      }
+    }
+  ]
+}

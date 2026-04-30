@@ -57,4 +57,31 @@ describe('data json sanity', () => {
     }
     expect(offenders).toEqual([]);
   });
+
+  it('work image directories use DB_/Ref_ prefixes except General', () => {
+    const legacyDirs = [];
+
+    for (const file of readdirSync(dataRoot)) {
+      if (!file.startsWith('Works_')) continue;
+      const imagesDir = join(dataRoot, file, 'Images');
+
+      try {
+        const stat = statSync(imagesDir);
+        if (!stat.isDirectory()) continue;
+      } catch {
+        continue;
+      }
+
+      for (const child of readdirSync(imagesDir)) {
+        const childPath = join(imagesDir, child);
+        const childStat = statSync(childPath);
+        if (!childStat.isDirectory()) continue;
+        if (child === 'General') continue;
+        if (child.startsWith('DB_') || child.startsWith('Ref_')) continue;
+        legacyDirs.push(childPath);
+      }
+    }
+
+    expect(legacyDirs).toEqual([]);
+  });
 });
