@@ -35,6 +35,8 @@ let globalDefTypeCache = null;
 let workTypeDefCache = new Map();
 let worksCatalogCache = null;
 let workDbCatalogCache = new Map();
+const sharedLayerTypeDefCache = new Map();
+const workLayerTypeDefCache = new Map();
 
 function isCharactersTestMode() {
   return Boolean(globalThis.__CHARACTERS_TEST_MODE__ || import.meta.vitest);
@@ -74,6 +76,8 @@ export function __resetCharactersTestState() {
   workTypeDefCache = new Map();
   worksCatalogCache = null;
   workDbCatalogCache = new Map();
+  sharedLayerTypeDefCache.clear();
+  workLayerTypeDefCache.clear();
   API_BASE_REL = '../pages/';
   if (typeof window !== 'undefined' && window.__CHAR_STATE__) {
     delete window.__CHAR_STATE__;
@@ -104,6 +108,146 @@ function isSecondaryDbName(dbName) {
   // SemiPrimary は一次創作に準ずる扱いなので除外
   if (n.includes('semiprimary')) return false;
   return n.includes('secondary');
+}
+
+function findDbCatalogEntry(workMeta, dbName) {
+  const databases = (workMeta && typeof workMeta === 'object' && workMeta.Databases && typeof workMeta.Databases === 'object')
+    ? workMeta.Databases
+    : null;
+  if (!databases) return null;
+
+  const rawName = String(dbName || '').replace(/^#?(DB|Ref)_/i, '').trim();
+  if (!rawName) return null;
+  const normalized = `${rawName.charAt(0).toUpperCase()}${rawName.slice(1)}`;
+  return databases[`#DB_${normalized}`] || databases[`#Ref_${normalized}`] || null;
+}
+
+function mapDbNameToImageDir(dbName) {
+  const rawName = String(dbName || '').trim();
+  if (!rawName) return 'General';
+  if (rawName === 'General') return 'General';
+  if (rawName.startsWith('DB_') || rawName.startsWith('Ref_')) return rawName;
+
+  const refMapping = {
+    Glossary: 'Ref_Glossary',
+    Reference: 'Ref_Reference'
+  };
+  if (refMapping[rawName]) return refMapping[rawName];
+
+  const dbMapping = {
+    Primary: 'DB_Primary',
+    Secondary: 'DB_Secondary',
+    SemiPrimary: 'DB_SemiPrimary',
+    SelfSecondary: 'DB_SelfSecondary',
+    UnprocessedSecondary: 'DB_UnprocessedSecondary',
+    PrimaryDealer: 'DB_PrimaryDealer',
+    PrimaryMobs: 'DB_PrimaryMobs',
+    Proxy: 'DB_Proxy',
+    Mobs: 'DB_Mobs'
+  };
+  if (dbMapping[rawName]) return dbMapping[rawName];
+
+  return `DB_${rawName}`;
+}
+
+function getRecordPrimaryTitle(rec) {
+  if (!rec || typeof rec !== 'object') return '(No Name)';
+  const base = [
+    rec.Name, rec.FormalName, rec.ModelName, rec.Title, rec.Term,
+    rec.Name_EN, rec.FormalName_EN, rec.Title_EN, rec.Term_EN
+  ].find((value) => typeof value === 'string' && value.trim());
+  return String(base || '(No Name)').trim();
+}
+
+function getRecordSecondaryTitle(rec) {
+  if (!rec || typeof rec !== 'object') return '';
+  const sub = [rec.FormalName_EN, rec.Name_EN, rec.Title_EN, rec.Term_EN, rec.ModelNumber]
+    .find((value) => typeof value === 'string' && value.trim());
+  return String(sub || '').trim();
+}
+
+async function fetchSharedLayerTypeDef(layerName) {
+  const layer = String(layerName || '').trim();
+  if (!layer) return {};
+  if (sharedLayerTypeDefCache.has(layer)) {
+    return sharedLayerTypeDefCache.get(layer) || {};
+  }
+
+  const u = new URL(`../data/${encodeURIComponent(layer)}/db_type.json`, location.href);
+  try {
+    const res = await fetchJSON(u.toString());
+    const typeDef = (res && typeof res === 'object') ? res : {};
+    sharedLayerTypeDefCache.set(layer, typeDef);
+    return typeDef;
+  } catch (error) {
+    console.warn('⚠️ Failed to fetch shared layer type def:', layer, error.message);
+    sharedLayerTypeDefCache.set(layer, {});
+    return {};
+  }
+}
+
+async function fetchWorkLayerTypeDef(workKey, layerName) {
+  const layer = String(layerName || '').trim();
+  if (!layer) return {};
+
+  const normalizedWorkKey = normalizeWorkKey(workKey);
+  const cacheKey = `${normalizedWorkKey}::${layer}`;
+  if (workLayerTypeDefCache.has(cacheKey)) {
+    return workLayerTypeDefCache.get(cacheKey) || {};
+  }
+
+  const workDir = resolveWorkDirName(normalizedWorkKey);
+  const u = new URL(`../data/${encodeURIComponent(workDir)}/${encodeURIComponent(layer)}/db_type.json`, location.href);
+  try {
+    const res = await fetchJSON(u.toString());
+    const typeDef = (res && typeof res === 'object') ? res : {};
+    workLayerTypeDefCache.set(cacheKey, typeDef);
+    return typeDef;
+  } catch (error) {
+    console.warn('⚠️ Failed to fetch work layer type def:', { workKey, layer, message: error.message });
+    workLayerTypeDefCache.set(cacheKey, {});
+    return {};
+  }
+}
+
+function mergeTypeDefSources(primaryTypeDef, secondaryTypeDef) {
+  const primary = (primaryTypeDef && typeof primaryTypeDef === 'object' && !Array.isArray(primaryTypeDef))
+    ? primaryTypeDef
+    : {};
+  const secondary = (secondaryTypeDef && typeof secondaryTypeDef === 'object' && !Array.isArray(secondaryTypeDef))
+    ? secondaryTypeDef
+    : {};
+
+  const primaryDef = Array.isArray(primary.$DefType) ? primary.$DefType : [];
+  const secondaryDef = Array.isArray(secondary.$DefType) ? secondary.$DefType : [];
+  const primaryVars = (primary.$VarsDef && typeof primary.$VarsDef === 'object' && !Array.isArray(primary.$VarsDef))
+    ? primary.$VarsDef
+    : {};
+  const secondaryVars = (secondary.$VarsDef && typeof secondary.$VarsDef === 'object' && !Array.isArray(secondary.$VarsDef))
+    ? secondary.$VarsDef
+    : {};
+
+  return {
+    ...secondary,
+    ...primary,
+    ...(secondaryDef.length || primaryDef.length ? { $DefType: [...secondaryDef, ...primaryDef] } : {}),
+    ...(Object.keys(secondaryVars).length || Object.keys(primaryVars).length
+      ? { $VarsDef: { ...secondaryVars, ...primaryVars } }
+      : {})
+  };
+}
+
+function inferImageFolderHint(fieldName) {
+  const rawFieldName = String(fieldName || '').trim();
+  if (!rawFieldName) return null;
+
+  const suffixMatch = rawFieldName.match(/^(.+?)_(PNG|JPE?G|WEBP|GIF|SVG|BMP|IMAGE|PHOTO|PICTURE)/i);
+  if (suffixMatch?.[1]) return suffixMatch[1];
+
+  const pathMatch = rawFieldName.match(/^(.+?)_Path$/i);
+  if (pathMatch?.[1]) return pathMatch[1];
+
+  return null;
 }
 /**
  * Utility Functions
@@ -1638,6 +1782,7 @@ function extractImageFields(workTypeDef, globalTypeDef = {}) {
               type: child.$type || '#PNGFileName',
               label: child.hashTag_JP || child.hashtag_JP || child.hashTag,
               path: ['Images', child.hashTag],
+              folderHint: inferImageFolderHint(child.hashTag),
               category,
               priority,
               source
@@ -1656,6 +1801,7 @@ function extractImageFields(workTypeDef, globalTypeDef = {}) {
           type: item.$type,
           label: item.hashTag_JP || item.hashtag_JP || item.hashTag,
           path: currentPath,
+          folderHint: inferImageFolderHint(item.hashTag),
           category,
           priority,
           source
@@ -4231,6 +4377,10 @@ async function resolveImageFromFields(workId, rec, dbName, imageFields) {
  */
 function buildImagePath(wdir, dbName, field, value) {
   if (!value) return '';
+  const imageDbDir = mapDbNameToImageDir(dbName);
+  const explicitFolderHint = typeof field?.folderHint === 'string' && field.folderHint.trim()
+    ? field.folderHint.trim()
+    : inferImageFolderHint(field?.field || '');
 
   console.log('🔍 Building image path:', { field: field.field, category: field.category, value });
 
@@ -4272,24 +4422,24 @@ function buildImagePath(wdir, dbName, field, value) {
   };
 
   // Determine directory based on field category and name
-  let directory = '';
+  let directory = explicitFolderHint || '';
   const fieldLower = field.field.toLowerCase();
 
-  if (field.category === 'concept') {
+  if (!directory && field.category === 'concept') {
     directory = fieldLower.includes('alt') ? 'conceptAlt' : 'concept';
-  } else if (field.category === 'design') {
+  } else if (!directory && field.category === 'design') {
     directory = fieldLower.includes('alt') ? 'designAlt' : 'design';
-  } else if (field.category === 'arts') {
+  } else if (!directory && field.category === 'arts') {
     directory = 'arts';
-  } else if (field.category === 'card') {
+  } else if (!directory && field.category === 'card') {
     directory = 'cardDesign';
-  } else if (field.category === 'catalog') {
+  } else if (!directory && field.category === 'catalog') {
     directory = 'catalog';
-  } else if (field.category === 'core') {
+  } else if (!directory && field.category === 'core') {
     directory = 'corefolder';
-  } else if (field.category === 'general') {
+  } else if (!directory && field.category === 'general') {
     directory = 'General';
-  } else {
+  } else if (!directory) {
     // Try to infer from field name with specific matches first
     if (fieldLower.includes('carddesign')) {
       directory = 'cardDesign';
@@ -4336,13 +4486,13 @@ function buildImagePath(wdir, dbName, field, value) {
     if (isGeneral) {
       return `/data/${wdir}/Images/General/${rel}`;
     }
-    return `/data/${wdir}/Images/${dbName}/${directory}/${rel}`;
+    return `/data/${wdir}/Images/${imageDbDir}/${directory}/${rel}`;
   }
 
   // Build standard path
   const finalPath = field.category === 'general' || directory === 'General'
     ? `/data/${wdir}/Images/General/${appendExtIfMissing(normalizedValue)}`
-    : `/data/${wdir}/Images/${dbName}/${directory}/${appendExtIfMissing(normalizedValue)}`;
+    : `/data/${wdir}/Images/${imageDbDir}/${directory}/${appendExtIfMissing(normalizedValue)}`;
 
   console.log('📁 Final image path:', { field: field.field, category: field.category, directory, finalPath });
 
@@ -4359,6 +4509,7 @@ function buildImagePath(wdir, dbName, field, value) {
 function resolveImageStatically(workId, rec, dbName) {
   const wdir = resolveWorkDirName(workId);
   const img = getRecordImages(rec);
+  const imageDbDir = mapDbNameToImageDir(dbName);
 
   console.log('🔧 Enhanced static resolution for:', {
     workId,
@@ -4373,11 +4524,11 @@ function resolveImageStatically(workId, rec, dbName) {
   // Enhanced priority list with more field types
   const imageResolvers = [
     // Concept images (highest priority)
-    () => img.concept_PNGName ? `/data/${wdir}/Images/${dbName}/concept/${img.concept_PNGName}.png` : null,
+    () => img.concept_PNGName ? `/data/${wdir}/Images/${imageDbDir}/concept/${img.concept_PNGName}.png` : null,
     () => {
       if (img.conceptAlt_PNGName) {
         const val = Array.isArray(img.conceptAlt_PNGName) ? img.conceptAlt_PNGName[0] : img.conceptAlt_PNGName;
-        return `/data/${wdir}/Images/${dbName}/conceptAlt/${val}.png`;
+        return `/data/${wdir}/Images/${imageDbDir}/conceptAlt/${val}.png`;
       }
       return null;
     },
@@ -4385,7 +4536,7 @@ function resolveImageStatically(workId, rec, dbName) {
     // Design images
     () => {
       if (img.design_PNGName) {
-        const path = `/data/${wdir}/Images/${dbName}/design/${img.design_PNGName}.png`;
+        const path = `/data/${wdir}/Images/${imageDbDir}/design/${img.design_PNGName}.png`;
         console.log('🎨 Design image path resolved:', { field: 'design_PNGName', value: img.design_PNGName, path });
         return path;
       }
@@ -4393,7 +4544,7 @@ function resolveImageStatically(workId, rec, dbName) {
     },
     () => {
       if (img.cardDesign_PNGName) {
-        const path = `/data/${wdir}/Images/${dbName}/cardDesign/${img.cardDesign_PNGName}.png`;
+        const path = `/data/${wdir}/Images/${imageDbDir}/cardDesign/${img.cardDesign_PNGName}.png`;
         console.log('🃏 Card design image path resolved:', { field: 'cardDesign_PNGName', value: img.cardDesign_PNGName, path });
         return path;
       }
@@ -4402,14 +4553,14 @@ function resolveImageStatically(workId, rec, dbName) {
     () => {
       if (img.designAlt_PNGName) {
         const val = Array.isArray(img.designAlt_PNGName) ? img.designAlt_PNGName[0] : img.designAlt_PNGName;
-        return `/data/${wdir}/Images/${dbName}/designAlt/${val}.png`;
+        return `/data/${wdir}/Images/${imageDbDir}/designAlt/${val}.png`;
       }
       return null;
     },
     () => {
       if (img.designAlt_PNGPath) {
         const val = Array.isArray(img.designAlt_PNGPath) ? img.designAlt_PNGPath[0] : img.designAlt_PNGPath;
-        return `/data/${wdir}/Images/${dbName}/designAlt/${val}.png`;
+        return `/data/${wdir}/Images/${imageDbDir}/designAlt/${val}.png`;
       }
       return null;
     },
@@ -4418,7 +4569,7 @@ function resolveImageStatically(workId, rec, dbName) {
     () => {
       if (img.arts_PNGPath) {
         const val = Array.isArray(img.arts_PNGPath) ? img.arts_PNGPath[0] : img.arts_PNGPath;
-        return `/data/${wdir}/Images/${dbName}/arts/${val}.png`;
+        return `/data/${wdir}/Images/${imageDbDir}/arts/${val}.png`;
       }
       return null;
     },
@@ -4427,7 +4578,7 @@ function resolveImageStatically(workId, rec, dbName) {
     () => {
       if (img.corefolder_PNGPath) {
         const val = Array.isArray(img.corefolder_PNGPath) ? img.corefolder_PNGPath[0] : img.corefolder_PNGPath;
-        return `/data/${wdir}/Images/${dbName}/corefolder/${val}.png`;
+        return `/data/${wdir}/Images/${imageDbDir}/corefolder/${val}.png`;
       }
       return null;
     },
@@ -4437,7 +4588,7 @@ function resolveImageStatically(workId, rec, dbName) {
       if (img.catalog_PNGPath) {
         const val = Array.isArray(img.catalog_PNGPath) ? img.catalog_PNGPath[0] : img.catalog_PNGPath;
         const ext = val.endsWith('.png') ? '' : '.png';
-        return `/data/${wdir}/Images/${dbName}/catalog/${val}${ext}`;
+        return `/data/${wdir}/Images/${imageDbDir}/catalog/${val}${ext}`;
       }
       return null;
     },
@@ -4457,7 +4608,8 @@ function resolveImageStatically(workId, rec, dbName) {
           const value = Array.isArray(val) ? val[0] : val;
           if (value) {
             const ext = value.includes('.') ? '' : '.png';
-            return `/data/${wdir}/Images/${dbName}/${key}/${value}${ext}`;
+            const directory = inferImageFolderHint(key) || key;
+            return `/data/${wdir}/Images/${imageDbDir}/${directory}/${value}${ext}`;
           }
         }
       }
@@ -4542,6 +4694,8 @@ function matchFilter(rec, q) {
     // 互換: *_JP / *_EN の言語別フィールドも検索対象に含める
     rec.Name, rec.Name_JP, rec.Name_EN,
     rec.FormalName, rec.FormalName_JP, rec.FormalName_EN,
+    rec.Title, rec.Title_JP, rec.Title_EN,
+    rec.Term, rec.Term_JP, rec.Term_EN, rec.Term_JPReading,
     rec.ModelName, rec.ModelNumber,
     rec.CodeName, rec.SPCodeName, rec.SPCodeName_EN,
     rec.Num
@@ -4639,8 +4793,11 @@ async function renderList(records, workId, onOpen, imageFields = null) {
     // Use enhanced image resolution
     const img = await imageFromRecord(workId, r, dbName, imageFields);
 
-    const title = r.Name ? `${r.Name}${r.Num != null ? `（${r.Num}）` : ''}` : (r.FormalName || r.ModelName || r.Name_EN || '(No Name)');
-    const sub = r.FormalName_EN || r.Name_EN || r.ModelNumber || '';
+    const primaryTitle = getRecordPrimaryTitle(r);
+    const title = r.Num != null && String(r.Num).trim()
+      ? `${primaryTitle}（${r.Num}）`
+      : primaryTitle;
+    const sub = getRecordSecondaryTitle(r);
     const chipEls = [];
 
     // Enhanced chip generation with more field types
@@ -4768,6 +4925,12 @@ async function renderList(records, workId, onOpen, imageFields = null) {
   console.log(`✅ Rendered ${shown} characters with enhanced image resolution`);
 }
 
+export async function __renderListForTest(records, workId, options = {}) {
+  const onOpen = typeof options?.onOpen === 'function' ? options.onOpen : (() => {});
+  const imageFields = Array.isArray(options?.imageFields) ? options.imageFields : [];
+  return renderList(records, workId, onOpen, imageFields);
+}
+
 /**
  * Create a key-value table element
  * @param {Object} obj - Base object (unused in current implementation)
@@ -4801,7 +4964,10 @@ export async function renderDetail(workId, rec) {
     return;
   }
 
-  $('#detail-title').textContent = rec.Name ? `${rec.Name}${rec.Num != null ? `（${rec.Num}）` : ''}` : (rec.FormalName || rec.ModelName || rec.Name_EN || '詳細');
+  const detailTitleBase = getRecordPrimaryTitle(rec);
+  $('#detail-title').textContent = rec.Num != null && String(rec.Num).trim()
+    ? `${detailTitleBase}（${rec.Num}）`
+    : (detailTitleBase || '詳細');
   const mount = $('#detail');
   mount.textContent = '';
 
@@ -4821,13 +4987,24 @@ export async function renderDetail(workId, rec) {
     }, ['詳細情報を読み込んでいます...']));
 
     // Use cached data when available, otherwise fetch
-    const [workTypeDef, globalTypeDef, globalDefType, workMeta, globalMeta] = await Promise.all([
+    const [rawWorkTypeDef, globalTypeDef, globalDefType, workMeta, globalMeta] = await Promise.all([
       cachedWorkTypeDef || fetchWorkTypeDef(workId),
       cachedGlobalTypeDef || fetchGlobalTypeDef(),
       fetchGlobalDefType(),
       cachedWorkMeta || fetchWorkMeta(workId),
       fetchGlobalMeta()
     ]);
+
+    const dbCatalogEntry = findDbCatalogEntry(workMeta, dbName);
+    const currentLayerName = String(dbCatalogEntry?.DB_Layer || '').trim();
+    const [sharedLayerTypeDef, workLayerTypeDef] = currentLayerName
+      ? await Promise.all([
+          fetchSharedLayerTypeDef(currentLayerName),
+          fetchWorkLayerTypeDef(workId, currentLayerName)
+        ])
+      : [{}, {}];
+    const layeredTypeDef = mergeTypeDefSources(workLayerTypeDef, sharedLayerTypeDef);
+    const workTypeDef = mergeTypeDefSources(rawWorkTypeDef, layeredTypeDef);
 
     // workMeta / globalMeta の $VarsDef を統合（EnumLink / ListLink の共通辞書を参照しやすくする）
     const metaForLookup = (() => {
@@ -4873,7 +5050,9 @@ export async function renderDetail(workId, rec) {
     }
 
     // Use cached or extract image fields
-    const imageFields = cachedImageFields || extractImageFields(workTypeDef, globalTypeDef);
+    const imageFields = Array.isArray(cachedImageFields) && cachedImageFields.length > 0
+      ? cachedImageFields
+      : extractImageFields(workTypeDef, globalTypeDef);
 
     // Enhanced poster image with dynamic resolution
     const poster = await imageFromRecord(workId, rec, dbName, imageFields);
@@ -4892,7 +5071,7 @@ export async function renderDetail(workId, rec) {
       poster ? el('img', {
         class: 'poster',
         src: poster,
-        alt: `${rec.Name || rec.FormalName || 'Character'} poster`,
+        alt: `${getRecordPrimaryTitle(rec) || 'Character'} poster`,
         loading: 'lazy'
       }) : el('div', { class: 'poster placeholder' }, ['画像なし']),
       galleryImages.length > 0 ? el('div', { class: 'image-gallery' }, [
@@ -5092,8 +5271,8 @@ export async function renderDetail(workId, rec) {
   };
 
   const titleRow = el('div', { class: 'kv' }, [
-    el('div', { class: 'name' }, rec.Name || rec.FormalName || rec.Name_EN || '(No Name)'),
-    (rec.Name_EN || rec.FormalName_EN) ? el('div', { class: 'name-en' }, rec.Name_EN || rec.FormalName_EN) : null,
+    el('div', { class: 'name' }, getRecordPrimaryTitle(rec)),
+    getRecordSecondaryTitle(rec) ? el('div', { class: 'name-en' }, getRecordSecondaryTitle(rec)) : null,
     el('div', { class: 'row small' }, [
       (() => {
         const workIndexDef = getWorkIndexField(workId, globalMeta);
@@ -6271,12 +6450,23 @@ export async function renderDetail(workId, rec) {
       ])
     : null;
 
+  const referenceConnectionsSection = renderReferenceConnectionsSection(
+    rec,
+    workId,
+    workMeta,
+    globalMeta,
+    fieldLabelMap,
+    metaForLookup,
+    globalDefType
+  );
+
   const right = el('div', {}, [
     titleRow,
     basicSection,
     secondaryInfoSection,
     specSection,
     profileSection,
+    referenceConnectionsSection,
     rec.Relation && (rec.Relation.Related || rec.Relation.Commented)
       ? renderRelations(rec.Relation, fieldLabelMap, metaForLookup, globalDefType, fieldDisplayMap, { containerKey: 'Relation', fieldTypeMap })
       : null,
@@ -6556,6 +6746,142 @@ function renderRelations(rel, fieldLabelMap, workMeta, globalDefType, fieldDispl
   return el('div', { class: 'section' }, [
     el('h3', {}, [getFieldLabel(containerKey, fieldLabelMap, workMeta, globalDefType, containerKey === 'RelationToPrimary' ? '原作との関係' : '関係')]),
     createDetailTagGrid([...r1, ...r2])
+  ]);
+}
+
+function buildViewerNavigationHref(workId, dbName, options = {}) {
+  const current = getQS();
+  const normalizedWork = workKeyForAPI(workId || current.work || '');
+  const q = String(options?.q || '').trim();
+  const qs = new URLSearchParams({
+    ...current,
+    work: normalizedWork,
+    db: String(dbName || current.db || ''),
+    q,
+    num: '',
+    idx: '',
+    idxKey: ''
+  });
+  return `${location.pathname}?${qs.toString()}`;
+}
+
+async function openViewerNavigation(workId, dbName, options = {}) {
+  const href = buildViewerNavigationHref(workId, dbName, options);
+  const selectWork = $('#select-work');
+  const selectDB = $('#select-db');
+  const searchInput = $('#search-input');
+  const normalizedWork = normalizeWorkKey(workId || window?.__CHAR_STATE__?.workId || '');
+  const normalizedDb = String(dbName || '').trim();
+  const q = String(options?.q || '').trim();
+
+  if (!selectWork || !selectDB || !normalizedWork || !normalizedDb) {
+    location.href = href;
+    return;
+  }
+
+  try {
+    if (selectWork.value !== normalizedWork) {
+      selectWork.value = normalizedWork;
+      await populateDBs(normalizedWork);
+    }
+    selectDB.value = normalizedDb;
+    if (searchInput) searchInput.value = q;
+    setQS({ work: workKeyForAPI(normalizedWork), db: normalizedDb, q, num: '', idx: '', idxKey: '' });
+    await renderSelectionMeta(normalizedWork, normalizedDb);
+    await reloadInternal(false);
+  } catch {
+    location.href = href;
+  }
+}
+
+function renderReferenceConnectionsSection(rec, workId, workMeta, globalMeta, fieldLabelMap, metaForLookup, globalDefType) {
+  const relatedTerms = Array.isArray(rec?.RelatedTerms)
+    ? rec.RelatedTerms.map((value) => String(value || '').trim()).filter(Boolean)
+    : [];
+  const relatedCreations = Array.isArray(rec?.RelatedCreations)
+    ? rec.RelatedCreations.filter((value) => value && typeof value === 'object')
+    : [];
+
+  if (!relatedTerms.length && !relatedCreations.length) return null;
+
+  const currentWorkKey = normalizeWorkKey(workId || '');
+  const getWorkLabel = (targetWorkId) => {
+    const normalized = normalizeWorkKey(targetWorkId || currentWorkKey);
+    const rawTitle = globalMeta?.CreationWorks?.[normalized]?.Title;
+    if (typeof rawTitle === 'string' && rawTitle.trim()) return rawTitle.trim();
+    return String(normalized || '').replace(/^#?Works_/, '').trim() || '作品';
+  };
+
+  const buildTagLink = (href, text, title, onNavigate) => el('div', { class: 'tag' }, [
+    el('a', {
+      href,
+      title,
+      onclick: async (event) => {
+        if (typeof onNavigate !== 'function') return;
+        event.preventDefault();
+        event.stopPropagation();
+        await onNavigate();
+      }
+    }, [text])
+  ]);
+
+  const blocks = [];
+
+  if (relatedTerms.length) {
+    const termNodes = relatedTerms.map((term) => {
+      const href = buildViewerNavigationHref(currentWorkKey, 'Glossary', { q: term });
+      return buildTagLink(
+        href,
+        term,
+        `${term} を創作用語 DB で開く`,
+        () => openViewerNavigation(currentWorkKey, 'Glossary', { q: term })
+      );
+    });
+
+    blocks.push(el('div', { style: 'margin-bottom: 10px;' }, [
+      el('div', { class: 'tag', style: 'margin-bottom: 6px;' }, [
+        getFieldLabel('RelatedTerms', fieldLabelMap, metaForLookup, globalDefType, '関連用語')
+      ]),
+      createDetailTagGrid(termNodes)
+    ]));
+  }
+
+  if (relatedCreations.length) {
+    const creationNodes = relatedCreations
+      .map((entry) => {
+        const targetWork = normalizeWorkKey(entry.RelatedWorks || currentWorkKey);
+        const targetDb = String(entry.RelatedDB || '').trim();
+        if (!targetWork || !targetDb) return null;
+
+        const targetMeta = targetWork === currentWorkKey ? findDbCatalogEntry(workMeta, targetDb) : null;
+        const dbLabel = getDbDisplayLabel(targetMeta, targetDb);
+        const workLabel = getWorkLabel(targetWork);
+        const linkText = `${workLabel} / ${dbLabel}`;
+        const href = buildViewerNavigationHref(targetWork, targetDb, { q: '' });
+        return buildTagLink(
+          href,
+          linkText,
+          `${linkText} を開く`,
+          () => openViewerNavigation(targetWork, targetDb, { q: '' })
+        );
+      })
+      .filter(Boolean);
+
+    if (creationNodes.length) {
+      blocks.push(el('div', { style: 'margin-bottom: 10px;' }, [
+        el('div', { class: 'tag', style: 'margin-bottom: 6px;' }, [
+          getFieldLabel('RelatedCreations', fieldLabelMap, metaForLookup, globalDefType, '関連創作')
+        ]),
+        createDetailTagGrid(creationNodes)
+      ]));
+    }
+  }
+
+  if (!blocks.length) return null;
+
+  return el('div', { class: 'section' }, [
+    el('h3', {}, ['関連情報']),
+    el('div', {}, blocks)
   ]);
 }
 
@@ -7144,8 +7470,19 @@ async function reloadInternal(showLoading = true) {
       showLoadingIndicator(`${currentStep}中...`);
     }
 
+    const dbCatalogEntry = findDbCatalogEntry(workMeta, db);
+    const currentLayerName = String(dbCatalogEntry?.DB_Layer || '').trim();
+    const [sharedLayerTypeDef, workLayerTypeDef] = currentLayerName
+      ? await Promise.all([
+          fetchSharedLayerTypeDef(currentLayerName),
+          fetchWorkLayerTypeDef(workId, currentLayerName)
+        ])
+      : [{}, {}];
+    const layeredTypeDef = mergeTypeDefSources(workLayerTypeDef, sharedLayerTypeDef);
+    const effectiveWorkTypeDef = mergeTypeDefSources(workTypeDef, layeredTypeDef);
+
     const imageExtractStart = performance.now();
-    const imageFields = extractImageFields(workTypeDef, globalTypeDef);
+    const imageFields = extractImageFields(effectiveWorkTypeDef, globalTypeDef);
     console.log(`⏱️ ${currentStep} completed in ${(performance.now() - imageExtractStart).toFixed(2)}ms`);
     console.log(`🖼️ Extracted ${imageFields.length} image fields for ${workId}`);
 
@@ -7183,7 +7520,7 @@ async function reloadInternal(showLoading = true) {
       debug,
       records: recs,
       imageFields, // Add image fields to global state
-      workTypeDef,
+      workTypeDef: effectiveWorkTypeDef,
       globalTypeDef,
       workMeta
     };

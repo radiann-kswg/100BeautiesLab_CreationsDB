@@ -68,4 +68,23 @@ describe('database shapes', () => {
     expect(nestedArea?.$type).toBe('#DictIndex');
     expect(nestedArea?.$dict).toBe('Area');
   });
+
+  it('shared references typedef provides references fields and work local references typedef can stay empty', () => {
+    const sharedRefsType = load('data/References/db_type.json');
+    const refsType = load('data/Works_NumberTales/References/db_type.json');
+    const defType = Array.isArray(sharedRefsType?.$DefType) ? sharedRefsType.$DefType : [];
+    const relatedCreationsField = defType.find((entry) => entry?.hashTag === 'RelatedCreations');
+    const titleField = defType.find((entry) => entry?.hashTag === 'Title');
+    const termField = defType.find((entry) => entry?.hashTag === 'Term');
+    const relatedCreationEntries = Array.isArray(relatedCreationsField?.$type) ? relatedCreationsField.$type : [];
+    const nestedWork = relatedCreationEntries.find((entry) => entry?.hashTag === 'RelatedWorks');
+    const nestedDb = relatedCreationEntries.find((entry) => entry?.hashTag === 'RelatedDB');
+
+    expect(Array.isArray(refsType?.$DefType)).toBe(false);
+    expect(termField?.$display?.aliasOf).toBe('Name');
+    expect(titleField?.$alt).toBe('Term');
+    expect(Array.isArray(relatedCreationsField?.$type)).toBe(true);
+    expect(nestedWork?.$type).toBe('#String');
+    expect(nestedDb?.$type).toBe('#String|#Null');
+  });
 });

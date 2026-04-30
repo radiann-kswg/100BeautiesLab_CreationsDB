@@ -1,5 +1,53 @@
 # 最新のリファクタリング・仕様変更履歴
 
+### 画像ディレクトリ命名を `Images/DB_*` / `Images/Ref_*` へ移行
+
+- `pages/characters.js` と `lib/data-common.js` の画像パス解決を更新し、通常 DB は `Images/DB_<DbName>/...`、References 系 DB は `Images/Ref_<RefName>/...`、作品共通画像は `Images/General/` を既定で解決するようにした。
+- これに合わせて、各作品の `data/Works_*/Images/` 配下に残っていた `Primary` / `Secondary` / `Proxy` などの旧サブフォルダ名を `DB_Primary` / `DB_Secondary` / `DB_Proxy` などへ移行し、`Works_NumberTales` には `Ref_Glossary` / `Ref_Reference` を追加した。
+- 回帰確認として `tests/pages.characters.ui-output.test.js` に References 画像パスの検証を追加し、`tests/data.sanity.test.js` に `Images` 直下の命名規則チェックを追加した。
+- あわせて `README.md`、`pages/README.md`、`docs/db-update-guidelines.md`、`docs/api-sw-spec.md`、`docs/schema-meta-processing.md`、`docs/readme.en.md`、`docs/viewer-guide.md`、`.github/copilot-instructions.md` を新規則へ同期した。
+
+### References レイヤーの DB をキャラシート UI で表示可能にした
+
+- `pages/characters.js` で、現在選択中 DB の catalog entry を参照し、`DB_Layer: References` の場合は shared `data/References/db_type.json` を追加で読み込んで work typedef へマージするようにした。
+- これにより、`Title` / `Term` / `BodyBlocks` / `RelatedCreations` など、通常キャラクター DB とは異なる資料系フィールドでも、キャラシート詳細で label / section / 表示整形を shared references typedef に従って解釈できるようにした。
+- 一覧・詳細の見出し fallback も `Name` / `FormalName` だけでなく `Title` / `Term` を使えるようにし、References レコードでもタイトル未設定扱いにならないようにした。
+- 追加で、一覧検索を `Title` / `Term` 系も対象に広げ、`RelatedTerms` を Glossary DB の絞り込みリンク、`RelatedCreations` を対象 work/db への遷移リンクとして「関連情報」セクションに表示するようにした。
+- 回帰確認として `tests/pages.characters.ui-output.test.js` に References 表示・一覧 fallback・関連リンクのケースを追加し、8 件成功、および `tests/pages.characters.syntax.test.js` の成功を確認した。
+
+### References typedef を shared `data/References/db_type.json` へ集約
+
+- References 用の共通 typedef は global `data/db_type.json` ではなく、shared layer の `data/References/db_type.json` を正本として扱う構成へ揃えた。
+- `data/Works_NumberTales/References/db_type.json` は作品固有 typedef を持たない空オブジェクトへ縮退し、資料系フィールド宣言は shared references layer から供給する前提へ整理した。
+- `tests/data.shape.test.js` を `data/References/db_type.json` 前提へ更新し、`tests/data.shape.test.js` の 3 件成功を確認した。
+
+### References typedef の `RelatedWorks` を object 配列化
+
+- `data/Works_NumberTales/References/db_type.json` では、資料系の関連先フィールドを `RelatedWorks` から `RelatedCreations` へ改名し、object 配列 typedef として各要素が `RelatedWorks` と `RelatedDB` を持てるようにした。
+- これにより、資料系 DB でも `_DBLink` に近い粒度で「どの作品に紐づく関連か」「その作品内のどの DB まで紐づくか」を 1 要素ごとに表現できるようにした。
+- 新構造の代表キーは `RelatedCreations[]` とし、その子要素に `RelatedWorks` / `RelatedDB` を持たせる形へ整理した。
+- 回帰確認として `tests/data.shape.test.js` を更新し、`tests/data.shape.test.js` の 3 件成功を確認した。
+
+### NumberTales の資料系 DB を `References/ref_*.json` へ統合
+
+- `data/Works_NumberTales/DataBases/db_meta.json` と `data/Works_NumberTales/References/db_meta.json` の資料系 catalog key を `#DB_Glossary` / `#DB_Reference` から `#Ref_Glossary` / `#Ref_Reference` へ変更した。
+- `data/Works_NumberTales/References/` へ glossary / reference の実データを統合し、`ref_Glossary.json` と `ref_Reference.json` に改名した。
+- `lib/sw-common.js` は `#Ref_` prefix を資料系 catalog key として扱い、`References/ref_*.json` を `DB_File` なしで既定解決できるようにした。
+- 回帰確認として `tests/sw.db-layer-routing.test.js`、`tests/data.sanity.test.js`、`tests/sw.work-meta-info.test.js` を実行し、通過を確認した。
+
+### NumberTales に Glossaries / References の空テンプレートを追加
+
+- `data/Works_NumberTales/DataBases/db_meta.json` に `#DB_Glossary` と `#DB_Reference` を追加し、それぞれ `DB_Layer: Glossaries` / `References` を宣言した。
+- `data/Works_NumberTales/Glossaries/` と `data/Works_NumberTales/References/` に `db_meta.json`, `db_type.json`, 空の `db_Glossary.json` / `db_Reference.json` を追加し、User 手入力前提の最小テンプレートを配置した。
+- これにより、既存の works/{work}/db 導線から NumberTales の新規レイヤー DB を段階的に増やせる土台を実ファイルとして用意した。
+
+### `Databases.#DB_*` に `DB_Layer` を追加し、非 `DataBases/` レイヤーの受け皿を実装
+
+- `data/db_type.json` の `$MetaType.$Def_DatabaseCatalog` に `DB_Layer` を追加し、作品別 `db_meta.json` から DB 実体の配置レイヤーを宣言できるようにした。
+- `lib/sw-common.js` の `DataFetcher.readDB()` / `listWorkDBs()` は `Databases.#DB_<DbName>.DB_Layer` を参照して、`Glossaries/` や `References/` のような非 `DataBases/` レイヤー配下の `db_<DbName>.json` を読めるようにした。
+- DB 一覧カタログでも `DB_Layer` を返すようにし、UI/API 側が各 DB の配置レイヤーを参照できるようにした。
+- 回帰確認として `tests/sw.db-layer-routing.test.js` を追加し、layer-aware な DB 読み込みと一覧応答を検証した。
+
 ### 最小の `isPrivate` 公開制御を追加
 
 - `lib/sw-common.js` の `db` / `search` エンドポイントで `isPrivate: true` のレコードを除外し、公開 API 応答へ含めないようにした。

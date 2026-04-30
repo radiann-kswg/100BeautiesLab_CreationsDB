@@ -235,6 +235,7 @@
 ## 7. 画像を追加/更新する場合
 
 - 作品ごとの `data/Works_<作品>/Images/**` 配下へ配置します
+- DB 個別画像は `Images/DB_<DbName>/`、References 画像は `Images/Ref_<RefName>/`、作品共通画像は `Images/General/` を使います
 - 画像の抽出/表示は `db_type.json` の `$image` 定義や型定義を参照します
 - 画像を増やすだけであれば、必ずしも `db_meta.json` 更新は不要です（ただし型定義の設計次第）
 

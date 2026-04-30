@@ -97,8 +97,18 @@
 典型用途:
 
 - `DB_Label`, `DB_Summary`, `StoryEra` の定義
+- `DB_Layer` による DB 実体の配置レイヤー指定
+- `DB_File` による DB 実体ファイル名の明示
+- `#Ref_` prefix による資料系 DB の既定ファイル名切り替え
 - 二次創作 DB ごとの `_Secondaries` 分岐
 - 作品専用 list/link 辞書の補足
+
+補足:
+
+- `Databases.#DB_<DbName>.DB_Layer` を指定すると、SW の DB 読み込みと DB 一覧列挙は `DataBases/` 固定ではなく、そのレイヤー配下を探索します。
+- `Databases.#Ref_<RefName>.DB_Layer` を指定すると、同じく指定レイヤー配下を探索しつつ、既定ファイル名は `ref_<RefName>.json` を優先します。
+- `Databases.#DB_<DbName>.DB_File` / `Databases.#Ref_<RefName>.DB_File` を指定すると、既定ファイル名よりもそのファイル名を優先して参照します。
+- 未指定時は従来どおり `DataBases/` を使うため、既存作品のレイアウトは変更不要です。
 
 ### 2.5 グローバル / 作品別 `Dictionaries/`
 
@@ -281,6 +291,8 @@
 - `$Def_DatabaseCatalog`
 - `$Def_StoryEraCatalog`
 
+`$Def_DatabaseCatalog` は現在、`DB_Label`, `DB_Label_EN`, `DB_Summary`, `DB_Layer`, `DB_File`, `StoryEra`, `SecondarySummary` を補助宣言します。catalog key 自体は `#DB_*` に加えて資料系の `#Ref_*` も許容します。
+
 用途:
 
 - `CreationWorks` / `Databases` のメタ項目を docs 上で明示する
@@ -329,12 +341,22 @@
 - `DB_Label`
 - `DB_Label_EN`
 - `DB_Summary`
+- `DB_Layer`
+- `DB_File`
 - `StoryEra`
 - `SecondarySummary`
 - `_Commons`
 - `_Secondaries`
 
 `DB_Label` / `DB_Label_EN` は、works/{work}/db 一覧と UI の DB セレクト・概要ヘッダで使われます。未定義時は `StandardEndpointHandlers.buildDefaultDatabaseCatalogLabels()` が既定ラベルを補います。
+
+`DB_Layer` は DB 実体の配置ディレクトリを表す補助キーで、未指定時は `DataBases` とみなされます。`Glossaries` や `References` を段階導入する際の入口として使います。
+
+`#Ref_*` は資料系 DB 用の catalog key で、未指定の実体名を `ref_<Name>.json` として扱います。たとえば `#Ref_Glossary` は `References/ref_Glossary.json` を既定候補として引きます。
+
+`DB_File` は DB 実体のファイル名を表す補助キーで、未指定時は `#DB_*` なら `db_<DbName>.json`、`#Ref_*` なら `ref_<Name>.json` を使います。既定名から外したい場合だけ明示します。
+
+画像ディレクトリ名もこの catalog key 系に揃え、通常 DB は `Images/DB_<DbName>/...`、資料系 DB は `Images/Ref_<RefName>/...` を既定とします。作品共通画像のみ `Images/General/` を使います。
 
 ### 4.4 `StoryEra`
 

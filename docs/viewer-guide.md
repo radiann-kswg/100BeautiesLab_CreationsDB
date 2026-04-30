@@ -67,7 +67,7 @@
 - `data/db_meta.json` : グローバルのメタ情報（作品一覧、辞書、表示・直リンクの補助情報など）
 - `data/db_type.json` : グローバルの型定義（`$DefType`）
 - `data/Works_<作品>/DataBases/` : 作品ごとの DB（`db_*.json`、作品メタ、作品型定義）
-- `data/Works_<作品>/Images/` : 作品ごとの画像
+- `data/Works_<作品>/Images/` : 作品ごとの画像（`General/`、`DB_*`、`Ref_*` サブフォルダ）
 
 作品ごとに `DataBases` フォルダ内へまとまっています。
 

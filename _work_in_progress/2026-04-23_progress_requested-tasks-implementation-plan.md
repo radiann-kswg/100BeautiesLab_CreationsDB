@@ -12,6 +12,16 @@
 - `Belonging -> Faction` のような schema alias 解決が UI でも検証可能になり、API/SW 側の整合だけでは拾えなかった UI 回帰も段階導入で検知できるようになった。
 - したがって、今後の 4 タスクは「API/SW テストのみ」ではなく「API/SW + UI 回帰テスト」を前提に段階実装する。
 
+## 2026-04-23 追記
+
+- Phase D の資料系 schema 整理として、`data/Works_NumberTales/References/db_type.json` に置いていた References 用 typedef は global `data/db_type.json` ではなく shared layer の `data/References/db_type.json` を正本にする形へ揃えた。
+- これにより、作品別 `References/db_type.json` は空のローカル上書きで維持しつつ、`Term` / `Title` / `RelatedCreations` などの資料系フィールドは shared references schema を共通宣言として扱える状態になった。
+- 回帰確認として `tests/data.shape.test.js` を実行し、3 件成功を確認した。
+- 追加で、`pages/characters.js` では `DB_Layer: References` の DB を開いた際に shared `data/References/db_type.json` を UI 側で読み込んで work typedef へマージし、References レコードの `Title` / `Term` / `BodyBlocks` などをキャラシート詳細へ表示できるようにした。
+- あわせて一覧・詳細タイトルの fallback を `Title` / `Term` 対応へ拡張し、References レコードでも `'(No Name)'` にならないようにした。
+- さらに、一覧検索を `Title` / `Term` 系へ拡張し、`RelatedTerms` を Glossary DB の絞り込みリンク、`RelatedCreations` を対象 work/db への遷移リンクとして detail の「関連情報」セクションへ追加した。
+- 回帰確認として `tests/pages.characters.ui-output.test.js` の 8 件成功と `tests/pages.characters.syntax.test.js` の成功を確認した。
+
 ## 現時点の基本方針
 
 - 既存機能の改悪防止を最優先とし、変更は小さな単位で段階導入する。
@@ -269,6 +279,17 @@
 - タスク 1 の必要な typedef/meta 拡張を段階導入する。
 - タスク 2 の新規 DB 追加と API/UI 入口整備を行う。
 - 関連 docs / CHANGELOG / 進捗ログを同期更新する。
+
+#### 2026-04-23 着手メモ
+
+- タスク 2 の最小着手として、作品別 `Databases.#DB_<DbName>` に `DB_Layer` を持たせ、`Glossaries/` や `References/` のような非 `DataBases/` レイヤーの受け皿を SW 側へ追加した。
+- `lib/sw-common.js` の `readDB()` / `listWorkDBs()` は `DB_Layer` を参照して対象ディレクトリを切り替えるようにし、DB 一覧カタログにも `DB_Layer` を返すようにした。
+- `tests/sw.db-layer-routing.test.js` を追加し、layer-aware な DB 読み込みと一覧応答を回帰で固定した。
+- 続けて NumberTales に `Glossaries/` と `References/` の実テンプレートを追加し、各レイヤーへ `db_meta.json`, `db_type.json`, 空の `db_Glossary.json` / `db_Reference.json` を配置した。
+- `data/Works_NumberTales/DataBases/db_meta.json` には `#DB_Glossary` / `#DB_Reference` を追加し、既存の works/{work}/db 導線から新レイヤー DB を列挙できるようにした。
+- 追加データ投入後の構成変更として、Glossary / Reference の実体ファイルを `References/ref_Glossary.json` / `References/ref_Reference.json` へ統合し、catalog key も `#Ref_Glossary` / `#Ref_Reference` へ変更した。
+- SW 側は `#Ref_` prefix から `ref_*.json` を既定推論できるようにし、NumberTales の資料系 meta では `DB_File` 指定を不要化した。
+- 続けて References typedef の関連先フィールドを `RelatedCreations` へ整理し、その object 配列の各要素が `RelatedWorks` と `RelatedDB` を持てるようにした。資料系レコードで per-work / per-db の関連先を 1 要素ごとに表現するための下地である。
 
 ## 優先順の再設定
 

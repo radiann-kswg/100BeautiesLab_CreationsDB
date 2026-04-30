@@ -55,7 +55,7 @@ High-level layout:
 - `data/db_meta.json`: global metadata (works list, dictionaries, display/link helpers)
 - `data/db_type.json`: global type definitions (`$DefType`)
 - `data/Works_<WorkName>/DataBases/`: per-work DB JSON, per-work meta/type definitions
-- `data/Works_<WorkName>/Images/`: per-work images
+- `data/Works_<WorkName>/Images/`: per-work images (`General/`, `DB_*`, `Ref_*`)
 
 DB files follow `db_<Type>.json` naming (e.g. `db_Primary.json`).
 

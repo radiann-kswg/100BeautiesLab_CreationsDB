@@ -140,6 +140,13 @@ function installDomGlobals(dom) {
 function createDetailDom() {
   return new JSDOM(`<!DOCTYPE html><html lang="ja"><body>
     <input id="chk-debug" type="checkbox" />
+    <select id="select-work"></select>
+    <select id="select-db"></select>
+    <input id="search-input" type="text" />
+    <section id="list-view" class="card">
+      <div id="list"></div>
+      <div id="list-empty" hidden>empty</div>
+    </section>
     <section id="detail-view" class="card">
       <div class="detail-header"><h2 id="detail-title">-</h2></div>
       <div id="detail"></div>
@@ -161,6 +168,15 @@ function getSectionText(title) {
   return section?.textContent?.replace(/\s+/g, ' ').trim() || '';
 }
 
+function getSectionNode(title) {
+  return Array.from(document.querySelectorAll('.section'))
+    .find((node) => node.querySelector('h3')?.textContent?.trim() === title) || null;
+}
+
+function getListTitles() {
+  return Array.from(document.querySelectorAll('#list h3')).map((node) => node.textContent?.trim() || '');
+}
+
 const globalMeta = loadJson('data/db_meta.json');
 const globalTypeDef = loadJson('data/db_type.json');
 const globalDefType = buildGlobalDefTypeFixture();
@@ -172,8 +188,14 @@ const numberTalesWorkTypeDef = loadJson('data/Works_NumberTales/DataBases/db_typ
 const numberTalesWorkMeta = buildWorkMetaFixture('Works_NumberTales');
 const numberTalesSecondaryRecords = loadJson('data/Works_NumberTales/DataBases/db_Secondary.json');
 const numberTalesSelfSecondaryRecords = loadJson('data/Works_NumberTales/DataBases/db_SelfSecondary.json');
+const sharedReferencesTypeDef = loadJson('data/References/db_type.json');
+const numberTalesReferencesTypeDef = loadJson('data/Works_NumberTales/References/db_type.json');
+const numberTalesGlossaryRecords = loadJson('data/Works_NumberTales/References/ref_Glossary.json');
+const numberTalesReferenceRecords = loadJson('data/Works_NumberTales/References/ref_Reference.json');
 const hexademicalRecord = numberTalesSecondaryRecords.find((record) => record?.Num === '0xA');
 const requestNumberRecord = numberTalesSelfSecondaryRecords.find((record) => record?.Num === 223);
+const numberTalesGlossaryImageRecord = numberTalesGlossaryRecords.find((record) => record?.Term === 'ヒューマノイド形態');
+const numberTalesReferenceRecord = numberTalesReferenceRecords.find((record) => record?.Title === 'ナンバーテールズについて');
 
 const yayoiRecord = {
   ...yayoiRecordBase,
@@ -295,5 +317,213 @@ describe('pages/characters.js UI output', () => {
     expect(document.querySelector('#detail-title')?.textContent?.trim()).toBe('非公開');
     expect(document.querySelector('#detail')?.textContent?.trim()).toContain('このキャラクターは非公開です。');
     expect(document.querySelector('#detail')?.textContent?.includes('桜花 訫')).toBe(false);
+  });
+
+  it('renders references layer records with shared references typedef labels', async () => {
+    charactersModule.__setCharactersTestState({
+      charState: {
+        db: 'Reference',
+        workTypeDef: numberTalesWorkTypeDef,
+        globalTypeDef,
+        workMeta: numberTalesWorkMeta,
+        imageFields: []
+      }
+    });
+
+    const originalFetch = globalThis.fetch;
+    globalThis.fetch = async (input) => {
+      const url = String(input);
+      if (url.includes('/data/References/db_type.json')) {
+        return new Response(JSON.stringify(sharedReferencesTypeDef), {
+          status: 200,
+          headers: { 'Content-Type': 'application/json' }
+        });
+      }
+      throw new Error(`Unexpected fetch in references typedef test: ${url}`);
+    };
+
+    try {
+      await charactersModule.renderDetail('#Works_NumberTales', numberTalesReferenceRecord);
+    } finally {
+      globalThis.fetch = originalFetch;
+    }
+
+    expect(document.querySelector('#detail-title')?.textContent?.trim()).toBe('ナンバーテールズについて');
+    expect(getBasicFieldValue('資料名')).toBe('ナンバーテールズについて / About NumberTales');
+    expect(getBasicFieldValue('分類')).toBe('キャラクターの基本情報');
+    const profileSectionText = getSectionText('プロフィール/テキスト');
+    expect(profileSectionText).toContain('概要');
+    expect(profileSectionText).toContain('本文ブロック');
+    expect(profileSectionText).toContain('普段人類がなんの違和感もなく数える数字だが');
+  });
+
+  it('renders references poster images using work-local image typedef folder hints', async () => {
+    charactersModule.__setCharactersTestState({
+      charState: {
+        db: 'Glossary',
+        workTypeDef: numberTalesWorkTypeDef,
+        globalTypeDef,
+        workMeta: numberTalesWorkMeta,
+        imageFields: []
+      }
+    });
+
+    const originalFetch = globalThis.fetch;
+    globalThis.fetch = async (input) => {
+      const url = String(input);
+      if (url.includes('/data/References/db_type.json')) {
+        return new Response(JSON.stringify(sharedReferencesTypeDef), {
+          status: 200,
+          headers: { 'Content-Type': 'application/json' }
+        });
+      }
+      if (url.includes('/data/Works_NumberTales/References/db_type.json')) {
+        return new Response(JSON.stringify(numberTalesReferencesTypeDef), {
+          status: 200,
+          headers: { 'Content-Type': 'application/json' }
+        });
+      }
+      throw new Error(`Unexpected fetch in references image typedef test: ${url}`);
+    };
+
+    try {
+      await charactersModule.renderDetail('#Works_NumberTales', numberTalesGlossaryImageRecord);
+    } finally {
+      globalThis.fetch = originalFetch;
+    }
+
+    const poster = document.querySelector('img.poster');
+    expect(poster).not.toBeNull();
+    expect(poster.getAttribute('src')).toBe('/data/Works_NumberTales/Images/Ref_Glossary/concept-figure/cnsp-fg_NTsHumanoid.png');
+  });
+
+  it('renders glossary and reference list cards using Term and Title fallbacks', async () => {
+    charactersModule.__setCharactersTestState({
+      charState: {
+        db: 'Glossary',
+        workId: '#Works_NumberTales',
+        workTypeDef: numberTalesWorkTypeDef,
+        globalTypeDef,
+        workMeta: numberTalesWorkMeta,
+        imageFields: []
+      }
+    });
+
+    await charactersModule.__renderListForTest(numberTalesGlossaryRecords, '#Works_NumberTales', { imageFields: [] });
+    expect(getListTitles()).toContain('数秘加護');
+
+    charactersModule.__setCharactersTestState({
+      charState: {
+        db: 'Reference',
+        workId: '#Works_NumberTales',
+        workTypeDef: numberTalesWorkTypeDef,
+        globalTypeDef,
+        workMeta: numberTalesWorkMeta,
+        imageFields: []
+      }
+    });
+
+    await charactersModule.__renderListForTest(numberTalesReferenceRecords, '#Works_NumberTales', { imageFields: [] });
+    expect(getListTitles()).toContain('ナンバーテールズについて');
+  });
+
+  it('builds list thumbnail paths under Ref image directories for references dbs', async () => {
+    charactersModule.__setCharactersTestState({
+      charState: {
+        db: 'Glossary',
+        workId: '#Works_NumberTales',
+        workTypeDef: numberTalesWorkTypeDef,
+        globalTypeDef,
+        workMeta: numberTalesWorkMeta,
+        imageFields: [
+          {
+            field: 'concept-figure_PNGName',
+            folderHint: 'concept-figure',
+            category: 'concept',
+            type: '#Image|#PNG',
+            priority: 1
+          }
+        ]
+      }
+    });
+
+    await charactersModule.__renderListForTest([
+      {
+        Term: '画像付き用語',
+        Images: {
+          'concept-figure_PNGName': 'glossary-sample'
+        }
+      }
+    ], '#Works_NumberTales', {
+      imageFields: [
+        {
+          field: 'concept-figure_PNGName',
+          folderHint: 'concept-figure',
+          category: 'concept',
+          type: '#Image|#PNG',
+          priority: 1
+        }
+      ]
+    });
+
+    const img = document.querySelector('#list img.thumb');
+    expect(img).not.toBeNull();
+    expect(img.getAttribute('src')).toBe('/data/Works_NumberTales/Images/Ref_Glossary/concept-figure/glossary-sample.png');
+  });
+
+  it('renders related terms and related creations as navigable links for references records', async () => {
+    charactersModule.__setCharactersTestState({
+      charState: {
+        db: 'Reference',
+        workId: '#Works_NumberTales',
+        workTypeDef: numberTalesWorkTypeDef,
+        globalTypeDef,
+        workMeta: numberTalesWorkMeta,
+        imageFields: []
+      }
+    });
+
+    const originalFetch = globalThis.fetch;
+    globalThis.fetch = async (input) => {
+      const url = String(input);
+      if (url.includes('/data/References/db_type.json')) {
+        return new Response(JSON.stringify(sharedReferencesTypeDef), {
+          status: 200,
+          headers: { 'Content-Type': 'application/json' }
+        });
+      }
+      throw new Error(`Unexpected fetch in references link test: ${url}`);
+    };
+
+    const linkedRecord = {
+      ...numberTalesReferenceRecord,
+      RelatedTerms: ['数秘加護'],
+      RelatedCreations: [
+        { RelatedWorks: '#Works_NumberTales', RelatedDB: 'Glossary' },
+        { RelatedWorks: '#Works_NumberTales', RelatedDB: 'Primary' }
+      ]
+    };
+
+    try {
+      await charactersModule.renderDetail('#Works_NumberTales', linkedRecord);
+    } finally {
+      globalThis.fetch = originalFetch;
+    }
+
+    const section = getSectionNode('関連情報');
+    expect(section).not.toBeNull();
+
+    const links = Array.from(section.querySelectorAll('a'));
+    const termLink = links.find((link) => link.textContent?.trim() === '数秘加護');
+    expect(termLink).toBeTruthy();
+    expect(new URL(termLink.href).searchParams.get('db')).toBe('Glossary');
+    expect(new URL(termLink.href).searchParams.get('q')).toBe('数秘加護');
+
+    const creationLinks = links.filter((link) => link.textContent?.includes('ナンバーテールズ / '));
+    expect(creationLinks.length).toBeGreaterThanOrEqual(2);
+    const glossaryLink = creationLinks.find((link) => new URL(link.href).searchParams.get('db') === 'Glossary');
+    const primaryLink = creationLinks.find((link) => new URL(link.href).searchParams.get('db') === 'Primary');
+    expect(glossaryLink).toBeTruthy();
+    expect(primaryLink).toBeTruthy();
   });
 });
