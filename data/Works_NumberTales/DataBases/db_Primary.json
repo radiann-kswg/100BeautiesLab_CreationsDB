@@ -7,8 +7,8 @@
       "corefolder_PNGPath": ["emstk_corefolder1-1", "emstk_corefolder1-2"],
       "arts_PNGPath": ["humanoids/2023/art_img1-humanoid"]
     },
-    "Name": "ハジメ",
-    "Name_EN": "Unitta",
+    "Name": "1(ハジメ)",
+    "Name_EN": "1(Unitta)",
     "ModelName": "ナンバーテールズ試作型1号機(1番機)",
     "ModelNumber": "APHR-NT[P]I",
     "FormalName": "ナンバーテールズ1番機",
@@ -110,8 +110,8 @@
         "corefolders/2023/art_img2-corefolderWinter"
       ]
     },
-    "Name": "ツグ",
-    "Name_EN": "Twiny",
+    "Name": "2(ツグ)",
+    "Name_EN": "2(Twiny)",
     "ModelName": "ナンバーテールズ1号機改(2番機)",
     "ModelNumber": "APHR-NT I.R",
     "FormalName": "ナンバーテールズ2番機",
@@ -206,8 +206,8 @@
       "concept_PNGName": "cnsp_img3",
       "corefolder_PNGPath": ["emstk_corefolder3-1"]
     },
-    "Name": "ナオ",
-    "Name_EN": "Treiya",
+    "Name": "3(ナオ)",
+    "Name_EN": "3(Treiya)",
     "ModelName": "ナンバーテールズ3号機(3番機)",
     "ModelNumber": "APHR-NT III",
     "FormalName": "ナンバーテールズ3番機",
@@ -295,8 +295,8 @@
       ],
       "arts_PNGPath": ["art_numbertalesAniv4th"]
     },
-    "Name": "モチ",
-    "Name_EN": "Forna",
+    "Name": "4(モチ)",
+    "Name_EN": "4(Forna)",
     "ModelName": "ナンバーテールズ4号機(4番機)",
     "ModelNumber": "APHR-NT IV",
     "FormalName": "ナンバーテールズ4番機",
@@ -382,8 +382,8 @@
         "emstk_corefolder5-3"
       ]
     },
-    "Name": "イズ",
-    "Name_EN": "Fifa",
+    "Name": "5(イズ)",
+    "Name_EN": "5(Fifa)",
     "ModelName": "ナンバーテールズ5号機(5番機)",
     "ModelNumber": "APHR-NT V",
     "FormalName": "ナンバーテールズ5番機",
@@ -469,8 +469,8 @@
         "emstk_corefolder6-3"
       ]
     },
-    "Name": "ムイ",
-    "Name_EN": "Sics",
+    "Name": "6(ムイ)",
+    "Name_EN": "6(Sics)",
     "ModelName": "ナンバーテールズ6号機(6番機)",
     "ModelNumber": "APHR-NT VI",
     "FormalName": "ナンバーテールズ6番機",
@@ -556,8 +556,8 @@
       "corefolder_PNGPath": ["emstk_corefolder7-1"],
       "arts_PNGPath": ["humanoids/2023/art_img7-humanoid"]
     },
-    "Name": "ナナ",
-    "Name_EN": "Sevan",
+    "Name": "7(ナナ)",
+    "Name_EN": "7(Sevan)",
     "ModelName": "ナンバーテールズ7号機(7番機)",
     "ModelNumber": "APHR-NT VII",
     "FormalName": "ナンバーテールズ7番機",
@@ -643,8 +643,8 @@
       "corefolder_PNGPath": ["emstk_corefolder8-1"],
       "arts_PNGPath": ["corefolders/sphericateDay/art_sphericateDay202111"]
     },
-    "Name": "ワカツ",
-    "Name_EN": "Eighas",
+    "Name": "8(ワカツ)",
+    "Name_EN": "8(Eighas)",
     "ModelName": "ナンバーテールズ8号機(8番機)",
     "ModelNumber": "APHR-NT VIII",
     "FormalName": "ナンバーテールズ8番機",
@@ -735,8 +735,8 @@
       "corefolder_PNGPath": ["emstk_corefolder9-1", "emstk_corefolder9-2"],
       "arts_PNGPath": ["corefolders/sphericateDay/art_sphericateDay202309-img9"]
     },
-    "Name": "チカ",
-    "Name_EN": "Nina",
+    "Name": "9(チカ)",
+    "Name_EN": "9(Nina)",
     "ModelName": "ナンバーテールズ9号機(9番機)",
     "ModelNumber": "APHR-NT IX",
     "FormalName": "ナンバーテールズ9番機",
@@ -820,8 +820,8 @@
       "concept_PNGName": "cnsp_img10",
       "corefolder_PNGPath": ["emstk_corefolder10-1", "emstk_corefolder10-2"]
     },
-    "Name": "ミツル",
-    "Name_EN": "Tenim",
+    "Name": "10(ミツル)",
+    "Name_EN": "10(Tenim)",
     "ModelName": "ナンバーテールズ1号機最終版(10番機)",
     "ModelNumber": "APHR-NT I.FIN",
     "FormalName": "ナンバーテールズ10番機",
@@ -927,8 +927,8 @@
       "concept_PNGName": "cnsp_img11",
       "corefolder_PNGPath": ["emstk_corefolder11-1"]
     },
-    "Name": "トウイチ",
-    "Name_EN": "Elevan",
+    "Name": "11(トウイチ)",
+    "Name_EN": "11(Elevan)",
     "ModelName": "ナンバーテールズ11号機(11番機)",
     "ModelNumber": "APHR-NT XI",
     "FormalName": "ナンバーテールズ11番機",
@@ -1016,8 +1016,8 @@
       "corefolder_PNGPath": ["emstk_corefolder12-1", "emstk_corefolder12-2"],
       "arts_PNGPath": ["humanoids/2023/art_img12-humanoid"]
     },
-    "Name": "トウジ",
-    "Name_EN": "Twelva",
+    "Name": "12(トウジ)",
+    "Name_EN": "12(Twelva)",
     "ModelName": "ナンバーテールズ1+2号機(12番機)",
     "ModelNumber": "APHR-NT I+II",
     "FormalName": "ナンバーテールズ12番機",
@@ -1116,8 +1116,8 @@
       "corefolder_PNGPath": ["emstk_corefolder13-1"],
       "arts_PNGPath": ["corefolders/sphericateDay/art_sphericateDay202306"]
     },
-    "Name": "トミ",
-    "Name_EN": "Thirteena",
+    "Name": "13(トミ)",
+    "Name_EN": "13(Thirteena)",
     "ModelName": "ナンバーテールズ1+3号機甲(13番機)",
     "ModelNumber": "APHR-NT I+III.A",
     "FormalName": "ナンバーテールズ13番機",
@@ -1220,8 +1220,8 @@
         "corefolders/sphericateDay/art_sphericateDay202309-Overall"
       ]
     },
-    "Name": "トヨ",
-    "Name_EN": "Forteels",
+    "Name": "14(トヨ)",
+    "Name_EN": "14(Forteels)",
     "ModelName": "ナンバーテールズ1+4号機甲(14番機)",
     "ModelNumber": "APHR-NT I+IV.A",
     "FormalName": "ナンバーテールズ14番機",
@@ -1316,8 +1316,8 @@
       ],
       "arts_PNGPath": ["humanoids/2023/art_img15-humanoid"]
     },
-    "Name": "トウゴ",
-    "Name_EN": "Fifteeld",
+    "Name": "15(トウゴ)",
+    "Name_EN": "15(Fifteeld)",
     "ModelName": "ナンバーテールズ1+5号機(15番機)",
     "ModelNumber": "APHR-NT I+V",
     "FormalName": "ナンバーテールズ15番機",
@@ -1444,8 +1444,8 @@
         "corefolders/2024/art_img16-corefolderB"
       ]
     },
-    "Name": "ソロク",
-    "Name_EN": "Sixteely",
+    "Name": "16(ソロク)",
+    "Name_EN": "16(Sixteely)",
     "ModelName": "ナンバーテールズ1+6号機甲(16番機)",
     "ModelNumber": "APHR-NT I+VI.A",
     "FormalName": "ナンバーテールズ16番機",
@@ -1551,8 +1551,8 @@
       "corefolder_PNGPath": ["emstk_corefolder17-1"],
       "arts_PNGPath": ["humanoids/2024/art_img17-humanoidHardStudy"]
     },
-    "Name": "トナ",
-    "Name_EN": "Sevteena",
+    "Name": "17(トナ)",
+    "Name_EN": "17(Sevteena)",
     "ModelName": "ナンバーテールズ1+7号機甲(17番機)",
     "ModelNumber": "APHR-NT I+VII.A",
     "FormalName": "ナンバーテールズ17番機",
@@ -1657,8 +1657,8 @@
       "concept_PNGName": "cnsp_img18",
       "corefolder_PNGPath": ["emstk_corefolder18-1", "emstk_corefolder18-2"]
     },
-    "Name": "トウヤ",
-    "Name_EN": "Eighteeld",
+    "Name": "18(トウヤ)",
+    "Name_EN": "18(Eighteeld)",
     "ModelName": "ナンバーテールズ1+8号機甲(18番機)",
     "ModelNumber": "APHR-NT I+VIII.A",
     "FormalName": "ナンバーテールズ18番機",
@@ -1751,8 +1751,8 @@
       "concept_PNGName": "cnsp_img19",
       "corefolder_PNGPath": ["emstk_corefolder19-1"]
     },
-    "Name": "トク",
-    "Name_EN": "Ninteels",
+    "Name": "19(トク)",
+    "Name_EN": "19(Ninteels)",
     "ModelName": "ナンバーテールズ1+9号機甲(19番機)",
     "ModelNumber": "APHR-NT I+IX.A",
     "FormalName": "ナンバーテールズ19番機",
@@ -1848,8 +1848,8 @@
         "humanoids/2023/art_img20-humanoid"
       ]
     },
-    "Name": "ハツカ",
-    "Name_EN": "Twentia",
+    "Name": "20(ハツカ)",
+    "Name_EN": "20(Twentia)",
     "ModelName": "ナンバーテールズ2号機改(20番機)",
     "ModelNumber": "APHR-NT II.R",
     "FormalName": "ナンバーテールズ20番機",
@@ -1941,8 +1941,8 @@
       "concept_PNGName": "cnsp_img21",
       "corefolder_PNGPath": ["emstk_corefolder21-1"]
     },
-    "Name": "ハツヒ",
-    "Name_EN": "Twinone",
+    "Name": "21(ハツヒ)",
+    "Name_EN": "21(Twinone)",
     "ModelName": "ナンバーテールズ1+2号機改(21番機)",
     "ModelNumber": "APHR-NT I+II.R",
     "FormalName": "ナンバーテールズ21番機",
@@ -2040,8 +2040,8 @@
         "../../SemiPrimary/arts/corefolders/autumnMoon/art_autumnMoon2025"
       ]
     },
-    "Name": "フジ",
-    "Name_EN": "Twin-twina",
+    "Name": "22(フジ)",
+    "Name_EN": "22(Twin-twina)",
     "ModelName": "ナンバーテールズ11+11号機(22番機)",
     "ModelNumber": "APHR-NT XI+XI",
     "FormalName": "ナンバーテールズ22番機",
@@ -2131,8 +2131,8 @@
       "corefolder_PNGPath": ["emstk_corefolder23-1"],
       "arts_PNGPath": ["humanoids/2023/art_img23-humanoid"]
     },
-    "Name": "ツグミ",
-    "Name_EN": "Twinthery",
+    "Name": "23(ツグミ)",
+    "Name_EN": "23(Twinthery)",
     "ModelName": "ナンバーテールズ2+3号機甲(23番機)",
     "ModelNumber": "APHR-NT II+III.A",
     "FormalName": "ナンバーテールズ23番機",
@@ -2230,8 +2230,8 @@
       "corefolder_PNGPath": ["emstk_corefolder24-1", "emstk_corefolder24-2"],
       "arts_PNGPath": ["humanoids/2023/art_img24-humanoid"]
     },
-    "Name": "フトシ",
-    "Name_EN": "Hourds",
+    "Name": "24(フトシ)",
+    "Name_EN": "24(Hourds)",
     "ModelName": "ナンバーテールズ2+4号機甲(24番機)",
     "ModelNumber": "APHR-NT II+IV.A",
     "FormalName": "ナンバーテールズ24番機",
@@ -2327,8 +2327,8 @@
         "humanoids/2024/art_img25-humanoidValentineB"
       ]
     },
-    "Name": "フィズ",
-    "Name_EN": "Quartels",
+    "Name": "25(フィズ)",
+    "Name_EN": "25(Quartels)",
     "ModelName": "ナンバーテールズ2+5号機(25番機)",
     "ModelNumber": "APHR-NT II+V",
     "FormalName": "ナンバーテールズ25番機",
@@ -2425,8 +2425,8 @@
       "concept_PNGName": "cnsp_img26",
       "corefolder_PNGPath": ["emstk_corefolder26-1"]
     },
-    "Name": "ニロク",
-    "Name_EN": "Twinsix",
+    "Name": "26(ニロク)",
+    "Name_EN": "26(Twinsix)",
     "ModelName": "ナンバーテールズ2+6号機甲(26番機)",
     "ModelNumber": "APHR-NT II+VI.A",
     "FormalName": "ナンバーテールズ26番機",
@@ -2547,8 +2547,8 @@
       "corefolder_PNGPath": ["emstk_corefolder27-1"],
       "arts_PNGPath": ["humanoids/2024/art_img27-humanoid"]
     },
-    "Name": "ツギナ",
-    "Name_EN": "Twißven",
+    "Name": "27(ツギナ)",
+    "Name_EN": "27(Twißven)",
     "ModelName": "ナンバーテールズ2+7号機(27番機)",
     "ModelNumber": "APHR-NT II+VII",
     "FormalName": "ナンバーテールズ27番機",
@@ -2645,8 +2645,8 @@
       "concept_PNGName": "cnsp_img28",
       "conceptAlt_PNGName": ["cnsp_img28-onBusiness", "cnsp_img28-onPrivate"]
     },
-    "Name": "ニハチ",
-    "Name_EN": "Tweighan",
+    "Name": "28(ニハチ)",
+    "Name_EN": "28(Tweighan)",
     "ModelName": "ナンバーテールズ2+8号機甲(28番機)",
     "ModelNumber": "APHR-NT II+VIII.A",
     "FormalName": "ナンバーテールズ28番機",
@@ -2747,8 +2747,8 @@
         "corefolders/autumnMoon/art_autumnMoon2023"
       ]
     },
-    "Name": "ニトク",
-    "Name_EN": "Twenina",
+    "Name": "29(ニトク)",
+    "Name_EN": "29(Twenina)",
     "ModelName": "ナンバーテールズ2+9号機甲(29番機)",
     "ModelNumber": "APHR-NT II+IX.A",
     "FormalName": "ナンバーテールズ29番機",
@@ -2839,8 +2839,8 @@
       "corefolder_PNGPath": ["emstk_corefolder30-1", "emstk_corefolder30-2"],
       "arts_PNGPath": ["chattingArt/chart_img30-corefolder"]
     },
-    "Name": "ミツト",
-    "Name_EN": "Thirtens",
+    "Name": "30(ミツト)",
+    "Name_EN": "30(Thirtens)",
     "ModelName": "ナンバーテールズ改良型3号機(30番機)",
     "ModelNumber": "APHR-NT [R]III",
     "FormalName": "ナンバーテールズ30番機",
@@ -2926,8 +2926,8 @@
       "corefolder_PNGPath": ["emstk_corefolder31-1", "emstk_corefolder31-2"],
       "arts_PNGPath": ["corefolders/2023/art_img31-corefolder"]
     },
-    "Name": "ミツイ",
-    "Name_EN": "Thirtone",
+    "Name": "31(ミツイ)",
+    "Name_EN": "31(Thirtone)",
     "ModelName": "ナンバーテールズ1+3号機乙(31番機)",
     "ModelNumber": "APHR-NT I+III.B",
     "FormalName": "ナンバーテールズ31番機",
@@ -3016,8 +3016,8 @@
       "concept_PNGName": "cnsp_img32",
       "corefolder_PNGPath": ["emstk_corefolder32-1", "emstk_corefolder32-2"]
     },
-    "Name": "ミツギ",
-    "Name_EN": "Thirtwis",
+    "Name": "32(ミツギ)",
+    "Name_EN": "32(Thirtwis)",
     "ModelName": "ナンバーテールズ2+3号機乙(32番機)",
     "ModelNumber": "APHR-NT II+III.B",
     "FormalName": "ナンバーテールズ32番機",
@@ -3114,8 +3114,8 @@
       ],
       "arts_PNGPath": ["corefolders/sphericateDay/art_sphericateDay202202"]
     },
-    "Name": "ミサ",
-    "Name_EN": "Thirthrey",
+    "Name": "33(ミサ)",
+    "Name_EN": "33(Thirthrey)",
     "ModelName": "ナンバーテールズ正規+改良型3号機(33番機)",
     "ModelNumber": "APHR-NT III+[R]III",
     "FormalName": "ナンバーテールズ33番機",
@@ -3207,14 +3207,15 @@
       "corefolder_PNGPath": ["emstk_corefolder34-1", "emstk_corefolder34-2"],
       "arts_PNGPath": ["humanoids/parody/art_img34,43-parody"]
     },
-    "Name": "サトシ\n(サンジ)",
-    "Name_EN": "Thirfory\n(Troubleforcer)",
+    "Name": "34(サトシ)\nサンジ",
+    "Name_EN": "34(Thirfory)\nTroubleforcer",
     "ModelName": "ナンバーテールズ3+4号機甲(34番機)",
     "ModelNumber": "APHR-NT III+IV.A",
     "FormalName": "ナンバーテールズ34番機",
     "FormalName_EN": "NumberTales #34",
     "CodeName": "三四",
-    "SPCodeName": "三十四",
+    "SPCodeName": "三十四\n(惨事)",
+    "SPCodeName_EN": "Thirtyfour\n(Trouble)",
     "GenderType": "Neutral",
     "Height_cm": 143,
     "ConceptAge": { "value": 15, "about_JP": "？", "about_EN": "?" },
@@ -3304,14 +3305,15 @@
       "corefolder_PNGPath": ["emstk_corefolder35-1", "emstk_corefolder35-2"],
       "designAlt_PNGPath": ["chattingArt/chart_img35-swimwear"]
     },
-    "Name": "サトコ\nミコ",
-    "Name_EN": "Thirfivan\nMíko",
+    "Name": "35(サトコ)\n35(ミコ)",
+    "Name_EN": "35(Thirfivan)\n35(Míko)",
     "ModelName": "ナンバーテールズ3+5号機甲(35番機)",
     "ModelNumber": "APHR-NT III+V.A",
     "FormalName": "ナンバーテールズ35番機",
     "FormalName_EN": "NumberTales #35",
     "CodeName": "三五",
-    "SPCodeName": "三十五",
+    "SPCodeName": "三十五\n(巫女)",
+    "SPCodeName_EN": "Thirty-Five\n(Miko)",
     "AnivDay": [
       { "Day": { "Month": 3, "DayOfMonth": 5 }, "DayAbout": "開発記念" }
     ],
@@ -3398,8 +3400,8 @@
         "chattingArt/chart_img36-corefolderMyNewGear"
       ]
     },
-    "Name": "ミトム",
-    "Name_EN": "Trisixa",
+    "Name": "36(ミトム)",
+    "Name_EN": "36(Trisixa)",
     "ModelName": "ナンバーテールズ3+6号機甲(36番機)",
     "ModelNumber": "APHR-NT III+VI.A",
     "FormalName": "ナンバーテールズ36番機",
@@ -3506,8 +3508,8 @@
         "corefolders/2024/art_img37-corefolderB"
       ]
     },
-    "Name": "サナ",
-    "Name_EN": "Trißven",
+    "Name": "37(サナ)",
+    "Name_EN": "37(Trißven)",
     "ModelName": "ナンバーテールズ3+7号機甲(37番機)",
     "ModelNumber": "APHR-NT III+VIII.A",
     "FormalName": "ナンバーテールズ37番機",
@@ -3599,8 +3601,8 @@
   {
     "Num": 38,
     "Progress": "notProceeded",
-    "Name": "サタハ",
-    "Name_EN": "Threighas",
+    "Name": "38(サタハ)",
+    "Name_EN": "38(Threighas)",
     "ModelName": "ナンバーテールズ3+8号機甲(38番機)",
     "ModelNumber": "APHR-NT III+VIII.A",
     "FormalName": "ナンバーテールズ38番機",
@@ -3639,8 +3641,8 @@
         "humanoids/2023/art_img39-humanoidB"
       ]
     },
-    "Name": "サク",
-    "Name_EN": "Trenína",
+    "Name": "39(サク)",
+    "Name_EN": "39(Trenína)",
     "ModelName": "ナンバーテールズ3+9号機甲(39番機)",
     "ModelNumber": "APHR-NT III+IX.A",
     "FormalName": "ナンバーテールズ39番機",
@@ -3759,8 +3761,8 @@
       "concept_PNGName": "cnsp_img40",
       "corefolder_PNGPath": ["emstk_corefolder40-1", "emstk_corefolder40-2"]
     },
-    "Name": "ヨソ",
-    "Name_EN": "Fortty",
+    "Name": "40(ヨソ)",
+    "Name_EN": "40(Fortty)",
     "ModelName": "ナンバーテールズ改良型4号機(40番機)",
     "ModelNumber": "APHR-NT [R]IV",
     "FormalName": "ナンバーテールズ40番機",
@@ -3851,8 +3853,8 @@
       "conceptAlt_PNGName": ["cnsp_img41-A"],
       "corefolder_PNGPath": ["emstk_corefolder41-1"]
     },
-    "Name": "ヨソイチ",
-    "Name_EN": "Forone",
+    "Name": "41(ヨソイチ)",
+    "Name_EN": "41(Forone)",
     "ModelName": "ナンバーテールズ1+4号機乙(41番機)",
     "ModelNumber": "APHR-NT I+IV.B",
     "FormalName": "ナンバーテールズ41番機",
@@ -3950,8 +3952,8 @@
         "chattingArt/chart_img42-corefolder"
       ]
     },
-    "Name": "ヨツグ",
-    "Name_EN": "Fortwis",
+    "Name": "42(ヨツグ)",
+    "Name_EN": "42(Fortwis)",
     "ModelName": "ナンバーテールズ2+4号機乙(42番機)",
     "ModelNumber": "APHR-NT II+IV.B",
     "FormalName": "ナンバーテールズ42番機",
@@ -4043,8 +4045,8 @@
       "corefolder_PNGPath": ["emstk_corefolder43-1", "emstk_corefolder43-2"],
       "arts_PNGPath": ["humanoids/parody/art_img34,43-parody"]
     },
-    "Name": "シトミ",
-    "Name_EN": "Forthren",
+    "Name": "43(シトミ)",
+    "Name_EN": "43(Forthren)",
     "ModelName": "ナンバーテールズ3+4号機乙(43番機)",
     "ModelNumber": "APHR-NT III+IV.B",
     "FormalName": "ナンバーテールズ43番機",
@@ -4149,8 +4151,8 @@
       ],
       "arts_PNGPath": ["humanoids/2024/art-wip_img44-humanoid"]
     },
-    "Name": "シトシ",
-    "Name_EN": "Folfourn",
+    "Name": "44(シトシ)",
+    "Name_EN": "44(Folfourn)",
     "ModelName": "ナンバーテールズ正規+改良型4号機(44番機)",
     "ModelNumber": "APHR-NT IV+[R]IV",
     "FormalName": "ナンバーテールズ44番機",
@@ -4247,8 +4249,8 @@
       "concept_PNGName": "cnsp_img45",
       "corefolder_PNGPath": ["emstk_corefolder45-1"]
     },
-    "Name": "シゴ",
-    "Name_EN": "Folfivas",
+    "Name": "45(シゴ)",
+    "Name_EN": "45(Folfivas)",
     "ModelName": "ナンバーテールズ4+5号機甲(45番機)",
     "ModelNumber": "APHR-NT IV+V.A",
     "FormalName": "ナンバーテールズ45番機",
@@ -4336,8 +4338,8 @@
       "concept_PNGName": "cnsp_img46",
       "corefolder_PNGPath": ["emstk_corefolder46-1"]
     },
-    "Name": "シロー",
-    "Name_EN": "Forsixen",
+    "Name": "46(シロー)",
+    "Name_EN": "46(Forsixen)",
     "ModelName": "ナンバーテールズ4+6号機甲(46番機)",
     "ModelNumber": "APHR-NT IV+VI.A",
     "FormalName": "ナンバーテールズ46番機",
@@ -4429,8 +4431,8 @@
         "corefolders/sphericateDay/art_sphericateDay202307"
       ]
     },
-    "Name": "シナ",
-    "Name_EN": "Fourséve",
+    "Name": "47(シナ)",
+    "Name_EN": "47(Fourséve)",
     "ModelName": "ナンバーテールズ4+7号機甲(47番機)",
     "ModelNumber": "APHR-NT IV+VII.A",
     "FormalName": "ナンバーテールズ47番機",
@@ -4531,8 +4533,8 @@
       "concept_PNGName": "cnsp_img48",
       "corefolder_PNGPath": ["emstk_corefolder48-1"]
     },
-    "Name": "シハチ",
-    "Name_EN": "Foreighn",
+    "Name": "48(シハチ)",
+    "Name_EN": "48(Foreighn)",
     "ModelName": "ナンバーテールズ4+8号機甲(48番機)",
     "ModelNumber": "APHR-NT IV+VIII.A",
     "FormalName": "ナンバーテールズ48番機",
@@ -4626,8 +4628,8 @@
         "chattingArt/chart_img49-humanoid"
       ]
     },
-    "Name": "ヨチカ",
-    "Name_EN": "Fornins",
+    "Name": "49(ヨチカ)",
+    "Name_EN": "49(Fornins)",
     "ModelName": "ナンバーテールズ4+9号機甲(49番機)",
     "ModelNumber": "APHR-NT IV+IX.A",
     "FormalName": "ナンバーテールズ49番機",
@@ -4714,8 +4716,8 @@
       "corefolder_PNGPath": ["emstk_corefolder50-1", "emstk_corefolder50-2"],
       "arts_PNGPath": ["chattingArt/chart_img50-ballingRole"]
     },
-    "Name": "ナカバ",
-    "Name_EN": "Halvan",
+    "Name": "50(ナカバ)",
+    "Name_EN": "50(Halvan)",
     "ModelName": "ナンバーテールズ改良型5号機(50番機)",
     "ModelNumber": "APHR-NT [R]V",
     "FormalName": "ナンバーテールズ50番機",
@@ -4806,8 +4808,8 @@
     "Num": 51,
     "Progress": "released",
     "Images": { "concept_PNGName": "cnsp_img51" },
-    "Name": "イソイチ",
-    "Name_EN": "Fivone",
+    "Name": "51(イソイチ)",
+    "Name_EN": "51(Fivone)",
     "ModelName": "ナンバーテールズ1+5号機改(51番機)",
     "ModelNumber": "APHR-NT I+V.R",
     "FormalName": "ナンバーテールズ51番機",
@@ -4898,8 +4900,8 @@
       "corefolder_PNGPath": ["emstk_corefolder52-1"],
       "arts_PNGPath": ["corefolders/2023/art_img52-corefolder"]
     },
-    "Name": "イツギ",
-    "Name_EN": "Fiftwis",
+    "Name": "52(イツギ)",
+    "Name_EN": "52(Fiftwis)",
     "ModelName": "ナンバーテールズ2+5号機代替版(52番機)",
     "ModelNumber": "APHR-NT II+V.ALT",
     "FormalName": "ナンバーテールズ52番機",
@@ -5006,8 +5008,8 @@
       "concept_PNGName": "cnsp_img53",
       "corefolder_PNGPath": ["emstk_corefolder53-1"]
     },
-    "Name": "イツゾウ",
-    "Name_EN": "Fifthren",
+    "Name": "53(イツゾウ)",
+    "Name_EN": "53(Fifthren)",
     "ModelName": "ナンバーテールズ3+5号機乙(53番機)",
     "ModelNumber": "APHR-NT III+V.B",
     "FormalName": "ナンバーテールズ53番機",
@@ -5090,8 +5092,8 @@
   {
     "Num": 54,
     "Progress": "notProceeded",
-    "Name": "イツヨ",
-    "Name_EN": "Fiforn",
+    "Name": "54(イツヨ)",
+    "Name_EN": "54(Fiforn)",
     "ModelName": "ナンバーテールズ4+5号機乙(54番機)",
     "ModelNumber": "APHR-NT IV+V.B",
     "FormalName": "ナンバーテールズ54番機",
@@ -5118,8 +5120,8 @@
       "corefolder_PNGPath": ["emstk_corefolder55-1"],
       "arts_PNGPath": ["humanoids/2023/art_img55-humanoidTroubled"]
     },
-    "Name": "イソゴ",
-    "Name_EN": "Fifívan",
+    "Name": "55(イソゴ)",
+    "Name_EN": "55(Fifívan)",
     "ModelName": "ナンバーテールズ正規+改良型5号機(55番機)",
     "ModelNumber": "APHR-NT V+[R]V",
     "FormalName": "ナンバーテールズ55番機",
@@ -5211,8 +5213,8 @@
         "chattingArt/chart_img56-humanoid"
       ]
     },
-    "Name": "イソロク",
-    "Name_EN": "Fivsix",
+    "Name": "56(イソロク)",
+    "Name_EN": "56(Fivsix)",
     "ModelName": "ナンバーテールズ5+6号機甲(56番機)",
     "ModelNumber": "APHR-NT V+VI.A",
     "FormalName": "ナンバーテールズ56番機",
@@ -5316,8 +5318,8 @@
         "corefolders/sphericateDay/art_sphericateDay202305-img57"
       ]
     },
-    "Name": "イズナ",
-    "Name_EN": "Fivens",
+    "Name": "57(イズナ)",
+    "Name_EN": "57(Fivens)",
     "ModelName": "ナンバーテールズ5+7号機甲(57番機)",
     "ModelNumber": "APHR-NT V+VII.A",
     "FormalName": "ナンバーテールズ57番機",
@@ -5411,8 +5413,8 @@
       "corefolder_PNGPath": ["emstk_corefolder58-1", "emstk_corefolder58-2"],
       "arts_PNGPath": ["chattingArt/chart_img58-noNipples"]
     },
-    "Name": "イソヤ",
-    "Name_EN": "Fiveighs",
+    "Name": "58(イソヤ)",
+    "Name_EN": "58(Fiveighs)",
     "ModelName": "ナンバーテールズ5+8号機甲(58番機)",
     "ModelNumber": "APHR-NT V+VIII.A",
     "FormalName": "ナンバーテールズ58番機",
@@ -5497,8 +5499,8 @@
   {
     "Num": 59,
     "Progress": "notProceeded",
-    "Name": "イヅク",
-    "Name_EN": "Fivenint",
+    "Name": "59(イヅク)",
+    "Name_EN": "59(Fivenint)",
     "ModelName": "ナンバーテールズ5+9号機甲(59番機)",
     "ModelNumber": "APHR-NT V+IX.A",
     "FormalName": "ナンバーテールズ59番機",
@@ -5525,8 +5527,8 @@
       "corefolder_PNGPath": ["emstk_corefolder60-1", "emstk_corefolder60-2"],
       "arts_PNGPath": ["humanoids/2023/art_img60-humanoid"]
     },
-    "Name": "ムソウ",
-    "Name_EN": "Sixtina",
+    "Name": "60(ムソウ)",
+    "Name_EN": "60(Sixtina)",
     "ModelName": "ナンバーテールズ改良型6号機(60番機)",
     "ModelNumber": "APHR-NT [R]VI",
     "FormalName": "ナンバーテールズ60番機",
@@ -5639,8 +5641,8 @@
       "designAlt_PNGPath": ["subcostumes/chr-design-alt_wip61-idol"],
       "arts_PNGPath": ["humanoids/2023/art_img61-humanoid"]
     },
-    "Name": "ロクイチ\nロイ",
-    "Name_EN": "Síxone\nSíon",
+    "Name": "61(ロクイチ)\n61(ロイ)",
+    "Name_EN": "61(Síxone)\n61(Síon)",
     "ModelName": "ナンバーテールズ1+6号機乙(61番機)",
     "ModelNumber": "APHR-NT I+VI.B",
     "FormalName": "ナンバーテールズ61番機",
@@ -5745,8 +5747,8 @@
       "concept_PNGName": "cnsp_img62",
       "corefolder_PNGPath": ["emstk_corefolder62-1"]
     },
-    "Name": "ロジ",
-    "Name_EN": "Sictwéna",
+    "Name": "62(ロジ)",
+    "Name_EN": "62(Sictwéna)",
     "ModelName": "ナンバーテールズ2+6号機乙(62番機)",
     "ModelNumber": "APHR-NT II+VI.B",
     "FormalName": "ナンバーテールズ62番機",
@@ -5857,8 +5859,8 @@
       ],
       "arts_PNGPath": ["art_mothersDay2023"]
     },
-    "Name": "ムツミ",
-    "Name_EN": "Sicthrey",
+    "Name": "63(ムツミ)",
+    "Name_EN": "63(Sicthrey)",
     "ModelName": "ナンバーテールズ3+6号機乙(63番機)",
     "ModelNumber": "APHR-NT III+VI.B",
     "FormalName": "ナンバーテールズ63番機",
@@ -5948,8 +5950,8 @@
       "concept_PNGName": "cnsp_img64",
       "corefolder_PNGPath": ["emstk_corefolder64-1"]
     },
-    "Name": "ムトシ",
-    "Name_EN": "Sixforns",
+    "Name": "64(ムトシ)",
+    "Name_EN": "64(Sixforns)",
     "ModelName": "ナンバーテールズ4+6号機乙(64番機)",
     "ModelNumber": "APHR-NT IV+VI.B",
     "FormalName": "ナンバーテールズ64番機",
@@ -6050,8 +6052,8 @@
         "corefolders/2024/art_img65-corefolderB"
       ]
     },
-    "Name": "ロクゴ",
-    "Name_EN": "Sixfivie",
+    "Name": "65(ロクゴ)",
+    "Name_EN": "65(Sixfivie)",
     "ModelName": "ナンバーテールズ5+6号機乙(65番機)",
     "ModelNumber": "APHR-NT V+VI.B",
     "FormalName": "ナンバーテールズ65番機",
@@ -6150,8 +6152,8 @@
       ],
       "arts_PNGPath": ["humanoids/2023/art_img66-humanoid"]
     },
-    "Name": "ムロク",
-    "Name_EN": "Sixis",
+    "Name": "66(ムロク)",
+    "Name_EN": "66(Sixis)",
     "ModelName": "ナンバーテールズ正規+改良型6号機(66番機)",
     "ModelNumber": "APHR-NT VI+[R]VI",
     "FormalName": "ナンバーテールズ66番機",
@@ -6269,8 +6271,8 @@
     "Num": 67,
     "Progress": "released",
     "Images": { "concept_PNGName": "cnsp_img67-B" },
-    "Name": "ムナ",
-    "Name_EN": "Sicsevan",
+    "Name": "67(ムナ)",
+    "Name_EN": "67(Sicsevan)",
     "ModelName": "ナンバーテールズ6+7号機甲.筋装備(新67番機)",
     "ModelNumber": "APHR-NT VI+VII.AM",
     "FormalName": "ナンバーテールズ67番機",
@@ -6382,8 +6384,8 @@
         "corefolders/2023/art_img68-corefolder"
       ]
     },
-    "Name": "ロクヤ",
-    "Name_EN": "Siceighns",
+    "Name": "68(ロクヤ)",
+    "Name_EN": "68(Siceighns)",
     "ModelName": "ナンバーテールズ6+8号機甲(68番機)",
     "ModelNumber": "APHR-NT VI+VIII.A",
     "FormalName": "ナンバーテールズ68番機",
@@ -6482,8 +6484,8 @@
         "humanoids/2023/art_img69-humanoidOnMask"
       ]
     },
-    "Name": "ロック",
-    "Name_EN": "Signine",
+    "Name": "69(ロック)",
+    "Name_EN": "69(Signine)",
     "ModelName": "ナンバーテールズ6+9号機(69番機)",
     "ModelNumber": "APHR-NT VI+IX",
     "FormalName": "ナンバーテールズ69番機",
@@ -6589,8 +6591,8 @@
     "Num": 70,
     "Progress": "released",
     "Images": { "concept_PNGName": "cnsp_img70" },
-    "Name": "ナナト",
-    "Name_EN": "Seventia",
+    "Name": "70(ナナト)",
+    "Name_EN": "70(Seventia)",
     "ModelName": "ナンバーテールズ改良型7号機(70番機)",
     "ModelNumber": "APHR-NT [R]VII",
     "FormalName": "ナンバーテールズ70番機",
@@ -6675,8 +6677,8 @@
       "concept_PNGName": "cnsp_img71",
       "corefolder_PNGPath": ["emstk_corefolder71-1"]
     },
-    "Name": "ナナヒ",
-    "Name_EN": "Sevone",
+    "Name": "71(ナナヒ)",
+    "Name_EN": "71(Sevone)",
     "ModelName": "ナンバーテールズ1+7号機乙(71番機)",
     "ModelNumber": "APHR-NT I+VII.B",
     "FormalName": "ナンバーテールズ71番機",
@@ -6765,8 +6767,8 @@
       "concept_PNGName": "cnsp_img72",
       "corefolder_PNGPath": ["emstk_corefolder72-1"]
     },
-    "Name": "ナフタ",
-    "Name_EN": "Sevtwína",
+    "Name": "72(ナフタ)",
+    "Name_EN": "72(Sevtwína)",
     "ModelName": "ナンバーテールズ2+7号機改良版(72番機)",
     "ModelNumber": "APHR-NT II+VII.R",
     "FormalName": "ナンバーテールズ72番機",
@@ -6866,8 +6868,8 @@
         "chattingArt/chart_img73-whereIsEho"
       ]
     },
-    "Name": "ナトミ",
-    "Name_EN": "Sevthira",
+    "Name": "73(ナトミ)",
+    "Name_EN": "73(Sevthira)",
     "ModelName": "ナンバーテールズ3+7号機乙(73番機)",
     "ModelNumber": "APHR-NT III+VII.B",
     "FormalName": "ナンバーテールズ73番機",
@@ -6964,8 +6966,8 @@
         "corefolders/2023/art_img74-corefolderAsObjectB"
       ]
     },
-    "Name": "ナナヨ",
-    "Name_EN": "Sefoury",
+    "Name": "74(ナナヨ)",
+    "Name_EN": "74(Sefoury)",
     "ModelName": "ナンバーテールズ4+7号機乙(74番機)",
     "ModelNumber": "APHR-NT IV+VII.B",
     "FormalName": "ナンバーテールズ74番機",
@@ -7070,8 +7072,8 @@
         "corefolders/sphericateDay/art_sphericateDay202305-img75"
       ]
     },
-    "Name": "シチゴ",
-    "Name_EN": "Sefievn",
+    "Name": "75(シチゴ)",
+    "Name_EN": "75(Sefievn)",
     "ModelName": "ナンバーテールズ5+7号機乙(75番機)",
     "ModelNumber": "APHR-NT V+VII.B",
     "FormalName": "ナンバーテールズ75番機",
@@ -7169,8 +7171,8 @@
         "emstk_corefolder76-4"
       ]
     },
-    "Name": "シチロク",
-    "Name_EN": "Sevsix",
+    "Name": "76(シチロク)",
+    "Name_EN": "76(Sevsix)",
     "ModelName": "ナンバーテールズ6+7号機乙(76番機)",
     "ModelNumber": "APHR-NT VI-VII.B",
     "FormalName": "ナンバーテールズ76番機",
@@ -7257,8 +7259,8 @@
       "concept_PNGName": "cnsp_img77",
       "corefolder_PNGPath": ["emstk_corefolder77-1", "emstk_corefolder77-2"]
     },
-    "Name": "ナヅナ",
-    "Name_EN": "Sefvens",
+    "Name": "77(ナヅナ)",
+    "Name_EN": "77(Sefvens)",
     "ModelName": "ナンバーテールズ正規+改良型7号機(77番機)",
     "ModelNumber": "APHR-NT VII+[R]VII",
     "FormalName": "ナンバーテールズ77番機",
@@ -7351,8 +7353,8 @@
       "corefolder_PNGPath": ["emstk_corefolder78-1", "emstk_corefolder78-2"],
       "arts_PNGPath": ["corefolders/2025-2026/art_img78-corefolder"]
     },
-    "Name": "ナナハ",
-    "Name_EN": "Seveights",
+    "Name": "78(ナナハ)",
+    "Name_EN": "78(Seveights)",
     "ModelName": "ナンバーテールズ7+8号機甲(78番機)",
     "ModelNumber": "APHR-NT VII+VIII.A",
     "FormalName": "ナンバーテールズ78番機",
@@ -7454,8 +7456,8 @@
   {
     "Num": 79,
     "Progress": "notProceeded",
-    "Name": "ナチカ",
-    "Name_EN": "Sevenina",
+    "Name": "79(ナチカ)",
+    "Name_EN": "79(Sevenina)",
     "ModelName": "ナンバーテールズ7+9号機乙(79番機)",
     "ModelNumber": "APHR-NT VII+IX.A",
     "FormalName": "ナンバーテールズ79番機",
@@ -7472,8 +7474,8 @@
   {
     "Num": 80,
     "Progress": "nowCreating",
-    "Name": "ヤソ",
-    "Name_EN": "Eightis",
+    "Name": "80(ヤソ)",
+    "Name_EN": "80(Eightis)",
     "ModelName": "ナンバーテールズ改良型8号機(80番機)",
     "ModelNumber": "APHR-NT [R]VIII",
     "FormalName": "ナンバーテールズ80番機",
@@ -7542,8 +7544,8 @@
       "concept_PNGName": "cnsp_img81",
       "corefolder_PNGPath": ["emstk_corefolder81-1"]
     },
-    "Name": "ヤイチ",
-    "Name_EN": "Eightone",
+    "Name": "81(ヤイチ)",
+    "Name_EN": "81(Eightone)",
     "ModelName": "ナンバーテールズ1+8号機乙(81番機)",
     "ModelNumber": "APHR-NT I+VIII.B",
     "FormalName": "ナンバーテールズ81番機",
@@ -7624,8 +7626,8 @@
   {
     "Num": 82,
     "Progress": "nowCreating",
-    "Name": "ヤソジ",
-    "Name_EN": "Eightwis",
+    "Name": "82(ヤソジ)",
+    "Name_EN": "82(Eightwis)",
     "ModelName": "ナンバーテールズ2+8号機乙(82番機)",
     "ModelNumber": "APHR-NT II+VIII.B",
     "FormalName": "ナンバーテールズ82番機",
@@ -7656,8 +7658,8 @@
   {
     "Num": 83,
     "Progress": "notProceeded",
-    "Name": "ハチゾウ",
-    "Name_EN": "Eightrien",
+    "Name": "83(ハチゾウ)",
+    "Name_EN": "83(Eightrien)",
     "ModelName": "ナンバーテールズ3+8号機乙(83番機)",
     "ModelNumber": "APHR-NT III+VIII.B",
     "FormalName": "ナンバーテールズ83番機",
@@ -7688,8 +7690,8 @@
       "concept_PNGName": "cnsp_img84",
       "corefolder_PNGPath": ["emstk_corefolder84-1"]
     },
-    "Name": "ヤツヨ",
-    "Name_EN": "Eightifort",
+    "Name": "84(ヤツヨ)",
+    "Name_EN": "84(Eightifort)",
     "ModelName": "ナンバーテールズ4+8号機乙(84番機)",
     "ModelNumber": "APHR-NT IV+VIII.B",
     "FormalName": "ナンバーテールズ84番機",
@@ -7796,8 +7798,8 @@
       ],
       "arts_PNGPath": ["corefolders/2023/art_img85-corefolder"]
     },
-    "Name": "ハッコ\nパコ",
-    "Name_EN": "Eightifie\nEigfie",
+    "Name": "85(ハッコ)\n85(パコ)",
+    "Name_EN": "85(Eightifie)\n85(Eigfie)",
     "ModelName": "ナンバーテールズ5+8号機乙(85番機)",
     "ModelNumber": "APHR-NT V+VIII.B",
     "FormalName": "ナンバーテールズ85番機",
@@ -7892,8 +7894,8 @@
       "concept_PNGName": "cnsp_img86",
       "corefolder_PNGPath": ["emstk_corefolder86-1"]
     },
-    "Name": "ハチロ",
-    "Name_EN": "Eightix",
+    "Name": "86(ハチロ)",
+    "Name_EN": "86(Eightix)",
     "ModelName": "ナンバーテールズ6+8号機乙(86番機)",
     "ModelNumber": "APHR-NT VI+VIII.B",
     "FormalName": "ナンバーテールズ86番機",
@@ -7989,8 +7991,8 @@
       ],
       "arts_PNGPath": ["chattingArt/chart_img87-tooOrdered"]
     },
-    "Name": "ヤシナ\nハナ",
-    "Name_EN": "Eighteven\nEivee",
+    "Name": "87(ヤシナ)\n87(ハナ)",
+    "Name_EN": "87(Eighteven)\n87(Eivee)",
     "ModelName": "ナンバーテールズ7+8号機乙(87番機)",
     "ModelNumber": "APHR-NT VII+VIII.B",
     "FormalName": "ナンバーテールズ87番機",
@@ -8102,8 +8104,8 @@
       "concept_PNGName": "cnsp_img88",
       "corefolder_PNGPath": ["emstk_corefolder88-1"]
     },
-    "Name": "ヤソハチ",
-    "Name_EN": "Infinights",
+    "Name": "88(ヤソハチ)",
+    "Name_EN": "88(Infinights)",
     "ModelName": "ナンバーテールズ正規+改良型8号機(88番機)",
     "ModelNumber": "APHR-NT VIII+[R]VIII",
     "FormalName": "ナンバーテールズ88番機",
@@ -8201,8 +8203,8 @@
       "concept_PNGName": "cnsp_img89",
       "corefolder_PNGPath": ["emstk_corefolder89-1", "emstk_corefolder89-2"]
     },
-    "Name": "ヤスモ",
-    "Name_EN": "Eightine",
+    "Name": "89(ヤスモ)",
+    "Name_EN": "89(Eightine)",
     "ModelName": "ナンバーテールズ8+9号機甲(89番機)",
     "ModelNumber": "APHR-NT VIII+IX.A",
     "FormalName": "ナンバーテールズ89番機",
@@ -8294,8 +8296,8 @@
   {
     "Num": 90,
     "Progress": "notProceeded",
-    "Name": "キュウト",
-    "Name_EN": "Nintiels",
+    "Name": "90(キュウト)",
+    "Name_EN": "90(Nintiels)",
     "ModelName": "ナンバーテールズ改良型9号機(90番機)",
     "ModelNumber": "APHR-NT [R]IX",
     "FormalName": "ナンバーテールズ90番機",
@@ -8314,8 +8316,8 @@
   {
     "Num": 91,
     "Progress": "notProceeded",
-    "Name": "キュウイチ",
-    "Name_EN": "Ninone",
+    "Name": "91(キュウイチ)",
+    "Name_EN": "91(Ninone)",
     "ModelName": "ナンバーテールズ1+9号機乙(91番機)",
     "ModelNumber": "APHR-NT I+IX.B",
     "FormalName": "ナンバーテールズ91番機",
@@ -8342,8 +8344,8 @@
       "concept_PNGName": "cnsp_img92",
       "corefolder_PNGPath": ["emstk_corefolder92-1"]
     },
-    "Name": "コトジ",
-    "Name_EN": "Nintwina",
+    "Name": "92(コトジ)",
+    "Name_EN": "92(Nintwina)",
     "ModelName": "ナンバーテールズ2+9号機乙(92番機)",
     "ModelNumber": "APHR-NT II+IX.B",
     "FormalName": "ナンバーテールズ92番機",
@@ -8432,8 +8434,8 @@
       "corefolder_PNGPath": ["emstk_corefolder93-1"],
       "arts_PNGPath": ["corefolders/sphericateDay/art_sphericateDay202201"]
     },
-    "Name": "クミ",
-    "Name_EN": "Nintris",
+    "Name": "93(クミ)",
+    "Name_EN": "93(Nintris)",
     "ModelName": "ナンバーテールズ3+9号機乙(93番機)",
     "ModelNumber": "APHR-NT III+IX.B",
     "FormalName": "ナンバーテールズ93番機",
@@ -8533,8 +8535,8 @@
       "corefolder_PNGPath": ["emstk_corefolder94-1"],
       "arts_PNGPath": ["corefolders/2023/art_img94-corefolder"]
     },
-    "Name": "ツクシ",
-    "Name_EN": "Ninfors",
+    "Name": "94(ツクシ)",
+    "Name_EN": "94(Ninfors)",
     "ModelName": "ナンバーテールズ4+9号機乙(94番機)",
     "ModelNumber": "APHR-NT IV+IX.B",
     "FormalName": "ナンバーテールズ94番機",
@@ -8627,8 +8629,8 @@
   {
     "Num": 95,
     "Progress": "notProceeded",
-    "Name": "キュウゴ",
-    "Name_EN": "Ninfife",
+    "Name": "95(キュウゴ)",
+    "Name_EN": "95(Ninfife)",
     "ModelName": "ナンバーテールズ5+9号機乙(95番機)",
     "ModelNumber": "APHR-NT V+IX.B",
     "FormalName": "ナンバーテールズ95番機",
@@ -8672,8 +8674,8 @@
         "humanoids/2023/art_img96-humanoidCastOff"
       ]
     },
-    "Name": "クルリ",
-    "Name_EN": "Rota",
+    "Name": "96(クルリ)",
+    "Name_EN": "96(Rota)",
     "ModelName": "ナンバーテールズ6+9号機転化版(96番機)",
     "ModelNumber": "APHR-NT VI+IX.INV",
     "FormalName": "ナンバーテールズ96番機",
@@ -8780,8 +8782,8 @@
       ],
       "arts_PNGPath": ["chattingArt/chart_img97-humanoid"]
     },
-    "Name": "ココナ",
-    "Name_EN": "Ninsefie",
+    "Name": "97(ココナ)",
+    "Name_EN": "97(Ninsefie)",
     "ModelName": "ナンバーテールズ7+9号機乙(97番機)",
     "ModelNumber": "APHR-NT VII+IX.B",
     "FormalName": "ナンバーテールズ97番機",
@@ -8873,8 +8875,8 @@
       "concept_PNGName": "cnsp_img98",
       "corefolder_PNGPath": ["emstk_corefolder98-1"]
     },
-    "Name": "キュウヤ",
-    "Name_EN": "Nineigha",
+    "Name": "98(キュウヤ)",
+    "Name_EN": "98(Nineigha)",
     "ModelName": "ナンバーテールズ8+9号機乙(98番機)",
     "ModelNumber": "APHR-NT VIII+IX.B",
     "FormalName": "ナンバーテールズ98番機",
@@ -8969,8 +8971,8 @@
       "concept_PNGName": "cnsp_img99",
       "corefolder_PNGPath": ["emstk_corefolder99-1", "emstk_corefolder99-2"]
     },
-    "Name": "ツクモ",
-    "Name_EN": "Thukumo",
+    "Name": "99(ツクモ)",
+    "Name_EN": "99(Thukumo)",
     "ModelName": "ナンバーテールズ改良拡張型9号機(99番機)",
     "ModelNumber": "APHR-NT [RX]IX",
     "FormalName": "ナンバーテールズ99番機",
@@ -9065,8 +9067,8 @@
         "art_numbertalesAniv2nd"
       ]
     },
-    "Name": "ツギ\nバイナ",
-    "Name_EN": "Binor\nTwicy",
+    "Name": "バイナ\n2(ツギ)",
+    "Name_EN": "Binor\n2(Twicy)",
     "ModelName": "ナンバーテールズ試作型2号機(開発支援機)",
     "ModelNumber": "APHR-NT [P]II",
     "FormalName": "ナンバーテールズ試作型2号機\nナンバーテールズ開発支援機",
@@ -9143,8 +9145,8 @@
     "Num": "10-alt",
     "Progress": "stillTentative",
     "Images": { "corefolder_PNGPath": ["emstk_corefolder10alt-ondeck1"] },
-    "Name": "ツナイ\nディケ",
-    "Name_EN": "Dicat",
+    "Name": "ディケ\nツナイ",
+    "Name_EN": "Dicat\n10(Decadle)",
     "ModelName": "ナンバーテールズ試作型10号機",
     "ModelNumber": "APHR-NT [P]X(APHR-NT X)",
     "FormalName": "ナンバーテールズ試作型10号機",
@@ -9202,8 +9204,8 @@
         "emstk_corefolder000-3"
       ]
     },
-    "Name": "チトセ",
-    "Name_EN": "Thouser",
+    "Name": "000(チトセ)",
+    "Name_EN": "000(Thouser)",
     "FormalName": "ナンバーテールズ0番機",
     "FormalName_EN": "NumberTales #000",
     "ModelNumber": "APHR-NT 0",

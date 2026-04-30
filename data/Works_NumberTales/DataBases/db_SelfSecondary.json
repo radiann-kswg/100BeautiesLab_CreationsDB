@@ -2,8 +2,8 @@
   {
     "Num": 101,
     "Progress": "notProceeded",
-    "Name": "ヒノマルイ",
-    "Name_EN": "Sunrizer=Origin",
+    "Name": "101(ヒノマルイ)",
+    "Name_EN": "101(Sunrizer=Origin)",
     "ModelName": "ナンバーテールズ試作正規型1+10号機(101番機)",
     "ModelNumber": "APHR-NT [PS]I+X",
     "FormalName": "ナンバーテールズ101番機",
@@ -18,8 +18,8 @@
   {
     "Num": 102,
     "Progress": "notProceeded",
-    "Name": "ヒノマルフ",
-    "Name_EN": "Sunrizer=Twens",
+    "Name": "102(ヒノマルフ)",
+    "Name_EN": "102(Sunrizer=Twens)",
     "ModelName": "ナンバーテールズ試作正規型2+10号機(102番機)",
     "ModelNumber": "APHR-NT [PS]II+X",
     "FormalName": "ナンバーテールズ102番機",
@@ -34,8 +34,8 @@
   {
     "Num": 103,
     "Progress": "notProceeded",
-    "Name": "ヒノマルミ",
-    "Name_EN": "Sunrizer=Treiya",
+    "Name": "103(ヒノマルミ)",
+    "Name_EN": "103(Sunrizer=Treiya)",
     "ModelName": "ナンバーテールズ3+10号機(103番機)",
     "ModelNumber": "APHR-NT III+X",
     "FormalName": "ナンバーテールズ103番機",
@@ -50,8 +50,8 @@
   {
     "Num": 104,
     "Progress": "notProceeded",
-    "Name": "ヒノマルヨ",
-    "Name_EN": "Sunrizer=Forna",
+    "Name": "104(ヒノマルヨ)",
+    "Name_EN": "104(Sunrizer=Forna)",
     "ModelName": "ナンバーテールズ4+10号機(104番機)",
     "ModelNumber": "APHR-NT IV+X",
     "FormalName": "ナンバーテールズ104番機",
@@ -65,8 +65,8 @@
   {
     "Num": 105,
     "Progress": "notProceeded",
-    "Name": "ヒノマルゴ",
-    "Name_EN": "Sunrizer=Fifa",
+    "Name": "105(ヒノマルゴ)",
+    "Name_EN": "105(Sunrizer=Fifa)",
     "ModelName": "ナンバーテールズ5+10号機(105番機)",
     "ModelNumber": "APHR-NT V+X",
     "FormalName": "ナンバーテールズ105番機",
@@ -80,8 +80,8 @@
   {
     "Num": 106,
     "Progress": "notProceeded",
-    "Name": "ヒノマルム",
-    "Name_EN": "Sunrizer=Sics",
+    "Name": "106(ヒノマルム)",
+    "Name_EN": "106(Sunrizer=Sics)",
     "ModelName": "ナンバーテールズ6+10号機(106番機)",
     "ModelNumber": "APHR-NT VI+X",
     "FormalName": "ナンバーテールズ106番機",
@@ -95,8 +95,8 @@
   {
     "Num": 107,
     "Progress": "notProceeded",
-    "Name": "ヒノマルナ",
-    "Name_EN": "Sunrizer=Sevan",
+    "Name": "107(ヒノマルナ)",
+    "Name_EN": "107(Sunrizer=Sevan)",
     "ModelName": "ナンバーテールズ7+10号機(107番機)",
     "ModelNumber": "APHR-NT VII+X",
     "FormalName": "ナンバーテールズ107番機",
@@ -110,8 +110,8 @@
   {
     "Num": 108,
     "Progress": "notProceeded",
-    "Name": "ヒノマルヤ",
-    "Name_EN": "Sunrizer=Eighas",
+    "Name": "108(ヒノマルヤ)",
+    "Name_EN": "108(Sunrizer=Eighas)",
     "ModelName": "ナンバーテールズ8+10号機(108番機)",
     "ModelNumber": "APHR-NT VIII+X",
     "FormalName": "ナンバーテールズ108番機",
@@ -125,8 +125,8 @@
   {
     "Num": 109,
     "Progress": "notProceeded",
-    "Name": "ヒノマルク",
-    "Name_EN": "Sunrizer=Nina",
+    "Name": "109(ヒノマルク)",
+    "Name_EN": "109(Sunrizer=Nina)",
     "ModelName": "ナンバーテールズ9+10号機(109番機)",
     "ModelNumber": "APHR-NT IX+X",
     "FormalName": "ナンバーテールズ109番機",
@@ -140,8 +140,8 @@
   {
     "Num": 110,
     "Progress": "notProceeded",
-    "Name": "ハクト",
-    "Name_EN": "Elevantis",
+    "Name": "110(ハクト)",
+    "Name_EN": "110(Elevantis)",
     "ModelName": "ナンバーテールズ汎用改良型11号機(110番機)",
     "ModelNumber": "APHR-NT [GR]XI",
     "FormalName": "ナンバーテールズ110番機",
@@ -161,8 +161,8 @@
       "_Search": [{ "hashTag": "Num", "key": 111 }]
     },
     "Images": { "concept_PNGName": "cnsp_img111-mp" },
-    "Name": "アイズ",
-    "Name_EN": "Ize",
+    "Name": "111(アイズ)",
+    "Name_EN": "111(Ize)",
     "FormalName": "量産型ナンバーテールズ111番機シリーズ",
     "FormalName_EN": "NumberTales #111 Series Mass Production Version for Sales",
     "ModelNumber": "APHR-NT [MP]111-*****",
@@ -178,8 +178,8 @@
   {
     "Num": 112,
     "Progress": "notProceeded",
-    "Name": "ハクトウジ",
-    "Name_EN": "Hudres=Twelva",
+    "Name": "112(ハクトウジ)",
+    "Name_EN": "112(Hudres=Twelva)",
     "ModelName": "ナンバーテールズ2+11号機(112番機)",
     "ModelNumber": "APHR-NT II+XI",
     "FormalName": "ナンバーテールズ112番機",
@@ -193,8 +193,8 @@
   {
     "Num": 113,
     "Progress": "notProceeded",
-    "Name": "ハクトミ",
-    "Name_EN": "Hudres=Thirteena",
+    "Name": "113(ハクトミ)",
+    "Name_EN": "113(Hudres=Thirteena)",
     "ModelName": "ナンバーテールズ3+11号機(113番機)",
     "ModelNumber": "APHR-NT III+XI",
     "FormalName": "ナンバーテールズ113番機",
@@ -207,8 +207,8 @@
   {
     "Num": 114,
     "Progress": "notProceeded",
-    "Name": "ハクトヨ",
-    "Name_EN": "Hudres=Forteels",
+    "Name": "114(ハクトヨ)",
+    "Name_EN": "114(Hudres=Forteels)",
     "ModelName": "ナンバーテールズ4+11号機(114番機)",
     "ModelNumber": "APHR-NT IV+XI",
     "FormalName": "ナンバーテールズ114番機",
@@ -221,8 +221,8 @@
   {
     "Num": 115,
     "Progress": "notProceeded",
-    "Name": "ハクトウゴ",
-    "Name_EN": "Hudres=Fifteeld",
+    "Name": "115(ハクトウゴ)",
+    "Name_EN": "115(Hudres=Fifteeld)",
     "ModelName": "ナンバーテールズ5+11号機(115番機)",
     "ModelNumber": "APHR-NT V+XI",
     "FormalName": "ナンバーテールズ115番機",
@@ -260,8 +260,8 @@
   {
     "Num": 116,
     "Progress": "notProceeded",
-    "Name": "ハクソロク",
-    "Name_EN": "Hudres=Sixteely",
+    "Name": "116(ハクソロク)",
+    "Name_EN": "116(Hudres=Sixteely)",
     "ModelName": "ナンバーテールズ6+11号機(116番機)",
     "ModelNumber": "APHR-NT VI+XI",
     "FormalName": "ナンバーテールズ116番機",
@@ -274,8 +274,8 @@
   {
     "Num": 117,
     "Progress": "notProceeded",
-    "Name": "ハクトナ",
-    "Name_EN": "Hudres=Sevteena",
+    "Name": "117(ハクトナ)",
+    "Name_EN": "117(Hudres=Sevteena)",
     "ModelName": "ナンバーテールズ7+11号機(117番機)",
     "ModelNumber": "APHR-NT VII+XI",
     "FormalName": "ナンバーテールズ117番機",
@@ -288,8 +288,8 @@
   {
     "Num": 118,
     "Progress": "notProceeded",
-    "Name": "ハクトウヤ",
-    "Name_EN": "Hudres=Eighteeld",
+    "Name": "118(ハクトウヤ)",
+    "Name_EN": "118(Hudres=Eighteeld)",
     "ModelName": "ナンバーテールズ8+11号機(118番機)",
     "ModelNumber": "APHR-NT VIII+XI",
     "FormalName": "ナンバーテールズ118番機",
@@ -302,8 +302,8 @@
   {
     "Num": 119,
     "Progress": "notProceeded",
-    "Name": "ハクトク",
-    "Name_EN": "Hudres=Ninteels",
+    "Name": "119(ハクトク)",
+    "Name_EN": "119(Hudres=Ninteels)",
     "ModelName": "ナンバーテールズ9+11号機(119番機)",
     "ModelNumber": "APHR-NT IX+XI",
     "FormalName": "ナンバーテールズ119番機",
@@ -312,6 +312,55 @@
     "SPCodeName_EN": "Eleventy Nine",
     "GenderType": "Neutral",
     "Class": ["デュオトリプル2型甲組"]
+  },
+  {
+    "Num": 120,
+    "Progress": "notProceeded",
+    "Name": "120(ダスト)",
+    "Name_EN": "120(Darst)",
+    "FormalName": "量産型ナンバーテールズ120番機シリーズ",
+    "FormalName_EN": "NumberTales #120 Series Mass Production Version for Sales",
+    "ModelNumber": "APHR-NT [MP]120-*****",
+    "CodeName": "一二〇",
+    "SPCodeName_EN": "Ten Dars",
+    "GenderType": "Neutral",
+    "Class": ["テンズデュアルスリーズ"]
+  },
+  {
+    "Num": 123,
+    "Progress": "notProceeded",
+    "Name": "123(ヒフミ)",
+    "Name_EN": "123(Hop-Step-Jumper)",
+    "FormalName": "量産型ナンバーテールズ123番機シリーズ",
+    "FormalName_EN": "NumberTales #123 Series Mass Production Version for Sales",
+    "ModelNumber": "APHR-NT [MP]123-*****",
+    "CodeName": "一二三",
+    "GenderType": "Neutral",
+    "Class": ["トリプル1+2+3組"]
+  },
+  {
+    "Num": 127,
+    "Progress": "notProceeded",
+    "Name": "127(ヒフナ)",
+    "Name_EN": "127(Twelsven)",
+    "FormalName": "量産型ナンバーテールズ127番機シリーズ",
+    "FormalName_EN": "NumberTales #127 Series Mass Production Version for Sales",
+    "ModelNumber": "APHR-NT [MP]127-*****",
+    "CodeName": "一二七",
+    "GenderType": "Neutral",
+    "Class": ["トリプル1+2+7組"]
+  },
+  {
+    "Num": 144,
+    "Progress": "notProceeded",
+    "Name": "144(ヒトヨシ)",
+    "Name_EN": "144(Oneforfone)",
+    "FormalName": "量産型ナンバーテールズ144番機シリーズ",
+    "FormalName_EN": "NumberTales #144 Series Mass Production Version for Sales",
+    "ModelNumber": "APHR-NT [MP]144-*****",
+    "CodeName": "一四四",
+    "GenderType": "Neutral",
+    "Class": ["デュオトリプル9型乙組"]
   },
   {
     "Num": 148,
@@ -334,6 +383,48 @@
     "AdditionalDesigned": "企画参加者：よだれ さん(https://www.pixiv.net/artworks/137497481)"
   },
   {
+    "Num": 150,
+    "Progress": "notProceeded",
+    "Name": "150(ハクハン)",
+    "Name_EN": "150(Onehalven)",
+    "FormalName": "量産型ナンバーテールズ150番機シリーズ",
+    "FormalName_EN": "NumberTales #150 Series Mass Production Version for Sales",
+    "ModelNumber": "APHR-NT [MP]150-*****",
+    "CodeName": "一五〇",
+    "SPCodeName": "一半百",
+    "SPCodeName_EN": "One Half(of Percent)",
+    "GenderType": "Neutral",
+    "Class": ["テンズデュアルシックスズ"]
+  },
+  {
+    "Num": 156,
+    "Progress": "notProceeded",
+    "Name": "156(ヒゴロ)",
+    "Name_EN": "156(Onefix)",
+    "FormalName": "量産型ナンバーテールズ156番機シリーズ",
+    "FormalName_EN": "NumberTales #156 Series Mass Production Version for Sales",
+    "ModelNumber": "APHR-NT [MP]156-*****",
+    "CodeName": "一五六",
+    "SPCodeName": "日頃",
+    "SPCodeName_EN": "Dailies",
+    "GenderType": "Neutral",
+    "Class": ["トリプル1+5+6組"]
+  },
+  {
+    "Num": 214,
+    "Progress": "notProceeded",
+    "Name": "214(バレンタ)",
+    "Name_EN": "214(Valenta)",
+    "FormalName": "量産型ナンバーテールズ214番機シリーズ",
+    "FormalName_EN": "NumberTales #214 Series Mass Production Version for Sales",
+    "ModelNumber": "APHR-NT [MP]214-*****",
+    "CodeName": "二一四",
+    "SPCodeName_EN": "Valentain",
+    "GenderType": "Neutral",
+    "Class": ["トリプル1+2+4組"],
+    "Background": "バレンタインの日付(2月14日)から由来"
+  },
+  {
     "Num": "222-mp",
     "Progress": "notProceeded",
     "_DBLink": {
@@ -341,8 +432,8 @@
       "dbName": "SemiPrimary",
       "_Search": [{ "hashTag": "Num", "key": 222 }]
     },
-    "Name": "ドッペルゲン",
-    "Name_EN": "Doppelgän",
+    "Name": "222(ドッペルゲン)",
+    "Name_EN": "222(Doppelgän)",
     "FormalName": "量産型ナンバーテールズ222番機シリーズ",
     "FormalName_EN": "NumberTales #222 Series Mass Production Version for Sales",
     "ModelNumber": "APHR-NT [MP]222-*****",
@@ -361,8 +452,8 @@
     "Num": 223,
     "Progress": "released",
     "Images": { "concept_PNGName": "cnsp_img223" },
-    "Name": "ツヅサ",
-    "Name_EN": "Twitwenthir",
+    "Name": "223(ツヅサ)",
+    "Name_EN": "223(Twitwenthir)",
     "FormalName": "量産型ナンバーテールズ223番機シリーズ",
     "FormalName_EN": "NumberTales #223 Series Mass Production Version for Sales",
     "ModelNumber": "APHR-NT [MP]223-*****",
@@ -454,6 +545,47 @@
     "Name_EN": "(Illustration of NumberizeTales Project)",
     "Class": ["ナンバーテールズ化"],
     "AdditionalDesigned": "企画参加者：SIANO さん(https://www.pixiv.net/artworks/137497481)"
+  },
+  {
+    "Num": 244,
+    "Progress": "notProceeded",
+    "Name": "244(ツグヨシ)",
+    "Name_EN": "244(Twiforfours)",
+    "FormalName": "量産型ナンバーテールズ244番機シリーズ",
+    "FormalName_EN": "NumberTales #244 Series Mass Production Version for Sales",
+    "ModelNumber": "APHR-NT [MP]244-*****",
+    "CodeName": "二四四",
+    "GenderType": "Neutral",
+    "Class": ["デュオトリプル1型乙組"]
+  },
+  {
+    "Num": 255,
+    "Progress": "notProceeded",
+    "Name": "255(エフエフ)",
+    "Name_EN": "255(0xff)",
+    "FormalName": "量産型ナンバーテールズ255番機シリーズ",
+    "FormalName_EN": "NumberTales #255 Series Mass Production Version for Sales",
+    "ModelNumber": "APHR-NT [MP]255-*****",
+    "CodeName": "二五五",
+    "SPCodeName": "0xFF",
+    "SPCodeName_EN": "Last of Byte",
+    "GenderType": "Neutral",
+    "Class": ["デュオトリプル3型乙組"],
+    "Backgrounds": "1バイト値の最大値（16進法）から由来"
+  },
+  {
+    "Num": 256,
+    "Progress": "notProceeded",
+    "Name": "256(バイツ)",
+    "Name_EN": "256(Bytz)",
+    "FormalName": "量産型ナンバーテールズ256番機シリーズ",
+    "FormalName_EN": "NumberTales #256 Series Mass Production Version for Sales",
+    "ModelNumber": "APHR-NT [MP]256-*****",
+    "CodeName": "二五六",
+    "SPCodeName_EN": "One Byte",
+    "GenderType": "Neutral",
+    "Class": ["トリプル2+5+6組"],
+    "Backgrounds": "1バイトで表現できる値の数から由来\nなお、「255(エフエフ)」と姉妹関係は無い"
   },
   {
     "Num": 258,
@@ -556,6 +688,21 @@
     "AdditionalDesigned": "企画参加者：いるいる さん(https://www.pixiv.net/artworks/137497481)"
   },
   {
+    "Num": 314,
+    "Progress": "notProceeded",
+    "Name": "314(マドカ)",
+    "Name_EN": "314(Circcle)",
+    "FormalName": "量産型ナンバーテールズ314番機シリーズ",
+    "FormalName_EN": "NumberTales #314 Series Mass Production Version for Sales",
+    "ModelNumber": "APHR-NT [MP]314-*****",
+    "CodeName": "三一四",
+    "SPCodeName": "Π",
+    "SPCodeName_EN": "Pi",
+    "GenderType": "Neutral",
+    "Class": ["トリプル1+3+4組"],
+    "Backgrounds": "円周率(3.14)から由来"
+  },
+  {
     "Num": "333-mp",
     "Progress": "notProceeded",
     "_DBLink": {
@@ -563,8 +710,8 @@
       "dbName": "SemiPrimary",
       "_Search": [{ "hashTag": "Num", "key": 333 }]
     },
-    "Name": "トリニティア",
-    "Name_EN": "Trinitia",
+    "Name": "333(トリニティア)",
+    "Name_EN": "333(Trinitia)",
     "FormalName": "量産型ナンバーテールズ333番機シリーズ",
     "FormalName_EN": "NumberTales #333 Series Mass Production Version for Sales",
     "ModelNumber": "APHR-NT [MP]333-*****"
@@ -590,10 +737,24 @@
     "AdditionalDesigned": "企画参加者：猫吉よりお さん(https://www.pixiv.net/artworks/137497481)"
   },
   {
+    "Num": 365,
+    "Progress": "notProceeded",
+    "Name": "365(イヤース)",
+    "Name_EN": "365(Yearß)",
+    "FormalName": "量産型ナンバーテールズ365番機シリーズ",
+    "FormalName_EN": "NumberTales #365 Series Mass Production Version for Sales",
+    "ModelNumber": "APHR-NT [MP]365-*****",
+    "CodeName": "三六五",
+    "SPCodeName_EN": "Days of Year",
+    "GenderType": "Neutral",
+    "Class": ["トリプル3+5+6組"],
+    "Backgrounds": "1年の年数(365日)から由来\nなお、「366(ウルウニチ)」と姉妹関係は無い"
+  },
+  {
     "Num": 366,
     "Progress": "stillTentative",
-    "Name": "ウルウネ",
-    "Name_EN": "Leaper",
+    "Name": "366(ウルウニチ)",
+    "Name_EN": "366(Leaperlica)",
     "FormalName": "量産型ナンバーテールズ366番機シリーズ",
     "FormalName_EN": "NumberTales #366 Series Mass Production Version for Sales",
     "ModelNumber": "APHR-NT [MP]366-*****",
@@ -601,7 +762,7 @@
     "SPCodeName_EN": "Days of Leaped-Year",
     "GenderType": "Neutral",
     "Class": ["デュオトリプル6型乙組"],
-    "Backgrounds": "閏年の日数(366日)から由来\nなお「200(マタウルウ)」や「365(イヤース)」とは、姉妹関係はない"
+    "Backgrounds": "閏年の日数(366日)から由来\nなお「365(イヤース)」とは、姉妹関係はない"
   },
   {
     "sec_SeriesTitle": "ナンバーテールズ化企画",
@@ -612,6 +773,18 @@
     "Name_EN": "(Illustration of NumberizeTales Project)",
     "Class": ["ナンバーテールズ化"],
     "AdditionalDesigned": "企画参加者：うどん さん(https://www.pixiv.net/artworks/137497481)"
+  },
+  {
+    "Num": 373,
+    "Progress": "notProceeded",
+    "Name": "373(ミナミ)",
+    "Name_EN": "373(Thrsevthy)",
+    "FormalName": "量産型ナンバーテールズ373番機シリーズ",
+    "FormalName_EN": "NumberTales #373 Series Mass Production Version for Sales",
+    "ModelNumber": "APHR-NT [MP]373-*****",
+    "CodeName": "三七三",
+    "GenderType": "Neutral",
+    "Class": ["デュオトリプル4型丙組"]
   },
   {
     "Num": 376,
@@ -652,6 +825,20 @@
     "Name_EN": "(Illustration of NumberizeTales Project)",
     "Class": ["ナンバーテールズ化"],
     "AdditionalDesigned": "企画参加者：爪葉京 さん(https://www.pixiv.net/artworks/137497481)"
+  },
+  {
+    "Num": 385,
+    "Progress": "notProceeded",
+    "Name": "385(ミヤコ)",
+    "Name_EN": "385(Threightifiver)\n385(Miyako)",
+    "FormalName": "量産型ナンバーテールズ385番機シリーズ",
+    "FormalName_EN": "NumberTales #385 Series Mass Production Version for Sales",
+    "ModelNumber": "APHR-NT [MP]385-*****",
+    "CodeName": "三八五",
+    "SPCodeName": "(都:みやこ)",
+    "SPCodeName_EN": "(Metropolis)",
+    "GenderType": "Neutral",
+    "Class": ["トリプル3+5+8組"]
   },
   {
     "Num": 387,
@@ -741,11 +928,24 @@
       "dbName": "SemiPrimary",
       "_Search": [{ "hashTag": "Num", "key": 444 }]
     },
-    "Name": "シテン",
-    "Name_EN": "Quad-emperone",
+    "Name": "444(シテン)",
+    "Name_EN": "444(Quad-emperone)",
     "FormalName": "量産型ナンバーテールズ444番機シリーズ",
     "FormalName_EN": "NumberTales #444 Series Mass Production Version for Sales",
     "ModelNumber": "APHR-NT [MP]444-*****"
+  },
+  {
+    "Num": 456,
+    "Progress": "notProceeded",
+    "Name": "456(シゴロ)",
+    "Name_EN": "456(Sigoro)",
+    "FormalName": "量産型ナンバーテールズ456番機シリーズ",
+    "FormalName_EN": "NumberTales #456 Series Mass Production Version for Sales",
+    "ModelNumber": "APHR-NT [MP]456-*****",
+    "CodeName": "四五六",
+    "SPCodeName_EN": "Upper Dice",
+    "GenderType": "Neutral",
+    "Class": ["トリプル4+5+6組"]
   },
   {
     "Num": 467,
@@ -788,6 +988,32 @@
     "AdditionalDesigned": "企画参加者：ヨシアミさん(https://www.pixiv.net/artworks/137497481)"
   },
   {
+    "Num": 496,
+    "Progress": "notProceeded",
+    "Name": "496(シグロ)",
+    "Name_EN": "496(Fornix)",
+    "FormalName": "量産型ナンバーテールズ496番機シリーズ",
+    "FormalName_EN": "NumberTales #496 Series Mass Production Version for Sales",
+    "ModelNumber": "APHR-NT [MP]496-*****",
+    "CodeName": "四九六",
+    "GenderType": "Neutral",
+    "Class": ["トリプル4+6+9組"]
+  },
+  {
+    "Num": 500,
+    "Progress": "notProceeded",
+    "Name": "500(ハルフィミル)",
+    "Name_EN": "500(Halvemill)",
+    "FormalName": "量産型ナンバーテールズ500番機シリーズ",
+    "FormalName_EN": "NumberTales #500 Series Mass Production Version for Sales",
+    "ModelNumber": "APHR-NT [MP]500-*****",
+    "CodeName": "五〇〇",
+    "SPCodeName": "半千",
+    "SPCodeName_EN": "Half of Permill",
+    "GenderType": "Neutral",
+    "Class": ["百倍番(ハンドレッズデジッツ)"]
+  },
+  {
     "Num": 510,
     "Progress": "stillTentative",
     "FormalName": "量産型ナンバーテールズ510番機シリーズ",
@@ -815,8 +1041,8 @@
       "dbName": "SemiPrimary",
       "_Search": [{ "hashTag": "Num", "key": 555 }]
     },
-    "Name": "ハイファイブ",
-    "Name_EN": "High-Fiver",
+    "Name": "555(ハイファイブ)",
+    "Name_EN": "555(High-Fiver)",
     "FormalName": "量産型ナンバーテールズ555番機シリーズ",
     "FormalName_EN": "NumberTales #555 Series Mass Production Version for Sales",
     "ModelNumber": "APHR-NT [MP]555-*****"
@@ -840,6 +1066,18 @@
     "Name_EN": "(Illustration of NumberizeTales Project)",
     "Class": ["ナンバーテールズ化"],
     "AdditionalDesigned": "企画参加者：さふ さん(https://www.pixiv.net/artworks/137497481)"
+  },
+  {
+    "Num": 572,
+    "Progress": "notProceeded",
+    "Name": "572(コナツ)",
+    "Name_EN": "572(Fiventwy)",
+    "FormalName": "量産型ナンバーテールズ572番機シリーズ",
+    "FormalName_EN": "NumberTales #572 Series Mass Production Version for Sales",
+    "ModelNumber": "APHR-NT [MP]572-*****",
+    "CodeName": "五七二",
+    "GenderType": "Neutral",
+    "Class": ["トリプル2+5+7組"]
   },
   {
     "Num": 605,
@@ -882,6 +1120,18 @@
     "AdditionalDesigned": "企画参加者：リヘナラ人形 さん(https://www.pixiv.net/artworks/137497481)"
   },
   {
+    "Num": 634,
+    "Progress": "notProceeded",
+    "Name": "634(ムサシ)",
+    "Name_EN": "634(Sithfone)",
+    "FormalName": "量産型ナンバーテールズ634番機シリーズ",
+    "FormalName_EN": "NumberTales #634 Series Mass Production Version for Sales",
+    "ModelNumber": "APHR-NT [MP]634-*****",
+    "CodeName": "六三四",
+    "GenderType": "Neutral",
+    "Class": ["トリプル3+4+6組"]
+  },
+  {
     "Num": 638,
     "Progress": "stillTentative",
     "FormalName": "量産型ナンバーテールズ638番機シリーズ",
@@ -913,8 +1163,8 @@
       "concept_PNGName": "cnsp_img666-mp",
       "corefolder_PNGPath": ["emstk_corefolder666-mp1"]
     },
-    "Name": "リリス",
-    "Name_EN": "Lilith",
+    "Name": "666(リリス)",
+    "Name_EN": "666(Lilith)",
     "FormalName": "量産型ナンバーテールズ666番機シリーズ",
     "FormalName_EN": "NumberTales #666 Series Mass Production Version for Sales",
     "ModelNumber": "APHR-NT [MP]666-*****",
@@ -946,6 +1196,18 @@
     "AdditionalDesigned": "企画参加者：みとにゃん/Mitten さん(https://www.pixiv.net/artworks/137497481)"
   },
   {
+    "Num": 696,
+    "Progress": "notProceeded",
+    "Name": "696(ロクロ)",
+    "Name_EN": "696(Signovix)",
+    "FormalName": "量産型ナンバーテールズ696番機シリーズ",
+    "FormalName_EN": "NumberTales #696 Series Mass Production Version for Sales",
+    "ModelNumber": "APHR-NT [MP]696-*****",
+    "CodeName": "六九六",
+    "GenderType": "Neutral",
+    "Class": ["デュオトリプル3型甲組"]
+  },
+  {
     "Num": 736,
     "Progress": "stillTentative",
     "FormalName": "量産型ナンバーテールズ736番機シリーズ",
@@ -971,8 +1233,8 @@
     "Num": 753,
     "Progress": "released",
     "Images": { "concept_PNGName": "cnsp_img753" },
-    "Name": "ナゴミ",
-    "Name_EN": "Sefenvet-hirs",
+    "Name": "753(ナゴミ)",
+    "Name_EN": "753(Sefenvet-hirs)",
     "FormalName": "量産型ナンバーテールズ753番機シリーズ",
     "FormalName_EN": "NumberTales #753 Series Mass Production Version for Sales",
     "ModelNumber": "APHR-NT [MP]753-*****",
@@ -987,6 +1249,8 @@
   {
     "Num": 773,
     "Progress": "stillTentative",
+    "Name": "773(チナミ)",
+    "Name_EN": "773(Sevyzecthia)",
     "FormalName": "量産型ナンバーテールズ773番機シリーズ",
     "FormalName_EN": "NumberTales #773 Series Mass Production Version for Sales",
     "ModelNumber": "APHR-NT [MP]773-*****",
@@ -1005,6 +1269,20 @@
     "AdditionalDesigned": "企画参加者：テンタクル七海 さん(https://www.pixiv.net/artworks/137497481)"
   },
   {
+    "Num": 774,
+    "Progress": "notProceeded",
+    "Name": "774(ナモナシ)",
+    "Name_EN": "774(Save-Service-For-Nameless)\n774(SSFN)",
+    "FormalName": "量産型ナンバーテールズ774番機シリーズ",
+    "FormalName_EN": "NumberTales #774 Series Mass Production Version for Sales",
+    "ModelNumber": "APHR-NT [MP]774-*****",
+    "CodeName": "七七四",
+    "SPCodeName": "(名無)",
+    "SPCodeName_EN": "(Non-Named)",
+    "GenderType": "Neutral",
+    "Class": ["デュオトリプル9型乙組"]
+  },
+  {
     "Num": "777-mp",
     "Progress": "released",
     "_DBLink": {
@@ -1013,8 +1291,8 @@
       "_Search": [{ "hashTag": "Num", "key": 777 }]
     },
     "Images": { "concept_PNGName": "cnsp_img777-mp" },
-    "Name": "ヨロコビ",
-    "Name_EN": "Lucky-sevens\nLuckies",
+    "Name": "777(ヨロコビ)",
+    "Name_EN": "777(Lucky-sevens)\n777(Luckies)",
     "FormalName": "量産型ナンバーテールズ777番機シリーズ",
     "FormalName_EN": "NumberTales #777 Series Mass Production Version for Sales",
     "ModelNumber": "APHR-NT [MP]777-*****",
@@ -1044,8 +1322,8 @@
       "dbName": "SelfSecondary",
       "_Search": [{ "hashTag": "Num", "key": "777-mp" }]
     },
-    "Name": "ヨロコビ",
-    "Name_EN": "Lucky-sevens\nLuckies",
+    "Name": "777(ヨロコビ)",
+    "Name_EN": "777(Lucky-sevens)\n777(Luckies)",
     "FormalName": "量産型ナンバーテールズ777番機[ジャックポット]シリーズ",
     "FormalName_EN": "NumberTales #777.Jackpot Series Mass Production Version for Sales",
     "ModelNumber": "APHR-NT [MP]777JP-*****",
@@ -1073,6 +1351,44 @@
     "TailsUnit": "キツネ(特殊)型3束x7本"
   },
   {
+    "Num": 780,
+    "Progress": "notProceeded",
+    "Name": "780(ナハト)",
+    "Name_EN": "780(Sevighty)",
+    "FormalName": "量産型ナンバーテールズ780番機シリーズ",
+    "FormalName_EN": "NumberTales #780 Series Mass Production Version for Sales",
+    "ModelNumber": "APHR-NT [MP]780-*****",
+    "CodeName": "七八〇",
+    "GenderType": "Neutral",
+    "Class": ["テンズデュアルシックスズ"]
+  },
+  {
+    "Num": 808,
+    "Progress": "notProceeded",
+    "Name": "808(ヤオヤ)",
+    "Name_EN": "808(Yaoya)\n808(Vegeta)",
+    "FormalName": "量産型ナンバーテールズ808番機シリーズ",
+    "FormalName_EN": "NumberTales #808 Series Mass Production Version for Sales",
+    "ModelNumber": "APHR-NT [MP]808-*****",
+    "CodeName": "八〇八",
+    "SPCodeName": "八百屋",
+    "SPCodeName_EN": "Vegetable",
+    "GenderType": "Neutral",
+    "Class": ["サイドシングルズ"]
+  },
+  {
+    "Num": 833,
+    "Progress": "notProceeded",
+    "Name": "833(ハザミ)",
+    "Name_EN": "833(Egthirthree)",
+    "FormalName": "量産型ナンバーテールズ833番機シリーズ",
+    "FormalName_EN": "NumberTales #833 Series Mass Production Version for Sales",
+    "ModelNumber": "APHR-NT [MP]833-*****",
+    "CodeName": "八三三",
+    "GenderType": "Neutral",
+    "Class": ["デュオトリプル5型乙組"]
+  },
+  {
     "Num": "888-mp",
     "Progress": "notProceeded",
     "_DBLink": {
@@ -1080,11 +1396,37 @@
       "dbName": "SemiPrimary",
       "_Search": [{ "hashTag": "Num", "key": 888 }]
     },
-    "Name": "ムゲン",
-    "Name_EN": "Infy",
+    "Name": "888(ムゲン)",
+    "Name_EN": "888(Infy)",
     "FormalName": "量産型ナンバーテールズ888番機シリーズ",
     "FormalName_EN": "NumberTales #888 Series Mass Production Version for Sales",
     "ModelNumber": "APHR-NT [MP]888-*****"
+  },
+  {
+    "Num": 966,
+    "Progress": "notProceeded",
+    "Name": "966(クロール)",
+    "Name_EN": "966(Nixiß-ect)",
+    "FormalName": "量産型ナンバーテールズ966番機シリーズ",
+    "FormalName_EN": "NumberTales #966 Series Mass Production Version for Sales",
+    "ModelNumber": "APHR-NT [MP]966-*****",
+    "CodeName": "九六六",
+    "GenderType": "Neutral",
+    "Class": ["デュオトリプル3型甲組"]
+  },
+  {
+    "Num": 969,
+    "Progress": "notProceeded",
+    "Name": "969(クルクル)",
+    "Name_EN": "969(Roll-roll)",
+    "FormalName": "量産型ナンバーテールズ969番機シリーズ",
+    "FormalName_EN": "NumberTales #969 Series Mass Production Version for Sales",
+    "ModelNumber": "APHR-NT [MP]969-*****",
+    "CodeName": "九六九",
+    "SPCodeName": "(回)",
+    "SPCodeName_EN": "(Rotation)",
+    "GenderType": "Neutral",
+    "Class": ["デュオトリプル6型乙組"]
   },
   {
     "Num": 979,
@@ -1114,8 +1456,8 @@
       "dbName": "SemiPrimary",
       "_Search": [{ "hashTag": "Num", "key": 999 }]
     },
-    "Name": "カンスト",
-    "Name_EN": "Counstop",
+    "Name": "999(カンスト)",
+    "Name_EN": "999(Counstop)",
     "FormalName": "量産型ナンバーテールズ999番機シリーズ",
     "FormalName_EN": "NumberTales #999 Series Mass Production Version for Sales",
     "ModelNumber": "APHR-NT [MP]999-*****"
