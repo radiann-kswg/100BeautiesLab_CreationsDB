@@ -4619,6 +4619,8 @@ function matchFilter(rec, q) {
     // 互換: *_JP / *_EN の言語別フィールドも検索対象に含める
     rec.Name, rec.Name_JP, rec.Name_EN,
     rec.FormalName, rec.FormalName_JP, rec.FormalName_EN,
+    rec.Title, rec.Title_JP, rec.Title_EN,
+    rec.Term, rec.Term_JP, rec.Term_EN, rec.Term_JPReading,
     rec.ModelName, rec.ModelNumber,
     rec.CodeName, rec.SPCodeName, rec.SPCodeName_EN,
     rec.Num
@@ -4846,6 +4848,12 @@ async function renderList(records, workId, onOpen, imageFields = null) {
 
   $('#list-empty').hidden = shown > 0;
   console.log(`✅ Rendered ${shown} characters with enhanced image resolution`);
+}
+
+export async function __renderListForTest(records, workId, options = {}) {
+  const onOpen = typeof options?.onOpen === 'function' ? options.onOpen : (() => {});
+  const imageFields = Array.isArray(options?.imageFields) ? options.imageFields : [];
+  return renderList(records, workId, onOpen, imageFields);
 }
 
 /**
@@ -6360,12 +6368,23 @@ export async function renderDetail(workId, rec) {
       ])
     : null;
 
+  const referenceConnectionsSection = renderReferenceConnectionsSection(
+    rec,
+    workId,
+    workMeta,
+    globalMeta,
+    fieldLabelMap,
+    metaForLookup,
+    globalDefType
+  );
+
   const right = el('div', {}, [
     titleRow,
     basicSection,
     secondaryInfoSection,
     specSection,
     profileSection,
+    referenceConnectionsSection,
     rec.Relation && (rec.Relation.Related || rec.Relation.Commented)
       ? renderRelations(rec.Relation, fieldLabelMap, metaForLookup, globalDefType, fieldDisplayMap, { containerKey: 'Relation', fieldTypeMap })
       : null,
@@ -6645,6 +6664,142 @@ function renderRelations(rel, fieldLabelMap, workMeta, globalDefType, fieldDispl
   return el('div', { class: 'section' }, [
     el('h3', {}, [getFieldLabel(containerKey, fieldLabelMap, workMeta, globalDefType, containerKey === 'RelationToPrimary' ? '原作との関係' : '関係')]),
     createDetailTagGrid([...r1, ...r2])
+  ]);
+}
+
+function buildViewerNavigationHref(workId, dbName, options = {}) {
+  const current = getQS();
+  const normalizedWork = workKeyForAPI(workId || current.work || '');
+  const q = String(options?.q || '').trim();
+  const qs = new URLSearchParams({
+    ...current,
+    work: normalizedWork,
+    db: String(dbName || current.db || ''),
+    q,
+    num: '',
+    idx: '',
+    idxKey: ''
+  });
+  return `${location.pathname}?${qs.toString()}`;
+}
+
+async function openViewerNavigation(workId, dbName, options = {}) {
+  const href = buildViewerNavigationHref(workId, dbName, options);
+  const selectWork = $('#select-work');
+  const selectDB = $('#select-db');
+  const searchInput = $('#search-input');
+  const normalizedWork = normalizeWorkKey(workId || window?.__CHAR_STATE__?.workId || '');
+  const normalizedDb = String(dbName || '').trim();
+  const q = String(options?.q || '').trim();
+
+  if (!selectWork || !selectDB || !normalizedWork || !normalizedDb) {
+    location.href = href;
+    return;
+  }
+
+  try {
+    if (selectWork.value !== normalizedWork) {
+      selectWork.value = normalizedWork;
+      await populateDBs(normalizedWork);
+    }
+    selectDB.value = normalizedDb;
+    if (searchInput) searchInput.value = q;
+    setQS({ work: workKeyForAPI(normalizedWork), db: normalizedDb, q, num: '', idx: '', idxKey: '' });
+    await renderSelectionMeta(normalizedWork, normalizedDb);
+    await reloadInternal(false);
+  } catch {
+    location.href = href;
+  }
+}
+
+function renderReferenceConnectionsSection(rec, workId, workMeta, globalMeta, fieldLabelMap, metaForLookup, globalDefType) {
+  const relatedTerms = Array.isArray(rec?.RelatedTerms)
+    ? rec.RelatedTerms.map((value) => String(value || '').trim()).filter(Boolean)
+    : [];
+  const relatedCreations = Array.isArray(rec?.RelatedCreations)
+    ? rec.RelatedCreations.filter((value) => value && typeof value === 'object')
+    : [];
+
+  if (!relatedTerms.length && !relatedCreations.length) return null;
+
+  const currentWorkKey = normalizeWorkKey(workId || '');
+  const getWorkLabel = (targetWorkId) => {
+    const normalized = normalizeWorkKey(targetWorkId || currentWorkKey);
+    const rawTitle = globalMeta?.CreationWorks?.[normalized]?.Title;
+    if (typeof rawTitle === 'string' && rawTitle.trim()) return rawTitle.trim();
+    return String(normalized || '').replace(/^#?Works_/, '').trim() || '作品';
+  };
+
+  const buildTagLink = (href, text, title, onNavigate) => el('div', { class: 'tag' }, [
+    el('a', {
+      href,
+      title,
+      onclick: async (event) => {
+        if (typeof onNavigate !== 'function') return;
+        event.preventDefault();
+        event.stopPropagation();
+        await onNavigate();
+      }
+    }, [text])
+  ]);
+
+  const blocks = [];
+
+  if (relatedTerms.length) {
+    const termNodes = relatedTerms.map((term) => {
+      const href = buildViewerNavigationHref(currentWorkKey, 'Glossary', { q: term });
+      return buildTagLink(
+        href,
+        term,
+        `${term} を創作用語 DB で開く`,
+        () => openViewerNavigation(currentWorkKey, 'Glossary', { q: term })
+      );
+    });
+
+    blocks.push(el('div', { style: 'margin-bottom: 10px;' }, [
+      el('div', { class: 'tag', style: 'margin-bottom: 6px;' }, [
+        getFieldLabel('RelatedTerms', fieldLabelMap, metaForLookup, globalDefType, '関連用語')
+      ]),
+      createDetailTagGrid(termNodes)
+    ]));
+  }
+
+  if (relatedCreations.length) {
+    const creationNodes = relatedCreations
+      .map((entry) => {
+        const targetWork = normalizeWorkKey(entry.RelatedWorks || currentWorkKey);
+        const targetDb = String(entry.RelatedDB || '').trim();
+        if (!targetWork || !targetDb) return null;
+
+        const targetMeta = targetWork === currentWorkKey ? findDbCatalogEntry(workMeta, targetDb) : null;
+        const dbLabel = getDbDisplayLabel(targetMeta, targetDb);
+        const workLabel = getWorkLabel(targetWork);
+        const linkText = `${workLabel} / ${dbLabel}`;
+        const href = buildViewerNavigationHref(targetWork, targetDb, { q: '' });
+        return buildTagLink(
+          href,
+          linkText,
+          `${linkText} を開く`,
+          () => openViewerNavigation(targetWork, targetDb, { q: '' })
+        );
+      })
+      .filter(Boolean);
+
+    if (creationNodes.length) {
+      blocks.push(el('div', { style: 'margin-bottom: 10px;' }, [
+        el('div', { class: 'tag', style: 'margin-bottom: 6px;' }, [
+          getFieldLabel('RelatedCreations', fieldLabelMap, metaForLookup, globalDefType, '関連創作')
+        ]),
+        createDetailTagGrid(creationNodes)
+      ]));
+    }
+  }
+
+  if (!blocks.length) return null;
+
+  return el('div', { class: 'section' }, [
+    el('h3', {}, ['関連情報']),
+    el('div', {}, blocks)
   ]);
 }
 

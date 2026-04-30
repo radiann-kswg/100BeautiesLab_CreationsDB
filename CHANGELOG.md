@@ -5,7 +5,8 @@
 - `pages/characters.js` で、現在選択中 DB の catalog entry を参照し、`DB_Layer: References` の場合は shared `data/References/db_type.json` を追加で読み込んで work typedef へマージするようにした。
 - これにより、`Title` / `Term` / `BodyBlocks` / `RelatedCreations` など、通常キャラクター DB とは異なる資料系フィールドでも、キャラシート詳細で label / section / 表示整形を shared references typedef に従って解釈できるようにした。
 - 一覧・詳細の見出し fallback も `Name` / `FormalName` だけでなく `Title` / `Term` を使えるようにし、References レコードでもタイトル未設定扱いにならないようにした。
-- 回帰確認として `tests/pages.characters.ui-output.test.js` に References 表示ケースを追加し、6 件成功、および `tests/pages.characters.syntax.test.js` の成功を確認した。
+- 追加で、一覧検索を `Title` / `Term` 系も対象に広げ、`RelatedTerms` を Glossary DB の絞り込みリンク、`RelatedCreations` を対象 work/db への遷移リンクとして「関連情報」セクションに表示するようにした。
+- 回帰確認として `tests/pages.characters.ui-output.test.js` に References 表示・一覧 fallback・関連リンクのケースを追加し、8 件成功、および `tests/pages.characters.syntax.test.js` の成功を確認した。
 
 ### References typedef を shared `data/References/db_type.json` へ集約
 

@@ -19,7 +19,8 @@
 - 回帰確認として `tests/data.shape.test.js` を実行し、3 件成功を確認した。
 - 追加で、`pages/characters.js` では `DB_Layer: References` の DB を開いた際に shared `data/References/db_type.json` を UI 側で読み込んで work typedef へマージし、References レコードの `Title` / `Term` / `BodyBlocks` などをキャラシート詳細へ表示できるようにした。
 - あわせて一覧・詳細タイトルの fallback を `Title` / `Term` 対応へ拡張し、References レコードでも `'(No Name)'` にならないようにした。
-- 回帰確認として `tests/pages.characters.ui-output.test.js` の 6 件成功と `tests/pages.characters.syntax.test.js` の成功を確認した。
+- さらに、一覧検索を `Title` / `Term` 系へ拡張し、`RelatedTerms` を Glossary DB の絞り込みリンク、`RelatedCreations` を対象 work/db への遷移リンクとして detail の「関連情報」セクションへ追加した。
+- 回帰確認として `tests/pages.characters.ui-output.test.js` の 8 件成功と `tests/pages.characters.syntax.test.js` の成功を確認した。
 
 ## 現時点の基本方針
 
