@@ -1,203 +1,203 @@
 [
   {
-    "Num": "101-mp",
+    "Num": 101,
     "Progress": "notProceeded",
     "_DBLink": {
       "worksTitle": "NumberTales",
       "dbName": "SemiPrimary",
-      "_Search": [{ "hashTag": "Num", "key": 101 }]
+      "_Search": [{ "hashTag": "Num", "key": "101-dev" }]
     },
     "FormalName": "量産型ナンバーテールズ101番機シリーズ",
     "FormalName_EN": "NumberTales #101 Series Mass Production Version for Sales",
     "ModelNumber": "APHR-NT [MP]101-*****"
   },
   {
-    "Num": "102-mp",
+    "Num": 102,
     "Progress": "notProceeded",
     "_DBLink": {
       "worksTitle": "NumberTales",
       "dbName": "SemiPrimary",
-      "_Search": [{ "hashTag": "Num", "key": 102 }]
+      "_Search": [{ "hashTag": "Num", "key": "102-dev" }]
     },
     "FormalName": "量産型ナンバーテールズ102番機シリーズ",
     "FormalName_EN": "NumberTales #102 Series Mass Production Version for Sales",
     "ModelNumber": "APHR-NT [MP]102-*****"
   },
   {
-    "Num": "103-mp",
+    "Num": 103,
     "Progress": "notProceeded",
     "_DBLink": {
       "worksTitle": "NumberTales",
       "dbName": "SemiPrimary",
-      "_Search": [{ "hashTag": "Num", "key": 103 }]
+      "_Search": [{ "hashTag": "Num", "key": "103-dev" }]
     },
     "FormalName": "量産型ナンバーテールズ103番機シリーズ",
     "FormalName_EN": "NumberTales #103 Series Mass Production Version for Sales",
     "ModelNumber": "APHR-NT [MP]103-*****"
   },
   {
-    "Num": "104-mp",
+    "Num": 104,
     "Progress": "notProceeded",
     "_DBLink": {
       "worksTitle": "NumberTales",
       "dbName": "SemiPrimary",
-      "_Search": [{ "hashTag": "Num", "key": 104 }]
+      "_Search": [{ "hashTag": "Num", "key": "104-dev" }]
     },
     "FormalName": "量産型ナンバーテールズ104番機シリーズ",
     "FormalName_EN": "NumberTales #104 Series Mass Production Version for Sales",
     "ModelNumber": "APHR-NT [MP]104-*****"
   },
   {
-    "Num": "105-mp",
+    "Num": 105,
     "Progress": "notProceeded",
     "_DBLink": {
       "worksTitle": "NumberTales",
       "dbName": "SemiPrimary",
-      "_Search": [{ "hashTag": "Num", "key": 105 }]
+      "_Search": [{ "hashTag": "Num", "key": "105-dev" }]
     },
     "FormalName": "量産型ナンバーテールズ105番機シリーズ",
     "FormalName_EN": "NumberTales #105 Series Mass Production Version for Sales",
     "ModelNumber": "APHR-NT [MP]105-*****"
   },
   {
-    "Num": "106-mp",
+    "Num": 106,
     "Progress": "notProceeded",
     "_DBLink": {
       "worksTitle": "NumberTales",
       "dbName": "SemiPrimary",
-      "_Search": [{ "hashTag": "Num", "key": 106 }]
+      "_Search": [{ "hashTag": "Num", "key": "106-dev" }]
     },
     "FormalName": "量産型ナンバーテールズ106番機シリーズ",
     "FormalName_EN": "NumberTales #106 Series Mass Production Version for Sales",
     "ModelNumber": "APHR-NT [MP]106-*****"
   },
   {
-    "Num": "107-mp",
+    "Num": 107,
     "Progress": "notProceeded",
     "_DBLink": {
       "worksTitle": "NumberTales",
       "dbName": "SemiPrimary",
-      "_Search": [{ "hashTag": "Num", "key": 107 }]
+      "_Search": [{ "hashTag": "Num", "key": "107-dev" }]
     },
     "FormalName": "量産型ナンバーテールズ107番機シリーズ",
     "FormalName_EN": "NumberTales #107 Series Mass Production Version for Sales",
     "ModelNumber": "APHR-NT [MP]107-*****"
   },
   {
-    "Num": "108-mp",
+    "Num": 108,
     "Progress": "notProceeded",
     "_DBLink": {
       "worksTitle": "NumberTales",
       "dbName": "SemiPrimary",
-      "_Search": [{ "hashTag": "Num", "key": 108 }]
+      "_Search": [{ "hashTag": "Num", "key": "108-dev" }]
     },
     "FormalName": "量産型ナンバーテールズ108番機シリーズ",
     "FormalName_EN": "NumberTales #108 Series Mass Production Version for Sales",
     "ModelNumber": "APHR-NT [MP]108-*****"
   },
   {
-    "Num": "109-mp",
+    "Num": 109,
     "Progress": "notProceeded",
     "_DBLink": {
       "worksTitle": "NumberTales",
       "dbName": "SemiPrimary",
-      "_Search": [{ "hashTag": "Num", "key": 109 }]
+      "_Search": [{ "hashTag": "Num", "key": "109-dev" }]
     },
     "FormalName": "量産型ナンバーテールズ109番機シリーズ",
     "FormalName_EN": "NumberTales #109 Series Mass Production Version for Sales",
     "ModelNumber": "APHR-NT [MP]109-*****"
   },
   {
-    "Num": "110-mp",
+    "Num": 110,
     "Progress": "notProceeded",
     "_DBLink": {
       "worksTitle": "NumberTales",
       "dbName": "SemiPrimary",
-      "_Search": [{ "hashTag": "Num", "key": 110 }]
+      "_Search": [{ "hashTag": "Num", "key": "110-dev" }]
     },
     "FormalName": "量産型ナンバーテールズ110番機シリーズ",
     "FormalName_EN": "NumberTales #110 Series Mass Production Version for Sales",
     "ModelNumber": "APHR-NT [MP]110-*****"
   },
   {
-    "Num": "112-mp",
+    "Num": 112,
     "Progress": "notProceeded",
     "_DBLink": {
       "worksTitle": "NumberTales",
       "dbName": "SemiPrimary",
-      "_Search": [{ "hashTag": "Num", "key": 112 }]
+      "_Search": [{ "hashTag": "Num", "key": "112-dev" }]
     },
     "FormalName": "量産型ナンバーテールズ112番機シリーズ",
     "FormalName_EN": "NumberTales #112 Series Mass Production Version for Sales",
     "ModelNumber": "APHR-NT [MP]112-*****"
   },
   {
-    "Num": "113-mp",
+    "Num": 113,
     "Progress": "notProceeded",
     "_DBLink": {
       "worksTitle": "NumberTales",
       "dbName": "SemiPrimary",
-      "_Search": [{ "hashTag": "Num", "key": 113 }]
+      "_Search": [{ "hashTag": "Num", "key": "113-dev" }]
     },
     "FormalName": "量産型ナンバーテールズ113番機シリーズ",
     "FormalName_EN": "NumberTales #113 Series Mass Production Version for Sales",
     "ModelNumber": "APHR-NT [MP]113-*****"
   },
   {
-    "Num": "114-mp",
+    "Num": 114,
     "Progress": "notProceeded",
     "_DBLink": {
       "worksTitle": "NumberTales",
       "dbName": "SemiPrimary",
-      "_Search": [{ "hashTag": "Num", "key": 114 }]
+      "_Search": [{ "hashTag": "Num", "key": "114-dev" }]
     },
     "FormalName": "量産型ナンバーテールズ114番機シリーズ",
     "FormalName_EN": "NumberTales #114 Series Mass Production Version for Sales",
     "ModelNumber": "APHR-NT [MP]114-*****"
   },
   {
-    "Num": "116-mp",
+    "Num": 116,
     "Progress": "notProceeded",
     "_DBLink": {
       "worksTitle": "NumberTales",
       "dbName": "SemiPrimary",
-      "_Search": [{ "hashTag": "Num", "key": 116 }]
+      "_Search": [{ "hashTag": "Num", "key": "116-dev" }]
     },
     "FormalName": "量産型ナンバーテールズ116番機シリーズ",
     "FormalName_EN": "NumberTales #116 Series Mass Production Version for Sales",
     "ModelNumber": "APHR-NT [MP]116-*****"
   },
   {
-    "Num": "117-mp",
+    "Num": 117,
     "Progress": "notProceeded",
     "_DBLink": {
       "worksTitle": "NumberTales",
       "dbName": "SemiPrimary",
-      "_Search": [{ "hashTag": "Num", "key": 117 }]
+      "_Search": [{ "hashTag": "Num", "key": "117-dev" }]
     },
     "FormalName": "量産型ナンバーテールズ117番機シリーズ",
     "FormalName_EN": "NumberTales #117 Series Mass Production Version for Sales",
     "ModelNumber": "APHR-NT [MP]117-*****"
   },
   {
-    "Num": "118-mp",
+    "Num": 118,
     "Progress": "notProceeded",
     "_DBLink": {
       "worksTitle": "NumberTales",
       "dbName": "SemiPrimary",
-      "_Search": [{ "hashTag": "Num", "key": 118 }]
+      "_Search": [{ "hashTag": "Num", "key": "118-dev" }]
     },
     "FormalName": "量産型ナンバーテールズ118番機シリーズ",
     "FormalName_EN": "NumberTales #118 Series Mass Production Version for Sales",
     "ModelNumber": "APHR-NT [MP]118-*****"
   },
   {
-    "Num": "119-mp",
+    "Num": 119,
     "Progress": "notProceeded",
     "_DBLink": {
       "worksTitle": "NumberTales",
       "dbName": "SemiPrimary",
-      "_Search": [{ "hashTag": "Num", "key": 119 }]
+      "_Search": [{ "hashTag": "Num", "key": "119-dev" }]
     },
     "FormalName": "量産型ナンバーテールズ119番機シリーズ",
     "FormalName_EN": "NumberTales #119 Series Mass Production Version for Sales",
@@ -934,11 +934,11 @@
     "Class": ["デュオトリプル1型乙組"]
   },
   {
-    "Num": "200-mp",
+    "Num": 200,
     "_DBLink": {
       "worksTitle": "NumberTales",
       "dbName": "SemiPrimary",
-      "_Search": [{ "hashTag": "Num", "key": 200 }]
+      "_Search": [{ "hashTag": "Num", "key": "200-dev" }]
     },
     "FormalName": "量産型ナンバーテールズ200番機シリーズ",
     "FormalName_EN": "NumberTales #200 Series Mass Production Version for Sales",
@@ -2685,11 +2685,11 @@
     "Class": ["デュオトリプル3型乙組"]
   },
   {
-    "Num": "400-mp",
+    "Num": 400,
     "_DBLink": {
       "worksTitle": "NumberTales",
       "dbName": "SemiPrimary",
-      "_Search": [{ "hashTag": "Num", "key": 400 }]
+      "_Search": [{ "hashTag": "Num", "key": "400-dev" }]
     },
     "FormalName": "量産型ナンバーテールズ400番機シリーズ",
     "FormalName_EN": "NumberTales #400 Series Mass Production Version for Sales",
