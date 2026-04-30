@@ -2034,10 +2034,10 @@
         "emstk_corefolder22-3"
       ],
       "arts_PNGPath": [
-        "corefolders/autumnMoon/art_AutumnMoon2023",
+        "corefolders/autumnMoon/art_autumnMoon2023",
         "chattingArt/chart_img22-humanoid",
-        "corefolders/autumnMoon/art_AutumnMoon2024",
-        "../../SemiPrimary/arts/corefolders/autumnMoon/art_AutumnMoon2025"
+        "corefolders/autumnMoon/art_autumnMoon2024",
+        "../../SemiPrimary/arts/corefolders/autumnMoon/art_autumnMoon2025"
       ]
     },
     "Name": "フジ",
@@ -6837,7 +6837,7 @@
       "arts_PNGPath": [
         "humanoids/2023/art_img73-humanoid",
         "humanoids/parody/art_img73-parody",
-        "corefolders/autumnMoon/art_AutumnMoon2024",
+        "corefolders/autumnMoon/art_autumnMoon2024",
         "chattingArt/chart_img73-whereIsEho"
       ]
     },
