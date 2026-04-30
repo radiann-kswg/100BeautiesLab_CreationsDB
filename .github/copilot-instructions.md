@@ -262,6 +262,7 @@
 - **辞書の合成**: enum/list 辞書は `db_meta.json` だけでなく `db_type.json($VarsDef)` にも分散し得るため、API/UI ともに両者を合成して扱う前提で実装します。
 - **typedef 駆動**: enrich/search 等の振る舞いは `db_type.json($DefType)` を参照して補助（表示分類・正規化・画像ヒント・検索対象テキストなど）する設計を優先します。
 - **画像ディレクトリ規約**: 画像解決は catalog key に対応する `Images/DB_*` / `Images/Ref_*` を正とし、旧 `Images/Primary` のような裸の DB 名ディレクトリは新規運用しません。
+- **References 画像解決の原則**: 資料系 DB の画像は DB 名ごとにハードコードを増やさず、shared / work-local の `References/db_type.json($DefType)` を UI で合流したうえで、`Images.*` 配下の field 名から folder hint を導出して解決してください。
 - **typedef 駆動の優先順位**: 表示分類 → 正規化 → 画像 → 検索（上位ほど破壊的変更になりやすいため、下位の拡張は慎重に段階導入）。
 - **enrich のメタ情報**: enrich 応答に `_enrichment` 等のメタ情報を含め、UI がセクション分けや表示制御に利用できるようにします（例: `_enrichment.displaySections`）。
 - **API/SW 仕様メモの同期**: ルーティング、`_enrichment`、`varsdef` / `typedef` / `deftype` の責務、`db_meta.json` 欠損耐性を変更した場合は、`docs/api-sw-spec.md` も同時に更新してください。

@@ -8,6 +8,7 @@
 ## 変更点の要約
 
 - `pages/characters.js` と `lib/data-common.js` に `dbName -> Images/DB_* or Ref_*` の正規化を実装した。
+- References 画像では shared layer だけでなく work-local `References/db_type.json` も UI 側で合流し、`Images.*` の field 名から folder hint を導出してサブフォルダを解決するようにした。
 - `data/Works_*/Images/` 直下の既存ディレクトリを `DB_Primary` などへ rename した。
 - `data/Works_NumberTales/Images/` に `Ref_Glossary` / `Ref_Reference` を追加した。
 - docs / 指示書 / README 群を新しい画像ディレクトリ規則へ更新した。

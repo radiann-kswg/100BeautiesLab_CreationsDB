@@ -157,6 +157,7 @@ UI と enrich/search は、可能な限りこの `db_type.json($DefType)` に追
 - `#Ref_` prefix の catalog key は既定で `ref_<Name>.json` を優先探索するため、資料系を `References/ref_Glossary.json` / `References/ref_Reference.json` のようにまとめる場合は `DB_File` 省略でも動作します
 - `DB_File` は、`db_<DbName>.json` / `ref_<Name>.json` の既定名からさらに外したい場合だけ使います
 - UI / enrich の画像解決は DB key と同じ接頭辞を使い、`Images/DB_<DbName>/...` または `Images/Ref_<RefName>/...` を既定として扱います。作品共通画像のみ `Images/General/` を使います
+- References 系 DB の画像 field は、shared `data/References/db_type.json` だけでなく作品別 `References/db_type.json` も UI 側で合流して解釈し、`concept-figure_PNGName` のような field 名からサブフォルダ名を導出して解決します。
 
 ### 5.2 カタログ用メタ schema 宣言
 

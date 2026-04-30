@@ -358,6 +358,8 @@
 
 画像ディレクトリ名もこの catalog key 系に揃え、通常 DB は `Images/DB_<DbName>/...`、資料系 DB は `Images/Ref_<RefName>/...` を既定とします。作品共通画像のみ `Images/General/` を使います。
 
+資料系 DB の画像定義は shared `data/References/db_type.json` を土台にしつつ、作品別 `References/db_type.json` の `Images.*` 宣言で上書きや追加を行えます。UI の画像解決では、この 2 層を合流したうえで field 名から folder hint を導出し、DB 固有名のハードコード追加を避けます。
+
 ### 4.4 `StoryEra`
 
 `StoryEra` は厳密な日付型ではなく、物語年代を表す構造化メタです。

@@ -5,6 +5,7 @@
 - `pages/characters.js` と `lib/data-common.js` の画像パス解決を更新し、通常 DB は `Images/DB_<DbName>/...`、References 系 DB は `Images/Ref_<RefName>/...`、作品共通画像は `Images/General/` を既定で解決するようにした。
 - これに合わせて、各作品の `data/Works_*/Images/` 配下に残っていた `Primary` / `Secondary` / `Proxy` などの旧サブフォルダ名を `DB_Primary` / `DB_Secondary` / `DB_Proxy` などへ移行し、`Works_NumberTales` には `Ref_Glossary` / `Ref_Reference` を追加した。
 - 回帰確認として `tests/pages.characters.ui-output.test.js` に References 画像パスの検証を追加し、`tests/data.sanity.test.js` に `Images` 直下の命名規則チェックを追加した。
+- 追加で、References 画像は shared `data/References/db_type.json` だけでなく作品別 `References/db_type.json` も UI 側で合流して解釈し、`Images.*` 配下の field 名から folder hint を導出して `concept-figure` のようなサブフォルダを hardcode なしで解決できるようにした。
 - あわせて `README.md`、`pages/README.md`、`docs/db-update-guidelines.md`、`docs/api-sw-spec.md`、`docs/schema-meta-processing.md`、`docs/readme.en.md`、`docs/viewer-guide.md`、`.github/copilot-instructions.md` を新規則へ同期した。
 
 ### References レイヤーの DB をキャラシート UI で表示可能にした
