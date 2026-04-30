@@ -2034,10 +2034,10 @@
         "emstk_corefolder22-3"
       ],
       "arts_PNGPath": [
-        "corefolders/autumnMoon/art_AutumnMoon2023",
+        "corefolders/autumnMoon/art_autumnMoon2023",
         "chattingArt/chart_img22-humanoid",
-        "corefolders/autumnMoon/art_AutumnMoon2024",
-        "../../SemiPrimary/arts/corefolders/autumnMoon/art_AutumnMoon2025"
+        "corefolders/autumnMoon/art_autumnMoon2024",
+        "../../SemiPrimary/arts/corefolders/autumnMoon/art_autumnMoon2025"
       ]
     },
     "Name": "フジ",
@@ -3724,6 +3724,31 @@
           "RelationLabel": ["cousin"]
         },
         { "Num": 66, "Comments": "いちいち眩しい" }
+      ]
+    },
+    "ConversationPattern": {
+      "TalkingTone": "普段は冷淡でクールな口調をしている。ただし信頼している人を馬鹿にしてきた相手に対してなどでは、対抗心を燃やすような態度をとることもある。",
+      "TopicPreference": "主に努力的な姿勢を示す人には友好的に接し、そうでない人には冷淡に接する傾向がある。\nまた、努力を蔑ろにしてくる人には（善意の範囲で）報復的な言動に出ることもある。",
+      "TalkFrequency": "必要な時に必要なことを話すタイプで、無駄な会話はあまりしない。\nただし、信頼している人の話をするときは、自ら進んで話題を進展させることもある。",
+      "PreferredTopics": "原則自ら進んで話題提供することはないが、相手から聞かれた場合 信頼している人の話をまんざらでもないように話すことも。\n状況によっては趣味や特技の自慢をすることがある。",
+      "AvoidedTopics": "人を馬鹿にしたり努力を蔑ろにするような話題を自ら進んで選ぶことは全くしない。\nまた、相手の趣味趣向や価値観を否定・比較するような言い回しも避けている。",
+      "ConversationNotes": "喧嘩を売られた時は、最も被害やリスクが少ない方法で買う。そのため、相手の悪意を振り払うスカッとするような返しが群を抜いて得意で、自分（ら）が負ける喧嘩を買うことは怒りを抑えつつも絶対に避ける。",
+      "DialogueExamples": [
+        {
+          "value": "ナンバーテールズ39番機の39(サク)だ、これから世話になる。お前の実力がどんなものかにもよるが、俺がいることに後悔はさせない",
+          "about": "契約時の自己紹介"
+        },
+        "外野がどう言おうと、俺は誰にもお前を馬鹿にできないようお前の相棒でい続ける。だから自分のやっていることを外野の物言いで見失うなよ",
+        "どうせ勝敗が決まっている喧嘩を売るくらいなら、ちょっとは加減してほしいものだな。こんな不公平なやり方で勝者ぶるのも、自分が情けないとは少しも思わないのか？",
+        "……ふん。理想ばかり追うなとは、よくいったものだな。相棒もきっとそう思うだろうよ",
+        {
+          "value": "……別に。俺は相棒が突き進むべき道を拓いただけで、彼奴(あいつ)は自分の進むべき道さえあれば突き進む。俺との契約期間は残り１ヵ月も無いし、まぁ俺が干渉するほどでもないだろう",
+          "about": "信頼している主人のことを話しているとき"
+        },
+        {
+          "value": "相棒を馬鹿にするのも程ほどにしとけよお前ら……絶対に後悔させてやるからな…!!",
+          "about": "信頼している主人が周りに馬鹿にされているとき"
+        }
       ]
     }
   },
@@ -6837,7 +6862,7 @@
       "arts_PNGPath": [
         "humanoids/2023/art_img73-humanoid",
         "humanoids/parody/art_img73-parody",
-        "corefolders/autumnMoon/art_AutumnMoon2024",
+        "corefolders/autumnMoon/art_autumnMoon2024",
         "chattingArt/chart_img73-whereIsEho"
       ]
     },
