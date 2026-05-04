@@ -58,7 +58,11 @@
     "Height_cm": 164,
     "ConceptAge": 17,
     "BustSize": "AA",
-    "Class": ["百倍番(ハンドレッズデジッツ)"],
+    "Class": [
+      "百倍番(ハンドレッズデジッツ)",
+      "デシベルモデレーターズ",
+      "10号機型"
+    ],
     "FirstPersonCalling": "おれ",
     "SecondPersonCalling": "おまえ",
     "ThirdPersonCalling": "[※名前呼び]",
@@ -80,7 +84,7 @@
     "SPCodeName": "百一",
     "SPCodeName_EN": "Hundred One",
     "GenderType": "Neutral",
-    "Class": ["サイドシングルス"],
+    "Class": ["サイドシングルス", "10*(ヒノマル)型ハイナンバーズ"],
     "Backgrounds": "1号機系[1(ハジメ),2(ツグ),10(ミツル)]の類似個体で、こちらは販売用"
   },
   {
@@ -97,7 +101,7 @@
     "SPCodeName": "百二",
     "SPCodeName_EN": "Hundred Two",
     "GenderType": "Neutral",
-    "Class": ["サイドデュアルスリーズ"],
+    "Class": ["サイドデュアルスリーズ", "10*(ヒノマル)型ハイナンバーズ"],
     "Backgrounds": "2号機系[バイナ,20(ハツカ)]の類似個体で、こちらは販売用"
   },
   {
@@ -114,7 +118,7 @@
     "SPCodeName": "百三",
     "SPCodeName_EN": "Hundred Three",
     "GenderType": "Neutral",
-    "Class": ["サイドデュアルフォーズ"],
+    "Class": ["サイドデュアルフォーズ", "10*(ヒノマル)型ハイナンバーズ"],
     "Backgrounds": "「3(ナオ)」の類似個体で、こちらは販売用\n以下「109(ヒノマルク)」まで同様（下1桁に対応）"
   },
   {
@@ -131,7 +135,7 @@
     "SPCodeName": "百四",
     "SPCodeName_EN": "Hundred Four",
     "GenderType": "Neutral",
-    "Class": ["サイドデュアルファイブズ"]
+    "Class": ["サイドデュアルファイブズ", "10*(ヒノマル)型ハイナンバーズ"]
   },
   {
     "Num": "105-dev",
@@ -147,7 +151,7 @@
     "SPCodeName": "百五",
     "SPCodeName_EN": "Hundred Five",
     "GenderType": "Neutral",
-    "Class": ["サイドデュアルシックスズ"]
+    "Class": ["サイドデュアルシックスズ", "10*(ヒノマル)型ハイナンバーズ"]
   },
   {
     "Num": "106-dev",
@@ -163,7 +167,7 @@
     "SPCodeName": "百六",
     "SPCodeName_EN": "Hundred Six",
     "GenderType": "Neutral",
-    "Class": ["サイドデュアルセブンズ"]
+    "Class": ["サイドデュアルセブンズ", "10*(ヒノマル)型ハイナンバーズ"]
   },
   {
     "Num": "107-dev",
@@ -179,7 +183,7 @@
     "SPCodeName": "百七",
     "SPCodeName_EN": "Hundred Seven",
     "GenderType": "Neutral",
-    "Class": ["サイドデュアルエイツ"]
+    "Class": ["サイドデュアルエイツ", "10*(ヒノマル)型ハイナンバーズ"]
   },
   {
     "Num": "108-dev",
@@ -195,7 +199,7 @@
     "SPCodeName": "百八",
     "SPCodeName_EN": "Hundred Eight",
     "GenderType": "Neutral",
-    "Class": ["ナインズサイドデュアルズ"]
+    "Class": ["ナインズサイドデュアルズ", "10*(ヒノマル)型ハイナンバーズ"]
   },
   {
     "Num": "109-dev",
@@ -211,7 +215,7 @@
     "SPCodeName": "百九",
     "SPCodeName_EN": "Hundred Nine",
     "GenderType": "Neutral",
-    "Class": ["サイドデュアルキャリーズ"]
+    "Class": ["サイドデュアルキャリーズ", "10*(ヒノマル)型ハイナンバーズ"]
   },
   {
     "Num": "110-dev",
@@ -227,7 +231,7 @@
     "SPCodeName": "百十",
     "SPCodeName_EN": "Eleventy",
     "GenderType": "Neutral",
-    "Class": ["マスターテンズデュアルズ9"],
+    "Class": ["マスターテンズデュアルズ9", "11*(ハクト)型ハイナンバーズ"],
     "Backgrounds": "「11(トウイチ)」の類似個体で、こちらは販売用"
   },
   {
@@ -302,7 +306,7 @@
     "CodeName": "一一二",
     "SPCodeName_EN": "Eleventy Two",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル4型甲組"],
+    "Class": ["デュオトリプル4型甲組", "11*(ハクト)型ハイナンバーズ"],
     "Backgrounds": "「12(トウジ)」の類似個体で、こちらは販売用\n以下「119(ハクトク)」まで同様（下2桁に対応）"
   },
   {
@@ -318,7 +322,7 @@
     "CodeName": "一一三",
     "SPCodeName_EN": "Eleventy Three",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル5型甲組"]
+    "Class": ["デュオトリプル5型甲組", "11*(ハクト)型ハイナンバーズ"]
   },
   {
     "Num": "114-dev",
@@ -333,7 +337,7 @@
     "CodeName": "一一四",
     "SPCodeName_EN": "Eleventy Four",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル6型甲組"]
+    "Class": ["デュオトリプル6型甲組", "11*(ハクト)型ハイナンバーズ"]
   },
   {
     "Num": "115-dev",
@@ -348,7 +352,7 @@
     "CodeName": "一一五",
     "SPCodeName_EN": "Eleventy Five",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル7型甲組"]
+    "Class": ["デュオトリプル7型甲組", "11*(ハクト)型ハイナンバーズ"]
   },
   {
     "Num": "116-dev",
@@ -363,7 +367,7 @@
     "CodeName": "一一六",
     "SPCodeName_EN": "Eleventy Six",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル8型甲組"]
+    "Class": ["デュオトリプル8型甲組", "11*(ハクト)型ハイナンバーズ"]
   },
   {
     "Num": "117-dev",
@@ -378,7 +382,7 @@
     "CodeName": "一一七",
     "SPCodeName_EN": "Eleventy Seven",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル9型甲組"]
+    "Class": ["デュオトリプル9型甲組", "11*(ハクト)型ハイナンバーズ"]
   },
   {
     "Num": "118-dev",
@@ -393,7 +397,7 @@
     "CodeName": "一一八",
     "SPCodeName_EN": "Eleventy Eight",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル1型甲組"]
+    "Class": ["デュオトリプル1型甲組", "11*(ハクト)型ハイナンバーズ"]
   },
   {
     "Num": "119-dev",
@@ -408,7 +412,7 @@
     "CodeName": "一一九",
     "SPCodeName_EN": "Eleventy Nine",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル2型甲組"]
+    "Class": ["デュオトリプル2型甲組", "11*(ハクト)型ハイナンバーズ"]
   },
   {
     "Num": "200-dev",
@@ -424,7 +428,7 @@
     "SPCodeName": "皕",
     "SPCodeName_EN": "Two hundred",
     "GenderType": "Neutral",
-    "Class": ["百倍番(ハンドレッズデジッツ)"],
+    "Class": ["百倍番(ハンドレッズデジッツ)", "カレンド", "2号機型"],
     "FirstPersonCalling": "わたし",
     "SecondPersonCalling": "~さん",
     "ThirdPersonCalling": "~さん",
@@ -500,7 +504,7 @@
     "FormalName_EN": "NumberTales #400",
     "CodeName": "四〇〇",
     "GenderType": "Neutral",
-    "Class": ["百倍番(ハンドレッズデジッツ)"],
+    "Class": ["百倍番(ハンドレッズデジッツ)", "カレンド"],
     "Backgrounds": "「100倍数の年は閏年でないが、400倍数だと閏年」という（グレゴリオ暦の）400年周期法則から命名された"
   },
   {
@@ -515,7 +519,7 @@
     "FormalName_EN": "NumberTales #444",
     "CodeName": "四四四",
     "GenderType": "Neutral",
-    "Class": ["マスタートリプル"]
+    "Class": ["マスタートリプル", "スクエアエリート"]
   },
   {
     "Num": 555,
@@ -554,7 +558,7 @@
     "Weight_kg": { "hideText": "非公開" },
     "BustSize": "E",
     "TailsUnit": "キツネ(特殊)型3束x6本",
-    "Class": ["マスタートリプル"],
+    "Class": ["マスタートリプル", "フェイタルテールズ"],
     "ThisMasters": "中月 ルイス=ノア.ナイターエイド（夜月機関 第9幹部）",
     "FirstPersonCalling": "我\n私(わたくし)",
     "SecondPersonCalling": "汝(なんじ)",

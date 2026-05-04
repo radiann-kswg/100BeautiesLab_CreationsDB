@@ -51,14 +51,16 @@
   {
     "Num": 144,
     "Progress": "notProceeded",
-    "Name": "144(ヒトヨシ)",
-    "Name_EN": "144(Oneforfone)",
+    "Name": "144(グロス)",
+    "Name_EN": "144(Groß)",
     "FormalName": "量産型ナンバーテールズ144番機シリーズ",
     "FormalName_EN": "NumberTales #144 Series Mass Production Version for Sales",
     "ModelNumber": "APHR-NT [MP]144-*****",
     "CodeName": "一四四",
+    "SPCodeName": "グロス",
+    "SPCodeName_EN": "Gross",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル9型乙組"]
+    "Class": ["デュオトリプル9型乙組", "マスマティカコンストレイント"]
   },
   {
     "Num": 148,
@@ -83,6 +85,19 @@
     "SPCodeName_EN": "One Half(of Percent)",
     "GenderType": "Neutral",
     "Class": ["テンズデュアルシックスズ"]
+  },
+  {
+    "Num": 153,
+    "Progress": "notProceeded",
+    "Name": "153(ヒゴミ)",
+    "Name_EN": "153(Unipetri)",
+    "FormalName": "量産型ナンバーテールズ153番機シリーズ",
+    "FormalName_EN": "NumberTales #153 Series Mass Production Version for Sales",
+    "ModelNumber": "APHR-NT [MP]153-*****",
+    "CodeName": "一五三",
+    "GenderType": "Neutral",
+    "Class": ["トリプル1+3+5組", "ナルシシスツ"],
+    "Backgrounds": "ちなみに、153,370,371,407はナルシシスト数である"
   },
   {
     "Num": 156,
@@ -110,7 +125,20 @@
     "SPCodeName_EN": "Valentain",
     "GenderType": "Neutral",
     "Class": ["トリプル1+2+4組"],
-    "Background": "バレンタインの日付(2月14日)から由来"
+    "Backgrounds": "バレンタインの日付(2月14日)から由来"
+  },
+  {
+    "Num": 216,
+    "Progress": "notProceeded",
+    "Name": "216(ニイロ)",
+    "Name_EN": "216(Biunosect)",
+    "FormalName": "量産型ナンバーテールズ216番機シリーズ",
+    "FormalName_EN": "NumberTales #216 Series Mass Production Version for Sales",
+    "ModelNumber": "APHR-NT [MP]216-*****",
+    "CodeName": "二一六",
+    "GenderType": "Neutral",
+    "Class": ["トリプル1+2+6組", "バーチャリティテールズ"],
+    "Backgrounds": "6の乗数であることから、6(ムイ)や36(ミトム)と関連が深い。\nちなみに、三原色を1Byteで平均的に扱う際に取れる最大の色数でもある"
   },
   {
     "Num": "222-mp",
@@ -218,7 +246,7 @@
     "SPCodeName": "0xFF",
     "SPCodeName_EN": "Last of Byte",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル3型乙組"],
+    "Class": ["デュオトリプル3型乙組", "バーチャリティテールズ"],
     "Backgrounds": "1バイト値の最大値（16進法）から由来"
   },
   {
@@ -232,7 +260,7 @@
     "CodeName": "二五六",
     "SPCodeName_EN": "One Byte",
     "GenderType": "Neutral",
-    "Class": ["トリプル2+5+6組"],
+    "Class": ["トリプル2+5+6組", "マスマティカコンストレイント"],
     "Backgrounds": "1バイトで表現できる値の数から由来\nなお、「255(エフエフ)」と姉妹関係は無い"
   },
   {
@@ -297,7 +325,7 @@
     "SPCodeName": "Π",
     "SPCodeName_EN": "Pi",
     "GenderType": "Neutral",
-    "Class": ["トリプル1+3+4組"],
+    "Class": ["トリプル1+3+4組", "マスマティカコンストレイント"],
     "Backgrounds": "円周率(3.14)から由来"
   },
   {
@@ -325,6 +353,20 @@
     "Class": ["デュオトリプル4型甲組"]
   },
   {
+    "Num": 360,
+    "Progress": "notProceeded",
+    "Name": "360(ディクリール)",
+    "Name_EN": "360(Degreel)",
+    "FormalName": "量産型ナンバーテールズ360番機シリーズ",
+    "FormalName_EN": "NumberTales #360 Series Mass Production Version for Sales",
+    "ModelNumber": "APHR-NT [MP]360-*****",
+    "CodeName": "三六〇",
+    "SPCodeName": "度数法",
+    "SPCodeName_EN": "One Round by Degree",
+    "GenderType": "Neutral",
+    "Class": ["ナインティデュアルズ", "マスマティカコンストレイント"]
+  },
+  {
     "Num": 365,
     "Progress": "notProceeded",
     "Name": "365(イヤース)",
@@ -335,8 +377,8 @@
     "CodeName": "三六五",
     "SPCodeName_EN": "Days of Year",
     "GenderType": "Neutral",
-    "Class": ["トリプル3+5+6組"],
-    "Backgrounds": "1年の年数(365日)から由来\nなお、「366(ウルウニチ)」と姉妹関係は無い"
+    "Class": ["トリプル3+5+6組", "カレンド"],
+    "Backgrounds": "1年の年数(365日)から由来\nなお、「366(ウルウニチ)」とは義理の姉妹関係にある"
   },
   {
     "Num": 366,
@@ -349,8 +391,47 @@
     "CodeName": "三六六",
     "SPCodeName_EN": "Days of Leaped-Year",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル6型乙組"],
-    "Backgrounds": "閏年の日数(366日)から由来\nなお「365(イヤース)」とは、姉妹関係はない"
+    "Class": ["デュオトリプル6型乙組", "カレンド"],
+    "Backgrounds": "閏年の日数(366日)から由来\nなお、「365(イヤース)」とは義理の姉妹関係にある"
+  },
+  {
+    "Num": 369,
+    "Progress": "notProceeded",
+    "Name": "369(ミロク)",
+    "Name_EN": "369(Trilix)",
+    "FormalName": "量産型ナンバーテールズ369番機シリーズ",
+    "FormalName_EN": "NumberTales #369 Series Mass Production Version for Sales",
+    "ModelNumber": "APHR-NT [MP]369-*****",
+    "CodeName": "三六九",
+    "SPCodeName_EN": "miracle the multiples of 3",
+    "GenderType": "Neutral",
+    "Class": ["トリプル3+6+9組"]
+  },
+  {
+    "Num": 370,
+    "Progress": "notProceeded",
+    "Name": "370(サチマル)",
+    "Name_EN": "370(Threeventy)",
+    "FormalName": "量産型ナンバーテールズ370番機シリーズ",
+    "FormalName_EN": "NumberTales #370 Series Mass Production Version for Sales",
+    "ModelNumber": "APHR-NT [MP]370-*****",
+    "CodeName": "三七〇",
+    "GenderType": "Neutral",
+    "Class": ["テンズデュアルキャリーズ", "ナルシシスツ"],
+    "Backgrounds": "ちなみに、153,370,371,407はナルシシスト数である"
+  },
+  {
+    "Num": 371,
+    "Progress": "notProceeded",
+    "Name": "371(ミナヒト)",
+    "Name_EN": "371(Treventone)",
+    "FormalName": "量産型ナンバーテールズ371番機シリーズ",
+    "FormalName_EN": "NumberTales #371 Series Mass Production Version for Sales",
+    "ModelNumber": "APHR-NT [MP]371-*****",
+    "CodeName": "三七一",
+    "GenderType": "Neutral",
+    "Class": ["トリプル1+3+7組", "ナルシシスツ"],
+    "Backgrounds": "ちなみに、153,370,371,407はナルシシスト数である"
   },
   {
     "Num": 373,
@@ -396,7 +477,7 @@
     "SPCodeName": "(都:みやこ)",
     "SPCodeName_EN": "(Metropolis)",
     "GenderType": "Neutral",
-    "Class": ["トリプル3+5+8組"]
+    "Class": ["トリプル3+5+8組", "ワノマチ"]
   },
   {
     "Num": 387,
@@ -417,6 +498,33 @@
     "CodeName": "四〇一",
     "GenderType": "Neutral",
     "Class": ["サイドデュアルファイブズ"]
+  },
+  {
+    "Num": 404,
+    "Progress": "notProceeded",
+    "Name": "404(イエナキ)",
+    "Name_EN": "404(Foundnot)",
+    "FormalName": "量産型ナンバーテールズ404番機シリーズ",
+    "FormalName_EN": "NumberTales #404 Series Mass Production Version for Sales",
+    "ModelNumber": "APHR-NT [MP]404-*****",
+    "CodeName": "四〇四",
+    "SPCodeName": "HTTP応答404",
+    "SPCodeName_EN": "HTTP Response 404",
+    "GenderType": "Neutral",
+    "Class": ["サイドシングルズ"]
+  },
+  {
+    "Num": 407,
+    "Progress": "notProceeded",
+    "Name": "407(シレナ)",
+    "Name_EN": "407(Fore-o-sept)",
+    "FormalName": "量産型ナンバーテールズ407番機シリーズ",
+    "FormalName_EN": "NumberTales #407 Series Mass Production Version for Sales",
+    "ModelNumber": "APHR-NT [MP]407-*****",
+    "CodeName": "四〇七",
+    "GenderType": "Neutral",
+    "Class": ["サイドデュアルイレブンズ", "ナルシシスツ"],
+    "Backgrounds": "ちなみに、153,370,371,407はナルシシスト数である"
   },
   {
     "Num": 411,
@@ -453,6 +561,20 @@
     "ModelNumber": "APHR-NT [MP]444-*****"
   },
   {
+    "Num": 451,
+    "Progress": "notProceeded",
+    "Name": "451(ブックバーン)",
+    "Name_EN": "451(Bookburn)",
+    "FormalName": "量産型ナンバーテールズ451番機シリーズ",
+    "FormalName_EN": "NumberTales #451 Series Mass Production Version for Sales",
+    "ModelNumber": "APHR-NT [MP]451-*****",
+    "CodeName": "四五一",
+    "SPCodeName": "華氏451",
+    "SPCodeName_EN": "Fahrenheit 451",
+    "GenderType": "Neutral",
+    "Class": ["トリプル1+4+5組", "フィジクスコンストレイント"]
+  },
+  {
     "Num": 456,
     "Progress": "notProceeded",
     "Name": "456(シゴロ)",
@@ -461,9 +583,10 @@
     "FormalName_EN": "NumberTales #456 Series Mass Production Version for Sales",
     "ModelNumber": "APHR-NT [MP]456-*****",
     "CodeName": "四五六",
+    "SPCodeName": "(四五六賽)",
     "SPCodeName_EN": "Upper Dice",
     "GenderType": "Neutral",
-    "Class": ["トリプル4+5+6組"]
+    "Class": ["トリプル4+5+6組", "ワノマチ"]
   },
   {
     "Num": 467,
@@ -495,7 +618,7 @@
     "ModelNumber": "APHR-NT [MP]496-*****",
     "CodeName": "四九六",
     "GenderType": "Neutral",
-    "Class": ["トリプル4+6+9組"]
+    "Class": ["トリプル4+6+9組", "マスマティカコンストレイント"]
   },
   {
     "Num": 500,
@@ -536,6 +659,20 @@
     "ModelNumber": "APHR-NT [MP]555-*****"
   },
   {
+    "Num": 528,
+    "Progress": "notProceeded",
+    "Name": "528(ソルフェジアン)",
+    "Name_EN": "528(Solfeggian)",
+    "FormalName": "量産型ナンバーテールズ528番機シリーズ",
+    "FormalName_EN": "NumberTales #528 Series Mass Production Version for Sales",
+    "ModelNumber": "APHR-NT [MP]528-*****",
+    "CodeName": "五二八",
+    "SPCodeName": "ソルフェジオ周波数",
+    "SPCodeName_EN": "Solfeggio Frequencies",
+    "GenderType": "Neutral",
+    "Class": ["トリプル2+5+8組", "フィジクスコンストレイント"]
+  },
+  {
     "Num": 558,
     "Progress": "stillTentative",
     "FormalName": "量産型ナンバーテールズ558番機シリーズ",
@@ -566,6 +703,21 @@
     "CodeName": "六〇五",
     "GenderType": "Neutral",
     "Class": ["サイドデュアルイレブンズ"]
+  },
+  {
+    "Num": 616,
+    "Progress": "notProceeded",
+    "Name": "616(リィル)",
+    "Name_EN": "616(Lil)",
+    "FormalName": "量産型ナンバーテールズ616番機シリーズ",
+    "FormalName_EN": "NumberTales #616 Series Mass Production Version for Sales",
+    "ModelNumber": "APHR-NT [MP]616-*****",
+    "CodeName": "六一六",
+    "SPCodeName": "亜魔",
+    "SPCodeName_EN": "Alter Faith",
+    "GenderType": "Neutral",
+    "Class": ["デュオトリプル4型丙組", "フェイタルテールズ"],
+    "Backgrounds": "666(リリス)に強く関連しているらしい"
   },
   {
     "Num": 625,
@@ -792,7 +944,7 @@
     "SPCodeName": "八百屋",
     "SPCodeName_EN": "Vegetable",
     "GenderType": "Neutral",
-    "Class": ["サイドシングルズ"]
+    "Class": ["サイドシングルズ", "ワノマチ"]
   },
   {
     "Num": 833,

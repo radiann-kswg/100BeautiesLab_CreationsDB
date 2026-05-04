@@ -29,7 +29,7 @@
     "Weight_kg": 39,
     "BustSize": "AA",
     "TailsUnit": "キツネ型1本",
-    "Class": ["試験用個体", "1桁番(ユニデジッツ)"],
+    "Class": ["試験用個体", "1桁番(ユニデジッツ)", "1号機型"],
     "ThisMasters": [
       { "value": null, "about": "(専属契約不可)" },
       {
@@ -134,7 +134,7 @@
     "Weight_kg": 39,
     "BustSize": "C",
     "TailsUnit": "キツネ型2本",
-    "Class": ["1桁番(ユニデジッツ)"],
+    "Class": ["1桁番(ユニデジッツ)", "1号機型"],
     "FirstPersonCalling": "私(わたし)",
     "SecondPersonCalling": "君",
     "ThirdPersonCalling": "彼/彼女;~さん,[※名前呼び]",
@@ -851,7 +851,7 @@
     "Weight_kg": 39,
     "BustSize": "AA",
     "TailsUnit": "つぼみ型1本（大1束+小9束）",
-    "Class": ["10倍番(テンズデジッツ)"],
+    "Class": ["10倍番(テンズデジッツ)", "デシベルモデレーターズ", "1号機型"],
     "ThisMasters": [
       { "value": null, "about": "(専属契約不可)" },
       {
@@ -1885,7 +1885,7 @@
     "Weight_kg": 41,
     "BustSize": "H",
     "TailsUnit": "キツネ型2本",
-    "Class": ["10倍番(テンズデジッツ)"],
+    "Class": ["10倍番(テンズデジッツ)", "2号機型"],
     "ThisMasters": ["メルランディア.シラユキ"],
     "FirstPersonCalling": "わたし",
     "SecondPersonCalling": "あなたさま",
@@ -3352,7 +3352,7 @@
     "AnivDay": [
       { "Day": { "Month": 3, "DayOfMonth": 5 }, "DayAbout": "開発記念" }
     ],
-    "Class": ["デュアルエイツ"],
+    "Class": ["デュアルエイツ", "ワノマチ"],
     "Character": "感性が高い才能肌\n几帳面な一面も",
     "GenderType": "Neutral",
     "Height_cm": 139,
@@ -3653,6 +3653,7 @@
     "Class": ["デュアルイレブンズ"],
     "NumerospecAbout": "幸運を味方にする\nこの効果は物質的なものにも大いに影響される",
     "Relation": {
+      "Related": [{ "Num": 44, "RelationLabel": ["wellMatched"] }],
       "Commented": [
         { "Num": 11 },
         { "Num": 20 },
@@ -4211,7 +4212,7 @@
     ],
     "Weight_kg": { "hideText": "非公開" },
     "TailsUnit": "キツネ(枝分かれ)型2束x4本",
-    "Class": ["マスターテールズ9"],
+    "Class": ["マスターテールズ9", "スクエアエリート"],
     "ThisMasters": [
       "古山 沢海/Club.5(Cinque)（78特殊探偵団 火の棍棒支部 構成員）"
     ],
@@ -9091,7 +9092,7 @@
     "Weight_kg": 43,
     "BustSize": "AA",
     "TailsUnit": "キツネ(枝分かれ)型2束x9本",
-    "Class": ["マスターテールズ9"],
+    "Class": ["マスターテールズ9", "ワノマチ"],
     "FirstPersonCalling": "余",
     "SecondPersonCalling": "お主",
     "ThirdPersonCalling": "*の者;[※名前呼び]",
@@ -9203,7 +9204,12 @@
     ],
     "Weight_kg": [{ "value": 40, "about_JP": "想定", "about_EN": "Scenario" }],
     "BustSize": "F",
-    "Class": ["未完成個体", "開発システム用個体"],
+    "Class": [
+      "未完成個体",
+      "開発システム用個体",
+      "2号機型",
+      "バーチャリティテールズ"
+    ],
     "ThisMasters": [
       { "value": null, "about": "(専属契約不可,未リリース状態)" }
     ],
@@ -9269,7 +9275,7 @@
       }
     ],
     "Weight_kg": { "hideText": "データ無" },
-    "Class": ["調整個体", "退任個体"],
+    "Class": ["調整個体", "退任個体", "デシベルモデレーターズ", "10号機型"],
     "ThisMasters": [
       { "value": null, "about": "(専属契約不可,厳重な謹慎処分中)" }
     ],
@@ -9341,7 +9347,7 @@
     ],
     "Weight_kg": { "hideText": "？？？" },
     "BustSize": "A",
-    "Class": ["営業補助用個体"],
+    "Class": ["営業補助用個体", "スクエアエリート"],
     "ThisMasters": [
       { "value": null, "about": "(専属契約不可)" },
       {
