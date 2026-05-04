@@ -67,25 +67,6 @@
           }
         },
         {
-          "sec_Category": "自創作キャラ化企画",
-          "sec_DesignedBy": "ラジアン(柏木主税)",
-          "sec_SeriesTitle": "ナンバーテールズ化企画",
-          "_Commons": {
-            "Belonging": [],
-            "RaceType": [
-              {
-                "value": "PortableHumanoid(TaleBeastType)",
-                "about_JP": "自創作キャラ化の便宜上",
-                "about_EN": "For the convenience of being adapted into our creations"
-              },
-              {
-                "about_JP": "実際の種族はわずかに異なる部分あり",
-                "about_EN": "The actual species may differ slightly"
-              }
-            ]
-          }
-        },
-        {
           "sec_Category": null,
           "sec_DesignedBy": null,
           "sec_SeriesTitle": null,
@@ -117,6 +98,25 @@
       "DB_Label_EN": "Secondary",
       "DB_Summary": "ナンバーテールズのうち、公認された副次創作作品内で登場した二次創作キャラクター。\n有している数秘の制約については、原則としてガイドラインに準拠したものであるならば概ね何でもよい。",
       "_Secondaries": [
+        {
+          "sec_Category": "自創作キャラ化企画",
+          "sec_DesignedBy": "ラジアン(柏木主税)",
+          "sec_SeriesTitle": "ナンバーテールズ化企画",
+          "_Commons": {
+            "Belonging": [],
+            "RaceType": [
+              {
+                "value": "PortableHumanoid(TaleBeastType)",
+                "about_JP": "自創作キャラ化の便宜上",
+                "about_EN": "For the convenience of being adapted into our creations"
+              },
+              {
+                "about_JP": "実際の種族はわずかに異なる部分あり",
+                "about_EN": "The actual species may differ slightly"
+              }
+            ]
+          }
+        },
         {
           "sec_Category": "共同二次創作",
           "sec_DesignedBy": "散狐アタスト(https://misskey.io/@atast)",

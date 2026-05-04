@@ -12,19 +12,6 @@
     "ModelNumber": "APHR-NT [MP]115-*****"
   },
   {
-    "sec_SeriesTitle": "ナンバーテールズ化企画",
-    "Num": "115-numberize",
-    "Progress": "released",
-    "Images": {
-      "concept_PNGName": "numberize/cnsp_img115-numberize",
-      "conceptAlt_PNGPath": ["numberize/cnsp_img115-numberize-image"]
-    },
-    "Name": "(ナンバーテールズ化企画絵)",
-    "Name_EN": "(Illustration of NumberizeTales Project)",
-    "Class": ["ナンバーテールズ化"],
-    "AdditionalDesigned": "企画参加者：おゆうわちゃん さん(https://www.pixiv.net/artworks/137497481)"
-  },
-  {
     "Num": 120,
     "Progress": "notProceeded",
     "Name": "120(ダスト)",
@@ -82,16 +69,6 @@
     "CodeName": "一四八",
     "GenderType": "Neutral",
     "Class": ["トリプル1+4+8組"]
-  },
-  {
-    "sec_SeriesTitle": "ナンバーテールズ化企画",
-    "Num": "148-numberize",
-    "Progress": "released",
-    "Images": { "concept_PNGName": "numberize/cnsp_img148-numberize" },
-    "Name": "(ナンバーテールズ化企画絵)",
-    "Name_EN": "(Illustration of NumberizeTales Project)",
-    "Class": ["ナンバーテールズ化"],
-    "AdditionalDesigned": "企画参加者：よだれ さん(https://www.pixiv.net/artworks/137497481)"
   },
   {
     "Num": 150,
@@ -188,16 +165,6 @@
     "Class": ["デュオトリプル2型甲組"]
   },
   {
-    "sec_SeriesTitle": "ナンバーテールズ化企画",
-    "Num": "227-numberize",
-    "Progress": "released",
-    "Images": { "concept_PNGName": "numberize/cnsp_img227-numberize" },
-    "Name": "(ナンバーテールズ化企画絵)",
-    "Name_EN": "(Illustration of NumberizeTales Project)",
-    "Class": ["ナンバーテールズ化"],
-    "AdditionalDesigned": "企画参加者：散狐アタスト さん(https://www.pixiv.net/artworks/137497481)"
-  },
-  {
     "Num": 232,
     "Progress": "stillTentative",
     "FormalName": "量産型ナンバーテールズ232番機シリーズ",
@@ -206,16 +173,6 @@
     "CodeName": "二三二",
     "GenderType": "Neutral",
     "Class": ["デュオトリプル7型丙組"]
-  },
-  {
-    "sec_SeriesTitle": "ナンバーテールズ化企画",
-    "Num": "232-numberize",
-    "Progress": "released",
-    "Images": { "concept_PNGName": "numberize/cnsp_img232-numberize" },
-    "Name": "(ナンバーテールズ化企画絵)",
-    "Name_EN": "(Illustration of NumberizeTales Project)",
-    "Class": ["ナンバーテールズ化"],
-    "AdditionalDesigned": "企画参加者：広小路トトカ さん(https://www.pixiv.net/artworks/137497481)"
   },
   {
     "Num": 238,
@@ -228,16 +185,6 @@
     "Class": ["トリプル2+3+8組"]
   },
   {
-    "sec_SeriesTitle": "ナンバーテールズ化企画",
-    "Num": "238-numberize",
-    "Progress": "released",
-    "Images": { "concept_PNGName": "numberize/cnsp_img238-numberize" },
-    "Name": "(ナンバーテールズ化企画絵)",
-    "Name_EN": "(Illustration of NumberizeTales Project)",
-    "Class": ["ナンバーテールズ化"],
-    "AdditionalDesigned": "企画参加者：「み」のひと さん(https://www.pixiv.net/artworks/137497481)"
-  },
-  {
     "Num": 241,
     "Progress": "stillTentative",
     "FormalName": "量産型ナンバーテールズ241番機シリーズ",
@@ -246,16 +193,6 @@
     "CodeName": "二四一",
     "GenderType": "Neutral",
     "Class": ["トリプル1+2+4組"]
-  },
-  {
-    "sec_SeriesTitle": "ナンバーテールズ化企画",
-    "Num": "241-numberize",
-    "Progress": "released",
-    "Images": { "concept_PNGName": "numberize/cnsp_img241-numberize" },
-    "Name": "(ナンバーテールズ化企画絵)",
-    "Name_EN": "(Illustration of NumberizeTales Project)",
-    "Class": ["ナンバーテールズ化"],
-    "AdditionalDesigned": "企画参加者：SIANO さん(https://www.pixiv.net/artworks/137497481)"
   },
   {
     "Num": 244,
@@ -309,16 +246,6 @@
     "Class": ["トリプル2+5+8組"]
   },
   {
-    "sec_SeriesTitle": "ナンバーテールズ化企画",
-    "Num": "258-numberize",
-    "Progress": "released",
-    "Images": { "concept_PNGName": "numberize/cnsp_img258-numberize" },
-    "Name": "(ナンバーテールズ化企画絵)",
-    "Name_EN": "(Illustration of NumberizeTales Project)",
-    "Class": ["ナンバーテールズ化"],
-    "AdditionalDesigned": "企画参加者：CoiL25 さん(https://www.pixiv.net/artworks/137497481)"
-  },
-  {
     "Num": 263,
     "Progress": "stillTentative",
     "FormalName": "量産型ナンバーテールズ263番機シリーズ",
@@ -327,16 +254,6 @@
     "CodeName": "二六三",
     "GenderType": "Neutral",
     "Class": ["トリプル2+3+6組"]
-  },
-  {
-    "sec_SeriesTitle": "ナンバーテールズ化企画",
-    "Num": "263-numberize",
-    "Progress": "released",
-    "Images": { "concept_PNGName": "numberize/cnsp_img263-numberize" },
-    "Name": "(ナンバーテールズ化企画絵)",
-    "Name_EN": "(Illustration of NumberizeTales Project)",
-    "Class": ["ナンバーテールズ化"],
-    "AdditionalDesigned": "企画参加者：月凪葉茶 さん(https://www.pixiv.net/artworks/137497481)"
   },
   {
     "Num": 265,
@@ -349,16 +266,6 @@
     "Class": ["トリプル2+5+6組"]
   },
   {
-    "sec_SeriesTitle": "ナンバーテールズ化企画",
-    "Num": "265-numberize",
-    "Progress": "released",
-    "Images": { "concept_PNGName": "numberize/cnsp_img265-numberize" },
-    "Name": "(ナンバーテールズ化企画絵)",
-    "Name_EN": "(Illustration of NumberizeTales Project)",
-    "Class": ["ナンバーテールズ化"],
-    "AdditionalDesigned": "企画参加者：青木凪 さん(https://www.pixiv.net/artworks/137497481)"
-  },
-  {
     "Num": 294,
     "Progress": "stillTentative",
     "FormalName": "量産型ナンバーテールズ294番機シリーズ",
@@ -369,16 +276,6 @@
     "Class": ["トリプル2+4+9組"]
   },
   {
-    "sec_SeriesTitle": "ナンバーテールズ化企画",
-    "Num": "294-numberize",
-    "Progress": "released",
-    "Images": { "concept_PNGName": "numberize/cnsp_img294-numberize" },
-    "Name": "(ナンバーテールズ化企画絵)",
-    "Name_EN": "(Illustration of NumberizeTales Project)",
-    "Class": ["ナンバーテールズ化"],
-    "AdditionalDesigned": "企画参加者：ALK!(プロトタイプ) さん(https://www.pixiv.net/artworks/137497481)"
-  },
-  {
     "Num": 295,
     "Progress": "stillTentative",
     "FormalName": "量産型ナンバーテールズ295番機シリーズ",
@@ -387,16 +284,6 @@
     "CodeName": "二九五",
     "GenderType": "Neutral",
     "Class": ["トリプル2+5+9組"]
-  },
-  {
-    "sec_SeriesTitle": "ナンバーテールズ化企画",
-    "Num": "295-numberize",
-    "Progress": "released",
-    "Images": { "concept_PNGName": "numberize/cnsp_img295-numberize" },
-    "Name": "(ナンバーテールズ化企画絵)",
-    "Name_EN": "(Illustration of NumberizeTales Project)",
-    "Class": ["ナンバーテールズ化"],
-    "AdditionalDesigned": "企画参加者：いるいる さん(https://www.pixiv.net/artworks/137497481)"
   },
   {
     "Num": 314,
@@ -438,16 +325,6 @@
     "Class": ["デュオトリプル4型甲組"]
   },
   {
-    "sec_SeriesTitle": "ナンバーテールズ化企画",
-    "Num": "337-numberize",
-    "Progress": "released",
-    "Images": { "concept_PNGName": "numberize/cnsp_img337-numberize" },
-    "Name": "(ナンバーテールズ化企画絵)",
-    "Name_EN": "(Illustration of NumberizeTales Project)",
-    "Class": ["ナンバーテールズ化"],
-    "AdditionalDesigned": "企画参加者：猫吉よりお さん(https://www.pixiv.net/artworks/137497481)"
-  },
-  {
     "Num": 365,
     "Progress": "notProceeded",
     "Name": "365(イヤース)",
@@ -476,16 +353,6 @@
     "Backgrounds": "閏年の日数(366日)から由来\nなお「365(イヤース)」とは、姉妹関係はない"
   },
   {
-    "sec_SeriesTitle": "ナンバーテールズ化企画",
-    "Num": "366-numberize",
-    "Progress": "released",
-    "Images": { "concept_PNGName": "numberize/cnsp_img366-numberize" },
-    "Name": "(ナンバーテールズ化企画絵)",
-    "Name_EN": "(Illustration of NumberizeTales Project)",
-    "Class": ["ナンバーテールズ化"],
-    "AdditionalDesigned": "企画参加者：うどん さん(https://www.pixiv.net/artworks/137497481)"
-  },
-  {
     "Num": 373,
     "Progress": "notProceeded",
     "Name": "373(ミナミ)",
@@ -508,16 +375,6 @@
     "Class": ["トリプル3+6+7組"]
   },
   {
-    "sec_SeriesTitle": "ナンバーテールズ化企画",
-    "Num": "376-numberize",
-    "Progress": "released",
-    "Images": { "concept_PNGName": "numberize/cnsp_img376-numberize" },
-    "Name": "(ナンバーテールズ化企画絵)",
-    "Name_EN": "(Illustration of NumberizeTales Project)",
-    "Class": ["ナンバーテールズ化"],
-    "AdditionalDesigned": "企画参加者：きたやこ さん(https://www.pixiv.net/artworks/137497481)"
-  },
-  {
     "Num": 377,
     "Progress": "stillTentative",
     "FormalName": "量産型ナンバーテールズ377番機シリーズ",
@@ -526,16 +383,6 @@
     "CodeName": "三七七",
     "GenderType": "Neutral",
     "Class": ["デュオトリプル8型乙組"]
-  },
-  {
-    "sec_SeriesTitle": "ナンバーテールズ化企画",
-    "Num": "377-numberize",
-    "Progress": "released",
-    "Images": { "concept_PNGName": "numberize/cnsp_img377-numberize" },
-    "Name": "(ナンバーテールズ化企画絵)",
-    "Name_EN": "(Illustration of NumberizeTales Project)",
-    "Class": ["ナンバーテールズ化"],
-    "AdditionalDesigned": "企画参加者：爪葉京 さん(https://www.pixiv.net/artworks/137497481)"
   },
   {
     "Num": 385,
@@ -562,16 +409,6 @@
     "Class": ["トリプル3+7+8組"]
   },
   {
-    "sec_SeriesTitle": "ナンバーテールズ化企画",
-    "Num": "387-numberize",
-    "Progress": "released",
-    "Images": { "concept_PNGName": "numberize/cnsp_img387-numberize" },
-    "Name": "(ナンバーテールズ化企画絵)",
-    "Name_EN": "(Illustration of NumberizeTales Project)",
-    "Class": ["ナンバーテールズ化"],
-    "AdditionalDesigned": "企画参加者：つくえちゃん さん(https://www.pixiv.net/artworks/137497481)"
-  },
-  {
     "Num": 401,
     "Progress": "stillTentative",
     "FormalName": "量産型ナンバーテールズ401番機シリーズ",
@@ -580,16 +417,6 @@
     "CodeName": "四〇一",
     "GenderType": "Neutral",
     "Class": ["サイドデュアルファイブズ"]
-  },
-  {
-    "sec_SeriesTitle": "ナンバーテールズ化企画",
-    "Num": "401-numberize",
-    "Progress": "released",
-    "Images": { "concept_PNGName": "numberize/cnsp_img401-numberize" },
-    "Name": "(ナンバーテールズ化企画絵)",
-    "Name_EN": "(Illustration of NumberizeTales Project)",
-    "Class": ["ナンバーテールズ化"],
-    "AdditionalDesigned": "企画参加者：江小森えこ さん(https://www.pixiv.net/artworks/137497481)"
   },
   {
     "Num": 411,
@@ -602,16 +429,6 @@
     "Class": ["デュオトリプル6型甲組"]
   },
   {
-    "sec_SeriesTitle": "ナンバーテールズ化企画",
-    "Num": "411-numberize",
-    "Progress": "released",
-    "Images": { "concept_PNGName": "numberize/cnsp_img411-numberize" },
-    "Name": "(ナンバーテールズ化企画絵)",
-    "Name_EN": "(Illustration of NumberizeTales Project)",
-    "Class": ["ナンバーテールズ化"],
-    "AdditionalDesigned": "企画参加者：Nor東 さん(https://www.pixiv.net/artworks/137497481)"
-  },
-  {
     "Num": 421,
     "Progress": "stillTentative",
     "FormalName": "量産型ナンバーテールズ421番機シリーズ",
@@ -620,16 +437,6 @@
     "CodeName": "四二一",
     "GenderType": "Neutral",
     "Class": ["トリプル1+2+4組"]
-  },
-  {
-    "sec_SeriesTitle": "ナンバーテールズ化企画",
-    "Num": "421-numberize",
-    "Progress": "released",
-    "Images": { "concept_PNGName": "numberize/cnsp_img421-numberize" },
-    "Name": "(ナンバーテールズ化企画絵)",
-    "Name_EN": "(Illustration of NumberizeTales Project)",
-    "Class": ["ナンバーテールズ化"],
-    "AdditionalDesigned": "企画参加者：でんねこ さん(https://www.pixiv.net/artworks/137497481)"
   },
   {
     "Num": "444-mp",
@@ -669,16 +476,6 @@
     "Class": ["トリプル4+6+7組"]
   },
   {
-    "sec_SeriesTitle": "ナンバーテールズ化企画",
-    "Num": "467-numberize",
-    "Progress": "released",
-    "Images": { "concept_PNGName": "numberize/cnsp_img467-numberize" },
-    "Name": "(ナンバーテールズ化企画絵)",
-    "Name_EN": "(Illustration of NumberizeTales Project)",
-    "Class": ["ナンバーテールズ化"],
-    "AdditionalDesigned": "企画参加者：キノアダモスデキノ さん(https://www.pixiv.net/artworks/137497481)"
-  },
-  {
     "Num": 476,
     "Progress": "stillTentative",
     "FormalName": "量産型ナンバーテールズ476番機シリーズ",
@@ -687,16 +484,6 @@
     "CodeName": "四七六",
     "GenderType": "Neutral",
     "Class": ["トリプル4+6+7組"]
-  },
-  {
-    "sec_SeriesTitle": "ナンバーテールズ化企画",
-    "Num": "476-numberize",
-    "Progress": "released",
-    "Images": { "concept_PNGName": "numberize/cnsp_img476-numberize" },
-    "Name": "(ナンバーテールズ化企画絵)",
-    "Name_EN": "(Illustration of NumberizeTales Project)",
-    "Class": ["ナンバーテールズ化"],
-    "AdditionalDesigned": "企画参加者：ヨシアミさん(https://www.pixiv.net/artworks/137497481)"
   },
   {
     "Num": 496,
@@ -735,16 +522,6 @@
     "Class": ["テンズデュアルシックスズ"]
   },
   {
-    "sec_SeriesTitle": "ナンバーテールズ化企画",
-    "Num": "510-numberize",
-    "Progress": "released",
-    "Images": { "concept_PNGName": "numberize/cnsp_img510-numberize" },
-    "Name": "(ナンバーテールズ化企画絵)",
-    "Name_EN": "(Illustration of NumberizeTales Project)",
-    "Class": ["ナンバーテールズ化"],
-    "AdditionalDesigned": "企画参加者：エメラルド さん(https://www.pixiv.net/artworks/137497481)"
-  },
-  {
     "Num": "555-mp",
     "Progress": "notProceeded",
     "_DBLink": {
@@ -769,16 +546,6 @@
     "Class": ["デュオトリプル9型甲組"]
   },
   {
-    "sec_SeriesTitle": "ナンバーテールズ化企画",
-    "Num": "558-numberize",
-    "Progress": "released",
-    "Images": { "concept_PNGName": "numberize/cnsp_img558-numberize" },
-    "Name": "(ナンバーテールズ化企画絵)",
-    "Name_EN": "(Illustration of NumberizeTales Project)",
-    "Class": ["ナンバーテールズ化"],
-    "AdditionalDesigned": "企画参加者：さふ さん(https://www.pixiv.net/artworks/137497481)"
-  },
-  {
     "Num": 572,
     "Progress": "notProceeded",
     "Name": "572(コナツ)",
@@ -801,16 +568,6 @@
     "Class": ["サイドデュアルイレブンズ"]
   },
   {
-    "sec_SeriesTitle": "ナンバーテールズ化企画",
-    "Num": "605-numberize",
-    "Progress": "released",
-    "Images": { "concept_PNGName": "numberize/cnsp_img605-numberize" },
-    "Name": "(ナンバーテールズ化企画絵)",
-    "Name_EN": "(Illustration of NumberizeTales Project)",
-    "Class": ["ナンバーテールズ化"],
-    "AdditionalDesigned": "企画参加者：蓬 さん(https://www.pixiv.net/artworks/137497481)"
-  },
-  {
     "Num": 625,
     "Progress": "stillTentative",
     "FormalName": "量産型ナンバーテールズ625番機シリーズ",
@@ -819,16 +576,6 @@
     "CodeName": "六二五",
     "GenderType": "Neutral",
     "Class": ["トリプル2+5+6組"]
-  },
-  {
-    "sec_SeriesTitle": "ナンバーテールズ化企画",
-    "Num": "625-numberize",
-    "Progress": "released",
-    "Images": { "concept_PNGName": "numberize/cnsp_img625-numberize" },
-    "Name": "(ナンバーテールズ化企画絵)",
-    "Name_EN": "(Illustration of NumberizeTales Project)",
-    "Class": ["ナンバーテールズ化"],
-    "AdditionalDesigned": "企画参加者：リヘナラ人形 さん(https://www.pixiv.net/artworks/137497481)"
   },
   {
     "Num": 634,
@@ -851,16 +598,6 @@
     "CodeName": "六三八",
     "GenderType": "Neutral",
     "Class": ["トリプル3+6+8組"]
-  },
-  {
-    "sec_SeriesTitle": "ナンバーテールズ化企画",
-    "Num": "638-numberize",
-    "Progress": "released",
-    "Images": { "concept_PNGName": "numberize/cnsp_img638-numberize" },
-    "Name": "(ナンバーテールズ化企画絵)",
-    "Name_EN": "(Illustration of NumberizeTales Project)",
-    "Class": ["ナンバーテールズ化"],
-    "AdditionalDesigned": "企画参加者：猫餅 さん(https://www.pixiv.net/artworks/137497481)"
   },
   {
     "Num": "666-mp",
@@ -897,16 +634,6 @@
     "Class": ["テンズデュアルフォーズ"]
   },
   {
-    "sec_SeriesTitle": "ナンバーテールズ化企画",
-    "Num": "670-numberize",
-    "Progress": "released",
-    "Images": { "concept_PNGName": "numberize/cnsp_img670-numberize" },
-    "Name": "(ナンバーテールズ化企画絵)",
-    "Name_EN": "(Illustration of NumberizeTales Project)",
-    "Class": ["ナンバーテールズ化"],
-    "AdditionalDesigned": "企画参加者：みとにゃん/Mitten さん(https://www.pixiv.net/artworks/137497481)"
-  },
-  {
     "Num": 696,
     "Progress": "notProceeded",
     "Name": "696(ロクロ)",
@@ -927,16 +654,6 @@
     "CodeName": "七三六",
     "GenderType": "Neutral",
     "Class": ["トリプル3+6+7組"]
-  },
-  {
-    "sec_SeriesTitle": "ナンバーテールズ化企画",
-    "Num": "736-numberize",
-    "Progress": "released",
-    "Images": { "concept_PNGName": "numberize/cnsp_img736-numberize" },
-    "Name": "(ナンバーテールズ化企画絵)",
-    "Name_EN": "(Illustration of NumberizeTales Project)",
-    "Class": ["ナンバーテールズ化"],
-    "AdditionalDesigned": "企画参加者：みるく・フローランス さん(https://www.pixiv.net/artworks/137497481)"
   },
   {
     "sec_Category": "リクエストナンバー",
@@ -968,16 +685,6 @@
     "CodeName": "七七三",
     "GenderType": "Neutral",
     "Class": ["デュオトリプル8型甲組"]
-  },
-  {
-    "sec_SeriesTitle": "ナンバーテールズ化企画",
-    "Num": "773-numberize",
-    "Progress": "released",
-    "Images": { "concept_PNGName": "numberize/cnsp_img773-numberize" },
-    "Name": "(ナンバーテールズ化企画絵)",
-    "Name_EN": "(Illustration of NumberizeTales Project)",
-    "Class": ["ナンバーテールズ化"],
-    "AdditionalDesigned": "企画参加者：テンタクル七海 さん(https://www.pixiv.net/artworks/137497481)"
   },
   {
     "Num": 774,
@@ -1150,16 +857,6 @@
     "Class": ["デュオトリプル7型丙組"]
   },
   {
-    "sec_SeriesTitle": "ナンバーテールズ化企画",
-    "Num": "979-numberize",
-    "Progress": "released",
-    "Images": { "concept_PNGName": "numberize/cnsp_img979-numberize" },
-    "Name": "(ナンバーテールズ化企画絵)",
-    "Name_EN": "(Illustration of NumberizeTales Project)",
-    "Class": ["ナンバーテールズ化"],
-    "AdditionalDesigned": "企画参加者：さくらば さん(https://www.pixiv.net/artworks/137497481)"
-  },
-  {
     "Num": "999-mp",
     "Progress": "notProceeded",
     "_DBLink": {
@@ -1172,15 +869,5 @@
     "FormalName": "量産型ナンバーテールズ999番機シリーズ",
     "FormalName_EN": "NumberTales #999 Series Mass Production Version for Sales",
     "ModelNumber": "APHR-NT [MP]999-*****"
-  },
-  {
-    "sec_SeriesTitle": "ナンバーテールズ化企画",
-    "Num": "1122-numberize",
-    "Progress": "released",
-    "Images": { "concept_PNGName": "numberize/cnsp_img1122-numberize" },
-    "Name": "(ナンバーテールズ化企画絵)",
-    "Name_EN": "(Illustration of NumberizeTales Project)",
-    "Class": ["ナンバーテールズ化"],
-    "AdditionalDesigned": "企画参加者：しおん/猫又紫苑 さん(https://www.pixiv.net/artworks/137497481)"
   }
 ]
