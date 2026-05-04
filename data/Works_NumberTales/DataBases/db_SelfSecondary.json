@@ -1,5 +1,27 @@
 [
   {
+    "Num": "111-mp",
+    "_DBLink": {
+      "worksTitle": "NumberTales",
+      "dbName": "SemiPrimary",
+      "_Search": [{ "hashTag": "Num", "key": 111 }]
+    },
+    "Images": { "concept_PNGName": "cnsp_img111-mp" },
+    "Name": "111(アイズ)",
+    "Name_EN": "111(Ize)",
+    "FormalName": "量産型ナンバーテールズ111番機シリーズ",
+    "FormalName_EN": "NumberTales #111 Series Mass Production Version for Sales",
+    "ModelNumber": "APHR-NT [MP]111-*****",
+    "GenderType": "Neutral",
+    "Height_cm": 141,
+    "ConceptAge": 14,
+    "Weight_kg": [
+      { "value": 37, "about_JP": "推定", "about_EN": "Presumption" }
+    ],
+    "BustSize": "AA",
+    "TailsUnit": "猫又(特殊)型1本3束[枝]"
+  },
+  {
     "Num": 115,
     "Progress": "stillTentative",
     "_DBLink": {
