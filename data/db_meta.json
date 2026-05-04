@@ -170,8 +170,8 @@
       }
     },
     "#Works_Proxies": {
-      "Title": "運命線狐の記録",
-      "Title_EN": "Destiny Fox's Records",
+      "Title": "ラジアン代理",
+      "Title_EN": "RadianN's Proxy",
       "Works_Summary": "弊創作を執筆している「ラジアン」の代理キャラクター",
       "$DetailLayout": {
         "headerPills": ["Progress"],
