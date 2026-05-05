@@ -133,6 +133,16 @@
     "isSecondary": null
   },
   {
+    "Class": "キャレ型ハイナンバーズ",
+    "Class_EN": "Carré-Series HighNumbers",
+    "isSecondary": null
+  },
+  {
+    "Class": "キュビクザール型ハイナンバーズ",
+    "Class_EN": "Kubikzahl-Series HighNumbers",
+    "isSecondary": null
+  },
+  {
     "Class": "スクエアエリート",
     "Class_EN": "SquareElites",
     "isSecondary": null

@@ -969,6 +969,20 @@
     }
   },
   {
+    "Num": "0xFF",
+    "Progress": "notProceeded",
+    "sec_SeriesTitle": "ヘキサデミカル・テールズ(ナンバーテールズ公式副次創作版)",
+    "Name": "0xFF(エフエフ)",
+    "Name_EN": "0xFF(eFeF)",
+    "FormalName": "ヘキサデミカル-テールズ 第二最終番機(ナンバーテールズ異元255番機)",
+    "FormalName_EN": "HexademicalTales 2nd Final Unit (Over-dimension of NumberTales Mk.255)",
+    "ModelNumber": "AVCR/APHR-HxT Final.2",
+    "RaceType": "PortableHumanoid(TaleBeastType,SoftwareBody)",
+    "GenderType": "Neutral",
+    "Class": ["ヘキサデミカル-テールズ", "バーチャリティテールズ"],
+    "Backgrounds": "1バイト値の最大値（16進法）から由来"
+  },
+  {
     "Num": "%",
     "Progress": "notProseed",
     "sec_SeriesTitle": "D-Vines(ディ-ヴァインズ)",

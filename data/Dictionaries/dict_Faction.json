@@ -121,6 +121,28 @@
     "isMaker": false
   },
   {
+    "Faction": "国際ヒューマノイド技術学会",
+    "Faction_EN": "International Humanoid Technology Society",
+    "Belonging": "国際ヒューマノイド技術学会",
+    "Belonging_EN": "International Humanoid Technology Society",
+    "BelongingArea": {
+      "Area": "雄姿結国",
+      "about_JP": "本拠地（国際機関のため複数のエリアに所在）",
+      "about_EN": "Headquarters (Due to being an international organization, it is located in multiple areas)"
+    },
+    "isForSecondary": null,
+    "isMaker": false
+  },
+  {
+    "Faction": "レゾンデイトルカンパニー",
+    "Faction_EN": "Raison-d'être Company",
+    "Belonging": "レゾンデイトルカンパニー",
+    "Belonging_EN": "Raison-d'être Company",
+    "BelongingArea": { "Area": "神皇国" },
+    "isForSecondary": null,
+    "isMaker": true
+  },
+  {
     "Faction": "シンフォニー.XVI(ゼクズィン)",
     "Faction_EN": "Symphony.XVI(Sechzehn)",
     "Belonging": "シンフォニー.XVI(ゼクズィン)",

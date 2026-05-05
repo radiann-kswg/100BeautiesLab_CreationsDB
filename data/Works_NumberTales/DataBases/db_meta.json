@@ -137,6 +137,22 @@
           }
         },
         {
+          "sec_Category": "セルフ三次創作",
+          "sec_DesignedBy": "ラジアン(柏木主税)",
+          "sec_SeriesTitle": "ヘキサデミカル・テールズ(ナンバーテールズ公式副次創作版)",
+          "SecondarySummary": "散狐アタストさんにより原案がキャラデザされた「ヘキサデミカル・テールズ」をもとにナンバーテールズの公式副次創作としてキャラの構想を拡張した。\n百花繚乱研究所と「エイゼルベット」によりある世界からあらゆる“観測”を経て誕生した、特殊な十六進数を持つナンバーテールズ同位体。百花繚乱研究所にて研究開発の一要因として活動している。",
+          "StoryEra": {
+            "InEra": [
+              { "EraGen": 9, "YearInEra": 5 },
+              { "EraGen": 8, "YearInEra": 8 },
+              { "byRealYear": 2052 }
+            ],
+            "about_JP": "第9創世紀5年(第8創世紀8年,西暦2052年相当)周辺",
+            "about_EN": "in around WDCE.IX.5(Equivalent to in around: WDCE.VIII.8, DC.2052)"
+          },
+          "_Commons": {}
+        },
+        {
           "sec_Category": "共同二次創作",
           "sec_DesignedBy": "ラジアン(柏木主税)\n散狐アタスト(https://misskey.io/@atast)",
           "sec_SeriesTitle": "D-Vines(ディ-ヴァインズ)",

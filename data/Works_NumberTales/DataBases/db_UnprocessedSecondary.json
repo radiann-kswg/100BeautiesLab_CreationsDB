@@ -1,15 +1,5 @@
 [
   {
-    "Num": 121,
-    "Progress": "notProceeded",
-    "FormalName": "量産型ナンバーテールズ121番機シリーズ",
-    "FormalName_EN": "NumberTales #121 Series Mass Production Version for Sales",
-    "ModelNumber": "APHR-NT [MP]121-*****",
-    "CodeName": "一二一",
-    "GenderType": "Neutral",
-    "Class": ["デュオトリプル4型丙組"]
-  },
-  {
     "Num": 122,
     "Progress": "notProceeded",
     "FormalName": "量産型ナンバーテールズ122番機シリーズ",
@@ -28,16 +18,6 @@
     "CodeName": "一二四",
     "GenderType": "Neutral",
     "Class": ["トリプル1+2+4組"]
-  },
-  {
-    "Num": 125,
-    "Progress": "notProceeded",
-    "FormalName": "量産型ナンバーテールズ125番機シリーズ",
-    "FormalName_EN": "NumberTales #125 Series Mass Production Version for Sales",
-    "ModelNumber": "APHR-NT [MP]125-*****",
-    "CodeName": "一二五",
-    "GenderType": "Neutral",
-    "Class": ["トリプル1+2+5組"]
   },
   {
     "Num": 126,
@@ -408,16 +388,6 @@
     "CodeName": "一六八",
     "GenderType": "Neutral",
     "Class": ["トリプル1+6+8組"]
-  },
-  {
-    "Num": 169,
-    "Progress": "notProceeded",
-    "FormalName": "量産型ナンバーテールズ169番機シリーズ",
-    "FormalName_EN": "NumberTales #169 Series Mass Production Version for Sales",
-    "ModelNumber": "APHR-NT [MP]169-*****",
-    "CodeName": "一六九",
-    "GenderType": "Neutral",
-    "Class": ["トリプル1+6+9組"]
   },
   {
     "Num": 170,
@@ -1950,16 +1920,6 @@
     "Class": ["トリプル2+3+4組"]
   },
   {
-    "Num": 343,
-    "Progress": "notProceeded",
-    "FormalName": "量産型ナンバーテールズ343番機シリーズ",
-    "FormalName_EN": "NumberTales #343 Series Mass Production Version for Sales",
-    "ModelNumber": "APHR-NT [MP]343-*****",
-    "CodeName": "三四三",
-    "GenderType": "Neutral",
-    "Class": ["デュオトリプル1型丙組"]
-  },
-  {
     "Num": 344,
     "Progress": "notProceeded",
     "FormalName": "量産型ナンバーテールズ344番機シリーズ",
@@ -3388,16 +3348,6 @@
     "CodeName": "五一一",
     "GenderType": "Neutral",
     "Class": ["デュオトリプル7型乙組"]
-  },
-  {
-    "Num": 512,
-    "Progress": "notProceeded",
-    "FormalName": "量産型ナンバーテールズ512番機シリーズ",
-    "FormalName_EN": "NumberTales #512 Series Mass Production Version for Sales",
-    "ModelNumber": "APHR-NT [MP]512-*****",
-    "CodeName": "五一二",
-    "GenderType": "Neutral",
-    "Class": ["トリプル1+2+5組"]
   },
   {
     "Num": 513,
@@ -5438,16 +5388,6 @@
     "CodeName": "七二八",
     "GenderType": "Neutral",
     "Class": ["トリプル2+7+8組"]
-  },
-  {
-    "Num": 729,
-    "Progress": "notProceeded",
-    "FormalName": "量産型ナンバーテールズ729番機シリーズ",
-    "FormalName_EN": "NumberTales #729 Series Mass Production Version for Sales",
-    "ModelNumber": "APHR-NT [MP]729-*****",
-    "CodeName": "七二九",
-    "GenderType": "Neutral",
-    "Class": ["トリプル2+7+9組"]
   },
   {
     "Num": 730,

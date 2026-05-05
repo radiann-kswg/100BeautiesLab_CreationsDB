@@ -352,6 +352,74 @@
     "Class": ["デュオトリプル2型甲組", "11*(ハクト)型ハイナンバーズ"]
   },
   {
+    "Num": "121-sq",
+    "Progress": "notProceeded",
+    "Name": "121(エルフェルト)\n11²(キャレオンズ)",
+    "Name_EN": "121(Elf-elvent)\n11²(Carréonze)",
+    "FormalName": "ナンバーテールズ キャレ-オンズ(121番機)",
+    "FormalName_EN": "NumberTales Unit.Carré-11 (Mk.121)",
+    "ModelNumber": "APHR-NT SQ.XI",
+    "CodeName": "一二一",
+    "SPCodeName": "11×11\n11²",
+    "SPCodeName_EN": "Eleven Elevens\nEleven Squared",
+    "GenderType": "Neutral",
+    "Belonging": ["百花繚乱研究所", "レゾンデイトルカンパニー"],
+    "Class": ["デュオトリプル4型丙組", "キャレ型ハイナンバーズ"]
+  },
+  {
+    "Num": "125-cub",
+    "Progress": "notProceeded",
+    "Name": "125(リツコ)\n5³(リツコ)",
+    "Name_EN": "125(Künf)\n5³(Künf)",
+    "FormalName": "ナンバーテールズ キュビクザール-フュンフ(同位異格125番機)",
+    "FormalName_EN": "NumberTales Unit.Kubikzahl-V (Isotope of Mk.125)",
+    "ModelNumber": "APHR-NT Kz.V",
+    "CodeName": "立法五",
+    "SPCodeName_EN": "Five Cubed",
+    "GenderType": "Neutral",
+    "Belonging": ["百花繚乱研究所", "シンフォニー.XVI(ゼクズィン)"],
+    "Class": ["キュビクザール型ハイナンバーズ"]
+  },
+  {
+    "Num": "144-sq",
+    "Progress": "notProceeded",
+    "Name": "144(グロス)\n12²(グロス)",
+    "Name_EN": "144(Groß)\n12²(Groß)",
+    "FormalName": "ナンバーテールズ キャレ-ドゥーズ(144番機)",
+    "FormalName_EN": "NumberTales Unit.Carré-12 (Mk.144)",
+    "ModelNumber": "APHR-NT SQ.XII",
+    "CodeName": "一四四",
+    "SPCodeName": "グロス\n12²",
+    "SPCodeName_EN": "Gross\n12²",
+    "GenderType": "Neutral",
+    "Belonging": ["百花繚乱研究所", "レゾンデイトルカンパニー"],
+    "Class": [
+      "デュオトリプル9型乙組",
+      "マスマティカコンストレイント",
+      "キャレ型ハイナンバーズ"
+    ]
+  },
+  {
+    "Num": "169-sq",
+    "Progress": "notProceeded",
+    "FormalName": "ナンバーテールズ キャレ-トレーズ(同位異格169番機)",
+    "FormalName_EN": "NumberTales Unit.Carré-13 (Isotope of Mk.169)",
+    "ModelNumber": "APHR-NT SQ.XIII",
+    "GenderType": "Neutral",
+    "Belonging": ["百花繚乱研究所", "レゾンデイトルカンパニー"],
+    "Class": ["キャレ型ハイナンバーズ"]
+  },
+  {
+    "Num": "196-sq",
+    "Progress": "notProceeded",
+    "FormalName": "ナンバーテールズ キャレ-カトルズ(同位異格196番機)",
+    "FormalName_EN": "NumberTales Unit.Carré-14 (Isotope of Mk.196)",
+    "ModelNumber": "APHR-NT SQ.XIV",
+    "GenderType": "Neutral",
+    "Belonging": ["百花繚乱研究所", "レゾンデイトルカンパニー"],
+    "Class": ["キャレ型ハイナンバーズ"]
+  },
+  {
     "Num": "200-dev",
     "Progress": "notProceeded",
     "Name": "200(バイセンテ)",
@@ -372,6 +440,25 @@
     "ForMasterCalling": "お兄さま/お姉さま",
     "RelationNotes": "開発専用機では「バイナ」「20(ハツカ)」を、「お姉さま」と慕っている",
     "Backgrounds": "2号機系直通の後継個体"
+  },
+  {
+    "Num": "216-cub",
+    "Progress": "notProceeded",
+    "Name": "216(ニイロ)\n6³(リク)",
+    "Name_EN": "216(Biunosect)\n6³(Secubie)",
+    "FormalName": "ナンバーテールズ キュビクザール-ゼクス(216番機)",
+    "FormalName_EN": "NumberTales Unit.Kubikzahl-VI (Mk.216)",
+    "ModelNumber": "APHR-NT Kz.VI",
+    "CodeName": "立法六",
+    "CodeName_EN": "Six Cubed",
+    "GenderType": "Neutral",
+    "Belonging": ["百花繚乱研究所", "シンフォニー.XVI(ゼクズィン)"],
+    "Class": [
+      "トリプル1+2+6組",
+      "バーチャリティテールズ",
+      "キュビクザール型ハイナンバーズ"
+    ],
+    "Backgrounds": "6の乗数であることから、6(ムイ)や36(ミトム)と関連が深い。"
   },
   {
     "Num": 222,
@@ -415,6 +502,57 @@
     "Backgrounds": "1+11号2倍機が現「222(ドッペル)」、3倍型2号機が現「222(ペルゲン)」にあたりそれぞれ別個体として設計が進められていたが、開発の事情で最終的にひとつの型式として統合された。そのため開発用オリジナル機は、形式上1体として扱われる2体1式の個体となっている。"
   },
   {
+    "Num": "225-sq",
+    "Progress": "notProceeded",
+    "FormalName": "ナンバーテールズ キャレ-クインズ(同位異格225番機)",
+    "FormalName_EN": "NumberTales Unit.Carré-15 (Isotope of Mk.225)",
+    "ModelNumber": "APHR-NT SQ.XV",
+    "GenderType": "Neutral",
+    "Belonging": ["百花繚乱研究所", "レゾンデイトルカンパニー"],
+    "Class": ["キャレ型ハイナンバーズ"]
+  },
+  {
+    "Num": "256-sq",
+    "Progress": "notProceeded",
+    "Name": "256(バイツ)\n16²(バイツ)",
+    "Name_EN": "256(Bytz)\n16²(Bytz)",
+    "FormalName": "ナンバーテールズ キャレ-セイズ(256番機)",
+    "FormalName_EN": "NumberTales Unit.Carré-16 (Mk.256)",
+    "ModelNumber": "APHR-NT SQ.XVI",
+    "CodeName": "二五六",
+    "SPCodeName": "バイト\n16²",
+    "SPCodeName_EN": "One Byte\n16²",
+    "GenderType": "Neutral",
+    "Belonging": ["百花繚乱研究所", "レゾンデイトルカンパニー"],
+    "Class": [
+      "トリプル2+5+6組",
+      "マスマティカコンストレイント",
+      "バーチャリティテールズ",
+      "キャレ型ハイナンバーズ"
+    ],
+    "Backgrounds": "1バイトで表現できる値の数から由来"
+  },
+  {
+    "Num": "289-sq",
+    "Progress": "notProceeded",
+    "FormalName": "ナンバーテールズ キャレ-ディセット(同位異格289番機)",
+    "FormalName_EN": "NumberTales Unit.Carré-17 (Isotope of Mk.289)",
+    "ModelNumber": "APHR-NT SQ.XVII",
+    "GenderType": "Neutral",
+    "Belonging": ["百花繚乱研究所", "レゾンデイトルカンパニー"],
+    "Class": ["キャレ型ハイナンバーズ"]
+  },
+  {
+    "Num": "324-sq",
+    "Progress": "notProceeded",
+    "FormalName": "ナンバーテールズ キャレ-ディズュイット(同位異格324番機)",
+    "FormalName_EN": "NumberTales Unit.Carré-18 (Isotope of Mk.324)",
+    "ModelNumber": "APHR-NT SQ.XVIII",
+    "GenderType": "Neutral",
+    "Belonging": ["百花繚乱研究所", "レゾンデイトルカンパニー"],
+    "Class": ["キャレ型ハイナンバーズ"]
+  },
+  {
     "Num": 333,
     "Progress": "notProceeded",
     "Name": "333(トリニティア)",
@@ -428,6 +566,45 @@
     "SPCodeName_EN": "Triple",
     "GenderType": "Neutral",
     "Class": ["マスタートリプル"]
+  },
+  {
+    "Num": "343-cub",
+    "Progress": "notProceeded",
+    "Name": "343(ズューブ)\n7³(ズューブ)",
+    "Name_EN": "343(Sieubic)\n7³(Sieubic)",
+    "FormalName": "ナンバーテールズ キュビクザール-ズィベン(同位異格343番機)",
+    "FormalName_EN": "NumberTales Unit.Kubikzahl-VII (Isotope of Mk.343)",
+    "ModelNumber": "APHR-NT Kz.VII",
+    "CodeName": "立法七",
+    "SPCodeName_EN": "Seven Cubed",
+    "GenderType": "Neutral",
+    "Belonging": ["百花繚乱研究所", "シンフォニー.XVI(ゼクズィン)"],
+    "Class": ["キュビクザール型ハイナンバーズ"]
+  },
+  {
+    "Num": "361-sq",
+    "Progress": "notProceeded",
+    "FormalName": "ナンバーテールズ キャレ-ディズネフ(同位異格361番機)",
+    "FormalName_EN": "NumberTales Unit.Carré-19 (Isotope of Mk.361)",
+    "ModelNumber": "APHR-NT SQ.XIX",
+    "GenderType": "Neutral",
+    "Belonging": ["百花繚乱研究所", "レゾンデイトルカンパニー"],
+    "Class": ["キャレ型ハイナンバーズ"]
+  },
+  {
+    "Num": "400-sq",
+    "Progress": "notProceeded",
+    "Name": "400(ヴィンティ-ヴィンティ)\n20²(ヴィンティ-ヴィンティ)",
+    "Name_EN": "400(Vingt-vingtee)\n20²(Vingt-vingtee)",
+    "FormalName": "ナンバーテールズ キャレ-ヴィント(同位異格400番機)",
+    "FormalName_EN": "NumberTales Unit.Carré-20 (Isotope of Mk.400)",
+    "ModelNumber": "APHR-NT SQ.XX",
+    "CodeName": "四〇〇",
+    "SPCodeName": "20×20",
+    "SPCodeName_EN": "Twenty Twenties",
+    "GenderType": "Neutral",
+    "Belonging": ["百花繚乱研究所", "レゾンデイトルカンパニー"],
+    "Class": ["百倍番(ハンドレッズデジッツ)", "キャレ型ハイナンバーズ"]
   },
   {
     "Num": "400-dev",
@@ -457,6 +634,22 @@
     "CodeName": "四四四",
     "GenderType": "Neutral",
     "Class": ["マスタートリプル", "スクエアエリート"]
+  },
+  {
+    "Num": "512-cub",
+    "Progress": "notProceeded",
+    "Name": "512(ハキビ)\n8³(ハキビ)",
+    "Name_EN": "512(Hav-kiB)\n8³(Hav-kiB)",
+    "FormalName": "ナンバーテールズ キュビクザール-アハト(512番機)",
+    "FormalName_EN": "NumberTales Unit.Kubikzahl-VIII (Mk.512)",
+    "ModelNumber": "APHR-NT Kz.VIII",
+    "CodeName": "立法八",
+    "CodeName_EN": "Eight Cubed",
+    "SPCodeName": "半キロバイナリ",
+    "SPCodeName_EN": "Half KiB(Kilo Binary)",
+    "GenderType": "Neutral",
+    "Belonging": ["百花繚乱研究所", "シンフォニー.XVI(ゼクズィン)"],
+    "Class": ["キュビクザール型ハイナンバーズ", "バーチャリティテールズ"]
   },
   {
     "Num": 555,
@@ -509,6 +702,19 @@
     "RelationNotes": "開発者専用機では、「66(ムロク)」を「眷属」として労わっているが……",
     "NumerospecAbout": "自分の本能を認知し開花させる",
     "Summary": "量産販売型ではあるが、3桁ゾロ目の数字を持つ「マスタートリプル」という特殊クラスの個体で、2桁以内の通常個体と引け目を取らない性能をもつ。\nとりわけその開発専用機ことオリジナル版である彼女は、「6(ムイ)」や「66(ムロク)」とも引け目を取らない感性や優美さの持ち主で、自身の才能に対し自信にあふれている。\nただ、その妖艶としたポテンシャルから時々“悪魔”の如く大罪的な衝動に駆られてしまうことがあり……"
+  },
+  {
+    "Num": "729-sxp",
+    "Progress": "notProceeded",
+    "Name": "729(ナブク)",
+    "Name_EN": "729(Seventwínina)",
+    "FormalName": "ナンバーテールズ特殊個体：セクストパワーサード(729番機)",
+    "FormalName_EN": "NumberTales Special Model: Sextpower-III (Mk.729)",
+    "ModelNumber": "APHR-NT SXP.III",
+    "CodeName": "七二九",
+    "GenderType": "Neutral",
+    "Belonging": ["百花繚乱研究所", "国際ヒューマノイド技術学会"],
+    "Class": ["キャレ型ハイナンバーズ", "キュビクザール型ハイナンバーズ"]
   },
   {
     "Num": 777,
@@ -678,5 +884,38 @@
     "NumerospecAbout": "ありのままを表現させる",
     "Summary": "3桁の番号を有する量産型販売型に向けた「3倍型」設計を確立するため、「11(トウイチ)」「22(フジ)」をベースに“もう一人の33番機”として試作された個体。\n個性や趣味に寛容なギャル属性を持ち、研究室内のムードメーカとしても一役を買って出ている。\n同番の「33(ミサ)」や姉個体はもちろん、自分の設計が活かされた「マスタートリプル」の９人とも友好的な態度を示す様子が窺われているが、それにより距離感バグを引き起こした個体に四苦八苦している様子が微笑ましいとも噂されている。",
     "Backgrounds": "3桁の番号が付与される量産販売型個体のリリースに備えて中間設計として開発された個体"
+  },
+  {
+    "Num": "64-sxp",
+    "Progress": "notProceeded",
+    "Name": "ゼフィア\n64(ゼフィア)",
+    "Name_EN": "Secvier\n64(Secvier)",
+    "FormalName": "ナンバーテールズ特殊個体：セクストパワーセカンド(仮説新64番機)",
+    "FormalName_EN": "NumberTales Special Model: Sextpower-II (Tentative New-Mk.64)",
+    "ModelNumber": "APHR-NT SXP.II",
+    "CodeName": "六四",
+    "GenderType": "Neutral",
+    "Class": [
+      "デュアルキャリーズ",
+      "キャレ型ハイナンバーズ",
+      "キュビクザール型ハイナンバーズ",
+      "バーチャリティテールズ"
+    ],
+    "Backgrounds": "「64(ムトシ)」の不祥事を受け、64番機の再設計個体として密かに開発が進められていた個体。\n3桁番号を持つ量産販売型の開発試験機として外注開発しているハイナンバーズ個体：「キャレ型」シリーズ・「キュビザール型」シリーズの基本設計も担っている。"
+  },
+  {
+    "Num": "9x9",
+    "Progress": "notProceeded",
+    "Name": "81(クック)\n9²(クック)",
+    "Name_EN": "81(Neufois-neuf)\n9²(Neufois-neuf)",
+    "FormalName": "ナンバーテールズ キャレ-ネフ(仮説9x9番機)",
+    "FormalName_EN": "NumberTales Unit.Carré-9 (Tentative Mk.9x9)",
+    "ModelNumber": "APHR-NT SQ.IX",
+    "CodeName": "九×九",
+    "CodeName_EN": "Nine Nines",
+    "GenderType": "Neutral",
+    "Class": ["9倍2桁番(ナインズデュアルズ)", "キャレ型ハイナンバーズ"],
+    "ExternalOrderFrom": "神皇国",
+    "Backgrounds": "「81(ヤイチ)」らによるハイナンバーズ開発予算計画の一環で見積もり目的で試作設計された個体。"
   }
 ]

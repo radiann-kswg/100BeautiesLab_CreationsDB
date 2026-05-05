@@ -251,6 +251,25 @@
     "Class": ["テンズデュアルスリーズ"]
   },
   {
+    "Num": 121,
+    "Progress": "notProceeded",
+    "Name": "121(エルフェルト)",
+    "Name_EN": "121(Elf-elvent)",
+    "_DBLink": {
+      "worksTitle": "NumberTales",
+      "dbName": "SemiPrimary",
+      "_Search": [{ "hashTag": "Num", "key": "121-sq" }]
+    },
+    "FormalName": "量産型ナンバーテールズ121番機シリーズ",
+    "FormalName_EN": "NumberTales #121 Series Mass Production Version for Sales",
+    "ModelNumber": "APHR-NT [MP]121-*****",
+    "CodeName": "一二一",
+    "SPCodeName": "11×11",
+    "SPCodeName_EN": "Eleven Elevens",
+    "GenderType": "Neutral",
+    "Class": ["デュオトリプル4型丙組"]
+  },
+  {
     "Num": 123,
     "Progress": "notProceeded",
     "Name": "123(ヒフミ)",
@@ -261,6 +280,21 @@
     "CodeName": "一二三",
     "GenderType": "Neutral",
     "Class": ["トリプル1+2+3組"]
+  },
+  {
+    "Num": 125,
+    "Progress": "notProceeded",
+    "_DBLink": {
+      "worksTitle": "NumberTales",
+      "dbName": "SemiPrimary",
+      "_Search": [{ "hashTag": "Num", "key": "cub-5" }]
+    },
+    "FormalName": "量産型ナンバーテールズ125番機シリーズ",
+    "FormalName_EN": "NumberTales #125 Series Mass Production Version for Sales",
+    "ModelNumber": "APHR-NT [MP]125-*****",
+    "CodeName": "一二五",
+    "GenderType": "Neutral",
+    "Class": ["トリプル1+2+5組"]
   },
   {
     "Num": 127,
@@ -279,6 +313,11 @@
     "Progress": "notProceeded",
     "Name": "144(グロス)",
     "Name_EN": "144(Groß)",
+    "_DBLink": {
+      "worksTitle": "NumberTales",
+      "dbName": "SemiPrimary",
+      "_Search": [{ "hashTag": "Num", "key": "144-sq" }]
+    },
     "FormalName": "量産型ナンバーテールズ144番機シリーズ",
     "FormalName_EN": "NumberTales #144 Series Mass Production Version for Sales",
     "ModelNumber": "APHR-NT [MP]144-*****",
@@ -286,7 +325,7 @@
     "SPCodeName": "グロス",
     "SPCodeName_EN": "Gross",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル9型乙組", "マスマティカコンストレイント"]
+    "Class": ["デュオトリプル9型乙組"]
   },
   {
     "Num": 148,
@@ -340,15 +379,32 @@
     "Class": ["トリプル1+5+6組"]
   },
   {
-    "Num": 200,
+    "Num": 169,
+    "Progress": "notProceeded",
+    "Name": "169(ワイドアスペクツ)",
+    "Name_EN": "169(Wide-Aspects)",
     "_DBLink": {
       "worksTitle": "NumberTales",
       "dbName": "SemiPrimary",
-      "_Search": [{ "hashTag": "Num", "key": "200-dev" }]
+      "_Search": [{ "hashTag": "Num", "key": "sq-13" }]
     },
+    "FormalName": "量産型ナンバーテールズ169番機シリーズ",
+    "FormalName_EN": "NumberTales #169 Series Mass Production Version for Sales",
+    "ModelNumber": "APHR-NT [MP]169-*****",
+    "CodeName": "一六九",
+    "SPCodeName": "ワイドスクリーンのアスペクト比(16:9)",
+    "SPCodeName_EN": "Wide-Screen Aspect Ratio (16:9)",
+    "GenderType": "Neutral",
+    "Class": ["トリプル1+6+9組", "マスマティカコンストレイント"]
+  },
+  {
+    "Num": 200,
     "FormalName": "量産型ナンバーテールズ200番機シリーズ",
     "FormalName_EN": "NumberTales #200 Series Mass Production Version for Sales",
-    "ModelNumber": "APHR-NT [MP]200-*****"
+    "ModelNumber": "APHR-NT [MP]200-*****",
+    "CodeName": "二〇〇",
+    "GenderType": "Neutral",
+    "Class": ["百倍番(ハンドレッズデジッツ)"]
   },
   {
     "Num": 214,
@@ -375,7 +431,7 @@
     "CodeName": "二一六",
     "GenderType": "Neutral",
     "Class": ["トリプル1+2+6組", "バーチャリティテールズ"],
-    "Backgrounds": "6の乗数であることから、6(ムイ)や36(ミトム)と関連が深い。\nちなみに、三原色を1Byteで平均的に扱う際に取れる最大の色数でもある"
+    "Backgrounds": "ちなみに、三原色を1Byteで平均的に扱う際に取れる最大の色数でもある"
   },
   {
     "Num": "222-mp",
@@ -483,21 +539,20 @@
     "SPCodeName": "0xFF",
     "SPCodeName_EN": "Last of Byte",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル3型乙組", "バーチャリティテールズ"],
-    "Backgrounds": "1バイト値の最大値（16進法）から由来"
+    "Class": ["デュオトリプル3型乙組"],
+    "Backgrounds": "1バイト値の最大値（16進法）から由来\nなお、「256(バイツ)」と姉妹関係は無い"
   },
   {
     "Num": 256,
     "Progress": "notProceeded",
     "Name": "256(バイツ)",
-    "Name_EN": "256(Bytz)",
     "FormalName": "量産型ナンバーテールズ256番機シリーズ",
     "FormalName_EN": "NumberTales #256 Series Mass Production Version for Sales",
     "ModelNumber": "APHR-NT [MP]256-*****",
     "CodeName": "二五六",
     "SPCodeName_EN": "One Byte",
     "GenderType": "Neutral",
-    "Class": ["トリプル2+5+6組", "マスマティカコンストレイント"],
+    "Class": ["トリプル2+5+6組"],
     "Backgrounds": "1バイトで表現できる値の数から由来\nなお、「255(エフエフ)」と姉妹関係は無い"
   },
   {
@@ -588,6 +643,16 @@
     "CodeName": "三三七",
     "GenderType": "Neutral",
     "Class": ["デュオトリプル4型甲組"]
+  },
+  {
+    "Num": 343,
+    "Progress": "notProceeded",
+    "FormalName": "量産型ナンバーテールズ343番機シリーズ",
+    "FormalName_EN": "NumberTales #343 Series Mass Production Version for Sales",
+    "ModelNumber": "APHR-NT [MP]343-*****",
+    "CodeName": "三四三",
+    "GenderType": "Neutral",
+    "Class": ["デュオトリプル1型丙組"]
   },
   {
     "Num": 360,
@@ -728,14 +793,13 @@
   },
   {
     "Num": 400,
-    "_DBLink": {
-      "worksTitle": "NumberTales",
-      "dbName": "SemiPrimary",
-      "_Search": [{ "hashTag": "Num", "key": "400-dev" }]
-    },
+    "Progress": "notProceeded",
     "FormalName": "量産型ナンバーテールズ400番機シリーズ",
     "FormalName_EN": "NumberTales #400 Series Mass Production Version for Sales",
-    "ModelNumber": "APHR-NT [MP]400-*****"
+    "ModelNumber": "APHR-NT [MP]400-*****",
+    "CodeName": "四〇〇",
+    "GenderType": "Neutral",
+    "Class": ["百倍番(ハンドレッズデジッツ)"]
   },
   {
     "Num": 401,
@@ -893,6 +957,20 @@
     "Class": ["テンズデュアルシックスズ"]
   },
   {
+    "Num": 512,
+    "Progress": "notProceeded",
+    "Name": "512(ハキビ)",
+    "Name_EN": "512(Hav-kiB)",
+    "FormalName": "量産型ナンバーテールズ512番機シリーズ",
+    "FormalName_EN": "NumberTales #512 Series Mass Production Version for Sales",
+    "ModelNumber": "APHR-NT [MP]512-*****",
+    "CodeName": "五一二",
+    "SPCodeName": "半キロバイナリ",
+    "SPCodeName_EN": "Half KiB(Kilo Binary)",
+    "GenderType": "Neutral",
+    "Class": ["トリプル1+2+5組"]
+  },
+  {
     "Num": "555-mp",
     "Progress": "notProceeded",
     "_DBLink": {
@@ -1044,6 +1122,18 @@
     "CodeName": "六九六",
     "GenderType": "Neutral",
     "Class": ["デュオトリプル3型甲組"]
+  },
+  {
+    "Num": 729,
+    "Progress": "notProceeded",
+    "Name": "729(ナブク)",
+    "Name_EN": "729(Seventwínina)",
+    "FormalName": "量産型ナンバーテールズ729番機シリーズ",
+    "FormalName_EN": "NumberTales #729 Series Mass Production Version for Sales",
+    "ModelNumber": "APHR-NT [MP]729-*****",
+    "CodeName": "七二九",
+    "GenderType": "Neutral",
+    "Class": ["トリプル2+7+9組"]
   },
   {
     "Num": 736,
