@@ -4,7 +4,7 @@
     "$type": [
       {
         "hashTag": "Lunar",
-        "$type": "#ListDef",
+        "$type": "#ListIndex",
         "hashTagName_JP": "月暦",
         "hashTagName_EN": "Lunar"
       },

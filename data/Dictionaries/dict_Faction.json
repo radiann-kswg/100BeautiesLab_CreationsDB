@@ -24,7 +24,7 @@
     "Belonging_EN": "Yadzuki Organization",
     "BelongingArea": { "Area": "九蓮国" },
     "isForSecondary": false,
-    "isMaker": false
+    "isMaker": null
   },
   {
     "Faction": "照梅テクノロジー",
@@ -96,7 +96,7 @@
     "Belonging_EN": "JunkGarage “Majesty Rokka”",
     "BelongingArea": { "Area": "紅雪連邦" },
     "isForSecondary": false,
-    "isMaker": null
+    "isMaker": false
   },
   {
     "Faction": "デウスマキナ",
@@ -119,6 +119,15 @@
     "BelongingArea": { "Area": "紅雪連邦" },
     "isForSecondary": null,
     "isMaker": false
+  },
+  {
+    "Faction": "シンフォニー.XVI(ゼクズィン)",
+    "Faction_EN": "Symphony.XVI(Sechzehn)",
+    "Belonging": "シンフォニー.XVI(ゼクズィン)",
+    "Belonging_EN": "Symphony.XVI(Sechzehn)",
+    "BelongingArea": { "Area": "黒薔薇国" },
+    "isForSecondary": null,
+    "isMaker": null
   },
   {
     "Faction": "新生九蓮",
@@ -169,15 +178,6 @@
     },
     "isForSecondary": false,
     "isMaker": false
-  },
-  {
-    "Faction": "シンフォニー.XVI(ゼクズィン)",
-    "Faction_EN": "Symphony.XVI(Sechzehn)",
-    "Belonging": "シンフォニー.XVI(ゼクズィン)",
-    "Belonging_EN": "Symphony.XVI(Sechzehn)",
-    "BelongingArea": { "Area": "黒薔薇国" },
-    "isForSecondary": null,
-    "isMaker": null
   },
   {
     "Faction": "エイゼルベットの観測世界",

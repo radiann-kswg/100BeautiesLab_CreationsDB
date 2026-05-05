@@ -1,47 +1,5 @@
 [
   {
-    "Num": "3x11",
-    "Progress": "released",
-    "Images": {
-      "concept_PNGName": "cnsp_img3x11",
-      "corefolder_PNGPath": [
-        "emstk_corefolder3x11-1",
-        "emstk_corefolder3x11-2"
-      ],
-      "arts_PNGPath": ["corefolders/autumnMoon/art_autumnMoon2025"]
-    },
-    "Name": "トレッド\n3×11(トリィレブン)",
-    "Name_EN": "Treidre'\n3×11(Trivyleven)",
-    "ModelName": "ナンバーテールズ仮説11号3倍機(3x11番機(仮称))",
-    "ModelName_EN": "NumberTales' Hypothetical Prototype: NumberTales Unit.11 EXtended By.3 (Mk.3x11(Tentative))",
-    "ModelNumber": "APHR-NT [Px]XI.3",
-    "FormalName": "ナンバーテールズ3x11番機(仮称)",
-    "FormalName_EN": "NumberTales #3x11(Tentative)",
-    "CodeName": "三倍",
-    "SPCodeName": "(丗三)",
-    "SPCodeName_EN": "Triple(Eleven)",
-    "GenderType": "FemaleNeutral",
-    "Height_cm": 152,
-    "ConceptAge": 18,
-    "Weight_kg": { "hideText": "非公開" },
-    "BustSize": "D",
-    "TailsUnit": "サソリ型3本（それぞれ11束[節]）",
-    "Class": ["仮説型ハイナンバー"],
-    "FirstPersonCalling": "あーし",
-    "SecondPersonCalling": "あんた",
-    "ThirdPersonCalling": "~君,パイセン",
-    "ForMasterCalling": "ヲタク君",
-    "Character": "ヲタクに優しいギャル",
-    "Hobby": "学生と談笑すること",
-    "SpecialSkill": "アスキーアート",
-    "Favor": "ゲーセンの景品",
-    "Unlike": "普通を問われるもの、恋愛話",
-    "RelationNotes": "同型の「22(フジ)」や同番の「33(ミサ)」とよく絡んでいる",
-    "NumerospecAbout": "ありのままを表現させる",
-    "Summary": "3桁の番号を有する量産型販売型に向けた「3倍型」設計を確立するため、「11(トウイチ)」「22(フジ)」をベースに“もう一人の33番機”として試作された個体。\n個性や趣味に寛容なギャル属性を持ち、研究室内のムードメーカとしても一役を買って出ている。\n同番の「33(ミサ)」や姉個体はもちろん、自分の設計が活かされた「マスタートリプル」の９人とも友好的な態度を示す様子が窺われているが、それにより距離感バグを引き起こした個体に四苦八苦している様子が微笑ましいとも噂されている。",
-    "Backgrounds": "3桁の番号が付与される量産販売型個体のリリースに備えて中間設計として開発された個体"
-  },
-  {
     "Num": 100,
     "Progress": "notProceeded",
     "Name": "100(モモ)",
@@ -58,6 +16,7 @@
     "Height_cm": 164,
     "ConceptAge": 17,
     "BustSize": "AA",
+    "Belonging": ["百花繚乱研究所", "レゾンデイトルカンパニー"],
     "Class": [
       "百倍番(ハンドレッズデジッツ)",
       "デシベルモデレーターズ",
@@ -68,7 +27,7 @@
     "ThirdPersonCalling": "[※名前呼び]",
     "ForMasterCalling": "センパイ",
     "RelationNotes": "「ディケ」を「アニキ」と慕っているが、10(ミツル)に対しては少し慣れない様子",
-    "Backgrounds": "量産型のリリースに向けたプロトタイプ\n10号機系[ディケ]の設計を完成させた"
+    "Backgrounds": "量産型のリリースに向けたプロトタイプ\n神皇国の有限会社「レゾンデイトルカンパニー」との技術提携を経て、10号機系[ディケ]の設計を完成させた"
   },
   {
     "Num": "101-dev",
@@ -677,5 +636,47 @@
     "ForMasterCalling": "主君",
     "InStory": "記憶喪失系のキャラとされている\n開発専用機では…？",
     "Backgrounds": "量産販売型含め最後のナンバーテールズ\n「99(ツクモ)」直通の後継個体だが…"
+  },
+  {
+    "Num": "3x11",
+    "Progress": "released",
+    "Images": {
+      "concept_PNGName": "cnsp_img3x11",
+      "corefolder_PNGPath": [
+        "emstk_corefolder3x11-1",
+        "emstk_corefolder3x11-2"
+      ],
+      "arts_PNGPath": ["corefolders/autumnMoon/art_autumnMoon2025"]
+    },
+    "Name": "トレッド\n3×11(トリィレブン)",
+    "Name_EN": "Treidre'\n3×11(Trieleven)",
+    "ModelName": "ナンバーテールズ仮説11号3倍機(3x11番機(仮称))",
+    "ModelName_EN": "NumberTales' Tentative Prototype: NumberTales Unit.11 EXtended By.3 (Mk.3x11(Tentative))",
+    "ModelNumber": "APHR-NT [Px]XI.3",
+    "FormalName": "ナンバーテールズ3x11番機(仮称)",
+    "FormalName_EN": "NumberTales #3x11(Tentative)",
+    "CodeName": "三倍",
+    "SPCodeName": "(丗三)",
+    "SPCodeName_EN": "Triple(Eleven)",
+    "GenderType": "FemaleNeutral",
+    "Height_cm": 152,
+    "ConceptAge": 18,
+    "Weight_kg": { "hideText": "非公開" },
+    "BustSize": "D",
+    "TailsUnit": "サソリ型3本（それぞれ11束[節]）",
+    "Class": ["仮説型ハイナンバー"],
+    "FirstPersonCalling": "あーし",
+    "SecondPersonCalling": "あんた",
+    "ThirdPersonCalling": "~君,パイセン",
+    "ForMasterCalling": "ヲタク君",
+    "Character": "ヲタクに優しいギャル",
+    "Hobby": "学生と談笑すること",
+    "SpecialSkill": "アスキーアート",
+    "Favor": "ゲーセンの景品",
+    "Unlike": "普通を問われるもの、恋愛話",
+    "RelationNotes": "同型の「22(フジ)」や同番の「33(ミサ)」とよく絡んでいる",
+    "NumerospecAbout": "ありのままを表現させる",
+    "Summary": "3桁の番号を有する量産型販売型に向けた「3倍型」設計を確立するため、「11(トウイチ)」「22(フジ)」をベースに“もう一人の33番機”として試作された個体。\n個性や趣味に寛容なギャル属性を持ち、研究室内のムードメーカとしても一役を買って出ている。\n同番の「33(ミサ)」や姉個体はもちろん、自分の設計が活かされた「マスタートリプル」の９人とも友好的な態度を示す様子が窺われているが、それにより距離感バグを引き起こした個体に四苦八苦している様子が微笑ましいとも噂されている。",
+    "Backgrounds": "3桁の番号が付与される量産販売型個体のリリースに備えて中間設計として開発された個体"
   }
 ]
