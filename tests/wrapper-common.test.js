@@ -1,7 +1,7 @@
 /**
  * wrapper-common.js の最小レジストリ回帰テスト
  *
- * Day / StoryEra の built-in wrapper が登録され、
+ * Day / Era / StoryEra の built-in wrapper が登録され、
  * role ベースの summary 整形を単体で呼び出せることを確認する。
  */
 import { beforeAll, describe, expect, it } from 'vitest';
@@ -28,10 +28,10 @@ describe('wrapper-common registry', () => {
     expect(registry).toBeTruthy();
 
     const wrapperNames = registry.getRegisteredWrappers().map((wrapper) => wrapper.name).sort();
-    expect(wrapperNames).toEqual(['daySummary', 'storyEraSummary']);
+    expect(wrapperNames).toEqual(['daySummary', 'eraSummary', 'storyEraSummary']);
   });
 
-  it('resolves StoryEra and Day wrappers from schema display metadata', () => {
+  it('resolves StoryEra / Era / Day wrappers from schema display metadata', () => {
     const registry = globalThis.CharacterValueWrapperRegistry;
     const globalTypeDef = loadJson('data/db_type.json');
 
@@ -44,6 +44,26 @@ describe('wrapper-common registry', () => {
       schemaType: '$Def_Day',
       typeSources: [globalTypeDef]
     })).toBe('daySummary');
+
+    expect(registry.resolveWrapperName({
+      schemaType: '$Def_StoryEra|#Null',
+      typeSources: [globalTypeDef]
+    })).toBe('eraSummary');
+  });
+
+  it('formats a standalone era point summary', () => {
+    const registry = globalThis.CharacterValueWrapperRegistry;
+    const globalTypeDef = loadJson('data/db_type.json');
+    const summary = registry.formatWithRegisteredWrapper(
+      { EraGen: 9, YearInEra: 3, byRealYear: 2050 },
+      {
+        schemaType: '$Def_StoryEra|#Null',
+        defName: '$Def_StoryEra',
+        typeSources: [globalTypeDef]
+      }
+    );
+
+    expect(summary).toBe('第9創世紀3年 / 西暦2050年');
   });
 
   it('formats story era summaries from structured role-aware points', () => {

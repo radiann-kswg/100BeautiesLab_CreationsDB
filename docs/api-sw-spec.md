@@ -177,8 +177,11 @@ UI と enrich/search は、可能な限りこの `db_type.json($DefType)` に追
 補足:
 
 - 2026-05-11 時点では `StoryEra` と `Day` の summary 組み立てに向けて `$display.role` を導入し始めており、UI は `preferredLabel` / `representativePoint` / `rangeStart` / `rangeEnd` や `month` / `dayOfMonth` / `annotation` を参照できる状態になっています。
-- 追加で `lib/wrapper-common.js` に shared value wrapper registry を導入し、`$display.wrapper` を持つ typedef は UI / SW 共通の formatter へ委譲できるようにした。2026-05-11 時点では `StoryEra` が `storyEraSummary` へ本格移行済みで、`Day` は同じ受け口を使いつつ互換 fallback を残している。
-- wrapper handler の基本シグネチャは `format(value, context)` で、`context` には `schemaType`, `defName`, `typeSources`, `helpers` が含まれる。`Era` は現状 standalone 型として API/SW に現れていないため専用 wrapper は未追加だが、将来独立させる場合も同じシグネチャで拡張可能である。
+- 追加で `lib/wrapper-common.js` に shared value wrapper registry を導入し、`$display.wrapper` を持つ typedef は UI / SW 共通の formatter へ委譲できるようにした。2026-05-11 時点では `Day`, `Era`, `StoryEra` が wrapper 解決対象である。
+- wrapper handler の基本シグネチャは `format(value, context)` で、`context` には `schemaType`, `defName`, `typeSources`, `helpers` が含まれる。
+- works/{work}/db 系の DB カタログ応答は、構造化 `StoryEra` を raw のまま返すだけでなく `StoryEraSummary` も返せるようにし、SW 側でも shared wrapper を使って summary を生成するようにした。
+- `EnrichmentProcessor.enrichRecords()` は `$display.wrapper` を持つ top-level field の summary を `_enrichment.wrapperSummaries` へ格納する。これにより UI は raw 構造と summary の両方を必要に応じて再利用できる。
+- `StoryEraSummary` 自体も `lib/sw-common.js` の個別分岐ではなく、`$MetaType.$Def_DatabaseCatalog` に宣言された field のうち wrapper 解決できる項目から自動生成する。現状では `StoryEra` がその対象で、応答キーは `StoryEraSummary` になる。
 
 これは現状の UI/SW が使うカタログ情報の宣言面を明示するための補助ブロックで、既存のキャラクター本体 schema (`$DefType`) を置き換えるものではありません。
 

@@ -8,7 +8,9 @@
 - `api/sw.js` / `pages/sw.js` / `svc/sw.js` も `lib/wrapper-common.js` を読み込むようにし、今後 SW / enrich 側から同じ wrapper registry を利用できる shared 層を揃えた。
 - 回帰確認として `tests/wrapper-common.test.js` を追加し、built-in wrapper 登録と Day / StoryEra summary の最小整形を単体で検証できるようにした。
 - 続けて `StoryEra` は `$MetaType.$Def_StoryEraCatalog.$display.wrapper = storyEraSummary` を宣言し、characters 側の local formatter 実装を削除して shared registry 経由へ本格移行した。
-- `Era` は現時点で独立 schema / live data が存在しないため専用 wrapper は追加せず、将来 standalone 化する場合も同じ `format(value, context)` シグネチャで拡張できるようにした。
+- 続けて `Day` と `Era` も `$display.wrapper` 主体へ寄せ、`$Def_Day -> daySummary`, `$Def_StoryEra -> eraSummary`, `$Def_StoryEraCatalog -> storyEraSummary` という shared な割り当てを明示した。
+- `lib/data-common.js` は enrich 結果に `_enrichment.wrapperSummaries` を追加し、top-level の wrapper 対象項目の summary を SW/UI から再利用できるようにした。
+- `lib/sw-common.js` の DB カタログ応答は `StoryEraSummary` も返すようになり、works/{work}/db 系 API でも shared wrapper による summary を利用できるようになった。さらにこの summary 生成は `StoryEra` の個別ハードコードではなく、`$Def_DatabaseCatalog` の wrapper 対象項目から自動導出する方式へ寄せた。
 
 ### `StoryEra` 用の最小 meta schema を追加
 

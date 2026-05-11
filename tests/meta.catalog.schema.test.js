@@ -23,6 +23,7 @@ describe('catalog meta schema declarations', () => {
     expect(dbType?.$MetaType?.$Def_CreationWorkCatalog?.$DefType).toBeInstanceOf(Array);
     expect(dbType?.$MetaType?.$Def_DatabaseCatalog?.$DefType).toBeInstanceOf(Array);
     expect(dbType?.$MetaType?.$Def_OldTitleCatalog?.$DefType).toBeInstanceOf(Array);
+    expect(dbType?.$MetaType?.$Def_StoryEra?.$display?.wrapper).toBe('eraSummary');
     expect(dbType?.$MetaType?.$Def_StoryEraCatalog?.$display?.wrapper).toBe('storyEraSummary');
     expect(dbType?.$VarsDef?.$Def_Day?.$display?.wrapper).toBe('daySummary');
     expect(storyEra).toBeInstanceOf(Array);

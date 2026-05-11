@@ -16,6 +16,7 @@ function loadText(relPath) {
 }
 
 function loadSwCommonIntoContext() {
+  const wrapperCode = loadText('lib/wrapper-common.js');
   const code = loadText('lib/sw-common.js');
   const context = {
     console,
@@ -27,6 +28,7 @@ function loadSwCommonIntoContext() {
     }
   };
 
+  vm.runInNewContext(wrapperCode, context, { filename: 'lib/wrapper-common.js' });
   vm.runInNewContext(code, context, { filename: 'lib/sw-common.js' });
   return context;
 }
@@ -67,13 +69,48 @@ describe('StandardEndpointHandlers exposes work/db catalog meta info', () => {
 
     const stubFetcher = {
       listWorkDBs: async () => [{ key: 'Primary', file: 'db_Primary.json' }],
+      readGlobalType: async () => ({
+        $MetaType: {
+          $Def_DatabaseCatalog: {
+            $DefType: [
+              { hashTag: 'DB_Label', $type: '#String|#Null' },
+              { hashTag: 'DB_Label_EN', $type: '#String|#Null' },
+              { hashTag: 'DB_Summary', $type: '#Summary|#Null' },
+              { hashTag: 'StoryEra', $type: '$Def_StoryEraCatalog|#Null' }
+            ]
+          },
+          $Def_StoryEra: {
+            $display: { wrapper: 'eraSummary' },
+            $DefType: [
+              { hashTag: 'EraGen', $display: { role: 'eraGeneration' } },
+              { hashTag: 'YearInEra', $display: { role: 'eraYear' } },
+              { hashTag: 'byRealYear', $display: { role: 'realYear' } },
+              { hashTag: 'about_JP', $display: { role: 'pointLabel' } },
+              { hashTag: 'about_EN', $display: { role: 'pointLabelAlt' } }
+            ]
+          },
+          $Def_StoryEraCatalog: {
+            $display: { wrapper: 'storyEraSummary' },
+            $DefType: [
+              { hashTag: 'FromEra', $display: { role: 'rangeStart' } },
+              { hashTag: 'ToEra', $display: { role: 'rangeEnd' } },
+              { hashTag: 'InEra', $display: { role: 'representativePoint' } },
+              { hashTag: 'about_JP', $display: { role: 'preferredLabel' } },
+              { hashTag: 'about_EN', $display: { role: 'preferredLabelAlt' } }
+            ]
+          }
+        }
+      }),
       readWorkMeta: async () => ({
         Databases: {
           '#DB_Primary': {
             DB_Label: '一次創作',
             DB_Label_EN: 'Primary',
             DB_Summary: 'DB概要です。',
-            StoryEra: { about_JP: '第9創世紀3年ごろ' }
+            StoryEra: {
+              InEra: [{ EraGen: 9, YearInEra: 3 }],
+              about_JP: '第9創世紀3年ごろ'
+            }
           }
         }
       })
@@ -88,6 +125,7 @@ describe('StandardEndpointHandlers exposes work/db catalog meta info', () => {
     expect(json.databases[0].DB_Label_EN).toBe('Primary');
     expect(json.databases[0].DB_Summary).toBe('DB概要です。');
     expect(json.databases[0].StoryEra.about_JP).toBe('第9創世紀3年ごろ');
+    expect(json.databases[0].StoryEraSummary).toBe('第9創世紀3年ごろ');
     expect(json.databases[0].metaKey).toBe('#DB_Primary');
   });
 

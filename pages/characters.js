@@ -3814,20 +3814,17 @@ function formatValueForDisplay(value, labelMap = {}, workMeta = null, globalDefT
     });
     if (wrappedText) return wrappedText;
 
-    // Backward-compatible fallback while wrapper-based formatting is phased in.
     if (value.Day && typeof value.Day === 'object') {
-      const dayValue = isPlainObject(value.Day) ? value.Day : {};
-      const rawMonth = pickRoleRawValue(dayValue, '$Def_Day', 'month') ?? dayValue.Month;
-      const rawDayOfMonth = pickRoleRawValue(dayValue, '$Def_Day', 'dayOfMonth') ?? dayValue.DayOfMonth;
-      const mm = rawMonth != null ? String(rawMonth) : '';
-      const dd = rawDayOfMonth != null ? String(rawDayOfMonth) : '';
-      const date = (mm && dd) ? `${mm}/${dd}` : (mm || dd);
-      const aboutValue = pickRoleRawValue(value, '$Def_Day', 'annotation') ?? value.DayAbout ?? value.about_JP ?? value.about_EN ?? value.about;
-      const about = isPlainObject(aboutValue)
-        ? (typeof aboutValue.hideText === 'string' && aboutValue.hideText.trim() ? aboutValue.hideText.trim() : '')
-        : (aboutValue == null ? '' : String(aboutValue).trim());
-      if (date && about) return `${date}（${about}）`;
-      if (date) return date;
+      const implicitDayText = getCharacterValueWrapperRegistry()?.formatWithRegisteredWrapper?.(value, {
+        wrapperName: 'daySummary',
+        defName: '$Def_Day',
+        fieldKey: opt?.fieldKey,
+        labelMap,
+        workMeta,
+        globalDefType,
+        typeSources: wrapperTypeSources
+      });
+      if (implicitDayText) return implicitDayText;
     }
 
     if (schemaTypeIncludes(opt?.schemaType, '$Def_BaseArea') && Object.prototype.hasOwnProperty.call(value, 'Area')) {

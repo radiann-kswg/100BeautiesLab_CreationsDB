@@ -305,6 +305,7 @@
       ]
     },
     "$Def_StoryEra": {
+      "$display": { "wrapper": "eraSummary" },
       "$DefType": [
         {
           "hashTag": "EraGen",

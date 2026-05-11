@@ -19,6 +19,10 @@
 - `api/sw.js` / `pages/sw.js` / `svc/sw.js` も `lib/wrapper-common.js` を読み込むように揃えた。
 - `StoryEra` は `$MetaType.$Def_StoryEraCatalog.$display.wrapper = storyEraSummary` を宣言し、characters 側の local StoryEra formatter 実装を削除して shared registry 経由へ移行した。
 - wrapper handler の基本シグネチャを `format(value, context)` に固定し、`context.schemaType` / `context.defName` / `context.typeSources` / `context.helpers` を最小入力として扱う方針を明文化した。
+- `Day` は characters 側の直書き date formatter を廃止し、wrapper registry を強制指定して summary を得る経路へ寄せた。
+- `Era` も `$MetaType.$Def_StoryEra.$display.wrapper = eraSummary` を宣言し、単点年代も shared wrapper で整形できるようにした。
+- SW / enrich 側でも wrapper を利用し、DB カタログの `StoryEraSummary` と `_enrichment.wrapperSummaries` を追加した。
+- 追加で、DB カタログの `StoryEraSummary` 生成は `lib/sw-common.js` 内の `StoryEra` 個別分岐ではなく、`$MetaType.$Def_DatabaseCatalog` に宣言された wrapper 対象 field から自動導出する方式へ寄せた。
 
 ## 影響範囲
 
@@ -28,9 +32,13 @@
 - `pages/sw.js`
 - `svc/sw.js`
 - `pages/characters.js`
+- `lib/data-common.js`
+- `lib/sw-common.js`
 - `pages/characters.html`
 - `tests/meta.catalog.schema.test.js`
 - `tests/wrapper-common.test.js`
+- `tests/enrich.wrapper-summaries.test.js`
+- `tests/sw.work-meta-info.test.js`
 - `docs/schema-meta-processing.md`
 - `docs/api-sw-spec.md`
 - `CHANGELOG.md`
@@ -40,6 +48,8 @@
 - `tests/meta.catalog.schema.test.js`: 成功
 - `tests/wrapper-common.test.js`: 未実施
 - `tests/wrapper-common.test.js`: 成功
+- `tests/enrich.wrapper-summaries.test.js`: 成功
+- `tests/sw.work-meta-info.test.js`: 成功
 - `tests/pages.characters.ui-output.test.js`: 成功
 - `tests/pages.characters.syntax.test.js`: 成功
 
@@ -48,7 +58,7 @@
 - `Day` は実データが `Day: { Month, DayOfMonth }` のラッパーを持つため、完全な key 非依存化には追加 schema の整理または wrapper 自体の role 化がまだ必要。
 - SW / enrich 側では `StoryEra` / `Day` の role 自体はまだ積極利用しておらず、主に UI summary の整理が先行している。
 - wrapper registry は最小導入のみで、schema から `wrapper` 名を宣言的に解決する段階まではまだ進めていない。
-- `Era` は現在 standalone な top-level schema としては存在せず、`$Def_StoryEra` の単点構造として内包されているため、当面は StoryEra wrapper 内部 helper として扱う。
+- `Era` は現時点でも standalone な top-level live data は少ないが、schema / wrapper 側は独立して整えたため、将来 top-level field 化しても追加シグネチャなしで扱える。
 
 ## 現在の role 導入内容
 
