@@ -10,17 +10,17 @@
 このセッションでの対応結果を、上記 4 タスクに照らして整理すると以下の通り。
 
 - タスク 1: **部分達成**
-	- 達成できたこと: `Belonging` / `Area` / `BelongingArea` 周辺の辞書分離、`$TypeDef -> $DefType` 統一、basic セクションの schema-driven 化、`Belonging -> BaseArea` 補助展開、UI 回帰テスト基盤の整備。
-	- 未達成: `Day` / `Era` / `StoryEra` 系の全面的なソフトコーディング化、追加 typedef 書式の要否整理後の本実装。
+  - 達成できたこと: `Belonging` / `Area` / `BelongingArea` 周辺の辞書分離、`$TypeDef -> $DefType` 統一、basic セクションの schema-driven 化、`Belonging -> BaseArea` 補助展開、UI 回帰テスト基盤の整備。
+  - 未達成: `Day` / `Era` / `StoryEra` 系の全面的なソフトコーディング化、追加 typedef 書式の要否整理後の本実装。
 - タスク 2: **基盤部分は達成、内容整備は未完**
-	- 達成できたこと: `Glossaries/` / `References/` レイヤー、`DB_Layer` / `#Ref_*` / `ref_*.json` の受け皿、shared references typedef、資料系 DB の UI 表示、関連リンク、References 画像参照、画像ディレクトリ規則の `DB_*` / `Ref_*` 化。
-	- 未達成: 造語候補の洗い出し支援、入力テンプレートの更なる整備、User 手入力前提の本文や辞書内容の拡充、複数作品への横展開。
+  - 達成できたこと: `Glossaries/` / `References/` レイヤー、`DB_Layer` / `#Ref_*` / `ref_*.json` の受け皿、shared references typedef、資料系 DB の UI 表示、関連リンク、References 画像参照、画像ディレクトリ規則の `DB_*` / `Ref_*` 化。
+  - 未達成: 造語候補の洗い出し支援、入力テンプレートの更なる整備、User 手入力前提の本文や辞書内容の拡充、複数作品への横展開。
 - タスク 3: **部分達成**
-	- 達成できたこと: `_Secondaries` / `_Commons` を使った `sec_Category` / `sec_DesignedBy` の補完、`$Def_SecondaryMeta` に基づく UI 表示、二次創作情報セクションの回帰テスト整備。
-	- 未達成: `RelationToPrimary` のリンク化、一次創作側との関係表示の拡張、DB の「一次/二次相当」判定ルールの明文化。
+  - 達成できたこと: `_Secondaries` / `_Commons` を使った `sec_Category` / `sec_DesignedBy` の補完、`$Def_SecondaryMeta` に基づく UI 表示、二次創作情報セクションの回帰テスト整備。
+  - 未達成: 一次創作側との関係表示の拡張、DB の「一次/二次相当」判定ルールの明文化。
 - タスク 4: **最小実装は達成**
-	- 達成できたこと: `isPrivate` による API/SW / enrich / UI 一覧 / 詳細での公開制御。
-	- 未達成: `Progress` 連動などの派生非公開ルール、作品や DB 単位の公開制御、運用 UI の追加。
+  - 達成できたこと: `isPrivate` による API/SW / enrich / UI 一覧 / 詳細での公開制御。
+  - 未達成: `Progress` 連動などの派生非公開ルール、作品や DB 単位の公開制御、運用 UI の追加。
 
 ### 現時点の総合評価
 
@@ -31,9 +31,13 @@
 ### 直近の残留タスク
 
 - `Day` / `Era` / `StoryEra` 周辺で、既存 typedef を SW/UI がどこまで解釈し切れていないかを再棚卸しする。
-- `RelationToPrimary` を一次創作キャラクター詳細へ遷移できる link 表示へ寄せる。
 - Glossary / Reference DB の入力テンプレートと、User 手入力前提の運用ガイドをもう一段具体化する。
 - `isPrivate` の先にある `Progress` 連動や DB 単位制御を導入するかを仕様判断する。
+
+### 2026-05-11 追記
+
+- `pages/characters.js` の `RelationToPrimary` は、二次創作 DB を閲覧中でも `Primary` DB 側の index 直リンクを生成し、一次創作キャラクター詳細へ遷移できるようにした。
+- 回帰確認として `tests/pages.characters.ui-output.test.js` に `db=Primary` / `idx` / `idxKey` を検証するケースを追加した。
 
 ### 対応中または今後の判断で重要な事項
 

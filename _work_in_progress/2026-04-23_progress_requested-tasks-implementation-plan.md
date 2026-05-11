@@ -22,6 +22,11 @@
 - さらに、一覧検索を `Title` / `Term` 系へ拡張し、`RelatedTerms` を Glossary DB の絞り込みリンク、`RelatedCreations` を対象 work/db への遷移リンクとして detail の「関連情報」セクションへ追加した。
 - 回帰確認として `tests/pages.characters.ui-output.test.js` の 8 件成功と `tests/pages.characters.syntax.test.js` の成功を確認した。
 
+## 2026-05-11 追記
+
+- タスク 3 の残件だった `RelationToPrimary` のリンク化について、`pages/characters.js` の relation 描画を調整し、二次創作 DB からでも `Primary` DB の index 直リンクへ遷移できるようにした。
+- `tests/pages.characters.ui-output.test.js` に `RelationToPrimary` のリンク先が `db=Primary` になることを確認する UI 回帰テストを追加し、13 件成功を確認した。
+
 ## 現時点の基本方針
 
 - 既存機能の改悪防止を最優先とし、変更は小さな単位で段階導入する。
@@ -85,6 +90,7 @@
 #### 実装方針
 
 - `RelationToPrimary` のリンク化、`sec_Category` / `sec_DesignedBy` の利用者向け表示整理、二次創作向け補助表示の拡張を候補にする。
+- `RelationToPrimary` の Primary 詳細遷移は実装済みのため、残る候補は `sec_Category` / `sec_DesignedBy` の利用者向け表示整理と、一次創作側との関係表示の拡張。
 - まずは既存 schema で表現できる範囲から着手し、追加宣言の要否は後から判断する。
 - `renderDetail()` ベースの UI 回帰テストに、二次創作表示ケースを追加する。
 

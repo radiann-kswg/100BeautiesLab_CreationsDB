@@ -331,6 +331,35 @@ describe('pages/characters.js UI output', () => {
     expect(secondarySectionText).toContain('散狐アタスト(https://misskey.io/@atast)');
   });
 
+  it('renders RelationToPrimary entries as links to the primary db detail view', async () => {
+    charactersModule.__setCharactersTestState({
+      charState: {
+        db: 'Secondary',
+        workId: '#Works_NumberTales',
+        records: numberTalesSecondaryRecords,
+        workTypeDef: numberTalesWorkTypeDef,
+        globalTypeDef,
+        workMeta: numberTalesWorkMeta,
+        imageFields: []
+      }
+    });
+
+    await charactersModule.renderDetail('#Works_NumberTales', hexademicalRecord);
+
+    const section = getSectionNode('原作との関係');
+    expect(section).not.toBeNull();
+
+    const links = Array.from(section.querySelectorAll('a'));
+    const primaryLink = links.find((link) => link.textContent?.trim() === '1');
+    expect(primaryLink).toBeTruthy();
+
+    const params = new URL(primaryLink.href).searchParams;
+    expect(params.get('db')).toBe('Primary');
+    expect(params.get('idx')).toBe('1');
+    expect(params.get('idxKey')).toBe('Num');
+    expect(params.get('num')).toBe('1');
+  });
+
   it('does not render private records in detail view', async () => {
     await charactersModule.renderDetail('#Works_PastDivers', {
       ...yayoiRecord,

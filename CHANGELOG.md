@@ -1,5 +1,11 @@
 # 最新のリファクタリング・仕様変更履歴
 
+### `RelationToPrimary` を Primary DB 詳細へ遷移できるリンク表示へ調整
+
+- `pages/characters.js` の関係表示で、`RelationToPrimary` は現在選択中 DB ではなく `Primary` DB の index 直リンクを生成するようにした。
+- 同一 DB 内の `Relation` は従来どおり現在のレコード群から即時詳細表示しつつ、`RelationToPrimary` は現在 state に一次創作レコードが載っていない場合でも `work/db/idx/idxKey` を保ったまま `Primary` 側へ遷移できるようにした。
+- 回帰確認として `tests/pages.characters.ui-output.test.js` に `RelationToPrimary` のリンク先が `db=Primary` になることを確認するケースを追加し、13 件成功を確認した。
+
 ### 画像ディレクトリ命名を `Images/DB_*` / `Images/Ref_*` へ移行
 
 - `pages/characters.js` と `lib/data-common.js` の画像パス解決を更新し、通常 DB は `Images/DB_<DbName>/...`、References 系 DB は `Images/Ref_<RefName>/...`、作品共通画像は `Images/General/` を既定で解決するようにした。

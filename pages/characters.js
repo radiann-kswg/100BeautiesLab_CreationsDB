@@ -6559,6 +6559,8 @@ function renderRelations(rel, fieldLabelMap, workMeta, globalDefType, fieldDispl
   // 作品の Index 定義（typedef の $IndexDef）を取得し、Relation の Num から該当キャラへジャンプできるようにする
   const state = window.__CHAR_STATE__;
   const workId = state?.workId || '';
+  const currentDb = String(state?.db || '').trim();
+  const relationTargetDb = containerKey === 'RelationToPrimary' ? 'Primary' : currentDb;
   const indexDef = workId ? getWorkIndexField(workId, workMeta) : null;
 
   const findRecordByIndex = (id) => {
@@ -6570,22 +6572,11 @@ function renderRelations(rel, fieldLabelMap, workMeta, globalDefType, fieldDispl
     return state.records.find(r => recordMatchesIndexQuery(r, indexDef, idxValue, idxKeyPath, idxKeyPath === 'Num' ? idxValue : '')) || null;
   };
 
-  const buildIndexHref = (id) => {
-    try {
-      const cur = getQS();
-      const qs = new URLSearchParams({
-        work: String(cur.work || ''),
-        db: String(cur.db || ''),
-        q: String(cur.q || ''),
-        idx: String(id?.value || ''),
-        idxKey: String(id?.keyPath || ''),
-        num: (id?.keyPath === 'Num') ? String(id?.value || '') : ''
-      });
-      return `${location.pathname}?${qs.toString()}`;
-    } catch {
-      return '#';
-    }
-  };
+  const buildIndexHref = (id, targetDb = currentDb) => buildViewerNavigationHref(workId, targetDb, {
+    idx: String(id?.value || ''),
+    idxKey: String(id?.keyPath || ''),
+    num: (id?.keyPath === 'Num') ? String(id?.value || '') : ''
+  });
 
   const getIndexIdentifierFromRelation = (r) => {
     if (!r || typeof r !== 'object') return null;
@@ -6698,20 +6689,31 @@ function renderRelations(rel, fieldLabelMap, workMeta, globalDefType, fieldDispl
     // クリックで該当キャラへ移動できるように、Index 定義がある場合はリンク化
     const id = getIndexIdentifierFromRelation(r);
     const target = id ? findRecordByIndex(id) : null;
+    const canNavigateToPrimary = containerKey === 'RelationToPrimary' && id && workId && relationTargetDb;
 
     const hasNewline = (s) => (typeof s === 'string' && s.includes('\n'));
 
     const children = [];
     children.push(`${prefix} `);
 
-    if (id && target) {
+    if ((id && target) || canNavigateToPrimary) {
       const name = target?.Name || target?.FormalName || target?.ModelName || target?.Name_EN || '';
       children.push(el('a', {
-        href: buildIndexHref(id),
-        title: name ? `開く: ${name}` : '開く',
-        onclick: (ev) => {
+        href: buildIndexHref(id, canNavigateToPrimary ? relationTargetDb : currentDb),
+        title: name ? `開く: ${name}` : (canNavigateToPrimary ? '原作キャラクターを開く' : '開く'),
+        onclick: async (ev) => {
           try { ev.preventDefault(); } catch (_) { /* no-op */ }
-          openDetail(target);
+          if (target) {
+            await openDetail(target);
+            return;
+          }
+          if (canNavigateToPrimary) {
+            await openViewerNavigation(workId, relationTargetDb, {
+              idx: String(id?.value || ''),
+              idxKey: String(id?.keyPath || ''),
+              num: (id?.keyPath === 'Num') ? String(id?.value || '') : ''
+            });
+          }
         }
       }, [id.value]));
     } else {
@@ -6747,15 +6749,21 @@ function renderRelations(rel, fieldLabelMap, workMeta, globalDefType, fieldDispl
 function buildViewerNavigationHref(workId, dbName, options = {}) {
   const current = getQS();
   const normalizedWork = workKeyForAPI(workId || current.work || '');
-  const q = String(options?.q || '').trim();
+  const hasOwn = (key) => Object.prototype.hasOwnProperty.call(options || {}, key);
+  const q = hasOwn('q') ? String(options?.q || '').trim() : String(current.q || '').trim();
+  const idx = hasOwn('idx') ? String(options?.idx || '').trim() : '';
+  const idxKey = hasOwn('idxKey') ? String(options?.idxKey || '').trim() : '';
+  const num = hasOwn('num')
+    ? String(options?.num || '').trim()
+    : (idxKey === 'Num' ? idx : '');
   const qs = new URLSearchParams({
     ...current,
     work: normalizedWork,
     db: String(dbName || current.db || ''),
     q,
-    num: '',
-    idx: '',
-    idxKey: ''
+    num,
+    idx,
+    idxKey
   });
   return `${location.pathname}?${qs.toString()}`;
 }
@@ -6768,6 +6776,9 @@ async function openViewerNavigation(workId, dbName, options = {}) {
   const normalizedWork = normalizeWorkKey(workId || window?.__CHAR_STATE__?.workId || '');
   const normalizedDb = String(dbName || '').trim();
   const q = String(options?.q || '').trim();
+  const idx = String(options?.idx || '').trim();
+  const idxKey = String(options?.idxKey || '').trim();
+  const num = String(options?.num || (idxKey === 'Num' ? idx : '')).trim();
 
   if (!selectWork || !selectDB || !normalizedWork || !normalizedDb) {
     location.href = href;
@@ -6781,7 +6792,7 @@ async function openViewerNavigation(workId, dbName, options = {}) {
     }
     selectDB.value = normalizedDb;
     if (searchInput) searchInput.value = q;
-    setQS({ work: workKeyForAPI(normalizedWork), db: normalizedDb, q, num: '', idx: '', idxKey: '' });
+    setQS({ work: workKeyForAPI(normalizedWork), db: normalizedDb, q, num, idx, idxKey });
     await renderSelectionMeta(normalizedWork, normalizedDb);
     await reloadInternal(false);
   } catch {
