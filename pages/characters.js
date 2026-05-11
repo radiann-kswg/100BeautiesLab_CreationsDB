@@ -23,6 +23,8 @@
  * @version 1.0.0
  */
 
+import '../lib/wrapper-common.js';
+
 // Characters page: fetch from /api/v1 and render list/detail
 
 // Global initialization tracking to prevent duplicate setup
@@ -40,6 +42,10 @@ const workLayerTypeDefCache = new Map();
 
 function isCharactersTestMode() {
   return Boolean(globalThis.__CHARACTERS_TEST_MODE__ || import.meta.vitest);
+}
+
+function getCharacterValueWrapperRegistry() {
+  return globalThis.CharacterValueWrapperRegistry || null;
 }
 
 function isPublicCharacterRecord(record) {
@@ -3599,18 +3605,18 @@ function formatValueForDisplay(value, labelMap = {}, workMeta = null, globalDefT
     return target || q || '';
   };
 
+  const wrapperTypeSources = [
+    globalTypeDefCache,
+    window?.__CHAR_STATE__?.globalTypeDef,
+    globalDefType,
+    window?.__CHAR_STATE__?.workTypeDef
+  ].filter((source, index, list) => source && list.indexOf(source) === index);
+
   const resolveTypeDefEntries = (defName) => {
     const name = String(defName || '').trim();
     if (!name) return [];
 
-    const sources = [
-      globalTypeDefCache,
-      window?.__CHAR_STATE__?.globalTypeDef,
-      globalDefType,
-      window?.__CHAR_STATE__?.workTypeDef
-    ].filter((source, index, list) => source && list.indexOf(source) === index);
-
-    for (const source of sources) {
+    for (const source of wrapperTypeSources) {
       const metaEntries = source?.$MetaType?.[name]?.$DefType;
       if (Array.isArray(metaEntries)) return metaEntries;
 
@@ -3874,7 +3880,17 @@ function formatValueForDisplay(value, labelMap = {}, workMeta = null, globalDefT
       if (baseWithUnit) return baseWithUnit;
     }
 
-    // Common birthday/day pattern
+    const wrappedText = getCharacterValueWrapperRegistry()?.formatWithRegisteredWrapper?.(value, {
+      schemaType: opt?.schemaType,
+      fieldKey: opt?.fieldKey,
+      labelMap,
+      workMeta,
+      globalDefType,
+      typeSources: wrapperTypeSources
+    });
+    if (wrappedText) return wrappedText;
+
+    // Backward-compatible fallback while wrapper-based formatting is phased in.
     if (value.Day && typeof value.Day === 'object') {
       const dayValue = isPlainObject(value.Day) ? value.Day : {};
       const rawMonth = pickRoleRawValue(dayValue, '$Def_Day', 'month') ?? dayValue.Month;

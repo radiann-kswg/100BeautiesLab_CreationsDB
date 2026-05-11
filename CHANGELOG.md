@@ -1,5 +1,13 @@
 # 最新のリファクタリング・仕様変更履歴
 
+### Day / StoryEra の特殊整形を shared wrapper registry の受け口へ分離開始
+
+- `lib/wrapper-common.js` を追加し、UI / Service Worker 共有で使える value wrapper registry を新設した。
+- 最初の built-in wrapper として `daySummary` と `storyEraSummary` を登録し、`$display.role` を使った Day / StoryEra の summary 整形を shared 層へ切り出せる土台を用意した。
+- `pages/characters.js` は object 値の整形時に registry を先に試し、未一致または空文字時のみ従来の Day / StoryEra fallback を使うようにしたため、初回導入時点では既存挙動を維持する。
+- `api/sw.js` / `pages/sw.js` / `svc/sw.js` も `lib/wrapper-common.js` を読み込むようにし、今後 SW / enrich 側から同じ wrapper registry を利用できる shared 層を揃えた。
+- 回帰確認として `tests/wrapper-common.test.js` を追加し、built-in wrapper 登録と Day / StoryEra summary の最小整形を単体で検証できるようにした。
+
 ### `StoryEra` 用の最小 meta schema を追加
 
 - `data/db_type.json` のトップレベル `$MetaType` に `$Def_StoryEra` を追加し、`EraGen` / `YearInEra` / `byRealYear` / `about_JP` / `about_EN` を持つ単点年代の宣言を導入した。

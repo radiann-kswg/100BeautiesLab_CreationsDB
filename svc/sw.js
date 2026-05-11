@@ -10,7 +10,7 @@
  */
 
 // 共通ライブラリを読み込み
-importScripts('../lib/sw-common.js', '../lib/data-common.js');
+importScripts('../lib/wrapper-common.js', '../lib/sw-common.js', '../lib/data-common.js');
 
 // Service Worker 設定を初期化
 const SCOPE_PATH = new URL('./', self.registration?.scope || self.location.href).pathname.replace(/\/$/, '');

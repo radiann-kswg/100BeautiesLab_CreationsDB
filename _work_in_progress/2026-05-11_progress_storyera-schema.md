@@ -14,11 +14,21 @@
 - `tests/pages.characters.ui-output.test.js` に、構造化 `StoryEra` から summary を自動生成できることを確認するケースを追加した。
 - `data/db_type.json` の `$Def_StoryEraCatalog` / `$Def_StoryEra` / `$Def_Day` に `$display.role` を追加し、`pages/characters.js` 側も role 優先で summary を組み立てるようにした。
 - `tests/pages.characters.ui-output.test.js` に Day 表示の互換確認ケースを追加し、role 導入後も `8/15（誕生日）` が維持されることを確認した。
+- `lib/wrapper-common.js` を追加し、Day / StoryEra の特殊 summary formatter を UI / Service Worker 共通で登録できる最小 registry を導入した。
+- `pages/characters.js` は registry を先に試し、未一致時のみ既存 fallback を通す構成へ変更した。
+- `api/sw.js` / `pages/sw.js` / `svc/sw.js` も `lib/wrapper-common.js` を読み込むように揃えた。
 
 ## 影響範囲
 
 - `data/db_type.json`
+- `lib/wrapper-common.js`
+- `api/sw.js`
+- `pages/sw.js`
+- `svc/sw.js`
+- `pages/characters.js`
+- `pages/characters.html`
 - `tests/meta.catalog.schema.test.js`
+- `tests/wrapper-common.test.js`
 - `docs/schema-meta-processing.md`
 - `docs/api-sw-spec.md`
 - `CHANGELOG.md`
@@ -26,6 +36,7 @@
 ## 検証
 
 - `tests/meta.catalog.schema.test.js`: 成功
+- `tests/wrapper-common.test.js`: 未実施
 - `tests/pages.characters.ui-output.test.js`: 成功
 - `tests/pages.characters.syntax.test.js`: 成功
 
@@ -33,6 +44,7 @@
 
 - `Day` は実データが `Day: { Month, DayOfMonth }` のラッパーを持つため、完全な key 非依存化には追加 schema の整理または wrapper 自体の role 化がまだ必要。
 - SW / enrich 側では `StoryEra` / `Day` の role 自体はまだ積極利用しておらず、主に UI summary の整理が先行している。
+- wrapper registry は最小導入のみで、schema から `wrapper` 名を宣言的に解決する段階まではまだ進めていない。
 
 ## 現在の role 導入内容
 

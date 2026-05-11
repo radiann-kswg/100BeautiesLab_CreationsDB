@@ -211,12 +211,16 @@
   - `basic/profile/spec/images/other`
 - `unit`
   - 単位表示
+- `role`
+  - wrapper formatter が子要素を意味単位で読むための役割名
 - `auto:false`
   - 自動表示から除外
 - `aliasOf`
   - 表示上の従属関係のヒント
 - `tagSpace`
   - タグ系の見せ方の補助
+- `wrapper`
+  - 特殊 summary formatter を shared registry へ委譲するための識別子
 - `index`
   - object 形式 `#Index` の子要素ごとの制御
 
@@ -230,6 +234,12 @@
 - `order`
 
 これは主に `pages/characters.js` と `TypeDefUtils.getIndexDefInfo()` 周辺で使われます。
+
+補足:
+
+- 2026-05-11 時点では `lib/wrapper-common.js` に最小の value wrapper registry を追加し、UI / Service Worker の shared 層で Day / StoryEra などの特殊 summary formatter を登録できるようにした。
+- 現段階の built-in wrapper は `daySummary` と `storyEraSummary` で、`pages/characters.js` は registry を先に試し、未一致時だけ従来の後方互換 fallback を使う。
+- `wrapper` キー自体は今後の宣言的割り当てに備えた設計上の受け皿であり、最初の段階では schema 名一致による built-in wrapper 解決を優先する。
 
 ### 3.4 `$VarsDef`
 
