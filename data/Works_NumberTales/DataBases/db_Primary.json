@@ -3331,7 +3331,7 @@
     "AbilityStats": {
       "Speed": { "Rank": "B" },
       "Communication": { "hideText": "定義不能" },
-      "Reading": { "Rank": "Z" },
+      "Leading": { "Rank": "Z" },
       "Precision": { "Rank": "D" },
       "Technic": { "Rank": "A" },
       "Actuation": { "Rank": "B+" }
@@ -4189,7 +4189,7 @@
     "AbilityStats": {
       "Speed": { "Rank": "B" },
       "Communication": { "hideText": "定義不能" },
-      "Reading": { "Rank": "B" },
+      "Leading": { "Rank": "B" },
       "Precision": { "Rank": "S" },
       "Technic": { "Rank": "A" },
       "Actuation": { "Rank": "A" }
