@@ -35,6 +35,7 @@
 
 - **UI 表示修正の第一候補**: 画面崩れや表示漏れは、まず `db_type.json($DefType)` / `$display` / `db_meta.json($DetailLayout)` で制御できないかを確認し、UI のハードコード追加は最後の手段とします。
 - **schema/meta 詳解の参照先**: `db_type.json` / `db_meta.json` の宣言面と SW/UI/enrich 内部での合流順を説明する場合は、まず `docs/schema-meta-processing.md` を参照・更新対象に含めてください。
+- **wrapper summary の参照先**: `Day` / `Era` / `StoryEra` などの特殊 summary、`$display.wrapper` / `$display.role`、`_enrichment.wrapperSummaries`、`StoryEraSummary` などを変更する場合は、まず `docs/wrapper-summary-registry.md` を参照・更新対象に含めてください。
 - **List 系詳細表示**: `#ListIndex[]` / `#ListLink[]` の object 配列は、詳細表示では 1 要素 1 行の multiline 表示を優先します。
 - **bilingual multiline 表示**: `##String_JP` / `##String_EN` 系で和英のどちらかに改行が含まれる場合、詳細テーブルでは JP/EN を左右 2 列に分ける表示を優先します。
 - **basic 補助項目の重複抑制**: `Belonging` / `Area` / `BirthDay` / `AnivDay` などの basic 補助行は、`$DetailLayout.basicFields` に既に含まれる場合は重複表示しないでください。
@@ -45,6 +46,9 @@
 - **DB 表示名の正**: DB セレクトや作品概要の DB 見出しに出す表示名は、作品別 `db_meta.json` の `Databases.#DB_<DbName>.DB_Label` / `DB_Label_EN` を優先し、未定義時のみ SW の既定ラベル補完に依存します。
 - **API/SW 技術説明の参照先**: API / SW 周辺の仕様整理や説明追加では、まず `docs/api-sw-spec.md` を参照・更新対象に含めてください。
 - **横断運用の参照先**: 実装判断の横断ルールは `docs/implementation-playbook.md` を先に確認し、必要な差分だけ追加してください。
+- **wrapper の第一候補**: `Day` / `Era` / `StoryEra` のような複合 summary は、`pages/characters.js` や `lib/sw-common.js` に field 名依存の if を足す前に、`lib/wrapper-common.js` と schema の `$display.wrapper` / `$display.role` で吸収できないかを確認してください。
+- **catalog summary の生成規則**: works / db カタログの summary 追加は、可能な限り `$MetaType.$Def_DatabaseCatalog` を基準に `${hashTag}Summary` を自動生成する方式へ寄せ、`StoryEra` など特定 field の個別ハードコードを増やさないでください。
+- **enrich summary の生成規則**: wrapper 対象の top-level field を SW/UI で再利用したい場合は、個別 field を別キーへ複製する前に `lib/data-common.js` の `_enrichment.wrapperSummaries` を使える形に寄せてください。
 
 ### 会話パターン情報追加時の運用制約（重要）
 

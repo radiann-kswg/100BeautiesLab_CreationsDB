@@ -22,6 +22,7 @@
 - 2026-04-22_progress_task1-day-era-softcoding.md
 - 2026-04-22_progress_creationwork-meta-api-ui.md
 - 2026-04-22_progress_schema-meta-docs.md
+- 2026-05-11_progress_storyera-schema.md
 
 補足:
 
@@ -29,6 +30,7 @@
 - 2026-04-21 に、4/18 と 4/19 の完了済み progress ログを `.completed` へ整理しました。
 - 2026-04-21 に、`_Secondaries` の fallback 優先順位整理ログも完了扱いとして `.completed` へ退避しました。
 - 2026-04-22 時点で、`2026-03-31_remaining-task.md` に記載していた希望タスクはすべて完了しています。直下に残る progress ログは、ユーザー依頼による退避整理前の参照用です。
+- 2026-05-11 に、`StoryEra` / `Day` / `Era` の wrapper registry 化と SW/enrich summary 対応を `2026-05-11_progress_storyera-schema.md` に追記しました。
 
 ## 完了（.completed へ退避済み）
 

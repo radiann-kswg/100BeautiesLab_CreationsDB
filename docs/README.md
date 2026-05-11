@@ -15,12 +15,14 @@ This folder contains documentation for **100BeautiesLab. Creations DB (Web)**.
 - DB update guidelines (JP): `db-update-guidelines.md`
 - Schema / meta field processing (JP): `schema-meta-processing.md`
 - API / SW technical note (JP): `api-sw-spec.md`
+- Wrapper summary registry note (JP): `wrapper-summary-registry.md`
 - Implementation playbook (JP): `implementation-playbook.md`
 - Third-party policy (JP): `third-party-policy.md`
 
 Session-added references:
 
 - Work / DB catalog meta (`CreationWorks`, `Databases.#DB_*`) and `$MetaType`: `schema-meta-processing.md`
+- Day / Era / StoryEra wrapper registry and summary generation: `wrapper-summary-registry.md`
 - Session-wide implementation rules and decision order: `implementation-playbook.md`
 
 ## English

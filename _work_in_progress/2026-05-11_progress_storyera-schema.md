@@ -46,7 +46,6 @@
 ## 検証
 
 - `tests/meta.catalog.schema.test.js`: 成功
-- `tests/wrapper-common.test.js`: 未実施
 - `tests/wrapper-common.test.js`: 成功
 - `tests/enrich.wrapper-summaries.test.js`: 成功
 - `tests/sw.work-meta-info.test.js`: 成功
@@ -57,7 +56,7 @@
 
 - `Day` は実データが `Day: { Month, DayOfMonth }` のラッパーを持つため、完全な key 非依存化には追加 schema の整理または wrapper 自体の role 化がまだ必要。
 - SW / enrich 側では `StoryEra` / `Day` の role 自体はまだ積極利用しておらず、主に UI summary の整理が先行している。
-- wrapper registry は最小導入のみで、schema から `wrapper` 名を宣言的に解決する段階まではまだ進めていない。
+- wrapper registry 自体は稼働しており、schema から `wrapper` 名を宣言的に解決する段階まで反映済み。今後の課題は「どこでその summary を優先利用するか」の整理。
 - `Era` は現時点でも standalone な top-level live data は少ないが、schema / wrapper 側は独立して整えたため、将来 top-level field 化しても追加シグネチャなしで扱える。
 
 ## 現在の role 導入内容
@@ -90,3 +89,4 @@
 
 - `docs/schema-meta-processing.md`
 - `docs/api-sw-spec.md`
+- `docs/wrapper-summary-registry.md`

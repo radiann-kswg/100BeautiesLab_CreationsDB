@@ -25,6 +25,7 @@
 - 表示項目、表示順、型解釈、検索補助、画像ヒントは `db_type.json($DefType)` を優先します
 - enum/list 辞書は `db_meta.json(General.$VarsDef)` と `db_type.json($VarsDef)` の両方を見ます
 - UI の見た目崩れや表示漏れも、まず schema / meta で直せないかを確認します
+- Day / Era / StoryEra のような特殊 summary は、main code の個別 if を増やす前に `lib/wrapper-common.js` と `$display.wrapper` / `$display.role` で吸収できないかを確認します
 
 ---
 
@@ -53,6 +54,7 @@
 - `Belonging` / `Area` / `BirthDay` / `AnivDay` のような basic 補助項目は、`$DetailLayout.basicFields` に既に含まれているなら重複表示しません
 - basic セクションへ出す項目は、`$DetailLayout.basicFields` に列挙されたものと、typedef 側で `$display.section = basic` を持つものだけに限定します
 - `BirthDay` / `AnivDay` のような `Day` 型の基本情報は、可能な限り `$display.section = basic` を schema 側で宣言し、UI の補助行ハードコードより typedef 駆動を優先します
+- `Day` / `Era` / `StoryEra` の summary は、可能な限り `lib/wrapper-common.js` の shared wrapper registry へ寄せ、`pages/characters.js` では wrapper 解決を先に試します
 - object 形式の `#Index` は、既定で「一覧/直リンクは主要要素」「詳細/値表示は全要素」とし、必要なら子要素の `$display.index` で `list/detail/value/link/priority/order` を上書きします
 
 ### 2.2 API / SW 修正
@@ -72,6 +74,7 @@
 - 作品別 `db_meta.json` は追加価値レイヤーなので、欠損しても DB 取得 / 検索 / enrich を落とさない方針を維持します
 - enum/list 辞書は `db_meta.json` と `db_type.json($VarsDef)` の合成を前提に扱います
 - `pages/v1/*` は UI 用なので enrich 前提、`api/v1/*` / `svc/v1/*` は互換優先で opt-in enrich 前提です
+- DB カタログ summary や enrich の補助 summary も、可能なら schema から wrapper 解決して生成し、`lib/sw-common.js` / `lib/data-common.js` の field 個別分岐を避けます
 
 今回確定した enrich / merge ルール:
 
@@ -80,6 +83,8 @@
 - 別 DB から画像フィールドは持ち込みません
 - 別作品からの `_DBLink` は、対象作品の schema に宣言されたトップレベル項目だけを持ち込みます
 - `_Jump` の `_Search` は 1 件一致のみ採用し、曖昧一致はスキップします
+- wrapper 対象の top-level field は `_enrichment.wrapperSummaries` へ集約し、UI が raw 構造と summary のどちらも再利用できるようにします
+- works/{work}/db の DB カタログ summary は `$MetaType.$Def_DatabaseCatalog` を基準に `${hashTag}Summary` を自動生成し、個別 field 名のハードコードは避けます
 
 ### 2.3 データ / schema 更新
 
@@ -114,6 +119,7 @@
 
 - `CHANGELOG.md`
 - `docs/api-sw-spec.md`
+- wrapper / summary 生成を触った場合は `docs/wrapper-summary-registry.md`
 - 必要に応じて `docs/db-update-guidelines.md`
 - 必要に応じて `.github/copilot-instructions.md`
 
@@ -168,5 +174,6 @@
 - `docs/api-sw-spec.md`
 - `docs/db-update-guidelines.md`
 - `docs/schema-meta-processing.md`
+- `docs/wrapper-summary-registry.md`
 - `docs/viewer-guide.md`
 - `.github/copilot-instructions.md`
