@@ -316,7 +316,10 @@
     "Num": "0xA",
     "Progress": "accepted\nremadeReleased",
     "sec_SeriesTitle": "ヘキサデミカル・テールズ",
-    "Images": { "concept_PNGName": "hexademical/cnsp_img0xA" },
+    "Images": {
+      "concept_PNGName": "hexademical/cnsp_img0xA",
+      "corefolder_PNGPath": ["hexademical/emstk_corefolder0xA-1"]
+    },
     "Name": "0xA(エース)",
     "Name_EN": "0xA(Ace)",
     "FormalName": "ヘキサデミカル-テールズ仮説A番機",
@@ -424,7 +427,10 @@
     "Num": "0xB",
     "Progress": "accepted\nremadeReleased",
     "sec_SeriesTitle": "ヘキサデミカル・テールズ",
-    "Images": { "concept_PNGName": "hexademical/cnsp_img0xB" },
+    "Images": {
+      "concept_PNGName": "hexademical/cnsp_img0xB",
+      "corefolder_PNGPath": ["hexademical/emstk_corefolder0xB-1"]
+    },
     "Name": "0xB(ベータ)",
     "Name_EN": "0xB(Beta)",
     "FormalName": "ヘキサデミカル-テールズ仮説B番機",
@@ -540,7 +546,13 @@
     "Num": "0xC",
     "Progress": "accepted\nremadeReleased",
     "sec_SeriesTitle": "ヘキサデミカル・テールズ",
-    "Images": { "concept_PNGName": "hexademical/cnsp_img0xC" },
+    "Images": {
+      "concept_PNGName": "hexademical/cnsp_img0xC",
+      "corefolder_PNGPath": [
+        "hexademical/emstk_corefolder0xC-1",
+        "hexademical/emstk_corefolder0xC-2"
+      ]
+    },
     "Name": "0xC(セレス)",
     "Name_EN": "0xC(Ceres)",
     "FormalName": "ヘキサデミカル-テールズ仮説C番機",
@@ -652,7 +664,13 @@
     "Num": "0xD",
     "Progress": "accepted\nremadeReleased",
     "sec_SeriesTitle": "ヘキサデミカル・テールズ",
-    "Images": { "concept_PNGName": "hexademical/cnsp_img0xD" },
+    "Images": {
+      "concept_PNGName": "hexademical/cnsp_img0xD",
+      "corefolder_PNGPath": [
+        "hexademical/emstk_corefolder0xD-1",
+        "hexademical/emstk_corefolder0xD-2"
+      ]
+    },
     "Name": "0xD(デプス)",
     "Name_EN": "0xD(Depth)",
     "FormalName": "ヘキサデミカル-テールズ仮説D番機",
@@ -767,7 +785,10 @@
     "Num": "0xE",
     "Progress": "accepted\nremadeReleased",
     "sec_SeriesTitle": "ヘキサデミカル・テールズ",
-    "Images": { "concept_PNGName": "hexademical/cnsp_img0xE" },
+    "Images": {
+      "concept_PNGName": "hexademical/cnsp_img0xE",
+      "corefolder_PNGPath": ["hexademical/emstk_corefolder0xE-1"]
+    },
     "Name": "0xE(エネ)",
     "Name_EN": "0xE(Enè)",
     "FormalName": "ヘキサデミカル-テールズ仮説E番機",
@@ -867,7 +888,15 @@
     "Num": "0xF",
     "Progress": "accepted\nremadeReleased",
     "sec_SeriesTitle": "ヘキサデミカル・テールズ",
-    "Images": { "concept_PNGName": "hexademical/cnsp_img0xF" },
+    "Images": {
+      "concept_PNGName": "hexademical/cnsp_img0xF",
+      "corefolder_PNGPath": [
+        "hexademical/emstk_corefolder0xF-1",
+        "hexademical/emstk_corefolder0xF-2",
+        "hexademical/emstk_corefolder0xF-1a",
+        "hexademical/emstk_corefolder0xF-2a"
+      ]
+    },
     "Name": "0xF(フォルテ)",
     "Name_EN": "0xF(Forte)",
     "FormalName": "ヘキサデミカル-テールズ仮説F番機",
