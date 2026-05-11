@@ -409,6 +409,20 @@ describe('pages/characters.js UI output', () => {
     expect(profileSectionText).toContain('普段人類がなんの違和感もなく数える数字だが');
   });
 
+  it('formats story era summaries from structured era points when about_JP is absent', () => {
+    expect(charactersModule.__getStoryEraSummaryForTest({
+      InEra: [
+        { EraGen: 9, YearInEra: 3 },
+        { byRealYear: 2050 }
+      ]
+    })).toBe('第9創世紀3年 / 西暦2050年');
+
+    expect(charactersModule.__getStoryEraSummaryForTest({
+      FromEra: [{ EraGen: 9, YearInEra: 3 }],
+      ToEra: [{ EraGen: 9, YearInEra: 4 }]
+    })).toBe('開始: 第9創世紀3年 / 終了: 第9創世紀4年');
+  });
+
   it('renders references poster images using work-local image typedef folder hints', async () => {
     charactersModule.__setCharactersTestState({
       charState: {

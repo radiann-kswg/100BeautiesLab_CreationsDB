@@ -390,6 +390,7 @@
 - `about_JP` / `about_EN` は、人手で整えた概要ラベルを優先表示したい場合の補助です
 
 UI 側は厳密構造より `about_JP` / `about_EN` を優先して整形表示します。
+`about_*` が未指定の場合は、現状の `pages/characters.js` では `InEra` を優先し、無ければ `FromEra` / `ToEra` から簡易 summary を自動生成します。
 
 ### 4.5 `General.$VarsDef`
 

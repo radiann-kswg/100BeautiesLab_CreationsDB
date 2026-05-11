@@ -6,6 +6,7 @@
 - あわせて `$Def_StoryEraCatalog` を `FromEra[]` / `ToEra[]` / `InEra[]` + `about_JP` / `about_EN` を持つ構造へ拡張し、既存の作品別 `db_meta.json` で使っている StoryEra 実データ形状を global schema に追従させた。
 - `tests/meta.catalog.schema.test.js` を更新し、新しい schema 宣言の存在と `Works_NumberTales` の StoryEra 実データが `FromEra` / `ToEra` / `InEra` を持つことを確認するケースを追加した。
 - `docs/schema-meta-processing.md` と `docs/api-sw-spec.md` も、新設した `$Def_StoryEra` と拡張後の `$Def_StoryEraCatalog` の説明へ同期した。
+- 追加で `pages/characters.js` の `StoryEra` summary 表示は `about_JP` / `about_EN` を優先しつつ、未指定時は `InEra` または `FromEra` / `ToEra` から自動整形できるようにし、`tests/pages.characters.ui-output.test.js` に回帰テストを追加して 14 件成功を確認した。
 
 ### `RelationToPrimary` を Primary DB 詳細へ遷移できるリンク表示へ調整
 
