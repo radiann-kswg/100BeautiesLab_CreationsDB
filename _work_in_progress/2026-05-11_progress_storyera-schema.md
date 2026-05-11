@@ -17,6 +17,8 @@
 - `lib/wrapper-common.js` を追加し、Day / StoryEra の特殊 summary formatter を UI / Service Worker 共通で登録できる最小 registry を導入した。
 - `pages/characters.js` は registry を先に試し、未一致時のみ既存 fallback を通す構成へ変更した。
 - `api/sw.js` / `pages/sw.js` / `svc/sw.js` も `lib/wrapper-common.js` を読み込むように揃えた。
+- `StoryEra` は `$MetaType.$Def_StoryEraCatalog.$display.wrapper = storyEraSummary` を宣言し、characters 側の local StoryEra formatter 実装を削除して shared registry 経由へ移行した。
+- wrapper handler の基本シグネチャを `format(value, context)` に固定し、`context.schemaType` / `context.defName` / `context.typeSources` / `context.helpers` を最小入力として扱う方針を明文化した。
 
 ## 影響範囲
 
@@ -37,6 +39,7 @@
 
 - `tests/meta.catalog.schema.test.js`: 成功
 - `tests/wrapper-common.test.js`: 未実施
+- `tests/wrapper-common.test.js`: 成功
 - `tests/pages.characters.ui-output.test.js`: 成功
 - `tests/pages.characters.syntax.test.js`: 成功
 
@@ -45,6 +48,7 @@
 - `Day` は実データが `Day: { Month, DayOfMonth }` のラッパーを持つため、完全な key 非依存化には追加 schema の整理または wrapper 自体の role 化がまだ必要。
 - SW / enrich 側では `StoryEra` / `Day` の role 自体はまだ積極利用しておらず、主に UI summary の整理が先行している。
 - wrapper registry は最小導入のみで、schema から `wrapper` 名を宣言的に解決する段階まではまだ進めていない。
+- `Era` は現在 standalone な top-level schema としては存在せず、`$Def_StoryEra` の単点構造として内包されているため、当面は StoryEra wrapper 内部 helper として扱う。
 
 ## 現在の role 導入内容
 

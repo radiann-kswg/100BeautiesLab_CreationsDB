@@ -7,6 +7,8 @@
 - `pages/characters.js` は object 値の整形時に registry を先に試し、未一致または空文字時のみ従来の Day / StoryEra fallback を使うようにしたため、初回導入時点では既存挙動を維持する。
 - `api/sw.js` / `pages/sw.js` / `svc/sw.js` も `lib/wrapper-common.js` を読み込むようにし、今後 SW / enrich 側から同じ wrapper registry を利用できる shared 層を揃えた。
 - 回帰確認として `tests/wrapper-common.test.js` を追加し、built-in wrapper 登録と Day / StoryEra summary の最小整形を単体で検証できるようにした。
+- 続けて `StoryEra` は `$MetaType.$Def_StoryEraCatalog.$display.wrapper = storyEraSummary` を宣言し、characters 側の local formatter 実装を削除して shared registry 経由へ本格移行した。
+- `Era` は現時点で独立 schema / live data が存在しないため専用 wrapper は追加せず、将来 standalone 化する場合も同じ `format(value, context)` シグネチャで拡張できるようにした。
 
 ### `StoryEra` 用の最小 meta schema を追加
 

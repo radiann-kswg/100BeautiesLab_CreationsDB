@@ -339,6 +339,7 @@
       ]
     },
     "$Def_StoryEraCatalog": {
+      "$display": { "wrapper": "storyEraSummary" },
       "$DefType": [
         {
           "hashTag": "FromEra",
@@ -487,6 +488,7 @@
       { "hideText": "本人すら把握されていない", "hideText_EN": "Not Aware" }
     ],
     "$Def_Day": {
+      "$display": { "wrapper": "daySummary" },
       "$DefType": [
         { "hashTag": "Month", "$type": "#ListIndex", "hashTag_JP": "月", "$display": { "role": "month" } },
         { "hashTag": "DayOfMonth", "$type": "#Number", "hashTag_JP": "日", "$display": { "role": "dayOfMonth" } },

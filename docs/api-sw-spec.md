@@ -177,6 +177,8 @@ UI と enrich/search は、可能な限りこの `db_type.json($DefType)` に追
 補足:
 
 - 2026-05-11 時点では `StoryEra` と `Day` の summary 組み立てに向けて `$display.role` を導入し始めており、UI は `preferredLabel` / `representativePoint` / `rangeStart` / `rangeEnd` や `month` / `dayOfMonth` / `annotation` を参照できる状態になっています。
+- 追加で `lib/wrapper-common.js` に shared value wrapper registry を導入し、`$display.wrapper` を持つ typedef は UI / SW 共通の formatter へ委譲できるようにした。2026-05-11 時点では `StoryEra` が `storyEraSummary` へ本格移行済みで、`Day` は同じ受け口を使いつつ互換 fallback を残している。
+- wrapper handler の基本シグネチャは `format(value, context)` で、`context` には `schemaType`, `defName`, `typeSources`, `helpers` が含まれる。`Era` は現状 standalone 型として API/SW に現れていないため専用 wrapper は未追加だが、将来独立させる場合も同じシグネチャで拡張可能である。
 
 これは現状の UI/SW が使うカタログ情報の宣言面を明示するための補助ブロックで、既存のキャラクター本体 schema (`$DefType`) を置き換えるものではありません。
 

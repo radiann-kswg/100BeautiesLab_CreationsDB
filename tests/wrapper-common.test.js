@@ -31,6 +31,21 @@ describe('wrapper-common registry', () => {
     expect(wrapperNames).toEqual(['daySummary', 'storyEraSummary']);
   });
 
+  it('resolves StoryEra and Day wrappers from schema display metadata', () => {
+    const registry = globalThis.CharacterValueWrapperRegistry;
+    const globalTypeDef = loadJson('data/db_type.json');
+
+    expect(registry.resolveWrapperName({
+      schemaType: '$Def_StoryEraCatalog|#Null',
+      typeSources: [globalTypeDef]
+    })).toBe('storyEraSummary');
+
+    expect(registry.resolveWrapperName({
+      schemaType: '$Def_Day',
+      typeSources: [globalTypeDef]
+    })).toBe('daySummary');
+  });
+
   it('formats story era summaries from structured role-aware points', () => {
     const registry = globalThis.CharacterValueWrapperRegistry;
     const globalTypeDef = loadJson('data/db_type.json');
@@ -46,6 +61,7 @@ describe('wrapper-common registry', () => {
       },
       {
         schemaType: '$Def_StoryEraCatalog|#Null',
+        defName: '$Def_StoryEraCatalog',
         typeSources: [globalTypeDef]
       }
     );
@@ -66,6 +82,7 @@ describe('wrapper-common registry', () => {
       },
       {
         schemaType: '$Def_Day',
+        defName: '$Def_Day',
         typeSources: [globalTypeDef]
       }
     );

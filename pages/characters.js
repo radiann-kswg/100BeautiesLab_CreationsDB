@@ -3648,82 +3648,6 @@ function formatValueForDisplay(value, labelMap = {}, workMeta = null, globalDefT
 
   const pickRoleRawValue = (obj, defName, role) => getRoleRawValues(obj, defName, role)[0];
 
-  const pickAboutText = (raw) => {
-    if (raw == null) return '';
-    if (isPlainObject(raw)) {
-      if (typeof raw.hideText === 'string' && raw.hideText.trim()) return raw.hideText.trim();
-      return '';
-    }
-    return String(raw).trim();
-  };
-
-  const formatStoryEraPoint = (point) => {
-    if (!isPlainObject(point)) return '';
-
-    const about = pickAboutText(
-      pickRoleRawValue(point, '$Def_StoryEra', 'pointLabel')
-      ?? pickRoleRawValue(point, '$Def_StoryEra', 'pointLabelAlt')
-      ?? point.about_JP
-      ?? point.about_EN
-      ?? point.about
-    );
-    if (about) return about;
-
-    const eraGen = pickRoleRawValue(point, '$Def_StoryEra', 'eraGeneration') ?? point.EraGen;
-    const yearInEra = pickRoleRawValue(point, '$Def_StoryEra', 'eraYear') ?? point.YearInEra;
-    const byRealYear = pickRoleRawValue(point, '$Def_StoryEra', 'realYear') ?? point.byRealYear;
-
-    const eraText = [];
-    if (eraGen !== null && eraGen !== undefined && eraGen !== '') {
-      eraText.push(`第${String(eraGen).trim()}創世紀`);
-    }
-    if (yearInEra !== null && yearInEra !== undefined && yearInEra !== '') {
-      eraText.push(`${String(yearInEra).trim()}年`);
-    }
-
-    const realYearText = (byRealYear !== null && byRealYear !== undefined && byRealYear !== '')
-      ? `西暦${String(byRealYear).trim()}年`
-      : '';
-
-    const primary = eraText.join('');
-    if (primary && realYearText) return `${primary} / ${realYearText}`;
-    return primary || realYearText;
-  };
-
-  const formatStoryEraPointList = (points) => {
-    if (!Array.isArray(points)) return '';
-    return points.map((point) => formatStoryEraPoint(point)).filter(Boolean).join(' / ');
-  };
-
-  const formatStoryEraCatalog = (storyEra) => {
-    if (!isPlainObject(storyEra)) return '';
-
-    const about = pickAboutText(
-      pickRoleRawValue(storyEra, '$Def_StoryEraCatalog', 'preferredLabel')
-      ?? pickRoleRawValue(storyEra, '$Def_StoryEraCatalog', 'preferredLabelAlt')
-      ?? storyEra.about_JP
-      ?? storyEra.about_EN
-      ?? storyEra.about
-    );
-    if (about) return about;
-
-    const inEra = formatStoryEraPointList(
-      pickRoleRawValue(storyEra, '$Def_StoryEraCatalog', 'representativePoint') ?? storyEra.InEra
-    );
-    if (inEra) return inEra;
-
-    const fromEra = formatStoryEraPointList(
-      pickRoleRawValue(storyEra, '$Def_StoryEraCatalog', 'rangeStart') ?? storyEra.FromEra
-    );
-    const toEra = formatStoryEraPointList(
-      pickRoleRawValue(storyEra, '$Def_StoryEraCatalog', 'rangeEnd') ?? storyEra.ToEra
-    );
-    if (fromEra && toEra) return `開始: ${fromEra} / 終了: ${toEra}`;
-    if (fromEra) return `開始: ${fromEra}`;
-    if (toEra) return `終了: ${toEra}`;
-    return '';
-  };
-
   /**
    * ネストObject/配列から表示可能なプリミティブ文字列を抽出
    * - `hideText` は上位で処理するためここでは無視
@@ -3904,10 +3828,6 @@ function formatValueForDisplay(value, labelMap = {}, workMeta = null, globalDefT
         : (aboutValue == null ? '' : String(aboutValue).trim());
       if (date && about) return `${date}（${about}）`;
       if (date) return date;
-    }
-
-    if (schemaTypeIncludes(opt?.schemaType, '$Def_StoryEraCatalog')) {
-      return formatStoryEraCatalog(value);
     }
 
     if (schemaTypeIncludes(opt?.schemaType, '$Def_BaseArea') && Object.prototype.hasOwnProperty.call(value, 'Area')) {

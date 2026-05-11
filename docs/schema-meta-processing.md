@@ -239,7 +239,9 @@
 
 - 2026-05-11 時点では `lib/wrapper-common.js` に最小の value wrapper registry を追加し、UI / Service Worker の shared 層で Day / StoryEra などの特殊 summary formatter を登録できるようにした。
 - 現段階の built-in wrapper は `daySummary` と `storyEraSummary` で、`pages/characters.js` は registry を先に試し、未一致時だけ従来の後方互換 fallback を使う。
-- `wrapper` キー自体は今後の宣言的割り当てに備えた設計上の受け皿であり、最初の段階では schema 名一致による built-in wrapper 解決を優先する。
+- `StoryEra` は `$MetaType.$Def_StoryEraCatalog.$display.wrapper = storyEraSummary` により、characters 側の local formatter ではなく shared registry 経由で summary を組み立てる本格移行を開始した。
+- wrapper handler の最小シグネチャは `format(value, context)` で、`context` は `schemaType`, `defName`, `typeSources`, `helpers` を持つ。戻り値が空文字のときだけ呼び出し側が generic fallback を使う。
+- `Era` については現時点で独立した top-level schema / live data が存在せず、実装上は `$Def_StoryEra` の単点要素として内包されている。そのため wrapper は追加せず、将来 standalone な `Era` 型を導入する場合も同じ `format(value, context)` シグネチャを再利用する方針とする。
 
 ### 3.4 `$VarsDef`
 
