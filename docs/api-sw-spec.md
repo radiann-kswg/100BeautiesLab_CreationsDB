@@ -174,6 +174,10 @@ UI と enrich/search は、可能な限りこの `db_type.json($DefType)` に追
 - `$Def_StoryEraCatalog`
   - `FromEra[]`, `ToEra[]`, `InEra[]`, `about_JP`, `about_EN`
 
+補足:
+
+- 2026-05-11 時点では `StoryEra` と `Day` の summary 組み立てに向けて `$display.role` を導入し始めており、UI は `preferredLabel` / `representativePoint` / `rangeStart` / `rangeEnd` や `month` / `dayOfMonth` / `annotation` を参照できる状態になっています。
+
 これは現状の UI/SW が使うカタログ情報の宣言面を明示するための補助ブロックで、既存のキャラクター本体 schema (`$DefType`) を置き換えるものではありません。
 
 ---

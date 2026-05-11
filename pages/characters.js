@@ -3599,6 +3599,49 @@ function formatValueForDisplay(value, labelMap = {}, workMeta = null, globalDefT
     return target || q || '';
   };
 
+  const resolveTypeDefEntries = (defName) => {
+    const name = String(defName || '').trim();
+    if (!name) return [];
+
+    const sources = [
+      globalTypeDefCache,
+      window?.__CHAR_STATE__?.globalTypeDef,
+      globalDefType,
+      window?.__CHAR_STATE__?.workTypeDef
+    ].filter((source, index, list) => source && list.indexOf(source) === index);
+
+    for (const source of sources) {
+      const metaEntries = source?.$MetaType?.[name]?.$DefType;
+      if (Array.isArray(metaEntries)) return metaEntries;
+
+      const generalVarsEntries = source?.General?.$VarsDef?.[name]?.$DefType;
+      if (Array.isArray(generalVarsEntries)) return generalVarsEntries;
+
+      const varsEntries = source?.$VarsDef?.[name]?.$DefType;
+      if (Array.isArray(varsEntries)) return varsEntries;
+    }
+
+    return [];
+  };
+
+  const getRoleEntries = (defName, role) => {
+    const targetRole = String(role || '').trim();
+    if (!targetRole) return [];
+    return resolveTypeDefEntries(defName).filter((entry) => {
+      const entryRole = entry?.$display?.role;
+      return typeof entryRole === 'string' && entryRole.trim() === targetRole;
+    });
+  };
+
+  const getRoleRawValues = (obj, defName, role) => {
+    if (!isPlainObject(obj)) return [];
+    return getRoleEntries(defName, role)
+      .map((entry) => obj?.[entry?.hashTag])
+      .filter((raw) => raw !== undefined && raw !== null && raw !== '');
+  };
+
+  const pickRoleRawValue = (obj, defName, role) => getRoleRawValues(obj, defName, role)[0];
+
   const pickAboutText = (raw) => {
     if (raw == null) return '';
     if (isPlainObject(raw)) {
@@ -3611,12 +3654,18 @@ function formatValueForDisplay(value, labelMap = {}, workMeta = null, globalDefT
   const formatStoryEraPoint = (point) => {
     if (!isPlainObject(point)) return '';
 
-    const about = pickAboutText(point.about_JP ?? point.about_EN ?? point.about);
+    const about = pickAboutText(
+      pickRoleRawValue(point, '$Def_StoryEra', 'pointLabel')
+      ?? pickRoleRawValue(point, '$Def_StoryEra', 'pointLabelAlt')
+      ?? point.about_JP
+      ?? point.about_EN
+      ?? point.about
+    );
     if (about) return about;
 
-    const eraGen = point.EraGen;
-    const yearInEra = point.YearInEra;
-    const byRealYear = point.byRealYear;
+    const eraGen = pickRoleRawValue(point, '$Def_StoryEra', 'eraGeneration') ?? point.EraGen;
+    const yearInEra = pickRoleRawValue(point, '$Def_StoryEra', 'eraYear') ?? point.YearInEra;
+    const byRealYear = pickRoleRawValue(point, '$Def_StoryEra', 'realYear') ?? point.byRealYear;
 
     const eraText = [];
     if (eraGen !== null && eraGen !== undefined && eraGen !== '') {
@@ -3643,14 +3692,26 @@ function formatValueForDisplay(value, labelMap = {}, workMeta = null, globalDefT
   const formatStoryEraCatalog = (storyEra) => {
     if (!isPlainObject(storyEra)) return '';
 
-    const about = pickAboutText(storyEra.about_JP ?? storyEra.about_EN ?? storyEra.about);
+    const about = pickAboutText(
+      pickRoleRawValue(storyEra, '$Def_StoryEraCatalog', 'preferredLabel')
+      ?? pickRoleRawValue(storyEra, '$Def_StoryEraCatalog', 'preferredLabelAlt')
+      ?? storyEra.about_JP
+      ?? storyEra.about_EN
+      ?? storyEra.about
+    );
     if (about) return about;
 
-    const inEra = formatStoryEraPointList(storyEra.InEra);
+    const inEra = formatStoryEraPointList(
+      pickRoleRawValue(storyEra, '$Def_StoryEraCatalog', 'representativePoint') ?? storyEra.InEra
+    );
     if (inEra) return inEra;
 
-    const fromEra = formatStoryEraPointList(storyEra.FromEra);
-    const toEra = formatStoryEraPointList(storyEra.ToEra);
+    const fromEra = formatStoryEraPointList(
+      pickRoleRawValue(storyEra, '$Def_StoryEraCatalog', 'rangeStart') ?? storyEra.FromEra
+    );
+    const toEra = formatStoryEraPointList(
+      pickRoleRawValue(storyEra, '$Def_StoryEraCatalog', 'rangeEnd') ?? storyEra.ToEra
+    );
     if (fromEra && toEra) return `開始: ${fromEra} / 終了: ${toEra}`;
     if (fromEra) return `開始: ${fromEra}`;
     if (toEra) return `終了: ${toEra}`;
@@ -3815,10 +3876,13 @@ function formatValueForDisplay(value, labelMap = {}, workMeta = null, globalDefT
 
     // Common birthday/day pattern
     if (value.Day && typeof value.Day === 'object') {
-      const mm = value.Day.Month != null ? String(value.Day.Month) : '';
-      const dd = value.Day.DayOfMonth != null ? String(value.Day.DayOfMonth) : '';
+      const dayValue = isPlainObject(value.Day) ? value.Day : {};
+      const rawMonth = pickRoleRawValue(dayValue, '$Def_Day', 'month') ?? dayValue.Month;
+      const rawDayOfMonth = pickRoleRawValue(dayValue, '$Def_Day', 'dayOfMonth') ?? dayValue.DayOfMonth;
+      const mm = rawMonth != null ? String(rawMonth) : '';
+      const dd = rawDayOfMonth != null ? String(rawDayOfMonth) : '';
       const date = (mm && dd) ? `${mm}/${dd}` : (mm || dd);
-      const aboutValue = value.DayAbout ?? value.about_JP ?? value.about_EN ?? value.about;
+      const aboutValue = pickRoleRawValue(value, '$Def_Day', 'annotation') ?? value.DayAbout ?? value.about_JP ?? value.about_EN ?? value.about;
       const about = isPlainObject(aboutValue)
         ? (typeof aboutValue.hideText === 'string' && aboutValue.hideText.trim() ? aboutValue.hideText.trim() : '')
         : (aboutValue == null ? '' : String(aboutValue).trim());

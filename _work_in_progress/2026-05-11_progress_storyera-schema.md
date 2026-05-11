@@ -12,6 +12,8 @@
 - `tests/meta.catalog.schema.test.js` に schema 宣言と `Works_NumberTales` の StoryEra 実データ shape を検証するケースを追加した。
 - `pages/characters.js` の `StoryEra` 表示は `about_JP` / `about_EN` を優先しつつ、未指定時は `InEra` または `FromEra` / `ToEra` から自動整形する fallback を追加した。
 - `tests/pages.characters.ui-output.test.js` に、構造化 `StoryEra` から summary を自動生成できることを確認するケースを追加した。
+- `data/db_type.json` の `$Def_StoryEraCatalog` / `$Def_StoryEra` / `$Def_Day` に `$display.role` を追加し、`pages/characters.js` 側も role 優先で summary を組み立てるようにした。
+- `tests/pages.characters.ui-output.test.js` に Day 表示の互換確認ケースを追加し、role 導入後も `8/15（誕生日）` が維持されることを確認した。
 
 ## 影響範囲
 
@@ -25,17 +27,16 @@
 
 - `tests/meta.catalog.schema.test.js`: 成功
 - `tests/pages.characters.ui-output.test.js`: 成功
+- `tests/pages.characters.syntax.test.js`: 成功
 
 ## 未完了タスク
 
-- `Day` の summary 整形は引き続き key 名に依存しているため、別途整理が必要。
-- `$display.role` を使った Day / StoryEra の完全な schema-driven summary 組み立ては未実装。
+- `Day` は実データが `Day: { Month, DayOfMonth }` のラッパーを持つため、完全な key 非依存化には追加 schema の整理または wrapper 自体の role 化がまだ必要。
+- SW / enrich 側では `StoryEra` / `Day` の role 自体はまだ積極利用しておらず、主に UI summary の整理が先行している。
 
-## 次段階案: `$display.role` の具体化
+## 現在の role 導入内容
 
-未実装だが、次段階では `$display.role` を以下のように導入する案が妥当。
-
-`$Def_StoryEraCatalog` 側の候補:
+`$Def_StoryEraCatalog` 側:
 
 - `FromEra`: `rangeStart`
 - `ToEra`: `rangeEnd`
@@ -43,7 +44,7 @@
 - `about_JP`: `preferredLabel`
 - `about_EN`: `preferredLabelAlt`
 
-`$Def_StoryEra` 側の候補:
+`$Def_StoryEra` 側:
 
 - `EraGen`: `eraGeneration`
 - `YearInEra`: `eraYear`
@@ -51,13 +52,13 @@
 - `about_JP`: `pointLabel`
 - `about_EN`: `pointLabelAlt`
 
-`$Def_Day` 側の候補:
+`$Def_Day` 側:
 
 - `Month`: `month`
 - `DayOfMonth`: `dayOfMonth`
 - `DayAbout`: `annotation`
 
-この role があれば、UI は key 名を直接見ずに「preferredLabel があれば優先」「無ければ representativePoint」「さらに無ければ rangeStart/rangeEnd を組み立てる」といった summary 規則を schema から解釈できる。
+この role により、UI は `StoryEra` では `preferredLabel` → `representativePoint` → `rangeStart/rangeEnd` の優先順で summary を組み立てられるようになった。`Day` は `month` / `dayOfMonth` / `annotation` を読めるようにしたが、wrapper 互換はまだ残している。
 
 ## 参考リンク
 

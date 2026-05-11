@@ -423,6 +423,18 @@ describe('pages/characters.js UI output', () => {
     })).toBe('開始: 第9創世紀3年 / 終了: 第9創世紀4年');
   });
 
+  it('keeps day summary formatting after role-based schema lookup is introduced', async () => {
+    await charactersModule.renderDetail('#Works_PastDivers', {
+      ...yayoiRecord,
+      BirthDay: {
+        Day: { Month: 8, DayOfMonth: 15 },
+        DayAbout: '誕生日'
+      }
+    });
+
+    expect(getBasicFieldValue('誕生日')).toBe('8/15（誕生日）');
+  });
+
   it('renders references poster images using work-local image typedef folder hints', async () => {
     charactersModule.__setCharactersTestState({
       charState: {

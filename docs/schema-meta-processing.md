@@ -392,6 +392,26 @@
 UI 側は厳密構造より `about_JP` / `about_EN` を優先して整形表示します。
 `about_*` が未指定の場合は、現状の `pages/characters.js` では `InEra` を優先し、無ければ `FromEra` / `ToEra` から簡易 summary を自動生成します。
 
+2026-05-11 時点では、`$Def_StoryEraCatalog` / `$Def_StoryEra` / `$Def_Day` に `$display.role` を導入し、summary 組み立ての優先順位を schema から参照できるようにし始めています。
+
+現在の role:
+
+- `$Def_StoryEraCatalog.FromEra`: `rangeStart`
+- `$Def_StoryEraCatalog.ToEra`: `rangeEnd`
+- `$Def_StoryEraCatalog.InEra`: `representativePoint`
+- `$Def_StoryEraCatalog.about_JP`: `preferredLabel`
+- `$Def_StoryEraCatalog.about_EN`: `preferredLabelAlt`
+- `$Def_StoryEra.EraGen`: `eraGeneration`
+- `$Def_StoryEra.YearInEra`: `eraYear`
+- `$Def_StoryEra.byRealYear`: `realYear`
+- `$Def_StoryEra.about_JP`: `pointLabel`
+- `$Def_StoryEra.about_EN`: `pointLabelAlt`
+- `$Def_Day.Month`: `month`
+- `$Def_Day.DayOfMonth`: `dayOfMonth`
+- `$Def_Day.DayAbout`: `annotation`
+
+ただし `Day` は実データが `Day: { Month, DayOfMonth }` のラッパーを持つため、現段階では role 解釈と既存 shape 互換の併用です。
+
 ### 4.5 `General.$VarsDef`
 
 `db_meta.json` 側の `General.$VarsDef` は、表示辞書の最も古い置き場です。現在でも重要ですが、`db_type.json($VarsDef)` と分散配置される前提です。

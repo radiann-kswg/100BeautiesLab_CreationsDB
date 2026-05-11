@@ -309,27 +309,32 @@
         {
           "hashTag": "EraGen",
           "$type": "#Number|#Null",
-          "hashTag_JP": "創世紀"
+          "hashTag_JP": "創世紀",
+          "$display": { "role": "eraGeneration" }
         },
         {
           "hashTag": "YearInEra",
           "$type": "#Number|#Null",
-          "hashTag_JP": "創世紀内年"
+          "hashTag_JP": "創世紀内年",
+          "$display": { "role": "eraYear" }
         },
         {
           "hashTag": "byRealYear",
           "$type": "#Number|#Null",
-          "hashTag_JP": "西暦換算年"
+          "hashTag_JP": "西暦換算年",
+          "$display": { "role": "realYear" }
         },
         {
           "hashTag": "about_JP",
           "$type": "#Summary|#Null",
-          "hashTag_JP": "年代補足"
+          "hashTag_JP": "年代補足",
+          "$display": { "role": "pointLabel" }
         },
         {
           "hashTag": "about_EN",
           "$type": "#Summary|#Null",
-          "hashTag_JP": "年代補足_EN"
+          "hashTag_JP": "年代補足_EN",
+          "$display": { "role": "pointLabelAlt" }
         }
       ]
     },
@@ -338,27 +343,32 @@
         {
           "hashTag": "FromEra",
           "$type": "$Def_StoryEra[]|#Null",
-          "hashTag_JP": "開始年代"
+          "hashTag_JP": "開始年代",
+          "$display": { "role": "rangeStart" }
         },
         {
           "hashTag": "ToEra",
           "$type": "$Def_StoryEra[]|#Null",
-          "hashTag_JP": "終了年代"
+          "hashTag_JP": "終了年代",
+          "$display": { "role": "rangeEnd" }
         },
         {
           "hashTag": "InEra",
           "$type": "$Def_StoryEra[]|#Null",
-          "hashTag_JP": "代表年代"
+          "hashTag_JP": "代表年代",
+          "$display": { "role": "representativePoint" }
         },
         {
           "hashTag": "about_JP",
           "$type": "#Summary|#Null",
-          "hashTag_JP": "年代概要"
+          "hashTag_JP": "年代概要",
+          "$display": { "role": "preferredLabel" }
         },
         {
           "hashTag": "about_EN",
           "$type": "#Summary|#Null",
-          "hashTag_JP": "年代概要_EN"
+          "hashTag_JP": "年代概要_EN",
+          "$display": { "role": "preferredLabelAlt" }
         }
       ]
     },
@@ -478,12 +488,13 @@
     ],
     "$Def_Day": {
       "$DefType": [
-        { "hashTag": "Month", "$type": "#ListIndex", "hashTag_JP": "月" },
-        { "hashTag": "DayOfMonth", "$type": "#Number", "hashTag_JP": "日" },
+        { "hashTag": "Month", "$type": "#ListIndex", "hashTag_JP": "月", "$display": { "role": "month" } },
+        { "hashTag": "DayOfMonth", "$type": "#Number", "hashTag_JP": "日", "$display": { "role": "dayOfMonth" } },
         {
           "hashTag": "DayAbout",
           "$type": "#String",
-          "hashTag_JP": "この日付について"
+          "hashTag_JP": "この日付について",
+          "$display": { "role": "annotation" }
         }
       ],
       "#List_Month": [

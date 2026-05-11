@@ -41,6 +41,20 @@ describe('catalog meta schema declarations', () => {
       'about_JP',
       'about_EN'
     ]);
+    expect(storyEra.map((entry) => entry?.$display?.role || null)).toEqual([
+      'eraGeneration',
+      'eraYear',
+      'realYear',
+      'pointLabel',
+      'pointLabelAlt'
+    ]);
+    expect(storyEraCatalog.map((entry) => entry?.$display?.role || null)).toEqual([
+      'rangeStart',
+      'rangeEnd',
+      'representativePoint',
+      'preferredLabel',
+      'preferredLabelAlt'
+    ]);
   });
 
   it('work-local db_meta databases can expose DB labels', () => {
