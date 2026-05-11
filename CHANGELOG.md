@@ -1,5 +1,12 @@
 # 最新のリファクタリング・仕様変更履歴
 
+### `StoryEra` 用の最小 meta schema を追加
+
+- `data/db_type.json` のトップレベル `$MetaType` に `$Def_StoryEra` を追加し、`EraGen` / `YearInEra` / `byRealYear` / `about_JP` / `about_EN` を持つ単点年代の宣言を導入した。
+- あわせて `$Def_StoryEraCatalog` を `FromEra[]` / `ToEra[]` / `InEra[]` + `about_JP` / `about_EN` を持つ構造へ拡張し、既存の作品別 `db_meta.json` で使っている StoryEra 実データ形状を global schema に追従させた。
+- `tests/meta.catalog.schema.test.js` を更新し、新しい schema 宣言の存在と `Works_NumberTales` の StoryEra 実データが `FromEra` / `ToEra` / `InEra` を持つことを確認するケースを追加した。
+- `docs/schema-meta-processing.md` と `docs/api-sw-spec.md` も、新設した `$Def_StoryEra` と拡張後の `$Def_StoryEraCatalog` の説明へ同期した。
+
 ### `RelationToPrimary` を Primary DB 詳細へ遷移できるリンク表示へ調整
 
 - `pages/characters.js` の関係表示で、`RelationToPrimary` は現在選択中 DB ではなく `Primary` DB の index 直リンクを生成するようにした。

@@ -304,8 +304,52 @@
         }
       ]
     },
+    "$Def_StoryEra": {
+      "$DefType": [
+        {
+          "hashTag": "EraGen",
+          "$type": "#Number|#Null",
+          "hashTag_JP": "創世紀"
+        },
+        {
+          "hashTag": "YearInEra",
+          "$type": "#Number|#Null",
+          "hashTag_JP": "創世紀内年"
+        },
+        {
+          "hashTag": "byRealYear",
+          "$type": "#Number|#Null",
+          "hashTag_JP": "西暦換算年"
+        },
+        {
+          "hashTag": "about_JP",
+          "$type": "#Summary|#Null",
+          "hashTag_JP": "年代補足"
+        },
+        {
+          "hashTag": "about_EN",
+          "$type": "#Summary|#Null",
+          "hashTag_JP": "年代補足_EN"
+        }
+      ]
+    },
     "$Def_StoryEraCatalog": {
       "$DefType": [
+        {
+          "hashTag": "FromEra",
+          "$type": "$Def_StoryEra[]|#Null",
+          "hashTag_JP": "開始年代"
+        },
+        {
+          "hashTag": "ToEra",
+          "$type": "$Def_StoryEra[]|#Null",
+          "hashTag_JP": "終了年代"
+        },
+        {
+          "hashTag": "InEra",
+          "$type": "$Def_StoryEra[]|#Null",
+          "hashTag_JP": "代表年代"
+        },
         {
           "hashTag": "about_JP",
           "$type": "#Summary|#Null",

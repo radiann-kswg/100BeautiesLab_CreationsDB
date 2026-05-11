@@ -286,6 +286,7 @@
 
 現状の主な定義:
 
+- `$Def_StoryEra`
 - `$Def_CreationWorkCatalog`
 - `$Def_OldTitleCatalog`
 - `$Def_DatabaseCatalog`
@@ -364,6 +365,16 @@
 
 `StoryEra` は厳密な日付型ではなく、物語年代を表す構造化メタです。
 
+`data/db_type.json` のトップレベル `$MetaType` では、まず単点の年代要素を表す `$Def_StoryEra` を持ち、その配列を束ねる形で `$Def_StoryEraCatalog` を定義します。
+
+`$Def_StoryEra` の主なキー:
+
+- `EraGen`
+- `YearInEra`
+- `byRealYear`
+- `about_JP`
+- `about_EN`
+
 よく使うキー:
 
 - `FromEra`
@@ -371,6 +382,12 @@
 - `InEra`
 - `about_JP`
 - `about_EN`
+
+考え方:
+
+- `FromEra` / `ToEra` / `InEra` は、いずれも `$Def_StoryEra[]` を要素とする配列です
+- 1 つの年代について「創作内の紀年」と「現実年換算」を並列表現できるよう、`EraGen` / `YearInEra` と `byRealYear` を同居させます
+- `about_JP` / `about_EN` は、人手で整えた概要ラベルを優先表示したい場合の補助です
 
 UI 側は厳密構造より `about_JP` / `about_EN` を優先して整形表示します。
 

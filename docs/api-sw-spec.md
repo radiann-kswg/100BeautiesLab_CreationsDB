@@ -167,10 +167,12 @@ UI と enrich/search は、可能な限りこの `db_type.json($DefType)` に追
   - `Title`, `Title_EN`, `Works_Summary`, `OldTitles[]`
 - `$Def_OldTitleCatalog`
   - `Title`, `Title_EN`, `ArchivedYear`
+- `$Def_StoryEra`
+  - `EraGen`, `YearInEra`, `byRealYear`, `about_JP`, `about_EN`
 - `$Def_DatabaseCatalog`
   - `DB_Label`, `DB_Label_EN`, `DB_Summary`, `DB_Layer`, `DB_File`, `StoryEra`, `SecondarySummary`
 - `$Def_StoryEraCatalog`
-  - `about_JP`, `about_EN`
+  - `FromEra[]`, `ToEra[]`, `InEra[]`, `about_JP`, `about_EN`
 
 これは現状の UI/SW が使うカタログ情報の宣言面を明示するための補助ブロックで、既存のキャラクター本体 schema (`$DefType`) を置き換えるものではありません。
 

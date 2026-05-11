@@ -17,12 +17,30 @@ function load(file) {
 describe('catalog meta schema declarations', () => {
   it('global db_type declares work and database catalog meta definitions', () => {
     const dbType = load('data/db_type.json');
+    const storyEra = dbType?.$MetaType?.$Def_StoryEra?.$DefType;
+    const storyEraCatalog = dbType?.$MetaType?.$Def_StoryEraCatalog?.$DefType;
 
     expect(dbType?.$MetaType?.$Def_CreationWorkCatalog?.$DefType).toBeInstanceOf(Array);
     expect(dbType?.$MetaType?.$Def_DatabaseCatalog?.$DefType).toBeInstanceOf(Array);
     expect(dbType?.$MetaType?.$Def_OldTitleCatalog?.$DefType).toBeInstanceOf(Array);
-    expect(dbType?.$MetaType?.$Def_StoryEraCatalog?.$DefType).toBeInstanceOf(Array);
+    expect(storyEra).toBeInstanceOf(Array);
+    expect(storyEraCatalog).toBeInstanceOf(Array);
     expect(dbType?.$MetaType?.$Def_SecondaryMeta?.$DefType).toBeInstanceOf(Array);
+
+    expect(storyEra.map((entry) => entry?.hashTag)).toEqual([
+      'EraGen',
+      'YearInEra',
+      'byRealYear',
+      'about_JP',
+      'about_EN'
+    ]);
+    expect(storyEraCatalog.map((entry) => entry?.hashTag)).toEqual([
+      'FromEra',
+      'ToEra',
+      'InEra',
+      'about_JP',
+      'about_EN'
+    ]);
   });
 
   it('work-local db_meta databases can expose DB labels', () => {
@@ -34,5 +52,17 @@ describe('catalog meta schema declarations', () => {
     expect(primary?.DB_Label_EN).toBe('Primary');
     expect(glossary?.DB_Label).toBe('創作用語');
     expect(glossary?.DB_Label_EN).toBe('Glossary');
+  });
+
+  it('work-local db_meta story era values match the structured schema fields', () => {
+    const workMeta = load('data/Works_NumberTales/DataBases/db_meta.json');
+    const primary = workMeta?.Databases?.['#DB_Primary'];
+
+    expect(Array.isArray(primary?.StoryEra?.FromEra)).toBe(true);
+    expect(Array.isArray(primary?.StoryEra?.ToEra)).toBe(true);
+    expect(Array.isArray(primary?.StoryEra?.InEra)).toBe(true);
+    expect(primary?.StoryEra?.FromEra?.[0]).toMatchObject({ EraGen: 9, YearInEra: 3 });
+    expect(primary?.StoryEra?.InEra?.[2]).toMatchObject({ byRealYear: 2050 });
+    expect(typeof primary?.StoryEra?.about_JP).toBe('string');
   });
 });
