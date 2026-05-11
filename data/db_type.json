@@ -504,36 +504,24 @@
     },
     "$EnumDef_Decave": {
       "#Decave0": {
-        "Decave": "<1%",
-        "DecaveText": "1%未満",
-        "DecaveText_JP": "1%未満",
-        "DecaveText_EN": "less than 1%"
-      },
-      "Decave0adv": {
-        "Decave": "<50%",
-        "DecaveText": "50%未満",
-        "DecaveText_JP": "50%未満",
-        "DecaveText_EN": "less than 50%"
-      },
-      "#Decave1": {
         "Decave": "50%+",
         "DecaveText": "50%以上",
         "DecaveText_JP": "50%以上",
         "DecaveText_EN": "50% or more"
       },
-      "#Decave1adv": {
+      "#Decave1": {
         "Decave": "90%+",
         "DecaveText": "90%以上",
         "DecaveText_JP": "90%以上",
         "DecaveText_EN": "90% or more"
       },
-      "#Decave2": {
+      "#Decave1adv": {
         "Decave": "95%+",
         "DecaveText": "95%以上",
         "DecaveText_JP": "95%以上",
         "DecaveText_EN": "95% or more"
       },
-      "#Decave2adv": {
+      "#Decave2": {
         "Decave": "99%+",
         "DecaveText": "99%以上",
         "DecaveText_JP": "99%以上",
@@ -592,6 +580,84 @@
         "DecaveText": "フルナイン",
         "DecaveText_JP": "フルナイン(99.999999999-100%)",
         "DecaveText_EN": "Fullnine(99.999999999-100%)"
+      },
+      "#DecaveNegative0": {
+        "Decave": "<50%",
+        "DecaveText": "50%未満",
+        "DecaveText_JP": "50%未満",
+        "DecaveText_EN": "less than 50%"
+      },
+      "#DecaveNegative1": {
+        "Decave": "<10%",
+        "DecaveText": "10%未満",
+        "DecaveText_JP": "10%未満",
+        "DecaveText_EN": "less than 10%"
+      },
+      "#DecaveNegative2": {
+        "Decave": "<5%",
+        "DecaveText": "5%未満",
+        "DecaveText_JP": "5%未満",
+        "DecaveText_EN": "less than 5%"
+      },
+      "#DecaveNegative2adv": {
+        "Decave": "<1%",
+        "DecaveText": "1%未満",
+        "DecaveText_JP": "1%未満",
+        "DecaveText_EN": "less than 1%"
+      },
+      "#DecaveNegative3": {
+        "Decave": "<0.1%",
+        "DecaveText": "トライゼロ",
+        "DecaveText_JP": "トライゼロ(0.1%未満)",
+        "DecaveText_EN": "Trizero(less than 0.1%)"
+      },
+      "#DecaveNegative4": {
+        "Decave": "<0.01%",
+        "DecaveText": "クァッドゼロ",
+        "DecaveText_JP": "クァッドゼロ(0.01%未満)",
+        "DecaveText_EN": "Quadzero(less than 0.01%)"
+      },
+      "#DecaveNegative5": {
+        "Decave": "0xV",
+        "DecaveText": "クィントゼロ",
+        "DecaveText_JP": "クィントゼロ(0.001%未満)",
+        "DecaveText_EN": "Quintzero(less than 0.001%)"
+      },
+      "#DecaveNegative6": {
+        "Decave": "0xVI",
+        "DecaveText": "セクストゼロ",
+        "DecaveText_JP": "セクストゼロ(0.0001%未満)",
+        "DecaveText_EN": "Sextzero(less than 0.0001%)"
+      },
+      "#DecaveNegative7": {
+        "Decave": "0xVII",
+        "DecaveText": "セプトゼロ",
+        "DecaveText_JP": "セプトゼロ(0.00001%未満)",
+        "DecaveText_EN": "Septzero(less than 0.00001%)"
+      },
+      "#DecaveNegative8": {
+        "Decave": "0xVIII",
+        "DecaveText": "オクトゼロ",
+        "DecaveText_JP": "オクトゼロ(0.000001%未満)",
+        "DecaveText_EN": "Octozero(less than 0.000001%)"
+      },
+      "#DecaveNegative9": {
+        "Decave": "0xIX",
+        "DecaveText": "ノヴィゼロ",
+        "DecaveText_JP": "ノヴィゼロ(0.0000001%未満)",
+        "DecaveText_EN": "Novezero(less than 0.0000001%)"
+      },
+      "#DecaveNegative10": {
+        "Decave": "0xX",
+        "DecaveText": "デカゼロ",
+        "DecaveText_JP": "デカゼロ(0.00000001%未満)",
+        "DecaveText_EN": "Decazero(less than 0.00000001%)"
+      },
+      "#DecaveNegative10adv": {
+        "Decave": "0%",
+        "DecaveText": "フルゼロ",
+        "DecaveText_JP": "フルゼロ(0%-0.000000001%)",
+        "DecaveText_EN": "Fullzero(0%-0.000000001%)"
       }
     }
   }
