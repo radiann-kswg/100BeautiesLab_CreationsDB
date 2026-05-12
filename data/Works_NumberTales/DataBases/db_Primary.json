@@ -5794,7 +5794,7 @@
     "CodeName_EN": "Six-One",
     "GenderType": "FemaleNeutral",
     "Height_cm": 143,
-    "ConceptAge": { "about": "不詳" },
+    "ConceptAge": { "about_JP": "不詳", "about_EN": "Unknown" },
     "AnivDay": [
       { "Day": { "Month": 6, "DayOfMonth": 1 }, "DayAbout": "開発記念" }
     ],
@@ -6113,7 +6113,7 @@
     "SPCodeName_EN": "Six-Four",
     "GenderType": "FemaleNeutral",
     "Height_cm": 146,
-    "ConceptAge": { "about": "不詳" },
+    "ConceptAge": { "about_JP": "不詳", "about_EN": "Unknown" },
     "AnivDay": [
       { "Day": { "Month": 6, "DayOfMonth": 4 }, "DayAbout": "開発記念" }
     ],
@@ -8915,7 +8915,7 @@
     "SPCodeName_EN": "Rotation",
     "GenderType": "FemaleNeutral",
     "Height_cm": 153,
-    "ConceptAge": { "about": "不詳" },
+    "ConceptAge": { "about_JP": "不詳", "about_EN": "Unknown" },
     "AnivDay": [
       { "Day": { "Month": 9, "DayOfMonth": 6 }, "DayAbout": "開発記念" }
     ],
@@ -9023,7 +9023,7 @@
     "CodeName_EN": "Nine-Seven",
     "GenderType": "FemaleNeutral",
     "Height_cm": 141,
-    "ConceptAge": { "about": "不詳" },
+    "ConceptAge": { "about_JP": "不詳", "about_EN": "Unknown" },
     "AnivDay": [
       { "Day": { "Month": 9, "DayOfMonth": 7 }, "DayAbout": "開発記念" }
     ],
