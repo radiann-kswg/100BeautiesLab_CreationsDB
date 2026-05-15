@@ -48,6 +48,8 @@
 - `relationSection`
 - `statsSection`
 
+`relationSection` は 2026-05-15 時点で、`pages/characters.js` にあった `Relation` / `RelationToPrimary` の個別表示ロジック本体も吸収しています。`characters.js` 側は DOM/format/navigation の core helper を渡す bridge に留め、relation label 解決・comment 整形・index link 組み立て・standalone wrapper への接続は `lib/section-wrapper-common.js` 側で処理します。
+
 ### 2.2 schema 側の宣言
 
 - `data/db_type.json`
@@ -74,8 +76,9 @@
 
 - `item.display.sectionWrapper`
 - `helpers.renderStructuredObjectSection`
-- `helpers.renderRelationSection`
 - `helpers.renderStatsSection`
+
+relation renderer のように built-in 側へ本体実装を寄せる場合は、必要な core helper を `helpers.relationApi` のような名前付き API object として渡します。non-subField から built-in renderer を明示的に呼びたい場合は `CharacterSectionRendererRegistry.renderNamedSectionRenderer(name, item, context)` を使えます。
 
 を渡して section renderer 解決を行い、Node が返ればそれを採用します。
 
