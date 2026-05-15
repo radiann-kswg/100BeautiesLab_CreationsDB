@@ -21,11 +21,11 @@
           "Height_cm",
           "Weight_kg",
           "BustSize",
-          "TailsUnit",
-          "NumerospecAbout"
+          "TailsUnit"
         ],
         "subFields": [
           "AbilityStats",
+          "NumerospecAbout",
           "NumerospecStats",
           "Relation",
           "ConversationPattern"
@@ -56,7 +56,7 @@
           "Height_cm",
           "Weight_kg"
         ],
-        "subFields": ["AbilityStats", "ArcanamspecStats"]
+        "subFields": ["AbilityStats", "ArcanumspecStats"]
       }
     },
     "#Works_ShouArRiders": {
@@ -147,7 +147,7 @@
           "ChronoholderName",
           "ChronospecName"
         ],
-        "subFields": ["AbilityStats", "ChronospecStats"]
+        "subFields": ["AbilityStats", "ChronospecAbout", "ChronospecStats"]
       }
     },
     "#Works_DestinyFoxRecords": {

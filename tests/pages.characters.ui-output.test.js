@@ -173,6 +173,10 @@ function getSectionNode(title) {
     .find((node) => node.querySelector('h3')?.textContent?.trim() === title) || null;
 }
 
+function getSectionTitles() {
+  return Array.from(document.querySelectorAll('.section h3')).map((node) => node.textContent?.trim() || '');
+}
+
 function getListTitles() {
   return Array.from(document.querySelectorAll('#list h3')).map((node) => node.textContent?.trim() || '');
 }
@@ -202,6 +206,7 @@ const requestNumberRecord = numberTalesSelfSecondaryRecords.find((record) => rec
 const numberTalesGlossaryImageRecord = numberTalesGlossaryRecords.find((record) => record?.Term === 'ヒューマノイド形態');
 const numberTalesReferenceRecord = numberTalesReferenceRecords.find((record) => record?.Title === 'ナンバーテールズについて');
 const firstNumberTalesPrimaryRecord = numberTalesPrimaryRecords.find((record) => String(record?.Num) === '1');
+const fourthNumberTalesPrimaryRecord = numberTalesPrimaryRecords.find((record) => String(record?.Num) === '4');
 const ninthNumberTalesPrimaryRecord = numberTalesPrimaryRecords.find((record) => String(record?.Num) === '9');
 
 const yayoiRecord = {
@@ -384,6 +389,46 @@ describe('pages/characters.js UI output', () => {
 
     const profileSectionText = getSectionText('プロフィール/テキスト');
     expect(profileSectionText).not.toContain('会話パターンについて');
+  });
+
+  it('prioritizes declared subFields order over basic/profile/relation fallback routes', async () => {
+    const customGlobalMeta = structuredClone(globalMeta);
+    customGlobalMeta.CreationWorks['#Works_NumberTales'].$DetailLayout.subFields = [
+      'AbilityStats',
+      'NumerospecAbout',
+      'Relation',
+      'ConversationPattern'
+    ];
+
+    charactersModule.__setCharactersTestState({
+      globalMeta: customGlobalMeta,
+      charState: {
+        db: 'Primary',
+        workId: '#Works_NumberTales',
+        records: numberTalesPrimaryRecords,
+        workTypeDef: numberTalesWorkTypeDef,
+        globalTypeDef,
+        workMeta: numberTalesWorkMeta,
+        imageFields: []
+      }
+    });
+
+    await charactersModule.renderDetail('#Works_NumberTales', fourthNumberTalesPrimaryRecord);
+
+    const orderedTitles = getSectionTitles().filter((title) => [
+      '能力値',
+      '“カバラの加護”(数秘的加護)について',
+      '関係キャラクター',
+      '会話パターンについて'
+    ].includes(title));
+
+    expect(orderedTitles).toEqual([
+      '能力値',
+      '“カバラの加護”(数秘的加護)について',
+      '関係キャラクター',
+      '会話パターンについて'
+    ]);
+    expect(getBasicFieldValue('“カバラの加護”(数秘的加護)について')).toBe('');
   });
 
   it('renders NumberTales stats as standalone subField sections driven by detail layout', async () => {

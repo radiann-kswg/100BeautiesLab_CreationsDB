@@ -6,6 +6,7 @@
 - `pages/characters.js` は `CharacterSectionRendererRegistry` を先に試し、`$display.sectionWrapper` で宣言された `structuredObjectSection` / `relationSection` / `statsSection` を通して `subFields` を描画するようにした。
 - global / work typedef には `ConversationPattern`、`AbilityStats`、各作品の `*specStats`、`Relation` / `RelationToPrimary` へ `$display.sectionWrapper` を追加し、renderer 選択を meta/schema 駆動へ寄せた。
 - 回帰確認として `tests/section-wrapper-common.test.js` を追加し、built-in section renderer 登録と helper dispatch の最小ケースを検証できるようにした。
+- 続けて `pages/characters.js` は `subFields` に列挙された top-level key を basic/profile/relation の既定ルートより優先して扱うようにし、JSON 側で宣言した順序どおりに standalone section を並べるようにした。
 
 ### NumberTales の `ConversationPattern` を subField 独立セクション化
 

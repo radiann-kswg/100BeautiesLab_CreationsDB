@@ -271,7 +271,7 @@
           "hashTag_JP": "動作性"
         }
       ],
-      "hashTag_JP": "能力値",
+      "hashTag_JP": "身体能力値",
       "$display": {
         "rankFormat": "alphaLabel",
         "enumLinkKey": "AbilityText",
@@ -498,8 +498,18 @@
     "$Def_Day": {
       "$display": { "wrapper": "daySummary" },
       "$DefType": [
-        { "hashTag": "Month", "$type": "#ListIndex", "hashTag_JP": "月", "$display": { "role": "month" } },
-        { "hashTag": "DayOfMonth", "$type": "#Number", "hashTag_JP": "日", "$display": { "role": "dayOfMonth" } },
+        {
+          "hashTag": "Month",
+          "$type": "#ListIndex",
+          "hashTag_JP": "月",
+          "$display": { "role": "month" }
+        },
+        {
+          "hashTag": "DayOfMonth",
+          "$type": "#Number",
+          "hashTag_JP": "日",
+          "$display": { "role": "dayOfMonth" }
+        },
         {
           "hashTag": "DayAbout",
           "$type": "#String",

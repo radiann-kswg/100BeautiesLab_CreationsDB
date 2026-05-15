@@ -5424,7 +5424,8 @@ export async function renderDetail(workId, rec) {
     return out;
   };
 
-  const normalizedBasicFieldKeys = normalizeBasicFieldKeys(basicFieldKeys);
+  const normalizedBasicFieldKeys = normalizeBasicFieldKeys(basicFieldKeys)
+    .filter((key) => !isPromotedSubFieldKey(key));
   const normalizedBasicFieldKeySet = new Set(normalizedBasicFieldKeys);
 
   /**
@@ -6025,9 +6026,9 @@ export async function renderDetail(workId, rec) {
     // SpecType は specStats 配下で表示するため、ここではトップレベル抑止不要
 
     // profile/relations/DBLinkResolved は個別表示する
-    if (rec.Summary) s.add('Summary');
-    if (rec.Relation) s.add('Relation');
-    if (rec.RelationToPrimary) s.add('RelationToPrimary');
+    if (rec.Summary && !isPromotedSubFieldKey('Summary')) s.add('Summary');
+    if (rec.Relation && !isPromotedSubFieldKey('Relation')) s.add('Relation');
+    if (rec.RelationToPrimary && !isPromotedSubFieldKey('RelationToPrimary')) s.add('RelationToPrimary');
 
     // Images は左カラムのギャラリー担当（キーとして持っていれば抑止）
     if (rec.Images) s.add('Images');
@@ -6599,10 +6600,11 @@ export async function renderDetail(workId, rec) {
       ].filter(Boolean))
     : null;
 
-  const profileSection = (rec.Summary || profileItems.length)
+  const includeSummaryInProfileSection = Boolean(rec.Summary) && !isPromotedSubFieldKey('Summary');
+  const profileSection = (includeSummaryInProfileSection || profileItems.length)
     ? el('div', { class: 'section' }, [
         el('h3', {}, [getFieldLabel('Profile', fieldLabelMap, workMeta, globalDefType, 'プロフィール/テキスト')]),
-        rec.Summary ? el('div', {}, [
+        includeSummaryInProfileSection ? el('div', {}, [
           el('div', { class: 'tag', style: 'margin-bottom: 6px;' }, [getFieldLabel('Summary', fieldLabelMap, workMeta, globalDefType, '概要')]),
           preWrapText(rec.Summary)
         ]) : null,
