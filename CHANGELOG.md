@@ -7,6 +7,9 @@
 - global / work typedef には `ConversationPattern`、`AbilityStats`、各作品の `*specStats`、`Relation` / `RelationToPrimary` へ `$display.sectionWrapper` を追加し、renderer 選択を meta/schema 駆動へ寄せた。
 - 回帰確認として `tests/section-wrapper-common.test.js` を追加し、built-in section renderer 登録と helper dispatch の最小ケースを検証できるようにした。
 - 続けて `pages/characters.js` は `subFields` に列挙された top-level key を basic/profile/relation の既定ルートより優先して扱うようにし、JSON 側で宣言した順序どおりに standalone section を並べるようにした。
+- 続けて `pages/characters.js` は spec 系の leaf 値に `hideText` が指定された場合も raw 文字列で短絡せず、元の typedef が持つ表示書式に従って整形するようにした。`#String_JP` / `#ListLink` / `$EnumDef` などの書式を持つ項目では `data/db_type.json` の `#List_hideText` を参照して `hideText_JP` / `hideText_EN` も解決できるようにした。
+- 追加で `hideText` だけを持つ wrapper object でも親 schema 配下の leaf typedef を推定できるようにし、`SafetyLevel` のような spec 項目も `hideText` 時に別ブロックへ崩さず通常の tag/grid 書式のまま表示するようにした。
+- 追加で `alphaLabel` / `codeLabel` は `EnumLink` / `ListLink` の説明文を JP 単独ではなく JP/EN pack から組み立てるようにし、`A（強力 / Powerful）` のような和英併記表示へ統一した。
 
 ### NumberTales の `ConversationPattern` を subField 独立セクション化
 

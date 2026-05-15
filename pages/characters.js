@@ -3090,7 +3090,7 @@ function formatValueForDisplay(value, labelMap = {}, workMeta = null, globalDefT
 
     // Rank が { hideText: '...' }
     if (isPlainObject(rawRank) && typeof rawRank.hideText === 'string' && rawRank.hideText.trim()) {
-      return rawRank.hideText;
+      return formatMaskedDisplayValue(rawRank.hideText);
     }
 
     // Rank が { Rank: 'A', about: '...' } のようなネスト
@@ -3105,7 +3105,7 @@ function formatValueForDisplay(value, labelMap = {}, workMeta = null, globalDefT
         return base;
       }
       if (isPlainObject(nestedBaseRaw) && typeof nestedBaseRaw.hideText === 'string' && nestedBaseRaw.hideText.trim()) {
-        return nestedBaseRaw.hideText;
+        return formatMaskedDisplayValue(nestedBaseRaw.hideText);
       }
     }
 
@@ -3217,6 +3217,25 @@ function formatValueForDisplay(value, labelMap = {}, workMeta = null, globalDefT
       return Object.values(t).some(x => schemaTypeIncludes(x, needle, depth + 1));
     }
     return false;
+  };
+
+  const formatMaskedDisplayValue = (maskedText) => {
+    const rawMasked = (typeof maskedText === 'string') ? maskedText.trim() : '';
+    if (!rawMasked) return '';
+
+    const shouldResolveMaskedLabel = (
+      schemaTypeIncludes(opt?.schemaType, '#String_JP')
+      || schemaTypeIncludes(opt?.schemaType, '#String_EN')
+      || schemaTypeIncludes(opt?.schemaType, '#ListLink')
+      || schemaTypeIncludes(opt?.schemaType, '#ListIndex')
+      || schemaTypeIncludes(opt?.schemaType, '#DictIndex')
+      || schemaTypeIncludes(opt?.schemaType, '$EnumDef')
+    );
+
+    if (!shouldResolveMaskedLabel) return rawMasked;
+
+    const pack = resolveVarsDefLabelPack('hideText', rawMasked, globalDefType, workMeta, 'hideText');
+    return formatBilingualLabel(pack, rawMasked, opt?.display) || rawMasked;
   };
 
   /**
@@ -3398,11 +3417,11 @@ function formatValueForDisplay(value, labelMap = {}, workMeta = null, globalDefT
    * @param {string} enumName
    * @param {string} code
    */
-  const resolveEnumLinkLabel = (fieldKey, enumName, code) => {
+  const resolveEnumLinkLabelPack = (fieldKey, enumName, code) => {
     const fk = String(fieldKey || '').trim();
     const en = String(enumName || '').trim();
     const c = String(code || '').trim();
-    if (!fk || !en || !c) return '';
+    if (!fk || !en || !c) return null;
 
     /**
      * $VarsDef のネストから指定キー（$EnumLink_XXX 等）を探索
@@ -3433,7 +3452,7 @@ function formatValueForDisplay(value, labelMap = {}, workMeta = null, globalDefT
     };
 
     const vars = workMeta?.General?.$VarsDef || workMeta?.$VarsDef;
-    if (!vars || typeof vars !== 'object') return '';
+    if (!vars || typeof vars !== 'object') return null;
 
     const explicitLinkKey = opt?.display?.enumLinkKey ? String(opt.display.enumLinkKey).trim() : '';
     const simple = fk.split('.').pop();
@@ -3450,24 +3469,36 @@ function formatValueForDisplay(value, labelMap = {}, workMeta = null, globalDefT
       const def = findNestedKey(vars, key);
       if (def && typeof def === 'object') defs.push({ suffix, def });
     }
-    if (!defs.length) return '';
+    if (!defs.length) return null;
 
     // 最初に見つかった定義を採用（enumLinkKey を指定した場合は優先される）
     const { suffix: pickedSuffix, def: linkDef } = defs[0];
+
+    const makePack = (value) => ({
+      raw: (
+        (typeof value?.[pickedSuffix] === 'string' && value[pickedSuffix].trim())
+        || c
+      ),
+      jp: (
+        (typeof value?.[`${pickedSuffix}_JP`] === 'string' && value[`${pickedSuffix}_JP`].trim())
+        || (typeof value?.[pickedSuffix] === 'string' && value[pickedSuffix].trim())
+        || ''
+      ),
+      en: (
+        (typeof value?.[`${pickedSuffix}_EN`] === 'string' && value[`${pickedSuffix}_EN`].trim())
+        || (typeof value?.[pickedSuffix] === 'string' && value[pickedSuffix].trim())
+        || ''
+      )
+    });
 
     for (const v of Object.values(linkDef)) {
       if (!v || typeof v !== 'object') continue;
       const vv = v[en];
       if (typeof vv === 'string' && vv.trim() === c) {
-        const jp = v[`${pickedSuffix}_JP`];
-        const raw = v[pickedSuffix];
-        const enText = v[`${pickedSuffix}_EN`];
-        if (typeof jp === 'string' && jp.trim()) return jp.trim();
-        if (typeof raw === 'string' && raw.trim()) return raw.trim();
-        if (typeof enText === 'string' && enText.trim()) return enText.trim();
+        return makePack(v);
       }
     }
-    return '';
+    return null;
   };
 
   const formatEnumWithAbout = (enumName, code, about) => {
@@ -3517,8 +3548,9 @@ function formatValueForDisplay(value, labelMap = {}, workMeta = null, globalDefT
       const enumLabel = code ? formatBilingualLabel(enumPack, code, opt?.display) : '';
 
       if (schemaTypeIncludes(opt.schemaType, '$EnumLink') && opt.fieldKey && code) {
-        const linked = resolveEnumLinkLabel(opt.fieldKey, enumName, code);
-        if (linked) {
+        const linkedPack = resolveEnumLinkLabelPack(opt.fieldKey, enumName, code);
+        if (linkedPack) {
+          const linked = formatBilingualLabel(linkedPack, code, opt?.display);
           const fmt = normalizeEnumFormat(getEnumFormatFor(enumName));
           // 既定: EnumLink があれば alphaLabel（コード＋ラベル）扱い
           // - ラベル側にコードが含まれる場合もあるが、その調整は db_meta.json 側で行えるようにする
@@ -3747,7 +3779,7 @@ function formatValueForDisplay(value, labelMap = {}, workMeta = null, globalDefT
 
     // Common “masked” pattern used across databases
     if (typeof value.hideText === 'string' && value.hideText.trim()) {
-      return value.hideText;
+      return formatMaskedDisplayValue(value.hideText);
     }
 
     // _Jump wrapper pattern (e.g., BirthDay: { _Jump: {hashTag, _Search:[{hashTag,key}] } })
@@ -3781,7 +3813,7 @@ function formatValueForDisplay(value, labelMap = {}, workMeta = null, globalDefT
 
       // value 自体がマスク表現の場合
       if (isPlainObject(base) && typeof base.hideText === 'string' && base.hideText.trim()) {
-        return base.hideText;
+        return formatMaskedDisplayValue(base.hideText);
       }
 
       const isPrimitive = (v) => (typeof v === 'string' || typeof v === 'number' || typeof v === 'boolean');
@@ -3892,13 +3924,15 @@ function formatValueForDisplay(value, labelMap = {}, workMeta = null, globalDefT
         const item = resolveListLinkItem(kk, vv);
         if (!item || typeof item !== 'object') continue;
 
-        const label = (
-          (typeof item[`${kk}_JP`] === 'string' && item[`${kk}_JP`].trim())
+        const label = formatBilingualLabel({
+          raw: (typeof item[kk] === 'string' && item[kk].trim()) ? item[kk].trim() : vv,
+          jp: (typeof item[`${kk}_JP`] === 'string' && item[`${kk}_JP`].trim())
             ? item[`${kk}_JP`].trim()
-            : (typeof item[kk] === 'string' && item[kk].trim())
-              ? item[kk].trim()
-              : vv
-        );
+            : ((typeof item[kk] === 'string' && item[kk].trim()) ? item[kk].trim() : ''),
+          en: (typeof item[`${kk}_EN`] === 'string' && item[`${kk}_EN`].trim())
+            ? item[`${kk}_EN`].trim()
+            : ((typeof item[kk] === 'string' && item[kk].trim()) ? item[kk].trim() : '')
+        }, vv, opt?.display);
 
         // $display で enum 併記を抑制する場合は label のみ
         if (!listOpt.showEnum) return label;
@@ -3935,7 +3969,7 @@ function formatValueForDisplay(value, labelMap = {}, workMeta = null, globalDefT
       if (simple) {
         const parts = extractEnumParts(value, simple);
         if (parts && Object.prototype.hasOwnProperty.call(parts, 'hideText')) {
-          return parts.hideText;
+          return formatMaskedDisplayValue(parts.hideText);
         }
         if (parts && Object.prototype.hasOwnProperty.call(parts, 'code')) {
           const resolvedCode = parts.code.startsWith('#') ? (resolveEnumKey(simple, parts.code) || parts.code) : parts.code;
@@ -3956,7 +3990,7 @@ function formatValueForDisplay(value, labelMap = {}, workMeta = null, globalDefT
       if (enumName) {
         const parts = extractEnumParts(value, enumName);
         if (parts && Object.prototype.hasOwnProperty.call(parts, 'hideText')) {
-          return parts.hideText;
+          return formatMaskedDisplayValue(parts.hideText);
         }
         if (parts && Object.prototype.hasOwnProperty.call(parts, 'code')) {
           const resolved = resolveEnumKey(enumName, parts.code);
@@ -3965,7 +3999,8 @@ function formatValueForDisplay(value, labelMap = {}, workMeta = null, globalDefT
 
           let linkedLabel = '';
           if (schemaTypeIncludes(opt?.schemaType, '$EnumLink') && opt?.fieldKey) {
-            linkedLabel = resolveEnumLinkLabel(opt.fieldKey, enumName, code);
+            const linkedPack = resolveEnumLinkLabelPack(opt.fieldKey, enumName, code);
+            linkedLabel = formatBilingualLabel(linkedPack, code, opt?.display);
           }
 
           const enumPack = resolveVarsDefLabelPack(enumName, code, globalDefType, workMeta, opt.fieldKey);
@@ -5647,7 +5682,22 @@ export async function renderDetail(workId, rec) {
     const leaf = ks[0];
     const full = parentPath ? `${parentPath}.${leaf}` : leaf;
     const t = fieldTypeMap?.[full];
-    return (typeof t === 'string') ? t : '';
+    if (typeof t === 'string' && t) return t;
+
+    const prefix = parentPath ? `${parentPath}.` : '';
+    const supplemental = new Set(['about', 'about_JP', 'about_EN', 'hideText']);
+    if (prefix) {
+      for (const [path, type] of Object.entries(fieldTypeMap || {})) {
+        if (!path || typeof path !== 'string' || typeof type !== 'string' || !type) continue;
+        if (!path.startsWith(prefix)) continue;
+        const rest = path.slice(prefix.length);
+        const firstLeaf = rest.split('.')[0];
+        if (!firstLeaf || firstLeaf.startsWith('_') || supplemental.has(firstLeaf)) continue;
+        return type;
+      }
+    }
+
+    return '';
   };
 
   // typedef 由来で「子フィールド定義が存在するobject」を検出・整形する

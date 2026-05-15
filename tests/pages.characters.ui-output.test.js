@@ -173,6 +173,12 @@ function getSectionNode(title) {
     .find((node) => node.querySelector('h3')?.textContent?.trim() === title) || null;
 }
 
+function getSectionTagTexts(title) {
+  const section = getSectionNode(title);
+  if (!section) return [];
+  return Array.from(section.querySelectorAll('.tag')).map((node) => node.textContent?.trim() || '');
+}
+
 function getSectionTitles() {
   return Array.from(document.querySelectorAll('.section h3')).map((node) => node.textContent?.trim() || '');
 }
@@ -192,6 +198,10 @@ const workTypeDef = loadJson('data/Works_PastDivers/DataBases/db_type.json');
 const workMeta = buildWorkMetaFixture('Works_PastDivers');
 const records = loadJson('data/Works_PastDivers/DataBases/db_Primary.json');
 const yayoiRecordBase = records.find((record) => record?.Chronos?.Lunar === 'Yayoi');
+const flInvestigatorWorkTypeDef = loadJson('data/Works_FLInvestigator78/DataBases/db_type.json');
+const flInvestigatorWorkMeta = buildWorkMetaFixture('Works_FLInvestigator78');
+const flInvestigatorPrimaryRecords = loadJson('data/Works_FLInvestigator78/DataBases/db_Primary.json');
+const phoenixRecord = flInvestigatorPrimaryRecords.find((record) => Number(record?.Card?.Num) === 0);
 const numberTalesWorkTypeDef = loadJson('data/Works_NumberTales/DataBases/db_type.json');
 const numberTalesWorkMeta = buildWorkMetaFixture('Works_NumberTales');
 const numberTalesPrimaryRecords = loadJson('data/Works_NumberTales/DataBases/db_Primary.json');
@@ -459,12 +469,36 @@ describe('pages/characters.js UI output', () => {
     await charactersModule.renderDetail('#Works_PastDivers', yayoiRecord);
 
     const chronoSection = getSectionNode('時空遷移能力の特性');
+    const chronoTags = getSectionTagTexts('時空遷移能力の特性');
     expect(chronoSection).not.toBeNull();
     expect(chronoSection?.textContent || '').toContain('時空遷移(クロノイド)状態に関する概要');
+    expect(chronoTags).toContain('物理的作用: B（標準 / Normal）');
+    expect(chronoTags).toContain('治癒効果: 公開不能 / Openly Not');
+    expect(chronoTags).toContain('安全レベル: 公開不能 / Openly Not');
+    expect(chronoTags).not.toContain('安全レベル');
 
     const profileSectionText = getSectionText('プロフィール/テキスト');
     expect(profileSectionText).not.toContain('時空遷移(クロノイド)状態に関する概要');
     expect(getSectionNode('スペック/能力')).toBeNull();
+  });
+
+  it('renders enum-link alphaLabel values as bilingual code labels', async () => {
+    charactersModule.__setCharactersTestState({
+      charState: {
+        db: 'Primary',
+        workId: '#Works_FLInvestigator78',
+        records: flInvestigatorPrimaryRecords,
+        workTypeDef: flInvestigatorWorkTypeDef,
+        globalTypeDef,
+        workMeta: flInvestigatorWorkMeta,
+        imageFields: []
+      }
+    });
+
+    await charactersModule.renderDetail('#Works_FLInvestigator78', phoenixRecord);
+
+    const specTags = getSectionTagTexts('アルカナムスペック(アルカナ能力)の特性');
+    expect(specTags).toContain('能力レベル: S+（かなり強力 / Quite Powerful）');
   });
 
   it('does not render private records in detail view', async () => {
