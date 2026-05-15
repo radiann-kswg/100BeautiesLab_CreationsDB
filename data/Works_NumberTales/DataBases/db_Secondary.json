@@ -383,9 +383,9 @@
       "Related": [
         {
           "Num": 1,
-          "Comments": "どこまで行っても、始まりはこうなんだろうね",
+          "Comments": "「どこまで行っても、始まりはこうなんだろうね」",
           "Reply": {
-            "Comments": "10(ミツル)とはまた違ったクセの強さを感じる",
+            "Comments": "「10(ミツル)とはまた違ったクセの強さを感じる」",
             "RelationLabel": ["awkward_aBit"]
           }
         },
@@ -398,10 +398,10 @@
         },
         {
           "Num": 13,
-          "Comments": "ひとつ賭けをしたよ…彼女が勝つか…",
+          "Comments": "「ひとつ賭けをしたよ…彼女が勝つか…」",
           "RelationLabel": ["abusing", "interested"],
           "Reply": {
-            "Comments": "え!? なんかバクチ始まってる!?",
+            "Comments": "「え!? なんかバクチ始まってる!?」",
             "RelationLabel": ["awkward_aBit"]
           }
         }
@@ -409,15 +409,15 @@
       "Commented": [
         {
           "Num": 44,
-          "Comments": "恐れ入った。最高役でこちらが負けるとは",
-          "Reply": { "Comments": "悪ぃな、“確率操作”は得意なんだ" }
+          "Comments": "「恐れ入った。最高役でこちらが負けるとは」",
+          "Reply": { "Comments": "「悪ぃな、“確率操作”は得意なんだ」" }
         },
         { "Num": 58 },
         {
           "Num": "2-alt",
-          "Comments": "一つの可能性、二つ以上の因果。キミは何を見たんだ？",
+          "Comments": "「一つの可能性、二つ以上の因果。キミは何を見たんだ？」",
           "Reply": {
-            "Comments": "おなじ電脳個体でびっくりしたけど……あなたたちって、いったい“どこから”…？"
+            "Comments": "「おなじ電脳個体でびっくりしたけど……あなたたちって、いったい“どこから”…？」"
           }
         }
       ]
@@ -500,44 +500,44 @@
         },
         {
           "Num": 24,
-          "Comments": "先輩がいれば、なんだか上手くいく気がします…！",
+          "Comments": "「先輩がいれば、なんだか上手くいく気がします…！」",
           "RelationLabel": ["wellMatched", "trusted"],
-          "Reply": { "Comments": "頑張ってね" }
+          "Reply": { "Comments": "「頑張ってね」" }
         },
         {
           "Num": 29,
-          "Comments": "あぅぅ…また当たっちゃいましたね……",
+          "Comments": "「あぅぅ…また当たっちゃいましたね……」",
           "RelationLabel": ["awkward_aBit"],
           "Reply": {
-            "Comments": "ぅぅぅ……(委縮)",
+            "Comments": "「ぅぅぅ……(※委縮)」",
             "RelationLabel": ["awkward_aBit"]
           }
         },
         {
           "Num": 57,
-          "Comments": "ちょっと…引っ張らないでくださいぃぃ…",
+          "Comments": "「ちょっと…引っ張らないでくださいぃぃ…」",
           "RelationLabel": ["awkward_aBit"],
-          "Reply": { "Comments": "自信持ってこー！" }
+          "Reply": { "Comments": "「自信持ってこー！」" }
         }
       ],
       "Commented": [
         {
           "Num": 4,
-          "Comments": "ふえぇ…先輩…ちょっとあたしには無理…きゃっ…！",
+          "Comments": "「ふえぇ…先輩…ちょっとあたしには無理…きゃっ…！」",
           "Reply": {
-            "Comments": "あっごごごめんなさい!! そんなつもりじゃなかったのについ…！"
+            "Comments": "「あっごごごめんなさい!! そんなつもりじゃなかったのについ…！」"
           }
         },
         {
           "Num": 9,
-          "Comments": "何でしょう…なんだか引き込まれるような大きな力を感じます…",
-          "Reply": { "Comments": "可愛い子ね…ふふふ…" }
+          "Comments": "「何でしょう…なんだか引き込まれるような大きな力を感じます…」",
+          "Reply": { "Comments": "「可愛い子ね…ふふふ…」" }
         },
         { "Num": 40 },
         {
           "Num": 94,
-          "Comments": "…Zzz…はぅっ!? 寝ちゃってました…？",
-          "Reply": { "Comments": "……ん、もう朝…？おはよ…" }
+          "Comments": "「…Zzz…はぅっ!? 寝ちゃってました…？」",
+          "Reply": { "Comments": "「……ん、もう朝…？おはよ…」" }
         }
       ]
     }
@@ -614,47 +614,51 @@
         },
         {
           "Num": 60,
-          "Comments": "師匠！弟子入りさせてください!!",
+          "Comments": "「師匠！弟子入りさせてください!!」",
           "RelationLabel": ["abusing"],
           "Reply": {
-            "Comments": "いやあなた誰よ!?",
+            "Comments": "「いやあなた誰よ!?」",
             "RelationLabel": ["awkward"]
           }
         },
         {
           "Num": 61,
-          "Comments": "今日もアイドルらしく…とは言ってもアイツ何言ってんだァ??",
+          "Comments": "「今日もアイドルらしく…とは言ってもアイツ何言ってんだァ??」",
           "RelationLabel": ["awkward"],
-          "Reply": { "Comments": "ユニット名決めたらドン引きされちゃった……" }
+          "Reply": {
+            "Comments": "「ユニット名決めたらドン引きされちゃった……」"
+          }
         },
         {
           "Num": 93,
-          "Comments": "アイツと●京ドーム目指すぞッ！",
+          "Comments": "「アイツとエリアツアー目指すぞッ！」",
           "RelationLabel": ["wellMatched"],
           "Reply": {
-            "Comments": "何だかよくわからないけど、野望(ユメ)がありそうな人だ…!!"
+            "Comments": "「何だかよくわからないけど、野望(ユメ)がありそうな人だ…!!」"
           }
         }
       ],
       "Commented": [
         {
           "Num": 42,
-          "Comments": "おごっ…おご…ちょっとオレはそういうの苦手だぞ…",
+          "Comments": "「おごっ…おご…ちょっとオレはそういうの苦手だぞ…」",
           "Reply": {
-            "Comments": "自信持ってるのか持ってないのかはっきりしなさいっ！"
+            "Comments": "「自信持ってるのか持ってないのかはっきりしなさいっ！」"
           }
         },
         { "Num": 43 },
         {
           "Num": 66,
-          "Comments": "オレはそういうのじゃねぇって！…でもなんかいい気分だな…",
-          "Reply": { "Comments": "迷ったときはいつでもお声掛けしてくださいね" }
+          "Comments": "「オレはそういうのじゃねぇって！…でもなんかいい気分だな…」",
+          "Reply": {
+            "Comments": "「迷ったときはいつでもお声掛けしてくださいね」"
+          }
         },
         {
           "Num": 69,
-          "Comments": "先輩！見ててください！パイを投げねぇでください!!",
+          "Comments": "「先輩！見ててください！パイを投げねぇでください!!」",
           "Reply": {
-            "Comments": "さすがに社交辞令の度を超えてたか…で、美味かったか？"
+            "Comments": "「さすがに社交辞令の度を超えてたか…で、美味かったか？」"
           }
         }
       ]
@@ -730,10 +734,10 @@
       "Related": [
         {
           "Num": 12,
-          "Comments": "あの子なかなかいい線行くじゃないの…",
+          "Comments": "「あの子なかなかいい線行くじゃないの…」",
           "RelationLabel": ["trusted_maybe", "interested"],
           "Reply": {
-            "Comments": "えへへ…上手い人のプレゼンはよく見てきたので！",
+            "Comments": "「えへへ…上手い人のプレゼンはよく見てきたので！」",
             "RelationLabel": ["wellMatched_maybe"]
           }
         },
@@ -744,38 +748,44 @@
         },
         {
           "Num": 17,
-          "Comments": "…こっ…これは趣味だからねっ！",
+          "Comments": "「…こっ…これは趣味だからねっ！」",
           "Reply": {
-            "Comments": "勤勉さと可愛らしさが詰まったノートだね、また見せてよ",
+            "Comments": "「勤勉さと可愛らしさが詰まったノートだね、また見せてよ」",
             "RelationLabel": ["interested"]
           }
         },
         {
           "Num": 49,
-          "Comments": "何やってるの！メモどおりに…って もうやってある…ｱﾀﾏｲﾀｲ…",
+          "Comments": "「何やってるの！メモどおりに…って もうやってある…ｱﾀﾏｲﾀｲ…」",
           "RelationLabel": ["awkward"],
           "Reply": {
-            "Comments": "ノート録るだけでも時間掛かりすぎなのに よくここまで記録できたね？"
+            "Comments": "「ノート録るだけでも時間掛かりすぎなのに よくここまで記録できたね？」"
           }
         },
         {
           "Num": 75,
-          "Comments": "時々一緒に勉強会をするわ",
+          "Comments": "「時々一緒に勉強会をするわ」",
           "RelationLabel": ["wellMatched"],
-          "Reply": { "Comments": "とても気の合う学友ができて、私も嬉しいよ" }
+          "Reply": {
+            "Comments": "「とても気の合う学友ができて、私も嬉しいよ」"
+          }
         }
       ],
       "Commented": [
         {
           "Num": 33,
-          "Comments": "えーと…代数学って何のことかしら…教えて？",
-          "Reply": { "Comments": "またなにかわからないことがあればお任せを" }
+          "Comments": "「えーと…代数学って何のことかしら…教えて？」",
+          "Reply": {
+            "Comments": "「またなにかわからないことがあればお任せを」"
+          }
         },
         { "Num": 76 },
         {
           "Num": 85,
-          "Comments": "あなた……どこで変な知識をつけてきたの…",
-          "Reply": { "Comments": "え？これでなんとかなってるけど、違うん？" }
+          "Comments": "「あなた……どこで変な知識をつけてきたの…」",
+          "Reply": {
+            "Comments": "「え？これでなんとかなってるけど、違うん？」"
+          }
         },
         { "Num": 99 }
       ]
@@ -848,25 +858,25 @@
       "Related": [
         {
           "Num": 5,
-          "Comments": "貴殿(アイツ)がいる限り俺っちの修理作業は消えないだろうな…",
+          "Comments": "「貴殿(アイツ)がいる限り俺っちの修理作業は消えないだろうな…」",
           "RelationLabel": ["awkward"],
-          "Reply": { "Comments": "悪ぃ、これ壊した！^ω^" }
+          "Reply": { "Comments": "「悪ぃ、これ壊した！（^ω^）」" }
         },
         {
           "Num": 8,
-          "Comments": "いやー…貴殿(きでん)のおかげでいいパーツがそろうねぇ…！",
+          "Comments": "「いやー…貴殿(きでん)のおかげでいいパーツがそろうねぇ…！」",
           "RelationLabel": ["trusted"],
           "Reply": {
-            "Comments": "どんなモノを作ってたかについても聞いてみたいなぁ",
+            "Comments": "「どんなモノを作ってたかについても聞いてみたいなぁ」",
             "RelationLabel": ["interested"]
           }
         },
         {
           "Num": 14,
-          "Comments": "ちょっとコイツを使ってみておくれ！今日もテスト頼む！",
+          "Comments": "「ちょっとコイツを使ってみておくれ！今日もテスト頼む！」",
           "RelationLabel": ["sameValue", "adverselyAffected", "interested"],
           "Reply": {
-            "Comments": "人体改造ではありませんように…人体改造ではありませんように…!!",
+            "Comments": "（人体改造ではありませんように…人体改造ではありませんように…!!）",
             "RelationLabel": ["sameValue", "awkward"]
           }
         },
@@ -875,9 +885,9 @@
       "Commented": [
         {
           "Num": 31,
-          "Comments": "なんで貴殿は型番に興奮するんスか…？",
+          "Comments": "「なんで貴殿は型番に興奮するんスか…？」",
           "Reply": {
-            "Comments": "メルセンヌ素数の魅力を知ってもらえるかなと思ったけど、やっぱりダメかぁ"
+            "Comments": "「メルセンヌ素数の魅力を知ってもらえるかなと思ったけど、やっぱりダメかぁ」"
           }
         },
         { "Num": 87 }
@@ -952,9 +962,9 @@
       "Related": [
         {
           "Num": 2,
-          "Comments": "あらっあららっ可愛いくていいコ…ぎゅーっ！",
+          "Comments": "「あらっあららっ可愛いくていいコ…ぎゅーっ！」",
           "RelationLabel": ["interested"],
-          "Reply": { "Comments": "うぅ……///" }
+          "Reply": { "Comments": "「うぅ……///」" }
         },
         {
           "Num": 15,
@@ -963,36 +973,40 @@
         },
         {
           "Num": 16,
-          "Comments": "応援したくなっちゃいますわね！がんばれ♡",
+          "Comments": "「応援したくなっちゃいますわね！がんばれ♡」",
           "Reply": {
-            "Comments": "……ママぁ…♡ …はっ!?",
+            "Comments": "「……ママぁ…♡ －－はっ!?」",
             "RelationLabel": ["adverselyAffected"]
           }
         },
         {
           "Num": 63,
-          "Comments": "家事のお手伝いをしてくれますわ！今日はごはん頑張っちゃいますよ！",
+          "Comments": "「家事のお手伝いをしてくれますわ！今日はごはん頑張っちゃいますよ！」",
           "RelationLabel": ["wellMatched"],
-          "Reply": { "Comments": "僕もご飯頑張って作るね、お手伝いありがとう♪" }
+          "Reply": {
+            "Comments": "「僕もご飯頑張って作るね、お手伝いありがとう♪」"
+          }
         }
       ],
       "Commented": [
         {
           "Num": 6,
-          "Comments": "このコの癒やし術…一考の余地ありですわ",
+          "Comments": "「このコの癒やし術…一考の余地ありですわ」",
           "Reply": {
-            "Comments": "すごい母性を感じます…私(わたくし)も負けてられませんね"
+            "Comments": "「すごい母性を感じます…私(わたくし)も負けてられませんね」"
           }
         },
         {
           "Num": 36,
-          "Comments": "みんなのママとして…負けてはおられませんわ…！",
-          "Reply": { "Comments": "63(ムツミ)と比べたら僕なんてまだまだだよ…！" }
+          "Comments": "「みんなのママとして…負けてはおられませんわ…！」",
+          "Reply": {
+            "Comments": "「63(ムツミ)と比べたら僕なんてまだまだだよ…！」"
+          }
         },
         {
           "Num": 94,
-          "Comments": "寒くないかしら……",
-          "Reply": { "Comments": "……おおきくて…やわらかそうな……まくら…" }
+          "Comments": "「寒くないかしら……」",
+          "Reply": { "Comments": "「……おおきくて…やわらかそうな……まくら…」" }
         }
       ]
     }
