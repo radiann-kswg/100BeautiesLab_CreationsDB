@@ -21,7 +21,12 @@
           "Height_cm",
           "Weight_kg",
           "BustSize",
-          "TailsUnit"
+          "TailsUnit",
+          "NumerospecAbout"
+        ],
+        "subFields": [
+          "Relation",
+          "ConversationPattern"
         ]
       }
     },

@@ -6168,15 +6168,23 @@ export async function renderDetail(workId, rec) {
   // $display.section に基づいて未表示フィールドを自動分類（basic/profile/spec/other）
   const normalizeSection = (s) => {
     const v = String(s ?? '').trim();
-    if (v === 'basic' || v === 'profile' || v === 'spec' || v === 'other') return v;
+    if (v === 'basic' || v === 'profile' || v === 'spec' || v === 'other' || v === 'sub') return v;
     // Images は左カラムのギャラリー担当（ここには出さない）
     return '';
   };
+
+  const detailSubFieldKeys = Array.isArray(detailLayout?.subFields)
+    ? detailLayout.subFields
+      .map((key) => String(key ?? '').trim())
+      .filter(Boolean)
+    : [];
+  const detailSubFieldKeySet = new Set(detailSubFieldKeys);
 
   const sectionBuckets = {
     basic: /** @type {Array<{key:string,label:string,type:any,display:any,value:any}>} */ ([]),
     profile: /** @type {Array<{key:string,label:string,type:any,display:any,value:any}>} */ ([]),
     spec: /** @type {Array<{key:string,label:string,type:any,display:any,value:any}>} */ ([]),
+    sub: /** @type {Array<{key:string,label:string,type:any,display:any,value:any}>} */ ([]),
     other: /** @type {Array<{key:string,label:string,type:any,display:any,value:any}>} */ ([]),
   };
 
@@ -6285,7 +6293,9 @@ export async function renderDetail(workId, rec) {
 
     if (shouldSkipKey(f.key, v)) continue;
 
-    const sec = normalizeSection(f.display?.section) || (isSummaryType(f.type) ? 'profile' : '');
+    const sec = detailSubFieldKeySet.has(f.key)
+      ? 'sub'
+      : (normalizeSection(f.display?.section) || (isSummaryType(f.type) ? 'profile' : ''));
     if (!sec) {
       shownKeys.add(f.key);
       if (usedKey && usedKey !== f.key) shownKeys.add(usedKey);
@@ -6352,8 +6362,8 @@ export async function renderDetail(workId, rec) {
     })
     .filter(Boolean);
 
-  const renderConversationPatternBlock = (it) => {
-    if (!it || it.key !== 'ConversationPattern' || !isPlainObject(it.value)) return null;
+  const renderStructuredSubFieldSection = (it) => {
+    if (!it || !isPlainObject(it.value)) return null;
 
     const blocks = [];
 
@@ -6363,13 +6373,14 @@ export async function renderDetail(workId, rec) {
       if (isEmptyValueLoose(childValue)) continue;
 
       const childPath = `ConversationPattern.${childKey}`;
-      const schemaPath = pickSchemaPath([childPath], childPath);
+      const childPathCandidates = [`${it.key}.${childKey}`, childKey];
+      const schemaPath = pickSchemaPath(childPathCandidates, `${it.key}.${childKey}`);
       const childLabel = getFieldLabel(schemaPath, fieldLabelMap, metaForLookup, globalDefType, childKey);
       const hints = (isPlainObject(childValue) && !Array.isArray(childValue))
-        ? pickSchemaHintsForObjectLeaf([schemaPath, childPath], childValue)
+        ? pickSchemaHintsForObjectLeaf([schemaPath, `${it.key}.${childKey}`, childKey], childValue)
         : {
-            schemaType: pickSchemaType(schemaPath, childPath),
-            schemaDisplay: pickSchemaDisplay(schemaPath, childPath, 'ConversationPattern')
+            schemaType: pickSchemaType(schemaPath, `${it.key}.${childKey}`),
+            schemaDisplay: pickSchemaDisplay(schemaPath, `${it.key}.${childKey}`, it.key)
           };
 
       if (childKey === 'DialogueExamples' && Array.isArray(childValue)) {
@@ -6410,11 +6421,38 @@ export async function renderDetail(workId, rec) {
     ]);
   };
 
+  const renderStandaloneFieldSection = (it) => {
+    if (!it) return null;
+
+    if ((it.key === 'Relation' || it.key === 'RelationToPrimary') && it.value && (it.value.Related || it.value.Commented)) {
+      return renderRelations(it.value, fieldLabelMap, metaForLookup, globalDefType, fieldDisplayMap, {
+        containerKey: it.key,
+        fieldTypeMap
+      });
+    }
+
+    const structuredSection = renderStructuredSubFieldSection(it);
+    if (structuredSection) {
+      return el('div', { class: 'section' }, [
+        el('h3', {}, [it.label]),
+        structuredSection
+      ]);
+    }
+
+    const node = toDisplayNode(it.key, it.value, it.type, it.display);
+    const text = (typeof node === 'string') ? node : (node?.textContent ?? '');
+    if (!text) return null;
+
+    return el('div', { class: 'section' }, [
+      el('h3', {}, [it.label]),
+      el('div', { style: 'margin-bottom: 10px;' }, [
+        (typeof node === 'string') ? preWrapText(node) : node
+      ])
+    ]);
+  };
+
   const profileItems = sectionBuckets.profile
     .map((it) => {
-      const specialBlock = renderConversationPatternBlock(it);
-      if (specialBlock) return specialBlock;
-
       const node = toDisplayNode(it.key, it.value, it.type, it.display);
       const text = (typeof node === 'string') ? node : (node?.textContent ?? '');
       if (!text) return null;
@@ -6428,6 +6466,21 @@ export async function renderDetail(workId, rec) {
   const otherRows = buildKvRows(sectionBuckets.other);
   const specRows = buildKvRows(sectionBuckets.spec);
   const basicExtraRows = buildKvRows(sectionBuckets.basic);
+  const subFieldItemMap = new Map(sectionBuckets.sub.map((it) => [it.key, it]));
+  const orderedSubFieldItems = [];
+
+  for (const key of detailSubFieldKeys) {
+    const item = subFieldItemMap.get(key);
+    if (!item) continue;
+    orderedSubFieldItems.push(item);
+    subFieldItemMap.delete(key);
+  }
+
+  orderedSubFieldItems.push(...subFieldItemMap.values());
+  const subFieldSections = orderedSubFieldItems
+    .map((it) => renderStandaloneFieldSection(it))
+    .filter(Boolean);
+  const renderedSubFieldKeySet = new Set(orderedSubFieldItems.map((it) => it.key));
 
   // basic セクションは「基本情報テーブル + スキーマで basic 指定された追加項目」をまとめて表示
   const basicSection = el('div', { class: 'section' }, [
@@ -6515,10 +6568,11 @@ export async function renderDetail(workId, rec) {
     specSection,
     profileSection,
     referenceConnectionsSection,
-    rec.Relation && (rec.Relation.Related || rec.Relation.Commented)
+    ...subFieldSections,
+    !renderedSubFieldKeySet.has('Relation') && rec.Relation && (rec.Relation.Related || rec.Relation.Commented)
       ? renderRelations(rec.Relation, fieldLabelMap, metaForLookup, globalDefType, fieldDisplayMap, { containerKey: 'Relation', fieldTypeMap })
       : null,
-    rec.RelationToPrimary && (rec.RelationToPrimary.Related || rec.RelationToPrimary.Commented)
+    !renderedSubFieldKeySet.has('RelationToPrimary') && rec.RelationToPrimary && (rec.RelationToPrimary.Related || rec.RelationToPrimary.Commented)
       ? renderRelations(rec.RelationToPrimary, fieldLabelMap, metaForLookup, globalDefType, fieldDisplayMap, { containerKey: 'RelationToPrimary', fieldTypeMap })
       : null
   ].filter(Boolean));

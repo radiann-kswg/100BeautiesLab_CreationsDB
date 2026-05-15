@@ -202,6 +202,7 @@ const requestNumberRecord = numberTalesSelfSecondaryRecords.find((record) => rec
 const numberTalesGlossaryImageRecord = numberTalesGlossaryRecords.find((record) => record?.Term === 'ヒューマノイド形態');
 const numberTalesReferenceRecord = numberTalesReferenceRecords.find((record) => record?.Title === 'ナンバーテールズについて');
 const firstNumberTalesPrimaryRecord = numberTalesPrimaryRecords.find((record) => String(record?.Num) === '1');
+const ninthNumberTalesPrimaryRecord = numberTalesPrimaryRecords.find((record) => String(record?.Num) === '9');
 
 const yayoiRecord = {
   ...yayoiRecordBase,
@@ -358,6 +359,31 @@ describe('pages/characters.js UI output', () => {
     expect(params.get('idx')).toBe('1');
     expect(params.get('idxKey')).toBe('Num');
     expect(params.get('num')).toBe('1');
+  });
+
+  it('renders ConversationPattern as a standalone subField section driven by detail layout', async () => {
+    charactersModule.__setCharactersTestState({
+      charState: {
+        db: 'Primary',
+        workId: '#Works_NumberTales',
+        records: numberTalesPrimaryRecords,
+        workTypeDef: numberTalesWorkTypeDef,
+        globalTypeDef,
+        workMeta: numberTalesWorkMeta,
+        imageFields: []
+      }
+    });
+
+    await charactersModule.renderDetail('#Works_NumberTales', ninthNumberTalesPrimaryRecord);
+
+    const conversationSection = getSectionNode('会話パターンについて');
+    expect(conversationSection).not.toBeNull();
+    expect(conversationSection?.querySelector('h3')?.textContent?.trim()).toBe('会話パターンについて');
+    expect(conversationSection?.textContent || '').toContain('口調');
+    expect(conversationSection?.textContent || '').toContain('台詞の例');
+
+    const profileSectionText = getSectionText('プロフィール/テキスト');
+    expect(profileSectionText).not.toContain('会話パターンについて');
   });
 
   it('does not render private records in detail view', async () => {

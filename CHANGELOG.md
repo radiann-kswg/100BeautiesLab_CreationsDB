@@ -1,5 +1,12 @@
 # 最新のリファクタリング・仕様変更履歴
 
+### NumberTales の `ConversationPattern` を subField 独立セクション化
+
+- `data/db_meta.json` の `CreationWorks.#Works_NumberTales.$DetailLayout.subFields` に従い、`pages/characters.js` が top-level 項目を standalone subField section として描画できるようにした。
+- これにより `ConversationPattern` は従来の「プロフィール/テキスト」内の専用ブロックではなく、`Relation` と同様に独立したセクション見出し付きで表示されるようになった。
+- 既存の `Relation` / `RelationToPrimary` の個別描画は維持しつつ、meta に列挙された subField の順序を優先してレンダリングするよう整理した。
+- 回帰確認として `tests/pages.characters.ui-output.test.js` に NumberTales の `ConversationPattern` が standalone section として描画されることを確認するケースを追加した。
+
 ### Day / StoryEra の特殊整形を shared wrapper registry の受け口へ分離開始
 
 - `lib/wrapper-common.js` を追加し、UI / Service Worker 共有で使える value wrapper registry を新設した。
