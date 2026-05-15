@@ -795,6 +795,53 @@ h3 {
   margin: var(--spacing-md) 0;
 }
 
+.section--collapsible {
+  border: 1px solid color-mix(in srgb, var(--accent) 18%, var(--border));
+  border-radius: var(--border-radius-md);
+  padding: var(--spacing-sm) var(--spacing-md);
+  background: linear-gradient(180deg, color-mix(in srgb, var(--accent) 6%, var(--card)) 0%, var(--card) 100%);
+}
+.section--collapsible[open] {
+  box-shadow: var(--shadow-sm);
+}
+.section--collapsible > summary {
+  list-style: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-sm);
+  margin: 0;
+}
+.section--collapsible > summary::-webkit-details-marker {
+  display: none;
+}
+.section--collapsible > summary::after {
+  content: "▾";
+  color: var(--muted);
+  font-size: var(--font-size-sm);
+  line-height: 1;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+.section--collapsible > summary:hover::after {
+  color: var(--accent);
+}
+.section--collapsible > summary:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: var(--border-radius-sm);
+}
+.section--collapsible:not([open]) > summary::after {
+  transform: rotate(-90deg);
+}
+.section--collapsible > summary h3 {
+  margin: 0;
+}
+
+.section__body {
+  margin-top: var(--spacing-sm);
+}
+
 h3 {
   font-size: var(--font-size-sm);
   color: var(--accent);

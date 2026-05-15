@@ -1,5 +1,14 @@
 # 最新のリファクタリング・仕様変更履歴
 
+### `subFields` の非文字列型 standalone section を折りたたみ UI 化
+
+- `pages/characters.js` は `data/db_meta.json` の `CreationWorks.*.$DetailLayout.subFields` により standalone 描画された top-level subField のうち、文字列表示型ではない section を `details/summary` ベースの折りたたみ UI で包むようにした。
+- 折りたたみ対象の standalone section は初期状態を展開済みではなく閉じた状態とし、必要なときだけユーザーが開く挙動へ調整した。
+- 判定は field 名ハードコードではなく、primitive / `#String` / `#Summary` / `#Dialogue` を text-like と見なし、それ以外の object / list / relation / stats 系を折りたたみ対象にする方針へ寄せた。
+- `Relation` / `RelationToPrimary` は `renderRelations()` に `wrapInSection: false` オプションを追加し、既存の relation tag-grid 本体を保ったまま standalone subField 側の共通シェルへ包めるようにした。
+- `pages/characters.sass` には `.section--collapsible` と `summary` の最小スタイルを追加し、見出しのトグル affordance を明示した。あわせて `pages/characters.html` の asset version を更新した。
+- 回帰確認として `tests/pages.characters.ui-output.test.js` に `data-subfield-key` ベースの assertion を追加し、ConversationPattern / AbilityStats / NumerospecStats / Relation は折りたたみ UI、NumerospecAbout は通常 section のまま描画されることを確認した。
+
 ### `subFields` 用 section renderer registry を `lib/section-wrapper-common.js` へ分離
 
 - `lib/wrapper-common.js` は値 summary の wrapper registry に責務を限定し、`subFields` の standalone section 描画ディスパッチは新設した `lib/section-wrapper-common.js` へ分離した。

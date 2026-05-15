@@ -173,6 +173,24 @@ function getSectionNode(title) {
     .find((node) => node.querySelector('h3')?.textContent?.trim() === title) || null;
 }
 
+function getSubFieldSectionNode(key) {
+  return document.querySelector(`.section[data-subfield-key="${key}"]`);
+}
+
+function isCollapsibleSection(title) {
+  const section = getSectionNode(title);
+  return section?.tagName === 'DETAILS';
+}
+
+function isCollapsibleSubFieldSection(key) {
+  const section = getSubFieldSectionNode(key);
+  return section?.tagName === 'DETAILS';
+}
+
+function isSubFieldSectionOpen(key) {
+  return Boolean(getSubFieldSectionNode(key)?.open);
+}
+
 function getSectionTagTexts(title) {
   const section = getSectionNode(title);
   if (!section) return [];
@@ -181,6 +199,12 @@ function getSectionTagTexts(title) {
 
 function getSectionTitles() {
   return Array.from(document.querySelectorAll('.section h3')).map((node) => node.textContent?.trim() || '');
+}
+
+function getSubFieldSectionKeys() {
+  return Array.from(document.querySelectorAll('.section[data-subfield-key]'))
+    .map((node) => node.getAttribute('data-subfield-key') || '')
+    .filter(Boolean);
 }
 
 function getListTitles() {
@@ -391,8 +415,10 @@ describe('pages/characters.js UI output', () => {
 
     await charactersModule.renderDetail('#Works_NumberTales', ninthNumberTalesPrimaryRecord);
 
-    const conversationSection = getSectionNode('会話パターンについて');
+    const conversationSection = getSubFieldSectionNode('ConversationPattern');
     expect(conversationSection).not.toBeNull();
+    expect(isCollapsibleSubFieldSection('ConversationPattern')).toBe(true);
+    expect(isSubFieldSectionOpen('ConversationPattern')).toBe(false);
     expect(conversationSection?.querySelector('h3')?.textContent?.trim()).toBe('会話パターンについて');
     expect(conversationSection?.textContent || '').toContain('口調');
     expect(conversationSection?.textContent || '').toContain('台詞の例');
@@ -425,20 +451,22 @@ describe('pages/characters.js UI output', () => {
 
     await charactersModule.renderDetail('#Works_NumberTales', fourthNumberTalesPrimaryRecord);
 
-    const orderedTitles = getSectionTitles().filter((title) => [
-      '能力値',
-      '“カバラの加護”(数秘的加護)について',
-      '関係キャラクター',
-      '会話パターンについて'
-    ].includes(title));
+    const orderedSubFieldKeys = getSubFieldSectionKeys().filter((key) => [
+      'AbilityStats',
+      'NumerospecAbout',
+      'Relation',
+      'ConversationPattern'
+    ].includes(key));
 
-    expect(orderedTitles).toEqual([
-      '能力値',
-      '“カバラの加護”(数秘的加護)について',
-      '関係キャラクター',
-      '会話パターンについて'
+    expect(orderedSubFieldKeys).toEqual([
+      'AbilityStats',
+      'NumerospecAbout',
+      'Relation',
+      'ConversationPattern'
     ]);
     expect(getBasicFieldValue('“カバラの加護”(数秘的加護)について')).toBe('');
+    expect(isCollapsibleSubFieldSection('NumerospecAbout')).toBe(false);
+    expect(isCollapsibleSubFieldSection('Relation')).toBe(true);
   });
 
   it('renders NumberTales stats as standalone subField sections driven by detail layout', async () => {
@@ -456,10 +484,14 @@ describe('pages/characters.js UI output', () => {
 
     await charactersModule.renderDetail('#Works_NumberTales', ninthNumberTalesPrimaryRecord);
 
-    const abilitySection = getSectionNode('能力値');
-    const numerospecSection = getSectionNode('“カバラの加護”(数秘的加護)の特性');
+    const abilitySection = getSubFieldSectionNode('AbilityStats');
+    const numerospecSection = getSubFieldSectionNode('NumerospecStats');
     expect(abilitySection).not.toBeNull();
     expect(numerospecSection).not.toBeNull();
+    expect(isCollapsibleSubFieldSection('AbilityStats')).toBe(true);
+    expect(isCollapsibleSubFieldSection('NumerospecStats')).toBe(true);
+    expect(isSubFieldSectionOpen('AbilityStats')).toBe(false);
+    expect(isSubFieldSectionOpen('NumerospecStats')).toBe(false);
     expect(abilitySection?.textContent || '').toContain('俊敏性');
     expect(numerospecSection?.textContent || '').toContain('特殊パターン');
     expect(getSectionNode('スペック/能力')).toBeNull();

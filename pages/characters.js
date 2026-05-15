@@ -6495,24 +6495,63 @@ export async function renderDetail(workId, rec) {
     ]);
   };
 
+  const isStringLikeStandaloneSubField = (it) => {
+    if (!it) return false;
+    if (typeof it.value === 'string' || typeof it.value === 'number' || typeof it.value === 'boolean') return true;
+    if (Array.isArray(it.value) || isPlainObject(it.value)) return false;
+
+    const schemaType = it.type;
+    return (
+      schemaTypeIncludes(schemaType, '#String')
+      || isSummaryType(schemaType)
+      || isDialogueType(schemaType)
+    );
+  };
+
+  const shouldUseCollapsibleSubFieldShell = (it) => {
+    if (!it || !detailSubFieldKeySet.has(it.key)) return false;
+    return !isStringLikeStandaloneSubField(it);
+  };
+
+  const createStandaloneSubFieldSection = (it, bodyChildren, options = {}) => {
+    if (!it) return null;
+    const children = Array.isArray(bodyChildren) ? bodyChildren.filter(Boolean) : [bodyChildren].filter(Boolean);
+    if (!children.length) return null;
+
+    const collapsible = (typeof options?.collapsible === 'boolean')
+      ? options.collapsible
+      : shouldUseCollapsibleSubFieldShell(it);
+
+    if (!collapsible) {
+      return el('div', { class: 'section', 'data-subfield-key': it.key || '' }, [
+        el('h3', {}, [it.label]),
+        ...children
+      ]);
+    }
+
+    return el('details', {
+      class: 'section section--collapsible',
+      'data-subfield-key': it.key || ''
+    }, [
+      el('summary', { class: 'section__summary' }, [
+        el('h3', { class: 'section__title' }, [it.label])
+      ]),
+      el('div', { class: 'section__body' }, children)
+    ]);
+  };
+
   const renderStructuredObjectSection = (it) => {
     const structuredSection = renderStructuredSubFieldSection(it);
     if (!structuredSection) return null;
 
-    return el('div', { class: 'section' }, [
-      el('h3', {}, [it.label]),
-      structuredSection
-    ]);
+    return createStandaloneSubFieldSection(it, [structuredSection]);
   };
 
   const renderStatsSubFieldSection = (it) => {
     if (!it) return null;
 
     if (it.key === abilityKey && abilityTags.length) {
-      return el('div', { class: 'section' }, [
-        el('h3', {}, [it.label]),
-        abilityGrid
-      ]);
+      return createStandaloneSubFieldSection(it, [abilityGrid]);
     }
 
     if (it.key !== pickedSpecStatsKey || !isPlainObject(it.value)) return null;
@@ -6539,10 +6578,7 @@ export async function renderDetail(workId, rec) {
 
     if (!sectionChildren.length) return null;
 
-    return el('div', { class: 'section' }, [
-      el('h3', {}, [it.label]),
-      ...sectionChildren
-    ]);
+    return createStandaloneSubFieldSection(it, sectionChildren);
   };
 
   const renderRelationSection = (it) => {
@@ -6551,10 +6587,12 @@ export async function renderDetail(workId, rec) {
       return null;
     }
 
-    return renderRelations(it.value, fieldLabelMap, metaForLookup, globalDefType, fieldDisplayMap, {
+    const relationBody = renderRelations(it.value, fieldLabelMap, metaForLookup, globalDefType, fieldDisplayMap, {
       containerKey: it.key,
-      fieldTypeMap
+      fieldTypeMap,
+      wrapInSection: false
     });
+    return createStandaloneSubFieldSection(it, [relationBody]);
   };
 
   const renderStandaloneFieldSection = (it) => {
@@ -6583,8 +6621,7 @@ export async function renderDetail(workId, rec) {
     const text = (typeof node === 'string') ? node : (node?.textContent ?? '');
     if (!text) return null;
 
-    return el('div', { class: 'section' }, [
-      el('h3', {}, [it.label]),
+    return createStandaloneSubFieldSection(it, [
       el('div', { style: 'margin-bottom: 10px;' }, [
         (typeof node === 'string') ? preWrapText(node) : node
       ])
@@ -6802,6 +6839,7 @@ function renderRelations(rel, fieldLabelMap, workMeta, globalDefType, fieldDispl
     ? options.containerKey.trim()
     : 'Relation';
   const fieldTypeMap = (options?.fieldTypeMap && typeof options.fieldTypeMap === 'object') ? options.fieldTypeMap : null;
+  const wrapInSection = options?.wrapInSection !== false;
 
   const related = Array.isArray(rel?.Related) ? rel.Related : [];
   const commented = Array.isArray(rel?.Commented) ? rel.Commented : [];
@@ -6992,9 +7030,14 @@ function renderRelations(rel, fieldLabelMap, workMeta, globalDefType, fieldDispl
   const r1 = related.map(r => renderRelTag('⇒', r, true));
   const r2 = commented.map(r => renderRelTag('→', r, false));
 
+  const relationGrid = createDetailTagGrid([...r1, ...r2]);
+  if (!relationGrid) return null;
+
+  if (!wrapInSection) return relationGrid;
+
   return el('div', { class: 'section' }, [
     el('h3', {}, [getFieldLabel(containerKey, fieldLabelMap, workMeta, globalDefType, containerKey === 'RelationToPrimary' ? '原作との関係' : '関係')]),
-    createDetailTagGrid([...r1, ...r2])
+    relationGrid
   ]);
 }
 
