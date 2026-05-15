@@ -7,6 +7,13 @@
 - 既存の `Relation` / `RelationToPrimary` の個別描画は維持しつつ、meta に列挙された subField の順序を優先してレンダリングするよう整理した。
 - 回帰確認として `tests/pages.characters.ui-output.test.js` に NumberTales の `ConversationPattern` が standalone section として描画されることを確認するケースを追加した。
 
+### `subFields` による `Stats` 系 standalone 描画を他作品へ拡張
+
+- `pages/characters.js` は `data/db_meta.json` の `CreationWorks.*.$DetailLayout.subFields` に列挙された `AbilityStats` と各作品の `*specStats` を、従来の共通 `スペック/能力` セクションに固定せず standalone section として描画できるようにした。
+- promoted された `*specStats` 配下の子項目は、typedef 上の `$display.section` が `profile` / `spec` に分かれていても親 subField section 内へまとめて表示し、別セクションへの重複表示を防ぐようにした。
+- これにより NumberTales / FLInvestigator78 / ShouArRiders / PastDivers など、meta 側で `subFields` に stats を宣言した作品が同じ描画ルートで表示されるようになった。
+- 回帰確認として `tests/pages.characters.ui-output.test.js` に NumberTales の `能力値` と `“カバラの加護”(数秘的加護)の特性`、PastDivers の `時空遷移能力の特性` が standalone section として描画されるケースを追加した。
+
 ### Day / StoryEra の特殊整形を shared wrapper registry の受け口へ分離開始
 
 - `lib/wrapper-common.js` を追加し、UI / Service Worker 共有で使える value wrapper registry を新設した。

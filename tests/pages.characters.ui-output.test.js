@@ -386,6 +386,42 @@ describe('pages/characters.js UI output', () => {
     expect(profileSectionText).not.toContain('会話パターンについて');
   });
 
+  it('renders NumberTales stats as standalone subField sections driven by detail layout', async () => {
+    charactersModule.__setCharactersTestState({
+      charState: {
+        db: 'Primary',
+        workId: '#Works_NumberTales',
+        records: numberTalesPrimaryRecords,
+        workTypeDef: numberTalesWorkTypeDef,
+        globalTypeDef,
+        workMeta: numberTalesWorkMeta,
+        imageFields: []
+      }
+    });
+
+    await charactersModule.renderDetail('#Works_NumberTales', ninthNumberTalesPrimaryRecord);
+
+    const abilitySection = getSectionNode('能力値');
+    const numerospecSection = getSectionNode('“カバラの加護”(数秘的加護)の特性');
+    expect(abilitySection).not.toBeNull();
+    expect(numerospecSection).not.toBeNull();
+    expect(abilitySection?.textContent || '').toContain('俊敏性');
+    expect(numerospecSection?.textContent || '').toContain('特殊パターン');
+    expect(getSectionNode('スペック/能力')).toBeNull();
+  });
+
+  it('renders other-work spec stats as standalone subField sections and keeps nested profile rows inside them', async () => {
+    await charactersModule.renderDetail('#Works_PastDivers', yayoiRecord);
+
+    const chronoSection = getSectionNode('時空遷移能力の特性');
+    expect(chronoSection).not.toBeNull();
+    expect(chronoSection?.textContent || '').toContain('時空遷移(クロノイド)状態に関する概要');
+
+    const profileSectionText = getSectionText('プロフィール/テキスト');
+    expect(profileSectionText).not.toContain('時空遷移(クロノイド)状態に関する概要');
+    expect(getSectionNode('スペック/能力')).toBeNull();
+  });
+
   it('does not render private records in detail view', async () => {
     await charactersModule.renderDetail('#Works_PastDivers', {
       ...yayoiRecord,

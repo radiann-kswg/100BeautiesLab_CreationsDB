@@ -5385,6 +5385,21 @@ export async function renderDetail(workId, rec) {
 
   // Build basic info table with localized field names (layout-driven via db_meta.json $DetailLayout)
   const detailLayout = globalMeta?.CreationWorks?.[workId]?.$DetailLayout || null;
+  const detailSubFieldKeys = Array.isArray(detailLayout?.subFields)
+    ? detailLayout.subFields
+      .map((key) => String(key ?? '').trim())
+      .filter(Boolean)
+    : [];
+  const detailSubFieldKeySet = new Set(detailSubFieldKeys);
+  const isPromotedSubFieldKey = (key) => {
+    const normalized = String(key ?? '').trim();
+    return normalized ? detailSubFieldKeySet.has(normalized) : false;
+  };
+  const isNestedUnderPromotedSubField = (key) => {
+    const normalized = String(key ?? '').trim();
+    if (!normalized || !normalized.includes('.')) return false;
+    return detailSubFieldKeys.some((parentKey) => normalized.startsWith(`${parentKey}.`));
+  };
   const basicFieldKeys = Array.isArray(detailLayout?.basicFields)
     ? detailLayout.basicFields
     : [];
@@ -5989,7 +6004,7 @@ export async function renderDetail(workId, rec) {
     if (basicFields.some(it => it?.sourceKey === 'GenderType' || it?.labelKey === 'GenderType')) s.add('GenderType_JP');
 
     // スペック/能力セクションで個別表示するトップレベルキー
-    if (abilityKey) {
+    if (abilityKey && !isPromotedSubFieldKey(abilityKey)) {
       const v = rec?.[abilityKey];
       if (v && typeof v === 'object' && Object.keys(v).length > 0) s.add(abilityKey);
     }
@@ -5998,6 +6013,7 @@ export async function renderDetail(workId, rec) {
     for (const k of Object.keys(rec || {})) {
       if (!k || typeof k !== 'string') continue;
       if (!/specStats$/i.test(k)) continue;
+      if (isPromotedSubFieldKey(k)) continue;
       const v = rec?.[k];
       if (v && typeof v === 'object' && Object.keys(v).length > 0) s.add(k);
     }
@@ -6172,13 +6188,6 @@ export async function renderDetail(workId, rec) {
     // Images は左カラムのギャラリー担当（ここには出さない）
     return '';
   };
-
-  const detailSubFieldKeys = Array.isArray(detailLayout?.subFields)
-    ? detailLayout.subFields
-      .map((key) => String(key ?? '').trim())
-      .filter(Boolean)
-    : [];
-  const detailSubFieldKeySet = new Set(detailSubFieldKeys);
 
   const sectionBuckets = {
     basic: /** @type {Array<{key:string,label:string,type:any,display:any,value:any}>} */ ([]),
@@ -6362,25 +6371,26 @@ export async function renderDetail(workId, rec) {
     })
     .filter(Boolean);
 
-  const renderStructuredSubFieldSection = (it) => {
-    if (!it || !isPlainObject(it.value)) return null;
-
+  const buildObjectChildBlocks = (parentKey, parentValue, options = {}) => {
+    if (!parentKey || typeof parentKey !== 'string' || !isPlainObject(parentValue)) return [];
+    const excludedChildKeys = (options?.excludedChildKeys instanceof Set) ? options.excludedChildKeys : new Set();
     const blocks = [];
 
-    for (const [childKey, childValue] of Object.entries(it.value)) {
+    for (const [childKey, childValue] of Object.entries(parentValue)) {
       if (!childKey || typeof childKey !== 'string') continue;
       if (childKey.startsWith('_')) continue;
+      if (excludedChildKeys.has(childKey)) continue;
       if (isEmptyValueLoose(childValue)) continue;
 
-      const childPath = `ConversationPattern.${childKey}`;
-      const childPathCandidates = [`${it.key}.${childKey}`, childKey];
-      const schemaPath = pickSchemaPath(childPathCandidates, `${it.key}.${childKey}`);
+      const childPath = `${parentKey}.${childKey}`;
+      const childPathCandidates = [childPath, childKey];
+      const schemaPath = pickSchemaPath(childPathCandidates, childPath);
       const childLabel = getFieldLabel(schemaPath, fieldLabelMap, metaForLookup, globalDefType, childKey);
       const hints = (isPlainObject(childValue) && !Array.isArray(childValue))
-        ? pickSchemaHintsForObjectLeaf([schemaPath, `${it.key}.${childKey}`, childKey], childValue)
+        ? pickSchemaHintsForObjectLeaf([schemaPath, childPath, childKey], childValue)
         : {
-            schemaType: pickSchemaType(schemaPath, `${it.key}.${childKey}`),
-            schemaDisplay: pickSchemaDisplay(schemaPath, `${it.key}.${childKey}`, it.key)
+            schemaType: pickSchemaType(schemaPath, childPath),
+            schemaDisplay: pickSchemaDisplay(schemaPath, childPath, parentKey)
           };
 
       if (childKey === 'DialogueExamples' && Array.isArray(childValue)) {
@@ -6413,6 +6423,14 @@ export async function renderDetail(workId, rec) {
       ]));
     }
 
+    return blocks;
+  };
+
+  const renderStructuredSubFieldSection = (it) => {
+    if (!it || !isPlainObject(it.value)) return null;
+
+    const blocks = buildObjectChildBlocks(it.key, it.value);
+
     if (!blocks.length) return null;
 
     return el('div', { style: 'margin-bottom: 10px;' }, [
@@ -6421,8 +6439,51 @@ export async function renderDetail(workId, rec) {
     ]);
   };
 
+  const renderStatsSubFieldSection = (it) => {
+    if (!it) return null;
+
+    if (it.key === abilityKey && abilityTags.length) {
+      return el('div', { class: 'section' }, [
+        el('h3', {}, [it.label]),
+        abilityGrid
+      ]);
+    }
+
+    if (it.key !== pickedSpecStatsKey || !isPlainObject(it.value)) return null;
+
+    const excludedChildKeys = new Set([
+      effectKey,
+      safetyKey,
+      specTypeSubKey,
+      ...specMetricTagKeys
+    ].filter(Boolean));
+    const extraBlocks = buildObjectChildBlocks(it.key, it.value, { excludedChildKeys });
+    const sectionChildren = [
+      detailEffectNodes.length ? effGrid : null,
+      (specTypeSingleLeafText || specNodes.length)
+        ? kvTable({}, [[
+            getFieldLabel(specTypeFieldPath || 'SpecType', fieldLabelMap, workMeta, globalDefType, specTypeSubKey || '型情報'),
+            specTypeSingleLeafText
+              ? createDetailTagGrid([el('div', { class: 'tag' }, [specTypeSingleLeafText])])
+              : createDetailTagGrid(specNodes)
+          ]])
+        : null,
+      ...extraBlocks
+    ].filter(Boolean);
+
+    if (!sectionChildren.length) return null;
+
+    return el('div', { class: 'section' }, [
+      el('h3', {}, [it.label]),
+      ...sectionChildren
+    ]);
+  };
+
   const renderStandaloneFieldSection = (it) => {
     if (!it) return null;
+
+    const statsSection = renderStatsSubFieldSection(it);
+    if (statsSection) return statsSection;
 
     if ((it.key === 'Relation' || it.key === 'RelationToPrimary') && it.value && (it.value.Related || it.value.Commented)) {
       return renderRelations(it.value, fieldLabelMap, metaForLookup, globalDefType, fieldDisplayMap, {
@@ -6452,6 +6513,7 @@ export async function renderDetail(workId, rec) {
   };
 
   const profileItems = sectionBuckets.profile
+    .filter((it) => !isNestedUnderPromotedSubField(it?.key))
     .map((it) => {
       const node = toDisplayNode(it.key, it.value, it.type, it.display);
       const text = (typeof node === 'string') ? node : (node?.textContent ?? '');
@@ -6463,9 +6525,9 @@ export async function renderDetail(workId, rec) {
     })
     .filter(Boolean);
 
-  const otherRows = buildKvRows(sectionBuckets.other);
-  const specRows = buildKvRows(sectionBuckets.spec);
-  const basicExtraRows = buildKvRows(sectionBuckets.basic);
+  const otherRows = buildKvRows(sectionBuckets.other.filter((it) => !isNestedUnderPromotedSubField(it?.key)));
+  const specRows = buildKvRows(sectionBuckets.spec.filter((it) => !isNestedUnderPromotedSubField(it?.key)));
+  const basicExtraRows = buildKvRows(sectionBuckets.basic.filter((it) => !isNestedUnderPromotedSubField(it?.key)));
   const subFieldItemMap = new Map(sectionBuckets.sub.map((it) => [it.key, it]));
   const orderedSubFieldItems = [];
 
@@ -6489,12 +6551,15 @@ export async function renderDetail(workId, rec) {
     basicExtraRows.length ? kvTable({}, basicExtraRows) : null,
   ].filter(Boolean));
 
-  const specSection = (abilityTags.length || effTags.length || safetyRow || specNodes.length || specRows.length)
+  const includeAbilityInSpecSection = abilityTags.length && !isPromotedSubFieldKey(abilityKey);
+  const includeSpecStatsInSpecSection = (effTags.length || safetyRow || specNodes.length) && !isPromotedSubFieldKey(pickedSpecStatsKey);
+
+  const specSection = (includeAbilityInSpecSection || includeSpecStatsInSpecSection || specRows.length)
     ? el('div', { class: 'section' }, [
         el('h3', {}, ['スペック/能力']),
-        abilityGrid,
-        effGrid,
-        (specTypeSingleLeafText || specNodes.length)
+        includeAbilityInSpecSection ? abilityGrid : null,
+        includeSpecStatsInSpecSection ? effGrid : null,
+        includeSpecStatsInSpecSection && (specTypeSingleLeafText || specNodes.length)
           ? kvTable({}, [[
               getFieldLabel(specTypeFieldPath || 'SpecType', fieldLabelMap, workMeta, globalDefType, specTypeSubKey || '型情報'),
               specTypeSingleLeafText
