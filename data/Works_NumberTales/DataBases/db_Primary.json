@@ -3378,7 +3378,11 @@
     "Images": {
       "concept_PNGName": "cnsp_img35",
       "conceptAlt_PNGName": ["cnsp_img35-Normal", "cnsp_img35-Miko"],
-      "corefolder_PNGPath": ["emstk_corefolder35-1", "emstk_corefolder35-2"],
+      "corefolder_PNGPath": [
+        "emstk_corefolder35-1",
+        "emstk_corefolder35-2",
+        "emstk_corefolder35-3"
+      ],
       "designAlt_PNGPath": ["chattingArt/chart_img35-swimwear"]
     },
     "Name": "35(サトコ)\n35(ミコ)",
@@ -8652,7 +8656,7 @@
     "Images": {
       "concept_PNGName": "cnsp_img93",
       "catalog_PNGName": "chr-dsgn_catalog93",
-      "corefolder_PNGPath": ["emstk_corefolder93-1"],
+      "corefolder_PNGPath": ["emstk_corefolder93-1", "emstk_corefolder93-2"],
       "arts_PNGPath": ["corefolders/sphericateDay/art_sphericateDay202201"]
     },
     "Name": "93(クミ)",
