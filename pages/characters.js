@@ -5729,6 +5729,9 @@ export async function renderDetail(workId, rec) {
       || schemaTypeIncludes(schemaType, '#ListIndex')
       || schemaTypeIncludes(schemaType, '#DictIndex')
       || schemaTypeIncludes(schemaType, '#ListLink')
+      || schemaTypeIncludes(schemaType, '#String')
+      || schemaTypeIncludes(schemaType, '#Summary')
+      || schemaTypeIncludes(schemaType, '#Dialogue')
       || schemaTypeIncludes(schemaType, '$EnumDef')
     );
   };
@@ -6497,15 +6500,37 @@ export async function renderDetail(workId, rec) {
 
   const isStringLikeStandaloneSubField = (it) => {
     if (!it) return false;
-    if (typeof it.value === 'string' || typeof it.value === 'number' || typeof it.value === 'boolean') return true;
-    if (Array.isArray(it.value) || isPlainObject(it.value)) return false;
-
     const schemaType = it.type;
-    return (
-      schemaTypeIncludes(schemaType, '#String')
-      || isSummaryType(schemaType)
-      || isDialogueType(schemaType)
-    );
+    if (typeof it.value === 'string' || typeof it.value === 'number' || typeof it.value === 'boolean') return true;
+    if (
+      typeof schemaType === 'string'
+      && (
+        schemaTypeIncludes(schemaType, '#String')
+        || isSummaryType(schemaType)
+        || isDialogueType(schemaType)
+      )
+    ) {
+      return true;
+    }
+
+    if (isPlainObject(it.value)) {
+      const singleLeafSchemaType = getSingleLeafSchemaType(it.key, it.value);
+      if (
+        singleLeafSchemaType
+        && (
+          schemaTypeIncludes(singleLeafSchemaType, '#String')
+          || isSummaryType(singleLeafSchemaType)
+          || isDialogueType(singleLeafSchemaType)
+        )
+      ) {
+        return true;
+      }
+      return false;
+    }
+
+    if (Array.isArray(it.value)) return false;
+
+    return false;
   };
 
   const shouldUseCollapsibleSubFieldShell = (it) => {
@@ -6601,6 +6626,7 @@ export async function renderDetail(workId, rec) {
 
   const renderStandaloneFieldSection = (it) => {
     if (!it) return null;
+    const stringLikeStandalone = isStringLikeStandaloneSubField(it);
 
     const wrappedSection = getCharacterSectionRendererRegistry()?.renderWithRegisteredSectionRenderer?.(it, {
       display: it.display,
@@ -6611,7 +6637,7 @@ export async function renderDetail(workId, rec) {
       fieldDisplayMap,
       fieldTypeMap,
       helpers: {
-        renderStructuredObjectSection,
+        renderStructuredObjectSection: stringLikeStandalone ? null : renderStructuredObjectSection,
         renderStatsSection: renderStatsSubFieldSection,
         wrapStandaloneSection: createStandaloneSubFieldSection,
         relationApi: relationRendererApi
@@ -6633,7 +6659,7 @@ export async function renderDetail(workId, rec) {
       : null;
     if (relationSection) return relationSection;
 
-    const structuredSection = renderStructuredObjectSection(it);
+    const structuredSection = stringLikeStandalone ? null : renderStructuredObjectSection(it);
     if (structuredSection) return structuredSection;
 
     const node = toDisplayNode(it.key, it.value, it.type, it.display);
