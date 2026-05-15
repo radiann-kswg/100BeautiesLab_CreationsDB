@@ -6398,9 +6398,9 @@
       "corefolder_PNGPath": [
         "emstk_corefolder61-1",
         "emstk_corefolder61-idol1",
-        "emstk_corefolder60-idol2"
+        "emstk_corefolder61-idol2"
       ],
-      "designAlt_PNGPath": ["subcostumes/chr-design-alt_wip61-idol"],
+      "designAlt_PNGPath": ["subcostumes/chr-dsgn-alt_wip61-idol"],
       "arts_PNGPath": ["humanoids/2023/art_img61-humanoid"]
     },
     "Name": "61(ロクイチ)\n61(ロイ)",
