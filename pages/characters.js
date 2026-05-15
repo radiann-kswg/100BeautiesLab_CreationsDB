@@ -24,6 +24,7 @@
  */
 
 import '../lib/wrapper-common.js';
+import '../lib/section-wrapper-common.js';
 
 // Characters page: fetch from /api/v1 and render list/detail
 
@@ -46,6 +47,10 @@ function isCharactersTestMode() {
 
 function getCharacterValueWrapperRegistry() {
   return globalThis.CharacterValueWrapperRegistry || null;
+}
+
+function getCharacterSectionRendererRegistry() {
+  return globalThis.CharacterSectionRendererRegistry || null;
 }
 
 function isPublicCharacterRecord(record) {
@@ -6439,6 +6444,16 @@ export async function renderDetail(workId, rec) {
     ]);
   };
 
+  const renderStructuredObjectSection = (it) => {
+    const structuredSection = renderStructuredSubFieldSection(it);
+    if (!structuredSection) return null;
+
+    return el('div', { class: 'section' }, [
+      el('h3', {}, [it.label]),
+      structuredSection
+    ]);
+  };
+
   const renderStatsSubFieldSection = (it) => {
     if (!it) return null;
 
@@ -6479,26 +6494,39 @@ export async function renderDetail(workId, rec) {
     ]);
   };
 
+  const renderRelationSection = (it) => {
+    if (!it) return null;
+    if ((it.key !== 'Relation' && it.key !== 'RelationToPrimary') || !it.value || (!it.value.Related && !it.value.Commented)) {
+      return null;
+    }
+
+    return renderRelations(it.value, fieldLabelMap, metaForLookup, globalDefType, fieldDisplayMap, {
+      containerKey: it.key,
+      fieldTypeMap
+    });
+  };
+
   const renderStandaloneFieldSection = (it) => {
     if (!it) return null;
+
+    const wrappedSection = getCharacterSectionRendererRegistry()?.renderWithRegisteredSectionRenderer?.(it, {
+      display: it.display,
+      helpers: {
+        renderStructuredObjectSection,
+        renderRelationSection,
+        renderStatsSection: renderStatsSubFieldSection
+      }
+    });
+    if (wrappedSection) return wrappedSection;
 
     const statsSection = renderStatsSubFieldSection(it);
     if (statsSection) return statsSection;
 
-    if ((it.key === 'Relation' || it.key === 'RelationToPrimary') && it.value && (it.value.Related || it.value.Commented)) {
-      return renderRelations(it.value, fieldLabelMap, metaForLookup, globalDefType, fieldDisplayMap, {
-        containerKey: it.key,
-        fieldTypeMap
-      });
-    }
+    const relationSection = renderRelationSection(it);
+    if (relationSection) return relationSection;
 
-    const structuredSection = renderStructuredSubFieldSection(it);
-    if (structuredSection) {
-      return el('div', { class: 'section' }, [
-        el('h3', {}, [it.label]),
-        structuredSection
-      ]);
-    }
+    const structuredSection = renderStructuredObjectSection(it);
+    if (structuredSection) return structuredSection;
 
     const node = toDisplayNode(it.key, it.value, it.type, it.display);
     const text = (typeof node === 'string') ? node : (node?.textContent ?? '');

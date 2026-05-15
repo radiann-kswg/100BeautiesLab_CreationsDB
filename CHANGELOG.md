@@ -1,5 +1,12 @@
 # 最新のリファクタリング・仕様変更履歴
 
+### `subFields` 用 section renderer registry を `lib/section-wrapper-common.js` へ分離
+
+- `lib/wrapper-common.js` は値 summary の wrapper registry に責務を限定し、`subFields` の standalone section 描画ディスパッチは新設した `lib/section-wrapper-common.js` へ分離した。
+- `pages/characters.js` は `CharacterSectionRendererRegistry` を先に試し、`$display.sectionWrapper` で宣言された `structuredObjectSection` / `relationSection` / `statsSection` を通して `subFields` を描画するようにした。
+- global / work typedef には `ConversationPattern`、`AbilityStats`、各作品の `*specStats`、`Relation` / `RelationToPrimary` へ `$display.sectionWrapper` を追加し、renderer 選択を meta/schema 駆動へ寄せた。
+- 回帰確認として `tests/section-wrapper-common.test.js` を追加し、built-in section renderer 登録と helper dispatch の最小ケースを検証できるようにした。
+
 ### NumberTales の `ConversationPattern` を subField 独立セクション化
 
 - `data/db_meta.json` の `CreationWorks.#Works_NumberTales.$DetailLayout.subFields` に従い、`pages/characters.js` が top-level 項目を standalone subField section として描画できるようにした。

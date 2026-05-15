@@ -5,6 +5,7 @@
 対象:
 
 - `lib/wrapper-common.js` を拡張したい人
+- `lib/section-wrapper-common.js` を拡張したい人
 - `pages/characters.js` の特殊整形をさらに削減したい人
 - `lib/sw-common.js` / `lib/data-common.js` で wrapper summary を再利用したい人
 - `db_type.json` の `$display.role` / `$display.wrapper` をどう使うか確認したい人
@@ -19,6 +20,8 @@
 2. schema 側は `db_type.json` の `$display.role` と `$display.wrapper` で「どの値を読むか」「どの wrapper を使うか」を宣言する
 3. UI は wrapper を先に試し、値が返らない場合だけ generic fallback へ戻る
 4. SW / enrich 側も同じ registry を使い、DB カタログ summary や `_enrichment.wrapperSummaries` を生成する
+5. `subFields` の standalone section 描画は、値 wrapper と分離した `lib/section-wrapper-common.js` の section renderer registry で扱う
+6. `subFields` の renderer 選択は、可能な限り schema 側の `$display.sectionWrapper` で宣言する
 
 つまり、**個別 field 名に依存した if を main code へ増やすのではなく、schema 宣言 + shared wrapper registry へ寄せる**のが現在の正です。
 
@@ -29,14 +32,21 @@
 ### 2.1 wrapper 実装の中心
 
 - `lib/wrapper-common.js`
+- `lib/section-wrapper-common.js`
 
-ここに、shared な特殊整形 handler を登録します。
+ここに、shared な特殊整形 handler / subField section renderer を登録します。
 
 現時点の built-in wrapper:
 
 - `daySummary`
 - `eraSummary`
 - `storyEraSummary`
+
+現時点の built-in section renderer:
+
+- `structuredObjectSection`
+- `relationSection`
+- `statsSection`
 
 ### 2.2 schema 側の宣言
 
@@ -59,6 +69,15 @@
 - `typeSources`
 
 を渡して wrapper 解決を行い、文字列が返ればそれを採用します。
+
+`subFields` の standalone section 描画では、`CharacterSectionRendererRegistry.renderWithRegisteredSectionRenderer()` を先に試します。
+
+- `item.display.sectionWrapper`
+- `helpers.renderStructuredObjectSection`
+- `helpers.renderRelationSection`
+- `helpers.renderStatsSection`
+
+を渡して section renderer 解決を行い、Node が返ればそれを採用します。
 
 ### 2.4 SW / enrich 側の利用
 
@@ -189,8 +208,10 @@ format(value, context);
 まず次を確認します。
 
 - schema に `$display.wrapper` を付けられないか
+- schema に `$display.sectionWrapper` を付けられないか
 - `helpers.pickRoleRawValue()` で値を読めないか
 - DB カタログや enrich 側なら generic な summary 集約へ寄せられないか
+- `subFields` の standalone 描画なら `lib/section-wrapper-common.js` へ寄せられないか
 
 ### 6.3 docs 同期先
 
@@ -210,6 +231,7 @@ wrapper 周辺を触ったら、最低限次を確認します。
 wrapper 周辺を触ったときに優先して回すテスト:
 
 - `tests/wrapper-common.test.js`
+- `tests/section-wrapper-common.test.js`
 - `tests/enrich.wrapper-summaries.test.js`
 - `tests/sw.work-meta-info.test.js`
 - `tests/pages.characters.ui-output.test.js`

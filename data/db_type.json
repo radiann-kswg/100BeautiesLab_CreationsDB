@@ -226,7 +226,10 @@
       ],
       "hashTag_JP": "会話パターンについて",
       "searchable": false,
-      "$display": { "section": "profile" }
+      "$display": {
+        "section": "profile",
+        "sectionWrapper": "structuredObjectSection"
+      }
     },
     {
       "hashTag": "RelationNotes",
@@ -269,7 +272,11 @@
         }
       ],
       "hashTag_JP": "能力値",
-      "$display": { "rankFormat": "alphaLabel", "enumLinkKey": "AbilityText" }
+      "$display": {
+        "rankFormat": "alphaLabel",
+        "enumLinkKey": "AbilityText",
+        "sectionWrapper": "statsSection"
+      }
     },
     {
       "hashTag": "Backgrounds",

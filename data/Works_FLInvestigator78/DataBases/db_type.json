@@ -224,7 +224,8 @@
           "hashTag_JP": "効果詳細"
         }
       ],
-      "hashTag_JP": "アルカナムスペック(アルカナ能力)の特性"
+      "hashTag_JP": "アルカナムスペック(アルカナ能力)の特性",
+      "$display": { "sectionWrapper": "statsSection" }
     }
   ]
 }

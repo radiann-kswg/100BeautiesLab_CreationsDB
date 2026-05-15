@@ -74,7 +74,8 @@
           }
         }
       ],
-      "hashTag_JP": "獣騎能力の特性"
+      "hashTag_JP": "獣騎能力の特性",
+      "$display": { "sectionWrapper": "statsSection" }
     },
     {
       "hashTag": "BeastspecAbout",

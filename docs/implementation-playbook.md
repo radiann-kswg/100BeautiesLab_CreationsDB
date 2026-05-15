@@ -26,6 +26,7 @@
 - enum/list 辞書は `db_meta.json(General.$VarsDef)` と `db_type.json($VarsDef)` の両方を見ます
 - UI の見た目崩れや表示漏れも、まず schema / meta で直せないかを確認します
 - Day / Era / StoryEra のような特殊 summary は、main code の個別 if を増やす前に `lib/wrapper-common.js` と `$display.wrapper` / `$display.role` で吸収できないかを確認します
+- `subFields` の standalone section 描画も、field 名依存の if を増やす前に `lib/section-wrapper-common.js` と `$display.sectionWrapper` で吸収できないかを確認します
 
 ---
 
@@ -55,6 +56,7 @@
 - basic セクションへ出す項目は、`$DetailLayout.basicFields` に列挙されたものと、typedef 側で `$display.section = basic` を持つものだけに限定します
 - `BirthDay` / `AnivDay` のような `Day` 型の基本情報は、可能な限り `$display.section = basic` を schema 側で宣言し、UI の補助行ハードコードより typedef 駆動を優先します
 - `Day` / `Era` / `StoryEra` の summary は、可能な限り `lib/wrapper-common.js` の shared wrapper registry へ寄せ、`pages/characters.js` では wrapper 解決を先に試します
+- `subFields` にまとめる top-level 項目で独自 section 描画が必要な場合は、可能な限り `lib/section-wrapper-common.js` の shared section renderer registry へ寄せ、`pages/characters.js` では `sectionWrapper` 解決を先に試します
 - object 形式の `#Index` は、既定で「一覧/直リンクは主要要素」「詳細/値表示は全要素」とし、必要なら子要素の `$display.index` で `list/detail/value/link/priority/order` を上書きします
 
 ### 2.2 API / SW 修正
@@ -111,6 +113,7 @@
 ### 3.1 UI 表示仕様が変わったとき
 
 - `CHANGELOG.md`
+- wrapper / section renderer を触った場合は `docs/wrapper-summary-registry.md`
 - 必要に応じて `docs/implementation-playbook.md`
 - 必要に応じて `.github/copilot-instructions.md`
 - 大きめの変更なら `_work_in_progress/YYYY-MM-DD_progress_<topic>.md`

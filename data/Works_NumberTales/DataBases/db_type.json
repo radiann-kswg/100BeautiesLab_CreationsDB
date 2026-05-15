@@ -174,7 +174,8 @@
           "hashTag_JP": "安全レベル"
         }
       ],
-      "hashTag_JP": "“カバラの加護”(数秘的加護)の特性"
+      "hashTag_JP": "“カバラの加護”(数秘的加護)の特性",
+      "$display": { "sectionWrapper": "statsSection" }
     },
     {
       "hashTag": "Relation",
@@ -191,7 +192,8 @@
         }
       ],
       "hashTag_JP": "関係キャラクター",
-      "isForSecondary": false
+      "isForSecondary": false,
+      "$display": { "sectionWrapper": "relationSection" }
     },
     {
       "hashTag": "RelationToPrimary",
@@ -208,7 +210,8 @@
         }
       ],
       "hashTag_JP": "原作との関係",
-      "isForSecondary": true
+      "isForSecondary": true,
+      "$display": { "sectionWrapper": "relationSection" }
     }
   ],
   "$VersDef": {

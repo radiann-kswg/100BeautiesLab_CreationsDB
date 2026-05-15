@@ -178,7 +178,8 @@
           "hashTag_JP": "安全レベル"
         }
       ],
-      "hashTag_JP": "時空遷移能力の特性"
+      "hashTag_JP": "時空遷移能力の特性",
+      "$display": { "sectionWrapper": "statsSection" }
     },
     {
       "hashTag": "Relation",
@@ -195,7 +196,8 @@
         }
       ],
       "hashTag_JP": "関係キャラクター",
-      "isForSecondary": false
+      "isForSecondary": false,
+      "$display": { "sectionWrapper": "relationSection" }
     },
     {
       "hashTag": "RelationToPrimary",
@@ -212,7 +214,8 @@
         }
       ],
       "hashTag_JP": "原作との関係",
-      "isForSecondary": true
+      "isForSecondary": true,
+      "$display": { "sectionWrapper": "relationSection" }
     }
   ],
   "$VersDef": {
