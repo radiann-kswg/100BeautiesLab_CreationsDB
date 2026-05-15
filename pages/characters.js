@@ -6581,18 +6581,22 @@ export async function renderDetail(workId, rec) {
     return createStandaloneSubFieldSection(it, sectionChildren);
   };
 
-  const renderRelationSection = (it) => {
-    if (!it) return null;
-    if ((it.key !== 'Relation' && it.key !== 'RelationToPrimary') || !it.value || (!it.value.Related && !it.value.Commented)) {
-      return null;
-    }
-
-    const relationBody = renderRelations(it.value, fieldLabelMap, metaForLookup, globalDefType, fieldDisplayMap, {
-      containerKey: it.key,
-      fieldTypeMap,
-      wrapInSection: false
-    });
-    return createStandaloneSubFieldSection(it, [relationBody]);
+  const relationRendererApi = {
+    createElement: el,
+    createDetailTagGrid,
+    formatValueForDisplay,
+    dialogueBodyText,
+    getFieldLabel,
+    resolveVarsDefLabelPack,
+    formatBilingualLabel,
+    getWorkIndexField,
+    getIndexSubDefs,
+    pickPrimaryIndexSubDef,
+    recordMatchesIndexQuery,
+    buildViewerNavigationHref,
+    openDetail,
+    openViewerNavigation,
+    getCharState: () => window.__CHAR_STATE__
   };
 
   const renderStandaloneFieldSection = (it) => {
@@ -6600,10 +6604,17 @@ export async function renderDetail(workId, rec) {
 
     const wrappedSection = getCharacterSectionRendererRegistry()?.renderWithRegisteredSectionRenderer?.(it, {
       display: it.display,
+      isStandaloneSubField: true,
+      fieldLabelMap,
+      workMeta: metaForLookup,
+      globalDefType,
+      fieldDisplayMap,
+      fieldTypeMap,
       helpers: {
         renderStructuredObjectSection,
-        renderRelationSection,
-        renderStatsSection: renderStatsSubFieldSection
+        renderStatsSection: renderStatsSubFieldSection,
+        wrapStandaloneSection: createStandaloneSubFieldSection,
+        relationApi: relationRendererApi
       }
     });
     if (wrappedSection) return wrappedSection;
@@ -6611,7 +6622,15 @@ export async function renderDetail(workId, rec) {
     const statsSection = renderStatsSubFieldSection(it);
     if (statsSection) return statsSection;
 
-    const relationSection = renderRelationSection(it);
+    const relationSection = ((it.key === 'Relation' || it.key === 'RelationToPrimary') && it.value)
+      ? renderRelations(it.value, fieldLabelMap, metaForLookup, globalDefType, fieldDisplayMap, {
+          containerKey: it.key,
+          fieldTypeMap,
+          isStandaloneSubField: true,
+          wrapStandaloneSection: createStandaloneSubFieldSection,
+          item: it
+        })
+      : null;
     if (relationSection) return relationSection;
 
     const structuredSection = renderStructuredObjectSection(it);
@@ -6839,206 +6858,47 @@ function renderRelations(rel, fieldLabelMap, workMeta, globalDefType, fieldDispl
     ? options.containerKey.trim()
     : 'Relation';
   const fieldTypeMap = (options?.fieldTypeMap && typeof options.fieldTypeMap === 'object') ? options.fieldTypeMap : null;
-  const wrapInSection = options?.wrapInSection !== false;
+  const registry = getCharacterSectionRendererRegistry();
+  const item = (options?.item && typeof options.item === 'object')
+    ? options.item
+    : {
+        key: containerKey,
+        label: getFieldLabel(containerKey, fieldLabelMap, workMeta, globalDefType, containerKey === 'RelationToPrimary' ? '原作との関係' : '関係'),
+        value: rel,
+        display: { sectionWrapper: 'relationSection' }
+      };
 
-  const related = Array.isArray(rel?.Related) ? rel.Related : [];
-  const commented = Array.isArray(rel?.Commented) ? rel.Commented : [];
-
-  const isPlainObject = (v) => !!v && typeof v === 'object' && !Array.isArray(v);
-
-  // 作品の Index 定義（typedef の $IndexDef）を取得し、Relation の Num から該当キャラへジャンプできるようにする
-  const state = window.__CHAR_STATE__;
-  const workId = state?.workId || '';
-  const currentDb = String(state?.db || '').trim();
-  const relationTargetDb = containerKey === 'RelationToPrimary' ? 'Primary' : currentDb;
-  const indexDef = workId ? getWorkIndexField(workId, workMeta) : null;
-
-  const findRecordByIndex = (id) => {
-    if (!id || typeof id !== 'object') return null;
-    if (!state || !Array.isArray(state.records)) return null;
-    const idxValue = String(id.value || '').trim();
-    const idxKeyPath = String(id.keyPath || '').trim();
-    if (!idxValue) return null;
-    return state.records.find(r => recordMatchesIndexQuery(r, indexDef, idxValue, idxKeyPath, idxKeyPath === 'Num' ? idxValue : '')) || null;
-  };
-
-  const buildIndexHref = (id, targetDb = currentDb) => buildViewerNavigationHref(workId, targetDb, {
-    idx: String(id?.value || ''),
-    idxKey: String(id?.keyPath || ''),
-    num: (id?.keyPath === 'Num') ? String(id?.value || '') : ''
-  });
-
-  const getIndexIdentifierFromRelation = (r) => {
-    if (!r || typeof r !== 'object') return null;
-    if (!indexDef || typeof indexDef !== 'object') return null;
-    const rootKey = indexDef.hashTag;
-    if (!rootKey || typeof rootKey !== 'string') return null;
-
-    const subDefs = getIndexSubDefs(indexDef);
-
-    // ネスト型
-    if (Array.isArray(subDefs) && subDefs.length > 0) {
-      const rootObj = isPlainObject(r?.[rootKey]) ? r[rootKey] : r;
-      if (!isPlainObject(rootObj)) return null;
-
-      const primarySub = pickPrimaryIndexSubDef(subDefs);
-      const candidates = primarySub ? [primarySub, ...subDefs.filter(d => d !== primarySub)] : subDefs;
-      for (const sub of candidates) {
-        const subKey = sub?.hashTag;
-        if (!subKey || typeof subKey !== 'string') continue;
-        const v = rootObj[subKey];
-        if (v === null || v === undefined || v === '') continue;
-        return { keyPath: `${rootKey}.${subKey}`, value: String(v).trim() };
-      }
-      return null;
+  return registry?.renderNamedSectionRenderer?.('relationSection', item, {
+    display: item.display,
+    containerKey,
+    wrapInSection: options?.wrapInSection !== false,
+    isStandaloneSubField: options?.isStandaloneSubField === true,
+    fieldLabelMap,
+    workMeta,
+    globalDefType,
+    fieldDisplayMap,
+    fieldTypeMap,
+    helpers: {
+      relationApi: {
+        createElement: el,
+        createDetailTagGrid,
+        formatValueForDisplay,
+        dialogueBodyText,
+        getFieldLabel,
+        resolveVarsDefLabelPack,
+        formatBilingualLabel,
+        getWorkIndexField,
+        getIndexSubDefs,
+        pickPrimaryIndexSubDef,
+        recordMatchesIndexQuery,
+        buildViewerNavigationHref,
+        openDetail,
+        openViewerNavigation,
+        getCharState: () => window.__CHAR_STATE__
+      },
+      wrapStandaloneSection: options?.wrapStandaloneSection
     }
-
-    // スカラー型
-    const v = (r?.[rootKey] === null || r?.[rootKey] === undefined || r?.[rootKey] === '')
-      ? r?.Num
-      : r?.[rootKey];
-    const vv = (v === null || v === undefined) ? '' : String(v).trim();
-    if (!vv) return null;
-    return { keyPath: rootKey, value: vv };
-  };
-
-  const pickRelationLabelCode = (x) => {
-    if (x === null || x === undefined) return '';
-    if (typeof x === 'string' || typeof x === 'number' || typeof x === 'boolean') return String(x).trim();
-    if (!isPlainObject(x)) return '';
-    const jp = x.RelationLabel_JP || x.relationLabel_JP;
-    const raw = x.RelationLabel || x.relationLabel;
-    const en = x.RelationLabel_EN || x.relationLabel_EN;
-    const picked = (typeof jp === 'string' && jp.trim()) ? jp : (typeof raw === 'string' && raw.trim()) ? raw : (typeof en === 'string' && en.trim()) ? en : '';
-    return String(picked || '').trim();
-  };
-
-  const localizeRelationLabels = (labels) => {
-    const pathKey = `${containerKey}.Related.RelationLabel`;
-    const displayOpt = (fieldDisplayMap && typeof fieldDisplayMap === 'object')
-      ? (fieldDisplayMap[pathKey] || fieldDisplayMap.RelationLabel || null)
-      : null;
-    const arr = Array.isArray(labels) ? labels : [];
-    return arr
-      .map((x) => {
-        const raw = pickRelationLabelCode(x);
-        if (!raw) return '';
-        const pack = resolveVarsDefLabelPack('RelationLabel', raw, globalDefType, workMeta, pathKey);
-        return formatBilingualLabel(pack, raw, displayOpt);
-      })
-      .filter(Boolean);
-  };
-
-  const schemaTypeIncludes = (t, needle, depth = 0) => {
-    if (!needle) return false;
-    if (depth > 6) return false;
-    if (t === null || t === undefined) return false;
-    if (typeof t === 'string') return t.includes(needle);
-    if (Array.isArray(t)) return t.some(x => schemaTypeIncludes(x, needle, depth + 1));
-    if (typeof t === 'object') {
-      if (Object.prototype.hasOwnProperty.call(t, '$type')) {
-        return schemaTypeIncludes(t.$type, needle, depth + 1);
-      }
-      return Object.values(t).some(x => schemaTypeIncludes(x, needle, depth + 1));
-    }
-    return false;
-  };
-
-  const formatRelationComments = (commentsRaw, withLabels) => {
-    if (commentsRaw === null || commentsRaw === undefined || commentsRaw === '') {
-      return { text: '', node: null, isDialogue: false };
-    }
-
-    const pathKey = `${containerKey}.${withLabels ? 'Related' : 'Commented'}.Comments`;
-    const schemaType = fieldTypeMap?.[pathKey] ?? null;
-    const displayOpt = (fieldDisplayMap && typeof fieldDisplayMap === 'object')
-      ? (fieldDisplayMap[pathKey] || fieldDisplayMap.Comments || null)
-      : null;
-    const formatted = formatValueForDisplay(commentsRaw, fieldLabelMap, workMeta, globalDefType, {
-      schemaType,
-      display: displayOpt,
-      fieldKey: pathKey
-    });
-    const text = String(formatted ?? '').trim();
-    const isDialogue = schemaTypeIncludes(schemaType, '#Dialogue');
-    const node = (!text)
-      ? null
-      : (isDialogue || text.includes('\n'))
-        ? dialogueBodyText(text)
-        : text;
-
-    return { text, node, isDialogue };
-  };
-
-  const renderRelTag = (prefix, r, withLabels) => {
-    const num = (r?.Num === null || r?.Num === undefined) ? '' : String(r.Num).trim();
-    const comments = formatRelationComments(r?.Comments, withLabels);
-    const labels = withLabels ? localizeRelationLabels(r?.RelationLabel) : [];
-    const labelText = labels.length ? labels.join(', ') : '';
-
-    // クリックで該当キャラへ移動できるように、Index 定義がある場合はリンク化
-    const id = getIndexIdentifierFromRelation(r);
-    const target = id ? findRecordByIndex(id) : null;
-    const canNavigateToPrimary = containerKey === 'RelationToPrimary' && id && workId && relationTargetDb;
-
-    const hasNewline = (s) => (typeof s === 'string' && s.includes('\n'));
-
-    const children = [];
-    children.push(`${prefix} `);
-
-    if ((id && target) || canNavigateToPrimary) {
-      const name = target?.Name || target?.FormalName || target?.ModelName || target?.Name_EN || '';
-      children.push(el('a', {
-        href: buildIndexHref(id, canNavigateToPrimary ? relationTargetDb : currentDb),
-        title: name ? `開く: ${name}` : (canNavigateToPrimary ? '原作キャラクターを開く' : '開く'),
-        onclick: async (ev) => {
-          try { ev.preventDefault(); } catch (_) { /* no-op */ }
-          if (target) {
-            await openDetail(target);
-            return;
-          }
-          if (canNavigateToPrimary) {
-            await openViewerNavigation(workId, relationTargetDb, {
-              idx: String(id?.value || ''),
-              idxKey: String(id?.keyPath || ''),
-              num: (id?.keyPath === 'Num') ? String(id?.value || '') : ''
-            });
-          }
-        }
-      }, [id.value]));
-    } else {
-      children.push(num || (id?.value || '?'));
-    }
-
-    if (labelText) children.push(`: ${labelText}`);
-
-    if (comments.text && !(comments.isDialogue || hasNewline(comments.text))) {
-      children.push(`${labelText ? ' ' : ': '}- ${comments.text}`);
-      return el('div', { class: 'tag' }, children);
-    }
-
-    if (!comments.text) {
-      return el('div', { class: 'tag' }, children);
-    }
-
-    return el('div', { class: 'tag' }, [
-      el('div', {}, children),
-      el('div', { style: 'margin-top: 4px;' }, [comments.node])
-    ]);
-  };
-
-  const r1 = related.map(r => renderRelTag('⇒', r, true));
-  const r2 = commented.map(r => renderRelTag('→', r, false));
-
-  const relationGrid = createDetailTagGrid([...r1, ...r2]);
-  if (!relationGrid) return null;
-
-  if (!wrapInSection) return relationGrid;
-
-  return el('div', { class: 'section' }, [
-    el('h3', {}, [getFieldLabel(containerKey, fieldLabelMap, workMeta, globalDefType, containerKey === 'RelationToPrimary' ? '原作との関係' : '関係')]),
-    relationGrid
-  ]);
+  }) ?? null;
 }
 
 function buildViewerNavigationHref(workId, dbName, options = {}) {

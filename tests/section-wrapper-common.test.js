@@ -21,6 +21,7 @@ describe('section-wrapper-common registry', () => {
   it('registers built-in section renderers', () => {
     const registry = globalThis.CharacterSectionRendererRegistry;
     expect(registry).toBeTruthy();
+    expect(typeof registry.renderNamedSectionRenderer).toBe('function');
 
     const rendererNames = registry.getRegisteredSectionRenderers().map((renderer) => renderer.name).sort();
     expect(rendererNames).toEqual(['relationSection', 'statsSection', 'structuredObjectSection']);
@@ -34,18 +35,8 @@ describe('section-wrapper-common registry', () => {
     })).toBe('statsSection');
   });
 
-  it('dispatches relation and stats helpers via named section wrappers', () => {
+  it('dispatches stats helpers via named section wrappers', () => {
     const registry = globalThis.CharacterSectionRendererRegistry;
-
-    const relationResult = registry.renderWithRegisteredSectionRenderer(
-      { key: 'Relation', value: { Related: [] } },
-      {
-        display: { sectionWrapper: 'relationSection' },
-        helpers: {
-          renderRelationSection: (item) => `relation:${item.key}`
-        }
-      }
-    );
 
     const statsResult = registry.renderWithRegisteredSectionRenderer(
       { key: 'AbilityStats', value: { Speed: { Rank: 'A' } } },
@@ -57,8 +48,66 @@ describe('section-wrapper-common registry', () => {
       }
     );
 
-    expect(relationResult).toBe('relation:Relation');
     expect(statsResult).toBe('stats:AbilityStats');
+  });
+
+  it('renders built-in relation sections from relationApi helpers', () => {
+    const registry = globalThis.CharacterSectionRendererRegistry;
+
+    const createElement = (tag, props = {}, children = []) => ({
+      tag,
+      props,
+      children: Array.isArray(children) ? children : [children]
+    });
+
+    const result = registry.renderWithRegisteredSectionRenderer(
+      {
+        key: 'Relation',
+        label: '関係キャラクター',
+        value: {
+          Related: [
+            { Num: 1, Comments: 'テストコメント', RelationLabel: ['trusted'] }
+          ]
+        },
+        display: { sectionWrapper: 'relationSection' }
+      },
+      {
+        isStandaloneSubField: true,
+        fieldLabelMap: {},
+        workMeta: {},
+        globalDefType: {},
+        fieldDisplayMap: {},
+        fieldTypeMap: {},
+        helpers: {
+          wrapStandaloneSection: (item, children) => ({ wrapped: item.key, children }),
+          relationApi: {
+            createElement,
+            createDetailTagGrid: (nodes) => ({ tag: 'grid', nodes }),
+            formatValueForDisplay: (value) => value,
+            dialogueBodyText: (text) => ({ tag: 'dialogue', text }),
+            getFieldLabel: (_key, _labelMap, _workMeta, _globalDefType, fallback) => fallback,
+            resolveVarsDefLabelPack: (_defName, raw) => ({ hashTag_JP: raw === 'trusted' ? '信頼' : '', hashTag_EN: raw === 'trusted' ? 'Trusted' : '' }),
+            formatBilingualLabel: (pack, raw) => (pack?.hashTag_JP ? `${pack.hashTag_JP} / ${pack.hashTag_EN}` : raw),
+            getWorkIndexField: () => ({ hashTag: 'Num' }),
+            getIndexSubDefs: () => [],
+            pickPrimaryIndexSubDef: () => null,
+            recordMatchesIndexQuery: (record, _indexDef, idxValue) => String(record?.Num) === idxValue,
+            buildViewerNavigationHref: (_workId, dbName, params) => `/?db=${dbName}&idx=${params.idx}&idxKey=${params.idxKey}&num=${params.num}`,
+            openDetail: async () => {},
+            openViewerNavigation: async () => {},
+            getCharState: () => ({
+              workId: '#Works_Test',
+              db: 'Primary',
+              records: [{ Num: 1, Name: 'テストキャラ' }]
+            })
+          }
+        }
+      }
+    );
+
+    expect(result?.wrapped).toBe('Relation');
+    expect(result?.children?.[0]?.tag).toBe('grid');
+    expect(result?.children?.[0]?.nodes).toHaveLength(1);
   });
 
   it('falls back to the structured object renderer matcher for plain objects', () => {

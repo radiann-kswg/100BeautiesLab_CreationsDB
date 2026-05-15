@@ -57,6 +57,7 @@
 - `BirthDay` / `AnivDay` のような `Day` 型の基本情報は、可能な限り `$display.section = basic` を schema 側で宣言し、UI の補助行ハードコードより typedef 駆動を優先します
 - `Day` / `Era` / `StoryEra` の summary は、可能な限り `lib/wrapper-common.js` の shared wrapper registry へ寄せ、`pages/characters.js` では wrapper 解決を先に試します
 - `subFields` にまとめる top-level 項目で独自 section 描画が必要な場合は、可能な限り `lib/section-wrapper-common.js` の shared section renderer registry へ寄せ、`pages/characters.js` では `sectionWrapper` 解決を先に試します
+- `Relation` / `RelationToPrimary` のように comment 整形・ラベル辞書解決・直リンク組み立てを伴う section も、まず `lib/section-wrapper-common.js` の built-in renderer へ寄せ、`pages/characters.js` には DOM/format/navigation の core helper bridge だけを残します
 - object 形式の `#Index` は、既定で「一覧/直リンクは主要要素」「詳細/値表示は全要素」とし、必要なら子要素の `$display.index` で `list/detail/value/link/priority/order` を上書きします
 
 ### 2.2 API / SW 修正

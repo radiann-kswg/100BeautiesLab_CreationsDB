@@ -7,6 +7,7 @@
 - 変更点の要約: `hideText` だけを持つ wrapper object でも親 schema の leaf typedef を推定して `SafetyLevel` などを通常の tag/grid 書式で描画するようにした。あわせて `alphaLabel` は `EnumLink` / `ListLink` の説明文を JP/EN 併記で組み立てるよう統一した
 - 変更点の要約: `subFields` に昇格した non-text section は `details/summary` ベースの折りたたみ UI で包み、`Relation` / `Stats` / structured object は共通シェルから開閉できるようにした。primitive / `#String` / `#Summary` / `#Dialogue` は従来どおり非折りたたみ表示を維持した
 - 変更点の要約: 折りたたみ対象 section の初期状態は開いた状態ではなく閉じた状態へ調整し、詳細量の多い `subFields` を最初は畳んだまま閲覧できるようにした
+- 変更点の要約: `Relation` / `RelationToPrimary` の個別表示処理本体を `pages/characters.js` から `lib/section-wrapper-common.js` の built-in `relationSection` renderer へ移し、`characters.js` には core helper bridge のみを残した
 - 影響範囲: `lib/section-wrapper-common.js`, `pages/characters.js`, `pages/characters.sass`, `pages/characters.html`, `data/db_type.json`, `data/Works_*/DataBases/db_type.json`, `tests/section-wrapper-common.test.js`, `tests/pages.characters.ui-output.test.js`, `docs/wrapper-summary-registry.md`, `docs/implementation-playbook.md`, `.github/copilot-instructions.md`, `CHANGELOG.md`
 - 未完了タスク: docs リンク確認 / 追加作品の目視確認
 - 参考リンク: `docs/wrapper-summary-registry.md`, `docs/implementation-playbook.md`, `data/db_meta.json`

@@ -9,6 +9,13 @@
 - `pages/characters.sass` には `.section--collapsible` と `summary` の最小スタイルを追加し、見出しのトグル affordance を明示した。あわせて `pages/characters.html` の asset version を更新した。
 - 回帰確認として `tests/pages.characters.ui-output.test.js` に `data-subfield-key` ベースの assertion を追加し、ConversationPattern / AbilityStats / NumerospecStats / Relation は折りたたみ UI、NumerospecAbout は通常 section のまま描画されることを確認した。
 
+### `Relation` の特殊描画を `section-wrapper-common.js` へ移設
+
+- `pages/characters.js` 末尾に残っていた `renderRelations()` の個別組み立て本体を `lib/section-wrapper-common.js` の built-in `relationSection` renderer へ移し、relation label 解決・comment 整形・index link 組み立て・standalone wrapper 連携を subscript 側で扱うようにした。
+- `pages/characters.js` の `renderRelations()` は、DOM/format/navigation の共通 helper をまとめて renderer へ渡す bridge に縮小した。
+- `CharacterSectionRendererRegistry` には `renderNamedSectionRenderer()` を追加し、non-subField からも built-in section renderer を明示的に再利用できるようにした。
+- 回帰確認として `tests/section-wrapper-common.test.js` に built-in relation renderer の最小ケースを追加し、`tests/pages.characters.ui-output.test.js` の Relation / RelationToPrimary 系ケースで表示互換を確認した。
+
 ### `subFields` 用 section renderer registry を `lib/section-wrapper-common.js` へ分離
 
 - `lib/wrapper-common.js` は値 summary の wrapper registry に責務を限定し、`subFields` の standalone section 描画ディスパッチは新設した `lib/section-wrapper-common.js` へ分離した。
