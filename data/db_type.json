@@ -289,6 +289,13 @@
       "$type": "#Summary",
       "hashTag_JP": "追加デザイン協力者について",
       "searchable": false
+    },
+    {
+      "hashTag": "AIHints",
+      "$type": "$Def_AIHints|#Null",
+      "hashTag_JP": "AI生成向けヒント",
+      "searchable": false,
+      "$display": { "auto": false }
     }
   ],
   "$MetaType": {
@@ -734,6 +741,38 @@
         "DecaveText_JP": "フルゼロ(0%-0.000000001%)",
         "DecaveText_EN": "Fullzero(0%-0.000000001%)"
       }
+    },
+    "$Def_AIColorPalette": {
+      "$DefType": [
+        { "hashTag": "primary",   "$type": "#String|#Null", "hashTag_JP": "主色(プライマリ)" },
+        { "hashTag": "secondary", "$type": "#String|#Null", "hashTag_JP": "補助色(セカンダリ)" },
+        { "hashTag": "accent",    "$type": "#String|#Null", "hashTag_JP": "差し色(アクセント)" }
+      ]
+    },
+    "$Def_AIMotifRenderingEntry": {
+      "$DefType": [
+        { "hashTag": "motif",            "$type": "#String",    "hashTag_JP": "モチーフ名" },
+        { "hashTag": "rendering_styles", "$type": "#String[]", "hashTag_JP": "描画スタイルリスト" }
+      ]
+    },
+    "$Def_AIDistinguishEntry": {
+      "$DefType": [
+        { "hashTag": "target_id",  "$type": "#String",          "hashTag_JP": "比較対象ID" },
+        { "hashTag": "difference", "$type": "#String|#Summary", "hashTag_JP": "差異の説明" }
+      ]
+    },
+    "$Def_AIHints": {
+      "$DefType": [
+        { "hashTag": "ai_tags",             "$type": "#String[]|#Null",                    "hashTag_JP": "AI向けタグ" },
+        { "hashTag": "silhouette_features", "$type": "#String[]|#Null",                    "hashTag_JP": "シルエット特徴" },
+        { "hashTag": "immutable_traits",    "$type": "#String[]|#Null",                    "hashTag_JP": "変更禁止特徴" },
+        { "hashTag": "negative_visuals",    "$type": "#String[]|#Null",                    "hashTag_JP": "禁止視覚要素" },
+        { "hashTag": "expression_tendency", "$type": "#String[]|#Null",                    "hashTag_JP": "表情傾向" },
+        { "hashTag": "age_appearance",      "$type": "#String|#Null",                      "hashTag_JP": "見た目年齢感" },
+        { "hashTag": "palette_priority",    "$type": "$Def_AIColorPalette|#Null",          "hashTag_JP": "配色優先度" },
+        { "hashTag": "motif_rendering",     "$type": "$Def_AIMotifRenderingEntry[]|#Null", "hashTag_JP": "モチーフ描画指定" },
+        { "hashTag": "distinguish_from",    "$type": "$Def_AIDistinguishEntry[]|#Null",    "hashTag_JP": "他キャラとの差異" }
+      ]
     }
   }
 }
