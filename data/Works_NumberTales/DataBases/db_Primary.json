@@ -156,6 +156,19 @@
           "about": "後続機を気にかけている時（「9(チカ)」の場合）"
         }
       ]
+    },
+    "AIHints": {
+      "ai_tags": ["red orange hair", "fox ears", "single tail", "red hoodie", "arrow zipper", "shorts", "boots"],
+      "silhouette_features": ["exactly one fox tail (prototype marker)", "large-hood red hoodie", "arrow-shaped zipper seam on chest", "casual shorts and boots"],
+      "immutable_traits": ["exactly one fox tail", "arrow-shaped zipper line on hoodie", "number 1 marking on outfit"],
+      "negative_visuals": ["multiple tails", "armor", "school uniform", "cat ears"],
+      "expression_tendency": ["energetic open smile", "confident upward pointing gesture", "eager and curious"],
+      "age_appearance": "young teenager (approx. 14)",
+      "palette_priority": {
+        "primary": "#E04030",
+        "secondary": "#F07060",
+        "accent": "#A8A8A8"
+      }
     }
   },
   {
@@ -258,6 +271,19 @@
         { "Num": 47, "Comments": "「応援してくれて嬉しい」" },
         { "Num": 65, "Comments": "「色んなもの持ってて羨ましい」" }
       ]
+    },
+    "AIHints": {
+      "ai_tags": ["orange hair", "fox ears", "two tails", "glasses", "double-tied scarf", "teal shirt", "number 2 emblem"],
+      "silhouette_features": ["two fox tails", "rectangular glasses", "scarf with two knot-ties at neck", "sporty casual shirt and skirt"],
+      "immutable_traits": ["rectangular glasses (always present)", "scarf tied with two visible knots", "two fox tails", "number 2 on shirt"],
+      "negative_visuals": ["no glasses", "single tail", "cat ears", "overly formal clothing"],
+      "expression_tendency": ["calm composed smile", "attentive steady gaze", "balanced gentle look"],
+      "age_appearance": "young teenager (approx. 14)",
+      "palette_priority": {
+        "primary": "#F08040",
+        "secondary": "#F0D0A0",
+        "accent": "#80C0C0"
+      }
     }
   },
   {
@@ -343,6 +369,19 @@
         { "Num": 57, "Comments": "「仙人にでもなるつもりなのかな…」" },
         { "Num": 66, "Comments": "「信者多そう」" }
       ]
+    },
+    "AIHints": {
+      "ai_tags": ["yellow hair", "fox ears", "three tails", "hair clip", "yellow cape jacket", "yellow color scheme"],
+      "silhouette_features": ["three large fox tails", "spiky yellow hair with small ear hair clip", "bright yellow flowing cape-jacket"],
+      "immutable_traits": ["yellow/gold hair clip accessory", "three fox tails", "number 3 on outfit", "predominantly yellow color scheme"],
+      "negative_visuals": ["muted or dark colors", "no hair accessories", "cat ears"],
+      "expression_tendency": ["wide emotional range", "intense when serious", "can range from calm to panicked"],
+      "age_appearance": "teenager (17)",
+      "palette_priority": {
+        "primary": "#F0C800",
+        "secondary": "#F8E880",
+        "accent": "#F8F0B0"
+      }
     }
   },
   {
@@ -460,6 +499,19 @@
           "about": "問題を冷静に解決しているとき"
         }
       ]
+    },
+    "AIHints": {
+      "ai_tags": ["long blue hair", "fox ears", "four tails", "layered teal coat", "cyan color scheme", "number 4 emblem"],
+      "silhouette_features": ["very long flowing blue hair to waist", "wide-silhouette layered coat over skirt", "four fox tails", "small hair accessory near ear"],
+      "immutable_traits": ["very long blue hair", "four fox tails", "layered teal coat structure", "number 4 on outfit"],
+      "negative_visuals": ["short hair", "warm or red tones", "cat ears"],
+      "expression_tendency": ["calm and composed", "soft understated smile", "stoic and gentle"],
+      "age_appearance": "teenager (17)",
+      "palette_priority": {
+        "primary": "#40A0C8",
+        "secondary": "#70C8D8",
+        "accent": "#809090"
+      }
     }
   },
   {
@@ -548,6 +600,19 @@
         { "Num": 68, "Comments": "「急に見た目が変わった時なんかは笑う」" },
         { "Num": 77, "Comments": "「めっちゃ有能で面白い、参った!」" }
       ]
+    },
+    "AIHints": {
+      "ai_tags": ["teal green hair", "fox ears", "five tails", "heterochromia", "tape wristbands", "green color scheme", "acrobatic pose"],
+      "silhouette_features": ["five fox tails", "tape or bandage wristbands on both wrists", "dynamic or inverted acrobatic stance (back flip capable)"],
+      "immutable_traits": ["heterochromia (left and right eyes differ in color)", "tape bands on both wrists", "five fox tails", "teal-green color scheme"],
+      "negative_visuals": ["symmetric matching eye colors", "calm static pose", "cat ears"],
+      "expression_tendency": ["chaotic wide grin", "wild unpredictable expression", "mischievous smirk"],
+      "age_appearance": "teenager (17)",
+      "palette_priority": {
+        "primary": "#30B090",
+        "secondary": "#70D0B0",
+        "accent": "#40B0C0"
+      }
     }
   },
   {
@@ -647,6 +712,19 @@
           "Comments": "「無茶も承知でお好きな様にと、いった子ですね」"
         }
       ]
+    },
+    "AIHints": {
+      "ai_tags": ["pink hair", "fox ears", "six tails", "hexagonal brooch", "pink purple dress", "lace trim", "Victorian style"],
+      "silhouette_features": ["six fox tails", "Victorian-style two-tone dress (pink top, purple skirt)", "hexagonal gem brooch at collar", "lace trim on sleeves"],
+      "immutable_traits": ["hexagonal brooch or gem buttons", "six fox tails", "pink-purple two-tone dress"],
+      "negative_visuals": ["sporty casual wear", "single-color outfit", "cat ears"],
+      "expression_tendency": ["gentle warm smile", "caring nurturing expression", "soft eyes"],
+      "age_appearance": "teenager",
+      "palette_priority": {
+        "primary": "#F060A0",
+        "secondary": "#9060C0",
+        "accent": "#4060C0"
+      }
     }
   },
   {
@@ -736,6 +814,19 @@
         { "Num": 25, "Comments": "「悪くない意味で恐ろしい感性がある」" },
         { "Num": 88, "Comments": "「あれは資産力の化け物」" }
       ]
+    },
+    "AIHints": {
+      "ai_tags": ["navy dark blue hair", "fox ears", "seven tails", "prayer beads", "Japanese style clothing", "wide leg pants", "dark blue coat", "contemplative"],
+      "silhouette_features": ["seven large flowing fox tails", "wide-leg dark pants", "oversized dark coat or Japanese-style garment", "prayer bead necklace"],
+      "immutable_traits": ["prayer bead necklace", "seven fox tails", "navy dark blue color scheme", "exclusively Japanese-style clothing (no Western casual)"],
+      "negative_visuals": ["bright or warm colors", "Western casual clothes", "cat ears"],
+      "expression_tendency": ["contemplative stoic gaze", "rarely smiling", "meditative composed look"],
+      "age_appearance": "young adult (22)",
+      "palette_priority": {
+        "primary": "#2030A0",
+        "secondary": "#404090",
+        "accent": "#6060A0"
+      }
     }
   },
   {
@@ -830,6 +921,19 @@
         { "Num": 44, "Comments": "「守護神でもいそうまである」" },
         { "Num": 62, "Comments": "「何かいいの閃いたらあてが作るよ！」" }
       ]
+    },
+    "AIHints": {
+      "ai_tags": ["orange red hair", "fox ears", "eight tails", "VR goggles", "tactical vest", "mechanic style", "energetic"],
+      "silhouette_features": ["eight fox tails", "VR goggles pushed up on head (key functional equipment)", "tactical chest vest with tool pouches", "dynamic energetic pose"],
+      "immutable_traits": ["VR goggles always on head", "eight fox tails", "number 8 emblem on chest", "orange tactical vest"],
+      "negative_visuals": ["calm or delicate pose", "elaborate feminine dress", "cat ears"],
+      "expression_tendency": ["wide energetic grin", "action-ready excited", "enthusiastic"],
+      "age_appearance": "young adult (19)",
+      "palette_priority": {
+        "primary": "#E06020",
+        "secondary": "#C03040",
+        "accent": "#F09060"
+      }
     }
   },
   {
@@ -944,6 +1048,19 @@
           "about": "精神的に疲弊している人を慰めているとき"
         }
       ]
+    },
+    "AIHints": {
+      "ai_tags": ["gray silver long hair", "fox ears", "nine tails", "tails in ring arrangement", "large dark cape", "slender tall"],
+      "silhouette_features": ["nine fox tails arranged in circular ring pattern", "large flowing dark cape", "tall slender figure", "long silver-gray hair"],
+      "immutable_traits": ["nine fox tails in circular/ring arrangement", "large dark cape silhouette", "silver-gray color scheme", "number 9 on outfit"],
+      "negative_visuals": ["warm colors", "casual or sporty wear", "cat ears"],
+      "expression_tendency": ["composed mysterious expression", "subtle sorrowful look", "rarely openly emotional"],
+      "age_appearance": "young adult (21)",
+      "palette_priority": {
+        "primary": "#5060A0",
+        "secondary": "#808090",
+        "accent": "#C0C0D0"
+      }
     }
   },
   {
@@ -1053,6 +1170,19 @@
         { "Num": 9, "Comments": "「裏がある優しさを持ってる、悪くない」" },
         { "Num": 19, "Comments": "「因果応報を信じてやまないね」" }
       ]
+    },
+    "AIHints": {
+      "ai_tags": ["deep red hair", "fox ears", "bud-type single tail", "tail in bud formation", "Chinese style jacket", "wide leg pants"],
+      "silhouette_features": ["bud-type single tail (one large central plume surrounded by 9 smaller plumes in bud shape)", "Chinese-style mandarin-collar jacket", "wide-leg pants", "hair tied at side"],
+      "immutable_traits": ["bud-type single tail (not multiple separate tails)", "mandarin-collar Chinese jacket", "deep red color scheme", "number 10 emblem"],
+      "negative_visuals": ["multiple spread-out separate fox tails", "Western-style formal clothes", "bright pink or light pastel", "cat ears"],
+      "expression_tendency": ["knowing confident smile", "calculating composed expression", "self-assured smirk"],
+      "age_appearance": "young teenager (15)",
+      "palette_priority": {
+        "primary": "#C01020",
+        "secondary": "#E08090",
+        "accent": "#F0B0C0"
+      }
     }
   },
   {
@@ -1142,6 +1272,19 @@
         { "Num": 38, "Comments": "「彼女の周りは毎回驚かされる」" },
         { "Num": 56, "Comments": "「多様な輩に恵まれているものだな」" }
       ]
+    },
+    "AIHints": {
+      "ai_tags": ["silver gray long hair", "cat ears", "eleven nekomata tails", "arrow hair pins", "long hooded coat", "red stripe accent"],
+      "silhouette_features": ["eleven nekomata-type (cat-spirit) tails", "two arrow-shaped hair pins on head", "long oversized hooded coat", "red vertical stripe on coat"],
+      "immutable_traits": ["two arrow-shaped hair pins", "long coat with red accent stripe", "eleven nekomata-type tails", "silver-gray hair", "cat ears (nekomata type, not fox)"],
+      "negative_visuals": ["warm or bright colors", "short hair", "fox ears"],
+      "expression_tendency": ["divine self-assured composure", "rarely showing emotions", "can become intensely overwhelming when provoked"],
+      "age_appearance": "teenager (17)",
+      "palette_priority": {
+        "primary": "#909090",
+        "secondary": "#C0C0C0",
+        "accent": "#C03020"
+      }
     }
   },
   {
@@ -1243,6 +1386,19 @@
           "RelationLabel": ["classmate"]
         }
       ]
+    },
+    "AIHints": {
+      "ai_tags": ["peach orange hair", "fox ears", "tail bundles", "large hood", "poncho cape", "peach color scheme"],
+      "silhouette_features": ["two large fox tail bundles (upper and lower clusters)", "large hood always covering head", "poncho-style cape outer layer", "long flowing peach-orange hair"],
+      "immutable_traits": ["two tail bundle arrangement", "large hood up", "number 12 emblem", "peach-orange color"],
+      "negative_visuals": ["tails spread freely", "hood down", "cat ears"],
+      "expression_tendency": ["serene slightly blank expression", "gentle with barely visible emotions", "quiet calm"],
+      "age_appearance": "young teenager (14)",
+      "palette_priority": {
+        "primary": "#F09060",
+        "secondary": "#F8D0A0",
+        "accent": "#F0E090"
+      }
     }
   },
   {
@@ -1341,6 +1497,19 @@
           "RelationLabel": ["cousin_nearly"]
         }
       ]
+    },
+    "AIHints": {
+      "ai_tags": ["teal light blue hair", "fox ears", "three tails", "sporty jersey", "yellow shorts", "wristbands"],
+      "silhouette_features": ["three branching fox tails", "jersey with multi-color stripe", "wristbands on both wrists", "energetic upward pose"],
+      "immutable_traits": ["wristbands on both wrists", "three fox tails", "number 13 on jersey", "sporty jersey and shorts"],
+      "negative_visuals": ["formal or elaborate clothing", "dark or muted colors", "cat ears"],
+      "expression_tendency": ["wide enthusiastic smile", "energetic open expression", "cheerful and lively"],
+      "age_appearance": "teenager (16)",
+      "palette_priority": {
+        "primary": "#60C0D0",
+        "secondary": "#40A0B0",
+        "accent": "#F0D000"
+      }
     }
   },
   {
@@ -1472,6 +1641,19 @@
           "about": "寝坊している主人を起こしているとき"
         }
       ]
+    },
+    "AIHints": {
+      "ai_tags": ["long blue hair", "fox ears", "four tails", "teal blazer", "red skirt", "pink inner", "tri-color"],
+      "silhouette_features": ["four branching fox tails", "long flowing blue hair", "teal blazer open over pink inner", "red skirt layered combination"],
+      "immutable_traits": ["four fox tails", "teal blazer", "tri-color combination (teal and red and pink)", "long blue hair"],
+      "negative_visuals": ["single-color outfit", "short hair", "warm-only palette", "cat ears"],
+      "expression_tendency": ["shy or tearful expression", "quiet subdued look", "sometimes visibly crying"],
+      "age_appearance": "teenager (16)",
+      "palette_priority": {
+        "primary": "#30A0B8",
+        "secondary": "#E04060",
+        "accent": "#F090A0"
+      }
     }
   },
   {
@@ -1596,6 +1778,19 @@
           "RelationLabel": ["cousin_nearly"]
         }
       ]
+    },
+    "AIHints": {
+      "ai_tags": ["pink ponytail", "fox ears", "five tails", "safety device harness on back", "pale jacket", "stoic expression"],
+      "silhouette_features": ["five branching fox tails", "right-side ponytail", "safety device harness mounted on back over pale jacket", "straight arms-crossed stance"],
+      "immutable_traits": ["right-side ponytail", "safety device harness always on back (adds weight)", "five fox tails", "mark or scar on right arm"],
+      "negative_visuals": ["twin ponytails", "no harness on back", "cheerful open expression", "cat ears"],
+      "expression_tendency": ["stoic barely-changing expression", "minimal facial movement", "arms crossed resting face"],
+      "age_appearance": "teenager to young adult (18)",
+      "palette_priority": {
+        "primary": "#F08090",
+        "secondary": "#70B060",
+        "accent": "#E03040"
+      }
     }
   },
   {
@@ -1713,6 +1908,19 @@
           "RelationLabel": ["classmate"]
         }
       ]
+    },
+    "AIHints": {
+      "ai_tags": ["very long pink hair", "fox ears", "six tails", "blue cap", "heart emblem", "pink color scheme"],
+      "silhouette_features": ["six branching fox tails", "very long wavy pink hair", "blue cap on head", "voluminous feminine silhouette"],
+      "immutable_traits": ["blue cap always on head", "very long pink hair", "six fox tails", "heart-shaped emblem on outfit"],
+      "negative_visuals": ["short hair", "no hat", "cat ears"],
+      "expression_tendency": ["self-conscious shy smile", "uncertain or slightly worried expression"],
+      "age_appearance": "young adult (~18)",
+      "palette_priority": {
+        "primary": "#F06080",
+        "secondary": "#F090B0",
+        "accent": "#5080C0"
+      }
     }
   },
   {
@@ -1822,6 +2030,19 @@
           "RelationLabel": ["classmate"]
         }
       ]
+    },
+    "AIHints": {
+      "ai_tags": ["short blue indigo hair", "fox ears", "seven tails", "square hair pin", "purple gray shirt", "red pants", "androgynous"],
+      "silhouette_features": ["seven branching fox tails", "short bob blue-indigo hair", "square pin hair accessory on side", "casual shirt and straight pants with androgynous silhouette"],
+      "immutable_traits": ["square-shaped hair pin", "seven fox tails", "blue-indigo hair color", "androgynous build and presentation"],
+      "negative_visuals": ["long hair", "elaborate dress", "cat ears"],
+      "expression_tendency": ["calm composed look", "hand raised near face gesture", "cool low-key demeanor"],
+      "age_appearance": "young adult (22)",
+      "palette_priority": {
+        "primary": "#5060C0",
+        "secondary": "#8080A0",
+        "accent": "#E04040"
+      }
     }
   },
   {
@@ -1918,6 +2139,19 @@
           "RelationLabel": ["classmate"]
         }
       ]
+    },
+    "AIHints": {
+      "ai_tags": ["short brown dark red hair", "fox ears", "eight tails", "red pin in hair", "right eye often closed", "blazer", "skirt"],
+      "silhouette_features": ["eight branching fox tails", "short brown hair with red clip", "blazer over shirt with skirt", "one eye frequently closed"],
+      "immutable_traits": ["right eye frequently half-closed or closed", "red hair pin or clip", "eight fox tails", "brown dark-red hair color"],
+      "negative_visuals": ["both eyes fully open and wide", "no hair accessories", "cat ears"],
+      "expression_tendency": ["stern with right eye closed", "serious tight-lipped", "rare open emotions"],
+      "age_appearance": "young adult (20)",
+      "palette_priority": {
+        "primary": "#802010",
+        "secondary": "#D04060",
+        "accent": "#A060A0"
+      }
     }
   },
   {
@@ -2013,6 +2247,19 @@
           "RelationLabel": ["classmate"]
         }
       ]
+    },
+    "AIHints": {
+      "ai_tags": ["short brown red hair", "fox ears", "nine tails", "half-closed eyes", "black sleeveless top", "dark red wide pants"],
+      "silhouette_features": ["nine branching fox tails", "short messy brown-red hair", "sleeveless black top", "wide-leg dark red pants"],
+      "immutable_traits": ["habitually half-lidded eyes", "nine fox tails", "black top and dark red pants combination"],
+      "negative_visuals": ["wide-open eyes", "bright light-colored outfit", "cat ears"],
+      "expression_tendency": ["half-lidded cool calm", "cool collected rarely surprised", "low-key stoic"],
+      "age_appearance": "young adult (20)",
+      "palette_priority": {
+        "primary": "#901020",
+        "secondary": "#C03050",
+        "accent": "#F07080"
+      }
     }
   },
   {
@@ -2149,6 +2396,19 @@
           "about": "疲れて眠れない主人に対して"
         }
       ]
+    },
+    "AIHints": {
+      "ai_tags": ["silver white long hair", "fox ears", "two tails", "heart shaped hair motif", "white coat", "orange inner wear"],
+      "silhouette_features": ["two fox tails", "silver-white hair with heart-shaped highlight section", "long white open coat over gray-orange inner"],
+      "immutable_traits": ["heart-shaped hair motif or highlight", "two fox tails", "white outer coat", "number 20 belt emblem"],
+      "negative_visuals": ["dark hair color", "no heart motif in hair", "cat ears"],
+      "expression_tendency": ["serene gentle smile", "warm and kind expression", "softly reassuring"],
+      "age_appearance": "teenager",
+      "palette_priority": {
+        "primary": "#E0E0E0",
+        "secondary": "#F0C060",
+        "accent": "#D0C0A0"
+      }
     }
   },
   {
