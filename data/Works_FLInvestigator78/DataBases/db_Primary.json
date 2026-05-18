@@ -2,7 +2,7 @@
   {
     "Card": { "Stoat": "Major", "StoatNum": 0, "Num": 0 },
     "Progress": "released(beta)",
-    "Images": { "cardDesign_PNGName": "crddsn_imgFLM0-sample" },
+    "Images": { "cardDesign_PNGName": "crddsn_imgFLM0" },
     "Name": "フェニクス",
     "Name_EN": "Tripper",
     "FormalName": "愚かな旅人\nフェニクス.ゼロウス",
@@ -37,7 +37,7 @@
   {
     "Card": { "Stoat": "Major", "StoatNum": 1, "Num": 1 },
     "Progress": "released(beta)",
-    "Images": { "cardDesign_PNGName": "crddsn_imgFLM1-sample" },
+    "Images": { "cardDesign_PNGName": "crddsn_imgFLM1" },
     "Name": "オリジン",
     "Name_EN": "Dr.Origin",
     "FormalName": "四元の魔術師\nオリジン.マギカルテット",
@@ -105,7 +105,7 @@
   {
     "Card": { "Stoat": "Major", "StoatNum": 3, "Num": 3 },
     "Progress": "released(beta)",
-    "Images": { "cardDesign_PNGName": "crddsn_imgFLM3-sample" },
+    "Images": { "cardDesign_PNGName": "crddsn_imgFLM3" },
     "Name": "ウェヌス",
     "Name_EN": "Venus",
     "FormalName": "九星の女帝\nウェヌス.ハピネス",
@@ -140,7 +140,7 @@
   {
     "Card": { "Stoat": "Major", "StoatNum": 8, "Num": 8 },
     "Progress": "released(beta)",
-    "Images": { "cardDesign_PNGName": "crddsn_imgFLM8-sample" },
+    "Images": { "cardDesign_PNGName": "crddsn_imgFLM8" },
     "Name": "リオン",
     "Name_EN": "Lion",
     "FormalName": "力の獅子遣い\nリオン.インフィニティ",
@@ -175,7 +175,7 @@
   {
     "Card": { "Stoat": "Major", "StoatNum": 9, "Num": 9 },
     "Progress": "released(beta)",
-    "Images": { "cardDesign_PNGName": "crddsn_imgFLM9-sample" },
+    "Images": { "cardDesign_PNGName": "crddsn_imgFLM9" },
     "Name": "ヴェール",
     "Name_EN": "Veil",
     "FormalName": "秘匿の隠者\nヴェール.コンセントレイト",
