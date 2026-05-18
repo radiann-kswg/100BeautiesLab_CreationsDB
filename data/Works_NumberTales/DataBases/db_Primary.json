@@ -2502,6 +2502,19 @@
           "RelationLabel": ["classmate"]
         }
       ]
+    },
+    "AIHints": {
+      "ai_tags": ["fox ears", "branching fox tails", "oversized coat", "young teenager", "energetic", "neutral gender presentation", "short stature"],
+      "silhouette_features": ["2-tail branching: 1 upper trunk forking into 2 bundles + 1 single lower tail", "oversized coat creates wide-shoulder silhouette", "small compact frame (H148)", "fox ears pointing slightly outward"],
+      "immutable_traits": ["orange oversized coat/jacket", "fox ears", "2-tail branching structure", "number badge '21'"],
+      "negative_visuals": ["no cat ears", "no hair twin-tails", "no dark or cold color palette"],
+      "expression_tendency": ["energetic wide smile", "innocent curious expression", "determined or playful look"],
+      "age_appearance": "young teenager (14)",
+      "palette_priority": {
+        "primary": "warm salmon orange",
+        "secondary": "cream / light beige",
+        "accent": "light golden yellow"
+      }
     }
   },
   {
@@ -2626,6 +2639,19 @@
           "about": "主人と食事中"
         }
       ]
+    },
+    "AIHints": {
+      "ai_tags": ["fox ears", "scorpion-type tails (NOT fox tails)", "gold dress", "star hair ornament", "gentle expression", "large bust"],
+      "silhouette_features": ["2 scorpion-type tails (each with 11 segments/nodes), curling in large arc around the body (NOT fox tails)", "tails are segmented like a scorpion stinger, NOT fluffy fox tails", "layered golden dress with ribbon sash at waist"],
+      "immutable_traits": ["scorpion-type segmented tails (NEVER fox-type)", "pale golden hair with star ornament", "gold-yellow layered dress with sash", "gentle soft expression"],
+      "negative_visuals": ["NO regular fox tails", "no cat ears", "no straight or pointed tails", "no dark or cold primary colors"],
+      "expression_tendency": ["gentle dreamy soft smile", "curiously amused expression", "rarely shows sharp or combative expression"],
+      "age_appearance": "teenager (16)",
+      "palette_priority": {
+        "primary": "vivid gold / amber yellow",
+        "secondary": "cream white / pale gold",
+        "accent": "warm yellow"
+      }
     }
   },
   {
@@ -2730,6 +2756,19 @@
           "RelationLabel": ["cousin_nearly"]
         }
       ]
+    },
+    "AIHints": {
+      "ai_tags": ["fox ears", "branching fox tails", "green hoodie", "athletic outfit", "energetic", "sports-oriented"],
+      "silhouette_features": ["3 branching fox tails (upper: 2 trunks each forking into 2 bundles; lower: 1 single tail)", "hoodie adds volume to upper body", "athletic wide-leg pants", "energetic active stance"],
+      "immutable_traits": ["mint green fox ears and hair", "green hoodie/jacket with '23' marking", "sporty athletic outfit"],
+      "negative_visuals": ["no formal dress", "no long flowing hair", "no pink or red primary coloring", "no passive expression"],
+      "expression_tendency": ["confident adventurous smile", "mischievous or self-assured grin", "energetic determined look"],
+      "age_appearance": "~teenager (16)",
+      "palette_priority": {
+        "primary": "mint green / seafoam",
+        "secondary": "yellow-green",
+        "accent": "bright yellow"
+      }
     }
   },
   {
@@ -2825,6 +2864,19 @@
           "RelationLabel": ["classmate"]
         }
       ]
+    },
+    "AIHints": {
+      "ai_tags": ["fox ears", "branching fox tails", "long pink hair", "heart-shaped hair ornament", "layered skirt", "blue neckerchief", "reserved expression"],
+      "silhouette_features": ["4 branching fox tails (upper: 2 trunks each forking into 2 bundles; lower: 2 single tails)", "tall frame (H158)", "long flowing pink hair with heart-shaped side ornament", "layered skirt adding width at lower body"],
+      "immutable_traits": ["long soft pink hair with heart-shaped side ornament", "blue scarf or neckerchief", "layered pink-mauve skirt and top"],
+      "negative_visuals": ["no sporty outfit", "no short hair", "no dark bold primary colors", "no aggressive expression"],
+      "expression_tendency": ["reserved or quietly thoughtful expression", "occasionally worried or reluctant look", "rarely shows strong emotion openly"],
+      "age_appearance": "teenager (17)",
+      "palette_priority": {
+        "primary": "warm pink / light rose",
+        "secondary": "lavender / dusty mauve",
+        "accent": "blue / teal"
+      }
     }
   },
   {
@@ -2969,6 +3021,19 @@
           "about": "疲れて眠れない主人に対して"
         }
       ]
+    },
+    "AIHints": {
+      "ai_tags": ["fox ears", "branching fox tails", "armored bodysuit", "dark gloves", "leaf scarf accessory", "athletic dynamic pose", "large bust"],
+      "silhouette_features": ["5 branching fox tails (upper: 2 trunks each forking into 2 bundles; lower: 3 single tails)", "armored bodysuit with angular metallic leg elements", "leaf-like scarf/accessory at neck", "dynamic or reclining athletic pose"],
+      "immutable_traits": ["steel blue short hair with sharp fox ears", "dark armored bodysuit", "dark blue gloves", "leaf-like scarf accessory at neck"],
+      "negative_visuals": ["no warm colors as primary", "no dress or skirt", "no gentle passive pose", "no light fluffy styling"],
+      "expression_tendency": ["sharp confident expression", "occasionally surprised or intensely focused look", "rarely shows weakness or timidity"],
+      "age_appearance": "teenager (16)",
+      "palette_priority": {
+        "primary": "deep steel blue / dark teal",
+        "secondary": "grey / silver",
+        "accent": "teal / dark cyan"
+      }
     }
   },
   {
@@ -3092,6 +3157,19 @@
           "about": "女性本能が出ている時（甘やかし or 16(ソロク)相手）"
         }
       ]
+    },
+    "AIHints": {
+      "ai_tags": ["fox ears", "branching fox tails", "long pink hair", "sleeveless turtleneck", "maxi skirt", "mature figure", "gentle expression", "large bust"],
+      "silhouette_features": ["6 branching fox tails (upper: 2 trunks each forking into 2 bundles; lower: 4 single tails; very full fluffy tail volume)", "tall mature frame", "long flowing maxi skirt creating elegant silhouette", "long wavy hair framing figure"],
+      "immutable_traits": ["long soft wavy pink hair", "pink sleeveless turtleneck top", "long rose-pink maxi skirt", "gentle maternal expression"],
+      "negative_visuals": ["no athletic outfit", "no short hair", "no cold or dark primary colors", "no aggressive or confrontational expression"],
+      "expression_tendency": ["gentle nurturing smile", "warm tender expression", "occasionally flustered or subtly competitive look"],
+      "age_appearance": "~adult (22)",
+      "palette_priority": {
+        "primary": "rose pink / deep blush",
+        "secondary": "soft pink / light rose",
+        "accent": "peach-orange"
+      }
     }
   },
   {
@@ -3193,6 +3271,19 @@
         },
         { "Num": 90, "Comments": "「最終局面は見どころだと思う」" }
       ]
+    },
+    "AIHints": {
+      "ai_tags": ["fox ears", "branching fox tails", "glasses", "blue hair", "school uniform style", "pleated skirt", "collected expression"],
+      "silhouette_features": ["7 branching fox tails (upper: 2 trunks each forking into 2 bundles; lower: 5 single tails; large tail volume flanking both sides)", "short blue hair with side ponytail", "white button-front blouse, purple pleated skirt", "blue lace-up ankle boots"],
+      "immutable_traits": ["glasses (thin-frame rectangular)", "short blue hair with side ponytail", "white blouse with round collar buttons", "purple pleated skirt"],
+      "negative_visuals": ["no glasses removal", "no flamboyant accessories", "no bright flashy colors", "no revealing outfit"],
+      "expression_tendency": ["calm composed analytical expression", "sharp focused look when serious", "rarely shows strong emotion; battle-mode when pushed"],
+      "age_appearance": "teenager (17)",
+      "palette_priority": {
+        "primary": "slate blue / steel blue",
+        "secondary": "soft blue-grey / periwinkle",
+        "accent": "deep violet / purple"
+      }
     }
   },
   {
@@ -3298,6 +3389,19 @@
           "RelationLabel": ["classmate"]
         }
       ]
+    },
+    "AIHints": {
+      "ai_tags": ["fox ears", "branching fox tails", "amber hair", "dangling earrings", "mathematical body tattoo", "curvy tall figure", "two outfit variants"],
+      "silhouette_features": ["8 branching fox tails (upper: 2 trunks each forking into 2 bundles; lower: 6 single tails; massive fluffy tail volume)", "tall curvy frame (H164)", "off-duty: large orange ribbon bow at waist; on-duty: red blazer", "prominent dangling earrings on both ears"],
+      "immutable_traits": ["dangling spiral/clover-shaped earrings (NEVER changed or removed)", "wavy orange hair", "mathematical '28' equation visible on body", "earrings present regardless of outfit"],
+      "negative_visuals": ["no earring absence", "no slender flat frame depiction", "no cool or cold primary colors"],
+      "expression_tendency": ["slightly surly or disinterested default expression", "occasionally genuinely touched or vulnerable look", "subtly frustrated or resigned"],
+      "age_appearance": "young adult (22)",
+      "palette_priority": {
+        "primary": "amber orange / warm orange",
+        "secondary": "cream / warm white",
+        "accent": "dark orange / sienna"
+      }
     }
   },
   {
@@ -3425,6 +3529,19 @@
           "about": "慣れない機械を操作している時"
         }
       ]
+    },
+    "AIHints": {
+      "ai_tags": ["fox ears", "branching fox tails", "long blue-lavender hair", "cape or mantle", "bow ribbon at neck", "anxious expression", "medium-large bust"],
+      "silhouette_features": ["9 branching fox tails (upper: 2 trunks each forking into 2 bundles; lower: 7 single tails; massive tail volume)", "long flowing hair creating soft silhouette", "cape-like lavender outer vestment", "bow ribbon accent at neckline"],
+      "immutable_traits": ["long soft blue-lavender hair", "lavender cape or vestment", "purple bow ribbon at neck", "timid downcast or anxious expression"],
+      "negative_visuals": ["no aggressive or confident expression", "no short hair", "no warm or bright accent colors", "no bold or angular styling"],
+      "expression_tendency": ["shy or anxious default expression", "worried or cowering look", "occasionally gently relieved or softly smiling when safe"],
+      "age_appearance": "teenager (16)",
+      "palette_priority": {
+        "primary": "dusty blue / periwinkle",
+        "secondary": "grey-blue / pale lavender",
+        "accent": "soft purple / muted lilac"
+      }
     }
   },
   {
@@ -3514,6 +3631,19 @@
         { "Num": 63, "Comments": "「すごく優しくて落ち着く」" },
         { "Num": 93, "Comments": "「無理しないでね…？」" }
       ]
+    },
+    "AIHints": {
+      "ai_tags": ["fox ears", "standard fox tails (non-branching)", "long wavy golden hair", "hair bow ornament", "apron dress", "warm cheerful expression", "large bust", "precocious young appearance"],
+      "silhouette_features": ["3 STANDARD fox tails (NOT branching type; fluffy and round)", "long wavy golden-orange hair with large white bow ornament", "apron-style dress with rounded collar", "wrist bracelet accessory"],
+      "immutable_traits": ["long golden-orange wavy hair with white bow ornament", "yellow-orange apron dress", "wrist bracelet accessory", "3 standard non-branching fox tails"],
+      "negative_visuals": ["no branching or forking tail structure", "no dark or cold primary colors", "no angular or sharp styling", "no short hair"],
+      "expression_tendency": ["warm cheerful smile", "slightly mature precocious expression", "occasionally comically serious or worried face"],
+      "age_appearance": "~teenager (17)",
+      "palette_priority": {
+        "primary": "golden orange / warm amber",
+        "secondary": "bright yellow",
+        "accent": "cream white / warm white"
+      }
     }
   },
   {
@@ -3616,6 +3746,19 @@
           "RelationLabel": ["classmate"]
         }
       ]
+    },
+    "AIHints": {
+      "ai_tags": ["fox ears", "branching fox tails (inverted lower structure)", "goggles", "short blue-cyan hair", "athletic outfit", "tomboy presentation", "small stature"],
+      "silhouette_features": ["3 branching fox tails with INVERTED structure: upper has 2 individual single trunks; lower has 1 trunk forking into 2 bundles (fork is at the BOTTOM)", "red-frame goggles pushed up on forehead", "sporty athletic build, smallest frame (H147)", "thigh-high socks with boots"],
+      "immutable_traits": ["red-frame goggles (always present on forehead or head)", "short blue-cyan hair", "sporty athletic outfit with '31' marking", "yellow shorts as key color accent"],
+      "negative_visuals": ["no dress or skirt", "no glasses (goggles instead)", "no formal wear", "no gentle feminine styling", "no long hair"],
+      "expression_tendency": ["energetic grin or determined competitive expression", "occasionally surprised or shocked look", "confident sporting attitude"],
+      "age_appearance": "teenager (16)",
+      "palette_priority": {
+        "primary": "teal / cyan blue",
+        "secondary": "bright yellow",
+        "accent": "red (goggles accent)"
+      }
     }
   },
   {
@@ -3713,6 +3856,19 @@
           "RelationLabel": ["classmate"]
         }
       ]
+    },
+    "AIHints": {
+      "ai_tags": ["fox ears", "branching fox tails (double lower-fork structure)", "mint green hair", "casual jacket", "energetic gesture", "gender-neutral presentation"],
+      "silhouette_features": ["3 branching fox tails with double-inverted structure: upper has 1 single trunk; lower has 2 trunks each forking into 2 bundles", "casual open-collar jacket with yellow diagonal accent stripe", "wide-leg yellow pants creating relaxed silhouette", "energetic pointing gesture"],
+      "immutable_traits": ["short mint green hair with fox ears", "casual open jacket with yellow diagonal stripe", "wide-leg yellow pants", "energetic self-assured gesture"],
+      "negative_visuals": ["no formal dress", "no feminine styling", "no long hair", "no dark heavy coloring as primary"],
+      "expression_tendency": ["confident winking or mischievous pointing expression", "lively enthusiastic grin", "occasionally shocked or surprised look"],
+      "age_appearance": "~teenager (16)",
+      "palette_priority": {
+        "primary": "mint green / seafoam",
+        "secondary": "bright yellow",
+        "accent": "seafoam white / light teal"
+      }
     }
   },
   {
@@ -3815,6 +3971,19 @@
           "Comments": "「因果応報とは言いますが、過信しすぎでは？」"
         }
       ]
+    },
+    "AIHints": {
+      "ai_tags": ["fox ears", "fan-shaped fox tails (2-bundle x 3 tails)", "long braided hair", "pointed hat", "pink dress", "haughty expression (online mode)", "teary regression (offline mode)"],
+      "silhouette_features": ["3 large fan-shaped tails each with 2 sub-bundles (wide spreading fan/petal formation, NOT standard branching or single tails)", "very long thick braid with oversized pink bow ribbon", "tall pointed peaked hat", "full-skirted pink dress with layered ruffle collar"],
+      "immutable_traits": ["long orange-pink hair in thick braid with large pink bow", "tall pointed peaked hat", "pink layered dress with red belt and white ruffle collar", "fan-shaped tail formation"],
+      "negative_visuals": ["no short hair", "no subdued modest outfit", "no ordinary non-pointed hat", "no masculine styling"],
+      "expression_tendency": ["haughty commanding pose with extended arm (confident/online mode)", "teary crumpled expression (vulnerable/offline mode)", "strongly dual emotional modes"],
+      "age_appearance": "young teenager (15)",
+      "palette_priority": {
+        "primary": "salmon pink / light coral",
+        "secondary": "warm peach / orange-pink",
+        "accent": "red / deep magenta"
+      }
     }
   },
   {
@@ -3914,6 +4083,19 @@
         { "Num": 40, "Comments": "「なんかずるいわアイツ…」" },
         { "Num": 70, "Comments": "「ようわからんけどやりおるな…」" }
       ]
+    },
+    "AIHints": {
+      "ai_tags": ["fox ears", "branching fox tails (triple upper trunk)", "dark blue hair", "athletic jersey", "backpack", "small stature", "scheming expression"],
+      "silhouette_features": ["4 branching fox tails (upper: 3 trunks each forking into 2 bundles; lower: 1 single tail; this triple-upper-trunk structure begins from the 30s group)", "small compact frame (H143)", "athletic tank top numbered '34', blue shorts", "backpack on back"],
+      "immutable_traits": ["short dark navy blue hair with upward fox ears", "athletic numbered jersey '34'", "backpack", "scheming grinning expression"],
+      "negative_visuals": ["no formal wear", "no gentle expression", "no pink or warm primary colors", "no long hair"],
+      "expression_tendency": ["scheming plotting grin (signature expression)", "occasionally sorrow or genuinely worried look", "energetic flamboyant expression"],
+      "age_appearance": "~young teenager (15)",
+      "palette_priority": {
+        "primary": "dark navy blue",
+        "secondary": "sky blue / medium blue",
+        "accent": "golden yellow"
+      }
     }
   },
   {
@@ -4017,6 +4199,19 @@
           "RelationLabel": ["classmate"]
         }
       ]
+    },
+    "AIHints": {
+      "ai_tags": ["fox ears", "branching fox tails (triple upper trunk, angular tips)", "orange hair", "two outfit variants", "shrine maiden miko outfit", "calm expression", "smallest of 30s group"],
+      "silhouette_features": ["5 branching fox tails (upper: 3 trunks each forking into 2 bundles; lower: 2 single tails; angular jagged tail tips)", "two outfit variants: usual (orange sleeveless vest + slacks + necktie) / miko (white robe + orange hakama + gohei stick)", "smallest of the 30s group (H139)", "calm poised posture"],
+      "immutable_traits": ["medium orange hair with fox ears", "usual mode: orange sleeveless vest with necktie", "miko mode: white top + orange hakama + gohei", "calm composed professional expression"],
+      "negative_visuals": ["no dark or cold primary colors", "no elaborate jewelry", "no exaggerated emotional expression", "no dramatic long skirt in usual mode"],
+      "expression_tendency": ["calm reserved professional expression", "stoic composed demeanor", "occasionally mild surprise or concentration look"],
+      "age_appearance": "teenager (14)",
+      "palette_priority": {
+        "primary": "orange / amber",
+        "secondary": "pale lime / warm cream",
+        "accent": "dark orange / golden"
+      }
     }
   },
   {
@@ -4156,6 +4351,19 @@
           "about": "主人を心配しているとき"
         }
       ]
+    },
+    "AIHints": {
+      "ai_tags": ["fox ears", "branching fox tails (triple upper trunk)", "orange hair", "large flared fox ears", "Victorian lolita dress", "bow ribbon at chest", "elaborate feminine styling"],
+      "silhouette_features": ["6 branching fox tails (upper: 3 trunks each forking into 2 bundles; lower: 3 single tails)", "elaborate layered Victorian-lolita dress: orange bolero jacket + purple-pink button-front skirt with ruffle and lace", "bow ribbon accent at chest", "oversized fluffy flared fox ears (distinct from other characters)"],
+      "immutable_traits": ["orange short-medium hair with oversized fluffy fox ears (distinctly large and flared)", "Victorian-lolita style layered dress", "bow ribbon at chest", "elaborate button-front skirt with ruffle details"],
+      "negative_visuals": ["no sporty or casual outfit", "no simple modern clothing", "no short skirt", "no cold dark color palette"],
+      "expression_tendency": ["gentle caring tender smile", "occasionally worried or flustered look", "warm nurturing expression"],
+      "age_appearance": "teenager (16)",
+      "palette_priority": {
+        "primary": "warm amber / golden orange",
+        "secondary": "rose purple / plum",
+        "accent": "salmon pink / light coral"
+      }
     }
   },
   {
@@ -4287,6 +4495,19 @@
           "about": "休日に構って欲しい時"
         }
       ]
+    },
+    "AIHints": {
+      "ai_tags": ["fox ears", "branching fox tails (triple upper trunk)", "pink-salmon hair", "red blazer with blue trim", "yellow necktie", "earnest expression", "numbered pin"],
+      "silhouette_features": ["7 branching fox tails (upper: 3 trunks each forking into 2 bundles; lower: 4 single tails)", "red blazer with distinctive blue trim at hem and cuffs", "yellow necktie as key color accent", "'37' numbered pin on coat lapel", "white shorts visible under coat"],
+      "immutable_traits": ["short salmon-pink hair with fox ears", "red blazer coat with blue trim at hem", "yellow necktie", "numbered pin '37' on coat"],
+      "negative_visuals": ["no long hair", "no dark colors as primary", "no heavy armor or mechanical elements", "no cold or detached expression"],
+      "expression_tendency": ["earnest diligent expression as default", "when praised: visibly flustered or overjoyed", "determined studious look"],
+      "age_appearance": "young adult (19)",
+      "palette_priority": {
+        "primary": "salmon pink / coral red",
+        "secondary": "crimson red / deep red",
+        "accent": "golden yellow / royal blue"
+      }
     }
   },
   {
@@ -4448,6 +4669,19 @@
           "about": "信頼している主人が周りに馬鹿にされているとき"
         }
       ]
+    },
+    "AIHints": {
+      "ai_tags": ["fox BOY (male character)", "branching fox tails (triple upper trunk)", "amber-blonde hair", "long brown trench coat", "tall stature", "cool composed expression"],
+      "silhouette_features": ["9 branching fox tails (upper: 3 trunks each forking into 2 bundles; lower: 6 single tails; tails arranged in circular petal formation around body)", "tall masculine frame (H162)", "long dark brown coat/trench coat falling to knee length", "belt at waist, wide relaxed pants"],
+      "immutable_traits": ["short amber-blonde hair with fox ears", "long dark brown trench coat", "belt at waist", "calm cool composed masculine expression"],
+      "negative_visuals": ["no feminine presentation", "no bright warm primary colors", "no gentle soft expression", "no skirt or dress", "no flashy accessories"],
+      "expression_tendency": ["cool composed default expression", "sharp or coldly determined look", "rarely shows warmth openly; occasionally intensely serious"],
+      "age_appearance": "young adult (21)",
+      "palette_priority": {
+        "primary": "amber / golden-brown",
+        "secondary": "dark brown",
+        "accent": "cream / warm beige"
+      }
     }
   },
   {
@@ -4541,6 +4775,19 @@
           "RelationLabel": ["successor"]
         }
       ]
+    },
+    "AIHints": {
+      "ai_tags": ["fox ears", "standard fox tails (non-branching)", "teal side-braid", "magical emblem dress", "teal boots", "neutral resigned expression", "mystical genie aesthetic"],
+      "silhouette_features": ["4 STANDARD fox tails (NOT branching type; soft and round)", "teal side-braid as distinctive hairstyle feature", "long flowing teal-blue dress with glowing diamond/infinity magical emblem at chest and legs", "teal lace-up tall boots"],
+      "immutable_traits": ["teal side-braid hairstyle", "long blue dress with glowing magical emblem (diamond/infinity symbol)", "teal lace-up tall boots", "4 standard non-branching fox tails"],
+      "negative_visuals": ["no branching or forking tail structure", "no warm or pink primary colors", "no elaborate ruffles or frills", "no cheerful bright expression"],
+      "expression_tendency": ["neutral or slightly weary resigned expression", "occasionally annoyed or exasperated look", "very rarely genuinely overjoyed"],
+      "age_appearance": "teenager (16)",
+      "palette_priority": {
+        "primary": "teal / cerulean blue",
+        "secondary": "deep navy blue",
+        "accent": "pale icy teal / light cyan"
+      }
     }
   },
   {
