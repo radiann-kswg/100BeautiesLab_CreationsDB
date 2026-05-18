@@ -20,7 +20,6 @@
 - 2026-04-22_remaining-task.md
 - 2026-04-23_progress_requested-tasks-implementation-plan.md
 - 2026-05-11_progress_storyera-schema.md
-- 2026-05-15_progress_aihints-numbertales-1to40.md（進行中: #41〜 は未着手）
 
 補足:
 
@@ -29,7 +28,6 @@
 - 2026-04-21 に、`_Secondaries` の fallback 優先順位整理ログも完了扱いとして `.completed` へ退避しました。
 - 2026-04-22 時点で、`2026-03-31_remaining-task.md` に記載していた希望タスクはすべて完了しています。直下に残る progress ログは、ユーザー依頼による退避整理前の参照用です。
 - 2026-05-11 に、`StoryEra` / `Day` / `Era` の wrapper registry 化と SW/enrich summary 対応を `2026-05-11_progress_storyera-schema.md` に追記しました。
-- 2026-05-15 に、NumberTales #1〜#40 への AIHints フィールド追加（#38除く 39件）を完了しました。詳細は `2026-05-15_progress_aihints-numbertales-1to40.md` を参照。
 - 2026-05-11 の棚卸しで、完了済みの `2026-03-31_remaining-task.md`、`2026-04-21_progress_multi-index-display.md`、`2026-04-22_progress_class-dict-migration.md`、`2026-04-22_progress_creationwork-meta-api-ui.md`、`2026-04-22_progress_dictionary-db-separation.md`、`2026-04-22_progress_schema-meta-docs.md`、`2026-04-23_progress_ui-output-tests.md`、`2026-04-30_progress_image-directory-migration.md` を `.completed` へ整理しました。
 
 ## 完了（.completed へ退避済み）
