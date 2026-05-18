@@ -27,6 +27,7 @@
 - UI の見た目崩れや表示漏れも、まず schema / meta で直せないかを確認します
 - Day / Era / StoryEra のような特殊 summary は、main code の個別 if を増やす前に `lib/wrapper-common.js` と `$display.wrapper` / `$display.role` で吸収できないかを確認します
 - `subFields` の standalone section 描画も、field 名依存の if を増やす前に `lib/section-wrapper-common.js` と `$display.sectionWrapper` で吸収できないかを確認します
+- `pages/characters.js` には可能な限り全 field 共通の bridge / dispatch / fallback だけを残し、field 固有の表示ロジックは `lib/wrapper-common.js` / `lib/section-wrapper-common.js` の built-in handler へ寄せます
 
 ---
 
@@ -58,6 +59,10 @@
 - `Day` / `Era` / `StoryEra` の summary は、可能な限り `lib/wrapper-common.js` の shared wrapper registry へ寄せ、`pages/characters.js` では wrapper 解決を先に試します
 - `subFields` にまとめる top-level 項目で独自 section 描画が必要な場合は、可能な限り `lib/section-wrapper-common.js` の shared section renderer registry へ寄せ、`pages/characters.js` では `sectionWrapper` 解決を先に試します
 - `Relation` / `RelationToPrimary` のように comment 整形・ラベル辞書解決・直リンク組み立てを伴う section も、まず `lib/section-wrapper-common.js` の built-in renderer へ寄せ、`pages/characters.js` には DOM/format/navigation の core helper bridge だけを残します
+- standalone subField の折りたたみは non-text section のみを対象にし、初期状態は閉じたままを既定とします
+- primitive / `#String` / `#Summary` / `#Dialogue` は text-like とみなし、`hideText` wrapper object が入っても元の typedef が text-like なら non-collapsible を維持します
+- `hideText` は value masking であり、section renderer や wrapper の選択を変える理由にはしません
+- `lib/wrapper-common.js` / `lib/section-wrapper-common.js` の built-in handler・helper・公開 API を追加/変更した場合は、日本語注釈で context/helper 契約まで残します
 - object 形式の `#Index` は、既定で「一覧/直リンクは主要要素」「詳細/値表示は全要素」とし、必要なら子要素の `$display.index` で `list/detail/value/link/priority/order` を上書きします
 
 ### 2.2 API / SW 修正
@@ -118,6 +123,13 @@
 - 必要に応じて `docs/implementation-playbook.md`
 - 必要に応じて `.github/copilot-instructions.md`
 - 大きめの変更なら `_work_in_progress/YYYY-MM-DD_progress_<topic>.md`
+
+特に次は docs 同期漏れを避けます:
+
+- subscript 分離方針（main code に残す責務 / subscript へ移す責務）
+- standalone subField の折りたたみ規則
+- `hideText` で UI wrapper を変えないという判断基準
+- built-in handler の注釈ルール
 
 ### 3.2 API / SW の仕様が変わったとき
 

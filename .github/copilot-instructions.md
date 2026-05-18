@@ -47,6 +47,11 @@
 - **API/SW 技術説明の参照先**: API / SW 周辺の仕様整理や説明追加では、まず `docs/api-sw-spec.md` を参照・更新対象に含めてください。
 - **横断運用の参照先**: 実装判断の横断ルールは `docs/implementation-playbook.md` を先に確認し、必要な差分だけ追加してください。
 - **wrapper / section renderer の第一候補**: `Day` / `Era` / `StoryEra` のような複合 summary は、`pages/characters.js` や `lib/sw-common.js` に field 名依存の if を足す前に、`lib/wrapper-common.js` と schema の `$display.wrapper` / `$display.role` で吸収できないかを確認してください。`subFields` の standalone 描画も同様に、`pages/characters.js` に field 名依存の if を足す前に `lib/section-wrapper-common.js` と schema の `$display.sectionWrapper` で吸収できないかを確認してください。
+- **main code / subscript 分離原則**: `pages/characters.js` には可能な限り全 JSON field 共通の API bridge / renderer dispatch / generic fallback だけを残し、field 固有の特殊処理は `lib/wrapper-common.js` または `lib/section-wrapper-common.js` の built-in handler へ寄せてください。`Relation` のように DOM 組み立て・辞書解決・直リンク生成を伴う処理も同様です。
+- **subscript helper の渡し方**: built-in section renderer / wrapper が main code の helper を必要とする場合は、`helpers.relationApi` のような名前付き API object としてまとめて渡し、subscript 側に散発的な global 依存を増やさないでください。
+- **subField 折りたたみ規則**: standalone subField の折りたたみ UI は「non-text section のみ」「初期状態は閉じる」を既定とします。primitive / `#String` / `#Summary` / `#Dialogue` は折りたたみ対象にせず、`hideText` を指定した場合も元の typedef が text-like なら折りたたみ有無を変えないでください。
+- **hideText の表示経路維持**: `hideText` は value masking であり、section 種別や UI wrapper を変更する理由にはしません。`hideText` wrapper object が入っても、元の typedef が string/summary/dialogue 系なら text-like な表示ルートを維持してください。
+- **subscript 注釈ルール**: User が編集可能な `lib/wrapper-common.js` / `lib/section-wrapper-common.js` の built-in handler・helper・公開 API を追加/変更した場合は、他ファイルと同様に日本語の JSDoc / 注釈を付け、期待する context/helper 契約をファイル内で追える状態にしてください。
 - **catalog summary の生成規則**: works / db カタログの summary 追加は、可能な限り `$MetaType.$Def_DatabaseCatalog` を基準に `${hashTag}Summary` を自動生成する方式へ寄せ、`StoryEra` など特定 field の個別ハードコードを増やさないでください。
 - **enrich summary の生成規則**: wrapper 対象の top-level field を SW/UI で再利用したい場合は、個別 field を別キーへ複製する前に `lib/data-common.js` の `_enrichment.wrapperSummaries` を使える形に寄せてください。
 

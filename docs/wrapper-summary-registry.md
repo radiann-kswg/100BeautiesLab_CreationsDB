@@ -50,6 +50,12 @@
 
 `relationSection` は 2026-05-15 時点で、`pages/characters.js` にあった `Relation` / `RelationToPrimary` の個別表示ロジック本体も吸収しています。`characters.js` 側は DOM/format/navigation の core helper を渡す bridge に留め、relation label 解決・comment 整形・index link 組み立て・standalone wrapper への接続は `lib/section-wrapper-common.js` 側で処理します。
 
+重要な運用ルール:
+
+- `pages/characters.js` には、可能な限り renderer 選択・共通 fallback・共通 helper bridge だけを残します。
+- field 固有の分岐が 1 つの top-level field や 1 種の typedef に閉じるなら、まず `lib/wrapper-common.js` / `lib/section-wrapper-common.js` の built-in handler へ寄せます。
+- built-in handler を追加・更新したら、User が後で追えるよう日本語の JSDoc / 注釈で context と helper 契約を明示します。
+
 ### 2.2 schema 側の宣言
 
 - `data/db_type.json`
@@ -80,7 +86,20 @@
 
 relation renderer のように built-in 側へ本体実装を寄せる場合は、必要な core helper を `helpers.relationApi` のような名前付き API object として渡します。non-subField から built-in renderer を明示的に呼びたい場合は `CharacterSectionRendererRegistry.renderNamedSectionRenderer(name, item, context)` を使えます。
 
-を渡して section renderer 解決を行い、Node が返ればそれを採用します。
+これらを渡して section renderer 解決を行い、Node が返ればそれを採用します。
+
+### 2.3.1 section renderer へ渡す helper の考え方
+
+- generic helper は `helpers.renderStructuredObjectSection` / `helpers.renderStatsSection` のように単機能で渡します。
+- built-in renderer が DOM 生成・辞書解決・navigation など複数責務の core helper を必要とする場合は、`helpers.relationApi` のような名前付き API object に束ねて渡します。
+- subscript 側は「どの helper をどう組み合わせるか」を持ち、`window` や page-local state への直接依存はできるだけ bridge 側に閉じ込めます。
+
+### 2.3.2 `subFields` 折りたたみ UI の規則
+
+- standalone subField の折りたたみは UI shell 側の責務ですが、判定は schema-driven に保ちます。
+- 既定では non-text section のみ `details/summary` で包み、初期状態は閉じたまま表示します。
+- primitive / `#String` / `#Summary` / `#Dialogue` は text-like とみなし、折りたたみ対象にしません。
+- `hideText` を使って object wrapper へ変わっても、元の typedef が text-like なら折りたたみ有無も表示ルートも変えません。
 
 ### 2.4 SW / enrich 側の利用
 
@@ -215,6 +234,11 @@ format(value, context);
 - `helpers.pickRoleRawValue()` で値を読めないか
 - DB カタログや enrich 側なら generic な summary 集約へ寄せられないか
 - `subFields` の standalone 描画なら `lib/section-wrapper-common.js` へ寄せられないか
+
+補足:
+
+- `Relation` のように従来 main code に置いていた field 専用の DOM 組み立ても、必要な helper を named API object として渡せるなら built-in section renderer 側へ移せます。
+- `hideText` 対応で object wrapper が増えた場合も、先に「元の typedef が何型か」を見て、section 種別や折りたたみ判定を変えないで済まないかを確認します。
 
 ### 6.3 docs 同期先
 

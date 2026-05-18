@@ -469,6 +469,35 @@ describe('pages/characters.js UI output', () => {
     expect(isCollapsibleSubFieldSection('Relation')).toBe(true);
   });
 
+  it('keeps string-like subFields non-collapsible when hideText wraps the stored value', async () => {
+    const customGlobalMeta = structuredClone(globalMeta);
+    customGlobalMeta.CreationWorks['#Works_NumberTales'].$DetailLayout.subFields = ['NumerospecAbout'];
+
+    charactersModule.__setCharactersTestState({
+      globalMeta: customGlobalMeta,
+      charState: {
+        db: 'Secondary',
+        workId: '#Works_NumberTales',
+        records: numberTalesSecondaryRecords,
+        workTypeDef: numberTalesWorkTypeDef,
+        globalTypeDef,
+        workMeta: numberTalesWorkMeta,
+        imageFields: []
+      }
+    });
+
+    await charactersModule.renderDetail('#Works_NumberTales', {
+      ...hexademicalRecord,
+      NumerospecAbout: { hideText: '極秘事項' }
+    });
+
+    const numerospecAboutSection = getSubFieldSectionNode('NumerospecAbout');
+    expect(numerospecAboutSection).not.toBeNull();
+    expect(isCollapsibleSubFieldSection('NumerospecAbout')).toBe(false);
+    expect(numerospecAboutSection?.textContent || '').toContain('極秘事項');
+    expect(numerospecAboutSection?.textContent || '').not.toContain('hideText');
+  });
+
   it('renders NumberTales stats as standalone subField sections driven by detail layout', async () => {
     charactersModule.__setCharactersTestState({
       charState: {

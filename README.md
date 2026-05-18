@@ -38,7 +38,7 @@
 
 - ③**作者の活動を著しく妨害する行為への運用**
   （サーバへの攻撃、有料配布されたコンテンツの無断転載・転売、
-  　 AI 生成/学習により著作権の侵害に著しく関与し作品全体の信用を失うような運用 など。
+  　 著作権侵害・倫理違反に抵触し作品全体の信用を失うような運用 など。
   　**原作者からしたら普通に軽犯罪と同罪です。**）
 
 - ④**他クリエイターのガイドラインなどに違反する作品への起用**
@@ -84,15 +84,15 @@ http://creativecommons.org/licenses/by-nc/4.0/
 
 - (1) **Secondary creation that excessively infringes on R18G.**
   （i.g.: Excessive expressions of grotesque/gore to the extent that they cause physiological fear, use in horror works, etc.
-  　**becuz: Author will not be able to endure the various shocks.**）
+  　**because: Author will not be able to endure the various shocks.**）
 
 - (2) **Use in applications that may be judged to be malicious and expressions that seriously damage the impression of the work.**
   （i.e. False names of authorship, diversion with annotations that significantly damage the impression of the work, unauthorised commercial use, Acts that defame the reputation of others through offensive expressions such as hate acts, etc.
-  　**becuz: Author may be offended and this may hinder future creative activities.**）
+  　**because: Author may be offended and this may hinder future creative activities.**）
 
 - (3) **Operation against acts that seriously obstruct the author's activities.**
-  （i.g. Attacks on any server, unauthorised reprinting or resale of contents distributed for a fee, and operation that significantly engages in copyright infringement through AI generation/learning and causes the work as a whole to lose credibility, etc.
-  　**becuz: From the perspective of the author, these operations are usuallythe same as a misdemeanour.**）
+  （i.g. Attacks on any server, unauthorised reprinting or resale of contents distributed for a fee, and operation that significantly engages in copyright infringement or breach ethical standards as a whole to lose credibility, etc.
+  　**because: From the perspective of the author, these operations are usuallythe same as a misdemeanour.**）
 
 - (4) **Use of the work in violation of other creations' guidelines.**
 
