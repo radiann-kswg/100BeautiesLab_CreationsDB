@@ -1,0 +1,72 @@
+[
+  {
+    "Artifact": "応戦",
+    "Artifact_EN": "Responder",
+    "isForSecondary": false
+  },
+  {
+    "Artifact": "撹乱",
+    "Artifact_EN": "Confuser",
+    "isForSecondary": false
+  },
+  {
+    "Artifact": "哨戒(狙撃)",
+    "Artifact_EN": "SentrySniper",
+    "isForSecondary": false
+  },
+  {
+    "Artifact": "哨戒(近接)",
+    "Artifact_EN": "SentryMelee",
+    "isForSecondary": false
+  },
+  {
+    "Artifact": "死守",
+    "Artifact_EN": "Defender",
+    "isForSecondary": false
+  },
+  {
+    "Artifact": "増幅",
+    "Artifact_EN": "Amplifier",
+    "isForSecondary": false
+  },
+  {
+    "Artifact": "支援",
+    "Artifact_EN": "Supporter",
+    "isForSecondary": false
+  },
+  {
+    "Artifact": "工作(狙撃)",
+    "Artifact_EN": "Aimer",
+    "isForSecondary": false
+  },
+  {
+    "Artifact": "工作(近接)",
+    "Artifact_EN": "BreakWorker",
+    "isForSecondary": false
+  },
+  {
+    "Artifact": "妨害",
+    "Artifact_EN": "Jammer",
+    "isForSecondary": false
+  },
+  {
+    "Artifact": "潜入",
+    "Artifact_EN": "Infiltrator",
+    "isForSecondary": false
+  },
+  {
+    "Artifact": "強襲",
+    "Artifact_EN": "Assaulter",
+    "isForSecondary": false
+  },
+  {
+    "Artifact": "遊撃",
+    "Artifact_EN": "Skirmisher",
+    "isForSecondary": false
+  },
+  {
+    "Artifact": "牽制",
+    "Artifact_EN": "Contender",
+    "isForSecondary": false
+  }
+]

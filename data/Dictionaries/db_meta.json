@@ -6,6 +6,12 @@
       "keyField": "Area",
       "compatListKey": "#List_Area"
     },
+    "#Dict_Artifact": {
+      "DB_Label": "技巧属性辞書",
+      "DB_Label_EN": "Artifact Dictionary",
+      "keyField": "Artifact",
+      "compatListKey": "#List_Artifact"
+    },
     "#Dict_Faction": {
       "DB_Label": "陣営辞書",
       "DB_Label_EN": "Faction Dictionary",

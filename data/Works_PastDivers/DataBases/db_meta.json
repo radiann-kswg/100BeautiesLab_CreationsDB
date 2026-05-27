@@ -420,6 +420,11 @@
               "Rank": "A"
             },
             {
+              "SafetyLevelText": "恐らく制御可能",
+              "SafetyLevelText_EN": "Probably Controllable",
+              "Rank": "A"
+            },
+            {
               "SafetyLevelText": "訓練中",
               "SafetyLevelText_EN": "Now training",
               "Rank": "B+"

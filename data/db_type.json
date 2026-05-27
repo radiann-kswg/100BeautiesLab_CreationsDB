@@ -83,11 +83,6 @@
     },
     { "hashTag": "FromArea", "$type": "$Def_BaseArea", "hashTag_JP": "出身地" },
     {
-      "hashTag": "BelongingArea",
-      "$type": "$Def_BaseArea",
-      "hashTag_JP": "活動拠点"
-    },
-    {
       "hashTag": "Class",
       "$type": "#DictIndex[]",
       "$dict": "Class",

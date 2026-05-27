@@ -57,6 +57,13 @@
       "hashTag": "ChronospecStats",
       "$type": [
         {
+          "hashTag": "Artifact",
+          "$type": "#DictIndex",
+          "$dict": "Artifact",
+          "hashTag_JP": "技巧属性",
+          "$display": { "section": "spec", "tagSpace": "creation" }
+        },
+        {
           "hashTag": "ChronoizedDecave",
           "$type": [
             { "hashTag": "Decave", "$type": "$EnumDef_Decave,$EnumLink" }
