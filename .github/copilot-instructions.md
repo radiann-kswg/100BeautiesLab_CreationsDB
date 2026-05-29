@@ -19,6 +19,11 @@
   - 原則: 進行中のログのみ `_work_in_progress/` 直下に残す
   - 退避先（`.completed`）への書き込み/移動は、ユーザーの依頼がある場合のみ行う
   - 整理（退避）を行った場合は、`_work_in_progress/README.md` の「進行中/完了」一覧も更新して見通しを維持する
+- **Copilot が一時的に生成するキャッシュ・出力ファイルは `./.cache/` 配下に格納してください。**
+  - 対象の目安: テスト実行のログ転送先（例: `test_output.txt` / `test_results.txt` / `test_out.log`）、デバッグ用ダンプ、一時的な中間生成ファイルなど。
+  - `./.cache/` は `.gitignore` 対象（Git 管轄外）です。リポジトリ直下や `data/` 等の管理対象ディレクトリに一時ファイルを直接書き出さないでください。
+  - フォルダが無い場合は作成して構いません（例: `New-Item -ItemType Directory -Force -Path .cache`）。
+  - ユーザーが明示的に別の出力先を指定した場合はその指示を優先します。
 - **重要な仕様変更時は `CHANGELOG.md` も更新してください。**
   - 対象の目安: Service Worker のルーティング/API、`lib/` の共通処理、参照解決（enrich/search）、`db_type.json`/`db_meta.json` の仕様、`pages/characters.js` の表示仕様など。
   - 原則: 変更と同じコミット/PR 内で `CHANGELOG.md` に追記し、必要に応じて `_work_in_progress/` に補足ログを残します。
