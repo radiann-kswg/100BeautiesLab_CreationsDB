@@ -2,11 +2,6 @@
 	"chat.tools.urls.autoApprove": {
 	"https://code.visualstudio.com": true,
 	"https://github.com/microsoft/vscode/wiki/*": true,
-	"https://cloud.google.com/load-balancing/docs/https/response-codes": true,
-	"https://cloud.google.com/load-balancing/docs/https": true,
-	"https://cloud.google.com/load-balancing/docs": true,
-	"https://cloud.google.com/load-balancing": true,
-	"https://cloud.google.com": true,
 	"https://*.google.com": true,
 	"https://github.com/radiann-kswg/100beautieslab_creationsdb/tree/develop/data/works_numbertales/databases": true,
 	"https://github.com/radiann-kswg/100beautieslab_creationsdb/tree/develop/data/works_numbertales": true,
