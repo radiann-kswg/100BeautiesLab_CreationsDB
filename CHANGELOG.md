@@ -1,5 +1,12 @@
 # 最新のリファクタリング・仕様変更履歴
 
+### 創作作品ガイドラインを言語別ファイルへ集約
+
+- 一次/二次創作ガイドラインの本文と「二次創作 OK/NG リスト」を、リポジトリ直下の `guideline.md`（日本語版・正本）および `guideline.en.md`（英語版）の 2 ファイルへ集約した。
+- 既存の文面は一言一句変更せずに移植し、OK/NG リストはこれまで PNG 画像で配布していた表を Markdown 表として書き起こした（既存の `SecondaryWorksPermissionList_*.png` ファイル自体はリポジトリに残置）。
+- `README.md` の冒頭ガイドライン章はリンクのみに簡略化し、`docs/guidelines.en.md`（paraphrased な英訳メモ）は重複回避のため削除した。
+- 併せて `CONTRIBUTING.md` / `.github/copilot-instructions.md` / `docs/README.md` を、ガイドラインの正本が `guideline.md` / `guideline.en.md` であることを示す表記に更新した。
+
 ### `subFields` の非文字列型 standalone section を折りたたみ UI 化
 
 - `pages/characters.js` は `data/db_meta.json` の `CreationWorks.*.$DetailLayout.subFields` により standalone 描画された top-level subField のうち、文字列表示型ではない section を `details/summary` ベースの折りたたみ UI で包むようにした。

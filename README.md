@@ -1,131 +1,28 @@
 (更新日/Updated on 2026.1.27)
 
-# 一次創作作品におけるガイドライン(日本語版)
+# 創作作品ガイドライン / Creation Works Guidelines
 
-## ライセンス
+百花繚乱研究所/100BeautiesLab. の一次/二次創作に関するライセンス・利用許可・違反行為・二次創作OK/NGリストは、以下の **言語別ガイドラインファイル** に集約しています。
 
-- **この 百花繚乱研究所 一次創作作品 は クリエイティブ・コモンズ 表示 - 非営利 4.0 国際 ライセンスの下に提供されています。**
-- **100BeautiesLab.(百花繚乱研究所) Primary Works/Creations © 2021-2022 by RadianN_kswg(ラジアン/柏木主税) is licensed under CC BY-NC 4.0**
-  http://creativecommons.org/licenses/by-nc/4.0/
+- 日本語版（正本）: [guideline.md](./guideline.md)
+- English version: [guideline.en.md](./guideline.en.md)
 
-## 利用許可について
-
-- 一次創作でありシリーズ名のタグ「 #運命線狐の記録 」「 #フィジカル 9 」「 #ナンバーテールズ 」「 #運命線探偵 OCTOGINTA 」「#運命線探偵 78」「 #獣爾騎兵 」「 #パストダイヴァー 」および「#豹変系女子」のいずれかが付与されている作品（以下、「一次創作作品」）の第三者による画像の利用は原則許可が必要です
-  （許可申請は[ホームページ](htps://www.numbertales-radiann.net) にて）
-
-# 二次創作作品におけるガイドライン
-
-## タグ活用について
-
-- 一次創作作品の登場キャラクターを元に二次創作をする場合は、「ラジアン(柏木主税)」の ホームページのアカウントリンクを明記するか、以下にある該当シリーズの二次創作タグを活用するようお願いします
-  （タグの明記は任意ですが、活用していただけると大変助かります！）
-
-* ①「ナンバーテールズ」シリーズ →「#ナンバーテールズの主人より」
-* ② その他のシリーズ作品 →「#運命線に届け」
-
-## 違反行為について
-
-以下について**一切の行為をガイドライン違反行為として禁止**します
-
-- ①**R18G に過度に抵触する二次創作**
-  （生理的恐怖を与える程の過剰なリョナ・ゴア表現およびホラー作品への起用 など。
-  　**原作者が様々なショックで耐久しきれなくなります。**）
-
-- ②**悪質と判断しかねない用途への運用　および作品の印象を著しく損なう表現**
-  （作者偽称、作品の印象を著しく損ねる注釈を記載した上での転用、無断での商用利用、
-  　および ヘイト行為などの攻撃的な表現により他者の名誉を棄損する行為 など。
-  　**原作者がﾌﾞﾁｷﾞﾚてしまい今後の創作活動に支障をきたす恐れがあります。**）、
-
-- ③**作者の活動を著しく妨害する行為への運用**
-  （サーバへの攻撃、有料配布されたコンテンツの無断転載・転売、
-  　 著作権侵害・倫理違反に抵触し作品全体の信用を失うような運用 など。
-  　**原作者からしたら普通に軽犯罪と同罪です。**）
-
-- ④**他クリエイターのガイドラインなどに違反する作品への起用**
-
-- ⑤**以下に記載の設定から著しく相違があり 公式設定について混乱を招きかねない描写**
-
-* [ナンバーテールズ公式サイト](http://www.numbertales-radiann.com)
-  （ある程度は黙認しますが、**明らかに公式設定から逸する二次創作はご遠慮願います。**）
-
-※なお 以上の違反行為を見かけた際は、まずラジアン(柏木主税)(メールアドレス：radiann.kswg6631＠gmail.com)にご一報ください。こちらから然るべき対応を取らせていただきます。
-
-## 二次創作作品の OK/NG リスト
-
-[二次創作作品の OK/NG リスト](./SecondaryWorksPermissionList_JP.png)
-
-# Primary Works Guideline (English Version)
-
-## LICENSE
-
-**100BeautiesLab.(百花繚乱研究所) Primary Works/Creations © 2021-2022 by RadianN_kswg(ラジアン/柏木主税) is licensed under CC BY-NC 4.0**
-http://creativecommons.org/licenses/by-nc/4.0/
-
-## Permissions
-
-- In principle, permission is required for third parties to use images of works that are primary works and are tagged with one of the following tags: #運命線狐の記録 (the Destiny Fox's Records), #フィジカル 9 (Physical-9), #ナンバーテールズ (NumberTales), #運命線探偵 OCTOGINTA (OCTOGINTA the Destiny Detectives), #運命線探偵 78 (the Fate-Line Investigators 78) #獣爾騎兵 (Shau'er Riders), #パストダイヴァー (PastDivers) or #豹変系女子 (Sinister Changing Girls) (hereinafter referred to as "Primary Works").
-  (For permission, please contact to these author "RadianN_kswg"("ラジアン(柏木主税)") ( [here](htps://www.numbertales-radiann.net/))).
-
-# Secondary Works Guideline
-
-## Tagging
-
-- if you would like to create a secondary works based on a character from a primary works, please provide a link to home page of these author:
-  "RadianN_kswg"("ラジアン(柏木主税)") .
-  (Although it is optional, we would appreciate it if you could make use of the following tags for the relevant series.)
-
-* (1) "#ナンバーテールズ" (NumberTales) series
-  　 → "#ナンバーテールズの主人より" (Dear NumberTales, From your Master)
-* (2) Others → "#運命線に届け" (Deliver to the Fate-Line).
-
-## Violations
-
-**The following acts ARE PROHIBITED AS VIOLATIONS of the guidelines**:
-
-- (1) **Secondary creation that excessively infringes on R18G.**
-  （i.g.: Excessive expressions of grotesque/gore to the extent that they cause physiological fear, use in horror works, etc.
-  　**because: Author will not be able to endure the various shocks.**）
-
-- (2) **Use in applications that may be judged to be malicious and expressions that seriously damage the impression of the work.**
-  （i.e. False names of authorship, diversion with annotations that significantly damage the impression of the work, unauthorised commercial use, Acts that defame the reputation of others through offensive expressions such as hate acts, etc.
-  　**because: Author may be offended and this may hinder future creative activities.**）
-
-- (3) **Operation against acts that seriously obstruct the author's activities.**
-  （i.g. Attacks on any server, unauthorised reprinting or resale of contents distributed for a fee, and operation that significantly engages in copyright infringement or breach ethical standards as a whole to lose credibility, etc.
-  　**because: From the perspective of the author, these operations are usuallythe same as a misdemeanour.**）
-
-- (4) **Use of the work in violation of other creations' guidelines.**
-
-- (5) **Depictions that differ significantly from the settings described on the following them and may lead to confusion about the official settings.**
-
-* [NumberTales Official Site](http://www.numbertales-radiann.com/) (JAPANESE ONLY)
-  （To a certain extent, we will tolerate, **but please refrain from creating derivative works that deviate too much from the official setting.**）
-
-※If you see any of the above violations, please inform "RadianN_kswg"("ラジアン(柏木主税)", e-mail address: radiann.kswg6631＠gmail.com) first. We will take appropriate action.
-
-## Secondary Works Permissions(OK/NG) List
-
-[Secondary Works Permissions List](./SecondaryWorksPermissionList_EN.png)
+> ガイドラインの本文（権利・運用上の重要情報）は上記ファイルが正です。GitHub Pages 上の UI / API などの導線や、リポジトリの技術情報は本 README に続けて記載しています。
 
 ---
 
 # README ナビゲーション / Navigation
 
-この README は、冒頭に **一次/二次創作ガイドライン（JP/EN）**、後半に **リポジトリの技術情報** をまとめています。
-
-> 注意: README 冒頭のガイドライン章（日本語/英語）は、権利・運用上の重要情報のため **作者が手動で管理**しています。
-> そのため、この章の本文は原則として編集せず、技術ドキュメント側で導線・補足・翻訳の整備を行います。
-
 - GitHub Pages トップ: https://database.numbertales-radiann.net/
 - まず閲覧する（UI）: https://database.numbertales-radiann.net/pages/characters.html
 - API（GUI 付）: https://database.numbertales-radiann.net/api/
 - 擬似 API: `https://database.numbertales-radiann.net/api/v1/*` / `https://database.numbertales-radiann.net/pages/v1/*` / `https://database.numbertales-radiann.net/svc/v1/*`
-- ガイドライン（GitHub で閲覧）: https://github.com/radiann-kswg/100BeautiesLab_CreationsDB#%E4%B8%80%E6%AC%A1%E5%89%B5%E4%BD%9C%E4%BD%9C%E5%93%81%E3%81%AB%E3%81%8A%E3%81%91%E3%82%8B%E3%82%AC%E3%82%A4%E3%83%89%E3%83%A9%E3%82%A4%E3%83%B3%E6%97%A5%E6%9C%AC%E8%AA%9E%E7%89%88
+- ガイドライン（日本語版）: [guideline.md](./guideline.md)
 - 閲覧者向けガイド: [docs/viewer-guide.md](docs/viewer-guide.md)
 - データ更新ガイドライン（編集者向け）: [docs/db-update-guidelines.md](docs/db-update-guidelines.md)
 - 第三者ポリシー（再配布/商用/AI 学習など）: [docs/third-party-policy.md](docs/third-party-policy.md)
 - English (technical README): [docs/readme.en.md](docs/readme.en.md)
-- English (guidelines translation): [docs/guidelines.en.md](docs/guidelines.en.md)
+- English (guidelines): [guideline.en.md](./guideline.en.md)
 
 # 当リポジトリについて(日本語版)
 
@@ -488,4 +385,4 @@ GitHub Pages 上で`data/` 配下のキャラクター情報に関するプロ�
 This README is primarily maintained in Japanese.
 
 - Full English technical README: [docs/readme.en.md](docs/readme.en.md)
-- English translation of the guidelines at the beginning of this README (reader-friendly): [docs/guidelines.en.md](docs/guidelines.en.md)
+- Creation works guidelines (EN, canonical): [guideline.en.md](./guideline.en.md)

@@ -28,4 +28,4 @@ Session-added references:
 ## English
 
 - Technical README (EN): `readme.en.md`
-- Guidelines translation aid (EN): `guidelines.en.md`
+- Creation works guidelines (EN, canonical): see `../guideline.en.md`
