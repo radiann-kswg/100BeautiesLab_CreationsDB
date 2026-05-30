@@ -1,5 +1,15 @@
 # 最新のリファクタリング・仕様変更履歴
 
+### `AIHints` を二層構造（common / forms）へ移行
+
+- `data/db_type.json` の `$Def_AIHints` を、フラットな構造から `common`（姿勢共通の不変属性）と `forms.<form>`（形態別の差分）の二層構造へ刷新した。新規 schema として `$Def_AIHintsCommon` / `$Def_AIHintsForms` / `$Def_AIFormVariant` を追加。
+- `forms` の既定子要素は `corefolder`（装備姿）と `humanoid`（人型通常姿）。画像が存在しない形態については `forms.<form>` ごと省略可能とする。
+- `docs/ai-hints-usage.md` を二層構造前提に全面改訂（用語統制、`ai_tags` 合成順、URL 規約、付与対象判定、環境別の使い方を整理）。
+- `data/Works_NumberTales/DataBases/db_Primary.json` の #1〜#37 と #39〜#40 を二層構造へ変換（#38 は `notProceeded` のため対象外）。`#1` `#7` `#12` `#15` `#17` `#20` `#23` `#24` `#25` `#27` `#37` `#39` は corefolder と humanoid の両形態を、`#28` は corefolder の `reference_images` を `null` とし、その他は corefolder のみを記載。
+- #26 以降の旧フォーマット（`identity_tags` / `natural_language_description` / `prompt_export` / `negative_prompt_export` / `reference_images` 未整備、`palette_priority` が記述文字列）レコードについては、既存値からの合成と hex 推定により二層構造へアップグレードした。
+- 他作品および NumberTales の #41 以降は、後続セッションで段階的に変換予定（画像が存在する一次創作のみが対象）。
+- 回帰確認: `tests/data.sanity.test.js` は 3/3 pass を維持。
+
 ### 創作作品ガイドラインを言語別ファイルへ集約
 
 - 一次/二次創作ガイドラインの本文と「二次創作 OK/NG リスト」を、リポジトリ直下の `guideline.md`（日本語版・正本）および `guideline.en.md`（英語版）の 2 ファイルへ集約した。
