@@ -42,10 +42,55 @@
 
 ## 未完了タスク
 
-- NumberTales DB_Primary の **#41 以降**（画像が存在するもののみ）の二層化を、後続セッションで 20 体ずつ実施予定。
-  - `#28` は `emstk_corefolder28-1` が無いため `forms.corefolder.reference_images: null` で対応済み（参考用に `cnsp_img28-onBusiness/onPrivate` の存在は自然言語側で言及）。
-  - `#38` は notProceeded のため対象外（スキップ済）。
-- NumberTales 以外の作品（Secondary 等含む）は本セッション対象外。後日、自動パッチ適用での一括付与を想定。
+- NumberTales DB_Primary の **#41 以降** は、調査の結果既存 `AIHints` ブロックが一切存在せず、ゼロからの新規生成（創作内容の自動生成）に該当する。本セッションでは対応しず、**後日 User 監修のもとで自動パッチ適用により段階的に付与する方針**とした（copilot-instructions.md 「創作内容の自動生成を避ける」に従う）。
+  - スキップ対象の確認済みレコード: `#51`（画像は concept のみ、`AIHints` なし）、`#54` / `#59`（notProceeded）。
+  - 自動パッチ対象候補（画像存在・#41-#60）: `#41`, `#42`, `#43`, `#44`, `#45`, `#46`, `#47`, `#48`, `#49`, `#50`, `#52`, `#53`, `#55`, `#56`, `#57`, `#58`, `#60`。humanoid 画像あり: `#42`, `#47`, `#49`, `#55`, `#57`, `#60`。
+- NumberTales 以外の作品（Secondary 等含む）は本セッション対象外。同様に自動パッチ適用での一括付与を想定。
+
+## 自動パッチツール `tools/patch-aihints.mjs`
+
+User 監修下で #41 以降（および他作品）へ二層構造 AIHints を段階適用するための CLI。本セッションで新規追加した。
+
+### 設計方針
+
+- **創作内容を自動生成しない**: タグ本体・自然文・台詞などは `TODO: ...` プレースホルダ文字列のまま挿入する。User が手動で書き起こすことを前提。
+- **構造のみ確定値で埋める**: `common.age_appearance`（`ConceptAge` から age band 推定）、`form.ai_tags` 先頭の `1girl|1boy|1other`（`GenderType` から）、`forms.<form>.reference_images`（実ファイル存在を `fs.existsSync` で検証してから URL 採用）の3点のみ機械的に確定。
+- **既存 AIHints は保護**: デフォルトで `skipped-existing`。`--force` 指定時のみ置換（要 User 確認）。
+- **画像欠落レコード**: corefolder / humanoid のどちらも存在しない場合は `skipped-no-image` として何も書き換えない。
+- **テキスト挿入で実装**: 既存ファイルの整形（4 スペース・キー順・コメント無し JSON）を完全保持するため、`JSON.parse/stringify` での round-trip ではなく balanced-brace でレコード範囲を取り、最後のプロパティの直後にカンマ＋新規 `"AIHints": {...}` 行を差し込む。
+- **書き込み前 JSON 検証**: 加工後テキストを `JSON.parse` で再検証し、失敗時は書き込まず中断。
+
+### CLI
+
+```powershell
+# dry-run（既定）
+node tools/patch-aihints.mjs --work NumberTales --db Primary --records 41-60
+
+# 実書き込み
+node tools/patch-aihints.mjs --work NumberTales --db Primary --records 41-60 --apply
+
+# 個別指定
+node tools/patch-aihints.mjs --work NumberTales --db Primary --records 41,42,47 --apply
+
+# 全レコード対象
+node tools/patch-aihints.mjs --work NumberTales --db Primary --all --apply
+
+# 既存 AIHints を上書き
+node tools/patch-aihints.mjs --work NumberTales --db Primary --records 5 --force --apply
+```
+
+### dry-run 結果
+
+- `--records 1-40`: `skipped-existing=39`, `skipped-no-image=1` (#38 notProceeded) ─ 既存変換済みレコードは無改変。
+- `--records 41-60`: `patched=17`, `skipped-no-image=3 (#51 #54 #59)` ─ 候補リストと完全一致。
+- `--all`: `patched=47`, `skipped-existing=39`, `skipped-no-image=13` ─ NumberTales 全体での自動パッチ対象=47体。
+
+### User 運用フロー（想定）
+
+1. dry-run でサマリ確認。
+2. `--apply` で書き込み → `npm test -- tests/data.sanity.test.js` で 3/3 pass を確認。
+3. 挿入された `TODO: ...` プレースホルダを順次手動で本物のタグ・自然文・prompt_export 等に書き換える。
+4. 書き換えごとに UI / SW 表示を任意で確認。
 
 ## 合意事項（運用ルール）
 
