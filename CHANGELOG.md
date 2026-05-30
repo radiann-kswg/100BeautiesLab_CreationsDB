@@ -8,7 +8,9 @@
 - `data/Works_NumberTales/DataBases/db_Primary.json` の #1〜#37 と #39〜#40 を二層構造へ変換（#38 は `notProceeded` のため対象外）。`#1` `#7` `#12` `#15` `#17` `#20` `#23` `#24` `#25` `#27` `#37` `#39` は corefolder と humanoid の両形態を、`#28` は corefolder の `reference_images` を `null` とし、その他は corefolder のみを記載。
 - #26 以降の旧フォーマット（`identity_tags` / `natural_language_description` / `prompt_export` / `negative_prompt_export` / `reference_images` 未整備、`palette_priority` が記述文字列）レコードについては、既存値からの合成と hex 推定により二層構造へアップグレードした。
 - 他作品および NumberTales の #41 以降は、既存 `AIHints` ブロックが存在せず新規生成が必要となるため、本セッションでは対応せず、後日 User 監修のもとで自動パッチ適用により段階的に付与する方針とした（創作内容の自動生成を避ける運用ルールに従う）。
-- 上記の自動パッチ用ツール `tools/patch-aihints.mjs` を新規追加。`Images.corefolder_PNGPath` / `Images.arts_PNGPath` から実在画像のみを採用して二層構造の **scaffold（TODO プレースホルダ入り）** を挿入する dry-run 既定の CLI。創作面（タグ本体・自然文・台詞）は生成せず `TODO: ...` 文字列で残し、User 監修での書き起こしを前提にする。既存 AIHints はデフォルトでスキップ（`--force` で上書き）。NumberTales/Primary に対する dry-run では #41-#60 範囲で `patched=17 / skipped-no-image=3 (#51 #54 #59)` を確認した。
+- 上記の自動パッチ用ツール `tools/patch-aihints.mjs` を新規追加。`Images.corefolder_PNGPath` / `Images.arts_PNGPath` から実在画像のみを採用して二層構造の **scaffold（TODO プレースホルダ入り）** を挿入する dry-run 既定の CLI。創作面（タグ本体・自然文・台詞）は生成せず `TODO: ...` 文字列で残し、User 監修での書き起こしを前提にする。既存 AIHints はデフォルトでスキップ（`--force` で上書き）。
+- `$Def_AIReferenceImages` に `concept` / `concept_variants[]` / `catalog` / `design_sheet` を追加し、`$Def_AIHintsCommon` に `reference_images` 項目を新設。これにより `Images.concept_PNGName` / `Images.conceptAlt_PNGName` / `Images.catalog_PNGName` / `Images.designAlt_PNGName` のような「1 枚に全形態が描かれた素体イラスト」を、形態非依存の共通リソースとして `common.reference_images` に置けるようにした。
+- `tools/patch-aihints.mjs` も上記 schema 拡張に追従し、common の各画像も実在検証して `common.reference_images.main`（= concept と同 URL）/ `concept` / `concept_variants` / `catalog` / `design_sheet` を埋めるよう更新。dry-run（NumberTales/Primary）では #41-#60 範囲で `patched=18 / skipped-no-image=2 (#54 #59)` を確認した（#51 は concept のみ存在のため新たに patched 対象に昇格）。
 - 回帰確認: `tests/data.sanity.test.js` は 3/3 pass を維持。
 
 ### 創作作品ガイドラインを言語別ファイルへ集約

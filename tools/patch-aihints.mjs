@@ -200,6 +200,15 @@ function findMatchingBrace(text, openIdx) {
  * @typedef {Object} ImageInfo
  * @property {string|null} corefolderUrl  corefolder のメイン画像 URL（実在チェック済み）
  * @property {Array<{url: string, label: string}>} humanoidImages  humanoid 画像群
+ * @property {CommonRefs} common  common.reference_images 向けの形態共通リソース
+ */
+
+/**
+ * @typedef {Object} CommonRefs
+ * @property {string|null} concept           メインコンセプト画像 URL
+ * @property {string[]} concept_variants     コンセプトバリアント URL 集（conceptAlt）
+ * @property {string|null} catalog           設定画像 URL（catalog/chr-dsgn_catalog<N>）
+ * @property {string|null} design_sheet      デザインシート URL（designAlt）
  */
 
 /**
@@ -210,7 +219,11 @@ function findMatchingBrace(text, openIdx) {
  * @returns {ImageInfo}
  */
 function resolveImageInfo(record, work, db) {
-    const out = { corefolderUrl: null, humanoidImages: [] };
+    const out = {
+        corefolderUrl: null,
+        humanoidImages: [],
+        common: { concept: null, concept_variants: [], catalog: null, design_sheet: null },
+    };
     const imgs = record && record.Images;
     if (!imgs || typeof imgs !== 'object') return out;
 
@@ -218,36 +231,68 @@ function resolveImageInfo(record, work, db) {
     const dbFolder = `DB_${db}`;
     const imagesRoot = path.join(REPO_ROOT, 'data', `Works_${work}`, 'Images', dbFolder);
 
-    // corefolder: `emstk_corefolder<N>-1.png` を最優先で採用
+    /**
+     * サブディレクトリ下の実ファイルを検証して公開 URL を返すヘルパー。
+     * @param {string} subdir  imagesRoot 以下の相対パス（フォルダ名）
+     * @param {string} baseName  拡張子なしのファイル名
+     * @returns {string|null}
+     */
+    const urlIfExists = (subdir, baseName) => {
+        const fname = baseName.endsWith('.png') ? baseName : `${baseName}.png`;
+        const abs = path.join(imagesRoot, subdir, fname);
+        if (!fs.existsSync(abs)) return null;
+        return `${PUBLIC_ORIGIN}/data/Works_${work}/Images/${dbFolder}/${subdir}/${fname}`;
+    };
+
+    // ── corefolder: `emstk_corefolder<N>-1.png` を最優先で採用 ─────────
     const corePaths = Array.isArray(imgs.corefolder_PNGPath) ? imgs.corefolder_PNGPath : [];
-    // 先頭エントリ（既定は `-1`）を採用
     if (corePaths.length > 0) {
         const first = String(corePaths[0]);
-        // 既に `.png` を含むかどうか不問。 schema 上は拡張子なし。
-        const fname = first.endsWith('.png') ? first : `${first}.png`;
-        const absPath = path.join(imagesRoot, 'corefolder', fname);
-        if (fs.existsSync(absPath)) {
-            out.corefolderUrl = `${PUBLIC_ORIGIN}/data/Works_${work}/Images/${dbFolder}/corefolder/${fname}`;
-        }
+        out.corefolderUrl = urlIfExists('corefolder', first);
     }
 
-    // humanoid: arts_PNGPath の `humanoids/<...>/art_img<N>-humanoid<variant?>` を全て拾う
+    // ── humanoid: arts_PNGPath の `humanoids/<…>/art_img<N>-humanoid<variant?>` ───
     const artsPaths = Array.isArray(imgs.arts_PNGPath) ? imgs.arts_PNGPath : [];
     for (const raw of artsPaths) {
         const rel = String(raw);
-        // `humanoids/` で始まるエントリのみ humanoid 扱い
         if (!rel.startsWith('humanoids/')) continue;
         const m = rel.match(/art_img(\d+)-humanoid([A-Za-z0-9]*)$/);
         if (!m) continue;
         if (Number(m[1]) !== num) continue; // 安全側: Num 一致のみ採用
         const fname = `${path.basename(rel)}.png`;
         const subdir = path.dirname(rel); // e.g. "humanoids/2023"
-        const absPath = path.join(imagesRoot, 'arts', subdir, fname);
-        if (!fs.existsSync(absPath)) continue;
+        const abs = path.join(imagesRoot, 'arts', subdir, fname);
+        if (!fs.existsSync(abs)) continue;
         const url = `${PUBLIC_ORIGIN}/data/Works_${work}/Images/${dbFolder}/arts/${subdir}/${fname}`;
         const label = m[2] || 'main';
         out.humanoidImages.push({ url, label });
     }
+
+    // ── common: 形態共通リソース（1枚に全形態が描かれる素体画像）──────
+    // concept (単一 PNG 名)
+    if (typeof imgs.concept_PNGName === 'string' && imgs.concept_PNGName) {
+        out.common.concept = urlIfExists('concept', imgs.concept_PNGName);
+    }
+    // conceptAlt (複数 PNG 名) → concept_variants[]
+    const conceptAlt = Array.isArray(imgs.conceptAlt_PNGName) ? imgs.conceptAlt_PNGName : [];
+    for (const name of conceptAlt) {
+        if (typeof name !== 'string' || !name) continue;
+        const url = urlIfExists('conceptAlt', name);
+        if (url) out.common.concept_variants.push(url);
+    }
+    // catalog (chr-dsgn_catalog<N>)
+    if (typeof imgs.catalog_PNGName === 'string' && imgs.catalog_PNGName) {
+        out.common.catalog = urlIfExists('catalog', imgs.catalog_PNGName);
+    }
+    // designAlt (単一 / 複数どちらも許容。複数なら先頭を design_sheet に採用)
+    const designAltRaw = imgs.designAlt_PNGName;
+    if (typeof designAltRaw === 'string' && designAltRaw) {
+        out.common.design_sheet = urlIfExists('designAlt', designAltRaw);
+    } else if (Array.isArray(designAltRaw) && designAltRaw.length > 0) {
+        const first = String(designAltRaw[0]);
+        out.common.design_sheet = urlIfExists('designAlt', first);
+    }
+
     return out;
 }
 
@@ -316,6 +361,7 @@ function buildScaffold(record, imageInfo) {
             'TODO: #RRGGBB color codes in priority order',
         ],
         natural_language_description: 'TODO: 1-sentence neutral summary of appearance and demeanor.',
+        reference_images: buildCommonReferenceImages(imageInfo.common),
     };
 
     /** @type {Record<string, any>} */
@@ -336,6 +382,29 @@ function buildScaffold(record, imageInfo) {
     // humanoid 画像が無ければ humanoid キーごと省略（schema は omittable）
 
     return { common, forms };
+}
+
+/**
+ * common.reference_images を組み立てる。
+ * - どのスロットも見つからなければ `null` を返し、schema 上の #Null を採用する。
+ * - スロット順: main(=concept) を主キーとし、`concept` 名も衰れず明示する。
+ *
+ * @param {CommonRefs} c
+ * @returns {Record<string, any>|null}
+ */
+function buildCommonReferenceImages(c) {
+    const hasAny = c.concept || c.concept_variants.length > 0 || c.catalog || c.design_sheet;
+    if (!hasAny) return null;
+    /** @type {Record<string, any>} */
+    const ref = {};
+    if (c.concept) {
+        ref.main = c.concept;
+        ref.concept = c.concept;
+    }
+    if (c.concept_variants.length > 0) ref.concept_variants = c.concept_variants;
+    if (c.catalog) ref.catalog = c.catalog;
+    if (c.design_sheet) ref.design_sheet = c.design_sheet;
+    return ref;
 }
 
 /**
@@ -474,8 +543,14 @@ function patchFileText(text, opts) {
         }
 
         const imageInfo = resolveImageInfo(record, opts.work, opts.db);
-        if (imageInfo.corefolderUrl === null && imageInfo.humanoidImages.length === 0) {
-            results.push({ num, status: 'skipped-no-image', note: 'no corefolder or humanoid image found' });
+        const hasAnyImage = imageInfo.corefolderUrl !== null
+            || imageInfo.humanoidImages.length > 0
+            || imageInfo.common.concept !== null
+            || imageInfo.common.concept_variants.length > 0
+            || imageInfo.common.catalog !== null
+            || imageInfo.common.design_sheet !== null;
+        if (!hasAnyImage) {
+            results.push({ num, status: 'skipped-no-image', note: 'no corefolder / humanoid / common reference image found' });
             continue;
         }
 

@@ -82,8 +82,24 @@ node tools/patch-aihints.mjs --work NumberTales --db Primary --records 5 --force
 ### dry-run 結果
 
 - `--records 1-40`: `skipped-existing=39`, `skipped-no-image=1` (#38 notProceeded) ─ 既存変換済みレコードは無改変。
-- `--records 41-60`: `patched=17`, `skipped-no-image=3 (#51 #54 #59)` ─ 候補リストと完全一致。
-- `--all`: `patched=47`, `skipped-existing=39`, `skipped-no-image=13` ─ NumberTales 全体での自動パッチ対象=47体。
+- `--records 41-60`: `patched=18`, `skipped-no-image=2 (#54 #59)` ─ #51 は `cnsp_img51` のみ存在するため common.reference_images だけ持つ scaffold として patched 対象に昇格。
+- `--all`: `patched=50`, `skipped-existing=39`, `skipped-no-image=10`。
+
+### 共通リソース（concept / catalog 系）の扱い
+
+User 要望に基づき、「1 枚に全形態が描かれた素体イラスト」も AIHints に取り込めるよう、schema (`data/db_type.json`) を以下のように拡張済み:
+
+- `$Def_AIReferenceImages` に `concept` / `concept_variants[]` / `catalog` / `design_sheet` を追加。
+- `$Def_AIHintsCommon` に `reference_images` 項目を新設（オプショナル / `#Null` 可）。
+
+`patch-aihints.mjs` は `Images` 直下の以下フィールドを common 用画像として実在検証し、`common.reference_images` に格納する:
+
+| フィールド                           | 解決先                              | common 内のキー                     |
+| ------------------------------------ | ----------------------------------- | ----------------------------------- |
+| `concept_PNGName` (string)           | `Images/DB_*/concept/<name>.png`    | `main` (= 同 URL を `concept` にも) |
+| `conceptAlt_PNGName[]`               | `Images/DB_*/conceptAlt/<name>.png` | `concept_variants[]`                |
+| `catalog_PNGName`                    | `Images/DB_*/catalog/<name>.png`    | `catalog`                           |
+| `designAlt_PNGName` (string / array) | `Images/DB_*/designAlt/<name>.png`  | `design_sheet`                      |
 
 ### User 運用フロー（想定）
 
