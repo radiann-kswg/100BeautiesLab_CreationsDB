@@ -113,3 +113,59 @@ User 要望に基づき、「1 枚に全形態が描かれた素体イラスト�
 - 1 セッションにつき 20 体ずつ進める。
 - 適用範囲は「ナンバーテールズのキャラクター画像が存在する一次創作」のみ。他キャラクターは後続セッション・自動パッチで対応。
 - 編集前に該当レコードを必ず再読込し、手動修正の有無を確認する。
+
+---
+
+## セッション追記（2026-05-30 後半）: `--suggest` フラグ追加 + Agent プロンプトファイル作成
+
+### 変更点
+
+1. **`tools/patch-aihints.mjs` — `--suggest` フラグ追加**
+
+   既存フィールドから機械的に導出できる値を自動入力する半自動モードを追加。
+   - `parseArgs()` に `suggest: false` オプションとスイッチ分岐を追加。
+   - `printHelpAndExit()` に `--suggest` の説明文を追加。
+   - `patchFileText()` で `opts.suggest` が true なら `buildSuggestedScaffold()` を呼ぶよう分岐。
+   - `main()` のサマリ表示に `/ suggest` 表記を追加。
+   - `buildScaffold()` の `palette_priority` バグ修正（配列 `[...]` → オブジェクト `{primary, secondary, accent}` へ）。
+
+2. **7 つの新関数を `tools/patch-aihints.mjs` に追加**
+
+   | 関数名                                      | 役割                                                                |
+   | ------------------------------------------- | ------------------------------------------------------------------- |
+   | `parseTailsUnit(tailsUnit)`                 | TailsUnit 文字列を `{animal, count, branching, unit}` に分解        |
+   | `buildTailDescription(tu)`                  | 分解済み情報を `"branching fox 4 tails"` 形式の英語文字列に変換     |
+   | `extractExpressionHints(characterText)`     | Character フィールドのキーワードマッピング → 最大3件の表情タグ      |
+   | `buildNlDescriptionHint(summary)`           | Summary 先頭文を `[TRANSLATE → 1 English sentence]: ...` 形式に変換 |
+   | `buildNegativeVisuals(tu, formType)`        | 形態別 negative_visuals 文字列リストを生成                          |
+   | `buildSuggestedCorefolderForm(...)`         | suggest モードの corefolder 形態 scaffold を生成                    |
+   | `buildSuggestedHumanoidForm(...)`           | suggest モードの humanoid 形態 scaffold を生成                      |
+   | `buildSuggestedScaffold(record, imageInfo)` | suggest モード全体のエントリポイント                                |
+
+3. **`.github/prompts/aihints-fill.prompt.md` を新規作成**
+
+   Agent モードで残 TODO を対話的に補完するワークフロープロンプトファイル。
+   - YAML フロントマター: `mode: agent`、`tools`: read_file / grep_search / replace_string_in_file / run_in_terminal
+   - Step 0-5 の構造化ワークフロー（scaffold 挿入 → 読み込み → 変換 → 確認 → 書き込み → テスト）
+   - フィールド対応ルールテーブル（common / forms 各フィールドの導出元と変換方針）
+   - TailsUnit 変換早見表 / Character → expression_tendency 変換早見表
+   - `[TRANSLATE...]` 形式プレースホルダの扱い説明
+   - 重要制約（palette_priority は常に TODO、新規創作情報を生成しない）の明記
+
+### 影響範囲
+
+- `tools/patch-aihints.mjs`（`--suggest` 追加、バグ修正、8 関数追加）
+- `.github/prompts/aihints-fill.prompt.md`（新規作成）
+- `CHANGELOG.md`（追記）
+
+### 検証
+
+- `node tools/patch-aihints.mjs --records 41-43 --suggest -v`: dry-run `patched=3` を確認
+- `node tools/patch-aihints.mjs --help`: `--suggest` が表示されることを確認
+- `tests/data.sanity.test.js` → 3/3 pass
+
+### 未完了タスク
+
+- #41 以降への `--suggest --apply` 実適用（User 監修のもとで順次実施）
+- `palette_priority` / 視覚系 TODO の手動入力（User 監修）
+- Agent プロンプトを使った対話型 TODO 補完の実施

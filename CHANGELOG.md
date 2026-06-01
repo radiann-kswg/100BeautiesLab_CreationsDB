@@ -1,5 +1,13 @@
 # 最新のリファクタリング・仕様変更履歴
 
+### `tools/patch-aihints.mjs` に `--suggest` フラグを追加 + Agent プロンプトファイル新規作成
+
+- `patch-aihints.mjs` に `--suggest` フラグを追加。`TailsUnit` / `GenderType` / `Character` / `Summary` などの既存フィールドから機械的に導出できる値を自動入力する半自動モード。視覚情報が必要な項目（`palette_priority` / 髪色・目色）は `TODO:` / `[TRANSLATE → ...]` 形式のプレースホルダで残す。
+- 上記に伴い `buildScaffold()` の `palette_priority` バグ（配列 `[...]` 形式）をオブジェクト `{primary, secondary, accent}` 形式に修正し、`$Def_AIColorPalette` schema との整合を確保した。
+- `--suggest` を支える補助関数 8 つを追加: `parseTailsUnit` / `buildTailDescription` / `extractExpressionHints` / `buildNlDescriptionHint` / `buildNegativeVisuals` / `buildSuggestedCorefolderForm` / `buildSuggestedHumanoidForm` / `buildSuggestedScaffold`。
+- `.github/prompts/aihints-fill.prompt.md` を新規作成。Copilot Agent モードで `AIHints` の残 TODO を既存フィールドの変換・翻訳によって対話的に補完するワークフロープロンプト（Step 0-5 構成、フィールド対応ルールテーブル・変換早見表付き）。
+- 回帰確認: `tests/data.sanity.test.js` は 3/3 pass を維持。
+
 ### `Works_Hidden` による作品単位の完全非公開フラグを追加
 
 - `data/db_meta.json` の `CreationWorks.#Works_<WorkName>` に `"Works_Hidden": true` を置くことで、その作品全体をAPIから完全に非公開にできる仕様を追加した。
