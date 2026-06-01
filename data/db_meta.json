@@ -123,6 +123,8 @@
           "Height_cm",
           "Weight_kg"
         ]
+      },
+      "Works_Hidden": true
     },
     "#Works_PastDivers": {
       "Title": "パストダイヴァー",

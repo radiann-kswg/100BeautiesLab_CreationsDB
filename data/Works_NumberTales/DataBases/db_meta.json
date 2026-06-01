@@ -63,7 +63,8 @@
           "sec_SeriesTitle": null,
           "_Commons": {
             "Belonging": ["百花繚乱研究所"],
-            "RaceType": "PortableHumanoid(TaleBeastType)"
+            "RaceType": "PortableHumanoid(TaleBeastType)",
+            "GenderType": "Neutral"
           }
         },
         {
@@ -168,6 +169,7 @@
             "sec_DesignedBy": null,
             "sec_SeriesTitle": null,
             "_Commons": {
+              "Progress": "NotProcessed",
               "Belonging": ["百花繚乱研究所"],
               "RaceType": "PortableHumanoid(TaleBeastType)",
               "GenderType": "Neutral"
