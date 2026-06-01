@@ -10563,6 +10563,12 @@
       { "Day": { "Month": 6, "DayOfMonth": 4 }, "DayAbout": "開発記念" }
     ],
     "Weight_kg": { "hideText": "非公開" },
+    "BustSize": {
+      "value": "K",
+      "about_JP": "有志による情報。しかし公式(百花繚乱研)情報では否定している",
+      "about_EN": "value provided by volunteers, but the official (100Beauties Lab.) source denies it"
+    },
+    "TailsUnit": "キツネ(枝分かれ)型6本(上1束4本+下2束2本)",
     "Class": ["デュアルキャリーズ"],
     "FirstPersonCalling": "あたち",
     "SecondPersonCalling": "[※三人称]\nあなた ※稀",
@@ -10849,6 +10855,7 @@
     "ModelNumber": "APHR-NT VI+VII.A",
     "FormalName": "ナンバーテールズ旧67番機",
     "FormalName_EN": "NumberTales #67.OldType",
+    "GenderType": "MaleNeutral",
     "Height_cm": 145,
     "ConceptAge": 22,
     "Weight_kg": { "hideText": "非公開希望" },
@@ -10895,6 +10902,7 @@
     ],
     "ConceptAge": { "value": 22, "about_JP": "？", "about_EN": "?" },
     "Weight_kg": { "hideText": "非公開" },
+    "TailsUnit": "キツネ(枝分かれ)型7本(上2束6本+下1束1本)",
     "AnivDay": [
       { "Day": { "Month": 6, "DayOfMonth": 7 }, "DayAbout": "開発記念" }
     ],
