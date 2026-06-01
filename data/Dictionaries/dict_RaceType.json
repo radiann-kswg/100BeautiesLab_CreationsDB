@@ -32,6 +32,11 @@
     "RaceType_JP": "時空遷移存在"
   },
   {
+    "RaceType": "VirtualAvatar",
+    "RaceType_JP": "VRアバター",
+    "basis": [{ "RaceType": "Human" }, { "RaceType": "Humanoid" }]
+  },
+  {
     "RaceType": "Warfox",
     "RaceType_JP": "妖狐"
   },
@@ -62,7 +67,11 @@
   {
     "RaceType": "PortableHumanoid(TaleBeastType,SoftwareBody)",
     "RaceType_JP": "妖獣型ポータブルヒューマノイド(ソフトウェア躯体)",
-    "basis": [{ "RaceType": "Humanoid" }, { "RaceType": "Warfox" }]
+    "basis": [
+      { "RaceType": "Humanoid" },
+      { "RaceType": "Warfox" },
+      { "RaceType": "VRAvatar" }
+    ]
   },
   {
     "RaceType": "Raccoonian",

@@ -82,6 +82,27 @@
         "subFields": ["BeastspecStats"]
       }
     },
+    "#Works_UnibyteLive": {
+      "Title": "ハンカクライブ",
+      "Title_EN": "UnibyteLive",
+      "Works_Summary": "メタバースプラットフォーム「ユニバイト・ユニバース」で活動する個人ヴァーチャル配信アイドルグループ「アルベッツ」所属の少女。\n主にアルファベットに基づいたモチーフのヴァーチャルアバターを有するキャラクターからなる。",
+      "$DetailLayout": {
+        "headerPills": ["Progress"],
+        "basicFields": [
+          "FormalName",
+          "CodeName",
+          "Belonging",
+          "Class",
+          "Age",
+          "RaceType",
+          "GenderType",
+          "Height_cm",
+          "Weight_kg"
+        ],
+        "subFields": ["AbilityStats"]
+      },
+      "Works_Hidden": true
+    },
     "#Works_SinisterChangingGirls": {
       "Title": "豹変系女子",
       "Title_EN": "Sinister Changing Girls",

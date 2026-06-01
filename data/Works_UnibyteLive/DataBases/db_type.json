@@ -1,0 +1,178 @@
+{
+  "$IndexDef": {
+    "hashTag": "Letter",
+    "$type": [
+      {
+        "hashTag": "Alphabet",
+        "$type": "#ListIndex",
+        "hashTag_JP": "アルファベットキー",
+        "hashTag_EN": "Alphabet Key"
+      },
+      {
+        "hashTag": "Generation",
+        "$type": "#Number|#Null",
+        "hashTag_JP": "配信者としての世代",
+        "hashTag_EN": "Generation of Streamer"
+      },
+      {
+        "hashTag": "AlphaGen",
+        "$type": "#Number|#Null",
+        "hashTag_JP": "アルファベットごとの世代",
+        "hashTag_EN": "Generation of Alphabet"
+      }
+    ],
+    "hashTag_JP": "キーレター",
+    "hashTag_EN": "Key Letter"
+  },
+  "$DefType": [
+    {
+      "hashTag": "Images",
+      "$type": [
+        {
+          "hashTag": "concept_PNGName",
+          "$type": "#PNGFileName",
+          "hashTag_JP": "設定原画"
+        },
+        {
+          "hashTag": "keycapper_PNGPath",
+          "$type": "#PNGFilePath[]",
+          "hashTag_JP": "キーキャッパー画像"
+        }
+      ],
+      "$display": { "section": "images", "tagSpace": "internal" }
+    },
+    { "hashTag": "Letter", "$type": "#Index", "hashTag_JP": "キーレター" },
+    {
+      "hashTag": "StreamingActivity",
+      "$type": [
+        {
+          "hashTag": "StreamingCategory",
+          "$type": "#String_withAbout[]",
+          "hashTag_JP": "配信ジャンルについて"
+        },
+        {
+          "hashTag": "StreamingGreeting",
+          "$type": [
+            {
+              "hashTag": "StreamingGreeting_JP",
+              "$type": "#String_JP_withAbout[]",
+              "hashTag_JP": "配信挨拶(日本語原文)",
+              "hashTag_EN": "Greeting for Streaming (Japanese Original)"
+            },
+            {
+              "hashTag": "StreamingGreeting_EN",
+              "$type": "#String_EN_withAbout[]",
+              "hashTag_JP": "配信挨拶(英語翻訳)",
+              "hashTag_EN": "Greeting for Streaming (English Translation)"
+            }
+          ],
+          "hashTag_JP": "配信挨拶",
+          "hashTag_EN": "Greeting for Streaming",
+          "$display": { "langMode": "jp" }
+        },
+        {
+          "hashTag": "ListenerNickname",
+          "$type": [
+            {
+              "hashTag": "ListenerNickname_JP",
+              "$type": "#String_JP",
+              "hashTag_JP": "リスナーのニックネーム(日本語原文)",
+              "hashTag_EN": "Listener Nickname (Japanese Original)"
+            },
+            {
+              "hashTag": "ListenerNickname_EN",
+              "$type": "#String_EN",
+              "hashTag_JP": "リスナーのニックネーム(英語翻訳)",
+              "hashTag_EN": "Listener Nickname (English Translation)"
+            }
+          ],
+          "hashTag_JP": "リスナーのニックネーム",
+          "hashTag_EN": "Listener Nickname",
+          "$display": { "langMode": "jp" }
+        },
+        {
+          "hashTag": "StreamingAwards",
+          "$type": "#String[]",
+          "hashTag_JP": "配信実績"
+        },
+        {
+          "hashTag": "StreamingSummary",
+          "$type": "#Summary",
+          "hashTag_JP": "配信概要"
+        }
+      ],
+      "hashTag_JP": "配信活動について",
+      "$display": { "sectionWrapper": "statsSection" }
+    },
+    {
+      "hashTag": "Relation",
+      "$type": [
+        {
+          "hashTag": "Related",
+          "$type": "$Def_Relations[]",
+          "hashTag_JP": "親密な関係"
+        },
+        {
+          "hashTag": "Commented",
+          "$type": "$Def_Relations[]",
+          "hashTag_JP": "コメント"
+        }
+      ],
+      "hashTag_JP": "関係キャラクター",
+      "isForSecondary": false,
+      "$display": { "sectionWrapper": "relationSection" }
+    },
+    {
+      "hashTag": "RelationToPrimary",
+      "$type": [
+        {
+          "hashTag": "Related",
+          "$type": "$Def_Relations[]",
+          "hashTag_JP": "親密な関係"
+        },
+        {
+          "hashTag": "Commented",
+          "$type": "$Def_Relations[]",
+          "hashTag_JP": "コメント"
+        }
+      ],
+      "hashTag_JP": "原作との関係",
+      "isForSecondary": true,
+      "$display": { "sectionWrapper": "relationSection" }
+    }
+  ],
+  "$VersDef": {
+    "$Def_Relations": {
+      "$DefType": [
+        {
+          "hashTag": "Letter",
+          "$type": "#Index",
+          "isForSecondary": false,
+          "hashTag_JP": "キーレター"
+        },
+        {
+          "hashTag": "Comments",
+          "$type": "#Dialogue",
+          "isForSecondary": false,
+          "hashTag_JP": "コメント"
+        },
+        {
+          "hashTag": "Reply",
+          "$type": "$Def_Relations[]",
+          "isForSecondary": true,
+          "hashTag_JP": "返答コメント"
+        },
+        {
+          "hashTag": "RelationLabel",
+          "$type": "#ListIndex[]",
+          "hashTag_JP": "関係性タグ",
+          "$display": {
+            "section": "profile",
+            "tagSpace": "creation",
+            "langMode": "jp"
+          }
+        }
+      ]
+    }
+  }
+}
