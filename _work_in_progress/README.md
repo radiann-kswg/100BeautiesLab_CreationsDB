@@ -15,24 +15,28 @@
 
 ## いま進行中のファイル
 
-- 2026-04-22_progress_requested-tasks-overview.md
-- 2026-04-22_progress_task1-day-era-softcoding.md
-- 2026-04-22_remaining-task.md
-- 2026-04-23_progress_requested-tasks-implementation-plan.md
-- 2026-05-11_progress_storyera-schema.md
+- 2026-04-22_progress_task1-day-era-softcoding.md（タスク1 Day/Era/Area hardcode 緩和・部分完了）
+- 2026-04-23_progress_requested-tasks-implementation-plan.md（4タスク実装計画・更新中）
+- 2026-05-11_progress_storyera-schema.md（StoryEra/Day/Era schema 整備・部分完了）
+- 2026-05-15_progress_subfields-wrapper-unification.md（subFields/wrapper 統合・追加作品目視確認残）
+- 2026-05-29_progress_bilingual-wrapper-apiswui.md（bilingual wrapper API/SW 対応・UI 表示未完了）
+- 2026-06-01_remaining-task.md（現行の未完了タスク一覧・最新）
 
 補足:
 
 - 2026-04-18 に旧進捗ログを整理し、未完了事項は `2026-03-31_remaining-task.md` へ集約しました。
 - 2026-04-21 に、4/18 と 4/19 の完了済み progress ログを `.completed` へ整理しました。
 - 2026-04-21 に、`_Secondaries` の fallback 優先順位整理ログも完了扱いとして `.completed` へ退避しました。
-- 2026-04-22 時点で、`2026-03-31_remaining-task.md` に記載していた希望タスクはすべて完了しています。直下に残る progress ログは、ユーザー依頼による退避整理前の参照用です。
-- 2026-05-11 に、`StoryEra` / `Day` / `Era` の wrapper registry 化と SW/enrich summary 対応を `2026-05-11_progress_storyera-schema.md` に追記しました。
-- 2026-05-11 の棚卸しで、完了済みの `2026-03-31_remaining-task.md`、`2026-04-21_progress_multi-index-display.md`、`2026-04-22_progress_class-dict-migration.md`、`2026-04-22_progress_creationwork-meta-api-ui.md`、`2026-04-22_progress_dictionary-db-separation.md`、`2026-04-22_progress_schema-meta-docs.md`、`2026-04-23_progress_ui-output-tests.md`、`2026-04-30_progress_image-directory-migration.md` を `.completed` へ整理しました。
+- 2026-05-11 の棚卸しで、完了済みの `2026-03-31_remaining-task.md`、`2026-04-21_progress_multi-index-display.md` 他を `.completed` へ整理しました。
+- 2026-06-01 の棚卸しで、`2026-04-21_progress_secondary-commons-defaults.md`・`2026-04-22_progress_requested-tasks-overview.md`・`2026-04-22_remaining-task.md`・`2026-05-29_progress_guideline-consolidation.md` を `.completed` へ退避しました。
+- `2026-06-01_remaining-task.md` に、現時点の未完了・着手中タスクを統合しました。
 
 ## 完了（.completed へ退避済み）
 
 - 2026-04-21_progress_secondary-commons-defaults.md
+- 2026-04-22_progress_requested-tasks-overview.md（実装計画ログへ引き継ぎ済み）
+- 2026-04-22_remaining-task.md（06-01 残タスクログへ集約済み）
+- 2026-05-29_progress_guideline-consolidation.md（完了）
 - 2026-04-21_progress_multi-index-display.md
 - 2026-04-22_progress_class-dict-migration.md
 - 2026-04-22_progress_creationwork-meta-api-ui.md
