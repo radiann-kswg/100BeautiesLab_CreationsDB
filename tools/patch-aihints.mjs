@@ -634,7 +634,7 @@ function buildHumanoidForm(num, genderTag, ageBand, images, conceptUrl) {
  * @param {string|undefined} tailsUnit
  * @returns {{ animal: string|null, count: number|null, branching: boolean, unit: 'tail'|'feather'|'blade' } | null}
  */
-function parseTailsUnit(tailsUnit) {
+export function parseTailsUnit(tailsUnit) {
     if (!tailsUnit || typeof tailsUnit !== 'string') return null;
 
     // 日本語動物名 → 英語タグのマッピング（出現順に優先）
@@ -685,7 +685,7 @@ function parseTailsUnit(tailsUnit) {
  * @param {{ animal: string|null, count: number|null, branching: boolean, unit: string } | null} tu
  * @returns {string}
  */
-function buildTailDescription(tu) {
+export function buildTailDescription(tu) {
     if (!tu?.animal) return 'TODO: tail description from TailsUnit';
     const parts = [];
     if (tu.branching) parts.push('branching');
@@ -709,7 +709,7 @@ function buildTailDescription(tu) {
  * @param {string|undefined} characterText
  * @returns {string[]|null}  タグ候補配列（最大3件）。マッチなければ null。
  */
-function extractExpressionHints(characterText) {
+export function extractExpressionHints(characterText) {
     if (!characterText || typeof characterText !== 'string') return null;
 
     const MAP = [
@@ -1675,4 +1675,8 @@ function main() {
     console.log(`\nWrote ${path.relative(REPO_ROOT, dbPath)}`);
 }
 
-main();
+// CLI として直接実行された場合のみ main() を起動する（import 時の副作用を防ぐ）。
+if (import.meta.url === `file://${process.argv[1].replace(/\\/g, '/')}`
+    || import.meta.url.endsWith(path.basename(process.argv[1] ?? ''))) {
+    main();
+}

@@ -1,5 +1,14 @@
 # 最新のリファクタリング・仕様変更履歴
 
+### `tools/patch-aihints.mjs` に helper の named export と import gate を追加 + 残 TODO 一括補完
+
+- `parseTailsUnit` / `buildTailDescription` / `extractExpressionHints` を named export 化し、外部スクリプトから再利用可能にした。既存挙動への影響なし。
+- ファイル末尾の `main()` 呼び出しを `import.meta.url` で CLI 直接実行時のみ起動する import gate に変更し、helper を import した際の副作用（CLI が走り出すこと）を防止した。
+- これらを利用して `.cache/fill-residual-todos.mjs`（一回限りスクリプト）で `Works_NumberTales/db_Primary.json` 内の JSON 由来 TODO を一括補完した。対象 TODO: `common.expression_tendency[*]`（`extractExpressionHints` 由来）/ `common.age_appearance` / `forms.*.ai_tags[*]`（age / ear / tail）/ `forms.*.natural_language_description`（既存 `ai_tags` から 1 文生成）/ `common.silhouette_features[*]`（`buildTailDescription` 由来）。
+- 26 records, 70 fills 適用後、`Works_NumberTales/db_Primary.json` 内の `AIHints.*` 配下の `TODO:` プレースホルダはゼロになった。
+- 書き戻し時は元ファイルの主要 EOL（CRLF/LF）を検出して統一し、混在による差分爆発を防ぐ実装。
+- 回帰確認: `tests/data.sanity.test.js` / `tests/sw.enrich.basic.test.js` は全件 pass を維持。
+
 ### `tools/patch-aihints.mjs` に視覚解析ワークフロー (`--gen-vision-tasks` / `--apply-vision-results`) を追加
 
 - `patch-aihints.mjs` に 2 つのモードを追加し、視覚 TODO（`palette_priority` / `silhouette_features` の hair・eye / `forms.*.outfit_features` / `forms.*.ai_tags` の hair・eye・outfit）を Agent 画像解析と組み合わせて埋める半自動ワークフローを構築した。
