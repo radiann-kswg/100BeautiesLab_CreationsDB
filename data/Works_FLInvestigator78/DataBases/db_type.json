@@ -4,7 +4,7 @@
     "$type": [
       {
         "hashTag": "Stoat",
-        "$type": "#ListIndex",
+        "$type": "#IndexListKey",
         "hashTag_JP": "カード種別",
         "hashTag_EN": "CardType"
       },
