@@ -61,6 +61,10 @@ const PUBLIC_ORIGIN = 'https://database.numbertales-radiann.net';
  * @property {boolean} force      true なら既存 AIHints を上書き
  * @property {boolean} suggest    true なら既存フィールドから候補値を導出して埋める（半自動モード）
  * @property {boolean} fixRefs    true なら既存 AIHints の reference_images だけを再構築（タグは保持）
+ * @property {boolean} fillTodos   true なら JSON から導出できる TODO 項目を補完（色・視覚系は対象外）
+ * @property {boolean} genVisionTasks  true なら視覚 TODO のあるレコードの画像リストを .cache/vision-tasks.json に出力して終了
+ * @property {boolean} applyVisionResults  true なら .cache/vision-results.json の解析結果を AIHints の視覚 TODO に適用
+ * @property {Map<number,Object>|null} visionResultsMap  applyVisionResults 時に main() が注入する Map<num, VisionResult>
  * @property {boolean} verbose    詳細ログ
  */
 
@@ -74,6 +78,10 @@ function parseArgs(argv) {
         force: false,
         suggest: false,
         fixRefs: false,
+        fillTodos: false,
+        genVisionTasks: false,
+        applyVisionResults: false,
+        visionResultsMap: null,
         verbose: false,
     };
     for (let i = 0; i < argv.length; i++) {
@@ -88,6 +96,9 @@ function parseArgs(argv) {
             case '--force': opts.force = true; break;
             case '--suggest': opts.suggest = true; break;
             case '--fix-refs': opts.fixRefs = true; break;
+            case '--fill-todos': opts.fillTodos = true; break;
+            case '--gen-vision-tasks': opts.genVisionTasks = true; break;
+            case '--apply-vision-results': opts.applyVisionResults = true; break;
             case '--verbose': case '-v': opts.verbose = true; break;
             case '--help': case '-h': printHelpAndExit(); break;
             default:
@@ -135,6 +146,15 @@ Options:
                       視覚情報が必要な項目（palette / 髪・目など）は TODO / 翻訳ヒント形式で残す
   --fix-refs          既存 AIHints の reference_images だけを再構築する（タグ・テキストは保持）
                       corefolder の旧パス修正や concept-first への移行に使用
+  --fill-todos        既存 AIHints の JSON 由来 TODO 項目を補完する（タグ・視覚系は対象外）
+                      補完対象: identity_tags(Class), immutable_traits(number marking),
+                      age_appearance(ConceptAge), expression_tendency(Character)
+                      補完対象外: palette_priority / 髪・目・衣装 など視覚情報が必要なもの
+  --gen-vision-tasks  視覚 TODO のあるレコードの画像パスリストを .cache/vision-tasks.json に出力して終了
+                      Agent の view_image 画像解析セッションの入力として使用する
+  --apply-vision-results  .cache/vision-results.json に書かれた Agent 解析結果を
+                      AIHints の視覚 TODO（palette / hair / eye / outfit）に適用する
+                      vision-results.json の形式は VisionResult typedef を参照
   -v, --verbose       詳細ログ
   -h, --help          このヘルプを表示
 `);
@@ -355,6 +375,52 @@ function genderTagOf(g) {
  * @param {number|undefined} age
  * @returns {string}
  */
+// ────────────────────────────────────────────────────────────────────────────
+// クラス名 → 英語タグ マッピング（NumberTales DB_Primary 全クラス対応）
+// ────────────────────────────────────────────────────────────────────────────
+
+const CLASS_NAMES_EN = new Map([
+    ['試験用個体',                    'test unit'],
+    ['1桁番(ユニデジッツ)',            'uni-digits class'],
+    ['1号機型',                       'type-1 unit'],
+    ['10倍番(テンズデジッツ)',         'tens-digits class'],
+    ['デシベルモデレーターズ',        'decibel moderators class'],
+    ['マスターテールズ9',             'master tails nine class'],
+    ['デュアルスリーズ',              'dual-threes class'],
+    ['デュアルフォーズ',              'dual-fours class'],
+    ['デュアルファイブズ',            'dual-fives class'],
+    ['デュアルシックスズ',            'dual-sixes class'],
+    ['デュアルセブンズ',              'dual-sevens class'],
+    ['バーチャリティテールズ',        'virtuality tails class'],
+    ['デュアルエイツ',                'dual-eights class'],
+    ['9倍2桁番(ナインズデュアルズ)',   'nines-duals class'],
+    ['デュアルキャリーズ',            'dual-carries class'],
+    ['2号機型',                       'type-2 unit'],
+    ['マスマティカコンストレイント',   'mathematica constraint class'],
+    ['デュアルイレブンズ',            'dual-elevens class'],
+    ['ワノマチ',                      'wa-no-machi class'],
+    ['スクエアエリート',              'square elite class'],
+    ['未完成個体',                    'unfinished unit'],
+    ['開発システム用個体',            'development system unit'],
+    ['調整個体',                      'adjustment unit'],
+    ['退任個体',                      'retired unit'],
+    ['10号機型',                      'type-10 unit'],
+    ['営業補助用個体',                'business support unit'],
+    ['開発者',                        'developer'],
+    ['最高経営所長',                  'chief executive director'],
+    ['最高技術所長',                  'chief technical director'],
+]);
+
+/**
+ * Class 配列を英語タグ配列に変換する。マッピングにない名称はそのまま残す。
+ * @param {string[]|undefined} classArray
+ * @returns {string[]}
+ */
+function classTagsOf(classArray) {
+    if (!Array.isArray(classArray) || classArray.length === 0) return [];
+    return classArray.map(c => CLASS_NAMES_EN.get(c) ?? c).filter(Boolean);
+}
+
 function ageBandOf(age) {
     if (typeof age !== 'number' || !Number.isFinite(age)) return 'TODO: e.g., teenager';
     if (age < 13) return 'child';
@@ -964,9 +1030,94 @@ function stringifyAihintsBlock(aihints) {
 /**
  * @typedef {Object} PatchResult
  * @property {number} num
- * @property {'patched'|'skipped-existing'|'skipped-no-image'|'overwritten'|'refs-fixed'|'skipped-no-aihints'} status
+ * @property {'patched'|'skipped-existing'|'skipped-no-image'|'overwritten'|'refs-fixed'|'todos-filled'|'todos-unchanged'|'skipped-no-aihints'} status
  * @property {string} [note]
  */
+
+/**
+ * 既存の AIHints の JSON から導出できる TODO 項目のみを補完する（--fill-todos モード専用）。
+ * 補完対象: identity_tags(Class), immutable_traits(number marking), age_appearance(ConceptAge),
+ *           expression_tendency(Character)。
+ * 補完対象外: palette_priority / silhouette_features 髪・目 / outfit_features / ai_tags 視覚系。
+ * [TRANSLATE → ...] 形式の翻訳ヒントは変更しない。
+ *
+ * @param {string} text     ファイル全体テキスト
+ * @param {number} openIdx  レコード `{` のインデックス
+ * @param {number} closeIdx レコード `}` のインデックス
+ * @param {any} record      パース済みレコードオブジェクト
+ * @returns {{ text: string, changed: boolean }}
+ */
+function fillJsonTodosInRecord(text, openIdx, closeIdx, record) {
+    const recText = text.slice(openIdx, closeIdx + 1);
+    const rec = JSON.parse(recText);
+    if (!rec.AIHints) throw new Error('fillJsonTodosInRecord: AIHints key not found');
+
+    const aihints = JSON.parse(JSON.stringify(rec.AIHints));
+    const num = rec.Num;
+    let changed = false;
+
+    // --- common.identity_tags: TODO → クラスタグ ---
+    if (Array.isArray(aihints.common?.identity_tags)) {
+        const classTags = classTagsOf(rec.Class);
+        if (classTags.length > 0) {
+            const expanded = [];
+            for (const tag of aihints.common.identity_tags) {
+                if (typeof tag === 'string' && tag.startsWith('TODO:')) {
+                    // TODO スロットをクラスタグで展開（ただし重複は省く）
+                    for (const ct of classTags) {
+                        if (!expanded.includes(ct)) { expanded.push(ct); changed = true; }
+                    }
+                } else {
+                    expanded.push(tag);
+                }
+            }
+            aihints.common.identity_tags = expanded;
+        }
+    }
+
+    // --- common.immutable_traits: number marking TODO → '#NN' marking ---
+    if (Array.isArray(aihints.common?.immutable_traits)) {
+        aihints.common.immutable_traits = aihints.common.immutable_traits.map(trait => {
+            if (typeof trait === 'string' && trait.startsWith('TODO:') && /marking|number/i.test(trait)) {
+                changed = true;
+                return `'#${num}' number marking (immutable)`;
+            }
+            return trait;
+        });
+    }
+
+    // --- common.age_appearance: TODO → ageBandOf ---
+    if (typeof aihints.common?.age_appearance === 'string' && aihints.common.age_appearance.startsWith('TODO:')) {
+        const band = ageBandOf(rec.ConceptAge);
+        if (!band.startsWith('TODO:')) {
+            aihints.common.age_appearance = band;
+            changed = true;
+        }
+    }
+
+    // --- common.expression_tendency: TODO → extractExpressionHints ---
+    if (Array.isArray(aihints.common?.expression_tendency)) {
+        const expanded = [];
+        for (const e of aihints.common.expression_tendency) {
+            if (typeof e === 'string' && e.startsWith('TODO:')) {
+                const hints = extractExpressionHints(rec.Character);
+                if (hints && hints.length > 0) {
+                    expanded.push(...hints);
+                    changed = true;
+                } else {
+                    expanded.push(e); // 変換できなければ保持
+                }
+            } else {
+                expanded.push(e);
+            }
+        }
+        aihints.common.expression_tendency = expanded;
+    }
+
+    if (!changed) return { text, changed: false };
+    const block = stringifyAihintsBlock(aihints);
+    return { text: replaceAihintsInRecord(text, openIdx, closeIdx, block), changed: true };
+}
 
 /**
  * 既存の AIHints の `reference_images` のみを再構築する（タグ・テキスト類は保持）。
@@ -1021,6 +1172,246 @@ function fixRefsInRecord(text, openIdx, closeIdx, imageInfo) {
     return replaceAihintsInRecord(text, openIdx, closeIdx, block);
 }
 
+// ────────────────────────────────────────────────────────────────────────────
+// 視覚解析ワークフロー（Agent 連動: gen-vision-tasks / apply-vision-results）
+// ────────────────────────────────────────────────────────────────────────────
+
+/**
+ * @typedef {Object} VisionResult
+ * Agent が view_image で画像を解析し、以下のフィールドを埋めた JSON オブジェクト。
+ * .cache/vision-results.json の各要素として保存する。
+ *
+ * @property {number} num                    対象レコードの Num
+ * @property {{ primary: string, secondary: string, accent: string }} [palette]
+ *   palette_priority 用 HEX カラー。例: `{ primary: "#4a6fa5", ... }`
+ * @property {string} [silhouetteHair]       silhouette_features 用 hair 記述（長め）
+ * @property {string} [silhouetteEye]        silhouette_features 用 eye 記述（長め）
+ * @property {string} [aiTagsHair]           forms.*.ai_tags 用 hair タグ（短め）
+ * @property {string} [aiTagsEye]            forms.*.ai_tags 用 eye タグ（短め）
+ * @property {string[]} [corefolderOutfit]   corefolder outfit_features + ai_tags outfit スロット
+ * @property {string[]} [humanoidOutfit]     humanoid outfit_features + ai_tags outfit スロット
+ */
+
+/**
+ * 視覚 TODO のあるレコードを走査し、Agent 向け画像解析タスクマニフェストを生成する。
+ * `.cache/vision-tasks.json` に書き出して終了する（書き込み専用操作）。
+ *
+ * @param {any[]} db         DB 配列（パース済み）
+ * @param {CliOptions} opts
+ */
+function genVisionTasksToFile(db, opts) {
+    const VISUAL_TODO_PATTERN = /^TODO:/;
+
+    /**
+     * AIHints オブジェクト内に視覚系 TODO がどのフィールドに残っているかを調べる。
+     * @param {any} aihints
+     * @returns {string[]} フィールドパスの一覧
+     */
+    function detectVisualTodos(aihints) {
+        const fields = [];
+        const pal = aihints.common?.palette_priority;
+        if (typeof pal?.primary === 'string' && VISUAL_TODO_PATTERN.test(pal.primary))
+            fields.push('common.palette_priority.primary');
+        if (typeof pal?.secondary === 'string' && VISUAL_TODO_PATTERN.test(pal.secondary))
+            fields.push('common.palette_priority.secondary');
+        if (typeof pal?.accent === 'string' && VISUAL_TODO_PATTERN.test(pal.accent))
+            fields.push('common.palette_priority.accent');
+        if (Array.isArray(aihints.common?.silhouette_features) &&
+            aihints.common.silhouette_features.some(f => typeof f === 'string' && /TODO:.*hair/i.test(f)))
+            fields.push('common.silhouette_features.hair');
+        if (Array.isArray(aihints.common?.silhouette_features) &&
+            aihints.common.silhouette_features.some(f => typeof f === 'string' && /TODO:.*eye/i.test(f)))
+            fields.push('common.silhouette_features.eye');
+        for (const [formKey, form] of Object.entries(aihints.forms ?? {})) {
+            if (!form || typeof form !== 'object') continue;
+            if (Array.isArray(form.outfit_features) &&
+                form.outfit_features.some(f => typeof f === 'string' && VISUAL_TODO_PATTERN.test(f)))
+                fields.push(`forms.${formKey}.outfit_features`);
+            if (Array.isArray(form.ai_tags) &&
+                form.ai_tags.some(t => typeof t === 'string' && VISUAL_TODO_PATTERN.test(t)))
+                fields.push(`forms.${formKey}.ai_tags`);
+        }
+        return fields;
+    }
+
+    /**
+     * 公開 URL → ローカル絶対パスに変換するヘルパー。
+     * @param {string} url
+     * @returns {string}
+     */
+    function urlToLocalPath(url) {
+        // url = "https://database.numbertales-radiann.net/data/Works_.../..."
+        const rel = url.slice(PUBLIC_ORIGIN.length + 1); // "/data/Works_..." の先頭 '/' を除去
+        return path.join(REPO_ROOT, ...rel.split('/'));
+    }
+
+    const tasks = [];
+    for (const record of db) {
+        const num = record.Num;
+        if (typeof num !== 'number') continue;
+        if (opts.records !== null && !opts.records.has(num)) continue;
+        if (!record.AIHints) continue;
+
+        const todoFields = detectVisualTodos(record.AIHints);
+        if (todoFields.length === 0) continue;
+
+        // 解析に使う画像を収集（concept 優先）
+        const imageInfo = resolveImageInfo(record, opts.work, opts.db);
+        const images = [];
+        if (imageInfo.common.concept) {
+            images.push({
+                role: 'concept',
+                url: imageInfo.common.concept,
+                localPath: urlToLocalPath(imageInfo.common.concept),
+            });
+        }
+        if (imageInfo.corefolderUrl) {
+            images.push({
+                role: 'corefolder',
+                url: imageInfo.corefolderUrl,
+                localPath: urlToLocalPath(imageInfo.corefolderUrl),
+            });
+        }
+        if (imageInfo.humanoidImages.length > 0) {
+            images.push({
+                role: 'humanoid',
+                url: imageInfo.humanoidImages[0].url,
+                localPath: urlToLocalPath(imageInfo.humanoidImages[0].url),
+            });
+        }
+
+        tasks.push({
+            num,
+            name: record.CharaName ?? `#${num}`,
+            todoFields,
+            images,
+            // Agent 向けヒント: 既存の non-TODO ai_tags を参照に提示
+            existingTags: (() => {
+                const tags = [];
+                for (const form of Object.values(record.AIHints.forms ?? {})) {
+                    if (!form || typeof form !== 'object') continue;
+                    if (Array.isArray(form.ai_tags)) {
+                        tags.push(...form.ai_tags.filter(t => !VISUAL_TODO_PATTERN.test(t)));
+                    }
+                }
+                return [...new Set(tags)];
+            })(),
+        });
+    }
+
+    tasks.sort((a, b) => a.num - b.num);
+
+    // .cache/ ディレクトリが無ければ作成
+    const cacheDir = path.join(REPO_ROOT, '.cache');
+    if (!fs.existsSync(cacheDir)) fs.mkdirSync(cacheDir, { recursive: true });
+
+    const outPath = path.join(cacheDir, 'vision-tasks.json');
+    fs.writeFileSync(outPath, JSON.stringify(tasks, null, 2), 'utf8');
+    console.log(`Generated vision-tasks.json: ${path.relative(REPO_ROOT, outPath)}`);
+    console.log(`  ${tasks.length} records with visual TODO items\n`);
+
+    // タスク一覧を簡略表示
+    for (const t of tasks) {
+        const imgRoles = t.images.map(i => i.role).join(', ');
+        console.log(`  #${t.num} ${t.name} [${imgRoles}] → ${t.todoFields.join(', ')}`);
+    }
+
+    console.log('\nNext step: open vision-tasks.json, analyze images with Agent view_image,');
+    console.log('then write .cache/vision-results.json and run --apply-vision-results --apply');
+}
+
+/**
+ * VisionResult の解析データを AIHints オブジェクトに適用し、視覚 TODO を埋める。
+ * 変更がなかった場合は `changed: false` を返す。
+ *
+ * @param {any}          aihints  元の AIHints オブジェクト（変更しない）
+ * @param {VisionResult} vr       Agent が埋めた VisionResult
+ * @returns {{ aihints: any, changed: boolean }}
+ */
+function applyVisionResultsToAihints(aihints, vr) {
+    // deep copy してから編集する
+    const a = JSON.parse(JSON.stringify(aihints));
+    let changed = false;
+
+    // ── palette_priority ────────────────────────────────────────────
+    if (vr.palette && a.common?.palette_priority) {
+        const p = a.common.palette_priority;
+        if (vr.palette.primary && typeof p.primary === 'string' && p.primary.startsWith('TODO:')) {
+            p.primary = vr.palette.primary; changed = true;
+        }
+        if (vr.palette.secondary && typeof p.secondary === 'string' && p.secondary.startsWith('TODO:')) {
+            p.secondary = vr.palette.secondary; changed = true;
+        }
+        if (vr.palette.accent && typeof p.accent === 'string' && p.accent.startsWith('TODO:')) {
+            p.accent = vr.palette.accent; changed = true;
+        }
+    }
+
+    // ── common.silhouette_features: hair / eye スロットを置換 ───────
+    if (a.common?.silhouette_features) {
+        a.common.silhouette_features = a.common.silhouette_features.flatMap(feat => {
+            if (typeof feat !== 'string' || !feat.startsWith('TODO:')) return [feat];
+            if (/hair/i.test(feat) && vr.silhouetteHair) { changed = true; return [vr.silhouetteHair]; }
+            if (/eye/i.test(feat) && vr.silhouetteEye)  { changed = true; return [vr.silhouetteEye]; }
+            return [feat]; // 未対応スロットはそのまま
+        });
+    }
+
+    // ── forms.corefolder ──────────────────────────────────────────
+    if (a.forms?.corefolder) {
+        const cf = a.forms.corefolder;
+
+        // outfit_features: 単一 TODO エントリ → 配列要素に展開
+        if (Array.isArray(cf.outfit_features) && vr.corefolderOutfit?.length) {
+            cf.outfit_features = cf.outfit_features.flatMap(f => {
+                if (typeof f === 'string' && f.startsWith('TODO:')) { changed = true; return vr.corefolderOutfit; }
+                return [f];
+            });
+        }
+
+        // ai_tags: hair / eye / outfit TODO スロットを置換して prompt_export を更新
+        if (Array.isArray(cf.ai_tags)) {
+            const hairTag = vr.aiTagsHair ?? vr.silhouetteHair;
+            const eyeTag  = vr.aiTagsEye  ?? vr.silhouetteEye;
+            cf.ai_tags = cf.ai_tags.flatMap(t => {
+                if (typeof t !== 'string' || !t.startsWith('TODO:')) return [t];
+                if (/hair/i.test(t) && hairTag)               { changed = true; return [hairTag]; }
+                if (/eye/i.test(t)  && eyeTag)                { changed = true; return [eyeTag]; }
+                if (/outfit/i.test(t) && vr.corefolderOutfit?.length) { changed = true; return vr.corefolderOutfit; }
+                return [t];
+            });
+            cf.prompt_export = cf.ai_tags.filter(t => !t.startsWith('TODO:')).join(', ');
+        }
+    }
+
+    // ── forms.humanoid ────────────────────────────────────────────
+    if (a.forms?.humanoid) {
+        const hu = a.forms.humanoid;
+
+        if (Array.isArray(hu.outfit_features) && vr.humanoidOutfit?.length) {
+            hu.outfit_features = hu.outfit_features.flatMap(f => {
+                if (typeof f === 'string' && f.startsWith('TODO:')) { changed = true; return vr.humanoidOutfit; }
+                return [f];
+            });
+        }
+
+        if (Array.isArray(hu.ai_tags)) {
+            const hairTag = vr.aiTagsHair ?? vr.silhouetteHair;
+            const eyeTag  = vr.aiTagsEye  ?? vr.silhouetteEye;
+            hu.ai_tags = hu.ai_tags.flatMap(t => {
+                if (typeof t !== 'string' || !t.startsWith('TODO:')) return [t];
+                if (/hair/i.test(t) && hairTag)               { changed = true; return [hairTag]; }
+                if (/eye/i.test(t)  && eyeTag)                { changed = true; return [eyeTag]; }
+                if (/outfit/i.test(t) && vr.humanoidOutfit?.length) { changed = true; return vr.humanoidOutfit; }
+                return [t];
+            });
+            hu.prompt_export = hu.ai_tags.filter(t => !t.startsWith('TODO:')).join(', ');
+        }
+    }
+
+    return { aihints: a, changed };
+}
+
 /**
  * 1ファイル分のパッチ処理。テキスト編集と結果集計を返す。
  * @param {string} text
@@ -1059,6 +1450,42 @@ function patchFileText(text, opts) {
             const imageInfo = resolveImageInfo(record, opts.work, opts.db);
             text = fixRefsInRecord(text, openIdx, closeIdx, imageInfo);
             results.push({ num, status: 'refs-fixed' });
+            continue;
+        }
+
+        // --fill-todos モード: JSON から導出できる TODO 項目のみ補完。
+        // palette / 髪・目・衣装など視覚系は変更しない。
+        if (opts.fillTodos) {
+            if (!hasAihints) {
+                results.push({ num, status: 'skipped-no-aihints' });
+                continue;
+            }
+            const { text: newText, changed } = fillJsonTodosInRecord(text, openIdx, closeIdx, record);
+            text = newText;
+            results.push({ num, status: changed ? 'todos-filled' : 'todos-unchanged' });
+            continue;
+        }
+
+        // --apply-vision-results モード: Agent の画像解析結果を AIHints の視覚 TODO に適用。
+        // .cache/vision-results.json から読み込んだ Map を opts.visionResultsMap に期待する。
+        if (opts.applyVisionResults) {
+            if (!hasAihints) {
+                results.push({ num, status: 'skipped-no-aihints' });
+                continue;
+            }
+            const vRes = opts.visionResultsMap?.get(num);
+            if (!vRes) {
+                results.push({ num, status: 'vision-no-result' });
+                continue;
+            }
+            const { aihints: newAihints, changed } = applyVisionResultsToAihints(record.AIHints, vRes);
+            if (!changed) {
+                results.push({ num, status: 'vision-unchanged' });
+                continue;
+            }
+            const block = stringifyAihintsBlock(newAihints);
+            text = replaceAihintsInRecord(text, openIdx, closeIdx, block);
+            results.push({ num, status: 'vision-applied' });
             continue;
         }
 
@@ -1168,11 +1595,43 @@ function main() {
         process.exit(1);
     }
 
+    // --gen-vision-tasks モード: 読み取り専用でタスクマニフェストを生成して終了。
+    if (opts.genVisionTasks) {
+        const db = JSON.parse(original);
+        genVisionTasksToFile(db, opts);
+        return;
+    }
+
+    // --apply-vision-results モード: vision-results.json を読み込んで Map に変換し opts に注入。
+    if (opts.applyVisionResults) {
+        const visionPath = path.join(REPO_ROOT, '.cache', 'vision-results.json');
+        if (!fs.existsSync(visionPath)) {
+            console.error(`vision-results.json not found: ${visionPath}`);
+            console.error('Agent の画像解析セッションで .cache/vision-results.json を先に作成してください。');
+            process.exit(1);
+        }
+        let raw;
+        try {
+            raw = JSON.parse(fs.readFileSync(visionPath, 'utf8'));
+        } catch (e) {
+            console.error(`vision-results.json の解析に失敗: ${e.message}`);
+            process.exit(1);
+        }
+        opts.visionResultsMap = new Map(raw.map(r => [r.num, r]));
+        console.log(`Loaded vision-results.json: ${opts.visionResultsMap.size} entries`);
+    }
+
     const { newText, results } = patchFileText(original, opts);
 
     // 結果サマリ
-    const counts = { patched: 0, 'skipped-existing': 0, 'skipped-no-image': 0, overwritten: 0, 'refs-fixed': 0, 'skipped-no-aihints': 0 };
-    for (const r of results) counts[r.status]++;
+    const counts = {
+        patched: 0, 'skipped-existing': 0, 'skipped-no-image': 0, overwritten: 0,
+        'refs-fixed': 0,
+        'todos-filled': 0, 'todos-unchanged': 0,
+        'vision-applied': 0, 'vision-unchanged': 0, 'vision-no-result': 0,
+        'skipped-no-aihints': 0,
+    };
+    for (const r of results) counts[r.status] = (counts[r.status] ?? 0) + 1;
     results.sort((a, b) => a.num - b.num);
 
     console.log(`\n=== patch-aihints summary (${opts.apply ? 'APPLY' : 'dry-run'}${opts.suggest ? ' / suggest' : ''}) ===`);
@@ -1180,6 +1639,10 @@ function main() {
     console.log(`  target: ${opts.records ? `[${[...opts.records].sort((a,b)=>a-b).join(',')}]` : 'ALL'}`);
     if (opts.fixRefs) {
         console.log(`  refs-fixed=${counts['refs-fixed']}, skipped-no-aihints=${counts['skipped-no-aihints']}`);
+    } else if (opts.fillTodos) {
+        console.log(`  todos-filled=${counts['todos-filled']}, todos-unchanged=${counts['todos-unchanged']}, skipped-no-aihints=${counts['skipped-no-aihints']}`);
+    } else if (opts.applyVisionResults) {
+        console.log(`  vision-applied=${counts['vision-applied']}, vision-unchanged=${counts['vision-unchanged']}, vision-no-result=${counts['vision-no-result']}, skipped-no-aihints=${counts['skipped-no-aihints']}`);
     } else {
         console.log(`  patched=${counts.patched}, overwritten=${counts.overwritten}, skipped-existing=${counts['skipped-existing']}, skipped-no-image=${counts['skipped-no-image']}`);
     }
