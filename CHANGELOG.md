@@ -1,5 +1,15 @@
 # 最新のリファクタリング・仕様変更履歴
 
+### `tools/patch-aihints.mjs` に視覚解析ワークフロー (`--gen-vision-tasks` / `--apply-vision-results`) を追加
+
+- `patch-aihints.mjs` に 2 つのモードを追加し、視覚 TODO（`palette_priority` / `silhouette_features` の hair・eye / `forms.*.outfit_features` / `forms.*.ai_tags` の hair・eye・outfit）を Agent 画像解析と組み合わせて埋める半自動ワークフローを構築した。
+  - `--gen-vision-tasks`: 視覚 TODO が残るレコードを走査し、各レコードの concept / corefolder / humanoid 画像 URL・ローカルパス・既存 ai_tags をまとめた `.cache/vision-tasks.json` を生成する（Agent 解析用マニフェスト）。
+  - `--apply-vision-results`: `.cache/vision-results.json`（Agent が画像解析結果を構造化した JSON）を読み込み、`applyVisionResultsToAihints()` で TODO を置換する。欠落フィールドは「変更しない」扱いで TODO を保持し、部分適用に対応する。
+- `PatchResult.status` に `vision-applied` / `vision-unchanged` / `vision-no-result` を追加し、サマリ表示で件数を可視化した。
+- `genVisionTasksToFile()` に `aihints.forms` が `null` のケースに対する null ガードを追加。
+- 適用範囲: `Works_NumberTales` 一次創作 DB の #41-#65 のうち解析が確定した 23 レコードへ palette・silhouette・corefolder outfit を補完した。残レコード（#66-#69 など）は次セッション以降に追加解析する。
+- 回帰確認: `tests/data.sanity.test.js` / `tests/sw.enrich.basic.test.js` は全件 pass を維持。
+
 ### `$Def_AI*` スキーマを作品別 `$VersDef` へ移動 + `--fix-refs` フラグ追加
 
 - `data/db_type.json` のグローバル `$VarsDef` から `$Def_AIColorPalette` / `$Def_AIReferenceImages` / `$Def_AIHintsCommon` / `$Def_AIFormVariant` / `$Def_AIHintsForms` / `$Def_AIHints` の 6 定義を削除した。
