@@ -5,20 +5,20 @@
       {
         "hashTag": "Stoat",
         "$type": "#ListIndex",
-        "hashTagName_JP": "カード種別",
-        "hashTagName_EN": "CardType"
+        "hashTag_JP": "カード種別",
+        "hashTag_EN": "CardType"
       },
       {
         "hashTag": "StoatNum",
         "$type": "#Number|#Null",
-        "hashTagName_JP": "カード番号(種別内番号)",
-        "hashTagName_EN": "CardNumber(InStoat)"
+        "hashTag_JP": "カード番号(種別内番号)",
+        "hashTag_EN": "CardNumber(InStoat)"
       },
       {
         "hashTag": "Num",
         "$type": "#Number",
-        "hashTagName_JP": "カード番号(通し番号)",
-        "hashTagName_EN": "CardNumber(Total)"
+        "hashTag_JP": "カード番号(通し番号)",
+        "hashTag_EN": "CardNumber(Total)"
       }
     ]
   },

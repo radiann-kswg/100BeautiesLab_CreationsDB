@@ -5,24 +5,24 @@
       {
         "hashTag": "Lunar",
         "$type": "#ListIndex",
-        "hashTagName_JP": "月暦",
-        "hashTagName_EN": "Lunar"
+        "hashTag_JP": "月暦",
+        "hashTag_EN": "Lunar"
       },
       {
         "hashTag": "Num",
         "$type": "#Number|#Null",
-        "hashTagName_JP": "月暦番号",
-        "hashTagName_EN": "LunarNumber"
+        "hashTag_JP": "月暦番号",
+        "hashTag_EN": "LunarNumber"
       },
       {
         "hashTag": "Generation",
         "$type": "#Number|#Null",
-        "hashTagName_JP": "月暦の世代",
-        "hashTagName_EN": "GenerationOfLunar"
+        "hashTag_JP": "月暦の世代",
+        "hashTag_EN": "GenerationOfLunar"
       }
     ],
-    "hashTagName_JP": "クロノス",
-    "hashTagName_EN": "Chronos"
+    "hashTag_JP": "クロノス",
+    "hashTag_EN": "Chronos"
   },
   "$DefType": [
     {
