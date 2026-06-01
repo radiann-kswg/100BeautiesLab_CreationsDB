@@ -1,5 +1,19 @@
 # 最新のリファクタリング・仕様変更履歴
 
+### `Works_Hidden` による作品単位の完全非公開フラグを追加
+
+- `data/db_meta.json` の `CreationWorks.#Works_<WorkName>` に `"Works_Hidden": true` を置くことで、その作品全体をAPIから完全に非公開にできる仕様を追加した。
+- 適用エンドポイント: `GET .../works` 一覧、`GET .../index`、`GET .../bootstrap` から該当作品を除外。`GET .../works/{work}` / `.../works/{work}/db` / `.../works/{work}/db/{dbName}` / `search?works=...` は 404 `"Work not found"` を返す。
+- グローバルメタ (`data/db_meta.json`) 欠損時はチェックをスキップし、既存の耐性設計を維持する。
+- `DB_Hidden`（DB単位）と同様の設計で、`isPrivate`（レコード単位）との段階的非公開を構成する。
+
+### `DB_Hidden` による DB 単位の完全非公開フラグを追加
+
+- `db_meta.json` の `Databases.#DB_<DbName>` に `"DB_Hidden": true` を置くことで、そのDBをAPIから完全に非公開にできる仕様を追加した。
+- `lib/sw-common.js` の `listWorkDBs()` を修正し、`DB_Hidden: true` のエントリをDBリスト (`works/{work}/db`) から除外するようにした。
+- `lib/sw-common.js` の `handleDbEndpoint()` を修正し、直接URL (`works/{work}/db/{dbName}`) へのアクセスも `DB_Hidden: true` の場合は 404 を返すようにした。メタ欠損時はチェックをスキップし、既存の耐性設計を維持する。
+- 初期適用として `Works_NumberTales/DataBases/db_meta.json` の `#DB_UnprocessedSecondary` に `"DB_Hidden": true` を設定した。
+
 ### 創作作品ガイドラインを言語別ファイルへ集約
 
 - 一次/二次創作ガイドラインの本文と「二次創作 OK/NG リスト」を、リポジトリ直下の `guideline.md`（日本語版・正本）および `guideline.en.md`（英語版）の 2 ファイルへ集約した。
