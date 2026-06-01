@@ -97,9 +97,10 @@
           "RaceType",
           "GenderType",
           "Height_cm",
-          "Weight_kg"
+          "BustSize",
+          "AccessoryUnit"
         ],
-        "subFields": ["AbilityStats"]
+        "subFields": ["AbilityStats", "StreamingActivity"]
       },
       "Works_Hidden": true
     },

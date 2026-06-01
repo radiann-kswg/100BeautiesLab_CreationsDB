@@ -43,6 +43,11 @@
     },
     { "hashTag": "Letter", "$type": "#Index", "hashTag_JP": "キーレター" },
     {
+      "hashTag": "AccessoryUnit",
+      "$type": "#String",
+      "hashTag_JP": "モチーフアクセサリの特徴"
+    },
+    {
       "hashTag": "StreamingActivity",
       "$type": [
         {

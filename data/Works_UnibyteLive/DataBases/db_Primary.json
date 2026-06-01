@@ -1,0 +1,81 @@
+[
+  {
+    "Letter": { "Alphabet": "A", "Generation": 0, "AlphaGen": 1 },
+    "Progress": "notProceeded",
+    "Name": "A:アロー",
+    "Name_EN": "A:Arrows",
+    "FormalName": "英文字アロー",
+    "FormalName_EN": "Arrows A-Letter",
+    "CodeName": "英(A),弓矢",
+    "CodeName_EN": "A,Arrow",
+    "Height_cm": 146,
+    "ConceptAge": 17,
+    "AnivDay": [
+      {
+        "Day": { "Month": 2, "DayOfMonth": 6 },
+        "DayAbout": "「アルベッツ」結成記念"
+      },
+      {
+        "Day": { "Month": 1, "DayOfMonth": 27 },
+        "DayAbout": "誕生日（アルベッツ名義）"
+      }
+    ]
+  },
+  {
+    "Letter": { "Alphabet": "S", "Generation": 5, "AlphaGen": 2 },
+    "Progress": "nowCreating",
+    "Images": {
+      "keycapper_PNGPath": []
+    },
+    "Name": "S:ナーミィ",
+    "Name_EN": "S:Surgey",
+    "FormalName": "左伯(さえき)ナーミィ",
+    "FormalName_EN": "Surgey S-Curve",
+    "CodeName": "左(S),波",
+    "CodeName_EN": "S,Surge",
+    "Height_cm": 121,
+    "ConceptAge": 14,
+    "AnivDay": [
+      {
+        "Day": { "Month": 5, "DayOfMonth": 19 },
+        "DayAbout": "誕生日（アルベッツ名義）"
+      }
+    ],
+    "BustSize": "H",
+    "AccessoryUnit": "Sの字状に波打ったポニーテールや猫型の尻尾",
+    "StreamingActivity": {
+      "StreamingCategory": [
+        {
+          "value": "リスナーとの交流",
+          "about": "メイン活動,「ユニバイト・ユニバース」内での活動"
+        },
+        {
+          "value": "VRシェーダー制作",
+          "about": "メイン活動,作業配信もしくは演者個人での活動"
+        },
+        {
+          "value": "メタバース体験コンテンツ",
+          "about": "「ユニバイト・ユニバース」内・同人コンテンツ頒布および動画配信での活動"
+        },
+        { "value": "ショートムービー", "about": "動画配信での活動" },
+        {
+          "value": "ゲーム配信：テトリス,レース,音ゲー",
+          "about": "動画配信またはライブ配信での活動,頻度は少な目"
+        }
+      ],
+      "StreamingGreeting": {
+        "StreamingGreeting_JP": ["こんな～み！"],
+        "StreamingGreeting_EN": ["Hi, Surger!"]
+      },
+      "ListenerNickname": {
+        "ListenerNickname_JP": "なみのりー",
+        "ListenerNickname_EN": "Surger(s)"
+      },
+      "StreamingAwards": [
+        "「ユニバイト・ユニバース」九蓮国公認クリエイター",
+        "ゲームエンジン特許あり"
+      ],
+      "StreamingSummary": "ライブ配信では主に映像作品の公開をメインとしており、現実空間では味わえない斬新なプレイ体験でなみのりー(リスナー)たちを楽しませている。\n「ユニバイト・ユニバース」内ではトゥーンギャグに特化した様々なギミックを搭載したアバターでなみのりーと交流しており、時にVRユーザたちの性癖を大いに歪めたコンテンツを世に出したと噂されている。\n個人の同人ショップでアバターカスタムコンテンツも頒布しており、メタバースの新しい楽しみ方の提供にも積極的。"
+    }
+  }
+]
