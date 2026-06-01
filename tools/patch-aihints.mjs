@@ -124,7 +124,12 @@ function parseRecordSpec(spec) {
             const a = Number(m[1]), b = Number(m[2]);
             for (let n = Math.min(a, b); n <= Math.max(a, b); n++) set.add(n);
         } else if (/^\d+$/.test(chunk)) {
+            // 純粋な整数トークン: 数値・文字列の両キーを許容（特殊番号 "000" 等で両形が混在する DB に備える）
             set.add(Number(chunk));
+            set.add(chunk);
+        } else if (/^[0-9A-Za-z_\-]+$/.test(chunk)) {
+            // 特殊番号トークン（例: "000", "2-alt", "10-alt", "67-old"）: 文字列のままセットに追加
+            set.add(chunk);
         } else {
             throw new Error(`Invalid --records token: ${chunk}`);
         }
@@ -301,9 +306,17 @@ function resolveImageInfo(record, work, db) {
         const rel = String(raw);
         if (rel.startsWith('humanoids/')) {
             // humanoid art: Num 一致チェック
-            const m = rel.match(/art_img(\d+)-humanoid([A-Za-z0-9]*)$/);
+            const m = rel.match(/art_img([0-9A-Za-z\-]+?)-humanoid([A-Za-z0-9]*)$/);
             if (!m) continue;
-            if (Number(m[1]) !== num) continue;
+            // num が string の特殊番号でも一致できるよう、文字列比較ベースで判定する。
+            // 数値 num の場合は数値同士でも比較して後方互換を維持。
+            const matchKey = m[1];
+            const numStr = String(num);
+            const matchNum = Number(matchKey);
+            const numNum = typeof num === 'number' ? num : Number(num);
+            const isMatch = matchKey === numStr
+                || (Number.isFinite(matchNum) && Number.isFinite(numNum) && matchNum === numNum);
+            if (!isMatch) continue;
             const fname = `${path.basename(rel)}.png`;
             const subdir = path.dirname(rel);
             const abs = path.join(imagesRoot, 'arts', subdir, fname);
@@ -1248,7 +1261,8 @@ function genVisionTasksToFile(db, opts) {
     const tasks = [];
     for (const record of db) {
         const num = record.Num;
-        if (typeof num !== 'number') continue;
+        // num は通常 number だが、特殊番号レコード（例: "000", "2-alt"）は string も許容
+        if (num === undefined || num === null || (typeof num !== 'number' && typeof num !== 'string')) continue;
         if (opts.records !== null && !opts.records.has(num)) continue;
         if (!record.AIHints) continue;
 
@@ -1435,7 +1449,8 @@ function patchFileText(text, opts) {
             continue;
         }
         const num = record.Num;
-        if (typeof num !== 'number') continue;
+        // num は通常 number だが、特殊番号レコード（例: "000", "2-alt"）は string も許容
+        if (num === undefined || num === null || (typeof num !== 'number' && typeof num !== 'string')) continue;
         if (opts.records !== null && !opts.records.has(num)) continue;
 
         const hasAihints = Object.prototype.hasOwnProperty.call(record, 'AIHints');
