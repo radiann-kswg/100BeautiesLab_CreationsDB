@@ -4,20 +4,20 @@
     "$type": [
       {
         "hashTag": "Beast",
-        "$type": "#ListIndex",
-        "hashTagName_JP": "動物",
-        "hashTagName_EN": "Beast"
+        "$type": "#IndexListKey",
+        "hashTag_JP": "動物",
+        "hashTag_EN": "Beast"
       },
       { "hashTag": "Eto", "$type": "#String_JP", "hashTag_JP": "干支" },
       {
         "hashTag": "Num",
         "$type": "#Number|#Number_withAbout[]|#Null",
-        "hashTagName_JP": "干支番号",
+        "hashTag_JP": "干支番号",
         "hashTag_EN": "EtoNumber"
       }
     ],
-    "hashTagName_JP": "獣種",
-    "hashTagName_EN": "BeastType"
+    "hashTag_JP": "獣種",
+    "hashTag_EN": "BeastType"
   },
   "$DefType": [
     { "hashTag": "BeastType", "$type": "#Index", "hashTag_JP": "獣種" },

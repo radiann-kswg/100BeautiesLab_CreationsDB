@@ -5,14 +5,14 @@
       {
         "hashTag": "LogicSeries",
         "$type": "#String|#Null",
-        "hashTagName_JP": "ロジック系統",
-        "hashTagName_EN": "LogicSeries"
+        "hashTag_JP": "ロジック系統",
+        "hashTag_EN": "LogicSeries"
       },
       {
         "hashTag": "Num",
         "$type": "#Number|#String|#Null",
-        "hashTagName_JP": "ロジック番号",
-        "hashTagName_EN": "LogicNumber"
+        "hashTag_JP": "ロジック番号",
+        "hashTag_EN": "LogicNumber"
       }
     ]
   },

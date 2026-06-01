@@ -2,8 +2,8 @@
   "$IndexDef": {
     "hashTag": "Generation",
     "$type": "#Number",
-    "hashTagName_JP": "代理の世代",
-    "hashTagName_EN": "ProxyGeneration"
+    "hashTag_JP": "代理の世代",
+    "hashTag_EN": "ProxyGeneration"
   },
   "$DefType": [
     {

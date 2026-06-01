@@ -63,7 +63,8 @@
           "sec_SeriesTitle": null,
           "_Commons": {
             "Belonging": ["百花繚乱研究所"],
-            "RaceType": "PortableHumanoid(TaleBeastType)"
+            "RaceType": "PortableHumanoid(TaleBeastType)",
+            "GenderType": "Neutral"
           }
         },
         {
@@ -72,23 +73,8 @@
           "sec_SeriesTitle": null,
           "_Commons": {
             "Belonging": ["百花繚乱研究所"],
-            "RaceType": "PortableHumanoid(TaleBeastType)"
-          }
-        }
-      ]
-    },
-    "#DB_UnprocessedSecondary": {
-      "DB_Label": "未整理二次創作枠",
-      "DB_Label_EN": "Unprocessed Secondary",
-      "DB_Summary": "ナンバーテールズのうち、まだ制作予定のない3桁の番号をもつキャラクターの空き枠で、こちらは二次創作に準ずる括りとする。\nゾロ目(111の倍数)などの予約された番号を除く101以上999未満の非負整数である数秘をそれぞれ有している。",
-      "_Secondaries": [
-        {
-          "sec_Category": null,
-          "sec_DesignedBy": null,
-          "sec_SeriesTitle": null,
-          "_Commons": {
-            "Belonging": ["百花繚乱研究所"],
-            "RaceType": "PortableHumanoid(TaleBeastType)"
+            "RaceType": "PortableHumanoid(TaleBeastType)",
+            "GenderType": "Neutral"
           }
         }
       ]
@@ -150,7 +136,7 @@
             "about_JP": "第9創世紀5年(第8創世紀8年,西暦2052年相当)周辺",
             "about_EN": "in around WDCE.IX.5(Equivalent to in around: WDCE.VIII.8, DC.2052)"
           },
-          "_Commons": {}
+          "_Commons": { "isPrivate": true }
         },
         {
           "sec_Category": "共同二次創作",
@@ -168,10 +154,30 @@
           },
           "_Commons": {
             "Belonging": ["シンフォニー.XVI(ゼクズィン)"],
-            "RaceType": "DeviatableHumanoid(TaleBeastType)"
+            "RaceType": "DeviatableHumanoid(TaleBeastType)",
+            "isPrivate": true
           }
         }
-      ]
+      ],
+      "#DB_UnprocessedSecondary": {
+        "DB_Label": "未整理の二次創作枠",
+        "DB_Label_EN": "Unprocessed Secondary",
+        "DB_Summary": "ナンバーテールズのうち、まだ制作予定のない3桁の番号をもつキャラクターの空き枠で、こちらは二次創作に準ずる括りとする。\nゾロ目(111の倍数)などの予約された番号を除く101以上999未満の非負整数である数秘をそれぞれ有している。",
+        "_Secondaries": [
+          {
+            "sec_Category": null,
+            "sec_DesignedBy": null,
+            "sec_SeriesTitle": null,
+            "_Commons": {
+              "Progress": "NotProcessed",
+              "Belonging": ["百花繚乱研究所"],
+              "RaceType": "PortableHumanoid(TaleBeastType)",
+              "GenderType": "Neutral"
+            }
+          }
+        ],
+        "DB_Hidden": true
+      }
     },
     "#Ref_Glossary": {
       "DB_Label": "創作用語",

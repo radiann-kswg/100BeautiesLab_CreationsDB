@@ -2,8 +2,8 @@
   "$IndexDef": {
     "hashTag": "Unit",
     "$type": "#String",
-    "hashTagName_JP": "理学単位次元",
-    "hashTagName_EN": "UnitalDimention"
+    "hashTag_JP": "理学単位次元",
+    "hashTag_EN": "UnitalDimention"
   },
   "$DefType": [
     { "hashTag": "Unit", "$type": "#Index", "hashTag_JP": "理学単位次元" },

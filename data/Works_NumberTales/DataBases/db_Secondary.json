@@ -318,7 +318,7 @@
     "sec_SeriesTitle": "ヘキサデミカル・テールズ",
     "Images": {
       "concept_PNGName": "hexademical/cnsp_img0xA",
-      "corefolder_PNGPath": ["hexademical/emstk_corefolder0xA-1"]
+      "corefolder_PNGPath": ["0xA/emstk_corefolder0xA-1"]
     },
     "Name": "0xA(エース)",
     "Name_EN": "0xA(Ace)",
@@ -429,7 +429,7 @@
     "sec_SeriesTitle": "ヘキサデミカル・テールズ",
     "Images": {
       "concept_PNGName": "hexademical/cnsp_img0xB",
-      "corefolder_PNGPath": ["hexademical/emstk_corefolder0xB-1"]
+      "corefolder_PNGPath": ["0xB/emstk_corefolder0xB-1"]
     },
     "Name": "0xB(ベータ)",
     "Name_EN": "0xB(Beta)",
@@ -549,8 +549,8 @@
     "Images": {
       "concept_PNGName": "hexademical/cnsp_img0xC",
       "corefolder_PNGPath": [
-        "hexademical/emstk_corefolder0xC-1",
-        "hexademical/emstk_corefolder0xC-2"
+        "0xC/emstk_corefolder0xC-1",
+        "0xC/emstk_corefolder0xC-2"
       ]
     },
     "Name": "0xC(セレス)",
@@ -671,8 +671,8 @@
     "Images": {
       "concept_PNGName": "hexademical/cnsp_img0xD",
       "corefolder_PNGPath": [
-        "hexademical/emstk_corefolder0xD-1",
-        "hexademical/emstk_corefolder0xD-2"
+        "0xD/emstk_corefolder0xD-1",
+        "0xD/emstk_corefolder0xD-2"
       ]
     },
     "Name": "0xD(デプス)",
@@ -797,7 +797,7 @@
     "sec_SeriesTitle": "ヘキサデミカル・テールズ",
     "Images": {
       "concept_PNGName": "hexademical/cnsp_img0xE",
-      "corefolder_PNGPath": ["hexademical/emstk_corefolder0xE-1"]
+      "corefolder_PNGPath": ["0xE/emstk_corefolder0xE-1"]
     },
     "Name": "0xE(エネ)",
     "Name_EN": "0xE(Enè)",
@@ -901,10 +901,10 @@
     "Images": {
       "concept_PNGName": "hexademical/cnsp_img0xF",
       "corefolder_PNGPath": [
-        "hexademical/emstk_corefolder0xF-1",
-        "hexademical/emstk_corefolder0xF-2",
-        "hexademical/emstk_corefolder0xF-1a",
-        "hexademical/emstk_corefolder0xF-2a"
+        "0xF/emstk_corefolder0xF-1",
+        "0xF/emstk_corefolder0xF-2",
+        "0xF/emstk_corefolder0xF-1a",
+        "0xF/emstk_corefolder0xF-2a"
       ]
     },
     "Name": "0xF(フォルテ)",

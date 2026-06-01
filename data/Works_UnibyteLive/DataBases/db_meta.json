@@ -1,0 +1,77 @@
+{
+  "Databases": {
+    "#DB_Primary": {
+      "DB_Label": "一次創作",
+      "DB_Label_EN": "Primary",
+      "DB_Summary": "ハンカクライブの公式一次創作作品に登場する架空のVR配信者。\nアルファベットに関連するモチーフをそれぞれ有している。",
+      "StoryEra": {
+        "FromEra": [{ "EraGen": 8, "YearInEra": 2 }, { "byRealYear": 2046 }],
+        "ToEra": [{ "EraGen": 9, "YearInEra": 6 }, { "byRealYear": 2053 }],
+        "InEra": [
+          { "EraGen": 9, "YearInEra": 2 },
+          { "EraGen": 8, "YearInEra": 5 },
+          { "byRealYear": 2049 }
+        ],
+        "about_JP": "第8創世紀2〜第9創世紀6年(西暦2046〜2053年相当)",
+        "about_EN": "between WDCE.VIII.2-IX.6(Equivalent to between: DC.2046-2053)"
+      },
+      "_Commons": {
+        "Belonging": ["アルベッツ"],
+        "RaceType": "VirtualAvatar",
+        "GenderType": "FemaleNeutral"
+      }
+    },
+    "#DB_PrimaryPerformer": {
+      "DB_Label": "一次創作(演者)",
+      "DB_Label_EN": "Primary(Performer)",
+      "DB_Summary": "ハンカクライブの公式一次創作作品に登場するキャラクター。\nこちらには「アルベッツ」として活動する演者に関する情報をまとめている。",
+      "StoryEra": {
+        "FromEra": [{ "EraGen": 8, "YearInEra": 1 }, { "byRealYear": 2045 }],
+        "ToEra": [{ "EraGen": 9, "YearInEra": 6 }, { "byRealYear": 2053 }],
+        "InEra": [
+          { "EraGen": 9, "YearInEra": 2 },
+          { "EraGen": 8, "YearInEra": 5 },
+          { "byRealYear": 2049 }
+        ],
+        "about_JP": "第8創世紀1〜第9創世紀6年(西暦2045〜2053年相当)",
+        "about_EN": "between WDCE.VIII.1-IX.6(Equivalent to between: DC.2045-2053)"
+      },
+      "_Commons": { "GenderType": "Female" },
+      "Works_Hidden": true
+    }
+  },
+  "General": {
+    "$VarsDef": {
+      "$Def_Letter": {
+        "#List_Alphabet": [
+          { "Alphabet": "A" },
+          { "Alphabet": "B" },
+          { "Alphabet": "C" },
+          { "Alphabet": "D" },
+          { "Alphabet": "E" },
+          { "Alphabet": "F" },
+          { "Alphabet": "G" },
+          { "Alphabet": "H" },
+          { "Alphabet": "I" },
+          { "Alphabet": "J" },
+          { "Alphabet": "K" },
+          { "Alphabet": "L" },
+          { "Alphabet": "M" },
+          { "Alphabet": "N" },
+          { "Alphabet": "O" },
+          { "Alphabet": "P" },
+          { "Alphabet": "Q" },
+          { "Alphabet": "R" },
+          { "Alphabet": "S" },
+          { "Alphabet": "T" },
+          { "Alphabet": "U" },
+          { "Alphabet": "V" },
+          { "Alphabet": "W" },
+          { "Alphabet": "X" },
+          { "Alphabet": "Y" },
+          { "Alphabet": "Z" }
+        ]
+      }
+    }
+  }
+}

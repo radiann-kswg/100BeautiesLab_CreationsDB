@@ -52,6 +52,8 @@
 - `resolve=0` を付けると、`#Works` や `#DB` などの参照解決をスキップできます
 - `isPrivate: true` を持つレコードは、`db` / `search` / `enrich` 系レスポンスから除外します
 - `_DBLink` の参照先探索でも `isPrivate: true` の候補は採用しません
+- `Works_Hidden: true` を持つ作品は、作品一覧・配下のDB・検索の全エンドポイントから除外または 404 で遮断されます（後述の §5.4 を参照）
+- `DB_Hidden: true` を持つDBは、作品配下のDB一覧・直接アクセス・検索から除外または 404 で遮断されます（後述の §5.3 を参照）
 
 ---
 
@@ -97,6 +99,7 @@ UI と enrich/search は、可能な限りこの `db_type.json($DefType)` に追
 - 作品別 `db_meta.json` は未整備の作品が存在します
 - そのため SW は `db_meta.json` 欠損を 500 エラーにせず、追加価値の処理だけをスキップして継続します
 - `Area` / `Belonging` のような共通辞書は `db_meta.json` 本体ではなく `Dictionaries/db_*.json` に分離でき、`DataFetcher.readGlobalMeta()` / `readWorkMeta()` が `General.$VarsDef` へ runtime 合流します
+- `Databases.#DB_<DbName>` に `"DB_Hidden": true` を置くと、そのDB全体が API から非公開になります（後述の 5.3 を参照）
 
 ---
 
@@ -173,6 +176,62 @@ UI と enrich/search は、可能な限りこの `db_type.json($DefType)` に追
   - `DB_Label`, `DB_Label_EN`, `DB_Summary`, `DB_Layer`, `DB_File`, `StoryEra`, `SecondarySummary`
 - `$Def_StoryEraCatalog`
   - `FromEra[]`, `ToEra[]`, `InEra[]`, `about_JP`, `about_EN`
+
+補足 (`$Def_DatabaseCatalog` の補助フィールドについて):
+
+- `DB_Hidden: true` を持つエントリは `works/{work}/db` の一覧と `works/{work}/db/{dbName}` の直接アクセスの両方で非公開扱いになります。スキーマ上は `$Def_DatabaseCatalog` に宣言されていませんが（非公開フラグは表示メタではなくアクセス制御フラグのため）、`db_meta.json` の `Databases.#DB_<DbName>` に直接置く運用です。
+
+---
+
+## 5.3 `DB_Hidden` によるDB単位の完全非公開
+
+`db_meta.json` の `Databases.#DB_<DbName>` に `"DB_Hidden": true` を設定すると、そのDB全体がAPIから非公開になります。
+
+挙動:
+
+- `GET .../works/{work}/db` — リスト応答に当該DBエントリが含まれません
+- `GET .../works/{work}/db/{dbName}` — 404 `"Database not found"` を返します
+- `search` の `?db=...` 指定でも同様に 404 になります
+- メタ欠損時はチェックをスキップするため、`db_meta.json` が存在しない作品では本フラグは機能しません
+
+`isPrivate: true`（レコード単位の非公開）と異なる点:
+
+| 項目 | `isPrivate: true` | `DB_Hidden: true` |
+|------|------------------|-------------------|
+| 粒度 | レコード単位 | DB 全体 |
+| 適用場所 | `db_*.json` の各レコード | `db_meta.json` の `Databases.#DB_<DbName>` |
+| DBリスト (`works/{work}/db`) | DBエントリは残る | DBエントリごと除外 |
+| `db/{dbName}` 直接アクセス | 対象レコードだけ除外 | 404 |
+
+---
+
+## 5.4 `Works_Hidden` による作品単位の完全非公開
+
+`data/db_meta.json` の `CreationWorks.#Works_<WorkName>` に `"Works_Hidden": true` を設定すると、その作品全体がAPIから完全に非公開になります。
+
+挙動:
+
+- `GET .../works` — リスト応答に当該作品エントリが含まれません
+- `GET .../index` — 同上
+- `GET .../bootstrap` — 同上
+- `GET .../works/{work}` — 404 `"Work not found"` を返します
+- `GET .../works/{work}/db` — 404 `"Work not found"` を返します
+- `GET .../works/{work}/db/{dbName}` — 404 `"Work not found"` を返します
+- `search?works={work}&...` — 404 `"Work not found"` を返します
+- グローバルメタ (`data/db_meta.json`) 欠損時はチェックをスキップするため、`db_meta.json` が存在しない場合は機能しません
+
+`DB_Hidden`・`isPrivate` との粒度比較:
+
+| 項目 | `isPrivate: true` | `DB_Hidden: true` | `Works_Hidden: true` |
+|------|------------------|-------------------|---------------------|
+| 粒度 | レコード単位 | DB 全体 | 作品全体 |
+| 適用場所 | `db_*.json` の各レコード | `db_meta.json` の `Databases.#DB_<DbName>` | `db_meta.json` の `CreationWorks.#Works_<WorkName>` |
+| 作品一覧 (`works`) | 作品は残る | 作品は残る | 作品ごと除外 |
+| `works/{work}` 直接アクセス | 対象レコードだけ除外 | 作品情報は返る | 404 |
+| `works/{work}/db` | DBエントリは残る | 該当DBが除外 | 404 |
+| `works/{work}/db/{dbName}` | 対象レコードだけ除外 | 404 | 404 |
+
+---
 
 補足:
 

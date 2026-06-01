@@ -553,8 +553,8 @@
           "hashTag_JP": "地域補足_EN"
         }
       ],
-      "hashTagName_JP": "活動地域",
-      "hashTagName_EN": "Base Area"
+      "hashTag_JP": "活動地域",
+      "hashTag_EN": "Base Area"
     },
     "$EnumDef_Rank": {
       "#Rank0": { "Rank": "ZZ" },

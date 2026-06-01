@@ -3769,6 +3769,11 @@ function formatValueForDisplay(value, labelMap = {}, workMeta = null, globalDefT
       return formattedItems.join('\n\n');
     }
 
+    // _withAbout[] 配列型（#String_withAbout[], #Number_withAbout[], #ListIndex_withAbout[] 等）は 1 要素 1 行
+    if (hasArraySchema && schemaTypeIncludes(opt?.schemaType, '_withAbout')) {
+      return formattedItems.join('\n');
+    }
+
     return formattedItems.join(', ');
   }
 

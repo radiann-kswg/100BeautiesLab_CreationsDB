@@ -49,6 +49,8 @@
 - **辞書の実行時合流**: enum/list 辞書は `db_meta.json(General.$VarsDef)` と `db_type.json($VarsDef)` の両方から合成される前提で扱い、片側だけを正とみなして説明しないでください。
 - **カタログ用メタ宣言**: 作品/DB の概要メタ（`CreationWorks`, `Databases.#DB_*`）に関する正式な補助 schema は、グローバル `data/db_type.json` のトップレベル `$MetaType` で管理します。
 - **DB 表示名の正**: DB セレクトや作品概要の DB 見出しに出す表示名は、作品別 `db_meta.json` の `Databases.#DB_<DbName>.DB_Label` / `DB_Label_EN` を優先し、未定義時のみ SW の既定ラベル補完に依存します。
+- **`DB_Hidden` によるDB完全非公開**: `db_meta.json` の `Databases.#DB_<DbName>` に `"DB_Hidden": true` を置くと、そのDB全体が SW の DB リストと直接アクセスの両方から 404 で遮断されます。`isPrivate`（レコード単位）と異なり DB 単位で作用します。メタ欠損時はチェックをスキップします。詳細は `docs/api-sw-spec.md` の §5.3 を参照してください。
+- **`Works_Hidden` による作品完全非公開**: `data/db_meta.json` の `CreationWorks.#Works_<WorkName>` に `"Works_Hidden": true` を置くと、その作品全体が SW の作品一覧・配下DB・検索の全エンドポイントから 404 で遮断されます。`DB_Hidden`（DB単位）と異なり作品単位で作用します。グローバルメタ欠損時はチェックをスキップします。詳細は `docs/api-sw-spec.md` の §5.4 を参照してください。
 - **API/SW 技術説明の参照先**: API / SW 周辺の仕様整理や説明追加では、まず `docs/api-sw-spec.md` を参照・更新対象に含めてください。
 - **横断運用の参照先**: 実装判断の横断ルールは `docs/implementation-playbook.md` を先に確認し、必要な差分だけ追加してください。
 - **wrapper / section renderer の第一候補**: `Day` / `Era` / `StoryEra` のような複合 summary は、`pages/characters.js` や `lib/sw-common.js` に field 名依存の if を足す前に、`lib/wrapper-common.js` と schema の `$display.wrapper` / `$display.role` で吸収できないかを確認してください。`subFields` の standalone 描画も同様に、`pages/characters.js` に field 名依存の if を足す前に `lib/section-wrapper-common.js` と schema の `$display.sectionWrapper` で吸収できないかを確認してください。
