@@ -1,5 +1,14 @@
 # 最新のリファクタリング・仕様変更履歴
 
+### `tools/patch-aihints.mjs` に特殊番号（string `Num`）レコード対応 + Agent セッション再現プレイブックを整備
+
+- `parseRecordSpec()` を拡張し、`000` / `2-alt` / `10-alt` / `67-old` のような string `Num` トークンを `--records` で受け付けるようにした。純整数トークンは number / string 両形式を Set に追加して後方互換を維持。
+- `gen-vision-tasks` / メインループの `typeof num !== 'number'` ガードを number / string 両許容へ緩和。humanoid 画像マッチ正規表現を `art_img([0-9A-Za-z\-]+?)-humanoid` に拡張し、string Num と同体画像の関連付けを可能にした。
+- `Works_NumberTales/db_Primary.json` の #97 ・ #98 ・ #99 と、特殊番号レコード #000 ・ #2-alt ・ #10-alt へ `AIHints` を scaffold 生成→視覚解析適用→JSON 由来 TODO 補完まで適用した（vision-applied=6 / todos-filled=3）。詳細は `docs/ai-hints-usage.md` §9 「Agent セッション再現用プレイブック」を参照。
+- **適用範囲の明示**: 今回の作業と検証は **`data/Works_NumberTales/DataBases/db_Primary.json` のみを対象に適用されている**。他作品・他 DB（`Secondary` / `SemiPrimary` / `SelfSecondary` / `Proxy` 等）へ転用する際は画像ディレクトリ構造・`Images.*_PNGPath` 規則・作品別 schema の差異を個別に検証の上、`--work` / `--db` / 画像パス解決ロジックを調整すること。
+- 現状 `Works_NumberTales/DB_Primary` では参照画像がない以下 13 レコードは恒久的に AI タグ未付与のまま保持し、クエリ件数としてトラッキングする: `#38`, `#54`, `#59`, `#67-old`, `#79`, `#80`, `#82`, `#83`, `#90`, `#91`, `#95`, `#0`, `#00`。
+- 回帰確認: `tests/data.sanity.test.js` / `tests/sw.enrich.basic.test.js` は全件 pass を維持。
+
 ### `tools/patch-aihints.mjs` に helper の named export と import gate を追加 + 残 TODO 一括補完
 
 - `parseTailsUnit` / `buildTailDescription` / `extractExpressionHints` を named export 化し、外部スクリプトから再利用可能にした。既存挙動への影響なし。

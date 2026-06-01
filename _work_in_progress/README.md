@@ -21,6 +21,7 @@
 - 2026-04-23_progress_requested-tasks-implementation-plan.md
 - 2026-05-11_progress_storyera-schema.md
 - 2026-05-15_progress_aihints-numbertales-1to40.md（進行中: #41〜 は未着手）
+- 2026-06-01_progress_aihints-vision-final-and-playbook.md（`Works_NumberTales/DB_Primary` の AIHints 視覚解析完走 + Agent 再現プレイブック整備）
 
 補足:
 

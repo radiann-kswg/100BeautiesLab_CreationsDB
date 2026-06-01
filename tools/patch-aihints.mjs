@@ -144,6 +144,8 @@ Options:
   --work <name>       作品名（既定: NumberTales）
   --db <name>         DB 名（既定: Primary。例: Secondary, SemiPrimary）
   --records <spec>    対象 Num（例: 41-60, 41,42,47, 41-45,50）
+                      特殊番号トークン（"000" / "2-alt" / "10-alt" / "67-old" 等の string Num）も指定可
+                      （純整数は number / string 両形式で内部マッチするため後方互換あり）
   --all               全レコード対象
   --apply             実書き込み（指定しない場合は dry-run）
   --force             既存 AIHints がある場合も上書き

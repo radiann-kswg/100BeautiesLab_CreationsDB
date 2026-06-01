@@ -188,3 +188,125 @@ https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primar
 - **2026-05-30 (二層構造化)**: `AIHints` を `common` + `forms.{corefolder,humanoid}` の二層構造へ再編。旧フラット構造 (`ai_tags`/`prompt_export`/`reference_images` がトップレベル) は廃止。コアフォルダ装着姿と人型通常姿を明確に区別できるように。
 - **2026-05-30 (3環境対応リファクタ)**: 旧フィールドの `motif_rendering` / `distinguish_from` は廃止し、`identity_tags` に統合。長文・複合表現は原子化。
 - 詳細は `CHANGELOG.md` および `_work_in_progress/2026-05-30_progress_aihints-twolayer.md` を参照。
+
+---
+
+## 9. Agent セッション再現用プレイブック（AIHints 視覚解析・連続充填）
+
+> **適用範囲の明示 (重要)**
+>
+> 本セクションで記述するフロー、コマンド例、`tools/patch-aihints.mjs` の各モードの動作保証、および `.cache/fill-residual-todos.mjs` の挙動は **`data/Works_NumberTales/DataBases/db_Primary.json` のみを対象に検証・適用されている**。
+>
+> 他作品（`Works_FLInvestigator78` / `Works_ShouArRiders` / `Works_SinisterChangingGirls` / `Works_UnauthedLogica` / `Works_PastDivers` / `Works_DestinyFoxRecords` / `Works_Proxies`）や、同じ `Works_NumberTales` 内の他 DB（`Secondary` / `SemiPrimary` / `SelfSecondary` / `Proxy` 等）へ適用する際は、画像ディレクトリ構造・`Images.*_PNGPath` 規則・作品別 schema（`db_type.json($VersDef)`）の差異を個別に検証の上、`--work` / `--db` の両オプションと画像パス解決ロジックを随時調整してください。
+
+### 9.1 ワークフロー全体像
+
+```mermaid
+flowchart LR
+    A["1. --suggest --apply\nscaffold 作成"] --> B["2. --gen-vision-tasks\n.cache/vision-tasks.json 生成"]
+    B --> C["3. Agent: view_image で各画像を解析"]
+    C --> D["4. .cache/vision-results-batch-*.json に記述"]
+    D --> E["5. vision-results.json へマージ"]
+    E --> F["6. --apply-vision-results --apply"]
+    F --> G["7. --fill-todos --apply\n(JSON 由来 TODO を補完)"]
+    G --> H["8. Vitest 回帰テスト"]
+```
+
+### 9.2 各ステップの標準コマンド（`Works_NumberTales` / `DB_Primary` 前提）
+
+#### Step 1: AIHints scaffold 作成（初期付与・レコード追加時のみ）
+
+```powershell
+# 個別に指定（数値・特殊番号を混在可能）
+node tools/patch-aihints.mjs --records "97-99,000,2-alt,10-alt" --suggest --apply
+```
+
+- `--records` は `41-60` / `41,42,47` / `000` / `2-alt` / `10-alt` / `67-old` などを混在できる。
+- 画像が一枚も見つからないレコードは `skipped-no-image` となり AIHints は作成されない。
+
+#### Step 2: 視覚解析タスク生成
+
+```powershell
+node tools/patch-aihints.mjs --gen-vision-tasks
+# → .cache/vision-tasks.json
+```
+
+#### Step 3: Agent による画像解析（1 セッションあたり最大 20 画像まで）
+
+- Agent は `view_image` を並列呼び出しし、`vision-tasks.json` の `localPath` を順に参照して以下を記録する:
+  - `palette` (`primary` / `secondary` / `accent`)
+  - `silhouetteHair` / `silhouetteEye`
+  - `aiTagsHair` / `aiTagsEye`
+  - `corefolderOutfit[]`
+  - `humanoidOutfit[]`（humanoid 画像がある場合のみ）
+- **参照画像がないレコードは AI タグの付与をスキップする**（AIHints 未付与のまま保持）。現状 `Works_NumberTales/DB_Primary` では #38, #54, #59, #67-old, #79, #80, #82, #83, #90, #91, #95, #0, #00 が該当。
+
+#### Step 4: バッチファイルに記述
+
+```jsonc
+// .cache/vision-results-batch-<range>.json
+[
+  {
+    "num": 97,                              // number or string（例: "2-alt"）
+    "palette": { "primary": "#5878C8", "secondary": "#A0A8C0", "accent": "#6850A0" },
+    "silhouetteHair": "very long blue hair with side braid",
+    "silhouetteEye": "pale lavender-gray eyes",
+    "aiTagsHair": "very long blue hair with side braid",
+    "aiTagsEye": "pale lavender-gray eyes",
+    "corefolderOutfit": [ "gray nun-like top hat with cross emblem", "..." ],
+    "humanoidOutfit":   [ "gray priestess-style top hat ...", "..." ]  // 任意
+  }
+]
+```
+
+#### Step 5: `vision-results.json` へマージ
+
+```powershell
+node -e "const fs=require('fs');const cur=JSON.parse(fs.readFileSync('.cache/vision-results.json','utf8'));const add=JSON.parse(fs.readFileSync('.cache/vision-results-batch-97-99-special.json','utf8'));const map=new Map(cur.map(e=>[e.num,e]));for(const e of add)map.set(e.num,e);const arr=[...map.values()];arr.sort((a,b)=>{const na=typeof a.num==='number'?a.num:9999;const nb=typeof b.num==='number'?b.num:9999;if(na!==nb)return na-nb;return String(a.num).localeCompare(String(b.num));});fs.writeFileSync('.cache/vision-results.json',JSON.stringify(arr,null,2),'utf8');console.log('Total:',arr.length);"
+```
+
+- `num` に string（`"000"` / `"2-alt"` 等）も認識される。ソートは number を上位・string を末尾に集める規則。
+
+#### Step 6: AIHints へ適用
+
+```powershell
+node tools/patch-aihints.mjs --apply-vision-results --apply
+# → vision-applied=<N>, vision-unchanged=<M>, vision-no-result=<K>, skipped-no-aihints=<L>
+```
+
+#### Step 7: JSON 由来 TODO 一括補完
+
+```powershell
+node .cache/fill-residual-todos.mjs --apply
+```
+
+- `extractExpressionHints(Character)` / `parseTailsUnit(TailsUnit)` を使い、`expression` / `age` / `tail` / `ear` / `forms.*.natural_language_description` を JSON から補完する。
+- **`common.natural_language_description` は補完対象外**（作品設定本文に踏み込むため User 手動入力推奨）。
+
+#### Step 8: 回帰テスト
+
+```powershell
+.\node_modules\.bin\vitest.cmd run tests/data.sanity.test.js tests/sw.enrich.basic.test.js
+```
+
+### 9.3 特殊番号レコードの取り扱い
+
+以下は `Works_NumberTales/DB_Primary` に現われる string 型 `Num` レコードの例と、それぞれへの AI タグ付与劤判定:
+
+| `Num` | キャラ名 | 画像有無 | AI タグ付与 |
+| --- | --- | --- | --- |
+| `"000"` | チトセ | あり (concept / corefolder / humanoid) | 付与済 |
+| `"2-alt"` | バイナ / ツギ二号 | あり (concept / corefolder) | 付与済 |
+| `"10-alt"` | ディケ / ツナイ | あり (corefolder) | 付与済 |
+| `"67-old"` | ムナ | なし | スキップ |
+| `"0"` / `"00"` | 零シリーズ | なし | スキップ |
+
+`tools/patch-aihints.mjs` は `parseRecordSpec()` / メインループ / `gen-vision-tasks` / humanoid 画像マッチ (`art_img(<num>)-humanoid`) の 4 箰所で **number と string の両型** を受け付けるよう拡張済み。正規表現も `art_img([0-9A-Za-z\-]+?)-humanoid` に拡張されているため、`art_img2-alt-humanoid` のような名前も将来適合できる。
+
+### 9.4 チェックリスト（セッション終了時）
+
+- [ ] `vision-results.json` のエントリ数がマージ前+追加分と一致
+- [ ] `--apply-vision-results --apply` の `vision-applied` 件数が今回追加したレコード数と一致
+- [ ] `tests/data.sanity.test.js` / `tests/sw.enrich.basic.test.js` が全件 pass
+- [ ] バッチファイル (`.cache/vision-results-batch-*.json`) は .gitignore 対象の `.cache/` 配下のみに保持
+- [ ] 他作品・他 DB へ適用する場合は **本セクションのフローが `Works_NumberTales/DB_Primary` 前提でか検証されていないこと**を必ず記録し、個別に画像パス解決・schema 差異を確認
