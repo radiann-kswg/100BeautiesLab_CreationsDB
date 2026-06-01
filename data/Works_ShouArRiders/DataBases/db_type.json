@@ -4,7 +4,7 @@
     "$type": [
       {
         "hashTag": "Beast",
-        "$type": "#ListIndex",
+        "$type": "#IndexListKey",
         "hashTag_JP": "動物",
         "hashTag_EN": "Beast"
       },

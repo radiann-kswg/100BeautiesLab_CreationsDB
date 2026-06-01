@@ -39,7 +39,13 @@
     "$VarsDef": {
       "$Def_BeastType": {
         "#List_Beast": [
-          { "Beast": "Mouse", "Beast_JP": "鼠", "Beast_EN": "Mouse", "Num": 1 },
+          {
+            "Beast": "Mouse",
+            "Eto": "子",
+            "Beast_JP": "鼠",
+            "Beast_EN": "Mouse",
+            "Num": 1
+          },
           {
             "Beast": "Ox",
             "Eto": "丑",
