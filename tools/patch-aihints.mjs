@@ -60,6 +60,7 @@ const PUBLIC_ORIGIN = 'https://database.numbertales-radiann.net';
  * @property {boolean} apply      true なら実書き込み（既定は dry-run）
  * @property {boolean} force      true なら既存 AIHints を上書き
  * @property {boolean} suggest    true なら既存フィールドから候補値を導出して埋める（半自動モード）
+ * @property {boolean} fixRefs    true なら既存 AIHints の reference_images だけを再構築（タグは保持）
  * @property {boolean} verbose    詳細ログ
  */
 
@@ -72,6 +73,7 @@ function parseArgs(argv) {
         apply: false,
         force: false,
         suggest: false,
+        fixRefs: false,
         verbose: false,
     };
     for (let i = 0; i < argv.length; i++) {
@@ -85,6 +87,7 @@ function parseArgs(argv) {
             case '--dry-run': opts.apply = false; break;
             case '--force': opts.force = true; break;
             case '--suggest': opts.suggest = true; break;
+            case '--fix-refs': opts.fixRefs = true; break;
             case '--verbose': case '-v': opts.verbose = true; break;
             case '--help': case '-h': printHelpAndExit(); break;
             default:
@@ -130,6 +133,8 @@ Options:
   --force             既存 AIHints がある場合も上書き
   --suggest           TailsUnit / GenderType / Character 等から候補値を自動導出して埋める（半自動）
                       視覚情報が必要な項目（palette / 髪・目など）は TODO / 翻訳ヒント形式で残す
+  --fix-refs          既存 AIHints の reference_images だけを再構築する（タグ・テキストは保持）
+                      corefolder の旧パス修正や concept-first への移行に使用
   -v, --verbose       詳細ログ
   -h, --help          このヘルプを表示
 `);
@@ -207,6 +212,8 @@ function findMatchingBrace(text, openIdx) {
 /**
  * @typedef {Object} ImageInfo
  * @property {string|null} corefolderUrl  corefolder のメイン画像 URL（実在チェック済み）
+ * @property {Array<{url: string, label: string}>} corefolderImages  全 corefolder 画像群（corefolder_PNGPath 全件）
+ * @property {Array<{url: string, label: string}>} corefolderArtImages  corefolder アート画像群（arts_PNGPath の corefolders/ 系）
  * @property {Array<{url: string, label: string}>} humanoidImages  humanoid 画像群
  * @property {CommonRefs} common  common.reference_images 向けの形態共通リソース
  */
@@ -229,6 +236,8 @@ function findMatchingBrace(text, openIdx) {
 function resolveImageInfo(record, work, db) {
     const out = {
         corefolderUrl: null,
+        corefolderImages: [],
+        corefolderArtImages: [],
         humanoidImages: [],
         common: { concept: null, concept_variants: [], catalog: null, design_sheet: null },
     };
@@ -252,28 +261,49 @@ function resolveImageInfo(record, work, db) {
         return `${PUBLIC_ORIGIN}/data/Works_${work}/Images/${dbFolder}/${subdir}/${fname}`;
     };
 
-    // ── corefolder: `emstk_corefolder<N>-1.png` を最優先で採用 ─────────
+    // ── corefolder: 全 corefolder_PNGPath を収集し先頭を corefolderUrl に ──
     const corePaths = Array.isArray(imgs.corefolder_PNGPath) ? imgs.corefolder_PNGPath : [];
-    if (corePaths.length > 0) {
-        const first = String(corePaths[0]);
-        out.corefolderUrl = urlIfExists('corefolder', first);
+    for (let k = 0; k < corePaths.length; k++) {
+        const rel = String(corePaths[k]);
+        const url = urlIfExists('corefolder', rel);
+        if (!url) continue;
+        const baseName = path.basename(rel, '.png');
+        const label = `cf${k + 1}`;
+        out.corefolderImages.push({ url, label: baseName || label });
+    }
+    if (out.corefolderImages.length > 0) {
+        out.corefolderUrl = out.corefolderImages[0].url;
     }
 
-    // ── humanoid: arts_PNGPath の `humanoids/<…>/art_img<N>-humanoid<variant?>` ───
+    // ── arts_PNGPath: humanoids/ → humanoidImages、corefolders/ → corefolderArtImages ───
     const artsPaths = Array.isArray(imgs.arts_PNGPath) ? imgs.arts_PNGPath : [];
     for (const raw of artsPaths) {
         const rel = String(raw);
-        if (!rel.startsWith('humanoids/')) continue;
-        const m = rel.match(/art_img(\d+)-humanoid([A-Za-z0-9]*)$/);
-        if (!m) continue;
-        if (Number(m[1]) !== num) continue; // 安全側: Num 一致のみ採用
-        const fname = `${path.basename(rel)}.png`;
-        const subdir = path.dirname(rel); // e.g. "humanoids/2023"
-        const abs = path.join(imagesRoot, 'arts', subdir, fname);
-        if (!fs.existsSync(abs)) continue;
-        const url = `${PUBLIC_ORIGIN}/data/Works_${work}/Images/${dbFolder}/arts/${subdir}/${fname}`;
-        const label = m[2] || 'main';
-        out.humanoidImages.push({ url, label });
+        if (rel.startsWith('humanoids/')) {
+            // humanoid art: Num 一致チェック
+            const m = rel.match(/art_img(\d+)-humanoid([A-Za-z0-9]*)$/);
+            if (!m) continue;
+            if (Number(m[1]) !== num) continue;
+            const fname = `${path.basename(rel)}.png`;
+            const subdir = path.dirname(rel);
+            const abs = path.join(imagesRoot, 'arts', subdir, fname);
+            if (!fs.existsSync(abs)) continue;
+            const url = `${PUBLIC_ORIGIN}/data/Works_${work}/Images/${dbFolder}/arts/${subdir}/${fname}`;
+            const label = m[2] || 'main';
+            out.humanoidImages.push({ url, label });
+        } else if (rel.startsWith('corefolders/')) {
+            // corefolder art: キャラ番号を含むパスのみ採用
+            const fname = `${path.basename(rel)}.png`;
+            const subdir = path.dirname(rel);
+            const abs = path.join(imagesRoot, 'arts', subdir, fname);
+            if (!fs.existsSync(abs)) continue;
+            // Num 一致チェック（パス内に数字があれば）
+            const numInPath = path.basename(rel).match(/img(\d+)/);
+            if (numInPath && Number(numInPath[1]) !== num) continue;
+            const url = `${PUBLIC_ORIGIN}/data/Works_${work}/Images/${dbFolder}/arts/${subdir}/${fname}`;
+            out.corefolderArtImages.push({ url, label: path.basename(rel) });
+        }
+        // それ以外のパス（sphericateDay 等のイベント画像・複数キャラ共有 art）はスキップ
     }
 
     // ── common: 形態共通リソース（1枚に全形態が描かれる素体画像）──────
@@ -348,6 +378,8 @@ function buildScaffold(record, imageInfo) {
     const num = record.Num;
     const genderTag = genderTagOf(record.GenderType);
     const ageBand = ageBandOf(record.ConceptAge);
+    const conceptUrl = imageInfo.common.concept ?? null;
+    const artUrls = imageInfo.corefolderArtImages.map(i => i.url);
 
     const common = {
         identity_tags: [
@@ -379,17 +411,17 @@ function buildScaffold(record, imageInfo) {
 
     // corefolder form
     if (imageInfo.corefolderUrl !== null) {
-        forms.corefolder = buildCorefolderForm(num, genderTag, ageBand, imageInfo.corefolderUrl);
+        forms.corefolder = buildCorefolderForm(
+            num, genderTag, ageBand, imageInfo.corefolderUrl, conceptUrl, artUrls.length ? artUrls : undefined,
+        );
     } else {
-        // 画像が無い場合は null（schema 上 #Null 許容）。User が後で書き換える前提。
         forms.corefolder = null;
     }
 
     // humanoid form
     if (imageInfo.humanoidImages.length > 0) {
-        forms.humanoid = buildHumanoidForm(num, genderTag, ageBand, imageInfo.humanoidImages);
+        forms.humanoid = buildHumanoidForm(num, genderTag, ageBand, imageInfo.humanoidImages, conceptUrl);
     }
-    // humanoid 画像が無ければ humanoid キーごと省略（schema は omittable）
 
     return { common, forms };
 }
@@ -418,12 +450,46 @@ function buildCommonReferenceImages(c) {
 }
 
 /**
+ * フォーム別の reference_images を組み立てる。
+ * concept 画像がある場合はそれを主参照 (`main`) とし、
+ * 形態固有画像は `formKey`（`"corefolder"` / `"humanoid"` 等）に格納する。
+ * concept がない場合は `main = formSpecificUrl` として従来動作を維持する。
+ *
+ * @param {string|null} conceptUrl   concept 画像の URL（形態共通デザイン基準）
+ * @param {string|null} formSpecificUrl   形態固有の代表画像 URL
+ * @param {'corefolder'|'humanoid'} formKey   形態名キー
+ * @param {string[]} [extraArts]   追加アート画像 URL 配列（corefolder_arts 等）
+ * @returns {Record<string, any>|null}
+ */
+function buildFormReferenceImages(conceptUrl, formSpecificUrl, formKey, extraArts) {
+    /** @type {Record<string, any>} */
+    const ref = {};
+    if (conceptUrl) {
+        // concept が主参照。形態固有画像は名前付きスロットへ。
+        ref.main = conceptUrl;
+        if (formSpecificUrl) ref[formKey] = formSpecificUrl;
+    } else if (formSpecificUrl) {
+        // concept なし: 形態固有画像を main として使用（後方互換）
+        ref.main = formSpecificUrl;
+    } else {
+        return null;
+    }
+    // 追加アート画像（corefolder_arts 等）
+    if (extraArts && extraArts.length > 0) {
+        ref.corefolder_arts = extraArts;
+    }
+    return ref;
+}
+
+/**
  * @param {number} num
  * @param {string} genderTag
  * @param {string} ageBand
- * @param {string} url
+ * @param {string} url          corefolder 代表画像 URL
+ * @param {string|null} conceptUrl  concept 画像 URL（形態共通デザイン基準）
+ * @param {string[]} [artUrls]  corefolder アート画像 URL 群（arts/corefolders 系）
  */
-function buildCorefolderForm(num, genderTag, ageBand, url) {
+function buildCorefolderForm(num, genderTag, ageBand, url, conceptUrl, artUrls) {
     return {
         form_tags: ['corefolder form'],
         outfit_features: [
@@ -443,7 +509,7 @@ function buildCorefolderForm(num, genderTag, ageBand, url) {
         natural_language_description: 'TODO: 1-sentence description of the corefolder form.',
         prompt_export: '',
         negative_prompt_export: '',
-        reference_images: { main: url },
+        reference_images: buildFormReferenceImages(conceptUrl, url, 'corefolder', artUrls),
     };
 }
 
@@ -452,19 +518,22 @@ function buildCorefolderForm(num, genderTag, ageBand, url) {
  * @param {string} genderTag
  * @param {string} ageBand
  * @param {Array<{url: string, label: string}>} images
+ * @param {string|null} conceptUrl  concept 画像 URL（形態共通デザイン基準）
  */
-function buildHumanoidForm(num, genderTag, ageBand, images) {
-    // main は最初の要素を採用。variants は2件目以降を `{label: url}` で蓄積。
-    const main = images[0].url;
+function buildHumanoidForm(num, genderTag, ageBand, images, conceptUrl) {
+    // 先頭を代表画像として採用。variants は2件目以降を named slot で蓄積。
+    const firstUrl = images[0].url;
     /** @type {Record<string, string>} */
-    const refs = { main };
+    const extraHumanoid = {};
     for (let k = 1; k < images.length; k++) {
         const { url, label } = images[k];
-        // ラベル衝突を避けるためサフィックスで一意化
         let key = label || `variant${k}`;
-        if (refs[key] !== undefined) key = `${key}_${k}`;
-        refs[key] = url;
+        if (extraHumanoid[key] !== undefined) key = `${key}_${k}`;
+        extraHumanoid[key] = url;
     }
+    const refs = buildFormReferenceImages(conceptUrl, firstUrl, 'humanoid') ?? { main: firstUrl };
+    // 2件目以降の humanoid 画像を named slot として追記
+    for (const [k, v] of Object.entries(extraHumanoid)) refs[k] = v;
     return {
         form_tags: ['humanoid form'],
         outfit_features: [
@@ -666,11 +735,13 @@ function buildNegativeVisuals(tu, formType) {
  * @param {string} genderTag
  * @param {string} ageBand
  * @param {{ animal: string|null, count: number|null, branching: boolean, unit: string } | null} tu
- * @param {string} url
+ * @param {string} url                corefolder 代表画像 URL
  * @param {any} record
+ * @param {string|null} conceptUrl    concept 画像 URL（形態共通デザイン基準。main に優先）
+ * @param {string[]} [artUrls]        corefolder アート URL 群
  * @returns {any}
  */
-function buildSuggestedCorefolderForm(num, genderTag, ageBand, tu, url, record) {
+function buildSuggestedCorefolderForm(num, genderTag, ageBand, tu, url, record, conceptUrl, artUrls) {
     const tailDesc = buildTailDescription(tu);
     const earTag = tu?.animal ? `${tu.animal} ears` : 'TODO: ear type from TailsUnit';
 
@@ -707,7 +778,7 @@ function buildSuggestedCorefolderForm(num, genderTag, ageBand, tu, url, record) 
         natural_language_description: inStoryHint,
         prompt_export: promptExport,
         negative_prompt_export: negExport,
-        reference_images: { main: url },
+        reference_images: buildFormReferenceImages(conceptUrl, url, 'corefolder', artUrls?.length ? artUrls : undefined),
     };
 }
 
@@ -720,18 +791,21 @@ function buildSuggestedCorefolderForm(num, genderTag, ageBand, tu, url, record) 
  * @param {{ animal: string|null, count: number|null, branching: boolean, unit: string } | null} tu
  * @param {Array<{url: string, label: string}>} images
  * @param {any} record
+ * @param {string|null} conceptUrl  concept 画像 URL（形態共通デザイン基準）
  * @returns {any}
  */
-function buildSuggestedHumanoidForm(num, genderTag, ageBand, tu, images, record) {
-    const main = images[0].url;
+function buildSuggestedHumanoidForm(num, genderTag, ageBand, tu, images, record, conceptUrl) {
+    const firstUrl = images[0].url;
     /** @type {Record<string, string>} */
-    const refs = { main };
+    const extraHumanoid = {};
     for (let k = 1; k < images.length; k++) {
         const { url, label } = images[k];
         let key = label || `variant${k}`;
-        if (refs[key] !== undefined) key = `${key}_${k}`;
-        refs[key] = url;
+        if (extraHumanoid[key] !== undefined) key = `${key}_${k}`;
+        extraHumanoid[key] = url;
     }
+    const refs = buildFormReferenceImages(conceptUrl, firstUrl, 'humanoid') ?? { main: firstUrl };
+    for (const [k, v] of Object.entries(extraHumanoid)) refs[k] = v;
 
     const tailDesc = buildTailDescription(tu);
     const earTag = tu?.animal ? `${tu.animal} ears` : 'TODO: ear type from TailsUnit';
@@ -790,6 +864,8 @@ function buildSuggestedScaffold(record, imageInfo) {
     const genderTag = genderTagOf(record.GenderType);
     const ageBand = ageBandOf(record.ConceptAge);
     const tu = parseTailsUnit(record.TailsUnit);
+    const conceptUrl = imageInfo.common.concept ?? null;
+    const artUrls = imageInfo.corefolderArtImages.map(i => i.url);
     const exprHints = extractExpressionHints(record.Character);
     const tailDesc = buildTailDescription(tu);
     const earTag = tu?.animal ? `${tu.animal} ears` : null;
@@ -845,6 +921,7 @@ function buildSuggestedScaffold(record, imageInfo) {
     if (imageInfo.corefolderUrl !== null) {
         forms.corefolder = buildSuggestedCorefolderForm(
             num, genderTag, ageBand, tu, imageInfo.corefolderUrl, record,
+            conceptUrl, artUrls.length ? artUrls : undefined,
         );
     } else {
         forms.corefolder = null;
@@ -852,7 +929,7 @@ function buildSuggestedScaffold(record, imageInfo) {
 
     if (imageInfo.humanoidImages.length > 0) {
         forms.humanoid = buildSuggestedHumanoidForm(
-            num, genderTag, ageBand, tu, imageInfo.humanoidImages, record,
+            num, genderTag, ageBand, tu, imageInfo.humanoidImages, record, conceptUrl,
         );
     }
 
@@ -887,9 +964,62 @@ function stringifyAihintsBlock(aihints) {
 /**
  * @typedef {Object} PatchResult
  * @property {number} num
- * @property {'patched'|'skipped-existing'|'skipped-no-image'|'overwritten'} status
+ * @property {'patched'|'skipped-existing'|'skipped-no-image'|'overwritten'|'refs-fixed'|'skipped-no-aihints'} status
  * @property {string} [note]
  */
+
+/**
+ * 既存の AIHints の `reference_images` のみを再構築する（タグ・テキスト類は保持）。
+ * --fix-refs モード専用。identity_tags / ai_tags / natural_language_description 等は
+ * 一切変更しない。
+ *
+ * @param {string} text       ファイル全体テキスト
+ * @param {number} openIdx    レコード `{` のインデックス
+ * @param {number} closeIdx   レコード `}` のインデックス
+ * @param {ImageInfo} imageInfo   resolveImageInfo() の返り値
+ * @returns {string} 更新後テキスト
+ */
+function fixRefsInRecord(text, openIdx, closeIdx, imageInfo) {
+    const recText = text.slice(openIdx, closeIdx + 1);
+    /** @type {Record<string, any>} */
+    const record = JSON.parse(recText);
+    if (!record.AIHints) throw new Error('fixRefsInRecord: AIHints key not found in record');
+
+    // 元の AIHints をディープコピーして参照画像のみ差し替える
+    const aihints = JSON.parse(JSON.stringify(record.AIHints));
+    const conceptUrl = imageInfo.common.concept;
+
+    // --- common.reference_images を再構築 ---
+    if (aihints.common) {
+        aihints.common.reference_images = buildCommonReferenceImages(imageInfo.common);
+    }
+
+    // --- forms.corefolder.reference_images を再構築 ---
+    if (aihints.forms?.corefolder) {
+        const artUrls = imageInfo.corefolderArtImages.map(({ url }) => url);
+        aihints.forms.corefolder.reference_images = buildFormReferenceImages(
+            conceptUrl,
+            imageInfo.corefolderUrl,
+            'corefolder',
+            artUrls.length > 0 ? artUrls : undefined,
+        );
+    }
+
+    // --- forms.humanoid.reference_images を再構築 ---
+    if (aihints.forms?.humanoid) {
+        const firstHumanoidUrl = imageInfo.humanoidImages.length > 0
+            ? imageInfo.humanoidImages[0].url
+            : null;
+        aihints.forms.humanoid.reference_images = buildFormReferenceImages(
+            conceptUrl,
+            firstHumanoidUrl,
+            'humanoid',
+        );
+    }
+
+    const block = stringifyAihintsBlock(aihints);
+    return replaceAihintsInRecord(text, openIdx, closeIdx, block);
+}
 
 /**
  * 1ファイル分のパッチ処理。テキスト編集と結果集計を返す。
@@ -918,6 +1048,20 @@ function patchFileText(text, opts) {
         if (opts.records !== null && !opts.records.has(num)) continue;
 
         const hasAihints = Object.prototype.hasOwnProperty.call(record, 'AIHints');
+
+        // --fix-refs モード: AIHints が既にあるレコードの reference_images のみ再構築。
+        // タグ・テキスト類は一切変更しない。
+        if (opts.fixRefs) {
+            if (!hasAihints) {
+                results.push({ num, status: 'skipped-no-aihints' });
+                continue;
+            }
+            const imageInfo = resolveImageInfo(record, opts.work, opts.db);
+            text = fixRefsInRecord(text, openIdx, closeIdx, imageInfo);
+            results.push({ num, status: 'refs-fixed' });
+            continue;
+        }
+
         if (hasAihints && !opts.force) {
             results.push({ num, status: 'skipped-existing' });
             continue;
@@ -1027,14 +1171,18 @@ function main() {
     const { newText, results } = patchFileText(original, opts);
 
     // 結果サマリ
-    const counts = { patched: 0, 'skipped-existing': 0, 'skipped-no-image': 0, overwritten: 0 };
+    const counts = { patched: 0, 'skipped-existing': 0, 'skipped-no-image': 0, overwritten: 0, 'refs-fixed': 0, 'skipped-no-aihints': 0 };
     for (const r of results) counts[r.status]++;
     results.sort((a, b) => a.num - b.num);
 
     console.log(`\n=== patch-aihints summary (${opts.apply ? 'APPLY' : 'dry-run'}${opts.suggest ? ' / suggest' : ''}) ===`);
     console.log(`  DB: ${path.relative(REPO_ROOT, dbPath)}`);
     console.log(`  target: ${opts.records ? `[${[...opts.records].sort((a,b)=>a-b).join(',')}]` : 'ALL'}`);
-    console.log(`  patched=${counts.patched}, overwritten=${counts.overwritten}, skipped-existing=${counts['skipped-existing']}, skipped-no-image=${counts['skipped-no-image']}`);
+    if (opts.fixRefs) {
+        console.log(`  refs-fixed=${counts['refs-fixed']}, skipped-no-aihints=${counts['skipped-no-aihints']}`);
+    } else {
+        console.log(`  patched=${counts.patched}, overwritten=${counts.overwritten}, skipped-existing=${counts['skipped-existing']}, skipped-no-image=${counts['skipped-no-image']}`);
+    }
     if (opts.verbose || !opts.apply) {
         for (const r of results) {
             const note = r.note ? `  // ${r.note}` : '';

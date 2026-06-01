@@ -1,5 +1,16 @@
 # 最新のリファクタリング・仕様変更履歴
 
+### `$Def_AI*` スキーマを作品別 `$VersDef` へ移動 + `--fix-refs` フラグ追加
+
+- `data/db_type.json` のグローバル `$VarsDef` から `$Def_AIColorPalette` / `$Def_AIReferenceImages` / `$Def_AIHintsCommon` / `$Def_AIFormVariant` / `$Def_AIHintsForms` / `$Def_AIHints` の 6 定義を削除した。
+- 上記 6 定義を `data/Works_NumberTales/DataBases/db_type.json` の `$VersDef` へ移動した。AI 形態構造は作品ごとに異なるため、作品固有のスコープへ寄せる設計変更。グローバル `$DefType` 内の `AIHints` フィールド宣言（`"$type": "$Def_AIHints|#Null"`, `"$display": { "auto": false }`）は保持。
+- `$Def_AIReferenceImages` に `concept` / `corefolder` / `humanoid` / `corefolder_arts` フィールドを追加し、concept-first 参照構造に対応した。
+- `tools/patch-aihints.mjs` に `--fix-refs` フラグを追加。既存 AIHints の `reference_images` のみを `resolveImageInfo()` で再構築し、`identity_tags` / `ai_tags` / `natural_language_description` 等のタグ・テキスト類は保持する。AIHints が存在しないレコードは `skipped-no-aihints` としてスキップする。
+- 上記に伴い `resolveImageInfo()` を拡張。全 corefolder 画像を `corefolderImages[]` に収集し先頭を `corefolderUrl` に設定。`arts/corefolders/` 系を `corefolderArtImages[]`、`arts/humanoids/` 系を `humanoidImages[]` に分類して返す。
+- `buildFormReferenceImages()` を新規追加。`concept` 画像が存在する場合は `main = conceptUrl`、形態固有画像は `formKey`（`corefolder` / `humanoid`）スロットへ格納する concept-first 構造。
+- `fixRefsInRecord()` を新規追加。レコードの AIHints をディープコピーして各 `reference_images` のみ差し替える。
+- 回帰確認: `tests/data.sanity.test.js` / `tests/sw.enrich.basic.test.js` は全件 pass を維持。
+
 ### `tools/patch-aihints.mjs` に `--suggest` フラグを追加 + Agent プロンプトファイル新規作成
 
 - `patch-aihints.mjs` に `--suggest` フラグを追加。`TailsUnit` / `GenderType` / `Character` / `Summary` などの既存フィールドから機械的に導出できる値を自動入力する半自動モード。視覚情報が必要な項目（`palette_priority` / 髪色・目色）は `TODO:` / `[TRANSLATE → ...]` 形式のプレースホルダで残す。
