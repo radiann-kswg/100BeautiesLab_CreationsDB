@@ -65,6 +65,7 @@ const PUBLIC_ORIGIN = 'https://database.numbertales-radiann.net';
  * @property {boolean} genVisionTasks  true なら視覚 TODO のあるレコードの画像リストを .cache/vision-tasks.json に出力して終了
  * @property {boolean} applyVisionResults  true なら .cache/vision-results.json の解析結果を AIHints の視覚 TODO に適用
  * @property {Map<number,Object>|null} visionResultsMap  applyVisionResults 時に main() が注入する Map<num, VisionResult>
+ * @property {boolean} forceAiOptout  true なら db_meta.json の `AI_Optout: true` ガードをバイパスする（緊急時のみ）
  * @property {boolean} verbose    詳細ログ
  */
 
@@ -82,6 +83,7 @@ function parseArgs(argv) {
         genVisionTasks: false,
         applyVisionResults: false,
         visionResultsMap: null,
+        forceAiOptout: false,
         verbose: false,
     };
     for (let i = 0; i < argv.length; i++) {
@@ -99,6 +101,7 @@ function parseArgs(argv) {
             case '--fill-todos': opts.fillTodos = true; break;
             case '--gen-vision-tasks': opts.genVisionTasks = true; break;
             case '--apply-vision-results': opts.applyVisionResults = true; break;
+            case '--force-ai-optout': opts.forceAiOptout = true; break;
             case '--verbose': case '-v': opts.verbose = true; break;
             case '--help': case '-h': printHelpAndExit(); break;
             default:
@@ -162,6 +165,8 @@ Options:
   --apply-vision-results  .cache/vision-results.json に書かれた Agent 解析結果を
                       AIHints の視覚 TODO（palette / hair / eye / outfit）に適用する
                       vision-results.json の形式は VisionResult typedef を参照
+  --force-ai-optout   db_meta.json の 'AI_Optout: true' ガードをバイパスする（緊急時のみ）
+                      未指定時は AI_Optout: true の DB への書き込みを exit 2 で拒否する
   -v, --verbose       詳細ログ
   -h, --help          このヘルプを表示
 `);
@@ -1602,6 +1607,36 @@ function main() {
         console.error(`DB file not found: ${dbPath}`);
         process.exit(1);
     }
+
+    // ---- AI_Optout ガード ----
+    // 同作品の db_meta.json を参照し、対象 DB に `AI_Optout: true` がある場合は
+    // 原則全モード（suggest / fill-todos / fix-refs / gen-vision-tasks / apply-vision-results）を拒否する。
+    // メタ欠損時はチェックをスキップ（既存の DB_Hidden / Works_Hidden と同じ耐性設計）。
+    // --force-ai-optout で明示的バイパス可能。
+    const dbMetaPath = path.join(
+        REPO_ROOT, 'data', `Works_${opts.work}`, 'DataBases', 'db_meta.json',
+    );
+    if (fs.existsSync(dbMetaPath)) {
+        try {
+            const dbMeta = JSON.parse(fs.readFileSync(dbMetaPath, 'utf8'));
+            const dbEntry = dbMeta?.Databases?.[`#DB_${opts.db}`]
+                ?? dbMeta?.Databases?.[`#Ref_${opts.db}`];
+            if (dbEntry?.AI_Optout === true) {
+                if (opts.forceAiOptout) {
+                    console.warn(`[WARN] AI_Optout: true の DB を --force-ai-optout でバイパスします: ${path.relative(REPO_ROOT, dbPath)}`);
+                } else {
+                    console.error(`[ABORT] 対象 DB は AI_Optout: true が設定されています: ${path.relative(REPO_ROOT, dbPath)}`);
+                    console.error('  この DB への AI タグ生成・視覚解析適用・scaffold 作成は拒否されました。');
+                    console.error('  どうしても適用したい場合は --force-ai-optout を付与して再実行してください。');
+                    process.exit(2);
+                }
+            }
+        } catch (e) {
+            // db_meta.json が不正な場合は警告だけ出して継続（止めるほどではない）
+            console.warn(`[WARN] db_meta.json の読み込みに失敗 (AI_Optout チェックをスキップ): ${e.message}`);
+        }
+    }
+
     const original = fs.readFileSync(dbPath, 'utf8');
 
     // 念のため事前に JSON 全体パースして整合性を確認

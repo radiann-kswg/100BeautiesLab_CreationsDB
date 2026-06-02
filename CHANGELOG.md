@@ -1,5 +1,14 @@
 # 最新のリファクタリング・仕様変更履歴
 
+### `AI_Optout` による DB 単位の AI タグ生成 / AI 学習抑止フラグを追加
+
+- 作品別 `db_meta.json` の `Databases.#DB_<DbName>` 直下に `"AI_Optout": true` を置くことで、対象 DB に対する AI 関連自動処理を抑止する単一フラグを新設した。アクセス制御フラグ（`DB_Hidden` / `Works_Hidden`）と異なり API 配信は遮断せず、AI 利用に対する opt-out 表明として機能する。
+- `tools/patch-aihints.mjs` の全モード（`--suggest` / `--apply` / `--fix-refs` / `--fill-todos` / `--gen-vision-tasks` / `--apply-vision-results`）に `AI_Optout` ガードを実装。設定済み DB への書き込み・解析を exit code `2` で拒否する。緊急時のみ `--force-ai-optout` でバイパス可能。
+- 作品別 `db_meta.json` 欠損時はチェックをスキップ（既存の欠損耐性方針に追従）。スキーマ (`$Def_DatabaseCatalog`) には宣言しない（`DB_Hidden` / `Works_Hidden` と同設計）。
+- 初期適用: `Works_NumberTales/DataBases/db_meta.json` の `#DB_Primary` を**除く 19 DB / Ref エントリ**へ `AI_Optout: true` を付与済み（`DestinyFoxRecords` / `FLInvestigator78` / `NumberTales` の Semi/Self/Secondary / `Ref_Glossary` / `Ref_Reference` / `PastDivers` / `Proxies` / `ShouArRiders` / `SinisterChangingGirls` / `UnauthedLogica` / `UnibyteLive` 各 DB）。`Works_NumberTales/#DB_Primary` のみ既存の自由運用 DB として未付与のまま残す。
+- ドキュメント整備: `docs/api-sw-spec.md` §5.5、`docs/ai-hints-usage.md` §7 表、`.github/copilot-instructions.md` の運用ルール、本 CHANGELOG に反映。
+- 回帰確認: `tests/data.sanity.test.js` / `tests/sw.enrich.basic.test.js` / `tests/meta.catalog.schema.test.js` / `tests/sw.dbmeta.tolerance.test.js` は全件 pass を維持。
+
 ### `tools/patch-aihints.mjs` に特殊番号（string `Num`）レコード対応 + Agent セッション再現プレイブックを整備
 
 - `parseRecordSpec()` を拡張し、`000` / `2-alt` / `10-alt` / `67-old` のような string `Num` トークンを `--records` で受け付けるようにした。純整数トークンは number / string 両形式を Set に追加して後方互換を維持。

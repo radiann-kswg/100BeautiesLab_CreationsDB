@@ -28,7 +28,8 @@
           { "Stoat": "PentacleObjects", "Class": ["金の硬貨支部"] },
           { "Stoat": "Dealer", "Class": ["采配幹部(ディーラーズ)"] }
         ]
-      }
+      },
+      "AI_Optout": true
     },
     "#DB_PrimaryDealer": {
       "DB_Label": "一次創作(アルカナ保有者)",
@@ -49,7 +50,8 @@
         "about_JP": "第7創世紀24年〜第8創世紀2年(西暦2044〜2046年相当)\n『第8の世界創造』に関する重要な時期となる",
         "about_EN": "between WDCE.VII.24 to WDCE.VIII.2(Equivalent to between: DC.2044-2046)\n\nThis period is significant for the “World Development Creation VIII” "
       },
-      "_Commons": {}
+      "_Commons": {},
+      "AI_Optout": true
     }
   },
   "General": {

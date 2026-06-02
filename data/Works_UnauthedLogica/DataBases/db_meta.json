@@ -18,7 +18,8 @@
       "_Commons": {
         "Belonging": ["ラストラステクニカ-インストゥルメント"],
         "RaceType": "Automaton"
-      }
+      },
+      "AI_Optout": true
     },
     "#DB_Primary": {
       "DB_Label": "一次創作",
@@ -43,7 +44,8 @@
         "about_JP": "第7創世紀28〜31年(第8創世紀4〜7年,西暦2048〜2051年相当)",
         "about_EN": "between WDCE.VII.28-31(Equivalent to between: WDCE.VIII.4-WDCE.VIII.7, DC.2048-2051)"
       },
-      "_Commons": { "RaceType": "CustomAutomaton(TaleBeastType)" }
+      "_Commons": { "RaceType": "CustomAutomaton(TaleBeastType)" },
+      "AI_Optout": true
     }
   },
   "General": {

@@ -50,7 +50,8 @@
       "_Commons": {
         "Belonging": ["百花繚乱研究所"],
         "RaceType": "PortableHumanoid(TaleBeastType)"
-      }
+      },
+      "AI_Optout": true
     },
     "#DB_SelfSecondary": {
       "DB_Label": "セルフ二次創作",
@@ -77,7 +78,8 @@
             "GenderType": "Neutral"
           }
         }
-      ]
+      ],
+      "AI_Optout": true
     },
     "#DB_Secondary": {
       "DB_Label": "二次創作",
@@ -177,19 +179,22 @@
           }
         ],
         "DB_Hidden": true
-      }
+      },
+      "AI_Optout": true
     },
     "#Ref_Glossary": {
       "DB_Label": "創作用語",
       "DB_Label_EN": "Glossary",
       "DB_Layer": "References",
-      "DB_Summary": "ナンバーテールズ固有の用語に関する資料。"
+      "DB_Summary": "ナンバーテールズ固有の用語に関する資料。",
+      "AI_Optout": true
     },
     "#Ref_Reference": {
       "DB_Label": "創作基本資料",
       "DB_Label_EN": "Reference",
       "DB_Layer": "References",
-      "DB_Summary": "ナンバーテールズの世界観に関する基本資料。"
+      "DB_Summary": "ナンバーテールズの世界観に関する基本資料。",
+      "AI_Optout": true
     }
   },
   "General": {

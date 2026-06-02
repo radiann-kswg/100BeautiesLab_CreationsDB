@@ -32,7 +32,8 @@
           { "Beast": "Cat", "RaceType": "Nekomata(Acquired)" },
           { "Beast": "Dog", "RaceType": "Komainu(Acquired)" }
         ]
-      }
+      },
+      "AI_Optout": true
     }
   },
   "General": {

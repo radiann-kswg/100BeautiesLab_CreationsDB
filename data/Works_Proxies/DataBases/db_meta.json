@@ -6,7 +6,8 @@
       "DB_Summary": "弊創作を執筆している「ラジアン」の代理キャラクター",
       "_Commons": {
         "Belonging": ["創造主"]
-      }
+      },
+      "AI_Optout": true
     }
   },
   "General": {

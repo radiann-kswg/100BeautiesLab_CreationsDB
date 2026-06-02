@@ -180,6 +180,7 @@ https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primar
 | 画像 / イラスト**なし** (設定のみ)               | 任意。付与する場合でも `forms.<form>.reference_images` は省略し、`identity_tags` は設定から推測した範囲に限る |
 | `"Progress": "notProceeded"`                     | 付与不要                                                                                                      |
 | ある形態の画像のみ存在 (例: corefolder 画像のみ) | 存在する形態の `forms.<form>` のみを付与し、もう一方は省略                                                    |
+| DB に `AI_Optout: true` が設定                   | **付与不可**。`tools/patch-aihints.mjs` の全モードが exit 2 で拒否する（緊急時のみ `--force-ai-optout` でバイパス）。詳細は `docs/api-sw-spec.md` §5.5 を参照 |
 
 ---
 

@@ -105,7 +105,8 @@
             "Class": { "hideText": "？？？" }
           }
         ]
-      }
+      },
+      "AI_Optout": true
     },
     "#DB_SemiPrimary": {
       "DB_Label": "準一次創作",
@@ -214,7 +215,8 @@
             "Class": ["機関創設者"]
           }
         ]
-      }
+      },
+      "AI_Optout": true
     }
   },
   "General": {

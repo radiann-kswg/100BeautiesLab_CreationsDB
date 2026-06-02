@@ -231,6 +231,33 @@ UI と enrich/search は、可能な限りこの `db_type.json($DefType)` に追
 | `works/{work}/db` | DBエントリは残る | 該当DBが除外 | 404 |
 | `works/{work}/db/{dbName}` | 対象レコードだけ除外 | 404 | 404 |
 
+## 5.5 `AI_Optout` による AI タグ生成 / AI 学習の抑止
+
+`db_meta.json` の `Databases.#DB_<DbName>` 直下に `"AI_Optout": true` を設定すると、そのDBに対して AI 関連の自動処理を抑止するフラグとして扱われます。`DB_Hidden` / `Works_Hidden` がアクセス制御フラグであるのに対し、`AI_Optout` は AI 利用に関する opt-out 表明であり、API 配信そのものは遮断しません。
+
+挙動と用途:
+
+- `tools/patch-aihints.mjs` の全モード（`--suggest` / `--apply` / `--fix-refs` / `--fill-todos` / `--gen-vision-tasks` / `--apply-vision-results`）は、対象 DB に `AI_Optout: true` が設定されている場合、書き込み・解析を行わず exit code `2` で終了します。
+- 緊急時のバイパスとして `--force-ai-optout` を併用した場合のみ、警告を表示したうえで処理を続行します。
+- 同時に AI 学習・LLM 取り込みへの opt-out 表明として外部利用者・スクレイパー向けのシグナルを兼ねます（規約面の解釈は `guideline.md` / `docs/third-party-policy.md` に委ねます）。
+- 作品別 `db_meta.json` が欠損している場合はチェックをスキップします（既存の欠損耐性方針に合わせます）。
+- スキーマ (`$Def_DatabaseCatalog`) には宣言しません。`DB_Hidden` / `Works_Hidden` と同様、表示メタではなくガード用フラグであるためです。
+
+他フラグとの粒度比較:
+
+| 項目 | `isPrivate: true` | `DB_Hidden: true` | `Works_Hidden: true` | `AI_Optout: true` |
+|------|------------------|-------------------|---------------------|------------------|
+| 粒度 | レコード単位 | DB 全体 | 作品全体 | DB 全体 |
+| 適用場所 | `db_*.json` の各レコード | `db_meta.json` の `Databases.#DB_<DbName>` | グローバル `db_meta.json` の `CreationWorks.#Works_<WorkName>` | 作品別 `db_meta.json` の `Databases.#DB_<DbName>` |
+| API 配信への影響 | 対象レコードを除外 | 該当DBを 404 | 作品ごと 404 | 影響なし（配信は継続） |
+| AI 補助ツール（`tools/patch-aihints.mjs`）への影響 | なし | （配信遮断のため事実上不可） | （同左） | 全モードで exit 2（`--force-ai-optout` でのみバイパス） |
+| AI 学習 opt-out 表明 | なし | なし | なし | あり |
+
+2026-06-02 時点の初期適用範囲:
+
+- `Works_NumberTales/DataBases/db_meta.json` の `#DB_Primary` のみ未付与（既存の自由運用 DB として例外扱い）。
+- それ以外の作品別 `db_meta.json` の全 DB / Ref エントリには `AI_Optout: true` を付与済み（19 エントリ）。
+
 ---
 
 補足:

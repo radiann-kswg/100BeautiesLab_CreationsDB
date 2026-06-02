@@ -4,7 +4,8 @@
       "DB_Label": "一次創作",
       "DB_Label_EN": "Primary",
       "DB_Summary": "２代目ラジアン代理の周辺キャラクター。\n物理単位や数学用語をモチーフにした設定が付与されている。\nなお、このキャラクター群は創作世界を管理する作者に最も近い位置付けに存在している。",
-      "_Commons": {}
+      "_Commons": {},
+      "AI_Optout": true
     }
   },
   "General": { "$VarsDef": {} }
