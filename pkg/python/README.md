@@ -43,7 +43,11 @@ creationsdb = { path = "submodules/100BeautiesLab_CreationsDB/pkg/python" }
 ```python
 from creationsdb import CreationsDBClient
 
-db = CreationsDBClient('/path/to/100BeautiesLab_CreationsDB')
+# サブモジュール構成の場合：パス指定なし（client.py から自動解決）
+db = CreationsDBClient()
+
+# 任意のパスを明示する場合（必要に応じて）
+# db = CreationsDBClient('/path/to/100BeautiesLab_CreationsDB')
 
 # 作品一覧
 works = db.list_works()

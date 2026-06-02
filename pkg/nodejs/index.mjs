@@ -16,7 +16,20 @@
  */
 
 import { readFile, access } from 'node:fs/promises';
-import { join, resolve } from 'node:path';
+import { dirname, join, resolve } from 'node:path';
+import { fileURLToPath } from 'node:url';
+
+// ─────────────────────────────────────────────────────────────────────────────
+// デフォルトのリポジトリルート
+// ─────────────────────────────────────────────────────────────────────────────
+
+/**
+ * デフォルトのリポジトリルート。
+ * このファイル (pkg/nodejs/index.mjs) の 2 階層上がリポジトリルートになる。
+ * サブモジュールとして配置すれば `new CreationsDBClient()` だけで動作する。
+ * @type {string}
+ */
+const _DEFAULT_REPO_ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '../..');
 
 // ─────────────────────────────────────────────────────────────────────────────
 // 内部ユーティリティ（sw-common.js の DataUtils / SearchEngine を fs 向けに移植）
@@ -405,16 +418,21 @@ async function readDBRecords(repoRoot, workId, dbName) {
  * データを Node.js 環境から直接取得します。
  *
  * @example
+ * // サブモジュール構成ではパス指定なし（index.mjs から自動解決）
  * import { CreationsDBClient } from './submodules/100BeautiesLab_CreationsDB/pkg/nodejs/index.mjs';
- * const db = new CreationsDBClient(new URL('../../submodules/100BeautiesLab_CreationsDB', import.meta.url).pathname);
+ * const db = new CreationsDBClient();
+ *
+ * // 任意のパスを明示する場合
+ * const db = new CreationsDBClient('/path/to/100BeautiesLab_CreationsDB');
  */
 export class CreationsDBClient {
   /**
-   * @param {string} repoRoot - サブモジュールのルートディレクトリ絶対パス
+   * @param {string} [repoRoot] - サブモジュールのルートディレクトリ絶対パス。
+   *   省略時は index.mjs の 2 階層上を自動的にリポジトリルートとして使用する。
    * @param {Object} [options]
    * @param {boolean} [options.includePrivate=false] - isPrivate レコードを含めるか
    */
-  constructor(repoRoot, options = {}) {
+  constructor(repoRoot = _DEFAULT_REPO_ROOT, options = {}) {
     this.repoRoot = resolve(repoRoot);
     this.includePrivate = Boolean(options.includePrivate ?? false);
   }

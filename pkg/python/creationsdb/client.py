@@ -23,6 +23,10 @@ from typing import Any, Optional
 _SAFE_TOKEN_RE = re.compile(r'^[A-Za-z0-9_]+$')
 _VALID_JSON_FILE_RE = re.compile(r'^[A-Za-z0-9_.\-]+\.json$')
 
+# このファイル (pkg/python/creationsdb/client.py) の 4 階層上がリポジトリルート:
+#   client.py → creationsdb/ → python/ → pkg/ → <repo root>
+_DEFAULT_REPO_ROOT: str = str(Path(__file__).resolve().parent.parent.parent.parent)
+
 
 def _is_safe_token(s: Any) -> bool:
     """英数字とアンダースコアのみからなる安全なトークン判定"""
@@ -393,12 +397,13 @@ class CreationsDBClient:
         hits = db.search('NumberTales', 'Primary', 'たぬき')
     """
 
-    def __init__(self, repo_root: str, *, include_private: bool = False) -> None:
+    def __init__(self, repo_root: str = _DEFAULT_REPO_ROOT, *, include_private: bool = False) -> None:
         """
         Parameters
         ----------
         repo_root : str
             サブモジュールのルートディレクトリパス（絶対・相対どちらも可）。
+            省略時は client.py の 4 階層上 (pkg/ の親) を自動解決します。
         include_private : bool
             ``isPrivate: true`` のレコードを含めるか（既定: False）。
         """

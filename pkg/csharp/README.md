@@ -62,10 +62,13 @@ Package Manager で `com.unity.nuget.newtonsoft-json` を追加し、`CreationsD
 ```csharp
 using CreationsDB;
 
-// クライアント初期化（repoRoot にサブモジュールのパスを指定）
-var db = new CreationsDBClient(
-    Path.Combine(Application.dataPath, "Submodules/100BeautiesLab_CreationsDB")
-);
+// サブモジュール構成の場合：パス指定なし（data/db_meta.json を自動探索）
+var db = new CreationsDBClient();
+
+// 任意のパスを明示する場合（必要に応じて）
+// var db = new CreationsDBClient(
+//     Path.Combine(Application.dataPath, "Submodules/100BeautiesLab_CreationsDB")
+// );
 
 // 作品一覧
 var works = await db.ListWorksAsync();
@@ -100,11 +103,11 @@ foreach (var h in allHits)
 
 ## API リファレンス
 
-### `new CreationsDBClient(repoRoot)`
+### `new CreationsDBClient(repoRoot?)`
 
 | 引数 | 型 | 説明 |
 |------|----|------|
-| `repoRoot` | `string` | サブモジュールのルートディレクトリパス |
+| `repoRoot` | `string?` (**省略可**) | サブモジュールのルートディレクトリパス。`null` 時は `FindRepoRoot()` で自動探索 |
 
 | プロパティ | 型 | 説明 |
 |-----------|-----|------|

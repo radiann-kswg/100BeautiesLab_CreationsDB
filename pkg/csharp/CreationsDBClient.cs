@@ -577,10 +577,44 @@ namespace CreationsDB
         /// <summary>
         /// コンストラクター。
         /// </summary>
-        /// <param name="repoRoot">サブモジュールのルートディレクトリ絶対パス</param>
-        public CreationsDBClient(string repoRoot)
+        /// <param name="repoRoot">
+        /// サブモジュールのルートディレクトリ絶対パス。
+        /// null の場合は <see cref="FindRepoRoot"/> でアセンブリ位置から自動探索します。
+        /// </param>
+        public CreationsDBClient(string? repoRoot = null)
         {
-            _fetcher = new FsFetcher(repoRoot);
+            var root = repoRoot ?? FindRepoRoot()
+                       ?? throw new InvalidOperationException(
+                           "CreationsDB リポジトリルートが見つかりません。" +
+                           "repoRoot を明示的に指定するか、data/db_meta.json が存在するディレクトリを確認してください。");
+            _fetcher = new FsFetcher(root);
+        }
+
+        /// <summary>
+        /// <c>data/db_meta.json</c> が存在するディレクトリをリポジトリルートとして探索します。
+        /// アセンブリ位置 → 実行ベースディレクトリ → カレントディレクトリ の順に上位フォルダをたどります。
+        /// </summary>
+        /// <returns>リポジトリルートの絶対パス。見つからない場合は null。</returns>
+        public static string? FindRepoRoot()
+        {
+            var startDirs = new[]
+            {
+                Path.GetDirectoryName(typeof(CreationsDBClient).Assembly.Location),
+                AppDomain.CurrentDomain.BaseDirectory,
+                Directory.GetCurrentDirectory(),
+            }.Where(d => !string.IsNullOrEmpty(d)).Distinct();
+
+            foreach (var startDir in startDirs)
+            {
+                var dir = new DirectoryInfo(startDir!);
+                while (dir != null)
+                {
+                    if (File.Exists(Path.Combine(dir.FullName, "data", "db_meta.json")))
+                        return dir.FullName;
+                    dir = dir.Parent;
+                }
+            }
+            return null;
         }
 
         // ── メタデータ系 ─────────────────────────────────────────────────────

@@ -67,11 +67,11 @@ console.log(allHits.map(h => `${h.db}: ${h.record.Name}`));
 
 ## API リファレンス
 
-### `new CreationsDBClient(repoRoot, options?)`
+### `new CreationsDBClient(repoRoot?, options?)`
 
 | 引数 | 型 | 説明 |
 |------|----|------|
-| `repoRoot` | `string` | サブモジュールのルートディレクトリ絶対パス |
+| `repoRoot` | `string` (**省略可**) | サブモジュールのルートディレクトリ絶対パス。省略時は `index.mjs` の 2 階層上を自動使用 |
 | `options.includePrivate` | `boolean` | `isPrivate: true` レコードを含めるか（既定: `false`） |
 
 ### `client.listWorks()`
