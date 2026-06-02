@@ -94,14 +94,37 @@ npm test: 4 failed / 95 passed — 既存の失敗のみ（pkg/ 変更による�
   - tests/commons.secondaries.test.js: SelfSecondary Commons 適用（既知）
   - tests/data.shape.test.js: BaseArea/References スキーマ（既知）
   - tests/enrich.dblink.jump.merge.test.js: $IndexDef 解決（既知）
+
+addon-ai-tag ブランチでの確認（2026-06-02）:
+  同上 4 件のみ失敗 — ブランチ固有の新規失敗なし
 ```
 
-### 動作確認
+### 動作確認（develop ブランチ）
 
 ```
 Node.js: new CreationsDBClient() → 作品一覧 ['ナンバーテールズ', '運命線探偵78', '獣爾騎兵'] 取得 ✓
 Python:  CreationsDBClient()    → 作品一覧 ['ナンバーテールズ', '運命線探偵78', '獣爾騎兵'] 取得 ✓
 ```
+
+### 動作確認（addon-ai-tag ブランチ）
+
+```
+listWorks():                      8 作品取得 ✓
+getRecords('NumberTales/Primary'): 105 件取得 ✓（AI タグ付加により大幅増量済みデータ）
+getRecord('NumberTales','Primary','1','Num'):
+  rec.Name = '1(ハジメ)'          ✓
+  AIHints フィールドあり          ✓（object 構造: common.identity_tags 等）
+search('fox tail'):               41 件ヒット ✓（AIHints 内英語キーワードが検索対象に）
+searchAll('NumberTales', '狼'):    0 件（正常：該当なし）
+includePrivate=true:              105 件（非公開レコードなし、フィルタ正常動作 ✓）
+
+AI_Optout 確認:
+  #DB_Primary → AI_Optout: false → AIHints あり ✓
+  #DB_SemiPrimary / #DB_SelfSecondary / #DB_Secondary / Ref 系 → AI_Optout: true
+  pkg/ クライアントは読み取り専用のため AI_Optout の影響なし ✓
+```
+
+追加調整: **不要**（pkg/ クライアントはそのまま addon-ai-tag ブランチで安定動作）
 
 ---
 
