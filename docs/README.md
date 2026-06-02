@@ -18,6 +18,7 @@ This folder contains documentation for **100BeautiesLab. Creations DB (Web)**.
 - Wrapper summary registry note (JP): `wrapper-summary-registry.md`
 - Implementation playbook (JP): `implementation-playbook.md`
 - Third-party policy (JP): `third-party-policy.md`
+- **pkg/ client libraries (JP)**: `pkg-client-libraries.md` — サブモジュール向けクライアントパッケージ（Node.js / Python / C# / Cloudflare Workers / MCP）の設計・使い方
 
 Session-added references:
 

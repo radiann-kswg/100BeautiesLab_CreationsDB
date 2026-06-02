@@ -56,6 +56,17 @@
 - `.github/prompts/aihints-fill.prompt.md` を新規作成。Copilot Agent モードで `AIHints` の残 TODO を既存フィールドの変換・翻訳によって対話的に補完するワークフロープロンプト（Step 0-5 構成、フィールド対応ルールテーブル・変換早見表付き）。
 - 回帰確認: `tests/data.sanity.test.js` は 3/3 pass を維持。
 
+### `pkg/` クライアントライブラリ群を新規追加
+
+- サブモジュールとして別リポジトリに導入するための独立クライアントパッケージ群 `pkg/` を新規実装した。
+- 含まれるパッケージ: Node.js ESM ライブラリ / Python モジュール / C# クライアント / Cloudflare Workers API / MCP サーバー。
+- **コンストラクタ引数の省略対応**: `repoRoot`（リポジトリルートパス）の引数を省略可能にし、サブモジュール配置時は `new CreationsDBClient()` のみで動作するようにした。
+  - Node.js: `import.meta.url` から 2 階層上を自動解決
+  - Python: `__file__` から 4 階層上を自動解決
+  - C#: `FindRepoRoot()` がアセンブリ位置から `data/db_meta.json` を目印に上方探索
+- 既存の `lib/` / `pages/` / `api/` / `svc/` への変更はなし（非破壊）。
+- 詳細設計: `docs/pkg-client-libraries.md`
+
 ### `Works_Hidden` による作品単位の完全非公開フラグを追加
 
 - `data/db_meta.json` の `CreationWorks.#Works_<WorkName>` に `"Works_Hidden": true` を置くことで、その作品全体をAPIから完全に非公開にできる仕様を追加した。

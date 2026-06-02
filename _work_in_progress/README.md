@@ -24,6 +24,7 @@
 - 2026-06-01_remaining-task.md（現行の未完了タスク一覧・最新）
 - 2026-06-01_progress_aihints-vision-final-and-playbook.md（`Works_NumberTales/DB_Primary` の AIHints 視覚解析を画像提供有り 92 件すべてで完走 + Agent 再現プレイブック整備。develop 側の `2026-05-15_progress_aihints-numbertales-1to40.md` / `2026-06-01_progress_aihints-schema-move-fixrefs.md` を前提とし、#41〜#99 + 特殊番号 3件の適用を本セッションで実施）
 - 2026-06-02_progress_ai-optout-flag.md（`AI_Optout` フラグ新設・19 DB エントリへ初期適用・`tools/patch-aihints.mjs` ガード実装・ドキュメント整備完了）
+- 2026-06-02_progress_pkg-client-libraries.md（pkg/ クライアントライブラリ新規実装・完了）
 
 補足:
 
