@@ -21,8 +21,8 @@
 | フォルダ | 状態 | 概要 |
 |----------|------|------|
 | `pkg/nodejs/` | ✅ 完了 | Node.js ESM クライアント（fs 経由 I/O、`CreationsDBClient` クラス） |
-| `pkg/python/` | ⬜ 未完了 | — |
-| `pkg/csharp/` | ⬜ 未完了 | — |
+| `pkg/python/` | ✅ 完了 | Python モジュール `creationsdb`（pathlib 経由 I/O、同等 API） |
+| `pkg/csharp/` | ✅ 完了 | C# クライアント（Unity / .NET 5+ 対応、Newtonsoft.Json / System.Text.Json 両対応） |
 | `pkg/cloudflare/` | ⬜ 未完了 | — |
 | `pkg/mcp/` | ⬜ 未完了 | — |
 
@@ -35,6 +35,14 @@ pkg/
 ├── nodejs/
 │   ├── index.mjs       ← 新規作成
 │   └── README.md       ← 新規作成
+├── python/
+│   ├── creationsdb/
+│   │   ├── __init__.py ← 新規作成
+│   │   └── client.py   ← 新規作成
+│   └── README.md       ← 新規作成
+└── csharp/
+    ├── CreationsDBClient.cs ← 新規作成
+    └── README.md            ← 新規作成
 ```
 
 既存ファイルへの変更: **なし**
@@ -64,11 +72,55 @@ await db.searchAll('NumberTales', 'キーワード')           // 全 DB 横断�
 
 ---
 
+## フェーズ 2 完了: `pkg/python/`
+
+### 設計方針
+
+- Node.js 版と同等の API サーフェス（`get_records`, `get_record`, `search`, `search_all` 等）
+- `pathlib.Path` による I/O、外部依存ゼロ（Python 3.9+ 標準ライブラリのみ）
+- `_Commons` 適用、辞書バンドル読み込み、非公開除外を実装
+
+### 提供 API
+
+```python
+from creationsdb import CreationsDBClient
+db = CreationsDBClient('/path/to/repo')
+db.list_works()
+db.list_dbs('NumberTales')
+db.get_records('NumberTales', 'Primary')
+db.get_record('NumberTales', 'Primary', '1', idx_key='Num')
+db.search('NumberTales', 'Primary', 'キーワード')
+db.search_all('NumberTales', 'キーワード')
+```
+
+---
+
+## フェーズ 3 完了: `pkg/csharp/`
+
+### 設計方針
+
+- Unity 2021.3+ (Mono/IL2CPP) と .NET 5+ の両方に対応
+- JSON ライブラリ: **Newtonsoft.Json** 既定、`#define USE_SYSTEM_TEXT_JSON` で System.Text.Json に切り替え可能
+- `async/await` + `File.ReadAllTextAsync` による I/O
+- `isSafeToken` によるパストラバーサル防止を実装
+
+### 提供 API
+
+```csharp
+var db = new CreationsDBClient("/path/to/repo");
+await db.ListWorksAsync();
+await db.ListDbsAsync("NumberTales");
+await db.GetRecordsAsync("NumberTales", "Primary");
+await db.GetRecordAsync("NumberTales", "Primary", "1", idxKey: "Num");
+await db.SearchAsync("NumberTales", "Primary", "キーワード");
+await db.SearchAllAsync("NumberTales", "キーワード");
+```
+
+---
+
 ## 未完了タスク
 
-- [ ] `pkg/python/` — Python モジュール (`creationsdb`)
-- [ ] `pkg/csharp/` — C# クライアント (`CreationsDBClient.cs`)
-- [ ] `pkg/cloudflare/` — Cloudflare Workers エントリーポイント
+- [ ] `pkg/cloudflare/` — Cloudflare Workers エントリーポイント（真の意味での API）
 - [ ] `pkg/mcp/` — MCP サーバー（GitHub Copilot Agent モード対応）
 
 ---
