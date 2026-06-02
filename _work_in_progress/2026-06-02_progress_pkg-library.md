@@ -24,7 +24,7 @@
 | `pkg/python/` | ✅ 完了 | Python モジュール `creationsdb`（pathlib 経由 I/O、同等 API） |
 | `pkg/csharp/` | ✅ 完了 | C# クライアント（Unity / .NET 5+ 対応、Newtonsoft.Json / System.Text.Json 両対応） |
 | `pkg/cloudflare/` | ✅ 完了 | Cloudflare Workers 版真の API（worker.js + wrangler.toml） |
-| `pkg/mcp/` | ⬜ 未完了 | — |
+| `pkg/mcp/` | ✅ 完了 | MCP サーバー（GitHub Copilot Agent モード対応） |
 
 ---
 
@@ -43,9 +43,13 @@ pkg/
 ├── csharp/
 │   ├── CreationsDBClient.cs ← 新規作成
 │   └── README.md            ← 新規作成
-└── cloudflare/
-    ├── worker.js       ← 新規作成
-    ├── wrangler.toml   ← 新規作成
+├── cloudflare/
+│   ├── worker.js       ← 新規作成
+│   ├── wrangler.toml   ← 新規作成
+│   └── README.md       ← 新規作成
+└── mcp/
+    ├── server.mjs      ← 新規作成
+    ├── package.json    ← 新規作成
     └── README.md       ← 新規作成
 ```
 
@@ -147,9 +151,36 @@ GET /api/v1/:work/search?q=...
 
 ---
 
-## 未完了タスク
+## フェーズ 5 完了: `pkg/mcp/`
 
-- [ ] `pkg/mcp/` — MCP サーバー（GitHub Copilot Agent モード対応）
+### 設計方針
+
+- `@modelcontextprotocol/sdk` + stdio トランスポートによる MCP サーバー
+- `pkg/nodejs/index.mjs` の `CreationsDBClient` を内部利用（ファイルシステム経由）
+- `--repo-root` 引数 / `CREATIONSDB_REPO_ROOT` 環境変数 / 自動解決（server.mjs の 2 階層上）
+- VS Code `.vscode/mcp.json` への登録手順を README に記載
+
+### 公開ツール
+
+| ツール名 | 機能 |
+|---------|------|
+| `list_works` | 作品一覧 |
+| `list_dbs` | DB 一覧 |
+| `get_records` | 全レコード取得 |
+| `get_record` | 1 件取得 |
+| `search_records` | 全文検索 |
+| `search_all_records` | 横断全文検索 |
+
+---
+
+## 全フェーズ完了 — 未完了タスク
+
+**すべてのフェーズが完了しました。**
+
+今後の作業（標準）:
+- [ ] `npm test` で既存テストの継続確認（既存ファイル非破壊の検証）
+- [ ] `pkg/mcp` の `npm install` 実行確認
+- [ ] VS Code で MCP サーバーの動作確認（オプション）
 
 ---
 
