@@ -1,0 +1,39 @@
+name = "creationsdb-api"
+main = "worker.js"
+compatibility_date = "2024-12-01"
+
+# ─────────────────────────────────────────────────────────────────────────────
+# 環境変数 (Cloudflare Dashboard または .dev.vars で上書き可能)
+# ─────────────────────────────────────────────────────────────────────────────
+
+[vars]
+# GitHub Pages の配信 URL（末尾スラッシュなし）
+# 本番環境では Cloudflare Dashboard の「Variables」でセキュアに上書きしてください
+REPO_BASE_URL = "https://radiann-kswg.github.io/100BeautiesLab_CreationsDB"
+
+# ─────────────────────────────────────────────────────────────────────────────
+# ローカル開発環境 (wrangler dev)
+# ─────────────────────────────────────────────────────────────────────────────
+
+[dev]
+port = 8787
+local_protocol = "http"
+
+# ─────────────────────────────────────────────────────────────────────────────
+# 本番環境
+# ─────────────────────────────────────────────────────────────────────────────
+
+[env.production]
+name = "creationsdb-api"
+
+[env.production.vars]
+REPO_BASE_URL = "https://radiann-kswg.github.io/100BeautiesLab_CreationsDB"
+
+# ─────────────────────────────────────────────────────────────────────────────
+# ステージング環境（任意）
+# ─────────────────────────────────────────────────────────────────────────────
+
+# [env.staging]
+# name = "creationsdb-api-staging"
+# [env.staging.vars]
+# REPO_BASE_URL = "https://radiann-kswg.github.io/100BeautiesLab_CreationsDB"

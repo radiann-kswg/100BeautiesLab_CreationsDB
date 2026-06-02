@@ -23,7 +23,7 @@
 | `pkg/nodejs/` | ✅ 完了 | Node.js ESM クライアント（fs 経由 I/O、`CreationsDBClient` クラス） |
 | `pkg/python/` | ✅ 完了 | Python モジュール `creationsdb`（pathlib 経由 I/O、同等 API） |
 | `pkg/csharp/` | ✅ 完了 | C# クライアント（Unity / .NET 5+ 対応、Newtonsoft.Json / System.Text.Json 両対応） |
-| `pkg/cloudflare/` | ⬜ 未完了 | — |
+| `pkg/cloudflare/` | ✅ 完了 | Cloudflare Workers 版真の API（worker.js + wrangler.toml） |
 | `pkg/mcp/` | ⬜ 未完了 | — |
 
 ---
@@ -40,9 +40,13 @@ pkg/
 │   │   ├── __init__.py ← 新規作成
 │   │   └── client.py   ← 新規作成
 │   └── README.md       ← 新規作成
-└── csharp/
-    ├── CreationsDBClient.cs ← 新規作成
-    └── README.md            ← 新規作成
+├── csharp/
+│   ├── CreationsDBClient.cs ← 新規作成
+│   └── README.md            ← 新規作成
+└── cloudflare/
+    ├── worker.js       ← 新規作成
+    ├── wrangler.toml   ← 新規作成
+    └── README.md       ← 新規作成
 ```
 
 既存ファイルへの変更: **なし**
@@ -118,9 +122,33 @@ await db.SearchAllAsync("NumberTales", "キーワード");
 
 ---
 
+## フェーズ 4 完了: `pkg/cloudflare/`
+
+### 設計方針
+
+- Cloudflare Workers (V8 Isolate) 上で動作するサーバーサイド API
+- GitHub Pages から静的 JSON を fetch して Service Worker 版と同等のルーティングを提供
+- REPO_BASE_URL 環境変数で任意の配信先に切り替え可能
+- `isSafeToken()` によるパストラバーサル防止、Works_Hidden / DB_Hidden / isPrivate チェック実装
+- Cloudflare Cache API による 5 分エッジキャッシュ
+
+### 提供エンドポイント
+
+```
+GET /api/v1/meta
+GET /api/v1/works
+GET /api/v1/:work/meta
+GET /api/v1/:work/dbs
+GET /api/v1/:work/:db/records
+GET /api/v1/:work/:db/records/:idx[?idxKey=X]
+GET /api/v1/:work/:db/search?q=...
+GET /api/v1/:work/search?q=...
+```
+
+---
+
 ## 未完了タスク
 
-- [ ] `pkg/cloudflare/` — Cloudflare Workers エントリーポイント（真の意味での API）
 - [ ] `pkg/mcp/` — MCP サーバー（GitHub Copilot Agent モード対応）
 
 ---
