@@ -21,6 +21,7 @@
 - 2026-05-15_progress_subfields-wrapper-unification.md（subFields/wrapper 統合・追加作品目視確認残）
 - 2026-05-29_progress_bilingual-wrapper-apiswui.md（bilingual wrapper API/SW 対応・UI 表示未完了）
 - 2026-06-01_remaining-task.md（現行の未完了タスク一覧・最新）
+- 2026-06-02_progress_pkg-client-libraries.md（pkg/ クライアントライブラリ新規実装・完了）
 
 補足:
 

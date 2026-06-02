@@ -158,6 +158,26 @@
 │   ├── data.sanity.test.js    # JSONファイルの整合性テスト
 │   ├── data.shape.test.js     # データ構造テスト
 │   └── sw.enrich.basic.test.js # Service Worker機能テスト
+├── pkg/                       # サブモジュール利用向けパッケージ群（非破壊・独立）
+│   ├── nodejs/                # Node.js ESM クライアントライブラリ
+│   │   ├── index.mjs          # CreationsDBClient（ファイルシステム版）
+│   │   └── README.md
+│   ├── python/                # Python クライアントモジュール
+│   │   ├── creationsdb/       # パッケージディレクトリ
+│   │   │   ├── __init__.py    # CreationsDBClient 再エクスポート
+│   │   │   └── client.py      # 実装本体
+│   │   └── README.md
+│   ├── csharp/                # C# クライアント（Unity / .NET 5+）
+│   │   ├── CreationsDBClient.cs
+│   │   └── README.md
+│   ├── cloudflare/            # Cloudflare Workers サーバーサイド API
+│   │   ├── worker.js          # エントリーポイント
+│   │   ├── wrangler.toml      # デプロイ設定
+│   │   └── README.md
+│   └── mcp/                   # MCP サーバー（GitHub Copilot Agent 等との連携）
+│       ├── server.mjs         # MCP サーバー実装
+│       ├── package.json
+│       └── README.md
 ├── _work_in_progress/                    # 進捗状況ドキュメント
 │   └── *.md                   # Copilot作業進捗・説明用マークダウン
 └── .github/                    # GitHub設定
@@ -175,6 +195,7 @@
 5. **マルチエンドポイント**: `/api/v1`, `/pages/v1`, `/svc/v1` の 3 つの API エンドポイント提供
 6. **参照解決**: データベース間の関連性を動的に解決する仕組み
 7. **統一エンドポイント**: StandardEndpointHandlers による重複コード削減
+8. **`pkg/` パッケージ群**: サブモジュールとして別リポジトリに導入するための独立クライアント群（Node.js / Python / C# / Cloudflare Workers / MCP）
 
 ### データフロー
 
@@ -319,6 +340,31 @@
 - **型定義ベース**: `db_type.json`の`$image`フィールドに基づく画像パス解決
 - **動的ギャラリー**: キャラクターデータから自動的に画像ギャラリー生成
 - **パス正規化**: GitHub Pages のサブパス対応
+
+## `pkg/` パッケージ群の開発ルール
+
+### 設計方針
+
+- **非破壊・独立**: `pkg/` 配下のパッケージは `lib/sw-common.js` / `pages/` / `api/` / `svc/` に依存してはなりません（Service Worker グローバルを前提とする API に依存させない）。
+- **ファイルシステム I/O**: ブラウザ API の代わりに Node.js `fs` / Python `pathlib` / C# `System.IO` でデータを読みます。
+- **セキュリティトークン**: すべての workId / dbName はエントリーポイントで `isSafeToken()` / `_is_safe_token()` による `[A-Za-z0-9_]+` 検証を行います。変更・削除は禁止。
+- **リポジトリルートの自動解決（重要）**: 各クライアントはコンストラクタの引数を省略したとき、自パッケージファイルの位置を起点にリポジトリルートを自動解決します。サブモジュールとして配置すれば `new CreationsDBClient()` のみで動作します。
+
+### リポジトリルート自動解決の仕組み
+
+| パッケージ | 解決方法 |
+|-----------|---------|
+| **Node.js** (`pkg/nodejs/index.mjs`) | `resolve(dirname(fileURLToPath(import.meta.url)), '../..')` — 2 階層上 |
+| **Python** (`pkg/python/creationsdb/client.py`) | `Path(__file__).resolve().parent.parent.parent.parent` — 4 階層上 |
+| **C#** (`pkg/csharp/CreationsDBClient.cs`) | `FindRepoRoot()` — アセンブリ位置からフォルダを上方探索し `data/db_meta.json` の存在で判定 |
+| **MCP** (`pkg/mcp/server.mjs`) | コマンドライン引数 → 環境変数 → `server.mjs` の 2 階層上、の順 |
+| **Cloudflare Workers** | ファイルシステム不使用（GitHub Pages URL から fetch） |
+
+### pkg/ 変更時の注意
+
+- **`lib/` の変更と連動させない**: `pkg/nodejs/index.mjs` は `lib/sw-common.js` の移植版です。`lib/` の変更が `pkg/` に影響する場合は手動で同期してください。
+- **README の使用例を保守**: コンストラクタのシグネチャ変更時は各 `pkg/*/README.md` の使用例・API リファレンスも更新してください。
+- **解説ドキュメント**: 詳細な設計・使い方は `docs/pkg-client-libraries.md` を参照してください。
 
 ## テスト戦略
 
