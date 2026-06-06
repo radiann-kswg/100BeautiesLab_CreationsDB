@@ -56,20 +56,15 @@
       "$display": { "section": "images", "tagSpace": "internal" }
     },
     {
-      "hashTag": "For79or80thDealerCalling",
-      "$type": [
-        {
-          "hashTag": "For79thDealer",
-          "$type": "#String|#Null",
-          "hashTag_JP": "錦野舞(第79アルカナ)の呼び方"
-        },
-        {
-          "hashTag": "For80thDealer",
-          "$type": "#String|#Null",
-          "hashTag_JP": "錦野歌嫁(第80アルカナ)の呼び方"
-        }
-      ],
-      "hashTag_JP": "采配幹部(ディーラーズ;第79・80アルカナ)の呼び方",
+      "hashTag": "For79thDealerCalling",
+      "$type": "#String|#Null",
+      "hashTag_JP": "錦野舞(第79アルカナ)の呼び方",
+      "$display": { "section": "profile" }
+    },
+    {
+      "hashTag": "For80thDealerCalling",
+      "$type": "#String|#Null",
+      "hashTag_JP": "錦野歌嫁(第80アルカナ)の呼び方",
       "$display": { "section": "profile" }
     },
     {

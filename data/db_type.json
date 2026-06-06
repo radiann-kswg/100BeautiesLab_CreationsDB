@@ -488,7 +488,8 @@
       { "hideText": "非公開", "hideText_EN": "Non-Public" },
       { "hideText": "条件による", "hideText_EN": "Depending on Conditions" },
       { "hideText": "定義不能", "hideText_EN": "Undefineble" },
-      { "hideText": "本人すら把握されていない", "hideText_EN": "Not Aware" }
+      { "hideText": "本人すら把握されていない", "hideText_EN": "Not Aware" },
+      { "hideText": "不定", "hideText_EN": "Indefinite" }
     ],
     "$Def_Day": {
       "$display": { "wrapper": "daySummary" },
