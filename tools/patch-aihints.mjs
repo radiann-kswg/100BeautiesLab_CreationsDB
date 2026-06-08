@@ -468,7 +468,6 @@ const COREFOLDER_DEFAULT_IMMUTABLE_CONSTRAINTS = [
     'do not render arms or hands',
     'do not render legs or feet',
     'do not dress in humanoid casual / fashion outfit',
-    'head must remain attached and protruding from the core body via the safety harness',
 ];
 
 /** コアフォルダ形態でキャラ別に明示するフラットなブラックリスト（画像生成 AI の混入対策） */
@@ -479,10 +478,9 @@ const COREFOLDER_DEFAULT_NEGATIVE_KEYWORDS = [
     'bound by rope',
 ];
 
-/** コアフォルダ形態の標準シルエット記述（視覚言語ベース、1〜2行） */
+/** コアフォルダ形態の標準シルエット記述（視覚言語ベース、1行） */
 const COREFOLDER_DEFAULT_SILHOUETTE_NOTES = [
     'spherical core body with the head as the only protruding part on top',
-    'core body suspended in place by a belt-like safety device harness',
 ];
 
 // ────────────────────────────────────────────────────────────────────────────
@@ -939,11 +937,11 @@ function buildNegativeVisuals(tu, formType) {
         negatives.push(`fewer or more than ${tu.count} ${tailWord}`);
     }
     // 形態固有の服装制約
+    // 注意: 'safety device harness' は 15(トウゴ)固有の設定。標準キャラのデフォルトには含めない
     if (formType === 'corefolder') {
         negatives.push('humanoid casual outfit');
     } else if (formType === 'humanoid') {
         negatives.push('corefolder hoodie');
-        negatives.push('safety device harness');
     }
     return negatives;
 }
