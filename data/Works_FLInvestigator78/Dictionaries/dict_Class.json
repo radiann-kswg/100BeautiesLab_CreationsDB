@@ -24,31 +24,23 @@
     "Class_EN": "Informant"
   },
   {
-    "Class": "第1幹部/最高幹部",
-    "Class_EN": "Executive.1/Top"
+    "Class": "最高幹部",
+    "Class_EN": "Top Executive"
   },
   {
-    "Class": "第2幹部/最高幹部",
-    "Class_EN": "Executive.2/Top"
+    "Class": "国際幹部",
+    "Class_EN": "International Executive"
   },
   {
-    "Class": "第3幹部",
-    "Class_EN": "Executive.3"
+    "Class": "国境幹部",
+    "Class_EN": "Border Executive"
   },
   {
-    "Class": "第8幹部/九蓮国支部幹部",
-    "Class_EN": "Executive.8/RN Brunch.Executive"
+    "Class": "九蓮国支部幹部",
+    "Class_EN": "RN.Brunch Executive"
   },
   {
-    "Class": "第9幹部/九蓮国支部幹部",
-    "Class_EN": "Executive.9/RN Brunch.Executive"
-  },
-  {
-    "Class": "第16幹部/英皇国支部幹部",
-    "Class_EN": "Executive.16/IK Brunch.Executive"
-  },
-  {
-    "Class": "第17幹部/英皇国支部幹部",
-    "Class_EN": "Executive.17/IK Brunch.Executive"
+    "Class": "英皇国支部幹部",
+    "Class_EN": "IK.Brunch Executive"
   }
 ]

@@ -368,4 +368,199 @@ describe('_DBLink / _Jump merge (in-process)', () => {
     // UnauthedLogica の Model:{LogicSeries:null,Num:62} は FormalName が「人形兵ゼロイド62番機」
     expect(e.FormalName).toBe('人形兵ゼロイド62番機');
   });
+
+  it('_Search の key がオブジェクト型の場合、AND 条件でサブフィールドを比較できる（インメモリ）', async () => {
+    class ObjKeyDataFetcher extends TestDataFetcher {
+      async readDB(_workId, _dbName) {
+        return [
+          { Id: 'A', Card: { Stoat: 'Major', StoatNum: 0, Num: 22 }, Name: 'フェニクス' },
+          { Id: 'B', Card: { Stoat: 'Major', StoatNum: 1, Num: 1  }, Name: 'オリジン'   },
+          { Id: 'C', Card: { Stoat: 'Minor', StoatNum: 0, Num: 1  }, Name: 'ミナーA'    },
+        ];
+      }
+      async readGlobalType() {
+        return {
+          $DefType: [
+            { hashTag: 'Id',   $type: '#String' },
+            { hashTag: 'Card', $type: '#Object' },
+            { hashTag: 'Name', $type: '#String' },
+          ]
+        };
+      }
+    }
+
+    const dataFetcher = new ObjKeyDataFetcher();
+    const proc = new globalThis.EnrichmentProcessor(dataFetcher, testConfig);
+
+    const rec = {
+      Id: 'BASE',
+      Name: '',
+      _DBLink: {
+        worksTitle: 'TestWork',
+        dbName: 'Primary',
+        _Search: [{ hashTag: 'Card', key: { Stoat: 'Major', StoatNum: 0 } }]
+      }
+    };
+
+    const out = await proc.enrichRecords([rec], '#Works_MainWork', 'Primary');
+    const e = out[0];
+
+    // Card:{Stoat:'Major',StoatNum:0} に一致するのは 'フェニクス' のみ
+    expect(e.Name).toBe('フェニクス');
+  });
+
+  it('_Search の key がオブジェクト型の場合、AND 条件のいずれかが不一致なら採用しない', async () => {
+    class ObjKeyMismatchFetcher extends TestDataFetcher {
+      async readDB(_workId, _dbName) {
+        return [
+          { Id: 'A', Card: { Stoat: 'Major', StoatNum: 0 }, Name: 'フェニクス' },
+          { Id: 'B', Card: { Stoat: 'Major', StoatNum: 1 }, Name: 'オリジン'   },
+        ];
+      }
+      async readGlobalType() {
+        return { $DefType: [{ hashTag: 'Id', $type: '#String' }, { hashTag: 'Name', $type: '#String' }] };
+      }
+    }
+
+    const dataFetcher = new ObjKeyMismatchFetcher();
+    const proc = new globalThis.EnrichmentProcessor(dataFetcher, testConfig);
+
+    // Stoat='Major' には 2 件一致するが、StoatNum=99 で絞ると 0 件 → マージしない
+    const rec = {
+      Id: 'BASE',
+      Name: 'ベース',
+      _DBLink: {
+        worksTitle: 'TestWork',
+        dbName: 'Primary',
+        _Search: [{ hashTag: 'Card', key: { Stoat: 'Major', StoatNum: 99 } }]
+      }
+    };
+
+    const out = await proc.enrichRecords([rec], '#Works_MainWork', 'Primary');
+    const e = out[0];
+
+    // 一致なし → Name は変化しない
+    expect(e.Name).toBe('ベース');
+  });
+
+  it('hashTag が実フィールド名でオブジェクト型 key を使った AND 条件マッチングが FLInvestigator78/PrimaryDealer で動作する', async () => {
+    const dataFetcher = new TestDataFetcher();
+    const proc = new globalThis.EnrichmentProcessor(dataFetcher, testConfig);
+
+    const rec = {
+      Id: 'BASE',
+      Character: '',
+      _DBLink: {
+        worksTitle: 'FLInvestigator78',
+        dbName: 'PrimaryDealer',
+        _Search: [{ hashTag: 'Card', key: { Stoat: 'Major', StoatNum: 0 } }]
+      }
+    };
+
+    const out = await proc.enrichRecords([rec], '#Works_MainWork', 'Primary');
+    const e = out[0];
+
+    // PrimaryDealer の Card:{Stoat:'Major',StoatNum:0} は Character が「能天気でどこか浮いている」
+    expect(e.Character).toBe('能天気でどこか浮いている');
+  });
+
+  it('base に $alt フィールドの値がある場合、_DBLink からの primary フィールドマージをスキップする（インメモリ）', async () => {
+    class AltSkipFetcher extends TestDataFetcher {
+      async readDB(_workId, _dbName) {
+        return [{ Id: 'X', Age: 21 }];
+      }
+      async readGlobalType() {
+        return {
+          $DefType: [
+            { hashTag: 'Id',         $type: '#String' },
+            { hashTag: 'Age',        $type: '#Number', $alt: 'ConceptAge' },
+            { hashTag: 'ConceptAge', $type: '#Number|#Number_withAbout' }
+          ]
+        };
+      }
+    }
+
+    const dataFetcher = new AltSkipFetcher();
+    const proc = new globalThis.EnrichmentProcessor(dataFetcher, testConfig);
+
+    // base には ConceptAge（$alt）が入っており、Age は未定義
+    const rec = {
+      Id: 'BASE',
+      ConceptAge: { hideText: '不定' },
+      _DBLink: {
+        worksTitle: 'TestWork',
+        dbName: 'Primary',
+        _Search: [{ hashTag: 'Id', key: 'X' }]
+      }
+    };
+
+    const out = await proc.enrichRecords([rec], '#Works_MainWork', 'Primary');
+    const e = out[0];
+
+    // linked の Age: 21 はマージされない（ConceptAge に既値があるため）
+    // applyAltFallbacks により ConceptAge の値が Age にコピーされるので 21 にはならない
+    expect(e.Age).not.toBe(21);
+    expect(e.Age).toEqual({ hideText: '不定' });
+    // ConceptAge はそのまま維持される
+    expect(e.ConceptAge).toEqual({ hideText: '不定' });
+  });
+
+  it('base に $alt フィールドの値がない場合、_DBLink からの primary フィールドは通常どおりマージされる', async () => {
+    class AltNoSkipFetcher extends TestDataFetcher {
+      async readDB(_workId, _dbName) {
+        return [{ Id: 'X', Age: 29 }];
+      }
+      async readGlobalType() {
+        return {
+          $DefType: [
+            { hashTag: 'Id',         $type: '#String' },
+            { hashTag: 'Age',        $type: '#Number', $alt: 'ConceptAge' },
+            { hashTag: 'ConceptAge', $type: '#Number|#Number_withAbout' }
+          ]
+        };
+      }
+    }
+
+    const dataFetcher = new AltNoSkipFetcher();
+    const proc = new globalThis.EnrichmentProcessor(dataFetcher, testConfig);
+
+    // base に ConceptAge も Age もない → linked の Age をマージすべき
+    const rec = {
+      Id: 'BASE',
+      _DBLink: {
+        worksTitle: 'TestWork',
+        dbName: 'Primary',
+        _Search: [{ hashTag: 'Id', key: 'X' }]
+      }
+    };
+
+    const out = await proc.enrichRecords([rec], '#Works_MainWork', 'Primary');
+    const e = out[0];
+
+    expect(e.Age).toBe(29);
+  });
+
+  it('FLInvestigator78/Primary フェニクスの ConceptAge が _DBLink（PrimaryDealer）の Age より優先される', async () => {
+    // readGlobalType を実際の data/db_type.json に差し替えて $alt 宣言を読み込む
+    class RealGlobalTypeFetcher extends TestDataFetcher {
+      async readGlobalType() { return loadJson('data/db_type.json'); }
+    }
+
+    const dataFetcher = new RealGlobalTypeFetcher();
+    const proc = new globalThis.EnrichmentProcessor(dataFetcher, testConfig);
+
+    const primary = loadJson('data/Works_FLInvestigator78/DataBases/db_Primary.json');
+    const phoenix = primary.find(r => r?.Name === 'フェニクス');
+    expect(phoenix).toBeTruthy();
+    expect(phoenix.ConceptAge).toEqual({ hideText: '不定' });
+
+    const out = await proc.enrichRecords([phoenix], '#Works_FLInvestigator78', 'Primary');
+    const e = out[0];
+
+    // linked の Age: 21 はマージされない（ConceptAge に既値があるため）
+    // applyAltFallbacks により ConceptAge の値が Age にコピーされるので 21 にはならない
+    expect(e.Age).not.toBe(21);
+    expect(e.Age).toEqual({ hideText: '不定' });
+    expect(e.ConceptAge).toEqual({ hideText: '不定' });
+  });
 });

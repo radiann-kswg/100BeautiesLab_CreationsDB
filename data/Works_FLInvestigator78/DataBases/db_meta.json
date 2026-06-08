@@ -135,9 +135,18 @@
               "RoleType": "Repair",
               "RoleType_JP": "修",
               "RoleType_EN": "Repair"
+            },
+            {
+              "RoleType": "Archive",
+              "RoleType_JP": "終",
+              "RoleType_EN": "Archive"
             }
           ],
-          "#List_DualizePattern": [{ "Pattern": "Prop.", "Pattern_JP": "通常" }]
+          "#List_DualizePattern": [
+            { "Pattern": "Prop.", "Pattern_JP": "通常" },
+            { "Pattern": "Inv.", "Pattern_JP": "逆転" },
+            { "Pattern": "Unstab.", "Pattern_JP": "不安定" }
+          ]
         },
         "$Def_EffectStats": {
           "#ListLink_EffectText": [
@@ -149,6 +158,11 @@
             {
               "EffectText": "過剰",
               "EffectText_EN": "Over Limited",
+              "Rank": "Z"
+            },
+            {
+              "EffectText": "極めて絶大(場合により逆効果)",
+              "EffectText_EN": "Extremely Tremendous(May Be Counterproductive)",
               "Rank": "Z"
             },
             {
@@ -193,10 +207,12 @@
           "Ptn.E(元素操作)",
           "Ptn.F(妨害)",
           "Ptn.H(癒術)",
+          "Ptn.I(幻術)",
           "Ptn.L(転化)",
           "Ptn.M(精神操作)",
           "Ptn.S(感度操作)",
-          "Ptn.Q(天変地異)"
+          "Ptn.Q(天変地異)",
+          "Ptn.Z(終焉)"
         ],
         "$Def_SafetyLevel": {
           "#ListLink_SafetyLevelText": [

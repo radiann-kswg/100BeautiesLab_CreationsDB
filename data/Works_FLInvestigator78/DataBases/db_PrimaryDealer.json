@@ -2,13 +2,6 @@
   {
     "Card": { "Stoat": "Major", "StoatNum": 0 },
     "Progress": "notProceeded",
-    "_DBLink": {
-      "worksTitle": "FLInvestigator78",
-      "dbName": "Primary",
-      "_Search": [
-        { "hashTag": "Card", "key": { "Stoat": "Major", "StoatNum": 0 } }
-      ]
-    },
     "FormalName": "恐山 ユート",
     "FormalName_EN": "Uto' Osoreyama",
     "RaceType": "Human",
@@ -24,10 +17,8 @@
     "FirstPersonCalling": "ボク",
     "SecondPersonCalling": "キミ",
     "ThirdPersonCalling": "彼/彼女;*れ;[※名前呼び]",
-    "For79or80thDealerCalling": {
-      "For79thDealer": "ウタカ（※毎回逆になる）",
-      "For80thDealer": "マイ（※毎回逆になる）"
-    },
+    "For79thDealerCalling": "ウタカ ※毎回逆になる",
+    "For80thDealerCalling": "マイ ※毎回逆になる",
     "AbilityStats": {
       "Speed": { "Rank": "A" },
       "Communication": { "Rank": "B+" },
@@ -40,13 +31,6 @@
   {
     "Card": { "Stoat": "Major", "StoatNum": 1 },
     "Progress": "notProceeded",
-    "_DBLink": {
-      "worksTitle": "FLInvestigator78",
-      "dbName": "Primary",
-      "_Search": [
-        { "hashTag": "Card", "key": { "Stoat": "Major", "StoatNum": 1 } }
-      ]
-    },
     "FormalName": "金田一 卓斗",
     "FormalName_EN": "Tact Kindaichi",
     "RaceType": "Human",
@@ -63,10 +47,8 @@
     "FirstPersonCalling": "私(わたし)",
     "SecondPersonCalling": "君(きみ)",
     "ThirdPersonCalling": "彼/彼女;[※名前呼び],~君",
-    "For79or80thDealerCalling": {
-      "For79thDealer": "舞(まい)君",
-      "For80thDealer": "歌(うた)君"
-    },
+    "For79thDealerCalling": "舞(まい)君",
+    "For80thDealerCalling": "歌(うた)君",
     "AbilityStats": {
       "Speed": { "Rank": "A" },
       "Communication": { "Rank": "A" },
@@ -79,13 +61,6 @@
   {
     "Card": { "Stoat": "Major", "StoatNum": 2 },
     "Progress": "notProceeded",
-    "_DBLink": {
-      "worksTitle": "FLInvestigator78",
-      "dbName": "Primary",
-      "_Search": [
-        { "hashTag": "Card", "key": { "Stoat": "Major", "StoatNum": 2 } }
-      ]
-    },
     "FormalName": "二宮 律",
     "FormalName_EN": "Liz Ninomiya",
     "RaceType": "Human",
@@ -102,10 +77,8 @@
     "FirstPersonCalling": "私(わたくし)",
     "SecondPersonCalling": "貴方(あなた)",
     "ThirdPersonCalling": "彼/彼女;[※名前呼び]",
-    "For79or80thDealerCalling": {
-      "For79thDealer": "舞",
-      "For80thDealer": "歌"
-    },
+    "For79thDealerCalling": "舞",
+    "For80thDealerCalling": "歌",
     "AbilityStats": {
       "Speed": { "Rank": "C" },
       "Communication": { "Rank": "A" },
@@ -118,13 +91,6 @@
   {
     "Card": { "Stoat": "Major", "StoatNum": 3 },
     "Progress": "notProceeded",
-    "_DBLink": {
-      "worksTitle": "FLInvestigator78",
-      "dbName": "Primary",
-      "_Search": [
-        { "hashTag": "Card", "key": { "Stoat": "Major", "StoatNum": 3 } }
-      ]
-    },
     "FormalName": "三笠 めぐ",
     "FormalName_EN": "Meg Mikasa",
     "RaceType": "Human",
@@ -147,10 +113,8 @@
     "FirstPersonCalling": "わたし",
     "SecondPersonCalling": "あなた",
     "ThirdPersonCalling": "*のこ;[※名前呼び]",
-    "For79or80thDealerCalling": {
-      "For79thDealer": "舞(まい)",
-      "For80thDealer": "歌嫁(うたか)"
-    },
+    "For79thDealerCalling": "舞(まい)",
+    "For80thDealerCalling": "歌嫁(うたか)",
     "AbilityStats": {
       "Speed": { "Rank": "D" },
       "Communication": { "Rank": "S" },
@@ -163,13 +127,6 @@
   {
     "Card": { "Stoat": "Major", "StoatNum": 8 },
     "Progress": "notProceeded",
-    "_DBLink": {
-      "worksTitle": "FLInvestigator78",
-      "dbName": "Primary",
-      "_Search": [
-        { "hashTag": "Card", "key": { "Stoat": "Major", "StoatNum": 8 } }
-      ]
-    },
     "FormalName": "熱海 ふれあ",
     "FormalName_EN": "Flare Atami",
     "RaceType": "Human",
@@ -186,10 +143,8 @@
     "FirstPersonCalling": "わたし",
     "SecondPersonCalling": "きみ",
     "ThirdPersonCalling": "彼/彼女;[※名前呼び]",
-    "For79or80thDealerCalling": {
-      "For79thDealer": "舞(まい)",
-      "For80thDealer": "歌嫁(うたか)"
-    },
+    "For79thDealerCalling": "舞(まい)",
+    "For80thDealerCalling": "歌嫁(うたか)",
     "AbilityStats": {
       "Speed": { "Rank": "S" },
       "Communication": { "Rank": "B+" },
@@ -202,13 +157,6 @@
   {
     "Card": { "Stoat": "Major", "StoatNum": 9 },
     "Progress": "notProceeded",
-    "_DBLink": {
-      "worksTitle": "FLInvestigator78",
-      "dbName": "Primary",
-      "_Search": [
-        { "hashTag": "Card", "key": { "Stoat": "Major", "StoatNum": 9 } }
-      ]
-    },
     "FormalName": "仙道 歩浪(ほろー)",
     "FormalName_EN": "Hollow Sendō",
     "RaceType": "Human",
@@ -225,10 +173,8 @@
     "FirstPersonCalling": "おれ",
     "SecondPersonCalling": "おまえ",
     "ThirdPersonCalling": "*いつ,*れ;[※名前呼び]\n~さん ※信頼している人に対して",
-    "For79or80thDealerCalling": {
-      "For79thDealer": "舞\n舞さん",
-      "For80thDealer": "歌嫁\n歌嫁さん"
-    },
+    "For79thDealerCalling": "舞\n舞さん",
+    "For80thDealerCalling": "歌嫁\n歌嫁さん",
     "AbilityStats": {
       "Speed": { "Rank": "D" },
       "Communication": { "Rank": "C" },
@@ -241,13 +187,6 @@
   {
     "Card": { "Stoat": "Major", "StoatNum": 16 },
     "Progress": "notProceeded",
-    "_DBLink": {
-      "worksTitle": "FLInvestigator78",
-      "dbName": "Primary",
-      "_Search": [
-        { "hashTag": "Card", "key": { "Stoat": "Major", "StoatNum": 16 } }
-      ]
-    },
     "FormalName": "ヴェンジー.C.テンペスト",
     "FormalName_EN": "Vengy.C.Tempest",
     "RaceType": "Human",
@@ -264,15 +203,8 @@
   {
     "Card": { "Stoat": "Major", "StoatNum": 17 },
     "Progress": "notProceeded",
-    "_DBLink": {
-      "worksTitle": "FLInvestigator78",
-      "dbName": "Primary",
-      "_Search": [
-        { "hashTag": "Card", "key": { "Stoat": "Major", "StoatNum": 17 } }
-      ]
-    },
     "FormalName": "ライト.リヴァーブリッジ",
-    "FormalName_EN": "Light.Reverbbridge",
+    "FormalName_EN": "Light.Reverbridge",
     "RaceType": "Human",
     "GenderType": "Male",
     "Height_cm": 168,
@@ -298,11 +230,6 @@
     "Card": { "Stoat": "Dealer", "Num": 79 },
     "Progress": "released(beta)",
     "Images": { "concept_PNGName": ["cnsp_imgFLDealer"] },
-    "_DBLink": {
-      "worksTitle": "FLInvestigator78",
-      "dbName": "Primary",
-      "_Search": [{ "hashTag": "Card", "key": { "Num": 79 } }]
-    },
     "FormalName": "錦野 舞",
     "FormalName_EN": "Dancy Actressilk",
     "RaceType": "Human",
@@ -319,10 +246,8 @@
     "FirstPersonCalling": "私(わたし)",
     "SecondPersonCalling": "あなた",
     "ThirdPersonCalling": "彼/彼女;[※名前呼び]",
-    "For79or80thDealerCalling": {
-      "For79thDealer": null,
-      "For80thDealer": "歌嫁(うたか)"
-    },
+    "For79thDealerCalling": null,
+    "For80thDealerCalling": "歌嫁(うたか)",
     "AbilityStats": {
       "Speed": { "Rank": "C" },
       "Communication": { "Rank": "B" },
@@ -336,11 +261,6 @@
     "Card": { "Stoat": "Dealer", "Num": 80 },
     "Progress": "released(beta)",
     "Images": { "concept_PNGName": ["cnsp_imgFLDealer"] },
-    "_DBLink": {
-      "worksTitle": "FLInvestigator78",
-      "dbName": "Primary",
-      "_Search": [{ "hashTag": "Card", "key": { "Num": 80 } }]
-    },
     "FormalName": "錦野 歌嫁",
     "FormalName_EN": "Phonia Actressilk",
     "RaceType": "Human",
@@ -351,16 +271,14 @@
     "BirthDay": { "Day": { "Month": 7, "DayOfMonth": 6 } },
     "Character": "ムードメーカで友好的だが極めて強気で頑固、裏で悩みを抱え込みやすい",
     "Hobby": "プラモデル制作",
-    "SpecialSkill": "剣道(九蓮国では青年部門ベスト4に匹敵)",
+    "SpecialSkill": "剣道 ※九蓮国では青年部門ベスト4に匹敵",
     "Favor": "確かな強さ、自分を誇れる自分だけの理由",
     "Unlike": "自分の弱さ",
     "FirstPersonCalling": "私(わたし)",
     "SecondPersonCalling": "あなた",
     "ThirdPersonCalling": "彼/彼女;[※名前呼び]",
-    "For79or80thDealerCalling": {
-      "For79thDealer": "舞(まい)",
-      "For80thDealer": null
-    },
+    "For79thDealerCalling": "舞(まい)",
+    "For80thDealerCalling": null,
     "AbilityStats": {
       "Speed": { "Rank": "S" },
       "Communication": { "Rank": "B+" },
