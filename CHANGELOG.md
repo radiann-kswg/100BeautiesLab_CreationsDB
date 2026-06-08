@@ -1,5 +1,34 @@
 # 最新のリファクタリング・仕様変更履歴
 
+### AIHints corefolder 形態 vision-fill バッチ（NumberTales/DB_Primary）+ `numberMarkingPlacement` 正規表現拡張
+
+- `Works_NumberTales/DataBases/db_Primary.json` の AIHints 保有レコードについて、`tools/patch-aihints.mjs --apply-vision-results --apply` を 4-5 件単位の小バッチで反復実行し、corefolder 形態の `silhouette_notes` / `immutable_constraints` / `negative_keywords` / 番号マーキング位置 (`common.immutable_traits` 内の単一スロット記述) のキャラ固有 TODO を vision 観察結果で穴埋めした。
+- 適用範囲: 整数 Num の `#1`〜`#99` のうち 80 件 + 特殊番号 `2-alt` / `10-alt` / `000` の 3 件 = 計 83 件。各バッチは `.cache/vision-results-batch-corefolder-*.json` として保存し、`.cache/merge-batch.mjs` で `.cache/vision-results.json` にマージしてから `--apply` で書き込む（gitignore 配下の `.cache/` のみを一時領域として使用）。
+- 個別対応事例: `#5` / `#8` / `#15` は -1 画像でマーキングを確認できず、追加の corefolder 画像（`-2.png`、concept サムネ）から手動補正。`#15` はハーネスベルトに半分隠れたローマ数字 `XV`。`#10-alt` は本体が黒黄縞の保護ケースに完全格納されており、ケース正面のローマ数字 `X` を識別子として記録した。`#2-alt` は化学異性体プレフィックス風表記 `Bi 2 nor`、`#000` はネコ耳バリエーション（フォックス耳でない点を silhouette に明記）+ 下線付き `000` 表記、など。
+- スキップ判定: corefolder 画像が未整備のレコード（`#28` / `#51` / `#67` / `#70`）と、キャラデザイン自体が保留中のレコード（`#38` / `#54` / `#59` / `#79` / `#80` / `#82` / `#83` / `#90` / `#91` / `#95`）はバッチから除外し、既存の `TODO:` プレースホルダを保持。残 TODO は `#28`（要画像）と上記未整備キャラのみ。
+- `tools/patch-aihints.mjs` の `applyVisionResultsToAihints()` で `numberMarkingPlacement` の置換対象正規表現を 4 パターン（`^TODO: number '...' marking placement` / `^'#N...' number marking` / `^number 'N' marking` / `^number 'N' ...`）に拡張し、`flatMap` + `replacedOnce` フラグで「レコード内 1 件のみ置換」を保証した。これにより既存の `'#N' number marking (immutable)` 形式や `number 'N' as her core identifier` 形式のレガシー記述も vision-fill 対象になる。
+- 既知の小バグ: `--records` に整数化できる特殊番号（`000` 等）と他の特殊番号を同時指定した場合、集計表示で `0` に丸められて適用カウントが減ることがある。実体は `parseRecordSpec()` が string/number 両形を Set 追加しており、単独実行では正常に書き込めることを確認済み（`#000` も最終的に書き込み完了）。集計表示の改修は後続セッションで実施予定。
+- 編集対象: `data/Works_NumberTales/DataBases/db_Primary.json` のみ。他作品 / 他 DB は `AI_Optout: true` により対象外。
+- 回帰確認: `tests/aihints.schema.test.js` を含む AIHints 系テストは pass 維持。既存失敗 6 件（commons.secondaries / data.shape / enrich.dblink.jump.merge / pages.characters.ui-output）は本変更前から残る無関係な失敗。
+
+### AIHints スキーマに corefolder 形態強化フィールドを追加 + `--upgrade-schema` モードを新設
+
+- `Works_NumberTales/DataBases/db_type.json` の `$Def_AIFormVariant` に 3 つの新フィールドを追加した（順序: `outfit_features` → `silhouette_notes` → `immutable_constraints` → `negative_keywords` → `ai_tags`）。
+  - `silhouette_notes` (`#String[]|#Null`): 形態シルエットを 1-2 行で視覚言語化（本体形状/突出部/装着具）。
+  - `immutable_constraints` (`#String[]|#Null`): キャラ単位で再宣言する不変制約（例: 「腕を描かない」「humanoid 私服にしない」）。
+  - `negative_keywords` (`#String[]|#Null`): キャラ別ブラックリスト（`feet` / `legs` / `arms` / `hoodie` 等のフラットな NG キーワード）。
+- `$Def_AIHints` トップレベルに 2 つの新セクションを追加した（順序: `common` → `work_common` → `forms` → `alt_modes`）。
+  - `work_common.reference_images.corefolder_reference[]` / `humanoid_reference[]`: 作品共通の設計図/カットモデル画像 URL を全キャラから参照可能にする（`Images/Ref_Glossary/concept-figure/` 等の `cnsp-fg_NTsCoreFolder.png` / `cnsp-fg_NTsHumanoid.png` を自動収集）。
+  - `alt_modes.corefolder_dressed` (`allowed: #Boolean|#Null`, `outfit_source: #String|#Null`): 「コアフォルダ装着時に humanoid 衣装を重ねる」など将来予約モード（既定 `null`）。
+- `tools/patch-aihints.mjs` に `--upgrade-schema` モードを新設。既存レコードへ差分追加のみを行い、入力済み値は上書きしない（`!('field' in obj)` ガード）。corefolder 形態には structural default（`silhouette_notes` の球体本体 + 安全ハーネス記述、`immutable_constraints` の腕脚/手禁止 + 頭部ハーネス保持、`negative_keywords` 10 件）を自動投入し、humanoid 形態とキャラ固有スロットは `TODO:` プレースホルダで残す。
+- `--suggest` モードの corefolder scaffold に [D] 尻尾本数テンプレ（`exactly N ${unit} total: upper trunk forks into TODO bundles of TODO ${unit} each, lower trunk has TODO single ${unit}, no more no less`）と [E] 番号マーキング位置 TODO（`TODO: number 'N' marking placement (single fixed slot, e.g., back center / collar tag / harness front)`）を投入し、AI が尻尾本数/番号配置を取り違える問題への耐性を強化した。
+- `--fill-todos` モードに、`TailsUnit` から尻尾本数テンプレを `common.silhouette_features` へ自動追記する処理を追加（既に同形式テンプレが存在すれば再追加しない）。
+- `--apply-vision-results` の `VisionResult` typedef に 7 フィールドを追加: `corefolderSilhouetteNotes[]` / `humanoidSilhouetteNotes[]` / `corefolderImmutableExtras[]` / `humanoidImmutableExtras[]` / `corefolderNegativeKeywords[]` / `humanoidNegativeKeywords[]` / `numberMarkingPlacement`。corefolder 側は重複除去で追記、humanoid 側は TODO スロット置換、`numberMarkingPlacement` は `common.immutable_traits` の `TODO: number '...' marking placement (...)` を単一スロット記述で置換する。
+- 適用範囲: `Works_NumberTales/DataBases/db_Primary.json` の AIHints 保有 92 レコード全てへ `--upgrade-schema --apply` を完了（schema-upgraded=91 + schema-unchanged=1）。AI_Optout 設定済みの他 DB / 他作品は対象外。
+- テスト追加: `tests/aihints.schema.test.js`（10 ケース）で schema 宣言・フィールド順序・92 レコードへの structural default 投入を検証。
+- ドキュメント整備: `docs/ai-hints-usage.md` の corefolder 形態節と `--upgrade-schema` 節、`.github/copilot-instructions.md` の AIHints 運用ルール、本 CHANGELOG に反映。
+- 回帰確認: 新規 10 ケース + 既存 99 ケース pass。既存失敗 6 件は本変更前から残る無関係な失敗。
+
 ### `AI_Optout` による DB 単位の AI タグ生成 / AI 学習抑止フラグを追加
 
 - 作品別 `db_meta.json` の `Databases.#DB_<DbName>` 直下に `"AI_Optout": true` を置くことで、対象 DB に対する AI 関連自動処理を抑止する単一フラグを新設した。アクセス制御フラグ（`DB_Hidden` / `Works_Hidden`）と異なり API 配信は遮断せず、AI 利用に対する opt-out 表明として機能する。

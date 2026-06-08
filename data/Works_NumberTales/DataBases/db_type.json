@@ -379,7 +379,22 @@
         {
           "hashTag": "outfit_features",
           "$type": "#String[]|#Null",
-          "hashTag_JP": "この形態固有の衣装/装備特徴"
+          "hashTag_JP": "この形態固有の衣装/装備特徴(キャラ固有の corefolder 装備等)"
+        },
+        {
+          "hashTag": "silhouette_notes",
+          "$type": "#String[]|#Null",
+          "hashTag_JP": "この形態のシルエットを視覚言語で1-2行で記述(本体形状/突出部/装着具)"
+        },
+        {
+          "hashTag": "immutable_constraints",
+          "$type": "#String[]|#Null",
+          "hashTag_JP": "この形態でキャラ単位に再宣言する不変制約(例: 腕/脚/手を描かない 等)"
+        },
+        {
+          "hashTag": "negative_keywords",
+          "$type": "#String[]|#Null",
+          "hashTag_JP": "キャラ別ブラックリスト(feet/legs/arms/hands/hoodie/blazer 等のフラットなNGキーワード)"
         },
         {
           "hashTag": "ai_tags",
@@ -427,6 +442,52 @@
         }
       ]
     },
+    "$Def_AIHintsWorkCommonReferenceImages": {
+      "$DefType": [
+        {
+          "hashTag": "corefolder_reference",
+          "$type": "#String[]|#Null",
+          "hashTag_JP": "コアフォルダ形態の作品共通設計図/カットモデル画像URL集(Ref_Glossary/concept-figure 等)"
+        },
+        {
+          "hashTag": "humanoid_reference",
+          "$type": "#String[]|#Null",
+          "hashTag_JP": "ヒューマノイド形態の作品共通設計図/カットモデル画像URL集"
+        }
+      ]
+    },
+    "$Def_AIHintsWorkCommon": {
+      "$DefType": [
+        {
+          "hashTag": "reference_images",
+          "$type": "$Def_AIHintsWorkCommonReferenceImages|#Null",
+          "hashTag_JP": "作品共通の参照画像URL(コアフォルダ/ヒューマノイドの設計図系)"
+        }
+      ]
+    },
+    "$Def_AIAltCorefolderDressed": {
+      "$DefType": [
+        {
+          "hashTag": "allowed",
+          "$type": "#Boolean|#Null",
+          "hashTag_JP": "コアフォルダにヒューマノイド衣装を着せるモードを許可するか(予約)"
+        },
+        {
+          "hashTag": "outfit_source",
+          "$type": "#String|#Null",
+          "hashTag_JP": "衣装ソース指定(例: humanoid)(予約)"
+        }
+      ]
+    },
+    "$Def_AIAltModes": {
+      "$DefType": [
+        {
+          "hashTag": "corefolder_dressed",
+          "$type": "$Def_AIAltCorefolderDressed|#Null",
+          "hashTag_JP": "コアフォルダ装着時にヒューマノイド衣装を着せるモード(将来予約)"
+        }
+      ]
+    },
     "$Def_AIHints": {
       "$DefType": [
         {
@@ -435,9 +496,19 @@
           "hashTag_JP": "形態非依存の共通AIヒント(素体)"
         },
         {
+          "hashTag": "work_common",
+          "$type": "$Def_AIHintsWorkCommon|#Null",
+          "hashTag_JP": "作品共通AIヒント(全キャラで参照する設計図/共通設定画像)"
+        },
+        {
           "hashTag": "forms",
           "$type": "$Def_AIHintsForms|#Null",
           "hashTag_JP": "形態別AIヒント(corefolder/humanoid)"
+        },
+        {
+          "hashTag": "alt_modes",
+          "$type": "$Def_AIAltModes|#Null",
+          "hashTag_JP": "代替モード(将来予約: corefolder_dressed 等)"
         }
       ]
     }

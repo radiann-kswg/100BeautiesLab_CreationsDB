@@ -46,16 +46,21 @@ GitHub 上に AI タグを置いただけでは、現在の生成 AI（ChatGPT �
 
 ## 4. `forms.<form>` 層のフィールド
 
-| フィールド                     | 型          | 役割                                                                                               | 主な対象環境        |
-| ------------------------------ | ----------- | -------------------------------------------------------------------------------------------------- | ------------------- |
-| `form_tags`                    | `#String[]` | 形態識別タグ。**先頭に `"corefolder form"` または `"humanoid form"`** を必ず含める                 | 全環境 (必須)       |
-| `outfit_features`              | `#String[]` | この形態固有の衣装・装備特徴 (ハーネス・コート・装甲等)                                            | 全環境              |
-| `ai_tags`                      | `#String[]` | 順序付き完全タグ列 (`common` から合成済 + `form_tags` + `outfit_features`)。即貼付前提のフラット列 | 全環境 (NovelAI 強) |
-| `negative_visuals`             | `#String[]` | この形態固有の禁止視覚要素 (素体共通のNGに加えて、その形態で特に避けたい要素)                      | NovelAI / SD        |
-| `natural_language_description` | `#String`   | この形態を述べる短文の英語サマリ (1〜2文)                                                          | Gemini / ChatGPT    |
-| `prompt_export`                | `#String`   | NovelAI / SD 向けの即貼付用カンマ区切り英語タグ列 (この形態用)                                     | NovelAI / SD        |
-| `negative_prompt_export`       | `#String`   | カンマ区切りのネガティブタグ列 (この形態用)                                                        | NovelAI / SD        |
-| `reference_images`             | `object`    | この形態の参照画像 URL (main / face / silhouette / palette)                                        | Gemini / ChatGPT    |
+| フィールド                     | 型          | 役割                                                                                                                                                                                                                                                                                   | 主な対象環境        |
+| ------------------------------ | ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------- |
+| `form_tags`                    | `#String[]` | 形態識別タグ。**先頭に `"corefolder form"` または `"humanoid form"`** を必ず含める                                                                                                                                                                                                     | 全環境 (必須)       |
+| `outfit_features`              | `#String[]` | この形態固有の衣装・装備特徴 (ハーネス・コート・装甲等、キャラ固有の corefolder 装備等)                                                                                                                                                                                                | 全環境              |
+| `silhouette_notes`             | `#String[]` | この形態のシルエットを視覚言語で 1-2 行記述（本体形状/突出部/装着具）。corefolder には球体本体・ハーネス等の structural default を投入、キャラ固有スロットは TODO で残す                                                                                                               | Gemini / ChatGPT    |
+| `immutable_constraints`        | `#String[]` | この形態でキャラ単位に再宣言する不変制約。corefolder の structural default は `do not render arms or hands` / `do not render legs or feet` / `do not dress in humanoid casual / fashion outfit` / `head must remain attached and protruding from the core body via the safety harness` | 全環境              |
+| `negative_keywords`            | `#String[]` | キャラ別ブラックリスト（`feet` / `legs` / `arms` / `hoodie` 等のフラットな NG キーワード）。corefolder の structural default は 10 項目を投入、humanoid は TODO のみ                                                                                                                   | NovelAI / SD        |
+| `ai_tags`                      | `#String[]` | 順序付き完全タグ列 (`common` から合成済 + `form_tags` + `outfit_features`)。即貼付前提のフラット列                                                                                                                                                                                     | 全環境 (NovelAI 強) |
+| `negative_visuals`             | `#String[]` | この形態固有の禁止視覚要素 (素体共通のNGに加えて、その形態で特に避けたい要素)                                                                                                                                                                                                          | NovelAI / SD        |
+| `natural_language_description` | `#String`   | この形態を述べる短文の英語サマリ (1〜2文)                                                                                                                                                                                                                                              | Gemini / ChatGPT    |
+| `prompt_export`                | `#String`   | NovelAI / SD 向けの即貼付用カンマ区切り英語タグ列 (この形態用)                                                                                                                                                                                                                         | NovelAI / SD        |
+| `negative_prompt_export`       | `#String`   | カンマ区切りのネガティブタグ列 (この形態用)                                                                                                                                                                                                                                            | NovelAI / SD        |
+| `reference_images`             | `object`    | この形態の参照画像 URL (main / face / silhouette / palette)                                                                                                                                                                                                                            | Gemini / ChatGPT    |
+
+> **トップレベル追加項目（2026-06-08）**: `$Def_AIHints` には `common` / `forms` の他に、作品共通の参照画像をまとめる `work_common.reference_images.{corefolder_reference[], humanoid_reference[]}` と、将来予約モードを格納する `alt_modes.corefolder_dressed.{allowed, outfit_source}` が追加されている。`work_common` は `--upgrade-schema` 適用時に `Images/Ref_Glossary/concept-figure/` 等から `cnsp-fg_*CoreFolder.png` / `cnsp-fg_*Humanoid.png` を自動収集する。
 
 ### 4.1 形態識別タグの規約
 
@@ -174,12 +179,12 @@ https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primar
 
 ## 7. 付与対象の判定
 
-| キャラの状態                                     | AIHints 付与                                                                                                  |
-| ------------------------------------------------ | ------------------------------------------------------------------------------------------------------------- |
-| 画像 / イラスト**あり**                          | **必須**。`common.identity_tags` を 3〜5個必ず含める。対応する `forms.<form>` を付与する                      |
-| 画像 / イラスト**なし** (設定のみ)               | 任意。付与する場合でも `forms.<form>.reference_images` は省略し、`identity_tags` は設定から推測した範囲に限る |
-| `"Progress": "notProceeded"`                     | 付与不要                                                                                                      |
-| ある形態の画像のみ存在 (例: corefolder 画像のみ) | 存在する形態の `forms.<form>` のみを付与し、もう一方は省略                                                    |
+| キャラの状態                                     | AIHints 付与                                                                                                                                                  |
+| ------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 画像 / イラスト**あり**                          | **必須**。`common.identity_tags` を 3〜5個必ず含める。対応する `forms.<form>` を付与する                                                                      |
+| 画像 / イラスト**なし** (設定のみ)               | 任意。付与する場合でも `forms.<form>.reference_images` は省略し、`identity_tags` は設定から推測した範囲に限る                                                 |
+| `"Progress": "notProceeded"`                     | 付与不要                                                                                                                                                      |
+| ある形態の画像のみ存在 (例: corefolder 画像のみ) | 存在する形態の `forms.<form>` のみを付与し、もう一方は省略                                                                                                    |
 | DB に `AI_Optout: true` が設定                   | **付与不可**。`tools/patch-aihints.mjs` の全モードが exit 2 で拒否する（緊急時のみ `--force-ai-optout` でバイパス）。詳細は `docs/api-sw-spec.md` §5.5 を参照 |
 
 ---
@@ -248,15 +253,19 @@ node tools/patch-aihints.mjs --gen-vision-tasks
 // .cache/vision-results-batch-<range>.json
 [
   {
-    "num": 97,                              // number or string（例: "2-alt"）
-    "palette": { "primary": "#5878C8", "secondary": "#A0A8C0", "accent": "#6850A0" },
+    "num": 97, // number or string（例: "2-alt"）
+    "palette": {
+      "primary": "#5878C8",
+      "secondary": "#A0A8C0",
+      "accent": "#6850A0",
+    },
     "silhouetteHair": "very long blue hair with side braid",
     "silhouetteEye": "pale lavender-gray eyes",
     "aiTagsHair": "very long blue hair with side braid",
     "aiTagsEye": "pale lavender-gray eyes",
-    "corefolderOutfit": [ "gray nun-like top hat with cross emblem", "..." ],
-    "humanoidOutfit":   [ "gray priestess-style top hat ...", "..." ]  // 任意
-  }
+    "corefolderOutfit": ["gray nun-like top hat with cross emblem", "..."],
+    "humanoidOutfit": ["gray priestess-style top hat ...", "..."], // 任意
+  },
 ]
 ```
 
@@ -294,13 +303,13 @@ node .cache/fill-residual-todos.mjs --apply
 
 以下は `Works_NumberTales/DB_Primary` に現われる string 型 `Num` レコードの例と、それぞれへの AI タグ付与劤判定:
 
-| `Num` | キャラ名 | 画像有無 | AI タグ付与 |
-| --- | --- | --- | --- |
-| `"000"` | チトセ | あり (concept / corefolder / humanoid) | 付与済 |
-| `"2-alt"` | バイナ / ツギ二号 | あり (concept / corefolder) | 付与済 |
-| `"10-alt"` | ディケ / ツナイ | あり (corefolder) | 付与済 |
-| `"67-old"` | ムナ | なし | スキップ |
-| `"0"` / `"00"` | 零シリーズ | なし | スキップ |
+| `Num`          | キャラ名          | 画像有無                               | AI タグ付与 |
+| -------------- | ----------------- | -------------------------------------- | ----------- |
+| `"000"`        | チトセ            | あり (concept / corefolder / humanoid) | 付与済      |
+| `"2-alt"`      | バイナ / ツギ二号 | あり (concept / corefolder)            | 付与済      |
+| `"10-alt"`     | ディケ / ツナイ   | あり (corefolder)                      | 付与済      |
+| `"67-old"`     | ムナ              | なし                                   | スキップ    |
+| `"0"` / `"00"` | 零シリーズ        | なし                                   | スキップ    |
 
 `tools/patch-aihints.mjs` は `parseRecordSpec()` / メインループ / `gen-vision-tasks` / humanoid 画像マッチ (`art_img(<num>)-humanoid`) の 4 箰所で **number と string の両型** を受け付けるよう拡張済み。正規表現も `art_img([0-9A-Za-z\-]+?)-humanoid` に拡張されているため、`art_img2-alt-humanoid` のような名前も将来適合できる。
 
@@ -311,3 +320,40 @@ node .cache/fill-residual-todos.mjs --apply
 - [ ] `tests/data.sanity.test.js` / `tests/sw.enrich.basic.test.js` が全件 pass
 - [ ] バッチファイル (`.cache/vision-results-batch-*.json`) は .gitignore 対象の `.cache/` 配下のみに保持
 - [ ] 他作品・他 DB へ適用する場合は **本セクションのフローが `Works_NumberTales/DB_Primary` 前提でか検証されていないこと**を必ず記録し、個別に画像パス解決・schema 差異を確認
+
+### 9.5 `--upgrade-schema` モード（corefolder 強化フィールドの差分追加）
+
+AIHints スキーマが拡張された際、既存レコードへ「差分追加のみ」を行うためのモード。**入力済み値は一切上書きしない**（`!('field' in obj)` ガード）。`AI_Optout` 設定済み DB はガードで拒否される。
+
+#### 用途
+
+- `$Def_AIFormVariant` に `silhouette_notes` / `immutable_constraints` / `negative_keywords` を追加した。
+- `$Def_AIHints` トップレベルに `work_common` / `alt_modes` を追加した。
+- 既存 92 レコード（NumberTales/DB_Primary）へ structural default と TODO プレースホルダを一括投入したい。
+
+#### コマンド
+
+```powershell
+# dry-run（差分を確認）
+node tools/patch-aihints.mjs --work NumberTales --db Primary --all --upgrade-schema
+
+# 適用
+node tools/patch-aihints.mjs --work NumberTales --db Primary --all --upgrade-schema --apply
+# → schema-upgraded=<N>, schema-unchanged=<M>, skipped-no-aihints=<K>
+```
+
+#### 投入される内容
+
+| スロット                               | corefolder の structural default                                                                  | humanoid の扱い                               |
+| -------------------------------------- | ------------------------------------------------------------------------------------------------- | --------------------------------------------- |
+| `forms.*.silhouette_notes`             | 球体本体記述 + 安全ハーネス記述 + キャラ固有 TODO 1 行                                            | TODO 1 行のみ（キャラ固有はすべて User 入力） |
+| `forms.*.immutable_constraints`        | 腕/脚/手禁止 + humanoid 衣装禁止 + 頭部ハーネス保持の 4 項目                                      | TODO 1 行のみ                                 |
+| `forms.*.negative_keywords`            | `feet/legs/shoes/high heels/arms/hands/hoodie/blazer/fashion outfit/bound by rope` の 10 項目     | TODO 1 行のみ                                 |
+| `AIHints.work_common.reference_images` | `Images/Ref_Glossary/concept-figure/cnsp-fg_*CoreFolder.png` / `cnsp-fg_*Humanoid.png` を自動収集 | （同上、トップレベル）                        |
+| `AIHints.alt_modes`                    | `null`（将来予約。`corefolder_dressed.{allowed, outfit_source}` を後日追加可）                    | （同上、トップレベル）                        |
+
+#### 注意事項
+
+- 既存レコードに同名フィールドが「キー定義済」なら、structural default は再投入されない（既存値を尊重）。
+- キャラ固有の `silhouette_notes` / `immutable_constraints` / `negative_keywords` のキャラ固有エントリは `TODO:` で残るため、**User が画像と設定資料を見ながら手動入力する**ことを前提とする（Copilot による自動補完対象外）。
+- `--apply-vision-results` 経由で `corefolderSilhouetteNotes[]` / `corefolderImmutableExtras[]` / `corefolderNegativeKeywords[]` / `humanoid*` 変種を渡すと、対応 TODO を置換または追記できる。重複は除去される。

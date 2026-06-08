@@ -25,6 +25,8 @@
 - 2026-06-01_progress_aihints-vision-final-and-playbook.md（`Works_NumberTales/DB_Primary` の AIHints 視覚解析を画像提供有り 92 件すべてで完走 + Agent 再現プレイブック整備。develop 側の `2026-05-15_progress_aihints-numbertales-1to40.md` / `2026-06-01_progress_aihints-schema-move-fixrefs.md` を前提とし、#41〜#99 + 特殊番号 3件の適用を本セッションで実施）
 - 2026-06-02_progress_ai-optout-flag.md（`AI_Optout` フラグ新設・19 DB エントリへ初期適用・`tools/patch-aihints.mjs` ガード実装・ドキュメント整備完了）
 - 2026-06-02_progress_pkg-client-libraries.md（pkg/ クライアントライブラリ新規実装・完了）
+- 2026-06-08_progress_aihints-corefolder-enhancements.md（`$Def_AIFormVariant` に silhouette_notes/immutable_constraints/negative_keywords 追加・`$Def_AIHints` に work_common/alt_modes 追加・`--upgrade-schema` モード新設・NumberTales/DB_Primary 92 レコード適用完了。キャラ固有スロットは User 手動入力残）
+- 2026-06-08_progress_aihints-corefolder-vision-fill.md（NumberTales/DB_Primary の corefolder 形態 silhouette_notes / immutable_constraints / negative_keywords / 番号マーキング位置を vision 解析で 83 件穴埋め完了。`tools/patch-aihints.mjs` の `numberMarkingPlacement` 置換 regex を 4 パターンに拡張。残 TODO は `#28`（要画像）のみ）
 
 補足:
 

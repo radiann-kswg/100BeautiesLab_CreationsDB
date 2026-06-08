@@ -62,6 +62,8 @@
 - **subscript 注釈ルール**: User が編集可能な `lib/wrapper-common.js` / `lib/section-wrapper-common.js` の built-in handler・helper・公開 API を追加/変更した場合は、他ファイルと同様に日本語の JSDoc / 注釈を付け、期待する context/helper 契約をファイル内で追える状態にしてください。
 - **catalog summary の生成規則**: works / db カタログの summary 追加は、可能な限り `$MetaType.$Def_DatabaseCatalog` を基準に `${hashTag}Summary` を自動生成する方式へ寄せ、`StoryEra` など特定 field の個別ハードコードを増やさないでください。
 - **enrich summary の生成規則**: wrapper 対象の top-level field を SW/UI で再利用したい場合は、個別 field を別キーへ複製する前に `lib/data-common.js` の `_enrichment.wrapperSummaries` を使える形に寄せてください。
+- **AIHints corefolder 強化フィールドの運用**: `$Def_AIFormVariant` の `silhouette_notes` / `immutable_constraints` / `negative_keywords` は、structural default（球体本体記述、腕脚/手禁止、humanoid 衣装禁止、`legs`/`arms`/`hoodie` 等の NG キーワード）に限り `tools/patch-aihints.mjs --upgrade-schema` で自動投入します。キャラ固有スロット（特定キャラだけが持つ NG・ハーネス形状・個別禁止要素）は `TODO:` で残し、画像と設定資料を参照した User 手動入力を正とします。Copilot は画像から推定したキャラ固有の創作描写を勝手に埋めないでください（`--apply-vision-results` 経由で User / Agent が明示的に渡した場合のみ反映可）。
+- **AIHints schema 追加時の冪等パッチ**: AIHints / 類似スキーマに新フィールドを追加する場合、`tools/patch-aihints.mjs` の `--upgrade-schema` モード（`!('field' in obj)` ガードで差分追加のみ）を踏襲してください。既存値の上書きや TODO への戻しは禁止です。
 
 ### 会話パターン情報追加時の運用制約（重要）
 

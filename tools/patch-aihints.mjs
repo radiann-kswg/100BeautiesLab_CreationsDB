@@ -62,6 +62,7 @@ const PUBLIC_ORIGIN = 'https://database.numbertales-radiann.net';
  * @property {boolean} suggest    true なら既存フィールドから候補値を導出して埋める（半自動モード）
  * @property {boolean} fixRefs    true なら既存 AIHints の reference_images だけを再構築（タグは保持）
  * @property {boolean} fillTodos   true なら JSON から導出できる TODO 項目を補完（色・視覚系は対象外）
+ * @property {boolean} upgradeSchema  true なら既存 AIHints に不足している新スキーマフィールド（silhouette_notes / immutable_constraints / negative_keywords / work_common / alt_modes）を追加する。既存タグ・テキスト類は一切変更しない
  * @property {boolean} genVisionTasks  true なら視覚 TODO のあるレコードの画像リストを .cache/vision-tasks.json に出力して終了
  * @property {boolean} applyVisionResults  true なら .cache/vision-results.json の解析結果を AIHints の視覚 TODO に適用
  * @property {Map<number,Object>|null} visionResultsMap  applyVisionResults 時に main() が注入する Map<num, VisionResult>
@@ -80,6 +81,7 @@ function parseArgs(argv) {
         suggest: false,
         fixRefs: false,
         fillTodos: false,
+        upgradeSchema: false,
         genVisionTasks: false,
         applyVisionResults: false,
         visionResultsMap: null,
@@ -99,6 +101,7 @@ function parseArgs(argv) {
             case '--suggest': opts.suggest = true; break;
             case '--fix-refs': opts.fixRefs = true; break;
             case '--fill-todos': opts.fillTodos = true; break;
+            case '--upgrade-schema': opts.upgradeSchema = true; break;
             case '--gen-vision-tasks': opts.genVisionTasks = true; break;
             case '--apply-vision-results': opts.applyVisionResults = true; break;
             case '--force-ai-optout': opts.forceAiOptout = true; break;
@@ -160,6 +163,12 @@ Options:
                       補完対象: identity_tags(Class), immutable_traits(number marking),
                       age_appearance(ConceptAge), expression_tendency(Character)
                       補完対象外: palette_priority / 髪・目・衣装 など視覚情報が必要なもの
+  --upgrade-schema    既存 AIHints に不足している新スキーマフィールドを追加する
+                      追加フィールド: work_common, alt_modes (top-level), および各 form に
+                      silhouette_notes / immutable_constraints / negative_keywords を付与
+                      corefolder 側には User 要望の structural default を投入し、
+                      humanoid 側は TODO プレースホルダのみ
+                      既存タグ・テキスト類・reference_images は一切変更しない
   --gen-vision-tasks  視覚 TODO のあるレコードの画像パスリストを .cache/vision-tasks.json に出力して終了
                       Agent の view_image 画像解析セッションの入力として使用する
   --apply-vision-results  .cache/vision-results.json に書かれた Agent 解析結果を
@@ -375,6 +384,108 @@ function resolveImageInfo(record, work, db) {
 }
 
 // ────────────────────────────────────────────────────────────────────────────
+// 作品共通リソース（work_common.reference_images）の解決
+// ────────────────────────────────────────────────────────────────────────────
+
+/**
+ * 作品の `Images/Ref_Glossary/concept-figure/` / `Images/Ref_Reference/concept-figure/`
+ * 配下から、コアフォルダ / ヒューマノイド形態の共通設計図画像を収集する。
+ *
+ * ファイル名の規約（NumberTales 想定）:
+ * - `cnsp-fg_NTsCoreFolder.png` / `cnsp-fg_NTsCoreFolder*.png` → corefolder_reference
+ * - `cnsp-fg_NTsHumanoid.png`   / `cnsp-fg_NTsHumanoid*.png`   → humanoid_reference
+ *
+ * 他作品で同等の参照画像を運用する場合は、上記命名規約に合わせるか、
+ * 本関数のフィルタ条件を作品別に拡張すること。
+ *
+ * @param {string} work  作品名（例: "NumberTales"）
+ * @returns {{ corefolder_reference: string[], humanoid_reference: string[] }}
+ */
+function resolveWorkCommonRefs(work) {
+    /** @type {{ corefolder_reference: string[], humanoid_reference: string[] }} */
+    const out = { corefolder_reference: [], humanoid_reference: [] };
+
+    /** スキャン対象ディレクトリ（作品 Images からの相対パス） */
+    const scanDirs = [
+        'Ref_Glossary/concept-figure',
+        'Ref_Reference/concept-figure',
+    ];
+
+    const imagesRoot = path.join(REPO_ROOT, 'data', `Works_${work}`, 'Images');
+
+    for (const dirRel of scanDirs) {
+        const absDir = path.join(imagesRoot, dirRel);
+        if (!fs.existsSync(absDir)) continue;
+        let entries;
+        try {
+            entries = fs.readdirSync(absDir);
+        } catch {
+            continue;
+        }
+        for (const fname of entries) {
+            if (!fname.toLowerCase().endsWith('.png')) continue;
+            const url = `${PUBLIC_ORIGIN}/data/Works_${work}/Images/${dirRel}/${fname}`;
+            // CoreFolder / Humanoid をファイル名で識別
+            if (/corefolder/i.test(fname)) {
+                if (!out.corefolder_reference.includes(url)) out.corefolder_reference.push(url);
+            } else if (/humanoid/i.test(fname)) {
+                if (!out.humanoid_reference.includes(url)) out.humanoid_reference.push(url);
+            }
+        }
+    }
+
+    return out;
+}
+
+/**
+ * `work_common` ブロックを組み立てる。参照画像が一つも見つからなければ `null` を返す。
+ *
+ * @param {string} work
+ * @returns {{ reference_images: { corefolder_reference?: string[], humanoid_reference?: string[] } }|null}
+ */
+function buildWorkCommonBlock(work) {
+    const refs = resolveWorkCommonRefs(work);
+    const hasAny = refs.corefolder_reference.length > 0 || refs.humanoid_reference.length > 0;
+    if (!hasAny) return null;
+    /** @type {Record<string, string[]>} */
+    const refObj = {};
+    if (refs.corefolder_reference.length > 0) refObj.corefolder_reference = refs.corefolder_reference;
+    if (refs.humanoid_reference.length > 0) refObj.humanoid_reference = refs.humanoid_reference;
+    return { reference_images: refObj };
+}
+
+// ────────────────────────────────────────────────────────────────────────────
+// コアフォルダ形態の構造的デフォルト値（User 要望明記の不変制約・ブラックリスト・シルエット記述）
+//
+// 注意: ここで提供する文字列は **作品の標準的なコアフォルダ構造に対する structural default**
+// であり、個別キャラの創作設定ではない。`silhouette_notes` のキャラ固有部分や
+// `outfit_features`、`immutable_traits` の番号マーキング位置などは別途 TODO として残し、
+// User が手動で記述する運用を前提とする。
+// ────────────────────────────────────────────────────────────────────────────
+
+/** コアフォルダ形態でキャラクター単位に再宣言する不変制約（描画してはならない要素） */
+const COREFOLDER_DEFAULT_IMMUTABLE_CONSTRAINTS = [
+    'do not render arms or hands',
+    'do not render legs or feet',
+    'do not dress in humanoid casual / fashion outfit',
+    'head must remain attached and protruding from the core body via the safety harness',
+];
+
+/** コアフォルダ形態でキャラ別に明示するフラットなブラックリスト（画像生成 AI の混入対策） */
+const COREFOLDER_DEFAULT_NEGATIVE_KEYWORDS = [
+    'feet', 'legs', 'shoes', 'high heels',
+    'arms', 'hands',
+    'hoodie', 'blazer', 'fashion outfit',
+    'bound by rope',
+];
+
+/** コアフォルダ形態の標準シルエット記述（視覚言語ベース、1〜2行） */
+const COREFOLDER_DEFAULT_SILHOUETTE_NOTES = [
+    'spherical core body with the head as the only protruding part on top',
+    'core body suspended in place by a belt-like safety device harness',
+];
+
+// ────────────────────────────────────────────────────────────────────────────
 // scaffold 生成（**創作内容は生成しない**）
 // ────────────────────────────────────────────────────────────────────────────
 
@@ -458,9 +569,10 @@ function ageBandOf(age) {
  *
  * @param {any} record
  * @param {ImageInfo} imageInfo
+ * @param {string} work       作品名（work_common 解決に使用）
  * @returns {any} AIHints オブジェクト
  */
-function buildScaffold(record, imageInfo) {
+function buildScaffold(record, imageInfo, work) {
     const num = record.Num;
     const genderTag = genderTagOf(record.GenderType);
     const ageBand = ageBandOf(record.ConceptAge);
@@ -509,7 +621,16 @@ function buildScaffold(record, imageInfo) {
         forms.humanoid = buildHumanoidForm(num, genderTag, ageBand, imageInfo.humanoidImages, conceptUrl);
     }
 
-    return { common, forms };
+    // work_common: 作品共通の参照画像（コアフォルダ/ヒューマノイド設計図）
+    const workCommon = buildWorkCommonBlock(work);
+
+    return {
+        common,
+        work_common: workCommon,
+        forms,
+        // alt_modes: 将来予約（コアフォルダにヒューマノイド衣装を着せるモード等）
+        alt_modes: null,
+    };
 }
 
 /**
@@ -581,6 +702,12 @@ function buildCorefolderForm(num, genderTag, ageBand, url, conceptUrl, artUrls) 
         outfit_features: [
             'TODO: outfit items (hoodie, harness, marking, etc.)',
         ],
+        silhouette_notes: [
+            ...COREFOLDER_DEFAULT_SILHOUETTE_NOTES,
+            `TODO: 1-2 lines of character-specific silhouette notes for #${num} (e.g., distinctive accessory or harness shape)`,
+        ],
+        immutable_constraints: [...COREFOLDER_DEFAULT_IMMUTABLE_CONSTRAINTS],
+        negative_keywords: [...COREFOLDER_DEFAULT_NEGATIVE_KEYWORDS],
         ai_tags: [
             'corefolder form',
             genderTag,
@@ -624,6 +751,15 @@ function buildHumanoidForm(num, genderTag, ageBand, images, conceptUrl) {
         form_tags: ['humanoid form'],
         outfit_features: [
             'TODO: humanoid outfit items',
+        ],
+        silhouette_notes: [
+            `TODO: 1-2 lines describing the humanoid form silhouette for #${num}`,
+        ],
+        immutable_constraints: [
+            `TODO: per-character immutable constraints for humanoid form of #${num}`,
+        ],
+        negative_keywords: [
+            `TODO: per-character negative keywords for humanoid form of #${num}`,
         ],
         ai_tags: [
             'humanoid form',
@@ -859,6 +995,12 @@ function buildSuggestedCorefolderForm(num, genderTag, ageBand, tu, url, record, 
         outfit_features: [
             'TODO: corefolder outfit features (hoodie / harness / marking details)',
         ],
+        silhouette_notes: [
+            ...COREFOLDER_DEFAULT_SILHOUETTE_NOTES,
+            `TODO: 1-2 lines of character-specific silhouette notes for #${num} (e.g., distinctive accessory or harness shape)`,
+        ],
+        immutable_constraints: [...COREFOLDER_DEFAULT_IMMUTABLE_CONSTRAINTS],
+        negative_keywords: [...COREFOLDER_DEFAULT_NEGATIVE_KEYWORDS],
         ai_tags: aiTags,
         negative_visuals: negativeVisuals,
         natural_language_description: inStoryHint,
@@ -917,6 +1059,15 @@ function buildSuggestedHumanoidForm(num, genderTag, ageBand, tu, images, record,
         outfit_features: [
             'TODO: humanoid outfit features',
         ],
+        silhouette_notes: [
+            `TODO: 1-2 lines describing the humanoid form silhouette for #${num}`,
+        ],
+        immutable_constraints: [
+            `TODO: per-character immutable constraints for humanoid form of #${num}`,
+        ],
+        negative_keywords: [
+            `TODO: per-character negative keywords for humanoid form of #${num}`,
+        ],
         ai_tags: aiTags,
         negative_visuals: negativeVisuals,
         natural_language_description: 'TODO: 1-sentence description of the humanoid form.',
@@ -943,9 +1094,10 @@ function buildSuggestedHumanoidForm(num, genderTag, ageBand, tu, images, record,
  *
  * @param {any} record
  * @param {ImageInfo} imageInfo
+ * @param {string} work       作品名（work_common 解決に使用）
  * @returns {any} AIHints オブジェクト
  */
-function buildSuggestedScaffold(record, imageInfo) {
+function buildSuggestedScaffold(record, imageInfo, work) {
     const num = record.Num;
     const genderTag = genderTagOf(record.GenderType);
     const ageBand = ageBandOf(record.ConceptAge);
@@ -961,12 +1113,19 @@ function buildSuggestedScaffold(record, imageInfo) {
     if (tu?.animal) identityTags.push(`${tu.animal}-type android unit`);
     identityTags.push('TODO: add 2-3 distinctive visual identity tags');
 
-    // silhouette_features: 耳・尾は確定。髪/目は視覚情報が必要なため TODO。
+    // silhouette_features: 耳・尾は確定。髪/目は視覚情報が必要のため TODO。
     const silhouetteFeatures = [];
     if (earTag) silhouetteFeatures.push(earTag);
     silhouetteFeatures.push(tailDesc);
     silhouetteFeatures.push('TODO: hair color and length');
     silhouetteFeatures.push('TODO: eye color');
+    // [D] 尾本数テンプレ：TailsUnit から本数 N が判明していれば「上下分袋構造」の TODO を付加
+    if (tu?.count != null && tu.count > 0) {
+        const unitWord = tu.unit === 'feather' ? 'tail feather(s)' : 'tail(s)';
+        silhouetteFeatures.push(
+            `exactly ${tu.count} ${unitWord} total: upper trunk forks into TODO bundles of TODO ${unitWord} each, lower trunk has TODO single ${unitWord}, no more no less`,
+        );
+    }
 
     // immutable_traits: 構造的に変わらない形質（動物耳・尾の種類/本数）
     const immutableTraits = ['digital construct (NumberTales unit)'];
@@ -977,7 +1136,10 @@ function buildSuggestedScaffold(record, imageInfo) {
             : `${tu.animal} tail(s) (immutable)`;
         immutableTraits.push(tailSpec);
     }
-    immutableTraits.push('TODO: number marking location (e.g., engraved on shoulder)');
+    // [E] 番号ロゴの設置箱所を 1 スロットに固定（複数尾へのバラ擒き抑制）
+    immutableTraits.push(
+        `TODO: number '${num}' marking placement (single fixed slot, e.g., back center / collar tag / harness front)`,
+    );
 
     // expression_tendency: Character フィールドのキーワードから候補を抽出
     const expressionTendency = exprHints
@@ -1019,7 +1181,16 @@ function buildSuggestedScaffold(record, imageInfo) {
         );
     }
 
-    return { common, forms };
+    // work_common: 作品共通の参照画像（コアフォルダ/ヒューマノイド設計図）
+    const workCommon = buildWorkCommonBlock(work);
+
+    return {
+        common,
+        work_common: workCommon,
+        forms,
+        // alt_modes: 将来予約（コアフォルダにヒューマノイド衣装を着せるモード等）
+        alt_modes: null,
+    };
 }
 
 // ────────────────────────────────────────────────────────────────────────────
@@ -1050,7 +1221,7 @@ function stringifyAihintsBlock(aihints) {
 /**
  * @typedef {Object} PatchResult
  * @property {number} num
- * @property {'patched'|'skipped-existing'|'skipped-no-image'|'overwritten'|'refs-fixed'|'todos-filled'|'todos-unchanged'|'skipped-no-aihints'} status
+ * @property {'patched'|'skipped-existing'|'skipped-no-image'|'overwritten'|'refs-fixed'|'todos-filled'|'todos-unchanged'|'schema-upgraded'|'schema-unchanged'|'skipped-no-aihints'} status
  * @property {string} [note]
  */
 
@@ -1134,9 +1305,138 @@ function fillJsonTodosInRecord(text, openIdx, closeIdx, record) {
         aihints.common.expression_tendency = expanded;
     }
 
+    // --- common.silhouette_features: TailsUnit から尻尾本数テンプレを追記 ---
+    // 目的: 画像生成 AI が尻尾本数を取り違える問題への対策（User 要望 [D]）。
+    // 既に "exactly N tails total: ..." 形式のエントリが含まれていれば再追加しない。
+    if (Array.isArray(aihints.common?.silhouette_features)) {
+        const tu = parseTailsUnit(rec.TailsUnit);
+        if (tu?.count != null && tu.count > 0) {
+            const unitWord = tu.unit === 'feather' ? 'tail feather(s)' : 'tail(s)';
+            const templateRe = /^exactly\s+\d+\s+.*total:\s+upper\s+trunk/i;
+            const alreadyHas = aihints.common.silhouette_features.some(
+                f => typeof f === 'string' && templateRe.test(f),
+            );
+            if (!alreadyHas) {
+                aihints.common.silhouette_features.push(
+                    `exactly ${tu.count} ${unitWord} total: upper trunk forks into TODO bundles of TODO ${unitWord} each, lower trunk has TODO single ${unitWord}, no more no less`,
+                );
+                changed = true;
+            }
+        }
+    }
+
     if (!changed) return { text, changed: false };
     const block = stringifyAihintsBlock(aihints);
     return { text: replaceAihintsInRecord(text, openIdx, closeIdx, block), changed: true };
+}
+
+/**
+ * 既存 AIHints に対し、新しく追加されたスキーマフィールドを差分追加する（--upgrade-schema モード専用）。
+ *
+ * 差分追加対象（既存タグ・テキスト・reference_images は一切触らない）:
+ *   - top-level: `work_common` / `alt_modes`
+ *   - 各 form (`corefolder` / `humanoid`):
+ *     - `silhouette_notes` / `immutable_constraints` / `negative_keywords`
+ *
+ * corefolder 側のみ User 要望明記の structural default を投入し、humanoid 側は TODO のみ。
+ * 既に存在するフィールドは絶対に上書きしない（key in form チェックで判定）。
+ *
+ * 追加後はキーを正規順序に並び替えてから書き戻す:
+ *   AIHints: common, work_common, forms, alt_modes
+ *   form:    form_tags, outfit_features, silhouette_notes, immutable_constraints,
+ *            negative_keywords, ai_tags, negative_visuals,
+ *            natural_language_description, prompt_export, negative_prompt_export, reference_images
+ *
+ * @param {string} text         ファイル全体テキスト
+ * @param {number} openIdx      レコード `{` のインデックス
+ * @param {number} closeIdx     レコード `}` のインデックス
+ * @param {any} record          パース済みレコードオブジェクト
+ * @param {string} work         作品名（work_common 解決に使用）
+ * @returns {{ text: string, changed: boolean }}
+ */
+function upgradeAihintsSchemaInRecord(text, openIdx, closeIdx, record, work) {
+    if (!record.AIHints) return { text, changed: false };
+
+    const aihints = JSON.parse(JSON.stringify(record.AIHints));
+    const num = record.Num;
+    let changed = false;
+
+    // ── top-level: work_common ────────────────────────────────────
+    if (!('work_common' in aihints)) {
+        aihints.work_common = buildWorkCommonBlock(work);
+        changed = true;
+    }
+
+    // ── top-level: alt_modes（予約・null）──────────────────────────
+    if (!('alt_modes' in aihints)) {
+        aihints.alt_modes = null;
+        changed = true;
+    }
+
+    // ── 各 form に対して、3 つの新フィールドを差分追加 ───────────
+    if (aihints.forms && typeof aihints.forms === 'object') {
+        for (const [formKey, form] of Object.entries(aihints.forms)) {
+            if (!form || typeof form !== 'object') continue;
+            const isCorefolder = formKey === 'corefolder';
+
+            if (!('silhouette_notes' in form)) {
+                form.silhouette_notes = isCorefolder
+                    ? [
+                        ...COREFOLDER_DEFAULT_SILHOUETTE_NOTES,
+                        `TODO: 1-2 lines of character-specific silhouette notes for #${num} (e.g., distinctive accessory or harness shape)`,
+                    ]
+                    : [`TODO: 1-2 lines describing the ${formKey} form silhouette for #${num}`];
+                changed = true;
+            }
+            if (!('immutable_constraints' in form)) {
+                form.immutable_constraints = isCorefolder
+                    ? [...COREFOLDER_DEFAULT_IMMUTABLE_CONSTRAINTS]
+                    : [`TODO: per-character immutable constraints for ${formKey} form of #${num}`];
+                changed = true;
+            }
+            if (!('negative_keywords' in form)) {
+                form.negative_keywords = isCorefolder
+                    ? [...COREFOLDER_DEFAULT_NEGATIVE_KEYWORDS]
+                    : [`TODO: per-character negative keywords for ${formKey} form of #${num}`];
+                changed = true;
+            }
+
+            // form 内のキー順序を schema 宣言順に揃える（追加フィールドを outfit_features と ai_tags の間に配置）
+            aihints.forms[formKey] = reorderObjectKeys(form, [
+                'form_tags', 'outfit_features',
+                'silhouette_notes', 'immutable_constraints', 'negative_keywords',
+                'ai_tags', 'negative_visuals',
+                'natural_language_description', 'prompt_export', 'negative_prompt_export',
+                'reference_images',
+            ]);
+        }
+    }
+
+    if (!changed) return { text, changed: false };
+
+    // top-level のキー順を common → work_common → forms → alt_modes に揃える
+    const ordered = reorderObjectKeys(aihints, ['common', 'work_common', 'forms', 'alt_modes']);
+    const block = stringifyAihintsBlock(ordered);
+    return { text: replaceAihintsInRecord(text, openIdx, closeIdx, block), changed: true };
+}
+
+/**
+ * オブジェクトのキーを指定された順序で並び替える。リストに含まれないキーは末尾に元の順序で残す。
+ *
+ * @param {Record<string, any>} obj
+ * @param {string[]} orderedKeys
+ * @returns {Record<string, any>}
+ */
+function reorderObjectKeys(obj, orderedKeys) {
+    /** @type {Record<string, any>} */
+    const out = {};
+    for (const k of orderedKeys) {
+        if (Object.prototype.hasOwnProperty.call(obj, k)) out[k] = obj[k];
+    }
+    for (const k of Object.keys(obj)) {
+        if (!Object.prototype.hasOwnProperty.call(out, k)) out[k] = obj[k];
+    }
+    return out;
 }
 
 /**
@@ -1210,6 +1510,13 @@ function fixRefsInRecord(text, openIdx, closeIdx, imageInfo) {
  * @property {string} [aiTagsEye]            forms.*.ai_tags 用 eye タグ（短め）
  * @property {string[]} [corefolderOutfit]   corefolder outfit_features + ai_tags outfit スロット
  * @property {string[]} [humanoidOutfit]     humanoid outfit_features + ai_tags outfit スロット
+ * @property {string[]} [corefolderSilhouetteNotes]   forms.corefolder.silhouette_notes の TODO を置換
+ * @property {string[]} [humanoidSilhouetteNotes]     forms.humanoid.silhouette_notes の TODO を置換
+ * @property {string[]} [corefolderImmutableExtras]   forms.corefolder.immutable_constraints に追加するキャラ側不変制約
+ * @property {string[]} [humanoidImmutableExtras]     forms.humanoid.immutable_constraints に追加するキャラ側不変制約
+ * @property {string[]} [corefolderNegativeKeywords]  forms.corefolder.negative_keywords に追加するキャラ側NGキーワード
+ * @property {string[]} [humanoidNegativeKeywords]    forms.humanoid.negative_keywords に追加するキャラ側NGキーワード
+ * @property {string} [numberMarkingPlacement]        common.immutable_traits の "number 'N' marking placement: TODO" を置換する単一スロット記述
  */
 
 /**
@@ -1250,7 +1557,22 @@ function genVisionTasksToFile(db, opts) {
             if (Array.isArray(form.ai_tags) &&
                 form.ai_tags.some(t => typeof t === 'string' && VISUAL_TODO_PATTERN.test(t)))
                 fields.push(`forms.${formKey}.ai_tags`);
+            // 2026-06-08 追加: corefolder 強化フィールドの TODO 検出
+            if (Array.isArray(form.silhouette_notes) &&
+                form.silhouette_notes.some(f => typeof f === 'string' && VISUAL_TODO_PATTERN.test(f)))
+                fields.push(`forms.${formKey}.silhouette_notes`);
+            if (Array.isArray(form.immutable_constraints) &&
+                form.immutable_constraints.some(f => typeof f === 'string' && VISUAL_TODO_PATTERN.test(f)))
+                fields.push(`forms.${formKey}.immutable_constraints`);
+            if (Array.isArray(form.negative_keywords) &&
+                form.negative_keywords.some(f => typeof f === 'string' && VISUAL_TODO_PATTERN.test(f)))
+                fields.push(`forms.${formKey}.negative_keywords`);
         }
+        // common.immutable_traits の number marking placement TODO も拾う
+        if (Array.isArray(aihints.common?.immutable_traits) &&
+            aihints.common.immutable_traits.some(t =>
+                typeof t === 'string' && /TODO:\s*number\s+['‘"“]?\S+['’"”]?\s+marking\s+placement/i.test(t)))
+            fields.push('common.immutable_traits.number_marking_placement');
         return fields;
     }
 
@@ -1378,6 +1700,39 @@ function applyVisionResultsToAihints(aihints, vr) {
         });
     }
 
+    // ── common.immutable_traits: number 'N' marking placement TODO を置換 ────
+    // numberMarkingPlacement は単一スロット描述（例: "back center only"）。
+    // 必ず single fixed slot に限定する記述として User が手動で記入する。
+    // 既存パターン:
+    //   (a) "TODO: number 'N' marking placement (...)" ─ schema upgrade 由来の TODO
+    //   (b) "'#N' number marking (immutable)"         ─ 旧 fill-todos 由来
+    //   (c) "number 'N' marking ..."                  ─ より一般的な既存記述
+    //   (d) "number 'N' as her core identifier" 等    ─ legacy schema-移行 前の素朴な記述
+    // のいずれかに合致したら placement で置換する（最初の 1 件のみ。重複は作らない）。
+    if (Array.isArray(a.common?.immutable_traits) && typeof vr.numberMarkingPlacement === 'string' && vr.numberMarkingPlacement) {
+        const placement = vr.numberMarkingPlacement;
+        const markingRe = new RegExp(
+            "^TODO:\\s*number\\s+['‘\"“]?\\S+['’\"”]?\\s+marking\\s+placement" +
+            "|" +
+            "^['‘\"“]?#?\\d+\\S*['’\"”]?\\s+number\\s+marking" +
+            "|" +
+            "^number\\s+['‘\"“]?#?\\d+['’\"”]?\\s+marking" +
+            "|" +
+            "^number\\s+['‘\"“]?#?\\d+['’\"”]?\\s+\\S+",
+            'i',
+        );
+        let replacedOnce = false;
+        a.common.immutable_traits = a.common.immutable_traits.flatMap(trait => {
+            if (typeof trait !== 'string') return [trait];
+            if (!replacedOnce && markingRe.test(trait)) {
+                replacedOnce = true;
+                changed = true;
+                return [placement];
+            }
+            return [trait];
+        });
+    }
+
     // ── forms.corefolder ──────────────────────────────────────────
     if (a.forms?.corefolder) {
         const cf = a.forms.corefolder;
@@ -1388,6 +1743,34 @@ function applyVisionResultsToAihints(aihints, vr) {
                 if (typeof f === 'string' && f.startsWith('TODO:')) { changed = true; return vr.corefolderOutfit; }
                 return [f];
             });
+        }
+
+        // silhouette_notes: TODO エントリをキャラ固有描写で置換（User 手動記入値を受ける）
+        if (Array.isArray(cf.silhouette_notes) && vr.corefolderSilhouetteNotes?.length) {
+            cf.silhouette_notes = cf.silhouette_notes.flatMap(f => {
+                if (typeof f === 'string' && f.startsWith('TODO:')) { changed = true; return vr.corefolderSilhouetteNotes; }
+                return [f];
+            });
+        }
+
+        // immutable_constraints: 追加キャラ固有制約を末尾に追記（重複と structural default は変えない）
+        if (Array.isArray(cf.immutable_constraints) && vr.corefolderImmutableExtras?.length) {
+            const existing = new Set(cf.immutable_constraints);
+            const additions = vr.corefolderImmutableExtras.filter(s => !existing.has(s));
+            if (additions.length > 0) {
+                cf.immutable_constraints.push(...additions);
+                changed = true;
+            }
+        }
+
+        // negative_keywords: 追加キャラ固有NGキーワードを末尾に追記（重複除去）
+        if (Array.isArray(cf.negative_keywords) && vr.corefolderNegativeKeywords?.length) {
+            const existing = new Set(cf.negative_keywords);
+            const additions = vr.corefolderNegativeKeywords.filter(s => !existing.has(s));
+            if (additions.length > 0) {
+                cf.negative_keywords.push(...additions);
+                changed = true;
+            }
         }
 
         // ai_tags: hair / eye / outfit TODO スロットを置換して prompt_export を更新
@@ -1412,6 +1795,27 @@ function applyVisionResultsToAihints(aihints, vr) {
         if (Array.isArray(hu.outfit_features) && vr.humanoidOutfit?.length) {
             hu.outfit_features = hu.outfit_features.flatMap(f => {
                 if (typeof f === 'string' && f.startsWith('TODO:')) { changed = true; return vr.humanoidOutfit; }
+                return [f];
+            });
+        }
+
+        if (Array.isArray(hu.silhouette_notes) && vr.humanoidSilhouetteNotes?.length) {
+            hu.silhouette_notes = hu.silhouette_notes.flatMap(f => {
+                if (typeof f === 'string' && f.startsWith('TODO:')) { changed = true; return vr.humanoidSilhouetteNotes; }
+                return [f];
+            });
+        }
+
+        if (Array.isArray(hu.immutable_constraints) && vr.humanoidImmutableExtras?.length) {
+            hu.immutable_constraints = hu.immutable_constraints.flatMap(f => {
+                if (typeof f === 'string' && f.startsWith('TODO:')) { changed = true; return vr.humanoidImmutableExtras; }
+                return [f];
+            });
+        }
+
+        if (Array.isArray(hu.negative_keywords) && vr.humanoidNegativeKeywords?.length) {
+            hu.negative_keywords = hu.negative_keywords.flatMap(f => {
+                if (typeof f === 'string' && f.startsWith('TODO:')) { changed = true; return vr.humanoidNegativeKeywords; }
                 return [f];
             });
         }
@@ -1488,6 +1892,21 @@ function patchFileText(text, opts) {
             continue;
         }
 
+        // --upgrade-schema モード: 既存 AIHints に欠落している新スキーマフィールドを差分追加。
+        // 既存タグ・テキスト・reference_images は一切変更しない。
+        if (opts.upgradeSchema) {
+            if (!hasAihints) {
+                results.push({ num, status: 'skipped-no-aihints' });
+                continue;
+            }
+            const { text: newText, changed } = upgradeAihintsSchemaInRecord(
+                text, openIdx, closeIdx, record, opts.work,
+            );
+            text = newText;
+            results.push({ num, status: changed ? 'schema-upgraded' : 'schema-unchanged' });
+            continue;
+        }
+
         // --apply-vision-results モード: Agent の画像解析結果を AIHints の視覚 TODO に適用。
         // .cache/vision-results.json から読み込んだ Map を opts.visionResultsMap に期待する。
         if (opts.applyVisionResults) {
@@ -1529,8 +1948,8 @@ function patchFileText(text, opts) {
         }
 
         const scaffold = opts.suggest
-            ? buildSuggestedScaffold(record, imageInfo)
-            : buildScaffold(record, imageInfo);
+            ? buildSuggestedScaffold(record, imageInfo, opts.work)
+            : buildScaffold(record, imageInfo, opts.work);
         const block = stringifyAihintsBlock(scaffold);
 
         if (hasAihints && opts.force) {
@@ -1680,6 +2099,7 @@ function main() {
         patched: 0, 'skipped-existing': 0, 'skipped-no-image': 0, overwritten: 0,
         'refs-fixed': 0,
         'todos-filled': 0, 'todos-unchanged': 0,
+        'schema-upgraded': 0, 'schema-unchanged': 0,
         'vision-applied': 0, 'vision-unchanged': 0, 'vision-no-result': 0,
         'skipped-no-aihints': 0,
     };
@@ -1693,6 +2113,8 @@ function main() {
         console.log(`  refs-fixed=${counts['refs-fixed']}, skipped-no-aihints=${counts['skipped-no-aihints']}`);
     } else if (opts.fillTodos) {
         console.log(`  todos-filled=${counts['todos-filled']}, todos-unchanged=${counts['todos-unchanged']}, skipped-no-aihints=${counts['skipped-no-aihints']}`);
+    } else if (opts.upgradeSchema) {
+        console.log(`  schema-upgraded=${counts['schema-upgraded']}, schema-unchanged=${counts['schema-unchanged']}, skipped-no-aihints=${counts['skipped-no-aihints']}`);
     } else if (opts.applyVisionResults) {
         console.log(`  vision-applied=${counts['vision-applied']}, vision-unchanged=${counts['vision-unchanged']}, vision-no-result=${counts['vision-no-result']}, skipped-no-aihints=${counts['skipped-no-aihints']}`);
     } else {
