@@ -1,0 +1,12 @@
+[
+  {
+    "Formation": "humanoid",
+    "Formation_JP": "ヒューマノイド形態",
+    "Fromation_EN": "Humanoid Formation"
+  },
+  {
+    "Formation": "corefolder",
+    "Formation_JP": "コアフォルダ形態",
+    "Fromation_EN": "Corefolder Formation"
+  }
+]
