@@ -171,14 +171,19 @@ describe('AIHints data: upgraded NumberTales/DB_Primary records', () => {
             ).toBe(true);
 
             for (const field of ['immutable_constraints', 'negative_keywords']) {
+                // IdentityMotif 駆動再構築では humanoid は structural default が無く null になり得る。
+                // schema 上も `#String[]|#Null` のため、array または null を許容する。
+                const val = hu[field];
                 expect(
-                    Array.isArray(hu[field]),
-                    `#${rec.Num} humanoid.${field} は配列`,
+                    val === null || Array.isArray(val),
+                    `#${rec.Num} humanoid.${field} は array または null`,
                 ).toBe(true);
-                expect(
-                    hu[field].length,
-                    `#${rec.Num} humanoid.${field} は空でない`,
-                ).toBeGreaterThan(0);
+                if (Array.isArray(val)) {
+                    expect(
+                        val.length,
+                        `#${rec.Num} humanoid.${field} は空でない（array の場合）`,
+                    ).toBeGreaterThan(0);
+                }
             }
         }
     });

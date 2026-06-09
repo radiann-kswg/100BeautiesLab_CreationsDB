@@ -111,6 +111,7 @@ function parseArgs(argv) {
             case '--migrate-silhouette-structure': opts.migrateSilhouetteStructure = true; break;
             case '--rewrite-corefolder-nld': opts.rewriteCorefolderNld = true; break;
             case '--force-rewrite-nld': opts.forceRewriteNld = true; break;
+            case '--apply-identitymotif': opts.applyIdentityMotif = true; break;
             case '--gen-vision-tasks': opts.genVisionTasks = true; break;
             case '--apply-vision-results': opts.applyVisionResults = true; break;
             case '--force-ai-optout': opts.forceAiOptout = true; break;
@@ -192,6 +193,24 @@ Options:
                       既存値が "[TRANSLATE" / "A corefolder form character featuring" / "Corefolder form: ...wears..." 形式の場合は無条件で再生成
                       既に球体本体テンプレ形式の場合はスキップ（--force-rewrite-nld で上書き可）
   --force-rewrite-nld  既に球体本体テンプレ形式の corefolder NLD も上書き再生成する
+  --apply-identitymotif   レコードの IdentityMotif フィールドを **正** として AIHints の AI タグ系を再構築する
+                      対象 (rebuild): forms.<formation>.form_tags / outfit_features / silhouette_notes
+                                      / ai_tags / negative_visuals / prompt_export / negative_prompt_export
+                                      / natural_language_description (corefolder のみ template 生成)
+                                      common.identity_tags / silhouette_features (formation 共通部分)
+                      対象 (structural default 再投入): forms.corefolder.immutable_constraints
+                                      / negative_keywords / silhouette_notes.body_description 先頭行
+                      対象 (clear to null): forms.humanoid.immutable_constraints / negative_keywords
+                                      / natural_language_description
+                                      common.immutable_traits / expression_tendency / palette_priority
+                                      / natural_language_description
+                      据え置き: common.age_appearance / reference_images
+                                      forms.*.reference_images / work_common / alt_modes
+                      IdentityMotif が無い/全空のレコードは AI タグ系を空配列にクリアして fallback
+                      IdentityMotif の Motif_EN を keyword 分類辞書で form_tags / outfit_features
+                      / silhouette_notes.body_description / silhouette_notes.attached_items に振り分ける
+                      未分類エントリは outfit_features 末尾に追記して取りこぼしを防ぐ
+                      negative_visuals は対向 formation の Motif_EN diff から body 系を除外して構築
   --gen-vision-tasks  視覚 TODO のあるレコードの画像パスリストを .cache/vision-tasks.json に出力して終了
                       Agent の view_image 画像解析セッションの入力として使用する
   --apply-vision-results  .cache/vision-results.json に書かれた Agent 解析結果を
@@ -887,6 +906,21 @@ function ageBandOf(age) {
 }
 
 /**
+ * Height_cm から英語の体格バンド文字列を返す（IdentityMotif 駆動再構築での
+ * silhouette_features / ai_tags の正源として使用する）。
+ * @param {number|undefined|null} height
+ * @returns {string|null}
+ */
+function heightBandOf(height) {
+    if (typeof height !== 'number' || !Number.isFinite(height)) return null;
+    if (height < 140) return `petite stature (about ${height}cm)`;
+    if (height < 150) return `short stature (about ${height}cm)`;
+    if (height < 160) return `average stature (about ${height}cm)`;
+    if (height < 170) return `slightly tall stature (about ${height}cm)`;
+    return `tall stature (about ${height}cm)`;
+}
+
+/**
  * 二層 AIHints scaffold を組み立てる。
  * - 創作面（identity_tags 本体、台詞、性格描写など）は **TODO 文字列** で残す。
  * - 構造面（form の有無、reference_images URL、age band、gender tag）は確定値を入れる。
@@ -1535,7 +1569,7 @@ function stringifyAihintsBlock(aihints) {
 /**
  * @typedef {Object} PatchResult
  * @property {number} num
- * @property {'patched'|'skipped-existing'|'skipped-no-image'|'overwritten'|'refs-fixed'|'todos-filled'|'todos-unchanged'|'schema-upgraded'|'schema-unchanged'|'skipped-no-aihints'} status
+ * @property {'patched'|'skipped-existing'|'skipped-no-image'|'overwritten'|'refs-fixed'|'todos-filled'|'todos-unchanged'|'schema-upgraded'|'schema-unchanged'|'identitymotif-applied'|'identitymotif-unchanged'|'identitymotif-cleared'|'identitymotif-no-source'|'skipped-no-aihints'} status
  * @property {string} [note]
  */
 
@@ -2281,6 +2315,656 @@ function rewriteCorefolderNldInRecord(text, openIdx, closeIdx, record, forceRewr
     return { text: replaceAihintsInRecord(text, openIdx, closeIdx, block), changed: true, warnings };
 }
 
+// ─────────────────────────────────────────────────────────────────────────
+// IdentityMotif 駆動 AIHints 再構築 (--apply-identitymotif モード)
+//
+// IdentityMotif フィールド (`[{ Formation, Motif: { Motif_JP, Motif_EN } }, ...]`) を
+// **AI タグの正** として、AIHints の forms / common 配下の AI 関連配列を再生成する。
+//
+// 設計方針 (User 確定スコープ: max C + 未分類B + 厳密Y):
+//  - rebuild  : forms.<form>.{form_tags, outfit_features, silhouette_notes, ai_tags,
+//               negative_visuals, prompt_export, negative_prompt_export}, corefolder NLD
+//               common.{identity_tags, silhouette_features} (formation 共通部)
+//  - reinject : forms.corefolder.{immutable_constraints, negative_keywords},
+//               forms.corefolder.silhouette_notes.body_description 先頭の球体本体行
+//  - clear    : forms.humanoid.{immutable_constraints, negative_keywords, NLD},
+//               common.{immutable_traits, expression_tendency, palette_priority, NLD}
+//  - preserve : common.age_appearance / reference_images,
+//               forms.*.reference_images, top-level work_common / alt_modes
+//
+// 未分類エントリは取りこぼし防止のため必ず outfit_features 末尾に追記する。
+// IdentityMotif が無い／全空のレコードは AI タグ配列を空にクリアする fallback。
+// ─────────────────────────────────────────────────────────────────────────
+
+/**
+ * IdentityMotif の Motif_EN エントリを正規化する（重複検出と diff 用）。
+ * 小文字化 + 括弧内除去 + 連続空白圧縮。元文字列は別途保持する想定。
+ *
+ * @param {string|null|undefined} s
+ * @returns {string}
+ */
+function normalizeMotifEntry(s) {
+    return String(s ?? '')
+        .toLowerCase()
+        .replace(/\s*\([^)]*\)\s*/g, ' ')
+        .replace(/\s+/g, ' ')
+        .trim();
+}
+
+/**
+ * Motif_EN エントリ 1 件を keyword 辞書で分類する。
+ * 戻り値: 'form' | 'attached' | 'outfit' | 'body' | 'misc'
+ *
+ * 優先順位:
+ *   1. 'form'     : 単純な "<formation> form" 一致
+ *   2. last word  : エントリ末尾の主名詞を 4 辞書で照会
+ *   3. 2nd-last word : 末尾が辞書未収載の場合の代替主名詞
+ *   4. 全文 fallback : OUTFIT_FALLBACK_RE > ATTACHED_FALLBACK_RE > BODY_FALLBACK_RE
+ *   5. 'misc'     : いずれも当てはまらず（outfit_features 末尾に追記される）
+ *
+ * 注意: 括弧内補足語は分類に影響させない（例 "fox ears(hidden under hood)" は body）。
+ *
+ * @param {string} entry
+ * @returns {'form'|'attached'|'outfit'|'body'|'misc'}
+ */
+function classifyMotifEntry(entry) {
+    if (typeof entry !== 'string') return 'misc';
+    const raw = entry.trim();
+    if (!raw) return 'misc';
+
+    // 1. form_tag: 単一 "<formation> form" のみを 'form' とする
+    if (/^(corefolder|humanoid)\s+form$/i.test(raw)) return 'form';
+
+    // 括弧内除去 + 小文字化 + ハイフン・スラッシュ等で分割
+    const stripped = raw.replace(/\s*\([^)]*\)\s*/g, ' ').replace(/\s+/g, ' ').trim();
+    const words = stripped.toLowerCase().split(/[\s\-\/,]+/).filter(Boolean);
+    const lastWord = words[words.length - 1] ?? '';
+    const w2 = words.length >= 2 ? words[words.length - 2] : '';
+
+    const ATTACHED_NOUNS = new Set([
+        'harness', 'ribbon', 'ribbons', 'collar', 'choker', 'halo', 'nimbus',
+        'hairpin', 'hairpins', 'hairband', 'headband', 'headphones',
+        'pendant', 'pendants', 'necklace', 'necklaces', 'brooch', 'beads', 'bead',
+        'bell', 'earring', 'earrings', 'bracelet', 'bracelets', 'wristband', 'wristbands',
+        'cuff', 'cuffs', 'scarf', 'sash', 'shawl', 'mantle', 'badge', 'badges',
+        'charm', 'charms', 'goggles', 'glasses', 'monocle', 'mask', 'eyepatch',
+        'blindfold', 'tag', 'tags', 'label', 'labels', 'patch', 'patches',
+        'emblem', 'emblems', 'pin', 'crest', 'crests', 'insignia',
+        'ornament', 'ornaments', 'accessory', 'accessories', 'neckerchief',
+        'gohei', 'hologram', 'holograms', 'wimple', 'wimple-like',
+        'tail-tufts', 'eye-mask',
+    ]);
+
+    const OUTFIT_NOUNS = new Set([
+        'hoodie', 'hood', 'jacket', 'coat', 'blazer', 'dress', 'skirt', 'shorts', 'pants',
+        'trousers', 'slacks', 'stockings', 'leggings', 'tights', 'socks',
+        'boots', 'shoes', 'sandals', 'heels', 'sneakers', 'loafers', 'geta',
+        'uniform', 'suit', 'vest', 'robe', 'kimono', 'outfit', 'attire',
+        'clothing', 'garment', 'gown', 'tunic', 'apron', 'jersey', 'polo',
+        'haori', 'hakama', 'obi', 'tailcoat', 'cape', 'cloak',
+        'bodysuit', 'leotard', 'swimsuit', 'shirt', 'blouse', 'sweater',
+        'cardigan', 'top', 'tops', 'tee', 't-shirt', 'camisole',
+        'belt', 'waistband', 'sleeves', 'sleeve', 'cap', 'caps', 'hat',
+        'helmet', 'beret', 'habit', 'jumper', 'turtleneck',
+        'marking', 'markings', 'stripe', 'stripes', 'striped',
+        'pose', 'mode', 'variant', 'variants', 'style', 'aesthetic',
+        'tattoo', 'mark', 'marks', 'identifier',
+    ]);
+
+    const BODY_NOUNS = new Set([
+        'hair', 'ears', 'ear', 'tail', 'tails', 'eyes', 'eye', 'smile', 'expression',
+        'gaze', 'look', 'face', 'body', 'build', 'silhouette', 'figure', 'stature',
+        'breasts', 'bust', 'complexion', 'skin', 'lips',
+        'teenager', 'adult', 'child', 'young', 'mature', 'elderly',
+        '1girl', '1boy', '1other', 'androgynous', 'feminine', 'masculine', 'male', 'female',
+        'ponytail', 'twin-tails', 'twintails', 'braid', 'bob', 'bun', 'side-tail',
+        'grin', 'tan', 'fox', 'cat', 'wolf', 'tanuki',
+        'fangs', 'horns', 'wings', 'paws',
+        'composure', 'humanoid', 'cushion-like', 'spherical',
+    ]);
+
+    if (ATTACHED_NOUNS.has(lastWord)) return 'attached';
+    if (OUTFIT_NOUNS.has(lastWord)) return 'outfit';
+    if (BODY_NOUNS.has(lastWord)) return 'body';
+
+    if (w2) {
+        if (ATTACHED_NOUNS.has(w2)) return 'attached';
+        if (OUTFIT_NOUNS.has(w2)) return 'outfit';
+        if (BODY_NOUNS.has(w2)) return 'body';
+    }
+
+    // 全文 fallback (順序: attached > outfit > body)
+    const ATTACHED_FALLBACK_RE = /\b(harness|ribbon|collar|choker|halo|nimbus|hairpin|hairband|headband|headphones|necklace|pendant|brooch|beads|bell|earring|bracelet|wristband|cuffs?|sash|shawl|mantle|charm|goggles|glasses|monocle|mask|eyepatch|blindfold|emblem|tag|patch|label|crest|insignia|badge|ornament|accessory|neckerchief|gohei|hologram|prayer beads|fox-tail mantle|hair clip|hair pin)\b/i;
+    if (ATTACHED_FALLBACK_RE.test(stripped)) return 'attached';
+    const OUTFIT_FALLBACK_RE = /\b(hoodie|jacket|coat|blazer|dress|skirt|shorts|pants|trousers|slacks|stockings|leggings|tights|socks|boots|shoes|sandals|heels|sneakers|uniform|suit|vest|robe|kimono|outfit|attire|clothing|gown|tunic|apron|jersey|polo|haori|hakama|obi|tailcoat|cape|cloak|bodysuit|leotard|swimsuit|shirt|blouse|sweater|cardigan|tee|t-shirt|camisole|belt|waistband|cap\b|hat\b|helmet|beret|habit|jumper|turtleneck|marking|stripe|barefoot|spiky|zipper|button|frill|ruffle|lace|inner|sleeve|knee-high|thigh-high)\b/i;
+    if (OUTFIT_FALLBACK_RE.test(stripped)) return 'outfit';
+    const BODY_FALLBACK_RE = /\b(hair|ears?|tails?|eyes?|smile|expression|gaze|look|face|body|build|silhouette|figure|stature|breasts|bust|teenager|adult|child|young|mature|elderly|girl|boy|androgynous|feminine|masculine|ponytail|twintails|twin-tails|braid|bob|bun|grin|fox|cat|wolf|complexion|skin|spherical|tall|short|slender|petite|fangs|horns|wings)\b/i;
+    if (BODY_FALLBACK_RE.test(stripped)) return 'body';
+
+    return 'misc';
+}
+
+/**
+ * IdentityMotif の body 系 Motif_EN から base color 候補を合成する。
+ * 「<adj>* <color>(<-color>)? <hair|fur|coat|body|complexion|skin>」型の
+ * エントリを優先的に走査し、color 部分を抜き出して返す。
+ * 既存の extractBaseColor は "X base coloring" / "X fox with ..." 型の長文を
+ * 想定しているが、IdentityMotif のエントリは "red orange hair" のように短いため
+ * 別途このヘルパーで補う。
+ *
+ * @param {string[]} bodyEntries
+ * @returns {string|null}
+ */
+function synthesizeBaseColorFromMotif(bodyEntries) {
+    if (!Array.isArray(bodyEntries) || bodyEntries.length === 0) return null;
+    const COLOR_WORDS = [
+        'white','black','gray','grey','red','blue','green','yellow','orange','pink',
+        'purple','magenta','cyan','teal','navy','brown','tan','beige','peach','salmon',
+        'gold','golden','silver','rose','lavender','violet','indigo','maroon','amber',
+        'crimson','scarlet','olive','mint','aqua','turquoise','fuchsia','burgundy',
+        'ivory','cream','chestnut','caramel','coral','mocha','platinum','pearl',
+        'reddish','orangish','yellowish','pinkish','greenish','bluish','purplish',
+        'grayish','brownish','whitish','pale','dark','light','deep','bright','vivid',
+        'warm','cool','soft','muted','dull','neutral','blonde',
+    ];
+    const colorAlt = COLOR_WORDS.join('|');
+    // 2 単語までの色（ハイフン / 空白）+ 髪/毛/体系の名詞
+    const COLOR_HAIR_RE = new RegExp(
+        `^([A-Za-z\\-]+(?:[\\-\\s]+[A-Za-z\\-]+)*?\\s+)?((?:${colorAlt})(?:[\\-\\s]+(?:${colorAlt}))?)\\s+(?:hair|fur|coat|body|complexion|skin|tones?)\\b`,
+        'i',
+    );
+    // 単色のみ（adj 前置詞なし）
+    const COLOR_ONLY_RE = new RegExp(
+        `^((?:${colorAlt})(?:[\\-\\s]+(?:${colorAlt}))?)\\s+(?:hair|fur|coat|body|complexion|skin|tones?)\\b`,
+        'i',
+    );
+    for (const raw of bodyEntries) {
+        if (typeof raw !== 'string') continue;
+        const s = raw.trim();
+        if (!s || /^TODO:/i.test(s) || /^spherical core body /i.test(s)) continue;
+        // hair / fur / coat / body / complexion / skin / tones を含むエントリのみを対象
+        if (!/\b(hair|fur|coat|body|complexion|skin|tones?)\b/i.test(s)) continue;
+        // 先に「色のみ」パターンを試す（"red orange hair" → "red orange"）
+        let m = s.match(COLOR_ONLY_RE);
+        if (m) return m[1].toLowerCase().replace(/\s+/g, ' ');
+        // 次に「adj 色」パターン（"long blue hair" → "blue"）
+        m = s.match(COLOR_HAIR_RE);
+        if (m) return m[2].toLowerCase().replace(/\s+/g, ' ');
+    }
+    return null;
+}
+
+/**
+ * IdentityMotif を AIHints へ反映する際の AIHints オブジェクト全体を組み立てる。
+ * 既存 AIHints は **reference_images / age_appearance / work_common / alt_modes** のみ流用し、
+ * その他は IdentityMotif と structural default から再構築する。
+ *
+ * @param {any} record  パース済みレコード（IdentityMotif と AIHints を含む）
+ * @returns {{ aihints: any, hasSource: boolean, formationsTouched: string[] }}
+ *   hasSource=false の場合は IdentityMotif が無いか全空。呼び出し側で fallback クリアを行う。
+ */
+function buildAihintsFromIdentityMotif(record) {
+    const num = record.Num;
+    const baseAihints = record.AIHints ?? {};
+    const existingCommon = baseAihints.common ?? {};
+    const existingForms = baseAihints.forms ?? {};
+
+    // ── 構造的正源（IdentityMotif より優先される確定値）─────────────
+    //   尻尾形状 = TailsUnit / 外見年齢 = ConceptAge / 体格 = Height_cm
+    //   これらは IdentityMotif の文言で上書きされず、必ず構造ソースを正とする。
+    const tailDesc = (() => {
+        const parsed = parseTailsUnit(record.TailsUnit);
+        if (!parsed) return null;
+        const desc = buildTailDescription(parsed);
+        if (typeof desc !== 'string' || desc.startsWith('TODO:')) return null;
+        return desc;
+    })();
+    const statureDesc = heightBandOf(record.Height_cm);
+    const ageBand = (typeof record.ConceptAge === 'number' && Number.isFinite(record.ConceptAge))
+        ? ageBandOf(record.ConceptAge)
+        : (('age_appearance' in existingCommon) ? existingCommon.age_appearance : null);
+
+    // tail/stature の normalize 形（negative_visuals / ai_tags 重複判定用）
+    const tailNorm = tailDesc ? normalizeMotifEntry(tailDesc) : null;
+    const statureNorm = statureDesc ? normalizeMotifEntry(statureDesc) : null;
+
+    /**
+     * negative_visuals / ai_tags で「尻尾本数」「体格」「年齢」関連を識別する。
+     * 正源（TailsUnit / Height_cm / ConceptAge）に統一するため、IdentityMotif 由来の
+     * 同種エントリは NG リストから除外する必要がある。
+     * @param {string} s
+     */
+    const isStructuralOverride = (s) => {
+        if (typeof s !== 'string') return false;
+        const n = normalizeMotifEntry(s);
+        if (!n) return false;
+        // 尻尾本数（"single tail" / "two tails" / "3 fox tails" / "tail feathers" 等）
+        if (/\b(?:single|two|three|four|five|six|seven|eight|nine|ten|\d+)\s+\S*\s*tails?\b/.test(n)) return true;
+        if (/\btail\s+feathers?\b/.test(n)) return true;
+        // 体格・身長
+        if (/\b(?:petite|short|average|slightly tall|tall)\s+stature\b/.test(n)) return true;
+        if (/\babout\s+\d+\s*cm\b/.test(n)) return true;
+        // 年齢
+        if (/\b(?:child|early teenager|teenager|young adult|adult|mature adult)\b/.test(n)) return true;
+        return false;
+    };
+
+    // ── 既存 common.immutable_traits から「番号刻印行」のみ引き継ぐ ──
+    //   昨日（2026-06-08）の対応で導入した単一スロット記述
+    //   （`'#N' number marking` / `number 'N' marking` 等）を保持しないと
+    //   corefolder NLD テンプレの marking placement 部が TODO に戻ってしまう。
+    /** @type {string[]} */
+    const preservedImmutableTraits = [];
+    if (Array.isArray(existingCommon.immutable_traits)) {
+        for (const t of existingCommon.immutable_traits) {
+            if (typeof t !== 'string') continue;
+            const lower = t.toLowerCase();
+            const looksLikeNumberMarking =
+                lower.includes('number marking') ||
+                /number\s*['"]?\d+['"]?\s+marking/.test(lower) ||
+                /['"]?#\d+['"]?\s+number\s+marking/.test(lower) ||
+                lower.includes('no number identifier');
+            if (looksLikeNumberMarking) preservedImmutableTraits.push(t);
+        }
+    }
+
+    // ── IdentityMotif を Formation キーで集約 ───────────────────────
+    /** @type {Map<string, string[]>} */
+    const motifMap = new Map();
+    const motifSource = Array.isArray(record.IdentityMotif) ? record.IdentityMotif : [];
+    for (const im of motifSource) {
+        const f = im?.Formation;
+        const en = im?.Motif?.Motif_EN;
+        if (typeof f !== 'string' || !Array.isArray(en)) continue;
+        const entries = en.filter(s => typeof s === 'string' && s.trim().length > 0);
+        if (entries.length === 0) {
+            // 空配列でも formation 自体は登録（rebuild 対象として扱うため）
+            if (!motifMap.has(f)) motifMap.set(f, []);
+            continue;
+        }
+        if (motifMap.has(f)) {
+            // 同一 Formation が複数回宣言されている場合は連結
+            motifMap.set(f, [...motifMap.get(f), ...entries]);
+        } else {
+            motifMap.set(f, entries);
+        }
+    }
+
+    const totalEntries = [...motifMap.values()].reduce((sum, arr) => sum + arr.length, 0);
+    if (totalEntries === 0) {
+        return { aihints: baseAihints, hasSource: false, formationsTouched: [] };
+    }
+
+    // ── 各 formation の Motif_EN を分類 ──────────────────────────────
+    /** @type {Map<string, { form: string[], attached: string[], outfit: string[], body: string[], misc: string[], all: string[], normalized: Set<string> }>} */
+    const classified = new Map();
+    for (const [formKey, entries] of motifMap.entries()) {
+        const c = { form: [], attached: [], outfit: [], body: [], misc: [], all: [...entries], normalized: new Set() };
+        for (const e of entries) {
+            c.normalized.add(normalizeMotifEntry(e));
+            const cat = classifyMotifEntry(e);
+            c[cat].push(e);
+        }
+        classified.set(formKey, c);
+    }
+
+    // ── 各 formation の form 出力を組み立て ──────────────────────────
+    /** @type {Record<string, any>} */
+    const newForms = {};
+    const formationsTouched = [];
+
+    for (const [formKey, c] of classified.entries()) {
+        formationsTouched.push(formKey);
+        const isCorefolder = formKey === 'corefolder';
+        const existingForm = (existingForms && typeof existingForms === 'object') ? existingForms[formKey] : null;
+
+        // form_tags: 抽出した form エントリ + 必ず "<formKey> form" を先頭に含める
+        const formTagSet = new Set();
+        const formTags = [];
+        const ownFormTag = `${formKey} form`;
+        formTags.push(ownFormTag);
+        formTagSet.add(normalizeMotifEntry(ownFormTag));
+        for (const e of c.form) {
+            const nk = normalizeMotifEntry(e);
+            if (!formTagSet.has(nk)) {
+                formTagSet.add(nk);
+                formTags.push(e);
+            }
+        }
+
+        // outfit_features: outfit + misc（misc は取りこぼし防止の末尾フォールバック）
+        const outfitFeatures = [...c.outfit, ...c.misc];
+
+        // silhouette_notes (object 形式)
+        /** @type {{ body_description: string[], attached_items: string[] }} */
+        const silhouetteNotes = {
+            body_description: [],
+            attached_items: [...c.attached],
+        };
+        if (isCorefolder) {
+            silhouetteNotes.body_description.push(
+                'spherical core body with the head as the only protruding part on top',
+            );
+            // corefolder NLD テンプレが extractBaseColor で色を取り出せるよう、
+            // IdentityMotif の body 系から合成した base color 行を 2 番目に差し込む。
+            const synthColor = synthesizeBaseColorFromMotif(c.body);
+            if (synthColor) {
+                silhouetteNotes.body_description.push(`${synthColor} base coloring (synthesized from IdentityMotif)`);
+            }
+        }
+        silhouetteNotes.body_description.push(...c.body);
+
+        // ai_tags: 全 Motif_EN を元順で保持。先頭が "<formKey> form" でなければ補う。
+        //   tail/stature の正源タグは form タグ直後に挿入する（IdentityMotif 由来の同種は除外）。
+        const aiTags = [];
+        const aiTagSet = new Set();
+        const pushAiTag = (s) => {
+            const nk = normalizeMotifEntry(s);
+            if (!nk || aiTagSet.has(nk)) return;
+            aiTagSet.add(nk);
+            aiTags.push(s);
+        };
+        pushAiTag(ownFormTag);
+        if (tailDesc) pushAiTag(tailDesc);
+        if (statureDesc) pushAiTag(statureDesc);
+        if (ageBand && typeof ageBand === 'string' && !ageBand.startsWith('TODO')) pushAiTag(ageBand);
+        for (const e of c.all) {
+            // 構造的正源で扱う種類は IdentityMotif 側の表記を捨てる
+            if (isStructuralOverride(e)) continue;
+            pushAiTag(e);
+        }
+
+        // negative_visuals: 対向 formation の Motif_EN - 自 formation Motif_EN
+        //   差分から body 系 + 構造的正源（tail count / stature / age）を除外
+        /** @type {string[]} */
+        const negativeVisuals = [];
+        const negSeen = new Set();
+        for (const [otherKey, otherC] of classified.entries()) {
+            if (otherKey === formKey) continue;
+            for (const e of otherC.all) {
+                const nk = normalizeMotifEntry(e);
+                if (c.normalized.has(nk)) continue;
+                if (negSeen.has(nk)) continue;
+                if (isStructuralOverride(e)) continue; // 尻尾本数・体格・年齢は NG に出さない
+                const cat = classifyMotifEntry(e);
+                if (cat === 'body') continue; // 体の特徴は NG から除外
+                negSeen.add(nk);
+                negativeVisuals.push(e);
+            }
+        }
+
+        // immutable_constraints / negative_keywords
+        const immutableConstraints = isCorefolder
+            ? [...COREFOLDER_DEFAULT_IMMUTABLE_CONSTRAINTS]
+            : null;
+        const negativeKeywords = isCorefolder
+            ? [...COREFOLDER_DEFAULT_NEGATIVE_KEYWORDS]
+            : null;
+
+        // natural_language_description: corefolder のみテンプレ生成、humanoid はクリア
+        // テンプレ生成は新 silhouette_notes / 既存 immutable_traits（あれば）に依存する。
+        // 現時点では下流で template 生成するため一旦 null を置き、common 構築後に再生成する。
+        const naturalLanguageDescription = null;
+
+        // prompt_export / negative_prompt_export
+        const promptExport = aiTags.join(', ');
+        const negativePromptExport = negativeVisuals.join(', ');
+
+        // reference_images: 既存 form から流用（structural / 画像由来のため preserve）
+        const referenceImages = (existingForm && typeof existingForm === 'object' && 'reference_images' in existingForm)
+            ? existingForm.reference_images
+            : null;
+
+        const formObj = {
+            form_tags: formTags,
+            outfit_features: outfitFeatures,
+            silhouette_notes: silhouetteNotes,
+            immutable_constraints: immutableConstraints,
+            negative_keywords: negativeKeywords,
+            ai_tags: aiTags,
+            negative_visuals: negativeVisuals,
+            natural_language_description: naturalLanguageDescription,
+            prompt_export: promptExport,
+            negative_prompt_export: negativePromptExport,
+            reference_images: referenceImages,
+        };
+        newForms[formKey] = reorderObjectKeys(formObj, [
+            'form_tags', 'outfit_features',
+            'silhouette_notes', 'immutable_constraints', 'negative_keywords',
+            'ai_tags', 'negative_visuals',
+            'natural_language_description', 'prompt_export', 'negative_prompt_export',
+            'reference_images',
+        ]);
+    }
+
+    // ── 既存 forms 側にあって IdentityMotif に無い formation の扱い ─
+    // 「IdentityMotif で言及されていない formation」は AI タグ系をクリアする（Y rule）。
+    // ただし reference_images / 全 form_tags の "<formKey> form" だけは structural として残す。
+    if (existingForms && typeof existingForms === 'object') {
+        for (const formKey of Object.keys(existingForms)) {
+            if (newForms[formKey]) continue; // 既に再構築済み
+            const existingForm = existingForms[formKey];
+            if (!existingForm || typeof existingForm !== 'object') continue;
+            const isCorefolder = formKey === 'corefolder';
+            const ownFormTag = `${formKey} form`;
+            const empty = {
+                form_tags: [ownFormTag],
+                outfit_features: [],
+                silhouette_notes: { body_description: isCorefolder ? ['spherical core body with the head as the only protruding part on top'] : [], attached_items: [] },
+                immutable_constraints: isCorefolder ? [...COREFOLDER_DEFAULT_IMMUTABLE_CONSTRAINTS] : null,
+                negative_keywords: isCorefolder ? [...COREFOLDER_DEFAULT_NEGATIVE_KEYWORDS] : null,
+                ai_tags: [ownFormTag],
+                negative_visuals: [],
+                natural_language_description: null,
+                prompt_export: ownFormTag,
+                negative_prompt_export: '',
+                reference_images: 'reference_images' in existingForm ? existingForm.reference_images : null,
+            };
+            formationsTouched.push(formKey);
+            newForms[formKey] = reorderObjectKeys(empty, [
+                'form_tags', 'outfit_features',
+                'silhouette_notes', 'immutable_constraints', 'negative_keywords',
+                'ai_tags', 'negative_visuals',
+                'natural_language_description', 'prompt_export', 'negative_prompt_export',
+                'reference_images',
+            ]);
+        }
+    }
+
+    // ── common の組み立て ──────────────────────────────────────────
+    // identity_tags / silhouette_features: 全 formation の Motif_EN を normalize して
+    //   集合積集合（>= 2 formation が共通して保持するエントリ）を採用。
+    //   1 formation のみの場合はそのまま全 Motif_EN を identity_tags に使用。
+    //   silhouette_features の先頭には tail（TailsUnit）/ stature（Height_cm）を必ず注入する。
+    /** @type {string[]} */
+    let identityTags = [];
+    /** @type {string[]} */
+    let silhouetteFeatures = [];
+
+    if (classified.size === 1) {
+        const only = [...classified.values()][0];
+        identityTags = only.all.filter(e => !isStructuralOverride(e));
+        silhouetteFeatures = only.body.filter(e => !isStructuralOverride(e));
+    } else {
+        // 共通 (intersection) 抽出: 最初の formation のエントリを順序キーとし、
+        //   全 formation で normalize 一致するものだけを採用。元文字列は最初に出現したものを保持。
+        const formations = [...classified.entries()];
+        const [, firstC] = formations[0];
+        const restSets = formations.slice(1).map(([, c]) => c.normalized);
+        const seen = new Set();
+        for (const e of firstC.all) {
+            if (isStructuralOverride(e)) continue;
+            const nk = normalizeMotifEntry(e);
+            if (seen.has(nk)) continue;
+            if (!restSets.every(s => s.has(nk))) continue;
+            seen.add(nk);
+            identityTags.push(e);
+            if (classifyMotifEntry(e) === 'body') silhouetteFeatures.push(e);
+        }
+        // 共通が空の場合は最初の formation の Motif_EN を identity 代理として使う（情報損失を避ける）
+        if (identityTags.length === 0) {
+            identityTags = firstC.all.filter(e => !isStructuralOverride(e));
+            silhouetteFeatures = firstC.body.filter(e => !isStructuralOverride(e));
+        }
+    }
+
+    // tail / stature を silhouette_features 先頭に注入（重複排除）
+    /** @type {string[]} */
+    const sfWithStructural = [];
+    const sfSeen = new Set();
+    const pushSf = (s) => {
+        if (typeof s !== 'string' || !s) return;
+        const nk = normalizeMotifEntry(s);
+        if (!nk || sfSeen.has(nk)) return;
+        sfSeen.add(nk);
+        sfWithStructural.push(s);
+    };
+    if (tailDesc) pushSf(tailDesc);
+    if (statureDesc) pushSf(statureDesc);
+    for (const e of silhouetteFeatures) pushSf(e);
+
+    const newCommon = {
+        identity_tags: identityTags,
+        silhouette_features: sfWithStructural,
+        immutable_traits: preservedImmutableTraits.length > 0 ? preservedImmutableTraits : null,
+        expression_tendency: null,
+        age_appearance: (typeof ageBand === 'string' && ageBand) ? ageBand : null,
+        palette_priority: null,
+        natural_language_description: null,
+        reference_images: ('reference_images' in existingCommon) ? existingCommon.reference_images : null,
+    };
+    const orderedCommon = reorderObjectKeys(newCommon, [
+        'identity_tags', 'silhouette_features', 'immutable_traits',
+        'expression_tendency', 'age_appearance', 'palette_priority',
+        'natural_language_description', 'reference_images',
+    ]);
+
+    // ── top-level ──────────────────────────────────────────────────
+    const newAihints = {
+        common: orderedCommon,
+        work_common: ('work_common' in baseAihints) ? baseAihints.work_common : null,
+        forms: newForms,
+        alt_modes: ('alt_modes' in baseAihints) ? baseAihints.alt_modes : null,
+    };
+
+    // ── corefolder NLD のテンプレ生成（新 AIHints を疑似 record として渡す）──
+    if (newForms.corefolder) {
+        const pseudoRecord = { Num: num, AIHints: newAihints };
+        const nld = buildCorefolderNldFromTemplate(pseudoRecord);
+        if (nld) {
+            newForms.corefolder.natural_language_description = nld;
+            // prompt_export / negative_prompt_export は ai_tags / negative_visuals 由来なので影響なし
+        }
+    }
+
+    return {
+        aihints: reorderObjectKeys(newAihints, ['common', 'work_common', 'forms', 'alt_modes']),
+        hasSource: true,
+        formationsTouched,
+    };
+}
+
+/**
+ * IdentityMotif が無い／全空のレコードに対する fallback。既存 AIHints の
+ * AI タグ系配列を空にクリアし、構造（reference_images / age_appearance）は保持する。
+ *
+ * @param {any} baseAihints
+ * @returns {any}
+ */
+function clearAihintsTagsForNoIdentityMotif(baseAihints) {
+    const out = JSON.parse(JSON.stringify(baseAihints ?? {}));
+    if (out.common && typeof out.common === 'object') {
+        out.common.identity_tags = [];
+        out.common.silhouette_features = [];
+        out.common.immutable_traits = null;
+        out.common.expression_tendency = null;
+        out.common.palette_priority = null;
+        out.common.natural_language_description = null;
+        // age_appearance / reference_images は据え置き
+    }
+    if (out.forms && typeof out.forms === 'object') {
+        for (const [formKey, form] of Object.entries(out.forms)) {
+            if (!form || typeof form !== 'object') continue;
+            const isCorefolder = formKey === 'corefolder';
+            const ownFormTag = `${formKey} form`;
+            form.form_tags = [ownFormTag];
+            form.outfit_features = [];
+            form.silhouette_notes = {
+                body_description: isCorefolder
+                    ? ['spherical core body with the head as the only protruding part on top']
+                    : [],
+                attached_items: [],
+            };
+            form.immutable_constraints = isCorefolder
+                ? [...COREFOLDER_DEFAULT_IMMUTABLE_CONSTRAINTS]
+                : null;
+            form.negative_keywords = isCorefolder
+                ? [...COREFOLDER_DEFAULT_NEGATIVE_KEYWORDS]
+                : null;
+            form.ai_tags = [ownFormTag];
+            form.negative_visuals = [];
+            form.natural_language_description = null;
+            form.prompt_export = ownFormTag;
+            form.negative_prompt_export = '';
+            // reference_images は据え置き
+            out.forms[formKey] = reorderObjectKeys(form, [
+                'form_tags', 'outfit_features',
+                'silhouette_notes', 'immutable_constraints', 'negative_keywords',
+                'ai_tags', 'negative_visuals',
+                'natural_language_description', 'prompt_export', 'negative_prompt_export',
+                'reference_images',
+            ]);
+        }
+    }
+    return reorderObjectKeys(out, ['common', 'work_common', 'forms', 'alt_modes']);
+}
+
+/**
+ * 1レコード分の AIHints を IdentityMotif 駆動で再構築する（--apply-identitymotif モード）。
+ *
+ * @param {string} text
+ * @param {number} openIdx
+ * @param {number} closeIdx
+ * @param {any} record
+ * @returns {{ text: string, changed: boolean, status: 'identitymotif-applied'|'identitymotif-unchanged'|'identitymotif-cleared'|'identitymotif-no-source'|'skipped-no-aihints' }}
+ */
+function applyIdentityMotifToAihintsInRecord(text, openIdx, closeIdx, record) {
+    if (!record.AIHints) {
+        return { text, changed: false, status: 'skipped-no-aihints' };
+    }
+
+    const { aihints: newAihints, hasSource } = buildAihintsFromIdentityMotif(record);
+
+    /** @type {any} */
+    let finalAihints;
+    /** @type {'identitymotif-applied'|'identitymotif-unchanged'|'identitymotif-cleared'|'identitymotif-no-source'} */
+    let status;
+
+    if (!hasSource) {
+        // IdentityMotif が無い／全空: AI タグ配列をクリアする fallback
+        finalAihints = clearAihintsTagsForNoIdentityMotif(record.AIHints);
+        status = 'identitymotif-cleared';
+    } else {
+        finalAihints = newAihints;
+        status = 'identitymotif-applied';
+    }
+
+    // 既存と完全一致なら no-op
+    const existingJson = JSON.stringify(record.AIHints);
+    const newJson = JSON.stringify(finalAihints);
+    if (existingJson === newJson) {
+        return { text, changed: false, status: hasSource ? 'identitymotif-unchanged' : 'identitymotif-no-source' };
+    }
+
+    const block = stringifyAihintsBlock(finalAihints);
+    return {
+        text: replaceAihintsInRecord(text, openIdx, closeIdx, block),
+        changed: true,
+        status,
+    };
+}
+
+
 /**
  * 1ファイル分のパッチ処理。テキスト編集と結果集計を返す。
  * @param {string} text
@@ -2382,6 +3066,21 @@ function patchFileText(text, opts) {
                 console.warn(`[rewrite-corefolder-nld] ${w}`);
             }
             results.push({ num, status: changed ? 'nld-rewritten' : 'nld-unchanged' });
+            continue;
+        }
+
+        // --apply-identitymotif モード: IdentityMotif を AI タグの正として AIHints を再構築。
+        // 既存 reference_images / age_appearance / work_common / alt_modes は据え置き。
+        if (opts.applyIdentityMotif) {
+            if (!hasAihints) {
+                results.push({ num, status: 'skipped-no-aihints' });
+                continue;
+            }
+            const { text: newText, changed, status } = applyIdentityMotifToAihintsInRecord(
+                text, openIdx, closeIdx, record,
+            );
+            text = newText;
+            results.push({ num, status: changed ? status : (status === 'skipped-no-aihints' ? status : 'identitymotif-unchanged') });
             continue;
         }
 
@@ -2580,6 +3279,7 @@ function main() {
         'schema-upgraded': 0, 'schema-unchanged': 0,
         'silhouette-migrated': 0, 'silhouette-unchanged': 0,
         'nld-rewritten': 0, 'nld-unchanged': 0,
+        'identitymotif-applied': 0, 'identitymotif-unchanged': 0, 'identitymotif-cleared': 0, 'identitymotif-no-source': 0,
         'vision-applied': 0, 'vision-unchanged': 0, 'vision-no-result': 0,
         'skipped-no-aihints': 0,
     };
@@ -2599,6 +3299,8 @@ function main() {
         console.log(`  silhouette-migrated=${counts['silhouette-migrated']}, silhouette-unchanged=${counts['silhouette-unchanged']}, skipped-no-aihints=${counts['skipped-no-aihints']}`);
     } else if (opts.rewriteCorefolderNld) {
         console.log(`  nld-rewritten=${counts['nld-rewritten']}, nld-unchanged=${counts['nld-unchanged']}, skipped-no-aihints=${counts['skipped-no-aihints']}`);
+    } else if (opts.applyIdentityMotif) {
+        console.log(`  identitymotif-applied=${counts['identitymotif-applied']}, identitymotif-cleared=${counts['identitymotif-cleared']}, identitymotif-unchanged=${counts['identitymotif-unchanged']}, identitymotif-no-source=${counts['identitymotif-no-source']}, skipped-no-aihints=${counts['skipped-no-aihints']}`);
     } else if (opts.applyVisionResults) {
         console.log(`  vision-applied=${counts['vision-applied']}, vision-unchanged=${counts['vision-unchanged']}, vision-no-result=${counts['vision-no-result']}, skipped-no-aihints=${counts['skipped-no-aihints']}`);
     } else {

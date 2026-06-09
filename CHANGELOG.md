@@ -1,5 +1,17 @@
 # 最新のリファクタリング・仕様変更履歴
 
+### IdentityMotif を正源とした AIHints 再構築モード追加（NumberTales/DB_Primary 全件適用）
+
+- `tools/patch-aihints.mjs` に新モード `--apply-identitymotif` を追加。レコードの `IdentityMotif[]` フィールド（`Array<{Formation: #DictIndex, Motif: {Motif_JP: #String[], Motif_EN: #String[]}}>`）を **AI タグの単一正源**として `AIHints.common` / `AIHints.forms.<formation>` を再構築する。
+  - 構造的正源は IdentityMotif より優先する: 尻尾形状 = `TailsUnit`（`parseTailsUnit` + `buildTailDescription`）、外見年齢 = `ConceptAge`（`ageBandOf`）、体格 = `Height_cm`（新ヘルパー `heightBandOf`）。これらの正源由来文字列は `common.silhouette_features` 先頭と `forms.*.ai_tags` の form タグ直後に必ず注入され、IdentityMotif 側に同種記述があっても捨てられる。
+  - 番号刻印の位置・デザインは 2026-06-08 セッションで導入した単一スロット記述を正とするため、`common.immutable_traits` から「番号刻印に関する行」（`'#N' number marking` / `number 'N' marking` / `no number identifier` を含む行）のみ既存値を引き継ぐ。これにより `--rewrite-corefolder-nld` テンプレの `marking placement` 部が TODO に戻らない。
+  - corefolder 形態には `COREFOLDER_DEFAULT_IMMUTABLE_CONSTRAINTS` / `COREFOLDER_DEFAULT_NEGATIVE_KEYWORDS` の structural default を再注入。humanoid 形態は正源データが無いため `immutable_constraints` / `negative_keywords` を `null` に設定する（schema 上 `#String[]|#Null` で許容）。
+  - `forms.*.negative_visuals` は対向 formation の Motif_EN 差分から body 系 + 構造的正源（尻尾本数・体格・年齢）を除外。`prompt_export` / `negative_prompt_export` は `ai_tags` / `negative_visuals` を `, ` 結合で再生成。
+  - corefolder の `silhouette_notes.body_description` には球体本体行 + IdentityMotif の body 系から合成した `<color> base coloring (synthesized from IdentityMotif)` 行を必ず投入し、`extractBaseColor()` がテンプレ生成時に正しい色を取り出せるようにする（新ヘルパー `synthesizeBaseColorFromMotif` / `COLOR_WORDS` 約 50 色辞書）。
+  - 適用結果: `data/Works_NumberTales/DataBases/db_Primary.json` で `identitymotif-applied = 89` / `identitymotif-cleared = 3`（IdentityMotif が全空のレコード）/ `skipped-no-aihints = 13`。残りは AIHints 未設置レコード。
+- IdentityMotif の Motif_EN を分類するためのヘルパー群を追加: `normalizeMotifEntry()`（lowercase + 括弧除去 + 空白正規化）、`classifyMotifEntry()`（`form|attached|outfit|body|misc` を末尾語ベース辞書で判定。未マッチは `misc` で `outfit_features` 末尾に保持して取りこぼし防止）、`buildAihintsFromIdentityMotif()` / `clearAihintsTagsForNoIdentityMotif()` / `applyIdentityMotifToAihintsInRecord()`。
+- テスト追従: `tests/aihints.schema.test.js` の humanoid 形態 `immutable_constraints` / `negative_keywords` 期待値を「array または null」へ緩和（IdentityMotif 駆動再構築仕様と schema `#String[]|#Null` 宣言に整合）。aihints.schema 11/11 pass、全体 110/116 pass（残り 6 件は本変更前から残る pre-existing failure: `commons.secondaries` / `data.shape` / `enrich.dblink.jump.merge` / `pages.characters.ui-output`）。
+
 ### AIHints `silhouette_notes` の構造化 + corefolder NLD テンプレ化（NumberTales/DB_Primary）
 
 - `Works_NumberTales/DataBases/db_type.json` の `$Def_AIFormVariant.silhouette_notes` を `#String[]` から `$Def_AISilhouetteNotes|#Null` に変更。`$Def_AISilhouetteNotes` は `{ body_description: #String[], attached_items: #String[] }` の 2 フィールド構造で、素体（球体本体・球状コア・人型上半身）と装着付属品（ハーネス・髪飾り・首輪・襷・カフ等）を分離して保持する。
