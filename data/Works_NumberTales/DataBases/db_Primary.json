@@ -61,6 +61,68 @@
     "Unlike": "人格否定",
     "Strength": "行動力が非常に高い、他個体の元祖(はじまり)を担っている",
     "Weakness": "実は１個体としてのアイデンティティが希薄だったりする",
+    "IdentityMotif": [
+      {
+        "Formation": "corefolder",
+        "Motif": {
+          "Motif_JP": [
+            "コアフォルダ形態",
+            "その他1人",
+            "10代前半",
+            "赤橙色の髪",
+            "ショートヘア",
+            "狐の耳",
+            "狐の尾1本",
+            "元気な笑顔",
+            "赤いパーカー",
+            "矢印形の胸ジッパー",
+            "ショートパンツ",
+            "ブーツ",
+            "数字「1」マーキング"
+          ],
+          "Motif_EN": [
+            "corefolder form",
+            "1other",
+            "young teenager",
+            "red orange hair",
+            "short hair",
+            "fox ears",
+            "single fox tail",
+            "energetic open smile",
+            "red hoodie",
+            "arrow-shaped chest zipper",
+            "shorts",
+            "boots",
+            "number '1' marking"
+          ]
+        }
+      },
+      {
+        "Formation": "humanoid",
+        "Motif": {
+          "Motif_JP": [
+            "ヒューマノイド形態",
+            "その他1人",
+            "10代前半",
+            "赤橙色のショートヘア",
+            "狐の耳",
+            "狐の尾1本",
+            "元気な笑顔",
+            "カジュアルな服装"
+          ],
+          "Motif_EN": [
+            "humanoid form",
+            "1other",
+            "young teenager",
+            "red orange short hair",
+            "fox ears",
+            "single fox tail",
+            "energetic open smile",
+            "casual outfit"
+          ]
+        }
+      }
+    ],
     "NumerospecAbout": "ありのままに行動する\nおよび主人の自我を強める",
     "Summary": "相手のことを尊重する双子の妹「2(ツグ)」とは反対に、自分のありのままに生活している。\nナンバーテールズの試作過程と共に誕生した唯一の試作型で、外見で尾が1本などと正規型である他の98人と異なる特徴が多い。\nしかし彼女はそれも自分らしさと前向きに受け入れている。\nとはいえ試作型だった影響か、やってみたいことが無数にあり行動意欲が過度に突出している。",
     "NumerospecStats": {
@@ -417,6 +479,43 @@
     "Unlike": "自分の限界",
     "Strength": "聞き役に回り状況を俯瞰することができる",
     "Weakness": "葛藤が多い",
+    "IdentityMotif": [
+      {
+        "Formation": "corefolder",
+        "Motif": {
+          "Motif_JP": [
+            "コアフォルダ形態",
+            "その他1人",
+            "10代前半",
+            "オレンジ色の髪",
+            "ショートヘア",
+            "狐の耳",
+            "狐の尾2本",
+            "四角い眼鏡",
+            "落ち着いた微笑み",
+            "ティールのスポーティシャツ",
+            "二重結びスカーフ",
+            "スカート",
+            "数字「2」紋章"
+          ],
+          "Motif_EN": [
+            "corefolder form",
+            "1other",
+            "young teenager",
+            "orange hair",
+            "short hair",
+            "fox ears",
+            "two fox tails",
+            "rectangular glasses",
+            "calm composed smile",
+            "teal sporty shirt",
+            "double-knotted scarf",
+            "skirt",
+            "number '2' emblem"
+          ]
+        }
+      }
+    ],
     "RelationNotes": "「3(ナオ)」と信頼関係がある\n「9(チカ)」に甘えてる一面も",
     "NumerospecAbout": "主人や他ナンバーテールズの日々や人脈をよりよくする",
     "Summary": "自分らしさを貫く双子の姉「1(ハジメ)」とは対称的で、相手との協調を大切にしている。\n他のナンバーテールズを想いながら、毎日をよりよくするための奉仕や人脈の形成を支える、99人にとってのマネージャー的存在。\n一方で彼女が持つ向上心に反して周囲に流されることもしばしばあり、彼女自身も癒しを欲している一面がある。",
@@ -676,6 +775,39 @@
     "Unlike": "性格の悪い大人",
     "Strength": "好感の持てる優等生タイプ",
     "Weakness": "社会参入へは比較的消極的な一面がある",
+    "IdentityMotif": [
+      {
+        "Formation": "corefolder",
+        "Motif": {
+          "Motif_JP": [
+            "コアフォルダ形態",
+            "その他1人",
+            "10代",
+            "黄色い髪",
+            "スパイキーヘア",
+            "狐の耳",
+            "狐の尾3本",
+            "黄色いヘアクリップ",
+            "明るい黄色のケープジャケット",
+            "数字「3」マーキング",
+            "表情豊かな顔"
+          ],
+          "Motif_EN": [
+            "corefolder form",
+            "1other",
+            "teenager",
+            "yellow hair",
+            "spiky hair",
+            "fox ears",
+            "three fox tails",
+            "yellow hair clip",
+            "bright yellow cape-jacket",
+            "number '3' marking",
+            "emotive expressive face"
+          ]
+        }
+      }
+    ],
     "NumerospecAbout": "基本を守り、普遍を破り、固定概念から離れる\nこの効果は主人に感化させることもできる",
     "Summary": "基本を守り、普遍を破り、固定概念から離れるという、物事への「守破離」を極めたナンバーテールズで上位を誇る優等生。\nその秀才な彼(女)は1桁番の中でも、99人を支える最大要因となっている。\nしかし かといって厳格な性格でなく、冒険心や遊び心の高い青年のような気質で、対戦ゲームや交換日記の相手をするなど自然と溶け込みやすい一面も。",
     "NumerospecStats": {
@@ -922,6 +1054,39 @@
     "Unlike": "奇妙なこと全般",
     "Strength": "しっかり者で慎重",
     "Weakness": "臆病で新しいことへの取っ掛りが遅い",
+    "IdentityMotif": [
+      {
+        "Formation": "corefolder",
+        "Motif": {
+          "Motif_JP": [
+            "コアフォルダ形態",
+            "その他1人",
+            "10代",
+            "青い長い髪",
+            "狐の耳",
+            "狐の尾4本",
+            "控えめな柔らかな微笑み",
+            "重ね着ティールのコート",
+            "スカート",
+            "小さな耳横のヘアアクセサリー",
+            "数字「4」紋章"
+          ],
+          "Motif_EN": [
+            "corefolder form",
+            "1other",
+            "teenager",
+            "long blue hair",
+            "fox ears",
+            "four fox tails",
+            "soft understated smile",
+            "layered teal coat",
+            "skirt",
+            "small ear-side hair accessory",
+            "number '4' emblem"
+          ]
+        }
+      }
+    ],
     "RelationNotes": "「5(イズ)」に対し強く拒絶している\n「8(ワカツ)」の実験におびえている",
     "NumerospecAbout": "物事の基礎を掴んで現実化する\nこの効果は主人に感化させることもできる",
     "Summary": "安心感と安定感を大切にしており、臆病で感情表現豊かな印象をよく持たれている。\nしかし一方で、物事に対し一つ一つの基礎を掴んで現実化する力を有しており、根はとてもしっかりしていることが評判。\n特技として主人の家事を手伝うことも。\nただ、常に周囲の予想と普通のことを覆してくる「5(イズ)」に対して強い拒絶体質になっている。\n反して「5(イズ)」自身はというと…",
@@ -1197,6 +1362,39 @@
     "Unlike": "型にはまること",
     "Strength": "広く浅く物事の大枠を掴み状況を瞬時に理解できる",
     "Weakness": "意欲の対象が著しく変わる",
+    "IdentityMotif": [
+      {
+        "Formation": "corefolder",
+        "Motif": {
+          "Motif_JP": [
+            "コアフォルダ形態",
+            "その他1人",
+            "10代",
+            "ティールグリーンの髪",
+            "狐の耳",
+            "狐の尾5本",
+            "オッドアイ（虹彩異色症）",
+            "いたずらっぽいニヤリ",
+            "テープリストバンド",
+            "アクロバティックなポーズ",
+            "数字「5」マーキング"
+          ],
+          "Motif_EN": [
+            "corefolder form",
+            "1other",
+            "teenager",
+            "teal green hair",
+            "fox ears",
+            "five fox tails",
+            "heterochromia",
+            "mischievous grin",
+            "tape wristbands",
+            "acrobatic pose",
+            "number '5' marking"
+          ]
+        }
+      }
+    ],
     "RelationNotes": "「3(ナオ)」とは良きライバル関係\n「6(ムイ)」に苦手意識がある",
     "NumerospecAbout": "やり方を常に変える\n主人への効果量は不明だがこれによりマンネリ化を無効化できるらしい",
     "Summary": "他のナンバーテールズと比べても屈指のマイペース。\nその形振りは時に利き手や習慣を変え、時に特技から離れ、時に呼び方が変わるなど、彼女の脱線気味な気分とノリは誰もが予想できていない。\nしかしそれは自分に明確なビジョンがあってのことで、それを楽しんで軌道調整するためと彼女は豪語している。\n挑発に乗りやすく、冷めやすく、かなりチョロい。",
@@ -1445,6 +1643,41 @@
     },
     "Strength": "原則嫌いなものはない",
     "Weakness": "一部の部位が敏感で過剰なスキンシップに弱い",
+    "IdentityMotif": [
+      {
+        "Formation": "corefolder",
+        "Motif": {
+          "Motif_JP": [
+            "コアフォルダ形態",
+            "その他1人",
+            "10代",
+            "ピンクの髪",
+            "狐の耳",
+            "狐の尾6本",
+            "穏やかな笑顔",
+            "ビクトリアンドレス",
+            "ツートーンのピンク紫ドレス",
+            "六角形のブローチ",
+            "レーストリム",
+            "数字「6」マーキング"
+          ],
+          "Motif_EN": [
+            "corefolder form",
+            "1other",
+            "teenager",
+            "pink hair",
+            "fox ears",
+            "six fox tails",
+            "gentle warm smile",
+            "Victorian dress",
+            "two-tone pink purple dress",
+            "hexagonal brooch",
+            "lace trim",
+            "number '6' marking"
+          ]
+        }
+      }
+    ],
     "RelationNotes": "ほぼどの個体にも好意的に接する\n「7(ナナ)」とは価値観の共有関係と言っているが…\n「4(モチ)」とはルームシェアをするほどの縁",
     "NumerospecAbout": "愛情や感性などにより主人の心の隙間を埋める\nただし副作用として一部スキンシップに過剰反応する",
     "Summary": "愛情や感性・美徳に満ち溢れ、信頼と忠義とそれぞれの個性を大切にしている、ナンバーテールズの「光属性」担当。\nこれにより、1桁番の中はもちろん99人全体でも上位に匹敵する評判を主人層から得ている。\nまた、彼女とはやや対称的な美的センスを持つ「9(チカ)」とセットで認知されることも。\nちなみに感性に優れているあまりか、感覚機能における意外な弱点があるようで…",
@@ -1687,6 +1920,66 @@
     "Unlike": "非常識",
     "Strength": "洞察力と探求心が高い",
     "Weakness": "思想的になりがち、和装以外で着こなす服がない",
+    "IdentityMotif": [
+      {
+        "Formation": "corefolder",
+        "Motif": {
+          "Motif_JP": [
+            "コアフォルダ形態",
+            "その他1人",
+            "若い成人",
+            "ネイビーダークブルーの髪",
+            "狐の耳",
+            "狐の尾7本",
+            "瞑想的な無表情の眼差し",
+            "念珠ネックレス",
+            "和風コート",
+            "ワイドレッグの濃い色のパンツ",
+            "数字「7」マーキング"
+          ],
+          "Motif_EN": [
+            "corefolder form",
+            "1other",
+            "young adult",
+            "navy dark blue hair",
+            "fox ears",
+            "seven fox tails",
+            "contemplative stoic gaze",
+            "prayer beads necklace",
+            "Japanese-style coat",
+            "wide-leg dark pants",
+            "number '7' marking"
+          ]
+        }
+      },
+      {
+        "Formation": "humanoid",
+        "Motif": {
+          "Motif_JP": [
+            "ヒューマノイド形態",
+            "その他1人",
+            "若い成人",
+            "ネイビーダークブルーの髪",
+            "狐の耳",
+            "狐の尾7本",
+            "瞑想的な無表情の眼差し",
+            "念珠ネックレス",
+            "和風カジュアルな服装"
+          ],
+          "Motif_EN": [
+            "humanoid form",
+            "1other",
+            "young adult",
+            "navy dark blue hair",
+            "fox ears",
+            "seven fox tails",
+            "contemplative stoic gaze",
+            "prayer bead necklace",
+            "Japanese-style casual outfit"
+          ]
+        }
+      }
+    ],
     "RelationNotes": "「5(イズ)」に対し対抗意識がある\n「70(ナナト)」とは就学仲間",
     "NumerospecAbout": "修行や瞑想をする\nこれによる効果は主人にも少し分け与えられる",
     "Summary": "1桁番のナンバーテールズ9人の中でも単独行動を好み、自分なりの正しさを求めて修学や瞑想などをしながら悔いなく主人に従事できるように努めている。\n反面、イメージトレーニングや自分磨きが生活の大半となってしまい思想的になりがちではあるが、その分やることは完璧にこなしている（つもりらしい）。\n神話や伝統に興味がある。",
@@ -1991,6 +2284,41 @@
     "Unlike": "厭なことを強要されること",
     "Strength": "技術価値や社会的価値として一定の良識がある",
     "Weakness": "内耳に通信機が埋め込められているという重度のコンプレックスがある",
+    "IdentityMotif": [
+      {
+        "Formation": "corefolder",
+        "Motif": {
+          "Motif_JP": [
+            "コアフォルダ形態",
+            "その他1人",
+            "若い成人",
+            "オレンジ赤の髪",
+            "狐の耳",
+            "狐の尾8本",
+            "満面の元気な笑み",
+            "頭にVRゴーグル",
+            "タクティカルベスト",
+            "メカニックスタイル",
+            "工具入れポーチ",
+            "数字「8」紋章"
+          ],
+          "Motif_EN": [
+            "corefolder form",
+            "1other",
+            "young adult",
+            "orange red hair",
+            "fox ears",
+            "eight fox tails",
+            "wide energetic grin",
+            "VR goggles on head",
+            "tactical vest",
+            "mechanic style",
+            "tool pouches",
+            "number '8' emblem"
+          ]
+        }
+      }
+    ],
     "RelationNotes": "「1(ハジメ)」に少し苦手意識がある\n「62(ロジ)」とものづくりすることがある",
     "NumerospecAbout": "より高価値のものを生み出す\n付属のVRゴーグルで物の価値を見せることができる",
     "Summary": "お金や技術、さらには人の活力さえ主人のために投資…ではなくファンディング応援のために活躍する、99人のエンジニアポジション。\nガジェットに対し強い熱意を持ち格好いいもの好き。\nしかし一方で限りあるお金と物から高い価値のものを生み出す能力から、「値段の錬金術師」とも称されているんだとか。",
@@ -2232,6 +2560,39 @@
     "SpecialSkill": "お悩み相談",
     "Favor": "良識\n悩める人たち",
     "Unlike": "良識から極めて離れた行為",
+    "IdentityMotif": [
+      {
+        "Formation": "corefolder",
+        "Motif": {
+          "Motif_JP": [
+            "コアフォルダ形態",
+            "その他1人",
+            "若い成人",
+            "銀灰色の長い髪",
+            "狐の耳",
+            "狐の尾9本",
+            "円形配置の尾",
+            "落ち着いた神秘的な表情",
+            "大きな濃い色のケープ",
+            "長身スレンダー",
+            "数字「9」マーキング"
+          ],
+          "Motif_EN": [
+            "corefolder form",
+            "1other",
+            "young adult",
+            "silver gray long hair",
+            "fox ears",
+            "nine fox tails",
+            "tails in ring arrangement",
+            "composed mysterious expression",
+            "large dark cape",
+            "tall slender",
+            "number '9' marking"
+          ]
+        }
+      }
+    ],
     "RelationNotes": "「6(ムイ)」と対で認識されている\n「2(ツグ)」の悩める姿に対して…？",
     "NumerospecAbout": "哀しみから救済する\nただし副作用として落胆している人を見ると興奮する",
     "Summary": "慈愛や寛容・同情が深く、完結とそれぞれが損なわない関係を大切にしている、ナンバーテールズで「闇属性」の癒しを持つ。\nこれにより哀しみに暮れた主人を数多く救済したという評判を多く得ている。\nまた、彼女とはやや対称的な思想を持つ「6(ムイ)」とセットで認知されることも。\nただその慈愛心は、ある特定の境遇の人物を見ると本性が出るためらしく…",
@@ -2530,6 +2891,39 @@
     "SpecialSkill": "護身術",
     "Favor": "純粋なヒューマノイド",
     "Unlike": "ヒューマノイドの暴走",
+    "IdentityMotif": [
+      {
+        "Formation": "corefolder",
+        "Motif": {
+          "Motif_JP": [
+            "コアフォルダ形態",
+            "その他1人",
+            "10代前半",
+            "深紅の髪",
+            "サイドで結んだ髪",
+            "狐の耳",
+            "芽型の狐の尾1本",
+            "余裕ある自信の微笑み",
+            "中国風スタンドカラージャケット",
+            "ワイドレッグパンツ",
+            "数字「10」紋章"
+          ],
+          "Motif_EN": [
+            "corefolder form",
+            "1other",
+            "young teenager",
+            "deep red hair",
+            "hair tied at side",
+            "fox ears",
+            "bud-type single fox tail",
+            "knowing confident smile",
+            "Chinese-style mandarin-collar jacket",
+            "wide-leg pants",
+            "number '10' emblem"
+          ]
+        }
+      }
+    ],
     "RelationNotes": "「99(ツクモ)」の記憶について何かを察している",
     "NumerospecAbout": "？？？？という役目を果たす\n？？？？という危機を未然に防ぐ",
     "Summary": "自分とは何者か、何のための存在か、どこで自分の役目は終わり、新たな役目が始まるか、その問いに導かれ答えるかのように様々な行動を起こしている（と本人が供述）。\nそのため思考が読めないと言われているが、主人の危機を未然に感知しているのではと、どこかで噂になっている。\nちなみに彼（女）は元動作試験機で、現在唯一の試作型である「1(ハジメ)」と試作段階の時から縁がある。",
@@ -2817,6 +3211,39 @@
     "SpecialSkill": "直観が99.9%的中する",
     "Favor": "風水術",
     "Unlike": "スランプ",
+    "IdentityMotif": [
+      {
+        "Formation": "corefolder",
+        "Motif": {
+          "Motif_JP": [
+            "コアフォルダ形態",
+            "その他1人",
+            "10代",
+            "銀灰色の長い髪",
+            "猫の耳",
+            "猫又の尾11本",
+            "神々しい自信の落ち着き",
+            "2本の矢印形のヘアピン",
+            "長いフード付きコート",
+            "コートの赤い縦縞",
+            "数字「11」マーキング"
+          ],
+          "Motif_EN": [
+            "corefolder form",
+            "1other",
+            "teenager",
+            "silver gray long hair",
+            "cat ears",
+            "eleven nekomata tails",
+            "divine self-assured composure",
+            "two arrow-shaped hair pins",
+            "long hooded coat",
+            "red vertical stripe on coat",
+            "number '11' marking"
+          ]
+        }
+      }
+    ],
     "RelationNotes": "「1(ハジメ)」を「師匠」と過度に慕うあまり…？",
     "NumerospecAbout": "自己認知(ハイパーセルフ)による直観と実現力を強化する\nこの効果は確実に主人に分け与えられる",
     "Summary": "2桁ゾロ目の数字の加護を持つ９人：「マスターテールズ９」の代表といえるべきナンバーテールズ。\n高次に発展した直感と自己認識による他に類を見ない実現力が、数多くの主人の注目を集めている。\n反面、その高まりすぎた直感で行動することも多く、時に暴走してしまうと他のナンバーテールズに指摘？されている。\n特に「1(ハジメ)」を前にすると、彼(女)の様子が明らかにおかしい様で…？",
@@ -3064,6 +3491,66 @@
     "SpecialSkill": "推理",
     "Favor": "言霊",
     "Unlike": "嘘を吐くこと",
+    "IdentityMotif": [
+      {
+        "Formation": "corefolder",
+        "Motif": {
+          "Motif_JP": [
+            "コアフォルダ形態",
+            "その他1人",
+            "10代前半",
+            "ピーチオレンジの髪",
+            "長髪",
+            "狐の耳",
+            "枝分かれ狐の尾2本",
+            "穏やかな無表情",
+            "大きなフードを上げた状態",
+            "ポンチョケープ",
+            "ピーチカラースキーム",
+            "数字「12」マーキング"
+          ],
+          "Motif_EN": [
+            "corefolder form",
+            "1other",
+            "young teenager",
+            "peach orange hair",
+            "long hair",
+            "fox ears",
+            "two branching fox tails",
+            "serene blank expression",
+            "large hood up",
+            "poncho cape",
+            "peach color scheme",
+            "number '12' marking"
+          ]
+        }
+      },
+      {
+        "Formation": "humanoid",
+        "Motif": {
+          "Motif_JP": [
+            "ヒューマノイド形態",
+            "その他1人",
+            "10代前半",
+            "ピーチオレンジの長い髪",
+            "狐の耳",
+            "枝分かれ狐の尾束2本",
+            "穏やかな無表情",
+            "カジュアルなプライベート服装"
+          ],
+          "Motif_EN": [
+            "humanoid form",
+            "1other",
+            "young teenager",
+            "long peach orange hair",
+            "fox ears",
+            "two branching fox tail bundles",
+            "serene blank expression",
+            "casual private outfit"
+          ]
+        }
+      }
+    ],
     "RelationNotes": "「1(ハジメ)」を尊敬している\n「バイナ」を旧名の「2(ツギ)」と呼んで好んでいるが、「2(ツグ)」に対しては……",
     "NumerospecAbout": "主人および自身が自分に正直になるようもたらす\nこれにより、対象が自分に自信を持たせる効果も",
     "Summary": "基本設計を融合させた2種類の数字を持つ複合型のうち、最初に開発された個体。\n自分に正直になり自信を持たせてくれると好評のナンバーテールズで、彼女の素直で正直な気質は周囲から好印象を持たれている。\n試作型の「1(ハジメ)」を慕っており、未完成の「バイナ」においても完成を心から期待して旧名（「2(ツギ)」）で呼んでいる。\nただ、「2(ツグ)」に対しては……",
@@ -3353,6 +3840,41 @@
     "SpecialSkill": "球技（主に玉を投げるもの）",
     "Favor": "イベント/大会参加",
     "Unlike": "心理戦",
+    "IdentityMotif": [
+      {
+        "Formation": "corefolder",
+        "Motif": {
+          "Motif_JP": [
+            "コアフォルダ形態",
+            "その他1人",
+            "10代",
+            "ティールライトブルーの髪",
+            "狐の耳",
+            "枝分かれ狐の尾3本",
+            "熱狂的な満面の笑顔",
+            "スポーティなジャージ",
+            "マルチカラーストライプ",
+            "黄色いショートパンツ",
+            "リストバンド",
+            "数字「13」マーキング"
+          ],
+          "Motif_EN": [
+            "corefolder form",
+            "1other",
+            "teenager",
+            "teal light blue hair",
+            "fox ears",
+            "three branching fox tails",
+            "wide enthusiastic smile",
+            "sporty jersey",
+            "multi-color stripe",
+            "yellow shorts",
+            "wristbands",
+            "number '13' marking"
+          ]
+        }
+      }
+    ],
     "RelationNotes": "従妹「14(トヨ)」と性格が似ていると言われている\n58(イソヤ)と度々カードゲームで負けている",
     "NumerospecAbout": "妥協と躊躇いをしない\nおよび主人の抱える妥協と躊躇いを中和する",
     "Summary": "これまでの知識と経験・能力からできることに妥協はせず、物事を始めることに躊躇わない。\nそういうスタンスを大切に主人を応援するナンバーテールズの体育会マネージャー系。\nただ稀に地雷要因になるため、不発してお叱りを受けていることもある。\n駆け引きが極めて苦手で、カードゲームでいつも最下位になっている。\nなお「14(トヨ)」と従妹関係にあり、性格がよく似ているとか。",
@@ -3614,6 +4136,41 @@
     "SpecialSkill": "手品",
     "Favor": "カードゲーム",
     "Unlike": "じっとしていること",
+    "IdentityMotif": [
+      {
+        "Formation": "corefolder",
+        "Motif": {
+          "Motif_JP": [
+            "コアフォルダ形態",
+            "その他1人",
+            "10代",
+            "青い長い髪",
+            "狐の耳",
+            "枝分かれ狐の尾4本",
+            "恥じらいの涙目表情",
+            "ティールのブレザー",
+            "ピンクのインナーシャツ",
+            "赤いスカート",
+            "トリカラーの衣装",
+            "数字「14」マーキング"
+          ],
+          "Motif_EN": [
+            "corefolder form",
+            "1other",
+            "teenager",
+            "long blue hair",
+            "fox ears",
+            "four branching fox tails",
+            "shy tearful expression",
+            "teal blazer",
+            "pink inner shirt",
+            "red skirt",
+            "tri-color outfit",
+            "number '14' marking"
+          ]
+        }
+      }
+    ],
     "NumerospecAbout": "新しいことを始める時に失敗する恐れを和らげる\nこの効果は周辺状況や心理状況に関与していないらしく、詳細は不明",
     "Summary": "新しいことに挑むときは常に失敗を恐れないオールラウンダー。\nいつも活発で元気溌剌な気質は、周囲にも好印象を持たれている。\nただそのせいか、コアフォルダ形態には馴染めていない様子。\n彼女が言うには右脳(感覚)派であるらしいが、左脳(理論)派な一面も持ち合わせているのではと噂されている。",
     "NumerospecStats": {
@@ -3930,6 +4487,72 @@
     "SpecialSkill": "6時間後の天気を当てる",
     "Favor": "開運グッズ\n何があっても完膚なきこと",
     "Unlike": "邪知暴虐",
+    "IdentityMotif": [
+      {
+        "Formation": "corefolder",
+        "Motif": {
+          "Motif_JP": [
+            "コアフォルダ形態",
+            "安全装置ハーネス付き",
+            "その他1人",
+            "若い成人",
+            "ピンクの髪",
+            "右サイドポニーテール",
+            "狐の耳",
+            "枝分かれ狐の尾5本",
+            "ストイックな無表情",
+            "淡い色のジャケット",
+            "背中の安全装置ハーネス",
+            "腕組みのスタンス",
+            "数字「15」マーキング"
+          ],
+          "Motif_EN": [
+            "corefolder form",
+            "with safety device harness",
+            "1other",
+            "young adult",
+            "pink hair",
+            "right-side ponytail",
+            "fox ears",
+            "five branching fox tails",
+            "stoic minimal expression",
+            "pale jacket",
+            "safety device harness on back",
+            "arms crossed stance",
+            "number '15' marking"
+          ]
+        }
+      },
+      {
+        "Formation": "humanoid",
+        "Motif": {
+          "Motif_JP": [
+            "ヒューマノイド形態",
+            "その他1人",
+            "若い成人",
+            "ピンクの髪",
+            "右サイドポニーテール",
+            "狐の耳",
+            "枝分かれ狐の尾5本",
+            "ストイックな無表情",
+            "カジュアルなプライベート服装",
+            "右腕のマーク"
+          ],
+          "Motif_EN": [
+            "humanoid form",
+            "1other",
+            "young adult",
+            "pink hair",
+            "right-side ponytail",
+            "fox ears",
+            "five branching fox tails",
+            "stoic minimal expression",
+            "casual private outfit",
+            "mark on right arm"
+          ]
+        }
+      }
+    ],
     "RelationNotes": "「33(ミサ)」と心配されあっている\n「10(ミツル)」と加護について関係が…？",
     "NumerospecAbout": "奇跡を起こす\nただしこの効果は対象の性格に影響される\n？？？？",
     "Summary": "普段は極めて控えめな気質だが、「自分を律することで因果応報が成立する」と信じており、男気が強い。\n「奇跡を起こす」という”加護”を所持しており、それ目当てで契約する主人も少なくない。\nしかしその力が強力だったため、“安全装置”を背中に装着している。\nその経緯について、「10(ミツル)」と「95(キュウゴ)」が関与しているらしく…？",
@@ -4267,6 +4890,41 @@
     "SpecialSkill": "剣道・剣舞",
     "Favor": "知恵の輪",
     "Unlike": "コンディション不良",
+    "IdentityMotif": [
+      {
+        "Formation": "corefolder",
+        "Motif": {
+          "Motif_JP": [
+            "コアフォルダ形態",
+            "その他1人",
+            "若い成人",
+            "ピンクの非常に長い髪",
+            "ウェーブヘア",
+            "狐の耳",
+            "枝分かれ狐の尾6本",
+            "恥ずかしそうな微笑み",
+            "青いキャップ",
+            "ハート紋章",
+            "豊かな女性シルエット",
+            "数字「16」マーキング"
+          ],
+          "Motif_EN": [
+            "corefolder form",
+            "1other",
+            "young adult",
+            "very long pink hair",
+            "wavy hair",
+            "fox ears",
+            "six branching fox tails",
+            "self-conscious shy smile",
+            "blue cap",
+            "heart emblem",
+            "voluminous feminine silhouette",
+            "number '16' marking"
+          ]
+        }
+      }
+    ],
     "RelationNotes": "「6(ムイ)」「26(ニロク)」に懐いている？",
     "NumerospecAbout": "才能を奮い立たせる\nこの効果はたとえ手持ちに不利があっても発動する",
     "Summary": "物質的な裕福さよりも己の行動や能力の発揮に重きを置いており、そのポテンシャルは物質的な制約と関係なく自身や主人にモチベーションをもたらしている。\n実績こそ上位を誇る程ではないが、挑戦意欲が旺盛で主人公気質な一面がコアな主人層から人気を浴びており、他のナンバーテールズもその中で活力や陽気に満ち溢れる様子から「幸せな貧乏」と称している。\n「6(ムイ)」と「26(ニロク)」に懐いていて…？",
@@ -4545,6 +5203,72 @@
     "SpecialSkill": "カジノ",
     "Favor": "知識",
     "Unlike": "貧困\n女性ぽくないと言われること",
+    "IdentityMotif": [
+      {
+        "Formation": "corefolder",
+        "Motif": {
+          "Motif_JP": [
+            "コアフォルダ形態",
+            "その他1人",
+            "若い成人",
+            "青みがかった藍色のショートヘア",
+            "ボブカット",
+            "狐の耳",
+            "枝分かれ狐の尾7本",
+            "落ち着いた外見",
+            "四角いヘアピン",
+            "紫灰色のシャツ",
+            "赤いパンツ",
+            "中性的",
+            "数字「17」マーキング"
+          ],
+          "Motif_EN": [
+            "corefolder form",
+            "1other",
+            "young adult",
+            "short blue indigo hair",
+            "bob cut",
+            "fox ears",
+            "seven branching fox tails",
+            "calm composed look",
+            "square hair pin",
+            "purple gray shirt",
+            "red pants",
+            "androgynous",
+            "number '17' marking"
+          ]
+        }
+      },
+      {
+        "Formation": "humanoid",
+        "Motif": {
+          "Motif_JP": [
+            "ヒューマノイド形態",
+            "その他1人",
+            "若い成人",
+            "青みがかった藍色のショートボブ",
+            "狐の耳",
+            "枝分かれ狐の尾7本",
+            "落ち着いた外見",
+            "四角いヘアピン",
+            "中性的",
+            "カジュアルな勉強用服装"
+          ],
+          "Motif_EN": [
+            "humanoid form",
+            "1other",
+            "young adult",
+            "short blue indigo bob",
+            "fox ears",
+            "seven branching fox tails",
+            "calm composed look",
+            "square hair pin",
+            "androgynous",
+            "casual study outfit"
+          ]
+        }
+      }
+    ],
     "RelationNotes": "「89(ヤスモ)」とは謎のシンパシーがある？",
     "NumerospecAbout": "対象の能力に応じ結果を保証する",
     "Summary": "知識や実力がいつか自分への報酬として還ってくると信じているナンバーテールズ。\nその信条から、資格取得や勉強のお供として契約する主人も多い。\nただ、周囲から「男性型や中性型ではないか」「女性らしくないのではないか」という感想が寄せられているが、彼女が言うには女性型らしい。\nあまり揶揄わないでいてあげよう。\n「89(ヤスモ)」と謎のシンパシーがあるようだ。",
@@ -4847,6 +5571,39 @@
     "SpecialSkill": "喧嘩の仲裁",
     "Favor": "平和",
     "Unlike": "混沌としたこと",
+    "IdentityMotif": [
+      {
+        "Formation": "corefolder",
+        "Motif": {
+          "Motif_JP": [
+            "コアフォルダ形態",
+            "その他1人",
+            "若い成人",
+            "茶色がかった暗赤色のショートヘア",
+            "狐の耳",
+            "枝分かれ狐の尾8本",
+            "厳しい表情で右目を閉じている",
+            "赤いヘアピン",
+            "シャツの上にブレザー",
+            "スカート",
+            "数字「18」マーキング"
+          ],
+          "Motif_EN": [
+            "corefolder form",
+            "1other",
+            "young adult",
+            "short brown dark red hair",
+            "fox ears",
+            "eight branching fox tails",
+            "stern with right eye closed",
+            "red hair pin",
+            "blazer over shirt",
+            "skirt",
+            "number '18' marking"
+          ]
+        }
+      }
+    ],
     "RelationNotes": "「19(トク)」を連れまわしている\n「9(チカ)」を警戒？しているが…",
     "NumerospecAbout": "リーダーシップを奮い立たせる\nこの効果は求められた時ほど効果が高くなる",
     "Summary": "責任感のあるリーダー気質なナンバーテールズで、行動を起こすべき主人の後押しも行っている。\nそのため、他のナンバーテールズから「エースポジション」と呼ばれている。\n「81(ヤイチ)」の姉に相当する個体だが、従姉でもある「19(トク)」と行動をとることもしばしば。\n「9(チカ)」の暴走？に警戒している。",
@@ -5092,6 +5849,39 @@
     "SpecialSkill": "チェス",
     "Favor": "サイコロ/ダイス\nルービックキューブ",
     "Unlike": "今乗り気じゃないこと",
+    "IdentityMotif": [
+      {
+        "Formation": "corefolder",
+        "Motif": {
+          "Motif_JP": [
+            "コアフォルダ形態",
+            "その他1人",
+            "若い成人",
+            "茶色がかった赤いショートヘア",
+            "乱れた髪",
+            "狐の耳",
+            "枝分かれ狐の尾9本",
+            "半目",
+            "黒いノースリーブトップス",
+            "ワイドレッグの濃い赤いパンツ",
+            "数字「19」マーキング"
+          ],
+          "Motif_EN": [
+            "corefolder form",
+            "1other",
+            "young adult",
+            "short brown red hair",
+            "messy hair",
+            "fox ears",
+            "nine branching fox tails",
+            "half-lidded eyes",
+            "sleeveless black top",
+            "wide-leg dark red pants",
+            "number '19' marking"
+          ]
+        }
+      }
+    ],
     "RelationNotes": "「89(ヤスモ)」に悪絡みしている",
     "NumerospecAbout": "節目を迎えたときに本領発揮する\n重要な場面で失敗させない",
     "Summary": "これまでの業績から一つの節目を迎える事例に特化した個体。\n完遂した業績に対する誇りや自信で調子に乗りやすいが、その次の業務も難なくこなすため憎みたくても憎めないと（色んな意味で）定評。\nしかしその風格に惹かれ、これから新しい取り組みをするベテラン級スキルを持つ中年層を中心に彼(女)を求める主人も少なくはない様子。\n趣味は“絵画用”ルービックキューブというが…？",
@@ -5338,6 +6128,70 @@
     "SpecialSkill": "手料理",
     "Favor": "大切な人の幸せ",
     "Unlike": "大切な人の不幸",
+    "IdentityMotif": [
+      {
+        "Formation": "corefolder",
+        "Motif": {
+          "Motif_JP": [
+            "コアフォルダ形態",
+            "その他1人",
+            "10代",
+            "銀白色の長い髪",
+            "狐の耳",
+            "狐の尾2本",
+            "穏やかな微笑み",
+            "ハート形のヘアモチーフ",
+            "長い白いオープンコート",
+            "オレンジ色のインナーウェア",
+            "大きな胸",
+            "数字「20」ベルト紋章"
+          ],
+          "Motif_EN": [
+            "corefolder form",
+            "1other",
+            "teenager",
+            "silver white long hair",
+            "fox ears",
+            "two fox tails",
+            "serene gentle smile",
+            "heart-shaped hair motif",
+            "long white open coat",
+            "orange inner wear",
+            "large breasts",
+            "number '20' belt emblem"
+          ]
+        }
+      },
+      {
+        "Formation": "humanoid",
+        "Motif": {
+          "Motif_JP": [
+            "ヒューマノイド形態",
+            "その他1人",
+            "10代",
+            "銀白色の長い髪",
+            "ハート形のヘアモチーフ",
+            "狐の耳",
+            "狐の尾2本",
+            "穏やかな微笑み",
+            "大きな胸",
+            "カジュアルなプライベート服装"
+          ],
+          "Motif_EN": [
+            "humanoid form",
+            "1other",
+            "teenager",
+            "silver white long hair",
+            "heart-shaped hair motif",
+            "fox ears",
+            "two fox tails",
+            "serene gentle smile",
+            "large breasts",
+            "casual private outfit"
+          ]
+        }
+      }
+    ],
     "RelationNotes": "「2(ツグ)」のサポートにも徹している\n「24(フトシ)」「42(ヨツグ)」と仲が良い",
     "NumerospecAbout": "主人を信じる＆主人の心の声を聴く\nこれによる効果は主人との信頼関係に大きく比例する",
     "Summary": "「2(ツグ)」の従妹に相当する個体で、本来2番機となる予定だった未完成個体「バイナ」の妹こと改良機である。\n主人の心の声を聴き主人を信じるという“加護”を持ち、主人との信頼関係が強ければ強いほど高い恩恵を発揮している。\n極めて優しく純粋な性格で、多くの人から好印象を持たれている。\n「24(フトシ)」「42(ヨツグ)」姉妹と仲が良く、3人でガールズトークしている一面も。",
@@ -5676,6 +6530,39 @@
     "SpecialSkill": "初見でRPG1作を21時間以内にクリアできる",
     "Favor": "感謝されること",
     "Unlike": "邪な思考",
+    "IdentityMotif": [
+      {
+        "Formation": "corefolder",
+        "Motif": {
+          "Motif_JP": [
+            "コアフォルダ形態",
+            "その他1人",
+            "10代前半",
+            "オレンジ色の髪",
+            "狐の耳",
+            "枝分かれ狐の尾2本",
+            "元気な満面の笑み",
+            "大きな暖かいオレンジ色のコート",
+            "小柄",
+            "中性的な外見",
+            "数字「21」マーキング"
+          ],
+          "Motif_EN": [
+            "corefolder form",
+            "1other",
+            "young teenager",
+            "orange hair",
+            "fox ears",
+            "two branching fox tails",
+            "energetic wide smile",
+            "oversized warm orange coat",
+            "short stature",
+            "androgynous presentation",
+            "number '21' marking"
+          ]
+        }
+      }
+    ],
     "RelationNotes": "「28(ニハチ)」の“加護”を暴走させている？\n姉「12(トウジ)」とはすれ違い気味だが…",
     "NumerospecAbout": "心を清らかにする",
     "Summary": "2種類の数字を持つ複合型で最初の個体である「12(トウジ)」の設計が調整された個体。\n無邪気さとポテンシャルの高さが好評のナンバーテールズで、特に人助けに積極的なこともあり周囲から信頼されている。\nただその一方で 他人への粘着など邪な思考に対し強い抵抗があったり、純粋さに反応する「28(ニハチ)」の“加護”を暴走させたりと自身の気質が裏目に出てしまうことも。",
@@ -5935,6 +6822,41 @@
     "SpecialSkill": "ビリヤード",
     "Favor": "丸くて転がるもの",
     "Unlike": "手玉に取られること",
+    "IdentityMotif": [
+      {
+        "Formation": "corefolder",
+        "Motif": {
+          "Motif_JP": [
+            "コアフォルダ形態",
+            "その他1人",
+            "10代",
+            "淡い金色の髪",
+            "狐の耳",
+            "サソリ型の分節尾2本",
+            "夢見るような柔らかな微笑み",
+            "星形のヘアオーナメント",
+            "金黄色の重ね着ドレス",
+            "大きな胸",
+            "腰のリボンサッシュ",
+            "数字「22」マーキング"
+          ],
+          "Motif_EN": [
+            "corefolder form",
+            "1other",
+            "teenager",
+            "pale golden hair",
+            "fox ears",
+            "two scorpion-type segmented tails",
+            "gentle dreamy soft smile",
+            "star hair ornament",
+            "golden yellow layered dress",
+            "large breasts",
+            "ribbon sash at waist",
+            "number '22' marking"
+          ]
+        }
+      }
+    ],
     "RelationNotes": "「44(シトシ)」にライバル意識がある？",
     "NumerospecAbout": "主人の偉業を保証する\n強力な加護のためこの効果の詳細は不明",
     "Summary": "ナンバーテールズ99人で群を抜いて強い加護を持ち、主人の奇跡的な達成を後押しするトップカースト。\nその実績は「マスターテールズ9」の中でも秀でており、主人に起業、新企画の成功、世界的快挙などをもたらすとかなりの評判。\n一方、その業績に反しおっとりでふわふわした性格や立ち振る舞いをするので、ギャップ萌えするとも定評。\nただ、尻尾については…",
@@ -6218,6 +7140,64 @@
     "SpecialSkill": "サーフィン",
     "Favor": "スリル\n面白い話",
     "Unlike": "堅苦しい仕事",
+    "IdentityMotif": [
+      {
+        "Formation": "corefolder",
+        "Motif": {
+          "Motif_JP": [
+            "コアフォルダ形態",
+            "その他1人",
+            "10代",
+            "ミントグリーンの髪",
+            "狐の耳",
+            "枝分かれ狐の尾3本",
+            "自信に満ちた冒険的な笑顔",
+            "緑のパーカー",
+            "アスレチックな服装",
+            "ワイドレッグパンツ",
+            "数字「23」マーキング"
+          ],
+          "Motif_EN": [
+            "corefolder form",
+            "1other",
+            "teenager",
+            "mint green hair",
+            "fox ears",
+            "three branching fox tails",
+            "confident adventurous smile",
+            "green hoodie",
+            "athletic outfit",
+            "wide-leg pants",
+            "number '23' marking"
+          ]
+        }
+      },
+      {
+        "Formation": "humanoid",
+        "Motif": {
+          "Motif_JP": [
+            "ヒューマノイド形態",
+            "その他1人",
+            "10代",
+            "ミントグリーンの髪",
+            "狐の耳",
+            "枝分かれ狐の尾3本",
+            "自信に満ちた冒険的な笑顔",
+            "カジュアルなプライベート服装"
+          ],
+          "Motif_EN": [
+            "humanoid form",
+            "1other",
+            "teenager",
+            "mint green hair",
+            "fox ears",
+            "three branching fox tails",
+            "confident adventurous smile",
+            "casual private outfit"
+          ]
+        }
+      }
+    ],
     "RelationNotes": "困ったときは「2(ツグ)」「3(ナオ)」を頼りがち\n「55(イソゴ)」に影響されている？",
     "NumerospecAbout": "主人の発想力を引き立てる",
     "Summary": "積極的で直感が鋭く発想力が旺盛。\n放浪癖があり、その場であった様々な経験からインスピレーションを得ているが、その分ふといなくなっては余計なことを連れて帰ってくることがある。\nおまけに、「2(ツグ)」と「3(ナオ)」へそこで起きたトラブルの後始末を任せている傾向にあるので、一部ナンバーテールズからは迷惑に思われている。\nただ、それは「55(イソゴ)」の影響とも？",
@@ -6511,6 +7491,70 @@
     "SpecialSkill": "片手で12連打できる",
     "Favor": "友情ドラマ",
     "Unlike": "失敗",
+    "IdentityMotif": [
+      {
+        "Formation": "corefolder",
+        "Motif": {
+          "Motif_JP": [
+            "コアフォルダ形態",
+            "その他1人",
+            "10代",
+            "ピンクの長い髪",
+            "狐の耳",
+            "枝分かれ狐の尾4本",
+            "控えめで物思いにふける表情",
+            "ハート形のヘアオーナメント",
+            "重ね着したピンクモーブのスカート",
+            "青いネッカチーフ",
+            "大きな胸",
+            "数字「24」マーキング"
+          ],
+          "Motif_EN": [
+            "corefolder form",
+            "1other",
+            "teenager",
+            "long pink hair",
+            "fox ears",
+            "four branching fox tails",
+            "reserved quietly thoughtful expression",
+            "heart-shaped hair ornament",
+            "layered pink mauve skirt",
+            "blue neckerchief",
+            "large breasts",
+            "number '24' marking"
+          ]
+        }
+      },
+      {
+        "Formation": "humanoid",
+        "Motif": {
+          "Motif_JP": [
+            "ヒューマノイド形態",
+            "その他1人",
+            "10代",
+            "ピンクの長い髪",
+            "狐の耳",
+            "枝分かれ狐の尾4本",
+            "控えめで物思いにふける表情",
+            "ハート形のヘアオーナメント",
+            "大きな胸",
+            "カジュアルなプライベート服装"
+          ],
+          "Motif_EN": [
+            "humanoid form",
+            "1other",
+            "teenager",
+            "long pink hair",
+            "fox ears",
+            "four branching fox tails",
+            "reserved quietly thoughtful expression",
+            "heart-shaped hair ornament",
+            "large breasts",
+            "casual private outfit"
+          ]
+        }
+      }
+    ],
     "RelationNotes": "「4(モチ)」と仲が良い\n2号機系[20(ハツカ),バイナ]を信頼している",
     "NumerospecAbout": "相手の望みを叶える\nただしこの効果は、相手が自分の心に正直になることで真価を発揮する",
     "Summary": "主人の心から願っている望みを叶えるという“加護”を（無自覚で）有している。\nそのためか主人との実績や彼女自身の自己実現も、十分にうまくいっており評価されている。\nただその一方で、控えめで受動的な性格が玉に瑕(きず)だと思われている。\n（本当は、望んだことが容易に叶って退屈している。）\n「20(ハツカ)」や「4(モチ)」と相性がいい傾向にある。",
@@ -6820,6 +7864,70 @@
     "SpecialSkill": "チョコレートづくり（温度管理が必要な料理）",
     "Favor": "先輩たち",
     "Unlike": "知らず知らず疲弊すること",
+    "IdentityMotif": [
+      {
+        "Formation": "corefolder",
+        "Motif": {
+          "Motif_JP": [
+            "コアフォルダ形態",
+            "その他1人",
+            "10代",
+            "スチールブルーのショートヘア",
+            "狐の耳",
+            "枝分かれ狐の尾5本",
+            "鋭く自信に満ちた表情",
+            "濃い装甲ボディスーツ",
+            "濃い青の手袋",
+            "葉のスカーフアクセサリー",
+            "大きな胸",
+            "ダイナミックなアスリートポーズ",
+            "数字「25」マーキング"
+          ],
+          "Motif_EN": [
+            "corefolder form",
+            "1other",
+            "teenager",
+            "steel blue short hair",
+            "fox ears",
+            "five branching fox tails",
+            "sharp confident expression",
+            "dark armored bodysuit",
+            "dark blue gloves",
+            "leaf scarf accessory",
+            "large breasts",
+            "athletic dynamic pose",
+            "number '25' marking"
+          ]
+        }
+      },
+      {
+        "Formation": "humanoid",
+        "Motif": {
+          "Motif_JP": [
+            "ヒューマノイド形態",
+            "その他1人",
+            "10代",
+            "スチールブルーのショートヘア",
+            "狐の耳",
+            "枝分かれ狐の尾5本",
+            "鋭く自信に満ちた表情",
+            "大きな胸",
+            "カジュアルなプライベート服装"
+          ],
+          "Motif_EN": [
+            "humanoid form",
+            "1other",
+            "teenager",
+            "steel blue short hair",
+            "fox ears",
+            "five branching fox tails",
+            "sharp confident expression",
+            "large breasts",
+            "casual private outfit"
+          ]
+        }
+      }
+    ],
     "RelationNotes": "「2(ツグ)」「5(イズ)」を「先輩」と慕っている",
     "NumerospecAbout": "どんな状況でもリラックスさせる\n同時に、適応力の向上も促す\nただしこの効果は能動的な作用である",
     "Summary": "勘と直感が鋭く、なおかつ自分が行っていることは何かしらの結果として実ると信じている。\nそのためか、この後何が起きようと適応力とそれに応じた前向き思考が極めて優れており、楽観的な性格ながら自己実現力があり有能。\nちなみに、彼女は他のナンバーテールズのうち「2(ツグ)」と「5(イズ)」のことを「先輩」と呼び尊敬し、2人に対しこの上なく好感を持っている。",
@@ -7160,6 +8268,39 @@
     "SpecialSkill": "コーディネート",
     "Favor": "愛情，マタニティに対する配慮",
     "Unlike": "無関心，憎悪，マタハラ",
+    "IdentityMotif": [
+      {
+        "Formation": "corefolder",
+        "Motif": {
+          "Motif_JP": [
+            "コアフォルダ形態",
+            "その他1人",
+            "若い成人",
+            "ピンクの長い髪",
+            "狐の耳",
+            "枝分かれ狐の尾6本",
+            "包み込むような微笑み",
+            "ピンクのノースリーブタートルネック",
+            "ローズピンクの長いマキシスカート",
+            "大きな胸",
+            "数字「26」マーキング"
+          ],
+          "Motif_EN": [
+            "corefolder form",
+            "1other",
+            "young adult",
+            "long pink hair",
+            "fox ears",
+            "six branching fox tails",
+            "gentle nurturing smile",
+            "pink sleeveless turtleneck",
+            "long rose-pink maxi skirt",
+            "large breasts",
+            "number '26' marking"
+          ]
+        }
+      }
+    ],
     "RelationNotes": "「16(ソロク)」を甘やかそうとしている\n「62(ロジ)」のおめかし用にコーディネートをよくしている\n「63(ムツミ)」とはママ友(ママ属性友達)らしいが、「26(ニロク)」自身は「63(ムツミ)」と比較意識があるようで…？",
     "NumerospecAbout": "愛情あふれる感性を恵む\n特に女性の魅力を高める効果が期待できる",
     "Summary": "女子力の高く温厚で思いやりの強い個体。\n優しさや愛情に対する理解がかなり深く、ファッションセンスも秀でている。\nしかしながらママ友(=ママ属性友達)である個体同士のコミュニティでは、自分に足りない優しさを追求するあまり「63(ムツミ)」相手を筆頭に少し比較意識がある。\n女子力に乏しい妹個体の「62(ロジ)」を着せ替え人形にしたり、秘かに「16(ソロク)」の甘え待ちをしたりと、稀に行き過ぎた女子本能が見える一面も。",
@@ -7429,6 +8570,72 @@
     "SpecialSkill": "推理",
     "Favor": "雑学集",
     "Unlike": "裏切り",
+    "IdentityMotif": [
+      {
+        "Formation": "corefolder",
+        "Motif": {
+          "Motif_JP": [
+            "コアフォルダ形態",
+            "その他1人",
+            "10代",
+            "青いショートヘア",
+            "サイドポニーテール",
+            "狐の耳",
+            "枝分かれ狐の尾7本",
+            "眼鏡",
+            "落ち着いた表情",
+            "白いブラウス",
+            "紫のプリーツスカート",
+            "青いレースアップアンクルブーツ",
+            "数字「27」マーキング"
+          ],
+          "Motif_EN": [
+            "corefolder form",
+            "1other",
+            "teenager",
+            "short blue hair",
+            "side ponytail",
+            "fox ears",
+            "seven branching fox tails",
+            "glasses",
+            "calm composed expression",
+            "white blouse",
+            "purple pleated skirt",
+            "blue lace-up ankle boots",
+            "number '27' marking"
+          ]
+        }
+      },
+      {
+        "Formation": "humanoid",
+        "Motif": {
+          "Motif_JP": [
+            "ヒューマノイド形態",
+            "その他1人",
+            "10代",
+            "青いショートヘア",
+            "サイドポニーテール",
+            "狐の耳",
+            "枝分かれ狐の尾7本",
+            "眼鏡",
+            "落ち着いた表情",
+            "カジュアルなプライベート服装"
+          ],
+          "Motif_EN": [
+            "humanoid form",
+            "1other",
+            "teenager",
+            "short blue hair",
+            "side ponytail",
+            "fox ears",
+            "seven branching fox tails",
+            "glasses",
+            "calm composed expression",
+            "casual private outfit"
+          ]
+        }
+      }
+    ],
     "RelationNotes": "「22(フジ)」「77(ナヅナ)」に弟子入りを…？",
     "NumerospecAbout": "知性を向上させる\nただしこの効果は、相手が自分を信じることで真価を発揮する",
     "Summary": "自らが学んできたことや経験を大切にしており、普段は優しい教師のような存在。\nしかしひとたび本気を出すと、自分の信じてきたものや経験をバネにどこまで先へ挑めるかを試そうとする好戦的な一面も併せ持つ。\nその本性じみた彼(女)の側面は、「22(フジ)」や「77(ナヅナ)」に弟子入りしようと考えているとか。\nちなみに仕様は大幅に異なるが、「72(ナフタ)」の同型に相当する。",
@@ -7728,6 +8935,43 @@
     "SpecialSkill": "素因数分解",
     "Favor": "数学、「28」という数字",
     "Unlike": "凶数の存在、見捨てられること",
+    "IdentityMotif": [
+      {
+        "Formation": "corefolder",
+        "Motif": {
+          "Motif_JP": [
+            "コアフォルダ形態",
+            "その他1人",
+            "若い成人",
+            "ウェーブしたオレンジ色の髪",
+            "狐の耳",
+            "枝分かれ狐の尾8本",
+            "ダングルイヤリング",
+            "数学的なボディタトゥー",
+            "グラマラスな長身体型",
+            "2パターンの衣装",
+            "腰のオレンジ色のリボンボウ",
+            "赤いブレザー",
+            "数字「28」マーキング"
+          ],
+          "Motif_EN": [
+            "corefolder form",
+            "1other",
+            "young adult",
+            "wavy orange hair",
+            "fox ears",
+            "eight branching fox tails",
+            "dangling earrings",
+            "mathematical body tattoo",
+            "curvy tall figure",
+            "two outfit variants",
+            "orange ribbon bow at waist",
+            "red blazer",
+            "number '28' marking"
+          ]
+        }
+      }
+    ],
     "RelationNotes": "「31(ミツイ)」と数学徒としてつながりがある\n「78(ナナハ)」と競っている一面が…？",
     "NumerospecAbout": "物乞いを叶える\nただしこの効果は対象者の純粋さに左右される",
     "Summary": "主人の物乞いや物欲を叶える才能があるとされていたが、最近はあまりその潜在能力の真価を発揮できず実績が下火傾向にある個体。\nその所為か 最近は人間や自分に自信が持てず性格もすれてきてしまった。\n物欲が強くアクセサリー系の収集にハマっているが、耳に付けているイヤリングはとても気に入っているので別の装飾に替えたことがない。\nちなみに、完全数である自分の数字「28」に強い信念がある数学徒のような一面もある。",
@@ -7997,6 +9241,39 @@
     "SpecialSkill": "嫌な予感が的中する",
     "Favor": "肌触りのいいもの",
     "Unlike": "サスペンスホラー",
+    "IdentityMotif": [
+      {
+        "Formation": "corefolder",
+        "Motif": {
+          "Motif_JP": [
+            "コアフォルダ形態",
+            "その他1人",
+            "10代",
+            "青みがかったラベンダーの長い髪",
+            "狐の耳",
+            "枝分かれ狐の尾9本",
+            "不安げな表情",
+            "ラベンダー色のケープ",
+            "首元の紫のボウリボン",
+            "やや大きめの胸",
+            "数字「29」マーキング"
+          ],
+          "Motif_EN": [
+            "corefolder form",
+            "1other",
+            "teenager",
+            "long blue-lavender hair",
+            "fox ears",
+            "nine branching fox tails",
+            "anxious expression",
+            "lavender cape",
+            "purple bow ribbon at neck",
+            "medium-large bust",
+            "number '29' marking"
+          ]
+        }
+      }
+    ],
     "RelationNotes": "「9(チカ)」と弟「92(コトジ)」とはすれ違い気味\n従弟/従妹「91(キュウイチ)」と仲がいい",
     "NumerospecAbout": "主人の辛い思いや悩みから解放する",
     "Summary": "彼女と契約すると、心の中に抱えている不安が解消されると噂されているが、彼女自身はかなりの不安体質。\nたまに周りのムードに流されたり、巻き込まれたりはするものの、それでも彼女は懸命に頑張っているところが愛おしい。\n先代個体である「9(チカ)」や弟の「92(コトジ)」とはすれ違い気味らしく、あまりやり取りをしていないという。\n代わりに、従弟[妹]の「91(キュウイチ)」とは対称的な性格であるものの仲が良い。",
@@ -8283,6 +9560,41 @@
     "SpecialSkill": "ゲーム開発",
     "Favor": "コアフォルダ形態\nぬいぐるみ",
     "Unlike": "血",
+    "IdentityMotif": [
+      {
+        "Formation": "corefolder",
+        "Motif": {
+          "Motif_JP": [
+            "コアフォルダ形態",
+            "その他1人",
+            "10代",
+            "金橙色の長いウェーブヘア",
+            "白いボウヘアオーナメント",
+            "狐の耳",
+            "標準型狐の尾3本",
+            "温かく明るい笑顔",
+            "黄橙色のエプロンドレス",
+            "ブレスレット",
+            "大きな胸",
+            "数字「30」マーキング"
+          ],
+          "Motif_EN": [
+            "corefolder form",
+            "1other",
+            "teenager",
+            "long wavy golden orange hair",
+            "white bow hair ornament",
+            "fox ears",
+            "three standard fox tails",
+            "warm cheerful smile",
+            "yellow-orange apron dress",
+            "wrist bracelet",
+            "large breasts",
+            "number '30' marking"
+          ]
+        }
+      }
+    ],
     "NumerospecAbout": "幸運を味方にする\nこの効果はイメージを具現化し運勢的なものに関与する",
     "Summary": "幸福感と創造力に溢れるナンバーテールズのオマセなムードメーカ。\nお人好しで少し背伸びをしたような様子は、周囲から愛着を持たれている。\n手芸やクラフトなどが得意で、妹の様な存在である「33(ミサ)」と一緒にぬいぐるみ製作をしている一面がよく見られる。\nコアフォルダ形態に強い愛着があり、ナンバーテールズの契約特典で贈呈されるコアフォルダ縫い(1/2スケール)の製作を進んで担っているらしい。",
     "NumerospecStats": {
@@ -8531,6 +9843,45 @@
     "SpecialSkill": "イベントで皆勤賞を取る",
     "Favor": "スタンプカード\n「31」という数字",
     "Unlike": "病欠や事故による欠席",
+    "IdentityMotif": [
+      {
+        "Formation": "corefolder",
+        "Motif": {
+          "Motif_JP": [
+            "コアフォルダ形態",
+            "その他1人",
+            "10代",
+            "青シアンのショートヘア",
+            "狐の耳",
+            "枝分かれ狐の尾3本（逆下部構造）",
+            "元気で競争心あふれる笑み",
+            "赤いフレームのゴーグル",
+            "アスレチックな服装",
+            "黄色いショートパンツ",
+            "ブーツ付きサイハイソックス",
+            "ボーイッシュな外見",
+            "小柄",
+            "数字「31」マーキング"
+          ],
+          "Motif_EN": [
+            "corefolder form",
+            "1other",
+            "teenager",
+            "short blue-cyan hair",
+            "fox ears",
+            "three branching fox tails (inverted lower structure)",
+            "energetic competitive grin",
+            "red-frame goggles",
+            "athletic outfit",
+            "yellow shorts",
+            "thigh-high socks with boots",
+            "tomboy presentation",
+            "small stature",
+            "number '31' marking"
+          ]
+        }
+      }
+    ],
     "RelationNotes": "「28(ニハチ)」と数学徒としてつながりがある",
     "NumerospecAbout": "主人の行いを引き立てる",
     "Summary": "挑戦したことに対する向上意欲が旺盛で、一度挑んだら諦めないという一途な人柄が評判。\nそのことから、彼女といると日頃の行いが良い方向に広がっていくとも主人たちに支持されている。\n一方で自分の掲げる数字「31」に対する愛着が強く、“メルセンヌ素数”をこよなく好むイタい数学学徒な一面も。\n同様に“完全数”を好む「28(ニハチ)」と縁があるとか。",
@@ -8794,6 +10145,41 @@
     "SpecialSkill": "チーム開発を取り仕切る",
     "Favor": "二次会\nパーティーゲーム",
     "Unlike": "孤独感\n姉に起因する始末書",
+    "IdentityMotif": [
+      {
+        "Formation": "corefolder",
+        "Motif": {
+          "Motif_JP": [
+            "コアフォルダ形態",
+            "その他1人",
+            "10代",
+            "ミントグリーンのショートヘア",
+            "狐の耳",
+            "枝分かれ狐の尾3本（下部二重逆構造）",
+            "自信ありげなウィンクの表情",
+            "カジュアルなオープンカラージャケット",
+            "黄色い斜め縞アクセント",
+            "ワイドレッグの黄色いパンツ",
+            "性別中立な外見",
+            "数字「32」マーキング"
+          ],
+          "Motif_EN": [
+            "corefolder form",
+            "1other",
+            "teenager",
+            "short mint green hair",
+            "fox ears",
+            "three branching fox tails (double-inverted lower)",
+            "confident winking expression",
+            "casual open-collar jacket",
+            "yellow diagonal stripe accent",
+            "wide-leg yellow pants",
+            "gender-neutral presentation",
+            "number '32' marking"
+          ]
+        }
+      }
+    ],
     "RelationNotes": "姉「23(ツグミ)」に対して難は無いと自称しているが…",
     "NumerospecAbout": "相手の思考を読み交流を深める",
     "Summary": "コミュニケーション力が高く発想も個性的で奇抜。\nそのため、チームやグループでの活動で取り仕切り役として買って出ることが多い。\nその分誰かと交流してない日が続くと、異様に寂しがることがある。\nしかしながら心を読むこともとりわけ得意なため、他人や他のナンバーテールズに悪絡みしたり苦労したりすることは無い。\nただ、姉個体「23(ツグミ)」に対しては…？",
@@ -9046,6 +10432,45 @@
     "SpecialSkill": "ほぼなんでも",
     "Favor": "可愛い手芸品",
     "Unlike": "失敗\n自分にできないこと",
+    "IdentityMotif": [
+      {
+        "Formation": "corefolder",
+        "Motif": {
+          "Motif_JP": [
+            "コアフォルダ形態",
+            "その他1人",
+            "10代前半",
+            "オレンジピンクの長い編み込みヘア",
+            "大きなピンクのボウリボン",
+            "狐の耳",
+            "扇型狐の尾3本（2束×3）",
+            "高慢な表情（オンラインモード）",
+            "涙目の表情（オフラインモード）",
+            "背の高い尖ったとんがり帽子",
+            "ピンクの重ね着ドレス",
+            "赤いベルト",
+            "白いフリルカラー",
+            "数字「33」マーキング"
+          ],
+          "Motif_EN": [
+            "corefolder form",
+            "1other",
+            "young teenager",
+            "long orange-pink braided hair",
+            "large pink bow ribbon",
+            "fox ears",
+            "three fan-shaped fox tails (2-bundle x 3)",
+            "haughty expression (online mode)",
+            "teary expression (offline mode)",
+            "tall pointed peaked hat",
+            "pink layered dress",
+            "red belt",
+            "white ruffle collar",
+            "number '33' marking"
+          ]
+        }
+      }
+    ],
     "RelationNotes": "「30(ミツト)」に妙な愛着が…？",
     "NumerospecAbout": "全域の知識および技能を習得できる（ROSの機能で）\nただし発動条件としてオンライン状態である必要がある",
     "Summary": "オンライン上で様々な知識と機能を自ら実装するシステムにより、99人の中でも最も万能な個体。\nその優れた性能は「全知全能」と称されるほど。\nそれを追い風に、様々なことに対して自分が「可能であること」と捉え、自信と誇りに満ち溢れている。\nしかし「不可能だったこと」への耐性が極めて弱く、そこを突かれて玩ばれることも。\n「30(ミツト)」に謎の親近感が…？",
@@ -9313,6 +10738,41 @@
     "SpecialSkill": "ギャンブルで誰が負けるかの予想",
     "Favor": "一騎当千できるアクションゲーム",
     "Unlike": "妥協",
+    "IdentityMotif": [
+      {
+        "Formation": "corefolder",
+        "Motif": {
+          "Motif_JP": [
+            "コアフォルダ形態",
+            "その他1人",
+            "10代前半",
+            "濃い紺色のショートヘア",
+            "狐の耳",
+            "枝分かれ狐の尾4本（上部3幹）",
+            "策略的なニヤリ",
+            "番号入りアスレチックジャージ",
+            "青いショートパンツ",
+            "バックパック",
+            "小柄",
+            "数字「34」マーキング"
+          ],
+          "Motif_EN": [
+            "corefolder form",
+            "1other",
+            "young teenager",
+            "short dark navy blue hair",
+            "fox ears",
+            "four branching fox tails (triple upper trunk)",
+            "scheming grin",
+            "athletic numbered jersey",
+            "blue shorts",
+            "backpack",
+            "small stature",
+            "number '34' marking"
+          ]
+        }
+      }
+    ],
     "RelationNotes": "妹個体「43(シトミ)」に誘発されてあらぬ事態を引き起こすことも……",
     "NumerospecAbout": "規模を発展させる",
     "Summary": "営業力が全個体で群を抜いて高いため、彼(女)が行っている副業は必ず成功している。\nただ主従契約の収益に問題こそないものの、不要に事態を肥大化させようとする蛇足癖があるため、あらぬ被害を招いている。\nそのためナンバーテールズの活動そのものを大きく暴走させかねないことから、開発者「百(ハゲム)」の胃を壊している。\nちなみに、アンチからの通称は「サンジ(惨事)」。",
@@ -9569,6 +11029,43 @@
     "SpecialSkill": "お祓い",
     "Favor": "掃除・整理整頓",
     "Unlike": "危険予知を疎かにしている環境",
+    "IdentityMotif": [
+      {
+        "Formation": "corefolder",
+        "Motif": {
+          "Motif_JP": [
+            "コアフォルダ形態",
+            "その他1人",
+            "10代",
+            "オレンジ色のミディアムヘア",
+            "狐の耳",
+            "枝分かれ狐の尾5本（上部3幹・角状先端）",
+            "落ち着いた表情",
+            "2パターンの衣装",
+            "オレンジ色のノースリーブベスト（通常）",
+            "ネクタイ（通常）",
+            "白い着物とオレンジ色の袴（巫女）",
+            "御幣（巫女）",
+            "数字「35」マーキング"
+          ],
+          "Motif_EN": [
+            "corefolder form",
+            "1other",
+            "teenager",
+            "medium orange hair",
+            "fox ears",
+            "five branching fox tails (triple upper trunk, angular tips)",
+            "calm composed expression",
+            "two outfit variants",
+            "orange sleeveless vest (usual)",
+            "necktie (usual)",
+            "white robe with orange hakama (miko)",
+            "gohei stick (miko)",
+            "number '35' marking"
+          ]
+        }
+      }
+    ],
     "NumerospecAbout": "物事や進捗を発展させる",
     "Summary": "感覚的な才能に恵まれており、主人たちの物事の進展に大きく貢献している。\n加えて整理整頓や清掃を得意とする几帳面さも相まって、個人だけでなく企業との主従契約でも今後実績が期待されている。\nちなみに副業で巫女活動も展開しており、その清掃能力から庭園を保全したり、動作が繊細なお祓いの儀式にも定評がある。\nこのことに対し本人は曰く、「番号の語呂で軽率に勧められただけで、本業にするつもりは全くない」とのことだが、本業と同程度に実績があるのは言うまでもない。",
     "NumerospecStats": {
@@ -9838,6 +11335,43 @@
     "SpecialSkill": "ラッピング",
     "Favor": "開運グッズ",
     "Unlike": "お化け",
+    "IdentityMotif": [
+      {
+        "Formation": "corefolder",
+        "Motif": {
+          "Motif_JP": [
+            "コアフォルダ形態",
+            "その他1人",
+            "10代",
+            "オレンジ色のショートミディアムヘア",
+            "大きくふわふわした広がり狐の耳",
+            "枝分かれ狐の尾6本（上部3幹）",
+            "優しい微笑み",
+            "ビクトリアン・ロリータドレス",
+            "オレンジ色のボレロジャケット",
+            "紫ピンクのボタン前面スカート",
+            "フリルとレースの細部",
+            "胸元のボウリボン",
+            "数字「36」マーキング"
+          ],
+          "Motif_EN": [
+            "corefolder form",
+            "1other",
+            "teenager",
+            "orange short-medium hair",
+            "oversized fluffy flared fox ears",
+            "six branching fox tails (triple upper trunk)",
+            "gentle caring smile",
+            "Victorian-lolita dress",
+            "orange bolero jacket",
+            "purple-pink button-front skirt",
+            "ruffle and lace details",
+            "bow ribbon at chest",
+            "number '36' marking"
+          ]
+        }
+      }
+    ],
     "RelationNotes": "「6(ムイ)」「30(ミツト)」に似たものがあり、彼女自身も見習っている一面がある",
     "NumerospecAbout": "豊かさを分け与える\nただしその相手が目前に居る必要がある",
     "Summary": "愛し愛されたい体質で、愛情表現を大切にしている。\n特に、母性的な感性を重んじる「6(ムイ)」と幸愛的な感性を持つ「30(ミツト)」に対しては似たものが大いにあり、彼女自身も見習っている一面がある。\nまた、そばにいる人に豊かさを分け与えるという“加護”を持つ個体で、主人に時の運をもたらすことでも定評。\nしかし彼女自身の運はというと…",
@@ -10128,6 +11662,64 @@
     "SpecialSkill": "猫に懐かれる",
     "Favor": "頭を撫でられること",
     "Unlike": "針",
+    "IdentityMotif": [
+      {
+        "Formation": "corefolder",
+        "Motif": {
+          "Motif_JP": [
+            "コアフォルダ形態",
+            "その他1人",
+            "若い成人",
+            "サーモンピンクのショートヘア",
+            "狐の耳",
+            "枝分かれ狐の尾7本（上部3幹）",
+            "真剣な表情",
+            "青いトリム付き赤いブレザー",
+            "黄色いネクタイ",
+            "白いショートパンツ",
+            "「37」番号ピン"
+          ],
+          "Motif_EN": [
+            "corefolder form",
+            "1other",
+            "young adult",
+            "short salmon-pink hair",
+            "fox ears",
+            "seven branching fox tails (triple upper trunk)",
+            "earnest expression",
+            "red blazer with blue trim",
+            "yellow necktie",
+            "white shorts",
+            "'37' numbered pin"
+          ]
+        }
+      },
+      {
+        "Formation": "humanoid",
+        "Motif": {
+          "Motif_JP": [
+            "ヒューマノイド形態",
+            "女の子1人",
+            "若い成人",
+            "サーモンピンクのショートヘア",
+            "狐の耳",
+            "枝分かれ狐の尾7本（上部3幹）",
+            "真剣で勤勉な表情",
+            "カジュアルなプライベート服装"
+          ],
+          "Motif_EN": [
+            "humanoid form",
+            "1girl",
+            "young adult",
+            "short salmon-pink hair",
+            "fox ears",
+            "seven branching fox tails (triple upper trunk)",
+            "earnest diligent expression",
+            "casual private outfit"
+          ]
+        }
+      }
+    ],
     "RelationNotes": "従妹「47(シナ)」に興味がある？",
     "NumerospecAbout": "主人の努力を報わせる\nこの効果は主人の努力による学びが深いほど拡大する",
     "Summary": "努力家な主人を報わせると好評なナンバーテールズ。\n勤勉で知的向上心が旺盛な真面目ポジションで、主人層だけでなく他のナンバーテールズからも信頼されているが、褒められると99人の中で群を抜くレベルで甘えてしまう一面がある。\n従妹の「47(シナ)」に対して、他のナンバーテールズとは異なる感性や言動に興味があるようで…？",
@@ -10511,6 +12103,64 @@
     "SpecialSkill": "スタント",
     "Favor": "ボードゲーム",
     "Unlike": "無様な敗北",
+    "IdentityMotif": [
+      {
+        "Formation": "corefolder",
+        "Motif": {
+          "Motif_JP": [
+            "コアフォルダ形態",
+            "男の子1人",
+            "若い成人男性",
+            "琥珀金髪のショートヘア",
+            "狐の耳",
+            "枝分かれ狐の尾9本（上部3幹・円形花弁状配置）",
+            "クールな落ち着いた表情",
+            "長い濃い茶色のトレンチコート",
+            "腰のベルト",
+            "ゆったりとしたパンツ",
+            "長身男性体型"
+          ],
+          "Motif_EN": [
+            "corefolder form",
+            "1boy",
+            "young adult male",
+            "short amber-blonde hair",
+            "fox ears",
+            "nine branching fox tails (triple upper trunk, circular petal formation)",
+            "cool composed expression",
+            "long dark brown trench coat",
+            "belt at waist",
+            "wide relaxed pants",
+            "tall masculine stature"
+          ]
+        }
+      },
+      {
+        "Formation": "humanoid",
+        "Motif": {
+          "Motif_JP": [
+            "ヒューマノイド形態",
+            "男の子1人",
+            "若い成人男性",
+            "琥珀金髪のショートヘア",
+            "狐の耳",
+            "枝分かれ狐の尾9本（上部3幹・円形花弁状配置）",
+            "クールな落ち着いた表情",
+            "カジュアルなプライベート服装"
+          ],
+          "Motif_EN": [
+            "humanoid form",
+            "1boy",
+            "young adult male",
+            "short amber-blonde hair",
+            "fox ears",
+            "nine branching fox tails (triple upper trunk, circular petal formation)",
+            "cool composed expression",
+            "casual private outfit"
+          ]
+        }
+      }
+    ],
     "RelationNotes": "なぜか女装を勧められる「61(ロクイチ)」とは大の犬猿の仲",
     "NumerospecAbout": "主人の邪魔をするものに対し対抗心を奮い立たせる\nただし発動条件として主人との信頼関係が必要",
     "Summary": "主人と自分の効率のために無駄や不要なことをできるだけ排除することをモットーとしており、使えないことや行動の邪魔になることに対しかなりドライな印象を持たれている。\nただこう見えてリアリストではないようで、夢や意志を貶す人々と差を広げようと対抗心を燃やす熱血漢な一面も。\nなお、ナンバーテールズの中では珍しい男性個体である。",
@@ -10835,6 +12485,39 @@
     "SpecialSkill": "食器の修繕、建前",
     "Favor": "紅茶(の香り)、感謝されること",
     "Unlike": "本音や感情ばかりの気難しい話",
+    "IdentityMotif": [
+      {
+        "Formation": "corefolder",
+        "Motif": {
+          "Motif_JP": [
+            "コアフォルダ形態",
+            "その他1人",
+            "10代",
+            "ティールのサイドブレイドヘア",
+            "狐の耳",
+            "標準型狐の尾4本（枝なし）",
+            "中立的・諦めた表情",
+            "長く流れるティールブルーのドレス",
+            "輝くダイヤ/無限魔法紋章",
+            "ティールのレースアップロングブーツ",
+            "神秘的なジーニーの雰囲気"
+          ],
+          "Motif_EN": [
+            "corefolder form",
+            "1other",
+            "teenager",
+            "teal side-braid hair",
+            "fox ears",
+            "four standard fox tails (non-branching)",
+            "neutral resigned expression",
+            "long flowing teal-blue dress",
+            "glowing diamond/infinity magical emblem",
+            "teal lace-up tall boots",
+            "mystical genie aesthetic"
+          ]
+        }
+      }
+    ],
     "NumerospecAbout": "実現化する\nこの効果は限度制限がある。行動や意志に呼応するらしいが、条件や効果事例が多様なため詳細は不明",
     "Summary": "「願いや望みを４つだけ叶えてくれる」という謎の風の噂が後を絶たず、一部界隈から“魔人”や“仙人”などと言われている。\n当の本人もその評判に恥じない達観した風格をしている……が、それはあくまでも演出にすぎず、珍妙な実績が吹聴されて引くに引けなくなっただけ。\n実際はドが付くほど苦労人であることを、お得意の建前で包み隠しているらしい。",
     "NumerospecStats": {
@@ -11075,6 +12758,41 @@
     "SpecialSkill": "カード透視（カードなどが配られた場所をほぼすべて把握する）",
     "Favor": "賭けゲーム",
     "Unlike": "胸糞の悪い話",
+    "IdentityMotif": [
+      {
+        "Formation": "corefolder",
+        "Motif": {
+          "Motif_JP": [
+            "コアフォルダ形態",
+            "その他1人",
+            "10代",
+            "狐の耳",
+            "枝分かれ狐の尾4本",
+            "青みがかった灰色のショートヘア",
+            "青みがかった灰色の目",
+            "開いたティールのブレザー",
+            "サーモンピンクのボタンアップシャツ",
+            "青灰色のショートパンツ",
+            "白い膝上ソックス",
+            "シアンの靴"
+          ],
+          "Motif_EN": [
+            "corefolder form",
+            "1other",
+            "teenager",
+            "fox ears",
+            "branching fox 4 tails",
+            "short blue-gray hair",
+            "blue-gray eyes",
+            "open teal blazer",
+            "salmon-pink button-up shirt",
+            "blue-gray shorts",
+            "white knee-high socks",
+            "cyan shoes"
+          ]
+        }
+      }
+    ],
     "RelationNotes": "確率計算のできる「58(イソヤ)」とは好きなポーカーや賭けゲームを一切持ち込めずにいる",
     "NumerospecAbout": "失敗する恐れ/可能性を中和する\nこれにより自分の行動に自信を持たせることもある",
     "Summary": "新しい試みに怖気づくことなく、常に挑戦的に行動しているチャレンジャー。\nいつも楽観的で自信に溢れている気質は、周囲にも好評価を賜っている。\nただそのせいか、コアフォルダ形態でも無理やり動けると頑固に信じている様子。\n運動機能が優れず身体動作が不器用ではあるが、ほぼ全てのカード位置を記憶する“カード透視”を得意とするため賭けポーカーでは無類の強さを誇っている。",
@@ -11363,6 +13081,72 @@
     "SpecialSkill": "面倒な男を振り払うこと",
     "Favor": "フィギュア",
     "Unlike": "失敗\n宗教勧誘",
+    "IdentityMotif": [
+      {
+        "Formation": "corefolder",
+        "Motif": {
+          "Motif_JP": [
+            "コアフォルダ形態",
+            "女の子1人",
+            "10代",
+            "狐の耳",
+            "枝分かれ狐の尾4本",
+            "ハートアホ毛付きピンクの長いツインテール",
+            "青い目",
+            "ライトピンクの長いブレザー",
+            "ライトブルーのアームウォーマー",
+            "青灰色のショートパンツ",
+            "白いソックス",
+            "ピンクの靴"
+          ],
+          "Motif_EN": [
+            "corefolder form",
+            "1girl",
+            "teenager",
+            "fox ears",
+            "branching fox 4 tails",
+            "long pink twin-tails with heart ahoge",
+            "blue eyes",
+            "light pink long blazer",
+            "light blue arm warmers",
+            "blue-gray shorts",
+            "white socks",
+            "pink shoes"
+          ]
+        }
+      },
+      {
+        "Formation": "humanoid",
+        "Motif": {
+          "Motif_JP": [
+            "ヒューマノイド形態",
+            "女の子1人",
+            "10代",
+            "狐の耳",
+            "枝分かれ狐の尾4本",
+            "ハートアホ毛付きピンクの長いツインテール",
+            "青い目",
+            "白い襟付きピンクのパフスリーブブラウス",
+            "「42」のカラー先端刺繍",
+            "ツインテールの根元に青いリボン",
+            "ライトブルーのアームウォーマー"
+          ],
+          "Motif_EN": [
+            "humanoid form",
+            "1girl",
+            "teenager",
+            "fox ears",
+            "branching fox 4 tails",
+            "long pink twin-tails with heart ahoge",
+            "blue eyes",
+            "pink puff-sleeve blouse with white collar",
+            "'42' embroidery on the collar tip",
+            "blue ribbon ties at the twin-tail bases",
+            "light blue arm warmers"
+          ]
+        }
+      }
+    ],
     "NumerospecAbout": "心に抱えている弱気を中和する",
     "Summary": "主人が心に抱えている弱気を中和するという“加護”を（無自覚で）有している。\nそのためか、恐れや心配の文字を彼女から連想できないほどの自信家で、理想がやや高く我儘な言動もとりがち。\nしかしそれで中高度に上げられた彼女または主人の思惑が、不思議と欲求不満にならない以上に実現されている事例が多い。\nさらには一部の主人から固執・溺愛されるほどに大好評らしく…？",
     "NumerospecStats": {
@@ -11655,6 +13439,41 @@
     "SpecialSkill": "挑発",
     "Favor": "ボイスチャット、姉(兄)を弄り倒すこと",
     "Unlike": "配慮",
+    "IdentityMotif": [
+      {
+        "Formation": "corefolder",
+        "Motif": {
+          "Motif_JP": [
+            "コアフォルダ形態",
+            "女の子1人",
+            "10代前半（低年齢寄り）",
+            "狐の耳",
+            "枝分かれ狐の尾4本",
+            "濃い紺色のショートヘア",
+            "琥珀色の目",
+            "「43」マーク入り濃紺のポロシャツ",
+            "灰色のショートパンツ",
+            "濃紺のサイハイソックス",
+            "濃紺のブーツ",
+            "ゲームコントローラーを持っている"
+          ],
+          "Motif_EN": [
+            "corefolder form",
+            "1girl",
+            "early teenager",
+            "fox ears",
+            "branching fox 4 tails",
+            "short dark navy hair",
+            "amber eyes",
+            "dark navy polo shirt with '43' marking",
+            "gray shorts",
+            "dark navy thigh-high socks",
+            "dark navy boots",
+            "holding game controller"
+          ]
+        }
+      }
+    ],
     "NumerospecAbout": "望みを広げる",
     "Summary": "消極的思考を抑えるメンター効果があるとされており、一時期注目を浴びていた個体。\nしかし自己中心的で挑発的な性格もあり、ネット上で泣かされキャラが確立してしまっている。\n趣味で対戦ゲームをよくするため、現在は主従契約のご縁よりゲームやボイスチャットでのご縁が多い。\n「34(サトシ)」などといった他個体を煽り、とんでもないフラグを建ててしまうことも。",
     "NumerospecStats": {
@@ -11909,6 +13728,41 @@
     "SpecialSkill": "出目操作",
     "Favor": "感情が昂るもの",
     "Unlike": "絶対に不可能なこと",
+    "IdentityMotif": [
+      {
+        "Formation": "corefolder",
+        "Motif": {
+          "Motif_JP": [
+            "コアフォルダ形態",
+            "男の子1人",
+            "10代",
+            "狐の耳",
+            "枝分かれ狐の尾4本",
+            "金褐色のポニーテール",
+            "スチールブルーの目",
+            "ライトティールのベスト",
+            "オレンジ色のショートパンツ",
+            "茶色の手袋",
+            "白いレッグウォーマー",
+            "オレンジ色のブーツ"
+          ],
+          "Motif_EN": [
+            "corefolder form",
+            "1boy",
+            "teenager",
+            "fox ears",
+            "branching fox 4 tails",
+            "golden-tan ponytail",
+            "steel-blue eyes",
+            "light teal vest",
+            "orange shorts",
+            "brown gloves",
+            "white leg warmers",
+            "orange boots"
+          ]
+        }
+      }
+    ],
     "RelationNotes": "「33(ミサ)」に自我が強いだけなどと評され毛嫌いされている\n「72(ナフタ)」を筆頭に煙たがれる\n「52(イツギ)」と友好的だが、すれ違い気味なようで…？",
     "NumerospecAbout": "思いを具現化する",
     "Summary": "「想いを具現化する」“加護”を持ち、これまで数多くの主人が掲げてきた熱意や祈願を叶えてきたナンバーテールズの「ミッションインポッシブル」。\n勇敢で果敢な好青年で、正義感と実現意欲が群を抜いて高い姿勢は、どの主人からも熱い支持を賜っている。\nしかし彼の同クラス「マスターテールズ９」の特定個体からは、「ただ自我が強いだけ」「諦めが悪すぎる」という辛辣な指摘を受けているらしい。\nなお「男（の娘）」である、一応は。",
@@ -12161,6 +14015,37 @@
     "SpecialSkill": "和太鼓",
     "Favor": "伝統工芸品",
     "Unlike": "風評被害",
+    "IdentityMotif": [
+      {
+        "Formation": "corefolder",
+        "Motif": {
+          "Motif_JP": [
+            "コアフォルダ形態",
+            "その他1人",
+            "10代",
+            "狐の耳",
+            "枝分かれ狐の尾5本",
+            "黒い短いポニーテール",
+            "ティールの目",
+            "濃い藍紫色のチュニックドレス",
+            "ティールのパンツ",
+            "ティールのサンダル"
+          ],
+          "Motif_EN": [
+            "corefolder form",
+            "1other",
+            "teenager",
+            "fox ears",
+            "branching fox 5 tails",
+            "short black ponytail",
+            "teal eyes",
+            "dark indigo-purple tunic dress",
+            "teal pants",
+            "teal sandals"
+          ]
+        }
+      }
+    ],
     "NumerospecAbout": "主人を奮い立たせる\n特に主人が行動を起こすべき立場にあると発動する",
     "Summary": "稲妻を落とす雷神のように相手に衝動を与え、風を送る風神のように相手を奮い立たせる“加護”を持ち、変化を起こすことを必要としている多くの主人を後押ししている。\nもちろんそれはおおむね攻撃的な目的ではないので、彼(女)が従事した主人が愛と勇気をもった「正義の味方」に成長すると定評。\nただ、本人は平穏とした生き方を好んでおり…",
     "NumerospecStats": {
@@ -12394,6 +14279,39 @@
     "SpecialSkill": "会話の話題作り",
     "Favor": "楽しいこと全般",
     "Unlike": "楽しめないこと全般\nおとなしくすること",
+    "IdentityMotif": [
+      {
+        "Formation": "corefolder",
+        "Motif": {
+          "Motif_JP": [
+            "コアフォルダ形態",
+            "その他1人",
+            "10代前半（低年齢寄り）",
+            "狐の耳",
+            "枝分かれ狐の尾6本",
+            "青いショートヘア",
+            "赤い目",
+            "赤いトリム付き青いジャケット",
+            "ピンクのシャツ",
+            "白いショートパンツ",
+            "青いブーツ"
+          ],
+          "Motif_EN": [
+            "corefolder form",
+            "1other",
+            "early teenager",
+            "fox ears",
+            "branching fox 6 tails",
+            "short blue hair",
+            "red eyes",
+            "blue jacket with red trim",
+            "pink shirt",
+            "white shorts",
+            "blue boots"
+          ]
+        }
+      }
+    ],
     "NumerospecAbout": "楽しませる",
     "Summary": "ナンバーテールズの中では珍しく、「感情的な衝動」を癒し以上にもたらす「4+6型」個体の一つ。\nやや気性の荒く落ち着きがない様子は他の個体を見比べても浮いて見えてしまう程だが、その様子に感化され「楽しむこと」を思い出させてくれたという感想を極めて限られた層から賜っている。\nしかし実績と人気度に長らく恵まれず、実況の副業をして赤字を埋めている。",
     "NumerospecStats": {
@@ -12641,6 +14559,68 @@
     "SpecialSkill": "ババ抜き",
     "Favor": "七夕",
     "Unlike": "雷",
+    "IdentityMotif": [
+      {
+        "Formation": "corefolder",
+        "Motif": {
+          "Motif_JP": [
+            "コアフォルダ形態",
+            "女の子1人",
+            "10代",
+            "狐の耳",
+            "枝分かれ狐の尾7本",
+            "ラベンダーパープルの長い髪",
+            "ピンクの目",
+            "ピンクリボン付き紫のトップス",
+            "ピンクのスカート",
+            "白い膝上ソックス",
+            "紫の靴"
+          ],
+          "Motif_EN": [
+            "corefolder form",
+            "1girl",
+            "teenager",
+            "fox ears",
+            "branching fox 7 tails",
+            "long lavender-purple hair",
+            "pink eyes",
+            "purple top with pink ribbon",
+            "pink skirt",
+            "white knee-high socks",
+            "purple shoes"
+          ]
+        }
+      },
+      {
+        "Formation": "humanoid",
+        "Motif": {
+          "Motif_JP": [
+            "ヒューマノイド形態",
+            "女の子1人",
+            "10代",
+            "狐の耳",
+            "枝分かれ狐の尾7本",
+            "ラベンダーパープルの長い髪",
+            "ピンクの目",
+            "「47」紋章付き青いタンクトップレオタード",
+            "白いダイヤ柄付き青いアームウォーマー",
+            "青いチョーカー"
+          ],
+          "Motif_EN": [
+            "humanoid form",
+            "1girl",
+            "teenager",
+            "fox ears",
+            "branching fox 7 tails",
+            "long lavender-purple hair",
+            "pink eyes",
+            "blue tank-top leotard with '47' emblem",
+            "blue arm warmers with white diamond pattern",
+            "blue choker"
+          ]
+        }
+      }
+    ],
     "NumerospecAbout": "ナンバーテールズの加護を認知できる（なお認知できるものはこの限りではない）",
     "Summary": "ナンバーテールズの中では他に類を見ない、自らが持っている”加護”を体感できるという極めて高い感受性を持っており、決断にブレが全くなく自信家である。\nなおその“加護”は他の98人にも気づくことができるはずとも思っているが、他の98人の大半は無自覚なので信じられずにいる。\nただ、応援してくれる存在としても彼女に好感を持つナンバーテールズも居るようだ。",
     "NumerospecStats": {
@@ -12960,6 +14940,39 @@
     "SpecialSkill": "データ分析",
     "Favor": "学園番長の存在",
     "Unlike": "怠惰な人",
+    "IdentityMotif": [
+      {
+        "Formation": "corefolder",
+        "Motif": {
+          "Motif_JP": [
+            "コアフォルダ形態",
+            "男の子1人",
+            "若い成人",
+            "狐の耳",
+            "枝分かれ狐の尾8本",
+            "青いショートヘア",
+            "青い目",
+            "青い制服ジャケット",
+            "ライトブルーのシャツ",
+            "紺のパンツ",
+            "茶色のブーツ"
+          ],
+          "Motif_EN": [
+            "corefolder form",
+            "1boy",
+            "young adult",
+            "fox ears",
+            "branching fox 8 tails",
+            "short blue hair",
+            "blue eyes",
+            "blue uniform jacket",
+            "light blue shirt",
+            "navy pants",
+            "brown boots"
+          ]
+        }
+      }
+    ],
     "NumerospecAbout": "現実をよりよくする\nこの効果は対象が現実逃避していない時に真価を発揮する",
     "Summary": "マーケティングやビジネススキルなどに精通しており、副業や事業展開を目標とする主人層から好評を受けている。\n至って紳士的で勤勉な気質だと表向きでは評されているが、本性的には喧嘩っ早く勝気の強い性格にどこか憧れを感じているらしい。\n理想を現実にするためにあの手この手を尽くそうとする頑固な一面も。",
     "NumerospecStats": {
@@ -13221,6 +15234,66 @@
     "SpecialSkill": "ヒューマノイド形態の身体動作で\nデータ処理できる",
     "Favor": "時短術",
     "Unlike": "進捗がダメな状況",
+    "IdentityMotif": [
+      {
+        "Formation": "corefolder",
+        "Motif": {
+          "Motif_JP": [
+            "コアフォルダ形態",
+            "その他1人",
+            "10代",
+            "狐の耳",
+            "枝分かれ狐の尾9本",
+            "濃い藍色の長い髪",
+            "赤い目",
+            "濃い藍色のローブ",
+            "紫の帯",
+            "濃い色のブーツ"
+          ],
+          "Motif_EN": [
+            "corefolder form",
+            "1other",
+            "teenager",
+            "fox ears",
+            "branching fox 9 tails",
+            "long dark indigo hair",
+            "red eyes",
+            "dark indigo robe",
+            "purple sash",
+            "dark boots"
+          ]
+        }
+      },
+      {
+        "Formation": "humanoid",
+        "Motif": {
+          "Motif_JP": [
+            "ヒューマノイド形態",
+            "その他1人",
+            "10代",
+            "狐の耳",
+            "枝分かれ狐の尾9本",
+            "濃い藍色の長い髪",
+            "赤い目",
+            "白いトリムと「49」肩マーク付き青い半袖制服ジャケット",
+            "紫のインナータートルネック",
+            "青いチョーカー"
+          ],
+          "Motif_EN": [
+            "humanoid form",
+            "1other",
+            "teenager",
+            "fox ears",
+            "branching fox 9 tails",
+            "long dark indigo hair",
+            "red eyes",
+            "blue short-sleeve uniform jacket with white trim and '49' shoulder marking",
+            "purple inner turtleneck",
+            "blue choker"
+          ]
+        }
+      }
+    ],
     "RelationNotes": "「14(トヨ)」とは犬猿の仲だが……",
     "NumerospecAbout": "間に合わせる\nこの効果は期日が明確であるほど本領を発揮する",
     "Summary": "滞っているプロジェクトの火消案件を数多くこなすナンバーテールズ。\n期日が極めて迫っているときのマネジメント力は極めて秀でているが、せっかちで進捗を出せない状況が何より嫌い。\nそんな本性を隠すためその時は笑顔を繕っているらしいが、もはやバレバレの様だ。\n気質が似ているように思われる「14(トヨ)」とは大の犬猿の仲らしいが…",
@@ -13500,9 +15573,38 @@
     "Hobby": "猫と戯れる（実際は猫に遊ばれてる）",
     "SpecialSkill": "着地",
     "Favor": "コアフォルダ姿でいる時間（実際はめちゃくちゃ転がされている）",
-    "Unlike": {
-      "hideText": "定義不能"
-    },
+    "Unlike": { "hideText": "定義不能" },
+    "IdentityMotif": [
+      {
+        "Formation": "corefolder",
+        "Motif": {
+          "Motif_JP": [
+            "コアフォルダ形態",
+            "その他1人",
+            "10代",
+            "狐の耳",
+            "狐の尾5本",
+            "小麦色の髪",
+            "金色の目",
+            "大地色のチュニック",
+            "薄い茶色のレギンス",
+            "レザーサンダル"
+          ],
+          "Motif_EN": [
+            "corefolder form",
+            "1other",
+            "teenager",
+            "fox ears",
+            "fox 5 tails",
+            "tan hair",
+            "golden eyes",
+            "earth-tone tunic",
+            "light brown leggings",
+            "leather sandals"
+          ]
+        }
+      }
+    ],
     "RelationNotes": "「40(ヨソ)」に敵視され「5(イズ)」を敵視している\n「30(ミツト)」に謎の安心感を憶えている",
     "NumerospecAbout": "物事を急展開に持ち運ぶ\n詳細かつ具体的な効果は不明だがこれによりマンネリ化を無効化できるらしい",
     "Summary": "他のナンバーテールズと比べどんな状況にも肝が据わっている……が、そのポーカーフェイスの奥には時に経験や慣れにも裏切られ、時に特技も失敗し、時に悪戯にも遭うなど、彼(女)のこの上ないトラウマと焦りがあることは誰もが知る由もない。\nしかしながら本人も実は満更ではない様子なので、その反応を楽しく弄ばれていることは恐らく自覚してないまである。\n心の声が大きくて煩く、かなりチョロい。",
@@ -13745,6 +15847,10 @@
     "Unlike": "枠に囚われること、長話",
     "Strength": "発想が奇抜でアイディア性にたける",
     "Weakness": "他人の地雷を踏み抜きやすい",
+    "IdentityMotif": [
+      { "Formation": "humanoid", "Motif": { "Motif_JP": [], "Motif_EN": [] } },
+      { "Formation": "corefolder", "Motif": { "Motif_JP": [], "Motif_EN": [] } }
+    ],
     "NumerospecAbout": "閃きをもたらす",
     "Summary": "枠にとらわれない思考の持ち主で、発想や着眼点についてはとても注目されている。\nしかし、本人が「“安全装置”を本体設計に組み込むことで“奇跡の個体”を安定最適化した個体」だと豪語している反面、その「奇跡を起こす」と噂される兄姉個体の改良個体としてはとんでもない駄作だと悪評を連ねる主人が一定数存在している。\n本人は「59(イヅク)」よりマシだと自覚していないようだが……",
     "NumerospecStats": {
@@ -13938,6 +16044,41 @@
     "SpecialSkill": "麻雀",
     "Favor": "急展開",
     "Unlike": "ネタバレ\n如何様(イカサマ)",
+    "IdentityMotif": [
+      {
+        "Formation": "corefolder",
+        "Motif": {
+          "Motif_JP": [
+            "コアフォルダ形態",
+            "女の子1人",
+            "10代",
+            "狐の耳",
+            "枝分かれ狐の尾5本",
+            "銀灰色の長い髪",
+            "ティールの目",
+            "濃いティールのボディスーツ",
+            "ティールブルーの袖とショートパンツ",
+            "ティールのブーツ",
+            "ティールの手袋",
+            "灰色のインナーレイヤー"
+          ],
+          "Motif_EN": [
+            "corefolder form",
+            "1girl",
+            "teenager",
+            "fox ears",
+            "branching fox 5 tails",
+            "long silver-gray hair",
+            "teal eyes",
+            "dark teal bodysuit",
+            "teal-blue sleeves and shorts",
+            "teal boots",
+            "teal gloves",
+            "gray inner layer"
+          ]
+        }
+      }
+    ],
     "NumerospecAbout": "楽観主義により自己実現と適応力を発揮する\nこの効果は主人に感化させることもできる\nただしこの効果は受動的な作用である",
     "Summary": "自己掲示欲は低いものの、自分が本領を発揮できるタイミングを逃すことが無く勝機を掴みやすい。\n何が起きようと適応力と状況判断力が極めて優れており、受動的な性格ながら自己実現力があり有能。\nちなみに、姉「25(フィズ)」の代替機としても活動しているため、姉妹で交代して主従業務に当たっている一面も見られている。",
     "NumerospecStats": {
@@ -14218,6 +16359,43 @@
     "SpecialSkill": "ゴルフ",
     "Favor": "アクション映画",
     "Unlike": "挑発\n姉[兄]に避けられていること",
+    "IdentityMotif": [
+      {
+        "Formation": "corefolder",
+        "Motif": {
+          "Motif_JP": [
+            "コアフォルダ形態",
+            "その他1人",
+            "10代前半（低年齢寄り）",
+            "狐の耳",
+            "枝分かれ狐の尾5本",
+            "オレンジ褐色のショートヘア",
+            "琥珀色の目",
+            "白い襟付きシャツ",
+            "緑のネクタイ",
+            "オレンジ色のエプロンジャンパー",
+            "オレンジ色のショートパンツ",
+            "白いレッグウォーマー",
+            "オレンジ色の靴"
+          ],
+          "Motif_EN": [
+            "corefolder form",
+            "1other",
+            "early teenager",
+            "fox ears",
+            "branching fox 5 tails",
+            "short orange-tan hair",
+            "amber eyes",
+            "white collared shirt",
+            "green necktie",
+            "orange apron jumper",
+            "orange shorts",
+            "white leg warmers",
+            "orange shoes"
+          ]
+        }
+      }
+    ],
     "Summary": "転機を恵むと一部の層から定評であり、主人たちの活動へ貢献している。\n活動実績は然程大きくはないが、中でも彼(女)の招いたチャンスを最大限に受容できるような主人とは相性が良い傾向にある。\nただ性格で単純さが目立っており、煽(おだ)てられるとすぐに調子に乗ってしまうところなどがある。\nそのため、彼(女)の良し悪しについては主人だけでなく他のナンバーテールズからも意見が分かれている様子。",
     "NumerospecAbout": "転機を連続して招く\nこの効果は対象が積極的に受ければ受けるほど持続する",
     "NumerospecStats": {
@@ -14501,9 +16679,69 @@
     "Hobby": "普通の生活？",
     "SpecialSkill": "現状を打破すること",
     "Favor": "神社のお守り",
-    "Unlike": {
-      "hideText": "？？？"
-    },
+    "Unlike": { "hideText": "？？？" },
+    "IdentityMotif": [
+      {
+        "Formation": "corefolder",
+        "Motif": {
+          "Motif_JP": [
+            "コアフォルダ形態",
+            "女の子1人",
+            "若い成人",
+            "狐の耳",
+            "枝分かれ狐の尾5本",
+            "濃い緑のミディアムヘア",
+            "緑の目",
+            "濃い緑のドレス",
+            "赤い帯アクセント",
+            "オリーブグリーンのブーツ"
+          ],
+          "Motif_EN": [
+            "corefolder form",
+            "1girl",
+            "young adult",
+            "fox ears",
+            "branching fox 5 tails",
+            "medium dark green hair",
+            "green eyes",
+            "dark green dress",
+            "red sash accent",
+            "olive green boots"
+          ]
+        }
+      },
+      {
+        "Formation": "humanoid",
+        "Motif": {
+          "Motif_JP": [
+            "ヒューマノイド形態",
+            "女の子1人",
+            "若い成人",
+            "狐の耳",
+            "枝分かれ狐の尾5本",
+            "濃い緑のミディアムヘア",
+            "緑の目",
+            "ライトグリーンの襟付きブラウス",
+            "肩の赤い横縞アクセント",
+            "濃い緑の長袖",
+            "白いインナーカラー"
+          ],
+          "Motif_EN": [
+            "humanoid form",
+            "1girl",
+            "young adult",
+            "fox ears",
+            "branching fox 5 tails",
+            "medium dark green hair",
+            "green eyes",
+            "light green collared blouse",
+            "red horizontal stripe accents on shoulders",
+            "dark green long sleeves",
+            "white inner collar"
+          ]
+        }
+      }
+    ],
     "RelationNotes": "「台風の目」と呼ばれているが、それは「11(トウイチ)」のことだと錯覚している",
     "NumerospecAbout": "想像できないことを周囲に引き起こす\nただし自分自身に適応耐性があるため無自覚となる",
     "Summary": "主人や自分の過去に囚われず、より良いものへ変化すること/変化されること を醍醐味に、適応力と自己実現力の相反する能力を併せ現状を打破することを得意としている。\nただ、彼女の周りで誰も想像しないことが多発することより「台風の目」と呼ばれていることも。\nなお彼女自身はというと、感受性を通り越したのかどんなことが起こっても常に平然としている様で、あまり自覚していないらしい。\n鈍感なのだろうか…",
@@ -14799,6 +17037,41 @@
     "SpecialSkill": "迷路\n遠出しても迷子にならない",
     "Favor": "知育玩具",
     "Unlike": "爬虫類\n勉強",
+    "IdentityMotif": [
+      {
+        "Formation": "corefolder",
+        "Motif": {
+          "Motif_JP": [
+            "コアフォルダ形態",
+            "女の子1人",
+            "子供",
+            "狐の耳",
+            "枝分かれ狐の尾6本",
+            "薄い灰色のショートヘア",
+            "緑の目",
+            "ピンクのトップス",
+            "灰色のスカート",
+            "ライトグリーンのスカーフ",
+            "白いソックス",
+            "ピンクの靴"
+          ],
+          "Motif_EN": [
+            "corefolder form",
+            "1girl",
+            "child",
+            "fox ears",
+            "branching fox 6 tails",
+            "short light gray hair",
+            "green eyes",
+            "pink top",
+            "gray skirt",
+            "light green scarf",
+            "white socks",
+            "pink shoes"
+          ]
+        }
+      }
+    ],
     "RelationNotes": "出会いに恵まれるよう他個体から温かく見守られている\n勉強するときは「27(ツギナ)」と「29(ニトク)」に…？",
     "NumerospecAbout": "新しい出会いを恵む\n特に当たり前のことから新しいことへのきっかけを促す",
     "Summary": "小学生程度の外見を想定した「5+6型」の姉個体で、見た目や形振りは至って普通のお子様。\n飽き症で時々サボり癖や放浪癖が見受けられることがあるが、他個体からは新しい出会いに恵まれるよう温かく見守られている。\n勉強が苦手で、少しでも頭を使う訓話や座学ではすぐに気が散ってしまう。だが、「27(ツギナ)」や「29(ニトク)」に教わっている時は…？",
@@ -15084,6 +17357,66 @@
     "SpecialSkill": "漫画制作",
     "Favor": "コミックペン\n宝くじ",
     "Unlike": "炎（焚火や火災）",
+    "IdentityMotif": [
+      {
+        "Formation": "corefolder",
+        "Motif": {
+          "Motif_JP": [
+            "コアフォルダ形態",
+            "その他1人",
+            "10代",
+            "狐の耳",
+            "枝分かれ狐の尾7本",
+            "金髪ポニーテール",
+            "琥珀色の目",
+            "黄色いブレザー",
+            "白いシャツ",
+            "オレンジ色のショートパンツ",
+            "黄色いブーツ"
+          ],
+          "Motif_EN": [
+            "corefolder form",
+            "1other",
+            "teenager",
+            "fox ears",
+            "branching fox 7 tails",
+            "blonde ponytail",
+            "amber eyes",
+            "yellow blazer",
+            "white shirt",
+            "orange shorts",
+            "yellow boots"
+          ]
+        }
+      },
+      {
+        "Formation": "humanoid",
+        "Motif": {
+          "Motif_JP": [
+            "ヒューマノイド形態",
+            "その他1人",
+            "10代",
+            "狐の耳",
+            "枝分かれ狐の尾7本",
+            "金髪ポニーテール",
+            "琥珀色の目",
+            "白いストライプ付き黄色いセーラーカラー制服",
+            "青いインナーシャツ"
+          ],
+          "Motif_EN": [
+            "humanoid form",
+            "1other",
+            "teenager",
+            "fox ears",
+            "branching fox 7 tails",
+            "blonde ponytail",
+            "amber eyes",
+            "yellow sailor-collar uniform with white stripes",
+            "blue inner shirt"
+          ]
+        }
+      }
+    ],
     "RelationNotes": "双子の片割「75(シチゴ)」に生真面目さを憶えている\n「66(ムロク)」を直視できない…？",
     "NumerospecAbout": "いつもと違うことから得た学びや教訓を味方にする（ROSの学習機能に近い）",
     "Summary": "状況から新たな経験を得ることに特化したナンバーテールズ。\n状況の変化からの学びを大切にし、それがいつしか自分に良き教訓や知見となることを信じている。\nただあまりに楽観的な思考は周りから圧巻されている。\nちなみに「75(シチゴ)」と同型双子関係があるが、「75(シチゴ)」と彼(女)でどちらが兄(姉)であるかという年長年弱の区別は無いらしい。",
@@ -15408,6 +17741,39 @@
     "SpecialSkill": "確率計算",
     "Favor": "大吉の御御籤(おみくじ)\n甘やかされること",
     "Unlike": "クソゲー(理不尽なゲーム)",
+    "IdentityMotif": [
+      {
+        "Formation": "corefolder",
+        "Motif": {
+          "Motif_JP": [
+            "コアフォルダ形態",
+            "女の子1人",
+            "10代",
+            "狐の耳",
+            "枝分かれ狐の尾8本",
+            "紫の長い髪",
+            "紫の目",
+            "紫の長いドレス",
+            "ラベンダー色のアクセント",
+            "金色のトリム",
+            "紫の靴"
+          ],
+          "Motif_EN": [
+            "corefolder form",
+            "1girl",
+            "teenager",
+            "fox ears",
+            "branching fox 8 tails",
+            "long purple hair",
+            "violet eyes",
+            "purple long dress",
+            "lavender accents",
+            "gold trim",
+            "purple shoes"
+          ]
+        }
+      }
+    ],
     "RelationNotes": "カードの透視が可能な41(ヨソイチ)を忌避している",
     "NumerospecAbout": "臨時収入を呼ぶ(臨時的な裕福をもたらす)\nこの効果は多岐にわたるため詳細な説明ができない",
     "Summary": "臨時収入などの物質的な幸運をもたらすという“加護”を有しているが、多岐多様な効果が確認されており詳細にどのような効果であるかは説明できない。\n他個体をからかったりおちょくったりするためＳっ気のあるように思われているが、オマセで甘えん坊な一面が拭えないところも含め、非常に可愛がられている。\nカードゲームが好きで13(トミ)たちとよく遊んでいるが、強運の持ち主で確立計算も巧みなためすぐ捻じ伏せて厭きられてしまう。",
@@ -15730,6 +18096,70 @@
     "SpecialSkill": "歌唱",
     "Favor": "推し",
     "Unlike": "趣味バレ",
+    "IdentityMotif": [
+      {
+        "Formation": "corefolder",
+        "Motif": {
+          "Motif_JP": [
+            "コアフォルダ形態",
+            "女の子1人",
+            "10代",
+            "狐の耳",
+            "狐の尾6本",
+            "茶色のミディアムヘア",
+            "琥珀色の目",
+            "落ち着いた青灰色のチュニック",
+            "茶色のベルト",
+            "オレンジ色のアクセント",
+            "茶色のブーツ"
+          ],
+          "Motif_EN": [
+            "corefolder form",
+            "1girl",
+            "teenager",
+            "fox ears",
+            "fox 6 tails",
+            "medium brown hair",
+            "amber eyes",
+            "muted blue-gray tunic",
+            "brown belt",
+            "orange accents",
+            "brown boots"
+          ]
+        }
+      },
+      {
+        "Formation": "humanoid",
+        "Motif": {
+          "Motif_JP": [
+            "ヒューマノイド形態",
+            "女の子1人",
+            "10代",
+            "狐の耳",
+            "狐の尾6本",
+            "茶色のミディアムヘア",
+            "琥珀色の目",
+            "ピンク/マゼンタのチュニックドレス",
+            "白い幅広カラービブ",
+            "オレンジ色のウエストバンド",
+            "小さなビーズ付きピンクのネクタイ"
+          ],
+          "Motif_EN": [
+            "humanoid form",
+            "1girl",
+            "teenager",
+            "fox ears",
+            "fox 6 tails",
+            "medium brown hair",
+            "amber eyes",
+            "pink/magenta tunic dress",
+            "white wide collar bib",
+            "orange waistband",
+            "pink necktie with small bead"
+          ]
+        }
+      }
+    ],
     "RelationNotes": "秘密の趣味であるヲタク活動がバレたことを発端に、「61(ロクイチ)」を筆頭とした関係に苦戦している",
     "NumerospecAbout": "心に光を灯す\nこの効果は多岐にわたるため詳細な説明ができない",
     "Summary": "優雅な立ち振る舞い、美麗な容姿、素敵な素性を持つ、ナンバーテールズの中で最高クラスの美女ポジション。\n母なる輝きを持ち合わせているあまり、彼女に女優やアイドルとしてのオファーが殺到するほど。\nただこう見えて重度のムッツリヲタクであるため、お忍びのナードな趣味がバレてしまってからは「61(ロクイチ/ロイ)」を筆頭に弄られている。\nそんな中、彼女は「可愛くふるまうよりも 可愛い少女を見守る存在でありたい」と頑なに主張しているのだが……",
@@ -16101,6 +18531,70 @@
     "SpecialSkill": "メイド活動？",
     "Favor": "ファンタジー漫画",
     "Unlike": "G（害虫）",
+    "IdentityMotif": [
+      {
+        "Formation": "corefolder",
+        "Motif": {
+          "Motif_JP": [
+            "コアフォルダ形態",
+            "女の子1人",
+            "10代",
+            "狐の耳",
+            "枝分かれ狐の尾6本",
+            "ライトブルーの髪",
+            "琥珀色の目",
+            "ライトブルーのドレス",
+            "タン色のエプロン",
+            "赤いリボンアクセント",
+            "白いソックス",
+            "青い靴"
+          ],
+          "Motif_EN": [
+            "corefolder form",
+            "1girl",
+            "teenager",
+            "fox ears",
+            "branching fox 6 tails",
+            "light blue hair",
+            "amber eyes",
+            "light blue dress",
+            "tan apron",
+            "red ribbon accent",
+            "white socks",
+            "blue shoes"
+          ]
+        }
+      },
+      {
+        "Formation": "humanoid",
+        "Motif": {
+          "Motif_JP": [
+            "ヒューマノイド形態",
+            "女の子1人",
+            "10代",
+            "狐の耳",
+            "枝分かれ狐の尾6本",
+            "ライトブルーの髪",
+            "琥珀色の目",
+            "青いセーラーカラー付き灰色のベスト",
+            "赤い蝶ネクタイ",
+            "白いインナーシャツ"
+          ],
+          "Motif_EN": [
+            "humanoid form",
+            "1girl",
+            "teenager",
+            "fox ears",
+            "branching fox 6 tails",
+            "light blue hair",
+            "amber eyes",
+            "gray vest with blue sailor collar",
+            "red bow tie",
+            "white inner shirt"
+          ]
+        }
+      }
+    ],
     "RelationNotes": "「60(ムソウ)」とアイドルグループの結成を望んでいる\n「10(ミツル)」に興味を持つあまりしつこく絡む一面も",
     "NumerospecAbout": "惚れさせる\nこの作用は主人から間接的に発させることもあるらしい",
     "Summary": "アイドル意識の強いナンバーテールズで、天真爛漫で可憐な性格をしている。\n加えて、相手を惚れさせる“加護”を持っているため、ファンとなる主人もかなり多い。\nしかしあまりにもメルヘンで不思議な世界観を持っているので、謎がられることもあったりするようだ。\n「60(ムソウ)」とアイドルユニットを結成しようと望んでやまない。\n「10(ミツル)」に興味があるようだが…",
@@ -16448,6 +18942,39 @@
     "SpecialSkill": "バリアフリー化",
     "Favor": "女性をモチーフにしたもの\n女性向けファッション",
     "Unlike": "実用性の全くない魔改造",
+    "IdentityMotif": [
+      {
+        "Formation": "corefolder",
+        "Motif": {
+          "Motif_JP": [
+            "コアフォルダ形態",
+            "女の子1人",
+            "若い成人",
+            "狐の耳",
+            "枝分かれ狐の尾6本",
+            "濃い紺色の長い髪",
+            "金色の目",
+            "長い濃紺のコート",
+            "紫のインナーシャツ",
+            "金色のトリム",
+            "濃い色のブーツ"
+          ],
+          "Motif_EN": [
+            "corefolder form",
+            "1girl",
+            "young adult",
+            "fox ears",
+            "branching fox 6 tails",
+            "long dark navy hair",
+            "gold eyes",
+            "dark navy long coat",
+            "purple inner shirt",
+            "gold trim",
+            "dark boots"
+          ]
+        }
+      }
+    ],
     "RelationNotes": "「8(ワカツ)」や「85(ハッコ)」とものづくり関連で縁があるが…\n大切なイベントに着る衣装は「26(ニロク)」に頼りがち",
     "NumerospecAbout": "発想を形にさせる\nこの効果は男性的よりも女性的な作用をもたらす",
     "Summary": "発想力の高く生産的でクリエイティブな個体。\n中でも女性に焦点を当てた意匠やデザインに取分け興味関心を示している。\nしかしながら機械技術的なものや知的要素には抵抗があるらしく、モノづくり関連で縁ができ（てしまっ）た「8(ワカツ)」に振り回されている。\n工芸品に執着するあまり他個体との交流や対人および女子力で難があり、勝負服のコーディネートなどを「26(ニロク)」に任せっきりな一面も。",
@@ -16695,6 +19222,39 @@
     "SpecialSkill": "子供をあやす",
     "Favor": "姉",
     "Unlike": "グロテスク注意コンテンツ",
+    "IdentityMotif": [
+      {
+        "Formation": "corefolder",
+        "Motif": {
+          "Motif_JP": [
+            "コアフォルダ形態",
+            "女の子1人",
+            "10代前半（低年齢寄り）",
+            "狐の耳",
+            "枝分かれ狐の尾6本",
+            "オリーブグリーンの髪",
+            "ヘーゼルの目",
+            "オリーブグリーンのドレス",
+            "薄い緑のエプロン",
+            "オレンジ色のアクセント",
+            "茶色の靴"
+          ],
+          "Motif_EN": [
+            "corefolder form",
+            "1girl",
+            "early teenager",
+            "fox ears",
+            "branching fox 6 tails",
+            "olive-green hair",
+            "hazel eyes",
+            "olive-green dress",
+            "lighter green apron",
+            "orange accents",
+            "brown shoes"
+          ]
+        }
+      }
+    ],
     "NumerospecAbout": "幸福をもたらす\nこの効果は主に日常生活における感情に作用する",
     "Summary": "面倒見の良い気質で、何事にも愛情を重んじている。\n保護者のような天性の風格の持ち主でもあるため彼女に甘える人も数知れず、姉の「36(ミトム)」に至っては相手が自分の妹であるのもお構いなくとことん甘やかされている。\nまた、日常生活に幸福感をもたらすという「加護」を持つ個体で、家庭安泰の御守り役としても主人から好評を得ている。",
     "NumerospecStats": {
@@ -16940,9 +19500,40 @@
     },
     "SpecialSkill": "リアクション芸",
     "Favor": "強気でＳっ気のある大人",
-    "Unlike": {
-      "hideText": "？？？"
-    },
+    "Unlike": { "hideText": "？？？" },
+    "IdentityMotif": [
+      {
+        "Formation": "corefolder",
+        "Motif": {
+          "Motif_JP": [
+            "コアフォルダ形態",
+            "女の子1人",
+            "10代",
+            "狐の耳",
+            "枝分かれ狐の尾6本",
+            "マゼンタの長い髪",
+            "紫の目",
+            "ローズピンクのドレス",
+            "紫の帯",
+            "白いレーストリム",
+            "マゼンタの靴"
+          ],
+          "Motif_EN": [
+            "corefolder form",
+            "1girl",
+            "teenager",
+            "fox ears",
+            "branching fox 6 tails",
+            "long magenta hair",
+            "violet eyes",
+            "rose-pink dress",
+            "purple sash",
+            "white lace trim",
+            "magenta shoes"
+          ]
+        }
+      }
+    ],
     "RelationNotes": "「67(ムナ)」に“ある意味の”服従意識がある\n兄個体「46(シロー)」を筆頭にドン引きされたり、「42(ヨツグ)」を筆頭に面白がられたりしているが、当の本人はと云うと……",
     "NumerospecAbout": "快感を憶えさせる",
     "Summary": "ナンバーテールズの中では珍しく、「感情的な衝動」を過剰にもたらしている問題児な個体。\nドＭで落ち着きが滅多に見られない様子は他個体と比べる前から突出しているが、その様子に感化され「快感」を思い出させてくれたという異質で異彩なレヴューをなんとか賜って活動を継続している。\nただ実績が赤字であるだけでなく、見過ごせない課題も山積みのため開発者「零(レイ)」の仏の顔を剥いでいる。",
@@ -17190,6 +19781,39 @@
     "SpecialSkill": "粘土細工、砂場で城を作る",
     "Favor": "人形、ぬいぐるみ",
     "Unlike": "爬虫類",
+    "IdentityMotif": [
+      {
+        "Formation": "corefolder",
+        "Motif": {
+          "Motif_JP": [
+            "コアフォルダ形態",
+            "女の子1人",
+            "子供",
+            "狐の耳",
+            "枝分かれ狐の尾6本",
+            "パステルピンクのショートヘア",
+            "ライトブルーの目",
+            "パステルピンクのドレス",
+            "白いフリル",
+            "青いリボンアクセント",
+            "ピンクの靴"
+          ],
+          "Motif_EN": [
+            "corefolder form",
+            "1girl",
+            "child",
+            "fox ears",
+            "branching fox 6 tails",
+            "short pastel pink hair",
+            "light blue eyes",
+            "pastel pink dress",
+            "white frills",
+            "blue ribbon accents",
+            "pink shoes"
+          ]
+        }
+      }
+    ],
     "NumerospecAbout": "マンネリ化から抜け出す勇気を与える\n特に当たり前のことから新しいことへの挑戦を促す",
     "Summary": "遊んでいることやお気に入りになったものがある一定の期間を経て当たり前のものになると、他のものへと趣向が変わる傾向にある。\nしかしそれは彼女が飽き性だからではなく、その時々で新しいことやものに触れようとする意欲があってのことらしい。\n加えて不思議なことに、彼女のそういう風習は、主人に「当たり前だったことから新しいことへと移る勇気」を与えているようだ。",
     "NumerospecStats": {
@@ -17438,6 +20062,72 @@
     "SpecialSkill": "ダーツ",
     "Favor": "照明器具",
     "Unlike": "悪天候",
+    "IdentityMotif": [
+      {
+        "Formation": "corefolder",
+        "Motif": {
+          "Motif_JP": [
+            "コアフォルダ形態",
+            "女の子1人",
+            "10代",
+            "狐の耳",
+            "枝分かれ狐の尾6本",
+            "ピンクハイライト入り茶色の髪",
+            "琥珀色の目",
+            "ピンクのフード",
+            "「66」マーク入りオレンジ黄色のビブ",
+            "ピンクのドレス",
+            "濃い灰色の手袋"
+          ],
+          "Motif_EN": [
+            "corefolder form",
+            "1girl",
+            "teenager",
+            "fox ears",
+            "branching fox 6 tails",
+            "brown hair with pink highlights",
+            "amber eyes",
+            "pink hood",
+            "orange-yellow bib with '66' marking",
+            "pink dress",
+            "dark gray gloves"
+          ]
+        }
+      },
+      {
+        "Formation": "humanoid",
+        "Motif": {
+          "Motif_JP": [
+            "ヒューマノイド形態",
+            "女の子1人",
+            "10代",
+            "狐の耳",
+            "枝分かれ狐の尾6本",
+            "ピンクハイライト入り茶色の髪",
+            "琥珀色の目",
+            "ピンクのフード付きマント",
+            "「6 6」マーク入りオレンジ黄色のヨークビブ",
+            "ピンクのパフスリーブ",
+            "濃い灰色のフィンガーレスグローブ",
+            "黄色いトリムアクセント"
+          ],
+          "Motif_EN": [
+            "humanoid form",
+            "1girl",
+            "teenager",
+            "fox ears",
+            "branching fox 6 tails",
+            "brown hair with pink highlights",
+            "amber eyes",
+            "pink hooded cloak",
+            "orange-yellow yoke bib with '6 6' markings",
+            "pink puff sleeves",
+            "dark gray fingerless gloves",
+            "yellow trim accents"
+          ]
+        }
+      }
+    ],
     "RelationNotes": "「6(ムイ)」を「姉様」と慕っている",
     "NumerospecAbout": "祈りの恩恵を分け与える",
     "Summary": "「愛があることを信じていれば、何もなくとも輝ける」、そう信じてやまない博愛主義な「マスターテールズ9」のうちの1人。\n自分には強いポテンシャルがあるとも信じているが、その恩恵を主人にも分けてくれると主人層からかなりの好評を得ている。\nちなみに、「6(ムイ)」に対しては「姉様(あねさま)」と称するほど姉妹的な愛着があり、2人で過ごす時間も短くないという。",
@@ -17715,6 +20405,10 @@
       "hideText": "非公開希望"
     },
     "TailsUnit": "キツネ(枝分かれ)型7本(上2束6本+下1束1本)",
+    "IdentityMotif": [
+      { "Formation": "humanoid", "Motif": { "Motif_JP": [], "Motif_EN": [] } },
+      { "Formation": "corefolder", "Motif": { "Motif_JP": [], "Motif_EN": [] } }
+    ],
     "Summary": "体調管理や健康管理に優れており、フィットネスを何よりも好む事から体育系男子の印象を持たれている。\nただ当時でも強かだった印象に反し、本人は「もう少し鍛錬が裏切らない身体を手にしたい」と豪語していた。\nよってつい最近に人間の筋肉構造に限りなく近い躯体を手にしたのだが、そうするまでもなく彼自身の努力や鍛錬意欲は周囲から十分に称賛されているようだ。",
     "NumerospecStats": {
       "EffectStats": {
@@ -17817,6 +20511,10 @@
     "SpecialSkill": "コーチング",
     "Favor": "人間の栄養管理について",
     "Unlike": "努力不足な人",
+    "IdentityMotif": [
+      { "Formation": "humanoid", "Motif": { "Motif_JP": [], "Motif_EN": [] } },
+      { "Formation": "corefolder", "Motif": { "Motif_JP": [], "Motif_EN": [] } }
+    ],
     "NumerospecAbout": "心身の健康を保証する",
     "Summary": "体調管理や健康管理に優れており、つい最近の躯体の新調によりフィットネスのコーチングにも特化したナンバーテールズの中でもとても珍しい個体。\n旧式時から鍛錬熱心で現在のその分厚い人工筋肉から威圧的？な印象を抱かれるようにもなったが、オーバーワークはしない/させない主義なのでご安心を。\nただ、一部周囲からミーム扱いもされているらしく…",
     "NumerospecStats": {
@@ -18011,6 +20709,72 @@
     "SpecialSkill": "掃除\nフリーマーケット",
     "Favor": "髪を整える道具",
     "Unlike": "散らかった部屋",
+    "IdentityMotif": [
+      {
+        "Formation": "corefolder",
+        "Motif": {
+          "Motif_JP": [
+            "コアフォルダ形態",
+            "その他1人",
+            "10代前半（低年齢寄り）",
+            "狐の耳",
+            "枝分かれ狐の尾8本",
+            "緑のショートヘア",
+            "灰緑色の目",
+            "緑の狐尾マント",
+            "「68」マーク入り赤いキャップ",
+            "白いお腹"
+          ],
+          "Motif_EN": [
+            "corefolder form",
+            "1other",
+            "early teenager",
+            "fox ears",
+            "branching fox 8 tails",
+            "short green hair",
+            "gray-green eyes",
+            "green fox-tail mantle",
+            "red cap with '68' marking",
+            "white belly"
+          ]
+        }
+      },
+      {
+        "Formation": "humanoid",
+        "Motif": {
+          "Motif_JP": [
+            "ヒューマノイド形態",
+            "その他1人",
+            "10代前半（低年齢寄り）",
+            "狐の耳",
+            "枝分かれ狐の尾8本",
+            "緑のショートヘア",
+            "灰緑色の目",
+            "濃いオリーブ茶色のワークジャケット",
+            "緑の襟付きインナーシャツ",
+            "濃い緑のパンツ",
+            "ゴーグル付き赤い野球帽",
+            "灰色の作業手袋",
+            "茶色のブーツ"
+          ],
+          "Motif_EN": [
+            "humanoid form",
+            "1other",
+            "early teenager",
+            "fox ears",
+            "branching fox 8 tails",
+            "short green hair",
+            "gray-green eyes",
+            "dark olive-brown work jacket",
+            "green inner collared shirt",
+            "dark green pants",
+            "red baseball cap with goggles",
+            "gray work gloves",
+            "brown boots"
+          ]
+        }
+      }
+    ],
     "RelationNotes": "加護が強いナンバーテールズを「お化け」と称しがち\n稀にベリーショートヘアで登場し「5(イズ)」に笑われる",
     "NumerospecAbout": "断捨離させる\nこれにより主人や相手の生活の無駄を排除できる",
     "Summary": "古着の処分や機種変更など、物を長期的に保管することより「断捨離すること」を得意としている。\nしかし新品と比べ古い物の見方は異質なところもあり、すぐ手放そうとする傾向にある。\n一方でその価値観が功をなし、ナンバーテールズの中ではトップクラスの整理力と掃除力がある。\nちなみに手放した物の大半はフリーマーケットで売られるため、周囲から助かっているとの声も。",
@@ -18333,6 +21097,72 @@
     "SpecialSkill": "モノマネ",
     "Favor": "ハリウッド映画",
     "Unlike": "妹",
+    "IdentityMotif": [
+      {
+        "Formation": "corefolder",
+        "Motif": {
+          "Motif_JP": [
+            "コアフォルダ形態",
+            "男の子1人",
+            "10代",
+            "狐の耳",
+            "枝分かれ狐の尾9本",
+            "ピンクのショートヘア",
+            "赤い目",
+            "ピンクの狐尾マント",
+            "白いお腹",
+            "小さな赤いリボンアクセント",
+            "「69」マーキング"
+          ],
+          "Motif_EN": [
+            "corefolder form",
+            "1boy",
+            "teenager",
+            "fox ears",
+            "branching fox 9 tails",
+            "short pink hair",
+            "red eyes",
+            "pink fox-tail mantle",
+            "white belly",
+            "small red ribbon accent",
+            "'69' marking"
+          ]
+        }
+      },
+      {
+        "Formation": "humanoid",
+        "Motif": {
+          "Motif_JP": [
+            "ヒューマノイド形態",
+            "男の子1人",
+            "10代",
+            "狐の耳",
+            "枝分かれ狐の尾9本",
+            "ピンクのショートヘア",
+            "赤い目",
+            "「69」肩マーク入り濃いバーガンディのダブルブレストベストドレス",
+            "下に着る白い長袖襟付きシャツ",
+            "赤い蝶ネクタイ",
+            "黄色いボタン",
+            "ピンクの靴"
+          ],
+          "Motif_EN": [
+            "humanoid form",
+            "1boy",
+            "teenager",
+            "fox ears",
+            "branching fox 9 tails",
+            "short pink hair",
+            "red eyes",
+            "dark burgundy double-breasted vest dress with '69' shoulder marking",
+            "white long-sleeve collared shirt underneath",
+            "red bow tie",
+            "yellow buttons",
+            "pink shoes"
+          ]
+        }
+      }
+    ],
     "NumerospecAbout": "自分自身に対する固定概念から解放する",
     "Summary": "主人の望むキャラを演じて従事するという、独特な契約プランを持つナンバーテールズ。\n芸達者で様々な性格を演じることができる一方、素でのコミュニケーションが乏しいことから他のナンバーテールズに「アイデンティティを見失っているのではないか」と心配されている。\nとはいえ妹「96(クルリ)」のキャラ崩壊っぷりの方が彼にとって難儀らしい。\n気分屋で新しいことに戯れるのが好き。",
     "NumerospecStats": {
@@ -18623,6 +21453,10 @@
     "SpecialSkill": "水晶占い",
     "Favor": "タロットカード、オラクルカード",
     "Unlike": "演出の激しいパーティルーム",
+    "IdentityMotif": [
+      { "Formation": "humanoid", "Motif": { "Motif_JP": [], "Motif_EN": [] } },
+      { "Formation": "corefolder", "Motif": { "Motif_JP": [], "Motif_EN": [] } }
+    ],
     "RelationNotes": "「25(フィズ)」の占い結果に興味がある",
     "NumerospecAbout": "占術や祭事ができる\nこれにより相手の悩みの整理などができる",
     "Summary": "普段は適当な性格のように見えるが、瞑想能力や（霊的な）勘による有能っぷりを見せている。\n「7(ナナ)」の実の弟機に相当し、一緒に勉強や修行している様子もしばしばあるようだ。\n一方主人に従事する傍らで祭事や占いを趣味/特技とし、他のナンバーテールズの運勢を占ったりもしているらしい。\n中でも「25(フィズ)」を占った時の相に大変興味があるようだが…？",
@@ -18802,6 +21636,41 @@
     "SpecialSkill": "PDCAなどのフレームワーク",
     "Favor": "青春",
     "Unlike": "無知無能",
+    "IdentityMotif": [
+      {
+        "Formation": "corefolder",
+        "Motif": {
+          "Motif_JP": [
+            "コアフォルダ形態",
+            "男の子1人",
+            "10代",
+            "狐の耳",
+            "枝分かれ狐の尾7本",
+            "白いリボン付き青い長いツインテール",
+            "灰青色の目",
+            "襟付き灰紫色のポロシャツ",
+            "白い裾付き赤いショートパンツ",
+            "青い膝上ソックス",
+            "青い靴",
+            "白いヘアリボン"
+          ],
+          "Motif_EN": [
+            "corefolder form",
+            "1boy",
+            "teenager",
+            "fox ears",
+            "branching fox 7 tails",
+            "long blue twin-tails with white ribbon",
+            "gray-blue eyes",
+            "gray-purple polo shirt with collar",
+            "red shorts with white hem",
+            "blue knee-high socks",
+            "blue shoes",
+            "white hair ribbon"
+          ]
+        }
+      }
+    ],
     "NumerospecAbout": "主人へ学びを1日1つ恵む",
     "Summary": "知的好奇心が豊富で努力家であるため、この上ない成長が期待されている。\nその好青年な気質に感化され、契約した主人から感謝状が出ることも。\nこちらは見た目に反し男性型個体であるが、初々しい学生のような愛嬌があると特定の客層から可愛がられている。\nただ、時折その幼い見た目から想像もできない実績を会得していることもあり、カリスマ起業家に標的にされているとか…",
     "NumerospecStats": {
@@ -19045,6 +21914,41 @@
     "SpecialSkill": "ルーレットが止まる場所を回転中に当てられる",
     "Favor": "コミュニケーション力を伸ばせるビジネス本",
     "Unlike": "如何様(イカサマ)",
+    "IdentityMotif": [
+      {
+        "Formation": "corefolder",
+        "Motif": {
+          "Motif_JP": [
+            "コアフォルダ形態",
+            "その他1人",
+            "10代",
+            "狐の耳",
+            "枝分かれ狐の尾7本",
+            "淡い青の非常に長い髪",
+            "ラベンダーの目",
+            "ラベンダー色のキャミソールエプロンスタイルトップス",
+            "淡い青の長いスカート",
+            "濃い紫のレースアップブーツ",
+            "「研修」名札",
+            "バーコードスタイルのチョーカー"
+          ],
+          "Motif_EN": [
+            "corefolder form",
+            "1other",
+            "teenager",
+            "fox ears",
+            "branching fox 7 tails",
+            "very long pale blue hair",
+            "lavender eyes",
+            "lavender camisole apron-style top",
+            "pale blue long skirt",
+            "dark purple lace-up boots",
+            "'研修' (trainee) name tag",
+            "barcode-style choker"
+          ]
+        }
+      }
+    ],
     "NumerospecAbout": "機械学習能力に特化した特殊なROSの主力機能で、ありとあらゆる学習ができる",
     "Summary": "主人の学びをさらに支えられるよう機能の一部を知識学習用に当てられた、99人の中では珍しい教材型のナンバーテールズ。\n極めて強力な機械学習能力により主人との学びを最大限に引き出すことで、困難な資格の取得や難関校への合格へと導いている。\nそこで彼女の名や機能に「神」などの通称が付くことも。\nただ性格や言動が「人工知能っぽく」なってしまった様で…",
     "NumerospecStats": {
@@ -19311,6 +22215,74 @@
     "SpecialSkill": "地獄耳",
     "Favor": "配信機材",
     "Unlike": "針\nゴシップ",
+    "IdentityMotif": [
+      {
+        "Formation": "corefolder",
+        "Motif": {
+          "Motif_JP": [
+            "コアフォルダ形態",
+            "女の子1人",
+            "10代",
+            "狐の耳",
+            "枝分かれ狐の尾7本",
+            "帽子付きピンクのショートヘア",
+            "金色の目",
+            "青いドレスの上に赤い短いジャケット",
+            "黄色い腰ベルト",
+            "青いメッセンジャーキャップ",
+            "青いネクタイ",
+            "赤い靴"
+          ],
+          "Motif_EN": [
+            "corefolder form",
+            "1girl",
+            "teenager",
+            "fox ears",
+            "branching fox 7 tails",
+            "short pink hair with cap",
+            "golden eyes",
+            "red short jacket over blue dress",
+            "yellow waist belt",
+            "blue messenger cap",
+            "blue necktie",
+            "red shoes"
+          ]
+        }
+      },
+      {
+        "Formation": "humanoid",
+        "Motif": {
+          "Motif_JP": [
+            "ヒューマノイド形態",
+            "女の子1人",
+            "10代",
+            "狐の耳",
+            "枝分かれ狐の尾7本",
+            "帽子付きピンクのショートヘア",
+            "金色の目",
+            "黄色い帯付き青赤メッセンジャースタイルドレス",
+            "バッジ付き青いキャップ",
+            "青いネクタイ",
+            "白いインナーブラウス",
+            "赤い短いジャケット"
+          ],
+          "Motif_EN": [
+            "humanoid form",
+            "1girl",
+            "teenager",
+            "fox ears",
+            "branching fox 7 tails",
+            "short pink hair with cap",
+            "golden eyes",
+            "blue and red messenger-style dress with yellow sash",
+            "blue cap with badge",
+            "blue necktie",
+            "white inner blouse",
+            "red short jacket"
+          ]
+        }
+      }
+    ],
     "NumerospecAbout": "知識を深めさせる\nこの作用は主に知識のアウトプットにより発揮される",
     "Summary": "少し世間知らずでなんでも知りたがるナンバーテールズ。\n単純で騙されやすく、一度触れた知識は正誤問わずすぐに共有したがるため、姉の「37(サナ)」にしばしば止められている。\n知識のアウトプットに長けた個体でもあるため、宣伝効果も兼ねてナンバーテールズ公式の配信活動も裏で行っている。\n「66(ムロク)」に憧れている一面があるようで…？",
     "NumerospecStats": {
@@ -19625,6 +22597,41 @@
     "SpecialSkill": "おみくじで\n誰が大吉を引くか当てる",
     "Favor": "シルク",
     "Unlike": "雷",
+    "IdentityMotif": [
+      {
+        "Formation": "corefolder",
+        "Motif": {
+          "Motif_JP": [
+            "コアフォルダ形態",
+            "女の子1人",
+            "10代",
+            "狐の耳",
+            "枝分かれ狐の尾7本",
+            "銀灰色の長い髪",
+            "鮮やかな青の目",
+            "青いオフショルダーラップトップス",
+            "青い短いスカート",
+            "半透明の灰色のショール/ケープ",
+            "白いサンダル",
+            "「74」の胸マーキング"
+          ],
+          "Motif_EN": [
+            "corefolder form",
+            "1girl",
+            "teenager",
+            "fox ears",
+            "branching fox 7 tails",
+            "long silver-gray hair",
+            "bright blue eyes",
+            "blue off-shoulder wrap top",
+            "blue short skirt",
+            "translucent gray shawl/cape",
+            "white sandals",
+            "'74' chest marking"
+          ]
+        }
+      }
+    ],
     "NumerospecAbout": "「天のお告げ」を聴く",
     "Summary": "ナンバーテールズの中では他に類を見ない、“天のお告げ”を受け取ることができるという極めて高く冴えわたった感性を持ち、預言者のような風格を見せている。\nなおその様子からにより他の98人からは変わり者に思われている様子だが、“天のお告げ”による預言は外れることがあまりないので、神頼み要因として彼女を信頼する（？）ナンバーテールズも居るようだ。",
     "NumerospecStats": {
@@ -19879,6 +22886,43 @@
     "SpecialSkill": "経験則が的確",
     "Favor": "文房具",
     "Unlike": "炎（焚火や火災）",
+    "IdentityMotif": [
+      {
+        "Formation": "corefolder",
+        "Motif": {
+          "Motif_JP": [
+            "コアフォルダ形態",
+            "その他1人",
+            "10代",
+            "狐の耳",
+            "枝分かれ狐の尾7本",
+            "黄色いサイドテールの髪",
+            "黄色い目",
+            "黄緑色のセーラー制服トップス",
+            "青いスカーフ",
+            "青い長いスカート",
+            "白いリストバンド",
+            "黄色い靴",
+            "「75」のアームバンド"
+          ],
+          "Motif_EN": [
+            "corefolder form",
+            "1other",
+            "teenager",
+            "fox ears",
+            "branching fox 7 tails",
+            "yellow side-tail hair",
+            "yellow eyes",
+            "yellow-green sailor uniform top",
+            "blue scarf",
+            "blue long skirt",
+            "white wristbands",
+            "yellow shoes",
+            "'75' armband"
+          ]
+        }
+      }
+    ],
     "RelationNotes": "双子の片割「57(イズナ)」は楽観的すぎだと思っている\n「25(フィズ)」に目標意識が…？",
     "NumerospecAbout": "学びや教訓を味方にし、状況を好転させる（ROSの学習機能に近いが、加護としての能力が強い）",
     "Summary": "経験から状況を好転させることに特化したナンバーテールズ。\n教訓と物事からの学びを大切にし、それがいつしか自分に良い結果として返ってくると信じている。\n「25(フィズ)」に目標意識があるのとか無いとか。\nちなみに「57(イズナ)」と同型双子関係があるが、「57(イズナ)」と彼(女)でどちらが弟(妹)であるかという年長年弱の区別は無いらしい。",
@@ -20133,6 +23177,45 @@
     "SpecialSkill": "複数文献の斜め読み",
     "Favor": "専門書、同人誌",
     "Unlike": "非合理的・非常識なこと",
+    "IdentityMotif": [
+      {
+        "Formation": "corefolder",
+        "Motif": {
+          "Motif_JP": [
+            "コアフォルダ形態",
+            "女の子1人",
+            "10代",
+            "狐の耳",
+            "枝分かれ狐の尾7本",
+            "ヘッドフォン付き濃い青の長い髪",
+            "眼鏡をかけた暗色の目",
+            "ティールブルーのセーラースタイルトップス",
+            "ピンクのネクタイ",
+            "ピンクの長いスカート",
+            "白い膝上ソックス",
+            "青い靴",
+            "ピンクのヘッドフォン",
+            "丸い眼鏡"
+          ],
+          "Motif_EN": [
+            "corefolder form",
+            "1girl",
+            "teenager",
+            "fox ears",
+            "branching fox 7 tails",
+            "long dark-blue hair with headphones",
+            "dark eyes with glasses",
+            "teal blue sailor-style top",
+            "pink necktie",
+            "pink long skirt",
+            "white knee-high socks",
+            "blue shoes",
+            "pink headphones",
+            "round glasses"
+          ]
+        }
+      }
+    ],
     "NumerospecAbout": "知識や教養から自らに磨きを掛ける",
     "Summary": "何かと理論的・知的に物事を考えがちで、読書を何よりも好む事から図書委員の様に周りから風刺されている。\n眼鏡付きのヘッドセットを外した時の容姿に反して本人は性格や内面に自信がないため、敢えてそのような風格を出しているという噂も。\nとはいえ知識を自分の美意識に適応する感性はとりわけ高いので、特定少数の主人層ではそこそこ高い好感度を安定して得ているらしい。",
     "NumerospecStats": {
@@ -20384,6 +23467,41 @@
     "SpecialSkill": "集中した時の反射神経",
     "Favor": "集中できる場所",
     "Unlike": "カラオケルーム",
+    "IdentityMotif": [
+      {
+        "Formation": "corefolder",
+        "Motif": {
+          "Motif_JP": [
+            "コアフォルダ形態",
+            "その他1人",
+            "10代",
+            "狐の耳",
+            "枝分かれ狐の尾7本",
+            "クリスタルマーク付きティールブルーのショートヘア",
+            "灰青色の目",
+            "白い帯付き濃いティールの袴風ローブ",
+            "緑のクリスタルの額マーキング",
+            "濃い色のストッキング",
+            "青いプラットフォームサンダル",
+            "「77」の胸紋章"
+          ],
+          "Motif_EN": [
+            "corefolder form",
+            "1other",
+            "teenager",
+            "fox ears",
+            "branching fox 7 tails",
+            "short teal-blue hair with crystal mark",
+            "gray-blue eyes",
+            "dark teal hakama-style robe with white sash",
+            "green crystal forehead marking",
+            "dark stockings",
+            "blue-platform sandals",
+            "'77' chest emblem"
+          ]
+        }
+      }
+    ],
     "RelationNotes": "「5(イズ)」に才能を認められている\n「7(ナナ)」を良きライバルと思っているが…",
     "NumerospecAbout": "集中力を操作できる\nこの能力は時として霊的現象を呼び覚ますらしい",
     "Summary": "集中することで霊的能力が開花するとどこかで噂されており、実績も今後伸びしろがあると評判のダークホース。\n気さくで軽い口調とどこかふざけたようなあだ名の付け方が特徴的だが、陰で自分を律しており重要なことには極めて真剣に励むことができる、「マスターテールズ９」の中で最大の真面目ポジション。\nただ、真面目な人との人望がやや薄いことをコンプレックスに持つ。",
@@ -20647,6 +23765,43 @@
     "SpecialSkill": "アドリブ祝辞",
     "Favor": "トランプ、タロットカード",
     "Unlike": "傲慢な態度",
+    "IdentityMotif": [
+      {
+        "Formation": "corefolder",
+        "Motif": {
+          "Motif_JP": [
+            "コアフォルダ形態",
+            "女の子1人",
+            "若い成人",
+            "狐の耳",
+            "枝分かれ狐の尾8本",
+            "ピンクの非常に長い髪",
+            "ラベンダーの目",
+            "オレンジトリム付き紫の半袖トップス",
+            "オレンジ色のスカート",
+            "ハートペンダント付き青いビーズネックレス",
+            "青い手袋",
+            "紫の靴",
+            "ダイヤ柄の耳マーキング"
+          ],
+          "Motif_EN": [
+            "corefolder form",
+            "1girl",
+            "young adult",
+            "fox ears",
+            "branching fox 8 tails",
+            "very long pink hair",
+            "lavender eyes",
+            "purple short-sleeve top with orange trim",
+            "orange skirt",
+            "blue beaded necklace with heart pendant",
+            "blue gloves",
+            "purple shoes",
+            "diamond-pattern ear markings"
+          ]
+        }
+      }
+    ],
     "NumerospecAbout": "経験・報酬を反省から生む\nただしこの効果は対象の性格と相互に影響する",
     "Summary": "反省からの学びを強めることに秀でているとされているナンバーテールズ。\n技術適正が極めて高く、エンジニアとして働いている主人からの支持が手厚い。\nしかしながらどこか自分に自信がなくアイテムに縋ることでしか自分を評価できないところがあり、彼女をよく知る別の個体によっては心配されたり胡散臭がられたりしている。\nとはいえ誠心誠意で自らも反省しながら精進する姿は誰よりも評価されている。",
     "NumerospecStats": {
@@ -21035,6 +24190,41 @@
     "SpecialSkill": "会計処理",
     "Favor": "価値感の向上",
     "Unlike": "詐欺（をすること）",
+    "IdentityMotif": [
+      {
+        "Formation": "corefolder",
+        "Motif": {
+          "Motif_JP": [
+            "コアフォルダ形態",
+            "女の子1人",
+            "10代",
+            "狐の耳",
+            "枝分かれ狐の尾8本",
+            "茶色のサイドテールのショートヘア",
+            "オレンジ赤の目",
+            "「<81>」マーク入りピンクのノースリーブベスト",
+            "オレンジのクロスレース前立て付きピンクの半袖インナートップス",
+            "赤橙色の長いパンツ",
+            "ピンクの靴",
+            "小さな耳飾り"
+          ],
+          "Motif_EN": [
+            "corefolder form",
+            "1girl",
+            "teenager",
+            "fox ears",
+            "branching fox 8 tails",
+            "short brown side-tail hair",
+            "orange-red eyes",
+            "pink sleeveless vest with '<81>' marking",
+            "pink short-sleeve inner top with orange cross-laced front",
+            "red-orange long pants",
+            "pink shoes",
+            "small ear ornament"
+          ]
+        }
+      }
+    ],
     "NumerospecAbout": "自信および主人の自己肯定感を高め役目を全うさせる",
     "Summary": "社会貢献に務める主人のサポートに経験が特化しているナンバーテールズ。\n彼女が居ると、主人の行動や活動を支える効果がもたらされ、価値観や収入が向上すると評判。\n社会情勢に敏感で奉仕的。\n趣味として、投資の攻略法についてひそかに研究しているとか。\n「8(ワカツ)」にちょくちょく経理関係でアドバイスをしている一面もあるようだが…",
     "NumerospecStats": {
@@ -21374,6 +24564,43 @@
     "SpecialSkill": "家計簿処理、主人の趣味のマネタイズ",
     "Favor": "等価交換・社会的信用というお金の考え方",
     "Unlike": "窃盗、高額転売",
+    "IdentityMotif": [
+      {
+        "Formation": "corefolder",
+        "Motif": {
+          "Motif_JP": [
+            "コアフォルダ形態",
+            "女の子1人",
+            "若い成人",
+            "狐の耳",
+            "枝分かれ狐の尾8本",
+            "サイドアクセサリー付き灰緑色のショートヘア",
+            "オレンジ色の目",
+            "茶色のベルト付きオレンジ色の短いジャケット",
+            "ティールグレーのインナーブラウス",
+            "ベルト付き黄色いショートパンツ",
+            "ティールグレーのストッキング",
+            "灰緑色のレースアップブーツ",
+            "オレンジ色のスカーフ/ネッカチーフ"
+          ],
+          "Motif_EN": [
+            "corefolder form",
+            "1girl",
+            "young adult",
+            "fox ears",
+            "branching fox 8 tails",
+            "short gray-green hair with side ornament",
+            "orange eyes",
+            "orange short jacket with brown belt",
+            "teal-gray inner blouse",
+            "yellow shorts with belt",
+            "teal-gray stockings",
+            "gray-green lace-up boots",
+            "orange scarf/neckerchief"
+          ]
+        }
+      }
+    ],
     "NumerospecAbout": "計画性に比例した結果を呼び寄せる",
     "Summary": "マネタイズや実行計画などを得意分野とし、社会的な自己実現を望む主人層から定評と信頼を得ている。\nプライベートでは貪欲に物事へ積極的な姿勢をみせる一面があるものの、根本的には若干 理屈っぽくどこか社会的思想の強い部分が否めていないと言われている。\n果たして自分の行動意欲の源にあるものは、感情的な欲求なのか あるいは……",
     "NumerospecStats": {
@@ -21636,6 +24863,43 @@
     "SpecialSkill": "勘定",
     "Favor": "宝石",
     "Unlike": "賭け事",
+    "IdentityMotif": [
+      {
+        "Formation": "corefolder",
+        "Motif": {
+          "Motif_JP": [
+            "コアフォルダ形態",
+            "女の子1人",
+            "10代",
+            "狐の耳",
+            "枝分かれ狐の尾8本",
+            "茶色のポニーテール",
+            "シアンの目",
+            "シアンとティールのフード付きポンチョ",
+            "シアンの短いパンツ",
+            "白い膝上ソックス",
+            "茶色のアンクルブーツ",
+            "シアンの涙滴型ペンダントネックレス",
+            "オフショルダーネックライン"
+          ],
+          "Motif_EN": [
+            "corefolder form",
+            "1girl",
+            "teenager",
+            "fox ears",
+            "branching fox 8 tails",
+            "brown ponytail",
+            "cyan eyes",
+            "cyan and teal hooded poncho",
+            "cyan short pants",
+            "white knee-high socks",
+            "brown ankle boots",
+            "cyan teardrop pendant necklace",
+            "off-shoulder neckline"
+          ]
+        }
+      }
+    ],
     "RelationNotes": "百のジャンク漁りに同行することがある\n62(ロジ)に振り回されがち",
     "NumerospecAbout": "必要なものを引き寄せる\nただしこの効果の詳細は不明",
     "Summary": "このナンバーテールズと契約した主人はだいたい最悪の事態にならないとどこかで評判。\nただ少し誰かに甘やかされて育ったかのような気質をしており、金銭感覚やコミュ力に疎いなどの一面が拭えない。\n（しかしそれも愛嬌だと一定層の主人は言っている。）\n趣味として、ナンバーテールズを開発した1人である「百(ハゲム)」とジャンク漁りに行くことも。",
@@ -21902,6 +25166,43 @@
     "SpecialSkill": "ブラック案件を見抜く",
     "Favor": "フリーマーケット、68(ロクヤ)の手放したレアアイテム",
     "Unlike": "断捨離、68(ロクヤ)本人",
+    "IdentityMotif": [
+      {
+        "Formation": "corefolder",
+        "Motif": {
+          "Motif_JP": [
+            "コアフォルダ形態",
+            "女の子1人",
+            "10代前半（低年齢寄り）",
+            "狐の耳",
+            "枝分かれ狐の尾8本",
+            "赤いリボンボウ付き緑のショートヘア",
+            "灰茶色の目",
+            "濃い茶色のワンピースエプロンドレス",
+            "襟元の赤いリボントリム",
+            "クリーム白いエプロン前掛け",
+            "濃い緑のストッキング",
+            "ピンクのアンクルストラップ付き濃い茶色の靴",
+            "大きな赤いリボンボウのヘアオーナメント"
+          ],
+          "Motif_EN": [
+            "corefolder form",
+            "1girl",
+            "early teenager",
+            "fox ears",
+            "branching fox 8 tails",
+            "short green hair with red ribbon-bow",
+            "gray-brown eyes",
+            "dark brown one-piece apron-dress",
+            "red ribbon trim at collar",
+            "cream-white apron front",
+            "dark green stockings",
+            "dark brown shoes with pink ankle strap",
+            "large red ribbon-bow hair ornament"
+          ]
+        }
+      }
+    ],
     "NumerospecAbout": "富と才能を恵む\nただしこの効果の大きさは日頃の行いの良さに比例する",
     "Summary": "在庫の整理や補完など、物を定期的に処分することより「使えるものを使うこと」を得意としている。\nしかし物の管理において少し生真面な部分や収集癖が強めに出る一面がある。\n一方で人当たりは良いので、ナンバーテールズの中では人も物の両方を大切にする良心が顕著に出やすい。\nちなみに、フリーマーケットにおけるレアなキャラクターグッズの物流状況にかなり詳しい。",
     "NumerospecStats": {
@@ -22170,6 +25471,43 @@
     "SpecialSkill": "はんだ付け（実は溶接もできる）",
     "Favor": "自己投資(という考え方)",
     "Unlike": "誤差、やる気を出さない人",
+    "IdentityMotif": [
+      {
+        "Formation": "corefolder",
+        "Motif": {
+          "Motif_JP": [
+            "コアフォルダ形態",
+            "女の子1人",
+            "10代",
+            "狐の耳",
+            "枝分かれ狐の尾8本",
+            "ハートの耳マーク付きピンクの非常に長い髪",
+            "琥珀色の目",
+            "青い襟付きオレンジ色の半袖セーラートップス",
+            "ダイヤペンダントモチーフ付き青い膝丈スカート",
+            "ハート形ダイヤモンドペンダントネックレス",
+            "白いサイハイストッキング",
+            "ピンクの靴",
+            "白いベルト"
+          ],
+          "Motif_EN": [
+            "corefolder form",
+            "1girl",
+            "teenager",
+            "fox ears",
+            "branching fox 8 tails",
+            "very long pink hair with heart ear-marks",
+            "amber eyes",
+            "orange short-sleeve sailor top with blue collar",
+            "blue knee-length skirt with diamond pendant motifs",
+            "heart-shaped diamond pendant necklace",
+            "white thigh-high stockings",
+            "pink shoes",
+            "white belt"
+          ]
+        }
+      }
+    ],
     "NumerospecAbout": "金運を上げ、物欲を叶える\nただしこの効果は対象の物欲の種類に影響されやすい",
     "Summary": "社会的信用の向上効果が期待できるとされているナンバーテールズ。\n明るく積極的で技術力も高いことから、男性技術職の主人を筆頭に強い支持を賜っている。\nしかしながらどこか自分の望む完璧なものを得るために過度な出資も惜しまない一面があり、他個体から防犯的・自衛的な身の危険を心配されている。\nとはいえ良識や規範はちゃんと理解しているので、怪しい人や怪しいモノへは貢いでいない……はず。",
     "NumerospecStats": {
@@ -22413,6 +25751,45 @@
     "SpecialSkill": "お金を集めること",
     "Favor": "楽器\n努力",
     "Unlike": "努力やお金を無駄にすること",
+    "IdentityMotif": [
+      {
+        "Formation": "corefolder",
+        "Motif": {
+          "Motif_JP": [
+            "コアフォルダ形態",
+            "男の子1人",
+            "若い成人",
+            "狐の耳",
+            "枝分かれ狐の尾8本",
+            "ヘアバンド付きオレンジ色の長いポニーテール",
+            "アイマスクバンド付きの赤い目",
+            "オレンジ色のウェストコートの上の濃紺ダブルブレスト執事テールコート",
+            "オレンジ色の長いズボン",
+            "白い手袋",
+            "濃紺のネクタイ",
+            "無限形状（∞=88）のアイマスクバンド",
+            "青い靴",
+            "ピアノ鍵盤ホログラフィックリング"
+          ],
+          "Motif_EN": [
+            "corefolder form",
+            "1boy",
+            "young adult",
+            "fox ears",
+            "branching fox 8 tails",
+            "orange long ponytail with hair-band",
+            "red eyes with eye-mask band",
+            "navy-blue double-breasted butler tailcoat over orange waistcoat",
+            "orange long trousers",
+            "white gloves",
+            "navy blue necktie",
+            "infinity-shaped (∞=88) blindfold band",
+            "blue shoes",
+            "piano-keyboard holographic ring"
+          ]
+        }
+      }
+    ],
     "RelationNotes": "ピアノ型のホログラムは「8(ワカツ)」が調整している",
     "NumerospecAbout": "主人の報酬を保証する\n強力な加護のためこの効果の詳細は不明",
     "Summary": "努力家を好み努力家の幸福を願っており、努力に相応しい報酬の確保を信条としている。\nその成果は驚異的で、物質的にも非物質的にも膨大な量の恩恵を与えていると巷で有名となり、あまりにも高級な効果が期待されると判明されてから、彼との契約料金も99人の中で最上位を誇っている。\nその集金力はもはや異次元で不気味とさえ思われがち。\n趣味はピアノ演奏。",
@@ -22673,6 +26050,43 @@
     "SpecialSkill": "生け花",
     "Favor": "因果応報",
     "Unlike": "老けて思われがち",
+    "IdentityMotif": [
+      {
+        "Formation": "corefolder",
+        "Motif": {
+          "Motif_JP": [
+            "コアフォルダ形態",
+            "女の子1人",
+            "若い成人",
+            "狐の耳",
+            "枝分かれ狐の尾9本",
+            "マゼンタの長い髪",
+            "赤い目",
+            "マゼンタレッドのレトロな修道服/拘束スタイルスーツ",
+            "赤いネクタイ付き白いインナーシャツ",
+            "マゼンタ色のフード付きケープ/マント",
+            "マゼンタのストッキング",
+            "マゼンタのハイヒールブーツ",
+            "白いウィンプル風カラー"
+          ],
+          "Motif_EN": [
+            "corefolder form",
+            "1girl",
+            "young adult",
+            "fox ears",
+            "branching fox 9 tails",
+            "long magenta hair",
+            "red eyes",
+            "magenta-red retro nun-like habit / restraint-style suit",
+            "white inner shirt with red necktie",
+            "magenta hooded cape/cloak",
+            "magenta stockings",
+            "magenta high-heeled boots",
+            "white wimple-like collar"
+          ]
+        }
+      }
+    ],
     "NumerospecAbout": "主人の抱える未練を中和する",
     "Summary": "「すべての物事には終わりがあり、終わりにはそこで行ってきたことへの報いがある」と、何事にも最後まで誠実であることを大切にしている。\nそのモットーを主人と共有することが彼女の最大の役目となっているため、定年退職や引退などを控えた中壮年層の主人から評判となっている。\nただ、他のナンバーテールズから老けて思われがちなのが悩みなんだとか。",
     "NumerospecStats": {
@@ -22989,6 +26403,43 @@
     "SpecialSkill": "感情の整理",
     "Favor": "冬、コアフォルダが寄り添っている様子",
     "Unlike": "姉を筆頭に怖がられていること",
+    "IdentityMotif": [
+      {
+        "Formation": "corefolder",
+        "Motif": {
+          "Motif_JP": [
+            "コアフォルダ形態",
+            "男の子1人",
+            "10代前半（低年齢寄り）",
+            "狐の耳",
+            "枝分かれ狐の尾9本",
+            "淡い青のショートヘア",
+            "ラベンダーグレーの目",
+            "淡い青のオープン半袖ブラウス",
+            "クリームベージュのインナータンクトップ",
+            "ベージュのショートパンツ",
+            "白いタイツ",
+            "淡い青灰色のアンクルブーツ",
+            "ゆるいラベンダー色のネクタイ"
+          ],
+          "Motif_EN": [
+            "corefolder form",
+            "1boy",
+            "early teenager",
+            "fox ears",
+            "branching fox 9 tails",
+            "short pale-blue hair",
+            "lavender-gray eyes",
+            "pale blue open short-sleeve blouse",
+            "cream-beige inner tank-top",
+            "beige shorts",
+            "white tights",
+            "pale blue-gray ankle boots",
+            "loose lavender necktie"
+          ]
+        }
+      }
+    ],
     "NumerospecAbout": "心を慰める\nただしこの効果は会話を通してのみ発動する",
     "Summary": "彼と会話を続けていると、心の中に抱えている悩みが解消されると噂されているが、彼の話し口調そのものは冷酷に思われがち。\n時折 威圧的に思われてしまう事があるため率先して相談に乗ることは控えているが、彼なりの優しさがあってこその言動だと支持する主人や他個体も少なくはない。\n姉の「29(ニトク)」に避けられていることをコンプレックスに感じている。\n最近の癒しは寄り添い合うコアフォルダを眺めることだが、彼自身もその中に入りたいというのは別の話。",
     "NumerospecStats": {
@@ -23236,6 +26687,43 @@
     "SpecialSkill": "応援（実はヲタ芸もできる）",
     "Favor": "鉢巻\n表彰状（成果がわかるもの）",
     "Unlike": "挫折\n遊園地のアトラクション",
+    "IdentityMotif": [
+      {
+        "Formation": "corefolder",
+        "Motif": {
+          "Motif_JP": [
+            "コアフォルダ形態",
+            "女の子1人",
+            "10代前半（低年齢寄り）",
+            "狐の耳",
+            "枝分かれ狐の尾9本",
+            "白いヘアバンド付き黄色い長い髪",
+            "黄色い目",
+            "茶色の短いベスト",
+            "「93」マーク入り黄色いチューブトップ",
+            "黄色いフルスカート",
+            "クリーム白い膝上ソックス",
+            "茶色のレースアップシューズ",
+            "白い幅広ヘアバンド"
+          ],
+          "Motif_EN": [
+            "corefolder form",
+            "1girl",
+            "early teenager",
+            "fox ears",
+            "branching fox 9 tails",
+            "long yellow hair with white headband",
+            "yellow eyes",
+            "brown short vest",
+            "yellow tube-top with '93' marking",
+            "yellow full skirt",
+            "cream-white knee-high socks",
+            "brown lace-up shoes",
+            "white wide headband"
+          ]
+        }
+      }
+    ],
     "RelationNotes": "「3(ナオ)」「9(チカ)」を活動の目標に掲げている",
     "NumerospecAbout": "主人の抱える野望を叶える\nただしこの効果は主人との信頼関係に影響される",
     "Summary": "「39(サク)」の妹に相当する個体。\n成し遂げたことは一つの「過程」としてとらえ、より高度な成果を期待してやまない。\nそのため、主人よりも向上意欲が強くなってすれ違ってしまうというミスマッチが発生している傾向にあるが、信頼関係が築かれた主人とは互いに大きな目標に向けて精進しているという話も。\n夢は、「3(ナオ)」と「9(チカ)」よりも強大な実績を手にすること。",
@@ -23515,6 +27003,43 @@
     "SpecialSkill": "どんな状況でも入眠できる",
     "Favor": "丸くなって寝ること",
     "Unlike": "丸い形以外になること",
+    "IdentityMotif": [
+      {
+        "Formation": "corefolder",
+        "Motif": {
+          "Motif_JP": [
+            "コアフォルダ形態",
+            "その他1人",
+            "10代",
+            "狐の耳",
+            "枝分かれ狐の尾9本",
+            "青いミディアムヘア",
+            "青い目",
+            "バックル付き紫の長い寝袋/拘束スーツ",
+            "青いインナーパジャマチュニック",
+            "白いインナーカラー",
+            "前部に沿ったバックルストラップ",
+            "裸足",
+            "青い抱き枕/クッション"
+          ],
+          "Motif_EN": [
+            "corefolder form",
+            "1other",
+            "teenager",
+            "fox ears",
+            "branching fox 9 tails",
+            "medium blue hair",
+            "blue eyes",
+            "purple long sleeping-bag / restraint-suit with buckles",
+            "blue inner pajama tunic",
+            "white inner collar",
+            "buckle straps along the front",
+            "barefoot",
+            "blue body pillow / cushion"
+          ]
+        }
+      }
+    ],
     "RelationNotes": "「4(モチ)」に安心感を覚えている\n同クラス（デュアルフォーズ）での交流に苦戦中",
     "NumerospecAbout": "休息を与える\nこの効果は物事が終結した後に真価を発揮する",
     "Summary": "物事がひと段落したときの休息を過ごすことに特化したナンバーテールズ。\n休止(寝ている状態)時間が他の個体よりも極めて長いため、限られた活動時間でも従事できる主人とのマッチングの徹底やコアフォルダ形態を活用してなんとか活動を展開している。\nしかし周囲からは愛しく思われていて支持者も多い。\nコアフォルダ形態で他のコアフォルダに埋もれたいくらいにはコアフォルダが好き。",
@@ -23816,6 +27341,76 @@
     "SpecialSkill": "キャラを演じること",
     "Favor": "トレンドもの",
     "Unlike": "水着",
+    "IdentityMotif": [
+      {
+        "Formation": "corefolder",
+        "Motif": {
+          "Motif_JP": [
+            "コアフォルダ形態",
+            "女の子1人",
+            "10代",
+            "狐の耳",
+            "枝分かれ狐の尾9本",
+            "三日月マーク付きピンクのショートヘア",
+            "ピンクの目",
+            "白い襟付きピンクのワンピースドレス",
+            "ハイヒール",
+            "ピンクのマスカレードマスク（アイマスク）",
+            "ピンクのリボンヘアオーナメント",
+            "ピンクのサイハイストッキング"
+          ],
+          "Motif_EN": [
+            "corefolder form",
+            "1girl",
+            "teenager",
+            "fox ears",
+            "branching fox 9 tails",
+            "short pink hair with crescent mark",
+            "pink eyes",
+            "pink one-piece dress with white collar",
+            "high heels",
+            "pink masquerade mask (eye mask)",
+            "pink ribbon hair ornament",
+            "pink thigh-high stockings"
+          ]
+        }
+      },
+      {
+        "Formation": "humanoid",
+        "Motif": {
+          "Motif_JP": [
+            "ヒューマノイド形態",
+            "女の子1人",
+            "10代",
+            "狐の耳",
+            "枝分かれ狐の尾9本",
+            "三日月マーク付きピンクのショートヘア",
+            "ピンクの目",
+            "白い襟と中央ボタン前立て付きピンクのパフスリーブドレス",
+            "三日月とドット装飾付きピンクのマスカレードマスク",
+            "灰色の手袋",
+            "手首のピンクのリボン",
+            "ピンクのサイハイストッキング",
+            "灰色の玉座風の椅子に座っている"
+          ],
+          "Motif_EN": [
+            "humanoid form",
+            "1girl",
+            "teenager",
+            "fox ears",
+            "branching fox 9 tails",
+            "short pink hair with crescent mark",
+            "pink eyes",
+            "pink puff-sleeve dress with white collar and central button placket",
+            "pink masquerade mask with crescent-moon and dot decoration",
+            "gray gloves",
+            "pink ribbon at wrist",
+            "pink thigh-high stockings",
+            "seated on a gray throne-like chair"
+          ]
+        }
+      }
+    ],
     "RelationNotes": "「69(ロック)」にだけ素の自分を打ち明けているが…",
     "NumerospecAbout": "過去の柵(しがらみ)から解放する\nこれにより主人に挑戦意欲を奮わせる効果もある",
     "Summary": "好んで仮面を着用する”キャラブレの激しい”ナンバーテールズ。\n流行に敏感で、それに合わせて容姿や個性が移ろっており、この和服のような衣装も実は部屋着としてでしか着用していない。\nこれには他のナンバーテールズからも「キャラクターが掴めない」と不思議がられている。\n謎ばかり深くなる彼女の素は、ナンバーテールズでさえ兄の「69(ロック)」しか知らないとか。",
@@ -24146,6 +27741,41 @@
     "SpecialSkill": "読み聞かせ",
     "Favor": "信仰",
     "Unlike": "叱責や怒号",
+    "IdentityMotif": [
+      {
+        "Formation": "corefolder",
+        "Motif": {
+          "Motif_JP": [
+            "コアフォルダ形態",
+            "女の子1人",
+            "10代",
+            "狐の耳",
+            "枝分かれ狐の尾9本",
+            "サイドブレイド付き青い非常に長い髪",
+            "淡いラベンダーグレーの目",
+            "十字紋章と「97」バンド付き灰色の修道女風トップハット",
+            "灰色の修道服の上の灰紫色のケープ",
+            "紫の長いスカート",
+            "灰色のアンクルブーツ",
+            "長い横編み込み"
+          ],
+          "Motif_EN": [
+            "corefolder form",
+            "1girl",
+            "teenager",
+            "fox ears",
+            "branching fox 9 tails",
+            "very long blue hair with side braid",
+            "pale lavender-gray eyes",
+            "gray nun-like top hat with cross emblem and '97' band",
+            "gray-purple cape over gray habit",
+            "purple long skirt",
+            "gray ankle boots",
+            "long side braid"
+          ]
+        }
+      }
+    ],
     "RelationNotes": "良かれと思って「61(ロクイチ)」と「72(ナフタ)」に、礼拝を勧めている（なお、相手はうまく受け流している）\n「74(ナナヨ)」に関しては否定こそしないが肯定もしておらず、その時々の感情で共感度合いが変わってしまいがち",
     "NumerospecAbout": "善意や善行を報わせて魂を雪(そそ)ぐ\nこの効果は相手の心が清いものである程大きくなる",
     "Summary": "良かれと思う心を報わせると定評な個体で、日頃から人徳と善行を積んでいる主人ほどその恩恵を最大限に受けている。\n一方で、彼女自身は少し内向的で陰気ではあるものの良かれと思う積極性は高めではある。\nしかし信仰に対し強い執着があり、礼拝を習慣としているなど特殊な生活をしている。\n61(ロクイチ)および72(ナフタ)とは、礼拝を強く勧めるのを受け流されつつも悪くない適切な関係にある。",
@@ -24387,6 +28017,39 @@
     "SpecialSkill": "時間制限や手数制限のある作業",
     "Favor": "キリ番から少し減らされ下2桁が「98」になった数字",
     "Unlike": "残業",
+    "IdentityMotif": [
+      {
+        "Formation": "corefolder",
+        "Motif": {
+          "Motif_JP": [
+            "コアフォルダ形態",
+            "女の子1人",
+            "10代",
+            "狐の耳",
+            "枝分かれ狐の尾9本",
+            "マゼンタピンクのミディアムヘア",
+            "赤い目",
+            "マゼンタレッドのレトロなビジネススーツ/着物風トップス",
+            "「98」マーク入り赤いネクタイ",
+            "灰色の長いプリーツスカート",
+            "ストラップ付き赤いアンクルブーツ"
+          ],
+          "Motif_EN": [
+            "corefolder form",
+            "1girl",
+            "teenager",
+            "fox ears",
+            "branching fox 9 tails",
+            "magenta-pink medium hair",
+            "red eyes",
+            "magenta-red retro business suit / kimono-style top",
+            "red necktie with '98' marking",
+            "gray long pleated skirt",
+            "red ankle boots with strap"
+          ]
+        }
+      }
+    ],
     "NumerospecAbout": "諦め時を見極める\nこれにより、より即座に結果を伴わせることがあるらしい",
     "Summary": "何事にも投げ遣り気味ですぐに物事を切り上げようとするため、少し大雑把に思われているナンバーテールズ。\nしかしながら「諦め時を見極める」ことに優れた従事活動を展開しており、結果が即座に出て助かると一部の主人から定評を集めている。\n姉の「89(ヤスモ)」とは少し距離を置かれがちだが、同様の気質を有する「68(ロクヤ)」と時折行動を共にしている。",
     "NumerospecStats": {
@@ -24631,6 +28294,45 @@
     "SpecialSkill": "運試し",
     "Favor": "サイエンスファンタジー",
     "Unlike": "悲劇",
+    "IdentityMotif": [
+      {
+        "Formation": "corefolder",
+        "Motif": {
+          "Motif_JP": [
+            "コアフォルダ形態",
+            "その他1人",
+            "10代",
+            "狐の耳",
+            "枝分かれ狐の尾9本",
+            "ピンクの光輪付き濃い灰色のショートヘア",
+            "三日月額マーク付きのピンク赤の目",
+            "赤いジグザグ内側トリム付き濃い灰色の羽織コート",
+            "ピンク白ストライプのインナー着物",
+            "赤い帯",
+            "グレーのスラックス",
+            "白いリストカフス",
+            "狐に似た耳と9本の尾房模様",
+            "頭の後ろのピンクの光輪"
+          ],
+          "Motif_EN": [
+            "corefolder form",
+            "1other",
+            "teenager",
+            "fox ears",
+            "branching fox 9 tails",
+            "dark gray short hair with pink light-ring halo",
+            "pink-red eyes with crescent forehead mark",
+            "dark gray haori-coat with red zigzag inner trim",
+            "pink-white striped inner kimono",
+            "red obi sash",
+            "gray slacks",
+            "white wrist cuffs",
+            "fox-like ears and nine tail-tufts pattern",
+            "pink light-ring halo behind head"
+          ]
+        }
+      }
+    ],
     "RelationNotes": "「11(トウイチ)」に記憶について事情を相談している\n「10(ミツル)」に心当たりが…？",
     "NumerospecAbout": "？？？？の記憶を持つ",
     "Summary": "――余は誰だ？ここは何処だ？\n世界が終わったのか？望みは無いのか？……いや、確かに“あの時”すべてが終わった。\nしかし、終わりをまた迎えるであろう“此処”にまだ、救いが或るのなら、望みがあるのなら――\n「マスターテールズ9」所属、ナンバーテールズ最大の異能。\n彼(女)が観たもの、そして彼(女)が憶えているものとは……",
@@ -24928,6 +28630,39 @@
     "SpecialSkill": "体調不良を見抜く",
     "Favor": "スキンシップ（コアフォルダ形態時）",
     "Unlike": "妹より幼く見えること",
+    "IdentityMotif": [
+      {
+        "Formation": "corefolder",
+        "Motif": {
+          "Motif_JP": [
+            "コアフォルダ形態",
+            "女の子1人",
+            "10代",
+            "狐の耳",
+            "狐の尾",
+            "淡い銀灰色の長い髪",
+            "琥珀オレンジの目",
+            "丸まって眠るポーズ",
+            "「Bi 2 nor」の胸タグ",
+            "オレンジ色の「試用中」ラベル",
+            "淡い銀色の尾2本（プロトタイプ状態）"
+          ],
+          "Motif_EN": [
+            "corefolder form",
+            "1girl",
+            "teenager",
+            "fox ears",
+            "fox tails",
+            "pale silver-gray long hair",
+            "amber-orange eyes",
+            "curled sleeping pose",
+            "'Bi 2 nor' chest tag",
+            "orange '試用中' (trial / test version) label",
+            "two pale silver tails (prototype state)"
+          ]
+        }
+      }
+    ],
     "Strength": "葛藤しながらも周りや仲間のことを無下にしない",
     "Weakness": "正式な実体を得ることがない間に「スキンシップができるならどんな姿や形になってもいい」とどこかで思うようになった",
     "RelationNotes": "「3(ナオ)」と一緒に活動したかったと思っている\n「ディケ」の悩みに寄り添いたいと願っている",
@@ -25146,6 +28881,43 @@
     "SecondPersonCalling": "お前",
     "ThirdPersonCalling": "*奴(*いつ);[※名前呼び]",
     "ForMasterCalling": "～先輩",
+    "IdentityMotif": [
+      {
+        "Formation": "corefolder",
+        "Motif": {
+          "Motif_JP": [
+            "コアフォルダ形態",
+            "男の子1人",
+            "10代",
+            "狐の耳",
+            "狐の尾",
+            "濃い茶色の長い髪",
+            "琥珀黄色の目",
+            "黄色い危険ストライプ付き濃い灰色の樽型拘束コンテナ",
+            "襟元の赤いリボン",
+            "底部の赤い三角形の危険コーン",
+            "「調整中」黄色い注意ラベル",
+            "「取扱注意」注意ラベル",
+            "コンテナの「X」マーキング"
+          ],
+          "Motif_EN": [
+            "corefolder form",
+            "1boy",
+            "teenager",
+            "fox ears",
+            "fox tails",
+            "dark brown long hair",
+            "amber-yellow eyes",
+            "dark gray barrel-shaped restraint container with yellow hazard stripes",
+            "red ribbon at collar",
+            "red triangular hazard cones at base",
+            "'調整中' (under adjustment) yellow caution label",
+            "'取扱注意' (handle with care) caution label",
+            "'X' marking on container"
+          ]
+        }
+      }
+    ],
     "RelationNotes": "いつか1桁番の許へ復帰するのを望んでいる\n時々隔離開発室に訪れる「10(ミツル)」に戸惑う一面も",
     "NumerospecAbout": "？？？？を果たす\n暴走により唯一攻撃的な特徴のある加護となった",
     "NumerospecStats": {
@@ -25376,6 +29148,39 @@
     "ForMasterCalling": "クライアント君",
     "Strength": "他個体の体系(システム)を担っている",
     "Weakness": "アイデンティティがナンバーテールズとしてではなく開発者としてのものとなっている",
+    "IdentityMotif": [
+      {
+        "Formation": "corefolder",
+        "Motif": {
+          "Motif_JP": [
+            "コアフォルダ形態",
+            "その他1人",
+            "若い成人",
+            "狐の耳",
+            "狐の尾",
+            "灰色のショルダーレングスヘア",
+            "黄色い目",
+            "ベル飾り付き灰色ベージュのストライプ長いスカーフ",
+            "「000」マーク入り白いシャツカラー",
+            "猫のように長い尾",
+            "猫のように丸まって眠るポーズ"
+          ],
+          "Motif_EN": [
+            "corefolder form",
+            "1other",
+            "young adult",
+            "fox ears",
+            "fox tails",
+            "gray shoulder-length hair",
+            "yellow eyes",
+            "long gray-beige striped scarf with bell ornaments",
+            "white shirt-collar with '000' mark",
+            "long cat-like tail",
+            "curled cat-like sleeping pose"
+          ]
+        }
+      }
+    ],
     "RelationNotes": "零姉弟が自分に恥ずかしく思っているのを知らないのか、零姉弟の前では空気が読めない言動を…？",
     "NumerospecAbout": "開発者 零姉弟の人格と同等のものを持つ\nちなみに名前は、零姉弟の本当の苗字「千歳」から由来",
     "InStory": "量産販売型の発表後、稀に零姉弟の代理として登場する（完成時期は「99(ツクモ)」より後で「100(モモ)」より前）",
@@ -25569,6 +29374,9 @@
     "ForMasterCalling": "クライアント君",
     "Strength": "暗算や思考がAIに後れを取らないほど早い",
     "Weakness": "酒癖が悪い（酔うとダル絡みやみだりなスキンシップが増える）\n発達障碍で就職活動を諦めている（ただし博士課程での研究で将来的に事業化が確定しているのでそこまで困っていない）",
+    "IdentityMotif": [
+      { "Formation": "humanoid", "Motif": { "Motif_JP": [], "Motif_EN": [] } }
+    ],
     "RelationNotes": "ハードウェアのことは百を最大に信用し、時に百が思いつかない発想を提供する",
     "NumerospecAbout": "IQ200の頭脳を持つ(学士課程以前で記録)\n飛び級のないキャリアだが裏でAIやROSを自作している",
     "InStory": "ナンバーテールズのROSを開発・保守しながら博士研究に努めている",
@@ -25640,6 +29448,9 @@
     "ForMasterCalling": "クライアント君",
     "Strength": "技術力が非常に高くハンドメイドで大抵の装置を製造できる",
     "Weakness": "発達障碍が就職活動に響いている（ただし姉の博士課程に協力することになってからはそこまで困っていない）",
+    "IdentityMotif": [
+      { "Formation": "humanoid", "Motif": { "Motif_JP": [], "Motif_EN": [] } }
+    ],
     "RelationNotes": "ROS,ファームウェアのことは零を最大に信用し、時に零の暴走を止めている",
     "NumerospecAbout": "世界トップ10のメカニック実績がある(学士課程で記録)\n姉と同等の頭脳を持つが発達障害を患っている",
     "InStory": "ナンバーテールズのハードウェアを設計・製造・メンテナンスしながら博士研究に努めている",
