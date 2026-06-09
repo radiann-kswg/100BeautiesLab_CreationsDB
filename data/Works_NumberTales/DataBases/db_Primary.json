@@ -67,32 +67,24 @@
         "Motif": {
           "Motif_JP": [
             "コアフォルダ形態",
-            "その他1人",
-            "10代前半",
             "赤橙色の髪",
             "ショートヘア",
-            "狐の耳",
+            "狐の耳（左耳が垂れている）",
             "狐の尾1本",
             "元気な笑顔",
             "赤いパーカー",
             "矢印形の胸ジッパー",
-            "ショートパンツ",
-            "ブーツ",
             "数字「1」マーキング"
           ],
           "Motif_EN": [
             "corefolder form",
-            "1other",
-            "young teenager",
             "red orange hair",
             "short hair",
-            "fox ears",
+            "fox ears(left ear drooping)",
             "single fox tail",
             "energetic open smile",
             "red hoodie",
             "arrow-shaped chest zipper",
-            "shorts",
-            "boots",
             "number '1' marking"
           ]
         }
@@ -102,23 +94,23 @@
         "Motif": {
           "Motif_JP": [
             "ヒューマノイド形態",
-            "その他1人",
-            "10代前半",
             "赤橙色のショートヘア",
-            "狐の耳",
+            "狐の耳（左耳が垂れている）",
             "狐の尾1本",
             "元気な笑顔",
-            "カジュアルな服装"
+            "カジュアルな服装",
+            "ショートパンツ",
+            "ブーツ"
           ],
           "Motif_EN": [
             "humanoid form",
-            "1other",
-            "young teenager",
             "red orange short hair",
-            "fox ears",
+            "fox ears(left ear drooping)",
             "single fox tail",
             "energetic open smile",
-            "casual outfit"
+            "casual outfit",
+            "shorts",
+            "boots"
           ]
         }
       }
@@ -485,12 +477,34 @@
         "Motif": {
           "Motif_JP": [
             "コアフォルダ形態",
-            "その他1人",
-            "10代前半",
+            "オレンジ色の髪",
+            "ショートヘア",
+            "狐の耳（右耳が垂れている）",
+            "四角い眼鏡",
+            "落ち着いた微笑み",
+            "二重結びスカーフ",
+            "数字「2」紋章"
+          ],
+          "Motif_EN": [
+            "corefolder form",
+            "orange hair",
+            "short hair",
+            "fox ears(right ear drooping)",
+            "rectangular glasses",
+            "calm composed smile",
+            "double-knotted scarf",
+            "number '2' emblem"
+          ]
+        }
+      },
+      {
+        "Formation": "humanoid",
+        "Motif": {
+          "Motif_JP": [
+            "ヒューマノイド形態",
             "オレンジ色の髪",
             "ショートヘア",
             "狐の耳",
-            "狐の尾2本",
             "四角い眼鏡",
             "落ち着いた微笑み",
             "ティールのスポーティシャツ",
@@ -499,13 +513,10 @@
             "数字「2」紋章"
           ],
           "Motif_EN": [
-            "corefolder form",
-            "1other",
-            "young teenager",
+            "humanoid form",
             "orange hair",
             "short hair",
             "fox ears",
-            "two fox tails",
             "rectangular glasses",
             "calm composed smile",
             "teal sporty shirt",
@@ -781,25 +792,42 @@
         "Motif": {
           "Motif_JP": [
             "コアフォルダ形態",
-            "その他1人",
-            "10代",
             "黄色い髪",
             "スパイキーヘア",
             "狐の耳",
-            "狐の尾3本",
+            "黄色いヘアクリップ",
+            "数字「3」マーキング",
+            "表情豊かな顔"
+          ],
+          "Motif_EN": [
+            "corefolder form",
+            "yellow hair",
+            "spiky hair",
+            "fox ears",
+            "yellow hair clip",
+            "number '3' marking",
+            "emotive expressive face"
+          ]
+        }
+      },
+      {
+        "Formation": "humanoid",
+        "Motif": {
+          "Motif_JP": [
+            "ヒューマノイド形態",
+            "黄色い髪",
+            "スパイキーヘア",
+            "狐の耳",
             "黄色いヘアクリップ",
             "明るい黄色のケープジャケット",
             "数字「3」マーキング",
             "表情豊かな顔"
           ],
           "Motif_EN": [
-            "corefolder form",
-            "1other",
-            "teenager",
+            "humanoid form",
             "yellow hair",
             "spiky hair",
             "fox ears",
-            "three fox tails",
             "yellow hair clip",
             "bright yellow cape-jacket",
             "number '3' marking",
@@ -1060,11 +1088,31 @@
         "Motif": {
           "Motif_JP": [
             "コアフォルダ形態",
-            "その他1人",
-            "10代",
             "青い長い髪",
-            "狐の耳",
+            "狐の垂れ耳",
             "狐の尾4本",
+            "控えめな柔らかな微笑み",
+            "小さな耳横のヘアアクセサリー",
+            "数字「4」紋章"
+          ],
+          "Motif_EN": [
+            "corefolder form",
+            "long blue hair",
+            "fox drooping ears",
+            "four fox tails",
+            "soft understated smile",
+            "small ear-side hair accessory",
+            "number '4' emblem"
+          ]
+        }
+      },
+      {
+        "Formation": "humanoid",
+        "Motif": {
+          "Motif_JP": [
+            "ヒューマノイド形態",
+            "青い長い髪",
+            "狐の垂れ耳",
             "控えめな柔らかな微笑み",
             "重ね着ティールのコート",
             "スカート",
@@ -1072,12 +1120,9 @@
             "数字「4」紋章"
           ],
           "Motif_EN": [
-            "corefolder form",
-            "1other",
-            "teenager",
+            "humanoid form",
             "long blue hair",
-            "fox ears",
-            "four fox tails",
+            "fox drooping ears",
             "soft understated smile",
             "layered teal coat",
             "skirt",
@@ -1368,11 +1413,31 @@
         "Motif": {
           "Motif_JP": [
             "コアフォルダ形態",
-            "その他1人",
-            "10代",
             "ティールグリーンの髪",
             "狐の耳",
-            "狐の尾5本",
+            "オッドアイ（虹彩異色症）",
+            "いたずらっぽいニヤリ",
+            "テープリストバンド",
+            "数字「5」マーキング"
+          ],
+          "Motif_EN": [
+            "corefolder form",
+            "teal green hair",
+            "fox ears",
+            "heterochromia",
+            "mischievous grin",
+            "tape wristbands",
+            "number '5' marking"
+          ]
+        }
+      },
+      {
+        "Formation": "humanoid",
+        "Motif": {
+          "Motif_JP": [
+            "ヒューマノイド形態",
+            "ティールグリーンの髪",
+            "狐の耳",
             "オッドアイ（虹彩異色症）",
             "いたずらっぽいニヤリ",
             "テープリストバンド",
@@ -1380,12 +1445,9 @@
             "数字「5」マーキング"
           ],
           "Motif_EN": [
-            "corefolder form",
-            "1other",
-            "teenager",
+            "humanoid form",
             "teal green hair",
             "fox ears",
-            "five fox tails",
             "heterochromia",
             "mischievous grin",
             "tape wristbands",
@@ -1649,11 +1711,31 @@
         "Motif": {
           "Motif_JP": [
             "コアフォルダ形態",
-            "その他1人",
-            "10代",
             "ピンクの髪",
             "狐の耳",
-            "狐の尾6本",
+            "穏やかな笑顔",
+            "六角形のブローチ",
+            "レーストリム",
+            "数字「6」マーキング"
+          ],
+          "Motif_EN": [
+            "corefolder form",
+            "pink hair",
+            "fox ears",
+            "gentle warm smile",
+            "hexagonal brooch",
+            "lace trim",
+            "number '6' marking"
+          ]
+        }
+      },
+      {
+        "Formation": "humanoid",
+        "Motif": {
+          "Motif_JP": [
+            "ヒューマノイド形態",
+            "ピンクの髪",
+            "狐の耳",
             "穏やかな笑顔",
             "ビクトリアンドレス",
             "ツートーンのピンク紫ドレス",
@@ -1662,12 +1744,9 @@
             "数字「6」マーキング"
           ],
           "Motif_EN": [
-            "corefolder form",
-            "1other",
-            "teenager",
+            "humanoid form",
             "pink hair",
             "fox ears",
-            "six fox tails",
             "gentle warm smile",
             "Victorian dress",
             "two-tone pink purple dress",
@@ -1926,28 +2005,18 @@
         "Motif": {
           "Motif_JP": [
             "コアフォルダ形態",
-            "その他1人",
-            "若い成人",
             "ネイビーダークブルーの髪",
             "狐の耳",
-            "狐の尾7本",
             "瞑想的な無表情の眼差し",
             "念珠ネックレス",
-            "和風コート",
-            "ワイドレッグの濃い色のパンツ",
             "数字「7」マーキング"
           ],
           "Motif_EN": [
             "corefolder form",
-            "1other",
-            "young adult",
             "navy dark blue hair",
             "fox ears",
-            "seven fox tails",
             "contemplative stoic gaze",
             "prayer beads necklace",
-            "Japanese-style coat",
-            "wide-leg dark pants",
             "number '7' marking"
           ]
         }
@@ -1957,24 +2026,22 @@
         "Motif": {
           "Motif_JP": [
             "ヒューマノイド形態",
-            "その他1人",
-            "若い成人",
             "ネイビーダークブルーの髪",
             "狐の耳",
-            "狐の尾7本",
             "瞑想的な無表情の眼差し",
             "念珠ネックレス",
+            "和風コート",
+            "ワイドレッグの濃い色のパンツ",
             "和風カジュアルな服装"
           ],
           "Motif_EN": [
             "humanoid form",
-            "1other",
-            "young adult",
             "navy dark blue hair",
             "fox ears",
-            "seven fox tails",
             "contemplative stoic gaze",
             "prayer bead necklace",
+            "Japanese-style coat",
+            "wide-leg dark pants",
             "Japanese-style casual outfit"
           ]
         }
@@ -2290,11 +2357,31 @@
         "Motif": {
           "Motif_JP": [
             "コアフォルダ形態",
-            "その他1人",
-            "若い成人",
             "オレンジ赤の髪",
-            "狐の耳",
-            "狐の尾8本",
+            "狐の耳(フードに隠れている)",
+            "満面の元気な笑み",
+            "頭にVRゴーグル",
+            "メカニックスタイル",
+            "数字「8」紋章"
+          ],
+          "Motif_EN": [
+            "corefolder form",
+            "orange red hair",
+            "fox ears(hidden under hood)",
+            "wide energetic grin",
+            "VR goggles on head",
+            "mechanic style",
+            "number '8' emblem"
+          ]
+        }
+      },
+      {
+        "Formation": "humanoid",
+        "Motif": {
+          "Motif_JP": [
+            "ヒューマノイド形態",
+            "オレンジ赤の髪",
+            "狐の耳(フードに隠れている)",
             "満面の元気な笑み",
             "頭にVRゴーグル",
             "タクティカルベスト",
@@ -2303,12 +2390,9 @@
             "数字「8」紋章"
           ],
           "Motif_EN": [
-            "corefolder form",
-            "1other",
-            "young adult",
+            "humanoid form",
             "orange red hair",
-            "fox ears",
-            "eight fox tails",
+            "fox ears(hidden under hood)",
             "wide energetic grin",
             "VR goggles on head",
             "tactical vest",
@@ -2566,11 +2650,29 @@
         "Motif": {
           "Motif_JP": [
             "コアフォルダ形態",
-            "その他1人",
-            "若い成人",
             "銀灰色の長い髪",
             "狐の耳",
-            "狐の尾9本",
+            "円形配置の尾",
+            "落ち着いた神秘的な表情",
+            "数字「9」マーキング"
+          ],
+          "Motif_EN": [
+            "corefolder form",
+            "silver gray long hair",
+            "fox ears",
+            "tails in ring arrangement",
+            "composed mysterious expression",
+            "number '9' marking"
+          ]
+        }
+      },
+      {
+        "Formation": "humanoid",
+        "Motif": {
+          "Motif_JP": [
+            "ヒューマノイド形態",
+            "銀灰色の長い髪",
+            "狐の耳",
             "円形配置の尾",
             "落ち着いた神秘的な表情",
             "大きな濃い色のケープ",
@@ -2578,12 +2680,9 @@
             "数字「9」マーキング"
           ],
           "Motif_EN": [
-            "corefolder form",
-            "1other",
-            "young adult",
+            "humanoid form",
             "silver gray long hair",
             "fox ears",
-            "nine fox tails",
             "tails in ring arrangement",
             "composed mysterious expression",
             "large dark cape",
@@ -2897,8 +2996,29 @@
         "Motif": {
           "Motif_JP": [
             "コアフォルダ形態",
-            "その他1人",
-            "10代前半",
+            "深紅の髪",
+            "サイドで結んだ髪",
+            "狐の耳",
+            "芽型の狐の尾1本",
+            "余裕ある自信の微笑み",
+            "数字「10」紋章"
+          ],
+          "Motif_EN": [
+            "corefolder form",
+            "deep red hair",
+            "hair tied at side",
+            "fox ears",
+            "bud-type single fox tail",
+            "knowing confident smile",
+            "number '10' emblem"
+          ]
+        }
+      },
+      {
+        "Formation": "humanoid",
+        "Motif": {
+          "Motif_JP": [
+            "ヒューマノイド形態",
             "深紅の髪",
             "サイドで結んだ髪",
             "狐の耳",
@@ -2909,9 +3029,7 @@
             "数字「10」紋章"
           ],
           "Motif_EN": [
-            "corefolder form",
-            "1other",
-            "young teenager",
+            "humanoid form",
             "deep red hair",
             "hair tied at side",
             "fox ears",
@@ -3217,11 +3335,8 @@
         "Motif": {
           "Motif_JP": [
             "コアフォルダ形態",
-            "その他1人",
-            "10代",
             "銀灰色の長い髪",
-            "猫の耳",
-            "猫又の尾11本",
+            "猫の立った耳(フードに隠れている)",
             "神々しい自信の落ち着き",
             "2本の矢印形のヘアピン",
             "長いフード付きコート",
@@ -3230,11 +3345,33 @@
           ],
           "Motif_EN": [
             "corefolder form",
-            "1other",
-            "teenager",
             "silver gray long hair",
-            "cat ears",
-            "eleven nekomata tails",
+            "erected cat ears(hidden under hood)",
+            "divine self-assured composure",
+            "two arrow-shaped hair pins",
+            "long hooded coat",
+            "red vertical stripe on coat",
+            "number '11' marking"
+          ]
+        }
+      },
+      {
+        "Formation": "humanoid",
+        "Motif": {
+          "Motif_JP": [
+            "ヒューマノイド形態",
+            "銀灰色の長い髪",
+            "猫の立った耳(フードに隠れている)",
+            "神々しい自信の落ち着き",
+            "2本の矢印形のヘアピン",
+            "長いフード付きコート",
+            "コートの赤い縦縞",
+            "数字「11」マーキング"
+          ],
+          "Motif_EN": [
+            "humanoid form",
+            "silver gray long hair",
+            "erected cat ears(hidden under hood)",
             "divine self-assured composure",
             "two arrow-shaped hair pins",
             "long hooded coat",
@@ -3497,30 +3634,20 @@
         "Motif": {
           "Motif_JP": [
             "コアフォルダ形態",
-            "その他1人",
-            "10代前半",
             "ピーチオレンジの髪",
             "長髪",
             "狐の耳",
-            "枝分かれ狐の尾2本",
             "穏やかな無表情",
-            "大きなフードを上げた状態",
             "ポンチョケープ",
-            "ピーチカラースキーム",
             "数字「12」マーキング"
           ],
           "Motif_EN": [
             "corefolder form",
-            "1other",
-            "young teenager",
             "peach orange hair",
             "long hair",
             "fox ears",
-            "two branching fox tails",
             "serene blank expression",
-            "large hood up",
             "poncho cape",
-            "peach color scheme",
             "number '12' marking"
           ]
         }
@@ -3530,23 +3657,21 @@
         "Motif": {
           "Motif_JP": [
             "ヒューマノイド形態",
-            "その他1人",
-            "10代前半",
             "ピーチオレンジの長い髪",
             "狐の耳",
-            "枝分かれ狐の尾束2本",
             "穏やかな無表情",
-            "カジュアルなプライベート服装"
+            "カジュアルなプライベート服装",
+            "大きなフードを上げた状態",
+            "ピーチカラースキーム"
           ],
           "Motif_EN": [
             "humanoid form",
-            "1other",
-            "young teenager",
             "long peach orange hair",
             "fox ears",
-            "two branching fox tail bundles",
             "serene blank expression",
-            "casual private outfit"
+            "casual private outfit",
+            "large hood up",
+            "peach color scheme"
           ]
         }
       }
@@ -3846,11 +3971,29 @@
         "Motif": {
           "Motif_JP": [
             "コアフォルダ形態",
-            "その他1人",
-            "10代",
             "ティールライトブルーの髪",
             "狐の耳",
-            "枝分かれ狐の尾3本",
+            "熱狂的な満面の笑顔",
+            "マルチカラーストライプ",
+            "数字「13」マーキング"
+          ],
+          "Motif_EN": [
+            "corefolder form",
+            "teal light blue hair",
+            "fox ears",
+            "wide enthusiastic smile",
+            "multi-color stripe",
+            "number '13' marking"
+          ]
+        }
+      },
+      {
+        "Formation": "humanoid",
+        "Motif": {
+          "Motif_JP": [
+            "ヒューマノイド形態",
+            "ティールライトブルーの髪",
+            "狐の耳",
             "熱狂的な満面の笑顔",
             "スポーティなジャージ",
             "マルチカラーストライプ",
@@ -3859,12 +4002,9 @@
             "数字「13」マーキング"
           ],
           "Motif_EN": [
-            "corefolder form",
-            "1other",
-            "teenager",
+            "humanoid form",
             "teal light blue hair",
             "fox ears",
-            "three branching fox tails",
             "wide enthusiastic smile",
             "sporty jersey",
             "multi-color stripe",
@@ -4142,12 +4282,28 @@
         "Motif": {
           "Motif_JP": [
             "コアフォルダ形態",
-            "その他1人",
-            "10代",
             "青い長い髪",
             "狐の耳",
-            "枝分かれ狐の尾4本",
             "恥じらいの涙目表情",
+            "数字「14」マーキング"
+          ],
+          "Motif_EN": [
+            "corefolder form",
+            "long blue hair",
+            "fox ears",
+            "shy tearful expression",
+            "number '14' marking"
+          ]
+        }
+      },
+      {
+        "Formation": "humanoid",
+        "Motif": {
+          "Motif_JP": [
+            "ヒューマノイド形態",
+            "青い長い髪",
+            "狐の耳",
+            "自信ありげな表情",
             "ティールのブレザー",
             "ピンクのインナーシャツ",
             "赤いスカート",
@@ -4155,13 +4311,10 @@
             "数字「14」マーキング"
           ],
           "Motif_EN": [
-            "corefolder form",
-            "1other",
-            "teenager",
+            "humanoid form",
             "long blue hair",
             "fox ears",
-            "four branching fox tails",
-            "shy tearful expression",
+            "confident expression",
             "teal blazer",
             "pink inner shirt",
             "red skirt",
@@ -4494,32 +4647,24 @@
           "Motif_JP": [
             "コアフォルダ形態",
             "安全装置ハーネス付き",
-            "その他1人",
-            "若い成人",
             "ピンクの髪",
             "右サイドポニーテール",
             "狐の耳",
-            "枝分かれ狐の尾5本",
             "ストイックな無表情",
-            "淡い色のジャケット",
             "背中の安全装置ハーネス",
-            "腕組みのスタンス",
-            "数字「15」マーキング"
+            "数字「15」マーキング",
+            "右目右耳に焼け跡"
           ],
           "Motif_EN": [
             "corefolder form",
             "with safety device harness",
-            "1other",
-            "young adult",
             "pink hair",
             "right-side ponytail",
             "fox ears",
-            "five branching fox tails",
             "stoic minimal expression",
-            "pale jacket",
             "safety device harness on back",
-            "arms crossed stance",
-            "number '15' marking"
+            "number '15' marking",
+            "burn mark on right eye and ear"
           ]
         }
       },
@@ -4528,27 +4673,25 @@
         "Motif": {
           "Motif_JP": [
             "ヒューマノイド形態",
-            "その他1人",
-            "若い成人",
             "ピンクの髪",
             "右サイドポニーテール",
             "狐の耳",
             "枝分かれ狐の尾5本",
             "ストイックな無表情",
             "カジュアルなプライベート服装",
-            "右腕のマーク"
+            "淡い色のジャケット",
+            "右目右耳に焼け跡"
           ],
           "Motif_EN": [
             "humanoid form",
-            "1other",
-            "young adult",
             "pink hair",
             "right-side ponytail",
             "fox ears",
             "five branching fox tails",
             "stoic minimal expression",
             "casual private outfit",
-            "mark on right arm"
+            "pale jacket",
+            "burn mark on right eye and ear"
           ]
         }
       }
@@ -4896,27 +5039,44 @@
         "Motif": {
           "Motif_JP": [
             "コアフォルダ形態",
-            "その他1人",
-            "若い成人",
             "ピンクの非常に長い髪",
             "ウェーブヘア",
             "狐の耳",
-            "枝分かれ狐の尾6本",
             "恥ずかしそうな微笑み",
+            "青いキャップ",
+            "ハート紋章",
+            "数字「16」マーキング"
+          ],
+          "Motif_EN": [
+            "corefolder form",
+            "very long pink hair",
+            "wavy hair",
+            "fox ears",
+            "self-conscious shy smile",
+            "blue cap",
+            "heart emblem",
+            "number '16' marking"
+          ]
+        }
+      },
+      {
+        "Formation": "humanoid",
+        "Motif": {
+          "Motif_JP": [
+            "ヒューマノイド形態",
+            "ピンクの非常に長い髪",
+            "ウェーブヘア",
+            "狐の耳",
             "青いキャップ",
             "ハート紋章",
             "豊かな女性シルエット",
             "数字「16」マーキング"
           ],
           "Motif_EN": [
-            "corefolder form",
-            "1other",
-            "young adult",
+            "humanoid form",
             "very long pink hair",
             "wavy hair",
             "fox ears",
-            "six branching fox tails",
-            "self-conscious shy smile",
             "blue cap",
             "heart emblem",
             "voluminous feminine silhouette",
@@ -5209,31 +5369,21 @@
         "Motif": {
           "Motif_JP": [
             "コアフォルダ形態",
-            "その他1人",
-            "若い成人",
             "青みがかった藍色のショートヘア",
             "ボブカット",
             "狐の耳",
-            "枝分かれ狐の尾7本",
             "落ち着いた外見",
-            "四角いヘアピン",
-            "紫灰色のシャツ",
-            "赤いパンツ",
+            "四角いヘアピン(17の形)",
             "中性的",
             "数字「17」マーキング"
           ],
           "Motif_EN": [
             "corefolder form",
-            "1other",
-            "young adult",
             "short blue indigo hair",
             "bob cut",
             "fox ears",
-            "seven branching fox tails",
             "calm composed look",
-            "square hair pin",
-            "purple gray shirt",
-            "red pants",
+            "square hair pin (17 shape)",
             "androgynous",
             "number '17' marking"
           ]
@@ -5244,25 +5394,23 @@
         "Motif": {
           "Motif_JP": [
             "ヒューマノイド形態",
-            "その他1人",
-            "若い成人",
             "青みがかった藍色のショートボブ",
             "狐の耳",
-            "枝分かれ狐の尾7本",
             "落ち着いた外見",
-            "四角いヘアピン",
+            "四角いヘアピン(17の形)",
+            "紫灰色のシャツ",
+            "赤いパンツ",
             "中性的",
             "カジュアルな勉強用服装"
           ],
           "Motif_EN": [
             "humanoid form",
-            "1other",
-            "young adult",
             "short blue indigo bob",
             "fox ears",
-            "seven branching fox tails",
             "calm composed look",
-            "square hair pin",
+            "square hair pin (17 shape)",
+            "purple gray shirt",
+            "red pants",
             "androgynous",
             "casual study outfit"
           ]
@@ -5577,11 +5725,29 @@
         "Motif": {
           "Motif_JP": [
             "コアフォルダ形態",
-            "その他1人",
-            "若い成人",
             "茶色がかった暗赤色のショートヘア",
             "狐の耳",
-            "枝分かれ狐の尾8本",
+            "厳しい表情で右目を閉じている",
+            "赤いヘアピン",
+            "数字「18」マーキング"
+          ],
+          "Motif_EN": [
+            "corefolder form",
+            "short brown dark red hair",
+            "fox ears",
+            "stern with right eye closed",
+            "red hair pin",
+            "number '18' marking"
+          ]
+        }
+      },
+      {
+        "Formation": "humanoid",
+        "Motif": {
+          "Motif_JP": [
+            "ヒューマノイド形態",
+            "茶色がかった暗赤色のショートヘア",
+            "狐の耳",
             "厳しい表情で右目を閉じている",
             "赤いヘアピン",
             "シャツの上にブレザー",
@@ -5589,12 +5755,9 @@
             "数字「18」マーキング"
           ],
           "Motif_EN": [
-            "corefolder form",
-            "1other",
-            "young adult",
+            "humanoid form",
             "short brown dark red hair",
             "fox ears",
-            "eight branching fox tails",
             "stern with right eye closed",
             "red hair pin",
             "blazer over shirt",
@@ -5855,25 +6018,40 @@
         "Motif": {
           "Motif_JP": [
             "コアフォルダ形態",
-            "その他1人",
-            "若い成人",
             "茶色がかった赤いショートヘア",
             "乱れた髪",
             "狐の耳",
-            "枝分かれ狐の尾9本",
+            "半目",
+            "数字「19」マーキング"
+          ],
+          "Motif_EN": [
+            "corefolder form",
+            "short brown red hair",
+            "messy hair",
+            "fox ears",
+            "half-lidded eyes",
+            "number '19' marking"
+          ]
+        }
+      },
+      {
+        "Formation": "humanoid",
+        "Motif": {
+          "Motif_JP": [
+            "ヒューマノイド形態",
+            "茶色がかった赤いショートヘア",
+            "乱れた髪",
+            "狐の耳",
             "半目",
             "黒いノースリーブトップス",
             "ワイドレッグの濃い赤いパンツ",
             "数字「19」マーキング"
           ],
           "Motif_EN": [
-            "corefolder form",
-            "1other",
-            "young adult",
+            "humanoid form",
             "short brown red hair",
             "messy hair",
             "fox ears",
-            "nine branching fox tails",
             "half-lidded eyes",
             "sleeveless black top",
             "wide-leg dark red pants",
@@ -6134,30 +6312,20 @@
         "Motif": {
           "Motif_JP": [
             "コアフォルダ形態",
-            "その他1人",
-            "10代",
             "銀白色の長い髪",
             "狐の耳",
             "狐の尾2本",
             "穏やかな微笑み",
             "ハート形のヘアモチーフ",
-            "長い白いオープンコート",
-            "オレンジ色のインナーウェア",
-            "大きな胸",
             "数字「20」ベルト紋章"
           ],
           "Motif_EN": [
             "corefolder form",
-            "1other",
-            "teenager",
             "silver white long hair",
             "fox ears",
             "two fox tails",
             "serene gentle smile",
             "heart-shaped hair motif",
-            "long white open coat",
-            "orange inner wear",
-            "large breasts",
             "number '20' belt emblem"
           ]
         }
@@ -6167,27 +6335,31 @@
         "Motif": {
           "Motif_JP": [
             "ヒューマノイド形態",
-            "その他1人",
-            "10代",
             "銀白色の長い髪",
             "ハート形のヘアモチーフ",
             "狐の耳",
             "狐の尾2本",
             "穏やかな微笑み",
             "大きな胸",
-            "カジュアルなプライベート服装"
+            "長い白いオープンコート",
+            "オレンジ色のインナーウェア",
+            "大きな胸",
+            "カジュアルなプライベート服装",
+            "数字「20」ベルト紋章"
           ],
           "Motif_EN": [
             "humanoid form",
-            "1other",
-            "teenager",
             "silver white long hair",
             "heart-shaped hair motif",
             "fox ears",
             "two fox tails",
             "serene gentle smile",
             "large breasts",
-            "casual private outfit"
+            "long white open coat",
+            "orange inner wear",
+            "large breasts",
+            "casual private outfit",
+            "number '20' belt emblem"
           ]
         }
       }
@@ -6536,8 +6708,27 @@
         "Motif": {
           "Motif_JP": [
             "コアフォルダ形態",
-            "その他1人",
-            "10代前半",
+            "オレンジ色の髪",
+            "狐の耳",
+            "元気な満面の笑み",
+            "中性的な外見",
+            "数字「21」マーキング"
+          ],
+          "Motif_EN": [
+            "corefolder form",
+            "orange hair",
+            "fox ears",
+            "energetic wide smile",
+            "androgynous presentation",
+            "number '21' marking"
+          ]
+        }
+      },
+      {
+        "Formation": "humanoid",
+        "Motif": {
+          "Motif_JP": [
+            "ヒューマノイド形態",
             "オレンジ色の髪",
             "狐の耳",
             "枝分かれ狐の尾2本",
@@ -6548,9 +6739,7 @@
             "数字「21」マーキング"
           ],
           "Motif_EN": [
-            "corefolder form",
-            "1other",
-            "young teenager",
+            "humanoid form",
             "orange hair",
             "fox ears",
             "two branching fox tails",
@@ -6828,30 +7017,53 @@
         "Motif": {
           "Motif_JP": [
             "コアフォルダ形態",
-            "その他1人",
-            "10代",
             "淡い金色の髪",
             "狐の耳",
             "サソリ型の分節尾2本",
             "夢見るような柔らかな微笑み",
-            "星形のヘアオーナメント",
-            "金黄色の重ね着ドレス",
-            "大きな胸",
-            "腰のリボンサッシュ",
+            "十字があしらわれた丸いブローチとチョーカー",
+            "衛星と恒星を模したホログラム",
             "数字「22」マーキング"
           ],
           "Motif_EN": [
             "corefolder form",
-            "1other",
-            "teenager",
             "pale golden hair",
             "fox ears",
             "two scorpion-type segmented tails",
             "gentle dreamy soft smile",
-            "star hair ornament",
+            "round brooch with a cross and choker",
+            "holograms resembling satellites and stars",
+            "number '22' marking"
+          ]
+        }
+      },
+      {
+        "Formation": "humanoid",
+        "Motif": {
+          "Motif_JP": [
+            "ヒューマノイド形態",
+            "淡い金色の髪",
+            "狐の耳",
+            "サソリ型の分節尾2本",
+            "夢見るような柔らかな微笑み",
+            "金黄色の重ね着ドレス",
+            "大きな胸",
+            "腰のリボンサッシュ",
+            "十字があしらわれた丸いブローチとチョーカー",
+            "衛星と恒星を模したホログラム",
+            "数字「22」マーキング"
+          ],
+          "Motif_EN": [
+            "humanoid form",
+            "pale golden hair",
+            "fox ears",
+            "two scorpion-type segmented tails",
+            "gentle dreamy soft smile",
             "golden yellow layered dress",
             "large breasts",
             "ribbon sash at waist",
+            "round brooch with a cross and choker",
+            "holograms resembling satellites and stars",
             "number '22' marking"
           ]
         }
@@ -7146,29 +7358,17 @@
         "Motif": {
           "Motif_JP": [
             "コアフォルダ形態",
-            "その他1人",
-            "10代",
             "ミントグリーンの髪",
             "狐の耳",
-            "枝分かれ狐の尾3本",
             "自信に満ちた冒険的な笑顔",
-            "緑のパーカー",
-            "アスレチックな服装",
-            "ワイドレッグパンツ",
-            "数字「23」マーキング"
+            "数字「23」マーキングとストライプ模様"
           ],
           "Motif_EN": [
             "corefolder form",
-            "1other",
-            "teenager",
             "mint green hair",
             "fox ears",
-            "three branching fox tails",
             "confident adventurous smile",
-            "green hoodie",
-            "athletic outfit",
-            "wide-leg pants",
-            "number '23' marking"
+            "number '23' marking and stripe pattern"
           ]
         }
       },
@@ -7177,23 +7377,25 @@
         "Motif": {
           "Motif_JP": [
             "ヒューマノイド形態",
-            "その他1人",
-            "10代",
             "ミントグリーンの髪",
             "狐の耳",
-            "枝分かれ狐の尾3本",
             "自信に満ちた冒険的な笑顔",
-            "カジュアルなプライベート服装"
+            "緑のパーカー",
+            "アスレチックな服装",
+            "ワイドレッグパンツ",
+            "カジュアルなプライベート服装",
+            "数字「23」マーキングとストライプ模様"
           ],
           "Motif_EN": [
             "humanoid form",
-            "1other",
-            "teenager",
             "mint green hair",
             "fox ears",
-            "three branching fox tails",
             "confident adventurous smile",
-            "casual private outfit"
+            "green hoodie",
+            "athletic outfit",
+            "wide-leg pants",
+            "casual private outfit",
+            "number '23' marking and stripe pattern"
           ]
         }
       }
@@ -7497,31 +7699,19 @@
         "Motif": {
           "Motif_JP": [
             "コアフォルダ形態",
-            "その他1人",
-            "10代",
             "ピンクの長い髪",
             "狐の耳",
-            "枝分かれ狐の尾4本",
             "控えめで物思いにふける表情",
             "ハート形のヘアオーナメント",
-            "重ね着したピンクモーブのスカート",
-            "青いネッカチーフ",
-            "大きな胸",
-            "数字「24」マーキング"
+            "数字「24」マーキングがなされた青いネッカチーフ"
           ],
           "Motif_EN": [
             "corefolder form",
-            "1other",
-            "teenager",
             "long pink hair",
             "fox ears",
-            "four branching fox tails",
             "reserved quietly thoughtful expression",
             "heart-shaped hair ornament",
-            "layered pink mauve skirt",
-            "blue neckerchief",
-            "large breasts",
-            "number '24' marking"
+            "number '24' marking on blue neckerchief"
           ]
         }
       },
@@ -7530,25 +7720,23 @@
         "Motif": {
           "Motif_JP": [
             "ヒューマノイド形態",
-            "その他1人",
-            "10代",
             "ピンクの長い髪",
             "狐の耳",
-            "枝分かれ狐の尾4本",
             "控えめで物思いにふける表情",
             "ハート形のヘアオーナメント",
+            "重ね着したピンクモーブのスカート",
+            "数字「24」マーキングがなされた青いネッカチーフ",
             "大きな胸",
             "カジュアルなプライベート服装"
           ],
           "Motif_EN": [
             "humanoid form",
-            "1other",
-            "teenager",
             "long pink hair",
             "fox ears",
-            "four branching fox tails",
             "reserved quietly thoughtful expression",
             "heart-shaped hair ornament",
+            "layered pink mauve skirt",
+            "number '24' marking on blue neckerchief",
             "large breasts",
             "casual private outfit"
           ]
@@ -7870,32 +8058,20 @@
         "Motif": {
           "Motif_JP": [
             "コアフォルダ形態",
-            "その他1人",
-            "10代",
             "スチールブルーのショートヘア",
             "狐の耳",
-            "枝分かれ狐の尾5本",
             "鋭く自信に満ちた表情",
-            "濃い装甲ボディスーツ",
             "濃い青の手袋",
             "葉のスカーフアクセサリー",
-            "大きな胸",
-            "ダイナミックなアスリートポーズ",
             "数字「25」マーキング"
           ],
           "Motif_EN": [
             "corefolder form",
-            "1other",
-            "teenager",
             "steel blue short hair",
             "fox ears",
-            "five branching fox tails",
             "sharp confident expression",
-            "dark armored bodysuit",
             "dark blue gloves",
             "leaf scarf accessory",
-            "large breasts",
-            "athletic dynamic pose",
             "number '25' marking"
           ]
         }
@@ -7905,24 +8081,22 @@
         "Motif": {
           "Motif_JP": [
             "ヒューマノイド形態",
-            "その他1人",
-            "10代",
             "スチールブルーのショートヘア",
             "狐の耳",
-            "枝分かれ狐の尾5本",
             "鋭く自信に満ちた表情",
+            "濃いティールのボディスーツ",
             "大きな胸",
+            "ダイナミックなアスリートポーズ",
             "カジュアルなプライベート服装"
           ],
           "Motif_EN": [
             "humanoid form",
-            "1other",
-            "teenager",
             "steel blue short hair",
             "fox ears",
-            "five branching fox tails",
             "sharp confident expression",
+            "dark teal bodysuit",
             "large breasts",
+            "athletic dynamic pose",
             "casual private outfit"
           ]
         }
@@ -8274,11 +8448,27 @@
         "Motif": {
           "Motif_JP": [
             "コアフォルダ形態",
-            "その他1人",
-            "若い成人",
             "ピンクの長い髪",
             "狐の耳",
-            "枝分かれ狐の尾6本",
+            "包み込むような微笑み",
+            "数字「26」マーキング"
+          ],
+          "Motif_EN": [
+            "corefolder form",
+            "long pink hair",
+            "fox ears",
+            "gentle nurturing smile",
+            "number '26' marking"
+          ]
+        }
+      },
+      {
+        "Formation": "humanoid",
+        "Motif": {
+          "Motif_JP": [
+            "ヒューマノイド形態",
+            "ピンクの長い髪",
+            "狐の耳",
             "包み込むような微笑み",
             "ピンクのノースリーブタートルネック",
             "ローズピンクの長いマキシスカート",
@@ -8286,12 +8476,9 @@
             "数字「26」マーキング"
           ],
           "Motif_EN": [
-            "corefolder form",
-            "1other",
-            "young adult",
+            "humanoid form",
             "long pink hair",
             "fox ears",
-            "six branching fox tails",
             "gentle nurturing smile",
             "pink sleeveless turtleneck",
             "long rose-pink maxi skirt",
@@ -8576,33 +8763,19 @@
         "Motif": {
           "Motif_JP": [
             "コアフォルダ形態",
-            "その他1人",
-            "10代",
             "青いショートヘア",
             "サイドポニーテール",
             "狐の耳",
-            "枝分かれ狐の尾7本",
-            "眼鏡",
             "落ち着いた表情",
-            "白いブラウス",
-            "紫のプリーツスカート",
-            "青いレースアップアンクルブーツ",
-            "数字「27」マーキング"
+            "数字「27」マーキングがなされた紫色の名札"
           ],
           "Motif_EN": [
             "corefolder form",
-            "1other",
-            "teenager",
             "short blue hair",
             "side ponytail",
             "fox ears",
-            "seven branching fox tails",
-            "glasses",
             "calm composed expression",
-            "white blouse",
-            "purple pleated skirt",
-            "blue lace-up ankle boots",
-            "number '27' marking"
+            "number '27' marking on purple name tag"
           ]
         }
       },
@@ -8611,26 +8784,24 @@
         "Motif": {
           "Motif_JP": [
             "ヒューマノイド形態",
-            "その他1人",
-            "10代",
             "青いショートヘア",
             "サイドポニーテール",
             "狐の耳",
-            "枝分かれ狐の尾7本",
-            "眼鏡",
             "落ち着いた表情",
+            "白いブラウス",
+            "紫のプリーツスカート",
+            "青いレースアップアンクルブーツ",
             "カジュアルなプライベート服装"
           ],
           "Motif_EN": [
             "humanoid form",
-            "1other",
-            "teenager",
             "short blue hair",
             "side ponytail",
             "fox ears",
-            "seven branching fox tails",
-            "glasses",
             "calm composed expression",
+            "white blouse",
+            "purple pleated skirt",
+            "blue lace-up ankle boots",
             "casual private outfit"
           ]
         }
@@ -8941,11 +9112,29 @@
         "Motif": {
           "Motif_JP": [
             "コアフォルダ形態",
-            "その他1人",
-            "若い成人",
             "ウェーブしたオレンジ色の髪",
             "狐の耳",
-            "枝分かれ狐の尾8本",
+            "ダングルイヤリング",
+            "数学的なボディタトゥー",
+            "数字「28」マーキング"
+          ],
+          "Motif_EN": [
+            "corefolder form",
+            "wavy orange hair",
+            "fox ears",
+            "dangling earrings",
+            "mathematical body tattoo",
+            "number '28' marking"
+          ]
+        }
+      },
+      {
+        "Formation": "humanoid",
+        "Motif": {
+          "Motif_JP": [
+            "ヒューマノイド形態",
+            "ウェーブしたオレンジ色の髪",
+            "狐の耳",
             "ダングルイヤリング",
             "数学的なボディタトゥー",
             "グラマラスな長身体型",
@@ -8955,12 +9144,9 @@
             "数字「28」マーキング"
           ],
           "Motif_EN": [
-            "corefolder form",
-            "1other",
-            "young adult",
+            "humanoid form",
             "wavy orange hair",
             "fox ears",
-            "eight branching fox tails",
             "dangling earrings",
             "mathematical body tattoo",
             "curvy tall figure",
@@ -9247,29 +9433,40 @@
         "Motif": {
           "Motif_JP": [
             "コアフォルダ形態",
-            "その他1人",
-            "10代",
             "青みがかったラベンダーの長い髪",
             "狐の耳",
-            "枝分かれ狐の尾9本",
             "不安げな表情",
-            "ラベンダー色のケープ",
-            "首元の紫のボウリボン",
-            "やや大きめの胸",
-            "数字「29」マーキング"
+            "やや大きめの胸"
           ],
           "Motif_EN": [
             "corefolder form",
-            "1other",
-            "teenager",
             "long blue-lavender hair",
             "fox ears",
-            "nine branching fox tails",
+            "anxious expression",
+            "medium-large bust"
+          ]
+        }
+      },
+      {
+        "Formation": "humanoid",
+        "Motif": {
+          "Motif_JP": [
+            "ヒューマノイド形態",
+            "青みがかったラベンダーの長い髪",
+            "狐の耳",
+            "不安げな表情",
+            "ラベンダー色のケープ",
+            "首元の紫のボウリボン",
+            "やや大きめの胸"
+          ],
+          "Motif_EN": [
+            "humanoid form",
+            "long blue-lavender hair",
+            "fox ears",
             "anxious expression",
             "lavender cape",
             "purple bow ribbon at neck",
-            "medium-large bust",
-            "number '29' marking"
+            "medium-large bust"
           ]
         }
       }
@@ -9566,12 +9763,30 @@
         "Motif": {
           "Motif_JP": [
             "コアフォルダ形態",
-            "その他1人",
-            "10代",
             "金橙色の長いウェーブヘア",
             "白いボウヘアオーナメント",
             "狐の耳",
-            "標準型狐の尾3本",
+            "温かく明るい笑顔",
+            "数字「30」マーキング"
+          ],
+          "Motif_EN": [
+            "corefolder form",
+            "long wavy golden orange hair",
+            "white bow hair ornament",
+            "fox ears",
+            "warm cheerful smile",
+            "number '30' marking"
+          ]
+        }
+      },
+      {
+        "Formation": "humanoid",
+        "Motif": {
+          "Motif_JP": [
+            "ヒューマノイド形態",
+            "金橙色の長いウェーブヘア",
+            "白いボウヘアオーナメント",
+            "狐の耳",
             "温かく明るい笑顔",
             "黄橙色のエプロンドレス",
             "ブレスレット",
@@ -9579,13 +9794,10 @@
             "数字「30」マーキング"
           ],
           "Motif_EN": [
-            "corefolder form",
-            "1other",
-            "teenager",
+            "humanoid form",
             "long wavy golden orange hair",
             "white bow hair ornament",
             "fox ears",
-            "three standard fox tails",
             "warm cheerful smile",
             "yellow-orange apron dress",
             "wrist bracelet",
@@ -9849,33 +10061,50 @@
         "Motif": {
           "Motif_JP": [
             "コアフォルダ形態",
-            "その他1人",
-            "10代",
             "青シアンのショートヘア",
             "狐の耳",
-            "枝分かれ狐の尾3本（逆下部構造）",
+            "元気で競争心あふれる笑み",
+            "赤いフレームのゴーグル",
+            "中性的な外見",
+            "数字「31」マーキング"
+          ],
+          "Motif_EN": [
+            "corefolder form",
+            "short blue-cyan hair",
+            "fox ears",
+            "energetic competitive grin",
+            "red-frame goggles",
+            "androgynous presentation",
+            "number '31' marking"
+          ]
+        }
+      },
+      {
+        "Formation": "humanoid",
+        "Motif": {
+          "Motif_JP": [
+            "ヒューマノイド形態",
+            "青シアンのショートヘア",
+            "狐の耳",
             "元気で競争心あふれる笑み",
             "赤いフレームのゴーグル",
             "アスレチックな服装",
             "黄色いショートパンツ",
             "ブーツ付きサイハイソックス",
-            "ボーイッシュな外見",
+            "中性的な外見",
             "小柄",
             "数字「31」マーキング"
           ],
           "Motif_EN": [
-            "corefolder form",
-            "1other",
-            "teenager",
+            "humanoid form",
             "short blue-cyan hair",
             "fox ears",
-            "three branching fox tails (inverted lower structure)",
             "energetic competitive grin",
             "red-frame goggles",
             "athletic outfit",
             "yellow shorts",
             "thigh-high socks with boots",
-            "tomboy presentation",
+            "androgynous presentation",
             "small stature",
             "number '31' marking"
           ]
@@ -10151,31 +10380,46 @@
         "Motif": {
           "Motif_JP": [
             "コアフォルダ形態",
-            "その他1人",
-            "10代",
             "ミントグリーンのショートヘア",
             "狐の耳",
-            "枝分かれ狐の尾3本（下部二重逆構造）",
-            "自信ありげなウィンクの表情",
+            "自信ありげな表情",
+            "性別中立な外見",
+            "数字「32」マーキングとストライプ模様"
+          ],
+          "Motif_EN": [
+            "corefolder form",
+            "short mint green hair",
+            "fox ears",
+            "confident expression",
+            "gender-neutral presentation",
+            "number '32' marking and stripe pattern"
+          ]
+        }
+      },
+      {
+        "Formation": "corefolder",
+        "Motif": {
+          "Motif_JP": [
+            "コアフォルダ形態",
+            "ミントグリーンのショートヘア",
+            "狐の耳",
+            "自信ありげな表情",
             "カジュアルなオープンカラージャケット",
             "黄色い斜め縞アクセント",
             "ワイドレッグの黄色いパンツ",
             "性別中立な外見",
-            "数字「32」マーキング"
+            "数字「32」マーキングとストライプ模様"
           ],
           "Motif_EN": [
             "corefolder form",
-            "1other",
-            "teenager",
             "short mint green hair",
             "fox ears",
-            "three branching fox tails (double-inverted lower)",
-            "confident winking expression",
+            "confident expression",
             "casual open-collar jacket",
             "yellow diagonal stripe accent",
             "wide-leg yellow pants",
             "gender-neutral presentation",
-            "number '32' marking"
+            "number '32' marking and stripe pattern"
           ]
         }
       }
@@ -10438,33 +10682,54 @@
         "Motif": {
           "Motif_JP": [
             "コアフォルダ形態",
-            "その他1人",
-            "10代前半",
             "オレンジピンクの長い編み込みヘア",
             "大きなピンクのボウリボン",
             "狐の耳",
-            "扇型狐の尾3本（2束×3）",
             "高慢な表情（オンラインモード）",
             "涙目の表情（オフラインモード）",
-            "背の高い尖ったとんがり帽子",
-            "ピンクの重ね着ドレス",
-            "赤いベルト",
-            "白いフリルカラー",
+            "耳を覆うメイドキャップ",
+            "ピンクの重ね着ドレスのようなケープ",
             "数字「33」マーキング"
           ],
           "Motif_EN": [
             "corefolder form",
-            "1other",
-            "young teenager",
             "long orange-pink braided hair",
             "large pink bow ribbon",
             "fox ears",
             "three fan-shaped fox tails (2-bundle x 3)",
             "haughty expression (online mode)",
             "teary expression (offline mode)",
-            "tall pointed peaked hat",
+            "ear-covering maid cap",
+            "pink layered dress-like cape",
+            "number '33' marking"
+          ]
+        }
+      },
+      {
+        "Formation": "humanoid",
+        "Motif": {
+          "Motif_JP": [
+            "ヒューマノイド形態",
+            "オレンジピンクの長い編み込みヘア",
+            "大きなピンクのボウリボン",
+            "狐の耳",
+            "高慢な表情（オンラインモード）",
+            "涙目の表情（オフラインモード）",
+            "耳を覆うメイドキャップ",
+            "ピンクの重ね着ドレス",
+            "白いフリルカラー",
+            "数字「33」マーキング"
+          ],
+          "Motif_EN": [
+            "humanoid form",
+            "long orange-pink braided hair",
+            "large pink bow ribbon",
+            "fox ears",
+            "three fan-shaped fox tails (2-bundle x 3)",
+            "haughty expression (online mode)",
+            "teary expression (offline mode)",
+            "ear-covering maid cap",
             "pink layered dress",
-            "red belt",
             "white ruffle collar",
             "number '33' marking"
           ]
@@ -10744,29 +11009,44 @@
         "Motif": {
           "Motif_JP": [
             "コアフォルダ形態",
-            "その他1人",
-            "10代前半",
             "濃い紺色のショートヘア",
             "狐の耳",
-            "枝分かれ狐の尾4本（上部3幹）",
-            "策略的なニヤリ",
-            "番号入りアスレチックジャージ",
-            "青いショートパンツ",
-            "バックパック",
+            "策略的な表情",
             "小柄",
             "数字「34」マーキング"
           ],
           "Motif_EN": [
             "corefolder form",
-            "1other",
-            "young teenager",
             "short dark navy blue hair",
             "fox ears",
-            "four branching fox tails (triple upper trunk)",
-            "scheming grin",
+            "scheming expression",
+            "small stature",
+            "number '34' marking"
+          ]
+        }
+      },
+      {
+        "Formation": "humanoid",
+        "Motif": {
+          "Motif_JP": [
+            "ヒューマノイド形態",
+            "濃い紺色のショートヘア",
+            "狐の耳",
+            "策略的な表情",
+            "番号入りアスレチックジャージ",
+            "青いショートパンツ",
+            "従業員制服のようなエプロン",
+            "小柄",
+            "数字「34」マーキング"
+          ],
+          "Motif_EN": [
+            "humanoid form",
+            "short dark navy blue hair",
+            "fox ears",
+            "scheming expression",
             "athletic numbered jersey",
             "blue shorts",
-            "backpack",
+            "apron resembling employee uniform",
             "small stature",
             "number '34' marking"
           ]
@@ -11035,33 +11315,52 @@
         "Motif": {
           "Motif_JP": [
             "コアフォルダ形態",
-            "その他1人",
-            "10代",
             "オレンジ色のミディアムヘア",
             "狐の耳",
-            "枝分かれ狐の尾5本（上部3幹・角状先端）",
+            "落ち着いた表情",
+            "2パターンの衣装",
+            "ネクタイ（通常）",
+            "数字「35」マーキング（通常）",
+            "御幣（巫女）"
+          ],
+          "Motif_EN": [
+            "corefolder form",
+            "medium orange hair",
+            "fox ears",
+            "calm composed expression",
+            "two outfit variants",
+            "necktie (usual)",
+            "number '35' marking (usual)",
+            "gohei stick (miko)"
+          ]
+        }
+      },
+      {
+        "Formation": "humanoid",
+        "Motif": {
+          "Motif_JP": [
+            "ヒューマノイド形態",
+            "オレンジ色のミディアムヘア",
+            "狐の耳",
             "落ち着いた表情",
             "2パターンの衣装",
             "オレンジ色のノースリーブベスト（通常）",
             "ネクタイ（通常）",
+            "数字「35」マーキング（通常）",
             "白い着物とオレンジ色の袴（巫女）",
-            "御幣（巫女）",
-            "数字「35」マーキング"
+            "御幣（巫女）"
           ],
           "Motif_EN": [
-            "corefolder form",
-            "1other",
-            "teenager",
+            "humanoid form",
             "medium orange hair",
             "fox ears",
-            "five branching fox tails (triple upper trunk, angular tips)",
             "calm composed expression",
             "two outfit variants",
             "orange sleeveless vest (usual)",
             "necktie (usual)",
+            "number '35' marking (usual)",
             "white robe with orange hakama (miko)",
-            "gohei stick (miko)",
-            "number '35' marking"
+            "gohei stick (miko)"
           ]
         }
       }
@@ -11341,11 +11640,29 @@
         "Motif": {
           "Motif_JP": [
             "コアフォルダ形態",
-            "その他1人",
-            "10代",
             "オレンジ色のショートミディアムヘア",
             "大きくふわふわした広がり狐の耳",
-            "枝分かれ狐の尾6本（上部3幹）",
+            "優しい微笑み",
+            "胸元のボウリボン",
+            "数字「36」マーキング"
+          ],
+          "Motif_EN": [
+            "corefolder form",
+            "orange short-medium hair",
+            "oversized fluffy flared fox ears",
+            "gentle caring smile",
+            "bow ribbon at chest",
+            "number '36' marking"
+          ]
+        }
+      },
+      {
+        "Formation": "humanoid",
+        "Motif": {
+          "Motif_JP": [
+            "ヒューマノイド形態",
+            "オレンジ色のショートミディアムヘア",
+            "大きくふわふわした広がり狐の耳",
             "優しい微笑み",
             "ビクトリアン・ロリータドレス",
             "オレンジ色のボレロジャケット",
@@ -11355,12 +11672,9 @@
             "数字「36」マーキング"
           ],
           "Motif_EN": [
-            "corefolder form",
-            "1other",
-            "teenager",
+            "humanoid form",
             "orange short-medium hair",
             "oversized fluffy flared fox ears",
-            "six branching fox tails (triple upper trunk)",
             "gentle caring smile",
             "Victorian-lolita dress",
             "orange bolero jacket",
@@ -11668,28 +11982,18 @@
         "Motif": {
           "Motif_JP": [
             "コアフォルダ形態",
-            "その他1人",
-            "若い成人",
             "サーモンピンクのショートヘア",
             "狐の耳",
-            "枝分かれ狐の尾7本（上部3幹）",
             "真剣な表情",
-            "青いトリム付き赤いブレザー",
             "黄色いネクタイ",
-            "白いショートパンツ",
             "「37」番号ピン"
           ],
           "Motif_EN": [
             "corefolder form",
-            "1other",
-            "young adult",
             "short salmon-pink hair",
             "fox ears",
-            "seven branching fox tails (triple upper trunk)",
             "earnest expression",
-            "red blazer with blue trim",
             "yellow necktie",
-            "white shorts",
             "'37' numbered pin"
           ]
         }
@@ -11699,22 +12003,22 @@
         "Motif": {
           "Motif_JP": [
             "ヒューマノイド形態",
-            "女の子1人",
-            "若い成人",
             "サーモンピンクのショートヘア",
             "狐の耳",
-            "枝分かれ狐の尾7本（上部3幹）",
             "真剣で勤勉な表情",
+            "青いトリム付き赤いブレザー",
+            "黄色いネクタイ",
+            "白いショートパンツ",
             "カジュアルなプライベート服装"
           ],
           "Motif_EN": [
             "humanoid form",
-            "1girl",
-            "young adult",
             "short salmon-pink hair",
             "fox ears",
-            "seven branching fox tails (triple upper trunk)",
             "earnest diligent expression",
+            "red blazer with blue trim",
+            "yellow necktie",
+            "white shorts",
             "casual private outfit"
           ]
         }
@@ -12109,28 +12413,18 @@
         "Motif": {
           "Motif_JP": [
             "コアフォルダ形態",
-            "男の子1人",
             "若い成人男性",
             "琥珀金髪のショートヘア",
             "狐の耳",
-            "枝分かれ狐の尾9本（上部3幹・円形花弁状配置）",
             "クールな落ち着いた表情",
-            "長い濃い茶色のトレンチコート",
-            "腰のベルト",
-            "ゆったりとしたパンツ",
             "長身男性体型"
           ],
           "Motif_EN": [
             "corefolder form",
-            "1boy",
             "young adult male",
             "short amber-blonde hair",
             "fox ears",
-            "nine branching fox tails (triple upper trunk, circular petal formation)",
             "cool composed expression",
-            "long dark brown trench coat",
-            "belt at waist",
-            "wide relaxed pants",
             "tall masculine stature"
           ]
         }
@@ -12144,8 +12438,10 @@
             "若い成人男性",
             "琥珀金髪のショートヘア",
             "狐の耳",
-            "枝分かれ狐の尾9本（上部3幹・円形花弁状配置）",
             "クールな落ち着いた表情",
+            "長い濃い茶色のトレンチコート",
+            "腰のベルト",
+            "ゆったりとしたパンツ",
             "カジュアルなプライベート服装"
           ],
           "Motif_EN": [
@@ -12154,8 +12450,10 @@
             "young adult male",
             "short amber-blonde hair",
             "fox ears",
-            "nine branching fox tails (triple upper trunk, circular petal formation)",
             "cool composed expression",
+            "long dark brown trench coat",
+            "belt at waist",
+            "wide relaxed pants",
             "casual private outfit"
           ]
         }
@@ -12491,29 +12789,46 @@
         "Motif": {
           "Motif_JP": [
             "コアフォルダ形態",
-            "その他1人",
-            "10代",
             "ティールのサイドブレイドヘア",
             "狐の耳",
-            "標準型狐の尾4本（枝なし）",
             "中立的・諦めた表情",
             "長く流れるティールブルーのドレス",
-            "輝くダイヤ/無限魔法紋章",
-            "ティールのレースアップロングブーツ",
-            "神秘的なジーニーの雰囲気"
+            "神秘的なジーニーの雰囲気",
+            "「40」をモチーフにした紋様"
           ],
           "Motif_EN": [
             "corefolder form",
-            "1other",
-            "teenager",
             "teal side-braid hair",
             "fox ears",
-            "four standard fox tails (non-branching)",
             "neutral resigned expression",
             "long flowing teal-blue dress",
-            "glowing diamond/infinity magical emblem",
+            "mystical genie aesthetic",
+            "pattern inspired by '40'"
+          ]
+        }
+      },
+      {
+        "Formation": "humanoid",
+        "Motif": {
+          "Motif_JP": [
+            "ヒューマノイド形態",
+            "ティールのサイドブレイドヘア",
+            "狐の耳",
+            "中立的・諦めた表情",
+            "長く流れるティールブルーのドレス",
+            "ティールのレースアップロングブーツ",
+            "神秘的なジーニーの雰囲気",
+            "「40」をモチーフにした紋様"
+          ],
+          "Motif_EN": [
+            "humanoid form",
+            "teal side-braid hair",
+            "fox ears",
+            "neutral resigned expression",
+            "long flowing teal-blue dress",
             "teal lace-up tall boots",
-            "mystical genie aesthetic"
+            "mystical genie aesthetic",
+            "pattern inspired by '40'"
           ]
         }
       }
@@ -12764,10 +13079,24 @@
         "Motif": {
           "Motif_JP": [
             "コアフォルダ形態",
-            "その他1人",
-            "10代",
             "狐の耳",
-            "枝分かれ狐の尾4本",
+            "青みがかった灰色のショートヘア",
+            "青みがかった灰色の目"
+          ],
+          "Motif_EN": [
+            "corefolder form",
+            "fox ears",
+            "short blue-gray hair",
+            "blue-gray eyes"
+          ]
+        }
+      },
+      {
+        "Formation": "humanoid",
+        "Motif": {
+          "Motif_JP": [
+            "ヒューマノイド形態",
+            "狐の耳",
             "青みがかった灰色のショートヘア",
             "青みがかった灰色の目",
             "開いたティールのブレザー",
@@ -12777,11 +13106,8 @@
             "シアンの靴"
           ],
           "Motif_EN": [
-            "corefolder form",
-            "1other",
-            "teenager",
+            "humanoid form",
             "fox ears",
-            "branching fox 4 tails",
             "short blue-gray hair",
             "blue-gray eyes",
             "open teal blazer",
@@ -13087,31 +13413,17 @@
         "Motif": {
           "Motif_JP": [
             "コアフォルダ形態",
-            "女の子1人",
-            "10代",
             "狐の耳",
-            "枝分かれ狐の尾4本",
             "ハートアホ毛付きピンクの長いツインテール",
-            "青い目",
-            "ライトピンクの長いブレザー",
-            "ライトブルーのアームウォーマー",
-            "青灰色のショートパンツ",
-            "白いソックス",
-            "ピンクの靴"
+            "ツインテールの根元に青いリボン",
+            "青い目"
           ],
           "Motif_EN": [
             "corefolder form",
-            "1girl",
-            "teenager",
             "fox ears",
-            "branching fox 4 tails",
             "long pink twin-tails with heart ahoge",
-            "blue eyes",
-            "light pink long blazer",
-            "light blue arm warmers",
-            "blue-gray shorts",
-            "white socks",
-            "pink shoes"
+            "blue ribbon ties at the twin-tail bases",
+            "blue eyes"
           ]
         }
       },
@@ -13120,27 +13432,22 @@
         "Motif": {
           "Motif_JP": [
             "ヒューマノイド形態",
-            "女の子1人",
-            "10代",
             "狐の耳",
-            "枝分かれ狐の尾4本",
             "ハートアホ毛付きピンクの長いツインテール",
             "青い目",
             "白い襟付きピンクのパフスリーブブラウス",
-            "「42」のカラー先端刺繍",
             "ツインテールの根元に青いリボン",
-            "ライトブルーのアームウォーマー"
+            "ライトピンクの長いブレザー",
+            "青灰色のショートパンツ",
+            "白いソックス",
+            "ピンクの靴"
           ],
           "Motif_EN": [
             "humanoid form",
-            "1girl",
-            "teenager",
             "fox ears",
-            "branching fox 4 tails",
             "long pink twin-tails with heart ahoge",
             "blue eyes",
             "pink puff-sleeve blouse with white collar",
-            "'42' embroidery on the collar tip",
             "blue ribbon ties at the twin-tail bases",
             "light blue arm warmers"
           ]
@@ -13445,10 +13752,26 @@
         "Motif": {
           "Motif_JP": [
             "コアフォルダ形態",
-            "女の子1人",
-            "10代前半（低年齢寄り）",
             "狐の耳",
-            "枝分かれ狐の尾4本",
+            "濃い紺色のショートヘア",
+            "琥珀色の目",
+            "「43」マーク"
+          ],
+          "Motif_EN": [
+            "corefolder form",
+            "fox ears",
+            "short dark navy hair",
+            "amber eyes",
+            "'43' marking"
+          ]
+        }
+      },
+      {
+        "Formation": "humanoid",
+        "Motif": {
+          "Motif_JP": [
+            "ヒューマノイド形態",
+            "狐の耳",
             "濃い紺色のショートヘア",
             "琥珀色の目",
             "「43」マーク入り濃紺のポロシャツ",
@@ -13458,11 +13781,8 @@
             "ゲームコントローラーを持っている"
           ],
           "Motif_EN": [
-            "corefolder form",
-            "1girl",
-            "early teenager",
+            "humanoid form",
             "fox ears",
-            "branching fox 4 tails",
             "short dark navy hair",
             "amber eyes",
             "dark navy polo shirt with '43' marking",
@@ -13734,10 +14054,24 @@
         "Motif": {
           "Motif_JP": [
             "コアフォルダ形態",
-            "男の子1人",
-            "10代",
             "狐の耳",
-            "枝分かれ狐の尾4本",
+            "金褐色のポニーテール",
+            "スチールブルーの目"
+          ],
+          "Motif_EN": [
+            "corefolder form",
+            "fox ears",
+            "golden-tan ponytail",
+            "steel-blue eyes"
+          ]
+        }
+      },
+      {
+        "Formation": "humanoid",
+        "Motif": {
+          "Motif_JP": [
+            "ヒューマノイド形態",
+            "狐の耳",
             "金褐色のポニーテール",
             "スチールブルーの目",
             "ライトティールのベスト",
@@ -13747,11 +14081,8 @@
             "オレンジ色のブーツ"
           ],
           "Motif_EN": [
-            "corefolder form",
-            "1boy",
-            "teenager",
+            "humanoid form",
             "fox ears",
-            "branching fox 4 tails",
             "golden-tan ponytail",
             "steel-blue eyes",
             "light teal vest",
@@ -14021,10 +14352,24 @@
         "Motif": {
           "Motif_JP": [
             "コアフォルダ形態",
-            "その他1人",
-            "10代",
             "狐の耳",
-            "枝分かれ狐の尾5本",
+            "黒い短いポニーテール",
+            "ティールの目"
+          ],
+          "Motif_EN": [
+            "corefolder form",
+            "fox ears",
+            "short black ponytail",
+            "teal eyes"
+          ]
+        }
+      },
+      {
+        "Formation": "humanoid",
+        "Motif": {
+          "Motif_JP": [
+            "ヒューマノイド形態",
+            "狐の耳",
             "黒い短いポニーテール",
             "ティールの目",
             "濃い藍紫色のチュニックドレス",
@@ -14032,11 +14377,8 @@
             "ティールのサンダル"
           ],
           "Motif_EN": [
-            "corefolder form",
-            "1other",
-            "teenager",
+            "humanoid form",
             "fox ears",
-            "branching fox 5 tails",
             "short black ponytail",
             "teal eyes",
             "dark indigo-purple tunic dress",
@@ -14285,10 +14627,24 @@
         "Motif": {
           "Motif_JP": [
             "コアフォルダ形態",
-            "その他1人",
-            "10代前半（低年齢寄り）",
             "狐の耳",
-            "枝分かれ狐の尾6本",
+            "青いショートヘア",
+            "赤い目"
+          ],
+          "Motif_EN": [
+            "corefolder form",
+            "fox ears",
+            "short blue hair",
+            "red eyes"
+          ]
+        }
+      },
+      {
+        "Formation": "humanoid",
+        "Motif": {
+          "Motif_JP": [
+            "ヒューマノイド形態",
+            "狐の耳",
             "青いショートヘア",
             "赤い目",
             "赤いトリム付き青いジャケット",
@@ -14297,11 +14653,8 @@
             "青いブーツ"
           ],
           "Motif_EN": [
-            "corefolder form",
-            "1other",
-            "early teenager",
+            "humanoid form",
             "fox ears",
-            "branching fox 6 tails",
             "short blue hair",
             "red eyes",
             "blue jacket with red trim",
@@ -14565,29 +14918,17 @@
         "Motif": {
           "Motif_JP": [
             "コアフォルダ形態",
-            "女の子1人",
-            "10代",
             "狐の耳",
-            "枝分かれ狐の尾7本",
-            "ラベンダーパープルの長い髪",
-            "ピンクの目",
-            "ピンクリボン付き紫のトップス",
-            "ピンクのスカート",
-            "白い膝上ソックス",
-            "紫の靴"
+            "ラベンダーグレーの長い髪",
+            "紺色の目",
+            "紺色の「47」の番号"
           ],
           "Motif_EN": [
             "corefolder form",
-            "1girl",
-            "teenager",
             "fox ears",
-            "branching fox 7 tails",
-            "long lavender-purple hair",
-            "pink eyes",
-            "purple top with pink ribbon",
-            "pink skirt",
-            "white knee-high socks",
-            "purple shoes"
+            "long lavender-gray hair",
+            "navy eyes",
+            "navy marking with '47' emblem"
           ]
         }
       },
@@ -14596,27 +14937,23 @@
         "Motif": {
           "Motif_JP": [
             "ヒューマノイド形態",
-            "女の子1人",
-            "10代",
             "狐の耳",
-            "枝分かれ狐の尾7本",
-            "ラベンダーパープルの長い髪",
-            "ピンクの目",
-            "「47」紋章付き青いタンクトップレオタード",
-            "白いダイヤ柄付き青いアームウォーマー",
-            "青いチョーカー"
+            "ラベンダーグレーの長い髪",
+            "紺色の目",
+            "「47」の番号付き紺色の巫女服",
+            "紺色のスカート",
+            "白い膝上ソックス",
+            "紺色の下駄"
           ],
           "Motif_EN": [
             "humanoid form",
-            "1girl",
-            "teenager",
             "fox ears",
-            "branching fox 7 tails",
-            "long lavender-purple hair",
-            "pink eyes",
-            "blue tank-top leotard with '47' emblem",
-            "blue arm warmers with white diamond pattern",
-            "blue choker"
+            "long lavender-gray hair",
+            "navy eyes",
+            "navy miko outfit with '47' emblem",
+            "navy skirt",
+            "white knee-high socks",
+            "navy geta"
           ]
         }
       }
@@ -14946,28 +15283,44 @@
         "Motif": {
           "Motif_JP": [
             "コアフォルダ形態",
-            "男の子1人",
-            "若い成人",
             "狐の耳",
-            "枝分かれ狐の尾8本",
-            "青いショートヘア",
-            "青い目",
-            "青い制服ジャケット",
-            "ライトブルーのシャツ",
-            "紺のパンツ",
-            "茶色のブーツ"
+            "深緑色のショートヘア",
+            "青緑色の目",
+            "眼鏡付きのヘッドセット"
           ],
           "Motif_EN": [
             "corefolder form",
             "1boy",
-            "young adult",
             "fox ears",
-            "branching fox 8 tails",
-            "short blue hair",
-            "blue eyes",
+            "short dark green hair",
+            "blue-green eyes",
+            "glasses with headset"
+          ]
+        }
+      },
+      {
+        "Formation": "humanoid",
+        "Motif": {
+          "Motif_JP": [
+            "ヒューマノイド形態",
+            "狐の耳",
+            "深緑色のショートヘア",
+            "青緑色の目",
+            "眼鏡付きのヘッドセット",
+            "青い制服ジャケット",
+            "ライトグリーンのシャツ",
+            "黄色のパンツ",
+            "茶色のブーツ"
+          ],
+          "Motif_EN": [
+            "humanoid form",
+            "fox ears",
+            "short dark green hair",
+            "blue-green eyes",
+            "glasses with headset",
             "blue uniform jacket",
-            "light blue shirt",
-            "navy pants",
+            "light green shirt",
+            "yellow pants",
             "brown boots"
           ]
         }
@@ -15240,27 +15593,15 @@
         "Motif": {
           "Motif_JP": [
             "コアフォルダ形態",
-            "その他1人",
-            "10代",
             "狐の耳",
-            "枝分かれ狐の尾9本",
             "濃い藍色の長い髪",
-            "赤い目",
-            "濃い藍色のローブ",
-            "紫の帯",
-            "濃い色のブーツ"
+            "紺色の目"
           ],
           "Motif_EN": [
             "corefolder form",
-            "1other",
-            "teenager",
             "fox ears",
-            "branching fox 9 tails",
             "long dark indigo hair",
-            "red eyes",
-            "dark indigo robe",
-            "purple sash",
-            "dark boots"
+            "dark blue eyes"
           ]
         }
       },
@@ -15269,27 +15610,20 @@
         "Motif": {
           "Motif_JP": [
             "ヒューマノイド形態",
-            "その他1人",
-            "10代",
             "狐の耳",
             "枝分かれ狐の尾9本",
             "濃い藍色の長い髪",
-            "赤い目",
+            "紺色の目",
             "白いトリムと「49」肩マーク付き青い半袖制服ジャケット",
-            "紫のインナータートルネック",
-            "青いチョーカー"
+            "紫のインナータートルネック"
           ],
           "Motif_EN": [
             "humanoid form",
-            "1other",
-            "teenager",
             "fox ears",
-            "branching fox 9 tails",
             "long dark indigo hair",
-            "red eyes",
+            "dark blue eyes",
             "blue short-sleeve uniform jacket with white trim and '49' shoulder marking",
-            "purple inner turtleneck",
-            "blue choker"
+            "purple inner turtleneck"
           ]
         }
       }
@@ -15578,29 +15912,33 @@
       {
         "Formation": "corefolder",
         "Motif": {
-          "Motif_JP": [
-            "コアフォルダ形態",
-            "その他1人",
-            "10代",
-            "狐の耳",
-            "狐の尾5本",
-            "小麦色の髪",
-            "金色の目",
-            "大地色のチュニック",
-            "薄い茶色のレギンス",
-            "レザーサンダル"
-          ],
+          "Motif_JP": ["コアフォルダ形態", "狐の耳", "緑色の髪", "青緑色の目"],
           "Motif_EN": [
             "corefolder form",
-            "1other",
-            "teenager",
             "fox ears",
-            "fox 5 tails",
-            "tan hair",
-            "golden eyes",
-            "earth-tone tunic",
-            "light brown leggings",
-            "leather sandals"
+            "green hair",
+            "blue-green eyes"
+          ]
+        }
+      },
+      {
+        "Formation": "humanoid",
+        "Motif": {
+          "Motif_JP": [
+            "ヒューマノイド形態",
+            "狐の耳",
+            "緑色の髪",
+            "青緑色の目",
+            "緑色のチュニック",
+            "深緑色のレギンス"
+          ],
+          "Motif_EN": [
+            "humanoid form",
+            "fox ears",
+            "green hair",
+            "blue-green eyes",
+            "green tunic",
+            "dark green leggings"
           ]
         }
       }
@@ -16050,10 +16388,24 @@
         "Motif": {
           "Motif_JP": [
             "コアフォルダ形態",
-            "女の子1人",
-            "10代",
             "狐の耳",
-            "枝分かれ狐の尾5本",
+            "銀灰色の長い髪",
+            "ティールの目"
+          ],
+          "Motif_EN": [
+            "corefolder form",
+            "fox ears",
+            "long silver-gray hair",
+            "teal eyes"
+          ]
+        }
+      },
+      {
+        "Formation": "humanoid",
+        "Motif": {
+          "Motif_JP": [
+            "ヒューマノイド形態",
+            "狐の耳",
             "銀灰色の長い髪",
             "ティールの目",
             "濃いティールのボディスーツ",
@@ -16063,11 +16415,8 @@
             "灰色のインナーレイヤー"
           ],
           "Motif_EN": [
-            "corefolder form",
-            "1girl",
-            "teenager",
+            "humanoid form",
             "fox ears",
-            "branching fox 5 tails",
             "long silver-gray hair",
             "teal eyes",
             "dark teal bodysuit",
@@ -16365,10 +16714,26 @@
         "Motif": {
           "Motif_JP": [
             "コアフォルダ形態",
-            "その他1人",
-            "10代前半（低年齢寄り）",
             "狐の耳",
-            "枝分かれ狐の尾5本",
+            "オレンジ褐色のショートヘア",
+            "琥珀色の目",
+            "緑のネクタイ"
+          ],
+          "Motif_EN": [
+            "corefolder form",
+            "fox ears",
+            "short orange-tan hair",
+            "amber eyes",
+            "green necktie"
+          ]
+        }
+      },
+      {
+        "Formation": "humanoid",
+        "Motif": {
+          "Motif_JP": [
+            "ヒューマノイド形態",
+            "狐の耳",
             "オレンジ褐色のショートヘア",
             "琥珀色の目",
             "白い襟付きシャツ",
@@ -16379,11 +16744,8 @@
             "オレンジ色の靴"
           ],
           "Motif_EN": [
-            "corefolder form",
-            "1other",
-            "early teenager",
+            "humanoid form",
             "fox ears",
-            "branching fox 5 tails",
             "short orange-tan hair",
             "amber eyes",
             "white collared shirt",
@@ -16686,27 +17048,17 @@
         "Motif": {
           "Motif_JP": [
             "コアフォルダ形態",
-            "女の子1人",
-            "若い成人",
             "狐の耳",
-            "枝分かれ狐の尾5本",
             "濃い緑のミディアムヘア",
             "緑の目",
-            "濃い緑のドレス",
-            "赤い帯アクセント",
-            "オリーブグリーンのブーツ"
+            "肩の赤い横縞アクセント"
           ],
           "Motif_EN": [
             "corefolder form",
-            "1girl",
-            "young adult",
             "fox ears",
-            "branching fox 5 tails",
             "medium dark green hair",
             "green eyes",
-            "dark green dress",
-            "red sash accent",
-            "olive green boots"
+            "red horizontal stripe accents on shoulders"
           ]
         }
       },
@@ -16715,10 +17067,7 @@
         "Motif": {
           "Motif_JP": [
             "ヒューマノイド形態",
-            "女の子1人",
-            "若い成人",
             "狐の耳",
-            "枝分かれ狐の尾5本",
             "濃い緑のミディアムヘア",
             "緑の目",
             "ライトグリーンの襟付きブラウス",
@@ -16728,10 +17077,7 @@
           ],
           "Motif_EN": [
             "humanoid form",
-            "1girl",
-            "young adult",
             "fox ears",
-            "branching fox 5 tails",
             "medium dark green hair",
             "green eyes",
             "light green collared blouse",
@@ -17043,10 +17389,26 @@
         "Motif": {
           "Motif_JP": [
             "コアフォルダ形態",
-            "女の子1人",
-            "子供",
             "狐の耳",
-            "枝分かれ狐の尾6本",
+            "薄い灰色のショートヘア",
+            "緑の目",
+            "ライトグリーンのスカーフ"
+          ],
+          "Motif_EN": [
+            "corefolder form",
+            "fox ears",
+            "short light gray hair",
+            "green eyes",
+            "light green scarf"
+          ]
+        }
+      },
+      {
+        "Formation": "humanoid",
+        "Motif": {
+          "Motif_JP": [
+            "ヒューマノイド形態",
+            "狐の耳",
             "薄い灰色のショートヘア",
             "緑の目",
             "ピンクのトップス",
@@ -17056,11 +17418,8 @@
             "ピンクの靴"
           ],
           "Motif_EN": [
-            "corefolder form",
-            "1girl",
-            "child",
+            "humanoid form",
             "fox ears",
-            "branching fox 6 tails",
             "short light gray hair",
             "green eyes",
             "pink top",
@@ -17363,29 +17722,15 @@
         "Motif": {
           "Motif_JP": [
             "コアフォルダ形態",
-            "その他1人",
-            "10代",
             "狐の耳",
-            "枝分かれ狐の尾7本",
             "金髪ポニーテール",
-            "琥珀色の目",
-            "黄色いブレザー",
-            "白いシャツ",
-            "オレンジ色のショートパンツ",
-            "黄色いブーツ"
+            "琥珀色の目"
           ],
           "Motif_EN": [
             "corefolder form",
-            "1other",
-            "teenager",
             "fox ears",
-            "branching fox 7 tails",
             "blonde ponytail",
-            "amber eyes",
-            "yellow blazer",
-            "white shirt",
-            "orange shorts",
-            "yellow boots"
+            "amber eyes"
           ]
         }
       },
@@ -17394,23 +17739,23 @@
         "Motif": {
           "Motif_JP": [
             "ヒューマノイド形態",
-            "その他1人",
-            "10代",
             "狐の耳",
-            "枝分かれ狐の尾7本",
             "金髪ポニーテール",
             "琥珀色の目",
+            "黄色いブレザー",
+            "オレンジ色のショートパンツ",
+            "黄色いブーツ",
             "白いストライプ付き黄色いセーラーカラー制服",
             "青いインナーシャツ"
           ],
           "Motif_EN": [
             "humanoid form",
-            "1other",
-            "teenager",
             "fox ears",
-            "branching fox 7 tails",
             "blonde ponytail",
             "amber eyes",
+            "yellow blazer",
+            "orange shorts",
+            "yellow boots",
             "yellow sailor-collar uniform with white stripes",
             "blue inner shirt"
           ]
@@ -17747,29 +18092,36 @@
         "Motif": {
           "Motif_JP": [
             "コアフォルダ形態",
-            "女の子1人",
-            "10代",
             "狐の耳",
-            "枝分かれ狐の尾8本",
-            "紫の長い髪",
-            "紫の目",
-            "紫の長いドレス",
-            "ラベンダー色のアクセント",
-            "金色のトリム",
-            "紫の靴"
+            "茶色の長い髪",
+            "水色の目"
           ],
           "Motif_EN": [
             "corefolder form",
-            "1girl",
-            "teenager",
             "fox ears",
-            "branching fox 8 tails",
-            "long purple hair",
-            "violet eyes",
-            "purple long dress",
-            "lavender accents",
-            "gold trim",
-            "purple shoes"
+            "long brown hair",
+            "light blue eyes"
+          ]
+        }
+      },
+      {
+        "Formation": "humanoid",
+        "Motif": {
+          "Motif_JP": [
+            "ヒューマノイド形態",
+            "狐の耳",
+            "茶色の長い髪",
+            "水色の目",
+            "水色の長いドレス",
+            "青の靴"
+          ],
+          "Motif_EN": [
+            "humanoid form",
+            "fox ears",
+            "long brown hair",
+            "light blue eyes",
+            "light blue long dress",
+            "blue shoes"
           ]
         }
       }
@@ -18102,29 +18454,15 @@
         "Motif": {
           "Motif_JP": [
             "コアフォルダ形態",
-            "女の子1人",
-            "10代",
             "狐の耳",
-            "狐の尾6本",
-            "茶色のミディアムヘア",
-            "琥珀色の目",
-            "落ち着いた青灰色のチュニック",
-            "茶色のベルト",
-            "オレンジ色のアクセント",
-            "茶色のブーツ"
+            "ピンク色のミディアムヘア",
+            "紫色の目"
           ],
           "Motif_EN": [
             "corefolder form",
-            "1girl",
-            "teenager",
             "fox ears",
-            "fox 6 tails",
-            "medium brown hair",
-            "amber eyes",
-            "muted blue-gray tunic",
-            "brown belt",
-            "orange accents",
-            "brown boots"
+            "medium pink hair",
+            "purple eyes"
           ]
         }
       },
@@ -18133,29 +18471,23 @@
         "Motif": {
           "Motif_JP": [
             "ヒューマノイド形態",
-            "女の子1人",
-            "10代",
             "狐の耳",
-            "狐の尾6本",
-            "茶色のミディアムヘア",
-            "琥珀色の目",
+            "ピンク色のミディアムヘア",
+            "紫色の目",
             "ピンク/マゼンタのチュニックドレス",
             "白い幅広カラービブ",
             "オレンジ色のウエストバンド",
-            "小さなビーズ付きピンクのネクタイ"
+            "ブローチ付きピンクのネクタイ"
           ],
           "Motif_EN": [
             "humanoid form",
-            "1girl",
-            "teenager",
             "fox ears",
-            "fox 6 tails",
-            "medium brown hair",
-            "amber eyes",
+            "medium pink hair",
+            "purple eyes",
             "pink/magenta tunic dress",
             "white wide collar bib",
             "orange waistband",
-            "pink necktie with small bead"
+            "pink necktie with brooch"
           ]
         }
       }
@@ -18537,31 +18869,15 @@
         "Motif": {
           "Motif_JP": [
             "コアフォルダ形態",
-            "女の子1人",
-            "10代",
             "狐の耳",
-            "枝分かれ狐の尾6本",
-            "ライトブルーの髪",
-            "琥珀色の目",
-            "ライトブルーのドレス",
-            "タン色のエプロン",
-            "赤いリボンアクセント",
-            "白いソックス",
-            "青い靴"
+            "マゼンタ色の髪",
+            "薄紫色の目"
           ],
           "Motif_EN": [
             "corefolder form",
-            "1girl",
-            "teenager",
             "fox ears",
-            "branching fox 6 tails",
-            "light blue hair",
-            "amber eyes",
-            "light blue dress",
-            "tan apron",
-            "red ribbon accent",
-            "white socks",
-            "blue shoes"
+            "magenta hair",
+            "light purple eyes"
           ]
         }
       },
@@ -18570,26 +18886,24 @@
         "Motif": {
           "Motif_JP": [
             "ヒューマノイド形態",
-            "女の子1人",
-            "10代",
             "狐の耳",
-            "枝分かれ狐の尾6本",
-            "ライトブルーの髪",
-            "琥珀色の目",
+            "マゼンタ色の髪",
+            "薄紫色の目",
             "青いセーラーカラー付き灰色のベスト",
-            "赤い蝶ネクタイ",
+            "白と紺色のエプロン",
+            "白いソックス",
+            "青い靴",
             "白いインナーシャツ"
           ],
           "Motif_EN": [
             "humanoid form",
-            "1girl",
-            "teenager",
             "fox ears",
-            "branching fox 6 tails",
-            "light blue hair",
-            "amber eyes",
+            "magenta hair",
+            "light purple eyes",
             "gray vest with blue sailor collar",
-            "red bow tie",
+            "white and navy apron",
+            "white socks",
+            "blue shoes",
             "white inner shirt"
           ]
         }
@@ -18948,29 +19262,40 @@
         "Motif": {
           "Motif_JP": [
             "コアフォルダ形態",
-            "女の子1人",
-            "若い成人",
             "狐の耳",
-            "枝分かれ狐の尾6本",
-            "濃い紺色の長い髪",
-            "金色の目",
-            "長い濃紺のコート",
-            "紫のインナーシャツ",
-            "金色のトリム",
-            "濃い色のブーツ"
+            "淡いピンク色の長い髪",
+            "ピンク色の目",
+            "番号が入った腕章"
           ],
           "Motif_EN": [
             "corefolder form",
-            "1girl",
-            "young adult",
             "fox ears",
-            "branching fox 6 tails",
-            "long dark navy hair",
-            "gold eyes",
-            "dark navy long coat",
-            "purple inner shirt",
-            "gold trim",
-            "dark boots"
+            "long light pink hair",
+            "pink eyes",
+            "armband with number"
+          ]
+        }
+      },
+      {
+        "Formation": "humanoid",
+        "Motif": {
+          "Motif_JP": [
+            "ヒューマノイド形態",
+            "狐の耳",
+            "淡いピンク色の長い髪",
+            "ピンク色の目",
+            "薄紫のインナーシャツ",
+            "淡い色のブーツ",
+            "番号が入った腕章"
+          ],
+          "Motif_EN": [
+            "humanoid form",
+            "fox ears",
+            "long light pink hair",
+            "pink eyes",
+            "light purple inner shirt",
+            "light-colored boots",
+            "armband with number"
           ]
         }
       }
@@ -19228,27 +19553,42 @@
         "Motif": {
           "Motif_JP": [
             "コアフォルダ形態",
-            "女の子1人",
-            "10代前半（低年齢寄り）",
             "狐の耳",
-            "枝分かれ狐の尾6本",
-            "オリーブグリーンの髪",
-            "ヘーゼルの目",
-            "オリーブグリーンのドレス",
-            "薄い緑のエプロン",
+            "橙色の髪",
+            "橙色の目",
+            "ピンクの蝶ネクタイ"
+          ],
+          "Motif_EN": [
+            "corefolder form",
+            "fox ears",
+            "orange hair",
+            "orange eyes",
+            "pink bow tie"
+          ]
+        }
+      },
+      {
+        "Formation": "humanoid",
+        "Motif": {
+          "Motif_JP": [
+            "ヒューマノイド形態",
+            "狐の耳",
+            "橙色の髪",
+            "橙色の目",
+            "ビクトリアン・ロリータドレス",
+            "オレンジ色のボレロジャケット",
+            "ピンクの蝶ネクタイ",
             "オレンジ色のアクセント",
             "茶色の靴"
           ],
           "Motif_EN": [
-            "corefolder form",
-            "1girl",
-            "early teenager",
+            "humanoid form",
             "fox ears",
-            "branching fox 6 tails",
-            "olive-green hair",
-            "hazel eyes",
-            "olive-green dress",
-            "lighter green apron",
+            "orange hair",
+            "orange eyes",
+            "victorian lolita dress",
+            "orange bolero jacket",
+            "pink bow tie",
             "orange accents",
             "brown shoes"
           ]
@@ -19507,29 +19847,36 @@
         "Motif": {
           "Motif_JP": [
             "コアフォルダ形態",
-            "女の子1人",
-            "10代",
             "狐の耳",
-            "枝分かれ狐の尾6本",
             "マゼンタの長い髪",
-            "紫の目",
-            "ローズピンクのドレス",
-            "紫の帯",
-            "白いレーストリム",
-            "マゼンタの靴"
+            "紫の目"
           ],
           "Motif_EN": [
             "corefolder form",
-            "1girl",
-            "teenager",
             "fox ears",
-            "branching fox 6 tails",
+            "long magenta hair",
+            "violet eyes"
+          ]
+        }
+      },
+      {
+        "Formation": "humanoid",
+        "Motif": {
+          "Motif_JP": [
+            "ヒューマノイド形態",
+            "狐の耳",
+            "マゼンタの長い髪",
+            "紫の目",
+            "ローズピンクのドレス",
+            "青の靴"
+          ],
+          "Motif_EN": [
+            "humanoid form",
+            "fox ears",
             "long magenta hair",
             "violet eyes",
             "rose-pink dress",
-            "purple sash",
-            "white lace trim",
-            "magenta shoes"
+            "blue shoes"
           ]
         }
       }
@@ -19787,25 +20134,36 @@
         "Motif": {
           "Motif_JP": [
             "コアフォルダ形態",
-            "女の子1人",
-            "子供",
             "狐の耳",
-            "枝分かれ狐の尾6本",
             "パステルピンクのショートヘア",
-            "ライトブルーの目",
+            "ライトグリーンの目"
+          ],
+          "Motif_EN": [
+            "corefolder form",
+            "fox ears",
+            "short pastel pink hair",
+            "light green eyes"
+          ]
+        }
+      },
+      {
+        "Formation": "humanoid",
+        "Motif": {
+          "Motif_JP": [
+            "ヒューマノイド形態",
+            "狐の耳",
+            "パステルピンクのショートヘア",
+            "ライトグリーンの目",
             "パステルピンクのドレス",
             "白いフリル",
             "青いリボンアクセント",
             "ピンクの靴"
           ],
           "Motif_EN": [
-            "corefolder form",
-            "1girl",
-            "child",
+            "humanoid form",
             "fox ears",
-            "branching fox 6 tails",
             "short pastel pink hair",
-            "light blue eyes",
+            "light green eyes",
             "pastel pink dress",
             "white frills",
             "blue ribbon accents",
@@ -20068,29 +20426,19 @@
         "Motif": {
           "Motif_JP": [
             "コアフォルダ形態",
-            "女の子1人",
-            "10代",
             "狐の耳",
-            "枝分かれ狐の尾6本",
             "ピンクハイライト入り茶色の髪",
             "琥珀色の目",
-            "ピンクのフード",
-            "「66」マーク入りオレンジ黄色のビブ",
-            "ピンクのドレス",
-            "濃い灰色の手袋"
+            "ピンクのフード付きマント",
+            "「6 6」マーク入りオレンジ黄色のヨークビブ"
           ],
           "Motif_EN": [
             "corefolder form",
-            "1girl",
-            "teenager",
             "fox ears",
-            "branching fox 6 tails",
             "brown hair with pink highlights",
             "amber eyes",
-            "pink hood",
-            "orange-yellow bib with '66' marking",
-            "pink dress",
-            "dark gray gloves"
+            "pink hooded cloak",
+            "orange-yellow yoke bib with '6 6' markings"
           ]
         }
       },
@@ -20099,31 +20447,29 @@
         "Motif": {
           "Motif_JP": [
             "ヒューマノイド形態",
-            "女の子1人",
-            "10代",
             "狐の耳",
-            "枝分かれ狐の尾6本",
             "ピンクハイライト入り茶色の髪",
             "琥珀色の目",
             "ピンクのフード付きマント",
             "「6 6」マーク入りオレンジ黄色のヨークビブ",
             "ピンクのパフスリーブ",
             "濃い灰色のフィンガーレスグローブ",
-            "黄色いトリムアクセント"
+            "黄色いトリムアクセント",
+            "ピンクのドレス",
+            "濃い灰色の手袋"
           ],
           "Motif_EN": [
             "humanoid form",
-            "1girl",
-            "teenager",
             "fox ears",
-            "branching fox 6 tails",
             "brown hair with pink highlights",
             "amber eyes",
             "pink hooded cloak",
             "orange-yellow yoke bib with '6 6' markings",
             "pink puff sleeves",
             "dark gray fingerless gloves",
-            "yellow trim accents"
+            "yellow trim accents",
+            "pink dress",
+            "dark gray gloves"
           ]
         }
       }
@@ -20715,27 +21061,17 @@
         "Motif": {
           "Motif_JP": [
             "コアフォルダ形態",
-            "その他1人",
-            "10代前半（低年齢寄り）",
             "狐の耳",
-            "枝分かれ狐の尾8本",
             "緑のショートヘア",
             "灰緑色の目",
-            "緑の狐尾マント",
-            "「68」マーク入り赤いキャップ",
-            "白いお腹"
+            "「68」マーク入り赤いキャップ"
           ],
           "Motif_EN": [
             "corefolder form",
-            "1other",
-            "early teenager",
             "fox ears",
-            "branching fox 8 tails",
             "short green hair",
             "gray-green eyes",
-            "green fox-tail mantle",
-            "red cap with '68' marking",
-            "white belly"
+            "red cap with '68' marking"
           ]
         }
       },
@@ -20744,33 +21080,17 @@
         "Motif": {
           "Motif_JP": [
             "ヒューマノイド形態",
-            "その他1人",
-            "10代前半（低年齢寄り）",
             "狐の耳",
-            "枝分かれ狐の尾8本",
             "緑のショートヘア",
             "灰緑色の目",
-            "濃いオリーブ茶色のワークジャケット",
-            "緑の襟付きインナーシャツ",
-            "濃い緑のパンツ",
-            "ゴーグル付き赤い野球帽",
-            "灰色の作業手袋",
-            "茶色のブーツ"
+            "「68」マーク入り赤いキャップ"
           ],
           "Motif_EN": [
             "humanoid form",
-            "1other",
-            "early teenager",
             "fox ears",
-            "branching fox 8 tails",
             "short green hair",
             "gray-green eyes",
-            "dark olive-brown work jacket",
-            "green inner collared shirt",
-            "dark green pants",
-            "red baseball cap with goggles",
-            "gray work gloves",
-            "brown boots"
+            "red cap with '68' marking"
           ]
         }
       }
@@ -21103,27 +21423,19 @@
         "Motif": {
           "Motif_JP": [
             "コアフォルダ形態",
-            "男の子1人",
-            "10代",
             "狐の耳",
-            "枝分かれ狐の尾9本",
             "ピンクのショートヘア",
             "赤い目",
             "ピンクの狐尾マント",
-            "白いお腹",
             "小さな赤いリボンアクセント",
             "「69」マーキング"
           ],
           "Motif_EN": [
             "corefolder form",
-            "1boy",
-            "teenager",
             "fox ears",
-            "branching fox 9 tails",
             "short pink hair",
             "red eyes",
             "pink fox-tail mantle",
-            "white belly",
             "small red ribbon accent",
             "'69' marking"
           ]
@@ -21134,10 +21446,7 @@
         "Motif": {
           "Motif_JP": [
             "ヒューマノイド形態",
-            "男の子1人",
-            "10代",
             "狐の耳",
-            "枝分かれ狐の尾9本",
             "ピンクのショートヘア",
             "赤い目",
             "「69」肩マーク入り濃いバーガンディのダブルブレストベストドレス",
@@ -21148,10 +21457,7 @@
           ],
           "Motif_EN": [
             "humanoid form",
-            "1boy",
-            "teenager",
             "fox ears",
-            "branching fox 9 tails",
             "short pink hair",
             "red eyes",
             "dark burgundy double-breasted vest dress with '69' shoulder marking",
@@ -21642,31 +21948,44 @@
         "Motif": {
           "Motif_JP": [
             "コアフォルダ形態",
-            "男の子1人",
-            "10代",
             "狐の耳",
-            "枝分かれ狐の尾7本",
+            "白いリボン付き青い長いツインテール",
+            "灰青色の目",
+            "数字「71」をモチーフにした形のかんざし"
+          ],
+          "Motif_EN": [
+            "corefolder form",
+            "fox ears",
+            "long blue twin-tails with white ribbon",
+            "gray-blue eyes",
+            "hairpin shaped like the number '71'"
+          ]
+        }
+      },
+      {
+        "Formation": "humanoid",
+        "Motif": {
+          "Motif_JP": [
+            "ヒューマノイド形態",
+            "狐の耳",
             "白いリボン付き青い長いツインテール",
             "灰青色の目",
             "襟付き灰紫色のポロシャツ",
             "白い裾付き赤いショートパンツ",
             "青い膝上ソックス",
             "青い靴",
-            "白いヘアリボン"
+            "数字「71」をモチーフにした形のかんざし"
           ],
           "Motif_EN": [
-            "corefolder form",
-            "1boy",
-            "teenager",
+            "humanoid form",
             "fox ears",
-            "branching fox 7 tails",
             "long blue twin-tails with white ribbon",
             "gray-blue eyes",
             "gray-purple polo shirt with collar",
             "red shorts with white hem",
             "blue knee-high socks",
             "blue shoes",
-            "white hair ribbon"
+            "hairpin shaped like the number '71'"
           ]
         }
       }
@@ -21920,31 +22239,46 @@
         "Motif": {
           "Motif_JP": [
             "コアフォルダ形態",
-            "その他1人",
-            "10代",
             "狐の耳",
-            "枝分かれ狐の尾7本",
+            "淡い青の非常に長い髪",
+            "ラベンダーの目",
+            "「研修」名札",
+            "バーコードの番号付きタグ"
+          ],
+          "Motif_EN": [
+            "corefolder form",
+            "fox ears",
+            "very long pale blue hair",
+            "lavender eyes",
+            "'研修' (trainee) name tag",
+            "barcode-style numbered tag"
+          ]
+        }
+      },
+      {
+        "Formation": "humanoid",
+        "Motif": {
+          "Motif_JP": [
+            "ヒューマノイド形態",
+            "狐の耳",
             "淡い青の非常に長い髪",
             "ラベンダーの目",
             "ラベンダー色のキャミソールエプロンスタイルトップス",
             "淡い青の長いスカート",
             "濃い紫のレースアップブーツ",
             "「研修」名札",
-            "バーコードスタイルのチョーカー"
+            "バーコードの番号付きタグ"
           ],
           "Motif_EN": [
-            "corefolder form",
-            "1other",
-            "teenager",
+            "humanoid form",
             "fox ears",
-            "branching fox 7 tails",
             "very long pale blue hair",
             "lavender eyes",
             "lavender camisole apron-style top",
             "pale blue long skirt",
             "dark purple lace-up boots",
             "'研修' (trainee) name tag",
-            "barcode-style choker"
+            "barcode-style numbered tag"
           ]
         }
       }
@@ -22221,31 +22555,21 @@
         "Motif": {
           "Motif_JP": [
             "コアフォルダ形態",
-            "女の子1人",
-            "10代",
             "狐の耳",
             "枝分かれ狐の尾7本",
             "帽子付きピンクのショートヘア",
             "金色の目",
-            "青いドレスの上に赤い短いジャケット",
-            "黄色い腰ベルト",
-            "青いメッセンジャーキャップ",
             "青いネクタイ",
-            "赤い靴"
+            "「73」モチーフのパッチ付きの青いベレー帽"
           ],
           "Motif_EN": [
             "corefolder form",
-            "1girl",
-            "teenager",
             "fox ears",
             "branching fox 7 tails",
             "short pink hair with cap",
             "golden eyes",
-            "red short jacket over blue dress",
-            "yellow waist belt",
-            "blue messenger cap",
             "blue necktie",
-            "red shoes"
+            "blue beret with '73' motif patch"
           ]
         }
       },
@@ -22254,31 +22578,29 @@
         "Motif": {
           "Motif_JP": [
             "ヒューマノイド形態",
-            "女の子1人",
-            "10代",
             "狐の耳",
-            "枝分かれ狐の尾7本",
             "帽子付きピンクのショートヘア",
             "金色の目",
             "黄色い帯付き青赤メッセンジャースタイルドレス",
-            "バッジ付き青いキャップ",
             "青いネクタイ",
             "白いインナーブラウス",
-            "赤い短いジャケット"
+            "青いドレスの上に赤い短いジャケット",
+            "黄色い腰ベルト",
+            "「73」モチーフのパッチ付きの青いベレー帽",
+            "赤い靴"
           ],
           "Motif_EN": [
             "humanoid form",
-            "1girl",
-            "teenager",
             "fox ears",
-            "branching fox 7 tails",
             "short pink hair with cap",
             "golden eyes",
-            "blue and red messenger-style dress with yellow sash",
-            "blue cap with badge",
+            "yellow belt with blue and red messenger-style dress",
             "blue necktie",
             "white inner blouse",
-            "red short jacket"
+            "red short jacket over blue dress",
+            "yellow waist belt",
+            "blue beret with '73' motif patch",
+            "red shoes"
           ]
         }
       }
@@ -22603,30 +22925,45 @@
         "Motif": {
           "Motif_JP": [
             "コアフォルダ形態",
-            "女の子1人",
-            "10代",
             "狐の耳",
-            "枝分かれ狐の尾7本",
             "銀灰色の長い髪",
             "鮮やかな青の目",
-            "青いオフショルダーラップトップス",
-            "青い短いスカート",
-            "半透明の灰色のショール/ケープ",
-            "白いサンダル",
+            "半透明の白いマント/ケープ",
             "「74」の胸マーキング"
           ],
           "Motif_EN": [
             "corefolder form",
-            "1girl",
-            "teenager",
             "fox ears",
-            "branching fox 7 tails",
+            "long silver-gray hair",
+            "bright blue eyes",
+            "translucent white shawl/cape",
+            "'74' chest marking"
+          ]
+        }
+      },
+      {
+        "Formation": "humanoid",
+        "Motif": {
+          "Motif_JP": [
+            "ヒューマノイド形態",
+            "狐の耳",
+            "銀灰色の長い髪",
+            "鮮やかな青の目",
+            "紺色の巫女服",
+            "青い短いスカート",
+            "半透明の白いマント/ケープ",
+            "灰色の下駄",
+            "「74」の胸マーキング"
+          ],
+          "Motif_EN": [
+            "humanoid form",
+            "fox ears",
             "long silver-gray hair",
             "bright blue eyes",
             "blue off-shoulder wrap top",
             "blue short skirt",
-            "translucent gray shawl/cape",
-            "white sandals",
+            "translucent white shawl/cape",
+            "gray geta sandals",
             "'74' chest marking"
           ]
         }
@@ -22892,10 +23229,26 @@
         "Motif": {
           "Motif_JP": [
             "コアフォルダ形態",
-            "その他1人",
-            "10代",
             "狐の耳",
-            "枝分かれ狐の尾7本",
+            "黄色いサイドテールの髪",
+            "黄色い目",
+            "「75」のアームバンド"
+          ],
+          "Motif_EN": [
+            "corefolder form",
+            "fox ears",
+            "yellow side-tail hair",
+            "yellow eyes",
+            "'75' armband"
+          ]
+        }
+      },
+      {
+        "Formation": "humanoid",
+        "Motif": {
+          "Motif_JP": [
+            "ヒューマノイド形態",
+            "狐の耳",
             "黄色いサイドテールの髪",
             "黄色い目",
             "黄緑色のセーラー制服トップス",
@@ -22906,11 +23259,8 @@
             "「75」のアームバンド"
           ],
           "Motif_EN": [
-            "corefolder form",
-            "1other",
-            "teenager",
+            "humanoid form",
             "fox ears",
-            "branching fox 7 tails",
             "yellow side-tail hair",
             "yellow eyes",
             "yellow-green sailor uniform top",
@@ -23183,10 +23533,28 @@
         "Motif": {
           "Motif_JP": [
             "コアフォルダ形態",
-            "女の子1人",
-            "10代",
             "狐の耳",
-            "枝分かれ狐の尾7本",
+            "ヘッドフォン付き濃い青の長い髪",
+            "眼鏡をかけた暗色の目",
+            "ピンクのネクタイ",
+            "丸い眼鏡付きのピンクのヘッドフォン"
+          ],
+          "Motif_EN": [
+            "corefolder form",
+            "fox ears",
+            "long dark-blue hair with headphones",
+            "dark eyes with glasses",
+            "pink necktie",
+            "pink headphones with round glasses"
+          ]
+        }
+      },
+      {
+        "Formation": "humanoid",
+        "Motif": {
+          "Motif_JP": [
+            "ヒューマノイド形態",
+            "狐の耳",
             "ヘッドフォン付き濃い青の長い髪",
             "眼鏡をかけた暗色の目",
             "ティールブルーのセーラースタイルトップス",
@@ -23194,15 +23562,11 @@
             "ピンクの長いスカート",
             "白い膝上ソックス",
             "青い靴",
-            "ピンクのヘッドフォン",
-            "丸い眼鏡"
+            "丸い眼鏡付きのピンクのヘッドフォン"
           ],
           "Motif_EN": [
-            "corefolder form",
-            "1girl",
-            "teenager",
+            "humanoid form",
             "fox ears",
-            "branching fox 7 tails",
             "long dark-blue hair with headphones",
             "dark eyes with glasses",
             "teal blue sailor-style top",
@@ -23210,8 +23574,7 @@
             "pink long skirt",
             "white knee-high socks",
             "blue shoes",
-            "pink headphones",
-            "round glasses"
+            "pink headphones with round glasses"
           ]
         }
       }
@@ -23473,10 +23836,26 @@
         "Motif": {
           "Motif_JP": [
             "コアフォルダ形態",
-            "その他1人",
-            "10代",
             "狐の耳",
-            "枝分かれ狐の尾7本",
+            "クリスタルマーク付きティールブルーのショートヘア",
+            "灰青色の目",
+            "「77」の胸紋章"
+          ],
+          "Motif_EN": [
+            "corefolder form",
+            "fox ears",
+            "short teal-blue hair with crystal mark",
+            "gray-blue eyes",
+            "'77' chest emblem"
+          ]
+        }
+      },
+      {
+        "Formation": "humanoid",
+        "Motif": {
+          "Motif_JP": [
+            "ヒューマノイド形態",
+            "狐の耳",
             "クリスタルマーク付きティールブルーのショートヘア",
             "灰青色の目",
             "白い帯付き濃いティールの袴風ローブ",
@@ -23486,11 +23865,8 @@
             "「77」の胸紋章"
           ],
           "Motif_EN": [
-            "corefolder form",
-            "1other",
-            "teenager",
+            "humanoid form",
             "fox ears",
-            "branching fox 7 tails",
             "short teal-blue hair with crystal mark",
             "gray-blue eyes",
             "dark teal hakama-style robe with white sash",
@@ -23771,10 +24147,28 @@
         "Motif": {
           "Motif_JP": [
             "コアフォルダ形態",
-            "女の子1人",
-            "若い成人",
             "狐の耳",
-            "枝分かれ狐の尾8本",
+            "ピンクの非常に長い髪",
+            "ラベンダーの目",
+            "ハートペンダント付き青いビーズネックレス",
+            "ダイヤ柄の耳マーキング"
+          ],
+          "Motif_EN": [
+            "corefolder form",
+            "fox ears",
+            "very long pink hair",
+            "lavender eyes",
+            "blue beaded necklace with heart pendant",
+            "diamond-pattern ear markings"
+          ]
+        }
+      },
+      {
+        "Formation": "humanoid",
+        "Motif": {
+          "Motif_JP": [
+            "ヒューマノイド形態",
+            "狐の耳",
             "ピンクの非常に長い髪",
             "ラベンダーの目",
             "オレンジトリム付き紫の半袖トップス",
@@ -23785,11 +24179,8 @@
             "ダイヤ柄の耳マーキング"
           ],
           "Motif_EN": [
-            "corefolder form",
-            "1girl",
-            "young adult",
+            "humanoid form",
             "fox ears",
-            "branching fox 8 tails",
             "very long pink hair",
             "lavender eyes",
             "purple short-sleeve top with orange trim",
@@ -24196,10 +24587,28 @@
         "Motif": {
           "Motif_JP": [
             "コアフォルダ形態",
-            "女の子1人",
-            "10代",
             "狐の耳",
-            "枝分かれ狐の尾8本",
+            "茶色のサイドテールのショートヘア",
+            "オレンジ赤の目",
+            "「<81>」マーク入りピンクのノースリーブベスト",
+            "小さな耳飾り"
+          ],
+          "Motif_EN": [
+            "corefolder form",
+            "fox ears",
+            "short brown side-tail hair",
+            "orange-red eyes",
+            "pink sleeveless vest with '<81>' marking",
+            "small ear ornament"
+          ]
+        }
+      },
+      {
+        "Formation": "humanoid",
+        "Motif": {
+          "Motif_JP": [
+            "ヒューマノイド形態",
+            "狐の耳",
             "茶色のサイドテールのショートヘア",
             "オレンジ赤の目",
             "「<81>」マーク入りピンクのノースリーブベスト",
@@ -24209,11 +24618,8 @@
             "小さな耳飾り"
           ],
           "Motif_EN": [
-            "corefolder form",
-            "1girl",
-            "teenager",
+            "humanoid form",
             "fox ears",
-            "branching fox 8 tails",
             "short brown side-tail hair",
             "orange-red eyes",
             "pink sleeveless vest with '<81>' marking",
@@ -24570,10 +24976,26 @@
         "Motif": {
           "Motif_JP": [
             "コアフォルダ形態",
-            "女の子1人",
-            "若い成人",
             "狐の耳",
-            "枝分かれ狐の尾8本",
+            "サイドアクセサリー付き灰緑色のショートヘア",
+            "オレンジ色の目",
+            "オレンジ色のスカーフ/ネッカチーフ"
+          ],
+          "Motif_EN": [
+            "corefolder form",
+            "fox ears",
+            "short gray-green hair with side ornament",
+            "orange eyes",
+            "orange scarf/neckerchief"
+          ]
+        }
+      },
+      {
+        "Formation": "humanoid",
+        "Motif": {
+          "Motif_JP": [
+            "ヒューマノイド形態",
+            "狐の耳",
             "サイドアクセサリー付き灰緑色のショートヘア",
             "オレンジ色の目",
             "茶色のベルト付きオレンジ色の短いジャケット",
@@ -24584,11 +25006,8 @@
             "オレンジ色のスカーフ/ネッカチーフ"
           ],
           "Motif_EN": [
-            "corefolder form",
-            "1girl",
-            "young adult",
+            "humanoid form",
             "fox ears",
-            "branching fox 8 tails",
             "short gray-green hair with side ornament",
             "orange eyes",
             "orange short jacket with brown belt",
@@ -24869,13 +25288,28 @@
         "Motif": {
           "Motif_JP": [
             "コアフォルダ形態",
-            "女の子1人",
-            "10代",
             "狐の耳",
-            "枝分かれ狐の尾8本",
             "茶色のポニーテール",
             "シアンの目",
-            "シアンとティールのフード付きポンチョ",
+            "シアンの涙滴型ペンダントネックレス"
+          ],
+          "Motif_EN": [
+            "corefolder form",
+            "fox ears",
+            "brown ponytail",
+            "cyan eyes",
+            "cyan teardrop pendant necklace"
+          ]
+        }
+      },
+      {
+        "Formation": "humanoid",
+        "Motif": {
+          "Motif_JP": [
+            "ヒューマノイド形態",
+            "狐の耳",
+            "茶色のポニーテール",
+            "シアンの目",
             "シアンの短いパンツ",
             "白い膝上ソックス",
             "茶色のアンクルブーツ",
@@ -24883,14 +25317,10 @@
             "オフショルダーネックライン"
           ],
           "Motif_EN": [
-            "corefolder form",
-            "1girl",
-            "teenager",
+            "humanoid form",
             "fox ears",
-            "branching fox 8 tails",
             "brown ponytail",
             "cyan eyes",
-            "cyan and teal hooded poncho",
             "cyan short pants",
             "white knee-high socks",
             "brown ankle boots",
@@ -25172,29 +25602,40 @@
         "Motif": {
           "Motif_JP": [
             "コアフォルダ形態",
-            "女の子1人",
-            "10代前半（低年齢寄り）",
             "狐の耳",
-            "枝分かれ狐の尾8本",
+            "赤いリボンボウ付き緑のショートヘア",
+            "灰茶色の目",
+            "大きな赤いリボンボウのヘアオーナメント"
+          ],
+          "Motif_EN": [
+            "corefolder form",
+            "fox ears",
+            "short green hair with red ribbon-bow",
+            "gray-brown eyes",
+            "large red ribbon-bow hair ornament"
+          ]
+        }
+      },
+      {
+        "Formation": "humanoid",
+        "Motif": {
+          "Motif_JP": [
+            "ヒューマノイド形態",
+            "狐の耳",
             "赤いリボンボウ付き緑のショートヘア",
             "灰茶色の目",
             "濃い茶色のワンピースエプロンドレス",
-            "襟元の赤いリボントリム",
             "クリーム白いエプロン前掛け",
             "濃い緑のストッキング",
             "ピンクのアンクルストラップ付き濃い茶色の靴",
             "大きな赤いリボンボウのヘアオーナメント"
           ],
           "Motif_EN": [
-            "corefolder form",
-            "1girl",
-            "early teenager",
+            "humanoid form",
             "fox ears",
-            "branching fox 8 tails",
             "short green hair with red ribbon-bow",
             "gray-brown eyes",
             "dark brown one-piece apron-dress",
-            "red ribbon trim at collar",
             "cream-white apron front",
             "dark green stockings",
             "dark brown shoes with pink ankle strap",
@@ -25477,33 +25918,44 @@
         "Motif": {
           "Motif_JP": [
             "コアフォルダ形態",
-            "女の子1人",
-            "10代",
             "狐の耳",
-            "枝分かれ狐の尾8本",
+            "ハートの耳マーク付きピンクの非常に長い髪",
+            "琥珀色の目",
+            "ハート形ダイヤモンドペンダントネックレス"
+          ],
+          "Motif_EN": [
+            "corefolder form",
+            "fox ears",
+            "very long pink hair with heart ear-marks",
+            "amber eyes",
+            "heart-shaped diamond pendant necklace"
+          ]
+        }
+      },
+      {
+        "Formation": "humanoid",
+        "Motif": {
+          "Motif_JP": [
+            "ヒューマノイド形態",
+            "狐の耳",
             "ハートの耳マーク付きピンクの非常に長い髪",
             "琥珀色の目",
             "青い襟付きオレンジ色の半袖セーラートップス",
             "ダイヤペンダントモチーフ付き青い膝丈スカート",
             "ハート形ダイヤモンドペンダントネックレス",
             "白いサイハイストッキング",
-            "ピンクの靴",
-            "白いベルト"
+            "ピンクの靴"
           ],
           "Motif_EN": [
-            "corefolder form",
-            "1girl",
-            "teenager",
+            "humanoid form",
             "fox ears",
-            "branching fox 8 tails",
             "very long pink hair with heart ear-marks",
             "amber eyes",
             "orange short-sleeve sailor top with blue collar",
             "blue knee-length skirt with diamond pendant motifs",
             "heart-shaped diamond pendant necklace",
             "white thigh-high stockings",
-            "pink shoes",
-            "white belt"
+            "pink shoes"
           ]
         }
       }
@@ -25757,10 +26209,31 @@
         "Motif": {
           "Motif_JP": [
             "コアフォルダ形態",
-            "男の子1人",
-            "若い成人",
             "狐の耳",
-            "枝分かれ狐の尾8本",
+            "ヘアバンド付きオレンジ色の長いポニーテール",
+            "アイマスクバンド付きの赤い目",
+            "濃紺のネクタイ",
+            "無限形状（∞=88）のアイマスクバンド",
+            "ピアノ鍵盤ホログラフィックリング"
+          ],
+          "Motif_EN": [
+            "corefolder form",
+            "fox ears",
+            "branching fox 8 tails",
+            "orange long ponytail with hair-band",
+            "red eyes with eye-mask band",
+            "navy blue necktie",
+            "infinity-shaped (∞=88) blindfold band",
+            "piano-keyboard holographic ring"
+          ]
+        }
+      },
+      {
+        "Formation": "humanoid",
+        "Motif": {
+          "Motif_JP": [
+            "ヒューマノイド形態",
+            "狐の耳",
             "ヘアバンド付きオレンジ色の長いポニーテール",
             "アイマスクバンド付きの赤い目",
             "オレンジ色のウェストコートの上の濃紺ダブルブレスト執事テールコート",
@@ -25772,11 +26245,8 @@
             "ピアノ鍵盤ホログラフィックリング"
           ],
           "Motif_EN": [
-            "corefolder form",
-            "1boy",
-            "young adult",
+            "humanoid form",
             "fox ears",
-            "branching fox 8 tails",
             "orange long ponytail with hair-band",
             "red eyes with eye-mask band",
             "navy-blue double-breasted butler tailcoat over orange waistcoat",
@@ -26056,30 +26526,41 @@
         "Motif": {
           "Motif_JP": [
             "コアフォルダ形態",
-            "女の子1人",
-            "若い成人",
             "狐の耳",
-            "枝分かれ狐の尾9本",
             "マゼンタの長い髪",
             "赤い目",
-            "マゼンタレッドのレトロな修道服/拘束スタイルスーツ",
+            "赤いネクタイ"
+          ],
+          "Motif_EN": [
+            "corefolder form",
+            "fox ears",
+            "long magenta hair",
+            "red eyes",
+            "red necktie"
+          ]
+        }
+      },
+      {
+        "Formation": "humanoid",
+        "Motif": {
+          "Motif_JP": [
+            "ヒューマノイド形態",
+            "狐の耳",
+            "マゼンタの長い髪",
+            "赤い目",
+            "マゼンタレッドのレトロな修道服スタイルスーツ",
             "赤いネクタイ付き白いインナーシャツ",
-            "マゼンタ色のフード付きケープ/マント",
             "マゼンタのストッキング",
             "マゼンタのハイヒールブーツ",
             "白いウィンプル風カラー"
           ],
           "Motif_EN": [
-            "corefolder form",
-            "1girl",
-            "young adult",
+            "humanoid form",
             "fox ears",
-            "branching fox 9 tails",
             "long magenta hair",
             "red eyes",
-            "magenta-red retro nun-like habit / restraint-style suit",
+            "magenta-red retro nun-like habit-style suit",
             "white inner shirt with red necktie",
-            "magenta hooded cape/cloak",
             "magenta stockings",
             "magenta high-heeled boots",
             "white wimple-like collar"
@@ -26409,10 +26890,26 @@
         "Motif": {
           "Motif_JP": [
             "コアフォルダ形態",
-            "男の子1人",
-            "10代前半（低年齢寄り）",
             "狐の耳",
-            "枝分かれ狐の尾9本",
+            "淡い青のショートヘア",
+            "ラベンダーグレーの目",
+            "ゆるいラベンダー色のネクタイ"
+          ],
+          "Motif_EN": [
+            "corefolder form",
+            "fox ears",
+            "short pale-blue hair",
+            "lavender-gray eyes",
+            "loose lavender necktie"
+          ]
+        }
+      },
+      {
+        "Formation": "humanoid",
+        "Motif": {
+          "Motif_JP": [
+            "ヒューマノイド形態",
+            "狐の耳",
             "淡い青のショートヘア",
             "ラベンダーグレーの目",
             "淡い青のオープン半袖ブラウス",
@@ -26423,11 +26920,8 @@
             "ゆるいラベンダー色のネクタイ"
           ],
           "Motif_EN": [
-            "corefolder form",
-            "1boy",
-            "early teenager",
+            "humanoid form",
             "fox ears",
-            "branching fox 9 tails",
             "short pale-blue hair",
             "lavender-gray eyes",
             "pale blue open short-sleeve blouse",
@@ -26693,10 +27187,28 @@
         "Motif": {
           "Motif_JP": [
             "コアフォルダ形態",
-            "女の子1人",
-            "10代前半（低年齢寄り）",
             "狐の耳",
-            "枝分かれ狐の尾9本",
+            "白いヘアバンド付き黄色い長い髪",
+            "黄色い目",
+            "「93」マーク",
+            "白い鉢巻"
+          ],
+          "Motif_EN": [
+            "corefolder form",
+            "fox ears",
+            "long yellow hair with white headband",
+            "yellow eyes",
+            "'93' marking",
+            "white long headband"
+          ]
+        }
+      },
+      {
+        "Formation": "humanoid",
+        "Motif": {
+          "Motif_JP": [
+            "ヒューマノイド形態",
+            "狐の耳",
             "白いヘアバンド付き黄色い長い髪",
             "黄色い目",
             "茶色の短いベスト",
@@ -26704,14 +27216,11 @@
             "黄色いフルスカート",
             "クリーム白い膝上ソックス",
             "茶色のレースアップシューズ",
-            "白い幅広ヘアバンド"
+            "白い鉢巻"
           ],
           "Motif_EN": [
-            "corefolder form",
-            "1girl",
-            "early teenager",
+            "humanoid form",
             "fox ears",
-            "branching fox 9 tails",
             "long yellow hair with white headband",
             "yellow eyes",
             "brown short vest",
@@ -26719,7 +27228,7 @@
             "yellow full skirt",
             "cream-white knee-high socks",
             "brown lace-up shoes",
-            "white wide headband"
+            "white long headband"
           ]
         }
       }
@@ -27009,33 +27518,40 @@
         "Motif": {
           "Motif_JP": [
             "コアフォルダ形態",
-            "その他1人",
-            "10代",
             "狐の耳",
-            "枝分かれ狐の尾9本",
             "青いミディアムヘア",
-            "青い目",
-            "バックル付き紫の長い寝袋/拘束スーツ",
-            "青いインナーパジャマチュニック",
-            "白いインナーカラー",
-            "前部に沿ったバックルストラップ",
-            "裸足",
-            "青い抱き枕/クッション"
+            "青い目"
           ],
           "Motif_EN": [
             "corefolder form",
-            "1other",
-            "teenager",
             "fox ears",
-            "branching fox 9 tails",
+            "medium blue hair",
+            "blue eyes"
+          ]
+        }
+      },
+      {
+        "Formation": "humanoid",
+        "Motif": {
+          "Motif_JP": [
+            "ヒューマノイド形態",
+            "狐の耳",
+            "青いミディアムヘア",
+            "青い目",
+            "青いインナーパジャマチュニック",
+            "白いインナーカラー",
+            "前部に沿ったバックルストラップ",
+            "裸足（青い靴下）"
+          ],
+          "Motif_EN": [
+            "humanoid form",
+            "fox ears",
             "medium blue hair",
             "blue eyes",
-            "purple long sleeping-bag / restraint-suit with buckles",
             "blue inner pajama tunic",
             "white inner collar",
             "buckle straps along the front",
-            "barefoot",
-            "blue body pillow / cushion"
+            "barefoot (blue socks)"
           ]
         }
       }
@@ -27347,31 +27863,17 @@
         "Motif": {
           "Motif_JP": [
             "コアフォルダ形態",
-            "女の子1人",
-            "10代",
             "狐の耳",
-            "枝分かれ狐の尾9本",
             "三日月マーク付きピンクのショートヘア",
             "ピンクの目",
-            "白い襟付きピンクのワンピースドレス",
-            "ハイヒール",
-            "ピンクのマスカレードマスク（アイマスク）",
-            "ピンクのリボンヘアオーナメント",
-            "ピンクのサイハイストッキング"
+            "三日月と番号装飾付きピンクのマスカレードマスク"
           ],
           "Motif_EN": [
             "corefolder form",
-            "1girl",
-            "teenager",
             "fox ears",
-            "branching fox 9 tails",
             "short pink hair with crescent mark",
             "pink eyes",
-            "pink one-piece dress with white collar",
-            "high heels",
-            "pink masquerade mask (eye mask)",
-            "pink ribbon hair ornament",
-            "pink thigh-high stockings"
+            "pink masquerade mask with crescent-moon and number decoration"
           ]
         }
       },
@@ -27380,33 +27882,31 @@
         "Motif": {
           "Motif_JP": [
             "ヒューマノイド形態",
-            "女の子1人",
-            "10代",
             "狐の耳",
-            "枝分かれ狐の尾9本",
             "三日月マーク付きピンクのショートヘア",
             "ピンクの目",
+            "白い襟付きピンクのワンピースドレス",
+            "ハイヒール",
+            "ピンクのサイハイストッキング",
             "白い襟と中央ボタン前立て付きピンクのパフスリーブドレス",
-            "三日月とドット装飾付きピンクのマスカレードマスク",
+            "三日月と番号装飾付きピンクのマスカレードマスク",
             "灰色の手袋",
             "手首のピンクのリボン",
-            "ピンクのサイハイストッキング",
-            "灰色の玉座風の椅子に座っている"
+            "ピンクのサイハイストッキング"
           ],
           "Motif_EN": [
             "humanoid form",
-            "1girl",
-            "teenager",
             "fox ears",
-            "branching fox 9 tails",
             "short pink hair with crescent mark",
             "pink eyes",
-            "pink puff-sleeve dress with white collar and central button placket",
-            "pink masquerade mask with crescent-moon and dot decoration",
-            "gray gloves",
-            "pink ribbon at wrist",
+            "pink one-piece dress with white collar",
+            "high heels",
             "pink thigh-high stockings",
-            "seated on a gray throne-like chair"
+            "pink puff-sleeve dress with white collar and central button placket",
+            "pink masquerade mask with crescent-moon and number decoration",
+            "gray gloves",
+            "pink ribbon on the wrist",
+            "pink thigh-high stockings"
           ]
         }
       }
@@ -27747,10 +28247,28 @@
         "Motif": {
           "Motif_JP": [
             "コアフォルダ形態",
-            "女の子1人",
-            "10代",
             "狐の耳",
-            "枝分かれ狐の尾9本",
+            "サイドブレイド付き青い非常に長い髪",
+            "淡いラベンダーグレーの目",
+            "十字紋章と「97」バンド付き灰色の修道女風トップハット",
+            "長い横編み込み"
+          ],
+          "Motif_EN": [
+            "corefolder form",
+            "fox ears",
+            "very long blue hair with side braid",
+            "pale lavender-gray eyes",
+            "gray nun-like top hat with cross emblem and '97' band",
+            "long side braid"
+          ]
+        }
+      },
+      {
+        "Formation": "humanoid",
+        "Motif": {
+          "Motif_JP": [
+            "ヒューマノイド形態",
+            "狐の耳",
             "サイドブレイド付き青い非常に長い髪",
             "淡いラベンダーグレーの目",
             "十字紋章と「97」バンド付き灰色の修道女風トップハット",
@@ -27760,11 +28278,8 @@
             "長い横編み込み"
           ],
           "Motif_EN": [
-            "corefolder form",
-            "1girl",
-            "teenager",
+            "humanoid form",
             "fox ears",
-            "branching fox 9 tails",
             "very long blue hair with side braid",
             "pale lavender-gray eyes",
             "gray nun-like top hat with cross emblem and '97' band",
@@ -28023,29 +28538,46 @@
         "Motif": {
           "Motif_JP": [
             "コアフォルダ形態",
-            "女の子1人",
-            "10代",
             "狐の耳",
-            "枝分かれ狐の尾9本",
             "マゼンタピンクのミディアムヘア",
             "赤い目",
-            "マゼンタレッドのレトロなビジネススーツ/着物風トップス",
-            "「98」マーク入り赤いネクタイ",
-            "灰色の長いプリーツスカート",
-            "ストラップ付き赤いアンクルブーツ"
+            "赤いネクタイ",
+            "赤い「98」の番号"
           ],
           "Motif_EN": [
             "corefolder form",
-            "1girl",
-            "teenager",
             "fox ears",
-            "branching fox 9 tails",
+            "magenta-pink medium hair",
+            "red eyes",
+            "red necktie",
+            "red '98' number"
+          ]
+        }
+      },
+      {
+        "Formation": "humanoid",
+        "Motif": {
+          "Motif_JP": [
+            "ヒューマノイド形態",
+            "狐の耳",
+            "マゼンタピンクのミディアムヘア",
+            "赤い目",
+            "マゼンタレッドのレトロなビジネススーツ/着物風トップス",
+            "赤いネクタイ",
+            "灰色の長いプリーツスカート",
+            "ストラップ付き赤いアンクルブーツ",
+            "赤い「98」の番号"
+          ],
+          "Motif_EN": [
+            "humanoid form",
+            "fox ears",
             "magenta-pink medium hair",
             "red eyes",
             "magenta-red retro business suit / kimono-style top",
-            "red necktie with '98' marking",
+            "red necktie",
             "gray long pleated skirt",
-            "red ankle boots with strap"
+            "red ankle boots with strap",
+            "red '98' number"
           ]
         }
       }
@@ -28300,10 +28832,28 @@
         "Motif": {
           "Motif_JP": [
             "コアフォルダ形態",
-            "その他1人",
-            "10代",
             "狐の耳",
-            "枝分かれ狐の尾9本",
+            "ピンクの光輪付き濃い灰色のショートヘア",
+            "三日月額マーク付きのピンク赤の目",
+            "狐に似た耳と尾房模様",
+            "頭の後ろのピンクの光輪"
+          ],
+          "Motif_EN": [
+            "corefolder form",
+            "fox ears",
+            "dark gray short hair with pink light-ring halo",
+            "pink-red eyes with crescent forehead mark",
+            "fox-like ears and tail-tufts pattern",
+            "pink light-ring halo behind head"
+          ]
+        }
+      },
+      {
+        "Formation": "humanoid",
+        "Motif": {
+          "Motif_JP": [
+            "ヒューマノイド形態",
+            "狐の耳",
             "ピンクの光輪付き濃い灰色のショートヘア",
             "三日月額マーク付きのピンク赤の目",
             "赤いジグザグ内側トリム付き濃い灰色の羽織コート",
@@ -28311,15 +28861,12 @@
             "赤い帯",
             "グレーのスラックス",
             "白いリストカフス",
-            "狐に似た耳と9本の尾房模様",
+            "狐に似た耳と尾房模様",
             "頭の後ろのピンクの光輪"
           ],
           "Motif_EN": [
-            "corefolder form",
-            "1other",
-            "teenager",
+            "humanoid form",
             "fox ears",
-            "branching fox 9 tails",
             "dark gray short hair with pink light-ring halo",
             "pink-red eyes with crescent forehead mark",
             "dark gray haori-coat with red zigzag inner trim",
@@ -28327,7 +28874,7 @@
             "red obi sash",
             "gray slacks",
             "white wrist cuffs",
-            "fox-like ears and nine tail-tufts pattern",
+            "fox-like ears and tail-tufts pattern",
             "pink light-ring halo behind head"
           ]
         }
@@ -28636,29 +29183,44 @@
         "Motif": {
           "Motif_JP": [
             "コアフォルダ形態",
-            "女の子1人",
-            "10代",
             "狐の耳",
             "狐の尾",
             "淡い銀灰色の長い髪",
             "琥珀オレンジの目",
-            "丸まって眠るポーズ",
             "「Bi 2 nor」の胸タグ",
             "オレンジ色の「試用中」ラベル",
             "淡い銀色の尾2本（プロトタイプ状態）"
           ],
           "Motif_EN": [
             "corefolder form",
-            "1girl",
-            "teenager",
             "fox ears",
             "fox tails",
             "pale silver-gray long hair",
             "amber-orange eyes",
-            "curled sleeping pose",
             "'Bi 2 nor' chest tag",
             "orange '試用中' (trial / test version) label",
             "two pale silver tails (prototype state)"
+          ]
+        }
+      },
+      {
+        "Formation": "humanoid",
+        "Motif": {
+          "Motif_JP": [
+            "ヒューマノイド形態",
+            "狐の耳",
+            "狐の尾",
+            "淡い銀灰色の長い髪",
+            "琥珀オレンジの目",
+            "ホログラムの身体（プロトタイプ状態）"
+          ],
+          "Motif_EN": [
+            "humanoid form",
+            "fox ears",
+            "fox tails",
+            "pale silver-gray long hair",
+            "amber-orange eyes",
+            "holographic body (prototype state)"
           ]
         }
       }
@@ -28887,30 +29449,24 @@
         "Motif": {
           "Motif_JP": [
             "コアフォルダ形態",
-            "男の子1人",
-            "10代",
             "狐の耳",
             "狐の尾",
             "濃い茶色の長い髪",
             "琥珀黄色の目",
             "黄色い危険ストライプ付き濃い灰色の樽型拘束コンテナ",
             "襟元の赤いリボン",
-            "底部の赤い三角形の危険コーン",
             "「調整中」黄色い注意ラベル",
             "「取扱注意」注意ラベル",
             "コンテナの「X」マーキング"
           ],
           "Motif_EN": [
             "corefolder form",
-            "1boy",
-            "teenager",
             "fox ears",
             "fox tails",
             "dark brown long hair",
             "amber-yellow eyes",
             "dark gray barrel-shaped restraint container with yellow hazard stripes",
             "red ribbon at collar",
-            "red triangular hazard cones at base",
             "'調整中' (under adjustment) yellow caution label",
             "'取扱注意' (handle with care) caution label",
             "'X' marking on container"
@@ -29154,29 +29710,44 @@
         "Motif": {
           "Motif_JP": [
             "コアフォルダ形態",
-            "その他1人",
-            "若い成人",
-            "狐の耳",
-            "狐の尾",
+            "猫の耳",
+            "猫の尾",
             "灰色のショルダーレングスヘア",
             "黄色い目",
-            "ベル飾り付き灰色ベージュのストライプ長いスカーフ",
-            "「000」マーク入り白いシャツカラー",
-            "猫のように長い尾",
-            "猫のように丸まって眠るポーズ"
+            "灰色ベージュのストライプ長いマフラー",
+            "下線入り「000」マーク"
           ],
           "Motif_EN": [
             "corefolder form",
-            "1other",
-            "young adult",
-            "fox ears",
-            "fox tails",
+            "cat ears",
+            "cat tails",
             "gray shoulder-length hair",
             "yellow eyes",
-            "long gray-beige striped scarf with bell ornaments",
-            "white shirt-collar with '000' mark",
-            "long cat-like tail",
-            "curled cat-like sleeping pose"
+            "long gray-beige striped scarf",
+            "underlined '000' mark"
+          ]
+        }
+      },
+      {
+        "Formation": "humanoid",
+        "Motif": {
+          "Motif_JP": [
+            "ヒューマノイド形態",
+            "猫の耳",
+            "猫の尾",
+            "灰色のショルダーレングスヘア",
+            "黄色い目",
+            "灰色ベージュのストライプ長いマフラー",
+            "下線と「000」マーク入り白いシャツカラー"
+          ],
+          "Motif_EN": [
+            "humanoid form",
+            "cat ears",
+            "cat tails",
+            "gray shoulder-length hair",
+            "yellow eyes",
+            "long gray-beige striped scarf",
+            "white shirt-collar with underlined '000' mark"
           ]
         }
       }
