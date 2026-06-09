@@ -63,6 +63,8 @@
 - **catalog summary の生成規則**: works / db カタログの summary 追加は、可能な限り `$MetaType.$Def_DatabaseCatalog` を基準に `${hashTag}Summary` を自動生成する方式へ寄せ、`StoryEra` など特定 field の個別ハードコードを増やさないでください。
 - **enrich summary の生成規則**: wrapper 対象の top-level field を SW/UI で再利用したい場合は、個別 field を別キーへ複製する前に `lib/data-common.js` の `_enrichment.wrapperSummaries` を使える形に寄せてください。
 - **AIHints corefolder 強化フィールドの運用**: `$Def_AIFormVariant` の `silhouette_notes` / `immutable_constraints` / `negative_keywords` は、structural default（球体本体記述、腕脚/手禁止、humanoid 衣装禁止、`legs`/`arms`/`hoodie` 等の NG キーワード）に限り `tools/patch-aihints.mjs --upgrade-schema` で自動投入します。キャラ固有スロット（特定キャラだけが持つ NG・ハーネス形状・個別禁止要素）は `TODO:` で残し、画像と設定資料を参照した User 手動入力を正とします。Copilot は画像から推定したキャラ固有の創作描写を勝手に埋めないでください（`--apply-vision-results` 経由で User / Agent が明示的に渡した場合のみ反映可）。
+- **AIHints `silhouette_notes` は object 形式**: 2026-06-09 以降、`forms.*.silhouette_notes` は `$Def_AISilhouetteNotes`（`{ body_description: #String[], attached_items: #String[] }`）に統一します。素体（球体本体・球状コア・人型上半身）は `body_description` へ、ハーネス・髪飾り・首輪・襷・カフ等の装着付属品は `attached_items` へ分離してください。flat array からの一括移行は `tools/patch-aihints.mjs --migrate-silhouette-structure --apply` で行えます。
+- **AIHints corefolder NLD のテンプレ化**: `forms.corefolder.natural_language_description` は「`Corefolder form: a spherical cushion-like body in {color}, with the number '{N}' {marking placement}; {accessory}.`」のテンプレで再生成します（`tools/patch-aihints.mjs --rewrite-corefolder-nld`）。`coat` / `dress` / `bodysuit` / `pants` / `shoes` 等の humanoid 衣装語を混入させてはいけません（`outfit` は corefolder 衣装バリアントで正当利用があるため除外語に含めない）。番号刻印位置（marking placement）は `common.immutable_traits` の単一スロット記述から `extractMarkingInfo()` が抽出します。「番号刻印なし」と明示する場合は `with no number identifier printed on the body` が出力されます。
 - **AIHints schema 追加時の冪等パッチ**: AIHints / 類似スキーマに新フィールドを追加する場合、`tools/patch-aihints.mjs` の `--upgrade-schema` モード（`!('field' in obj)` ガードで差分追加のみ）を踏襲してください。既存値の上書きや TODO への戻しは禁止です。
 
 ### 会話パターン情報追加時の運用制約（重要）
@@ -355,13 +357,13 @@
 
 ### リポジトリルート自動解決の仕組み
 
-| パッケージ | 解決方法 |
-|-----------|---------|
-| **Node.js** (`pkg/nodejs/index.mjs`) | `resolve(dirname(fileURLToPath(import.meta.url)), '../..')` — 2 階層上 |
-| **Python** (`pkg/python/creationsdb/client.py`) | `Path(__file__).resolve().parent.parent.parent.parent` — 4 階層上 |
-| **C#** (`pkg/csharp/CreationsDBClient.cs`) | `FindRepoRoot()` — アセンブリ位置からフォルダを上方探索し `data/db_meta.json` の存在で判定 |
-| **MCP** (`pkg/mcp/server.mjs`) | コマンドライン引数 → 環境変数 → `server.mjs` の 2 階層上、の順 |
-| **Cloudflare Workers** | ファイルシステム不使用（GitHub Pages URL から fetch） |
+| パッケージ                                      | 解決方法                                                                                   |
+| ----------------------------------------------- | ------------------------------------------------------------------------------------------ |
+| **Node.js** (`pkg/nodejs/index.mjs`)            | `resolve(dirname(fileURLToPath(import.meta.url)), '../..')` — 2 階層上                     |
+| **Python** (`pkg/python/creationsdb/client.py`) | `Path(__file__).resolve().parent.parent.parent.parent` — 4 階層上                          |
+| **C#** (`pkg/csharp/CreationsDBClient.cs`)      | `FindRepoRoot()` — アセンブリ位置からフォルダを上方探索し `data/db_meta.json` の存在で判定 |
+| **MCP** (`pkg/mcp/server.mjs`)                  | コマンドライン引数 → 環境変数 → `server.mjs` の 2 階層上、の順                             |
+| **Cloudflare Workers**                          | ファイルシステム不使用（GitHub Pages URL から fetch）                                      |
 
 ### pkg/ 変更時の注意
 

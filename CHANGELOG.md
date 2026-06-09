@@ -1,5 +1,17 @@
 # 最新のリファクタリング・仕様変更履歴
 
+### AIHints `silhouette_notes` の構造化 + corefolder NLD テンプレ化（NumberTales/DB_Primary）
+
+- `Works_NumberTales/DataBases/db_type.json` の `$Def_AIFormVariant.silhouette_notes` を `#String[]` から `$Def_AISilhouetteNotes|#Null` に変更。`$Def_AISilhouetteNotes` は `{ body_description: #String[], attached_items: #String[] }` の 2 フィールド構造で、素体（球体本体・球状コア・人型上半身）と装着付属品（ハーネス・髪飾り・首輪・襷・カフ等）を分離して保持する。
+- `tools/patch-aihints.mjs` に 2 つの新モードを追加。
+  - `--migrate-silhouette-structure`: 既存の flat array 形式を object 形式へ自動分割移行。`harness` / `ribbon` / `hairband` / `hairclip` / `hairpin` / `collar` / `choker` / `scarf` / `cape` / `cloak` / `halo` / `wristband` / `hood` / `accessory` / `wrapped around` / `barrel-shaped` 等の装着具語を含むエントリは `attached_items` へ、それ以外は安全側に倒して `body_description` に残す。同時に schema 宣言順（`form_tags` → `outfit_features` → `silhouette_notes` → `immutable_constraints` → `negative_keywords` → `ai_tags` → ...）へキーを再整列する。
+  - `--rewrite-corefolder-nld`: `forms.corefolder.natural_language_description` を「`Corefolder form: a spherical cushion-like body in {color}, with the number '{N}' {marking placement}; {accessory}.`」のテンプレートで再生成。humanoid 衣装語（`coat` / `dress` / `bodysuit` / `pants` / `shoes` 等。`outfit` は corefolder 衣装バリアントで正当利用があるため除外）の混入を検知して強制再生成し、`extractMarkingInfo()` でローマ数字・漢字・カタカナ・ひらがな番号 / 「no number identifier」明示にも対応する。`--force-rewrite-nld` で全件強制再生成。
+- `buildDefaultSilhouetteNotes(num, formKey)` を新設し、`--suggest` / `--upgrade-schema` 経由の scaffold 投入も object 形式へ更新。`detectVisualTodos()` と `applyVisionResultsToAihints()` も object 形式に対応（既存の `corefolderSilhouetteNotes[]` / `humanoidSilhouetteNotes[]` キーは下位互換として `body_description` 側へ追記される）。
+- 適用結果: `Works_NumberTales/DataBases/db_Primary.json` で 89 レコードを object 形式へ移行 + 82 レコードの corefolder NLD をテンプレで再生成。`#57` の `immutable_traits` は番号刻印位置を「髪束の上」ではなく「黄色い本体表面（頭部近く）に縦書き」へ手動修正。`#42` は behavior 描写が混入した旧 NLD を再生成で除去。
+- テスト追加: `tests/aihints.schema.test.js` の corefolder / humanoid 形態 silhouette_notes アサーションを object 形式へ更新（`body_description` は非空必須、`attached_items` は配列であれば空も許容）。corefolder NLD が球体本体テンプレートに準拠し humanoid 衣装語を含まないことを検査する新規ケースを追加。
+- ドキュメント整備: `docs/ai-hints-usage.md` の §4（silhouette_notes の object 化記述）、新節 §9.6（`--migrate-silhouette-structure`）、新節 §9.7（`--rewrite-corefolder-nld`）、`.github/copilot-instructions.md` の AIHints 運用ルール、本 CHANGELOG に反映。
+- 回帰確認: `tests/aihints.schema.test.js` 11/11 pass。既存失敗 6 件（commons.secondaries / data.shape / enrich.dblink.jump.merge / pages.characters.ui-output）は本変更前から残る無関係な失敗。
+
 ### AIHints corefolder 形態 vision-fill バッチ（NumberTales/DB_Primary）+ `numberMarkingPlacement` 正規表現拡張
 
 - `Works_NumberTales/DataBases/db_Primary.json` の AIHints 保有レコードについて、`tools/patch-aihints.mjs --apply-vision-results --apply` を 4-5 件単位の小バッチで反復実行し、corefolder 形態の `silhouette_notes` / `immutable_constraints` / `negative_keywords` / 番号マーキング位置 (`common.immutable_traits` 内の単一スロット記述) のキャラ固有 TODO を vision 観察結果で穴埋めした。

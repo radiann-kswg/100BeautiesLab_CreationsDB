@@ -63,6 +63,9 @@ const PUBLIC_ORIGIN = 'https://database.numbertales-radiann.net';
  * @property {boolean} fixRefs    true なら既存 AIHints の reference_images だけを再構築（タグは保持）
  * @property {boolean} fillTodos   true なら JSON から導出できる TODO 項目を補完（色・視覚系は対象外）
  * @property {boolean} upgradeSchema  true なら既存 AIHints に不足している新スキーマフィールド（silhouette_notes / immutable_constraints / negative_keywords / work_common / alt_modes）を追加する。既存タグ・テキスト類は一切変更しない
+ * @property {boolean} migrateSilhouetteStructure  true なら既存 `silhouette_notes: #String[]` を `{ body_description, attached_items }` 構造へ機械分類で移行する
+ * @property {boolean} rewriteCorefolderNld  true なら corefolder.natural_language_description を球体本体テンプレで再生成する（humanoid 衣装語を排除）
+ * @property {boolean} forceRewriteNld  true なら既に確定済みのテンプレ風 NLD も上書き対象にする
  * @property {boolean} genVisionTasks  true なら視覚 TODO のあるレコードの画像リストを .cache/vision-tasks.json に出力して終了
  * @property {boolean} applyVisionResults  true なら .cache/vision-results.json の解析結果を AIHints の視覚 TODO に適用
  * @property {Map<number,Object>|null} visionResultsMap  applyVisionResults 時に main() が注入する Map<num, VisionResult>
@@ -82,6 +85,9 @@ function parseArgs(argv) {
         fixRefs: false,
         fillTodos: false,
         upgradeSchema: false,
+        migrateSilhouetteStructure: false,
+        rewriteCorefolderNld: false,
+        forceRewriteNld: false,
         genVisionTasks: false,
         applyVisionResults: false,
         visionResultsMap: null,
@@ -102,6 +108,9 @@ function parseArgs(argv) {
             case '--fix-refs': opts.fixRefs = true; break;
             case '--fill-todos': opts.fillTodos = true; break;
             case '--upgrade-schema': opts.upgradeSchema = true; break;
+            case '--migrate-silhouette-structure': opts.migrateSilhouetteStructure = true; break;
+            case '--rewrite-corefolder-nld': opts.rewriteCorefolderNld = true; break;
+            case '--force-rewrite-nld': opts.forceRewriteNld = true; break;
             case '--gen-vision-tasks': opts.genVisionTasks = true; break;
             case '--apply-vision-results': opts.applyVisionResults = true; break;
             case '--force-ai-optout': opts.forceAiOptout = true; break;
@@ -169,6 +178,20 @@ Options:
                       corefolder 側には User 要望の structural default を投入し、
                       humanoid 側は TODO プレースホルダのみ
                       既存タグ・テキスト類・reference_images は一切変更しない
+                      ※ 2026-06-09 以降、silhouette_notes は { body_description, attached_items } object 形式で生成する
+  --migrate-silhouette-structure  既存の flat array 形式 silhouette_notes を
+                      { body_description: [...], attached_items: [...] } object 形式へ機械分類で移行する
+                      humanoid 衣装語（coat / dress / shoes 等）は attached_items 側へ分類
+                      レビュー 2026-06-09 対応専用モード。冪等
+  --rewrite-corefolder-nld  forms.corefolder.natural_language_description を球体本体テンプレで再生成する
+                      テンプレ: "Corefolder form: a spherical cushion-like body in {base color},
+                                with the number '{N}' {marking placement}; {key accessory if any}."
+                      {base color} は silhouette_notes.body_description から、
+                      {marking placement} は common.immutable_traits の number marking 行から抽出する
+                      抽出失敗時は "TODO:" マーカーを残してログに警告を出す
+                      既存値が "[TRANSLATE" / "A corefolder form character featuring" / "Corefolder form: ...wears..." 形式の場合は無条件で再生成
+                      既に球体本体テンプレ形式の場合はスキップ（--force-rewrite-nld で上書き可）
+  --force-rewrite-nld  既に球体本体テンプレ形式の corefolder NLD も上書き再生成する
   --gen-vision-tasks  視覚 TODO のあるレコードの画像パスリストを .cache/vision-tasks.json に出力して終了
                       Agent の view_image 画像解析セッションの入力として使用する
   --apply-vision-results  .cache/vision-results.json に書かれた Agent 解析結果を
@@ -478,10 +501,313 @@ const COREFOLDER_DEFAULT_NEGATIVE_KEYWORDS = [
     'bound by rope',
 ];
 
-/** コアフォルダ形態の標準シルエット記述（視覚言語ベース、1行） */
-const COREFOLDER_DEFAULT_SILHOUETTE_NOTES = [
-    'spherical core body with the head as the only protruding part on top',
-];
+/** コアフォルダ形態の標準シルエット記述を object 形式で返すヘルパー。
+ *
+ * 2026-06-09 以降、`silhouette_notes` は flat array ではなく
+ * `{ body_description: #String[], attached_items: #String[] }` の object 形式で表現される。
+ * structural default は body_description 側にだけ投入し、attached_items はキャラ固有の
+ * リボン / スカーフ / ハーネス / ハロー 等を User が追記するスロットとして空配列で生成する。
+ *
+ * @param {number|string} num    対象レコードの Num（TODO プレースホルダ生成用）
+ * @param {'corefolder'|'humanoid'} formKey
+ * @returns {{ body_description: string[], attached_items: string[] }}
+ */
+function buildDefaultSilhouetteNotes(num, formKey) {
+    const isCorefolder = formKey === 'corefolder';
+    if (isCorefolder) {
+        return {
+            body_description: [
+                'spherical core body with the head as the only protruding part on top',
+                `TODO: 1-2 lines of character-specific body description for #${num} (base color, surface markings, facial expression typical)`,
+            ],
+            attached_items: [
+                `TODO: list character-specific attached items for #${num} (ribbon / collar / scarf / hairband / harness etc. - NO humanoid clothing words like coat / dress / pants / shoes)`,
+            ],
+        };
+    }
+    return {
+        body_description: [
+            `TODO: 1-2 lines describing the ${formKey} form body / silhouette for #${num}`,
+        ],
+        attached_items: [
+            `TODO: list character-specific attached items / accessories for the ${formKey} form of #${num}`,
+        ],
+    };
+}
+
+/**
+ * 既存の flat array 形式 silhouette_notes を
+ * `{ body_description, attached_items }` object 形式へ機械分類するヘルパー。
+ *
+ * 分類ロジック（キーワードベース、例外ケースはトレース出力）:
+ * - 以下のキーワードを含む entry は attached_items として分類:
+ *   harness / ribbon / hairband / hair clip / hair pin / hairpiece / hair bundle
+ *   / head ornament / scarf / collar / choker / halo / nimbus / shawl / cape
+ *   / cloak / blindfold / wristband / cuffs / hood / charm / tag / pin / brooch
+ *   / beads / necklace / earring / bow / bell / accessory / wrapped around / draped
+ *   / container / case / enclosed / barrel-shaped / hazard / warning-stand
+ *   / caution stripe / sleeping pose / curled up
+ * - それ以外は body_description として分類。
+ * - なお表情や expression typical の記述は顔面に関する body_description として扱う。
+ *
+ * @param {string[]} entries
+ * @returns {{ body_description: string[], attached_items: string[] }}
+ */
+function migrateSilhouetteFlatArray(entries) {
+    /** @type {{ body_description: string[], attached_items: string[] }} */
+    const out = { body_description: [], attached_items: [] };
+    if (!Array.isArray(entries)) return out;
+
+    const ATTACHED_RE = /(harness|\bribbon\b|\bhairband\b|hair ?clip|hair ?pin|hairpiece|hair bundle|head ornament|\bscarf\b|\bcollar\b|\bchoker\b|\bhalo\b|nimbus|\bshawl\b|\bcape\b|\bcloak\b|\bblindfold\b|\bwristband\b|\bcuffs\b|\bhood\b|\bcharm\b|\bbrooch\b|\bbeads\b|necklace|earring|\bbow\b|\bbell\b|accessory|wrapped around|wrapped by|draped (?:over|under|across)|container|\bcase\b|enclosed in|barrel-shaped|hazard|warning-stand|caution stripe|caution\/hazard|sleeping pose|curled up|curled-up|chest tag|chest patch|trial \/ test version|under adjustment|cargo case)/i;
+
+    for (const raw of entries) {
+        if (typeof raw !== 'string' || raw.length === 0) continue;
+        const stripped = raw.trim();
+        if (!stripped) continue;
+        // 構造デフォルト（球体本体の記述）は必ず body_description
+        if (/^spherical core body /i.test(stripped) || /head as the only protruding/i.test(stripped)) {
+            out.body_description.push(stripped);
+            continue;
+        }
+        // TODO プレースホルダは表現により振り分け
+        if (/^TODO:/i.test(stripped)) {
+            if (ATTACHED_RE.test(stripped)) out.attached_items.push(stripped);
+            else out.body_description.push(stripped);
+            continue;
+        }
+        // attached_items キーワードを含む entry は attached_items へ
+        if (ATTACHED_RE.test(stripped)) {
+            out.attached_items.push(stripped);
+        } else {
+            out.body_description.push(stripped);
+        }
+    }
+
+    // どちらも空にならないように、空の側に TODO を一列追加（スキーマは #String[] または #Null だが、
+    // 空配列と null の使い分けにブレを作らないため attached_items が空の場合はそのまま空配列とする）。
+    return out;
+}
+
+// ─────────────────────────────────────────────────────────────────────
+// corefolder.natural_language_description テンプレ生成ヘルパー
+//
+// テンプレ: "Corefolder form: a spherical cushion-like body in {base color},
+//          with the number '{N}' {marking placement}; {key accessory if any}."
+//
+// {base color} は silhouette_notes.body_description から、
+// {marking placement} は common.immutable_traits の number marking 行から抽出する。
+// humanoid 衣装語（coat / dress / hoodie / blazer / pants / shoes 等）は一切参照しない。
+// ─────────────────────────────────────────────────────────────────────
+
+/**
+ * body_description 配列から base color を抽出するヘルパー。
+ * 例: "vivid yellow base coloring with paler yellow tail tips" → "vivid yellow"
+ *      "reddish-pink fox with peach gradient on the body" → "reddish-pink"
+ *      "warm brown / chestnut base coloring with pink-tipped tails" → "warm brown / chestnut"
+ *
+ * @param {string[]|undefined} bodyDescriptions
+ * @returns {string|null}
+ */
+function extractBaseColor(bodyDescriptions) {
+    if (!Array.isArray(bodyDescriptions)) return null;
+    for (const raw of bodyDescriptions) {
+        if (typeof raw !== 'string' || /^TODO:/i.test(raw) || /^spherical core body /i.test(raw)) continue;
+        const lower = raw.trim();
+        // pattern 1: "X base coloring" / "X base color"
+        let m = lower.match(/^([A-Za-z][A-Za-z\-\s\/]*?)\s+base\s+color(?:ing)?\b/i);
+        if (m) return m[1].trim().replace(/\s+/g, ' ');
+        // pattern 2: "X fox with ..."
+        m = lower.match(/^([A-Za-z][A-Za-z\-\s\/]*?)\s+fox\s+with\b/i);
+        if (m) return m[1].trim().replace(/\s+/g, ' ');
+        // pattern 3: "X fox" 誮頭
+        m = lower.match(/^([A-Za-z][A-Za-z\-\s\/]*?)\s+fox\b/i);
+        if (m) return m[1].trim().replace(/\s+/g, ' ');
+        // pattern 4: "X palette" / "X coloring"
+        m = lower.match(/^([A-Za-z][A-Za-z\-\s\/]*?)\s+(palette|coloring)\b/i);
+        if (m) return m[1].trim().replace(/\s+/g, ' ');
+    }
+    return null;
+}
+
+/**
+ * common.immutable_traits から number marking 情報を抽出するヘルパー。
+ * 返り値は `{ kind: 'normal'|'none', phrase: string }` または null。
+ *
+ * 抽出ルール:
+ * - "no number marking is drawn ..." 型は kind='none' で固定句を返す
+ * - "small/dark/green/colored ... number 'N' marking ..." → "number 'N' marking ..."
+ * - "number identifier (is rendered as ...)" → "number identifier rendered as ..."
+ * - "Roman-numeral 'X' marking ..." / "kanji '...' marking ..." → そのまま
+ * - 中央の "is rendered" / "is printed" などは "rendered" / "printed" に短縮
+ * - 末尾の "single fixed slot" / "only one slot" / "no separate ..." / "no Arabic-numeral ..." は除去
+ *
+ * @param {string[]|undefined} immutableTraits
+ * @param {number|string} num
+ * @returns {{ kind: 'normal'|'none', phrase: string } | null}
+ */
+function extractMarkingInfo(immutableTraits, num) {
+    if (!Array.isArray(immutableTraits)) return null;
+    const numEsc = String(num).replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&');
+
+    const trimTail = (s) => s
+        .replace(/[,;]\s*single fixed slot\b.*$/i, '')
+        .replace(/[,;]\s*only one slot\b.*$/i, '')
+        .replace(/[,;]\s*no separate\b.*$/i, '')
+        .replace(/[,;]\s*no Arabic-numeral\b.*$/i, '')
+        .replace(/\s+$/, '')
+        .trim();
+
+    // 中央の "is rendered" → "rendered" 短縮（複数回該当を許容）
+    const normalizeVerbs = (s) => s
+        .replace(/\bis\s+(rendered|printed|drawn|written|marked|displayed|shown|formatted|inscribed|embroidered|split|placed|positioned|located|stamped|engraved|etched)\b/gi, '$1')
+        .replace(/\bare\s+(rendered|printed|drawn|written|marked|displayed|shown|formatted|inscribed|embroidered|split|placed|positioned|located|stamped|engraved|etched)\b/gi, '$1');
+
+    const SUBJECT_RE = /\b(number|marking|Roman[\- ]numeral|kanji|katakana|hiragana)\b/i;
+    const numToken = new RegExp(`['"‘’]?#?${numEsc}['"‘’]?`);
+
+    for (const t of immutableTraits) {
+        if (typeof t !== 'string') continue;
+        const trimmed = t.trim();
+        // 'none' 系: マーキングなしを明示している
+        if (/^no\s+(number\s+|Arabic[- ]numeral\s+|kanji\s+)?marking\s+(is\s+)?drawn\b/i.test(trimmed)
+            || /^no\s+number\s+identifier\s+is\s+printed\b/i.test(trimmed)) {
+            return { kind: 'none', phrase: 'no number identifier printed on the body' };
+        }
+
+        const sm = trimmed.match(SUBJECT_RE);
+        if (!sm) continue;
+
+        // この entry が対象 num の marking 記述か簡易判定
+        const hasOurNumber = numToken.test(trimmed);
+        const isGenericIdentifier = /\bnumber\s+identifier\b/i.test(trimmed);
+        const isAlternateRendering = /\b(Roman[\- ]numeral|kanji|katakana|hiragana)\b/i.test(trimmed);
+        const hasMarking = /\bmarking\b/i.test(trimmed);
+        if (!hasOurNumber && !isGenericIdentifier && !isAlternateRendering && !hasMarking) continue;
+
+        // subject keyword 位置から抽出して動詞短縮 → 末尾 trim
+        let phrase = trimmed.slice(sm.index);
+        phrase = normalizeVerbs(phrase);
+        phrase = trimTail(phrase);
+        return { kind: 'normal', phrase };
+    }
+    return null;
+}
+
+/**
+ * attached_items 配列から代表アクセサリ句を抽出するヘルパー。
+ * 先頭 1 件を採用し、";" で区切られていれば最初のクラストだけを返す。
+ * TODO プレースホルダと "expression typical" 以降の表情記述は除去する。
+ *
+ * @param {string[]|undefined} attachedItems
+ * @returns {string|null}
+ */
+function extractAccessoryPhrase(attachedItems) {
+    if (!Array.isArray(attachedItems) || attachedItems.length === 0) return null;
+    for (const raw of attachedItems) {
+        if (typeof raw !== 'string' || /^TODO:/i.test(raw)) continue;
+        const clauses = raw.split(/;/);
+        let phrase = clauses[0].trim();
+        // "...; consistently X expression typical" 型の末尾を除去
+        phrase = phrase.replace(/,?\s*consistently\b[^,]*?expression typical\b.*$/i, '');
+        phrase = phrase.replace(/,?\s*expression typical\b.*$/i, '');
+        if (phrase) return phrase.trim();
+    }
+    return null;
+}
+
+/**
+ * 上記ヘルパーを組み合わせて corefolder.natural_language_description をテンプレ付与する。
+ * 抽出不可ケースでは TODO マーカーを残して警告をログに出す。
+ *
+ * @param {any} record  パース済みレコード
+ * @param {{ warnings?: string[] }} [diag]  警告収集用
+ * @returns {string|null}
+ */
+function buildCorefolderNldFromTemplate(record, diag) {
+    const cf = record?.AIHints?.forms?.corefolder;
+    if (!cf) return null;
+    const num = record.Num;
+    const sn = cf.silhouette_notes;
+    // 新構造 (object) / 旧構造 (flat array) の両方を許容
+    /** @type {string[]} */
+    let body, attached;
+    if (sn && !Array.isArray(sn) && typeof sn === 'object') {
+        body = Array.isArray(sn.body_description) ? sn.body_description : [];
+        attached = Array.isArray(sn.attached_items) ? sn.attached_items : [];
+    } else if (Array.isArray(sn)) {
+        const migrated = migrateSilhouetteFlatArray(sn);
+        body = migrated.body_description;
+        attached = migrated.attached_items;
+    } else {
+        body = [];
+        attached = [];
+    }
+
+    // body_description で抽出できない場合は attached_items 側もフォールバックとして試みる
+    // （migration で body 記述と accessory 記述が混じった entry が attached_items に入った場合の救済）
+    const baseColor = extractBaseColor(body) ?? extractBaseColor(attached);
+    const marking = extractMarkingInfo(record.AIHints?.common?.immutable_traits, num);
+    const accessory = extractAccessoryPhrase(attached);
+    const numStr = String(num);
+
+    const colorPart = baseColor ?? `TODO: base color for #${numStr}`;
+    let markingClause;
+    if (!marking) {
+        markingClause = `with the number '${numStr}' TODO: marking placement for #${numStr}`;
+    } else if (marking.kind === 'none') {
+        markingClause = `with ${marking.phrase}`;
+    } else {
+        markingClause = `with the ${marking.phrase}`;
+    }
+    const accessoryPart = accessory ? `; ${accessory}` : '';
+
+    if (!baseColor && diag) {
+        (diag.warnings ??= []).push(`#${numStr}: base color could not be extracted; left as TODO`);
+    }
+    if (!marking && diag) {
+        (diag.warnings ??= []).push(`#${numStr}: number marking placement could not be extracted; left as TODO`);
+    }
+
+    return `Corefolder form: a spherical cushion-like body in ${colorPart}, ${markingClause}${accessoryPart}.`;
+}
+
+/**
+ * 既存の corefolder NLD が「上書き対象」かどうかを判定する。
+ *
+ * 上書き対象 (true) の例:
+ * - 空文字 / 未設定
+ * - "[TRANSLATE COREFOLDER SECTION ..." プレースホルダ
+ * - "A corefolder form character featuring..." 型のダミー生成記述
+ * - "TODO:" 始まり
+ * - humanoid 衣装語 (hoodie / blazer / coat / dress / pants / shoes 等) を含む
+ * - "outfit" 等の humanoid 衣装一般語を含む
+ * - 標準テンプレ "Corefolder form: a spherical cushion-like body in ..." に一致しない
+ *
+ * 据え置き (false) の例:
+ * - 標準テンプレ形で humanoid 衣装語を含まないもの
+ *
+ * @param {string|undefined} existing
+ * @returns {boolean}
+ */
+function shouldRewriteCorefolderNld(existing) {
+    if (typeof existing !== 'string' || !existing.trim()) return true;
+    const s = existing.trim();
+    if (/^\[TRANSLATE/i.test(s)) return true;
+    if (/^A corefolder form character featuring\b/i.test(s)) return true;
+    if (/^TODO:/i.test(s)) return true;
+    // humanoid 衣装語チェック（標準テンプレでも humanoid 衣装語が混入していれば上書き）
+    // ※ "outfit" 単独は corefolder の costume variant 等で正当に出現し得るため対象外。
+    //   具体的な衣服名（hoodie / blazer / coat / dress / pants / shoes 等）のみを対象とする。
+    const humanoidGarmentRe = /\b(hoodie|blazer|coat|jacket|dress|bodysuit|pants|shorts|skirt|trousers|shoes|boots|socks|sneakers|loafers|stockings|leggings)\b/i;
+    if (humanoidGarmentRe.test(s)) return true;
+    // 標準テンプレ形か厳格チェック
+    const isTemplate = /^Corefolder form:\s*a spherical cushion-like body in\b/i.test(s);
+    if (isTemplate) return false;
+    // 標準テンプレ形でない Corefolder form: ... は全て上書き対象
+    return true;
+}
+
+// ─────────────────────────────────────────────────────────────────────
 
 // ────────────────────────────────────────────────────────────────────────────
 // scaffold 生成（**創作内容は生成しない**）
@@ -700,10 +1026,7 @@ function buildCorefolderForm(num, genderTag, ageBand, url, conceptUrl, artUrls) 
         outfit_features: [
             'TODO: outfit items (hoodie, harness, marking, etc.)',
         ],
-        silhouette_notes: [
-            ...COREFOLDER_DEFAULT_SILHOUETTE_NOTES,
-            `TODO: 1-2 lines of character-specific silhouette notes for #${num} (e.g., distinctive accessory or harness shape)`,
-        ],
+        silhouette_notes: buildDefaultSilhouetteNotes(num, 'corefolder'),
         immutable_constraints: [...COREFOLDER_DEFAULT_IMMUTABLE_CONSTRAINTS],
         negative_keywords: [...COREFOLDER_DEFAULT_NEGATIVE_KEYWORDS],
         ai_tags: [
@@ -750,9 +1073,7 @@ function buildHumanoidForm(num, genderTag, ageBand, images, conceptUrl) {
         outfit_features: [
             'TODO: humanoid outfit items',
         ],
-        silhouette_notes: [
-            `TODO: 1-2 lines describing the humanoid form silhouette for #${num}`,
-        ],
+        silhouette_notes: buildDefaultSilhouetteNotes(num, 'humanoid'),
         immutable_constraints: [
             `TODO: per-character immutable constraints for humanoid form of #${num}`,
         ],
@@ -993,10 +1314,7 @@ function buildSuggestedCorefolderForm(num, genderTag, ageBand, tu, url, record, 
         outfit_features: [
             'TODO: corefolder outfit features (hoodie / harness / marking details)',
         ],
-        silhouette_notes: [
-            ...COREFOLDER_DEFAULT_SILHOUETTE_NOTES,
-            `TODO: 1-2 lines of character-specific silhouette notes for #${num} (e.g., distinctive accessory or harness shape)`,
-        ],
+        silhouette_notes: buildDefaultSilhouetteNotes(num, 'corefolder'),
         immutable_constraints: [...COREFOLDER_DEFAULT_IMMUTABLE_CONSTRAINTS],
         negative_keywords: [...COREFOLDER_DEFAULT_NEGATIVE_KEYWORDS],
         ai_tags: aiTags,
@@ -1057,9 +1375,7 @@ function buildSuggestedHumanoidForm(num, genderTag, ageBand, tu, images, record,
         outfit_features: [
             'TODO: humanoid outfit features',
         ],
-        silhouette_notes: [
-            `TODO: 1-2 lines describing the humanoid form silhouette for #${num}`,
-        ],
+        silhouette_notes: buildDefaultSilhouetteNotes(num, 'humanoid'),
         immutable_constraints: [
             `TODO: per-character immutable constraints for humanoid form of #${num}`,
         ],
@@ -1378,12 +1694,7 @@ function upgradeAihintsSchemaInRecord(text, openIdx, closeIdx, record, work) {
             const isCorefolder = formKey === 'corefolder';
 
             if (!('silhouette_notes' in form)) {
-                form.silhouette_notes = isCorefolder
-                    ? [
-                        ...COREFOLDER_DEFAULT_SILHOUETTE_NOTES,
-                        `TODO: 1-2 lines of character-specific silhouette notes for #${num} (e.g., distinctive accessory or harness shape)`,
-                    ]
-                    : [`TODO: 1-2 lines describing the ${formKey} form silhouette for #${num}`];
+                form.silhouette_notes = buildDefaultSilhouetteNotes(num, isCorefolder ? 'corefolder' : formKey);
                 changed = true;
             }
             if (!('immutable_constraints' in form)) {
@@ -1556,9 +1867,17 @@ function genVisionTasksToFile(db, opts) {
                 form.ai_tags.some(t => typeof t === 'string' && VISUAL_TODO_PATTERN.test(t)))
                 fields.push(`forms.${formKey}.ai_tags`);
             // 2026-06-08 追加: corefolder 強化フィールドの TODO 検出
-            if (Array.isArray(form.silhouette_notes) &&
-                form.silhouette_notes.some(f => typeof f === 'string' && VISUAL_TODO_PATTERN.test(f)))
+            //  silhouette_notes は 2026-06-09 以降 { body_description, attached_items } object 形式
+            //  なので、配列形式 (legacy) と object 形式の双方に対応する
+            const snTodoCheck = (arr) => Array.isArray(arr) && arr.some(f => typeof f === 'string' && VISUAL_TODO_PATTERN.test(f));
+            if (Array.isArray(form.silhouette_notes) && snTodoCheck(form.silhouette_notes)) {
                 fields.push(`forms.${formKey}.silhouette_notes`);
+            } else if (form.silhouette_notes && typeof form.silhouette_notes === 'object' && !Array.isArray(form.silhouette_notes)) {
+                if (snTodoCheck(form.silhouette_notes.body_description))
+                    fields.push(`forms.${formKey}.silhouette_notes.body_description`);
+                if (snTodoCheck(form.silhouette_notes.attached_items))
+                    fields.push(`forms.${formKey}.silhouette_notes.attached_items`);
+            }
             if (Array.isArray(form.immutable_constraints) &&
                 form.immutable_constraints.some(f => typeof f === 'string' && VISUAL_TODO_PATTERN.test(f)))
                 fields.push(`forms.${formKey}.immutable_constraints`);
@@ -1744,7 +2063,27 @@ function applyVisionResultsToAihints(aihints, vr) {
         }
 
         // silhouette_notes: TODO エントリをキャラ固有描写で置換（User 手動記入値を受ける）
-        if (Array.isArray(cf.silhouette_notes) && vr.corefolderSilhouetteNotes?.length) {
+        // 2026-06-09 以降は silhouette_notes が object 形式 { body_description, attached_items } となるため、
+        //  - vr.corefolderSilhouetteNotes / vr.corefolderBodyDescription は body_description 側へ
+        //  - vr.corefolderAttachedItems は attached_items 側へ を心がける
+        if (cf.silhouette_notes && !Array.isArray(cf.silhouette_notes) && typeof cf.silhouette_notes === 'object') {
+            const bodyVals = vr.corefolderBodyDescription?.length
+                ? vr.corefolderBodyDescription
+                : (vr.corefolderSilhouetteNotes?.length ? vr.corefolderSilhouetteNotes : null);
+            if (bodyVals && Array.isArray(cf.silhouette_notes.body_description)) {
+                cf.silhouette_notes.body_description = cf.silhouette_notes.body_description.flatMap(f => {
+                    if (typeof f === 'string' && f.startsWith('TODO:')) { changed = true; return bodyVals; }
+                    return [f];
+                });
+            }
+            if (vr.corefolderAttachedItems?.length && Array.isArray(cf.silhouette_notes.attached_items)) {
+                cf.silhouette_notes.attached_items = cf.silhouette_notes.attached_items.flatMap(f => {
+                    if (typeof f === 'string' && f.startsWith('TODO:')) { changed = true; return vr.corefolderAttachedItems; }
+                    return [f];
+                });
+            }
+        } else if (Array.isArray(cf.silhouette_notes) && vr.corefolderSilhouetteNotes?.length) {
+            // legacy: 旧型 flat array 互換
             cf.silhouette_notes = cf.silhouette_notes.flatMap(f => {
                 if (typeof f === 'string' && f.startsWith('TODO:')) { changed = true; return vr.corefolderSilhouetteNotes; }
                 return [f];
@@ -1797,7 +2136,25 @@ function applyVisionResultsToAihints(aihints, vr) {
             });
         }
 
-        if (Array.isArray(hu.silhouette_notes) && vr.humanoidSilhouetteNotes?.length) {
+        // silhouette_notes: 2026-06-09 以降は object 形式 { body_description, attached_items } を含むため
+        // 両形式に対応する
+        if (hu.silhouette_notes && !Array.isArray(hu.silhouette_notes) && typeof hu.silhouette_notes === 'object') {
+            const bodyVals = vr.humanoidBodyDescription?.length
+                ? vr.humanoidBodyDescription
+                : (vr.humanoidSilhouetteNotes?.length ? vr.humanoidSilhouetteNotes : null);
+            if (bodyVals && Array.isArray(hu.silhouette_notes.body_description)) {
+                hu.silhouette_notes.body_description = hu.silhouette_notes.body_description.flatMap(f => {
+                    if (typeof f === 'string' && f.startsWith('TODO:')) { changed = true; return bodyVals; }
+                    return [f];
+                });
+            }
+            if (vr.humanoidAttachedItems?.length && Array.isArray(hu.silhouette_notes.attached_items)) {
+                hu.silhouette_notes.attached_items = hu.silhouette_notes.attached_items.flatMap(f => {
+                    if (typeof f === 'string' && f.startsWith('TODO:')) { changed = true; return vr.humanoidAttachedItems; }
+                    return [f];
+                });
+            }
+        } else if (Array.isArray(hu.silhouette_notes) && vr.humanoidSilhouetteNotes?.length) {
             hu.silhouette_notes = hu.silhouette_notes.flatMap(f => {
                 if (typeof f === 'string' && f.startsWith('TODO:')) { changed = true; return vr.humanoidSilhouetteNotes; }
                 return [f];
@@ -1833,6 +2190,95 @@ function applyVisionResultsToAihints(aihints, vr) {
     }
 
     return { aihints: a, changed };
+}
+
+// ─────────────────────────────────────────────────────────────────────────
+// silhouette_notes 構造移行 (--migrate-silhouette-structure モード)
+// ─────────────────────────────────────────────────────────────────────────
+
+/**
+ * 1レコード分の silhouette_notes を flat array → object 形式へ移行する。
+ *
+ * - 全 form（corefolder / humanoid / 他）を走査
+ * - 既に object 形式の form はスキップ（冪等）
+ * - flat array の form のみ migrateSilhouetteFlatArray() で機械分類して置換
+ * - 変更があった場合はキー順を schema 宣言順に揃えて書き戻す
+ *
+ * @param {string} text
+ * @param {number} openIdx
+ * @param {number} closeIdx
+ * @param {any} record
+ * @returns {{ text: string, changed: boolean }}
+ */
+function migrateSilhouetteStructureInRecord(text, openIdx, closeIdx, record) {
+    if (!record.AIHints?.forms) return { text, changed: false };
+    const aihints = JSON.parse(JSON.stringify(record.AIHints));
+    let changed = false;
+
+    for (const [formKey, form] of Object.entries(aihints.forms ?? {})) {
+        if (!form || typeof form !== 'object') continue;
+        if (Array.isArray(form.silhouette_notes)) {
+            form.silhouette_notes = migrateSilhouetteFlatArray(form.silhouette_notes);
+            changed = true;
+            // schema 宣言順を保持
+            aihints.forms[formKey] = reorderObjectKeys(form, [
+                'form_tags', 'outfit_features',
+                'silhouette_notes', 'immutable_constraints', 'negative_keywords',
+                'ai_tags', 'negative_visuals',
+                'natural_language_description', 'prompt_export', 'negative_prompt_export',
+                'reference_images',
+            ]);
+        }
+    }
+
+    if (!changed) return { text, changed: false };
+    const block = stringifyAihintsBlock(aihints);
+    return { text: replaceAihintsInRecord(text, openIdx, closeIdx, block), changed: true };
+}
+
+// ─────────────────────────────────────────────────────────────────────────
+// corefolder NLD 再生成 (--rewrite-corefolder-nld モード)
+// ─────────────────────────────────────────────────────────────────────────
+
+/**
+ * 1レコード分の forms.corefolder.natural_language_description を球体本体テンプレートで再生成する。
+ *
+ * - forceRewrite=false の場合、既に標準テンプレ形（"Corefolder form: a spherical cushion-like body in ..."）で
+ *   humanoid 衣装語を含まないものはスキップ
+ * - forceRewrite=true の場合、全レコードで再生成
+ *
+ * @param {string} text
+ * @param {number} openIdx
+ * @param {number} closeIdx
+ * @param {any} record
+ * @param {boolean} forceRewrite
+ * @returns {{ text: string, changed: boolean, warnings: string[] }}
+ */
+function rewriteCorefolderNldInRecord(text, openIdx, closeIdx, record, forceRewrite) {
+    /** @type {string[]} */
+    const warnings = [];
+    const cf = record.AIHints?.forms?.corefolder;
+    if (!cf) return { text, changed: false, warnings };
+
+    const existing = cf.natural_language_description;
+    if (!forceRewrite && !shouldRewriteCorefolderNld(existing)) {
+        return { text, changed: false, warnings };
+    }
+
+    const diag = { warnings: /** @type {string[]} */ ([]) };
+    const newNld = buildCorefolderNldFromTemplate(record, diag);
+    if (!newNld) {
+        warnings.push(`#${record.Num}: could not build corefolder NLD (no AIHints.forms.corefolder)`);
+        return { text, changed: false, warnings };
+    }
+    for (const w of diag.warnings) warnings.push(w);
+
+    if (existing === newNld) return { text, changed: false, warnings };
+
+    const aihints = JSON.parse(JSON.stringify(record.AIHints));
+    aihints.forms.corefolder.natural_language_description = newNld;
+    const block = stringifyAihintsBlock(aihints);
+    return { text: replaceAihintsInRecord(text, openIdx, closeIdx, block), changed: true, warnings };
 }
 
 /**
@@ -1902,6 +2348,40 @@ function patchFileText(text, opts) {
             );
             text = newText;
             results.push({ num, status: changed ? 'schema-upgraded' : 'schema-unchanged' });
+            continue;
+        }
+
+        // --migrate-silhouette-structure モード: 既存 flat array 形式 silhouette_notes を
+        // { body_description, attached_items } object 形式へ機械分類で移行する。
+        // 2026-06-09 レビュー対応専用。冪等（既に object なら no-op）。
+        if (opts.migrateSilhouetteStructure) {
+            if (!hasAihints) {
+                results.push({ num, status: 'skipped-no-aihints' });
+                continue;
+            }
+            const { text: newText, changed } = migrateSilhouetteStructureInRecord(
+                text, openIdx, closeIdx, record,
+            );
+            text = newText;
+            results.push({ num, status: changed ? 'silhouette-migrated' : 'silhouette-unchanged' });
+            continue;
+        }
+
+        // --rewrite-corefolder-nld モード: forms.corefolder.natural_language_description を
+        // 球体本体テンプレートで再生成する。--force-rewrite-nld 指定時は既存テンプレ形も上書き。
+        if (opts.rewriteCorefolderNld) {
+            if (!hasAihints) {
+                results.push({ num, status: 'skipped-no-aihints' });
+                continue;
+            }
+            const { text: newText, changed, warnings } = rewriteCorefolderNldInRecord(
+                text, openIdx, closeIdx, record, opts.forceRewriteNld,
+            );
+            text = newText;
+            for (const w of warnings) {
+                console.warn(`[rewrite-corefolder-nld] ${w}`);
+            }
+            results.push({ num, status: changed ? 'nld-rewritten' : 'nld-unchanged' });
             continue;
         }
 
@@ -2098,6 +2578,8 @@ function main() {
         'refs-fixed': 0,
         'todos-filled': 0, 'todos-unchanged': 0,
         'schema-upgraded': 0, 'schema-unchanged': 0,
+        'silhouette-migrated': 0, 'silhouette-unchanged': 0,
+        'nld-rewritten': 0, 'nld-unchanged': 0,
         'vision-applied': 0, 'vision-unchanged': 0, 'vision-no-result': 0,
         'skipped-no-aihints': 0,
     };
@@ -2113,6 +2595,10 @@ function main() {
         console.log(`  todos-filled=${counts['todos-filled']}, todos-unchanged=${counts['todos-unchanged']}, skipped-no-aihints=${counts['skipped-no-aihints']}`);
     } else if (opts.upgradeSchema) {
         console.log(`  schema-upgraded=${counts['schema-upgraded']}, schema-unchanged=${counts['schema-unchanged']}, skipped-no-aihints=${counts['skipped-no-aihints']}`);
+    } else if (opts.migrateSilhouetteStructure) {
+        console.log(`  silhouette-migrated=${counts['silhouette-migrated']}, silhouette-unchanged=${counts['silhouette-unchanged']}, skipped-no-aihints=${counts['skipped-no-aihints']}`);
+    } else if (opts.rewriteCorefolderNld) {
+        console.log(`  nld-rewritten=${counts['nld-rewritten']}, nld-unchanged=${counts['nld-unchanged']}, skipped-no-aihints=${counts['skipped-no-aihints']}`);
     } else if (opts.applyVisionResults) {
         console.log(`  vision-applied=${counts['vision-applied']}, vision-unchanged=${counts['vision-unchanged']}, vision-no-result=${counts['vision-no-result']}, skipped-no-aihints=${counts['skipped-no-aihints']}`);
     } else {

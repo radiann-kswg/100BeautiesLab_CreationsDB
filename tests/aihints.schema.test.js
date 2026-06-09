@@ -113,13 +113,32 @@ describe('AIHints data: upgraded NumberTales/DB_Primary records', () => {
         }
     });
 
-    it('AIHints を持つ全レコードの corefolder form に silhouette_notes / immutable_constraints / negative_keywords が配列として存在する', () => {
+    it('AIHints を持つ全レコードの corefolder form に silhouette_notes (object) / immutable_constraints / negative_keywords が存在する', () => {
         const aihRecords = records.filter(r => r && r.AIHints?.forms?.corefolder);
         expect(aihRecords.length).toBeGreaterThan(0);
 
         for (const rec of aihRecords) {
             const cf = rec.AIHints.forms.corefolder;
-            for (const field of ['silhouette_notes', 'immutable_constraints', 'negative_keywords']) {
+            // 2026-06-09 以降: silhouette_notes は { body_description, attached_items } object 形式
+            expect(
+                cf.silhouette_notes && typeof cf.silhouette_notes === 'object' && !Array.isArray(cf.silhouette_notes),
+                `#${rec.Num} corefolder.silhouette_notes は object 形式`,
+            ).toBe(true);
+            expect(
+                Array.isArray(cf.silhouette_notes.body_description),
+                `#${rec.Num} corefolder.silhouette_notes.body_description は配列`,
+            ).toBe(true);
+            expect(
+                Array.isArray(cf.silhouette_notes.attached_items),
+                `#${rec.Num} corefolder.silhouette_notes.attached_items は配列`,
+            ).toBe(true);
+            // body_description はスフィア本体記述のため必ず 1 件以上ある
+            expect(
+                cf.silhouette_notes.body_description.length,
+                `#${rec.Num} corefolder.silhouette_notes.body_description は空でない`,
+            ).toBeGreaterThan(0);
+
+            for (const field of ['immutable_constraints', 'negative_keywords']) {
                 expect(
                     Array.isArray(cf[field]),
                     `#${rec.Num} corefolder.${field} は配列`,
@@ -132,13 +151,26 @@ describe('AIHints data: upgraded NumberTales/DB_Primary records', () => {
         }
     });
 
-    it('AIHints を持つ全レコードの humanoid form にも 3 フィールドが配列として存在する', () => {
+    it('AIHints を持つ全レコードの humanoid form にも silhouette_notes (object) / immutable_constraints / negative_keywords が存在する', () => {
         const aihRecords = records.filter(r => r && r.AIHints?.forms?.humanoid);
         expect(aihRecords.length).toBeGreaterThan(0);
 
         for (const rec of aihRecords) {
             const hu = rec.AIHints.forms.humanoid;
-            for (const field of ['silhouette_notes', 'immutable_constraints', 'negative_keywords']) {
+            expect(
+                hu.silhouette_notes && typeof hu.silhouette_notes === 'object' && !Array.isArray(hu.silhouette_notes),
+                `#${rec.Num} humanoid.silhouette_notes は object 形式`,
+            ).toBe(true);
+            expect(
+                Array.isArray(hu.silhouette_notes.body_description),
+                `#${rec.Num} humanoid.silhouette_notes.body_description は配列`,
+            ).toBe(true);
+            expect(
+                Array.isArray(hu.silhouette_notes.attached_items),
+                `#${rec.Num} humanoid.silhouette_notes.attached_items は配列`,
+            ).toBe(true);
+
+            for (const field of ['immutable_constraints', 'negative_keywords']) {
                 expect(
                     Array.isArray(hu[field]),
                     `#${rec.Num} humanoid.${field} は配列`,
@@ -184,6 +216,27 @@ describe('AIHints data: upgraded NumberTales/DB_Primary records', () => {
                 expect(Array.isArray(cf.ai_tags), `#${rec.Num} corefolder.ai_tags 残存`).toBe(true);
                 expect(Array.isArray(cf.form_tags), `#${rec.Num} corefolder.form_tags 残存`).toBe(true);
             }
+        }
+    });
+
+    it('corefolder.natural_language_description は球体本体テンプレートに準拠し humanoid 衣装語を含まない', () => {
+        const aihRecords = records.filter(r => r && r.AIHints?.forms?.corefolder);
+        const garmentRe = /\b(hoodie|blazer|coat|jacket|dress|bodysuit|pants|shorts|skirt|trousers|shoes|boots|socks|sneakers|loafers|stockings|leggings)\b/i;
+        for (const rec of aihRecords) {
+            const cf = rec.AIHints.forms.corefolder;
+            const nld = cf.natural_language_description;
+            if (typeof nld !== 'string' || !nld.trim()) continue;
+            // テンプレ準拠（"Corefolder form: a spherical cushion-like body in ..."）
+            // または明示的な "no number identifier ..." 系も許容
+            expect(
+                /^Corefolder form:\s*a spherical cushion-like body in\b/i.test(nld),
+                `#${rec.Num} corefolder NLD は球体本体テンプレート形`,
+            ).toBe(true);
+            // humanoid 衣装語が混入していない
+            expect(
+                garmentRe.test(nld),
+                `#${rec.Num} corefolder NLD に humanoid 衣装語を含まない`,
+            ).toBe(false);
         }
     });
 });

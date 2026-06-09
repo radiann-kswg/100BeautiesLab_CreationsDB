@@ -46,19 +46,19 @@ GitHub 上に AI タグを置いただけでは、現在の生成 AI（ChatGPT �
 
 ## 4. `forms.<form>` 層のフィールド
 
-| フィールド                     | 型          | 役割                                                                                                                                                                                                                                                                                   | 主な対象環境        |
-| ------------------------------ | ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------- |
-| `form_tags`                    | `#String[]` | 形態識別タグ。**先頭に `"corefolder form"` または `"humanoid form"`** を必ず含める                                                                                                                                                                                                     | 全環境 (必須)       |
-| `outfit_features`              | `#String[]` | この形態固有の衣装・装備特徴 (ハーネス・コート・装甲等、キャラ固有の corefolder 装備等)                                                                                                                                                                                                | 全環境              |
-| `silhouette_notes`             | `#String[]` | この形態のシルエットを視覚言語で1-2 行記述（本体形状/突出部/装着具）。corefolder には球体本体の structural default を投入、キャラ固有スロット（ハーネス形状等）は TODO で残す                                                                                                               | Gemini / ChatGPT    |
-| `immutable_constraints`        | `#String[]` | この形態でキャラ単位に再宣言する不変制約。corefolder の structural default は `do not render arms or hands` / `do not render legs or feet` / `do not dress in humanoid casual / fashion outfit` の 3 項目。ハーネス保持制約は **15(トウゴ)固有** のキャラ固有スロットなので、他キャラには自動投入しない | 全環境              |
-| `negative_keywords`            | `#String[]` | キャラ別ブラックリスト（`feet` / `legs` / `arms` / `hoodie` 等のフラットな NG キーワード）。corefolder の structural default は 10 項目を投入、humanoid は TODO のみ                                                                                                                   | NovelAI / SD        |
-| `ai_tags`                      | `#String[]` | 順序付き完全タグ列 (`common` から合成済 + `form_tags` + `outfit_features`)。即貼付前提のフラット列                                                                                                                                                                                     | 全環境 (NovelAI 強) |
-| `negative_visuals`             | `#String[]` | この形態固有の禁止視覚要素 (素体共通のNGに加えて、その形態で特に避けたい要素)                                                                                                                                                                                                          | NovelAI / SD        |
-| `natural_language_description` | `#String`   | この形態を述べる短文の英語サマリ (1〜2文)                                                                                                                                                                                                                                              | Gemini / ChatGPT    |
-| `prompt_export`                | `#String`   | NovelAI / SD 向けの即貼付用カンマ区切り英語タグ列 (この形態用)                                                                                                                                                                                                                         | NovelAI / SD        |
-| `negative_prompt_export`       | `#String`   | カンマ区切りのネガティブタグ列 (この形態用)                                                                                                                                                                                                                                            | NovelAI / SD        |
-| `reference_images`             | `object`    | この形態の参照画像 URL (main / face / silhouette / palette)                                                                                                                                                                                                                            | Gemini / ChatGPT    |
+| フィールド                     | 型                                  | 役割                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | 主な対象環境        |
+| ------------------------------ | ----------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------- |
+| `form_tags`                    | `#String[]`                         | 形態識別タグ。**先頭に `"corefolder form"` または `"humanoid form"`** を必ず含める                                                                                                                                                                                                                                                                                                                                                                                                          | 全環境 (必須)       |
+| `outfit_features`              | `#String[]`                         | この形態固有の衣装・装備特徴 (ハーネス・コート・装甲等、キャラ固有の corefolder 装備等)                                                                                                                                                                                                                                                                                                                                                                                                     | 全環境              |
+| `silhouette_notes`             | `object` (`$Def_AISilhouetteNotes`) | この形態のシルエットを `{ body_description: #String[], attached_items: #String[] }` の object 形式で構造化記述。`body_description` には素体（球体本体・球状コア・人型上半身など）の形状・色・突出部を列挙し、`attached_items` にはハーネス・髪飾り・首輪・カフ・襷・スカーフ等の装着付属品を列挙する。corefolder には球体本体の structural default を `body_description` へ投入し、キャラ固有スロットは `attached_items` に `TODO:` で残す。2026-06-09 以降は flat array 形式から自動移行済 | Gemini / ChatGPT    |
+| `immutable_constraints`        | `#String[]`                         | この形態でキャラ単位に再宣言する不変制約。corefolder の structural default は `do not render arms or hands` / `do not render legs or feet` / `do not dress in humanoid casual / fashion outfit` の 3 項目。ハーネス保持制約は **15(トウゴ)固有** のキャラ固有スロットなので、他キャラには自動投入しない                                                                                                                                                                                     | 全環境              |
+| `negative_keywords`            | `#String[]`                         | キャラ別ブラックリスト（`feet` / `legs` / `arms` / `hoodie` 等のフラットな NG キーワード）。corefolder の structural default は 10 項目を投入、humanoid は TODO のみ                                                                                                                                                                                                                                                                                                                        | NovelAI / SD        |
+| `ai_tags`                      | `#String[]`                         | 順序付き完全タグ列 (`common` から合成済 + `form_tags` + `outfit_features`)。即貼付前提のフラット列                                                                                                                                                                                                                                                                                                                                                                                          | 全環境 (NovelAI 強) |
+| `negative_visuals`             | `#String[]`                         | この形態固有の禁止視覚要素 (素体共通のNGに加えて、その形態で特に避けたい要素)                                                                                                                                                                                                                                                                                                                                                                                                               | NovelAI / SD        |
+| `natural_language_description` | `#String`                           | この形態を述べる短文の英語サマリ (1〜2文)                                                                                                                                                                                                                                                                                                                                                                                                                                                   | Gemini / ChatGPT    |
+| `prompt_export`                | `#String`                           | NovelAI / SD 向けの即貼付用カンマ区切り英語タグ列 (この形態用)                                                                                                                                                                                                                                                                                                                                                                                                                              | NovelAI / SD        |
+| `negative_prompt_export`       | `#String`                           | カンマ区切りのネガティブタグ列 (この形態用)                                                                                                                                                                                                                                                                                                                                                                                                                                                 | NovelAI / SD        |
+| `reference_images`             | `object`                            | この形態の参照画像 URL (main / face / silhouette / palette)                                                                                                                                                                                                                                                                                                                                                                                                                                 | Gemini / ChatGPT    |
 
 > **トップレベル追加項目（2026-06-08）**: `$Def_AIHints` には `common` / `forms` の他に、作品共通の参照画像をまとめる `work_common.reference_images.{corefolder_reference[], humanoid_reference[]}` と、将来予約モードを格納する `alt_modes.corefolder_dressed.{allowed, outfit_source}` が追加されている。`work_common` は `--upgrade-schema` 適用時に `Images/Ref_Glossary/concept-figure/` 等から `cnsp-fg_*CoreFolder.png` / `cnsp-fg_*Humanoid.png` を自動収集する。
 
@@ -344,16 +344,87 @@ node tools/patch-aihints.mjs --work NumberTales --db Primary --all --upgrade-sch
 
 #### 投入される内容
 
-| スロット                               | corefolder の structural default                                                                  | humanoid の扱い                               |
-| -------------------------------------- | ------------------------------------------------------------------------------------------------- | --------------------------------------------- |
-| `forms.*.silhouette_notes`             | 球体本体記述（頭部が頂部から唯一突出）+ キャラ固有 TODO 1 行（ハーネス形状等はキャラ固有スロット）                      | TODO 1 行のみ（キャラ固有はすべて User 入力） |
-| `forms.*.immutable_constraints`        | 腾/脈/手禁止 + humanoid 衣装禁止の 3 項目（ハーネス保持は **15固有**，他キャラに自動投入しない） | TODO 1 行のみ                                 |
-| `forms.*.negative_keywords`            | `feet/legs/shoes/high heels/arms/hands/hoodie/blazer/fashion outfit/bound by rope` の 10 項目     | TODO 1 行のみ                                 |
-| `AIHints.work_common.reference_images` | `Images/Ref_Glossary/concept-figure/cnsp-fg_*CoreFolder.png` / `cnsp-fg_*Humanoid.png` を自動収集 | （同上、トップレベル）                        |
-| `AIHints.alt_modes`                    | `null`（将来予約。`corefolder_dressed.{allowed, outfit_source}` を後日追加可）                    | （同上、トップレベル）                        |
+| スロット                               | corefolder の structural default                                                                   | humanoid の扱い                               |
+| -------------------------------------- | -------------------------------------------------------------------------------------------------- | --------------------------------------------- |
+| `forms.*.silhouette_notes`             | 球体本体記述（頭部が頂部から唯一突出）+ キャラ固有 TODO 1 行（ハーネス形状等はキャラ固有スロット） | TODO 1 行のみ（キャラ固有はすべて User 入力） |
+| `forms.*.immutable_constraints`        | 腾/脈/手禁止 + humanoid 衣装禁止の 3 項目（ハーネス保持は **15固有**，他キャラに自動投入しない）   | TODO 1 行のみ                                 |
+| `forms.*.negative_keywords`            | `feet/legs/shoes/high heels/arms/hands/hoodie/blazer/fashion outfit/bound by rope` の 10 項目      | TODO 1 行のみ                                 |
+| `AIHints.work_common.reference_images` | `Images/Ref_Glossary/concept-figure/cnsp-fg_*CoreFolder.png` / `cnsp-fg_*Humanoid.png` を自動収集  | （同上、トップレベル）                        |
+| `AIHints.alt_modes`                    | `null`（将来予約。`corefolder_dressed.{allowed, outfit_source}` を後日追加可）                     | （同上、トップレベル）                        |
 
 #### 注意事項
 
 - 既存レコードに同名フィールドが「キー定義済」なら、structural default は再投入されない（既存値を尊重）。
 - キャラ固有の `silhouette_notes` / `immutable_constraints` / `negative_keywords` のキャラ固有エントリは `TODO:` で残るため、**User が画像と設定資料を見ながら手動入力する**ことを前提とする（Copilot による自動補完対象外）。
 - `--apply-vision-results` 経由で `corefolderSilhouetteNotes[]` / `corefolderImmutableExtras[]` / `corefolderNegativeKeywords[]` / `humanoid*` 変種を渡すと、対応 TODO を置換または追記できる。重複は除去される。
+
+### 9.6 `--migrate-silhouette-structure` モード（silhouette_notes 構造化）
+
+2026-06-09 以降、`forms.*.silhouette_notes` は `#String[]` から `$Def_AISilhouetteNotes`（`{ body_description: #String[], attached_items: #String[] }`）へ移行された。本モードは既存の flat array 形式を **object 形式へ自動分割**し、`form_tags` / `outfit_features` / `silhouette_notes` / `immutable_constraints` / `negative_keywords` / `ai_tags` / ... のキー順を schema 宣言順に再整列する。
+
+#### 分割ヒューリスティクス
+
+- 「spherical / cushion-like / core body」等の素体記述は `body_description` へ。
+- `harness` / `hairpin` / `hairband` / `hairclip` / `ribbon` / `collar` / `choker` / `scarf` / `cape` / `cloak` / `halo` / `wristband` / `cuffs` / `hood` / `accessory` / `wrapped around` / `draped` / `barrel-shaped` 等の装着具記述は `attached_items` へ。
+- 判別不能なエントリは `body_description` 側に残す（安全側に倒す）。
+- 既に object 形式のレコードは触らない（冪等）。
+
+#### コマンド
+
+```powershell
+# dry-run
+node tools/patch-aihints.mjs --work NumberTales --db Primary --all --migrate-silhouette-structure
+
+# 適用
+node tools/patch-aihints.mjs --work NumberTales --db Primary --all --migrate-silhouette-structure --apply
+# → silhouette-migrated=<N>, silhouette-unchanged=<M>
+```
+
+### 9.7 `--rewrite-corefolder-nld` モード（corefolder NLD の球体本体テンプレ化）
+
+`forms.corefolder.natural_language_description` をスキーマ駆動で再生成し、**humanoid 衣装語の混入と挙動描写の溢れ出しを防ぐ**ためのモード。
+
+#### テンプレート
+
+```
+Corefolder form: a spherical cushion-like body in {base color}, with the number '{N}' {marking placement}; {accessory phrase}.
+```
+
+- `{base color}` は `silhouette_notes.body_description` または `attached_items` の英語フレーズから抽出（`"X base coloring"` / `"X fox with"` / `"X palette"` 等を検出）。抽出失敗時は `TODO: fill base color` を埋め込む。
+- `{marking placement}` は `immutable_traits` の番号刻印記述から抽出。数字以外（ローマ数字・漢字・カタカナ・ひらがな等）にも対応。「番号刻印なし」と明示されたレコードは `with no number identifier printed on the body` を出力する。
+- `{accessory phrase}` は `silhouette_notes.attached_items` の先頭 non-TODO エントリから抽出。複数装着具は `;` で繋ぐ。
+- 「coat / dress / bodysuit / pants / shoes」等の humanoid 衣装語は出力しない（`shouldRewriteCorefolderNld()` が混入検知時に強制再生成する）。`outfit` は corefolder 衣装バリアント記述で正当な利用があるため除外語に含めない。
+
+#### 既定の再生成条件
+
+以下のいずれかに該当する既存 NLD は自動的に上書きされる:
+
+- 空文字 / 未定義
+- `[TRANSLATE:` 系プレースホルダ
+- `A corefolder form character featuring ...` 形式（旧 scaffold）
+- `TODO:` 残置
+- humanoid 衣装語が含まれる
+- テンプレート見出し `Corefolder form:` で始まらない
+
+それ以外は維持される。`--force-rewrite-nld` を併用すると全件強制再生成。
+
+#### コマンド
+
+```powershell
+# dry-run（差分プレビュー）
+node tools/patch-aihints.mjs --work NumberTales --db Primary --all --rewrite-corefolder-nld
+
+# 適用
+node tools/patch-aihints.mjs --work NumberTales --db Primary --all --rewrite-corefolder-nld --apply
+# → nld-rewritten=<N>, nld-unchanged=<M>
+
+# 強制全件再生成
+node tools/patch-aihints.mjs --work NumberTales --db Primary --all --rewrite-corefolder-nld --force-rewrite-nld --apply
+```
+
+#### 適用順の推奨
+
+1. `--migrate-silhouette-structure --apply`（silhouette_notes を object 化）
+2. キャラ個別の `immutable_traits` 内「番号刻印位置」を必要に応じて手動微修正（例: #57 のように本体表面位置を明示）
+3. `--rewrite-corefolder-nld --apply`（テンプレ駆動で NLD を再生成）
+4. `npm test` で `tests/aihints.schema.test.js` の corefolder NLD テンプレ準拠テストが通ることを確認

@@ -369,6 +369,20 @@
         }
       ]
     },
+    "$Def_AISilhouetteNotes": {
+      "$DefType": [
+        {
+          "hashTag": "body_description",
+          "$type": "#String[]|#Null",
+          "hashTag_JP": "球体本体の見た目記述(base color / 表面色 / 球体本体の形状的特徴 / 顔表現)"
+        },
+        {
+          "hashTag": "attached_items",
+          "$type": "#String[]|#Null",
+          "hashTag_JP": "本体に装着されている付属物(ribbon / collar / scarf / halo / hairpin / harness 等。humanoid 衣装語は含まない)"
+        }
+      ]
+    },
     "$Def_AIFormVariant": {
       "$DefType": [
         {
@@ -383,8 +397,8 @@
         },
         {
           "hashTag": "silhouette_notes",
-          "$type": "#String[]|#Null",
-          "hashTag_JP": "この形態のシルエットを視覚言語で1-2行で記述(本体形状/突出部/装着具)"
+          "$type": "$Def_AISilhouetteNotes|#Null",
+          "hashTag_JP": "この形態のシルエット構造化記述(本体記述 / 装着付属品)"
         },
         {
           "hashTag": "immutable_constraints",
