@@ -15,16 +15,12 @@
 
 ## いま進行中のファイル
 
-- 2026-04-22_progress_task1-day-era-softcoding.md（タスク1 Day/Era/Area hardcode 緩和・部分完了）
-- 2026-04-23_progress_requested-tasks-implementation-plan.md（4タスク実装計画・更新中）
-- 2026-05-11_progress_storyera-schema.md（StoryEra/Day/Era schema 整備・部分完了）
-- 2026-05-15_progress_subfields-wrapper-unification.md（subFields/wrapper 統合・追加作品目視確認残）
 - 2026-05-15_progress_aihints-numbertales-1to40.md（進行中: #41〜 は未着手）
 - 2026-05-29_progress_bilingual-wrapper-apiswui.md（bilingual wrapper API/SW 対応・UI 表示未完了）
 - 2026-06-01_remaining-task.md（現行の未完了タスク一覧・最新）
 - 2026-06-01_progress_aihints-vision-final-and-playbook.md（`Works_NumberTales/DB_Primary` の AIHints 視覚解析を画像提供有り 92 件すべてで完走 + Agent 再現プレイブック整備。develop 側の `2026-05-15_progress_aihints-numbertales-1to40.md` / `2026-06-01_progress_aihints-schema-move-fixrefs.md` を前提とし、#41〜#99 + 特殊番号 3件の適用を本セッションで実施）
 - 2026-06-02_progress_ai-optout-flag.md（`AI_Optout` フラグ新設・19 DB エントリへ初期適用・`tools/patch-aihints.mjs` ガード実装・ドキュメント整備完了）
-- 2026-06-02_progress_pkg-client-libraries.md（pkg/ クライアントライブラリ新規実装・完了）
+- 2026-06-09_progress_identitymotif-conversion.md（IdentityMotif 新形式変換・Motif_JP 整備残）
 - 2026-06-08_progress_aihints-corefolder-enhancements.md（`$Def_AIFormVariant` に silhouette_notes/immutable_constraints/negative_keywords 追加・`$Def_AIHints` に work_common/alt_modes 追加・`--upgrade-schema` モード新設・NumberTales/DB_Primary 92 レコード適用完了。キャラ固有スロットは User 手動入力残）
 - 2026-06-08_progress_aihints-corefolder-vision-fill.md（NumberTales/DB_Primary の corefolder 形態 silhouette_notes / immutable_constraints / negative_keywords / 番号マーキング位置を vision 解析で 83 件穴埋め完了。`tools/patch-aihints.mjs` の `numberMarkingPlacement` 置換 regex を 4 パターンに拡張。残 TODO は `#28`（要画像）のみ）
 
@@ -37,9 +33,16 @@
 - 2026-05-15 に、NumberTales #1〜#40 への AIHints フィールド追加（#38除く 39件）を完了しました。詳細は `2026-05-15_progress_aihints-numbertales-1to40.md` を参照。
 - 2026-06-01 の棚卸しで、`2026-04-21_progress_secondary-commons-defaults.md`・`2026-04-22_progress_requested-tasks-overview.md`・`2026-04-22_remaining-task.md`・`2026-05-29_progress_guideline-consolidation.md` を `.completed` へ退避しました。
 - `2026-06-01_remaining-task.md` に、現時点の未完了・着手中タスクを統合しました。
+- 2026-06-11 の棚卸しで、`2026-04-22_progress_task1-day-era-softcoding.md`・`2026-04-23_progress_requested-tasks-implementation-plan.md`・`2026-05-11_progress_storyera-schema.md`・`2026-05-15_progress_subfields-wrapper-unification.md`・`2026-06-02_progress_pkg-client-libraries.md`・`2026-06-02_progress_pkg-library.md` を `.completed` へ退避しました。
 
 ## 完了（.completed へ退避済み）
 
+- 2026-06-02_progress_pkg-client-libraries.md（pkg/ クライアントライブラリ新規実装・完了）
+- 2026-06-02_progress_pkg-library.md（pkg/ ライブラリ API 拡張・完了）
+- 2026-05-15_progress_subfields-wrapper-unification.md（subFields/wrapper 統合・完了）
+- 2026-05-11_progress_storyera-schema.md（StoryEra/Day/Era schema 整備・完了）
+- 2026-04-23_progress_requested-tasks-implementation-plan.md（4タスク実装計画ログ・06-01 へ集約済み）
+- 2026-04-22_progress_task1-day-era-softcoding.md（タスク1 初動実装・完了）
 - 2026-04-21_progress_secondary-commons-defaults.md
 - 2026-04-22_progress_requested-tasks-overview.md（実装計画ログへ引き継ぎ済み）
 - 2026-04-22_remaining-task.md（06-01 残タスクログへ集約済み）
