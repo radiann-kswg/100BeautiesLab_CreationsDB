@@ -111,6 +111,11 @@
           "hashTag_JP": "配信実績"
         },
         {
+          "hashTag": "StreamingAwards_EN",
+          "$type": "#String_EN[]|#Null",
+          "hashTag_JP": "配信実績_EN"
+        },
+        {
           "hashTag": "StreamingSummary",
           "$type": "#Summary",
           "hashTag_JP": "配信概要"

@@ -103,9 +103,21 @@
           "$display": { "section": "spec", "tagSpace": "creation" }
         },
         {
+          "hashTag": "ChronoizedPurity_EN",
+          "$type": "#String_EN|#Null",
+          "hashTag_JP": "時空遷移(クロノイド)純度_EN",
+          "$display": { "section": "spec", "tagSpace": "creation" }
+        },
+        {
           "hashTag": "ChronoizedAbout",
           "$type": "#Summary",
           "hashTag_JP": "時空遷移(クロノイド)状態に関する概要",
+          "$display": { "section": "profile" }
+        },
+        {
+          "hashTag": "ChronoizedAbout_EN",
+          "$type": "#Summary|#Null",
+          "hashTag_JP": "時空遷移(クロノイド)状態に関する概要_EN",
           "$display": { "section": "profile" }
         },
         {
