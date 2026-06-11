@@ -2032,9 +2032,19 @@ function buildFieldLabelMap(workTypeDef, globalTypeDef = {}) {
 		traverse(workTypeDef.$DefType, [], 'work');
 	}
 
-	console.log('🏷️ Final label map:', labelMap);
-	return labelMap;
+	// EN ラベル逆引き補完:
+	// hashTag_JP のみで hashTag_EN を持たないエントリに対して、
+	// 同名の _EN 兄弟エントリ（FormalName_EN など）の EN ラベルを逆引きして補完する
+	for (const key of Object.keys(labelMap)) {
+		if (key.startsWith('__en__')) continue;
+		if (labelMap[`__en__${key}`]) continue; // 既に EN ラベルがある
+		const enSiblingEnLabel = labelMap[`__en__${key}_EN`];
+		if (enSiblingEnLabel && typeof enSiblingEnLabel === 'string') {
+			labelMap[`__en__${key}`] = enSiblingEnLabel;
+		}
+	}
 
+	console.log('🏷️ Final label map:', labelMap);
 	return labelMap;
 }
 
@@ -6739,11 +6749,16 @@ export async function renderDetail(workId, rec) {
 		const buildObjectChildBlocks = (parentKey, parentValue, options = {}) => {
 			if (!parentKey || typeof parentKey !== 'string' || !isPlainObject(parentValue)) return [];
 			const excludedChildKeys = (options?.excludedChildKeys instanceof Set) ? options.excludedChildKeys : new Set();
+			const lang = getCurrentPageLanguage();
+			const hasJapaneseChars = (text) => /[\u3040-\u30ff\u3400-\u9fff]/.test(String(text || ''));
 			const blocks = [];
 
 			for (const [childKey, childValue] of Object.entries(parentValue)) {
 				if (!childKey || typeof childKey !== 'string') continue;
 				if (childKey.startsWith('_')) continue;
+				if (lang === 'jp' && childKey.endsWith('_EN')) continue;
+				if (lang === 'en' && childKey.endsWith('_JP')) continue;
+				if (lang === 'en' && !childKey.endsWith('_EN') && Object.prototype.hasOwnProperty.call(parentValue, `${childKey}_EN`)) continue;
 				if (excludedChildKeys.has(childKey)) continue;
 				if (isEmptyValueLoose(childValue)) continue;
 
@@ -6759,12 +6774,46 @@ export async function renderDetail(workId, rec) {
 					};
 
 				if (childKey === 'DialogueExamples' && Array.isArray(childValue)) {
-					const cards = childValue
-						.map((item) => formatValueForDisplay(item, fieldLabelMap, metaForLookup, globalDefType, {
+					const formatDialogueItemByLang = (item) => {
+						if (item === null || item === undefined || item === '') return '';
+
+						if (typeof item === 'string' || typeof item === 'number' || typeof item === 'boolean') {
+							const text = String(item).trim();
+							if (!text) return '';
+							if (lang === 'jp') return hasJapaneseChars(text) ? text : '';
+							if (lang === 'en') return hasJapaneseChars(text) ? '' : text;
+							return text;
+						}
+
+						if (!isPlainObject(item)) return '';
+						const valueJP = String(item.value_JP || '').trim();
+						const valueEN = String(item.value_EN || '').trim();
+						const valueRaw = String(item.value || '').trim();
+						const aboutJP = String(item.about_JP || '').trim();
+						const aboutEN = String(item.about_EN || '').trim();
+
+						if (lang === 'jp') {
+							const base = valueJP || (hasJapaneseChars(valueRaw) ? valueRaw : '');
+							if (!base) return '';
+							return aboutJP ? `${base}（${aboutJP}）` : base;
+						}
+
+						if (lang === 'en') {
+							const base = valueEN || (!hasJapaneseChars(valueRaw) ? valueRaw : '');
+							if (!base) return '';
+							return aboutEN ? `${base} (${aboutEN})` : base;
+						}
+
+						const fallbackText = formatValueForDisplay(item, fieldLabelMap, metaForLookup, globalDefType, {
 							schemaType: hints.schemaType,
 							display: hints.schemaDisplay,
 							fieldKey: schemaPath
-						}))
+						});
+						return String(fallbackText || '').trim();
+					};
+
+					const cards = childValue
+						.map((item) => formatDialogueItemByLang(item))
 						.map((text) => String(text ?? '').trim())
 						.filter(Boolean)
 						.map((text) => el('div', { class: 'tag' }, [dialogueBodyText(text)]));
@@ -7038,13 +7087,19 @@ export async function renderDetail(workId, rec) {
 			].filter(Boolean))
 			: null;
 
-		const includeSummaryInProfileSection = Boolean(rec.Summary) && !isPromotedSubFieldKey('Summary');
+		const profileSummaryText = (() => {
+			const lang = getCurrentPageLanguage();
+			if (lang === 'en') return String(rec?.Summary_EN || rec?.Summary || '').trim();
+			if (lang === 'jp') return String(rec?.Summary || rec?.Summary_EN || '').trim();
+			return String(rec?.Summary || rec?.Summary_EN || '').trim();
+		})();
+		const includeSummaryInProfileSection = Boolean(profileSummaryText) && !isPromotedSubFieldKey('Summary');
 		const profileSection = (includeSummaryInProfileSection || profileItems.length)
 			? el('div', { class: 'section' }, [
 				el('h3', {}, [getFieldLabel('Profile', fieldLabelMap, workMeta, globalDefType, 'プロフィール/テキスト')]),
 				includeSummaryInProfileSection ? el('div', {}, [
 					el('div', { class: 'tag', style: 'margin-bottom: 6px;' }, [getFieldLabel('Summary', fieldLabelMap, workMeta, globalDefType, '概要')]),
-					preWrapText(rec.Summary)
+					preWrapText(profileSummaryText)
 				]) : null,
 				profileItems.length ? el('div', {}, profileItems) : null,
 			].filter(Boolean))

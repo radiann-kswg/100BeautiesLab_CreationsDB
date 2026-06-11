@@ -31,7 +31,8 @@
         {
           "hashTag": "concept_PNGName",
           "$type": "#PNGFileName",
-          "hashTag_JP": "設定原画"
+          "hashTag_JP": "設定原画",
+          "hashTag_EN": "Concept Art"
         }
       ],
       "$display": { "section": "images", "tagSpace": "internal" }
@@ -40,9 +41,14 @@
     {
       "hashTag": "Career_EN",
       "$type": "#Summary|#Null",
-      "hashTag_JP": "経歴について_EN"
+      "hashTag_EN": "About Career"
     },
-    { "hashTag": "Chronos", "$type": "#Index", "hashTag_JP": "クロノス" },
+    {
+      "hashTag": "Chronos",
+      "$type": "#Index",
+      "hashTag_JP": "クロノス",
+      "hashTag_EN": "Chronos"
+    },
     {
       "hashTag": "ChronoholderName",
       "$type": "#String_JP",
@@ -51,7 +57,7 @@
     {
       "hashTag": "ChronoholderName_EN",
       "$type": "##String_EN|#Null",
-      "hashTag_JP": "時空象器能力名_EN"
+      "hashTag_EN": "Chronoholder Name"
     },
     {
       "hashTag": "ChronospecName",
@@ -61,7 +67,7 @@
     {
       "hashTag": "ChronospecName_EN",
       "$type": "##String_EN|#Null",
-      "hashTag_JP": "時空遷移能力名_EN"
+      "hashTag_EN": "Chronospec Name"
     },
     {
       "hashTag": "ChronospecAbout",
@@ -71,7 +77,7 @@
     {
       "hashTag": "ChronospecAbout_EN",
       "$type": "#Summary|#Null",
-      "hashTag_JP": "時空遷移能力について_EN"
+      "hashTag_EN": "About Chronospec"
     },
     {
       "hashTag": "ChronospecStats",
@@ -81,6 +87,7 @@
           "$type": "#DictIndex",
           "$dict": "Artifact",
           "hashTag_JP": "技巧属性",
+          "hashTag_EN": "Artifact Type",
           "$display": { "section": "spec", "tagSpace": "creation" }
         },
         {
@@ -89,6 +96,7 @@
             { "hashTag": "Decave", "$type": "$EnumDef_Decave,$EnumLink" }
           ],
           "hashTag_JP": "時空遷移(クロノイド)級数",
+          "hashTag_EN": "Chronoized Decave(Stage)",
           "$display": {
             "section": "spec",
             "tagSpace": "creation",
@@ -105,7 +113,7 @@
         {
           "hashTag": "ChronoizedPurity_EN",
           "$type": "#String_EN|#Null",
-          "hashTag_JP": "時空遷移(クロノイド)純度_EN",
+          "hashTag_EN": "Chronoized Purity",
           "$display": { "section": "spec", "tagSpace": "creation" }
         },
         {
@@ -117,7 +125,7 @@
         {
           "hashTag": "ChronoizedAbout_EN",
           "$type": "#Summary|#Null",
-          "hashTag_JP": "時空遷移(クロノイド)状態に関する概要_EN",
+          "hashTag_EN": "About Chronoized State",
           "$display": { "section": "profile" }
         },
         {
@@ -136,7 +144,8 @@
                   }
                 }
               ],
-              "hashTag_JP": "物理的作用"
+              "hashTag_JP": "物理的作用",
+              "hashTag_EN": "Physical Effect"
             },
             {
               "hashTag": "Acceleration",
@@ -151,7 +160,8 @@
                   }
                 }
               ],
-              "hashTag_JP": "加速作用/減速作用"
+              "hashTag_JP": "加速作用/減速作用",
+              "hashTag_EN": "Acceleration/Deceleration Effect"
             },
             {
               "hashTag": "Enforcing",
@@ -166,7 +176,8 @@
                   }
                 }
               ],
-              "hashTag_JP": "斥力効果/引力効果"
+              "hashTag_JP": "斥力効果/引力効果",
+              "hashTag_EN": "Enforcing/Attracting Effect"
             },
             {
               "hashTag": "Healing",
@@ -181,7 +192,8 @@
                   }
                 }
               ],
-              "hashTag_JP": "治癒効果"
+              "hashTag_JP": "治癒効果",
+              "hashTag_EN": "Aiding Effect"
             },
             {
               "hashTag": "Rewriting",
@@ -196,10 +208,12 @@
                   }
                 }
               ],
-              "hashTag_JP": "時空改竄の恐れ"
+              "hashTag_JP": "時空改竄の恐れ",
+              "hashTag_EN": "Risk of Spacetime Rewriting"
             }
           ],
-          "hashTag_JP": "効果度数"
+          "hashTag_JP": "効果度数",
+          "hashTag_EN": "Effect Details"
         },
         {
           "hashTag": "SafetyLevel",
@@ -214,10 +228,12 @@
               }
             }
           ],
-          "hashTag_JP": "安全レベル"
+          "hashTag_JP": "安全レベル",
+          "hashTag_EN": "Safety Level"
         }
       ],
       "hashTag_JP": "時空遷移能力の特性",
+      "hashTag_EN": "Chronospec Ability Characteristics",
       "$display": { "sectionWrapper": "statsSection" }
     },
     {
@@ -226,15 +242,18 @@
         {
           "hashTag": "Related",
           "$type": "$Def_Relations[]",
-          "hashTag_JP": "親密な関係"
+          "hashTag_JP": "親密な関係",
+          "hashTag_EN": "Close Relations"
         },
         {
           "hashTag": "Commented",
           "$type": "$Def_Relations[]",
-          "hashTag_JP": "コメント"
+          "hashTag_JP": "コメント",
+          "hashTag_EN": "Comments to the Characters"
         }
       ],
       "hashTag_JP": "関係キャラクター",
+      "hashTag_EN": "Related Characters",
       "isForSecondary": false,
       "$display": { "sectionWrapper": "relationSection" }
     },
@@ -244,15 +263,18 @@
         {
           "hashTag": "Related",
           "$type": "$Def_Relations[]",
-          "hashTag_JP": "親密な関係"
+          "hashTag_JP": "親密な関係",
+          "hashTag_EN": "Close Related to Primary Characters"
         },
         {
           "hashTag": "Commented",
           "$type": "$Def_Relations[]",
-          "hashTag_JP": "コメント"
+          "hashTag_JP": "コメント",
+          "hashTag_EN": "Comments to Primary Characters"
         }
       ],
       "hashTag_JP": "原作との関係",
+      "hashTag_EN": "Relation to Primary Work",
       "isForSecondary": true,
       "$display": { "sectionWrapper": "relationSection" }
     }
@@ -264,24 +286,28 @@
           "hashTag": "Lunar",
           "$type": "#Index",
           "isForSecondary": false,
-          "hashTag_JP": "月暦"
+          "hashTag_JP": "月暦",
+          "hashTag_EN": "Lunar"
         },
         {
           "hashTag": "Comments",
           "$type": "#Dialogue",
           "isForSecondary": false,
-          "hashTag_JP": "コメント"
+          "hashTag_JP": "コメント",
+          "hashTag_EN": "Comments"
         },
         {
           "hashTag": "Reply",
           "$type": "$Def_Relations[]",
           "isForSecondary": true,
-          "hashTag_JP": "返答コメント"
+          "hashTag_JP": "返答コメント",
+          "hashTag_EN": "Reply Comments"
         },
         {
           "hashTag": "RelationLabel",
           "$type": "#ListIndex[]",
           "hashTag_JP": "関係性タグ",
+          "hashTag_EN": "Relation Label",
           "$display": {
             "section": "profile",
             "tagSpace": "creation",

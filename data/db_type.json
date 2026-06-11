@@ -49,7 +49,12 @@
       "hashTag_EN": "Special Code Name",
       "$display": { "auto": false }
     },
-    { "hashTag": "ModelNumber", "$type": "##String", "hashTag_JP": "型番" },
+    {
+      "hashTag": "ModelNumber",
+      "$type": "##String",
+      "hashTag_JP": "型番",
+      "hashTag_EN": "Model Number"
+    },
     {
       "hashTag": "ModelName",
       "$type": "##String_JP|#Summary|#Null",
