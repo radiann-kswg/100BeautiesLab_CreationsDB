@@ -111,6 +111,41 @@
 - `tests/sw.enrich.basic.test.js` ✅
 - `tests/sw.deftype.merge.test.js` ✅
 
+### 8. ENページで Summary_EN が表示されない不具合の修正
+
+- 症状
+  - `?lang=en` でも `Profile` セクションの `Summary` 本文が日本語のまま表示される
+- 原因
+  - `pages/characters.js` の `profileSection` が `rec.Summary` を固定参照しており、
+    言語状態に応じた `Summary_EN` への切替が未実装だった
+- 対応
+  - `profileSummaryText` を導入し、ページ言語で本文キーを切替
+    - `lang=en`: `Summary_EN` 優先（欠損時は `Summary`）
+    - `lang=jp`: `Summary` 優先（欠損時は `Summary_EN`）
+  - `preWrapText(rec.Summary)` を `preWrapText(profileSummaryText)` に変更
+
+### 9. ENラベル補完の強化（BasicInfo など）
+
+- `pages/characters.js`
+  - `buildFieldLabelMap()` に逆引き補完を追加
+    - `hashTag_EN` 未定義の base key でも、`<base>_EN` 側の EN ラベルを `__en__<base>` へ補完
+  - これにより `FormalName` / `CodeName` / `Summary` などで EN ラベル解決を安定化
+- `data/db_type.json`
+  - `ModelNumber` に `hashTag_EN: "Model Number"` を追記（兄弟 `_EN` 項目が無いため個別対応）
+
+確認:
+
+- ENページ（NumberTales / Num=9）で以下をブラウザ確認
+  - BasicInfo ラベル: `Formal Name`, `Model Name`, `Model Number`, `Code Name` へ切替
+  - Profile の `Summary` ラベルは英語表示、本文は `Summary_EN` の英語本文を表示
+- API応答確認（`/pages/v1/works/Works_NumberTales/db/Primary?resolve=1`）
+  - `Num=9` レコードに `Summary` / `Summary_EN` の両方が含まれることを確認
+
+追加テスト:
+
+- `tests/pages.characters.syntax.test.js` ✅
+- `tests/bilingual-fields.test.js` ✅
+
 ### 失敗（2件）
 
 - `tests/pages.characters.ui-output.test.js`
