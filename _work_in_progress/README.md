@@ -15,14 +15,11 @@
 
 ## いま進行中のファイル
 
-- 2026-05-15_progress_aihints-numbertales-1to40.md（進行中: #41〜 は未着手）
 - 2026-05-29_progress_bilingual-wrapper-apiswui.md（bilingual wrapper API/SW 対応・UI 表示未完了）
 - 2026-06-01_remaining-task.md（現行の未完了タスク一覧・最新）
-- 2026-06-01_progress_aihints-vision-final-and-playbook.md（`Works_NumberTales/DB_Primary` の AIHints 視覚解析を画像提供有り 92 件すべてで完走 + Agent 再現プレイブック整備。develop 側の `2026-05-15_progress_aihints-numbertales-1to40.md` / `2026-06-01_progress_aihints-schema-move-fixrefs.md` を前提とし、#41〜#99 + 特殊番号 3件の適用を本セッションで実施）
-- 2026-06-02_progress_ai-optout-flag.md（`AI_Optout` フラグ新設・19 DB エントリへ初期適用・`tools/patch-aihints.mjs` ガード実装・ドキュメント整備完了）
 - 2026-06-09_progress_identitymotif-conversion.md（IdentityMotif 新形式変換・Motif_JP 整備残）
-- 2026-06-08_progress_aihints-corefolder-enhancements.md（`$Def_AIFormVariant` に silhouette_notes/immutable_constraints/negative_keywords 追加・`$Def_AIHints` に work_common/alt_modes 追加・`--upgrade-schema` モード新設・NumberTales/DB_Primary 92 レコード適用完了。キャラ固有スロットは User 手動入力残）
-- 2026-06-08_progress_aihints-corefolder-vision-fill.md（NumberTales/DB_Primary の corefolder 形態 silhouette_notes / immutable_constraints / negative_keywords / 番号マーキング位置を vision 解析で 83 件穴埋め完了。`tools/patch-aihints.mjs` の `numberMarkingPlacement` 置換 regex を 4 パターンに拡張。残 TODO は `#28`（要画像）のみ）
+- 2026-06-09_progress_aihints-from-identitymotif.md（`--apply-identitymotif` 実装・NumberTales/DB_Primary 全件再構築完了。他作品対応・docs 追記・cleared 3 件再適用が残留）
+- 2026-06-09_progress_corefolder-nld-template-and-silhouette-structure.md（corefolder NLD テンプレ化・silhouette_notes object 構造化完了。`#28` base color・他作品確認・humanoid NLD 未実装が残留）
 
 補足:
 
@@ -30,13 +27,23 @@
 - 2026-04-21 に、4/18 と 4/19 の完了済み progress ログを `.completed` へ整理しました。
 - 2026-04-21 に、`_Secondaries` の fallback 優先順位整理ログも完了扱いとして `.completed` へ退避しました。
 - 2026-05-11 の棚卸しで、完了済みの `2026-03-31_remaining-task.md`、`2026-04-21_progress_multi-index-display.md` 他を `.completed` へ整理しました。
-- 2026-05-15 に、NumberTales #1〜#40 への AIHints フィールド追加（#38除く 39件）を完了しました。詳細は `2026-05-15_progress_aihints-numbertales-1to40.md` を参照。
+- 2026-05-15 に、NumberTales #1〜#40 への AIHints フィールド追加（#38除く 39件）を完了しました。詳細は `.completed/2026-05-15_progress_aihints-numbertales-1to40.md` を参照。
 - 2026-06-01 の棚卸しで、`2026-04-21_progress_secondary-commons-defaults.md`・`2026-04-22_progress_requested-tasks-overview.md`・`2026-04-22_remaining-task.md`・`2026-05-29_progress_guideline-consolidation.md` を `.completed` へ退避しました。
 - `2026-06-01_remaining-task.md` に、現時点の未完了・着手中タスクを統合しました。
-- 2026-06-11 の棚卸しで、`2026-04-22_progress_task1-day-era-softcoding.md`・`2026-04-23_progress_requested-tasks-implementation-plan.md`・`2026-05-11_progress_storyera-schema.md`・`2026-05-15_progress_subfields-wrapper-unification.md`・`2026-06-02_progress_pkg-client-libraries.md`・`2026-06-02_progress_pkg-library.md` を `.completed` へ退避しました。
+- 2026-06-11 の棚卸しで、`2026-04-22_progress_task1-day-era-softcoding.md`・`2026-04-23_progress_requested-tasks-implementation-plan.md`・`2026-05-11_progress_storyera-schema.md`・`2026-05-15_progress_subfields-wrapper-unification.md`・`2026-06-02_progress_pkg-client-libraries.md`・`2026-06-02_progress_pkg-library.md` を `.completed` へ退避しました（develop ブランチ共通）。
+- 2026-06-11 の addon-ai-tag ブランチ棚卸しで、`2026-05-15_progress_aihints-numbertales-1to40.md`・`2026-05-30_progress_aihints-twolayer.md`・`2026-06-01_progress_aihints-schema-move-fixrefs.md`・`2026-06-01_progress_aihints-vision-final-and-playbook.md`・`2026-06-02_progress_ai-optout-flag.md`・`2026-06-08_progress_aihints-corefolder-enhancements.md`・`2026-06-08_progress_aihints-corefolder-vision-fill.md`・`2026-06-08_progress_aihints-remove-harness-contamination.md` を `.completed` へ退避しました。
 
 ## 完了（.completed へ退避済み）
 
+- 2026-06-08_progress_aihints-remove-harness-contamination.md（ハーネス汚染除去・完了）
+- 2026-06-08_progress_aihints-corefolder-vision-fill.md（corefolder vision-fill 83件・完了）
+- 2026-06-08_progress_aihints-corefolder-enhancements.md（corefolder 強化フィールド追加・schema 拡張・完了）
+- 2026-06-02_progress_ai-optout-flag.md（`AI_Optout` フラグ新設・完了）
+- 2026-06-02_progress_pkg-client-libraries.md（pkg/ クライアントライブラリ新規実装・完了）
+- 2026-06-01_progress_aihints-vision-final-and-playbook.md（#41〜#99 + 特殊番号 視覚解析完走・完了）
+- 2026-06-01_progress_aihints-schema-move-fixrefs.md（AI スキーマ作品別移動 + `--fix-refs` 実装・完了）
+- 2026-05-30_progress_aihints-twolayer.md（AIHints 二層構造移行・完了）
+- 2026-05-15_progress_aihints-numbertales-1to40.md（#1〜#40 AIHints 付与・完了）
 - 2026-06-02_progress_pkg-client-libraries.md（pkg/ クライアントライブラリ新規実装・完了）
 - 2026-06-02_progress_pkg-library.md（pkg/ ライブラリ API 拡張・完了）
 - 2026-05-15_progress_subfields-wrapper-unification.md（subFields/wrapper 統合・完了）
