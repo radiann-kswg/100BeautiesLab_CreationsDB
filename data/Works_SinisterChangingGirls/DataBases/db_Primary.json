@@ -25,11 +25,17 @@
       }
     },
     "Character": "素面(シラフ)時：仲間思いの姉御肌。お調子者なムードメーカ\n泥酔時：甘えん坊極まりなく、成人としての限度を超えてしまうほどの破廉恥（※弟談）",
+    "Character_EN": "When sober: a caring, big-sisterly mood-maker\nWhen dead drunk: outrageously clingy and indecent to an extent exceeding adult limits (per younger sibling's account)",
     "Hobby": "数秘術占い、ROS(ロボット向けソフトウェア)開発、創作",
+    "Hobby_EN": "Numerology fortune-telling, ROS (Robot Operating Software) development, creative works",
     "SpecialSkill": "ソフトウェアの構造を解読できる",
+    "SpecialSkill_EN": "Can read and decode software architecture",
     "Favor": "まんまるもっちりふかふかもふもふとした癒しキャラ",
+    "Favor_EN": "Adorably round, squishy, fluffy, and plush healing-type characters",
     "Unlike": "創作物の悪用",
-    "Summary": "本名は「千歳玲(ちとせ-れい)」だが、ヒューマノイドの開発活動を展開するにあたりこの名前で活動している若手女性エンジニア（特に、ナンバーテールズを提供している百花繚乱研究所では若手女代表とも）。\nお調子者なムードメーカであるだけでなく 自分の生み出したヒューマノイドを含め自らの後輩や仲間のことを大切にしている姉御肌だが、ひとたび酒に酔いしれてしまうと「色欲」スイッチが入りいつも以上にみだりなスキンシップや求愛行動に奔ってしまうという悪酔いが強い一面も"
+    "Unlike_EN": "Misuse of creative works",
+    "Summary": "本名は「千歳玲(ちとせ-れい)」だが、ヒューマノイドの開発活動を展開するにあたりこの名前で活動している若手女性エンジニア（特に、ナンバーテールズを提供している百花繚乱研究所では若手女代表とも）。\nお調子者なムードメーカであるだけでなく 自分の生み出したヒューマノイドを含め自らの後輩や仲間のことを大切にしている姉御肌だが、ひとたび酒に酔いしれてしまうと「色欲」スイッチが入りいつも以上にみだりなスキンシップや求愛行動に奔ってしまうという悪酔が強い一面も",
+    "Summary_EN": "A young female engineer active under this name while developing humanoids — born as 'Zeena Thouser' but known in circles like the 100BeautiesLab. that creates NumberTales as a representative of younger women in the field.\nNot only an easygoing mood-maker, but a big-sisterly figure who cherishes her juniors and companions including the humanoids she created — yet once she gets dead drunk, her 'Lust' switch flips and she falls into indelicate skinship and courtship behavior far beyond her usual self"
   },
   {
     "Drc": "NE",
@@ -71,14 +77,23 @@
     "Age": { "about_JP": "不詳", "about_EN": "Unknown or Undefined" },
     "BirthDay": { "Day": { "Month": 7, "DayOfMonth": 1 } },
     "FirstPersonCalling": "私(わたし)",
+    "FirstPersonCalling_EN": "I",
     "SecondPersonCalling": "君(きみ),~君",
+    "SecondPersonCalling_EN": "you, ~-kun (as Mr/Ms.)",
     "ThirdPersonCalling": "彼/彼女;~君",
+    "ThirdPersonCalling_EN": "he/she; ~-kun (as Mr/Ms.)",
     "Character": "気さくな好青年。何もしていないと空腹になりやすい",
+    "Character_EN": "An easygoing, likable young person. Tends to get hungry quickly when not occupied",
     "Hobby": "世界を放浪すること、世界の真相に迫ること",
+    "Hobby_EN": "Wandering the world, getting to the truth of what the world really is",
     "SpecialSkill": "毒が効かない",
+    "SpecialSkill_EN": "Immune to poison",
     "Favor": "量が多い喫茶店",
+    "Favor_EN": "Cafes with large portion sizes",
     "Unlike": "重量制限(食事後に限り引っ掛かることが多いため)",
-    "Summary": "「ミハイル」という国際情報広報機関を名乗っている旅人。\n真面目で気さくな好き若人と周囲から親しまれている反面 長時間ほど目的を果たせずにいると「暴食」に奔る癖があることから彼女のことを知る飲食店に恐れられている。\n胃にあるものは瞬時に身体の脂肪や肉質に変換されてしまうため、丸々と膨体した姿で現れることも。"
+    "Unlike_EN": "Weight restrictions (frequently triggered after eating)",
+    "Summary": "「ミハイル」という国際情報広報機関を名乗っている旅人。\n真面目で気さくな好き若人と周囲から親しまれている反面 長時間ほど目的を果たせずにいると「暴食」に奔る癖があることから彼女のことを知る飲食店に恐れられている。\n胃にあるものは瞬時に身体の脂肪や肉質に変換されてしまうため、丸々と膨体した姿で現れることも。",
+    "Summary_EN": "A wanderer calling herself 'Mikhail', an international information and communications agency.\nWhile known by those around her as earnest and easygoing, she is also feared by restaurants who know her for her habit of giving into 'Gluttony' when unable to accomplish her goals for long stretches of time.\nAnything in her stomach is instantly converted into body fat and mass, so she can also appear in an all-round, inflated form."
   },
   {
     "Drc": "E",
@@ -129,14 +144,23 @@
     "Age": 19,
     "BirthDay": { "Day": { "Month": 1, "DayOfMonth": 22 } },
     "FirstPersonCalling": "あたし",
+    "FirstPersonCalling_EN": "I (fem. informal)",
     "SecondPersonCalling": "あんた",
+    "SecondPersonCalling_EN": "you (casual)",
     "ThirdPersonCalling": "*いつ;[※二人称]",
+    "ThirdPersonCalling_EN": "this/that/who/them (as personal); [*second-person calling]",
     "Character": "天邪鬼で普段は素直さとは無縁だが、猫と寝具の前ではこの上なく素直",
+    "Character_EN": "Contrary by nature and rarely forthright in everyday life, but utterly compliant in the presence of cats and bedding",
     "Hobby": "（模索中）",
+    "Hobby_EN": "(Under exploration)",
     "SpecialSkill": "猫と会話できる",
+    "SpecialSkill_EN": "Can converse with cats",
     "Favor": "ふかふかもふもふの寝具、桜花 悌(やすし)",
+    "Favor_EN": "Fluffy, plush bedding; Bromiss Sakuraka",
     "Unlike": "拠り所も無く束縛されること、九蓮国、桜花 仁・義(よしぎ)",
-    "Summary": "「新生九蓮」という新国家革命軍を名乗る少女。\n努力や安心を経験したことがなく常に他人への不信感を抱いている素直でない「怠惰」な戦争孤児。\nしかし猫相手と寝具の中ではこの上ない安らぎを感じているためか、普段見せることのない甘えた様子を露にすることも。"
+    "Unlike_EN": "Being bound with nowhere to turn, RotusNinea(ns), Righteousen Sakuraka",
+    "Summary": "「新生九蓮」という新国家革命軍を名乗る少女。\n努力や安心を経験したことがなく常に他人への不信感を抱いている素直でない「怠惰」な戦争孤児。\nしかし猫相手と寝具の中ではこの上ない安らぎを感じているためか、普段見せることのない甘えた様子を露にすることも。",
+    "Summary_EN": "A girl calling herself the 'Neo.RotusNinea(n)', a new state revolutionary army.\nA contrary 'Sloth(ful)' war orphan who has never experienced effort or security, always holding distrust toward others.\nHowever, perhaps because she feels the deepest comfort with cats and within bedding, she occasionally reveals an unguarded, affectionate side not normally shown."
   },
   {
     "Drc": "S",
@@ -163,7 +187,8 @@
     "Belonging": ["ジャンクガレージ『六花陛下』"],
     "Age": 25,
     "BirthDay": { "Day": { "Month": 12, "DayOfMonth": 12 } },
-    "Summary": "日中は「六花陛下」という相性で親しまれたスラム街のジャンクガレージで一人ジャンクショップを経営する、お淑やかで物静かな看板娘……なのだが、実は二重人格で夜間（もしくは眼鏡が外れた）顔は「強欲」そのものなトレジャーハンター「クィーン.トゥエルヴ」として活動している。\n両人格とも汎用集積素子部品の「72IS」シリーズに対する共通の趣味はあるのだが、廃番で入手困難になった型番の話となると人格が切り替わり傲慢に恫喝されかねないので、くれぐれも彼女を相手にした話題の選択は慎重に。"
+    "Summary": "日中は「六花陛下」という相性で親しまれたスラム街のジャンクガレージで一人ジャンクショップを経営する、お淑やかで静かな看板娘……なのだが、実は二重人格で夜間（もしくは眼鏡が外れた）顔は「強欲」そのものなトレジャーハンター「クィーン.トゥエルヴ」として活動している。\n両人格とも汎用集積素子部品の「72IS」シリーズに対する共通の趣味はあるのだが、廃番で入手困難になった型番の話となると人格が切り替わり傲慢に恫喝されかねないので、くれぐれも彼女を相手にした話題の選択は慎重に。",
+    "Summary_EN": "By day, a graceful and soft-spoken shopgirl who runs a junk shop alone in a slum-district garage known affectionately as 'Majesty Rokka'... but in reality she has a split personality, and by night (or when her glasses come off) her face shows the 'Greed' herself as the treasure hunter 'Queen.XII'.\nBoth personalities share a common hobby with the general-purpose IC component '72IS' series, but if the topic turns to a discontinued hard-to-find model number, the personality can switch and she may aggressively threaten you — so please choose your words very carefully when dealing with her."
   },
   {
     "Drc": "SW",
@@ -202,13 +227,18 @@
       }
     ],
     "FirstPersonCalling": "ミル ※名前呼び",
+    "FirstPersonCalling_EN": "Lamill (*own name); [by name]",
     "SecondPersonCalling": "[※名前呼び],おにいちゃん/おねえちゃん ※表現揺れあり",
+    "SecondPersonCalling_EN": "[*by name], bros/sis (as old-brother/sister *expression varies)",
     "ThirdPersonCalling": "[※二人称],~おにいちゃん/~おねえちゃん ※表現揺れあり",
+    "ThirdPersonCalling_EN": "[*second-person calling], [*by name], bros/sis (as old-brother/sister *expression varies)",
     "Character": "",
     "Hobby": "",
     "SpecialSkill": "",
     "Favor": "優しい人,見たことない光景",
+    "Favor_EN": "Kind people, scenery never seen before",
     "Unlike": "性行為,母親という概念",
+    "Unlike_EN": "Sexual acts, the concept of motherhood",
     "Summary": ""
   },
   {
@@ -241,7 +271,9 @@
     "Hobby": "",
     "SpecialSkill": "",
     "Favor": "兄の無事",
+    "Favor_EN": "Her brother's safety",
     "Unlike": "兄の死",
+    "Unlike_EN": "Her brother's death",
     "Summary": ""
   },
   {
@@ -268,13 +300,20 @@
     "Weight_kg": { "hideText": "判定失敗" },
     "Age": { "about_JP": "不詳", "about_EN": "Unknown or Undefined" },
     "FirstPersonCalling": "ボク",
+    "FirstPersonCalling_EN": "I (masc. informal)",
     "SecondPersonCalling": "キミ",
+    "SecondPersonCalling_EN": "you",
     "ThirdPersonCalling": "[※名前呼び]",
+    "ThirdPersonCalling_EN": "[*by name]",
     "Character": "好戦的で傲慢\n不謹慎なものでさえ「エンタメ」を望む",
-    "Hobby": "エンターテイメント（という名の邪知暴虐）",
-    "SpecialSkill": { "hideText": "判定失敗" },
+    "Character_EN": "Belligerent and arrogant\nDesires 'entertainment' out of even the most outrageous things",
+    "Hobby": "エンターテインメント（という名の邪知暴虐）",
+    "Hobby_EN": "Entertainment (a name for tyranny and wickedness)",
+    "SpecialSkill": {"hideText": "判定失敗"},
     "Favor": "人が争い勝者が権力に溺れ敗者が絶望に打ちのめされる光景",
-    "Unlike": { "hideText": "判定失敗" },
-    "Summary": "もともと「財前 こさと」として若手超大物政治ジャーナリストをしていた謎の若人。\n十数年前に突如 電撃引退を宣言し各メディアから姿を消していたが、ある時この名で目撃されたという情報が相次いでおり真相を迫られている。\n好奇心旺盛で遊戯意識が強く 周りの出来事はすべて“エンタメ”として楽しんでいるが、時にその遊び心が「傲慢」さに変わり 夜月機関や運命線探偵、獣爾騎兵などへ強大な敵として牙を向くことも……"
+    "Favor_EN": "The sight of people clashing, winners drowning in power, and losers crushed by despair",
+    "Unlike": {"hideText": "判定失敗"},
+    "Summary": "もともと「財前 こさと」として若手超大物政治ジャーナリストをしていた謎の若人。\n十数年前に突如 電撃引退を宣言し各メディアから姿を消していたが、ある時この名で目撃されたという情報が相次いでおり真相を迫られている。\n好奇心旺盛で遊戯意識が強く 周りの出来事はすべて“エンタメ”として楽しんでいるが、時にその遊び心が「傲慢」さに変わり 夜月機関や運命線探偵、獣爾騎兵などへ強大な敵として牙を向くことも……",
+    "Summary_EN": "A mysterious young person who was originally a rising young mega-celebrity political journalist under the name 'Foster Empressor'.\nThey suddenly announced a stunning retirement more than a decade ago and vanished from all media, but reports of sightings under this name have been coming one after another, and the truth is being pressed.\nHighly curious with a strong sense of play, they enjoy everything around them as 'entertainment', but sometimes that playfulness turns to 'Pride/Arrogance', and they bare their fangs as a powerful enemy against organizations like the Yadzuki, the FateLine Investigators, and the Shou'ar Riders..."
   }
 ]

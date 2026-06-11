@@ -17,14 +17,29 @@
       "hashTag_JP": "主人の呼び方"
     },
     {
+      "hashTag": "ForMasterCalling_EN",
+      "$type": "#String_EN|#Summary|#Null",
+      "hashTag_JP": "主人の呼び方_EN"
+    },
+    {
       "hashTag": "TailsUnit",
       "$type": "#String",
       "hashTag_JP": "尻尾の形状"
     },
     {
+      "hashTag": "TailsUnit_EN",
+      "$type": "#String_EN|#Null",
+      "hashTag_JP": "尻尾の形状_EN"
+    },
+    {
       "hashTag": "NumerospecAbout",
       "$type": "#Summary",
-      "hashTag_JP": "“カバラの加護”(数秘的加護)について"
+      "hashTag_JP": "\"カバラの加護\"(数秘的加護)について"
+    },
+    {
+      "hashTag": "NumerospecAbout_EN",
+      "$type": "#Summary|#Null",
+      "hashTag_JP": "\"カバラの加護\"(数秘的加護)について_EN"
     },
     {
       "hashTag": "Images",

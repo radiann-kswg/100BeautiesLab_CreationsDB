@@ -907,6 +907,7 @@
     "RelationNotes": "ほぼどの個体にも好意的に接する\n「7(ナナ)」とは価値観の共有関係と言っているが…\n「4(モチ)」とはルームシェアをするほどの縁",
     "NumerospecAbout": "愛情や感性などにより主人の心の隙間を埋める\nただし副作用として一部スキンシップに過剰反応する",
     "Summary": "愛情や感性・美徳に満ち溢れ、信頼と忠義とそれぞれの個性を大切にしている、ナンバーテールズの「光属性」担当。\nこれにより、1桁番の中はもちろん99人全体でも上位に匹敵する評判を主人層から得ている。\nまた、彼女とはやや対称的な美的センスを持つ「9(チカ)」とセットで認知されることも。\nちなみに感性に優れているあまりか、感覚機能における意外な弱点があるようで…",
+    "Summary_EN": "She is in charge of the \"light attribute\" of the NumberTales, full of love, sensitivity, and virtue, and values trust, loyalty, and the individuality of each of them.\nShe has earned a reputation among the master class that is comparable to the top among the Uni-Digits (the class for NumberTales having single-digit numbers), and even among the 99 as a whole.\nShe is also sometimes recognized in combination with \"9 (Nina),\" who has a somewhat symmetrical aesthetic sense.\nIncidentally, her superior sensibility may be the reason for her unexpected weakness in sensory function...",
     "NumerospecStats": {
       "EffectStats": {
         "Mental": { "EffectText": "期待" },
@@ -5917,6 +5918,7 @@
     "RelationNotes": "従妹「47(シナ)」に興味がある？",
     "NumerospecAbout": "主人の努力を報わせる\nこの効果は主人の努力による学びが深いほど拡大する",
     "Summary": "努力家な主人を報わせると好評なナンバーテールズ。\n勤勉で知的向上心が旺盛な真面目ポジションで、主人層だけでなく他のナンバーテールズからも信頼されているが、褒められると99人の中で群を抜くレベルで甘えてしまう一面がある。\n従妹の「47(シナ)」に対して、他のナンバーテールズとは異なる感性や言動に興味があるようで…？",
+    "Summary_EN": "This NumberTales is well received for rewarding hard-working masters.\nShe is diligent, intellectually ambitious, and serious, trusted not only by her masters but also by the other NumberTales, but when she is praised, she is spoiled at a level unmatched by any of the 99.\nShe seems to be interested in her cousin \"47 (Fourséve)\" because of her different sensibility and behavior from the other NumberTales...?",
     "NumerospecStats": {
       "EffectStats": {
         "Mental": { "EffectText": "普通" },
@@ -7698,6 +7700,7 @@
     "RelationNotes": "「14(トヨ)」とは犬猿の仲だが……",
     "NumerospecAbout": "間に合わせる\nこの効果は期日が明確であるほど本領を発揮する",
     "Summary": "滞っているプロジェクトの火消案件を数多くこなすナンバーテールズ。\n期日が極めて迫っているときのマネジメント力は極めて秀でているが、せっかちで進捗を出せない状況が何より嫌い。\nそんな本性を隠すためその時は笑顔を繕っているらしいが、もはやバレバレの様だ。\n気質が似ているように思われる「14(トヨ)」とは大の犬猿の仲らしいが…",
+    "Summary_EN": "He/She is a NumberTales who handles many firefighting projects that are stalled.\nThey have excellent management skills when deadlines are extremely tight, but are impatient and hate situations where progress cannot be made more than anything else.\nHe/She is said to put on a smile at times to hide their true nature, but it seems to be obvious by now.\nHe/She and \"14 (Forteels),\" who seems to have a similar temperament, are apparently great enemies...",
     "NumerospecStats": {
       "EffectStats": {
         "Mental": { "EffectText": "効果無" },
@@ -8075,6 +8078,7 @@
     ],
     "NumerospecAbout": "楽観主義により自己実現と適応力を発揮する\nこの効果は主人に感化させることもできる\nただしこの効果は受動的な作用である",
     "Summary": "自己掲示欲は低いものの、自分が本領を発揮できるタイミングを逃すことが無く勝機を掴みやすい。\n何が起きようと適応力と状況判断力が極めて優れており、受動的な性格ながら自己実現力があり有能。\nちなみに、姉「25(フィズ)」の代替機としても活動しているため、姉妹で交代して主従業務に当たっている一面も見られている。",
+    "Summary_EN": "Although she has a low appetite for self-promotion, she never misses a moment when she is in her element and easily seizes a winning opportunity.\nShe is extremely adaptable and capable of judging situations no matter what happens, and although she is passive, she is self-actualized and competent.\nIncidentally, since she also acts as a replacement for her older sister \"25 (Quartels),\" the two sisters have been seen taking turns as lead and subordinate workers.",
     "NumerospecStats": {
       "EffectStats": {
         "Mental": { "EffectText": "期待" },
@@ -8769,6 +8773,7 @@
     "RelationNotes": "双子の片割「75(シチゴ)」に生真面目さを憶えている\n「66(ムロク)」を直視できない…？",
     "NumerospecAbout": "いつもと違うことから得た学びや教訓を味方にする（ROSの学習機能に近い）",
     "Summary": "状況から新たな経験を得ることに特化したナンバーテールズ。\n状況の変化からの学びを大切にし、それがいつしか自分に良き教訓や知見となることを信じている。\nただあまりに楽観的な思考は周りから圧巻されている。\nちなみに「75(シチゴ)」と同型双子関係があるが、「75(シチゴ)」と彼(女)でどちらが兄(姉)であるかという年長年弱の区別は無いらしい。",
+    "Summary_EN": "This NumberTales specializes in gaining new experiences from situations.\nHe/She values learning from changing situations, believing that it will eventually become a good lesson and knowledge.\nHowever, they are often overwhelmed by their overly optimistic thinking.\nIncidentally, he/she and \"75 (Sefieven)\" have the same type of twin relationship, but there seems to be no distinction between \"75 (Sefieven)\" and his/her brother/sister in terms of seniority.",
     "NumerospecStats": {
       "EffectStats": {
         "Mental": { "EffectText": "期待" },
@@ -10151,6 +10156,7 @@
     "RelationNotes": "「6(ムイ)」を「姉様」と慕っている",
     "NumerospecAbout": "祈りの恩恵を分け与える",
     "Summary": "「愛があることを信じていれば、何もなくとも輝ける」、そう信じてやまない博愛主義な「マスターテールズ9」のうちの1人。\n自分には強いポテンシャルがあるとも信じているが、その恩恵を主人にも分けてくれると主人層からかなりの好評を得ている。\nちなみに、「6(ムイ)」に対しては「姉様(あねさま)」と称するほど姉妹的な愛着があり、2人で過ごす時間も短くないという。",
+    "Summary_EN": "She is one of the benevolent \"Master Tales 9\" who believes that \"if you believe in love, you can shine even if you have nothing\".\nShe also believes that she has strong potential, and she is quite popular among the Master Tales for sharing her benefits with her masters.\nIncidentally, she has a strong sisterly attachment to \"6 (Sics),\" and the time they spend together is not short.",
     "NumerospecStats": {
       "EffectStats": {
         "Mental": { "EffectText": "絶大" },
@@ -13689,6 +13695,7 @@
     "RelationNotes": "「4(モチ)」に安心感を覚えている\n同クラス（デュアルフォーズ）での交流に苦戦中",
     "NumerospecAbout": "休息を与える\nこの効果は物事が終結した後に真価を発揮する",
     "Summary": "物事がひと段落したときの休息を過ごすことに特化したナンバーテールズ。\n休止(寝ている状態)時間が他の個体よりも極めて長いため、限られた活動時間でも従事できる主人とのマッチングの徹底やコアフォルダ形態を活用してなんとか活動を展開している。\nしかし周囲からは愛しく思われていて支持者も多い。\nコアフォルダ形態で他のコアフォルダに埋もれたいくらいにはコアフォルダが好き。",
+    "Summary_EN": "This NumberTales specializes in spending time resting when things have come to a close.\nSince they spend more time resting (sleeping) than other individuals, they manage to develop their activities by ensuring they are matched with masters who can engage them even during their limited activity time and by utilizing the CoreFolder form.\nHowever, he/she is loved by those around them and has many supporters.\nHe/She loves CoreFolders so much that they want to be buried in other CoreFolders in CoreFolder form.",
     "NumerospecStats": {
       "EffectStats": {
         "Mental": { "EffectText": "絶大" },

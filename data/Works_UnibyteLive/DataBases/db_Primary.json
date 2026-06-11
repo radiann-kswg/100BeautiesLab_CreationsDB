@@ -43,6 +43,7 @@
     ],
     "BustSize": "H",
     "AccessoryUnit": "Sの字状に波打ったポニーテールや猫型の尻尾",
+    "AccessoryUnit_EN": "S-shaped wavy ponytail and cat-like tail",
     "StreamingActivity": {
       "StreamingCategory": [
         {
@@ -63,6 +64,13 @@
           "about": "動画配信またはライブ配信での活動,頻度は少な目"
         }
       ],
+      "StreamingCategory_EN": [
+        { "value": "Interaction with listeners", "about": "Main activity, activity within 'Unibyte Universe'" },
+        { "value": "VR shader creation", "about": "Main activity, work streaming or individual performer activity" },
+        { "value": "Metaverse experiential content", "about": "Activity within 'Unibyte Universe', doujin content distribution and video streaming" },
+        { "value": "Short movies", "about": "Video streaming activity" },
+        { "value": "Game streaming: Tetris, racing, rhythm games", "about": "Video streaming or live streaming activity, relatively infrequent" }
+      ],
       "StreamingGreeting": {
         "StreamingGreeting_JP": ["こんな～み！"],
         "StreamingGreeting_EN": ["Hi, Surger!"]
@@ -75,7 +83,8 @@
         "「ユニバイト・ユニバース」九蓮国公認クリエイター",
         "ゲームエンジン特許あり"
       ],
-      "StreamingSummary": "ライブ配信では主に映像作品の公開をメインとしており、現実空間では味わえない斬新なプレイ体験でなみのりー(リスナー)たちを楽しませている。\n「ユニバイト・ユニバース」内ではトゥーンギャグに特化した様々なギミックを搭載したアバターでなみのりーと交流しており、時にVRユーザたちの性癖を大いに歪めたコンテンツを世に出したと噂されている。\n個人の同人ショップでアバターカスタムコンテンツも頒布しており、メタバースの新しい楽しみ方の提供にも積極的。"
+      "StreamingSummary": "ライブ配信では主に映像作品の公開をメインとしており、現実空間では味わえない斬新なプレイ体験でなみのりー(リスナー)たちを楽しませている。\n「ユニバイト・ユニバース」内ではトゥーンギャグに特化した様々なギミックを搭載したアバターでなみのりーと交流しており、時にVRユーザたちの性癖を大いに歪めたコンテンツを世に出したと噂されている。\n個人の同人ショップでアバターカスタムコンテンツも頒布しており、メタバースの新しい楽しみ方の提供にも積極的。",
+      "StreamingSummary_EN": "Primarily focused on publishing video content in live streams, entertaining the Surgers (listeners) with innovative play experiences unattainable in real space.\nWithin 'Unibyte Universe', she interacts with Surgers using an avatar packed with toon-gag-specialized gimmicks, and is sometimes rumored to have released content that greatly skewed the sensibilities of VR users.\nAlso actively distributes avatar custom content through her personal doujin shop, enthusiastically offering new ways to enjoy the metaverse."
     }
   }
 ]

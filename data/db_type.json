@@ -136,9 +136,19 @@
       "hashTag_JP": "一人称"
     },
     {
+      "hashTag": "FirstPersonCalling_EN",
+      "$type": "#String_EN|#Summary|#Null",
+      "hashTag_JP": "一人称_EN"
+    },
+    {
       "hashTag": "SecondPersonCalling",
       "$type": "#String|#Summary",
       "hashTag_JP": "二人称"
+    },
+    {
+      "hashTag": "SecondPersonCalling_EN",
+      "$type": "#String_EN|#Summary|#Null",
+      "hashTag_JP": "二人称_EN"
     },
     {
       "hashTag": "ThirdPersonCalling",
@@ -146,9 +156,19 @@
       "hashTag_JP": "三人称"
     },
     {
+      "hashTag": "ThirdPersonCalling_EN",
+      "$type": "#String_EN|#Summary|#Null",
+      "hashTag_JP": "三人称_EN"
+    },
+    {
       "hashTag": "Character",
       "$type": "#String|#Summary",
       "hashTag_JP": "性格"
+    },
+    {
+      "hashTag": "Character_EN",
+      "$type": "#String_EN|#Summary|#Null",
+      "hashTag_JP": "性格_EN"
     },
     {
       "hashTag": "Hobby",
@@ -156,9 +176,19 @@
       "hashTag_JP": "趣味"
     },
     {
+      "hashTag": "Hobby_EN",
+      "$type": "#String_EN|#Summary|#Null",
+      "hashTag_JP": "趣味_EN"
+    },
+    {
       "hashTag": "SpecialSkill",
       "$type": "#String|#Summary|#Null",
       "hashTag_JP": "特技"
+    },
+    {
+      "hashTag": "SpecialSkill_EN",
+      "$type": "#String_EN|#Summary|#Null",
+      "hashTag_JP": "特技_EN"
     },
     {
       "hashTag": "Favor",
@@ -166,9 +196,19 @@
       "hashTag_JP": "好きなもの"
     },
     {
+      "hashTag": "Favor_EN",
+      "$type": "#String_EN|#Summary|#Null",
+      "hashTag_JP": "好きなもの_EN"
+    },
+    {
       "hashTag": "Unlike",
       "$type": "#String|#Summary|#Null",
       "hashTag_JP": "苦手なもの"
+    },
+    {
+      "hashTag": "Unlike_EN",
+      "$type": "#String_EN|#Summary|#Null",
+      "hashTag_JP": "苦手なもの_EN"
     },
     {
       "hashTag": "Strength",
@@ -176,9 +216,19 @@
       "hashTag_JP": "強み"
     },
     {
+      "hashTag": "Strength_EN",
+      "$type": "#String_EN|#Summary|#Null",
+      "hashTag_JP": "強み_EN"
+    },
+    {
       "hashTag": "Weakness",
       "$type": "#String|#Summary|#Null",
       "hashTag_JP": "弱み"
+    },
+    {
+      "hashTag": "Weakness_EN",
+      "$type": "#String_EN|#Summary|#Null",
+      "hashTag_JP": "弱み_EN"
     },
     {
       "hashTag": "IdentityMotif",
@@ -199,9 +249,19 @@
           "hashTag_JP": "口調"
         },
         {
+          "hashTag": "TalkingTone_EN",
+          "$type": "#String_EN|#Summary|#Null",
+          "hashTag_JP": "口調_EN"
+        },
+        {
           "hashTag": "TopicPreference",
           "$type": "#String|#Summary|#Null",
           "hashTag_JP": "話題嗜好"
+        },
+        {
+          "hashTag": "TopicPreference_EN",
+          "$type": "#String_EN|#Summary|#Null",
+          "hashTag_JP": "話題嗜好_EN"
         },
         {
           "hashTag": "TalkFrequency",
@@ -209,9 +269,19 @@
           "hashTag_JP": "会話頻度"
         },
         {
+          "hashTag": "TalkFrequency_EN",
+          "$type": "#String_EN|#Summary|#Null",
+          "hashTag_JP": "会話頻度_EN"
+        },
+        {
           "hashTag": "PreferredTopics",
           "$type": "#String|#Summary|#Null",
           "hashTag_JP": "やりがちな話題"
+        },
+        {
+          "hashTag": "PreferredTopics_EN",
+          "$type": "#String_EN|#Summary|#Null",
+          "hashTag_JP": "やりがちな話題_EN"
         },
         {
           "hashTag": "AvoidedTopics",
@@ -219,9 +289,19 @@
           "hashTag_JP": "避けがちな話題"
         },
         {
+          "hashTag": "AvoidedTopics_EN",
+          "$type": "#String_EN|#Summary|#Null",
+          "hashTag_JP": "避けがちな話題_EN"
+        },
+        {
           "hashTag": "ConversationNotes",
           "$type": "#String|#Summary|#Null",
           "hashTag_JP": "会話における補足"
+        },
+        {
+          "hashTag": "ConversationNotes_EN",
+          "$type": "#String_EN|#Summary|#Null",
+          "hashTag_JP": "会話における補足_EN"
         },
         {
           "hashTag": "DialogueExamples",
@@ -241,7 +321,17 @@
       "$type": "#Summary",
       "hashTag_JP": "関連性について"
     },
+    {
+      "hashTag": "RelationNotes_EN",
+      "$type": "#Summary|#Null",
+      "hashTag_JP": "関連性について_EN"
+    },
     { "hashTag": "Summary", "$type": "#Summary", "hashTag_JP": "概要・紹介文" },
+    {
+      "hashTag": "Summary_EN",
+      "$type": "#Summary|#Null",
+      "hashTag_JP": "概要・紹介文_EN"
+    },
     {
       "hashTag": "AbilityStats",
       "$type": [
@@ -288,11 +378,27 @@
       "$type": "#Summary",
       "hashTag_JP": "キャラクターの背景"
     },
+    {
+      "hashTag": "Backgrounds_EN",
+      "$type": "#Summary|#Null",
+      "hashTag_JP": "キャラクターの背景_EN"
+    },
     { "hashTag": "InStory", "$type": "#Summary", "hashTag_JP": "劇中では" },
+    {
+      "hashTag": "InStory_EN",
+      "$type": "#Summary|#Null",
+      "hashTag_JP": "劇中では_EN"
+    },
     {
       "hashTag": "AdditionalDesigned",
       "$type": "#Summary",
       "hashTag_JP": "追加デザイン協力者について",
+      "searchable": false
+    },
+    {
+      "hashTag": "AdditionalDesigned_EN",
+      "$type": "#Summary|#Null",
+      "hashTag_JP": "追加デザイン協力者について_EN",
       "searchable": false
     }
   ],

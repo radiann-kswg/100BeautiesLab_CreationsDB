@@ -37,6 +37,11 @@
       "$display": { "section": "images", "tagSpace": "internal" }
     },
     { "hashTag": "Career", "$type": "#Summary", "hashTag_JP": "経歴について" },
+    {
+      "hashTag": "Career_EN",
+      "$type": "#Summary|#Null",
+      "hashTag_JP": "経歴について_EN"
+    },
     { "hashTag": "Chronos", "$type": "#Index", "hashTag_JP": "クロノス" },
     {
       "hashTag": "ChronoholderName",
@@ -44,14 +49,29 @@
       "hashTag_JP": "時空象器能力名"
     },
     {
+      "hashTag": "ChronoholderName_EN",
+      "$type": "##String_EN|#Null",
+      "hashTag_JP": "時空象器能力名_EN"
+    },
+    {
       "hashTag": "ChronospecName",
       "$type": "#String_JP",
       "hashTag_JP": "時空遷移能力名"
     },
     {
+      "hashTag": "ChronospecName_EN",
+      "$type": "##String_EN|#Null",
+      "hashTag_JP": "時空遷移能力名_EN"
+    },
+    {
       "hashTag": "ChronospecAbout",
       "$type": "#Summary",
       "hashTag_JP": "時空遷移能力について"
+    },
+    {
+      "hashTag": "ChronospecAbout_EN",
+      "$type": "#Summary|#Null",
+      "hashTag_JP": "時空遷移能力について_EN"
     },
     {
       "hashTag": "ChronospecStats",

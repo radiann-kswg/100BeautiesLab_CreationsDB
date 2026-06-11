@@ -16,11 +16,17 @@
     "Weight_kg": 18,
     "Class": ["ベーシックコモンズ"],
     "Character": "気分が“零か百”で、極端に元気なこともあれば極端に落ち込んでいることもある",
+    "Character_EN": "Mood swings in extremes of 'zero or one hundred' — sometimes bursting with energy, other times utterly deflated",
     "Strength": "表裏が一切ない",
+    "Strength_EN": "Completely without a hidden side",
     "Weakness": "気分の振れ幅が激しい",
+    "Weakness_EN": "Mood swings are extremely wide-ranging",
     "Favor": "秒針のチック(１秒ごとに針が断続的に動く様子)",
+    "Favor_EN": "The ticking of a second hand (the intermittent movement of the hand with each second)",
     "Unlike": "曖昧なこと",
-    "LogicspecAbout": "状態を切り下げ/切り上げする"
+    "Unlike_EN": "Anything ambiguous",
+    "LogicspecAbout": "状態を切り下げ/切り上げする",
+    "LogicspecAbout_EN": "Cuts off / rounds up state values"
   },
   {
     "Model": { "LogicSeries": "74x", "Num": 141 },
@@ -38,11 +44,17 @@
     "Weight_kg": 19,
     "Class": ["キリルマトンズ"],
     "Character": "癇癪を起こしやすく、物へのこだわりが強い",
+    "Character_EN": "Prone to tantrums and has strong attachments to objects",
     "Strength": "過圧に耐久できる",
+    "Strength_EN": "Can withstand overvoltage",
     "Weakness": "我が強い",
+    "Weakness_EN": "Stubborn-willed",
     "Favor": "電熱燈",
+    "Favor_EN": "Incandescent lights",
     "Unlike": "最新技術",
-    "LogicspecAbout": "電熱燈を点灯させる"
+    "Unlike_EN": "Latest technology",
+    "LogicspecAbout": "電熱燈を点灯させる",
+    "LogicspecAbout_EN": "Illuminates incandescent lights"
   },
   {
     "Model": { "LogicSeries": "74x", "Num": 181 },
@@ -66,11 +78,17 @@
     ],
     "Class": ["アリスメティカ"],
     "Character": "理論生前としており、汎用オートマトンの中ではほぼ唯一人語を理解できる",
+    "Character_EN": "Fundamentally rational in disposition, and almost the only one among the general-purpose automatons capable of understanding human language",
     "Strength": "知的である",
+    "Strength_EN": "Intellectually capable",
     "Weakness": "指示をするための制約が多い",
+    "Weakness_EN": "Many constraints for giving instructions",
     "Favor": "アーケードゲーム",
+    "Favor_EN": "Arcade games",
     "Unlike": "最新世代のコンピュータ",
-    "LogicspecAbout": "論理的計算をする"
+    "Unlike_EN": "The latest generation of computers",
+    "LogicspecAbout": "論理的計算をする",
+    "LogicspecAbout_EN": "Performs logical calculations"
   },
   {
     "Model": { "LogicSeries": "74x", "Num": 182 },
@@ -94,10 +112,16 @@
     ],
     "Class": ["エキスパンダ"],
     "Character": "とても礼儀正しく、躾にとても従順",
+    "Character_EN": "Extremely polite and highly obedient to training",
     "Strength": "整理が得意",
+    "Strength_EN": "Skilled at organizing",
     "Weakness": "単体行動や自己判断が苦手",
+    "Weakness_EN": "Poor at acting alone or making independent judgments",
     "Favor": "アリスメティアに該当する汎用オートマトン",
+    "Favor_EN": "General-purpose automatons corresponding to the Arithmetica series",
     "Unlike": "ブラックボックス",
-    "LogicspecAbout": "アリスメティアの能力を拡張する"
+    "Unlike_EN": "Black boxes",
+    "LogicspecAbout": "アリスメティアの能力を拡張する",
+    "LogicspecAbout_EN": "Extends the capabilities of the Arithmetica series"
   }
 ]

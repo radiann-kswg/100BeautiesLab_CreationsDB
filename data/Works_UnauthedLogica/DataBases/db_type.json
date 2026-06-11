@@ -29,10 +29,22 @@
       "hashTag_JP": "主人の呼び方"
     },
     {
+      "hashTag": "ForMasterCalling_EN",
+      "$type": "#String_EN|#Summary|#Null",
+      "isForMobs": false,
+      "hashTag_JP": "主人の呼び方_EN"
+    },
+    {
       "hashTag": "LogicspecAbout",
       "$type": "#Summary",
       "isForMobs": null,
       "hashTag_JP": "ロジカ(論理特殊能力)について"
+    },
+    {
+      "hashTag": "LogicspecAbout_EN",
+      "$type": "#Summary|#Null",
+      "isForMobs": null,
+      "hashTag_JP": "ロジカ(論理特殊能力)について_EN"
     },
     {
       "hashTag": "ExistingRarity",

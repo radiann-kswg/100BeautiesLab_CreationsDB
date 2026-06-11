@@ -62,15 +62,32 @@
       "$display": { "section": "profile" }
     },
     {
+      "hashTag": "For79thDealerCalling_EN",
+      "$type": "#String_EN|#Null",
+      "hashTag_JP": "錦野舞(第79アルカナ)の呼び方_EN",
+      "$display": { "section": "profile" }
+    },
+    {
       "hashTag": "For80thDealerCalling",
       "$type": "#String|#Null",
       "hashTag_JP": "錦野歌嫁(第80アルカナ)の呼び方",
       "$display": { "section": "profile" }
     },
     {
+      "hashTag": "For80thDealerCalling_EN",
+      "$type": "#String_EN|#Null",
+      "hashTag_JP": "錦野歌嫁(第80アルカナ)の呼び方_EN",
+      "$display": { "section": "profile" }
+    },
+    {
       "hashTag": "ArcanamspecAbout",
       "$type": "#Summary",
       "hashTag_JP": "アルカナムスペック(アルカナ能力)について"
+    },
+    {
+      "hashTag": "ArcanamspecAbout_EN",
+      "$type": "#Summary|#Null",
+      "hashTag_JP": "アルカナムスペック(アルカナ能力)について_EN"
     },
     {
       "hashTag": "ArcanumspecStats",
