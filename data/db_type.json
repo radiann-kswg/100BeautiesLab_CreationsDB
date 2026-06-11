@@ -305,7 +305,7 @@
         },
         {
           "hashTag": "DialogueExamples",
-          "$type": "#Dialogue[]|#Dialogue_withAbout[]|#Null",
+          "$type": "#Dialogue[]|#Dialogue_withAbout[]|#Dialogue_bilingual[]|#Null",
           "hashTag_JP": "台詞の例"
         }
       ],

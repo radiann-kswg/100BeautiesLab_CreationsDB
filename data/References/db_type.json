@@ -43,6 +43,16 @@
       "hashTag_JP": "本文ブロック"
     },
     {
+      "hashTag": "BodyBlocks_EN",
+      "$type": "#Summary[]|#Null",
+      "hashTag_JP": "本文ブロック_EN"
+    },
+    {
+      "hashTag": "Summary_EN",
+      "$type": "#Summary|#Null",
+      "hashTag_JP": "概要・紹介文_EN"
+    },
+    {
       "hashTag": "RelatedTerms",
       "$type": "#String[]|#Null",
       "hashTag_JP": "関連用語"

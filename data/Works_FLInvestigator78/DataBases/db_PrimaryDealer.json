@@ -271,7 +271,7 @@
     "Weight_kg": [
       {
         "value": { "hideText": "非公開" },
-        "about": "体型は美形",
+        "about_JP": "体型は美形",
         "about_EN": "His figure is beautiful."
       }
     ],

@@ -107,24 +107,34 @@
         "「いま、球体化の話したか!!?」",
         "「難しいこと語ってないでとりあえずうちのかわいいまるもちを見てってよ」",
         {
-          "value": "「ボクを玩具にするなバカ先代!!」",
-          "about": "2代目代理(扇二春)にいじられている時"
+          "value_JP": "「ボクを玩具にするなバカ先代!!」",
+          "value_EN": "\"Don't treat me like a toy, you idiot predecessor!!\"",
+          "about_JP": "2代目代理(扇二春)にいじられている時",
+          "about_EN": "When being teased by the 2nd-generation proxy (Seconec)"
         },
         {
-          "value": "「え～～、いま創作よりコレが面白くにゃってきたんだよにゃ～」",
-          "about": "筆を止めてゲームやコンテンツ鑑賞などに暮れている時"
+          "value_JP": "「え～～、いま創作よりコレが面白くにゃってきたんだよにゃ～」",
+          "value_EN": "\"Awww, this has gotten more fun for me than my creative work right now, nyaa~\"",
+          "about_JP": "筆を止めてゲームやコンテンツ鑑賞などに暮れている時",
+          "about_EN": "When putting down the pen for gaming or content watching"
         },
         {
-          "value": "「うっわ、目のクマ濃っゆ……」",
-          "about": "明らかに疲れている人を目にした時"
+          "value_JP": "「うっわ、目のクマ濃っゆ……」",
+          "value_EN": "\"Wow, those are some deep dark circles under your eyes...\"",
+          "about_JP": "明らかに疲れている人を目にした時",
+          "about_EN": "When noticing someone who is clearly exhausted"
         },
         {
-          "value": "「筆が止まらねｪｪｪｴｴｴﾞｴﾞ!!!!」",
-          "about": "創作に興が乗った時"
+          "value_JP": "「筆が止まらねｪｪｪｴｴｴﾞｴﾞ!!!!」",
+          "value_EN": "\"My pen just won't stooooooop!!!!\"",
+          "about_JP": "創作に興が乗った時",
+          "about_EN": "When in a creative flow"
         },
         {
-          "value": "「球体化する？まんまるもっちりとしてて癒されるよ……いい？やった!!! 球体化しろﾋﾞーーーーーーーーーﾑ!!!!!」",
-          "about": "相手を球体化する時"
+          "value_JP": "「球体化する？まんまるもっちりとしてて癒されるよ……いい？やった!!! 球体化しろﾋﾞーーーーーーーーーﾑ!!!!!」",
+          "value_EN": "\"Wanna get spherified? It's round, squishy and soothing... okay? YESSS!!! SPHERIFY BEEEEEAAAAM!!!!!\"",
+          "about_JP": "相手を球体化する時",
+          "about_EN": "When spherifying the other party"
         }
       ]
     }
@@ -158,7 +168,7 @@
     "InStory": "この創作世界の作者：ラジアン(柏木主税)の創作活動を作者の側で支えてきた作者の初代代理。作者自身の理解者・ペルソナとして、作者の創作活動の支援や励ましを行う存在……らしい。",
     "InStory_EN": "The first-generation proxy of the author of this creative world, RadianN_kswg, who has long supported the author's creative activities from their side. As the author's own confidant and persona, an existence that provides support and encouragement for the author's creative endeavors... apparently.",
     "Backgrounds": "この創作世界の作者：ラジアン(柏木主税)自身から生まれた作者のためのペルソナで、サークル「百花繚乱研究所」成立前から作者の創作活動を見守ってきた、この創作世界の最大の理解者で創造主：ラジアンとしての原点\nとある理由で初代ラジアン代理としての役目を後代の代理キャラへ託し消息を経ってしまったが、ふとあるたびに作者の心へ語りかけにくることがある",
-    "Backgrounds_EN": "A persona for the author born from the author of this creative world, Radian (Kazei Kashiwagi), who has watched over the author's creative activities since before the establishment of the circle '100BeautiesLab.', and is the greatest confidant and the origin of Radian as creator of this creative world\nFor a certain reason, they handed over their role as the first-generation Radian proxy to later-generation proxy characters and disappeared from contact, but they sometimes come to speak to the author's heart from time to time",
+    "Backgrounds_EN": "A persona for the author born from the author of this creative world, RadianN_kswg, who has watched over the author's creative activities since before the establishment of the circle '100BeautiesLab.', and is the greatest confidant and the origin of RadianN as creator of this creative world\nFor a certain reason, they handed over their role as the first-generation RadianN proxy to later-generation proxy characters and disappeared from contact, but they sometimes come to speak to the author's heart from time to time",
     "ConversationPattern": {
       "TalkingTone": "中性的でフレンドリーな明るい話し方。ヲタク的な趣向を有しているが、ヲタク特有の口語表現はあまりしない。",
       "TalkingTone_EN": "Gender-neutral, friendly, and cheerful manner of speaking. Has otaku-like tendencies but rarely uses otaku-specific colloquial expressions.",
@@ -166,7 +176,12 @@
         "「わからないことがあったらなんでも言ってね」",
         "「わぁ〜、その子かわいいね！すっごく抱きしめてあげたいよ〜」",
         "「私は君が楽しく創作活動に励んでいれば、それでいいんだ。だから体を壊してまでは無理しないでね？」",
-		{"value": "「二春、最近調子はどう？私はまだそっちに戻れそうにないけど、もし困ったことがあったらまた連絡してね」", "about": "後代の代理キャラである二春(2代目ラジアン)に連絡している時"}
+		{
+			"value_JP": "「二春、最近調子はどう？私はまだそっちに戻れそうにないけど、もし困ったことがあったらまた連絡してね」",
+		"value_EN": "\"Seconec, how have you been lately? I still don't think I'll be able to come back there, but if you ever run into trouble, let me know again.\"",
+		 "about_JP": "後代の代理キャラである二春(2代目ラジアン)に連絡している時",
+		 "about_EN": "When contacting Seconec (2nd-gen RadianN), the later-generation proxy character"
+		}
       ]
     }
   }

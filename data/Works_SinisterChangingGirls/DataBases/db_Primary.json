@@ -57,7 +57,7 @@
     "GenderType": "Female",
     "Belonging": ["国際情報広報機関『ミハイル』"],
     "Height_cm": [
-      { "value": 163, "about": "標準体型時" },
+      { "value": 163, "about_JP": "標準体型時", "about_EN": "In standard body form" },
       {
         "about_JP": "食事量により可変",
         "about_EN": "Dependent on the amount of food consumed"
