@@ -144,14 +144,22 @@
     "Generation": 1,
     "Progress": "unprofiled",
     "Name": "ラジアン(初代)\n扇小春",
-	"Name_EN": "RadianN (1st Gen.)\nKoharu Arch",
+    "Name_EN": "RadianN (1st Gen.)\nKoharu Arch",
     "FormalName": "扇 一春",
     "FormalName_EN": "Arch Prum",
     "RaceType": "Warfox(Acquired)",
-    "GenderType": {"value": "Female", "about_JP": "ただしそこまで女性的な体格ではない", "about_EN": "However, not so feminine physique."},
+    "GenderType": {
+      "value": "Female",
+      "about_JP": "ただしそこまで女性的な体格ではない",
+      "about_EN": "However, not so feminine physique."
+    },
     "Height_cm": 176,
     "Weight_kg": 61,
-    "Age": { "value": 24, "about_JP": "永遠の身体年齢（ただし精神年齢は17歳と思われる）", "about_EN": "Eternal physical age (however, the mental age is believed to be: 17)" },
+    "Age": {
+      "value": 24,
+      "about_JP": "永遠の身体年齢（ただし精神年齢は17歳と思われる）",
+      "about_EN": "Eternal physical age (however, the mental age is believed to be: 17)"
+    },
     "FirstPersonCalling": "私(わたし)",
     "FirstPersonCalling_EN": "I",
     "SecondPersonCalling": "君(きみ),[※名前呼び]",
@@ -160,7 +168,7 @@
     "Character_EN": "A bright and lively nature with a gender-neutral disposition\nWith a big-sisterly side that always gives its best for companions, and an otaku side that dotes on creative characters",
     "Hobby": "創作世界を見守ること",
     "Hobby_EN": "Watching over the creative world",
-    "SpecialSkill": {"hideText": "極秘事項"},
+    "SpecialSkill": { "hideText": "極秘事項" },
     "Favor": "可愛いキャラクター、縫い包みやクッションなどのノベルティグッズ",
     "Favor_EN": "Cute characters, novelty goods such as plushies and cushions",
     "Unlike": "喧嘩やトラブル、緊急対応が重なること",
@@ -176,12 +184,12 @@
         "「わからないことがあったらなんでも言ってね」",
         "「わぁ〜、その子かわいいね！すっごく抱きしめてあげたいよ〜」",
         "「私は君が楽しく創作活動に励んでいれば、それでいいんだ。だから体を壊してまでは無理しないでね？」",
-		{
-			"value_JP": "「二春、最近調子はどう？私はまだそっちに戻れそうにないけど、もし困ったことがあったらまた連絡してね」",
-		"value_EN": "\"Seconec, how have you been lately? I still don't think I'll be able to come back there, but if you ever run into trouble, let me know again.\"",
-		 "about_JP": "後代の代理キャラである二春(2代目ラジアン)に連絡している時",
-		 "about_EN": "When contacting Seconec (2nd-gen RadianN), the later-generation proxy character"
-		}
+        {
+          "value_JP": "「二春、最近調子はどう？私はまだそっちに戻れそうにないけど、もし困ったことがあったらまた連絡してね」",
+          "value_EN": "\"Seconec, how have you been lately? I still don't think I'll be able to come back there, but if you ever run into trouble, let me know again.\"",
+          "about_JP": "後代の代理キャラである二春(2代目ラジアン)に連絡している時",
+          "about_EN": "When contacting Seconec (2nd-gen RadianN), the later-generation proxy character"
+        }
       ]
     }
   }
