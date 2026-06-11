@@ -40,6 +40,8 @@ let worksCatalogCache = null;
 let workDbCatalogCache = new Map();
 const sharedLayerTypeDefCache = new Map();
 const workLayerTypeDefCache = new Map();
+const PAGE_LANG_STORAGE_KEY = '100bl.characters.pageLang';
+const PAGE_LANG_DEFAULT = 'mix';
 
 function isCharactersTestMode() {
 	return Boolean(globalThis.__CHARACTERS_TEST_MODE__ || import.meta.vitest);
@@ -167,16 +169,27 @@ function mapDbNameToImageDir(dbName) {
 
 function getRecordPrimaryTitle(rec) {
 	if (!rec || typeof rec !== 'object') return '(No Name)';
-	const base = [
-		rec.Name, rec.FormalName, rec.ModelName, rec.Title, rec.Term,
-		rec.Name_EN, rec.FormalName_EN, rec.Title_EN, rec.Term_EN
-	].find((value) => typeof value === 'string' && value.trim());
+	const lang = getCurrentPageLanguage();
+	const primaryOrder = lang === 'en'
+		? [
+			rec.Name_EN, rec.FormalName_EN, rec.Title_EN, rec.Term_EN,
+			rec.Name, rec.FormalName, rec.ModelName, rec.Title, rec.Term
+		]
+		: [
+			rec.Name, rec.FormalName, rec.ModelName, rec.Title, rec.Term,
+			rec.Name_EN, rec.FormalName_EN, rec.Title_EN, rec.Term_EN
+		];
+	const base = primaryOrder.find((value) => typeof value === 'string' && value.trim());
 	return String(base || '(No Name)').trim();
 }
 
 function getRecordSecondaryTitle(rec) {
 	if (!rec || typeof rec !== 'object') return '';
-	const sub = [rec.Name_EN, rec.FormalName_EN, rec.Term_EN, rec.Title_EN, rec.ModelNumber]
+	const lang = getCurrentPageLanguage();
+	const order = lang === 'en'
+		? [rec.Name, rec.FormalName, rec.Term, rec.Title, rec.Name_EN, rec.FormalName_EN, rec.Term_EN, rec.Title_EN, rec.ModelNumber]
+		: [rec.Name_EN, rec.FormalName_EN, rec.Term_EN, rec.Title_EN, rec.ModelNumber];
+	const sub = order
 		.find((value) => typeof value === 'string' && value.trim());
 	return String(sub || '').trim();
 }
@@ -533,7 +546,8 @@ function getQS() {
 		// 汎用インデックス直リンク（作品ごとの $IndexDef に対応）
 		idx: p.get('idx') || '',
 		idxKey: p.get('idxKey') || '',
-		q: p.get('q') || ''
+		q: p.get('q') || '',
+		lang: p.get('lang') || ''
 	};
 }
 
@@ -545,6 +559,49 @@ function setQS(next) {
 	const cur = getQS();
 	const qs = new URLSearchParams({ ...cur, ...next });
 	history.replaceState(null, '', `${location.pathname}?${qs.toString()}`);
+}
+
+function normalizePageLanguage(lang) {
+	const raw = String(lang || '').trim().toLowerCase();
+	if (raw === 'en' || raw === 'eng') return 'en';
+	if (raw === 'ja' || raw === 'jp' || raw === 'jpn') return 'jp';
+	if (raw === 'mix' || raw === 'bilingual' || raw === 'bi') return 'mix';
+	return PAGE_LANG_DEFAULT;
+}
+
+function getCurrentPageLanguage() {
+	const queryLang = getQS().lang;
+	if (queryLang) return normalizePageLanguage(queryLang);
+	const stateLang = window?.__CHAR_STATE__?.pageLang;
+	if (stateLang) return normalizePageLanguage(stateLang);
+	try {
+		const stored = localStorage.getItem(PAGE_LANG_STORAGE_KEY);
+		if (stored) return normalizePageLanguage(stored);
+	} catch {
+		// no-op
+	}
+	return PAGE_LANG_DEFAULT;
+}
+
+function applyLanguageState(lang) {
+	const normalized = normalizePageLanguage(lang);
+	if (window.__CHAR_STATE__ && typeof window.__CHAR_STATE__ === 'object') {
+		window.__CHAR_STATE__.pageLang = normalized;
+	}
+	document.documentElement.lang = normalized === 'en' ? 'en' : 'ja';
+	document.body?.setAttribute('data-lang', normalized);
+	return normalized;
+}
+
+function persistPageLanguage(lang) {
+	const normalized = normalizePageLanguage(lang);
+	setQS({ lang: normalized === 'mix' ? '' : normalized });
+	try {
+		localStorage.setItem(PAGE_LANG_STORAGE_KEY, normalized);
+	} catch {
+		// no-op
+	}
+	return applyLanguageState(normalized);
 }
 
 /**
@@ -714,7 +771,10 @@ async function listWorkDBs(workKey) {
  * @returns {string}
  */
 function getDbDisplayLabel(db, fallback = '') {
-	const label = String(db?.DB_Label || db?.DB_Label_EN || db?.key || fallback || '').trim();
+	const lang = getCurrentPageLanguage();
+	const label = lang === 'en'
+		? String(db?.DB_Label_EN || db?.DB_Label || db?.key || fallback || '').trim()
+		: String(db?.DB_Label || db?.DB_Label_EN || db?.key || fallback || '').trim();
 	return label || String(fallback || '-');
 }
 
@@ -901,15 +961,18 @@ function openImageLightbox(imgData, triggerEl = null) {
  * @returns {HTMLElement}
  */
 function createGalleryImageItem(imgData) {
-	const altText = str(imgData?.alt).trim() || '画像';
+	const lang = getCurrentPageLanguage();
+	const altText = str(imgData?.alt).trim() || (lang === 'en' ? 'Image' : '画像');
 	const captionText = str(imgData?.caption).trim();
 	const previewLabel = captionText || altText;
+	const zoomLabel = lang === 'en' ? `${previewLabel} (zoom)` : `${previewLabel} を拡大表示`;
+	const zoomHint = lang === 'en' ? 'Zoom' : '拡大';
 
 	return el('div', { class: 'image-item' }, [
 		el('button', {
 			type: 'button',
 			class: 'image-zoom-trigger',
-			'aria-label': `${previewLabel} を拡大表示`,
+			'aria-label': zoomLabel,
 			title: previewLabel,
 			onclick: (event) => openImageLightbox({
 				url: imgData?.url,
@@ -923,7 +986,7 @@ function createGalleryImageItem(imgData) {
 				loading: 'lazy',
 				title: previewLabel
 			}),
-			el('span', { class: 'image-zoom-hint', 'aria-hidden': 'true' }, ['拡大'])
+			el('span', { class: 'image-zoom-hint', 'aria-hidden': 'true' }, [zoomHint])
 		]),
 		captionText ? el('div', { class: 'caption' }, [captionText]) : null
 	].filter(Boolean));
@@ -1426,10 +1489,25 @@ function getWorkIndexField(workKey, globalMeta) {
  */
 function getIndexLabel(def) {
 	if (!def || typeof def !== 'object') return '';
+	const lang = getCurrentPageLanguage();
+	if (lang === 'en') {
+		return (
+			def.hashTagName_EN ||
+			def.hashTag_EN ||
+			def.hashtag_EN ||
+			def.hashTagName_JP ||
+			def.hashTag_JP ||
+			def.hashtag_JP ||
+			def.hashTag ||
+			''
+		);
+	}
 	return (
 		def.hashTagName_JP ||
 		def.hashTag_JP ||
 		def.hashtag_JP ||
+		def.hashTag_EN ||
+		def.hashtag_EN ||
 		def.hashTagName_EN ||
 		def.hashTag ||
 		''
@@ -1792,10 +1870,14 @@ function extractImageFields(workTypeDef, globalTypeDef = {}) {
 				for (const child of item.$type) {
 					if (child.hashTag && !processedFields.has(child.hashTag)) {
 						const { category, priority } = getImageCategory(child.hashTag, child.$type);
+						const jpLabel = child.hashTag_JP || child.hashtag_JP || '';
+						const enLabel = child.hashTag_EN || child.hashtag_EN || '';
 						const fieldSpec = {
 							field: child.hashTag,
 							type: child.$type || '#PNGFileName',
-							label: child.hashTag_JP || child.hashtag_JP || child.hashTag,
+							labelJP: jpLabel || child.hashTag,
+							labelEN: enLabel || jpLabel || child.hashTag,
+							label: jpLabel || enLabel || child.hashTag,
 							path: ['Images', child.hashTag],
 							folderHint: inferImageFolderHint(child.hashTag),
 							category,
@@ -1811,10 +1893,14 @@ function extractImageFields(workTypeDef, globalTypeDef = {}) {
 			// Process standalone image fields
 			else if (item.hashTag && isImageField(item.hashTag, item.$type) && !processedFields.has(item.hashTag)) {
 				const { category, priority } = getImageCategory(item.hashTag, item.$type);
+				const jpLabel = item.hashTag_JP || item.hashtag_JP || '';
+				const enLabel = item.hashTag_EN || item.hashtag_EN || '';
 				const fieldSpec = {
 					field: item.hashTag,
 					type: item.$type,
-					label: item.hashTag_JP || item.hashtag_JP || item.hashTag,
+					labelJP: jpLabel || item.hashTag,
+					labelEN: enLabel || jpLabel || item.hashTag,
+					label: jpLabel || enLabel || item.hashTag,
 					path: currentPath,
 					folderHint: inferImageFolderHint(item.hashTag),
 					category,
@@ -1871,6 +1957,21 @@ function extractImageFields(workTypeDef, globalTypeDef = {}) {
  */
 function buildFieldLabelMap(workTypeDef, globalTypeDef = {}) {
 	const labelMap = {};
+	const mergeLabel = (key, jpLabel, enLabel) => {
+		if (!key) return;
+		const jp = (typeof jpLabel === 'string' && jpLabel.trim()) ? jpLabel.trim() : '';
+		const en = (typeof enLabel === 'string' && enLabel.trim()) ? enLabel.trim() : '';
+
+		if (jp) {
+			labelMap[key] = jp;
+		} else if (!labelMap[key] && en) {
+			labelMap[key] = en;
+		}
+
+		if (en) {
+			labelMap[`__en__${key}`] = en;
+		}
+	};
 
 	console.log('🏷️ Building field label map:', {
 		globalTypeDef: globalTypeDef,
@@ -1887,15 +1988,16 @@ function buildFieldLabelMap(workTypeDef, globalTypeDef = {}) {
 
 			// Map this field if it has a Japanese label
 			const jpLabel = item.hashTag_JP || item.hashtag_JP;
-			if (item.hashTag && jpLabel) {
-				labelMap[item.hashTag] = jpLabel;
-				labelMap[currentPath.join('.')] = jpLabel;
+			const enLabel = item.hashTag_EN || item.hashtag_EN;
+			if (item.hashTag && (jpLabel || enLabel)) {
+				mergeLabel(item.hashTag, jpLabel, enLabel);
+				mergeLabel(currentPath.join('.'), jpLabel, enLabel);
 
 				console.log(`📝 Mapped field (${source}):`, item.hashTag, '→', jpLabel);
 
 				// Also map short path versions for nested access
 				if (currentPath.length > 1) {
-					labelMap[currentPath.slice(-1)[0]] = jpLabel;
+					mergeLabel(currentPath.slice(-1)[0], jpLabel, enLabel);
 				}
 			}
 
@@ -2193,7 +2295,7 @@ function extractTopLevelSchemaFields(workTypeDef, globalTypeDef = {}, options = 
 				if (!isSecondary && item.isForSecondary === true) continue;
 			}
 
-			const label = item.hashTag_JP || item.hashtag_JP || key;
+			const label = item.hashTag_JP || item.hashtag_JP || item.hashTag_EN || item.hashtag_EN || key;
 			out.push({
 				key,
 				label,
@@ -2369,12 +2471,23 @@ function buildTopLevelAliasMap(workTypeDef, globalTypeDef = {}) {
  * @returns {string} Localized label or fallback
  */
 function getFieldLabel(fieldName, labelMap, workMeta = null, globalDefType = null, fallback = null) {
+	const pickLocalized = (entry, key = '') => {
+		const lang = getCurrentPageLanguage();
+		if (lang === 'en' && key) {
+			const enKey = `__en__${key}`;
+			if (typeof labelMap?.[enKey] === 'string' && labelMap[enKey].trim()) {
+				return labelMap[enKey].trim();
+			}
+		}
+		return (typeof entry === 'string') ? entry : '';
+	};
+
 	// Try exact match first
-	if (labelMap[fieldName]) return labelMap[fieldName];
+	if (labelMap[fieldName]) return pickLocalized(labelMap[fieldName], fieldName);
 
 	// Try without path prefixes
 	const simpleName = fieldName.split('.').pop();
-	if (labelMap[simpleName]) return labelMap[simpleName];
+	if (labelMap[simpleName]) return pickLocalized(labelMap[simpleName], simpleName);
 
 	// Try with common prefixes/suffixes
 	const variations = [
@@ -2388,23 +2501,28 @@ function getFieldLabel(fieldName, labelMap, workMeta = null, globalDefType = nul
 	];
 
 	for (const variation of variations) {
-		if (labelMap[variation]) return labelMap[variation];
+		if (labelMap[variation]) return pickLocalized(labelMap[variation], variation);
 	}
 
 	// Try lookup in global definition types
 	if (globalDefType && globalDefType.General && globalDefType.General.$VarsDef) {
 		const globalVarsDef = globalDefType.General.$VarsDef;
+		const lang = getCurrentPageLanguage();
 
 		// Check enum definitions
 		if (globalVarsDef[`$EnumDef_${fieldName}`]) {
-			return globalVarsDef[`$EnumDef_${fieldName}`][`#${fieldName}`]?.[`${fieldName}_JP`] || fieldName;
+			const enumEntry = globalVarsDef[`$EnumDef_${fieldName}`][`#${fieldName}`] || {};
+			if (lang === 'en') {
+				return enumEntry?.[`${fieldName}_EN`] || enumEntry?.[`${fieldName}_JP`] || fieldName;
+			}
+			return enumEntry?.[`${fieldName}_JP`] || enumEntry?.[`${fieldName}_EN`] || fieldName;
 		}
 
 		// Check list definitions
 		if (globalVarsDef[`#List_${fieldName}`]) {
 			const listDef = globalVarsDef[`#List_${fieldName}`];
 			if (Array.isArray(listDef) && listDef[0] && listDef[0][`${fieldName}_JP`]) {
-				return `${fieldName}（複数選択可）`;
+				return lang === 'en' ? `${fieldName} (multiple)` : `${fieldName}（複数選択可）`;
 			}
 		}
 	}
@@ -2427,7 +2545,11 @@ function getFieldLabel(fieldName, labelMap, workMeta = null, globalDefType = nul
 		}
 	}
 
-	return fallback || fieldName;
+	const fb = String(fallback || fieldName);
+	if (getCurrentPageLanguage() === 'en') {
+		return /[\u3040-\u30ff\u3400-\u9fff]/.test(fb) ? fieldName : fb;
+	}
+	return fb;
 }
 
 /**
@@ -3008,10 +3130,22 @@ function formatBilingualLabel(pack, fallback, displayOpt = null) {
 
 	const pickJp = () => jp || en || raw;
 	const pickEn = () => en || raw || jp;
+	const pageLang = getCurrentPageLanguage();
+	const hasJapaneseChars = (text) => /[\u3040-\u30ff\u3400-\u9fff]/.test(String(text || ''));
+
+	if (mode === 'raw' || mode === 'code') return raw;
+	if (pageLang === 'jp') {
+		if (jp) return jp;
+		if (raw && hasJapaneseChars(raw)) return raw;
+		return '';
+	}
+	if (pageLang === 'en') {
+		if (en) return en;
+		return '';
+	}
 
 	if (mode === 'jp' || mode === 'ja') return pickJp();
 	if (mode === 'en' || mode === 'eng') return pickEn();
-	if (mode === 'raw' || mode === 'code') return raw;
 	if (mode === 'enj' || mode === 'enjp' || mode === 'enjpn') {
 		const primary = pickEn();
 		if (!primary) return '';
@@ -4240,6 +4374,10 @@ function buildImageGallery(workId, record, imageFields, dbName = 'Primary') {
 		for (let i = 0; i < values.length; i++) {
 			const val = values[i];
 			if (!val) continue;
+			const lang = getCurrentPageLanguage();
+			const fieldLabel = (lang === 'en')
+				? (field.labelEN || field.labelJP || field.label || field.field)
+				: (field.labelJP || field.labelEN || field.label || field.field);
 
 			// Use the enhanced buildImagePath function
 			const url = buildImagePath(wdir, dbName, field, val);
@@ -4247,9 +4385,9 @@ function buildImageGallery(workId, record, imageFields, dbName = 'Primary') {
 			if (url) {
 				const imageItem = {
 					url,
-					caption: field.label + (isArray && values.length > 1 ? ` (${i + 1}/${values.length})` : ''),
+					caption: fieldLabel + (isArray && values.length > 1 ? ` (${i + 1}/${values.length})` : ''),
 					type: field.field,
-					alt: `${field.label} - ${record.Name || record.FormalName || 'Character'}`,
+					alt: `${fieldLabel} - ${record.Name || record.FormalName || 'Character'}`,
 					category: field.category,
 					priority: field.priority
 				};
@@ -4332,7 +4470,10 @@ function getRecordImages(rec) {
  * @returns {string} Human-readable work label
  */
 function humanWorkLabel(work) {
-	const t = work.Title || work.Title_EN || work.key || '';
+	const lang = getCurrentPageLanguage();
+	const t = (lang === 'en')
+		? (work.Title_EN || work.Title || work.key || '')
+		: (work.Title || work.Title_EN || work.key || '');
 	return `${t} (${work.key.replace('#Works_', '')})`;
 }
 
@@ -4345,12 +4486,16 @@ function getStoryEraSummary(storyEra) {
 
 function formatOldTitles(oldTitles) {
 	if (!Array.isArray(oldTitles) || oldTitles.length === 0) return '';
+	const lang = getCurrentPageLanguage();
 	return oldTitles
 		.map((entry) => {
 			if (!entry || typeof entry !== 'object') return '';
-			const label = String(entry.Title || entry.Title_EN || '').trim();
+			const label = lang === 'en'
+				? String(entry.Title_EN || entry.Title || '').trim()
+				: String(entry.Title || entry.Title_EN || '').trim();
 			const year = entry.ArchivedYear == null ? '' : ` (${entry.ArchivedYear})`;
-			return label ? `旧題: ${label}${year}` : '';
+			if (!label) return '';
+			return lang === 'en' ? `Old title: ${label}${year}` : `旧題: ${label}${year}`;
 		})
 		.filter(Boolean)
 		.join('\n');
@@ -4362,6 +4507,89 @@ function setTextAndHidden(selector, text) {
 	const normalized = String(text || '').trim();
 	node.textContent = normalized;
 	node.hidden = !normalized;
+}
+
+function getUiCopyByLanguage(lang) {
+	if (lang === 'en') {
+		return {
+			title: 'Character Sheet Viewer',
+			lead: 'This page builds character sheets from /data/** through the in-browser Service Worker APIs: /pages/v1/* (primary), /svc/v1/* (alias), and /api/v1/* (legacy).',
+			work: 'Works',
+			db: 'DB',
+			search: 'Filter (name/index substring)',
+			searchPlaceholder: 'e.g. Tsugu / 2 / Unitta',
+			resolve: 'Enable reference resolution (recommended)',
+			debug: 'Debug info',
+			metaWork: 'Work Info',
+			metaDb: 'DB Info',
+			listTitle: 'Character List',
+			listEmpty: 'No matching characters were found.',
+			back: '<- Back to list',
+			reset: 'Reset Cache/SW',
+			resetTitle: 'Reset caches and Service Worker, then reload.',
+			langButton: 'JP',
+			langTitle: 'Switch page language to Japanese.'
+		};
+	}
+
+	return {
+		title: '創作キャラ・キャラシート',
+		lead: '本ページはクライアント内API（Service Worker）/pages/v1/*（優先）、/svc/v1/*（別名）、/api/v1/*（レガシー）のいずれかを用い、/data/** の情報からキャラシートを生成します。',
+		work: '作品（Works）',
+		db: 'DB',
+		search: '絞り込み（名前/番号 など 部分一致）',
+		searchPlaceholder: '例: ツグ / 2 / Unitta',
+		resolve: '参照解決を有効化（推奨）',
+		debug: 'デバッグ情報',
+		metaWork: '作品情報',
+		metaDb: 'DB情報',
+		listTitle: 'キャラクター一覧',
+		listEmpty: '該当するキャラクターが見つかりませんでした。',
+		back: '← 一覧へ戻る',
+		reset: 'キャッシュ/SWリセット',
+		resetTitle: 'キャッシュとService Workerをリセットしてリロードします',
+		langButton: 'EN',
+		langTitle: '表示言語を英語へ切り替え',
+	};
+}
+
+function applyStaticTextLanguage() {
+	const lang = getCurrentPageLanguage();
+	const copy = getUiCopyByLanguage(lang);
+
+	const setText = (selector, text) => {
+		const node = $(selector);
+		if (!node) return;
+		node.textContent = text;
+	};
+
+	setText('#page-title', copy.title);
+	setText('#page-lead', copy.lead);
+	setText('#label-work', copy.work);
+	setText('#label-db', copy.db);
+	setText('#label-search', copy.search);
+	setText('#label-resolve', copy.resolve);
+	setText('#label-debug', copy.debug);
+	setText('#label-meta-work', copy.metaWork);
+	setText('#label-meta-db', copy.metaDb);
+	setText('#label-list-title', copy.listTitle);
+	setText('#list-empty', copy.listEmpty);
+	setText('#btn-back', copy.back);
+	setText('#btn-reset-sw', copy.reset);
+
+	const searchInput = $('#search-input');
+	if (searchInput) searchInput.placeholder = copy.searchPlaceholder;
+
+	const resetBtn = $('#btn-reset-sw');
+	if (resetBtn) resetBtn.title = copy.resetTitle;
+
+	const langBtn = $('#btn-lang-toggle');
+	if (langBtn) {
+		langBtn.textContent = copy.langButton;
+		langBtn.title = copy.langTitle;
+	}
+
+	document.title = `${copy.title} | 100BeautiesLab Creations DB`;
 }
 
 async function renderSelectionMeta(workKey, dbKey) {
@@ -4385,13 +4613,18 @@ async function renderSelectionMeta(workKey, dbKey) {
 		return;
 	}
 
-	$('#meta-work-title').textContent = work?.Title || work?.Title_EN || normalizeWorkKey(workKey) || '-';
-	setTextAndHidden('#meta-work-sub', [work?.Title_EN, formatOldTitles(work?.OldTitles)].filter(Boolean).join('\n'));
-	setTextAndHidden('#meta-work-summary', work?.Works_Summary || '');
+	const lang = getCurrentPageLanguage();
+	$('#meta-work-title').textContent = (lang === 'en')
+		? (work?.Title_EN || work?.Title || normalizeWorkKey(workKey) || '-')
+		: (work?.Title || work?.Title_EN || normalizeWorkKey(workKey) || '-');
+	setTextAndHidden('#meta-work-sub', [lang === 'en' ? work?.Title : work?.Title_EN, formatOldTitles(work?.OldTitles)].filter(Boolean).join('\n'));
+	setTextAndHidden('#meta-work-summary', (lang === 'en') ? (work?.Works_Summary_EN || work?.Works_Summary || '') : (work?.Works_Summary || work?.Works_Summary_EN || ''));
 
 	$('#meta-db-title').textContent = getDbDisplayLabel(db, dbKey || '-');
 	setTextAndHidden('#meta-db-era', getStoryEraSummary(db?.StoryEra));
-	setTextAndHidden('#meta-db-summary', db?.DB_Summary || db?.SecondarySummary || '');
+	setTextAndHidden('#meta-db-summary', (lang === 'en')
+		? (db?.DB_Summary_EN || db?.SecondarySummary_EN || db?.DB_Summary || db?.SecondarySummary || '')
+		: (db?.DB_Summary || db?.SecondarySummary || db?.DB_Summary_EN || db?.SecondarySummary_EN || ''));
 
 	root.hidden = false;
 }
@@ -4799,17 +5032,32 @@ function matchFilter(rec, q) {
 	if (!q) return true;
 	const s = q.trim().toLowerCase();
 	if (!s) return true;
-	const keys = [
-		// 互換: *_JP / *_EN の言語別フィールドも検索対象に含める
-		rec.Name, rec.Name_JP, rec.Name_EN,
-		rec.FormalName, rec.FormalName_JP, rec.FormalName_EN,
-		rec.Title, rec.Title_JP, rec.Title_EN,
-		rec.Term, rec.Term_JP, rec.Term_EN, rec.Term_JPReading,
-		rec.ModelName, rec.ModelNumber,
-		rec.CodeName, rec.SPCodeName, rec.SPCodeName_EN,
-		rec.Num
-	].map(str);
-	return keys.some(k => String(k).toLowerCase().includes(s));
+
+	const tokens = [];
+	const visit = (value, depth = 0) => {
+		if (depth > 6 || tokens.length > 300) return;
+		if (value === null || value === undefined) return;
+
+		if (typeof value === 'string' || typeof value === 'number' || typeof value === 'boolean') {
+			tokens.push(String(value));
+			return;
+		}
+
+		if (Array.isArray(value)) {
+			for (const item of value) visit(item, depth + 1);
+			return;
+		}
+
+		if (typeof value === 'object') {
+			for (const [k, v] of Object.entries(value)) {
+				if (typeof k === 'string' && k.startsWith('_')) continue;
+				visit(v, depth + 1);
+			}
+		}
+	};
+
+	visit(rec, 0);
+	return tokens.some(k => String(k).toLowerCase().includes(s));
 }
 
 /**
@@ -5270,11 +5518,21 @@ export async function renderDetail(workId, rec) {
 
 			const baseText = textByKey.get(base) || textByKey.get(`${base}_JP`) || '';
 			const enText = textByKey.get(`${base}_EN`) || '';
+			const lang = getCurrentPageLanguage();
+			if (lang === 'en') {
+				const text = enText || '';
+				return { text, usedKeys, node: null };
+			}
+			if (lang === 'jp') {
+				const text = baseText || '';
+				return { text, usedKeys, node: null };
+			}
+
 			const hasBilingualPair = !!baseText && !!enText;
 			const hasMultiline = hasBilingualPair && (baseText.includes('\n') || enText.includes('\n'));
 			const node = hasMultiline ? bilingualColumnsText(baseText, enText) : null;
-
-			return { text: pieces.join(' / '), usedKeys, node };
+			const text = hasBilingualPair ? `${baseText} / ${enText}` : (baseText || enText || pieces[0] || '');
+			return { text, usedKeys, node };
 		};
 
 		const isEmptyForAlt = (v) => {
@@ -5740,6 +5998,22 @@ export async function renderDetail(workId, rec) {
 			const schemaType = schemaTypeHint ?? pickSchemaType(schemaPath);
 			if (!schemaType) return false;
 
+			const hasStructuredChildren = (() => {
+				if (Array.isArray(schemaType)) {
+					return schemaType.some((entry) => (
+						entry
+						&& typeof entry === 'object'
+						&& !Array.isArray(entry)
+						&& typeof entry.hashTag === 'string'
+					));
+				}
+				if (schemaType && typeof schemaType === 'object' && !Array.isArray(schemaType)) {
+					return typeof schemaType.hashTag === 'string';
+				}
+				return false;
+			})();
+			if (hasStructuredChildren) return false;
+
 			return (
 				schemaTypeIncludes(schemaType, '#Index')
 				|| schemaTypeIncludes(schemaType, '#ListIndex')
@@ -5752,17 +6026,27 @@ export async function renderDetail(workId, rec) {
 			);
 		};
 
+		const hasLocalizedChildKeys = (obj) => {
+			if (!isPlainObject(obj)) return false;
+			const keys = Object.keys(obj).filter((key) => key && typeof key === 'string' && !key.startsWith('_'));
+			return keys.some((key) => key.endsWith('_JP') || key.endsWith('_EN'));
+		};
+
 		const formatObjectChildren = (parentSchemaPath, obj, opt2 = null) => {
 			if (!isPlainObject(obj)) return '';
 			const parent = String(parentSchemaPath || '').trim();
 			if (!parent) return '';
 
 			const separator = (opt2 && typeof opt2 === 'object' && typeof opt2.separator === 'string') ? opt2.separator : '\n';
+			const lang = getCurrentPageLanguage();
 			const parts = [];
 
 			for (const [ck, cv] of Object.entries(obj)) {
 				if (!ck || typeof ck !== 'string') continue;
 				if (ck.startsWith('_')) continue;
+				if (lang === 'jp' && ck.endsWith('_EN')) continue;
+				if (lang === 'en' && ck.endsWith('_JP')) continue;
+				if (lang === 'en' && !ck.endsWith('_EN') && Object.prototype.hasOwnProperty.call(obj, `${ck}_EN`)) continue;
 				if (isEmptyValueLoose(cv)) continue;
 
 				const childPath = `${parent}.${ck}`;
@@ -6194,7 +6478,13 @@ export async function renderDetail(workId, rec) {
 			if (v instanceof Node) return v;
 
 			// typedef 上で「子フィールド定義が存在するobject」は、子ごとに表示（[object Object]回避 + 分離表示）
-			if (isPlainObject(v) && k && typeof k === 'string' && hasNestedSchema(k) && !isSchemaWrapperLike(k, v, schemaType)) {
+			if (
+				isPlainObject(v)
+				&& k
+				&& typeof k === 'string'
+				&& !isSchemaWrapperLike(k, v, schemaType)
+				&& (hasNestedSchema(k) || hasLocalizedChildKeys(v))
+			) {
 				const expanded = formatObjectChildren(k, v, { separator: '\n' });
 				if (expanded) return expanded.includes('\n') ? preWrapText(expanded) : expanded;
 			}
@@ -6786,7 +7076,13 @@ export async function renderDetail(workId, rec) {
 
 		const secondaryInfoSection = secondaryInfoItems.length
 			? el('div', { class: 'section' }, [
-				el('h3', {}, [String(secondaryMetaFieldContext.schema?.hashTag_JP || '二次創作情報')]),
+				el('h3', {}, [String((() => {
+					const lang = getCurrentPageLanguage();
+					if (lang === 'en') {
+						return secondaryMetaFieldContext.schema?.hashTag_EN || secondaryMetaFieldContext.schema?.hashTag_JP || 'Secondary Info';
+					}
+					return secondaryMetaFieldContext.schema?.hashTag_JP || secondaryMetaFieldContext.schema?.hashTag_EN || '二次創作情報';
+				})())]),
 				el('div', {}, secondaryInfoItems.map((item) => el('div', { style: 'margin-bottom: 10px;' }, [
 					el('div', { class: 'tag', style: 'margin-bottom: 6px;' }, [item.label]),
 					(typeof item.node === 'string') ? preWrapText(item.node) : item.node
@@ -7208,6 +7504,7 @@ function wireControls() {
 	const searchInput = $('#search-input');
 	const chkResolve = $('#chk-resolve');
 	const chkDebug = $('#chk-debug');
+	const btnLangToggle = $('#btn-lang-toggle');
 	const btnBack = $('#btn-back');
 	const imageLightbox = $('#image-lightbox');
 	const imageLightboxClose = $('#image-lightbox-close');
@@ -7227,6 +7524,9 @@ function wireControls() {
 	}
 	if (window.__eventHandlers.debugChange) {
 		chkDebug.removeEventListener('change', window.__eventHandlers.debugChange);
+	}
+	if (window.__eventHandlers.langToggleClick && btnLangToggle) {
+		btnLangToggle.removeEventListener('click', window.__eventHandlers.langToggleClick);
 	}
 	if (window.__eventHandlers.backClick) {
 		btnBack.removeEventListener('click', window.__eventHandlers.backClick);
@@ -7264,6 +7564,19 @@ function wireControls() {
 
 	window.__eventHandlers.resolveChange = reload;
 	window.__eventHandlers.debugChange = reload;
+	window.__eventHandlers.langToggleClick = async () => {
+		const next = getCurrentPageLanguage() === 'en' ? 'jp' : 'en';
+		persistPageLanguage(next);
+		applyStaticTextLanguage();
+		const currentWork = $('#select-work')?.value || '';
+		const currentDb = $('#select-db')?.value || 'Primary';
+		if (currentWork) {
+			await populateWorks(currentWork);
+			await populateDBs(currentWork, currentDb);
+		}
+		await renderSelectionMeta($('#select-work').value, $('#select-db').value || '');
+		await reload();
+	};
 	window.__eventHandlers.backClick = () => {
 		closeImageLightbox({ restoreFocus: false });
 		$('#detail-view').hidden = true;
@@ -7294,6 +7607,9 @@ function wireControls() {
 	searchInput.addEventListener('input', window.__eventHandlers.searchInput);
 	chkResolve.addEventListener('change', window.__eventHandlers.resolveChange);
 	chkDebug.addEventListener('change', window.__eventHandlers.debugChange);
+	if (btnLangToggle) {
+		btnLangToggle.addEventListener('click', window.__eventHandlers.langToggleClick);
+	}
 	btnBack.addEventListener('click', window.__eventHandlers.backClick);
 	if (imageLightbox) {
 		imageLightbox.addEventListener('click', window.__eventHandlers.lightboxBackdropClick);
@@ -7422,6 +7738,20 @@ async function main() {
 	try {
 		// 競合状態を防ぐため、即座に初期化中としてマーク
 		isInitialized = true;
+
+		const qsLang = getQS().lang;
+		let initialLang = qsLang;
+		if (!initialLang) {
+			try {
+				initialLang = localStorage.getItem(PAGE_LANG_STORAGE_KEY) || PAGE_LANG_DEFAULT;
+			} catch {
+				initialLang = PAGE_LANG_DEFAULT;
+			}
+		}
+		const normalizedLang = normalizePageLanguage(initialLang);
+		if (!qsLang && normalizedLang !== 'mix') setQS({ lang: normalizedLang });
+		applyLanguageState(normalizedLang);
+		applyStaticTextLanguage();
 
 		// ローディングインジケーターを表示
 		showLoadingIndicator('アプリケーションを初期化しています...');
@@ -7719,6 +8049,7 @@ async function reloadInternal(showLoading = true) {
 		window.__CHAR_STATE__ = {
 			workId,
 			db,
+			pageLang: getCurrentPageLanguage(),
 			resolve,
 			debug,
 			records: recs,
