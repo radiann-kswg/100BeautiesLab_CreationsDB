@@ -15,13 +15,9 @@
 
 ## いま進行中のファイル
 
-- 2026-04-22_progress_task1-day-era-softcoding.md（タスク1 Day/Era/Area hardcode 緩和・部分完了）
-- 2026-04-23_progress_requested-tasks-implementation-plan.md（4タスク実装計画・更新中）
-- 2026-05-11_progress_storyera-schema.md（StoryEra/Day/Era schema 整備・部分完了）
-- 2026-05-15_progress_subfields-wrapper-unification.md（subFields/wrapper 統合・追加作品目視確認残）
 - 2026-05-29_progress_bilingual-wrapper-apiswui.md（bilingual wrapper API/SW 対応・UI 表示未完了）
 - 2026-06-01_remaining-task.md（現行の未完了タスク一覧・最新）
-- 2026-06-02_progress_pkg-client-libraries.md（pkg/ クライアントライブラリ新規実装・完了）
+- 2026-06-09_progress_identitymotif-conversion.md（IdentityMotif 新形式変換・Motif_JP 整備残）
 
 補足:
 
@@ -31,9 +27,16 @@
 - 2026-05-11 の棚卸しで、完了済みの `2026-03-31_remaining-task.md`、`2026-04-21_progress_multi-index-display.md` 他を `.completed` へ整理しました。
 - 2026-06-01 の棚卸しで、`2026-04-21_progress_secondary-commons-defaults.md`・`2026-04-22_progress_requested-tasks-overview.md`・`2026-04-22_remaining-task.md`・`2026-05-29_progress_guideline-consolidation.md` を `.completed` へ退避しました。
 - `2026-06-01_remaining-task.md` に、現時点の未完了・着手中タスクを統合しました。
+- 2026-06-11 の棚卸しで、`2026-04-22_progress_task1-day-era-softcoding.md`・`2026-04-23_progress_requested-tasks-implementation-plan.md`・`2026-05-11_progress_storyera-schema.md`・`2026-05-15_progress_subfields-wrapper-unification.md`・`2026-06-02_progress_pkg-client-libraries.md`・`2026-06-02_progress_pkg-library.md` を `.completed` へ退避しました。
 
 ## 完了（.completed へ退避済み）
 
+- 2026-06-02_progress_pkg-client-libraries.md（pkg/ クライアントライブラリ新規実装・完了）
+- 2026-06-02_progress_pkg-library.md（pkg/ ライブラリ API 拡張・完了）
+- 2026-05-15_progress_subfields-wrapper-unification.md（subFields/wrapper 統合・完了）
+- 2026-05-11_progress_storyera-schema.md（StoryEra/Day/Era schema 整備・完了）
+- 2026-04-23_progress_requested-tasks-implementation-plan.md（4タスク実装計画ログ・06-01 へ集約済み）
+- 2026-04-22_progress_task1-day-era-softcoding.md（タスク1 初動実装・完了）
 - 2026-04-21_progress_secondary-commons-defaults.md
 - 2026-04-22_progress_requested-tasks-overview.md（実装計画ログへ引き継ぎ済み）
 - 2026-04-22_remaining-task.md（06-01 残タスクログへ集約済み）
