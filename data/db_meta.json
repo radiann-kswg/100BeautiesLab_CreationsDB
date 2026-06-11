@@ -24,6 +24,7 @@
           "TailsUnit"
         ],
         "subFields": [
+          "IdentityMotif",
           "AbilityStats",
           "NumerospecAbout",
           "NumerospecStats",
@@ -220,7 +221,8 @@
           "GenderType",
           "Height_cm",
           "Weight_kg"
-        ]
+        ],
+        "subFields": ["ConversationPattern"]
       }
     }
   },
