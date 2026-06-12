@@ -1,0 +1,17 @@
+[
+  {
+    "Pattern": "Prop.",
+    "Pattern_JP": "通常",
+    "Pattern_EN": "Proper"
+  },
+  {
+    "Pattern": "Inv.",
+    "Pattern_JP": "逆転",
+    "Pattern_EN": "Inverse"
+  },
+  {
+    "Pattern": "Unstab.",
+    "Pattern_JP": "不安定",
+    "Pattern_EN": "Unstable"
+  }
+]

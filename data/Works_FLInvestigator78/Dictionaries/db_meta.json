@@ -5,6 +5,42 @@
       "DB_Label_EN": "Class Dictionary",
       "keyField": "Class",
       "compatListKey": "#List_Class"
+    },
+    "#Dict_Stoat": {
+      "DB_Label": "Stoat辞書",
+      "DB_Label_EN": "Stoat Dictionary",
+      "keyField": "Stoat",
+      "compatListKey": "#List_Stoat"
+    },
+    "#Dict_Material": {
+      "DB_Label": "Material辞書",
+      "DB_Label_EN": "Material Dictionary",
+      "keyField": "Material",
+      "compatListKey": "#List_Material"
+    },
+    "#Dict_KinematicOrStatic": {
+      "DB_Label": "KinematicOrStatic辞書",
+      "DB_Label_EN": "KinematicOrStatic Dictionary",
+      "keyField": "KinematicOrStatic",
+      "compatListKey": "#List_KinematicOrStatic"
+    },
+    "#Dict_RoleType": {
+      "DB_Label": "RoleType辞書",
+      "DB_Label_EN": "RoleType Dictionary",
+      "keyField": "RoleType",
+      "compatListKey": "#List_RoleType"
+    },
+    "#Dict_DualizePattern": {
+      "DB_Label": "DualizePattern辞書",
+      "DB_Label_EN": "DualizePattern Dictionary",
+      "keyField": "DualizePattern",
+      "compatListKey": "#List_DualizePattern"
+    },
+    "#Dict_SpecialPattern": {
+      "DB_Label": "SpecialPattern辞書",
+      "DB_Label_EN": "SpecialPattern Dictionary",
+      "keyField": "SpecialPattern",
+      "compatListKey": "#List_SpecialPattern"
     }
   }
 }

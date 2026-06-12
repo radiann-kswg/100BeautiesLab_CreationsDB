@@ -151,3 +151,32 @@
   - `物質量` -> `Amount of Substance`
   - `角度(弧度法)` -> `Plane Angle (Radian Measure)`
   - `立体角(弧度法)` -> `Solid Angle (Radian Measure)`
+
+---
+
+## 2026-06-12 追記：2作品目（Works_FLInvestigator78）
+
+### 実施内容
+
+- `tools/extract-enum-lists-to-dictionaries.mjs` を使い、`Works_FLInvestigator78` の `#List_*` を辞書化。
+  - 実行: `npm.cmd run dict:export-enums:prune -- --work=Works_FLInvestigator78`
+  - 反映: `dict_Stoat.json`, `dict_Material.json`, `dict_KinematicOrStatic.json`, `dict_RoleType.json`, `dict_DualizePattern.json`, `dict_SpecialPattern.json`
+  - `DataBases/db_meta.json` 側から該当 `#List_*` は削除（辞書参照へ移行）
+
+- 辞書化後の EN 補完を実施。
+  - `dict_Material.json`: `Material_EN` を追加
+  - `dict_DualizePattern.json`: `Pattern_EN` を追加
+  - `dict_SpecialPattern.json`: `SpecialPattern_EN` を追加
+
+- メタ英訳の補完。
+  - `data/Works_FLInvestigator78/DataBases/db_meta.json`
+  - `#DB_Primary`, `#DB_PrimaryDealer` に `DB_Summary_EN` を追加
+
+### 追加対応（UIメタ表示の英訳反映）
+
+- `pages/characters.js` の表示経路（`work.Works_Summary_EN` 優先）に合わせ、
+  `data/db_meta.json` の `CreationWorks` 側へ以下を追加。
+  - `#Works_FLInvestigator78.Works_Summary_EN`
+  - `#Works_DestinyFoxRecords.Works_Summary_EN`
+
+- これにより、`lang=en` 時の「Work Info」要約が JP ではなく EN を参照できる状態にした。

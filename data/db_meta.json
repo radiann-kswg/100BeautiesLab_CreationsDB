@@ -44,6 +44,7 @@
         }
       ],
       "Works_Summary": "英皇国と九蓮国にある異能調査組織「特殊探偵団セブンティエイト」に所属する少年少女。\n主にタロットカードに基づいた能力の憑依が可能なキャラクターが存在する。",
+      "Works_Summary_EN": "Young investigators belonging to the paranormal investigation organization 'Special Detectives Team.78', active across the British Empire and LotusNinea.\nCharacters capable of hosting abilities primarily based on tarot cards are featured.",
       "$DetailLayout": {
         "headerPills": ["Progress"],
         "basicFields": [
@@ -185,6 +186,7 @@
         }
       ],
       "Works_Summary": "弊創作を執筆している「ラジアン」の仲間たち。\n主に科学単位や数学用語に基づいた獣人のキャラクターからなる。\nちなみに、当タイトルのいう「ラジアン」とは作者の２代目代理のことである。",
+      "Works_Summary_EN": "Companions of 'RadianN', the author writing this creative series.\nThey mainly consist of beastfolk characters themed around scientific units and mathematical terms.\nIn this title, 'RadianN' refers to the author's second-generation proxy character.",
       "$DetailLayout": {
         "headerPills": ["Progress"],
         "basicFields": [

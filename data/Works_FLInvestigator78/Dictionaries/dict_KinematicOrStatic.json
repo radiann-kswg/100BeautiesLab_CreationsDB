@@ -1,0 +1,22 @@
+[
+  {
+    "KinematicOrStatic": "Kinematic",
+    "KinematicOrStatic_JP": "動",
+    "KinematicOrStatic_EN": "Kinematic"
+  },
+  {
+    "KinematicOrStatic": "Static",
+    "KinematicOrStatic_JP": "静",
+    "KinematicOrStatic_EN": "Static"
+  },
+  {
+    "KinematicOrStatic": "Pre-Kinematic",
+    "KinematicOrStatic_JP": "壊",
+    "KinematicOrStatic_EN": "Pre-Kinematic"
+  },
+  {
+    "KinematicOrStatic": "Pre-Static",
+    "KinematicOrStatic_JP": "情",
+    "KinematicOrStatic_EN": "Pre-Static"
+  }
+]
