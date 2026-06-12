@@ -2,9 +2,7 @@
   {
     "Drc": "N",
     "Progress": "released(beta)",
-    "Images": {
-      "concept_PNGName": "cnsp_imgDrcN"
-    },
+    "Images": { "concept_PNGName": "cnsp_imgDrcN" },
     "_DBLink": {
       "worksTitle": "NumberTales",
       "dbName": "Primary",
@@ -57,7 +55,11 @@
     "GenderType": "Female",
     "Belonging": ["国際情報広報機関『ミハイル』"],
     "Height_cm": [
-      { "value": 163, "about_JP": "標準体型時", "about_EN": "In standard body form" },
+      {
+        "value": 163,
+        "about_JP": "標準体型時",
+        "about_EN": "In standard body form"
+      },
       {
         "about_JP": "食事量により可変",
         "about_EN": "Dependent on the amount of food consumed"
@@ -173,9 +175,7 @@
         { "hashTag": "Num", "key": null }
       ]
     },
-    "Images": {
-      "concept_PNGName": "cnsp_imgDrcS"
-    },
+    "Images": { "concept_PNGName": "cnsp_imgDrcS" },
     "Name": "六花 雙葉(ろくばな-ふたは)\nクィーン.トゥエルヴ",
     "Name_EN": "Dozenne Hexacrys\nQueen.XII",
     "FormalName": "六花 雙葉(ろくばな-ふたは)",
@@ -223,7 +223,8 @@
     "AnivDay": [
       {
         "Day": { "Month": 9, "DayOfMonth": 14 },
-        "DayAbout": "育て主に拾われた日"
+        "DayAbout": "育て主に拾われた日",
+        "DayAbout_EN": "Day found by foster master"
       }
     ],
     "FirstPersonCalling": "ミル ※名前呼び",
@@ -309,10 +310,10 @@
     "Character_EN": "Belligerent and arrogant\nDesires 'entertainment' out of even the most outrageous things",
     "Hobby": "エンターテインメント（という名の邪知暴虐）",
     "Hobby_EN": "Entertainment (a name for tyranny and wickedness)",
-    "SpecialSkill": {"hideText": "判定失敗"},
+    "SpecialSkill": { "hideText": "判定失敗" },
     "Favor": "人が争い勝者が権力に溺れ敗者が絶望に打ちのめされる光景",
     "Favor_EN": "The sight of people clashing, winners drowning in power, and losers crushed by despair",
-    "Unlike": {"hideText": "判定失敗"},
+    "Unlike": { "hideText": "判定失敗" },
     "Summary": "もともと「財前 こさと」として若手超大物政治ジャーナリストをしていた謎の若人。\n十数年前に突如 電撃引退を宣言し各メディアから姿を消していたが、ある時この名で目撃されたという情報が相次いでおり真相を迫られている。\n好奇心旺盛で遊戯意識が強く 周りの出来事はすべて“エンタメ”として楽しんでいるが、時にその遊び心が「傲慢」さに変わり 夜月機関や運命線探偵、獣爾騎兵などへ強大な敵として牙を向くことも……",
     "Summary_EN": "A mysterious young person who was originally a rising young mega-celebrity political journalist under the name 'Foster Empressor'.\nThey suddenly announced a stunning retirement more than a decade ago and vanished from all media, but reports of sightings under this name have been coming one after another, and the truth is being pressed.\nHighly curious with a strong sense of play, they enjoy everything around them as 'entertainment', but sometimes that playfulness turns to 'Pride/Arrogance', and they bare their fangs as a powerful enemy against organizations like the Yadzuki, the FateLine Investigators, and the Shou'ar Riders..."
   }

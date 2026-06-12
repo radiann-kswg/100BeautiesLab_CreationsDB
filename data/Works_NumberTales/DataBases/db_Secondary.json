@@ -335,7 +335,11 @@
       "about_EN": "Presumption"
     },
     "AnivDay": [
-      { "Day": { "Month": 6, "DayOfMonth": 10 }, "DayAbout": "開発記念" }
+      {
+        "Day": { "Month": 6, "DayOfMonth": 10 },
+        "DayAbout": "開発記念",
+        "DayAbout_EN": "Development commemoration"
+      }
     ],
     "Weight_kg": [
       { "value": 39, "about_JP": "推定", "about_EN": "Presumption" }
@@ -446,7 +450,11 @@
       "about_EN": "Presumption"
     },
     "AnivDay": [
-      { "Day": { "Month": 6, "DayOfMonth": 11 }, "DayAbout": "開発記念" }
+      {
+        "Day": { "Month": 6, "DayOfMonth": 11 },
+        "DayAbout": "開発記念",
+        "DayAbout_EN": "Development commemoration"
+      }
     ],
     "Weight_kg": [
       { "value": 36, "about_JP": "推定", "about_EN": "Presumption" }
@@ -568,7 +576,11 @@
       "about_EN": "Presumption"
     },
     "AnivDay": [
-      { "Day": { "Month": 6, "DayOfMonth": 12 }, "DayAbout": "開発記念" }
+      {
+        "Day": { "Month": 6, "DayOfMonth": 12 },
+        "DayAbout": "開発記念",
+        "DayAbout_EN": "Development commemoration"
+      }
     ],
     "Weight_kg": { "hideText": "未公開希望" },
     "TailsUnit": "犬型3本",
@@ -690,7 +702,11 @@
       "about_EN": "Presumption"
     },
     "AnivDay": [
-      { "Day": { "Month": 6, "DayOfMonth": 13 }, "DayAbout": "開発記念" }
+      {
+        "Day": { "Month": 6, "DayOfMonth": 13 },
+        "DayAbout": "開発記念",
+        "DayAbout_EN": "Development commemoration"
+      }
     ],
     "Weight_kg": { "hideText": "未公開希望" },
     "BustSize": "E",
@@ -814,7 +830,11 @@
       "about_EN": "Presumption"
     },
     "AnivDay": [
-      { "Day": { "Month": 6, "DayOfMonth": 14 }, "DayAbout": "開発記念" }
+      {
+        "Day": { "Month": 6, "DayOfMonth": 14 },
+        "DayAbout": "開発記念",
+        "DayAbout_EN": "Development commemoration"
+      }
     ],
     "Weight_kg": [
       { "value": 39, "about_JP": "推定", "about_EN": "Presumption" }
@@ -847,7 +867,7 @@
     "AbilityStats": {
       "Speed": { "Rank": "A" },
       "Communication": { "Rank": "B" },
-      "Leading": { "Rank": { "Rank": "A", "about": "？" } },
+      "Leading": { "Rank": { "Rank": "A", "about": "？", "about_EN": "?" } },
       "Precision": { "Rank": "S" },
       "Technic": { "hideText": "非公開" },
       "Actuation": { "Rank": "S" }
@@ -916,9 +936,13 @@
     "Height_cm": [
       { "value": 160, "about_JP": "推定", "about_EN": "Presumption" }
     ],
-    "ConceptAge": { "about": "不詳" },
+    "ConceptAge": { "about": "不詳", "about_EN": "Unknown" },
     "AnivDay": [
-      { "Day": { "Month": 6, "DayOfMonth": 15 }, "DayAbout": "開発記念" }
+      {
+        "Day": { "Month": 6, "DayOfMonth": 15 },
+        "DayAbout": "開発記念",
+        "DayAbout_EN": "Development commemoration"
+      }
     ],
     "Weight_kg": { "hideText": "？？？" },
     "BustSize": "J",

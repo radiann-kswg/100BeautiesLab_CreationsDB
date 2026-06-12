@@ -14,7 +14,11 @@
     "FormalName_EN": "AttackerZeroid #10",
     "Belonging": ["百戦錬磨開発所"],
     "AnivDay": [
-      { "Day": { "Month": 1, "DayOfMonth": 10 }, "DayAbout": "開発記念" }
+      {
+        "Day": { "Month": 1, "DayOfMonth": 10 },
+        "DayAbout": "開発記念",
+        "DayAbout_EN": "Development commemoration"
+      }
     ],
     "Height_cm": 164,
     "Weight_kg": { "hideText": "非公開" },
@@ -73,10 +77,15 @@
     "FormalName_EN": "AttackerZeroid I.FIN",
     "Belonging": ["デウスマキナ"],
     "AnivDay": [
-      { "Day": { "Month": 1, "DayOfMonth": 10 }, "DayAbout": "開発記念" },
+      {
+        "Day": { "Month": 1, "DayOfMonth": 10 },
+        "DayAbout": "開発記念",
+        "DayAbout_EN": "Development commemoration"
+      },
       {
         "Day": { "Month": 1, "DayOfMonth": 13 },
-        "DayAbout": "オートマトン独立宣言(劇中)"
+        "DayAbout": "オートマトン独立宣言(劇中)",
+        "DayAbout_EN": "Automaton declaration of independence (in-story)"
       }
     ],
     "LogicspecAbout": { "_Jump": { "hashTag": "NumerospecAbout" } },

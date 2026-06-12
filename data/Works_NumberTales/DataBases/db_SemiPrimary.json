@@ -10,6 +10,7 @@
     "FormalName": "ナンバーテールズ100番機",
     "FormalName_EN": "NumberTales #100",
     "CodeName": "一〇〇",
+    "CodeName_EN": "One-Zero-Zero",
     "SPCodeName": "百",
     "SPCodeName_EN": "Hundred",
     "GenderType": "FemaleNeutral",
@@ -46,6 +47,7 @@
     "FormalName": "ナンバーテールズ101番機",
     "FormalName_EN": "NumberTales #101",
     "CodeName": "一〇一",
+    "CodeName_EN": "One-Zero-One",
     "SPCodeName": "百一",
     "SPCodeName_EN": "Hundred One",
     "GenderType": "Neutral",
@@ -64,6 +66,7 @@
     "FormalName": "ナンバーテールズ102番機",
     "FormalName_EN": "NumberTales #102",
     "CodeName": "一〇二",
+    "CodeName_EN": "One-Zero-Two",
     "SPCodeName": "百二",
     "SPCodeName_EN": "Hundred Two",
     "GenderType": "Neutral",
@@ -82,6 +85,7 @@
     "FormalName": "ナンバーテールズ103番機",
     "FormalName_EN": "NumberTales #103",
     "CodeName": "一〇三",
+    "CodeName_EN": "One-Zero-Three",
     "SPCodeName": "百三",
     "SPCodeName_EN": "Hundred Three",
     "GenderType": "Neutral",
@@ -100,6 +104,7 @@
     "FormalName": "ナンバーテールズ104番機",
     "FormalName_EN": "NumberTales #104",
     "CodeName": "一〇四",
+    "CodeName_EN": "One-Zero-Four",
     "SPCodeName": "百四",
     "SPCodeName_EN": "Hundred Four",
     "GenderType": "Neutral",
@@ -117,6 +122,7 @@
     "FormalName": "ナンバーテールズ105番機",
     "FormalName_EN": "NumberTales #105",
     "CodeName": "一〇五",
+    "CodeName_EN": "One-Zero-Five",
     "SPCodeName": "百五",
     "SPCodeName_EN": "Hundred Five",
     "GenderType": "Neutral",
@@ -134,6 +140,7 @@
     "FormalName": "ナンバーテールズ106番機",
     "FormalName_EN": "NumberTales #106",
     "CodeName": "一〇六",
+    "CodeName_EN": "One-Zero-Six",
     "SPCodeName": "百六",
     "SPCodeName_EN": "Hundred Six",
     "GenderType": "Neutral",
@@ -151,6 +158,7 @@
     "FormalName": "ナンバーテールズ107番機",
     "FormalName_EN": "NumberTales #107",
     "CodeName": "一〇七",
+    "CodeName_EN": "One-Zero-Seven",
     "SPCodeName": "百七",
     "SPCodeName_EN": "Hundred Seven",
     "GenderType": "Neutral",
@@ -168,6 +176,7 @@
     "FormalName": "ナンバーテールズ108番機",
     "FormalName_EN": "NumberTales #108",
     "CodeName": "一〇八",
+    "CodeName_EN": "One-Zero-Eight",
     "SPCodeName": "百八",
     "SPCodeName_EN": "Hundred Eight",
     "GenderType": "Neutral",
@@ -185,6 +194,7 @@
     "FormalName": "ナンバーテールズ109番機",
     "FormalName_EN": "NumberTales #109",
     "CodeName": "一〇九",
+    "CodeName_EN": "One-Zero-Nine",
     "SPCodeName": "百九",
     "SPCodeName_EN": "Hundred Nine",
     "GenderType": "Neutral",
@@ -202,6 +212,7 @@
     "FormalName": "ナンバーテールズ110番機",
     "FormalName_EN": "NumberTales #110",
     "CodeName": "一一〇",
+    "CodeName_EN": "One-One-Zero",
     "SPCodeName": "百十",
     "SPCodeName_EN": "Eleventy",
     "GenderType": "Neutral",
@@ -221,6 +232,7 @@
     "FormalName": "ナンバーテールズ111番機",
     "FormalName_EN": "NumberTales #111",
     "CodeName": "一一一",
+    "CodeName_EN": "One-One-One",
     "SPCodeName": "一一一",
     "SPCodeName_EN": "I-s",
     "GenderType": "Neutral",
@@ -233,7 +245,8 @@
     "TailsUnit": "猫又(特殊)型1本3束[枝]",
     "TailsUnit_EN": "Nekomata (Special) Type: 1 Tail, 3 Tufts [Branches]",
     "Class": ["マスタートリプル"],
-    "ThisMasters": "霧島 博(とおる)（夜月機関 幹部(霜月支部)）",
+    "ThisMasters": ["霧島 博(とおる)（夜月機関 幹部(霜月支部)）"],
+    "ThisMasters_EN": ["霧島 博(とおる)（夜月機関 幹部(霜月支部)）"],
     "FirstPersonCalling": "私(わたし)",
     "FirstPersonCalling_EN": "I",
     "SecondPersonCalling": "貴樣/貴様",
@@ -272,6 +285,7 @@
     "FormalName": "ナンバーテールズ112番機",
     "FormalName_EN": "NumberTales #112",
     "CodeName": "一一二",
+    "CodeName_EN": "One-One-Two",
     "SPCodeName": "百十二",
     "SPCodeName_EN": "Eleventy Two",
     "GenderType": "Neutral",
@@ -290,6 +304,7 @@
     "FormalName": "ナンバーテールズ113番機",
     "FormalName_EN": "NumberTales #113",
     "CodeName": "一一三",
+    "CodeName_EN": "One-One-Three",
     "SPCodeName": "百十三",
     "SPCodeName_EN": "Eleventy Three",
     "GenderType": "Neutral",
@@ -306,6 +321,7 @@
     "FormalName": "ナンバーテールズ114番機",
     "FormalName_EN": "NumberTales #114",
     "CodeName": "一一四",
+    "CodeName_EN": "One-One-Four",
     "SPCodeName": "百十四",
     "SPCodeName_EN": "Eleventy Four",
     "GenderType": "Neutral",
@@ -322,6 +338,7 @@
     "FormalName": "ナンバーテールズ115番機",
     "FormalName_EN": "NumberTales #115",
     "CodeName": "一一五",
+    "CodeName_EN": "One-One-Five",
     "SPCodeName": "百十五",
     "SPCodeName_EN": "Eleventy Five",
     "GenderType": "Neutral",
@@ -338,6 +355,7 @@
     "FormalName": "ナンバーテールズ116番機",
     "FormalName_EN": "NumberTales #116",
     "CodeName": "一一六",
+    "CodeName_EN": "One-One-Six",
     "SPCodeName": "百十六",
     "SPCodeName_EN": "Eleventy Six",
     "GenderType": "Neutral",
@@ -354,6 +372,7 @@
     "FormalName": "ナンバーテールズ117番機",
     "FormalName_EN": "NumberTales #117",
     "CodeName": "一一七",
+    "CodeName_EN": "One-One-Seven",
     "SPCodeName": "百十七",
     "SPCodeName_EN": "Eleventy Seven",
     "GenderType": "Neutral",
@@ -370,6 +389,7 @@
     "FormalName": "ナンバーテールズ118番機",
     "FormalName_EN": "NumberTales #118",
     "CodeName": "一一八",
+    "CodeName_EN": "One-One-Eight",
     "SPCodeName": "百十八",
     "SPCodeName_EN": "Eleventy Eight",
     "GenderType": "Neutral",
@@ -386,6 +406,7 @@
     "FormalName": "ナンバーテールズ119番機",
     "FormalName_EN": "NumberTales #119",
     "CodeName": "一一九",
+    "CodeName_EN": "One-One-Nine",
     "SPCodeName": "百十九",
     "SPCodeName_EN": "Eleventy Nine",
     "GenderType": "Neutral",
@@ -472,6 +493,7 @@
     "FormalName": "ナンバーテールズ200番機",
     "FormalName_EN": "NumberTales #200",
     "CodeName": "二〇〇",
+    "CodeName_EN": "Two-Zero-Zero",
     "SPCodeName": "皕",
     "SPCodeName_EN": "Two hundred",
     "GenderType": "Neutral",
@@ -529,6 +551,7 @@
     "FormalName": "ナンバーテールズ222番機",
     "FormalName_EN": "NumberTales #222",
     "CodeName": "二二二",
+    "CodeName_EN": "Two-Two-Two",
     "SPCodeName": "2×111",
     "SPCodeName_EN": "2×111, Cloned I-s",
     "GenderType": "FemaleNeutral",
@@ -544,9 +567,9 @@
     "SecondPersonCalling": "ドッペル→他人：君\nドッペル→ペルゲン：ペーちゃん\nペルゲン→他人：貴方\nペルゲン→ドッペル：ドペさん",
     "SecondPersonCalling_EN": "Doppels -> others: you (casual)\nDoppels -> Pelgans: Pelly(Pe-chan)\nPelgans -> others: you (fem. neutral)\nPelgans -> Doppels: Doppy(Dope-san)",
     "ThirdPersonCalling": "ドッペル：彼/彼女;~の人,*れ;~くん/~ちゃん,~樣\nペルゲン：彼/彼女;~の方,*方(*ちら);~さん,~樣",
-    "ThirdPersonCalling_EN": "Doppels: he/she; ~ person; that/this/which/what/them (as objective); [*by-name](~kun/~chan), Sir/Lady.~ (~-sama; very honorific)\nPelgans: he/she; ~ person; that/this/who/them one (as personal, polite); [*by-name](~san), Sir/Lady.~ (~-sama; very honorific)",
+    "ThirdPersonCalling_EN": "Doppels: he/she; ~ person; that/this/which/what/them (as objective); [*by name](~kun/~chan), sir/lady.~ (~-sama; very honorific)\nPelgans: he/she; ~ person; that/this/who/them one (as personal, polite); [*by name](~san), sir/lady.~ (~-sama; very honorific)",
     "ForMasterCalling": "兄樣/姉樣",
-    "ForMasterCalling_EN": "my Sir/Lady (very honorific: nii/nee-sama)",
+    "ForMasterCalling_EN": "my sir/lady (very honorific: nii/nee-sama)",
     "Character": "ドッペル：人と一緒にいるのが好きでよく会話の輪に溶け込もうとする\nペルゲン：ふんわりと落ち着いた優しい気質でよく周りのことをみている",
     "Character_EN": "Doppels: likes being with people and often tries to blend into conversations.\nPelgans: gentle, calm, and soft in temperament, with a careful eye on those around her.",
     "Hobby": "躯体共通：ボイスチャット（主に雑談）\nドッペル：友人と番組を同時視聴すること\nペルゲン：民泊で友人と過ごすこと",
@@ -628,6 +651,7 @@
     "FormalName": "ナンバーテールズ333番機",
     "FormalName_EN": "NumberTales #333",
     "CodeName": "三三三",
+    "CodeName_EN": "Three-Three-Three",
     "SPCodeName": "三連三",
     "SPCodeName_EN": "Triple",
     "GenderType": "Neutral",
@@ -653,6 +677,8 @@
     "FormalName": "ナンバーテールズ キャレ-ディズネフ(同位異格361番機)",
     "FormalName_EN": "NumberTales Unit.Carré-19 (Isotope of Mk.361)",
     "ModelNumber": "APHR-NT SQ.XIX",
+    "CodeName": "三六一",
+    "CodeName_EN": "Three-Six-One",
     "GenderType": "Neutral",
     "Belonging": ["百花繚乱研究所", "レゾンデイトルカンパニー"],
     "Class": ["キャレ型ハイナンバーズ"]
@@ -684,6 +710,7 @@
     "FormalName": "ナンバーテールズ400番機",
     "FormalName_EN": "NumberTales #400",
     "CodeName": "四〇〇",
+    "CodeName_EN": "Four-Zero-Zero",
     "SPCodeName": "閏周期",
     "SPCodeName_EN": "Leap Term(by years)",
     "GenderType": "Neutral",
@@ -702,6 +729,7 @@
     "FormalName": "ナンバーテールズ444番機",
     "FormalName_EN": "NumberTales #444",
     "CodeName": "四四四",
+    "CodeName_EN": "Four-Four-Four",
     "SPCodeName": "皇帝",
     "SPCodeName_EN": "Emperor of Talots",
     "GenderType": "Neutral",
@@ -714,7 +742,8 @@
     "AnivDay": [
       {
         "Day": { "Month": 9, "DayOfMonth": 24 },
-        "DayAbout": "スクエアエリート計画記念"
+        "DayAbout": "スクエアエリート計画記念",
+        "DayAbout_EN": "SquareElites project commemoration"
       }
     ],
     "Weight_kg": 59,
@@ -727,9 +756,9 @@
     "SecondPersonCalling": "貴君/諸君,貴殿\n君(きみ)",
     "SecondPersonCalling_EN": "you (kikun/shokun, kiden; very formal)\nyou (kimi; masc. casual)",
     "ThirdPersonCalling": "*ちら(の者);~殿\n[※名前呼び]",
-    "ThirdPersonCalling_EN": "that side/person there; Sir/Mr/Lady/Ms.~(~dono; formally honorific)\n[*by-name]",
+    "ThirdPersonCalling_EN": "that side/person there; sir/mr/lady/ms.~(~dono; formally honorific)\n[*by name]",
     "ForMasterCalling": "提督殿\n提督",
-    "ForMasterCalling_EN": "Sir/Lady.Admiral\nAdmiral",
+    "ForMasterCalling_EN": "sir/lady admiral\nAdmiral",
     "Character": "気高く構えた態度で敬意深い\nたまに自分のプライドを守りたいがために様子が不安定になることも",
     "Character_EN": "Dignified and respectful in bearing.\nAt times, trying to protect personal pride can make behavior unstable.",
     "Hobby": "論文を読むこと",
@@ -789,6 +818,7 @@
     "FormalName": "ナンバーテールズ666番機",
     "FormalName_EN": "NumberTales #666",
     "CodeName": "六六六",
+    "CodeName_EN": "Six-Six-Six",
     "SPCodeName": "魔",
     "SPCodeName_EN": "Faith",
     "GenderType": "FemaleNeutral",
@@ -799,13 +829,14 @@
     "TailsUnit": "キツネ(特殊)型3束x6本",
     "TailsUnit_EN": "Fox (Special) Type: 6 Tails x 3 Tufts",
     "Class": ["マスタートリプル", "フェイタルテールズ"],
-    "ThisMasters": "中月 ルイス=ノア.ナイターエイド（夜月機関 第9幹部）",
+    "ThisMasters": ["中月 ルイス=ノア.ナイターエイド（夜月機関 第9幹部）"],
+    "ThisMasters_EN": ["中月 ルイス=ノア.ナイターエイド（夜月機関 第9幹部）"],
     "FirstPersonCalling": "我\n私(わたくし)",
     "FirstPersonCalling_EN": "I (ware; archaic)\nI (formally)",
     "SecondPersonCalling": "汝(なんじ)",
     "SecondPersonCalling_EN": "thou (nanji; archaic)",
     "ThirdPersonCalling": "彼/彼女;*の者;[※名前呼び]",
-    "ThirdPersonCalling_EN": "he/she; that/this/whom person/one (as personal); [*by-name]",
+    "ThirdPersonCalling_EN": "he/she; that/this/whom person/one (as personal); [*by name]",
     "ForMasterCalling": "契約者様\n[※二人称]",
     "ForMasterCalling_EN": "my contractor\n[*second-person calling]",
     "Character": "妖艶としていて自信過剰\n大罪的な衝動に駆られることがある",
@@ -851,6 +882,7 @@
     "FormalName": "ナンバーテールズ777番機",
     "FormalName_EN": "NumberTales #777",
     "CodeName": "七七七",
+    "CodeName_EN": "Seven-Seven-Seven",
     "SPCodeName": "㐂",
     "SPCodeName_EN": "Jackpot",
     "Height_cm": 161,
@@ -877,7 +909,7 @@
     "SecondPersonCalling": "あんた",
     "SecondPersonCalling_EN": "you (rough masc.)",
     "ThirdPersonCalling": "彼/彼女;*いつ/*れ;[※名前呼び]",
-    "ThirdPersonCalling_EN": "he/she; that/this/who/which/what/them (as personal or objective); [*by-name]",
+    "ThirdPersonCalling_EN": "he/she; that/this/who/which/what/them (as personal or objective); [*by name]",
     "ForMasterCalling": "旦那さん/お嬢さん;[※二人称]",
     "ForMasterCalling_EN": "young sir/lady; [*second-person calling]",
     "Character": "公私を両立したリア充\n実は勤勉",
@@ -894,7 +926,8 @@
     "NumerospecAbout_EN": "Produces effects in accordance with functions expanded for oneself",
     "Summary": "量産販売型ではあるが、3桁ゾロ目の数字と通常個体(2桁以内)に劣らない性能をもつ「マスタートリプル」というクラスに属しており、そのなかでもさらに機能拡張性に長けている極めて特殊な個体。\nとりわけその開発専用機ことオリジナル版である彼は、「7(ナナ)」や「77(ナヅナ)」をも遥かに超える知的追求心の持ち主で、興味の持ったことや楽しいものの追求のためなら惜しむことは滅多にない。\nしかしながら良心もあるため、公私の境界を超えた無謀かつ暴虐な行動はあまり勝って出ることはないことから、マスタートリプルの９人の中では健全で真面目なリア充ポジションが定着している。",
     "Summary_EN": "Although sold as a mass-production model, this unit belongs to the \"MasterTriple\" class with a three-digit repdigit number and performance equal to regular two-digit units, and is especially specialized in functional expandability.\nIn particular, the original developer-exclusive build possesses an intellectual drive that far exceeds 7(Sevan) and 77(Sefvens), and rarely hesitates to pursue interests and enjoyable pursuits.\nAt the same time, he has a conscience, so reckless cruelty that crosses public-private boundaries is uncommon, and he is widely regarded among the nine MasterTriples as the healthy and earnest social-success type.",
-    "Backgrounds": "「喜」の旧字体（「㐂」）が由来"
+    "Backgrounds": "「喜」の旧字体（「㐂」）が由来",
+    "Backgrounds_EN": "Derived from the old form of the kanji for joy (\"㐂\")."
   },
   {
     "Num": "777.Jackpot",
@@ -949,11 +982,17 @@
     "FormalName": "ナンバーテールズ888番機",
     "FormalName_EN": "NumberTales #888",
     "CodeName": "八八八",
+    "CodeName_EN": "Eight-Eight-Eight",
     "SPCodeName": "（無限）",
     "SPCodeName_EN": "Infinity",
     "GenderType": "Neutral",
     "Class": ["マスタートリプル"],
-    "ThisMasters": "八坂 兵汰(へいた)/ヘクター.キロバスター（夜月機関 第8幹部）"
+    "ThisMasters": [
+      "八坂 兵汰(へいた)/ヘクター.キロバスター（夜月機関 第8幹部）"
+    ],
+    "ThisMasters_EN": [
+      "八坂 兵汰(へいた)/ヘクター.キロバスター（夜月機関 第8幹部）"
+    ]
   },
   {
     "Num": 999,
@@ -966,6 +1005,7 @@
     "FormalName": "ナンバーテールズ999番機",
     "FormalName_EN": "NumberTales #999",
     "CodeName": "九九九",
+    "CodeName_EN": "Nine-Nine-Nine",
     "SPCodeName": "終",
     "SPCodeName_EN": "Final",
     "GenderType": "Neutral",
@@ -980,7 +1020,7 @@
     "SecondPersonCalling": "お主",
     "SecondPersonCalling_EN": "thou (onushi; casually archaic)",
     "ThirdPersonCalling": "*の者;[※名前呼び]",
-    "ThirdPersonCalling_EN": "that one (as personal); [*by-name]",
+    "ThirdPersonCalling_EN": "that one (as personal); [*by name]",
     "ForMasterCalling": "主君",
     "ForMasterCalling_EN": "my lord",
     "InStory": "記憶喪失系のキャラとされている\n開発専用機では…？",
@@ -1007,15 +1047,21 @@
     "FormalName": "ナンバーテールズ3x11番機(仮称)",
     "FormalName_EN": "NumberTales #3x11(Tentative)",
     "CodeName": "三倍",
+    "CodeName_EN": "Threefold",
     "SPCodeName": "(丗三)",
     "SPCodeName_EN": "Triple Eleven",
     "GenderType": "FemaleNeutral",
     "AnivDay": [
       {
         "Day": { "Month": 11, "DayOfMonth": 23 },
-        "DayAbout": "ハイナンバーズ開発計画可決記念"
+        "DayAbout": "ハイナンバーズ開発計画可決記念",
+        "DayAbout_EN": "High-Numbers development plan approval commemoration"
       },
-      { "Day": { "Month": 12, "DayOfMonth": 3 }, "DayAbout": "開発記念" }
+      {
+        "Day": { "Month": 12, "DayOfMonth": 3 },
+        "DayAbout": "開発記念",
+        "DayAbout_EN": "Development commemoration"
+      }
     ],
     "Height_cm": 152,
     "ConceptAge": 18,
@@ -1067,11 +1113,13 @@
     "AnivDay": [
       {
         "Day": { "Month": 6, "DayOfMonth": 4 },
-        "DayAbout": "開発記念（64番機）"
+        "DayAbout": "開発記念（64番機）",
+        "DayAbout_EN": "Development commemoration (Mk.64)"
       },
       {
         "Day": { "Month": 10, "DayOfMonth": 3 },
-        "DayAbout": "開発記念（セクストパワー型リリース騒動）"
+        "DayAbout": "開発記念（セクストパワー型リリース騒動）",
+        "DayAbout_EN": "Development commemoration (Sextpower-type release incident)"
       }
     ],
     "Belonging": ["百花繚乱研究所", "国際ヒューマノイド技術学会"],
@@ -1098,7 +1146,8 @@
     "AnivDay": [
       {
         "Day": { "Month": 11, "DayOfMonth": 20 },
-        "DayAbout": "開発記念（ハイナンバーズ開発予算計画記念）"
+        "DayAbout": "開発記念（ハイナンバーズ開発予算計画記念）",
+        "DayAbout_EN": "Development commemoration (High-Numbers development budget plan commemoration)"
       }
     ],
     "Belonging": ["百花繚乱研究所", "レゾンデイトルカンパニー"],
