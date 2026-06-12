@@ -24,6 +24,12 @@
           "$type": "#String|#Null",
           "hashTag_JP": "互換リストキー",
           "hashTag_EN": "Compatibility List Key"
+        },
+        {
+          "hashTag": "langMode",
+          "$type": "#String|#Null",
+          "hashTag_JP": "言語モード",
+          "hashTag_EN": "Language Mode"
         }
       ]
     }

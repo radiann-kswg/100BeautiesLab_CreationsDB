@@ -359,6 +359,41 @@
 
 ---
 
+## 2026-06-12 追記：グローバル辞書の shared 境界整理
+
+### 観点
+
+- `data/Dictionaries/` 配下のグローバル辞書について、
+  「base 値を EN でもそのまま使う shared 辞書」と
+  「JP/EN の別ラベルを維持すべき辞書」を切り分ける。
+
+### 判断結果
+
+- `RaceType`:
+  - base 値が `Human` / `Warfox(Acquired)` のような英字コードで、JP 表示側のみ `RaceType_JP` を持つ構造
+  - EN 表示では base 値をそのまま使うのが自然なため、shared 扱いを正式化
+
+- `Area` / `Artifact` / `Faction`:
+  - base 値が JP 文字列、または EN 側に独立した訳語を持つため、`*_EN` を維持すべき辞書と整理
+
+### 実装
+
+- `data/db_type.json`
+  - `RaceType` フィールドに `$display.langMode: "shared"` を追加
+
+- `data/Dictionaries/db_meta.json`
+  - `#Dict_RaceType.langMode: "shared"` を追加
+
+- `data/Dictionaries/db_type.json`
+  - 辞書カタログ schema に `langMode` を追加
+
+### 検証
+
+- `tests/pages.characters.ui-output.test.js`
+  - `renders shared RaceType dictionary values in English from the base code`: pass
+
+---
+
 ## 2026-06-12 追記：Works_PastDivers キャラ本体 EN 補完（全数）
 
 ### 対象
