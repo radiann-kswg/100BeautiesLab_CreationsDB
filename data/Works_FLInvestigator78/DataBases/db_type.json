@@ -59,7 +59,9 @@
           "hashTag_EN": "Illustration Works"
         }
       ],
-      "$display": { "section": "images", "tagSpace": "internal" }
+      "$display": { "section": "images", "tagSpace": "internal" },
+      "hashTag_JP": "画像",
+      "hashTag_EN": "Images"
     },
     {
       "hashTag": "For79thDealerCalling",

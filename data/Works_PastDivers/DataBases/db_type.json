@@ -36,7 +36,9 @@
           "hashTag_EN": "Concept Art"
         }
       ],
-      "$display": { "section": "images", "tagSpace": "internal" }
+      "$display": { "section": "images", "tagSpace": "internal" },
+      "hashTag_JP": "画像",
+      "hashTag_EN": "Images"
     },
     { "hashTag": "Career", "$type": "#Summary", "hashTag_JP": "経歴について" },
     {
