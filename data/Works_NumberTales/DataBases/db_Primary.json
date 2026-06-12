@@ -22,10 +22,15 @@
     "Height_cm": 146,
     "ConceptAge": 14,
     "AnivDay": [
-      { "Day": { "Month": 1, "DayOfMonth": 1 }, "DayAbout": "開発記念" },
+      {
+        "Day": { "Month": 1, "DayOfMonth": 1 },
+        "DayAbout": "開発記念",
+        "DayAbout_EN": "Development commemoration"
+      },
       {
         "Day": { "Month": 9, "DayOfMonth": 1 },
-        "DayAbout": "第一リリース記念(劇中)"
+        "DayAbout": "第一リリース記念(劇中)",
+        "DayAbout_EN": "First release commemoration (in-story)"
       }
     ],
     "Weight_kg": 39,
@@ -148,26 +153,38 @@
         {
           "Num": 2,
           "Comments": "「他の子を大切にしてるいい妹。なんだけどなー」",
-          "RelationLabel": ["wellMatched", "brother|sister", "classmate"]
+          "RelationLabel": ["wellMatched", "brother|sister", "classmate"],
+          "Comments_EN": "「他の子を大切にしてるいい妹。なんだけどなー」"
         },
         {
           "Num": 10,
           "Comments": "「ぼくの相棒！ただちょっと怪しいけど」",
-          "RelationLabel": ["awkward_aBit", "alternative|redesign"]
+          "RelationLabel": ["awkward_aBit", "alternative|redesign"],
+          "Comments_EN": "「ぼくの相棒！ただちょっと怪しいけど」"
         }
       ],
       "Commented": [
         {
           "Num": 3,
           "Comments": "「何かあったら任せられて頼れる！」",
-          "RelationLabel": ["classmate"]
+          "RelationLabel": ["classmate"],
+          "Comments_EN": "「何かあったら任せられて頼れる！」"
         },
-        { "Num": 11, "Comments": "「すごい挑戦をするときによくいる」" },
-        { "Num": 55, "Comments": "「根本は違うけどぼくと似たり寄ったり？」" },
+        {
+          "Num": 11,
+          "Comments": "「すごい挑戦をするときによくいる」",
+          "Comments_EN": "「すごい挑戦をするときによくいる」"
+        },
+        {
+          "Num": 55,
+          "Comments": "「根本は違うけどぼくと似たり寄ったり？」",
+          "Comments_EN": "「根本は違うけどぼくと似たり寄ったり？」"
+        },
         {
           "Num": 91,
           "Comments": "「スタートダッシュもゴールインもカッコいい人！」",
-          "RelationLabel": ["successor"]
+          "RelationLabel": ["successor"],
+          "Comments_EN": "「スタートダッシュもゴールインもカッコいい人！」"
         }
       ]
     },
@@ -264,7 +281,19 @@
           "about_EN": "When keeping an eye on a successor unit (in the case of '9(Nina)')"
         }
       ]
-    }
+    },
+    "ThisMasters_EN": [
+      {
+        "value": null,
+        "about": "(専属契約不可)",
+        "about_EN": "(Exclusive contract not possible)"
+      },
+      {
+        "value": "雪乙女 しいな/如月（夜月機関 第2幹部）",
+        "about": "試験開発向けの運用",
+        "about_EN": "For test development operations"
+      }
+    ]
   },
   {
     "Num": 2,
@@ -292,10 +321,15 @@
     "Height_cm": 146,
     "ConceptAge": 14,
     "AnivDay": [
-      { "Day": { "Month": 1, "DayOfMonth": 2 }, "DayAbout": "開発記念" },
+      {
+        "Day": { "Month": 1, "DayOfMonth": 2 },
+        "DayAbout": "開発記念",
+        "DayAbout_EN": "Development commemoration"
+      },
       {
         "Day": { "Month": 4, "DayOfMonth": 20 },
-        "DayAbout": "第一リリース記念(忠実)"
+        "DayAbout": "第一リリース記念(忠実)",
+        "DayAbout_EN": "First release commemoration (faithful ver.)"
       }
     ],
     "Weight_kg": 39,
@@ -419,25 +453,40 @@
             "awkward_aBit",
             "brother|sister",
             "classmate"
-          ]
+          ],
+          "Comments_EN": "「行動力はすごい姉、だけど…」"
         },
         {
           "Num": 3,
           "Comments": "「同期であり尊敬する存在」",
-          "RelationLabel": ["trusted", "classmate"]
+          "RelationLabel": ["trusted", "classmate"],
+          "Comments_EN": "「同期であり尊敬する存在」"
         },
         {
           "Num": 9,
           "Comments": "「甘え相手」",
-          "RelationLabel": ["abusing", "classmate"]
+          "RelationLabel": ["abusing", "classmate"],
+          "Comments_EN": "「甘え相手」"
         },
         { "Num": 12, "RelationLabel": ["awkward", "successor"] },
         { "Num": "2-alt", "RelationLabel": ["sameNumber"] }
       ],
       "Commented": [
-        { "Num": 11, "Comments": "「迷ったら彼(女)に頼りたい」" },
-        { "Num": 47, "Comments": "「応援してくれて嬉しい」" },
-        { "Num": 65, "Comments": "「色んなもの持ってて羨ましい」" }
+        {
+          "Num": 11,
+          "Comments": "「迷ったら彼(女)に頼りたい」",
+          "Comments_EN": "「迷ったら彼(女)に頼りたい」"
+        },
+        {
+          "Num": 47,
+          "Comments": "「応援してくれて嬉しい」",
+          "Comments_EN": "「応援してくれて嬉しい」"
+        },
+        {
+          "Num": 65,
+          "Comments": "「色んなもの持ってて羨ましい」",
+          "Comments_EN": "「色んなもの持ってて羨ましい」"
+        }
       ]
     }
   },
@@ -461,7 +510,11 @@
     "Height_cm": 160,
     "ConceptAge": 17,
     "AnivDay": [
-      { "Day": { "Month": 1, "DayOfMonth": 3 }, "DayAbout": "開発記念" }
+      {
+        "Day": { "Month": 1, "DayOfMonth": 3 },
+        "DayAbout": "開発記念",
+        "DayAbout_EN": "Development commemoration"
+      }
     ],
     "Weight_kg": 43,
     "BustSize": "AA",
@@ -570,12 +623,14 @@
         {
           "Num": 1,
           "Comments": "「すごいポテンシャルで突き進んでる」",
-          "RelationLabel": ["wellMatched", "classmate"]
+          "RelationLabel": ["wellMatched", "classmate"],
+          "Comments_EN": "「すごいポテンシャルで突き進んでる」"
         },
         {
           "Num": 2,
           "Comments": "「今後も信頼してるよ」",
-          "RelationLabel": ["trusted", "classmate"]
+          "RelationLabel": ["trusted", "classmate"],
+          "Comments_EN": "「今後も信頼してるよ」"
         },
         { "Num": 5, "RelationLabel": ["wellMatched", "classmate"] }
       ],
@@ -583,11 +638,24 @@
         {
           "Num": 6,
           "Comments": "「世界観がなんだか憎めない」",
-          "RelationLabel": ["classmate"]
+          "RelationLabel": ["classmate"],
+          "Comments_EN": "「世界観がなんだか憎めない」"
         },
-        { "Num": 22, "Comments": "「簡単に馬鹿にできない」" },
-        { "Num": 57, "Comments": "「仙人にでもなるつもりなのかな…」" },
-        { "Num": 66, "Comments": "「信者多そう」" }
+        {
+          "Num": 22,
+          "Comments": "「簡単に馬鹿にできない」",
+          "Comments_EN": "「簡単に馬鹿にできない」"
+        },
+        {
+          "Num": 57,
+          "Comments": "「仙人にでもなるつもりなのかな…」",
+          "Comments_EN": "「仙人にでもなるつもりなのかな…」"
+        },
+        {
+          "Num": 66,
+          "Comments": "「信者多そう」",
+          "Comments_EN": "「信者多そう」"
+        }
       ]
     }
   },
@@ -617,7 +685,11 @@
     "Height_cm": 157,
     "ConceptAge": 17,
     "AnivDay": [
-      { "Day": { "Month": 1, "DayOfMonth": 4 }, "DayAbout": "開発記念" }
+      {
+        "Day": { "Month": 1, "DayOfMonth": 4 },
+        "DayAbout": "開発記念",
+        "DayAbout_EN": "Development commemoration"
+      }
     ],
     "Weight_kg": 42,
     "BustSize": "B",
@@ -726,7 +798,8 @@
         {
           "Num": 5,
           "Comments": "「怖い!!!」",
-          "RelationLabel": ["unmatched", "classmate"]
+          "RelationLabel": ["unmatched", "classmate"],
+          "Comments_EN": "「怖い!!!」"
         },
         { "Num": 6, "RelationLabel": ["wellMatched", "classmate"] }
       ],
@@ -734,16 +807,30 @@
         {
           "Num": 2,
           "Comments": "「とてもいい人だからすぐ疲れちゃいそう…」",
-          "RelationLabel": ["classmate"]
+          "RelationLabel": ["classmate"],
+          "Comments_EN": "「とてもいい人だからすぐ疲れちゃいそう…」"
         },
         {
           "Num": 8,
           "Comments": "「作業中はもっと慎重にやってほしいよぉ…」",
-          "RelationLabel": ["classmate"]
+          "RelationLabel": ["classmate"],
+          "Comments_EN": "「作業中はもっと慎重にやってほしいよぉ…」"
         },
-        { "Num": 22, "Comments": "「すごすぎて言葉が出ない…」" },
-        { "Num": 58, "Comments": "「急に運がよくなるから、よくわからない…」" },
-        { "Num": 76, "Comments": "「怪しまれそう…多分いい人なのになぁ」" }
+        {
+          "Num": 22,
+          "Comments": "「すごすぎて言葉が出ない…」",
+          "Comments_EN": "「すごすぎて言葉が出ない…」"
+        },
+        {
+          "Num": 58,
+          "Comments": "「急に運がよくなるから、よくわからない…」",
+          "Comments_EN": "「急に運がよくなるから、よくわからない…」"
+        },
+        {
+          "Num": 76,
+          "Comments": "「怪しまれそう…多分いい人なのになぁ」",
+          "Comments_EN": "「怪しまれそう…多分いい人なのになぁ」"
+        }
       ]
     },
     "ConversationPattern": {
@@ -821,7 +908,11 @@
     "Height_cm": 156,
     "ConceptAge": 17,
     "AnivDay": [
-      { "Day": { "Month": 1, "DayOfMonth": 5 }, "DayAbout": "開発記念" }
+      {
+        "Day": { "Month": 1, "DayOfMonth": 5 },
+        "DayAbout": "開発記念",
+        "DayAbout_EN": "Development commemoration"
+      }
     ],
     "Weight_kg": 42,
     "BustSize": "AA",
@@ -933,22 +1024,43 @@
         {
           "Num": 3,
           "Comments": "「枠に収まりつつ個性的なオーラを放つ友(ダチ)」",
-          "RelationLabel": ["wellMatched", "classmate"]
+          "RelationLabel": ["wellMatched", "classmate"],
+          "Comments_EN": "「枠に収まりつつ個性的なオーラを放つ友(ダチ)」"
         },
         { "Num": 4, "RelationLabel": ["abusing", "unmatched", "classmate"] },
         {
           "Num": 6,
           "Comments": "「波長が合わない、悪い人ではないけど…」",
-          "RelationLabel": ["awkward", "classmate"]
+          "RelationLabel": ["awkward", "classmate"],
+          "Comments_EN": "「波長が合わない、悪い人ではないけど…」"
         }
       ],
       "Commented": [
-        { "Num": 10, "Comments": "「一体彼(女)の先の何を見てるんだろ…」" },
-        { "Num": 32, "Comments": "「彼(女)の出し物は何回見ても飽きない!」" },
-        { "Num": 68, "Comments": "「急に見た目が変わった時なんかは笑う」" },
-        { "Num": 77, "Comments": "「めっちゃ有能で面白い、参った!」" }
+        {
+          "Num": 10,
+          "Comments": "「一体彼(女)の先の何を見てるんだろ…」",
+          "Comments_EN": "「一体彼(女)の先の何を見てるんだろ…」"
+        },
+        {
+          "Num": 32,
+          "Comments": "「彼(女)の出し物は何回見ても飽きない!」",
+          "Comments_EN": "「彼(女)の出し物は何回見ても飽きない!」"
+        },
+        {
+          "Num": 68,
+          "Comments": "「急に見た目が変わった時なんかは笑う」",
+          "Comments_EN": "「急に見た目が変わった時なんかは笑う」"
+        },
+        {
+          "Num": 77,
+          "Comments": "「めっちゃ有能で面白い、参った!」",
+          "Comments_EN": "「めっちゃ有能で面白い、参った!」"
+        }
       ]
-    }
+    },
+    "ThisMasters_EN": [
+      "五剣(いつつるぎ)/Spade.5(Cinque)（78特殊探偵団 風の刀剣支部 構成員）"
+    ]
   },
   {
     "Num": 6,
@@ -975,7 +1087,11 @@
     "Height_cm": 150,
     "ConceptAge": 16,
     "AnivDay": [
-      { "Day": { "Month": 1, "DayOfMonth": 6 }, "DayAbout": "開発記念" }
+      {
+        "Day": { "Month": 1, "DayOfMonth": 6 },
+        "DayAbout": "開発記念",
+        "DayAbout_EN": "Development commemoration"
+      }
     ],
     "Weight_kg": 41,
     "BustSize": "E",
@@ -1086,32 +1202,38 @@
         {
           "Num": 7,
           "Comments": "「少々内向的ですが、本当は立派な方ですよ」",
-          "RelationLabel": ["abusing", "trusted_maybe", "classmate"]
+          "RelationLabel": ["abusing", "trusted_maybe", "classmate"],
+          "Comments_EN": "「少々内向的ですが、本当は立派な方ですよ」"
         },
         {
           "Num": 9,
           "Comments": "「「闇属性」と称されていますが、何故でしょう…？」",
-          "RelationLabel": ["paired", "classmate"]
+          "RelationLabel": ["paired", "classmate"],
+          "Comments_EN": "「「闇属性」と称されていますが、何故でしょう…？」"
         }
       ],
       "Commented": [
         {
           "Num": 3,
           "Comments": "「あなた様の活躍、今後も期待しております」",
-          "RelationLabel": ["classmate"]
+          "RelationLabel": ["classmate"],
+          "Comments_EN": "「あなた様の活躍、今後も期待しております」"
         },
         {
           "Num": 5,
           "Comments": "「いつまでも観飽きない子です♪」",
-          "RelationLabel": ["classmate"]
+          "RelationLabel": ["classmate"],
+          "Comments_EN": "「いつまでも観飽きない子です♪」"
         },
         {
           "Num": 33,
-          "Comments": "「偉才な方ですが、彼女が失敗した際はご注意を」"
+          "Comments": "「偉才な方ですが、彼女が失敗した際はご注意を」",
+          "Comments_EN": "「偉才な方ですが、彼女が失敗した際はご注意を」"
         },
         {
           "Num": 42,
-          "Comments": "「無茶も承知でお好きな様にと、いった子ですね」"
+          "Comments": "「無茶も承知でお好きな様にと、いった子ですね」",
+          "Comments_EN": "「無茶も承知でお好きな様にと、いった子ですね」"
         }
       ]
     }
@@ -1137,7 +1259,11 @@
     "Height_cm": 162,
     "ConceptAge": 22,
     "AnivDay": [
-      { "Day": { "Month": 1, "DayOfMonth": 7 }, "DayAbout": "開発記念" }
+      {
+        "Day": { "Month": 1, "DayOfMonth": 7 },
+        "DayAbout": "開発記念",
+        "DayAbout_EN": "Development commemoration"
+      }
     ],
     "Weight_kg": 44,
     "BustSize": "AA",
@@ -1244,27 +1370,39 @@
         {
           "Num": 5,
           "Comments": "「こ奴には負けたくない」",
-          "RelationLabel": ["unmatched", "classmate"]
+          "RelationLabel": ["unmatched", "classmate"],
+          "Comments_EN": "「こ奴には負けたくない」"
         },
         {
           "Num": 9,
           "Comments": "「良からぬことに愛憎がないといいが…」",
-          "RelationLabel": ["wellMatched", "classmate"]
+          "RelationLabel": ["wellMatched", "classmate"],
+          "Comments_EN": "「良からぬことに愛憎がないといいが…」"
         },
         {
           "Num": 70,
           "Comments": "「お互い見習い合える仲」",
-          "RelationLabel": ["brother|sister", "trusted"]
+          "RelationLabel": ["brother|sister", "trusted"],
+          "Comments_EN": "「お互い見習い合える仲」"
         }
       ],
       "Commented": [
         {
           "Num": 6,
           "Comments": "「彼女なりの生きがいを感じる」",
-          "RelationLabel": ["classmate"]
+          "RelationLabel": ["classmate"],
+          "Comments_EN": "「彼女なりの生きがいを感じる」"
         },
-        { "Num": 25, "Comments": "「悪くない意味で恐ろしい感性がある」" },
-        { "Num": 88, "Comments": "「あれは資産力の化け物」" }
+        {
+          "Num": 25,
+          "Comments": "「悪くない意味で恐ろしい感性がある」",
+          "Comments_EN": "「悪くない意味で恐ろしい感性がある」"
+        },
+        {
+          "Num": 88,
+          "Comments": "「あれは資産力の化け物」",
+          "Comments_EN": "「あれは資産力の化け物」"
+        }
       ]
     }
   },
@@ -1289,7 +1427,11 @@
     "Height_cm": 158,
     "ConceptAge": 19,
     "AnivDay": [
-      { "Day": { "Month": 1, "DayOfMonth": 8 }, "DayAbout": "開発記念" }
+      {
+        "Day": { "Month": 1, "DayOfMonth": 8 },
+        "DayAbout": "開発記念",
+        "DayAbout_EN": "Development commemoration"
+      }
     ],
     "Weight_kg": [
       { "value": 43, "about_JP": "推定", "about_EN": "Presumption" }
@@ -1414,21 +1556,49 @@
         {
           "Num": 1,
           "Comments": "「動力源どこよあの子…」",
-          "RelationLabel": ["awkward", "classmate"]
+          "RelationLabel": ["awkward", "classmate"],
+          "Comments_EN": "「動力源どこよあの子…」"
         },
         {
           "Num": 7,
           "Comments": "「あてが理系なら彼(女)は文系？」",
-          "RelationLabel": ["wellMatched", "classmate"]
+          "RelationLabel": ["wellMatched", "classmate"],
+          "Comments_EN": "「あてが理系なら彼(女)は文系？」"
         }
       ],
       "Commented": [
-        { "Num": 10, "Comments": "「古代兵器みがある」" },
-        { "Num": 35, "Comments": "「まれに才能開花してそう」" },
-        { "Num": 44, "Comments": "「守護神でもいそうまである」" },
-        { "Num": 62, "Comments": "「何かいいの閃いたらあてが作るよ！」" }
+        {
+          "Num": 10,
+          "Comments": "「古代兵器みがある」",
+          "Comments_EN": "「古代兵器みがある」"
+        },
+        {
+          "Num": 35,
+          "Comments": "「まれに才能開花してそう」",
+          "Comments_EN": "「まれに才能開花してそう」"
+        },
+        {
+          "Num": 44,
+          "Comments": "「守護神でもいそうまである」",
+          "Comments_EN": "「守護神でもいそうまである」"
+        },
+        {
+          "Num": 62,
+          "Comments": "「何かいいの閃いたらあてが作るよ！」",
+          "Comments_EN": "「何かいいの閃いたらあてが作るよ！」"
+        }
       ]
-    }
+    },
+    "ThisMasters_EN": [
+      {
+        "value": "錦野 歌嫁（78特殊探偵団 采配幹部(ディーラー)/百花繚乱研究所(N3US大学 千歳研究室)ゼミアシスタント）",
+        "_DBLink": {
+          "worksTitle": "NumberTales",
+          "dbName": "Secondary",
+          "_Search": [{ "hashTag": "Num", "key": "%" }]
+        }
+      }
+    ]
   },
   {
     "Num": 9,
@@ -1451,7 +1621,11 @@
     "Height_cm": 160,
     "ConceptAge": 21,
     "AnivDay": [
-      { "Day": { "Month": 1, "DayOfMonth": 9 }, "DayAbout": "開発記念" }
+      {
+        "Day": { "Month": 1, "DayOfMonth": 9 },
+        "DayAbout": "開発記念",
+        "DayAbout_EN": "Development commemoration"
+      }
     ],
     "Weight_kg": 43,
     "BustSize": "E",
@@ -1555,26 +1729,38 @@
         {
           "Num": 2,
           "Comments": "「可愛らしいお嬢さんね」",
-          "RelationLabel": ["wellMatched", "classmate"]
+          "RelationLabel": ["wellMatched", "classmate"],
+          "Comments_EN": "「可愛らしいお嬢さんね」"
         },
         {
           "Num": 6,
           "Comments": "「ロマンチストで素敵だと思うわ」",
-          "RelationLabel": ["paired", "classmate"]
+          "RelationLabel": ["paired", "classmate"],
+          "Comments_EN": "「ロマンチストで素敵だと思うわ」"
         }
       ],
       "Commented": [
         {
           "Num": 4,
           "Comments": "「もっと大胆にいってもいいのよ？」",
-          "RelationLabel": ["classmate"]
+          "RelationLabel": ["classmate"],
+          "Comments_EN": "「もっと大胆にいってもいいのよ？」"
         },
-        { "Num": 10, "Comments": "「自分を見失ってないといいわね」" },
-        { "Num": 27, "Comments": "「あの子の果てを観てみたいわ」" },
+        {
+          "Num": 10,
+          "Comments": "「自分を見失ってないといいわね」",
+          "Comments_EN": "「自分を見失ってないといいわね」"
+        },
+        {
+          "Num": 27,
+          "Comments": "「あの子の果てを観てみたいわ」",
+          "Comments_EN": "「あの子の果てを観てみたいわ」"
+        },
         {
           "Num": 99,
           "Comments": "「記憶って、不思議なものね…」",
-          "RelationLabel": ["successor"]
+          "RelationLabel": ["successor"],
+          "Comments_EN": "「記憶って、不思議なものね…」"
         }
       ]
     },
@@ -1627,7 +1813,8 @@
           "about_EN": "When comforting someone mentally exhausted"
         }
       ]
-    }
+    },
+    "ThisMasters_EN": ["中月 カイン.ナイターエイド"]
   },
   {
     "Num": 10,
@@ -1654,10 +1841,15 @@
     "Height_cm": 147,
     "ConceptAge": 15,
     "AnivDay": [
-      { "Day": { "Month": 10, "DayOfMonth": 10 }, "DayAbout": "開発記念" },
+      {
+        "Day": { "Month": 10, "DayOfMonth": 10 },
+        "DayAbout": "開発記念",
+        "DayAbout_EN": "Development commemoration"
+      },
       {
         "Day": { "Month": 4, "DayOfMonth": 10 },
-        "DayAbout": "アンチヴィラン対策記念(劇中)"
+        "DayAbout": "アンチヴィラン対策記念(劇中)",
+        "DayAbout_EN": "Anti-villain countermeasure commemoration (in-story)"
       }
     ],
     "Weight_kg": 39,
@@ -1781,22 +1973,26 @@
         {
           "Num": 1,
           "Comments": "「僕の相棒、いろいろ世話になった」",
-          "RelationLabel": ["trusted_maybe", "alternative|redesign"]
+          "RelationLabel": ["trusted_maybe", "alternative|redesign"],
+          "Comments_EN": "「僕の相棒、いろいろ世話になった」"
         },
         {
           "Num": 2,
           "Comments": "「あまり相手重視にしすぎないことだね」",
-          "RelationLabel": ["wellMatched", "alternative|redesign"]
+          "RelationLabel": ["wellMatched", "alternative|redesign"],
+          "Comments_EN": "「あまり相手重視にしすぎないことだね」"
         },
         {
           "Num": 11,
           "Comments": "「話が通じる」",
-          "RelationLabel": ["abusing", "trusted_maybe"]
+          "RelationLabel": ["abusing", "trusted_maybe"],
+          "Comments_EN": "「話が通じる」"
         },
         {
           "Num": 99,
           "Comments": "「ふむ…なるほど」",
-          "RelationLabel": ["secretRelation"]
+          "RelationLabel": ["secretRelation"],
+          "Comments_EN": "「ふむ…なるほど」"
         },
         {
           "Num": "10-alt",
@@ -1804,8 +2000,16 @@
         }
       ],
       "Commented": [
-        { "Num": 9, "Comments": "「裏がある優しさを持ってる、悪くない」" },
-        { "Num": 19, "Comments": "「因果応報を信じてやまないね」" }
+        {
+          "Num": 9,
+          "Comments": "「裏がある優しさを持ってる、悪くない」",
+          "Comments_EN": "「裏がある優しさを持ってる、悪くない」"
+        },
+        {
+          "Num": 19,
+          "Comments": "「因果応報を信じてやまないね」",
+          "Comments_EN": "「因果応報を信じてやまないね」"
+        }
       ]
     },
     "ConversationPattern": {
@@ -1877,7 +2081,24 @@
           "about_EN": "Ironic remark (while reviewing evidence footage of the case)"
         }
       ]
-    }
+    },
+    "ThisMasters_EN": [
+      {
+        "value": null,
+        "about": "(専属契約不可)",
+        "about_EN": "(Exclusive contract not possible)"
+      },
+      {
+        "value": "扇三春",
+        "about": { "hideText": "？？？" },
+        "about_EN": { "hideText": "???" },
+        "_DBLink": {
+          "worksTitle": "SinisterChangingGirls",
+          "dbName": "Primary",
+          "_Search": [{ "hashTag": "Drc", "key": "NE" }]
+        }
+      }
+    ]
   },
   {
     "Num": 11,
@@ -1901,7 +2122,11 @@
     "Height_cm": 161,
     "ConceptAge": 17,
     "AnivDay": [
-      { "Day": { "Month": 11, "DayOfMonth": 11 }, "DayAbout": "開発記念" }
+      {
+        "Day": { "Month": 11, "DayOfMonth": 11 },
+        "DayAbout": "開発記念",
+        "DayAbout_EN": "Development commemoration"
+      }
     ],
     "Weight_kg": 43,
     "BustSize": "AA",
@@ -2012,27 +2237,39 @@
         {
           "Num": 1,
           "Comments": "（※字が乱れていて「師匠」しか読めない）",
-          "RelationLabel": ["trusted", "abusing", "adverselyAffected"]
+          "RelationLabel": ["trusted", "abusing", "adverselyAffected"],
+          "Comments_EN": "（※字が乱れていて「師匠」しか読めない）"
         },
         {
           "Num": 22,
           "Comments": "「ああみえて根はしっかりしている妹」",
-          "RelationLabel": ["brother|sister", "classmate"]
+          "RelationLabel": ["brother|sister", "classmate"],
+          "Comments_EN": "「ああみえて根はしっかりしている妹」"
         },
         {
           "Num": 55,
           "Comments": "「汝が我より断然「台風の目」だ、誤解するな」",
-          "RelationLabel": ["awkward", "classmate"]
+          "RelationLabel": ["awkward", "classmate"],
+          "Comments_EN": "「汝が我より断然「台風の目」だ、誤解するな」"
         },
         {
           "Num": 99,
           "Comments": "「…ひとまず、事情は把握した」",
-          "RelationLabel": ["wellMatched", "classmate"]
+          "RelationLabel": ["wellMatched", "classmate"],
+          "Comments_EN": "「…ひとまず、事情は把握した」"
         }
       ],
       "Commented": [
-        { "Num": 38, "Comments": "「彼女の周りは毎回驚かされる」" },
-        { "Num": 56, "Comments": "「多様な輩に恵まれているものだな」" }
+        {
+          "Num": 38,
+          "Comments": "「彼女の周りは毎回驚かされる」",
+          "Comments_EN": "「彼女の周りは毎回驚かされる」"
+        },
+        {
+          "Num": 56,
+          "Comments": "「多様な輩に恵まれているものだな」",
+          "Comments_EN": "「多様な輩に恵まれているものだな」"
+        }
       ]
     }
   },
@@ -2062,7 +2299,11 @@
     "Height_cm": 148,
     "ConceptAge": 14,
     "AnivDay": [
-      { "Day": { "Month": 1, "DayOfMonth": 12 }, "DayAbout": "開発記念" }
+      {
+        "Day": { "Month": 1, "DayOfMonth": 12 },
+        "DayAbout": "開発記念",
+        "DayAbout_EN": "Development commemoration"
+      }
     ],
     "Weight_kg": 39,
     "BustSize": "B",
@@ -2171,38 +2412,51 @@
         {
           "Num": 1,
           "Comments": "「応援してます！」",
-          "RelationLabel": ["pioneer", "trusted"]
+          "RelationLabel": ["pioneer", "trusted"],
+          "Comments_EN": "「応援してます！」"
         },
         {
           "Num": 2,
           "Comments": "「優しくてとてもいい人、なんだけど……」",
-          "RelationLabel": ["pioneer", "awkward"]
+          "RelationLabel": ["pioneer", "awkward"],
+          "Comments_EN": "「優しくてとてもいい人、なんだけど……」"
         },
         {
           "Num": 21,
           "Comments": "「ちょっと変な妹[弟]」",
-          "RelationLabel": ["brother|sister", "classmate"]
+          "RelationLabel": ["brother|sister", "classmate"],
+          "Comments_EN": "「ちょっと変な妹[弟]」"
         },
         {
           "Num": "2-alt",
           "Comments": "「皆のもとに来れる日を待ってるよ！」",
-          "RelationLabel": ["pioneer", "wellMatched", "trusted"]
+          "RelationLabel": ["pioneer", "wellMatched", "trusted"],
+          "Comments_EN": "「皆のもとに来れる日を待ってるよ！」"
         }
       ],
       "Commented": [
-        { "Num": 30, "Comments": "「幸福の意味をいつか聞いてみたいな」" },
+        {
+          "Num": 30,
+          "Comments": "「幸福の意味をいつか聞いてみたいな」",
+          "Comments_EN": "「幸福の意味をいつか聞いてみたいな」"
+        },
         {
           "Num": 48,
           "Comments": "「理想主義？リアリスト？どっちだろう…？」",
-          "RelationLabel": ["classmate"]
+          "RelationLabel": ["classmate"],
+          "Comments_EN": "「理想主義？リアリスト？どっちだろう…？」"
         },
         {
           "Num": 75,
           "Comments": "「変に真面目だけど、しっかりもの」",
-          "RelationLabel": ["classmate"]
+          "RelationLabel": ["classmate"],
+          "Comments_EN": "「変に真面目だけど、しっかりもの」"
         }
       ]
-    }
+    },
+    "ThisMasters_EN": [
+      "オードリー.カッツェ.ブラックフレア/アルジーヌ（78特殊探偵団 副支部長(火の棍棒支部)）"
+    ]
   },
   {
     "Num": 13,
@@ -2227,7 +2481,11 @@
     "Height_cm": 148,
     "ConceptAge": 16,
     "AnivDay": [
-      { "Day": { "Month": 1, "DayOfMonth": 13 }, "DayAbout": "開発記念" }
+      {
+        "Day": { "Month": 1, "DayOfMonth": 13 },
+        "DayAbout": "開発記念",
+        "DayAbout_EN": "Development commemoration"
+      }
     ],
     "Weight_kg": 40,
     "BustSize": "A",
@@ -2334,35 +2592,45 @@
         {
           "Num": 31,
           "Comments": "「出だしは姉の私が補助するよ！ 頑張って！」",
-          "RelationLabel": ["brother|sister", "classmate"]
+          "RelationLabel": ["brother|sister", "classmate"],
+          "Comments_EN": "「出だしは姉の私が補助するよ！ 頑張って！」"
         },
         {
           "Num": 39,
           "Comments": "「ちょっとかっこいいかも…！」",
-          "RelationLabel": ["wellMatched", "cousin_nearly"]
+          "RelationLabel": ["wellMatched", "cousin_nearly"],
+          "Comments_EN": "「ちょっとかっこいいかも…！」"
         },
         {
           "Num": 58,
           "Comments": "「なんでいつもいいカードを引くの！インチキ!!」",
-          "RelationLabel": ["unmatched", "classmate"]
+          "RelationLabel": ["unmatched", "classmate"],
+          "Comments_EN": "「なんでいつもいいカードを引くの！インチキ!!」"
         }
       ],
       "Commented": [
         {
           "Num": 1,
           "Comments": "「あの行動力には敵わないなぁ」",
-          "RelationLabel": ["pioneer"]
+          "RelationLabel": ["pioneer"],
+          "Comments_EN": "「あの行動力には敵わないなぁ」"
         },
         {
           "Num": 3,
           "Comments": "「私も見習わないと！」",
-          "RelationLabel": ["pioneer"]
+          "RelationLabel": ["pioneer"],
+          "Comments_EN": "「私も見習わないと！」"
         },
-        { "Num": 4, "Comments": "「引っ込み思案だけどとてもいい人だよ！」" },
+        {
+          "Num": 4,
+          "Comments": "「引っ込み思案だけどとてもいい人だよ！」",
+          "Comments_EN": "「引っ込み思案だけどとてもいい人だよ！」"
+        },
         {
           "Num": 71,
           "Comments": "「最初あんなにすごい子だったっけ…」",
-          "RelationLabel": ["cousin_nearly"]
+          "RelationLabel": ["cousin_nearly"],
+          "Comments_EN": "「最初あんなにすごい子だったっけ…」"
         }
       ]
     }
@@ -2398,7 +2666,11 @@
     "Height_cm": 146,
     "ConceptAge": 16,
     "AnivDay": [
-      { "Day": { "Month": 1, "DayOfMonth": 14 }, "DayAbout": "開発記念" }
+      {
+        "Day": { "Month": 1, "DayOfMonth": 14 },
+        "DayAbout": "開発記念",
+        "DayAbout_EN": "Development commemoration"
+      }
     ],
     "Weight_kg": 39,
     "BustSize": "F",
@@ -2502,32 +2774,45 @@
         {
           "Num": 13,
           "Comments": "「元気でしっかりしてる従姉」",
-          "RelationLabel": ["cousin", "paired"]
+          "RelationLabel": ["cousin", "paired"],
+          "Comments_EN": "「元気でしっかりしてる従姉」"
         },
         {
           "Num": 22,
           "Comments": "「さすがとしか言いようがないわ」",
-          "RelationLabel": ["wellMatched"]
+          "RelationLabel": ["wellMatched"],
+          "Comments_EN": "「さすがとしか言いようがないわ」"
         },
         {
           "Num": 41,
           "Comments": "「おめでた頭の弟」",
-          "RelationLabel": ["brother|sister", "classmate"]
+          "RelationLabel": ["brother|sister", "classmate"],
+          "Comments_EN": "「おめでた頭の弟」"
         },
         { "Num": 49, "RelationLabel": ["abusing", "cousin_nearly"] }
       ],
       "Commented": [
-        { "Num": 55, "Comments": "「なにあいつえっぐ……」" },
+        {
+          "Num": 55,
+          "Comments": "「なにあいつえっぐ……」",
+          "Comments_EN": "「なにあいつえっぐ……」"
+        },
         {
           "Num": 64,
           "Comments": "「かなりぶっ飛んでる」",
-          "RelationLabel": ["cousin"]
+          "RelationLabel": ["cousin"],
+          "Comments_EN": "「かなりぶっ飛んでる」"
         },
-        { "Num": 77, "Comments": "「本当はド真面目なのが憎めない」" },
+        {
+          "Num": 77,
+          "Comments": "「本当はド真面目なのが憎めない」",
+          "Comments_EN": "「本当はド真面目なのが憎めない」"
+        },
         {
           "Num": 86,
           "Comments": "「貢がれてそう」",
-          "RelationLabel": ["classmate"]
+          "RelationLabel": ["classmate"],
+          "Comments_EN": "「貢がれてそう」"
         }
       ]
     },
@@ -2588,7 +2873,8 @@
           "about_EN": "When waking a Master who overslept"
         }
       ]
-    }
+    },
+    "ThisMasters_EN": ["ゼン.エデンズグリーン/皐月（夜月機関 第5幹部）"]
   },
   {
     "Num": 15,
@@ -2619,12 +2905,12 @@
       {
         "Day": { "Month": 1, "DayOfMonth": 15 },
         "DayAbout": "開発記念",
-        "about_EN": "Development Anniversary"
+        "DayAbout_EN": "Development commemoration"
       },
       {
         "Day": { "Month": 4, "DayOfMonth": 15 },
         "DayAbout": "暴走抑止対策記念(劇中)",
-        "about_EN": "Runaway-Suppression Countermeasure Anniversary (in-story)"
+        "DayAbout_EN": "Runaway suppression countermeasure commemoration (in-story)"
       }
     ],
     "Weight_kg": [
@@ -2753,13 +3039,15 @@
         {
           "Num": 10,
           "Comments": "「よく覚えてないが、世話になった…気がする」",
-          "RelationLabel": ["pioneer_nearly", "secretRelation"]
+          "RelationLabel": ["pioneer_nearly", "secretRelation"],
+          "Comments_EN": "「よく覚えてないが、世話になった…気がする」"
         },
         { "Num": 12, "RelationLabel": ["wellMatched", "cousin"] },
         {
           "Num": 33,
           "Comments": "「才能に溺れて無茶しないでくれよ」",
-          "RelationLabel": ["awkward"]
+          "RelationLabel": ["awkward"],
+          "Comments_EN": "「才能に溺れて無茶しないでくれよ」"
         },
         {
           "Num": 51,
@@ -2768,28 +3056,46 @@
             "brother|sister",
             "alternative|redesign",
             "classmate"
-          ]
+          ],
+          "Comments_EN": "「弟、発想力は認める」"
         },
         {
           "Num": 95,
           "Comments": "「……善処はした。頼むから、早まるなよ」",
-          "RelationLabel": ["wellMatched", "cousin", "secretRelation"]
+          "RelationLabel": ["wellMatched", "cousin", "secretRelation"],
+          "Comments_EN": "「……善処はした。頼むから、早まるなよ」"
         }
       ],
       "Commented": [
-        { "Num": 23, "Comments": "「少しは持ち場に居てくれ」" },
+        {
+          "Num": 23,
+          "Comments": "「少しは持ち場に居てくれ」",
+          "Comments_EN": "「少しは持ち場に居てくれ」"
+        },
         {
           "Num": 69,
           "Comments": "「ちょっとは自分を見つめ直した方がいい」",
-          "RelationLabel": ["classmate"]
+          "RelationLabel": ["classmate"],
+          "Comments_EN": "「ちょっとは自分を見つめ直した方がいい」"
         },
         {
           "Num": 91,
           "Comments": "「どんな結果でも挫けないのは認めるべき」",
-          "RelationLabel": ["cousin_nearly"]
+          "RelationLabel": ["cousin_nearly"],
+          "Comments_EN": "「どんな結果でも挫けないのは認めるべき」"
         }
       ]
-    }
+    },
+    "ThisMasters_EN": [
+      {
+        "value": "ミル.ニュクスフ",
+        "_DBLink": {
+          "worksTitle": "SinisterChangingGirls",
+          "dbName": "Primary",
+          "_Search": [{ "hashTag": "Drc", "key": "SW" }]
+        }
+      }
+    ]
   },
   {
     "Num": 16,
@@ -2825,7 +3131,7 @@
       {
         "Day": { "Month": 1, "DayOfMonth": 16 },
         "DayAbout": "開発記念",
-        "about_EN": "Development Anniversary"
+        "DayAbout_EN": "Development commemoration"
       }
     ],
     "Weight_kg": { "hideText": "非公開" },
@@ -2945,39 +3251,59 @@
         {
           "Num": 6,
           "Comments": "「かわいい♡」",
-          "RelationLabel": ["pioneer", "abusing"]
+          "RelationLabel": ["pioneer", "abusing"],
+          "Comments_EN": "「かわいい♡」"
         },
         { "Num": 17, "RelationLabel": ["cousin", "wellMatched"] },
         {
           "Num": 26,
           "Comments": "「いつか彼女に甘えてみたいなぁ…♡」",
-          "RelationLabel": ["cousin", "abusing"]
+          "RelationLabel": ["cousin", "abusing"],
+          "Comments_EN": "「いつか彼女に甘えてみたいなぁ…♡」"
         },
         {
           "Num": 61,
           "Comments": "「妹、お花畑なところも魅力」",
-          "RelationLabel": ["brother|sister", "classmate"]
+          "RelationLabel": ["brother|sister", "classmate"],
+          "Comments_EN": "「妹、お花畑なところも魅力」"
         }
       ],
       "Commented": [
         {
           "Num": 1,
           "Comments": "「すごいポテンシャルの持ち主」",
-          "RelationLabel": ["pioneer"]
+          "RelationLabel": ["pioneer"],
+          "Comments_EN": "「すごいポテンシャルの持ち主」"
         },
-        { "Num": 7, "Comments": "「ちょっと孤高だけどしっかり者」" },
+        {
+          "Num": 7,
+          "Comments": "「ちょっと孤高だけどしっかり者」",
+          "Comments_EN": "「ちょっと孤高だけどしっかり者」"
+        },
         {
           "Num": 71,
           "Comments": "「いや～…青春だね♪」",
-          "RelationLabel": ["cousin_nearly"]
+          "RelationLabel": ["cousin_nearly"],
+          "Comments_EN": "「いや～…青春だね♪」"
         },
         {
           "Num": 79,
           "Comments": "「なんだか宗教勧誘してる人みたいで可哀想」",
-          "RelationLabel": ["classmate"]
+          "RelationLabel": ["classmate"],
+          "Comments_EN": "「なんだか宗教勧誘してる人みたいで可哀想」"
         }
       ]
-    }
+    },
+    "ThisMasters_EN": [
+      {
+        "value": "六花 ルノ（夜月機関 先代第6幹部/白の六芒星 技術長）",
+        "_DBLink": {
+          "worksTitle": "SinisterChangingGirls",
+          "dbName": "Primary",
+          "_Search": [{ "hashTag": "Drc", "key": "E" }]
+        }
+      }
+    ]
   },
   {
     "Num": 17,
@@ -3005,7 +3331,7 @@
       {
         "Day": { "Month": 1, "DayOfMonth": 17 },
         "DayAbout": "開発記念",
-        "about_EN": "Development Anniversary"
+        "DayAbout_EN": "Development commemoration"
       }
     ],
     "Weight_kg": [
@@ -3133,7 +3459,8 @@
         {
           "Num": 16,
           "Comments": "「才色兼備で強そう」",
-          "RelationLabel": ["cousin"]
+          "RelationLabel": ["cousin"],
+          "Comments_EN": "「才色兼備で強そう」"
         },
         {
           "Num": 71,
@@ -3142,25 +3469,52 @@
         {
           "Num": 73,
           "Comments": "「良く言えば知識欲旺盛、悪く言えば無知…だね」",
-          "RelationLabel": ["unmatched", "cousin_nearly"]
+          "RelationLabel": ["unmatched", "cousin_nearly"],
+          "Comments_EN": "「良く言えば知識欲旺盛、悪く言えば無知…だね」"
         },
         {
           "Num": 89,
           "Comments": "「まぎれもなく同志」",
-          "RelationLabel": ["wellMatched", "classmate"]
+          "RelationLabel": ["wellMatched", "classmate"],
+          "Comments_EN": "「まぎれもなく同志」"
         }
       ],
       "Commented": [
-        { "Num": 8, "Comments": "「知識も価値あるものだと教えてやりたい」" },
-        { "Num": 34, "Comments": "「数で勝負してるのかな」" },
-        { "Num": 43, "Comments": "「ポテンシャルが計り知れない」" },
+        {
+          "Num": 8,
+          "Comments": "「知識も価値あるものだと教えてやりたい」",
+          "Comments_EN": "「知識も価値あるものだと教えてやりたい」"
+        },
+        {
+          "Num": 34,
+          "Comments": "「数で勝負してるのかな」",
+          "Comments_EN": "「数で勝負してるのかな」"
+        },
+        {
+          "Num": 43,
+          "Comments": "「ポテンシャルが計り知れない」",
+          "Comments_EN": "「ポテンシャルが計り知れない」"
+        },
         {
           "Num": 62,
           "Comments": "「女性の味方なアイディア、期待してるよ」",
-          "RelationLabel": ["classmate"]
+          "RelationLabel": ["classmate"],
+          "Comments_EN": "「女性の味方なアイディア、期待してるよ」"
         }
       ]
-    }
+    },
+    "ThisMasters_EN": [
+      {
+        "value": "ライト.リヴァーブリッジ/ブライト.ゲイザー（78特殊探偵団 第17幹部）",
+        "_DBLink": {
+          "worksTitle": "FLInvestigator78",
+          "dbName": "PrimaryDealer",
+          "_Search": [
+            { "hashTag": "Card", "key": { "Stoat": "Major", "StoatNum": 17 } }
+          ]
+        }
+      }
+    ]
   },
   {
     "Num": 18,
@@ -3187,7 +3541,11 @@
     "Height_cm": 153,
     "ConceptAge": 20,
     "AnivDay": [
-      { "Day": { "Month": 1, "DayOfMonth": 18 }, "DayAbout": "開発記念" }
+      {
+        "Day": { "Month": 1, "DayOfMonth": 18 },
+        "DayAbout": "開発記念",
+        "DayAbout_EN": "Development commemoration"
+      }
     ],
     "Weight_kg": 42,
     "BustSize": "C",
@@ -3290,35 +3648,41 @@
         {
           "Num": 9,
           "Comments": "「平和主義、だけど。あのように見えて裏がありそうだから油断はできない存在ね…」",
-          "RelationLabel": ["wellMatched_maybe"]
+          "RelationLabel": ["wellMatched_maybe"],
+          "Comments_EN": "「平和主義、だけど。あのように見えて裏がありそうだから油断はできない存在ね…」"
         },
         { "Num": 19, "RelationLabel": ["cousin", "accompanying"] },
         {
           "Num": 81,
           "Comments": "「妹[弟]、需要とか気にしすぎ」",
-          "RelationLabel": ["brother|sister", "classmate"]
+          "RelationLabel": ["brother|sister", "classmate"],
+          "Comments_EN": "「妹[弟]、需要とか気にしすぎ」"
         }
       ],
       "Commented": [
         {
           "Num": 8,
           "Comments": "「ときどき変なもの作ってそう」",
-          "RelationLabel": ["pioneer"]
+          "RelationLabel": ["pioneer"],
+          "Comments_EN": "「ときどき変なもの作ってそう」"
         },
         {
           "Num": 27,
           "Comments": "「真面目だけど潰れないようにね」",
-          "RelationLabel": ["classmate"]
+          "RelationLabel": ["classmate"],
+          "Comments_EN": "「真面目だけど潰れないようにね」"
         },
         {
           "Num": 38,
           "Comments": "「運も力のうち、というわけね」",
-          "RelationLabel": ["cousin"]
+          "RelationLabel": ["cousin"],
+          "Comments_EN": "「運も力のうち、というわけね」"
         },
         {
           "Num": 54,
           "Comments": "「油断だけはしてほしくない」",
-          "RelationLabel": ["classmate"]
+          "RelationLabel": ["classmate"],
+          "Comments_EN": "「油断だけはしてほしくない」"
         }
       ]
     }
@@ -3345,7 +3709,11 @@
     "Height_cm": 157,
     "ConceptAge": 20,
     "AnivDay": [
-      { "Day": { "Month": 1, "DayOfMonth": 19 }, "DayAbout": "開発記念" }
+      {
+        "Day": { "Month": 1, "DayOfMonth": 19 },
+        "DayAbout": "開発記念",
+        "DayAbout_EN": "Development commemoration"
+      }
     ],
     "Weight_kg": 42,
     "BustSize": "AA",
@@ -3448,34 +3816,40 @@
         {
           "Num": 89,
           "Comments": "「おばあc（※文章はここで途切れている）」",
-          "RelationLabel": ["cousin", "abusing"]
+          "RelationLabel": ["cousin", "abusing"],
+          "Comments_EN": "「おばあc（※文章はここで途切れている）」"
         },
         {
           "Num": 91,
           "Comments": "「弟[妹]だけど活発すぎて手に負えないや…」",
-          "RelationLabel": ["brother|sister", "awkward", "classmate"]
+          "RelationLabel": ["brother|sister", "awkward", "classmate"],
+          "Comments_EN": "「弟[妹]だけど活発すぎて手に負えないや…」"
         }
       ],
       "Commented": [
         {
           "Num": 1,
           "Comments": "「君が極めたものは幾つあるんだい？」",
-          "RelationLabel": ["pioneer"]
+          "RelationLabel": ["pioneer"],
+          "Comments_EN": "「君が極めたものは幾つあるんだい？」"
         },
         {
           "Num": 9,
           "Comments": "「バーテンダー、似合うと思うよ」",
-          "RelationLabel": ["pioneer"]
+          "RelationLabel": ["pioneer"],
+          "Comments_EN": "「バーテンダー、似合うと思うよ」"
         },
         {
           "Num": 10,
           "Comments": "「怪しい」",
-          "RelationLabel": ["pioneer_nearly"]
+          "RelationLabel": ["pioneer_nearly"],
+          "Comments_EN": "「怪しい」"
         },
         {
           "Num": 46,
           "Comments": "「元気があっていいね」",
-          "RelationLabel": ["classmate"]
+          "RelationLabel": ["classmate"],
+          "Comments_EN": "「元気があっていいね」"
         }
       ]
     }
@@ -3509,7 +3883,11 @@
     "Height_cm": 152,
     "ConceptAge": 17,
     "AnivDay": [
-      { "Day": { "Month": 1, "DayOfMonth": 20 }, "DayAbout": "開発記念" }
+      {
+        "Day": { "Month": 1, "DayOfMonth": 20 },
+        "DayAbout": "開発記念",
+        "DayAbout_EN": "Development commemoration"
+      }
     ],
     "Weight_kg": 41,
     "BustSize": "H",
@@ -3625,33 +4003,46 @@
         {
           "Num": 2,
           "Comments": "「姉の分もよろしくおねがいします」",
-          "RelationLabel": ["trusted", "cousin_nearly"]
+          "RelationLabel": ["trusted", "cousin_nearly"],
+          "Comments_EN": "「姉の分もよろしくおねがいします」"
         },
         {
           "Num": 24,
           "Comments": "「またお話きかせてくださいね♪」",
-          "RelationLabel": ["wellMatched", "cousin", "successor_nearly"]
+          "RelationLabel": ["wellMatched", "cousin", "successor_nearly"],
+          "Comments_EN": "「またお話きかせてくださいね♪」"
         },
         {
           "Num": 42,
           "Comments": "「またお話きかせてくださいね♪」",
-          "RelationLabel": ["wellMatched"]
+          "RelationLabel": ["wellMatched"],
+          "Comments_EN": "「またお話きかせてくださいね♪」"
         },
         { "Num": "2-alt", "RelationLabel": ["brother|sister", "trusted"] }
       ],
       "Commented": [
-        { "Num": 11, "Comments": "「すごいお方ですが…なんというか…」" },
+        {
+          "Num": 11,
+          "Comments": "「すごいお方ですが…なんというか…」",
+          "Comments_EN": "「すごいお方ですが…なんというか…」"
+        },
         {
           "Num": 22,
           "Comments": "「困ったら頼りたい」",
-          "RelationLabel": ["successor"]
+          "RelationLabel": ["successor"],
+          "Comments_EN": "「困ったら頼りたい」"
         },
         {
           "Num": 25,
           "Comments": "「臨んでいなくても本領発揮できる方です」",
-          "RelationLabel": ["successor_nearly"]
+          "RelationLabel": ["successor_nearly"],
+          "Comments_EN": "「臨んでいなくても本領発揮できる方です」"
         },
-        { "Num": 62, "Comments": "「芸術作品に興味がありそうです」" }
+        {
+          "Num": 62,
+          "Comments": "「芸術作品に興味がありそうです」",
+          "Comments_EN": "「芸術作品に興味がありそうです」"
+        }
       ]
     },
     "ConversationPattern": {
@@ -3717,7 +4108,8 @@
           "about_EN": "To a tired Master who cannot sleep"
         }
       ]
-    }
+    },
+    "ThisMasters_EN": ["メルランディア.シラユキ"]
   },
   {
     "Num": 21,
@@ -3740,7 +4132,11 @@
     "GenderType": "Neutral",
     "Height_cm": 148,
     "AnivDay": [
-      { "Day": { "Month": 1, "DayOfMonth": 21 }, "DayAbout": "開発記念" }
+      {
+        "Day": { "Month": 1, "DayOfMonth": 21 },
+        "DayAbout": "開発記念",
+        "DayAbout_EN": "Development commemoration"
+      }
     ],
     "ConceptAge": 14,
     "Weight_kg": 39,
@@ -3846,31 +4242,44 @@
         {
           "Num": 12,
           "Comments": "「隠し事持たない方が良いのか悪いのか…」",
-          "RelationLabel": ["brother|sister", "awkward", "classmate"]
+          "RelationLabel": ["brother|sister", "awkward", "classmate"],
+          "Comments_EN": "「隠し事持たない方が良いのか悪いのか…」"
         },
         {
           "Num": 28,
           "Comments": "「わわわ!! もうこれ以上はいらないって!!」",
-          "RelationLabel": ["cousin", "wellMatched_maybe"]
+          "RelationLabel": ["cousin", "wellMatched_maybe"],
+          "Comments_EN": "「わわわ!! もうこれ以上はいらないって!!」"
         }
       ],
       "Commented": [
-        { "Num": 3, "Comments": "「敵にしたら相手にならなさそう」" },
-        { "Num": 11, "Comments": "「とにかく半端なく凄い存在」" },
+        {
+          "Num": 3,
+          "Comments": "「敵にしたら相手にならなさそう」",
+          "Comments_EN": "「敵にしたら相手にならなさそう」"
+        },
+        {
+          "Num": 11,
+          "Comments": "「とにかく半端なく凄い存在」",
+          "Comments_EN": "「とにかく半端なく凄い存在」"
+        },
         {
           "Num": 20,
           "Comments": "「いつか気負い過ぎで倒れそうだなぁ…」",
-          "RelationLabel": ["pioneer_nearly"]
+          "RelationLabel": ["pioneer_nearly"],
+          "Comments_EN": "「いつか気負い過ぎで倒れそうだなぁ…」"
         },
         {
           "Num": 57,
           "Comments": "「楽観的なとこは見習うべき」",
-          "RelationLabel": ["classmate"]
+          "RelationLabel": ["classmate"],
+          "Comments_EN": "「楽観的なとこは見習うべき」"
         },
         {
           "Num": 84,
           "Comments": "「変なところで理屈っぽい」",
-          "RelationLabel": ["classmate"]
+          "RelationLabel": ["classmate"],
+          "Comments_EN": "「変なところで理屈っぽい」"
         }
       ]
     }
@@ -3907,7 +4316,11 @@
     "Height_cm": 153,
     "ConceptAge": 16,
     "AnivDay": [
-      { "Day": { "Month": 11, "DayOfMonth": 22 }, "DayAbout": "開発記念" }
+      {
+        "Day": { "Month": 11, "DayOfMonth": 22 },
+        "DayAbout": "開発記念",
+        "DayAbout_EN": "Development commemoration"
+      }
     ],
     "Weight_kg": { "hideText": "非公開" },
     "BustSize": "I",
@@ -4027,24 +4440,47 @@
         {
           "Num": 11,
           "Comments": "「時々暴走するから面白い人だよ！」",
-          "RelationLabel": ["brother|sister", "trusted", "classmate"]
+          "RelationLabel": ["brother|sister", "trusted", "classmate"],
+          "Comments_EN": "「時々暴走するから面白い人だよ！」"
         },
         {
           "Num": 44,
           "Comments": "「ライバルみたいな？負けてられない！」",
-          "RelationLabel": ["wellMatched", "classmate"]
+          "RelationLabel": ["wellMatched", "classmate"],
+          "Comments_EN": "「ライバルみたいな？負けてられない！」"
         }
       ],
       "Commented": [
-        { "Num": 2, "Comments": "「優しくていい子！」" },
-        { "Num": 4, "Comments": "「しっかり者だから見習わないとなぁ～」" },
-        { "Num": 47, "Comments": "「“加護”って何だろ？でもありがとう！」" },
-        { "Num": 62, "Comments": "「何か閃いたら教えて！やってみたい！」" },
-        { "Num": 84, "Comments": "「実現力が本当にすごい！」" },
+        {
+          "Num": 2,
+          "Comments": "「優しくていい子！」",
+          "Comments_EN": "「優しくていい子！」"
+        },
+        {
+          "Num": 4,
+          "Comments": "「しっかり者だから見習わないとなぁ～」",
+          "Comments_EN": "「しっかり者だから見習わないとなぁ～」"
+        },
+        {
+          "Num": 47,
+          "Comments": "「“加護”って何だろ？でもありがとう！」",
+          "Comments_EN": "「“加護”って何だろ？でもありがとう！」"
+        },
+        {
+          "Num": 62,
+          "Comments": "「何か閃いたら教えて！やってみたい！」",
+          "Comments_EN": "「何か閃いたら教えて！やってみたい！」"
+        },
+        {
+          "Num": 84,
+          "Comments": "「実現力が本当にすごい！」",
+          "Comments_EN": "「実現力が本当にすごい！」"
+        },
         {
           "Num": 99,
           "Comments": "「なんか…異世界転生とか経験してる…？」",
-          "RelationLabel": ["classmate"]
+          "RelationLabel": ["classmate"],
+          "Comments_EN": "「なんか…異世界転生とか経験してる…？」"
         }
       ]
     },
@@ -4095,7 +4531,10 @@
           "about_EN": "While eating with the Master"
         }
       ]
-    }
+    },
+    "ThisMasters_EN": [
+      "江戸川 笑(えみ)/Diamond.2(Duece)（78特殊探偵団 金の硬貨支部 構成員）"
+    ]
   },
   {
     "Num": 23,
@@ -4121,7 +4560,11 @@
     "Height_cm": 149,
     "ConceptAge": { "value": 16, "about_JP": "？", "about_EN": "?" },
     "AnivDay": [
-      { "Day": { "Month": 2, "DayOfMonth": 3 }, "DayAbout": "開発記念" }
+      {
+        "Day": { "Month": 2, "DayOfMonth": 3 },
+        "DayAbout": "開発記念",
+        "DayAbout_EN": "Development commemoration"
+      }
     ],
     "Weight_kg": 40,
     "BustSize": "B",
@@ -4222,39 +4665,46 @@
         {
           "Num": 2,
           "Comments": "「仕事振ってごめんな☆」",
-          "RelationLabel": ["pioneer_nearly", "wellMatched_maybe", "abusing"]
+          "RelationLabel": ["pioneer_nearly", "wellMatched_maybe", "abusing"],
+          "Comments_EN": "「仕事振ってごめんな☆」"
         },
         {
           "Num": 3,
           "Comments": "「事後処理ばっかりでごめんな☆」",
-          "RelationLabel": ["pioneer", "wellMatched", "abusing"]
+          "RelationLabel": ["pioneer", "wellMatched", "abusing"],
+          "Comments_EN": "「事後処理ばっかりでごめんな☆」"
         },
         {
           "Num": 55,
           "Comments": "「ああいうキャリアも面白そうだよな！」",
-          "RelationLabel": ["adverselyAffected"]
+          "RelationLabel": ["adverselyAffected"],
+          "Comments_EN": "「ああいうキャリアも面白そうだよな！」"
         },
         {
           "Num": 95,
           "Comments": "「身を投げ出しそうで怖ぇんだよあいつ…」",
-          "RelationLabel": ["unmatched", "classmate"]
+          "RelationLabel": ["unmatched", "classmate"],
+          "Comments_EN": "「身を投げ出しそうで怖ぇんだよあいつ…」"
         }
       ],
       "Commented": [
         {
           "Num": 29,
           "Comments": "「まぁ…強く生きてくれ」",
-          "RelationLabel": ["cousin"]
+          "RelationLabel": ["cousin"],
+          "Comments_EN": "「まぁ…強く生きてくれ」"
         },
         {
           "Num": 32,
           "Comments": "「双子の片割れ, あの言動で素なの面白いよな」",
-          "RelationLabel": ["brother|sister", "classmate"]
+          "RelationLabel": ["brother|sister", "classmate"],
+          "Comments_EN": "「双子の片割れ, あの言動で素なの面白いよな」"
         },
         {
           "Num": 39,
           "Comments": "「本気出すと侮れないやつ」",
-          "RelationLabel": ["cousin_nearly"]
+          "RelationLabel": ["cousin_nearly"],
+          "Comments_EN": "「本気出すと侮れないやつ」"
         }
       ]
     }
@@ -4285,7 +4735,11 @@
     "Height_cm": 158,
     "ConceptAge": 17,
     "AnivDay": [
-      { "Day": { "Month": 2, "DayOfMonth": 4 }, "DayAbout": "開発記念" }
+      {
+        "Day": { "Month": 2, "DayOfMonth": 4 },
+        "DayAbout": "開発記念",
+        "DayAbout_EN": "Development commemoration"
+      }
     ],
     "Weight_kg": { "hideText": "非公開" },
     "BustSize": "E",
@@ -4389,31 +4843,44 @@
         {
           "Num": 4,
           "Comments": "「友達のような存在」",
-          "RelationLabel": ["pioneer", "wellMatched"]
+          "RelationLabel": ["pioneer", "wellMatched"],
+          "Comments_EN": "「友達のような存在」"
         },
         {
           "Num": 20,
           "Comments": "「いつも頼りになるよ、ありがとう」",
-          "RelationLabel": ["pioneer_nearly", "trusted"]
+          "RelationLabel": ["pioneer_nearly", "trusted"],
+          "Comments_EN": "「いつも頼りになるよ、ありがとう」"
         },
         {
           "Num": 42,
           "Comments": "「暴走してないか心配な妹」",
-          "RelationLabel": ["brother|sister", "awkward", "classmate"]
+          "RelationLabel": ["brother|sister", "awkward", "classmate"],
+          "Comments_EN": "「暴走してないか心配な妹」"
         }
       ],
       "Commented": [
         {
           "Num": 25,
           "Comments": "「軽いように見えるけど優秀な人」",
-          "RelationLabel": ["cousin"]
+          "RelationLabel": ["cousin"],
+          "Comments_EN": "「軽いように見えるけど優秀な人」"
         },
-        { "Num": 40, "Comments": "「“ランプの魔人”を見てるような気分…」" },
-        { "Num": 60, "Comments": "「アイドルにでもなったらいいのに」" },
+        {
+          "Num": 40,
+          "Comments": "「“ランプの魔人”を見てるような気分…」",
+          "Comments_EN": "「“ランプの魔人”を見てるような気分…」"
+        },
+        {
+          "Num": 60,
+          "Comments": "「アイドルにでもなったらいいのに」",
+          "Comments_EN": "「アイドルにでもなったらいいのに」"
+        },
         {
           "Num": 96,
           "Comments": "「ちょっと時間が経ったら別人になってる気が…」",
-          "RelationLabel": ["classmate"]
+          "RelationLabel": ["classmate"],
+          "Comments_EN": "「ちょっと時間が経ったら別人になってる気が…」"
         }
       ]
     }
@@ -4448,7 +4915,11 @@
     "Height_cm": 156,
     "ConceptAge": 16,
     "AnivDay": [
-      { "Day": { "Month": 2, "DayOfMonth": 5 }, "DayAbout": "開発記念" }
+      {
+        "Day": { "Month": 2, "DayOfMonth": 5 },
+        "DayAbout": "開発記念",
+        "DayAbout_EN": "Development commemoration"
+      }
     ],
     "Weight_kg": [
       { "value": 42, "about_JP": "推定", "about_EN": "Presumption" }
@@ -4557,12 +5028,14 @@
         {
           "Num": 2,
           "Comments": "「立派で大好きな先輩！」",
-          "RelationLabel": ["pioneer_nearly", "wellMatched"]
+          "RelationLabel": ["pioneer_nearly", "wellMatched"],
+          "Comments_EN": "「立派で大好きな先輩！」"
         },
         {
           "Num": 5,
           "Comments": "「楽しそうで大好きな先輩！」",
-          "RelationLabel": ["pioneer", "wellMatched_maybe"]
+          "RelationLabel": ["pioneer", "wellMatched_maybe"],
+          "Comments_EN": "「楽しそうで大好きな先輩！」"
         },
         {
           "Num": 52,
@@ -4573,20 +5046,31 @@
             "trusted",
             "alternative|redesign",
             "classmate"
-          ]
+          ],
+          "Comments_EN": "「双子の妹。自己掲示欲がもっとあっていいかも」"
         }
       ],
       "Commented": [
-        { "Num": 11, "Comments": "「勘が強すぎる…すごい…」" },
-        { "Num": 17, "Comments": "「RPGやってるみたいに成長する強キャラ」" },
+        {
+          "Num": 11,
+          "Comments": "「勘が強すぎる…すごい…」",
+          "Comments_EN": "「勘が強すぎる…すごい…」"
+        },
+        {
+          "Num": 17,
+          "Comments": "「RPGやってるみたいに成長する強キャラ」",
+          "Comments_EN": "「RPGやってるみたいに成長する強キャラ」"
+        },
         {
           "Num": 34,
           "Comments": "「大人数の中でもすごく平然としてる」",
-          "RelationLabel": ["classmate"]
+          "RelationLabel": ["classmate"],
+          "Comments_EN": "「大人数の中でもすごく平然としてる」"
         },
         {
           "Num": 77,
-          "Comments": "「自信家で何やっても筋が通ってる、ヤバそう」"
+          "Comments": "「自信家で何やっても筋が通ってる、ヤバそう」",
+          "Comments_EN": "「自信家で何やっても筋が通ってる、ヤバそう」"
         }
       ]
     },
@@ -4625,7 +5109,10 @@
           "about": "疲れて眠れない主人に対して"
         }
       ]
-    }
+    },
+    "ThisMasters_EN": [
+      "亜高 蝶嵐(てふらん)/Heart.7(Seven)（78特殊探偵団 水の聖杯支部 構成員）"
+    ]
   },
   {
     "Num": 26,
@@ -4647,7 +5134,11 @@
     "Height_cm": 153,
     "ConceptAge": { "value": 22, "about_JP": "？", "about_EN": "?" },
     "AnivDay": [
-      { "Day": { "Month": 2, "DayOfMonth": 6 }, "DayAbout": "開発記念" }
+      {
+        "Day": { "Month": 2, "DayOfMonth": 6 },
+        "DayAbout": "開発記念",
+        "DayAbout_EN": "Development commemoration"
+      }
     ],
     "Weight_kg": { "hideText": "非公開" },
     "BustSize": "G",
@@ -4735,39 +5226,46 @@
         {
           "Num": 16,
           "Comments": "「甘えたいときはいつでもおいで♡」",
-          "RelationLabel": ["cousin", "wellMatched"]
+          "RelationLabel": ["cousin", "wellMatched"],
+          "Comments_EN": "「甘えたいときはいつでもおいで♡」"
         },
         {
           "Num": 62,
           "Comments": "「おしゃれなら任せて♡」",
-          "RelationLabel": ["brother|sister", "wellMatched", "classmate"]
+          "RelationLabel": ["brother|sister", "wellMatched", "classmate"],
+          "Comments_EN": "「おしゃれなら任せて♡」"
         },
         {
           "Num": 63,
           "Comments": "「わたしも負けてられないな……」",
-          "RelationLabel": ["cousin_nearly", "awkward"]
+          "RelationLabel": ["cousin_nearly", "awkward"],
+          "Comments_EN": "「わたしも負けてられないな……」"
         }
       ],
       "Commented": [
         {
           "Num": 17,
           "Comments": "「いつも勤勉で頑張ってるね」",
-          "RelationLabel": ["classmate"]
+          "RelationLabel": ["classmate"],
+          "Comments_EN": "「いつも勤勉で頑張ってるね」"
         },
         {
           "Num": 20,
           "Comments": "「いつも優しくて尊敬できる」",
-          "RelationLabel": ["pioneer_nearly"]
+          "RelationLabel": ["pioneer_nearly"],
+          "Comments_EN": "「いつも優しくて尊敬できる」"
         },
         {
           "Num": 24,
           "Comments": "「どこかつまらなさそう」",
-          "RelationLabel": ["cousin"]
+          "RelationLabel": ["cousin"],
+          "Comments_EN": "「どこかつまらなさそう」"
         },
         {
           "Num": 53,
           "Comments": "「お調子者でなんだかかわいい」",
-          "RelationLabel": ["classmate"]
+          "RelationLabel": ["classmate"],
+          "Comments_EN": "「お調子者でなんだかかわいい」"
         }
       ]
     },
@@ -4817,7 +5315,11 @@
     "Height_cm": 162,
     "ConceptAge": 17,
     "AnivDay": [
-      { "Day": { "Month": 2, "DayOfMonth": 7 }, "DayAbout": "開発記念" }
+      {
+        "Day": { "Month": 2, "DayOfMonth": 7 },
+        "DayAbout": "開発記念",
+        "DayAbout_EN": "Development commemoration"
+      }
     ],
     "Weight_kg": 43,
     "BustSize": "B",
@@ -4910,7 +5412,8 @@
         {
           "Num": 22,
           "Comments": "(※文字が小さすぎて読めない、想うことがかなりあるようだ)",
-          "RelationLabel": ["adverselyAffected"]
+          "RelationLabel": ["adverselyAffected"],
+          "Comments_EN": "(※文字が小さすぎて読めない、想うことがかなりあるようだ)"
         },
         {
           "Num": 72,
@@ -4919,31 +5422,40 @@
             "brother|sister",
             "alternative|redesign",
             "classmate"
-          ]
+          ],
+          "Comments_EN": "「同型だし、あまり気遣わなくていいよ」"
         },
         {
           "Num": 77,
           "Comments": "(※文字が小さすぎて読めない、想うことがかなりあるようだ)",
-          "RelationLabel": ["adverselyAffected"]
+          "RelationLabel": ["adverselyAffected"],
+          "Comments_EN": "(※文字が小さすぎて読めない、想うことがかなりあるようだ)"
         }
       ],
       "Commented": [
         {
           "Num": 20,
           "Comments": "「優しい方、怒ってるのをみたことない」",
-          "RelationLabel": ["pioneer_nearly"]
+          "RelationLabel": ["pioneer_nearly"],
+          "Comments_EN": "「優しい方、怒ってるのをみたことない」"
         },
         {
           "Num": 36,
           "Comments": "「あのように見えても幸運の持ち主だけどね」",
-          "RelationLabel": ["classmate"]
+          "RelationLabel": ["classmate"],
+          "Comments_EN": "「あのように見えても幸運の持ち主だけどね」"
         },
         {
           "Num": 54,
           "Comments": "「打たれ強いところもありそう」",
-          "RelationLabel": ["classmate"]
+          "RelationLabel": ["classmate"],
+          "Comments_EN": "「打たれ強いところもありそう」"
         },
-        { "Num": 90, "Comments": "「最終局面は見どころだと思う」" }
+        {
+          "Num": 90,
+          "Comments": "「最終局面は見どころだと思う」",
+          "Comments_EN": "「最終局面は見どころだと思う」"
+        }
       ]
     }
   },
@@ -4969,7 +5481,11 @@
     "Height_cm": 164,
     "ConceptAge": 22,
     "AnivDay": [
-      { "Day": { "Month": 2, "DayOfMonth": 8 }, "DayAbout": "開発記念" }
+      {
+        "Day": { "Month": 2, "DayOfMonth": 8 },
+        "DayAbout": "開発記念",
+        "DayAbout_EN": "Development commemoration"
+      }
     ],
     "Weight_kg": { "hideText": "非公開" },
     "BustSize": "D",
@@ -5066,40 +5582,51 @@
         {
           "Num": 10,
           "Comments": "「余計なお世話よ……」",
-          "RelationLabel": ["unmatched"]
+          "RelationLabel": ["unmatched"],
+          "Comments_EN": "「余計なお世話よ……」"
         },
         {
           "Num": 31,
           "Comments": "「またお話聴かせて？」",
-          "RelationLabel": ["wellMatched", "accompanying"]
+          "RelationLabel": ["wellMatched", "accompanying"],
+          "Comments_EN": "「またお話聴かせて？」"
         },
         {
           "Num": 78,
           "Comments": "(※荒く消されていて読めない)",
-          "RelationLabel": ["cousin", "trusted", "adverselyAffected_aBit"]
+          "RelationLabel": ["cousin", "trusted", "adverselyAffected_aBit"],
+          "Comments_EN": "(※荒く消されていて読めない)"
         },
         {
           "Num": 86,
           "Comments": "「似た者同士と思ってたのに……」",
-          "RelationLabel": ["cousin_nearly", "unmatched", "awkward"]
+          "RelationLabel": ["cousin_nearly", "unmatched", "awkward"],
+          "Comments_EN": "「似た者同士と思ってたのに……」"
         }
       ],
       "Commented": [
-        { "Num": 1, "Comments": "「裏方は似合ってないと思うけど」" },
+        {
+          "Num": 1,
+          "Comments": "「裏方は似合ってないと思うけど」",
+          "Comments_EN": "「裏方は似合ってないと思うけど」"
+        },
         {
           "Num": 24,
           "Comments": "「素直じゃない（他人のことはいえないけど）」",
-          "RelationLabel": ["cousin"]
+          "RelationLabel": ["cousin"],
+          "Comments_EN": "「素直じゃない（他人のことはいえないけど）」"
         },
         {
           "Num": 46,
           "Comments": "「うるさい」",
-          "RelationLabel": ["classmate"]
+          "RelationLabel": ["classmate"],
+          "Comments_EN": "「うるさい」"
         },
         {
           "Num": 73,
           "Comments": "「世間知らずすぎ」",
-          "RelationLabel": ["classmate"]
+          "RelationLabel": ["classmate"],
+          "Comments_EN": "「世間知らずすぎ」"
         }
       ]
     }
@@ -5131,7 +5658,11 @@
     "Height_cm": 150,
     "ConceptAge": 16,
     "AnivDay": [
-      { "Day": { "Month": 2, "DayOfMonth": 9 }, "DayAbout": "開発記念" }
+      {
+        "Day": { "Month": 2, "DayOfMonth": 9 },
+        "DayAbout": "開発記念",
+        "DayAbout_EN": "Development commemoration"
+      }
     ],
     "Weight_kg": { "hideText": "非公開" },
     "BustSize": "E",
@@ -5219,12 +5750,14 @@
         {
           "Num": 59,
           "Comments": "「ぅぅ…（酷く委縮した文字で書かれている）」",
-          "RelationLabel": ["cousin", "unmatched"]
+          "RelationLabel": ["cousin", "unmatched"],
+          "Comments_EN": "「ぅぅ…（酷く委縮した文字で書かれている）」"
         },
         {
           "Num": 91,
           "Comments": "「とても元気をくれる、大切な人」",
-          "RelationLabel": ["cousin_nearly", "wellMatched"]
+          "RelationLabel": ["cousin_nearly", "wellMatched"],
+          "Comments_EN": "「とても元気をくれる、大切な人」"
         },
         { "Num": 92, "RelationLabel": ["brother|sister", "awkward"] }
       ],
@@ -5232,17 +5765,20 @@
         {
           "Num": 12,
           "Comments": "「とても明るくて、ちょっと絡みにくい…」",
-          "RelationLabel": ["cousin_nearly"]
+          "RelationLabel": ["cousin_nearly"],
+          "Comments_EN": "「とても明るくて、ちょっと絡みにくい…」"
         },
         {
           "Num": 20,
           "Comments": "「ちょっと遠慮しちゃう…」",
-          "RelationLabel": ["pioneer_nearly"]
+          "RelationLabel": ["pioneer_nearly"],
+          "Comments_EN": "「ちょっと遠慮しちゃう…」"
         },
         {
           "Num": 83,
           "Comments": "「いつも圧倒されちゃうよ…」",
-          "RelationLabel": ["classmate"]
+          "RelationLabel": ["classmate"],
+          "Comments_EN": "「いつも圧倒されちゃうよ…」"
         }
       ]
     },
@@ -5273,7 +5809,8 @@
           "about": "慣れない機械を操作している時"
         }
       ]
-    }
+    },
+    "ThisMasters_EN": ["メイリア.シラユキ"]
   },
   {
     "Num": 30,
@@ -5301,7 +5838,11 @@
     "Weight_kg": { "hideText": "非公開" },
     "ConceptAge": { "value": 17, "about_JP": "？", "about_EN": "?" },
     "AnivDay": [
-      { "Day": { "Month": 2, "DayOfMonth": 29 }, "DayAbout": "開発記念" }
+      {
+        "Day": { "Month": 2, "DayOfMonth": 29 },
+        "DayAbout": "開発記念",
+        "DayAbout_EN": "Development commemoration"
+      }
     ],
     "BustSize": "F",
     "TailsUnit": "キツネ型3本",
@@ -5392,28 +5933,44 @@
         {
           "Num": 3,
           "Comments": "「お兄ちゃんのような存在」",
-          "RelationLabel": ["brother|sister"]
+          "RelationLabel": ["brother|sister"],
+          "Comments_EN": "「お兄ちゃんのような存在」"
         },
         {
           "Num": 33,
           "Comments": "「可愛い妹のような存在」",
-          "RelationLabel": ["successor", "accompanying", "wellMatched"]
+          "RelationLabel": ["successor", "accompanying", "wellMatched"],
+          "Comments_EN": "「可愛い妹のような存在」"
         },
         {
           "Num": 36,
           "Comments": "「えへへ…いつもありがとう♡」",
-          "RelationLabel": ["successor_nearly", "wellMatched"]
+          "RelationLabel": ["successor_nearly", "wellMatched"],
+          "Comments_EN": "「えへへ…いつもありがとう♡」"
         }
       ],
       "Commented": [
-        { "Num": 12, "Comments": "「真面目さと素直さが裏目にでちゃいそう…」" },
+        {
+          "Num": 12,
+          "Comments": "「真面目さと素直さが裏目にでちゃいそう…」",
+          "Comments_EN": "「真面目さと素直さが裏目にでちゃいそう…」"
+        },
         {
           "Num": 39,
           "Comments": "「ちょっと怖いけど、いい人だと思う」",
-          "RelationLabel": ["successor_nearly"]
+          "RelationLabel": ["successor_nearly"],
+          "Comments_EN": "「ちょっと怖いけど、いい人だと思う」"
         },
-        { "Num": 63, "Comments": "「すごく優しくて落ち着く」" },
-        { "Num": 93, "Comments": "「無理しないでね…？」" }
+        {
+          "Num": 63,
+          "Comments": "「すごく優しくて落ち着く」",
+          "Comments_EN": "「すごく優しくて落ち着く」"
+        },
+        {
+          "Num": 93,
+          "Comments": "「無理しないでね…？」",
+          "Comments_EN": "「無理しないでね…？」"
+        }
       ]
     }
   },
@@ -5443,7 +6000,11 @@
     "Height_cm": 147,
     "ConceptAge": 16,
     "AnivDay": [
-      { "Day": { "Month": 3, "DayOfMonth": 1 }, "DayAbout": "開発記念" }
+      {
+        "Day": { "Month": 3, "DayOfMonth": 1 },
+        "DayAbout": "開発記念",
+        "DayAbout_EN": "Development commemoration"
+      }
     ],
     "Weight_kg": 40,
     "BustSize": "D",
@@ -5541,7 +6102,8 @@
         {
           "Num": 13,
           "Comments": "「姉。いつも助かるけど無茶ぶりはちょっとなぁ」",
-          "RelationLabel": ["brother|sister", "awkward_aBit"]
+          "RelationLabel": ["brother|sister", "awkward_aBit"],
+          "Comments_EN": "「姉。いつも助かるけど無茶ぶりはちょっとなぁ」"
         },
         { "Num": 28, "RelationLabel": ["wellMatched", "accompanying"] }
       ],
@@ -5549,31 +6111,37 @@
         {
           "Num": 23,
           "Comments": "「メーワクばっかり掛けない方がいいよ」",
-          "RelationLabel": ["cousin_nearly"]
+          "RelationLabel": ["cousin_nearly"],
+          "Comments_EN": "「メーワクばっかり掛けない方がいいよ」"
         },
         {
           "Num": 40,
-          "Comments": "「回数制限とかないなら願い事してみようかな～」"
+          "Comments": "「回数制限とかないなら願い事してみようかな～」",
+          "Comments_EN": "「回数制限とかないなら願い事してみようかな～」"
         },
         {
           "Num": 58,
           "Comments": "「すぐ一発逆転するからゲームに誘いたくない」",
-          "RelationLabel": ["classmate"]
+          "RelationLabel": ["classmate"],
+          "Comments_EN": "「すぐ一発逆転するからゲームに誘いたくない」"
         },
         {
           "Num": 61,
           "Comments": "「“乙女”…っていうのかな…？」",
-          "RelationLabel": ["cousin"]
+          "RelationLabel": ["cousin"],
+          "Comments_EN": "「“乙女”…っていうのかな…？」"
         },
         {
           "Num": 76,
           "Comments": "「ヘンな人……」",
-          "RelationLabel": ["classmate"]
+          "RelationLabel": ["classmate"],
+          "Comments_EN": "「ヘンな人……」"
         },
         {
           "Num": 94,
           "Comments": "「退屈だったりしないのかな？」",
-          "RelationLabel": ["classmate"]
+          "RelationLabel": ["classmate"],
+          "Comments_EN": "「退屈だったりしないのかな？」"
         }
       ]
     }
@@ -5603,7 +6171,11 @@
     "Height_cm": 149,
     "ConceptAge": { "value": 16, "about_JP": "？", "about_EN": "?" },
     "AnivDay": [
-      { "Day": { "Month": 3, "DayOfMonth": 2 }, "DayAbout": "開発記念" }
+      {
+        "Day": { "Month": 3, "DayOfMonth": 2 },
+        "DayAbout": "開発記念",
+        "DayAbout_EN": "Development commemoration"
+      }
     ],
     "Weight_kg": 40,
     "BustSize": "A",
@@ -5695,35 +6267,45 @@
         {
           "Num": 23,
           "Comments": "「姉やのことで難はねぇよ、ねぇんだけど……」",
-          "RelationLabel": ["brother|sister", "awkward"]
+          "RelationLabel": ["brother|sister", "awkward"],
+          "Comments_EN": "「姉やのことで難はねぇよ、ねぇんだけど……」"
         }
       ],
       "Commented": [
         {
           "Num": 12,
           "Comments": "「わかりやすいやつ、まぁそれがいいんだが」",
-          "RelationLabel": ["cousin"]
+          "RelationLabel": ["cousin"],
+          "Comments_EN": "「わかりやすいやつ、まぁそれがいいんだが」"
         },
         {
           "Num": 14,
           "Comments": "「優等生ではあるんだけどなぁ」",
-          "RelationLabel": ["classmate"]
+          "RelationLabel": ["classmate"],
+          "Comments_EN": "「優等生ではあるんだけどなぁ」"
         },
         {
           "Num": 38,
           "Comments": "「実は幸運の秘訣とかありそう、ねぇの？」",
-          "RelationLabel": ["cousin"]
+          "RelationLabel": ["cousin"],
+          "Comments_EN": "「実は幸運の秘訣とかありそう、ねぇの？」"
         },
         {
           "Num": 59,
           "Comments": "「身構えたくなるんだよなこいつの前だと…」",
-          "RelationLabel": ["classmate"]
+          "RelationLabel": ["classmate"],
+          "Comments_EN": "「身構えたくなるんだよなこいつの前だと…」"
         },
-        { "Num": 77, "Comments": "「……邪魔したら悪ぃし、そっとしとくか…」" },
+        {
+          "Num": 77,
+          "Comments": "「……邪魔したら悪ぃし、そっとしとくか…」",
+          "Comments_EN": "「……邪魔したら悪ぃし、そっとしとくか…」"
+        },
         {
           "Num": 86,
           "Comments": "「金目のトラブルは用心しとけよ」",
-          "RelationLabel": ["classmate"]
+          "RelationLabel": ["classmate"],
+          "Comments_EN": "「金目のトラブルは用心しとけよ」"
         }
       ]
     }
@@ -5753,7 +6335,11 @@
     "Height_cm": 149,
     "ConceptAge": 15,
     "AnivDay": [
-      { "Day": { "Month": 3, "DayOfMonth": 3 }, "DayAbout": "開発記念" }
+      {
+        "Day": { "Month": 3, "DayOfMonth": 3 },
+        "DayAbout": "開発記念",
+        "DayAbout_EN": "Development commemoration"
+      }
     ],
     "Weight_kg": { "hideText": "非公開" },
     "BustSize": "A",
@@ -5860,35 +6446,55 @@
         {
           "Num": 3,
           "Comments": "「先輩であり尊敬する方」",
-          "RelationLabel": ["pioneer"]
+          "RelationLabel": ["pioneer"],
+          "Comments_EN": "「先輩であり尊敬する方」"
         },
         {
           "Num": 15,
           "Comments": "「何かあればミサにお任せを」",
-          "RelationLabel": ["awkward"]
+          "RelationLabel": ["awkward"],
+          "Comments_EN": "「何かあればミサにお任せを」"
         },
         {
           "Num": 30,
           "Comments": "「お姉c…いえ、なんでもありません」",
-          "RelationLabel": ["pioneer", "accompanying", "wellMatched"]
+          "RelationLabel": ["pioneer", "accompanying", "wellMatched"],
+          "Comments_EN": "「お姉c…いえ、なんでもありません」"
         },
         { "Num": 44, "RelationLabel": ["unmatched", "classmate"] }
       ],
       "Commented": [
-        { "Num": 6, "Comments": "「先輩であり尊敬する方」" },
-        { "Num": 21, "Comments": "「自己満足に囚われぬよう願います」" },
-        { "Num": 57, "Comments": "「何があっても前向きで、正直奇妙です」" },
+        {
+          "Num": 6,
+          "Comments": "「先輩であり尊敬する方」",
+          "Comments_EN": "「先輩であり尊敬する方」"
+        },
+        {
+          "Num": 21,
+          "Comments": "「自己満足に囚われぬよう願います」",
+          "Comments_EN": "「自己満足に囚われぬよう願います」"
+        },
+        {
+          "Num": 57,
+          "Comments": "「何があっても前向きで、正直奇妙です」",
+          "Comments_EN": "「何があっても前向きで、正直奇妙です」"
+        },
         {
           "Num": 66,
           "Comments": "「強いポテンシャルを感じます」",
-          "RelationLabel": ["classmate"]
+          "RelationLabel": ["classmate"],
+          "Comments_EN": "「強いポテンシャルを感じます」"
         },
         {
           "Num": 84,
-          "Comments": "「因果応報とは言いますが、過信しすぎでは？」"
+          "Comments": "「因果応報とは言いますが、過信しすぎでは？」",
+          "Comments_EN": "「因果応報とは言いますが、過信しすぎでは？」"
         }
       ]
-    }
+    },
+    "ThisMasters_EN": [
+      "手塚 桃/Diamond.3(Trey)（78特殊探偵団 金の硬貨支部 構成員）"
+    ]
   },
   {
     "Num": 34,
@@ -5916,7 +6522,11 @@
     "Height_cm": 143,
     "ConceptAge": { "value": 15, "about_JP": "？", "about_EN": "?" },
     "AnivDay": [
-      { "Day": { "Month": 3, "DayOfMonth": 4 }, "DayAbout": "開発記念" }
+      {
+        "Day": { "Month": 3, "DayOfMonth": 4 },
+        "DayAbout": "開発記念",
+        "DayAbout_EN": "Development commemoration"
+      }
     ],
     "Weight_kg": { "hideText": "非公開" },
     "BustSize": "A",
@@ -6012,7 +6622,12 @@
         {
           "Num": 32,
           "Comments": "「コイツには負けてられへん…!!」",
-          "RelationLabel": ["cousin", "trusted_maybe", "adverselyAffected_aBit"]
+          "RelationLabel": [
+            "cousin",
+            "trusted_maybe",
+            "adverselyAffected_aBit"
+          ],
+          "Comments_EN": "「コイツには負けてられへん…!!」"
         },
         {
           "Num": 43,
@@ -6022,23 +6637,38 @@
             "unmatched",
             "adverselyAffected",
             "classmate"
-          ]
+          ],
+          "Comments_EN": "（※検閲で削除されている…）"
         },
         {
           "Num": "00",
           "Comments": "「体調不良か？ならワイにいい考えが……あれ？」",
-          "RelationLabel": ["unmatched"]
+          "RelationLabel": ["unmatched"],
+          "Comments_EN": "「体調不良か？ならワイにいい考えが……あれ？」"
         }
       ],
       "Commented": [
-        { "Num": 7, "Comments": "「生真面目なやっちゃなぁ」" },
+        {
+          "Num": 7,
+          "Comments": "「生真面目なやっちゃなぁ」",
+          "Comments_EN": "「生真面目なやっちゃなぁ」"
+        },
         {
           "Num": 30,
           "Comments": "「初々しいところも可愛え子」",
-          "RelationLabel": ["pioneer_nearly"]
+          "RelationLabel": ["pioneer_nearly"],
+          "Comments_EN": "「初々しいところも可愛え子」"
         },
-        { "Num": 40, "Comments": "「なんかずるいわアイツ…」" },
-        { "Num": 70, "Comments": "「ようわからんけどやりおるな…」" }
+        {
+          "Num": 40,
+          "Comments": "「なんかずるいわアイツ…」",
+          "Comments_EN": "「なんかずるいわアイツ…」"
+        },
+        {
+          "Num": 70,
+          "Comments": "「ようわからんけどやりおるな…」",
+          "Comments_EN": "「ようわからんけどやりおるな…」"
+        }
       ]
     }
   },
@@ -6067,7 +6697,11 @@
     "SPCodeName": "三十五\n(巫女)",
     "SPCodeName_EN": "Three-Five\n(Miko)",
     "AnivDay": [
-      { "Day": { "Month": 3, "DayOfMonth": 5 }, "DayAbout": "開発記念" }
+      {
+        "Day": { "Month": 3, "DayOfMonth": 5 },
+        "DayAbout": "開発記念",
+        "DayAbout_EN": "Development commemoration"
+      }
     ],
     "Class": ["デュアルエイツ", "ワノマチ"],
     "Character": "感性が高い才能肌\n几帳面な一面も",
@@ -6167,36 +6801,50 @@
         {
           "Num": 3,
           "Comments": "「優秀で見習いたい」",
-          "RelationLabel": ["pioneer", "trusted"]
+          "RelationLabel": ["pioneer", "trusted"],
+          "Comments_EN": "「優秀で見習いたい」"
         },
         {
           "Num": 32,
           "Comments": "「副業のことで絡まないでよ…」",
-          "RelationLabel": ["cousin", "awkward"]
+          "RelationLabel": ["cousin", "awkward"],
+          "Comments_EN": "「副業のことで絡まないでよ…」"
         },
         {
           "Num": 53,
           "Comments": "「ちょっとは気を付けてよ…」",
-          "RelationLabel": ["brother|sister", "awkward", "classmate"]
+          "RelationLabel": ["brother|sister", "awkward", "classmate"],
+          "Comments_EN": "「ちょっとは気を付けてよ…」"
         }
       ],
       "Commented": [
         {
           "Num": 5,
           "Comments": "「危なっかしい」",
-          "RelationLabel": ["pioneer"]
+          "RelationLabel": ["pioneer"],
+          "Comments_EN": "「危なっかしい」"
         },
-        { "Num": 8, "Comments": "「工場から案件でももらえそう」" },
-        { "Num": 44, "Comments": "「懸命なフリした狂犬」" },
+        {
+          "Num": 8,
+          "Comments": "「工場から案件でももらえそう」",
+          "Comments_EN": "「工場から案件でももらえそう」"
+        },
+        {
+          "Num": 44,
+          "Comments": "「懸命なフリした狂犬」",
+          "Comments_EN": "「懸命なフリした狂犬」"
+        },
         {
           "Num": 75,
           "Comments": "「真面目でいい子」",
-          "RelationLabel": ["cousin"]
+          "RelationLabel": ["cousin"],
+          "Comments_EN": "「真面目でいい子」"
         },
         {
           "Num": 98,
           "Comments": "「何かに焦っていそうまであるけど」",
-          "RelationLabel": ["classmate"]
+          "RelationLabel": ["classmate"],
+          "Comments_EN": "「何かに焦っていそうまであるけど」"
         }
       ]
     }
@@ -6230,7 +6878,11 @@
     "Height_cm": 150,
     "ConceptAge": 16,
     "AnivDay": [
-      { "Day": { "Month": 3, "DayOfMonth": 6 }, "DayAbout": "開発記念" }
+      {
+        "Day": { "Month": 3, "DayOfMonth": 6 },
+        "DayAbout": "開発記念",
+        "DayAbout_EN": "Development commemoration"
+      }
     ],
     "Weight_kg": { "hideText": "非公開" },
     "BustSize": "E",
@@ -6329,39 +6981,46 @@
         {
           "Num": 6,
           "Comments": "「尊敬している人、僕もいつかああなりたいな」",
-          "RelationLabel": ["pioneer", "trusted"]
+          "RelationLabel": ["pioneer", "trusted"],
+          "Comments_EN": "「尊敬している人、僕もいつかああなりたいな」"
         },
         {
           "Num": 30,
           "Comments": "「尊敬している人、僕もいつかああなりたいな」",
-          "RelationLabel": ["pioneer_nearly", "trusted"]
+          "RelationLabel": ["pioneer_nearly", "trusted"],
+          "Comments_EN": "「尊敬している人、僕もいつかああなりたいな」"
         },
         {
           "Num": 63,
           "Comments": "「いつも慰めてくれる優しい妹」",
-          "RelationLabel": ["brother|sister", "wellMatched_maybe", "classmate"]
+          "RelationLabel": ["brother|sister", "wellMatched_maybe", "classmate"],
+          "Comments_EN": "「いつも慰めてくれる優しい妹」"
         }
       ],
       "Commented": [
         {
           "Num": 38,
           "Comments": "「できるなら僕にも運を分けてほしい…」",
-          "RelationLabel": ["cousin"]
+          "RelationLabel": ["cousin"],
+          "Comments_EN": "「できるなら僕にも運を分けてほしい…」"
         },
         {
           "Num": 54,
           "Comments": "「いつも好調そう、凄いと思う」",
-          "RelationLabel": ["classmate"]
+          "RelationLabel": ["classmate"],
+          "Comments_EN": "「いつも好調そう、凄いと思う」"
         },
         {
           "Num": 69,
           "Comments": "「自分を見失ってないといいな…」",
-          "RelationLabel": ["cousin_nearly"]
+          "RelationLabel": ["cousin_nearly"],
+          "Comments_EN": "「自分を見失ってないといいな…」"
         },
         {
           "Num": 72,
           "Comments": "「成長を感じる、頑張ってほしい」",
-          "RelationLabel": ["classmate"]
+          "RelationLabel": ["classmate"],
+          "Comments_EN": "「成長を感じる、頑張ってほしい」"
         }
       ]
     },
@@ -6393,7 +7052,11 @@
           "about": "主人を心配しているとき"
         }
       ]
-    }
+    },
+    "ThisMasters_EN": [
+      "颯 洋(はやて うみ)/Spade.2(Duece)（78特殊探偵団 風の刀剣 構成員）",
+      "颯 天(はやて そら)/Spade.3(Trey)（78特殊探偵団 風の刀剣 構成員）"
+    ]
   },
   {
     "Num": 37,
@@ -6423,7 +7086,11 @@
     "Height_cm": 157,
     "ConceptAge": 19,
     "AnivDay": [
-      { "Day": { "Month": 3, "DayOfMonth": 7 }, "DayAbout": "開発記念" }
+      {
+        "Day": { "Month": 3, "DayOfMonth": 7 },
+        "DayAbout": "開発記念",
+        "DayAbout_EN": "Development commemoration"
+      }
     ],
     "Weight_kg": [
       { "value": 42, "about_JP": "推定", "about_EN": "Presumption" }
@@ -6518,35 +7185,45 @@
         {
           "Num": 47,
           "Comments": "「彼女の言う“加護”って一体何なんだろう…？」",
-          "RelationLabel": ["cousin", "interested"]
+          "RelationLabel": ["cousin", "interested"],
+          "Comments_EN": "「彼女の言う“加護”って一体何なんだろう…？」"
         },
         {
           "Num": 73,
           "Comments": "「お願いだから変な噂だけは聴いてほしくない妹」",
-          "RelationLabel": ["brother|sister", "awkward", "classmate"]
+          "RelationLabel": ["brother|sister", "awkward", "classmate"],
+          "Comments_EN": "「お願いだから変な噂だけは聴いてほしくない妹」"
         }
       ],
       "Commented": [
-        { "Num": 10, "Comments": "「ちょっとウザい」" },
+        {
+          "Num": 10,
+          "Comments": "「ちょっとウザい」",
+          "Comments_EN": "「ちょっとウザい」"
+        },
         {
           "Num": 28,
           "Comments": "「物に頼りすぎはいけないよ」",
-          "RelationLabel": ["classmate"]
+          "RelationLabel": ["classmate"],
+          "Comments_EN": "「物に頼りすぎはいけないよ」"
         },
         {
           "Num": 31,
           "Comments": "「本気出すと危険を顧みないところがある」",
-          "RelationLabel": ["cousin"]
+          "RelationLabel": ["cousin"],
+          "Comments_EN": "「本気出すと危険を顧みないところがある」"
         },
         {
           "Num": 64,
           "Comments": "「あの空元気には敵わないというか変というか…」",
-          "RelationLabel": ["classmate"]
+          "RelationLabel": ["classmate"],
+          "Comments_EN": "「あの空元気には敵わないというか変というか…」"
         },
         {
           "Num": 97,
           "Comments": "「信仰に振り回されてないといいけど」",
-          "RelationLabel": ["cousin"]
+          "RelationLabel": ["cousin"],
+          "Comments_EN": "「信仰に振り回されてないといいけど」"
         }
       ]
     },
@@ -6576,7 +7253,8 @@
           "about": "休日に構って欲しい時"
         }
       ]
-    }
+    },
+    "ThisMasters_EN": ["桜花 訫[信](とき)/弥生（夜月機関 第3幹部）"]
   },
   {
     "Num": 38,
@@ -6592,7 +7270,11 @@
     "CodeName_EN": "Three-Eight",
     "GenderType": "FemaleNeutral",
     "AnivDay": [
-      { "Day": { "Month": 3, "DayOfMonth": 8 }, "DayAbout": "開発記念" }
+      {
+        "Day": { "Month": 3, "DayOfMonth": 8 },
+        "DayAbout": "開発記念",
+        "DayAbout_EN": "Development commemoration"
+      }
     ],
     "Class": ["デュアルイレブンズ"],
     "NumerospecAbout": "幸運を味方にする\nこの効果は物質的なものにも大いに影響される",
@@ -6637,7 +7319,11 @@
     "Height_cm": 162,
     "ConceptAge": 21,
     "AnivDay": [
-      { "Day": { "Month": 3, "DayOfMonth": 9 }, "DayAbout": "開発記念" }
+      {
+        "Day": { "Month": 3, "DayOfMonth": 9 },
+        "DayAbout": "開発記念",
+        "DayAbout_EN": "Development commemoration"
+      }
     ],
     "Weight_kg": 44,
     "TailsUnit": "キツネ(枝分かれ)型9本(上2束3本+下1束6本)",
@@ -6732,37 +7418,47 @@
         {
           "Num": 3,
           "Comments": "「いろいろ世話になる」",
-          "RelationLabel": ["pioneer"]
+          "RelationLabel": ["pioneer"],
+          "Comments_EN": "「いろいろ世話になる」"
         },
         {
           "Num": 9,
           "Comments": "「…好きにやってくれ」",
-          "RelationLabel": ["pioneer"]
+          "RelationLabel": ["pioneer"],
+          "Comments_EN": "「…好きにやってくれ」"
         },
         { "Num": 61, "RelationLabel": ["unmatched"] },
         {
           "Num": 93,
           "Comments": "「俺より野望意識の強い妹、報われることを願ってる」",
-          "RelationLabel": ["brother|sister", "trusted", "classmate"]
+          "RelationLabel": ["brother|sister", "trusted", "classmate"],
+          "Comments_EN": "「俺より野望意識の強い妹、報われることを願ってる」"
         }
       ],
       "Commented": [
         {
           "Num": 12,
           "Comments": "「あいつに邪魔をするつもりなどない」",
-          "RelationLabel": ["classmate"]
+          "RelationLabel": ["classmate"],
+          "Comments_EN": "「あいつに邪魔をするつもりなどない」"
         },
         {
           "Num": 19,
           "Comments": "「気味悪いが侮れるような奴ではない」",
-          "RelationLabel": ["cousin"]
+          "RelationLabel": ["cousin"],
+          "Comments_EN": "「気味悪いが侮れるような奴ではない」"
         },
         {
           "Num": 37,
           "Comments": "「努力は認めるべき存在」",
-          "RelationLabel": ["cousin"]
+          "RelationLabel": ["cousin"],
+          "Comments_EN": "「努力は認めるべき存在」"
         },
-        { "Num": 66, "Comments": "「いちいち眩しい」" }
+        {
+          "Num": 66,
+          "Comments": "「いちいち眩しい」",
+          "Comments_EN": "「いちいち眩しい」"
+        }
       ]
     },
     "ConversationPattern": {
@@ -6789,7 +7485,10 @@
           "about": "信頼している主人が周りに馬鹿にされているとき"
         }
       ]
-    }
+    },
+    "ThisMasters_EN": [
+      "乃木 希（VIPマスター;夜月機関 救命本部 推薦所属候補者）"
+    ]
   },
   {
     "Num": 40,
@@ -6815,7 +7514,11 @@
     "Height_cm": 140,
     "ConceptAge": 16,
     "AnivDay": [
-      { "Day": { "Month": 3, "DayOfMonth": 31 }, "DayAbout": "開発記念" }
+      {
+        "Day": { "Month": 3, "DayOfMonth": 31 },
+        "DayAbout": "開発記念",
+        "DayAbout_EN": "Development commemoration"
+      }
     ],
     "Weight_kg": 39,
     "BustSize": "A",
@@ -6909,30 +7612,39 @@
         {
           "Num": 4,
           "Comments": "「ソチも大変だな…」",
-          "RelationLabel": ["brother|sister"]
+          "RelationLabel": ["brother|sister"],
+          "Comments_EN": "「ソチも大変だな…」"
         },
         {
           "Num": 22,
           "Comments": "「ぼくの憧れです!! 様々な実績を遺し（以下略）」",
-          "RelationLabel": ["trusted", "adverselyAffected_aBit"]
+          "RelationLabel": ["trusted", "adverselyAffected_aBit"],
+          "Comments_EN": "「ぼくの憧れです!! 様々な実績を遺し（以下略）」"
         },
         {
           "Num": 50,
           "Comments": "「げっ、近づくな気持ち悪い…」",
-          "RelationLabel": ["unmatched", "classmate"]
+          "RelationLabel": ["unmatched", "classmate"],
+          "Comments_EN": "「げっ、近づくな気持ち悪い…」"
         },
         {
           "Num": 67,
           "Comments": "「腹が捩れるwww ひぃいwww」",
-          "RelationLabel": ["abusing"]
+          "RelationLabel": ["abusing"],
+          "Comments_EN": "「腹が捩れるwww ひぃいwww」"
         }
       ],
       "Commented": [
-        { "Num": 31, "Comments": "「ちゃんとしておる、よきかな」" },
+        {
+          "Num": 31,
+          "Comments": "「ちゃんとしておる、よきかな」",
+          "Comments_EN": "「ちゃんとしておる、よきかな」"
+        },
         {
           "Num": 44,
           "Comments": "「良くも悪くもヤンキーじみておる」",
-          "RelationLabel": ["successor"]
+          "RelationLabel": ["successor"],
+          "Comments_EN": "「良くも悪くもヤンキーじみておる」"
         }
       ]
     }
@@ -6960,7 +7672,11 @@
     "Height_cm": 157,
     "ConceptAge": 16,
     "AnivDay": [
-      { "Day": { "Month": 4, "DayOfMonth": 1 }, "DayAbout": "開発記念" }
+      {
+        "Day": { "Month": 4, "DayOfMonth": 1 },
+        "DayAbout": "開発記念",
+        "DayAbout_EN": "Development commemoration"
+      }
     ],
     "Weight_kg": 41,
     "BustSize": "AA",
@@ -7052,30 +7768,39 @@
         {
           "Num": 14,
           "Comments": "「ちょっと面倒いけど自慢の姉貴」",
-          "RelationLabel": ["brother|sister", "classmate"]
+          "RelationLabel": ["brother|sister", "classmate"],
+          "Comments_EN": "「ちょっと面倒いけど自慢の姉貴」"
         },
         {
           "Num": 58,
           "Comments": "「「インチキ」っていってくる割にはさぁ…」",
-          "RelationLabel": ["unmatched", "classmate"]
+          "RelationLabel": ["unmatched", "classmate"],
+          "Comments_EN": "「「インチキ」っていってくる割にはさぁ…」"
         }
       ],
       "Commented": [
         {
           "Num": 4,
           "Comments": "「もっと積極的になってもいい気はする」",
-          "RelationLabel": ["pioneer"]
+          "RelationLabel": ["pioneer"],
+          "Comments_EN": "「もっと積極的になってもいい気はする」"
         },
-        { "Num": 50, "Comments": "「流石に流されすぎじゃないか？」" },
+        {
+          "Num": 50,
+          "Comments": "「流石に流されすぎじゃないか？」",
+          "Comments_EN": "「流石に流されすぎじゃないか？」"
+        },
         {
           "Num": 61,
           "Comments": "「馬鹿と天才は紙一重だなー…」",
-          "RelationLabel": ["cousin"]
+          "RelationLabel": ["cousin"],
+          "Comments_EN": "「馬鹿と天才は紙一重だなー…」"
         },
         {
           "Num": 95,
           "Comments": "「なんなんだよこいつ……」",
-          "RelationLabel": ["classmate"]
+          "RelationLabel": ["classmate"],
+          "Comments_EN": "「なんなんだよこいつ……」"
         }
       ]
     },
@@ -7143,7 +7868,11 @@
     "Height_cm": 157,
     "ConceptAge": 17,
     "AnivDay": [
-      { "Day": { "Month": 4, "DayOfMonth": 2 }, "DayAbout": "開発記念" }
+      {
+        "Day": { "Month": 4, "DayOfMonth": 2 },
+        "DayAbout": "開発記念",
+        "DayAbout_EN": "Development commemoration"
+      }
     ],
     "Weight_kg": { "hideText": "非公開" },
     "BustSize": "C",
@@ -7231,36 +7960,46 @@
         {
           "Num": 6,
           "Comments": "「奉仕しつつ根は自分らしく動いてるの凄すぎ…！」",
-          "RelationLabel": ["trusted"]
+          "RelationLabel": ["trusted"],
+          "Comments_EN": "「奉仕しつつ根は自分らしく動いてるの凄すぎ…！」"
         },
         {
           "Num": 24,
           "Comments": "「姉。いつも受け身なのが玉に瑕(きず)」",
-          "RelationLabel": ["brother|sister", "classmate"]
+          "RelationLabel": ["brother|sister", "classmate"],
+          "Comments_EN": "「姉。いつも受け身なのが玉に瑕(きず)」"
         },
         {
           "Num": 64,
           "Comments": "「頭のネジ外れるくらい楽しそうでウケる」",
-          "RelationLabel": ["cousin", "wellMatched"]
+          "RelationLabel": ["cousin", "wellMatched"],
+          "Comments_EN": "「頭のネジ外れるくらい楽しそうでウケる」"
         },
         {
           "Num": 78,
           "Comments": "「宗教でもキメてるの？あれ…」",
-          "RelationLabel": ["unmatched", "classmate"]
+          "RelationLabel": ["unmatched", "classmate"],
+          "Comments_EN": "「宗教でもキメてるの？あれ…」"
         }
       ],
       "Commented": [
         {
           "Num": 15,
           "Comments": "「彼(女)の周りで必ず何が起こる気がする」",
-          "RelationLabel": ["classmate"]
+          "RelationLabel": ["classmate"],
+          "Comments_EN": "「彼(女)の周りで必ず何が起こる気がする」"
         },
         {
           "Num": 26,
           "Comments": "「女神の権化のような母性の化身！」",
-          "RelationLabel": ["cousin_nearly"]
+          "RelationLabel": ["cousin_nearly"],
+          "Comments_EN": "「女神の権化のような母性の化身！」"
         },
-        { "Num": 33, "Comments": "「全知全能とか絶対ヤバい人でしょ…」" }
+        {
+          "Num": 33,
+          "Comments": "「全知全能とか絶対ヤバい人でしょ…」",
+          "Comments_EN": "「全知全能とか絶対ヤバい人でしょ…」"
+        }
       ]
     }
   },
@@ -7290,7 +8029,11 @@
     "Height_cm": 134,
     "ConceptAge": 14,
     "AnivDay": [
-      { "Day": { "Month": 4, "DayOfMonth": 3 }, "DayAbout": "開発記念" }
+      {
+        "Day": { "Month": 4, "DayOfMonth": 3 },
+        "DayAbout": "開発記念",
+        "DayAbout_EN": "Development commemoration"
+      }
     ],
     "Weight_kg": { "hideText": "非公開" },
     "Class": ["デュアルセブンズ"],
@@ -7382,7 +8125,8 @@
         {
           "Num": 4,
           "Comments": "「可哀そうだからちょっかいはかけない」",
-          "RelationLabel": ["pioneer"]
+          "RelationLabel": ["pioneer"],
+          "Comments_EN": "「可哀そうだからちょっかいはかけない」"
         },
         {
           "Num": 34,
@@ -7392,30 +8136,39 @@
             "unmatched",
             "abusing",
             "classmate"
-          ]
+          ],
+          "Comments_EN": "「にぃにのざーこ★ばーか★」"
         },
         {
           "Num": 46,
           "Comments": "「うるさいからほっといてる」",
-          "RelationLabel": ["cousin", "awkward"]
+          "RelationLabel": ["cousin", "awkward"],
+          "Comments_EN": "「うるさいからほっといてる」"
         }
       ],
       "Commented": [
         {
           "Num": 3,
           "Comments": "「めちゃくちゃ強い」",
-          "RelationLabel": ["pioneer"]
+          "RelationLabel": ["pioneer"],
+          "Comments_EN": "「めちゃくちゃ強い」"
         },
         {
           "Num": 25,
           "Comments": "「あまり動じてくれない…」",
-          "RelationLabel": ["classmate"]
+          "RelationLabel": ["classmate"],
+          "Comments_EN": "「あまり動じてくれない…」"
         },
-        { "Num": 70, "Comments": "「真面目癖を侵してみたい」" },
+        {
+          "Num": 70,
+          "Comments": "「真面目癖を侵してみたい」",
+          "Comments_EN": "「真面目癖を侵してみたい」"
+        },
         {
           "Num": 79,
           "Comments": "「なにいってんのこいつ…」",
-          "RelationLabel": ["classmate"]
+          "RelationLabel": ["classmate"],
+          "Comments_EN": "「なにいってんのこいつ…」"
         }
       ]
     }
@@ -7447,7 +8200,11 @@
     "Height_cm": 150,
     "ConceptAge": 16,
     "AnivDay": [
-      { "Day": { "Month": 4, "DayOfMonth": 4 }, "DayAbout": "開発記念" }
+      {
+        "Day": { "Month": 4, "DayOfMonth": 4 },
+        "DayAbout": "開発記念",
+        "DayAbout_EN": "Development commemoration"
+      }
     ],
     "Weight_kg": { "hideText": "非公開" },
     "TailsUnit": "キツネ(枝分かれ)型2束x4本",
@@ -7540,41 +8297,58 @@
         {
           "Num": 4,
           "Comments": "「肩の力抜けって」",
-          "RelationLabel": ["pioneer"]
+          "RelationLabel": ["pioneer"],
+          "Comments_EN": "「肩の力抜けって」"
         },
         {
           "Num": 33,
           "Comments": "「こいつ……いちいちせっつくなっつの」",
-          "RelationLabel": ["unmatched", "classmate"]
+          "RelationLabel": ["unmatched", "classmate"],
+          "Comments_EN": "「こいつ……いちいちせっつくなっつの」"
         },
         { "Num": 52, "RelationLabel": ["wellMatched_maybe"] },
         {
           "Num": 66,
           "Comments": "「…へぇ、以外と解ってるじゃねーか」",
-          "RelationLabel": ["wellMatched", "classmate"]
+          "RelationLabel": ["wellMatched", "classmate"],
+          "Comments_EN": "「…へぇ、以外と解ってるじゃねーか」"
         },
         { "Num": 72, "RelationLabel": ["unmatched"] }
       ],
       "Commented": [
-        { "Num": 8, "Comments": "「メカロマン好きなのは見てわかる」" },
+        {
+          "Num": 8,
+          "Comments": "「メカロマン好きなのは見てわかる」",
+          "Comments_EN": "「メカロマン好きなのは見てわかる」"
+        },
         {
           "Num": 22,
           "Comments": "「オレと勝負したいのか？良いぜ」",
-          "RelationLabel": ["accompanying", "classmate"]
+          "RelationLabel": ["accompanying", "classmate"],
+          "Comments_EN": "「オレと勝負したいのか？良いぜ」"
         },
         {
           "Num": 40,
           "Comments": "「面白ぇやつ」",
-          "RelationLabel": ["pioneer"]
+          "RelationLabel": ["pioneer"],
+          "Comments_EN": "「面白ぇやつ」"
         },
-        { "Num": 49, "Comments": "「気苦労が顔に出てやがる」" },
+        {
+          "Num": 49,
+          "Comments": "「気苦労が顔に出てやがる」",
+          "Comments_EN": "「気苦労が顔に出てやがる」"
+        },
         {
           "Num": 88,
           "Comments": "「しっかりしていて助かるぜ」",
-          "RelationLabel": ["trusted_maybe", "classmate"]
+          "RelationLabel": ["trusted_maybe", "classmate"],
+          "Comments_EN": "「しっかりしていて助かるぜ」"
         }
       ]
-    }
+    },
+    "ThisMasters_EN": [
+      "古山 沢海/Club.5(Cinque)（78特殊探偵団 火の棍棒支部 構成員）"
+    ]
   },
   {
     "Num": 45,
@@ -7596,7 +8370,11 @@
     "Height_cm": 154,
     "ConceptAge": 16,
     "AnivDay": [
-      { "Day": { "Month": 4, "DayOfMonth": 5 }, "DayAbout": "開発記念" }
+      {
+        "Day": { "Month": 4, "DayOfMonth": 5 },
+        "DayAbout": "開発記念",
+        "DayAbout_EN": "Development commemoration"
+      }
     ],
     "Weight_kg": 42,
     "BustSize": "AA",
@@ -7680,36 +8458,46 @@
         {
           "Num": 4,
           "Comments": "「やればできる」",
-          "RelationLabel": ["pioneer"]
+          "RelationLabel": ["pioneer"],
+          "Comments_EN": "「やればできる」"
         },
         {
           "Num": 5,
           "Comments": "「やってることは訳わかんないけどできる」",
-          "RelationLabel": ["pioneer"]
+          "RelationLabel": ["pioneer"],
+          "Comments_EN": "「やってることは訳わかんないけどできる」"
         },
         {
           "Num": 47,
           "Comments": "「見えているものが違うんだろうな、きっと」",
-          "RelationLabel": ["cousin", "trusted"]
+          "RelationLabel": ["cousin", "trusted"],
+          "Comments_EN": "「見えているものが違うんだろうな、きっと」"
         }
       ],
       "Commented": [
         {
           "Num": 18,
           "Comments": "「主人を変えるような程度じゃ済まないだろ…」",
-          "RelationLabel": ["classmate"]
+          "RelationLabel": ["classmate"],
+          "Comments_EN": "「主人を変えるような程度じゃ済まないだろ…」"
         },
         {
           "Num": 36,
           "Comments": "「相手がいないと無力化するのがなぁ…」",
-          "RelationLabel": ["classmate"]
+          "RelationLabel": ["classmate"],
+          "Comments_EN": "「相手がいないと無力化するのがなぁ…」"
         },
         {
           "Num": 85,
           "Comments": "「困っても最後は物で解決できる」",
-          "RelationLabel": ["cousin"]
+          "RelationLabel": ["cousin"],
+          "Comments_EN": "「困っても最後は物で解決できる」"
         },
-        { "Num": 90, "Comments": "「最後の最後で本気になるの凄いよな」" }
+        {
+          "Num": 90,
+          "Comments": "「最後の最後で本気になるの凄いよな」",
+          "Comments_EN": "「最後の最後で本気になるの凄いよな」"
+        }
       ]
     }
   },
@@ -7733,7 +8521,11 @@
     "Height_cm": 147,
     "ConceptAge": 15,
     "AnivDay": [
-      { "Day": { "Month": 4, "DayOfMonth": 6 }, "DayAbout": "開発記念" }
+      {
+        "Day": { "Month": 4, "DayOfMonth": 6 },
+        "DayAbout": "開発記念",
+        "DayAbout_EN": "Development commemoration"
+      }
     ],
     "Weight_kg": 39,
     "BustSize": "A",
@@ -7819,31 +8611,44 @@
         {
           "Num": 4,
           "Comments": "「オイラには真似できないけど、それも魅力！」",
-          "RelationLabel": ["pioneer"]
+          "RelationLabel": ["pioneer"],
+          "Comments_EN": "「オイラには真似できないけど、それも魅力！」"
         },
         {
           "Num": 64,
           "Comments": "「人の事言えねぇけど…ヤベェよ…」",
-          "RelationLabel": ["brother|sister", "awkward", "classmate"]
+          "RelationLabel": ["brother|sister", "awkward", "classmate"],
+          "Comments_EN": "「人の事言えねぇけど…ヤベェよ…」"
         },
         {
           "Num": 96,
           "Comments": "「…誰ッスかね？でも、この人となら楽しめそうッス！」",
-          "RelationLabel": ["cousin", "wellMatched"]
+          "RelationLabel": ["cousin", "wellMatched"],
+          "Comments_EN": "「…誰ッスかね？でも、この人となら楽しめそうッス！」"
         }
       ],
       "Commented": [
-        { "Num": 1, "Comments": "「行動力はいつも見習いたいッス！」" },
+        {
+          "Num": 1,
+          "Comments": "「行動力はいつも見習いたいッス！」",
+          "Comments_EN": "「行動力はいつも見習いたいッス！」"
+        },
         {
           "Num": 49,
           "Comments": "「何か顔が怖ぇッスけど、多分いいヤツ！」",
-          "RelationLabel": ["cousin"]
+          "RelationLabel": ["cousin"],
+          "Comments_EN": "「何か顔が怖ぇッスけど、多分いいヤツ！」"
         },
-        { "Num": 60, "Comments": "「えぇっ、芸能人志望じゃないンスか!?」" },
+        {
+          "Num": 60,
+          "Comments": "「えぇっ、芸能人志望じゃないンスか!?」",
+          "Comments_EN": "「えぇっ、芸能人志望じゃないンスか!?」"
+        },
         {
           "Num": 82,
           "Comments": "「物欲センサーどうなってンスか…？」",
-          "RelationLabel": ["classmate"]
+          "RelationLabel": ["classmate"],
+          "Comments_EN": "「物欲センサーどうなってンスか…？」"
         }
       ]
     }
@@ -7875,10 +8680,15 @@
     "Height_cm": 148,
     "ConceptAge": 17,
     "AnivDay": [
-      { "Day": { "Month": 4, "DayOfMonth": 7 }, "DayAbout": "開発記念" },
+      {
+        "Day": { "Month": 4, "DayOfMonth": 7 },
+        "DayAbout": "開発記念",
+        "DayAbout_EN": "Development commemoration"
+      },
       {
         "Day": { "Month": 9, "DayOfMonth": 7 },
-        "DayAbout": "加護観測記念(劇中)"
+        "DayAbout": "加護観測記念(劇中)",
+        "DayAbout_EN": "Blessing observation commemoration (in-story)"
       }
     ],
     "Weight_kg": 39,
@@ -7968,39 +8778,46 @@
         {
           "Num": 2,
           "Comments": "「この子により大きな“加護”が与えられてる…？」",
-          "RelationLabel": ["interested", "secretRelation"]
+          "RelationLabel": ["interested", "secretRelation"],
+          "Comments_EN": "「この子により大きな“加護”が与えられてる…？」"
         },
         {
           "Num": 45,
           "Comments": "「“加護”を巧みに使ってる様にも見えるけどなぁ…」",
-          "RelationLabel": ["cousin", "interested"]
+          "RelationLabel": ["cousin", "interested"],
+          "Comments_EN": "「“加護”を巧みに使ってる様にも見えるけどなぁ…」"
         },
         {
           "Num": 72,
           "Comments": "「大丈夫！君はいつか報われるよ！」",
-          "RelationLabel": ["classmate", "trusted_maybe"]
+          "RelationLabel": ["classmate", "trusted_maybe"],
+          "Comments_EN": "「大丈夫！君はいつか報われるよ！」"
         }
       ],
       "Commented": [
         {
           "Num": 14,
           "Comments": "「世界がこの子を後押ししてるようにも見える」",
-          "RelationLabel": ["cousin_nearly"]
+          "RelationLabel": ["cousin_nearly"],
+          "Comments_EN": "「世界がこの子を後押ししてるようにも見える」"
         },
         {
           "Num": 29,
           "Comments": "「“加護”が辛い思いを消し去ってくれてるね」",
-          "RelationLabel": ["classmate"]
+          "RelationLabel": ["classmate"],
+          "Comments_EN": "「“加護”が辛い思いを消し去ってくれてるね」"
         },
         {
           "Num": 37,
           "Comments": "「勉強熱心だからきっと“加護”も味方に付くよ！」",
-          "RelationLabel": ["cousin"]
+          "RelationLabel": ["cousin"],
+          "Comments_EN": "「勉強熱心だからきっと“加護”も味方に付くよ！」"
         },
         {
           "Num": 83,
           "Comments": "「この子の“加護”、かなり大きい…すごいよ!!」",
-          "RelationLabel": ["classmate"]
+          "RelationLabel": ["classmate"],
+          "Comments_EN": "「この子の“加護”、かなり大きい…すごいよ!!」"
         }
       ]
     },
@@ -8059,7 +8876,11 @@
     "Height_cm": 161,
     "ConceptAge": 20,
     "AnivDay": [
-      { "Day": { "Month": 4, "DayOfMonth": 8 }, "DayAbout": "開発記念" }
+      {
+        "Day": { "Month": 4, "DayOfMonth": 8 },
+        "DayAbout": "開発記念",
+        "DayAbout_EN": "Development commemoration"
+      }
     ],
     "Weight_kg": { "hideText": "非公開" },
     "TailsUnit": "キツネ(枝分かれ)型8本(上2束4本+下1束4本)",
@@ -8149,7 +8970,8 @@
         {
           "Num": 53,
           "Comments": "「腹が立つ」",
-          "RelationLabel": ["unmatched"]
+          "RelationLabel": ["unmatched"],
+          "Comments_EN": "「腹が立つ」"
         },
         { "Num": 69, "RelationLabel": ["awkward"] }
       ],
@@ -8157,28 +8979,37 @@
         {
           "Num": 12,
           "Comments": "「妙に幼いところがある」",
-          "RelationLabel": ["classmate"]
+          "RelationLabel": ["classmate"],
+          "Comments_EN": "「妙に幼いところがある」"
         },
-        { "Num": 30, "Comments": "「見ていてなぜか和む」" },
+        {
+          "Num": 30,
+          "Comments": "「見ていてなぜか和む」",
+          "Comments_EN": "「見ていてなぜか和む」"
+        },
         {
           "Num": 34,
           "Comments": "「ちょっとは加減を知れ……」",
-          "RelationLabel": ["cousin_nearly"]
+          "RelationLabel": ["cousin_nearly"],
+          "Comments_EN": "「ちょっとは加減を知れ……」"
         },
         {
           "Num": 75,
           "Comments": "「知的積極性はあるから話は通じる」",
-          "RelationLabel": ["classmate"]
+          "RelationLabel": ["classmate"],
+          "Comments_EN": "「知的積極性はあるから話は通じる」"
         },
         {
           "Num": 83,
           "Comments": "「卑怯すぎるぞ全く……」",
-          "RelationLabel": ["cousin_nearly", "awkward_aBit"]
+          "RelationLabel": ["cousin_nearly", "awkward_aBit"],
+          "Comments_EN": "「卑怯すぎるぞ全く……」"
         },
         {
           "Num": 94,
           "Comments": "「それで主従契約が成り立つのか…？」",
-          "RelationLabel": ["cousin_nearly"]
+          "RelationLabel": ["cousin_nearly"],
+          "Comments_EN": "「それで主従契約が成り立つのか…？」"
         }
       ]
     }
@@ -8212,7 +9043,11 @@
     "Height_cm": 148,
     "ConceptAge": { "value": 16, "about_JP": "？", "about_EN": "?" },
     "AnivDay": [
-      { "Day": { "Month": 4, "DayOfMonth": 9 }, "DayAbout": "開発記念" }
+      {
+        "Day": { "Month": 4, "DayOfMonth": 9 },
+        "DayAbout": "開発記念",
+        "DayAbout_EN": "Development commemoration"
+      }
     ],
     "Weight_kg": [
       { "value": 39, "about_JP": "推定", "about_EN": "Presumption" }
@@ -8299,33 +9134,43 @@
         {
           "Num": 14,
           "Comments": "（※内容が荒く書き乱されていて読めない）",
-          "RelationLabel": ["cousin_nearly", "awkward"]
+          "RelationLabel": ["cousin_nearly", "awkward"],
+          "Comments_EN": "（※内容が荒く書き乱されていて読めない）"
         },
         {
           "Num": 45,
           "Comments": "「お互い頑張っていこうよ、ね？」",
-          "RelationLabel": ["cousin", "wellMatched"]
+          "RelationLabel": ["cousin", "wellMatched"],
+          "Comments_EN": "「お互い頑張っていこうよ、ね？」"
         },
         {
           "Num": 94,
           "Comments": "「業務中に寝るなー!! 起きろ起きろ起きろーー!!!」",
-          "RelationLabel": ["brother|sister", "abusing", "classmate"]
+          "RelationLabel": ["brother|sister", "abusing", "classmate"],
+          "Comments_EN": "「業務中に寝るなー!! 起きろ起きろ起きろーー!!!」"
         }
       ],
       "Commented": [
-        { "Num": 22, "Comments": "「ボクの仕事を奪いそうなくらい万能」" },
+        {
+          "Num": 22,
+          "Comments": "「ボクの仕事を奪いそうなくらい万能」",
+          "Comments_EN": "「ボクの仕事を奪いそうなくらい万能」"
+        },
         {
           "Num": 69,
           "Comments": "「へーんなの」",
-          "RealationLabel": ["cousin"]
+          "RealationLabel": ["cousin"],
+          "Comments_EN": "「へーんなの」"
         },
         {
           "Num": 76,
           "Comments": "「生真面目なヤツ…」",
-          "RealationLabel": ["classmate"]
+          "RealationLabel": ["classmate"],
+          "Comments_EN": "「生真面目なヤツ…」"
         }
       ]
-    }
+    },
+    "ThisMasters_EN": ["花舞 流(るぅ)/卯月（夜月機関 第4幹部）"]
   },
   {
     "Num": 50,
@@ -8352,7 +9197,11 @@
     "Height_cm": 140,
     "ConceptAge": { "value": 17, "about_JP": "？", "about_EN": "?" },
     "AnivDay": [
-      { "Day": { "Month": 4, "DayOfMonth": 30 }, "DayAbout": "開発記念" }
+      {
+        "Day": { "Month": 4, "DayOfMonth": 30 },
+        "DayAbout": "開発記念",
+        "DayAbout_EN": "Development commemoration"
+      }
     ],
     "Weight_kg": 39,
     "TailsUnit": "キツネ型5本",
@@ -8433,12 +9282,14 @@
         {
           "Num": 5,
           "Comments": "「こいつと一緒にするな！」",
-          "RelationLabel": ["brother|sister", "awkward"]
+          "RelationLabel": ["brother|sister", "awkward"],
+          "Comments_EN": "「こいつと一緒にするな！」"
         },
         {
           "Num": 30,
           "Comments": "「ずっと友達でいたい」",
-          "RelationLabel": ["wellMatched", "trusted", "classmate"]
+          "RelationLabel": ["wellMatched", "trusted", "classmate"],
+          "Comments_EN": "「ずっと友達でいたい」"
         },
         { "Num": 40, "RelationLabel": ["unmatched", "classmate"] },
         {
@@ -8448,17 +9299,27 @@
             "successor_nearly",
             "accompanying",
             "adverselyAffected"
-          ]
+          ],
+          "Comments_EN": "「もうこれ以上おれを巻き込まないでくれ〜!!」"
         }
       ],
       "Commented": [
-        { "Num": 23, "Comments": "「お土産は…遠慮しとこうかな…」" },
+        {
+          "Num": 23,
+          "Comments": "「お土産は…遠慮しとこうかな…」",
+          "Comments_EN": "「お土産は…遠慮しとこうかな…」"
+        },
         {
           "Num": 55,
           "Comments": "「こここ、今度は何をおっぱじめる気だ…!?」",
-          "RelationLabel": ["successor", "adverselyAffected_aBit"]
+          "RelationLabel": ["successor", "adverselyAffected_aBit"],
+          "Comments_EN": "「こここ、今度は何をおっぱじめる気だ…!?」"
         },
-        { "Num": 77, "Comments": "（邪魔してないといいけど…）" }
+        {
+          "Num": 77,
+          "Comments": "（邪魔してないといいけど…）",
+          "Comments_EN": "（邪魔してないといいけど…）"
+        }
       ]
     }
   },
@@ -8481,7 +9342,11 @@
     "Height_cm": 154,
     "ConceptAge": 16,
     "AnivDay": [
-      { "Day": { "Month": 5, "DayOfMonth": 1 }, "DayAbout": "開発記念" }
+      {
+        "Day": { "Month": 5, "DayOfMonth": 1 },
+        "DayAbout": "開発記念",
+        "DayAbout_EN": "Development commemoration"
+      }
     ],
     "Weight_kg": 44,
     "TailsUnit": "キツネ(枝分かれ)型5本(上1束4本+下2束1本)",
@@ -8533,26 +9398,38 @@
         {
           "Num": 15,
           "Comments": "「おれの自慢の兄[姉]だ！」",
-          "RelationLabel": ["brother|sister", "classmate"]
+          "RelationLabel": ["brother|sister", "classmate"],
+          "Comments_EN": "「おれの自慢の兄[姉]だ！」"
         },
         {
           "Num": 59,
           "Comments": "「おれの方がまだ優秀だな！」",
-          "RelationLabel": ["cousin", "unmatched", "adverselyAffected"]
+          "RelationLabel": ["cousin", "unmatched", "adverselyAffected"],
+          "Comments_EN": "「おれの方がまだ優秀だな！」"
         }
       ],
       "Commented": [
         {
           "Num": 19,
           "Comments": "「掴みどころが無い」",
-          "RelationLabel": ["cousin_nearly"]
+          "RelationLabel": ["cousin_nearly"],
+          "Comments_EN": "「掴みどころが無い」"
         },
-        { "Num": 32, "Comments": "「できる人というのは見るだけでわかる」" },
-        { "Num": 60, "Comments": "「魅力的で感性を刺激される」" },
+        {
+          "Num": 32,
+          "Comments": "「できる人というのは見るだけでわかる」",
+          "Comments_EN": "「できる人というのは見るだけでわかる」"
+        },
+        {
+          "Num": 60,
+          "Comments": "「魅力的で感性を刺激される」",
+          "Comments_EN": "「魅力的で感性を刺激される」"
+        },
         {
           "Num": 96,
           "Comments": "「ん？誰だおまえ…？」",
-          "RelationLabel": ["classmate"]
+          "RelationLabel": ["classmate"],
+          "Comments_EN": "「ん？誰だおまえ…？」"
         }
       ]
     }
@@ -8580,10 +9457,15 @@
     "Height_cm": 156,
     "ConceptAge": 16,
     "AnivDay": [
-      { "Day": { "Month": 5, "DayOfMonth": 2 }, "DayAbout": "開発記念" },
+      {
+        "Day": { "Month": 5, "DayOfMonth": 2 },
+        "DayAbout": "開発記念",
+        "DayAbout_EN": "Development commemoration"
+      },
       {
         "Day": { "Month": 2, "DayOfMonth": 25 },
-        "DayAbout": "2+5型特殊プラン設立記念(劇中)"
+        "DayAbout": "2+5型特殊プラン設立記念(劇中)",
+        "DayAbout_EN": "2+5-type special plan establishment commemoration (in-story)"
       }
     ],
     "Weight_kg": [
@@ -8687,36 +9569,42 @@
         }
       ],
       "Commented": [
-        { "Num": 7, "Comments": "「憎めない」" },
+        { "Num": 7, "Comments": "「憎めない」", "Comments_EN": "「憎めない」" },
         {
           "Num": 16,
           "Comments": "「素敵な人」",
-          "RelationLabel": ["classmate"]
+          "RelationLabel": ["classmate"],
+          "Comments_EN": "「素敵な人」"
         },
         {
           "Num": 32,
           "Comments": "「ちょっとキャラが濃いかも…」",
-          "RelationLabel": ["cousin"]
+          "RelationLabel": ["cousin"],
+          "Comments_EN": "「ちょっとキャラが濃いかも…」"
         },
         {
           "Num": 43,
           "Comments": "「すごく期待できる」",
-          "RelationLabel": ["classmate"]
+          "RelationLabel": ["classmate"],
+          "Comments_EN": "「すごく期待できる」"
         },
         {
           "Num": 65,
           "Comments": "「癒される」",
-          "RelationLabel": ["cousin_nearly", "wellMatched_maybe"]
+          "RelationLabel": ["cousin_nearly", "wellMatched_maybe"],
+          "Comments_EN": "「癒される」"
         },
         {
           "Num": 75,
           "Comments": "「しっかりしてる」",
-          "RelationLabel": ["cousin_nearly"]
+          "RelationLabel": ["cousin_nearly"],
+          "Comments_EN": "「しっかりしてる」"
         },
         {
           "Num": 79,
           "Comments": "「いい人なんだろけど…ちょっと不安になる」",
-          "RelationLabel": ["classmate", "awkward_aBit"]
+          "RelationLabel": ["classmate", "awkward_aBit"],
+          "Comments_EN": "「いい人なんだろけど…ちょっと不安になる」"
         }
       ]
     },
@@ -8748,7 +9636,10 @@
           "about": "疲れて眠れない主人に対して②"
         }
       ]
-    }
+    },
+    "ThisMasters_EN": [
+      "亜高 蝶嵐(てふらん)/Heart.7(Seven)（78特殊探偵団 水の聖杯支部 構成員）"
+    ]
   },
   {
     "Num": 53,
@@ -8769,7 +9660,11 @@
     "SPCodeName": "五三",
     "SPCodeName_EN": "Fifty-Three",
     "AnivDay": [
-      { "Day": { "Month": 5, "DayOfMonth": 3 }, "DayAbout": "開発記念" }
+      {
+        "Day": { "Month": 5, "DayOfMonth": 3 },
+        "DayAbout": "開発記念",
+        "DayAbout_EN": "Development commemoration"
+      }
     ],
     "Class": ["デュアルエイツ"],
     "GenderType": "Neutral",
@@ -8863,35 +9758,45 @@
         {
           "Num": 30,
           "Comments": "「見てて和む」",
-          "RelationLabel": ["pioneer_nearly", "wellMatched"]
+          "RelationLabel": ["pioneer_nearly", "wellMatched"],
+          "Comments_EN": "「見てて和む」"
         },
         {
           "Num": 35,
           "Comments": "「なんで僕のこと避けようとするのさ！」",
-          "RelationLabel": ["brother|sister", "awkward", "classmate"]
+          "RelationLabel": ["brother|sister", "awkward", "classmate"],
+          "Comments_EN": "「なんで僕のこと避けようとするのさ！」"
         },
         {
           "Num": 50,
           "Comments": "「肝が据わりすぎて逆に怖い」",
-          "RelationLabel": ["pioneer_nearly", "unmatched"]
+          "RelationLabel": ["pioneer_nearly", "unmatched"],
+          "Comments_EN": "「肝が据わりすぎて逆に怖い」"
         }
       ],
       "Commented": [
         {
           "Num": 23,
           "Comments": "「トラブルメーカっぽいところある」",
-          "RelationLabel": ["cousin"]
+          "RelationLabel": ["cousin"],
+          "Comments_EN": "「トラブルメーカっぽいところある」"
         },
         {
           "Num": 57,
           "Comments": "「勝負強そう」",
-          "RelationLabel": ["cousin"]
+          "RelationLabel": ["cousin"],
+          "Comments_EN": "「勝負強そう」"
         },
-        { "Num": 80, "Comments": "「良く解んないことを平然とやってのけてる」" },
+        {
+          "Num": 80,
+          "Comments": "「良く解んないことを平然とやってのけてる」",
+          "Comments_EN": "「良く解んないことを平然とやってのけてる」"
+        },
         {
           "Num": 89,
           "Comments": "「あれでも僕のずっと下の代なんだよね…？」",
-          "RelationLabel": ["classmate"]
+          "RelationLabel": ["classmate"],
+          "Comments_EN": "「あれでも僕のずっと下の代なんだよね…？」"
         }
       ]
     }
@@ -8911,7 +9816,11 @@
     "SPCodeName": "五四",
     "SPCodeName_EN": "Fifty-Four",
     "AnivDay": [
-      { "Day": { "Month": 5, "DayOfMonth": 4 }, "DayAbout": "開発記念" }
+      {
+        "Day": { "Month": 5, "DayOfMonth": 4 },
+        "DayAbout": "開発記念",
+        "DayAbout_EN": "Development commemoration"
+      }
     ],
     "Class": ["9倍2桁番(ナインズデュアルズ)"],
     "NumerospecAbout": "主人に転機を与える\nこの効果は逆境を問わず発動する",
@@ -8946,7 +9855,11 @@
     "Height_cm": 165,
     "ConceptAge": 21,
     "AnivDay": [
-      { "Day": { "Month": 5, "DayOfMonth": 5 }, "DayAbout": "開発記念" }
+      {
+        "Day": { "Month": 5, "DayOfMonth": 5 },
+        "DayAbout": "開発記念",
+        "DayAbout_EN": "Development commemoration"
+      }
     ],
     "Weight_kg": { "hideText": "非公開" },
     "BustSize": "AA",
@@ -9035,31 +9948,44 @@
         {
           "Num": 5,
           "Comments": "「よくわかんないけどあれが彼女の個性だよね」",
-          "RelationLabel": ["pioneer"]
+          "RelationLabel": ["pioneer"],
+          "Comments_EN": "「よくわかんないけどあれが彼女の個性だよね」"
         },
         {
           "Num": 11,
           "Comments": "「彼(女)が「台風の目」だよね、え、違う？」",
-          "RelationLabel": ["adverselyAffected", "classmate"]
+          "RelationLabel": ["adverselyAffected", "classmate"],
+          "Comments_EN": "「彼(女)が「台風の目」だよね、え、違う？」"
         },
         {
           "Num": 41,
           "Comments": "「思い立って失敗したとこ見たことないよ」",
-          "RelationLabel": ["trusted"]
+          "RelationLabel": ["trusted"],
+          "Comments_EN": "「思い立って失敗したとこ見たことないよ」"
         },
         { "Num": 74, "RelationLabel": ["unmatched"] }
       ],
       "Commented": [
-        { "Num": 10, "Comments": "「ああ見えて悩んでいるとこもありそう」" },
-        { "Num": 28, "Comments": "「だいたい物に困らないから不思議」" },
+        {
+          "Num": 10,
+          "Comments": "「ああ見えて悩んでいるとこもありそう」",
+          "Comments_EN": "「ああ見えて悩んでいるとこもありそう」"
+        },
+        {
+          "Num": 28,
+          "Comments": "「だいたい物に困らないから不思議」",
+          "Comments_EN": "「だいたい物に困らないから不思議」"
+        },
         {
           "Num": 73,
-          "Comments": "「たまにデマを鵜呑みにして拡散しそうな気が…」"
+          "Comments": "「たまにデマを鵜呑みにして拡散しそうな気が…」",
+          "Comments_EN": "「たまにデマを鵜呑みにして拡散しそうな気が…」"
         },
         {
           "Num": 77,
           "Comments": "「カッコいいのに人柄を知ると、なんか…ねぇ…」",
-          "RelationLabel": ["awkward_aBit", "classmate"]
+          "RelationLabel": ["awkward_aBit", "classmate"],
+          "Comments_EN": "「カッコいいのに人柄を知ると、なんか…ねぇ…」"
         }
       ]
     }
@@ -9091,7 +10017,11 @@
     "Height_cm": 142,
     "ConceptAge": 12,
     "AnivDay": [
-      { "Day": { "Month": 5, "DayOfMonth": 6 }, "DayAbout": "開発記念" }
+      {
+        "Day": { "Month": 5, "DayOfMonth": 6 },
+        "DayAbout": "開発記念",
+        "DayAbout_EN": "Development commemoration"
+      }
     ],
     "Weight_kg": [
       { "value": 39, "about_JP": "推定", "about_EN": "Presumption" }
@@ -9183,39 +10113,46 @@
         {
           "Num": 27,
           "Comments": "「は、はいっ！先生!!」",
-          "RelationLabel": ["awkward", "wellMatched_maybe"]
+          "RelationLabel": ["awkward", "wellMatched_maybe"],
+          "Comments_EN": "「は、はいっ！先生!!」"
         },
         {
           "Num": 29,
           "Comments": "「すごく安心できるお姉さん」",
-          "RelationLabel": ["wellMatched", "classmate"]
+          "RelationLabel": ["wellMatched", "classmate"],
+          "Comments_EN": "「すごく安心できるお姉さん」"
         },
         {
           "Num": 35,
           "Comments": "「才能が凄すぎて、あたしには手に負えないよ…」",
-          "RelationLabel": ["cousin_nearly", "awkward"]
+          "RelationLabel": ["cousin_nearly", "awkward"],
+          "Comments_EN": "「才能が凄すぎて、あたしには手に負えないよ…」"
         },
         {
           "Num": 86,
           "Comments": "「日頃の行いとか、なんか堅苦しい…」",
-          "RelationLabel": ["cousin", "unmatched"]
+          "RelationLabel": ["cousin", "unmatched"],
+          "Comments_EN": "「日頃の行いとか、なんか堅苦しい…」"
         }
       ],
       "Commented": [
         {
           "Num": 5,
           "Comments": "「なんというか、すごく…変な人」",
-          "RelationLabel": ["pioneer", "awkward_aBit"]
+          "RelationLabel": ["pioneer", "awkward_aBit"],
+          "Comments_EN": "「なんというか、すごく…変な人」"
         },
         {
           "Num": 47,
           "Comments": "「…ええと、応援ありがとう…？」",
-          "RelationLabel": ["classmate"]
+          "RelationLabel": ["classmate"],
+          "Comments_EN": "「…ええと、応援ありがとう…？」"
         },
         {
           "Num": 63,
           "Comments": "「優しくて落ち着くお姉さん…いや、お母さん？」",
-          "RelationLabel": ["cousin_nearly"]
+          "RelationLabel": ["cousin_nearly"],
+          "Comments_EN": "「優しくて落ち着くお姉さん…いや、お母さん？」"
         }
       ]
     },
@@ -9283,7 +10220,11 @@
     "Height_cm": 152,
     "ConceptAge": 17,
     "AnivDay": [
-      { "Day": { "Month": 5, "DayOfMonth": 7 }, "DayAbout": "開発記念" }
+      {
+        "Day": { "Month": 5, "DayOfMonth": 7 },
+        "DayAbout": "開発記念",
+        "DayAbout_EN": "Development commemoration"
+      }
     ],
     "Weight_kg": 42,
     "BustSize": "AA",
@@ -9373,35 +10314,45 @@
         {
           "Num": 66,
           "Comments": "「め…目が…眩しくて…目が…!!」",
-          "RelationLabel": ["trusted"]
+          "RelationLabel": ["trusted"],
+          "Comments_EN": "「め…目が…眩しくて…目が…!!」"
         },
         {
           "Num": 75,
           "Comments": "「双子なんだけどなんか生真面目なんだよね」",
-          "RelationLabel": ["brother|sister", "awkward", "classmate"]
+          "RelationLabel": ["brother|sister", "awkward", "classmate"],
+          "Comments_EN": "「双子なんだけどなんか生真面目なんだよね」"
         }
       ],
       "Commented": [
-        { "Num": 3, "Comments": "「頼れるリーダー…ではないか、なんだろ」" },
+        {
+          "Num": 3,
+          "Comments": "「頼れるリーダー…ではないか、なんだろ」",
+          "Comments_EN": "「頼れるリーダー…ではないか、なんだろ」"
+        },
         {
           "Num": 12,
           "Comments": "「自分を持っている凄い人なんだとは思う」",
-          "RelationLabel": ["classmate"]
+          "RelationLabel": ["classmate"],
+          "Comments_EN": "「自分を持っている凄い人なんだとは思う」"
         },
         {
           "Num": 37,
           "Comments": "「勉強熱心だし自信家なところもカッコいい」",
-          "RelationLabel": ["cousin"]
+          "RelationLabel": ["cousin"],
+          "Comments_EN": "「勉強熱心だし自信家なところもカッコいい」"
         },
         {
           "Num": 52,
           "Comments": "「控えめなのに色んな運が味方になってる…!?」",
-          "RelationLabel": ["cousin"]
+          "RelationLabel": ["cousin"],
+          "Comments_EN": "「控えめなのに色んな運が味方になってる…!?」"
         },
         {
           "Num": 93,
           "Comments": "「野望があるとかカッコいいじゃん！」",
-          "RelationLabel": ["classmate"]
+          "RelationLabel": ["classmate"],
+          "Comments_EN": "「野望があるとかカッコいいじゃん！」"
         }
       ]
     },
@@ -9461,7 +10412,11 @@
     "Height_cm": 149,
     "ConceptAge": { "value": 17, "about_JP": "？", "about_EN": "?" },
     "AnivDay": [
-      { "Day": { "Month": 5, "DayOfMonth": 8 }, "DayAbout": "開発記念" }
+      {
+        "Day": { "Month": 5, "DayOfMonth": 8 },
+        "DayAbout": "開発記念",
+        "DayAbout_EN": "Development commemoration"
+      }
     ],
     "Weight_kg": { "hideText": "非公開" },
     "BustSize": "F",
@@ -9543,32 +10498,45 @@
         {
           "Num": 8,
           "Comments": "「…う～ん…ちょっと苦手」",
-          "RelationLabel": ["pioneer", "awkward_aBit"]
+          "RelationLabel": ["pioneer", "awkward_aBit"],
+          "Comments_EN": "「…う～ん…ちょっと苦手」"
         },
         {
           "Num": 13,
           "Comments": "「負けて悔しがってるところも含めてかわいい♪」",
-          "RelationLabel": ["interested", "classmate"]
+          "RelationLabel": ["interested", "classmate"],
+          "Comments_EN": "「負けて悔しがってるところも含めてかわいい♪」"
         },
         {
           "Num": 41,
           "Comments": "「強運仲間にされるとちょっと違う気がする…」",
-          "RelationLabel": ["awkward", "unmatched"]
+          "RelationLabel": ["awkward", "unmatched"],
+          "Comments_EN": "「強運仲間にされるとちょっと違う気がする…」"
         },
         {
           "Num": 85,
           "Comments": "「かわいい妹ちゃん♡」",
-          "RelationLabel": ["brother|sister", "wellMatched", "classmate"]
+          "RelationLabel": ["brother|sister", "wellMatched", "classmate"],
+          "Comments_EN": "「かわいい妹ちゃん♡」"
         }
       ],
       "Commented": [
-        { "Num": 4, "Comments": "「安心できるお姉ちゃん」" },
+        {
+          "Num": 4,
+          "Comments": "「安心できるお姉ちゃん」",
+          "Comments_EN": "「安心できるお姉ちゃん」"
+        },
         {
           "Num": 5,
           "Comments": "「嫌いではないけど、なんかヘン」",
-          "RelationLabel": ["pioneer", "awkward_aBit"]
+          "RelationLabel": ["pioneer", "awkward_aBit"],
+          "Comments_EN": "「嫌いではないけど、なんかヘン」"
         },
-        { "Num": 40, "Comments": "「どうしても甘えちゃいたくなる」" }
+        {
+          "Num": 40,
+          "Comments": "「どうしても甘えちゃいたくなる」",
+          "Comments_EN": "「どうしても甘えちゃいたくなる」"
+        }
       ]
     },
     "ConversationPattern": {
@@ -9625,7 +10593,11 @@
     "CodeName": "五九",
     "CodeName_EN": "Five-Nine",
     "AnivDay": [
-      { "Day": { "Month": 5, "DayOfMonth": 9 }, "DayAbout": "開発記念" }
+      {
+        "Day": { "Month": 5, "DayOfMonth": 9 },
+        "DayAbout": "開発記念",
+        "DayAbout_EN": "Development commemoration"
+      }
     ],
     "Class": ["デュアルファイブズ"],
     "NumerospecAbout": "不測の事態を招く\nこの効果にもメリットがあるらしいが、詳細は不明",
@@ -9662,7 +10634,11 @@
     "Height_cm": 152,
     "ConceptAge": { "value": 16, "about_JP": "？", "about_EN": "?" },
     "AnivDay": [
-      { "Day": { "Month": 5, "DayOfMonth": 31 }, "DayAbout": "開発記念" }
+      {
+        "Day": { "Month": 5, "DayOfMonth": 31 },
+        "DayAbout": "開発記念",
+        "DayAbout_EN": "Development commemoration"
+      }
     ],
     "Weight_kg": { "hideText": "非公開" },
     "BustSize": "G",
@@ -9749,12 +10725,14 @@
         {
           "Num": 6,
           "Comments": "「実の姉、いつも尊敬してる」",
-          "RelationLabel": ["brother|sister", "trusted"]
+          "RelationLabel": ["brother|sister", "trusted"],
+          "Comments_EN": "「実の姉、いつも尊敬してる」"
         },
         {
           "Num": 42,
           "Comments": "「彼女も大変ね…」",
-          "RelationLabel": ["wellMatched"]
+          "RelationLabel": ["wellMatched"],
+          "Comments_EN": "「彼女も大変ね…」"
         },
         {
           "Num": 61,
@@ -9763,7 +10741,8 @@
             "successor_nearly",
             "unmatched",
             "adverselyAffected"
-          ]
+          ],
+          "Comments_EN": "「私に構うな!!!（※この文面だけ字が荒れている）」"
         },
         {
           "Num": 63,
@@ -9772,27 +10751,43 @@
             "successor_nearly",
             "awkward_aBit",
             "wellMatched_maybe"
-          ]
+          ],
+          "Comments_EN": "「趣味を知られたのが今でも恥ずかしい…」"
         },
         {
           "Num": 66,
           "Comments": "「彼女の目に泥を塗るわけにはいかないわ」",
-          "RelationLabel": ["successor", "trusted"]
+          "RelationLabel": ["successor", "trusted"],
+          "Comments_EN": "「彼女の目に泥を塗るわけにはいかないわ」"
         },
         {
           "Num": 69,
           "Comments": "「彼にだけは趣味バレを避けないと…!!」",
-          "RelationLabel": ["successor_nearly", "awkward"]
+          "RelationLabel": ["successor_nearly", "awkward"],
+          "Comments_EN": "「彼にだけは趣味バレを避けないと…!!」"
         }
       ],
       "Commented": [
-        { "Num": 24, "Comments": "「憐れむよりも庇護してほしい…」" },
-        { "Num": 33, "Comments": "「実力に自惚れすぎないように」" },
+        {
+          "Num": 24,
+          "Comments": "「憐れむよりも庇護してほしい…」",
+          "Comments_EN": "「憐れむよりも庇護してほしい…」"
+        },
+        {
+          "Num": 33,
+          "Comments": "「実力に自惚れすぎないように」",
+          "Comments_EN": "「実力に自惚れすぎないように」"
+        },
         {
           "Num": 51,
-          "Comments": "「思考は認めるべき、少し奇抜ともいえるけど」"
+          "Comments": "「思考は認めるべき、少し奇抜ともいえるけど」",
+          "Comments_EN": "「思考は認めるべき、少し奇抜ともいえるけど」"
         },
-        { "Num": 87, "Comments": "「金絡みのご縁に振り回されてないかしら…」" }
+        {
+          "Num": 87,
+          "Comments": "「金絡みのご縁に振り回されてないかしら…」",
+          "Comments_EN": "「金絡みのご縁に振り回されてないかしら…」"
+        }
       ]
     },
     "ConversationPattern": {
@@ -9832,7 +10827,8 @@
           "about": "プライベートを見られたとき②"
         }
       ]
-    }
+    },
+    "ThisMasters_EN": ["水無瀬 霙(はなゆき)"]
   },
   {
     "Num": 61,
@@ -9862,7 +10858,11 @@
     "Height_cm": 143,
     "ConceptAge": { "about_JP": "不詳", "about_EN": "Unknown" },
     "AnivDay": [
-      { "Day": { "Month": 6, "DayOfMonth": 1 }, "DayAbout": "開発記念" }
+      {
+        "Day": { "Month": 6, "DayOfMonth": 1 },
+        "DayAbout": "開発記念",
+        "DayAbout_EN": "Development commemoration"
+      }
     ],
     "Weight_kg": { "hideText": "非公開" },
     "BustSize": "H",
@@ -9962,36 +10962,46 @@
         {
           "Num": 10,
           "Comments": "「何考えてるの??ねぇ教えて!!」",
-          "RelationLabel": ["interested", "adverselyAffected_aBit"]
+          "RelationLabel": ["interested", "adverselyAffected_aBit"],
+          "Comments_EN": "「何考えてるの??ねぇ教えて!!」"
         },
         {
           "Num": 16,
           "Comments": "「幸せ貧乏なお姉ちゃん」",
-          "RelationLabel": ["brother|sister", "classmate"]
+          "RelationLabel": ["brother|sister", "classmate"],
+          "Comments_EN": "「幸せ貧乏なお姉ちゃん」"
         },
         {
           "Num": 60,
           "Comments": "「アイドルグループ作ろーよ～!!」",
-          "RelationLabel": ["pioneer_nearly", "abusing"]
+          "RelationLabel": ["pioneer_nearly", "abusing"],
+          "Comments_EN": "「アイドルグループ作ろーよ～!!」"
         },
         {
           "Num": 97,
           "Comments": "「お…おぉう…w」",
-          "RelationLabel": ["wellMatched", "classmate"]
+          "RelationLabel": ["wellMatched", "classmate"],
+          "Comments_EN": "「お…おぉう…w」"
         }
       ],
       "Commented": [
         {
           "Num": 43,
           "Comments": "「実績がいつ化けるかわかんないダークホース」",
-          "RelationLabel": ["classmate"]
+          "RelationLabel": ["classmate"],
+          "Comments_EN": "「実績がいつ化けるかわかんないダークホース」"
         },
         {
           "Num": 52,
           "Comments": "「もっと自信もっていいと思うけどな～」",
-          "RelationLabel": ["classmate"]
+          "RelationLabel": ["classmate"],
+          "Comments_EN": "「もっと自信もっていいと思うけどな～」"
         },
-        { "Num": 70, "Comments": "「よくわかんないw」" }
+        {
+          "Num": 70,
+          "Comments": "「よくわかんないw」",
+          "Comments_EN": "「よくわかんないw」"
+        }
       ]
     },
     "AdditionalDesigned": "アイドル衣装デザイン：MUSASHI(https://skeb.jp/@NEO_lapis_/works/43)",
@@ -10037,7 +11047,17 @@
           "about": "メイドとして活動中"
         }
       ]
-    }
+    },
+    "ThisMasters_EN": [
+      {
+        "value": "六花(ろくばな) 雙葉",
+        "_DBLink": {
+          "worksTitle": "SinisterChangingGirls",
+          "dbName": "Primary",
+          "_Search": [{ "hashTag": "Drc", "key": "S" }]
+        }
+      }
+    ]
   },
   {
     "Num": 62,
@@ -10059,7 +11079,11 @@
     "Height_cm": 153,
     "ConceptAge": 22,
     "AnivDay": [
-      { "Day": { "Month": 6, "DayOfMonth": 2 }, "DayAbout": "開発記念" }
+      {
+        "Day": { "Month": 6, "DayOfMonth": 2 },
+        "DayAbout": "開発記念",
+        "DayAbout_EN": "Development commemoration"
+      }
     ],
     "Weight_kg": 43,
     "BustSize": "F",
@@ -10155,42 +11179,59 @@
         {
           "Num": 8,
           "Comments": "「もう勘弁してくださいよ…」",
-          "RelationLabel": ["awkward", "trusted"]
+          "RelationLabel": ["awkward", "trusted"],
+          "Comments_EN": "「もう勘弁してくださいよ…」"
         },
         {
           "Num": 26,
           "Comments": "「女子力が高い自慢の姉貴！」",
-          "RelationLabel": ["brother|sister", "wellMatched", "classmate"]
+          "RelationLabel": ["brother|sister", "wellMatched", "classmate"],
+          "Comments_EN": "「女子力が高い自慢の姉貴！」"
         },
         {
           "Num": 81,
           "Comments": "「収益化とか難しいこと言われても…！」",
-          "RelationLabel": ["awkward"]
+          "RelationLabel": ["awkward"],
+          "Comments_EN": "「収益化とか難しいこと言われても…！」"
         },
         {
           "Num": 85,
           "Comments": "「あたしの自信作を鑑定して欲しい！」",
-          "RelationLabel": ["abusing"]
+          "RelationLabel": ["abusing"],
+          "Comments_EN": "「あたしの自信作を鑑定して欲しい！」"
         }
       ],
       "Commented": [
         {
           "Num": 35,
           "Comments": "「すごい人なのはわかる」",
-          "RelationLabel": ["classmate"]
+          "RelationLabel": ["classmate"],
+          "Comments_EN": "「すごい人なのはわかる」"
         },
         {
           "Num": 68,
           "Comments": "「あたしの作品は捨ててないよね…？」",
-          "RelationLabel": ["cousin"]
+          "RelationLabel": ["cousin"],
+          "Comments_EN": "「あたしの作品は捨ててないよね…？」"
         },
         {
           "Num": 71,
           "Comments": "「すごすぎて、話聞くと頭が痛くなる…」",
-          "RelationLabel": ["classmate"]
+          "RelationLabel": ["classmate"],
+          "Comments_EN": "「すごすぎて、話聞くと頭が痛くなる…」"
         }
       ]
-    }
+    },
+    "ThisMasters_EN": [
+      {
+        "value": "六花(ろくばな) 雙葉",
+        "_DBLink": {
+          "worksTitle": "SinisterChangingGirls",
+          "dbName": "Primary",
+          "_Search": [{ "hashTag": "Drc", "key": "S" }]
+        }
+      }
+    ]
   },
   {
     "Num": 63,
@@ -10219,7 +11260,11 @@
     "Height_cm": 142,
     "ConceptAge": 15,
     "AnivDay": [
-      { "Day": { "Month": 6, "DayOfMonth": 3 }, "DayAbout": "開発記念" }
+      {
+        "Day": { "Month": 6, "DayOfMonth": 3 },
+        "DayAbout": "開発記念",
+        "DayAbout_EN": "Development commemoration"
+      }
     ],
     "Weight_kg": { "hideText": "非公開" },
     "BustSize": "D",
@@ -10311,34 +11356,46 @@
         {
           "Num": 6,
           "Comments": "「可愛らしい一面も含めて好き」",
-          "RelationLabel": ["pioneer"]
+          "RelationLabel": ["pioneer"],
+          "Comments_EN": "「可愛らしい一面も含めて好き」"
         },
         {
           "Num": 36,
           "Comments": "「しょうがないお姉ちゃんだなぁ♡」",
-          "RelationLabel": ["brother|sister", "wellMatched_maybe", "classmate"]
+          "RelationLabel": ["brother|sister", "wellMatched_maybe", "classmate"],
+          "Comments_EN": "「しょうがないお姉ちゃんだなぁ♡」"
         },
         {
           "Num": 60,
           "Comments": "「素敵な個性してる」",
-          "RelationLabel": ["pioneer_nearly", "wellMatched", "interested"]
+          "RelationLabel": ["pioneer_nearly", "wellMatched", "interested"],
+          "Comments_EN": "「素敵な個性してる」"
         }
       ],
       "Commented": [
         {
           "Num": 27,
           "Comments": "「怒るとちょっと怖いけどとても優しい」",
-          "RelationLabel": ["classmate"]
+          "RelationLabel": ["classmate"],
+          "Comments_EN": "「怒るとちょっと怖いけどとても優しい」"
         },
-        { "Num": 30, "Comments": "「背伸びしてるところも憎めない」" },
+        {
+          "Num": 30,
+          "Comments": "「背伸びしてるところも憎めない」",
+          "Comments_EN": "「背伸びしてるところも憎めない」"
+        },
         {
           "Num": 45,
           "Comments": "「色々大変そう」",
-          "RelationLabel": ["classmate"]
+          "RelationLabel": ["classmate"],
+          "Comments_EN": "「色々大変そう」"
         },
-        { "Num": 90, "Comments": "「頼もしい」" }
+        { "Num": 90, "Comments": "「頼もしい」", "Comments_EN": "「頼もしい」" }
       ]
-    }
+    },
+    "ThisMasters_EN": [
+      "恵比寿 ことは/Spade.9(Nine)（78特殊探偵団 風の刀剣 構成員）"
+    ]
   },
   {
     "Num": 64,
@@ -10362,7 +11419,11 @@
     "Height_cm": 146,
     "ConceptAge": { "about_JP": "不詳", "about_EN": "Unknown" },
     "AnivDay": [
-      { "Day": { "Month": 6, "DayOfMonth": 4 }, "DayAbout": "開発記念" }
+      {
+        "Day": { "Month": 6, "DayOfMonth": 4 },
+        "DayAbout": "開発記念",
+        "DayAbout_EN": "Development commemoration"
+      }
     ],
     "Weight_kg": { "hideText": "非公開" },
     "BustSize": {
@@ -10454,36 +11515,46 @@
         {
           "Num": 46,
           "Comments": "「そんな憐れむような眼でみないでよぉ!!」",
-          "RelationLabel": ["brother|sister", "awkward", "classmate"]
+          "RelationLabel": ["brother|sister", "awkward", "classmate"],
+          "Comments_EN": "「そんな憐れむような眼でみないでよぉ!!」"
         },
         {
           "Num": 67,
           "Comments": "「あたちを扱(しご)いてください!!!」",
-          "RelationLabel": ["cousin", "abusing"]
+          "RelationLabel": ["cousin", "abusing"],
+          "Comments_EN": "「あたちを扱(しご)いてください!!!」"
         },
         {
           "Num": "0",
           "Comments": "「うぅ…反省してますぅ…（※反省してない）」",
-          "RelationLabel": ["abusing"]
+          "RelationLabel": ["abusing"],
+          "Comments_EN": "「うぅ…反省してますぅ…（※反省してない）」"
         }
       ],
       "Commented": [
         {
           "Num": 10,
           "Comments": "「ふぇえ、なんで止めるんですかぁ!!」",
-          "RelationLabel": ["awkward_aBit"]
+          "RelationLabel": ["awkward_aBit"],
+          "Comments_EN": "「ふぇえ、なんで止めるんですかぁ!!」"
         },
         {
           "Num": 24,
           "Comments": "「なんか消極的でもったいないです…」",
-          "RelationLabel": ["cousin"]
+          "RelationLabel": ["cousin"],
+          "Comments_EN": "「なんか消極的でもったいないです…」"
         },
         {
           "Num": 28,
           "Comments": "「あたちの“物乞い”だけ叶わない、なんで…」",
-          "RelationLabel": ["classmate"]
+          "RelationLabel": ["classmate"],
+          "Comments_EN": "「あたちの“物乞い”だけ叶わない、なんで…」"
         },
-        { "Num": 44, "Comments": "「“賭けゲーム”、しませんかぁ…？えへへ…」" }
+        {
+          "Num": 44,
+          "Comments": "「“賭けゲーム”、しませんかぁ…？えへへ…」",
+          "Comments_EN": "「“賭けゲーム”、しませんかぁ…？えへへ…」"
+        }
       ]
     }
   },
@@ -10511,7 +11582,11 @@
     "Height_cm": 135,
     "ConceptAge": 10,
     "AnivDay": [
-      { "Day": { "Month": 6, "DayOfMonth": 5 }, "DayAbout": "開発記念" }
+      {
+        "Day": { "Month": 6, "DayOfMonth": 5 },
+        "DayAbout": "開発記念",
+        "DayAbout_EN": "Development commemoration"
+      }
     ],
     "Weight_kg": 37,
     "BustSize": "A",
@@ -10597,35 +11672,45 @@
         {
           "Num": 5,
           "Comments": "「なんていうか…すごい」",
-          "RelationLabel": ["pioneer", "interested"]
+          "RelationLabel": ["pioneer", "interested"],
+          "Comments_EN": "「なんていうか…すごい」"
         },
         {
           "Num": 92,
           "Comments": "「どんな事があってもすぐに立ち直れてすごい」",
-          "RelationLabel": ["trusted", "classmate"]
+          "RelationLabel": ["trusted", "classmate"],
+          "Comments_EN": "「どんな事があってもすぐに立ち直れてすごい」"
         }
       ],
       "Commented": [
-        { "Num": 20, "Comments": "「とても正直で嘘はつかない人」" },
+        {
+          "Num": 20,
+          "Comments": "「とても正直で嘘はつかない人」",
+          "Comments_EN": "「とても正直で嘘はつかない人」"
+        },
         {
           "Num": 36,
           "Comments": "「どうして他の人のためだと運がいいの？」",
-          "RelationLabel": ["cousin_nearly"]
+          "RelationLabel": ["cousin_nearly"],
+          "Comments_EN": "「どうして他の人のためだと運がいいの？」"
         },
         {
           "Num": 52,
           "Comments": "「控えめなのにそれ以上のものを得てる？」",
-          "RelationLabel": ["cousin_nearly"]
+          "RelationLabel": ["cousin_nearly"],
+          "Comments_EN": "「控えめなのにそれ以上のものを得てる？」"
         },
         {
           "Num": 63,
           "Comments": "「いい人だからたくさん報われてるんだろうな」",
-          "RelationLabel": ["cousin"]
+          "RelationLabel": ["cousin"],
+          "Comments_EN": "「いい人だからたくさん報われてるんだろうな」"
         },
         {
           "Num": 74,
           "Comments": "「色んなメッセージが聞こえてるの？変な人…」",
-          "RelationLabel": ["classmate"]
+          "RelationLabel": ["classmate"],
+          "Comments_EN": "「色んなメッセージが聞こえてるの？変な人…」"
         }
       ]
     }
@@ -10657,7 +11742,11 @@
     "Height_cm": 154,
     "ConceptAge": 16,
     "AnivDay": [
-      { "Day": { "Month": 6, "DayOfMonth": 6 }, "DayAbout": "開発記念" }
+      {
+        "Day": { "Month": 6, "DayOfMonth": 6 },
+        "DayAbout": "開発記念",
+        "DayAbout_EN": "Development commemoration"
+      }
     ],
     "Weight_kg": { "hideText": "非公開" },
     "BustSize": "F",
@@ -10755,30 +11844,51 @@
         {
           "Num": 6,
           "Comments": "「親愛なる姉様」",
-          "RelationLabel": ["pioneer", "wellMatched", "trusted"]
+          "RelationLabel": ["pioneer", "wellMatched", "trusted"],
+          "Comments_EN": "「親愛なる姉様」"
         },
         {
           "Num": 60,
           "Comments": "「自分らしさが輝いている優美な方」",
-          "RelationLabel": ["pioneer"]
+          "RelationLabel": ["pioneer"],
+          "Comments_EN": "「自分らしさが輝いている優美な方」"
         }
       ],
       "Commented": [
-        { "Num": 3, "Comments": "「素晴らしいお方」" },
-        { "Num": 12, "Comments": "「何事も躊躇いない様子が素敵です」" },
+        {
+          "Num": 3,
+          "Comments": "「素晴らしいお方」",
+          "Comments_EN": "「素晴らしいお方」"
+        },
+        {
+          "Num": 12,
+          "Comments": "「何事も躊躇いない様子が素敵です」",
+          "Comments_EN": "「何事も躊躇いない様子が素敵です」"
+        },
         {
           "Num": 33,
           "Comments": "「彼女の眼はすべてお見通しでしょう」",
-          "RelationLabel": ["classmate"]
+          "RelationLabel": ["classmate"],
+          "Comments_EN": "「彼女の眼はすべてお見通しでしょう」"
         },
-        { "Num": 48, "Comments": "「何事も諦めることない立派なお方」" },
-        { "Num": 75, "Comments": "「勤勉さは報われるのを証明できるお方」" },
+        {
+          "Num": 48,
+          "Comments": "「何事も諦めることない立派なお方」",
+          "Comments_EN": "「何事も諦めることない立派なお方」"
+        },
+        {
+          "Num": 75,
+          "Comments": "「勤勉さは報われるのを証明できるお方」",
+          "Comments_EN": "「勤勉さは報われるのを証明できるお方」"
+        },
         {
           "Num": 96,
-          "Comments": "「『タイムリーな方』、というべきでしょうか…」"
+          "Comments": "「『タイムリーな方』、というべきでしょうか…」",
+          "Comments_EN": "「『タイムリーな方』、というべきでしょうか…」"
         }
       ]
-    }
+    },
+    "ThisMasters_EN": ["水無瀬 雫/水無月（夜月機関 第6幹部）"]
   },
   {
     "Num": "67-old",
@@ -10849,7 +11959,11 @@
     "Weight_kg": { "hideText": "非公開" },
     "TailsUnit": "キツネ(枝分かれ)型7本(上2束6本+下1束1本)",
     "AnivDay": [
-      { "Day": { "Month": 6, "DayOfMonth": 7 }, "DayAbout": "開発記念" }
+      {
+        "Day": { "Month": 6, "DayOfMonth": 7 },
+        "DayAbout": "開発記念",
+        "DayAbout_EN": "Development commemoration"
+      }
     ],
     "Class": ["デュアルフォーズ"],
     "FirstPersonCalling": "俺",
@@ -10892,50 +12006,63 @@
         {
           "Num": 39,
           "Comments": "「逞しくとても尊敬できる存在」",
-          "RelationLabel": ["wellMatched"]
+          "RelationLabel": ["wellMatched"],
+          "Comments_EN": "「逞しくとても尊敬できる存在」"
         },
         {
           "Num": 49,
           "Comments": "「面倒なやつだな…」",
-          "RelationLabel": ["unmatched", "classmate"]
+          "RelationLabel": ["unmatched", "classmate"],
+          "Comments_EN": "「面倒なやつだな…」"
         },
         {
           "Num": 64,
           "Comments": "「は、はぁ…？」",
-          "RelationLabel": ["awkward", "cousin"]
+          "RelationLabel": ["awkward", "cousin"],
+          "Comments_EN": "「は、はぁ…？」"
         },
         {
           "Num": 76,
           "Comments": "「いつも情報面で助けられている妹」",
-          "RelationLabel": ["brother|sister", "trusted", "classmate"]
+          "RelationLabel": ["brother|sister", "trusted", "classmate"],
+          "Comments_EN": "「いつも情報面で助けられている妹」"
         }
       ],
       "Commented": [
-        { "Num": 4, "Comments": "「謙虚だが好感は持てる」" },
+        {
+          "Num": 4,
+          "Comments": "「謙虚だが好感は持てる」",
+          "Comments_EN": "「謙虚だが好感は持てる」"
+        },
         {
           "Num": 13,
           "Comments": "「活発で可愛らしいところが憎めない」",
-          "RelationLabel": ["classmate"]
+          "RelationLabel": ["classmate"],
+          "Comments_EN": "「活発で可愛らしいところが憎めない」"
         },
         {
           "Num": 40,
           "Comments": "「何笑ってんだお前!?」",
-          "RelationLabel": ["awkward_aBit"]
+          "RelationLabel": ["awkward_aBit"],
+          "Comments_EN": "「何笑ってんだお前!?」"
         },
         {
           "Num": 65,
           "Comments": "「怯えてないよな…？」",
-          "RelationLabel": ["cousin", "awkward_aBit"]
+          "RelationLabel": ["cousin", "awkward_aBit"],
+          "Comments_EN": "「怯えてないよな…？」"
         },
         {
           "Num": 85,
           "Comments": "「可愛いところはあるんだが…」",
-          "RelationLabel": ["awkward_aBit", "classmate"]
+          "RelationLabel": ["awkward_aBit", "classmate"],
+          "Comments_EN": "「可愛いところはあるんだが…」"
         },
         {
           "Num": "00",
           "Comments": "「とても辱いことを頼んでしまったな…」",
-          "RelationLabel": ["trusted_maybe", "awkward_aBit"]
+          "RelationLabel": ["trusted_maybe", "awkward_aBit"],
+          "Comments_EN": "「とても辱いことを頼んでしまったな…」"
         }
       ]
     }
@@ -10964,7 +12091,11 @@
     "Height_cm": 147,
     "ConceptAge": 14,
     "AnivDay": [
-      { "Day": { "Month": 6, "DayOfMonth": 8 }, "DayAbout": "開発記念" }
+      {
+        "Day": { "Month": 6, "DayOfMonth": 8 },
+        "DayAbout": "開発記念",
+        "DayAbout_EN": "Development commemoration"
+      }
     ],
     "Weight_kg": 39,
     "BustSize": "AA",
@@ -11048,12 +12179,14 @@
         {
           "Num": 16,
           "Comments": "「幸せな貧乏, 欲しいものがあれば手伝う」",
-          "RelationLabel": ["cousin_nearly", "wellMatched"]
+          "RelationLabel": ["cousin_nearly", "wellMatched"],
+          "Comments_EN": "「幸せな貧乏, 欲しいものがあれば手伝う」"
         },
         {
           "Num": 88,
           "Comments": "「絶対私物にいらない物あるだろ」",
-          "RelationLabel": ["awkward"]
+          "RelationLabel": ["awkward"],
+          "Comments_EN": "「絶対私物にいらない物あるだろ」"
         },
         { "Num": 98, "RelationLabel": ["cousin", "trusted"] }
       ],
@@ -11061,23 +12194,31 @@
         {
           "Num": 36,
           "Comments": "「神引きおばけ」",
-          "RelationLabel": ["cousin_nearly"]
+          "RelationLabel": ["cousin_nearly"],
+          "Comments_EN": "「神引きおばけ」"
         },
         {
           "Num": 41,
           "Comments": "「フラグ建築おばけ」",
-          "RelationLabel": ["classmate"]
+          "RelationLabel": ["classmate"],
+          "Comments_EN": "「フラグ建築おばけ」"
         },
-        { "Num": 50, "Comments": "「適応力おばけ」" },
+        {
+          "Num": 50,
+          "Comments": "「適応力おばけ」",
+          "Comments_EN": "「適応力おばけ」"
+        },
         {
           "Num": 81,
           "Comments": "「高収入おばけ」",
-          "RelationLabel": ["cousin_nearly"]
+          "RelationLabel": ["cousin_nearly"],
+          "Comments_EN": "「高収入おばけ」"
         },
         {
           "Num": 95,
           "Comments": "「考え方からして余命1日なのか？」",
-          "RelationLabel": ["classmate"]
+          "RelationLabel": ["classmate"],
+          "Comments_EN": "「考え方からして余命1日なのか？」"
         }
       ]
     }
@@ -11106,7 +12247,11 @@
     "Height_cm": 156,
     "ConceptAge": { "value": 20, "about_JP": "？", "about_EN": "?" },
     "AnivDay": [
-      { "Day": { "Month": 6, "DayOfMonth": 9 }, "DayAbout": "開発記念" }
+      {
+        "Day": { "Month": 6, "DayOfMonth": 9 },
+        "DayAbout": "開発記念",
+        "DayAbout_EN": "Development commemoration"
+      }
     ],
     "Weight_kg": { "hideText": "非公開" },
     "TailsUnit": "キツネ(枝分かれ)型9本(上2束6本+下1束3本)",
@@ -11212,18 +12357,21 @@
         {
           "Num": 6,
           "Comments": "「愛くるしい存在」",
-          "RelationLabel": ["pioneer"]
+          "RelationLabel": ["pioneer"],
+          "Comments_EN": "「愛くるしい存在」"
         },
         {
           "Num": 9,
           "Comments": "「本当は本性を隠してそう」",
-          "RelationLabel": ["pioneer"]
+          "RelationLabel": ["pioneer"],
+          "Comments_EN": "「本当は本性を隠してそう」"
         },
         { "Num": 40, "RelationLabel": ["unmatched"] },
         {
           "Num": 60,
           "Comments": "「立ち振る舞いとか見習いたい」",
-          "RelationLabel": ["pioneer_nearly", "trusted"]
+          "RelationLabel": ["pioneer_nearly", "trusted"],
+          "Comments_EN": "「立ち振る舞いとか見習いたい」"
         },
         {
           "Num": 96,
@@ -11233,22 +12381,37 @@
             "alternative|redesign",
             "awkward",
             "classmate"
-          ]
+          ],
+          "Comments_EN": "「俺よりもさらにアイデンティティを見失ってる妹」"
         }
       ],
       "Commented": [
         {
           "Num": 87,
           "Comments": "「ほんといつかカツアゲされるぞ…」",
-          "RelationLabel": ["classmate"]
+          "RelationLabel": ["classmate"],
+          "Comments_EN": "「ほんといつかカツアゲされるぞ…」"
         },
         {
           "Num": 94,
           "Comments": "「起きて従事してるの想像できないな…」",
-          "RelationLabel": ["cousin_nearly"]
+          "RelationLabel": ["cousin_nearly"],
+          "Comments_EN": "「起きて従事してるの想像できないな…」"
         }
       ]
-    }
+    },
+    "ThisMasters_EN": [
+      {
+        "value": "ヴェンジー.C.テンペスト/クライシア.バベル（78特殊探偵団 第16幹部）",
+        "_DBLink": {
+          "worksTitle": "FLInvestigator78",
+          "dbName": "PrimaryDealer",
+          "_Search": [
+            { "hashTag": "Card", "key": { "Stoat": "Major", "StoatNum": 16 } }
+          ]
+        }
+      }
+    ]
   },
   {
     "Num": 70,
@@ -11268,7 +12431,11 @@
     "Height_cm": 159,
     "ConceptAge": 17,
     "AnivDay": [
-      { "Day": { "Month": 6, "DayOfMonth": 30 }, "DayAbout": "開発記念" }
+      {
+        "Day": { "Month": 6, "DayOfMonth": 30 },
+        "DayAbout": "開発記念",
+        "DayAbout_EN": "Development commemoration"
+      }
     ],
     "Weight_kg": 43,
     "TailsUnit": "キツネ型7本",
@@ -11314,28 +12481,44 @@
         {
           "Num": 7,
           "Comments": "「信頼できる勉強仲間」",
-          "RelationLabel": ["brother|sister", "trusted"]
+          "RelationLabel": ["brother|sister", "trusted"],
+          "Comments_EN": "「信頼できる勉強仲間」"
         },
         {
           "Num": 25,
           "Comments": "「毎回占ってるけど悪い相が出ない、幸運者」",
-          "RelationLabel": ["interested", "wellMatched"]
+          "RelationLabel": ["interested", "wellMatched"],
+          "Comments_EN": "「毎回占ってるけど悪い相が出ない、幸運者」"
         }
       ],
       "Commented": [
-        { "Num": 16, "Comments": "「急に思い立つから手に負えねぇ…」" },
-        { "Num": 43, "Comments": "「いつの間にかすごい成果出してたりする」" },
+        {
+          "Num": 16,
+          "Comments": "「急に思い立つから手に負えねぇ…」",
+          "Comments_EN": "「急に思い立つから手に負えねぇ…」"
+        },
+        {
+          "Num": 43,
+          "Comments": "「いつの間にかすごい成果出してたりする」",
+          "Comments_EN": "「いつの間にかすごい成果出してたりする」"
+        },
         {
           "Num": 72,
           "Comments": "「ああ見えて人間味はあると思う」",
-          "RelationLabel": ["successor_nearly"]
+          "RelationLabel": ["successor_nearly"],
+          "Comments_EN": "「ああ見えて人間味はあると思う」"
         },
         {
           "Num": 79,
           "Comments": "「変な情報広げてないといいんだが」",
-          "RelationLabel": ["successor_nearly"]
+          "RelationLabel": ["successor_nearly"],
+          "Comments_EN": "「変な情報広げてないといいんだが」"
         },
-        { "Num": 87, "Comments": "「金運操作してんのか？」" }
+        {
+          "Num": 87,
+          "Comments": "「金運操作してんのか？」",
+          "Comments_EN": "「金運操作してんのか？」"
+        }
       ]
     }
   },
@@ -11359,7 +12542,11 @@
     "Height_cm": 144,
     "ConceptAge": 17,
     "AnivDay": [
-      { "Day": { "Month": 7, "DayOfMonth": 1 }, "DayAbout": "開発記念" }
+      {
+        "Day": { "Month": 7, "DayOfMonth": 1 },
+        "DayAbout": "開発記念",
+        "DayAbout_EN": "Development commemoration"
+      }
     ],
     "Weight_kg": [
       { "value": 40, "about_JP": "推定", "about_EN": "Presumption" }
@@ -11453,28 +12640,44 @@
         {
           "Num": 17,
           "Comments": "「ぼくにとって尊敬できる姉です！」",
-          "RelationLabel": ["brother|sister", "trusted", "classmate"]
+          "RelationLabel": ["brother|sister", "trusted", "classmate"],
+          "Comments_EN": "「ぼくにとって尊敬できる姉です！」"
         },
         {
           "Num": 35,
           "Comments": "「仕事ができてすごく頼れます」",
-          "RelationLabel": ["wellMatched", "classmate"]
+          "RelationLabel": ["wellMatched", "classmate"],
+          "Comments_EN": "「仕事ができてすごく頼れます」"
         },
         { "Num": 48, "RelationLabel": ["unmatched"] },
         {
           "Num": "0",
           "Comments": "「なんだかとっても憧れます…!!」",
-          "RelationLabel": ["trusted"]
+          "RelationLabel": ["trusted"],
+          "Comments_EN": "「なんだかとっても憧れます…!!」"
         }
       ],
       "Commented": [
-        { "Num": 25, "Comments": "「どんなときも軽やかでかっこいい」" },
-        { "Num": 52, "Comments": "「一緒にいるととても安心します」" },
-        { "Num": 80, "Comments": "「妙にソワソワするんですよね…」" },
+        {
+          "Num": 25,
+          "Comments": "「どんなときも軽やかでかっこいい」",
+          "Comments_EN": "「どんなときも軽やかでかっこいい」"
+        },
+        {
+          "Num": 52,
+          "Comments": "「一緒にいるととても安心します」",
+          "Comments_EN": "「一緒にいるととても安心します」"
+        },
+        {
+          "Num": 80,
+          "Comments": "「妙にソワソワするんですよね…」",
+          "Comments_EN": "「妙にソワソワするんですよね…」"
+        },
         {
           "Num": 98,
           "Comments": "「途中で投げ出すのもどうかと思うけどなぁ…」",
-          "RelationLabel": ["classmate"]
+          "RelationLabel": ["classmate"],
+          "Comments_EN": "「途中で投げ出すのもどうかと思うけどなぁ…」"
         }
       ]
     }
@@ -11499,7 +12702,11 @@
     "Height_cm": 162,
     "ConceptAge": 17,
     "AnivDay": [
-      { "Day": { "Month": 7, "DayOfMonth": 2 }, "DayAbout": "開発記念" }
+      {
+        "Day": { "Month": 7, "DayOfMonth": 2 },
+        "DayAbout": "開発記念",
+        "DayAbout_EN": "Development commemoration"
+      }
     ],
     "Weight_kg": 43,
     "BustSize": "B",
@@ -11593,12 +12800,14 @@
         {
           "Num": 2,
           "Comments": "「ステータス“気遣い”を繰り返し確認、優しさに感謝していますが、どうか無理なさらず」",
-          "RelationLabel": ["pioneer_nearly", "trusted"]
+          "RelationLabel": ["pioneer_nearly", "trusted"],
+          "Comments_EN": "「ステータス“気遣い”を繰り返し確認、優しさに感謝していますが、どうか無理なさらず」"
         },
         {
           "Num": 7,
           "Comments": "「属性“理性”および”感性”を同時に検出，これによる最適化現象も確認…凄い…」",
-          "RelationLabel": ["pioneer"]
+          "RelationLabel": ["pioneer"],
+          "Comments_EN": "「属性“理性”および”感性”を同時に検出，これによる最適化現象も確認…凄い…」"
         },
         {
           "Num": 27,
@@ -11608,22 +12817,37 @@
             "alternative|redesign",
             "awkward",
             "classmate"
-          ]
+          ],
+          "Comments_EN": "「同型ですが、OSの構造が異なる様で…」"
         },
         { "Num": 44, "RelationLabel": ["unmatched"] },
         { "Num": 49, "RelationLabel": ["wellMatched"] }
       ],
       "Commented": [
-        { "Num": 9, "Comments": "「“悩み相談”という行為に有力と判断」" },
-        { "Num": 20, "Comments": "「心理的および感情的な共鳴作用を検出」" },
+        {
+          "Num": 9,
+          "Comments": "「“悩み相談”という行為に有力と判断」",
+          "Comments_EN": "「“悩み相談”という行為に有力と判断」"
+        },
+        {
+          "Num": 20,
+          "Comments": "「心理的および感情的な共鳴作用を検出」",
+          "Comments_EN": "「心理的および感情的な共鳴作用を検出」"
+        },
         {
           "Num": 70,
           "Comments": "「属性“理性”および”感性”を同時に検出，これによる最適化現象も確認…凄い…」",
-          "RelationLabel": ["successor_nearly"]
+          "RelationLabel": ["successor_nearly"],
+          "Comments_EN": "「属性“理性”および”感性”を同時に検出，これによる最適化現象も確認…凄い…」"
         },
-        { "Num": 99, "Comments": "「推定失敗，“記憶” 解析不能…謎です…」" }
+        {
+          "Num": 99,
+          "Comments": "「推定失敗，“記憶” 解析不能…謎です…」",
+          "Comments_EN": "「推定失敗，“記憶” 解析不能…謎です…」"
+        }
       ]
-    }
+    },
+    "ThisMasters_EN": ["綾沢 改奈/文月（夜月機関 第7幹部）"]
   },
   {
     "Num": 73,
@@ -11657,7 +12881,11 @@
     "Height_cm": 154,
     "ConceptAge": { "value": 16, "about_JP": "？", "about_EN": "?" },
     "AnivDay": [
-      { "Day": { "Month": 7, "DayOfMonth": 3 }, "DayAbout": "開発記念" }
+      {
+        "Day": { "Month": 7, "DayOfMonth": 3 },
+        "DayAbout": "開発記念",
+        "DayAbout_EN": "Development commemoration"
+      }
     ],
     "Weight_kg": { "hideText": "非公開" },
     "BustSize": "C",
@@ -11757,33 +12985,47 @@
         {
           "Num": 66,
           "Comments": "「かっこいい……!!」",
-          "RelationLabel": ["wellMatched", "interested"]
+          "RelationLabel": ["wellMatched", "interested"],
+          "Comments_EN": "「かっこいい……!!」"
         },
         { "Num": 79, "RelationLabel": ["cousin", "unmatched"] },
         {
           "Num": 97,
           "Comments": "「『彼女の話だけは拡散するな』って言われる」",
-          "RelationLabel": ["cousin_nearly", "adverselyAffected_aBit"]
+          "RelationLabel": ["cousin_nearly", "adverselyAffected_aBit"],
+          "Comments_EN": "「『彼女の話だけは拡散するな』って言われる」"
         }
       ],
       "Commented": [
-        { "Num": 13, "Comments": "「頼もしい」", "RelationLabel": ["cousin"] },
+        {
+          "Num": 13,
+          "Comments": "「頼もしい」",
+          "RelationLabel": ["cousin"],
+          "Comments_EN": "「頼もしい」"
+        },
         {
           "Num": 46,
           "Comments": "「現実をたのしんでそう」",
-          "RelationLabel": ["classmate"]
+          "RelationLabel": ["classmate"],
+          "Comments_EN": "「現実をたのしんでそう」"
         },
         {
           "Num": 70,
           "Comments": "「わかんないけどいいアドバイスをくれる」",
-          "RelationLabel": ["successor_nearly"]
+          "RelationLabel": ["successor_nearly"],
+          "Comments_EN": "「わかんないけどいいアドバイスをくれる」"
         },
         {
           "Num": 82,
           "Comments": "「どうしてああいうふうにあたしも稼げないんだろう？」",
-          "RelationLabel": ["classmate"]
+          "RelationLabel": ["classmate"],
+          "Comments_EN": "「どうしてああいうふうにあたしも稼げないんだろう？」"
         },
-        { "Num": 90, "Comments": "「なんかそういう演出使いなのかな」" }
+        {
+          "Num": 90,
+          "Comments": "「なんかそういう演出使いなのかな」",
+          "Comments_EN": "「なんかそういう演出使いなのかな」"
+        }
       ]
     }
   },
@@ -11812,7 +13054,11 @@
     "Height_cm": 148,
     "ConceptAge": 17,
     "AnivDay": [
-      { "Day": { "Month": 7, "DayOfMonth": 4 }, "DayAbout": "開発記念" }
+      {
+        "Day": { "Month": 7, "DayOfMonth": 4 },
+        "DayAbout": "開発記念",
+        "DayAbout_EN": "Development commemoration"
+      }
     ],
     "Weight_kg": [
       { "value": 39 },
@@ -11908,41 +13154,48 @@
         {
           "Num": 7,
           "Comments": "「心を休めてるか心配ね…」",
-          "RelationLabel": ["pioneer"]
+          "RelationLabel": ["pioneer"],
+          "Comments_EN": "「心を休めてるか心配ね…」"
         },
         {
           "Num": 11,
           "Comments": "「彼(女)が暴走するお告げは見たくないわ」",
-          "RelationLabel": ["trusted", "awkward_aBit"]
+          "RelationLabel": ["trusted", "awkward_aBit"],
+          "Comments_EN": "「彼(女)が暴走するお告げは見たくないわ」"
         },
         { "Num": 40, "RelationLabel": ["wellMatched"] },
         {
           "Num": 47,
           "Comments": "「“加護”が何なのかはともかく自信家な姉」",
-          "RelationLabel": ["brother|sister", "classmate"]
+          "RelationLabel": ["brother|sister", "classmate"],
+          "Comments_EN": "「“加護”が何なのかはともかく自信家な姉」"
         },
         { "Num": 55, "RelationLabel": ["unmatched"] },
         {
           "Num": 97,
           "Comments": "「神様を信じすぎよ…」",
-          "RelationLabel": ["cousin_nearly", "awkward_aBit"]
+          "RelationLabel": ["cousin_nearly", "awkward_aBit"],
+          "Comments_EN": "「神様を信じすぎよ…」"
         }
       ],
       "Commented": [
         {
           "Num": 38,
           "Comments": "「運気は無駄遣いしないでね」",
-          "RelationLabel": ["classmate"]
+          "RelationLabel": ["classmate"],
+          "Comments_EN": "「運気は無駄遣いしないでね」"
         },
         {
           "Num": 56,
           "Comments": "「素晴らしい出会いがありますように」",
-          "RelationLabel": ["classmate"]
+          "RelationLabel": ["classmate"],
+          "Comments_EN": "「素晴らしい出会いがありますように」"
         },
         {
           "Num": 94,
           "Comments": "「無理しなくて大丈夫よ」",
-          "RelationLabel": ["cousin"]
+          "RelationLabel": ["cousin"],
+          "Comments_EN": "「無理しなくて大丈夫よ」"
         }
       ]
     }
@@ -11970,7 +13223,11 @@
     "Height_cm": 152,
     "ConceptAge": 17,
     "AnivDay": [
-      { "Day": { "Month": 7, "DayOfMonth": 5 }, "DayAbout": "開発記念" }
+      {
+        "Day": { "Month": 7, "DayOfMonth": 5 },
+        "DayAbout": "開発記念",
+        "DayAbout_EN": "Development commemoration"
+      }
     ],
     "Weight_kg": 42,
     "BustSize": "AA",
@@ -12063,35 +13320,45 @@
         {
           "Num": 25,
           "Comments": "「優秀だと思う、私もいつか…」",
-          "RelationLabel": ["cousin", "trusted"]
+          "RelationLabel": ["cousin", "trusted"],
+          "Comments_EN": "「優秀だと思う、私もいつか…」"
         },
         {
           "Num": 57,
           "Comments": "「双子とはいえ楽観的過ぎる気がする」",
-          "RelationLabel": ["brother|sister", "awkward", "classmate"]
+          "RelationLabel": ["brother|sister", "awkward", "classmate"],
+          "Comments_EN": "「双子とはいえ楽観的過ぎる気がする」"
         },
         {
           "Num": 93,
           "Comments": "「夢が大きいのはいいことだと思う。ただ…」",
-          "RelationLabel": ["trusted_maybe", "awkward", "classmate"]
+          "RelationLabel": ["trusted_maybe", "awkward", "classmate"],
+          "Comments_EN": "「夢が大きいのはいいことだと思う。ただ…」"
         }
       ],
       "Commented": [
         {
           "Num": 21,
           "Comments": "「変な意味で神々しい人」",
-          "RelationLabel": ["classmate"]
+          "RelationLabel": ["classmate"],
+          "Comments_EN": "「変な意味で神々しい人」"
         },
         {
           "Num": 48,
           "Comments": "「何か足りなくても実現力が凄い人」",
-          "RelationLabel": ["classmate"]
+          "RelationLabel": ["classmate"],
+          "Comments_EN": "「何か足りなくても実現力が凄い人」"
         },
-        { "Num": 50, "Comments": "「流されすぎじゃないのあれ…？」" },
+        {
+          "Num": 50,
+          "Comments": "「流されすぎじゃないのあれ…？」",
+          "Comments_EN": "「流されすぎじゃないのあれ…？」"
+        },
         {
           "Num": 84,
           "Comments": "「私としては実績強者としか…」",
-          "RelationLabel": ["classmate"]
+          "RelationLabel": ["classmate"],
+          "Comments_EN": "「私としては実績強者としか…」"
         }
       ]
     }
@@ -12121,7 +13388,11 @@
     "Height_cm": 144,
     "ConceptAge": { "value": 14, "about_JP": "？", "about_EN": "?" },
     "AnivDay": [
-      { "Day": { "Month": 7, "DayOfMonth": 6 }, "DayAbout": "開発記念" }
+      {
+        "Day": { "Month": 7, "DayOfMonth": 6 },
+        "DayAbout": "開発記念",
+        "DayAbout_EN": "Development commemoration"
+      }
     ],
     "Weight_kg": { "hideText": "非公開" },
     "BustSize": "G",
@@ -12215,30 +13486,39 @@
         {
           "Num": 40,
           "Comments": "「意味わからないです…」",
-          "RelationLabel": ["unmatched"]
+          "RelationLabel": ["unmatched"],
+          "Comments_EN": "「意味わからないです…」"
         },
         {
           "Num": 71,
           "Comments": "「羨ましい、というよりズルいです」",
-          "RelationLabel": ["cousin", "wellMatched"]
+          "RelationLabel": ["cousin", "wellMatched"],
+          "Comments_EN": "「羨ましい、というよりズルいです」"
         }
       ],
       "Commented": [
-        { "Num": 4, "Comments": "「真面目でいい人」" },
+        {
+          "Num": 4,
+          "Comments": "「真面目でいい人」",
+          "Comments_EN": "「真面目でいい人」"
+        },
         {
           "Num": 31,
           "Comments": "「わからなくもないですが…」",
-          "RelationLabel": ["classmate"]
+          "RelationLabel": ["classmate"],
+          "Comments_EN": "「わからなくもないですが…」"
         },
         {
           "Num": 56,
           "Comments": "「ちゃんと勉強しようね」",
-          "RelationLabel": ["cousin"]
+          "RelationLabel": ["cousin"],
+          "Comments_EN": "「ちゃんと勉強しようね」"
         },
         {
           "Num": 94,
           "Comments": "「絵本や漫画でも寝ちゃうんですね…」",
-          "RelationLabel": ["classmate"]
+          "RelationLabel": ["classmate"],
+          "Comments_EN": "「絵本や漫画でも寝ちゃうんですね…」"
         }
       ]
     }
@@ -12268,7 +13548,11 @@
     "Height_cm": 147,
     "ConceptAge": { "value": 14, "about_JP": "？", "about_EN": "?" },
     "AnivDay": [
-      { "Day": { "Month": 7, "DayOfMonth": 7 }, "DayAbout": "開発記念" }
+      {
+        "Day": { "Month": 7, "DayOfMonth": 7 },
+        "DayAbout": "開発記念",
+        "DayAbout_EN": "Development commemoration"
+      }
     ],
     "Weight_kg": [
       { "value": 39, "about_JP": "推定", "about_EN": "Presumption" }
@@ -12364,31 +13648,48 @@
         {
           "Num": 5,
           "Comments": "「なんかいつの間にか好いて来るようになった」",
-          "RelationLabel": ["wellMatched"]
+          "RelationLabel": ["wellMatched"],
+          "Comments_EN": "「なんかいつの間にか好いて来るようになった」"
         },
         {
           "Num": 7,
           "Comments": "「僕相手だとほんと素直じゃないな…」",
-          "RelationLabel": ["pioneer", "interested", "awkward"]
+          "RelationLabel": ["pioneer", "interested", "awkward"],
+          "Comments_EN": "「僕相手だとほんと素直じゃないな…」"
         },
         {
           "Num": 55,
           "Comments": "「近寄らないでこの“ハリケーン野郎”」",
-          "RelationLabel": ["unmatched", "classmate"]
+          "RelationLabel": ["unmatched", "classmate"],
+          "Comments_EN": "「近寄らないでこの“ハリケーン野郎”」"
         }
       ],
       "Commented": [
         {
           "Num": 14,
-          "Comments": "「助走付けなくても走り高跳びできる系だと思う」"
+          "Comments": "「助走付けなくても走り高跳びできる系だと思う」",
+          "Comments_EN": "「助走付けなくても走り高跳びできる系だと思う」"
         },
-        { "Num": 34, "Comments": "「質より量を重視してる…とも言い切れない」" },
-        { "Num": 50, "Comments": "「何があっても肝が据わってる」" },
-        { "Num": 86, "Comments": "「現金主義じゃないだけマシ」" },
+        {
+          "Num": 34,
+          "Comments": "「質より量を重視してる…とも言い切れない」",
+          "Comments_EN": "「質より量を重視してる…とも言い切れない」"
+        },
+        {
+          "Num": 50,
+          "Comments": "「何があっても肝が据わってる」",
+          "Comments_EN": "「何があっても肝が据わってる」"
+        },
+        {
+          "Num": 86,
+          "Comments": "「現金主義じゃないだけマシ」",
+          "Comments_EN": "「現金主義じゃないだけマシ」"
+        },
         {
           "Num": 88,
           "Comments": "「色んな意味で“高級ピアノ君”」",
-          "RelationLabel": ["classmate"]
+          "RelationLabel": ["classmate"],
+          "Comments_EN": "「色んな意味で“高級ピアノ君”」"
         }
       ]
     }
@@ -12417,7 +13718,11 @@
     "Height_cm": 157,
     "ConceptAge": 25,
     "AnivDay": [
-      { "Day": { "Month": 7, "DayOfMonth": 8 }, "DayAbout": "開発記念" }
+      {
+        "Day": { "Month": 7, "DayOfMonth": 8 },
+        "DayAbout": "開発記念",
+        "DayAbout_EN": "Development commemoration"
+      }
     ],
     "Weight_kg": { "hideText": "非公開" },
     "BustSize": "E",
@@ -12526,37 +13831,53 @@
         {
           "Num": 7,
           "Comments": "「畏れ多くも、難しいことはよく解りません…」",
-          "RelationLabel": ["pioneer"]
+          "RelationLabel": ["pioneer"],
+          "Comments_EN": "「畏れ多くも、難しいことはよく解りません…」"
         },
         {
           "Num": 8,
           "Comments": "「作業を見てると少し心が躍るような…」",
-          "RelationLabel": ["pioneer"]
+          "RelationLabel": ["pioneer"],
+          "Comments_EN": "「作業を見てると少し心が躍るような…」"
         },
         {
           "Num": 51,
           "Comments": "「後先が心配になってしまいます…」",
-          "RelationLabel": ["awkward", "classmate"]
+          "RelationLabel": ["awkward", "classmate"],
+          "Comments_EN": "「後先が心配になってしまいます…」"
         },
         {
           "Num": 76,
           "Comments": "「何処か共感できる部分はあります」",
-          "RelationLabel": ["cousin", "wellMatched"]
+          "RelationLabel": ["cousin", "wellMatched"],
+          "Comments_EN": "「何処か共感できる部分はあります」"
         },
         {
           "Num": 87,
           "Comments": "「姉としても今後が怖い存在です…」",
-          "RelationLabel": ["brother|sister", "awkward_aBit", "classmate"]
+          "RelationLabel": ["brother|sister", "awkward_aBit", "classmate"],
+          "Comments_EN": "「姉としても今後が怖い存在です…」"
         }
       ],
       "Commented": [
         {
           "Num": 68,
           "Comments": "「吹っ切れたお方で…いえ、すみません…」",
-          "RelationLabel": ["cousin"]
+          "RelationLabel": ["cousin"],
+          "Comments_EN": "「吹っ切れたお方で…いえ、すみません…」"
         }
       ]
-    }
+    },
+    "ThisMasters_EN": [
+      {
+        "value": "錦野 舞（78特殊探偵団 采配幹部(ディーラー)/シンフォニー.XVI(ゼクズィン)所属 デザインエンジニア）",
+        "_DBLink": {
+          "worksTitle": "NumberTales",
+          "dbName": "Secondary",
+          "_Search": [{ "hashTag": "Num", "key": "%" }]
+        }
+      }
+    ]
   },
   {
     "Num": 79,
@@ -12571,7 +13892,11 @@
     "CodeName": "七九",
     "CodeName_EN": "Seven-Nine",
     "AnivDay": [
-      { "Day": { "Month": 7, "DayOfMonth": 9 }, "DayAbout": "開発記念" }
+      {
+        "Day": { "Month": 7, "DayOfMonth": 9 },
+        "DayAbout": "開発記念",
+        "DayAbout_EN": "Development commemoration"
+      }
     ],
     "Class": ["デュアルセブンズ"],
     "Favor": "開運情報",
@@ -12595,7 +13920,11 @@
     "Height_cm": 144,
     "ConceptAge": 27,
     "AnivDay": [
-      { "Day": { "Month": 7, "DayOfMonth": 31 }, "DayAbout": "開発記念" }
+      {
+        "Day": { "Month": 7, "DayOfMonth": 31 },
+        "DayAbout": "開発記念",
+        "DayAbout_EN": "Development commemoration"
+      }
     ],
     "Weight_kg": [
       { "value": 45, "about_JP": "推定", "about_EN": "Presumption" }
@@ -12666,7 +13995,11 @@
     "Height_cm": 149,
     "ConceptAge": 18,
     "AnivDay": [
-      { "Day": { "Month": 8, "DayOfMonth": 1 }, "DayAbout": "開発記念" }
+      {
+        "Day": { "Month": 8, "DayOfMonth": 1 },
+        "DayAbout": "開発記念",
+        "DayAbout_EN": "Development commemoration"
+      }
     ],
     "Weight_kg": 41,
     "BustSize": "D",
@@ -12760,26 +14093,38 @@
         {
           "Num": 8,
           "Comments": "「良かれと思って助言してるんだけどなぁ…」",
-          "RelationLabel": ["pioneer", "abusing"]
+          "RelationLabel": ["pioneer", "abusing"],
+          "Comments_EN": "「良かれと思って助言してるんだけどなぁ…」"
         },
         {
           "Num": 18,
           "Comments": "「優秀すぎる姉」",
-          "RelationLabel": ["brother|sister", "classmate"]
+          "RelationLabel": ["brother|sister", "classmate"],
+          "Comments_EN": "「優秀すぎる姉」"
         },
         {
           "Num": 72,
           "Comments": "「学びこそ彼(女)の強みだろうな」",
-          "RelationLabel": ["trusted", "classmate"]
+          "RelationLabel": ["trusted", "classmate"],
+          "Comments_EN": "「学びこそ彼(女)の強みだろうな」"
         }
       ],
       "Commented": [
-        { "Num": 10, "Comments": "「怪しい目的でも抱えてそう」" },
-        { "Num": 90, "Comments": "「いざというときは本気を出せる」" },
+        {
+          "Num": 10,
+          "Comments": "「怪しい目的でも抱えてそう」",
+          "Comments_EN": "「怪しい目的でも抱えてそう」"
+        },
+        {
+          "Num": 90,
+          "Comments": "「いざというときは本気を出せる」",
+          "Comments_EN": "「いざというときは本気を出せる」"
+        },
         {
           "Num": 91,
           "Comments": "「ちょっと思考が…う～ん…」",
-          "RelationLabel": ["cousin", "awkward_aBit"]
+          "RelationLabel": ["cousin", "awkward_aBit"],
+          "Comments_EN": "「ちょっと思考が…う～ん…」"
         }
       ]
     }
@@ -12802,7 +14147,11 @@
     "Height_cm": 158,
     "ConceptAge": 20,
     "AnivDay": [
-      { "Day": { "Month": 8, "DayOfMonth": 2 }, "DayAbout": "開発記念" }
+      {
+        "Day": { "Month": 8, "DayOfMonth": 2 },
+        "DayAbout": "開発記念",
+        "DayAbout_EN": "Development commemoration"
+      }
     ],
     "Weight_kg": { "hideText": "非公開" },
     "BustSize": "B",
@@ -12833,7 +14182,11 @@
     "CodeName_EN": "Eight-Three",
     "GenderType": "MaleNeutral",
     "AnivDay": [
-      { "Day": { "Month": 8, "DayOfMonth": 3 }, "DayAbout": "開発記念" }
+      {
+        "Day": { "Month": 8, "DayOfMonth": 3 },
+        "DayAbout": "開発記念",
+        "DayAbout_EN": "Development commemoration"
+      }
     ],
     "Class": ["デュアルイレブンズ"],
     "SecondPersonCalling": "お前",
@@ -12871,7 +14224,11 @@
     "Height_cm": 157,
     "ConceptAge": 20,
     "AnivDay": [
-      { "Day": { "Month": 8, "DayOfMonth": 4 }, "DayAbout": "開発記念" }
+      {
+        "Day": { "Month": 8, "DayOfMonth": 4 },
+        "DayAbout": "開発記念",
+        "DayAbout_EN": "Development commemoration"
+      }
     ],
     "Weight_kg": { "hideText": "非公開" },
     "BustSize": {
@@ -12970,36 +14327,46 @@
         {
           "Num": 38,
           "Comments": "「……ずるいよね、あれ」",
-          "RelationLabel": ["cousin_nearly", "unmatched"]
+          "RelationLabel": ["cousin_nearly", "unmatched"],
+          "Comments_EN": "「……ずるいよね、あれ」"
         },
         { "Num": 48, "RelationLabel": ["brother|sister", "classmate"] },
         {
           "Num": 93,
           "Comments": "「無理せず頑張ってね、ファイト！」",
-          "RelationLabel": ["classmate", "trusted"]
+          "RelationLabel": ["classmate", "trusted"],
+          "Comments_EN": "「無理せず頑張ってね、ファイト！」"
         }
       ],
       "Commented": [
         {
           "Num": 21,
           "Comments": "「なんかちょっとうらやましくなるなぁ」",
-          "RelationLabel": ["classmate"]
+          "RelationLabel": ["classmate"],
+          "Comments_EN": "「なんかちょっとうらやましくなるなぁ」"
         },
-        { "Num": 35, "Comments": "「断るときはちゃんと断っていいんよ？」" },
+        {
+          "Num": 35,
+          "Comments": "「断るときはちゃんと断っていいんよ？」",
+          "Comments_EN": "「断るときはちゃんと断っていいんよ？」"
+        },
         {
           "Num": 43,
           "Comments": "「嫌な子だな…近寄らないでおこ」",
-          "RelationLabel": ["cousin_nearly"]
+          "RelationLabel": ["cousin_nearly"],
+          "Comments_EN": "「嫌な子だな…近寄らないでおこ」"
         },
         {
           "Num": 49,
           "Comments": "「もうちょっと正直になってもよくない？」",
-          "RelationLabel": ["cousin_nearly"]
+          "RelationLabel": ["cousin_nearly"],
+          "Comments_EN": "「もうちょっと正直になってもよくない？」"
         },
         {
           "Num": 57,
           "Comments": "「見習う部分は大いにあるんよね」",
-          "RelationLabel": ["classmate"]
+          "RelationLabel": ["classmate"],
+          "Comments_EN": "「見習う部分は大いにあるんよね」"
         }
       ]
     }
@@ -13035,7 +14402,11 @@
     "Height_cm": 147,
     "ConceptAge": 17,
     "AnivDay": [
-      { "Day": { "Month": 8, "DayOfMonth": 5 }, "DayAbout": "開発記念" }
+      {
+        "Day": { "Month": 8, "DayOfMonth": 5 },
+        "DayAbout": "開発記念",
+        "DayAbout_EN": "Development commemoration"
+      }
     ],
     "Weight_kg": { "hideText": "非公開" },
     "BustSize": "A",
@@ -13129,34 +14500,40 @@
         {
           "Num": 62,
           "Comments": "「いちいち構わないで…うぅ…」",
-          "RelationLabel": ["unmatched"]
+          "RelationLabel": ["unmatched"],
+          "Comments_EN": "「いちいち構わないで…うぅ…」"
         },
         {
           "Num": 88,
           "Comments": "「努力家だし憎めないとこはあんじゃない？」",
-          "RelationLabel": ["interested", "trusted_maybe"]
+          "RelationLabel": ["interested", "trusted_maybe"],
+          "Comments_EN": "「努力家だし憎めないとこはあんじゃない？」"
         },
         {
           "Num": "00",
           "Comments": "「いいジャンク場あったら連絡よろ」",
-          "RelationLabel": ["wellMatched"]
+          "RelationLabel": ["wellMatched"],
+          "Comments_EN": "「いいジャンク場あったら連絡よろ」"
         }
       ],
       "Commented": [
         {
           "Num": 35,
           "Comments": "「センスがイカしてる」",
-          "RelationLabel": ["cousin"]
+          "RelationLabel": ["cousin"],
+          "Comments_EN": "「センスがイカしてる」"
         },
         {
           "Num": 49,
           "Comments": "「笑顔がキショい(=気色悪い)」",
-          "RelationLabel": ["classmate"]
+          "RelationLabel": ["classmate"],
+          "Comments_EN": "「笑顔がキショい(=気色悪い)」"
         },
         {
           "Num": 67,
           "Comments": "「ムサい(=むさ苦しい)、63番機か？」",
-          "RelationLabel": ["classmate"]
+          "RelationLabel": ["classmate"],
+          "Comments_EN": "「ムサい(=むさ苦しい)、63番機か？」"
         }
       ]
     },
@@ -13183,7 +14560,10 @@
           "about": "くしゃみをした時"
         }
       ]
-    }
+    },
+    "ThisMasters_EN": [
+      "リーチェ.エリザベス/レイチェル(78特殊探偵団 金の硬貨支部 副支部長)"
+    ]
   },
   {
     "Num": 86,
@@ -13205,7 +14585,11 @@
     "Height_cm": 145,
     "ConceptAge": 14,
     "AnivDay": [
-      { "Day": { "Month": 8, "DayOfMonth": 6 }, "DayAbout": "開発記念" }
+      {
+        "Day": { "Month": 8, "DayOfMonth": 6 },
+        "DayAbout": "開発記念",
+        "DayAbout_EN": "Development commemoration"
+      }
     ],
     "Weight_kg": { "hideText": "非公開" },
     "BustSize": "B",
@@ -13294,35 +14678,45 @@
         {
           "Num": 60,
           "Comments": "「趣味が通じるような……気のせい？」",
-          "RelationLabel": ["interested"]
+          "RelationLabel": ["interested"],
+          "Comments_EN": "「趣味が通じるような……気のせい？」"
         },
         {
           "Num": 68,
           "Comments": "「勿体ないことしないでよ！」",
-          "RelationLabel": ["brother|sister", "unmatched", "classmate"]
+          "RelationLabel": ["brother|sister", "unmatched", "classmate"],
+          "Comments_EN": "「勿体ないことしないでよ！」"
         }
       ],
       "Commented": [
         {
           "Num": 18,
           "Comments": "「頼ってもいい存在」",
-          "RelationLabel": ["cousin_nearly", "trusted_maybe"]
+          "RelationLabel": ["cousin_nearly", "trusted_maybe"],
+          "Comments_EN": "「頼ってもいい存在」"
         },
-        { "Num": 51, "Comments": "「ちょっと残念というか…」" },
+        {
+          "Num": 51,
+          "Comments": "「ちょっと残念というか…」",
+          "Comments_EN": "「ちょっと残念というか…」"
+        },
         {
           "Num": 61,
           "Comments": "「いや……ええ…？」",
-          "RelationLabel": ["cousin", "awkward_aBit"]
+          "RelationLabel": ["cousin", "awkward_aBit"],
+          "Comments_EN": "「いや……ええ…？」"
         },
         {
           "Num": 63,
           "Comments": "「なんだか安心できる」",
-          "RelationLabel": ["cousin_nearly"]
+          "RelationLabel": ["cousin_nearly"],
+          "Comments_EN": "「なんだか安心できる」"
         },
         {
           "Num": 80,
           "Comments": "「ちょっと苦手かな…」",
-          "RelationLabel": ["pioneer_nearly", "awkward_aBit"]
+          "RelationLabel": ["pioneer_nearly", "awkward_aBit"],
+          "Comments_EN": "「ちょっと苦手かな…」"
         }
       ]
     }
@@ -13349,7 +14743,11 @@
     "CodeName": "八七",
     "CodeName_EN": "Eight-Seven",
     "AnivDay": [
-      { "Day": { "Month": 8, "DayOfMonth": 7 }, "DayAbout": "開発記念" }
+      {
+        "Day": { "Month": 8, "DayOfMonth": 7 },
+        "DayAbout": "開発記念",
+        "DayAbout_EN": "Development commemoration"
+      }
     ],
     "GenderType": "FemaleNeutral",
     "ConceptAge": {
@@ -13466,34 +14864,57 @@
         {
           "Num": 35,
           "Comments": "「なんでもできちゃって尊敬する！」",
-          "RelationLabel": ["wellMatched"]
+          "RelationLabel": ["wellMatched"],
+          "Comments_EN": "「なんでもできちゃって尊敬する！」"
         },
         {
           "Num": 42,
           "Comments": "「お姉さまを馬鹿にするなーっ！」",
-          "RelationLabel": ["unmatched", "classmate"]
+          "RelationLabel": ["unmatched", "classmate"],
+          "Comments_EN": "「お姉さまを馬鹿にするなーっ！」"
         },
         {
           "Num": 78,
           "Comments": "「お姉さま！そんなに心配しなくても…！」",
-          "RelationLabel": ["brother|sister", "trusted_maybe", "classmate"]
+          "RelationLabel": ["brother|sister", "trusted_maybe", "classmate"],
+          "Comments_EN": "「お姉さま！そんなに心配しなくても…！」"
         },
         {
           "Num": 94,
           "Comments": "「寝てばっかりだけど大丈夫……？」",
-          "RelationLabel": ["awkward"]
+          "RelationLabel": ["awkward"],
+          "Comments_EN": "「寝てばっかりだけど大丈夫……？」"
         }
       ],
       "Commented": [
         {
           "Num": 17,
           "Comments": "「勉強熱心で良い人だとは思う」",
-          "RelationLabel": ["cousin"]
+          "RelationLabel": ["cousin"],
+          "Comments_EN": "「勉強熱心で良い人だとは思う」"
         },
-        { "Num": 34, "Comments": "「逆に面白いと私は思うな♪」" },
-        { "Num": 43, "Comments": "「不要に本気で逆に面白い人だと私は思うな♪」" }
+        {
+          "Num": 34,
+          "Comments": "「逆に面白いと私は思うな♪」",
+          "Comments_EN": "「逆に面白いと私は思うな♪」"
+        },
+        {
+          "Num": 43,
+          "Comments": "「不要に本気で逆に面白い人だと私は思うな♪」",
+          "Comments_EN": "「不要に本気で逆に面白い人だと私は思うな♪」"
+        }
       ]
-    }
+    },
+    "ThisMasters_EN": [
+      {
+        "value": "錦野 歌嫁（78特殊探偵団 采配幹部(ディーラー)/百花繚乱研究所(N3US大学 千歳研究室)ゼミアシスタント）",
+        "_DBLink": {
+          "worksTitle": "NumberTales",
+          "dbName": "Secondary",
+          "_Search": [{ "hashTag": "Num", "key": "∞" }]
+        }
+      }
+    ]
   },
   {
     "Num": 88,
@@ -13517,7 +14938,11 @@
     "Height_cm": 167,
     "ConceptAge": 24,
     "AnivDay": [
-      { "Day": { "Month": 8, "DayOfMonth": 8 }, "DayAbout": "開発記念" }
+      {
+        "Day": { "Month": 8, "DayOfMonth": 8 },
+        "DayAbout": "開発記念",
+        "DayAbout_EN": "Development commemoration"
+      }
     ],
     "Weight_kg": 45,
     "TailsUnit": "キツネ(枝分かれ)型2束x8本",
@@ -13620,37 +15045,51 @@
         {
           "Num": 8,
           "Comments": "「ホログラムありがとう、新作が楽しみだ」",
-          "RelationLabel": ["pioneer", "trusted"]
+          "RelationLabel": ["pioneer", "trusted"],
+          "Comments_EN": "「ホログラムありがとう、新作が楽しみだ」"
         },
         {
           "Num": 68,
           "Comments": "「物の価値観が違うから、ちょっと苦手」",
-          "RelationLabel": ["unmatched"]
+          "RelationLabel": ["unmatched"],
+          "Comments_EN": "「物の価値観が違うから、ちょっと苦手」"
         },
         {
           "Num": 80,
           "Comments": "（※黒塗りされていて読めない、関係はあるようだ）",
-          "RelationLabel": ["pioneer", "wellMatched", "secretRelation"]
+          "RelationLabel": ["pioneer", "wellMatched", "secretRelation"],
+          "Comments_EN": "（※黒塗りされていて読めない、関係はあるようだ）"
         },
         {
           "Num": 85,
           "Comments": "「努力無く報酬が得られるのも珍妙な話です」",
-          "RelationLabel": ["interested", "trusted_maybe"]
+          "RelationLabel": ["interested", "trusted_maybe"],
+          "Comments_EN": "「努力無く報酬が得られるのも珍妙な話です」"
         }
       ],
       "Commented": [
         {
           "Num": 44,
           "Comments": "「現実性のある思考をお持ちで頼れる方」",
-          "RelationLabel": ["classmate"]
+          "RelationLabel": ["classmate"],
+          "Comments_EN": "「現実性のある思考をお持ちで頼れる方」"
         },
-        { "Num": 61, "Comments": "「幸せそうで何より」" },
+        {
+          "Num": 61,
+          "Comments": "「幸せそうで何より」",
+          "Comments_EN": "「幸せそうで何より」"
+        },
         {
           "Num": 77,
           "Comments": "「彼(女)が精神統一をしているときは、極力邪魔をしないであげてくださいね」",
-          "RelationLabel": ["classmate"]
+          "RelationLabel": ["classmate"],
+          "Comments_EN": "「彼(女)が精神統一をしているときは、極力邪魔をしないであげてくださいね」"
         },
-        { "Num": 78, "Comments": "「錬金術でもする気なのでしょうか…」" }
+        {
+          "Num": 78,
+          "Comments": "「錬金術でもする気なのでしょうか…」",
+          "Comments_EN": "「錬金術でもする気なのでしょうか…」"
+        }
       ]
     }
   },
@@ -13679,7 +15118,11 @@
     "Height_cm": 158,
     "ConceptAge": 21,
     "AnivDay": [
-      { "Day": { "Month": 8, "DayOfMonth": 9 }, "DayAbout": "開発記念" }
+      {
+        "Day": { "Month": 8, "DayOfMonth": 9 },
+        "DayAbout": "開発記念",
+        "DayAbout_EN": "Development commemoration"
+      }
     ],
     "Weight_kg": { "hideText": "非公開" },
     "BustSize": "C",
@@ -13771,42 +15214,52 @@
         {
           "Num": 8,
           "Comments": "「裕福なのはきっと日頃の行いのおかげ、のはず…」",
-          "RelationLabel": ["pioneer", "awkward_aBit"]
+          "RelationLabel": ["pioneer", "awkward_aBit"],
+          "Comments_EN": "「裕福なのはきっと日頃の行いのおかげ、のはず…」"
         },
         {
           "Num": 9,
           "Comments": "「素敵な方です、ですが…」",
-          "RelationLabel": ["pioneer", "awkward_aBit"]
+          "RelationLabel": ["pioneer", "awkward_aBit"],
+          "Comments_EN": "「素敵な方です、ですが…」"
         },
         {
           "Num": 17,
           "Comments": "「私と似てるはずです」",
-          "RelationLabel": ["wellMatched", "classmate"]
+          "RelationLabel": ["wellMatched", "classmate"],
+          "Comments_EN": "「私と似てるはずです」"
         },
         { "Num": 19, "RelationLabel": ["cousin", "unmatched"] },
         {
           "Num": 71,
           "Comments": "「私と対称的ですが、いつも励みになります」",
-          "RelationLabel": ["trusted", "classmate"]
+          "RelationLabel": ["trusted", "classmate"],
+          "Comments_EN": "「私と対称的ですが、いつも励みになります」"
         },
         {
           "Num": 98,
           "Comments": "「姉妹の妹。開放的で少し馴染めません…」",
-          "RelationLabel": ["brother|sister", "awkward", "classmate"]
+          "RelationLabel": ["brother|sister", "awkward", "classmate"],
+          "Comments_EN": "「姉妹の妹。開放的で少し馴染めません…」"
         }
       ],
       "Commented": [
         {
           "Num": 35,
           "Comments": "「感性の素晴らしい方です」",
-          "RelationLabel": ["classmate"]
+          "RelationLabel": ["classmate"],
+          "Comments_EN": "「感性の素晴らしい方です」"
         },
         {
           "Num": 88,
-          "Comments": "「裕福なのはきっと日頃の行いのおかげ、のはず…」"
+          "Comments": "「裕福なのはきっと日頃の行いのおかげ、のはず…」",
+          "Comments_EN": "「裕福なのはきっと日頃の行いのおかげ、のはず…」"
         }
       ]
-    }
+    },
+    "ThisMasters_EN": [
+      "氏原（仮称;夜月機関 第12幹部:キャサリン=アインツヴァイス の専属執事）"
+    ]
   },
   {
     "Num": 90,
@@ -13822,7 +15275,11 @@
     "SPCodeName": "九十",
     "SPCodeName_EN": "Ninety",
     "AnivDay": [
-      { "Day": { "Month": 8, "DayOfMonth": 31 }, "DayAbout": "開発記念" }
+      {
+        "Day": { "Month": 8, "DayOfMonth": 31 },
+        "DayAbout": "開発記念",
+        "DayAbout_EN": "Development commemoration"
+      }
     ],
     "Class": ["10倍番(テンズデジッツ)"],
     "NumerospecAbout": "締めくくりや最終手段で本領発揮させる",
@@ -13844,7 +15301,11 @@
     "CodeName_EN": "Nine-One",
     "GenderType": "Neutral",
     "AnivDay": [
-      { "Day": { "Month": 9, "DayOfMonth": 1 }, "DayAbout": "開発記念" }
+      {
+        "Day": { "Month": 9, "DayOfMonth": 1 },
+        "DayAbout": "開発記念",
+        "DayAbout_EN": "Development commemoration"
+      }
     ],
     "Class": ["デュアルキャリーズ"],
     "NumerospecAbout": "気持ちを切り替えさせる\nこの効果は物事の節目に最大となる",
@@ -13878,7 +15339,11 @@
     "Height_cm": 142,
     "ConceptAge": 15,
     "AnivDay": [
-      { "Day": { "Month": 9, "DayOfMonth": 2 }, "DayAbout": "開発記念" }
+      {
+        "Day": { "Month": 9, "DayOfMonth": 2 },
+        "DayAbout": "開発記念",
+        "DayAbout_EN": "Development commemoration"
+      }
     ],
     "Weight_kg": 41,
     "TailsUnit": "キツネ(枝分かれ)型9本(上1束7本+下2束3本)",
@@ -13969,12 +15434,19 @@
         {
           "Num": 19,
           "Comments": "「うざいけど、すごく有能な人だと思う」",
-          "RelationLabel": ["cousin_nearly", "trusted"]
+          "RelationLabel": ["cousin_nearly", "trusted"],
+          "Comments_EN": "「うざいけど、すごく有能な人だと思う」"
         },
         {
           "Num": 29,
           "Comments": "「……姉ちゃん…」",
-          "RelationLabel": ["brother|sister", "awkward", "trusted", "classmate"]
+          "RelationLabel": [
+            "brother|sister",
+            "awkward",
+            "trusted",
+            "classmate"
+          ],
+          "Comments_EN": "「……姉ちゃん…」"
         },
         { "Num": 90, "RelationLabel": ["pioneer_nearly", "unmatched"] }
       ],
@@ -13982,17 +15454,20 @@
         {
           "Num": 2,
           "Comments": "「もっと肩の力を抜いた方がいい」",
-          "RelationLabel": ["pioneer_nearly"]
+          "RelationLabel": ["pioneer_nearly"],
+          "Comments_EN": "「もっと肩の力を抜いた方がいい」"
         },
         {
           "Num": 38,
           "Comments": "「時々見せる奇抜さと斬新さは尊敬できる」",
-          "RelationLabel": ["classmate"]
+          "RelationLabel": ["classmate"],
+          "Comments_EN": "「時々見せる奇抜さと斬新さは尊敬できる」"
         },
         {
           "Num": 74,
           "Comments": "「よくわからないけど…何？」",
-          "RelationLabel": ["awkward_aBit", "classmate"]
+          "RelationLabel": ["awkward_aBit", "classmate"],
+          "Comments_EN": "「よくわからないけど…何？」"
         }
       ]
     }
@@ -14022,10 +15497,15 @@
     "Height_cm": 144,
     "ConceptAge": 15,
     "AnivDay": [
-      { "Day": { "Month": 9, "DayOfMonth": 3 }, "DayAbout": "開発記念" },
+      {
+        "Day": { "Month": 9, "DayOfMonth": 3 },
+        "DayAbout": "開発記念",
+        "DayAbout_EN": "Development commemoration"
+      },
       {
         "Day": { "Month": 12, "DayOfMonth": 13 },
-        "DayAbout": "第一復帰記念(劇中)"
+        "DayAbout": "第一復帰記念(劇中)",
+        "DayAbout_EN": "First return commemoration (in-story)"
       }
     ],
     "Weight_kg": 39,
@@ -14123,35 +15603,45 @@
         {
           "Num": 3,
           "Comments": "「いつかこの人に負けない存在になりたい！」",
-          "RelationLabel": ["pioneer", "trusted"]
+          "RelationLabel": ["pioneer", "trusted"],
+          "Comments_EN": "「いつかこの人に負けない存在になりたい！」"
         },
         {
           "Num": 9,
           "Comments": "「かなり凄い人で尊敬すべき人！」",
-          "RelationLabel": ["pioneer", "trusted"]
+          "RelationLabel": ["pioneer", "trusted"],
+          "Comments_EN": "「かなり凄い人で尊敬すべき人！」"
         },
         {
           "Num": 39,
           "Comments": "「お兄ちゃん、ああ見えてとても主人想いなんだよ！」",
-          "RelationLabel": ["brother|sister", "wellMatched", "classmate"]
+          "RelationLabel": ["brother|sister", "wellMatched", "classmate"],
+          "Comments_EN": "「お兄ちゃん、ああ見えてとても主人想いなんだよ！」"
         }
       ],
       "Commented": [
         {
           "Num": 57,
           "Comments": "「いろんな経験積んでそう」",
-          "RelationLabel": ["classmate"]
+          "RelationLabel": ["classmate"],
+          "Comments_EN": "「いろんな経験積んでそう」"
         },
         {
           "Num": 63,
           "Comments": "「あれはもう“お母さん”だよね…」",
-          "RelationLabel": ["cousin"]
+          "RelationLabel": ["cousin"],
+          "Comments_EN": "「あれはもう“お母さん”だよね…」"
         },
-        { "Num": 66, "Comments": "「きれいで、不思議で、なんというか…」" },
+        {
+          "Num": 66,
+          "Comments": "「きれいで、不思議で、なんというか…」",
+          "Comments_EN": "「きれいで、不思議で、なんというか…」"
+        },
         {
           "Num": 95,
           "Comments": "「異世界に行く準備でもしてるのかな…」",
-          "RelationLabel": ["cousin"]
+          "RelationLabel": ["cousin"],
+          "Comments_EN": "「異世界に行く準備でもしてるのかな…」"
         }
       ]
     },
@@ -14181,7 +15671,10 @@
           "about": "不調を乗り越え、再挑戦を決意した時"
         }
       ]
-    }
+    },
+    "ThisMasters_EN": [
+      "乃木 希（VIPマスター;夜月機関 救命本部 推薦所属候補者）"
+    ]
   },
   {
     "Num": 94,
@@ -14206,7 +15699,11 @@
     "Height_cm": 145,
     "ConceptAge": { "value": 13, "about_JP": "？", "about_EN": "?" },
     "AnivDay": [
-      { "Day": { "Month": 9, "DayOfMonth": 4 }, "DayAbout": "開発記念" }
+      {
+        "Day": { "Month": 9, "DayOfMonth": 4 },
+        "DayAbout": "開発記念",
+        "DayAbout_EN": "Development commemoration"
+      }
     ],
     "Weight_kg": 39,
     "BustSize": "A",
@@ -14298,37 +15795,44 @@
         {
           "Num": 4,
           "Comments": "「…この人のそば、落ち着く……zzz…」",
-          "RelationLabel": ["pioneer", "wellMatched"]
+          "RelationLabel": ["pioneer", "wellMatched"],
+          "Comments_EN": "「…この人のそば、落ち着く……zzz…」"
         },
         {
           "Num": 49,
           "Comments": "「……ちょっと、せっかち…」",
-          "RelationLabel": ["brother|sister", "classmate"]
+          "RelationLabel": ["brother|sister", "classmate"],
+          "Comments_EN": "「……ちょっと、せっかち…」"
         }
       ],
       "Commented": [
         {
           "Num": 13,
           "Comments": "「……物腰軽すぎ…」",
-          "RelationLabel": ["classmate"]
+          "RelationLabel": ["classmate"],
+          "Comments_EN": "「……物腰軽すぎ…」"
         },
         {
           "Num": 34,
           "Comments": "「……いつも、大げさ…」",
-          "RelationLabel": ["cousin"]
+          "RelationLabel": ["cousin"],
+          "Comments_EN": "「……いつも、大げさ…」"
         },
         {
           "Num": 67,
           "Comments": "「……暑苦しい…」",
-          "RelationLabel": ["classmate"]
+          "RelationLabel": ["classmate"],
+          "Comments_EN": "「……暑苦しい…」"
         },
         {
           "Num": 95,
           "Comments": "「…む…、この人大丈夫かな…」",
-          "RelationLabel": ["cousin"]
+          "RelationLabel": ["cousin"],
+          "Comments_EN": "「…む…、この人大丈夫かな…」"
         }
       ]
-    }
+    },
+    "ThisMasters_EN": ["花舞 彗"]
   },
   {
     "Num": 95,
@@ -14343,7 +15847,11 @@
     "CodeName": "九五",
     "CodeName_EN": "Nine-Five",
     "AnivDay": [
-      { "Day": { "Month": 9, "DayOfMonth": 5 }, "DayAbout": "開発記念" }
+      {
+        "Day": { "Month": 9, "DayOfMonth": 5 },
+        "DayAbout": "開発記念",
+        "DayAbout_EN": "Development commemoration"
+      }
     ],
     "Class": ["デュアルファイブズ"],
     "Character": "癖で万が一のことを考えている\n異世界転生に興味があるらしいが…",
@@ -14398,7 +15906,11 @@
     "Height_cm": 153,
     "ConceptAge": { "about_JP": "不詳", "about_EN": "Unknown" },
     "AnivDay": [
-      { "Day": { "Month": 9, "DayOfMonth": 6 }, "DayAbout": "開発記念" }
+      {
+        "Day": { "Month": 9, "DayOfMonth": 6 },
+        "DayAbout": "開発記念",
+        "DayAbout_EN": "Development commemoration"
+      }
     ],
     "Weight_kg": { "hideText": "非公開" },
     "BustSize": "G",
@@ -14497,17 +16009,20 @@
         {
           "Num": 6,
           "Comments": "(※「かわいい」と書かれている)",
-          "RelationLabel": ["pioneer"]
+          "RelationLabel": ["pioneer"],
+          "Comments_EN": "(※「かわいい」と書かれている)"
         },
         {
           "Num": 9,
           "Comments": "(※「慈悲深い」と書かれている)",
-          "RelationLabel": ["pioneer"]
+          "RelationLabel": ["pioneer"],
+          "Comments_EN": "(※「慈悲深い」と書かれている)"
         },
         {
           "Num": 24,
           "Comments": "(※「素直じゃない」と書かれている)",
-          "RelationLabel": ["unmatched", "classmate"]
+          "RelationLabel": ["unmatched", "classmate"],
+          "Comments_EN": "(※「素直じゃない」と書かれている)"
         },
         {
           "Num": 69,
@@ -14518,19 +16033,22 @@
             "trusted",
             "alternative|redesign",
             "classmate"
-          ]
+          ],
+          "Comments_EN": "(※「兄」としか書かれていない…？)"
         }
       ],
       "Commented": [
         {
           "Num": 51,
           "Comments": "(※「アイディアマン」と書かれている)",
-          "RelationLabel": ["classmate"]
+          "RelationLabel": ["classmate"],
+          "Comments_EN": "(※「アイディアマン」と書かれている)"
         },
         {
           "Num": 78,
           "Comments": "(※「知性が古い」と書かれている)",
-          "RelationLabel": ["classmate"]
+          "RelationLabel": ["classmate"],
+          "Comments_EN": "(※「知性が古い」と書かれている)"
         }
       ]
     },
@@ -14563,7 +16081,8 @@
           "about": "素の口調が出た時"
         }
       ]
-    }
+    },
+    "ThisMasters_EN": ["ジャッヂ=ジャストリー/神谷崎 幻影"]
   },
   {
     "Num": 97,
@@ -14590,7 +16109,11 @@
     "Height_cm": 141,
     "ConceptAge": { "about_JP": "不詳", "about_EN": "Unknown" },
     "AnivDay": [
-      { "Day": { "Month": 9, "DayOfMonth": 7 }, "DayAbout": "開発記念" }
+      {
+        "Day": { "Month": 9, "DayOfMonth": 7 },
+        "DayAbout": "開発記念",
+        "DayAbout_EN": "Development commemoration"
+      }
     ],
     "Weight_kg": 39,
     "BustSize": "E",
@@ -14683,34 +16206,40 @@
         {
           "Num": 7,
           "Comments": "「信仰にご興味とご理解があるようでなにより」",
-          "RelationLabel": ["pioneer"]
+          "RelationLabel": ["pioneer"],
+          "Comments_EN": "「信仰にご興味とご理解があるようでなにより」"
         },
         {
           "Num": 61,
           "Comments": "「より清く輝くために礼拝を－－」",
-          "RelationLabel": ["wellMatched", "classmate"]
+          "RelationLabel": ["wellMatched", "classmate"],
+          "Comments_EN": "「より清く輝くために礼拝を－－」"
         },
         {
           "Num": 72,
           "Comments": "「礼拝で魂を雪(そそ)がれるべきかと－－」",
-          "RelationLabel": ["cousin_nearly", "wellMatched"]
+          "RelationLabel": ["cousin_nearly", "wellMatched"],
+          "Comments_EN": "「礼拝で魂を雪(そそ)がれるべきかと－－」"
         },
         {
           "Num": 74,
           "Comments": "「予言も一種の信仰なので否定はしませんよ。肯定もしてませんが」",
-          "RelationLabel": ["cousin_nearly", "abusing"]
+          "RelationLabel": ["cousin_nearly", "abusing"],
+          "Comments_EN": "「予言も一種の信仰なので否定はしませんよ。肯定もしてませんが」"
         },
         {
           "Num": 79,
           "Comments": "「信仰を履き違えないでいただきたいところ」",
-          "RelationLabel": ["brother|sister", "unmatched", "classmate"]
+          "RelationLabel": ["brother|sister", "unmatched", "classmate"],
+          "Comments_EN": "「信仰を履き違えないでいただきたいところ」"
         }
       ],
       "Commented": [
         {
           "Num": 29,
           "Comments": "「救いがあるといいですね…」",
-          "RelationLabel": ["cousin_nearly"]
+          "RelationLabel": ["cousin_nearly"],
+          "Comments_EN": "「救いがあるといいですね…」"
         }
       ]
     }
@@ -14735,7 +16264,11 @@
     "Height_cm": 154,
     "ConceptAge": { "value": 20, "about_JP": "？", "about_EN": "?" },
     "AnivDay": [
-      { "Day": { "Month": 9, "DayOfMonth": 8 }, "DayAbout": "開発記念" }
+      {
+        "Day": { "Month": 9, "DayOfMonth": 8 },
+        "DayAbout": "開発記念",
+        "DayAbout_EN": "Development commemoration"
+      }
     ],
     "Weight_kg": { "hideText": "非公開" },
     "BustSize": "D",
@@ -14829,17 +16362,20 @@
         {
           "Num": 19,
           "Comments": "「お姉に近寄らないで。しっ、しっ！」",
-          "RelationLabel": ["cousin_nearly", "unmatched"]
+          "RelationLabel": ["cousin_nearly", "unmatched"],
+          "Comments_EN": "「お姉に近寄らないで。しっ、しっ！」"
         },
         {
           "Num": 27,
           "Comments": "「スパルタ教…いえ、なんでもありません！」",
-          "RelationLabel": ["awkward"]
+          "RelationLabel": ["awkward"],
+          "Comments_EN": "「スパルタ教…いえ、なんでもありません！」"
         },
         {
           "Num": 68,
           "Comments": "「いつもありが…ってそれも捨てるの!?」",
-          "RelationLabel": ["cousin", "wellMatched"]
+          "RelationLabel": ["cousin", "wellMatched"],
+          "Comments_EN": "「いつもありが…ってそれも捨てるの!?」"
         },
         {
           "Num": 89,
@@ -14849,17 +16385,27 @@
             "awkward_aBit",
             "trusted",
             "classmate"
-          ]
+          ],
+          "Comments_EN": "「尊敬できるお姉、なかなか構ってくれない」"
         }
       ],
       "Commented": [
-        { "Num": 44, "Comments": "「あんな不良男児の何がいいの？」" },
+        {
+          "Num": 44,
+          "Comments": "「あんな不良男児の何がいいの？」",
+          "Comments_EN": "「あんな不良男児の何がいいの？」"
+        },
         {
           "Num": 53,
           "Comments": "「単純というかおバカというか…」",
-          "RelationLabel": ["classmate"]
+          "RelationLabel": ["classmate"],
+          "Comments_EN": "「単純というかおバカというか…」"
         },
-        { "Num": 80, "Comments": "「ゲンキン(現金主義)でなんかやだ」" }
+        {
+          "Num": 80,
+          "Comments": "「ゲンキン(現金主義)でなんかやだ」",
+          "Comments_EN": "「ゲンキン(現金主義)でなんかやだ」"
+        }
       ]
     }
   },
@@ -14887,7 +16433,11 @@
     "Height_cm": 159,
     "ConceptAge": 16,
     "AnivDay": [
-      { "Day": { "Month": 12, "DayOfMonth": 31 }, "DayAbout": "開発記念" }
+      {
+        "Day": { "Month": 12, "DayOfMonth": 31 },
+        "DayAbout": "開発記念",
+        "DayAbout_EN": "Development commemoration"
+      }
     ],
     "Weight_kg": 43,
     "BustSize": "AA",
@@ -14985,28 +16535,44 @@
         {
           "Num": 10,
           "Comments": "「お主は…確か…」",
-          "RelationLabel": ["secretRelation"]
+          "RelationLabel": ["secretRelation"],
+          "Comments_EN": "「お主は…確か…」"
         },
         {
           "Num": 11,
           "Comments": "「よき理解者」",
-          "RelationLabel": ["wellMatched", "trusted", "classmate"]
+          "RelationLabel": ["wellMatched", "trusted", "classmate"],
+          "Comments_EN": "「よき理解者」"
         },
         {
           "Num": 90,
           "Comments": "「終わりに悔いは残さぬ輩」",
-          "RelationLabel": ["pioneer_nearly", "cousin"]
+          "RelationLabel": ["pioneer_nearly", "cousin"],
+          "Comments_EN": "「終わりに悔いは残さぬ輩」"
         }
       ],
       "Commented": [
-        { "Num": 1, "Comments": "「此処で患い無きことを願う」" },
-        { "Num": 18, "Comments": "「無茶してはならぬぞ」" },
+        {
+          "Num": 1,
+          "Comments": "「此処で患い無きことを願う」",
+          "Comments_EN": "「此処で患い無きことを願う」"
+        },
+        {
+          "Num": 18,
+          "Comments": "「無茶してはならぬぞ」",
+          "Comments_EN": "「無茶してはならぬぞ」"
+        },
         {
           "Num": 22,
           "Comments": "「幸運に恵まれておるものだな」",
-          "RelationLabel": ["classmate"]
+          "RelationLabel": ["classmate"],
+          "Comments_EN": "「幸運に恵まれておるものだな」"
         },
-        { "Num": 45, "Comments": "「勇敢でよろしい」" }
+        {
+          "Num": 45,
+          "Comments": "「勇敢でよろしい」",
+          "Comments_EN": "「勇敢でよろしい」"
+        }
       ]
     }
   },
@@ -15051,10 +16617,15 @@
     "Height_cm": [{ "value": 150, "about_JP": "想定", "about_EN": "Scenario" }],
     "ConceptAge": 17,
     "AnivDay": [
-      { "Day": { "Month": 1, "DayOfMonth": 2 }, "DayAbout": "開発記念" },
+      {
+        "Day": { "Month": 1, "DayOfMonth": 2 },
+        "DayAbout": "開発記念",
+        "DayAbout_EN": "Development commemoration"
+      },
       {
         "Day": { "Month": 2, "DayOfMonth": 2 },
-        "DayAbout": "試作型2号機開発再開記念(劇中)"
+        "DayAbout": "試作型2号機開発再開記念(劇中)",
+        "DayAbout_EN": "Prototype Unit.2 redevelopment restart commemoration (in-story)"
       }
     ],
     "Weight_kg": [{ "value": 40, "about_JP": "想定", "about_EN": "Scenario" }],
@@ -15151,7 +16722,14 @@
           "RelationLabel": ["trusted", "awkward", "classmate"]
         }
       ]
-    }
+    },
+    "ThisMasters_EN": [
+      {
+        "value": null,
+        "about": "(専属契約不可,未リリース状態)",
+        "about_EN": "(専属契約不可,未リリース状態)"
+      }
+    ]
   },
   {
     "Num": "10-alt",
@@ -15174,10 +16752,15 @@
     "Height_cm": [{ "value": 164, "about_JP": "想定", "about_EN": "Scenario" }],
     "ConceptAge": 17,
     "AnivDay": [
-      { "Day": { "Month": 1, "DayOfMonth": 10 }, "DayAbout": "開発記念" },
+      {
+        "Day": { "Month": 1, "DayOfMonth": 10 },
+        "DayAbout": "開発記念",
+        "DayAbout_EN": "Development commemoration"
+      },
       {
         "Day": { "Month": 1, "DayOfMonth": 13 },
-        "DayAbout": "第一暴走事故(劇中)"
+        "DayAbout": "第一暴走事故(劇中)",
+        "DayAbout_EN": "First runaway incident (in-story)"
       }
     ],
     "Weight_kg": { "hideText": "データ無" },
@@ -15238,7 +16821,14 @@
         { "Num": "00", "RelationLabel": ["unmatched", "abusing"] },
         { "Num": "000", "RelationLabel": ["unmatched"] }
       ]
-    }
+    },
+    "ThisMasters_EN": [
+      {
+        "value": null,
+        "about": "(専属契約不可,厳重な謹慎処分中)",
+        "about_EN": "(専属契約不可,厳重な謹慎処分中)"
+      }
+    ]
   },
   {
     "Num": "000",
@@ -15280,7 +16870,8 @@
     "AnivDay": [
       {
         "Day": { "Month": 8, "DayOfMonth": 15 },
-        "DayAbout": { "hideText": "？？？" }
+        "DayAbout": { "hideText": "？？？" },
+        "DayAbout_EN": { "hideText": "？？？" }
       }
     ],
     "Weight_kg": { "hideText": "？？？" },
@@ -15397,7 +16988,34 @@
           "about": "他個体をめでている時"
         }
       ]
-    }
+    },
+    "ThisMasters_EN": [
+      {
+        "value": null,
+        "about": "(専属契約不可)",
+        "about_EN": "(専属契約不可)"
+      },
+      {
+        "value": "零 零(カズナイ レイ)",
+        "about": "仕方なく所持",
+        "_DBLink": {
+          "worksTitle": "NumberTales",
+          "dbName": "Primary",
+          "_Search": [{ "hashTag": "Num", "key": "0" }]
+        },
+        "about_EN": "仕方なく所持"
+      },
+      {
+        "value": "零 百(カズナイ ハゲム)",
+        "about": "仕方なく所持",
+        "_DBLink": {
+          "worksTitle": "NumberTales",
+          "dbName": "Primary",
+          "_Search": [{ "hashTag": "Num", "key": "00" }]
+        },
+        "about_EN": "仕方なく所持"
+      }
+    ]
   },
   {
     "Num": "0",
@@ -15424,7 +17042,11 @@
     "Height_cm": 165,
     "Age": 25,
     "AnivDay": [
-      { "Day": { "Month": 8, "DayOfMonth": 15 }, "DayAbout": "誕生日" }
+      {
+        "Day": { "Month": 8, "DayOfMonth": 15 },
+        "DayAbout": "誕生日",
+        "DayAbout_EN": "Birthday"
+      }
     ],
     "Weight_kg": { "hideText": "非公開" },
     "BustSize": "D",
@@ -15491,7 +17113,11 @@
     "Height_cm": 165,
     "Age": 25,
     "AnivDay": [
-      { "Day": { "Month": 8, "DayOfMonth": 15 }, "DayAbout": "誕生日" }
+      {
+        "Day": { "Month": 8, "DayOfMonth": 15 },
+        "DayAbout": "誕生日",
+        "DayAbout_EN": "Birthday"
+      }
     ],
     "Weight_kg": { "hideText": "非公開" },
     "Class": ["開発者", "最高技術所長"],

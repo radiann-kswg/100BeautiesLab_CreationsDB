@@ -13,20 +13,20 @@
     "AnivDay": [
       {
         "Day": { "Month": 2, "DayOfMonth": 6 },
-        "DayAbout": "「アルベッツ」結成記念"
+        "DayAbout": "「アルベッツ」結成記念",
+        "DayAbout_EN": "Albets formation commemoration"
       },
       {
         "Day": { "Month": 1, "DayOfMonth": 27 },
-        "DayAbout": "誕生日（アルベッツ名義）"
+        "DayAbout": "誕生日（アルベッツ名義）",
+        "DayAbout_EN": "Birthday (under the Albets name)"
       }
     ]
   },
   {
     "Letter": { "Alphabet": "S", "Generation": 5, "AlphaGen": 2 },
     "Progress": "nowCreating",
-    "Images": {
-      "keycapper_PNGPath": []
-    },
+    "Images": { "keycapper_PNGPath": [] },
     "Name": "S:ナーミィ",
     "Name_EN": "S:Surgey",
     "FormalName": "左伯(さえき)ナーミィ",
@@ -38,7 +38,8 @@
     "AnivDay": [
       {
         "Day": { "Month": 5, "DayOfMonth": 19 },
-        "DayAbout": "誕生日（アルベッツ名義）"
+        "DayAbout": "誕生日（アルベッツ名義）",
+        "DayAbout_EN": "Birthday (under the Albets name)"
       }
     ],
     "BustSize": "H",
@@ -65,11 +66,23 @@
         }
       ],
       "StreamingCategory_EN": [
-        { "value": "Interaction with listeners", "about": "Main activity, activity within 'Unibyte Universe'" },
-        { "value": "VR shader creation", "about": "Main activity, work streaming or individual performer activity" },
-        { "value": "Metaverse experiential content", "about": "Activity within 'Unibyte Universe', doujin content distribution and video streaming" },
+        {
+          "value": "Interaction with listeners",
+          "about": "Main activity, activity within 'Unibyte Universe'"
+        },
+        {
+          "value": "VR shader creation",
+          "about": "Main activity, work streaming or individual performer activity"
+        },
+        {
+          "value": "Metaverse experiential content",
+          "about": "Activity within 'Unibyte Universe', doujin content distribution and video streaming"
+        },
         { "value": "Short movies", "about": "Video streaming activity" },
-        { "value": "Game streaming: Tetris, racing, rhythm games", "about": "Video streaming or live streaming activity, relatively infrequent" }
+        {
+          "value": "Game streaming: Tetris, racing, rhythm games",
+          "about": "Video streaming or live streaming activity, relatively infrequent"
+        }
       ],
       "StreamingGreeting": {
         "StreamingGreeting_JP": ["こんな～み！"],

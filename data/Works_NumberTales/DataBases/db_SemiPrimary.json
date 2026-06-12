@@ -233,7 +233,8 @@
     "TailsUnit": "猫又(特殊)型1本3束[枝]",
     "TailsUnit_EN": "Nekomata (Special) Type: 1 Tail, 3 Tufts [Branches]",
     "Class": ["マスタートリプル"],
-    "ThisMasters": "霧島 博(とおる)（夜月機関 幹部(霜月支部)）",
+    "ThisMasters": ["霧島 博(とおる)（夜月機関 幹部(霜月支部)）"],
+    "ThisMasters_EN": ["霧島 博(とおる)（夜月機関 幹部(霜月支部)）"],
     "FirstPersonCalling": "私(わたし)",
     "FirstPersonCalling_EN": "I",
     "SecondPersonCalling": "貴樣/貴様",
@@ -714,7 +715,8 @@
     "AnivDay": [
       {
         "Day": { "Month": 9, "DayOfMonth": 24 },
-        "DayAbout": "スクエアエリート計画記念"
+        "DayAbout": "スクエアエリート計画記念",
+        "DayAbout_EN": "SquareElites project commemoration"
       }
     ],
     "Weight_kg": 59,
@@ -799,7 +801,8 @@
     "TailsUnit": "キツネ(特殊)型3束x6本",
     "TailsUnit_EN": "Fox (Special) Type: 6 Tails x 3 Tufts",
     "Class": ["マスタートリプル", "フェイタルテールズ"],
-    "ThisMasters": "中月 ルイス=ノア.ナイターエイド（夜月機関 第9幹部）",
+    "ThisMasters": ["中月 ルイス=ノア.ナイターエイド（夜月機関 第9幹部）"],
+    "ThisMasters_EN": ["中月 ルイス=ノア.ナイターエイド（夜月機関 第9幹部）"],
     "FirstPersonCalling": "我\n私(わたくし)",
     "FirstPersonCalling_EN": "I (ware; archaic)\nI (formally)",
     "SecondPersonCalling": "汝(なんじ)",
@@ -953,7 +956,12 @@
     "SPCodeName_EN": "Infinity",
     "GenderType": "Neutral",
     "Class": ["マスタートリプル"],
-    "ThisMasters": "八坂 兵汰(へいた)/ヘクター.キロバスター（夜月機関 第8幹部）"
+    "ThisMasters": [
+      "八坂 兵汰(へいた)/ヘクター.キロバスター（夜月機関 第8幹部）"
+    ],
+    "ThisMasters_EN": [
+      "八坂 兵汰(へいた)/ヘクター.キロバスター（夜月機関 第8幹部）"
+    ]
   },
   {
     "Num": 999,
@@ -1013,9 +1021,14 @@
     "AnivDay": [
       {
         "Day": { "Month": 11, "DayOfMonth": 23 },
-        "DayAbout": "ハイナンバーズ開発計画可決記念"
+        "DayAbout": "ハイナンバーズ開発計画可決記念",
+        "DayAbout_EN": "High-Numbers development plan approval commemoration"
       },
-      { "Day": { "Month": 12, "DayOfMonth": 3 }, "DayAbout": "開発記念" }
+      {
+        "Day": { "Month": 12, "DayOfMonth": 3 },
+        "DayAbout": "開発記念",
+        "DayAbout_EN": "Development commemoration"
+      }
     ],
     "Height_cm": 152,
     "ConceptAge": 18,
@@ -1067,11 +1080,13 @@
     "AnivDay": [
       {
         "Day": { "Month": 6, "DayOfMonth": 4 },
-        "DayAbout": "開発記念（64番機）"
+        "DayAbout": "開発記念（64番機）",
+        "DayAbout_EN": "Development commemoration (Mk.64)"
       },
       {
         "Day": { "Month": 10, "DayOfMonth": 3 },
-        "DayAbout": "開発記念（セクストパワー型リリース騒動）"
+        "DayAbout": "開発記念（セクストパワー型リリース騒動）",
+        "DayAbout_EN": "Development commemoration (Sextpower-type release incident)"
       }
     ],
     "Belonging": ["百花繚乱研究所", "国際ヒューマノイド技術学会"],
@@ -1098,7 +1113,8 @@
     "AnivDay": [
       {
         "Day": { "Month": 11, "DayOfMonth": 20 },
-        "DayAbout": "開発記念（ハイナンバーズ開発予算計画記念）"
+        "DayAbout": "開発記念（ハイナンバーズ開発予算計画記念）",
+        "DayAbout_EN": "Development commemoration (High-Numbers development budget plan commemoration)"
       }
     ],
     "Belonging": ["百花繚乱研究所", "レゾンデイトルカンパニー"],

@@ -335,7 +335,11 @@
       "about_EN": "Presumption"
     },
     "AnivDay": [
-      { "Day": { "Month": 6, "DayOfMonth": 10 }, "DayAbout": "開発記念" }
+      {
+        "Day": { "Month": 6, "DayOfMonth": 10 },
+        "DayAbout": "開発記念",
+        "DayAbout_EN": "Development commemoration"
+      }
     ],
     "Weight_kg": [
       { "value": 39, "about_JP": "推定", "about_EN": "Presumption" }
@@ -446,7 +450,11 @@
       "about_EN": "Presumption"
     },
     "AnivDay": [
-      { "Day": { "Month": 6, "DayOfMonth": 11 }, "DayAbout": "開発記念" }
+      {
+        "Day": { "Month": 6, "DayOfMonth": 11 },
+        "DayAbout": "開発記念",
+        "DayAbout_EN": "Development commemoration"
+      }
     ],
     "Weight_kg": [
       { "value": 36, "about_JP": "推定", "about_EN": "Presumption" }
@@ -568,7 +576,11 @@
       "about_EN": "Presumption"
     },
     "AnivDay": [
-      { "Day": { "Month": 6, "DayOfMonth": 12 }, "DayAbout": "開発記念" }
+      {
+        "Day": { "Month": 6, "DayOfMonth": 12 },
+        "DayAbout": "開発記念",
+        "DayAbout_EN": "Development commemoration"
+      }
     ],
     "Weight_kg": { "hideText": "未公開希望" },
     "TailsUnit": "犬型3本",
@@ -690,7 +702,11 @@
       "about_EN": "Presumption"
     },
     "AnivDay": [
-      { "Day": { "Month": 6, "DayOfMonth": 13 }, "DayAbout": "開発記念" }
+      {
+        "Day": { "Month": 6, "DayOfMonth": 13 },
+        "DayAbout": "開発記念",
+        "DayAbout_EN": "Development commemoration"
+      }
     ],
     "Weight_kg": { "hideText": "未公開希望" },
     "BustSize": "E",
@@ -814,7 +830,11 @@
       "about_EN": "Presumption"
     },
     "AnivDay": [
-      { "Day": { "Month": 6, "DayOfMonth": 14 }, "DayAbout": "開発記念" }
+      {
+        "Day": { "Month": 6, "DayOfMonth": 14 },
+        "DayAbout": "開発記念",
+        "DayAbout_EN": "Development commemoration"
+      }
     ],
     "Weight_kg": [
       { "value": 39, "about_JP": "推定", "about_EN": "Presumption" }
@@ -918,7 +938,11 @@
     ],
     "ConceptAge": { "about": "不詳" },
     "AnivDay": [
-      { "Day": { "Month": 6, "DayOfMonth": 15 }, "DayAbout": "開発記念" }
+      {
+        "Day": { "Month": 6, "DayOfMonth": 15 },
+        "DayAbout": "開発記念",
+        "DayAbout_EN": "Development commemoration"
+      }
     ],
     "Weight_kg": { "hideText": "？？？" },
     "BustSize": "J",

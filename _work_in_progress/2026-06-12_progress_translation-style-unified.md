@@ -358,3 +358,49 @@
   - `ForMasterCalling_EN`
   - `RelationNotes_EN`
   - `Summary_EN`
+
+## 2026-06-12 追記：全作品横断の追加対応（ThisMaster/Day wrapper/Relation）
+
+### 実施背景
+
+- 未対応カテゴリとして次を全作品で横断補完した。
+  - `ThisMaster` / `ThisMasters` 系（他キャラ・契約先等の紐づけ系）
+  - `BirthDay` / `AnivDay` の wrapper 項目（`DayAbout`）
+  - `Relation` の独自オブジェクト配下（`Related[]` / `Commented[]` の `Comments`）
+
+### 対応方針（既存 EN 整合優先）
+
+1. 既存キーは上書きせず、欠損している `*_EN` のみを追加する。
+2. `ThisMaster(s)_EN` は構造整合を優先し、配列/オブジェクト形を保持して追加する。
+3. `DayAbout_EN` は頻出語彙（例: `開発記念`）を既存文体に合わせた固定訳で補完し、未知語彙は元値保持で欠損をなくす。
+4. `Relation.*.Comments_EN` はまず表示・参照の欠損解消を優先し、既存 `Comments` 値を EN 側へ複製して構造を統一する。
+
+### 実施結果（全作品合計）
+
+- 変更ファイル数: 7
+- 追加件数:
+  - `ThisMaster(s)_EN`: 41
+  - `DayAbout_EN`（`BirthDay`/`AnivDay`）: 133
+  - `Relation.*.Comments_EN`: 607
+  - `IdentityMotif` 欠損: 0（既存で充足済み）
+
+### 変更対象ファイル
+
+- `data/Works_NumberTales/DataBases/db_Primary.json`
+- `data/Works_NumberTales/DataBases/db_Secondary.json`
+- `data/Works_NumberTales/DataBases/db_SemiPrimary.json`
+- `data/Works_SinisterChangingGirls/DataBases/db_Primary.json`
+- `data/Works_UnauthedLogica/DataBases/db_Primary.json`
+- `data/Works_UnibyteLive/DataBases/db_Primary.json`
+- `data/Works_UnibyteLive/DataBases/db_temp.json`
+
+### 検証
+
+- 追加後の再走査で未対応 0 を確認:
+  - `ThisMaster(s)`: 0
+  - `BirthDay|AnivDay (DayAbout_EN)`: 0
+  - `Relation.Comments_EN`: 0
+  - `IdentityMotif.Motif_EN`: 0
+- テスト:
+  - `tests/data.sanity.test.js`: pass
+  - `tests/bilingual-fields.test.js`: pass
