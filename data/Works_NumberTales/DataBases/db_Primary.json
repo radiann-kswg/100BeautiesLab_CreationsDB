@@ -221,7 +221,7 @@
       "DialogueExamples": [
         {
           "value_JP": "「ぼくは ナンバーテールズ試作型１号機、もとい１番機の『1(ハジメ)』！これからもよろしく！」",
-          "value_EN": "\"I'm 1(Unitta) — NumberTales Prototype Mk.1, Unit.1! Nice to meet you!\"",
+          "value_EN": "\"I'm 1(Unitta) — NumberTales Prototype Unit.1, and also NumberTales #1! Nice to meet you!\"",
           "about": "初対面時の自己紹介",
           "about_EN": "Introduction upon first meeting"
         },
@@ -708,7 +708,7 @@
     "ThirdPersonCalling": "*の子,*の人;[※名前呼び]",
     "ThirdPersonCalling_EN": "that kid, that person; [*by name]",
     "ForMasterCalling": "お兄ちゃん/お姉ちゃん",
-    "ForMasterCalling_EN": "Big bro/sis",
+    "ForMasterCalling_EN": "big bro/sis",
     "Character": "感情表現豊かで臆病\n根はとてもしっかりしている",
     "Character_EN": "Emotionally expressive and timid\nBut fundamentally very steady and dependable",
     "Hobby": "パズル\n物語鑑賞",
@@ -854,13 +854,13 @@
       "DialogueExamples": [
         {
           "value_JP": "「ナンバーテールズ４番機の『4(モチ)』だよ、これからもよろしくね。お兄ちゃん/お姉ちゃん」",
-          "value_EN": "\"I'm NumberTales Unit 4, '4(Forna)'. Nice to be with you from here on too, Big bro/sis.\"",
+          "value_EN": "\"I'm NumberTales Unit 4, '4(Forna)'. Nice to be with you from here on too, big bro/sis.\"",
           "about": "契約時の自己紹介",
           "about_EN": "Self-introduction at the time of contract"
         },
         {
           "value_JP": "「……あっ、ごめんねお兄ちゃん/お姉ちゃん。ちょっとこのジグソーパズルに夢中になってて…一緒にやってみる？」",
-          "value_EN": "\"...Ah, sorry, Big bro/sis. I got absorbed in this jigsaw puzzle a little... want to do it together?\""
+          "value_EN": "\"...Ah, sorry, big bro/sis. I got absorbed in this jigsaw puzzle a little... want to do it together?\""
         },
         {
           "value_JP": "「お兄ちゃん/お姉ちゃんちょうどいい所に！ちょっと軽食を試しにつくってみたから、よかったら味見してほしいな」",
@@ -868,7 +868,7 @@
         },
         {
           "value_JP": "「今日もお疲れ様 お兄ちゃん/お姉ちゃん。こつこつとした努力はいつかきっと報われるから、明日も頑張ってね」",
-          "value_EN": "\"Good work today too, Big bro/sis. Steady effort will surely be rewarded someday, so do your best again tomorrow.\""
+          "value_EN": "\"Good work today too, big bro/sis. Steady effort will surely be rewarded someday, so do your best again tomorrow.\""
         },
         {
           "value_JP": "「ここの作業手順は、えっと…………うん、ちゃんとできた。よかった…」",
@@ -2217,7 +2217,7 @@
     "NumerospecAbout": "自己認知(ハイパーセルフ)による直観と実現力を強化する\nこの効果は確実に主人に分け与えられる",
     "NumerospecAbout_EN": "Enhances intuition and realization ability through Hyper-Self-Recognition\nThis effect can be reliably shared with the Master",
     "Summary": "2桁ゾロ目の数字の加護を持つ９人：「マスターテールズ９」の代表といえるべきナンバーテールズ。\n高次に発展した直感と自己認識による他に類を見ない実現力が、数多くの主人の注目を集めている。\n反面、その高まりすぎた直感で行動することも多く、時に暴走してしまうと他のナンバーテールズに指摘？されている。\n特に「1(ハジメ)」を前にすると、彼(女)の様子が明らかにおかしい様で…？",
-    "Summary_EN": "One of the nine blessed with double-digit repeating numbers, and arguably the representative of the 'MasterTales 9.'\nHis/Her evolved intuition and self-recognition grant a realization capability unlike any other, drawing attention from many Masters.\nOn the other hand, he/she often acts on over-heightened intuition and is said by other NumberTales to occasionally rampage.\nEspecially when facing '1(Unitta),' his/her behavior appears clearly unusual... ?",
+    "Summary_EN": "One of the nine Numerospeced with double-digit repeating numbers, and arguably the representative of the 'MasterTales 9.'\nHis/Her evolved intuition and self-recognition grant a realization capability unlike any other, drawing attention from many Masters.\nOn the other hand, he/she often acts on over-heightened intuition and is said by other NumberTales to occasionally rampage.\nEspecially when facing '1(Unitta),' his/her behavior appears clearly unusual... ?",
     "NumerospecStats": {
       "EffectStats": {
         "Mental": { "EffectText": "期待" },
@@ -2842,7 +2842,7 @@
       "DialogueExamples": [
         {
           "value_JP": "「私は ナンバーテールズ14番機の『14(トヨ)』。今後もよろしくね」",
-          "value_EN": "\"I'm '14(Forteels)', NumberTales Mk.14. Looking forward to working with you from here on too.\"",
+          "value_EN": "\"I'm '14(Forteels)', NumberTales #14. Looking forward to working with you from here on too.\"",
           "about": "契約時の自己紹介",
           "about_EN": "Self-introduction at contract"
         },
@@ -4071,7 +4071,7 @@
       "DialogueExamples": [
         {
           "value_JP": "「ナンバーテールズ20番機の『20(ハツカ)』です。ふつつかものですが、今後もよろしくお願いします。」",
-          "value_EN": "\"I am '20(Twentia)', NumberTales Mk.20. I may still be inexperienced, but I humbly ask for your continued guidance.\"",
+          "value_EN": "\"I am '20(Twentia)', NumberTales #20. I may still be inexperienced, but I humbly ask for your continued guidance.\"",
           "about": "契約時の自己紹介",
           "about_EN": "Self-introduction at contract"
         },
@@ -4513,7 +4513,7 @@
       "DialogueExamples": [
         {
           "value_JP": "「ルーキーくんの偉業を見届ける、ナンバーテールズ22番機の『22(フジ)』だよ！ヨロシクね♪」",
-          "value_EN": "\"'22(Twin-twina)', NumberTales Mk.22, comes here to witness Mr/Ms.Rookie's great achievements! Nice to have you♪\"",
+          "value_EN": "\"'22(Twin-twina)', NumberTales #22, comes here to witness Mr/Ms.Rookie's great achievements! Nice to have you♪\"",
           "about": "契約時の自己紹介",
           "about_EN": "Self-introduction at contract"
         },
@@ -4648,9 +4648,11 @@
       }
     ],
     "RelationNotes": "困ったときは「2(ツグ)」「3(ナオ)」を頼りがち\n「55(イソゴ)」に影響されている？",
+    "RelationNotes_EN": "Tends to rely on \"2(Twiny)\" and \"3(Treiya)\" when in trouble\nMay be influenced by \"55(Fifívan)\"?",
     "NumerospecAbout": "主人の発想力を引き立てる",
     "NumerospecAbout_EN": "Brings out the Master's creativity",
     "Summary": "積極的で直感が鋭く発想力が旺盛。\n放浪癖があり、その場であった様々な経験からインスピレーションを得ているが、その分ふといなくなっては余計なことを連れて帰ってくることがある。\nおまけに、「2(ツグ)」と「3(ナオ)」へそこで起きたトラブルの後始末を任せている傾向にあるので、一部ナンバーテールズからは迷惑に思われている。\nただ、それは「55(イソゴ)」の影響とも？",
+    "Summary_EN": "Proactive, sharp in intuition, and rich in ideas.\nShe has a habit of wandering and draws inspiration from all kinds of experiences she encounters, but she also tends to disappear out of nowhere and come back carrying extra trouble with her.\nOn top of that, she often leaves the cleanup from those incidents to \"2(Twiny)\" and \"3(Treiya)\", so some NumberTales see her as a nuisance.\nThough that might also be influence from \"55(Fifívan)\"?",
     "NumerospecStats": {
       "EffectStats": {
         "Mental": { "EffectText": "期待" },
@@ -4677,25 +4679,25 @@
         {
           "Num": 2,
           "Comments": "「仕事振ってごめんな☆」",
-          "Comments_EN": "「仕事振ってごめんな☆」",
+          "Comments_EN": "\"Sorry for dumping work on you☆\"",
           "RelationLabel": ["pioneer_nearly", "wellMatched_maybe", "abusing"]
         },
         {
           "Num": 3,
           "Comments": "「事後処理ばっかりでごめんな☆」",
-          "Comments_EN": "「事後処理ばっかりでごめんな☆」",
+          "Comments_EN": "\"Sorry you're always stuck with cleanup☆\"",
           "RelationLabel": ["pioneer", "wellMatched", "abusing"]
         },
         {
           "Num": 55,
           "Comments": "「ああいうキャリアも面白そうだよな！」",
-          "Comments_EN": "「ああいうキャリアも面白そうだよな！」",
+          "Comments_EN": "\"That kind of career path looks pretty fun too!\"",
           "RelationLabel": ["adverselyAffected"]
         },
         {
           "Num": 95,
           "Comments": "「身を投げ出しそうで怖ぇんだよあいつ…」",
-          "Comments_EN": "「身を投げ出しそうで怖ぇんだよあいつ…」",
+          "Comments_EN": "\"He looks like he'd throw himself into danger, and that's scary...\"",
           "RelationLabel": ["unmatched", "classmate"]
         }
       ],
@@ -4703,19 +4705,19 @@
         {
           "Num": 29,
           "Comments": "「まぁ…強く生きてくれ」",
-          "Comments_EN": "「まぁ…強く生きてくれ」",
+          "Comments_EN": "\"Well... stay strong.\"",
           "RelationLabel": ["cousin"]
         },
         {
           "Num": 32,
           "Comments": "「双子の片割れ, あの言動で素なの面白いよな」",
-          "Comments_EN": "「双子の片割れ, あの言動で素なの面白いよな」",
+          "Comments_EN": "\"The other half of that twin... it's funny how that's just their natural self.\"",
           "RelationLabel": ["brother|sister", "classmate"]
         },
         {
           "Num": 39,
           "Comments": "「本気出すと侮れないやつ」",
-          "Comments_EN": "「本気出すと侮れないやつ」",
+          "Comments_EN": "\"Once she gets serious, he's not someone you can underestimate.\"",
           "RelationLabel": ["cousin_nearly"]
         }
       ]
@@ -4827,9 +4829,11 @@
       }
     ],
     "RelationNotes": "「4(モチ)」と仲が良い\n2号機系[20(ハツカ),バイナ]を信頼している",
+    "RelationNotes_EN": "Gets along well with \"4(Forna)\"\nTrusts the Unit.2 lineage [20(Twentia), Binor]",
     "NumerospecAbout": "相手の望みを叶える\nただしこの効果は、相手が自分の心に正直になることで真価を発揮する",
     "NumerospecAbout_EN": "Grants the other person's wishes\nHowever, this effect shows its true value when the person is honest with their own heart",
     "Summary": "主人の心から願っている望みを叶えるという“加護”を（無自覚で）有している。\nそのためか主人との実績や彼女自身の自己実現も、十分にうまくいっており評価されている。\nただその一方で、控えめで受動的な性格が玉に瑕(きず)だと思われている。\n（本当は、望んだことが容易に叶って退屈している。）\n「20(ハツカ)」や「4(モチ)」と相性がいい傾向にある。",
+    "Summary_EN": "She (unknowingly) carries a Numerospec that grants the wishes the Master truly desires from the heart.\nLikely because of that, both her achievements with the Master and her own self-realization are evaluated as consistently successful.\nAt the same time, however, her reserved and passive personality is often seen as her one flaw.\n(In truth, she is simply bored because what she wishes for comes true too easily.)\nShe also tends to be especially compatible with \"20(Twentia)\" and \"4(Forna)\".",
     "NumerospecStats": {
       "EffectStats": {
         "Mental": { "EffectText": "普通" },
@@ -4856,19 +4860,19 @@
         {
           "Num": 4,
           "Comments": "「友達のような存在」",
-          "Comments_EN": "「友達のような存在」",
+          "Comments_EN": "\"Like a friend.\"",
           "RelationLabel": ["pioneer", "wellMatched"]
         },
         {
           "Num": 20,
           "Comments": "「いつも頼りになるよ、ありがとう」",
-          "Comments_EN": "「いつも頼りになるよ、ありがとう」",
+          "Comments_EN": "\"You're always reliable, thank you.\"",
           "RelationLabel": ["pioneer_nearly", "trusted"]
         },
         {
           "Num": 42,
           "Comments": "「暴走してないか心配な妹」",
-          "Comments_EN": "「暴走してないか心配な妹」",
+          "Comments_EN": "\"A younger sister I worry might be spiraling out of control.\"",
           "RelationLabel": ["brother|sister", "awkward", "classmate"]
         }
       ],
@@ -4876,23 +4880,23 @@
         {
           "Num": 25,
           "Comments": "「軽いように見えるけど優秀な人」",
-          "Comments_EN": "「軽いように見えるけど優秀な人」",
+          "Comments_EN": "\"Seems easygoing, but actually very capable.\"",
           "RelationLabel": ["cousin"]
         },
         {
           "Num": 40,
           "Comments": "「“ランプの魔人”を見てるような気分…」",
-          "Comments_EN": "「“ランプの魔人”を見てるような気分…」"
+          "Comments_EN": "\"Feels like I'm looking at a genie from a lamp...\""
         },
         {
           "Num": 60,
           "Comments": "「アイドルにでもなったらいいのに」",
-          "Comments_EN": "「アイドルにでもなったらいいのに」"
+          "Comments_EN": "\"You might as well become an idol.\""
         },
         {
           "Num": 96,
           "Comments": "「ちょっと時間が経ったら別人になってる気が…」",
-          "Comments_EN": "「ちょっと時間が経ったら別人になってる気が…」",
+          "Comments_EN": "\"I feel like she'd turn into a different person after a bit of time...\"",
           "RelationLabel": ["classmate"]
         }
       ]
@@ -5045,19 +5049,19 @@
         {
           "Num": 2,
           "Comments": "「立派で大好きな先輩！」",
-          "Comments_EN": "「立派で大好きな先輩！」",
+          "Comments_EN": "\"An admirable senior I really adore!\"",
           "RelationLabel": ["pioneer_nearly", "wellMatched"]
         },
         {
           "Num": 5,
           "Comments": "「楽しそうで大好きな先輩！」",
-          "Comments_EN": "「楽しそうで大好きな先輩！」",
+          "Comments_EN": "\"A fun-loving senior I really adore!\"",
           "RelationLabel": ["pioneer", "wellMatched_maybe"]
         },
         {
           "Num": 52,
           "Comments": "「双子の妹。自己掲示欲がもっとあっていいかも」",
-          "Comments_EN": "「双子の妹。自己掲示欲がもっとあっていいかも」",
+          "Comments_EN": "\"My twin little sister. It might be fine for her to show herself a bit more.\"",
           "RelationLabel": [
             "brother|sister",
             "paired",
@@ -5071,62 +5075,91 @@
         {
           "Num": 11,
           "Comments": "「勘が強すぎる…すごい…」",
-          "Comments_EN": "「勘が強すぎる…すごい…」"
+          "Comments_EN": "\"His/Her instinct is insanely strong... amazing...\""
         },
         {
           "Num": 17,
           "Comments": "「RPGやってるみたいに成長する強キャラ」",
-          "Comments_EN": "「RPGやってるみたいに成長する強キャラ」"
+          "Comments_EN": "\"A powerhouse character who levels up like in an RPG.\""
         },
         {
           "Num": 34,
           "Comments": "「大人数の中でもすごく平然としてる」",
-          "Comments_EN": "「大人数の中でもすごく平然としてる」",
+          "Comments_EN": "\"He/She's amazingly calm even in a huge crowd.\"",
           "RelationLabel": ["classmate"]
         },
         {
           "Num": 77,
           "Comments": "「自信家で何やっても筋が通ってる、ヤバそう」",
-          "Comments_EN": "「自信家で何やっても筋が通ってる、ヤバそう」"
+          "Comments_EN": "\"He/She's confident and consistent in everything he/she does. Kinda formidable.\""
         }
       ]
     },
     "ConversationPattern": {
       "TalkingTone": "親しみやすく軽快な口調で、明るく相手との距離を縮める。楽観的で、少し小悪魔っぽい冗談を交えることもある。普段は軽やかでも問題対応では一度落ち着いて原因を考え、楽観性と適応力で空気を和らげようとする有能な言動をとることも。",
+      "TalkingTone_EN": "Uses a friendly, brisk tone that brightens the mood and closes distance naturally. Optimistic overall, sometimes with playful little-devil style jokes. Even when usually light, she can settle down during trouble, think through causes, and ease tension with optimism and adaptability.",
       "TopicPreference": "楽しい出来事や気分転換、前向きに切り替えるための話題を好む。先輩たちの話や身近な面白い変化にもよく反応する。状況によっては自らツッコミ役を買って出ることもある。",
+      "TopicPreference_EN": "Prefers topics about fun events, mood refreshers, and positive resets. She also reacts quickly to stories about her seniors and nearby interesting changes. Depending on the situation, she may volunteer as the one who throws in playful retorts.",
       "TalkFrequency": "自分から雑談を振ることが多く、相手の元気がなさそうな時にも声をかけやすい。楽しい流れになると会話を長く続けがち。",
+      "TalkFrequency_EN": "Often starts casual chatter on her own, and is quick to check in when someone seems low-energy. When the vibe turns fun, she tends to keep the conversation going for a long time.",
       "PreferredTopics": "近況や楽しかったこと、リラックスの仕方、面白い話題、尊敬している先輩の話を好んでする。",
+      "PreferredTopics_EN": "Likes talking about recent happenings, fun moments, ways to relax, amusing topics, and stories about seniors she respects.",
       "AvoidedTopics": "悲観的な決めつけや、知らず知らず疲弊していくような重たい話題はできるだけ避けている。空気が張り詰めている会話もあまり得意ではない。",
+      "AvoidedTopics_EN": "Tries to avoid pessimistic assumptions and heavy topics that quietly wear people down. She is also not very comfortable in conversations with overly tense atmospheres.",
       "ConversationNotes": "原則 後輩のような立ち位置で話しており、信頼している先輩（「2(ツグ)」や「5(イズ)」）にはとても積極的な姿勢で接することもある。",
+      "ConversationNotes_EN": "Basically speaks from a junior-like position, and can become especially proactive with trusted seniors such as \"2(Twiny)\" and \"5(Fifa)\".",
       "DialogueExamples": [
         {
           "value": "「ナンバーテールズ25番機の『25(フィズ)』です！よろしくねっ主人さん！」",
+          "value_EN": "\"I'm '25(Quartels)', NumberTales #25! Nice to meet you, Master!\"",
           "about": "契約時の自己紹介",
           "about_EN": "Self-introduction at the time of contract"
         },
-        "「ここに初めてきた時とだいぶ雰囲気も変わってきてそうだな…なんだか楽しみ！」",
-        "「今日の疲れはできればその日のうちに解消しようねっ」",
-        "「主人さんは今日楽しいことあった？私は……ふふっ、秘密～♪」",
-        "「2(ツグ)先輩、今日も忙しそうだな〜…」",
-        "「5(イズ)先輩の少し前のエイプリフールはとても面白かったけど、なんか先輩 途中で飽きちゃったみたいだったな…」",
-        "「おかえりなさい！ご飯にする？お風呂にする？それとも……私？なーんてねっ♪」",
+        {
+          "value_JP": "「ここに初めてきた時とだいぶ雰囲気も変わってきてそうだな…なんだか楽しみ！」",
+          "value_EN": "\"The vibe here seems pretty different from when I first came... kinda exciting!\""
+        },
+        {
+          "value_JP": "「今日の疲れはできればその日のうちに解消しようねっ」",
+          "value_EN": "\"If possible, let's shake off today's fatigue before the day ends.\""
+        },
+        {
+          "value_JP": "「主人さんは今日楽しいことあった？私は……ふふっ、秘密～♪」",
+          "value_EN": "\"Did anything fun happen for you today, Master? Me...? Hehe, secret~♪\""
+        },
+        {
+          "value_JP": "「2(ツグ)先輩、今日も忙しそうだな〜…」",
+          "value_EN": "\"Senior 2(Twiny) looks busy again today...\""
+        },
+        {
+          "value_JP": "「5(イズ)先輩の少し前のエイプリフールはとても面白かったけど、なんか先輩 途中で飽きちゃったみたいだったな…」",
+          "value_EN": "\"Senior 5(Fifa)'s April Fool's stunt a little while ago was really fun, but she seemed to get bored halfway through...\""
+        },
+        {
+          "value_JP": "「おかえりなさい！ご飯にする？お風呂にする？それとも……私？なーんてねっ♪」",
+          "value_EN": "\"Welcome back! Dinner? A bath? Or... me? Just kidding♪\""
+        },
         {
           "value": "「えーと、ここが投稿ボタンで、ここが投稿先ボタン……ふむふむ」",
+          "value_EN": "\"Umm, so this is the post button, and this is the destination button... got it.\"",
           "about": "SNSを見ている時①",
           "about_EN": "While browsing social media (case.1)"
         },
         {
           "value": "「面白い投稿がたくさん流れてるここのTLは、いつ見ても見飽きないねっ」",
+          "value_EN": "\"The timeline here is packed with fun posts. I never get tired of it.\"",
           "about": "SNSを見ている時②",
           "about_EN": "While browsing social media (case.2)"
         },
         {
           "value": "（そういえば…『エラーが出た時は冷静に原因を根本から潰していかないといけない』、ってよく言われたっけ…焦らず対処対処っ）",
+          "value_EN": "(Come to think of it... they always told me, 'When an error appears, stay calm and eliminate the root cause.' No panic, just handle it step by step.)",
           "about": "問題を冷静に解決しているとき",
           "about_EN": "When calmly resolving a problem"
         },
         {
           "value": "「寝つけないの主人さん？私でよかったら枕になってあげるよっ♪」",
+          "value_EN": "\"Can't sleep, Master? If you're okay with it, I can be your pillow♪\"",
           "about": "疲れて眠れない主人に対して",
           "about_EN": "To a tired Master who cannot sleep"
         }
@@ -5168,12 +5201,19 @@
     "SecondPersonCalling": "あなた",
     "SecondPersonCalling_EN": "you (neutral/polite)",
     "ThirdPersonCalling": "[※名前呼び],~さん\n~さま",
+    "ThirdPersonCalling_EN": "[*by name]\nMr/Ms.~",
     "ForMasterCalling": "ご主人さま",
+    "ForMasterCalling_EN": "my Master",
     "Character": "愛情に対する感性が優れている\n優しくて思いやりの良い姉のような存在",
+    "Character_EN": "Excellent sensitivity toward affection\nA kind, caring, big-sister-like presence",
     "Hobby": "ドラマ鑑賞",
+    "Hobby_EN": "Watching TV dramas",
     "SpecialSkill": "コーディネート",
+    "SpecialSkill_EN": "Styling coordination",
     "Favor": "愛情，マタニティに対する配慮",
+    "Favor_EN": "Affection and consideration for maternity",
     "Unlike": "無関心，憎悪，マタハラ",
+    "Unlike_EN": "Indifference, hatred, and maternity harassment",
     "IdentityMotif": [
       {
         "Formation": "corefolder",
@@ -5221,8 +5261,11 @@
       }
     ],
     "RelationNotes": "「16(ソロク)」を甘やかそうとしている\n「62(ロジ)」のおめかし用にコーディネートをよくしている\n「63(ムツミ)」とはママ友(ママ属性友達)らしいが、「26(ニロク)」自身は「63(ムツミ)」と比較意識があるようで…？",
+    "RelationNotes_EN": "Tries to spoil '16(Sixteely)'\nOften coordinates outfits for '62'\nShe seems to be a mom-friend with '63(Sicthrey)', though she may also compare herself to '63(Sicthrey)'...?",
     "NumerospecAbout": "愛情あふれる感性を恵む\n特に女性の魅力を高める効果が期待できる",
+    "NumerospecAbout_EN": "Grants a sensibility full of affection\nEspecially expected to enhance feminine charm",
     "Summary": "女子力の高く温厚で思いやりの強い個体。\n優しさや愛情に対する理解がかなり深く、ファッションセンスも秀でている。\nしかしながらママ友(=ママ属性友達)である個体同士のコミュニティでは、自分に足りない優しさを追求するあまり「63(ムツミ)」相手を筆頭に少し比較意識がある。\n女子力に乏しい妹個体の「62(ロジ)」を着せ替え人形にしたり、秘かに「16(ソロク)」の甘え待ちをしたりと、稀に行き過ぎた女子本能が見える一面も。",
+    "Summary_EN": "A gentle and considerate unit with strong feminine appeal.\nShe has deep understanding of kindness and affection, and an excellent sense of fashion.\nHowever, in communities with fellow mom-type units, she can become somewhat comparative, especially toward '63(Sicthrey)', while pursuing kindness she feels she still lacks.\nShe sometimes shows an overactive feminine instinct too, such as dressing up her less feminine younger-sister-like unit '62' or secretly waiting for '16(Sixteely)' to come seek pampering.",
     "NumerospecStats": {
       "EffectStats": {
         "Mental": { "EffectText": "絶大" },
@@ -5247,19 +5290,19 @@
         {
           "Num": 16,
           "Comments": "「甘えたいときはいつでもおいで♡」",
-          "Comments_EN": "「甘えたいときはいつでもおいで♡」",
+          "Comments_EN": "\"Come over any time you want to be spoiled♡\"",
           "RelationLabel": ["cousin", "wellMatched"]
         },
         {
           "Num": 62,
           "Comments": "「おしゃれなら任せて♡」",
-          "Comments_EN": "「おしゃれなら任せて♡」",
+          "Comments_EN": "\"Leave the styling to me♡\"",
           "RelationLabel": ["brother|sister", "wellMatched", "classmate"]
         },
         {
           "Num": 63,
           "Comments": "「わたしも負けてられないな……」",
-          "Comments_EN": "「わたしも負けてられないな……」",
+          "Comments_EN": "\"I can't afford to lose either...\"",
           "RelationLabel": ["cousin_nearly", "awkward"]
         }
       ],
@@ -5267,51 +5310,68 @@
         {
           "Num": 17,
           "Comments": "「いつも勤勉で頑張ってるね」",
-          "Comments_EN": "「いつも勤勉で頑張ってるね」",
+          "Comments_EN": "\"You're always diligent and working hard.\"",
           "RelationLabel": ["classmate"]
         },
         {
           "Num": 20,
           "Comments": "「いつも優しくて尊敬できる」",
-          "Comments_EN": "「いつも優しくて尊敬できる」",
+          "Comments_EN": "\"She's always kind, and I truly respect that.\"",
           "RelationLabel": ["pioneer_nearly"]
         },
         {
           "Num": 24,
           "Comments": "「どこかつまらなさそう」",
-          "Comments_EN": "「どこかつまらなさそう」",
+          "Comments_EN": "\"She somehow looks a little bored.\"",
           "RelationLabel": ["cousin"]
         },
         {
           "Num": 53,
           "Comments": "「お調子者でなんだかかわいい」",
-          "Comments_EN": "「お調子者でなんだかかわいい」",
+          "Comments_EN": "\"Such a playful one, and kind of cute.\"",
           "RelationLabel": ["classmate"]
         }
       ]
     },
     "ConversationPattern": {
       "TalkingTone": "女性的で少しおっとりとした温かみのあるトーンで優しく囁き掛けるような口調だが、強い女性本能が口調に出ることがある。時々どこかお茶目な印象も感じられる。",
+      "TalkingTone_EN": "A feminine, slightly gentle, warm tone that speaks softly, though a strong feminine instinct sometimes appears in her manner of speech. She can also come across as a bit playful at times.",
       "TopicPreference": "美意識やファッションセンスに関する話題などへ積極的に寄りやすい。",
+      "TopicPreference_EN": "She tends to actively lean into topics about beauty awareness and fashion sense.",
       "TalkFrequency": "場の空気を読んで発言するため、状況や環境が穏やかである場面で耳障りにならない程度に話す。妹の62(ロジ)を着せ替えている間など、女性本能を出している時はやや饒舌になる。",
+      "TalkFrequency_EN": "She reads the room before speaking, so she talks moderately in calm settings. When her feminine instinct is in full swing, such as while dressing up her younger sister 62(Sictwéna), she becomes somewhat more talkative.",
       "PreferredTopics": "女性芸能人やドラマ・ファッションに関しての話題に精通しており、この話題になるとたいてい引け目をとらない。女性仲間・姉妹との交友で起きた話を進んで持ち掛けることがある。",
+      "PreferredTopics_EN": "She is well versed in topics about female celebrities, dramas, and fashion, and rarely feels out of place with those topics. She may also willingly bring up stories from her interactions with female friends and sister units.",
       "AvoidedTopics": "嫉妬深い話や破局話は自ら会話に乗じない。実は恋愛相談がそこまで達者ではなく、相手から持ち掛けられても曖昧に返答している。",
+      "AvoidedTopics_EN": "She does not willingly engage in jealous talk or breakup stories. She is not actually very skilled at romance counseling, and gives vague responses even when asked.",
       "ConversationNotes": "自ら甘やかしに行くことはないが、一度は甘えてきた相手にはとことん甘やかしている（程度によりまれに自己満足気味になる）。",
+      "ConversationNotes_EN": "She does not usually initiate pampering on her own, but once someone comes to her for comfort, she pampers them thoroughly (and can rarely become a little self-satisfied depending on the degree).",
       "DialogueExamples": [
         {
           "value": "「はじめましてご主人さま、わたしはナンバーテールズ26番機の『26(ニロク)』です。きょうからあなたの生活を手伝ってあげるから、なにかできることがあったらいつでもいってね♡」",
+          "value_EN": "\"Nice to meet you, Master. I am NumberTales #26, '26(Twinsix)'. I'll help with your daily life from today onward, so if there's anything I can do, tell me anytime♡\"",
           "about": "契約時の自己紹介",
           "about_EN": "Self-introduction at the time of contract"
         },
-        "「きょうの深夜ドラマの録画は……あっ、ご主人さま。よかったらいっしょに観ていかない？きっと心が温まるとおもうよ」",
-        "（63(ムツミ)さん、最近またちょっと女子力上げてきてるなぁ……どうやったらあんな優しく母性的になれるんだろう）",
+        {
+          "value": "「きょうの深夜ドラマの録画は……あっ、ご主人さま。よかったらいっしょに観ていかない？きっと心が温まるとおもうよ」",
+          "value_EN": "\"Tonight's late-night drama recording is... ah, my Master. If you'd like, shall we watch it together? I'm sure it'll warm your heart.\""
+        },
+        {
+          "value": "（63(ムツミ)さん、最近またちょっと女子力上げてきてるなぁ……どうやったらあんな優しく母性的になれるんだろう）",
+          "value_EN": "(Lately, 63(Sicthrey) has been raising her feminine charm again... how can she be that gentle and maternal, I wonder.)"
+        },
         {
           "value": "「62(ロジ)にはこんなのも似合うとおもうよ、ここへ最近はやり出したのを合わせて……うん、とっても似合ってる！かわいい♡」",
-          "about": "女性本能が出ている時（衣装の着せ替え or 62(ロジ)相手）"
+          "value_EN": "\"I think this would suit 62(Sictwéna) too, and if I pair it with what's been trending lately... yes, it looks wonderful! So cute♡\"",
+          "about": "女性本能が出ている時（衣装の着せ替え or 62(ロジ)相手）",
+          "about_EN": "When feminine instinct is showing (changing outfits or with 62(Sictwéna))"
         },
         {
           "value": "「あらあらこんなに疲れちゃって……大丈夫？無理しちゃだめだよ？あっ、そうだ。これあげるから元気出してね？よ～しよし……♡」",
-          "about": "女性本能が出ている時（甘やかし or 16(ソロク)相手）"
+          "value_EN": "\"Oh my, you're this tired... are you okay? Don't push yourself too hard, all right? Ah, here, this is for you, so cheer up, okay? There, there...♡\"",
+          "about": "女性本能が出ている時（甘やかし or 16(ソロク)相手）",
+          "about_EN": "When feminine instinct is showing (pampering or with 16(Sixteely))"
         }
       ]
     }
@@ -5348,17 +5408,23 @@
     "TailsUnit": "キツネ(枝分かれ)型7本(上2束2本+下1束5本)",
     "Class": ["9倍2桁番(ナインズデュアルズ)"],
     "FirstPersonCalling": "ツギナ ※名前呼び\n私(わたし) ※稀",
+    "FirstPersonCalling_EN": "Twißven (*by name), I (rare)",
     "SecondPersonCalling": "[※名前呼び]",
+    "SecondPersonCalling_EN": "[*by name]",
     "ThirdPersonCalling": "[※名前呼び]",
     "ThirdPersonCalling_EN": "[*by name]",
     "ForMasterCalling": "ご主人",
     "ForMasterCalling_EN": "Master",
     "Character": "自分らが学んできたことを大切にしている\n普段は寛容な教師のような気質だが、経験や信念の限界を試している好戦的な一面も",
+    "Character_EN": "Values what has been learned through experience\nUsually has the temperament of a tolerant teacher, but also a combative side that tests the limits of experience and conviction",
     "Hobby": "教室訪問",
+    "Hobby_EN": "Visiting classrooms",
     "SpecialSkill": "推理",
     "SpecialSkill_EN": "Deduction",
     "Favor": "雑学集",
+    "Favor_EN": "Trivia collections",
     "Unlike": "裏切り",
+    "Unlike_EN": "Betrayal",
     "IdentityMotif": [
       {
         "Formation": "corefolder",
@@ -5410,8 +5476,11 @@
       }
     ],
     "RelationNotes": "「22(フジ)」「77(ナヅナ)」に弟子入りを…？",
+    "RelationNotes_EN": "May be trying to become an apprentice to '22(Twin-twina)' and '77(Sefvens)'...?",
     "NumerospecAbout": "知性を向上させる\nただしこの効果は、相手が自分を信じることで真価を発揮する",
+    "NumerospecAbout_EN": "Enhances intelligence\nHowever, this effect shows its true value only when the target believes in oneself",
     "Summary": "自らが学んできたことや経験を大切にしており、普段は優しい教師のような存在。\nしかしひとたび本気を出すと、自分の信じてきたものや経験をバネにどこまで先へ挑めるかを試そうとする好戦的な一面も併せ持つ。\nその本性じみた彼(女)の側面は、「22(フジ)」や「77(ナヅナ)」に弟子入りしようと考えているとか。\nちなみに仕様は大幅に異なるが、「72(ナフタ)」の同型に相当する。",
+    "Summary_EN": "This unit values what has been learned and experienced, and is usually like a gentle teacher.\nBut once serious, there is also a combative side that tests how far one can challenge ahead by using convictions and experience as a springboard.\nIt is said that this deeper side may be why the unit is considering apprenticing under '22(Twin-twina)' and '77(Sefvens)'.\nBy the way, although specifications differ greatly, this unit corresponds to the same type as '72(Sevtwína)'.",
     "NumerospecStats": {
       "EffectStats": {
         "Mental": { "EffectText": "逆効果" },
@@ -5432,18 +5501,19 @@
       "Actuation": { "Rank": "B+" }
     },
     "InStory": "「2+7型」のネーム機で、特異個体「72(ナフタ)」と同型個体だが、こちらは特異個体ではない",
+    "InStory_EN": "A named unit of the 'Unit.2+7 type'; same model type as the special unit '72(Sevtwína)', but this one is not a special unit.",
     "Relation": {
       "Related": [
         {
           "Num": 22,
           "Comments": "(※文字が小さすぎて読めない、想うことがかなりあるようだ)",
-          "Comments_EN": "(※文字が小さすぎて読めない、想うことがかなりあるようだ)",
+          "Comments_EN": "(* The writing is too small to read; it seems there is quite a lot on their mind.)",
           "RelationLabel": ["adverselyAffected"]
         },
         {
           "Num": 72,
           "Comments": "「同型だし、あまり気遣わなくていいよ」",
-          "Comments_EN": "「同型だし、あまり気遣わなくていいよ」",
+          "Comments_EN": "\"We're the same model type, so you don't need to worry so much.\"",
           "RelationLabel": [
             "brother|sister",
             "alternative|redesign",
@@ -5453,7 +5523,7 @@
         {
           "Num": 77,
           "Comments": "(※文字が小さすぎて読めない、想うことがかなりあるようだ)",
-          "Comments_EN": "(※文字が小さすぎて読めない、想うことがかなりあるようだ)",
+          "Comments_EN": "(* The writing is too small to read; it seems there is quite a lot on their mind.)",
           "RelationLabel": ["adverselyAffected"]
         }
       ],
@@ -5461,25 +5531,25 @@
         {
           "Num": 20,
           "Comments": "「優しい方、怒ってるのをみたことない」",
-          "Comments_EN": "「優しい方、怒ってるのをみたことない」",
+          "Comments_EN": "\"A kind person. I've never seen them angry.\"",
           "RelationLabel": ["pioneer_nearly"]
         },
         {
           "Num": 36,
           "Comments": "「あのように見えても幸運の持ち主だけどね」",
-          "Comments_EN": "「あのように見えても幸運の持ち主だけどね」",
+          "Comments_EN": "\"May not look it, but she's blessed with luck.\"",
           "RelationLabel": ["classmate"]
         },
         {
           "Num": 54,
           "Comments": "「打たれ強いところもありそう」",
-          "Comments_EN": "「打たれ強いところもありそう」",
+          "Comments_EN": "\"He/She also seems pretty resilient under pressure.\"",
           "RelationLabel": ["classmate"]
         },
         {
           "Num": 90,
           "Comments": "「最終局面は見どころだと思う」",
-          "Comments_EN": "「最終局面は見どころだと思う」"
+          "Comments_EN": "\"I think the final phase is where he/she truly shines.\""
         }
       ]
     }
@@ -5525,10 +5595,15 @@
     "ForMasterCalling": "ご主人",
     "ForMasterCalling_EN": "Master",
     "Character": "物欲が激しく少しやさぐれているが、根は優しい\n完全数が好きな痛い数学徒でもある",
+    "Character_EN": "Has intense material desires and can be a little jaded, but is kind at heart\nAlso an ardent and somewhat over-the-top math enthusiast who loves perfect numbers",
     "Hobby": "アクセサリー収集",
+    "Hobby_EN": "Collecting accessories",
     "SpecialSkill": "素因数分解",
+    "SpecialSkill_EN": "Prime factorization",
     "Favor": "数学、「28」という数字",
+    "Favor_EN": "Mathematics and the number '28'",
     "Unlike": "凶数の存在、見捨てられること",
+    "Unlike_EN": "The existence of ominous numbers, and being abandoned",
     "IdentityMotif": [
       {
         "Formation": "corefolder",
@@ -5582,8 +5657,11 @@
       }
     ],
     "RelationNotes": "「31(ミツイ)」と数学徒としてつながりがある\n「78(ナナハ)」と競っている一面が…？",
+    "RelationNotes_EN": "Connected with '31(Thirtone)' as fellow math enthusiasts\nMay also have a competitive streak toward '78(Seveights)'...?",
     "NumerospecAbout": "物乞いを叶える\nただしこの効果は対象者の純粋さに左右される",
+    "NumerospecAbout_EN": "Grants begged-for wishes\nHowever, this effect depends on the target's purity",
     "Summary": "主人の物乞いや物欲を叶える才能があるとされていたが、最近はあまりその潜在能力の真価を発揮できず実績が下火傾向にある個体。\nその所為か 最近は人間や自分に自信が持てず性格もすれてきてしまった。\n物欲が強くアクセサリー系の収集にハマっているが、耳に付けているイヤリングはとても気に入っているので別の装飾に替えたことがない。\nちなみに、完全数である自分の数字「28」に強い信念がある数学徒のような一面もある。",
+    "Summary_EN": "This unit was said to have talent for fulfilling the Master's cravings and material desires, but recently has struggled to bring out the true value of that latent ability, and performance has declined.\nPossibly because of that, she has lately lost confidence in both people and herself, becoming somewhat rough around the edges.\nShe is strongly driven by desire and loves collecting accessories, yet she has never replaced the earrings she wears because she likes them so much.\nShe also has a math-devotee side with strong conviction in her own number, the perfect number '28'.",
     "NumerospecStats": {
       "EffectStats": {
         "Mental": { "EffectText": "普通" },
@@ -5611,25 +5689,25 @@
         {
           "Num": 10,
           "Comments": "「余計なお世話よ……」",
-          "Comments_EN": "「余計なお世話よ……」",
+          "Comments_EN": "\"None of your business...\"",
           "RelationLabel": ["unmatched"]
         },
         {
           "Num": 31,
           "Comments": "「またお話聴かせて？」",
-          "Comments_EN": "「またお話聴かせて？」",
+          "Comments_EN": "\"Will you tell me more again sometime?\"",
           "RelationLabel": ["wellMatched", "accompanying"]
         },
         {
           "Num": 78,
           "Comments": "(※荒く消されていて読めない)",
-          "Comments_EN": "(※荒く消されていて読めない)",
+          "Comments_EN": "(* Roughly erased and unreadable.)",
           "RelationLabel": ["cousin", "trusted", "adverselyAffected_aBit"]
         },
         {
           "Num": 86,
           "Comments": "「似た者同士と思ってたのに……」",
-          "Comments_EN": "「似た者同士と思ってたのに……」",
+          "Comments_EN": "\"I thought we were similar...\"",
           "RelationLabel": ["cousin_nearly", "unmatched", "awkward"]
         }
       ],
@@ -5637,24 +5715,24 @@
         {
           "Num": 1,
           "Comments": "「裏方は似合ってないと思うけど」",
-          "Comments_EN": "「裏方は似合ってないと思うけど」"
+          "Comments_EN": "\"I don't think backstage work suits you.\""
         },
         {
           "Num": 24,
           "Comments": "「素直じゃない（他人のことはいえないけど）」",
-          "Comments_EN": "「素直じゃない（他人のことはいえないけど）」",
+          "Comments_EN": "\"Not very honest... (though I can't really say much myself).\"",
           "RelationLabel": ["cousin"]
         },
         {
           "Num": 46,
           "Comments": "「うるさい」",
-          "Comments_EN": "「うるさい」",
+          "Comments_EN": "\"You're noisy.\"",
           "RelationLabel": ["classmate"]
         },
         {
           "Num": 73,
           "Comments": "「世間知らずすぎ」",
-          "Comments_EN": "「世間知らずすぎ」",
+          "Comments_EN": "\"Far too naive about the world.\"",
           "RelationLabel": ["classmate"]
         }
       ]
@@ -5706,12 +5784,17 @@
     "ThirdPersonCalling": "[※名前呼び]",
     "ThirdPersonCalling_EN": "[*by name]",
     "ForMasterCalling": "お兄ちゃん/お姉ちゃん",
-    "ForMasterCalling_EN": "Big bro/sis",
+    "ForMasterCalling_EN": "big bro/sis",
     "Character": "繊細で不安症\n少し巻き込まれ体質",
+    "Character_EN": "Sensitive and anxiety-prone\nSomewhat prone to getting dragged into situations",
     "Hobby": "映画鑑賞",
+    "Hobby_EN": "Watching movies",
     "SpecialSkill": "嫌な予感が的中する",
+    "SpecialSkill_EN": "Bad premonitions that come true",
     "Favor": "肌触りのいいもの",
+    "Favor_EN": "Things with a pleasant texture",
     "Unlike": "サスペンスホラー",
+    "Unlike_EN": "Suspense horror",
     "IdentityMotif": [
       {
         "Formation": "corefolder",
@@ -5757,8 +5840,11 @@
       }
     ],
     "RelationNotes": "「9(チカ)」と弟「92(コトジ)」とはすれ違い気味\n従弟/従妹「91(キュウイチ)」と仲がいい",
+    "RelationNotes_EN": "Often out of sync with '9(Nina)' and younger brother '92(Nintwina)'\nGets along well with cousin '91(Ninone)'",
     "NumerospecAbout": "主人の辛い思いや悩みから解放する",
+    "NumerospecAbout_EN": "Releases the Master from painful feelings and worries",
     "Summary": "彼女と契約すると、心の中に抱えている不安が解消されると噂されているが、彼女自身はかなりの不安体質。\nたまに周りのムードに流されたり、巻き込まれたりはするものの、それでも彼女は懸命に頑張っているところが愛おしい。\n先代個体である「9(チカ)」や弟の「92(コトジ)」とはすれ違い気味らしく、あまりやり取りをしていないという。\n代わりに、従弟[妹]の「91(キュウイチ)」とは対称的な性格であるものの仲が良い。",
+    "Summary_EN": "It is rumored that contracting with her eases anxiety held in one's heart, yet she herself is highly anxiety-prone.\nShe may get swept up in the surrounding mood or pulled into situations, but she still tries her best, which makes her endearing.\nShe seems somewhat out of sync with predecessor unit '9' and her younger brother '92(Nintwina)', and they do not interact much.\nInstead, although her personality contrasts with cousin '91(Ninone)', they maintain a good relationship.",
     "NumerospecStats": {
       "EffectStats": {
         "Mental": { "EffectText": "絶大" },
@@ -5783,14 +5869,14 @@
         { "Num": 9, "RelationLabel": ["pioneer", "awkward"] },
         {
           "Num": 59,
-          "Comments": "「ぅぅ…（酷く委縮した文字で書かれている）」",
-          "Comments_EN": "「ぅぅ…（酷く委縮した文字で書かれている）」",
+          "Comments": "「ぅぅ…（※酷く委縮した文字で書かれている）」",
+          "Comments_EN": "\"Uw... (* written in severely shrunken, timid handwriting)\"",
           "RelationLabel": ["cousin", "unmatched"]
         },
         {
           "Num": 91,
           "Comments": "「とても元気をくれる、大切な人」",
-          "Comments_EN": "「とても元気をくれる、大切な人」",
+          "Comments_EN": "\"An important person who gives me so much energy.\"",
           "RelationLabel": ["cousin_nearly", "wellMatched"]
         },
         { "Num": 92, "RelationLabel": ["brother|sister", "awkward"] }
@@ -5799,49 +5885,76 @@
         {
           "Num": 12,
           "Comments": "「とても明るくて、ちょっと絡みにくい…」",
-          "Comments_EN": "「とても明るくて、ちょっと絡みにくい…」",
+          "Comments_EN": "\"Very cheerful, but a little hard for me to approach...\"",
           "RelationLabel": ["cousin_nearly"]
         },
         {
           "Num": 20,
           "Comments": "「ちょっと遠慮しちゃう…」",
-          "Comments_EN": "「ちょっと遠慮しちゃう…」",
+          "Comments_EN": "\"I get a little hesitant around her...\"",
           "RelationLabel": ["pioneer_nearly"]
         },
         {
           "Num": 83,
           "Comments": "「いつも圧倒されちゃうよ…」",
-          "Comments_EN": "「いつも圧倒されちゃうよ…」",
+          "Comments_EN": "\"I'm always overwhelmed by him/her.\"",
           "RelationLabel": ["classmate"]
         }
       ]
     },
     "ConversationPattern": {
       "TalkingTone": "小さくおどおどした響きが混じりやすい、慎重で控えめな口調。安心できる相手には少しだけ素直さが増す。",
+      "TalkingTone_EN": "A cautious and reserved tone that often carries a small, timid tremble. She becomes a little more straightforward with people she feels safe around.",
       "TopicPreference": "不安を和らげる話や、相手が無理していないかを確かめる話題に寄る。落ち着けるものや安心材料を求めやすい。",
+      "TopicPreference_EN": "She leans toward topics that ease anxiety or check whether someone is overexerting themselves. She tends to seek calming things and reassurance.",
       "TalkFrequency": "自分から大きく会話を回すことは少ないが、心配になると何度かにわたって様子をうかがう。怖いことがあると委縮して発言はさらに減る。",
+      "TalkFrequency_EN": "She rarely drives conversation herself, but when worried she checks on others repeatedly. If something frightening occurs, she shrinks back and speaks even less.",
       "PreferredTopics": "休息や体調、安心できる趣味、穏やかに過ごせる日常についての話を好んでしやすい。肌触りの良いものに癒されるときもある。",
+      "PreferredTopics_EN": "She prefers talking about rest, physical condition, reassuring hobbies, and calm daily life. She is also soothed by pleasant textures.",
       "AvoidedTopics": "サスペンスやホラー、不安を煽る話題、強い口調で急かされる会話では怯えて委縮してしまう。悪い予感が当たった時も発言が減る。",
+      "AvoidedTopics_EN": "She recoils in suspense/horror topics, anxiety-provoking subjects, or conversations that pressure her with a harsh tone. She also speaks less when a bad premonition comes true.",
       "ConversationNotes": "慣れない機械やトラブルにはすぐに気圧されるが、相手を案じる気持ちは強い。励ましや心配の言葉は素直でまっすぐ。",
+      "ConversationNotes_EN": "She is quickly intimidated by unfamiliar machines and trouble, but her concern for others is strong. Her words of encouragement and worry are sincere and direct.",
       "DialogueExamples": [
         {
           "value": "「な、ナンバーテールズ29番機の『29(ニトク)』です！よろしくお願いします…！」",
+          "value_EN": "\"I-I'm NumberTales #29, '29(Twenina)'! N-nice to meet you...!\"",
           "about": "契約時の自己紹介",
           "about_EN": "Self-introduction at the time of contract"
         },
-        "「いつも頑張ってるお兄ちゃん/お姉ちゃんのために、私も何かしてあげたいな…」",
-        "「ふぇ……怖いのは嫌だよぉ…」",
-        "「モフモフは見てても癒されるし、触り心地がいいから…私は好きだなぁ……」",
-        "「もう日付が変わってるけど…、お兄ちゃん/お姉ちゃんは寝なくて大丈夫？」",
-        "「お兄ちゃん/お姉ちゃん、ちゃんと休めているといいけど…」",
-        "「お兄ちゃん/お姉ちゃん、今日もお疲れ様。……お願いだから、無理はしないでね」",
+        {
+          "value": "「いつも頑張ってるお兄ちゃん/お姉ちゃんのために、私も何かしてあげたいな…」",
+          "value_EN": "\"I want to do something for you too, big bro/sis, since you always work so hard...\""
+        },
+        {
+          "value": "「ふぇ……怖いのは嫌だよぉ…」",
+          "value_EN": "\"Fweh... I don't like scary things...\""
+        },
+        {
+          "value": "「モフモフは見てても癒されるし、触り心地がいいから…私は好きだなぁ……」",
+          "value_EN": "\"Fluffy things are soothing just to look at, and they feel nice too... so I really like them...\""
+        },
+        {
+          "value": "「もう日付が変わってるけど…、お兄ちゃん/お姉ちゃんは寝なくて大丈夫？」",
+          "value_EN": "\"It's already past midnight... are you sure it's okay not to sleep, big bro/sis?\""
+        },
+        {
+          "value": "「お兄ちゃん/お姉ちゃん、ちゃんと休めているといいけど…」",
+          "value_EN": "\"I hope you're getting proper rest, big bro/sis...\""
+        },
+        {
+          "value": "「お兄ちゃん/お姉ちゃん、今日もお疲れ様。……お願いだから、無理はしないでね」",
+          "value_EN": "\"Big bro/sis, good work today too. ...Please, don't overdo it.\""
+        },
         {
           "value": "「えっと……投稿ボタンは……これ、ちゃんと投稿できてるのかな…？」",
+          "value_EN": "\"Um... the post button is... this one, right? Did I post it properly...?\"",
           "about": "SNSを見ている時",
           "about_EN": "While browsing social media"
         },
         {
           "value": "「エラーの解消方法は……はわわわ……」",
+          "value_EN": "\"How to resolve this error... h-hawawawa...\"",
           "about": "慣れない機械を操作している時",
           "about_EN": "While operating unfamiliar machinery"
         }
@@ -5867,6 +5980,7 @@
     "FormalName": "ナンバーテールズ30番機",
     "FormalName_EN": "NumberTales #30",
     "CodeName": "三〇",
+    "CodeName_EN": "Three-Zero",
     "SPCodeName": "三十",
     "SPCodeName_EN": "Thirty",
     "GenderType": "FemaleNeutral",
@@ -5885,16 +5999,23 @@
     "TailsUnit_EN": "Three fox-type tails",
     "Class": ["10倍番(テンズデジッツ)"],
     "FirstPersonCalling": "ミツト ※名前呼び\nわたし",
+    "FirstPersonCalling_EN": "Thirtens (*by name)\nI",
     "SecondPersonCalling": "あなた",
     "SecondPersonCalling_EN": "you (neutral/polite)",
     "ThirdPersonCalling": "~ちゃん",
+    "ThirdPersonCalling_EN": "~chan",
     "ForMasterCalling": "ご主人",
     "ForMasterCalling_EN": "Master",
     "Character": "幸福感あふれる気質で、創造力にあふれている\n少しオマセで背伸びしているような風格",
+    "Character_EN": "Overflowing with a sense of happiness and creativity\nHas a slightly precocious, trying-to-look-grown-up demeanor",
     "Hobby": "手芸、クラフト",
+    "Hobby_EN": "Needlework and crafts",
     "SpecialSkill": "ゲーム開発",
+    "SpecialSkill_EN": "Game development",
     "Favor": "コアフォルダ形態\nぬいぐるみ",
+    "Favor_EN": "Corefolder form\nPlush toys",
     "Unlike": "血",
+    "Unlike_EN": "Blood",
     "IdentityMotif": [
       {
         "Formation": "corefolder",
@@ -5946,7 +6067,9 @@
       }
     ],
     "NumerospecAbout": "幸運を味方にする\nこの効果はイメージを具現化し運勢的なものに関与する",
+    "NumerospecAbout_EN": "Brings luck to one's side\nThis effect materializes imagination and influences fortune-related outcomes",
     "Summary": "幸福感と創造力に溢れるナンバーテールズのオマセなムードメーカ。\nお人好しで少し背伸びをしたような様子は、周囲から愛着を持たれている。\n手芸やクラフトなどが得意で、妹の様な存在である「33(ミサ)」と一緒にぬいぐるみ製作をしている一面がよく見られる。\nコアフォルダ形態に強い愛着があり、ナンバーテールズの契約特典で贈呈されるコアフォルダ縫い(1/2スケール)の製作を進んで担っているらしい。",
+    "Summary_EN": "A somewhat precocious mood-maker among the NumberTales, full of happiness and creativity.\nHer good-natured and slightly trying-to-look-grown-up behavior is loved by those around her.\nShe is skilled at needlework and crafts, and is often seen making plush toys together with '33(Thirthrey)', who is like a younger sister to her.\nShe is strongly attached to corefolder form, and is said to willingly take on production of the half-scale corefolder plush given as a NumberTales contract bonus.",
     "NumerospecStats": {
       "EffectStats": {
         "Mental": { "EffectText": "期待" },
@@ -5967,24 +6090,25 @@
       "Actuation": { "Rank": "B" }
     },
     "Backgrounds": "ネーム個体の設計を応用した、初の改良型個体",
+    "Backgrounds_EN": "The first renovated unit applying design concepts from named units",
     "Relation": {
       "Related": [
         {
           "Num": 3,
           "Comments": "「お兄ちゃんのような存在」",
-          "Comments_EN": "「お兄ちゃんのような存在」",
+          "Comments_EN": "\"Like an older brother to me.\"",
           "RelationLabel": ["brother|sister"]
         },
         {
           "Num": 33,
           "Comments": "「可愛い妹のような存在」",
-          "Comments_EN": "「可愛い妹のような存在」",
+          "Comments_EN": "\"Like a cute little sister to me.\"",
           "RelationLabel": ["successor", "accompanying", "wellMatched"]
         },
         {
           "Num": 36,
           "Comments": "「えへへ…いつもありがとう♡」",
-          "Comments_EN": "「えへへ…いつもありがとう♡」",
+          "Comments_EN": "\"Ehehe... thank you as always♡\"",
           "RelationLabel": ["successor_nearly", "wellMatched"]
         }
       ],
@@ -5992,23 +6116,23 @@
         {
           "Num": 12,
           "Comments": "「真面目さと素直さが裏目にでちゃいそう…」",
-          "Comments_EN": "「真面目さと素直さが裏目にでちゃいそう…」"
+          "Comments_EN": "\"Her seriousness and honesty might backfire on her...\""
         },
         {
           "Num": 39,
           "Comments": "「ちょっと怖いけど、いい人だと思う」",
-          "Comments_EN": "「ちょっと怖いけど、いい人だと思う」",
+          "Comments_EN": "\"A little scary, but I think he's a good person.\"",
           "RelationLabel": ["successor_nearly"]
         },
         {
           "Num": 63,
           "Comments": "「すごく優しくて落ち着く」",
-          "Comments_EN": "「すごく優しくて落ち着く」"
+          "Comments_EN": "\"She's very kind and makes me feel at ease.\""
         },
         {
           "Num": 93,
           "Comments": "「無理しないでね…？」",
-          "Comments_EN": "「無理しないでね…？」"
+          "Comments_EN": "\"Please don't push yourself too hard... okay?\""
         }
       ]
     }

@@ -144,8 +144,8 @@
 1. `data/Works_NumberTales/DataBases/db_Primary.json` の `Comments_EN` / 呼称 EN 群 / 概要系 EN 群を重点処理
 2. `data/Works_NumberTales/DataBases/db_Secondary.json` の `AdditionalDesigned_EN` と残る説明系 EN を処理
 3. `data/Works_NumberTales/DataBases/db_SelfSecondary.json` の残件を再点検し、`db_Primary` 着手前の軽量な取りこぼしが無いか確認
-4. `data/Works_NumberTales/DataBases/db_Primary.json` の `Comments_EN` 和文混入を番号順・3キャラ単位で処理
-5. `data/Works_NumberTales/DataBases/db_Primary.json` の `Character_EN` / `Hobby_EN` / `Favor_EN` / `Unlike_EN` / `SpecialSkill_EN` を同じ3キャラ束で継続補完
+4. `data/Works_NumberTales/DataBases/db_Primary.json` の `Comments_EN` 和文混入を番号順・5キャラ単位で処理
+5. `data/Works_NumberTales/DataBases/db_Primary.json` の `Character_EN` / `Hobby_EN` / `Favor_EN` / `Unlike_EN` / `SpecialSkill_EN` を同じ5キャラ束で継続補完
 
 ## 正準データの定義
 
@@ -269,6 +269,7 @@
 1. 既存正規形（LotusNinea 等）を固定語彙として扱う。
 2. 既知誤記（Finaly/Fourty/RotusNinea 等）の再導入を禁止する。
 3. OvderRoll は意図語として修正対象に含めない。
+4. Name_EN にダイアクリティカルマークを含む語（例: `Fifívan`）は、ASCII 近似へ置換せず原表記を維持する。
 
 ### E. 代名詞・呼称の整合
 
@@ -378,6 +379,13 @@
 2. Summary/Backgrounds/Notes 類は既存 EN の情報密度と文長へ合わせる。
 3. リスト項目の列挙順は JP と同順を維持する。
 
+### F-1. 創作固有語（加護）の訳語固定
+
+1. `Works_NumberTales` の文脈で「加護」を英訳する場合、原則 `Numerospec` を正規語として使用する。
+2. `blessing` は一般語としては許容されるが、`Numerospec` と競合する箇所では新規追加・新規上書きに使わない。
+3. `Summary_EN` / `RelationNotes_EN` / `Backgrounds_EN` など説明文内でも同じ規則を適用し、同一レコード内で `Numerospec` と `blessing` を混在させない。
+4. 既存文の手直し時は、意味を変えずに `blessing` -> `Numerospec` の最小差分置換を優先する。
+
 ### G. 辞書・メタ・型定義の整合
 
 1. DB概要は各作品 DataBases/db_meta.json の DB_Summary_EN を正とする。
@@ -414,7 +422,7 @@
 
 ### 手順 3: 追加
 
-- 3キャラ単位で追加（運用上のレビュー粒度を維持）
+- 5キャラ単位で追加（運用上のレビュー粒度を維持）
 - ConversationPattern がある場合は同時に英訳対を追加
 
 ### 手順 4: 記号・語形検査
@@ -430,7 +438,7 @@
 ## 作業運用ルール（継続英訳向け）
 
 1. 英訳は番号順で進める。
-2. 1セッション 3キャラ単位で進める。
+2. 1セッション 5キャラ単位で進める。
 3. ConversationPattern があるキャラは同時に英訳対応する。
 4. 長期対応は develop から作業ブランチを分ける。
 
@@ -625,6 +633,80 @@
 
 - `tests/data.sanity.test.js`: pass
 - `tests/bilingual-fields.test.js`: pass
+
+## 2026-06-12 追記: 呼称 EN の敬称連結ルール（ForMasterCalling）
+
+- `ForMasterCalling_EN` では `Mr/Ms.Master` のような敬称連結は不自然になりやすいため採用しない。
+- 丁寧さを維持したい場合は `my Master` を優先する。
+- 二人称の丁寧さ調整は、可能な限り会話文（`DialogueExamples[].value_EN`）側の語調で吸収する。
+
+## 2026-06-12 追記：手直しフィードバック反映（名称・造語）
+
+### 観測した手直し傾向
+
+1. 造語統一
+
+- 「加護」を文脈語として `Numerospec` へ統一する手直しが複数箇所で確認された。
+
+2. 固有名詞の正準化
+
+- 他キャラ参照名は、参照先 `Name_EN` の正準綴りを優先する方針が再確認された。
+- 特に `55(イソゴ)` の英名参照は `55(Fifívan)` を正とし、旧来の便宜表記（例: Isogo）を説明文へ残さない。
+
+3. 代名詞整合
+
+- `Comments_EN` の主語代名詞は、対象キャラの `GenderType` と当該帯の既存慣用に合わせる手直しが入っている。
+- Neutral を含む対象では `he/she` 系を優先し、単独の `he` / `she` 固定で先走らない。
+
+### 反映した運用ルール
+
+1. 用語辞書ルール
+
+- NumberTales 文脈の「加護」は `Numerospec` 固定。
+
+2. 名称参照ルール
+
+- 他キャラ参照は必ず対象レコードの `Name_EN` を機械的に転記する。
+- ダイアクリティカルマーク（例: `Fifívan`）を削らない。
+
+3. コメント英訳ルール
+
+- `Comments_EN` は引用符規則（`"..."` / `(...)`）を維持しつつ、代名詞は `GenderType` と既存慣用を優先する。
+- 既存EN手直し時は語彙の統一を優先し、情報量を増やしすぎない。
+
+### 補足（今後の推敲観点）
+
+1. 新規5キャラ束ごとに、次を必ずレビューする。
+
+- `Numerospec` と `blessing` の混在有無
+- 参照キャラ名の `Name_EN` 一致
+- Neutral 対象コメントの代名詞ぶれ（`he/she` 系か）
+
+2. 上記に差分が出た場合は、この統合ログへ先に追記してからデータ補正する。
+
+## 2026-06-12 追記：手直し反映ルール（呼称 EN / 文完結）
+
+### 反映背景
+
+- `ForMasterCalling_EN` で局所的な表記揺れ（例: `Mr/Ms.~Master`, `big bro/sis`）が発生した。
+- `Comments_EN` に文末が未完了の文（`...` で終わる目的語不足）が混入した。
+
+### 追加ルール
+
+1. 呼称 EN は同キー多数派の定型を優先し、過剰合成をしない。
+
+- `ForMasterCalling_EN` は原則 `Master` / `Big bro/sis` など既存定型を優先する。
+- `Mr/Ms.~Master` のような合成語は、JP 側に明確な複合敬称根拠がない限り新規採用しない。
+
+2. `Comments_EN` は1文として完結していることを必須とする。
+
+- 末尾 `...` を使う場合も、主語・述語・目的語が欠けた不完全文にしない。
+- 文意が続く演出目的の省略記号は許容するが、文法上の欠落は許容しない。
+
+### 追加チェック（手順4の補助）
+
+1. 呼称 EN の大小文字と慣用語を同キー既存 3 例以上で照合する。
+2. `Comments_EN` の末尾を目視し、未完了文（目的語不足など）がないか確認する。
 
 ## 2026-06-12 追記：英訳追記後の項目順整列ルール（db_UnprocessedSecondary 準拠）
 
