@@ -833,3 +833,33 @@
 
 - `tests/data.sanity.test.js`: pass
 - `tests/bilingual-fields.test.js`: pass
+
+## 2026-06-12 追記：Num 1〜22 `Comments_EN` の括り書式統一（DialogueExamples 準拠）
+
+### 対象
+
+- `data/Works_NumberTales/DataBases/db_Primary.json`
+- 対象範囲: `Num 1` 〜 `Num 22`
+- 対象キー: `Relation.Related[].Comments_EN` / `Relation.Commented[].Comments_EN`
+
+### 実施内容
+
+1. `Comments_EN` が未括りの値を対象に書式を正規化。
+2. JP 側 `Comments` が全角丸括弧（`（...）`）の注記文である場合は、EN 側を `(...)` で括る。
+3. 上記以外は EN 側を `"..."` で括る（`DialogueExamples.value_EN` と同様の扱い）。
+4. 既に `"..."` または `(...)` で括られている値は変更しない。
+
+### 反映件数
+
+- 変換件数: 81
+
+### 運用ルール（固定）
+
+1. `Comments_EN` は原則 `"..."` で保持する。
+2. 注記・地の文メモに相当するもののみ `(...)` を許容する。
+3. 今後の `Num 23+` 補完でも同じ括りルールを適用する。
+
+### 検証
+
+- `tests/data.sanity.test.js`: pass
+- `tests/bilingual-fields.test.js`: pass
