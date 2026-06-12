@@ -136,81 +136,31 @@
           "$type": [
             {
               "hashTag": "Physical",
-              "$type": [
-                {
-                  "hashTag": "EffectText",
-                  "$type": "#String_JP,#ListLink",
-                  "$display": {
-                    "rankFormat": "alphaLabel",
-                    "listLinkEnumName": "Rank",
-                    "listLinkShowEnum": true
-                  }
-                }
-              ],
+              "$type": "$Def_EffectText",
               "hashTag_JP": "物理的作用",
               "hashTag_EN": "Physical Effect"
             },
             {
               "hashTag": "Acceleration",
-              "$type": [
-                {
-                  "hashTag": "EffectText",
-                  "$type": "#String_JP,#ListLink",
-                  "$display": {
-                    "rankFormat": "alphaLabel",
-                    "listLinkEnumName": "Rank",
-                    "listLinkShowEnum": true
-                  }
-                }
-              ],
+              "$type": "$Def_EffectText",
               "hashTag_JP": "加速作用/減速作用",
               "hashTag_EN": "Acceleration/Deceleration Effect"
             },
             {
               "hashTag": "Enforcing",
-              "$type": [
-                {
-                  "hashTag": "EffectText",
-                  "$type": "#String_JP,#ListLink",
-                  "$display": {
-                    "rankFormat": "alphaLabel",
-                    "listLinkEnumName": "Rank",
-                    "listLinkShowEnum": true
-                  }
-                }
-              ],
+              "$type": "$Def_EffectText",
               "hashTag_JP": "斥力効果/引力効果",
               "hashTag_EN": "Enforcing/Attracting Effect"
             },
             {
               "hashTag": "Healing",
-              "$type": [
-                {
-                  "hashTag": "EffectText",
-                  "$type": "#String_JP,#ListLink",
-                  "$display": {
-                    "rankFormat": "alphaLabel",
-                    "listLinkEnumName": "Rank",
-                    "listLinkShowEnum": true
-                  }
-                }
-              ],
+              "$type": "$Def_EffectText",
               "hashTag_JP": "治癒効果",
               "hashTag_EN": "Aiding Effect"
             },
             {
               "hashTag": "Rewriting",
-              "$type": [
-                {
-                  "hashTag": "EffectText",
-                  "$type": "#String_JP,#ListLink",
-                  "$display": {
-                    "rankFormat": "alphaLabel",
-                    "listLinkEnumName": "Rank",
-                    "listLinkShowEnum": true
-                  }
-                }
-              ],
+              "$type": "$Def_EffectText",
               "hashTag_JP": "時空改竄の恐れ",
               "hashTag_EN": "Risk of Spacetime Rewriting"
             }
@@ -283,6 +233,21 @@
     }
   ],
   "$VersDef": {
+    "$Def_EffectText": {
+      "$DefType": [
+        {
+          "hashTag": "EffectText",
+          "$type": "#String_JP,#ListLink",
+          "$display": {
+            "rankFormat": "alphaLabel",
+            "listLinkEnumName": "Rank",
+            "listLinkShowEnum": true
+          },
+          "hashTag_JP": "効果(テキスト形式)",
+          "hashTag_EN": "Effect(Text Format)"
+        }
+      ]
+    },
     "$Def_Relations": {
       "$DefType": [
         {

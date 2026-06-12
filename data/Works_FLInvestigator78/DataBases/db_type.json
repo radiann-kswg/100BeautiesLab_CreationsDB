@@ -187,81 +187,31 @@
           "$type": [
             {
               "hashTag": "Physical",
-              "$type": [
-                {
-                  "hashTag": "EffectText",
-                  "$type": "#String_JP,#ListLink",
-                  "$display": {
-                    "rankFormat": "alphaLabel",
-                    "listLinkEnumName": "Rank",
-                    "listLinkShowEnum": true
-                  }
-                }
-              ],
+              "$type": "$Def_EffectText",
               "hashTag_JP": "物理的作用",
               "hashTag_EN": "Physical Effect"
             },
             {
               "hashTag": "Magical",
-              "$type": [
-                {
-                  "hashTag": "EffectText",
-                  "$type": "#String_JP,#ListLink",
-                  "$display": {
-                    "rankFormat": "alphaLabel",
-                    "listLinkEnumName": "Rank",
-                    "listLinkShowEnum": true
-                  }
-                }
-              ],
+              "$type": "$Def_EffectText",
               "hashTag_JP": "魔法的作用",
               "hashTag_EN": "Magical Effect"
             },
             {
               "hashTag": "Healing",
-              "$type": [
-                {
-                  "hashTag": "EffectText",
-                  "$type": "#String_JP,#ListLink",
-                  "$display": {
-                    "rankFormat": "alphaLabel",
-                    "listLinkEnumName": "Rank",
-                    "listLinkShowEnum": true
-                  }
-                }
-              ],
+              "$type": "$Def_EffectText",
               "hashTag_JP": "治癒的作用",
               "hashTag_EN": "Healing Effect"
             },
             {
               "hashTag": "Violent",
-              "$type": [
-                {
-                  "hashTag": "EffectText",
-                  "$type": "#String_JP,#ListLink",
-                  "$display": {
-                    "rankFormat": "alphaLabel",
-                    "listLinkEnumName": "Rank",
-                    "listLinkShowEnum": true
-                  }
-                }
-              ],
+              "$type": "$Def_EffectText",
               "hashTag_JP": "暴力的作用",
               "hashTag_EN": "Violent Effect"
             },
             {
               "hashTag": "Rewriting",
-              "$type": [
-                {
-                  "hashTag": "EffectText",
-                  "$type": "#String_JP,#ListLink",
-                  "$display": {
-                    "rankFormat": "alphaLabel",
-                    "listLinkEnumName": "Rank",
-                    "listLinkShowEnum": true
-                  }
-                }
-              ],
+              "$type": "$Def_EffectText",
               "hashTag_JP": "リライト作用",
               "hashTag_EN": "Rewriting Effect"
             }
@@ -274,5 +224,22 @@
       "hashTag_EN": "ArcanumSpec (Arcana Ability) Traits",
       "$display": { "sectionWrapper": "statsSection" }
     }
-  ]
+  ],
+  "$VersDef": {
+    "$Def_EffectText": {
+      "$DefType": [
+        {
+          "hashTag": "EffectText",
+          "$type": "#String_JP,#ListLink",
+          "$display": {
+            "rankFormat": "alphaLabel",
+            "listLinkEnumName": "Rank",
+            "listLinkShowEnum": true
+          },
+          "hashTag_JP": "効果(テキスト形式)",
+          "hashTag_EN": "Effect(Text Format)"
+        }
+      ]
+    }
+  }
 }

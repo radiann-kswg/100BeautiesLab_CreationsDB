@@ -15,7 +15,8 @@
     {
       "hashTag": "ForMasterCalling",
       "$type": "#String|#Summary",
-      "hashTag_JP": "主人の呼び方"
+      "hashTag_JP": "主人の呼び方",
+      "hashTag_EN": "For Master Calling"
     },
     {
       "hashTag": "ForMasterCalling_EN",
@@ -25,7 +26,8 @@
     {
       "hashTag": "TailsUnit",
       "$type": "#String",
-      "hashTag_JP": "尻尾の形状"
+      "hashTag_JP": "尻尾の形状",
+      "hashTag_EN": "Shape of Tails Unit"
     },
     {
       "hashTag": "TailsUnit_EN",
@@ -35,7 +37,8 @@
     {
       "hashTag": "NumerospecAbout",
       "$type": "#Summary",
-      "hashTag_JP": "\"カバラの加護\"(数秘的加護)について"
+      "hashTag_JP": "\"カバラの加護\"(数秘的加護)について",
+      "hashTag_EN": "About Kabbalistic Protection (Numerospec)"
     },
     {
       "hashTag": "NumerospecAbout_EN",
@@ -82,10 +85,9 @@
           "hashTag_EN": "Illustration Works"
         }
       ],
-      "$display": {
-        "section": "images",
-        "tagSpace": "internal"
-      }
+      "$display": { "section": "images", "tagSpace": "internal" },
+      "hashTag_JP": "画像",
+      "hashTag_EN": "Images"
     },
     {
       "hashTag": "NumerospecStats",
@@ -95,81 +97,31 @@
           "$type": [
             {
               "hashTag": "Mental",
-              "$type": [
-                {
-                  "hashTag": "EffectText",
-                  "$type": "#String_JP,#ListLink",
-                  "$display": {
-                    "rankFormat": "alphaLabel",
-                    "listLinkEnumName": "Rank",
-                    "listLinkShowEnum": true
-                  }
-                }
-              ],
+              "$type": "$Def_EffectText",
               "hashTag_JP": "精神的作用",
               "hashTag_EN": "Mental Effect"
             },
             {
               "hashTag": "Monetize",
-              "$type": [
-                {
-                  "hashTag": "EffectText",
-                  "$type": "#String_JP,#ListLink",
-                  "$display": {
-                    "rankFormat": "alphaLabel",
-                    "listLinkEnumName": "Rank",
-                    "listLinkShowEnum": true
-                  }
-                }
-              ],
+              "$type": "$Def_EffectText",
               "hashTag_JP": "金銭的作用",
               "hashTag_EN": "Monetary Effect"
             },
             {
               "hashTag": "Working",
-              "$type": [
-                {
-                  "hashTag": "EffectText",
-                  "$type": "#String_JP,#ListLink",
-                  "$display": {
-                    "rankFormat": "alphaLabel",
-                    "listLinkEnumName": "Rank",
-                    "listLinkShowEnum": true
-                  }
-                }
-              ],
+              "$type": "$Def_EffectText",
               "hashTag_JP": "作業効率への作用",
               "hashTag_EN": "Working Efficiency Effect"
             },
             {
               "hashTag": "Luck",
-              "$type": [
-                {
-                  "hashTag": "EffectText",
-                  "$type": "#String_JP,#ListLink",
-                  "$display": {
-                    "rankFormat": "alphaLabel",
-                    "listLinkEnumName": "Rank",
-                    "listLinkShowEnum": true
-                  }
-                }
-              ],
+              "$type": "$Def_EffectText",
               "hashTag_JP": "幸福度への作用",
               "hashTag_EN": "Luck Effect"
             },
             {
               "hashTag": "Communication",
-              "$type": [
-                {
-                  "hashTag": "EffectText",
-                  "$type": "#String_JP,#ListLink",
-                  "$display": {
-                    "rankFormat": "alphaLabel",
-                    "listLinkEnumName": "Rank",
-                    "listLinkShowEnum": true
-                  }
-                }
-              ],
+              "$type": "$Def_EffectText",
               "hashTag_JP": "社交能力への作用",
               "hashTag_EN": "Communication Effect"
             }
@@ -182,10 +134,7 @@
           "$type": "#Enum[]",
           "hashTag_JP": "特殊パターン",
           "hashTag_EN": "Special Pattern",
-          "$display": {
-            "section": "spec",
-            "tagSpace": "creation"
-          }
+          "$display": { "section": "spec", "tagSpace": "creation" }
         },
         {
           "hashTag": "SafetyLevel",
@@ -197,7 +146,8 @@
                 "rankFormat": "alphaLabel",
                 "listLinkEnumName": "Rank",
                 "listLinkShowEnum": true
-              }
+              },
+              "hashTag_EN": "Safety Level"
             }
           ],
           "hashTag_JP": "安全レベル",
@@ -252,6 +202,21 @@
     }
   ],
   "$VersDef": {
+    "$Def_EffectText": {
+      "$DefType": [
+        {
+          "hashTag": "EffectText",
+          "$type": "#String_JP,#ListLink",
+          "$display": {
+            "rankFormat": "alphaLabel",
+            "listLinkEnumName": "Rank",
+            "listLinkShowEnum": true
+          },
+          "hashTag_JP": "効果(テキスト形式)",
+          "hashTag_EN": "Effect(Text Format)"
+        }
+      ]
+    },
     "$Def_Relations": {
       "$DefType": [
         {
