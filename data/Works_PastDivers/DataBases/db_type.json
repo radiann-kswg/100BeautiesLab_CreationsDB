@@ -6,7 +6,8 @@
         "hashTag": "Lunar",
         "$type": "#IndexListKey",
         "hashTag_JP": "月暦",
-        "hashTag_EN": "Lunar"
+        "hashTag_EN": "Lunar",
+        "$display": { "langMode": "shared" }
       },
       {
         "hashTag": "Num",

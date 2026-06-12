@@ -1,22 +1,18 @@
 [
   {
     "KinematicOrStatic": "Kinematic",
-    "KinematicOrStatic_JP": "動",
-    "KinematicOrStatic_EN": "Kinematic"
+    "KinematicOrStatic_JP": "動"
   },
   {
     "KinematicOrStatic": "Static",
-    "KinematicOrStatic_JP": "静",
-    "KinematicOrStatic_EN": "Static"
+    "KinematicOrStatic_JP": "静"
   },
   {
     "KinematicOrStatic": "Pre-Kinematic",
-    "KinematicOrStatic_JP": "壊",
-    "KinematicOrStatic_EN": "Pre-Kinematic"
+    "KinematicOrStatic_JP": "壊"
   },
   {
     "KinematicOrStatic": "Pre-Static",
-    "KinematicOrStatic_JP": "情",
-    "KinematicOrStatic_EN": "Pre-Static"
+    "KinematicOrStatic_JP": "情"
   }
 ]

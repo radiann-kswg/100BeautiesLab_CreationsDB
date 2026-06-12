@@ -250,6 +250,115 @@
 
 ---
 
+## 2026-06-12 追記：和英共通値フィールドの `langMode: shared` 導入
+
+### 背景
+
+- `ModelNumber` / `BustSize` / `Letter.Alphabet` のように、値自体は和英で共通に扱えるフィールドについて、
+  常に `_EN` を併記しなくても EN 表示で流用できるようにしたい。
+- 併せて、`hideText` は `data/db_type.json` の `#List_hideText` に和英対応があるため、
+  フィールド別 `_EN` を足さずに varsdef 側の英語ラベルを優先できるようにする。
+
+### 対応内容
+
+- `pages/characters.js`
+  - `$display.langMode === "shared"` の場合、EN 表示時も base 値をフォールバックとして採用するよう調整
+  - `hideText` の表示は schema 種別に依存させず、常に varsdef (`#List_hideText`) から英語ラベル解決を試みるよう調整
+
+- `data/db_type.json`
+  - `ModelNumber` に `$display.langMode: "shared"` を追加
+  - `BustSize` に `$display.langMode: "shared"` を追加
+
+- `data/Works_UnibyteLive/DataBases/db_type.json`
+  - `$IndexDef.Letter.Alphabet` に `$display.langMode: "shared"` を追加
+
+- 実データ整理
+  - `data/Works_PastDivers/DataBases/db_Primary.json`
+    - `Yayoi.Unlike_EN` を削除（`hideText` varsdef 英訳へ委譲）
+    - `Leap.ModelNumber_EN` / `Leap.RaceType_EN` を削除（共通値として base を利用）
+
+### 検証
+
+- `tests/pages.characters.ui-output.test.js`
+  - 追加テスト:
+    - `hideText` が EN で varsdef 英訳されること
+    - `langMode: shared` な `ModelNumber` が `_EN` 空でも base 値で表示されること
+- `tests/bilingual-fields.test.js`: pass
+- `tests/data.sanity.test.js`: pass
+
+### 備考
+
+- `tests/pages.characters.ui-output.test.js` には今回変更と無関係の既知失敗 2 件が引き続き存在するため、
+  追加した shared/hideText 回帰テストは個別実行で確認した。
+
+---
+
+## 2026-06-12 追記：shared 値フィールドの横展開と冗長 `_EN` 整理
+
+### 方針
+
+- 値そのものが和英共通で扱える field は、`$display.langMode: "shared"` を付けて
+  EN 表示時も base 値をそのまま利用できるようにする。
+- `#Dict_*` / `#List_*` / `hideText` のように、varsdef 側で和英解決または raw fallback が可能なものは
+  冗長な `_EN` を削ってデータを簡素化する。
+
+### typedef 追加・更新
+
+- `data/Works_FLInvestigator78/DataBases/db_type.json`
+  - `Card.Stoat`
+  - `ArcanumspecStats.SpecType.Material`
+  - `ArcanumspecStats.SpecType.KinematicOrStatic`
+  - `ArcanumspecStats.SpecType.RoleType`
+  - 以上に `langMode: "shared"` を追加
+
+- `data/Works_PastDivers/DataBases/db_type.json`
+  - `Chronos.Lunar` に `langMode: "shared"` を追加
+
+### 冗長 `_EN` の削除
+
+- `data/Works_FLInvestigator78/Dictionaries/`
+  - `dict_Stoat.json`: `Stoat_EN` を削除
+  - `dict_Material.json`: `Material_EN` を削除
+  - `dict_KinematicOrStatic.json`: `KinematicOrStatic_EN` を削除
+  - `dict_RoleType.json`: `RoleType_EN` を削除
+
+- `data/Works_NumberTales/DataBases/db_Primary.json`
+  - `Unlike_EN: { hideText: "???" }` を削除
+    - `#List_hideText` の varsdef 英訳へ委譲
+
+### 検証
+
+- `tests/pages.characters.ui-output.test.js`
+  - `renders varsdef-backed hideText values in English without requiring a field-specific _EN sibling`: pass
+  - `renders shared-language fields in English from the base value even when the _EN sibling is blank`: pass
+- `tests/bilingual-fields.test.js`: pass
+- `tests/data.sanity.test.js`: pass
+
+---
+
+## 2026-06-12 追記：`Works_Proxies` / `Works_ShouArRiders` の現状整理
+
+### 目的
+
+- shared 値フィールド整理の後、次の翻訳対象候補だった `Works_Proxies` と `Works_ShouArRiders` を再点検し、
+  直ちに手動英訳が必要な残件があるかを確認する。
+
+### 結果
+
+- `data/Works_Proxies/DataBases/db_Proxy.json`
+  - 現在のデータでは、既存トップレベル項目の英訳は概ね充足している。
+  - 一部 `hideText` 値（例: `Unlike`, `Weight_kg`, `SpecialSkill`）は `#List_hideText` の varsdef 英訳 fallback で対応可能。
+  - `ConversationPattern` は存在するレコードでは EN 項目が概ね揃っており、未入力そのものの項目を新規創作的に補完する段階ではないと判断。
+
+- `data/Works_ShouArRiders/DataBases/db_Primary.json`
+  - 現行レコード群は、今回の運用基準（空値除外・hideText fallback 許容）では手動追補が必要な未英訳トップレベル項目なし。
+
+### 補足
+
+- この2作品については「今すぐ埋めるべき不足英訳」よりも、今後は wording 推敲や shared/fallback ルール適用の横展開が主眼になる見込み。
+
+---
+
 ## 2026-06-12 追記：Works_PastDivers キャラ本体 EN 補完（全数）
 
 ### 対象

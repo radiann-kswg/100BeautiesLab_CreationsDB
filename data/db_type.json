@@ -53,7 +53,8 @@
       "hashTag": "ModelNumber",
       "$type": "##String",
       "hashTag_JP": "型番",
-      "hashTag_EN": "Model Number"
+      "hashTag_EN": "Model Number",
+      "$display": { "langMode": "shared" }
     },
     {
       "hashTag": "ModelName",
@@ -122,7 +123,8 @@
       "hashTag": "BustSize",
       "$type": "#String|#String_withAbout",
       "hashTag_JP": "バストサイズ",
-      "hashTag_EN": "Bust Size"
+      "hashTag_EN": "Bust Size",
+      "$display": { "langMode": "shared" }
     },
     {
       "hashTag": "Age",

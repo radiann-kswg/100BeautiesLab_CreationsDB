@@ -6,7 +6,8 @@
         "hashTag": "Alphabet",
         "$type": "#ListIndex",
         "hashTag_JP": "アルファベットキー",
-        "hashTag_EN": "Alphabet Key"
+        "hashTag_EN": "Alphabet Key",
+        "$display": { "langMode": "shared" }
       },
       {
         "hashTag": "Generation",

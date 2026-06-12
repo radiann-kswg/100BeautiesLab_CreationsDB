@@ -3367,17 +3367,6 @@ function formatValueForDisplay(value, labelMap = {}, workMeta = null, globalDefT
 		const rawMasked = (typeof maskedText === 'string') ? maskedText.trim() : '';
 		if (!rawMasked) return '';
 
-		const shouldResolveMaskedLabel = (
-			schemaTypeIncludes(opt?.schemaType, '#String_JP')
-			|| schemaTypeIncludes(opt?.schemaType, '#String_EN')
-			|| schemaTypeIncludes(opt?.schemaType, '#ListLink')
-			|| schemaTypeIncludes(opt?.schemaType, '#ListIndex')
-			|| schemaTypeIncludes(opt?.schemaType, '#DictIndex')
-			|| schemaTypeIncludes(opt?.schemaType, '$EnumDef')
-		);
-
-		if (!shouldResolveMaskedLabel) return rawMasked;
-
 		const pack = resolveVarsDefLabelPack('hideText', rawMasked, globalDefType, workMeta, 'hideText');
 		return formatBilingualLabel(pack, rawMasked, opt?.display) || rawMasked;
 	};
@@ -5477,6 +5466,15 @@ export async function renderDetail(workId, rec) {
 			return { base: m[1], lang: m[2] === 'JP' ? 'JP' : 'EN' };
 		};
 
+		const getDisplayLangMode = (display) => {
+			const mode = (display && typeof display === 'object' && typeof display.langMode === 'string')
+				? display.langMode.trim().toLowerCase()
+				: '';
+			return mode;
+		};
+
+		const isSharedLanguageDisplay = (display) => getDisplayLangMode(display) === 'shared';
+
 		/**
 		 * 空値判定（`$alt` と同様の扱い）
 		 * @param {any} v
@@ -5529,8 +5527,10 @@ export async function renderDetail(workId, rec) {
 			const baseText = textByKey.get(base) || textByKey.get(`${base}_JP`) || '';
 			const enText = textByKey.get(`${base}_EN`) || '';
 			const lang = getCurrentPageLanguage();
+			const displayHint = topLevelDisplayMap?.[base] ?? topLevelDisplayMap?.[`${base}_JP`] ?? topLevelDisplayMap?.[`${base}_EN`] ?? null;
+			const sharedLanguage = isSharedLanguageDisplay(displayHint);
 			if (lang === 'en') {
-				const text = enText || '';
+				const text = sharedLanguage ? (enText || baseText || pieces[0] || '') : (enText || '');
 				return { text, usedKeys, node: null };
 			}
 			if (lang === 'jp') {
@@ -6054,9 +6054,14 @@ export async function renderDetail(workId, rec) {
 			for (const [ck, cv] of Object.entries(obj)) {
 				if (!ck || typeof ck !== 'string') continue;
 				if (ck.startsWith('_')) continue;
+				const langInfo = parseLangSuffix(ck);
+				const baseChildKey = langInfo ? langInfo.base : ck;
+				const baseChildPath = `${parent}.${baseChildKey}`;
+				const baseDisplayHint = pickSchemaDisplay(baseChildPath, baseChildPath, parent);
+				const sharedLanguage = isSharedLanguageDisplay(baseDisplayHint);
 				if (lang === 'jp' && ck.endsWith('_EN')) continue;
 				if (lang === 'en' && ck.endsWith('_JP')) continue;
-				if (lang === 'en' && !ck.endsWith('_EN') && Object.prototype.hasOwnProperty.call(obj, `${ck}_EN`)) continue;
+				if (lang === 'en' && !ck.endsWith('_EN') && Object.prototype.hasOwnProperty.call(obj, `${ck}_EN`) && !sharedLanguage) continue;
 				if (isEmptyValueLoose(cv)) continue;
 
 				const childPath = `${parent}.${ck}`;
@@ -6756,9 +6761,14 @@ export async function renderDetail(workId, rec) {
 			for (const [childKey, childValue] of Object.entries(parentValue)) {
 				if (!childKey || typeof childKey !== 'string') continue;
 				if (childKey.startsWith('_')) continue;
+				const langInfo = parseLangSuffix(childKey);
+				const baseChildKey = langInfo ? langInfo.base : childKey;
+				const baseChildPath = `${parentKey}.${baseChildKey}`;
+				const baseDisplayHint = pickSchemaDisplay(baseChildPath, baseChildPath, parentKey);
+				const sharedLanguage = isSharedLanguageDisplay(baseDisplayHint);
 				if (lang === 'jp' && childKey.endsWith('_EN')) continue;
 				if (lang === 'en' && childKey.endsWith('_JP')) continue;
-				if (lang === 'en' && !childKey.endsWith('_EN') && Object.prototype.hasOwnProperty.call(parentValue, `${childKey}_EN`)) continue;
+				if (lang === 'en' && !childKey.endsWith('_EN') && Object.prototype.hasOwnProperty.call(parentValue, `${childKey}_EN`) && !sharedLanguage) continue;
 				if (excludedChildKeys.has(childKey)) continue;
 				if (isEmptyValueLoose(childValue)) continue;
 

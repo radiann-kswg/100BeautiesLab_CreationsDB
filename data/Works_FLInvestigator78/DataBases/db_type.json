@@ -6,7 +6,8 @@
         "hashTag": "Stoat",
         "$type": "#IndexListKey",
         "hashTag_JP": "カード種別",
-        "hashTag_EN": "CardType"
+        "hashTag_EN": "CardType",
+        "$display": { "langMode": "shared" }
       },
       {
         "hashTag": "StoatNum",
@@ -105,21 +106,33 @@
               "$type": "#ListIndex[]",
               "hashTag_JP": "元素属性",
               "hashTag_EN": "Elemental Attributes",
-              "$display": { "section": "spec", "tagSpace": "creation" }
+              "$display": {
+                "section": "spec",
+                "tagSpace": "creation",
+                "langMode": "shared"
+              }
             },
             {
               "hashTag": "KinematicOrStatic",
               "$type": "#ListIndex|#Null",
               "hashTag_JP": "動的か静的か",
               "hashTag_EN": "Kinematic or Static",
-              "$display": { "section": "spec", "tagSpace": "creation" }
+              "$display": {
+                "section": "spec",
+                "tagSpace": "creation",
+                "langMode": "shared"
+              }
             },
             {
               "hashTag": "RoleType",
               "$type": "#ListIndex|#Null",
               "hashTag_JP": "ロール種別",
               "hashTag_EN": "Role Type",
-              "$display": { "section": "spec", "tagSpace": "creation" }
+              "$display": {
+                "section": "spec",
+                "tagSpace": "creation",
+                "langMode": "shared"
+              }
             },
             {
               "hashTag": "DualizePattern",
