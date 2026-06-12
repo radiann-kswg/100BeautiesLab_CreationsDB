@@ -200,9 +200,7 @@
     }
   },
   "General": {
-    "Images": {
-      "catalog_PNGName": ["chr-dsgn_catalog-summary"]
-    },
+    "Images": { "catalog_PNGName": ["chr-dsgn_catalog-summary"] },
     "$VarsDef": {
       "$Def_NumerospecStats": {
         "$Def_EffectStats": {

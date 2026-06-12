@@ -218,3 +218,57 @@
 
 - 既存の `DB_Summary`（JP）本文は変更せず、EN フィールドを追加する形で対応。
 - 既に `DB_Summary_EN` が存在する `Works_FLInvestigator78` / `Works_DestinyFoxRecords` は今回対象外。
+
+---
+
+## 2026-06-12 追記：Works_PastDivers の辞書化（`#List_Lunar`）
+
+### 実施内容
+
+- 実行コマンド:
+  - `npm.cmd run dict:plan-enums -- --work=Works_PastDivers`
+  - `npm.cmd run dict:export-enums:prune -- --work=Works_PastDivers`
+
+- 反映内容:
+  - `data/Works_PastDivers/DataBases/db_meta.json`
+    - `General.$VarsDef.$Def_Chronos.#List_Lunar` を辞書へ移行（prune）
+  - `data/Works_PastDivers/Dictionaries/dict_Lunar.json`
+    - `#List_Lunar` 由来の辞書データを新規追加
+  - `data/Works_PastDivers/Dictionaries/db_meta.json`
+    - `#Dict_Lunar` を新規追加
+
+### ラベル推敲（FL 命名トーン準拠）
+
+- `#Dict_Lunar` の表示名を以下へ調整。
+  - `DB_Label`: `月暦種別辞書`
+  - `DB_Label_EN`: `Lunar Type Dictionary`
+
+### 検証
+
+- `tests/data.sanity.test.js`: pass
+- `tests/bilingual-fields.test.js`: pass
+
+---
+
+## 2026-06-12 追記：Works_PastDivers キャラ本体 EN 補完（全数）
+
+### 対象
+
+- `data/Works_PastDivers/DataBases/db_Primary.json`
+
+### 実施内容
+
+- 既存データ 13 レコードを走査し、値が入っているトップレベル項目で
+  `_EN` 未設定のものを抽出して補完。
+- 今回の追加項目:
+  - `Yayoi`: `Unlike_EN`（`hideText` 形式）
+  - `Leap`: `ModelNumber_EN`, `RaceType_EN`
+
+### 結果
+
+- 抽出条件上の「未英訳トップレベル項目」は 0 件になった。
+
+### 検証
+
+- `tests/data.sanity.test.js`: pass
+- `tests/bilingual-fields.test.js`: pass

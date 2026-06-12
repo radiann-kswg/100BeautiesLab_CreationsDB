@@ -1,27 +1,7 @@
 [
-  {
-    "Material": "Fire",
-    "Material_JP": "火",
-    "Material_EN": "Fire"
-  },
-  {
-    "Material": "Water",
-    "Material_JP": "水",
-    "Material_EN": "Water"
-  },
-  {
-    "Material": "Slash",
-    "Material_JP": "風",
-    "Material_EN": "Slash"
-  },
-  {
-    "Material": "Object",
-    "Material_JP": "土",
-    "Material_EN": "Object"
-  },
-  {
-    "Material": "Quart",
-    "Material_JP": "四",
-    "Material_EN": "Quart"
-  }
+  { "Material": "Fire", "Material_JP": "火", "Material_EN": "Fire" },
+  { "Material": "Water", "Material_JP": "水", "Material_EN": "Water" },
+  { "Material": "Slash", "Material_JP": "風", "Material_EN": "Slash" },
+  { "Material": "Object", "Material_JP": "土", "Material_EN": "Object" },
+  { "Material": "Quart", "Material_JP": "四", "Material_EN": "Quart" }
 ]

@@ -1,27 +1,11 @@
 [
-  {
-    "Stoat": "FireWands",
-    "Stoat_JP": "火の棍棒",
-    "Stoat_EN": "FireWands"
-  },
-  {
-    "Stoat": "WaterCups",
-    "Stoat_JP": "水の聖杯",
-    "Stoat_EN": "WaterCups"
-  },
-  {
-    "Stoat": "SlashSwords",
-    "Stoat_JP": "風の刀剣",
-    "Stoat_EN": "SlashSwords"
-  },
+  { "Stoat": "FireWands", "Stoat_JP": "火の棍棒", "Stoat_EN": "FireWands" },
+  { "Stoat": "WaterCups", "Stoat_JP": "水の聖杯", "Stoat_EN": "WaterCups" },
+  { "Stoat": "SlashSwords", "Stoat_JP": "風の刀剣", "Stoat_EN": "SlashSwords" },
   {
     "Stoat": "PentacleObjects",
     "Stoat_JP": "金の硬貨",
     "Stoat_EN": "PentacleObjects"
   },
-  {
-    "Stoat": "Dealer",
-    "Stoat_JP": "采配者(ディーラー)",
-    "Stoat_EN": "Dealer"
-  }
+  { "Stoat": "Dealer", "Stoat_JP": "采配者(ディーラー)", "Stoat_EN": "Dealer" }
 ]

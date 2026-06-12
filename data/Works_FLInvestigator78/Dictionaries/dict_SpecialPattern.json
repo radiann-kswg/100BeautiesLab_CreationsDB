@@ -1,8 +1,5 @@
 [
-  {
-    "SpecialPattern": "Ptn.A(覚醒)",
-    "SpecialPattern_EN": "Ptn.A(Awakening)"
-  },
+  { "SpecialPattern": "Ptn.A(覚醒)", "SpecialPattern_EN": "Ptn.A(Awakening)" },
   {
     "SpecialPattern": "Ptn.B(士気操作)",
     "SpecialPattern_EN": "Ptn.B(Morale Manipulation)"
@@ -19,10 +16,7 @@
     "SpecialPattern": "Ptn.H(癒術)",
     "SpecialPattern_EN": "Ptn.H(Healing Arts)"
   },
-  {
-    "SpecialPattern": "Ptn.I(幻術)",
-    "SpecialPattern_EN": "Ptn.I(Illusion)"
-  },
+  { "SpecialPattern": "Ptn.I(幻術)", "SpecialPattern_EN": "Ptn.I(Illusion)" },
   {
     "SpecialPattern": "Ptn.L(転化)",
     "SpecialPattern_EN": "Ptn.L(Transmutation)"
@@ -39,8 +33,5 @@
     "SpecialPattern": "Ptn.Q(天変地異)",
     "SpecialPattern_EN": "Ptn.Q(Cataclysm)"
   },
-  {
-    "SpecialPattern": "Ptn.Z(終焉)",
-    "SpecialPattern_EN": "Ptn.Z(Terminus)"
-  }
+  { "SpecialPattern": "Ptn.Z(終焉)", "SpecialPattern_EN": "Ptn.Z(Terminus)" }
 ]

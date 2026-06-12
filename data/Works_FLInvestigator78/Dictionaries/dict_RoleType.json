@@ -1,42 +1,10 @@
 [
-  {
-    "RoleType": "Lead",
-    "RoleType_JP": "律",
-    "RoleType_EN": "Lead"
-  },
-  {
-    "RoleType": "Keep",
-    "RoleType_JP": "秘",
-    "RoleType_EN": "Keep"
-  },
-  {
-    "RoleType": "Frier",
-    "RoleType_JP": "遊",
-    "RoleType_EN": "Frier"
-  },
-  {
-    "RoleType": "Control",
-    "RoleType_JP": "操",
-    "RoleType_EN": "Control"
-  },
-  {
-    "RoleType": "Heal",
-    "RoleType_JP": "癒",
-    "RoleType_EN": "Heal"
-  },
-  {
-    "RoleType": "Fere",
-    "RoleType_JP": "妨",
-    "RoleType_EN": "Fere"
-  },
-  {
-    "RoleType": "Repair",
-    "RoleType_JP": "修",
-    "RoleType_EN": "Repair"
-  },
-  {
-    "RoleType": "Archive",
-    "RoleType_JP": "終",
-    "RoleType_EN": "Archive"
-  }
+  { "RoleType": "Lead", "RoleType_JP": "律", "RoleType_EN": "Lead" },
+  { "RoleType": "Keep", "RoleType_JP": "秘", "RoleType_EN": "Keep" },
+  { "RoleType": "Frier", "RoleType_JP": "遊", "RoleType_EN": "Frier" },
+  { "RoleType": "Control", "RoleType_JP": "操", "RoleType_EN": "Control" },
+  { "RoleType": "Heal", "RoleType_JP": "癒", "RoleType_EN": "Heal" },
+  { "RoleType": "Fere", "RoleType_JP": "妨", "RoleType_EN": "Fere" },
+  { "RoleType": "Repair", "RoleType_JP": "修", "RoleType_EN": "Repair" },
+  { "RoleType": "Archive", "RoleType_JP": "終", "RoleType_EN": "Archive" }
 ]
