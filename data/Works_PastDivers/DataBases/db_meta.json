@@ -4,6 +4,7 @@
       "DB_Label": "一次創作",
       "DB_Label_EN": "Primary",
       "DB_Summary": "「夜月機関」の正式な幹部に相当する一次創作キャラクター。\n和暦の月名に関連するコードネームが付与されている。",
+      "DB_Summary_EN": "Primary-creation characters corresponding to the formal executive officers of the Yadzuki Organization.\nEach one is assigned a codename related to a traditional Far-Eastern month name.",
       "StoryEra": {
         "FromEra": [{ "EraGen": 8, "YearInEra": 3 }, { "byRealYear": 2047 }],
         "ToEra": [{ "EraGen": 8, "YearInEra": 4 }, { "byRealYear": 2048 }],
@@ -110,7 +111,8 @@
     "#DB_SemiPrimary": {
       "DB_Label": "準一次創作",
       "DB_Label_EN": "Semi-Primary",
-      "DB_Summary": "「夜月機関」の先代幹部に相当する公式アンソロジー向け一次創作キャラクター。\n和暦の月名に関連するコードネームが付与されているのは通常と同様だが、登場数がまだ不完全なものとなっている。",
+      "DB_Summary": "「夜月機関」の先代幹部に相当する公式アンソロジー向け一次創作キャラクター。\n月名に関連するコードネームが付与されているのは通常と同様だが、登場数がまだ不完全なものとなっている。",
+      "DB_Summary_EN": "Primary-creation characters for official anthology works, corresponding to former-generation executive officers of the Yadzuki Organization.\nAs in the main line, codenames are based on traditional month names, but the roster is still incomplete.",
       "StoryEra": {
         "FromEra": [{ "EraGen": 7, "YearInEra": 24 }, { "byRealYear": 2044 }],
         "ToEra": [
@@ -219,154 +221,7 @@
   },
   "General": {
     "$VarsDef": {
-      "$Def_Chronos": {
-        "#List_Lunar": [
-          {
-            "Lunar": "Kamiaridzuki",
-            "Lunar_JP": "神有月",
-            "Num": null,
-            "Generation": 3
-          },
-          {
-            "Lunar": "Nullius",
-            "Lunar_JP": "原初月",
-            "Num": null,
-            "Generation": 2
-          },
-          {
-            "Lunar": "Chronos",
-            "Lunar_JP": "創世月",
-            "Num": null,
-            "Generation": 1
-          },
-          {
-            "Lunar": "Zeroth",
-            "Lunar_JP": "初零月",
-            "Num": 0,
-            "Generation": null
-          },
-          { "Lunar": "Mutsuki", "Lunar_JP": "睦月", "Num": 1, "Generation": 2 },
-          {
-            "Lunar": "Januarius",
-            "Lunar_JP": "睦月(初代)",
-            "Num": 1,
-            "Generation": 1
-          },
-          {
-            "Lunar": "Kisaragi",
-            "Lunar_JP": "如月",
-            "Num": 2,
-            "Generation": 2
-          },
-          {
-            "Lunar": "Februarius",
-            "Lunar_JP": "如月(初代)",
-            "Num": 2,
-            "Generation": 1
-          },
-          { "Lunar": "Yayoi", "Lunar_JP": "弥生", "Num": 3, "Generation": 3 },
-          {
-            "Lunar": "Martius",
-            "Lunar_JP": "弥生(初代)",
-            "Num": 3,
-            "Generation": 1
-          },
-          {
-            "Lunar": "Martius.II",
-            "Lunar_JP": "弥生(先代)",
-            "Num": 3,
-            "Generation": 2
-          },
-          { "Lunar": "Udzuki", "Lunar_JP": "卯月", "Num": 4, "Generation": 2 },
-          {
-            "Lunar": "Aprilis",
-            "Lunar_JP": "卯月(初代)",
-            "Num": 4,
-            "Generation": 1
-          },
-          { "Lunar": "Satsuki", "Lunar_JP": "皐月", "Num": 5, "Generation": 2 },
-          {
-            "Lunar": "Maius",
-            "Lunar_JP": "皐月(初代)",
-            "Num": 5,
-            "Generation": 1
-          },
-          {
-            "Lunar": "Minadzuki",
-            "Lunar_JP": "水無月",
-            "Num": 6,
-            "Generation": 3
-          },
-          {
-            "Lunar": "Junius",
-            "Lunar_JP": "水無月(初代)",
-            "Num": 6,
-            "Generation": 1
-          },
-          {
-            "Lunar": "Junius.II",
-            "Lunar_JP": "水無月(先代)",
-            "Num": 6,
-            "Generation": 2
-          },
-          {
-            "Lunar": "Fumdzuki",
-            "Lunar_JP": "文月",
-            "Num": 7,
-            "Generation": 2
-          },
-          {
-            "Lunar": "Julius",
-            "Lunar_JP": "文月(初代)",
-            "Num": 7,
-            "Generation": 1
-          },
-          { "Lunar": "Hadzuki", "Lunar_JP": "葉月", "Num": 8, "Generation": 2 },
-          {
-            "Lunar": "Augustus",
-            "Lunar_JP": "葉月(初代)",
-            "Num": 8,
-            "Generation": 1
-          },
-          {
-            "Lunar": "Nagatsuki",
-            "Lunar_JP": "長月",
-            "Num": 9,
-            "Generation": 3
-          },
-          {
-            "Lunar": "September",
-            "Lunar_JP": "長月(先代)",
-            "Num": 9,
-            "Generation": 2
-          },
-          {
-            "Lunar": "Kannadzuki",
-            "Lunar_JP": "神無月",
-            "Num": 10,
-            "Generation": 2
-          },
-          {
-            "Lunar": "October",
-            "Lunar_JP": "神有月(初代)",
-            "Num": 10,
-            "Generation": 1
-          },
-          {
-            "Lunar": "Shimotsuki",
-            "Lunar_JP": "霜月",
-            "Num": 11,
-            "Generation": 1
-          },
-          {
-            "Lunar": "Shiwasu",
-            "Lunar_JP": "師走",
-            "Num": 12,
-            "Generation": 1
-          },
-          { "Lunar": "Leap", "Lunar_JP": "閏月", "Num": 13, "Generation": null }
-        ]
-      },
+      "$Def_Chronos": {},
       "$Def_ChronospecStats": {
         "$Def_EffectStats": {
           "#ListLink_EffectText": [

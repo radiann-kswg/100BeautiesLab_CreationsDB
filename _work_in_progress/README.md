@@ -18,6 +18,7 @@
 - 2026-05-29_progress_bilingual-wrapper-apiswui.md（bilingual wrapper API/SW 対応・UI 表示未完了）
 - 2026-06-01_remaining-task.md（現行の未完了タスク一覧・最新）
 - 2026-06-09_progress_identitymotif-conversion.md（IdentityMotif 新形式変換・Motif_JP 整備残）
+- 2026-06-11_progress_english-fields-addition.md（英訳フィールド追加依頼・進捗記録）
 
 補足:
 

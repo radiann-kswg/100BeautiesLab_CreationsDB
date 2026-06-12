@@ -20,7 +20,8 @@
     {
       "hashTag": "Model",
       "$type": "#Index",
-      "hashTag_JP": "型式"
+      "hashTag_JP": "型式",
+      "hashTag_EN": "Model"
     },
     {
       "hashTag": "ForMasterCalling",
@@ -29,16 +30,29 @@
       "hashTag_JP": "主人の呼び方"
     },
     {
+      "hashTag": "ForMasterCalling_EN",
+      "$type": "#String_EN|#Summary|#Null",
+      "isForMobs": false,
+      "hashTag_EN": "For Master Calling"
+    },
+    {
       "hashTag": "LogicspecAbout",
       "$type": "#Summary",
       "isForMobs": null,
       "hashTag_JP": "ロジカ(論理特殊能力)について"
     },
     {
+      "hashTag": "LogicspecAbout_EN",
+      "$type": "#Summary|#Null",
+      "isForMobs": null,
+      "hashTag_EN": "About Logicspec"
+    },
+    {
       "hashTag": "ExistingRarity",
       "$type": [{ "hashTag": "Rarity", "$type": "$EnumDef_Rarity,$EnumLink" }],
       "isForMobs": true,
       "hashTag_JP": "残存レア度",
+      "hashTag_EN": "Existing Rarity",
       "$display": {
         "section": "spec",
         "tagSpace": "creation",

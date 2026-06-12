@@ -4,6 +4,7 @@
       "DB_Label": "一次創作",
       "DB_Label_EN": "Primary",
       "DB_Summary": "ナンバーテールズのうち、公式一次創作作品に登場するキャラクター。\n99以内の非負整数である数秘をそれぞれ有している。",
+      "DB_Summary_EN": "Among NumberTales, characters appearing in official primary works.\nEach one has numerology based on a non-negative integer up to 99.",
       "StoryEra": {
         "FromEra": [
           { "EraGen": 9, "YearInEra": 3 },
@@ -32,6 +33,7 @@
       "DB_Label": "準一次創作",
       "DB_Label_EN": "Semi-Primary",
       "DB_Summary": "ナンバーテールズのうち、公式の下でアンソロジーとしてデザインされたキャラクターで、こちらは一次創作に準ずる括りとする。\n公式一次創作作品の延長として登場する番号やゾロ目(マスターナンバーとしての33および111の倍数)や一部キリ番などの非負整数を主とした数秘をそれぞれ有している。",
+      "DB_Summary_EN": "Among NumberTales, characters designed as an anthology under official supervision and treated as quasi-primary creations.\nEach one has numerology centered on non-negative integers, including numbers extended from official primary works, repdigits (33 and multiples of 111 as master numbers), and selected milestone numbers.",
       "StoryEra": {
         "FromEra": [
           { "EraGen": 9, "YearInEra": 3 },
@@ -56,6 +58,7 @@
       "DB_Label": "セルフ二次創作",
       "DB_Label_EN": "Self-Secondary",
       "DB_Summary": "ナンバーテールズのうち、公式または公式指導の下で副次創作としてデザインされたキャラクターで、こちらは二次創作に準ずる括りとする。\nゾロ目(111の倍数)などの予約された番号を除く101以上999未満の非負整数である数秘をそれぞれ有している。",
+      "DB_Summary_EN": "Among NumberTales, characters designed as derivative creations under official production or official guidance, treated as quasi-secondary creations.\nEach one has numerology based on a non-negative integer from 101 to below 999, excluding reserved numbers such as repdigits (multiples of 111).",
       "_Secondaries": [
         {
           "sec_Category": "リクエストナンバー",
@@ -83,6 +86,7 @@
       "DB_Label": "二次創作",
       "DB_Label_EN": "Secondary",
       "DB_Summary": "ナンバーテールズのうち、公認された副次創作作品内で登場した二次創作キャラクター。\n有している数秘の制約については、原則としてガイドラインに準拠したものであるならば概ね何でもよい。",
+      "DB_Summary_EN": "Among NumberTales, secondary-creation characters appearing in approved derivative works.\nAs for numerology constraints, almost any setting is acceptable in principle as long as it follows the guidelines.",
       "_Secondaries": [
         {
           "sec_Category": "自創作キャラ化企画",
@@ -163,6 +167,7 @@
         "DB_Label": "未整理の二次創作枠",
         "DB_Label_EN": "Unprocessed Secondary",
         "DB_Summary": "ナンバーテールズのうち、まだ制作予定のない3桁の番号をもつキャラクターの空き枠で、こちらは二次創作に準ずる括りとする。\nゾロ目(111の倍数)などの予約された番号を除く101以上999未満の非負整数である数秘をそれぞれ有している。",
+        "DB_Summary_EN": "Among NumberTales, placeholder slots for characters with three-digit numbers that are not yet planned for production, treated as quasi-secondary creations.\nEach one has numerology based on a non-negative integer from 101 to below 999, excluding reserved numbers such as repdigits (multiples of 111).",
         "_Secondaries": [
           {
             "sec_Category": null,
@@ -183,19 +188,19 @@
       "DB_Label": "創作用語",
       "DB_Label_EN": "Glossary",
       "DB_Layer": "References",
-      "DB_Summary": "ナンバーテールズ固有の用語に関する資料。"
+      "DB_Summary": "ナンバーテールズ固有の用語に関する資料。",
+      "DB_Summary_EN": "Reference materials for NumberTales-specific terminology."
     },
     "#Ref_Reference": {
       "DB_Label": "創作基本資料",
       "DB_Label_EN": "Reference",
       "DB_Layer": "References",
-      "DB_Summary": "ナンバーテールズの世界観に関する基本資料。"
+      "DB_Summary": "ナンバーテールズの世界観に関する基本資料。",
+      "DB_Summary_EN": "Basic reference materials for the NumberTales world setting."
     }
   },
   "General": {
-    "Images": {
-      "catalog_PNGName": ["chr-dsgn_catalog-summary"]
-    },
+    "Images": { "catalog_PNGName": ["chr-dsgn_catalog-summary"] },
     "$VarsDef": {
       "$Def_NumerospecStats": {
         "$Def_EffectStats": {
@@ -326,53 +331,194 @@
           ]
         },
         "#List_SpecialPattern": [
-          "Ptn.A(行動補正効果)",
-          "Ptn.Ar(能力発揮効果)",
-          "Ptn.Av(能力比例作用)",
-          "Ptn.B(バイタリティ強化効果)",
-          "Ptn.B+(物理的なバイタリティ効果)",
-          "Ptn.C(状況変化効果)",
-          "Ptn.C-(状況変化効果がある傾向)",
-          "Ptn.Ch(連鎖効果有)",
-          "Ptn.Dr(目標比例作用)",
-          "Ptn.Dr-(目標比例作用がある傾向)",
-          "Ptn.Ec(士気比例作用)",
-          "Ptn.Ec-(士気比例作用と思われる)",
-          "Ptn.Es(自己認知効果)",
-          "Ptn.F(超能力保有)",
-          "Ptn.F-(超能力保有の可能性)",
-          "Ptn.Hm(心理安定化効果)",
-          "Ptn.I(高性能知能搭載)",
-          "Ptn.Kn(知性効果)",
-          "Ptn.Lg(思考向上効果)",
-          "Ptn.Lg-(思考向上効果がある可能性)",
-          "Ptn.Lr(幸福実現効果)",
-          "Ptn.Lr-(条件付き幸福実現効果)",
-          "Ptn.M(マネタイズ効果または資産操作能力)",
-          "Ptn.M-(マネタイズ効果または資産操作効果がある傾向)",
-          "Ptn.MRn(マネタイズまたは資産運用に対する乱数的な効果)",
-          "Ptn.Ms(自己転化効果)",
-          "Ptn.Ms-(自己転化効果がある可能性)",
-          "Ptn.Mt(母性的作用の傾向)",
-          "Ptn.Pc(平穏増幅効果)",
-          "Ptn.Py(読心効果)",
-          "Ptn.R-(効果保証作用がある傾向)",
-          "Ptn.Rc(救済効果)",
-          "Ptn.Rc-(救済効果がある傾向)",
-          "Ptn.Rz(実現性向上効果)",
-          "Ptn.Rz-(実現性向上効果がある傾向)",
-          "Ptn.S(感性向上効果)",
-          "Ptn.S-(感性向上効果の可能性)",
-          "Ptn.St(状況比例作用)",
-          "Ptn.X(転化・転送効果)",
-          "Ptn.Z[At](攻撃的思想に注意)",
-          "Ptn.Z[Eg](過剰自我注意)",
-          "Ptn.Z[Ex](興奮注意)",
-          "Ptn.Z[Hd](効果に一定の精神的耐性が必要)",
-          "Ptn.Z[MT](不安またはモラトリアム思想に注意)",
-          "Ptn.Z[Sp](催眠/洗脳作用注意)",
-          "Ptn.ZNE(効果の需要性や必然性についてのデータが著しく欠如)",
-          "Ptn.ZZ(逆効能および禁断効果に警戒)"
+          {
+            "SpecialPattern": "Ptn.A(行動補正効果)",
+            "SpecialPattern_EN": "Ptn.A(Action Adjustment Effect)"
+          },
+          {
+            "SpecialPattern": "Ptn.Ar(能力発揮効果)",
+            "SpecialPattern_EN": "Ptn.Ar(Ability Manifestation Effect)"
+          },
+          {
+            "SpecialPattern": "Ptn.Av(能力比例作用)",
+            "SpecialPattern_EN": "Ptn.Av(Ability-Scaled Effect)"
+          },
+          {
+            "SpecialPattern": "Ptn.B(バイタリティ強化効果)",
+            "SpecialPattern_EN": "Ptn.B(Vitality Enhancement Effect)"
+          },
+          {
+            "SpecialPattern": "Ptn.B+(物理的なバイタリティ効果)",
+            "SpecialPattern_EN": "Ptn.B+(Physical Vitality Effect)"
+          },
+          {
+            "SpecialPattern": "Ptn.C(状況変化効果)",
+            "SpecialPattern_EN": "Ptn.C(Situation Change Effect)"
+          },
+          {
+            "SpecialPattern": "Ptn.C-(状況変化効果がある傾向)",
+            "SpecialPattern_EN": "Ptn.C-(Tendency to Cause Situation Change)"
+          },
+          {
+            "SpecialPattern": "Ptn.Ch(連鎖効果有)",
+            "SpecialPattern_EN": "Ptn.Ch(Chain Effect)"
+          },
+          {
+            "SpecialPattern": "Ptn.Dr(目標比例作用)",
+            "SpecialPattern_EN": "Ptn.Dr(Goal-Scaled Effect)"
+          },
+          {
+            "SpecialPattern": "Ptn.Dr-(目標比例作用がある傾向)",
+            "SpecialPattern_EN": "Ptn.Dr-(Tendency toward Goal-Scaled Effect)"
+          },
+          {
+            "SpecialPattern": "Ptn.Ec(士気比例作用)",
+            "SpecialPattern_EN": "Ptn.Ec(Morale-Scaled Effect)"
+          },
+          {
+            "SpecialPattern": "Ptn.Ec-(士気比例作用と思われる)",
+            "SpecialPattern_EN": "Ptn.Ec-(Presumed Morale-Scaled Effect)"
+          },
+          {
+            "SpecialPattern": "Ptn.Es(自己認知効果)",
+            "SpecialPattern_EN": "Ptn.Es(Self-Cognition Effect)"
+          },
+          {
+            "SpecialPattern": "Ptn.F(超能力保有)",
+            "SpecialPattern_EN": "Ptn.F(Psychic Ability Possession)"
+          },
+          {
+            "SpecialPattern": "Ptn.F-(超能力保有の可能性)",
+            "SpecialPattern_EN": "Ptn.F-(Possible Psychic Ability Possession)"
+          },
+          {
+            "SpecialPattern": "Ptn.Hm(心理安定化効果)",
+            "SpecialPattern_EN": "Ptn.Hm(Mental Stabilization Effect)"
+          },
+          {
+            "SpecialPattern": "Ptn.I(高性能知能搭載)",
+            "SpecialPattern_EN": "Ptn.I(High-Performance Intelligence Equipped)"
+          },
+          {
+            "SpecialPattern": "Ptn.Kn(知性効果)",
+            "SpecialPattern_EN": "Ptn.Kn(Intelligence Effect)"
+          },
+          {
+            "SpecialPattern": "Ptn.Lg(思考向上効果)",
+            "SpecialPattern_EN": "Ptn.Lg(Thinking Enhancement Effect)"
+          },
+          {
+            "SpecialPattern": "Ptn.Lg-(思考向上効果がある可能性)",
+            "SpecialPattern_EN": "Ptn.Lg-(Possible Thinking Enhancement Effect)"
+          },
+          {
+            "SpecialPattern": "Ptn.Lr(幸福実現効果)",
+            "SpecialPattern_EN": "Ptn.Lr(Happiness Realization Effect)"
+          },
+          {
+            "SpecialPattern": "Ptn.Lr-(条件付き幸福実現効果)",
+            "SpecialPattern_EN": "Ptn.Lr-(Conditional Happiness Realization Effect)"
+          },
+          {
+            "SpecialPattern": "Ptn.M(マネタイズ効果または資産操作能力)",
+            "SpecialPattern_EN": "Ptn.M(Monetization / Asset Manipulation Ability)"
+          },
+          {
+            "SpecialPattern": "Ptn.M-(マネタイズ効果または資産操作効果がある傾向)",
+            "SpecialPattern_EN": "Ptn.M-(Tendency toward Monetization / Asset Manipulation)"
+          },
+          {
+            "SpecialPattern": "Ptn.MRn(マネタイズまたは資産運用に対する乱数的な効果)",
+            "SpecialPattern_EN": "Ptn.MRn(Randomized Effect on Monetization / Asset Management)"
+          },
+          {
+            "SpecialPattern": "Ptn.Ms(自己転化効果)",
+            "SpecialPattern_EN": "Ptn.Ms(Self-Conversion Effect)"
+          },
+          {
+            "SpecialPattern": "Ptn.Ms-(自己転化効果がある可能性)",
+            "SpecialPattern_EN": "Ptn.Ms-(Possible Self-Conversion Effect)"
+          },
+          {
+            "SpecialPattern": "Ptn.Mt(母性的作用の傾向)",
+            "SpecialPattern_EN": "Ptn.Mt(Tendency toward Maternal Influence)"
+          },
+          {
+            "SpecialPattern": "Ptn.Pc(平穏増幅効果)",
+            "SpecialPattern_EN": "Ptn.Pc(Peace Amplification Effect)"
+          },
+          {
+            "SpecialPattern": "Ptn.Py(読心効果)",
+            "SpecialPattern_EN": "Ptn.Py(Mind-Reading Effect)"
+          },
+          {
+            "SpecialPattern": "Ptn.R-(効果保証作用がある傾向)",
+            "SpecialPattern_EN": "Ptn.R-(Tendency toward Effect-Guarantee Influence)"
+          },
+          {
+            "SpecialPattern": "Ptn.Rc(救済効果)",
+            "SpecialPattern_EN": "Ptn.Rc(Rescue Effect)"
+          },
+          {
+            "SpecialPattern": "Ptn.Rc-(救済効果がある傾向)",
+            "SpecialPattern_EN": "Ptn.Rc-(Tendency toward Rescue Effect)"
+          },
+          {
+            "SpecialPattern": "Ptn.Rz(実現性向上効果)",
+            "SpecialPattern_EN": "Ptn.Rz(Feasibility Enhancement Effect)"
+          },
+          {
+            "SpecialPattern": "Ptn.Rz-(実現性向上効果がある傾向)",
+            "SpecialPattern_EN": "Ptn.Rz-(Tendency toward Feasibility Enhancement Effect)"
+          },
+          {
+            "SpecialPattern": "Ptn.S(感性向上効果)",
+            "SpecialPattern_EN": "Ptn.S(Sensibility Enhancement Effect)"
+          },
+          {
+            "SpecialPattern": "Ptn.S-(感性向上効果の可能性)",
+            "SpecialPattern_EN": "Ptn.S-(Possible Sensibility Enhancement Effect)"
+          },
+          {
+            "SpecialPattern": "Ptn.St(状況比例作用)",
+            "SpecialPattern_EN": "Ptn.St(Situation-Scaled Effect)"
+          },
+          {
+            "SpecialPattern": "Ptn.X(転化・転送効果)",
+            "SpecialPattern_EN": "Ptn.X(Conversion / Transfer Effect)"
+          },
+          {
+            "SpecialPattern": "Ptn.Z[At](攻撃的思想に注意)",
+            "SpecialPattern_EN": "Ptn.Z[At](Caution: Aggressive Ideation)"
+          },
+          {
+            "SpecialPattern": "Ptn.Z[Eg](過剰自我注意)",
+            "SpecialPattern_EN": "Ptn.Z[Eg](Caution: Excess Ego)"
+          },
+          {
+            "SpecialPattern": "Ptn.Z[Ex](興奮注意)",
+            "SpecialPattern_EN": "Ptn.Z[Ex](Caution: Over-Excitement)"
+          },
+          {
+            "SpecialPattern": "Ptn.Z[Hd](効果に一定の精神的耐性が必要)",
+            "SpecialPattern_EN": "Ptn.Z[Hd](Requires Certain Mental Resistance to the Effect)"
+          },
+          {
+            "SpecialPattern": "Ptn.Z[MT](不安またはモラトリアム思想に注意)",
+            "SpecialPattern_EN": "Ptn.Z[MT](Caution: Anxiety or Moratorium Ideation)"
+          },
+          {
+            "SpecialPattern": "Ptn.Z[Sp](催眠/洗脳作用注意)",
+            "SpecialPattern_EN": "Ptn.Z[Sp](Caution: Hypnosis / Brainwashing Influence)"
+          },
+          {
+            "SpecialPattern": "Ptn.ZNE(効果の需要性や必然性についてのデータが著しく欠如)",
+            "SpecialPattern_EN": "Ptn.ZNE(Severely Lacking Data on Demand/Necessity of the Effect)"
+          },
+          {
+            "SpecialPattern": "Ptn.ZZ(逆効能および禁断効果に警戒)",
+            "SpecialPattern_EN": "Ptn.ZZ(Caution: Reverse Efficacy and Forbidden Effects)"
+          }
         ]
       }
     },
@@ -381,131 +527,157 @@
         {
           "RelationLabel": "brother|sister",
           "RelationLabel_JP": "姉妹個体(兄弟姉妹)",
+          "RelationLabel_EN": "Sibling Unit",
           "isForSecondary": false
         },
         {
           "RelationLabel": "cousin",
           "RelationLabel_JP": "従姉妹個体(従姉妹)",
+          "RelationLabel_EN": "Cousin Unit",
           "isForSecondary": false
         },
         {
           "RelationLabel": "cousin_nearly",
           "RelationLabel_JP": "従姉妹個体に近しい",
+          "RelationLabel_EN": "Close to Cousin Unit",
           "isForSecondary": false
         },
         {
           "RelationLabel": "pioneer",
           "RelationLabel_JP": "先駆設計個体(昔からの先輩)",
+          "RelationLabel_EN": "Pioneer-Design Unit",
           "isForSecondary": false
         },
         {
           "RelationLabel": "pioneer_nearly",
           "RelationLabel_JP": "先駆設計の個体に近しい(かつての先輩)",
+          "RelationLabel_EN": "Close to Pioneer-Design Unit",
           "isForSecondary": false
         },
         {
           "RelationLabel": "successor",
           "RelationLabel_JP": "後継設計個体(昔からの後輩)",
+          "RelationLabel_EN": "Successor-Design Unit",
           "isForSecondary": false
         },
         {
           "RelationLabel": "successor_nearly",
           "RelationLabel_JP": "後継設計の個体に近しい(かつての後輩)",
+          "RelationLabel_EN": "Close to Successor-Design Unit",
           "isForSecondary": false
         },
         {
           "RelationLabel": "alternative|redesign",
           "RelationLabel_JP": "代替または再設計の関係にある個体",
+          "RelationLabel_EN": "Alternative/Redesign-Related Unit",
           "isForSecondary": false
         },
         {
           "RelationLabel": "sameNumber",
           "RelationLabel_JP": "同番号個体",
+          "RelationLabel_EN": "Same-Number Unit",
           "isForSecondary": false
         },
         {
           "RelationLabel": "classmate",
           "RelationLabel_JP": "同クラス個体",
+          "RelationLabel_EN": "Same-Class Unit",
           "isForSecondary": false
         },
         {
           "RelationLabel": "wellMatched",
           "RelationLabel_JP": "相性の良い個体",
+          "RelationLabel_EN": "Well-Matched Unit",
           "isForSecondary": false
         },
         {
           "RelationLabel": "wellMatched_maybe",
           "RelationLabel_JP": "おそらく相性の良い個体",
+          "RelationLabel_EN": "Possibly Well-Matched Unit",
           "isForSecondary": false
         },
         {
           "RelationLabel": "unmatched",
           "RelationLabel_JP": "相性の悪い個体",
+          "RelationLabel_EN": "Poorly-Matched Unit",
           "isForSecondary": false
         },
         {
           "RelationLabel": "trusted",
           "RelationLabel_JP": "信頼している個体",
+          "RelationLabel_EN": "Trusted Unit",
           "isForSecondary": false
         },
         {
           "RelationLabel": "trusted_maybe",
           "RelationLabel_JP": "おそらく信頼している個体",
+          "RelationLabel_EN": "Possibly Trusted Unit",
           "isForSecondary": false
         },
         {
           "RelationLabel": "awkward",
           "RelationLabel_JP": "気まずい関係にある個体",
+          "RelationLabel_EN": "Awkward-Relation Unit",
           "isForSecondary": false
         },
         {
           "RelationLabel": "awkward_aBit",
           "RelationLabel_JP": "少し気まずい関係にある個体",
+          "RelationLabel_EN": "Slightly Awkward-Relation Unit",
           "isForSecondary": false
         },
         {
           "RelationLabel": "accompanying",
           "RelationLabel_JP": "よく行動をともにする個体",
+          "RelationLabel_EN": "Frequently Accompanying Unit",
           "isForSecondary": false
         },
         {
           "RelationLabel": "abusing",
           "RelationLabel_JP": "過剰干渉しがちな個体",
+          "RelationLabel_EN": "Overly Interfering Unit",
           "isForSecondary": false
         },
         {
           "RelationLabel": "interested",
           "RelationLabel_JP": "興味を持っている個体",
+          "RelationLabel_EN": "Interested-In Unit",
           "isForSecondary": false
         },
         {
           "RelationLabel": "adverselyAffected",
           "RelationLabel_JP": "悪い影響関係にある個体",
+          "RelationLabel_EN": "Adversely Affecting/Affected Unit",
           "isForSecondary": false
         },
         {
           "RelationLabel": "adverselyAffected_aBit",
           "RelationLabel_JP": "あまり良いとは限らない影響関係にある個体",
+          "RelationLabel_EN": "Potentially Adverse-Influence Unit",
           "isForSecondary": false
         },
         {
           "RelationLabel": "paired",
           "RelationLabel_JP": "対で認識されている個体",
+          "RelationLabel_EN": "Paired-as-a-Set Unit",
           "isForSecondary": false
         },
         {
           "RelationLabel": "secretRelation",
           "RelationLabel_JP": "あまり明かされない関係にある個体",
+          "RelationLabel_EN": "Unit in a Less-Disclosed Relationship",
           "isForSecondary": false
         },
         {
           "RelationLabel": "sameValue",
           "RelationLabel_JP": "数量上は同番号に値する個体",
+          "RelationLabel_EN": "Numerically Equivalent Unit",
           "isForSecondary": true
         },
         {
           "RelationLabel": "hadInCommision",
           "RelationLabel_JP": "契約関係にあった経験あり",
+          "RelationLabel_EN": "Has Experienced Contract Relationship",
           "isForSecondary": true
         }
       ]

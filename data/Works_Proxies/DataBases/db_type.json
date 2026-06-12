@@ -9,7 +9,8 @@
     {
       "hashTag": "Generation",
       "$type": "#Index",
-      "hashTag_JP": "代理の世代"
+      "hashTag_JP": "代理の世代",
+      "hashTag_EN": "Proxy Generation"
     },
     {
       "hashTag": "Images",
@@ -17,12 +18,14 @@
         {
           "hashTag": "design_PNGName",
           "$type": "#PNGFileName",
-          "hashTag_JP": "設定原画"
+          "hashTag_JP": "設定原画",
+          "hashTag_EN": "Concept Art"
         },
         {
           "hashTag": "designAlt_PNGName",
           "$type": "#PNGFileName[]",
-          "hashTag_JP": "設定原画差分"
+          "hashTag_JP": "設定原画差分",
+          "hashTag_EN": "Concept Art Variations"
         }
       ],
       "$display": { "section": "images", "tagSpace": "internal" }

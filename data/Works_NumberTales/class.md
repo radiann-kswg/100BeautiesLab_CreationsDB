@@ -21,7 +21,7 @@
   > - `x00`:百倍番(ハンドレッズデジッツ,Hundrets-Digits) 9
   > - `xx0`:マスターテンズデュアルズ(Master 110s) 9
   > - `x0x`:サイドシングルズ(Side Singles) 9
-  > - `xxx`:マスタートリプルズ(Master Triples) 9
+  > - `xxx`:マスタートリプルズ(MasterTriples) 9
 
 - トライデュアルズ(Tri-Digit Duals) 8x9x2=144
 

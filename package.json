@@ -6,7 +6,10 @@
   "type": "module",
   "scripts": {
     "test": "vitest run",
-    "test:watch": "vitest"
+    "test:watch": "vitest",
+    "dict:plan-enums": "node tools/extract-enum-lists-to-dictionaries.mjs",
+    "dict:export-enums": "node tools/extract-enum-lists-to-dictionaries.mjs --write",
+    "dict:export-enums:prune": "node tools/extract-enum-lists-to-dictionaries.mjs --write --prune"
   },
   "devDependencies": {
     "glob": "^11.1.0",

@@ -4,6 +4,7 @@
       "DB_Label": "一次創作",
       "DB_Label_EN": "Primary",
       "DB_Summary": "豹変系女子に相当する８人の一次創作キャラクター。\n七つの大罪と八方位に関連する属性が付与されている。",
+      "DB_Summary_EN": "Eight primary-creation characters corresponding to Sinister Changing Girls.\nThey are assigned attributes related to the seven deadly sins and the eight directions.",
       "StoryEra": {
         "InEra": [{ "EraGen": 8, "YearInEra": 6 }, { "byRealYear": 2050 }],
         "about_JP": "第8創世紀6年(西暦2050年相当)周辺",

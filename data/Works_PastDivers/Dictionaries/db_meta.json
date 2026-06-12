@@ -5,6 +5,12 @@
       "DB_Label_EN": "Class Dictionary",
       "keyField": "Class",
       "compatListKey": "#List_Class"
+    },
+    "#Dict_Lunar": {
+      "DB_Label": "月暦種別辞書",
+      "DB_Label_EN": "Lunar Type Dictionary",
+      "keyField": "Lunar",
+      "compatListKey": "#List_Lunar"
     }
   }
 }

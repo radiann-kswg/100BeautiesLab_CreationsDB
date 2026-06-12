@@ -4,6 +4,7 @@
       "DB_Label": "一次創作",
       "DB_Label_EN": "Primary",
       "DB_Summary": "運命線探偵の公式一次創作作品に登場するキャラクター。\nタロットカードに関連する特性をそれぞれ有している。",
+      "DB_Summary_EN": "Characters appearing in the official primary work of FateLine Investigator 78.\nEach one carries traits associated with tarot cards.",
       "StoryEra": {
         "FromEra": [{ "EraGen": 7, "YearInEra": 24 }, { "byRealYear": 2044 }],
         "ToEra": [
@@ -34,6 +35,7 @@
       "DB_Label": "一次創作(アルカナ保有者)",
       "DB_Label_EN": "Primary(Arcana Holders)",
       "DB_Summary": "運命線探偵の公式一次創作作品に登場するキャラクター。\nこちらにはタロットをモチーフにした能力の保有者に関する情報をまとめている。",
+      "DB_Summary_EN": "Characters appearing in the official primary work of FateLine Investigator 78.\nThis DB compiles information on those who possess tarot-motif abilities.",
       "StoryEra": {
         "FromEra": [{ "EraGen": 7, "YearInEra": 24 }, { "byRealYear": 2044 }],
         "ToEra": [
@@ -54,98 +56,9 @@
   },
   "General": {
     "$VarsDef": {
-      "$Def_Card": {
-        "#List_Stoat": [
-          {
-            "Stoat": "FireWands",
-            "Stoat_JP": "火の棍棒",
-            "Stoat_EN": "FireWands"
-          },
-          {
-            "Stoat": "WaterCups",
-            "Stoat_JP": "水の聖杯",
-            "Stoat_EN": "WaterCups"
-          },
-          {
-            "Stoat": "SlashSwords",
-            "Stoat_JP": "風の刀剣",
-            "Stoat_EN": "SlashSwords"
-          },
-          {
-            "Stoat": "PentacleObjects",
-            "Stoat_JP": "金の硬貨",
-            "Stoat_EN": "PentacleObjects"
-          },
-          {
-            "Stoat": "Dealer",
-            "Stoat_JP": "采配者(ディーラー)",
-            "Stoat_EN": "Dealer"
-          }
-        ]
-      },
+      "$Def_Card": {},
       "$Def_ArcanumspecStats": {
-        "$Def_SpecType": {
-          "#List_Material": [
-            { "Material": "Fire", "Material_JP": "火" },
-            { "Material": "Water", "Material_JP": "水" },
-            { "Material": "Slash", "Material_JP": "風" },
-            { "Material": "Object", "Material_JP": "土" },
-            { "Material": "Quart", "Material_JP": "四" }
-          ],
-          "#List_KinematicOrStatic": [
-            {
-              "KinematicOrStatic": "Kinematic",
-              "KinematicOrStatic_JP": "動",
-              "KinematicOrStatic_EN": "Kinematic"
-            },
-            {
-              "KinematicOrStatic": "Static",
-              "KinematicOrStatic_JP": "静",
-              "KinematicOrStatic_EN": "Static"
-            },
-            {
-              "KinematicOrStatic": "Pre-Kinematic",
-              "KinematicOrStatic_JP": "壊",
-              "KinematicOrStatic_EN": "Pre-Kinematic"
-            },
-            {
-              "KinematicOrStatic": "Pre-Static",
-              "KinematicOrStatic_JP": "情",
-              "KinematicOrStatic_EN": "Pre-Static"
-            }
-          ],
-          "#List_RoleType": [
-            { "RoleType": "Lead", "RoleType_JP": "律", "RoleType_EN": "Lead" },
-            { "RoleType": "Keep", "RoleType_JP": "秘", "RoleType_EN": "Keep" },
-            {
-              "RoleType": "Frier",
-              "RoleType_JP": "遊",
-              "RoleType_EN": "Frier"
-            },
-            {
-              "RoleType": "Control",
-              "RoleType_JP": "操",
-              "RoleType_EN": "Control"
-            },
-            { "RoleType": "Heal", "RoleType_JP": "癒", "RoleType_EN": "Heal" },
-            { "RoleType": "Fere", "RoleType_JP": "妨", "RoleType_EN": "Fere" },
-            {
-              "RoleType": "Repair",
-              "RoleType_JP": "修",
-              "RoleType_EN": "Repair"
-            },
-            {
-              "RoleType": "Archive",
-              "RoleType_JP": "終",
-              "RoleType_EN": "Archive"
-            }
-          ],
-          "#List_DualizePattern": [
-            { "Pattern": "Prop.", "Pattern_JP": "通常" },
-            { "Pattern": "Inv.", "Pattern_JP": "逆転" },
-            { "Pattern": "Unstab.", "Pattern_JP": "不安定" }
-          ]
-        },
+        "$Def_SpecType": {},
         "$Def_EffectStats": {
           "#ListLink_EffectText": [
             {
@@ -199,19 +112,6 @@
             }
           ]
         },
-        "#List_SpecialPattern": [
-          "Ptn.A(覚醒)",
-          "Ptn.B(士気操作)",
-          "Ptn.E(元素操作)",
-          "Ptn.F(妨害)",
-          "Ptn.H(癒術)",
-          "Ptn.I(幻術)",
-          "Ptn.L(転化)",
-          "Ptn.M(精神操作)",
-          "Ptn.S(感度操作)",
-          "Ptn.Q(天変地異)",
-          "Ptn.Z(終焉)"
-        ],
         "$Def_SafetyLevel": {
           "#ListLink_SafetyLevelText": [
             {
