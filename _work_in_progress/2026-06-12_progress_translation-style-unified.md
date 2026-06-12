@@ -7,6 +7,143 @@
 
 以後の英訳作業は、この文書の「実データ準拠ルール」を優先し、一般的な翻訳規則よりも既存 JSON 実装との一致を優先する。
 
+## このログの使い方
+
+この文書は、次の順で読むと現状把握と次の作業判断がしやすい。
+
+1. まず本節直下の「実務用サマリ」で、完了済み範囲と残留監査の全体像を把握する。
+2. 次に「英訳の厳密ルール」で、実データ準拠の訳語・トークン・書式ルールを確認する。
+3. 最後に後半の追記群を参照し、各判断の経緯と個別対応の証跡を確認する。
+
+補足:
+
+- 後半の時系列追記は削除せず、監査証跡として保持する。
+- 今後の実作業では「このログの上部サマリを正」「後半の時系列を根拠資料」として使う。
+
+## 実務用サマリ（2026-06-12 時点）
+
+### 1. ここまでで完了したこと
+
+- `EffectText` / `SafetyLevelText` は、和英共通化可能な項目として整理方針を確立し、少なくとも `Works_NumberTales` ではレコード側 `*_EN` 重複を削減済み。
+- `ThisMaster(s)` / `BirthDay` / `AnivDay` / `Relation.Comments` の構造的な EN 欠損は、いったん全作品横断で補完済み。
+- `Works_NumberTales` の `db_Primary` 以外（`db_Secondary` / `db_SelfSecondary` / `db_SemiPrimary` / `db_UnprocessedSecondary`）は、前段の重点補完対象として一通り埋め終えている。
+- `*_EN` をパッチ追記した JSON では、`db_UnprocessedSecondary` 準拠で「元キーの直後に対応 EN」を置く並び順ルールを導入済み。
+
+### 2. 今後の優先作業対象（結論）
+
+最優先は `data/Works_NumberTales/DataBases/db_Primary.json`。
+
+理由:
+
+- 精査版監査で残留候補 1300 件のうち 1141 件がこの 1 ファイルに集中している。
+- 特に `Character_EN` / `Hobby_EN` / `Favor_EN` / `Unlike_EN` / `SpecialSkill_EN` / `Summary_EN` / `NumerospecAbout_EN` / 呼称 EN 群が大量に未補完。
+- `Comments_EN` 607 件も和文のまま残っており、翻訳済み構造だが本文未英訳の代表例になっている。
+
+### 3. 次点の重点ファイル
+
+- `data/Works_NumberTales/DataBases/db_Secondary.json`
+- `data/Works_NumberTales/DataBases/db_SelfSecondary.json`
+- `data/Works_PastDivers/DataBases/db_Primary.json`
+- `data/Works_Proxies/DataBases/db_Proxy.json`
+- `data/Works_FLInvestigator78/DataBases/db_Primary.json`
+
+### 4. 実務上の読み替え
+
+- 「未補完」は、即英訳対象として扱ってよい候補。
+- 「和文混入 EN」は、英訳キーが存在するが本文が和文のまま残っている候補。
+- 「要人手判定」は、固有名詞保持・日本語字形の説明・ENミラー構造の都合で、機械判定だけでは即 NG と言い切れない候補。
+
+## 横断残留監査（精査版）
+
+### 監査条件
+
+- 対象: `data/Works_*/DataBases/db*.json` の実データ本体（`db_meta.json` / `db_type.json` を除く）
+- 走査ファイル数: 19
+- 共通化除外:
+  - `EffectText` / `SafetyLevelText`
+  - 親に `*_EN` ミラーがあるサブツリー
+  - bilingual wrapper で内部に `*_JP` / `*_EN` を持つ構造（例: `IdentityMotif[].Motif`）
+- 判定カテゴリ:
+  - `*_EN` 欠損候補
+  - `*_EN` が存在するが和文が残る候補
+
+### 監査結果サマリ
+
+- `*_EN` 欠損候補: 1300
+- 欠損候補が存在するファイル数: 13
+- 和文混入 EN 候補: 662
+
+### `*_EN` 欠損候補のファイル別件数
+
+- `data/Works_NumberTales/DataBases/db_Primary.json`: 1141
+- `data/Works_NumberTales/DataBases/db_Secondary.json`: 83
+- `data/Works_NumberTales/DataBases/db_SelfSecondary.json`: 12
+- `data/Works_PastDivers/DataBases/db_Primary.json`: 14
+- `data/Works_PastDivers/DataBases/db_temp.json`: 1
+- `data/Works_Proxies/DataBases/db_Proxy.json`: 10
+- `data/Works_Proxies/DataBases/db_temp.json`: 7
+- `data/Works_FLInvestigator78/DataBases/db_Primary.json`: 6
+- `data/Works_DestinyFoxRecords/DataBases/db_Primary.json`: 2
+- `data/Works_SinisterChangingGirls/DataBases/db_Primary.json`: 4
+- `data/Works_UnauthedLogica/DataBases/db_Primary.json`: 6
+- `data/Works_UnauthedLogica/DataBases/db_PrimaryMobs.json`: 4
+- `data/Works_UnibyteLive/DataBases/db_Primary.json`: 10
+
+### `*_EN` 欠損候補の主要キー（上位）
+
+- `NumerospecAbout_EN`: 84
+- `Unlike_EN`: 75
+- `Character_EN`: 73
+- `Favor_EN`: 73
+- `Hobby_EN`: 72
+- `SpecialSkill_EN`: 72
+- `Summary_EN`: 62
+- `TailsUnit_EN`: 60
+- `RelationNotes_EN`: 52
+- `ForMasterCalling_EN`: 49
+- `ThirdPersonCalling_EN`: 47
+- `Backgrounds_EN`: 44
+- `InStory_EN`: 43
+- `AdditionalDesigned_EN`: 38
+- `FirstPersonCalling_EN`: 36
+- `SecondPersonCalling_EN`: 35
+- `TalkingTone_EN` / `TopicPreference_EN` / `TalkFrequency_EN` / `PreferredTopics_EN` / `AvoidedTopics_EN` / `ConversationNotes_EN`: 各 21
+- `ChronoizedPurity_EN`: 14
+- `LogicspecAbout_EN`: 6
+
+補足:
+
+- `value_EN` / `about_EN` の検出は 217 件あるが、`ThisMasters`・`Age`・`Weight_kg` などの wrapper 構造と EN ミラー構造が混在しており、即翻訳対象とは断定しづらい。
+- これらは「要人手判定」の束として扱い、通常の `Name_EN` / `Summary_EN` 欠損とは分けて処理する。
+
+### 和文混入 EN の監査結果
+
+#### 明確に本文未英訳として扱う候補
+
+- `Comments_EN`: 607
+  - ほぼすべて `data/Works_NumberTales/DataBases/db_Primary.json`
+  - 構造は EN 済みだが、中身は和文のまま複製されている
+- `about_EN`: 9
+  - 主に `ThisMasters` 配下の補足文で、`(専属契約不可,未リリース状態)` や `仕方なく所持` などが和文のまま残る
+
+#### 要人手判定（即 NG ではない）
+
+- `ThisMasters_EN`: 41
+  - キャラクター名・組織名・肩書を日本語固有名詞のまま保持している例が多い
+  - 一方で `about_EN` 側に和文注記が混ざるケースがあるため、本文と固有名詞を分けて判断する
+- `Motif_EN`: 4
+  - 英文説明内で日本語字形・記号そのものに触れているケースが含まれる
+- `Backgrounds_EN`: 1
+  - 英文本文中で漢字字形（例: `㐂`）を説明対象として引用しているケース
+
+### 直近の実作業優先順
+
+1. `data/Works_NumberTales/DataBases/db_Primary.json` の `Comments_EN` / 呼称 EN 群 / 概要系 EN 群を重点処理
+2. `data/Works_NumberTales/DataBases/db_Secondary.json` の `AdditionalDesigned_EN` と残る説明系 EN を処理
+3. `data/Works_PastDivers/DataBases/db_Primary.json` の `ChronoizedPurity_EN` を処理
+4. `data/Works_FLInvestigator78/DataBases/db_Primary.json` の `AdditionalDesigned_EN` を処理
+5. `data/Works_Proxies/DataBases/db_Proxy.json` の `GenderType.about_EN` など wrapper 系残件を人手確認
+
 ## 正準データの定義
 
 ### 1. 正準ブランチ
