@@ -25,7 +25,7 @@
       "DB_Label": "一次創作",
       "DB_Label_EN": "Primary",
       "DB_Summary": "人形兵ゼロイドのうち、公式一次創作作品に登場するキャラクター。\nほとんどがパラレル存在であるナンバーテールズの引用のため、詳細は（細々とした外見を除き）そちらを参照。",
-      "DB_Summary_EN": "Among Doll Soldier Zeroids, characters appearing in official primary works.\nMost are references to NumberTales as parallel-lineage entities, so please refer there for details (except for fine visual differences).",
+      "DB_Summary_EN": "Among AttackerZeroids, characters appearing in official primary works.\nMost are references to NumberTales as parallel-lineage entities, so please refer there for details (except for fine visual differences).",
       "StoryEra": {
         "FromEra": [
           { "EraGen": 7, "YearInEra": 28 },

@@ -136,7 +136,7 @@
       "Title": "アンオースドロジカ",
       "Title_EN": "UnauthedLogica",
       "Works_Summary": "汎用オートマトンとその後継改良存在たち。\n主に汎用ロジックを基にしたモブ種族、および「ナンバーテールズ」のパラレル存在にある妖獣型カスタムオートマトンの「人形兵ゼロイド」が存在する。",
-      "Works_Summary_EN": "General-purpose automatons and their improved successor entities.\nIt mainly features mob races based on generic logic, along with 'Doll Soldier Zeroids,' beast-type custom automatons that exist as a parallel lineage to NumberTales.",
+      "Works_Summary_EN": "General-purpose automatons and their improved successor entities.\nIt mainly features mob races based on generic logic, along with 'AttackerZeroids,' beast-type custom automatons that exist as a parallel lineage to NumberTales.",
       "$DetailLayout": {
         "headerPills": ["Progress"],
         "basicFields": [

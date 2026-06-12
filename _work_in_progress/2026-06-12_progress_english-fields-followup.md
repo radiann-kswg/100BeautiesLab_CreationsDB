@@ -250,6 +250,43 @@
 
 ---
 
+## 2026-06-12 追記：非 NumberTales 残件の再走査（UnauthedLogica 最終補完）
+
+### 背景
+
+- shared 値 (`langMode: shared`) と `hideText` の varsdef fallback を反映した現行ルールで、
+  `Works_NumberTales` 以外の各作品レコードを再走査した。
+- その結果、手動追補が必要なトップレベル英訳は `Works_UnauthedLogica` の
+  `ModelName_EN` 4 件だけだった。
+
+### 対応内容
+
+- 対象ファイル:
+  - `data/Works_UnauthedLogica/DataBases/db_Primary.json`
+
+- 追加した項目:
+  - `ModelName_EN: "AttackerZeroid Unit.10 (No.10)"`
+  - `ModelName_EN: "AttackerZeroid Unit.1+6.B (No.61)"`
+  - `ModelName_EN: "AttackerZeroid Unit.2+6.B (No.62)"`
+  - `ModelName_EN: "AttackerZeroid Unit.1 Final"`
+
+### 走査結果
+
+- `Works_DestinyFoxRecords`: 現行ルール上の未英訳トップレベル項目なし
+- `Works_FLInvestigator78`: 現行ルール上の未英訳トップレベル項目なし
+- `Works_PastDivers`: 現行ルール上の未英訳トップレベル項目なし
+- `Works_Proxies`: 現行ルール上の未英訳トップレベル項目なし
+- `Works_ShouArRiders`: 現行ルール上の未英訳トップレベル項目なし
+- `Works_SinisterChangingGirls`: 現行ルール上の未英訳トップレベル項目なし
+- `Works_UnauthedLogica`: 今回の 4 件補完で解消
+- `Works_UnibyteLive`: 現行ルール上の未英訳トップレベル項目なし
+
+### 検証
+
+- `tests/data.sanity.test.js`: pass
+
+---
+
 ## 2026-06-12 追記：和英共通値フィールドの `langMode: shared` 導入
 
 ### 背景

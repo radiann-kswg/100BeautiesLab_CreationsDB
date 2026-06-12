@@ -8,9 +8,10 @@
       "_Search": [{ "hashTag": "Num", "key": "10-alt" }]
     },
     "ModelName": "人形兵ゼロイド10号機(10番機)",
+    "ModelName_EN": "AttackerZeroid Unit.10 (Mk.10)",
     "ModelNumber": "ACAM-AZR X",
     "FormalName": "人形兵ゼロイド10番機",
-    "FormalName_EN": "AttackerZeroid #62",
+    "FormalName_EN": "AttackerZeroid #10",
     "Belonging": ["百戦錬磨開発所"],
     "AnivDay": [
       { "Day": { "Month": 1, "DayOfMonth": 10 }, "DayAbout": "開発記念" }
@@ -30,6 +31,7 @@
       "_Search": [{ "hashTag": "Num", "key": 61 }]
     },
     "ModelName": "人形兵ゼロイド1+6号機乙(61番機)",
+    "ModelName_EN": "AttackerZeroid Unit.1+6.B (Mk.61)",
     "ModelNumber": "ACAM-AZR I+VI.B",
     "FormalName": "人形兵ゼロイド61番機",
     "FormalName_EN": "AttackerZeroid #61",
@@ -47,6 +49,7 @@
       "_Search": [{ "hashTag": "Num", "key": 62 }]
     },
     "ModelName": "人形兵ゼロイド2+6号機乙(62番機)",
+    "ModelName_EN": "AttackerZeroid Unit.2+6.B (Mk.62)",
     "ModelNumber": "ACAM-AZR II+VI.B",
     "FormalName": "人形兵ゼロイド62番機",
     "FormalName_EN": "AttackerZeroid #62",
@@ -64,6 +67,7 @@
       "_Search": [{ "hashTag": "Num", "key": 10 }]
     },
     "ModelName": "人形兵ゼロイド最終1号機",
+    "ModelName_EN": "AttackerZeroid Unit.1 Final",
     "ModelNumber": "ACAM-AZR I.FIN",
     "FormalName": "人形兵ゼロイド最終1号機",
     "FormalName_EN": "AttackerZeroid I.FIN",
