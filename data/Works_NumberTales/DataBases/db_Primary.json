@@ -44,7 +44,7 @@
     "SecondPersonCalling": "きみ",
     "SecondPersonCalling_EN": "you",
     "ThirdPersonCalling": "彼/彼女;~君,[※名前呼び]",
-    "ThirdPersonCalling_EN": "he/she; ~[*by name]",
+    "ThirdPersonCalling_EN": "he/she; [*by name]",
     "ForMasterCalling": "～兄(にぃ)/～姉(ねぇ)",
     "ForMasterCalling_EN": "~Bro/~Sis",
     "Character": "行動意欲が突出している怖いもの知らず\n自分らしさを前向きに受け入れている",
@@ -2606,6 +2606,7 @@
     "FormalName": "ナンバーテールズ15番機",
     "FormalName_EN": "NumberTales #15",
     "CodeName": "一五",
+    "CodeName_EN": "One-Five",
     "SPCodeName": "十五\n(一半十)",
     "SPCodeName_EN": "Fifteen\n(One-Half Ten)",
     "GenderType": "Neutral",
@@ -2629,6 +2630,7 @@
     ],
     "BustSize": "AA",
     "TailsUnit": "キツネ(枝分かれ)型5本(上2束1本+下1束4本)",
+    "TailsUnit_EN": "Fox (branched) type: 5 tails (upper: 2 clusters x1, lower: 1 cluster x4)",
     "Class": ["デュアルシックスズ"],
     "ThisMasters": [
       {
@@ -2646,10 +2648,15 @@
     "ForMasterCalling": "主(あるじ)",
     "ForMasterCalling_EN": "Master (Aruji)",
     "Character": "極めて控えめに見えて実は男気のある気質\n自分を律することで因果応報が成立すると、信じている",
+    "Character_EN": "Appears extremely reserved, but actually has a strong chivalrous spirit\nBelieves that self-discipline brings karmic justice",
     "Hobby": "遠景を眺める",
+    "Hobby_EN": "Looking at distant scenery",
     "SpecialSkill": "6時間後の天気を当てる",
+    "SpecialSkill_EN": "Predicting the weather 6 hours ahead",
     "Favor": "開運グッズ\n何があっても完膚なきこと",
+    "Favor_EN": "Lucky charms\nLeaving no room for mercy, no matter what",
     "Unlike": "邪知暴虐",
+    "Unlike_EN": "Cruel tyranny",
     "IdentityMotif": [
       {
         "Formation": "corefolder",
@@ -2709,6 +2716,7 @@
     "RelationNotes": "「33(ミサ)」と心配されあっている\n「10(ミツル)」と加護について関係が…？",
     "RelationNotes_EN": "Mutually worries about \"33(Thirthrey)\"\nMay have some connection with \"10(Tenim)\" regarding blessings...?",
     "NumerospecAbout": "奇跡を起こす\nただしこの効果は対象の性格に影響される\n？？？？",
+    "NumerospecAbout_EN": "Causes miracles\nHowever, this effect is influenced by the target's personality\n????",
     "Summary": "普段は極めて控えめな気質だが、「自分を律することで因果応報が成立する」と信じており、男気が強い。\n「奇跡を起こす」という”加護”を所持しており、それ目当てで契約する主人も少なくない。\nしかしその力が強力だったため、“安全装置”を背中に装着している。\nその経緯について、「10(ミツル)」と「95(キュウゴ)」が関与しているらしく…？",
     "Summary_EN": "Usually very reserved, yet carries a strong chivalrous spirit, believing that self-discipline brings karmic justice.\nShe possesses a blessing said to \"cause miracles\", and not a few Masters choose to contract with her for that reason.\nBecause the power proved so strong, she wears a safety device on her back.\nAs for how that came to be, it seems \"10(Tenim)\" and \"95(Ninfife)\" were involved...?",
     "NumerospecStats": {
@@ -2801,6 +2809,7 @@
     "FormalName": "ナンバーテールズ16番機",
     "FormalName_EN": "NumberTales #16",
     "CodeName": "一六",
+    "CodeName_EN": "One-Six",
     "SPCodeName": "十六",
     "SPCodeName_EN": "Sixteen",
     "GenderType": "FemaleNeutral",
@@ -2816,6 +2825,7 @@
     "Weight_kg": { "hideText": "非公開" },
     "BustSize": "H",
     "TailsUnit": "キツネ(枝分かれ)型6本(上2束1本+下1束5本)",
+    "TailsUnit_EN": "Fox (branched) type: 6 tails (upper: 2 clusters x1, lower: 1 cluster x5)",
     "Class": ["デュアルセブンズ", "バーチャリティテールズ"],
     "ThisMasters": [
       {
@@ -2833,10 +2843,15 @@
     "ForMasterCalling": "マスター君",
     "ForMasterCalling_EN": "Master-kun",
     "Character": "才色兼備で、物質的なものより行動や能力を重んじる\n主人公意識が強く挑戦意欲がある",
+    "Character_EN": "Gifted in both talent and grace, and values actions and abilities over material things\nHas strong protagonist-like self-awareness and a strong drive to take on challenges",
     "Hobby": "演劇",
+    "Hobby_EN": "Theater",
     "SpecialSkill": "剣道・剣舞",
+    "SpecialSkill_EN": "Kendo and sword dance",
     "Favor": "知恵の輪",
+    "Favor_EN": "Disentanglement puzzles",
     "Unlike": "コンディション不良",
+    "Unlike_EN": "Poor physical condition",
     "IdentityMotif": [
       {
         "Formation": "corefolder",
@@ -2892,6 +2907,7 @@
     "RelationNotes": "「6(ムイ)」「26(ニロク)」に懐いている？",
     "RelationNotes_EN": "Seems attached to \"6(Sics)\" and \"26(Twinsix)\"?",
     "NumerospecAbout": "才能を奮い立たせる\nこの効果はたとえ手持ちに不利があっても発動する",
+    "NumerospecAbout_EN": "Rouses talent\nThis effect activates even when one is at a disadvantage",
     "Summary": "物質的な裕福さよりも己の行動や能力の発揮に重きを置いており、そのポテンシャルは物質的な制約と関係なく自身や主人にモチベーションをもたらしている。\n実績こそ上位を誇る程ではないが、挑戦意欲が旺盛で主人公気質な一面がコアな主人層から人気を浴びており、他のナンバーテールズもその中で活力や陽気に満ち溢れる様子から「幸せな貧乏」と称している。\n「6(ムイ)」と「26(ニロク)」に懐いていて…？",
     "Summary_EN": "Rather than material wealth, she places emphasis on her own actions and demonstrating her abilities, and that potential motivates both herself and her Master regardless of material limits.\nWhile her achievements are not yet top-ranked, her strong drive to take on challenges and her protagonist-like temperament have earned popularity among core Master circles, and other NumberTales even call her style \"happy poverty\" for its energetic, cheerful spirit.\nShe also seems especially attached to \"6(Sics)\" and \"26(Twinsix)\"...?",
     "NumerospecStats": {
@@ -2970,6 +2986,7 @@
     "FormalName": "ナンバーテールズ17番機",
     "FormalName_EN": "NumberTales #17",
     "CodeName": "一七",
+    "CodeName_EN": "One-Seven",
     "SPCodeName": "十七",
     "SPCodeName_EN": "Seventeen",
     "GenderType": "FemaleNeutral",
@@ -2987,6 +3004,7 @@
     ],
     "BustSize": "AA",
     "TailsUnit": "キツネ(枝分かれ)型7本(上2束1本+下1束6本)",
+    "TailsUnit_EN": "Fox (branched) type: 7 tails (upper: 2 clusters x1, lower: 1 cluster x6)",
     "Class": ["デュアルエイツ"],
     "ThisMasters": [
       {
@@ -3006,10 +3024,15 @@
     "ForMasterCalling": "センセ",
     "ForMasterCalling_EN": "Teacher",
     "Character": "知識欲旺盛だが少し現金\n知識や自己研鑽が自分の報酬となると信じている",
+    "Character_EN": "Highly eager for knowledge but a little money-minded\nBelieves that knowledge and self-cultivation become personal reward",
     "Hobby": "資格取得",
+    "Hobby_EN": "Earning certifications",
     "SpecialSkill": "カジノ",
+    "SpecialSkill_EN": "Casino gaming",
     "Favor": "知識",
+    "Favor_EN": "Knowledge",
     "Unlike": "貧困\n女性ぽくないと言われること",
+    "Unlike_EN": "Poverty\nBeing told she is not feminine",
     "IdentityMotif": [
       {
         "Formation": "corefolder",
@@ -3067,6 +3090,7 @@
     "RelationNotes": "「89(ヤスモ)」とは謎のシンパシーがある？",
     "RelationNotes_EN": "Seems to share a mysterious sympathy with \"89(Eightine)\"?",
     "NumerospecAbout": "対象の能力に応じ結果を保証する",
+    "NumerospecAbout_EN": "Guarantees results according to the target's ability",
     "Summary": "知識や実力がいつか自分への報酬として還ってくると信じているナンバーテールズ。\nその信条から、資格取得や勉強のお供として契約する主人も多い。\nただ、周囲から「男性型や中性型ではないか」「女性らしくないのではないか」という感想が寄せられているが、彼女が言うには女性型らしい。\nあまり揶揄わないでいてあげよう。\n「89(ヤスモ)」と謎のシンパシーがあるようだ。",
     "Summary_EN": "A NumberTales who believes that knowledge and cultivated skill will one day return as personal reward.\nBecause of that creed, many Masters contract with her as a companion for study and certification training.\nPeople around her often remark, \"Isn't she more male-type or neutral-type?\" or \"She doesn't seem very feminine,\" but according to her, she is female-type.\nLet's not tease her too much.\nShe also appears to have a mysterious sympathy with \"89(Eightine)\".",
     "NumerospecStats": {
@@ -3155,16 +3179,23 @@
     "Weight_kg": 42,
     "BustSize": "C",
     "TailsUnit": "キツネ(枝分かれ)型8本(上2束1本+下1束7本)",
+    "TailsUnit_EN": "Fox (branched) type: 8 tails (upper: 2 clusters x1, lower: 1 cluster x7)",
     "Class": ["9倍2桁番(ナインズデュアルズ)"],
     "FirstPersonCalling": "あたい",
     "SecondPersonCalling": "あんた",
     "ThirdPersonCalling": "*いつ/*れ;[※名前呼び]",
     "ForMasterCalling": "親分(おやびん)",
+    "ForMasterCalling_EN": "Boss (oyabin)",
     "Character": "責任感の強いエースポジション\n信頼感が圧倒的にある",
+    "Character_EN": "An ace-position unit with a strong sense of responsibility\nOverwhelmingly trusted by others",
     "Hobby": "偉人伝を読むこと",
+    "Hobby_EN": "Reading biographies of great figures",
     "SpecialSkill": "喧嘩の仲裁",
+    "SpecialSkill_EN": "Mediating fights",
     "Favor": "平和",
+    "Favor_EN": "Peace",
     "Unlike": "混沌としたこと",
+    "Unlike_EN": "Chaotic situations",
     "IdentityMotif": [
       {
         "Formation": "corefolder",
@@ -3214,8 +3245,11 @@
       }
     ],
     "RelationNotes": "「19(トク)」を連れまわしている\n「9(チカ)」を警戒？しているが…",
+    "RelationNotes_EN": "Often drags \"19(Ninteels)\" around\nSeems wary of \"9(Chika)\", but...",
     "NumerospecAbout": "リーダーシップを奮い立たせる\nこの効果は求められた時ほど効果が高くなる",
+    "NumerospecAbout_EN": "Rouses leadership\nThis effect becomes stronger the more it is called for",
     "Summary": "責任感のあるリーダー気質なナンバーテールズで、行動を起こすべき主人の後押しも行っている。\nそのため、他のナンバーテールズから「エースポジション」と呼ばれている。\n「81(ヤイチ)」の姉に相当する個体だが、従姉でもある「19(トク)」と行動をとることもしばしば。\n「9(チカ)」の暴走？に警戒している。",
+    "Summary_EN": "A responsible, leader-type NumberTales who also gives the Master the push needed to take action.\nFor that reason, other NumberTales refer to her as an \"ace-position\" unit.\nShe stands in an older-sister-like role to \"81(Eightone)\" and often acts together with her cousin \"19(Ninteels)\".\nShe also keeps a cautious eye on \"9(Nina)\" for possible runaway behavior.",
     "NumerospecStats": {
       "EffectStats": {
         "Mental": { "EffectText": "普通" },
@@ -3299,16 +3333,22 @@
     "Weight_kg": 42,
     "BustSize": "AA",
     "TailsUnit": "キツネ(枝分かれ)型9本(上2束1本+下1束8本)",
+    "TailsUnit_EN": "Fox (branched) type: 9 tails (upper: 2 clusters x1, lower: 1 cluster x8)",
     "Class": ["デュアルキャリーズ"],
     "FirstPersonCalling": "僕",
     "SecondPersonCalling": "君",
     "ThirdPersonCalling": "彼/彼女;~君/~さん",
     "ForMasterCalling": "(～)兄さん/(～)姉さん",
     "Character": "調子に乗りやすく、やり切った時はドヤる\nやるときはやるので、憎みたくても憎めない",
+    "Character_EN": "Gets carried away easily and shows off when things are fully done\nBut gets it done when it matters, so hard to hate even if you try",
     "Hobby": "ルービックキューブ（で絵を描く）",
+    "Hobby_EN": "(Making pictures with) Rubik's Cubes",
     "SpecialSkill": "チェス",
+    "SpecialSkill_EN": "Chess",
     "Favor": "サイコロ/ダイス\nルービックキューブ",
+    "Favor_EN": "Dice\nRubik's Cubes",
     "Unlike": "今乗り気じゃないこと",
+    "Unlike_EN": "Things I'm not in the mood for right now",
     "IdentityMotif": [
       {
         "Formation": "corefolder",
@@ -3358,8 +3398,11 @@
       }
     ],
     "RelationNotes": "「89(ヤスモ)」に悪絡みしている",
+    "RelationNotes_EN": "Often picks needless fights with \"89(Eightine)\"",
     "NumerospecAbout": "節目を迎えたときに本領発揮する\n重要な場面で失敗させない",
+    "NumerospecAbout_EN": "Shows true strength at major turning points\nPrevents failure in critical situations",
     "Summary": "これまでの業績から一つの節目を迎える事例に特化した個体。\n完遂した業績に対する誇りや自信で調子に乗りやすいが、その次の業務も難なくこなすため憎みたくても憎めないと（色んな意味で）定評。\nしかしその風格に惹かれ、これから新しい取り組みをするベテラン級スキルを持つ中年層を中心に彼(女)を求める主人も少なくはない様子。\n趣味は“絵画用”ルービックキューブというが…？",
+    "Summary_EN": "A unit specialized in moments where accumulated achievements reach a milestone.\nEasily gets overconfident from pride in completed results, yet smoothly handles the next task as well, giving her a reputation of being hard to dislike for various reasons.\nDrawn by that presence, not a few Masters with veteran-level skills, especially middle-aged ones starting new endeavors, seek him/her out.\nHer hobby is said to be Rubik's Cubes \"for drawing\"... ?",
     "NumerospecStats": {
       "EffectStats": {
         "Mental": { "hideText": "判定不能" },
@@ -3682,16 +3725,22 @@
     "Weight_kg": 39,
     "BustSize": "A",
     "TailsUnit": "キツネ(枝分かれ)型2本(上2束1本+下1束1本)",
+    "TailsUnit_EN": "Fox (branched) type: 2 tails (upper: 2 clusters x1, lower: 1 cluster x1)",
     "Class": ["デュアルスリーズ"],
     "FirstPersonCalling": "僕",
     "SecondPersonCalling": "君",
     "ThirdPersonCalling": "彼/彼女;~さん,[※名前呼び]",
     "ForMasterCalling": "お兄(にぃ)/お姉(ねぇ)",
     "Character": "無邪気で童心をくすぐるような気質\nどこか強いポテンシャルを持つ",
+    "Character_EN": "Innocent with a temperament that tickles childlike wonder\nCarries strong potential",
     "Hobby": "人助け",
+    "Hobby_EN": "Helping people",
     "SpecialSkill": "初見でRPG1作を21時間以内にクリアできる",
+    "SpecialSkill_EN": "Can clear one RPG within 21 hours on a first playthrough",
     "Favor": "感謝されること",
+    "Favor_EN": "Being appreciated",
     "Unlike": "邪な思考",
+    "Unlike_EN": "Wicked thoughts",
     "IdentityMotif": [
       {
         "Formation": "corefolder",
@@ -3744,6 +3793,7 @@
     ],
     "RelationNotes": "「28(ニハチ)」の“加護”を暴走させている？\n姉「12(トウジ)」とはすれ違い気味だが…",
     "NumerospecAbout": "心を清らかにする",
+    "NumerospecAbout_EN": "Purifies the heart",
     "Summary": "2種類の数字を持つ複合型で最初の個体である「12(トウジ)」の設計が調整された個体。\n無邪気さとポテンシャルの高さが好評のナンバーテールズで、特に人助けに積極的なこともあり周囲から信頼されている。\nただその一方で 他人への粘着など邪な思考に対し強い抵抗があったり、純粋さに反応する「28(ニハチ)」の“加護”を暴走させたりと自身の気質が裏目に出てしまうことも。",
     "NumerospecStats": {
       "EffectStats": {
@@ -3764,6 +3814,7 @@
       "Actuation": { "Rank": "B" }
     },
     "Backgrounds": "初の複合型個体である姉「12(トウジ)」の調整個体",
+    "Backgrounds_EN": "A tuned derivative of elder sister \"12(Twelva)\", the first composite unit",
     "Relation": {
       "Related": [
         {
@@ -4049,16 +4100,24 @@
     "Weight_kg": 40,
     "BustSize": "B",
     "TailsUnit": "キツネ(枝分かれ)型3本(上2束2本+下1束1本)",
+    "TailsUnit_EN": "Fox (branched) type: 3 tails (upper: 2 clusters x2, lower: 1 cluster x1)",
     "Class": ["デュアルファイブズ"],
     "FirstPersonCalling": "ツグミ ※名前呼び\nおれ ※稀",
+    "FirstPersonCalling_EN": "Twinthery (*by name)\nI (ore; rough, rare)",
     "SecondPersonCalling": "おまえ",
     "ThirdPersonCalling": "彼/彼女;*いつ/*れ;[※名前呼び]",
     "ForMasterCalling": "リーダー",
+    "ForMasterCalling_EN": "Leader",
     "Character": "積極的で発想力が高く直感が鋭い\n放浪癖があり様々な経験に感化されている",
+    "Character_EN": "Proactive, highly imaginative, and sharp in intuition\nHas a wandering habit and is influenced by various experiences",
     "Hobby": "旅行、放浪",
+    "Hobby_EN": "Traveling and wandering",
     "SpecialSkill": "サーフィン",
+    "SpecialSkill_EN": "Surfing",
     "Favor": "スリル\n面白い話",
+    "Favor_EN": "Thrills\nInteresting stories",
     "Unlike": "堅苦しい仕事",
+    "Unlike_EN": "Rigid, formal work",
     "IdentityMotif": [
       {
         "Formation": "corefolder",
@@ -4109,6 +4168,7 @@
     ],
     "RelationNotes": "困ったときは「2(ツグ)」「3(ナオ)」を頼りがち\n「55(イソゴ)」に影響されている？",
     "NumerospecAbout": "主人の発想力を引き立てる",
+    "NumerospecAbout_EN": "Brings out the Master's creativity",
     "Summary": "積極的で直感が鋭く発想力が旺盛。\n放浪癖があり、その場であった様々な経験からインスピレーションを得ているが、その分ふといなくなっては余計なことを連れて帰ってくることがある。\nおまけに、「2(ツグ)」と「3(ナオ)」へそこで起きたトラブルの後始末を任せている傾向にあるので、一部ナンバーテールズからは迷惑に思われている。\nただ、それは「55(イソゴ)」の影響とも？",
     "NumerospecStats": {
       "EffectStats": {
@@ -4130,6 +4190,7 @@
       "Actuation": { "Rank": "A" }
     },
     "InStory": "ふと不在になって顔を出したときに、余計なことへ巻き込むことがあるので、一部のナンバーテールズから迷惑に思われている",
+    "InStory_EN": "Because she sometimes disappears and then reappears while dragging others into extra trouble, some NumberTales see her as troublesome",
     "Relation": {
       "Related": [
         {
@@ -4203,16 +4264,25 @@
     "Weight_kg": { "hideText": "非公開" },
     "BustSize": "E",
     "TailsUnit": "キツネ(枝分かれ)型4本(上2束2本+下1束2本)",
+    "TailsUnit_EN": "Fox (branched) type: 4 tails (upper: 2 clusters x2, lower: 1 cluster x2)",
     "Class": ["デュアルシックスズ"],
     "FirstPersonCalling": "フトシ ※名前呼び\n私(わたし)",
+    "FirstPersonCalling_EN": "Hourds (*by name)\nI",
     "SecondPersonCalling": "あなた",
+    "SecondPersonCalling_EN": "you",
     "ThirdPersonCalling": "*の子,*の人;[※名前呼び]",
     "ForMasterCalling": "主さん",
+    "ForMasterCalling_EN": "Master",
     "Character": "実現力はあるものの、受動的で控えめ\n相手の思いに応えてくれる\n退屈症だが本当は高望みしやすい気質",
+    "Character_EN": "Has the power to realize things, but is passive and reserved\nResponds to the other person's wishes\nThough prone to boredom, actually has a temperament that easily aims high",
     "Hobby": "談笑",
+    "Hobby_EN": "Chatting",
     "SpecialSkill": "片手で12連打できる",
+    "SpecialSkill_EN": "Can do 12 rapid taps with one hand",
     "Favor": "友情ドラマ",
+    "Favor_EN": "Friendship dramas",
     "Unlike": "失敗",
+    "Unlike_EN": "Failure",
     "IdentityMotif": [
       {
         "Formation": "corefolder",
@@ -4265,6 +4335,7 @@
     ],
     "RelationNotes": "「4(モチ)」と仲が良い\n2号機系[20(ハツカ),バイナ]を信頼している",
     "NumerospecAbout": "相手の望みを叶える\nただしこの効果は、相手が自分の心に正直になることで真価を発揮する",
+    "NumerospecAbout_EN": "Grants the other person's wishes\nHowever, this effect shows its true value when the person is honest with their own heart",
     "Summary": "主人の心から願っている望みを叶えるという“加護”を（無自覚で）有している。\nそのためか主人との実績や彼女自身の自己実現も、十分にうまくいっており評価されている。\nただその一方で、控えめで受動的な性格が玉に瑕(きず)だと思われている。\n（本当は、望んだことが容易に叶って退屈している。）\n「20(ハツカ)」や「4(モチ)」と相性がいい傾向にある。",
     "NumerospecStats": {
       "EffectStats": {
@@ -4286,6 +4357,7 @@
       "Actuation": { "Rank": "A" }
     },
     "InStory": "主人との実績は悪くないが受け身な姿勢でいるため、妹「42(ヨツグ)」を筆頭に玉に瑕だと思われている様子（本当は望みが容易に叶って退屈している）",
+    "InStory_EN": "Her performance with the Master is not bad, but because she stays passive, others, especially younger sister \"42(Fortwis)\", tend to see that as her flaw (in reality, she is bored because wishes come true too easily)",
     "Relation": {
       "Related": [
         {
@@ -4357,19 +4429,28 @@
     ],
     "BustSize": "G",
     "TailsUnit": "キツネ(枝分かれ)型5本(上2束2本+下1束3本)",
+    "TailsUnit_EN": "Fox (branched) type: 5 tails (upper: 2 clusters x2, lower: 1 cluster x3)",
     "Class": ["デュアルセブンズ"],
     "ThisMasters": [
       "亜高 蝶嵐(てふらん)/Heart.7(Seven)（78特殊探偵団 水の聖杯支部 構成員）"
     ],
     "FirstPersonCalling": "私(わたし)",
+    "FirstPersonCalling_EN": "I",
     "SecondPersonCalling": "君",
     "ThirdPersonCalling": "[※名前呼び]",
+    "ThirdPersonCalling_EN": "[*by name]",
     "ForMasterCalling": "主人さん",
+    "ForMasterCalling_EN": "Master",
     "Character": "直感が鋭く適応力が高い\nあらゆる結果に対して楽観的で前向き",
+    "Character_EN": "Sharp intuition and high adaptability\nOptimistic and forward-looking toward any outcome",
     "Hobby": "ヒットアンドブロウ（数当てゲーム）",
+    "Hobby_EN": "Hit and Blow (number-guessing game)",
     "SpecialSkill": "チョコレートづくり（温度管理が必要な料理）",
+    "SpecialSkill_EN": "Chocolate making (a cooking task requiring temperature control)",
     "Favor": "先輩たち",
+    "Favor_EN": "Her senior units",
     "Unlike": "知らず知らず疲弊すること",
+    "Unlike_EN": "Becoming worn out without noticing",
     "IdentityMotif": [
       {
         "Formation": "corefolder",
@@ -4421,8 +4502,11 @@
       }
     ],
     "RelationNotes": "「2(ツグ)」「5(イズ)」を「先輩」と慕っている",
+    "RelationNotes_EN": "Looks up to \"2(Twiny)\" and \"5(Fifa)\" as \"seniors\"",
     "NumerospecAbout": "どんな状況でもリラックスさせる\n同時に、適応力の向上も促す\nただしこの効果は能動的な作用である",
+    "NumerospecAbout_EN": "Helps one relax in any situation\nAt the same time, promotes improved adaptability\nHowever, this effect is an active-acting one",
     "Summary": "勘と直感が鋭く、なおかつ自分が行っていることは何かしらの結果として実ると信じている。\nそのためか、この後何が起きようと適応力とそれに応じた前向き思考が極めて優れており、楽観的な性格ながら自己実現力があり有能。\nちなみに、彼女は他のナンバーテールズのうち「2(ツグ)」と「5(イズ)」のことを「先輩」と呼び尊敬し、2人に対しこの上なく好感を持っている。",
+    "Summary_EN": "Has sharp instinct and intuition, and believes that what she does will bear some kind of result.\nBecause of that, no matter what happens next, she shows excellent adaptability and corresponding positive thinking; despite an optimistic personality, she is capable and strong at self-realization.\nShe also calls \"2(Twiny)\" and \"5(Fifa)\" her \"seniors\", respects them, and holds exceptionally high affection toward both.",
     "NumerospecStats": {
       "EffectStats": {
         "Mental": { "EffectText": "絶大" },
@@ -6700,7 +6784,7 @@
     "FormalName_EN": "NumberTales #40",
     "CodeName": "四〇",
     "SPCodeName": "四十",
-    "SPCodeName_EN": "Fourty",
+    "SPCodeName_EN": "Forty",
     "GenderType": "Neutral",
     "Height_cm": 140,
     "ConceptAge": 16,
@@ -7175,7 +7259,7 @@
     "CodeName": "四三",
     "CodeName_EN": "Four-Three",
     "SPCodeName": "四十三",
-    "SPCodeName_EN": "Fourty-Three",
+    "SPCodeName_EN": "Forty-Three",
     "GenderType": "FemaleNeutral",
     "Height_cm": 134,
     "ConceptAge": 14,
@@ -14929,7 +15013,7 @@
       {
         "value": "PortableHumanoid(TaleBeastType)",
         "about_JP": "最終的な設計目標",
-        "about_EN": "Finaly"
+        "about_EN": "Final Development Goal"
       },
       {
         "value": "PortableHumanoid(TaleBeastType,SoftwareBody)",

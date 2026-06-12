@@ -1,267 +1,310 @@
-# 2026-06-12 統合進捗ログ：英訳対応総覧と共通ルール（localize-perfection 反映版）
+# 2026-06-12 統合進捗ログ：英訳ルール完全改稿（localize-perfection 実データ正準版）
 
 ## 目的
 
-`Works_NumberTales` 以外の創作タイトルと、`Works_NumberTales` の `DB_SemiPrimary` で実施してきた英訳対応を 1 本に統合し、
-今後の全タイトル共通で使える英訳ルール・書式ルール・確認手順を明文化する。
-
-このログは、`localize-perfection` での運用知見を `develop` でも再利用するための基準書として扱う。
-
-## 対象範囲
-
-- 対象データ:
-  - `data/Works_*/DataBases/db_*.json`
-  - `data/Works_*/DataBases/db_meta.json`
-  - `data/Works_*/DataBases/db_type.json`
-  - `data/Works_*/Dictionaries/dict_*.json`
-  - 必要に応じて `data/db_type.json`, `data/db_meta.json`
-- 今回の統合主対象:
-  - Non-NumberTales 全作品
-  - NumberTales の `DB_SemiPrimary`
-
-## これまでの対応サマリ（俯瞰）
-
-### 1. Non-NumberTales 側で実施した主な対応
-
-- `Works_DestinyFoxRecords`
-  - `db_Primary.json` の `Unit_EN` を全エントリで補完。
-  - `db_meta.json` の `DB_Summary_EN` を補完。
-- `Works_FLInvestigator78`
-  - `db_meta` の `#List_*` を `Dictionaries/dict_*.json` へ分離。
-  - `dict_Material` / `dict_DualizePattern` / `dict_SpecialPattern` の EN ラベル補完。
-  - `DB_Summary_EN` を `#DB_Primary` / `#DB_PrimaryDealer` に補完。
-- `Works_PastDivers`
-  - `db_Primary.json` の未英訳トップレベル項目を補完。
-  - `#List_Lunar` の辞書化（`dict_Lunar.json`）を実施。
-- `Works_UnauthedLogica`
-  - `db_Primary.json` の `ModelName_EN` 残件を最終補完（4件）。
-- `Works_Proxies` / `Works_ShouArRiders` / `Works_SinisterChangingGirls` / `Works_UnibyteLive`
-  - 現行ルール上の未英訳残件を順次消化。
-  - wording 調整、表記ゆれ是正、shared/fallback 運用へ寄せる整理を実施。
-
-### 2. NumberTales `DB_SemiPrimary` 側で実施した主な対応
-
-- `data/Works_NumberTales/DataBases/db_SemiPrimary.json`
-  - `Num 100, 111, 222, 444, 666, 777, 777.Jackpot, 999, 3x11` など主要個体の `_EN` 欠損を補完。
-  - 呼称系、`Character/Hobby/SpecialSkill/Favor/Unlike`、`RelationNotes`、`NumerospecAbout`、`Summary`、`Backgrounds` を中心に対応。
-  - `dev` 系の `Backgrounds_EN` を連番で補完。
-- 方針上の除外:
-  - `ThisMasters_EN` は運用未正式化のため追加対象外（現時点）。
-
-### 3. 表示系・基盤側で実施した主な対応
-
-- `langMode: shared` の導入拡張
-  - 和英共通値フィールド（例: `ModelNumber`, `BustSize`, 一部辞書値）を base 値再利用に統一。
-- `hideText` の英語表示
-  - `#List_hideText` からの英語解決を優先し、フィールド別 `_EN` の重複を削減。
-- 辞書分離
-  - `db_meta` の `#List_*` を `Dictionaries/dict_*.json` へ段階移行可能な運用を整備。
-
-## 全JSON DB 再確認（`Works_NumberTales` `DB_Primary` 除外）
-
-### 再確認の実施条件
-
-- 対象:
-  - `data/Works_*/DataBases/db_*.json`
-  - ただし `data/Works_NumberTales/DataBases/db_Primary.json` は除外
-- 判定観点:
-  - `*_JP` が存在する項目に対して `*_EN` の有無を確認
-  - 既定除外ルール（`langMode: shared`, `hideText`, `ThisMasters`）は従来方針どおり適用
-- 出力:
-  - `.cache/translation_completion_report.json` に集計結果を保存
-
-### 集計結果（2026-06-12）
-
-- 走査ファイル数: 17
-- 完了ファイル数: 16
-- 未完了ファイル数: 1
-- 判定対象ペア総数: 94
-- 完了ペア数: 93
-- 未完了ペア数: 1
-
-### 完了確認できた主な DB
-
-- `Works_DestinyFoxRecords`: `db_Primary`
-- `Works_FLInvestigator78`: `db_Primary`, `db_PrimaryDealer`
-- `Works_NumberTales`: `db_Secondary`, `db_SelfSecondary`, `db_SemiPrimary`, `db_UnprocessedSecondary`
-- `Works_PastDivers`: `db_Primary`
-- `Works_ShouArRiders`: `db_Primary`
-- `Works_SinisterChangingGirls`: `db_Primary`
-- `Works_UnauthedLogica`: `db_Primary`, `db_PrimaryMobs`
-- `Works_UnibyteLive`: `db_Primary`, `db_PrimaryPerformer`, `db_temp`
-
-### 要確認 1 件（未完了）
-
-- `data/Works_Proxies/DataBases/db_Proxy.json`
-  - レコード: 3 代目ラジアン
-  - 項目: `GenderType.about_JP` に対する `about_EN` が未配置（`GenderType.about`）
-
-注記:
-
-- 本件は `about_EN` の schema 運用粒度（`DayAbout_EN` / `about_EN`）未確定という既知課題とも関係する。
-- 厳密完了扱いにする場合は `about_EN` を補完し、暫定運用でよい場合は「保留ルール」に明示して管理する。
-
-## 英訳の共通ルール（全タイトル共通）
-
-### A. キー運用ルール
+この文書は、localize-perfection ブランチで実際に追加・更新された英文フィールドを唯一の正（Source of Truth）として、
+和文フィールドに対する厳密な英訳ルールと、既存英文フィールドとの整合性ルールを再定義するための基準書である。
 
-- 既存 JP フィールドに対して、対応する `_EN` を同一レコード内に追加する。
-- 例外として、以下は `_EN` を必須にしない:
-  - `$display.langMode: "shared"` のフィールド
-  - `hideText` で varsdef 側に英語対があるもの
-  - 運用未正式化キー（例: `ThisMasters_EN`）
-- 新規創作本文の自動生成は行わない。既存 JP 内容の英訳補完に限定する。
+以後の英訳作業は、この文書の「実データ準拠ルール」を優先し、一般的な翻訳規則よりも既存 JSON 実装との一致を優先する。
 
-### B. 書式・語法ルール
+## 正準データの定義
 
-- 呼称系の書式:
-  - `FirstPersonCalling_EN`, `SecondPersonCalling_EN`, `ThirdPersonCalling_EN`, `ForMasterCalling_EN` は既存レコードのスタイルに合わせる。
-  - 括弧注記は既存フォーマットを優先（例: `I (watashi)`, `you (kimi)`, `[*by name]`）。
-- 大文字・小文字:
-  - 固有称号は大文字、一般呼称は小文字。
-  - 例: `Master`（固有） / `my lord`（一般）
-- 記号・句読点:
-  - 末尾の不要な `;` や二重スペースを残さない。
-  - 改行区切りの多値は JP 側構造を維持しつつ英訳も同段数で揃える。
-- 固有名詞:
-  - 既存辞書・既存 EN 表記を優先し、同一概念を複数綴りにしない。
-  - 例: `LotusNinea` を正とし、派生は文脈に応じ `LotusNinea(n)` / `LotusNinean` を使い分ける。
+### 1. 正準ブランチ
 
-### C. 代名詞ルール
+- 正準: localize-perfection ブランチ上の JSON 実データ
+- 比較元: develop ブランチ
 
-- `GenderType` と既存英訳の慣例を優先する。
-- 迷った場合は同作品・同系統レコードの既存 `_EN` を参照し、独自解釈で揺らさない。
-- `Neutral` の扱いは、既存文体に合わせて `he/she` などを用いる。
+### 2. 正準対象ファイル
 
-### D. プレースホルダ運用
+- data/Works*\*/DataBases/db*\*.json
+- data/Works\_\*/DataBases/db_meta.json
+- data/Works\_\*/DataBases/db_type.json
+- data/Works*\*/Dictionaries/dict*\*.json
+- data/Works\_\*/Dictionaries/db_meta.json
+- data/References/db_type.json
+- data/Dictionaries/db_type.json
 
-- `[*???]` / `[※？？？]` は「流動・秘匿」運用の定型として、原則そのまま維持する。
-- プレースホルダを英訳で置換するのは、運用ルール変更の合意がある場合のみ。
+### 3. 重要原則
 
-### D-2. wrapper / about 系の運用ルール（追補）
+- 既に localize-perfection で追加済みの \*\_EN は、文体・語彙・記法を含めて正とする。
+- 新規英訳は「既存 EN へ寄せる」ことを必須とし、翻訳者の自由裁量を最小化する。
+- 既存 EN と矛盾する改善案は、先にルール側へ追記してから適用する（先にデータを壊さない）。
 
-- `*_withAbout` 系や `value + about` 構造では、`about_JP` と `about_EN` を対で管理する。
-- `about_EN` の追加対象は「公開表示で意味差が出る項目」を優先する。
-- `about_EN` の運用未確定領域（例: 一部 `DayAbout` 系）は、保留対象として明示し、無断で一括補完しない。
+## 実データ差分サマリ（develop...localize-perfection）
 
-### D-3. `DialogueExamples` / 会話例の運用ルール（追補）
+### 1. EN 差分の総量
 
-- 会話例は次の 2 形式を許容する。
-  - 文字列単体（既存互換）
-  - オブジェクト形式（`value_JP`, `value_EN`, `about_JP`, `about_EN`）
-- 英訳補完時は、既存の日本語例を尊重し、創作本文の新規生成にならない範囲で対応する。
-- `about_*` は文脈注釈であり、本体台詞より後回しにしてもよいが、UI 表示で必要なら優先補完する。
+- \*\_EN 追加/更新が発生した JSON ファイル数: 40
+- \*\_EN 追加件数: 1283
+- \*\_EN 既存値変更件数: 5
 
-### D-4. メタ情報英訳の優先順位（追補）
+### 2. 主要追加先（抜粋）
 
-- 作品概要:
-  - `data/db_meta.json` の `CreationWorks.#Works_*.Works_Summary_EN` を正とする。
-- DB 概要:
-  - 各作品 `DataBases/db_meta.json` の `Databases.#DB_*.DB_Summary_EN` を正とする。
-- 辞書ラベル:
-  - `Dictionaries/dict_*.json` 内の `*_EN` を優先し、`db_meta` 直書きより辞書分離を優先する。
+- data/Works_NumberTales/DataBases/db_Primary.json: 406 追加
+- data/Works_NumberTales/DataBases/db_SemiPrimary.json: 114 追加
+- data/Works_DestinyFoxRecords/DataBases/db_Primary.json: 98 追加
+- data/Works_PastDivers/DataBases/db_Primary.json: 94 追加
+- data/Works_FLInvestigator78/DataBases/db_PrimaryDealer.json: 78 追加
+- data/Works_ShouArRiders/DataBases/db_Primary.json: 66 追加
+- data/Works_Proxies/DataBases/db_Proxy.json: 46 追加
+- data/Works_SinisterChangingGirls/DataBases/db_Primary.json: 40 追加
+- data/Works_UnauthedLogica/DataBases/db_PrimaryMobs.json: 24 追加
 
-### E. ユーザー手直し書式マッピング（優先適用）
+### 3. 既存 EN の更新（追加ではなく上書き）
 
-- 本節は、ユーザーがセッション中に明示した「表記テンプレート」「置換方針」を記録したもの。
-- 既存英訳の揺れを修正する際は、まず本節の書式を優先し、そのうえで作品内既存文体へ寄せる。
+- data/Works_DestinyFoxRecords/DataBases/db_Primary.json: [1].FormalName_EN
+- data/Works_NumberTales/Dictionaries/dict_Class.json: [25].Class_EN
+- data/Works_Proxies/DataBases/db_Proxy.json: [1].Name_EN
+- data/Works_ShouArRiders/DataBases/db_Primary.json: [1].BeastspecName_EN
+- data/Works_UnauthedLogica/DataBases/db_Primary.json: [0].FormalName_EN
 
-#### E-1. 呼称・代名詞プレースホルダ
+上記は「既存 EN の品質補正」が現実に行われた証跡であり、今後も必要時に更新を許容する。
+ただし更新条件は本書「既存 EN 更新ルール」に従う。
 
-- `*れ` は文脈に応じて目的格側の語へ置換する。
-  - 基本候補: `this` / `that` / `what` / `them (as objective)`
-  - 選択基準: 前後文脈で指示対象が単数か複数か、具体対象か抽象対象かを優先する。
-- `[※二人称]` は `[*second-person calling]` として扱う。
-  - `SecondPersonCalling_EN` の値を呼び出す参照記法として統一する。
+## 現在の充足率（DB本体のみ再計測）
 
-#### E-2. 呼称参照トークンの正規化
+判定条件:
 
-- 呼称参照は `[*by name]` 形式を正とする。
-- 既存揺れ `~[*by name]` は不要記号を除去し、`[*by name]` に正規化する。
-- 文中の接続記号は最小化し、`he/she; [*by name]` のように読みやすい区切りへ寄せる。
+- 対象: data/Works*\*/DataBases/db*\*.json
+- 除外: data/Works_NumberTales/DataBases/db_Primary.json（本集計上の運用除外）
+- 判定: 値を持つ _\_JP に対応する _\_EN が同一オブジェクト内に存在するか
+- 例外: ThisMasters_JP は未正式運用として必須対象から除外
 
-#### E-3. 既知の誤記・表記ゆれ修正（ユーザー合意済み）
+再計測結果（2026-06-12）:
 
-- `Finaly` -> `Final`
-- `Fourty` -> `Forty`
-- `Fourty-Three` -> `Forty-Three`
-- `3nd Gen.` -> `3rd Gen.`
-- `OnesConcentration` -> `One'sConcentration`
-- `UntiYardPonds` -> `AntiYardPounds`
-- `RotusNinea` 系 -> `LotusNinea` 系
+- 走査ファイル数: 18
+- JP/EN 判定対象: 93
+- 完了: 92
+- 未完了: 1
 
-#### E-3.1 語調・書式の手直し（追加反映）
+未完了 1 件:
 
-- 一般呼称の小文字化（固有称号と区別）
-  - `My lord` -> `my lord`
-  - `Young sir/lady` -> `young sir/lady`
-- 呼称参照まわりの記号整理
-  - `he/she; ~[*by name]` -> `he/she; [*by name]`
-  - 文末の不要記号（例: 末尾 `;`）を削除
-- 代名詞・語感の微調整
-  - `GenderType` と既存訳調に合わせて、`Summary_EN` の代名詞選択を補正
-  - 特に NumberTales 連番初期個体（Num1/Num2）は、既存文体との整合を優先して調整
+- data/Works_Proxies/DataBases/db_Proxy.json
+  - record: index:1（3代目ラジアン）
+  - path: about_JP（GenderType 内）
+  - expected: about_EN
 
-#### E-3.2 DB_SemiPrimary 側での追加修正例
+## 英訳の厳密ルール（実データ正準）
 
-- NumberTales `db_SemiPrimary` でも、英訳補完と同時に既知誤記を是正
-  - 例: `archaic` / `contractor` 周辺の誤記修正（Num666）
+### A. キー対の厳密性
 
-#### E-3.3 表記維持（修正しない）ルールの明示
+1. _\_JP に値がある場合、同階層・同オブジェクトに対応する _\_EN を置く。
+2. \*\_EN のみ先行追加は禁止（JP が未定義なら EN も追加しない）。
+3. value/about 構造では value_JP/value_EN と about_JP/about_EN を同じ粒度で管理する。
+4. 例外運用キー（ThisMasters など）は「保留キー一覧」に明示されている場合のみ未追加を許容する。
 
-- プレースホルダは維持:
-  - `[*???]`, `[※？？？]` は置換しない
-- 意図語は維持:
-  - `OvderRoll` は意図表記として保持する
-- 運用未確定キーは保留:
-  - `ThisMasters_EN` は現時点で追加対象外
+### B. 既存 EN 優先の整合性
 
-#### E-4. このマッピングの運用条件
+1. 同一作品・同一 DB 種別で既に使われている語彙を優先する。
+2. 新規 EN は「意味が同じなら既存表現と完全一致」を原則にする。
+3. 同義語の新規導入は禁止（例: 既存が favor の場合に like を新規採用しない）。
+4. 同一キーの文体（句点、改行、括弧、プレースホルダ）を合わせる。
 
-- 作品固有設定で意図が明確な語は、ユーザーの判断を優先する。
-- 意図表記（例: `OvderRoll`）は誤字修正対象に含めない。
-- 新しい手直し指示が出た場合は、本節へ追記して全作品へ横展開する。
+### C. トークン・プレースホルダ整合
 
-## 英訳作業の標準手順（再発防止向け）
+実データ確認（現状）:
 
-1. 抽出
+- [*by name] 出現: 66
+- ~[*by name] 出現: 0
+- [*second-person calling] 出現: 8
+- my lord（小文字）出現: 3
+- young sir/lady（小文字）出現: 5
 
-- 作品単位で「JP 値あり・対応 `_EN` なし」を機械抽出する。
-- `shared` / `hideText` / プレースホルダは除外条件として先に適用する。
+運用ルール:
 
-2. 追加
+1. 呼称参照は [*by name] のみ許可する。
+2. [*second-person calling] を正規参照とし、旧式記法は新規追加で使わない。
+3. 一般呼称は小文字（my lord, young sir/lady）を標準にする。
+4. 末尾の不要セミコロン、二重スペース、記号連結の揺れを禁止する。
 
-- 連番順に 3 キャラ単位で追加する（運用上のレビュー粒度を維持）。
-- 追加は原則トップレベルの対になる項目から優先する。
+### D. 固有名詞・既知語形
 
-3. 推敲
+実データ確認（現状）:
 
-- 既存 EN との語調合わせ（同義語・句読点・括弧注記・改行）を行う。
-- 明確な誤字（例: `Finaly`, `Fourty`）を同時に是正する。
+- LotusNinea: 11
+- RotusNinea: 0
+- Finaly: 0
+- Fourty: 0
+- OvderRoll: 1（意図表記として維持）
 
-4. 検証
+運用ルール:
 
-- `tests/data.sanity.test.js`
-- `tests/bilingual-fields.test.js`
-- 必要に応じて表示系テスト（`pages.characters.*`）
+1. 既存正規形（LotusNinea 等）を固定語彙として扱う。
+2. 既知誤記（Finaly/Fourty/RotusNinea 等）の再導入を禁止する。
+3. OvderRoll は意図語として修正対象に含めない。
 
-## 表記ゆれ・誤植を防ぐための最低チェックリスト
+### E. 代名詞・呼称の整合
 
-- 同一キーで語順が揺れていないか（例: `I (watashi)` vs `watashi (I)`）。
-- 同一概念で固有名詞綴りが揺れていないか（例: `LotusNinea`）。
-- 呼称の大小文字ルールに反していないか。
-- 末尾記号（`;`, `,`）の取り残しがないか。
-- 既存 `GenderType` と代名詞が矛盾していないか。
-- 同一作品内で似たキャラの訳調が極端に乖離していないか。
+1. GenderType と同作品既存 EN の慣用を優先する。
+2. 主語代名詞は作品内先例を優先し、単独レコードだけで独自最適化しない。
+3. 呼称系キー（FirstPersonCalling_EN など）は既存テンプレートを踏襲する。
 
-## 既知の保留事項
+#### E-1. 「慣用」の定義（本書での意味）
 
-- `ThisMasters_EN` の正式運用は未決。
-- `DayAbout_EN` / `about_EN` の schema 正式化粒度は今後の整理対象。
-- 一部 `ConversationPattern` の全文英訳は段階導入（創作本文の新規生成制約に配慮）。
+- 本書でいう慣用は「同一作品・同一DB種別で、既に実データで使われている代名詞/呼称の訳し方と書式」を指す。
+- 慣用は語義の自然さより優先される（例: やや直訳気味でも既存 EN に一致させる）。
+- 慣用は単語だけでなく、次を含む。
+  - 代名詞の選択（he/she, thou, you など）
+  - 呼称トークン（[*by name], [*second-person calling]）
+  - 敬称の大小文字（sir/lady, my lord）
+  - 補注の入れ方（括弧注記、セミコロン区切り、改行）
+
+#### E-2. 慣用の判定優先順位
+
+1. 同一レコード内の既存 EN（最優先）
+2. 同一キーの同一作品内 EN（例: ThirdPersonCalling_EN）
+3. 同一 DB 種別内の多数派 EN（Primary/SemiPrimary など）
+4. 同作品内の近縁キャラ（設定・口調が近い）
+5. 全体標準ルール（C 節・D 節）
+
+上位と下位で衝突した場合は、常に上位を採用する。
+
+#### E-3. 代名詞・呼称の慣用マップ（実データ準拠）
+
+- FirstPersonCalling_EN:
+  - 私/わたし/僕/ぼく/俺/おれ の差は無理に I 以外へ展開せず、必要時のみ括弧で文体注記する。
+  - 例: I, I (ore; rough, rare)
+- SecondPersonCalling_EN:
+  - 君/あなた/あんた/貴方 などは、既存の you 系テンプレートを優先し、丁寧差は括弧注記で吸収する。
+  - 古風語（汝/お主 など）は thou 系を許容し、既存の archaic 注記形式へ合わせる。
+- ThirdPersonCalling_EN:
+  - [※名前呼び] は [*by name] へ統一する。
+  - *いつ/*れ 系は that/this/who/which/what/them (as objective) 系テンプレートを流用する。
+  - 彼/彼女 は he/she を基本とし、作品内既存の並記フォーマットを維持する。
+- ForMasterCalling_EN:
+  - 主/主人/主さん 系は Master 系を基本にし、作品内で既に定着した呼称（例: my lord, Master-kun）は上書きしない。
+  - sir/lady 系は小文字慣用を標準とする。
+
+#### E-3.1. 正例コーパスの明示（最重要）
+
+- 代名詞・呼称の慣用判定は、次の2ファイルを最優先の実例コーパスとして扱う。
+  - data/Works_SinisterChangingGirls/DataBases/db_Primary.json
+  - data/Works_NumberTales/DataBases/db_SemiPrimary.json
+- この2ファイルで確立された語法・トークン・注記粒度に合わせることを、慣用準拠の必須条件とする。
+
+#### E-3.2. 正例コーパスから読み取れる慣用パターン
+
+1. 一人称（FirstPersonCalling_EN）
+
+- 基本軸は I で統一し、ニュアンス差は括弧注記で表す。
+- 例: I (rough masc.), I (fem. neutral), I (warawa; fem. archaic)
+- 複数人格・複数モードは改行で併記し、行頭ラベル（Doppels:, Pelgans:）を許容する。
+
+2. 二人称（SecondPersonCalling_EN）
+
+- 基本軸は you 系で統一し、乱暴さ/丁寧さ/古風さを括弧注記で差分化する。
+- 例: you (blunt), you (very polite), thou (onushi; casually archaic)
+- 固有呼称（lord, senpai 等）は、該当レコード内の既存文脈がある場合のみ採用する。
+
+3. 三人称（ThirdPersonCalling_EN）
+
+- [※名前呼び] 系は [*by name] を標準トークンとする。
+- *れ/*いつ 系は that/this/who/which/what/them の列挙テンプレートで受ける。
+- he/she の併記は維持し、削減しない。
+- 敬称列挙は小文字（sir/mr/lady/ms.）を標準とし、~dono 等の補注は括弧で保持する。
+
+4. 主人呼称（ForMasterCalling_EN）
+
+- my lord / my sir/lady / young sir/lady / my contractor などの既存呼称は固定語彙として扱う。
+- [*second-person calling] を後置して連動させる書式を許容し、既存採用レコードでは維持する。
+
+#### E-3.3. 慣用の書式ルール（指定2DB準拠）
+
+1. 1レコード内で口調モードが複数ある場合は、改行でモード単位に分ける。
+2. モード識別子（例: Doppels:, Pelgans:）は英語ラベル+コロンで統一する。
+3. 括弧注記は「語彙 + 空白 + (注記)」の形式を基本にする。
+4. セミコロン区切りは意味ブロックの分割に限定し、冗長な区切りは増やさない。
+
+#### E-3.4. 例外とレガシー扱い
+
+- data/Works_SinisterChangingGirls/DataBases/db_Primary.json に [by name]（アスタリスク無し）の旧表記がある。
+- 本書の正規形は [*by name] であり、新規追加では旧表記を使用しない。
+- 既存データを更新する場合は「既存 EN 更新ルール」に従い、周辺表記との整合を確認してから置換する。
+
+#### E-4. 慣用運用時の禁止事項
+
+1. 同一キー内での勝手な言い換え（例: Master -> employer）
+2. 既存トークンの別表記導入（例: [*by-name], [※名前呼び] を EN 側へ残す）
+3. 敬称の大小文字をレコードごとに揺らすこと
+4. 既存 EN の注記粒度を無断で削ること（archaic, rough など）
+
+#### E-5. 慣用確認チェック（追加前）
+
+1. 追加対象キーの同作品既存 EN を最低 3 例確認する。
+2. 追加文が既存トークン規約（[*by name], [*second-person calling]）に一致しているか確認する。
+3. 敬称の大小文字が同キー多数派と一致しているか確認する。
+4. 差分レビュー時に「新語導入」がある場合は、理由をログへ明記する。
+
+### F. 改行・複数値・長文項目
+
+1. JP が改行区切りなら EN も同段数の改行区切りを優先する。
+2. Summary/Backgrounds/Notes 類は既存 EN の情報密度と文長へ合わせる。
+3. リスト項目の列挙順は JP と同順を維持する。
+
+### G. 辞書・メタ・型定義の整合
+
+1. DB概要は各作品 DataBases/db_meta.json の DB_Summary_EN を正とする。
+2. 作品概要は data/db_meta.json の Works_Summary_EN を正とする。
+3. 辞書ラベルは Dictionaries/dict\_\*.json を優先し、db_meta 直書きを増やさない。
+4. 表示ラベル定義（hashTag_EN など）は db_type.json 側と表示実装の整合を優先する。
+
+## 既存 EN 更新ルール（上書き時）
+
+既存 EN を更新してよい条件は次のみ:
+
+1. 既知誤記の修正である。
+2. 同作品内の多数派表記へ統一するためである。
+3. プレースホルダ規約違反の解消である。
+4. UI/検索/参照解決の仕様整合に必要である。
+
+更新時の必須対応:
+
+1. 変更理由を \_work_in_progress ログへ記録する。
+2. 該当キーの周辺レコードを横断確認する。
+3. 既存 EN を壊す方向の言い換えを避け、最小差分で修正する。
+
+## 整合性判定プロトコル（作業ごとに実施）
+
+### 手順 1: 追加対象抽出
+
+- 対象作品・対象 DB で「値あり _\_JP / 欠損 _\_EN」を抽出
+- 保留キー（ThisMasters 等）と shared 運用キーを除外
+
+### 手順 2: 既存 EN 参照
+
+- 同作品・同キーの既存 EN 値を先に収集
+- 既存語彙と競合する新規語彙を禁止
+
+### 手順 3: 追加
+
+- 3キャラ単位で追加（運用上のレビュー粒度を維持）
+- ConversationPattern がある場合は同時に英訳対を追加
+
+### 手順 4: 記号・語形検査
+
+- [*by name] / [*second-person calling] / 小文字呼称を確認
+- 既知誤記と固有名詞揺れを確認
+
+### 手順 5: テスト
+
+- npm test
+- 必要に応じて対象テストのみ再実行（bilingual-fields 等）
+
+## 作業運用ルール（継続英訳向け）
+
+1. 英訳は番号順で進める。
+2. 1セッション 3キャラ単位で進める。
+3. ConversationPattern があるキャラは同時に英訳対応する。
+4. 長期対応は develop から作業ブランチを分ける。
+
+## 保留事項（明示管理）
+
+1. ThisMasters_EN の正式運用は未確定。
+2. about_EN / DayAbout_EN の適用粒度は要整理。
+3. data/Works_Proxies/DataBases/db_Proxy.json の about_EN 欠損 1 件は未解消。
 
 ## 今後の適用方針
 
-- この文書を英訳対応の一次基準にし、作品追加時も同ルールを流用する。
-- ルール変更が出た場合は、差分のみ本書へ追記して運用を一本化する。
-- NumberTales 本体（`DB_Primary`）の残件補完も同じ手順で続行する。
+1. 本書を英訳対応の一次基準とし、以降の翻訳判断は本書へ追記して一本化する。
+2. ルール変更時は「先に本書更新、次にデータ更新」の順で運用する。
+3. 次回以降の英訳追加は、必ず localize-perfection 実データと同じ記法体系へ収束させる。
