@@ -945,3 +945,61 @@
 
 - `tests/data.sanity.test.js`: pass
 - `tests/bilingual-fields.test.js`: pass
+
+## 2026-06-12〜13 引継ぎ追記：翻訳進捗トラッカー（db_Primary.json）
+
+以下のログを統合・削除したため、本ファイルに進捗情報を引き継ぐ。
+
+統合元ログ（削除済み）:
+- `2026-06-11_progress_english-fields-addition.md`
+- `2026-06-12_progress_english-fields-followup.md`
+- `2026-06-12_progress_translation-num11-13.md`
+- `2026-06-12_progress_translation-num14-16.md`
+- `2026-06-12_progress_translation-num23-25.md`
+- `2026-06-12_progress_translation-num26-30.md`
+
+### Relation.Comments_EN 完了状況
+
+| 範囲 | 状態 | 備考 |
+|---|---|---|
+| Num 1〜10 | ✅ 完了 | Relation.Comments_EN 英訳・括り書式統一 |
+| Num 11〜13 | ✅ 完了 | Relation.Comments_EN 英訳完了 |
+| Num 14〜16 | ✅ 完了 | Relation.Comments_EN 英訳完了 |
+| Num 17〜19 | ✅ 完了 | Relation.Comments_EN 英訳完了 |
+| Num 20〜22 | ✅ 完了 | Relation.Comments_EN 英訳完了 |
+| Num 23〜25 | ✅ 完了 | Relation.Comments_EN + ConversationPattern_EN 補完 |
+| Num 26〜30 | ✅ 完了 | Relation.Comments_EN + 各種 _EN フィールド補完 |
+| Num 31〜 | ⏳ 未対応 | 次の作業対象 |
+
+### トップレベル _EN フィールドの完了状況（db_Primary.json）
+
+| Num 範囲 | 完了済み主要フィールド |
+|---|---|
+| Num 26〜30 | `Character_EN`, `Hobby_EN`, `SpecialSkill_EN`, `Favor_EN`, `Unlike_EN`, `RelationNotes_EN`, `NumerospecAbout_EN`, `Summary_EN`, `Backgrounds_EN` 等 |
+| Num 31〜 | 未対応（次の作業対象） |
+
+注: Num 1〜25 のトップレベル _EN は部分的に補完済みだが、漏れの可能性がある。
+`scan_numbertales_missing_en.mjs` で再走査して確認すること（`.cache/` に保持）。
+
+### ConversationPattern が存在するキャラ（確認済み）
+
+- Num 25: ConversationPattern_EN + DialogueExamples 対応済み
+- Num 26: ConversationPattern_EN + DialogueExamples 対応済み
+- Num 29: ConversationPattern_EN + DialogueExamples 対応済み
+
+## 2026-06-12 引継ぎ追記：Comments_EN の呼称整合ルール
+
+### 追加ルール
+
+- 和文コメント内に呼びかけ（例: 君, あんた, 妹/弟 など）が含まれる場合は、対象キャラの `SecondPersonCalling_EN` / `ForMasterCalling_EN` / `ThirdPersonCalling_EN` を参照して英訳語調を合わせる。
+- 例:
+  - `SecondPersonCalling_EN: you (familiar)` のキャラ: `君` を `you` ベースで翻訳
+  - `SecondPersonCalling_EN: you (rough)` のキャラ: `あんた` を rough な語調で翻訳
+  - `SecondPersonCalling_EN: thou` のキャラ: 古風口調（`Thou ...`）を維持
+- Neutral を含む対象では `he/she` 系を優先し、単独の `he` / `she` 固定で先走らない。
+
+### CodeName_EN の数詞直列化ルール（引継ぎ確定）
+
+- `CodeName_EN` は和数字コード名を英語直列化で表現する。
+- 形式: `One-Zero`, `One-Eight`, `One-Nine`, `Two-One`（ハイフン区切り・先頭大文字）
+- `db_SemiPrimary.json` / `db_SelfSecondary.json` / `db_UnprocessedSecondary.json` の命名慣用を正準とする。
