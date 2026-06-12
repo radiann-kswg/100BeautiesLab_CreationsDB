@@ -25,7 +25,7 @@
     "Letter": { "Alphabet": "S", "Generation": 5, "AlphaGen": 2 },
     "Progress": "nowCreating",
     "Images": {
-      "keycapper_PNGPath": []
+      "keycapper_PNGPath": ["S/emstk_keycapperS-1.png"]
     },
     "Name": "S:ナーミィ",
     "Name_EN": "S:Surgey",
@@ -76,6 +76,43 @@
         "ゲームエンジン特許あり"
       ],
       "StreamingSummary": "ライブ配信では主に映像作品の公開をメインとしており、現実空間では味わえない斬新なプレイ体験でなみのりー(リスナー)たちを楽しませている。\n「ユニバイト・ユニバース」内ではトゥーンギャグに特化した様々なギミックを搭載したアバターでなみのりーと交流しており、時にVRユーザたちの性癖を大いに歪めたコンテンツを世に出したと噂されている。\n個人の同人ショップでアバターカスタムコンテンツも頒布しており、メタバースの新しい楽しみ方の提供にも積極的。"
+    }
+  },
+  {
+    "Letter": { "Alphabet": "Z", "Generation": 2, "AlphaGen": 1 },
+    "Progress": "nowCreating",
+    "Images": {
+      "keycapper_PNGPath": ["Z/emstk_keycapperZ-1.png"]
+    },
+    "Name": "Z:ジグ",
+    "Name_EN": "Z:Zig",
+    "FormalName": "右仗(ゆうじょう)ジグ",
+    "FormalName_EN": "Zig Z-Drifts",
+    "CodeName": "右(Z),ジグ",
+    "CodeName_EN": "Z,Zig",
+    "Height_cm": 142,
+    "ConceptAge": 16,
+    "AnivDay": [
+      {
+        "Day": { "Month": 2, "DayOfMonth": 26 },
+        "DayAbout": "誕生日（アルベッツ名義）"
+      }
+    ],
+    "BustSize": "B",
+    "AccessoryUnit": "Zの字状に折り曲げられたポニーテールや鞄(錘)付きの尻尾",
+    "StreamingActivity": {
+      "StreamingCategory": [
+      ],
+      "StreamingGreeting": {
+        "StreamingGreeting_JP": ["ジグザってるか〜！"],
+        "StreamingGreeting_EN": ["Are you zigzagging?"]
+      },
+      "ListenerNickname": {
+        "ListenerNickname_JP": "ノコギリ族",
+        "ListenerNickname_EN": "Zigzaggers"
+      },
+      "StreamingAwards": [],
+      "StreamingSummary": ""
     }
   }
 ]
