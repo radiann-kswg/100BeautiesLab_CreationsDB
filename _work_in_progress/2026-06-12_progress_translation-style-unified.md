@@ -810,3 +810,26 @@
 
 - 上記 3 作品は、2026-06-12 時点では追加の実データ補完を行わず、直近の優先対象から外す
 - 以後は `Works_NumberTales` 側の残件処理を優先する
+
+## 2026-06-12 追記：Works_NumberTales `db_Primary` 先頭 10 キャラの `Comments_EN` 補完
+
+### 対象
+
+- `data/Works_NumberTales/DataBases/db_Primary.json`
+- 対象レコード: `Num 1` 〜 `Num 10`
+
+### 実施内容
+
+1. 先頭 10 キャラについて、同一ファイル内の既存 EN 実績基準で欠損キーを再確認
+2. 欠損キーは無かったため、`Relation.Related[].Comments_EN` / `Relation.Commented[].Comments_EN` の和文残りだけを抽出
+3. `Num 1` 〜 `Num 10` のコメント英訳を、`Num 1-3` / `Num 4-6` / `Num 7-10` の3束に分けて順次補完
+
+### 結果
+
+- `Num 1` 〜 `Num 10` について、`Comments_EN` に残っていた和文を全件英訳
+- 各束の補完後、対象 Num 範囲で `Comments_EN` に和文残り 0 を確認
+
+### 検証
+
+- `tests/data.sanity.test.js`: pass
+- `tests/bilingual-fields.test.js`: pass
