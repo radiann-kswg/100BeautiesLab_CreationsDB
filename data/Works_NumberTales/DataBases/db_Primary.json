@@ -170,13 +170,13 @@
         {
           "Num": 2,
           "Comments": "「他の子を大切にしてるいい妹。なんだけどなー」",
-          "Comments_EN": "「他の子を大切にしてるいい妹。なんだけどなー」",
+          "Comments_EN": "\"A good little sister who really cares about the others. Though, well...\"",
           "RelationLabel": ["wellMatched", "brother|sister", "classmate"]
         },
         {
           "Num": 10,
           "Comments": "「ぼくの相棒！ただちょっと怪しいけど」",
-          "Comments_EN": "「ぼくの相棒！ただちょっと怪しいけど」",
+          "Comments_EN": "\"My buddy! Just a little suspicious, though\"",
           "RelationLabel": ["awkward_aBit", "alternative|redesign"]
         }
       ],
@@ -184,23 +184,23 @@
         {
           "Num": 3,
           "Comments": "「何かあったら任せられて頼れる！」",
-          "Comments_EN": "「何かあったら任せられて頼れる！」",
+          "Comments_EN": "\"If anything happens, they're someone I can count on and trust!\"",
           "RelationLabel": ["classmate"]
         },
         {
           "Num": 11,
           "Comments": "「すごい挑戦をするときによくいる」",
-          "Comments_EN": "「すごい挑戦をするときによくいる」"
+          "Comments_EN": "\"They're often around when something really bold is being attempted\""
         },
         {
           "Num": 55,
           "Comments": "「根本は違うけどぼくと似たり寄ったり？」",
-          "Comments_EN": "「根本は違うけどぼくと似たり寄ったり？」"
+          "Comments_EN": "\"Different at the core, but kinda similar to me?\""
         },
         {
           "Num": 91,
           "Comments": "「スタートダッシュもゴールインもカッコいい人！」",
-          "Comments_EN": "「スタートダッシュもゴールインもカッコいい人！」",
+          "Comments_EN": "\"Someone who looks cool both in the opening dash and at the finish line!\"",
           "RelationLabel": ["successor"]
         }
       ]
@@ -421,7 +421,7 @@
       }
     ],
     "RelationNotes": "「3(ナオ)」と信頼関係がある\n「9(チカ)」に甘えてる一面も",
-    "RelationNotes_EN": "Has a trusting relationship with \"3(Treiya)\"\nAlso has a side that relies on \"9(Chika)\"",
+    "RelationNotes_EN": "Has a trusting relationship with \"3(Treiya)\"\nAlso has a side that relies on \"9(Nina)\"",
     "NumerospecAbout": "主人や他ナンバーテールズの日々や人脈をよりよくする",
     "NumerospecAbout_EN": "Improves the daily life and human connections of both the Master and the other NumberTales",
     "Summary": "自分らしさを貫く双子の姉「1(ハジメ)」とは対称的で、相手との協調を大切にしている。\n他のナンバーテールズを想いながら、毎日をよりよくするための奉仕や人脈の形成を支える、99人にとってのマネージャー的存在。\n一方で彼女が持つ向上心に反して周囲に流されることもしばしばあり、彼女自身も癒しを欲している一面がある。",
@@ -453,7 +453,7 @@
         {
           "Num": 1,
           "Comments": "「行動力はすごい姉、だけど…」",
-          "Comments_EN": "「行動力はすごい姉、だけど…」",
+          "Comments_EN": "\"An amazing big sis when it comes to drive, but...\"",
           "RelationLabel": [
             "wellMatched_maybe",
             "awkward_aBit",
@@ -464,13 +464,13 @@
         {
           "Num": 3,
           "Comments": "「同期であり尊敬する存在」",
-          "Comments_EN": "「同期であり尊敬する存在」",
+          "Comments_EN": "\"A peer I respect\"",
           "RelationLabel": ["trusted", "classmate"]
         },
         {
           "Num": 9,
           "Comments": "「甘え相手」",
-          "Comments_EN": "「甘え相手」",
+          "Comments_EN": "\"Someone I can lean on and act spoiled around\"",
           "RelationLabel": ["abusing", "classmate"]
         },
         { "Num": 12, "RelationLabel": ["awkward", "successor"] },
@@ -480,17 +480,17 @@
         {
           "Num": 11,
           "Comments": "「迷ったら彼(女)に頼りたい」",
-          "Comments_EN": "「迷ったら彼(女)に頼りたい」"
+          "Comments_EN": "\"If I'm ever lost, I'd want to rely on him/her\""
         },
         {
           "Num": 47,
           "Comments": "「応援してくれて嬉しい」",
-          "Comments_EN": "「応援してくれて嬉しい」"
+          "Comments_EN": "\"I'm happy she cheers me on\""
         },
         {
           "Num": 65,
           "Comments": "「色んなもの持ってて羨ましい」",
-          "Comments_EN": "「色んなもの持ってて羨ましい」"
+          "Comments_EN": "\"I'm jealous of all the things she has\""
         }
       ]
     }
@@ -628,13 +628,13 @@
         {
           "Num": 1,
           "Comments": "「すごいポテンシャルで突き進んでる」",
-          "Comments_EN": "「すごいポテンシャルで突き進んでる」",
+          "Comments_EN": "\"Charging ahead with incredible potential\"",
           "RelationLabel": ["wellMatched", "classmate"]
         },
         {
           "Num": 2,
           "Comments": "「今後も信頼してるよ」",
-          "Comments_EN": "「今後も信頼してるよ」",
+          "Comments_EN": "\"I'll keep trusting you from here on too\"",
           "RelationLabel": ["trusted", "classmate"]
         },
         { "Num": 5, "RelationLabel": ["wellMatched", "classmate"] }
@@ -643,23 +643,23 @@
         {
           "Num": 6,
           "Comments": "「世界観がなんだか憎めない」",
-          "Comments_EN": "「世界観がなんだか憎めない」",
+          "Comments_EN": "\"There's something oddly endearing about her whole worldview\"",
           "RelationLabel": ["classmate"]
         },
         {
           "Num": 22,
           "Comments": "「簡単に馬鹿にできない」",
-          "Comments_EN": "「簡単に馬鹿にできない」"
+          "Comments_EN": "\"Not someone you can dismiss so easily\""
         },
         {
           "Num": 57,
           "Comments": "「仙人にでもなるつもりなのかな…」",
-          "Comments_EN": "「仙人にでもなるつもりなのかな…」"
+          "Comments_EN": "\"I wonder if he/she's trying to become some kind of sage...\""
         },
         {
           "Num": 66,
           "Comments": "「信者多そう」",
-          "Comments_EN": "「信者多そう」"
+          "Comments_EN": "\"Feels like she'd have a lot of followers\""
         }
       ]
     }
@@ -803,7 +803,7 @@
         {
           "Num": 5,
           "Comments": "「怖い!!!」",
-          "Comments_EN": "「怖い!!!」",
+          "Comments_EN": "\"Scary!!!\"",
           "RelationLabel": ["unmatched", "classmate"]
         },
         { "Num": 6, "RelationLabel": ["wellMatched", "classmate"] }
@@ -812,29 +812,29 @@
         {
           "Num": 2,
           "Comments": "「とてもいい人だからすぐ疲れちゃいそう…」",
-          "Comments_EN": "「とてもいい人だからすぐ疲れちゃいそう…」",
+          "Comments_EN": "\"She's such a nice person, I feel like she'd get worn out right away...\"",
           "RelationLabel": ["classmate"]
         },
         {
           "Num": 8,
           "Comments": "「作業中はもっと慎重にやってほしいよぉ…」",
-          "Comments_EN": "「作業中はもっと慎重にやってほしいよぉ…」",
+          "Comments_EN": "\"I wish he'd be more careful while working...\"",
           "RelationLabel": ["classmate"]
         },
         {
           "Num": 22,
           "Comments": "「すごすぎて言葉が出ない…」",
-          "Comments_EN": "「すごすぎて言葉が出ない…」"
+          "Comments_EN": "\"You're so amazing I don't even have words...\""
         },
         {
           "Num": 58,
           "Comments": "「急に運がよくなるから、よくわからない…」",
-          "Comments_EN": "「急に運がよくなるから、よくわからない…」"
+          "Comments_EN": "\"Your luck suddenly gets better out of nowhere, so I don't really get it...\""
         },
         {
           "Num": 76,
           "Comments": "「怪しまれそう…多分いい人なのになぁ」",
-          "Comments_EN": "「怪しまれそう…多分いい人なのになぁ」"
+          "Comments_EN": "\"They seem kind of suspicious... but they're probably a good person...\""
         }
       ]
     },
@@ -1032,14 +1032,14 @@
         {
           "Num": 3,
           "Comments": "「枠に収まりつつ個性的なオーラを放つ友(ダチ)」",
-          "Comments_EN": "「枠に収まりつつ個性的なオーラを放つ友(ダチ)」",
+          "Comments_EN": "\"A pal who fits the mold while still giving off a distinct aura\"",
           "RelationLabel": ["wellMatched", "classmate"]
         },
         { "Num": 4, "RelationLabel": ["abusing", "unmatched", "classmate"] },
         {
           "Num": 6,
           "Comments": "「波長が合わない、悪い人ではないけど…」",
-          "Comments_EN": "「波長が合わない、悪い人ではないけど…」",
+          "Comments_EN": "\"We just don't click, not that she's a bad person or anything...\"",
           "RelationLabel": ["awkward", "classmate"]
         }
       ],
@@ -1047,22 +1047,22 @@
         {
           "Num": 10,
           "Comments": "「一体彼(女)の先の何を見てるんだろ…」",
-          "Comments_EN": "「一体彼(女)の先の何を見てるんだろ…」"
+          "Comments_EN": "\"Just what is he/she seeing beyond all this, I wonder...\""
         },
         {
           "Num": 32,
           "Comments": "「彼(女)の出し物は何回見ても飽きない!」",
-          "Comments_EN": "「彼(女)の出し物は何回見ても飽きない!」"
+          "Comments_EN": "\"No matter how many times I watch his/her act, I never get tired of it!\""
         },
         {
           "Num": 68,
           "Comments": "「急に見た目が変わった時なんかは笑う」",
-          "Comments_EN": "「急に見た目が変わった時なんかは笑う」"
+          "Comments_EN": "\"When his/her appearance suddenly changes, it cracks me up\""
         },
         {
           "Num": 77,
           "Comments": "「めっちゃ有能で面白い、参った!」",
-          "Comments_EN": "「めっちゃ有能で面白い、参った!」"
+          "Comments_EN": "\"Crazy capable and entertaining too, I give up!\""
         }
       ]
     }
@@ -1207,13 +1207,13 @@
         {
           "Num": 7,
           "Comments": "「少々内向的ですが、本当は立派な方ですよ」",
-          "Comments_EN": "「少々内向的ですが、本当は立派な方ですよ」",
+          "Comments_EN": "\"A touch introverted, perhaps, but truly a splendid person at heart\"",
           "RelationLabel": ["abusing", "trusted_maybe", "classmate"]
         },
         {
           "Num": 9,
           "Comments": "「「闇属性」と称されていますが、何故でしょう…？」",
-          "Comments_EN": "「「闇属性」と称されていますが、何故でしょう…？」",
+          "Comments_EN": "\"She's called a 'dark-attribute' type, but whatever could be the reason...?\"",
           "RelationLabel": ["paired", "classmate"]
         }
       ],
@@ -1221,24 +1221,24 @@
         {
           "Num": 3,
           "Comments": "「あなた様の活躍、今後も期待しております」",
-          "Comments_EN": "「あなた様の活躍、今後も期待しております」",
+          "Comments_EN": "\"I look forward to your future achievements as well\"",
           "RelationLabel": ["classmate"]
         },
         {
           "Num": 5,
           "Comments": "「いつまでも観飽きない子です♪」",
-          "Comments_EN": "「いつまでも観飽きない子です♪」",
+          "Comments_EN": "\"She's the kind of girl one never tires of watching♪\"",
           "RelationLabel": ["classmate"]
         },
         {
           "Num": 33,
           "Comments": "「偉才な方ですが、彼女が失敗した際はご注意を」",
-          "Comments_EN": "「偉才な方ですが、彼女が失敗した際はご注意を」"
+          "Comments_EN": "\"A truly gifted person, but do be careful when she fails\""
         },
         {
           "Num": 42,
           "Comments": "「無茶も承知でお好きな様にと、いった子ですね」",
-          "Comments_EN": "「無茶も承知でお好きな様にと、いった子ですね」"
+          "Comments_EN": "\"She's the sort who says, 'Do as you like,' even knowing it may be reckless\""
         }
       ]
     }
@@ -1375,19 +1375,19 @@
         {
           "Num": 5,
           "Comments": "「こ奴には負けたくない」",
-          "Comments_EN": "「こ奴には負けたくない」",
+          "Comments_EN": "\"I don't want to lose to this one\"",
           "RelationLabel": ["unmatched", "classmate"]
         },
         {
           "Num": 9,
           "Comments": "「良からぬことに愛憎がないといいが…」",
-          "Comments_EN": "「良からぬことに愛憎がないといいが…」",
+          "Comments_EN": "\"I only hope she holds no love for ill-intentioned things...\"",
           "RelationLabel": ["wellMatched", "classmate"]
         },
         {
           "Num": 70,
           "Comments": "「お互い見習い合える仲」",
-          "Comments_EN": "「お互い見習い合える仲」",
+          "Comments_EN": "\"The kind of relationship where we can learn from each other\"",
           "RelationLabel": ["brother|sister", "trusted"]
         }
       ],
@@ -1395,18 +1395,18 @@
         {
           "Num": 6,
           "Comments": "「彼女なりの生きがいを感じる」",
-          "Comments_EN": "「彼女なりの生きがいを感じる」",
+          "Comments_EN": "\"I can sense the purpose she finds in her own way\"",
           "RelationLabel": ["classmate"]
         },
         {
           "Num": 25,
           "Comments": "「悪くない意味で恐ろしい感性がある」",
-          "Comments_EN": "「悪くない意味で恐ろしい感性がある」"
+          "Comments_EN": "\"She has a frightening sensitivity, and I mean that in a good way\""
         },
         {
           "Num": 88,
           "Comments": "「あれは資産力の化け物」",
-          "Comments_EN": "「あれは資産力の化け物」"
+          "Comments_EN": "\"That's a monster of sheer assets\""
         }
       ]
     }
@@ -1571,13 +1571,13 @@
         {
           "Num": 1,
           "Comments": "「動力源どこよあの子…」",
-          "Comments_EN": "「動力源どこよあの子…」",
+          "Comments_EN": "\"Where even is that kid's power source...?\"",
           "RelationLabel": ["awkward", "classmate"]
         },
         {
           "Num": 7,
           "Comments": "「あてが理系なら彼(女)は文系？」",
-          "Comments_EN": "「あてが理系なら彼(女)は文系？」",
+          "Comments_EN": "\"If I'm the science type, then is he/she the humanities type?\"",
           "RelationLabel": ["wellMatched", "classmate"]
         }
       ],
@@ -1585,22 +1585,22 @@
         {
           "Num": 10,
           "Comments": "「古代兵器みがある」",
-          "Comments_EN": "「古代兵器みがある」"
+          "Comments_EN": "\"He/She kind of has an ancient-weapon vibe\""
         },
         {
           "Num": 35,
           "Comments": "「まれに才能開花してそう」",
-          "Comments_EN": "「まれに才能開花してそう」"
+          "Comments_EN": "\"Feels like his/her talent blooms every now and then\""
         },
         {
           "Num": 44,
           "Comments": "「守護神でもいそうまである」",
-          "Comments_EN": "「守護神でもいそうまである」"
+          "Comments_EN": "\"Feels like there could even be a guardian deity backing him up\""
         },
         {
           "Num": 62,
           "Comments": "「何かいいの閃いたらあてが作るよ！」",
-          "Comments_EN": "「何かいいの閃いたらあてが作るよ！」"
+          "Comments_EN": "\"If you come up with something good, I'll build it for you!\""
         }
       ]
     }
@@ -1735,13 +1735,13 @@
         {
           "Num": 2,
           "Comments": "「可愛らしいお嬢さんね」",
-          "Comments_EN": "「可愛らしいお嬢さんね」",
+          "Comments_EN": "\"What a lovely young lady\"",
           "RelationLabel": ["wellMatched", "classmate"]
         },
         {
           "Num": 6,
           "Comments": "「ロマンチストで素敵だと思うわ」",
-          "Comments_EN": "「ロマンチストで素敵だと思うわ」",
+          "Comments_EN": "\"I think she's a wonderful romantic\"",
           "RelationLabel": ["paired", "classmate"]
         }
       ],
@@ -1749,23 +1749,23 @@
         {
           "Num": 4,
           "Comments": "「もっと大胆にいってもいいのよ？」",
-          "Comments_EN": "「もっと大胆にいってもいいのよ？」",
+          "Comments_EN": "\"You could stand to be a little bolder, you know?\"",
           "RelationLabel": ["classmate"]
         },
         {
           "Num": 10,
           "Comments": "「自分を見失ってないといいわね」",
-          "Comments_EN": "「自分を見失ってないといいわね」"
+          "Comments_EN": "\"I do hope you haven't lost sight of yourself\""
         },
         {
           "Num": 27,
           "Comments": "「あの子の果てを観てみたいわ」",
-          "Comments_EN": "「あの子の果てを観てみたいわ」"
+          "Comments_EN": "\"I'd like to see how far that child will go\""
         },
         {
           "Num": 99,
           "Comments": "「記憶って、不思議なものね…」",
-          "Comments_EN": "「記憶って、不思議なものね…」",
+          "Comments_EN": "\"Memory really is a mysterious thing...\"",
           "RelationLabel": ["successor"]
         }
       ]
@@ -1786,7 +1786,7 @@
       "DialogueExamples": [
         {
           "value_JP": "「ナンバーテールズ ９番機の『9(チカ)』よ。坊や/お嬢さんが辛いときの支えになれたら嬉しいわ♡」",
-          "value_EN": "\"I'm '9(Chika)', NumberTales Unit 9. I'd be happy if I can support you, young sir/lady, when things feel hard.<3\"",
+          "value_EN": "\"I'm '9(Nina)', NumberTales Unit.9. I'd be happy if I can support you, young sir/lady, when things feel hard.♡\"",
           "about": "契約時の自己紹介",
           "about_EN": "Self-introduction at contract"
         },
@@ -1804,7 +1804,7 @@
         },
         {
           "value_JP": "「今日もお疲れ様 坊や/お嬢さん、いつも頑張ってて偉いわね♡」",
-          "value_EN": "\"Good work today as well, young sir/lady. You always try so hard; that's admirable.<3\""
+          "value_EN": "\"Good work today as well, young sir/lady. You always try so hard; that's admirable.♡\""
         },
         {
           "value_JP": "「……あらあら、ふふふ…（※不穏な笑みを浮かべている）」",
@@ -1814,7 +1814,7 @@
         },
         {
           "value_JP": "「あらあら、可哀そうな坊や/お嬢さん……よしよし…♡」",
-          "value_EN": "\"Oh my, you poor young sir/lady... there, there...<3\"",
+          "value_EN": "\"Oh my, you poor young sir/lady... there, there...♡\"",
           "about": "精神的に疲弊している人を慰めているとき",
           "about_EN": "When comforting someone mentally exhausted"
         }
@@ -1999,25 +1999,25 @@
         {
           "Num": 1,
           "Comments": "「僕の相棒、いろいろ世話になった」",
-          "Comments_EN": "「僕の相棒、いろいろ世話になった」",
+          "Comments_EN": "\"My buddy. I've owed them a lot over time\"",
           "RelationLabel": ["trusted_maybe", "alternative|redesign"]
         },
         {
           "Num": 2,
           "Comments": "「あまり相手重視にしすぎないことだね」",
-          "Comments_EN": "「あまり相手重視にしすぎないことだね」",
+          "Comments_EN": "\"Best not to center yourself too much around the other person\"",
           "RelationLabel": ["wellMatched", "alternative|redesign"]
         },
         {
           "Num": 11,
           "Comments": "「話が通じる」",
-          "Comments_EN": "「話が通じる」",
+          "Comments_EN": "\"Easy enough to reason with\"",
           "RelationLabel": ["abusing", "trusted_maybe"]
         },
         {
           "Num": 99,
           "Comments": "「ふむ…なるほど」",
-          "Comments_EN": "「ふむ…なるほど」",
+          "Comments_EN": "\"Hm... I see\"",
           "RelationLabel": ["secretRelation"]
         },
         {
@@ -2029,12 +2029,12 @@
         {
           "Num": 9,
           "Comments": "「裏がある優しさを持ってる、悪くない」",
-          "Comments_EN": "「裏がある優しさを持ってる、悪くない」"
+          "Comments_EN": "\"Has a kindness with something underneath it. Not bad\""
         },
         {
           "Num": 19,
           "Comments": "「因果応報を信じてやまないね」",
-          "Comments_EN": "「因果応報を信じてやまないね」"
+          "Comments_EN": "\"He/She truly never stops believing in karmic justice\""
         }
       ]
     },
@@ -2246,25 +2246,25 @@
         {
           "Num": 1,
           "Comments": "（※字が乱れていて「師匠」しか読めない）",
-          "Comments_EN": "（※字が乱れていて「師匠」しか読めない）",
+          "Comments_EN": "(* The handwriting is so garbled that only the word 'master' is legible)",
           "RelationLabel": ["trusted", "abusing", "adverselyAffected"]
         },
         {
           "Num": 22,
           "Comments": "「ああみえて根はしっかりしている妹」",
-          "Comments_EN": "「ああみえて根はしっかりしている妹」",
+          "Comments_EN": "\"Despite her appearance, she has solid roots as a younger sibling\"",
           "RelationLabel": ["brother|sister", "classmate"]
         },
         {
           "Num": 55,
           "Comments": "「汝が我より断然「台風の目」だ、誤解するな」",
-          "Comments_EN": "「汝が我より断然「台風の目」だ、誤解するな」",
+          "Comments_EN": "\"Thou art far more the 'eye of the storm' than I am - don't misunderstand\"",
           "RelationLabel": ["awkward", "classmate"]
         },
         {
           "Num": 99,
           "Comments": "「…ひとまず、事情は把握した」",
-          "Comments_EN": "「…ひとまず、事情は把握した」",
+          "Comments_EN": "\"...First, I have grasped the circumstances\"",
           "RelationLabel": ["wellMatched", "classmate"]
         }
       ],
@@ -2272,12 +2272,12 @@
         {
           "Num": 38,
           "Comments": "「彼女の周りは毎回驚かされる」",
-          "Comments_EN": "「彼女の周りは毎回驚かされる」"
+          "Comments_EN": "\"Her surroundings bring fresh surprises every time\""
         },
         {
           "Num": 56,
           "Comments": "「多様な輩に恵まれているものだな」",
-          "Comments_EN": "「多様な輩に恵まれているものだな」"
+          "Comments_EN": "\"Blessed with such a diverse array of associates\""
         }
       ]
     }
@@ -2424,25 +2424,25 @@
         {
           "Num": 1,
           "Comments": "「応援してます！」",
-          "Comments_EN": "「応援してます！」",
+          "Comments_EN": "\"I support you!\"",
           "RelationLabel": ["pioneer", "trusted"]
         },
         {
           "Num": 2,
           "Comments": "「優しくてとてもいい人、なんだけど……」",
-          "Comments_EN": "「優しくてとてもいい人、なんだけど……」",
+          "Comments_EN": "\"Kind and such a good person, but...\"",
           "RelationLabel": ["pioneer", "awkward"]
         },
         {
           "Num": 21,
           "Comments": "「ちょっと変な妹[弟]」",
-          "Comments_EN": "「ちょっと変な妹[弟]」",
+          "Comments_EN": "\"A bit of an odd younger sibling\"",
           "RelationLabel": ["brother|sister", "classmate"]
         },
         {
           "Num": "2-alt",
           "Comments": "「皆のもとに来れる日を待ってるよ！」",
-          "Comments_EN": "「皆のもとに来れる日を待ってるよ！」",
+          "Comments_EN": "\"Waiting for the day she can come to us all!\"",
           "RelationLabel": ["pioneer", "wellMatched", "trusted"]
         }
       ],
@@ -2450,18 +2450,18 @@
         {
           "Num": 30,
           "Comments": "「幸福の意味をいつか聞いてみたいな」",
-          "Comments_EN": "「幸福の意味をいつか聞いてみたいな」"
+          "Comments_EN": "\"I'd like to ask her the meaning of happiness sometime\""
         },
         {
           "Num": 48,
           "Comments": "「理想主義？リアリスト？どっちだろう…？」",
-          "Comments_EN": "「理想主義？リアリスト？どっちだろう…？」",
+          "Comments_EN": "\"Idealist? Realist? ...Which one, I wonder?\"",
           "RelationLabel": ["classmate"]
         },
         {
           "Num": 75,
           "Comments": "「変に真面目だけど、しっかりもの」",
-          "Comments_EN": "「変に真面目だけど、しっかりもの」",
+          "Comments_EN": "\"Oddly serious, but levelheaded\"",
           "RelationLabel": ["classmate"]
         }
       ]
@@ -2601,19 +2601,19 @@
         {
           "Num": 31,
           "Comments": "「出だしは姉の私が補助するよ！ 頑張って！」",
-          "Comments_EN": "「出だしは姉の私が補助するよ！ 頑張って！」",
+          "Comments_EN": "\"I'll back you up at the start! Do your best!\"",
           "RelationLabel": ["brother|sister", "classmate"]
         },
         {
           "Num": 39,
           "Comments": "「ちょっとかっこいいかも…！」",
-          "Comments_EN": "「ちょっとかっこいいかも…！」",
+          "Comments_EN": "\"Maybe just a little cool...!\"",
           "RelationLabel": ["wellMatched", "cousin_nearly"]
         },
         {
           "Num": 58,
           "Comments": "「なんでいつもいいカードを引くの！インチキ!!」",
-          "Comments_EN": "「なんでいつもいいカードを引くの！インチキ!!」",
+          "Comments_EN": "\"Why do you always get such good cards?! That's cheating!!\"",
           "RelationLabel": ["unmatched", "classmate"]
         }
       ],
@@ -2621,24 +2621,24 @@
         {
           "Num": 1,
           "Comments": "「あの行動力には敵わないなぁ」",
-          "Comments_EN": "「あの行動力には敵わないなぁ」",
+          "Comments_EN": "\"I can't match that drive and energy\"",
           "RelationLabel": ["pioneer"]
         },
         {
           "Num": 3,
           "Comments": "「私も見習わないと！」",
-          "Comments_EN": "「私も見習わないと！」",
+          "Comments_EN": "\"I have to learn from her too!\"",
           "RelationLabel": ["pioneer"]
         },
         {
           "Num": 4,
           "Comments": "「引っ込み思案だけどとてもいい人だよ！」",
-          "Comments_EN": "「引っ込み思案だけどとてもいい人だよ！」"
+          "Comments_EN": "\"She's shy but a really good person!\""
         },
         {
           "Num": 71,
           "Comments": "「最初あんなにすごい子だったっけ…」",
-          "Comments_EN": "「最初あんなにすごい子だったっけ…」",
+          "Comments_EN": "\"Was he really that amazing from the start...?\"",
           "RelationLabel": ["cousin_nearly"]
         }
       ]
@@ -2784,19 +2784,19 @@
         {
           "Num": 13,
           "Comments": "「元気でしっかりしてる従姉」",
-          "Comments_EN": "「元気でしっかりしてる従姉」",
+          "Comments_EN": "\"An energetic and reliable older cousin\"",
           "RelationLabel": ["cousin", "paired"]
         },
         {
           "Num": 22,
           "Comments": "「さすがとしか言いようがないわ」",
-          "Comments_EN": "「さすがとしか言いようがないわ」",
+          "Comments_EN": "\"She's just amazing - there's no other way to put it\"",
           "RelationLabel": ["wellMatched"]
         },
         {
           "Num": 41,
           "Comments": "「おめでた頭の弟」",
-          "Comments_EN": "「おめでた頭の弟」",
+          "Comments_EN": "\"My airheaded younger brother\"",
           "RelationLabel": ["brother|sister", "classmate"]
         },
         { "Num": 49, "RelationLabel": ["abusing", "cousin_nearly"] }
@@ -2805,23 +2805,23 @@
         {
           "Num": 55,
           "Comments": "「なにあいつえっぐ……」",
-          "Comments_EN": "「なにあいつえっぐ……」"
+          "Comments_EN": "\"What's up with her...?\""
         },
         {
           "Num": 64,
           "Comments": "「かなりぶっ飛んでる」",
-          "Comments_EN": "「かなりぶっ飛んでる」",
+          "Comments_EN": "\"She's pretty wild\"",
           "RelationLabel": ["cousin"]
         },
         {
           "Num": 77,
           "Comments": "「本当はド真面目なのが憎めない」",
-          "Comments_EN": "「本当はド真面目なのが憎めない」"
+          "Comments_EN": "\"The fact that he/she's actually dead serious is endearing\""
         },
         {
           "Num": 86,
           "Comments": "「貢がれてそう」",
-          "Comments_EN": "「貢がれてそう」",
+          "Comments_EN": "\"She looks like she gets plenty of support\"",
           "RelationLabel": ["classmate"]
         }
       ]
@@ -3058,20 +3058,20 @@
         {
           "Num": 10,
           "Comments": "「よく覚えてないが、世話になった…気がする」",
-          "Comments_EN": "「よく覚えてないが、世話になった…気がする」",
+          "Comments_EN": "\"I don't remember well, but somehow I feel I owe a debt to them...\"",
           "RelationLabel": ["pioneer_nearly", "secretRelation"]
         },
         { "Num": 12, "RelationLabel": ["wellMatched", "cousin"] },
         {
           "Num": 33,
           "Comments": "「才能に溺れて無茶しないでくれよ」",
-          "Comments_EN": "「才能に溺れて無茶しないでくれよ」",
+          "Comments_EN": "\"Don't let talent go to your head and do something reckless\"",
           "RelationLabel": ["awkward"]
         },
         {
           "Num": 51,
           "Comments": "「弟、発想力は認める」",
-          "Comments_EN": "「弟、発想力は認める」",
+          "Comments_EN": "\"Brother, I have to admit - your ideas are creative\"",
           "RelationLabel": [
             "brother|sister",
             "alternative|redesign",
@@ -3081,7 +3081,7 @@
         {
           "Num": 95,
           "Comments": "「……善処はした。頼むから、早まるなよ」",
-          "Comments_EN": "「……善処はした。頼むから、早まるなよ」",
+          "Comments_EN": "\"...I did what I could. Please, don't rush to act hastily\"",
           "RelationLabel": ["wellMatched", "cousin", "secretRelation"]
         }
       ],
@@ -3089,18 +3089,18 @@
         {
           "Num": 23,
           "Comments": "「少しは持ち場に居てくれ」",
-          "Comments_EN": "「少しは持ち場に居てくれ」"
+          "Comments_EN": "\"Just stay at your post for a little while\""
         },
         {
           "Num": 69,
           "Comments": "「ちょっとは自分を見つめ直した方がいい」",
-          "Comments_EN": "「ちょっとは自分を見つめ直した方がいい」",
+          "Comments_EN": "\"You should take a step back and reflect on yourself a bit\"",
           "RelationLabel": ["classmate"]
         },
         {
           "Num": 91,
           "Comments": "「どんな結果でも挫けないのは認めるべき」",
-          "Comments_EN": "「どんな結果でも挫けないのは認めるべき」",
+          "Comments_EN": "\"You should be recognized for not giving up no matter the outcome\"",
           "RelationLabel": ["cousin_nearly"]
         }
       ]
@@ -3270,20 +3270,20 @@
         {
           "Num": 6,
           "Comments": "「かわいい♡」",
-          "Comments_EN": "「かわいい♡」",
+          "Comments_EN": "\"Cute!♡\"",
           "RelationLabel": ["pioneer", "abusing"]
         },
         { "Num": 17, "RelationLabel": ["cousin", "wellMatched"] },
         {
           "Num": 26,
           "Comments": "「いつか彼女に甘えてみたいなぁ…♡」",
-          "Comments_EN": "「いつか彼女に甘えてみたいなぁ…♡」",
+          "Comments_EN": "\"I'd like to spoil her someday...♡\"",
           "RelationLabel": ["cousin", "abusing"]
         },
         {
           "Num": 61,
           "Comments": "「妹、お花畑なところも魅力」",
-          "Comments_EN": "「妹、お花畑なところも魅力」",
+          "Comments_EN": "\"Sister, that dreamy side of yours is also charming\"",
           "RelationLabel": ["brother|sister", "classmate"]
         }
       ],
@@ -3291,24 +3291,24 @@
         {
           "Num": 1,
           "Comments": "「すごいポテンシャルの持ち主」",
-          "Comments_EN": "「すごいポテンシャルの持ち主」",
+          "Comments_EN": "\"A person with amazing potential\"",
           "RelationLabel": ["pioneer"]
         },
         {
           "Num": 7,
           "Comments": "「ちょっと孤高だけどしっかり者」",
-          "Comments_EN": "「ちょっと孤高だけどしっかり者」"
+          "Comments_EN": "\"A bit aloof, but very reliable\""
         },
         {
           "Num": 71,
           "Comments": "「いや～…青春だね♪」",
-          "Comments_EN": "「いや～…青春だね♪」",
+          "Comments_EN": "\"Well... that's the spirit of youth right there♪\"",
           "RelationLabel": ["cousin_nearly"]
         },
         {
           "Num": 79,
           "Comments": "「なんだか宗教勧誘してる人みたいで可哀想」",
-          "Comments_EN": "「なんだか宗教勧誘してる人みたいで可哀想」",
+          "Comments_EN": "\"He/She comes across like someone doing religious solicitation - kinda pitiful\"",
           "RelationLabel": ["classmate"]
         }
       ]
@@ -3480,7 +3480,7 @@
         {
           "Num": 16,
           "Comments": "「才色兼備で強そう」",
-          "Comments_EN": "「才色兼備で強そう」",
+          "Comments_EN": "\"Gifted in both looks and talent, and seems really strong\"",
           "RelationLabel": ["cousin"]
         },
         {
@@ -3490,13 +3490,13 @@
         {
           "Num": 73,
           "Comments": "「良く言えば知識欲旺盛、悪く言えば無知…だね」",
-          "Comments_EN": "「良く言えば知識欲旺盛、悪く言えば無知…だね」",
+          "Comments_EN": "\"Put nicely, you're eager to learn; put bluntly, you're kind of ignorant...\"",
           "RelationLabel": ["unmatched", "cousin_nearly"]
         },
         {
           "Num": 89,
           "Comments": "「まぎれもなく同志」",
-          "Comments_EN": "「まぎれもなく同志」",
+          "Comments_EN": "\"Without a doubt, a comrade\"",
           "RelationLabel": ["wellMatched", "classmate"]
         }
       ],
@@ -3504,22 +3504,22 @@
         {
           "Num": 8,
           "Comments": "「知識も価値あるものだと教えてやりたい」",
-          "Comments_EN": "「知識も価値あるものだと教えてやりたい」"
+          "Comments_EN": "\"I'd like to teach you that knowledge has value too\""
         },
         {
           "Num": 34,
           "Comments": "「数で勝負してるのかな」",
-          "Comments_EN": "「数で勝負してるのかな」"
+          "Comments_EN": "\"I wonder if he/she's trying to win by sheer numbers\""
         },
         {
           "Num": 43,
           "Comments": "「ポテンシャルが計り知れない」",
-          "Comments_EN": "「ポテンシャルが計り知れない」"
+          "Comments_EN": "\"Her potential is immeasurable\""
         },
         {
           "Num": 62,
           "Comments": "「女性の味方なアイディア、期待してるよ」",
-          "Comments_EN": "「女性の味方なアイディア、期待してるよ」",
+          "Comments_EN": "\"I'm counting on your ideas that stand on women's side\"",
           "RelationLabel": ["classmate"]
         }
       ]
@@ -3628,7 +3628,7 @@
       }
     ],
     "RelationNotes": "「19(トク)」を連れまわしている\n「9(チカ)」を警戒？しているが…",
-    "RelationNotes_EN": "Often drags \"19(Ninteels)\" around\nSeems wary of \"9(Chika)\", but...",
+    "RelationNotes_EN": "Often drags \"19(Ninteels)\" around\nSeems wary of \"9(Nina)\", but...",
     "NumerospecAbout": "リーダーシップを奮い立たせる\nこの効果は求められた時ほど効果が高くなる",
     "NumerospecAbout_EN": "Rouses leadership\nThis effect becomes stronger the more it is called for",
     "Summary": "責任感のあるリーダー気質なナンバーテールズで、行動を起こすべき主人の後押しも行っている。\nそのため、他のナンバーテールズから「エースポジション」と呼ばれている。\n「81(ヤイチ)」の姉に相当する個体だが、従姉でもある「19(トク)」と行動をとることもしばしば。\n「9(チカ)」の暴走？に警戒している。",
@@ -3657,14 +3657,14 @@
         {
           "Num": 9,
           "Comments": "「平和主義、だけど。あのように見えて裏がありそうだから油断はできない存在ね…」",
-          "Comments_EN": "「平和主義、だけど。あのように見えて裏がありそうだから油断はできない存在ね…」",
+          "Comments_EN": "\"A pacifist, sure... but she seems like she has another side, so we can't let our guard down\"",
           "RelationLabel": ["wellMatched_maybe"]
         },
         { "Num": 19, "RelationLabel": ["cousin", "accompanying"] },
         {
           "Num": 81,
           "Comments": "「妹[弟]、需要とか気にしすぎ」",
-          "Comments_EN": "「妹[弟]、需要とか気にしすぎ」",
+          "Comments_EN": "\"Sis/Bro, you worry way too much about demand and popularity\"",
           "RelationLabel": ["brother|sister", "classmate"]
         }
       ],
@@ -3672,25 +3672,25 @@
         {
           "Num": 8,
           "Comments": "「ときどき変なもの作ってそう」",
-          "Comments_EN": "「ときどき変なもの作ってそう」",
+          "Comments_EN": "\"Feels like she makes weird stuff sometimes\"",
           "RelationLabel": ["pioneer"]
         },
         {
           "Num": 27,
           "Comments": "「真面目だけど潰れないようにね」",
-          "Comments_EN": "「真面目だけど潰れないようにね」",
+          "Comments_EN": "\"You're serious, but don't run yourself into the ground\"",
           "RelationLabel": ["classmate"]
         },
         {
           "Num": 38,
           "Comments": "「運も力のうち、というわけね」",
-          "Comments_EN": "「運も力のうち、というわけね」",
+          "Comments_EN": "\"So luck counts as strength too, huh\"",
           "RelationLabel": ["cousin"]
         },
         {
           "Num": 54,
           "Comments": "「油断だけはしてほしくない」",
-          "Comments_EN": "「油断だけはしてほしくない」",
+          "Comments_EN": "\"I just don't want you to let your guard down\"",
           "RelationLabel": ["classmate"]
         }
       ]
@@ -3825,13 +3825,13 @@
         {
           "Num": 89,
           "Comments": "「おばあc（※文章はここで途切れている）」",
-          "Comments_EN": "「おばあc（※文章はここで途切れている）」",
+          "Comments_EN": "\"Gran-- (*The sentence cuts off here)\"",
           "RelationLabel": ["cousin", "abusing"]
         },
         {
           "Num": 91,
           "Comments": "「弟[妹]だけど活発すぎて手に負えないや…」",
-          "Comments_EN": "「弟[妹]だけど活発すぎて手に負えないや…」",
+          "Comments_EN": "\"He's/She's my younger sibling, but way too hyper to handle...\"",
           "RelationLabel": ["brother|sister", "awkward", "classmate"]
         }
       ],
@@ -3839,25 +3839,25 @@
         {
           "Num": 1,
           "Comments": "「君が極めたものは幾つあるんだい？」",
-          "Comments_EN": "「君が極めたものは幾つあるんだい？」",
+          "Comments_EN": "\"How many things have you truly mastered?\"",
           "RelationLabel": ["pioneer"]
         },
         {
           "Num": 9,
           "Comments": "「バーテンダー、似合うと思うよ」",
-          "Comments_EN": "「バーテンダー、似合うと思うよ」",
+          "Comments_EN": "\"I think bartender would suit you\"",
           "RelationLabel": ["pioneer"]
         },
         {
           "Num": 10,
           "Comments": "「怪しい」",
-          "Comments_EN": "「怪しい」",
+          "Comments_EN": "\"Suspicious\"",
           "RelationLabel": ["pioneer_nearly"]
         },
         {
           "Num": 46,
           "Comments": "「元気があっていいね」",
-          "Comments_EN": "「元気があっていいね」",
+          "Comments_EN": "\"It's nice that you're so energetic\"",
           "RelationLabel": ["classmate"]
         }
       ]
@@ -4013,19 +4013,19 @@
         {
           "Num": 2,
           "Comments": "「姉の分もよろしくおねがいします」",
-          "Comments_EN": "「姉の分もよろしくおねがいします」",
+          "Comments_EN": "\"Please take care of my older sister as well\"",
           "RelationLabel": ["trusted", "cousin_nearly"]
         },
         {
           "Num": 24,
           "Comments": "「またお話きかせてくださいね♪」",
-          "Comments_EN": "「またお話きかせてくださいね♪」",
+          "Comments_EN": "\"Please tell me more again sometime♪\"",
           "RelationLabel": ["wellMatched", "cousin", "successor_nearly"]
         },
         {
           "Num": 42,
           "Comments": "「またお話きかせてくださいね♪」",
-          "Comments_EN": "「またお話きかせてくださいね♪」",
+          "Comments_EN": "\"Please tell me more again sometime♪\"",
           "RelationLabel": ["wellMatched"]
         },
         { "Num": "2-alt", "RelationLabel": ["brother|sister", "trusted"] }
@@ -4034,24 +4034,24 @@
         {
           "Num": 11,
           "Comments": "「すごいお方ですが…なんというか…」",
-          "Comments_EN": "「すごいお方ですが…なんというか…」"
+          "Comments_EN": "\"An amazing person, yes... but, how should I put it...\""
         },
         {
           "Num": 22,
           "Comments": "「困ったら頼りたい」",
-          "Comments_EN": "「困ったら頼りたい」",
+          "Comments_EN": "\"If I get in trouble, you're someone I'd want to rely on\"",
           "RelationLabel": ["successor"]
         },
         {
           "Num": 25,
           "Comments": "「臨んでいなくても本領発揮できる方です」",
-          "Comments_EN": "「臨んでいなくても本領発揮できる方です」",
+          "Comments_EN": "\"Someone who can show their true strength even without seeking it\"",
           "RelationLabel": ["successor_nearly"]
         },
         {
           "Num": 62,
           "Comments": "「芸術作品に興味がありそうです」",
-          "Comments_EN": "「芸術作品に興味がありそうです」"
+          "Comments_EN": "\"You seem interested in works of art\""
         }
       ]
     },
@@ -4252,13 +4252,13 @@
         {
           "Num": 12,
           "Comments": "「隠し事持たない方が良いのか悪いのか…」",
-          "Comments_EN": "「隠し事持たない方が良いのか悪いのか…」",
+          "Comments_EN": "\"I can't tell whether not keeping secrets is good or bad...\"",
           "RelationLabel": ["brother|sister", "awkward", "classmate"]
         },
         {
           "Num": 28,
           "Comments": "「わわわ!! もうこれ以上はいらないって!!」",
-          "Comments_EN": "「わわわ!! もうこれ以上はいらないって!!」",
+          "Comments_EN": "\"W-w-whoa!! I said I don't need any more than this!!\"",
           "RelationLabel": ["cousin", "wellMatched_maybe"]
         }
       ],
@@ -4266,29 +4266,29 @@
         {
           "Num": 3,
           "Comments": "「敵にしたら相手にならなさそう」",
-          "Comments_EN": "「敵にしたら相手にならなさそう」"
+          "Comments_EN": "\"If he/she became an enemy, I don't think anyone could handle him/her\""
         },
         {
           "Num": 11,
           "Comments": "「とにかく半端なく凄い存在」",
-          "Comments_EN": "「とにかく半端なく凄い存在」"
+          "Comments_EN": "\"He/She's just unbelievably amazing, no matter how you look at it\""
         },
         {
           "Num": 20,
           "Comments": "「いつか気負い過ぎで倒れそうだなぁ…」",
-          "Comments_EN": "「いつか気負い過ぎで倒れそうだなぁ…」",
+          "Comments_EN": "\"I worry she might collapse someday from pushing herself too hard...\"",
           "RelationLabel": ["pioneer_nearly"]
         },
         {
           "Num": 57,
           "Comments": "「楽観的なとこは見習うべき」",
-          "Comments_EN": "「楽観的なとこは見習うべき」",
+          "Comments_EN": "\"His/Her optimism is something I should learn from\"",
           "RelationLabel": ["classmate"]
         },
         {
           "Num": 84,
           "Comments": "「変なところで理屈っぽい」",
-          "Comments_EN": "「変なところで理屈っぽい」",
+          "Comments_EN": "\"He/She's oddly argumentative in the strangest moments\"",
           "RelationLabel": ["classmate"]
         }
       ]
@@ -4453,13 +4453,13 @@
         {
           "Num": 11,
           "Comments": "「時々暴走するから面白い人だよ！」",
-          "Comments_EN": "「時々暴走するから面白い人だよ！」",
+          "Comments_EN": "\"He/She's fun because he/she goes off the rails sometimes!\"",
           "RelationLabel": ["brother|sister", "trusted", "classmate"]
         },
         {
           "Num": 44,
           "Comments": "「ライバルみたいな？負けてられない！」",
-          "Comments_EN": "「ライバルみたいな？負けてられない！」",
+          "Comments_EN": "\"Like a rival, maybe? I can't afford to lose!\"",
           "RelationLabel": ["wellMatched", "classmate"]
         }
       ],
@@ -4467,32 +4467,32 @@
         {
           "Num": 2,
           "Comments": "「優しくていい子！」",
-          "Comments_EN": "「優しくていい子！」"
+          "Comments_EN": "\"Such a kind and good girl!\""
         },
         {
           "Num": 4,
           "Comments": "「しっかり者だから見習わないとなぁ～」",
-          "Comments_EN": "「しっかり者だから見習わないとなぁ～」"
+          "Comments_EN": "\"She's so dependable, I really should learn from her~\""
         },
         {
           "Num": 47,
           "Comments": "「“加護”って何だろ？でもありがとう！」",
-          "Comments_EN": "「“加護”って何だろ？でもありがとう！」"
+          "Comments_EN": "\"I wonder what a 'Numerospec' even is? But thanks anyway!\""
         },
         {
           "Num": 62,
           "Comments": "「何か閃いたら教えて！やってみたい！」",
-          "Comments_EN": "「何か閃いたら教えて！やってみたい！」"
+          "Comments_EN": "\"If something sparks for you, tell me! I want to try it too!\""
         },
         {
           "Num": 84,
           "Comments": "「実現力が本当にすごい！」",
-          "Comments_EN": "「実現力が本当にすごい！」"
+          "Comments_EN": "\"Her ability to make things happen is seriously amazing!\""
         },
         {
           "Num": 99,
           "Comments": "「なんか…異世界転生とか経験してる…？」",
-          "Comments_EN": "「なんか…異世界転生とか経験してる…？」",
+          "Comments_EN": "\"Like... have you gone through isekai(another world) reincarnation or something...?\"",
           "RelationLabel": ["classmate"]
         }
       ]
@@ -14031,6 +14031,7 @@
     "ModelNumber": "APHR-NT VII+IX.A",
     "FormalName": "ナンバーテールズ79番機",
     "FormalName_EN": "NumberTales #79",
+    "GenderType": "Neutral",
     "CodeName": "七九",
     "CodeName_EN": "Seven-Nine",
     "AnivDay": [

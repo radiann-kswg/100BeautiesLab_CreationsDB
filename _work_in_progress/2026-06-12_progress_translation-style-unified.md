@@ -7,6 +7,146 @@
 
 以後の英訳作業は、この文書の「実データ準拠ルール」を優先し、一般的な翻訳規則よりも既存 JSON 実装との一致を優先する。
 
+## このログの使い方
+
+この文書は、次の順で読むと現状把握と次の作業判断がしやすい。
+
+1. まず本節直下の「実務用サマリ」で、完了済み範囲と残留監査の全体像を把握する。
+2. 次に「英訳の厳密ルール」で、実データ準拠の訳語・トークン・書式ルールを確認する。
+3. 最後に後半の追記群を参照し、各判断の経緯と個別対応の証跡を確認する。
+
+補足:
+
+- 後半の時系列追記は削除せず、監査証跡として保持する。
+- 今後の実作業では「このログの上部サマリを正」「後半の時系列を根拠資料」として使う。
+
+## 実務用サマリ（2026-06-12 時点）
+
+### 1. ここまでで完了したこと
+
+- `EffectText` / `SafetyLevelText` は、和英共通化可能な項目として整理方針を確立し、少なくとも `Works_NumberTales` ではレコード側 `*_EN` 重複を削減済み。
+- `ThisMaster(s)` / `BirthDay` / `AnivDay` / `Relation.Comments` の構造的な EN 欠損は、いったん全作品横断で補完済み。
+- `Works_NumberTales` の `db_Primary` 以外（`db_Secondary` / `db_SelfSecondary` / `db_SemiPrimary` / `db_UnprocessedSecondary`）は、前段の重点補完対象として一通り埋め終えている。
+- `*_EN` をパッチ追記した JSON では、`db_UnprocessedSecondary` 準拠で「元キーの直後に対応 EN」を置く並び順ルールを導入済み。
+
+### 2. 今後の優先作業対象（結論）
+
+最優先は `data/Works_NumberTales/DataBases/db_Primary.json`。
+
+理由:
+
+- 精査版監査で残留候補 1300 件のうち 1141 件がこの 1 ファイルに集中している。
+- 特に `Character_EN` / `Hobby_EN` / `Favor_EN` / `Unlike_EN` / `SpecialSkill_EN` / `Summary_EN` / `NumerospecAbout_EN` / 呼称 EN 群が大量に未補完。
+- `Comments_EN` 607 件も和文のまま残っており、翻訳済み構造だが本文未英訳の代表例になっている。
+
+### 3. 次点の重点ファイル
+
+- `data/Works_NumberTales/DataBases/db_Secondary.json`
+- `data/Works_NumberTales/DataBases/db_SelfSecondary.json`
+
+補足:
+
+- `data/Works_Proxies/DataBases/db_Proxy.json` の軽量残件 3 件（2代目 `Unlike_EN` / 3代目 `GenderType.about_EN` / 初代 `SpecialSkill_EN`）は 2026-06-12 追補で解消済み。
+- `data/Works_PastDivers/DataBases/db_Primary.json` と `data/Works_SinisterChangingGirls/DataBases/db_Primary.json` の軽量残件も 2026-06-12 追補で解消済み。
+- `data/Works_FLInvestigator78/DataBases/` / `data/Works_UnauthedLogica/DataBases/` / `data/Works_UnibyteLive/DataBases/` は 2026-06-12 再監査時点で、現行の「同ファイル内の既存 EN 実績基準」では追加補完対象 0 を確認済み。
+
+### 4. 実務上の読み替え
+
+- 「未補完」は、即英訳対象として扱ってよい候補。
+- 「和文混入 EN」は、英訳キーが存在するが本文が和文のまま残っている候補。
+- 「要人手判定」は、固有名詞保持・日本語字形の説明・ENミラー構造の都合で、機械判定だけでは即 NG と言い切れない候補。
+
+## 横断残留監査（精査版）
+
+### 監査条件
+
+- 対象: `data/Works_*/DataBases/db*.json` の実データ本体（`db_meta.json` / `db_type.json` を除く）
+- 走査ファイル数: 19
+- 共通化除外:
+  - `EffectText` / `SafetyLevelText`
+  - 親に `*_EN` ミラーがあるサブツリー
+  - bilingual wrapper で内部に `*_JP` / `*_EN` を持つ構造（例: `IdentityMotif[].Motif`）
+- 判定カテゴリ:
+  - `*_EN` 欠損候補
+  - `*_EN` が存在するが和文が残る候補
+
+### 監査結果サマリ
+
+- `*_EN` 欠損候補: 1300
+- 欠損候補が存在するファイル数: 13
+- 和文混入 EN 候補: 662
+
+### `*_EN` 欠損候補のファイル別件数
+
+- `data/Works_NumberTales/DataBases/db_Primary.json`: 1141
+- `data/Works_NumberTales/DataBases/db_Secondary.json`: 83
+- `data/Works_NumberTales/DataBases/db_SelfSecondary.json`: 12
+- `data/Works_PastDivers/DataBases/db_Primary.json`: 14
+- `data/Works_PastDivers/DataBases/db_temp.json`: 1
+- `data/Works_Proxies/DataBases/db_Proxy.json`: 10
+- `data/Works_Proxies/DataBases/db_temp.json`: 7
+- `data/Works_FLInvestigator78/DataBases/db_Primary.json`: 6
+- `data/Works_DestinyFoxRecords/DataBases/db_Primary.json`: 2
+- `data/Works_SinisterChangingGirls/DataBases/db_Primary.json`: 4
+- `data/Works_UnauthedLogica/DataBases/db_Primary.json`: 6
+- `data/Works_UnauthedLogica/DataBases/db_PrimaryMobs.json`: 4
+- `data/Works_UnibyteLive/DataBases/db_Primary.json`: 10
+
+### `*_EN` 欠損候補の主要キー（上位）
+
+- `NumerospecAbout_EN`: 84
+- `Unlike_EN`: 75
+- `Character_EN`: 73
+- `Favor_EN`: 73
+- `Hobby_EN`: 72
+- `SpecialSkill_EN`: 72
+- `Summary_EN`: 62
+- `TailsUnit_EN`: 60
+- `RelationNotes_EN`: 52
+- `ForMasterCalling_EN`: 49
+- `ThirdPersonCalling_EN`: 47
+- `Backgrounds_EN`: 44
+- `InStory_EN`: 43
+- `AdditionalDesigned_EN`: 38
+- `FirstPersonCalling_EN`: 36
+- `SecondPersonCalling_EN`: 35
+- `TalkingTone_EN` / `TopicPreference_EN` / `TalkFrequency_EN` / `PreferredTopics_EN` / `AvoidedTopics_EN` / `ConversationNotes_EN`: 各 21
+- `ChronoizedPurity_EN`: 14
+- `LogicspecAbout_EN`: 6
+
+補足:
+
+- `value_EN` / `about_EN` の検出は 217 件あるが、`ThisMasters`・`Age`・`Weight_kg` などの wrapper 構造と EN ミラー構造が混在しており、即翻訳対象とは断定しづらい。
+- これらは「要人手判定」の束として扱い、通常の `Name_EN` / `Summary_EN` 欠損とは分けて処理する。
+
+### 和文混入 EN の監査結果
+
+#### 明確に本文未英訳として扱う候補
+
+- `Comments_EN`: 607
+  - ほぼすべて `data/Works_NumberTales/DataBases/db_Primary.json`
+  - 構造は EN 済みだが、中身は和文のまま複製されている
+- `about_EN`: 9
+  - 主に `ThisMasters` 配下の補足文で、`(専属契約不可,未リリース状態)` や `仕方なく所持` などが和文のまま残る
+
+#### 要人手判定（即 NG ではない）
+
+- `ThisMasters_EN`: 41
+  - キャラクター名・組織名・肩書を日本語固有名詞のまま保持している例が多い
+  - 一方で `about_EN` 側に和文注記が混ざるケースがあるため、本文と固有名詞を分けて判断する
+- `Motif_EN`: 4
+  - 英文説明内で日本語字形・記号そのものに触れているケースが含まれる
+- `Backgrounds_EN`: 1
+  - 英文本文中で漢字字形（例: `㐂`）を説明対象として引用しているケース
+
+### 直近の実作業優先順
+
+1. `data/Works_NumberTales/DataBases/db_Primary.json` の `Comments_EN` / 呼称 EN 群 / 概要系 EN 群を重点処理
+2. `data/Works_NumberTales/DataBases/db_Secondary.json` の `AdditionalDesigned_EN` と残る説明系 EN を処理
+3. `data/Works_NumberTales/DataBases/db_SelfSecondary.json` の残件を再点検し、`db_Primary` 着手前の軽量な取りこぼしが無いか確認
+4. `data/Works_NumberTales/DataBases/db_Primary.json` の `Comments_EN` 和文混入を番号順・3キャラ単位で処理
+5. `data/Works_NumberTales/DataBases/db_Primary.json` の `Character_EN` / `Hobby_EN` / `Favor_EN` / `Unlike_EN` / `SpecialSkill_EN` を同じ3キャラ束で継続補完
+
 ## 正準データの定義
 
 ### 1. 正準ブランチ
@@ -74,15 +214,12 @@
 
 - 走査ファイル数: 18
 - JP/EN 判定対象: 93
-- 完了: 92
-- 未完了: 1
+- 完了: 93
+- 未完了: 0
 
-未完了 1 件:
+未完了 0 件:
 
-- data/Works_Proxies/DataBases/db_Proxy.json
-  - record: index:1（3代目ラジアン）
-  - path: about_JP（GenderType 内）
-  - expected: about_EN
+- `about_JP/about_EN` の軽量 wrapper 欠損として最後に残っていた `data/Works_Proxies/DataBases/db_Proxy.json` の 3代目 `GenderType.about_EN` は、2026-06-12 追補で解消済み。
 
 ## 英訳の厳密ルール（実データ正準）
 
@@ -301,7 +438,7 @@
 
 1. ThisMasters_EN の正式運用は未確定。
 2. about_EN / DayAbout_EN の適用粒度は要整理。
-3. data/Works_Proxies/DataBases/db_Proxy.json の about_EN 欠損 1 件は未解消。
+3. data/Works_Proxies/DataBases/db_Proxy.json の about_EN 欠損 1 件は 2026-06-12 追補で解消済み。
 
 ## 今後の適用方針
 
@@ -617,6 +754,110 @@
 
 - `db_Primary.json` には長文系・会話系・モチーフ系を中心に未補完が残る（再走査上 1342 件）。
 - こちらは翻訳量が大きく、語彙統一の再レビューを要するため別フェーズで継続する。
+
+### 検証
+
+- `tests/data.sanity.test.js`: pass
+- `tests/bilingual-fields.test.js`: pass
+
+## 2026-06-12 追記：軽量残件 2 ファイル解消（PastDivers / SinisterChangingGirls）
+
+### 対象
+
+- `data/Works_PastDivers/DataBases/db_Primary.json`
+- `data/Works_SinisterChangingGirls/DataBases/db_Primary.json`
+
+### 追加・補完内容
+
+1. `data/Works_PastDivers/DataBases/db_Primary.json`
+
+- `桜花 信(とき)` の `Unlike_EN` を追加（`hideText: Non-Public at Pleasure`）
+
+2. `data/Works_SinisterChangingGirls/DataBases/db_Primary.json`
+
+- `六花(ろくばな) ルノ` の `Favor_EN` / `Unlike_EN` を追加
+- `財前 小里 / 終藤(すどう) こさと` の `SpecialSkill_EN` / `Unlike_EN` を追加（いずれも `hideText: Judgement Failed`）
+
+### 確認結果
+
+- 同ファイル内の既存 EN 実績基準で再走査し、両ファイルとも未補完 0 を確認
+
+### 検証
+
+- `tests/data.sanity.test.js`: pass
+- `tests/bilingual-fields.test.js`: pass
+
+## 2026-06-12 追記：3作品再監査（FLInvestigator78 / UnauthedLogica / UnibyteLive）
+
+### 対象
+
+- `data/Works_FLInvestigator78/DataBases/*.json`
+- `data/Works_UnauthedLogica/DataBases/*.json`
+- `data/Works_UnibyteLive/DataBases/*.json`
+
+### 実施内容
+
+1. 各ファイルについて、同一ファイル内で既に `*_EN` が存在するキーを基準に「値あり・EN欠損」候補を再抽出
+2. 同じ対象範囲で、`*_EN` に和文が残っている候補も再抽出
+
+### 結果
+
+- `data/Works_FLInvestigator78/DataBases/`: 欠損 0 / 和文混入 EN 0
+- `data/Works_UnauthedLogica/DataBases/`: 欠損 0 / 和文混入 EN 0
+- `data/Works_UnibyteLive/DataBases/`: 欠損 0 / 和文混入 EN 0
+
+### 方針反映
+
+- 上記 3 作品は、2026-06-12 時点では追加の実データ補完を行わず、直近の優先対象から外す
+- 以後は `Works_NumberTales` 側の残件処理を優先する
+
+## 2026-06-12 追記：Works_NumberTales `db_Primary` 先頭 10 キャラの `Comments_EN` 補完
+
+### 対象
+
+- `data/Works_NumberTales/DataBases/db_Primary.json`
+- 対象レコード: `Num 1` 〜 `Num 10`
+
+### 実施内容
+
+1. 先頭 10 キャラについて、同一ファイル内の既存 EN 実績基準で欠損キーを再確認
+2. 欠損キーは無かったため、`Relation.Related[].Comments_EN` / `Relation.Commented[].Comments_EN` の和文残りだけを抽出
+3. `Num 1` 〜 `Num 10` のコメント英訳を、`Num 1-3` / `Num 4-6` / `Num 7-10` の3束に分けて順次補完
+
+### 結果
+
+- `Num 1` 〜 `Num 10` について、`Comments_EN` に残っていた和文を全件英訳
+- 各束の補完後、対象 Num 範囲で `Comments_EN` に和文残り 0 を確認
+
+### 検証
+
+- `tests/data.sanity.test.js`: pass
+- `tests/bilingual-fields.test.js`: pass
+
+## 2026-06-12 追記：Num 1〜22 `Comments_EN` の括り書式統一（DialogueExamples 準拠）
+
+### 対象
+
+- `data/Works_NumberTales/DataBases/db_Primary.json`
+- 対象範囲: `Num 1` 〜 `Num 22`
+- 対象キー: `Relation.Related[].Comments_EN` / `Relation.Commented[].Comments_EN`
+
+### 実施内容
+
+1. `Comments_EN` が未括りの値を対象に書式を正規化。
+2. JP 側 `Comments` が全角丸括弧（`（...）`）の注記文である場合は、EN 側を `(...)` で括る。
+3. 上記以外は EN 側を `"..."` で括る（`DialogueExamples.value_EN` と同様の扱い）。
+4. 既に `"..."` または `(...)` で括られている値は変更しない。
+
+### 反映件数
+
+- 変換件数: 81
+
+### 運用ルール（固定）
+
+1. `Comments_EN` は原則 `"..."` で保持する。
+2. 注記・地の文メモに相当するもののみ `(...)` を許容する。
+3. 今後の `Num 23+` 補完でも同じ括りルールを適用する。
 
 ### 検証
 

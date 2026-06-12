@@ -128,6 +128,7 @@
     "Favor": "花言葉\n兄弟姉妹のこと",
     "Favor_EN": "The language of flowers\nher siblings",
     "Unlike": { "hideText": "非公開希望" },
+    "Unlike_EN": { "hideText": "Non-Public at Pleasure" },
     "Strength": "信用できる人から信頼される",
     "Strength_EN": "Trusted by those who are trustworthy",
     "Weakness": "料理が下手すぎる（有機物だけで無機物の味を創ってしまう）",
