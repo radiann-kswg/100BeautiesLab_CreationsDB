@@ -998,7 +998,6 @@
     "Favor": "かわいいぬいぐるみ\nスキンシップ",
     "Favor_EN": "Cute plush toys\nPhysical affection",
     "Unlike": { "hideText": "？？？" },
-    "Unlike_EN": { "hideText": "???" },
     "Strength": "原則嫌いなものはない",
     "Strength_EN": "As a rule, she has nothing she dislikes",
     "Weakness": "一部の部位が敏感で過剰なスキンシップに弱い",
@@ -2613,10 +2612,15 @@
     "Height_cm": 158,
     "ConceptAge": 18,
     "AnivDay": [
-      { "Day": { "Month": 1, "DayOfMonth": 15 }, "DayAbout": "開発記念" },
+      {
+        "Day": { "Month": 1, "DayOfMonth": 15 },
+        "DayAbout": "開発記念",
+        "about_EN": "Development Anniversary"
+      },
       {
         "Day": { "Month": 4, "DayOfMonth": 15 },
-        "DayAbout": "暴走抑止対策記念(劇中)"
+        "DayAbout": "暴走抑止対策記念(劇中)",
+        "about_EN": "Runaway-Suppression Countermeasure Anniversary (in-story)"
       }
     ],
     "Weight_kg": [
@@ -2640,6 +2644,7 @@
     "SecondPersonCalling": "あんた",
     "ThirdPersonCalling": "彼/彼女;*れ;[※名前呼び]\n*いつ/*れ;[※名前呼び]",
     "ForMasterCalling": "主(あるじ)",
+    "ForMasterCalling_EN": "Master (Aruji)",
     "Character": "極めて控えめに見えて実は男気のある気質\n自分を律することで因果応報が成立すると、信じている",
     "Hobby": "遠景を眺める",
     "SpecialSkill": "6時間後の天気を当てる",
@@ -2702,8 +2707,10 @@
       }
     ],
     "RelationNotes": "「33(ミサ)」と心配されあっている\n「10(ミツル)」と加護について関係が…？",
+    "RelationNotes_EN": "Mutually worries about \"33(Thirthrey)\"\nMay have some connection with \"10(Tenim)\" regarding blessings...?",
     "NumerospecAbout": "奇跡を起こす\nただしこの効果は対象の性格に影響される\n？？？？",
     "Summary": "普段は極めて控えめな気質だが、「自分を律することで因果応報が成立する」と信じており、男気が強い。\n「奇跡を起こす」という”加護”を所持しており、それ目当てで契約する主人も少なくない。\nしかしその力が強力だったため、“安全装置”を背中に装着している。\nその経緯について、「10(ミツル)」と「95(キュウゴ)」が関与しているらしく…？",
+    "Summary_EN": "Usually very reserved, yet carries a strong chivalrous spirit, believing that self-discipline brings karmic justice.\nShe possesses a blessing said to \"cause miracles\", and not a few Masters choose to contract with her for that reason.\nBecause the power proved so strong, she wears a safety device on her back.\nAs for how that came to be, it seems \"10(Tenim)\" and \"95(Ninfife)\" were involved...?",
     "NumerospecStats": {
       "EffectStats": {
         "Mental": { "EffectText": "普通" },
@@ -2724,7 +2731,9 @@
       "Actuation": { "Rank": "A" }
     },
     "InStory": "特異個体「1+5型」のネーム機\nイベント発生要因として、他のナンバーテールズから偏見を抱かれがち",
+    "InStory_EN": "A named unit of the singular \"Unit.1+5 type\".\nAs a trigger factor for incidents, she is often viewed with prejudice by other NumberTales.",
     "Backgrounds": "ハーネスで背中に装備されているのは安全装置とのこと\n実は未解明な加護がもう一つあるが、詳しい情報は公開されていないという",
+    "Backgrounds_EN": "The harness-equipped unit on her back is said to be a safety device.\nIn fact, she is believed to have one more unresolved blessing, but the details are reportedly undisclosed.",
     "Relation": {
       "Related": [
         {
@@ -2798,7 +2807,11 @@
     "Height_cm": 147,
     "ConceptAge": { "value": 18, "about_JP": "？", "about_EN": "?" },
     "AnivDay": [
-      { "Day": { "Month": 1, "DayOfMonth": 16 }, "DayAbout": "開発記念" }
+      {
+        "Day": { "Month": 1, "DayOfMonth": 16 },
+        "DayAbout": "開発記念",
+        "about_EN": "Development Anniversary"
+      }
     ],
     "Weight_kg": { "hideText": "非公開" },
     "BustSize": "H",
@@ -2818,6 +2831,7 @@
     "SecondPersonCalling": "君",
     "ThirdPersonCalling": "彼/彼女;*れ;~君",
     "ForMasterCalling": "マスター君",
+    "ForMasterCalling_EN": "Master-kun",
     "Character": "才色兼備で、物質的なものより行動や能力を重んじる\n主人公意識が強く挑戦意欲がある",
     "Hobby": "演劇",
     "SpecialSkill": "剣道・剣舞",
@@ -2876,8 +2890,10 @@
       }
     ],
     "RelationNotes": "「6(ムイ)」「26(ニロク)」に懐いている？",
+    "RelationNotes_EN": "Seems attached to \"6(Sics)\" and \"26(Twinsix)\"?",
     "NumerospecAbout": "才能を奮い立たせる\nこの効果はたとえ手持ちに不利があっても発動する",
     "Summary": "物質的な裕福さよりも己の行動や能力の発揮に重きを置いており、そのポテンシャルは物質的な制約と関係なく自身や主人にモチベーションをもたらしている。\n実績こそ上位を誇る程ではないが、挑戦意欲が旺盛で主人公気質な一面がコアな主人層から人気を浴びており、他のナンバーテールズもその中で活力や陽気に満ち溢れる様子から「幸せな貧乏」と称している。\n「6(ムイ)」と「26(ニロク)」に懐いていて…？",
+    "Summary_EN": "Rather than material wealth, she places emphasis on her own actions and demonstrating her abilities, and that potential motivates both herself and her Master regardless of material limits.\nWhile her achievements are not yet top-ranked, her strong drive to take on challenges and her protagonist-like temperament have earned popularity among core Master circles, and other NumberTales even call her style \"happy poverty\" for its energetic, cheerful spirit.\nShe also seems especially attached to \"6(Sics)\" and \"26(Twinsix)\"...?",
     "NumerospecStats": {
       "EffectStats": {
         "Mental": { "EffectText": "絶大" },
@@ -2898,6 +2914,7 @@
       "Actuation": { "Rank": "S" }
     },
     "InStory": "実績こそ然程ないものの活力に満ち溢れる様子から、他のナンバーテールズから「幸せな貧乏」と称されている",
+    "InStory_EN": "Though not yet heavily decorated with results, she is called \"happy poverty\" by other NumberTales for her overflowing vitality.",
     "Relation": {
       "Related": [
         {
@@ -2959,7 +2976,11 @@
     "Height_cm": 151,
     "ConceptAge": 22,
     "AnivDay": [
-      { "Day": { "Month": 1, "DayOfMonth": 17 }, "DayAbout": "開発記念" }
+      {
+        "Day": { "Month": 1, "DayOfMonth": 17 },
+        "DayAbout": "開発記念",
+        "about_EN": "Development Anniversary"
+      }
     ],
     "Weight_kg": [
       { "value": 40, "about_JP": "推定", "about_EN": "Presumption" }
@@ -2983,6 +3004,7 @@
     "SecondPersonCalling": "キミ",
     "ThirdPersonCalling": "彼/彼女;*レ;[※名前呼び]",
     "ForMasterCalling": "センセ",
+    "ForMasterCalling_EN": "Teacher",
     "Character": "知識欲旺盛だが少し現金\n知識や自己研鑽が自分の報酬となると信じている",
     "Hobby": "資格取得",
     "SpecialSkill": "カジノ",
@@ -3043,8 +3065,10 @@
       }
     ],
     "RelationNotes": "「89(ヤスモ)」とは謎のシンパシーがある？",
+    "RelationNotes_EN": "Seems to share a mysterious sympathy with \"89(Eightine)\"?",
     "NumerospecAbout": "対象の能力に応じ結果を保証する",
     "Summary": "知識や実力がいつか自分への報酬として還ってくると信じているナンバーテールズ。\nその信条から、資格取得や勉強のお供として契約する主人も多い。\nただ、周囲から「男性型や中性型ではないか」「女性らしくないのではないか」という感想が寄せられているが、彼女が言うには女性型らしい。\nあまり揶揄わないでいてあげよう。\n「89(ヤスモ)」と謎のシンパシーがあるようだ。",
+    "Summary_EN": "A NumberTales who believes that knowledge and cultivated skill will one day return as personal reward.\nBecause of that creed, many Masters contract with her as a companion for study and certification training.\nPeople around her often remark, \"Isn't she more male-type or neutral-type?\" or \"She doesn't seem very feminine,\" but according to her, she is female-type.\nLet's not tease her too much.\nShe also appears to have a mysterious sympathy with \"89(Eightine)\".",
     "NumerospecStats": {
       "EffectStats": {
         "Mental": { "EffectText": "希薄" },
@@ -3065,7 +3089,9 @@
       "Actuation": { "Rank": "B" }
     },
     "InStory": "彼女を前に「貧乳」「男の娘」は禁句と言われている",
+    "InStory_EN": "In front of her, terms like \"flat-chested\" or \"feminine boy\" are said to be taboo.",
     "Backgrounds": "性別は「女性」らしいが……",
+    "Backgrounds_EN": "Her gender is said to be \"female\", though...",
     "Relation": {
       "Related": [
         {

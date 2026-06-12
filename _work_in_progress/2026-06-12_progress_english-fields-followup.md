@@ -250,6 +250,38 @@
 
 ---
 
+## 2026-06-12 追記：`Works_NumberTales` `db_SemiPrimary` 英訳拡充
+
+### 目的
+
+- `db_SemiPrimary` を他作品の DB と同等の英訳カバレッジへ寄せる。
+- 現行ルール（shared 値除外 / hideText fallback 許容 / 空値除外）で、
+  top-level の `_EN` 欠損を優先して補完する。
+
+### 主な実施内容
+
+- 対象ファイル:
+  - `data/Works_NumberTales/DataBases/db_SemiPrimary.json`
+
+- 追加・補完した主な項目:
+  - `Num 100`: 呼称系 (`First/Second/ThirdPersonCalling_EN`, `ForMasterCalling_EN`)、`RelationNotes_EN`, `Backgrounds_EN`
+  - `Num 111`: `TailsUnit_EN`、呼称系、`Character_EN` / `Hobby_EN` / `SpecialSkill_EN` / `Favor_EN` / `Unlike_EN` / `RelationNotes_EN` / `NumerospecAbout_EN` / `Summary_EN` / `Backgrounds_EN`
+  - `Num 222`: `TailsUnit_EN`、呼称系、`Character_EN` / `Hobby_EN` / `SpecialSkill_EN` / `Favor_EN` / `Unlike_EN` / `NumerospecAbout_EN` / `Summary_EN` / `Backgrounds_EN`
+  - `Num 444`, `666`, `777`, `777.Jackpot`, `999`, `3x11`: 各 `_EN` 欠損の英訳補完
+  - `104-dev`〜`109-dev`, `113-dev`〜`119-dev`: `Backgrounds_EN` を補完
+  - `64-sxp`: `Backgrounds_EN` を補完
+
+### 補足
+
+- `ThisMasters_EN` は現時点で運用が正式化されていないため、今回も追加対象外とした。
+
+### 検証
+
+- `tests/data.sanity.test.js`: pass
+- `tests/bilingual-fields.test.js`: pass
+
+---
+
 ## 2026-06-12 追記：非 NumberTales 残件の再走査（UnauthedLogica 最終補完）
 
 ### 背景
