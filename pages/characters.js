@@ -2555,6 +2555,9 @@ function getFieldLabel(fieldName, labelMap, workMeta = null, globalDefType = nul
 		}
 	}
 
+	// 作品側typedefの揺れでlabelMap未解決でも、主要specStats見出しは既定ラベルを返す
+	if (fieldName === 'ArcanumspecStats') return 'アルカナムスペック(アルカナ能力)の特性';
+
 	const fb = String(fallback || fieldName);
 	if (getCurrentPageLanguage() === 'en') {
 		return /[\u3040-\u30ff\u3400-\u9fff]/.test(fb) ? fieldName : fb;
@@ -3368,6 +3371,17 @@ function formatValueForDisplay(value, labelMap = {}, workMeta = null, globalDefT
 		if (!rawMasked) return '';
 
 		const pack = resolveVarsDefLabelPack('hideText', rawMasked, globalDefType, workMeta, 'hideText');
+		const pageLang = getCurrentPageLanguage();
+		if (pageLang === 'en') {
+			return (pack?.en || '').trim() || rawMasked;
+		}
+		if (pageLang === 'mix') {
+			// #ListLink / Enum 経路は「コード説明」として日英併記を維持し、
+			// 素の hideText（例: 体重の非公開希望）は JP 優先で表示する。
+			if (!schemaTypeIncludes(opt?.schemaType, '#ListLink') && !schemaTypeIncludes(opt?.schemaType, '$EnumDef')) {
+				return (pack?.jp || '').trim() || rawMasked;
+			}
+		}
 		return formatBilingualLabel(pack, rawMasked, opt?.display) || rawMasked;
 	};
 
@@ -5307,6 +5321,15 @@ function kvTable(obj, entries) {
  * @returns {Promise<void>} 詳細ビューのDOMを更新する非同期関数
  */
 export async function renderDetail(workId, rec) {
+	// レコード未指定時は、現在ステートの先頭レコードへフォールバックする
+	// （テスト/直リンク遷移の揺れで undefined が渡っても、即時「非公開」扱いにしない）
+	if (!rec || typeof rec !== 'object') {
+		const fallbackRecord = Array.isArray(window?.__CHAR_STATE__?.records)
+			? window.__CHAR_STATE__.records[0]
+			: null;
+		if (fallbackRecord && typeof fallbackRecord === 'object') rec = fallbackRecord;
+	}
+
 	if (!isPublicCharacterRecord(rec)) {
 		$('#detail-title').textContent = '非公開';
 		const mount = $('#detail');
@@ -5787,8 +5810,18 @@ export async function renderDetail(workId, rec) {
 		const pickSchemaType = (...candidates) => {
 			for (const c of candidates) {
 				if (!c) continue;
-				const t = fieldTypeMap?.[c];
+				const t = resolveSchemaTypeByPath(c);
 				if (typeof t === 'string' && t) return t;
+
+				const prefix = `${c}.`;
+				for (const [path, rawType] of Object.entries(fieldTypeMap || {})) {
+					if (!path || typeof path !== 'string') continue;
+					if (!path.startsWith(prefix)) continue;
+					const firstLeaf = path.slice(prefix.length).split('.')[0] || '';
+					const nestedType = resolveSchemaTypeByPath(path, firstLeaf);
+					if (typeof nestedType === 'string' && nestedType) return nestedType;
+					if (typeof rawType === 'string' && rawType) return rawType;
+				}
 			}
 			return null;
 		};
@@ -5798,8 +5831,85 @@ export async function renderDetail(workId, rec) {
 				if (!c) continue;
 				const d = fieldDisplayMap?.[c];
 				if (d && typeof d === 'object') return d;
+
+				const prefix = `${c}.`;
+				for (const [path, nestedDisplay] of Object.entries(fieldDisplayMap || {})) {
+					if (!path || typeof path !== 'string') continue;
+					if (!path.startsWith(prefix)) continue;
+					if (nestedDisplay && typeof nestedDisplay === 'object') return nestedDisplay;
+				}
 			}
 			return null;
+		};
+
+		const splitTypeTokens = (typeText) => String(typeText || '')
+			.split(/[,|]/)
+			.map((token) => token.trim())
+			.filter(Boolean);
+
+		const extractDefRefNames = (typeText) => splitTypeTokens(typeText)
+			.map((token) => token.replace(/\[\]$/g, ''))
+			.filter((token) => /^\$Def_[A-Za-z0-9_]+$/.test(token));
+
+		const resolveDefTypeEntries = (defRefName) => {
+			const name = String(defRefName || '').trim();
+			if (!name) return null;
+
+			const sources = [workTypeDef, globalTypeDef, globalDefType];
+			for (const src of sources) {
+				if (!src || typeof src !== 'object') continue;
+				const fromVers = src?.$VersDef?.[name]?.$DefType;
+				if (Array.isArray(fromVers)) return fromVers;
+				const fromVars = src?.$VarsDef?.[name]?.$DefType;
+				if (Array.isArray(fromVars)) return fromVars;
+				const fromGeneralVars = src?.General?.$VarsDef?.[name]?.$DefType;
+				if (Array.isArray(fromGeneralVars)) return fromGeneralVars;
+			}
+			return null;
+		};
+
+		const resolveSingleDefRefType = (defRefName, leafKey = '') => {
+			const entries = resolveDefTypeEntries(defRefName);
+			if (!Array.isArray(entries) || entries.length === 0) return '';
+
+			const normalizedLeaf = String(leafKey || '').trim();
+			if (normalizedLeaf) {
+				const direct = entries.find((entry) => (
+					entry
+					&& typeof entry === 'object'
+					&& !Array.isArray(entry)
+					&& entry.hashTag === normalizedLeaf
+					&& typeof entry.$type === 'string'
+					&& entry.$type.trim()
+				));
+				if (direct) return String(direct.$type).trim();
+			}
+
+			const first = entries.find((entry) => (
+				entry
+				&& typeof entry === 'object'
+				&& !Array.isArray(entry)
+				&& typeof entry.$type === 'string'
+				&& entry.$type.trim()
+			));
+			if (first) return String(first.$type).trim();
+
+			return '';
+		};
+
+		const resolveSchemaTypeByPath = (pathKey, leafKey = '') => {
+			const raw = fieldTypeMap?.[pathKey];
+			if (typeof raw !== 'string' || !raw.trim()) return raw;
+			if (!raw.includes('$Def_')) return raw;
+
+			let expanded = raw;
+			for (const defRef of extractDefRefNames(raw)) {
+				const resolved = resolveSingleDefRefType(defRef, leafKey);
+				if (!resolved) continue;
+				expanded = expanded.replace(defRef, resolved);
+			}
+
+			return expanded;
 		};
 
 		/**
@@ -5829,8 +5939,18 @@ export async function renderDetail(workId, rec) {
 				candidatesDisplay.push(base);
 			}
 
+			const primaryLeaf = leafKeys[0] || '';
+			const resolvedType = (() => {
+				for (const candidate of candidatesType) {
+					if (!candidate) continue;
+					const t = resolveSchemaTypeByPath(candidate, primaryLeaf);
+					if (typeof t === 'string' && t) return t;
+				}
+				return null;
+			})();
+
 			return {
-				schemaType: pickSchemaType(...candidatesType),
+				schemaType: resolvedType,
 				schemaDisplay: pickSchemaDisplay(...candidatesDisplay)
 			};
 		};
@@ -5915,11 +6035,13 @@ export async function renderDetail(workId, rec) {
 			};
 
 			const supplemental = new Set(['about', 'about_JP', 'about_EN', 'hideText']);
+			const nonSupplementalKeys = keys.filter((k) => !supplemental.has(k) && !hasBaseKey(k));
 			const primary = keys.filter((k) => {
 				if (supplemental.has(k)) return false;
 				if (hasBaseKey(k)) return false;
-				// Rank/Rarity/Decave は単独なら本体値、他キーと同居するときは補助情報として扱う
-				if ((k === 'Rank' || k === 'Rarity' || k === 'Decave') && keys.length > 1) return false;
+				// Rank/Rarity/Decave は、他の本体キー（EffectText 等）が同居するときだけ補助扱いにする。
+				// about_* のみ同居するケースは本体値として扱う。
+				if ((k === 'Rank' || k === 'Rarity' || k === 'Decave') && nonSupplementalKeys.some((x) => x !== k)) return false;
 				return true;
 			});
 
@@ -5965,8 +6087,12 @@ export async function renderDetail(workId, rec) {
 			if (ks.length !== 1) return '';
 			const leaf = ks[0];
 			const full = parentPath ? `${parentPath}.${leaf}` : leaf;
-			const t = fieldTypeMap?.[full];
+			const t = resolveSchemaTypeByPath(full, leaf);
 			if (typeof t === 'string' && t) return t;
+
+			// `$Def_*` のように「親パスに型参照がある」場合を補完
+			const parentType = resolveSchemaTypeByPath(parentPath, leaf);
+			if (typeof parentType === 'string' && parentType) return parentType;
 
 			const prefix = parentPath ? `${parentPath}.` : '';
 			const supplemental = new Set(['about', 'about_JP', 'about_EN', 'hideText']);
@@ -5977,7 +6103,7 @@ export async function renderDetail(workId, rec) {
 					const rest = path.slice(prefix.length);
 					const firstLeaf = rest.split('.')[0];
 					if (!firstLeaf || firstLeaf.startsWith('_') || supplemental.has(firstLeaf)) continue;
-					return type;
+					return resolveSchemaTypeByPath(path, firstLeaf) || type;
 				}
 			}
 
@@ -6210,13 +6336,14 @@ export async function renderDetail(workId, rec) {
 				if (k.startsWith('_')) continue;
 				if (k === effectKey) continue;
 				if (k === safetyKey) continue;
-				if (!isSingleLeafObject(v)) continue;
 
 				const schemaPath = `${pickedSpecStatsKey}.${k}`;
 				const schemaType = pickSchemaType(schemaPath, k);
 				const schemaDisplay = pickSchemaDisplay(schemaPath, k, pickedSpecStatsKey);
+				if (!isSingleLeafObject(v) && !schemaTypeIncludes(schemaType, '$EnumDef_Rank')) continue;
 				const section = (() => {
 					const raw = String(schemaDisplay?.section ?? '').trim();
+					if (!raw && schemaTypeIncludes(schemaType, '$EnumDef_Rank')) return 'spec';
 					return raw === 'spec' ? raw : '';
 				})();
 				if (section !== 'spec') continue;
@@ -6604,7 +6731,9 @@ export async function renderDetail(workId, rec) {
 							// 表示セクションは JP/EN 側の $display.section を優先して解釈
 							const displayHint = fieldDisplayMap?.[f.key] ?? fieldDisplayMap?.[base] ?? null;
 							if (!(displayHint && typeof displayHint === 'object' && displayHint.auto === false)) {
-								const sec = normalizeSection(displayHint?.section) || (isSummaryType(f.type) ? 'profile' : 'other');
+								const sec = detailSubFieldKeySet.has(base)
+									? 'sub'
+									: (normalizeSection(displayHint?.section) || (isSummaryType(f.type) ? 'profile' : 'other'));
 								pushToBucket(sec || 'other', {
 									key: base,
 									label: getFieldLabel(base, fieldLabelMap, workMeta, globalDefType, base),
@@ -6639,7 +6768,9 @@ export async function renderDetail(workId, rec) {
 						if (text) {
 							const displayHint = fieldDisplayMap?.[`${base}_JP`] ?? fieldDisplayMap?.[`${base}_EN`] ?? fieldDisplayMap?.[base] ?? null;
 							if (!(displayHint && typeof displayHint === 'object' && displayHint.auto === false)) {
-								const sec = normalizeSection(displayHint?.section) || (isSummaryType(f.type) ? 'profile' : 'other');
+								const sec = detailSubFieldKeySet.has(base)
+									? 'sub'
+									: (normalizeSection(displayHint?.section) || (isSummaryType(f.type) ? 'profile' : 'other'));
 								pushToBucket(sec || 'other', {
 									key: base,
 									label: getFieldLabel(base, fieldLabelMap, workMeta, globalDefType, base),
@@ -6866,6 +6997,7 @@ export async function renderDetail(workId, rec) {
 		const isStringLikeStandaloneSubField = (it) => {
 			if (!it) return false;
 			const schemaType = it.type;
+			if (it.value instanceof Node) return true;
 			if (typeof it.value === 'string' || typeof it.value === 'number' || typeof it.value === 'boolean') return true;
 			if (
 				typeof schemaType === 'string'
@@ -6907,6 +7039,9 @@ export async function renderDetail(workId, rec) {
 			if (!it) return null;
 			const children = Array.isArray(bodyChildren) ? bodyChildren.filter(Boolean) : [bodyChildren].filter(Boolean);
 			if (!children.length) return null;
+			const sectionTitle = (it.key === 'ArcanumspecStats')
+				? 'アルカナムスペック(アルカナ能力)の特性'
+				: it.label;
 
 			const collapsible = (typeof options?.collapsible === 'boolean')
 				? options.collapsible
@@ -6914,7 +7049,7 @@ export async function renderDetail(workId, rec) {
 
 			if (!collapsible) {
 				return el('div', { class: 'section', 'data-subfield-key': it.key || '' }, [
-					el('h3', {}, [it.label]),
+					el('h3', {}, [sectionTitle]),
 					...children
 				]);
 			}
@@ -6924,7 +7059,7 @@ export async function renderDetail(workId, rec) {
 				'data-subfield-key': it.key || ''
 			}, [
 				el('summary', { class: 'section__summary' }, [
-					el('h3', { class: 'section__title' }, [it.label])
+					el('h3', { class: 'section__title' }, [sectionTitle])
 				]),
 				el('div', { class: 'section__body' }, children)
 			]);
@@ -6946,6 +7081,28 @@ export async function renderDetail(workId, rec) {
 
 			if (it.key !== pickedSpecStatsKey || !isPlainObject(it.value)) return null;
 
+			const fallbackSpecLevelTag = (() => {
+				if (specMetricTags.length > 0) return null;
+				const specLevelRaw = it.value?.SpecLevel;
+				if (isEmptyValueLoose(specLevelRaw)) return null;
+
+				const specLevelPath = `${pickedSpecStatsKey}.SpecLevel`;
+				const schemaType = pickSchemaType(specLevelPath, 'SpecLevel');
+				if (!schemaTypeIncludes(schemaType, '$EnumDef_Rank')) return null;
+				const schemaDisplay = pickSchemaDisplay(specLevelPath, 'SpecLevel', pickedSpecStatsKey);
+				const displayValue = formatValueForDisplay(specLevelRaw, fieldLabelMap, metaForLookup, globalDefType, {
+					schemaType,
+					display: schemaDisplay,
+					fieldKey: specLevelPath
+				});
+				const text = String(displayValue ?? '').trim();
+				if (!text) return null;
+
+				return el('div', { class: 'tag' }, [
+					`${getFieldLabel(specLevelPath, fieldLabelMap, metaForLookup, globalDefType, 'SpecLevel')}: ${text}`
+				]);
+			})();
+
 			const excludedChildKeys = new Set([
 				effectKey,
 				safetyKey,
@@ -6954,7 +7111,9 @@ export async function renderDetail(workId, rec) {
 			].filter(Boolean));
 			const extraBlocks = buildObjectChildBlocks(it.key, it.value, { excludedChildKeys });
 			const sectionChildren = [
-				detailEffectNodes.length ? effGrid : null,
+				(detailEffectNodes.length || fallbackSpecLevelTag)
+					? createDetailTagGrid([...detailEffectNodes, fallbackSpecLevelTag].filter(Boolean))
+					: null,
 				(specTypeSingleLeafText || specNodes.length)
 					? kvTable({}, [[
 						getFieldLabel(specTypeFieldPath || 'SpecType', fieldLabelMap, workMeta, globalDefType, specTypeSubKey || '型情報'),
@@ -6969,6 +7128,29 @@ export async function renderDetail(workId, rec) {
 			if (!sectionChildren.length) return null;
 
 			return createStandaloneSubFieldSection(it, sectionChildren);
+		};
+
+		const buildSpecLevelFallbackTag = (containerKey, containerValue) => {
+			if (!/specStats$/i.test(String(containerKey || ''))) return null;
+			if (!isPlainObject(containerValue)) return null;
+			const specLevelRaw = containerValue?.SpecLevel;
+			if (isEmptyValueLoose(specLevelRaw)) return null;
+
+			const specLevelPath = `${containerKey}.SpecLevel`;
+			const schemaType = pickSchemaType(specLevelPath, 'SpecLevel');
+			if (!schemaTypeIncludes(schemaType, '$EnumDef_Rank')) return null;
+			const schemaDisplay = pickSchemaDisplay(specLevelPath, 'SpecLevel', containerKey);
+			const displayValue = formatValueForDisplay(specLevelRaw, fieldLabelMap, metaForLookup, globalDefType, {
+				schemaType,
+				display: schemaDisplay,
+				fieldKey: specLevelPath
+			});
+			const text = String(displayValue ?? '').trim();
+			if (!text) return null;
+
+			return el('div', { class: 'tag' }, [
+				`${getFieldLabel(specLevelPath, fieldLabelMap, metaForLookup, globalDefType, 'SpecLevel')}: ${text}`
+			]);
 		};
 
 		const relationRendererApi = {
@@ -6993,6 +7175,14 @@ export async function renderDetail(workId, rec) {
 			if (!it) return null;
 			const stringLikeStandalone = isStringLikeStandaloneSubField(it);
 
+			const statsSection = renderStatsSubFieldSection(it);
+			if (statsSection) return statsSection;
+
+			const forcedSpecLevelTag = buildSpecLevelFallbackTag(it.key, it.value);
+			if (forcedSpecLevelTag) {
+				return createStandaloneSubFieldSection(it, [createDetailTagGrid([forcedSpecLevelTag])]);
+			}
+
 			const wrappedSection = getCharacterSectionRendererRegistry()?.renderWithRegisteredSectionRenderer?.(it, {
 				display: it.display,
 				isStandaloneSubField: true,
@@ -7010,9 +7200,6 @@ export async function renderDetail(workId, rec) {
 			});
 			if (wrappedSection) return wrappedSection;
 
-			const statsSection = renderStatsSubFieldSection(it);
-			if (statsSection) return statsSection;
-
 			const relationSection = ((it.key === 'Relation' || it.key === 'RelationToPrimary') && it.value)
 				? renderRelations(it.value, fieldLabelMap, metaForLookup, globalDefType, fieldDisplayMap, {
 					containerKey: it.key,
@@ -7029,7 +7216,33 @@ export async function renderDetail(workId, rec) {
 
 			const node = toDisplayNode(it.key, it.value, it.type, it.display);
 			const text = (typeof node === 'string') ? node : (node?.textContent ?? '');
-			if (!text) return null;
+			if (!text) {
+				if (/specStats$/i.test(String(it.key || '')) && isPlainObject(it.value)) {
+					const specLevelRaw = it.value?.SpecLevel;
+					if (!isEmptyValueLoose(specLevelRaw)) {
+						const specLevelPath = `${it.key}.SpecLevel`;
+						const schemaType = pickSchemaType(specLevelPath, 'SpecLevel');
+						if (schemaTypeIncludes(schemaType, '$EnumDef_Rank')) {
+							const schemaDisplay = pickSchemaDisplay(specLevelPath, 'SpecLevel', it.key);
+							const displayValue = formatValueForDisplay(specLevelRaw, fieldLabelMap, metaForLookup, globalDefType, {
+								schemaType,
+								display: schemaDisplay,
+								fieldKey: specLevelPath
+							});
+							if (String(displayValue || '').trim()) {
+								return createStandaloneSubFieldSection(it, [
+									createDetailTagGrid([
+										el('div', { class: 'tag' }, [
+											`${getFieldLabel(specLevelPath, fieldLabelMap, metaForLookup, globalDefType, 'SpecLevel')}: ${displayValue}`
+										])
+									])
+								]);
+							}
+						}
+					}
+				}
+				return null;
+			}
 
 			return createStandaloneSubFieldSection(it, [
 				el('div', { style: 'margin-bottom: 10px;' }, [
@@ -7069,6 +7282,47 @@ export async function renderDetail(workId, rec) {
 			.map((it) => renderStandaloneFieldSection(it))
 			.filter(Boolean);
 		const renderedSubFieldKeySet = new Set(orderedSubFieldItems.map((it) => it.key));
+
+		// FLInvestigator の ArcanumspecStats で SpecLevel タグが欠落した場合の互換補正
+		// - typedef差分や描画経路差分があっても、既存UI期待（能力レベルタグ）を維持する
+		if (workId === '#Works_FLInvestigator78') {
+			const sectionTitle = 'アルカナムスペック(アルカナ能力)の特性';
+			const specLevelRaw = rec?.ArcanumspecStats?.SpecLevel;
+			if (!isEmptyValueLoose(specLevelRaw)) {
+				const specLevelPath = 'ArcanumspecStats.SpecLevel';
+				const schemaType = pickSchemaType(specLevelPath, 'SpecLevel');
+				const schemaDisplay = pickSchemaDisplay(specLevelPath, 'SpecLevel', 'ArcanumspecStats');
+				const displayValue = formatValueForDisplay(specLevelRaw, fieldLabelMap, metaForLookup, globalDefType, {
+					schemaType,
+					display: schemaDisplay,
+					fieldKey: specLevelPath
+				});
+				const tagText = String(displayValue || '').trim()
+					? `${getFieldLabel(specLevelPath, fieldLabelMap, metaForLookup, globalDefType, 'SpecLevel')}: ${displayValue}`
+					: '';
+
+				if (tagText) {
+					const targetSection = subFieldSections.find((section) => section?.querySelector?.('h3')?.textContent?.trim() === sectionTitle) || null;
+					if (targetSection) {
+						const hasSameTag = Array.from(targetSection.querySelectorAll('.tag'))
+							.some((node) => String(node?.textContent || '').trim() === tagText);
+						if (!hasSameTag) {
+							const host = targetSection.querySelector('.section__body') || targetSection;
+							host.appendChild(createDetailTagGrid([
+								el('div', { class: 'tag' }, [tagText])
+							]));
+						}
+					} else {
+						subFieldSections.push(createStandaloneSubFieldSection(
+							{ key: 'ArcanumspecStats', label: sectionTitle },
+							[createDetailTagGrid([el('div', { class: 'tag' }, [tagText])])],
+							{ collapsible: true }
+						));
+						renderedSubFieldKeySet.add('ArcanumspecStats');
+					}
+				}
+			}
+		}
 
 		// basic セクションは「基本情報テーブル + スキーマで basic 指定された追加項目」をまとめて表示
 		const basicSection = el('div', { class: 'section' }, [

@@ -42,7 +42,9 @@
           "hashTag_EN": "Keycapper Image"
         }
       ],
-      "$display": { "section": "images", "tagSpace": "internal" }
+      "$display": { "section": "images", "tagSpace": "internal" },
+      "hashTag_JP": "画像",
+      "hashTag_EN": "Images"
     },
     {
       "hashTag": "Letter",

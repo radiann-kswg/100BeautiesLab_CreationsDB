@@ -92,21 +92,9 @@
     "Class_EN": "Chief Technology Officer",
     "isSecondary": false
   },
-  {
-    "Class": "1号機型",
-    "Class_EN": "Model Unit.1",
-    "isSecondary": false
-  },
-  {
-    "Class": "2号機型",
-    "Class_EN": "Model Unit.2",
-    "isSecondary": null
-  },
-  {
-    "Class": "10号機型",
-    "Class_EN": "Model Unit.10",
-    "isSecondary": false
-  },
+  { "Class": "1号機型", "Class_EN": "Model Unit.1", "isSecondary": false },
+  { "Class": "2号機型", "Class_EN": "Model Unit.2", "isSecondary": null },
+  { "Class": "10号機型", "Class_EN": "Model Unit.10", "isSecondary": false },
   {
     "Class": "デシベルモデレーターズ",
     "Class_EN": "Decibel Moderators",
@@ -152,16 +140,8 @@
     "Class_EN": "VirtualityTales",
     "isSecondary": null
   },
-  {
-    "Class": "カレンド",
-    "Class_EN": "Calends",
-    "isSecondary": null
-  },
-  {
-    "Class": "ナルシシスツ",
-    "Class_EN": "Narcissists",
-    "isSecondary": null
-  },
+  { "Class": "カレンド", "Class_EN": "Calends", "isSecondary": null },
+  { "Class": "ナルシシスツ", "Class_EN": "Narcissists", "isSecondary": null },
   {
     "Class": "フィジクスコンストレイント",
     "Class_EN": "Physics Constraint",
@@ -172,11 +152,7 @@
     "Class_EN": "Mathematica Constraint",
     "isSecondary": null
   },
-  {
-    "Class": "ワノマチ",
-    "Class_EN": "Wa-no-Machi",
-    "isSecondary": null
-  },
+  { "Class": "ワノマチ", "Class_EN": "Wa-no-Machi", "isSecondary": null },
   {
     "Class": "フェイタルテールズ",
     "Class_EN": "FatalTales",
