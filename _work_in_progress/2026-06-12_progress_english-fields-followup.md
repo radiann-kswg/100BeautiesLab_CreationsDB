@@ -180,3 +180,41 @@
   - `#Works_DestinyFoxRecords.Works_Summary_EN`
 
 - これにより、`lang=en` 時の「Work Info」要約が JP ではなく EN を参照できる状態にした。
+
+---
+
+## 2026-06-12 追記：各作品 `DB_Summary_EN` の横展開
+
+### 目的
+
+- `Works_Summary_EN` 補完後の流れとして、各作品 `DataBases/db_meta.json` における
+  `Databases.#DB_*` / `Databases.#Ref_*` の `DB_Summary_EN` を拡充し、
+  `lang=en` 時の DB メタ概要表示を統一する。
+
+### 対応ファイル
+
+- `data/Works_NumberTales/DataBases/db_meta.json`
+- `data/Works_PastDivers/DataBases/db_meta.json`
+- `data/Works_ShouArRiders/DataBases/db_meta.json`
+- `data/Works_SinisterChangingGirls/DataBases/db_meta.json`
+- `data/Works_UnauthedLogica/DataBases/db_meta.json`
+- `data/Works_UnibyteLive/DataBases/db_meta.json`
+- `data/Works_Proxies/DataBases/db_meta.json`
+
+### 主な追記
+
+- NumberTales:
+  - `#DB_Primary` / `#DB_SemiPrimary` / `#DB_SelfSecondary` / `#DB_Secondary`
+  - `#DB_UnprocessedSecondary`（`#DB_Secondary` 配下）
+  - `#Ref_Glossary` / `#Ref_Reference`
+- PastDivers: `#DB_Primary` / `#DB_SemiPrimary`
+- ShouArRiders: `#DB_Primary`
+- SinisterChangingGirls: `#DB_Primary`
+- UnauthedLogica: `#DB_PrimaryMobs` / `#DB_Primary`
+- UnibyteLive: `#DB_Primary` / `#DB_PrimaryPerformer`
+- Proxies: `#DB_Proxy`
+
+### 備考
+
+- 既存の `DB_Summary`（JP）本文は変更せず、EN フィールドを追加する形で対応。
+- 既に `DB_Summary_EN` が存在する `Works_FLInvestigator78` / `Works_DestinyFoxRecords` は今回対象外。

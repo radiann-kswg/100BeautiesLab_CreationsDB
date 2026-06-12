@@ -4,6 +4,7 @@
       "DB_Label": "一次創作",
       "DB_Label_EN": "Primary",
       "DB_Summary": "「夜月機関」の正式な幹部に相当する一次創作キャラクター。\n和暦の月名に関連するコードネームが付与されている。",
+      "DB_Summary_EN": "Primary-creation characters corresponding to the formal executive officers of the Yadzuki Organization.\nEach one is assigned a codename related to a traditional Far-Eastern month name.",
       "StoryEra": {
         "FromEra": [{ "EraGen": 8, "YearInEra": 3 }, { "byRealYear": 2047 }],
         "ToEra": [{ "EraGen": 8, "YearInEra": 4 }, { "byRealYear": 2048 }],
@@ -110,7 +111,8 @@
     "#DB_SemiPrimary": {
       "DB_Label": "準一次創作",
       "DB_Label_EN": "Semi-Primary",
-      "DB_Summary": "「夜月機関」の先代幹部に相当する公式アンソロジー向け一次創作キャラクター。\n和暦の月名に関連するコードネームが付与されているのは通常と同様だが、登場数がまだ不完全なものとなっている。",
+      "DB_Summary": "「夜月機関」の先代幹部に相当する公式アンソロジー向け一次創作キャラクター。\n月名に関連するコードネームが付与されているのは通常と同様だが、登場数がまだ不完全なものとなっている。",
+      "DB_Summary_EN": "Primary-creation characters for official anthology works, corresponding to former-generation executive officers of the Yadzuki Organization.\nAs in the main line, codenames are based on traditional month names, but the roster is still incomplete.",
       "StoryEra": {
         "FromEra": [{ "EraGen": 7, "YearInEra": 24 }, { "byRealYear": 2044 }],
         "ToEra": [
