@@ -117,3 +117,37 @@
 
 - 今回は安全のため dry-run のみ実施（データ本体の大量移行は未実行）。
 - 実際の一括移行は、差分量が大きくなりやすいため段階実行を推奨。
+
+---
+
+## 2026-06-12 追記：非 NumberTales 1作品目（Works_DestinyFoxRecords）
+
+### 目的
+
+- NumberTales 以外の作品から、1作品ずつ未英訳フィールド対応を進める。
+- 今回は `Works_DestinyFoxRecords` を対象に、構造を壊さない最小単位の補完を行う。
+
+### 変更点
+
+- 対象ファイル: `data/Works_DestinyFoxRecords/DataBases/db_Primary.json`
+  - 最初の 3 レコード（`Unit: s / m / kg`）に `Unit_EN` を追加。
+    - `Time(KMS Method)`
+    - `Length(KMS Method)`
+    - `Mass(KMS Method)`
+
+- 対象ファイル: `data/Works_DestinyFoxRecords/DataBases/db_meta.json`
+  - `Databases.#DB_Primary` に `DB_Summary_EN` を追加。
+
+### 補足
+
+- `Relation` / `ThisMasters` / `IdentityMotif` / `SpecialPattern` など、初回指示の一部カテゴリは本作品データに該当が薄いため、今回は存在する未英訳要素（`Unit_JP` 対応の `Unit_EN`、`DB_Summary_EN`）を優先した。
+
+### 追加対応（同日・一括補完）
+
+- `data/Works_DestinyFoxRecords/DataBases/db_Primary.json` の残り 6 件について `Unit_EN` を追加。
+  - `光度` -> `Luminous Intensity`
+  - `絶対温度` -> `Thermodynamic Temperature`
+  - `電流値` -> `Electric Current`
+  - `物質量` -> `Amount of Substance`
+  - `角度(弧度法)` -> `Plane Angle (Radian Measure)`
+  - `立体角(弧度法)` -> `Solid Angle (Radian Measure)`
