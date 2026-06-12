@@ -488,3 +488,137 @@
 
 - `tests/data.sanity.test.js`: pass
 - `tests/bilingual-fields.test.js`: pass
+
+## 2026-06-12 追記：英訳追記後の項目順整列ルール（db_UnprocessedSecondary 準拠）
+
+### 背景
+
+- パッチで `*_EN` を後付けしたDBでは、元キーと英語キーが離れて差分レビューしづらくなるケースがあった。
+- `db_UnprocessedSecondary.json` のように「元キーの直下へ対応する `_EN` を置く」並びを、今後の正準ルールとして扱う。
+
+### 今回の対応
+
+- 対象ファイル:
+  - `data/Works_NumberTales/DataBases/db_Primary.json`
+  - `data/Works_NumberTales/DataBases/db_Secondary.json`
+  - `data/Works_NumberTales/DataBases/db_SelfSecondary.json`
+  - `data/Works_NumberTales/DataBases/db_SemiPrimary.json`
+- 実施内容:
+  - 再帰的に各オブジェクトを走査し、`<base>` が存在する場合は `<base>_EN` をその直後へ移動
+  - `<base>` が無く `<base>_JP` が存在する場合は、`<base>_JP` の直後へ `<base>_EN` を移動
+  - `Relation.*.Comments_EN` や `ThisMasters_EN` のような入れ子配下も同じ規則で整列
+
+### 整列後の確認
+
+- 対象4ファイルの `_EN` 順序ずれ再検出: 0件
+
+### 今後の運用ルール
+
+1. パッチで `*_EN` を追加・追記した場合、その場で同一オブジェクト内の項目順も整列する。
+2. 基本規則は `db_UnprocessedSecondary.json` と同じく「元キー → 対応 `_EN`」の順とする。
+3. `about_JP/about_EN` のように JP 側しか基底キーが無い場合は「`*_JP` → `*_EN`」の順とする。
+4. 英訳値だけ追加して順序調整を保留しない。差分レビューの見通し維持も翻訳作業の一部として扱う。
+
+### 検証
+
+- `tests/data.sanity.test.js`: pass
+- `tests/bilingual-fields.test.js`: pass
+- `tests/pages.characters.ui-output.test.js`: pass
+
+## 2026-06-12 追記：`_DBLink` 参照オブジェクトの英訳キー整理（SW/API準拠）
+
+### 背景
+
+- `_DBLink._Search[]` に `hashTag_EN` が追加されていたが、参照解決は `hashTag` / `key` で成立するため、和英で同一参照を保つ方針に合わせて整理した。
+
+### 対応
+
+- 対象: `data/Works_NumberTales/DataBases/*.json`
+- 内容: `_DBLink` 配下の `_Search` オブジェクトから `hashTag_EN` を除去
+- 除去件数: 44
+  - `db_Primary.json`: 11
+  - `db_SelfSecondary.json`: 32
+  - `db_SemiPrimary.json`: 1
+
+### 方針メモ
+
+- `_DBLink` 参照オブジェクトは、原則として和文・英文で同じ参照式を使う。
+- 英訳対応は表示ラベル側（typedef/varsdef/UI）で担保し、参照キー本体には可能な限り言語差分を持ち込まない。
+
+## 2026-06-12 追記：`EffectText` / `SafetyLevelText` の共用辞書準拠で再推敲
+
+### 背景
+
+- `NumerospecStats` 配下の `EffectText` / `SafetyLevelText` は、`db_type.json` の `#ListLink` 設定と `db_meta.json` の `#ListLink_*` 辞書（EN 付き）で和英共用表示できる設計。
+- この前提に合わせ、レコード側で重複していた `EffectText_EN` / `SafetyLevelText_EN` を整理した。
+
+### 対応方針
+
+- 参照辞書に同値が存在し、かつレコード側 `*_EN` が辞書値と完全一致する場合のみ削除。
+- 辞書定義（`db_meta.json`）側は保持し、レコード本体のみを削減対象とする。
+
+### 実施結果（Works_NumberTales / DataBases 配下）
+
+- `db_Primary.json`: `EffectText_EN` 411件 / `SafetyLevelText_EN` 81件 を削除
+- `db_Secondary.json`: `EffectText_EN` 16件 / `SafetyLevelText_EN` 3件 を削除
+- 合計: `EffectText_EN` 441件 / `SafetyLevelText_EN` 97件 を削除
+
+### 再確認
+
+- `db_*.json`（`db_meta.json` 除く）で `EffectText_EN` / `SafetyLevelText_EN` は残件 0
+- `tests/data.sanity.test.js`: pass
+- `tests/bilingual-fields.test.js`: pass
+
+## 2026-06-12 追記：Works_NumberTales 横断見直し（ブランチ全体監査ベース）
+
+### 監査観点
+
+- `develop...localize-perfection` の差分対象を起点に、`Works_NumberTales` 配下の JSON を再走査。
+- 欠損判定は「同一ファイル内で `_EN` 対応実績があるキーに対して、値あり JP/無印キーで `_EN` が欠ける箇所」。
+
+### 今回の追加補完
+
+1. `DataBases` 非Primaryの未対応を解消
+
+- `db_Secondary.json`
+  - `TailsUnit_EN` / `FirstPersonCalling_EN` / `SecondPersonCalling_EN` / `ForMasterCalling_EN` の残件を追補
+- `db_SelfSecondary.json`
+  - `CodeName_EN` を一括補完（和数字コード名を `One-Two-...` 形式へ変換）
+  - `TailsUnit_EN` 残2件を追補
+- `db_UnprocessedSecondary.json`
+  - `CodeName_EN` を一括補完（和数字コード名を `One-Two-...` 形式へ変換）
+
+2. `db_Primary.json` の既存訳再利用補完
+
+- 同一キー・同一JP値に既存ENが存在するケースのみを対象に、自動再利用で `*_EN` を補完。
+- 追加件数: 685
+- 方針: 新規意訳はせず、既存英訳の完全一致流用のみを適用。
+
+3. 辞書/型定義の未対応を解消
+
+- `Dictionaries/dict_Formation.json`
+  - 既存の誤記キー `Fromation_EN` を参照しつつ `Formation_EN` を追加
+- `DataBases/db_type.json`
+  - 欠損していた `hashTag_EN`（`ForMasterCalling` / `TailsUnit` / `NumerospecAbout` / `Images` / `EffectText` / `SafetyLevelText`）を追補
+- `References/db_type.json`
+  - `Images` の `hashTag_EN` を追補
+
+### 再走査結果（2026-06-12 時点）
+
+- `db_Secondary.json`: 欠損 0
+- `db_SelfSecondary.json`: 欠損 0
+- `db_SemiPrimary.json`: 欠損 0
+- `db_UnprocessedSecondary.json`: 欠損 0
+- `Dictionaries/dict_Formation.json`: 欠損 0
+- `DataBases/db_type.json`: 欠損 0
+- `References/db_type.json`: 欠損 0
+
+補足:
+
+- `db_Primary.json` には長文系・会話系・モチーフ系を中心に未補完が残る（再走査上 1342 件）。
+- こちらは翻訳量が大きく、語彙統一の再レビューを要するため別フェーズで継続する。
+
+### 検証
+
+- `tests/data.sanity.test.js`: pass
+- `tests/bilingual-fields.test.js`: pass
