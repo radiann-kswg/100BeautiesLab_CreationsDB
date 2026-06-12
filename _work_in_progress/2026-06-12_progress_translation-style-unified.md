@@ -308,3 +308,53 @@
 1. 本書を英訳対応の一次基準とし、以降の翻訳判断は本書へ追記して一本化する。
 2. ルール変更時は「先に本書更新、次にデータ更新」の順で運用する。
 3. 次回以降の英訳追加は、必ず localize-perfection 実データと同じ記法体系へ収束させる。
+
+## 2026-06-12 追記：Works_NumberTales 英訳補完（第2便）
+
+- 対象ファイル: data/Works_NumberTales/DataBases/db_Primary.json
+- 対象レコード（番号順・3キャラ）:
+  - Num 15
+  - Num 16
+  - Num 17
+- 補完したキー:
+  - FirstPersonCalling_EN
+  - SecondPersonCalling_EN
+  - ThirdPersonCalling_EN
+- 運用ルール適用:
+  - [*by name] を正規トークンとして適用
+  - 呼称注記は既存慣用（rough/familiar/fem. casual など）に整合
+  - 敬称・トークン表記の小文字/記号ルールに準拠
+- 検証:
+  - tests/data.sanity.test.js: pass
+  - tests/bilingual-fields.test.js: pass
+
+## 2026-06-12 追記：手直し差分の分析（今後の補完向け）
+
+### 観測対象
+
+- 対象ファイル: data/Works_NumberTales/DataBases/db_Primary.json
+- 参照差分: Num 15 / 16 / 17 / 18 / 19 / 21 を中心とした呼称EN・CodeName_EN 補完
+
+### 確認できた「採用慣用」
+
+1. 呼称注記は短く固定語彙で揃える（例: `I (fem. casual)`, `you (familiar)`, `you (rough)`）。
+2. 三人称は `he/she; ...` を起点にし、必要時のみ目的語群（`this/that/who/which/what/them (as objective)`）を追加する。
+3. `[※名前呼び]` は `[*by name]` を正規トークンとして統一する。
+4. 主人呼称の兄姉系は `~Bro/~Sis` を優先し、過剰説明を避ける。
+5. `hideText` は意味展開せず、そのまま EN 側も `hideText` 構造を維持する。
+6. CodeName_EN は数詞の直列化（例: `One-Zero`, `One-Eight`, `One-Nine`, `Two-One`）を優先する。
+
+### 補完時チェックリスト（Num1〜22 以降にも適用）
+
+1. `First/Second/ThirdPersonCalling_EN` は3点セットで同時確認する。
+2. `ForMasterCalling_EN` は同系統キャラ（兄姉/ご主人様/センパイ）の既存訳を優先再利用する。
+3. `RelationNotes_EN` / `Summary_EN` は逐語寄りにせず、既存英訳の文量・文体に合わせる。
+4. 追加順は `CodeName_EN` → 呼称EN群 → 説明文EN群 の順で入れると差分レビューが安定する。
+5. 他レコード参照名（例: `12(...)`, `28(...)`）は必ず対象レコードの `Name_EN` から転記し、類推綴りを使わない。
+
+### 追加実施（第3便）
+
+- Num 21 の未補完3件を追記:
+  - `ForMasterCalling_EN`
+  - `RelationNotes_EN`
+  - `Summary_EN`
