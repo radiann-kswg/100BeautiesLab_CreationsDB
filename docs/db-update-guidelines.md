@@ -130,6 +130,34 @@
 
 ## 4. `db_meta.json`（メタ定義）更新ルール
 
+### 4.0 `#Enum` / `#List` の `dict_*.json` 分離（推奨）
+
+`#Enum` 相当の候補値（実質的には `#List_*`）は、作品別 `DataBases/db_meta.json` に直書きし続けるのではなく、
+可能な限り `data/Works_<作品>/Dictionaries/dict_*.json` へ分離する運用を推奨します。
+
+- 目的:
+  - 作品別 enum/list 辞書を独立管理し、差分を追いやすくする
+  - 他タイトルでも同じ仕組みを再利用しやすくする
+  - SW の辞書合流（`#Dict_*` と `#List_*` 互換）を活用する
+
+このリポジトリには、既存 `#List_*` を `dict_*.json` に切り出す補助ツールがあります。
+
+```powershell
+# dry-run（変更なし）
+npm run dict:plan-enums
+
+# dict_*.json / Dictionaries/db_meta.json を生成
+npm run dict:export-enums
+
+# 生成に加え、元の DataBases/db_meta.json から #List_* を削除
+npm run dict:export-enums:prune
+```
+
+補足:
+
+- `:prune` は変更量が大きくなるため、必ず差分レビュー後に適用してください。
+- 作品を限定する場合は `node tools/extract-enum-lists-to-dictionaries.mjs --work=Works_NumberTales --write` のように実行できます。
+
 ### 4.1 インデックス表示/直リンク
 
 - 作品ごとのインデックス（一覧チップ/直リンクの基準）は、作品別 typedef（`data/Works_<作品名>/DataBases/db_type.json`）の `$IndexDef` を更新して追従させます
