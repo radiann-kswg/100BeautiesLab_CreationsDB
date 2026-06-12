@@ -6,7 +6,8 @@
         "hashTag": "Beast",
         "$type": "#IndexListKey",
         "hashTag_JP": "動物",
-        "hashTag_EN": "Beast"
+        "hashTag_EN": "Beast",
+        "$display": { "langMode": "shared" }
       },
       { "hashTag": "Eto", "$type": "#String_JP", "hashTag_JP": "干支" },
       {

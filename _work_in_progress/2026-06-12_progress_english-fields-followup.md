@@ -394,6 +394,31 @@
 
 ---
 
+## 2026-06-12 追記：`Works_ShouArRiders` の `Beast` shared 化
+
+### 背景
+
+- `Works_ShouArRiders/DataBases/db_meta.json` の `General.$VarsDef.$Def_BeastType.#List_Beast` では、
+  `Beast_EN` が `Beast` と同値の英字コードになっていた。
+- これは `Stoat` / `Lunar` と同様に、EN 表示時は base 値をそのまま利用できる shared 値と判断した。
+
+### 実施内容
+
+- `data/Works_ShouArRiders/DataBases/db_type.json`
+  - `$IndexDef.BeastType.$type[Beast]` に `$display.langMode: "shared"` を追加
+
+- `data/Works_ShouArRiders/DataBases/db_meta.json`
+  - `General.$VarsDef.$Def_BeastType.#List_Beast[]` から `Beast_EN` を削除
+
+### 検証
+
+- `tests/pages.characters.ui-output.test.js`
+  - shared/hideText の既存 focused テスト 3 件: pass
+- `tests/bilingual-fields.test.js`: pass
+- `tests/data.sanity.test.js`: pass
+
+---
+
 ## 2026-06-12 追記：Works_PastDivers キャラ本体 EN 補完（全数）
 
 ### 対象
