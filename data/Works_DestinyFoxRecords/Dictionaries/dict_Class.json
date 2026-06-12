@@ -1,46 +1,13 @@
 [
-  {
-    "Class": "組織長",
-    "Class_EN": "Chief/Leader"
-  },
-  {
-    "Class": "第１界担当",
-    "Class_EN": "Owner of #REGION.1"
-  },
-  {
-    "Class": "第２界担当",
-    "Class_EN": "Owner of #REGION.2"
-  },
-  {
-    "Class": "第３界担当",
-    "Class_EN": "Owner of #REGION.3"
-  },
-  {
-    "Class": "第４界担当",
-    "Class_EN": "Owner of #REGION.4"
-  },
-  {
-    "Class": "第５界担当",
-    "Class_EN": "Owner of #REGION.5"
-  },
-  {
-    "Class": "第６界担当",
-    "Class_EN": "Owner of #REGION.6"
-  },
-  {
-    "Class": "第７界担当",
-    "Class_EN": "Owner of #REGION.7"
-  },
-  {
-    "Class": "第８界担当",
-    "Class_EN": "Owner of #REGION.8"
-  },
-  {
-    "Class": "第８界担当補佐",
-    "Class_EN": "Supporter for owning #REGION.8"
-  },
-  {
-    "Class": "マネージャー",
-    "Class_EN": "Keeper"
-  }
+  { "Class": "組織長", "Class_EN": "Chief/Leader" },
+  { "Class": "第１界担当", "Class_EN": "Owner of #REGION.1" },
+  { "Class": "第２界担当", "Class_EN": "Owner of #REGION.2" },
+  { "Class": "第３界担当", "Class_EN": "Owner of #REGION.3" },
+  { "Class": "第４界担当", "Class_EN": "Owner of #REGION.4" },
+  { "Class": "第５界担当", "Class_EN": "Owner of #REGION.5" },
+  { "Class": "第６界担当", "Class_EN": "Owner of #REGION.6" },
+  { "Class": "第７界担当", "Class_EN": "Owner of #REGION.7" },
+  { "Class": "第８界担当", "Class_EN": "Owner of #REGION.8" },
+  { "Class": "第８界担当補佐", "Class_EN": "Supporter for owning #REGION.8" },
+  { "Class": "マネージャー", "Class_EN": "Keeper" }
 ]

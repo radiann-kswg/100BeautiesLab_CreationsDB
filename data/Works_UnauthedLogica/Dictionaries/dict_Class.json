@@ -1,18 +1,6 @@
 [
-  {
-    "Class": "ベーシックコモンズ",
-    "Class_EN": "BasicCommons"
-  },
-  {
-    "Class": "キリルマトンズ",
-    "Class_EN": "CyrillicMatons"
-  },
-  {
-    "Class": "アリスメティカ",
-    "Class_EN": "Arithmeticas"
-  },
-  {
-    "Class": "エキスパンダ",
-    "Class_EN": "Expanders"
-  }
+  { "Class": "ベーシックコモンズ", "Class_EN": "BasicCommons" },
+  { "Class": "キリルマトンズ", "Class_EN": "CyrillicMatons" },
+  { "Class": "アリスメティカ", "Class_EN": "Arithmeticas" },
+  { "Class": "エキスパンダ", "Class_EN": "Expanders" }
 ]

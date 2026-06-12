@@ -21,6 +21,7 @@
     "#Dict_RaceType": {
       "DB_Label": "種族辞書",
       "DB_Label_EN": "Race Dictionary",
+      "langMode": "shared",
       "keyField": "RaceType",
       "compatListKey": "#List_RaceType"
     }

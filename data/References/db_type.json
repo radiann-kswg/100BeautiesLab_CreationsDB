@@ -9,7 +9,7 @@
     {
       "hashTag": "Term_EN",
       "$type": "##String_EN|#Null",
-      "hashTag_JP": "用語名_EN",
+      "hashTag_EN": "Term Name",
       "$display": { "section": "basic", "aliasOf": "Name_EN" }
     },
     {
@@ -27,7 +27,7 @@
     {
       "hashTag": "Title_EN",
       "$type": "##String_EN|#Null",
-      "hashTag_JP": "資料名_EN",
+      "hashTag_EN": "Reference Title",
       "$alt": "Term_EN",
       "$display": { "section": "basic", "aliasOf": "Name_EN" }
     },
@@ -35,6 +35,7 @@
       "hashTag": "Category",
       "$type": "##String_JP|#Null",
       "hashTag_JP": "分類",
+      "hashTag_EN": "Category",
       "$display": { "section": "basic" }
     },
     {
@@ -43,9 +44,25 @@
       "hashTag_JP": "本文ブロック"
     },
     {
+      "hashTag": "BodyBlocks_EN",
+      "$type": "#Summary[]|#Null",
+      "hashTag_EN": "Body Blocks"
+    },
+    {
+      "hashTag": "Summary",
+      "$type": "#Summary|#Null",
+      "hashTag_JP": "概要"
+    },
+    {
+      "hashTag": "Summary_EN",
+      "$type": "#Summary|#Null",
+      "hashTag_EN": "Summary"
+    },
+    {
       "hashTag": "RelatedTerms",
       "$type": "#String[]|#Null",
-      "hashTag_JP": "関連用語"
+      "hashTag_JP": "関連用語",
+      "hashTag_EN": "Related Terms"
     },
     {
       "hashTag": "RelatedCreations",
@@ -53,30 +70,36 @@
         {
           "hashTag": "RelatedWorks",
           "$type": "#String",
-          "hashTag_JP": "関連作品"
+          "hashTag_JP": "関連作品",
+          "hashTag_EN": "Related Works"
         },
         {
           "hashTag": "RelatedDB",
           "$type": "#String|#Null",
-          "hashTag_JP": "関連DB"
+          "hashTag_JP": "関連DB",
+          "hashTag_EN": "Related DB"
         }
       ],
-      "hashTag_JP": "関連創作"
+      "hashTag_JP": "関連創作",
+      "hashTag_EN": "Related Creations"
     },
     {
       "hashTag": "Aliases",
       "$type": "#String[]|#Null",
-      "hashTag_JP": "別表記一覧"
+      "hashTag_JP": "別表記一覧",
+      "hashTag_EN": "Aliases"
     },
     {
       "hashTag": "Links",
       "$type": "#String[]|#Null",
-      "hashTag_JP": "関連リンク"
+      "hashTag_JP": "関連リンク",
+      "hashTag_EN": "Links"
     },
     {
       "hashTag": "Visibility",
       "$type": "#String|#Null",
-      "hashTag_JP": "公開区分"
+      "hashTag_JP": "公開区分",
+      "hashTag_EN": "Visibility"
     }
   ]
 }

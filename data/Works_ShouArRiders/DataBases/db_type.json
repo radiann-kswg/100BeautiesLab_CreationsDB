@@ -6,7 +6,8 @@
         "hashTag": "Beast",
         "$type": "#IndexListKey",
         "hashTag_JP": "動物",
-        "hashTag_EN": "Beast"
+        "hashTag_EN": "Beast",
+        "$display": { "langMode": "shared" }
       },
       { "hashTag": "Eto", "$type": "#String_JP", "hashTag_JP": "干支" },
       {
@@ -27,25 +28,35 @@
         {
           "hashTag": "concept_PNGName",
           "$type": "#PNGFileName",
-          "hashTag_JP": "設定原画"
+          "hashTag_JP": "設定原画",
+          "hashTag_EN": "Concept Art"
         },
         {
           "hashTag": "designAlt_PNGPath",
           "$type": "#PNGFilePath[]",
-          "hashTag_JP": "衣装差分など"
+          "hashTag_JP": "衣装差分など",
+          "hashTag_EN": "Design Variations"
         },
         {
           "hashTag": "arts_PNGPath",
           "$type": "#PNGFilePath[]",
-          "hashTag_JP": "イラスト作品"
+          "hashTag_JP": "イラスト作品",
+          "hashTag_EN": "Illustration Works"
         }
       ],
-      "$display": { "section": "images", "tagSpace": "internal" }
+      "$display": { "section": "images", "tagSpace": "internal" },
+      "hashTag_JP": "画像",
+      "hashTag_EN": "Images"
     },
     {
       "hashTag": "BeastspecName",
       "$type": "#String_JP",
       "hashTag_JP": "獣騎能力名"
+    },
+    {
+      "hashTag": "BeastspecName_EN",
+      "$type": "##String_EN|#Null",
+      "hashTag_EN": "Beastspec Name"
     },
     {
       "hashTag": "BeastspecStats",
@@ -54,18 +65,21 @@
           "hashTag": "SpecType",
           "$type": "$Def_SpecType",
           "hashTag_JP": "能力種別",
+          "hashTag_EN": "Spec Type",
           "$display": { "section": "spec", "tagSpace": "creation" }
         },
         {
           "hashTag": "SpecialPattern",
           "$type": "#Enum[]",
           "hashTag_JP": "特殊パターン",
+          "hashTag_EN": "Special Pattern",
           "$display": { "section": "spec", "tagSpace": "creation" }
         },
         {
           "hashTag": "SpecLevel",
           "$type": [{ "hashTag": "Rank", "$type": "$EnumDef_Rank,$EnumLink" }],
           "hashTag_JP": "能力レベル",
+          "hashTag_EN": "Spec Level",
           "$display": {
             "section": "spec",
             "tagSpace": "creation",
@@ -75,12 +89,18 @@
         }
       ],
       "hashTag_JP": "獣騎能力の特性",
+      "hashTag_EN": "Beastspec Ability Characteristics",
       "$display": { "sectionWrapper": "statsSection" }
     },
     {
       "hashTag": "BeastspecAbout",
       "$type": "#Summary",
       "hashTag_JP": "獣騎能力について"
+    },
+    {
+      "hashTag": "BeastspecAbout_EN",
+      "$type": "#Summary|#Null",
+      "hashTag_EN": "About Beastspec"
     }
   ]
 }

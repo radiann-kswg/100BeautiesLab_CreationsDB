@@ -6,7 +6,8 @@
         "hashTag": "Stoat",
         "$type": "#IndexListKey",
         "hashTag_JP": "カード種別",
-        "hashTag_EN": "CardType"
+        "hashTag_EN": "CardType",
+        "$display": { "langMode": "shared" }
       },
       {
         "hashTag": "StoatNum",
@@ -30,35 +31,48 @@
         {
           "hashTag": "concept_PNGName",
           "$type": "#PNGFileName",
-          "hashTag_JP": "設定原画"
+          "hashTag_JP": "設定原画",
+          "hashTag_EN": "Concept Figure"
         },
         {
           "hashTag": "conceptAlt_PNGName",
           "$type": "#PNGFileName[]",
-          "hashTag_JP": "設定原画差分"
+          "hashTag_JP": "設定原画差分",
+          "hashTag_EN": "Concept Figure Variations"
         },
         {
           "hashTag": "cardDesign_PNGName",
           "$type": "#PNGFileName",
-          "hashTag_JP": "衣装差分など"
+          "hashTag_JP": "カードデザイン",
+          "hashTag_EN": "Card Design"
         },
         {
           "hashTag": "designAlt_PNGPath",
           "$type": "#PNGFilePath[]",
-          "hashTag_JP": "衣装差分など"
+          "hashTag_JP": "衣装差分など",
+          "hashTag_EN": "Design Variations"
         },
         {
           "hashTag": "arts_PNGPath",
           "$type": "#PNGFilePath[]",
-          "hashTag_JP": "イラスト作品"
+          "hashTag_JP": "イラスト作品",
+          "hashTag_EN": "Illustration Works"
         }
       ],
-      "$display": { "section": "images", "tagSpace": "internal" }
+      "$display": { "section": "images", "tagSpace": "internal" },
+      "hashTag_JP": "画像",
+      "hashTag_EN": "Images"
     },
     {
       "hashTag": "For79thDealerCalling",
       "$type": "#String|#Null",
       "hashTag_JP": "錦野舞(第79アルカナ)の呼び方",
+      "$display": { "section": "profile" }
+    },
+    {
+      "hashTag": "For79thDealerCalling_EN",
+      "$type": "#String_EN|#Null",
+      "hashTag_EN": "Dancy Actressilk(79th Arcana) Calling",
       "$display": { "section": "profile" }
     },
     {
@@ -68,9 +82,20 @@
       "$display": { "section": "profile" }
     },
     {
+      "hashTag": "For80thDealerCalling_EN",
+      "$type": "#String_EN|#Null",
+      "hashTag_EN": "Phonia Actressilk(80th Arcana) Calling",
+      "$display": { "section": "profile" }
+    },
+    {
       "hashTag": "ArcanamspecAbout",
       "$type": "#Summary",
       "hashTag_JP": "アルカナムスペック(アルカナ能力)について"
+    },
+    {
+      "hashTag": "ArcanamspecAbout_EN",
+      "$type": "#Summary|#Null",
+      "hashTag_EN": "About ArcanamSpecs (Arcana Abilities)"
     },
     {
       "hashTag": "ArcanumspecStats",
@@ -82,33 +107,51 @@
               "hashTag": "Material",
               "$type": "#ListIndex[]",
               "hashTag_JP": "元素属性",
-              "$display": { "section": "spec", "tagSpace": "creation" }
+              "hashTag_EN": "Elemental Attributes",
+              "$display": {
+                "section": "spec",
+                "tagSpace": "creation",
+                "langMode": "shared"
+              }
             },
             {
               "hashTag": "KinematicOrStatic",
               "$type": "#ListIndex|#Null",
               "hashTag_JP": "動的か静的か",
-              "$display": { "section": "spec", "tagSpace": "creation" }
+              "hashTag_EN": "Kinematic or Static",
+              "$display": {
+                "section": "spec",
+                "tagSpace": "creation",
+                "langMode": "shared"
+              }
             },
             {
               "hashTag": "RoleType",
               "$type": "#ListIndex|#Null",
               "hashTag_JP": "ロール種別",
-              "$display": { "section": "spec", "tagSpace": "creation" }
+              "hashTag_EN": "Role Type",
+              "$display": {
+                "section": "spec",
+                "tagSpace": "creation",
+                "langMode": "shared"
+              }
             },
             {
               "hashTag": "DualizePattern",
               "$type": "#ListIndex",
               "hashTag_JP": "双極特性パターン",
+              "hashTag_EN": "Dualize Pattern",
               "$display": { "section": "spec", "tagSpace": "creation" }
             }
           ],
-          "hashTag_JP": "能力種別"
+          "hashTag_JP": "能力種別",
+          "hashTag_EN": "Ability Types"
         },
         {
           "hashTag": "SpecialPattern",
           "$type": "#Enum[]",
           "hashTag_JP": "特殊パターン",
+          "hashTag_EN": "Special Pattern",
           "$display": { "section": "spec", "tagSpace": "creation" }
         },
         {
@@ -124,12 +167,14 @@
               }
             }
           ],
-          "hashTag_JP": "安全レベル"
+          "hashTag_JP": "安全レベル",
+          "hashTag_EN": "Safety Level"
         },
         {
           "hashTag": "SpecLevel",
           "$type": [{ "hashTag": "Rank", "$type": "$EnumDef_Rank,$EnumLink" }],
           "hashTag_JP": "能力レベル",
+          "hashTag_EN": "Spec Ability Level",
           "$display": {
             "section": "spec",
             "tagSpace": "creation",
@@ -142,85 +187,59 @@
           "$type": [
             {
               "hashTag": "Physical",
-              "$type": [
-                {
-                  "hashTag": "EffectText",
-                  "$type": "#String_JP,#ListLink",
-                  "$display": {
-                    "rankFormat": "alphaLabel",
-                    "listLinkEnumName": "Rank",
-                    "listLinkShowEnum": true
-                  }
-                }
-              ],
-              "hashTag_JP": "物理的作用"
+              "$type": "$Def_EffectText",
+              "hashTag_JP": "物理的作用",
+              "hashTag_EN": "Physical Effect"
             },
             {
               "hashTag": "Magical",
-              "$type": [
-                {
-                  "hashTag": "EffectText",
-                  "$type": "#String_JP,#ListLink",
-                  "$display": {
-                    "rankFormat": "alphaLabel",
-                    "listLinkEnumName": "Rank",
-                    "listLinkShowEnum": true
-                  }
-                }
-              ],
-              "hashTag_JP": "魔法的作用"
+              "$type": "$Def_EffectText",
+              "hashTag_JP": "魔法的作用",
+              "hashTag_EN": "Magical Effect"
             },
             {
               "hashTag": "Healing",
-              "$type": [
-                {
-                  "hashTag": "EffectText",
-                  "$type": "#String_JP,#ListLink",
-                  "$display": {
-                    "rankFormat": "alphaLabel",
-                    "listLinkEnumName": "Rank",
-                    "listLinkShowEnum": true
-                  }
-                }
-              ],
-              "hashTag_JP": "治癒的作用"
+              "$type": "$Def_EffectText",
+              "hashTag_JP": "治癒的作用",
+              "hashTag_EN": "Healing Effect"
             },
             {
               "hashTag": "Violent",
-              "$type": [
-                {
-                  "hashTag": "EffectText",
-                  "$type": "#String_JP,#ListLink",
-                  "$display": {
-                    "rankFormat": "alphaLabel",
-                    "listLinkEnumName": "Rank",
-                    "listLinkShowEnum": true
-                  }
-                }
-              ],
-              "hashTag_JP": "暴力的作用"
+              "$type": "$Def_EffectText",
+              "hashTag_JP": "暴力的作用",
+              "hashTag_EN": "Violent Effect"
             },
             {
               "hashTag": "Rewriting",
-              "$type": [
-                {
-                  "hashTag": "EffectText",
-                  "$type": "#String_JP,#ListLink",
-                  "$display": {
-                    "rankFormat": "alphaLabel",
-                    "listLinkEnumName": "Rank",
-                    "listLinkShowEnum": true
-                  }
-                }
-              ],
-              "hashTag_JP": "リライト作用"
+              "$type": "$Def_EffectText",
+              "hashTag_JP": "リライト作用",
+              "hashTag_EN": "Rewriting Effect"
             }
           ],
-          "hashTag_JP": "効果詳細"
+          "hashTag_JP": "効果詳細",
+          "hashTag_EN": "Effect Details"
         }
       ],
       "hashTag_JP": "アルカナムスペック(アルカナ能力)の特性",
+      "hashTag_EN": "ArcanumSpec (Arcana Ability) Traits",
       "$display": { "sectionWrapper": "statsSection" }
     }
-  ]
+  ],
+  "$VersDef": {
+    "$Def_EffectText": {
+      "$DefType": [
+        {
+          "hashTag": "EffectText",
+          "$type": "#String_JP,#ListLink",
+          "$display": {
+            "rankFormat": "alphaLabel",
+            "listLinkEnumName": "Rank",
+            "listLinkShowEnum": true
+          },
+          "hashTag_JP": "効果(テキスト形式)",
+          "hashTag_EN": "Effect(Text Format)"
+        }
+      ]
+    }
+  }
 }

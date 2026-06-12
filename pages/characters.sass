@@ -1312,6 +1312,15 @@ body
 	max-width: 100%
 	white-space: normal
 
+.controls .control-row.small .lang-toggle
+	min-width: 64px
+	font-weight: 700
+	letter-spacing: 0.04em
+
+body[data-lang='en'] .controls .control-row.small .lang-toggle
+	border-color: color-mix(in srgb, var(--accent) 50%, var(--border))
+	color: var(--accent)
+
 .meta-overview
 	padding: clamp(12px, 2.5vw, 18px)
 

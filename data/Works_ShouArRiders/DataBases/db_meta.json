@@ -4,6 +4,7 @@
       "DB_Label": "一次創作",
       "DB_Label_EN": "Primary",
       "DB_Summary": "獣爾騎兵の公式一次創作作品に登場するキャラクター。\n十二支に相当する動物のモチーフをそれぞれ有している。",
+      "DB_Summary_EN": "Characters appearing in official primary works of Shou'ar Riders.\nEach one carries an animal motif corresponding to the zodiac.",
       "StoryEra": {
         "FromEra": {
           "value": [{ "EraGen": 7, "YearInEra": 19 }, { "byRealYear": 2039 }],
@@ -44,98 +45,84 @@
             "Beast": "Mouse",
             "Eto": "子",
             "Beast_JP": "鼠",
-            "Beast_EN": "Mouse",
             "Num": 1
           },
           {
             "Beast": "Ox",
             "Eto": "丑",
             "Beast_JP": "牛",
-            "Beast_EN": "Ox",
             "Num": 2
           },
           {
             "Beast": "Tiger",
             "Eto": "寅",
             "Beast_JP": "虎",
-            "Beast_EN": "Tiger",
             "Num": 3
           },
           {
             "Beast": "Rabbit",
             "Eto": "卯",
             "Beast_JP": "兎",
-            "Beast_EN": "Rabbit",
             "Num": 4
           },
           {
             "Beast": "Dragon",
             "Eto": "辰",
             "Beast_JP": "竜",
-            "Beast_EN": "Dragon",
             "Num": 5
           },
           {
             "Beast": "Snake",
             "Eto": "巳",
             "Beast_JP": "蛇",
-            "Beast_EN": "Snake",
             "Num": 6
           },
           {
             "Beast": "Horse",
             "Eto": "午",
             "Beast_JP": "馬",
-            "Beast_EN": "Horse",
             "Num": 7
           },
           {
             "Beast": "Sheep",
             "Eto": "未",
             "Beast_JP": "羊",
-            "Beast_EN": "Sheep",
             "Num": 8
           },
           {
             "Beast": "Monkey",
             "Eto": "申",
             "Beast_JP": "猿",
-            "Beast_EN": "Monkey",
             "Num": 9
           },
           {
             "Beast": "Bird",
             "Eto": "酉",
             "Beast_JP": "鳥",
-            "Beast_EN": "Bird",
             "Num": 10
           },
           {
             "Beast": "Raccoon",
             "Eto": "戌",
             "Beast_JP": "狸",
-            "Beast_EN": "Raccoon",
             "Num": 11
           },
           {
             "Beast": "Fox",
             "Eto": "戌",
             "Beast_JP": "狐",
-            "Beast_EN": "Fox",
             "Num": 11
           },
           {
             "Beast": "Boar",
             "Eto": "亥",
             "Beast_JP": "猪",
-            "Beast_EN": "Boar",
             "Num": 12
           },
           {
             "Beast": "Cat",
             "Eto": null,
             "Beast_JP": "猫",
-            "Beast_EN": "Cat",
             "Num": [
               {
                 "value": 13,
@@ -154,7 +141,6 @@
             "Beast": "Dog",
             "Eto": "戌",
             "Beast_JP": "犬",
-            "Beast_EN": "Dog",
             "Num": [
               { "value": 11, "about_JP": "種族上", "about_EN": "for race" },
               { "value": null, "about_JP": "現状", "about_EN": "currently" }

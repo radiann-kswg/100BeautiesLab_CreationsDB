@@ -13,11 +13,13 @@
     "AnivDay": [
       {
         "Day": { "Month": 2, "DayOfMonth": 6 },
-        "DayAbout": "「アルベッツ」結成記念"
+        "DayAbout": "「アルベッツ」結成記念",
+        "DayAbout_EN": "ALPBETS formation commemoration"
       },
       {
         "Day": { "Month": 1, "DayOfMonth": 27 },
-        "DayAbout": "誕生日（アルベッツ名義）"
+        "DayAbout": "誕生日（アルベッツ名義）",
+        "DayAbout_EN": "Birthday (as the ALPBETS)"
       }
     ]
   },
@@ -25,7 +27,7 @@
     "Letter": { "Alphabet": "S", "Generation": 5, "AlphaGen": 2 },
     "Progress": "nowCreating",
     "Images": {
-      "keycapper_PNGPath": []
+      "keycapper_PNGPath": ["S/emstk_keycapperS-1.png"]
     },
     "Name": "S:ナーミィ",
     "Name_EN": "S:Surgey",
@@ -38,11 +40,13 @@
     "AnivDay": [
       {
         "Day": { "Month": 5, "DayOfMonth": 19 },
-        "DayAbout": "誕生日（アルベッツ名義）"
+        "DayAbout": "誕生日（アルベッツ名義）",
+        "DayAbout_EN": "Birthday (as the ALPBETS)"
       }
     ],
     "BustSize": "H",
     "AccessoryUnit": "Sの字状に波打ったポニーテールや猫型の尻尾",
+    "AccessoryUnit_EN": "S-shaped wavy ponytail and cat-like tail",
     "StreamingActivity": {
       "StreamingCategory": [
         {
@@ -63,6 +67,25 @@
           "about": "動画配信またはライブ配信での活動,頻度は少な目"
         }
       ],
+      "StreamingCategory_EN": [
+        {
+          "value": "Interaction with listeners",
+          "about": "Main activity, activity within 'Unibyte Universe'"
+        },
+        {
+          "value": "VR shader creation",
+          "about": "Main activity, work streaming or individual performer activity"
+        },
+        {
+          "value": "Metaverse experiential content",
+          "about": "Activity within 'Unibyte Universe', doujin content distribution and video streaming"
+        },
+        { "value": "Short movies", "about": "Video streaming activity" },
+        {
+          "value": "Game streaming: Tetris, racing, rhythm games",
+          "about": "Video streaming or live streaming activity, relatively infrequent"
+        }
+      ],
       "StreamingGreeting": {
         "StreamingGreeting_JP": ["こんな～み！"],
         "StreamingGreeting_EN": ["Hi, Surger!"]
@@ -72,10 +95,52 @@
         "ListenerNickname_EN": "Surger(s)"
       },
       "StreamingAwards": [
-        "「ユニバイト・ユニバース」九蓮国公認クリエイター",
+        "「ユニバイト・ユニバース」九蓮国サーバ公認クリエイター",
         "ゲームエンジン特許あり"
       ],
-      "StreamingSummary": "ライブ配信では主に映像作品の公開をメインとしており、現実空間では味わえない斬新なプレイ体験でなみのりー(リスナー)たちを楽しませている。\n「ユニバイト・ユニバース」内ではトゥーンギャグに特化した様々なギミックを搭載したアバターでなみのりーと交流しており、時にVRユーザたちの性癖を大いに歪めたコンテンツを世に出したと噂されている。\n個人の同人ショップでアバターカスタムコンテンツも頒布しており、メタバースの新しい楽しみ方の提供にも積極的。"
+      "StreamingAwards_EN": [
+        "'Unibyte Universe' LotusNinean Server trusted creator",
+        "Holds a game engine patent"
+      ],
+      "StreamingSummary": "ライブ配信では主に映像作品の公開をメインとしており、現実空間では味わえない斬新なプレイ体験でなみのりー(リスナー)たちを楽しませている。\n「ユニバイト・ユニバース」内ではトゥーンギャグに特化した様々なギミックを搭載したアバターでなみのりーと交流しており、時にVRユーザたちの性癖を大いに歪めたコンテンツを世に出したと噂されている。\n個人の同人ショップでアバターカスタムコンテンツも頒布しており、メタバースの新しい楽しみ方の提供にも積極的。",
+      "StreamingSummary_EN": "Primarily focused on publishing video content in live streams, entertaining the Surgers (listeners) with innovative play experiences unattainable in real space.\nWithin 'Unibyte Universe', she interacts with Surgers using an avatar packed with toon-gag-specialized gimmicks, and is sometimes rumored to have released content that greatly skewed the sensibilities of VR users.\nAlso actively distributes avatar custom content through her personal doujin shop, enthusiastically offering new ways to enjoy the metaverse."
+    }
+  },
+  {
+    "Letter": { "Alphabet": "Z", "Generation": 2, "AlphaGen": 1 },
+    "Progress": "nowCreating",
+    "Images": {
+      "keycapper_PNGPath": ["Z/emstk_keycapperZ-1.png"]
+    },
+    "Name": "Z:ジグ",
+    "Name_EN": "Z:Zig",
+    "FormalName": "右仗(ゆうじょう)ジグ",
+    "FormalName_EN": "Zig Z-Drifts",
+    "CodeName": "右(Z),ジグ",
+    "CodeName_EN": "Z,Zig",
+    "Height_cm": 142,
+    "ConceptAge": 16,
+    "AnivDay": [
+      {
+        "Day": { "Month": 2, "DayOfMonth": 26 },
+        "DayAbout": "誕生日（アルベッツ名義）"
+      }
+    ],
+    "BustSize": "B",
+    "AccessoryUnit": "Zの字状に折り曲げられたポニーテールや鞄(錘)付きの尻尾",
+    "StreamingActivity": {
+      "StreamingCategory": [
+      ],
+      "StreamingGreeting": {
+        "StreamingGreeting_JP": ["ジグザってるか〜！"],
+        "StreamingGreeting_EN": ["Are you zigzagging?"]
+      },
+      "ListenerNickname": {
+        "ListenerNickname_JP": "ノコギリ族",
+        "ListenerNickname_EN": "Zigzaggers"
+      },
+      "StreamingAwards": [],
+      "StreamingSummary": ""
     }
   }
 ]

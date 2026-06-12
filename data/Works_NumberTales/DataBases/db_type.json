@@ -9,22 +9,41 @@
     {
       "hashTag": "Num",
       "$type": "#Index",
-      "hashTag_JP": "番号"
+      "hashTag_JP": "番号",
+      "hashTag_EN": "Number"
     },
     {
       "hashTag": "ForMasterCalling",
       "$type": "#String|#Summary",
-      "hashTag_JP": "主人の呼び方"
+      "hashTag_JP": "主人の呼び方",
+      "hashTag_EN": "For Master Calling"
+    },
+    {
+      "hashTag": "ForMasterCalling_EN",
+      "$type": "#String_EN|#Summary|#Null",
+      "hashTag_EN": "For Master Calling"
     },
     {
       "hashTag": "TailsUnit",
       "$type": "#String",
-      "hashTag_JP": "尻尾の形状"
+      "hashTag_JP": "尻尾の形状",
+      "hashTag_EN": "Shape of Tails Unit"
+    },
+    {
+      "hashTag": "TailsUnit_EN",
+      "$type": "#String_EN|#Null",
+      "hashTag_EN": "Shape of Tails Unit"
     },
     {
       "hashTag": "NumerospecAbout",
       "$type": "#Summary",
-      "hashTag_JP": "“カバラの加護”(数秘的加護)について"
+      "hashTag_JP": "\"カバラの加護\"(数秘的加護)について",
+      "hashTag_EN": "About Kabbalistic Protection (Numerospec)"
+    },
+    {
+      "hashTag": "NumerospecAbout_EN",
+      "$type": "#Summary|#Null",
+      "hashTag_EN": "About 'Kabbalistic Protection' (Numerospec)"
     },
     {
       "hashTag": "Images",
@@ -32,38 +51,43 @@
         {
           "hashTag": "concept_PNGName",
           "$type": "#PNGFileName",
-          "hashTag_JP": "設定原画"
+          "hashTag_JP": "設定原画",
+          "hashTag_EN": "Concept Art"
         },
         {
           "hashTag": "catalog_PNGName",
           "$type": "#PNGFileName",
-          "hashTag_JP": "設定資料"
+          "hashTag_JP": "設定資料",
+          "hashTag_EN": "Catalog Art"
         },
         {
           "hashTag": "conceptAlt_PNGName",
           "$type": "#PNGFileName[]",
-          "hashTag_JP": "設定原画差分"
+          "hashTag_JP": "設定原画差分",
+          "hashTag_EN": "Concept Art Variations"
         },
         {
           "hashTag": "corefolder_PNGPath",
           "$type": "#PNGFilePath[]",
-          "hashTag_JP": "コアフォルダ画像"
+          "hashTag_JP": "コアフォルダ画像",
+          "hashTag_EN": "CoreFolder Images"
         },
         {
           "hashTag": "designAlt_PNGPath",
           "$type": "#PNGFilePath[]",
-          "hashTag_JP": "衣装差分など"
+          "hashTag_JP": "衣装差分など",
+          "hashTag_EN": "Design Variations"
         },
         {
           "hashTag": "arts_PNGPath",
           "$type": "#PNGFilePath[]",
-          "hashTag_JP": "イラスト作品"
+          "hashTag_JP": "イラスト作品",
+          "hashTag_EN": "Illustration Works"
         }
       ],
-      "$display": {
-        "section": "images",
-        "tagSpace": "internal"
-      }
+      "$display": { "section": "images", "tagSpace": "internal" },
+      "hashTag_JP": "画像",
+      "hashTag_EN": "Images"
     },
     {
       "hashTag": "NumerospecStats",
@@ -73,90 +97,44 @@
           "$type": [
             {
               "hashTag": "Mental",
-              "$type": [
-                {
-                  "hashTag": "EffectText",
-                  "$type": "#String_JP,#ListLink",
-                  "$display": {
-                    "rankFormat": "alphaLabel",
-                    "listLinkEnumName": "Rank",
-                    "listLinkShowEnum": true
-                  }
-                }
-              ],
-              "hashTag_JP": "精神的作用"
+              "$type": "$Def_EffectText",
+              "hashTag_JP": "精神的作用",
+              "hashTag_EN": "Mental Effect"
             },
             {
               "hashTag": "Monetize",
-              "$type": [
-                {
-                  "hashTag": "EffectText",
-                  "$type": "#String_JP,#ListLink",
-                  "$display": {
-                    "rankFormat": "alphaLabel",
-                    "listLinkEnumName": "Rank",
-                    "listLinkShowEnum": true
-                  }
-                }
-              ],
-              "hashTag_JP": "金銭的作用"
+              "$type": "$Def_EffectText",
+              "hashTag_JP": "金銭的作用",
+              "hashTag_EN": "Monetary Effect"
             },
             {
               "hashTag": "Working",
-              "$type": [
-                {
-                  "hashTag": "EffectText",
-                  "$type": "#String_JP,#ListLink",
-                  "$display": {
-                    "rankFormat": "alphaLabel",
-                    "listLinkEnumName": "Rank",
-                    "listLinkShowEnum": true
-                  }
-                }
-              ],
-              "hashTag_JP": "作業効率への作用"
+              "$type": "$Def_EffectText",
+              "hashTag_JP": "作業効率への作用",
+              "hashTag_EN": "Working Efficiency Effect"
             },
             {
               "hashTag": "Luck",
-              "$type": [
-                {
-                  "hashTag": "EffectText",
-                  "$type": "#String_JP,#ListLink",
-                  "$display": {
-                    "rankFormat": "alphaLabel",
-                    "listLinkEnumName": "Rank",
-                    "listLinkShowEnum": true
-                  }
-                }
-              ],
-              "hashTag_JP": "幸福度への作用"
+              "$type": "$Def_EffectText",
+              "hashTag_JP": "幸福度への作用",
+              "hashTag_EN": "Luck Effect"
             },
             {
               "hashTag": "Communication",
-              "$type": [
-                {
-                  "hashTag": "EffectText",
-                  "$type": "#String_JP,#ListLink",
-                  "$display": {
-                    "rankFormat": "alphaLabel",
-                    "listLinkEnumName": "Rank",
-                    "listLinkShowEnum": true
-                  }
-                }
-              ],
-              "hashTag_JP": "社交能力への作用"
+              "$type": "$Def_EffectText",
+              "hashTag_JP": "社交能力への作用",
+              "hashTag_EN": "Communication Effect"
             }
           ],
-          "hashTag_JP": "効果度数"
+          "hashTag_JP": "効果度数",
+          "hashTag_EN": "Effect Details"
         },
         {
           "hashTag": "SpecialPattern",
           "$type": "#Enum[]",
           "hashTag_JP": "特殊パターン",
-          "$display": {
-            "section": "spec",
-            "tagSpace": "creation"
-          }
+          "hashTag_EN": "Special Pattern",
+          "$display": { "section": "spec", "tagSpace": "creation" }
         },
         {
           "hashTag": "SafetyLevel",
@@ -168,13 +146,16 @@
                 "rankFormat": "alphaLabel",
                 "listLinkEnumName": "Rank",
                 "listLinkShowEnum": true
-              }
+              },
+              "hashTag_EN": "Safety Level"
             }
           ],
-          "hashTag_JP": "安全レベル"
+          "hashTag_JP": "安全レベル",
+          "hashTag_EN": "Safety Level"
         }
       ],
       "hashTag_JP": "“カバラの加護”(数秘的加護)の特性",
+      "hashTag_EN": "Characteristics of 'Kabbalah's Blessing' (Numerospec)",
       "$display": { "sectionWrapper": "statsSection" }
     },
     {
@@ -183,15 +164,18 @@
         {
           "hashTag": "Related",
           "$type": "$Def_Relations[]",
-          "hashTag_JP": "親密な関係"
+          "hashTag_JP": "親密な関係",
+          "hashTag_EN": "Close Relations"
         },
         {
           "hashTag": "Commented",
           "$type": "$Def_Relations[]",
-          "hashTag_JP": "コメント"
+          "hashTag_JP": "コメント",
+          "hashTag_EN": "Commented to the Characters"
         }
       ],
       "hashTag_JP": "関係キャラクター",
+      "hashTag_EN": "Related Characters",
       "isForSecondary": false,
       "$display": { "sectionWrapper": "relationSection" }
     },
@@ -201,44 +185,66 @@
         {
           "hashTag": "Related",
           "$type": "$Def_Relations[]",
-          "hashTag_JP": "親密な関係"
+          "hashTag_JP": "親密な関係",
+          "hashTag_EN": "Close Related to Primary Characters"
         },
         {
           "hashTag": "Commented",
           "$type": "$Def_Relations[]",
-          "hashTag_JP": "コメント"
+          "hashTag_JP": "コメント",
+          "hashTag_EN": "Commented to Primary Characters"
         }
       ],
       "hashTag_JP": "原作との関係",
+      "hashTag_EN": "Relation to Primary Works",
       "isForSecondary": true,
       "$display": { "sectionWrapper": "relationSection" }
     }
   ],
   "$VersDef": {
+    "$Def_EffectText": {
+      "$DefType": [
+        {
+          "hashTag": "EffectText",
+          "$type": "#String_JP,#ListLink",
+          "$display": {
+            "rankFormat": "alphaLabel",
+            "listLinkEnumName": "Rank",
+            "listLinkShowEnum": true
+          },
+          "hashTag_JP": "効果(テキスト形式)",
+          "hashTag_EN": "Effect(Text Format)"
+        }
+      ]
+    },
     "$Def_Relations": {
       "$DefType": [
         {
           "hashTag": "Num",
           "$type": "#Index",
           "isForSecondary": false,
-          "hashTag_JP": "番号"
+          "hashTag_JP": "番号",
+          "hashTag_EN": "Number"
         },
         {
           "hashTag": "Comments",
           "$type": "#Dialogue",
           "isForSecondary": false,
-          "hashTag_JP": "コメント"
+          "hashTag_JP": "コメント",
+          "hashTag_EN": "Comments"
         },
         {
           "hashTag": "Reply",
           "$type": "$Def_Relations[]",
           "isForSecondary": true,
-          "hashTag_JP": "返答コメント"
+          "hashTag_JP": "返答コメント",
+          "hashTag_EN": "Reply Comments"
         },
         {
           "hashTag": "RelationLabel",
           "$type": "#ListIndex[]",
           "hashTag_JP": "関係性タグ",
+          "hashTag_EN": "Relation Tags",
           "$display": {
             "section": "profile",
             "tagSpace": "creation",

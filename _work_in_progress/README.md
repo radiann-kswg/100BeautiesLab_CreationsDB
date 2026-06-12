@@ -18,6 +18,8 @@
 - 2026-05-29_progress_bilingual-wrapper-apiswui.md（bilingual wrapper API/SW 対応・UI 表示未完了）
 - 2026-06-01_remaining-task.md（現行の未完了タスク一覧・最新）
 - 2026-06-09_progress_identitymotif-conversion.md（IdentityMotif 新形式変換・Motif_JP 整備残）
+- 2026-06-11_progress_english-fields-addition.md（英訳フィールド追加依頼・進捗記録）
+- 2026-06-12_progress_translation-style-unified.md（英訳対応総覧・共通ルール統合版）
 - 2026-06-09_progress_aihints-from-identitymotif.md（`--apply-identitymotif` 実装・NumberTales/DB_Primary 全件再構築完了。他作品対応・docs 追記・cleared 3 件再適用が残留）
 - 2026-06-09_progress_corefolder-nld-template-and-silhouette-structure.md（corefolder NLD テンプレ化・silhouette_notes object 構造化完了。`#28` base color・他作品確認・humanoid NLD 未実装が残留）
 

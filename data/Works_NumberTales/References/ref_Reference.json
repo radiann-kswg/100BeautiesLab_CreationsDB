@@ -7,9 +7,14 @@
     },
     "Category": "キャラクターの基本情報",
     "Summary": "数秘の癒やしを体感できる妖獣型ポータブルヒューマノイド「ナンバーテールズ」に関する基本資料。",
+    "Summary_EN": "Basic reference material on the beast-type portable humanoids 'NumberTales', designed to let their Masters experience the healing of numerological blessings.",
     "BodyBlocks": [
-      "普段人類がなんの違和感もなく数える数字だが、カバラ数秘術やエンジェルナンバーによるとスピリチュアルな癒やしの力があるらしい。\nそこで零・百(はげむ) 姉弟が「数秘の癒やしを体感できる妖獣」として発明した、99のポータブルヒューマノイドである。\nしかし最近は、受注量産用に３桁の番号を持つナンバーテールズなどもこの他に存在している。",
+      "普段人類がなんの違和感もなく数える数字だが、カバラ数秘術やエンジェルナンバーによるとスピリチュアルな癒しの力があるらしい。\nそこで零・百(はげむ) 姉弟が「数秘の癒しを体感できる妖獣」として発明した、99のポータブルヒューマノイドである。\nしかし最近は、受注量産用に３桁の番号を持つナンバーテールズなどもこの他に存在している。",
       "主な特徴は、そのナンバーテールズが有している数字が衣装デザインとして取り入れられていることや、有している数字によって尻尾の本数や束数が異なることなどが挙げられる。\n中には、自分の有する数字に愛着があったり誇らしげに思っていたりする個体もいるようだ。"
+    ],
+    "BodyBlocks_EN": [
+      "Numbers are something humans count every day without a second thought — yet according to Kabbalistic numerology and angel numbers, they apparently carry a spiritual healing power.\nAnd so the inventor siblings Zera and Hudret created 99 portable humanoids as 'beasts capable of letting their Masters experience numerological healing.'\nMore recently, however, NumberTales bearing three-digit numbers — produced for made-to-order manufacturing — have also come to exist.",
+	  "Among their notable characteristics are the fact that each NumberTale's number is incorporated into their outfit design, and that the number of tails — and how they are grouped — differs depending on the number they bear.\nApparently, some individuals have grown quite fond of their number, or even feel a sense of pride about it."
     ],
     "RelatedTerms": [""],
     "Visibility": null
@@ -20,9 +25,14 @@
     "Images": { "concept-figure_PNGName": ["cnsp-fg_NTsClass"] },
     "Category": "キャラクターの分類・種族について",
     "Summary": "妖獣型ポータブルヒューマノイド「ナンバーテールズ」のクラスに関する基本資料。",
+    "Summary_EN": "Basic reference material on the class system of the beast-type portable humanoids 'NumberTales'.",
     "BodyBlocks": [
-      "ナンバーテールズの個体は正式稼働しているものでも99番機まで存在し、少なくとも12のクラスに分類される。\n大まかに言うと、1桁の数字9体による「1桁番(ユニデジッツ)」、11の倍数（2桁ぞろ目）の9体による「マスターテールズ９」、10の倍数の9体による「十倍番(テンズデジッツ)」、残りの72体を8体ずつ9クラスに分けた「2桁番(デュアルズ)」などがある。",
-      "なお、番号順に11番区切りに分類する「イレブンピリオド」というクラス法則だけでなく、特に３桁の番号において111の倍数を有する９人が所属する「マスタートリプル」などを含めると、クラスの呼称はこの限りではない。"
+      "ナンバーテールズの個体は正式稼働しているものでも99番機まで存在し、少なくとも12のクラスに分類される。\n大まかに言うと、1桁の数字9体による「1桁番(ユニデジッツ)」、11の倍数（2桁ぞろ目）の9体による「マスターテールズ9」、10の倍数の9体による「十倍番(テンズデジッツ)」、残りの72体を8体ずつ9クラスに分けた「2桁番(デュアルズ)」などがある。",
+      "なお、番号順に111番区切りに分類する「イレブンピリオド」というクラス法則だけでなく、特に3桁の番号において111の倍数を有する9人が所属する「マスタートリプル」などを含めると、クラスの呼称はこの限りではない。"
+    ],
+    "BodyBlocks_EN": [
+      "NumberTales in official operation exist up to Unit No. 99, and are classified into at least 12 classes.\nBroadly speaking, these include: the 'Uni-Digits' — nine units bearing one-digit numbers; the 'MasterTales 9' — nine units bearing multiples of 11 (double-digit repeating numbers); the 'TenDigits' — nine units bearing multiples of 10; and the 'Duals' — the remaining 72 units divided into nine classes of eight each.",
+      "In addition to the 'ElevenPeriod' class rule, which classifies units in blocks of 11 in numerical order, class names are not limited to these — including, for three-digit units, a group called 'MasterTriple' to which the nine units bearing multiples of 111 belong, among others."
     ],
     "RelatedTerms": [""],
     "Visibility": null

@@ -139,7 +139,8 @@
       { "value": 37, "about_JP": "推定", "about_EN": "Presumption" }
     ],
     "BustSize": "AA",
-    "TailsUnit": "猫又(特殊)型1本3束[枝]"
+    "TailsUnit": "猫又(特殊)型1本3束[枝]",
+    "TailsUnit_EN": "Nekomata (Special) Type: 1 Tail, 3 Tufts [Branches]"
   },
   {
     "Num": 112,
@@ -246,6 +247,7 @@
     "FormalName_EN": "NumberTales #120 Series Mass Production Version for Sales",
     "ModelNumber": "APHR-NT [MP]120-*****",
     "CodeName": "一二〇",
+    "CodeName_EN": "One-Two-Zero",
     "SPCodeName_EN": "Ten Dars",
     "GenderType": "Neutral",
     "Class": ["テンズデュアルスリーズ"]
@@ -264,6 +266,7 @@
     "FormalName_EN": "NumberTales #121 Series Mass Production Version for Sales",
     "ModelNumber": "APHR-NT [MP]121-*****",
     "CodeName": "一二一",
+    "CodeName_EN": "One-Two-One",
     "SPCodeName": "11×11",
     "SPCodeName_EN": "Eleven Elevens",
     "GenderType": "Neutral",
@@ -278,6 +281,7 @@
     "FormalName_EN": "NumberTales #123 Series Mass Production Version for Sales",
     "ModelNumber": "APHR-NT [MP]123-*****",
     "CodeName": "一二三",
+    "CodeName_EN": "One-Two-Three",
     "GenderType": "Neutral",
     "Class": ["トリプル1+2+3組"]
   },
@@ -293,6 +297,7 @@
     "FormalName_EN": "NumberTales #125 Series Mass Production Version for Sales",
     "ModelNumber": "APHR-NT [MP]125-*****",
     "CodeName": "一二五",
+    "CodeName_EN": "One-Two-Five",
     "GenderType": "Neutral",
     "Class": ["トリプル1+2+5組"]
   },
@@ -305,6 +310,7 @@
     "FormalName_EN": "NumberTales #127 Series Mass Production Version for Sales",
     "ModelNumber": "APHR-NT [MP]127-*****",
     "CodeName": "一二七",
+    "CodeName_EN": "One-Two-Seven",
     "GenderType": "Neutral",
     "Class": ["トリプル1+2+7組"]
   },
@@ -322,6 +328,7 @@
     "FormalName_EN": "NumberTales #144 Series Mass Production Version for Sales",
     "ModelNumber": "APHR-NT [MP]144-*****",
     "CodeName": "一四四",
+    "CodeName_EN": "One-Four-Four",
     "SPCodeName": "グロス",
     "SPCodeName_EN": "Gross",
     "GenderType": "Neutral",
@@ -334,6 +341,7 @@
     "FormalName_EN": "NumberTales #148 Series Mass Production Version for Sales",
     "ModelNumber": "APHR-NT [MP]148-*****",
     "CodeName": "一四八",
+    "CodeName_EN": "One-Four-Eight",
     "GenderType": "Neutral",
     "Class": ["トリプル1+4+8組"]
   },
@@ -346,6 +354,7 @@
     "FormalName_EN": "NumberTales #150 Series Mass Production Version for Sales",
     "ModelNumber": "APHR-NT [MP]150-*****",
     "CodeName": "一五〇",
+    "CodeName_EN": "One-Five-Zero",
     "SPCodeName": "一半百",
     "SPCodeName_EN": "One Half(of Percent)",
     "GenderType": "Neutral",
@@ -360,6 +369,7 @@
     "FormalName_EN": "NumberTales #153 Series Mass Production Version for Sales",
     "ModelNumber": "APHR-NT [MP]153-*****",
     "CodeName": "一五三",
+    "CodeName_EN": "One-Five-Three",
     "GenderType": "Neutral",
     "Class": ["トリプル1+3+5組", "ナルシシスツ"],
     "Backgrounds": "ちなみに、153,370,371,407はナルシシスト数である"
@@ -373,6 +383,7 @@
     "FormalName_EN": "NumberTales #156 Series Mass Production Version for Sales",
     "ModelNumber": "APHR-NT [MP]156-*****",
     "CodeName": "一五六",
+    "CodeName_EN": "One-Five-Six",
     "SPCodeName": "日頃",
     "SPCodeName_EN": "Dailies",
     "GenderType": "Neutral",
@@ -392,6 +403,7 @@
     "FormalName_EN": "NumberTales #169 Series Mass Production Version for Sales",
     "ModelNumber": "APHR-NT [MP]169-*****",
     "CodeName": "一六九",
+    "CodeName_EN": "One-Six-Nine",
     "SPCodeName": "ワイドスクリーンのアスペクト比(16:9)",
     "SPCodeName_EN": "Wide-Screen Aspect Ratio (16:9)",
     "GenderType": "Neutral",
@@ -403,6 +415,7 @@
     "FormalName_EN": "NumberTales #200 Series Mass Production Version for Sales",
     "ModelNumber": "APHR-NT [MP]200-*****",
     "CodeName": "二〇〇",
+    "CodeName_EN": "Two-Zero-Zero",
     "GenderType": "Neutral",
     "Class": ["百倍番(ハンドレッズデジッツ)"]
   },
@@ -415,6 +428,7 @@
     "FormalName_EN": "NumberTales #214 Series Mass Production Version for Sales",
     "ModelNumber": "APHR-NT [MP]214-*****",
     "CodeName": "二一四",
+    "CodeName_EN": "Two-One-Four",
     "SPCodeName_EN": "Valentain",
     "GenderType": "Neutral",
     "Class": ["トリプル1+2+4組"],
@@ -429,6 +443,7 @@
     "FormalName_EN": "NumberTales #216 Series Mass Production Version for Sales",
     "ModelNumber": "APHR-NT [MP]216-*****",
     "CodeName": "二一六",
+    "CodeName_EN": "Two-One-Six",
     "GenderType": "Neutral",
     "Class": ["トリプル1+2+6組", "バーチャリティテールズ"],
     "Backgrounds": "ちなみに、三原色を1Byteで平均的に扱う際に取れる最大の色数でもある"
@@ -447,13 +462,15 @@
     "FormalName_EN": "NumberTales #222 Series Mass Production Version for Sales",
     "ModelNumber": "APHR-NT [MP]222-*****",
     "CodeName": "二二二",
+    "CodeName_EN": "Two-Two-Two",
     "SPCodeName_EN": "Cloned I-s",
     "GenderType": "FemaleNeutral",
     "Height_cm": 148,
     "ConceptAge": 16,
     "Weight_kg": 42,
     "BustSize": "A",
-    "TailsUnit": "尾鰭(特殊)型3本2枝"
+    "TailsUnit": "尾鰭(特殊)型3本2枝",
+    "TailsUnit_EN": "Caudal-Fin (Special) Type: 3 Fins, 2 Branches"
   },
   {
     "sec_Category": "リクエストナンバー",
@@ -467,12 +484,14 @@
     "FormalName_EN": "NumberTales #223 Series Mass Production Version for Sales",
     "ModelNumber": "APHR-NT [MP]223-*****",
     "CodeName": "二二三",
+    "CodeName_EN": "Two-Two-Three",
     "GenderType": "Neutral",
     "Height_cm": 151,
     "ConceptAge": 15,
     "Weight_kg": 41,
     "BustSize": "AA",
     "TailsUnit": "サソリ型2本（各11束[節]）\n+キツネ型3本",
+    "TailsUnit_EN": "Scorpion Type: 2 Tails (11 Tufts [Segments] each)\n+Fox Type: 3 Tails",
     "Class": ["デュオトリプル7型甲組"]
   },
   {
@@ -482,6 +501,7 @@
     "FormalName_EN": "NumberTales #227 Series Mass Production Version for Sales",
     "ModelNumber": "APHR-NT [MP]227-*****",
     "CodeName": "二二七",
+    "CodeName_EN": "Two-Two-Seven",
     "GenderType": "Neutral",
     "Class": ["デュオトリプル2型甲組"]
   },
@@ -492,6 +512,7 @@
     "FormalName_EN": "NumberTales #232 Series Mass Production Version for Sales",
     "ModelNumber": "APHR-NT [MP]232-*****",
     "CodeName": "二三二",
+    "CodeName_EN": "Two-Three-Two",
     "GenderType": "Neutral",
     "Class": ["デュオトリプル7型丙組"]
   },
@@ -502,6 +523,7 @@
     "FormalName_EN": "NumberTales #238 Series Mass Production Version for Sales",
     "ModelNumber": "APHR-NT [MP]238-*****",
     "CodeName": "二三八",
+    "CodeName_EN": "Two-Three-Eight",
     "GenderType": "Neutral",
     "Class": ["トリプル2+3+8組"]
   },
@@ -512,6 +534,7 @@
     "FormalName_EN": "NumberTales #241 Series Mass Production Version for Sales",
     "ModelNumber": "APHR-NT [MP]241-*****",
     "CodeName": "二四一",
+    "CodeName_EN": "Two-Four-One",
     "GenderType": "Neutral",
     "Class": ["トリプル1+2+4組"]
   },
@@ -524,6 +547,7 @@
     "FormalName_EN": "NumberTales #244 Series Mass Production Version for Sales",
     "ModelNumber": "APHR-NT [MP]244-*****",
     "CodeName": "二四四",
+    "CodeName_EN": "Two-Four-Four",
     "GenderType": "Neutral",
     "Class": ["デュオトリプル1型乙組"]
   },
@@ -536,6 +560,7 @@
     "FormalName_EN": "NumberTales #255 Series Mass Production Version for Sales",
     "ModelNumber": "APHR-NT [MP]255-*****",
     "CodeName": "二五五",
+    "CodeName_EN": "Two-Five-Five",
     "SPCodeName": "0xFF",
     "SPCodeName_EN": "Last of Byte",
     "GenderType": "Neutral",
@@ -546,10 +571,12 @@
     "Num": 256,
     "Progress": "notProceeded",
     "Name": "256(バイツ)",
+    "Name_EN": "256(Bytes)",
     "FormalName": "量産型ナンバーテールズ256番機シリーズ",
     "FormalName_EN": "NumberTales #256 Series Mass Production Version for Sales",
     "ModelNumber": "APHR-NT [MP]256-*****",
     "CodeName": "二五六",
+    "CodeName_EN": "Two-Five-Six",
     "SPCodeName_EN": "One Byte",
     "GenderType": "Neutral",
     "Class": ["トリプル2+5+6組"],
@@ -562,6 +589,7 @@
     "FormalName_EN": "NumberTales #258 Series Mass Production Version for Sales",
     "ModelNumber": "APHR-NT [MP]258-*****",
     "CodeName": "二五八",
+    "CodeName_EN": "Two-Five-Eight",
     "GenderType": "Neutral",
     "Class": ["トリプル2+5+8組"]
   },
@@ -572,6 +600,7 @@
     "FormalName_EN": "NumberTales #263 Series Mass Production Version for Sales",
     "ModelNumber": "APHR-NT [MP]263-*****",
     "CodeName": "二六三",
+    "CodeName_EN": "Two-Six-Three",
     "GenderType": "Neutral",
     "Class": ["トリプル2+3+6組"]
   },
@@ -582,6 +611,7 @@
     "FormalName_EN": "NumberTales #265 Series Mass Production Version for Sales",
     "ModelNumber": "APHR-NT [MP]265-*****",
     "CodeName": "二六五",
+    "CodeName_EN": "Two-Six-Five",
     "GenderType": "Neutral",
     "Class": ["トリプル2+5+6組"]
   },
@@ -592,6 +622,7 @@
     "FormalName_EN": "NumberTales #294 Series Mass Production Version for Sales",
     "ModelNumber": "APHR-NT [MP]294-*****",
     "CodeName": "二九四",
+    "CodeName_EN": "Two-Nine-Four",
     "GenderType": "Neutral",
     "Class": ["トリプル2+4+9組"]
   },
@@ -602,6 +633,7 @@
     "FormalName_EN": "NumberTales #295 Series Mass Production Version for Sales",
     "ModelNumber": "APHR-NT [MP]295-*****",
     "CodeName": "二九五",
+    "CodeName_EN": "Two-Nine-Five",
     "GenderType": "Neutral",
     "Class": ["トリプル2+5+9組"]
   },
@@ -614,6 +646,7 @@
     "FormalName_EN": "NumberTales #314 Series Mass Production Version for Sales",
     "ModelNumber": "APHR-NT [MP]314-*****",
     "CodeName": "三一四",
+    "CodeName_EN": "Three-One-Four",
     "SPCodeName": "Π",
     "SPCodeName_EN": "Pi",
     "GenderType": "Neutral",
@@ -641,6 +674,7 @@
     "FormalName_EN": "NumberTales #337 Series Mass Production Version for Sales",
     "ModelNumber": "APHR-NT [MP]337-*****",
     "CodeName": "三三七",
+    "CodeName_EN": "Three-Three-Seven",
     "GenderType": "Neutral",
     "Class": ["デュオトリプル4型甲組"]
   },
@@ -651,6 +685,7 @@
     "FormalName_EN": "NumberTales #343 Series Mass Production Version for Sales",
     "ModelNumber": "APHR-NT [MP]343-*****",
     "CodeName": "三四三",
+    "CodeName_EN": "Three-Four-Three",
     "GenderType": "Neutral",
     "Class": ["デュオトリプル1型丙組"]
   },
@@ -663,6 +698,7 @@
     "FormalName_EN": "NumberTales #360 Series Mass Production Version for Sales",
     "ModelNumber": "APHR-NT [MP]360-*****",
     "CodeName": "三六〇",
+    "CodeName_EN": "Three-Six-Zero",
     "SPCodeName": "度数法",
     "SPCodeName_EN": "One Round by Degree",
     "GenderType": "Neutral",
@@ -677,6 +713,7 @@
     "FormalName_EN": "NumberTales #365 Series Mass Production Version for Sales",
     "ModelNumber": "APHR-NT [MP]365-*****",
     "CodeName": "三六五",
+    "CodeName_EN": "Three-Six-Five",
     "SPCodeName_EN": "Days of Year",
     "GenderType": "Neutral",
     "Class": ["トリプル3+5+6組", "カレンド"],
@@ -691,6 +728,7 @@
     "FormalName_EN": "NumberTales #366 Series Mass Production Version for Sales",
     "ModelNumber": "APHR-NT [MP]366-*****",
     "CodeName": "三六六",
+    "CodeName_EN": "Three-Six-Six",
     "SPCodeName_EN": "Days of Leaped-Year",
     "GenderType": "Neutral",
     "Class": ["デュオトリプル6型乙組", "カレンド"],
@@ -705,6 +743,7 @@
     "FormalName_EN": "NumberTales #369 Series Mass Production Version for Sales",
     "ModelNumber": "APHR-NT [MP]369-*****",
     "CodeName": "三六九",
+    "CodeName_EN": "Three-Six-Nine",
     "SPCodeName_EN": "miracle the multiples of 3",
     "GenderType": "Neutral",
     "Class": ["トリプル3+6+9組"]
@@ -718,6 +757,7 @@
     "FormalName_EN": "NumberTales #370 Series Mass Production Version for Sales",
     "ModelNumber": "APHR-NT [MP]370-*****",
     "CodeName": "三七〇",
+    "CodeName_EN": "Three-Seven-Zero",
     "GenderType": "Neutral",
     "Class": ["テンズデュアルキャリーズ", "ナルシシスツ"],
     "Backgrounds": "ちなみに、153,370,371,407はナルシシスト数である"
@@ -731,6 +771,7 @@
     "FormalName_EN": "NumberTales #371 Series Mass Production Version for Sales",
     "ModelNumber": "APHR-NT [MP]371-*****",
     "CodeName": "三七一",
+    "CodeName_EN": "Three-Seven-One",
     "GenderType": "Neutral",
     "Class": ["トリプル1+3+7組", "ナルシシスツ"],
     "Backgrounds": "ちなみに、153,370,371,407はナルシシスト数である"
@@ -744,6 +785,7 @@
     "FormalName_EN": "NumberTales #373 Series Mass Production Version for Sales",
     "ModelNumber": "APHR-NT [MP]373-*****",
     "CodeName": "三七三",
+    "CodeName_EN": "Three-Seven-Three",
     "GenderType": "Neutral",
     "Class": ["デュオトリプル4型丙組"]
   },
@@ -754,6 +796,7 @@
     "FormalName_EN": "NumberTales #376 Series Mass Production Version for Sales",
     "ModelNumber": "APHR-NT [MP]376-*****",
     "CodeName": "三七六",
+    "CodeName_EN": "Three-Seven-Six",
     "GenderType": "Neutral",
     "Class": ["トリプル3+6+7組"]
   },
@@ -764,6 +807,7 @@
     "FormalName_EN": "NumberTales #377 Series Mass Production Version for Sales",
     "ModelNumber": "APHR-NT [MP]377-*****",
     "CodeName": "三七七",
+    "CodeName_EN": "Three-Seven-Seven",
     "GenderType": "Neutral",
     "Class": ["デュオトリプル8型乙組"]
   },
@@ -776,6 +820,7 @@
     "FormalName_EN": "NumberTales #385 Series Mass Production Version for Sales",
     "ModelNumber": "APHR-NT [MP]385-*****",
     "CodeName": "三八五",
+    "CodeName_EN": "Three-Eight-Five",
     "SPCodeName": "(都:みやこ)",
     "SPCodeName_EN": "(Metropolis)",
     "GenderType": "Neutral",
@@ -788,6 +833,7 @@
     "FormalName_EN": "NumberTales #387 Series Mass Production Version for Sales",
     "ModelNumber": "APHR-NT [MP]387-*****",
     "CodeName": "三八七",
+    "CodeName_EN": "Three-Eight-Seven",
     "GenderType": "Neutral",
     "Class": ["トリプル3+7+8組"]
   },
@@ -798,6 +844,7 @@
     "FormalName_EN": "NumberTales #400 Series Mass Production Version for Sales",
     "ModelNumber": "APHR-NT [MP]400-*****",
     "CodeName": "四〇〇",
+    "CodeName_EN": "Four-Zero-Zero",
     "GenderType": "Neutral",
     "Class": ["百倍番(ハンドレッズデジッツ)"]
   },
@@ -808,6 +855,7 @@
     "FormalName_EN": "NumberTales #401 Series Mass Production Version for Sales",
     "ModelNumber": "APHR-NT [MP]401-*****",
     "CodeName": "四〇一",
+    "CodeName_EN": "Four-Zero-One",
     "GenderType": "Neutral",
     "Class": ["サイドデュアルファイブズ"]
   },
@@ -820,6 +868,7 @@
     "FormalName_EN": "NumberTales #404 Series Mass Production Version for Sales",
     "ModelNumber": "APHR-NT [MP]404-*****",
     "CodeName": "四〇四",
+    "CodeName_EN": "Four-Zero-Four",
     "SPCodeName": "HTTP応答404",
     "SPCodeName_EN": "HTTP Response 404",
     "GenderType": "Neutral",
@@ -834,6 +883,7 @@
     "FormalName_EN": "NumberTales #407 Series Mass Production Version for Sales",
     "ModelNumber": "APHR-NT [MP]407-*****",
     "CodeName": "四〇七",
+    "CodeName_EN": "Four-Zero-Seven",
     "GenderType": "Neutral",
     "Class": ["サイドデュアルイレブンズ", "ナルシシスツ"],
     "Backgrounds": "ちなみに、153,370,371,407はナルシシスト数である"
@@ -845,6 +895,7 @@
     "FormalName_EN": "NumberTales #411 Series Mass Production Version for Sales",
     "ModelNumber": "APHR-NT [MP]411-*****",
     "CodeName": "四一一",
+    "CodeName_EN": "Four-One-One",
     "GenderType": "Neutral",
     "Class": ["デュオトリプル6型甲組"]
   },
@@ -855,6 +906,7 @@
     "FormalName_EN": "NumberTales #421 Series Mass Production Version for Sales",
     "ModelNumber": "APHR-NT [MP]421-*****",
     "CodeName": "四二一",
+    "CodeName_EN": "Four-Two-One",
     "GenderType": "Neutral",
     "Class": ["トリプル1+2+4組"]
   },
@@ -881,6 +933,7 @@
     "FormalName_EN": "NumberTales #451 Series Mass Production Version for Sales",
     "ModelNumber": "APHR-NT [MP]451-*****",
     "CodeName": "四五一",
+    "CodeName_EN": "Four-Five-One",
     "SPCodeName": "華氏451",
     "SPCodeName_EN": "Fahrenheit 451",
     "GenderType": "Neutral",
@@ -895,6 +948,7 @@
     "FormalName_EN": "NumberTales #456 Series Mass Production Version for Sales",
     "ModelNumber": "APHR-NT [MP]456-*****",
     "CodeName": "四五六",
+    "CodeName_EN": "Four-Five-Six",
     "SPCodeName": "(四五六賽)",
     "SPCodeName_EN": "Upper Dice",
     "GenderType": "Neutral",
@@ -907,6 +961,7 @@
     "FormalName_EN": "NumberTales #467 Series Mass Production Version for Sales",
     "ModelNumber": "APHR-NT [MP]467-*****",
     "CodeName": "四六七",
+    "CodeName_EN": "Four-Six-Seven",
     "GenderType": "Neutral",
     "Class": ["トリプル4+6+7組"]
   },
@@ -917,6 +972,7 @@
     "FormalName_EN": "NumberTales #476 Series Mass Production Version for Sales",
     "ModelNumber": "APHR-NT [MP]476-*****",
     "CodeName": "四七六",
+    "CodeName_EN": "Four-Seven-Six",
     "GenderType": "Neutral",
     "Class": ["トリプル4+6+7組"]
   },
@@ -929,6 +985,7 @@
     "FormalName_EN": "NumberTales #496 Series Mass Production Version for Sales",
     "ModelNumber": "APHR-NT [MP]496-*****",
     "CodeName": "四九六",
+    "CodeName_EN": "Four-Nine-Six",
     "GenderType": "Neutral",
     "Class": ["トリプル4+6+9組", "マスマティカコンストレイント"]
   },
@@ -941,6 +998,7 @@
     "FormalName_EN": "NumberTales #500 Series Mass Production Version for Sales",
     "ModelNumber": "APHR-NT [MP]500-*****",
     "CodeName": "五〇〇",
+    "CodeName_EN": "Five-Zero-Zero",
     "SPCodeName": "半千",
     "SPCodeName_EN": "Half of Permill",
     "GenderType": "Neutral",
@@ -953,6 +1011,7 @@
     "FormalName_EN": "NumberTales #510 Series Mass Production Version for Sales",
     "ModelNumber": "APHR-NT [MP]510-*****",
     "CodeName": "五一〇",
+    "CodeName_EN": "Five-One-Zero",
     "GenderType": "Neutral",
     "Class": ["テンズデュアルシックスズ"]
   },
@@ -965,6 +1024,7 @@
     "FormalName_EN": "NumberTales #512 Series Mass Production Version for Sales",
     "ModelNumber": "APHR-NT [MP]512-*****",
     "CodeName": "五一二",
+    "CodeName_EN": "Five-One-Two",
     "SPCodeName": "半キロバイナリ",
     "SPCodeName_EN": "Half KiB(Kilo Binary)",
     "GenderType": "Neutral",
@@ -993,6 +1053,7 @@
     "FormalName_EN": "NumberTales #528 Series Mass Production Version for Sales",
     "ModelNumber": "APHR-NT [MP]528-*****",
     "CodeName": "五二八",
+    "CodeName_EN": "Five-Two-Eight",
     "SPCodeName": "ソルフェジオ周波数",
     "SPCodeName_EN": "Solfeggio Frequencies",
     "GenderType": "Neutral",
@@ -1005,6 +1066,7 @@
     "FormalName_EN": "NumberTales #558 Series Mass Production Version for Sales",
     "ModelNumber": "APHR-NT [MP]558-*****",
     "CodeName": "五五八",
+    "CodeName_EN": "Five-Five-Eight",
     "GenderType": "Neutral",
     "Class": ["デュオトリプル9型甲組"]
   },
@@ -1017,6 +1079,7 @@
     "FormalName_EN": "NumberTales #572 Series Mass Production Version for Sales",
     "ModelNumber": "APHR-NT [MP]572-*****",
     "CodeName": "五七二",
+    "CodeName_EN": "Five-Seven-Two",
     "GenderType": "Neutral",
     "Class": ["トリプル2+5+7組"]
   },
@@ -1027,6 +1090,7 @@
     "FormalName_EN": "NumberTales #605 Series Mass Production Version for Sales",
     "ModelNumber": "APHR-NT [MP]605-*****",
     "CodeName": "六〇五",
+    "CodeName_EN": "Six-Zero-Five",
     "GenderType": "Neutral",
     "Class": ["サイドデュアルイレブンズ"]
   },
@@ -1039,6 +1103,7 @@
     "FormalName_EN": "NumberTales #616 Series Mass Production Version for Sales",
     "ModelNumber": "APHR-NT [MP]616-*****",
     "CodeName": "六一六",
+    "CodeName_EN": "Six-One-Six",
     "SPCodeName": "亜魔",
     "SPCodeName_EN": "Alter Faith",
     "GenderType": "Neutral",
@@ -1052,6 +1117,7 @@
     "FormalName_EN": "NumberTales #625 Series Mass Production Version for Sales",
     "ModelNumber": "APHR-NT [MP]625-*****",
     "CodeName": "六二五",
+    "CodeName_EN": "Six-Two-Five",
     "GenderType": "Neutral",
     "Class": ["トリプル2+5+6組"]
   },
@@ -1064,6 +1130,7 @@
     "FormalName_EN": "NumberTales #634 Series Mass Production Version for Sales",
     "ModelNumber": "APHR-NT [MP]634-*****",
     "CodeName": "六三四",
+    "CodeName_EN": "Six-Three-Four",
     "GenderType": "Neutral",
     "Class": ["トリプル3+4+6組"]
   },
@@ -1074,6 +1141,7 @@
     "FormalName_EN": "NumberTales #638 Series Mass Production Version for Sales",
     "ModelNumber": "APHR-NT [MP]638-*****",
     "CodeName": "六三八",
+    "CodeName_EN": "Six-Three-Eight",
     "GenderType": "Neutral",
     "Class": ["トリプル3+6+8組"]
   },
@@ -1099,7 +1167,8 @@
     "ConceptAge": 16,
     "Weight_kg": { "hideText": "非公開" },
     "BustSize": "E",
-    "TailsUnit": "キツネ(特殊)型3束x6本"
+    "TailsUnit": "キツネ(特殊)型3束x6本",
+    "TailsUnit_EN": "Fox (Special) Type: 6 Tails x 3 Tufts"
   },
   {
     "Num": 670,
@@ -1108,6 +1177,7 @@
     "FormalName_EN": "NumberTales #670 Series Mass Production Version for Sales",
     "ModelNumber": "APHR-NT [MP]670-*****",
     "CodeName": "六七〇",
+    "CodeName_EN": "Six-Seven-Zero",
     "GenderType": "Neutral",
     "Class": ["テンズデュアルフォーズ"]
   },
@@ -1120,6 +1190,7 @@
     "FormalName_EN": "NumberTales #696 Series Mass Production Version for Sales",
     "ModelNumber": "APHR-NT [MP]696-*****",
     "CodeName": "六九六",
+    "CodeName_EN": "Six-Nine-Six",
     "GenderType": "Neutral",
     "Class": ["デュオトリプル3型甲組"]
   },
@@ -1132,6 +1203,7 @@
     "FormalName_EN": "NumberTales #729 Series Mass Production Version for Sales",
     "ModelNumber": "APHR-NT [MP]729-*****",
     "CodeName": "七二九",
+    "CodeName_EN": "Seven-Two-Nine",
     "GenderType": "Neutral",
     "Class": ["トリプル2+7+9組"]
   },
@@ -1142,6 +1214,7 @@
     "FormalName_EN": "NumberTales #736 Series Mass Production Version for Sales",
     "ModelNumber": "APHR-NT [MP]736-*****",
     "CodeName": "七三六",
+    "CodeName_EN": "Seven-Three-Six",
     "GenderType": "Neutral",
     "Class": ["トリプル3+6+7組"]
   },
@@ -1157,11 +1230,13 @@
     "FormalName_EN": "NumberTales #753 Series Mass Production Version for Sales",
     "ModelNumber": "APHR-NT [MP]753-*****",
     "CodeName": "七五三",
+    "CodeName_EN": "Seven-Five-Three",
     "GenderType": "Neutral",
     "Height_cm": 153,
     "ConceptAge": 16,
     "BustSize": "A",
     "TailsUnit": "キツネ(枝分かれ)型7本15束",
+    "TailsUnit_EN": "Fox (Branched) Type: 7 Tails, 15 Tufts",
     "Class": ["トリプル3+5+7組"]
   },
   {
@@ -1173,6 +1248,7 @@
     "FormalName_EN": "NumberTales #773 Series Mass Production Version for Sales",
     "ModelNumber": "APHR-NT [MP]773-*****",
     "CodeName": "七七三",
+    "CodeName_EN": "Seven-Seven-Three",
     "GenderType": "Neutral",
     "Class": ["デュオトリプル8型甲組"]
   },
@@ -1185,6 +1261,7 @@
     "FormalName_EN": "NumberTales #774 Series Mass Production Version for Sales",
     "ModelNumber": "APHR-NT [MP]774-*****",
     "CodeName": "七七四",
+    "CodeName_EN": "Seven-Seven-Four",
     "SPCodeName": "(名無)",
     "SPCodeName_EN": "(Non-Named)",
     "GenderType": "Neutral",
@@ -1220,7 +1297,8 @@
     ],
     "BustSize": "AA",
     "GenderType": "MaleNeutral",
-    "TailsUnit": "キツネ(特殊)型3束x7本"
+    "TailsUnit": "キツネ(特殊)型3束x7本",
+    "TailsUnit_EN": "Fox (Special) Type: 7 Tails x 3 Tufts"
   },
   {
     "Num": "777.Jackpot-mp",
@@ -1256,7 +1334,8 @@
       }
     ],
     "BustSize": "AA",
-    "TailsUnit": "キツネ(特殊)型3束x7本"
+    "TailsUnit": "キツネ(特殊)型3束x7本",
+    "TailsUnit_EN": "Fox (Special) Type: 7 Tails x 3 Tufts"
   },
   {
     "Num": 780,
@@ -1267,6 +1346,7 @@
     "FormalName_EN": "NumberTales #780 Series Mass Production Version for Sales",
     "ModelNumber": "APHR-NT [MP]780-*****",
     "CodeName": "七八〇",
+    "CodeName_EN": "Seven-Eight-Zero",
     "GenderType": "Neutral",
     "Class": ["テンズデュアルシックスズ"]
   },
@@ -1279,6 +1359,7 @@
     "FormalName_EN": "NumberTales #808 Series Mass Production Version for Sales",
     "ModelNumber": "APHR-NT [MP]808-*****",
     "CodeName": "八〇八",
+    "CodeName_EN": "Eight-Zero-Eight",
     "SPCodeName": "八百屋",
     "SPCodeName_EN": "Vegetable",
     "GenderType": "Neutral",
@@ -1293,6 +1374,7 @@
     "FormalName_EN": "NumberTales #833 Series Mass Production Version for Sales",
     "ModelNumber": "APHR-NT [MP]833-*****",
     "CodeName": "八三三",
+    "CodeName_EN": "Eight-Three-Three",
     "GenderType": "Neutral",
     "Class": ["デュオトリプル5型乙組"]
   },
@@ -1319,6 +1401,7 @@
     "FormalName_EN": "NumberTales #966 Series Mass Production Version for Sales",
     "ModelNumber": "APHR-NT [MP]966-*****",
     "CodeName": "九六六",
+    "CodeName_EN": "Nine-Six-Six",
     "GenderType": "Neutral",
     "Class": ["デュオトリプル3型甲組"]
   },
@@ -1331,6 +1414,7 @@
     "FormalName_EN": "NumberTales #969 Series Mass Production Version for Sales",
     "ModelNumber": "APHR-NT [MP]969-*****",
     "CodeName": "九六九",
+    "CodeName_EN": "Nine-Six-Nine",
     "SPCodeName": "(回)",
     "SPCodeName_EN": "(Rotation)",
     "GenderType": "Neutral",
@@ -1343,6 +1427,7 @@
     "FormalName_EN": "NumberTales #979 Series Mass Production Version for Sales",
     "ModelNumber": "APHR-NT [MP]979-*****",
     "CodeName": "九七九",
+    "CodeName_EN": "Nine-Seven-Nine",
     "GenderType": "Neutral",
     "Class": ["デュオトリプル7型丙組"]
   },
