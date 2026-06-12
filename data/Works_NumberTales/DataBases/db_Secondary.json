@@ -867,7 +867,7 @@
     "AbilityStats": {
       "Speed": { "Rank": "A" },
       "Communication": { "Rank": "B" },
-      "Leading": { "Rank": { "Rank": "A", "about": "？" } },
+      "Leading": { "Rank": { "Rank": "A", "about": "？", "about_EN": "?" } },
       "Precision": { "Rank": "S" },
       "Technic": { "hideText": "非公開" },
       "Actuation": { "Rank": "S" }
@@ -936,7 +936,7 @@
     "Height_cm": [
       { "value": 160, "about_JP": "推定", "about_EN": "Presumption" }
     ],
-    "ConceptAge": { "about": "不詳" },
+    "ConceptAge": { "about": "不詳", "about_EN": "Unknown" },
     "AnivDay": [
       {
         "Day": { "Month": 6, "DayOfMonth": 15 },

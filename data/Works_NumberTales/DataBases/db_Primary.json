@@ -16867,13 +16867,9 @@
     "GenderType": "Neutral",
     "Height_cm": 165,
     "ConceptAge": 25,
-    "AnivDay": [
-      {
-        "Day": { "Month": 8, "DayOfMonth": 15 },
-        "DayAbout": { "hideText": "？？？" },
-        "DayAbout_EN": { "hideText": "？？？" }
-      }
-    ],
+    "BirthDay": {
+      "Day": { "Month": 8, "DayOfMonth": 15 }
+    },
     "Weight_kg": { "hideText": "？？？" },
     "BustSize": "A",
     "Class": ["営業補助用個体", "スクエアエリート"],
@@ -17041,13 +17037,9 @@
     "RaceType": "Human(withAddon)",
     "Height_cm": 165,
     "Age": 25,
-    "AnivDay": [
-      {
-        "Day": { "Month": 8, "DayOfMonth": 15 },
-        "DayAbout": "誕生日",
-        "DayAbout_EN": "Birthday"
-      }
-    ],
+    "BirthDay": {
+      "Day": { "Month": 8, "DayOfMonth": 15 }
+    },
     "Weight_kg": { "hideText": "非公開" },
     "BustSize": "D",
     "Class": ["開発者", "最高経営所長"],

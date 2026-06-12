@@ -553,7 +553,8 @@
     "SPCodeName_EN": "One Byte",
     "GenderType": "Neutral",
     "Class": ["トリプル2+5+6組"],
-    "Backgrounds": "1バイトで表現できる値の数から由来\nなお、「255(エフエフ)」と姉妹関係は無い"
+    "Backgrounds": "1バイトで表現できる値の数から由来\nなお、「255(エフエフ)」と姉妹関係は無い",
+    "Name_EN": "256(Bytes)"
   },
   {
     "Num": 258,

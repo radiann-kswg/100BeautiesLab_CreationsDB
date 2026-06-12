@@ -404,3 +404,87 @@
 - テスト:
   - `tests/data.sanity.test.js`: pass
   - `tests/bilingual-fields.test.js`: pass
+
+## 2026-06-12 追記：AnivDay 手直しの反映と hideText の和英対応書式
+
+### AnivDay 手直しから確認できたこと
+
+- `data/Works_NumberTales/DataBases/db_SemiPrimary.json` の `AnivDay.DayAbout_EN` について、手直し後の表記を今後の優先形として扱う。
+- 特に次のような調整方針を確認した。
+  1. 固有計画名は機械的に分かち書きせず、既存固有名詞のまとまりを優先する。
+     - 例: `SquareElites project commemoration`
+  2. 機体番号補足は冗長な説明語より、既存英名寄りの簡潔な略記を優先し得る。
+     - 例: `Development commemoration (Mk.64)`
+  3. `DayAbout_EN` は単なる逐語訳ではなく、同一作品内の命名慣用と読みやすさを優先してよい。
+
+### hideText の和英対応書式（全作品確認結果）
+
+- 全 JSON 実データを確認した結果、`hideText` の和英対応は次の2系統で運用されている。
+
+1. 別フィールドで和英対応する項目（`Unlike` / `Unlike_EN` など）
+
+- 入力書式は「JP 側と EN 側を別キーで持ち、両方とも `{ "hideText": "..." }` オブジェクトにする」。
+- 例:
+
+```json
+"Unlike": { "hideText": "？？？" },
+"Unlike_EN": { "hideText": "???" }
+```
+
+- 重要: `hideText_EN` を同一オブジェクト内へ直接書く方式は、実データ上の本体レコードでは採用しない。
+
+2. 別フィールドを持たない項目・wrapper/能力値内部項目（`BirthDay`, `AnivDay`, `Rank`, `SafetyLevel` など）
+
+- 入力は従来どおり `{ "hideText": "..." }` のみを置く。
+- EN 表示は `data/db_type.json` の `#List_hideText` に定義された `hideText` / `hideText_EN` 対応表で解決する。
+- つまり、実レコード側へ `hideText_EN` を直書きするのではなく、スキーマ辞書で英語表示を与える。
+
+### 統一ルールとして記録すること
+
+1. `*_EN` の別キーが存在する項目で hideText 化する場合は、EN 側も sibling key として `{ "hideText": "..." }` を持たせる。
+2. `hideText_EN` を本体レコードの同一オブジェクト内へ埋め込む方式は採用しない。
+3. `*_EN` 別キーを持たない項目の hideText 英語表示は、`data/db_type.json` の `#List_hideText` で統一管理する。
+4. wrapper 項目（`DayAbout_EN` など）で hideText を使う場合も、別キー構造があるなら sibling object 方式を優先する。
+5. sibling object 方式の EN 側 `hideText` 値は JP 側の文言を複製せず、対応する英語値（例: `????`）を書く。
+
+## 2026-06-12 追記：Works_NumberTales（db_Primary 以外）英訳完了
+
+### 対象
+
+- `data/Works_NumberTales/DataBases/db_Secondary.json`
+- `data/Works_NumberTales/DataBases/db_SelfSecondary.json`
+- `data/Works_NumberTales/DataBases/db_SemiPrimary.json`
+- `data/Works_NumberTales/DataBases/db_UnprocessedSecondary.json`
+
+### 追加・補完内容
+
+1. `db_Secondary.json`
+
+- `AbilityStats.Leading.Rank.about_EN` を追加（`?`）
+- `ConceptAge.about_EN` を追加（`Unknown`）
+
+2. `db_SelfSecondary.json`
+
+- `Num: 256` の `Name_EN` を追加（`256(Bytes)`）
+
+3. `db_SemiPrimary.json`
+
+- 欠損していた `CodeName_EN` を30件補完（`One-Zero-Zero` 系の既存命名慣用に準拠）
+- `Num: 777` の `Backgrounds_EN` を追加
+
+4. `db_UnprocessedSecondary.json`
+
+- 欠損なし（追加不要）
+
+### 確認結果
+
+- `db_Primary` 以外4DBの再走査結果:
+  - `db_Secondary.json`: 欠損 0
+  - `db_SelfSecondary.json`: 欠損 0
+  - `db_SemiPrimary.json`: 欠損 0
+  - `db_UnprocessedSecondary.json`: 欠損 0
+
+### 検証
+
+- `tests/data.sanity.test.js`: pass
+- `tests/bilingual-fields.test.js`: pass
