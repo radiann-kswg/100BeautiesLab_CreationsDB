@@ -43,9 +43,12 @@
 
 - `data/Works_NumberTales/DataBases/db_Secondary.json`
 - `data/Works_NumberTales/DataBases/db_SelfSecondary.json`
-- `data/Works_PastDivers/DataBases/db_Primary.json`
-- `data/Works_Proxies/DataBases/db_Proxy.json`
-- `data/Works_FLInvestigator78/DataBases/db_Primary.json`
+
+補足:
+
+- `data/Works_Proxies/DataBases/db_Proxy.json` の軽量残件 3 件（2代目 `Unlike_EN` / 3代目 `GenderType.about_EN` / 初代 `SpecialSkill_EN`）は 2026-06-12 追補で解消済み。
+- `data/Works_PastDivers/DataBases/db_Primary.json` と `data/Works_SinisterChangingGirls/DataBases/db_Primary.json` の軽量残件も 2026-06-12 追補で解消済み。
+- `data/Works_FLInvestigator78/DataBases/` / `data/Works_UnauthedLogica/DataBases/` / `data/Works_UnibyteLive/DataBases/` は 2026-06-12 再監査時点で、現行の「同ファイル内の既存 EN 実績基準」では追加補完対象 0 を確認済み。
 
 ### 4. 実務上の読み替え
 
@@ -140,9 +143,9 @@
 
 1. `data/Works_NumberTales/DataBases/db_Primary.json` の `Comments_EN` / 呼称 EN 群 / 概要系 EN 群を重点処理
 2. `data/Works_NumberTales/DataBases/db_Secondary.json` の `AdditionalDesigned_EN` と残る説明系 EN を処理
-3. `data/Works_PastDivers/DataBases/db_Primary.json` の `ChronoizedPurity_EN` を処理
-4. `data/Works_FLInvestigator78/DataBases/db_Primary.json` の `AdditionalDesigned_EN` を処理
-5. `data/Works_Proxies/DataBases/db_Proxy.json` の `GenderType.about_EN` など wrapper 系残件を人手確認
+3. `data/Works_NumberTales/DataBases/db_SelfSecondary.json` の残件を再点検し、`db_Primary` 着手前の軽量な取りこぼしが無いか確認
+4. `data/Works_NumberTales/DataBases/db_Primary.json` の `Comments_EN` 和文混入を番号順・3キャラ単位で処理
+5. `data/Works_NumberTales/DataBases/db_Primary.json` の `Character_EN` / `Hobby_EN` / `Favor_EN` / `Unlike_EN` / `SpecialSkill_EN` を同じ3キャラ束で継続補完
 
 ## 正準データの定義
 
@@ -211,15 +214,12 @@
 
 - 走査ファイル数: 18
 - JP/EN 判定対象: 93
-- 完了: 92
-- 未完了: 1
+- 完了: 93
+- 未完了: 0
 
-未完了 1 件:
+未完了 0 件:
 
-- data/Works_Proxies/DataBases/db_Proxy.json
-  - record: index:1（3代目ラジアン）
-  - path: about_JP（GenderType 内）
-  - expected: about_EN
+- `about_JP/about_EN` の軽量 wrapper 欠損として最後に残っていた `data/Works_Proxies/DataBases/db_Proxy.json` の 3代目 `GenderType.about_EN` は、2026-06-12 追補で解消済み。
 
 ## 英訳の厳密ルール（実データ正準）
 
@@ -438,7 +438,7 @@
 
 1. ThisMasters_EN の正式運用は未確定。
 2. about_EN / DayAbout_EN の適用粒度は要整理。
-3. data/Works_Proxies/DataBases/db_Proxy.json の about_EN 欠損 1 件は未解消。
+3. data/Works_Proxies/DataBases/db_Proxy.json の about_EN 欠損 1 件は 2026-06-12 追補で解消済み。
 
 ## 今後の適用方針
 
@@ -759,3 +759,54 @@
 
 - `tests/data.sanity.test.js`: pass
 - `tests/bilingual-fields.test.js`: pass
+
+## 2026-06-12 追記：軽量残件 2 ファイル解消（PastDivers / SinisterChangingGirls）
+
+### 対象
+
+- `data/Works_PastDivers/DataBases/db_Primary.json`
+- `data/Works_SinisterChangingGirls/DataBases/db_Primary.json`
+
+### 追加・補完内容
+
+1. `data/Works_PastDivers/DataBases/db_Primary.json`
+
+- `桜花 信(とき)` の `Unlike_EN` を追加（`hideText: Non-Public at Pleasure`）
+
+2. `data/Works_SinisterChangingGirls/DataBases/db_Primary.json`
+
+- `六花(ろくばな) ルノ` の `Favor_EN` / `Unlike_EN` を追加
+- `財前 小里 / 終藤(すどう) こさと` の `SpecialSkill_EN` / `Unlike_EN` を追加（いずれも `hideText: Judgement Failed`）
+
+### 確認結果
+
+- 同ファイル内の既存 EN 実績基準で再走査し、両ファイルとも未補完 0 を確認
+
+### 検証
+
+- `tests/data.sanity.test.js`: pass
+- `tests/bilingual-fields.test.js`: pass
+
+## 2026-06-12 追記：3作品再監査（FLInvestigator78 / UnauthedLogica / UnibyteLive）
+
+### 対象
+
+- `data/Works_FLInvestigator78/DataBases/*.json`
+- `data/Works_UnauthedLogica/DataBases/*.json`
+- `data/Works_UnibyteLive/DataBases/*.json`
+
+### 実施内容
+
+1. 各ファイルについて、同一ファイル内で既に `*_EN` が存在するキーを基準に「値あり・EN欠損」候補を再抽出
+2. 同じ対象範囲で、`*_EN` に和文が残っている候補も再抽出
+
+### 結果
+
+- `data/Works_FLInvestigator78/DataBases/`: 欠損 0 / 和文混入 EN 0
+- `data/Works_UnauthedLogica/DataBases/`: 欠損 0 / 和文混入 EN 0
+- `data/Works_UnibyteLive/DataBases/`: 欠損 0 / 和文混入 EN 0
+
+### 方針反映
+
+- 上記 3 作品は、2026-06-12 時点では追加の実データ補完を行わず、直近の優先対象から外す
+- 以後は `Works_NumberTales` 側の残件処理を優先する

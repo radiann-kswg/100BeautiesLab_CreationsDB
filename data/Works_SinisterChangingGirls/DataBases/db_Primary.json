@@ -121,7 +121,9 @@
     "Hobby": "",
     "SpecialSkill": "",
     "Favor": "人間の友情や愛情",
+    "Favor_EN": "Human friendship and affection",
     "Unlike": "親友の危険、人体実験",
+    "Unlike_EN": "Her best friend's danger, human experimentation",
     "Summary": ""
   },
   {
@@ -311,9 +313,11 @@
     "Hobby": "エンターテインメント（という名の邪知暴虐）",
     "Hobby_EN": "Entertainment (a name for tyranny and wickedness)",
     "SpecialSkill": { "hideText": "判定失敗" },
+    "SpecialSkill_EN": { "hideText": "Judgement Failed" },
     "Favor": "人が争い勝者が権力に溺れ敗者が絶望に打ちのめされる光景",
     "Favor_EN": "The sight of people clashing, winners drowning in power, and losers crushed by despair",
     "Unlike": { "hideText": "判定失敗" },
+    "Unlike_EN": { "hideText": "Judgement Failed" },
     "Summary": "もともと「財前 こさと」として若手超大物政治ジャーナリストをしていた謎の若人。\n十数年前に突如 電撃引退を宣言し各メディアから姿を消していたが、ある時この名で目撃されたという情報が相次いでおり真相を迫られている。\n好奇心旺盛で遊戯意識が強く 周りの出来事はすべて“エンタメ”として楽しんでいるが、時にその遊び心が「傲慢」さに変わり 夜月機関や運命線探偵、獣爾騎兵などへ強大な敵として牙を向くことも……",
     "Summary_EN": "A mysterious young person who was originally a rising young mega-celebrity political journalist under the name 'Foster Empressor'.\nThey suddenly announced a stunning retirement more than a decade ago and vanished from all media, but reports of sightings under this name have been coming one after another, and the truth is being pressed.\nHighly curious with a strong sense of play, they enjoy everything around them as 'entertainment', but sometimes that playfulness turns to 'Pride/Arrogance', and they bare their fangs as a powerful enemy against organizations like the Yadzuki, the FateLine Investigators, and the Shou'ar Riders..."
   }

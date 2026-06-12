@@ -39,6 +39,7 @@
     "Favor": "デフォルメ球体化、もふもふとした獣人や布団、数字",
     "Favor_EN": "Chibified spherification, fluffy beastkin and futons, numbers",
     "Unlike": { "hideText": "非公開希望" },
+    "Unlike_EN": { "hideText": "Non-Public at Pleasure" },
     "InStory": "日常や思考を代弁するなどといった正なる意味の代理として登場する(という名目だが、作者はこの代理という自分の写し身をあまり良くは思ってないので、実際は作者の特権でパロディや雑コラなどへ煩雑に使われることが多い)",
     "InStory_EN": "Appears as a genuine proxy in the sense of voicing daily life and thoughts (nominally, at least\u2014though the author doesn't think very highly of this self-reflection as a proxy, in practice it is frequently used for parodies, quick collages, and such at the author's discretion)",
     "Backgrounds": "作者の現実や性格を忠実にキャラ化した代理のため、日常や思考を代弁したりする分で作者としても代理としての動かしやすさが保証されている",
@@ -58,7 +59,8 @@
     "RaceType": "Immaginaries",
     "GenderType": {
       "value": "Variable",
-      "about_JP": "ただし本人は無性別女性型が好き"
+      "about_JP": "ただし本人は無性別女性型が好き",
+      "about_EN": "However, personally prefers a genderless feminine form"
     },
     "BirthDay": { "Day": { "Month": 7, "DayOfMonth": 1 } },
     "Height_cm": [
@@ -169,6 +171,7 @@
     "Hobby": "創作世界を見守ること",
     "Hobby_EN": "Watching over the creative world",
     "SpecialSkill": { "hideText": "極秘事項" },
+    "SpecialSkill_EN": { "hideText": "Confidential" },
     "Favor": "可愛いキャラクター、縫い包みやクッションなどのノベルティグッズ",
     "Favor_EN": "Cute characters, novelty goods such as plushies and cushions",
     "Unlike": "喧嘩やトラブル、緊急対応が重なること",
