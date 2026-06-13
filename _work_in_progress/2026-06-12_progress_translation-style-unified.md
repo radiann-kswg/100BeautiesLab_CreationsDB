@@ -393,34 +393,34 @@
 
 #### Works_NumberTales
 
-| 日本語 | 英語（固定） | 備考 |
-|--------|------------|------|
-| 数秘加護 | Numerospec | F-1 ルール再掲（最重要） |
-| ヒューマノイド形態 | Humanoid Form | |
-| コアフォルダ（形態） | CoreFolder | |
-| 安全レベル | Safety Level | フィールド名 `SafetyLevel` と同一概念 |
-| 試験用個体 | Test Model | Class 値 |
-| 1桁番 | UniDigits | Class 値 |
-| 10倍番 | Tens-Digits | Class 値 |
-| 1号機型 | Unit.1 lineage | 〃 |
-| 2号機型 | Unit.2 lineage | 〃 |
-| 10号機型 | Unit.10 lineage | 〃 |
-| キャレ型ハイナンバーズ | Carré-Series HighNumbers | 〃 |
-| キュビクザール型ハイナンバーズ | Kubikzahl-Series HighNumbers | 〃 |
-| マスターテールズ9 | Master Tales 9 | 〃 |
-| デシベルモデレーターズ | Decibel Moderators | 〃 |
-| マスタートリプル | MasterTriples | 〃 |
-| 仮説型ハイナンバー | Tentative HighNumbers | 〃 |
+| 日本語                         | 英語（固定）                 | 備考                                  |
+| ------------------------------ | ---------------------------- | ------------------------------------- |
+| 数秘加護                       | Numerospec                   | F-1 ルール再掲（最重要）              |
+| ヒューマノイド形態             | Humanoid Form                |                                       |
+| コアフォルダ（形態）           | corefolder                   |                                       |
+| 安全レベル                     | Safety Level                 | フィールド名 `SafetyLevel` と同一概念 |
+| 試験用個体                     | Test Model                   | Class 値                              |
+| 1桁番                          | UniDigits                    | Class 値                              |
+| 10倍番                         | Tens-Digits                  | Class 値                              |
+| 1号機型                        | Unit.1 lineage               | 〃                                    |
+| 2号機型                        | Unit.2 lineage               | 〃                                    |
+| 10号機型                       | Unit.10 lineage              | 〃                                    |
+| キャレ型ハイナンバーズ         | Carré-Series HighNumbers     | 〃                                    |
+| キュビクザール型ハイナンバーズ | Kubikzahl-Series HighNumbers | 〃                                    |
+| マスターテールズ9              | Master Tales 9               | 〃                                    |
+| デシベルモデレーターズ         | Decibel Moderators           | 〃                                    |
+| マスタートリプル               | MasterTriples                | 〃                                    |
+| 仮説型ハイナンバー             | Tentative HighNumbers        | 〃                                    |
 
 #### Works_FLInvestigator78
 
-| 日本語 | 英語（固定） | 備考 |
-|--------|------------|------|
-| アルカナムスペック | Arcanamspec | ⚠️ フィールド名は `ArcanamspecAbout` / `ArcanumspecStats` で揺れあり（下記参照） |
-| 采配幹部（ディーラーズ） | Dealers | |
-| 元素属性 | Material | フィールド名 `Material` と同一 |
-| ロールタイプ | Role Type | フィールド名 `RoleType` のラベル |
-| 双極性パターン | Dualize Pattern | フィールド名 `DualizePattern` のラベル |
+| 日本語                   | 英語（固定）    | 備考                                                                             |
+| ------------------------ | --------------- | -------------------------------------------------------------------------------- |
+| アルカナムスペック       | Arcanamspec     | ⚠️ フィールド名は `ArcanamspecAbout` / `ArcanumspecStats` で揺れあり（下記参照） |
+| 采配幹部（ディーラーズ） | Dealers         |                                                                                  |
+| 元素属性                 | Material        | フィールド名 `Material` と同一                                                   |
+| ロールタイプ             | Role Type       | フィールド名 `RoleType` のラベル                                                 |
+| 双極性パターン           | Dualize Pattern | フィールド名 `DualizePattern` のラベル                                           |
 
 > **FLInvestigator78 表記ブレ備忘録**
 > フィールド名 `ArcanamspecAbout`（Arcanaм） と `ArcanumspecStats`（Arcanum）の2系統が混在している。
@@ -429,29 +429,29 @@
 
 #### Works_ShouArRiders
 
-| 日本語 | 英語（固定） | 備考 |
-|--------|------------|------|
-| 獣爾騎兵 | Shou'ar Riders | 組織・作品タイトル |
-| 獣騎能力 | Beastspec | フィールド名 `BeastspecAbout` / `BeastspecStats` と同一概念 |
-| 山月病 | Shanyu Disease | |
+| 日本語   | 英語（固定）   | 備考                                                        |
+| -------- | -------------- | ----------------------------------------------------------- |
+| 獣爾騎兵 | Shou'ar Riders | 組織・作品タイトル                                          |
+| 獣騎能力 | Beastspec      | フィールド名 `BeastspecAbout` / `BeastspecStats` と同一概念 |
+| 山月病   | Shanyu Disease |                                                             |
 
 #### Works_UnauthedLogica
 
-| 日本語 | 英語（固定） | 備考 |
-|--------|------------|------|
-| ロジカ（論理特殊能力） | Logicspec | フィールド名 `LogicspecAbout` と同一概念 |
+| 日本語                 | 英語（固定） | 備考                                     |
+| ---------------------- | ------------ | ---------------------------------------- |
+| ロジカ（論理特殊能力） | Logicspec    | フィールド名 `LogicspecAbout` と同一概念 |
 
 #### Works_PastDivers
 
-| 日本語 | 英語（固定） | 備考 |
-|--------|------------|------|
-| 時空遷移 | ChronoidShift | 能力の固有名（一般概念の space-time とは別） |
-| 時空遷移者 | Chronoholder | フィールド名 `ChronoholderName` と同一概念 |
-| 時空遷移能力 | Chronospec | フィールド名 `ChronospecAbout` / `ChronospecStats` と同一概念 |
+| 日本語       | 英語（固定）      | 備考                                                          |
+| ------------ | ----------------- | ------------------------------------------------------------- |
+| 時空遷移     | ChronoidShift     | 能力の固有名（一般概念の space-time とは別）                  |
+| 時空遷移者   | Chronoholder      | フィールド名 `ChronoholderName` と同一概念                    |
+| 時空遷移能力 | Chronospec        | フィールド名 `ChronospecAbout` / `ChronospecStats` と同一概念 |
 | 時空遷移純度 | Chronoized Purity | フィールド名 `ChronoizedPurity`（スペースなし）と表記差に注意 |
-| クロノス | Chronos | `$IndexDef` フィールド名と同一 |
-| 月明 | Lunar | |
-| 夜月機関 | Yadzuki Orgs. | db_Primary.json 既存 EN より確認 |
+| クロノス     | Chronos           | `$IndexDef` フィールド名と同一                                |
+| 月明         | Lunar             |                                                               |
+| 夜月機関     | Yadzuki Orgs.     | db_Primary.json 既存 EN より確認                              |
 
 > **PastDivers 補足**
 > `ChronospecAbout_EN` 内で「時空」を描写する場合は `space-time` を使用してよい（一般物理概念）。
@@ -459,17 +459,17 @@
 
 #### Works_UnibyteLive
 
-| 日本語 | 英語（固定） | 備考 |
-|--------|------------|------|
+| 日本語                 | 英語（固定）     | 備考                 |
+| ---------------------- | ---------------- | -------------------- |
 | ユニバイト・ユニバース | Unibyte Universe | インフラ・サービス名 |
 
 #### Works_DestinyFoxRecords
 
-| 日本語 | 英語（固定） | 備考 |
-|--------|------------|------|
-| フィジカル9 | Physical 9 | 組織名 |
-| 組織長 | Chief/Leader | 役職・肩書 |
-| 第N界 | #REGION.N（例: #REGION.1） | 世界・地域の識別子形式 |
+| 日本語      | 英語（固定）               | 備考                   |
+| ----------- | -------------------------- | ---------------------- |
+| フィジカル9 | Physical 9                 | 組織名                 |
+| 組織長      | Chief/Leader               | 役職・肩書             |
+| 第N界       | #REGION.N（例: #REGION.1） | 世界・地域の識別子形式 |
 
 ---
 
@@ -1038,6 +1038,7 @@
 以下のログを統合・削除したため、本ファイルに進捗情報を引き継ぐ。
 
 統合元ログ（削除済み）:
+
 - `2026-06-11_progress_english-fields-addition.md`
 - `2026-06-12_progress_english-fields-followup.md`
 - `2026-06-12_progress_translation-num11-13.md`
@@ -1047,29 +1048,32 @@
 
 ### Relation.Comments_EN 完了状況
 
-| 範囲 | 状態 | 備考 |
-|---|---|---|
-| Num 1〜10 | ✅ 完了 | Relation.Comments_EN 英訳・括り書式統一 |
-| Num 11〜13 | ✅ 完了 | Relation.Comments_EN 英訳完了 |
-| Num 14〜16 | ✅ 完了 | Relation.Comments_EN 英訳完了 |
-| Num 17〜19 | ✅ 完了 | Relation.Comments_EN 英訳完了 |
-| Num 20〜22 | ✅ 完了 | Relation.Comments_EN 英訳完了 |
-| Num 23〜25 | ✅ 完了 | Relation.Comments_EN + ConversationPattern_EN 補完 |
-| Num 26〜30 | ✅ 完了 | Relation.Comments_EN + 各種 _EN フィールド補完 |
-| Num 31〜35 | ✅ 完了 | Relation.Comments_EN + 全トップレベル _EN + 呼称 EN 補完（2026-06-13） |
-| Num 36〜40 | ✅ 完了 | Relation.Comments_EN + 全トップレベル _EN + 呼称 EN + ConversationPattern_EN 補完（2026-06-13） |
-| Num 41〜 | ⏳ 未対応 | 次の作業対象 |
+| 範囲       | 状態      | 備考                                                                                                      |
+| ---------- | --------- | --------------------------------------------------------------------------------------------------------- |
+| Num 1〜10  | ✅ 完了   | Relation.Comments_EN 英訳・括り書式統一                                                                   |
+| Num 11〜13 | ✅ 完了   | Relation.Comments_EN 英訳完了                                                                             |
+| Num 14〜16 | ✅ 完了   | Relation.Comments_EN 英訳完了                                                                             |
+| Num 17〜19 | ✅ 完了   | Relation.Comments_EN 英訳完了                                                                             |
+| Num 20〜22 | ✅ 完了   | Relation.Comments_EN 英訳完了                                                                             |
+| Num 23〜25 | ✅ 完了   | Relation.Comments_EN + ConversationPattern_EN 補完                                                        |
+| Num 26〜30 | ✅ 完了   | Relation.Comments_EN + 各種 \_EN フィールド補完                                                           |
+| Num 31〜35 | ✅ 完了   | Relation.Comments_EN + 全トップレベル \_EN + 呼称 EN 補完（2026-06-13）                                   |
+| Num 36〜40 | ✅ 完了   | Relation.Comments_EN + 全トップレベル \_EN + 呼称 EN + ConversationPattern_EN 補完（2026-06-13）          |
+| Num 41〜45 | ✅ 完了   | Relation.Comments_EN + 全トップレベル \_EN + 呼称 EN + ConversationPattern_EN（Num 41）補完（2026-06-13） |
+| Num 46〜50 | ✅ 完了   | Relation.Comments_EN + 全トップレベル \_EN + 呼称 EN + ConversationPattern_EN（Num 47）補完（2026-06-13） |
+| Num 51〜   | ⏳ 未対応 | 次の作業対象                                                                                              |
 
-### トップレベル _EN フィールドの完了状況（db_Primary.json）
+### トップレベル \_EN フィールドの完了状況（db_Primary.json）
 
-| Num 範囲 | 完了済み主要フィールド |
-|---|---|
-| Num 26〜30 | `Character_EN`, `Hobby_EN`, `SpecialSkill_EN`, `Favor_EN`, `Unlike_EN`, `RelationNotes_EN`, `NumerospecAbout_EN`, `Summary_EN`, `Backgrounds_EN` 等 |
-| Num 31〜35 | `Character_EN`, `Hobby_EN`, `SpecialSkill_EN`, `Favor_EN`, `Unlike_EN`, `RelationNotes_EN`, `NumerospecAbout_EN`, `Summary_EN`, `TailsUnit_EN`, `InStory_EN`, `Backgrounds_EN`（Num 33）等 |
-| Num 36〜40 | `TailsUnit_EN`, `Character_EN`, `Hobby_EN`, `SpecialSkill_EN`, `Favor_EN`, `Unlike_EN`, `RelationNotes_EN`, `NumerospecAbout_EN`, `Summary_EN`, `InStory_EN`, `Backgrounds_EN` + 呼称 EN 全4フィールド（Num 39・40）+ `ForMasterCalling_EN`（Num 37）+ ConversationPattern_EN（Num 36・37・39）|
-| Num 41〜 | 未対応（次の作業対象） |
+| Num 範囲   | 完了済み主要フィールド                                                                                                                                                                                                                                                                          |
+| ---------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Num 26〜30 | `Character_EN`, `Hobby_EN`, `SpecialSkill_EN`, `Favor_EN`, `Unlike_EN`, `RelationNotes_EN`, `NumerospecAbout_EN`, `Summary_EN`, `Backgrounds_EN` 等                                                                                                                                             |
+| Num 31〜35 | `Character_EN`, `Hobby_EN`, `SpecialSkill_EN`, `Favor_EN`, `Unlike_EN`, `RelationNotes_EN`, `NumerospecAbout_EN`, `Summary_EN`, `TailsUnit_EN`, `InStory_EN`, `Backgrounds_EN`（Num 33）等                                                                                                      |
+| Num 36〜40 | `TailsUnit_EN`, `Character_EN`, `Hobby_EN`, `SpecialSkill_EN`, `Favor_EN`, `Unlike_EN`, `RelationNotes_EN`, `NumerospecAbout_EN`, `Summary_EN`, `InStory_EN`, `Backgrounds_EN` + 呼称 EN 全4フィールド（Num 39・40）+ `ForMasterCalling_EN`（Num 37）+ ConversationPattern_EN（Num 36・37・39） |
+| Num 41〜45 | `TailsUnit_EN`, `Character_EN`, `Hobby_EN`, `SpecialSkill_EN`, `Favor_EN`, `Unlike_EN`, `RelationNotes_EN`, `NumerospecAbout_EN`, `Summary_EN`, `InStory_EN`, `Backgrounds_EN` + 呼称 EN 全4フィールド + ConversationPattern_EN（Num 41）                                                       |
+| Num 46〜50 | `TailsUnit_EN`, `Character_EN`, `Hobby_EN`, `SpecialSkill_EN`, `Favor_EN`, `Unlike_EN`, `RelationNotes_EN`, `NumerospecAbout_EN`, `Summary_EN`, `InStory_EN`, `Backgrounds_EN` + 呼称 EN 全4フィールド + ConversationPattern_EN（Num 47）                                                       |
 
-注: Num 1〜25 のトップレベル _EN は部分的に補完済みだが、漏れの可能性がある。
+注: Num 1〜25 のトップレベル \_EN は部分的に補完済みだが、漏れの可能性がある。
 `scan_numbertales_missing_en.mjs` で再走査して確認すること（`.cache/` に保持）。
 
 ### ConversationPattern が存在するキャラ（確認済み）
@@ -1080,6 +1084,8 @@
 - Num 36: ConversationPattern_EN + DialogueExamples 対応済み（2026-06-13）
 - Num 37: ConversationPattern_EN + DialogueExamples 対応済み（2026-06-13）
 - Num 39: ConversationPattern_EN + DialogueExamples 対応済み（2026-06-13）
+- Num 41: ConversationPattern_EN + DialogueExamples 対応済み（2026-06-13）
+- Num 47: ConversationPattern_EN + DialogueExamples 対応済み（2026-06-13）
 
 ## 2026-06-13 追記：Num 26〜35 英訳補完（TailsUnit_EN + Num 31〜35 全フィールド）
 
@@ -1093,7 +1099,7 @@
    - 前回バッチで漏れていた `TailsUnit_EN` を補完。
    - パターン: `Fox (branched) type: N tails (upper: X clusters xY, lower: Z cluster xW)`
 
-2. **Num 31〜35 全トップレベル _EN 補完**
+2. **Num 31〜35 全トップレベル \_EN 補完**
    - 補完フィールド: `TailsUnit_EN`, `Character_EN`, `Hobby_EN`, `SpecialSkill_EN`, `Favor_EN`, `Unlike_EN`, `RelationNotes_EN`, `NumerospecAbout_EN`, `Summary_EN`（全5件）
    - Num 33 のみ追加: `Backgrounds_EN`, `InStory_EN`
    - Num 34 のみ追加: `InStory_EN`
@@ -1123,6 +1129,7 @@ Test Files  4 failed | 15 passed (19)
 ```
 
 失敗 6 件はすべて既存の不具合（今回変更とは無関係）:
+
 - `data.shape.test.js`: BelongingArea / References 構造検証（既存）
 - `commons.secondaries.test.js`: NumberTales SelfSecondary commons（既存）
 - `enrich.dblink.jump.merge.test.js`: `_DBLink._Search` / `_Jump` 解決（既存）
@@ -1146,7 +1153,7 @@ Test Files  4 failed | 15 passed (19)
    - Num 39: `Fox (branched) type: 9 tails (upper: 2 clusters x3, lower: 1 cluster x6)`
    - Num 40: `Four fox-type tails`（非枝分かれ型）
 
-2. **トップレベル _EN 補完（全5件）**
+2. **トップレベル \_EN 補完（全5件）**
    - 各 Num の欠落フィールドを補完（Character_EN, Hobby_EN, SpecialSkill_EN, Favor_EN, Unlike_EN, RelationNotes_EN, NumerospecAbout_EN, Summary_EN 等）
    - Num 38 は NumerospecAbout_EN のみ補完
 
@@ -1196,3 +1203,87 @@ Test Files  4 failed | 15 passed (19)
 - `CodeName_EN` は和数字コード名を英語直列化で表現する。
 - 形式: `One-Zero`, `One-Eight`, `One-Nine`, `Two-One`（ハイフン区切り・先頭大文字）
 - `db_SemiPrimary.json` / `db_SelfSecondary.json` / `db_UnprocessedSecondary.json` の命名慣用を正準とする。
+
+---
+
+## 2026-06-13 追記：Num 41〜45 英訳補完（全フィールド + ConversationPattern）
+
+### 対象
+
+- `data/Works_NumberTales/DataBases/db_Primary.json`
+
+### 実施内容
+
+1. **TailsUnit_EN 追補（Num 41〜45）**
+   - Num 41: `Fox (branched) type: 1 tail (upper: 1 cluster x1)` ← 単尾・非枝分かれ
+   - Num 42〜45: 各 `Fox (branched) type: N tails (upper: X clusters xY, lower: Z cluster xW)` 形式
+
+2. **トップレベル \_EN 補完（全5件）**
+   - 補完フィールド: `Character_EN`, `Hobby_EN`, `SpecialSkill_EN`, `Favor_EN`, `Unlike_EN`, `RelationNotes_EN`, `NumerospecAbout_EN`, `Summary_EN`, `InStory_EN`（必要なもの）
+   - Num 43 追加: `Backgrounds_EN`
+
+3. **呼称 EN 補完**
+   - Num 41〜45 の `FirstPersonCalling_EN`, `SecondPersonCalling_EN`, `ThirdPersonCalling_EN`, `ForMasterCalling_EN` のうち欠損分を補完
+   - Num 42: `ForMasterCalling_EN: Mast-chan/Mil-chan`（`あるちゃん` = Master/Milady の短縮形）
+   - Num 43: `ForMasterCalling_EN: Masty`（`あるじん` = Master の短縮形）
+
+4. **ConversationPattern_EN 補完（Num 41）**
+   - `TalkingTone_EN`, `TopicPreference_EN`, `TalkFrequency_EN`, `PreferredTopics_EN`, `AvoidedTopics_EN`, `ConversationNotes_EN` を追加
+   - DialogueExamples 9件: 文字列→ `{value_JP, value_EN}` 変換、オブジェクト→ `value_EN` / `about_EN` 追補
+
+5. **Relation.Comments_EN 英訳（全 JP コピー状態を上書き）**
+   - Num 41〜45 の `Comments_EN` が `Comments` と同値だったエントリを正しい英訳で上書き
+
+### 新規確定訳語
+
+- `あるちゃん` → `Mast-chan/Mil-chan`（Master/Milady の短縮愛称）
+- `あるじん` → `Masty`（Master の短縮・くだけた呼び）
+
+### 適用フィールド数
+
+- 101 フィールド
+
+---
+
+## 2026-06-13 追記：Num 46〜50 英訳補完（全フィールド + ConversationPattern）
+
+### 対象
+
+- `data/Works_NumberTales/DataBases/db_Primary.json`
+
+### 実施内容
+
+1. **TailsUnit_EN 追補（Num 46〜49）**
+   - Num 46: `Fox (branched) type: 6 tails (upper: 2 clusters x4, lower: 1 cluster x2)`
+   - Num 47: `Fox (branched) type: 7 tails (upper: 2 clusters x4, lower: 1 cluster x3)`
+   - Num 48: `Fox (branched) type: 8 tails (upper: 2 clusters x4, lower: 1 cluster x4)`
+   - Num 49: `Fox (branched) type: 9 tails (upper: 2 clusters x4, lower: 1 cluster x5)`
+   - Num 50: 既存 `Five fox-type tails`（上書きなし）
+
+2. **トップレベル \_EN 補完（全5件）**
+   - 補完フィールド: `Character_EN`, `Hobby_EN`, `SpecialSkill_EN`, `Favor_EN`, `Unlike_EN`, `RelationNotes_EN`, `NumerospecAbout_EN`, `Summary_EN`, `InStory_EN`, `Backgrounds_EN`（必要なもの）
+   - Num 50 の `Unlike`: `{ hideText: '定義不能' }` 構造 → `Unlike_EN: { hideText: 'undefinable' }` で対応
+
+3. **呼称 EN 補完**
+   - Num 46: 全4フィールド。`SecondPersonCalling_EN: [*third-person calling]\nyou (omee; rough masc., rare)` ← 三人称を二人称として用いる特殊パターン
+   - Num 47: `ForMasterCalling_EN: Master\nbro/sis`（既存 FPC/SPC/TPC は補完済み）
+   - Num 48: 全4フィールド。`ForMasterCalling_EN: my Lord (aruji-sama; formal)`（極尊称）
+   - Num 49: `ThirdPersonCalling_EN` + `ForMasterCalling_EN` の2フィールド（他は既存）
+   - Num 50: `FirstPersonCalling_EN`, `SecondPersonCalling_EN`, `ThirdPersonCalling_EN` の3フィールド（`ForMasterCalling_EN` は既存）
+
+4. **ConversationPattern_EN 補完（Num 47）**
+   - `TalkingTone_EN`, `TopicPreference_EN`, `TalkFrequency_EN`, `PreferredTopics_EN`, `AvoidedTopics_EN`, `ConversationNotes_EN` を追加
+   - DialogueExamples 9件: `value_EN` + `about_EN`（case.1〜3）を追補
+
+5. **Relation.Comments_EN 英訳（全 JP コピー状態を上書き）**
+   - Num 46〜50 の `Comments_EN` が `Comments` と同値だったエントリを正しい英訳で上書き
+
+### 特記事項
+
+- Num 46 の `SecondPersonCalling`: JP が `[※三人称]` = 三人称形式を二人称として使う特殊口調。EN では `[*third-person calling]` と注釈して実際の呼称は `ThirdPersonCalling_EN` 側を参照させる。
+- Num 48: `私(わたし)/俺(おれ)` の二重一人称 → EN も二行で両形式を併記。
+- Num 50: `Unlike` が hideText オブジェクト構造だったため、EN 側も sibling object 方式（`{ hideText: 'undefinable' }`）で対応（既存 hideText ルールに準拠）。
+
+### 適用フィールド数
+
+- 98 フィールド

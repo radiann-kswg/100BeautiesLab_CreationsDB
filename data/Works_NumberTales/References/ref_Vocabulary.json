@@ -24,12 +24,12 @@
   },
   {
     "Term": "コアフォルダ",
-    "Term_EN": "CoreFolder",
+    "Term_EN": "corefolder",
     "Term_JPReading": "コアフォルダ",
-    "Images": { "concept-figure_PNGName": ["cnsp-fg_NTsCoreFolder"] },
+    "Images": { "concept-figure_PNGName": ["cnsp-fg_NTscorefolder"] },
     "Category": "特徴・姿について",
     "Summary": "ナンバーテールズには「コアフォルダ形態」という球体型の形態も存在し、こちらは本来 メンテナンスなどにより一部となった躯体をコンパクトに収納し中枢部を保護するためのものである。\nしかしながら こちらの形態もコミュニケーション機能は健在しており、クッションやぬいぐるみのように抱かたり寄り添ったりするなどの愛くるしいスキンシップも見受けられていることから、コアフォルダ形態を好んでいる主人も多いという。",
-    "Summary_EN": "NumberTales also have a spherical form called the 'CoreFolder Form', which is originally intended to compactly store a body that has been partially disassembled for maintenance and protect the central core.\nHowever, this form retains full communication functionality as well, and adorable physical contact such as being hugged like a cushion or plushie has been observed — so reportedly, many Masters prefer the CoreFolder Form.",
+    "Summary_EN": "NumberTales also have a spherical form called the 'corefolder Form', which is originally intended to compactly store a body that has been partially disassembled for maintenance and protect the central core.\nHowever, this form retains full communication functionality as well, and adorable physical contact such as being hugged like a cushion or plushie has been observed — so reportedly, many Masters prefer the corefolder Form.",
     "Aliases": ["コアフォルダ形態"],
     "Links": []
   },
