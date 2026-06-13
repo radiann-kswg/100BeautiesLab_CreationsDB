@@ -34,7 +34,7 @@
           { "Beast": "Dog", "RaceType": "Komainu(Acquired)" }
         ]
       },
-      "AI_Optout": true
+      "AI_Optout": false
     }
   },
   "General": {

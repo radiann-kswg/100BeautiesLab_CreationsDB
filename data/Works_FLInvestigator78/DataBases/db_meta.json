@@ -30,7 +30,7 @@
           { "Stoat": "Dealer", "Class": ["采配幹部(ディーラーズ)"] }
         ]
       },
-      "AI_Optout": true
+      "AI_Optout": false
     },
     "#DB_PrimaryDealer": {
       "DB_Label": "一次創作(アルカナ保有者)",
@@ -53,7 +53,7 @@
         "about_EN": "between WDCE.VII.24 to WDCE.VIII.2(Equivalent to between: DC.2044-2046)\n\nThis period is significant for the “World Development Creation VIII” "
       },
       "_Commons": {},
-      "AI_Optout": true
+      "AI_Optout": false
     }
   },
   "General": {

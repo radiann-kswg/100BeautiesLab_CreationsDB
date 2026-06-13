@@ -107,7 +107,7 @@
           }
         ]
       },
-      "AI_Optout": true
+      "AI_Optout": false
     },
     "#DB_SemiPrimary": {
       "DB_Label": "準一次創作",
@@ -218,7 +218,7 @@
           }
         ]
       },
-      "AI_Optout": true
+      "AI_Optout": false
     }
   },
   "General": {
