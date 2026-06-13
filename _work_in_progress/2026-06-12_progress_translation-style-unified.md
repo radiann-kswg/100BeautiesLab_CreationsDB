@@ -1062,7 +1062,8 @@
 | Num 41〜45 | ✅ 完了   | Relation.Comments_EN + 全トップレベル \_EN + 呼称 EN + ConversationPattern_EN（Num 41）補完（2026-06-13） |
 | Num 46〜50 | ✅ 完了   | Relation.Comments_EN + 全トップレベル \_EN + 呼称 EN + ConversationPattern_EN（Num 47）補完（2026-06-13） |
 | Num 51〜55 | ✅ 完了   | Relation.Comments_EN + 全トップレベル _EN + ConversationPattern_EN（Num 52）補完（2026-06-13） |
-| Num 56〜   | ⏳ 未対応 | 次の作業対象                                                                                              |
+| Num 56〜60 | ✅ 完了   | Relation.Comments_EN + 全トップレベル _EN + 呼称 EN + ConversationPattern_EN（Num 56〜58・60）補完（2026-06-13）。Num 57 Summary_EN 既存値の誤り（75(Sefieven)→Sefievn / they→he/she）も修正 |
+| Num 61〜   | ⏳ 未対応 | 次の作業対象                                                                                              |
 
 ### トップレベル \_EN フィールドの完了状況（db_Primary.json）
 
@@ -1088,6 +1089,51 @@
 - Num 41: ConversationPattern_EN + DialogueExamples 対応済み（2026-06-13）
 - Num 47: ConversationPattern_EN + DialogueExamples 対応済み（2026-06-13）
 - Num 52: ConversationPattern_EN + DialogueExamples 対応済み（2026-06-13）
+- Num 56: ConversationPattern_EN + DialogueExamples 10件 対応済み（2026-06-13）
+- Num 57: ConversationPattern_EN + DialogueExamples 10件 対応済み（2026-06-13）
+- Num 58: ConversationPattern_EN + DialogueExamples 12件 対応済み（2026-06-13）
+- Num 60: ConversationPattern_EN + DialogueExamples 10件 対応済み（2026-06-13）
+
+## 2026-06-13 追記：Num 56〜60 英訳補完（全フィールド + ConversationPattern）
+
+### 対象
+
+- `data/Works_NumberTales/DataBases/db_Primary.json`
+
+### 実施内容
+
+1. **TailsUnit_EN 追補（Num 56〜58）**
+   - Num 56: `Fox (branched) type: 6 tails (upper: 2 clusters x5, lower: 1 cluster x1)`
+   - Num 57: `Fox (branched) type: 7 tails (upper: 2 clusters x5, lower: 1 cluster x2)`
+   - Num 58: `Fox (branched) type: 8 tails (upper: 2 clusters x5, lower: 1 cluster x3)`
+   - Num 60: TailsUnit_EN は既存値 `"Six fox-type tails"` を維持（上書きなし）
+
+2. **トップレベル EN 補完**
+   - Num 56: FirstPersonCalling/ThirdPersonCalling/ForMasterCalling/Character/Hobby/SpecialSkill/Favor/Unlike/NumerospecAbout/Summary/Backgrounds/RelationNotes
+   - Num 57: FirstPersonCalling/SecondPersonCalling/ThirdPersonCalling/ForMasterCalling/Character/Hobby/SpecialSkill/Favor/Unlike/NumerospecAbout/Backgrounds/RelationNotes + Summary_EN 誤り修正
+   - Num 58: FirstPersonCalling/ThirdPersonCalling/ForMasterCalling/Character/Hobby/SpecialSkill/Favor/Unlike/NumerospecAbout/Summary/RelationNotes
+   - Num 59: NumerospecAbout のみ（それ以外フィールドは未定義のため最小補完）
+   - Num 60: CodeName/ThirdPersonCalling/ForMasterCalling/Character/Hobby/SpecialSkill/Favor/Unlike/NumerospecAbout/Summary/RelationNotes
+
+3. **Num 57 Summary_EN 修正**
+   - 既存値の `75(Sefieven)` → `75(Sefievn)` に修正
+   - `they` → `his/her` / `him/her` に修正（Neutral 代名詞ルール統一）
+
+4. **ConversationPattern_EN 補完（Num 56〜58・60）**
+   - 各 6 フィールド（TalkingTone/TopicPreference/TalkFrequency/PreferredTopics/AvoidedTopics/ConversationNotes）
+   - DialogueExamples: Num 56（10件）/ Num 57（10件）/ Num 58（12件）/ Num 60（10件）
+
+5. **Relation.Comments_EN 英訳上書き**
+   - Num 56〜58・60 の全エントリを英訳で上書き
+
+### 特記事項
+
+- Num 56 `ForMasterCalling_EN`: `~-niisan/~-neesan (big bro/sis)`（年齢設定の低い子どもキャラが主人を呼ぶ形式）
+- Num 57 `ForMasterCalling_EN`: `~-senpai; senpai`（セミコロン区切りで2パターン）
+- Num 58 `ForMasterCalling_EN`: `Master-chan`（甘えん坊らしい -chan 付き呼称）
+- Num 60 `ForMasterCalling_EN`: `Mr./Mrs.`（ミスター/ミセス の直訳）
+- スクリプト: `.cache/translate_num56_60.mjs`（110 fields）
+- テスト: 4 failed / 15 passed（既存失敗と同一、新規 0）
 
 ## 2026-06-13 追記：Num 26〜35 英訳補完（TailsUnit_EN + Num 31〜35 全フィールド）
 

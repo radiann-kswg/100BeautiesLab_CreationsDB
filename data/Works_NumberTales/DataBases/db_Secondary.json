@@ -722,7 +722,7 @@
     "TailsUnit_EN": "Fox Type: 4 Tails",
     "Class": ["ヘキサデミカル-テールズ"],
     "FirstPersonCalling": "こっち",
-    "FirstPersonCalling_EN": "this me (self-reference)",
+    "FirstPersonCalling_EN": "I/me (kocchi; informal self-ref.)",
     "SecondPersonCalling": "あなた",
     "SecondPersonCalling_EN": "you (neutral/polite)",
     "ThirdPersonCalling": "*の子/*っち;[※名前呼び]",
