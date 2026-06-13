@@ -33,7 +33,7 @@
     },
     {
       "hashTag": "Category",
-      "$type": "##String_JP|#Null",
+      "$type": "$EnumDef|#Null",
       "hashTag_JP": "分類",
       "hashTag_EN": "Category",
       "$display": { "section": "basic" }

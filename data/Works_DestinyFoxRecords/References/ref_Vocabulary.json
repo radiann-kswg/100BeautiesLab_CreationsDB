@@ -1,1 +1,112 @@
-[]
+[
+  {
+    "Term": "フィジカル9",
+    "Term_EN": "Physical 9",
+    "Term_JPReading": "フィジカルナイン",
+    "TermType": null,
+    "Category": "組織・陣営",
+    "Summary": null,
+    "Summary_EN": null,
+    "Aliases": [],
+    "Links": []
+  },
+  {
+    "Term": "組織長",
+    "Term_EN": "Chief/Leader",
+    "Term_JPReading": "そしきちょう",
+    "TermType": null,
+    "Category": "役職・肩書",
+    "Summary": null,
+    "Summary_EN": null,
+    "Aliases": [],
+    "Links": []
+  },
+  {
+    "Term": "第１界",
+    "Term_EN": "#REGION.1",
+    "Term_JPReading": "だいいっかい",
+    "TermType": null,
+    "Category": "世界・地域",
+    "Summary": null,
+    "Summary_EN": null,
+    "Aliases": [],
+    "Links": []
+  },
+  {
+    "Term": "第２界",
+    "Term_EN": "#REGION.2",
+    "Term_JPReading": "だいにかい",
+    "TermType": null,
+    "Category": "世界・地域",
+    "Summary": null,
+    "Summary_EN": null,
+    "Aliases": [],
+    "Links": []
+  },
+  {
+    "Term": "第３界",
+    "Term_EN": "#REGION.3",
+    "Term_JPReading": "だいさんかい",
+    "TermType": null,
+    "Category": "世界・地域",
+    "Summary": null,
+    "Summary_EN": null,
+    "Aliases": [],
+    "Links": []
+  },
+  {
+    "Term": "第４界",
+    "Term_EN": "#REGION.4",
+    "Term_JPReading": "だいよんかい",
+    "TermType": null,
+    "Category": "世界・地域",
+    "Summary": null,
+    "Summary_EN": null,
+    "Aliases": [],
+    "Links": []
+  },
+  {
+    "Term": "第５界",
+    "Term_EN": "#REGION.5",
+    "Term_JPReading": "だいごかい",
+    "TermType": null,
+    "Category": "世界・地域",
+    "Summary": null,
+    "Summary_EN": null,
+    "Aliases": [],
+    "Links": []
+  },
+  {
+    "Term": "第６界",
+    "Term_EN": "#REGION.6",
+    "Term_JPReading": "だいろっかい",
+    "TermType": null,
+    "Category": "世界・地域",
+    "Summary": null,
+    "Summary_EN": null,
+    "Aliases": [],
+    "Links": []
+  },
+  {
+    "Term": "第７界",
+    "Term_EN": "#REGION.7",
+    "Term_JPReading": "だいななかい",
+    "TermType": null,
+    "Category": "世界・地域",
+    "Summary": null,
+    "Summary_EN": null,
+    "Aliases": [],
+    "Links": []
+  },
+  {
+    "Term": "第８界",
+    "Term_EN": "#REGION.8",
+    "Term_JPReading": "だいはっかい",
+    "TermType": null,
+    "Category": "世界・地域",
+    "Summary": null,
+    "Summary_EN": null,
+    "Aliases": [],
+    "Links": []
+  }
+]

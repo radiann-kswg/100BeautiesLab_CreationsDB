@@ -386,6 +386,93 @@
 3. `Summary_EN` / `RelationNotes_EN` / `Backgrounds_EN` など説明文内でも同じ規則を適用し、同一レコード内で `Numerospec` と `blessing` を混在させない。
 4. 既存文の手直し時は、意味を変えずに `blessing` -> `Numerospec` の最小差分置換を優先する。
 
+### F-2. 作品別語彙辞書（`#Ref_Vocabulary`）からの固定訳語（2026-06-13 追加）
+
+各作品の `References/ref_Vocabulary.json` を正とする固定訳語一覧。
+新規英訳および既存英訳の見直し時は、以下の表で確認・照合すること。
+
+#### Works_NumberTales
+
+| 日本語 | 英語（固定） | 備考 |
+|--------|------------|------|
+| 数秘加護 | Numerospec | F-1 ルール再掲（最重要） |
+| ヒューマノイド形態 | Humanoid Form | |
+| コアフォルダ（形態） | CoreFolder | |
+| 安全レベル | Safety Level | フィールド名 `SafetyLevel` と同一概念 |
+| 試験用個体 | Test Model | Class 値 |
+| 1桁番 | UniDigits | Class 値 |
+| 10倍番 | Tens-Digits | Class 値 |
+| 1号機型 | Unit.1 lineage | 〃 |
+| 2号機型 | Unit.2 lineage | 〃 |
+| 10号機型 | Unit.10 lineage | 〃 |
+| キャレ型ハイナンバーズ | Carré-Series HighNumbers | 〃 |
+| キュビクザール型ハイナンバーズ | Kubikzahl-Series HighNumbers | 〃 |
+| マスターテールズ9 | Master Tales 9 | 〃 |
+| デシベルモデレーターズ | Decibel Moderators | 〃 |
+| マスタートリプル | MasterTriples | 〃 |
+| 仮説型ハイナンバー | Tentative HighNumbers | 〃 |
+
+#### Works_FLInvestigator78
+
+| 日本語 | 英語（固定） | 備考 |
+|--------|------------|------|
+| アルカナムスペック | Arcanamspec | ⚠️ フィールド名は `ArcanamspecAbout` / `ArcanumspecStats` で揺れあり（下記参照） |
+| 采配幹部（ディーラーズ） | Dealers | |
+| 元素属性 | Material | フィールド名 `Material` と同一 |
+| ロールタイプ | Role Type | フィールド名 `RoleType` のラベル |
+| 双極性パターン | Dualize Pattern | フィールド名 `DualizePattern` のラベル |
+
+> **FLInvestigator78 表記ブレ備忘録**
+> フィールド名 `ArcanamspecAbout`（Arcanaм） と `ArcanumspecStats`（Arcanum）の2系統が混在している。
+> hashTag 名は変更不可（SW ルーティング依存）のため、`hashTag_EN` ラベルを "Arcanamspec" に統一する方針で対応済み（2026-06-13）。
+> 新規 EN 文内で造語本体を記述する場合は `Arcanamspec`（Arcanaм 形式）を正とする。
+
+#### Works_ShouArRiders
+
+| 日本語 | 英語（固定） | 備考 |
+|--------|------------|------|
+| 獣爾騎兵 | Shou'ar Riders | 組織・作品タイトル |
+| 獣騎能力 | Beastspec | フィールド名 `BeastspecAbout` / `BeastspecStats` と同一概念 |
+| 山月病 | Shanyu Disease | |
+
+#### Works_UnauthedLogica
+
+| 日本語 | 英語（固定） | 備考 |
+|--------|------------|------|
+| ロジカ（論理特殊能力） | Logicspec | フィールド名 `LogicspecAbout` と同一概念 |
+
+#### Works_PastDivers
+
+| 日本語 | 英語（固定） | 備考 |
+|--------|------------|------|
+| 時空遷移 | ChronoidShift | 能力の固有名（一般概念の space-time とは別） |
+| 時空遷移者 | Chronoholder | フィールド名 `ChronoholderName` と同一概念 |
+| 時空遷移能力 | Chronospec | フィールド名 `ChronospecAbout` / `ChronospecStats` と同一概念 |
+| 時空遷移純度 | Chronoized Purity | フィールド名 `ChronoizedPurity`（スペースなし）と表記差に注意 |
+| クロノス | Chronos | `$IndexDef` フィールド名と同一 |
+| 月明 | Lunar | |
+| 夜月機関 | Yadzuki Orgs. | db_Primary.json 既存 EN より確認 |
+
+> **PastDivers 補足**
+> `ChronospecAbout_EN` 内で「時空」を描写する場合は `space-time` を使用してよい（一般物理概念）。
+> 固有能力名として参照する場合のみ `Chronospec` / `ChronoidShift` を用いる。
+
+#### Works_UnibyteLive
+
+| 日本語 | 英語（固定） | 備考 |
+|--------|------------|------|
+| ユニバイト・ユニバース | Unibyte Universe | インフラ・サービス名 |
+
+#### Works_DestinyFoxRecords
+
+| 日本語 | 英語（固定） | 備考 |
+|--------|------------|------|
+| フィジカル9 | Physical 9 | 組織名 |
+| 組織長 | Chief/Leader | 役職・肩書 |
+| 第N界 | #REGION.N（例: #REGION.1） | 世界・地域の識別子形式 |
+
+---
+
 ### G. 辞書・メタ・型定義の整合
 
 1. DB概要は各作品 DataBases/db_meta.json の DB_Summary_EN を正とする。

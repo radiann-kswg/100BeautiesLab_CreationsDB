@@ -1,19 +1,14 @@
 {
   "Databases": {
-    "#Ref_Glossary": {
-      "DB_Label": "創作用語",
-      "DB_Label_EN": "Glossary",
+    "#Ref_Vocabulary": {
+      "DB_Label": "語彙辞書",
+      "DB_Label_EN": "Vocabulary",
       "DB_Summary": "ナンバーテールズ固有の用語に関する資料。"
     },
     "#Ref_Reference": {
       "DB_Label": "創作基本資料",
       "DB_Label_EN": "Reference",
       "DB_Summary": "ナンバーテールズの世界観に関する基本資料。"
-    },
-    "#Ref_Vocabulary": {
-      "DB_Label": "語彙辞書",
-      "DB_Label_EN": "Vocabulary",
-      "DB_Summary": "ナンバーテールズの創作固有語彙（造語・固有名詞）の日英対照表。"
     }
   }
 }

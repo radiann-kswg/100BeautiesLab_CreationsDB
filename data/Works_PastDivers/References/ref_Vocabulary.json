@@ -1,1 +1,68 @@
-[]
+[
+  {
+    "Term": "クロノス",
+    "Term_EN": "Chronos",
+    "Term_JPReading": "クロノス",
+    "TermType": null,
+    "Category": "能力特性用語",
+    "Summary": null,
+    "Summary_EN": null,
+    "Aliases": [],
+    "Links": []
+  },
+  {
+    "Term": "月明",
+    "Term_EN": "Lunar",
+    "Term_JPReading": "ルナー",
+    "TermType": null,
+    "Category": "能力特性用語",
+    "Summary": null,
+    "Summary_EN": null,
+    "Aliases": [],
+    "Links": []
+  },
+  {
+    "Term": "時空遷移",
+    "Term_EN": "ChronoidShift",
+    "Term_JPReading": "クロノシフト",
+    "TermType": null,
+    "Category": "基本情報",
+    "Summary": null,
+    "Summary_EN": null,
+    "Aliases": [],
+    "Links": []
+  },
+  {
+    "Term": "時空遷移者",
+    "Term_EN": "Chronoholder",
+    "Term_JPReading": "クロノホルダー",
+    "TermType": null,
+    "Category": "能力特性用語",
+    "Summary": null,
+    "Summary_EN": null,
+    "Aliases": [],
+    "Links": []
+  },
+  {
+    "Term": "時空遷移能力",
+    "Term_EN": "Chronospec",
+    "Term_JPReading": "クロノスペック",
+    "TermType": null,
+    "Category": "能力特性用語",
+    "Summary": null,
+    "Summary_EN": null,
+    "Aliases": [],
+    "Links": []
+  },
+  {
+    "Term": "時空遷移純度",
+    "Term_EN": "Chronoized Purity",
+    "Term_JPReading": "クロノイド純度",
+    "TermType": null,
+    "Category": "異常・異変",
+    "Summary": null,
+    "Summary_EN": null,
+    "Aliases": [],
+    "Links": []
+  }
+]
