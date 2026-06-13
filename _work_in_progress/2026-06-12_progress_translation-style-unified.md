@@ -1056,14 +1056,16 @@
 | Num 20〜22 | ✅ 完了 | Relation.Comments_EN 英訳完了 |
 | Num 23〜25 | ✅ 完了 | Relation.Comments_EN + ConversationPattern_EN 補完 |
 | Num 26〜30 | ✅ 完了 | Relation.Comments_EN + 各種 _EN フィールド補完 |
-| Num 31〜 | ⏳ 未対応 | 次の作業対象 |
+| Num 31〜35 | ✅ 完了 | Relation.Comments_EN + 全トップレベル _EN + 呼称 EN 補完（2026-06-13） |
+| Num 36〜 | ⏳ 未対応 | 次の作業対象 |
 
 ### トップレベル _EN フィールドの完了状況（db_Primary.json）
 
 | Num 範囲 | 完了済み主要フィールド |
 |---|---|
 | Num 26〜30 | `Character_EN`, `Hobby_EN`, `SpecialSkill_EN`, `Favor_EN`, `Unlike_EN`, `RelationNotes_EN`, `NumerospecAbout_EN`, `Summary_EN`, `Backgrounds_EN` 等 |
-| Num 31〜 | 未対応（次の作業対象） |
+| Num 31〜35 | `Character_EN`, `Hobby_EN`, `SpecialSkill_EN`, `Favor_EN`, `Unlike_EN`, `RelationNotes_EN`, `NumerospecAbout_EN`, `Summary_EN`, `TailsUnit_EN`, `InStory_EN`, `Backgrounds_EN`（Num 33）等 |
+| Num 36〜 | 未対応（次の作業対象） |
 
 注: Num 1〜25 のトップレベル _EN は部分的に補完済みだが、漏れの可能性がある。
 `scan_numbertales_missing_en.mjs` で再走査して確認すること（`.cache/` に保持）。
@@ -1073,6 +1075,57 @@
 - Num 25: ConversationPattern_EN + DialogueExamples 対応済み
 - Num 26: ConversationPattern_EN + DialogueExamples 対応済み
 - Num 29: ConversationPattern_EN + DialogueExamples 対応済み
+
+## 2026-06-13 追記：Num 26〜35 英訳補完（TailsUnit_EN + Num 31〜35 全フィールド）
+
+### 対象
+
+- `data/Works_NumberTales/DataBases/db_Primary.json`
+
+### 実施内容
+
+1. **TailsUnit_EN 追補（Num 26〜29）**
+   - 前回バッチで漏れていた `TailsUnit_EN` を補完。
+   - パターン: `Fox (branched) type: N tails (upper: X clusters xY, lower: Z cluster xW)`
+
+2. **Num 31〜35 全トップレベル _EN 補完**
+   - 補完フィールド: `TailsUnit_EN`, `Character_EN`, `Hobby_EN`, `SpecialSkill_EN`, `Favor_EN`, `Unlike_EN`, `RelationNotes_EN`, `NumerospecAbout_EN`, `Summary_EN`（全5件）
+   - Num 33 のみ追加: `Backgrounds_EN`, `InStory_EN`
+   - Num 34 のみ追加: `InStory_EN`
+   - Num 35 のみ追加: `InStory_EN`
+
+3. **呼称 EN 欠損補完**
+   - Num 32: `FirstPersonCalling_EN` を追加（`Thirtwis (*by name)\nI (ore; rough masc.)`）
+   - Num 33: `FirstPersonCalling_EN` を追加（`Thirthrey (*by name)`）
+   - Num 34: 呼称 EN 全4フィールドを追加（Kansai 系語彙: `I (wai; Kansai rough masc.)`, `sir/lady\nyou (anta; rough)`, `[*second-person calling]\nthat/this/who/which/them; [*by name]`, `my lord(/my lady)\nMaster(/Milady)`）
+   - Num 35: `ForMasterCalling_EN` を追加（`bro/sis (anisha/anesha; archaic)`）
+
+4. **Num 31〜35 Relation.Comments_EN 英訳**
+   - 全37件の `Comments_EN` を日本語から英語に置換。
+   - 括り書式: 会話文 → `"..."`, 注記文 → `(...)` のルール適用。
+   - Num 34 は関西弁キャラのため、コメントの語調も慣用に合わせて英訳。
+
+### 新規確定訳語ルール（今回追加）
+
+- Num 34 の `SecondPersonCalling_EN` として `sir/lady` を確定（`旦那さん/奥さん` の Kansai 系敬称形）
+- `兄者(あにしゃ)/姉者(あねしゃ)` → `bro/sis (anisha/anesha; archaic)` パターンを確定
+
+### 検証
+
+```
+Test Files  4 failed | 15 passed (19)
+      Tests  6 failed | 78 passed (84)
+```
+
+失敗 6 件はすべて既存の不具合（今回変更とは無関係）:
+- `data.shape.test.js`: BelongingArea / References 構造検証（既存）
+- `commons.secondaries.test.js`: NumberTales SelfSecondary commons（既存）
+- `enrich.dblink.jump.merge.test.js`: `_DBLink._Search` / `_Jump` 解決（既存）
+- `pages.characters.ui-output.test.js`: UI 出力回帰テスト 2 件（既存・言語トグル対応時から）
+
+今回の実装による新規テスト失敗: **0件**
+
+---
 
 ## 2026-06-12 引継ぎ追記：Comments_EN の呼称整合ルール
 

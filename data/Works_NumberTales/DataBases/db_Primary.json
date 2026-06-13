@@ -5195,6 +5195,7 @@
     "Weight_kg": { "hideText": "非公開" },
     "BustSize": "G",
     "TailsUnit": "キツネ(枝分かれ)型6本(上2束2本+下1束4本)",
+    "TailsUnit_EN": "Fox (branched) type: 6 tails (upper: 2 clusters x2, lower: 1 cluster x4)",
     "Class": ["デュアルエイツ"],
     "FirstPersonCalling": "わたし",
     "FirstPersonCalling_EN": "I",
@@ -5406,6 +5407,7 @@
     "Weight_kg": 43,
     "BustSize": "B",
     "TailsUnit": "キツネ(枝分かれ)型7本(上2束2本+下1束5本)",
+    "TailsUnit_EN": "Fox (branched) type: 7 tails (upper: 2 clusters x2, lower: 1 cluster x5)",
     "Class": ["9倍2桁番(ナインズデュアルズ)"],
     "FirstPersonCalling": "ツギナ ※名前呼び\n私(わたし) ※稀",
     "FirstPersonCalling_EN": "Twißven (*by name), I (rare)",
@@ -5585,6 +5587,7 @@
     "Weight_kg": { "hideText": "非公開" },
     "BustSize": "D",
     "TailsUnit": "キツネ(枝分かれ)型8本(上2束2本+下1束6本)",
+    "TailsUnit_EN": "Fox (branched) type: 8 tails (upper: 2 clusters x2, lower: 1 cluster x6)",
     "Class": ["デュアルキャリーズ", "マスマティカコンストレイント"],
     "FirstPersonCalling": "私(わたし)",
     "FirstPersonCalling_EN": "I",
@@ -5774,6 +5777,7 @@
     "Weight_kg": { "hideText": "非公開" },
     "BustSize": "E",
     "TailsUnit": "キツネ(枝分かれ)型9本(上2束2本+下1束7本)",
+    "TailsUnit_EN": "Fox (branched) type: 9 tails (upper: 2 clusters x2, lower: 1 cluster x7)",
     "Class": ["デュアルイレブンズ"],
     "ThisMasters": ["メイリア.シラユキ"],
     "ThisMasters_EN": ["メイリア.シラユキ"],
@@ -6172,6 +6176,7 @@
     "Weight_kg": 40,
     "BustSize": "D",
     "TailsUnit": "キツネ(枝分かれ)型3本(上1束2本+下2束1本)",
+    "TailsUnit_EN": "Fox (branched) type: 3 tails (upper: 1 cluster x2, lower: 2 clusters x1)",
     "Class": ["デュアルフォーズ", "マスマティカコンストレイント"],
     "FirstPersonCalling": "私(わたし)",
     "FirstPersonCalling_EN": "I",
@@ -6182,10 +6187,15 @@
     "ForMasterCalling": "ご主人",
     "ForMasterCalling_EN": "Master",
     "Character": "一度挑んだことは諦めず、向上意欲が旺盛\nメルセンヌ素数が好きな痛い数学徒でもある",
+    "Character_EN": "Never gives up on any challenge once committed; driven by a strong desire to improve\nAlso a self-styled math nerd with a deep love for Mersenne primes",
     "Hobby": "探検",
+    "Hobby_EN": "Exploration",
     "SpecialSkill": "イベントで皆勤賞を取る",
+    "SpecialSkill_EN": "Achieving perfect event attendance without fail",
     "Favor": "スタンプカード\n「31」という数字",
+    "Favor_EN": "Stamp cards\nThe number \"31\"",
     "Unlike": "病欠や事故による欠席",
+    "Unlike_EN": "Being absent due to illness or accidents",
     "IdentityMotif": [
       {
         "Formation": "corefolder",
@@ -6243,8 +6253,11 @@
       }
     ],
     "RelationNotes": "「28(ニハチ)」と数学徒としてつながりがある",
+    "RelationNotes_EN": "Connected with '28(Tweighan)' as a fellow math enthusiast",
     "NumerospecAbout": "主人の行いを引き立てる",
+    "NumerospecAbout_EN": "Enhances and elevates the master's conduct",
     "Summary": "挑戦したことに対する向上意欲が旺盛で、一度挑んだら諦めないという一途な人柄が評判。\nそのことから、彼女といると日頃の行いが良い方向に広がっていくとも主人たちに支持されている。\n一方で自分の掲げる数字「31」に対する愛着が強く、“メルセンヌ素数”をこよなく好むイタい数学学徒な一面も。\n同様に“完全数”を好む「28(ニハチ)」と縁があるとか。",
+    "Summary_EN": "Known for her tenacious drive to improve at any challenge she takes on — once committed, she never gives up.\nBecause of this, masters find that being around her naturally brings out better behavior in their day-to-day lives.\nOn the other hand, she has a deep attachment to her signature number \"31\" and a cringeworthy side as a math enthusiast who adores Mersenne primes.\nShe has ties with '28(Tweighan)', who shares a love of \"perfect numbers\".",
     "NumerospecStats": {
       "EffectStats": {
         "Mental": { "EffectText": "期待" },
@@ -6269,7 +6282,7 @@
         {
           "Num": 13,
           "Comments": "「姉。いつも助かるけど無茶ぶりはちょっとなぁ」",
-          "Comments_EN": "「姉。いつも助かるけど無茶ぶりはちょっとなぁ」",
+          "Comments_EN": "\"My older sis. Always a lifesaver, but the unreasonable demands are a bit much...\"",
           "RelationLabel": ["brother|sister", "awkward_aBit"]
         },
         { "Num": 28, "RelationLabel": ["wellMatched", "accompanying"] }
@@ -6278,36 +6291,36 @@
         {
           "Num": 23,
           "Comments": "「メーワクばっかり掛けない方がいいよ」",
-          "Comments_EN": "「メーワクばっかり掛けない方がいいよ」",
+          "Comments_EN": "\"You'd be better off not causing so much trouble all the time.\"",
           "RelationLabel": ["cousin_nearly"]
         },
         {
           "Num": 40,
           "Comments": "「回数制限とかないなら願い事してみようかな～」",
-          "Comments_EN": "「回数制限とかないなら願い事してみようかな～」"
+          "Comments_EN": "\"If there's no limit on how many times I can ask, maybe I'll try making a wish~\""
         },
         {
           "Num": 58,
           "Comments": "「すぐ一発逆転するからゲームに誘いたくない」",
-          "Comments_EN": "「すぐ一発逆転するからゲームに誘いたくない」",
+          "Comments_EN": "\"I don't want to invite her to games — she always pulls off a quick comeback.\"",
           "RelationLabel": ["classmate"]
         },
         {
           "Num": 61,
           "Comments": "「“乙女”…っていうのかな…？」",
-          "Comments_EN": "「“乙女”…っていうのかな…？」",
+          "Comments_EN": "\"A 'maiden'... I suppose that's what you'd call them...?\"",
           "RelationLabel": ["cousin"]
         },
         {
           "Num": 76,
           "Comments": "「ヘンな人……」",
-          "Comments_EN": "「ヘンな人……」",
+          "Comments_EN": "\"What a strange one...\"",
           "RelationLabel": ["classmate"]
         },
         {
           "Num": 94,
           "Comments": "「退屈だったりしないのかな？」",
-          "Comments_EN": "「退屈だったりしないのかな？」",
+          "Comments_EN": "\"I wonder if they ever get bored?\"",
           "RelationLabel": ["classmate"]
         }
       ]
@@ -6347,8 +6360,10 @@
     "Weight_kg": 40,
     "BustSize": "A",
     "TailsUnit": "キツネ(枝分かれ)型3本(上1束1本+下2束2本)",
+    "TailsUnit_EN": "Fox (branched) type: 3 tails (upper: 1 cluster x1, lower: 2 clusters x2)",
     "Class": ["デュアルファイブズ"],
     "FirstPersonCalling": "シトシ ※名前呼び\nおれ",
+    "FirstPersonCalling_EN": "Thirtwis (*by name)\nI (ore; rough masc.)",
     "SecondPersonCalling": "あんた",
     "SecondPersonCalling_EN": "you (rough)",
     "ThirdPersonCalling": "*いつ/*れ;[※名前呼び]",
@@ -6356,10 +6371,15 @@
     "ForMasterCalling": "リーダー",
     "ForMasterCalling_EN": "Leader",
     "Character": "コミュニケーション力が高く創造的\n奇抜な発想と個性を持つ",
+    "Character_EN": "Highly communicative and creative\nHolds unconventional ideas and a strong individual flair",
     "Hobby": "大喜利",
+    "Hobby_EN": "Ōgiri (improv comedy)",
     "SpecialSkill": "チーム開発を取り仕切る",
+    "SpecialSkill_EN": "Overseeing and managing team development projects",
     "Favor": "二次会\nパーティーゲーム",
+    "Favor_EN": "After-parties\nParty games",
     "Unlike": "孤独感\n姉に起因する始末書",
+    "Unlike_EN": "Loneliness\nWritten reprimands caused by their older sister",
     "IdentityMotif": [
       {
         "Formation": "corefolder",
@@ -6411,8 +6431,11 @@
       }
     ],
     "RelationNotes": "姉「23(ツグミ)」に対して難は無いと自称しているが…",
+    "RelationNotes_EN": "Claims to have no problem with older unit '23(Twinthery)'... though...",
     "NumerospecAbout": "相手の思考を読み交流を深める",
+    "NumerospecAbout_EN": "Reads others' thoughts and deepens interactions",
     "Summary": "コミュニケーション力が高く発想も個性的で奇抜。\nそのため、チームやグループでの活動で取り仕切り役として買って出ることが多い。\nその分誰かと交流してない日が続くと、異様に寂しがることがある。\nしかしながら心を読むこともとりわけ得意なため、他人や他のナンバーテールズに悪絡みしたり苦労したりすることは無い。\nただ、姉個体「23(ツグミ)」に対しては…？",
+    "Summary_EN": "Highly communicative with a creative and unconventional flair.\nBecause of this, they often take on an organizing role in team and group activities.\nFor the same reason, extended periods without social interaction can leave them unusually lonely.\nThat said, their knack for reading others means they rarely face friction or troubles with people or other NumberTales.\nAs for older unit '23(Twinthery)' though...?",
     "NumerospecStats": {
       "EffectStats": {
         "Mental": { "EffectText": "期待" },
@@ -6437,7 +6460,7 @@
         {
           "Num": 23,
           "Comments": "「姉やのことで難はねぇよ、ねぇんだけど……」",
-          "Comments_EN": "「姉やのことで難はねぇよ、ねぇんだけど……」",
+          "Comments_EN": "\"No complaints about our older sis, really none... but...\"",
           "RelationLabel": ["brother|sister", "awkward"]
         }
       ],
@@ -6445,36 +6468,36 @@
         {
           "Num": 12,
           "Comments": "「わかりやすいやつ、まぁそれがいいんだが」",
-          "Comments_EN": "「わかりやすいやつ、まぁそれがいいんだが」",
+          "Comments_EN": "\"A pretty easy one to read — well, I guess that's not a bad thing.\"",
           "RelationLabel": ["cousin"]
         },
         {
           "Num": 14,
           "Comments": "「優等生ではあるんだけどなぁ」",
-          "Comments_EN": "「優等生ではあるんだけどなぁ」",
+          "Comments_EN": "\"A top performer, for sure — but...\"",
           "RelationLabel": ["classmate"]
         },
         {
           "Num": 38,
           "Comments": "「実は幸運の秘訣とかありそう、ねぇの？」",
-          "Comments_EN": "「実は幸運の秘訣とかありそう、ねぇの？」",
+          "Comments_EN": "\"Bet he/she's got some secret to good luck — right?\"",
           "RelationLabel": ["cousin"]
         },
         {
           "Num": 59,
           "Comments": "「身構えたくなるんだよなこいつの前だと…」",
-          "Comments_EN": "「身構えたくなるんだよなこいつの前だと…」",
+          "Comments_EN": "\"I always end up bracing myself around this guy...\"",
           "RelationLabel": ["classmate"]
         },
         {
           "Num": 77,
           "Comments": "「……邪魔したら悪ぃし、そっとしとくか…」",
-          "Comments_EN": "「……邪魔したら悪ぃし、そっとしとくか…」"
+          "Comments_EN": "\"...Would be rude to interrupt, so I'll just leave him/her be...\""
         },
         {
           "Num": 86,
           "Comments": "「金目のトラブルは用心しとけよ」",
-          "Comments_EN": "「金目のトラブルは用心しとけよ」",
+          "Comments_EN": "\"Watch out for money-related trouble with you.\"",
           "RelationLabel": ["classmate"]
         }
       ]
@@ -6514,6 +6537,7 @@
     "Weight_kg": { "hideText": "非公開" },
     "BustSize": "A",
     "TailsUnit": "キツネ(枝分かれ)型2束x3本",
+    "TailsUnit_EN": "Fox (branched) type: 2 clusters x3 tails",
     "Class": ["マスターテールズ9"],
     "ThisMasters": [
       "手塚 桃/Diamond.3(Trey)（78特殊探偵団 金の硬貨支部 構成員）"
@@ -6522,6 +6546,7 @@
       "手塚 桃/Diamond.3(Trey)（78特殊探偵団 金の硬貨支部 構成員）"
     ],
     "FirstPersonCalling": "ミサ ※名前呼び",
+    "FirstPersonCalling_EN": "Thirthrey (*by name)",
     "SecondPersonCalling": "あなた",
     "SecondPersonCalling_EN": "you (neutral/polite)",
     "ThirdPersonCalling": "[※名前呼び]",
@@ -6529,10 +6554,15 @@
     "ForMasterCalling": "ご主人様（/お嬢様）",
     "ForMasterCalling_EN": "Master(/Milady)",
     "Character": "オンライン時：高飛車で過度の自信家で、自分にできないことなど何もないと思っている\nオフライン時：幼児退行気味で泣き虫",
+    "Character_EN": "Online: arrogant, excessively self-confident, convinced there is nothing she cannot do\nOffline: prone to childlike regression and tearfulness",
     "Hobby": "やったことないことを試す",
+    "Hobby_EN": "Trying out things never attempted before",
     "SpecialSkill": "ほぼなんでも",
+    "SpecialSkill_EN": "Almost anything",
     "Favor": "可愛い手芸品",
+    "Favor_EN": "Cute handicrafts",
     "Unlike": "失敗\n自分にできないこと",
+    "Unlike_EN": "Failure\nAnything beyond her abilities",
     "IdentityMotif": [
       {
         "Formation": "corefolder",
@@ -6594,8 +6624,11 @@
       }
     ],
     "RelationNotes": "「30(ミツト)」に妙な愛着が…？",
+    "RelationNotes_EN": "Has a peculiar attachment to '30(Thirtens)'...?",
     "NumerospecAbout": "全域の知識および技能を習得できる（ROSの機能で）\nただし発動条件としてオンライン状態である必要がある",
+    "NumerospecAbout_EN": "Can acquire knowledge and skills across all domains (via ROS functions)\nRequires being in an online state to activate",
     "Summary": "オンライン上で様々な知識と機能を自ら実装するシステムにより、99人の中でも最も万能な個体。\nその優れた性能は「全知全能」と称されるほど。\nそれを追い風に、様々なことに対して自分が「可能であること」と捉え、自信と誇りに満ち溢れている。\nしかし「不可能だったこと」への耐性が極めて弱く、そこを突かれて玩ばれることも。\n「30(ミツト)」に謎の親近感が…？",
+    "Summary_EN": "Thanks to a system that acquires knowledge and functions in real time online, she is the most versatile unit among the 99.\nHer outstanding capabilities are described as \"omniscient and omnipotent.\"\nBuilding on this, she approaches virtually anything with the belief that she is capable of it, radiating confidence and pride.\nHowever, she has an extremely low tolerance for \"things she could not do,\" making her a target for those who exploit that weakness.\nShe feels a mysterious sense of kinship with '30(Thirtens)'...?",
     "NumerospecStats": {
       "EffectStats": {
         "Mental": { "EffectText": "希薄" },
@@ -6616,25 +6649,27 @@
       "Actuation": { "Rank": "Z" }
     },
     "InStory": "「全知全能」を名乗っているが実力は本物\nただしROSの弱点を突かれて玩ばれる一面も",
+    "InStory_EN": "Claims the title of \"omniscient and omnipotent\" — and the ability genuinely backs it up\nHowever, she also has a side where she is toyed with by those who exploit ROS's weaknesses",
     "Backgrounds": "初の正規+改良 複合型でかつ初めて、ROSの機能を強化した個体\nナンバーテールズの活動管理クラウドを応用している",
+    "Backgrounds_EN": "The first unit to be a standard + improved composite type and to have enhanced ROS functions\nAdapts the NumberTales activity management cloud",
     "Relation": {
       "Related": [
         {
           "Num": 3,
           "Comments": "「先輩であり尊敬する方」",
-          "Comments_EN": "「先輩であり尊敬する方」",
+          "Comments_EN": "\"A senior who commands my respect.\"",
           "RelationLabel": ["pioneer"]
         },
         {
           "Num": 15,
           "Comments": "「何かあればミサにお任せを」",
-          "Comments_EN": "「何かあればミサにお任せを」",
+          "Comments_EN": "\"If anything comes up, leave it to Thirthrey.\"",
           "RelationLabel": ["awkward"]
         },
         {
           "Num": 30,
           "Comments": "「お姉c…いえ、なんでもありません」",
-          "Comments_EN": "「お姉c…いえ、なんでもありません」",
+          "Comments_EN": "\"Thirtens Si—... no, never mind.\"",
           "RelationLabel": ["pioneer", "accompanying", "wellMatched"]
         },
         { "Num": 44, "RelationLabel": ["unmatched", "classmate"] }
@@ -6643,28 +6678,28 @@
         {
           "Num": 6,
           "Comments": "「先輩であり尊敬する方」",
-          "Comments_EN": "「先輩であり尊敬する方」"
+          "Comments_EN": "\"A senior who commands my respect.\""
         },
         {
           "Num": 21,
           "Comments": "「自己満足に囚われぬよう願います」",
-          "Comments_EN": "「自己満足に囚われぬよう願います」"
+          "Comments_EN": "\"I hope you won't let yourself become trapped by self-satisfaction.\""
         },
         {
           "Num": 57,
           "Comments": "「何があっても前向きで、正直奇妙です」",
-          "Comments_EN": "「何があっても前向きで、正直奇妙です」"
+          "Comments_EN": "\"Positive no matter what happens — honestly, quite peculiar.\""
         },
         {
           "Num": 66,
           "Comments": "「強いポテンシャルを感じます」",
-          "Comments_EN": "「強いポテンシャルを感じます」",
+          "Comments_EN": "\"I sense a tremendous amount of potential in her.\"",
           "RelationLabel": ["classmate"]
         },
         {
           "Num": 84,
           "Comments": "「因果応報とは言いますが、過信しすぎでは？」",
-          "Comments_EN": "「因果応報とは言いますが、過信しすぎでは？」"
+          "Comments_EN": "\"People say what goes around comes around — but isn't she being a bit too overconfident?\""
         }
       ]
     }
@@ -6704,16 +6739,26 @@
     "Weight_kg": { "hideText": "非公開" },
     "BustSize": "A",
     "TailsUnit": "キツネ(枝分かれ)型4本(上2束3本+下1束1本)",
+    "TailsUnit_EN": "Fox (branched) type: 4 tails (upper: 2 clusters x3, lower: 1 cluster x1)",
     "Class": ["デュアルセブンズ"],
     "FirstPersonCalling": "ワイ",
+    "FirstPersonCalling_EN": "I (wai; Kansai rough masc.)",
     "SecondPersonCalling": "旦那さん/奥さん\nアンタ",
+    "SecondPersonCalling_EN": "sir/lady\nyou (anta; rough)",
     "ThirdPersonCalling": "[※二人称]\n*イツ;[※名前呼び]",
+    "ThirdPersonCalling_EN": "[*second-person calling]\nthat/this/who/which/them; [*by name]",
     "ForMasterCalling": "旦那様（/奥様）\nご主人様（/お嬢様）",
+    "ForMasterCalling_EN": "my lord(/my lady)\nMaster(/Milady)",
     "Character": "少し頑固で不器用、一寸膨大にとらえがち\n小規模なことより大規模なことを好んでいる",
+    "Character_EN": "Somewhat stubborn and clumsy, with a tendency to see things on a grand scale\nPrefers large-scale endeavors over small ones",
     "Hobby": "怪しい交渉を持ちかける",
+    "Hobby_EN": "Pitching shady deals",
     "SpecialSkill": "ギャンブルで誰が負けるかの予想",
+    "SpecialSkill_EN": "Predicting who will lose in a gambling game",
     "Favor": "一騎当千できるアクションゲーム",
+    "Favor_EN": "Action games where one can take on hundreds of enemies at once",
     "Unlike": "妥協",
+    "Unlike_EN": "Compromise",
     "IdentityMotif": [
       {
         "Formation": "corefolder",
@@ -6765,8 +6810,11 @@
       }
     ],
     "RelationNotes": "妹個体「43(シトミ)」に誘発されてあらぬ事態を引き起こすことも……",
+    "RelationNotes_EN": "Can be provoked by younger unit '43(Forthren)' into causing all sorts of unintended situations...",
     "NumerospecAbout": "規模を発展させる",
+    "NumerospecAbout_EN": "Expands and escalates the scale of things",
     "Summary": "営業力が全個体で群を抜いて高いため、彼(女)が行っている副業は必ず成功している。\nただ主従契約の収益に問題こそないものの、不要に事態を肥大化させようとする蛇足癖があるため、あらぬ被害を招いている。\nそのためナンバーテールズの活動そのものを大きく暴走させかねないことから、開発者「百(ハゲム)」の胃を壊している。\nちなみに、アンチからの通称は「サンジ(惨事)」。",
+    "Summary_EN": "His/her sales ability stands unmatched among all units, meaning every side venture he/she pursue ends up succeeding.\nAlthough the income from master-servant contracts is fine, a habit of needlessly inflating situations causes unwarranted damage all around.\nThis tendency to send NumberTales activities spiraling out of control has been known to give developer \"Hudret\" stomach trouble.\nIncidentally, his/her nickname among detractors is \"Troubleforcer\".",
     "NumerospecStats": {
       "EffectStats": {
         "Mental": { "EffectText": "効果無" },
@@ -6790,18 +6838,19 @@
       "Actuation": { "Rank": "B+" }
     },
     "InStory": "関西弁を真似たような口調",
+    "InStory_EN": "Speaks in a tone that mimics the Kansai dialect",
     "Relation": {
       "Related": [
         {
           "Num": 32,
           "Comments": "「コイツには負けてられへん…!!」",
-          "Comments_EN": "「コイツには負けてられへん…!!」",
+          "Comments_EN": "\"Can't lose to him/her...!!\"",
           "RelationLabel": ["cousin", "trusted_maybe", "adverselyAffected_aBit"]
         },
         {
           "Num": 43,
           "Comments": "（※検閲で削除されている…）",
-          "Comments_EN": "（※検閲で削除されている…）",
+          "Comments_EN": "(* censored...)",
           "RelationLabel": [
             "brother|sister",
             "unmatched",
@@ -6812,7 +6861,7 @@
         {
           "Num": "00",
           "Comments": "「体調不良か？ならワイにいい考えが……あれ？」",
-          "Comments_EN": "「体調不良か？ならワイにいい考えが……あれ？」",
+          "Comments_EN": "\"Feeling under the weather? Then I've got a great idea... wait, huh?\"",
           "RelationLabel": ["unmatched"]
         }
       ],
@@ -6820,23 +6869,23 @@
         {
           "Num": 7,
           "Comments": "「生真面目なやっちゃなぁ」",
-          "Comments_EN": "「生真面目なやっちゃなぁ」"
+          "Comments_EN": "\"A real straight-laced one, isn't he/she.\""
         },
         {
           "Num": 30,
           "Comments": "「初々しいところも可愛え子」",
-          "Comments_EN": "「初々しいところも可愛え子」",
+          "Comments_EN": "\"A cute one — naive and all.\"",
           "RelationLabel": ["pioneer_nearly"]
         },
         {
           "Num": 40,
           "Comments": "「なんかずるいわアイツ…」",
-          "Comments_EN": "「なんかずるいわアイツ…」"
+          "Comments_EN": "\"Somehow he/she is just... sneaky.\""
         },
         {
           "Num": 70,
           "Comments": "「ようわからんけどやりおるな…」",
-          "Comments_EN": "「ようわからんけどやりおるな…」"
+          "Comments_EN": "\"I don't quite get it, but he's really pulling it off...\""
         }
       ]
     }
@@ -6874,12 +6923,14 @@
     ],
     "Class": ["デュアルエイツ", "ワノマチ"],
     "Character": "感性が高い才能肌\n几帳面な一面も",
+    "Character_EN": "Gifted with keen intuition and natural talent\nAlso has a meticulous, detail-oriented side",
     "GenderType": "Neutral",
     "Height_cm": 139,
     "ConceptAge": 14,
     "Weight_kg": 36,
     "BustSize": "A",
     "TailsUnit": "キツネ(枝分かれ)型5本(上2束3本+下1束2本)",
+    "TailsUnit_EN": "Fox (branched) type: 5 tails (upper: 2 clusters x3, lower: 1 cluster x2)",
     "FirstPersonCalling": "私(わたし)",
     "FirstPersonCalling_EN": "I",
     "SecondPersonCalling": "あなた",
@@ -6887,10 +6938,15 @@
     "ThirdPersonCalling": "[※名前呼び]",
     "ThirdPersonCalling_EN": "[*by name]",
     "ForMasterCalling": "兄者(あにしゃ)/姉者(あねしゃ)",
+    "ForMasterCalling_EN": "bro/sis (anisha/anesha; archaic)",
     "Hobby": "企画",
+    "Hobby_EN": "Event planning",
     "SpecialSkill": "お祓い",
+    "SpecialSkill_EN": "Performing purification rites",
     "Favor": "掃除・整理整頓",
+    "Favor_EN": "Cleaning and tidying up",
     "Unlike": "危険予知を疎かにしている環境",
+    "Unlike_EN": "Environments where hazard awareness is neglected",
     "IdentityMotif": [
       {
         "Formation": "corefolder",
@@ -6948,7 +7004,9 @@
       }
     ],
     "NumerospecAbout": "物事や進捗を発展させる",
+    "NumerospecAbout_EN": "Promotes the development and progress of matters at hand",
     "Summary": "感覚的な才能に恵まれており、主人たちの物事の進展に大きく貢献している。\n加えて整理整頓や清掃を得意とする几帳面さも相まって、個人だけでなく企業との主従契約でも今後実績が期待されている。\nちなみに副業で巫女活動も展開しており、その清掃能力から庭園を保全したり、動作が繊細なお祓いの儀式にも定評がある。\nこのことに対し本人は曰く、「番号の語呂で軽率に勧められただけで、本業にするつもりは全くない」とのことだが、本業と同程度に実績があるのは言うまでもない。",
+    "Summary_EN": "Blessed with intuitive talent, they make a significant contribution to advancing their masters' endeavors.\nCombined with a meticulous talent for tidying and cleaning, they are expected to build a track record in contracts both with individuals and corporations.\nAs a side job, they also work as a shrine maiden — their cleaning skills have earned them a reputation for maintaining gardens and performing the delicate rites of purification.\nWhen asked about it, they say: \"I was only casually talked into it because of the word play with my number — I have no intention of making it my main job.\" Yet needless to say, their performance rivals their primary role.",
     "NumerospecStats": {
       "EffectStats": {
         "Mental": { "EffectText": "普通" },
@@ -6968,24 +7026,25 @@
       "Actuation": { "Rank": "S" }
     },
     "InStory": "名前のゲン担ぎで巫女のバイトを始めた結果、得意分野である庭園掃除や儀式の丁寧さが功を成し 現在副業にまで発展している（「ミコ」という通称もこのため）",
+    "InStory_EN": "Started shrine maiden work for good luck based on the word play in their name; their strengths in garden maintenance and meticulous ritual work paid off, developing it into a side career (the nickname \"Míko\" also comes from this)",
     "Relation": {
       "Related": [
         {
           "Num": 3,
           "Comments": "「優秀で見習いたい」",
-          "Comments_EN": "「優秀で見習いたい」",
+          "Comments_EN": "\"Excellent — I want to follow his/her example.\"",
           "RelationLabel": ["pioneer", "trusted"]
         },
         {
           "Num": 32,
           "Comments": "「副業のことで絡まないでよ…」",
-          "Comments_EN": "「副業のことで絡まないでよ…」",
+          "Comments_EN": "\"Don't mess with my side job...\"",
           "RelationLabel": ["cousin", "awkward"]
         },
         {
           "Num": 53,
           "Comments": "「ちょっとは気を付けてよ…」",
-          "Comments_EN": "「ちょっとは気を付けてよ…」",
+          "Comments_EN": "\"Please be a little more careful...\"",
           "RelationLabel": ["brother|sister", "awkward", "classmate"]
         }
       ],
@@ -6993,29 +7052,29 @@
         {
           "Num": 5,
           "Comments": "「危なっかしい」",
-          "Comments_EN": "「危なっかしい」",
+          "Comments_EN": "\"Such a reckless her.\"",
           "RelationLabel": ["pioneer"]
         },
         {
           "Num": 8,
           "Comments": "「工場から案件でももらえそう」",
-          "Comments_EN": "「工場から案件でももらえそう」"
+          "Comments_EN": "\"Looks like she could pick up contracts from factories too.\""
         },
         {
           "Num": 44,
           "Comments": "「懸命なフリした狂犬」",
-          "Comments_EN": "「懸命なフリした狂犬」"
+          "Comments_EN": "\"A mad dog pretending to be diligent.\""
         },
         {
           "Num": 75,
           "Comments": "「真面目でいい子」",
-          "Comments_EN": "「真面目でいい子」",
+          "Comments_EN": "\"Serious and a good person.\"",
           "RelationLabel": ["cousin"]
         },
         {
           "Num": 98,
           "Comments": "「何かに焦っていそうまであるけど」",
-          "Comments_EN": "「何かに焦っていそうまであるけど」",
+          "Comments_EN": "\"I could almost see her being anxious about something.\"",
           "RelationLabel": ["classmate"]
         }
       ]
