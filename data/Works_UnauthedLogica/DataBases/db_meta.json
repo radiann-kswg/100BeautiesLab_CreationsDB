@@ -46,6 +46,13 @@
         "about_EN": "between WDCE.VII.28-31(Equivalent to between: WDCE.VIII.4-WDCE.VIII.7, DC.2048-2051)"
       },
       "_Commons": { "RaceType": "CustomAutomaton(TaleBeastType)" }
+    },
+    "#Ref_Vocabulary": {
+      "DB_Label": "語彙辞書",
+      "DB_Label_EN": "Vocabulary",
+      "DB_Layer": "References",
+      "DB_Summary": "アンオースドロジカの創作固有語彙（造語・固有名詞）の日英対照表。",
+      "DB_Summary_EN": "JP/EN glossary of creative coined terms and proper nouns specific to UnauthedLogica."
     }
   },
   "General": {

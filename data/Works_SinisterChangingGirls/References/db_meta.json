@@ -1,0 +1,9 @@
+{
+  "Databases": {
+    "#Ref_Vocabulary": {
+      "DB_Label": "語彙辞書",
+      "DB_Label_EN": "Vocabulary",
+      "DB_Summary": "豹変系女子の創作固有語彙（造語・固有名詞）の日英対照表。"
+    }
+  }
+}

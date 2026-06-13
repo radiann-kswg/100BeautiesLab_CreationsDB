@@ -39,6 +39,13 @@
       "$display": { "section": "basic" }
     },
     {
+      "hashTag": "TermType",
+      "$type": "#String|#Null",
+      "hashTag_JP": "語彙種別",
+      "hashTag_EN": "Term Type",
+      "$display": { "section": "basic" }
+    },
+    {
       "hashTag": "BodyBlocks",
       "$type": "#Summary[]|#Null",
       "hashTag_JP": "本文ブロック"
