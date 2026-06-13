@@ -1061,7 +1061,8 @@
 | Num 36〜40 | ✅ 完了   | Relation.Comments_EN + 全トップレベル \_EN + 呼称 EN + ConversationPattern_EN 補完（2026-06-13）          |
 | Num 41〜45 | ✅ 完了   | Relation.Comments_EN + 全トップレベル \_EN + 呼称 EN + ConversationPattern_EN（Num 41）補完（2026-06-13） |
 | Num 46〜50 | ✅ 完了   | Relation.Comments_EN + 全トップレベル \_EN + 呼称 EN + ConversationPattern_EN（Num 47）補完（2026-06-13） |
-| Num 51〜   | ⏳ 未対応 | 次の作業対象                                                                                              |
+| Num 51〜55 | ✅ 完了   | Relation.Comments_EN + 全トップレベル _EN + ConversationPattern_EN（Num 52）補完（2026-06-13） |
+| Num 56〜   | ⏳ 未対応 | 次の作業対象                                                                                              |
 
 ### トップレベル \_EN フィールドの完了状況（db_Primary.json）
 
@@ -1086,6 +1087,7 @@
 - Num 39: ConversationPattern_EN + DialogueExamples 対応済み（2026-06-13）
 - Num 41: ConversationPattern_EN + DialogueExamples 対応済み（2026-06-13）
 - Num 47: ConversationPattern_EN + DialogueExamples 対応済み（2026-06-13）
+- Num 52: ConversationPattern_EN + DialogueExamples 対応済み（2026-06-13）
 
 ## 2026-06-13 追記：Num 26〜35 英訳補完（TailsUnit_EN + Num 31〜35 全フィールド）
 
@@ -1287,3 +1289,68 @@ Test Files  4 failed | 15 passed (19)
 ### 適用フィールド数
 
 - 98 フィールド
+
+---
+
+## 2026-06-13 追記：Num 41〜50 手直しより確立した新規ルール
+
+### 確立したルール（今後の全バッチに適用）
+
+1. **`corefolder` は全文小文字**
+   - `CoreFolder` / `CoreFolders` → `corefolder` / `corefolders` で統一。
+   - キャラクターの形態・ゲーム概念いずれも同様。
+
+2. **特殊個体タイプ表記は `Unit.N+M type` 形式**
+   - `"4+6 type"` → `"Unit.4+6 type"` に統一。
+   - `InStory_EN` 等の本文内でも同形式を使う。
+
+3. **ForMasterCalling_EN の `~` 記号表記**
+   - `[*by name]-senpai` → `~-senpai` に統一（`~` = 名前プレースホルダー）。
+
+4. **`SecondPersonCalling_EN` で `あんた` → `guy/girl(s) (anta; rough)`**
+   - `you (anta; rough)` から変更（相手の性別を包含するニュアンス）。
+
+5. **Neutral キャラクターの代名詞は設計意図に準拠**
+   - 原則 `he/she` だが、Num 46・49・50 のように特定 Neutral キャラが `she` で修正された例あり。
+   - ビジュアル・設定に基づいた個別判断なので、次バッチでも同様のケースが出た場合はユーザーの確認待ち。
+   - Num 48（MaleNeutral）は `私/俺` の二重一人称のため、`her` / `him/her` / `He/She's` を混在使用。
+
+---
+
+## 2026-06-13 追記：Num 51〜55 英訳補完（全フィールド + ConversationPattern）
+
+### 対象
+
+- `data/Works_NumberTales/DataBases/db_Primary.json`
+
+### 実施内容
+
+1. **TailsUnit_EN 追補（Num 51〜53・55）**
+   - Num 51〜53: `Fox (branched) type: 5 tails (upper: 1 cluster xN, lower: 2 clusters xM)` 形式
+   - Num 55: `Fox type: 5 tails (2 clusters x5)`（非枝分かれ型で括弧内の bundle 記法あり）
+   - Num 54: TailsUnit フィールド自体が存在しないため対象外
+
+2. **トップレベル _EN 補完**
+   - Num 51: Character/Hobby/SpecialSkill/Favor/Unlike/NumerospecAbout/Summary/Backgrounds/InStory
+   - Num 52: Character/Hobby/SpecialSkill/Favor/Unlike/NumerospecAbout/Backgrounds（Summary は既存）
+   - Num 53: ForMasterCalling_EN + Character/Hobby/SpecialSkill/Favor/Unlike/NumerospecAbout/Summary
+   - Num 54: NumerospecAbout のみ（他フィールドは存在しないか既補完）
+   - Num 55: ForMasterCalling_EN + Character/Hobby/SpecialSkill/Favor/Unlike/RelationNotes/NumerospecAbout/Summary/Backgrounds
+
+3. **ConversationPattern_EN 補完（Num 52）**
+   - `TalkingTone_EN` 〜 `ConversationNotes_EN` の6フィールドを追加
+   - DialogueExamples 10件: 文字列→ `{value_JP, value_EN}` 変換、オブジェクト→ `value_EN` / `about_EN` 追補
+
+4. **Relation.Comments_EN 英訳（全 JP コピー状態を上書き）**
+   - Num 51〜55（Num 54 はコメントなし）の全エントリを英訳で上書き
+
+### 特記事項
+
+- Num 53 の `ForMasterCalling_EN`: `兄者/姉者` → `bro/sis (anisha/anesha; archaic)`（Num 35 で確立済みのパターンを適用）
+- Num 54: GenderType / TailsUnit / Calling フィールドすべて未定義。NumerospecAbout のみ補完。
+- Num 55 の `Unlike`: `{ hideText: '？？？' }` → `Unlike_EN: { hideText: '???' }` sibling object 方式で対応。
+- Num 55 の `ForMasterCalling`: カンマ区切り `君,彼/彼女` → `you (kimi; familiar), he/she (*addresses master in third person)` で1行表記。
+
+### 適用フィールド数
+
+- 73 フィールド

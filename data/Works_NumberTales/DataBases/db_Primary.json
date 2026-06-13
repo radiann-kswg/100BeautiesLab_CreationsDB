@@ -9901,6 +9901,7 @@
     ],
     "Weight_kg": 44,
     "TailsUnit": "キツネ(枝分かれ)型5本(上1束4本+下2束1本)",
+    "TailsUnit_EN": "Fox (branched) type: 5 tails (upper: 1 cluster x4, lower: 2 clusters x1)",
     "Class": ["デュアルシックスズ"],
     "FirstPersonCalling": "おれ",
     "FirstPersonCalling_EN": "I (rough masc.)",
@@ -9911,18 +9912,27 @@
     "ForMasterCalling": "主(あるじ)",
     "ForMasterCalling_EN": "Master (Aruji)",
     "Character": "発想力が高くアイディアマンとしても名高い",
+    "Character_EN": "Known for exceptional creativity — acclaimed as a true idea man",
     "Hobby": "ジェンガ",
+    "Hobby_EN": "Jenga",
     "SpecialSkill": "ツボで弱点を突く",
+    "SpecialSkill_EN": "Hitting weak spots at exactly the right moment",
     "Favor": "ドキュメンタリー、（漠然とした）期待",
+    "Favor_EN": "Documentaries, (vague) anticipation",
     "Unlike": "枠に囚われること、長話",
+    "Unlike_EN": "Being boxed in, long-winded talk",
     "Strength": "発想が奇抜でアイディア性にたける",
+    "Strength_EN": "His ideas are unconventional and highly creative",
     "Weakness": "他人の地雷を踏み抜きやすい",
+    "Weakness_EN": "Tends to step on other people's landmines",
     "IdentityMotif": [
       { "Formation": "humanoid", "Motif": { "Motif_JP": [], "Motif_EN": [] } },
       { "Formation": "corefolder", "Motif": { "Motif_JP": [], "Motif_EN": [] } }
     ],
     "NumerospecAbout": "閃きをもたらす",
+    "NumerospecAbout_EN": "Brings flashes of inspiration",
     "Summary": "枠にとらわれない思考の持ち主で、発想や着眼点についてはとても注目されている。\nしかし、本人が「“安全装置”を本体設計に組み込むことで“奇跡の個体”を安定最適化した個体」だと豪語している反面、その「奇跡を起こす」と噂される兄姉個体の改良個体としてはとんでもない駄作だと悪評を連ねる主人が一定数存在している。\n本人は「59(イヅク)」よりマシだと自覚していないようだが……",
+    "Summary_EN": "He possesses a free-range, out-of-the-box mind, and is highly regarded for his creativity and perspective.\nHowever, while he himself boasts of being \"the unit that stably optimized the 'miracle unit' by incorporating a safety device into the core design,\" a certain number of masters follow him with nothing but scathing reviews — calling him a remarkably terrible product as an improved model of the sibling unit said to \"produce miracles.\"\nHe doesn't seem to realize he still has it better than '59(Fivenint)', but...",
     "NumerospecStats": {
       "EffectStats": {
         "Mental": { "EffectText": "希薄" },
@@ -9947,19 +9957,21 @@
       "Actuation": { "Rank": "B" }
     },
     "InStory": "特異個体「1+5型」の安定最適化版だが……",
+    "InStory_EN": "The stably optimized version of the unique \"Unit.1+5 type\" units, but...",
     "Backgrounds": "兄姉個体「15(トウゴ)」を下方調整したと称されるほど改良機としては駄作個体という悪評がマニアな主人から出回っている。",
+    "Backgrounds_EN": "Scathing reviews from connoisseur masters have circulated, calling him such a terrible improved unit that he is said to have \"tuned down\" his sibling unit '15(Fifteeld)'.",
     "Relation": {
       "Related": [
         {
           "Num": 15,
           "Comments": "「おれの自慢の兄[姉]だ！」",
-          "Comments_EN": "「おれの自慢の兄[姉]だ！」",
+          "Comments_EN": "\"That's the sibling I'm proud of!\"",
           "RelationLabel": ["brother|sister", "classmate"]
         },
         {
           "Num": 59,
           "Comments": "「おれの方がまだ優秀だな！」",
-          "Comments_EN": "「おれの方がまだ優秀だな！」",
+          "Comments_EN": "\"I'm still the more capable one between us!\"",
           "RelationLabel": ["cousin", "unmatched", "adverselyAffected"]
         }
       ],
@@ -9967,23 +9979,23 @@
         {
           "Num": 19,
           "Comments": "「掴みどころが無い」",
-          "Comments_EN": "「掴みどころが無い」",
+          "Comments_EN": "\"Hard to get a read on.\"",
           "RelationLabel": ["cousin_nearly"]
         },
         {
           "Num": 32,
           "Comments": "「できる人というのは見るだけでわかる」",
-          "Comments_EN": "「できる人というのは見るだけでわかる」"
+          "Comments_EN": "\"You can tell at a glance whether someone's capable.\""
         },
         {
           "Num": 60,
           "Comments": "「魅力的で感性を刺激される」",
-          "Comments_EN": "「魅力的で感性を刺激される」"
+          "Comments_EN": "\"Fascinating — she really stimulates the senses.\""
         },
         {
           "Num": 96,
           "Comments": "「ん？誰だおまえ…？」",
-          "Comments_EN": "「ん？誰だおまえ…？」",
+          "Comments_EN": "\"Hm? Who are you...?\"",
           "RelationLabel": ["classmate"]
         }
       ]
@@ -10028,6 +10040,7 @@
     ],
     "BustSize": "F",
     "TailsUnit": "キツネ(枝分かれ)型5本(上1束3本+下2束2本)",
+    "TailsUnit_EN": "Fox (branched) type: 5 tails (upper: 1 cluster x3, lower: 2 clusters x2)",
     "Class": ["デュアルセブンズ"],
     "ThisMasters": [
       "亜高 蝶嵐(てふらん)/Heart.7(Seven)（78特殊探偵団 水の聖杯支部 構成員）"
@@ -10044,10 +10057,15 @@
     "ForMasterCalling": "主人さん",
     "ForMasterCalling_EN": "Master",
     "Character": "受け身姿勢でいつも流され気味だが、自分の本領を発揮できるタイミングを掌握できる",
+    "Character_EN": "Tends to go with the flow and play a passive role, yet has a knack for knowing exactly when to step forward and show her true worth",
     "Hobby": "戦略ゲーム",
+    "Hobby_EN": "Strategy games",
     "SpecialSkill": "麻雀",
+    "SpecialSkill_EN": "Mahjong",
     "Favor": "急展開",
+    "Favor_EN": "Sudden plot twists",
     "Unlike": "ネタバレ\n如何様(イカサマ)",
+    "Unlike_EN": "Spoilers\nCheating (ikasama)",
     "IdentityMotif": [
       {
         "Formation": "corefolder",
@@ -10095,6 +10113,7 @@
       }
     ],
     "NumerospecAbout": "楽観主義により自己実現と適応力を発揮する\nこの効果は主人に感化させることもできる\nただしこの効果は受動的な作用である",
+    "NumerospecAbout_EN": "Brings out self-actualization and adaptability through optimism\nThis effect can also inspire the same in a master\nHowever, this effect works passively",
     "Summary": "自己掲示欲は低いものの、自分が本領を発揮できるタイミングを逃すことが無く勝機を掴みやすい。\n何が起きようと適応力と状況判断力が極めて優れており、受動的な性格ながら自己実現力があり有能。\nちなみに、姉「25(フィズ)」の代替機としても活動しているため、姉妹で交代して主従業務に当たっている一面も見られている。",
     "Summary_EN": "Although she has a low appetite for self-promotion, she never misses a moment when she is in her element and easily seizes a winning opportunity.\nShe is extremely adaptable and capable of judging situations no matter what happens, and although she is passive, she is self-actualized and competent.\nIncidentally, since she also acts as a replacement for her older sister \"25(Quartels)\", the two sisters have been seen taking turns as lead and subordinate workers.",
     "NumerospecStats": {
@@ -10117,6 +10136,7 @@
       "Actuation": { "Rank": "B+" }
     },
     "Backgrounds": "姉「25(フィズ)」の代替機体とも呼称され、姉妹で業務を交代している一面も見られる",
+    "Backgrounds_EN": "She is also referred to as the backup unit for her older sister '25(Quartels)', and the two are sometimes seen taking turns on duties",
     "Relation": {
       "Related": [
         {
@@ -10131,72 +10151,108 @@
         }
       ],
       "Commented": [
-        { "Num": 7, "Comments": "「憎めない」", "Comments_EN": "「憎めない」" },
+        {
+          "Num": 7,
+          "Comments": "「憎めない」",
+          "Comments_EN": "\"Hard not to like.\""
+        },
         {
           "Num": 16,
           "Comments": "「素敵な人」",
-          "Comments_EN": "「素敵な人」",
+          "Comments_EN": "\"What a lovely person.\"",
           "RelationLabel": ["classmate"]
         },
         {
           "Num": 32,
           "Comments": "「ちょっとキャラが濃いかも…」",
-          "Comments_EN": "「ちょっとキャラが濃いかも…」",
+          "Comments_EN": "\"He/She might be a bit of a character...\"",
           "RelationLabel": ["cousin"]
         },
         {
           "Num": 43,
           "Comments": "「すごく期待できる」",
-          "Comments_EN": "「すごく期待できる」",
+          "Comments_EN": "\"I have such high hopes for her.\"",
           "RelationLabel": ["classmate"]
         },
         {
           "Num": 65,
           "Comments": "「癒される」",
-          "Comments_EN": "「癒される」",
+          "Comments_EN": "\"She's so soothing.\"",
           "RelationLabel": ["cousin_nearly", "wellMatched_maybe"]
         },
         {
           "Num": 75,
           "Comments": "「しっかりしてる」",
-          "Comments_EN": "「しっかりしてる」",
+          "Comments_EN": "\"He/She's got it together.\"",
           "RelationLabel": ["cousin_nearly"]
         },
         {
           "Num": 79,
           "Comments": "「いい人なんだろけど…ちょっと不安になる」",
-          "Comments_EN": "「いい人なんだろけど…ちょっと不安になる」",
+          "Comments_EN": "\"He/She seems nice, but... he/she makes me a little nervous.\"",
           "RelationLabel": ["classmate", "awkward_aBit"]
         }
       ]
     },
     "ConversationPattern": {
       "TalkingTone": "穏やかで控えめな口調を基本に、要所では判断の早さがにじむ。感情を大きく前に出しすぎず、落ち着いて受け答えする。",
+      "TalkingTone_EN": "Calm and understated as a baseline, with glimpses of quick decision-making at key moments. She doesn't push her emotions too far forward — composed and measured in her responses.",
       "TopicPreference": "流れを見て好機をつかむような話題や、状況判断が物を言う話を好む。表立って目立つより、良いタイミングを見極めることに関心がある。",
+      "TopicPreference_EN": "Drawn to topics that involve reading the flow and seizing an opportunity, or where situational judgment is key. More interested in identifying the right moment than standing out.",
       "TalkFrequency": "常に前へ出るタイプではないが、ここぞという場面では自然に発言する。相手の話を聞いてから短く要点を返すことが多い。",
+      "TalkFrequency_EN": "Not the type to always step forward, but speaks naturally when the moment calls for it. She typically listens first, then returns a short response hitting the core point.",
       "PreferredTopics": "戦略ゲームや勝負の分岐点、空気の読み方に関してとても敏感（だが、基本口調には影響しない）。無理なく流れに乗るために、自ら自然に話題を変えることもある。",
+      "PreferredTopics_EN": "Very attuned to strategy games, turning points in a match, and reading the room — though this doesn't affect her baseline demeanor. She will naturally steer the conversation herself when it helps things flow.",
       "AvoidedTopics": "ネタバレやイカサマのように、結果や流れを不当に壊す話題を嫌う。無理な自己主張を求められる場も苦手で、その場合は自ら距離を取ることがある。",
+      "AvoidedTopics_EN": "Dislikes topics that unfairly ruin results or momentum — like spoilers or cheating. She also dislikes being put in situations requiring forced self-assertion, and will quietly step back in those cases.",
       "ConversationNotes": "受け身に見えても、動くべき瞬間にはしっかり乗る。姉の代替を務める立場もあり、控えめでも状況対応には強い。基本的に受動的で物静かだが、好意を示すときは物静かでありながら明らかに好意がわかる微笑み方をする。",
+      "ConversationNotes_EN": "Even when she appears passive, she catches the moment to act and runs with it. She also holds a backup role for her older sister, so beneath the quiet exterior lies real situational resilience. Basically passive and soft-spoken, but when she shows affection, her fondness is unmistakably clear in the way she smiles.",
       "DialogueExamples": [
         {
           "value": "「ナンバーテールズ52番機の『52(イツギ)』です。まだまだ未熟だけど、よろしくね」",
+          "value_EN": "\"I'm '52(Fiftwis)', NumberTales #52. I'm still very much a work in progress, but I hope we can get along.\"",
           "about": "契約時の自己紹介",
           "about_EN": "Self-introduction at the time of contract"
         },
-        "「まだまだわからないことだらけだけど、やってみてると楽しいかも」",
-        "「SNSでウケる秘訣は『IQを極限まで下げる』…？どういうことだろう…」",
-        "「25(フィズ)は元気にしているよ。ちょっと私に無茶ぶりを仕掛けてくるくらいには……」",
-        "「この間まだ視聴してない映画の話になったけど、みんなネタバレを伏せて話してくれて 本当に助かったよ…」",
-        "（…あれ…？このステータス、放っておいて大丈夫だったかな…？あとで25(フィズ)に教えてもらお）",
-        "「お疲れさま主人さん。明日が主人さんにとっていい日になるといいね」",
-        "「今日は楽しいことがあった主人さんも、辛いことがあった主人さんも、明日がいい日になるように私は祈ってるよ」",
+        {
+          "value_JP": "「まだまだわからないことだらけだけど、やってみてると楽しいかも」",
+          "value_EN": "\"There's still so much I don't understand, but trying things out might actually be fun.\""
+        },
+        {
+          "value_JP": "「SNSでウケる秘訣は『IQを極限まで下げる』…？どういうことだろう…」",
+          "value_EN": "\"The secret to going viral on social media is to 'lower your IQ to the absolute minimum'...? What does that even mean...\""
+        },
+        {
+          "value_JP": "「25(フィズ)は元気にしているよ。ちょっと私に無茶ぶりを仕掛けてくるくらいには……」",
+          "value_EN": "\"25(Quartels) is doing well. Well enough to keep throwing unreasonable requests at me...\""
+        },
+        {
+          "value_JP": "「この間まだ視聴してない映画の話になったけど、みんなネタバレを伏せて話してくれて 本当に助かったよ…」",
+          "value_EN": "\"The other day we started talking about a movie I hadn't seen yet, but everyone kept the spoilers under wraps — I was so relieved...\""
+        },
+        {
+          "value_JP": "（…あれ…？このステータス、放っておいて大丈夫だったかな…？あとで25(フィズ)に教えてもらお）",
+          "value_EN": "(…Wait…? Was it okay to leave that status alone...? I'll ask 25(Quartels) about it later.)"
+        },
+        {
+          "value_JP": "「お疲れさま主人さん。明日が主人さんにとっていい日になるといいね」",
+          "value_EN": "\"Thank you for your hard work, Master. I hope tomorrow is a good day for you.\""
+        },
+        {
+          "value_JP": "「今日は楽しいことがあった主人さんも、辛いことがあった主人さんも、明日がいい日になるように私は祈ってるよ」",
+          "value_EN": "\"Whether today brought something good or something hard, Master — I'm hoping tomorrow will be a good day for you too.\""
+        },
         {
           "value": "「寝つけなかったら、私が傍にいてあげるね」",
-          "about": "疲れて眠れない主人に対して①"
+          "value_EN": "\"If you can't fall asleep, I'll stay right by your side.\"",
+          "about": "疲れて眠れない主人に対して①",
+          "about_EN": "For a master who is tired but can't sleep (case.1)"
         },
         {
           "value": "「私でよかったら、あとで膝枕してあげるね」",
-          "about": "疲れて眠れない主人に対して②"
+          "value_EN": "\"If you don't mind it being me — I'll give you a lap pillow later.\"",
+          "about": "疲れて眠れない主人に対して②",
+          "about_EN": "For a master who is tired but can't sleep (case.2)"
         }
       ]
     }
@@ -10233,6 +10289,7 @@
     "Weight_kg": 36,
     "BustSize": "A",
     "TailsUnit": "キツネ(枝分かれ)型5本(上1束2本+下2束3本)",
+    "TailsUnit_EN": "Fox (branched) type: 5 tails (upper: 1 cluster x2, lower: 2 clusters x3)",
     "FirstPersonCalling": "僕",
     "FirstPersonCalling_EN": "I (masc. casual)",
     "SecondPersonCalling": "あなた",
@@ -10240,11 +10297,17 @@
     "ThirdPersonCalling": "[※名前呼び]",
     "ThirdPersonCalling_EN": "[*by name]",
     "ForMasterCalling": "兄者(あにしゃ)/姉者(あねしゃ)",
+    "ForMasterCalling_EN": "bro/sis (anisha/anesha; archaic)",
     "Character": "単純で調子に乗りやすい",
+    "Character_EN": "Simple-minded and easily gets carried away",
     "Hobby": "ボードゲーム",
+    "Hobby_EN": "Board games",
     "SpecialSkill": "ゴルフ",
+    "SpecialSkill_EN": "Golf",
     "Favor": "アクション映画",
+    "Favor_EN": "Action movies",
     "Unlike": "挑発\n姉[兄]に避けられていること",
+    "Unlike_EN": "Provocation\nBeing avoided by older siblings",
     "IdentityMotif": [
       {
         "Formation": "corefolder",
@@ -10296,7 +10359,9 @@
       }
     ],
     "Summary": "転機を恵むと一部の層から定評であり、主人たちの活動へ貢献している。\n活動実績は然程大きくはないが、中でも彼(女)の招いたチャンスを最大限に受容できるような主人とは相性が良い傾向にある。\nただ性格で単純さが目立っており、煽(おだ)てられるとすぐに調子に乗ってしまうところなどがある。\nそのため、彼(女)の良し悪しについては主人だけでなく他のナンバーテールズからも意見が分かれている様子。",
+    "Summary_EN": "He/she is well regarded by some for granting turning points, contributing meaningfully to masters' activities.\nWhile his/her track record is not particularly large, he/she tends to have good chemistry with masters who can make the most of the chances he/she brings.\nThat said, he/she has a notably simple-minded streak — easily flattered into getting carried away.\nFor that reason, opinions on his/her merits seem divided, not only among masters but among other NumberTales as well.",
     "NumerospecAbout": "転機を連続して招く\nこの効果は対象が積極的に受ければ受けるほど持続する",
+    "NumerospecAbout_EN": "Invites one turning point after another\nThe more actively the target accepts them, the longer this effect continues",
     "NumerospecStats": {
       "EffectStats": {
         "Mental": { "EffectText": "希薄" },
@@ -10321,19 +10386,19 @@
         {
           "Num": 30,
           "Comments": "「見てて和む」",
-          "Comments_EN": "「見てて和む」",
+          "Comments_EN": "\"Watching her is soothing.\"",
           "RelationLabel": ["pioneer_nearly", "wellMatched"]
         },
         {
           "Num": 35,
           "Comments": "「なんで僕のこと避けようとするのさ！」",
-          "Comments_EN": "「なんで僕のこと避けようとするのさ！」",
+          "Comments_EN": "\"Why are you trying to avoid me!\"",
           "RelationLabel": ["brother|sister", "awkward", "classmate"]
         },
         {
           "Num": 50,
           "Comments": "「肝が据わりすぎて逆に怖い」",
-          "Comments_EN": "「肝が据わりすぎて逆に怖い」",
+          "Comments_EN": "\"He/She's so unflappable it's actually a bit scary.\"",
           "RelationLabel": ["pioneer_nearly", "unmatched"]
         }
       ],
@@ -10341,24 +10406,24 @@
         {
           "Num": 23,
           "Comments": "「トラブルメーカっぽいところある」",
-          "Comments_EN": "「トラブルメーカっぽいところある」",
+          "Comments_EN": "\"There's a bit of a troublemaker vibe to her.\"",
           "RelationLabel": ["cousin"]
         },
         {
           "Num": 57,
           "Comments": "「勝負強そう」",
-          "Comments_EN": "「勝負強そう」",
+          "Comments_EN": "\"Looks like someone who comes through in a clutch.\"",
           "RelationLabel": ["cousin"]
         },
         {
           "Num": 80,
           "Comments": "「良く解んないことを平然とやってのけてる」",
-          "Comments_EN": "「良く解んないことを平然とやってのけてる」"
+          "Comments_EN": "\"She pulls off things no one else understands, just cool as you please.\""
         },
         {
           "Num": 89,
           "Comments": "「あれでも僕のずっと下の代なんだよね…？」",
-          "Comments_EN": "「あれでも僕のずっと下の代なんだよね…？」",
+          "Comments_EN": "\"Even so, she is still from a generation way below mine, right...?\"",
           "RelationLabel": ["classmate"]
         }
       ]
@@ -10387,6 +10452,7 @@
     ],
     "Class": ["9倍2桁番(ナインズデュアルズ)"],
     "NumerospecAbout": "主人に転機を与える\nこの効果は逆境を問わず発動する",
+    "NumerospecAbout_EN": "Grants turning points to the master\nThis effect activates regardless of adversity",
     "Relation": {
       "Commented": [
         { "Num": 59, "RelationLabel": ["cousin"] },
@@ -10427,6 +10493,7 @@
     "Weight_kg": { "hideText": "非公開" },
     "BustSize": "AA",
     "TailsUnit": "キツネ(枝分かれ)型2束x5本",
+    "TailsUnit_EN": "Fox type: 5 tails (2 clusters x5)",
     "Class": ["マスターテールズ9"],
     "FirstPersonCalling": "あたし",
     "FirstPersonCalling_EN": "I (fem. casual)",
@@ -10435,11 +10502,17 @@
     "ThirdPersonCalling": "彼/彼女;[※名前呼び]",
     "ThirdPersonCalling_EN": "he/she; [*by name]",
     "ForMasterCalling": "君,彼/彼女",
+    "ForMasterCalling_EN": "you, he/she (familiar)",
     "Character": "適応力と自己実現力を併せ持つ\n何が起こっても平然としている、鈍感？",
+    "Character_EN": "Possesses both adaptability and self-actualization\nUnperturbed by whatever happens — perhaps just oblivious?",
     "Hobby": "普通の生活？",
+    "Hobby_EN": "Normal daily life?",
     "SpecialSkill": "現状を打破すること",
+    "SpecialSkill_EN": "Breaking through any given situation",
     "Favor": "神社のお守り",
+    "Favor_EN": "Shrine charms (o-mamori)",
     "Unlike": { "hideText": "？？？" },
+    "Unlike_EN": { "hideText": "???" },
     "IdentityMotif": [
       {
         "Formation": "corefolder",
@@ -10487,8 +10560,11 @@
       }
     ],
     "RelationNotes": "「台風の目」と呼ばれているが、それは「11(トウイチ)」のことだと錯覚している",
+    "RelationNotes_EN": "Is called \"the eye of the typhoon,\" but she mistakenly thinks that refers to '11(Elevan)' instead",
     "NumerospecAbout": "想像できないことを周囲に引き起こす\nただし自分自身に適応耐性があるため無自覚となる",
+    "NumerospecAbout_EN": "Causes unimaginable things to happen around her\nHowever, her own adaptation resistance means she remains unaware of it",
     "Summary": "主人や自分の過去に囚われず、より良いものへ変化すること/変化されること を醍醐味に、適応力と自己実現力の相反する能力を併せ現状を打破することを得意としている。\nただ、彼女の周りで誰も想像しないことが多発することより「台風の目」と呼ばれていることも。\nなお彼女自身はというと、感受性を通り越したのかどんなことが起こっても常に平然としている様で、あまり自覚していないらしい。\n鈍感なのだろうか…",
+    "Summary_EN": "Not one to be bound by her master's or her own past, she excels at breaking through the status quo — finding joy in both changing and being changed — through the complementary forces of adaptability and self-actualization.\nShe is also sometimes called \"the eye of the typhoon,\" as a string of unimaginable events tends to unfold around her.\nAs for herself, she always remains perfectly unruffled no matter what happens — as if her sensitivity has gone past its limit — and she seems largely unaware of it.\nIs she just oblivious...?",
     "NumerospecStats": {
       "EffectStats": {
         "Mental": { "EffectText": "普通" },
@@ -10509,24 +10585,25 @@
       "Actuation": { "Rank": "B+" }
     },
     "Backgrounds": "開発中も幾度か災難に巻き込まれたと百は供述している",
+    "Backgrounds_EN": "Hudret has testified that she was caught up in several mishaps even during her development",
     "Relation": {
       "Related": [
         {
           "Num": 5,
           "Comments": "「よくわかんないけどあれが彼女の個性だよね」",
-          "Comments_EN": "「よくわかんないけどあれが彼女の個性だよね」",
+          "Comments_EN": "\"I'm not entirely sure why, but that's just her thing, isn't it.\"",
           "RelationLabel": ["pioneer"]
         },
         {
           "Num": 11,
           "Comments": "「彼(女)が「台風の目」だよね、え、違う？」",
-          "Comments_EN": "「彼(女)が「台風の目」だよね、え、違う？」",
+          "Comments_EN": "\"He/she's 'the eye of the typhoon,' right? Wait — is that wrong?\"",
           "RelationLabel": ["adverselyAffected", "classmate"]
         },
         {
           "Num": 41,
           "Comments": "「思い立って失敗したとこ見たことないよ」",
-          "Comments_EN": "「思い立って失敗したとこ見たことないよ」",
+          "Comments_EN": "\"I've never seen him have an idea and fail at it.\"",
           "RelationLabel": ["trusted"]
         },
         { "Num": 74, "RelationLabel": ["unmatched"] }
@@ -10535,22 +10612,22 @@
         {
           "Num": 10,
           "Comments": "「ああ見えて悩んでいるとこもありそう」",
-          "Comments_EN": "「ああ見えて悩んでいるとこもありそう」"
+          "Comments_EN": "\"Despite how he/she looks, he/she seems to have his/her share of worries.\""
         },
         {
           "Num": 28,
           "Comments": "「だいたい物に困らないから不思議」",
-          "Comments_EN": "「だいたい物に困らないから不思議」"
+          "Comments_EN": "\"It's strange — she almost never seems to lack for anything.\""
         },
         {
           "Num": 73,
           "Comments": "「たまにデマを鵜呑みにして拡散しそうな気が…」",
-          "Comments_EN": "「たまにデマを鵜呑みにして拡散しそうな気が…」"
+          "Comments_EN": "\"I get the feeling she might sometimes take rumors at face value and spread them...\""
         },
         {
           "Num": 77,
           "Comments": "「カッコいいのに人柄を知ると、なんか…ねぇ…」",
-          "Comments_EN": "「カッコいいのに人柄を知ると、なんか…ねぇ…」",
+          "Comments_EN": "\"He/She looks so cool, but once you get to know his/her personality... well...\"",
           "RelationLabel": ["awkward_aBit", "classmate"]
         }
       ]
