@@ -5,7 +5,7 @@
     "Images": {
       "catalog_PNGName": ["../../General/catalog/chr-dsgn_NTsCatalog-Summary"]
     },
-    "Category": "キャラクターの基本情報",
+    "Category": "基本情報",
     "Summary": "数秘の癒やしを体感できる妖獣型ポータブルヒューマノイド「ナンバーテールズ」に関する基本資料。",
     "Summary_EN": "Basic reference material on the beast-type portable humanoids 'NumberTales', designed to let their Masters experience the healing of numerological blessings.",
     "BodyBlocks": [
@@ -14,7 +14,7 @@
     ],
     "BodyBlocks_EN": [
       "Numbers are something humans count every day without a second thought — yet according to Kabbalistic numerology and angel numbers, they apparently carry a spiritual healing power.\nAnd so the inventor siblings Zera and Hudret created 99 portable humanoids as 'beasts capable of letting their Masters experience numerological healing.'\nMore recently, however, NumberTales bearing three-digit numbers — produced for made-to-order manufacturing — have also come to exist.",
-	  "Among their notable characteristics are the fact that each NumberTale's number is incorporated into their outfit design, and that the number of tails — and how they are grouped — differs depending on the number they bear.\nApparently, some individuals have grown quite fond of their number, or even feel a sense of pride about it."
+      "Among their notable characteristics are the fact that each NumberTale's number is incorporated into their outfit design, and that the number of tails — and how they are grouped — differs depending on the number they bear.\nApparently, some individuals have grown quite fond of their number, or even feel a sense of pride about it."
     ],
     "RelatedTerms": [""],
     "Visibility": null
@@ -23,7 +23,7 @@
     "Title": "クラスについて(ナンバーテールズ)",
     "Title_EN": "About Classes for NumberTales",
     "Images": { "concept-figure_PNGName": ["cnsp-fg_NTsClass"] },
-    "Category": "キャラクターの分類・種族について",
+    "Category": "分類・種族について",
     "Summary": "妖獣型ポータブルヒューマノイド「ナンバーテールズ」のクラスに関する基本資料。",
     "Summary_EN": "Basic reference material on the class system of the beast-type portable humanoids 'NumberTales'.",
     "BodyBlocks": [

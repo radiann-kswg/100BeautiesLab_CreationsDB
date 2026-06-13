@@ -1,0 +1,55 @@
+{
+  "Databases": {
+    "#Ref_Vocabulary": {
+      "DB_Label": "語彙辞書",
+      "DB_Label_EN": "Vocabulary",
+      "DB_Summary": "創作作品全体における固有の用語に関する資料。"
+    }
+  },
+  "General": {
+    "$VarsDef": {
+      "$EnumDef_Category": {
+        "#Reference_Basis": {
+          "Category": "基本情報",
+          "Category_EN": "Basic Reference"
+        },
+        "#Reference_Faction": {
+          "Category": "組織・陣営",
+          "Category_EN": "Organization & Faction"
+        },
+        "#Reference_Worlds": {
+          "Category": "世界・地域",
+          "Category_EN": "Regions & Areas"
+        },
+        "#Reference_Services": {
+          "Category": "インフラ・サービス",
+          "Category_EN": "Infrastructure & Services"
+        },
+        "#Reference_Race": {
+          "Category": "分類・種族",
+          "Category_EN": "Classification & Race"
+        },
+        "#Reference_Role": {
+          "Category": "役職・肩書",
+          "Category_EN": "Role & Class"
+        },
+        "#Reference_Appearance": {
+          "Category": "特徴・姿",
+          "Category_EN": "Features & Appearance"
+        },
+        "#Reference_Bloodline": {
+          "Category": "血統・種族系列",
+          "Category_EN": "Bloodline & Lineage"
+        },
+        "#Reference_Abilities": {
+          "Category": "能力特性用語",
+          "Category_EN": "Ability Terms"
+        },
+        "#Reference_Abnormality": {
+          "Category": "異常・異変",
+          "Category_EN": "Abnormality & Anomaly"
+        }
+      }
+    }
+  }
+}

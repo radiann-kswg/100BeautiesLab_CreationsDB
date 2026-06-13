@@ -1,0 +1,179 @@
+[
+  {
+    "Term": "数秘加護",
+    "Term_EN": "Numerospec",
+    "Term_JPReading": "すうひかご",
+    "TermType": null,
+    "Category": "能力特性用語",
+    "Summary": "ナンバーテールズは主人への従事をする際に、無自覚でありながら主人などに作用する 超潜在的な数秘加護(スーパーポテンシャル・ヌメロスペック) ……通称：“カバラの加護”という能力を有している。\n原理などについて詳細は不明だが、ある個体は主人に感化させる作用をもたらし、ある個体は主人の望むことを実現化する作用をもたらし、またある個体は周囲に奇跡的な出来事を呼び寄せる作用をもたらすなど、様々な加護があるようだ。\nしかし稀に、あまりにも強大な加護を有している個体も存在しており……",
+    "Summary_EN": "While serving their Master, NumberTales possess an ability called the super-potential Numerospec — colloquially known as the 'Kabbalistic Blessing' — that acts on their Master and others, entirely without the NumberTale's own awareness.\nThe underlying mechanism is unclear, but it seems there are many forms of blessing: some individuals bring an influence that subtly sways the Master's feelings, others bring about the realization of what the Master desires, and still others attract miraculous occurrences to those around them.\nRarely, however, there are individuals possessing blessings of extraordinary magnitude...",
+    "Aliases": ["“数秘的加護”", "カバラの加護"],
+    "Links": []
+  },
+  {
+    "Term": "ヒューマノイド形態",
+    "Term_EN": "Humanoid Form",
+    "Term_JPReading": "ヒューマノイドけいたい",
+    "TermType": null,
+    "Images": { "concept-figure_PNGName": ["cnsp-fg_NTsHumanoid"] },
+    "Category": "特徴・姿について",
+    "Summary": "ナンバーテールズは普段「ヒューマノイド形態」と呼ばれる人型の姿により、従事する主人を最大限に支えられるよう人間と差異のない動作と体格を実現している。\nこの形態でナンバーテールズたちがコミュニケーションを積み重ね人々の生活に溶け込んでいる様子は、まさに本物の生命体のようだと異種族としての親しみを持たれているそう。",
+    "Summary_EN": "NumberTales typically take on a humanoid appearance called the 'Humanoid Form', achieving a build and range of movement indistinguishable from humans in order to provide the fullest possible support to their serving Master.\nSeeing NumberTales accumulating communication in this form and blending into people's daily lives, they are said to be met with a sense of genuine familiarity — as though they were real living creatures.",
+    "Aliases": [],
+    "Links": []
+  },
+  {
+    "Term": "コアフォルダ",
+    "Term_EN": "corefolder",
+    "Term_JPReading": "コアフォルダ",
+    "Images": { "concept-figure_PNGName": ["cnsp-fg_NTscorefolder"] },
+    "Category": "特徴・姿について",
+    "Summary": "ナンバーテールズには「コアフォルダ形態」という球体型の形態も存在し、こちらは本来 メンテナンスなどにより一部となった躯体をコンパクトに収納し中枢部を保護するためのものである。\nしかしながら こちらの形態もコミュニケーション機能は健在しており、クッションやぬいぐるみのように抱かたり寄り添ったりするなどの愛くるしいスキンシップも見受けられていることから、コアフォルダ形態を好んでいる主人も多いという。",
+    "Summary_EN": "NumberTales also have a spherical form called the 'corefolder Form', which is originally intended to compactly store a body that has been partially disassembled for maintenance and protect the central core.\nHowever, this form retains full communication functionality as well, and adorable physical contact such as being hugged like a cushion or plushie has been observed — so reportedly, many Masters prefer the corefolder Form.",
+    "Aliases": ["コアフォルダ形態"],
+    "Links": []
+  },
+  {
+    "Term": "安全レベル",
+    "Term_EN": "Safety Level",
+    "Term_JPReading": "あんぜんレベル",
+    "TermType": null,
+    "Category": "能力特性用語",
+    "Summary": null,
+    "Summary_EN": null,
+    "Aliases": [],
+    "Links": []
+  },
+  {
+    "Term": "試験用個体",
+    "Term_EN": "Test Model",
+    "Term_JPReading": "しけんようこたい",
+    "TermType": null,
+    "Category": "役職・肩書",
+    "Summary": null,
+    "Summary_EN": null,
+    "Aliases": [],
+    "Links": []
+  },
+  {
+    "Term": "1桁番",
+    "Term_JPReading": "ユニデジッツ",
+    "Term_EN": "UniDigits",
+    "TermType": null,
+    "Category": "役職・肩書",
+    "Summary": null,
+    "Summary_EN": null,
+    "Aliases": [],
+    "Links": []
+  },
+  {
+    "Term": "10倍番",
+    "Term_JPReading": "テンズデジッツ",
+    "Term_EN": "Tens-Digits",
+    "TermType": null,
+    "Category": "役職・肩書",
+    "Summary": null,
+    "Summary_EN": null,
+    "Aliases": [],
+    "Links": []
+  },
+  {
+    "Term": "マスターテールズ9",
+    "Term_JPReading": "マスターテールズ・ナイン",
+    "Term_EN": "Master Tales 9",
+    "TermType": null,
+    "Category": "役職・肩書",
+    "Summary": null,
+    "Summary_EN": null,
+    "Aliases": [],
+    "Links": []
+  },
+  {
+    "Term": "デシベルモデレーターズ",
+    "Term_JPReading": "デシベルモデレーターズ",
+    "Term_EN": "Decibel Moderators",
+    "TermType": null,
+    "Category": "役職・肩書",
+    "Summary": null,
+    "Summary_EN": null,
+    "Aliases": [],
+    "Links": []
+  },
+  {
+    "Term": "マスタートリプル",
+    "Term_JPReading": "マスタートリプル",
+    "Term_EN": "MasterTriples",
+    "TermType": null,
+    "Category": "役職・肩書",
+    "Summary": null,
+    "Summary_EN": null,
+    "Aliases": [],
+    "Links": []
+  },
+  {
+    "Term": "仮説型ハイナンバー",
+    "Term_JPReading": "かせつがたハイナンバー",
+    "Term_EN": "Tentative HighNumbers",
+    "TermType": null,
+    "Category": "役職・肩書",
+    "Summary": null,
+    "Summary_EN": null,
+    "Aliases": [],
+    "Links": []
+  },
+  {
+    "Term": "1号機型",
+    "Term_JPReading": "1ごうきがた",
+    "Term_EN": "Unit.1 lineage",
+    "TermType": null,
+    "Category": "血統・種族系列",
+    "Summary": null,
+    "Summary_EN": null,
+    "Aliases": [],
+    "Links": []
+  },
+  {
+    "Term": "2号機型",
+    "Term_JPReading": "2ごうきがた",
+    "Term_EN": "Unit.2 lineage",
+    "TermType": null,
+    "Category": "血統・種族系列",
+    "Summary": null,
+    "Summary_EN": null,
+    "Aliases": [],
+    "Links": []
+  },
+  {
+    "Term": "10号機型",
+    "Term_JPReading": "10ごうきがた",
+    "Term_EN": "Unit.10 lineage",
+    "TermType": null,
+    "Category": "血統・種族系列",
+    "Summary": null,
+    "Summary_EN": null,
+    "Aliases": [],
+    "Links": []
+  },
+  {
+    "Term": "キャレ型ハイナンバーズ",
+    "Term_JPReading": "キャレがたハイナンバーズ",
+    "Term_EN": "Carré-Series HighNumbers",
+    "TermType": null,
+    "Category": "血統・種族系列",
+    "Summary": null,
+    "Summary_EN": null,
+    "Aliases": [],
+    "Links": []
+  },
+  {
+    "Term": "キュビクザール型ハイナンバーズ",
+    "Term_JPReading": "キュビクザールがたハイナンバーズ",
+    "Term_EN": "Kubikzahl-Series HighNumbers",
+    "TermType": null,
+    "Category": "血統・種族系列",
+    "Summary": null,
+    "Summary_EN": null,
+    "Aliases": [],
+    "Links": []
+  }
+]

@@ -1,0 +1,189 @@
+[
+  {
+    "Term": "カード種別(ソート)",
+    "Term_EN": "Sort",
+    "Term_JPReading": "カードしゅべつ(ソート)",
+    "TermType": null,
+    "Category": "基本情報",
+    "Summary": null,
+    "Summary_EN": null,
+    "Aliases": [],
+    "Links": []
+  },
+  {
+    "Term": "采配幹部",
+    "Term_EN": "Dealers",
+    "Term_JPReading": "ディーラーズ",
+    "TermType": null,
+    "Category": "役職・肩書",
+    "Summary": null,
+    "Summary_EN": null,
+    "Aliases": [],
+    "Links": []
+  },
+  {
+    "Term": "アルカナムスペック",
+    "Term_EN": "Arcanamspec",
+    "Term_JPReading": "アルカナムスペック",
+    "TermType": null,
+    "Category": "能力特性用語",
+    "Summary": null,
+    "Summary_EN": null,
+    "Aliases": [],
+    "Links": []
+  },
+  {
+    "Term": "アルカナホルダー",
+    "Term_EN": "Arcanaholder",
+    "Term_JPReading": "アルカナホルダー",
+    "TermType": null,
+    "Category": "能力特性用語",
+    "Summary": null,
+    "Summary_EN": null,
+    "Aliases": [],
+    "Links": []
+  },
+  {
+    "Term": "元素属性",
+    "Term_EN": "Material",
+    "Term_JPReading": "マテリアル",
+    "TermType": null,
+    "Category": "能力特性用語",
+    "Summary": null,
+    "Summary_EN": null,
+    "Aliases": [],
+    "Links": []
+  },
+  {
+    "Term": "ロールタイプ",
+    "Term_EN": "Role Type",
+    "Term_JPReading": "ロールタイプ",
+    "TermType": null,
+    "Category": "能力特性用語",
+    "Summary": null,
+    "Summary_EN": null,
+    "Aliases": [],
+    "Links": []
+  },
+  {
+    "Term": "双極性パターン",
+    "Term_EN": "Dualize Pattern",
+    "Term_JPReading": "デュアライズパターン",
+    "TermType": null,
+    "Category": "能力特性用語",
+    "Summary": null,
+    "Summary_EN": null,
+    "Aliases": [],
+    "Links": []
+  },
+  {
+    "Term": "情報屋",
+    "Term_EN": "Informant",
+    "Term_JPReading": "じょうほうや",
+    "TermType": null,
+    "Category": "役職・肩書",
+    "Summary": null,
+    "Summary_EN": null,
+    "Aliases": [],
+    "Links": []
+  },
+  {
+    "Term": "最高幹部",
+    "Term_EN": "Top Executive",
+    "Term_JPReading": "さいこうかんぶ",
+    "TermType": null,
+    "Category": "役職・肩書",
+    "Summary": null,
+    "Summary_EN": null,
+    "Aliases": [],
+    "Links": []
+  },
+  {
+    "Term": "国際幹部",
+    "Term_EN": "International Executive",
+    "Term_JPReading": "こくさいかんぶ",
+    "TermType": null,
+    "Category": "役職・肩書",
+    "Summary": null,
+    "Summary_EN": null,
+    "Aliases": [],
+    "Links": []
+  },
+  {
+    "Term": "国境幹部",
+    "Term_EN": "Border Executive",
+    "Term_JPReading": "こっきょうかんぶ",
+    "TermType": null,
+    "Category": "役職・肩書",
+    "Summary": null,
+    "Summary_EN": null,
+    "Aliases": [],
+    "Links": []
+  },
+  {
+    "Term": "九蓮国支部幹部",
+    "Term_EN": "RN.Branch Executive",
+    "Term_JPReading": "きゅうれんこくしぶかんぶ",
+    "TermType": null,
+    "Category": "役職・肩書",
+    "Summary": null,
+    "Summary_EN": null,
+    "Aliases": [],
+    "Links": []
+  },
+  {
+    "Term": "英皇国支部幹部",
+    "Term_EN": "IK.Branch Executive",
+    "Term_JPReading": "えいこうこくしぶかんぶ",
+    "TermType": null,
+    "Category": "役職・肩書",
+    "Summary": null,
+    "Summary_EN": null,
+    "Aliases": [],
+    "Links": []
+  },
+  {
+    "Term": "火の棍棒支部",
+    "Term_EN": "FireWands Branch",
+    "Term_JPReading": "ひのこんぼうしぶ",
+    "TermType": null,
+    "Category": "役職・肩書",
+    "Summary": null,
+    "Summary_EN": null,
+    "Aliases": [],
+    "Links": []
+  },
+  {
+    "Term": "水の聖杯支部",
+    "Term_EN": "WaterCups Branch",
+    "Term_JPReading": "みずのせいはいしぶ",
+    "TermType": null,
+    "Category": "役職・肩書",
+    "Summary": null,
+    "Summary_EN": null,
+    "Aliases": [],
+    "Links": []
+  },
+  {
+    "Term": "風の刀剣支部",
+    "Term_EN": "SlashSwords Branch",
+    "Term_JPReading": "かぜのとうけんしぶ",
+    "TermType": null,
+    "Category": "役職・肩書",
+    "Summary": null,
+    "Summary_EN": null,
+    "Aliases": [],
+    "Links": []
+  },
+  {
+    "Term": "金の硬貨支部",
+    "Term_EN": "PentacleObjects Branch",
+    "Term_JPReading": "きんのこうかしぶ",
+    "TermType": null,
+    "Category": "役職・肩書",
+    "Summary": null,
+    "Summary_EN": null,
+    "Aliases": [],
+    "Links": []
+  }
+]

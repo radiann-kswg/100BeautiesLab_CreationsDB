@@ -386,6 +386,93 @@
 3. `Summary_EN` / `RelationNotes_EN` / `Backgrounds_EN` など説明文内でも同じ規則を適用し、同一レコード内で `Numerospec` と `blessing` を混在させない。
 4. 既存文の手直し時は、意味を変えずに `blessing` -> `Numerospec` の最小差分置換を優先する。
 
+### F-2. 作品別語彙辞書（`#Ref_Vocabulary`）からの固定訳語（2026-06-13 追加）
+
+各作品の `References/ref_Vocabulary.json` を正とする固定訳語一覧。
+新規英訳および既存英訳の見直し時は、以下の表で確認・照合すること。
+
+#### Works_NumberTales
+
+| 日本語                         | 英語（固定）                 | 備考                                  |
+| ------------------------------ | ---------------------------- | ------------------------------------- |
+| 数秘加護                       | Numerospec                   | F-1 ルール再掲（最重要）              |
+| ヒューマノイド形態             | Humanoid Form                |                                       |
+| コアフォルダ（形態）           | corefolder                   |                                       |
+| 安全レベル                     | Safety Level                 | フィールド名 `SafetyLevel` と同一概念 |
+| 試験用個体                     | Test Model                   | Class 値                              |
+| 1桁番                          | UniDigits                    | Class 値                              |
+| 10倍番                         | Tens-Digits                  | Class 値                              |
+| 1号機型                        | Unit.1 lineage               | 〃                                    |
+| 2号機型                        | Unit.2 lineage               | 〃                                    |
+| 10号機型                       | Unit.10 lineage              | 〃                                    |
+| キャレ型ハイナンバーズ         | Carré-Series HighNumbers     | 〃                                    |
+| キュビクザール型ハイナンバーズ | Kubikzahl-Series HighNumbers | 〃                                    |
+| マスターテールズ9              | Master Tales 9               | 〃                                    |
+| デシベルモデレーターズ         | Decibel Moderators           | 〃                                    |
+| マスタートリプル               | MasterTriples                | 〃                                    |
+| 仮説型ハイナンバー             | Tentative HighNumbers        | 〃                                    |
+
+#### Works_FLInvestigator78
+
+| 日本語                   | 英語（固定）    | 備考                                                                             |
+| ------------------------ | --------------- | -------------------------------------------------------------------------------- |
+| アルカナムスペック       | Arcanamspec     | ⚠️ フィールド名は `ArcanamspecAbout` / `ArcanumspecStats` で揺れあり（下記参照） |
+| 采配幹部（ディーラーズ） | Dealers         |                                                                                  |
+| 元素属性                 | Material        | フィールド名 `Material` と同一                                                   |
+| ロールタイプ             | Role Type       | フィールド名 `RoleType` のラベル                                                 |
+| 双極性パターン           | Dualize Pattern | フィールド名 `DualizePattern` のラベル                                           |
+
+> **FLInvestigator78 表記ブレ備忘録**
+> フィールド名 `ArcanamspecAbout`（Arcanaм） と `ArcanumspecStats`（Arcanum）の2系統が混在している。
+> hashTag 名は変更不可（SW ルーティング依存）のため、`hashTag_EN` ラベルを "Arcanamspec" に統一する方針で対応済み（2026-06-13）。
+> 新規 EN 文内で造語本体を記述する場合は `Arcanamspec`（Arcanaм 形式）を正とする。
+
+#### Works_ShouArRiders
+
+| 日本語   | 英語（固定）   | 備考                                                        |
+| -------- | -------------- | ----------------------------------------------------------- |
+| 獣爾騎兵 | Shou'ar Riders | 組織・作品タイトル                                          |
+| 獣騎能力 | Beastspec      | フィールド名 `BeastspecAbout` / `BeastspecStats` と同一概念 |
+| 山月病   | Shanyu Disease |                                                             |
+
+#### Works_UnauthedLogica
+
+| 日本語                 | 英語（固定） | 備考                                     |
+| ---------------------- | ------------ | ---------------------------------------- |
+| ロジカ（論理特殊能力） | Logicspec    | フィールド名 `LogicspecAbout` と同一概念 |
+
+#### Works_PastDivers
+
+| 日本語       | 英語（固定）      | 備考                                                          |
+| ------------ | ----------------- | ------------------------------------------------------------- |
+| 時空遷移     | ChronoidShift     | 能力の固有名（一般概念の space-time とは別）                  |
+| 時空遷移者   | Chronoholder      | フィールド名 `ChronoholderName` と同一概念                    |
+| 時空遷移能力 | Chronospec        | フィールド名 `ChronospecAbout` / `ChronospecStats` と同一概念 |
+| 時空遷移純度 | Chronoized Purity | フィールド名 `ChronoizedPurity`（スペースなし）と表記差に注意 |
+| クロノス     | Chronos           | `$IndexDef` フィールド名と同一                                |
+| 月明         | Lunar             |                                                               |
+| 夜月機関     | Yadzuki Orgs.     | db_Primary.json 既存 EN より確認                              |
+
+> **PastDivers 補足**
+> `ChronospecAbout_EN` 内で「時空」を描写する場合は `space-time` を使用してよい（一般物理概念）。
+> 固有能力名として参照する場合のみ `Chronospec` / `ChronoidShift` を用いる。
+
+#### Works_UnibyteLive
+
+| 日本語                 | 英語（固定）     | 備考                 |
+| ---------------------- | ---------------- | -------------------- |
+| ユニバイト・ユニバース | Unibyte Universe | インフラ・サービス名 |
+
+#### Works_DestinyFoxRecords
+
+| 日本語      | 英語（固定）               | 備考                   |
+| ----------- | -------------------------- | ---------------------- |
+| フィジカル9 | Physical 9                 | 組織名                 |
+| 組織長      | Chief/Leader               | 役職・肩書             |
+| 第N界       | #REGION.N（例: #REGION.1） | 世界・地域の識別子形式 |
+
+---
+
 ### G. 辞書・メタ・型定義の整合
 
 1. DB概要は各作品 DataBases/db_meta.json の DB_Summary_EN を正とする。
@@ -945,3 +1032,371 @@
 
 - `tests/data.sanity.test.js`: pass
 - `tests/bilingual-fields.test.js`: pass
+
+## 2026-06-12〜13 引継ぎ追記：翻訳進捗トラッカー（db_Primary.json）
+
+以下のログを統合・削除したため、本ファイルに進捗情報を引き継ぐ。
+
+統合元ログ（削除済み）:
+
+- `2026-06-11_progress_english-fields-addition.md`
+- `2026-06-12_progress_english-fields-followup.md`
+- `2026-06-12_progress_translation-num11-13.md`
+- `2026-06-12_progress_translation-num14-16.md`
+- `2026-06-12_progress_translation-num23-25.md`
+- `2026-06-12_progress_translation-num26-30.md`
+
+### Relation.Comments_EN 完了状況
+
+| 範囲       | 状態      | 備考                                                                                                      |
+| ---------- | --------- | --------------------------------------------------------------------------------------------------------- |
+| Num 1〜10  | ✅ 完了   | Relation.Comments_EN 英訳・括り書式統一                                                                   |
+| Num 11〜13 | ✅ 完了   | Relation.Comments_EN 英訳完了                                                                             |
+| Num 14〜16 | ✅ 完了   | Relation.Comments_EN 英訳完了                                                                             |
+| Num 17〜19 | ✅ 完了   | Relation.Comments_EN 英訳完了                                                                             |
+| Num 20〜22 | ✅ 完了   | Relation.Comments_EN 英訳完了                                                                             |
+| Num 23〜25 | ✅ 完了   | Relation.Comments_EN + ConversationPattern_EN 補完                                                        |
+| Num 26〜30 | ✅ 完了   | Relation.Comments_EN + 各種 \_EN フィールド補完                                                           |
+| Num 31〜35 | ✅ 完了   | Relation.Comments_EN + 全トップレベル \_EN + 呼称 EN 補完（2026-06-13）                                   |
+| Num 36〜40 | ✅ 完了   | Relation.Comments_EN + 全トップレベル \_EN + 呼称 EN + ConversationPattern_EN 補完（2026-06-13）          |
+| Num 41〜45 | ✅ 完了   | Relation.Comments_EN + 全トップレベル \_EN + 呼称 EN + ConversationPattern_EN（Num 41）補完（2026-06-13） |
+| Num 46〜50 | ✅ 完了   | Relation.Comments_EN + 全トップレベル \_EN + 呼称 EN + ConversationPattern_EN（Num 47）補完（2026-06-13） |
+| Num 51〜55 | ✅ 完了   | Relation.Comments_EN + 全トップレベル _EN + ConversationPattern_EN（Num 52）補完（2026-06-13） |
+| Num 56〜60 | ✅ 完了   | Relation.Comments_EN + 全トップレベル _EN + 呼称 EN + ConversationPattern_EN（Num 56〜58・60）補完（2026-06-13）。Num 57 Summary_EN 既存値の誤り（75(Sefieven)→Sefievn / they→he/she）も修正 |
+| Num 61〜   | ⏳ 未対応 | 次の作業対象                                                                                              |
+
+### トップレベル \_EN フィールドの完了状況（db_Primary.json）
+
+| Num 範囲   | 完了済み主要フィールド                                                                                                                                                                                                                                                                          |
+| ---------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Num 26〜30 | `Character_EN`, `Hobby_EN`, `SpecialSkill_EN`, `Favor_EN`, `Unlike_EN`, `RelationNotes_EN`, `NumerospecAbout_EN`, `Summary_EN`, `Backgrounds_EN` 等                                                                                                                                             |
+| Num 31〜35 | `Character_EN`, `Hobby_EN`, `SpecialSkill_EN`, `Favor_EN`, `Unlike_EN`, `RelationNotes_EN`, `NumerospecAbout_EN`, `Summary_EN`, `TailsUnit_EN`, `InStory_EN`, `Backgrounds_EN`（Num 33）等                                                                                                      |
+| Num 36〜40 | `TailsUnit_EN`, `Character_EN`, `Hobby_EN`, `SpecialSkill_EN`, `Favor_EN`, `Unlike_EN`, `RelationNotes_EN`, `NumerospecAbout_EN`, `Summary_EN`, `InStory_EN`, `Backgrounds_EN` + 呼称 EN 全4フィールド（Num 39・40）+ `ForMasterCalling_EN`（Num 37）+ ConversationPattern_EN（Num 36・37・39） |
+| Num 41〜45 | `TailsUnit_EN`, `Character_EN`, `Hobby_EN`, `SpecialSkill_EN`, `Favor_EN`, `Unlike_EN`, `RelationNotes_EN`, `NumerospecAbout_EN`, `Summary_EN`, `InStory_EN`, `Backgrounds_EN` + 呼称 EN 全4フィールド + ConversationPattern_EN（Num 41）                                                       |
+| Num 46〜50 | `TailsUnit_EN`, `Character_EN`, `Hobby_EN`, `SpecialSkill_EN`, `Favor_EN`, `Unlike_EN`, `RelationNotes_EN`, `NumerospecAbout_EN`, `Summary_EN`, `InStory_EN`, `Backgrounds_EN` + 呼称 EN 全4フィールド + ConversationPattern_EN（Num 47）                                                       |
+
+注: Num 1〜25 のトップレベル \_EN は部分的に補完済みだが、漏れの可能性がある。
+`scan_numbertales_missing_en.mjs` で再走査して確認すること（`.cache/` に保持）。
+
+### ConversationPattern が存在するキャラ（確認済み）
+
+- Num 25: ConversationPattern_EN + DialogueExamples 対応済み
+- Num 26: ConversationPattern_EN + DialogueExamples 対応済み
+- Num 29: ConversationPattern_EN + DialogueExamples 対応済み
+- Num 36: ConversationPattern_EN + DialogueExamples 対応済み（2026-06-13）
+- Num 37: ConversationPattern_EN + DialogueExamples 対応済み（2026-06-13）
+- Num 39: ConversationPattern_EN + DialogueExamples 対応済み（2026-06-13）
+- Num 41: ConversationPattern_EN + DialogueExamples 対応済み（2026-06-13）
+- Num 47: ConversationPattern_EN + DialogueExamples 対応済み（2026-06-13）
+- Num 52: ConversationPattern_EN + DialogueExamples 対応済み（2026-06-13）
+- Num 56: ConversationPattern_EN + DialogueExamples 10件 対応済み（2026-06-13）
+- Num 57: ConversationPattern_EN + DialogueExamples 10件 対応済み（2026-06-13）
+- Num 58: ConversationPattern_EN + DialogueExamples 12件 対応済み（2026-06-13）
+- Num 60: ConversationPattern_EN + DialogueExamples 10件 対応済み（2026-06-13）
+
+## 2026-06-13 追記：Num 56〜60 英訳補完（全フィールド + ConversationPattern）
+
+### 対象
+
+- `data/Works_NumberTales/DataBases/db_Primary.json`
+
+### 実施内容
+
+1. **TailsUnit_EN 追補（Num 56〜58）**
+   - Num 56: `Fox (branched) type: 6 tails (upper: 2 clusters x5, lower: 1 cluster x1)`
+   - Num 57: `Fox (branched) type: 7 tails (upper: 2 clusters x5, lower: 1 cluster x2)`
+   - Num 58: `Fox (branched) type: 8 tails (upper: 2 clusters x5, lower: 1 cluster x3)`
+   - Num 60: TailsUnit_EN は既存値 `"Six fox-type tails"` を維持（上書きなし）
+
+2. **トップレベル EN 補完**
+   - Num 56: FirstPersonCalling/ThirdPersonCalling/ForMasterCalling/Character/Hobby/SpecialSkill/Favor/Unlike/NumerospecAbout/Summary/Backgrounds/RelationNotes
+   - Num 57: FirstPersonCalling/SecondPersonCalling/ThirdPersonCalling/ForMasterCalling/Character/Hobby/SpecialSkill/Favor/Unlike/NumerospecAbout/Backgrounds/RelationNotes + Summary_EN 誤り修正
+   - Num 58: FirstPersonCalling/ThirdPersonCalling/ForMasterCalling/Character/Hobby/SpecialSkill/Favor/Unlike/NumerospecAbout/Summary/RelationNotes
+   - Num 59: NumerospecAbout のみ（それ以外フィールドは未定義のため最小補完）
+   - Num 60: CodeName/ThirdPersonCalling/ForMasterCalling/Character/Hobby/SpecialSkill/Favor/Unlike/NumerospecAbout/Summary/RelationNotes
+
+3. **Num 57 Summary_EN 修正**
+   - 既存値の `75(Sefieven)` → `75(Sefievn)` に修正
+   - `they` → `his/her` / `him/her` に修正（Neutral 代名詞ルール統一）
+
+4. **ConversationPattern_EN 補完（Num 56〜58・60）**
+   - 各 6 フィールド（TalkingTone/TopicPreference/TalkFrequency/PreferredTopics/AvoidedTopics/ConversationNotes）
+   - DialogueExamples: Num 56（10件）/ Num 57（10件）/ Num 58（12件）/ Num 60（10件）
+
+5. **Relation.Comments_EN 英訳上書き**
+   - Num 56〜58・60 の全エントリを英訳で上書き
+
+### 特記事項
+
+- Num 56 `ForMasterCalling_EN`: `~-niisan/~-neesan (big bro/sis)`（年齢設定の低い子どもキャラが主人を呼ぶ形式）
+- Num 57 `ForMasterCalling_EN`: `~-senpai; senpai`（セミコロン区切りで2パターン）
+- Num 58 `ForMasterCalling_EN`: `Master-chan`（甘えん坊らしい -chan 付き呼称）
+- Num 60 `ForMasterCalling_EN`: `Mr./Mrs.`（ミスター/ミセス の直訳）
+- スクリプト: `.cache/translate_num56_60.mjs`（110 fields）
+- テスト: 4 failed / 15 passed（既存失敗と同一、新規 0）
+
+## 2026-06-13 追記：Num 26〜35 英訳補完（TailsUnit_EN + Num 31〜35 全フィールド）
+
+### 対象
+
+- `data/Works_NumberTales/DataBases/db_Primary.json`
+
+### 実施内容
+
+1. **TailsUnit_EN 追補（Num 26〜29）**
+   - 前回バッチで漏れていた `TailsUnit_EN` を補完。
+   - パターン: `Fox (branched) type: N tails (upper: X clusters xY, lower: Z cluster xW)`
+
+2. **Num 31〜35 全トップレベル \_EN 補完**
+   - 補完フィールド: `TailsUnit_EN`, `Character_EN`, `Hobby_EN`, `SpecialSkill_EN`, `Favor_EN`, `Unlike_EN`, `RelationNotes_EN`, `NumerospecAbout_EN`, `Summary_EN`（全5件）
+   - Num 33 のみ追加: `Backgrounds_EN`, `InStory_EN`
+   - Num 34 のみ追加: `InStory_EN`
+   - Num 35 のみ追加: `InStory_EN`
+
+3. **呼称 EN 欠損補完**
+   - Num 32: `FirstPersonCalling_EN` を追加（`Thirtwis (*by name)\nI (ore; rough masc.)`）
+   - Num 33: `FirstPersonCalling_EN` を追加（`Thirthrey (*by name)`）
+   - Num 34: 呼称 EN 全4フィールドを追加（Kansai 系語彙: `I (wai; Kansai rough masc.)`, `sir/lady\nyou (anta; rough)`, `[*second-person calling]\nthat/this/who/which/them; [*by name]`, `my lord(/my lady)\nMaster(/Milady)`）
+   - Num 35: `ForMasterCalling_EN` を追加（`bro/sis (anisha/anesha; archaic)`）
+
+4. **Num 31〜35 Relation.Comments_EN 英訳**
+   - 全37件の `Comments_EN` を日本語から英語に置換。
+   - 括り書式: 会話文 → `"..."`, 注記文 → `(...)` のルール適用。
+   - Num 34 は関西弁キャラのため、コメントの語調も慣用に合わせて英訳。
+
+### 新規確定訳語ルール（今回追加）
+
+- Num 34 の `SecondPersonCalling_EN` として `sir/lady` を確定（`旦那さん/奥さん` の Kansai 系敬称形）
+- `兄者(あにしゃ)/姉者(あねしゃ)` → `bro/sis (anisha/anesha; archaic)` パターンを確定
+
+### 検証
+
+```
+Test Files  4 failed | 15 passed (19)
+      Tests  6 failed | 78 passed (84)
+```
+
+失敗 6 件はすべて既存の不具合（今回変更とは無関係）:
+
+- `data.shape.test.js`: BelongingArea / References 構造検証（既存）
+- `commons.secondaries.test.js`: NumberTales SelfSecondary commons（既存）
+- `enrich.dblink.jump.merge.test.js`: `_DBLink._Search` / `_Jump` 解決（既存）
+- `pages.characters.ui-output.test.js`: UI 出力回帰テスト 2 件（既存・言語トグル対応時から）
+
+今回の実装による新規テスト失敗: **0件**
+
+---
+
+## 2026-06-13 追記：Num 36〜40 英訳補完（全フィールド + ConversationPattern）
+
+### 対象
+
+- `data/Works_NumberTales/DataBases/db_Primary.json`
+
+### 実施内容
+
+1. **TailsUnit_EN 追補（Num 36・37・39・40）**
+   - Num 36: `Fox (branched) type: 6 tails (upper: 2 clusters x3, lower: 1 cluster x3)`
+   - Num 37: `Fox (branched) type: 7 tails (upper: 2 clusters x3, lower: 1 cluster x4)`
+   - Num 39: `Fox (branched) type: 9 tails (upper: 2 clusters x3, lower: 1 cluster x6)`
+   - Num 40: `Four fox-type tails`（非枝分かれ型）
+
+2. **トップレベル \_EN 補完（全5件）**
+   - 各 Num の欠落フィールドを補完（Character_EN, Hobby_EN, SpecialSkill_EN, Favor_EN, Unlike_EN, RelationNotes_EN, NumerospecAbout_EN, Summary_EN 等）
+   - Num 38 は NumerospecAbout_EN のみ補完
+
+3. **呼称 EN 欠損補完**
+   - Num 37: `ForMasterCalling_EN` を追加（`Leader\nbro/sis`）
+   - Num 39: 呼称 EN 全4フィールド追加（粗目男性語: `I (ore; rough masc.)`, `you (rough masc.)`, `he/she; that guy/gal (*yatsu); [*by name]`, `[*second-person calling]\npartner`）
+   - Num 40: 呼称 EN 全4フィールド追加（古語系: `Yo (*by name)\nI (boku; casual)`, `thou (sochi; archaic)\nyou (kimi; friendly)`, `he/she; that/this (*re); [*by name]` 等, `my liege\nMaster`）
+
+4. **ConversationPattern_EN 補完（Num 36・37・39）**
+   - `TalkingTone_EN`, `TopicPreference_EN`, `TalkFrequency_EN`, `PreferredTopics_EN`, `AvoidedTopics_EN`, `ConversationNotes_EN` を追加
+   - DialogueExamples: 文字列アイテム → `{value_JP: "...", value_EN: "..."}` 変換、オブジェクトアイテム → `value_EN` / `about_EN` 追補
+
+5. **Relation.Comments_EN 英訳（全27件）**
+   - 前バッチ以前の誤実装（`Comments_EN = Comments` の JP テキスト複製状態）を検出・修正
+   - Num 36（7件）・Num 37（7件）・Num 39（7件）・Num 40（6件）の全コメントを英訳
+
+### 確認事項
+
+- 既存 Summary_EN（Num 37）は上書きせず保持
+- 既存 about_EN（各 DE アイテム）は上書きせず保持
+- `insertAfterKey` 関数に「既存 EN キーを上書きしない」ガードを追加
+
+### 検証
+
+```
+Test Files  4 failed | 15 passed (19)
+      Tests  6 failed | 78 passed (84)
+```
+
+失敗 6 件はすべて既存の不具合（今回変更とは無関係）。今回の実装による新規テスト失敗: **0件**
+
+---
+
+## 2026-06-12 引継ぎ追記：Comments_EN の呼称整合ルール
+
+### 追加ルール
+
+- 和文コメント内に呼びかけ（例: 君, あんた, 妹/弟 など）が含まれる場合は、対象キャラの `SecondPersonCalling_EN` / `ForMasterCalling_EN` / `ThirdPersonCalling_EN` を参照して英訳語調を合わせる。
+- 例:
+  - `SecondPersonCalling_EN: you (familiar)` のキャラ: `君` を `you` ベースで翻訳
+  - `SecondPersonCalling_EN: you (rough)` のキャラ: `あんた` を rough な語調で翻訳
+  - `SecondPersonCalling_EN: thou` のキャラ: 古風口調（`Thou ...`）を維持
+- Neutral を含む対象では `he/she` 系を優先し、単独の `he` / `she` 固定で先走らない。
+
+### CodeName_EN の数詞直列化ルール（引継ぎ確定）
+
+- `CodeName_EN` は和数字コード名を英語直列化で表現する。
+- 形式: `One-Zero`, `One-Eight`, `One-Nine`, `Two-One`（ハイフン区切り・先頭大文字）
+- `db_SemiPrimary.json` / `db_SelfSecondary.json` / `db_UnprocessedSecondary.json` の命名慣用を正準とする。
+
+---
+
+## 2026-06-13 追記：Num 41〜45 英訳補完（全フィールド + ConversationPattern）
+
+### 対象
+
+- `data/Works_NumberTales/DataBases/db_Primary.json`
+
+### 実施内容
+
+1. **TailsUnit_EN 追補（Num 41〜45）**
+   - Num 41: `Fox (branched) type: 1 tail (upper: 1 cluster x1)` ← 単尾・非枝分かれ
+   - Num 42〜45: 各 `Fox (branched) type: N tails (upper: X clusters xY, lower: Z cluster xW)` 形式
+
+2. **トップレベル \_EN 補完（全5件）**
+   - 補完フィールド: `Character_EN`, `Hobby_EN`, `SpecialSkill_EN`, `Favor_EN`, `Unlike_EN`, `RelationNotes_EN`, `NumerospecAbout_EN`, `Summary_EN`, `InStory_EN`（必要なもの）
+   - Num 43 追加: `Backgrounds_EN`
+
+3. **呼称 EN 補完**
+   - Num 41〜45 の `FirstPersonCalling_EN`, `SecondPersonCalling_EN`, `ThirdPersonCalling_EN`, `ForMasterCalling_EN` のうち欠損分を補完
+   - Num 42: `ForMasterCalling_EN: Mast-chan/Mil-chan`（`あるちゃん` = Master/Milady の短縮形）
+   - Num 43: `ForMasterCalling_EN: Masty`（`あるじん` = Master の短縮形）
+
+4. **ConversationPattern_EN 補完（Num 41）**
+   - `TalkingTone_EN`, `TopicPreference_EN`, `TalkFrequency_EN`, `PreferredTopics_EN`, `AvoidedTopics_EN`, `ConversationNotes_EN` を追加
+   - DialogueExamples 9件: 文字列→ `{value_JP, value_EN}` 変換、オブジェクト→ `value_EN` / `about_EN` 追補
+
+5. **Relation.Comments_EN 英訳（全 JP コピー状態を上書き）**
+   - Num 41〜45 の `Comments_EN` が `Comments` と同値だったエントリを正しい英訳で上書き
+
+### 新規確定訳語
+
+- `あるちゃん` → `Mast-chan/Mil-chan`（Master/Milady の短縮愛称）
+- `あるじん` → `Masty`（Master の短縮・くだけた呼び）
+
+### 適用フィールド数
+
+- 101 フィールド
+
+---
+
+## 2026-06-13 追記：Num 46〜50 英訳補完（全フィールド + ConversationPattern）
+
+### 対象
+
+- `data/Works_NumberTales/DataBases/db_Primary.json`
+
+### 実施内容
+
+1. **TailsUnit_EN 追補（Num 46〜49）**
+   - Num 46: `Fox (branched) type: 6 tails (upper: 2 clusters x4, lower: 1 cluster x2)`
+   - Num 47: `Fox (branched) type: 7 tails (upper: 2 clusters x4, lower: 1 cluster x3)`
+   - Num 48: `Fox (branched) type: 8 tails (upper: 2 clusters x4, lower: 1 cluster x4)`
+   - Num 49: `Fox (branched) type: 9 tails (upper: 2 clusters x4, lower: 1 cluster x5)`
+   - Num 50: 既存 `Five fox-type tails`（上書きなし）
+
+2. **トップレベル \_EN 補完（全5件）**
+   - 補完フィールド: `Character_EN`, `Hobby_EN`, `SpecialSkill_EN`, `Favor_EN`, `Unlike_EN`, `RelationNotes_EN`, `NumerospecAbout_EN`, `Summary_EN`, `InStory_EN`, `Backgrounds_EN`（必要なもの）
+   - Num 50 の `Unlike`: `{ hideText: '定義不能' }` 構造 → `Unlike_EN: { hideText: 'undefinable' }` で対応
+
+3. **呼称 EN 補完**
+   - Num 46: 全4フィールド。`SecondPersonCalling_EN: [*third-person calling]\nyou (omee; rough masc., rare)` ← 三人称を二人称として用いる特殊パターン
+   - Num 47: `ForMasterCalling_EN: Master\nbro/sis`（既存 FPC/SPC/TPC は補完済み）
+   - Num 48: 全4フィールド。`ForMasterCalling_EN: my Lord (aruji-sama; formal)`（極尊称）
+   - Num 49: `ThirdPersonCalling_EN` + `ForMasterCalling_EN` の2フィールド（他は既存）
+   - Num 50: `FirstPersonCalling_EN`, `SecondPersonCalling_EN`, `ThirdPersonCalling_EN` の3フィールド（`ForMasterCalling_EN` は既存）
+
+4. **ConversationPattern_EN 補完（Num 47）**
+   - `TalkingTone_EN`, `TopicPreference_EN`, `TalkFrequency_EN`, `PreferredTopics_EN`, `AvoidedTopics_EN`, `ConversationNotes_EN` を追加
+   - DialogueExamples 9件: `value_EN` + `about_EN`（case.1〜3）を追補
+
+5. **Relation.Comments_EN 英訳（全 JP コピー状態を上書き）**
+   - Num 46〜50 の `Comments_EN` が `Comments` と同値だったエントリを正しい英訳で上書き
+
+### 特記事項
+
+- Num 46 の `SecondPersonCalling`: JP が `[※三人称]` = 三人称形式を二人称として使う特殊口調。EN では `[*third-person calling]` と注釈して実際の呼称は `ThirdPersonCalling_EN` 側を参照させる。
+- Num 48: `私(わたし)/俺(おれ)` の二重一人称 → EN も二行で両形式を併記。
+- Num 50: `Unlike` が hideText オブジェクト構造だったため、EN 側も sibling object 方式（`{ hideText: 'undefinable' }`）で対応（既存 hideText ルールに準拠）。
+
+### 適用フィールド数
+
+- 98 フィールド
+
+---
+
+## 2026-06-13 追記：Num 41〜50 手直しより確立した新規ルール
+
+### 確立したルール（今後の全バッチに適用）
+
+1. **`corefolder` は全文小文字**
+   - `CoreFolder` / `CoreFolders` → `corefolder` / `corefolders` で統一。
+   - キャラクターの形態・ゲーム概念いずれも同様。
+
+2. **特殊個体タイプ表記は `Unit.N+M type` 形式**
+   - `"4+6 type"` → `"Unit.4+6 type"` に統一。
+   - `InStory_EN` 等の本文内でも同形式を使う。
+
+3. **ForMasterCalling_EN の `~` 記号表記**
+   - `[*by name]-senpai` → `~-senpai` に統一（`~` = 名前プレースホルダー）。
+
+4. **`SecondPersonCalling_EN` で `あんた` → `guy/girl(s) (anta; rough)`**
+   - `you (anta; rough)` から変更（相手の性別を包含するニュアンス）。
+
+5. **Neutral キャラクターの代名詞は設計意図に準拠**
+   - 原則 `he/she` だが、Num 46・49・50 のように特定 Neutral キャラが `she` で修正された例あり。
+   - ビジュアル・設定に基づいた個別判断なので、次バッチでも同様のケースが出た場合はユーザーの確認待ち。
+   - Num 48（MaleNeutral）は `私/俺` の二重一人称のため、`her` / `him/her` / `He/She's` を混在使用。
+
+---
+
+## 2026-06-13 追記：Num 51〜55 英訳補完（全フィールド + ConversationPattern）
+
+### 対象
+
+- `data/Works_NumberTales/DataBases/db_Primary.json`
+
+### 実施内容
+
+1. **TailsUnit_EN 追補（Num 51〜53・55）**
+   - Num 51〜53: `Fox (branched) type: 5 tails (upper: 1 cluster xN, lower: 2 clusters xM)` 形式
+   - Num 55: `Fox type: 5 tails (2 clusters x5)`（非枝分かれ型で括弧内の bundle 記法あり）
+   - Num 54: TailsUnit フィールド自体が存在しないため対象外
+
+2. **トップレベル _EN 補完**
+   - Num 51: Character/Hobby/SpecialSkill/Favor/Unlike/NumerospecAbout/Summary/Backgrounds/InStory
+   - Num 52: Character/Hobby/SpecialSkill/Favor/Unlike/NumerospecAbout/Backgrounds（Summary は既存）
+   - Num 53: ForMasterCalling_EN + Character/Hobby/SpecialSkill/Favor/Unlike/NumerospecAbout/Summary
+   - Num 54: NumerospecAbout のみ（他フィールドは存在しないか既補完）
+   - Num 55: ForMasterCalling_EN + Character/Hobby/SpecialSkill/Favor/Unlike/RelationNotes/NumerospecAbout/Summary/Backgrounds
+
+3. **ConversationPattern_EN 補完（Num 52）**
+   - `TalkingTone_EN` 〜 `ConversationNotes_EN` の6フィールドを追加
+   - DialogueExamples 10件: 文字列→ `{value_JP, value_EN}` 変換、オブジェクト→ `value_EN` / `about_EN` 追補
+
+4. **Relation.Comments_EN 英訳（全 JP コピー状態を上書き）**
+   - Num 51〜55（Num 54 はコメントなし）の全エントリを英訳で上書き
+
+### 特記事項
+
+- Num 53 の `ForMasterCalling_EN`: `兄者/姉者` → `bro/sis (anisha/anesha; archaic)`（Num 35 で確立済みのパターンを適用）
+- Num 54: GenderType / TailsUnit / Calling フィールドすべて未定義。NumerospecAbout のみ補完。
+- Num 55 の `Unlike`: `{ hideText: '？？？' }` → `Unlike_EN: { hideText: '???' }` sibling object 方式で対応。
+- Num 55 の `ForMasterCalling`: カンマ区切り `君,彼/彼女` → `you (kimi; familiar), he/she (*addresses master in third person)` で1行表記。
+
+### 適用フィールド数
+
+- 73 フィールド

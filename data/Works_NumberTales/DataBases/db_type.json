@@ -70,7 +70,7 @@
           "hashTag": "corefolder_PNGPath",
           "$type": "#PNGFilePath[]",
           "hashTag_JP": "コアフォルダ画像",
-          "hashTag_EN": "CoreFolder Images"
+          "hashTag_EN": "corefolder Images"
         },
         {
           "hashTag": "designAlt_PNGPath",

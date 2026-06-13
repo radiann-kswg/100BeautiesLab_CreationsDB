@@ -1,0 +1,167 @@
+[
+  {
+    "Term": "技巧属性",
+    "Term_EN": "Artifact",
+    "Term_JPReading": "アーティファクト",
+    "TermType": null,
+    "Category": "能力特性用語",
+    "Summary": null,
+    "Summary_EN": null,
+    "Aliases": [],
+    "Links": []
+  },
+  {
+    "Term": "特殊パターン",
+    "Term_EN": "Special Pattern",
+    "Term_JPReading": "とくしゅパターン",
+    "TermType": null,
+    "Category": "能力特性用語",
+    "Summary": null,
+    "Summary_EN": null,
+    "Aliases": [],
+    "Links": []
+  },
+  {
+    "Term": "百花繚乱研究所",
+    "Term_JPReading": "ひゃっかりょうらんけんきゅうじょ",
+    "Term_EN": "HundredBeauties Laboratory",
+    "TermType": null,
+    "Category": "組織・陣営",
+    "Summary": null,
+    "Summary_EN": null,
+    "Aliases": [],
+    "Links": []
+  },
+  {
+    "Term": "百戦錬磨開発所",
+    "Term_JPReading": "ひゃくせんれんまかいはつじょ",
+    "Term_EN": "HundredBattlers Development",
+    "TermType": null,
+    "Category": "組織・陣営",
+    "Summary": null,
+    "Summary_EN": null,
+    "Aliases": [],
+    "Links": []
+  },
+  {
+    "Term": "ジャンクガレージ『六花陛下』",
+    "Term_JPReading": "ジャンクガレージ『マジェスティ・ロッカ』",
+    "Term_EN": "JunkGarage “Majesty Rokka”",
+    "TermType": null,
+    "Category": "組織・陣営",
+    "Summary": null,
+    "Summary_EN": null,
+    "Aliases": [],
+    "Links": []
+  },
+  {
+    "Term": "夜月機関",
+    "Term_EN": "Yadzuki Organization",
+    "Term_JPReading": "やづききかん",
+    "TermType": null,
+    "Category": "組織・陣営",
+    "Summary": null,
+    "Summary_EN": null,
+    "Aliases": [],
+    "Links": []
+  },
+  {
+    "Term": "龍天国",
+    "Term_EN": "LóngZhōu's.Republic",
+    "Term_JPReading": "りゅうてんこく",
+    "TermType": null,
+    "Category": "組織・陣営",
+    "Summary": null,
+    "Summary_EN": null,
+    "Aliases": [],
+    "Links": []
+  },
+  {
+    "Term": "国際情報広報機関『ミハイル』",
+    "Term_EN": "“Mikhail” the International Information & Public Relations Agency",
+    "Term_JPReading": "こくさいじょうほうこうほうきかん『ミハイル』",
+    "TermType": null,
+    "Category": "組織・陣営",
+    "Summary": null,
+    "Summary_EN": null,
+    "Aliases": [],
+    "Links": []
+  },
+  {
+    "Term": "超過人間",
+    "Term_EN": "OverHuman",
+    "Term_JPReading": "ちょうかにんげん",
+    "TermType": null,
+    "Category": "分類・種族",
+    "Summary": null,
+    "Summary_EN": null,
+    "Aliases": [],
+    "Links": []
+  },
+  {
+    "Term": "妖狐",
+    "Term_EN": "Warfox",
+    "Term_JPReading": "ようこ",
+    "TermType": null,
+    "Category": "分類・種族",
+    "Summary": null,
+    "Summary_EN": null,
+    "Aliases": [],
+    "Links": []
+  },
+  {
+    "Term": "月狼",
+    "Term_EN": "LunaWolf",
+    "Term_JPReading": "げつろう",
+    "TermType": null,
+    "Category": "分類・種族",
+    "Summary": null,
+    "Summary_EN": null,
+    "Aliases": [],
+    "Links": []
+  },
+  {
+    "Term": "蛇人",
+    "Term_EN": "Lamia",
+    "Term_JPReading": "じゃじん",
+    "TermType": null,
+    "Category": "分類・種族",
+    "Summary": null,
+    "Summary_EN": null,
+    "Aliases": [],
+    "Links": []
+  },
+  {
+    "Term": "化狸",
+    "Term_EN": "Raccoonian",
+    "Term_JPReading": "ばけだぬき",
+    "TermType": null,
+    "Category": "分類・種族",
+    "Summary": null,
+    "Summary_EN": null,
+    "Aliases": [],
+    "Links": []
+  },
+  {
+    "Term": "狛犬",
+    "Term_EN": "Komainu",
+    "Term_JPReading": "こまいぬ",
+    "TermType": null,
+    "Category": "分類・種族",
+    "Summary": null,
+    "Summary_EN": null,
+    "Aliases": [],
+    "Links": []
+  },
+  {
+    "Term": "概念",
+    "Term_EN": "Immaginaries",
+    "Term_JPReading": "がいねん/イマジナリ",
+    "TermType": null,
+    "Category": "分類・種族",
+    "Summary": null,
+    "Summary_EN": null,
+    "Aliases": [],
+    "Links": []
+  }
+]

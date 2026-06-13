@@ -1,8 +1,8 @@
 {
   "Databases": {
-    "#Ref_Glossary": {
-      "DB_Label": "創作用語",
-      "DB_Label_EN": "Glossary",
+    "#Ref_Vocabulary": {
+      "DB_Label": "語彙辞書",
+      "DB_Label_EN": "Vocabulary",
       "DB_Summary": "ナンバーテールズ固有の用語に関する資料。",
       "AI_Optout": true
     },

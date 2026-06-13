@@ -2,12 +2,12 @@
   { "Class": "火の棍棒支部", "Class_EN": "FireWands Branch" },
   { "Class": "水の聖杯支部", "Class_EN": "WaterCups Branch" },
   { "Class": "風の刀剣支部", "Class_EN": "SlashSwords Branch" },
-  { "Class": "金の硬貨支部", "Class_EN": "pentacleObjects Branch" },
+  { "Class": "金の硬貨支部", "Class_EN": "PentacleObjects Branch" },
   { "Class": "采配幹部(ディーラーズ)", "Class_EN": "Dealers" },
   { "Class": "情報屋", "Class_EN": "Informant" },
   { "Class": "最高幹部", "Class_EN": "Top Executive" },
   { "Class": "国際幹部", "Class_EN": "International Executive" },
   { "Class": "国境幹部", "Class_EN": "Border Executive" },
-  { "Class": "九蓮国支部幹部", "Class_EN": "RN.Brunch Executive" },
-  { "Class": "英皇国支部幹部", "Class_EN": "IK.Brunch Executive" }
+  { "Class": "九蓮国支部幹部", "Class_EN": "RN.Branch Executive" },
+  { "Class": "英皇国支部幹部", "Class_EN": "IK.Branch Executive" }
 ]

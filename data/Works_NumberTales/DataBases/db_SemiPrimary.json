@@ -577,7 +577,7 @@
     "SpecialSkill": "ドッペル：喧嘩の仲裁\nペルゲン：寝具や居室回りの掃除、ベッドメイキング",
     "SpecialSkill_EN": "Doppels: mediating fights\nPelgans: cleaning bedding and room areas, bed-making",
     "Favor": "躯体共通：猫、コアフォルダ\nドッペル：親しい人とのスキンシップ\nペルゲン：親しい人との会合",
-    "Favor_EN": "Shared body: cats, CoreFolder\nDoppels: physical closeness with trusted people\nPelgans: gatherings with close companions",
+    "Favor_EN": "Shared body: cats, corefolder\nDoppels: physical closeness with trusted people\nPelgans: gatherings with close companions",
     "Unlike": "躯体共通：自分勝手や私利私欲およびそのような態度の人\nドッペル：挟みな状況、頑なに（特定/不特定を問わず）他者を拒絶する人\nペルゲン：魔女狩り、美徳に反して他者を傷つける人",
     "Unlike_EN": "Shared body: selfishness, greed, and people with such attitudes\nDoppels: being stuck in between, and people who stubbornly reject others (specific or not)\nPelgans: witch-hunting and those who harm others against virtue",
     "NumerospecAbout": "疎外感を解消し縁を育む",
@@ -969,7 +969,7 @@
     "NumerospecAbout": "スロットゲーム拡張アドオンにより運勢を娯楽的に見せる",
     "NumerospecAbout_EN": "Shows fortune in an entertainment-oriented way via a slot-game expansion addon",
     "Summary": "量産販売型ではあるが、3桁ゾロ目の数字と通常個体(2桁以内)に劣らない性能をもつ「マスタートリプル」というクラスに属しており、そのなかでもさらに機能拡張性に長けている極めて特殊な個体。\n拡張サンプルとして同時提供されている「VIIx3.R(ラッキーセブンアール)」型は、背中の拡張I/O制御盤にスロットゲーム機構を搭載しており、娯楽的な場面だけでなくギャンブル依存症の対策などへの運用が想定されている。\n当然ながら 背中の拡張ユニットは取り外しが可能なので、コアフォルダ形態のふんわりとした質感もしっかり残存している。",
-    "Summary_EN": "Although sold as a mass-production model, this unit belongs to the \"MasterTriple\" class with a three-digit repdigit number and performance equal to regular two-digit units, and is especially specialized in functional expandability.\nThe \"VIIx3.R (Lucky Seven-R)\" variant, provided as an expansion sample, equips a slot-game mechanism on the back expansion I/O controller, and is intended not only for entertainment scenes but also for applications such as countermeasures against gambling addiction.\nNaturally, the back expansion unit is detachable, so the soft CoreFolder-like texture remains intact."
+    "Summary_EN": "Although sold as a mass-production model, this unit belongs to the \"MasterTriple\" class with a three-digit repdigit number and performance equal to regular two-digit units, and is especially specialized in functional expandability.\nThe \"VIIx3.R (Lucky Seven-R)\" variant, provided as an expansion sample, equips a slot-game mechanism on the back expansion I/O controller, and is intended not only for entertainment scenes but also for applications such as countermeasures against gambling addiction.\nNaturally, the back expansion unit is detachable, so the soft corefolder-like texture remains intact."
   },
   {
     "Num": 888,
@@ -1073,7 +1073,7 @@
     "FirstPersonCalling": "あーし",
     "FirstPersonCalling_EN": "Trie (very casual, in English: by name casually, in Japanese: 'a-shi')",
     "SecondPersonCalling": "あんた",
-    "SecondPersonCalling_EN": "guy(s) (anta; very casual)",
+    "SecondPersonCalling_EN": "guy/gal(s) (anta; very casual)",
     "ThirdPersonCalling": "~君,パイセン",
     "ThirdPersonCalling_EN": "[*by name], senpai (paisen; very casual)",
     "ForMasterCalling": "ヲタク君",

@@ -1,0 +1,35 @@
+[
+  {
+    "Term": "獣爾騎兵",
+    "Term_EN": "Shou'ar Riders",
+    "Term_JPReading": "シャウアルきへい",
+    "TermType": null,
+    "Category": "組織・陣営",
+    "Summary": null,
+    "Summary_EN": null,
+    "Aliases": [],
+    "Links": []
+  },
+  {
+    "Term": "獣騎能力",
+    "Term_EN": "Beastspec",
+    "Term_JPReading": "じゅうきのうりょく",
+    "TermType": null,
+    "Category": "能力特性用語",
+    "Summary": null,
+    "Summary_EN": null,
+    "Aliases": [],
+    "Links": []
+  },
+  {
+    "Term": "山月病",
+    "Term_EN": "Shanyu Disease",
+    "Term_JPReading": "さんげつびょう",
+    "TermType": null,
+    "Category": "異常・異変",
+    "Summary": null,
+    "Summary_EN": null,
+    "Aliases": [],
+    "Links": []
+  }
+]

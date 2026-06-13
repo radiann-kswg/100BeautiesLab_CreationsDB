@@ -221,7 +221,7 @@
         }
       ],
       "hashTag_JP": "アルカナムスペック(アルカナ能力)の特性",
-      "hashTag_EN": "ArcanumSpec (Arcana Ability) Traits",
+      "hashTag_EN": "Arcanamspec (Arcana Ability) Traits",
       "$display": { "sectionWrapper": "statsSection" }
     }
   ],

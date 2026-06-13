@@ -33,9 +33,16 @@
     },
     {
       "hashTag": "Category",
-      "$type": "##String_JP|#Null",
+      "$type": "$EnumDef|#Null",
       "hashTag_JP": "分類",
       "hashTag_EN": "Category",
+      "$display": { "section": "basic" }
+    },
+    {
+      "hashTag": "TermType",
+      "$type": "#String|#Null",
+      "hashTag_JP": "語彙種別",
+      "hashTag_EN": "Term Type",
       "$display": { "section": "basic" }
     },
     {
