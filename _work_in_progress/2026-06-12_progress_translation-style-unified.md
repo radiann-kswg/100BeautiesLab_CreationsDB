@@ -1057,7 +1057,8 @@
 | Num 23〜25 | ✅ 完了 | Relation.Comments_EN + ConversationPattern_EN 補完 |
 | Num 26〜30 | ✅ 完了 | Relation.Comments_EN + 各種 _EN フィールド補完 |
 | Num 31〜35 | ✅ 完了 | Relation.Comments_EN + 全トップレベル _EN + 呼称 EN 補完（2026-06-13） |
-| Num 36〜 | ⏳ 未対応 | 次の作業対象 |
+| Num 36〜40 | ✅ 完了 | Relation.Comments_EN + 全トップレベル _EN + 呼称 EN + ConversationPattern_EN 補完（2026-06-13） |
+| Num 41〜 | ⏳ 未対応 | 次の作業対象 |
 
 ### トップレベル _EN フィールドの完了状況（db_Primary.json）
 
@@ -1065,7 +1066,8 @@
 |---|---|
 | Num 26〜30 | `Character_EN`, `Hobby_EN`, `SpecialSkill_EN`, `Favor_EN`, `Unlike_EN`, `RelationNotes_EN`, `NumerospecAbout_EN`, `Summary_EN`, `Backgrounds_EN` 等 |
 | Num 31〜35 | `Character_EN`, `Hobby_EN`, `SpecialSkill_EN`, `Favor_EN`, `Unlike_EN`, `RelationNotes_EN`, `NumerospecAbout_EN`, `Summary_EN`, `TailsUnit_EN`, `InStory_EN`, `Backgrounds_EN`（Num 33）等 |
-| Num 36〜 | 未対応（次の作業対象） |
+| Num 36〜40 | `TailsUnit_EN`, `Character_EN`, `Hobby_EN`, `SpecialSkill_EN`, `Favor_EN`, `Unlike_EN`, `RelationNotes_EN`, `NumerospecAbout_EN`, `Summary_EN`, `InStory_EN`, `Backgrounds_EN` + 呼称 EN 全4フィールド（Num 39・40）+ `ForMasterCalling_EN`（Num 37）+ ConversationPattern_EN（Num 36・37・39）|
+| Num 41〜 | 未対応（次の作業対象） |
 
 注: Num 1〜25 のトップレベル _EN は部分的に補完済みだが、漏れの可能性がある。
 `scan_numbertales_missing_en.mjs` で再走査して確認すること（`.cache/` に保持）。
@@ -1075,6 +1077,9 @@
 - Num 25: ConversationPattern_EN + DialogueExamples 対応済み
 - Num 26: ConversationPattern_EN + DialogueExamples 対応済み
 - Num 29: ConversationPattern_EN + DialogueExamples 対応済み
+- Num 36: ConversationPattern_EN + DialogueExamples 対応済み（2026-06-13）
+- Num 37: ConversationPattern_EN + DialogueExamples 対応済み（2026-06-13）
+- Num 39: ConversationPattern_EN + DialogueExamples 対応済み（2026-06-13）
 
 ## 2026-06-13 追記：Num 26〜35 英訳補完（TailsUnit_EN + Num 31〜35 全フィールド）
 
@@ -1124,6 +1129,54 @@ Test Files  4 failed | 15 passed (19)
 - `pages.characters.ui-output.test.js`: UI 出力回帰テスト 2 件（既存・言語トグル対応時から）
 
 今回の実装による新規テスト失敗: **0件**
+
+---
+
+## 2026-06-13 追記：Num 36〜40 英訳補完（全フィールド + ConversationPattern）
+
+### 対象
+
+- `data/Works_NumberTales/DataBases/db_Primary.json`
+
+### 実施内容
+
+1. **TailsUnit_EN 追補（Num 36・37・39・40）**
+   - Num 36: `Fox (branched) type: 6 tails (upper: 2 clusters x3, lower: 1 cluster x3)`
+   - Num 37: `Fox (branched) type: 7 tails (upper: 2 clusters x3, lower: 1 cluster x4)`
+   - Num 39: `Fox (branched) type: 9 tails (upper: 2 clusters x3, lower: 1 cluster x6)`
+   - Num 40: `Four fox-type tails`（非枝分かれ型）
+
+2. **トップレベル _EN 補完（全5件）**
+   - 各 Num の欠落フィールドを補完（Character_EN, Hobby_EN, SpecialSkill_EN, Favor_EN, Unlike_EN, RelationNotes_EN, NumerospecAbout_EN, Summary_EN 等）
+   - Num 38 は NumerospecAbout_EN のみ補完
+
+3. **呼称 EN 欠損補完**
+   - Num 37: `ForMasterCalling_EN` を追加（`Leader\nbro/sis`）
+   - Num 39: 呼称 EN 全4フィールド追加（粗目男性語: `I (ore; rough masc.)`, `you (rough masc.)`, `he/she; that guy/gal (*yatsu); [*by name]`, `[*second-person calling]\npartner`）
+   - Num 40: 呼称 EN 全4フィールド追加（古語系: `Yo (*by name)\nI (boku; casual)`, `thou (sochi; archaic)\nyou (kimi; friendly)`, `he/she; that/this (*re); [*by name]` 等, `my liege\nMaster`）
+
+4. **ConversationPattern_EN 補完（Num 36・37・39）**
+   - `TalkingTone_EN`, `TopicPreference_EN`, `TalkFrequency_EN`, `PreferredTopics_EN`, `AvoidedTopics_EN`, `ConversationNotes_EN` を追加
+   - DialogueExamples: 文字列アイテム → `{value_JP: "...", value_EN: "..."}` 変換、オブジェクトアイテム → `value_EN` / `about_EN` 追補
+
+5. **Relation.Comments_EN 英訳（全27件）**
+   - 前バッチ以前の誤実装（`Comments_EN = Comments` の JP テキスト複製状態）を検出・修正
+   - Num 36（7件）・Num 37（7件）・Num 39（7件）・Num 40（6件）の全コメントを英訳
+
+### 確認事項
+
+- 既存 Summary_EN（Num 37）は上書きせず保持
+- 既存 about_EN（各 DE アイテム）は上書きせず保持
+- `insertAfterKey` 関数に「既存 EN キーを上書きしない」ガードを追加
+
+### 検証
+
+```
+Test Files  4 failed | 15 passed (19)
+      Tests  6 failed | 78 passed (84)
+```
+
+失敗 6 件はすべて既存の不具合（今回変更とは無関係）。今回の実装による新規テスト失敗: **0件**
 
 ---
 

@@ -7104,7 +7104,7 @@
     "CodeName": "三六",
     "CodeName_EN": "Three-Six",
     "SPCodeName": "三十六",
-    "SPCodeName_EN": "Thiree-Six",
+    "SPCodeName_EN": "Three-Six",
     "GenderType": "FemaleNeutral",
     "Height_cm": 150,
     "ConceptAge": 16,
@@ -7118,6 +7118,7 @@
     "Weight_kg": { "hideText": "非公開" },
     "BustSize": "E",
     "TailsUnit": "キツネ(枝分かれ)型6本(上2束3本+下1束3本)",
+    "TailsUnit_EN": "Fox (branched) type: 6 tails (upper: 2 clusters x3, lower: 1 cluster x3)",
     "Class": ["9倍2桁番(ナインズデュアルズ)"],
     "ThisMasters": [
       "颯 洋(はやて うみ)/Spade.2(Duece)（78特殊探偵団 風の刀剣 構成員）",
@@ -7136,10 +7137,15 @@
     "ForMasterCalling": "主さん",
     "ForMasterCalling_EN": "Master",
     "Character": "愛情表現が豊か\n運を分け与えるあまり、不運体質なのがコンプレックス",
+    "Character_EN": "Expressive and affectionate\nHas a complex about being prone to bad luck — a side effect of sharing her fortune with others",
     "Hobby": "デートスポット巡り",
+    "Hobby_EN": "Visiting date spots",
     "SpecialSkill": "ラッピング",
+    "SpecialSkill_EN": "Gift wrapping",
     "Favor": "開運グッズ",
+    "Favor_EN": "Good luck charms",
     "Unlike": "お化け",
+    "Unlike_EN": "Ghosts",
     "IdentityMotif": [
       {
         "Formation": "corefolder",
@@ -7193,8 +7199,11 @@
       }
     ],
     "RelationNotes": "「6(ムイ)」「30(ミツト)」に似たものがあり、彼女自身も見習っている一面がある",
+    "RelationNotes_EN": "Sees herself reflected in '6(Sics)' and '30(Thirtens)', and looks up to them both in her own way",
     "NumerospecAbout": "豊かさを分け与える\nただしその相手が目前に居る必要がある",
+    "NumerospecAbout_EN": "Shares abundance with others\nHowever, the recipient must be physically present",
     "Summary": "愛し愛されたい体質で、愛情表現を大切にしている。\n特に、母性的な感性を重んじる「6(ムイ)」と幸愛的な感性を持つ「30(ミツト)」に対しては似たものが大いにあり、彼女自身も見習っている一面がある。\nまた、そばにいる人に豊かさを分け与えるという“加護”を持つ個体で、主人に時の運をもたらすことでも定評。\nしかし彼女自身の運はというと…",
+    "Summary_EN": "She naturally craves to love and be loved, and holds the expression of affection close to her heart.\nShe sees a great deal of herself in '6(Sics)', who embodies maternal warmth, and '30(Thirtens)', who carries a loving and joyful nature — and looks up to both in her own way.\nShe also holds a Numerospec of sharing abundance with those nearby, and is well regarded for bringing timely good fortune to her masters.\nBut as for her own luck...",
     "NumerospecStats": {
       "EffectStats": {
         "Mental": { "EffectText": "期待" },
@@ -7215,24 +7224,25 @@
       "Actuation": { "Rank": "B" }
     },
     "InStory": "相手に運をもたらしているが、彼女自身の運は低い",
+    "InStory_EN": "Brings fortune to others, yet her own luck runs low",
     "Relation": {
       "Related": [
         {
           "Num": 6,
           "Comments": "「尊敬している人、僕もいつかああなりたいな」",
-          "Comments_EN": "「尊敬している人、僕もいつかああなりたいな」",
+          "Comments_EN": "\"Someone I deeply respect — I hope to be like her one day.\"",
           "RelationLabel": ["pioneer", "trusted"]
         },
         {
           "Num": 30,
           "Comments": "「尊敬している人、僕もいつかああなりたいな」",
-          "Comments_EN": "「尊敬している人、僕もいつかああなりたいな」",
+          "Comments_EN": "\"Someone I deeply respect — I hope to be like her one day.\"",
           "RelationLabel": ["pioneer_nearly", "trusted"]
         },
         {
           "Num": 63,
           "Comments": "「いつも慰めてくれる優しい妹」",
-          "Comments_EN": "「いつも慰めてくれる優しい妹」",
+          "Comments_EN": "\"A gentle little sister who always comforts me.\"",
           "RelationLabel": ["brother|sister", "wellMatched_maybe", "classmate"]
         }
       ],
@@ -7240,56 +7250,88 @@
         {
           "Num": 38,
           "Comments": "「できるなら僕にも運を分けてほしい…」",
-          "Comments_EN": "「できるなら僕にも運を分けてほしい…」",
+          "Comments_EN": "\"If you could, please share some of your luck with me too...\"",
           "RelationLabel": ["cousin"]
         },
         {
           "Num": 54,
           "Comments": "「いつも好調そう、凄いと思う」",
-          "Comments_EN": "「いつも好調そう、凄いと思う」",
+          "Comments_EN": "\"She always seems to be doing great — I think that's amazing.\"",
           "RelationLabel": ["classmate"]
         },
         {
           "Num": 69,
           "Comments": "「自分を見失ってないといいな…」",
-          "Comments_EN": "「自分を見失ってないといいな…」",
+          "Comments_EN": "\"I hope he hasn't lost sight of himself...\"",
           "RelationLabel": ["cousin_nearly"]
         },
         {
           "Num": 72,
           "Comments": "「成長を感じる、頑張ってほしい」",
-          "Comments_EN": "「成長を感じる、頑張ってほしい」",
+          "Comments_EN": "\"I can sense his/her growing — I hope he/she keeps at it.\"",
           "RelationLabel": ["classmate"]
         }
       ]
     },
     "ConversationPattern": {
       "TalkingTone": "優しく包み込むような口調で、少し控えめながら愛情が伝わりやすい。気遣いの言葉が多く、相手を安心させようとする。",
+      "TalkingTone_EN": "Speaks in a gently enveloping tone — slightly reserved, yet warmth and affection come through naturally. Uses many considerate words and tries to put the other person at ease.",
       "TopicPreference": "相手の幸せや気分の持ち直し、デートスポットや開運のような明るい話題を好む。誰かを元気づける話には特に前向き。少し心配性な優しさが目立つ。",
+      "TopicPreference_EN": "Favors bright topics like the other person's happiness, cheering up, date spots, and good luck. Especially enthusiastic about conversations that lift someone's spirits. A slightly anxious but gentle care stands out.",
       "TalkFrequency": "普段は穏やかだが、相手が落ち込んでいたり心配事があると積極的に話しかける。見守るように継続して声をかける傾向がある。",
+      "TalkFrequency_EN": "Usually calm and gentle, but will actively reach out when the other person seems down or troubled. Tends to keep checking in as if watching over them.",
       "PreferredTopics": "幸運や幸福に関する物、素敵なお店や場所について興味関心を示している。相手の頑張りを応援する話を自ら進んですることもある。",
+      "PreferredTopics_EN": "Shows interest in things related to luck and happiness, as well as nice shops and places. Sometimes takes initiative in conversations that encourage and cheer on the other person's efforts.",
       "AvoidedTopics": "お化けや不吉さを強く感じる状況では、怯えて発言を心の中にしまい込みやすい。自分や相手の不幸を面白がるような会話を嫌い避ける。",
+      "AvoidedTopics_EN": "In situations involving ghosts or strong feelings of bad omens, tends to shut down and keep thoughts inside out of fear. Dislikes and avoids conversations that find amusement in misfortune for herself or others.",
       "ConversationNotes": "すこし不運体質なところもあるが、それは相手の幸福を願う気持ちによるもので会話では相手に良いものを分けたい意識が先に立つ。",
+      "ConversationNotes_EN": "While she does have a slightly unlucky nature, it stems from her genuine wish for the other person's happiness — and in conversation, her desire to share good things with them always comes first.",
       "DialogueExamples": [
         {
           "value": "「僕は ナンバーテールズ36番機の、『36(ミトム)』…これからも、よろしくお願いします…！」",
+          "value_EN": "\"I'm NumberTales #36, '36(Trisixa)'... I hope we can continue to get along...!\"",
           "about": "契約時の自己紹介",
           "about_EN": "Self-introduction at the time of contract"
         },
-        "「優しい人がいっぱいいるって聞いたから来てみたけど…悪い人だらけじゃないといいな…」",
-        "「送信…っ、うまくいったかな…？」",
-        "「繁華街はいろんな店があるなぁ…おしゃれな商品が豊富で、なんだか見とれてしまうよ」",
-        "「ここにあるおみくじをやってみたいけど…主さんにどんなものが出るか試してもらおうかな…？」",
-        "「みんなが幸せなら、僕はそれでいいんだ……本当は僕も、開運してみたいけど…」",
-        "「僕は応援することしかできないけど、今日も頑張ってね主さん」",
-        "「今日もお疲れ様、主さん。明日のためにゆっくり休んでね」",
+        {
+          "value_JP": "「優しい人がいっぱいいるって聞いたから来てみたけど…悪い人だらけじゃないといいな…」",
+          "value_EN": "\"I heard there were lots of kind people here, so I came to see... I hope it's not full of bad ones...\""
+        },
+        {
+          "value_JP": "「送信…っ、うまくいったかな…？」",
+          "value_EN": "\"Sent... I wonder if it went through all right...?\""
+        },
+        {
+          "value_JP": "「繁華街はいろんな店があるなぁ…おしゃれな商品が豊富で、なんだか見とれてしまうよ」",
+          "value_EN": "\"The shopping district has so many different shops... There are so many stylish things — I find myself just staring~\""
+        },
+        {
+          "value_JP": "「ここにあるおみくじをやってみたいけど…主さんにどんなものが出るか試してもらおうかな…？」",
+          "value_EN": "\"I want to try this fortune slip here, but... maybe I should have Master draw it and see what comes up...?\""
+        },
+        {
+          "value_JP": "「みんなが幸せなら、僕はそれでいいんだ……本当は僕も、開運してみたいけど…」",
+          "value_EN": "\"As long as everyone is happy, that's enough for me... Though honestly, I'd love some good luck myself too...\""
+        },
+        {
+          "value_JP": "「僕は応援することしかできないけど、今日も頑張ってね主さん」",
+          "value_EN": "\"All I can do is cheer Master on, but keep at it today too, Master.\""
+        },
+        {
+          "value_JP": "「今日もお疲れ様、主さん。明日のためにゆっくり休んでね」",
+          "value_EN": "\"Thanks for your hard work today, Master. Please rest up for tomorrow.\""
+        },
         {
           "value": "（…うぅ…昨夜怖い夢を見たせいで、寝るのが怖い……今日は63(ムツミ)と寝よう…）",
-          "about": "睡眠(休止デフラグ)中に怖い夢を見た後"
+          "value_EN": "(...Uuu... I had a scary dream last night, and now I'm scared to sleep... Maybe I'll sleep with 63(Sicthrey) tonight...)",
+          "about": "睡眠(休止デフラグ)中に怖い夢を見た後",
+          "about_EN": "After having a scary dream during sleep (standby defrag)"
         },
         {
           "value": "「大丈夫？主さんには、僕の分も幸せになってほしい…」",
-          "about": "主人を心配しているとき"
+          "value_EN": "\"Are you okay? I want you to be happy enough for both of us, Master...\"",
+          "about": "主人を心配しているとき",
+          "about_EN": "When worrying about the master"
         }
       ]
     }
@@ -7333,6 +7375,7 @@
     ],
     "BustSize": "C",
     "TailsUnit": "キツネ(枝分かれ)型7本(上2束3本+下1束4本)",
+    "TailsUnit_EN": "Fox (branched) type: 7 tails (upper: 2 clusters x3, lower: 1 cluster x4)",
     "Class": ["デュアルキャリーズ"],
     "ThisMasters": ["桜花 訫[信](とき)/弥生（夜月機関 第3幹部）"],
     "ThisMasters_EN": ["桜花 訫[信](とき)/弥生（夜月機関 第3幹部）"],
@@ -7343,11 +7386,17 @@
     "ThirdPersonCalling": "彼/彼女;[※名前呼び]",
     "ThirdPersonCalling_EN": "he/she; [*by name]",
     "ForMasterCalling": "リーダー\nお兄(にぃ)/お姉(ねぇ)",
+    "ForMasterCalling_EN": "Leader\nbro/sis",
     "Character": "勤勉で知的向上心旺盛\n褒められると甘えがち",
+    "Character_EN": "Diligent and driven by intellectual curiosity\nTends to get clingy when praised",
     "Hobby": "書斎(本屋,図書館)に行く",
+    "Hobby_EN": "Visiting quiet reading spots (bookstores, libraries)",
     "SpecialSkill": "猫に懐かれる",
+    "SpecialSkill_EN": "Getting cats to warm up to her",
     "Favor": "頭を撫でられること",
+    "Favor_EN": "Having her head patted",
     "Unlike": "針",
+    "Unlike_EN": "Needles",
     "IdentityMotif": [
       {
         "Formation": "corefolder",
@@ -7397,7 +7446,9 @@
       }
     ],
     "RelationNotes": "従妹「47(シナ)」に興味がある？",
+    "RelationNotes_EN": "Seems to be interested in her cousin '47(Fourséve)'?",
     "NumerospecAbout": "主人の努力を報わせる\nこの効果は主人の努力による学びが深いほど拡大する",
+    "NumerospecAbout_EN": "Rewards the master's efforts\nThe effect grows stronger the deeper the master's learning through effort",
     "Summary": "努力家な主人を報わせると好評なナンバーテールズ。\n勤勉で知的向上心が旺盛な真面目ポジションで、主人層だけでなく他のナンバーテールズからも信頼されているが、褒められると99人の中で群を抜くレベルで甘えてしまう一面がある。\n従妹の「47(シナ)」に対して、他のナンバーテールズとは異なる感性や言動に興味があるようで…？",
     "Summary_EN": "This NumberTales is well received for rewarding hard-working masters.\nShe is diligent, intellectually ambitious, and serious, trusted not only by her masters but also by the other NumberTales, but when she is praised, she is spoiled at a level unmatched by any of the 99.\nShe seems to be interested in her cousin \"47(Fourséve)\" because of her different sensibility and behavior from the other NumberTales...?",
     "NumerospecStats": {
@@ -7425,13 +7476,13 @@
         {
           "Num": 47,
           "Comments": "「彼女の言う“加護”って一体何なんだろう…？」",
-          "Comments_EN": "「彼女の言う“加護”って一体何なんだろう…？」",
+          "Comments_EN": "\"What in the world is the Numerospec she talks about...?\"",
           "RelationLabel": ["cousin", "interested"]
         },
         {
           "Num": 73,
           "Comments": "「お願いだから変な噂だけは聴いてほしくない妹」",
-          "Comments_EN": "「お願いだから変な噂だけは聴いてほしくない妹」",
+          "Comments_EN": "\"My little sister who I just wish would stay away from weird rumors.\"",
           "RelationLabel": ["brother|sister", "awkward", "classmate"]
         }
       ],
@@ -7439,60 +7490,85 @@
         {
           "Num": 10,
           "Comments": "「ちょっとウザい」",
-          "Comments_EN": "「ちょっとウザい」"
+          "Comments_EN": "\"Kind of annoying.\""
         },
         {
           "Num": 28,
           "Comments": "「物に頼りすぎはいけないよ」",
-          "Comments_EN": "「物に頼りすぎはいけないよ」",
+          "Comments_EN": "\"Relying on things too much isn't good.\"",
           "RelationLabel": ["classmate"]
         },
         {
           "Num": 31,
           "Comments": "「本気出すと危険を顧みないところがある」",
-          "Comments_EN": "「本気出すと危険を顧みないところがある」",
+          "Comments_EN": "\"When she gets serious, there's a side that doesn't think about the risks.\"",
           "RelationLabel": ["cousin"]
         },
         {
           "Num": 64,
           "Comments": "「あの空元気には敵わないというか変というか…」",
-          "Comments_EN": "「あの空元気には敵わないというか変というか…」",
+          "Comments_EN": "\"I can't match that forced cheerfulness of hers... or, well, it's just strange...\"",
           "RelationLabel": ["classmate"]
         },
         {
           "Num": 97,
           "Comments": "「信仰に振り回されてないといいけど」",
-          "Comments_EN": "「信仰に振り回されてないといいけど」",
+          "Comments_EN": "\"I hope she's not being pushed around by her beliefs.\"",
           "RelationLabel": ["cousin"]
         }
       ]
     },
     "ConversationPattern": {
       "TalkingTone": "真面目で素直な口調を基本に、頑張ろうとする気持ちが前に出やすい。褒められるとわかりやすく嬉しそうになる。",
+      "TalkingTone_EN": "Fundamentally earnest and straightforward, with a clear eagerness to try her best. When praised, her happiness shows in an unmistakably obvious way.",
       "TopicPreference": "勉強や準備、日々の努力が報われるような話題に惹かれる。知らないことを学べる話や、努力家への応援にも前向き。",
+      "TopicPreference_EN": "Drawn to topics about studying, preparation, and the rewards of daily effort. Enthusiastic about conversations that involve learning new things or cheering on those who work hard.",
       "TalkFrequency": "こまめに確認や報告をしながら話すことが多い。気になることがあると自分から質問し、頑張りたい時や構ってほしい時ほど発言も増える。",
+      "TalkFrequency_EN": "Often checks in and reports back regularly during conversation. When curious, she asks questions on her own, and she speaks up more when she's motivated or wants attention.",
       "PreferredTopics": "勉学や努力の積み重ねに積極的な姿勢を示す。かわいいキャラクターや猫には強い興味を示し癒されている。",
+      "PreferredTopics_EN": "Shows an enthusiastic attitude toward academic study and building up through effort. Has a strong interest in cute characters and cats, which she finds comforting.",
       "AvoidedTopics": "努力を無意味だと切り捨てる話や、根拠のない怠慢・投げやりな態度を含む会話は避けたがる。明らかに自分に関心が向いてない相手には他よりも少しそっけない態度をすることもある。",
+      "AvoidedTopics_EN": "Avoids conversations that dismiss effort as meaningless or involve groundless laziness and a give-up attitude. Can be slightly more standoffish than usual toward those who are clearly uninterested in her.",
       "ConversationNotes": "几帳面に物事を進めようとするが、頭を撫でられたり褒められたりすると急に甘えた空気が出やすい。少し育ちざかりな一面が見え隠れしている。",
+      "ConversationNotes_EN": "Tries to handle things methodically, but when she gets her head patted or is praised, a sudden clingy mood comes out easily. A slightly still-growing side of her peeks through from time to time.",
       "DialogueExamples": [
         {
           "value": "「ナンバーテールズ37番機の『37(サナ)』です！まだまだ未熟ですが、これからも頑張ります！」",
+          "value_EN": "\"I'm '37(Trißven)', NumberTales #37! I still have a long way to go, but I'll keep doing my best!\"",
           "about": "契約時の自己紹介",
           "about_EN": "Self-introduction at the time of contract"
         },
-        "「まだまだ知らないことが多いな…もっと頑張らないと」",
-        "「持ち物ヨシ、戸締りヨシ、あとは…うん、いってきますっ！」",
-        "「この猫耳のキャラクター、いろんなところでみるなぁ…かわいい…」",
-        "「リーダー、お腹すいてない？そろそろお昼ご飯にしようよ」",
-        "「お仕事がまだ残ってるリーダーも、もう終わったリーダーも、無理せずに頑張ってね」",
+        {
+          "value_JP": "「まだまだ知らないことが多いな…もっと頑張らないと」",
+          "value_EN": "\"There's still so much I don't know... I have to try even harder.\""
+        },
+        {
+          "value_JP": "「持ち物ヨシ、戸締りヨシ、あとは…うん、いってきますっ！」",
+          "value_EN": "\"Belongings — check, doors locked — check, and then... yes, I'm heading out!\""
+        },
+        {
+          "value_JP": "「この猫耳のキャラクター、いろんなところでみるなぁ…かわいい…」",
+          "value_EN": "\"I keep seeing this cat-ear character everywhere... so cute...\""
+        },
+        {
+          "value_JP": "「リーダー、お腹すいてない？そろそろお昼ご飯にしようよ」",
+          "value_EN": "\"Leader, are you hungry? Let's have lunch soon.\""
+        },
+        {
+          "value_JP": "「お仕事がまだ残ってるリーダーも、もう終わったリーダーも、無理せずに頑張ってね」",
+          "value_EN": "\"Whether you still have work to do or you've already finished — don't push yourself too hard, okay Leaders?\""
+        },
         {
           "value": "「時々 “かいぶんしょ”？って呼ばれてる凄い文章のノートが視界に飛び込んでくるけど、投稿してる人はどんな本を読んでいるんだろう…？」",
+          "value_EN": "\"Every so often I catch sight of these amazing writings people call a 'kaibunshho'(strange writings) or something — I wonder what books the person posting them reads...?\"",
           "about": "SNSを見ている時",
           "about_EN": "While browsing social media"
         },
         {
           "value": "「明日は日曜日だよねリーダーっ、もし仕事とかがなくて暇だったら 、あたしと……遊んで欲しいな」",
-          "about": "休日に構って欲しい時"
+          "value_EN": "\"Tomorrow's Sunday, right Leader? If you don't have work or anything... I'd love it if you'd... play with me.\"",
+          "about": "休日に構って欲しい時",
+          "about_EN": "When she wants attention on a day off"
         }
       ]
     }
@@ -7519,6 +7595,7 @@
     ],
     "Class": ["デュアルイレブンズ"],
     "NumerospecAbout": "幸運を味方にする\nこの効果は物質的なものにも大いに影響される",
+    "NumerospecAbout_EN": "Draws luck to one's side\nThis effect is also greatly influenced by material things",
     "Relation": {
       "Related": [{ "Num": 44, "RelationLabel": ["wellMatched"] }],
       "Commented": [
@@ -7568,20 +7645,30 @@
     ],
     "Weight_kg": 44,
     "TailsUnit": "キツネ(枝分かれ)型9本(上2束3本+下1束6本)",
+    "TailsUnit_EN": "Fox (branched) type: 9 tails (upper: 2 clusters x3, lower: 1 cluster x6)",
     "Class": ["デュアルスリーズ"],
     "ThisMasters": ["乃木 希（VIPマスター;夜月機関 救命本部 推薦所属候補者）"],
     "ThisMasters_EN": [
       "乃木 希（VIPマスター;夜月機関 救命本部 推薦所属候補者）"
     ],
     "FirstPersonCalling": "俺",
+    "FirstPersonCalling_EN": "I (ore; rough masc.)",
     "SecondPersonCalling": "お前",
+    "SecondPersonCalling_EN": "you (rough masc.)",
     "ThirdPersonCalling": "彼/彼女;*奴(*いつ);[※名前呼び]",
+    "ThirdPersonCalling_EN": "he/she; that guy/gal (*yatsu); [*by name]",
     "ForMasterCalling": "[※二人称]\n相棒",
+    "ForMasterCalling_EN": "[*second-person calling]\npartner",
     "Character": "無駄や邪魔者には容赦しないドライな気質\nしかし信頼した人にとっては頼れる熱血漢",
+    "Character_EN": "A dry, no-nonsense temperament that shows no mercy to inefficiency or obstacles\nYet for those he trusts, he is a dependable, passionate ally",
     "Hobby": "ストラテジーゲーム",
+    "Hobby_EN": "Strategy games",
     "SpecialSkill": "スタント",
+    "SpecialSkill_EN": "Stunt work",
     "Favor": "ボードゲーム",
+    "Favor_EN": "Board games",
     "Unlike": "無様な敗北",
+    "Unlike_EN": "Humiliating defeats",
     "IdentityMotif": [
       {
         "Formation": "corefolder",
@@ -7635,8 +7722,11 @@
       }
     ],
     "RelationNotes": "なぜか女装を勧められる「61(ロクイチ)」とは大の犬猿の仲",
+    "RelationNotes_EN": "At constant loggerheads with '61(Síxone)' — who, for some reason, keeps pushing crossdressing on him",
     "NumerospecAbout": "主人の邪魔をするものに対し対抗心を奮い立たせる\nただし発動条件として主人との信頼関係が必要",
+    "NumerospecAbout_EN": "Stirs up a fighting spirit against anything standing in the master's way\nHowever, requires a bond of trust with the master to activate",
     "Summary": "主人と自分の効率のために無駄や不要なことをできるだけ排除することをモットーとしており、使えないことや行動の邪魔になることに対しかなりドライな印象を持たれている。\nただこう見えてリアリストではないようで、夢や意志を貶す人々と差を広げようと対抗心を燃やす熱血漢な一面も。\nなお、ナンバーテールズの中では珍しい男性個体である。",
+    "Summary_EN": "He makes it his motto to eliminate as much waste and unnecessary things as possible for both the master's and his own efficiency — leaving quite a dry impression on those who encounter anything he deems useless or obstructive.\nThat said, he does not appear to be a pure realist — there is a passionate side that burns with drive to widen the gap between himself and those who belittle dreams and resolve.\nHe is also a rare male-type unit among the NumberTales.",
     "NumerospecStats": {
       "EffectStats": {
         "Mental": { "EffectText": "絶大" },
@@ -7657,25 +7747,26 @@
       "Actuation": { "Rank": "B" }
     },
     "Backgrounds": "（10号機「ディケ」を除くと）初めての男性個体\nこの頃から男性型にも需要があるとみられる",
+    "Backgrounds_EN": "The first male unit (aside from Unit.10 \"Dicat\")\nFrom this period onward, male-type units are seen to be in demand as well",
     "Relation": {
       "Related": [
         {
           "Num": 3,
           "Comments": "「いろいろ世話になる」",
-          "Comments_EN": "「いろいろ世話になる」",
+          "Comments_EN": "\"I'm in your debt for many things.\"",
           "RelationLabel": ["pioneer"]
         },
         {
           "Num": 9,
           "Comments": "「…好きにやってくれ」",
-          "Comments_EN": "「…好きにやってくれ」",
+          "Comments_EN": "\"...Do whatever you like.\"",
           "RelationLabel": ["pioneer"]
         },
         { "Num": 61, "RelationLabel": ["unmatched"] },
         {
           "Num": 93,
           "Comments": "「俺より野望意識の強い妹、報われることを願ってる」",
-          "Comments_EN": "「俺より野望意識の強い妹、報われることを願ってる」",
+          "Comments_EN": "\"A little sister with stronger ambitions than me — I hope it pays off for her.\"",
           "RelationLabel": ["brother|sister", "trusted", "classmate"]
         }
       ],
@@ -7683,51 +7774,71 @@
         {
           "Num": 12,
           "Comments": "「あいつに邪魔をするつもりなどない」",
-          "Comments_EN": "「あいつに邪魔をするつもりなどない」",
+          "Comments_EN": "\"I have no intention of getting in her way.\"",
           "RelationLabel": ["classmate"]
         },
         {
           "Num": 19,
           "Comments": "「気味悪いが侮れるような奴ではない」",
-          "Comments_EN": "「気味悪いが侮れるような奴ではない」",
+          "Comments_EN": "\"Unsettling, but not someone to be taken lightly.\"",
           "RelationLabel": ["cousin"]
         },
         {
           "Num": 37,
           "Comments": "「努力は認めるべき存在」",
-          "Comments_EN": "「努力は認めるべき存在」",
+          "Comments_EN": "\"Someone whose efforts deserve to be recognized.\"",
           "RelationLabel": ["cousin"]
         },
         {
           "Num": 66,
           "Comments": "「いちいち眩しい」",
-          "Comments_EN": "「いちいち眩しい」"
+          "Comments_EN": "\"Dazzling at every turn.\""
         }
       ]
     },
     "ConversationPattern": {
       "TalkingTone": "普段は冷淡でクールな口調をしている。ただし信頼している人を馬鹿にしてきた相手に対してなどでは、対抗心を燃やすような態度をとることもある。",
+      "TalkingTone_EN": "Usually speaks in a cold, cool manner. However, when someone mocks someone he trusts, he can take on a combative, fired-up attitude.",
       "TopicPreference": "主に努力的な姿勢を示す人には友好的に接し、そうでない人には冷淡に接する傾向がある。\nまた、努力を蔑ろにしてくる人には（善意の範囲で）報復的な言動に出ることもある。",
+      "TopicPreference_EN": "Generally friendly toward those who show effort, and cold toward those who do not.\nCan also act in a retaliatory manner (within good intent) toward those who disregard effort.",
       "TalkFrequency": "必要な時に必要なことを話すタイプで、無駄な会話はあまりしない。\nただし、信頼している人の話をするときは、自ら進んで話題を進展させることもある。",
+      "TalkFrequency_EN": "Tends to speak only when necessary, avoiding idle conversation.\nHowever, when talking about someone he trusts, he may advance the topic on his own initiative.",
       "PreferredTopics": "原則自ら進んで話題提供することはないが、相手から聞かれた場合 信頼している人の話をまんざらでもないように話すことも。\n状況によっては趣味や特技の自慢をすることがある。",
+      "PreferredTopics_EN": "Generally does not offer topics unprompted, but when asked, can speak of those he trusts with a not-entirely-reluctant air.\nMay also show off about hobbies or skills depending on the situation.",
       "AvoidedTopics": "人を馬鹿にしたり努力を蔑ろにするような話題を自ら進んで選ぶことは全くしない。\nまた、相手の趣味趣向や価値観を否定・比較するような言い回しも避けている。",
+      "AvoidedTopics_EN": "Never chooses topics that mock people or disregard effort.\nAlso avoids phrasing that denies or compares the other person's interests and values.",
       "ConversationNotes": "喧嘩を売られた時は、最も被害やリスクが少ない方法で買う。そのため、相手の悪意を振り払うスカッとするような返しが群を抜いて得意で、自分（ら）が負ける喧嘩を買うことは怒りを抑えつつも絶対に避ける。",
+      "ConversationNotes_EN": "When provoked into a fight, he picks it up in the way that causes the least damage or risk. As a result, he excels at delivering sharp, satisfying comebacks that deflect ill intent — and will always hold back his anger to avoid engaging in fights he would lose.",
       "DialogueExamples": [
         {
           "value": "「ナンバーテールズ39番機の『39(サク)』だ、これから世話になる。お前の実力がどんなものかにもよるが、俺がいることに後悔はさせない」",
+          "value_EN": "\"I'm '39(Trenína)', NumberTales #39 — I'll be in your care. Depends on how capable you are, but I'll make sure you don't regret having me.\"",
           "about": "契約時の自己紹介",
           "about_EN": "Self-introduction at the time of contract"
         },
-        "「外野がどう言おうと、俺は誰にもお前を馬鹿にできないようお前の相棒でい続ける。だから自分のやっていることを外野の物言いで見失うなよ」",
-        "「どうせ勝敗が決まっている喧嘩を売るくらいなら、ちょっとは加減してほしいものだな。こんな不公平なやり方で勝者ぶるのも、自分が情けないとは少しも思わないのか？」",
-        "「……ふん。理想ばかり追うなとは、よくいったものだな。相棒もきっとそう思うだろうよ」",
+        {
+          "value_JP": "「外野がどう言おうと、俺は誰にもお前を馬鹿にできないようお前の相棒でい続ける。だから自分のやっていることを外野の物言いで見失うなよ」",
+          "value_EN": "\"No matter what the peanut gallery says, I'll keep being your partner so nobody can make a fool of you. So don't let their talk make you lose sight of what you're doing.\""
+        },
+        {
+          "value_JP": "「どうせ勝敗が決まっている喧嘩を売るくらいなら、ちょっとは加減してほしいものだな。こんな不公平なやり方で勝者ぶるのも、自分が情けないとは少しも思わないのか？」",
+          "value_EN": "\"If you're going to pick a fight where the outcome's already decided, at least hold back a little. Do you really not feel even a shred of shame — calling yourself the winner using such an unfair method?\""
+        },
+        {
+          "value_JP": "「……ふん。理想ばかり追うなとは、よくいったものだな。相棒もきっとそう思うだろうよ」",
+          "value_EN": "\"...Hmph. 'Don't just chase ideals' — well said. I'm sure my partner thinks the same.\""
+        },
         {
           "value": "「……別に。俺は相棒が突き進むべき道を拓いただけで、彼奴(あいつ)は自分の進むべき道さえあれば突き進む。俺との契約期間は残り１ヵ月も無いし、まぁ俺が干渉するほどでもないだろう」",
-          "about": "信頼している主人のことを話しているとき"
+          "value_EN": "\"...Nothing. I just cleared a path for my partner — she'd push forward on her own as long as she had a direction to go. There's less than a month left in our contract anyway; it's not really my place to get involved.\"",
+          "about": "信頼している主人のことを話しているとき",
+          "about_EN": "When talking about a master he trusts"
         },
         {
           "value": "「相棒を馬鹿にするのも程ほどにしとけよお前ら……絶対に後悔させてやるからな…!!」",
-          "about": "信頼している主人が周りに馬鹿にされているとき"
+          "value_EN": "\"Watch how much you mock my partner, all of you... I'll make sure you regret it...!!\"",
+          "about": "信頼している主人が周りに馬鹿にされているとき",
+          "about_EN": "When a master he trusts is being mocked by those around them"
         }
       ]
     }
@@ -7768,14 +7879,23 @@
     "TailsUnit_EN": "Four fox-type tails",
     "Class": ["10倍番(テンズデジッツ)"],
     "FirstPersonCalling": "ヨ\nぼく",
+    "FirstPersonCalling_EN": "mine (*by name)\nI (boku; casual)",
     "SecondPersonCalling": "ソチ\nきみ",
+    "SecondPersonCalling_EN": "thou (sochi; archaic)\nyou (kimi; friendly)",
     "ThirdPersonCalling": "彼/彼女;*レ;[※名前呼び]\n彼/彼女;*れ;~くん/~さん",
+    "ThirdPersonCalling_EN": "he/she; that/this (as objective); [*by name]\nhe/she; that/this (as objective); [*by name](-kun/-san)",
     "ForMasterCalling": "主君\n主人さん",
+    "ForMasterCalling_EN": "my liege\nMaster",
     "Character": "普段は大袋を拡げながら魔人ぶっているが本当はかなりの苦労人、陰の努力家",
+    "Character_EN": "Puts on the airs of a genie, bag at the ready — but in truth a considerable hard worker who has been through the wringer, toiling away quietly behind the scenes",
     "Hobby": "砂金集め",
+    "Hobby_EN": "Panning for gold",
     "SpecialSkill": "食器の修繕、建前",
+    "SpecialSkill_EN": "Repairing tableware; maintaining appearances",
     "Favor": "紅茶(の香り)、感謝されること",
+    "Favor_EN": "Black tea (its aroma); being thanked",
     "Unlike": "本音や感情ばかりの気難しい話",
+    "Unlike_EN": "Difficult conversations that are all raw feelings and emotions",
     "IdentityMotif": [
       {
         "Formation": "corefolder",
@@ -7827,7 +7947,9 @@
       }
     ],
     "NumerospecAbout": "実現化する\nこの効果は限度制限がある。行動や意志に呼応するらしいが、条件や効果事例が多様なため詳細は不明",
+    "NumerospecAbout_EN": "Brings things into reality\nThis effect has limitations. It appears to respond to actions and intentions, but conditions and effect cases vary so widely that details are unclear",
     "Summary": "「願いや望みを４つだけ叶えてくれる」という謎の風の噂が後を絶たず、一部界隈から“魔人”や“仙人”などと言われている。\n当の本人もその評判に恥じない達観した風格をしている……が、それはあくまでも演出にすぎず、珍妙な実績が吹聴されて引くに引けなくなっただけ。\n実際はドが付くほど苦労人であることを、お得意の建前で包み隠しているらしい。",
+    "Summary_EN": "The mysterious rumor that \"he/she will grant exactly four wishes\" never seems to die down, earning titles like \"genie\" or \"sage\" from certain circles.\nHe/she personally carries themselves with an air of enlightened composure that lives up to the reputation... but that is purely performance — they simply got talked up by bizarre results and couldn't back down.\nIn reality, he/she is apparently quite the hard-luck case, kept well hidden behind their signature facade.",
     "NumerospecStats": {
       "EffectStats": {
         "Mental": { "EffectText": "普通" },
@@ -7855,25 +7977,25 @@
         {
           "Num": 4,
           "Comments": "「ソチも大変だな…」",
-          "Comments_EN": "「ソチも大変だな…」",
+          "Comments_EN": "\"Thou've got it rough too, haven't thou...\"",
           "RelationLabel": ["brother|sister"]
         },
         {
           "Num": 22,
-          "Comments": "「ぼくの憧れです!! 様々な実績を遺し（以下略）」",
-          "Comments_EN": "「ぼくの憧れです!! 様々な実績を遺し（以下略）」",
+          "Comments": "「ぼくの憧れです!! 様々な実績を遺し（※以下略）」",
+          "Comments_EN": "\"Someone I look up to! Many impressive achievements and — (* and so on)\"",
           "RelationLabel": ["trusted", "adverselyAffected_aBit"]
         },
         {
           "Num": 50,
           "Comments": "「げっ、近づくな気持ち悪い…」",
-          "Comments_EN": "「げっ、近づくな気持ち悪い…」",
+          "Comments_EN": "\"Eww, don't come near mine... gross...\"",
           "RelationLabel": ["unmatched", "classmate"]
         },
         {
           "Num": 67,
           "Comments": "「腹が捩れるwww ひぃいwww」",
-          "Comments_EN": "「腹が捩れるwww ひぃいwww」",
+          "Comments_EN": "\"I'm losing it...!! hehehe hyaaah!! lol\"",
           "RelationLabel": ["abusing"]
         }
       ],
@@ -7881,12 +8003,12 @@
         {
           "Num": 31,
           "Comments": "「ちゃんとしておる、よきかな」",
-          "Comments_EN": "「ちゃんとしておる、よきかな」"
+          "Comments_EN": "\"Quite proper indeed — very well.\""
         },
         {
           "Num": 44,
           "Comments": "「良くも悪くもヤンキーじみておる」",
-          "Comments_EN": "「良くも悪くもヤンキーじみておる」",
+          "Comments_EN": "\"For better or worse, he's a delinquent air to him.\"",
           "RelationLabel": ["successor"]
         }
       ]
