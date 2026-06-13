@@ -62,13 +62,14 @@ describe('catalog meta schema declarations', () => {
 
   it('work-local db_meta databases can expose DB labels', () => {
     const workMeta = load('data/Works_NumberTales/DataBases/db_meta.json');
+    const refMeta = load('data/Works_NumberTales/References/db_meta.json');
     const primary = workMeta?.Databases?.['#DB_Primary'];
-    const glossary = workMeta?.Databases?.['#Ref_Glossary'];
+    const vocabulary = refMeta?.Databases?.['#Ref_Vocabulary'];
 
     expect(primary?.DB_Label).toBe('一次創作');
     expect(primary?.DB_Label_EN).toBe('Primary');
-    expect(glossary?.DB_Label).toBe('創作用語');
-    expect(glossary?.DB_Label_EN).toBe('Glossary');
+    expect(vocabulary?.DB_Label).toBe('語彙辞書');
+    expect(vocabulary?.DB_Label_EN).toBe('Vocabulary');
   });
 
   it('work-local db_meta story era values match the structured schema fields', () => {

@@ -27,7 +27,8 @@
       "_Commons": {
         "Belonging": ["百花繚乱研究所"],
         "RaceType": "PortableHumanoid(TaleBeastType)"
-      }
+      },
+      "AI_Optout": true
     },
     "#DB_SemiPrimary": {
       "DB_Label": "準一次創作",
@@ -185,23 +186,21 @@
         ],
         "DB_Hidden": true
       },
-      "AI_Optout": true
+      "AI_Optout": false
     },
     "#Ref_Glossary": {
       "DB_Label": "創作用語",
       "DB_Label_EN": "Glossary",
       "DB_Layer": "References",
       "DB_Summary": "ナンバーテールズ固有の用語に関する資料。",
-      "DB_Summary_EN": "Reference materials for NumberTales-specific terminology.",
-      "AI_Optout": true
+      "DB_Summary_EN": "Reference materials for NumberTales-specific terminology."
     },
     "#Ref_Reference": {
       "DB_Label": "創作基本資料",
       "DB_Label_EN": "Reference",
       "DB_Layer": "References",
       "DB_Summary": "ナンバーテールズの世界観に関する基本資料。",
-      "DB_Summary_EN": "Basic reference materials for the NumberTales world setting.",
-      "AI_Optout": true
+      "DB_Summary_EN": "Basic reference materials for the NumberTales world setting."
     },
     "#Ref_Vocabulary": {
       "DB_Label": "語彙辞書",

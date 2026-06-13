@@ -42,13 +42,6 @@
       "_Commons": { "GenderType": "Female" },
       "Works_Hidden": true,
       "AI_Optout": true
-    },
-    "#Ref_Vocabulary": {
-      "DB_Label": "語彙辞書",
-      "DB_Label_EN": "Vocabulary",
-      "DB_Layer": "References",
-      "DB_Summary": "アルベッツの創作固有語彙（造語・固有名詞）の日英対照表。",
-      "DB_Summary_EN": "JP/EN glossary of creative coined terms and proper nouns specific to UnibyteLive."
     }
   },
   "General": {
