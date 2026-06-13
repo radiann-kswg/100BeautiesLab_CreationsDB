@@ -183,27 +183,6 @@
         ],
         "DB_Hidden": true
       }
-    },
-    "#Ref_Glossary": {
-      "DB_Label": "創作用語",
-      "DB_Label_EN": "Glossary",
-      "DB_Layer": "References",
-      "DB_Summary": "ナンバーテールズ固有の用語に関する資料。",
-      "DB_Summary_EN": "Reference materials for NumberTales-specific terminology."
-    },
-    "#Ref_Reference": {
-      "DB_Label": "創作基本資料",
-      "DB_Label_EN": "Reference",
-      "DB_Layer": "References",
-      "DB_Summary": "ナンバーテールズの世界観に関する基本資料。",
-      "DB_Summary_EN": "Basic reference materials for the NumberTales world setting."
-    },
-    "#Ref_Vocabulary": {
-      "DB_Label": "語彙辞書",
-      "DB_Label_EN": "Vocabulary",
-      "DB_Layer": "References",
-      "DB_Summary": "ナンバーテールズの創作固有語彙（造語・固有名詞）の日英対照表。",
-      "DB_Summary_EN": "JP/EN glossary of creative coined terms and proper nouns specific to NumberTales."
     }
   },
   "General": {

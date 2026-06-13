@@ -8,13 +8,6 @@
       "_Commons": {
         "Belonging": ["創造主"]
       }
-    },
-    "#Ref_Vocabulary": {
-      "DB_Label": "語彙辞書",
-      "DB_Label_EN": "Vocabulary",
-      "DB_Layer": "References",
-      "DB_Summary": "代理の創作固有語彙（造語・固有名詞）の日英対照表。",
-      "DB_Summary_EN": "JP/EN glossary of creative coined terms and proper nouns specific to Proxies."
     }
   },
   "General": {
