@@ -7,7 +7,7 @@
 ## ＜ 二桁番(デュオデジッツ,Duet-Digits)＞
 
 > - `x0`:十倍番(テンズデジッツ,Tens-Digits) 9
-> - `xx`:マスターテールズ(Master Tales) 9
+> - `xx`:マスターテールズ(MasterTales) 9
 
 - デュアルズ(Duals) 9P2=8x9=72
   > ※9 の剰余で分ける
