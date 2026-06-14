@@ -139,11 +139,14 @@ function findDbCatalogEntry(workMeta, dbName) {
 	return databases[`#DB_${normalized}`] || databases[`#Ref_${normalized}`] || null;
 }
 
-function mapDbNameToImageDir(dbName) {
+function mapDbNameToImageDir(dbName, layer = '') {
 	const rawName = String(dbName || '').trim();
 	if (!rawName) return 'General';
 	if (rawName === 'General') return 'General';
 	if (rawName.startsWith('DB_') || rawName.startsWith('Ref_')) return rawName;
+
+	// DB_Layer が "References" なら Ref_ プレフィックスを付与
+	if (String(layer || '').trim() === 'References') return `Ref_${rawName}`;
 
 	const refMapping = {
 		Glossary: 'Ref_Glossary',
@@ -4347,7 +4350,7 @@ function resolveWorkDirName(workId) {
  * @param {string} dbName - Database name (e.g., 'Primary', 'Secondary', etc.)
  * @returns {Array} Array of {url, caption, type, alt, category} objects
  */
-function buildImageGallery(workId, record, imageFields, dbName = 'Primary') {
+function buildImageGallery(workId, record, imageFields, dbName = 'Primary', layer = '') {
 	const wdir = resolveWorkDirName(workId);
 	const images = [];
 	// Support common "Images" key variants (typos / case)
@@ -4393,7 +4396,7 @@ function buildImageGallery(workId, record, imageFields, dbName = 'Primary') {
 				: (field.labelJP || field.labelEN || field.label || field.field);
 
 			// Use the enhanced buildImagePath function
-			const url = buildImagePath(wdir, dbName, field, val);
+			const url = buildImagePath(wdir, dbName, field, val, layer);
 
 			if (url) {
 				const imageItem = {
@@ -4435,7 +4438,7 @@ function buildImageGallery(workId, record, imageFields, dbName = 'Primary') {
 					label: key
 				};
 
-				const url = buildImagePath(wdir, dbName, fallbackField, val);
+				const url = buildImagePath(wdir, dbName, fallbackField, val, layer);
 				if (url) {
 					const imageItem = {
 						url,
@@ -4658,7 +4661,7 @@ async function renderSelectionMeta(workKey, dbKey) {
  * @param {Array} imageFields - Optional extracted image fields for this work
  * @returns {string} Image URL or empty string if no image found
  */
-async function imageFromRecord(workId, rec, dbName = 'Primary', imageFields = null) {
+async function imageFromRecord(workId, rec, dbName = 'Primary', imageFields = null, layer = '') {
 	const wdir = resolveWorkDirName(workId);
 	const img = getRecordImages(rec);
 
@@ -4673,7 +4676,7 @@ async function imageFromRecord(workId, rec, dbName = 'Primary', imageFields = nu
 	// If image fields provided, use dynamic resolution
 	if (imageFields && imageFields.length > 0) {
 		console.log('📋 Using dynamic image field resolution...');
-		const primaryImage = await resolveImageFromFields(workId, rec, dbName, imageFields);
+		const primaryImage = await resolveImageFromFields(workId, rec, dbName, imageFields, layer);
 		if (primaryImage) {
 			console.log('✅ Found image via dynamic resolution:', primaryImage);
 			return primaryImage;
@@ -4682,7 +4685,7 @@ async function imageFromRecord(workId, rec, dbName = 'Primary', imageFields = nu
 
 	// Fallback to legacy static resolution with enhanced flexibility
 	console.log('🔄 Using enhanced static image resolution...');
-	return resolveImageStatically(workId, rec, dbName);
+	return resolveImageStatically(workId, rec, dbName, layer);
 }
 
 /**
@@ -4693,7 +4696,7 @@ async function imageFromRecord(workId, rec, dbName = 'Primary', imageFields = nu
  * @param {Array} imageFields - Extracted image field definitions
  * @returns {Promise<string>} Image URL or empty string
  */
-async function resolveImageFromFields(workId, rec, dbName, imageFields) {
+async function resolveImageFromFields(workId, rec, dbName, imageFields, layer = '') {
 	const wdir = resolveWorkDirName(workId);
 	const img = getRecordImages(rec);
 
@@ -4711,7 +4714,7 @@ async function resolveImageFromFields(workId, rec, dbName, imageFields) {
 		if (!value) continue;
 
 		// Build image URL based on field category and type
-		const imageUrl = buildImagePath(wdir, dbName, field, value);
+		const imageUrl = buildImagePath(wdir, dbName, field, value, layer);
 		if (imageUrl) {
 			console.log(`✅ Built image URL for field '${field.field}':`, imageUrl);
 			return imageUrl;
@@ -4730,9 +4733,9 @@ async function resolveImageFromFields(workId, rec, dbName, imageFields) {
  * @param {string} value - Field value
  * @returns {string} Complete image path or empty string
  */
-function buildImagePath(wdir, dbName, field, value) {
+function buildImagePath(wdir, dbName, field, value, layer = '') {
 	if (!value) return '';
-	const imageDbDir = mapDbNameToImageDir(dbName);
+	const imageDbDir = mapDbNameToImageDir(dbName, layer);
 	const explicitFolderHint = typeof field?.folderHint === 'string' && field.folderHint.trim()
 		? field.folderHint.trim()
 		: inferImageFolderHint(field?.field || '');
@@ -4861,10 +4864,10 @@ function buildImagePath(wdir, dbName, field, value) {
  * @param {string} dbName - Database name
  * @returns {string} Image URL or empty string
  */
-function resolveImageStatically(workId, rec, dbName) {
+function resolveImageStatically(workId, rec, dbName, layer = '') {
 	const wdir = resolveWorkDirName(workId);
 	const img = getRecordImages(rec);
-	const imageDbDir = mapDbNameToImageDir(dbName);
+	const imageDbDir = mapDbNameToImageDir(dbName, layer);
 
 	console.log('🔧 Enhanced static resolution for:', {
 		workId,
@@ -5006,8 +5009,8 @@ function resolveImageStatically(workId, rec, dbName) {
  * @param {Object} workMeta - Work metadata
  * @param {Object} globalDefType - Global type definitions
  */
-function loadMoreImages(workId, rec, imageFields, dbName, fieldLabelMap, workMeta, globalDefType) {
-	const galleryImages = buildImageGallery(workId, rec, imageFields, dbName);
+function loadMoreImages(workId, rec, imageFields, dbName, fieldLabelMap, workMeta, globalDefType, layer = '') {
+	const galleryImages = buildImageGallery(workId, rec, imageFields, dbName, layer);
 	const imageGrid = document.querySelector('.image-grid');
 	const moreButton = document.querySelector('.image-more');
 
@@ -5127,6 +5130,7 @@ async function renderList(records, workId, onOpen, imageFields = null) {
 
 	// workMeta を参照できる場合は、表示名解決（#List_*）に利用
 	const workMeta = state?.workMeta || null;
+	const currentLayerName = String(findDbCatalogEntry(workMeta, dbName)?.DB_Layer || '').trim();
 	const metaForLookup = (() => {
 		const wm = workMeta && typeof workMeta === 'object' ? workMeta : {};
 		const gm = globalMeta && typeof globalMeta === 'object' ? globalMeta : {};
@@ -5161,7 +5165,7 @@ async function renderList(records, workId, onOpen, imageFields = null) {
 		shown++;
 
 		// Use enhanced image resolution
-		const img = await imageFromRecord(workId, r, dbName, imageFields);
+		const img = await imageFromRecord(workId, r, dbName, imageFields, currentLayerName);
 
 		const title = getRecordPrimaryTitle(r);
 		const sub = getRecordSecondaryTitle(r);
@@ -5429,10 +5433,10 @@ export async function renderDetail(workId, rec) {
 			: extractImageFields(workTypeDef, globalTypeDef);
 
 		// Enhanced poster image with dynamic resolution
-		const poster = await imageFromRecord(workId, rec, dbName, imageFields);
+		const poster = await imageFromRecord(workId, rec, dbName, imageFields, currentLayerName);
 
 		// Build image gallery with enhanced dynamic resolution
-		const galleryImages = buildImageGallery(workId, rec, imageFields, dbName);
+		const galleryImages = buildImageGallery(workId, rec, imageFields, dbName, currentLayerName);
 
 		console.log('🖼️ Detail view images:', {
 			poster,
@@ -5457,7 +5461,7 @@ export async function renderDetail(workId, rec) {
 						el('div', { class: 'image-more', style: 'text-align: center; padding: 10px;' }, [
 							el('button', {
 								type: 'button',
-								onclick: () => loadMoreImages(workId, rec, imageFields, dbName, fieldLabelMap, workMeta, globalDefType)
+								onclick: () => loadMoreImages(workId, rec, imageFields, dbName, fieldLabelMap, workMeta, globalDefType, currentLayerName)
 							}, [`さらに ${galleryImages.length - 6} 枚の画像を表示`])
 						])
 					] : []

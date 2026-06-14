@@ -1063,7 +1063,9 @@
 | Num 46〜50 | ✅ 完了   | Relation.Comments_EN + 全トップレベル \_EN + 呼称 EN + ConversationPattern_EN（Num 47）補完（2026-06-13） |
 | Num 51〜55 | ✅ 完了   | Relation.Comments_EN + 全トップレベル _EN + ConversationPattern_EN（Num 52）補完（2026-06-13） |
 | Num 56〜60 | ✅ 完了   | Relation.Comments_EN + 全トップレベル _EN + 呼称 EN + ConversationPattern_EN（Num 56〜58・60）補完（2026-06-13）。Num 57 Summary_EN 既存値の誤り（75(Sefieven)→Sefievn / they→he/she）も修正 |
-| Num 61〜   | ⏳ 未対応 | 次の作業対象                                                                                              |
+| Num 61〜65 | ✅ 完了   | Relation.Comments_EN + 全トップレベル _EN + 呼称 EN + ConversationPattern_EN（Num 61）+ TailsUnit_EN 補完（2026-06-14）。Num 64 Hobby/Unlike の hideText オブジェクト対応済み |
+| Num 66〜70 | ✅ 完了   | Relation.Comments_EN + 全トップレベル _EN + 呼称 EN 補完（2026-06-14）。Num 66 Summary_EN は既存英文を保持（上書きなし）。Num 67 Commented["00"] は文字列キー対応。Num 70 CodeName_EN (Seventy) 追加 |
+| Num 71〜   | ⏳ 未対応 | 次の作業対象                                                                                              |
 
 ### トップレベル \_EN フィールドの完了状況（db_Primary.json）
 
@@ -1093,6 +1095,82 @@
 - Num 57: ConversationPattern_EN + DialogueExamples 10件 対応済み（2026-06-13）
 - Num 58: ConversationPattern_EN + DialogueExamples 12件 対応済み（2026-06-13）
 - Num 60: ConversationPattern_EN + DialogueExamples 10件 対応済み（2026-06-13）
+- Num 61: ConversationPattern_EN + DialogueExamples 12件 対応済み（2026-06-14）
+
+## 2026-06-14 追記：Num 66〜70 英訳補完（全フィールド）
+
+### 変更概要
+
+- スクリプト: `.cache/translate_num66_70.mjs`、102フィールド更新
+- 対象: `data/Works_NumberTales/DataBases/db_Primary.json`
+- パターン: `db.map()` + `current = insertAfterKey(current, ...)` で正しいキー順序を保証
+
+### 適用内容
+
+1. **TailsUnit_EN 補完（Num 66〜70 全員）**
+
+2. **呼称 EN 補完**
+   - Num 66: FirstPersonCalling/ThirdPersonCalling/ForMasterCalling
+   - Num 67: FirstPersonCalling/SecondPersonCalling/ThirdPersonCalling/ForMasterCalling
+   - Num 68: FirstPersonCalling/SecondPersonCalling（ThirdPersonCalling_EN・ForMasterCalling_EN は既存保持）
+   - Num 69: FirstPersonCalling/SecondPersonCalling/ThirdPersonCalling/ForMasterCalling
+   - Num 70: FirstPersonCalling/SecondPersonCalling/ThirdPersonCalling/ForMasterCalling
+
+3. **全トップレベル _EN フィールド補完（Character/Hobby/SpecialSkill/Favor/Unlike/NumerospecAbout/Summary 等）**
+   - Num 66: Summary_EN は既存英文あり（JP≠EN）のため上書きなし（スキップ）
+   - Num 70: CodeName_EN (`Seventy`) を新規追加
+
+4. **Relation.Comments_EN 英訳（Num 66〜70 全 Related・Commented エントリ）**
+   - Num 67 Commented["00"]: キーが文字列 `"00"` のため `String(entry.Num)==='00'` で照合
+   - Num 68: Commented[41]（Neutral+俺→him例外）/ Commented[50]（Neutral→she例外）を含む
+
+### 代名詞ルール適用
+
+| Num | GenderType | 使用代名詞 |
+|-----|------------|------------|
+| 66  | FemaleNeutral | she/her |
+| 67  | MaleNeutral   | he/him  |
+| 68  | Neutral       | he/she / him/her |
+| 69  | MaleNeutral   | he/him  |
+| 70  | MaleNeutral   | he/him  |
+
+---
+
+## 2026-06-14 追記：Num 61〜65 英訳補完（全フィールド + ConversationPattern）
+
+### 変更概要
+
+- スクリプト: `.cache/translate_num61_65.mjs`、115フィールド更新
+- 対象: `data/Works_NumberTales/DataBases/db_Primary.json`
+
+### 適用内容
+
+1. **TailsUnit_EN 補完（Num 61〜65 全員）**
+
+2. **呼称 EN 補完**
+   - Num 61: FirstPersonCalling/ThirdPersonCalling/ForMasterCalling
+   - Num 62: SecondPersonCalling/ThirdPersonCalling/ForMasterCalling
+   - Num 63: ThirdPersonCalling（ForMasterCalling_EN は既存）
+   - Num 64: FirstPersonCalling/SecondPersonCalling/ThirdPersonCalling/ForMasterCalling（全4種）
+   - Num 65: ThirdPersonCalling/ForMasterCalling
+
+3. **全トップレベル \_EN フィールド補完（Character/Hobby/SpecialSkill/Favor/Unlike/NumerospecAbout/Summary 等）**
+   - Num 64: `Hobby` / `Unlike` が `{hideText: '？？？'}` オブジェクトのため、`Hobby_EN` / `Unlike_EN` を `{hideText: '???'}` の sibling キーとして追加
+
+4. **ConversationPattern_EN 補完（Num 61）**
+   - TalkingTone_EN〜ConversationNotes_EN の6フィールド
+   - DialogueExamples: 12件（DE[0]〜[11]）全て翻訳。DE[9〜11] は about_EN も新規追加
+
+5. **Relation.Comments_EN 英訳（Num 61〜65 全 Related・Commented エントリ）**
+
+### 特記事項
+
+- Num 61 `FirstPersonCalling_EN`: `'Síon-chan' (self-ref.)` — 自己呼称の EN ニックネーム（`ロイ` = `Síon`）を反映
+- Num 62 `ForMasterCalling_EN`: `Master-senpai`（`ご主人先輩`）
+- Num 64 Hobby/Unlike は `{ hideText: '???' }` sibling オブジェクト
+- Num 65 `ForMasterCalling_EN`: `-bro/sis (-niisan/-neesan), big bro/sis`（Num 56 手直し確定フォーマット）
+- 全員 GenderType: FemaleNeutral → Comments_EN / Summary_EN を `she/her` で統一
+- Related に登場する Num 46 → `she`（prior exception）、Num 90 → 代名詞回避
 
 ## 2026-06-13 追記：Num 56〜60 英訳補完（全フィールド + ConversationPattern）
 
