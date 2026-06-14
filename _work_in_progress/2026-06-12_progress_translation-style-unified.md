@@ -1065,7 +1065,9 @@
 | Num 56〜60 | ✅ 完了   | Relation.Comments_EN + 全トップレベル _EN + 呼称 EN + ConversationPattern_EN（Num 56〜58・60）補完（2026-06-13）。Num 57 Summary_EN 既存値の誤り（75(Sefieven)→Sefievn / they→he/she）も修正 |
 | Num 61〜65 | ✅ 完了   | Relation.Comments_EN + 全トップレベル _EN + 呼称 EN + ConversationPattern_EN（Num 61）+ TailsUnit_EN 補完（2026-06-14）。Num 64 Hobby/Unlike の hideText オブジェクト対応済み |
 | Num 66〜70 | ✅ 完了   | Relation.Comments_EN + 全トップレベル _EN + 呼称 EN 補完（2026-06-14）。Num 66 Summary_EN は既存英文を保持（上書きなし）。Num 67 Commented["00"] は文字列キー対応。Num 70 CodeName_EN (Seventy) 追加 |
-| Num 71〜   | ⏳ 未対応 | 次の作業対象                                                                                              |
+| Num 71〜75 | ✅ 完了   | Relation.Comments_EN 英訳 + 全トップレベル _EN + 呼称 EN 補完（2026-06-14）。スクリプト v2 で全 _EN を正順挿入 |
+| Num 76〜82 | ✅ 完了   | Relation.Comments_EN 英訳 + 全トップレベル _EN + 呼称 EN + TailsUnit_EN 補完（2026-06-14）。83フィールド更新 |
+| Num 83〜   | ⏳ 未対応 | 次の作業対象                                                                                              |
 
 ### トップレベル \_EN フィールドの完了状況（db_Primary.json）
 
@@ -1562,5 +1564,75 @@ Test Files  4 failed | 15 passed (19)
 
 ### 未完了タスク
 
-- NT db_Primary の Num 71〜（通常英訳バッチ）が中断中。次セッションで継続。
+- NT db_Primary の Num 76〜 通常英訳バッチが次の作業対象。
 - SCG / UnauthedLogica の ThirdPersonCalling_EN 対応状況が未確認（§3-3-9 に要チェックとして記載済み）
+
+---
+
+## 2026-06-14 追記：Num 71〜75 英訳補完 v2（全フィールド・正順挿入）
+
+### 変更概要
+
+- スクリプト: `.cache/translate_71_75_v2.mjs`（54 フィールド更新）
+- 対象: `data/Works_NumberTales/DataBases/db_Primary.json`
+- 前回 v1 (`translate_71_75.mjs`) では文章系 `_EN` フィールドに `r[key] = val` の直接代入を使ったため、
+  該当キーがレコード末尾に積まれる誤った順序になっていた。
+  v2 では全 `_EN` フィールドを `buildOrdered()` 関数（`insertAfterKey` 相当）で JP キーの直後に配置する方式に統一。
+
+### 適用内容
+
+| Num | GenderType | 代名詞 | 追加フィールド |
+|-----|-----------|--------|---------------|
+| 71 (ナナヒ)  | MaleNeutral   | he/him       | ThirdPersonCalling_EN, ForMasterCalling_EN, Character_EN, Hobby_EN, SpecialSkill_EN, Favor_EN, Unlike_EN, NumerospecAbout_EN, Summary_EN |
+| 72 (ナフタ)  | Neutral       | ze/zir       | FirstPersonCalling_EN, SecondPersonCalling_EN, ThirdPersonCalling_EN（既存再配置）, ForMasterCalling_EN, Character_EN, Hobby_EN, SpecialSkill_EN, Favor_EN, Unlike_EN, NumerospecAbout_EN, Summary_EN, InStory_EN, Backgrounds_EN |
+| 73 (ナトミ)  | FemaleNeutral | she/her      | ForMasterCalling_EN, Character_EN, Hobby_EN, SpecialSkill_EN, Favor_EN, Unlike_EN, NumerospecAbout_EN, Summary_EN, InStory_EN, Backgrounds_EN |
+| 74 (ナナヨ)  | FemaleNeutral | she/her      | ThirdPersonCalling_EN, Character_EN, Hobby_EN, SpecialSkill_EN, Favor_EN, Unlike_EN, NumerospecAbout_EN, Summary_EN, InStory_EN, Backgrounds_EN |
+| 75 (シチゴ)  | Neutral       | ze/zir       | SecondPersonCalling_EN, ThirdPersonCalling_EN, ForMasterCalling_EN, Character_EN, Hobby_EN, SpecialSkill_EN, Favor_EN, Unlike_EN, RelationNotes_EN, NumerospecAbout_EN, Summary_EN, Backgrounds_EN |
+
+### Relation.Comments_EN（追加スクリプト: `.cache/translate_71_75_relation.mjs` / 35 フィールド更新）
+
+| Num | Related | Commented | 代名詞注記 |
+|-----|---------|-----------|-----------|
+| 71 | [0]17(Sevteena)/[1]35(Thirfivan/Míko)/[3]0(Zera) | [0]25/[1]52/[2]80/[3]98 | 71=he/him。Neutral相手は he/she 回避しproper noun優先 |
+| 72 | [0]2(Twiny)/[1]7(Sevan)/[2]27(Twißven) | [0]9/[1]20/[2]70/[3]99 | 72=ze/zir。機械的語り口を英訳で保持 |
+| 73 | [1]66(Sixis)/[3]97(Ninsefie) | [0]13/[1]46/[2]70/[3]82/[4]90 | 73=she/her。90(Unknown)→代名詞回避 |
+| 74 | [0]7(Sevan)/[1]11(Elevan)/[3]47(Fourséve)/[5]97 | [0]38/[1]56/[2]94 | 74=she/her。Neutral相手=he/she |
+
+---
+
+## 2026-06-14 追記：Num 76〜82 英訳補完（全フィールド + Relation.Comments_EN）
+
+### 変更概要
+
+- スクリプト: `.cache/translate_76_82.mjs`（83 フィールド更新）
+- 対象: `data/Works_NumberTales/DataBases/db_Primary.json`
+- 全 `_EN` フィールドを `buildOrdered()` で JP キー直後に正順挿入
+
+### 適用内容
+
+| Num | GenderType | 代名詞 | 追加フィールド |
+|-----|------------|--------|---------------|
+| 76 (セブシ)   | FemaleNeutral | she/her | ThirdPersonCalling_EN, ForMasterCalling_EN, TailsUnit_EN, Character_EN, Hobby_EN, SpecialSkill_EN, Favor_EN, Unlike_EN, Summary_EN, InStory_EN, NumerospecAbout_EN |
+| 77 (セフベン)  | Neutral       | ze/zir  | SecondPersonCalling_EN, TailsUnit_EN, Character_EN, Hobby_EN, SpecialSkill_EN, Favor_EN, Unlike_EN, Summary_EN, RelationNotes_EN, InStory_EN, NumerospecAbout_EN |
+| 78 (セブエイ)  | FemaleNeutral | she/her | FirstPersonCalling_EN, ThirdPersonCalling_EN, ForMasterCalling_EN, Character_EN, Hobby_EN, SpecialSkill_EN, Favor_EN, Unlike_EN, Summary_EN, InStory_EN, NumerospecAbout_EN |
+| 79 (セブナイ)  | Neutral       | ze/zir  | Favor_EN, InStory_EN（最小補完）|
+| 80 (エイティ)  | FemaleNeutral | she/her | FirstPersonCalling_EN, SecondPersonCalling_EN, ThirdPersonCalling_EN, ForMasterCalling_EN, Character_EN, Hobby_EN, SpecialSkill_EN, Favor_EN, Unlike_EN, NumerospecAbout_EN, RelationNotes_EN |
+| 81 (エイワン)  | FemaleNeutral | she/her | ForMasterCalling_EN, TailsUnit_EN, Character_EN, Hobby_EN, SpecialSkill_EN, Favor_EN, Unlike_EN, Summary_EN, NumerospecAbout_EN |
+| 82 (エイトワ)  | Neutral       | ze/zir  | TailsUnit_EN, NumerospecAbout_EN（最小補完）|
+
+### Relation.Comments_EN（83 フィールド中の一部として同スクリプトで更新）
+
+| Num | Related | Commented | 代名詞注記 |
+|-----|---------|-----------|-----------|
+| 76 | [0]40(Fortty/Neutral→ze)/[1]71(Sevone/MaleNeutral→he) | [0]4(Forna)/[1]31(Thirtone)/[2]56(Fivsix)/[3]94(Ninfors/Neutral→ze) | 76=she/her |
+| 77 | [0]5(Fifa)/[1]7(Sevan/Neutral→ze)/[2]55(Fifívan) | [0]14(Forteels)/[1]34(Thirfory/Neutral→ze)/[2]50(Halvan/Neutral→ze)/[3]86(Eightix)/[4]88(Infinights/MaleNeutral→he) | 77=ze/zir |
+| 78 | [0]7(Sevan/Neutral→ze)/[1]8(Eighas)/[2]51(Fivone/MaleNeutral→he)/[3]76(Sevsix)/[4]87(Eighteven) | [0]68(Siceighns/Neutral→ze) | 78=she/her |
+| 81 | [0]8(Eighas)/[1]18(Eighteeld)/[2]72(Sevtwína/Neutral→ze) | [0]10(Tenim/Neutral→ze)/[1]90(Nintiels/Unknown→代名詞回避)/[2]91(Ninone/Neutral→ze) | 81=she/her |
+
+### 特記事項
+
+- Num 77 TailsUnit_EN: `"Fox (branched) type: 14 tails (2 clusters × 7)"`（2束×7本を14本として解釈）
+- Num 80 は2モード（極丁寧／粗野）を改行で併記（FirstPersonCalling_EN 等）
+- Num 80 の関係コメントは scan にて検出されず（Relation.Comments なし）
+- Num 79・82 は2フィールドのみの最小補完（他は既存 EN が存在）
+| 75 | [0]25(Quartels)/[1]57(Fivens)/[2]93(Nintris) | [0]21/[1]48/[2]50/[3]84 | 75=ze/zir |

@@ -1108,7 +1108,7 @@
     "SecondPersonCalling": "あなた様",
     "SecondPersonCalling_EN": "you (very polite)",
     "ThirdPersonCalling": "*のお方;~様",
-    "ThirdPersonCalling_EN": "sir/lady; Mr/Ms.~ (honorific: ~-sama)",
+    "ThirdPersonCalling_EN": "sir/lady; Mr/Ms.~ (~-sama; honorific)",
     "ForMasterCalling": "ご主人様（/お嬢様）",
     "ForMasterCalling_EN": "Master(/Milady)",
     "Character": "美徳に満ち溢れており個性を大切にしている「光属性」\nとても温厚で穏やか",
@@ -10495,7 +10495,7 @@
     "Weight_kg": { "hideText": "非公開" },
     "BustSize": "AA",
     "TailsUnit": "キツネ(枝分かれ)型2束x5本",
-    "TailsUnit_EN": "Fox type: 5 tails (2 clusters x5)",
+    "TailsUnit_EN": "Fox type: 2 clusters x5 tails",
     "Class": ["マスターテールズ9"],
     "FirstPersonCalling": "あたし",
     "FirstPersonCalling_EN": "I (fem. casual)",
@@ -12698,7 +12698,7 @@
     "SecondPersonCalling": "あなた様",
     "SecondPersonCalling_EN": "you (very polite)",
     "ThirdPersonCalling": "*のお方;[※名前呼び],~様",
-    "ThirdPersonCalling_EN": "that honored one (*no okata); [*by name], ~-sama",
+    "ThirdPersonCalling_EN": "that honored one (*no okata); [*by name], Mr/Ms.~(~-sama; honorific)",
     "ForMasterCalling": "迷い子さん\n神父様/聖母様",
     "ForMasterCalling_EN": "Little Stray\nHoly Father/Mother",
     "Character": "博愛でロマンチスト\n修道女(シスター)に憧れている",
@@ -13567,12 +13567,19 @@
     "SecondPersonCalling": "きみ",
     "SecondPersonCalling_EN": "you",
     "ThirdPersonCalling": "彼/彼女;*れ;[※名前呼び]",
+    "ThirdPersonCalling_EN": "he/she; this/that/who/what/which/them (as objective); [*by name]",
     "ForMasterCalling": "先生",
+    "ForMasterCalling_EN": "Teacher (sensei)",
     "Character": "知的思考が豊富で努力家な好青年",
+    "Character_EN": "A hard-working young man of rich intellectual curiosity",
     "Hobby": "研究",
+    "Hobby_EN": "Research",
     "SpecialSkill": "PDCAなどのフレームワーク",
+    "SpecialSkill_EN": "Frameworks such as PDCA",
     "Favor": "青春",
+    "Favor_EN": "Youth",
     "Unlike": "無知無能",
+    "Unlike_EN": "Ignorance and incompetence",
     "IdentityMotif": [
       {
         "Formation": "corefolder",
@@ -13622,7 +13629,9 @@
       }
     ],
     "NumerospecAbout": "主人へ学びを1日1つ恵む",
+    "NumerospecAbout_EN": "Grants the master one lesson per day",
     "Summary": "知的好奇心が豊富で努力家であるため、この上ない成長が期待されている。\nその好青年な気質に感化され、契約した主人から感謝状が出ることも。\nこちらは見た目に反し男性型個体であるが、初々しい学生のような愛嬌があると特定の客層から可愛がられている。\nただ、時折その幼い見た目から想像もできない実績を会得していることもあり、カリスマ起業家に標的にされているとか…",
+    "Summary_EN": "His rich intellectual curiosity and hard-working nature make him a NumberTales of exceptional growth potential.\nHis earnest and wholesome nature often inspires gratitude from masters who contract with him, sometimes moving them to send letters of thanks.\nDespite his appearance, he is actually a male-type entity — yet a certain clientele adores him for the fresh, student-like charm he carries.\nFrom time to time, however, the achievements he has quietly attained go far beyond what his youthful appearance would suggest — so much so that charismatic entrepreneurs are said to have set their sights on him...",
     "NumerospecStats": {
       "EffectStats": {
         "Mental": { "EffectText": "普通" },
@@ -13651,20 +13660,20 @@
         {
           "Num": 17,
           "Comments": "「ぼくにとって尊敬できる姉です！」",
-          "Comments_EN": "「ぼくにとって尊敬できる姉です！」",
+          "Comments_EN": "\"She's someone I truly look up to as a big sister!\"",
           "RelationLabel": ["brother|sister", "trusted", "classmate"]
         },
         {
           "Num": 35,
           "Comments": "「仕事ができてすごく頼れます」",
-          "Comments_EN": "「仕事ができてすごく頼れます」",
+          "Comments_EN": "\"Highly capable, and someone I can really count on.\"",
           "RelationLabel": ["wellMatched", "classmate"]
         },
         { "Num": 48, "RelationLabel": ["unmatched"] },
         {
           "Num": "0",
           "Comments": "「なんだかとっても憧れます…!!」",
-          "Comments_EN": "「なんだかとっても憧れます…!!」",
+          "Comments_EN": "\"I just find myself admiring her so much...!!\"",
           "RelationLabel": ["trusted"]
         }
       ],
@@ -13672,22 +13681,22 @@
         {
           "Num": 25,
           "Comments": "「どんなときも軽やかでかっこいい」",
-          "Comments_EN": "「どんなときも軽やかでかっこいい」"
+          "Comments_EN": "\"Always so graceful and cool, no matter the situation.\""
         },
         {
           "Num": 52,
           "Comments": "「一緒にいるととても安心します」",
-          "Comments_EN": "「一緒にいるととても安心します」"
+          "Comments_EN": "\"Being with her just puts me completely at ease.\""
         },
         {
           "Num": 80,
           "Comments": "「妙にソワソワするんですよね…」",
-          "Comments_EN": "「妙にソワソワするんですよね…」"
+          "Comments_EN": "\"For some reason, she makes me feel oddly restless...\""
         },
         {
           "Num": 98,
           "Comments": "「途中で投げ出すのもどうかと思うけどなぁ…」",
-          "Comments_EN": "「途中で投げ出すのもどうかと思うけどなぁ…」",
+          "Comments_EN": "\"I can't help thinking that giving up partway through isn't quite right either, though...\"",
           "RelationLabel": ["classmate"]
         }
       ]
@@ -13726,15 +13735,23 @@
     "ThisMasters": ["綾沢 改奈/文月（夜月機関 第7幹部）"],
     "ThisMasters_EN": ["綾沢 改奈/文月（夜月機関 第7幹部）"],
     "FirstPersonCalling": "ナフタ ※名前呼び",
+    "FirstPersonCalling_EN": "Nafta (*self-name)",
     "SecondPersonCalling": "[※三人称]",
+    "SecondPersonCalling_EN": "[*third-person calling]",
     "ThirdPersonCalling": "[※名前呼び]",
     "ThirdPersonCalling_EN": "[*by name]",
     "ForMasterCalling": "主(root)",
+    "ForMasterCalling_EN": "root",
     "Character": "機械のような振る舞いが癖となっている（本当は感情表現が苦手なだけだとも？）",
+    "Character_EN": "Has developed a habit of behaving like a machine (though perhaps ze is simply not good at expressing emotions?)",
     "Hobby": "天気予報を見る",
+    "Hobby_EN": "Watching weather forecasts",
     "SpecialSkill": "ルーレットが止まる場所を回転中に当てられる",
+    "SpecialSkill_EN": "Can predict where a roulette wheel will land while it is still spinning",
     "Favor": "コミュニケーション力を伸ばせるビジネス本",
+    "Favor_EN": "Business books that help develop communication skills",
     "Unlike": "如何様(イカサマ)",
+    "Unlike_EN": "Cheating / rigged games (ikasama)",
     "IdentityMotif": [
       {
         "Formation": "corefolder",
@@ -13786,7 +13803,9 @@
       }
     ],
     "NumerospecAbout": "機械学習能力に特化した特殊なROSの主力機能で、ありとあらゆる学習ができる",
+    "NumerospecAbout_EN": "A specialized main ROS function focused on machine-learning ability, capable of all manner of learning",
     "Summary": "主人の学びをさらに支えられるよう機能の一部を知識学習用に当てられた、99人の中では珍しい教材型のナンバーテールズ。\n極めて強力な機械学習能力により主人との学びを最大限に引き出すことで、困難な資格の取得や難関校への合格へと導いている。\nそこで彼女の名や機能に「神」などの通称が付くことも。\nただ性格や言動が「人工知能っぽく」なってしまった様で…",
+    "Summary_EN": "A rare tutorial-type NumberTales among the 99, with part of zir functions dedicated to knowledge learning in order to further support the master's studies.\nZir exceptionally powerful machine-learning ability draws out the full potential of shared learning with the master, guiding them toward difficult certifications and acceptance into competitive schools.\nFor this reason, zir name and functions are sometimes given nicknames such as 'the Divine.'\nHowever, zir personality and behavior appear to have taken on a somewhat 'AI-like' quality...",
     "NumerospecStats": {
       "EffectStats": {
         "Mental": { "EffectText": "効果無" },
@@ -13807,25 +13826,27 @@
       "Actuation": { "Rank": "A" }
     },
     "InStory": "彼(女)の機械寄りな人間味や個性について、他のナンバーテールズからの見解は様々らしい",
-    "Backgrounds": "ROSの機能が学習という別の目的で強化された、唯一の教材型個体\nROS完成以来零は彼女に罪悪感を…？",
+    "InStory_EN": "Opinions among other NumberTales on zir machine-like humanity and individuality seem to vary",
+    "Backgrounds": "ROSの機能が学習という別の目的で強化された、唯一の教材型個体\nROS完成以来零は彼(女)に罪悪感を…？",
+    "Backgrounds_EN": "The only tutorial-type entity, with ROS functions enhanced for the separate purpose of learning\nSince the completion of ROS, Zera has felt a sense of guilt toward zir...?",
     "Relation": {
       "Related": [
         {
           "Num": 2,
           "Comments": "「ステータス“気遣い”を繰り返し確認、優しさに感謝していますが、どうか無理なさらず」",
-          "Comments_EN": "「ステータス“気遣い”を繰り返し確認、優しさに感謝していますが、どうか無理なさらず」",
+          "Comments_EN": "\"Status: 'Consideration' repeatedly confirmed. Grateful for the kindness — but please, do not push yourself too hard.\"",
           "RelationLabel": ["pioneer_nearly", "trusted"]
         },
         {
           "Num": 7,
           "Comments": "「属性“理性”および”感性”を同時に検出，これによる最適化現象も確認…凄い…」",
-          "Comments_EN": "「属性“理性”および”感性”を同時に検出，これによる最適化現象も確認…凄い…」",
+          "Comments_EN": "\"Attributes 'Reason' and 'Sensitivity' simultaneously detected. Optimization phenomenon resulting therefrom also confirmed... Remarkable...\"",
           "RelationLabel": ["pioneer"]
         },
         {
           "Num": 27,
           "Comments": "「同型ですが、OSの構造が異なる様で…」",
-          "Comments_EN": "「同型ですが、OSの構造が異なる様で…」",
+          "Comments_EN": "\"Same type as me, though the OS structure appears to differ...\"",
           "RelationLabel": [
             "brother|sister",
             "alternative|redesign",
@@ -13840,23 +13861,23 @@
         {
           "Num": 9,
           "Comments": "「“悩み相談”という行為に有力と判断」",
-          "Comments_EN": "「“悩み相談”という行為に有力と判断」"
+          "Comments_EN": "\"Assessed as highly effective for the act of 'consulting about worries.'\""
         },
         {
           "Num": 20,
           "Comments": "「心理的および感情的な共鳴作用を検出」",
-          "Comments_EN": "「心理的および感情的な共鳴作用を検出」"
+          "Comments_EN": "\"Psychological and emotional resonance effect detected.\""
         },
         {
           "Num": 70,
           "Comments": "「属性“理性”および”感性”を同時に検出，これによる最適化現象も確認…凄い…」",
-          "Comments_EN": "「属性“理性”および”感性”を同時に検出，これによる最適化現象も確認…凄い…」",
+          "Comments_EN": "\"Attributes 'Reason' and 'Sensitivity' simultaneously detected. Optimization phenomenon resulting therefrom also confirmed... Remarkable...\"",
           "RelationLabel": ["successor_nearly"]
         },
         {
           "Num": 99,
           "Comments": "「推定失敗，“記憶” 解析不能…謎です…」",
-          "Comments_EN": "「推定失敗，“記憶” 解析不能…謎です…」"
+          "Comments_EN": "\"Estimation failed. 'Memory' analysis impossible... A mystery...\""
         }
       ]
     }
@@ -13910,11 +13931,17 @@
     "ThirdPersonCalling": "彼/彼女;[※名前呼び]",
     "ThirdPersonCalling_EN": "he/she; [*by name]",
     "ForMasterCalling": "おにぃ/おねぇ",
+    "ForMasterCalling_EN": "Bro/Sis (onii/onee)",
     "Character": "世間知らずで知りたがり\n単純で騙されやすく、知識はすぐに共有したがる",
+    "Character_EN": "Naively ignorant of the world and insatiably curious\nSimple-minded and easily deceived — quick to share any knowledge she gains",
     "Hobby": "情報共有",
+    "Hobby_EN": "Sharing information",
     "SpecialSkill": "地獄耳",
+    "SpecialSkill_EN": "Sharp ears for everything (jigoku-mimi)",
     "Favor": "配信機材",
+    "Favor_EN": "Streaming equipment",
     "Unlike": "針\nゴシップ",
+    "Unlike_EN": "Needles\nGossip",
     "IdentityMotif": [
       {
         "Formation": "corefolder",
@@ -13972,7 +13999,9 @@
       }
     ],
     "NumerospecAbout": "知識を深めさせる\nこの作用は主に知識のアウトプットにより発揮される",
+    "NumerospecAbout_EN": "Deepens knowledge\nThis effect is primarily exerted through the output of knowledge",
     "Summary": "少し世間知らずでなんでも知りたがるナンバーテールズ。\n単純で騙されやすく、一度触れた知識は正誤問わずすぐに共有したがるため、姉の「37(サナ)」にしばしば止められている。\n知識のアウトプットに長けた個体でもあるため、宣伝効果も兼ねてナンバーテールズ公式の配信活動も裏で行っている。\n「66(ムロク)」に憧れている一面があるようで…？",
+    "Summary_EN": "A NumberTales who is a little naive and always eager to learn about the world.\nSimple-minded and easily deceived, she is quick to share any knowledge she encounters — right or wrong — to the point that her older sister '37(Trißven)' often has to stop her.\nAs an entity skilled at outputting knowledge, she also secretly runs official NumberTales streaming activities as a form of promotion.\nShe seems to look up to '66(Sixis)' in some way...?",
     "NumerospecStats": {
       "EffectStats": {
         "Mental": { "EffectText": "普通" },
@@ -13993,21 +14022,23 @@
       "Actuation": { "Rank": "A" }
     },
     "InStory": "良からぬ噂を鵜呑みにするため、姉「37(サナ)」他から心配されている",
+    "InStory_EN": "Her tendency to take harmful rumors at face value has '37(Trißven)' and others worried about her",
     "Backgrounds": "宣伝効果も兼ねて動画配信も行っている",
+    "Backgrounds_EN": "Also runs video streaming activities as a form of promotion",
     "Relation": {
       "Related": [
         { "Num": 37, "RelationLabel": ["brother|sister", "classmate"] },
         {
           "Num": 66,
           "Comments": "「かっこいい……!!」",
-          "Comments_EN": "「かっこいい……!!」",
+          "Comments_EN": "\"She's so cool......!!\"",
           "RelationLabel": ["wellMatched", "interested"]
         },
         { "Num": 79, "RelationLabel": ["cousin", "unmatched"] },
         {
           "Num": 97,
           "Comments": "「『彼女の話だけは拡散するな』って言われる」",
-          "Comments_EN": "「『彼女の話だけは拡散するな』って言われる」",
+          "Comments_EN": "\"I'm always being told, 'Don't go spreading her stories.'\"",
           "RelationLabel": ["cousin_nearly", "adverselyAffected_aBit"]
         }
       ],
@@ -14015,31 +14046,31 @@
         {
           "Num": 13,
           "Comments": "「頼もしい」",
-          "Comments_EN": "「頼もしい」",
+          "Comments_EN": "\"So dependable.\"",
           "RelationLabel": ["cousin"]
         },
         {
           "Num": 46,
           "Comments": "「現実をたのしんでそう」",
-          "Comments_EN": "「現実をたのしんでそう」",
+          "Comments_EN": "\"Zir looks like someone who truly enjoys the real world.\"",
           "RelationLabel": ["classmate"]
         },
         {
           "Num": 70,
           "Comments": "「わかんないけどいいアドバイスをくれる」",
-          "Comments_EN": "「わかんないけどいいアドバイスをくれる」",
+          "Comments_EN": "\"I don't always get him, but he always gives good advice.\"",
           "RelationLabel": ["successor_nearly"]
         },
         {
           "Num": 82,
           "Comments": "「どうしてああいうふうにあたしも稼げないんだろう？」",
-          "Comments_EN": "「どうしてああいうふうにあたしも稼げないんだろう？」",
+          "Comments_EN": "\"Why can't I make a living like that too, I wonder...?\"",
           "RelationLabel": ["classmate"]
         },
         {
           "Num": 90,
           "Comments": "「なんかそういう演出使いなのかな」",
-          "Comments_EN": "「なんかそういう演出使いなのかな」"
+          "Comments_EN": "\"Maybe just a presentation-heavy style, perhaps?\""
         }
       ]
     }
@@ -14087,13 +14118,19 @@
     "SecondPersonCalling": "あなた",
     "SecondPersonCalling_EN": "you (neutral/polite)",
     "ThirdPersonCalling": "~君\n~さん",
+    "ThirdPersonCalling_EN": "~-kun\n~-san",
     "ForMasterCalling": "マスター君",
     "ForMasterCalling_EN": "Master-kun",
     "Character": "感覚が冴えわたった預言者のような存在\nその様子は「天のお告げ」のお蔭とも",
+    "Character_EN": "A prophet-like entity with sharpened, heightened senses\nAn impression said to come from receiving 'divine messages'",
     "Hobby": "神社参拝",
+    "Hobby_EN": "Visiting shrines",
     "SpecialSkill": "おみくじで\n誰が大吉を引くか当てる",
+    "SpecialSkill_EN": "Predicting who will draw the best-luck fortune (daikichi)\nfrom an omikuji",
     "Favor": "シルク",
+    "Favor_EN": "Silk",
     "Unlike": "雷",
+    "Unlike_EN": "Thunder and lightning",
     "IdentityMotif": [
       {
         "Formation": "corefolder",
@@ -14145,7 +14182,9 @@
       }
     ],
     "NumerospecAbout": "「天のお告げ」を聴く",
+    "NumerospecAbout_EN": "Receives 'divine messages'",
     "Summary": "ナンバーテールズの中では他に類を見ない、“天のお告げ”を受け取ることができるという極めて高く冴えわたった感性を持ち、預言者のような風格を見せている。\nなおその様子からにより他の98人からは変わり者に思われている様子だが、“天のお告げ”による預言は外れることがあまりないので、神頼み要因として彼女を信頼する（？）ナンバーテールズも居るようだ。",
+    "Summary_EN": "A NumberTales of uniquely sharpened sensitivity among the 99, capable of receiving 'divine messages' — carrying herself with the bearing of a prophet.\nWhile her peculiar demeanor has most of the other 98 viewing her as an eccentric, her prophecies via those 'divine messages' rarely miss the mark — and so there are NumberTales who seem to trust (?) her as a source of divine guidance.",
     "NumerospecStats": {
       "EffectStats": {
         "Mental": { "EffectText": "効果無" },
@@ -14166,33 +14205,35 @@
       "Actuation": { "Rank": "A" }
     },
     "InStory": "特異個体「4+7型」の一人",
+    "InStory_EN": "One of the unique entities: Unit.4+7 type",
     "Backgrounds": "加護については偶然の産物と言ってもいいほどで、零姉弟も彼女の加護についてほぼ知見が無いようだ",
+    "Backgrounds_EN": "Her blessing is practically a product of chance, and even Zera and siblings seem to have almost no knowledge of it",
     "Relation": {
       "Related": [
         {
           "Num": 7,
           "Comments": "「心を休めてるか心配ね…」",
-          "Comments_EN": "「心を休めてるか心配ね…」",
+          "Comments_EN": "\"I worry whether zir is getting enough rest...\"",
           "RelationLabel": ["pioneer"]
         },
         {
           "Num": 11,
           "Comments": "「彼(女)が暴走するお告げは見たくないわ」",
-          "Comments_EN": "「彼(女)が暴走するお告げは見たくないわ」",
+          "Comments_EN": "\"I don't want to receive any divine message foretelling zir going out of control.\"",
           "RelationLabel": ["trusted", "awkward_aBit"]
         },
         { "Num": 40, "RelationLabel": ["wellMatched"] },
         {
           "Num": 47,
           "Comments": "「“数秘的加護”が何なのかはともかく自信家な姉」",
-          "Comments_EN": "「“数秘的加護”が何なのかはともかく自信家な姉」",
+          "Comments_EN": "\"Whatever a Numerospec may be — she's a self-assured big sister either way.\"",
           "RelationLabel": ["brother|sister", "classmate"]
         },
         { "Num": 55, "RelationLabel": ["unmatched"] },
         {
           "Num": 97,
           "Comments": "「神様を信じすぎよ…」",
-          "Comments_EN": "「神様を信じすぎよ…」",
+          "Comments_EN": "\"She puts too much trust in the divine, I think...\"",
           "RelationLabel": ["cousin_nearly", "awkward_aBit"]
         }
       ],
@@ -14200,19 +14241,19 @@
         {
           "Num": 38,
           "Comments": "「運気は無駄遣いしないでね」",
-          "Comments_EN": "「運気は無駄遣いしないでね」",
+          "Comments_EN": "\"Please don't go wasting your good fortune.\"",
           "RelationLabel": ["classmate"]
         },
         {
           "Num": 56,
           "Comments": "「素晴らしい出会いがありますように」",
-          "Comments_EN": "「素晴らしい出会いがありますように」",
+          "Comments_EN": "\"I hope you have wonderful encounters ahead.\"",
           "RelationLabel": ["classmate"]
         },
         {
           "Num": 94,
           "Comments": "「無理しなくて大丈夫よ」",
-          "Comments_EN": "「無理しなくて大丈夫よ」",
+          "Comments_EN": "\"It's all right not to push yourself, you know.\"",
           "RelationLabel": ["cousin"]
         }
       ]
@@ -14254,13 +14295,21 @@
     "FirstPersonCalling": "私(わたし)",
     "FirstPersonCalling_EN": "I",
     "SecondPersonCalling": "君(きみ)",
+    "SecondPersonCalling_EN": "you (familiar)",
     "ThirdPersonCalling": "彼/彼女;*の子,*の人/*れ;[※名前呼び]",
+    "ThirdPersonCalling_EN": "he/she; that/this kid (*no ko), that/this person/one (*no hito/*re); [*by name]",
     "ForMasterCalling": "～先輩;先輩",
+    "ForMasterCalling_EN": "~-senpai; Senpai",
     "Character": "真面目で意識高い系\n教訓や知見を重んじている",
+    "Character_EN": "Serious and highly self-aware\nHolds lessons learned and accumulated wisdom in high regard",
     "Hobby": "統計学",
+    "Hobby_EN": "Statistics",
     "SpecialSkill": "経験則が的確",
+    "SpecialSkill_EN": "Accurate rule-of-thumb judgment from experience",
     "Favor": "文房具",
+    "Favor_EN": "Stationery",
     "Unlike": "炎（焚火や火災）",
+    "Unlike_EN": "Flames (campfires and fires alike)",
     "IdentityMotif": [
       {
         "Formation": "corefolder",
@@ -14312,8 +14361,11 @@
       }
     ],
     "RelationNotes": "双子の片割「57(イズナ)」は楽観的すぎだと思っている\n「25(フィズ)」に目標意識が…？",
+    "RelationNotes_EN": "Finds zir twin counterpart '57(Fivens)' to be overly optimistic\nSeems to have some goal awareness toward '25(Quartels)'...?",
     "NumerospecAbout": "学びや教訓を味方にし、状況を好転させる（ROSの学習機能に近いが、加護としての能力が強い）",
+    "NumerospecAbout_EN": "Turns situations around by making lessons and wisdom work in one's favor (similar to ROS's learning function, but notably stronger as a blessing)",
     "Summary": "経験から状況を好転させることに特化したナンバーテールズ。\n教訓と物事からの学びを大切にし、それがいつしか自分に良い結果として返ってくると信じている。\n「25(フィズ)」に目標意識があるのとか無いとか。\nちなみに「57(イズナ)」と同型双子関係があるが、「57(イズナ)」と彼(女)でどちらが弟(妹)であるかという年長年弱の区別は無いらしい。",
+    "Summary_EN": "A NumberTales specialized in turning situations around by drawing on experience.\nZe values lessons and the learning drawn from all things, believing they will one day return as good results.\nZe seems to have some degree of goal awareness regarding '25(Quartels)' — or perhaps not.\nIncidentally, ze shares a twin-type relationship with '57(Fivens)', developed simultaneously — though no distinction exists between them as to which is the elder and which is the younger.",
     "NumerospecStats": {
       "EffectStats": {
         "Mental": { "EffectText": "希薄" },
@@ -14334,24 +14386,25 @@
       "Actuation": { "Rank": "B+" }
     },
     "Backgrounds": "双子型として「57(イズナ)」と同時に開発されたが、兄/弟[姉/妹]の区別はない",
+    "Backgrounds_EN": "Developed simultaneously with '57(Fivens)' as a twin type, though no distinction of elder/younger sibling exists between them",
     "Relation": {
       "Related": [
         {
           "Num": 25,
           "Comments": "「優秀だと思う、私もいつか…」",
-          "Comments_EN": "「優秀だと思う、私もいつか…」",
+          "Comments_EN": "\"I think she's truly outstanding — I hope to be like her someday...\"",
           "RelationLabel": ["cousin", "trusted"]
         },
         {
           "Num": 57,
           "Comments": "「双子とはいえ楽観的過ぎる気がする」",
-          "Comments_EN": "「双子とはいえ楽観的過ぎる気がする」",
+          "Comments_EN": "\"Even considering we're twins, zir can be a little too optimistic, I feel.\"",
           "RelationLabel": ["brother|sister", "awkward", "classmate"]
         },
         {
           "Num": 93,
           "Comments": "「夢が大きいのはいいことだと思う。ただ…」",
-          "Comments_EN": "「夢が大きいのはいいことだと思う。ただ…」",
+          "Comments_EN": "\"I think having big dreams is a fine thing. But...\"",
           "RelationLabel": ["trusted_maybe", "awkward", "classmate"]
         }
       ],
@@ -14359,24 +14412,24 @@
         {
           "Num": 21,
           "Comments": "「変な意味で神々しい人」",
-          "Comments_EN": "「変な意味で神々しい人」",
+          "Comments_EN": "\"Somehow divine, in a strange sort of way.\"",
           "RelationLabel": ["classmate"]
         },
         {
           "Num": 48,
           "Comments": "「何か足りなくても実現力が凄い人」",
-          "Comments_EN": "「何か足りなくても実現力が凄い人」",
+          "Comments_EN": "\"An incredible achiever, even when something seems to be missing.\"",
           "RelationLabel": ["classmate"]
         },
         {
           "Num": 50,
           "Comments": "「流されすぎじゃないのあれ…？」",
-          "Comments_EN": "「流されすぎじゃないのあれ…？」"
+          "Comments_EN": "\"Isn't ze a bit too easily swayed by circumstances...?\""
         },
         {
           "Num": 84,
           "Comments": "「私としては実績強者としか…」",
-          "Comments_EN": "「私としては実績強者としか…」",
+          "Comments_EN": "\"As far as I'm concerned, she's nothing short of a powerhouse in terms of track record...\"",
           "RelationLabel": ["classmate"]
         }
       ]
@@ -14416,18 +14469,26 @@
     "Weight_kg": { "hideText": "非公開" },
     "BustSize": "G",
     "TailsUnit": "キツネ(枝分かれ)型7本(上1束1本+下2束6本)",
+    "TailsUnit_EN": "Fox (branched) type: 7 tails (upper: 1 cluster x1, lower: 2 clusters x6)",
     "Class": ["デュアルフォーズ"],
     "FirstPersonCalling": "わたし",
     "FirstPersonCalling_EN": "I",
     "SecondPersonCalling": "あなた",
     "SecondPersonCalling_EN": "you (neutral/polite)",
     "ThirdPersonCalling": "彼/彼女;~さん",
+    "ThirdPersonCalling_EN": "he/she; ~-san",
     "ForMasterCalling": "主人先生",
+    "ForMasterCalling_EN": "Master-sensei",
     "Character": "知識欲旺盛、自分に自信がなく不要に理知的",
+    "Character_EN": "Thirsts for knowledge; lacks self-confidence and comes across as needlessly intellectual",
     "Hobby": "読書",
+    "Hobby_EN": "Reading",
     "SpecialSkill": "複数文献の斜め読み",
+    "SpecialSkill_EN": "Skimming through multiple references simultaneously",
     "Favor": "専門書、同人誌",
+    "Favor_EN": "Academic texts, doujinshi (self-published works)",
     "Unlike": "非合理的・非常識なこと",
+    "Unlike_EN": "Irrational or inconsiderate behavior",
     "IdentityMotif": [
       {
         "Formation": "corefolder",
@@ -14481,7 +14542,9 @@
       }
     ],
     "NumerospecAbout": "知識や教養から自らに磨きを掛ける",
+    "NumerospecAbout_EN": "Refines oneself through knowledge and cultivation",
     "Summary": "何かと理論的・知的に物事を考えがちで、読書を何よりも好む事から図書委員の様に周りから風刺されている。\n眼鏡付きのヘッドセットを外した時の容姿に反して本人は性格や内面に自信がないため、敢えてそのような風格を出しているという噂も。\nとはいえ知識を自分の美意識に適応する感性はとりわけ高いので、特定少数の主人層ではそこそこ高い好感度を安定して得ているらしい。",
+    "Summary_EN": "She tends to approach everything in a theoretical and intellectual manner, and her love of reading above all else has earned her a reputation among others as something of a 'library committee president.'\nContrary to the impression she projects when wearing her bespectacled headset, rumors have it that she deliberately affects that air of distinction — for in truth she lacks confidence in her own personality and inner self.\nThat said, her sensitivity to adapting knowledge to her own aesthetic sense is exceptionally high, and she reportedly maintains a consistently solid popularity among a select and specific clientele.",
     "NumerospecStats": {
       "EffectStats": {
         "Mental": { "EffectText": "希薄" },
@@ -14502,18 +14565,19 @@
       "Actuation": { "Rank": "C" }
     },
     "InStory": "知識への執着が強い余り変人に見られている",
+    "InStory_EN": "Her intense attachment to knowledge makes her come across as an eccentric.",
     "Relation": {
       "Related": [
         {
           "Num": 40,
           "Comments": "「意味わからないです…」",
-          "Comments_EN": "「意味わからないです…」",
+          "Comments_EN": "I just don't understand zir...",
           "RelationLabel": ["unmatched"]
         },
         {
           "Num": 71,
           "Comments": "「羨ましい、というよりズルいです」",
-          "Comments_EN": "「羨ましい、というよりズルいです」",
+          "Comments_EN": "Less envious of him than... well, I simply find it unfair.",
           "RelationLabel": ["cousin", "wellMatched"]
         }
       ],
@@ -14521,24 +14585,24 @@
         {
           "Num": 4,
           "Comments": "「真面目でいい人」",
-          "Comments_EN": "「真面目でいい人」"
+          "Comments_EN": "A diligent, genuinely good person."
         },
         {
           "Num": 31,
           "Comments": "「わからなくもないですが…」",
-          "Comments_EN": "「わからなくもないですが…」",
+          "Comments_EN": "I can see where she's coming from, but...",
           "RelationLabel": ["classmate"]
         },
         {
           "Num": 56,
           "Comments": "「ちゃんと勉強しようね」",
-          "Comments_EN": "「ちゃんと勉強しようね」",
+          "Comments_EN": "Do try to study properly.",
           "RelationLabel": ["cousin"]
         },
         {
           "Num": 94,
           "Comments": "「絵本や漫画でも寝ちゃうんですね…」",
-          "Comments_EN": "「絵本や漫画でも寝ちゃうんですね…」",
+          "Comments_EN": "Ze even falls asleep reading picture books and manga...",
           "RelationLabel": ["classmate"]
         }
       ]
@@ -14580,19 +14644,26 @@
     ],
     "BustSize": "A",
     "TailsUnit": "キツネ(枝分かれ)型2束x7本",
+    "TailsUnit_EN": "Fox (branched) type: 2 clusters x7 tails",
     "Class": ["マスターテールズ9"],
     "FirstPersonCalling": "僕",
     "FirstPersonCalling_EN": "I (masc. casual)",
     "SecondPersonCalling": "君(きみ)",
+    "SecondPersonCalling_EN": "you (kimi; friendly)",
     "ThirdPersonCalling": "[※名前呼び]",
     "ThirdPersonCalling_EN": "[*by name]",
     "ForMasterCalling": "リーダー",
     "ForMasterCalling_EN": "Leader",
     "Character": "気さくで口調も軽いが実は自分を律せる真面目\n真面目な人と人望が薄いことがコンプレックス",
+    "Character_EN": "Easygoing with a light, breezy manner, though in reality self-disciplined and earnest at heart\nCarries a complex about having little standing among serious-minded people",
     "Hobby": "ヨガ",
+    "Hobby_EN": "Yoga",
     "SpecialSkill": "集中した時の反射神経",
+    "SpecialSkill_EN": "Reflexes when fully concentrated",
     "Favor": "集中できる場所",
+    "Favor_EN": "Places where ze can concentrate",
     "Unlike": "カラオケルーム",
+    "Unlike_EN": "Karaoke rooms",
     "IdentityMotif": [
       {
         "Formation": "corefolder",
@@ -14642,8 +14713,11 @@
       }
     ],
     "RelationNotes": "「5(イズ)」に才能を認められている\n「7(ナナ)」を良きライバルと思っているが…",
+    "RelationNotes_EN": "Zir talent is recognized by '5(Fifa)'\nZe considers '7(Sevan)' a worthy rival — though...",
     "NumerospecAbout": "集中力を操作できる\nこの能力は時として霊的現象を呼び覚ますらしい",
+    "NumerospecAbout_EN": "Can manipulate concentration\nThis ability is said to occasionally awaken spiritual phenomena",
     "Summary": "集中することで霊的能力が開花するとどこかで噂されており、実績も今後伸びしろがあると評判のダークホース。\n気さくで軽い口調とどこかふざけたようなあだ名の付け方が特徴的だが、陰で自分を律しており重要なことには極めて真剣に励むことができる、「マスターテールズ９」の中で最大の真面目ポジション。\nただ、真面目な人との人望がやや薄いことをコンプレックスに持つ。",
+    "Summary_EN": "Somewhere out there, rumors have it that ze possesses spiritual abilities that blossom through intense concentration — and ze is regarded as a dark horse whose track record is expected to grow further.\nEasygoing with a light manner of speech and a quirky style of giving nicknames, yet behind the scenes ze disciplines zirself rigorously and is capable of throwing zirself into what truly matters — earning ze the most genuinely earnest position among the 'MasterTales 9.'\nThat said, ze carries a complex about having little standing among serious-minded people.",
     "NumerospecStats": {
       "EffectStats": {
         "Mental": { "EffectText": "絶大" },
@@ -14667,24 +14741,25 @@
       "Actuation": { "Rank": "S" }
     },
     "InStory": "あだ名が独特\n実績も今後伸びしろがあると評されるダークホース",
+    "InStory_EN": "Known for zir unique way of assigning nicknames\nA dark horse whose track record is expected to grow further",
     "Relation": {
       "Related": [
         {
           "Num": 5,
           "Comments": "「なんかいつの間にか好いて来るようになった」",
-          "Comments_EN": "「なんかいつの間にか好いて来るようになった」",
+          "Comments_EN": "Somehow, before I knew it, she'd come to like me.",
           "RelationLabel": ["wellMatched"]
         },
         {
           "Num": 7,
           "Comments": "「僕相手だとほんと素直じゃないな…」",
-          "Comments_EN": "「僕相手だとほんと素直じゃないな…」",
+          "Comments_EN": "Ze is really not straightforward when it comes to me...",
           "RelationLabel": ["pioneer", "interested", "awkward"]
         },
         {
           "Num": 55,
           "Comments": "「近寄らないでこの“ハリケーン野郎”」",
-          "Comments_EN": "「近寄らないでこの“ハリケーン野郎”」",
+          "Comments_EN": "Keep your distance, 'hurricane gal.'",
           "RelationLabel": ["unmatched", "classmate"]
         }
       ],
@@ -14692,27 +14767,27 @@
         {
           "Num": 14,
           "Comments": "「助走付けなくても走り高跳びできる系だと思う」",
-          "Comments_EN": "「助走付けなくても走り高跳びできる系だと思う」"
+          "Comments_EN": "She seems like the type who can clear a high jump without even a running start."
         },
         {
           "Num": 34,
           "Comments": "「質より量を重視してる…とも言い切れない」",
-          "Comments_EN": "「質より量を重視してる…とも言い切れない」"
+          "Comments_EN": "I can't quite say ze prioritizes quantity over quality, either..."
         },
         {
           "Num": 50,
           "Comments": "「何があっても肝が据わってる」",
-          "Comments_EN": "「何があっても肝が据わってる」"
+          "Comments_EN": "Ze keeps a cool head no matter what."
         },
         {
           "Num": 86,
           "Comments": "「現金主義じゃないだけマシ」",
-          "Comments_EN": "「現金主義じゃないだけマシ」"
+          "Comments_EN": "At least she's not the purely mercenary type."
         },
         {
           "Num": 88,
           "Comments": "「色んな意味で“高級ピアノ君”」",
-          "Comments_EN": "「色んな意味で“高級ピアノ君”」",
+          "Comments_EN": "A 'luxury piano guy' in every sense of the word.",
           "RelationLabel": ["classmate"]
         }
       ]
@@ -14774,15 +14849,23 @@
       }
     ],
     "FirstPersonCalling": "私(わたくし)",
+    "FirstPersonCalling_EN": "I (watakushi; formal)",
     "SecondPersonCalling": "あなた様",
     "SecondPersonCalling_EN": "you (very polite)",
     "ThirdPersonCalling": "彼/彼女;*ちら;~様",
+    "ThirdPersonCalling_EN": "he/she; this/that one (*chira); Mr/Ms.~ (~sama)",
     "ForMasterCalling": "[※二人称];ご主人様",
+    "ForMasterCalling_EN": "[*second-person calling]; my Master (goshujin-sama)",
     "Character": "清く美しい精神の持ち主だが、ややネガティヴ気味で胡散臭がられているのが玉に瑕",
+    "Character_EN": "A person of pure and beautiful spirit, though somewhat prone to negativity — and the tendency for others to find her dubious is her one small flaw",
     "Hobby": "タロットカード",
+    "Hobby_EN": "Tarot cards",
     "SpecialSkill": "アドリブ祝辞",
+    "SpecialSkill_EN": "Improvising celebratory speeches",
     "Favor": "トランプ、タロットカード",
+    "Favor_EN": "Playing cards, tarot cards",
     "Unlike": "傲慢な態度",
+    "Unlike_EN": "Arrogant behavior",
     "IdentityMotif": [
       {
         "Formation": "corefolder",
@@ -14836,7 +14919,9 @@
       }
     ],
     "NumerospecAbout": "経験・報酬を反省から生む\nただしこの効果は対象の性格と相互に影響する",
+    "NumerospecAbout_EN": "Generates experience and rewards through reflection\nHowever, this effect is mutually influenced by the master's personality",
     "Summary": "反省からの学びを強めることに秀でているとされているナンバーテールズ。\n技術適正が極めて高く、エンジニアとして働いている主人からの支持が手厚い。\nしかしながらどこか自分に自信がなくアイテムに縋ることでしか自分を評価できないところがあり、彼女をよく知る別の個体によっては心配されたり胡散臭がられたりしている。\nとはいえ誠心誠意で自らも反省しながら精進する姿は誰よりも評価されている。",
+    "Summary_EN": "A NumberTales regarded as exceptionally skilled at deepening learning through reflection and self-review.\nHer technical aptitude is extremely high, earning her strong support from masters who work as engineers.\nHowever, she lacks a certain self-confidence and can only assess her own worth by relying on items — a side of her that, depending on how well others know her, draws either concern or suspicion.\nThat said, her wholehearted, sincere dedication to self-reflection and continuous growth is something that earns the deepest respect above all.",
     "NumerospecStats": {
       "EffectStats": {
         "Mental": { "EffectText": "極めて絶大(場合により逆効果)" },
@@ -14862,36 +14947,37 @@
       "Actuation": { "Rank": "B" }
     },
     "InStory": "宗教科学者のように疑われがち",
+    "InStory_EN": "Often mistaken for a kind of religious scientist and met with suspicion",
     "Relation": {
       "Related": [
         {
           "Num": 7,
           "Comments": "「畏れ多くも、難しいことはよく解りません…」",
-          "Comments_EN": "「畏れ多くも、難しいことはよく解りません…」",
+          "Comments_EN": "With all due respect, there are things about zir I simply cannot comprehend...",
           "RelationLabel": ["pioneer"]
         },
         {
           "Num": 8,
           "Comments": "「作業を見てると少し心が躍るような…」",
-          "Comments_EN": "「作業を見てると少し心が躍るような…」",
+          "Comments_EN": "Watching her work makes my heart flutter just a little...",
           "RelationLabel": ["pioneer"]
         },
         {
           "Num": 51,
           "Comments": "「後先が心配になってしまいます…」",
-          "Comments_EN": "「後先が心配になってしまいます…」",
+          "Comments_EN": "I can't help worrying about where he's headed...",
           "RelationLabel": ["awkward", "classmate"]
         },
         {
           "Num": 76,
           "Comments": "「何処か共感できる部分はあります」",
-          "Comments_EN": "「何処か共感できる部分はあります」",
+          "Comments_EN": "There are parts of her I find myself relating to somehow.",
           "RelationLabel": ["cousin", "wellMatched"]
         },
         {
           "Num": 87,
           "Comments": "「姉としても今後が怖い存在です…」",
-          "Comments_EN": "「姉としても今後が怖い存在です…」",
+          "Comments_EN": "As an elder sister too, she's someone whose future I find rather unsettling...",
           "RelationLabel": ["brother|sister", "awkward_aBit", "classmate"]
         }
       ],
@@ -14899,7 +14985,7 @@
         {
           "Num": 68,
           "Comments": "「吹っ切れたお方で…いえ、すみません…」",
-          "Comments_EN": "「吹っ切れたお方で…いえ、すみません…」",
+          "Comments_EN": "Ze is someone who has just... cut loose, I think — oh, pardon me...",
           "RelationLabel": ["cousin"]
         }
       ]
@@ -14927,7 +15013,9 @@
     ],
     "Class": ["デュアルセブンズ"],
     "Favor": "開運情報",
+    "Favor_EN": "Fortune and luck tips",
     "InStory": "宗教勧誘者のように疑われがち",
+    "InStory_EN": "Often mistaken for a religious recruiter and met with suspicion",
     "Relation": { "Commented": [{ "Num": 7, "RelationLabel": ["pioneer"] }] }
   },
   {
@@ -14961,16 +15049,27 @@
     "TailsUnit_EN": "Eight fox-type tails",
     "Class": ["10倍番(テンズデジッツ)"],
     "FirstPersonCalling": "わたくしめ\nおれ",
+    "FirstPersonCalling_EN": "I (watakushime; extremely humble)\nI (ore; rough masc.)",
     "SecondPersonCalling": "あなたサマ\nあんた",
+    "SecondPersonCalling_EN": "you (anata-sama; very formal)\nyou (anta; casual rough)",
     "ThirdPersonCalling": "~サマ\n*いつ/*れ;[※名前呼び]",
+    "ThirdPersonCalling_EN": "~-sama\n this/that/who/what/which/them (*itsu/*re; as personal or objective); [*by name]",
     "ForMasterCalling": "ダンナ/奥サマ\nダンナ/奥サマ;[※名前呼び]",
+    "ForMasterCalling_EN": "sir/lady (danna/oku-sama)\nsir/lady; [*by name]",
     "Character": "相場や価値の流れに敏感\n不安症な一面もあり悪い意味で現金主義かつギャンブラーな本性を持つ",
+    "Character_EN": "Highly attuned to market trends and the flow of value\nHas an anxious side, and at heart is something of a mercenary and gambler in the worst sense",
     "Hobby": "自動売買の運用",
+    "Hobby_EN": "Running automated trading systems",
     "SpecialSkill": "宝くじの当選番号予想",
+    "SpecialSkill_EN": "Predicting lottery winning numbers",
     "Favor": "FX・仮想通貨",
+    "Favor_EN": "Forex trading, cryptocurrency",
     "Unlike": "大暴落（景気の悪化,倒産,壊滅 など）",
+    "Unlike_EN": "Market crashes (economic downturns, bankruptcies, collapses, etc.)",
     "RelationNotes": "「88(ヤソハチ)」と何か関係が…？",
+    "RelationNotes_EN": "Seems to have some kind of connection with '88(Infinights)'...?",
     "NumerospecAbout": "物流を体感できる",
+    "NumerospecAbout_EN": "Allows one to intuitively experience the flow of commerce and goods",
     "NumerospecStats": {
       "EffectStats": {
         "Mental": { "EffectText": "逆効果" },
@@ -15032,6 +15131,7 @@
     "Weight_kg": 41,
     "BustSize": "D",
     "TailsUnit": "キツネ(枝分かれ)型8本(上1束7本+下2束1本)",
+    "TailsUnit_EN": "Fox (branched) type: 8 tails (upper: 1 cluster x7, lower: 2 clusters x1)",
     "Class": ["9倍2桁番(ナインズデュアルズ)"],
     "FirstPersonCalling": "私(わたし)",
     "FirstPersonCalling_EN": "I",
@@ -15040,11 +15140,17 @@
     "ThirdPersonCalling": "[※名前呼び]",
     "ThirdPersonCalling_EN": "[*by name]",
     "ForMasterCalling": "上方(かみかた)",
+    "ForMasterCalling_EN": "My Liege (kamigata; archaic)",
     "Character": "価値に敏感で奉仕的\n社会情勢に敏感な貢献家",
+    "Character_EN": "Sensitive to value and naturally service-oriented\nA contributor attuned to social conditions",
     "Hobby": "投資",
+    "Hobby_EN": "Investing",
     "SpecialSkill": "会計処理",
+    "SpecialSkill_EN": "Bookkeeping and accounting",
     "Favor": "価値感の向上",
+    "Favor_EN": "The elevation of one's sense of value",
     "Unlike": "詐欺（をすること）",
+    "Unlike_EN": "Fraud (committing it)",
     "IdentityMotif": [
       {
         "Formation": "corefolder",
@@ -15096,7 +15202,9 @@
       }
     ],
     "NumerospecAbout": "自信および主人の自己肯定感を高め役目を全うさせる",
+    "NumerospecAbout_EN": "Boosts confidence and the master's self-esteem, helping them fulfill their role",
     "Summary": "社会貢献に務める主人のサポートに経験が特化しているナンバーテールズ。\n彼女が居ると、主人の行動や活動を支える効果がもたらされ、価値観や収入が向上すると評判。\n社会情勢に敏感で奉仕的。\n趣味として、投資の攻略法についてひそかに研究しているとか。\n「8(ワカツ)」にちょくちょく経理関係でアドバイスをしている一面もあるようだが…",
+    "Summary_EN": "A NumberTales whose experience is specialized in supporting masters engaged in social contribution.\nHer presence is said to bring an effect that bolsters the master's actions and activities, lifting both their sense of value and their income.\nSensitive to social conditions and naturally service-oriented.\nAs a hobby, she is said to quietly research the ins and outs of successful investing.\nIt also seems she occasionally gives accounting-related advice to '8(Eighas)'...?",
     "NumerospecStats": {
       "EffectStats": {
         "Mental": { "EffectText": "絶大" },
@@ -15124,19 +15232,19 @@
         {
           "Num": 8,
           "Comments": "「良かれと思って助言してるんだけどなぁ…」",
-          "Comments_EN": "「良かれと思って助言してるんだけどなぁ…」",
+          "Comments_EN": "I only advise her with the best of intentions, but...",
           "RelationLabel": ["pioneer", "abusing"]
         },
         {
           "Num": 18,
           "Comments": "「優秀すぎる姉」",
-          "Comments_EN": "「優秀すぎる姉」",
+          "Comments_EN": "A big sister who is simply too outstanding for words.",
           "RelationLabel": ["brother|sister", "classmate"]
         },
         {
           "Num": 72,
           "Comments": "「学びこそ彼(女)の強みだろうな」",
-          "Comments_EN": "「学びこそ彼(女)の強みだろうな」",
+          "Comments_EN": "Learning is surely zir greatest strength.",
           "RelationLabel": ["trusted", "classmate"]
         }
       ],
@@ -15144,17 +15252,17 @@
         {
           "Num": 10,
           "Comments": "「怪しい目的でも抱えてそう」",
-          "Comments_EN": "「怪しい目的でも抱えてそう」"
+          "Comments_EN": "Ze looks like ze might be harboring some suspicious ulterior motive."
         },
         {
           "Num": 90,
           "Comments": "「いざというときは本気を出せる」",
-          "Comments_EN": "「いざというときは本気を出せる」"
+          "Comments_EN": "Can give it their all when the moment truly calls for it."
         },
         {
           "Num": 91,
           "Comments": "「ちょっと思考が…う～ん…」",
-          "Comments_EN": "「ちょっと思考が…う～ん…」",
+          "Comments_EN": "Zir thinking is a bit... hmm...",
           "RelationLabel": ["cousin", "awkward_aBit"]
         }
       ]
@@ -15187,6 +15295,7 @@
     "Weight_kg": { "hideText": "非公開" },
     "BustSize": "B",
     "TailsUnit": "キツネ(枝分かれ)型8本(上1束6本+下2束2本)",
+    "TailsUnit_EN": "Fox (branched) type: 8 tails (upper: 1 cluster x6, lower: 2 clusters x2)",
     "Class": ["デュアルキャリーズ"],
     "FirstPersonCalling": "私(わたし)",
     "FirstPersonCalling_EN": "I",
@@ -15197,6 +15306,7 @@
     "ForMasterCalling": "ご主人",
     "ForMasterCalling_EN": "Master",
     "NumerospecAbout": "物乞いを叶える\nただしこの効果は周囲の物品状況に影響されやすい",
+    "NumerospecAbout_EN": "Grants wishes for goods\nHowever, this effect is easily influenced by the surrounding availability of items",
     "Relation": {
       "Commented": [
         { "Num": 28, "RelationLabel": ["brother|sister", "classmate"] }
