@@ -934,10 +934,10 @@
     "FirstPersonCalling_EN": "I (fem. casual)",
     "SecondPersonCalling": "アンタ",
     "SecondPersonCalling_EN": "you (blunt/casual)",
-    "ThirdPersonCalling": "[※？？？]",
-    "ThirdPersonCalling_EN": "[*???]",
-    "ForMasterCalling": "[※？？？]",
-    "ForMasterCalling_EN": "[*???]",
+    "ThirdPersonCalling": "[※その時により変わる],[※名前呼び]",
+    "ThirdPersonCalling_EN": "[*Varies depending on the situation],[*Name calling]",
+    "ForMasterCalling": "[※その時により変わる]",
+    "ForMasterCalling_EN": "[*Varies depending on the situation]",
     "Character": "屈指のマイペース\n挑発に乗りやすく冷めやすくチョロい",
     "Character_EN": "One of the most easygoing of all\nEasily provoked, cools off quickly, and rather easy to sway",
     "Hobby": "気分による",
@@ -7861,6 +7861,7 @@
     "FormalName": "ナンバーテールズ40番機",
     "FormalName_EN": "NumberTales #40",
     "CodeName": "四〇",
+    "CodeName_EN": "Four-Zero",
     "SPCodeName": "四十",
     "SPCodeName_EN": "Forty",
     "GenderType": "Neutral",
@@ -9728,6 +9729,7 @@
     "FormalName": "ナンバーテールズ50番機",
     "FormalName_EN": "NumberTales #50",
     "CodeName": "五〇",
+    "CodeName_EN": "Five-Zero",
     "SPCodeName": "半",
     "SPCodeName_EN": "Half(of Percent)",
     "GenderType": "Neutral",
@@ -9750,8 +9752,8 @@
     "SecondPersonCalling_EN": "guy/girl(s) (anta; rough)\nyou (kimi; friendly)",
     "ThirdPersonCalling": "彼/彼女;*いつ/*れ;[※名前呼び]\n*のこ,*いつ/*れ;~くん/~ちゃん/~さん",
     "ThirdPersonCalling_EN": "he/she; that/this/which (*itsu/*re); [*by name]\nthat/this/who/which one (*no-ko, *itsu/*re); [*by name] (-kun/-chan/-san)",
-    "ForMasterCalling": "[※？？？]",
-    "ForMasterCalling_EN": "[*???]",
+    "ForMasterCalling": "[※その時により変わる]",
+    "ForMasterCalling_EN": "[*Varies depending on the situation]",
     "Character": "どんな状況でも落ち着いている（ように見えるが、本当はめちゃくちゃ焦り症）\n天然かマゾの可能性あり",
     "Character_EN": "Appears calm in any situation (but is actually terribly anxious beneath the surface)\nMay be naturally oblivious, or perhaps a masochist",
     "Hobby": "猫と戯れる（実際は猫に遊ばれてる）",
@@ -11374,6 +11376,7 @@
     "FormalName_EN": "NumberTales #59",
     "CodeName": "五九",
     "CodeName_EN": "Five-Nine",
+    "GenderType": "MaleNeutral",
     "AnivDay": [
       {
         "Day": { "Month": 5, "DayOfMonth": 9 },
@@ -12686,19 +12689,28 @@
     "Weight_kg": { "hideText": "非公開" },
     "BustSize": "F",
     "TailsUnit": "キツネ(枝分かれ)型2束x6本",
+    "TailsUnit_EN": "Fox (branched) type: 2 clusters x6 tails",
     "Class": ["マスターテールズ9"],
     "ThisMasters": ["水無瀬 雫/水無月（夜月機関 第6幹部）"],
     "ThisMasters_EN": ["水無瀬 雫/水無月（夜月機関 第6幹部）"],
     "FirstPersonCalling": "私(わたくし)",
+    "FirstPersonCalling_EN": "I (watakushi; very formal)",
     "SecondPersonCalling": "あなた様",
     "SecondPersonCalling_EN": "you (very polite)",
     "ThirdPersonCalling": "*のお方;[※名前呼び],~様",
+    "ThirdPersonCalling_EN": "that honored one (*no okata); [*by name], ~-sama",
     "ForMasterCalling": "迷い子さん\n神父様/聖母様",
+    "ForMasterCalling_EN": "Little Stray\nHoly Father/Mother",
     "Character": "博愛でロマンチスト\n修道女(シスター)に憧れている",
+    "Character_EN": "A philanthropist and romantic\nLongs to be a nun (sister)",
     "Hobby": "輝きがあらんことを祈る",
+    "Hobby_EN": "\"May there be radiance\" (a prayer she recites)",
     "SpecialSkill": "ダーツ",
+    "SpecialSkill_EN": "Darts",
     "Favor": "照明器具",
+    "Favor_EN": "Lighting fixtures",
     "Unlike": "悪天候",
+    "Unlike_EN": "Bad weather",
     "IdentityMotif": [
       {
         "Formation": "corefolder",
@@ -12754,9 +12766,11 @@
       }
     ],
     "RelationNotes": "「6(ムイ)」を「姉様」と慕っている",
+    "RelationNotes_EN": "Looks up to '6(Sics)' as her \"Sister.6(Sics)\"",
     "NumerospecAbout": "祈りの恩恵を分け与える",
+    "NumerospecAbout_EN": "Shares the blessings of prayer",
     "Summary": "「愛があることを信じていれば、何もなくとも輝ける」、そう信じてやまない博愛主義な「マスターテールズ9」のうちの1人。\n自分には強いポテンシャルがあるとも信じているが、その恩恵を主人にも分けてくれると主人層からかなりの好評を得ている。\nちなみに、「6(ムイ)」に対しては「姉様(あねさま)」と称するほど姉妹的な愛着があり、2人で過ごす時間も短くないという。",
-    "Summary_EN": "She is one of the benevolent \"MasterTales 9\" who believes that \"if you believe in love, you can shine even if you have nothing\".\nShe also believes that she has strong potential, and she is quite popular among the MasterTales for sharing her benefits with her masters.\nIncidentally, she has a strong sisterly attachment to \"6(Sics)\", and the time they spend together is not short.",
+    "Summary_EN": "She is one of the benevolent \"MasterTales 9\" who believes that \"if you believe in love, you can shine even if you have nothing\".\nShe also believes that she has strong potential, and she is quite popular among the MasterTales for sharing her benefits with her masters.\nIncidentally, she has a strong sisterly attachment to \"6(Sics)\" that she refers to her as \"Sister.6(Sics)\", and the time they spend together is not short.",
     "NumerospecStats": {
       "EffectStats": {
         "Mental": { "EffectText": "絶大" },
@@ -12781,13 +12795,13 @@
         {
           "Num": 6,
           "Comments": "「親愛なる姉様」",
-          "Comments_EN": "「親愛なる姉様」",
+          "Comments_EN": "\"My dearest sister.\"",
           "RelationLabel": ["pioneer", "wellMatched", "trusted"]
         },
         {
           "Num": 60,
           "Comments": "「自分らしさが輝いている優美な方」",
-          "Comments_EN": "「自分らしさが輝いている優美な方」",
+          "Comments_EN": "\"An elegant one whose true self shines through.\"",
           "RelationLabel": ["pioneer"]
         }
       ],
@@ -12795,33 +12809,33 @@
         {
           "Num": 3,
           "Comments": "「素晴らしいお方」",
-          "Comments_EN": "「素晴らしいお方」"
+          "Comments_EN": "\"A truly wonderful person.\""
         },
         {
           "Num": 12,
           "Comments": "「何事も躊躇いない様子が素敵です」",
-          "Comments_EN": "「何事も躊躇いない様子が素敵です」"
+          "Comments_EN": "\"The way she never hesitates in anything is simply lovely.\""
         },
         {
           "Num": 33,
           "Comments": "「彼女の眼はすべてお見通しでしょう」",
-          "Comments_EN": "「彼女の眼はすべてお見通しでしょう」",
+          "Comments_EN": "\"Her eyes see through everything, don't they.\"",
           "RelationLabel": ["classmate"]
         },
         {
           "Num": 48,
           "Comments": "「何事も諦めることない立派なお方」",
-          "Comments_EN": "「何事も諦めることない立派なお方」"
+          "Comments_EN": "\"A fine one who never gives up on anything.\""
         },
         {
           "Num": 75,
           "Comments": "「勤勉さは報われるのを証明できるお方」",
-          "Comments_EN": "「勤勉さは報われるのを証明できるお方」"
+          "Comments_EN": "\"One who can prove that diligence pays off.\""
         },
         {
           "Num": 96,
           "Comments": "「『タイムリーな方』、というべきでしょうか…」",
-          "Comments_EN": "「『タイムリーな方』、というべきでしょうか…」"
+          "Comments_EN": "\"Should I say... 'a timely one'...?\""
         }
       ]
     }
@@ -12847,11 +12861,13 @@
     "ConceptAge": 22,
     "Weight_kg": { "hideText": "非公開希望" },
     "TailsUnit": "キツネ(枝分かれ)型7本(上2束6本+下1束1本)",
+    "TailsUnit_EN": "Fox (branched) type: 7 tails (upper: 2 clusters x6, lower: 1 cluster x1)",
     "IdentityMotif": [
       { "Formation": "humanoid", "Motif": { "Motif_JP": [], "Motif_EN": [] } },
       { "Formation": "corefolder", "Motif": { "Motif_JP": [], "Motif_EN": [] } }
     ],
     "Summary": "体調管理や健康管理に優れており、フィットネスを何よりも好む事から体育系男子の印象を持たれている。\nただ当時でも強かだった印象に反し、本人は「もう少し鍛錬が裏切らない身体を手にしたい」と豪語していた。\nよってつい最近に人間の筋肉構造に限りなく近い躯体を手にしたのだが、そうするまでもなく彼自身の努力や鍛錬意欲は周囲から十分に称賛されているようだ。",
+    "Summary_EN": "Excellent at health and physical condition management, his love of fitness above all else has earned him the impression of a gym-type guy.\nYet contrary to the tough impression he gave even back then, he himself boldly declared: \"I want a body where hard work never betrays me.\"\nSo just recently, he obtained a frame closely resembling actual human musculature — yet even before that, his dedication and enthusiasm for training had already earned him plenty of praise from those around him.",
     "NumerospecStats": {
       "EffectStats": {
         "Mental": { "EffectText": "普通" },
@@ -12871,7 +12887,8 @@
       "Technic": { "Rank": "B" },
       "Actuation": { "Rank": "S" }
     },
-    "Backgrounds": "ナンバーテールズ99体の中では珍しく、フィットネスに関するメニューも積極的に取り入れているため後に躯体が新調された。"
+    "Backgrounds": "ナンバーテールズ99体の中では珍しく、フィットネスに関するメニューも積極的に取り入れているため後に躯体が新調された。",
+    "Backgrounds_EN": "One of the rare cases among the 99 NumberTales, his active incorporation of fitness-related programs led to his frame being upgraded at a later date."
   },
   {
     "Num": 67,
@@ -12894,6 +12911,7 @@
     "ConceptAge": { "value": 22, "about_JP": "？", "about_EN": "?" },
     "Weight_kg": { "hideText": "非公開" },
     "TailsUnit": "キツネ(枝分かれ)型7本(上2束6本+下1束1本)",
+    "TailsUnit_EN": "Fox (branched) type: 7 tails (upper: 2 clusters x6, lower: 1 cluster x1)",
     "AnivDay": [
       {
         "Day": { "Month": 6, "DayOfMonth": 7 },
@@ -12903,20 +12921,31 @@
     ],
     "Class": ["デュアルフォーズ"],
     "FirstPersonCalling": "俺",
+    "FirstPersonCalling_EN": "I (ore; masc. rough)",
     "SecondPersonCalling": "お前",
+    "SecondPersonCalling_EN": "you (omae; rough/familiar)",
     "ThirdPersonCalling": "彼/彼女;*いつ;[※名前呼び]",
+    "ThirdPersonCalling_EN": "he/she; that one (*itsu; rough); [*by name]",
     "ForMasterCalling": "～トレーナー",
+    "ForMasterCalling_EN": "Trainer.~",
     "Character": "筋肉主義者のトレーナー気質、無理なく鍛錬することを醍醐味とする\nまだ自分の鍛錬に限界があることを恐れている一面も",
+    "Character_EN": "A muscle-devotee with a trainer's mindset — takes joy in training without overstraining\nAlso secretly afraid that his own limits may still hold him back",
     "Hobby": "筋トレ、食事管理",
+    "Hobby_EN": "Strength training, diet management",
     "SpecialSkill": "コーチング",
+    "SpecialSkill_EN": "Coaching",
     "Favor": "人間の栄養管理について",
+    "Favor_EN": "Human nutrition management",
     "Unlike": "努力不足な人",
+    "Unlike_EN": "People who lack effort",
     "IdentityMotif": [
       { "Formation": "humanoid", "Motif": { "Motif_JP": [], "Motif_EN": [] } },
       { "Formation": "corefolder", "Motif": { "Motif_JP": [], "Motif_EN": [] } }
     ],
     "NumerospecAbout": "心身の健康を保証する",
+    "NumerospecAbout_EN": "Guarantees mental and physical health",
     "Summary": "体調管理や健康管理に優れており、つい最近の躯体の新調によりフィットネスのコーチングにも特化したナンバーテールズの中でもとても珍しい個体。\n旧式時から鍛錬熱心で現在のその分厚い人工筋肉から威圧的？な印象を抱かれるようにもなったが、オーバーワークはしない/させない主義なのでご安心を。\nただ、一部周囲からミーム扱いもされているらしく…",
+    "Summary_EN": "A remarkably rare unit among the NumberTales — exceptional at health and physical management, and now with a recent body upgrade, further specialized in fitness coaching.\nHis dedication to training has been there since his older form, and his now-imposing artificial musculature has earned him a somewhat(?) intimidating impression — but rest assured, he lives by the belief of not overworking himself or others.\nThat said, it seems some around him have started treating him as a meme...",
     "NumerospecStats": {
       "EffectStats": {
         "Mental": { "EffectText": "特殊" },
@@ -12937,30 +12966,31 @@
       "Actuation": { "Rank": "S+" }
     },
     "Backgrounds": "ナンバーテールズ99体の中では珍しく、体調面も支援しておりトレーニングジムでコーチングをしている様子も窺われている",
+    "Backgrounds_EN": "One of the rare units among the 99 NumberTales that also supports health and physical condition, reportedly seen coaching at training gyms",
     "Relation": {
       "Related": [
         {
           "Num": 39,
           "Comments": "「逞しくとても尊敬できる存在」",
-          "Comments_EN": "「逞しくとても尊敬できる存在」",
+          "Comments_EN": "\"Someone sturdy and truly worthy of respect.\"",
           "RelationLabel": ["wellMatched"]
         },
         {
           "Num": 49,
           "Comments": "「面倒なやつだな…」",
-          "Comments_EN": "「面倒なやつだな…」",
+          "Comments_EN": "\"What a troublesome one...\"",
           "RelationLabel": ["unmatched", "classmate"]
         },
         {
           "Num": 64,
           "Comments": "「は、はぁ…？」",
-          "Comments_EN": "「は、はぁ…？」",
+          "Comments_EN": "\"W-wait, what...?\"",
           "RelationLabel": ["awkward", "cousin"]
         },
         {
           "Num": 76,
           "Comments": "「いつも情報面で助けられている妹」",
-          "Comments_EN": "「いつも情報面で助けられている妹」",
+          "Comments_EN": "\"My little sister who always helps me out on the information front.\"",
           "RelationLabel": ["brother|sister", "trusted", "classmate"]
         }
       ],
@@ -12968,36 +12998,36 @@
         {
           "Num": 4,
           "Comments": "「謙虚だが好感は持てる」",
-          "Comments_EN": "「謙虚だが好感は持てる」"
+          "Comments_EN": "\"Humble, but easy to like.\""
         },
         {
           "Num": 13,
           "Comments": "「活発で可愛らしいところが憎めない」",
-          "Comments_EN": "「活発で可愛らしいところが憎めない」",
+          "Comments_EN": "\"You just can't hate her lively, endearing side.\"",
           "RelationLabel": ["classmate"]
         },
         {
           "Num": 40,
           "Comments": "「何笑ってんだお前!?」",
-          "Comments_EN": "「何笑ってんだお前!?」",
+          "Comments_EN": "\"What are you laughing at!?\"",
           "RelationLabel": ["awkward_aBit"]
         },
         {
           "Num": 65,
           "Comments": "「怯えてないよな…？」",
-          "Comments_EN": "「怯えてないよな…？」",
+          "Comments_EN": "\"She's not actually scared... right...?\"",
           "RelationLabel": ["cousin", "awkward_aBit"]
         },
         {
           "Num": 85,
           "Comments": "「可愛いところはあるんだが…」",
-          "Comments_EN": "「可愛いところはあるんだが…」",
+          "Comments_EN": "\"She does have her cute moments, but...\"",
           "RelationLabel": ["awkward_aBit", "classmate"]
         },
         {
           "Num": "00",
           "Comments": "「とても辱いことを頼んでしまったな…」",
-          "Comments_EN": "「とても辱いことを頼んでしまったな…」",
+          "Comments_EN": "\"I ended up asking something quite humiliating of him, didn't I...\"",
           "RelationLabel": ["trusted_maybe", "awkward_aBit"]
         }
       ]
@@ -13036,18 +13066,26 @@
     "Weight_kg": 39,
     "BustSize": "AA",
     "TailsUnit": "キツネ(枝分かれ)型8本(上2束6本+下1束2本)",
+    "TailsUnit_EN": "Fox (branched) type: 8 tails (upper: 2 clusters x6, lower: 1 cluster x2)",
     "Class": ["デュアルファイブズ"],
     "FirstPersonCalling": "自分\n僕",
+    "FirstPersonCalling_EN": "I (jibun; formal/distanced)\nI (boku; masc. casual)",
     "SecondPersonCalling": "君(きみ)",
+    "SecondPersonCalling_EN": "you (kimi; familiar)",
     "ThirdPersonCalling": "彼/彼女;[※名前呼び]",
     "ThirdPersonCalling_EN": "he/she; [*by name]",
     "ForMasterCalling": "主人",
     "ForMasterCalling_EN": "Master",
     "Character": "執着心が無く何事にも塩反応、潔癖症\n古い物への価値観が辛辣",
+    "Character_EN": "No attachment to anything, gives a cold reaction to everything — a cleanliness obsessive\nHas a harsh view of anything old or outdated",
     "Hobby": "整理整頓",
+    "Hobby_EN": "Tidying and organizing",
     "SpecialSkill": "掃除\nフリーマーケット",
+    "SpecialSkill_EN": "Cleaning\nFlea markets (selling unwanted items)",
     "Favor": "髪を整える道具",
+    "Favor_EN": "Hair styling tools",
     "Unlike": "散らかった部屋",
+    "Unlike_EN": "Messy rooms",
     "IdentityMotif": [
       {
         "Formation": "corefolder",
@@ -13089,8 +13127,11 @@
       }
     ],
     "RelationNotes": "加護が強いナンバーテールズを「お化け」と称しがち\n稀にベリーショートヘアで登場し「5(イズ)」に笑われる",
+    "RelationNotes_EN": "Tends to call NumberTales with powerful Numerospecs \"monsters\"\nOccasionally shows up with a very short haircut and gets laughed at by '5(Fifa)'",
     "NumerospecAbout": "断捨離させる\nこれにより主人や相手の生活の無駄を排除できる",
+    "NumerospecAbout_EN": "Makes others declutter\nThis eliminates waste and excess from the master's daily life",
     "Summary": "古着の処分や機種変更など、物を長期的に保管することより「断捨離すること」を得意としている。\nしかし新品と比べ古い物の見方は異質なところもあり、すぐ手放そうとする傾向にある。\n一方でその価値観が功をなし、ナンバーテールズの中ではトップクラスの整理力と掃除力がある。\nちなみに手放した物の大半はフリーマーケットで売られるため、周囲から助かっているとの声も。",
+    "Summary_EN": "Skilled at decluttering rather than holding onto things for the long term — whether disposing of old clothes or replacing devices.\nHowever, he/she has a somewhat unusual view of anything old compared to new, and tends to let things go quickly.\nOn the other hand, this very outlook has proven fruitful: he/she boasts some of the highest organizational and cleaning ability among the NumberTales.\nIncidentally, most of what he/she lets go ends up sold at flea markets, much to the appreciation of those around him/her.",
     "NumerospecStats": {
       "EffectStats": {
         "Mental": { "EffectText": "効果無" },
@@ -13111,19 +13152,20 @@
       "Actuation": { "Rank": "S" }
     },
     "InStory": "ナンバーテールズの掃除担当？",
+    "InStory_EN": "The cleaning unit of NumberTales?",
     "Relation": {
       "Related": [
         { "Num": 5, "RelationLabel": ["pioneer"] },
         {
           "Num": 16,
           "Comments": "「幸せな貧乏, 欲しいものがあれば手伝う」",
-          "Comments_EN": "「幸せな貧乏, 欲しいものがあれば手伝う」",
+          "Comments_EN": "\"Happy but struggling — I'll give her a hand if she needs something.\"",
           "RelationLabel": ["cousin_nearly", "wellMatched"]
         },
         {
           "Num": 88,
           "Comments": "「絶対私物にいらない物あるだろ」",
-          "Comments_EN": "「絶対私物にいらない物あるだろ」",
+          "Comments_EN": "\"I bet he has stuff among his belongings that he doesn't need.\"",
           "RelationLabel": ["awkward"]
         },
         { "Num": 98, "RelationLabel": ["cousin", "trusted"] }
@@ -13132,30 +13174,30 @@
         {
           "Num": 36,
           "Comments": "「神引きおばけ」",
-          "Comments_EN": "「神引きおばけ」",
+          "Comments_EN": "\"A monster of lucky draws.\"",
           "RelationLabel": ["cousin_nearly"]
         },
         {
           "Num": 41,
           "Comments": "「フラグ建築おばけ」",
-          "Comments_EN": "「フラグ建築おばけ」",
+          "Comments_EN": "\"A monster at building flags.\"",
           "RelationLabel": ["classmate"]
         },
         {
           "Num": 50,
           "Comments": "「適応力おばけ」",
-          "Comments_EN": "「適応力おばけ」"
+          "Comments_EN": "\"A monster of adaptability.\""
         },
         {
           "Num": 81,
           "Comments": "「高収入おばけ」",
-          "Comments_EN": "「高収入おばけ」",
+          "Comments_EN": "\"A monster of high-earning.\"",
           "RelationLabel": ["cousin_nearly"]
         },
         {
           "Num": 95,
           "Comments": "「考え方からして余命1日なのか？」",
-          "Comments_EN": "「考え方からして余命1日なのか？」",
+          "Comments_EN": "\"Going by that his's way of thinking, is there only a day left to live?\"",
           "RelationLabel": ["classmate"]
         }
       ]
@@ -13193,6 +13235,7 @@
     ],
     "Weight_kg": { "hideText": "非公開" },
     "TailsUnit": "キツネ(枝分かれ)型9本(上2束6本+下1束3本)",
+    "TailsUnit_EN": "Fox (branched) type: 9 tails (upper: 2 clusters x6, lower: 1 cluster x3)",
     "Class": ["デュアルシックスズ"],
     "ThisMasters": [
       {
@@ -13219,14 +13262,23 @@
       }
     ],
     "FirstPersonCalling": "俺 ※例外あり",
+    "FirstPersonCalling_EN": "I (ore; masc. rough; exceptions apply)",
     "SecondPersonCalling": "あんた ※例外あり",
+    "SecondPersonCalling_EN": "guy/girl(s) (anta; rough; exceptions apply)",
     "ThirdPersonCalling": "[※名前呼び] ※例外あり",
-    "ForMasterCalling": "[Free Style]\n※主人の趣向に応じる",
+    "ThirdPersonCalling_EN": "[*by name] (exceptions apply)",
+    "ForMasterCalling": "[※主人の趣向に応じる]",
+    "ForMasterCalling_EN": "[*Adapts to the master's preferences]",
     "Character": "芸達者で主人の趣向に合うキャラで従事できる\nほんの若干アイデンティティを見失い気味？\n気分屋",
+    "Character_EN": "A skilled performer who can serve in any character to match the master's taste\nSeems to be losing track of his own identity, just a little...?\nA bit of a moody one",
     "Hobby": "新しいことに戯れること",
+    "Hobby_EN": "Fooling around with new things",
     "SpecialSkill": "モノマネ",
+    "SpecialSkill_EN": "Impressions (mimicry)",
     "Favor": "ハリウッド映画",
+    "Favor_EN": "Hollywood movies",
     "Unlike": "妹",
+    "Unlike_EN": "His younger sisters",
     "IdentityMotif": [
       {
         "Formation": "corefolder",
@@ -13280,7 +13332,9 @@
       }
     ],
     "NumerospecAbout": "自分自身に対する固定概念から解放する",
+    "NumerospecAbout_EN": "Liberates from one's fixed ideas about oneself",
     "Summary": "主人の望むキャラを演じて従事するという、独特な契約プランを持つナンバーテールズ。\n芸達者で様々な性格を演じることができる一方、素でのコミュニケーションが乏しいことから他のナンバーテールズに「アイデンティティを見失っているのではないか」と心配されている。\nとはいえ妹「96(クルリ)」のキャラ崩壊っぷりの方が彼にとって難儀らしい。\n気分屋で新しいことに戯れるのが好き。",
+    "Summary_EN": "A NumberTales with a unique contract plan: serving while performing whatever character the master desires.\nA skilled performer who can inhabit many different personalities, but his lack of communication in his natural state has the other NumberTales worried he may have \"lost track of his own identity.\"\nThat said, the character-breakdown of his little sister '96(Rota)' is apparently more of a headache for him than anything.\nA bit of a moody one who loves fooling around with new things.",
     "NumerospecStats": {
       "EffectStats": {
         "Mental": { "EffectText": "期待" },
@@ -13301,32 +13355,34 @@
       "Actuation": { "Rank": "Z" }
     },
     "InStory": "特殊個体「6+9型」のネーム版\n自分を見失ってないか心配がられることもしばしば",
+    "InStory_EN": "The named version of the \"Unit.6+9 type\" special unit\nPeople often worry whether he's lost track of who he is",
     "Backgrounds": "契約プランで彼に好きなキャラを演じてもらう、という独自システムがある",
+    "Backgrounds_EN": "Has a unique system where the contract plan has him perform as whatever character the master prefers",
     "Relation": {
       "Related": [
         {
           "Num": 6,
           "Comments": "「愛くるしい存在」",
-          "Comments_EN": "「愛くるしい存在」",
+          "Comments_EN": "\"An utterly endearing one.\"",
           "RelationLabel": ["pioneer"]
         },
         {
           "Num": 9,
           "Comments": "「本当は本性を隠してそう」",
-          "Comments_EN": "「本当は本性を隠してそう」",
+          "Comments_EN": "\"Feels like she's hiding her true nature.\"",
           "RelationLabel": ["pioneer"]
         },
         { "Num": 40, "RelationLabel": ["unmatched"] },
         {
           "Num": 60,
           "Comments": "「立ち振る舞いとか見習いたい」",
-          "Comments_EN": "「立ち振る舞いとか見習いたい」",
+          "Comments_EN": "\"Her bearing and conduct are something I'd like to learn from.\"",
           "RelationLabel": ["pioneer_nearly", "trusted"]
         },
         {
           "Num": 96,
           "Comments": "「俺よりもさらにアイデンティティを見失ってる妹」",
-          "Comments_EN": "「俺よりもさらにアイデンティティを見失ってる妹」",
+          "Comments_EN": "\"My little sister who's lost even more of her identity than I have.\"",
           "RelationLabel": [
             "brother|sister",
             "alternative|redesign",
@@ -13339,13 +13395,13 @@
         {
           "Num": 87,
           "Comments": "「ほんといつかカツアゲされるぞ…」",
-          "Comments_EN": "「ほんといつかカツアゲされるぞ…」",
+          "Comments_EN": "\"She's seriously going to get mugged someday...\"",
           "RelationLabel": ["classmate"]
         },
         {
           "Num": 94,
           "Comments": "「起きて従事してるの想像できないな…」",
-          "Comments_EN": "「起きて従事してるの想像できないな…」",
+          "Comments_EN": "\"I just can't picture him/her awake and on duty...\"",
           "RelationLabel": ["cousin_nearly"]
         }
       ]
@@ -13363,6 +13419,7 @@
     "FormalName": "ナンバーテールズ70番機",
     "FormalName_EN": "NumberTales #70",
     "CodeName": "七〇",
+    "CodeName_EN": "Seven-Zero",
     "SPCodeName": "七十",
     "SPCodeName_EN": "Seventy",
     "GenderType": "MaleNeutral",
@@ -13380,21 +13437,33 @@
     "TailsUnit_EN": "Seven fox-type tails",
     "Class": ["10倍番(テンズデジッツ)"],
     "FirstPersonCalling": "俺",
+    "FirstPersonCalling_EN": "I (ore; masc. rough)",
     "SecondPersonCalling": "お前",
+    "SecondPersonCalling_EN": "you (omae; rough/familiar)",
     "ThirdPersonCalling": "*奴(*いつ);[※名前呼び]",
+    "ThirdPersonCalling_EN": "that guy (*itsu; rough); [*by name]",
     "ForMasterCalling": "～師(し) ※例外あり",
+    "ForMasterCalling_EN": "Master.~ (*shi; exceptions apply)",
     "Character": "適当に見えて霊的？な才能を発揮している\n実はとても勤勉",
+    "Character_EN": "Appears laid-back yet displays what seems to be a spiritual(?) talent\nActually very diligent beneath it all",
     "Hobby": "占い、祭事",
+    "Hobby_EN": "Divination, festivals and ritual events",
     "SpecialSkill": "水晶占い",
+    "SpecialSkill_EN": "Crystal ball divination",
     "Favor": "タロットカード、オラクルカード",
+    "Favor_EN": "Tarot cards, oracle cards",
     "Unlike": "演出の激しいパーティルーム",
+    "Unlike_EN": "Party rooms with over-the-top effects",
     "IdentityMotif": [
       { "Formation": "humanoid", "Motif": { "Motif_JP": [], "Motif_EN": [] } },
       { "Formation": "corefolder", "Motif": { "Motif_JP": [], "Motif_EN": [] } }
     ],
     "RelationNotes": "「25(フィズ)」の占い結果に興味がある",
+    "RelationNotes_EN": "Has an interest in the divination results given to '25(Quartels)'",
     "NumerospecAbout": "占術や祭事ができる\nこれにより相手の悩みの整理などができる",
+    "NumerospecAbout_EN": "Enables divination and ritual events\nThis helps others sort through their worries and troubles",
     "Summary": "普段は適当な性格のように見えるが、瞑想能力や（霊的な）勘による有能っぷりを見せている。\n「7(ナナ)」の実の弟機に相当し、一緒に勉強や修行している様子もしばしばあるようだ。\n一方主人に従事する傍らで祭事や占いを趣味/特技とし、他のナンバーテールズの運勢を占ったりもしているらしい。\n中でも「25(フィズ)」を占った時の相に大変興味があるようだが…？",
+    "Summary_EN": "He appears laid-back on the surface, but reveals impressive ability through meditation and a spiritual(?) intuition.\nHe corresponds to the true younger sibling unit of '7(Sevan)', and the two are often seen studying and training together.\nMeanwhile, alongside his duties to his master, he pursues divination and ritual events as hobbies and special skills, even reading the fortunes of other NumberTales from time to time.\nIn particular, he seems greatly intrigued by what the signs revealed when he divined for '25(Quartels)'...?",
     "NumerospecStats": {
       "EffectStats": {
         "Mental": { "EffectText": "特殊" },
@@ -13415,18 +13484,19 @@
       "Actuation": { "Rank": "S" }
     },
     "Backgrounds": "開発中は完成すると趣味が合いそうだと思った、と零が供述している",
+    "Backgrounds_EN": "During development, Zera noted that he thought they would share similar interests once he was complete.",
     "Relation": {
       "Related": [
         {
           "Num": 7,
           "Comments": "「信頼できる勉強仲間」",
-          "Comments_EN": "「信頼できる勉強仲間」",
+          "Comments_EN": "\"A study partner I can trust.\"",
           "RelationLabel": ["brother|sister", "trusted"]
         },
         {
           "Num": 25,
           "Comments": "「毎回占ってるけど悪い相が出ない、幸運者」",
-          "Comments_EN": "「毎回占ってるけど悪い相が出ない、幸運者」",
+          "Comments_EN": "\"Every time I read her fortune, nothing bad shows up — she's one lucky person.\"",
           "RelationLabel": ["interested", "wellMatched"]
         }
       ],
@@ -13434,29 +13504,29 @@
         {
           "Num": 16,
           "Comments": "「急に思い立つから手に負えねぇ…」",
-          "Comments_EN": "「急に思い立つから手に負えねぇ…」"
+          "Comments_EN": "\"She acts on sudden impulses — absolutely impossible to manage...\""
         },
         {
           "Num": 43,
           "Comments": "「いつの間にかすごい成果出してたりする」",
-          "Comments_EN": "「いつの間にかすごい成果出してたりする」"
+          "Comments_EN": "\"Before you know it, she's already put out incredible results.\""
         },
         {
           "Num": 72,
           "Comments": "「ああ見えて人間味はあると思う」",
-          "Comments_EN": "「ああ見えて人間味はあると思う」",
+          "Comments_EN": "\"Despite how he/she looks, I think there's a very human side to them.\"",
           "RelationLabel": ["successor_nearly"]
         },
         {
           "Num": 79,
           "Comments": "「変な情報広げてないといいんだが」",
-          "Comments_EN": "「変な情報広げてないといいんだが」",
+          "Comments_EN": "\"I just hope he/she's not spreading strange rumors around...\"",
           "RelationLabel": ["successor_nearly"]
         },
         {
           "Num": 87,
           "Comments": "「金運操作してんのか？」",
-          "Comments_EN": "「金運操作してんのか？」"
+          "Comments_EN": "\"Is she actually controlling her own financial luck?\""
         }
       ]
     }
@@ -16819,6 +16889,7 @@
     "FormalName_EN": "NumberTales #95",
     "CodeName": "九五",
     "CodeName_EN": "Nine-Five",
+    "GenderType": "MaleNeutral",
     "AnivDay": [
       {
         "Day": { "Month": 9, "DayOfMonth": 5 },
@@ -16891,9 +16962,9 @@
     "Class": ["デュアルシックスズ"],
     "ThisMasters": ["ジャッヂ=ジャストリー/神谷崎 幻影"],
     "ThisMasters_EN": ["ジャッヂ=ジャストリー/神谷崎 幻影"],
-    "FirstPersonCalling": "[※？？？]\nあたしゃ ※非常に稀（または素を知る相手に対して）",
+    "FirstPersonCalling": "[※その時により変わる]\nあたしゃ ※非常に稀（または素を知る相手に対して）",
     "SecondPersonCalling": "あなた\nあんた ※非常に稀（または素を知る相手に対して）",
-    "ThirdPersonCalling": "[※？？？],[※名前呼び]",
+    "ThirdPersonCalling": "[※その時により変わる],[※名前呼び]",
     "ForMasterCalling": "ご主人",
     "ForMasterCalling_EN": "Master",
     "Character": "流行に詳しく今時なトレンドに敏感\n普段は仮面をつけている（流行に乗っている自分を模るためらしい）\n素を知られていない",
