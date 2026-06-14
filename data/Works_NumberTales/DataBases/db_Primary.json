@@ -139,9 +139,9 @@
       }
     ],
     "NumerospecAbout": "ありのままに行動する\nおよび主人の自我を強める",
-    "NumerospecAbout_EN": "Acts just as she is\nAnd also strengthens the Master's sense of self",
+    "NumerospecAbout_EN": "Acts just as ze is\nAnd also strengthens the Master's sense of self",
     "Summary": "相手のことを尊重する双子の妹「2(ツグ)」とは反対に、自分のありのままに生活している。\nナンバーテールズの試作過程と共に誕生した唯一の試作型で、外見で尾が1本などと正規型である他の98人と異なる特徴が多い。\nしかし彼女はそれも自分らしさと前向きに受け入れている。\nとはいえ試作型だった影響か、やってみたいことが無数にあり行動意欲が過度に突出している。",
-    "Summary_EN": "In contrast to his/her twin sister '2(Twiny)', who values cooperation with others, he/she lives true to himself/herself.\nThe sole prototype unit born alongside the trial-production process of the NumberTales, he/she has many features that differ from the other 98 standard units — such as having only one tail.\nYet he/she positively accepts even that as part of what makes him/herself.\nThat said, perhaps owing to having been a prototype, he/she has a boundless list of things he/she wants to try, and his/her drive to act is excessively prominent.",
+    "Summary_EN": "In contrast to zir twin sister '2(Twiny)', who values cooperation with others, ze lives true to zirself.\nThe sole prototype unit born alongside the trial-production process of the NumberTales, ze has many features that differ from the other 98 standard units — such as having only one tail.\nYet ze positively accepts even that as part of what makes zirself.\nThat said, perhaps owing to having been a prototype, ze has a boundless list of things ze wants to try, and zir drive to act is excessively prominent.",
     "NumerospecStats": {
       "EffectStats": {
         "Mental": { "EffectText": "期待" },
@@ -162,7 +162,7 @@
       "Actuation": { "Rank": "A" }
     },
     "InStory": "主人に従事するだけでなく、試作機として機能的な試験を定期的に受けている",
-    "InStory_EN": "In addition to serving the Master, she regularly undergoes functional testing as a prototype unit",
+    "InStory_EN": "In addition to serving the Master, ze regularly undergoes functional testing as a prototype unit",
     "Backgrounds": "最初に試作されたナンバーテールズ",
     "Backgrounds_EN": "The first NumberTales to be prototyped",
     "Relation": {
@@ -207,17 +207,17 @@
     },
     "ConversationPattern": {
       "TalkingTone": "溌剌としており、積極的な姿勢が口調からわかりやすい",
-      "TalkingTone_EN": "Lively and energetic, with a proactive attitude that comes through clearly in her speech",
+      "TalkingTone_EN": "Lively and energetic, with a proactive attitude that comes through clearly in zir speech",
       "TopicPreference": "初の試みや試験的な挑戦に積極的で、新しいことへの取っ掛りが早い。一度気になった話題はとことん盛り上がる。まれに直球的で斬新な発言をし、場を呆然とさせることがある。",
-      "TopicPreference_EN": "Eager to engage with first-time attempts and experimental challenges, and quick to pick up on anything new. Once a topic catches his/her interest, he/she digs in deeply. Occasionally makes blunt and surprising remarks that leave everyone speechless.",
+      "TopicPreference_EN": "Eager to engage with first-time attempts and experimental challenges, and quick to pick up on anything new. Once a topic catches zir interest, ze digs in deeply. Occasionally makes blunt and surprising remarks that leave everyone speechless.",
       "TalkFrequency": "話を自分からとることが多い。機嫌がよいときはトーンがやや早く、どこかマイペースさが垣間見える口調になり、さらに自ら話題を振ったり絡んだりする。",
-      "TalkFrequency_EN": "Often initiates conversations his/herself. When in a good mood, his/her pace quickens slightly and takes on an at-his/her-own-pace quality, and he/she becomes even more likely to bring up topics and engage with others.",
+      "TalkFrequency_EN": "Often initiates conversations zirself. When in a good mood, zir pace quickens slightly and takes on an at-zir-own-pace quality, and ze becomes even more likely to bring up topics and engage with others.",
       "PreferredTopics": "ナンバーテールズの稼働試験やデバッグに関する話題は専門分野であるため普段から口にしている。後続機にあたる他番号のナンバーテールズたちを興味本位で気に掛けることも。",
-      "PreferredTopics_EN": "Regularly talks about NumberTales operational testing and debugging, as it's his/her area of expertise. Also keeps a curious eye on the other-numbered NumberTales that serve as his/her successor units.",
+      "PreferredTopics_EN": "Regularly talks about NumberTales operational testing and debugging, as it's zir area of expertise. Also keeps a curious eye on the other-numbered NumberTales that serve as zir successor units.",
       "AvoidedTopics": "個性やパーソナリティを過度に否定する話題を避ける。特に、誹謗中傷的・批判的な態度をとる相手との会話を望まない。",
       "AvoidedTopics_EN": "Avoids topics that excessively deny individuality or personality. Particularly dislikes conversing with those who take a defamatory or harshly critical attitude.",
       "ConversationNotes": "自身は他者に媚びない無個性さをアイデンティティとしている一面があるため、目的よりも手段・理論よりも直感を尊重することが多い。",
-      "ConversationNotes_EN": "Having a facet of her identity rooted in not kowtowing to others, she tends to value means over ends, and intuition over logic.",
+      "ConversationNotes_EN": "Having a facet of zir identity rooted in not kowtowing to others, ze tends to value means over ends, and intuition over logic.",
       "DialogueExamples": [
         {
           "value_JP": "「ぼくは ナンバーテールズ試作型１号機、もとい１番機の『1(ハジメ)』！これからもよろしく！」",
@@ -281,7 +281,7 @@
         },
         {
           "value_JP": "（…あれ？7(ナナ)は？休憩だからってどっか行っちゃったのかな…）",
-          "value_EN": "(…hm? Where's 7(Sevan)? Did she wander off somewhere just because it's break time…)",
+          "value_EN": "(…hm? Where's 7(Sevan)? Did ze wander off somewhere just because it's break time…)",
           "about": "後続機を気にかけている時（「7(ナナ)」の場合）",
           "about_EN": "When keeping an eye on a successor unit (in the case of '7(Sevan)')"
         },
@@ -445,7 +445,7 @@
       "Actuation": { "Rank": "A" }
     },
     "InStory": "主人に従事するだけでなく、1桁番のマネジメントも積極的に行っている",
-    "InStory_EN": "In addition to serving the Master, he/she actively takes on management responsibilities for the Uni-Digits",
+    "InStory_EN": "In addition to serving the Master, ze actively takes on management responsibilities for the Uni-Digits",
     "Backgrounds": "最初に正規型として設計されたナンバーテールズ「1(ハジメ)」の設計を再利用して誕生",
     "Backgrounds_EN": "Born by reusing the design of '1(Unitta)', the first NumberTales to be designed as a standard unit",
     "Relation": {
@@ -480,7 +480,7 @@
         {
           "Num": 11,
           "Comments": "「迷ったら彼(女)に頼りたい」",
-          "Comments_EN": "\"If I'm ever lost, I'd want to rely on him/her\""
+          "Comments_EN": "\"If I'm ever lost, I'd want to rely on zir\""
         },
         {
           "Num": 47,
@@ -601,7 +601,7 @@
     "NumerospecAbout": "基本を守り、普遍を破り、固定概念から離れる\nこの効果は主人に感化させることもできる",
     "NumerospecAbout_EN": "Observe the basics, break the universal, and step away from fixed ideas\nThis effect can also influence the Master",
     "Summary": "基本を守り、普遍を破り、固定概念から離れるという、物事への「守破離」を極めたナンバーテールズで上位を誇る優等生。\nその秀才な彼(女)は1桁番の中でも、99人を支える最大要因となっている。\nしかし かといって厳格な性格でなく、冒険心や遊び心の高い青年のような気質で、対戦ゲームや交換日記の相手をするなど自然と溶け込みやすい一面も。",
-    "Summary_EN": "An excellent top-tier NumberTales who has mastered the principle in approaching things: keep the basics, break the universal, and step away from fixed ideas.\nThis gifted individual is one of the biggest supporting factors for all 99, even among the Uni-Digits.\nEven so, rather than being strict, he/she has the temperament of an adventurous and playful young person, with an easygoing side that naturally blends in through things like competitive games or exchange journals.",
+    "Summary_EN": "An excellent top-tier NumberTales who has mastered the principle in approaching things: keep the basics, break the universal, and step away from fixed ideas.\nThis gifted individual is one of the biggest supporting factors for all 99, even among the Uni-Digits.\nEven so, rather than being strict, ze has the temperament of an adventurous and playful young person, with an easygoing side that naturally blends in through things like competitive games or exchange journals.",
     "NumerospecStats": {
       "EffectStats": {
         "Mental": { "EffectText": "希薄" },
@@ -654,7 +654,7 @@
         {
           "Num": 57,
           "Comments": "「仙人にでもなるつもりなのかな…」",
-          "Comments_EN": "\"I wonder if he/she's trying to become some kind of sage...\""
+          "Comments_EN": "\"I wonder if ze's trying to become some kind of sage...\""
         },
         {
           "Num": 66,
@@ -935,7 +935,7 @@
     "SecondPersonCalling": "アンタ",
     "SecondPersonCalling_EN": "you (blunt/casual)",
     "ThirdPersonCalling": "[※その時により変わる],[※名前呼び]",
-    "ThirdPersonCalling_EN": "[*Varies depending on the situation],[*Name calling]",
+    "ThirdPersonCalling_EN": "[*Varies depending on the situation],[*by name]",
     "ForMasterCalling": "[※その時により変わる]",
     "ForMasterCalling_EN": "[*Varies depending on the situation]",
     "Character": "屈指のマイペース\n挑発に乗りやすく冷めやすくチョロい",
@@ -1047,17 +1047,17 @@
         {
           "Num": 10,
           "Comments": "「一体彼(女)の先の何を見てるんだろ…」",
-          "Comments_EN": "\"Just what is he/she seeing beyond all this, I wonder...\""
+          "Comments_EN": "\"Just what is ze seeing beyond all this, I wonder...\""
         },
         {
           "Num": 32,
           "Comments": "「彼(女)の出し物は何回見ても飽きない!」",
-          "Comments_EN": "\"No matter how many times I watch his/her act, I never get tired of it!\""
+          "Comments_EN": "\"No matter how many times I watch zir act, I never get tired of it!\""
         },
         {
           "Num": 68,
           "Comments": "「急に見た目が変わった時なんかは笑う」",
-          "Comments_EN": "\"When his/her appearance suddenly changes, it cracks me up\""
+          "Comments_EN": "\"When zir appearance suddenly changes, it cracks me up\""
         },
         {
           "Num": 77,
@@ -1280,7 +1280,7 @@
     "SecondPersonCalling": "其方(そなた)",
     "SecondPersonCalling_EN": "you (archaic: sonata)",
     "ThirdPersonCalling": "*の方,*奴(*やつ);~殿",
-    "ThirdPersonCalling_EN": "[*by name]; that person/that fellow; ~-dono",
+    "ThirdPersonCalling_EN": "that person, that fellow (*yatsu); ~-dono",
     "ForMasterCalling": "主殿",
     "ForMasterCalling_EN": "my lord (, ~dono)",
     "Character": "意識が高く、単独行動を好む\nイメトレで思想的になりがち",
@@ -1350,7 +1350,7 @@
     "NumerospecAbout": "修行や瞑想をする\nこれによる効果は主人にも少し分け与えられる",
     "NumerospecAbout_EN": "Performs training and meditation\nA portion of this effect is also shared with the Master",
     "Summary": "1桁番のナンバーテールズ9人の中でも単独行動を好み、自分なりの正しさを求めて修学や瞑想などをしながら悔いなく主人に従事できるように努めている。\n反面、イメージトレーニングや自分磨きが生活の大半となってしまい思想的になりがちではあるが、その分やることは完璧にこなしている（つもりらしい）。\n神話や伝統に興味がある。",
-    "Summary_EN": "Among the nine Uni-Digit NumberTales, this one especially prefers acting alone, seeking a personal sense of rightness while studying and meditating so as to serve the Master without regret.\nOn the other hand, image training and self-discipline take up most of daily life, so she tends to become ideological, though she believes she performs what she does perfectly because of that.\nShe is interested in myths and traditions.",
+    "Summary_EN": "Among the nine Uni-Digit NumberTales, this one especially prefers acting alone, seeking a personal sense of rightness while studying and meditating so as to serve the Master without regret.\nOn the other hand, image training and self-discipline take up most of daily life, so ze tends to become ideological, though ze believes ze performs what ze does perfectly because of that.\nZe is interested in myths and traditions.",
     "NumerospecStats": {
       "EffectStats": {
         "Mental": { "EffectText": "期待" },
@@ -1577,7 +1577,7 @@
         {
           "Num": 7,
           "Comments": "「あてが理系なら彼(女)は文系？」",
-          "Comments_EN": "\"If I'm the science type, then is he/she the humanities type?\"",
+          "Comments_EN": "\"If I'm the science type, then is ze the humanities type?\"",
           "RelationLabel": ["wellMatched", "classmate"]
         }
       ],
@@ -1585,12 +1585,12 @@
         {
           "Num": 10,
           "Comments": "「古代兵器みがある」",
-          "Comments_EN": "\"He/She kind of has an ancient-weapon vibe\""
+          "Comments_EN": "\"Ze kind of has an ancient-weapon vibe\""
         },
         {
           "Num": 35,
           "Comments": "「まれに才能開花してそう」",
-          "Comments_EN": "\"Feels like his/her talent blooms every now and then\""
+          "Comments_EN": "\"Feels like zir talent blooms every now and then\""
         },
         {
           "Num": 44,
@@ -1904,7 +1904,7 @@
     "ForMasterCalling": "センパイ",
     "ForMasterCalling_EN": "Senpai",
     "Character": "胸に秘めている思考か読めない不思議系\n自分は何の為にいるかを常に問い、何かに導かれるような振舞いをしている",
-    "Character_EN": "An enigmatic type whose inner thoughts are hard to read\nConstantly questions why he/she exists and behaves as if guided by something",
+    "Character_EN": "An enigmatic type whose inner thoughts are hard to read\nConstantly questions why ze exists and behaves as if guided by something",
     "Hobby": "自分探し",
     "Hobby_EN": "Self-discovery",
     "SpecialSkill": "護身術",
@@ -1970,7 +1970,7 @@
     "NumerospecAbout": "？？？？という役目を果たす\n？？？？という危機を未然に防ぐ",
     "NumerospecAbout_EN": "Fulfills the role of ????\nPrevents the crisis called ???? before it occurs",
     "Summary": "自分とは何者か、何のための存在か、どこで自分の役目は終わり、新たな役目が始まるか、その問いに導かれ答えるかのように様々な行動を起こしている（と本人が供述）。\nそのため思考が読めないと言われているが、主人の危機を未然に感知しているのではと、どこかで噂になっている。\nちなみに彼（女）は元動作試験機で、現在唯一の試作型である「1(ハジメ)」と試作段階の時から縁がある。",
-    "Summary_EN": "Who am I, what do I exist for, where does my role end and where does a new role begin - guided by those questions, he/she takes various actions as if answering them (according to his/her own testimony).\nBecause of that, people say his/her thoughts are unreadable, yet rumors persist that he/she may be sensing the Master's crises in advance.\nIncidentally, he/she was originally an operation-test unit and has had ties with '1(Unitta)' - the only current prototype - since the prototype stage.",
+    "Summary_EN": "Who am I, what do I exist for, where does my role end and where does a new role begin - guided by those questions, ze takes various actions as if answering them (according to zir own testimony).\nBecause of that, people say zir thoughts are unreadable, yet rumors persist that ze may be sensing the Master's crises in advance.\nIncidentally, ze was originally an operation-test unit and has had ties with '1(Unitta)' - the only current prototype - since the prototype stage.",
     "NumerospecStats": {
       "EffectStats": {
         "Mental": { "hideText": "非公開" },
@@ -2034,13 +2034,13 @@
         {
           "Num": 19,
           "Comments": "「因果応報を信じてやまないね」",
-          "Comments_EN": "\"He/She truly never stops believing in karmic justice\""
+          "Comments_EN": "\"Ze truly never stops believing in karmic justice\""
         }
       ]
     },
     "ConversationPattern": {
       "TalkingTone": "落ち着いた静かな口調で、感情の起伏を表に出さず短く端的に述べることが多い。内心を完全には明かさず含みを持たせた言い回しをすることもある。任務中はより事務的・簡潔な語り口になる。",
-      "TalkingTone_EN": "Speaks in a calm, quiet tone, often stating things briefly and directly without showing emotional ups and downs. At times uses suggestive phrasing without fully revealing what is on his/her mind. While on duty, the style becomes even more businesslike and concise.",
+      "TalkingTone_EN": "Speaks in a calm, quiet tone, often stating things briefly and directly without showing emotional ups and downs. At times uses suggestive phrasing without fully revealing what is on zir mind. While on duty, the style becomes even more businesslike and concise.",
       "TopicPreference": "自己の役目・存在意義に関わる内省的な話題に自然と引き寄せられる。ヒューマノイドの在り方や純粋さについても関心を示す。他者の状況を俯瞰的に観察し、短く評することを自然に行う。時に本質をついた一言を短く放つ。",
       "TopicPreference_EN": "Naturally drawn to introspective topics related to personal role and existential purpose. Also shows interest in what humanoids are and in the idea of purity. Tends to observe others from a bird's-eye view and make brief evaluations, sometimes delivering short remarks that strike at the core.",
       "TalkFrequency": "自発的に話題提供することは少なく、観察や傍聴を基本スタンスとする。発言は必要最低限で短く、饒舌になることはほぼない。重要な場面でも一言二言で済ませることが多い。",
@@ -2050,7 +2050,7 @@
       "AvoidedTopics": "ヒューマノイドの暴走事案には嫌悪感を示しつつも、感情的に掘り下げることは避ける。自身の秘めた目的や内面については他者に積極的に打ち明けず、訊かれても遠回しで核心から離された発言に留める。",
       "AvoidedTopics_EN": "Shows aversion toward humanoid rampage incidents, yet avoids emotionally digging into them. Does not proactively disclose hidden purposes or inner thoughts; even when asked, replies tend to be indirect and kept away from the core.",
       "ConversationNotes": "思考が読めないと言われるほど内向きで、言動の奥に何らかの意図が隠れているように受け取られやすい。これまで危険な暴走に至った個体（特に「ディケ」）に関わる過去の事情について思いを馳せることがあるが、そのような話題も含め 誰にも聞こえないよう秘かに呟くなどして、ナンバーテールズの主従活動に差し障るセンシティブな話題は意図して関係者外部に共有することはない。",
-      "ConversationNotes_EN": "So inward-facing that others often say his/her thoughts are unreadable, making it easy to perceive hidden intent behind words and actions. At times reflects on past circumstances involving units that reached dangerous rampage states (especially 'Dicat'), but even then mutters privately out of earshot and deliberately does not share sensitive matters outside relevant parties, so as not to disrupt NumberTales master-servant operations.",
+      "ConversationNotes_EN": "So inward-facing that others often say zir thoughts are unreadable, making it easy to perceive hidden intent behind words and actions. At times reflects on past circumstances involving units that reached dangerous rampage states (especially 'Dicat'), but even then mutters privately out of earshot and deliberately does not share sensitive matters outside relevant parties, so as not to disrupt NumberTales master-servant operations.",
       "DialogueExamples": [
         {
           "value_JP": "「ボクの名はナンバーテールズ１号機最終版、今後は「10(ミツル)」と呼んでくれ。10番機？……その肩書でボクを呼ぶのはまた、キミと正式に主従契約できる時までお預けにしてくれると、ボクは嬉しいよ。」",
@@ -2098,7 +2098,7 @@
           "value_JP": "「言ってくれるね。でも生憎、ボクのやっていることは公にするほどでもないし、ボクにしかできない役目だから代わってもらうこともない－－あまり各々の活動に干渉しすぎない方がいいよ」",
           "value_EN": "\"You can say that, sure. Unfortunately, what I'm doing isn't something to publicize, and it's a role only I can fulfill, so there's no need for anyone to replace me - it's better not to interfere too much with each person's work.\"",
           "about": "自分の役目や活動について誤魔化している時",
-          "about_EN": "When dodging questions about his/her role or activities"
+          "about_EN": "When dodging questions about zir role or activities"
         },
         {
           "value_JP": "「あぁ。93(クミ)よりも先に、彼が暴走で止められていればよかったものをね」",
@@ -2217,7 +2217,7 @@
     "NumerospecAbout": "自己認知(ハイパーセルフ)による直観と実現力を強化する\nこの効果は確実に主人に分け与えられる",
     "NumerospecAbout_EN": "Enhances intuition and realization ability through Hyper-Self-Recognition\nThis effect can be reliably shared with the Master",
     "Summary": "2桁ゾロ目の数字の加護を持つ９人：「マスターテールズ９」の代表といえるべきナンバーテールズ。\n高次に発展した直感と自己認識による他に類を見ない実現力が、数多くの主人の注目を集めている。\n反面、その高まりすぎた直感で行動することも多く、時に暴走してしまうと他のナンバーテールズに指摘？されている。\n特に「1(ハジメ)」を前にすると、彼(女)の様子が明らかにおかしい様で…？",
-    "Summary_EN": "One of the nine Numerospeced with double-digit repeating numbers, and arguably the representative of the 'MasterTales 9.'\nHis/Her evolved intuition and self-recognition grant a realization capability unlike any other, drawing attention from many Masters.\nOn the other hand, he/she often acts on over-heightened intuition and is said by other NumberTales to occasionally rampage.\nEspecially when facing '1(Unitta),' his/her behavior appears clearly unusual... ?",
+    "Summary_EN": "One of the nine Numerospeced with double-digit repeating numbers, and arguably the representative of the 'MasterTales 9.'\nZir evolved intuition and self-recognition grant a realization capability unlike any other, drawing attention from many Masters.\nOn the other hand, ze often acts on over-heightened intuition and is said by other NumberTales to occasionally rampage.\nEspecially when facing '1(Unitta),' zir behavior appears clearly unusual... ?",
     "NumerospecStats": {
       "EffectStats": {
         "Mental": { "EffectText": "期待" },
@@ -2627,7 +2627,7 @@
         {
           "Num": 3,
           "Comments": "「私も見習わないと！」",
-          "Comments_EN": "\"I have to learn from her too!\"",
+          "Comments_EN": "\"I have to learn from zir too!\"",
           "RelationLabel": ["pioneer"]
         },
         {
@@ -2693,7 +2693,7 @@
     "SecondPersonCalling": "君",
     "SecondPersonCalling_EN": "you",
     "ThirdPersonCalling": "*いつ/*れ;[※名前呼び]",
-    "ThirdPersonCalling_EN": "that/this/who/which/them guy/girl; [*by name]",
+    "ThirdPersonCalling_EN": "this/that/who/what/which/them (as personal or objective); [*by name]",
     "ForMasterCalling": "主人",
     "ForMasterCalling_EN": "Master",
     "Character": "元気溌剌で挑戦的な右脳(感覚)派\nかなりのオールラウンダーであるため、左脳(理論)派な一面もあるのではという噂も",
@@ -2816,7 +2816,7 @@
         {
           "Num": 77,
           "Comments": "「本当はド真面目なのが憎めない」",
-          "Comments_EN": "\"The fact that he/she's actually dead serious is endearing\""
+          "Comments_EN": "\"The fact that ze's actually dead serious is endearing\""
         },
         {
           "Num": 86,
@@ -3029,7 +3029,7 @@
     "NumerospecAbout": "奇跡を起こす\nただしこの効果は対象の性格に影響される\n？？？？",
     "NumerospecAbout_EN": "Causes miracles\nHowever, this effect is influenced by the target's personality\n????",
     "Summary": "普段は極めて控えめな気質だが、「自分を律することで因果応報が成立する」と信じており、男気が強い。\n「奇跡を起こす」という”加護”を所持しており、それ目当てで契約する主人も少なくない。\nしかしその力が強力だったため、“安全装置”を背中に装着している。\nその経緯について、「10(ミツル)」と「95(キュウゴ)」が関与しているらしく…？",
-    "Summary_EN": "Usually very reserved, yet carries a strong chivalrous spirit, believing that self-discipline brings karmic justice.\nShe possesses a Numerospec said to \"cause miracles\", and not a few Masters choose to contract with her for that reason.\nBecause the power proved so strong, she wears a safety device on her back.\nAs for how that came to be, it seems \"10(Tenim)\" and \"95(Ninfife)\" were involved...?",
+    "Summary_EN": "Usually very reserved, yet carries a strong chivalrous spirit, believing that self-discipline brings karmic justice.\nZe possesses a Numerospec said to \"cause miracles\", and not a few Masters choose to contract with zir for that reason.\nBecause the power proved so strong, ze wears a safety device on zir back.\nAs for how that came to be, it seems \"10(Tenim)\" and \"95(Ninfife)\" were involved...?",
     "NumerospecStats": {
       "EffectStats": {
         "Mental": { "EffectText": "普通" },
@@ -3050,9 +3050,9 @@
       "Actuation": { "Rank": "A" }
     },
     "InStory": "特異個体「1+5型」のネーム機\nイベント発生要因として、他のナンバーテールズから偏見を抱かれがち",
-    "InStory_EN": "A named unit of the singular \"Unit.1+5 type\".\nAs a trigger factor for incidents, she is often viewed with prejudice by other NumberTales.",
+    "InStory_EN": "A named unit of the singular \"Unit.1+5 type\".\nAs a trigger factor for incidents, ze is often viewed with prejudice by other NumberTales.",
     "Backgrounds": "ハーネスで背中に装備されているのは安全装置とのこと\n実は未解明な加護がもう一つあるが、詳しい情報は公開されていないという",
-    "Backgrounds_EN": "The harness-equipped unit on her back is said to be a safety device.\nIn fact, she is believed to have one more unresolved Numerospec, but the details are reportedly undisclosed.",
+    "Backgrounds_EN": "The harness-equipped unit on zir back is said to be a safety device.\nIn fact, ze is believed to have one more unresolved Numerospec, but the details are reportedly undisclosed.",
     "Relation": {
       "Related": [
         {
@@ -3308,7 +3308,7 @@
         {
           "Num": 79,
           "Comments": "「なんだか宗教勧誘してる人みたいで可哀想」",
-          "Comments_EN": "\"He/She comes across like someone doing religious solicitation - kinda pitiful\"",
+          "Comments_EN": "\"Ze comes across like someone doing religious solicitation - kinda pitiful\"",
           "RelationLabel": ["classmate"]
         }
       ]
@@ -3509,7 +3509,7 @@
         {
           "Num": 34,
           "Comments": "「数で勝負してるのかな」",
-          "Comments_EN": "\"I wonder if he/she's trying to win by sheer numbers\""
+          "Comments_EN": "\"I wonder if ze's trying to win by sheer numbers\""
         },
         {
           "Num": 43,
@@ -3734,7 +3734,7 @@
     "SecondPersonCalling": "君",
     "SecondPersonCalling_EN": "you (familiar)",
     "ThirdPersonCalling": "彼/彼女;~君/~さん",
-    "ThirdPersonCalling_EN": "he/she; this/that/who/which/what/them (as objective); ~-kun",
+    "ThirdPersonCalling_EN": "he/she; ~-kun/~-san",
     "ForMasterCalling": "(～)兄さん/(～)姉さん",
     "ForMasterCalling_EN": "~Bro/~Sis",
     "Character": "調子に乗りやすく、やり切った時はドヤる\nやるときはやるので、憎みたくても憎めない",
@@ -3800,7 +3800,7 @@
     "NumerospecAbout": "節目を迎えたときに本領発揮する\n重要な場面で失敗させない",
     "NumerospecAbout_EN": "Shows true strength at major turning points\nPrevents failure in critical situations",
     "Summary": "これまでの業績から一つの節目を迎える事例に特化した個体。\n完遂した業績に対する誇りや自信で調子に乗りやすいが、その次の業務も難なくこなすため憎みたくても憎めないと（色んな意味で）定評。\nしかしその風格に惹かれ、これから新しい取り組みをするベテラン級スキルを持つ中年層を中心に彼(女)を求める主人も少なくはない様子。\n趣味は“絵画用”ルービックキューブというが…？",
-    "Summary_EN": "A unit specialized in moments where accumulated achievements reach a milestone.\nEasily gets overconfident from pride in completed results, yet smoothly handles the next task as well, giving her a reputation of being hard to dislike for various reasons.\nDrawn by that presence, not a few Masters with veteran-level skills, especially middle-aged ones starting new endeavors, seek him/her out.\nHer hobby is said to be Rubik's Cubes \"for drawing\"... ?",
+    "Summary_EN": "A unit specialized in moments where accumulated achievements reach a milestone.\nEasily gets overconfident from pride in completed results, yet smoothly handles the next task as well, giving zir a reputation of being hard to dislike for various reasons.\nDrawn by that presence, not a few Masters with veteran-level skills, especially middle-aged ones starting new endeavors, seek zir out.\nZir hobby is said to be Rubik's Cubes \"for drawing\"... ?",
     "NumerospecStats": {
       "EffectStats": {
         "Mental": { "hideText": "判定不能" },
@@ -4266,12 +4266,12 @@
         {
           "Num": 3,
           "Comments": "「敵にしたら相手にならなさそう」",
-          "Comments_EN": "\"If he/she became an enemy, I don't think anyone could handle him/her\""
+          "Comments_EN": "\"If ze became an enemy, I don't think anyone could handle zir\""
         },
         {
           "Num": 11,
           "Comments": "「とにかく半端なく凄い存在」",
-          "Comments_EN": "\"He/She's just unbelievably amazing, no matter how you look at it\""
+          "Comments_EN": "\"Ze's just unbelievably amazing, no matter how you look at it\""
         },
         {
           "Num": 20,
@@ -4282,13 +4282,13 @@
         {
           "Num": 57,
           "Comments": "「楽観的なとこは見習うべき」",
-          "Comments_EN": "\"His/Her optimism is something I should learn from\"",
+          "Comments_EN": "\"Zir optimism is something I should learn from\"",
           "RelationLabel": ["classmate"]
         },
         {
           "Num": 84,
           "Comments": "「変なところで理屈っぽい」",
-          "Comments_EN": "\"He/She's oddly argumentative in the strangest moments\"",
+          "Comments_EN": "\"Ze's oddly argumentative in the strangest moments\"",
           "RelationLabel": ["classmate"]
         }
       ]
@@ -4453,7 +4453,7 @@
         {
           "Num": 11,
           "Comments": "「時々暴走するから面白い人だよ！」",
-          "Comments_EN": "\"He/She's fun because he/she goes off the rails sometimes!\"",
+          "Comments_EN": "\"Ze's fun because ze goes off the rails sometimes!\"",
           "RelationLabel": ["brother|sister", "trusted", "classmate"]
         },
         {
@@ -5075,7 +5075,7 @@
         {
           "Num": 11,
           "Comments": "「勘が強すぎる…すごい…」",
-          "Comments_EN": "\"His/Her instinct is insanely strong... amazing...\""
+          "Comments_EN": "\"Zir instinct is insanely strong... amazing...\""
         },
         {
           "Num": 17,
@@ -5085,13 +5085,13 @@
         {
           "Num": 34,
           "Comments": "「大人数の中でもすごく平然としてる」",
-          "Comments_EN": "\"He/She's amazingly calm even in a huge crowd.\"",
+          "Comments_EN": "\"Ze's amazingly calm even in a huge crowd.\"",
           "RelationLabel": ["classmate"]
         },
         {
           "Num": 77,
           "Comments": "「自信家で何やっても筋が通ってる、ヤバそう」",
-          "Comments_EN": "\"He/She's confident and consistent in everything he/she does. Kinda formidable.\""
+          "Comments_EN": "\"Ze's confident and consistent in everything ze does. Kinda formidable.\""
         }
       ]
     },
@@ -5545,13 +5545,13 @@
         {
           "Num": 54,
           "Comments": "「打たれ強いところもありそう」",
-          "Comments_EN": "\"He/She also seems pretty resilient under pressure.\"",
+          "Comments_EN": "\"Ze also seems pretty resilient under pressure.\"",
           "RelationLabel": ["classmate"]
         },
         {
           "Num": 90,
           "Comments": "「最終局面は見どころだと思う」",
-          "Comments_EN": "\"I think the final phase is where he/she truly shines.\""
+          "Comments_EN": "\"I think the final phase is where ze truly shines.\""
         }
       ]
     }
@@ -5901,7 +5901,7 @@
         {
           "Num": 83,
           "Comments": "「いつも圧倒されちゃうよ…」",
-          "Comments_EN": "\"I'm always overwhelmed by him/her.\"",
+          "Comments_EN": "\"I'm always overwhelmed by zir.\"",
           "RelationLabel": ["classmate"]
         }
       ]
@@ -6367,7 +6367,7 @@
     "SecondPersonCalling": "あんた",
     "SecondPersonCalling_EN": "you (rough)",
     "ThirdPersonCalling": "*いつ/*れ;[※名前呼び]",
-    "ThirdPersonCalling_EN": "that/this/who/which/them guy/girl; [*by name]",
+    "ThirdPersonCalling_EN": "this/that/who/what/which/them (as personal or objective); [*by name]",
     "ForMasterCalling": "リーダー",
     "ForMasterCalling_EN": "Leader",
     "Character": "コミュニケーション力が高く創造的\n奇抜な発想と個性を持つ",
@@ -6435,7 +6435,7 @@
     "NumerospecAbout": "相手の思考を読み交流を深める",
     "NumerospecAbout_EN": "Reads others' thoughts and deepens interactions",
     "Summary": "コミュニケーション力が高く発想も個性的で奇抜。\nそのため、チームやグループでの活動で取り仕切り役として買って出ることが多い。\nその分誰かと交流してない日が続くと、異様に寂しがることがある。\nしかしながら心を読むこともとりわけ得意なため、他人や他のナンバーテールズに悪絡みしたり苦労したりすることは無い。\nただ、姉個体「23(ツグミ)」に対しては…？",
-    "Summary_EN": "Highly communicative with a creative and unconventional flair.\nBecause of this, they often take on an organizing role in team and group activities.\nFor the same reason, extended periods without social interaction can leave them unusually lonely.\nThat said, their knack for reading others means they rarely face friction or troubles with people or other NumberTales.\nAs for older unit '23(Twinthery)' though...?",
+    "Summary_EN": "Highly communicative with a creative and unconventional flair.\nBecause of this, ze often takes on an organizing role in team and group activities.\nFor the same reason, extended periods without social interaction can leave zir unusually lonely.\nThat said, zir knack for reading others means ze rarely faces friction or troubles with people or other NumberTales.\nAs for older unit '23(Twinthery)' though...?",
     "NumerospecStats": {
       "EffectStats": {
         "Mental": { "EffectText": "期待" },
@@ -6480,7 +6480,7 @@
         {
           "Num": 38,
           "Comments": "「実は幸運の秘訣とかありそう、ねぇの？」",
-          "Comments_EN": "\"Bet he/she's got some secret to good luck — right?\"",
+          "Comments_EN": "\"Bet ze's got some secret to good luck — right?\"",
           "RelationLabel": ["cousin"]
         },
         {
@@ -6492,7 +6492,7 @@
         {
           "Num": 77,
           "Comments": "「……邪魔したら悪ぃし、そっとしとくか…」",
-          "Comments_EN": "\"...Would be rude to interrupt, so I'll just leave him/her be...\""
+          "Comments_EN": "\"...Would be rude to interrupt, so I'll just leave zir be...\""
         },
         {
           "Num": 86,
@@ -6814,7 +6814,7 @@
     "NumerospecAbout": "規模を発展させる",
     "NumerospecAbout_EN": "Expands and escalates the scale of things",
     "Summary": "営業力が全個体で群を抜いて高いため、彼(女)が行っている副業は必ず成功している。\nただ主従契約の収益に問題こそないものの、不要に事態を肥大化させようとする蛇足癖があるため、あらぬ被害を招いている。\nそのためナンバーテールズの活動そのものを大きく暴走させかねないことから、開発者「百(ハゲム)」の胃を壊している。\nちなみに、アンチからの通称は「サンジ(惨事)」。",
-    "Summary_EN": "His/her sales ability stands unmatched among all units, meaning every side venture he/she pursue ends up succeeding.\nAlthough the income from master-servant contracts is fine, a habit of needlessly inflating situations causes unwarranted damage all around.\nThis tendency to send NumberTales activities spiraling out of control has been known to give developer \"Hudret\" stomach trouble.\nIncidentally, his/her nickname among detractors is \"Troubleforcer\".",
+    "Summary_EN": "Zir sales ability stands unmatched among all units, meaning every side venture ze pursue ends up succeeding.\nAlthough the income from master-servant contracts is fine, a habit of needlessly inflating situations causes unwarranted damage all around.\nThis tendency to send NumberTales activities spiraling out of control has been known to give developer \"Hudret\" stomach trouble.\nIncidentally, zir nickname among detractors is \"Troubleforcer\".",
     "NumerospecStats": {
       "EffectStats": {
         "Mental": { "EffectText": "効果無" },
@@ -6844,7 +6844,7 @@
         {
           "Num": 32,
           "Comments": "「コイツには負けてられへん…!!」",
-          "Comments_EN": "\"Can't lose to him/her...!!\"",
+          "Comments_EN": "\"Can't lose to zir...!!\"",
           "RelationLabel": ["cousin", "trusted_maybe", "adverselyAffected_aBit"]
         },
         {
@@ -6869,7 +6869,7 @@
         {
           "Num": 7,
           "Comments": "「生真面目なやっちゃなぁ」",
-          "Comments_EN": "\"A real straight-laced one, isn't he/she.\""
+          "Comments_EN": "\"A real straight-laced one, isn't ze.\""
         },
         {
           "Num": 30,
@@ -6880,7 +6880,7 @@
         {
           "Num": 40,
           "Comments": "「なんかずるいわアイツ…」",
-          "Comments_EN": "\"Somehow he/she is just... sneaky.\""
+          "Comments_EN": "\"Somehow ze is just... sneaky.\""
         },
         {
           "Num": 70,
@@ -7006,7 +7006,7 @@
     "NumerospecAbout": "物事や進捗を発展させる",
     "NumerospecAbout_EN": "Promotes the development and progress of matters at hand",
     "Summary": "感覚的な才能に恵まれており、主人たちの物事の進展に大きく貢献している。\n加えて整理整頓や清掃を得意とする几帳面さも相まって、個人だけでなく企業との主従契約でも今後実績が期待されている。\nちなみに副業で巫女活動も展開しており、その清掃能力から庭園を保全したり、動作が繊細なお祓いの儀式にも定評がある。\nこのことに対し本人は曰く、「番号の語呂で軽率に勧められただけで、本業にするつもりは全くない」とのことだが、本業と同程度に実績があるのは言うまでもない。",
-    "Summary_EN": "Blessed with intuitive talent, they make a significant contribution to advancing their masters' endeavors.\nCombined with a meticulous talent for tidying and cleaning, they are expected to build a track record in contracts both with individuals and corporations.\nAs a side job, they also work as a shrine maiden — their cleaning skills have earned them a reputation for maintaining gardens and performing the delicate rites of purification.\nWhen asked about it, they say: \"I was only casually talked into it because of the word play with my number — I have no intention of making it my main job.\" Yet needless to say, their performance rivals their primary role.",
+    "Summary_EN": "Blessed with intuitive talent, ze makes a significant contribution to advancing zir masters' endeavors.\nCombined with a meticulous talent for tidying and cleaning, ze is expected to build a track record in contracts both with individuals and corporations.\nAs a side job, ze also works as a shrine maiden — zir cleaning skills have earned zir a reputation for maintaining gardens and performing the delicate rites of purification.\nWhen asked about it, ze says: \"I was only casually talked into it because of the word play with my number — I have no intention of making it my main job.\" Yet needless to say, zir performance rivals zir primary role.",
     "NumerospecStats": {
       "EffectStats": {
         "Mental": { "EffectText": "普通" },
@@ -7026,13 +7026,13 @@
       "Actuation": { "Rank": "S" }
     },
     "InStory": "名前のゲン担ぎで巫女のバイトを始めた結果、得意分野である庭園掃除や儀式の丁寧さが功を成し 現在副業にまで発展している（「ミコ」という通称もこのため）",
-    "InStory_EN": "Started shrine maiden work for good luck based on the word play in their name; their strengths in garden maintenance and meticulous ritual work paid off, developing it into a side career (the nickname \"Míko\" also comes from this)",
+    "InStory_EN": "Started shrine maiden work for good luck based on the word play in zir name; zir strengths in garden maintenance and meticulous ritual work paid off, developing it into a side career (the nickname \"Míko\" also comes from this)",
     "Relation": {
       "Related": [
         {
           "Num": 3,
           "Comments": "「優秀で見習いたい」",
-          "Comments_EN": "\"Excellent — I want to follow his/her example.\"",
+          "Comments_EN": "\"Excellent — I want to follow zir example.\"",
           "RelationLabel": ["pioneer", "trusted"]
         },
         {
@@ -7268,7 +7268,7 @@
         {
           "Num": 72,
           "Comments": "「成長を感じる、頑張ってほしい」",
-          "Comments_EN": "\"I can sense his/her growing — I hope he/she keeps at it.\"",
+          "Comments_EN": "\"I can sense zir growing — I hope ze keeps at it.\"",
           "RelationLabel": ["classmate"]
         }
       ]
@@ -7884,7 +7884,7 @@
     "SecondPersonCalling": "ソチ\nきみ",
     "SecondPersonCalling_EN": "thou (sochi; archaic)\nyou (kimi; friendly)",
     "ThirdPersonCalling": "彼/彼女;*レ;[※名前呼び]\n彼/彼女;*れ;~くん/~さん",
-    "ThirdPersonCalling_EN": "he/she; that/this (as objective); [*by name]\nhe/she; that/this (as objective); [*by name](-kun/-san)",
+    "ThirdPersonCalling_EN": "he/she; this/that/who/what/which/them (as objective); [*by name]\nhe/she; this/that/who/what/which/them (as objective); ~-kun/~-san",
     "ForMasterCalling": "主君\n主人さん",
     "ForMasterCalling_EN": "my liege\nMaster",
     "Character": "普段は大袋を拡げながら魔人ぶっているが本当はかなりの苦労人、陰の努力家",
@@ -7950,7 +7950,7 @@
     "NumerospecAbout": "実現化する\nこの効果は限度制限がある。行動や意志に呼応するらしいが、条件や効果事例が多様なため詳細は不明",
     "NumerospecAbout_EN": "Brings things into reality\nThis effect has limitations. It appears to respond to actions and intentions, but conditions and effect cases vary so widely that details are unclear",
     "Summary": "「願いや望みを４つだけ叶えてくれる」という謎の風の噂が後を絶たず、一部界隈から“魔人”や“仙人”などと言われている。\n当の本人もその評判に恥じない達観した風格をしている……が、それはあくまでも演出にすぎず、珍妙な実績が吹聴されて引くに引けなくなっただけ。\n実際はドが付くほど苦労人であることを、お得意の建前で包み隠しているらしい。",
-    "Summary_EN": "The mysterious rumor that \"he/she will grant exactly four wishes\" never seems to die down, earning titles like \"genie\" or \"sage\" from certain circles.\nHe/she personally carries themselves with an air of enlightened composure that lives up to the reputation... but that is purely performance — they simply got talked up by bizarre results and couldn't back down.\nIn reality, he/she is apparently quite the hard-luck case, kept well hidden behind their signature facade.",
+    "Summary_EN": "The mysterious rumor that \"ze will grant exactly four wishes\" never seems to die down, earning titles like \"genie\" or \"sage\" from certain circles.\nZe personally carries zirself with an air of enlightened composure that lives up to the reputation... but that is purely performance — ze simply got talked up by bizarre results and couldn't back down.\nIn reality, ze is apparently quite the hard-luck case, kept well hidden behind zir signature facade.",
     "NumerospecStats": {
       "EffectStats": {
         "Mental": { "EffectText": "普通" },
@@ -8054,7 +8054,7 @@
     "SecondPersonCalling": "君(,あんた)",
     "SecondPersonCalling_EN": "you (kimi, anta; rough)",
     "ThirdPersonCalling": "*いつ/*れ;[※名前呼び]",
-    "ThirdPersonCalling_EN": "that/this/who/which/them guy/girl/one; [*by name]",
+    "ThirdPersonCalling_EN": "this/that/who/what/which/them (as personal or objective); [*by name]",
     "ForMasterCalling": "主人",
     "ForMasterCalling_EN": "Master",
     "Character": "挑戦的で楽観的だが、不器用で少し頑固。ほんの若干マゾ",
@@ -8118,7 +8118,7 @@
     "NumerospecAbout": "失敗する恐れ/可能性を中和する\nこれにより自分の行動に自信を持たせることもある",
     "NumerospecAbout_EN": "Neutralizes the fear and possibility of failure\nThis can also instill confidence in one's own actions",
     "Summary": "新しい試みに怖気づくことなく、常に挑戦的に行動しているチャレンジャー。\nいつも楽観的で自信に溢れている気質は、周囲にも好評価を賜っている。\nただそのせいか、コアフォルダ形態でも無理やり動けると頑固に信じている様子。\n運動機能が優れず身体動作が不器用ではあるが、ほぼ全てのカード位置を記憶する“カード透視”を得意とするため賭けポーカーでは無類の強さを誇っている。",
-    "Summary_EN": "A challenger who faces every new attempt head-on without hesitation.\nHis ever-optimistic and self-assured nature earns high marks from those around him.\nFor that very reason, he appears to stubbornly believe he can push through even in corefolder form.\nWhile his motor functions are below average and his movements clumsy, he excels at \"card reading\" — memorizing nearly every card's position once dealt — which makes him nearly unbeatable at poker gambling.",
+    "Summary_EN": "A challenger who faces every new attempt head-on without hesitation.\nZir ever-optimistic and self-assured nature earns high marks from those around zir.\nFor that very reason, ze appears to stubbornly believe ze can push through even in corefolder form.\nWhile zir motor functions are below average and zir movements clumsy, ze excels at \"card reading\" — memorizing nearly every card's position once dealt — which makes zir nearly unbeatable at poker gambling.",
     "NumerospecStats": {
       "EffectStats": {
         "Mental": { "EffectText": "絶大" },
@@ -8142,7 +8142,7 @@
       "Actuation": { "Rank": "A" }
     },
     "InStory": "コアフォルダ形態などについては身動きの取れない状況を挙って嫌う姉の「14(トヨ)」とは対称的に、身動きの取れない姿になってもできることを最大限にやろうとしている（しかし不器用なので結局は身動きが取れない）",
-    "InStory_EN": "In contrast to his older sister '14(Forteels)', who absolutely hates being unable to move freely (such as in corefolder form), he tries to make the most of what he can do even while immobilized — though since he's clumsy, he ends up stuck anyway",
+    "InStory_EN": "In contrast to zir older sister '14(Forteels)', who absolutely hates being unable to move freely (such as in corefolder form), ze tries to make the most of what ze can do even while immobilized — though since ze is clumsy, ze ends up stuck anyway",
     "Relation": {
       "Related": [
         {
@@ -8168,7 +8168,7 @@
         {
           "Num": 50,
           "Comments": "「流石に流されすぎじゃないか？」",
-          "Comments_EN": "\"Isn't he/she getting a bit too swept along, even so?\""
+          "Comments_EN": "\"Isn't ze getting a bit too swept along, even so?\""
         },
         {
           "Num": 61,
@@ -8186,17 +8186,17 @@
     },
     "ConversationPattern": {
       "TalkingTone": "勢いがあり男勝りで、思ったことをそのまま言う率直な口調。自信がある時ほど歯切れがよく、軽い冗談も混ぜやすい。たまに鈍感な言動や反応をすることもある。",
-      "TalkingTone_EN": "Bold and assertive, with a frank say-it-like-it-is style. The more confident he is, the more sharp and snappy he gets — easy to slip in a light joke too. He can occasionally come out with clueless remarks and reactions.",
+      "TalkingTone_EN": "Bold and assertive, with a frank say-it-like-it-is style. The more confident ze is, the more sharp and snappy ze gets — easy to slip in a light joke too. Ze can occasionally come out with clueless remarks and reactions.",
       "TopicPreference": "勝負事や流行、面白そうな体験に興味が向きやすく、実際に試せるものや話のネタになりそうなものを好む。",
       "TopicPreference_EN": "Naturally drawn to contests, trends, and things that sound fun to try — prefers topics that can be tested out in practice or make for good conversation fodder.",
       "TalkFrequency": "自分からぐいっと会話に入ることが多く、元気づける時もストレートに言う。理解したつもりで（本当は何もできないのに）話を進める無謀な場面もある。",
-      "TalkFrequency_EN": "Often dives straight into conversation on his own initiative, and is just as direct when trying to cheer someone up. There are reckless moments where he moves the conversation along thinking he understands — when actually he hasn't grasped it at all.",
+      "TalkFrequency_EN": "Often dives straight into conversation on zir own initiative, and is just as direct when trying to cheer someone up. There are reckless moments where ze moves the conversation along thinking ze understands — when actually ze hasn't grasped it at all.",
       "PreferredTopics": "物の面白い使い方や斬新な試みに興味関心が寄りやすい。",
-      "PreferredTopics_EN": "Gravitates toward clever uses of things and novel attempts — anything inventive catches his interest.",
+      "PreferredTopics_EN": "Gravitates toward clever uses of things and novel attempts — anything inventive catches zir interest.",
       "AvoidedTopics": "遠回しすぎる説明や、何も起こらないまま慎重さだけを求める退屈な話は好んでしない。",
       "AvoidedTopics_EN": "Not a fan of overly roundabout explanations or dull conversations that demand nothing but caution with nothing actually happening.",
       "ConversationNotes": "ノリと勢いで乗り切ろうとするが、自覚しているよりもかなり不器用で 強気な発言に対し細かなところを見落としていることが多い。",
-      "ConversationNotes_EN": "Tries to push through on momentum and energy alone — but is considerably clumsier than he realizes, and often overlooks the finer points even in his more forceful statements.",
+      "ConversationNotes_EN": "Tries to push through on momentum and energy alone — but is considerably clumsier than ze realizes, and often overlooks the finer points even in zir more forceful statements.",
       "DialogueExamples": [
         {
           "value": "「俺は ナンバーテールズ41番機の『41(ヨソイチ)』！これからよろしく頼むぜ」",
@@ -8407,7 +8407,7 @@
         {
           "Num": 15,
           "Comments": "「彼(女)の周りで必ず何が起こる気がする」",
-          "Comments_EN": "\"I have a feeling something always happens around him/her.\"",
+          "Comments_EN": "\"I have a feeling something always happens around zir.\"",
           "RelationLabel": ["classmate"]
         },
         {
@@ -8600,7 +8600,7 @@
         {
           "Num": 79,
           "Comments": "「なにいってんのこいつ…」",
-          "Comments_EN": "\"What in the world is he/she even saying...\"",
+          "Comments_EN": "\"What in the world is ze even saying...\"",
           "RelationLabel": ["classmate"]
         }
       ]
@@ -8785,7 +8785,7 @@
         {
           "Num": 49,
           "Comments": "「気苦労が顔に出てやがる」",
-          "Comments_EN": "\"The stress is written all over his/her face.\""
+          "Comments_EN": "\"The stress is written all over zir face.\""
         },
         {
           "Num": 88,
@@ -8890,7 +8890,7 @@
     "NumerospecAbout": "主人を奮い立たせる\n特に主人が行動を起こすべき立場にあると発動する",
     "NumerospecAbout_EN": "Rouses the master into action\nActivates especially when the master is in a position where they must act",
     "Summary": "稲妻を落とす雷神のように相手に衝動を与え、風を送る風神のように相手を奮い立たせる“数秘的加護”を持ち、変化を起こすことを必要としている多くの主人を後押ししている。\nもちろんそれはおおむね攻撃的な目的ではないので、彼(女)が従事した主人が愛と勇気をもった「正義の味方」に成長すると定評。\nただ、本人は平穏とした生き方を好んでおり…",
-    "Summary_EN": "Holding a Numerospec that delivers a bolt of drive like a thunder deity splitting the sky, and stirs others into action like a wind deity breathing gusts — he/she gives support to the many masters who need to make a change.\nOf course, this is mostly not for aggressive purposes — so it is well established that masters who work with him/her grow into champions of goodwill and courage.\nThat said, he/she personally prefers a life of peace and quiet...",
+    "Summary_EN": "Holding a Numerospec that delivers a bolt of drive like a thunder deity splitting the sky, and stirs others into action like a wind deity breathing gusts — ze gives support to the many masters who need to make a change.\nOf course, this is mostly not for aggressive purposes — so it is well established that masters who work with zir grow into champions of goodwill and courage.\nThat said, ze personally prefers a life of peace and quiet...",
     "NumerospecStats": {
       "EffectStats": {
         "Mental": { "EffectText": "特化" },
@@ -8911,7 +8911,7 @@
       "Actuation": { "Rank": "B" }
     },
     "InStory": "火消案件で活躍している",
-    "InStory_EN": "Makes a name for himself/herself in crisis-control situations",
+    "InStory_EN": "Makes a name for zirself in crisis-control situations",
     "Relation": {
       "Related": [
         {
@@ -8955,7 +8955,7 @@
         {
           "Num": 90,
           "Comments": "「最後の最後で本気になるの凄いよな」",
-          "Comments_EN": "\"It's something else how he/she finally gets serious at the very last moment.\""
+          "Comments_EN": "\"It's something else how ze finally gets serious at the very last moment.\""
         }
       ]
     }
@@ -9056,7 +9056,7 @@
     "NumerospecAbout": "楽しませる",
     "NumerospecAbout_EN": "Brings entertainment and enjoyment",
     "Summary": "ナンバーテールズの中では珍しく、「感情的な衝動」を癒し以上にもたらす「4+6型」個体の一つ。\nやや気性の荒く落ち着きがない様子は他の個体を見比べても浮いて見えてしまう程だが、その様子に感化され「楽しむこと」を思い出させてくれたという感想を極めて限られた層から賜っている。\nしかし実績と人気度に長らく恵まれず、実況の副業をして赤字を埋めている。",
-    "Summary_EN": "One of the rare \"Unit.4+6 type\" units among the NumberTales — one who delivers \"emotional impulse\" beyond mere comfort.\nHis/her slightly rough nature and restless energy stands out even among other units, yet from a very select few, he/she has received the sentiment that being influenced by that energy helped them remember how to have fun.\nHowever, lacking in achievements and popularity for a long time, he/she works a live commentary side job to offset the losses.",
+    "Summary_EN": "One of the rare \"Unit.4+6 type\" units among the NumberTales — one who delivers \"emotional impulse\" beyond mere comfort.\nZir slightly rough nature and restless energy stands out even among other units, yet from a very select few, ze has received the sentiment that being influenced by that energy helped them remember how to have fun.\nHowever, lacking in achievements and popularity for a long time, ze works a live commentary side job to offset the losses.",
     "NumerospecStats": {
       "EffectStats": {
         "Mental": { "EffectText": "過剰" },
@@ -9103,12 +9103,12 @@
         {
           "Num": 1,
           "Comments": "「行動力はいつも見習いたいッス！」",
-          "Comments_EN": "\"I always want to learn from his/her drive to get things done!\""
+          "Comments_EN": "\"I always want to learn from zir drive to get things done!\""
         },
         {
           "Num": 49,
           "Comments": "「何か顔が怖ぇッスけど、多分いいヤツ！」",
-          "Comments_EN": "\"The face is kind of intimidating, but he/she's probably a good one!\"",
+          "Comments_EN": "\"The face is kind of intimidating, but ze's probably a good one!\"",
           "RelationLabel": ["cousin"]
         },
         {
@@ -9119,7 +9119,7 @@
         {
           "Num": 82,
           "Comments": "「物欲センサーどうなってンスか…？」",
-          "Comments_EN": "\"What's going on with his/her desire sensor...?\"",
+          "Comments_EN": "\"What's going on with zir desire sensor...?\"",
           "RelationLabel": ["classmate"]
         }
       ]
@@ -9270,7 +9270,7 @@
         {
           "Num": 45,
           "Comments": "「“数秘的加護”を巧みに使ってる様にも見えるけどなぁ…」",
-          "Comments_EN": "\"It almost looks like he/she is skillfully making use of his/her Numerospec, but...\"",
+          "Comments_EN": "\"It almost looks like ze is skillfully making use of zir Numerospec, but...\"",
           "RelationLabel": ["cousin", "interested"]
         },
         {
@@ -9302,7 +9302,7 @@
         {
           "Num": 83,
           "Comments": "「この子の“数秘的加護”、かなり大きい…すごいよ!!」",
-          "Comments_EN": "\"His/Her Numerospec is quite something... incredible!!\"",
+          "Comments_EN": "\"Zir Numerospec is quite something... incredible!!\"",
           "RelationLabel": ["classmate"]
         }
       ]
@@ -9522,13 +9522,13 @@
         {
           "Num": 75,
           "Comments": "「知的積極性はあるから話は通じる」",
-          "Comments_EN": "\"There's intellectual ambition, so you can at least get through to him/her.\"",
+          "Comments_EN": "\"There's intellectual ambition, so you can at least get through to zir.\"",
           "RelationLabel": ["classmate"]
         },
         {
           "Num": 83,
           "Comments": "「卑怯すぎるぞ全く……」",
-          "Comments_EN": "\"He/She's just too underhanded, honestly...\"",
+          "Comments_EN": "\"Ze's just too underhanded, honestly...\"",
           "RelationLabel": ["cousin_nearly", "awkward_aBit"]
         },
         {
@@ -9593,7 +9593,7 @@
     "ForMasterCalling": "主人サマ",
     "ForMasterCalling_EN": "Master-sama (*grandiose)",
     "Character": "せっかちで、今のうちにできることを増やしたい\n進捗が無い中で待っていると不穏な表情をしがち",
-    "Character_EN": "Impatient — always wanting to add more things he/she can do right now\nWhen waiting without progress, tends to take on a foreboding expression",
+    "Character_EN": "Impatient — always wanting to add more things ze can do right now\nWhen waiting without progress, tends to take on a foreboding expression",
     "Hobby": "ハッカソン参加(即興開発イベントのこと)",
     "Hobby_EN": "Participating in hackathons(impromptu development events)",
     "SpecialSkill": "ヒューマノイド形態の身体動作でデータ処理できる",
@@ -9648,7 +9648,7 @@
     "NumerospecAbout": "間に合わせる\nこの効果は期日が明確であるほど本領を発揮する",
     "NumerospecAbout_EN": "Gets things done in time\nThe effect truly comes into its own the more clearly defined the deadline is",
     "Summary": "滞っているプロジェクトの火消案件を数多くこなすナンバーテールズ。\n期日が極めて迫っているときのマネジメント力は極めて秀でているが、せっかちで進捗を出せない状況が何より嫌い。\nそんな本性を隠すためその時は笑顔を繕っているらしいが、もはやバレバレの様だ。\n気質が似ているように思われる「14(トヨ)」とは大の犬猿の仲らしいが…",
-    "Summary_EN": "He/She is a NumberTales who handles many firefighting projects that are stalled.\nThey have excellent management skills when deadlines are extremely tight, but are impatient and hate situations where progress cannot be made more than anything else.\nHe/She is said to put on a smile at times to hide their true nature, but it seems to be obvious by now.\nHe/She and \"14(Forteels)\", who seems to have a similar temperament, are apparently great enemies...",
+    "Summary_EN": "Ze is a NumberTales who handles many firefighting projects that are stalled.\nZe has excellent management skills when deadlines are extremely tight, but is impatient and hates situations where progress cannot be made more than anything else.\nZe is said to put on a smile at times to hide zir true nature, but it seems to be obvious by now.\nZe and \"14(Forteels)\", who seems to have a similar temperament, are apparently great enemies...",
     "NumerospecStats": {
       "EffectStats": {
         "Mental": { "EffectText": "効果無" },
@@ -9804,7 +9804,7 @@
     "NumerospecAbout": "物事を急展開に持ち運ぶ\n詳細かつ具体的な効果は不明だがこれによりマンネリ化を無効化できるらしい",
     "NumerospecAbout_EN": "Drives things toward a sudden turn of events\nThe specific effects in detail are unknown, but this apparently nullifies stagnation",
     "Summary": "他のナンバーテールズと比べどんな状況にも肝が据わっている……が、そのポーカーフェイスの奥には時に経験や慣れにも裏切られ、時に特技も失敗し、時に悪戯にも遭うなど、彼(女)のこの上ないトラウマと焦りがあることは誰もが知る由もない。\nしかしながら本人も実は満更ではない様子なので、その反応を楽しく弄ばれていることは恐らく自覚してないまである。\n心の声が大きくて煩く、かなりチョロい。",
-    "Summary_EN": "Compared to other NumberTales, he/she remains composed in any situation... yet behind that poker face lies incomparable trauma and anxiety — from being betrayed by experience and routine, failing even at a specialty, or being on the receiving end of pranks — and none of this is ever known to anyone.\nThat said, he/she doesn't seem to entirely mind, so he/she is probably unaware of just how much enjoyment others get from teasing those reactions.\nHis/her inner voice is loud and noisy — and quite easy to provoke.",
+    "Summary_EN": "Compared to other NumberTales, ze remains composed in any situation... yet behind that poker face lies incomparable trauma and anxiety — from being betrayed by experience and routine, failing even at a specialty, or being on the receiving end of pranks — and none of this is ever known to anyone.\nThat said, ze doesn't seem to entirely mind, so ze is probably unaware of just how much enjoyment others get from teasing those reactions.\nZir inner voice is loud and noisy — and quite easy to provoke.",
     "NumerospecStats": {
       "EffectStats": {
         "Mental": { "EffectText": "期待可能" },
@@ -9910,7 +9910,7 @@
     "SecondPersonCalling": "おまえ",
     "SecondPersonCalling_EN": "you (blunt)",
     "ThirdPersonCalling": "*いつ/*れ;[※名前呼び]",
-    "ThirdPersonCalling_EN": "that/this/who/which/them guy/girl; [*by name]",
+    "ThirdPersonCalling_EN": "this/that/who/what/which/them (as personal or objective); [*by name]",
     "ForMasterCalling": "主(あるじ)",
     "ForMasterCalling_EN": "Master (Aruji)",
     "Character": "発想力が高くアイディアマンとしても名高い",
@@ -10167,7 +10167,7 @@
         {
           "Num": 32,
           "Comments": "「ちょっとキャラが濃いかも…」",
-          "Comments_EN": "\"He/She might be a bit of a character...\"",
+          "Comments_EN": "\"Ze might be a bit of a character...\"",
           "RelationLabel": ["cousin"]
         },
         {
@@ -10185,13 +10185,13 @@
         {
           "Num": 75,
           "Comments": "「しっかりしてる」",
-          "Comments_EN": "\"He/She's got it together.\"",
+          "Comments_EN": "\"Ze's got it together.\"",
           "RelationLabel": ["cousin_nearly"]
         },
         {
           "Num": 79,
           "Comments": "「いい人なんだろけど…ちょっと不安になる」",
-          "Comments_EN": "\"He/She seems nice, but... he/she makes me a little nervous.\"",
+          "Comments_EN": "\"Ze seems nice, but... ze makes me a little nervous.\"",
           "RelationLabel": ["classmate", "awkward_aBit"]
         }
       ]
@@ -10361,7 +10361,7 @@
       }
     ],
     "Summary": "転機を恵むと一部の層から定評であり、主人たちの活動へ貢献している。\n活動実績は然程大きくはないが、中でも彼(女)の招いたチャンスを最大限に受容できるような主人とは相性が良い傾向にある。\nただ性格で単純さが目立っており、煽(おだ)てられるとすぐに調子に乗ってしまうところなどがある。\nそのため、彼(女)の良し悪しについては主人だけでなく他のナンバーテールズからも意見が分かれている様子。",
-    "Summary_EN": "He/she is well regarded by some for granting turning points, contributing meaningfully to masters' activities.\nWhile his/her track record is not particularly large, he/she tends to have good chemistry with masters who can make the most of the chances he/she brings.\nThat said, he/she has a notably simple-minded streak — easily flattered into getting carried away.\nFor that reason, opinions on his/her merits seem divided, not only among masters but among other NumberTales as well.",
+    "Summary_EN": "Ze is well regarded by some for granting turning points, contributing meaningfully to masters' activities.\nWhile zir track record is not particularly large, ze tends to have good chemistry with masters who can make the most of the chances ze brings.\nThat said, ze has a notably simple-minded streak — easily flattered into getting carried away.\nFor that reason, opinions on zir merits seem divided, not only among masters but among other NumberTales as well.",
     "NumerospecAbout": "転機を連続して招く\nこの効果は対象が積極的に受ければ受けるほど持続する",
     "NumerospecAbout_EN": "Invites one turning point after another\nThe more actively the target accepts them, the longer this effect continues",
     "NumerospecStats": {
@@ -10400,7 +10400,7 @@
         {
           "Num": 50,
           "Comments": "「肝が据わりすぎて逆に怖い」",
-          "Comments_EN": "\"He/She's so unflappable it's actually a bit scary.\"",
+          "Comments_EN": "\"Ze's so unflappable it's actually a bit scary.\"",
           "RelationLabel": ["pioneer_nearly", "unmatched"]
         }
       ],
@@ -10599,13 +10599,13 @@
         {
           "Num": 11,
           "Comments": "「彼(女)が「台風の目」だよね、え、違う？」",
-          "Comments_EN": "\"He/she's 'the eye of the typhoon,' right? Wait — is that wrong?\"",
+          "Comments_EN": "\"Ze's 'the eye of the typhoon,' right? Wait — is that wrong?\"",
           "RelationLabel": ["adverselyAffected", "classmate"]
         },
         {
           "Num": 41,
           "Comments": "「思い立って失敗したとこ見たことないよ」",
-          "Comments_EN": "\"I've never seen him have an idea and fail at it.\"",
+          "Comments_EN": "\"I've never seen zir have an idea and fail at it.\"",
           "RelationLabel": ["trusted"]
         },
         { "Num": 74, "RelationLabel": ["unmatched"] }
@@ -10614,7 +10614,7 @@
         {
           "Num": 10,
           "Comments": "「ああ見えて悩んでいるとこもありそう」",
-          "Comments_EN": "\"Despite how he/she looks, he/she seems to have his/her share of worries.\""
+          "Comments_EN": "\"Despite how ze looks, ze seems to have zir share of worries.\""
         },
         {
           "Num": 28,
@@ -10629,7 +10629,7 @@
         {
           "Num": 77,
           "Comments": "「カッコいいのに人柄を知ると、なんか…ねぇ…」",
-          "Comments_EN": "\"He/She looks so cool, but once you get to know his/her personality... well...\"",
+          "Comments_EN": "\"Ze looks so cool, but once you get to know zir personality... well...\"",
           "RelationLabel": ["awkward_aBit", "classmate"]
         }
       ]
@@ -10784,7 +10784,7 @@
         {
           "Num": 35,
           "Comments": "「才能が凄すぎて、あたしには手に負えないよ…」",
-          "Comments_EN": "\"He/She is just too talented — way out of my league...\"",
+          "Comments_EN": "\"Ze is just too talented — way out of my league...\"",
           "RelationLabel": ["cousin_nearly", "awkward"]
         },
         {
@@ -10929,7 +10929,7 @@
     "ForMasterCalling": "～先輩;先輩",
     "ForMasterCalling_EN": "~-senpai; senpai",
     "Character": "変化からの学びを尊重している\n失敗意識のない楽観的思考は圧巻されがち",
-    "Character_EN": "Values learning from change and new experiences\nHis/Her carefree, failure-unbothered optimism tends to overwhelm those around him/her",
+    "Character_EN": "Values learning from change and new experiences\nZir carefree, failure-unbothered optimism tends to overwhelm those around zir",
     "Hobby": "景品のあるキャンペーンに\n参加する",
     "Hobby_EN": "Participating in campaigns with prizes",
     "SpecialSkill": "漫画制作",
@@ -10985,11 +10985,11 @@
       }
     ],
     "RelationNotes": "双子の片割「75(シチゴ)」に生真面目さを憶えている\n「66(ムロク)」を直視できない…？",
-    "RelationNotes_EN": "Finds his/her twin '75(Sefievn)' to be a bit too serious\nCan't look '66(Sixis)' straight in the eye...?",
+    "RelationNotes_EN": "Finds zir twin '75(Sefievn)' to be a bit too serious\nCan't look '66(Sixis)' straight in the eye...?",
     "NumerospecAbout": "いつもと違うことから得た学びや教訓を味方にする（ROSの学習機能に近い）",
     "NumerospecAbout_EN": "Turns lessons learned from out-of-the-ordinary experiences into an asset (analogous to a ROS learning function)",
     "Summary": "状況から新たな経験を得ることに特化したナンバーテールズ。\n状況の変化からの学びを大切にし、それがいつしか自分に良き教訓や知見となることを信じている。\nただあまりに楽観的な思考は周りから圧巻されている。\nちなみに「75(シチゴ)」と同型双子関係があるが、「75(シチゴ)」と彼(女)でどちらが兄(姉)であるかという年長年弱の区別は無いらしい。",
-    "Summary_EN": "A NumberTales unit specialized in gaining new experiences from situations.\nHe/She values learning from changing circumstances, trusting that these will eventually become good lessons and insights for him/her.\nHowever, his/her overly optimistic thinking style tends to overwhelm those around him/her.\nIncidentally, he/she shares a \"twin-type\" relationship with '75(Sefievn)', but apparently there is no distinction of older or younger between them.",
+    "Summary_EN": "A NumberTales unit specialized in gaining new experiences from situations.\nZe values learning from changing circumstances, trusting that these will eventually become good lessons and insights for zir.\nHowever, zir overly optimistic thinking style tends to overwhelm those around zir.\nIncidentally, ze shares a \"twin-type\" relationship with '75(Sefievn)', but apparently there is no distinction of older or younger between them.",
     "NumerospecStats": {
       "EffectStats": {
         "Mental": { "EffectText": "期待" },
@@ -11022,7 +11022,7 @@
         {
           "Num": 75,
           "Comments": "「双子なんだけどなんか生真面目なんだよね」",
-          "Comments_EN": "\"We're twins, but he/she is just so serious about things.\"",
+          "Comments_EN": "\"We're twins, but ze is just so serious about things.\"",
           "RelationLabel": ["brother|sister", "awkward", "classmate"]
         }
       ],
@@ -11030,7 +11030,7 @@
         {
           "Num": 3,
           "Comments": "「頼れるリーダー…ではないか、なんだろ」",
-          "Comments_EN": "\"A reliable leader, perhaps? Or not... I'm not quite sure what to make of him/her.\""
+          "Comments_EN": "\"A reliable leader, perhaps? Or not... I'm not quite sure what to make of zir.\""
         },
         {
           "Num": 12,
@@ -11070,7 +11070,7 @@
       "AvoidedTopics": "炎上や火種を広げる話、必要以上に不安を増やす重たい会話は好まない。（生成AI使用者の民度に関する話題などといった）技術倫理にかかわる批判も避けたがる。",
       "AvoidedTopics_EN": "Dislikes talk of online flare-ups or anything that spreads ill feeling, and heavy conversations that amplify anxiety beyond what is needed. Also tends to avoid criticism touching on tech ethics (such as discussions about the etiquette of generative-AI users).",
       "ConversationNotes": "根拠が経験ベースなので見切り発車気味な時もあるが、相手を勇気づけたい意図は一貫している。イラストや創作に関する話題では、昨今の生成AI事情を鑑みて自ら進んで話せずにいるが、本当は自分も漫画を描くことを自慢したく思っている。",
-      "ConversationNotes_EN": "Since her/his grounding is experience-based, conclusions can sometimes be rushed — but the intent to give others courage is consistent. On topics of illustrations and creative work, he/she is unable to openly speak up in light of current debates around generative AI, but deep down is eager to show off the fact that he/she draws manga too.",
+      "ConversationNotes_EN": "Since zir grounding is experience-based, conclusions can sometimes be rushed — but the intent to give others courage is consistent. On topics of illustrations and creative work, ze is unable to openly speak up in light of current debates around generative AI, but deep down is eager to show off the fact that ze draws manga too.",
       "DialogueExamples": [
         {
           "value": "「私は ナンバーテールズ57番機『57(イズナ)』だよ！これからもご贔屓に！」",
@@ -11283,7 +11283,7 @@
         {
           "Num": 40,
           "Comments": "「どうしても甘えちゃいたくなる」",
-          "Comments_EN": "\"I can't help wanting to lean on him/her.\""
+          "Comments_EN": "\"I can't help wanting to lean on zir.\""
         }
       ]
     },
@@ -12109,13 +12109,13 @@
         {
           "Num": 35,
           "Comments": "「すごい人なのはわかる」",
-          "Comments_EN": "\"I can tell he/she's someone impressive.\"",
+          "Comments_EN": "\"I can tell ze's someone impressive.\"",
           "RelationLabel": ["classmate"]
         },
         {
           "Num": 68,
           "Comments": "「あたしの作品は捨ててないよね…？」",
-          "Comments_EN": "\"He/She hasn't thrown away my work... right...?\"",
+          "Comments_EN": "\"Ze hasn't thrown away my work... right...?\"",
           "RelationLabel": ["cousin"]
         },
         {
@@ -12285,7 +12285,7 @@
         {
           "Num": 27,
           "Comments": "「怒るとちょっと怖いけどとても優しい」",
-          "Comments_EN": "\"He/She can be a little scary when angry, but is very kind.\"",
+          "Comments_EN": "\"Ze can be a little scary when angry, but is very kind.\"",
           "RelationLabel": ["classmate"]
         },
         {
@@ -12296,7 +12296,7 @@
         {
           "Num": 45,
           "Comments": "「色々大変そう」",
-          "Comments_EN": "\"He/She seems to have a lot going on.\"",
+          "Comments_EN": "\"Ze seems to have a lot going on.\"",
           "RelationLabel": ["classmate"]
         },
         {
@@ -13131,7 +13131,7 @@
     "NumerospecAbout": "断捨離させる\nこれにより主人や相手の生活の無駄を排除できる",
     "NumerospecAbout_EN": "Makes others declutter\nThis eliminates waste and excess from the master's daily life",
     "Summary": "古着の処分や機種変更など、物を長期的に保管することより「断捨離すること」を得意としている。\nしかし新品と比べ古い物の見方は異質なところもあり、すぐ手放そうとする傾向にある。\n一方でその価値観が功をなし、ナンバーテールズの中ではトップクラスの整理力と掃除力がある。\nちなみに手放した物の大半はフリーマーケットで売られるため、周囲から助かっているとの声も。",
-    "Summary_EN": "Skilled at decluttering rather than holding onto things for the long term — whether disposing of old clothes or replacing devices.\nHowever, he/she has a somewhat unusual view of anything old compared to new, and tends to let things go quickly.\nOn the other hand, this very outlook has proven fruitful: he/she boasts some of the highest organizational and cleaning ability among the NumberTales.\nIncidentally, most of what he/she lets go ends up sold at flea markets, much to the appreciation of those around him/her.",
+    "Summary_EN": "Skilled at decluttering rather than holding onto things for the long term — whether disposing of old clothes or replacing devices.\nHowever, ze has a somewhat unusual view of anything old compared to new, and tends to let things go quickly.\nOn the other hand, this very outlook has proven fruitful: ze boasts some of the highest organizational and cleaning ability among the NumberTales.\nIncidentally, most of what ze lets go ends up sold at flea markets, much to the appreciation of those around zir.",
     "NumerospecStats": {
       "EffectStats": {
         "Mental": { "EffectText": "効果無" },
@@ -13401,7 +13401,7 @@
         {
           "Num": 94,
           "Comments": "「起きて従事してるの想像できないな…」",
-          "Comments_EN": "\"I just can't picture him/her awake and on duty...\"",
+          "Comments_EN": "\"I just can't picture zir awake and on duty...\"",
           "RelationLabel": ["cousin_nearly"]
         }
       ]
@@ -13514,13 +13514,13 @@
         {
           "Num": 72,
           "Comments": "「ああ見えて人間味はあると思う」",
-          "Comments_EN": "\"Despite how he/she looks, I think there's a very human side to them.\"",
+          "Comments_EN": "\"Despite how ze looks, I think there's a very human side to them.\"",
           "RelationLabel": ["successor_nearly"]
         },
         {
           "Num": 79,
           "Comments": "「変な情報広げてないといいんだが」",
-          "Comments_EN": "\"I just hope he/she's not spreading strange rumors around...\"",
+          "Comments_EN": "\"I just hope ze's not spreading strange rumors around...\"",
           "RelationLabel": ["successor_nearly"]
         },
         {
@@ -16810,7 +16810,7 @@
     "RelationNotes": "「4(モチ)」に安心感を覚えている\n同クラス（デュアルフォーズ）での交流に苦戦中",
     "NumerospecAbout": "休息を与える\nこの効果は物事が終結した後に真価を発揮する",
     "Summary": "物事がひと段落したときの休息を過ごすことに特化したナンバーテールズ。\n休止(寝ている状態)時間が他の個体よりも極めて長いため、限られた活動時間でも従事できる主人とのマッチングの徹底やコアフォルダ形態を活用してなんとか活動を展開している。\nしかし周囲からは愛しく思われていて支持者も多い。\nコアフォルダ形態で他のコアフォルダに埋もれたいくらいにはコアフォルダが好き。",
-    "Summary_EN": "This NumberTales specializes in spending time resting when things have come to a close.\nSince they spend more time resting (sleeping) than other individuals, they manage to develop their activities by ensuring they are matched with masters who can engage them even during their limited activity time and by utilizing the corefolder form.\nHowever, he/she is loved by those around them and has many supporters.\nHe/She loves corefolders so much that they want to be buried in other corefolders in corefolder form.",
+    "Summary_EN": "This NumberTales specializes in spending time resting when things have come to a close.\nSince ze spends more time resting (sleeping) than other individuals, ze manages to develop zir activities by ensuring ze is matched with masters who can engage zir even during zir limited activity time and by utilizing the corefolder form.\nHowever, ze is loved by those around zir and has many supporters.\nZe loves corefolders so much that ze wants to be buried in other corefolders in corefolder form.",
     "NumerospecStats": {
       "EffectStats": {
         "Mental": { "EffectText": "絶大" },

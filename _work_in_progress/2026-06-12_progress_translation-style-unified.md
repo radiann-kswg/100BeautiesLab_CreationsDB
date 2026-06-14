@@ -1097,6 +1097,45 @@
 - Num 60: ConversationPattern_EN + DialogueExamples 10件 対応済み（2026-06-13）
 - Num 61: ConversationPattern_EN + DialogueExamples 12件 対応済み（2026-06-14）
 
+## 2026-06-14 追記：Neutral キャラ代名詞一括修正（全作品横断）
+
+### 変更概要
+
+- ユーザー指示: `GenderType: Neutral` は一人称・ビジュアル由来の個別判断に関わらず全て `he/she` / `him/her` / `his/her` に統一
+- 対象ファイル: `Works_NumberTales/DataBases/db_Primary.json`, `Works_FLInvestigator78/DataBases/db_Primary.json`
+- スクリプト: `.cache/fix_neutral_pronouns.mjs`（19フィールド修正）、`.cache/fix_neutral_they.mjs`（7フィールド修正）
+
+### 修正内容
+
+**単数 she/him/her の修正（db_Primary.json: NumberTales）:**
+- Num 1: InStory_EN / NumerospecAbout_EN / CP.TalkingTone_EN / CP.ConversationNotes_EN / DE[11]
+- Num 7: Summary_EN（she → he/she）
+- Num 15: InStory_EN / Summary_EN / Backgrounds_EN
+- Num 19: Summary_EN
+- Num 41: InStory_EN / Summary_EN / CP.TalkingTone_EN / CP.TalkFrequency_EN / CP.PreferredTopics_EN / CP.ConversationNotes_EN
+- Num 57: CP.ConversationNotes_EN（her/his → his/her）
+- Num 13 → Commented[3]: Comments_EN（her → him/her）
+- Num 55 → Related[41]: Comments_EN（him → him/her）
+
+**they/them/their の修正:**
+- Num 32: Summary_EN（4箇所）
+- Num 35: Summary_EN（9箇所）/ InStory_EN（2箇所）
+- Num 40: Summary_EN（3箇所）
+- Num 49: Summary_EN（2箇所）
+- Num 94: Summary_EN（7箇所）
+
+**FLInvestigator78 db_Primary.json:**
+- Veil (GenderType: Neutral): Summary_EN（he → he/she, 3箇所）
+
+### ルール確定
+
+- `GenderType: Neutral` → `he/she` / `him/her` / `his/her` で絶対統一（例外なし）
+- 一人称 `俺` やビジュアル由来の判断で単数代名詞を採用しない
+- `they/them/their` は Neutral キャラ自身への参照では禁止（impersonal 用法は除く）
+- ルール文書: `docs/localization-en-rules.md` 更新済み
+
+---
+
 ## 2026-06-14 追記：Num 66〜70 英訳補完（全フィールド）
 
 ### 変更概要
@@ -1478,3 +1517,50 @@ Test Files  4 failed | 15 passed (19)
 ### 適用フィールド数
 
 - 73 フィールド
+
+---
+
+## 追記: 2026-06-14 — *Calling_EN 整合性修正・ze/zir 全体移行・JP 記法ドキュメント新規作成
+
+### 目的
+
+1. 全作品 `*Calling_EN` フィールドの書式不整合を修正
+2. `GenderType: Neutral` キャラクターの英語代名詞を `he/she` → `ze/zir`（ネオプロナウン）に全 DB 移行
+3. 和文フィールド記法ドキュメント `docs/jp-notation-rules.md` を新規作成
+
+### 変更ファイル一覧
+
+| ファイル | 変更内容 |
+|----------|---------|
+| `data/Works_NumberTales/DataBases/db_Primary.json` | ThirdPersonCalling_EN 8件修正・ze/zir 115件置換 |
+| `data/Works_NumberTales/DataBases/db_SemiPrimary.json` | ThirdPersonCalling_EN 1件修正 |
+| `data/Works_NumberTales/DataBases/db_Secondary.json` | ThirdPersonCalling_EN 6件挿入・ForMasterCalling_EN 1件修正 |
+| `data/Works_FLInvestigator78/DataBases/db_Primary.json` | ze/zir 1件置換 |
+| `data/Works_FLInvestigator78/DataBases/db_PrimaryDealer.json` | ThirdPersonCalling_EN 2件修正 |
+| `data/Works_SinisterChangingGirls/DataBases/db_Primary.json` | ThirdPersonCalling_EN 2件修正 |
+| `docs/localization-en-rules.md` | §1 ze/zir ルール追加・§3-3 全面改訂・§3-3-5 `(*ze/zir)` アノテーションルール追加 |
+| `docs/jp-notation-rules.md` | **新規作成**（和文フィールド記法ルールブック） |
+
+### 修正スクリプト
+
+| スクリプト | 役割 |
+|-----------|------|
+| `.cache/fix_calling_en.mjs` | *Calling_EN 書式不整合 18件修正 |
+| `.cache/switch_ze_zir.mjs` | 全 DB ze/zir 置換（108件） |
+| `.cache/fix_ze_zir_remaining.mjs` | 混合大文字・非標準形の残存 8件追加修正 |
+| `.cache/add_ze_zir_annotation.mjs` | ~~Neutral の ThirdPersonCalling_EN に `(*ze/zir)` 付加~~（採用取消・`.cache/remove_ze_zir_annotation.mjs` で差し戻し済み） |
+
+### 主要ルール確定事項
+
+- `GenderType: Neutral` → `ze/zir/zirself`（全英訳フィールドで統一）
+- `ThirdPersonCalling_EN` は ze/zir 置換対象外（他者への呼称スタイルを表すため）
+- `[*by name]` に統一（旧: `[*Name calling]` 等は不正解）
+- `~君/~クン/~くん` → `~-kun`（`Mr/Ms.~` は不正解）
+- `クライアントさん` → `Client-san`（`Client` のみは不正解）
+- 指示代名詞 `*いつ`/`*イツ` → `this/that/who/what/which/them (as personal or objective)`
+- 指示代名詞 `*れ`/`*レ` → `this/that/who/what/which/them (as objective)`
+
+### 未完了タスク
+
+- NT db_Primary の Num 71〜（通常英訳バッチ）が中断中。次セッションで継続。
+- SCG / UnauthedLogica の ThirdPersonCalling_EN 対応状況が未確認（§3-3-9 に要チェックとして記載済み）
