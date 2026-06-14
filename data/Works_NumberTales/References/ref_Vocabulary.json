@@ -34,23 +34,12 @@
     "Links": []
   },
   {
-    "Term": "安全レベル",
-    "Term_EN": "Safety Level",
-    "Term_JPReading": "あんぜんレベル",
-    "TermType": null,
-    "Category": "能力特性用語",
-    "Summary": null,
-    "Summary_EN": null,
-    "Aliases": [],
-    "Links": []
-  },
-  {
     "Term": "試験用個体",
     "Term_EN": "Test Model",
     "Term_JPReading": "しけんようこたい",
     "TermType": null,
     "Category": "役職・肩書",
-    "Summary": null,
+    "Summary": "ナンバーテールズ1番機こと試作型1号機の「1(ハジメ)」は、ナンバーテールズの試験用個体として後続個体の機能テストを担っている。\nそのため、後続個体と同様の主従契約に勤しむことはなく、パブリッシャーである夜月機関のもとで開発試験に従事している。",
     "Summary_EN": null,
     "Aliases": [],
     "Links": []
@@ -61,9 +50,9 @@
     "Term_EN": "UniDigits",
     "TermType": null,
     "Category": "役職・肩書",
-    "Summary": null,
+    "Summary": "1桁の番号を持つナンバーテールズ（または、その他の最小単位となる番号のネーム個体）で構成されたクラスで、試作型1号機もとい1番機の「1(ハジメ)」、2番機の「2(ツグ)」、試作型2号機の「バイナ」、そして3～9番機の10人が中心となっている。\n1桁番はナンバーテールズの中でも基本的な“数秘的加護”を有している個体とされており、その動作安定度はもちろん最古参の個体としても名高く主従契約や開発実績も豊富にあり、デュアルズを筆頭とした後続個体の憧憬の的となっている。",
     "Summary_EN": null,
-    "Aliases": [],
+    "Aliases": ["1桁番", "一桁番", "1桁番(ユニデジッツ)"],
     "Links": []
   },
   {
@@ -72,9 +61,14 @@
     "Term_EN": "Tens-Digits",
     "TermType": null,
     "Category": "役職・肩書",
-    "Summary": null,
+    "Summary": "主に1桁番の直属の改良型個体で構成され、10の倍数の番号を有する9人を中心に構成されている。\n安定性は劣るもののより個性的な性格の演出に長けた個体とされており、（デシベルモデレーターズの役目により契約不可能な「10(ミツル)」を除いて）比較的安価な契約プランで提供されていることからライト層の主人からも人気も高いようだ。",
     "Summary_EN": null,
-    "Aliases": [],
+    "Aliases": [
+      "10倍番",
+      "十倍番",
+      "10倍番(テンズデジッツ)",
+      "十倍番(テンズデジッツ)"
+    ],
     "Links": []
   },
   {
@@ -83,9 +77,9 @@
     "Term_EN": "Master Tales 9",
     "TermType": null,
     "Category": "役職・肩書",
-    "Summary": null,
+    "Summary": "ナンバーテールズの中でも2桁のゾロ目の数字を持つ9人による精鋭クラス。\nナンバーテールズの中でも特に強力な“数秘的加護”を有している個体とされており、その強力な潜在能力から優秀な実績や機能・影響を持つことから、主人の人気や契約競争率も高い。\n中には契約プランの相場が著しく高騰している個体や、極めて積極的なレビューが殺到している個体も存在しているようだ。",
     "Summary_EN": null,
-    "Aliases": [],
+    "Aliases": ["マスターテールズ9", "マスターテールズ９", "マスターテールズ"],
     "Links": []
   },
   {
@@ -96,7 +90,7 @@
     "Category": "役職・肩書",
     "Summary": null,
     "Summary_EN": null,
-    "Aliases": [],
+    "Aliases": ["デシベルモデレーターズ"],
     "Links": []
   },
   {
@@ -107,7 +101,7 @@
     "Category": "役職・肩書",
     "Summary": null,
     "Summary_EN": null,
-    "Aliases": [],
+    "Aliases": ["マスタートリプル"],
     "Links": []
   },
   {
@@ -162,7 +156,7 @@
     "Category": "血統・種族系列",
     "Summary": null,
     "Summary_EN": null,
-    "Aliases": [],
+    "Aliases": ["キャレ型", "キャレ型ハイナンバーズ"],
     "Links": []
   },
   {
@@ -173,7 +167,7 @@
     "Category": "血統・種族系列",
     "Summary": null,
     "Summary_EN": null,
-    "Aliases": [],
+    "Aliases": ["キュビクザール型", "キュビクザール型ハイナンバーズ"],
     "Links": []
   }
 ]
