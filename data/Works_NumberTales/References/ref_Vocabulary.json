@@ -88,7 +88,7 @@
     "Term_EN": "Decibel Moderators",
     "TermType": null,
     "Category": "役職・肩書",
-    "Summary": null,
+    "Summary": "かつて試作型10号機「ディケ」の開発インシデントを受け、ナンバーテールズの提供において、ディケや10(ミツル)をはじめとする10の乗数を番号に持つごく一部の個体は、ナンバーテールズの暴走抑止のためにモデレーターとして活動している。\nその重要な役目を優先すべく契約不可能となった個体を識別するため、「デシベルモデレーターズ」という特殊クラスが百花繚乱研究所の関係者間向けに限定して設置されている。",
     "Summary_EN": null,
     "Aliases": ["デシベルモデレーターズ"],
     "Links": []
@@ -110,39 +110,6 @@
     "Term_EN": "Tentative HighNumbers",
     "TermType": null,
     "Category": "役職・肩書",
-    "Summary": null,
-    "Summary_EN": null,
-    "Aliases": [],
-    "Links": []
-  },
-  {
-    "Term": "1号機型",
-    "Term_JPReading": "1ごうきがた",
-    "Term_EN": "Unit.1 lineage",
-    "TermType": null,
-    "Category": "血統・種族系列",
-    "Summary": null,
-    "Summary_EN": null,
-    "Aliases": [],
-    "Links": []
-  },
-  {
-    "Term": "2号機型",
-    "Term_JPReading": "2ごうきがた",
-    "Term_EN": "Unit.2 lineage",
-    "TermType": null,
-    "Category": "血統・種族系列",
-    "Summary": null,
-    "Summary_EN": null,
-    "Aliases": [],
-    "Links": []
-  },
-  {
-    "Term": "10号機型",
-    "Term_JPReading": "10ごうきがた",
-    "Term_EN": "Unit.10 lineage",
-    "TermType": null,
-    "Category": "血統・種族系列",
     "Summary": null,
     "Summary_EN": null,
     "Aliases": [],
