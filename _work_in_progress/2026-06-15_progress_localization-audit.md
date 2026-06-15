@@ -370,6 +370,56 @@ Python スクリプト経由でのファイル書き込みにも PostToolUse フ
 
 ---
 
+---
+
+## NumberTales db_Primary.json — 残存 EN フィールド一括挿入（2026-06-15 完了）
+
+### 対応内容
+
+- **スクリプト**: `.cache/insert_en_primary_batch.py`
+- **変更レコード**: 20 件
+- **挿入フィールド合計**: 107 件
+- **JSON バリデーション**: `json.loads()` 確認 OK
+- **監査後の未翻訳残件数**: **0 件**（`audit_missing_en_primary_out.py` 実行で確認）
+
+### 対象キャラクター一覧
+
+| Num | Name_EN | GenderType | 挿入フィールド数 |
+|---|---|---|---|
+| 71 | 71(Sevone) | MaleNeutral | TailsUnit_EN (1) |
+| 72 | 72(Sevtwína) | Neutral | TailsUnit_EN (1) |
+| 73 | 73(Sevthira) | FemaleNeutral | TailsUnit_EN (1) |
+| 74 | 74(Sefoury) | FemaleNeutral | TailsUnit_EN (1) |
+| 75 | 75(Sefievn) | Neutral | TailsUnit_EN (1) |
+| 90 | 90(Nintiels) | UNKNOWN | NumerospecAbout_EN (1) |
+| 91 | 91(Ninone) | Neutral | NumerospecAbout_EN (1) |
+| 92 | 92(Nintwina) | MaleNeutral | TailsUnit_EN + 8フィールド (9) |
+| 93 | 93(Nintris) | FemaleNeutral | TailsUnit_EN + 8フィールド (9) |
+| 94 | 94(Ninfors) | Neutral | TailsUnit_EN + 8フィールド (9) |
+| 95 | 95(Ninfife) | MaleNeutral | 6フィールド (6) |
+| 96 | 96(Rota) | FemaleNeutral | TailsUnit_EN + 9フィールド (10) |
+| 97 | 97(Ninsefie) | FemaleNeutral | TailsUnit_EN + 10フィールド (11) |
+| 98 | 98(Nineigha) | FemaleNeutral | TailsUnit_EN + 8フィールド (9) |
+| 99 | 99(Thukumo) | Neutral | TailsUnit_EN + 7フィールド (8) |
+| 2-alt | Binor/2(Twicy) | FemaleNeutral | 10フィールド (10) |
+| 10-alt | Dicat/10(Decadle) | MaleNeutral | 5フィールド (5) |
+| 000 | 000(Thouser) | Neutral | 4フィールド (4) |
+| 0 | Zera Norumber | Female | 5フィールド (5) |
+| 00 | Hudret Norumber | Male | 5フィールド (5) |
+
+### 翻訳メモ
+
+- `クライアント君` → `"Client"` (Num0/00/000 の `ForMasterCalling_EN`)
+- `野望(ユメ)` → `dreambitions`（Num93 の Character_EN・NumerospecAbout_EN で採用、前セッション承認済み）
+- `余`（Num99 一人称）→ `"I"`（王族風の雰囲気は Character_EN に記載）
+- `わたくしめ`（Num97 一人称）→ `"this humble self"`
+- `神官さま`（Num97 ForMasterCalling）→ `"High Priest"`
+- `〜先生`（Num98 ForMasterCalling）→ `"~-sensei"`
+- `兄さん/姉さん`（Num92）→ `"Bro/Sis"`
+- `兄さま/姉さま`（Num2-alt）→ `"Big Bro/Big Sis"`
+
+---
+
 ## 参考リンク
 
 - `docs/localization-en-rules.md` — 英訳ルールブック
