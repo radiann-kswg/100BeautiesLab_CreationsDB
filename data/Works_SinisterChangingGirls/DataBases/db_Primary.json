@@ -81,7 +81,7 @@
     "FirstPersonCalling": "私(わたし)",
     "FirstPersonCalling_EN": "I",
     "SecondPersonCalling": "君(きみ),~君",
-    "SecondPersonCalling_EN": "you, ~-kun (as Mr/Ms.)",
+    "SecondPersonCalling_EN": "you, ~-kun",
     "ThirdPersonCalling": "彼/彼女;~君",
     "ThirdPersonCalling_EN": "he/she; ~-kun",
     "Character": "気さくな好青年。何もしていないと空腹になりやすい",
@@ -230,7 +230,7 @@
       }
     ],
     "FirstPersonCalling": "ミル ※名前呼び",
-    "FirstPersonCalling_EN": "Lamill (*own name); [by name]",
+    "FirstPersonCalling_EN": "Lamill (*own name); [*by name]",
     "SecondPersonCalling": "[※名前呼び],おにいちゃん/おねえちゃん ※表現揺れあり",
     "SecondPersonCalling_EN": "[*by name], bros/sis (as old-brother/sister *expression varies)",
     "ThirdPersonCalling": "[※二人称],~おにいちゃん/~おねえちゃん ※表現揺れあり",

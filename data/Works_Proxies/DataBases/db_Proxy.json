@@ -9,9 +9,7 @@
     },
     "Name": "ラジアン(2代目)",
     "Name_EN": "RadianN (2nd Gen.)",
-    "Images": {
-      "design_PNGName": "dsgn_imgRN2"
-    },
+    "Images": { "design_PNGName": "dsgn_imgRN2" },
     "FormalName": "扇 二春",
     "FormalName_EN": "Arch Seconec",
     "RaceType": "Warfox(Acquired)",
@@ -25,11 +23,11 @@
     "Weight_kg": { "hideText": "本人すら把握されていない" },
     "Age": { "value": 21, "about_JP": "自称", "about_EN": "Self-styled" },
     "FirstPersonCalling": "現実味のない場面では：[※名前呼び],ワテ,おれ\n現実味のある場面では：[※名前呼び],僕(ぼく),俺\n公的かつ形式的な場面では：私(わたし),僕(ぼく)",
-    "FirstPersonCalling_EN": "In fictional/unreal contexts: [by name], I (archaic slang, rough)\nIn realistic contexts: [*by name], I (masc. informal, rough)\nIn formal/official contexts: I (rough, masc. informal)",
+    "FirstPersonCalling_EN": "In fictional/unreal contexts: [*by name], I (archaic slang, rough)\nIn realistic contexts: [*by name], I (masc. informal, rough)\nIn formal/official contexts: I (rough, masc. informal)",
     "SecondPersonCalling": "君(きみ),[※名前呼び],~君/~さん",
-    "SecondPersonCalling_EN": "you, [*by name], ~-kun/~-san (Mr/Ms.~)",
+    "SecondPersonCalling_EN": "you, [*by name], ~-kun/~-san",
     "ThirdPersonCalling": "彼/彼女;*いつ/*レ;~君/~さん",
-    "ThirdPersonCalling_EN": "he/she; this/that/who/what/which/them (as personal or objective); ~-kun/~-san(Mr/Ms.~)",
+    "ThirdPersonCalling_EN": "he/she; this/that/who/what/which/them (as personal or objective); ~-kun/~-san",
     "Character": "理工学系で知能的かつ技術的だが、やや思慮的で残念な一面がある",
     "Character_EN": "Intellectually and technically inclined in science and engineering, but with a somewhat pensive and lamentable side",
     "Hobby": "いろんなものを広く浅く",
@@ -76,7 +74,7 @@
     "SecondPersonCalling": "キミ,[※名前呼び]",
     "SecondPersonCalling_EN": "you, [*by name]",
     "ThirdPersonCalling": "彼/彼女;*イツ/*レ;[※名前呼び],~くん/~ちゃん",
-    "ThirdPersonCalling_EN": "he/she; this/that/who/what/which/them (as personal or objective); [*by name],~-kun/~-chan (as Mr/Ms.~)",
+    "ThirdPersonCalling_EN": "he/she; this/that/who/what/which/them (as personal or objective); [*by name], ~-kun/~-chan",
     "Character": "底抜けに明るく悩みや難しいことは一切無縁な陽のヲタク\n特殊なフェチズムに対する執着が全面に出過ぎてしまう一面も",
     "Character_EN": "A boundlessly cheerful otaku of the 'positive' variety, entirely free from worries or complicated matters\nWith a side that lets their attachment to particular fetishes come through a bit too prominently",
     "Hobby": "創作世界を放浪する",
@@ -150,7 +148,6 @@
       ]
     }
   },
-
   {
     "Generation": 1,
     "Progress": "unprofiled",
