@@ -74,7 +74,11 @@
       "$dict": "RaceType",
       "hashTag_JP": "種族",
       "hashTag_EN": "Race",
-      "$display": { "section": "basic", "tagSpace": "creation", "langMode": "shared" }
+      "$display": {
+        "section": "basic",
+        "tagSpace": "creation",
+        "langMode": "shared"
+      }
     },
     {
       "hashTag": "GenderType",

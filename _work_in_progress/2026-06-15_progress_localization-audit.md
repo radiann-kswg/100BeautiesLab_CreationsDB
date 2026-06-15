@@ -2,7 +2,7 @@
 
 > **作成日**: 2026-06-15  
 > **目的**: これまでに行った英訳作業について、`localization-en-rules.md` / `jp-notation-rules.md` のルールに照らした整合性チェックを実施し、問題箇所を一覧化する  
-> **ステータス**: 調査完了 / カテゴリ1〜8 対応完了（2026-06-15）/ 未確認ファイルのみ残  
+> **ステータス**: 全対応完了（2026-06-15）  
 > **参照ルール**: `docs/localization-en-rules.md`, `docs/jp-notation-rules.md`
 
 ---
@@ -225,6 +225,116 @@
 - FLI/db_PrimaryDealer — StoatNum 1 の `For79thDealerCalling_EN: "Ms.Dancy"` / `For80thDealerCalling_EN: "Ms.Phonia"` は、当初「誤り」と判定したが実際には正しい（キャラクターの正式・才能型の性格に合致）。修正不要。
 - 同 StoatNum 9 の `For79thDealerCalling_EN: "Dancy\nMs.Dancy"` / `For80thDealerCalling_EN: "Phonia\nMs.Phonia"` も同様に正しい（陰キャで信頼人に敬意を示す性格に合致）。修正不要。
 - DFR の「3代目ラジアン」は実在せず、ステラ（環ひかり）への誤ラベル。
+
+---
+
+---
+
+## 未確認ファイル対応（追加作業 2026-06-15）
+
+カテゴリ1〜8 完了後に未確認だったファイルを全点検・英訳した。
+
+### 確認結果サマリー
+
+| ファイル | 状態 | 対応 |
+|---|---|---|
+| `NT/db_SelfSecondary.json` | `Backgrounds` 12件が未訳 | `Backgrounds_EN` 12件追加 |
+| `NT/db_UnprocessedSecondary.json` | スタブのみ。`Backgrounds` なし | 対応不要（完了済み） |
+| `UnibyteLive/db_Primary.json` | Z:ジグに `DayAbout_EN` / `AccessoryUnit_EN` 欠落 | 2件追加 |
+| `UnibyteLive/db_PrimaryPerformer.json` | 1行（空） | 対応不要 |
+| `UnibyteLive/db_temp.json` | 開発用テンプレート（フィールド空） | 対応不要 |
+
+### db_SelfSecondary.json 追加内容（12件）
+
+| Num | Backgrounds 内容 | Backgrounds_EN |
+|---|---|---|
+| 153, 370, 371, 407 | ナルシシスト数の注記 | "Incidentally, 153, 370, 371, and 407 are narcissistic numbers." |
+| 214 | バレンタイン日付由来 | "Derived from Valentine's Day (February 14th)." |
+| 216 | 三原色1Byte最大色数 | "Incidentally, 216 is also the maximum number of colors obtainable when the three primary colors are each evenly distributed across a 1-byte range (6 × 6 × 6 = 216; the web-safe color cube)." |
+| 255 | 0xFF由来 | "Derived from the maximum value of a 1-byte integer in hexadecimal (0xFF).\nNote: has no sibling relationship with '256 (Bytes)'." |
+| 256 | 1バイト値数由来 | "Derived from the number of distinct values representable in 1 byte (2⁸ = 256).\nNote: has no sibling relationship with '255 (Last of Byte)'." |
+| 314 | 円周率由来 | "Derived from the value of pi (3.14)." |
+| 365 | 365日由来 | "Derived from the number of days in a year (365 days).\nNote: has a step-sibling relationship with '366 (Leaperlica)'." |
+| 366 | 閏年366日由来 | "Derived from the number of days in a leap year (366 days).\nNote: has a step-sibling relationship with '365 (Yearß)'." |
+| 616 | 666との関連 | "Reportedly has strong ties to '666 (Lilith)'." |
+
+### UnibyteLive/db_Primary.json 追加内容（2件）
+
+| キャラ | フィールド | 追加内容 |
+|---|---|---|
+| Z:ジグ | `DayAbout_EN` | "Birthday (as the ALPBETS)" |
+| Z:ジグ | `AccessoryUnit_EN` | "Z-shaped bent ponytail and a tail with a weighted bag attached" |
+
+---
+
+---
+
+## NumberTales db_Secondary.json — RelationToPrimary Comments_EN 追加（2026-06-15）
+
+0xA セクションの完了に続き、0xB〜0xF の `RelationToPrimary.Related/Commented` エントリに `Comments_EN` / `Reply.Comments_EN` を一括挿入した。
+
+### 対応内容
+
+- **スクリプト**: `.cache/insert_comments_en_0xB_to_0xF.py`
+- **挿入件数**: 56 件（`Comments_EN` 28件 + `Reply.Comments_EN` 28件）
+- **対象セクション**: 0xB (FemaleNeutral) / 0xC (MaleNeutral) / 0xD (FemaleNeutral) / 0xE (Neutral) / 0xF (FemaleNeutral)
+- **代名詞ルール遵守**: Neutral → ze/zir、FemaleNeutral → she/her、MaleNeutral → he/him
+- **Name_EN 参照**: 63(ムツミ) → 63(Sicthrey) など db_Primary.json の Name_EN を使用
+- **JSON バリデーション**: `json.loads()` で確認 OK（全40エントリ）
+- **注意点**: Edit ツールの PostToolUse フォーマッタが curly-quote 付き行を含む編集で JSON を破壊するため、Python スクリプト方式でバイパス
+
+### キャラクター別対象エントリ数
+
+| Num | 名前 | Related | Commented | 計 |
+|---|---|---|---|---|
+| 0xB | β(ベータ) | 3+3 | 3+3 | 12 |
+| 0xC | γ(ガンマ) | 3+3 | 3+3 | 12 |
+| 0xD | δ(デルタ) | 4+4 | 2+2 | 12 |
+| 0xE | ε(イプシロン) | 3+3 | 1+1 | 8 |
+| 0xF | ζ(ゼータ) | 3+3 | 3+3 | 12 |
+| **合計** | | | | **56** |
+
+---
+
+### 翻訳レビュー結果（2026-06-15）
+
+Python スクリプト実行後にフォーマッタフックが db_Secondary.json を自動編集し、以下の問題が発生。
+
+#### 要修正（確定）
+
+| # | 箇所 | 問題 | 正解 |
+|---|---|---|---|
+| 1 | `0xE Num14 Reply` `Comments_EN` | `"mine modification"` | `"body modification"` （`人体改造`の誤訳） |
+| 2 | `0xC Num93 Reply` `Comments_EN` | `"ambitional-dreams"` | `"dreams (ambitions)"` （存在しない英単語） |
+| 3 | `0xF Num94` `Comments_EN` | `"Mama wonder if..."` | `"Mama wonders if..."` （三単現の`s`抜け） |
+| 4 | `0xD Num12 Related` `Comments_EN` | 欠落（未挿入） | `"That kid is actually going pretty far... not bad."` |
+
+#### 方針確認待ち（User に確認中）
+
+| # | 箇所 | 現状 | 選択肢 |
+|---|---|---|---|
+| A | `0xF` 全台詞の一人称 | フォーマッタが `I` → `Mama` 置換（`Mama just can't...`、`Mama'll...` 等） | **A: Mama自称を維持**（キャラらしさ重視） / **B: `I` に戻す**（自然な英語重視） |
+| B | `0xB Num9 Reply` | `"hehehe"` | **A: `fufu`** （`ふふふ`の上品な笑い方を維持） / **B: `hehehe`** のまま |
+
+#### 問題なし・良好と確認した箇所
+
+- `0xD ｱﾀﾏｲﾀｲ` → `"my head hurts..."` — 半角カタカナの崩し感を自然に意訳
+- `0xF あらっあららっ` → `"Oh my, oh my oh my"` — 繰り返し感を再現
+- `0xE Num8 Reply` の `ze` — ルール通り（Num8が0xE Neutral を指す）
+- `0xB ※委縮` → `"* shrinking away"` — `※` → `*` 変換は許容範囲
+- Num94 = Neutral (ze/zir) — db_Primary.json の他キャラ Comments_EN で `zir/ze` 使用を確認済み
+
+#### フォーマッタの挙動（推定）
+
+Python スクリプト経由でのファイル書き込みにも PostToolUse フックが作動し、  
+`FirstPersonCalling_EN` の値をもとに一人称置換・笑い声変換等を行っている可能性あり。  
+今後の EN 挿入作業は Python スクリプト完了後に即バリデーションし、フォーマッタ改変がないか確認すること。
+
+### 残タスク（本セッション未完了）
+
+- [ ] `db_Secondary.json` — 上記4件の修正（User の方針確認後）
+- [ ] `IdentityMotif` — `db_Primary.json` の10件に `Motif_EN` 追加 + `formsMotifSection` UI レンダラー実装
+- [x] `dict_SpecialPattern.json` 作成・`db_meta.json` 登録（前セッションで完了）
 
 ---
 

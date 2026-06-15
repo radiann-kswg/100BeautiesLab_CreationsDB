@@ -123,11 +123,13 @@
     "AnivDay": [
       {
         "Day": { "Month": 2, "DayOfMonth": 26 },
-        "DayAbout": "誕生日（アルベッツ名義）"
+        "DayAbout": "誕生日（アルベッツ名義）",
+        "DayAbout_EN": "Birthday (as the ALPBETS)"
       }
     ],
     "BustSize": "B",
     "AccessoryUnit": "Zの字状に折り曲げられたポニーテールや鞄(錘)付きの尻尾",
+    "AccessoryUnit_EN": "Z-shaped bent ponytail and a tail with a weighted bag attached",
     "StreamingActivity": {
       "StreamingCategory": [
       ],
