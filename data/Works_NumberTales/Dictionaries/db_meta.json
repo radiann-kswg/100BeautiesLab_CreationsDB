@@ -11,6 +11,12 @@
       "DB_Label_EN": "Formation Dictionary",
       "keyField": "Formation",
       "compatListKey": "#List_Formation"
+    },
+    "#Dict_SpecialPattern": {
+      "DB_Label": "特殊パターン辞書",
+      "DB_Label_EN": "Special Pattern Dictionary",
+      "keyField": "SpecialPattern",
+      "compatListKey": "#List_SpecialPattern"
     }
   }
 }

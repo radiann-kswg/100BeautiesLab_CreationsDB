@@ -372,7 +372,8 @@
     "CodeName_EN": "One-Five-Three",
     "GenderType": "Neutral",
     "Class": ["トリプル1+3+5組", "ナルシシスツ"],
-    "Backgrounds": "ちなみに、153,370,371,407はナルシシスト数である"
+    "Backgrounds": "ちなみに、153,370,371,407はナルシシスト数である",
+    "Backgrounds_EN": "Incidentally, 153, 370, 371, and 407 are narcissistic numbers."
   },
   {
     "Num": 156,
@@ -432,7 +433,8 @@
     "SPCodeName_EN": "Valentain",
     "GenderType": "Neutral",
     "Class": ["トリプル1+2+4組"],
-    "Backgrounds": "バレンタインの日付(2月14日)から由来"
+    "Backgrounds": "バレンタインの日付(2月14日)から由来",
+    "Backgrounds_EN": "Derived from Valentine's Day (February 14th)."
   },
   {
     "Num": 216,
@@ -446,7 +448,8 @@
     "CodeName_EN": "Two-One-Six",
     "GenderType": "Neutral",
     "Class": ["トリプル1+2+6組", "バーチャリティテールズ"],
-    "Backgrounds": "ちなみに、三原色を1Byteで平均的に扱う際に取れる最大の色数でもある"
+    "Backgrounds": "ちなみに、三原色を1Byteで平均的に扱う際に取れる最大の色数でもある",
+    "Backgrounds_EN": "Incidentally, 216 is also the maximum number of colors obtainable when the three primary colors are each evenly distributed across a 1-byte range (6 × 6 × 6 = 216; the web-safe color cube)."
   },
   {
     "Num": "222-mp",
@@ -565,7 +568,8 @@
     "SPCodeName_EN": "Last of Byte",
     "GenderType": "Neutral",
     "Class": ["デュオトリプル3型乙組"],
-    "Backgrounds": "1バイト値の最大値（16進法）から由来\nなお、「256(バイツ)」と姉妹関係は無い"
+    "Backgrounds": "1バイト値の最大値（16進法）から由来\nなお、「256(バイツ)」と姉妹関係は無い",
+    "Backgrounds_EN": "Derived from the maximum value of a 1-byte integer in hexadecimal (0xFF).\nNote: has no sibling relationship with '256(Bytes)'."
   },
   {
     "Num": 256,
@@ -580,7 +584,8 @@
     "SPCodeName_EN": "One Byte",
     "GenderType": "Neutral",
     "Class": ["トリプル2+5+6組"],
-    "Backgrounds": "1バイトで表現できる値の数から由来\nなお、「255(エフエフ)」と姉妹関係は無い"
+    "Backgrounds": "1バイトで表現できる値の数から由来\nなお、「255(エフエフ)」と姉妹関係は無い",
+    "Backgrounds_EN": "Derived from the number of distinct values representable in 1 byte (2⁸ = 256).\nNote: has no sibling relationship with '255(0xFF)'."
   },
   {
     "Num": 258,
@@ -651,7 +656,8 @@
     "SPCodeName_EN": "Pi",
     "GenderType": "Neutral",
     "Class": ["トリプル1+3+4組", "マスマティカコンストレイント"],
-    "Backgrounds": "円周率(3.14)から由来"
+    "Backgrounds": "円周率(3.14)から由来",
+    "Backgrounds_EN": "Derived from the value of pi (3.14)."
   },
   {
     "Num": "333-mp",
@@ -717,7 +723,8 @@
     "SPCodeName_EN": "Days of Year",
     "GenderType": "Neutral",
     "Class": ["トリプル3+5+6組", "カレンド"],
-    "Backgrounds": "1年の年数(365日)から由来\nなお、「366(ウルウニチ)」とは義理の姉妹関係にある"
+    "Backgrounds": "1年の年数(365日)から由来\nなお、「366(ウルウニチ)」とは義理の姉妹関係にある",
+    "Backgrounds_EN": "Derived from the number of days in a year (365 days).\nNote: has a step-sibling relationship with '366(Leaperlica)'."
   },
   {
     "Num": 366,
@@ -732,7 +739,8 @@
     "SPCodeName_EN": "Days of Leaped-Year",
     "GenderType": "Neutral",
     "Class": ["デュオトリプル6型乙組", "カレンド"],
-    "Backgrounds": "閏年の日数(366日)から由来\nなお、「365(イヤース)」とは義理の姉妹関係にある"
+    "Backgrounds": "閏年の日数(366日)から由来\nなお、「365(イヤース)」とは義理の姉妹関係にある",
+    "Backgrounds_EN": "Derived from the number of days in a leap year (366 days).\nNote: has a step-sibling relationship with '365(Yearß)'."
   },
   {
     "Num": 369,
@@ -760,7 +768,8 @@
     "CodeName_EN": "Three-Seven-Zero",
     "GenderType": "Neutral",
     "Class": ["テンズデュアルキャリーズ", "ナルシシスツ"],
-    "Backgrounds": "ちなみに、153,370,371,407はナルシシスト数である"
+    "Backgrounds": "ちなみに、153,370,371,407はナルシシスト数である",
+    "Backgrounds_EN": "Incidentally, 153, 370, 371, and 407 are narcissistic numbers."
   },
   {
     "Num": 371,
@@ -774,7 +783,8 @@
     "CodeName_EN": "Three-Seven-One",
     "GenderType": "Neutral",
     "Class": ["トリプル1+3+7組", "ナルシシスツ"],
-    "Backgrounds": "ちなみに、153,370,371,407はナルシシスト数である"
+    "Backgrounds": "ちなみに、153,370,371,407はナルシシスト数である",
+    "Backgrounds_EN": "Incidentally, 153, 370, 371, and 407 are narcissistic numbers."
   },
   {
     "Num": 373,
@@ -886,7 +896,8 @@
     "CodeName_EN": "Four-Zero-Seven",
     "GenderType": "Neutral",
     "Class": ["サイドデュアルイレブンズ", "ナルシシスツ"],
-    "Backgrounds": "ちなみに、153,370,371,407はナルシシスト数である"
+    "Backgrounds": "ちなみに、153,370,371,407はナルシシスト数である",
+    "Backgrounds_EN": "Incidentally, 153, 370, 371, and 407 are narcissistic numbers."
   },
   {
     "Num": 411,
@@ -1108,7 +1119,8 @@
     "SPCodeName_EN": "Alter Faith",
     "GenderType": "Neutral",
     "Class": ["デュオトリプル4型丙組", "フェイタルテールズ"],
-    "Backgrounds": "666(リリス)に強く関連しているらしい"
+    "Backgrounds": "666(リリス)に強く関連しているらしい",
+    "Backgrounds_EN": "Reportedly has strong ties to '666(Lilith)'."
   },
   {
     "Num": 625,

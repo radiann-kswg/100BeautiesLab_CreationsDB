@@ -2,7 +2,7 @@
 
 > **対象**: Claude Code / GitHub Copilot / その他 AI 翻訳ツール  
 > **目的**: 100BeautiesLab. Creations DB の全作品における `_EN` フィールドの英訳を、既存実装と一貫した形式で生成・補完するための規則集  
-> **最終更新**: 2026-06-14
+> **最終更新**: 2026-06-15
 
 ---
 
@@ -129,7 +129,10 @@ Seven fox-type tails  ← Seven は既存値があれば保持
 Single bud-type tail (1 large cluster + 9 small clusters)
 Eleven nekomata-type tails
 Two scorpion-type tails (each with 11 clusters/segments)
+Nekomata (Special) Type: 1 Tail, 3 Tufts [Branches]   ← 猫又(特殊)型1本3束[枝]
 ```
+
+> **猫又の分岐型**は `Nekomata (Special) Type: N Tail(s), M Tufts [Branches]` 形式。枝分かれなしの複数本型（`Eleven nekomata-type tails`）とは書式が異なる。
 
 **実例（Num 66〜70）**:
 
@@ -201,7 +204,7 @@ EN でもこの構造（`;`, `/`, `\n`）をそのまま維持する。
 
 | JP 敬称 | EN 変換 | 備考 |
 |---|---|---|
-| `~君` / `~クン` | `~-kun` または `Mr./Ms.~` | キャラクター性格依存（上記の基準を参照） |
+| `~君` / ロール名+君 / `~クン` | `~-kun` または `Mr./Ms.~` / `Client-kun` 等 | キャラクター性格依存（上記の基準を参照）。ロール名はそのまま前置 |
 | `~さん` / ロール名+さん | `~-san` または `Mr./Ms.~` / `Client-san` 等 | 同上。ロール名はそのまま前置 |
 | `~ちゃん` | `~-chan` | |
 | `~殿` | `~-dono` | |
@@ -249,6 +252,7 @@ he/she; [指示表現 or 敬称/参照形]; [*by name or 参照]
 | 角括弧参照型 | `[*Adapts to the master's preferences]` | `[Free Style]` ラベルは含めない |
 | 括弧内注釈 | `Master.~ (*shi; exceptions apply)` | 括弧を閉じる前に全注釈を収める |
 | ロール名+さん | `Client-san` 等 | `クライアントさん` → `Client-san`（`Client` のみは不正解） |
+| ロール名+君 | `Client-kun` 等 | `クライアント君` → `Client-kun`（`Client` のみは不正解） |
 | 複数の呼び方 | `\n` で区切る | |
 
 複数候補をスラッシュ区切りにする場合、共通修飾語は前置：  
@@ -290,12 +294,12 @@ he/she; [指示表現 or 敬称/参照形]; [*by name or 参照]
 | NT db_Secondary | 0xA–0xF 追加済（2026-06-14）。他レコードに ThirdPersonCalling なし |
 | FL db_Primary | 全件あり |
 | FL db_PrimaryDealer | 全件あり（2026-06-14 修正: `*のこ` / `~君` 各1件） |
-| DestinyFoxRecords | 全件あり |
+| DestinyFoxRecords | 全件あり（2026-06-15 修正: `(as Mr/Ms.~)` 注釈削除 2件） |
 | ShouArRiders | 全件あり |
-| Proxies | 全件あり |
+| Proxies | 全件あり（2026-06-15 修正: `(as Mr/Ms.~)` 注釈削除・`[by name]` → `[*by name]` 各1件） |
 | PastDivers | 全件あり |
-| SinisterChangingGirls | 未確認（要チェック） |
-| UnauthedLogica | 未確認（要チェック） |
+| SinisterChangingGirls | 全件あり（2026-06-15 修正: `[by name]` `*` 欠落 1件・`(as Mr/Ms.)` 注釈削除 1件） |
+| UnauthedLogica | 全件あり（2026-06-15 修正: `(as Mr/Ms.~)` → `Mr./Ms.~` 変換 1件） |
 
 ---
 
@@ -333,6 +337,19 @@ he/she; [指示表現 or 敬称/参照形]; [*by name or 参照]
 ### 3-7. `Backgrounds_EN` / `InStory_EN` / `RelationNotes_EN`
 
 **`Backgrounds_EN`**: 1〜2文の背景情報。固有名詞（人名・型番等）はそのまま保持。
+
+NT db_SelfSecondary 等でよく使われる頻出パターン:
+
+| JP パターン | EN パターン |
+|---|---|
+| `ちなみに、〜` | `Incidentally, ...` |
+| `〜から由来` | `Derived from ...` |
+| `なお、〜` | `Note: ...` |
+| `〜と姉妹関係は無い` | `has no sibling relationship with '...'` |
+| `〜と義理の姉妹関係にある` | `has a step-sibling relationship with '...'` |
+| `〜に強く関連しているらしい` | `Reportedly has strong ties to '...'` |
+
+キャラクター名を引用する場合は `'Num(Name)'` 形式（例: `'366 (Leaperlica)'`）。
 
 **`InStory_EN`**: 作品内の役割・立場説明。特殊ユニット型は `"Unit.N+M type"` 形式。
 
@@ -539,4 +556,5 @@ function setCommentEN(record, type, targetNum, enText) {
 | スキーマ全体 | `data/db_type.json ($DefType)` |
 | API/SW 仕様 | `docs/api-sw-spec.md` |
 | 実装方針 | `docs/implementation-playbook.md` |
-| 英訳作業進捗 | `_work_in_progress/2026-06-12_progress_translation-style-unified.md` |
+| 英訳作業進捗（最新） | `_work_in_progress/2026-06-15_progress_localization-audit.md` |
+| 英訳作業進捗（旧） | `_work_in_progress/2026-06-12_progress_translation-style-unified.md` |
