@@ -396,8 +396,8 @@ EN: NT の漢数字は 1 桁ずつ英語数詞にしてハイフン連結（`七
 | `*の方` | `that side/person there` | |
 | `*奴(やつ)` | `that/this/whom one` | |
 | `*ちら(の者)` | `that side/person there` | polite |
-| `~君` / `~クン` / `~くん` | `~-kun` | **`Mr/Ms.~` は不正解** |
-| `~さん` | `~-san` | |
+| `~君` / `~クン` / `~くん` | `~-kun` または `Mr./Ms.~` | キャラ性格依存（→ `localization-en-rules.md § 3-3-4`）。`(as Mr/Ms.~)` 注釈付き併記は不可 |
+| `~さん` | `~-san` または `Mr./Ms.~` | 同上 |
 | `~ちゃん` | `~-chan` | |
 | `~殿` | `~-dono` | |
 | `~先輩` | `~-senpai` | |

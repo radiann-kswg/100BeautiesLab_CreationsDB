@@ -2,7 +2,7 @@
 
 > **作成日**: 2026-06-15  
 > **目的**: これまでに行った英訳作業について、`localization-en-rules.md` / `jp-notation-rules.md` のルールに照らした整合性チェックを実施し、問題箇所を一覧化する  
-> **ステータス**: 調査完了 / 修正作業 未着手  
+> **ステータス**: 調査完了 / カテゴリ5 対応完了（2026-06-15）/ その他カテゴリ未着手  
 > **参照ルール**: `docs/localization-en-rules.md`, `docs/jp-notation-rules.md`
 
 ---
@@ -190,6 +190,42 @@
 - [ ] カテゴリ 7: ThirdPersonCalling_EN 要素補完（NT/db_Primary.json — Num 2）
 - [ ] カテゴリ 8: `[*by name]` の `*` 追加（SCG/db_Primary.json — ミル.NuXV）
 - [ ] 未確認ファイルのチェック（db_SelfSecondary.json, UnibyteLive 等）
+
+---
+
+## 修正履歴
+
+### 2026-06-15 — カテゴリ5「`~君/さん` コンテキスト依存修正」対応
+
+**方針変更**: `~君/さん` の英訳はキャラクターの性格・口調に応じてコンテキスト依存で判断するよう方針を改定した。
+
+| 判定基準 | 英訳形式 |
+|---|---|
+| フォーマル・才能型・距離感のある敬意 | `Mr./Ms.~` |
+| カジュアル・友好的・母性型・アイドル調 | `~-kun` / `~-san` |
+
+**禁止パターン確定**: `~-san (as Mr/Ms.~)` 等、両形式を注釈併記する書き方はどちらか一方に統一すること。
+
+**ルール文書更新**:
+- `docs/localization-en-rules.md § 3-3-4` — コンテキスト依存の説明を追加
+- `docs/jp-notation-rules.md § 7` — 対応表を更新
+
+**データ修正 (7件)**:
+
+| ファイル | キャラ | フィールド | 変更内容 |
+|---|---|---|---|
+| FLI/db_PrimaryDealer.json | 金田一 卓斗 (StoatNum 1) | `ThirdPersonCalling_EN` | `~-kun` → `Mr./Ms.~`（才能あふれる自発型） |
+| FLI/db_PrimaryDealer.json | 仙道歩浪 (StoatNum 9) | `ThirdPersonCalling_EN` | `Mr/Ms.~` → `Mr./Ms.~`（ピリオド統一） |
+| DFR/db_Primary.json | 扇二春 (Unit: rad) | `ThirdPersonCalling_EN` | `(as Mr/Ms.~)` 注釈を削除（カジュアル型） |
+| DFR/db_Primary.json | ステラ (Unit: sr) | `ThirdPersonCalling_EN` | `(as Mr/Ms.~)` 注釈を削除（ゆるふわ母性型） |
+| UL/db_Primary.json | 六花雙葉/Dozenne | `ThirdPersonCalling_EN` | `~-san (as Mr/Ms.~)` → `Mr./Ms.~`（お淑やか・格式高い） |
+| Proxies/db_Proxy.json | 3代目ラジアン | `ThirdPersonCalling_EN` | `(as Mr/Ms.~)` 注釈を削除（陽のヲタク型） |
+| SCG/db_Primary.json | 気さくな好青年 | `SecondPersonCalling_EN` | `(as Mr/Ms.)` 注釈を削除（気さくな若者） |
+
+**監査報告の訂正**:
+- FLI/db_PrimaryDealer — StoatNum 1 の `For79thDealerCalling_EN: "Ms.Dancy"` / `For80thDealerCalling_EN: "Ms.Phonia"` は、当初「誤り」と判定したが実際には正しい（キャラクターの正式・才能型の性格に合致）。修正不要。
+- 同 StoatNum 9 の `For79thDealerCalling_EN: "Dancy\nMs.Dancy"` / `For80thDealerCalling_EN: "Phonia\nMs.Phonia"` も同様に正しい（陰キャで信頼人に敬意を示す性格に合致）。修正不要。
+- DFR の「3代目ラジアン」は実在せず、ステラ（環ひかり）への誤ラベル。
 
 ---
 

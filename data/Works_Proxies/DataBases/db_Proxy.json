@@ -9,9 +9,7 @@
     },
     "Name": "ラジアン(2代目)",
     "Name_EN": "RadianN (2nd Gen.)",
-    "Images": {
-      "design_PNGName": "dsgn_imgRN2"
-    },
+    "Images": { "design_PNGName": "dsgn_imgRN2" },
     "FormalName": "扇 二春",
     "FormalName_EN": "Arch Seconec",
     "RaceType": "Warfox(Acquired)",
@@ -76,7 +74,7 @@
     "SecondPersonCalling": "キミ,[※名前呼び]",
     "SecondPersonCalling_EN": "you, [*by name]",
     "ThirdPersonCalling": "彼/彼女;*イツ/*レ;[※名前呼び],~くん/~ちゃん",
-    "ThirdPersonCalling_EN": "he/she; this/that/who/what/which/them (as personal or objective); [*by name],~-kun/~-chan (as Mr/Ms.~)",
+    "ThirdPersonCalling_EN": "he/she; this/that/who/what/which/them (as personal or objective); [*by name], ~-kun/~-chan",
     "Character": "底抜けに明るく悩みや難しいことは一切無縁な陽のヲタク\n特殊なフェチズムに対する執着が全面に出過ぎてしまう一面も",
     "Character_EN": "A boundlessly cheerful otaku of the 'positive' variety, entirely free from worries or complicated matters\nWith a side that lets their attachment to particular fetishes come through a bit too prominently",
     "Hobby": "創作世界を放浪する",
@@ -150,7 +148,6 @@
       ]
     }
   },
-
   {
     "Generation": 1,
     "Progress": "unprofiled",
