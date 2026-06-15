@@ -230,7 +230,7 @@
       }
     ],
     "FirstPersonCalling": "ミル ※名前呼び",
-    "FirstPersonCalling_EN": "Lamill (*own name); [by name]",
+    "FirstPersonCalling_EN": "Lamill (*own name); [*by name]",
     "SecondPersonCalling": "[※名前呼び],おにいちゃん/おねえちゃん ※表現揺れあり",
     "SecondPersonCalling_EN": "[*by name], bros/sis (as old-brother/sister *expression varies)",
     "ThirdPersonCalling": "[※二人称],~おにいちゃん/~おねえちゃん ※表現揺れあり",

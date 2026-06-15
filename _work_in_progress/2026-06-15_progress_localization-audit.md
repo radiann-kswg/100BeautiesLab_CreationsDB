@@ -2,7 +2,7 @@
 
 > **作成日**: 2026-06-15  
 > **目的**: これまでに行った英訳作業について、`localization-en-rules.md` / `jp-notation-rules.md` のルールに照らした整合性チェックを実施し、問題箇所を一覧化する  
-> **ステータス**: 調査完了 / カテゴリ5 対応完了（2026-06-15）/ その他カテゴリ未着手  
+> **ステータス**: 調査完了 / カテゴリ1〜8 対応完了（2026-06-15）/ 未確認ファイルのみ残  
 > **参照ルール**: `docs/localization-en-rules.md`, `docs/jp-notation-rules.md`
 
 ---
@@ -180,15 +180,14 @@
 
 ## 未完了タスク
 
-- [ ] カテゴリ 1: Neutral代名詞修正（NT/db_Primary.json — Num 1, 7, 11）
-- [ ] カテゴリ 2: TailsUnit_EN フォーマット修正（NT/db_Primary.json — Num 12, 13, 14, 55付近）
-  - Num 13 の JP 原文（`上2束1本+下1束2本` の解釈）を事前確認すること
-- [ ] カテゴリ 3: `Ms./Mr.~` → `~-kun/~-san` 修正（FLI/db_PrimaryDealer.json）
-- [ ] カテゴリ 4: 旧パターン修正（NT/db_SemiPrimary.json — Num 111）
-- [ ] カテゴリ 5: 不要な `(as Mr/Ms.~)` 削除（DFR・UL）
-- [ ] カテゴリ 6: `ForMasterCalling_EN` 修正（UL/db_Primary.json — Zera）
-- [ ] カテゴリ 7: ThirdPersonCalling_EN 要素補完（NT/db_Primary.json — Num 2）
-- [ ] カテゴリ 8: `[*by name]` の `*` 追加（SCG/db_Primary.json — ミル.NuXV）
+- [x] カテゴリ 1: Neutral代名詞修正（NT/db_Primary.json — Num 1, 7）※ Num 11 は調査時点で既に ze/zir 使用済みのため修正不要
+- [x] カテゴリ 2: TailsUnit_EN フォーマット修正（NT/db_Primary.json — Num 12, 13, 14, 55付近）※ `上X束Y本` → `X clusters xY`（xY=グループ合計本数）パターンを確認・統一
+- [x] カテゴリ 3: 方針転換により「FLI StoatNum 1 の For79th/80thDealerCalling は実際には正しい」と訂正 → 修正不要
+- [x] カテゴリ 4: 旧パターン修正（NT/db_SemiPrimary.json — Num 111）`that/this/whom one` → `that fellow (*yatsu)`
+- [x] カテゴリ 5: 不要な `(as Mr/Ms.~)` 削除 + コンテキスト依存修正（DFR・UL・SCG・FLI・Proxies）
+- [x] カテゴリ 6: `ForMasterCalling_EN` 修正（UL/db_Primary.json — Zera）`"my client"` → `"Client-kun"`
+- [x] カテゴリ 7: ThirdPersonCalling_EN 要素補完（NT/db_Primary.json — Num 2）`~さん` を追加
+- [x] カテゴリ 8: `[*by name]` の `*` 追加（SCG/db_Primary.json — ミル.NuXV、Proxies/db_Proxy.json — 2代目）
 - [ ] 未確認ファイルのチェック（db_SelfSecondary.json, UnibyteLive 等）
 
 ---
