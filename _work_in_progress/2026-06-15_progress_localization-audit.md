@@ -1,0 +1,200 @@
+# 和英ローカライズ 整合性監査レポート
+
+> **作成日**: 2026-06-15  
+> **目的**: これまでに行った英訳作業について、`localization-en-rules.md` / `jp-notation-rules.md` のルールに照らした整合性チェックを実施し、問題箇所を一覧化する  
+> **ステータス**: 調査完了 / 修正作業 未着手  
+> **参照ルール**: `docs/localization-en-rules.md`, `docs/jp-notation-rules.md`
+
+---
+
+## 問題件数サマリー
+
+| ファイル | 問題数 | 主要カテゴリ |
+|---|---|---|
+| `Works_NumberTales/db_Primary.json` | 12 | 代名詞(ze/zir)・TailsUnit_EN・呼称欠落 |
+| `Works_NumberTales/db_SemiPrimary.json` | 1 | 呼称旧パターン |
+| `Works_FLInvestigator78/db_PrimaryDealer.json` | 5 | `~君/~さん` → `Ms./Mr.~` 誤り |
+| `Works_SinisterChangingGirls/db_Primary.json` | 1 | `[by name]` の `*` 欠落 |
+| `Works_DestinyFoxRecords/db_Primary.json` | 3 | 不要な `(as Mr/Ms.~)` 補足 |
+| `Works_UnauthedLogica/db_Primary.json` | 2 | `Client-kun` 未適用・不要補足 |
+| **合計** | **24** | |
+
+> **問題なし確認済み**: NT/db_Secondary.json, FL/db_Primary.json, SAR/db_Primary.json, Proxies/db_Proxy.json, PastDivers/db_Primary.json
+
+---
+
+## カテゴリ別 詳細
+
+### カテゴリ 1: Neutral代名詞の混入（ze/zir → she/her 誤り）
+
+**ルール参照**: `localization-en-rules.md § 1` — Neutral GenderType は `ze/zir/zirself`。`they/them`・`he/she`・`him/her` は使わない。
+
+#### NT/db_Primary.json — Num 1「ハジメ」(GenderType: Neutral)
+
+| フィールド | 現在値（問題部分） | 修正案 |
+|---|---|---|
+| `Character_EN` | `"Positively embracing her own individuality"` | `"Positively embracing zir own individuality"` |
+| `Unlike_EN` | `"Having her identity denied"` | `"Having zir identity denied"` |
+| `Weakness_EN` | `"Surprisingly, her sense of identity as an individual is rather thin"` | `"Surprisingly, zir sense of identity as an individual is rather thin"` |
+
+#### NT/db_Primary.json — Num 7「Sevan」(GenderType: Neutral)
+
+| フィールド | 現在値（問題部分） | 修正案 |
+|---|---|---|
+| `Weakness_EN` | `"has no outfits she can wear well besides Japanese-style clothing"` | `"has no outfits ze can wear well besides Japanese-style clothing"` |
+
+#### NT/db_Primary.json — Num 11「Elevan」(GenderType: Neutral)
+
+| フィールド | 現在値（問題部分） | 修正案 |
+|---|---|---|
+| `NumerospecAbout_EN` | `"Leads both the Master and herself to become honest with themselves"` | `"Leads both the Master and zirself to become honest with themselves"` |
+| `Summary_EN` | `her straightforward`, `She admires`, `calls her` 等複数箇所 | ze/zir/zirself に統一（要個別確認） |
+
+---
+
+### カテゴリ 2: TailsUnit_EN の旧フォーマット
+
+**ルール参照**: `localization-en-rules.md § 3-2` — 枝分かれ型は `Fox (branched) type: N tails (upper: X clusters xY, lower: Z clusters xW)` 形式。
+
+#### NT/db_Primary.json — Num 12・13・14 付近（枝分かれ型）
+
+| Num | 現在値 | 修正案 |
+|---|---|---|
+| 12 | `"Two branching fox-type tails (1 upper cluster of 2 + 1 lower cluster of 1)"` | `"Fox (branched) type: 2 tails (upper: 2 clusters x1, lower: 1 cluster x1)"` |
+| 13 | `"Three branching fox-type tails (1 upper cluster of 2 + 2 lower clusters of 1)"` | `"Fox (branched) type: 3 tails (upper: 2 clusters x1, lower: 1 cluster x2)"` |
+| 14 | `"Four branching fox tails (upper: 1 tail with 2 clusters + lower: 1 tail with 3 clusters)"` | `"Fox (branched) type: 4 tails (upper: 2 clusters x1, lower: 1 cluster x3)"` |
+
+> **注意**: Num 13 の JP `上2束1本+下1束2本` の意味（上: 2束×1本、下: 1束×2本）と EN 訳の対応が混乱している可能性あり。修正前に JP の原文を再確認すること。
+
+#### NT/db_Primary.json — Num 55 付近（単一クラスター型、`(branched)` 欠落）
+
+| フィールド | 現在値 | 修正案 |
+|---|---|---|
+| `TailsUnit_EN` | `"Fox type: 2 clusters x5 tails"` | `"Fox (branched) type: 2 clusters x5 tails"` |
+
+---
+
+### カテゴリ 3: `~君/~さん` → `Ms./Mr.~` 誤り（FLI）
+
+**ルール参照**: `localization-en-rules.md § 3-3-4` — `~君` → `~-kun`。`Mr/Ms.~` は不正解。
+
+#### FLI/db_PrimaryDealer.json — オリジン
+
+| フィールド | JP 値 | 現在 EN 値 | 修正案 |
+|---|---|---|---|
+| `For79thDealerCalling_EN` | `"舞(まい)君"` | `"Ms.Dancy"` | `"Dancy-kun"` |
+| `For80thDealerCalling_EN` | `"歌(うた)君"` | `"Ms.Phonia"` | `"Phonia-kun"` |
+
+#### FLI/db_PrimaryDealer.json — 仙道歩浪
+
+| フィールド | JP 値（問題部分） | 現在 EN 値（問題部分） | 修正案 |
+|---|---|---|---|
+| `ThirdPersonCalling_EN`（`\n`後） | `"~さん ※信頼している人に対して"` | `"Mr/Ms.~ (*for those one trusts)"` | `"~-san (*for those one trusts)"` |
+| `For79thDealerCalling_EN`（`\n`後） | `"舞さん"` | `"Ms.Dancy"` | `"Dancy-san"` |
+| `For80thDealerCalling_EN`（`\n`後） | `"歌嫁さん"` | `"Ms.Phonia"` | `"Phonia-san"` |
+
+---
+
+### カテゴリ 4: 旧パターン `that/this/whom one`
+
+**ルール参照**: `localization-en-rules.md § 3-3-3` — `*奴(やつ)` → `that fellow (*yatsu)` または `that guy/gal (*yatsu)`。旧形式 `that/this/whom one` は使わない。
+
+#### NT/db_SemiPrimary.json — Num 111「Ize」
+
+| フィールド | JP 値 | 現在 EN 値 | 修正案 |
+|---|---|---|---|
+| `ThirdPersonCalling_EN` | `"*奴(やつ);[※名前呼び]"` | `"that/this/whom one; [*by name]"` | `"that fellow (*yatsu); [*by name]"` |
+
+---
+
+### カテゴリ 5: 不要な `(as Mr/Ms.~)` 補足
+
+**ルール参照**: `localization-en-rules.md § 3-3-4` — `~-kun`・`~-san`・`~-chan` の後に `(as Mr/Ms.~)` は付けない。
+
+#### DFR/db_Primary.json — 2代目ラジアン（扇二春）
+
+| フィールド | 現在 EN 値（問題部分） | 修正案 |
+|---|---|---|
+| `SecondPersonCalling_EN` | `"you, [*by name], ~-kun/~-san (Mr/Ms.~)"` | `"you, [*by name], ~-kun/~-san"` |
+| `ThirdPersonCalling_EN` | `"he/she; this/that/who/what/which/them (as personal or objective); ~-kun/~-san (as Mr/Ms.~)"` | `"he/she; this/that/who/what/which/them (as personal or objective); ~-kun/~-san"` |
+
+#### DFR/db_Primary.json — 3代目ラジアン
+
+| フィールド | 現在 EN 値（問題部分） | 修正案 |
+|---|---|---|
+| `ThirdPersonCalling_EN` | `"he/she; ...; [*by name], ~-kun/~-chan (as Mr/Ms.~)"` | `"he/she; ...; [*by name], ~-kun/~-chan"` |
+
+#### UL/db_Primary.json — 六花雙葉/クィーン.トゥエルヴ
+
+| フィールド | 現在 EN 値（問題部分） | 修正案 |
+|---|---|---|
+| `ThirdPersonCalling_EN` | `"Dozenne (front personality): he/she; ~-san (as Mr/Ms.~)\n..."` | `"Dozenne (front personality): he/she; ~-san\n..."` |
+
+---
+
+### カテゴリ 6: `Client-kun` 未適用
+
+**ルール参照**: `localization-en-rules.md § 3-3-6` — `クライアントさん` → `Client-san`。同様に `クライアント君` → `Client-kun`。
+
+#### UL/db_Primary.json — 零(かずない)零(れい)/Zera
+
+| フィールド | JP 値 | 現在 EN 値 | 修正案 |
+|---|---|---|---|
+| `ForMasterCalling_EN` | `"クライアント君"` | `"my client"` | `"Client-kun"` |
+
+---
+
+### カテゴリ 7: ThirdPersonCalling_EN の要素欠落
+
+**ルール参照**: `localization-en-rules.md § 3-3`・`jp-notation-rules.md § 1-1` — JP の区切り文字の構造（`;`・`/`・`,`・`\n`）を EN でも維持する。
+
+#### NT/db_Primary.json — Num 2「ツグ」
+
+| フィールド | JP 値 | 現在 EN 値 | 修正案 |
+|---|---|---|---|
+| `ThirdPersonCalling_EN` | `"彼/彼女;~さん,[※名前呼び]"` | `"he/she; [*by name]"` | `"he/she; ~-san, [*by name]"` |
+
+---
+
+### カテゴリ 8: `[by name]` の `*` 欠落
+
+**ルール参照**: `localization-en-rules.md § 3-3-2` — `[※名前呼び]` → `[*by name]`（`[by name]` は不正解）。
+
+#### SCG/db_Primary.json — ミル.NuXV
+
+| フィールド | JP 値 | 現在 EN 値 | 修正案 |
+|---|---|---|---|
+| `FirstPersonCalling_EN` | `"ミル ※名前呼び"` | `"Lamill (*own name); [by name]"` | `"Lamill (*own name); [*by name]"` |
+
+---
+
+## 未確認ファイル
+
+`localization-en-rules.md § 3-3-9` に記載の「未確認（要チェック）」対象に加え、以下のファイルは今回の監査スコープ外：
+
+- `Works_NumberTales/db_SelfSecondary.json` — EN フィールド有無未確認
+- `Works_NumberTales/db_UnprocessedSecondary.json` — 未処理データとして除外
+- `Works_UnibyteLive/DataBases/` — 全ファイル未確認
+
+---
+
+## 未完了タスク
+
+- [ ] カテゴリ 1: Neutral代名詞修正（NT/db_Primary.json — Num 1, 7, 11）
+- [ ] カテゴリ 2: TailsUnit_EN フォーマット修正（NT/db_Primary.json — Num 12, 13, 14, 55付近）
+  - Num 13 の JP 原文（`上2束1本+下1束2本` の解釈）を事前確認すること
+- [ ] カテゴリ 3: `Ms./Mr.~` → `~-kun/~-san` 修正（FLI/db_PrimaryDealer.json）
+- [ ] カテゴリ 4: 旧パターン修正（NT/db_SemiPrimary.json — Num 111）
+- [ ] カテゴリ 5: 不要な `(as Mr/Ms.~)` 削除（DFR・UL）
+- [ ] カテゴリ 6: `ForMasterCalling_EN` 修正（UL/db_Primary.json — Zera）
+- [ ] カテゴリ 7: ThirdPersonCalling_EN 要素補完（NT/db_Primary.json — Num 2）
+- [ ] カテゴリ 8: `[*by name]` の `*` 追加（SCG/db_Primary.json — ミル.NuXV）
+- [ ] 未確認ファイルのチェック（db_SelfSecondary.json, UnibyteLive 等）
+
+---
+
+## 参考リンク
+
+- `docs/localization-en-rules.md` — 英訳ルールブック
+- `docs/jp-notation-rules.md` — 和文フィールド記法ルール
+- `_work_in_progress/2026-06-12_progress_translation-style-unified.md` — 前回の英訳進捗記録
