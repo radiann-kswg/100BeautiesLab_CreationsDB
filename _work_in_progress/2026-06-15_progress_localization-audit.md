@@ -370,6 +370,138 @@ Python スクリプト経由でのファイル書き込みにも PostToolUse フ
 
 ---
 
+---
+
+## NumberTales db_Primary.json — 残存 EN フィールド一括挿入（2026-06-15 完了）
+
+### 対応内容
+
+- **スクリプト**: `.cache/insert_en_primary_batch.py`
+- **変更レコード**: 20 件
+- **挿入フィールド合計**: 107 件
+- **JSON バリデーション**: `json.loads()` 確認 OK
+- **監査後の未翻訳残件数**: **0 件**（`audit_missing_en_primary_out.py` 実行で確認）
+
+### 対象キャラクター一覧
+
+| Num | Name_EN | GenderType | 挿入フィールド数 |
+|---|---|---|---|
+| 71 | 71(Sevone) | MaleNeutral | TailsUnit_EN (1) |
+| 72 | 72(Sevtwína) | Neutral | TailsUnit_EN (1) |
+| 73 | 73(Sevthira) | FemaleNeutral | TailsUnit_EN (1) |
+| 74 | 74(Sefoury) | FemaleNeutral | TailsUnit_EN (1) |
+| 75 | 75(Sefievn) | Neutral | TailsUnit_EN (1) |
+| 90 | 90(Nintiels) | UNKNOWN | NumerospecAbout_EN (1) |
+| 91 | 91(Ninone) | Neutral | NumerospecAbout_EN (1) |
+| 92 | 92(Nintwina) | MaleNeutral | TailsUnit_EN + 8フィールド (9) |
+| 93 | 93(Nintris) | FemaleNeutral | TailsUnit_EN + 8フィールド (9) |
+| 94 | 94(Ninfors) | Neutral | TailsUnit_EN + 8フィールド (9) |
+| 95 | 95(Ninfife) | MaleNeutral | 6フィールド (6) |
+| 96 | 96(Rota) | FemaleNeutral | TailsUnit_EN + 9フィールド (10) |
+| 97 | 97(Ninsefie) | FemaleNeutral | TailsUnit_EN + 10フィールド (11) |
+| 98 | 98(Nineigha) | FemaleNeutral | TailsUnit_EN + 8フィールド (9) |
+| 99 | 99(Thukumo) | Neutral | TailsUnit_EN + 7フィールド (8) |
+| 2-alt | Binor/2(Twicy) | FemaleNeutral | 10フィールド (10) |
+| 10-alt | Dicat/10(Decadle) | MaleNeutral | 5フィールド (5) |
+| 000 | 000(Thouser) | Neutral | 4フィールド (4) |
+| 0 | Zera Norumber | Female | 5フィールド (5) |
+| 00 | Hudret Norumber | Male | 5フィールド (5) |
+
+### 翻訳メモ
+
+- `クライアント君` → `"Client"` (Num0/00/000 の `ForMasterCalling_EN`)
+- `野望(ユメ)` → `dreambitions`（Num93 の Character_EN・NumerospecAbout_EN で採用、前セッション承認済み）
+- `余`（Num99 一人称）→ `"I"`（王族風の雰囲気は Character_EN に記載）
+- `わたくしめ`（Num97 一人称）→ `"this humble self"`
+- `神官さま`（Num97 ForMasterCalling）→ `"High Priest"`
+- `〜先生`（Num98 ForMasterCalling）→ `"~-sensei"`
+- `兄さん/姉さん`（Num92）→ `"Bro/Sis"`
+- `兄さま/姉さま`（Num2-alt）→ `"Big Bro/Big Sis"`
+
+---
+
+---
+
+## NT/db_Primary.json — Summary_EN 一括挿入（2026-06-15 完了）
+
+- **スクリプト**: `.cache/insert_summary_en_batch.py`
+- **変更レコード**: 6 件（Num 92, 93, 96, 97, 98, 99）
+- **JSON バリデーション**: `json.loads()` 確認 OK
+
+| Num | Name_EN | GenderType | 翻訳メモ |
+|---|---|---|---|
+| 92 | 92(Nintwina) | MaleNeutral | `corefolder forms nestled close together` — 寄り合い状態の意訳 |
+| 93 | 93(Nintris) | FemaleNeutral | `dreambitions` を Summary_EN でも採用（前セッション承認済み） |
+| 96 | 96(Rota) | FemaleNeutral | `can't get a read on her` — 「掴みどころがない」の自然な意訳 |
+| 97 | 97(Ninsefie) | FemaleNeutral | `fervent recommendations` — 熱心な勧誘の語感を維持 |
+| 98 | 98(Nineigha) | FemaleNeutral | `slapdash` — 「いい加減」の口語的英語 |
+| 99 | 99(Thukumo) | Neutral | モノローグ形式を維持。`彼(女)` → `ze` |
+
+---
+
+## NT/db_Primary.json — 拡張 EN フィールド一括挿入（2026-06-15 完了）
+
+対象: InStory_EN / Backgrounds_EN / Comments_EN / ConversationPattern._EN
+
+- **スクリプト**: `.cache/insert_extended_en_batch.py`
+- **挿入内訳**:
+  - InStory_EN: 13 件（Num92〜99, Binor/2-alt, 000, Zera, Hudret + 1件）
+  - Backgrounds_EN: 2 件（Num93, 000）
+  - Comments_EN: 44 件（Relation.Related / Commented の Comments_EN と Reply.Comments_EN）
+  - ConversationPattern._EN: 5 キャラ（Num93, 96, 000, Zera, Hudret）の全テキストフィールド + DialogueExamples.value_EN
+
+| キャラ | ConversationPattern 対応内容 |
+|---|---|
+| Num93(Nintris) | TalkingTone/TopicPreference/TalkFrequency/PreferredTopics/AvoidedTopics/ConversationNotes_EN + DialogueExamples 3件 |
+| Num96(Rota) | 同上 + DialogueExamples 3件 |
+| 000(Thouser) | 同上 + DialogueExamples 2件 |
+| Zera Norumber | 同上 + DialogueExamples 2件 |
+| Hudret Norumber | 同上 + DialogueExamples 2件 |
+
+- **value / value_JP 統合**: `DialogueExamples` で `value` キーを `value_JP` へ変換し `value_EN` を追加（Num1 の canonical 構造に統一）
+- **`dreambitions` 一貫性**: Num93 の Character_EN / NumerospecAbout_EN / Summary_EN / ConversationNotes_EN / DialogueExamples value_EN 全てで統一
+
+---
+
+## 最終包括監査（2026-06-15 完了）
+
+- **スクリプト**: `.cache/full_en_audit.py`
+- **対象**: 14 JSONデータベース全体
+- **結果**: `total_issues: 23` → 全て false positive / 意図的記述
+
+### false positive 内訳
+
+| 種別 | 件数 | 理由 |
+|---|---|---|
+| ThirdPersonCalling_EN の `he/she` | 14件 | **正しい**。「第三者への言及方法」フィールドであり、キャラ自身の代名詞ルールとは無関係 |
+| db_Secondary `NumerospecAbout_EN` 欠落 | 6件 | `{hideText: '極秘事項'/'公開不能'}` 構造の機密データ。翻訳不要・意図的 |
+| Num99 `？？？？` in NumerospecAbout_EN | 1件 | インナーバース内プレースホルダー。意図的 |
+| Num777 `㐂` in Backgrounds_EN | 2件（重複カウント） | EN テキスト内の漢字引用として意図的 |
+
+### 実際の未解決問題
+
+**`UL/db_PrimaryMobs.json` — ModelName_EN 欠落 4件**（→ 下記にて対応済み）
+
+---
+
+## UL/db_PrimaryMobs.json — ModelName_EN 挿入（2026-06-15 完了）
+
+- **スクリプト**: `.cache/insert_mobs_modelname_en.py`
+- **変更レコード**: 4 件（Schmittz, Nixee, Arith, Looka）
+- **翻訳ルール**: `汎用オートマトン` → `General-Purpose Automaton`。モデルコード（英数・キリル文字混合）はそのまま保持。
+
+| キャラ | ModelName_EN |
+|---|---|
+| Schmittz | `General-Purpose Automaton 7274IS14` |
+| Nixee | `General-Purpose Automaton 7IU55ID1 (7274IS141-compatible)\nGeneral-Purpose Automaton 7ИУ55ИД1` |
+| Arith | `General-Purpose Automaton 7274IS181` |
+| Looka | `General-Purpose Automaton 7274IS182` |
+
+- 修正後の再監査: `UL/db_PrimaryMobs.json` — **問題なし**
+- 全体総評: 実質 **genuine 問題 0 件**。リポジトリ全 JSON データベースの英訳が完了。
+
+---
+
 ## 参考リンク
 
 - `docs/localization-en-rules.md` — 英訳ルールブック

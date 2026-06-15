@@ -40,7 +40,7 @@
     "TermType": null,
     "Category": "役職・肩書",
     "Summary": "ナンバーテールズ1番機こと試作型1号機の「1(ハジメ)」は、ナンバーテールズの試験用個体として後続個体の機能テストを担っている。\nそのため、後続個体と同様の主従契約に勤しむことはなく、パブリッシャーである夜月機関のもとで開発試験に従事している。",
-    "Summary_EN": "NumberTales Mk.1, the prototype Unit.1 '1(Unitta)', serves as a test model for NumberTales, responsible for function testing of subsequent units.\nTherefore, it does not engage in the same kind of Master-Servant contract as subsequent units, and is instead involved in development testing under the publisher, Yadzuki Organization.",
+    "Summary_EN": "NumberTales Mk.1, the prototype Mk.1 '1(Unitta)', serves as a test model for NumberTales, responsible for function testing of subsequent units.\nTherefore, it does not engage in the same kind of Master-Servant contract as subsequent units, and is instead involved in development testing under the publisher, Yadzuki Organization.",
     "Aliases": [],
     "Links": []
   },
@@ -51,7 +51,7 @@
     "TermType": null,
     "Category": "役職・肩書",
     "Summary": "1桁の番号を持つナンバーテールズ（または、その他の最小単位となる番号のネーム個体）で構成されたクラスで、試作型1号機もとい1番機の「1(ハジメ)」、2番機の「2(ツグ)」、試作型2号機の「バイナ」、そして3～9番機の10人が中心となっている。\n1桁番はナンバーテールズの中でも基本的な“数秘的加護”を有している個体とされており、その動作安定度はもちろん最古参の個体としても名高く主従契約や開発実績も豊富にあり、デュアルズを筆頭とした後続個体の憧憬の的となっている。",
-    "Summary_EN": "The class of NumberTales (or other name units with the smallest unit of number) with single-digit numbers, centered around Mk.1 '1(Unitta)', Mk.2 '2(Twiny)', prototype Unit.2 'Binor', and Mk.3 through Mk.9.\nUniDigits are said to possess the basic Numerospec of NumberTales, and are renowned for their operational stability as well as being the most senior units, with abundant Master-Servant contracts and development achievements, making them an object of admiration for subsequent units such as the Duals.",
+    "Summary_EN": "The class of NumberTales (or other name units with the smallest unit of number) with single-digit numbers, centered around Mk.1 '1(Unitta)', Mk.2 '2(Twiny)', prototype Mk.2 'Binor', and Mk.3 through Mk.9.\nUniDigits are said to possess the basic Numerospec of NumberTales, and are renowned for their operational stability as well as being the most senior units, with abundant Master-Servant contracts and development achievements, making them an object of admiration for subsequent units such as the Duals.",
     "Aliases": ["1桁番", "一桁番", "1桁番(ユニデジッツ)"],
     "Links": []
   },
@@ -89,7 +89,7 @@
     "TermType": null,
     "Category": "役職・肩書",
     "Summary": "かつて試作型10号機「ディケ」の開発インシデントを受け、ナンバーテールズの提供において、ディケや10(ミツル)をはじめとする10の乗数を番号に持つごく一部の個体は、ナンバーテールズの暴走抑止のためにモデレーターとして活動している。\nその重要な役目を優先すべく契約不可能となった個体を識別するため、「デシベルモデレーターズ」という特殊クラスが百花繚乱研究所の関係者間向けに限定して設置されている。",
-    "Summary_EN": "In response to the development incident of prototype Unit.10 'Dicat', a very small number of units with numbers that are exponents of 10, including Dicat and '10(Tenim)', are active as moderators to suppress the rampage of NumberTales in their provision.\nTo prioritize this important role and identify units that have become uncontractable, a special class called 'Decibel Moderators' has been established exclusively for those involved with the 100 Beauties Lab.",
+    "Summary_EN": "In response to the development incident of prototype Mk.10 'Dicat', a very small number of units with numbers that are exponents of 10, including Dicat and '10(Tenim)', are active as moderators to suppress the rampage of NumberTales in their provision.\nTo prioritize this important role and identify units that have become uncontractable, a special class called 'Decibel Moderators' has been established exclusively for those involved with the 100 Beauties Lab.",
     "Aliases": ["デシベルモデレーターズ"],
     "Links": []
   },

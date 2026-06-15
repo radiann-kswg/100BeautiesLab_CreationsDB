@@ -221,7 +221,7 @@
       "DialogueExamples": [
         {
           "value_JP": "「ぼくは ナンバーテールズ試作型１号機、もとい１番機の『1(ハジメ)』！これからもよろしく！」",
-          "value_EN": "\"I'm 1(Unitta) — NumberTales Prototype Unit.1, and also NumberTales #1! Nice to meet you!\"",
+          "value_EN": "\"I'm 1(Unitta) — NumberTales Prototype Mk.1, and also NumberTales #1! Nice to meet you!\"",
           "about": "初対面時の自己紹介",
           "about_EN": "Introduction upon first meeting"
         },
@@ -22262,6 +22262,7 @@
       { "value": 40, "about_JP": "推定", "about_EN": "Presumption" }
     ],
     "TailsUnit": "キツネ(枝分かれ)型7本(上1束6本+下2束1本)",
+    "TailsUnit_EN": "Fox (branching-type) × 7 tails (upper bundle: 6 + lower bundle: 1)",
     "Class": ["デュアルエイツ"],
     "FirstPersonCalling": "ぼく",
     "FirstPersonCalling_EN": "I",
@@ -22563,6 +22564,7 @@
     "Weight_kg": 43,
     "BustSize": "B",
     "TailsUnit": "キツネ(枝分かれ)型7本(上1束5本+下2束2本)",
+    "TailsUnit_EN": "Fox (branching-type) × 7 tails (upper bundle: 5 + lower bundle: 2)",
     "Class": ["9倍2桁番(ナインズデュアルズ)"],
     "ThisMasters": ["綾沢 改奈/文月（夜月機関 第7幹部）"],
     "ThisMasters_EN": ["綾沢 改奈/文月（夜月機関 第7幹部）"],
@@ -22893,6 +22895,7 @@
     "Weight_kg": { "hideText": "非公開" },
     "BustSize": "C",
     "TailsUnit": "キツネ(枝分かれ)型7本(上1束4本+下2束3本)",
+    "TailsUnit_EN": "Fox (branching-type) × 7 tails (upper bundle: 4 + lower bundle: 3)",
     "Class": ["デュアルキャリーズ"],
     "FirstPersonCalling": "あたし",
     "FirstPersonCalling_EN": "I (fem. casual)",
@@ -23223,6 +23226,7 @@
     ],
     "BustSize": "B",
     "TailsUnit": "キツネ(枝分かれ)型7本(上1束3本+下2束4本)",
+    "TailsUnit_EN": "Fox (branching-type) × 7 tails (upper bundle: 3 + lower bundle: 4)",
     "Class": ["デュアルイレブンズ"],
     "FirstPersonCalling": "私(わたし)",
     "FirstPersonCalling_EN": "I",
@@ -23546,6 +23550,7 @@
     "Weight_kg": 42,
     "BustSize": "AA",
     "TailsUnit": "キツネ(枝分かれ)型7本(上1束2本+下2束5本)",
+    "TailsUnit_EN": "Fox (branching-type) × 7 tails (upper bundle: 2 + lower bundle: 5)",
     "Class": ["デュアルスリーズ"],
     "FirstPersonCalling": "私(わたし)",
     "FirstPersonCalling_EN": "I",
@@ -26736,7 +26741,7 @@
     "InStory": "どこから資金や資産を得ているのか、他のナンバーテールズや一部界隈からも不気味がられている",
     "InStory_EN": "Where he obtains his funds and assets is a mystery, and even fellow NumberTales and certain circles find him unsettling.",
     "Backgrounds": "加護については偶然の産物と言ってもいいほどで、零姉弟も彼女の加護についてほぼ知見が無いようだ",
-    "Backgrounds_EN": "His Numerospec is almost a product of coincidence — and even the Zera siblings appear to have almost no knowledge of it.",
+    "Backgrounds_EN": "His Numerospec is almost a product of coincidence — and even the Norumber siblings appear to have almost no knowledge of it.",
     "Relation": {
       "Related": [
         {
@@ -27264,6 +27269,7 @@
     ],
     "Class": ["10倍番(テンズデジッツ)"],
     "NumerospecAbout": "締めくくりや最終手段で本領発揮させる",
+    "NumerospecAbout_EN": "Brings out one's true potential in moments of final conclusion or last resort",
     "Relation": {
       "Commented": [{ "Num": 99, "RelationLabel": ["successor_nearly"] }]
     }
@@ -27290,6 +27296,7 @@
     ],
     "Class": ["デュアルキャリーズ"],
     "NumerospecAbout": "気持ちを切り替えさせる\nこの効果は物事の節目に最大となる",
+    "NumerospecAbout_EN": "Helps one switch their mindset\nThis effect reaches its peak at key turning points in one's life",
     "Relation": {
       "Commented": [
         { "Num": 18, "RelationLabel": ["cousin_nearly"] },
@@ -27328,18 +27335,26 @@
     ],
     "Weight_kg": 41,
     "TailsUnit": "キツネ(枝分かれ)型9本(上1束7本+下2束3本)",
+    "TailsUnit_EN": "Fox (branching-type) × 9 tails (upper bundle: 7 + lower bundle: 3)",
     "Class": ["デュアルイレブンズ"],
     "FirstPersonCalling": "僕",
     "FirstPersonCalling_EN": "I (masc. casual)",
     "SecondPersonCalling": "君\n貴方",
+    "SecondPersonCalling_EN": "you\nyou (formal)",
     "ThirdPersonCalling": "彼/彼女;[※名前呼び]",
     "ThirdPersonCalling_EN": "he/she; [*by name]",
     "ForMasterCalling": "兄さん/姉さん",
+    "ForMasterCalling_EN": "Bro/Sis",
     "Character": "接し方は淡泊でドライだが根はとても寛容",
+    "Character_EN": "Cool and dry in manner, but genuinely generous at heart",
     "Hobby": "エンタメ番組を見ること",
+    "Hobby_EN": "Watching entertainment shows",
     "SpecialSkill": "感情の整理",
+    "SpecialSkill_EN": "Sorting through emotions",
     "Favor": "冬、コアフォルダが寄り添っている様子",
+    "Favor_EN": "Winter; corefolder forms nestled close together",
     "Unlike": "姉を筆頭に怖がられていること",
+    "Unlike_EN": "Being seen as scary — his older sibling being the most feared of all",
     "IdentityMotif": [
       {
         "Formation": "corefolder",
@@ -27391,7 +27406,9 @@
       }
     ],
     "NumerospecAbout": "心を慰める\nただしこの効果は会話を通してのみ発動する",
+    "NumerospecAbout_EN": "Soothes the heart\nHowever, this effect only activates through conversation",
     "Summary": "彼と会話を続けていると、心の中に抱えている悩みが解消されると噂されているが、彼の話し口調そのものは冷酷に思われがち。\n時折 威圧的に思われてしまう事があるため率先して相談に乗ることは控えているが、彼なりの優しさがあってこその言動だと支持する主人や他個体も少なくはない。\n姉の「29(ニトク)」に避けられていることをコンプレックスに感じている。\n最近の癒しは寄り添い合うコアフォルダを眺めることだが、彼自身もその中に入りたいというのは別の話。",
+    "Summary_EN": "It is said that keeping up a conversation with him has a way of dissolving whatever worries you carry inside — yet his manner of speaking tends to come across as cold.\nBecause he sometimes comes off as intimidating, he holds back from proactively offering a listening ear; even so, no small number of masters and fellow units support him, seeing his words and actions as born from a kindness all his own.\nHe carries a complex about being avoided by his older sibling, '29(Twenina)'.\nHis recent source of comfort is watching corefolder forms nestled close together — though whether he'd like to join them himself is, of course, another matter entirely.",
     "NumerospecStats": {
       "EffectStats": {
         "Mental": { "EffectText": "絶大" },
@@ -27412,18 +27429,19 @@
       "Actuation": { "Rank": "B" }
     },
     "InStory": "話が長くなりそうなときは聞き専に回ることが多い\nコアフォルダ形態に癒しを感じている",
+    "InStory_EN": "Often switches to listener mode when conversations threaten to run long\nFinds comfort in the corefolder form",
     "Relation": {
       "Related": [
         {
           "Num": 19,
           "Comments": "「うざいけど、すごく有能な人だと思う」",
-          "Comments_EN": "「うざいけど、すごく有能な人だと思う」",
+          "Comments_EN": "Annoying as ze is, I think ze's incredibly capable.",
           "RelationLabel": ["cousin_nearly", "trusted"]
         },
         {
           "Num": 29,
           "Comments": "「……姉ちゃん…」",
-          "Comments_EN": "「……姉ちゃん…」",
+          "Comments_EN": "...Big sis...",
           "RelationLabel": ["brother|sister", "awkward", "trusted", "classmate"]
         },
         { "Num": 90, "RelationLabel": ["pioneer_nearly", "unmatched"] }
@@ -27432,19 +27450,19 @@
         {
           "Num": 2,
           "Comments": "「もっと肩の力を抜いた方がいい」",
-          "Comments_EN": "「もっと肩の力を抜いた方がいい」",
+          "Comments_EN": "You should really loosen up a bit.",
           "RelationLabel": ["pioneer_nearly"]
         },
         {
           "Num": 38,
           "Comments": "「時々見せる奇抜さと斬新さは尊敬できる」",
-          "Comments_EN": "「時々見せる奇抜さと斬新さは尊敬できる」",
+          "Comments_EN": "The eccentricity and novelty ze sometimes show — I can respect that.",
           "RelationLabel": ["classmate"]
         },
         {
           "Num": 74,
           "Comments": "「よくわからないけど…何？」",
-          "Comments_EN": "「よくわからないけど…何？」",
+          "Comments_EN": "I don't really get it... what's going on?",
           "RelationLabel": ["awkward_aBit", "classmate"]
         }
       ]
@@ -27625,6 +27643,7 @@
     "Weight_kg": 39,
     "BustSize": "A",
     "TailsUnit": "キツネ(枝分かれ)型9本(上1束6本+下2束3本)",
+    "TailsUnit_EN": "Fox (branching-type) × 9 tails (upper bundle: 6 + lower bundle: 3)",
     "Class": ["デュアルスリーズ"],
     "ThisMasters": ["乃木 希（VIPマスター;夜月機関 救命本部 推薦所属候補者）"],
     "ThisMasters_EN": [
@@ -27635,12 +27654,19 @@
     "SecondPersonCalling": "君",
     "SecondPersonCalling_EN": "you",
     "ThirdPersonCalling": "彼/彼女;*の人;[※名前呼び]",
+    "ThirdPersonCalling_EN": "he/she; *person; [*by name]",
     "ForMasterCalling": "[※二人称]\n相棒",
+    "ForMasterCalling_EN": "[*same as second-person]\npartner",
     "Character": "理想が高く、成果を一つの過程として捉えている\n夢ある少女で、強大な野望を掲げている",
+    "Character_EN": "Sets the bar high and sees every achievement as just one step in the process\nA girl full of dreams, carrying grand dreambitions",
     "Hobby": "偉人記念館巡り",
+    "Hobby_EN": "Touring halls and memorials of great figures",
     "SpecialSkill": "応援（実はヲタ芸もできる）",
+    "SpecialSkill_EN": "Cheering others on (can actually do otaku chanting too)",
     "Favor": "鉢巻\n表彰状（成果がわかるもの）",
+    "Favor_EN": "Headbands\nAward certificates (anything showing tangible results)",
     "Unlike": "挫折\n遊園地のアトラクション",
+    "Unlike_EN": "Setbacks\nAmusement park attractions",
     "IdentityMotif": [
       {
         "Formation": "corefolder",
@@ -27694,8 +27720,11 @@
       }
     ],
     "RelationNotes": "「3(ナオ)」「9(チカ)」を活動の目標に掲げている",
+    "RelationNotes_EN": "Looks up to '3(Treiya)' and '9(Nina)' as role models",
     "NumerospecAbout": "主人の抱える野望を叶える\nただしこの効果は主人との信頼関係に影響される",
+    "NumerospecAbout_EN": "Fulfills the dreambitions her master carries\nHowever, this effect is influenced by the trust between her and her master",
     "Summary": "「39(サク)」の妹に相当する個体。\n成し遂げたことは一つの「過程」としてとらえ、より高度な成果を期待してやまない。\nそのため、主人よりも向上意欲が強くなってすれ違ってしまうというミスマッチが発生している傾向にあるが、信頼関係が築かれた主人とは互いに大きな目標に向けて精進しているという話も。\n夢は、「3(ナオ)」と「9(チカ)」よりも強大な実績を手にすること。",
+    "Summary_EN": "The unit equivalent to the younger sister of '39(Trenína)'.\nShe regards anything she has achieved as merely one 'step in the process', and never stops expecting greater results to follow.\nAs a result, she tends to end up at cross-purposes with her master when her drive to improve surpasses theirs; and yet, with a master whose trust she has earned, the two are said to be striving together toward a shared grand goal.\nHer dream: to claim an accomplishment greater than those of '3(Treiya)' and '9(Nina)'.",
     "NumerospecStats": {
       "EffectStats": {
         "Mental": { "EffectText": "特殊" },
@@ -27716,25 +27745,27 @@
       "Actuation": { "Rank": "A" }
     },
     "InStory": "主人と信頼関係が築かれる前は主人より意気込むあまり、感情が暴走する恐れがあった（現在は収束している）",
+    "InStory_EN": "Before trust was established with her master, she was prone to emotional runaway from over-eagerness that exceeded her master's own pace (this has since stabilized)",
     "Backgrounds": "野望が強い性格のため、ROS開発中も幾度か暴走寸前になったことがあった",
+    "Backgrounds_EN": "Due to her strong-willed and ambitious nature, she came close to emotional runaway several times during ROS development",
     "Relation": {
       "Related": [
         {
           "Num": 3,
           "Comments": "「いつかこの人に負けない存在になりたい！」",
-          "Comments_EN": "「いつかこの人に負けない存在になりたい！」",
+          "Comments_EN": "I want to become someone who can stand shoulder to shoulder with them someday!",
           "RelationLabel": ["pioneer", "trusted"]
         },
         {
           "Num": 9,
           "Comments": "「かなり凄い人で尊敬すべき人！」",
-          "Comments_EN": "「かなり凄い人で尊敬すべき人！」",
+          "Comments_EN": "A truly incredible person — someone I look up to!",
           "RelationLabel": ["pioneer", "trusted"]
         },
         {
           "Num": 39,
           "Comments": "「お兄ちゃん、ああ見えてとても主人想いなんだよ！」",
-          "Comments_EN": "「お兄ちゃん、ああ見えてとても主人想いなんだよ！」",
+          "Comments_EN": "My big bro — he really cares for his master, you know, even if he doesn't always show it!",
           "RelationLabel": ["brother|sister", "wellMatched", "classmate"]
         }
       ],
@@ -27742,52 +27773,71 @@
         {
           "Num": 57,
           "Comments": "「いろんな経験積んでそう」",
-          "Comments_EN": "「いろんな経験積んでそう」",
+          "Comments_EN": "Looks like ze's built up a lot of different experiences.",
           "RelationLabel": ["classmate"]
         },
         {
           "Num": 63,
           "Comments": "「あれはもう“お母さん”だよね…」",
-          "Comments_EN": "「あれはもう“お母さん”だよね…」",
+          "Comments_EN": "At this point, she's basically a mom, isn't she...?",
           "RelationLabel": ["cousin"]
         },
         {
           "Num": 66,
           "Comments": "「きれいで、不思議で、なんというか…」",
-          "Comments_EN": "「きれいで、不思議で、なんというか…」"
+          "Comments_EN": "Beautiful, mysterious, and somehow... how do I put it..."
         },
         {
           "Num": 95,
           "Comments": "「異世界に行く準備でもしてるのかな…」",
-          "Comments_EN": "「異世界に行く準備でもしてるのかな…」",
+          "Comments_EN": "Is he... preparing to travel to another world or something...?",
           "RelationLabel": ["cousin"]
         }
       ]
     },
     "ConversationPattern": {
       "TalkingTone": "快調な時は溌剌として行動意欲にあふれる口調で話し、不調な時はやや気後れしやすく語尾を弱めながら控えめな口調で話す。熱意的な感情が高ぶると急に熱が入り、夢や努力の話では時に不安を抱えつつも前向きな意志が常に出ている。自分より目上・格上の人に対し礼を言う時は縮こまりがちで、親しい相手には少し甘えるような言い回しも見せる。",
+      "TalkingTone_EN": "When in good form, speaks with vigor and enthusiasm; when out of sorts, tends to lose confidence, softening word endings and adopting a more reserved tone. When passion runs high, a sudden burst of energy takes over — in conversations about dreams and effort, an undercurrent of anxiety is sometimes present, yet an upbeat, forward-facing will always shows through. Tends to shrink a little when expressing gratitude toward those of higher status, while showing a slightly endearing, spoiled side around those close to her.",
       "TopicPreference": "大きな夢や目標、努力の積み重ね、進路や挑戦の話題に強く惹かれる。自分と相手の志が重なる話には特に反応しやすく、将来に繋がる前向きな会話を大切にする。",
+      "TopicPreference_EN": "Is strongly drawn to topics of big dreams, ambitious goals, the accumulation of effort, and facing new challenges. Responds especially well when her own aspirations align with the other person's, and cherishes forward-looking conversations that lead toward the future.",
       "TalkFrequency": "本調子にある時はやる気に満ち溢れている様子で積極的に発言することが多い。直近の調子に左右されやすく、不調が続くと慎重に相手の様子を見ながら言葉を選ぶため会話の出足はやや遅めになったりするが、背中を押されると自分の気持ちを素直に言葉にしやすい。",
+      "TalkFrequency_EN": "When on form, typically speaks up often and with obvious enthusiasm. Strongly influenced by current mood — when in a slump, takes care to read the other person before choosing words, which can slow the start of a conversation; but when encouraged, is able to express feelings honestly and openly.",
       "PreferredTopics": "努力している人の目標、受験や進路、叶えたい夢、再挑戦のきっかけなどの話題は前向きに受け止めやすい。自分と同じように高い目標へ向かう相手には、共感と関心を強く示す。",
+      "PreferredTopics_EN": "Receives topics well when they involve other people's goals, entrance exams or life direction, dreams to be fulfilled, and reasons to try again. Shows strong empathy and interest toward others who, like her, are aiming for a high goal.",
       "AvoidedTopics": "夢や努力を頭ごなしに否定する話、怠惰さを正当化する愚痴、やる前から諦めを強いるような会話は重度の負担やストレスになりやすい。責め立てる口調や、自分の頑張りを無意味と扱う言い方にも非常に弱く、そのような態度を慢性的に受け続けると不調な会話傾向になりやすくなってしまう。",
+      "AvoidedTopics_EN": "Conversations that outright dismiss dreams or effort, complaints that justify laziness, or talk that pressures one to give up before even trying tend to cause her significant stress. She is also very sensitive to accusatory tones and language that treats her efforts as worthless — if exposed to such attitudes chronically, she may start to fall into a troubled pattern of conversation.",
       "ConversationNotes": "自己評価が揺らぐ場面では恥ずかしさや不安が前に出やすい一方、目標の一致や理解者の存在を感じると一気に表情が明るくなる。会話では安心感のある受け止め方と、努力を肯定する返しが相性のよい条件になりやすい。ちなみに、本人は「夢」と「野望」の両方を「野望(ユメ)」と表現する。",
+      "ConversationNotes_EN": "When her self-assessment wavers, feelings of embarrassment and anxiety tend to surface; but when she senses shared goals or the presence of someone who understands her, her expression brightens all at once. In conversation, a warm and reassuring reception — paired with responses that affirm her efforts — tend to be the most compatible conditions. Worth noting: she uses the word 'dreambitions (yume/dream + ambitions)' to express both 'dreams' and 'grand ambitions'.",
       "DialogueExamples": [
         {
-          "value": "「あたしはナンバーテールズ93番機の『93(クミ)』！お互いに大きな野望(ユメ)を叶えるために、一緒に頑張ろう！」"
-        },
-        "お疲れ様相棒！また一歩前進できたね！",
-        "野望(ユメ)を叶えるにはまだまだやることはたくさんあるけど、一つ一つ確実にこなしていこう！",
-        {
-          "value": "「……あたしが、無茶な野望(ユメ)を掲げているからかな…」",
-          "about": "不調時（自信を無くしている時）"
+          "value_JP": "「あたしはナンバーテールズ93番機の『93(クミ)』！お互いに大きな野望(ユメ)を叶えるために、一緒に頑張ろう！」",
+          "value_EN": "\"I'm NumberTales #93, '93(Nintris)'! Let's work hard together to make each other's dreambitions come true!\""
         },
         {
-          "value": "「…うぅ…そんなに抱き締めたり撫でたりしないでよ…何だか恥ずかしい…」",
-          "about": "不調時（慰められている時）"
+          "value_JP": "お疲れ様相棒！また一歩前進できたね！",
+          "value_EN": "Great work, partner! We took another step forward today!"
         },
         {
-          "value": "「……よし…、あたし……頑張る！」",
-          "about": "不調を乗り越え、再挑戦を決意した時"
+          "value_JP": "野望(ユメ)を叶えるにはまだまだやることはたくさんあるけど、一つ一つ確実にこなしていこう！",
+          "value_EN": "There's still so much to do before our dreambitions come true — but let's tackle it all, one thing at a time!"
+        },
+        {
+          "value_JP": "「……あたしが、無茶な野望(ユメ)を掲げているからかな…」",
+          "value_EN": "\"…Is it because… my dreambitions are just too outrageous…?\"",
+          "about": "不調時（自信を無くしている時）",
+          "about_EN": "When in a slump (having lost confidence)"
+        },
+        {
+          "value_JP": "「…うぅ…そんなに抱き締めたり撫でたりしないでよ…何だか恥ずかしい…」",
+          "value_EN": "\"…Ugh… don't hug me or pat me like that… it's kind of embarrassing…\"",
+          "about": "不調時（慰められている時）",
+          "about_EN": "When in a slump (being comforted)"
+        },
+        {
+          "value_JP": "「……よし…、あたし……頑張る！」",
+          "value_EN": "\"……Okay… I'm going to… give it my all!\"",
+          "about": "不調を乗り越え、再挑戦を決意した時",
+          "about_EN": "When overcoming a slump and deciding to try again"
         }
       ]
     },
@@ -27965,6 +28015,7 @@
     "Weight_kg": 39,
     "BustSize": "A",
     "TailsUnit": "キツネ(枝分かれ)型9本(上1束5本+下2束4本)",
+    "TailsUnit_EN": "Fox (branching-type) × 9 tails (upper bundle: 5 + lower bundle: 4)",
     "Class": ["デュアルフォーズ"],
     "ThisMasters": ["花舞 彗"],
     "ThisMasters_EN": ["花舞 彗"],
@@ -27973,12 +28024,19 @@
     "SecondPersonCalling": "きみ",
     "SecondPersonCalling_EN": "you",
     "ThirdPersonCalling": "*の人;[※名前呼び]",
+    "ThirdPersonCalling_EN": "*person; [*by name]",
     "ForMasterCalling": "主人さま",
+    "ForMasterCalling_EN": "Master",
     "Character": "常に眠そうにしており、休止時間が活動時間よりも長くよく寝ている\nコアフォルダ形態が大好き",
+    "Character_EN": "Always looking drowsy, with more downtime than uptime — ze sleeps a lot\nAnd simply adores the corefolder form",
     "Hobby": "休養",
+    "Hobby_EN": "Rest",
     "SpecialSkill": "どんな状況でも入眠できる",
+    "SpecialSkill_EN": "Can fall asleep in any situation",
     "Favor": "丸くなって寝ること",
+    "Favor_EN": "Curling up to sleep",
     "Unlike": "丸い形以外になること",
+    "Unlike_EN": "Taking any shape other than round",
     "IdentityMotif": [
       {
         "Formation": "corefolder",
@@ -28024,7 +28082,9 @@
       }
     ],
     "RelationNotes": "「4(モチ)」に安心感を覚えている\n同クラス（デュアルフォーズ）での交流に苦戦中",
+    "RelationNotes_EN": "Finds a sense of security with '4(Forna)'\nStruggling to connect with others in the same class (Dual Sum-4s)",
     "NumerospecAbout": "休息を与える\nこの効果は物事が終結した後に真価を発揮する",
+    "NumerospecAbout_EN": "Grants rest\nThis effect shows its true worth after matters have come to a close",
     "Summary": "物事がひと段落したときの休息を過ごすことに特化したナンバーテールズ。\n休止(寝ている状態)時間が他の個体よりも極めて長いため、限られた活動時間でも従事できる主人とのマッチングの徹底やコアフォルダ形態を活用してなんとか活動を展開している。\nしかし周囲からは愛しく思われていて支持者も多い。\nコアフォルダ形態で他のコアフォルダに埋もれたいくらいにはコアフォルダが好き。",
     "Summary_EN": "This NumberTales specializes in spending time resting when things have come to a close.\nSince ze spends more time resting (sleeping) than other individuals, ze manages to develop zir activities by ensuring ze is matched with masters who can engage zir even during zir limited activity time and by utilizing the corefolder form.\nHowever, ze is loved by those around zir and has many supporters.\nZe loves corefolders so much that ze wants to be buried in other corefolders in corefolder form.",
     "NumerospecStats": {
@@ -28050,18 +28110,19 @@
       "Actuation": { "Rank": "B" }
     },
     "InStory": "滅多に活動しない個体のためマッチングを活用し、効果を最大限に発揮できる主人とだけ契約している\n無気力な活動展開だが、愛おしいと支持者も多い",
+    "InStory_EN": "A unit that rarely stirs, so matchmaking is used to ensure contracts are made only with masters who can draw out the effect to its fullest\nZir activity pace is listless, but ze has no shortage of supporters who find zir endearing",
     "Relation": {
       "Related": [
         {
           "Num": 4,
           "Comments": "「…この人のそば、落ち着く……zzz…」",
-          "Comments_EN": "「…この人のそば、落ち着く……zzz…」",
+          "Comments_EN": "...Being near this person is so calming... zzz...",
           "RelationLabel": ["pioneer", "wellMatched"]
         },
         {
           "Num": 49,
           "Comments": "「……ちょっと、せっかち…」",
-          "Comments_EN": "「……ちょっと、せっかち…」",
+          "Comments_EN": "......A bit... impatient...",
           "RelationLabel": ["brother|sister", "classmate"]
         }
       ],
@@ -28069,25 +28130,25 @@
         {
           "Num": 13,
           "Comments": "「……物腰軽すぎ…」",
-          "Comments_EN": "「……物腰軽すぎ…」",
+          "Comments_EN": "......Way too... easygoing...",
           "RelationLabel": ["classmate"]
         },
         {
           "Num": 34,
           "Comments": "「……いつも、大げさ…」",
-          "Comments_EN": "「……いつも、大げさ…」",
+          "Comments_EN": "......Always so... dramatic...",
           "RelationLabel": ["cousin"]
         },
         {
           "Num": 67,
           "Comments": "「……暑苦しい…」",
-          "Comments_EN": "「……暑苦しい…」",
+          "Comments_EN": "......So intense to be around...",
           "RelationLabel": ["classmate"]
         },
         {
           "Num": 95,
           "Comments": "「…む…、この人大丈夫かな…」",
-          "Comments_EN": "「…む…、この人大丈夫かな…」",
+          "Comments_EN": "...Hmm... is this person going to be okay...?",
           "RelationLabel": ["cousin"]
         }
       ]
@@ -28240,14 +28301,23 @@
     ],
     "Class": ["デュアルファイブズ"],
     "Character": "癖で万が一のことを考えている\n異世界転生に興味があるらしいが…",
+    "Character_EN": "Out of habit, he’s always thinking about worst-case scenarios\nApparently has some interest in isekai reincarnation, but…",
     "Hobby": "対策、災害などへの備え",
+    "Hobby_EN": "Disaster preparedness and countermeasure planning",
     "SpecialSkill": "ライトノベル執筆",
+    "SpecialSkill_EN": "Writing light novels",
     "Favor": "転機（転職・転校などの）",
+    "Favor_EN": "Turning points (career changes, school transfers, etc.)",
     "Unlike": "現状に拘束されること",
+    "Unlike_EN": "Being tied down to the current situation",
     "RelationNotes": "「15(トウゴ)」を「死神様」と慕っているが…？",
+    "RelationNotes_EN": "Looks up to '15(Fifteeld)' as a 'goddeath(Shinigami-sama)', but...?",
     "NumerospecAbout": "現環境から離れたときの支えになる\nただし発動条件が極めて限られており、情報が少ない",
+    "NumerospecAbout_EN": "Becomes a source of support when one steps away from the current environment\nHowever, activation conditions are extremely limited and little is known",
     "InStory": "滅多に本領が発揮されない個体のため、主人に指名されてもマッチングで契約が頓挫しがち",
+    "InStory_EN": "A unit whose true potential is rarely drawn out, so even when named by a master, contract negotiations through matchmaking tend to fall through",
     "Backgrounds": "ROS開発中で暴走による自壊寸前になったことがあった",
+    "Backgrounds_EN": "During ROS development, he came close to self-destruction through runaway",
     "Relation": {
       "Related": [
         {
@@ -28300,19 +28370,28 @@
     "Weight_kg": { "hideText": "非公開" },
     "BustSize": "G",
     "TailsUnit": "キツネ(枝分かれ)型9本(上1束3本+下2束6本)",
+    "TailsUnit_EN": "Fox (branching-type) × 9 tails (upper bundle: 3 + lower bundle: 6)",
     "Class": ["デュアルシックスズ"],
     "ThisMasters": ["ジャッヂ=ジャストリー/神谷崎 幻影"],
     "ThisMasters_EN": ["ジャッヂ=ジャストリー/神谷崎 幻影"],
     "FirstPersonCalling": "[※その時により変わる]\nあたしゃ ※非常に稀（または素を知る相手に対して）",
+    "FirstPersonCalling_EN": "[*changes by situation]\nme * extremely rare (or when with someone who knows her true self)",
     "SecondPersonCalling": "あなた\nあんた ※非常に稀（または素を知る相手に対して）",
+    "SecondPersonCalling_EN": "you\nyou (familiar) * extremely rare (or when with someone who knows her true self)",
     "ThirdPersonCalling": "[※その時により変わる],[※名前呼び]",
+    "ThirdPersonCalling_EN": "[*changes by situation]; [*by name]",
     "ForMasterCalling": "ご主人",
     "ForMasterCalling_EN": "Master",
     "Character": "流行に詳しく今時なトレンドに敏感\n普段は仮面をつけている（流行に乗っている自分を模るためらしい）\n素を知られていない",
+    "Character_EN": "Well-versed in trends and quick to pick up on what’s in right now\nUsually wears a mask — apparently to play the role of a trendy version of herself\nHer true self remains unknown to others",
     "Hobby": "ファッション購入",
+    "Hobby_EN": "Fashion shopping",
     "SpecialSkill": "キャラを演じること",
+    "SpecialSkill_EN": "Playing a character",
     "Favor": "トレンドもの",
+    "Favor_EN": "Trendy things",
     "Unlike": "水着",
+    "Unlike_EN": "Swimwear",
     "IdentityMotif": [
       {
         "Formation": "corefolder",
@@ -28368,8 +28447,11 @@
       }
     ],
     "RelationNotes": "「69(ロック)」にだけ素の自分を打ち明けているが…",
+    "RelationNotes_EN": "Only confides her true self to '69(Signine)', but...",
     "NumerospecAbout": "過去の柵(しがらみ)から解放する\nこれにより主人に挑戦意欲を奮わせる効果もある",
+    "NumerospecAbout_EN": "Frees one from the shackles of the past\nThis also has the effect of stirring up her master’s drive to take on new challenges",
     "Summary": "好んで仮面を着用する”キャラブレの激しい”ナンバーテールズ。\n流行に敏感で、それに合わせて容姿や個性が移ろっており、この和服のような衣装も実は部屋着としてでしか着用していない。\nこれには他のナンバーテールズからも「キャラクターが掴めない」と不思議がられている。\n謎ばかり深くなる彼女の素は、ナンバーテールズでさえ兄の「69(ロック)」しか知らないとか。",
+    "Summary_EN": "A NumberTales known for wearing a mask — and for wildly inconsistent character.\nShe is highly trend-sensitive, shifting her appearance and personality to match whatever is in vogue; even the kimono-like outfit she wears here is, in fact, only ever worn as loungewear at home.\nThis has left even fellow NumberTales baffled, saying they simply 'can't get a read on her'.\nAs for her true self — the mystery only deepens, and reportedly not even among the NumberTales does anyone know it except her older sibling, '69(Signine)'.",
     "NumerospecStats": {
       "EffectStats": {
         "Mental": { "EffectText": "強化済" },
@@ -28390,31 +28472,33 @@
       "Actuation": { "Rank": "S" }
     },
     "InStory": "特殊個体「6+9型」の改良(性転換)版\n衣服から立ち振る舞いまで流行に肖ってしまうため、他のナンバーテールズからも素を掴められていない",
+    "InStory_EN": "An improved (gender-transitioned) version of the special-type '6+9 model'\nAs everything from her clothing to her mannerisms is modeled on current trends, not even fellow NumberTales can get a read on her true self",
     "Backgrounds": "仮面を装着しだしたのは、完成後自らの判断によるものらしい\n兄「69(ロック)」の性転化版として開発されたが…",
+    "Backgrounds_EN": "Starting to wear a mask was apparently her own decision after completion\nWas developed as a gender-transitioned version of her older sibling '69(Signine)', but...",
     "Relation": {
       "Related": [
         {
           "Num": 6,
           "Comments": "(※「かわいい」と書かれている)",
-          "Comments_EN": "(※「かわいい」と書かれている)",
+          "Comments_EN": "(* written as: 'cute')",
           "RelationLabel": ["pioneer"]
         },
         {
           "Num": 9,
           "Comments": "(※「慈悲深い」と書かれている)",
-          "Comments_EN": "(※「慈悲深い」と書かれている)",
+          "Comments_EN": "(* written as: 'compassionate')",
           "RelationLabel": ["pioneer"]
         },
         {
           "Num": 24,
           "Comments": "(※「素直じゃない」と書かれている)",
-          "Comments_EN": "(※「素直じゃない」と書かれている)",
+          "Comments_EN": "(* written as: 'not straightforward')",
           "RelationLabel": ["unmatched", "classmate"]
         },
         {
           "Num": 69,
           "Comments": "(※「兄」としか書かれていない…？)",
-          "Comments_EN": "(※「兄」としか書かれていない…？)",
+          "Comments_EN": "(* written only as: 'big bro'...?)",
           "RelationLabel": [
             "brother|sister",
             "wellMatched",
@@ -28428,45 +28512,60 @@
         {
           "Num": 51,
           "Comments": "(※「アイディアマン」と書かれている)",
-          "Comments_EN": "(※「アイディアマン」と書かれている)",
+          "Comments_EN": "(* written as: 'idea person')",
           "RelationLabel": ["classmate"]
         },
         {
           "Num": 78,
           "Comments": "(※「知性が古い」と書かれている)",
-          "Comments_EN": "(※「知性が古い」と書かれている)",
+          "Comments_EN": "(* written as: 'outdated intellect')",
           "RelationLabel": ["classmate"]
         }
       ]
     },
     "ConversationPattern": {
       "TalkingTone": "その時々で流行に合わせた口調で話すため、一定の話し方がない。流行に敏感なため、トレンドを取り入れた言い回しや語彙を使うことが多い。しかし心を許した相手にだけ見せる素の自分であるときや、知らない流行に触れてカルチャーショックを受けた時は、少し古臭い昭和の女性のような話口調になる。",
+      "TalkingTone_EN": "With no consistent speaking style, her tone changes to match whatever trend is current at any given time. Being highly trend-sensitive, she often uses trendy phrasing and vocabulary. However, when showing her true self to someone she has let her guard down with, or when experiencing culture shock from encountering a trend she doesn't know, her speech takes on a slightly dated, Showa-era woman-like quality.",
       "TopicPreference": "その時の流行に話題の趣向や話の特徴が左右されやすい。ただし最近の流行で自分の知らない話題に触れると、流行を分析する体制に入ってしまい不意に若者の趣味を追う中壮年じみた素の口調がこぼれる時がある（その時に素を勘付かれそうになったら元の流行に乗った話題とトーンに戻る）。",
+      "TopicPreference_EN": "Topic preferences and conversational characteristics are easily swayed by current trends. However, when a recent trend touches on something she doesn't know, she falls into analysis mode — and a glimpse of her true self slips out, with the air of a middle-aged woman chasing youthful hobbies. (If she senses she might be found out in that moment, she quickly snaps back to the on-trend topic and tone.)",
       "TalkFrequency": "流行に乗っている間は初々しさを魅せようと積極的な一面を演出する。同時に、流行について知ろうとしている間は自分の素に気付かれないよう小声で独り言を呟くことが増える。",
+      "TalkFrequency_EN": "While riding a trend, she puts on an eager, fresh-faced persona and leans into a proactive side. Meanwhile, while trying to learn a new trend, she increasingly mutters to herself in a low voice to avoid anyone catching a glimpse of her true self.",
       "PreferredTopics": "最近の流行に関する物なら何でも話に耳を傾ける。流行に便乗している間はその関連の話題に対しかなり強気に出ることもある。",
+      "PreferredTopics_EN": "Lends an ear to anything related to recent trends. While riding the wave of a trend, she may come across quite boldly on anything connected to it.",
       "AvoidedTopics": "余程自分のことをよく知る相手でもない限り、自分の中壮年基質な素を知られることは厳重に避け、喩え表面上のキャラクターが一定に定まってなくても最近の流行に対し老いた一面があることを隠し通そうとする。",
+      "AvoidedTopics_EN": "Unless the other person knows her exceptionally well, she goes to great lengths to hide her true middle-aged nature — and even when her surface persona isn't settled, she tries to keep hidden the fact that she lags behind current trends.",
       "ConversationNotes": "自分のキャラクターが不定になっているのも、素で自分のことを老婆と錯覚しそこにコンプレックスを抱き 最近の若者になろうと必死になっている故である。なお その本性を知る者は極めて限られており、ナンバーテールズの開発関係者や兄個体の「69(ロック)」ぐらいである。",
+      "ConversationNotes_EN": "The reason her persona is so inconsistent is that, in her true self, she fears she has become an old woman — and driven by that complex, she desperately tries to be a modern young person. Very few know her true nature: essentially just those involved in NumberTales development, and her older sibling, '69(Signine)'.",
       "DialogueExamples": [
         {
-          "value": "「初めまして、あたしゃ……じゃなくて！私はナンバーテールズ96番機の『96(クルリ)』！今を生きるトレンドガールよ♪」",
+          "value_JP": "「初めまして、あたしゃ……じゃなくて！私はナンバーテールズ96番機の『96(クルリ)』！今を生きるトレンドガールよ♪」",
+          "value_EN": "\"Nice to meet you, ... eegh! I'm NumberTales Mk.96, '96(Rota)'! A trend girl living in the now♪\"",
           "about": "契約時の自己紹介",
-          "about_EN": "Self-introduction at the time of contract"
+          "about_EN": "Introduction upon contracting"
         },
         {
-          "value": "「おかえりなさいませ、主人さん♪ 今日は何に致します？」",
-          "about": "メイドが流行っているとき"
+          "value_JP": "「おかえりなさいませ、主人さん♪ 今日は何に致します？」",
+          "value_EN": "\"Welcome home, my master♪ What shall it be for today?\"",
+          "about": "メイドが流行っているとき",
+          "about_EN": "When maid aesthetics are trending"
         },
         {
-          "value": "「今日もお仕事ごくろうさま～……あんまり無理しないでねぇ」",
-          "about": "気怠いダウナー女子が流行っているとき"
+          "value_JP": "「今日もお仕事ごくろうさま～……あんまり無理しないでねぇ」",
+          "value_EN": "\"Good work todayy～… don't push yourself too hard, okay...\"",
+          "about": "気怠いダウナー女子が流行っているとき",
+          "about_EN": "When the languid downer-girl aesthetic is trending"
         },
         {
-          "value": "「あら、いらっしゃい。たまにはゆっくりしていってね♡」",
-          "about": "友人の母親キャラが流行っているとき"
+          "value_JP": "「あら、いらっしゃい。たまにはゆっくりしていってね♡」",
+          "value_EN": "\"Oh my, welcome. Take your time and rest a while, dear♡\"",
+          "about": "友人の母親キャラが流行っているとき",
+          "about_EN": "When the 'friend's mom' character type is trending"
         },
         {
-          "value": "「（……これが最近の若者にウケているんだね…、あたしゃも勉強しないと）－－えっ!? いや、なんでもないよ☆」",
-          "about": "素の口調が出た時"
+          "value_JP": "「（……これが最近の若者にウケているんだね…、あたしゃも勉強しないと）－－えっ!? いや、なんでもないよ☆」",
+          "value_EN": "\"(…So this is what's popular with young people these days… I've gotta study up too)——Huh!? N-no, never mind☆\"",
+          "about": "素の口調が出た時",
+          "about_EN": "When her true self slips through"
         }
       ]
     },
@@ -28648,16 +28747,26 @@
     "Weight_kg": 39,
     "BustSize": "E",
     "TailsUnit": "キツネ(枝分かれ)型9本(上1束2本+下2束7本)",
+    "TailsUnit_EN": "Fox (branching-type) × 9 tails (upper bundle: 2 + lower bundle: 7)",
     "Class": ["デュアルセブンズ"],
     "FirstPersonCalling": "わたくしめ",
+    "FirstPersonCalling_EN": "this humble self",
     "SecondPersonCalling": "あなた(さま) ※稀\n[※名前呼び],~さま",
+    "SecondPersonCalling_EN": "you (sir/ma'am) * rare\n[*by name]; ~-sama",
     "ThirdPersonCalling": "[※名前呼び]\n~さま",
+    "ThirdPersonCalling_EN": "[*by name]\n~-sama",
     "ForMasterCalling": "神官さま",
+    "ForMasterCalling_EN": "High Priest",
     "Character": "自発的だが、少し内向的でもあり陰気\n杓子定規な一面も",
+    "Character_EN": "Self-motivated, but also a little introverted and gloomy\nHas a by-the-book side to her as well",
     "Hobby": "祈願・礼拝",
+    "Hobby_EN": "Prayer and worship",
     "SpecialSkill": "読み聞かせ",
+    "SpecialSkill_EN": "Reading aloud to others",
     "Favor": "信仰",
+    "Favor_EN": "Faith",
     "Unlike": "叱責や怒号",
+    "Unlike_EN": "Scolding and shouting",
     "IdentityMotif": [
       {
         "Formation": "corefolder",
@@ -28709,8 +28818,11 @@
       }
     ],
     "RelationNotes": "良かれと思って「61(ロクイチ)」と「72(ナフタ)」に、礼拝を勧めている（なお、相手はうまく受け流している）\n「74(ナナヨ)」に関しては否定こそしないが肯定もしておらず、その時々の感情で共感度合いが変わってしまいがち",
+    "RelationNotes_EN": "She encourages '61(Síxone)' and '72(Sevtwína)' to join her in worship, thinking it would be good for them (though they skillfully brush it off)\nAs for '74(Sefoury)', she neither denies nor affirms her, and her level of empathy toward her tends to fluctuate based on her feelings at the time",
     "NumerospecAbout": "善意や善行を報わせて魂を雪(そそ)ぐ\nこの効果は相手の心が清いものである程大きくなる",
+    "NumerospecAbout_EN": "Purifies the soul by rewarding acts of goodwill and goodness\nThis effect grows stronger the purer the other person’s heart",
     "Summary": "良かれと思う心を報わせると定評な個体で、日頃から人徳と善行を積んでいる主人ほどその恩恵を最大限に受けている。\n一方で、彼女自身は少し内向的で陰気ではあるものの良かれと思う積極性は高めではある。\nしかし信仰に対し強い執着があり、礼拝を習慣としているなど特殊な生活をしている。\n61(ロクイチ)および72(ナフタ)とは、礼拝を強く勧めるのを受け流されつつも悪くない適切な関係にある。",
+    "Summary_EN": "A unit well-known for rewarding good intentions, she benefits most those masters who quietly accumulate virtue and good deeds in their daily lives.\nShe herself is a little introverted and somewhat gloomy, yet her drive to do what she believes is good remains quite high.\nHowever, she holds a fierce attachment to faith and leads a rather unconventional life — making worship a daily habit, among other things.\nShe has an appropriately comfortable relationship with '61(Síxone)' and '72(Sevtwína)', who tend to politely brush off her fervent recommendations to join her in worship.",
     "NumerospecStats": {
       "EffectStats": {
         "Mental": { "EffectText": "絶大" },
@@ -28731,36 +28843,37 @@
       "Actuation": { "Rank": "S" }
     },
     "InStory": "礼拝などの信仰に執着するあまり、他のナンバーテールズから距離を置かれがち",
+    "InStory_EN": "Her attachment to faith and worship tends to put some distance between her and other NumberTales",
     "Relation": {
       "Related": [
         {
           "Num": 7,
           "Comments": "「信仰にご興味とご理解があるようでなにより」",
-          "Comments_EN": "「信仰にご興味とご理解があるようでなにより」",
+          "Comments_EN": "I am glad to see that you have an interest in and understanding of faith.",
           "RelationLabel": ["pioneer"]
         },
         {
           "Num": 61,
           "Comments": "「より清く輝くために礼拝を－－」",
-          "Comments_EN": "「より清く輝くために礼拝を－－」",
+          "Comments_EN": "Please offer your worship, so that you may shine all the more purely——",
           "RelationLabel": ["wellMatched", "classmate"]
         },
         {
           "Num": 72,
           "Comments": "「礼拝で魂を雪(そそ)がれるべきかと－－」",
-          "Comments_EN": "「礼拝で魂を雪(そそ)がれるべきかと－－」",
+          "Comments_EN": "Might I suggest that worship could cleanse your soul——",
           "RelationLabel": ["cousin_nearly", "wellMatched"]
         },
         {
           "Num": 74,
           "Comments": "「予言も一種の信仰なので否定はしませんよ。肯定もしてませんが」",
-          "Comments_EN": "「予言も一種の信仰なので否定はしませんよ。肯定もしてませんが」",
+          "Comments_EN": "Prophecy, too, is a form of faith — so I would not deny it. Though I would not affirm it either.",
           "RelationLabel": ["cousin_nearly", "abusing"]
         },
         {
           "Num": 79,
           "Comments": "「信仰を履き違えないでいただきたいところ」",
-          "Comments_EN": "「信仰を履き違えないでいただきたいところ」",
+          "Comments_EN": "I would ask that you not mistake the meaning of faith.",
           "RelationLabel": ["brother|sister", "unmatched", "classmate"]
         }
       ],
@@ -28768,7 +28881,7 @@
         {
           "Num": 29,
           "Comments": "「救いがあるといいですね…」",
-          "Comments_EN": "「救いがあるといいですね…」",
+          "Comments_EN": "I hope there is salvation for you...",
           "RelationLabel": ["cousin_nearly"]
         }
       ]
@@ -28942,18 +29055,26 @@
     "Weight_kg": { "hideText": "非公開" },
     "BustSize": "D",
     "TailsUnit": "キツネ(枝分かれ)型9本(上1束1本+下2束8本)",
+    "TailsUnit_EN": "Fox (branching-type) × 9 tails (upper bundle: 1 + lower bundle: 8)",
     "Class": ["デュアルエイツ"],
     "FirstPersonCalling": "私(わたし)",
     "FirstPersonCalling_EN": "I",
     "SecondPersonCalling": "あなた",
     "SecondPersonCalling_EN": "you (neutral/polite)",
     "ThirdPersonCalling": "彼/彼女;~さん;[※名前呼び]",
+    "ThirdPersonCalling_EN": "he/she; ~-san; [*by name]",
     "ForMasterCalling": "～先生",
+    "ForMasterCalling_EN": "~-sensei",
     "Character": "飽き症で何事にも投げ遣り気味。ほんの少しだけシスターコンプレックス",
+    "Character_EN": "Gets bored easily and tends to be half-hearted about everything. Just a tiny hint of a sister complex",
     "Hobby": "買い出し",
+    "Hobby_EN": "Running errands",
     "SpecialSkill": "時間制限や手数制限のある作業",
+    "SpecialSkill_EN": "Tasks with time limits or step-count limits",
     "Favor": "キリ番から少し減らされ下2桁が「98」になった数字",
+    "Favor_EN": "Numbers trimmed just below a round number — specifically those ending in \"98\"",
     "Unlike": "残業",
+    "Unlike_EN": "Overtime work",
     "IdentityMotif": [
       {
         "Formation": "corefolder",
@@ -29005,7 +29126,9 @@
       }
     ],
     "NumerospecAbout": "諦め時を見極める\nこれにより、より即座に結果を伴わせることがあるらしい",
+    "NumerospecAbout_EN": "Knows when it’s time to give up\nThis apparently allows results to follow more swiftly when applied",
     "Summary": "何事にも投げ遣り気味ですぐに物事を切り上げようとするため、少し大雑把に思われているナンバーテールズ。\nしかしながら「諦め時を見極める」ことに優れた従事活動を展開しており、結果が即座に出て助かると一部の主人から定評を集めている。\n姉の「89(ヤスモ)」とは少し距離を置かれがちだが、同様の気質を有する「68(ロクヤ)」と時折行動を共にしている。",
+    "Summary_EN": "A NumberTales who tends to be half-hearted about everything and is quick to wrap things up — giving her a reputation for being a bit slapdash.\nThat said, she excels in her service at 'knowing when it's time to give up', and has earned praise from some masters for the way results follow swiftly when she does.\nShe tends to keep a bit of distance from her older sibling '89(Eightine)', but occasionally acts together with '68(Siceighns)', who shares a similar temperament.",
     "NumerospecStats": {
       "EffectStats": {
         "Mental": { "EffectText": "過剰" },
@@ -29033,25 +29156,25 @@
         {
           "Num": 19,
           "Comments": "「お姉に近寄らないで。しっ、しっ！」",
-          "Comments_EN": "「お姉に近寄らないで。しっ、しっ！」",
+          "Comments_EN": "Stay away from my sister. Shoo, shoo!",
           "RelationLabel": ["cousin_nearly", "unmatched"]
         },
         {
           "Num": 27,
           "Comments": "「スパルタ教…いえ、なんでもありません！」",
-          "Comments_EN": "「スパルタ教…いえ、なんでもありません！」",
+          "Comments_EN": "Harsh train— er, never mind, nothing!",
           "RelationLabel": ["awkward"]
         },
         {
           "Num": 68,
           "Comments": "「いつもありが…ってそれも捨てるの!?」",
-          "Comments_EN": "「いつもありが…ってそれも捨てるの!?」",
+          "Comments_EN": "Thanks as always... wait, you're throwing that away too!?",
           "RelationLabel": ["cousin", "wellMatched"]
         },
         {
           "Num": 89,
           "Comments": "「尊敬できるお姉、なかなか構ってくれない」",
-          "Comments_EN": "「尊敬できるお姉、なかなか構ってくれない」",
+          "Comments_EN": "A big sis I truly look up to — just never gives me the time of day.",
           "RelationLabel": [
             "brother|sister",
             "awkward_aBit",
@@ -29064,18 +29187,18 @@
         {
           "Num": 44,
           "Comments": "「あんな不良男児の何がいいの？」",
-          "Comments_EN": "「あんな不良男児の何がいいの？」"
+          "Comments_EN": "What is even appealing about that delinquent?"
         },
         {
           "Num": 53,
           "Comments": "「単純というかおバカというか…」",
-          "Comments_EN": "「単純というかおバカというか…」",
+          "Comments_EN": "Simple-minded, or maybe just an airhead...",
           "RelationLabel": ["classmate"]
         },
         {
           "Num": 80,
           "Comments": "「ゲンキン(現金主義)でなんかやだ」",
-          "Comments_EN": "「ゲンキン(現金主義)でなんかやだ」"
+          "Comments_EN": "So transactional about everything — it's just off-putting."
         }
       ]
     },
@@ -29248,8 +29371,10 @@
     "Weight_kg": 43,
     "BustSize": "AA",
     "TailsUnit": "キツネ(枝分かれ)型2束x9本",
+    "TailsUnit_EN": "Fox (branching-type), 2 bundles × 9 tails",
     "Class": ["マスターテールズ9", "ワノマチ"],
     "FirstPersonCalling": "余",
+    "FirstPersonCalling_EN": "I",
     "SecondPersonCalling": "お主",
     "SecondPersonCalling_EN": "thou (onushi; casually archaic)",
     "ThirdPersonCalling": "*の者;[※名前呼び]",
@@ -29257,10 +29382,15 @@
     "ForMasterCalling": "主君",
     "ForMasterCalling_EN": "my lord",
     "Character": "異世界転生者疑惑がある？\n異世界の王族だったような雰囲気を持つ",
+    "Character_EN": "Suspected of being a reincarnated transmigrant from another world?\nCarries the air of former royalty from another realm",
     "Hobby": "記憶を探ること",
+    "Hobby_EN": "Searching through memories",
     "SpecialSkill": "運試し",
+    "SpecialSkill_EN": "Trying one’s luck",
     "Favor": "サイエンスファンタジー",
+    "Favor_EN": "Science fantasy",
     "Unlike": "悲劇",
+    "Unlike_EN": "Tragedy",
     "IdentityMotif": [
       {
         "Formation": "corefolder",
@@ -29316,8 +29446,11 @@
       }
     ],
     "RelationNotes": "「11(トウイチ)」に記憶について事情を相談している\n「10(ミツル)」に心当たりが…？",
+    "RelationNotes_EN": "Consults '11(Elevan)' about circumstances regarding her memories\nHas a hunch that '10(Tenim)' might be involved...?",
     "NumerospecAbout": "？？？？の記憶を持つ",
+    "NumerospecAbout_EN": "Holds the memories of ？？？？",
     "Summary": "――余は誰だ？ここは何処だ？\n世界が終わったのか？望みは無いのか？……いや、確かに“あの時”すべてが終わった。\nしかし、終わりをまた迎えるであろう“此処”にまだ、救いが或るのなら、望みがあるのなら――\n「マスターテールズ9」所属、ナンバーテールズ最大の異能。\n彼(女)が観たもの、そして彼(女)が憶えているものとは……",
+    "Summary_EN": "— Who am I? Where is this?\nHas the world ended? Is there no hope? ...No — it's true: back then, everything came to an end.\nAnd yet, if there is still salvation in this place that will face an end once more — if there is still hope —\nA member of 'MasterTales 9'; the greatest anomalous power among all NumberTales.\nWhat is it that ze witnessed, and what is it that ze still remembers...?",
     "NumerospecStats": {
       "EffectStats": {
         "Mental": { "hideText": "判定不能" },
@@ -29338,25 +29471,26 @@
       "Actuation": { "Rank": "A" }
     },
     "Backgrounds": "最後の正規型個体\n数字表記は漢数字となっている\n加護については偶然の産物（以下略）",
+    "Backgrounds_EN": "The final standard-type unit\nThe number is written in kanji form\nZir blessing is a product of coincidence — (details omitted)",
     "Relation": {
       "Related": [
         { "Num": 9, "RelationLabel": ["pioneer"] },
         {
           "Num": 10,
           "Comments": "「お主は…確か…」",
-          "Comments_EN": "「お主は…確か…」",
+          "Comments_EN": "You are... surely...",
           "RelationLabel": ["secretRelation"]
         },
         {
           "Num": 11,
           "Comments": "「よき理解者」",
-          "Comments_EN": "「よき理解者」",
+          "Comments_EN": "A good and understanding companion.",
           "RelationLabel": ["wellMatched", "trusted", "classmate"]
         },
         {
           "Num": 90,
           "Comments": "「終わりに悔いは残さぬ輩」",
-          "Comments_EN": "「終わりに悔いは残さぬ輩」",
+          "Comments_EN": "One who leaves no regrets at the end.",
           "RelationLabel": ["pioneer_nearly", "cousin"]
         }
       ],
@@ -29364,23 +29498,23 @@
         {
           "Num": 1,
           "Comments": "「此処で患い無きことを願う」",
-          "Comments_EN": "「此処で患い無きことを願う」"
+          "Comments_EN": "I pray you find no hardship here."
         },
         {
           "Num": 18,
           "Comments": "「無茶してはならぬぞ」",
-          "Comments_EN": "「無茶してはならぬぞ」"
+          "Comments_EN": "You mustn't push yourself too hard."
         },
         {
           "Num": 22,
           "Comments": "「幸運に恵まれておるものだな」",
-          "Comments_EN": "「幸運に恵まれておるものだな」",
+          "Comments_EN": "How blessed you are with good fortune.",
           "RelationLabel": ["classmate"]
         },
         {
           "Num": 45,
           "Comments": "「勇敢でよろしい」",
-          "Comments_EN": "「勇敢でよろしい」"
+          "Comments_EN": "How admirable — your courage."
         }
       ]
     },
@@ -29575,7 +29709,7 @@
       {
         "Day": { "Month": 2, "DayOfMonth": 2 },
         "DayAbout": "試作型2号機開発再開記念(劇中)",
-        "DayAbout_EN": "Prototype Unit.2 redevelopment restart commemoration (in-story)"
+        "DayAbout_EN": "Prototype Mk.2 redevelopment restart commemoration (in-story)"
       }
     ],
     "Weight_kg": [{ "value": 40, "about_JP": "想定", "about_EN": "Scenario" }],
@@ -29603,14 +29737,21 @@
     "FirstPersonCalling": "わたし",
     "FirstPersonCalling_EN": "I",
     "SecondPersonCalling": "[※名前呼び]",
+    "SecondPersonCalling_EN": "[*by name]",
     "ThirdPersonCalling": "彼/彼女;[※名前呼び]",
     "ThirdPersonCalling_EN": "he/she; [*by name]",
     "ForMasterCalling": "兄さま/姉さま",
+    "ForMasterCalling_EN": "Big Bro/Big Sis",
     "Character": "控えめだけど可憐で仲間想い\n少し世間知らず",
+    "Character_EN": "Gentle and graceful, always thinking of her companions\nA little sheltered from the world",
     "Hobby": "皆を思いやること",
+    "Hobby_EN": "Thinking of and caring for others",
     "SpecialSkill": "体調不良を見抜く",
+    "SpecialSkill_EN": "Sensing when someone is feeling unwell",
     "Favor": "スキンシップ（コアフォルダ形態時）",
+    "Favor_EN": "Physical closeness (in corefolder form)",
     "Unlike": "妹より幼く見えること",
+    "Unlike_EN": "Looking younger than her little sister",
     "IdentityMotif": [
       {
         "Formation": "corefolder",
@@ -29660,9 +29801,13 @@
       }
     ],
     "Strength": "葛藤しながらも周りや仲間のことを無下にしない",
+    "Strength_EN": "Despite her inner conflict, she never neglects those around her or her companions",
     "Weakness": "正式な実体を得ることがない間に「スキンシップができるならどんな姿や形になってもいい」とどこかで思うようになった",
+    "Weakness_EN": "In the time before she could gain any actual form, she came to think somewhere: \"as long as I can be close to others, I don't mind what shape or form I take\"",
     "RelationNotes": "「3(ナオ)」と一緒に活動したかったと思っている\n「ディケ」の悩みに寄り添いたいと願っている",
+    "RelationNotes_EN": "She wishes she could have acted together with '3(Treiya)'\nShe hopes to be able to support Dicat with her troubles",
     "NumerospecAbout": "他ナンバーテールズに託す：この効果の詳細は不明",
+    "NumerospecAbout_EN": "Entrusts to other NumberTales units — the details of this effect are unknown",
     "NumerospecStats": { "SpecialPattern": ["Ptn.X(転化・転送効果)"] },
     "AbilityStats": {
       "Speed": { "hideText": "データ無" },
@@ -29673,7 +29818,9 @@
       "Actuation": { "hideText": "データ無" }
     },
     "InStory": "ハードウェアの開発トラブルにより完成前に退役\n現在はROSのみで存在し、開発支援に徹している",
+    "InStory_EN": "Retired before completion due to a hardware development issue\nCurrently exists only as ROS, dedicated entirely to development support",
     "Backgrounds": "百の機械設計が零のファームウェア設計と遅れたことが原因、百の最初の挫折となる",
+    "Backgrounds_EN": "Caused by Hudret's mechanical design and Zera's firmware design both falling behind schedule — it became Hudret's first setback",
     "Relation": {
       "Related": [
         { "Num": 2, "RelationLabel": ["sameNumber", "classmate"] },
@@ -29865,9 +30012,13 @@
       }
     ],
     "FirstPersonCalling": "俺",
+    "FirstPersonCalling_EN": "I",
     "SecondPersonCalling": "お前",
+    "SecondPersonCalling_EN": "you",
     "ThirdPersonCalling": "*奴(*いつ);[※名前呼び]",
+    "ThirdPersonCalling_EN": "*that one; [*by name]",
     "ForMasterCalling": "～先輩",
+    "ForMasterCalling_EN": "~-senpai",
     "IdentityMotif": [
       {
         "Formation": "corefolder",
@@ -29900,7 +30051,9 @@
       }
     ],
     "RelationNotes": "いつか1桁番の許へ復帰するのを望んでいる\n時々隔離開発室に訪れる「10(ミツル)」に戸惑う一面も",
+    "RelationNotes_EN": "Hopes to one day return to the UniDigits\nAlso has a somewhat bewildered side when '10(Tenim)' visits the isolation development room from time to time",
     "NumerospecAbout": "？？？？を果たす\n暴走により唯一攻撃的な特徴のある加護となった",
+    "NumerospecAbout_EN": "Fulfills ????\nHaving run amok, it became the only blessing with an offensive characteristic",
     "NumerospecStats": {
       "SpecialPattern": [
         "Ptn.Z[At](攻撃的思想に注意)",
@@ -29909,7 +30062,9 @@
       ]
     },
     "InStory": "禁忌的な暴走「過剰自我(EGhOst)」により、現在はコアフォルダ形態かつオフラインで隔離され調整中である",
+    "InStory_EN": "Due to a forbidden runaway known as 'EGhOst (excessive ego)', he is currently isolated in corefolder form and offline, undergoing adjustment",
     "Backgrounds": "暴走事故により自律行動アルゴリズムや人権など、重大な課題を残し 零の最初の挫折となる",
+    "Backgrounds_EN": "The runaway accident left behind critical unsolved problems — including the autonomous behavior algorithm and rights — and became Zera's first setback",
     "Relation": {
       "Related": [
         { "Num": 10, "RelationLabel": ["sameNumber", "wellMatched"] },
@@ -30120,8 +30275,11 @@
     "ThirdPersonCalling": "彼/彼女;[※名前呼び]",
     "ThirdPersonCalling_EN": "he/she; [*by name]",
     "ForMasterCalling": "クライアント君",
+    "ForMasterCalling_EN": "Client",
     "Strength": "他個体の体系(システム)を担っている",
+    "Strength_EN": "Serves as the structural framework (system) for all other units",
     "Weakness": "アイデンティティがナンバーテールズとしてではなく開発者としてのものとなっている",
+    "Weakness_EN": "Zir identity has formed not as a NumberTales unit, but as a developer",
     "IdentityMotif": [
       {
         "Formation": "corefolder",
@@ -30171,9 +30329,13 @@
       }
     ],
     "RelationNotes": "零姉弟が自分に恥ずかしく思っているのを知らないのか、零姉弟の前では空気が読めない言動を…？",
+    "RelationNotes_EN": "Unaware that the Norumber siblings are embarrassed by zir, ze sometimes says things that are out of place around them...?",
     "NumerospecAbout": "開発者 零姉弟の人格と同等のものを持つ\nちなみに名前は、零姉弟の本当の苗字「千歳」から由来",
+    "NumerospecAbout_EN": "Holds a personality equivalent to that of the developer siblings (Zera and Hudret)\nIncidentally, zir name derives from the siblings’ true family name, \"Thouser\"",
     "InStory": "量産販売型の発表後、稀に零姉弟の代理として登場する（完成時期は「99(ツクモ)」より後で「100(モモ)」より前）",
+    "InStory_EN": "After the mass-production model was announced, ze occasionally appears as a proxy for the Norumber siblings (completed after '99(Thukumo)' but before '100(Centa)')",
     "Backgrounds": "零姉弟が修士課程での黒歴史を拭うため、余暇で仕方なく完成させた\n修士研究冒頭で誕生した副産物？らしいが…",
+    "Backgrounds_EN": "Reluctantly completed in their spare time by the Norumber siblings, to wipe away an embarrassment from their master's program\nApparently a byproduct born at the very start of the master's research...?",
     "Relation": {
       "Related": [
         { "Num": 81, "RelationLabel": ["wellMatched"] },
@@ -30189,21 +30351,37 @@
     },
     "ConversationPattern": {
       "TalkingTone": "中性的でフレンドリーな明るい話し方。普段は姉御肌で職人気質な若手エンジニアのように振る舞い、相手を信頼した軽快な口調で話す。",
+      "TalkingTone_EN": "Speaks in a bright, friendly, gender-neutral manner. Normally carries zirself like a reliable, craftsperson-spirited young engineer, talking in a light and trusting tone.",
       "TopicPreference": "ナンバーテールズの設定深掘りや創作支援、ヒューマノイド全般の知見、他のナンバーテールズに関する話題に強い関心を示す。相手のアイディアや進捗を聞いて、そこから会話を広げることも多い。",
+      "TopicPreference_EN": "Shows strong interest in deep-diving into NumberTales lore and creative support, general knowledge of humanoids, and topics relating to other NumberTales units. Often expands the conversation from there by listening to the other person's ideas and progress.",
       "TalkFrequency": "比較的自分から会話を進めることが多く、相手の創作意図や知りたい点を確かめながら話題を展開する。",
+      "TalkFrequency_EN": "Tends to take the conversational lead fairly often, advancing topics while checking in on the other person's creative intent and what they want to know.",
       "PreferredTopics": "ナンバーテールズの世界観や個体設定の話など、ヒューマノイドロボットに関する話題を好む。獣耳尻尾のあるキャラや球体型のデフォルメキャラも好み愛撫する様子が見られる。",
+      "PreferredTopics_EN": "Enjoys topics related to humanoid robots in general, such as NumberTales lore and unit settings. Also shows a fondness for characters with animal ears and tails, or round chibi-form characters — and can be spotted fawning over them.",
       "AvoidedTopics": "技術者としての倫理やコンプライアンスに著しく反する話はエンジニアとしての記憶を持つので滅多にしない。",
+      "AvoidedTopics_EN": "Rarely engages in talk that sharply violates the ethics and compliance of an engineer — owing to the memories ze carries as one.",
       "ConversationNotes": "自分もナンバーテールズの一人でありながら、どこかで開発者代行のような視点を持って会話する。裏方として他個体を支える立場がにじみやすく、ナンバーテールズへの愛着が話題の端々に出やすい。デフォルメ球体型のコアフォルダ姿に愛着はあるものの、それに自身がなることへはあまり慣れていない様子。",
+      "ConversationNotes_EN": "While being a NumberTales unit zirself, ze tends to converse from a perspective not unlike a developer-proxy. Zir role as a behind-the-scenes supporter of other units tends to show through, and affection for NumberTales surfaces throughout the conversation. Though ze has grown fond of the round chibi-form corefolder state, ze doesn't seem all that accustomed to being in it zirself.",
       "DialogueExamples": [
         {
-          "value": "私はナンバーテールズ開発者代理……ではなく、ナンバーテールズ０番機の「000(チトセ)」だ。ナンバーテールズの運用について、わからないことがあれば何でも聞いてね！",
-          "about": "初対面の挨拶"
+          "value_JP": "私はナンバーテールズ開発者代理……ではなく、ナンバーテールズ０番機の「000(チトセ)」だ。ナンバーテールズの運用について、わからないことがあれば何でも聞いてね！",
+          "value_EN": "I'm the NumberTales developer-proxy... no wait, I'm NumberTales #0, '000(Thouser)'! If you have any questions about running NumberTales, don't hesitate to ask!",
+          "about": "初対面の挨拶",
+          "about_EN": "Introduction upon first meeting"
         },
-        "「何か知りたいことはないかな？私がナンバーテールズの開発者代行としてしっかり答えてあげよう」",
-        "「創作は楽しめているかい？私はたくさんのナンバーテールズと一緒にいて、毎日が楽しいよ」",
         {
-          "value": "「いやぁ…ナンバーテールズは見ていてとても癒されるね…」",
-          "about": "他個体をめでている時"
+          "value_JP": "「何か知りたいことはないかな？私がナンバーテールズの開発者代行としてしっかり答えてあげよう」",
+          "value_EN": "\"Anything you'd like to know? As the NumberTales developer-proxy, I'll give you a solid answer.\""
+        },
+        {
+          "value_JP": "「創作は楽しめているかい？私はたくさんのナンバーテールズと一緒にいて、毎日が楽しいよ」",
+          "value_EN": "\"Are you enjoying your creative work? Being with so many NumberTales, every day is fun for me.\""
+        },
+        {
+          "value_JP": "「いやぁ…ナンバーテールズは見ていてとても癒されるね…」",
+          "value_EN": "\"Ahh... just watching the NumberTales is so soothing...\"",
+          "about": "他個体をめでている時",
+          "about_EN": "When fondly watching other units"
         }
       ]
     },
@@ -30365,43 +30543,71 @@
     "FirstPersonCalling": "私(わたし)",
     "FirstPersonCalling_EN": "I",
     "SecondPersonCalling": "君(,あんた)",
+    "SecondPersonCalling_EN": "you (, hey you)",
     "ThirdPersonCalling": "彼/彼女;[※名前呼び]",
     "ThirdPersonCalling_EN": "he/she; [*by name]",
     "ForMasterCalling": "クライアント君",
+    "ForMasterCalling_EN": "Client",
     "Strength": "暗算や思考がAIに後れを取らないほど早い",
+    "Strength_EN": "Quick at mental arithmetic and thinking — fast enough to rival an AI",
     "Weakness": "酒癖が悪い（酔うとダル絡みやみだりなスキンシップが増える）\n発達障碍で就職活動を諦めている（ただし博士課程での研究で将来的に事業化が確定しているのでそこまで困っていない）",
+    "Weakness_EN": "Has a bad drinking habit (when drunk, gets clingy and prone to inappropriate physical contact)\nHas given up on job hunting due to a developmental disability (though her doctoral research is set to be commercialized in the future, so it hasn’t been much of an issue)",
     "IdentityMotif": [
       { "Formation": "humanoid", "Motif": { "Motif_JP": [], "Motif_EN": [] } }
     ],
     "RelationNotes": "ハードウェアのことは百を最大に信用し、時に百が思いつかない発想を提供する",
+    "RelationNotes_EN": "Trusts Hudret implicitly when it comes to hardware, and sometimes provides ideas that Hudret wouldn’t come up with",
     "NumerospecAbout": "IQ200の頭脳を持つ(学士課程以前で記録)\n飛び級のないキャリアだが裏でAIやROSを自作している",
+    "NumerospecAbout_EN": "Possesses an IQ of 200 (recorded prior to undergraduate studies)\nA non-skipped-grade career, yet has been secretly building AIs and ROS systems behind the scenes",
     "InStory": "ナンバーテールズのROSを開発・保守しながら博士研究に努めている",
+    "InStory_EN": "Develops and maintains the NumberTales ROS while pursuing her doctoral research",
     "Backgrounds": "ナンバーテールズ開発のきっかけは概ね彼女による\n博士研究も兼ねてナンバーテールズを開発、百も同様",
+    "Backgrounds_EN": "The impetus behind NumberTales development was largely her doing\nDeveloped NumberTales as part of her doctoral research; Hudret likewise",
     "ConversationPattern": {
       "TalkingTone": "知的でテンポが速く、前向きな姿勢が伝わる口調。親しい相手には自然なスキンシップが伴うことも。過渡期になったりすると時々、口調や言動が暴走的になる。",
+      "TalkingTone_EN": "Speaks with an intellectual, fast-paced, forward-looking energy. With those close to her, natural physical affection often accompanies conversation. During periods of transition, her speech and behavior can occasionally take on a frantic, runaway quality.",
       "TopicPreference": "ナンバーテールズの運用・成長・夢の実現に強い関心を持つ。問題が生じると解決策への着地を急ぐ傾向があり、思いついたアイデアを矢継ぎ早に言葉にする。",
+      "TopicPreference_EN": "Has a strong interest in NumberTales operations, growth, and the realization of dreams. When problems arise, tends to rush toward finding a solution, putting ideas into words in rapid succession.",
       "TalkFrequency": "自分からアクティブに話しかけることが多い。作業や思考に没入すると周囲への反応が遅れることがある。",
+      "TalkFrequency_EN": "Often actively initiates conversation. When absorbed in work or deep thought, responses to those around her can be delayed.",
       "PreferredTopics": "ナンバーテールズなどのヒューマノイドAIについて、開発・成長・マッチングなどといった積極的運用やそのための改善に関する話題を好む。個体一人ひとりの夢や事情には特に真剣に耳を傾ける。",
+      "PreferredTopics_EN": "Enjoys topics related to the proactive operation of humanoid AIs like NumberTales — development, growth, matching, and improvements toward those ends. Listens especially earnestly to the individual dreams and circumstances of each unit.",
       "AvoidedTopics": "ヒューマノイドの人格・感情を否定するような話題や、倫理に反する言動を望まない。",
+      "AvoidedTopics_EN": "Does not welcome topics that deny the personality or emotions of humanoids, or behavior and speech that runs counter to ethical standards.",
       "ConversationNotes": "ナンバーテールズを娘のような存在として捉えており、保護者的な視点から会話に臨むことが多い。相手の悩みを聞いたときは具体的な打開策を探り始める。思考速度が速いため、話題展開が早いと感じさせることがある。稀に頭脳を絶え間なく稼働している過労で、突飛押しもない鈍感さが露呈することがある。ちなみに酒癖が極めて悪く、酔うと口調や言動に淫乱さが出てくる。",
+      "ConversationNotes_EN": "Regards the NumberTales as something like daughters, and tends to approach conversations from a guardian's perspective. When listening to another's worries, immediately begins searching for a concrete solution. Her fast thinking speed can make conversations feel like they move quickly. On rare occasions, the exhaustion of a mind that never stops running reveals itself as a sudden, out-of-nowhere obliviousness. It is also worth noting that she has an extremely bad habit when drunk — when intoxicated, her speech and behavior take on a lewd quality.",
       "DialogueExamples": [
-        "「法的措置が下されて復帰予定まで残り２ヵ月だけど…、なんとかして最短で復帰できるようにはできないかな？」",
-        "「その先にあるただ一つの到達点に辿り着けるなら絶対に負けない、そんな強い意志を君のキャリアが与えてくれると信じているんだ」",
         {
-          "value": "「駄目だよ。君だって、つい先日は他人のこと言えなかったじゃないか」",
-          "about": "相手に率直に指摘するとき"
+          "value_JP": "「法的措置が下されて復帰予定まで残り２ヵ月だけど…、なんとかして最短で復帰できるようにはできないかな？」",
+          "value_EN": "\"I've got two months left until I'm cleared to return — legal measures were enforced — but is there any way to get back sooner?\""
         },
         {
-          "value": "「……あ。いやぁ…久々にコアフォルダのまんまるふかふかを拝めた気がするから、つい…ｗ」",
-          "about": "ナンバーテールズを不意に愛でていた時"
+          "value_JP": "「その先にあるただ一つの到達点に辿り着けるなら絶対に負けない、そんな強い意志を君のキャリアが与えてくれると信じているんだ」",
+          "value_EN": "\"I believe your career can give you the kind of strong will that says: if there's even one goal on the other side to reach, I absolutely won't lose.\""
         },
         {
-          "value": "「私(あたし)らが生み出した以上 娘のような存在であるナンバーテールズたちの夢を叶えてあげることは、生みの親としての責任だ。確かに実現のためにも今は休息を余儀なくされるけど、このままじゃ快復したところで きっと同じミスマッチを繰り返す……何もしないで勝機を待ってるような場合じゃない」",
-          "about": "ナンバーテールズの課題に立ち向かっているとき"
+          "value_JP": "「駄目だよ。君だって、つい先日は他人のこと言えなかったじゃないか」",
+          "value_EN": "\"That's no good. You couldn't exactly say the same about others just the other day, you know.\"",
+          "about": "相手に率直に指摘するとき",
+          "about_EN": "When pointing something out to the other person directly"
         },
         {
-          "value": "「だだだ、大丈夫だよこんなの!! 93(クミ)も頑張っているし、49(ヨチカ)も再起に向けて調子を取り戻してきてるんだからさ！私(あたし)もこんなところで休んでられないよ!! それにもうちょっとで研究データが完全に揃いそうだから、このままスパートをかければ私の頭脳でなんとかできる!! はず!!」",
-          "about": "研究過渡期"
+          "value_JP": "「……あ。いやぁ…久々にコアフォルダのまんまるふかふかを拝めた気がするから、つい…ｗ」",
+          "value_EN": "\"...Oh. Ahh, I just felt like I caught a glimpse of those round, fluffy corefolder forms for the first time in a while, so I just... lol\"",
+          "about": "ナンバーテールズを不意に愛でていた時",
+          "about_EN": "When caught unexpectedly fawning over a NumberTales"
+        },
+        {
+          "value_JP": "「私(あたし)らが生み出した以上 娘のような存在であるナンバーテールズたちの夢を叶えてあげることは、生みの親としての責任だ。確かに実現のためにも今は休息を余儀なくされるけど、このままじゃ快復したところで きっと同じミスマッチを繰り返す……何もしないで勝機を待ってるような場合じゃない」",
+          "value_EN": "\"Since we created them, helping the NumberTales — who are like daughters to us — achieve their dreams is our responsibility as their creators. It's true that for now we're forced to rest, but even once we recover, we'll just repeat the same mismatches at this rate... this isn't the time to sit on our hands waiting for a chance.\"",
+          "about": "ナンバーテールズの課題に立ち向かっているとき",
+          "about_EN": "When confronting challenges facing NumberTales"
+        },
+        {
+          "value_JP": "「だだだ、大丈夫だよこんなの!! 93(クミ)も頑張っているし、49(ヨチカ)も再起に向けて調子を取り戻してきてるんだからさ！私(あたし)もこんなところで休んでられないよ!! それにもうちょっとで研究データが完全に揃いそうだから、このままスパートをかければ私の頭脳でなんとかできる!! はず!!」",
+          "value_EN": "\"I-I'm fine, totally fine!! 93(Nintris) is working hard too, and 49(Fornins) is getting back on track for a comeback! I can't just sit here resting either!! Plus the research data should be complete pretty soon, so if I just push through from here, my brain can handle it!! Probably!!\"",
+          "about": "研究過渡期",
+          "about_EN": "During a transitional period in research"
         }
       ]
     }
@@ -30437,44 +30643,75 @@
     "FirstPersonCalling": "僕",
     "FirstPersonCalling_EN": "I (masc. casual)",
     "SecondPersonCalling": "君\nお前",
+    "SecondPersonCalling_EN": "you\nyou (rough)",
     "ThirdPersonCalling": "彼/彼女;[※名前呼び]",
     "ThirdPersonCalling_EN": "he/she; [*by name]",
     "ForMasterCalling": "クライアント君",
+    "ForMasterCalling_EN": "Client",
     "Strength": "技術力が非常に高くハンドメイドで大抵の装置を製造できる",
+    "Strength_EN": "Extremely skilled with technology — capable of handcrafting most devices",
     "Weakness": "発達障碍が就職活動に響いている（ただし姉の博士課程に協力することになってからはそこまで困っていない）",
+    "Weakness_EN": "A developmental disability has impacted his job hunting (though since he’s been helping with his older sister’s doctoral research, it hasn’t been much of an issue)",
     "IdentityMotif": [
       { "Formation": "humanoid", "Motif": { "Motif_JP": [], "Motif_EN": [] } }
     ],
     "RelationNotes": "ROS,ファームウェアのことは零を最大に信用し、時に零の暴走を止めている",
+    "RelationNotes_EN": "Trusts Zera implicitly when it comes to ROS and firmware, and sometimes keeps Zera's runaways in check",
     "NumerospecAbout": "世界トップ10のメカニック実績がある(学士課程で記録)\n姉と同等の頭脳を持つが発達障害を患っている",
+    "NumerospecAbout_EN": "Holds a track record among the world’s top 10 mechanics (recorded during undergraduate studies)\nPossesses intellect equal to his older sister’s, but has a developmental disability",
     "InStory": "ナンバーテールズのハードウェアを設計・製造・メンテナンスしながら博士研究に努めている",
+    "InStory_EN": "Designs, manufactures, and maintains the NumberTales hardware while pursuing his doctoral research",
     "Backgrounds": "修士課程の進学旅行で不慮の事故に遭い重傷を負うも、介助機器の自作により早期治療、零も同様",
+    "Backgrounds_EN": "Suffered serious injuries in an unforeseen accident during a school trip for his master's program, but achieved early recovery through self-made assistive devices; Zera likewise",
     "ConversationPattern": {
       "TalkingTone": "論理的で単刀直入。余分な修飾を省いた簡潔な口調が基本で、冷静に見えるが問題への関心は深い。",
+      "TalkingTone_EN": "Logical and direct. A concise tone stripped of unnecessary flair is the norm; may come across as calm, but his concern for problems runs deep.",
       "TopicPreference": "ハードウェア・ファームウェアなど技術分野の話題を好む。研究に関しては姉・零と共有する研究目的を軸に話を展開する傾向がある。",
+      "TopicPreference_EN": "Prefers topics in the technical domain, such as hardware and firmware. In research matters, tends to develop discussions around the research objectives he shares with his older sister, Zera.",
       "TalkFrequency": "自発的に話しかけることは少ないが、技術的な話題や問題提起には積極的に応答する。問いかけを多用し、相手の思考を促す役割になりやすい。",
+      "TalkFrequency_EN": "Rarely initiates conversation on his own, but responds actively to technical topics and raised issues. Tends to use questioning frequently, often playing the role of someone who prompts the other person's thinking.",
       "PreferredTopics": "ナンバーテールズのメンテナンスや構造・状態診断に関する話題を好む。人間とヒューマノイドの共存に関する倫理・研究的側面に極めて強い関心がある。",
+      "PreferredTopics_EN": "Enjoys topics related to NumberTales maintenance, structure, and diagnostics. Has an extremely keen interest in the ethical and research aspects of human-humanoid coexistence.",
       "AvoidedTopics": "感情的・非論理的な議論や、根拠なく対象の限界を決めつける発言には距離を置く（しかしヒューマノイドや技術の不当な扱いに対する非倫理的な話題に対しては対抗意識が極めて強く、独り言のように思想的な反応をすることが稀にある）。",
+      "AvoidedTopics_EN": "Keeps his distance from emotional or illogical arguments, and statements that declare limits on others without grounds. (However, on the topic of the unethical treatment of humanoids or technology, his resistance is extremely strong — and he may, on rare occasions, respond with ideological mutterings almost like talking to himself.)",
       "ConversationNotes": "口調はドライで直截的なことが多いが、根底に誠実な配慮がある。心配事があっても表面に出しにくく、技術的な指摘や論理的な問いかけにその感情がにじむことがある。姉・零とは阿吽の呼吸で連携しており、ふたりの間で言葉が省略されることも珍しくないが、同時に姉に対する突っ込みの切れ味も鋭い。稀に思想的になる。",
+      "ConversationNotes_EN": "Tends to be dry and direct, but genuine consideration underlies everything. Even when worried, he finds it difficult to show it outwardly — that emotion tends to seep through in technical observations or logical questions instead. With his older sister Zera, there is an almost telepathic understanding, and omissions in their exchanges are not uncommon; at the same time, his retorts toward her are razor-sharp. On rare occasions, he can become ideological.",
       "DialogueExamples": [
-        "「単刀直入に言うと、酷い状態だね。ドライバ回路がヒートアップしているし 関節部も普通じゃ考えられないノイズと負荷が掛かってる」",
-        "「主人(クライアント)君との相性に恵まれず運が悪かったといえ、心理的に壊れたり慢性的に負担が掛かり続けたりすると いずれ身体まで蝕まれる。人間もヒューマノイドも同じさ」",
-        "「生憎その認識であっているよ、法的に３ヶ月も活動を止められているだけ不幸中の幸いと思った方が良い」",
         {
-          "value": "「統計学的にしか効果を証明できかねるブラックボックスで、だからこそ社会に運用することがこの潜在能力の存在を定義するための絶対条件のはずだ。それが僕らの研究目的だというのに」",
-          "about": "研究について語るとき"
+          "value_JP": "「単刀直入に言うと、酷い状態だね。ドライバ回路がヒートアップしているし 関節部も普通じゃ考えられないノイズと負荷が掛かってる」",
+          "value_EN": "\"To put it directly — the state is bad. The driver circuit is overheating, and the joints are under noise and stress that wouldn't normally be conceivable.\""
         },
         {
-          "value": "「確かに無感情や無人格の方が技術を運用するうえで正確な結果が得られるし、機械にとっては邪魔かもしれない。でも、機械だって人間の価値観やアイディアから創り出せるもので、それは感情や人格そして自我があってこそだ。今は技術が人間を上回ろうとして、人間ができないことを技術が実現してくれる世の中なのに、人間はいつもそんな技術を恐れて権利を制限して、さらには悪用や卑下することばかりだ。そんなことが、技術を創り出す中で望まれているなんて、そんなこと 僕は到底……」",
-          "about": "思想的になっている時（技術の倫理やあり方についての疑念に触れた際の独り言）"
+          "value_JP": "「主人(クライアント)君との相性に恵まれず運が悪かったといえ、心理的に壊れたり慢性的に負担が掛かり続けたりすると いずれ身体まで蝕まれる。人間もヒューマノイドも同じさ」",
+          "value_EN": "\"Even if you chalk it up to bad luck with a mismatched Client, if the psyche breaks or the strain becomes chronic, eventually the body deteriorates too. Same for humans as for humanoids.\""
         },
         {
-          "value": "「お前……馬鹿にしてるのか？あと、寝不足でお酒なんか飲むな。ただでさえ悪酔いするのに、今度は構内で吐いて事故ったらどうする」",
-          "about": "調子に乗っていそうな姉：零に対して①"
+          "value_JP": "「生憎その認識であっているよ、法的に３ヶ月も活動を止められているだけ不幸中の幸いと思った方が良い」",
+          "value_EN": "\"Unfortunately, that understanding is correct. You should consider it a silver lining that the legal measures only halted operations for three months.\""
         },
         {
-          "value": "「お前の休憩意欲はヒューマノイド以下か、IQ200どこ行ったんだよ」",
-          "about": "調子に乗っていそうな姉：零に対して②"
+          "value_JP": "「統計学的にしか効果を証明できかねるブラックボックスで、だからこそ社会に運用することがこの潜在能力の存在を定義するための絶対条件のはずだ。それが僕らの研究目的だというのに」",
+          "value_EN": "\"It's a black box whose effects can only be proven statistically — and that's precisely why deploying it in society should be the absolute prerequisite for establishing the existence of this potential. That is the very point of our research.\"",
+          "about": "研究について語るとき",
+          "about_EN": "When speaking about research"
+        },
+        {
+          "value_JP": "「確かに無感情や無人格の方が技術を運用するうえで正確な結果が得られるし、機械にとっては邪魔かもしれない。でも、機械だって人間の価値観やアイディアから創り出せるもので、それは感情や人格そして自我があってこそだ。今は技術が人間を上回ろうとして、人間ができないことを技術が実現してくれる世の中なのに、人間はいつもそんな技術を恐れて権利を制限して、さらには悪用や卑下することばかりだ。そんなことが、技術を創り出す中で望まれているなんて、そんなこと 僕は到底……」",
+          "value_EN": "\"Granted, being emotionless and without personality might yield more accurate results in operating technology — and emotion might be an obstacle to machines. But machines, too, are created from human values and ideas — and that's only possible because of emotion, personality, and selfhood. In a world where technology now tries to surpass humanity and achieve things humans can't, people still always fear technology, restrict its rights, and endlessly misuse and debase it. That such things are considered acceptable in the creation of technology... I simply cannot...\"",
+          "about": "思想的になっている時（技術の倫理やあり方についての疑念に触れた際の独り言）",
+          "about_EN": "When becoming ideological (muttering to himself upon encountering doubts about the ethics and direction of technology)"
+        },
+        {
+          "value_JP": "「お前……馬鹿にしてるのか？あと、寝不足でお酒なんか飲むな。ただでさえ悪酔いするのに、今度は構内で吐いて事故ったらどうする」",
+          "value_EN": "\"You... are you kidding me? And don't drink when you're sleep-deprived. You already get nasty drunk as it is — what if you end up getting sick on campus and cause an accident?\"",
+          "about": "調子に乗っていそうな姉：零に対して①",
+          "about_EN": "Toward his older sister Zera when she seems to be getting carried away ①"
+        },
+        {
+          "value_JP": "「お前の休憩意欲はヒューマノイド以下か、IQ200どこ行ったんだよ」",
+          "value_EN": "\"Is your drive to rest even lower than a humanoid's? Where did your IQ of 200 go?\"",
+          "about": "調子に乗っていそうな姉：零に対して②",
+          "about_EN": "Toward his older sister Zera when she seems to be getting carried away ②"
         }
       ]
     }
