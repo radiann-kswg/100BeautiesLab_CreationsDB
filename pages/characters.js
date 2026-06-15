@@ -7076,6 +7076,55 @@ export async function renderDetail(workId, rec) {
 			return createStandaloneSubFieldSection(it, [structuredSection]);
 		};
 
+		/**
+		 * IdentityMotif (#Def_FormsMotif[]) の Formation+Motif 配列を描画する
+		 * Formation は辞書引きでラベル化し、Motif は言語別配列から tag 群として展開する。
+		 */
+		const renderFormsMotifSection = (it) => {
+			if (!it || !Array.isArray(it.value) || !it.value.length) return null;
+
+			const lang = getCurrentPageLanguage();
+			const formationPath = `${it.key}.Formation`;
+			// fieldTypeMap は $Def_FormsMotif 内部まで展開しないため、schema 定義に従い直接指定する
+			const formationSchemaType = pickSchemaType(formationPath, 'Formation') || '#DictIndex';
+
+			const groups = it.value
+				.map((entry) => {
+					if (!isPlainObject(entry)) return null;
+
+					const formationRaw = entry.Formation;
+					const formationLabel = formationRaw
+						? (String(formatValueForDisplay(formationRaw, fieldLabelMap, metaForLookup, globalDefType, {
+							schemaType: formationSchemaType,
+							fieldKey: formationPath
+						}) || '').trim() || String(formationRaw).trim())
+						: '';
+
+					const motifData = entry.Motif;
+					const motifItems = isPlainObject(motifData)
+						? (lang === 'en'
+							? (motifData.Motif_EN || motifData.Motif_JP)
+							: (motifData.Motif_JP || motifData.Motif_EN))
+						: null;
+
+					const tags = Array.isArray(motifItems)
+						? motifItems.filter(Boolean).map((text) => el('div', { class: 'tag' }, [String(text)]))
+						: [];
+
+					if (!formationLabel && !tags.length) return null;
+
+					return el('div', { style: 'margin-bottom: 10px;' }, [
+						formationLabel ? el('div', { class: 'tag', style: 'margin-bottom: 6px;' }, [formationLabel]) : null,
+						tags.length ? createDetailTagGrid(tags) : null
+					].filter(Boolean));
+				})
+				.filter(Boolean);
+
+			if (!groups.length) return null;
+
+			return createStandaloneSubFieldSection(it, groups);
+		};
+
 		const renderStatsSubFieldSection = (it) => {
 			if (!it) return null;
 
@@ -7199,7 +7248,8 @@ export async function renderDetail(workId, rec) {
 					renderStructuredObjectSection: stringLikeStandalone ? null : renderStructuredObjectSection,
 					renderStatsSection: renderStatsSubFieldSection,
 					wrapStandaloneSection: createStandaloneSubFieldSection,
-					relationApi: relationRendererApi
+					relationApi: relationRendererApi,
+					renderFormsMotifSection
 				}
 			});
 			if (wrappedSection) return wrappedSection;

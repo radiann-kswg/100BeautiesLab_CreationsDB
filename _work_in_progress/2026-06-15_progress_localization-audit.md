@@ -332,9 +332,41 @@ Python スクリプト経由でのファイル書き込みにも PostToolUse フ
 
 ### 残タスク（本セッション未完了）
 
-- [ ] `db_Secondary.json` — 上記4件の修正（User の方針確認後）
-- [ ] `IdentityMotif` — `db_Primary.json` の10件に `Motif_EN` 追加 + `formsMotifSection` UI レンダラー実装
+- [x] `db_Secondary.json` — 上記4件の修正（dreambitions / fufu / Mama wonders / body modification 対応完了）
+- [x] `IdentityMotif` UI レンダラー実装（2026-06-15 完了 → 下記「IdentityMotif セクションレンダラー」参照）
+- [ ] `db_Primary.json` — `IdentityMotif.Motif_EN` は既存データあり。Num1 以外のキャラクターも目視確認推奨
+- [ ] 上記カテゴリ別詳細の修正（Neutral代名詞・TailsUnit_EN 等）
 - [x] `dict_SpecialPattern.json` 作成・`db_meta.json` 登録（前セッションで完了）
+
+---
+
+## IdentityMotif セクションレンダラー（2026-06-15 実装）
+
+### 問題
+
+`IdentityMotif` フィールドは `#Def_FormsMotif[]`（Formation+Motif の配列構造）を持つが、
+既存の `structuredObjectSection` renderer が `isPlainObject` のみ対応していたため配列を処理できず、
+キャラシートで IdentityMotif セクションが描画されていなかった。
+
+### 実装内容
+
+| ファイル | 変更内容 |
+|---|---|
+| `data/db_type.json` | `IdentityMotif.$display.sectionWrapper` を `"structuredObjectSection"` → `"formsMotifSection"` |
+| `lib/section-wrapper-common.js` | `formsMotifSection` renderer を登録（`context.helpers.renderFormsMotifSection` へ委譲） |
+| `pages/characters.js` | `renderFormsMotifSection(it)` 関数を追加、helpers に `renderFormsMotifSection` を追加 |
+| `tests/section-wrapper-common.test.js` | built-in renderer 一覧に `formsMotifSection` を追加 |
+
+### `renderFormsMotifSection` の動作
+
+1. `it.value`（配列）を各 Formation エントリに分解
+2. Formation は `formatValueForDisplay(..., { schemaType: '#DictIndex', fieldKey: 'IdentityMotif.Formation' })` で辞書引き（Formation Dictionary）
+3. `Motif.Motif_EN` / `Motif.Motif_JP` を言語に応じて選択し tag グリッドとして展開
+4. `createStandaloneSubFieldSection` でセクション全体をラップ
+
+### テスト結果
+
+`npm test` — `section-wrapper-common.test.js` を含む modified 対象テスト全て PASS（既存4ファイル失敗は非関連）
 
 ---
 
