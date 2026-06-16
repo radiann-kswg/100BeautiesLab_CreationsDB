@@ -340,7 +340,7 @@
           "energetic open smile"
         ],
         "immutable_traits": [
-          "small red number '1' marking on the front of the sphere body, center-bottom of the sphere, only one slot"
+          "small red number '1' marking on Left chest area of the hoodie, single fixed slot"
         ],
         "expression_tendency": null,
         "age_appearance": "early teenager",
@@ -367,7 +367,7 @@
           "outfit_features": [
             "red hoodie",
             "arrow-shaped chest zipper",
-            "number '1' marking"
+            "red number '1' marking"
           ],
           "silhouette_notes": {
             "body_description": [
@@ -409,7 +409,7 @@
             "energetic open smile",
             "red hoodie",
             "arrow-shaped chest zipper",
-            "number '1' marking"
+            "red number '1' marking"
           ],
           "negative_visuals": [
             "humanoid form",
@@ -417,8 +417,8 @@
             "shorts",
             "boots"
           ],
-          "natural_language_description": "Corefolder form: a spherical cushion-like body in red orange, with the number '1' marking on the front of the sphere body, center-bottom of the sphere.",
-          "prompt_export": "corefolder form, fox single tail, short stature (about 146cm), early teenager, red orange hair, short hair, fox ears(left ear drooping), energetic open smile, red hoodie, arrow-shaped chest zipper, number '1' marking",
+          "natural_language_description": "Corefolder form: a spherical cushion-like body in red orange, with the red number '1' marking on Left chest area of the hoodie.",
+          "prompt_export": "corefolder form, fox single tail, short stature (about 146cm), early teenager, red orange hair, short hair, fox ears(left ear drooping), energetic open smile, red hoodie, arrow-shaped chest zipper, red number '1' marking",
           "negative_prompt_export": "humanoid form, casual outfit, shorts, boots",
           "reference_images": {
             "main": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primary/concept/cnsp_img1.png",
@@ -449,17 +449,17 @@
             "energetic open smile",
             "casual outfit",
             "shorts",
-            "boots"
+            "boots",
+            "red number '1' marking"
           ],
           "negative_visuals": [
             "corefolder form",
             "red hoodie",
-            "arrow-shaped chest zipper",
-            "number '1' marking"
+            "arrow-shaped chest zipper"
           ],
           "natural_language_description": null,
-          "prompt_export": "humanoid form, fox single tail, short stature (about 146cm), early teenager, red orange short hair, fox ears(left ear drooping), energetic open smile, casual outfit, shorts, boots",
-          "negative_prompt_export": "corefolder form, red hoodie, arrow-shaped chest zipper, number '1' marking",
+          "prompt_export": "humanoid form, fox single tail, short stature (about 146cm), early teenager, red orange short hair, fox ears(left ear drooping), energetic open smile, casual outfit, shorts, boots, red number '1' marking",
+          "negative_prompt_export": "corefolder form, red hoodie, arrow-shaped chest zipper",
           "reference_images": {
             "main": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primary/concept/cnsp_img1.png",
             "humanoid": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primary/arts/humanoids/2023/art_img1-humanoid.png"
@@ -700,7 +700,7 @@
           "rectangular glasses",
           "calm composed smile",
           "double-knotted scarf",
-          "number '2' emblem"
+          "orange number '2' emblem"
         ],
         "silhouette_features": [
           "fox 2 tails",
@@ -711,7 +711,7 @@
           "calm composed smile"
         ],
         "immutable_traits": [
-          "small number '2' marking on the front-hanging end of the neck kerchief, single fixed slot"
+          "small orange number '2' marking on the white area on the front-left chest of the sphere, the front-hanging end of the neck kerchief, single fixed slot"
         ],
         "expression_tendency": null,
         "age_appearance": "early teenager",
@@ -748,7 +748,7 @@
             "attached_items": [
               "rectangular glasses",
               "double-knotted scarf",
-              "number '2' emblem"
+              "orange number '2' emblem"
             ]
           },
           "immutable_constraints": [
@@ -779,11 +779,11 @@
             "rectangular glasses",
             "calm composed smile",
             "double-knotted scarf",
-            "number '2' emblem"
+            "orange number '2' emblem"
           ],
           "negative_visuals": ["humanoid form", "teal sporty shirt", "skirt"],
-          "natural_language_description": "Corefolder form: a spherical cushion-like body in orange, with the number '2' marking on the front-hanging end of the neck kerchief; rectangular glasses.",
-          "prompt_export": "corefolder form, fox 2 tails, short stature (about 146cm), early teenager, orange hair, short hair, fox ears(right ear drooping), rectangular glasses, calm composed smile, double-knotted scarf, number '2' emblem",
+          "natural_language_description": "Corefolder form: a spherical cushion-like body in orange, with the orange number '2' marking on the white area on the front-left chest of the sphere, the front-hanging end of the neck kerchief; rectangular glasses.",
+          "prompt_export": "corefolder form, fox 2 tails, short stature (about 146cm), early teenager, orange hair, short hair, fox ears(right ear drooping), rectangular glasses, calm composed smile, double-knotted scarf, orange number '2' emblem",
           "negative_prompt_export": "humanoid form, teal sporty shirt, skirt",
           "reference_images": {
             "main": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primary/concept/cnsp_img2.png",
@@ -806,7 +806,7 @@
             "attached_items": [
               "rectangular glasses",
               "double-knotted scarf",
-              "number '2' emblem"
+              "orange number '2' emblem"
             ]
           },
           "immutable_constraints": null,
@@ -824,11 +824,11 @@
             "teal sporty shirt",
             "double-knotted scarf",
             "skirt",
-            "number '2' emblem"
+            "orange number '2' emblem"
           ],
           "negative_visuals": ["corefolder form"],
           "natural_language_description": null,
-          "prompt_export": "humanoid form, fox 2 tails, short stature (about 146cm), early teenager, orange hair, short hair, fox ears, rectangular glasses, calm composed smile, teal sporty shirt, double-knotted scarf, skirt, number '2' emblem",
+          "prompt_export": "humanoid form, fox 2 tails, short stature (about 146cm), early teenager, orange hair, short hair, fox ears, rectangular glasses, calm composed smile, teal sporty shirt, double-knotted scarf, skirt, orange number '2' emblem",
           "negative_prompt_export": "corefolder form",
           "reference_images": null
         }
@@ -1039,7 +1039,7 @@
           "spiky hair",
           "fox ears",
           "yellow hair clip",
-          "number '3' marking",
+          "dark number '3' marking",
           "emotive expressive face"
         ],
         "silhouette_features": [
@@ -1052,7 +1052,7 @@
           "emotive expressive face"
         ],
         "immutable_traits": [
-          "small dark number '3' marking on the right side of the front of the spherical body, single fixed slot"
+          "small dark number '3' marking on the white area on the front-left chest of the sphere, single fixed slot"
         ],
         "expression_tendency": null,
         "age_appearance": "teenager",
@@ -1076,7 +1076,7 @@
       "forms": {
         "corefolder": {
           "form_tags": ["corefolder form"],
-          "outfit_features": ["number '3' marking"],
+          "outfit_features": ["dark number '3' marking"],
           "silhouette_notes": {
             "body_description": [
               "spherical core body with the head as the only protruding part on top",
@@ -1115,12 +1115,12 @@
             "spiky hair",
             "fox ears",
             "yellow hair clip",
-            "number '3' marking",
+            "dark number '3' marking",
             "emotive expressive face"
           ],
           "negative_visuals": ["humanoid form", "bright yellow cape-jacket"],
-          "natural_language_description": "Corefolder form: a spherical cushion-like body in yellow, with the number '3' marking on the right side of the front of the spherical body.",
-          "prompt_export": "corefolder form, fox 3 tails, slightly tall stature (about 160cm), teenager, yellow hair, spiky hair, fox ears, yellow hair clip, number '3' marking, emotive expressive face",
+          "natural_language_description": "Corefolder form: a spherical cushion-like body in yellow, with the dark number '3' marking on the white area on the front-left chest of the sphere.",
+          "prompt_export": "corefolder form, fox 3 tails, slightly tall stature (about 160cm), teenager, yellow hair, spiky hair, fox ears, yellow hair clip, dark number '3' marking, emotive expressive face",
           "negative_prompt_export": "humanoid form, bright yellow cape-jacket",
           "reference_images": {
             "main": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primary/concept/cnsp_img3.png",
@@ -1131,7 +1131,7 @@
           "form_tags": ["humanoid form"],
           "outfit_features": [
             "bright yellow cape-jacket",
-            "number '3' marking"
+            "dark number '3' marking"
           ],
           "silhouette_notes": {
             "body_description": [
@@ -1155,12 +1155,12 @@
             "fox ears",
             "yellow hair clip",
             "bright yellow cape-jacket",
-            "number '3' marking",
+            "dark number '3' marking",
             "emotive expressive face"
           ],
           "negative_visuals": ["corefolder form"],
           "natural_language_description": null,
-          "prompt_export": "humanoid form, fox 3 tails, slightly tall stature (about 160cm), teenager, yellow hair, spiky hair, fox ears, yellow hair clip, bright yellow cape-jacket, number '3' marking, emotive expressive face",
+          "prompt_export": "humanoid form, fox 3 tails, slightly tall stature (about 160cm), teenager, yellow hair, spiky hair, fox ears, yellow hair clip, bright yellow cape-jacket, dark number '3' marking, emotive expressive face",
           "negative_prompt_export": "corefolder form",
           "reference_images": null
         }
@@ -1427,7 +1427,7 @@
           "fox drooping ears",
           "soft understated smile",
           "small ear-side hair accessory",
-          "number '4' emblem"
+          "white number '4' emblem"
         ],
         "silhouette_features": [
           "fox 4 tails",
@@ -1474,7 +1474,7 @@
             ],
             "attached_items": [
               "small ear-side hair accessory",
-              "number '4' emblem"
+              "white number '4' emblem"
             ]
           },
           "immutable_constraints": [
@@ -1503,11 +1503,11 @@
             "fox drooping ears",
             "soft understated smile",
             "small ear-side hair accessory",
-            "number '4' emblem"
+            "white number '4' emblem"
           ],
           "negative_visuals": ["humanoid form", "layered teal coat", "skirt"],
-          "natural_language_description": "Corefolder form: a spherical cushion-like body in blue, with the number '4' marking on the front shoulder area near the hood opening; small ear-side hair accessory.",
-          "prompt_export": "corefolder form, fox 4 tails, average stature (about 157cm), teenager, long blue hair, fox drooping ears, soft understated smile, small ear-side hair accessory, number '4' emblem",
+          "natural_language_description": "Corefolder form: a spherical cushion-like body in blue, with the white number '4' marking on the front shoulder area near the hood opening; small ear-side hair accessory.",
+          "prompt_export": "corefolder form, fox 4 tails, average stature (about 157cm), teenager, long blue hair, fox drooping ears, soft understated smile, small ear-side hair accessory, white number '4' emblem",
           "negative_prompt_export": "humanoid form, layered teal coat, skirt",
           "reference_images": {
             "main": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primary/concept/cnsp_img4.png",
@@ -1525,7 +1525,7 @@
             ],
             "attached_items": [
               "small ear-side hair accessory",
-              "number '4' emblem"
+              "white number '4' emblem"
             ]
           },
           "immutable_constraints": null,
@@ -1541,11 +1541,11 @@
             "layered teal coat",
             "skirt",
             "small ear-side hair accessory",
-            "number '4' emblem"
+            "white number '4' emblem"
           ],
           "negative_visuals": ["corefolder form"],
           "natural_language_description": null,
-          "prompt_export": "humanoid form, fox 4 tails, average stature (about 157cm), teenager, long blue hair, fox drooping ears, soft understated smile, layered teal coat, skirt, small ear-side hair accessory, number '4' emblem",
+          "prompt_export": "humanoid form, fox 4 tails, average stature (about 157cm), teenager, long blue hair, fox drooping ears, soft understated smile, layered teal coat, skirt, small ear-side hair accessory, white number '4' emblem",
           "negative_prompt_export": "corefolder form",
           "reference_images": null
         }
@@ -1766,7 +1766,7 @@
           "heterochromia",
           "mischievous grin",
           "tape wristbands",
-          "number '5' marking"
+          "dark number '5' marking"
         ],
         "silhouette_features": [
           "fox 5 tails",
@@ -1776,7 +1776,7 @@
           "mischievous grin"
         ],
         "immutable_traits": [
-          "small dark number '5' marking on the white front of the sphere, right side at mid-height, single fixed slot"
+          "small dark number '5' marking on white area on the front-left chest of the sphere, single fixed slot"
         ],
         "expression_tendency": null,
         "age_appearance": "teenager",
@@ -1800,7 +1800,7 @@
       "forms": {
         "corefolder": {
           "form_tags": ["corefolder form"],
-          "outfit_features": ["number '5' marking", "heterochromia"],
+          "outfit_features": ["dark number '5' marking", "heterochromia"],
           "silhouette_notes": {
             "body_description": [
               "spherical core body with the head as the only protruding part on top",
@@ -1838,11 +1838,11 @@
             "heterochromia",
             "mischievous grin",
             "tape wristbands",
-            "number '5' marking"
+            "dark number '5' marking"
           ],
           "negative_visuals": ["humanoid form", "acrobatic pose"],
-          "natural_language_description": "Corefolder form: a spherical cushion-like body in teal green, with the number '5' marking on the white front of the sphere, right side at mid-height; tape wristbands.",
-          "prompt_export": "corefolder form, fox 5 tails, average stature (about 156cm), teenager, teal green hair, fox ears, heterochromia, mischievous grin, tape wristbands, number '5' marking",
+          "natural_language_description": "Corefolder form: a spherical cushion-like body in teal green, with the dark number '5' marking on white area on the front-left chest of the sphere; tape wristbands.",
+          "prompt_export": "corefolder form, fox 5 tails, average stature (about 156cm), teenager, teal green hair, fox ears, heterochromia, mischievous grin, tape wristbands, dark number '5' marking",
           "negative_prompt_export": "humanoid form, acrobatic pose",
           "reference_images": {
             "main": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primary/concept/cnsp_img5.png",
@@ -1853,7 +1853,7 @@
           "form_tags": ["humanoid form"],
           "outfit_features": [
             "acrobatic pose",
-            "number '5' marking",
+            "white number '5' marking",
             "heterochromia"
           ],
           "silhouette_notes": {
@@ -1877,11 +1877,11 @@
             "mischievous grin",
             "tape wristbands",
             "acrobatic pose",
-            "number '5' marking"
+            "white number '5' marking"
           ],
           "negative_visuals": ["corefolder form"],
           "natural_language_description": null,
-          "prompt_export": "humanoid form, fox 5 tails, average stature (about 156cm), teenager, teal green hair, fox ears, heterochromia, mischievous grin, tape wristbands, acrobatic pose, number '5' marking",
+          "prompt_export": "humanoid form, fox 5 tails, average stature (about 156cm), teenager, teal green hair, fox ears, heterochromia, mischievous grin, tape wristbands, acrobatic pose, white number '5' marking",
           "negative_prompt_export": "corefolder form",
           "reference_images": null
         }
@@ -2100,7 +2100,7 @@
           "gentle warm smile",
           "hexagonal brooch",
           "lace trim",
-          "number '6' marking"
+          "dark number '6' marking"
         ],
         "silhouette_features": [
           "fox 6 tails",
@@ -2110,7 +2110,7 @@
           "gentle warm smile"
         ],
         "immutable_traits": [
-          "small dark number '6' marking on the blue hexagonal pendant at the front center of the chest, single fixed slot"
+          "small dark number '6' marking on left collar, around the blue hexagonal pendant at the front center of the chest, single fixed slot"
         ],
         "expression_tendency": null,
         "age_appearance": "teenager",
@@ -2135,7 +2135,7 @@
       "forms": {
         "corefolder": {
           "form_tags": ["corefolder form"],
-          "outfit_features": ["lace trim", "number '6' marking"],
+          "outfit_features": ["lace trim", "dark number '6' marking"],
           "silhouette_notes": {
             "body_description": [
               "spherical core body with the head as the only protruding part on top",
@@ -2173,15 +2173,15 @@
             "gentle warm smile",
             "hexagonal brooch",
             "lace trim",
-            "number '6' marking"
+            "dark number '6' marking"
           ],
           "negative_visuals": [
             "humanoid form",
             "Victorian dress",
             "two-tone pink purple dress"
           ],
-          "natural_language_description": "Corefolder form: a spherical cushion-like body in pink, with the number '6' marking on the blue hexagonal pendant at the front center of the chest; hexagonal brooch.",
-          "prompt_export": "corefolder form, fox 6 tails, average stature (about 150cm), teenager, pink hair, fox ears, gentle warm smile, hexagonal brooch, lace trim, number '6' marking",
+          "natural_language_description": "Corefolder form: a spherical cushion-like body in pink, with the dark number '6' marking on left collar, around the blue hexagonal pendant at the front center of the chest; hexagonal brooch.",
+          "prompt_export": "corefolder form, fox 6 tails, average stature (about 150cm), teenager, pink hair, fox ears, gentle warm smile, hexagonal brooch, lace trim, dark number '6' marking",
           "negative_prompt_export": "humanoid form, Victorian dress, two-tone pink purple dress",
           "reference_images": {
             "main": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primary/concept/cnsp_img6.png",
@@ -2194,7 +2194,7 @@
             "Victorian dress",
             "two-tone pink purple dress",
             "lace trim",
-            "number '6' marking"
+            "dark number '6' marking"
           ],
           "silhouette_notes": {
             "body_description": ["pink hair", "fox ears", "gentle warm smile"],
@@ -2214,11 +2214,11 @@
             "two-tone pink purple dress",
             "hexagonal brooch",
             "lace trim",
-            "number '6' marking"
+            "dark number '6' marking"
           ],
           "negative_visuals": ["corefolder form"],
           "natural_language_description": null,
-          "prompt_export": "humanoid form, fox 6 tails, average stature (about 150cm), teenager, pink hair, fox ears, gentle warm smile, Victorian dress, two-tone pink purple dress, hexagonal brooch, lace trim, number '6' marking",
+          "prompt_export": "humanoid form, fox 6 tails, average stature (about 150cm), teenager, pink hair, fox ears, gentle warm smile, Victorian dress, two-tone pink purple dress, hexagonal brooch, lace trim, dark number '6' marking",
           "negative_prompt_export": "corefolder form",
           "reference_images": null
         }
@@ -2436,7 +2436,7 @@
           "contemplative stoic gaze"
         ],
         "immutable_traits": [
-          "small dark number '7' marking on the white front of the spherical body, left of center, single fixed slot"
+          "small dark number '7' marking on white area on the front-left chest of the sphere, single fixed slot"
         ],
         "expression_tendency": null,
         "age_appearance": "young adult",
@@ -2460,7 +2460,7 @@
       "forms": {
         "corefolder": {
           "form_tags": ["corefolder form"],
-          "outfit_features": ["number '7' marking"],
+          "outfit_features": ["dark number '7' marking"],
           "silhouette_notes": {
             "body_description": [
               "spherical core body with the head as the only protruding part on top",
@@ -2497,7 +2497,7 @@
             "fox ears",
             "contemplative stoic gaze",
             "prayer beads necklace",
-            "number '7' marking"
+            "dark number '7' marking"
           ],
           "negative_visuals": [
             "humanoid form",
@@ -2506,8 +2506,8 @@
             "wide-leg dark pants",
             "Japanese-style casual outfit"
           ],
-          "natural_language_description": "Corefolder form: a spherical cushion-like body in dark blue, with the number '7' marking on the white front of the spherical body, left of center; prayer beads necklace.",
-          "prompt_export": "corefolder form, fox 7 tails, slightly tall stature (about 162cm), young adult, navy dark blue hair, fox ears, contemplative stoic gaze, prayer beads necklace, number '7' marking",
+          "natural_language_description": "Corefolder form: a spherical cushion-like body in dark blue, with the dark number '7' marking on white area on the front-left chest of the sphere; prayer beads necklace.",
+          "prompt_export": "corefolder form, fox 7 tails, slightly tall stature (about 162cm), young adult, navy dark blue hair, fox ears, contemplative stoic gaze, prayer beads necklace, dark number '7' marking",
           "negative_prompt_export": "humanoid form, prayer bead necklace, Japanese-style coat, wide-leg dark pants, Japanese-style casual outfit",
           "reference_images": {
             "main": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primary/concept/cnsp_img7.png",
@@ -2542,16 +2542,13 @@
             "prayer bead necklace",
             "Japanese-style coat",
             "wide-leg dark pants",
-            "Japanese-style casual outfit"
+            "Japanese-style casual outfit",
+            "dark number '7' marking"
           ],
-          "negative_visuals": [
-            "corefolder form",
-            "prayer beads necklace",
-            "number '7' marking"
-          ],
+          "negative_visuals": ["corefolder form", "prayer beads necklace"],
           "natural_language_description": null,
-          "prompt_export": "humanoid form, fox 7 tails, slightly tall stature (about 162cm), young adult, navy dark blue hair, fox ears, contemplative stoic gaze, prayer bead necklace, Japanese-style coat, wide-leg dark pants, Japanese-style casual outfit",
-          "negative_prompt_export": "corefolder form, prayer beads necklace, number '7' marking",
+          "prompt_export": "humanoid form, fox 7 tails, slightly tall stature (about 162cm), young adult, navy dark blue hair, fox ears, contemplative stoic gaze, prayer bead necklace, Japanese-style coat, wide-leg dark pants, Japanese-style casual outfit, dark number '7' marking",
+          "negative_prompt_export": "corefolder form, prayer beads necklace",
           "reference_images": {
             "main": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primary/concept/cnsp_img7.png",
             "humanoid": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primary/arts/humanoids/2023/art_img7-humanoid.png"
@@ -2790,7 +2787,7 @@
           "wide energetic grin",
           "VR goggles on head",
           "mechanic style",
-          "number '8' emblem"
+          "dark number '8' emblem"
         ],
         "silhouette_features": [
           "fox 8 tails",
@@ -2800,7 +2797,7 @@
           "wide energetic grin"
         ],
         "immutable_traits": [
-          "small dark number '8' marking on the white front of the sphere, right-bottom area, single fixed slot"
+          "small dark number '8' marking on the white area on the front-left chest of the sphere, single fixed slot"
         ],
         "expression_tendency": null,
         "age_appearance": "teenager",
@@ -2833,7 +2830,7 @@
               "fox ears(hidden under hood)",
               "wide energetic grin"
             ],
-            "attached_items": ["VR goggles on head", "number '8' emblem"]
+            "attached_items": ["VR goggles on head", "dark number '8' emblem"]
           },
           "immutable_constraints": [
             "do not render arms or hands",
@@ -2862,15 +2859,15 @@
             "wide energetic grin",
             "VR goggles on head",
             "mechanic style",
-            "number '8' emblem"
+            "dark number '8' emblem"
           ],
           "negative_visuals": [
             "humanoid form",
             "tactical vest",
             "tool pouches"
           ],
-          "natural_language_description": "Corefolder form: a spherical cushion-like body in orange red, with the number '8' marking on the white front of the sphere, right-bottom area; VR goggles on head.",
-          "prompt_export": "corefolder form, fox 8 tails, average stature (about 158cm), teenager, orange red hair, fox ears(hidden under hood), wide energetic grin, VR goggles on head, mechanic style, number '8' emblem",
+          "natural_language_description": "Corefolder form: a spherical cushion-like body in orange red, with the dark number '8' marking on the white area on the front-left chest of the sphere; VR goggles on head.",
+          "prompt_export": "corefolder form, fox 8 tails, average stature (about 158cm), teenager, orange red hair, fox ears(hidden under hood), wide energetic grin, VR goggles on head, mechanic style, dark number '8' emblem",
           "negative_prompt_export": "humanoid form, tactical vest, tool pouches",
           "reference_images": {
             "main": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primary/concept/cnsp_img8.png",
@@ -2893,7 +2890,7 @@
               "fox ears(hidden under hood)",
               "wide energetic grin"
             ],
-            "attached_items": ["VR goggles on head", "number '8' emblem"]
+            "attached_items": ["VR goggles on head", "red number '8' emblem"]
           },
           "immutable_constraints": null,
           "negative_keywords": null,
@@ -2909,11 +2906,11 @@
             "tactical vest",
             "mechanic style",
             "tool pouches",
-            "number '8' emblem"
+            "red number '8' emblem"
           ],
           "negative_visuals": ["corefolder form"],
           "natural_language_description": null,
-          "prompt_export": "humanoid form, fox 8 tails, average stature (about 158cm), teenager, orange red hair, fox ears(hidden under hood), wide energetic grin, VR goggles on head, tactical vest, mechanic style, tool pouches, number '8' emblem",
+          "prompt_export": "humanoid form, fox 8 tails, average stature (about 158cm), teenager, orange red hair, fox ears(hidden under hood), wide energetic grin, VR goggles on head, tactical vest, mechanic style, tool pouches, red number '8' emblem",
           "negative_prompt_export": "corefolder form",
           "reference_images": null
         }
@@ -3171,7 +3168,7 @@
           "fox ears",
           "tails in ring arrangement",
           "composed mysterious expression",
-          "number '9' marking"
+          "dark number '9' marking"
         ],
         "silhouette_features": [
           "fox 9 tails",
@@ -3182,7 +3179,7 @@
           "composed mysterious expression"
         ],
         "immutable_traits": [
-          "small dark number '9' marking on the front of the spherical body to the right of center, single fixed slot"
+          "small dark number '9' marking on the white area on the front-left chest of the sphere, single fixed slot"
         ],
         "expression_tendency": null,
         "age_appearance": "young adult",
@@ -3206,7 +3203,7 @@
       "forms": {
         "corefolder": {
           "form_tags": ["corefolder form"],
-          "outfit_features": ["number '9' marking"],
+          "outfit_features": ["dark number '9' marking"],
           "silhouette_notes": {
             "body_description": [
               "spherical core body with the head as the only protruding part on top",
@@ -3243,11 +3240,11 @@
             "fox ears",
             "tails in ring arrangement",
             "composed mysterious expression",
-            "number '9' marking"
+            "dark number '9' marking"
           ],
           "negative_visuals": ["humanoid form", "large dark cape"],
-          "natural_language_description": "Corefolder form: a spherical cushion-like body in TODO: base color for #9, with the number '9' marking on the front of the spherical body to the right of center.",
-          "prompt_export": "corefolder form, fox 9 tails, slightly tall stature (about 160cm), young adult, silver gray long hair, fox ears, tails in ring arrangement, composed mysterious expression, number '9' marking",
+          "natural_language_description": "Corefolder form: a spherical cushion-like body in TODO: base color for #9, with the dark number '9' marking on the white area on the front-left chest of the sphere.",
+          "prompt_export": "corefolder form, fox 9 tails, slightly tall stature (about 160cm), young adult, silver gray long hair, fox ears, tails in ring arrangement, composed mysterious expression, dark number '9' marking",
           "negative_prompt_export": "humanoid form, large dark cape",
           "reference_images": {
             "main": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primary/concept/cnsp_img9.png",
@@ -3259,7 +3256,7 @@
         },
         "humanoid": {
           "form_tags": ["humanoid form"],
-          "outfit_features": ["large dark cape", "number '9' marking"],
+          "outfit_features": ["large dark cape", "dark number '9' marking"],
           "silhouette_notes": {
             "body_description": [
               "silver gray long hair",
@@ -3283,11 +3280,11 @@
             "composed mysterious expression",
             "large dark cape",
             "tall slender",
-            "number '9' marking"
+            "dark number '9' marking"
           ],
           "negative_visuals": ["corefolder form"],
           "natural_language_description": null,
-          "prompt_export": "humanoid form, fox 9 tails, slightly tall stature (about 160cm), young adult, silver gray long hair, fox ears, tails in ring arrangement, composed mysterious expression, large dark cape, tall slender, number '9' marking",
+          "prompt_export": "humanoid form, fox 9 tails, slightly tall stature (about 160cm), young adult, silver gray long hair, fox ears, tails in ring arrangement, composed mysterious expression, large dark cape, tall slender, dark number '9' marking",
           "negative_prompt_export": "corefolder form",
           "reference_images": null
         }
@@ -3617,7 +3614,7 @@
           "hair tied at side",
           "fox ears",
           "knowing confident smile",
-          "number '10' emblem"
+          "red number '10' emblem"
         ],
         "silhouette_features": [
           "short stature (about 147cm)",
@@ -3627,7 +3624,7 @@
           "knowing confident smile"
         ],
         "immutable_traits": [
-          "small red number '10' marking on the white front of the spherical body, center-bottom, single fixed slot"
+          "small red number '10' marking on the white area on the front-left chest of the sphere, single fixed slot"
         ],
         "expression_tendency": null,
         "age_appearance": "early teenager",
@@ -3662,7 +3659,7 @@
               "bud-type single fox tail",
               "knowing confident smile"
             ],
-            "attached_items": ["number '10' emblem"]
+            "attached_items": ["red number '10' emblem"]
           },
           "immutable_constraints": [
             "do not render arms or hands",
@@ -3689,15 +3686,15 @@
             "hair tied at side",
             "fox ears",
             "knowing confident smile",
-            "number '10' emblem"
+            "red number '10' emblem"
           ],
           "negative_visuals": [
             "humanoid form",
             "Chinese-style mandarin-collar jacket",
             "wide-leg pants"
           ],
-          "natural_language_description": "Corefolder form: a spherical cushion-like body in deep red, with the number '10' marking on the white front of the spherical body, center-bottom; number '10' emblem.",
-          "prompt_export": "corefolder form, short stature (about 147cm), early teenager, deep red hair, hair tied at side, fox ears, knowing confident smile, number '10' emblem",
+          "natural_language_description": "Corefolder form: a spherical cushion-like body in deep red, with the red number '10' marking on the white area on the front-left chest of the sphere;red number '10' marking on the white area on the front-left chest of the sphere.",
+          "prompt_export": "corefolder form, short stature (about 147cm), early teenager, deep red hair, hair tied at side, fox ears, knowing confident smile, red number '10' emblem",
           "negative_prompt_export": "humanoid form, Chinese-style mandarin-collar jacket, wide-leg pants",
           "reference_images": {
             "main": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primary/concept/cnsp_img10.png",
@@ -3718,7 +3715,7 @@
               "bud-type single fox tail",
               "knowing confident smile"
             ],
-            "attached_items": ["number '10' emblem"]
+            "attached_items": ["dark number '10' emblem"]
           },
           "immutable_constraints": null,
           "negative_keywords": null,
@@ -3732,11 +3729,11 @@
             "knowing confident smile",
             "Chinese-style mandarin-collar jacket",
             "wide-leg pants",
-            "number '10' emblem"
+            "dark number '10' emblem"
           ],
           "negative_visuals": ["corefolder form"],
           "natural_language_description": null,
-          "prompt_export": "humanoid form, short stature (about 147cm), early teenager, deep red hair, hair tied at side, fox ears, knowing confident smile, Chinese-style mandarin-collar jacket, wide-leg pants, number '10' emblem",
+          "prompt_export": "humanoid form, short stature (about 147cm), early teenager, deep red hair, hair tied at side, fox ears, knowing confident smile, Chinese-style mandarin-collar jacket, wide-leg pants, dark number '10' emblem",
           "negative_prompt_export": "corefolder form",
           "reference_images": null
         }
@@ -3953,7 +3950,7 @@
           "two arrow-shaped hair pins",
           "long hooded coat",
           "red vertical stripe on coat",
-          "number '11' marking"
+          "red number '11' marking (one digit on each side)"
         ],
         "silhouette_features": [
           "slightly tall stature (about 161cm)",
@@ -3962,7 +3959,9 @@
           "divine self-assured composure",
           "two arrow-shaped hair pins"
         ],
-        "immutable_traits": null,
+        "immutable_traits": [
+          "small red number '11' marking (one digit on each side) on one digit on each hem of the costume, slightly larger, single fixed slot"
+        ],
         "expression_tendency": null,
         "age_appearance": "teenager",
         "palette_priority": null,
@@ -3988,7 +3987,7 @@
           "outfit_features": [
             "long hooded coat",
             "red vertical stripe on coat",
-            "number '11' marking"
+            "red number '11' marking (one digit on each side)"
           ],
           "silhouette_notes": {
             "body_description": [
@@ -4027,11 +4026,11 @@
             "two arrow-shaped hair pins",
             "long hooded coat",
             "red vertical stripe on coat",
-            "number '11' marking"
+            "red number '11' marking (one digit on each side)"
           ],
           "negative_visuals": ["humanoid form"],
           "natural_language_description": "Corefolder form: a spherical cushion-like body in TODO: base color for #11, with the number '11' TODO: marking placement for #11.",
-          "prompt_export": "corefolder form, slightly tall stature (about 161cm), teenager, silver gray long hair, erected cat ears(hidden under hood), divine self-assured composure, two arrow-shaped hair pins, long hooded coat, red vertical stripe on coat, number '11' marking",
+          "prompt_export": "corefolder form, slightly tall stature (about 161cm), teenager, silver gray long hair, erected cat ears(hidden under hood), divine self-assured composure, two arrow-shaped hair pins, long hooded coat, red vertical stripe on coat, red number '11' marking (one digit on each side)",
           "negative_prompt_export": "humanoid form",
           "reference_images": {
             "main": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primary/concept/cnsp_img11.png",
@@ -4043,7 +4042,7 @@
           "outfit_features": [
             "long hooded coat",
             "red vertical stripe on coat",
-            "number '11' marking"
+            "red number '11' marking (one digit on each side)"
           ],
           "silhouette_notes": {
             "body_description": [
@@ -4066,11 +4065,11 @@
             "two arrow-shaped hair pins",
             "long hooded coat",
             "red vertical stripe on coat",
-            "number '11' marking"
+            "red number '11' marking (one digit on each side)"
           ],
           "negative_visuals": ["corefolder form"],
           "natural_language_description": null,
-          "prompt_export": "humanoid form, slightly tall stature (about 161cm), teenager, silver gray long hair, erected cat ears(hidden under hood), divine self-assured composure, two arrow-shaped hair pins, long hooded coat, red vertical stripe on coat, number '11' marking",
+          "prompt_export": "humanoid form, slightly tall stature (about 161cm), teenager, silver gray long hair, erected cat ears(hidden under hood), divine self-assured composure, two arrow-shaped hair pins, long hooded coat, red vertical stripe on coat, red number '11' marking (one digit on each side)",
           "negative_prompt_export": "corefolder form",
           "reference_images": null
         }
@@ -4300,7 +4299,7 @@
           "serene blank expression"
         ],
         "immutable_traits": [
-          "small orange number '12' marking on the right shoulder area of the spherical body just below the hood edge, single fixed slot"
+          "small dark color number '12' marking on left shoulder, around right just below the edge of the spherical hood, single fixed slot"
         ],
         "expression_tendency": null,
         "age_appearance": "early teenager",
@@ -4324,7 +4323,7 @@
       "forms": {
         "corefolder": {
           "form_tags": ["corefolder form"],
-          "outfit_features": ["poncho cape", "number '12' marking"],
+          "outfit_features": ["poncho cape", "dark color number '12' marking"],
           "silhouette_notes": {
             "body_description": [
               "spherical core body with the head as the only protruding part on top",
@@ -4363,7 +4362,7 @@
             "fox ears",
             "serene blank expression",
             "poncho cape",
-            "number '12' marking"
+            "dark color number '12' marking"
           ],
           "negative_visuals": [
             "humanoid form",
@@ -4371,8 +4370,8 @@
             "large hood up",
             "peach color scheme"
           ],
-          "natural_language_description": "Corefolder form: a spherical cushion-like body in peach orange, with the number '12' marking on the right shoulder area of the spherical body just below the hood edge.",
-          "prompt_export": "corefolder form, branching fox 2 tails, short stature (about 148cm), early teenager, peach orange hair, long hair, fox ears, serene blank expression, poncho cape, number '12' marking",
+          "natural_language_description": "Corefolder form: a spherical cushion-like body in peach orange, with the dark color number '12' marking on left shoulder, around right just below the edge of the spherical hood.",
+          "prompt_export": "corefolder form, branching fox 2 tails, short stature (about 148cm), early teenager, peach orange hair, long hair, fox ears, serene blank expression, poncho cape, dark color number '12' marking",
           "negative_prompt_export": "humanoid form, casual private outfit, large hood up, peach color scheme",
           "reference_images": {
             "main": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primary/concept/cnsp_img12.png",
@@ -4406,16 +4405,13 @@
             "serene blank expression",
             "casual private outfit",
             "large hood up",
-            "peach color scheme"
+            "peach color scheme",
+            "dark color number '12' marking"
           ],
-          "negative_visuals": [
-            "corefolder form",
-            "poncho cape",
-            "number '12' marking"
-          ],
+          "negative_visuals": ["corefolder form", "poncho cape"],
           "natural_language_description": null,
-          "prompt_export": "humanoid form, branching fox 2 tails, short stature (about 148cm), early teenager, long peach orange hair, fox ears, serene blank expression, casual private outfit, large hood up, peach color scheme",
-          "negative_prompt_export": "corefolder form, poncho cape, number '12' marking",
+          "prompt_export": "humanoid form, branching fox 2 tails, short stature (about 148cm), early teenager, long peach orange hair, fox ears, serene blank expression, casual private outfit, large hood up, peach color scheme, dark color number '12' marking",
+          "negative_prompt_export": "corefolder form, poncho cape",
           "reference_images": {
             "main": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primary/concept/cnsp_img12.png",
             "humanoid": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primary/arts/humanoids/2023/art_img12-humanoid.png"
@@ -4630,7 +4626,7 @@
           "fox ears",
           "wide enthusiastic smile",
           "multi-color stripe",
-          "number '13' marking"
+          "dark (with red and yellow underline) number '13' marking"
         ],
         "silhouette_features": [
           "branching fox 3 tails",
@@ -4640,7 +4636,7 @@
           "wide enthusiastic smile"
         ],
         "immutable_traits": [
-          "small dark number '13' marking on the white front of the sphere, center area, single fixed slot"
+          "small dark (with red and yellow underline) number '13' marking on the white area of the left chest on the sphere, single fixed slot"
         ],
         "expression_tendency": null,
         "age_appearance": "teenager",
@@ -4664,7 +4660,10 @@
       "forms": {
         "corefolder": {
           "form_tags": ["corefolder form"],
-          "outfit_features": ["multi-color stripe", "number '13' marking"],
+          "outfit_features": [
+            "multi-color stripe",
+            "dark (with red and yellow underline) number '13' marking"
+          ],
           "silhouette_notes": {
             "body_description": [
               "spherical core body with the head as the only protruding part on top",
@@ -4701,7 +4700,7 @@
             "fox ears",
             "wide enthusiastic smile",
             "multi-color stripe",
-            "number '13' marking"
+            "dark (with red and yellow underline) number '13' marking"
           ],
           "negative_visuals": [
             "humanoid form",
@@ -4709,8 +4708,8 @@
             "yellow shorts",
             "wristbands"
           ],
-          "natural_language_description": "Corefolder form: a spherical cushion-like body in light blue, with the number '13' marking on the white front of the sphere, center area.",
-          "prompt_export": "corefolder form, branching fox 3 tails, short stature (about 148cm), teenager, teal light blue hair, fox ears, wide enthusiastic smile, multi-color stripe, number '13' marking",
+          "natural_language_description": "Corefolder form: a spherical cushion-like body in light blue, with the dark (with red and yellow underline) number '13' marking on the white area of the left chest on the sphere.",
+          "prompt_export": "corefolder form, branching fox 3 tails, short stature (about 148cm), teenager, teal light blue hair, fox ears, wide enthusiastic smile, multi-color stripe, dark (with red and yellow underline) number '13' marking",
           "negative_prompt_export": "humanoid form, sporty jersey, yellow shorts, wristbands",
           "reference_images": {
             "main": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primary/concept/cnsp_img13.png",
@@ -4726,7 +4725,7 @@
             "sporty jersey",
             "multi-color stripe",
             "yellow shorts",
-            "number '13' marking"
+            "dark (with red and yellow underline) number '13' marking"
           ],
           "silhouette_notes": {
             "body_description": [
@@ -4750,11 +4749,11 @@
             "multi-color stripe",
             "yellow shorts",
             "wristbands",
-            "number '13' marking"
+            "dark (with red and yellow underline) number '13' marking"
           ],
           "negative_visuals": ["corefolder form"],
           "natural_language_description": null,
-          "prompt_export": "humanoid form, branching fox 3 tails, short stature (about 148cm), teenager, teal light blue hair, fox ears, wide enthusiastic smile, sporty jersey, multi-color stripe, yellow shorts, wristbands, number '13' marking",
+          "prompt_export": "humanoid form, branching fox 3 tails, short stature (about 148cm), teenager, teal light blue hair, fox ears, wide enthusiastic smile, sporty jersey, multi-color stripe, yellow shorts, wristbands, dark (with red and yellow underline) number '13' marking",
           "negative_prompt_export": "corefolder form",
           "reference_images": null
         }
@@ -5031,7 +5030,11 @@
     },
     "AIHints": {
       "common": {
-        "identity_tags": ["long blue hair", "fox ears", "number '14' marking"],
+        "identity_tags": [
+          "long blue hair",
+          "fox ears",
+          "dark number '14' marking"
+        ],
         "silhouette_features": [
           "branching fox 4 tails",
           "short stature (about 146cm)",
@@ -5039,7 +5042,7 @@
           "fox ears"
         ],
         "immutable_traits": [
-          "small dark number '14' marking on the white front of the sphere, center area, single fixed slot"
+          "small dark number '14' marking on the front center of the white area of the sphere, just below the collar and somewhat large, single fixed slot"
         ],
         "expression_tendency": null,
         "age_appearance": "teenager",
@@ -5067,7 +5070,7 @@
       "forms": {
         "corefolder": {
           "form_tags": ["corefolder form"],
-          "outfit_features": ["number '14' marking"],
+          "outfit_features": ["dark number '14' marking"],
           "silhouette_notes": {
             "body_description": [
               "spherical core body with the head as the only protruding part on top",
@@ -5103,7 +5106,7 @@
             "long blue hair",
             "fox ears",
             "shy tearful expression",
-            "number '14' marking"
+            "dark number '14' marking"
           ],
           "negative_visuals": [
             "humanoid form",
@@ -5112,8 +5115,8 @@
             "red skirt",
             "tri-color outfit"
           ],
-          "natural_language_description": "Corefolder form: a spherical cushion-like body in blue, with the number '14' marking on the white front of the sphere, center area.",
-          "prompt_export": "corefolder form, branching fox 4 tails, short stature (about 146cm), teenager, long blue hair, fox ears, shy tearful expression, number '14' marking",
+          "natural_language_description": "Corefolder form: a spherical cushion-like body in blue, with the dark number '14' marking on the front center of the white area of the sphere, just below the collar and somewhat large.",
+          "prompt_export": "corefolder form, branching fox 4 tails, short stature (about 146cm), teenager, long blue hair, fox ears, shy tearful expression, dark number '14' marking",
           "negative_prompt_export": "humanoid form, teal blazer, pink inner shirt, red skirt, tri-color outfit",
           "reference_images": {
             "main": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primary/concept/cnsp_img14.png",
@@ -5131,7 +5134,7 @@
             "pink inner shirt",
             "red skirt",
             "tri-color outfit",
-            "number '14' marking"
+            "dark number '14' marking"
           ],
           "silhouette_notes": {
             "body_description": [
@@ -5155,11 +5158,11 @@
             "pink inner shirt",
             "red skirt",
             "tri-color outfit",
-            "number '14' marking"
+            "dark number '14' marking"
           ],
           "negative_visuals": ["corefolder form"],
           "natural_language_description": null,
-          "prompt_export": "humanoid form, branching fox 4 tails, short stature (about 146cm), teenager, long blue hair, fox ears, confident expression, teal blazer, pink inner shirt, red skirt, tri-color outfit, number '14' marking",
+          "prompt_export": "humanoid form, branching fox 4 tails, short stature (about 146cm), teenager, long blue hair, fox ears, confident expression, teal blazer, pink inner shirt, red skirt, tri-color outfit, dark number '14' marking",
           "negative_prompt_export": "corefolder form",
           "reference_images": null
         }
@@ -5433,7 +5436,9 @@
           "stoic minimal expression",
           "burn mark on right eye and ear"
         ],
-        "immutable_traits": null,
+        "immutable_traits": [
+          "small dark green Roman numeral 'XV' on the front left chest of the white area of the sphere (usually partially hidden by the harness), single fixed slot"
+        ],
         "expression_tendency": null,
         "age_appearance": "teenager",
         "palette_priority": null,
@@ -5456,7 +5461,7 @@
       "forms": {
         "corefolder": {
           "form_tags": ["corefolder form"],
-          "outfit_features": ["number '15' marking"],
+          "outfit_features": ["dark green Roman numeral 'XV'"],
           "silhouette_notes": {
             "body_description": [
               "spherical core body with the head as the only protruding part on top",
@@ -5500,8 +5505,10 @@
             "fox ears",
             "stoic minimal expression",
             "safety device harness on back",
-            "number '15' marking",
-            "burn mark on right eye and ear"
+            "dark green Roman numeral 'XV'",
+            "burn mark on right eye and ear",
+            "dark green Roman numeral 'XV'",
+            "dark green Roman numeral 'XV'"
           ],
           "negative_visuals": [
             "humanoid form",
@@ -5509,7 +5516,7 @@
             "pale jacket"
           ],
           "natural_language_description": "Corefolder form: a spherical cushion-like body in pink, with the number '15' TODO: marking placement for #15; with safety device harness.",
-          "prompt_export": "corefolder form, branching fox 5 tails, average stature (about 158cm), teenager, with safety device harness, pink hair, right-side ponytail, fox ears, stoic minimal expression, safety device harness on back, number '15' marking, burn mark on right eye and ear",
+          "prompt_export": "corefolder form, branching fox 5 tails, average stature (about 158cm), teenager, with safety device harness, pink hair, right-side ponytail, fox ears, stoic minimal expression, safety device harness on back, dark green Roman numeral 'XV', burn mark on right eye and ear, dark green Roman numeral 'XV', dark green Roman numeral 'XV'",
           "negative_prompt_export": "humanoid form, casual private outfit, pale jacket",
           "reference_images": {
             "main": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primary/concept/cnsp_img15.png",
@@ -5544,17 +5551,19 @@
             "stoic minimal expression",
             "casual private outfit",
             "pale jacket",
-            "burn mark on right eye and ear"
+            "burn mark on right eye and ear",
+            "dark green Roman numeral 'XV'",
+            "dark green Roman numeral 'XV'",
+            "dark green Roman numeral 'XV'"
           ],
           "negative_visuals": [
             "corefolder form",
             "with safety device harness",
-            "safety device harness on back",
-            "number '15' marking"
+            "safety device harness on back"
           ],
           "natural_language_description": null,
-          "prompt_export": "humanoid form, branching fox 5 tails, average stature (about 158cm), teenager, pink hair, right-side ponytail, fox ears, five branching fox tails, stoic minimal expression, casual private outfit, pale jacket, burn mark on right eye and ear",
-          "negative_prompt_export": "corefolder form, with safety device harness, safety device harness on back, number '15' marking",
+          "prompt_export": "humanoid form, branching fox 5 tails, average stature (about 158cm), teenager, pink hair, right-side ponytail, fox ears, five branching fox tails, stoic minimal expression, casual private outfit, pale jacket, burn mark on right eye and ear, dark green Roman numeral 'XV', dark green Roman numeral 'XV', dark green Roman numeral 'XV'",
+          "negative_prompt_export": "corefolder form, with safety device harness, safety device harness on back",
           "reference_images": {
             "main": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primary/concept/cnsp_img15.png",
             "humanoid": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primary/arts/humanoids/2023/art_img15-humanoid.png"
@@ -5801,7 +5810,7 @@
           "fox ears",
           "blue cap",
           "heart emblem",
-          "number '16' marking"
+          "dark number '16' marking"
         ],
         "silhouette_features": [
           "branching fox 6 tails",
@@ -5811,7 +5820,7 @@
           "fox ears"
         ],
         "immutable_traits": [
-          "small dark number '16' marking on the white front of the sphere, center area, single fixed slot"
+          "small dark number '16' marking on around the brim of the hat, on the right side, single fixed slot"
         ],
         "expression_tendency": null,
         "age_appearance": "young adult (18)",
@@ -5836,7 +5845,7 @@
       "forms": {
         "corefolder": {
           "form_tags": ["corefolder form"],
-          "outfit_features": ["blue cap", "number '16' marking"],
+          "outfit_features": ["blue cap", "dark number '16' marking"],
           "silhouette_notes": {
             "body_description": [
               "spherical core body with the head as the only protruding part on top",
@@ -5876,11 +5885,11 @@
             "self-conscious shy smile",
             "blue cap",
             "heart emblem",
-            "number '16' marking"
+            "dark number '16' marking"
           ],
           "negative_visuals": ["humanoid form"],
-          "natural_language_description": "Corefolder form: a spherical cushion-like body in pink, with the number '16' marking on the white front of the sphere, center area; heart emblem.",
-          "prompt_export": "corefolder form, branching fox 6 tails, short stature (about 147cm), young adult (18), very long pink hair, wavy hair, fox ears, self-conscious shy smile, blue cap, heart emblem, number '16' marking",
+          "natural_language_description": "Corefolder form: a spherical cushion-like body in pink, with the dark number '16' marking on around the brim of the hat, on the right side; heart emblem.",
+          "prompt_export": "corefolder form, branching fox 6 tails, short stature (about 147cm), young adult (18), very long pink hair, wavy hair, fox ears, self-conscious shy smile, blue cap, heart emblem, dark number '16' marking",
           "negative_prompt_export": "humanoid form",
           "reference_images": {
             "main": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primary/concept/cnsp_img16.png",
@@ -5893,7 +5902,7 @@
         },
         "humanoid": {
           "form_tags": ["humanoid form"],
-          "outfit_features": ["blue cap", "number '16' marking"],
+          "outfit_features": ["blue cap", "dark number '16' marking"],
           "silhouette_notes": {
             "body_description": [
               "very long pink hair",
@@ -5916,11 +5925,11 @@
             "blue cap",
             "heart emblem",
             "voluminous feminine silhouette",
-            "number '16' marking"
+            "dark number '16' marking"
           ],
           "negative_visuals": ["corefolder form"],
           "natural_language_description": null,
-          "prompt_export": "humanoid form, branching fox 6 tails, short stature (about 147cm), young adult (18), very long pink hair, wavy hair, fox ears, blue cap, heart emblem, voluminous feminine silhouette, number '16' marking",
+          "prompt_export": "humanoid form, branching fox 6 tails, short stature (about 147cm), young adult (18), very long pink hair, wavy hair, fox ears, blue cap, heart emblem, voluminous feminine silhouette, dark number '16' marking",
           "negative_prompt_export": "corefolder form",
           "reference_images": null
         }
@@ -6181,7 +6190,9 @@
           "calm composed look",
           "androgynous"
         ],
-        "immutable_traits": null,
+        "immutable_traits": [
+          "small white number '17' marking (square motif design) on the shape of the hair pin, single fixed slot"
+        ],
         "expression_tendency": null,
         "age_appearance": "young adult",
         "palette_priority": null,
@@ -6204,7 +6215,9 @@
       "forms": {
         "corefolder": {
           "form_tags": ["corefolder form"],
-          "outfit_features": ["number '17' marking"],
+          "outfit_features": [
+            "white number '17' marking (square motif design)"
+          ],
           "silhouette_notes": {
             "body_description": [
               "spherical core body with the head as the only protruding part on top",
@@ -6245,7 +6258,7 @@
             "calm composed look",
             "square hair pin (17 shape)",
             "androgynous",
-            "number '17' marking"
+            "white number '17' marking (square motif design)"
           ],
           "negative_visuals": [
             "humanoid form",
@@ -6254,7 +6267,7 @@
             "casual study outfit"
           ],
           "natural_language_description": "Corefolder form: a spherical cushion-like body in blue indigo, with the number '17' TODO: marking placement for #17; square hair pin (17 shape).",
-          "prompt_export": "corefolder form, branching fox 7 tails, average stature (about 151cm), young adult, short blue indigo hair, bob cut, fox ears, calm composed look, square hair pin (17 shape), androgynous, number '17' marking",
+          "prompt_export": "corefolder form, branching fox 7 tails, average stature (about 151cm), young adult, short blue indigo hair, bob cut, fox ears, calm composed look, square hair pin (17 shape), androgynous, white number '17' marking (square motif design)",
           "negative_prompt_export": "humanoid form, purple gray shirt, red pants, casual study outfit",
           "reference_images": {
             "main": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primary/concept/cnsp_img17.png",
@@ -6291,12 +6304,13 @@
             "purple gray shirt",
             "red pants",
             "androgynous",
-            "casual study outfit"
+            "casual study outfit",
+            "white number '17' marking (square motif design)"
           ],
-          "negative_visuals": ["corefolder form", "number '17' marking"],
+          "negative_visuals": ["corefolder form"],
           "natural_language_description": null,
-          "prompt_export": "humanoid form, branching fox 7 tails, average stature (about 151cm), young adult, short blue indigo bob, fox ears, calm composed look, square hair pin (17 shape), purple gray shirt, red pants, androgynous, casual study outfit",
-          "negative_prompt_export": "corefolder form, number '17' marking",
+          "prompt_export": "humanoid form, branching fox 7 tails, average stature (about 151cm), young adult, short blue indigo bob, fox ears, calm composed look, square hair pin (17 shape), purple gray shirt, red pants, androgynous, casual study outfit, white number '17' marking (square motif design)",
+          "negative_prompt_export": "corefolder form",
           "reference_images": {
             "main": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primary/concept/cnsp_img17.png",
             "humanoid": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primary/arts/humanoids/2024/art_img17-humanoidHardStudy.png"
@@ -6511,7 +6525,7 @@
           "fox ears",
           "stern with right eye closed",
           "red hair pin",
-          "number '18' marking"
+          "dark (with red and orange stripe pattern in the background) '>18<'"
         ],
         "silhouette_features": [
           "branching fox 8 tails",
@@ -6520,7 +6534,9 @@
           "fox ears",
           "stern with right eye closed"
         ],
-        "immutable_traits": null,
+        "immutable_traits": [
+          "small dark (with red and orange stripe pattern in the background) '>18<' on the white area on the front left chest of the sphere, single fixed slot"
+        ],
         "expression_tendency": null,
         "age_appearance": "young adult",
         "palette_priority": null,
@@ -6543,7 +6559,9 @@
       "forms": {
         "corefolder": {
           "form_tags": ["corefolder form"],
-          "outfit_features": ["number '18' marking"],
+          "outfit_features": [
+            "dark (with red and orange stripe pattern in the background) '>18<'"
+          ],
           "silhouette_notes": {
             "body_description": [
               "spherical core body with the head as the only protruding part on top",
@@ -6580,11 +6598,13 @@
             "fox ears",
             "stern with right eye closed",
             "red hair pin",
-            "number '18' marking"
+            "dark (with red and orange stripe pattern in the background) '>18<'",
+            "dark (with red and orange stripe pattern in the background) '>18<'",
+            "dark (with red and orange stripe pattern in the background) '>18<'"
           ],
           "negative_visuals": ["humanoid form", "blazer over shirt", "skirt"],
           "natural_language_description": "Corefolder form: a spherical cushion-like body in dark red, with the number '18' TODO: marking placement for #18; red hair pin.",
-          "prompt_export": "corefolder form, branching fox 8 tails, average stature (about 153cm), young adult, short brown dark red hair, fox ears, stern with right eye closed, red hair pin, number '18' marking",
+          "prompt_export": "corefolder form, branching fox 8 tails, average stature (about 153cm), young adult, short brown dark red hair, fox ears, stern with right eye closed, red hair pin, dark (with red and orange stripe pattern in the background) '>18<', dark (with red and orange stripe pattern in the background) '>18<', dark (with red and orange stripe pattern in the background) '>18<'",
           "negative_prompt_export": "humanoid form, blazer over shirt, skirt",
           "reference_images": {
             "main": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primary/concept/cnsp_img18.png",
@@ -6596,7 +6616,7 @@
           "outfit_features": [
             "blazer over shirt",
             "skirt",
-            "number '18' marking"
+            "dark (with red and orange stripe pattern in the background) '>18<'"
           ],
           "silhouette_notes": {
             "body_description": [
@@ -6619,11 +6639,13 @@
             "red hair pin",
             "blazer over shirt",
             "skirt",
-            "number '18' marking"
+            "dark (with red and orange stripe pattern in the background) '>18<'",
+            "dark (with red and orange stripe pattern in the background) '>18<'",
+            "dark (with red and orange stripe pattern in the background) '>18<'"
           ],
           "negative_visuals": ["corefolder form"],
           "natural_language_description": null,
-          "prompt_export": "humanoid form, branching fox 8 tails, average stature (about 153cm), young adult, short brown dark red hair, fox ears, stern with right eye closed, red hair pin, blazer over shirt, skirt, number '18' marking",
+          "prompt_export": "humanoid form, branching fox 8 tails, average stature (about 153cm), young adult, short brown dark red hair, fox ears, stern with right eye closed, red hair pin, blazer over shirt, skirt, dark (with red and orange stripe pattern in the background) '>18<', dark (with red and orange stripe pattern in the background) '>18<', dark (with red and orange stripe pattern in the background) '>18<'",
           "negative_prompt_export": "corefolder form",
           "reference_images": null
         }
@@ -6828,7 +6850,7 @@
           "messy hair",
           "fox ears",
           "half-lidded eyes",
-          "number '19' marking"
+          "dark number '19' marking"
         ],
         "silhouette_features": [
           "branching fox 9 tails",
@@ -6839,7 +6861,7 @@
           "half-lidded eyes"
         ],
         "immutable_traits": [
-          "small dark number '19' marking on the white front of the sphere, center-left area, single fixed slot"
+          "small dark number '19' marking on the white area on the front left chest of the sphere, single fixed slot"
         ],
         "expression_tendency": null,
         "age_appearance": "young adult",
@@ -6863,7 +6885,7 @@
       "forms": {
         "corefolder": {
           "form_tags": ["corefolder form"],
-          "outfit_features": ["number '19' marking"],
+          "outfit_features": ["dark number '19' marking"],
           "silhouette_notes": {
             "body_description": [
               "spherical core body with the head as the only protruding part on top",
@@ -6901,15 +6923,15 @@
             "messy hair",
             "fox ears",
             "half-lidded eyes",
-            "number '19' marking"
+            "dark number '19' marking"
           ],
           "negative_visuals": [
             "humanoid form",
             "sleeveless black top",
             "wide-leg dark red pants"
           ],
-          "natural_language_description": "Corefolder form: a spherical cushion-like body in brown red, with the number '19' marking on the white front of the sphere, center-left area.",
-          "prompt_export": "corefolder form, branching fox 9 tails, average stature (about 157cm), young adult, short brown red hair, messy hair, fox ears, half-lidded eyes, number '19' marking",
+          "natural_language_description": "Corefolder form: a spherical cushion-like body in brown red, with the dark number '19' marking on the white area on the front left chest of the sphere.",
+          "prompt_export": "corefolder form, branching fox 9 tails, average stature (about 157cm), young adult, short brown red hair, messy hair, fox ears, half-lidded eyes, dark number '19' marking",
           "negative_prompt_export": "humanoid form, sleeveless black top, wide-leg dark red pants",
           "reference_images": {
             "main": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primary/concept/cnsp_img19.png",
@@ -6921,7 +6943,7 @@
           "outfit_features": [
             "sleeveless black top",
             "wide-leg dark red pants",
-            "number '19' marking"
+            "light pink number '19' marking"
           ],
           "silhouette_notes": {
             "body_description": [
@@ -6945,11 +6967,11 @@
             "half-lidded eyes",
             "sleeveless black top",
             "wide-leg dark red pants",
-            "number '19' marking"
+            "light pink number '19' marking"
           ],
           "negative_visuals": ["corefolder form"],
           "natural_language_description": null,
-          "prompt_export": "humanoid form, branching fox 9 tails, average stature (about 157cm), young adult, short brown red hair, messy hair, fox ears, half-lidded eyes, sleeveless black top, wide-leg dark red pants, number '19' marking",
+          "prompt_export": "humanoid form, branching fox 9 tails, average stature (about 157cm), young adult, short brown red hair, messy hair, fox ears, half-lidded eyes, sleeveless black top, wide-leg dark red pants, light pink number '19' marking",
           "negative_prompt_export": "corefolder form",
           "reference_images": null
         }
@@ -7240,7 +7262,7 @@
           "fox ears",
           "serene gentle smile",
           "heart-shaped hair motif",
-          "number '20' belt emblem"
+          "dark number '20' emblem"
         ],
         "silhouette_features": [
           "fox 2 tails",
@@ -7250,7 +7272,9 @@
           "serene gentle smile",
           "heart-shaped hair motif"
         ],
-        "immutable_traits": null,
+        "immutable_traits": [
+          "small dark number '20' marking on the buckle part of the choker, single fixed slot"
+        ],
         "expression_tendency": null,
         "age_appearance": "teenager",
         "palette_priority": null,
@@ -7283,7 +7307,7 @@
               "serene gentle smile",
               "heart-shaped hair motif"
             ],
-            "attached_items": ["number '20' belt emblem"]
+            "attached_items": ["dark number '20' emblem"]
           },
           "immutable_constraints": [
             "do not render arms or hands",
@@ -7311,7 +7335,7 @@
             "fox ears",
             "serene gentle smile",
             "heart-shaped hair motif",
-            "number '20' belt emblem"
+            "dark number '20' emblem"
           ],
           "negative_visuals": [
             "humanoid form",
@@ -7320,7 +7344,7 @@
             "casual private outfit"
           ],
           "natural_language_description": "Corefolder form: a spherical cushion-like body in two, with the number '20' TODO: marking placement for #20; number '20' belt emblem.",
-          "prompt_export": "corefolder form, fox 2 tails, average stature (about 152cm), teenager, silver white long hair, fox ears, serene gentle smile, heart-shaped hair motif, number '20' belt emblem",
+          "prompt_export": "corefolder form, fox 2 tails, average stature (about 152cm), teenager, silver white long hair, fox ears, serene gentle smile, heart-shaped hair motif, dark number '20' emblem",
           "negative_prompt_export": "humanoid form, long white open coat, orange inner wear, casual private outfit",
           "reference_images": {
             "main": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primary/concept/cnsp_img20.png",
@@ -7347,7 +7371,7 @@
               "large breasts",
               "large breasts"
             ],
-            "attached_items": ["number '20' belt emblem"]
+            "attached_items": ["dark number '20' emblem"]
           },
           "immutable_constraints": null,
           "negative_keywords": null,
@@ -7364,11 +7388,11 @@
             "long white open coat",
             "orange inner wear",
             "casual private outfit",
-            "number '20' belt emblem"
+            "dark number '20' emblem"
           ],
           "negative_visuals": ["corefolder form"],
           "natural_language_description": null,
-          "prompt_export": "humanoid form, fox 2 tails, average stature (about 152cm), teenager, silver white long hair, heart-shaped hair motif, fox ears, serene gentle smile, large breasts, long white open coat, orange inner wear, casual private outfit, number '20' belt emblem",
+          "prompt_export": "humanoid form, fox 2 tails, average stature (about 152cm), teenager, silver white long hair, heart-shaped hair motif, fox ears, serene gentle smile, large breasts, long white open coat, orange inner wear, casual private outfit, dark number '20' emblem",
           "negative_prompt_export": "corefolder form",
           "reference_images": {
             "main": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primary/concept/cnsp_img20.png",
@@ -7581,7 +7605,7 @@
           "fox ears",
           "energetic wide smile",
           "androgynous presentation",
-          "number '21' marking"
+          "dark number '21' marking"
         ],
         "silhouette_features": [
           "branching fox 2 tails",
@@ -7592,7 +7616,7 @@
           "androgynous presentation"
         ],
         "immutable_traits": [
-          "small dark number '21' marking on the white front of the sphere, lower-right area, single fixed slot"
+          "small dark number '21' marking on the white area on the front left chest of the sphere, somewhat smaller, single fixed slot"
         ],
         "expression_tendency": null,
         "age_appearance": "early teenager",
@@ -7616,7 +7640,7 @@
       "forms": {
         "corefolder": {
           "form_tags": ["corefolder form"],
-          "outfit_features": ["number '21' marking"],
+          "outfit_features": ["dark number '21' marking"],
           "silhouette_notes": {
             "body_description": [
               "spherical core body with the head as the only protruding part on top",
@@ -7654,11 +7678,11 @@
             "fox ears",
             "energetic wide smile",
             "androgynous presentation",
-            "number '21' marking"
+            "dark number '21' marking"
           ],
           "negative_visuals": ["humanoid form", "oversized warm orange coat"],
-          "natural_language_description": "Corefolder form: a spherical cushion-like body in orange, with the number '21' marking on the white front of the sphere, lower-right area.",
-          "prompt_export": "corefolder form, branching fox 2 tails, short stature (about 148cm), early teenager, orange hair, fox ears, energetic wide smile, androgynous presentation, number '21' marking",
+          "natural_language_description": "Corefolder form: a spherical cushion-like body in orange, with the dark number '21' marking on the white area on the front left chest of the sphere, somewhat smaller.",
+          "prompt_export": "corefolder form, branching fox 2 tails, short stature (about 148cm), early teenager, orange hair, fox ears, energetic wide smile, androgynous presentation, dark number '21' marking",
           "negative_prompt_export": "humanoid form, oversized warm orange coat",
           "reference_images": {
             "main": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primary/concept/cnsp_img21.png",
@@ -7669,7 +7693,7 @@
           "form_tags": ["humanoid form"],
           "outfit_features": [
             "oversized warm orange coat",
-            "number '21' marking"
+            "dark number '21' marking"
           ],
           "silhouette_notes": {
             "body_description": [
@@ -7695,11 +7719,11 @@
             "energetic wide smile",
             "oversized warm orange coat",
             "androgynous presentation",
-            "number '21' marking"
+            "dark number '21' marking"
           ],
           "negative_visuals": ["corefolder form"],
           "natural_language_description": null,
-          "prompt_export": "humanoid form, branching fox 2 tails, short stature (about 148cm), early teenager, orange hair, fox ears, two branching fox tails, energetic wide smile, oversized warm orange coat, androgynous presentation, number '21' marking",
+          "prompt_export": "humanoid form, branching fox 2 tails, short stature (about 148cm), early teenager, orange hair, fox ears, two branching fox tails, energetic wide smile, oversized warm orange coat, androgynous presentation, dark number '21' marking",
           "negative_prompt_export": "corefolder form",
           "reference_images": null
         }
@@ -7991,7 +8015,7 @@
           "gentle dreamy soft smile",
           "round brooch with a cross and choker",
           "holograms resembling satellites and stars",
-          "number '22' marking"
+          "gray number '22' marking"
         ],
         "silhouette_features": [
           "average stature (about 153cm)",
@@ -8000,7 +8024,9 @@
           "two scorpion-type segmented tails",
           "gentle dreamy soft smile"
         ],
-        "immutable_traits": null,
+        "immutable_traits": [
+          "small gray number '22' marking on the white area on the front left chest of the sphere, single fixed slot"
+        ],
         "expression_tendency": null,
         "age_appearance": "teenager",
         "palette_priority": null,
@@ -8024,7 +8050,7 @@
         "corefolder": {
           "form_tags": ["corefolder form"],
           "outfit_features": [
-            "number '22' marking",
+            "gray number '22' marking",
             "holograms resembling satellites and stars"
           ],
           "silhouette_notes": {
@@ -8065,7 +8091,7 @@
             "gentle dreamy soft smile",
             "round brooch with a cross and choker",
             "holograms resembling satellites and stars",
-            "number '22' marking"
+            "gray number '22' marking"
           ],
           "negative_visuals": [
             "humanoid form",
@@ -8073,7 +8099,7 @@
             "ribbon sash at waist"
           ],
           "natural_language_description": "Corefolder form: a spherical cushion-like body in pale golden, with the number '22' TODO: marking placement for #22; round brooch with a cross and choker.",
-          "prompt_export": "corefolder form, average stature (about 153cm), teenager, pale golden hair, fox ears, two scorpion-type segmented tails, gentle dreamy soft smile, round brooch with a cross and choker, holograms resembling satellites and stars, number '22' marking",
+          "prompt_export": "corefolder form, average stature (about 153cm), teenager, pale golden hair, fox ears, two scorpion-type segmented tails, gentle dreamy soft smile, round brooch with a cross and choker, holograms resembling satellites and stars, gray number '22' marking",
           "negative_prompt_export": "humanoid form, golden yellow layered dress, ribbon sash at waist",
           "reference_images": {
             "main": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primary/concept/cnsp_img22.png",
@@ -8088,7 +8114,7 @@
           "form_tags": ["humanoid form"],
           "outfit_features": [
             "golden yellow layered dress",
-            "number '22' marking",
+            "gray number '22' marking (one digit on each side of the zipper)",
             "holograms resembling satellites and stars"
           ],
           "silhouette_notes": {
@@ -8119,11 +8145,11 @@
             "ribbon sash at waist",
             "round brooch with a cross and choker",
             "holograms resembling satellites and stars",
-            "number '22' marking"
+            "gray number '22' marking (one digit on each side of the zipper)"
           ],
           "negative_visuals": ["corefolder form"],
           "natural_language_description": null,
-          "prompt_export": "humanoid form, average stature (about 153cm), teenager, pale golden hair, fox ears, two scorpion-type segmented tails, gentle dreamy soft smile, golden yellow layered dress, large breasts, ribbon sash at waist, round brooch with a cross and choker, holograms resembling satellites and stars, number '22' marking",
+          "prompt_export": "humanoid form, average stature (about 153cm), teenager, pale golden hair, fox ears, two scorpion-type segmented tails, gentle dreamy soft smile, golden yellow layered dress, large breasts, ribbon sash at waist, round brooch with a cross and choker, holograms resembling satellites and stars, gray number '22' marking (one digit on each side of the zipper)",
           "negative_prompt_export": "corefolder form",
           "reference_images": null
         }
@@ -8341,7 +8367,7 @@
           "mint green hair",
           "fox ears",
           "confident adventurous smile",
-          "number '23' marking and stripe pattern"
+          "dark number '23' marking and stripe pattern"
         ],
         "silhouette_features": [
           "branching fox 3 tails",
@@ -8351,7 +8377,7 @@
           "confident adventurous smile"
         ],
         "immutable_traits": [
-          "small dark number '23' marking on the pale-green right side of the sphere body at mid-height (on the cream-colored band area), single fixed slot"
+          "small dark number '23' marking on the right side of the light green fur area with a pale stripe pattern at the equator of the sphere, somewhat large to match the vertical size of the stripe pattern, single fixed slot"
         ],
         "expression_tendency": null,
         "age_appearance": "teenager (16)",
@@ -8376,7 +8402,7 @@
       "forms": {
         "corefolder": {
           "form_tags": ["corefolder form"],
-          "outfit_features": ["number '23' marking and stripe pattern"],
+          "outfit_features": ["dark number '23' marking and stripe pattern"],
           "silhouette_notes": {
             "body_description": [
               "spherical core body with the head as the only protruding part on top",
@@ -8412,7 +8438,7 @@
             "mint green hair",
             "fox ears",
             "confident adventurous smile",
-            "number '23' marking and stripe pattern"
+            "dark number '23' marking and stripe pattern"
           ],
           "negative_visuals": [
             "humanoid form",
@@ -8421,8 +8447,8 @@
             "wide-leg pants",
             "casual private outfit"
           ],
-          "natural_language_description": "Corefolder form: a spherical cushion-like body in mint green, with the number '23' marking on the pale-green right side of the sphere body at mid-height (on the cream-colored band area).",
-          "prompt_export": "corefolder form, branching fox 3 tails, short stature (about 149cm), teenager (16), mint green hair, fox ears, confident adventurous smile, number '23' marking and stripe pattern",
+          "natural_language_description": "Corefolder form: a spherical cushion-like body in mint green, with the dark number '23' marking on the right side of the light green fur area with a pale stripe pattern at the equator of the sphere, somewhat large to match the vertical size of the stripe pattern.",
+          "prompt_export": "corefolder form, branching fox 3 tails, short stature (about 149cm), teenager (16), mint green hair, fox ears, confident adventurous smile, dark number '23' marking and stripe pattern",
           "negative_prompt_export": "humanoid form, green hoodie, athletic outfit, wide-leg pants, casual private outfit",
           "reference_images": {
             "main": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primary/concept/cnsp_img23.png",
@@ -8436,7 +8462,7 @@
             "athletic outfit",
             "wide-leg pants",
             "casual private outfit",
-            "number '23' marking and stripe pattern"
+            "dark number '23' marking and stripe pattern"
           ],
           "silhouette_notes": {
             "body_description": [
@@ -8460,11 +8486,11 @@
             "athletic outfit",
             "wide-leg pants",
             "casual private outfit",
-            "number '23' marking and stripe pattern"
+            "dark number '23' marking and stripe pattern"
           ],
           "negative_visuals": ["corefolder form"],
           "natural_language_description": null,
-          "prompt_export": "humanoid form, branching fox 3 tails, short stature (about 149cm), teenager (16), mint green hair, fox ears, confident adventurous smile, green hoodie, athletic outfit, wide-leg pants, casual private outfit, number '23' marking and stripe pattern",
+          "prompt_export": "humanoid form, branching fox 3 tails, short stature (about 149cm), teenager (16), mint green hair, fox ears, confident adventurous smile, green hoodie, athletic outfit, wide-leg pants, casual private outfit, dark number '23' marking and stripe pattern",
           "negative_prompt_export": "corefolder form",
           "reference_images": {
             "main": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primary/concept/cnsp_img23.png",
@@ -8688,7 +8714,7 @@
           "fox ears",
           "reserved quietly thoughtful expression",
           "heart-shaped hair ornament",
-          "number '24' marking on blue neckerchief"
+          "dark color number '24' marking on blue neckerchief"
         ],
         "silhouette_features": [
           "branching fox 4 tails",
@@ -8697,7 +8723,9 @@
           "fox ears",
           "reserved quietly thoughtful expression"
         ],
-        "immutable_traits": null,
+        "immutable_traits": [
+          "small dark color number '24' marking on the clasp of the neck scarf, single fixed slot"
+        ],
         "expression_tendency": null,
         "age_appearance": "teenager",
         "palette_priority": null,
@@ -8731,7 +8759,7 @@
             ],
             "attached_items": [
               "heart-shaped hair ornament",
-              "number '24' marking on blue neckerchief"
+              "dark color number '24' marking on blue neckerchief"
             ]
           },
           "immutable_constraints": [
@@ -8760,7 +8788,7 @@
             "fox ears",
             "reserved quietly thoughtful expression",
             "heart-shaped hair ornament",
-            "number '24' marking on blue neckerchief"
+            "dark color number '24' marking on blue neckerchief"
           ],
           "negative_visuals": [
             "humanoid form",
@@ -8768,7 +8796,7 @@
             "casual private outfit"
           ],
           "natural_language_description": "Corefolder form: a spherical cushion-like body in pink, with the number '24' TODO: marking placement for #24; heart-shaped hair ornament.",
-          "prompt_export": "corefolder form, branching fox 4 tails, average stature (about 158cm), teenager, long pink hair, fox ears, reserved quietly thoughtful expression, heart-shaped hair ornament, number '24' marking on blue neckerchief",
+          "prompt_export": "corefolder form, branching fox 4 tails, average stature (about 158cm), teenager, long pink hair, fox ears, reserved quietly thoughtful expression, heart-shaped hair ornament, dark color number '24' marking on blue neckerchief",
           "negative_prompt_export": "humanoid form, layered pink mauve skirt, casual private outfit",
           "reference_images": {
             "main": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primary/concept/cnsp_img24.png",
@@ -8790,7 +8818,7 @@
             ],
             "attached_items": [
               "heart-shaped hair ornament",
-              "number '24' marking on blue neckerchief"
+              "dark color number '24' marking on blue neckerchief"
             ]
           },
           "immutable_constraints": null,
@@ -8805,13 +8833,13 @@
             "reserved quietly thoughtful expression",
             "heart-shaped hair ornament",
             "layered pink mauve skirt",
-            "number '24' marking on blue neckerchief",
+            "dark color number '24' marking on blue neckerchief",
             "large breasts",
             "casual private outfit"
           ],
           "negative_visuals": ["corefolder form"],
           "natural_language_description": null,
-          "prompt_export": "humanoid form, branching fox 4 tails, average stature (about 158cm), teenager, long pink hair, fox ears, reserved quietly thoughtful expression, heart-shaped hair ornament, layered pink mauve skirt, number '24' marking on blue neckerchief, large breasts, casual private outfit",
+          "prompt_export": "humanoid form, branching fox 4 tails, average stature (about 158cm), teenager, long pink hair, fox ears, reserved quietly thoughtful expression, heart-shaped hair ornament, layered pink mauve skirt, dark color number '24' marking on blue neckerchief, large breasts, casual private outfit",
           "negative_prompt_export": "corefolder form",
           "reference_images": {
             "main": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primary/concept/cnsp_img24.png",
@@ -9125,7 +9153,9 @@
           "fox ears",
           "sharp confident expression"
         ],
-        "immutable_traits": null,
+        "immutable_traits": [
+          "small dark color number '25' marking on the gray fur area on the left chest of the sphere (may be hidden by scarf and charm accessories), single fixed slot"
+        ],
         "expression_tendency": null,
         "age_appearance": "teenager",
         "palette_priority": null,
@@ -9148,7 +9178,10 @@
       "forms": {
         "corefolder": {
           "form_tags": ["corefolder form"],
-          "outfit_features": ["number '25' marking", "dark blue gloves"],
+          "outfit_features": [
+            "dark color number '25' marking",
+            "dark blue gloves"
+          ],
           "silhouette_notes": {
             "body_description": [
               "spherical core body with the head as the only protruding part on top",
@@ -9185,7 +9218,7 @@
             "sharp confident expression",
             "dark blue gloves",
             "leaf scarf accessory",
-            "number '25' marking"
+            "dark color number '25' marking"
           ],
           "negative_visuals": [
             "humanoid form",
@@ -9194,7 +9227,7 @@
             "casual private outfit"
           ],
           "natural_language_description": "Corefolder form: a spherical cushion-like body in TODO: base color for #25, with the number '25' TODO: marking placement for #25; leaf scarf accessory.",
-          "prompt_export": "corefolder form, branching fox 5 tails, average stature (about 156cm), teenager, steel blue short hair, fox ears, sharp confident expression, dark blue gloves, leaf scarf accessory, number '25' marking",
+          "prompt_export": "corefolder form, branching fox 5 tails, average stature (about 156cm), teenager, steel blue short hair, fox ears, sharp confident expression, dark blue gloves, leaf scarf accessory, dark color number '25' marking",
           "negative_prompt_export": "humanoid form, dark teal bodysuit, athletic dynamic pose, casual private outfit",
           "reference_images": {
             "main": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primary/concept/cnsp_img25.png",
@@ -9233,17 +9266,17 @@
             "dark teal bodysuit",
             "large breasts",
             "athletic dynamic pose",
-            "casual private outfit"
+            "casual private outfit",
+            "dark green number '25' marking"
           ],
           "negative_visuals": [
             "corefolder form",
             "dark blue gloves",
-            "leaf scarf accessory",
-            "number '25' marking"
+            "leaf scarf accessory"
           ],
           "natural_language_description": null,
-          "prompt_export": "humanoid form, branching fox 5 tails, average stature (about 156cm), teenager, steel blue short hair, fox ears, sharp confident expression, dark teal bodysuit, large breasts, athletic dynamic pose, casual private outfit",
-          "negative_prompt_export": "corefolder form, dark blue gloves, leaf scarf accessory, number '25' marking",
+          "prompt_export": "humanoid form, branching fox 5 tails, average stature (about 156cm), teenager, steel blue short hair, fox ears, sharp confident expression, dark teal bodysuit, large breasts, athletic dynamic pose, casual private outfit, dark green number '25' marking",
+          "negative_prompt_export": "corefolder form, dark blue gloves, leaf scarf accessory",
           "reference_images": {
             "main": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primary/concept/cnsp_img25.png",
             "humanoid": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primary/arts/humanoids/2024/art_img25-humanoidValentineA.png"
@@ -9493,7 +9526,7 @@
           "long pink hair",
           "fox ears",
           "gentle nurturing smile",
-          "number '26' marking"
+          "dark number '26' marking"
         ],
         "silhouette_features": [
           "branching fox 6 tails",
@@ -9503,7 +9536,7 @@
           "gentle nurturing smile"
         ],
         "immutable_traits": [
-          "small dark number '26' marking on the white front of the sphere, upper-center area just below the frilled collar, single fixed slot"
+          "small dark number '26' marking on The small white area in the center front of the sphere, above the chest fur, single fixed slot"
         ],
         "expression_tendency": null,
         "age_appearance": "young adult (22)",
@@ -9527,7 +9560,7 @@
       "forms": {
         "corefolder": {
           "form_tags": ["corefolder form"],
-          "outfit_features": ["number '26' marking"],
+          "outfit_features": ["dark number '26' marking"],
           "silhouette_notes": {
             "body_description": [
               "spherical core body with the head as the only protruding part on top",
@@ -9563,15 +9596,15 @@
             "long pink hair",
             "fox ears",
             "gentle nurturing smile",
-            "number '26' marking"
+            "dark number '26' marking"
           ],
           "negative_visuals": [
             "humanoid form",
             "pink sleeveless turtleneck",
             "long rose-pink maxi skirt"
           ],
-          "natural_language_description": "Corefolder form: a spherical cushion-like body in pink, with the number '26' marking on the white front of the sphere, upper-center area just below the frilled collar.",
-          "prompt_export": "corefolder form, branching fox 6 tails, average stature (about 153cm), young adult (22), long pink hair, fox ears, gentle nurturing smile, number '26' marking",
+          "natural_language_description": "Corefolder form: a spherical cushion-like body in pink, with the dark number '26' marking on The small white area in the center front of the sphere, above the chest fur.",
+          "prompt_export": "corefolder form, branching fox 6 tails, average stature (about 153cm), young adult (22), long pink hair, fox ears, gentle nurturing smile, dark number '26' marking",
           "negative_prompt_export": "humanoid form, pink sleeveless turtleneck, long rose-pink maxi skirt",
           "reference_images": {
             "main": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primary/concept/cnsp_img26.png",
@@ -9583,7 +9616,7 @@
           "outfit_features": [
             "pink sleeveless turtleneck",
             "long rose-pink maxi skirt",
-            "number '26' marking"
+            "light number '26' marking"
           ],
           "silhouette_notes": {
             "body_description": [
@@ -9607,11 +9640,11 @@
             "pink sleeveless turtleneck",
             "long rose-pink maxi skirt",
             "large breasts",
-            "number '26' marking"
+            "light number '26' marking"
           ],
           "negative_visuals": ["corefolder form"],
           "natural_language_description": null,
-          "prompt_export": "humanoid form, branching fox 6 tails, average stature (about 153cm), young adult (22), long pink hair, fox ears, gentle nurturing smile, pink sleeveless turtleneck, long rose-pink maxi skirt, large breasts, number '26' marking",
+          "prompt_export": "humanoid form, branching fox 6 tails, average stature (about 153cm), young adult (22), long pink hair, fox ears, gentle nurturing smile, pink sleeveless turtleneck, long rose-pink maxi skirt, large breasts, light number '26' marking",
           "negative_prompt_export": "corefolder form",
           "reference_images": null
         }
@@ -9843,7 +9876,9 @@
           "fox ears",
           "calm composed expression"
         ],
-        "immutable_traits": null,
+        "immutable_traits": [
+          "small light blue (printed on purple name tag) '_27' on As a purple name tag on the white area of the left chest on the sphere's front, single fixed slot"
+        ],
         "expression_tendency": null,
         "age_appearance": "teenager",
         "palette_priority": null,
@@ -9876,7 +9911,7 @@
               "fox ears",
               "calm composed expression"
             ],
-            "attached_items": ["number '27' marking on purple name tag"]
+            "attached_items": ["light blue (printed on purple name tag) '_27'"]
           },
           "immutable_constraints": [
             "do not render arms or hands",
@@ -9904,7 +9939,9 @@
             "side ponytail",
             "fox ears",
             "calm composed expression",
-            "number '27' marking on purple name tag"
+            "light blue (printed on purple name tag) '_27'",
+            "light blue (printed on purple name tag) '_27'",
+            "light blue (printed on purple name tag) '_27'"
           ],
           "negative_visuals": [
             "humanoid form",
@@ -9914,7 +9951,7 @@
             "casual private outfit"
           ],
           "natural_language_description": "Corefolder form: a spherical cushion-like body in blue, with the number '27' TODO: marking placement for #27; number '27' marking on purple name tag.",
-          "prompt_export": "corefolder form, branching fox 7 tails, slightly tall stature (about 162cm), teenager, short blue hair, side ponytail, fox ears, calm composed expression, number '27' marking on purple name tag",
+          "prompt_export": "corefolder form, branching fox 7 tails, slightly tall stature (about 162cm), teenager, short blue hair, side ponytail, fox ears, calm composed expression, light blue (printed on purple name tag) '_27', light blue (printed on purple name tag) '_27', light blue (printed on purple name tag) '_27'",
           "negative_prompt_export": "humanoid form, white blouse, purple pleated skirt, blue lace-up ankle boots, casual private outfit",
           "reference_images": {
             "main": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primary/concept/cnsp_img27.png",
@@ -9952,15 +9989,15 @@
             "white blouse",
             "purple pleated skirt",
             "blue lace-up ankle boots",
-            "casual private outfit"
+            "casual private outfit",
+            "light blue (printed on purple name tag) '_27'",
+            "light blue (printed on purple name tag) '_27'",
+            "light blue (printed on purple name tag) '_27'"
           ],
-          "negative_visuals": [
-            "corefolder form",
-            "number '27' marking on purple name tag"
-          ],
+          "negative_visuals": ["corefolder form"],
           "natural_language_description": null,
-          "prompt_export": "humanoid form, branching fox 7 tails, slightly tall stature (about 162cm), teenager, short blue hair, side ponytail, fox ears, calm composed expression, white blouse, purple pleated skirt, blue lace-up ankle boots, casual private outfit",
-          "negative_prompt_export": "corefolder form, number '27' marking on purple name tag",
+          "prompt_export": "humanoid form, branching fox 7 tails, slightly tall stature (about 162cm), teenager, short blue hair, side ponytail, fox ears, calm composed expression, white blouse, purple pleated skirt, blue lace-up ankle boots, casual private outfit, light blue (printed on purple name tag) '_27', light blue (printed on purple name tag) '_27', light blue (printed on purple name tag) '_27'",
+          "negative_prompt_export": "corefolder form",
           "reference_images": {
             "main": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primary/concept/cnsp_img27.png",
             "humanoid": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primary/arts/humanoids/2024/art_img27-humanoid.png"
@@ -10217,7 +10254,7 @@
           "fox ears",
           "dangling earrings",
           "mathematical body tattoo",
-          "number '28' marking"
+          "orange number '28' marking"
         ],
         "silhouette_features": [
           "branching fox 8 tails",
@@ -10225,7 +10262,9 @@
           "wavy orange hair",
           "fox ears"
         ],
-        "immutable_traits": null,
+        "immutable_traits": [
+          "small orange number '28' marking on The somewhat small white area in the center front of the sphere, 3 slots"
+        ],
         "expression_tendency": null,
         "age_appearance": "young adult",
         "palette_priority": null,
@@ -10254,7 +10293,7 @@
           "form_tags": ["corefolder form"],
           "outfit_features": [
             "mathematical body tattoo",
-            "number '28' marking"
+            "orange number '28' marking"
           ],
           "silhouette_notes": {
             "body_description": [
@@ -10291,7 +10330,7 @@
             "fox ears",
             "dangling earrings",
             "mathematical body tattoo",
-            "number '28' marking"
+            "orange number '28' marking"
           ],
           "negative_visuals": [
             "humanoid form",
@@ -10300,7 +10339,7 @@
             "red blazer"
           ],
           "natural_language_description": "Corefolder form: a spherical cushion-like body in orange, with the number '28' TODO: marking placement for #28; dangling earrings.",
-          "prompt_export": "corefolder form, branching fox 8 tails, slightly tall stature (about 164cm), young adult, wavy orange hair, fox ears, dangling earrings, mathematical body tattoo, number '28' marking",
+          "prompt_export": "corefolder form, branching fox 8 tails, slightly tall stature (about 164cm), young adult, wavy orange hair, fox ears, dangling earrings, mathematical body tattoo, orange number '28' marking",
           "negative_prompt_export": "humanoid form, two outfit variants, orange ribbon bow at waist, red blazer",
           "reference_images": {
             "main": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primary/concept/cnsp_img28.png"
@@ -10312,7 +10351,7 @@
             "mathematical body tattoo",
             "two outfit variants",
             "red blazer",
-            "number '28' marking"
+            "orange number '28' marking"
           ],
           "silhouette_notes": {
             "body_description": [
@@ -10340,11 +10379,11 @@
             "two outfit variants",
             "orange ribbon bow at waist",
             "red blazer",
-            "number '28' marking"
+            "orange number '28' marking"
           ],
           "negative_visuals": ["corefolder form"],
           "natural_language_description": null,
-          "prompt_export": "humanoid form, branching fox 8 tails, slightly tall stature (about 164cm), young adult, wavy orange hair, fox ears, dangling earrings, mathematical body tattoo, curvy tall figure, two outfit variants, orange ribbon bow at waist, red blazer, number '28' marking",
+          "prompt_export": "humanoid form, branching fox 8 tails, slightly tall stature (about 164cm), young adult, wavy orange hair, fox ears, dangling earrings, mathematical body tattoo, curvy tall figure, two outfit variants, orange ribbon bow at waist, red blazer, orange number '28' marking",
           "negative_prompt_export": "corefolder form",
           "reference_images": null
         }
@@ -10929,7 +10968,7 @@
           "white bow hair ornament",
           "fox ears",
           "warm cheerful smile",
-          "number '30' marking"
+          "yellowish orange number '30' marking"
         ],
         "silhouette_features": [
           "fox 3 tails",
@@ -10939,7 +10978,7 @@
           "warm cheerful smile"
         ],
         "immutable_traits": [
-          "small orange number '30' marking on the apricot side of the sphere body, right-side mid-height area, single fixed slot"
+          "small yellowish orange number '30' marking on The white area from the left chest to the neck on the front of the sphere, single fixed slot"
         ],
         "expression_tendency": null,
         "age_appearance": "teenager (17)",
@@ -10963,7 +11002,7 @@
       "forms": {
         "corefolder": {
           "form_tags": ["corefolder form"],
-          "outfit_features": ["number '30' marking"],
+          "outfit_features": ["yellowish orange number '30' marking"],
           "silhouette_notes": {
             "body_description": [
               "spherical core body with the head as the only protruding part on top",
@@ -11000,15 +11039,15 @@
             "white bow hair ornament",
             "fox ears",
             "warm cheerful smile",
-            "number '30' marking"
+            "yellowish orange number '30' marking"
           ],
           "negative_visuals": [
             "humanoid form",
             "yellow-orange apron dress",
             "wrist bracelet"
           ],
-          "natural_language_description": "Corefolder form: a spherical cushion-like body in golden orange, with the number '30' marking on the apricot side of the sphere body, right-side mid-height area; white bow hair ornament.",
-          "prompt_export": "corefolder form, fox 3 tails, average stature (about 157cm), teenager (17), long wavy golden orange hair, white bow hair ornament, fox ears, warm cheerful smile, number '30' marking",
+          "natural_language_description": "Corefolder form: a spherical cushion-like body in golden orange, with the yellowish orange number '30' marking on The white area from the left chest to the neck on the front of the sphere; white bow hair ornament.",
+          "prompt_export": "corefolder form, fox 3 tails, average stature (about 157cm), teenager (17), long wavy golden orange hair, white bow hair ornament, fox ears, warm cheerful smile, yellowish orange number '30' marking",
           "negative_prompt_export": "humanoid form, yellow-orange apron dress, wrist bracelet",
           "reference_images": {
             "main": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primary/concept/cnsp_img30.png",
@@ -11019,7 +11058,7 @@
           "form_tags": ["humanoid form"],
           "outfit_features": [
             "yellow-orange apron dress",
-            "number '30' marking"
+            "yellowish orange number '30' marking"
           ],
           "silhouette_notes": {
             "body_description": [
@@ -11044,11 +11083,11 @@
             "yellow-orange apron dress",
             "wrist bracelet",
             "large breasts",
-            "number '30' marking"
+            "yellowish orange number '30' marking"
           ],
           "negative_visuals": ["corefolder form"],
           "natural_language_description": null,
-          "prompt_export": "humanoid form, fox 3 tails, average stature (about 157cm), teenager (17), long wavy golden orange hair, white bow hair ornament, fox ears, warm cheerful smile, yellow-orange apron dress, wrist bracelet, large breasts, number '30' marking",
+          "prompt_export": "humanoid form, fox 3 tails, average stature (about 157cm), teenager (17), long wavy golden orange hair, white bow hair ornament, fox ears, warm cheerful smile, yellow-orange apron dress, wrist bracelet, large breasts, yellowish orange number '30' marking",
           "negative_prompt_export": "corefolder form",
           "reference_images": null
         }
@@ -11294,7 +11333,7 @@
           "energetic competitive grin",
           "red-frame goggles",
           "androgynous presentation",
-          "number '31' marking"
+          "dark (with yellow and red underline) number '31' marking"
         ],
         "silhouette_features": [
           "branching fox 3 tails",
@@ -11305,7 +11344,7 @@
           "androgynous presentation"
         ],
         "immutable_traits": [
-          "small dark number '31' marking with an orange underline on the white front of the sphere, upper-center area, single fixed slot"
+          "small dark (with yellow and red underline) number '31' marking on the white area of the left chest on the sphere, 2 slots"
         ],
         "expression_tendency": null,
         "age_appearance": "teenager",
@@ -11329,7 +11368,9 @@
       "forms": {
         "corefolder": {
           "form_tags": ["corefolder form"],
-          "outfit_features": ["number '31' marking"],
+          "outfit_features": [
+            "dark (with yellow and red underline) number '31' marking"
+          ],
           "silhouette_notes": {
             "body_description": [
               "spherical core body with the head as the only protruding part on top",
@@ -11368,7 +11409,7 @@
             "energetic competitive grin",
             "red-frame goggles",
             "androgynous presentation",
-            "number '31' marking"
+            "dark (with yellow and red underline) number '31' marking"
           ],
           "negative_visuals": [
             "humanoid form",
@@ -11376,8 +11417,8 @@
             "yellow shorts",
             "thigh-high socks with boots"
           ],
-          "natural_language_description": "Corefolder form: a spherical cushion-like body in blue-cyan, with the number '31' marking with an orange underline on the white front of the sphere, upper-center area; red-frame goggles.",
-          "prompt_export": "corefolder form, branching fox 3 tails, short stature (about 147cm), teenager, short blue-cyan hair, fox ears, energetic competitive grin, red-frame goggles, androgynous presentation, number '31' marking",
+          "natural_language_description": "Corefolder form: a spherical cushion-like body in blue-cyan, with the dark (with yellow and red underline) number '31' marking on the white area of the left chest on the sphere; red-frame goggles.",
+          "prompt_export": "corefolder form, branching fox 3 tails, short stature (about 147cm), teenager, short blue-cyan hair, fox ears, energetic competitive grin, red-frame goggles, androgynous presentation, dark (with yellow and red underline) number '31' marking",
           "negative_prompt_export": "humanoid form, athletic outfit, yellow shorts, thigh-high socks with boots",
           "reference_images": {
             "main": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primary/concept/cnsp_img31.png",
@@ -11393,7 +11434,7 @@
             "athletic outfit",
             "yellow shorts",
             "thigh-high socks with boots",
-            "number '31' marking"
+            "dark (with yellow and red underline) number '31' marking"
           ],
           "silhouette_notes": {
             "body_description": [
@@ -11421,11 +11462,11 @@
             "thigh-high socks with boots",
             "androgynous presentation",
             "small stature",
-            "number '31' marking"
+            "dark (with yellow and red underline) number '31' marking"
           ],
           "negative_visuals": ["corefolder form"],
           "natural_language_description": null,
-          "prompt_export": "humanoid form, branching fox 3 tails, short stature (about 147cm), teenager, short blue-cyan hair, fox ears, energetic competitive grin, red-frame goggles, athletic outfit, yellow shorts, thigh-high socks with boots, androgynous presentation, small stature, number '31' marking",
+          "prompt_export": "humanoid form, branching fox 3 tails, short stature (about 147cm), teenager, short blue-cyan hair, fox ears, energetic competitive grin, red-frame goggles, athletic outfit, yellow shorts, thigh-high socks with boots, androgynous presentation, small stature, dark (with yellow and red underline) number '31' marking",
           "negative_prompt_export": "corefolder form",
           "reference_images": null
         }
@@ -11645,7 +11686,7 @@
           "fox ears",
           "confident expression",
           "gender-neutral presentation",
-          "number '32' marking and stripe pattern",
+          "dark number '32' marking and stripe pattern",
           "corefolder form",
           "short mint green hair",
           "fox ears",
@@ -11654,7 +11695,7 @@
           "yellow diagonal stripe accent",
           "wide-leg yellow pants",
           "gender-neutral presentation",
-          "number '32' marking and stripe pattern"
+          "dark number '32' marking and stripe pattern"
         ],
         "silhouette_features": [
           "branching fox 3 tails",
@@ -11664,7 +11705,7 @@
           "confident expression"
         ],
         "immutable_traits": [
-          "small dark number '32' marking on the pale-aqua side of the sphere body, right-side mid-height area on the cream-colored band, single fixed slot"
+          "small dark number '32' marking on the right side of the light green fur area with a pale stripe pattern at the equator of the sphere, somewhat large to match the vertical size of the stripe pattern, single fixed slot"
         ],
         "expression_tendency": null,
         "age_appearance": "teenager (16)",
@@ -11689,11 +11730,11 @@
         "corefolder": {
           "form_tags": ["corefolder form"],
           "outfit_features": [
-            "number '32' marking and stripe pattern",
+            "dark number '32' marking and stripe pattern",
             "casual open-collar jacket",
             "yellow diagonal stripe accent",
             "wide-leg yellow pants",
-            "number '32' marking and stripe pattern",
+            "dark number '32' marking and stripe pattern",
             "gender-neutral presentation",
             "gender-neutral presentation"
           ],
@@ -11736,14 +11777,14 @@
             "fox ears",
             "confident expression",
             "gender-neutral presentation",
-            "number '32' marking and stripe pattern",
+            "dark number '32' marking and stripe pattern",
             "casual open-collar jacket",
             "yellow diagonal stripe accent",
             "wide-leg yellow pants"
           ],
           "negative_visuals": [],
-          "natural_language_description": "Corefolder form: a spherical cushion-like body in mint green, with the number '32' marking on the pale-aqua side of the sphere body, right-side mid-height area on the cream-colored band.",
-          "prompt_export": "corefolder form, branching fox 3 tails, short stature (about 149cm), teenager (16), short mint green hair, fox ears, confident expression, gender-neutral presentation, number '32' marking and stripe pattern, casual open-collar jacket, yellow diagonal stripe accent, wide-leg yellow pants",
+          "natural_language_description": "Corefolder form: a spherical cushion-like body in mint green, with the dark number '32' marking on the right side of the light green fur area with a pale stripe pattern at the equator of the sphere, somewhat large to match the vertical size of the stripe pattern.",
+          "prompt_export": "corefolder form, branching fox 3 tails, short stature (about 149cm), teenager (16), short mint green hair, fox ears, confident expression, gender-neutral presentation, dark number '32' marking and stripe pattern, casual open-collar jacket, yellow diagonal stripe accent, wide-leg yellow pants",
           "negative_prompt_export": "",
           "reference_images": {
             "main": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primary/concept/cnsp_img32.png",
@@ -11998,7 +12039,7 @@
           "haughty expression (online mode)",
           "teary expression (offline mode)",
           "ear-covering maid cap",
-          "number '33' marking"
+          "dark number '33' marking"
         ],
         "silhouette_features": [
           "branching fox 3 tails",
@@ -12010,7 +12051,7 @@
           "teary expression (offline mode)"
         ],
         "immutable_traits": [
-          "small dark number '33' marking on the coral-pink front of the sphere, lower-center area just above the frilled hem, single fixed slot"
+          "small dark number '33' marking on Slightly small from the left chest to the left shoulder of the cape, single fixed slot"
         ],
         "expression_tendency": null,
         "age_appearance": "early teenager",
@@ -12037,7 +12078,7 @@
           "outfit_features": [
             "ear-covering maid cap",
             "pink layered dress-like cape",
-            "number '33' marking"
+            "dark number '33' marking"
           ],
           "silhouette_notes": {
             "body_description": [
@@ -12080,15 +12121,15 @@
             "teary expression (offline mode)",
             "ear-covering maid cap",
             "pink layered dress-like cape",
-            "number '33' marking"
+            "dark number '33' marking"
           ],
           "negative_visuals": [
             "humanoid form",
             "pink layered dress",
             "white ruffle collar"
           ],
-          "natural_language_description": "Corefolder form: a spherical cushion-like body in three fan-shaped, with the number '33' marking on the coral-pink front of the sphere, lower-center area just above the frilled hem; large pink bow ribbon.",
-          "prompt_export": "corefolder form, branching fox 3 tails, short stature (about 149cm), early teenager, long orange-pink braided hair, large pink bow ribbon, fox ears, three fan-shaped fox tails (2-bundle x 3), haughty expression (online mode), teary expression (offline mode), ear-covering maid cap, pink layered dress-like cape, number '33' marking",
+          "natural_language_description": "Corefolder form: a spherical cushion-like body in three fan-shaped, with the dark number '33' marking on Slightly small from the left chest to the left shoulder of the cape; large pink bow ribbon.",
+          "prompt_export": "corefolder form, branching fox 3 tails, short stature (about 149cm), early teenager, long orange-pink braided hair, large pink bow ribbon, fox ears, three fan-shaped fox tails (2-bundle x 3), haughty expression (online mode), teary expression (offline mode), ear-covering maid cap, pink layered dress-like cape, dark number '33' marking",
           "negative_prompt_export": "humanoid form, pink layered dress, white ruffle collar",
           "reference_images": {
             "main": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primary/concept/cnsp_img33.png",
@@ -12103,7 +12144,7 @@
           "outfit_features": [
             "ear-covering maid cap",
             "pink layered dress",
-            "number '33' marking"
+            "dark number '33' marking"
           ],
           "silhouette_notes": {
             "body_description": [
@@ -12131,14 +12172,14 @@
             "ear-covering maid cap",
             "pink layered dress",
             "white ruffle collar",
-            "number '33' marking"
+            "dark number '33' marking"
           ],
           "negative_visuals": [
             "corefolder form",
             "pink layered dress-like cape"
           ],
           "natural_language_description": null,
-          "prompt_export": "humanoid form, branching fox 3 tails, short stature (about 149cm), early teenager, long orange-pink braided hair, large pink bow ribbon, fox ears, three fan-shaped fox tails (2-bundle x 3), haughty expression (online mode), teary expression (offline mode), ear-covering maid cap, pink layered dress, white ruffle collar, number '33' marking",
+          "prompt_export": "humanoid form, branching fox 3 tails, short stature (about 149cm), early teenager, long orange-pink braided hair, large pink bow ribbon, fox ears, three fan-shaped fox tails (2-bundle x 3), haughty expression (online mode), teary expression (offline mode), ear-covering maid cap, pink layered dress, white ruffle collar, dark number '33' marking",
           "negative_prompt_export": "corefolder form, pink layered dress-like cape",
           "reference_images": null
         }
@@ -12358,7 +12399,7 @@
           "fox ears",
           "scheming expression",
           "small stature",
-          "number '34' marking"
+          "dark number '34' marking"
         ],
         "silhouette_features": [
           "branching fox 4 tails",
@@ -12369,7 +12410,7 @@
           "small stature"
         ],
         "immutable_traits": [
-          "small dark number '34' marking on the white front of the sphere, lower-center area just above the frilled hem, single fixed slot"
+          "small dark number '34' marking on Slightly large on the white area at the center front of the sphere, below the chest fur, single fixed slot"
         ],
         "expression_tendency": null,
         "age_appearance": "young teenager (15)",
@@ -12393,7 +12434,7 @@
       "forms": {
         "corefolder": {
           "form_tags": ["corefolder form"],
-          "outfit_features": ["number '34' marking"],
+          "outfit_features": ["dark number '34' marking"],
           "silhouette_notes": {
             "body_description": [
               "spherical core body with the head as the only protruding part on top",
@@ -12431,7 +12472,7 @@
             "fox ears",
             "scheming expression",
             "small stature",
-            "number '34' marking"
+            "dark number '34' marking"
           ],
           "negative_visuals": [
             "humanoid form",
@@ -12439,8 +12480,8 @@
             "blue shorts",
             "apron resembling employee uniform"
           ],
-          "natural_language_description": "Corefolder form: a spherical cushion-like body in navy blue, with the number '34' marking on the white front of the sphere, lower-center area just above the frilled hem.",
-          "prompt_export": "corefolder form, branching fox 4 tails, short stature (about 143cm), young teenager (15), short dark navy blue hair, fox ears, scheming expression, small stature, number '34' marking",
+          "natural_language_description": "Corefolder form: a spherical cushion-like body in navy blue, with the dark number '34' marking on Slightly large on the white area at the center front of the sphere, below the chest fur.",
+          "prompt_export": "corefolder form, branching fox 4 tails, short stature (about 143cm), young teenager (15), short dark navy blue hair, fox ears, scheming expression, small stature, dark number '34' marking",
           "negative_prompt_export": "humanoid form, athletic numbered jersey, blue shorts, apron resembling employee uniform",
           "reference_images": {
             "main": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primary/concept/cnsp_img34.png",
@@ -12453,7 +12494,7 @@
             "athletic numbered jersey",
             "blue shorts",
             "apron resembling employee uniform",
-            "number '34' marking"
+            "dark number '34' marking"
           ],
           "silhouette_notes": {
             "body_description": [
@@ -12478,11 +12519,11 @@
             "blue shorts",
             "apron resembling employee uniform",
             "small stature",
-            "number '34' marking"
+            "dark number '34' marking"
           ],
           "negative_visuals": ["corefolder form"],
           "natural_language_description": null,
-          "prompt_export": "humanoid form, branching fox 4 tails, short stature (about 143cm), young teenager (15), short dark navy blue hair, fox ears, scheming expression, athletic numbered jersey, blue shorts, apron resembling employee uniform, small stature, number '34' marking",
+          "prompt_export": "humanoid form, branching fox 4 tails, short stature (about 143cm), young teenager (15), short dark navy blue hair, fox ears, scheming expression, athletic numbered jersey, blue shorts, apron resembling employee uniform, small stature, dark number '34' marking",
           "negative_prompt_export": "corefolder form",
           "reference_images": null
         }
@@ -12711,7 +12752,7 @@
           "calm composed expression",
           "two outfit variants",
           "necktie (usual)",
-          "number '35' marking (usual)",
+          "orange number '35' marking (usual)",
           "gohei stick (miko)"
         ],
         "silhouette_features": [
@@ -12722,7 +12763,7 @@
           "calm composed expression"
         ],
         "immutable_traits": [
-          "small orange number '35' marking on the white frilled cape / ruff, right side near the neck of the orange necktie, single fixed slot"
+          "small orange number '35' marking on Small on the left collar, near the edge of the fabric (only for usual outfit), single fixed slot"
         ],
         "expression_tendency": null,
         "age_appearance": "early teenager",
@@ -12752,7 +12793,7 @@
           "form_tags": ["corefolder form"],
           "outfit_features": [
             "two outfit variants",
-            "number '35' marking (usual)",
+            "orange number '35' marking (usual)",
             "necktie (usual)"
           ],
           "silhouette_notes": {
@@ -12792,7 +12833,7 @@
             "calm composed expression",
             "two outfit variants",
             "necktie (usual)",
-            "number '35' marking (usual)",
+            "orange number '35' marking (usual)",
             "gohei stick (miko)"
           ],
           "negative_visuals": [
@@ -12800,8 +12841,8 @@
             "orange sleeveless vest (usual)",
             "white robe with orange hakama (miko)"
           ],
-          "natural_language_description": "Corefolder form: a spherical cushion-like body in orange, with the number '35' marking on the white frilled cape / ruff, right side near the neck of the orange necktie; gohei stick (miko).",
-          "prompt_export": "corefolder form, branching fox 5 tails, petite stature (about 139cm), early teenager, medium orange hair, fox ears, calm composed expression, two outfit variants, necktie (usual), number '35' marking (usual), gohei stick (miko)",
+          "natural_language_description": "Corefolder form: a spherical cushion-like body in orange, with the orange number '35' marking on Small on the left collar, near the edge of the fabric (only for usual outfit); gohei stick (miko).",
+          "prompt_export": "corefolder form, branching fox 5 tails, petite stature (about 139cm), early teenager, medium orange hair, fox ears, calm composed expression, two outfit variants, necktie (usual), orange number '35' marking (usual), gohei stick (miko)",
           "negative_prompt_export": "humanoid form, orange sleeveless vest (usual), white robe with orange hakama (miko)",
           "reference_images": {
             "main": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primary/concept/cnsp_img35.png",
@@ -12813,7 +12854,7 @@
           "outfit_features": [
             "two outfit variants",
             "orange sleeveless vest (usual)",
-            "number '35' marking (usual)",
+            "orange number '35' marking (usual)",
             "white robe with orange hakama (miko)",
             "necktie (usual)"
           ],
@@ -12838,13 +12879,13 @@
             "two outfit variants",
             "orange sleeveless vest (usual)",
             "necktie (usual)",
-            "number '35' marking (usual)",
+            "orange number '35' marking (usual)",
             "white robe with orange hakama (miko)",
             "gohei stick (miko)"
           ],
           "negative_visuals": ["corefolder form"],
           "natural_language_description": null,
-          "prompt_export": "humanoid form, branching fox 5 tails, petite stature (about 139cm), early teenager, medium orange hair, fox ears, calm composed expression, two outfit variants, orange sleeveless vest (usual), necktie (usual), number '35' marking (usual), white robe with orange hakama (miko), gohei stick (miko)",
+          "prompt_export": "humanoid form, branching fox 5 tails, petite stature (about 139cm), early teenager, medium orange hair, fox ears, calm composed expression, two outfit variants, orange sleeveless vest (usual), necktie (usual), orange number '35' marking (usual), white robe with orange hakama (miko), gohei stick (miko)",
           "negative_prompt_export": "corefolder form",
           "reference_images": null
         }
@@ -13138,7 +13179,7 @@
           "oversized fluffy flared fox ears",
           "gentle caring smile",
           "bow ribbon at chest",
-          "number '36' marking"
+          "dark number '36' marking"
         ],
         "silhouette_features": [
           "branching fox 6 tails",
@@ -13148,7 +13189,7 @@
           "gentle caring smile"
         ],
         "immutable_traits": [
-          "small dark number '36' marking on the white front of the sphere, center area below the pink ribbon-bow, single fixed slot"
+          "small dark number '36' marking on Large on the front center of the sphere, below the bow ribbon, single fixed slot"
         ],
         "expression_tendency": null,
         "age_appearance": "teenager",
@@ -13172,7 +13213,7 @@
       "forms": {
         "corefolder": {
           "form_tags": ["corefolder form"],
-          "outfit_features": ["number '36' marking"],
+          "outfit_features": ["dark number '36' marking"],
           "silhouette_notes": {
             "body_description": [
               "spherical core body with the head as the only protruding part on top",
@@ -13208,7 +13249,7 @@
             "oversized fluffy flared fox ears",
             "gentle caring smile",
             "bow ribbon at chest",
-            "number '36' marking"
+            "dark number '36' marking"
           ],
           "negative_visuals": [
             "humanoid form",
@@ -13217,8 +13258,8 @@
             "purple-pink button-front skirt",
             "ruffle and lace details"
           ],
-          "natural_language_description": "Corefolder form: a spherical cushion-like body in oversized fluffy flared, with the number '36' marking on the white front of the sphere, center area below the pink ribbon-bow; bow ribbon at chest.",
-          "prompt_export": "corefolder form, branching fox 6 tails, average stature (about 150cm), teenager, orange short-medium hair, oversized fluffy flared fox ears, gentle caring smile, bow ribbon at chest, number '36' marking",
+          "natural_language_description": "Corefolder form: a spherical cushion-like body in oversized fluffy flared, with the dark number '36' marking on Large on the front center of the sphere, below the bow ribbon; bow ribbon at chest.",
+          "prompt_export": "corefolder form, branching fox 6 tails, average stature (about 150cm), teenager, orange short-medium hair, oversized fluffy flared fox ears, gentle caring smile, bow ribbon at chest, dark number '36' marking",
           "negative_prompt_export": "humanoid form, Victorian-lolita dress, orange bolero jacket, purple-pink button-front skirt, ruffle and lace details",
           "reference_images": {
             "main": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primary/concept/cnsp_img36.png",
@@ -13232,7 +13273,7 @@
             "orange bolero jacket",
             "purple-pink button-front skirt",
             "ruffle and lace details",
-            "number '36' marking"
+            "dark number '36' marking"
           ],
           "silhouette_notes": {
             "body_description": [
@@ -13257,11 +13298,11 @@
             "purple-pink button-front skirt",
             "ruffle and lace details",
             "bow ribbon at chest",
-            "number '36' marking"
+            "dark number '36' marking"
           ],
           "negative_visuals": ["corefolder form"],
           "natural_language_description": null,
-          "prompt_export": "humanoid form, branching fox 6 tails, average stature (about 150cm), teenager, orange short-medium hair, oversized fluffy flared fox ears, gentle caring smile, Victorian-lolita dress, orange bolero jacket, purple-pink button-front skirt, ruffle and lace details, bow ribbon at chest, number '36' marking",
+          "prompt_export": "humanoid form, branching fox 6 tails, average stature (about 150cm), teenager, orange short-medium hair, oversized fluffy flared fox ears, gentle caring smile, Victorian-lolita dress, orange bolero jacket, purple-pink button-front skirt, ruffle and lace details, bow ribbon at chest, dark number '36' marking",
           "negative_prompt_export": "corefolder form",
           "reference_images": null
         }
@@ -13548,7 +13589,9 @@
           "short salmon-pink hair",
           "fox ears"
         ],
-        "immutable_traits": null,
+        "immutable_traits": [
+          "small red text with white frame Arabic numeral '37.' (motif composed of multiple triangles) on the shape of the tie pin, single fixed slot"
+        ],
         "expression_tendency": null,
         "age_appearance": "teenager",
         "palette_priority": null,
@@ -13608,7 +13651,10 @@
             "fox ears",
             "earnest expression",
             "yellow necktie",
-            "'37' numbered pin"
+            "'37' numbered pin",
+            "red text with white frame Arabic numeral '37.' (motif composed of multiple triangles)",
+            "red text with white frame Arabic numeral '37.' (motif composed of multiple triangles)",
+            "red text with white frame Arabic numeral '37.' (motif composed of multiple triangles)"
           ],
           "negative_visuals": [
             "humanoid form",
@@ -13617,7 +13663,7 @@
             "casual private outfit"
           ],
           "natural_language_description": "Corefolder form: a spherical cushion-like body in salmon-pink, with the number '37' TODO: marking placement for #37; '37' numbered pin.",
-          "prompt_export": "corefolder form, branching fox 7 tails, average stature (about 157cm), teenager, short salmon-pink hair, fox ears, earnest expression, yellow necktie, '37' numbered pin",
+          "prompt_export": "corefolder form, branching fox 7 tails, average stature (about 157cm), teenager, short salmon-pink hair, fox ears, earnest expression, yellow necktie, '37' numbered pin, red text with white frame Arabic numeral '37.' (motif composed of multiple triangles), red text with white frame Arabic numeral '37.' (motif composed of multiple triangles), red text with white frame Arabic numeral '37.' (motif composed of multiple triangles)",
           "negative_prompt_export": "humanoid form, red blazer with blue trim, white shorts, casual private outfit",
           "reference_images": {
             "main": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primary/concept/cnsp_img37.png",
@@ -13657,11 +13703,14 @@
             "red blazer with blue trim",
             "yellow necktie",
             "white shorts",
-            "casual private outfit"
+            "casual private outfit",
+            "red text with white frame Arabic numeral '37.' (motif composed of multiple triangles)",
+            "red text with white frame Arabic numeral '37.' (motif composed of multiple triangles)",
+            "red text with white frame Arabic numeral '37.' (motif composed of multiple triangles)"
           ],
           "negative_visuals": ["corefolder form", "'37' numbered pin"],
           "natural_language_description": null,
-          "prompt_export": "humanoid form, branching fox 7 tails, average stature (about 157cm), teenager, short salmon-pink hair, fox ears, earnest diligent expression, red blazer with blue trim, yellow necktie, white shorts, casual private outfit",
+          "prompt_export": "humanoid form, branching fox 7 tails, average stature (about 157cm), teenager, short salmon-pink hair, fox ears, earnest diligent expression, red blazer with blue trim, yellow necktie, white shorts, casual private outfit, red text with white frame Arabic numeral '37.' (motif composed of multiple triangles), red text with white frame Arabic numeral '37.' (motif composed of multiple triangles), red text with white frame Arabic numeral '37.' (motif composed of multiple triangles)",
           "negative_prompt_export": "corefolder form, '37' numbered pin",
           "reference_images": {
             "main": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primary/concept/cnsp_img37.png",
@@ -14659,7 +14708,7 @@
           "blue-gray eyes"
         ],
         "immutable_traits": [
-          "small dark number '41' marking on the white front of the sphere, center area just below the pink frilled collar, single fixed slot"
+          "small dark number '41' marking on the front center of the white area of the sphere, just below the collar and somewhat large, single fixed slot"
         ],
         "expression_tendency": null,
         "age_appearance": "teenager",
@@ -14721,7 +14770,8 @@
             "teenager",
             "fox ears",
             "short blue-gray hair",
-            "blue-gray eyes"
+            "blue-gray eyes",
+            "dark number '41' marking"
           ],
           "negative_visuals": [
             "humanoid form",
@@ -14731,8 +14781,8 @@
             "white knee-high socks",
             "cyan shoes"
           ],
-          "natural_language_description": "Corefolder form: a spherical cushion-like body in blue-gray, with the number '41' marking on the white front of the sphere, center area just below the pink frilled collar.",
-          "prompt_export": "corefolder form, branching fox 4 tails, average stature (about 157cm), teenager, fox ears, short blue-gray hair, blue-gray eyes",
+          "natural_language_description": "Corefolder form: a spherical cushion-like body in blue-gray, with the dark number '41' marking on the front center of the white area of the sphere, just below the collar and somewhat large.",
+          "prompt_export": "corefolder form, branching fox 4 tails, average stature (about 157cm), teenager, fox ears, short blue-gray hair, blue-gray eyes, dark number '41' marking",
           "negative_prompt_export": "humanoid form, open teal blazer, salmon-pink button-up shirt, blue-gray shorts, white knee-high socks, cyan shoes",
           "reference_images": {
             "main": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primary/concept/cnsp_img41.png",
@@ -14770,11 +14820,12 @@
             "salmon-pink button-up shirt",
             "blue-gray shorts",
             "white knee-high socks",
-            "cyan shoes"
+            "cyan shoes",
+            "dark number '41' marking"
           ],
           "negative_visuals": ["corefolder form"],
           "natural_language_description": null,
-          "prompt_export": "humanoid form, branching fox 4 tails, average stature (about 157cm), teenager, fox ears, short blue-gray hair, blue-gray eyes, open teal blazer, salmon-pink button-up shirt, blue-gray shorts, white knee-high socks, cyan shoes",
+          "prompt_export": "humanoid form, branching fox 4 tails, average stature (about 157cm), teenager, fox ears, short blue-gray hair, blue-gray eyes, open teal blazer, salmon-pink button-up shirt, blue-gray shorts, white knee-high socks, cyan shoes, dark number '41' marking",
           "negative_prompt_export": "corefolder form",
           "reference_images": null
         }
@@ -24135,7 +24186,9 @@
           "fox ears",
           "golden eyes"
         ],
-        "immutable_traits": null,
+        "immutable_traits": [
+          "small red text with white frame number '73' marking (motif composed of multiple triangles) on the shape of the beret patch, single fixed slot"
+        ],
         "expression_tendency": null,
         "age_appearance": "teenager",
         "palette_priority": null,
@@ -24195,7 +24248,8 @@
             "short pink hair with cap",
             "golden eyes",
             "blue necktie",
-            "blue beret with '73' motif patch"
+            "blue beret with '73' motif patch",
+            "red text with white frame number '73' marking (motif composed of multiple triangles)"
           ],
           "negative_visuals": [
             "humanoid form",
@@ -24206,7 +24260,7 @@
             "red shoes"
           ],
           "natural_language_description": "Corefolder form: a spherical cushion-like body in branching, with the number '73' TODO: marking placement for #73; blue beret with '73' motif patch.",
-          "prompt_export": "corefolder form, branching fox 7 tails, average stature (about 154cm), teenager, fox ears, short pink hair with cap, golden eyes, blue necktie, blue beret with '73' motif patch",
+          "prompt_export": "corefolder form, branching fox 7 tails, average stature (about 154cm), teenager, fox ears, short pink hair with cap, golden eyes, blue necktie, blue beret with '73' motif patch, red text with white frame number '73' marking (motif composed of multiple triangles)",
           "negative_prompt_export": "humanoid form, yellow belt with blue and red messenger-style dress, white inner blouse, red short jacket over blue dress, yellow waist belt, red shoes",
           "reference_images": {
             "main": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primary/concept/cnsp_img73.png",
@@ -24247,11 +24301,12 @@
             "red short jacket over blue dress",
             "yellow waist belt",
             "blue beret with '73' motif patch",
-            "red shoes"
+            "red shoes",
+            "red text with white frame number '73' marking (motif composed of multiple triangles)"
           ],
           "negative_visuals": ["corefolder form"],
           "natural_language_description": null,
-          "prompt_export": "humanoid form, branching fox 7 tails, average stature (about 154cm), teenager, fox ears, short pink hair with cap, golden eyes, yellow belt with blue and red messenger-style dress, blue necktie, white inner blouse, red short jacket over blue dress, yellow waist belt, blue beret with '73' motif patch, red shoes",
+          "prompt_export": "humanoid form, branching fox 7 tails, average stature (about 154cm), teenager, fox ears, short pink hair with cap, golden eyes, yellow belt with blue and red messenger-style dress, blue necktie, white inner blouse, red short jacket over blue dress, yellow waist belt, blue beret with '73' motif patch, red shoes, red text with white frame number '73' marking (motif composed of multiple triangles)",
           "negative_prompt_export": "corefolder form",
           "reference_images": {
             "main": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primary/concept/cnsp_img73.png",

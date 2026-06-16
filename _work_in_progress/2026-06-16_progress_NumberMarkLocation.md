@@ -71,9 +71,42 @@ NumberMarkLocation: $Def_NumberMarkLocation[]|#Null
 
 ---
 
+---
+
+## 追記（2026-06-16）: AIHints 番号タグの NumberMarkLocation 準拠更新
+
+`NumberMarkLocation` が入力済みの 38 キャラ（`AIHints` を持つキャラと重複するもの）について、
+`AIHints` 内の番号マーク関連タグを `NumberMarkLocation` の内容に準拠する形式へ更新。
+
+### 更新対象フィールド
+
+| フィールド | 変更内容 |
+|---|---|
+| `AIHints.common.immutable_traits` | 印字位置・色・スロット数を NML から再生成 |
+| `AIHints.common.identity_tags` | corefolder の色情報を付与（例: `"number '3' marking"` → `"dark number '3' marking"`）|
+| `AIHints.forms.[formation].ai_tags` | 色情報を付与、付記（"(usual)" 等）は保持 |
+| `AIHints.forms.[formation].outfit_features` | 同上 |
+| `AIHints.forms.[formation].silhouette_notes.attached_items` | 同上 |
+| `AIHints.forms.[formation].natural_language_description` | マーク位置記述を NML の `MarkPosition_EN` で上書き |
+| `AIHints.forms.[formation].prompt_export` | ai_tags から再生成 |
+| `AIHints.forms.[formation].negative_prompt_export` | negative_visuals から再生成 |
+
+### 構造変更
+
+- `Marks: null` の形態のマークタグ → `ai_tags` から `negative_visuals` へ移動
+- `negative_visuals` にあったが NML で `Marks` あり → `ai_tags` に移動（色情報付き）
+- `AIHints` に番号タグがなかったが NML で `Marks` あり → `ai_tags` に新規追加
+
+### 更新キャラ数
+
+**38 キャラ**（`AIHints` あり + `NumberMarkLocation` に `Marks` あり のキャラ全件）
+
+---
+
 ## 未完了タスク
 
 - [ ] スキップ36キャラへの `NumberMarkLocation` 手動入力（ユーザー作業）
 - [ ] 全キャラの `MarkPosition`（日本語）補完（ユーザー作業）
 - [ ] humanoid 形態の印字位置詳細入力（ユーザー作業）
+- [ ] AIHints のない残りキャラへの AIHints 追加後、番号タグの NML 準拠化（未実施）
 - [ ] UI 表示確認・調整（必要に応じて）
