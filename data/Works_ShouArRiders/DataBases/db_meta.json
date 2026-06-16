@@ -40,84 +40,19 @@
     "$VarsDef": {
       "$Def_BeastType": {
         "#List_Beast": [
-          {
-            "Beast": "Mouse",
-            "Eto": "子",
-            "Beast_JP": "鼠",
-            "Num": 1
-          },
-          {
-            "Beast": "Ox",
-            "Eto": "丑",
-            "Beast_JP": "牛",
-            "Num": 2
-          },
-          {
-            "Beast": "Tiger",
-            "Eto": "寅",
-            "Beast_JP": "虎",
-            "Num": 3
-          },
-          {
-            "Beast": "Rabbit",
-            "Eto": "卯",
-            "Beast_JP": "兎",
-            "Num": 4
-          },
-          {
-            "Beast": "Dragon",
-            "Eto": "辰",
-            "Beast_JP": "竜",
-            "Num": 5
-          },
-          {
-            "Beast": "Snake",
-            "Eto": "巳",
-            "Beast_JP": "蛇",
-            "Num": 6
-          },
-          {
-            "Beast": "Horse",
-            "Eto": "午",
-            "Beast_JP": "馬",
-            "Num": 7
-          },
-          {
-            "Beast": "Sheep",
-            "Eto": "未",
-            "Beast_JP": "羊",
-            "Num": 8
-          },
-          {
-            "Beast": "Monkey",
-            "Eto": "申",
-            "Beast_JP": "猿",
-            "Num": 9
-          },
-          {
-            "Beast": "Bird",
-            "Eto": "酉",
-            "Beast_JP": "鳥",
-            "Num": 10
-          },
-          {
-            "Beast": "Raccoon",
-            "Eto": "戌",
-            "Beast_JP": "狸",
-            "Num": 11
-          },
-          {
-            "Beast": "Fox",
-            "Eto": "戌",
-            "Beast_JP": "狐",
-            "Num": 11
-          },
-          {
-            "Beast": "Boar",
-            "Eto": "亥",
-            "Beast_JP": "猪",
-            "Num": 12
-          },
+          { "Beast": "Mouse", "Eto": "子", "Beast_JP": "鼠", "Num": 1 },
+          { "Beast": "Ox", "Eto": "丑", "Beast_JP": "牛", "Num": 2 },
+          { "Beast": "Tiger", "Eto": "寅", "Beast_JP": "虎", "Num": 3 },
+          { "Beast": "Rabbit", "Eto": "卯", "Beast_JP": "兎", "Num": 4 },
+          { "Beast": "Dragon", "Eto": "辰", "Beast_JP": "竜", "Num": 5 },
+          { "Beast": "Snake", "Eto": "巳", "Beast_JP": "蛇", "Num": 6 },
+          { "Beast": "Horse", "Eto": "午", "Beast_JP": "馬", "Num": 7 },
+          { "Beast": "Sheep", "Eto": "未", "Beast_JP": "羊", "Num": 8 },
+          { "Beast": "Monkey", "Eto": "申", "Beast_JP": "猿", "Num": 9 },
+          { "Beast": "Bird", "Eto": "酉", "Beast_JP": "鳥", "Num": 10 },
+          { "Beast": "Raccoon", "Eto": "戌", "Beast_JP": "狸", "Num": 11 },
+          { "Beast": "Fox", "Eto": "戌", "Beast_JP": "狐", "Num": 11 },
+          { "Beast": "Boar", "Eto": "亥", "Beast_JP": "猪", "Num": 12 },
           {
             "Beast": "Cat",
             "Eto": null,

@@ -13,7 +13,5 @@
       "_Commons": {}
     }
   },
-  "General": {
-    "$VarsDef": {}
-  }
+  "General": { "$VarsDef": {} }
 }
