@@ -13794,6 +13794,34 @@
     "Weight_kg": 44,
     "TailsUnit": "キツネ(枝分かれ)型9本(上2束3本+下1束6本)",
     "TailsUnit_EN": "Fox (branched) type: 9 tails (upper: 2 clusters x3, lower: 1 cluster x6)",
+    "NumberMarkLocation": [
+      {
+        "Formation": "corefolder",
+        "Marks": [
+          {
+            "MarkPosition": "球体の前面胸中央に大きく",
+            "MarkPosition_EN": "Prominently on the front center of the chest of the sphere",
+            "MarkColor": "暗色",
+            "MarkColor_EN": "Dark color",
+            "MarkNotation": "アラビア数字の「39」（スタイライズされたモチーフ）",
+            "MarkNotation_EN": "Arabic numeral '39' (stylized motif)"
+          }
+        ]
+      },
+      {
+        "Formation": "humanoid",
+        "Marks": [
+          {
+            "MarkPosition": "腰に掛けてインナーから見える範囲のサポーター全体で大きく",
+            "MarkPosition_EN": "Prominently across the entire supporter visible from the inner side of the waist",
+            "MarkColor": "暗色",
+            "MarkColor_EN": "Dark color",
+            "MarkNotation": "アラビア数字の「39」（スタイライズされたモチーフ）",
+            "MarkNotation_EN": "Arabic numeral '39' (stylized motif)"
+          }
+        ]
+      }
+    ],
     "Class": ["デュアルスリーズ"],
     "ThisMasters": ["乃木 希（VIPマスター;夜月機関 救命本部 推薦所属候補者）"],
     "ThisMasters_EN": [
@@ -13827,7 +13855,7 @@
             "琥珀金髪のショートヘア",
             "狐の耳",
             "クールな落ち着いた表情",
-            "長身男性体型"
+            "男性体型"
           ],
           "Motif_EN": [
             "corefolder form",
@@ -13835,7 +13863,7 @@
             "short amber-blonde hair",
             "fox ears",
             "cool composed expression",
-            "tall masculine stature"
+            "masculine stature"
           ]
         }
       },
@@ -13844,27 +13872,25 @@
         "Motif": {
           "Motif_JP": [
             "ヒューマノイド形態",
-            "男の子1人",
-            "若い成人男性",
             "琥珀金髪のショートヘア",
             "狐の耳",
             "クールな落ち着いた表情",
             "長い濃い茶色のトレンチコート",
-            "腰のベルト",
+            "腰の番号デザイン付きベルト",
             "ゆったりとしたパンツ",
-            "カジュアルなプライベート服装"
+            "カジュアルなプライベート服装",
+            "長身男性体形"
           ],
           "Motif_EN": [
             "humanoid form",
-            "1boy",
-            "young adult male",
             "short amber-blonde hair",
             "fox ears",
             "cool composed expression",
             "long dark brown trench coat",
-            "belt at waist",
+            "belt with number design at waist",
             "wide relaxed pants",
-            "casual private outfit"
+            "casual private outfit",
+            "tall masculine stature"
           ]
         }
       }
@@ -14167,6 +14193,34 @@
     "BustSize": "A",
     "TailsUnit": "キツネ型4本",
     "TailsUnit_EN": "Four fox-type tails",
+    "NumberMarkLocation": [
+      {
+        "Formation": "corefolder",
+        "Marks": [
+          {
+            "MarkPosition": "チャイニーズドレスの中央裾にアラビア数字を模した幾何学模様がある(他にもドレスの紐の結び目が同じ形状になっている箇所がいくつかある)",
+            "MarkPosition_EN": "Geometric pattern resembling Arabic numerals on the center hem of the Chinese dress (there are also several places where the knot of the dress's strings has the same shape)",
+            "MarkColor": "青緑",
+            "MarkColor_EN": "Teal",
+            "MarkNotation": "アラビア数字の「40」を模した幾何学的模様",
+            "MarkNotation_EN": "Geometric pattern resembling Arabic numeral '40'"
+          }
+        ]
+      },
+      {
+        "Formation": "humanoid",
+        "Marks": [
+          {
+            "MarkPosition": "チャイニーズドレスの中央裾にアラビア数字を模した幾何学模様がある(他にもドレスの紐の結び目が同じ形状になっている箇所がいくつかある)",
+            "MarkPosition_EN": "Geometric pattern resembling Arabic numerals on the center hem of the Chinese dress (there are also several places where the knot of the dress's strings has the same shape)",
+            "MarkColor": "青緑",
+            "MarkColor_EN": "Teal",
+            "MarkNotation": "アラビア数字の「40」を模した幾何学的模様",
+            "MarkNotation_EN": "Geometric pattern resembling Arabic numeral '40'"
+          }
+        ]
+      }
+    ],
     "Class": ["10倍番(テンズデジッツ)"],
     "FirstPersonCalling": "ヨ\nぼく",
     "FirstPersonCalling_EN": "mine (*by name)\nI (boku; casual)",
@@ -14194,8 +14248,9 @@
             "コアフォルダ形態",
             "ティールのサイドブレイドヘア",
             "狐の耳",
-            "中立的・諦めた表情",
-            "長く流れるティールブルーのドレス",
+            "中立的・諦めた表情(通常時)",
+            "達観した自信ありげな笑顔(願いをかなえる時などの表情工作)",
+            "長く流れるティールブルーのチャイニーズドレス",
             "神秘的なジーニーの雰囲気",
             "「40」をモチーフにした紋様"
           ],
@@ -14203,8 +14258,9 @@
             "corefolder form",
             "teal side-braid hair",
             "fox ears",
-            "neutral resigned expression",
-            "long flowing teal-blue dress",
+            "neutral resigned expression (usual)",
+            "wise confident smile (when granting wishes, etc.)",
+            "long flowing teal-blue Chinese dress",
             "mystical genie aesthetic",
             "pattern inspired by '40'"
           ]
@@ -14218,7 +14274,7 @@
             "ティールのサイドブレイドヘア",
             "狐の耳",
             "中立的・諦めた表情",
-            "長く流れるティールブルーのドレス",
+            "長く流れるティールブルーのチャイニーズドレス",
             "ティールのレースアップロングブーツ",
             "神秘的なジーニーの雰囲気",
             "「40」をモチーフにした紋様"
@@ -14228,7 +14284,7 @@
             "teal side-braid hair",
             "fox ears",
             "neutral resigned expression",
-            "long flowing teal-blue dress",
+            "long flowing teal-blue Chinese dress",
             "teal lace-up tall boots",
             "mystical genie aesthetic",
             "pattern inspired by '40'"

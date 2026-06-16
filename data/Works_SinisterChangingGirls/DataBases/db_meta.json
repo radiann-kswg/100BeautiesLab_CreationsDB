@@ -14,7 +14,5 @@
       "AI_Optout": true
     }
   },
-  "General": {
-    "$VarsDef": {}
-  }
+  "General": { "$VarsDef": {} }
 }
