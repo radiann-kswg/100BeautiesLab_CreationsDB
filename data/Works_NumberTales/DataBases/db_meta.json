@@ -70,7 +70,8 @@
             "Belonging": ["百花繚乱研究所"],
             "RaceType": "PortableHumanoid(TaleBeastType)",
             "GenderType": "Neutral"
-          }
+          },
+          "AI_Optout": true
         },
         {
           "sec_Category": null,
@@ -80,10 +81,10 @@
             "Belonging": ["百花繚乱研究所"],
             "RaceType": "PortableHumanoid(TaleBeastType)",
             "GenderType": "Neutral"
-          }
+          },
+          "AI_Optout": true
         }
-      ],
-      "AI_Optout": true
+      ]
     },
     "#DB_Secondary": {
       "DB_Label": "二次創作",

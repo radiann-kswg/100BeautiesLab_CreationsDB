@@ -70,6 +70,8 @@ const PUBLIC_ORIGIN = 'https://database.numbertales-radiann.net';
  * @property {boolean} applyVisionResults  true なら .cache/vision-results.json の解析結果を AIHints の視覚 TODO に適用
  * @property {Map<number,Object>|null} visionResultsMap  applyVisionResults 時に main() が注入する Map<num, VisionResult>
  * @property {boolean} forceAiOptout  true なら db_meta.json の `AI_Optout: true` ガードをバイパスする（緊急時のみ）
+ * @property {Map<string,boolean>} secondaryOptoutMap  sec_SeriesTitle → AI_Optout。main() が _Secondaries から構築して注入
+ * @property {boolean} secondaryDefaultOptout  sec_SeriesTitle が null のデフォルトエントリに AI_Optout: true がある場合
  * @property {boolean} verbose    詳細ログ
  */
 
@@ -2992,6 +2994,21 @@ function patchFileText(text, opts) {
         if (num === undefined || num === null || (typeof num !== 'number' && typeof num !== 'string')) continue;
         if (opts.records !== null && !opts.records.has(num)) continue;
 
+        // _Secondaries カテゴリ別 AI_Optout チェック
+        if (opts.secondaryOptoutMap?.size > 0 || opts.secondaryDefaultOptout) {
+            const seriesTitle = record.sec_SeriesTitle ?? null;
+            const isOptout = seriesTitle != null
+                ? opts.secondaryOptoutMap.get(seriesTitle) === true
+                : opts.secondaryDefaultOptout;
+            if (isOptout && !opts.forceAiOptout) {
+                results.push({ num, status: 'skipped-ai-optout', note: `sec_SeriesTitle="${seriesTitle}"` });
+                continue;
+            }
+            if (isOptout && opts.forceAiOptout && opts.verbose) {
+                console.warn(`[WARN] AI_Optout カテゴリを --force-ai-optout でバイパス: Num=${num}, sec_SeriesTitle="${seriesTitle}"`);
+            }
+        }
+
         const hasAihints = Object.prototype.hasOwnProperty.call(record, 'AIHints');
 
         // --fix-refs モード: AIHints が既にあるレコードの reference_images のみ再構築。
@@ -3233,6 +3250,34 @@ function main() {
         }
     }
 
+    // ---- _Secondaries カテゴリ別 AI_Optout マップ構築 ----
+    // DB レベルの AI_Optout がない場合でも、_Secondaries の各カテゴリが
+    // 個別に AI_Optout: true を持つ場合はレコード単位でスキップできるよう opts に注入する。
+    opts.secondaryOptoutMap = new Map();
+    opts.secondaryDefaultOptout = false;
+    if (fs.existsSync(dbMetaPath)) {
+        try {
+            const dbMeta = JSON.parse(fs.readFileSync(dbMetaPath, 'utf8'));
+            const dbEntry = dbMeta?.Databases?.[`#DB_${opts.db}`]
+                ?? dbMeta?.Databases?.[`#Ref_${opts.db}`];
+            for (const sec of (dbEntry?._Secondaries ?? [])) {
+                if (sec.AI_Optout !== true) continue;
+                if (sec.sec_SeriesTitle != null) {
+                    opts.secondaryOptoutMap.set(sec.sec_SeriesTitle, true);
+                } else {
+                    opts.secondaryDefaultOptout = true;
+                }
+            }
+            if (opts.secondaryOptoutMap.size > 0 || opts.secondaryDefaultOptout) {
+                const titles = [...opts.secondaryOptoutMap.keys()].map(t => `"${t}"`).join(', ');
+                const defaultNote = opts.secondaryDefaultOptout ? ' + デフォルト(null)' : '';
+                console.log(`[INFO] _Secondaries AI_Optout: ${titles}${defaultNote}`);
+            }
+        } catch {
+            // db_meta.json 読み込み失敗時は per-category チェックもスキップ
+        }
+    }
+
     const original = fs.readFileSync(dbPath, 'utf8');
 
     // 念のため事前に JSON 全体パースして整合性を確認
@@ -3304,7 +3349,8 @@ function main() {
     } else if (opts.applyVisionResults) {
         console.log(`  vision-applied=${counts['vision-applied']}, vision-unchanged=${counts['vision-unchanged']}, vision-no-result=${counts['vision-no-result']}, skipped-no-aihints=${counts['skipped-no-aihints']}`);
     } else {
-        console.log(`  patched=${counts.patched}, overwritten=${counts.overwritten}, skipped-existing=${counts['skipped-existing']}, skipped-no-image=${counts['skipped-no-image']}`);
+        const aiOptoutNote = counts['skipped-ai-optout'] ? `, skipped-ai-optout=${counts['skipped-ai-optout']}` : '';
+        console.log(`  patched=${counts.patched}, overwritten=${counts.overwritten}, skipped-existing=${counts['skipped-existing']}, skipped-no-image=${counts['skipped-no-image']}${aiOptoutNote}`);
     }
     if (opts.verbose || !opts.apply) {
         for (const r of results) {
