@@ -35,6 +35,12 @@
       "hashTag_EN": "Shape of Tails Unit"
     },
     {
+      "hashTag": "NumberMarkLocation",
+      "$type": "$Def_NumberMarkLocation[]|#Null",
+      "hashTag_JP": "番号の印字箇所",
+      "hashTag_EN": "Number Mark Location"
+    },
+    {
       "hashTag": "NumerospecAbout",
       "$type": "#Summary",
       "hashTag_JP": "\"カバラの加護\"(数秘的加護)について",
@@ -214,6 +220,56 @@
           },
           "hashTag_JP": "効果(テキスト形式)",
           "hashTag_EN": "Effect(Text Format)"
+        }
+      ]
+    },
+    "$Def_NumberMark": {
+      "$DefType": [
+        {
+          "hashTag": "MarkPosition",
+          "$type": "#String|#Null",
+          "hashTag_JP": "印字位置"
+        },
+        {
+          "hashTag": "MarkPosition_EN",
+          "$type": "#String_EN|#Null",
+          "hashTag_EN": "Mark Position"
+        },
+        {
+          "hashTag": "MarkColor",
+          "$type": "#String|#Null",
+          "hashTag_JP": "印字色"
+        },
+        {
+          "hashTag": "MarkColor_EN",
+          "$type": "#String_EN|#Null",
+          "hashTag_EN": "Mark Color"
+        },
+        {
+          "hashTag": "MarkNotation",
+          "$type": "#String|#Null",
+          "hashTag_JP": "表記方式"
+        },
+        {
+          "hashTag": "MarkNotation_EN",
+          "$type": "#String_EN|#Null",
+          "hashTag_EN": "Mark Notation"
+        }
+      ]
+    },
+    "$Def_NumberMarkLocation": {
+      "$DefType": [
+        {
+          "hashTag": "Formation",
+          "$type": "#DictIndex",
+          "$dict": "Formation",
+          "hashTag_JP": "形態名"
+        },
+        {
+          "hashTag": "Marks",
+          "$type": "$Def_NumberMark[]|#Null",
+          "hashTag_JP": "印字詳細",
+          "hashTag_EN": "Mark Details"
         }
       ]
     },
