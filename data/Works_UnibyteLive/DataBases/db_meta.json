@@ -21,7 +21,7 @@
         "RaceType": "VirtualAvatar",
         "GenderType": "FemaleNeutral"
       },
-      "AI_Optout": false
+      "AI_Optout": true
     },
     "#DB_PrimaryPerformer": {
       "DB_Label": "一次創作(演者)",
@@ -41,7 +41,7 @@
       },
       "_Commons": { "GenderType": "Female" },
       "Works_Hidden": true,
-      "AI_Optout": false
+      "AI_Optout": true
     }
   },
   "General": {
