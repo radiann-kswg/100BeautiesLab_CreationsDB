@@ -26,7 +26,7 @@
     "Summary_EN": "An informant of the special investigations organization 'Team.78(Seventy-Eight) the Special Investigators' (commonly known as the 'FateLine Investigators'), conducting inspection missions across various locations to gather information on special incidents involving the abuse of the mysterious disappearance phenomenon known as 'Future Erasure'.\nBrandishing the ArcanumSpec of the [⁠Foolish Tripper⁠], he gracefully evades his opponents' attacks with the power of his phoenix ability and mows down enemies with purifying flames.\nFor some reason, the two Dealer names always seem to be switched between the sisters...",
     "ArcanumspecStats": {
       "SpecType": {
-        "Material": [{ "Material": "Fire" }],
+        "Material": [{ "Material": "Fire" }, { "Material": "Slash" }],
         "KinematicOrStatic": "Kinematic",
         "RoleType": "Frier",
         "DualizePattern": { "Pattern": "Prop." }
@@ -75,7 +75,7 @@
         "Material": [{ "Material": "Quart" }],
         "KinematicOrStatic": "Kinematic",
         "RoleType": "Lead",
-        "DualizePattern": { "Pattern": "Prop.(通常)" }
+        "DualizePattern": { "Pattern": "Prop." }
       },
       "EffectStats": {
         "Physical": { "EffectText": "普通" },
@@ -86,10 +86,10 @@
       },
       "SpecialPattern": ["Ptn.B(士気操作)", "Ptn.E(元素操作)"],
       "SafetyLevel": { "SafetyLevelText": "保証可能" },
-      "SpecLevel": { "Rank": "S+" }
+      "SpecLevel": { "Rank": "S" }
     },
-    "AdditionalDesigned": "カードイラスト：REITO_KYUN♡(https://piku.page/@REITO_KYUN)\nカード背景・CG：喜雨(kiu/xiyue)(https://kiucouch.myportfolio.com/)\n意匠デザイン：ラジアン(柏木主税),散狐アタスト",
-    "AdditionalDesigned_EN": "Card Illustration：REITO_KYUN♡(https://piku.page/@REITO_KYUN)\nCard Backimage & CG：喜雨(kiu/xiyue)(https://kiucouch.myportfolio.com/)\nCard Frame & Emblem Design：ラジアン(柏木主税),散狐アタスト"
+    "AdditionalDesigned": "カードイラスト：REITO_KYUN♡(https://piku.page/@REITO_KYUN)\nカード背景・CG：喜雨(kiu/xiyue)(https://kiucouch.myportfolio.com/)\n意匠デザイン：ラジアン(柏木主税),散狐アタスト(https://misskey.io/@atast)",
+    "AdditionalDesigned_EN": "Card Illustration：REITO_KYUN♡(https://piku.page/@REITO_KYUN)\nCard Backimage & CG：喜雨(kiu/xiyue)(https://kiucouch.myportfolio.com/)\nCard Frame & Emblem Design：ラジアン(柏木主税),散狐アタスト(https://misskey.io/@atast)"
   },
   {
     "Card": { "Stoat": "Major", "StoatNum": 2, "Num": 2 },
@@ -131,7 +131,7 @@
       },
       "SpecialPattern": ["Ptn.L(転化)", "Ptn.M(精神操作)"],
       "SafetyLevel": { "SafetyLevelText": "保証可能" },
-      "SpecLevel": { "Rank": "S" }
+      "SpecLevel": { "Rank": "B+" }
     }
   },
   {
@@ -177,8 +177,43 @@
       "SafetyLevel": { "SafetyLevelText": "保証可能" },
       "SpecLevel": { "Rank": "A" }
     },
-    "AdditionalDesigned": "カードイラスト：REITO_KYUN♡(https://piku.page/@REITO_KYUN)\nカード背景・CG：喜雨(kiu/xiyue)(https://kiucouch.myportfolio.com/)\n意匠デザイン：ラジアン(柏木主税),散狐アタスト",
-    "AdditionalDesigned_EN": "Card Illustration：REITO_KYUN♡(https://piku.page/@REITO_KYUN)\nCard Backimage & CG：喜雨(kiu/xiyue)(https://kiucouch.myportfolio.com/)\nCard Frame & Emblem Design：ラジアン(柏木主税),散狐アタスト"
+    "AdditionalDesigned": "カードイラスト：REITO_KYUN♡(https://piku.page/@REITO_KYUN)\nカード背景・CG：喜雨(kiu/xiyue)(https://kiucouch.myportfolio.com/)\n意匠デザイン：ラジアン(柏木主税),散狐アタスト(https://misskey.io/@atast)",
+    "AdditionalDesigned_EN": "Card Illustration：REITO_KYUN♡(https://piku.page/@REITO_KYUN)\nCard Backimage & CG：喜雨(kiu/xiyue)(https://kiucouch.myportfolio.com/)\nCard Frame & Emblem Design：ラジアン(柏木主税),散狐アタスト(https://misskey.io/@atast)"
+  },
+  {
+    "Card": { "Stoat": "Major", "StoatNum": 7, "Num": 7 },
+    "Progress": "notProceeded",
+    "Name": "アクセラ",
+    "Name_EN": "Accela",
+    "FormalName": "加速する戦車\nアクセラ.チャレンジャー",
+    "FormalName_EN": "Accelerating Chariot\nAccela.Challenger",
+    "CodeName": "戦車",
+    "CodeName_EN": "Chariot",
+    "RaceType": "Human",
+    "GenderType": "Male",
+    "Class": ["九蓮国支部幹部"],
+    "ConceptAge": 25,
+    "ArcanamspecAbout": "挑戦意欲を駆り立てる",
+    "ArcanamspecAbout_EN": "Drives the desire to challenge",
+    "Summary": "",
+    "ArcanumspecStats": {
+      "SpecType": {
+        "Material": [{ "Material": "Water" }],
+        "KinematicOrStatic": "Kinematic",
+        "RoleType": "Advance",
+        "DualizePattern": { "Pattern": "Prop." }
+      },
+      "EffectStats": {
+        "Physical": { "EffectText": "効果無" },
+        "Magical": { "EffectText": "期待" },
+        "Healing": { "EffectText": "逆効果" },
+        "Violent": { "EffectText": "過剰" },
+        "Rewriting": { "EffectText": "絶大" }
+      },
+      "SpecialPattern": ["Ptn.A(覚醒)", "Ptn.B(士気操作)"],
+      "SafetyLevel": { "SafetyLevelText": "危険だが制御可能" },
+      "SpecLevel": { "Rank": "S+" }
+    }
   },
   {
     "Card": { "Stoat": "Major", "StoatNum": 8, "Num": 8 },
@@ -210,7 +245,7 @@
         "Material": [{ "Material": "Fire" }],
         "KinematicOrStatic": "Pre-Kinematic",
         "RoleType": "Heal",
-        "DualizePattern": { "Pattern": "Prop.(通常)" }
+        "DualizePattern": { "Pattern": "Prop." }
       },
       "EffectStats": {
         "Physical": { "EffectText": "希薄" },
@@ -223,8 +258,8 @@
       "SafetyLevel": { "SafetyLevelText": "危険度を有効活用可能" },
       "SpecLevel": { "Rank": "A" }
     },
-    "AdditionalDesigned": "カードイラスト：REITO_KYUN♡(https://piku.page/@REITO_KYUN)\nカード背景・CG：喜雨(kiu/xiyue)(https://kiucouch.myportfolio.com/)\n意匠デザイン：ラジアン(柏木主税),散狐アタスト",
-    "AdditionalDesigned_EN": "Card Illustration：REITO_KYUN♡(https://piku.page/@REITO_KYUN)\nCard Backimage & CG：喜雨(kiu/xiyue)(https://kiucouch.myportfolio.com/)\nCard Frame & Emblem Design：ラジアン(柏木主税),散狐アタスト"
+    "AdditionalDesigned": "カードイラスト：REITO_KYUN♡(https://piku.page/@REITO_KYUN)\nカード背景・CG：喜雨(kiu/xiyue)(https://kiucouch.myportfolio.com/)\n意匠デザイン：ラジアン(柏木主税),散狐アタスト(https://misskey.io/@atast)",
+    "AdditionalDesigned_EN": "Card Illustration：REITO_KYUN♡(https://piku.page/@REITO_KYUN)\nCard Backimage & CG：喜雨(kiu/xiyue)(https://kiucouch.myportfolio.com/)\nCard Frame & Emblem Design：ラジアン(柏木主税),散狐アタスト(https://misskey.io/@atast)"
   },
   {
     "Card": { "Stoat": "Major", "StoatNum": 9, "Num": 9 },
@@ -253,28 +288,29 @@
     "Summary_EN": "Regarding the mysterious disappearance phenomenon known as 'Future Erasure' — on the surface, ze conducts scientific research as an assistant professor at a university in LotusNinea; on the inside, ze serves as the 9th executive of the special investigations organization 'Team.78(Seventy-Eight) the Special Investigators' (commonly known as the 'FateLine Investigators'), handling forensic science investigations of incidents.\nBrandishing the ArcanumSpec of the [⁠Hermit of Secret⁠], by concentrating perception and sensation into zir immediate vicinity, ze possesses a camouflage-like situational control ability in combat as well — slipping past an opponent's notice or demonstrating heightened insight.\nHowever, it seems ze is still not accustomed to searching for cases as part of a team...",
     "ArcanumspecStats": {
       "SpecType": {
-        "Material": [{ "Material": "Water" }],
+        "Material": [{ "Material": "Object" }],
         "KinematicOrStatic": "Pre-Static",
-        "RoleType": "Fere",
+        "RoleType": "Fear",
         "DualizePattern": { "Pattern": "Prop." }
       },
       "EffectStats": {
-        "Physical": { "EffectText": "効果無" },
-        "Magical": { "hideText": "検証中" },
-        "Healing": { "EffectText": "期待" },
-        "Violent": { "EffectText": "希薄" },
-        "Rewriting": { "EffectText": "期待" }
+        "Physical": { "EffectText": "絶大" },
+        "Magical": { "EffectText": "普通" },
+        "Healing": { "EffectText": "希薄" },
+        "Violent": { "EffectText": "普通" },
+        "Rewriting": { "EffectText": "希薄" }
       },
       "SpecialPattern": ["Ptn.M(精神操作)", "Ptn.S(感度操作)"],
       "SafetyLevel": { "SafetyLevelText": "恐らく安全" },
       "SpecLevel": { "Rank": "B" }
     },
-    "AdditionalDesigned": "カードイラスト：REITO_KYUN♡(https://piku.page/@REITO_KYUN)\nカード背景・CG：喜雨(kiu/xiyue)(https://kiucouch.myportfolio.com/)\n意匠デザイン：ラジアン(柏木主税),散狐アタスト",
-    "AdditionalDesigned_EN": "Card Illustration：REITO_KYUN♡(https://piku.page/@REITO_KYUN)\nCard Backimage & CG：喜雨(kiu/xiyue)(https://kiucouch.myportfolio.com/)\nCard Frame & Emblem Design：ラジアン(柏木主税),散狐アタスト"
+    "AdditionalDesigned": "カードイラスト：REITO_KYUN♡(https://piku.page/@REITO_KYUN)\nカード背景・CG：喜雨(kiu/xiyue)(https://kiucouch.myportfolio.com/)\n意匠デザイン：ラジアン(柏木主税),散狐アタスト(https://misskey.io/@atast)",
+    "AdditionalDesigned_EN": "Card Illustration：REITO_KYUN♡(https://piku.page/@REITO_KYUN)\nCard Backimage & CG：喜雨(kiu/xiyue)(https://kiucouch.myportfolio.com/)\nCard Frame & Emblem Design：ラジアン(柏木主税),散狐アタスト(https://misskey.io/@atast)"
   },
   {
     "Card": { "Stoat": "Major", "StoatNum": 13, "Num": 13 },
-    "Progress": "nowCreating",
+    "Progress": "unreleased",
+    "Images": { "cardDesign_PNGName": "crddsn_imgFLM13" },
     "Name": "ドゥームズ",
     "Name_EN": "Dooms",
     "FormalName": "転生の死神\nフェニクス.ドゥームズ",
@@ -313,7 +349,7 @@
     "Summary": "",
     "ArcanumspecStats": {
       "SpecType": {
-        "Material": [{ "Material": "Fire" }],
+        "Material": [{ "Material": "Water" }],
         "KinematicOrStatic": "Pre-Kinematic",
         "RoleType": "Archive",
         "DualizePattern": { "Pattern": "Unstab." }
@@ -329,8 +365,8 @@
       "SafetyLevel": { "HideText": "？？？" },
       "SpecLevel": { "Rank": "Z" }
     },
-    "AdditionalDesigned": "カードイラスト：喜雨(kiu/xiyue)(https://kiucouch.myportfolio.com/),REITO_KYUN♡(https://piku.page/@REITO_KYUN)\nカード背景・CG：喜雨(kiu/xiyue)\n意匠デザイン：ラジアン(柏木主税),散狐アタスト",
-    "AdditionalDesigned_EN": "Card Illustration：REITO_KYUN♡(https://piku.page/@REITO_KYUN),喜雨(kiu/xiyue)(https://kiucouch.myportfolio.com/)\nCard Backimage & CG：喜雨(kiu/xiyue)\nCard Frame & Emblem Design：ラジアン(柏木主税),散狐アタスト"
+    "AdditionalDesigned": "カードイラスト：喜雨(kiu/xiyue)(https://kiucouch.myportfolio.com/),REITO_KYUN♡(https://piku.page/@REITO_KYUN)\nカード背景・CG：喜雨(kiu/xiyue)\n意匠デザイン：ラジアン(柏木主税),散狐アタスト(https://misskey.io/@atast)",
+    "AdditionalDesigned_EN": "Card Illustration：喜雨(kiu/xiyue)(https://kiucouch.myportfolio.com/),REITO_KYUN♡(https://piku.page/@REITO_KYUN)\nCard Backimage & CG：喜雨(kiu/xiyue)\nCard Frame & Emblem Design：ラジアン(柏木主税),散狐アタスト(https://misskey.io/@atast)"
   },
   {
     "Card": { "Stoat": "Major", "StoatNum": 16, "Num": 16 },
@@ -358,9 +394,9 @@
     "Summary": "",
     "ArcanumspecStats": {
       "SpecType": {
-        "Material": [{ "Material": "Fire" }, { "Material": "Object" }],
+        "Material": [{ "Material": "Fire" }, { "Material": "Slash" }],
         "KinematicOrStatic": "Pre-Kinematic",
-        "RoleType": "Fere",
+        "RoleType": "Fear",
         "DualizePattern": { "Pattern": "Unstab." }
       },
       "EffectStats": {
@@ -372,7 +408,7 @@
       },
       "SpecialPattern": ["Ptn.F(妨害)", "Ptn.Q(天変地異)"],
       "SafetyLevel": { "SafetyLevelText": "厳重注意" },
-      "SpecLevel": { "Rank": "Z" }
+      "SpecLevel": { "Rank": "ZZ" }
     }
   },
   {
@@ -418,7 +454,7 @@
   },
   {
     "Card": { "Stoat": "Major", "StoatNum": 18, "Num": 18 },
-    "Progress": "nowCreating",
+    "Progress": "unreleased",
     "Images": { "cardDesign_PNGName": "crddsn_imgFLM18" },
     "Name": "ルネ",
     "Name_EN": "Lune",
@@ -436,7 +472,7 @@
       "SpecType": {
         "Material": [{ "Material": "Water" }],
         "KinematicOrStatic": "Pre-Static",
-        "RoleType": "Fere",
+        "RoleType": "Fear",
         "DualizePattern": { "Pattern": "Inv." }
       },
       "EffectStats": {
@@ -450,8 +486,8 @@
       "SafetyLevel": { "SafetyLevelText": "恐らく安全" },
       "SpecLevel": { "Rank": "B" }
     },
-    "AdditionalDesigned": "カードイラスト：REITO_KYUN♡(https://piku.page/@REITO_KYUN)\nカード背景・CG：喜雨(kiu/xiyue)(https://kiucouch.myportfolio.com/)\n意匠デザイン：ラジアン(柏木主税),散狐アタスト",
-    "AdditionalDesigned_EN": "Card Illustration：REITO_KYUN♡(https://piku.page/@REITO_KYUN)\nCard Backimage & CG：喜雨(kiu/xiyue)(https://kiucouch.myportfolio.com/)\nCard Frame & Emblem Design：ラジアン(柏木主税),散狐アタスト"
+    "AdditionalDesigned": "カードイラスト：REITO_KYUN♡(https://piku.page/@REITO_KYUN)\nカード背景・CG：喜雨(kiu/xiyue)(https://kiucouch.myportfolio.com/)\n意匠デザイン：ラジアン(柏木主税),散狐アタスト(https://misskey.io/@atast)",
+    "AdditionalDesigned_EN": "Card Illustration：REITO_KYUN♡(https://piku.page/@REITO_KYUN)\nCard Backimage & CG：喜雨(kiu/xiyue)(https://kiucouch.myportfolio.com/)\nCard Frame & Emblem Design：ラジアン(柏木主税),散狐アタスト(https://misskey.io/@atast)"
   },
   {
     "Card": { "Stoat": "Dealer", "StoatNum": null, "Num": 79 },
@@ -488,8 +524,8 @@
         "Rewriting": { "hideText": "定義不能" }
       },
       "SpecialPattern": { "hideText": "定義不能" },
-      "SafetyLevel": { "hideText": "定義不能" },
-      "SpecLevel": { "Rank": "S+" }
+      "SafetyLevel": { "SafetyLevelText": "危険だが制御可能" },
+      "SpecLevel": { "Rank": "Z" }
     }
   },
   {
@@ -527,8 +563,8 @@
         "Rewriting": { "hideText": "定義不能" }
       },
       "SpecialPattern": { "hideText": "定義不能" },
-      "SafetyLevel": { "hideText": "定義不能" },
-      "SpecLevel": { "Rank": "S+" }
+      "SafetyLevel": { "SafetyLevelText": "危険だが制御可能" },
+      "SpecLevel": { "Rank": "Z" }
     }
   }
 ]

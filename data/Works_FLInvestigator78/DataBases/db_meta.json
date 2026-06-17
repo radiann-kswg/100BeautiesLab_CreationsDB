@@ -130,6 +130,11 @@
               "Rank": "A"
             },
             {
+              "SafetyLevelText": "危険だが制御可能",
+              "SafetyLevelText_EN": "Dangerous but Controllable",
+              "Rank": "A"
+            },
+            {
               "SafetyLevelText": "恐らく安全",
               "SafetyLevelText_EN": "Probably Safe",
               "Rank": "B+"
