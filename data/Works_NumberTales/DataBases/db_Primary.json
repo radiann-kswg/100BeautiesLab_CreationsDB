@@ -123,7 +123,7 @@
             "狐の耳（左耳が垂れている）",
             "狐の尾1本",
             "元気な笑顔",
-            "赤いパーカー",
+            "淡いピンクのパーカー",
             "矢印形の胸ジッパー"
           ],
           "Motif_EN": [
@@ -133,7 +133,7 @@
             "fox ears(left ear drooping)",
             "single fox tail",
             "energetic open smile",
-            "red hoodie",
+            "light pink hoodie",
             "arrow-shaped chest zipper"
           ]
         }
@@ -148,8 +148,10 @@
             "狐の尾1本",
             "元気な笑顔",
             "カジュアルな服装",
+            "淡いピンクのパーカー",
+            "矢印形の胸ジッパー",
             "ショートパンツ",
-            "ブーツ"
+            "灰色のショートブーツ"
           ],
           "Motif_EN": [
             "humanoid form",
@@ -158,8 +160,10 @@
             "single fox tail",
             "energetic open smile",
             "casual outfit",
+            "light pink hoodie",
+            "arrow-shaped chest zipper",
             "shorts",
-            "boots"
+            "gray short boots"
           ]
         }
       }
@@ -570,8 +574,7 @@
             "狐の耳（右耳が垂れている）",
             "四角い眼鏡",
             "落ち着いた微笑み",
-            "二重結びスカーフ",
-            "数字「2」紋章"
+            "二重結びスカーフ"
           ],
           "Motif_EN": [
             "corefolder form",
@@ -580,8 +583,7 @@
             "fox ears(right ear drooping)",
             "rectangular glasses",
             "calm composed smile",
-            "double-knotted scarf",
-            "number '2' emblem"
+            "double-knotted scarf"
           ]
         }
       },
@@ -595,10 +597,10 @@
             "狐の耳",
             "四角い眼鏡",
             "落ち着いた微笑み",
-            "ティールのスポーティシャツ",
+            "淡いオレンジのスポーティシャツ",
+            "オレンジのビジネススカート",
             "二重結びスカーフ",
-            "スカート",
-            "数字「2」紋章"
+            "スカート"
           ],
           "Motif_EN": [
             "humanoid form",
@@ -607,10 +609,10 @@
             "fox ears",
             "rectangular glasses",
             "calm composed smile",
-            "teal sporty shirt",
+            "light orange sporty shirt",
+            "orange business skirt",
             "double-knotted scarf",
-            "skirt",
-            "number '2' emblem"
+            "skirt"
           ]
         }
       }
@@ -874,7 +876,7 @@
             "MarkColor": "暗色",
             "MarkColor_EN": "dark",
             "MarkNotation": "アラビア数字の「3」",
-            "MarkNotation_EN": "Arabic numeral \"3\""
+            "MarkNotation_EN": "Arabic numeral '3'"
           }
         ]
       },
@@ -887,7 +889,7 @@
             "MarkColor": "暗色",
             "MarkColor_EN": "dark",
             "MarkNotation": "アラビア数字の「3」",
-            "MarkNotation_EN": "Arabic numeral \"3\""
+            "MarkNotation_EN": "Arabic numeral '3'"
           }
         ]
       }
@@ -924,6 +926,7 @@
             "黄色い髪",
             "スパイキーヘア",
             "狐の耳",
+            "濃い黄色の目",
             "黄色いヘアクリップ",
             "表情豊かな顔"
           ],
@@ -932,6 +935,7 @@
             "yellow hair",
             "spiky hair",
             "fox ears",
+            "dark yellow eyes",
             "yellow hair clip",
             "emotive expressive face"
           ]
@@ -945,8 +949,10 @@
             "黄色い髪",
             "スパイキーヘア",
             "狐の耳",
+            "濃い黄色の目",
             "黄色いヘアクリップ",
             "明るい黄色のケープジャケット",
+            "黄色のショートパンツ",
             "表情豊かな顔"
           ],
           "Motif_EN": [
@@ -954,8 +960,10 @@
             "yellow hair",
             "spiky hair",
             "fox ears",
+            "dark yellow eyes",
             "yellow hair clip",
             "bright yellow cape-jacket",
+            "yellow short pants",
             "emotive expressive face"
           ]
         }
@@ -1203,12 +1211,12 @@
         "Formation": "corefolder",
         "Marks": [
           {
-            "MarkPosition": "フードの開口部付近のフロントショルダー部分",
-            "MarkPosition_EN": "the front shoulder area near the hood opening",
+            "MarkPosition": "ケープの開口部付近のフロントショルダー部分",
+            "MarkPosition_EN": "the front shoulder area near the cape opening",
             "MarkColor": "白",
             "MarkColor_EN": "white",
             "MarkNotation": "アラビア数字の「4」",
-            "MarkNotation_EN": "Arabic numeral \"4\""
+            "MarkNotation_EN": "Arabic numeral '4'"
           }
         ]
       },
@@ -1216,12 +1224,12 @@
         "Formation": "humanoid",
         "Marks": [
           {
-            "MarkPosition": "フードの開口部付近のフロントショルダー部分",
-            "MarkPosition_EN": "the front shoulder area near the hood opening",
+            "MarkPosition": "ケープの開口部付近のフロントショルダー部分",
+            "MarkPosition_EN": "the front shoulder area near the cape opening",
             "MarkColor": "白",
             "MarkColor_EN": "white",
             "MarkNotation": "アラビア数字の「4」",
-            "MarkNotation_EN": "Arabic numeral \"4\""
+            "MarkNotation_EN": "Arabic numeral '4'"
           }
         ]
       }
@@ -1257,19 +1265,19 @@
             "コアフォルダ形態",
             "青い長い髪",
             "狐の垂れ耳",
-            "狐の尾4本",
+            "シアンブルーの目",
             "控えめな柔らかな微笑み",
             "小さな耳横のヘアアクセサリー",
-            "数字「4」紋章"
+            "ティールのケープ"
           ],
           "Motif_EN": [
             "corefolder form",
             "long blue hair",
             "fox drooping ears",
-            "four fox tails",
+            "cyan blue eyes",
             "soft understated smile",
             "small ear-side hair accessory",
-            "number '4' emblem"
+            "teal cape"
           ]
         }
       },
@@ -1280,21 +1288,23 @@
             "ヒューマノイド形態",
             "青い長い髪",
             "狐の垂れ耳",
+            "シアンブルーの目",
             "控えめな柔らかな微笑み",
+            "ティールのケープ",
             "重ね着ティールのコート",
             "スカート",
-            "小さな耳横のヘアアクセサリー",
-            "数字「4」紋章"
+            "小さな耳横のヘアアクセサリー"
           ],
           "Motif_EN": [
             "humanoid form",
             "long blue hair",
             "fox drooping ears",
+            "cyan blue eyes",
             "soft understated smile",
+            "teal cape",
             "layered teal coat",
             "skirt",
-            "small ear-side hair accessory",
-            "number '4' emblem"
+            "small ear-side hair accessory"
           ]
         }
       }
@@ -1591,7 +1601,7 @@
             "MarkColor": "暗色",
             "MarkColor_EN": "dark",
             "MarkNotation": "アラビア数字の「5」",
-            "MarkNotation_EN": "Arabic numeral \"5\""
+            "MarkNotation_EN": "Arabic numeral '5'"
           }
         ]
       },
@@ -1604,7 +1614,7 @@
             "MarkColor": "白",
             "MarkColor_EN": "white",
             "MarkNotation": "アラビア数字の「5」",
-            "MarkNotation_EN": "Arabic numeral \"5\""
+            "MarkNotation_EN": "Arabic numeral '5'"
           }
         ]
       }
@@ -1646,7 +1656,7 @@
             "コアフォルダ形態",
             "ティールグリーンの髪",
             "狐の耳",
-            "オッドアイ（虹彩異色症）",
+            "深緑色のオッドアイ/虹彩異色症(包帯で隠れている右目の方が少し水色)",
             "いたずらっぽいニヤリ",
             "テープリストバンド"
           ],
@@ -1654,7 +1664,7 @@
             "corefolder form",
             "teal green hair",
             "fox ears",
-            "heterochromia",
+            "dark green heterochromia (right eye slightly light blue, covered with bandage)",
             "mischievous grin",
             "tape wristbands"
           ]
@@ -1667,19 +1677,25 @@
             "ヒューマノイド形態",
             "ティールグリーンの髪",
             "狐の耳",
-            "オッドアイ（虹彩異色症）",
+            "深緑色のオッドアイ/虹彩異色症(包帯で隠れている右目の方が少し水色)",
             "いたずらっぽいニヤリ",
             "テープリストバンド",
-            "アクロバティックなポーズ"
+            "アクロバティックなポーズ",
+            "緑色のカジュアルな服装",
+            "水色のショートスカート",
+            "ティールのストッキング"
           ],
           "Motif_EN": [
             "humanoid form",
             "teal green hair",
             "fox ears",
-            "heterochromia",
+            "dark green heterochromia (right eye slightly light blue, covered with bandage)",
             "mischievous grin",
             "tape wristbands",
-            "acrobatic pose"
+            "acrobatic pose",
+            "green casual clothing",
+            "light blue short skirt",
+            "teal stockings"
           ]
         }
       }
@@ -1924,7 +1940,7 @@
             "MarkColor": "暗色",
             "MarkColor_EN": "dark",
             "MarkNotation": "アラビア数字の「6」",
-            "MarkNotation_EN": "Arabic numeral \"6\""
+            "MarkNotation_EN": "Arabic numeral '6'"
           }
         ]
       },
@@ -1937,7 +1953,7 @@
             "MarkColor": "暗色",
             "MarkColor_EN": "dark",
             "MarkNotation": "アラビア数字の「6」",
-            "MarkNotation_EN": "Arabic numeral \"6\""
+            "MarkNotation_EN": "Arabic numeral '6'"
           }
         ]
       }
@@ -1973,6 +1989,7 @@
             "コアフォルダ形態",
             "ピンクの髪",
             "狐の耳",
+            "ラベンダーブルーの目",
             "穏やかな笑顔",
             "六角形のブローチ",
             "レーストリム"
@@ -1981,6 +1998,7 @@
             "corefolder form",
             "pink hair",
             "fox ears",
+            "lavender blue eyes",
             "gentle warm smile",
             "hexagonal brooch",
             "lace trim"
@@ -1994,6 +2012,7 @@
             "ヒューマノイド形態",
             "ピンクの髪",
             "狐の耳",
+            "ラベンダーブルーの目",
             "穏やかな笑顔",
             "ビクトリアンドレス",
             "ツートーンのピンク紫ドレス",
@@ -2004,6 +2023,7 @@
             "humanoid form",
             "pink hair",
             "fox ears",
+            "lavender blue eyes",
             "gentle warm smile",
             "Victorian dress",
             "two-tone pink purple dress",
@@ -2302,6 +2322,7 @@
             "コアフォルダ形態",
             "ネイビーダークブルーの髪",
             "狐の耳",
+            "紺灰色の目",
             "瞑想的な無表情の眼差し",
             "念珠ネックレス"
           ],
@@ -2309,6 +2330,7 @@
             "corefolder form",
             "navy dark blue hair",
             "fox ears",
+            "dark grayish blue eyes",
             "contemplative stoic gaze",
             "prayer beads necklace"
           ]
@@ -2321,6 +2343,7 @@
             "ヒューマノイド形態",
             "ネイビーダークブルーの髪",
             "狐の耳",
+            "紺灰色の目",
             "瞑想的な無表情の眼差し",
             "念珠ネックレス",
             "和風コート",
@@ -2331,6 +2354,7 @@
             "humanoid form",
             "navy dark blue hair",
             "fox ears",
+            "dark grayish blue eyes",
             "contemplative stoic gaze",
             "prayer bead necklace",
             "Japanese-style coat",
@@ -2585,7 +2609,7 @@
             "MarkColor": "暗色",
             "MarkColor_EN": "dark",
             "MarkNotation": "アラビア数字の「8」",
-            "MarkNotation_EN": "Arabic numeral \"8\""
+            "MarkNotation_EN": "Arabic numeral '8'"
           }
         ]
       },
@@ -2598,7 +2622,7 @@
             "MarkColor": "赤",
             "MarkColor_EN": "red",
             "MarkNotation": "アラビア数字の「8」",
-            "MarkNotation_EN": "Arabic numeral \"8\""
+            "MarkNotation_EN": "Arabic numeral '8'"
           }
         ]
       }
@@ -2654,19 +2678,20 @@
             "コアフォルダ形態",
             "オレンジ赤の髪",
             "狐の耳(フードに隠れている)",
-            "満面の元気な笑み",
-            "頭にVRゴーグル",
-            "メカニックスタイル",
-            "数字「8」紋章"
+            "赤い目",
+            "VRゴーグル(赤と橙のフレームとオレンジのレンズ)",
+            "元気で旺盛な笑み",
+            "メカニックスタイル"
           ],
           "Motif_EN": [
             "corefolder form",
             "orange red hair",
             "fox ears(hidden under hood)",
+            "red eyes",
             "wide energetic grin",
-            "VR goggles on head",
-            "mechanic style",
-            "number '8' emblem"
+            "VR goggles(red and orange frame with orange lenses)",
+            "wide energetic grin",
+            "mechanic style"
           ]
         }
       },
@@ -2677,23 +2702,23 @@
             "ヒューマノイド形態",
             "オレンジ赤の髪",
             "狐の耳(フードに隠れている)",
-            "満面の元気な笑み",
-            "頭にVRゴーグル",
+            "赤い目",
+            "VRゴーグル(赤と橙のフレームとオレンジのレンズ)",
+            "元気で旺盛な笑み",
             "タクティカルベスト",
             "メカニックスタイル",
-            "工具入れポーチ",
-            "数字「8」紋章"
+            "工具入れポーチ"
           ],
           "Motif_EN": [
             "humanoid form",
             "orange red hair",
             "fox ears(hidden under hood)",
+            "red eyes",
+            "VR goggles(red and orange frame with orange lenses)",
             "wide energetic grin",
-            "VR goggles on head",
             "tactical vest",
             "mechanic style",
-            "tool pouches",
-            "number '8' emblem"
+            "tool pouches"
           ]
         }
       }
@@ -2943,7 +2968,7 @@
             "MarkColor": "暗色",
             "MarkColor_EN": "dark",
             "MarkNotation": "アラビア数字の「9」",
-            "MarkNotation_EN": "Arabic numeral \"9\""
+            "MarkNotation_EN": "Arabic numeral '9'"
           }
         ]
       },
@@ -2956,7 +2981,7 @@
             "MarkColor": "暗色",
             "MarkColor_EN": "dark",
             "MarkNotation": "アラビア数字の「9」",
-            "MarkNotation_EN": "Arabic numeral \"9\""
+            "MarkNotation_EN": "Arabic numeral '9'"
           }
         ]
       }
@@ -2988,17 +3013,19 @@
         "Motif": {
           "Motif_JP": [
             "コアフォルダ形態",
-            "銀灰色の長い髪",
+            "白髪がアクセントに交じった銀灰色の長い髪",
+            "白いまつげでラベンダーの目",
             "狐の耳",
             "円形配置の尾",
-            "落ち着いた神秘的な表情"
+            "落ち着いた神秘的な微笑み"
           ],
           "Motif_EN": [
             "corefolder form",
-            "silver gray long hair",
+            "silver gray long hair with white accents",
+            "white eyelashes with lavender eyes",
             "fox ears",
             "tails in ring arrangement",
-            "composed mysterious expression"
+            "composed mysterious smile"
           ]
         }
       },
@@ -3007,19 +3034,21 @@
         "Motif": {
           "Motif_JP": [
             "ヒューマノイド形態",
-            "銀灰色の長い髪",
+            "白髪がアクセントに交じった銀灰色の長い髪",
+            "白いまつげでラベンダーの目",
             "狐の耳",
             "円形配置の尾",
-            "落ち着いた神秘的な表情",
+            "落ち着いた神秘的な微笑み",
             "大きな濃い色のケープ",
             "長身スレンダー"
           ],
           "Motif_EN": [
             "humanoid form",
-            "silver gray long hair",
+            "silver gray long hair with white accents",
+            "white eyelashes with lavender eyes",
             "fox ears",
             "tails in ring arrangement",
-            "composed mysterious expression",
+            "composed mysterious smile",
             "large dark cape",
             "tall slender"
           ]
@@ -3322,7 +3351,7 @@
             "MarkColor": "赤",
             "MarkColor_EN": "red",
             "MarkNotation": "アラビア数字の「10」",
-            "MarkNotation_EN": "Arabic numeral \"10\""
+            "MarkNotation_EN": "Arabic numeral '10'"
           }
         ]
       },
@@ -3330,12 +3359,12 @@
         "Formation": "humanoid",
         "Marks": [
           {
-            "MarkPosition": "トップスの左胸",
-            "MarkPosition_EN": "the left chest of the top",
+            "MarkPosition": "トップスの左胸(色合いで少し目立たない)",
+            "MarkPosition_EN": "the left chest of the top (slightly inconspicuous due to color)",
             "MarkColor": "暗色",
             "MarkColor_EN": "dark",
             "MarkNotation": "アラビア数字の「10」",
-            "MarkNotation_EN": "Arabic numeral \"10\""
+            "MarkNotation_EN": "Arabic numeral '10'"
           }
         ]
       }
@@ -3399,20 +3428,20 @@
           "Motif_JP": [
             "コアフォルダ形態",
             "深紅の髪",
-            "サイドで結んだ髪",
+            "赤黒色の目(通常時)",
+            "白く染まった目(なにか核心をついた時)",
             "狐の耳",
             "芽型の狐の尾1本",
-            "余裕ある自信の微笑み",
-            "数字「10」紋章"
+            "余裕ある自信の微笑み"
           ],
           "Motif_EN": [
             "corefolder form",
             "deep red hair",
-            "hair tied at side",
+            "red-black eyes (normal state)",
+            "white eyes (when hitting the core of something)",
             "fox ears",
             "bud-type single fox tail",
-            "knowing confident smile",
-            "number '10' emblem"
+            "knowing confident smile"
           ]
         }
       },
@@ -3422,24 +3451,24 @@
           "Motif_JP": [
             "ヒューマノイド形態",
             "深紅の髪",
-            "サイドで結んだ髪",
+            "赤黒色の目(通常時)",
+            "白く染まった目(なにか核心をついた時)",
             "狐の耳",
             "芽型の狐の尾1本",
             "余裕ある自信の微笑み",
             "中国風スタンドカラージャケット",
-            "ワイドレッグパンツ",
-            "数字「10」紋章"
+            "ワイドレッグパンツ"
           ],
           "Motif_EN": [
             "humanoid form",
             "deep red hair",
-            "hair tied at side",
+            "red-black eyes (normal state)",
+            "white eyes (when hitting the core of something)",
             "fox ears",
             "bud-type single fox tail",
             "knowing confident smile",
             "Chinese-style mandarin-collar jacket",
-            "wide-leg pants",
-            "number '10' emblem"
+            "wide-leg pants"
           ]
         }
       }
@@ -3763,7 +3792,7 @@
             "MarkColor": "赤",
             "MarkColor_EN": "red",
             "MarkNotation": "アラビア数字の「11」（左右で1桁ずつ）",
-            "MarkNotation_EN": "Arabic numeral \"11\" (one digit on each side)"
+            "MarkNotation_EN": "Arabic numeral '11' (one digit on each side)"
           }
         ]
       },
@@ -3776,7 +3805,7 @@
             "MarkColor": "赤",
             "MarkColor_EN": "red",
             "MarkNotation": "アラビア数字の「11」（左右で1桁ずつ）",
-            "MarkNotation_EN": "Arabic numeral \"11\" (one digit on each side)"
+            "MarkNotation_EN": "Arabic numeral '11' (one digit on each side)"
           }
         ]
       }
@@ -3808,6 +3837,7 @@
             "コアフォルダ形態",
             "銀灰色の長い髪",
             "猫の立った耳(フードに隠れている)",
+            "シルバーのまつげで赤い瞳孔の銀目",
             "神々しい自信の落ち着き",
             "2本の矢印形のヘアピン",
             "長いフード付きコート",
@@ -3817,6 +3847,7 @@
             "corefolder form",
             "silver gray long hair",
             "erected cat ears(hidden under hood)",
+            "silver eyelashes with red pupils",
             "divine self-assured composure",
             "two arrow-shaped hair pins",
             "long hooded coat",
@@ -3831,6 +3862,7 @@
             "ヒューマノイド形態",
             "銀灰色の長い髪",
             "猫の立った耳(フードに隠れている)",
+            "シルバーのまつげで赤い瞳孔の銀目",
             "神々しい自信の落ち着き",
             "2本の矢印形のヘアピン",
             "長いフード付きコート",
@@ -3840,6 +3872,7 @@
             "humanoid form",
             "silver gray long hair",
             "erected cat ears(hidden under hood)",
+            "silver eyelashes with red pupils",
             "divine self-assured composure",
             "two arrow-shaped hair pins",
             "long hooded coat",
@@ -4099,7 +4132,7 @@
             "MarkColor": "暗色",
             "MarkColor_EN": "dark color",
             "MarkNotation": "アラビア数字の「12」",
-            "MarkNotation_EN": "Arabic numeral \"12\""
+            "MarkNotation_EN": "Arabic numeral '12'"
           }
         ]
       },
@@ -4112,7 +4145,7 @@
             "MarkColor": "暗色",
             "MarkColor_EN": "dark color",
             "MarkNotation": "アラビア数字の「12」",
-            "MarkNotation_EN": "Arabic numeral \"12\""
+            "MarkNotation_EN": "Arabic numeral '12'"
           }
         ]
       }
@@ -4438,7 +4471,7 @@
             "MarkColor": "暗色(赤・黄色の下線付き)",
             "MarkColor_EN": "dark (with red and yellow underline)",
             "MarkNotation": "アラビア数字の「13」",
-            "MarkNotation_EN": "Arabic numeral \"13\""
+            "MarkNotation_EN": "Arabic numeral '13'"
           }
         ]
       },
@@ -4451,7 +4484,7 @@
             "MarkColor": "暗色(赤・黄色の下線付き)",
             "MarkColor_EN": "dark (with red and yellow underline)",
             "MarkNotation": "アラビア数字の「13」",
-            "MarkNotation_EN": "Arabic numeral \"13\""
+            "MarkNotation_EN": "Arabic numeral '13'"
           }
         ]
       }
@@ -4833,6 +4866,7 @@
             "コアフォルダ形態",
             "青い長い髪",
             "狐の耳",
+            "水色のまつげで赤い瞳",
             "不服そうな恥じらいの涙目表情",
             "サーモンピンクの襟"
           ],
@@ -4840,6 +4874,7 @@
             "corefolder form",
             "long blue hair",
             "fox ears",
+            "light blue eyelashes with red eyes",
             "discontented shy tearful expression",
             "salmon-pink collar"
           ]
@@ -4852,6 +4887,7 @@
             "ヒューマノイド形態",
             "青い長い髪",
             "狐の耳",
+            "水色のまつげで赤い瞳",
             "自信ありげな表情",
             "ティールのブレザー(たまに気崩したり脱いだりする)",
             "サーモンピンクのインナーシャツ",
@@ -4862,6 +4898,7 @@
             "humanoid form",
             "long blue hair",
             "fox ears",
+            "light blue eyelashes with red eyes",
             "confident expression",
             "teal blazer(sometimes worn casually or taken off)",
             "salmon-pink inner shirt",
@@ -5656,17 +5693,19 @@
         "Motif": {
           "Motif_JP": [
             "コアフォルダ形態",
-            "ピンクの非常に長い髪",
+            "マゼンタの非常に長いポニーテール",
             "ウェーブヘア",
             "狐の耳（帽子を被っているときは隠れている）",
-            "青いキャップ"
+            "青いキャップ",
+            "赤い眉染め"
           ],
           "Motif_EN": [
             "corefolder form",
-            "very long pink hair",
+            "very long magenta ponytail",
             "wavy hair",
             "fox ears (hidden when wearing a hat)",
-            "blue cap"
+            "blue cap",
+            "red dyed eyebrows"
           ]
         }
       },
@@ -5675,20 +5714,24 @@
         "Motif": {
           "Motif_JP": [
             "ヒューマノイド形態",
-            "ピンクの非常に長い髪",
+            "マゼンタの非常に長いポニーテール",
             "ウェーブヘア",
             "狐の耳（帽子を被っているときは隠れている）",
             "青いキャップ",
-            "ハート紋章",
+            "赤い眉染め",
+            "白いケープ",
+            "ハートと鍵がモチーフの紋章が入れられたピンクのカジュアルウェア",
             "豊かな女性シルエット"
           ],
           "Motif_EN": [
             "humanoid form",
-            "very long pink hair",
+            "very long magenta ponytail",
             "wavy hair",
             "fox ears (hidden when wearing a hat)",
             "blue cap",
-            "heart emblem",
+            "red dyed eyebrows",
+            "white cape",
+            "pink casual wear with heart and key emblem",
             "voluminous feminine silhouette"
           ]
         }
@@ -6017,7 +6060,6 @@
           "Motif_JP": [
             "コアフォルダ形態",
             "青みがかった藍色のショートヘア",
-            "ボブカット",
             "狐の耳",
             "落ち着いた外見",
             "四角いヘアピン(17の形)",
@@ -6026,7 +6068,6 @@
           "Motif_EN": [
             "corefolder form",
             "short blue indigo hair",
-            "bob cut",
             "fox ears",
             "calm composed look",
             "square hair pin (17 shape)",
@@ -6375,15 +6416,15 @@
             "コアフォルダ形態",
             "茶色がかった暗赤色のショートヘア",
             "狐の耳",
-            "厳しい表情で右目を閉じている",
-            "赤いヘアピン"
+            "薄紅色のアクセントカラーの前髪",
+            "頬に横線模様"
           ],
           "Motif_EN": [
             "corefolder form",
             "short brown dark red hair",
             "fox ears",
-            "stern with right eye closed",
-            "red hair pin"
+            "light crimson accent color in bangs",
+            "horizontal line pattern on cheeks"
           ]
         }
       },
@@ -6394,8 +6435,8 @@
             "ヒューマノイド形態",
             "茶色がかった暗赤色のショートヘア",
             "狐の耳",
-            "厳しい表情で右目を閉じている",
-            "赤いヘアピン",
+            "薄紅色のアクセントカラーの前髪",
+            "頬に横線模様",
             "シャツの上にブレザー",
             "スカート"
           ],
@@ -6403,7 +6444,8 @@
             "humanoid form",
             "short brown dark red hair",
             "fox ears",
-            "stern with right eye closed",
+            "light crimson accent color in bangs",
+            "horizontal line pattern on cheeks",
             "red hair pin",
             "blazer over shirt",
             "skirt"
@@ -6702,14 +6744,14 @@
             "茶色がかった赤いショートヘア",
             "乱れた髪",
             "狐の耳",
-            "半目"
+            "半目/紅色の目"
           ],
           "Motif_EN": [
             "corefolder form",
             "short brown red hair",
             "messy hair",
             "fox ears",
-            "half-lidded eyes"
+            "half-lidded dark red eyes"
           ]
         }
       },
@@ -6721,7 +6763,7 @@
             "茶色がかった赤いショートヘア",
             "乱れた髪",
             "狐の耳",
-            "半目",
+            "半目/紅色の目",
             "黒いノースリーブトップス",
             "ワイドレッグの濃い赤いパンツ"
           ],
@@ -6730,7 +6772,7 @@
             "short brown red hair",
             "messy hair",
             "fox ears",
-            "half-lidded eyes",
+            "half-lidded dark red eyes",
             "sleeveless black top",
             "wide-leg dark red pants"
           ]
@@ -7037,14 +7079,16 @@
             "銀白色の長い髪",
             "狐の耳",
             "穏やかな微笑み/心配そうな表情",
-            "ハート形のヘアモチーフ"
+            "ハート形をモチーフにした髪型",
+            "番号付きのチョーカー"
           ],
           "Motif_EN": [
             "corefolder form",
             "silver white long hair",
             "fox ears",
             "serene gentle smile/worried expression",
-            "heart-shaped hair motif"
+            "heart-shaped hair motif",
+            "choker with a number"
           ]
         }
       },
@@ -7054,12 +7098,13 @@
           "Motif_JP": [
             "ヒューマノイド形態",
             "銀白色の長い髪",
-            "ハート形のヘアモチーフ",
+            "ハート形をモチーフにした髪型",
             "狐の耳",
             "穏やかな微笑み/心配そうな表情",
             "大きな胸",
             "長い白いオープンコート",
             "オレンジ色のインナーウェア",
+            "番号付きのベルト",
             "大きな胸",
             "カジュアルなプライベート服装"
           ],
@@ -7072,6 +7117,7 @@
             "large breasts",
             "long white open coat",
             "orange inner wear",
+            "belt with a number",
             "large breasts",
             "casual private outfit"
           ]
@@ -7451,6 +7497,7 @@
             "コアフォルダ形態",
             "オレンジ色の髪",
             "狐の耳",
+            "淡いオレンジ色の目",
             "元気な笑み",
             "中性的な外見"
           ],
@@ -7458,6 +7505,7 @@
             "corefolder form",
             "orange hair",
             "fox ears",
+            "pale orange eyes",
             "energetic smile",
             "androgynous presentation"
           ]
@@ -7470,18 +7518,18 @@
             "ヒューマノイド形態",
             "オレンジ色の髪",
             "狐の耳",
+            "淡いオレンジ色の目",
             "元気な笑み",
             "大きな暖かいオレンジ色のコート",
-            "小柄",
             "中性的な外見"
           ],
           "Motif_EN": [
             "humanoid form",
             "orange hair",
             "fox ears",
+            "pale orange eyes",
             "energetic smile",
             "oversized warm orange coat",
-            "short stature",
             "androgynous presentation"
           ]
         }
@@ -7794,20 +7842,20 @@
           "Motif_JP": [
             "コアフォルダ形態",
             "淡い金色の髪",
-            "狐の耳",
+            "狐の耳(イヤリング付き)",
             "サソリ型の分節尾2本（腕のように自在に動く）",
             "夢見るような柔らかな微笑み",
-            "十字があしらわれた丸いブローチとチョーカー",
-            "衛星と恒星を模したホログラム"
+            "十字があしらわれたグレーの丸いブローチと黄褐色のチョーカー",
+            "自分の頭を地球に見立て月と太陽を模したホログラム"
           ],
           "Motif_EN": [
             "corefolder form",
             "pale golden hair",
-            "fox ears",
+            "fox ears (with earrings)",
             "two scorpion-type segmented tails (freely movable like arms)",
             "gentle dreamy soft smile",
-            "round brooch with a cross and choker",
-            "holograms resembling satellites and stars"
+            "gray round brooch with a cross and ochre choker",
+            "holograms resembling the moon and sun on a head modeled as Earth"
           ]
         }
       },
@@ -7817,26 +7865,26 @@
           "Motif_JP": [
             "ヒューマノイド形態",
             "淡い金色の髪",
-            "狐の耳",
+            "狐の耳(イヤリング付き)",
             "サソリ型の分節尾2本（腕のように自在に動く）",
             "夢見るような柔らかな微笑み",
+            "十字があしらわれたグレーの丸いブローチと黄褐色のチョーカー",
             "金黄色の重ね着ドレス",
             "大きな胸",
             "腰のリボンサッシュ",
-            "十字があしらわれた丸いブローチとチョーカー",
-            "衛星と恒星を模したホログラム"
+            "自分の頭を地球に見立て月と太陽を模したホログラム"
           ],
           "Motif_EN": [
             "humanoid form",
             "pale golden hair",
-            "fox ears",
+            "fox ears (with earrings)",
             "two scorpion-type segmented tails (freely movable like arms)",
             "gentle dreamy soft smile",
+            "gray round brooch with a cross and ochre choker",
             "golden yellow layered dress",
             "large breasts",
             "ribbon sash at waist",
-            "round brooch with a cross and choker",
-            "holograms resembling satellites and stars"
+            "holograms resembling the moon and sun on a head modeled as Earth"
           ]
         }
       }
@@ -8208,14 +8256,16 @@
             "ミントグリーンの髪",
             "狐の耳",
             "冒険的な笑顔",
-            "数字「23」マーキングとストライプ模様"
+            "頬に黄色い横線メイク",
+            "番号のマーキングとストライプ模様"
           ],
           "Motif_EN": [
             "corefolder form",
             "mint green hair",
             "fox ears",
             "adventurous smile",
-            "number '23' marking and stripe pattern"
+            "yellow horizontal line makeup on cheeks",
+            "number marking and stripe pattern"
           ]
         }
       },
@@ -8227,22 +8277,24 @@
             "ミントグリーンの髪",
             "狐の耳",
             "冒険的な笑顔",
+            "頬に黄色い横線メイク",
             "緑のパーカー",
             "アスレチックな服装",
             "ワイドレッグパンツ",
             "カジュアルなプライベート服装",
-            "数字「23」マーキングとストライプ模様"
+            "番号のマーキングとストライプ模様"
           ],
           "Motif_EN": [
             "humanoid form",
             "mint green hair",
             "fox ears",
             "adventurous smile",
+            "yellow horizontal line makeup on cheeks",
             "green hoodie",
             "athletic outfit",
             "wide-leg pants",
             "casual private outfit",
-            "number '23' marking and stripe pattern"
+            "number marking and stripe pattern"
           ]
         }
       }
@@ -8555,7 +8607,7 @@
             "狐の耳(先がアクセントカラー)",
             "紫の目",
             "控えめで物思いにふける表情",
-            "ハート形のアクセントカラーの前髪",
+            "ハート形の薄いアクセントカラーの前髪",
             "二色のツインテールと紫のリボン"
           ],
           "Motif_EN": [
@@ -8564,7 +8616,7 @@
             "fox ears (accent color at the tips)",
             "purple eyes",
             "reserved quietly thoughtful expression",
-            "heart-shaped accent color bangs",
+            "heart-shaped light accent color bangs",
             "two-tone twin tails with purple ribbon"
           ]
         }
@@ -8578,7 +8630,7 @@
             "狐の耳(先がアクセントカラー)",
             "紫の目",
             "控えめで物思いにふける表情",
-            "ハート形のアクセントカラーの前髪",
+            "ハート形の薄いアクセントカラーの前髪",
             "二色のツインテールと紫のリボン",
             "裾にアクセントカラーのあるピンクモーブのスカート",
             "大きな胸",
@@ -8590,7 +8642,7 @@
             "fox ears (accent color at the tips)",
             "purple eyes",
             "reserved quietly thoughtful expression",
-            "heart-shaped accent color bangs",
+            "heart-shaped light accent color bangs",
             "two-tone twin tails with purple ribbon",
             "pink-mauve skirt with accent color at the hem",
             "large breasts",
@@ -8918,14 +8970,18 @@
             "コアフォルダ形態",
             "スチールブルーのショートヘア",
             "狐の耳",
+            "紺色のまつげでティールの目",
             "自信に満ちた表情/友好的な笑顔",
+            "ライトグレーのアクセントカラーが入った前髪",
             "5つの紺色の葉っぱ型ジュエルをリングでまとめたチャームが付けられている深緑色のスカーフ"
           ],
           "Motif_EN": [
             "corefolder form",
             "steel blue short hair",
             "fox ears",
+            "navy eyelashes with teal eyes",
             "confident expression/friendly smile",
+            "light gray accent color in the bangs",
             "deep green scarf with a charm made of five navy leaf-shaped jewels held together by a ring"
           ]
         }
@@ -8937,7 +8993,9 @@
             "ヒューマノイド形態",
             "スチールブルーのショートヘア",
             "狐の耳",
+            "紺色のまつげでティールの目",
             "自信に満ちた表情/友好的な笑顔",
+            "ライトグレーのアクセントカラーが入った前髪",
             "濃いティールのボディスーツ",
             "大きな胸",
             "カジュアルなプライベート服装",
@@ -8948,7 +9006,9 @@
             "humanoid form",
             "steel blue short hair",
             "fox ears",
+            "navy eyelashes with teal eyes",
             "confident expression/friendly smile",
+            "light gray accent color in the bangs",
             "dark teal bodysuit",
             "large breasts",
             "casual private outfit",
@@ -9336,13 +9396,15 @@
             "コアフォルダ形態",
             "ピンクの長い髪",
             "狐の耳(先が白のアクセントカラー)",
-            "包み込むような微笑み"
+            "包み込むような微笑み",
+            "白いアクセントカラーの前髪"
           ],
           "Motif_EN": [
             "corefolder form",
             "long pink hair",
             "fox ears (white accent color at the tips)",
-            "gentle nurturing smile"
+            "gentle nurturing smile",
+            "white accent color bangs"
           ]
         }
       },
@@ -9354,6 +9416,7 @@
             "ピンクの長い髪",
             "狐の耳(先が白のアクセントカラー)",
             "包み込むような微笑み",
+            "白いアクセントカラーの前髪",
             "ピンクのノースリーブタートルネック",
             "ローズピンクの長いマキシスカート",
             "大きな胸"
@@ -9363,6 +9426,7 @@
             "long pink hair",
             "fox ears (white accent color at the tips)",
             "gentle nurturing smile",
+            "white accent color bangs",
             "pink sleeveless turtleneck",
             "long rose-pink maxi skirt",
             "large breasts"
@@ -9704,7 +9768,8 @@
             "青いショートヘア",
             "サイドポニーテール",
             "狐の立った耳",
-            "落ち着いた表情/教師のような優しくも威圧的な表情",
+            "落ち着いた表情(普段)",
+            "教師のような優しくも威圧的な表情(教習モード時)",
             "数字「27」マーキングがなされた紫色の名札"
           ],
           "Motif_EN": [
@@ -9712,7 +9777,8 @@
             "short blue hair",
             "side ponytail",
             "erected fox ears",
-            "calm composed expression / gentle yet intimidating teacher-like expression",
+            "calm composed expression (usual)",
+            "gentle yet intimidating teacher-like expression (training mode)",
             "number '27' marking on purple name tag"
           ]
         }
@@ -9725,7 +9791,8 @@
             "青いショートヘア",
             "サイドポニーテール",
             "狐の立った耳",
-            "落ち着いた表情/教師のような優しくも威圧的な表情",
+            "落ち着いた表情(普段)",
+            "教師のような優しくも威圧的な表情(教習モード時)",
             "白いブラウス",
             "紫のプリーツスカート",
             "4つの白いボタン",
@@ -9737,7 +9804,8 @@
             "short blue hair",
             "side ponytail",
             "erected fox ears",
-            "calm composed expression / gentle yet intimidating teacher-like expression",
+            "calm composed expression (usual)",
+            "gentle yet intimidating teacher-like expression (training mode)",
             "white blouse",
             "purple pleated skirt",
             "four white buttons",
@@ -10017,6 +10085,14 @@
             "MarkNotation_EN": "Arabic numeral '28'"
           },
           {
+            "MarkPosition": "イヤリングの形状(片面から見ると4つの円が28のようにみえる)",
+            "MarkPosition_EN": "Earring shape (from one side, the four circles look like '28')",
+            "MarkColor": "白(背景は薄い橙色)",
+            "MarkColor_EN": "white (background is light orange)",
+            "MarkNotation": "アラビア数字の「28」(4つの円が28のようにみえる)",
+            "MarkNotation_EN": "Arabic numeral '28' (the four circles look like '28')"
+          },
+          {
             "MarkPosition": "左肩の橙色体毛にポディペイントとして少し大きく",
             "MarkPosition_EN": "Somewhat large as body paint on the left shoulder's orange fur",
             "MarkColor": "暗色",
@@ -10044,6 +10120,14 @@
             "MarkColor_EN": "orange",
             "MarkNotation": "アラビア数字の「28」",
             "MarkNotation_EN": "Arabic numeral '28'"
+          },
+          {
+            "MarkPosition": "イヤリングの形状(片面から見ると4つの円が28のようにみえる)",
+            "MarkPosition_EN": "Earring shape (from one side, the four circles look like '28')",
+            "MarkColor": "白(背景は薄い橙色)",
+            "MarkColor_EN": "white (background is light orange)",
+            "MarkNotation": "アラビア数字の「28」(4つの円が28のようにみえる)",
+            "MarkNotation_EN": "Arabic numeral '28' (the four circles look like '28')"
           },
           {
             "MarkPosition": "左肩の素肌にポディペイントとして少し大きく(ブレザーを着ているときは見えない)",
@@ -10113,9 +10197,8 @@
             "ダングルイヤリング",
             "数学的なボディタトゥー",
             "グラマラスな長身体型",
-            "2パターンの衣装",
             "腰のオレンジ色のリボンボウ",
-            "赤いブレザー"
+            "赤いブレザー(2パターンの着用方法)"
           ],
           "Motif_EN": [
             "humanoid form",
@@ -10124,9 +10207,8 @@
             "dangling earrings",
             "mathematical body tattoo",
             "curvy tall figure",
-            "two outfit variants",
             "orange ribbon bow at waist",
-            "red blazer"
+            "red blazer (2 outfit variants)"
           ]
         }
       }
@@ -10424,14 +10506,14 @@
         "Motif": {
           "Motif_JP": [
             "コアフォルダ形態",
-            "青みがかったラベンダーの長い髪",
+            "青みがかったラベンダーのインテークロングヘア",
             "狐の耳",
             "不安げな表情",
             "首元の紫のボウリボン"
           ],
           "Motif_EN": [
             "corefolder form",
-            "long blue-lavender hair",
+            "blue-lavender intake long hair",
             "fox ears",
             "anxious expression",
             "purple bow ribbon at neck"
@@ -10443,7 +10525,7 @@
         "Motif": {
           "Motif_JP": [
             "ヒューマノイド形態",
-            "青みがかったラベンダーの長い髪",
+            "青みがかったラベンダーのインテークロングヘア",
             "狐の耳",
             "不安げな表情",
             "ラベンダー色のケープ",
@@ -10453,7 +10535,7 @@
           ],
           "Motif_EN": [
             "humanoid form",
-            "long blue-lavender hair",
+            "blue-lavender intake long hair",
             "fox ears",
             "anxious expression",
             "lavender cape",
@@ -10816,14 +10898,14 @@
         "Motif": {
           "Motif_JP": [
             "コアフォルダ形態",
-            "金橙色の長いウェーブヘア",
+            "金橙色の長いウェーブヘアとアホ毛",
             "白いボウヘアオーナメントと黄色のリボン",
             "狐の耳",
             "温かく明るい笑顔"
           ],
           "Motif_EN": [
             "corefolder form",
-            "long wavy golden orange hair",
+            "long wavy golden orange hair with ahoge",
             "white bow hair ornament and yellow ribbon",
             "fox ears",
             "warm cheerful smile"
@@ -10835,7 +10917,7 @@
         "Motif": {
           "Motif_JP": [
             "ヒューマノイド形態",
-            "金橙色の長いウェーブヘア",
+            "金橙色の長いウェーブヘアとアホ毛",
             "白いボウヘアオーナメントと黄色のリボン",
             "狐の耳",
             "温かく明るい笑顔",
@@ -10845,7 +10927,7 @@
           ],
           "Motif_EN": [
             "humanoid form",
-            "long wavy golden orange hair",
+            "long wavy golden orange hair with ahoge",
             "white bow hair ornament and yellow ribbon",
             "fox ears",
             "warm cheerful smile",
@@ -11106,7 +11188,7 @@
             "MarkColor": "暗色(黄・赤色の下線付き)",
             "MarkColor_EN": "dark (with yellow and red underline)",
             "MarkNotation": "アラビア数字の「31」",
-            "MarkNotation_EN": "Arabic numeral \"31\""
+            "MarkNotation_EN": "Arabic numeral '31'"
           },
           {
             "MarkPosition": "左肩の水色体毛にポディペイントとして少し大きく",
@@ -11114,7 +11196,7 @@
             "MarkColor": "暗色",
             "MarkColor_EN": "dark",
             "MarkNotation": "5番目のメルセンヌ数を示す数学記号「M₅」,下にその数を算出する数式「=2⁵-1」が小さく添えられている",
-            "MarkNotation_EN": "Mathematical symbol \"M₅\" indicating the 5th Mersenne number, with the formula \"=2⁵-1\" shown below in small text"
+            "MarkNotation_EN": "Mathematical symbol 'M₅' indicating the 5th Mersenne number, with the formula '=2⁵-1' shown below in small text"
           }
         ]
       },
@@ -11127,7 +11209,7 @@
             "MarkColor": "暗色(黄・赤色の下線付き)",
             "MarkColor_EN": "dark (with yellow and red underline)",
             "MarkNotation": "アラビア数字の「31」",
-            "MarkNotation_EN": "Arabic numeral \"31\""
+            "MarkNotation_EN": "Arabic numeral '31'"
           },
           {
             "MarkPosition": "左肩の素肌にポディペイントとして少し大きく",
@@ -11135,7 +11217,7 @@
             "MarkColor": "暗色",
             "MarkColor_EN": "dark",
             "MarkNotation": "5番目のメルセンヌ数を示す数学記号「M₅」,下にその数を算出する数式「=2⁵-1」が小さく添えられている",
-            "MarkNotation_EN": "Mathematical symbol \"M₅\" indicating the 5th Mersenne number, with the formula \"=2⁵-1\" shown below in small text"
+            "MarkNotation_EN": "Mathematical symbol 'M₅' indicating the 5th Mersenne number, with the formula '=2⁵-1' shown below in small text"
           }
         ]
       }
@@ -11156,7 +11238,7 @@
     "SpecialSkill": "イベントで皆勤賞を取る",
     "SpecialSkill_EN": "Achieving perfect event attendance without fail",
     "Favor": "スタンプカード\n「31」という数字",
-    "Favor_EN": "Stamp cards\nThe number \"31\"",
+    "Favor_EN": "Stamp cards\nThe number '31'",
     "Unlike": "病欠や事故による欠席",
     "Unlike_EN": "Being absent due to illness or accidents",
     "IdentityMotif": [
@@ -11168,7 +11250,7 @@
             "青シアンのショートヘア",
             "狐の耳",
             "元気で競争心あふれる笑み",
-            "赤いフレームのゴーグル",
+            "赤いフレームで黄色いレンズのゴーグル",
             "中性的な外見",
             "数学的なボディペイント"
           ],
@@ -11177,7 +11259,7 @@
             "short blue-cyan hair",
             "fox ears",
             "energetic competitive grin",
-            "red-frame goggles",
+            "red-frame goggles with yellow lenses",
             "androgynous presentation",
             "mathematical body paint"
           ]
@@ -11191,13 +11273,12 @@
             "青シアンのショートヘア",
             "狐の耳",
             "元気で競争心あふれる笑み",
-            "赤いフレームのゴーグル",
+            "赤いフレームで黄色いレンズのゴーグル",
             "アスレチックな服装",
             "黄色いショートパンツ",
             "ブーツ付きサイハイソックス",
             "左手首に黄色のミサンガ",
             "中性的な外見",
-            "小柄",
             "数学的なボディペイント"
           ],
           "Motif_EN": [
@@ -11205,13 +11286,12 @@
             "short blue-cyan hair",
             "fox ears",
             "energetic competitive grin",
-            "red-frame goggles",
+            "red-frame goggles with yellow lenses",
             "athletic outfit",
             "yellow shorts",
             "thigh-high socks with boots",
             "yellow bracelet on the left wrist",
             "androgynous presentation",
-            "small stature",
             "mathematical body paint"
           ]
         }
@@ -11222,7 +11302,7 @@
     "NumerospecAbout": "主人の行いを引き立てる",
     "NumerospecAbout_EN": "Enhances and elevates the master's conduct",
     "Summary": "挑戦したことに対する向上意欲が旺盛で、一度挑んだら諦めないという一途な人柄が評判。\nそのことから、彼女といると日頃の行いが良い方向に広がっていくとも主人たちに支持されている。\n一方で自分の掲げる数字「31」に対する愛着が強く、“メルセンヌ素数”をこよなく好むイタい数学学徒な一面も。\n同様に“完全数”を好む「28(ニハチ)」と縁があるとか。",
-    "Summary_EN": "Known for her tenacious drive to improve at any challenge she takes on — once committed, she never gives up.\nBecause of this, masters find that being around her naturally brings out better behavior in their day-to-day lives.\nOn the other hand, she has a deep attachment to her signature number \"31\" and a cringeworthy side as a math enthusiast who adores Mersenne primes.\nShe has ties with '28(Tweighan)', who shares a love of \"perfect numbers\".",
+    "Summary_EN": "Known for her tenacious drive to improve at any challenge she takes on — once committed, she never gives up.\nBecause of this, masters find that being around her naturally brings out better behavior in their day-to-day lives.\nOn the other hand, she has a deep attachment to her signature number '31' and a cringeworthy side as a math enthusiast who adores Mersenne primes.\nShe has ties with '28(Tweighan)', who shares a love of \"perfect numbers\".",
     "NumerospecStats": {
       "EffectStats": {
         "Mental": { "EffectText": "期待" },
@@ -11530,16 +11610,16 @@
             "ミントグリーンのショートヘア",
             "狐の耳",
             "自信ありげな表情",
-            "性別中立な外見",
-            "数字「32」マーキングとストライプ模様"
+            "頬に黄色い横線メイク",
+            "番号のマーキングとストライプ模様"
           ],
           "Motif_EN": [
             "corefolder form",
             "short mint green hair",
             "fox ears",
             "confident expression",
-            "gender-neutral presentation",
-            "number '32' marking and stripe pattern"
+            "yellow horizontal line makeup on cheeks",
+            "number marking and stripe pattern"
           ]
         }
       },
@@ -11551,22 +11631,24 @@
             "ミントグリーンのショートヘア",
             "狐の耳",
             "自信ありげな表情",
+            "頬に黄色い横線メイク",
             "カジュアルなオープンカラージャケット",
             "黄色い斜め縞アクセント",
             "ワイドレッグの黄色いパンツ",
             "性別中立な外見",
-            "数字「32」マーキングとストライプ模様"
+            "番号のマーキングとストライプ模様"
           ],
           "Motif_EN": [
             "corefolder form",
             "short mint green hair",
             "fox ears",
             "confident expression",
+            "yellow horizontal line makeup on cheeks",
             "casual open-collar jacket",
             "yellow diagonal stripe accent",
             "wide-leg yellow pants",
             "gender-neutral presentation",
-            "number '32' marking and stripe pattern"
+            "number marking and stripe pattern"
           ]
         }
       }
@@ -12243,13 +12325,19 @@
             "コアフォルダ形態",
             "濃い紺色のショートヘア",
             "狐の耳",
-            "策略的な表情"
+            "黄色い太眉",
+            "策略的な表情",
+            "糸目",
+            "紺灰色の目(悪いことを考えているときに開く)"
           ],
           "Motif_EN": [
             "corefolder form",
             "short dark navy blue hair",
             "fox ears",
-            "scheming expression"
+            "yellow thick eyebrows",
+            "scheming expression",
+            "slit eyes",
+            "dark navy gray eyes (open when thinking of something bad)"
           ]
         }
       },
@@ -12260,7 +12348,10 @@
             "ヒューマノイド形態",
             "濃い紺色のショートヘア",
             "狐の耳",
+            "黄色い太眉",
             "策略的な表情",
+            "糸目",
+            "紺灰色の目(悪いことを考えているときに開く)",
             "青いショートパンツ",
             "従業員制服のような番号入りの黄色いエプロン",
             "小柄"
@@ -12269,7 +12360,10 @@
             "humanoid form",
             "short dark navy blue hair",
             "fox ears",
+            "yellow thick eyebrows",
             "scheming expression",
+            "slit eyes",
+            "dark navy gray eyes (open when thinking of something bad)",
             "blue shorts",
             "yellow apron with numbers, resembling an employee uniform",
             "small stature"
@@ -12587,8 +12681,10 @@
         "Motif": {
           "Motif_JP": [
             "コアフォルダ形態",
-            "オレンジ色のミディアムヘア",
+            "黄褐色のミディアムヘア",
             "狐の耳",
+            "黄緑色の目",
+            "丸く剃られた黄褐色の眉",
             "落ち着いた表情",
             "2パターンの衣装",
             "ネクタイ（通常）",
@@ -12596,8 +12692,10 @@
           ],
           "Motif_EN": [
             "corefolder form",
-            "medium orange hair",
+            "medium yellow-tan hair",
             "fox ears",
+            "yellow-green eyes",
+            "roundly shaved yellow-tan eyebrows",
             "calm composed expression",
             "two outfit variants",
             "necktie (usual)",
@@ -12612,6 +12710,8 @@
             "ヒューマノイド形態",
             "オレンジ色のミディアムヘア",
             "狐の耳",
+            "黄緑色の目",
+            "丸く剃られた黄褐色の眉",
             "落ち着いた表情",
             "2パターンの衣装",
             "オレンジ色のノースリーブベスト（通常）",
@@ -12621,8 +12721,10 @@
           ],
           "Motif_EN": [
             "humanoid form",
-            "medium orange hair",
+            "medium yellow-tan hair",
             "fox ears",
+            "yellow-green eyes",
+            "roundly shaved yellow-tan eyebrows",
             "calm composed expression",
             "two outfit variants",
             "orange sleeveless vest (usual)",
@@ -13372,6 +13474,7 @@
             "コアフォルダ形態",
             "サーモンピンクのショートヘア",
             "狐の耳",
+            "赤いまつげで赤と黄色の目",
             "真剣でまじめな表情(普段)",
             "子供のように甘えた笑顔(褒められたときや頭を撫でられたとき)",
             "黄色いネクタイと'37'の数字をモチーフにしたピン"
@@ -13380,6 +13483,7 @@
             "corefolder form",
             "short salmon-pink hair",
             "fox ears",
+            "red eyelashes with red and yellow eyes",
             "earnest diligent expression (usual)",
             "childlike spoiled smile (when praised or patted on the head)",
             "yellow necktie and pin with '37' motif"
@@ -13393,6 +13497,7 @@
             "ヒューマノイド形態",
             "サーモンピンクのショートヘア",
             "狐の耳",
+            "赤いまつげで赤と黄色の目",
             "真剣でまじめな表情(普段)",
             "子供のように甘えた笑顔(褒められたときや頭を撫でられたとき)",
             "青いトリム付き赤いブレザー",
@@ -13404,6 +13509,7 @@
             "humanoid form",
             "short salmon-pink hair",
             "fox ears",
+            "red eyelashes with red and yellow eyes",
             "earnest diligent expression (usual)",
             "childlike spoiled smile (when praised or patted on the head)",
             "red blazer with blue trim",
@@ -13764,8 +13870,8 @@
         "Formation": "corefolder",
         "Marks": [
           {
-            "MarkPosition": "球体の前面胸中央に大きく",
-            "MarkPosition_EN": "Prominently on the front center of the chest of the sphere",
+            "MarkPosition": "球体の前面胸中央にやや大きく",
+            "MarkPosition_EN": "Slightly large, centered on the front of the sphere at chest level",
             "MarkColor": "暗色",
             "MarkColor_EN": "Dark color",
             "MarkNotation": "アラビア数字の「39」（スタイライズされたモチーフ）",
@@ -13841,7 +13947,7 @@
             "狐の耳",
             "クールな落ち着いた表情",
             "長い濃い茶色のトレンチコート",
-            "腰の番号デザイン付きベルト",
+            "腰の番号デザイン付きベルトサポーター",
             "ゆったりとしたパンツ",
             "カジュアルなプライベート服装",
             "長身男性体形"
@@ -13852,7 +13958,7 @@
             "fox ears",
             "cool composed expression",
             "long dark brown trench coat",
-            "belt with number design at waist",
+            "belt supporter with number design at waist",
             "wide relaxed pants",
             "casual private outfit",
             "tall masculine stature"
@@ -14545,14 +14651,14 @@
             "コアフォルダ形態",
             "狐の耳",
             "青みがかった灰色のショートヘア",
-            "青みがかった灰色の目",
+            "水色のまつげで青灰色の目",
             "サーモンピンクの襟"
           ],
           "Motif_EN": [
             "corefolder form",
             "fox ears",
             "short blue-gray hair",
-            "blue-gray eyes",
+            "blue-gray eyes with light blue eyelashes",
             "salmon-pink collar"
           ]
         }
@@ -14947,14 +15053,14 @@
           "Motif_JP": [
             "コアフォルダ形態",
             "狐の耳(先がアクセントカラー)",
-            "ハート形のアクセントカラーの前髪",
+            "ハート形の薄いアクセントカラーの前髪",
             "二色のツインテールと青のリボン",
             "青い目"
           ],
           "Motif_EN": [
             "corefolder form",
             "fox ears (accent color at the tips)",
-            "heart-shaped accent color bangs",
+            "heart-shaped light accent color bangs",
             "two-tone twin-tails with blue ribbons",
             "blue eyes"
           ]
@@ -14968,7 +15074,7 @@
             "狐の耳(先がアクセントカラー)",
             "青い目",
             "白い襟付きピンクのパフスリーブブラウス",
-            "ハート形のアクセントカラーの前髪",
+            "ハート形の薄いアクセントカラーの前髪",
             "二色のツインテールと青のリボン",
             "ライトピンクの長いブレザー",
             "青灰色のショートパンツ",
@@ -14978,7 +15084,7 @@
           "Motif_EN": [
             "humanoid form",
             "fox ears (accent color at the tips)",
-            "heart-shaped accent color bangs",
+            "heart-shaped light accent color bangs",
             "two-tone twin-tails with blue ribbons",
             "blue eyes",
             "pink puff-sleeve blouse with white collar",
@@ -18238,13 +18344,15 @@
             "コアフォルダ形態",
             "狐の耳",
             "銀灰色の長い髪を後ろで括っている",
-            "ティールの目"
+            "ライトグレーのアクセントカラーが入った前髪",
+            "紺色のまつげでティールの目"
           ],
           "Motif_EN": [
             "corefolder form",
             "fox ears",
             "long silver-gray hair tied at the back",
-            "teal eyes"
+            "light gray accent color in the bangs",
+            "navy blue eyelashes and teal eyes"
           ]
         }
       },
@@ -18255,7 +18363,8 @@
             "ヒューマノイド形態",
             "狐の耳",
             "銀灰色の長い髪を後ろで括っている",
-            "ティールの目",
+            "ライトグレーのアクセントカラーが入った前髪",
+            "紺色のまつげでティールの目",
             "濃いティールのボディスーツ",
             "ティールブルーの袖とショートパンツ",
             "ティールのブーツ",
@@ -18266,7 +18375,8 @@
             "humanoid form",
             "fox ears",
             "long silver-gray hair tied at the back",
-            "teal eyes",
+            "light gray accent color in the bangs",
+            "navy blue eyelashes and teal eyes",
             "dark teal bodysuit",
             "teal-blue sleeves and shorts",
             "teal boots",
@@ -18640,15 +18750,17 @@
           "Motif_JP": [
             "コアフォルダ形態",
             "狐の耳",
-            "オレンジ褐色のショートヘア",
+            "黄褐色のショートヘア",
             "琥珀色の目",
+            "丸く剃られた黄緑色の眉",
             "緑のネクタイ"
           ],
           "Motif_EN": [
             "corefolder form",
             "fox ears",
-            "short orange-tan hair",
+            "short yellow-tan hair",
             "amber eyes",
+            "roundly shaved green eyebrows",
             "green necktie"
           ]
         }
@@ -18659,8 +18771,9 @@
           "Motif_JP": [
             "ヒューマノイド形態",
             "狐の耳",
-            "オレンジ褐色のショートヘア",
+            "黄褐色のショートヘア",
             "琥珀色の目",
+            "丸く剃られた黄緑色の眉",
             "白い襟付きシャツ",
             "緑のネクタイ",
             "オレンジ色のエプロンジャンパー",
@@ -18671,8 +18784,9 @@
           "Motif_EN": [
             "humanoid form",
             "fox ears",
-            "short orange-tan hair",
+            "short yellow-tan hair",
             "amber eyes",
+            "roundly shaved green eyebrows",
             "white collared shirt",
             "green necktie",
             "orange apron jumper",
@@ -18967,7 +19081,7 @@
             "MarkColor": "やや濃い緑",
             "MarkColor_EN": "slightly dark green",
             "MarkNotation": "アラビア数字の「55」（左右で1桁ずつ）",
-            "MarkNotation_EN": "Arabic numeral \"55\" (one digit on each side)"
+            "MarkNotation_EN": "Arabic numeral '55' (one digit on each side)"
           }
         ]
       },
@@ -18980,7 +19094,7 @@
             "MarkColor": "緑",
             "MarkColor_EN": "green",
             "MarkNotation": "アラビア数字の「55」（左右で1桁ずつ）",
-            "MarkNotation_EN": "Arabic numeral \"55\" (one digit on each side)"
+            "MarkNotation_EN": "Arabic numeral '55' (one digit on each side)"
           }
         ]
       }
@@ -19295,6 +19409,34 @@
     "BustSize": "B",
     "TailsUnit": "キツネ(枝分かれ)型6本(上2束5本+下1束1本)",
     "TailsUnit_EN": "Fox (branched) type: 6 tails (upper: 2 clusters x5, lower: 1 cluster x1)",
+    "NumberMarkLocation": [
+      {
+        "Formation": "corefolder",
+        "Marks": [
+          {
+            "MarkPosition": "球体の左胸のグレー色部分,薄色の体毛の下",
+            "MarkPosition_EN": "On the gray area of the left chest sphere, under the light-colored fur",
+            "MarkColor": "暗色(アラビア数字)+薄緑(漢数字)",
+            "MarkColor_EN": "dark (Arabic numeral) + light green (kanji)",
+            "MarkNotation": "アラビア数字の「56」,下にやや小さく漢数字の「五十六」",
+            "MarkNotation_EN": "Arabic numeral '56', with the kanji '五十六' slightly smaller below"
+          }
+        ]
+      },
+      {
+        "Formation": "humanoid",
+        "Marks": [
+          {
+            "MarkPosition": "エプロンブラウスの左胸ピンク色部分",
+            "MarkPosition_EN": "On the pink area of the left chest of the apron blouse",
+            "MarkColor": "暗色(アラビア数字)+薄緑(漢数字)",
+            "MarkColor_EN": "dark (Arabic numeral) + light green (kanji)",
+            "MarkNotation": "アラビア数字の「56」,下にやや小さく漢数字の「五十六」",
+            "MarkNotation_EN": "Arabic numeral '56', with the kanji '五十六' slightly smaller below"
+          }
+        ]
+      }
+    ],
     "Class": ["デュアルイレブンズ"],
     "FirstPersonCalling": "あたし\nイソロク ※名前呼び,やや稀",
     "FirstPersonCalling_EN": "I (fem. casual)",
@@ -19320,15 +19462,15 @@
         "Motif": {
           "Motif_JP": [
             "コアフォルダ形態",
-            "狐の耳",
-            "薄い灰色のショートヘア",
+            "狐の耳(先が薄色)",
+            "薄い灰色のツートーンショートヘア",
             "緑の目",
             "ライトグリーンのスカーフ"
           ],
           "Motif_EN": [
             "corefolder form",
-            "fox ears",
-            "short light gray hair",
+            "fox ears (tips are light-colored)",
+            "short light gray two-tone hair",
             "green eyes",
             "light green scarf"
           ]
@@ -19339,10 +19481,10 @@
         "Motif": {
           "Motif_JP": [
             "ヒューマノイド形態",
-            "狐の耳",
-            "薄い灰色のショートヘア",
+            "狐の耳(先が薄色)",
+            "薄い灰色のツートーンショートヘア",
             "緑の目",
-            "ピンクのトップス",
+            "ピンクのエプロンブラウス",
             "灰色のスカート",
             "ライトグリーンのスカーフ",
             "白いソックス",
@@ -19350,10 +19492,10 @@
           ],
           "Motif_EN": [
             "humanoid form",
-            "fox ears",
-            "short light gray hair",
+            "fox ears (tips are light-colored)",
+            "short light gray two-tone hair",
             "green eyes",
-            "pink top",
+            "pink apron blouse",
             "gray skirt",
             "light green scarf",
             "white socks",
@@ -19678,6 +19820,34 @@
     "BustSize": "AA",
     "TailsUnit": "キツネ(枝分かれ)型7本(上2束5本+下1束2本)",
     "TailsUnit_EN": "Fox (branched) type: 7 tails (upper: 2 clusters x5, lower: 1 cluster x2)",
+    "NumberMarkLocation": [
+      {
+        "Formation": "corefolder",
+        "Marks": [
+          {
+            "MarkPosition": "球体の側面右肩に付けられた腕章",
+            "MarkPosition_EN": "On the armband attached to the right shoulder of the sphere",
+            "MarkColor": "黄緑",
+            "MarkColor_EN": "yellow-green",
+            "MarkNotation": "アラビア数字の「57」",
+            "MarkNotation_EN": "Arabic numeral '57'"
+          }
+        ]
+      },
+      {
+        "Formation": "humanoid",
+        "Marks": [
+          {
+            "MarkPosition": "右肩から二の腕にかけて付けられた腕章",
+            "MarkPosition_EN": "On the armband attached to the right shoulder and upper arm",
+            "MarkColor": "黄緑",
+            "MarkColor_EN": "yellow-green",
+            "MarkNotation": "アラビア数字の「57」",
+            "MarkNotation_EN": "Arabic numeral '57'"
+          }
+        ]
+      }
+    ],
     "Class": ["デュアルスリーズ"],
     "FirstPersonCalling": "私(わたし）",
     "FirstPersonCalling_EN": "I",
@@ -19705,13 +19875,15 @@
             "コアフォルダ形態",
             "狐の耳",
             "金髪ポニーテール",
-            "琥珀色の目"
+            "琥珀色の目",
+            "右肩の番号付きの腕章"
           ],
           "Motif_EN": [
             "corefolder form",
             "fox ears",
             "blonde ponytail",
-            "amber eyes"
+            "amber eyes",
+            "armband with number on right shoulder"
           ]
         }
       },
@@ -19727,7 +19899,8 @@
             "オレンジ色のショートパンツ",
             "黄色いブーツ",
             "白いストライプ付き黄色いセーラーカラー制服",
-            "青いインナーシャツ"
+            "青いインナーシャツ",
+            "右肩の番号付きの腕章"
           ],
           "Motif_EN": [
             "humanoid form",
@@ -19738,7 +19911,8 @@
             "orange shorts",
             "yellow boots",
             "yellow sailor-collar uniform with white stripes",
-            "blue inner shirt"
+            "blue inner shirt",
+            "armband with number on right shoulder"
           ]
         }
       }
@@ -20048,6 +20222,22 @@
     "BustSize": "F",
     "TailsUnit": "キツネ(枝分かれ)型8本(上2束5本+下1束3本)",
     "TailsUnit_EN": "Fox (branched) type: 8 tails (upper: 2 clusters x5, lower: 1 cluster x3)",
+    "NumberMarkLocation": [
+      { "Formation": "corefolder", "Marks": null },
+      {
+        "Formation": "humanoid",
+        "Marks": [
+          {
+            "MarkPosition": "カジュアルドレスの左肩水色部分(気崩している部分に隠れており、通常見えない)",
+            "MarkPosition_EN": "On the light-blue part of the left shoulder of the casual dress (hidden in the disheveled part, normally not visible)",
+            "MarkColor": "青緑",
+            "MarkColor_EN": "teal",
+            "MarkNotation": "アラビア数字の「58」",
+            "MarkNotation_EN": "Arabic numeral '58'"
+          }
+        ]
+      }
+    ],
     "Class": ["デュアルフォーズ"],
     "FirstPersonCalling": "こっち",
     "FirstPersonCalling_EN": "I/me (kocchi; informal self-ref.)",
@@ -20093,7 +20283,7 @@
             "狐の耳",
             "茶色の長い髪",
             "水色の目",
-            "水色の長いドレス",
+            "水色の長いカジュアルドレス(気崩していることが多い)",
             "青の靴"
           ],
           "Motif_EN": [
@@ -20101,7 +20291,7 @@
             "fox ears",
             "long brown hair",
             "light blue eyes",
-            "light blue long dress",
+            "light blue long casual dress (often disheveled)",
             "blue shoes"
           ]
         }
@@ -20440,6 +20630,34 @@
     "BustSize": "G",
     "TailsUnit": "キツネ型6本",
     "TailsUnit_EN": "Six fox-type tails",
+    "NumberMarkLocation": [
+      {
+        "Formation": "corefolder",
+        "Marks": [
+          {
+            "MarkPosition": "ネクタイ(通常衣装のみ)",
+            "MarkPosition_EN": "On the tie (only for usual outfit)",
+            "MarkColor": "ピンク",
+            "MarkColor_EN": "pink",
+            "MarkNotation": "アラビア数字の「60」(スタイライズされたモチーフ)",
+            "MarkNotation_EN": "Arabic numeral '60' (stylized motif)"
+          }
+        ]
+      },
+      {
+        "Formation": "humanoid",
+        "Marks": [
+          {
+            "MarkPosition": "ネクタイ(通常衣装のみ)",
+            "MarkPosition_EN": "On the tie (only for usual outfit)",
+            "MarkColor": "ピンク",
+            "MarkColor_EN": "pink",
+            "MarkNotation": "アラビア数字の「60」(スタイライズされたモチーフ)",
+            "MarkNotation_EN": "Arabic numeral '60' (stylized motif)"
+          }
+        ]
+      }
+    ],
     "Class": ["10倍番(テンズデジッツ)"],
     "ThisMasters": ["水無瀬 霙(はなゆき)"],
     "ThisMasters_EN": ["水無瀬 霙(はなゆき)"],
@@ -20468,14 +20686,20 @@
           "Motif_JP": [
             "コアフォルダ形態",
             "狐の耳",
-            "ピンク色のミディアムヘア",
-            "紫色の目"
+            "ピンク色のインテークヘア",
+            "紫色の目",
+            "凛とした美しい顔つき",
+            "感情的で好意にまっすぐな表情(推し活中)",
+            "ブローチ付きピンクのネクタイ(通常衣装のみ)"
           ],
           "Motif_EN": [
             "corefolder form",
             "fox ears",
-            "medium pink hair",
-            "purple eyes"
+            "pink intake hair",
+            "purple eyes",
+            "elegant and beautiful face",
+            "emotional and straightforward expression of affection (while supporting her oshi)",
+            "pink necktie with brooch (usual outfit only)"
           ]
         }
       },
@@ -20485,22 +20709,40 @@
           "Motif_JP": [
             "ヒューマノイド形態",
             "狐の耳",
-            "ピンク色のミディアムヘア",
             "紫色の目",
-            "ピンク/マゼンタのチュニックドレス",
-            "白い幅広カラービブ",
-            "オレンジ色のウエストバンド",
-            "ブローチ付きピンクのネクタイ"
+            "2パターンの衣装",
+            "凛とした美しい顔つき",
+            "インテークヘアな前髪",
+            "感情的で好意にまっすぐな表情(推し活中)",
+            "ピンク色のロングヘア(通常衣装)",
+            "ピンク/マゼンタのチュニックドレス(通常衣装)",
+            "白い幅広カラービブ(通常衣装)",
+            "オレンジ色のウエストバンド(通常衣装)",
+            "ブローチ付きピンクのネクタイ(通常衣装)",
+            "ピンク色のポニーテール(ヲタク衣装)",
+            "ピンクのハチマキ(ヲタク衣装)",
+            "オレンジ色のカジュアルウェア(ヲタク衣装)",
+            "マゼンタのショートパンツ",
+            "マゼンタのブーツ"
           ],
           "Motif_EN": [
             "humanoid form",
             "fox ears",
-            "medium pink hair",
+            "pink intake hair",
             "purple eyes",
-            "pink/magenta tunic dress",
-            "white wide collar bib",
-            "orange waistband",
-            "pink necktie with brooch"
+            "elegant and beautiful face",
+            "emotional and straightforward expression of affection (while supporting her oshi)",
+            "two outfit patterns",
+            "long pink hair (usual outfit)",
+            "pink/magenta tunic dress (usual outfit)",
+            "white wide color bib (usual outfit)",
+            "orange waist band (usual outfit)",
+            "pink necktie with brooch (usual outfit)",
+            "pink ponytail (otaku outfit)",
+            "pink headband (otaku outfit)",
+            "orange casual wear (otaku outfit)",
+            "magenta short pants",
+            "magenta boots"
           ]
         }
       }
@@ -20833,6 +21075,50 @@
     "BustSize": "H",
     "TailsUnit": "キツネ(枝分かれ)型6本(上1束5本+下2束1本)",
     "TailsUnit_EN": "Fox (branched) type: 6 tails (upper: 1 cluster x5, lower: 2 clusters x1)",
+    "NumberMarkLocation": [
+      {
+        "Formation": "corefolder",
+        "Marks": [
+          {
+            "MarkPosition": "フードの向かって右側紺色部分(通常衣装)",
+            "MarkPosition_EN": "On the right side of the hood, on the navy-colored part (regular outfit)",
+            "MarkColor": "暗色",
+            "MarkColor_EN": "dark",
+            "MarkNotation": "アラビア数字の「61」",
+            "MarkNotation_EN": "Arabic numeral '61'"
+          },
+          {
+            "MarkPosition": "制服の両肩赤色部分にやや大きく(アイドル衣装)",
+            "MarkPosition_EN": "On the red parts of both shoulders of the uniform, slightly larger (idol outfit)",
+            "MarkColor": "暗色",
+            "MarkColor_EN": "dark",
+            "MarkNotation": "アラビア数字の「61」",
+            "MarkNotation_EN": "Arabic numeral '61'"
+          }
+        ]
+      },
+      {
+        "Formation": "humanoid",
+        "Marks": [
+          {
+            "MarkPosition": "フードの向かって右側紺色部分(通常衣装)",
+            "MarkPosition_EN": "On the right side of the hood, on the navy-colored part (regular outfit)",
+            "MarkColor": "暗色",
+            "MarkColor_EN": "dark",
+            "MarkNotation": "アラビア数字の「61」",
+            "MarkNotation_EN": "Arabic numeral '61'"
+          },
+          {
+            "MarkPosition": "制服の両肩赤色部分にやや大きく(アイドル衣装)",
+            "MarkPosition_EN": "On the red parts of both shoulders of the uniform, slightly larger (idol outfit)",
+            "MarkColor": "暗色",
+            "MarkColor_EN": "dark",
+            "MarkNotation": "アラビア数字の「61」",
+            "MarkNotation_EN": "Arabic numeral '61'"
+          }
+        ]
+      }
+    ],
     "Class": ["デュアルセブンズ"],
     "ThisMasters": [
       {
@@ -20879,14 +21165,26 @@
           "Motif_JP": [
             "コアフォルダ形態",
             "狐の耳",
-            "マゼンタ色の髪",
-            "薄紫色の目"
+            "マゼンタの非常に長いポニーテール",
+            "薄紫色の目",
+            "丸く剃られた赤い眉",
+            "2パターンの衣装",
+            "白と紺色の番号付きフード(通常衣装)",
+            "番号と白のラインが入れられた赤い制服(アイドル衣装)",
+            "ハートと鍵がモチーフのチャームヘアピン(アイドル衣装)",
+            "青色の蝶ネクタイ(アイドル衣装)"
           ],
           "Motif_EN": [
             "corefolder form",
             "fox ears",
-            "magenta hair",
-            "light purple eyes"
+            "magenta very long ponytail",
+            "light purple eyes",
+            "roundly shaved red eyebrows",
+            "two outfit patterns",
+            "white and navy hood with number (usual outfit)",
+            "red uniform with number and white line (idol outfit)",
+            "heart and key motif charm hairpin (idol outfit)",
+            "blue bow tie (idol outfit)"
           ]
         }
       },
@@ -20896,22 +21194,32 @@
           "Motif_JP": [
             "ヒューマノイド形態",
             "狐の耳",
-            "マゼンタ色の髪",
+            "マゼンタの非常に長いポニーテール",
             "薄紫色の目",
-            "青いセーラーカラー付き灰色のベスト",
-            "白と紺色のエプロン",
-            "白いソックス",
+            "丸く剃られた赤い眉",
+            "2パターンの衣装",
+            "ハートと鍵がモチーフの紋章と白いアクセントカラー付きで薄ピンクのベスト(通常衣装)",
+            "白と紺色の番号付きフード(通常衣装)",
+            "番号と白のラインが入れられた赤い制服(アイドル衣装)",
+            "青色の蝶ネクタイ(アイドル衣装)",
+            "ハートと鍵がモチーフのチャームヘアピン(アイドル衣装)",
+            "薄いピンクと薄い紫で左右の色が違うソックス",
             "青い靴",
             "白いインナーシャツ"
           ],
           "Motif_EN": [
             "humanoid form",
             "fox ears",
-            "magenta hair",
+            "magenta very long ponytail",
             "light purple eyes",
-            "gray vest with blue sailor collar",
-            "white and navy apron",
-            "white socks",
+            "roundly shaved red eyebrows",
+            "two outfit patterns",
+            "light pink vest with heart and key emblem and white accent color (usual outfit)",
+            "white and navy hood with number (usual outfit)",
+            "red uniform with number and white line (idol outfit)",
+            "blue bow tie (idol outfit)",
+            "heart and key motif charm hairpin (idol outfit)",
+            "socks with different colors on left and right: light pink and light purple",
             "blue shoes",
             "white inner shirt"
           ]
@@ -21249,7 +21557,7 @@
             "MarkColor": "ピンク",
             "MarkColor_EN": "pink",
             "MarkNotation": "アラビア数字の「62」",
-            "MarkNotation_EN": "Arabic numeral \"62\""
+            "MarkNotation_EN": "Arabic numeral '62'"
           }
         ]
       },
@@ -21262,7 +21570,7 @@
             "MarkColor": "ピンク",
             "MarkColor_EN": "pink",
             "MarkNotation": "アラビア数字の「62」",
-            "MarkNotation_EN": "Arabic numeral \"62\""
+            "MarkNotation_EN": "Arabic numeral '62'"
           }
         ]
       }
@@ -22258,6 +22566,34 @@
     "BustSize": "A",
     "TailsUnit": "キツネ(枝分かれ)型6本(上1束1本+下2束5本)",
     "TailsUnit_EN": "Fox (branched) type: 6 tails (upper: 1 cluster x1, lower: 2 clusters x5)",
+    "NumberMarkLocation": [
+      {
+        "Formation": "corefolder",
+        "Marks": [
+          {
+            "MarkPosition": "球体の左胸のグレー色部分,薄色の体毛の下",
+            "MarkPosition_EN": "On the gray area of the left chest sphere, under the light-colored fur",
+            "MarkColor": "暗色",
+            "MarkColor_EN": "dark",
+            "MarkNotation": "アラビア数字の「65」",
+            "MarkNotation_EN": "Arabic numeral '65'"
+          }
+        ]
+      },
+      {
+        "Formation": "humanoid",
+        "Marks": [
+          {
+            "MarkPosition": "エプロンドレスの左胸薄緑色部分",
+            "MarkPosition_EN": "On the light green area of the left chest of the apron dress",
+            "MarkColor": "暗色",
+            "MarkColor_EN": "dark",
+            "MarkNotation": "アラビア数字の「65」",
+            "MarkNotation_EN": "Arabic numeral '65'"
+          }
+        ]
+      }
+    ],
     "Class": ["デュアルイレブンズ"],
     "FirstPersonCalling": "あたし",
     "FirstPersonCalling_EN": "I (fem. casual)",
@@ -22283,14 +22619,14 @@
         "Motif": {
           "Motif_JP": [
             "コアフォルダ形態",
-            "狐の耳",
-            "パステルピンクのショートヘア",
+            "狐の耳(先が薄色)",
+            "薄い灰色のツートーンショートヘア",
             "ライトグリーンの目"
           ],
           "Motif_EN": [
             "corefolder form",
-            "fox ears",
-            "short pastel pink hair",
+            "fox ears (tips are light-colored)",
+            "short light gray two-tone hair",
             "light green eyes"
           ]
         }
@@ -22300,21 +22636,19 @@
         "Motif": {
           "Motif_JP": [
             "ヒューマノイド形態",
-            "狐の耳",
-            "パステルピンクのショートヘア",
+            "狐の耳(先が薄色)",
+            "薄い灰色のツートーンショートヘア",
             "ライトグリーンの目",
-            "パステルピンクのドレス",
-            "白いフリル",
+            "パステルグリーンのエプロンドレス",
             "青いリボンアクセント",
             "ピンクの靴"
           ],
           "Motif_EN": [
             "humanoid form",
-            "fox ears",
-            "short pastel pink hair",
+            "fox ears (tips are light-colored)",
+            "short light gray two-tone hair",
             "light green eyes",
-            "pastel pink dress",
-            "white frills",
+            "pastel green apron dress",
             "blue ribbon accents",
             "pink shoes"
           ]
@@ -22564,6 +22898,34 @@
     "BustSize": "F",
     "TailsUnit": "キツネ(枝分かれ)型2束x6本",
     "TailsUnit_EN": "Fox (branched) type: 2 clusters x6 tails",
+    "NumberMarkLocation": [
+      {
+        "Formation": "corefolder",
+        "Marks": [
+          {
+            "MarkPosition": "ヨークビブに左右1桁ずつ",
+            "MarkPosition_EN": "On the yoke bib, one digit on each side",
+            "MarkColor": "暗色",
+            "MarkColor_EN": "dark color",
+            "MarkNotation": "アラビア数字の「66」（左右で1桁ずつ）",
+            "MarkNotation_EN": "Arabic numeral '66' (one digit on each side)"
+          }
+        ]
+      },
+      {
+        "Formation": "humanoid",
+        "Marks": [
+          {
+            "MarkPosition": "襟に左右1桁ずつ",
+            "MarkPosition_EN": "On the collar, one digit on each side",
+            "MarkColor": "暗色",
+            "MarkColor_EN": "dark color",
+            "MarkNotation": "アラビア数字の「66」（左右で1桁ずつ）",
+            "MarkNotation_EN": "Arabic numeral '66' (one digit on each side)"
+          }
+        ]
+      }
+    ],
     "Class": ["マスターテールズ9"],
     "ThisMasters": ["水無瀬 雫/水無月（夜月機関 第6幹部）"],
     "ThisMasters_EN": ["水無瀬 雫/水無月（夜月機関 第6幹部）"],
@@ -22595,7 +22957,7 @@
             "ピンクハイライト入り茶色の髪",
             "琥珀色の目",
             "ピンクのフード付きマント",
-            "「6 6」マーク入りオレンジ黄色のヨークビブ"
+            "番号入りオレンジ黄色のヨークビブ"
           ],
           "Motif_EN": [
             "corefolder form",
@@ -22603,7 +22965,7 @@
             "brown hair with pink highlights",
             "amber eyes",
             "pink hooded cloak",
-            "orange-yellow yoke bib with '6 6' markings"
+            "orange-yellow yoke bib with number markings"
           ]
         }
       },
@@ -22616,12 +22978,11 @@
             "ピンクハイライト入り茶色の髪",
             "琥珀色の目",
             "ピンクのフード付きマント",
-            "「6 6」マーク入りオレンジ黄色のヨークビブ",
+            "番号入りオレンジ黄色のヨークビブ",
+            "黒の修道服風ドレス",
             "ピンクのパフスリーブ",
             "濃い灰色のフィンガーレスグローブ",
-            "黄色いトリムアクセント",
-            "ピンクのドレス",
-            "濃い灰色の手袋"
+            "黄色いトリムアクセント"
           ],
           "Motif_EN": [
             "humanoid form",
@@ -22629,12 +22990,11 @@
             "brown hair with pink highlights",
             "amber eyes",
             "pink hooded cloak",
-            "orange-yellow yoke bib with '6 6' markings",
+            "orange-yellow yoke bib with number markings",
+            "black habit-style dress",
             "pink puff sleeves",
             "dark gray fingerless gloves",
-            "yellow trim accents",
-            "pink dress",
-            "dark gray gloves"
+            "yellow trim accents"
           ]
         }
       }
@@ -22885,9 +23245,75 @@
     "Weight_kg": { "hideText": "非公開希望" },
     "TailsUnit": "キツネ(枝分かれ)型7本(上2束6本+下1束1本)",
     "TailsUnit_EN": "Fox (branched) type: 7 tails (upper: 2 clusters x6, lower: 1 cluster x1)",
+    "NumberMarkLocation": [
+      {
+        "Formation": "corefolder",
+        "Marks": [
+          {
+            "MarkPosition": "球体の前面左胸の白色部分",
+            "MarkPosition_EN": "on the front left chest of the white area of the sphere",
+            "MarkColor": "紺色",
+            "MarkColor_EN": "dark blue",
+            "MarkNotation": "アラビア数字の「67」",
+            "MarkNotation_EN": "Arabic numeral '67'"
+          }
+        ]
+      },
+      {
+        "Formation": "humanoid",
+        "Marks": [
+          {
+            "MarkPosition": "トレーナーウェアの首元から左肩にかけて(色合いであまり目立たない)",
+            "MarkPosition_EN": "From the neckline to the left shoulder of the trainer wear (not very noticeable due to color)",
+            "MarkColor": "紺色",
+            "MarkColor_EN": "dark blue",
+            "MarkNotation": "アラビア数字の「67」",
+            "MarkNotation_EN": "Arabic numeral '67'"
+          }
+        ]
+      }
+    ],
     "IdentityMotif": [
-      { "Formation": "humanoid", "Motif": { "Motif_JP": [], "Motif_EN": [] } },
-      { "Formation": "corefolder", "Motif": { "Motif_JP": [], "Motif_EN": [] } }
+      {
+        "Formation": "corefolder",
+        "Motif": {
+          "Motif_JP": [
+            "コアフォルダ形態",
+            "狐の耳",
+            "紺色のミディアムショートヘア",
+            "水色の目"
+          ],
+          "Motif_EN": [
+            "corefolder form",
+            "fox ears",
+            "navy blue medium-short hair",
+            "light blue eyes"
+          ]
+        }
+      },
+      {
+        "Formation": "humanoid",
+        "Motif": {
+          "Motif_JP": [
+            "ヒューマノイド形態",
+            "狐の耳",
+            "紺色のミディアムショートヘア",
+            "水色の目",
+            "淡い赤紫のトレーナーウェア",
+            "薄紺色のトレーニングパンツ",
+            "シアンブルーのスニーカー"
+          ],
+          "Motif_EN": [
+            "humanoid form",
+            "fox ears",
+            "navy blue medium-short hair",
+            "light blue eyes",
+            "pale reddish-purple trainer wear",
+            "dark navy training pants",
+            "cyan blue sneakers"
+          ]
+        }
+      }
     ],
     "Summary": "体調管理や健康管理に優れており、フィットネスを何よりも好む事から体育系男子の印象を持たれている。\nただ当時でも強かだった印象に反し、本人は「もう少し鍛錬が裏切らない身体を手にしたい」と豪語していた。\nよってつい最近に人間の筋肉構造に限りなく近い躯体を手にしたのだが、そうするまでもなく彼自身の努力や鍛錬意欲は周囲から十分に称賛されているようだ。",
     "Summary_EN": "Excellent at health and physical condition management, his love of fitness above all else has earned him the impression of a gym-type guy.\nYet contrary to the tough impression he gave even back then, he himself boldly declared: \"I want a body where hard work never betrays me.\"\nSo just recently, he obtained a frame closely resembling actual human musculature — yet even before that, his dedication and enthusiasm for training had already earned him plenty of praise from those around him.",
@@ -22935,6 +23361,34 @@
     "Weight_kg": { "hideText": "非公開" },
     "TailsUnit": "キツネ(枝分かれ)型7本(上2束6本+下1束1本)",
     "TailsUnit_EN": "Fox (branched) type: 7 tails (upper: 2 clusters x6, lower: 1 cluster x1)",
+    "NumberMarkLocation": [
+      {
+        "Formation": "corefolder",
+        "Marks": [
+          {
+            "MarkPosition": "球体の前面左胸の白色部分",
+            "MarkPosition_EN": "on the front left chest of the white area of the sphere",
+            "MarkColor": "紺色",
+            "MarkColor_EN": "dark blue",
+            "MarkNotation": "アラビア数字の「67」",
+            "MarkNotation_EN": "Arabic numeral '67'"
+          }
+        ]
+      },
+      {
+        "Formation": "humanoid",
+        "Marks": [
+          {
+            "MarkPosition": "トレーナーウェアの首元から左肩にかけて(色合いであまり目立たない)",
+            "MarkPosition_EN": "From the neckline to the left shoulder of the trainer wear (not very noticeable due to color)",
+            "MarkColor": "紺色",
+            "MarkColor_EN": "dark blue",
+            "MarkNotation": "アラビア数字の「67」",
+            "MarkNotation_EN": "Arabic numeral '67'"
+          }
+        ]
+      }
+    ],
     "AnivDay": [
       {
         "Day": { "Month": 6, "DayOfMonth": 7 },
@@ -22962,8 +23416,50 @@
     "Unlike": "努力不足な人",
     "Unlike_EN": "People who lack effort",
     "IdentityMotif": [
-      { "Formation": "humanoid", "Motif": { "Motif_JP": [], "Motif_EN": [] } },
-      { "Formation": "corefolder", "Motif": { "Motif_JP": [], "Motif_EN": [] } }
+      {
+        "Formation": "corefolder",
+        "Motif": {
+          "Motif_JP": [
+            "コアフォルダ形態",
+            "狐の耳",
+            "紺色のミディアムショートヘア",
+            "水色の目"
+          ],
+          "Motif_EN": [
+            "corefolder form",
+            "fox ears",
+            "navy blue medium-short hair",
+            "light blue eyes"
+          ]
+        }
+      },
+      {
+        "Formation": "humanoid",
+        "Motif": {
+          "Motif_JP": [
+            "ヒューマノイド形態",
+            "狐の耳",
+            "紺色のミディアムショートヘア",
+            "水色の目",
+            "淡い赤紫のトレーナーウェア",
+            "薄紺色のトレーニングパンツ",
+            "シアンブルーのスニーカー",
+            "やや濃い肌色",
+            "筋肉質な肉体(筋装備時)"
+          ],
+          "Motif_EN": [
+            "humanoid form",
+            "fox ears",
+            "navy blue medium-short hair",
+            "light blue eyes",
+            "pale reddish-purple trainer wear",
+            "dark navy training pants",
+            "cyan blue sneakers",
+            "slightly darker skin tone",
+            "muscular physique (in Muscle Mode)"
+          ]
+        }
+      }
     ],
     "NumerospecAbout": "心身の健康を保証する",
     "NumerospecAbout_EN": "Guarantees mental and physical health",
@@ -23117,6 +23613,34 @@
     "BustSize": "AA",
     "TailsUnit": "キツネ(枝分かれ)型8本(上2束6本+下1束2本)",
     "TailsUnit_EN": "Fox (branched) type: 8 tails (upper: 2 clusters x6, lower: 1 cluster x2)",
+    "NumberMarkLocation": [
+      {
+        "Formation": "corefolder",
+        "Marks": [
+          {
+            "MarkPosition": "バンダナの向かって右側",
+            "MarkPosition_EN": "on the right side of the bandana",
+            "MarkColor": "暗色",
+            "MarkColor_EN": "dark",
+            "MarkNotation": "アラビア数字の「68」",
+            "MarkNotation_EN": "Arabic numeral '68'"
+          }
+        ]
+      },
+      {
+        "Formation": "humanoid",
+        "Marks": [
+          {
+            "MarkPosition": "バンダナの向かって右側(通常衣装)",
+            "MarkPosition_EN": "on the right side of the bandana (normal outfit)",
+            "MarkColor": "暗色",
+            "MarkColor_EN": "dark",
+            "MarkNotation": "アラビア数字の「68」",
+            "MarkNotation_EN": "Arabic numeral '68'"
+          }
+        ]
+      }
+    ],
     "Class": ["デュアルファイブズ"],
     "FirstPersonCalling": "自分\n僕",
     "FirstPersonCalling_EN": "I (jibun; formal/distanced)\nI (boku; masc. casual)",
@@ -23145,14 +23669,14 @@
             "狐の耳",
             "緑のショートヘア",
             "灰緑色の目",
-            "「68」マーク入り赤いキャップ"
+            "「68」マーク入り赤いバンダナ"
           ],
           "Motif_EN": [
             "corefolder form",
             "fox ears",
             "short green hair",
             "gray-green eyes",
-            "red cap with '68' marking"
+            "red bandana with '68' marking"
           ]
         }
       },
@@ -23164,14 +23688,20 @@
             "狐の耳",
             "緑のショートヘア",
             "灰緑色の目",
-            "「68」マーク入り赤いキャップ"
+            "番号入り赤いバンダナ",
+            "薄い茶色のエプロン(通常衣装)",
+            "深緑色のレギンス",
+            "薄い茶色の作業着(作業着時)"
           ],
           "Motif_EN": [
             "humanoid form",
             "fox ears",
             "short green hair",
             "gray-green eyes",
-            "red cap with '68' marking"
+            "red bandana with number markings",
+            "light brown apron (normal outfit)",
+            "dark green leggings",
+            "light brown workwear (work outfit)"
           ]
         }
       }
@@ -23411,6 +23941,42 @@
     "Weight_kg": { "hideText": "非公開" },
     "TailsUnit": "キツネ(枝分かれ)型9本(上2束6本+下1束3本)",
     "TailsUnit_EN": "Fox (branched) type: 9 tails (upper: 2 clusters x6, lower: 1 cluster x3)",
+    "NumberMarkLocation": [
+      {
+        "Formation": "corefolder",
+        "Marks": [
+          {
+            "MarkPosition": "左襟,布の端周辺にやや小さく",
+            "MarkPosition_EN": "On the left collar, slightly small near the edge of the fabric",
+            "MarkColor": "濃いマゼンタ",
+            "MarkColor_EN": "dark magenta",
+            "MarkNotation": "アラビア数字の「69」(少しスライタスドされた文字デザイン)",
+            "MarkNotation_EN": "Arabic numeral '69' (slightly stylized design)"
+          }
+        ]
+      },
+      {
+        "Formation": "humanoid",
+        "Marks": [
+          {
+            "MarkPosition": "左襟,布の端周辺にやや小さく",
+            "MarkPosition_EN": "On the left collar, slightly small near the edge of the fabric",
+            "MarkColor": "濃いマゼンタ",
+            "MarkColor_EN": "dark magenta",
+            "MarkNotation": "アラビア数字の「69」(少しスタイライズされた文字デザイン)",
+            "MarkNotation_EN": "Arabic numeral '69' (slightly stylized design)"
+          },
+          {
+            "MarkPosition": "仮面の眉間中央にやや小さく",
+            "MarkPosition_EN": "On the center of the forehead of the mask, slightly small",
+            "MarkColor": "暗色",
+            "MarkColor_EN": "dark color",
+            "MarkNotation": "アラビア数字の「69」(少しスタイライズされた文字デザイン)",
+            "MarkNotation_EN": "Arabic numeral '69' (slightly stylized design)"
+          }
+        ]
+      }
+    ],
     "Class": ["デュアルシックスズ"],
     "ThisMasters": [
       {
@@ -23460,21 +24026,17 @@
         "Motif": {
           "Motif_JP": [
             "コアフォルダ形態",
-            "狐の耳",
+            "狐の耳(イヤリング付き)",
             "ピンクのショートヘア",
             "赤い目",
-            "ピンクの狐尾マント",
-            "小さな赤いリボンアクセント",
-            "「69」マーキング"
+            "薄いピンクのマントのよう襟"
           ],
           "Motif_EN": [
             "corefolder form",
-            "fox ears",
+            "fox ears (with earrings)",
             "short pink hair",
             "red eyes",
-            "pink fox-tail mantle",
-            "small red ribbon accent",
-            "'69' marking"
+            "light pink cape-like collar"
           ]
         }
       },
@@ -23483,25 +24045,25 @@
         "Motif": {
           "Motif_JP": [
             "ヒューマノイド形態",
-            "狐の耳",
+            "狐の耳(イヤリング付き)",
             "ピンクのショートヘア",
             "赤い目",
-            "「69」肩マーク入り濃いバーガンディのダブルブレストベストドレス",
+            "番号入り濃いバーガンディのダブルブレストベストドレス",
             "下に着る白い長袖襟付きシャツ",
-            "赤い蝶ネクタイ",
-            "黄色いボタン",
-            "ピンクの靴"
+            "白いボタン",
+            "ピンクの靴",
+            "番号付きの仮面(時々装着する)"
           ],
           "Motif_EN": [
             "humanoid form",
-            "fox ears",
+            "fox ears (with earrings)",
             "short pink hair",
             "red eyes",
-            "dark burgundy double-breasted vest dress with '69' shoulder marking",
-            "white long-sleeve collared shirt underneath",
-            "red bow tie",
-            "yellow buttons",
-            "pink shoes"
+            "burgundy double-breasted vest dress with number markings",
+            "white long-sleeved collared shirt underneath",
+            "white buttons",
+            "pink shoes",
+            "mask with number markings (sometimes worn)"
           ]
         }
       }
@@ -23751,6 +24313,34 @@
     "Weight_kg": 43,
     "TailsUnit": "キツネ型7本",
     "TailsUnit_EN": "Seven fox-type tails",
+    "NumberMarkLocation": [
+      {
+        "Formation": "corefolder",
+        "Marks": [
+          {
+            "MarkPosition": "球体の側面左肩の濃紺部分に大きく",
+            "MarkPosition_EN": "on the side left shoulder of the dark blue area of the sphere",
+            "MarkColor": "暗色",
+            "MarkColor_EN": "dark color",
+            "MarkNotation": "アラビア数字の「70」",
+            "MarkNotation_EN": "Arabic numeral '70'"
+          }
+        ]
+      },
+      {
+        "Formation": "humanoid",
+        "Marks": [
+          {
+            "MarkPosition": "衣装左裾の濃紺部分に大きく",
+            "MarkPosition_EN": "on the left hem of the dark blue area of the costume",
+            "MarkColor": "暗色",
+            "MarkColor_EN": "dark color",
+            "MarkNotation": "アラビア数字の「70」",
+            "MarkNotation_EN": "Arabic numeral '70'"
+          }
+        ]
+      }
+    ],
     "Class": ["10倍番(テンズデジッツ)"],
     "FirstPersonCalling": "俺",
     "FirstPersonCalling_EN": "I (ore; masc. rough)",
@@ -23771,8 +24361,43 @@
     "Unlike": "演出の激しいパーティルーム",
     "Unlike_EN": "Party rooms with over-the-top effects",
     "IdentityMotif": [
-      { "Formation": "humanoid", "Motif": { "Motif_JP": [], "Motif_EN": [] } },
-      { "Formation": "corefolder", "Motif": { "Motif_JP": [], "Motif_EN": [] } }
+      {
+        "Formation": "corefolder",
+        "Motif": {
+          "Motif_JP": ["コアフォルダ形態", "狐の耳", "紫の髪", "濃紺の目"],
+          "Motif_EN": [
+            "corefolder form",
+            "fox ears",
+            "purple hair",
+            "dark blue eyes"
+          ]
+        }
+      },
+      {
+        "Formation": "humanoid",
+        "Motif": {
+          "Motif_JP": [
+            "ヒューマノイド形態",
+            "狐の耳",
+            "紫の髪",
+            "濃紺の目",
+            "番号付きの袴のような司祭服",
+            "淡い青色のレギンス",
+            "両手の白い数珠",
+            "白いラインと紫のアクセント入りで淡い青色のアームウェア"
+          ],
+          "Motif_EN": [
+            "humanoid form",
+            "fox ears",
+            "purple hair",
+            "dark blue eyes",
+            "priestly outfit resembling a hakama with number markings",
+            "light blue leggings",
+            "white prayer beads on both hands",
+            "light blue armwear with white lines and purple accents"
+          ]
+        }
+      }
     ],
     "RelationNotes": "「25(フィズ)」の占い結果に興味がある",
     "RelationNotes_EN": "Has an interest in the divination results given to '25(Quartels)'",
@@ -23905,6 +24530,34 @@
     ],
     "TailsUnit": "キツネ(枝分かれ)型7本(上1束6本+下2束1本)",
     "TailsUnit_EN": "Fox (branching-type) × 7 tails (upper bundle: 6 + lower bundle: 1)",
+    "NumberMarkLocation": [
+      {
+        "Formation": "corefolder",
+        "Marks": [
+          {
+            "MarkPosition": "かんざしの形状",
+            "MarkPosition_EN": "the shape of the hair pin",
+            "MarkColor": "白",
+            "MarkColor_EN": "white",
+            "MarkNotation": "アラビア数字の「71」(四角めのモチーフデザイン)",
+            "MarkNotation_EN": "Arabic numeral '71' (square motif design)"
+          }
+        ]
+      },
+      {
+        "Formation": "humanoid",
+        "Marks": [
+          {
+            "MarkPosition": "かんざしの形状",
+            "MarkPosition_EN": "the shape of the hair pin",
+            "MarkColor": "白",
+            "MarkColor_EN": "white",
+            "MarkNotation": "アラビア数字の「71」(四角めのモチーフデザイン)",
+            "MarkNotation_EN": "Arabic numeral '71' (square motif design)"
+          }
+        ]
+      }
+    ],
     "Class": ["デュアルエイツ"],
     "FirstPersonCalling": "ぼく",
     "FirstPersonCalling_EN": "I",
@@ -23931,16 +24584,16 @@
           "Motif_JP": [
             "コアフォルダ形態",
             "狐の耳",
-            "白いリボン付き青い長いツインテール",
+            "番号モチーフのかんざし付きの青いポニーテール",
             "灰青色の目",
-            "数字「71」をモチーフにした形のかんざし"
+            "丸く剃られた灰青色の眉"
           ],
           "Motif_EN": [
             "corefolder form",
             "fox ears",
-            "long blue twin-tails with white ribbon",
+            "blue ponytail with number motif hairpin",
             "gray-blue eyes",
-            "hairpin shaped like the number '71'"
+            "roundly shaved gray-blue eyebrows"
           ]
         }
       },
@@ -23950,24 +24603,24 @@
           "Motif_JP": [
             "ヒューマノイド形態",
             "狐の耳",
-            "白いリボン付き青い長いツインテール",
+            "番号モチーフのかんざし付きの青いポニーテール",
             "灰青色の目",
-            "襟付き灰紫色のポロシャツ",
+            "丸く剃られた灰青色の眉",
+            "白い襟付き灰紫色のポロシャツ",
             "白い裾付き赤いショートパンツ",
             "青い膝上ソックス",
-            "青い靴",
-            "数字「71」をモチーフにした形のかんざし"
+            "青い靴"
           ],
           "Motif_EN": [
             "humanoid form",
             "fox ears",
-            "long blue twin-tails with white ribbon",
+            "blue ponytail with number motif hairpin",
             "gray-blue eyes",
-            "gray-purple polo shirt with collar",
+            "roundly shaved gray-blue eyebrows",
+            "gray-purple polo shirt with white collar",
             "red shorts with white hem",
             "blue knee-high socks",
-            "blue shoes",
-            "hairpin shaped like the number '71'"
+            "blue shoes"
           ]
         }
       }
@@ -24207,6 +24860,34 @@
     "BustSize": "B",
     "TailsUnit": "キツネ(枝分かれ)型7本(上1束5本+下2束2本)",
     "TailsUnit_EN": "Fox (branching-type) × 7 tails (upper bundle: 5 + lower bundle: 2)",
+    "NumberMarkLocation": [
+      {
+        "Formation": "corefolder",
+        "Marks": [
+          {
+            "MarkPosition": "球体の前面右胸から首元にかけての白色部分にバーコードとして",
+            "MarkPosition_EN": "on the front right chest to the neck of the white area of the sphere, as a barcode",
+            "MarkColor": "薄紫",
+            "MarkColor_EN": "light purple",
+            "MarkNotation": "NW-7バーコードで「A-72---A」と印字(下に小さく対応文字列)",
+            "MarkNotation_EN": "NW-7 barcode printed with 'A-72---A' (with a small corresponding string below)"
+          }
+        ]
+      },
+      {
+        "Formation": "humanoid",
+        "Marks": [
+          {
+            "MarkPosition": "首の向かって左側面にバーコードとして",
+            "MarkPosition_EN": "on the left side of the neck, as a barcode",
+            "MarkColor": "薄紫",
+            "MarkColor_EN": "light purple",
+            "MarkNotation": "NW-7バーコードで「A-72---A」と印字(下に小さく対応文字列)",
+            "MarkNotation_EN": "NW-7 barcode printed with 'A-72---A' (with a small corresponding string below)"
+          }
+        ]
+      }
+    ],
     "Class": ["9倍2桁番(ナインズデュアルズ)"],
     "ThisMasters": ["綾沢 改奈/文月（夜月機関 第7幹部）"],
     "ThisMasters_EN": ["綾沢 改奈/文月（夜月機関 第7幹部）"],
@@ -24234,17 +24915,17 @@
         "Motif": {
           "Motif_JP": [
             "コアフォルダ形態",
-            "狐の耳",
+            "狐の耳(ダイヤマークの薄いアクセント付き)",
             "淡い青の非常に長い髪",
-            "ラベンダーの目",
+            "ラベンダーのまつげでラベンダーの目",
             "「研修」名札",
-            "バーコードの番号付きタグ"
+            "バーコードの番号タグ"
           ],
           "Motif_EN": [
             "corefolder form",
-            "fox ears",
+            "fox ears (with a faint diamond-shaped accent)",
             "very long pale blue hair",
-            "lavender eyes",
+            "lavender eyelashes with lavender eyes",
             "'研修' (trainee) name tag",
             "barcode-style numbered tag"
           ]
@@ -24255,20 +24936,20 @@
         "Motif": {
           "Motif_JP": [
             "ヒューマノイド形態",
-            "狐の耳",
+            "狐の耳(ダイヤマークの薄いアクセント付き)",
             "淡い青の非常に長い髪",
-            "ラベンダーの目",
+            "ラベンダーのまつげでラベンダーの目",
             "ラベンダー色のキャミソールエプロンスタイルトップス",
             "淡い青の長いスカート",
             "濃い紫のレースアップブーツ",
             "「研修」名札",
-            "バーコードの番号付きタグ"
+            "バーコードの番号タグ"
           ],
           "Motif_EN": [
             "humanoid form",
-            "fox ears",
+            "fox ears (with a faint diamond-shaped accent)",
             "very long pale blue hair",
-            "lavender eyes",
+            "lavender eyelashes with lavender eyes",
             "lavender camisole apron-style top",
             "pale blue long skirt",
             "dark purple lace-up boots",
@@ -24593,7 +25274,7 @@
             "コアフォルダ形態",
             "狐の耳",
             "帽子付きピンクのショートヘア",
-            "金色の目",
+            "赤いまつげで金色の目",
             "青いネクタイ",
             "「73」モチーフのパッチ付きの青いベレー帽"
           ],
@@ -24601,7 +25282,7 @@
             "corefolder form",
             "fox ears",
             "short pink hair with cap",
-            "golden eyes",
+            "red eyelashes with golden eyes",
             "blue necktie",
             "blue beret with '73' motif patch"
           ]
@@ -24614,7 +25295,7 @@
             "ヒューマノイド形態",
             "狐の耳",
             "帽子付きピンクのショートヘア",
-            "金色の目",
+            "赤いまつげで金色の目",
             "黄色い帯付き青赤メッセンジャースタイルドレス",
             "青いネクタイ",
             "白いインナーブラウス",
@@ -24627,7 +25308,7 @@
             "humanoid form",
             "fox ears",
             "short pink hair with cap",
-            "golden eyes",
+            "red eyelashes with golden eyes",
             "yellow belt with blue and red messenger-style dress",
             "blue necktie",
             "white inner blouse",
@@ -25247,6 +25928,34 @@
     "BustSize": "AA",
     "TailsUnit": "キツネ(枝分かれ)型7本(上1束2本+下2束5本)",
     "TailsUnit_EN": "Fox (branching-type) × 7 tails (upper bundle: 2 + lower bundle: 5)",
+    "NumberMarkLocation": [
+      {
+        "Formation": "corefolder",
+        "Marks": [
+          {
+            "MarkPosition": "球体の側面左肩に付けられた腕章",
+            "MarkPosition_EN": "On the armband attached to the left shoulder of the sphere",
+            "MarkColor": "紺色",
+            "MarkColor_EN": "navy blue",
+            "MarkNotation": "アラビア数字の「75」",
+            "MarkNotation_EN": "Arabic numeral '75'"
+          }
+        ]
+      },
+      {
+        "Formation": "humanoid",
+        "Marks": [
+          {
+            "MarkPosition": "左肩から二の腕にかけて付けられた腕章",
+            "MarkPosition_EN": "On the armband attached to the left shoulder and upper arm",
+            "MarkColor": "紺色",
+            "MarkColor_EN": "navy blue",
+            "MarkNotation": "アラビア数字の「75」",
+            "MarkNotation_EN": "Arabic numeral '75'"
+          }
+        ]
+      }
+    ],
     "Class": ["デュアルスリーズ"],
     "FirstPersonCalling": "私(わたし)",
     "FirstPersonCalling_EN": "I",
@@ -25275,14 +25984,14 @@
             "狐の耳",
             "黄色いサイドテールの髪",
             "黄色い目",
-            "「75」のアームバンド"
+            "左肩の番号付きの腕章"
           ],
           "Motif_EN": [
             "corefolder form",
             "fox ears",
             "yellow side-tail hair",
             "yellow eyes",
-            "'75' armband"
+            "left shoulder armband"
           ]
         }
       },
@@ -25299,7 +26008,7 @@
             "青い長いスカート",
             "白いリストバンド",
             "黄色い靴",
-            "「75」のアームバンド"
+            "左肩の番号付きの腕章"
           ],
           "Motif_EN": [
             "humanoid form",
@@ -25311,7 +26020,7 @@
             "blue long skirt",
             "white wristbands",
             "yellow shoes",
-            "'75' armband"
+            "left shoulder armband"
           ]
         }
       }
@@ -25564,6 +26273,50 @@
     "BustSize": "G",
     "TailsUnit": "キツネ(枝分かれ)型7本(上1束1本+下2束6本)",
     "TailsUnit_EN": "Fox (branched) type: 7 tails (upper: 1 cluster x1, lower: 2 clusters x6)",
+    "NumberMarkLocation": [
+      {
+        "Formation": "corefolder",
+        "Marks": [
+          {
+            "MarkPosition": "球体の前面左胸の白色部分,襟の真下",
+            "MarkPosition_EN": "on the white area of the left chest on the sphere, just below the collar",
+            "MarkColor": "青",
+            "MarkColor_EN": "blue",
+            "MarkNotation": "アラビア数字の「76」",
+            "MarkNotation_EN": "Arabic numeral '76'"
+          },
+          {
+            "MarkPosition": "ヘッドセットのイヤーカフ部分にやや大きく",
+            "MarkPosition_EN": "On the ear cuff part of the headset, somewhat large",
+            "MarkColor": "薄紫",
+            "MarkColor_EN": "light purple",
+            "MarkNotation": "アラビア数字の「76」（スタイライズされたモチーフ）",
+            "MarkNotation_EN": "Arabic numeral '76' (stylized motif)"
+          }
+        ]
+      },
+      {
+        "Formation": "humanoid",
+        "Marks": [
+          {
+            "MarkPosition": "衣装左胸の水色部分,襟の真下(色合いであまり目立たない)",
+            "MarkPosition_EN": "on the light blue area of the left chest on the costume, just below the collar (not very noticeable due to the color)",
+            "MarkColor": "薄紫",
+            "MarkColor_EN": "light purple",
+            "MarkNotation": "アラビア数字の「76」",
+            "MarkNotation_EN": "Arabic numeral '76'"
+          },
+          {
+            "MarkPosition": "ヘッドセットのイヤーカフ部分にやや大きく",
+            "MarkPosition_EN": "On the ear cuff part of the headset, somewhat large",
+            "MarkColor": "薄紫",
+            "MarkColor_EN": "light purple",
+            "MarkNotation": "アラビア数字の「76」（スタイライズされたモチーフ）",
+            "MarkNotation_EN": "Arabic numeral '76' (stylized motif)"
+          }
+        ]
+      }
+    ],
     "Class": ["デュアルフォーズ"],
     "FirstPersonCalling": "わたし",
     "FirstPersonCalling_EN": "I",
@@ -25590,18 +26343,18 @@
           "Motif_JP": [
             "コアフォルダ形態",
             "狐の耳",
-            "ヘッドフォン付き濃い青の長い髪",
-            "眼鏡をかけた暗色の目",
-            "ピンクのネクタイ",
-            "丸い眼鏡付きのピンクのヘッドフォン"
+            "紺色のミディアムロングヘア",
+            "ピンクのネクタイスカーフ",
+            "丸く濃い眼鏡付きのピンクのヘッドフォン",
+            "ピンク色の目(眼鏡付きヘッドセットをしている時は見えづらい)"
           ],
           "Motif_EN": [
             "corefolder form",
             "fox ears",
-            "long dark-blue hair with headphones",
-            "dark eyes with glasses",
-            "pink necktie",
-            "pink headphones with round glasses"
+            "navy blue medium-length hair",
+            "pink necktie scarf",
+            "pink headphones with round dark glasses",
+            "pink eyes (hard to see when wearing the bespectacled headset)"
           ]
         }
       },
@@ -25611,26 +26364,28 @@
           "Motif_JP": [
             "ヒューマノイド形態",
             "狐の耳",
-            "ヘッドフォン付き濃い青の長い髪",
-            "眼鏡をかけた暗色の目",
+            "紺色のミディアムロングヘア",
+            "ピンクのネクタイスカーフ",
+            "丸く濃い眼鏡付きのピンクのヘッドフォン",
+            "ピンク色の目(眼鏡付きヘッドセットをしている時は見えづらい)",
             "ティールブルーのセーラースタイルトップス",
-            "ピンクのネクタイ",
+            "ピンクのネクタイスカーフ",
             "ピンクの長いスカート",
             "白い膝上ソックス",
-            "青い靴",
-            "丸い眼鏡付きのピンクのヘッドフォン"
+            "青い靴"
           ],
           "Motif_EN": [
             "humanoid form",
             "fox ears",
-            "long dark-blue hair with headphones",
-            "dark eyes with glasses",
+            "dark blue medium-long hair",
+            "pink necktie scarf",
+            "pink headphones with round dark glasses",
+            "pink eyes (hard to see when wearing the bespectacled headset)",
             "teal blue sailor-style top",
-            "pink necktie",
+            "pink necktie scarf",
             "pink long skirt",
             "white knee-high socks",
-            "blue shoes",
-            "pink headphones with round glasses"
+            "blue shoes"
           ]
         }
       }
@@ -25874,6 +26629,34 @@
     "BustSize": "A",
     "TailsUnit": "キツネ(枝分かれ)型2束x7本",
     "TailsUnit_EN": "Fox (branched) type: 2 clusters x7 tails",
+    "NumberMarkLocation": [
+      {
+        "Formation": "corefolder",
+        "Marks": [
+          {
+            "MarkPosition": "球体の前面左胸の白色部分でやや大きめ",
+            "MarkPosition_EN": "On the white area of the left chest on the sphere, somewhat large",
+            "MarkColor": "暗色",
+            "MarkColor_EN": "dark",
+            "MarkNotation": "アラビア数字の「77」",
+            "MarkNotation_EN": "Arabic numeral '77'"
+          }
+        ]
+      },
+      {
+        "Formation": "humanoid",
+        "Marks": [
+          {
+            "MarkPosition": "袴風ローブの左胸周辺の紺色部分",
+            "MarkPosition_EN": "On the navy blue area around the left chest of the hakama-style robe",
+            "MarkColor": "白",
+            "MarkColor_EN": "white",
+            "MarkNotation": "アラビア数字の「77」",
+            "MarkNotation_EN": "Arabic numeral '77'"
+          }
+        ]
+      }
+    ],
     "Class": ["マスターテールズ9"],
     "FirstPersonCalling": "僕",
     "FirstPersonCalling_EN": "I (masc. casual)",
@@ -25899,17 +26682,15 @@
         "Motif": {
           "Motif_JP": [
             "コアフォルダ形態",
-            "狐の耳",
+            "狐の耳(先がアクセントカラー)",
             "クリスタルマーク付きティールブルーのショートヘア",
-            "灰青色の目",
-            "「77」の胸紋章"
+            "灰青色の目"
           ],
           "Motif_EN": [
             "corefolder form",
-            "fox ears",
+            "fox ears (with accent color tips)",
             "short teal-blue hair with crystal mark",
-            "gray-blue eyes",
-            "'77' chest emblem"
+            "gray-blue eyes"
           ]
         }
       },
@@ -25918,25 +26699,23 @@
         "Motif": {
           "Motif_JP": [
             "ヒューマノイド形態",
-            "狐の耳",
+            "狐の耳(先がアクセントカラー)",
             "クリスタルマーク付きティールブルーのショートヘア",
             "灰青色の目",
-            "白い帯付き濃いティールの袴風ローブ",
+            "白い帯付き濃い紺色の袴風ローブ",
             "緑のクリスタルの額マーキング",
             "濃い色のストッキング",
-            "青いプラットフォームサンダル",
-            "「77」の胸紋章"
+            "青いプラットフォームサンダル"
           ],
           "Motif_EN": [
             "humanoid form",
-            "fox ears",
+            "fox ears (with accent color tips)",
             "short teal-blue hair with crystal mark",
             "gray-blue eyes",
-            "dark teal hakama-style robe with white sash",
+            "dark navy blue hakama-style robe with white sash",
             "green crystal forehead marking",
             "dark stockings",
-            "blue-platform sandals",
-            "'77' chest emblem"
+            "blue-platform sandals"
           ]
         }
       }
@@ -26186,6 +26965,34 @@
     "BustSize": "E",
     "TailsUnit": "キツネ(枝分かれ)型8本(上2束1本+下1束7本)",
     "TailsUnit_EN": "Fox (branched) type: 8 tails (upper: 2 clusters x1, lower: 1 cluster x7)",
+    "NumberMarkLocation": [
+      {
+        "Formation": "corefolder",
+        "Marks": [
+          {
+            "MarkPosition": "耳のハート模様とペンダントがアラビア数字をモチーフにしている",
+            "MarkPosition_EN": "The heart pattern on the ears is inspired by Arabic numerals",
+            "MarkColor": null,
+            "MarkColor_EN": null,
+            "MarkNotation": "アラビア数字の「78」をモチーフにしたハート模様",
+            "MarkNotation_EN": "A heart pattern based on the Arabic numeral '78'"
+          }
+        ]
+      },
+      {
+        "Formation": "humanoid",
+        "Marks": [
+          {
+            "MarkPosition": "耳のハート模様とペンダントがアラビア数字をモチーフにしている",
+            "MarkPosition_EN": "The heart pattern on the ears is inspired by Arabic numerals",
+            "MarkColor": null,
+            "MarkColor_EN": null,
+            "MarkNotation": "アラビア数字の「78」をモチーフにしたハート模様",
+            "MarkNotation_EN": "A heart pattern based on the Arabic numeral '78'"
+          }
+        ]
+      }
+    ],
     "Class": ["デュアルシックスズ"],
     "ThisMasters": [
       {
@@ -26231,19 +27038,19 @@
         "Motif": {
           "Motif_JP": [
             "コアフォルダ形態",
-            "狐の耳",
+            "狐の耳(耳マーキングと先で多色になっている)",
+            "ダイヤとハート柄の耳マーキング",
             "ピンクの非常に長い髪",
             "ラベンダーの目",
-            "ハートペンダント付き青いビーズネックレス",
-            "ダイヤ柄の耳マーキング"
+            "ハートペンダント付き青いビーズネックレス"
           ],
           "Motif_EN": [
             "corefolder form",
-            "fox ears",
+            "fox ears (ear markings and multicolored tips)",
+            "diamond and heart-patterned ear markings",
             "very long pink hair",
             "lavender eyes",
-            "blue beaded necklace with heart pendant",
-            "diamond-pattern ear markings"
+            "blue beaded necklace with heart pendant"
           ]
         }
       },
@@ -26252,27 +27059,27 @@
         "Motif": {
           "Motif_JP": [
             "ヒューマノイド形態",
-            "狐の耳",
+            "狐の耳(耳マーキングと先で多色になっている)",
+            "ダイヤとハート柄の耳マーキング",
             "ピンクの非常に長い髪",
             "ラベンダーの目",
             "オレンジトリム付き紫の半袖トップス",
             "オレンジ色のスカート",
             "ハートペンダント付き青いビーズネックレス",
             "青い手袋",
-            "紫の靴",
-            "ダイヤ柄の耳マーキング"
+            "紫の靴"
           ],
           "Motif_EN": [
             "humanoid form",
-            "fox ears",
+            "fox ears (ear markings and multicolored tips)",
+            "diamond and heart-patterned ear markings",
             "very long pink hair",
             "lavender eyes",
             "purple short-sleeve top with orange trim",
             "orange skirt",
             "blue beaded necklace with heart pendant",
             "blue gloves",
-            "purple shoes",
-            "diamond-pattern ear markings"
+            "purple shoes"
           ]
         }
       }
@@ -26630,6 +27437,34 @@
     "BustSize": "D",
     "TailsUnit": "キツネ(枝分かれ)型8本(上1束7本+下2束1本)",
     "TailsUnit_EN": "Fox (branched) type: 8 tails (upper: 1 cluster x7, lower: 2 clusters x1)",
+    "NumberMarkLocation": [
+      {
+        "Formation": "corefolder",
+        "Marks": [
+          {
+            "MarkPosition": "球体の前面左胸の白色部分",
+            "MarkPosition_EN": "the white area on the front left chest of the sphere",
+            "MarkColor": "暗色(背景に赤とオレンジのストライプ模様)",
+            "MarkColor_EN": "dark (with red and orange stripe pattern in the background)",
+            "MarkNotation": "括弧つきのアラビア数字：「<81>」",
+            "MarkNotation_EN": "Arabic numeral with brackets: '<81>'"
+          }
+        ]
+      },
+      {
+        "Formation": "humanoid",
+        "Marks": [
+          {
+            "MarkPosition": "トップスの左胸",
+            "MarkPosition_EN": "left chest of the top",
+            "MarkColor": "暗色(背景に赤とオレンジのストライプ模様)",
+            "MarkColor_EN": "dark (with red and orange stripe pattern in the background)",
+            "MarkNotation": "括弧つきのアラビア数字：「<81>」",
+            "MarkNotation_EN": "Arabic numeral with brackets: '<81>'"
+          }
+        ]
+      }
+    ],
     "Class": ["9倍2桁番(ナインズデュアルズ)"],
     "FirstPersonCalling": "私(わたし)",
     "FirstPersonCalling_EN": "I",
@@ -26656,18 +27491,16 @@
           "Motif_JP": [
             "コアフォルダ形態",
             "狐の耳",
-            "茶色のサイドテールのショートヘア",
+            "オレンジのヘアバンド付き茶色のショートヘア",
             "オレンジ赤の目",
-            "「<81>」マーク入りピンクのノースリーブベスト",
-            "小さな耳飾り"
+            "頬に横線模様"
           ],
           "Motif_EN": [
             "corefolder form",
             "fox ears",
-            "short brown side-tail hair",
+            "short brown side-tail hair with orange hairband",
             "orange-red eyes",
-            "pink sleeveless vest with '<81>' marking",
-            "small ear ornament"
+            "horizontal line pattern on the cheeks"
           ]
         }
       },
@@ -26677,24 +27510,24 @@
           "Motif_JP": [
             "ヒューマノイド形態",
             "狐の耳",
-            "茶色のサイドテールのショートヘア",
+            "オレンジのヘアバンド付き茶色のサイドテールのショートヘア",
             "オレンジ赤の目",
-            "「<81>」マーク入りピンクのノースリーブベスト",
+            "頬に横線模様",
+            "番号マーク入りピンクのノースリーブベスト",
             "オレンジのクロスレース前立て付きピンクの半袖インナートップス",
             "赤橙色の長いパンツ",
-            "ピンクの靴",
-            "小さな耳飾り"
+            "ピンクの靴"
           ],
           "Motif_EN": [
             "humanoid form",
             "fox ears",
-            "short brown side-tail hair",
+            "short brown side-tail hair with orange hairband",
             "orange-red eyes",
-            "pink sleeveless vest with '<81>' marking",
+            "horizontal line pattern on the cheeks",
+            "pink sleeveless vest with number marking",
             "pink short-sleeve inner top with orange cross-laced front",
             "red-orange long pants",
-            "pink shoes",
-            "small ear ornament"
+            "pink shoes"
           ]
         }
       }
@@ -27015,6 +27848,34 @@
     },
     "TailsUnit": "キツネ(枝分かれ)型8本(上1束4本+下2束4本)",
     "TailsUnit_EN": "Fox (branched) type: 8 tails (upper: 1 cluster x4, lower: 2 clusters x4)",
+    "NumberMarkLocation": [
+      {
+        "Formation": "corefolder",
+        "Marks": [
+          {
+            "MarkPosition": "球体の左胸の灰緑色体毛部分,ネッカチーフの斜め下(色合いで少し目立たない)",
+            "MarkPosition_EN": "the gray-green fur area on the left chest of the sphere, diagonally below the neckerchief (slightly inconspicuous due to color)",
+            "MarkColor": "濃い黄色",
+            "MarkColor_EN": "dark yellow",
+            "MarkNotation": "アラビア数字の「84」",
+            "MarkNotation_EN": "Arabic numeral '84'"
+          }
+        ]
+      },
+      {
+        "Formation": "humanoid",
+        "Marks": [
+          {
+            "MarkPosition": "アウターウェアの左胸あたりの橙色部分,襟の下(色合いであまり目立たない)",
+            "MarkPosition_EN": "the orange area around the left chest of the outerwear, below the collar (not very conspicuous due to color)",
+            "MarkColor": "濃い黄色",
+            "MarkColor_EN": "dark yellow",
+            "MarkNotation": "アラビア数字の「84」",
+            "MarkNotation_EN": "Arabic numeral '84'"
+          }
+        ]
+      }
+    ],
     "Class": ["デュアルスリーズ"],
     "FirstPersonCalling": "あたし\nわたし ※時々",
     "FirstPersonCalling_EN": "I (atashi; fem. casual)\nI (watashi; neutral, occasional)",
@@ -27040,17 +27901,17 @@
         "Motif": {
           "Motif_JP": [
             "コアフォルダ形態",
-            "狐の耳",
-            "サイドアクセサリー付き灰緑色のショートヘア",
+            "狐の耳(左耳にアクセサリー付き)",
+            "灰緑色のショートヘア",
             "オレンジ色の目",
-            "オレンジ色のスカーフ/ネッカチーフ"
+            "オレンジ色のネッカチーフ"
           ],
           "Motif_EN": [
             "corefolder form",
-            "fox ears",
-            "short gray-green hair with side ornament",
+            "fox ears (with accessory on left ear)",
+            "short gray-green hair",
             "orange eyes",
-            "orange scarf/neckerchief"
+            "orange neckerchief"
           ]
         }
       },
@@ -27059,27 +27920,27 @@
         "Motif": {
           "Motif_JP": [
             "ヒューマノイド形態",
-            "狐の耳",
-            "サイドアクセサリー付き灰緑色のショートヘア",
+            "狐の耳(左耳にアクセサリー付き)",
+            "灰緑色のショートヘア",
             "オレンジ色の目",
+            "オレンジ色のネッカチーフ",
             "茶色のベルト付きオレンジ色の短いジャケット",
-            "ティールグレーのインナーブラウス",
+            "4つのボタンが付いたティールグレーのインナーブラウス",
             "ベルト付き黄色いショートパンツ",
             "ティールグレーのストッキング",
-            "灰緑色のレースアップブーツ",
-            "オレンジ色のスカーフ/ネッカチーフ"
+            "灰緑色のレースアップブーツ"
           ],
           "Motif_EN": [
             "humanoid form",
-            "fox ears",
-            "short gray-green hair with side ornament",
+            "fox ears (with accessory on left ear)",
+            "short gray-green hair",
             "orange eyes",
+            "orange neckerchief",
             "orange short jacket with brown belt",
-            "teal-gray inner blouse",
+            "teal-gray inner blouse with four buttons",
             "yellow shorts with belt",
             "teal-gray stockings",
-            "gray-green lace-up boots",
-            "orange scarf/neckerchief"
+            "gray-green lace-up boots"
           ]
         }
       }
@@ -27337,6 +28198,22 @@
     "BustSize": "A",
     "TailsUnit": "キツネ(枝分かれ)型8本(上1束3本+下2束5本)",
     "TailsUnit_EN": "Fox (branched) type: 8 tails (upper: 1 cluster x3, lower: 2 clusters x5)",
+    "NumberMarkLocation": [
+      { "Formation": "corefolder", "Marks": null },
+      {
+        "Formation": "humanoid",
+        "Marks": [
+          {
+            "MarkPosition": "オフショルダーをちゃんと切ると左肩シアンブルー部分にある(基本見えない)",
+            "MarkPosition_EN": "On the left shoulder cyan-blue part, visible only when the off-shoulder is properly cut",
+            "MarkColor": "暗色",
+            "MarkColor_EN": "dark color",
+            "MarkNotation": "アラビア数字の「85」",
+            "MarkNotation_EN": "Arabic numeral '85'"
+          }
+        ]
+      }
+    ],
     "Class": ["デュアルフォーズ"],
     "ThisMasters": [
       "リーチェ.エリザベス/レイチェル(78特殊探偵団 金の硬貨支部 副支部長)"
@@ -27394,7 +28271,7 @@
             "白い膝上ソックス",
             "茶色のアンクルブーツ",
             "シアンの涙滴型ペンダントネックレス",
-            "オフショルダーネックライン"
+            "シアンブルーのオフショルダーのネックライン"
           ],
           "Motif_EN": [
             "humanoid form",
@@ -27405,7 +28282,7 @@
             "white knee-high socks",
             "brown ankle boots",
             "cyan teardrop pendant necklace",
-            "off-shoulder neckline"
+            "cyan blue off-shoulder neckline"
           ]
         }
       }
@@ -27694,6 +28571,34 @@
     "Class": ["デュアルファイブズ"],
     "TailsUnit": "キツネ(枝分かれ)型8本(上1束2本+下2束6本)",
     "TailsUnit_EN": "Fox (branched) type: 8 tails (upper: 1 cluster x2, lower: 2 clusters x6)",
+    "NumberMarkLocation": [
+      {
+        "Formation": "corefolder",
+        "Marks": [
+          {
+            "MarkPosition": "右耳に装着したバンダナの頭頂部周辺",
+            "MarkPosition_EN": "on the top area of the bandana worn on the right ear",
+            "MarkColor": "暗色",
+            "MarkColor_EN": "dark",
+            "MarkNotation": "アラビア数字の「86」",
+            "MarkNotation_EN": "Arabic numeral '86'"
+          }
+        ]
+      },
+      {
+        "Formation": "humanoid",
+        "Marks": [
+          {
+            "MarkPosition": "右耳に装着したバンダナの頭頂部周辺",
+            "MarkPosition_EN": "on the top area of the bandana worn on the right ear (normal outfit)",
+            "MarkColor": "暗色",
+            "MarkColor_EN": "dark",
+            "MarkNotation": "アラビア数字の「86」",
+            "MarkNotation_EN": "Arabic numeral '86'"
+          }
+        ]
+      }
+    ],
     "FirstPersonCalling": "自分\n私(わたし)",
     "FirstPersonCalling_EN": "I (jibun; self-ref. style)\nI",
     "SecondPersonCalling": "君(きみ)",
@@ -27718,17 +28623,17 @@
         "Motif": {
           "Motif_JP": [
             "コアフォルダ形態",
-            "狐の耳",
-            "赤いリボンボウ付き緑のショートヘア",
+            "狐の耳(右耳はバンダナで隠れている)",
+            "緑のショートヘア",
             "灰茶色の目",
-            "大きな赤いリボンボウのヘアオーナメント"
+            "右耳を覆う赤い番号付きのバンダナ"
           ],
           "Motif_EN": [
             "corefolder form",
-            "fox ears",
-            "short green hair with red ribbon-bow",
+            "fox ears (right ear covered by bandana)",
+            "short green hair",
             "gray-brown eyes",
-            "large red ribbon-bow hair ornament"
+            "red bandana with number covering right ear"
           ]
         }
       },
@@ -27737,25 +28642,25 @@
         "Motif": {
           "Motif_JP": [
             "ヒューマノイド形態",
-            "狐の耳",
-            "赤いリボンボウ付き緑のショートヘア",
+            "狐の耳(右耳はバンダナで隠れている)",
+            "緑のショートヘア",
             "灰茶色の目",
-            "濃い茶色のワンピースエプロンドレス",
-            "クリーム白いエプロン前掛け",
+            "右耳を覆う赤い番号付きのバンダナ",
+            "クリーム色のエプロン",
+            "濃い茶色のワンピース",
             "濃い緑のストッキング",
-            "ピンクのアンクルストラップ付き濃い茶色の靴",
-            "大きな赤いリボンボウのヘアオーナメント"
+            "ピンクのアンクルストラップ付き濃い茶色の靴"
           ],
           "Motif_EN": [
             "humanoid form",
-            "fox ears",
-            "short green hair with red ribbon-bow",
+            "fox ears (right ear covered by bandana)",
+            "short green hair",
             "gray-brown eyes",
-            "dark brown one-piece apron-dress",
-            "cream-white apron front",
+            "red bandana with number covering right ear",
+            "cream-colored apron",
+            "dark brown one-piece",
             "dark green stockings",
-            "dark brown shoes with pink ankle strap",
-            "large red ribbon-bow hair ornament"
+            "dark brown shoes with pink ankle strap"
           ]
         }
       }
@@ -28007,6 +28912,34 @@
     },
     "TailsUnit": "キツネ(枝分かれ)型8本(上1束1本+下2束7本)",
     "TailsUnit_EN": "Fox (branched) type: 8 tails (upper: 1 cluster x1, lower: 2 clusters x7)",
+    "NumberMarkLocation": [
+      {
+        "Formation": "corefolder",
+        "Marks": [
+          {
+            "MarkPosition": "耳のハート模様とペンダントがアラビア数字をモチーフにしている",
+            "MarkPosition_EN": "The heart pattern on the ears is inspired by Arabic numerals",
+            "MarkColor": null,
+            "MarkColor_EN": null,
+            "MarkNotation": "アラビア数字の「87」をモチーフにしたハート模様",
+            "MarkNotation_EN": "A heart pattern based on the Arabic numeral '87'"
+          }
+        ]
+      },
+      {
+        "Formation": "humanoid",
+        "Marks": [
+          {
+            "MarkPosition": "耳のハート模様とペンダントがアラビア数字をモチーフにしている",
+            "MarkPosition_EN": "The heart pattern on the ears is inspired by Arabic numerals",
+            "MarkColor": null,
+            "MarkColor_EN": null,
+            "MarkNotation": "アラビア数字の「87」をモチーフにしたハート模様",
+            "MarkNotation_EN": "A heart pattern based on the Arabic numeral '87'"
+          }
+        ]
+      }
+    ],
     "Class": ["デュアルシックスズ"],
     "ThisMasters": [
       {
@@ -28052,15 +28985,17 @@
         "Motif": {
           "Motif_JP": [
             "コアフォルダ形態",
-            "狐の耳",
-            "ハートの耳マーク付きピンクの非常に長い髪",
+            "狐の耳(耳マーキングと先で多色になっている)",
+            "ダイヤとハート柄の耳マーキング",
+            "ピンクの非常に長い髪",
             "琥珀色の目",
             "ハート形ダイヤモンドペンダントネックレス"
           ],
           "Motif_EN": [
             "corefolder form",
-            "fox ears",
-            "very long pink hair with heart ear-marks",
+            "fox ears (with multi-colored ear markings and tips)",
+            "diamond and heart-patterned ear markings",
+            "very long pink hair",
             "amber eyes",
             "heart-shaped diamond pendant necklace"
           ]
@@ -28071,8 +29006,9 @@
         "Motif": {
           "Motif_JP": [
             "ヒューマノイド形態",
-            "狐の耳",
-            "ハートの耳マーク付きピンクの非常に長い髪",
+            "狐の耳(耳マーキングと先で多色になっている)",
+            "ダイヤとハート柄の耳マーキング",
+            "ピンクの非常に長い髪",
             "琥珀色の目",
             "青い襟付きオレンジ色の半袖セーラートップス",
             "ダイヤペンダントモチーフ付き青い膝丈スカート",
@@ -28082,8 +29018,9 @@
           ],
           "Motif_EN": [
             "humanoid form",
-            "fox ears",
-            "very long pink hair with heart ear-marks",
+            "fox ears (with multi-colored ear markings and tips)",
+            "diamond and heart-patterned ear markings",
+            "very long pink hair",
             "amber eyes",
             "orange short-sleeve sailor top with blue collar",
             "blue knee-length skirt with diamond pendant motifs",
@@ -28330,6 +29267,34 @@
     "Weight_kg": 45,
     "TailsUnit": "キツネ(枝分かれ)型2束x8本",
     "TailsUnit_EN": "Fox (branched) type: 2 clusters x8 tails",
+    "NumberMarkLocation": [
+      {
+        "Formation": "corefolder",
+        "Marks": [
+          {
+            "MarkPosition": "ネクタイピンの形状",
+            "MarkPosition_EN": "the shape of the tie pin",
+            "MarkColor": "白(背景は赤)",
+            "MarkColor_EN": "white (background is red)",
+            "MarkNotation": "アラビア数字の「88」を横にした形状(無限マーク「∞」を2つ並べているようにも見える)",
+            "MarkNotation_EN": "Arabic numeral '88' (horizontal orientation; can also be seen as two infinity symbols '∞' side by side)"
+          }
+        ]
+      },
+      {
+        "Formation": "humanoid",
+        "Marks": [
+          {
+            "MarkPosition": "ネクタイピンの形状",
+            "MarkPosition_EN": "the shape of the tie pin",
+            "MarkColor": "白(背景は赤)",
+            "MarkColor_EN": "white (background is red)",
+            "MarkNotation": "アラビア数字の「88」を横にした形状(無限マーク「∞」を2つ並べているようにも見える)",
+            "MarkNotation_EN": "Arabic numeral '88' (horizontal orientation; can also be seen as two infinity symbols '∞' side by side)"
+          }
+        ]
+      }
+    ],
     "Class": ["マスターテールズ9"],
     "FirstPersonCalling": "私(わたし)\n僕",
     "FirstPersonCalling_EN": "I (watashi; formal)\nI (boku; casual masc.)",
@@ -28355,21 +29320,20 @@
         "Motif": {
           "Motif_JP": [
             "コアフォルダ形態",
-            "狐の耳",
-            "ヘアバンド付きオレンジ色の長いポニーテール",
-            "アイマスクバンド付きの赤い目",
-            "濃紺のネクタイ",
-            "無限形状（∞=88）のアイマスクバンド",
+            "狐の耳(左耳にアクセサリー付き)",
+            "ヘアバンド付きで紺色のアクセントが入ったオレンジ色の長いポニーテール",
+            "赤い目",
+            "無限形状（∞=88）のピンがされた濃紺のネクタイ",
             "ピアノ鍵盤ホログラフィックリング"
           ],
           "Motif_EN": [
             "corefolder form",
-            "fox ears",
+            "fox ears (with accessory on left ear)",
             "branching fox 8 tails",
             "orange long ponytail with hair-band",
-            "red eyes with eye-mask band",
+            "red eyes",
             "navy blue necktie",
-            "infinity-shaped (∞=88) blindfold band",
+            "infinity-shaped (∞=88) pin on navy blue necktie",
             "piano-keyboard holographic ring"
           ]
         }
@@ -28379,29 +29343,27 @@
         "Motif": {
           "Motif_JP": [
             "ヒューマノイド形態",
-            "狐の耳",
-            "ヘアバンド付きオレンジ色の長いポニーテール",
-            "アイマスクバンド付きの赤い目",
+            "狐の耳(左耳にアクセサリー付き)",
+            "ヘアバンド付きで紺色のアクセントが入ったオレンジ色の長いポニーテール",
+            "赤い目",
+            "無限形状（∞=88）のピンがされた濃紺のネクタイ",
+            "ピアノ鍵盤ホログラフィックリング",
             "オレンジ色のウェストコートの上の濃紺ダブルブレスト執事テールコート",
             "オレンジ色の長いズボン",
-            "白い手袋",
-            "濃紺のネクタイ",
-            "無限形状（∞=88）のアイマスクバンド",
-            "青い靴",
-            "ピアノ鍵盤ホログラフィックリング"
+            "青い靴"
           ],
           "Motif_EN": [
             "humanoid form",
-            "fox ears",
+            "fox ears (with accessory on left ear)",
+            "branching fox 8 tails",
             "orange long ponytail with hair-band",
-            "red eyes with eye-mask band",
-            "navy-blue double-breasted butler tailcoat over orange waistcoat",
-            "orange long trousers",
-            "white gloves",
+            "red eyes",
             "navy blue necktie",
-            "infinity-shaped (∞=88) blindfold band",
-            "blue shoes",
-            "piano-keyboard holographic ring"
+            "infinity-shaped (∞=88) pin on navy blue necktie",
+            "piano-keyboard holographic ring",
+            "orange waistcoat over navy blue double-breasted butler tailcoat",
+            "orange long pants",
+            "blue shoes"
           ]
         }
       }
@@ -28672,6 +29634,34 @@
     "BustSize": "C",
     "TailsUnit": "キツネ(枝分かれ)型9本(上1束1本+下2束8本)",
     "TailsUnit_EN": "Fox (branched) type: 9 tails (upper: 1 cluster x1, lower: 2 clusters x8)",
+    "NumberMarkLocation": [
+      {
+        "Formation": "corefolder",
+        "Marks": [
+          {
+            "MarkPosition": "球体の前面左胸の白色部分,ネクタイの向かって右側",
+            "MarkPosition_EN": "The white area on the front left chest of the sphere, and the right side of the necktie",
+            "MarkColor": "暗色",
+            "MarkColor_EN": "dark",
+            "MarkNotation": "アラビア数字の「89」",
+            "MarkNotation_EN": "Arabic numeral '89'"
+          }
+        ]
+      },
+      {
+        "Formation": "humanoid",
+        "Marks": [
+          {
+            "MarkPosition": "スーツの左胸,ネクタイの向かって右側",
+            "MarkPosition_EN": "The left chest of the suit, and the right side of the necktie",
+            "MarkColor": "白(黒のアウトライン)",
+            "MarkColor_EN": "white (with black outline)",
+            "MarkNotation": "アラビア数字の「89」",
+            "MarkNotation_EN": "Arabic numeral '89'"
+          }
+        ]
+      }
+    ],
     "Class": ["デュアルエイツ"],
     "ThisMasters": [
       "氏原（仮称;夜月機関 第12幹部:キャサリン=アインツヴァイス の専属執事）"
@@ -29032,6 +30022,10 @@
     "Weight_kg": 41,
     "TailsUnit": "キツネ(枝分かれ)型9本(上1束7本+下2束3本)",
     "TailsUnit_EN": "Fox (branching-type) × 9 tails (upper bundle: 7 + lower bundle: 3)",
+    "NumberMarkLocation": [
+      { "Formation": "corefolder", "Marks": null },
+      { "Formation": "humanoid", "Marks": null }
+    ],
     "Class": ["デュアルイレブンズ"],
     "FirstPersonCalling": "僕",
     "FirstPersonCalling_EN": "I (masc. casual)",
@@ -29340,6 +30334,34 @@
     "BustSize": "A",
     "TailsUnit": "キツネ(枝分かれ)型9本(上1束6本+下2束3本)",
     "TailsUnit_EN": "Fox (branching-type) × 9 tails (upper bundle: 6 + lower bundle: 3)",
+    "NumberMarkLocation": [
+      {
+        "Formation": "corefolder",
+        "Marks": [
+          {
+            "MarkPosition": "球体の前面胸中央にやや大きく",
+            "MarkPosition_EN": "Slightly large, centered on the front of the sphere at chest level",
+            "MarkColor": "暗色",
+            "MarkColor_EN": "Dark color",
+            "MarkNotation": "アラビア数字の「93」（スタイライズされたモチーフ）",
+            "MarkNotation_EN": "Arabic numeral '93' (stylized motif)"
+          }
+        ]
+      },
+      {
+        "Formation": "humanoid",
+        "Marks": [
+          {
+            "MarkPosition": "腰に掛けてインナーから見える範囲のサポーター全体で大きく",
+            "MarkPosition_EN": "Prominently across the entire supporter visible from the inner side of the waist",
+            "MarkColor": "暗色",
+            "MarkColor_EN": "Dark color",
+            "MarkNotation": "アラビア数字の「93」（スタイライズされたモチーフ）",
+            "MarkNotation_EN": "Arabic numeral '93' (stylized motif)"
+          }
+        ]
+      }
+    ],
     "Class": ["デュアルスリーズ"],
     "ThisMasters": ["乃木 希（VIPマスター;夜月機関 救命本部 推薦所属候補者）"],
     "ThisMasters_EN": [
@@ -29370,17 +30392,15 @@
           "Motif_JP": [
             "コアフォルダ形態",
             "狐の耳",
-            "白いヘアバンド付き黄色い長い髪",
+            "白いヘアバンド付きの黄色いショートヘア",
             "黄色い目",
-            "「93」マーク",
             "白い鉢巻"
           ],
           "Motif_EN": [
             "corefolder form",
             "fox ears",
-            "long yellow hair with white headband",
+            "short yellow hair with white headband",
             "yellow eyes",
-            "'93' marking",
             "white long headband"
           ]
         }
@@ -29394,7 +30414,7 @@
             "白いヘアバンド付き黄色い長い髪",
             "黄色い目",
             "茶色の短いベスト",
-            "「93」マーク入り黄色いチューブトップ",
+            "腰の番号デザイン付きベルトサポーター",
             "黄色いフルスカート",
             "クリーム白い膝上ソックス",
             "茶色のレースアップシューズ",
@@ -29403,10 +30423,10 @@
           "Motif_EN": [
             "humanoid form",
             "fox ears",
-            "long yellow hair with white headband",
+            "short yellow hair with white headband",
             "yellow eyes",
             "brown short vest",
-            "yellow tube-top with '93' marking",
+            "belt supporter with number design at the waist",
             "yellow full skirt",
             "cream-white knee-high socks",
             "brown lace-up shoes",
@@ -30099,6 +31119,42 @@
     "BustSize": "G",
     "TailsUnit": "キツネ(枝分かれ)型9本(上1束3本+下2束6本)",
     "TailsUnit_EN": "Fox (branching-type) × 9 tails (upper bundle: 3 + lower bundle: 6)",
+    "NumberMarkLocation": [
+      {
+        "Formation": "corefolder",
+        "Marks": [
+          {
+            "MarkPosition": "左襟,布の端周辺にやや小さく",
+            "MarkPosition_EN": "On the left collar, slightly small near the edge of the fabric",
+            "MarkColor": "濃いマゼンタ",
+            "MarkColor_EN": "dark magenta",
+            "MarkNotation": "アラビア数字の「96」(少しスタイライズされた文字デザイン)",
+            "MarkNotation_EN": "Arabic numeral '96' (slightly stylized design)"
+          }
+        ]
+      },
+      {
+        "Formation": "humanoid",
+        "Marks": [
+          {
+            "MarkPosition": "左襟,布の端周辺にやや小さく",
+            "MarkPosition_EN": "On the left collar, slightly small near the edge of the fabric",
+            "MarkColor": "濃いマゼンタ",
+            "MarkColor_EN": "dark magenta",
+            "MarkNotation": "アラビア数字の「96」(少しスタイライズされた文字デザイン)",
+            "MarkNotation_EN": "Arabic numeral '96' (slightly stylized design)"
+          },
+          {
+            "MarkPosition": "仮面の眉間中央にやや小さく",
+            "MarkPosition_EN": "On the center of the forehead of the mask, slightly small",
+            "MarkColor": "暗色",
+            "MarkColor_EN": "dark color",
+            "MarkNotation": "アラビア数字の「96」(少しスタイライズされた文字デザイン)",
+            "MarkNotation_EN": "Arabic numeral '96' (slightly stylized design)"
+          }
+        ]
+      }
+    ],
     "Class": ["デュアルシックスズ"],
     "ThisMasters": ["ジャッヂ=ジャストリー/神谷崎 幻影"],
     "ThisMasters_EN": ["ジャッヂ=ジャストリー/神谷崎 幻影"],
@@ -30126,17 +31182,17 @@
         "Motif": {
           "Motif_JP": [
             "コアフォルダ形態",
-            "狐の耳",
-            "三日月マーク付きピンクのショートヘア",
+            "狐の耳(少し欠けている)",
+            "三日月型のアホ毛付きピンクのショートヘア(後ろ髪を束ねている)",
             "ピンクの目",
-            "三日月と番号装飾付きピンクのマスカレードマスク"
+            "番号装飾付きピンクのマスカレードマスク(時々装着する)"
           ],
           "Motif_EN": [
             "corefolder form",
-            "fox ears",
-            "short pink hair with crescent mark",
+            "fox ears (slightly damaged)",
+            "short pink hair with crescent-shaped ahoge (tied back)",
             "pink eyes",
-            "pink masquerade mask with crescent-moon and number decoration"
+            "pink masquerade mask with number decoration (occasionally worn)"
           ]
         }
       },
@@ -30145,31 +31201,25 @@
         "Motif": {
           "Motif_JP": [
             "ヒューマノイド形態",
-            "狐の耳",
-            "三日月マーク付きピンクのショートヘア",
-            "ピンクの目",
-            "白い襟付きピンクのワンピースドレス",
-            "ハイヒール",
-            "ピンクのサイハイストッキング",
-            "白い襟と中央ボタン前立て付きピンクのパフスリーブドレス",
-            "三日月と番号装飾付きピンクのマスカレードマスク",
-            "灰色の手袋",
-            "手首のピンクのリボン",
-            "ピンクのサイハイストッキング"
+            "狐の耳(少し欠けている)",
+            "三日月型のアホ毛付きピンクのショートヘア(後ろ髪を束ねている)",
+            "ピンクの目(仮面装着時は見えない)",
+            "番号装飾付きピンクのマスカレードマスク(よく装着する)",
+            "白い襟付きピンクのワンピースドレス(普段着)",
+            "ハイヒール(普段着)",
+            "ピンクのサイハイストッキング(普段着)",
+            "白い襟と白い裾と白い前立て付きピンクのパフスリーブドレス(普段着)"
           ],
           "Motif_EN": [
             "humanoid form",
-            "fox ears",
-            "short pink hair with crescent mark",
-            "pink eyes",
-            "pink one-piece dress with white collar",
-            "high heels",
-            "pink thigh-high stockings",
-            "pink puff-sleeve dress with white collar and central button placket",
-            "pink masquerade mask with crescent-moon and number decoration",
-            "gray gloves",
-            "pink ribbon on the wrist",
-            "pink thigh-high stockings"
+            "fox ears (slightly damaged)",
+            "short pink hair with crescent-shaped ahoge (tied back)",
+            "pink eyes (not visible when wearing mask)",
+            "pink one-piece dress with white collar (casual wear)",
+            "high heels (casual wear)",
+            "pink thigh-high stockings (casual wear)",
+            "pink puff-sleeve dress with white collar and central button placket (casual wear)",
+            "pink masquerade mask with number decoration (frequently worn)"
           ]
         }
       }
@@ -30476,6 +31526,50 @@
     "BustSize": "E",
     "TailsUnit": "キツネ(枝分かれ)型9本(上1束2本+下2束7本)",
     "TailsUnit_EN": "Fox (branching-type) × 9 tails (upper bundle: 2 + lower bundle: 7)",
+    "NumberMarkLocation": [
+      {
+        "Formation": "corefolder",
+        "Marks": [
+          {
+            "MarkPosition": "球体の前面左胸から首元にかけての白色部分",
+            "MarkPosition_EN": "White area from the front left chest to the neck of the sphere",
+            "MarkColor": "暗色",
+            "MarkColor_EN": "dark color",
+            "MarkNotation": "アラビア数字の「97」(少しスタイライズされている)",
+            "MarkNotation_EN": "Arabic numeral '97' (slightly stylized)"
+          },
+          {
+            "MarkPosition": "トップハットのつば周辺中央の紫色部分に円形模様を伴う形でやや小さく",
+            "MarkPosition_EN": "Slightly small with a circular pattern around the center of the brim of the top hat",
+            "MarkColor": "白",
+            "MarkColor_EN": "white",
+            "MarkNotation": "アラビア数字の「97」(少しスタイライズされている)",
+            "MarkNotation_EN": "Arabic numeral '97' (slightly stylized)"
+          }
+        ]
+      },
+      {
+        "Formation": "humanoid",
+        "Marks": [
+          {
+            "MarkPosition": "球体の前面左胸から首元にかけての白色部分",
+            "MarkPosition_EN": "White area from the front left chest to the neck of the sphere",
+            "MarkColor": "暗色",
+            "MarkColor_EN": "dark color",
+            "MarkNotation": "アラビア数字の「97」(少しスタイライズされている)",
+            "MarkNotation_EN": "Arabic numeral '97' (slightly stylized)"
+          },
+          {
+            "MarkPosition": "トップハットのつば周辺中央の紫色部分に円形模様を伴う形でやや小さく",
+            "MarkPosition_EN": "Slightly small with a circular pattern around the center of the brim of the top hat",
+            "MarkColor": "白",
+            "MarkColor_EN": "white",
+            "MarkNotation": "アラビア数字の「97」(少しスタイライズされている)",
+            "MarkNotation_EN": "Arabic numeral '97' (slightly stylized)"
+          }
+        ]
+      }
+    ],
     "Class": ["デュアルセブンズ"],
     "FirstPersonCalling": "わたくしめ",
     "FirstPersonCalling_EN": "this humble self",
@@ -30501,19 +31595,17 @@
         "Motif": {
           "Motif_JP": [
             "コアフォルダ形態",
-            "狐の耳",
-            "サイドブレイド付き青い非常に長い髪",
+            "狐の垂れ耳",
+            "サイドブレイド付きの長い横編み込みがされた青く非常に長い髪",
             "淡いラベンダーグレーの目",
-            "十字紋章と「97」バンド付き灰色の修道女風トップハット",
-            "長い横編み込み"
+            "白い十字紋章と番号付きの紫色ボーダーが入った灰色の修道女風トップハット"
           ],
           "Motif_EN": [
             "corefolder form",
-            "fox ears",
-            "very long blue hair with side braid",
+            "fox drooping ears",
+            "long side braid with very long blue hair",
             "pale lavender-gray eyes",
-            "gray nun-like top hat with cross emblem and '97' band",
-            "long side braid"
+            "gray nun-like top hat with white cross emblem and '97' band"
           ]
         }
       },
@@ -30522,25 +31614,23 @@
         "Motif": {
           "Motif_JP": [
             "ヒューマノイド形態",
-            "狐の耳",
-            "サイドブレイド付き青い非常に長い髪",
+            "狐の垂れ耳",
+            "サイドブレイド付きの長い横編み込みがされた青く非常に長い髪",
             "淡いラベンダーグレーの目",
-            "十字紋章と「97」バンド付き灰色の修道女風トップハット",
+            "白い十字紋章と番号付きの紫色ボーダーが入った灰色の修道女風トップハット",
             "灰色の修道服の上の灰紫色のケープ",
             "紫の長いスカート",
-            "灰色のアンクルブーツ",
-            "長い横編み込み"
+            "灰色のアンクルブーツ"
           ],
           "Motif_EN": [
             "humanoid form",
-            "fox ears",
-            "very long blue hair with side braid",
+            "fox drooping ears",
+            "long side braid with very long blue hair",
             "pale lavender-gray eyes",
-            "gray nun-like top hat with cross emblem and '97' band",
-            "gray-purple cape over gray habit",
-            "purple long skirt",
-            "gray ankle boots",
-            "long side braid"
+            "gray nun-like top hat with white cross emblem and '97' band",
+            "gray nun's habit with gray-purple cape",
+            "long purple skirt",
+            "gray ankle boots"
           ]
         }
       }
@@ -30784,6 +31874,34 @@
     "BustSize": "D",
     "TailsUnit": "キツネ(枝分かれ)型9本(上1束1本+下2束8本)",
     "TailsUnit_EN": "Fox (branching-type) × 9 tails (upper bundle: 1 + lower bundle: 8)",
+    "NumberMarkLocation": [
+      {
+        "Formation": "corefolder",
+        "Marks": [
+          {
+            "MarkPosition": "球体の前面左胸の白色部分,ネクタイの向かって右側",
+            "MarkPosition_EN": "The white area on the front left chest of the sphere, and the right side of the necktie",
+            "MarkColor": "赤紫",
+            "MarkColor_EN": "red purple",
+            "MarkNotation": "アラビア数字の「98」",
+            "MarkNotation_EN": "Arabic numeral '98'"
+          }
+        ]
+      },
+      {
+        "Formation": "humanoid",
+        "Marks": [
+          {
+            "MarkPosition": "スーツの左胸,ネクタイの向かって右側(色合いであまり目立たない)",
+            "MarkPosition_EN": "The left chest of the suit, and the right side of the necktie (not very noticeable due to the color)",
+            "MarkColor": "赤紫",
+            "MarkColor_EN": "red purple",
+            "MarkNotation": "アラビア数字の「98」",
+            "MarkNotation_EN": "Arabic numeral '98'"
+          }
+        ]
+      }
+    ],
     "Class": ["デュアルエイツ"],
     "FirstPersonCalling": "私(わたし)",
     "FirstPersonCalling_EN": "I",
@@ -30800,7 +31918,7 @@
     "SpecialSkill": "時間制限や手数制限のある作業",
     "SpecialSkill_EN": "Tasks with time limits or step-count limits",
     "Favor": "キリ番から少し減らされ下2桁が「98」になった数字",
-    "Favor_EN": "Numbers trimmed just below a round number — specifically those ending in \"98\"",
+    "Favor_EN": "Numbers trimmed just below a round number — specifically those ending in '98'",
     "Unlike": "残業",
     "Unlike_EN": "Overtime work",
     "IdentityMotif": [
@@ -30812,16 +31930,14 @@
             "狐の耳",
             "マゼンタピンクのミディアムヘア",
             "赤い目",
-            "赤いネクタイ",
-            "赤い「98」の番号"
+            "赤いネクタイ"
           ],
           "Motif_EN": [
             "corefolder form",
             "fox ears",
             "magenta-pink medium hair",
             "red eyes",
-            "red necktie",
-            "red '98' number"
+            "red necktie"
           ]
         }
       },
@@ -30833,22 +31949,20 @@
             "狐の耳",
             "マゼンタピンクのミディアムヘア",
             "赤い目",
-            "マゼンタレッドのレトロなビジネススーツ/着物風トップス",
+            "番号付きマゼンタレッドのレトロなビジネススーツ/着物風トップス",
             "赤いネクタイ",
             "灰色の長いプリーツスカート",
-            "ストラップ付き赤いアンクルブーツ",
-            "赤い「98」の番号"
+            "ストラップ付き赤いアンクルブーツ"
           ],
           "Motif_EN": [
             "humanoid form",
             "fox ears",
             "magenta-pink medium hair",
             "red eyes",
-            "magenta-red retro business suit / kimono-style top",
+            "magenta-red retro business suit / kimono-style top with number",
             "red necktie",
             "gray long pleated skirt",
-            "red ankle boots with strap",
-            "red '98' number"
+            "red ankle boots with strap"
           ]
         }
       }
@@ -31100,6 +32214,50 @@
     "BustSize": "AA",
     "TailsUnit": "キツネ(枝分かれ)型2束x9本",
     "TailsUnit_EN": "Fox (branching-type), 2 bundles × 9 tails",
+    "NumberMarkLocation": [
+      {
+        "Formation": "corefolder",
+        "Marks": [
+          {
+            "MarkPosition": "チョーカーの中央タグ全体に大きく",
+            "MarkPosition_EN": "Large on the central tag of the choker",
+            "MarkColor": "紅色",
+            "MarkColor_EN": "dark red",
+            "MarkNotation": "漢数字の「九十九」",
+            "MarkNotation_EN": "Kanji numeral '九十九' (Thukumo)"
+          },
+          {
+            "MarkPosition": "後光のヘイローがアラビア数字を1桁ずつ回転させて重ねた形をモチーフにしている",
+            "MarkPosition_EN": "The halo of the aureole is based on a motif of Arabic numerals rotated and layered one digit at a time",
+            "MarkColor": "薄紫で赤いアウトライン",
+            "MarkColor_EN": "light purple with a red outline",
+            "MarkNotation": "円形と線形からアラビア数字「9」をかたどったものが2つ回転方向にずれる形で重なった形",
+            "MarkNotation_EN": "Two shapes resembling the Arabic numeral '9', one circular and one linear, overlapping with a slight rotational offset"
+          }
+        ]
+      },
+      {
+        "Formation": "humanoid",
+        "Marks": [
+          {
+            "MarkPosition": "チョーカーの中央タグ全体に大きく",
+            "MarkPosition_EN": "Large on the central tag of the choker",
+            "MarkColor": "紅色",
+            "MarkColor_EN": "dark red",
+            "MarkNotation": "漢数字の「九十九」",
+            "MarkNotation_EN": "Kanji numeral '九十九' (Thukumo)"
+          },
+          {
+            "MarkPosition": "後光のヘイローがアラビア数字を1桁ずつ回転させて重ねた形をモチーフにしている",
+            "MarkPosition_EN": "The halo of the aureole is based on a motif of Arabic numerals rotated and layered one digit at a time",
+            "MarkColor": "薄紫で赤いアウトライン",
+            "MarkColor_EN": "light purple with a red outline",
+            "MarkNotation": "円形と線形からアラビア数字「9」をかたどったものが2つ回転方向にずれる形で重なった形",
+            "MarkNotation_EN": "Two shapes resembling the Arabic numeral '9', one circular and one linear, overlapping with a slight rotational offset"
+          }
+        ]
+      }
+    ],
     "Class": ["マスターテールズ9", "ワノマチ"],
     "FirstPersonCalling": "余",
     "FirstPersonCalling_EN": "I",
@@ -31125,19 +32283,23 @@
         "Motif": {
           "Motif_JP": [
             "コアフォルダ形態",
-            "狐の耳",
-            "ピンクの光輪付き濃い灰色のショートヘア",
-            "三日月額マーク付きのピンク赤の目",
+            "狐の耳(先が紅色のアクセントカラー)",
+            "ダークグレーのショートヘア",
+            "丸く剃られた赤い眉",
+            "赤いペイントがされたピンクの目",
             "狐に似た耳と尾房模様",
-            "頭の後ろのピンクの光輪"
+            "頭の後ろのピンクの光輪",
+            "漢数字が書かれたチョーカー"
           ],
           "Motif_EN": [
             "corefolder form",
-            "fox ears",
-            "dark gray short hair with pink light-ring halo",
-            "pink-red eyes with crescent forehead mark",
+            "fox ears (with dark red accent tips)",
+            "dark gray short hair",
+            "roundly shaved red eyebrows",
+            "pink eyes with red makeup paint",
             "fox-like ears and tail-tufts pattern",
-            "pink light-ring halo behind head"
+            "pink light-ring halo behind head",
+            "choker with kanji numerals"
           ]
         }
       },
@@ -31146,29 +32308,33 @@
         "Motif": {
           "Motif_JP": [
             "ヒューマノイド形態",
-            "狐の耳",
-            "ピンクの光輪付き濃い灰色のショートヘア",
-            "三日月額マーク付きのピンク赤の目",
+            "狐の耳(先が紅色のアクセントカラー)",
+            "ダークグレーのショートヘア",
+            "丸く剃られた赤い眉",
+            "赤いペイントがされたピンクの目",
+            "狐に似た耳と尾房模様",
+            "頭の後ろのピンクの光輪",
+            "漢数字が書かれたチョーカー",
             "赤いジグザグ内側トリム付き濃い灰色の羽織コート",
             "ピンク白ストライプのインナー着物",
             "赤い帯",
             "グレーのスラックス",
-            "白いリストカフス",
-            "狐に似た耳と尾房模様",
-            "頭の後ろのピンクの光輪"
+            "白いリストカフス"
           ],
           "Motif_EN": [
             "humanoid form",
-            "fox ears",
-            "dark gray short hair with pink light-ring halo",
-            "pink-red eyes with crescent forehead mark",
-            "dark gray haori-coat with red zigzag inner trim",
-            "pink-white striped inner kimono",
-            "red obi sash",
-            "gray slacks",
-            "white wrist cuffs",
+            "fox ears (with dark red accent tips)",
+            "dark gray short hair",
+            "roundly shaved red eyebrows",
+            "pink eyes with red makeup paint",
             "fox-like ears and tail-tufts pattern",
-            "pink light-ring halo behind head"
+            "pink light-ring halo behind head",
+            "choker with kanji numerals",
+            "dark gray haori coat with red zigzag inner trim",
+            "pink-and-white striped inner kimono",
+            "red obi belt",
+            "gray slacks",
+            "white wrist cuffs"
           ]
         }
       }
@@ -31442,6 +32608,36 @@
     ],
     "Weight_kg": [{ "value": 40, "about_JP": "想定", "about_EN": "Scenario" }],
     "BustSize": "F",
+    "TailsUnit": "キツネ型2本",
+    "TailsUnit_EN": "Two fox-type tails",
+    "NumberMarkLocation": [
+      {
+        "Formation": "corefolder",
+        "Marks": [
+          {
+            "MarkPosition": "球体の前面中央の白色部分で胸の体毛の下に若干大きく",
+            "MarkPosition_EN": "On the white area at the center front of the sphere, slightly larger under the chest fur",
+            "MarkColor": "暗色(呼称表記「Binor」に橙色の上線)",
+            "MarkColor_EN": "dark (with an orange overline on the 'Binor' label)",
+            "MarkNotation": "アラビア数字の「2」に、その数字を跨いで少し小さく呼称表記「Bi-nor」(文字の並びとしては「Bi 2 nor」となる)",
+            "MarkNotation_EN": "Arabic numeral '2' with the label 'Bi-nor' slightly smaller and spanning across the numeral (the text reads as 'Bi 2 nor')"
+          }
+        ]
+      },
+      {
+        "Formation": "humanoid",
+        "Marks": [
+          {
+            "MarkPosition": "左襟,やや小さく",
+            "MarkPosition_EN": "on the left collar, slightly smaller",
+            "MarkColor": "暗色",
+            "MarkColor_EN": "dark",
+            "MarkNotation": "アラビア数字の「2」",
+            "MarkNotation_EN": "Arabic numeral '2'"
+          }
+        ]
+      }
+    ],
     "Class": [
       "未完成個体",
       "開発システム用個体",
@@ -31451,15 +32647,13 @@
     "ThisMasters": [
       {
         "value": null,
-        "about": "(専属契約不可,未リリース状態)",
-        "about_EN": "(専属契約不可,未リリース状態)"
+        "about": "(専属契約不可,未リリース状態)"
       }
     ],
     "ThisMasters_EN": [
       {
         "value": null,
-        "about": "(専属契約不可,未リリース状態)",
-        "about_EN": "(専属契約不可,未リリース状態)"
+        "about": "(Cannot be exclusively contracted, unreleased state)"
       }
     ],
     "FirstPersonCalling": "わたし",
@@ -31487,22 +32681,16 @@
           "Motif_JP": [
             "コアフォルダ形態",
             "狐の耳",
-            "狐の尾",
             "淡い銀灰色の長い髪",
             "琥珀オレンジの目",
-            "「Bi 2 nor」の胸タグ",
-            "オレンジ色の「試用中」ラベル",
-            "淡い銀色の尾2本（プロトタイプ状態）"
+            "オレンジ色の「試用中」ラベル"
           ],
           "Motif_EN": [
             "corefolder form",
             "fox ears",
-            "fox tails",
             "pale silver-gray long hair",
             "amber-orange eyes",
-            "'Bi 2 nor' chest tag",
-            "orange '試用中' (trial / test version) label",
-            "two pale silver tails (prototype state)"
+            "orange '試用中' (trial / test version) label"
           ]
         }
       },
@@ -31512,7 +32700,6 @@
           "Motif_JP": [
             "ヒューマノイド形態",
             "狐の耳",
-            "狐の尾",
             "淡い銀灰色の長い髪",
             "琥珀オレンジの目",
             "ホログラムの身体（プロトタイプ状態）"
@@ -31724,6 +32911,23 @@
       }
     ],
     "Weight_kg": { "hideText": "データ無" },
+    "TailsUnit": "キツネ型10本",
+    "TailsUnit_EN": "Ten fox-type tails",
+    "NumberMarkLocation": [
+      {
+        "Formation": "corefolder",
+        "Marks": [
+          {
+            "MarkPosition": "球体の全身カバー前面の左胸で警告ラベルの中間に(色合いで少し目立たない)",
+            "MarkPosition_EN": "On the left chest of the front of the full-body cover of the sphere, in the middle of the warning label (slightly inconspicuous due to color)",
+            "MarkColor": "暗色",
+            "MarkColor_EN": "dark",
+            "MarkNotation": "ローマ数字「X」",
+            "MarkNotation_EN": "Roman numeral 'X'"
+          }
+        ]
+      }
+    ],
     "Class": ["調整個体", "退任個体", "デシベルモデレーターズ", "10号機型"],
     "ThisMasters": [
       {
@@ -31754,26 +32958,26 @@
           "Motif_JP": [
             "コアフォルダ形態",
             "狐の耳",
-            "狐の尾",
-            "濃い茶色の長い髪",
-            "琥珀黄色の目",
-            "黄色い危険ストライプ付き濃い灰色の樽型拘束コンテナ",
-            "襟元の赤いリボン",
+            "濃い茶色の長いポニーテール",
+            "濃黄色の瞳孔をした赤くハイライトのない目",
+            "感情を押し殺された哀れでやるせない表情",
+            "黄色い危険ストライプ",
+            "濃い灰色の全身拘束コンテナカバー(襟元から下に掛けて黄色いラインの赤い留め具がある)",
             "「調整中」黄色い注意ラベル",
-            "「取扱注意」注意ラベル",
-            "コンテナの「X」マーキング"
+            "赤い支持柱(台座)",
+            "「取扱注意」注意ラベル(台座)"
           ],
           "Motif_EN": [
             "corefolder form",
             "fox ears",
-            "fox tails",
-            "dark brown long hair",
-            "amber-yellow eyes",
-            "dark gray barrel-shaped restraint container with yellow hazard stripes",
-            "red ribbon at collar",
-            "'調整中' (under adjustment) yellow caution label",
-            "'取扱注意' (handle with care) caution label",
-            "'X' marking on container"
+            "dark brown long ponytail",
+            "red eyes with dark yellow pupils and no highlights",
+            "a pitiful and helpless expression with suppressed emotions",
+            "yellow hazard stripes",
+            "dark gray full-body restraint container cover (with yellow lines and red fasteners from the collar down)",
+            "yellow '調整中' (under adjustment) caution label",
+            "red support pillar (base)",
+            "'取扱注意' (handle with care) caution label (on base)"
           ]
         }
       }
@@ -31941,6 +33145,36 @@
     "BirthDay": { "Day": { "Month": 8, "DayOfMonth": 15 } },
     "Weight_kg": { "hideText": "？？？" },
     "BustSize": "A",
+    "TailsUnit": "猫型1本",
+    "TailsUnit_EN": "One cat-type tail",
+    "NumberMarkLocation": [
+      {
+        "Formation": "corefolder",
+        "Marks": [
+          {
+            "MarkPosition": "球体の前面左胸の白色部分",
+            "MarkPosition_EN": "on the white area of the left chest on the sphere",
+            "MarkColor": "暗色(灰色の下線付き)",
+            "MarkColor_EN": "dark (with gray underline)",
+            "MarkNotation": "アラビア数字の「000」",
+            "MarkNotation_EN": "Arabic numeral '000'"
+          }
+        ]
+      },
+      {
+        "Formation": "humanoid",
+        "Marks": [
+          {
+            "MarkPosition": "白衣の左襟,ストライプ模様として",
+            "MarkPosition_EN": "on the left collar of the white coat, as a stripe pattern",
+            "MarkColor": "暗色(背景は淡い茶色)",
+            "MarkColor_EN": "dark (with light brown background)",
+            "MarkNotation": "アラビア数字の「000」",
+            "MarkNotation_EN": "Arabic numeral '000'"
+          }
+        ]
+      }
+    ],
     "Class": ["営業補助用個体", "スクエアエリート"],
     "ThisMasters": [
       {
@@ -32015,20 +33249,16 @@
           "Motif_JP": [
             "コアフォルダ形態",
             "猫の耳",
-            "猫の尾",
             "灰色のショルダーレングスヘア",
             "黄色い目",
-            "灰色ベージュのストライプ長いマフラー",
-            "下線入り「000」マーク"
+            "灰色ベージュの長いマフラー(端がストライプ模様)"
           ],
           "Motif_EN": [
             "corefolder form",
             "cat ears",
-            "cat tails",
             "gray shoulder-length hair",
             "yellow eyes",
-            "long gray-beige striped scarf",
-            "underlined '000' mark"
+            "long gray-beige scarf (with striped ends)"
           ]
         }
       },
@@ -32038,20 +33268,18 @@
           "Motif_JP": [
             "ヒューマノイド形態",
             "猫の耳",
-            "猫の尾",
             "灰色のショルダーレングスヘア",
             "黄色い目",
-            "灰色ベージュのストライプ長いマフラー",
-            "下線と「000」マーク入り白いシャツカラー"
+            "灰色ベージュの長いマフラー(端がストライプ模様)",
+            "白衣のようなカジュアルスーツ"
           ],
           "Motif_EN": [
             "humanoid form",
             "cat ears",
-            "cat tails",
             "gray shoulder-length hair",
             "yellow eyes",
-            "long gray-beige striped scarf",
-            "white shirt-collar with underlined '000' mark"
+            "long gray-beige scarf (with striped ends)",
+            "casual suit resembling a white coat"
           ]
         }
       }
@@ -32267,6 +33495,23 @@
     "BirthDay": { "Day": { "Month": 8, "DayOfMonth": 15 } },
     "Weight_kg": { "hideText": "非公開" },
     "BustSize": "D",
+    "TailsUnit": "猫型1本(アクセサリー)",
+    "TailsUnit_EN": "One cat-type tail (accessory)",
+    "NumberMarkLocation": [
+      {
+        "Formation": null,
+        "Marks": [
+          {
+            "MarkPosition": "白衣の左胸,襟の向かって右下にやや大きく",
+            "MarkPosition_EN": "On the left chest of the white coat, slightly large on the lower right side of the collar",
+            "MarkColor": "淡い茶色(暗色のアウトライン)",
+            "MarkColor_EN": "light brown (with dark outline)",
+            "MarkNotation": "アラビア数字の「0」",
+            "MarkNotation_EN": "Arabic numeral '0'"
+          }
+        ]
+      }
+    ],
     "Class": ["開発者", "最高経営所長"],
     "FirstPersonCalling": "私(わたし)",
     "FirstPersonCalling_EN": "I",
@@ -32281,7 +33526,27 @@
     "Weakness": "酒癖が悪い（酔うとダル絡みやみだりなスキンシップが増える）\n発達障碍で就職活動を諦めている（ただし博士課程での研究で将来的に事業化が確定しているのでそこまで困っていない）",
     "Weakness_EN": "Has a bad drinking habit (when drunk, gets clingy and prone to inappropriate physical contact)\nHas given up on job hunting due to a developmental disability (though her doctoral research is set to be commercialized in the future, so it hasn’t been much of an issue)",
     "IdentityMotif": [
-      { "Formation": "humanoid", "Motif": { "Motif_JP": [], "Motif_EN": [] } }
+      {
+        "Formation": null,
+        "Motif": {
+          "Motif_JP": [
+            "ヒューマノイド形態と同様",
+            "猫の耳型のアクセサリー",
+            "黄褐色のミディアムヘア",
+            "赤い目",
+            "淡い赤色の長いマフラー(端がストライプ模様)",
+            "白衣のようなカジュアルスーツ"
+          ],
+          "Motif_EN": [
+            "same humanoid form",
+            "cat ear accessories",
+            "light brown medium hair",
+            "green-brown eyes",
+            "long light teal scarf (ends with stripe pattern)",
+            "casual suit resembling a white coat"
+          ]
+        }
+      }
     ],
     "RelationNotes": "ハードウェアのことは百を最大に信用し、時に百が思いつかない発想を提供する",
     "RelationNotes_EN": "Trusts Hudret implicitly when it comes to hardware, and sometimes provides ideas that Hudret wouldn’t come up with",
@@ -32367,6 +33632,23 @@
       }
     ],
     "Weight_kg": { "hideText": "非公開" },
+    "TailsUnit": "猫型1本(アクセサリー)",
+    "TailsUnit_EN": "One cat-type tail (accessory)",
+    "NumberMarkLocation": [
+      {
+        "Formation": null,
+        "Marks": [
+          {
+            "MarkPosition": "白衣の左胸,襟の向かって右下にやや大きく",
+            "MarkPosition_EN": "On the left chest of the white coat, slightly large on the lower right side of the collar",
+            "MarkColor": "淡い茶色(暗色のアウトライン)",
+            "MarkColor_EN": "light brown (with dark outline)",
+            "MarkNotation": "アラビア数字の「00」",
+            "MarkNotation_EN": "Arabic numeral '00'"
+          }
+        ]
+      }
+    ],
     "Class": ["開発者", "最高技術所長"],
     "FirstPersonCalling": "僕",
     "FirstPersonCalling_EN": "I (masc. casual)",
@@ -32381,7 +33663,27 @@
     "Weakness": "発達障碍が就職活動に響いている（ただし姉の博士課程に協力することになってからはそこまで困っていない）",
     "Weakness_EN": "A developmental disability has impacted his job hunting (though since he’s been helping with his older sister’s doctoral research, it hasn’t been much of an issue)",
     "IdentityMotif": [
-      { "Formation": "humanoid", "Motif": { "Motif_JP": [], "Motif_EN": [] } }
+      {
+        "Formation": null,
+        "Motif": {
+          "Motif_JP": [
+            "ヒューマノイド形態と同様",
+            "猫の耳型のアクセサリー",
+            "ティール色のミディアムヘア",
+            "緑褐色の目",
+            "淡いティール色の長いマフラー(端がストライプ模様)",
+            "白衣のようなカジュアルスーツ"
+          ],
+          "Motif_EN": [
+            "same humanoid form",
+            "cat ear accessories",
+            "teal medium hair",
+            "green-brown eyes",
+            "long light teal scarf (ends with stripe pattern)",
+            "casual suit resembling a white coat"
+          ]
+        }
+      }
     ],
     "RelationNotes": "ROS,ファームウェアのことは零を最大に信用し、時に零の暴走を止めている",
     "RelationNotes_EN": "Trusts Zera implicitly when it comes to ROS and firmware, and sometimes keeps Zera's runaways in check",
