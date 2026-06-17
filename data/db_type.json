@@ -723,7 +723,7 @@
       "$DefType": [
         {
           "hashTag": "Formation",
-          "$type": "#DictIndex",
+          "$type": "#DictIndex|#Null",
           "$dict": "Formation",
           "hashTag_JP": "形態名"
         },
