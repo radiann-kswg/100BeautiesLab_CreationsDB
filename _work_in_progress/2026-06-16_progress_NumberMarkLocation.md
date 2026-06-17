@@ -103,10 +103,37 @@ NumberMarkLocation: $Def_NumberMarkLocation[]|#Null
 
 ---
 
+---
+
+## 追記（2026-06-17）: develop ブランチでの NML / IdentityMotif 入力完了 → addon-ai-tag へ反映
+
+`develop` ブランチにて、ユーザーが `NumberMarkLocation` と `IdentityMotif` を手動入力済み（95件）。
+その内容を `addon-ai-tag` ブランチへマージ後、AIHints を一括更新した。
+
+### 更新内容（92件・addon-ai-tag ブランチ）
+
+| フィールド | 変更内容 |
+|---|---|
+| `AIHints.common.immutable_traits` | NML 全形態分から再構築（形態名付き・表記方式フル記述） |
+| `AIHints.forms.{f}.silhouette_notes.body_description` | IM.Motif_EN から再構築（衣装・アクセサリー除外、fox ears 等は保持） |
+| `AIHints.forms.{f}.ai_tags` の数字マーク部分 | NML の色・表記から再生成・標準化（"emblem" → "marking"） |
+| `AIHints.forms.corefolder.natural_language_description` | NML ベースで再構築（TODO 修正含む） |
+| `AIHints.forms.{f}.prompt_export` | 更新後の ai_tags から再結合 |
+
+### 設計上の確定事項
+
+- `Formation: null` は Num=0 / Num=00 の専用運用（人間キャラ・標準形態なし）。スキーマ上 `#DictIndex|#Null` で有効。
+- Num=29 コアフォルダの `body_description` から `medium-large bust` を除外（コアフォルダ形態は共通体格のため不要、意図通り）
+- Num=78 / 87 の `MarkColor: null` は意図的（ハート模様モチーフ・色指定なし）
+
+### スクリプト
+
+`.cache/update_aihints.py`
+
+---
+
 ## 未完了タスク
 
-- [ ] スキップ36キャラへの `NumberMarkLocation` 手動入力（ユーザー作業）
-- [ ] 全キャラの `MarkPosition`（日本語）補完（ユーザー作業）
-- [ ] humanoid 形態の印字位置詳細入力（ユーザー作業）
-- [ ] AIHints のない残りキャラへの AIHints 追加後、番号タグの NML 準拠化（未実施）
+- [ ] 未入力10キャラへの `NumberMarkLocation` / `IdentityMotif` 手動入力: Num 38, 54, 59, 79, 80, 82, 83, 90, 91, 95（ユーザー作業）
+- [ ] AIHints 未設定13キャラへの AIHints 追加: Num 38, 54, 59, 67-old, 79, 80, 82, 83, 90, 91, 95, 0, 00（ユーザー作業）
 - [ ] UI 表示確認・調整（必要に応じて）
