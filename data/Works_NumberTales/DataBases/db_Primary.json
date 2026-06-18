@@ -56,7 +56,7 @@
         "Marks": [
           {
             "MarkPosition": "パーカーの左胸の部分",
-            "MarkPosition_EN": "Left chest area of the hoodie",
+            "MarkPosition_EN": "Left chest area of the hooded top",
             "MarkColor": "赤",
             "MarkColor_EN": "red",
             "MarkNotation": "アラビア数字の「1」",
@@ -126,7 +126,7 @@
             "fox ears(left ear drooping)",
             "single fox tail",
             "energetic open smile",
-            "light pink hoodie",
+            "light pink hooded top",
             "arrow-shaped chest zipper"
           ]
         }
@@ -151,7 +151,7 @@
             "single fox tail",
             "energetic open smile",
             "casual outfit",
-            "light pink hoodie",
+            "light pink hooded top",
             "arrow-shaped chest zipper",
             "shorts",
             "gray short boots"
@@ -5058,7 +5058,7 @@
         "Marks": [
           {
             "MarkPosition": "パーカーの胸から腰にかけて薄色の帯模様が掛かっている部分の向かって右, 帯模様の縦の大きさに合わせてやや大きく",
-            "MarkPosition_EN": "the right side of the area with a pale stripe pattern from the chest to the waist of the hoodie, somewhat large to match the vertical size of the stripe pattern",
+            "MarkPosition_EN": "the right side of the area with a pale stripe pattern from the chest to the waist of the hooded top, somewhat large to match the vertical size of the stripe pattern",
             "MarkColor": "暗色",
             "MarkColor_EN": "dark",
             "MarkNotation": "アラビア数字の「23」",
@@ -5125,7 +5125,7 @@
             "fox ears",
             "adventurous smile",
             "yellow horizontal line makeup on cheeks",
-            "green hoodie",
+            "green hooded top",
             "athletic outfit",
             "wide-leg pants",
             "casual private outfit",
@@ -7116,7 +7116,7 @@
         "Marks": [
           {
             "MarkPosition": "パーカーの胸から腰にかけて薄色の帯模様が掛かっている部分の向かって右, 帯模様の縦の大きさに合わせてやや大きく",
-            "MarkPosition_EN": "the right side of the area with a pale stripe pattern from the chest to the waist of the hoodie, somewhat large to match the vertical size of the stripe pattern",
+            "MarkPosition_EN": "the right side of the area with a pale stripe pattern from the chest to the waist of the hooded top, somewhat large to match the vertical size of the stripe pattern",
             "MarkColor": "暗色",
             "MarkColor_EN": "dark",
             "MarkNotation": "アラビア数字の「32」",
@@ -9523,16 +9523,8 @@
       {
         "Formation": "corefolder",
         "Motif": {
-          "Motif_JP": [
-            "狐の耳",
-            "濃い紺色のショートヘア",
-            "琥珀色の目"
-          ],
-          "Motif_EN": [
-            "fox ears",
-            "short dark navy hair",
-            "amber eyes"
-          ]
+          "Motif_JP": ["狐の耳", "濃い紺色のショートヘア", "琥珀色の目"],
+          "Motif_EN": ["fox ears", "short dark navy hair", "amber eyes"]
         }
       },
       {
@@ -9939,16 +9931,8 @@
       {
         "Formation": "corefolder",
         "Motif": {
-          "Motif_JP": [
-            "狐の耳",
-            "黒い短いポニーテール",
-            "ティールの目"
-          ],
-          "Motif_EN": [
-            "fox ears",
-            "short black ponytail",
-            "teal eyes"
-          ]
+          "Motif_JP": ["狐の耳", "黒い短いポニーテール", "ティールの目"],
+          "Motif_EN": ["fox ears", "short black ponytail", "teal eyes"]
         }
       },
       {
@@ -10953,7 +10937,7 @@
         "Marks": [
           {
             "MarkPosition": "スカーフのように身体に巻いているパーカーの向かって右側の袖,ミント色先端部分に小さく(袖を括っている部分で一部が隠れることがある)",
-            "MarkPosition_EN": "On the right-hand sleeve of the hoodie, which is wrapped around the body like a scarf, there is a small detail on the mint-coloured tip (which may be partially hidden by the part where the sleeve is tied)",
+            "MarkPosition_EN": "On the right-hand sleeve of the hooded top, which is wrapped around the body like a scarf, there is a small detail on the mint-coloured tip (which may be partially hidden by the part where the sleeve is tied)",
             "MarkColor": "深緑",
             "MarkColor_EN": "dark green",
             "MarkNotation": "アラビア数字の「50」",
@@ -10966,7 +10950,7 @@
         "Marks": [
           {
             "MarkPosition": "腰に巻いているパーカーの向かって右側の袖,ミント色先端部分に小さく(袖を括っている部分で一部が隠れることがある)",
-            "MarkPosition_EN": "On the right-hand sleeve of the hoodie, which is wrapped around the waist, there is a small detail on the mint-coloured tip (which may be partially hidden by the part where the sleeve is tied)",
+            "MarkPosition_EN": "On the right-hand sleeve of the hooded top, which is wrapped around the waist, there is a small detail on the mint-coloured tip (which may be partially hidden by the part where the sleeve is tied)",
             "MarkColor": "深緑",
             "MarkColor_EN": "dark green",
             "MarkNotation": "アラビア数字の「50」",
@@ -11010,7 +10994,7 @@
             "cat whiskers",
             "green hair in buns (slightly tied at the back)",
             "blue-green eyes",
-            "mint-colored hoodie wrapped around the body"
+            "mint-colored hooded top wrapped around the body"
           ]
         }
       },
@@ -11029,7 +11013,7 @@
             "large cat ears",
             "green hair in buns (slightly tied at the back)",
             "blue-green eyes",
-            "mint-colored hoodie wrapped around the waist",
+            "mint-colored hooded top wrapped around the waist",
             "green tunic",
             "dark green leggings"
           ]
@@ -12630,16 +12614,8 @@
       {
         "Formation": "corefolder",
         "Motif": {
-          "Motif_JP": [
-            "狐の耳",
-            "茶色の長い髪",
-            "水色の目"
-          ],
-          "Motif_EN": [
-            "fox ears",
-            "long brown hair",
-            "light blue eyes"
-          ]
+          "Motif_JP": ["狐の耳", "茶色の長い髪", "水色の目"],
+          "Motif_EN": ["fox ears", "long brown hair", "light blue eyes"]
         }
       },
       {
@@ -14568,11 +14544,7 @@
       {
         "Formation": "corefolder",
         "Motif": {
-          "Motif_JP": [
-            "狐の耳",
-            "紺色のミディアムショートヘア",
-            "水色の目"
-          ],
+          "Motif_JP": ["狐の耳", "紺色のミディアムショートヘア", "水色の目"],
           "Motif_EN": [
             "fox ears",
             "navy blue medium-short hair",
@@ -14706,11 +14678,7 @@
       {
         "Formation": "corefolder",
         "Motif": {
-          "Motif_JP": [
-            "狐の耳",
-            "紺色のミディアムショートヘア",
-            "水色の目"
-          ],
+          "Motif_JP": ["狐の耳", "紺色のミディアムショートヘア", "水色の目"],
           "Motif_EN": [
             "fox ears",
             "navy blue medium-short hair",
@@ -15336,11 +15304,7 @@
         "Formation": "corefolder",
         "Motif": {
           "Motif_JP": ["狐の耳", "紫の髪", "濃紺の目"],
-          "Motif_EN": [
-            "fox ears",
-            "purple hair",
-            "dark blue eyes"
-          ]
+          "Motif_EN": ["fox ears", "purple hair", "dark blue eyes"]
         }
       },
       {
@@ -18661,12 +18625,7 @@
       {
         "Formation": "corefolder",
         "Motif": {
-          "Motif_JP": [
-            "狐の耳",
-            "マゼンタの長い髪",
-            "赤い目",
-            "赤いネクタイ"
-          ],
+          "Motif_JP": ["狐の耳", "マゼンタの長い髪", "赤い目", "赤いネクタイ"],
           "Motif_EN": [
             "fox ears",
             "long magenta hair",
