@@ -289,6 +289,11 @@
   {
     "Card": { "Stoat": "Dealer", "Num": 79 },
     "Progress": "released(beta)",
+    "AnotherRegions_DBLink": {
+      "_Works": "NumberTales",
+      "_DB": "Secondary",
+      "Num": "%"
+    },
     "Images": { "concept_PNGName": ["cnsp_imgFLDealer"] },
     "FormalName": "錦野 舞",
     "FormalName_EN": "Dancy Actressilk",
@@ -328,6 +333,11 @@
   {
     "Card": { "Stoat": "Dealer", "Num": 80 },
     "Progress": "released(beta)",
+    "AnotherRegions_DBLink": {
+      "_Works": "NumberTales",
+      "_DB": "Secondary",
+      "Num": "∞"
+    },
     "Images": { "concept_PNGName": ["cnsp_imgFLDealer"] },
     "FormalName": "錦野 歌嫁",
     "FormalName_EN": "Phonia Actressilk",

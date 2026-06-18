@@ -31,7 +31,11 @@
           "NumerospecStats",
           "Relation",
           "ThisMasters",
-          "ConversationPattern"
+          "ConversationPattern",
+          "SameModels_DBLink",
+          "SameMPSeries_DBLink",
+          "AnotherVersions_DBLink",
+          "AnotherRegions_DBLink"
         ]
       }
     },
@@ -60,7 +64,14 @@
           "Height_cm",
           "Weight_kg"
         ],
-        "subFields": ["AbilityStats", "ArcanumspecStats"]
+        "subFields": [
+          "IdentityMotif",
+          "AbilityStats",
+          "ArcanumspecStats",
+          "ThisDealer_DBLink",
+          "ConversationPattern",
+          "AnotherRegions_DBLink"
+        ]
       }
     },
     "#Works_ShouArRiders": {
@@ -84,7 +95,11 @@
           "Weight_kg",
           "BeastspecName"
         ],
-        "subFields": ["BeastspecStats"]
+        "subFields": [
+          "BeastspecStats",
+          "ConversationPattern",
+          "AnotherRegions_DBLink"
+        ]
       }
     },
     "#Works_UnibyteLive": {
@@ -104,9 +119,16 @@
           "GenderType",
           "Height_cm",
           "BustSize",
-          "AccessoryUnit"
+          "AccessoryUnit",
+          "ThisPerformer_DBLink",
+          "AnotherRegions_DBLink"
         ],
-        "subFields": ["AbilityStats", "StreamingActivity"]
+        "subFields": [
+          "IdentityMotif",
+          "AbilityStats",
+          "StreamingActivity",
+          "ConversationPattern"
+        ]
       },
       "Works_Hidden": true
     },
@@ -130,7 +152,8 @@
           "Height_cm",
           "Weight_kg",
           "BustSize"
-        ]
+        ],
+        "subFields": ["ConversationPattern", "AnotherRegions_DBLink"]
       }
     },
     "#Works_UnauthedLogica": {
@@ -152,6 +175,11 @@
           "GenderType",
           "Height_cm",
           "Weight_kg"
+        ],
+        "subFields": [
+          "ConversationPattern",
+          "AnotherVersions_DBLink",
+          "AnotherRegions_DBLink"
         ]
       },
       "Works_Hidden": true
@@ -179,7 +207,12 @@
           "ChronoholderName",
           "ChronospecName"
         ],
-        "subFields": ["AbilityStats", "ChronospecAbout", "ChronospecStats"]
+        "subFields": [
+          "AbilityStats",
+          "ChronospecAbout",
+          "ChronospecStats",
+          "ConversationPattern"
+        ]
       }
     },
     "#Works_DestinyFoxRecords": {
@@ -209,7 +242,8 @@
           "GenderType",
           "Height_cm",
           "Weight_kg"
-        ]
+        ],
+        "subFields": ["ConversationPattern"]
       }
     },
     "#Works_Proxies": {

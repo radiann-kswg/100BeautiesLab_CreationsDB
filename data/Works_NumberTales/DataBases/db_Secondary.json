@@ -2,6 +2,10 @@
   {
     "sec_SeriesTitle": "ナンバーテールズ化企画",
     "Num": "115-numberize",
+    "SameMPSeries_DBLink": [
+      { "_DB": "SelfSecondary", "Num": 115 },
+      { "_DB": "SemiPrimary", "Num": "115-dev" }
+    ],
     "Progress": "released",
     "Images": {
       "concept_PNGName": "numberize/cnsp_img115-numberize",
@@ -16,6 +20,7 @@
   {
     "sec_SeriesTitle": "ナンバーテールズ化企画",
     "Num": "148-numberize",
+    "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 148 }],
     "Progress": "released",
     "Images": { "concept_PNGName": "numberize/cnsp_img148-numberize" },
     "Name": "(ナンバーテールズ化企画絵)",
@@ -27,6 +32,7 @@
   {
     "sec_SeriesTitle": "ナンバーテールズ化企画",
     "Num": "227-numberize",
+    "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 227 }],
     "Progress": "released",
     "Images": { "concept_PNGName": "numberize/cnsp_img227-numberize" },
     "Name": "(ナンバーテールズ化企画絵)",
@@ -38,6 +44,7 @@
   {
     "sec_SeriesTitle": "ナンバーテールズ化企画",
     "Num": "232-numberize",
+    "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 232 }],
     "Progress": "released",
     "Images": { "concept_PNGName": "numberize/cnsp_img232-numberize" },
     "Name": "(ナンバーテールズ化企画絵)",
@@ -49,6 +56,7 @@
   {
     "sec_SeriesTitle": "ナンバーテールズ化企画",
     "Num": "238-numberize",
+    "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 238 }],
     "Progress": "released",
     "Images": { "concept_PNGName": "numberize/cnsp_img238-numberize" },
     "Name": "(ナンバーテールズ化企画絵)",
@@ -60,6 +68,7 @@
   {
     "sec_SeriesTitle": "ナンバーテールズ化企画",
     "Num": "241-numberize",
+    "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 241 }],
     "Progress": "released",
     "Images": { "concept_PNGName": "numberize/cnsp_img241-numberize" },
     "Name": "(ナンバーテールズ化企画絵)",
@@ -72,6 +81,7 @@
     "sec_SeriesTitle": "ナンバーテールズ化企画",
     "Num": "258-numberize",
     "Progress": "released",
+    "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 258 }],
     "Images": { "concept_PNGName": "numberize/cnsp_img258-numberize" },
     "Name": "(ナンバーテールズ化企画絵)",
     "Name_EN": "(Illustration of NumberizeTales Project)",
@@ -82,6 +92,7 @@
   {
     "sec_SeriesTitle": "ナンバーテールズ化企画",
     "Num": "263-numberize",
+    "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 263 }],
     "Progress": "released",
     "Images": { "concept_PNGName": "numberize/cnsp_img263-numberize" },
     "Name": "(ナンバーテールズ化企画絵)",
@@ -93,6 +104,7 @@
   {
     "sec_SeriesTitle": "ナンバーテールズ化企画",
     "Num": "265-numberize",
+    "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 265 }],
     "Progress": "released",
     "Images": { "concept_PNGName": "numberize/cnsp_img265-numberize" },
     "Name": "(ナンバーテールズ化企画絵)",
@@ -104,6 +116,7 @@
   {
     "sec_SeriesTitle": "ナンバーテールズ化企画",
     "Num": "294-numberize",
+    "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 294 }],
     "Progress": "released",
     "Images": { "concept_PNGName": "numberize/cnsp_img294-numberize" },
     "Name": "(ナンバーテールズ化企画絵)",
@@ -115,6 +128,7 @@
   {
     "sec_SeriesTitle": "ナンバーテールズ化企画",
     "Num": "295-numberize",
+    "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 295 }],
     "Progress": "released",
     "Images": { "concept_PNGName": "numberize/cnsp_img295-numberize" },
     "Name": "(ナンバーテールズ化企画絵)",
@@ -126,6 +140,7 @@
   {
     "sec_SeriesTitle": "ナンバーテールズ化企画",
     "Num": "337-numberize",
+    "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 337 }],
     "Progress": "released",
     "Images": { "concept_PNGName": "numberize/cnsp_img337-numberize" },
     "Name": "(ナンバーテールズ化企画絵)",
@@ -137,6 +152,7 @@
   {
     "sec_SeriesTitle": "ナンバーテールズ化企画",
     "Num": "366-numberize",
+    "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 366 }],
     "Progress": "released",
     "Images": { "concept_PNGName": "numberize/cnsp_img366-numberize" },
     "Name": "(ナンバーテールズ化企画絵)",
@@ -149,6 +165,7 @@
     "sec_SeriesTitle": "ナンバーテールズ化企画",
     "Num": "376-numberize",
     "Progress": "released",
+    "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 376 }],
     "Images": { "concept_PNGName": "numberize/cnsp_img376-numberize" },
     "Name": "(ナンバーテールズ化企画絵)",
     "Name_EN": "(Illustration of NumberizeTales Project)",
@@ -159,6 +176,7 @@
   {
     "sec_SeriesTitle": "ナンバーテールズ化企画",
     "Num": "377-numberize",
+    "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 377 }],
     "Progress": "released",
     "Images": { "concept_PNGName": "numberize/cnsp_img377-numberize" },
     "Name": "(ナンバーテールズ化企画絵)",
@@ -170,6 +188,7 @@
   {
     "sec_SeriesTitle": "ナンバーテールズ化企画",
     "Num": "387-numberize",
+    "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 387 }],
     "Progress": "released",
     "Images": { "concept_PNGName": "numberize/cnsp_img387-numberize" },
     "Name": "(ナンバーテールズ化企画絵)",
@@ -181,6 +200,7 @@
   {
     "sec_SeriesTitle": "ナンバーテールズ化企画",
     "Num": "401-numberize",
+    "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 401 }],
     "Progress": "released",
     "Images": { "concept_PNGName": "numberize/cnsp_img401-numberize" },
     "Name": "(ナンバーテールズ化企画絵)",
@@ -193,6 +213,7 @@
     "sec_SeriesTitle": "ナンバーテールズ化企画",
     "Num": "411-numberize",
     "Progress": "released",
+    "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 411 }],
     "Images": { "concept_PNGName": "numberize/cnsp_img411-numberize" },
     "Name": "(ナンバーテールズ化企画絵)",
     "Name_EN": "(Illustration of NumberizeTales Project)",
@@ -203,6 +224,7 @@
   {
     "sec_SeriesTitle": "ナンバーテールズ化企画",
     "Num": "421-numberize",
+    "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 421 }],
     "Progress": "released",
     "Images": { "concept_PNGName": "numberize/cnsp_img421-numberize" },
     "Name": "(ナンバーテールズ化企画絵)",
@@ -215,6 +237,7 @@
     "sec_SeriesTitle": "ナンバーテールズ化企画",
     "Num": "467-numberize",
     "Progress": "released",
+    "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 467 }],
     "Images": { "concept_PNGName": "numberize/cnsp_img467-numberize" },
     "Name": "(ナンバーテールズ化企画絵)",
     "Name_EN": "(Illustration of NumberizeTales Project)",
@@ -226,6 +249,7 @@
     "sec_SeriesTitle": "ナンバーテールズ化企画",
     "Num": "476-numberize",
     "Progress": "released",
+    "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 476 }],
     "Images": { "concept_PNGName": "numberize/cnsp_img476-numberize" },
     "Name": "(ナンバーテールズ化企画絵)",
     "Name_EN": "(Illustration of NumberizeTales Project)",
@@ -237,6 +261,7 @@
     "sec_SeriesTitle": "ナンバーテールズ化企画",
     "Num": "510-numberize",
     "Progress": "released",
+    "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 510 }],
     "Images": { "concept_PNGName": "numberize/cnsp_img510-numberize" },
     "Name": "(ナンバーテールズ化企画絵)",
     "Name_EN": "(Illustration of NumberizeTales Project)",
@@ -248,6 +273,7 @@
     "sec_SeriesTitle": "ナンバーテールズ化企画",
     "Num": "558-numberize",
     "Progress": "released",
+    "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 558 }],
     "Images": { "concept_PNGName": "numberize/cnsp_img558-numberize" },
     "Name": "(ナンバーテールズ化企画絵)",
     "Name_EN": "(Illustration of NumberizeTales Project)",
@@ -259,6 +285,7 @@
     "sec_SeriesTitle": "ナンバーテールズ化企画",
     "Num": "605-numberize",
     "Progress": "released",
+    "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 605 }],
     "Images": { "concept_PNGName": "numberize/cnsp_img605-numberize" },
     "Name": "(ナンバーテールズ化企画絵)",
     "Name_EN": "(Illustration of NumberizeTales Project)",
@@ -270,6 +297,7 @@
     "sec_SeriesTitle": "ナンバーテールズ化企画",
     "Num": "625-numberize",
     "Progress": "released",
+    "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 625 }],
     "Images": { "concept_PNGName": "numberize/cnsp_img625-numberize" },
     "Name": "(ナンバーテールズ化企画絵)",
     "Name_EN": "(Illustration of NumberizeTales Project)",
@@ -281,6 +309,7 @@
     "sec_SeriesTitle": "ナンバーテールズ化企画",
     "Num": "638-numberize",
     "Progress": "released",
+    "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 638 }],
     "Images": { "concept_PNGName": "numberize/cnsp_img638-numberize" },
     "Name": "(ナンバーテールズ化企画絵)",
     "Name_EN": "(Illustration of NumberizeTales Project)",
@@ -292,6 +321,7 @@
     "sec_SeriesTitle": "ナンバーテールズ化企画",
     "Num": "670-numberize",
     "Progress": "released",
+    "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 670 }],
     "Images": { "concept_PNGName": "numberize/cnsp_img670-numberize" },
     "Name": "(ナンバーテールズ化企画絵)",
     "Name_EN": "(Illustration of NumberizeTales Project)",
@@ -303,6 +333,7 @@
     "sec_SeriesTitle": "ナンバーテールズ化企画",
     "Num": "736-numberize",
     "Progress": "released",
+    "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 736 }],
     "Images": { "concept_PNGName": "numberize/cnsp_img736-numberize" },
     "Name": "(ナンバーテールズ化企画絵)",
     "Name_EN": "(Illustration of NumberizeTales Project)",
@@ -314,6 +345,7 @@
     "sec_SeriesTitle": "ナンバーテールズ化企画",
     "Num": "773-numberize",
     "Progress": "released",
+    "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 773 }],
     "Images": { "concept_PNGName": "numberize/cnsp_img773-numberize" },
     "Name": "(ナンバーテールズ化企画絵)",
     "Name_EN": "(Illustration of NumberizeTales Project)",
@@ -325,6 +357,7 @@
     "sec_SeriesTitle": "ナンバーテールズ化企画",
     "Num": "979-numberize",
     "Progress": "released",
+    "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 979 }],
     "Images": { "concept_PNGName": "numberize/cnsp_img979-numberize" },
     "Name": "(ナンバーテールズ化企画絵)",
     "Name_EN": "(Illustration of NumberizeTales Project)",
@@ -1206,6 +1239,11 @@
   {
     "Num": "0xFF",
     "Progress": "notProceeded",
+    "AnotherVersions_DBLink": {
+      "_Work": "NumberTales",
+      "_DB": "SelfSecondary",
+      "Num": "255"
+    },
     "sec_SeriesTitle": "ヘキサデミカル・テールズ(ナンバーテールズ公式副次創作版)",
     "Name": "0xFF(エフエフ)",
     "Name_EN": "0xFF(eFeF)",
@@ -1221,15 +1259,14 @@
   {
     "Num": "%",
     "Progress": "notProseed",
+    "AnotherRegions_DBLink": {
+      "_Work": "FLInvestigator78",
+      "_DB": "PrimaryDealer",
+      "Card": { "Stoat": "Dealer", "Num": 79 }
+    },
     "sec_SeriesTitle": "D-Vines(ディ-ヴァインズ)",
     "Name": "錦野 舞",
     "Name_EN": "Dancy Actressilk",
-    "_DBLink": {
-      "worksTitle": "FLInvestigator78",
-      "dbName": "PrimaryDealer",
-      "_Jump": "ThisDealer",
-      "_Search": [{ "hashTag": "Card", "key": { "Num": 79 } }]
-    },
     "Age": 24,
     "AnivDay": [
       {
@@ -1268,15 +1305,14 @@
   {
     "Num": "∞",
     "Progress": "notProseed",
+    "AnotherRegions_DBLink": {
+      "_Work": "FLInvestigator78",
+      "_DB": "PrimaryDealer",
+      "Card": { "Stoat": "Dealer", "Num": 80 }
+    },
     "sec_SeriesTitle": "D-Vines(ディ-ヴァインズ)",
     "Name": "錦野 歌嫁",
     "Name_EN": "Phonia Actressilk",
-    "_DBLink": {
-      "worksTitle": "FLInvestigator78",
-      "dbName": "PrimaryDealer",
-      "_Jump": "ThisDealer",
-      "_Search": [{ "hashTag": "Card", "key": { "Num": 80 } }]
-    },
     "Age": 24,
     "AnivDay": [
       {

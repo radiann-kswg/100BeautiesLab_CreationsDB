@@ -64,6 +64,13 @@
       "hashTag_EN": "Images"
     },
     {
+      "hashTag": "ThisArcanaHolder_DBLink",
+      "$type": "$Def_DBLinkRef|#Null",
+      "$enrich": true,
+      "hashTag_JP": "アルカナホルダー",
+      "hashTag_EN": "ArcanaHolder"
+    },
+    {
       "hashTag": "For79thDealerCalling",
       "$type": "#String|#Null",
       "hashTag_JP": "錦野舞(第79アルカナ)の呼び方",
@@ -90,12 +97,13 @@
     {
       "hashTag": "ArcanamspecAbout",
       "$type": "#Summary",
-      "hashTag_JP": "アルカナムスペック(アルカナ能力)について"
+      "hashTag_JP": "アルカナムスペック(アルカナ能力)について",
+      "hashTag_EN": "About Arcanamspecs (Arcana Abilities)"
     },
     {
       "hashTag": "ArcanamspecAbout_EN",
       "$type": "#Summary|#Null",
-      "hashTag_EN": "About ArcanamSpecs (Arcana Abilities)"
+      "hashTag_EN": "About Arcanamspecs (Arcana Abilities)"
     },
     {
       "hashTag": "ArcanumspecStats",

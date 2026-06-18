@@ -13,6 +13,64 @@
       "hashTag_EN": "Number"
     },
     {
+      "hashTag": "Images",
+      "$type": [
+        {
+          "hashTag": "concept_PNGName",
+          "$type": "#PNGFileName",
+          "hashTag_JP": "設定原画",
+          "hashTag_EN": "Concept Art"
+        },
+        {
+          "hashTag": "catalog_PNGName",
+          "$type": "#PNGFileName",
+          "hashTag_JP": "設定資料",
+          "hashTag_EN": "Catalog Art"
+        },
+        {
+          "hashTag": "conceptAlt_PNGName",
+          "$type": "#PNGFileName[]",
+          "hashTag_JP": "設定原画差分",
+          "hashTag_EN": "Concept Art Variations"
+        },
+        {
+          "hashTag": "corefolder_PNGPath",
+          "$type": "#PNGFilePath[]",
+          "hashTag_JP": "コアフォルダ画像",
+          "hashTag_EN": "corefolder Images"
+        },
+        {
+          "hashTag": "designAlt_PNGPath",
+          "$type": "#PNGFilePath[]",
+          "hashTag_JP": "衣装差分など",
+          "hashTag_EN": "Design Variations"
+        },
+        {
+          "hashTag": "arts_PNGPath",
+          "$type": "#PNGFilePath[]",
+          "hashTag_JP": "イラスト作品",
+          "hashTag_EN": "Illustration Works"
+        }
+      ],
+      "$display": { "section": "images", "tagSpace": "internal" },
+      "hashTag_JP": "画像",
+      "hashTag_EN": "Images"
+    },
+    {
+      "hashTag": "SameModels_DBLink",
+      "$type": "$Def_DBLinkRef[]|#Null",
+      "hashTag_JP": "同モデル",
+      "$enrich": true,
+      "hashTag_EN": "Same-Model"
+    },
+    {
+      "hashTag": "SameMPSeries_DBLink",
+      "$type": "$Def_DBLinkRef[]|#Null",
+      "hashTag_JP": "同量産シリーズ",
+      "$enrich": false,
+      "hashTag_EN": "Same-MassProduction Series"
+    },
+    {
       "hashTag": "ThisMasters",
       "$type": "$Def_ThisMastersEntry[]|#Null",
       "hashTag_JP": "専属契約した主人",
@@ -57,50 +115,6 @@
       "hashTag": "NumerospecAbout_EN",
       "$type": "#Summary|#Null",
       "hashTag_EN": "About 'Kabbalistic Protection' (Numerospec)"
-    },
-    {
-      "hashTag": "Images",
-      "$type": [
-        {
-          "hashTag": "concept_PNGName",
-          "$type": "#PNGFileName",
-          "hashTag_JP": "設定原画",
-          "hashTag_EN": "Concept Art"
-        },
-        {
-          "hashTag": "catalog_PNGName",
-          "$type": "#PNGFileName",
-          "hashTag_JP": "設定資料",
-          "hashTag_EN": "Catalog Art"
-        },
-        {
-          "hashTag": "conceptAlt_PNGName",
-          "$type": "#PNGFileName[]",
-          "hashTag_JP": "設定原画差分",
-          "hashTag_EN": "Concept Art Variations"
-        },
-        {
-          "hashTag": "corefolder_PNGPath",
-          "$type": "#PNGFilePath[]",
-          "hashTag_JP": "コアフォルダ画像",
-          "hashTag_EN": "corefolder Images"
-        },
-        {
-          "hashTag": "designAlt_PNGPath",
-          "$type": "#PNGFilePath[]",
-          "hashTag_JP": "衣装差分など",
-          "hashTag_EN": "Design Variations"
-        },
-        {
-          "hashTag": "arts_PNGPath",
-          "$type": "#PNGFilePath[]",
-          "hashTag_JP": "イラスト作品",
-          "hashTag_EN": "Illustration Works"
-        }
-      ],
-      "$display": { "section": "images", "tagSpace": "internal" },
-      "hashTag_JP": "画像",
-      "hashTag_EN": "Images"
     },
     {
       "hashTag": "NumerospecStats",

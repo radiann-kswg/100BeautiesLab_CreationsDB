@@ -3,12 +3,9 @@
     "Card": { "Stoat": "Major", "StoatNum": 0, "Num": 22 },
     "Progress": "released(beta)",
     "Images": { "cardDesign_PNGName": "crddsn_imgFLM0" },
-    "_DBLink": {
-      "worksTitle": "FLInvestigator78",
-      "dbName": "PrimaryDealer",
-      "_Search": [
-        { "hashTag": "Card", "key": { "Stoat": "Major", "StoatNum": 0 } }
-      ]
+    "ThisArcanaHolder_DBLink": {
+      "_DB": "PrimaryDealer",
+      "Card": { "Stoat": "Major", "StoatNum": 0 }
     },
     "Name": "フェニクス",
     "Name_EN": "Phoenix",
@@ -49,12 +46,9 @@
     "Card": { "Stoat": "Major", "StoatNum": 1, "Num": 1 },
     "Progress": "released(beta)",
     "Images": { "cardDesign_PNGName": "crddsn_imgFLM1" },
-    "_DBLink": {
-      "worksTitle": "FLInvestigator78",
-      "dbName": "PrimaryDealer",
-      "_Search": [
-        { "hashTag": "Card", "key": { "Stoat": "Major", "StoatNum": 1 } }
-      ]
+    "ThisArcanaHolder_DBLink": {
+      "_DB": "PrimaryDealer",
+      "Card": { "Stoat": "Major", "StoatNum": 1 }
     },
     "Name": "オリジン",
     "Name_EN": "Dr.Origin",
@@ -94,12 +88,9 @@
   {
     "Card": { "Stoat": "Major", "StoatNum": 2, "Num": 2 },
     "Progress": "notProceeded",
-    "_DBLink": {
-      "worksTitle": "FLInvestigator78",
-      "dbName": "PrimaryDealer",
-      "_Search": [
-        { "hashTag": "Card", "key": { "Stoat": "Major", "StoatNum": 2 } }
-      ]
+    "ThisArcanaHolder_DBLink": {
+      "_DB": "PrimaryDealer",
+      "Card": { "Stoat": "Major", "StoatNum": 2 }
     },
     "Name": "ヨハネ",
     "Name_EN": "John",
@@ -138,12 +129,9 @@
     "Card": { "Stoat": "Major", "StoatNum": 3, "Num": 3 },
     "Progress": "released(beta)",
     "Images": { "cardDesign_PNGName": "crddsn_imgFLM3" },
-    "_DBLink": {
-      "worksTitle": "FLInvestigator78",
-      "dbName": "PrimaryDealer",
-      "_Search": [
-        { "hashTag": "Card", "key": { "Stoat": "Major", "StoatNum": 3 } }
-      ]
+    "ThisArcanaHolder_DBLink": {
+      "_DB": "PrimaryDealer",
+      "Card": { "Stoat": "Major", "StoatNum": 3 }
     },
     "Name": "ウェヌス",
     "Name_EN": "Venus",
@@ -219,12 +207,9 @@
     "Card": { "Stoat": "Major", "StoatNum": 8, "Num": 8 },
     "Progress": "released(beta)",
     "Images": { "cardDesign_PNGName": "crddsn_imgFLM8" },
-    "_DBLink": {
-      "worksTitle": "FLInvestigator78",
-      "dbName": "PrimaryDealer",
-      "_Search": [
-        { "hashTag": "Card", "key": { "Stoat": "Major", "StoatNum": 8 } }
-      ]
+    "ThisArcanaHolder_DBLink": {
+      "_DB": "PrimaryDealer",
+      "Card": { "Stoat": "Major", "StoatNum": 8 }
     },
     "Name": "リオン",
     "Name_EN": "Lion",
@@ -265,12 +250,9 @@
     "Card": { "Stoat": "Major", "StoatNum": 9, "Num": 9 },
     "Progress": "released(beta)",
     "Images": { "cardDesign_PNGName": "crddsn_imgFLM9" },
-    "_DBLink": {
-      "worksTitle": "FLInvestigator78",
-      "dbName": "PrimaryDealer",
-      "_Search": [
-        { "hashTag": "Card", "key": { "Stoat": "Major", "StoatNum": 9 } }
-      ]
+    "ThisArcanaHolder_DBLink": {
+      "_DB": "PrimaryDealer",
+      "Card": { "Stoat": "Major", "StoatNum": 9 }
     },
     "Name": "ヴェール",
     "Name_EN": "Veil",
@@ -371,12 +353,9 @@
   {
     "Card": { "Stoat": "Major", "StoatNum": 16, "Num": 16 },
     "Progress": "notProceeded",
-    "_DBLink": {
-      "worksTitle": "FLInvestigator78",
-      "dbName": "PrimaryDealer",
-      "_Search": [
-        { "hashTag": "Card", "key": { "Stoat": "Major", "StoatNum": 16 } }
-      ]
+    "ThisArcanaHolder_DBLink": {
+      "_DB": "PrimaryDealer",
+      "Card": { "Stoat": "Major", "StoatNum": 16 }
     },
     "Name": "バベル",
     "Name_EN": "Babel",
@@ -414,12 +393,9 @@
   {
     "Card": { "Stoat": "Major", "StoatNum": 17, "Num": 17 },
     "Progress": "notProceeded",
-    "_DBLink": {
-      "worksTitle": "FLInvestigator78",
-      "dbName": "PrimaryDealer",
-      "_Search": [
-        { "hashTag": "Card", "key": { "Stoat": "Major", "StoatNum": 17 } }
-      ]
+    "ThisArcanaHolder_DBLink": {
+      "_DB": "PrimaryDealer",
+      "Card": { "Stoat": "Major", "StoatNum": 17 }
     },
     "Name": "ゲイザー",
     "Name_EN": "Gazer",
@@ -493,10 +469,9 @@
     "Card": { "Stoat": "Dealer", "StoatNum": null, "Num": 79 },
     "Progress": "released(beta)",
     "Images": { "arts_PNGPath": ["arts_imgFLDealer"] },
-    "_DBLink": {
-      "worksTitle": "FLInvestigator78",
-      "dbName": "PrimaryDealer",
-      "_Search": [{ "hashTag": "Card", "key": { "Num": 79 } }]
+    "ThisArcanaHolder_DBLink": {
+      "_DB": "PrimaryDealer",
+      "Card": { "Stoat": "Dealer", "StoatNum": 79 }
     },
     "Name": null,
     "Name_EN": null,
@@ -532,10 +507,9 @@
     "Card": { "Stoat": "Dealer", "StoatNum": null, "Num": 80 },
     "Progress": "released(beta)",
     "Images": { "arts_PNGPath": ["arts_imgFLDealer"] },
-    "_DBLink": {
-      "worksTitle": "FLInvestigator78",
-      "dbName": "PrimaryDealer",
-      "_Search": [{ "hashTag": "Card", "key": { "Num": 80 } }]
+    "ThisArcanaHolder_DBLink": {
+      "_DB": "PrimaryDealer",
+      "Card": { "Stoat": "Dealer", "StoatNum": 80 }
     },
     "Name": null,
     "Name_EN": null,

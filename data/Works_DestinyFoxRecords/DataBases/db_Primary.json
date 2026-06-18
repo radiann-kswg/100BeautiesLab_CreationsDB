@@ -288,11 +288,9 @@
     "Unit_EN": "Plane Angle (Radian Measure)",
     "Progress": "stillTentative",
     "Images": { "design_PNGName": "design_imgPhysU-rad" },
-    "_DBLink": {
-      "worksTitle": "Proxies",
-      "dbName": "Proxy",
-      "_Search": [{ "hashTag": "Generation", "key": 2 }]
-    },
+    "AnotherRegions_DBLink": [
+      { "_Work": "Proxies", "_DB": "Proxy", "Generation": 2 }
+    ],
     "Name": "ラジアン",
     "Name_EN": "RadianN",
     "FormalName": "扇 二春",

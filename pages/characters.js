@@ -33,6 +33,7 @@ import '../lib/section-renders/numSpec.js';
 import '../lib/section-renders/arcanumSpec.js';
 import '../lib/section-renders/chronoSpec.js';
 import '../lib/section-renders/relation.js';
+import '../lib/section-renders/dblink.js';
 
 // Characters page: fetch from /api/v1 and render list/detail
 
@@ -6513,6 +6514,13 @@ export async function renderDetail(workId, rec) {
 
 			// db_meta.json の $DetailLayout で抑止されたキーは自動表示しない
 			if (Array.isArray(detailLayout?.suppressKeys) && detailLayout.suppressKeys.includes(f.key)) {
+				shownKeys.add(f.key);
+				continue;
+			}
+
+			// sectionWrapper を持つフィールドは subFields が設定されている作品で subFields 未登録なら表示しない
+			// 例: IdentityMotif は NumberTales の subFields にあるが SinisterChangingGirls にはない
+			if (detailSubFieldKeySet.size > 0 && f.display?.sectionWrapper && !detailSubFieldKeySet.has(f.key)) {
 				shownKeys.add(f.key);
 				continue;
 			}
