@@ -25,6 +25,13 @@
 
 import '../lib/wrapper-common.js';
 import '../lib/section-wrapper-common.js';
+import '../lib/section-renders/formsMotif.js';
+import '../lib/section-renders/thisMasters.js';
+import '../lib/section-renders/_specStatsHelpers.js';
+import '../lib/section-renders/abilityStats.js';
+import '../lib/section-renders/numSpec.js';
+import '../lib/section-renders/arcanumSpec.js';
+import '../lib/section-renders/chronoSpec.js';
 
 // Characters page: fetch from /api/v1 and render list/detail
 
@@ -6001,23 +6008,6 @@ export async function renderDetail(workId, rec) {
 			return fallback;
 		};
 
-		/**
-		 * 「specStats っぽい」トップレベルキーを推定
-		 * - 末尾が specStats（大文字小文字は許容）
-		 * - 中身が object
-		 * @returns {string}
-		 */
-		const inferSpecStatsKey = () => {
-			const keys = Object.keys(rec || {});
-			const candidates = keys.filter(k => /specStats$/i.test(k) && isPlainObject(rec?.[k]) && Object.keys(rec?.[k] || {}).length > 0);
-			if (!candidates.length) return '';
-			// 複数ある場合は「要素数が多い」方を優先（安定性のため）
-			candidates.sort((a, b) => Object.keys(rec?.[b] || {}).length - Object.keys(rec?.[a] || {}).length);
-			return candidates[0] || '';
-		};
-
-		const pickedSpecStatsKey = inferSpecStatsKey();
-		const numStats = pickedSpecStatsKey ? (rec?.[pickedSpecStatsKey] || {}) : {};
 
 		/**
 		 * SW enrich により補完された補助キーを除き、実質的な葉キーを取り出す
@@ -6052,33 +6042,6 @@ export async function renderDetail(workId, rec) {
 			return primary.length ? primary : keys;
 		};
 
-		/**
-		 * Object が「単一の葉」かどうか
-		 * - { X: '...' } / { X: 1 } / { X: { hideText: '...' } } を想定
-		 * @param {any} obj
-		 */
-		const isSingleLeafObject = (obj) => {
-			if (!isPlainObject(obj)) return false;
-			const ks = getPrimaryLeafKeys(obj);
-			if (ks.length !== 1) return false;
-			const v = obj[ks[0]];
-			if (v === null || v === undefined) return false;
-			if (typeof v === 'string' || typeof v === 'number' || typeof v === 'boolean') return true;
-			if (isPlainObject(v) && typeof v.hideText === 'string' && v.hideText.trim()) return true;
-			return false;
-		};
-
-		/**
-		 * Object が「単一葉オブジェクトの集合」かどうか
-		 * - { A: { X:'...' }, B:{ X:'...' } } の形
-		 * @param {any} obj
-		 */
-		const isObjectOfSingleLeafObjects = (obj) => {
-			if (!isPlainObject(obj)) return false;
-			const ks = Object.keys(obj).filter(k => k && typeof k === 'string' && !k.startsWith('_'));
-			if (!ks.length) return false;
-			return ks.every(k => isSingleLeafObject(obj[k]));
-		};
 
 		/**
 		 * 単一葉オブジェクトの「葉パス」の schemaType を拾う
@@ -6215,252 +6178,8 @@ export async function renderDetail(workId, rec) {
 			return parts.join(separator);
 		};
 
-		// Abilities with localized labels
-		// - top-level の object を走査し、「子が $EnumDef_Rank を含む」ものを能力値候補として推定
-		const abilityKey = (() => {
-			const keys = Object.keys(rec || {});
-			for (const k of keys) {
-				// specStats 系は専用の spec/effect/safety 描画へ回すため、能力値推定から除外する
-				if (pickedSpecStatsKey && k === pickedSpecStatsKey) continue;
-				const obj = rec?.[k];
-				if (!isPlainObject(obj)) continue;
-				const childKeys = Object.keys(obj).filter(x => x && typeof x === 'string' && !x.startsWith('_'));
-				if (!childKeys.length) continue;
-				const hit = childKeys.some(ck => schemaTypeIncludes(fieldTypeMap?.[`${k}.${ck}`], '$EnumDef_Rank'));
-				if (hit) return k;
-			}
-			return '';
-		})();
 
-		const ability = abilityKey ? (rec?.[abilityKey] || {}) : {};
-		const abilityTags = Object.entries(ability)
-			.map(([k, v]) => {
-				if (!k || typeof k !== 'string') return null;
-				if (k.startsWith('_')) return null;
-				if (isEmptyValueLoose(v)) return null;
 
-				const fallbackPath = abilityKey ? `${abilityKey}.${k}` : k;
-				const schemaPath = pickSchemaPath([fallbackPath], fallbackPath);
-
-				const fieldLabel = getFieldLabel(schemaPath, fieldLabelMap, metaForLookup, globalDefType, k);
-				const schemaType = pickSchemaType(schemaPath);
-				const schemaDisplay = pickSchemaDisplay(schemaPath, abilityKey);
-				const displayValue = formatValueForDisplay(v, fieldLabelMap, metaForLookup, globalDefType, {
-					schemaType,
-					display: schemaDisplay,
-					fieldKey: schemaPath
-				});
-
-				const fl = String(fieldLabel ?? '').trim();
-				const dv = String(displayValue ?? '').trim();
-				if (!fl || !dv) return null;
-				return el('div', { class: 'tag' }, [`${fl}: ${dv}`]);
-			})
-			.filter(Boolean);
-
-		const abilityGrid = createDetailTagGrid(abilityTags);
-
-		// Effect/Safety with localized labels
-		// - specStats 内のキーを走査し、「単一葉オブジェクトの集合」かつ葉型に #ListLink を含むものを EffectStats 相当として推定
-		const effectKey = (() => {
-			if (!pickedSpecStatsKey || !isPlainObject(numStats)) return '';
-			for (const k of Object.keys(numStats)) {
-				if (!k || typeof k !== 'string') continue;
-				const obj = numStats[k];
-				if (!isObjectOfSingleLeafObjects(obj)) continue;
-				const groupPath = `${pickedSpecStatsKey}.${k}`;
-				// いずれかの子が #ListLink を含むなら Effect 系として扱う
-				const subKeys = Object.keys(obj);
-				const hit = subKeys.some(sk => {
-					const t = getSingleLeafSchemaType(`${groupPath}.${sk}`, obj[sk]);
-					return schemaTypeIncludes(t, '#ListLink');
-				});
-				if (hit) return k;
-			}
-			return '';
-		})();
-
-		const eff = effectKey ? (numStats?.[effectKey] || {}) : {};
-		const effTags = Object.entries(eff)
-			.map(([k, v]) => {
-				if (!k || typeof k !== 'string') return null;
-				if (k.startsWith('_')) return null;
-				if (isEmptyValueLoose(v)) return null;
-
-				const fallbackPath = pickedSpecStatsKey && effectKey ? `${pickedSpecStatsKey}.${effectKey}.${k}` : k;
-				const schemaPath = pickSchemaPath([fallbackPath], fallbackPath);
-
-				const fieldLabel = getFieldLabel(schemaPath, fieldLabelMap, metaForLookup, globalDefType, k);
-				const { schemaType, schemaDisplay } = pickSchemaHintsForObjectLeaf([schemaPath], v);
-				const displayValue = formatValueForDisplay(v, fieldLabelMap, metaForLookup, globalDefType, {
-					schemaType,
-					display: schemaDisplay,
-					fieldKey: schemaPath
-				});
-
-				const fl = String(fieldLabel ?? '').trim();
-				const dv = String(displayValue ?? '').trim();
-				if (!fl || !dv) return null;
-				return el('div', { class: 'tag' }, [`${fl}: ${dv}`]);
-			})
-			.filter(Boolean);
-
-		// - specStats 内のキーを走査し、「単一葉オブジェクト」かつ葉型に #ListLink を含むものを Safety 相当として推定
-		const safetyKey = (() => {
-			if (!pickedSpecStatsKey || !isPlainObject(numStats)) return '';
-			for (const k of Object.keys(numStats)) {
-				if (!k || typeof k !== 'string') continue;
-				const obj = numStats[k];
-				if (!isSingleLeafObject(obj)) continue;
-				const t = getSingleLeafSchemaType(`${pickedSpecStatsKey}.${k}`, obj);
-				if (schemaTypeIncludes(t, '#ListLink')) return k;
-			}
-			return '';
-		})();
-
-		const safety = safetyKey ? (numStats?.[safetyKey] || {}) : {};
-		const safetyFieldPath = (pickedSpecStatsKey && safetyKey) ? `${pickedSpecStatsKey}.${safetyKey}` : '';
-		const safetyRow = safetyKey && safety && Object.keys(safety).length > 0 ? el('div', { class: 'tag' }, [
-			`${getFieldLabel(safetyFieldPath, fieldLabelMap, metaForLookup, globalDefType, safetyKey)}: ${(() => {
-				const { schemaType, schemaDisplay } = pickSchemaHintsForObjectLeaf([safetyFieldPath], safety);
-				return formatValueForDisplay(safety, fieldLabelMap, metaForLookup, globalDefType, {
-					schemaType,
-					display: schemaDisplay,
-					fieldKey: safetyFieldPath
-				});
-			})()}`
-		]) : null;
-
-		// SpecLevel のような rank 系の spec 指定値は、安全レベルと同じタグ群に寄せる
-		const specMetricTagKeys = new Set();
-		const specMetricTags = [];
-		if (pickedSpecStatsKey && isPlainObject(numStats)) {
-			for (const [k, v] of Object.entries(numStats)) {
-				if (!k || typeof k !== 'string') continue;
-				if (k.startsWith('_')) continue;
-				if (k === effectKey) continue;
-				if (k === safetyKey) continue;
-
-				const schemaPath = `${pickedSpecStatsKey}.${k}`;
-				const schemaType = pickSchemaType(schemaPath, k);
-				const schemaDisplay = pickSchemaDisplay(schemaPath, k, pickedSpecStatsKey);
-				if (!isSingleLeafObject(v) && !schemaTypeIncludes(schemaType, '$EnumDef_Rank')) continue;
-				const section = (() => {
-					const raw = String(schemaDisplay?.section ?? '').trim();
-					if (!raw && schemaTypeIncludes(schemaType, '$EnumDef_Rank')) return 'spec';
-					return raw === 'spec' ? raw : '';
-				})();
-				if (section !== 'spec') continue;
-				if (!schemaTypeIncludes(schemaType, '$EnumDef_Rank')) continue;
-
-				const displayValue = formatValueForDisplay(v, fieldLabelMap, metaForLookup, globalDefType, {
-					schemaType,
-					display: schemaDisplay,
-					fieldKey: schemaPath
-				});
-				const dv = String(displayValue ?? '').trim();
-				if (!dv) continue;
-
-				specMetricTagKeys.add(k);
-				specMetricTags.push(el('div', { class: 'tag' }, [
-					`${getFieldLabel(schemaPath, fieldLabelMap, metaForLookup, globalDefType, k)}: ${dv}`
-				]));
-			}
-		}
-
-		const detailEffectNodes = [...effTags, safetyRow, ...specMetricTags].filter(Boolean);
-		const effGrid = createDetailTagGrid(detailEffectNodes);
-
-		// SpecType with localized labels（typedef-driven）
-		// - specStats の直下から「能力種別（Material/ActionType 等の入れ子）」に該当するオブジェクトを推定し、その配下だけタグ表示する
-		// - specStats 全体（SafetyLevel/EffectStats 等）を誤って列挙しない
-		const specTypeSubKey = (() => {
-			if (!pickedSpecStatsKey || !isPlainObject(numStats)) return '';
-
-			/** @type {{ key: string, score: number }[]} */
-			const scored = [];
-
-			for (const k of Object.keys(numStats)) {
-				if (!k || typeof k !== 'string') continue;
-				const obj = numStats?.[k];
-				if (!isPlainObject(obj)) continue;
-
-				// Effect/Safety として推定済みのものは除外
-				if (k === effectKey) continue;
-				if (k === safetyKey) continue;
-
-				const prefix = `${pickedSpecStatsKey}.${k}.`;
-				let score = 0;
-
-				// typedef 上で、この prefix 配下に $display.section === 'spec' がどれだけあるかでスコアリング
-				for (const [path, d] of Object.entries(fieldDisplayMap || {})) {
-					if (!path || typeof path !== 'string') continue;
-					if (!path.startsWith(prefix)) continue;
-					if (d && typeof d === 'object' && d.section === 'spec') score += 1;
-				}
-
-				// さらに「配下に typedef が存在する」こと自体も加点（ActionType のように親に section が無いケース向け）
-				if (score === 0) {
-					const hasNested = Object.keys(fieldTypeMap || {}).some(tk => typeof tk === 'string' && tk.startsWith(prefix));
-					if (hasNested) score += 1;
-				}
-
-				const childKeys = Object.keys(obj).filter(childKey => childKey && typeof childKey === 'string' && !childKey.startsWith('_'));
-				if (childKeys.some(childKey => Array.isArray(obj?.[childKey]))) score += 1;
-				if (childKeys.some(childKey => isPlainObject(obj?.[childKey]) && !isSingleLeafObject(obj?.[childKey]))) score += 3;
-				if (childKeys.length > 0 && childKeys.every(childKey => isSingleLeafObject(obj?.[childKey]))) score -= 2;
-
-				if (score > 0) scored.push({ key: k, score });
-			}
-
-			if (!scored.length) return '';
-			scored.sort((a, b) => b.score - a.score);
-			return scored[0].key;
-		})();
-
-		const specType = (specTypeSubKey && isPlainObject(numStats?.[specTypeSubKey])) ? (numStats?.[specTypeSubKey] || {}) : {};
-		const specTypeFieldPath = (pickedSpecStatsKey && specTypeSubKey) ? `${pickedSpecStatsKey}.${specTypeSubKey}` : '';
-		const specTypeSingleLeafText = (() => {
-			if (!specTypeFieldPath || !isPlainObject(specType) || !isSingleLeafObject(specType)) return '';
-			const hints = pickSchemaHintsForObjectLeaf([specTypeFieldPath], specType);
-			const displayText = formatValueForDisplay(specType, fieldLabelMap, metaForLookup, globalDefType, {
-				schemaType: hints.schemaType,
-				display: pickSchemaDisplay(specTypeFieldPath, pickedSpecStatsKey) ?? hints.schemaDisplay,
-				fieldKey: specTypeFieldPath
-			});
-			return String(displayText ?? '').trim();
-		})();
-		const specNodes = [];
-		if (specTypeSubKey && isPlainObject(specType)) {
-			for (const [k, v] of Object.entries(specType)) {
-				if (!k || typeof k !== 'string') continue;
-				if (isEmptyValueLoose(v)) continue;
-
-				if (specTypeSingleLeafText) break;
-
-				const fieldPath = `${pickedSpecStatsKey}.${specTypeSubKey}.${k}`;
-				const schemaPath = pickSchemaPath([fieldPath], fieldPath);
-				const fieldLabel = getFieldLabel(schemaPath, fieldLabelMap, metaForLookup, globalDefType, k);
-
-				const hints = (isPlainObject(v) && !Array.isArray(v))
-					? pickSchemaHintsForObjectLeaf([schemaPath, fieldPath], v)
-					: { schemaType: pickSchemaType(schemaPath, fieldPath), schemaDisplay: pickSchemaDisplay(schemaPath, fieldPath, `${pickedSpecStatsKey}.${specTypeSubKey}`) };
-
-				// ActionType のような「子が定義されているobject」は、子ラベル付きで展開して表示する
-				const expanded = (isPlainObject(v) && hasNestedSchema(schemaPath) && !isSchemaWrapperLike(schemaPath, v, hints.schemaType))
-					? formatObjectChildren(schemaPath, v, { separator: ' / ' })
-					: '';
-
-				const displayValue = expanded || formatValueForDisplay(v, fieldLabelMap, metaForLookup, globalDefType, {
-					schemaType: hints.schemaType,
-					display: hints.schemaDisplay,
-					fieldKey: schemaPath
-				});
-
-				if (!displayValue) continue;
-				specNodes.push(el('div', { class: 'tag' }, [`${fieldLabel}: ${displayValue}`]));
-			}
-		}
 
 		// ここまでで明示的に表示したフィールドを控えておき、未表示項目を後段で包括表示する
 		const shownKeys = (() => {
@@ -6508,21 +6227,14 @@ export async function renderDetail(workId, rec) {
 			// - GenderType_JP のような派生キー（データ側に残っている場合）を二重表示しない
 			if (basicFields.some(it => it?.sourceKey === 'GenderType' || it?.labelKey === 'GenderType')) s.add('GenderType_JP');
 
-			// スペック/能力セクションで個別表示するトップレベルキー
-			if (abilityKey && !isPromotedSubFieldKey(abilityKey)) {
-				const v = rec?.[abilityKey];
-				if (v && typeof v === 'object' && Object.keys(v).length > 0) s.add(abilityKey);
-			}
-			// specStats 系（作品ごとに存在するものは二重表示を避ける）
-			// - JS 側に固定キーを持たせないため、末尾が specStats のものを抑止対象とする
+			// AbilityStats / specStats 系はサブフィールドレンダラーで表示するため二重表示を避ける
 			for (const k of Object.keys(rec || {})) {
 				if (!k || typeof k !== 'string') continue;
-				if (!/specStats$/i.test(k)) continue;
+				if (!/(?:ability|spec)stats$/i.test(k)) continue;
 				if (isPromotedSubFieldKey(k)) continue;
 				const v = rec?.[k];
 				if (v && typeof v === 'object' && Object.keys(v).length > 0) s.add(k);
 			}
-			// SpecType は specStats 配下で表示するため、ここではトップレベル抑止不要
 
 			// profile/relations/DBLinkResolved は個別表示する
 			if (rec.Summary && !isPromotedSubFieldKey('Summary')) s.add('Summary');
@@ -6847,34 +6559,7 @@ export async function renderDetail(workId, rec) {
 
 		// 2) スキーマ外（追加/互換/暫定）はキャラシートへ自動表示しない
 
-		// 3) specStats 配下の追加フィールドを、typedef の $display.section に従って各セクションへ合流
-		// - 例: PastDivers の ChronoizedPurity（spec）/ ChronoizedAbout（profile）
-		// - EffectStats / SafetyLevel / SpecType は専用描画済みなので重複追加しない
-		if (pickedSpecStatsKey && isPlainObject(numStats)) {
-			for (const [k, v] of Object.entries(numStats)) {
-				if (!k || typeof k !== 'string') continue;
-				if (k.startsWith('_')) continue;
-				if (k === effectKey) continue;
-				if (k === safetyKey) continue;
-				if (k === specTypeSubKey) continue;
-				if (specMetricTagKeys.has(k)) continue;
-				if (isEmptyValueLoose(v)) continue;
-
-				const schemaPath = `${pickedSpecStatsKey}.${k}`;
-				const schemaType = pickSchemaType(schemaPath, k);
-				const schemaDisplay = pickSchemaDisplay(schemaPath, k, pickedSpecStatsKey);
-				const section = normalizeSection(schemaDisplay?.section) || (isSummaryType(schemaType) ? 'profile' : '');
-				if (!section) continue;
-
-				pushToBucket(section, {
-					key: schemaPath,
-					label: getFieldLabel(schemaPath, fieldLabelMap, workMeta, globalDefType, k),
-					type: schemaType,
-					display: schemaDisplay,
-					value: v
-				});
-			}
-		}
+		// 3) specStats 配下フィールドの振り分けは各専用レンダラー（lib/section-renders/）が担当
 
 		const buildKvRows = (items) => (items || [])
 			.map((it) => {
@@ -7076,202 +6761,6 @@ export async function renderDetail(workId, rec) {
 			return createStandaloneSubFieldSection(it, [structuredSection]);
 		};
 
-		/**
-		 * IdentityMotif (#Def_FormsMotif[]) の Formation+Motif 配列を描画する。
-		 * ConversationPattern と同様に、外側ラベル + Formation ラベル + Motif テキストのレイアウトで表示する。
-		 */
-		const renderFormsMotifSection = (it) => {
-			if (!it || !Array.isArray(it.value) || !it.value.length) return null;
-
-			const lang = getCurrentPageLanguage();
-			const formationPath = `${it.key}.Formation`;
-			// fieldTypeMap は $Def_FormsMotif 内部まで展開しないため、schema 定義に従い直接指定する
-			const formationSchemaType = pickSchemaType(formationPath, 'Formation') || '#DictIndex';
-
-			const groups = it.value
-				.map((entry) => {
-					if (!isPlainObject(entry)) return null;
-
-					const formationRaw = entry.Formation;
-					const formationLabel = formationRaw
-						? (String(formatValueForDisplay(formationRaw, fieldLabelMap, metaForLookup, globalDefType, {
-							schemaType: formationSchemaType,
-							fieldKey: formationPath
-						}) || '').trim() || String(formationRaw).trim())
-						: '';
-
-					const motifData = entry.Motif;
-					const motifItems = isPlainObject(motifData)
-						? (lang === 'en'
-							? (motifData.Motif_EN || motifData.Motif_JP)
-							: (motifData.Motif_JP || motifData.Motif_EN))
-						: null;
-
-					const motifText = Array.isArray(motifItems)
-						? motifItems.filter(Boolean).map(String).join('、')
-						: '';
-
-					if (!formationLabel && !motifText) return null;
-
-					return el('div', { style: 'margin-bottom: 10px;' }, [
-						formationLabel ? el('div', { class: 'tag', style: 'margin-bottom: 6px;' }, [formationLabel]) : null,
-						motifText ? preWrapText(motifText) : null
-					].filter(Boolean));
-				})
-				.filter(Boolean);
-
-			if (!groups.length) return null;
-
-			// ConversationPattern と同様：外側ラベル + 内側ブロック群
-			const outerBlock = el('div', { style: 'margin-bottom: 10px;' }, [
-				el('div', { class: 'tag', style: 'margin-bottom: 6px;' }, [it.label]),
-				el('div', {}, groups)
-			]);
-
-			return createStandaloneSubFieldSection(it, [outerBlock]);
-		};
-
-		/**
-		 * ThisMasters ($Def_ThisMastersEntry[]) を描画する。
-		 * value_JP/about_JP (または value_EN/about_EN) を用いてConversationPatternと同様のレイアウトで表示する。
-		 */
-		const renderThisMastersSection = (it) => {
-			if (!it || !Array.isArray(it.value) || !it.value.length) return null;
-
-			const lang = getCurrentPageLanguage();
-
-			/** about フィールドが string / {hideText} オブジェクト のどちらでも文字列に変換する */
-			const resolveAbout = (raw) => {
-				if (!raw && raw !== 0) return '';
-				if (typeof raw === 'string') return raw;
-				if (isPlainObject(raw) && raw.hideText != null) return String(raw.hideText);
-				return String(raw);
-			};
-
-			const blocks = it.value
-				.map((entry) => {
-					if (!isPlainObject(entry)) return null;
-
-					const valueKey = lang === 'en' ? 'value_EN' : 'value_JP';
-					const aboutKey = lang === 'en' ? 'about_EN' : 'about_JP';
-
-					// EN フィールド未設定の場合は JP にフォールバック
-					const rawValue = (entry[valueKey] !== undefined && entry[valueKey] !== null)
-						? entry[valueKey]
-						: entry['value_JP'];
-					const rawAbout = (entry[aboutKey] !== undefined && entry[aboutKey] !== null)
-						? entry[aboutKey]
-						: entry['about_JP'];
-
-					const aboutText = resolveAbout(rawAbout);
-					const valueText = rawValue != null ? String(rawValue).trim() : '';
-
-					if (!valueText && !aboutText) return null;
-
-					// about が null で value のみの場合（専属契約不可 など）
-					if (!aboutText) {
-						return el('div', { style: 'margin-bottom: 10px;' }, [preWrapText(valueText)]);
-					}
-
-					return el('div', { style: 'margin-bottom: 10px;' }, [
-						el('div', { class: 'tag', style: 'margin-bottom: 6px;' }, [aboutText]),
-						valueText ? preWrapText(valueText) : null
-					].filter(Boolean));
-				})
-				.filter(Boolean);
-
-			if (!blocks.length) return null;
-
-			// ConversationPattern と同様：外側ラベル + 内側ブロック群
-			const outerBlock = el('div', { style: 'margin-bottom: 10px;' }, [
-				el('div', { class: 'tag', style: 'margin-bottom: 6px;' }, [it.label]),
-				el('div', {}, blocks)
-			]);
-
-			return createStandaloneSubFieldSection(it, [outerBlock]);
-		};
-
-		const renderStatsSubFieldSection = (it) => {
-			if (!it) return null;
-
-			if (it.key === abilityKey && abilityTags.length) {
-				return createStandaloneSubFieldSection(it, [abilityGrid]);
-			}
-
-			if (it.key !== pickedSpecStatsKey || !isPlainObject(it.value)) return null;
-
-			const fallbackSpecLevelTag = (() => {
-				if (specMetricTags.length > 0) return null;
-				const specLevelRaw = it.value?.SpecLevel;
-				if (isEmptyValueLoose(specLevelRaw)) return null;
-
-				const specLevelPath = `${pickedSpecStatsKey}.SpecLevel`;
-				const schemaType = pickSchemaType(specLevelPath, 'SpecLevel');
-				if (!schemaTypeIncludes(schemaType, '$EnumDef_Rank')) return null;
-				const schemaDisplay = pickSchemaDisplay(specLevelPath, 'SpecLevel', pickedSpecStatsKey);
-				const displayValue = formatValueForDisplay(specLevelRaw, fieldLabelMap, metaForLookup, globalDefType, {
-					schemaType,
-					display: schemaDisplay,
-					fieldKey: specLevelPath
-				});
-				const text = String(displayValue ?? '').trim();
-				if (!text) return null;
-
-				return el('div', { class: 'tag' }, [
-					`${getFieldLabel(specLevelPath, fieldLabelMap, metaForLookup, globalDefType, 'SpecLevel')}: ${text}`
-				]);
-			})();
-
-			const excludedChildKeys = new Set([
-				effectKey,
-				safetyKey,
-				specTypeSubKey,
-				...specMetricTagKeys
-			].filter(Boolean));
-			const extraBlocks = buildObjectChildBlocks(it.key, it.value, { excludedChildKeys });
-			const sectionChildren = [
-				(detailEffectNodes.length || fallbackSpecLevelTag)
-					? createDetailTagGrid([...detailEffectNodes, fallbackSpecLevelTag].filter(Boolean))
-					: null,
-				(specTypeSingleLeafText || specNodes.length)
-					? kvTable({}, [[
-						getFieldLabel(specTypeFieldPath || 'SpecType', fieldLabelMap, workMeta, globalDefType, specTypeSubKey || '型情報'),
-						specTypeSingleLeafText
-							? createDetailTagGrid([el('div', { class: 'tag' }, [specTypeSingleLeafText])])
-							: createDetailTagGrid(specNodes)
-					]])
-					: null,
-				...extraBlocks
-			].filter(Boolean);
-
-			if (!sectionChildren.length) return null;
-
-			return createStandaloneSubFieldSection(it, sectionChildren);
-		};
-
-		const buildSpecLevelFallbackTag = (containerKey, containerValue) => {
-			if (!/specStats$/i.test(String(containerKey || ''))) return null;
-			if (!isPlainObject(containerValue)) return null;
-			const specLevelRaw = containerValue?.SpecLevel;
-			if (isEmptyValueLoose(specLevelRaw)) return null;
-
-			const specLevelPath = `${containerKey}.SpecLevel`;
-			const schemaType = pickSchemaType(specLevelPath, 'SpecLevel');
-			if (!schemaTypeIncludes(schemaType, '$EnumDef_Rank')) return null;
-			const schemaDisplay = pickSchemaDisplay(specLevelPath, 'SpecLevel', containerKey);
-			const displayValue = formatValueForDisplay(specLevelRaw, fieldLabelMap, metaForLookup, globalDefType, {
-				schemaType,
-				display: schemaDisplay,
-				fieldKey: specLevelPath
-			});
-			const text = String(displayValue ?? '').trim();
-			if (!text) return null;
-
-			return el('div', { class: 'tag' }, [
-				`${getFieldLabel(specLevelPath, fieldLabelMap, metaForLookup, globalDefType, 'SpecLevel')}: ${text}`
-			]);
-		};
-
 		const relationRendererApi = {
 			createElement: el,
 			createDetailTagGrid,
@@ -7294,14 +6783,6 @@ export async function renderDetail(workId, rec) {
 			if (!it) return null;
 			const stringLikeStandalone = isStringLikeStandaloneSubField(it);
 
-			const statsSection = renderStatsSubFieldSection(it);
-			if (statsSection) return statsSection;
-
-			const forcedSpecLevelTag = buildSpecLevelFallbackTag(it.key, it.value);
-			if (forcedSpecLevelTag) {
-				return createStandaloneSubFieldSection(it, [createDetailTagGrid([forcedSpecLevelTag])]);
-			}
-
 			const wrappedSection = getCharacterSectionRendererRegistry()?.renderWithRegisteredSectionRenderer?.(it, {
 				display: it.display,
 				isStandaloneSubField: true,
@@ -7311,12 +6792,24 @@ export async function renderDetail(workId, rec) {
 				fieldDisplayMap,
 				fieldTypeMap,
 				helpers: {
+					el,
+					preWrapText,
+					isPlainObject,
+					getCurrentPageLanguage,
+					formatValueForDisplay,
+					pickSchemaType,
+					pickSchemaDisplay,
+					pickSchemaPath,
+					pickSchemaHintsForObjectLeaf,
+					getFieldLabel,
+					createDetailTagGrid,
+					schemaTypeIncludes,
+					isEmptyValueLoose,
+					kvTable,
+					buildObjectChildBlocks,
 					renderStructuredObjectSection: stringLikeStandalone ? null : renderStructuredObjectSection,
-					renderStatsSection: renderStatsSubFieldSection,
 					wrapStandaloneSection: createStandaloneSubFieldSection,
-					relationApi: relationRendererApi,
-					renderFormsMotifSection,
-					renderThisMastersSection
+					relationApi: relationRendererApi
 				}
 			});
 			if (wrappedSection) return wrappedSection;
@@ -7404,47 +6897,6 @@ export async function renderDetail(workId, rec) {
 			.filter(Boolean);
 		const renderedSubFieldKeySet = new Set(orderedSubFieldItems.map((it) => it.key));
 
-		// FLInvestigator の ArcanumspecStats で SpecLevel タグが欠落した場合の互換補正
-		// - typedef差分や描画経路差分があっても、既存UI期待（能力レベルタグ）を維持する
-		if (workId === '#Works_FLInvestigator78') {
-			const sectionTitle = 'アルカナムスペック(アルカナ能力)の特性';
-			const specLevelRaw = rec?.ArcanumspecStats?.SpecLevel;
-			if (!isEmptyValueLoose(specLevelRaw)) {
-				const specLevelPath = 'ArcanumspecStats.SpecLevel';
-				const schemaType = pickSchemaType(specLevelPath, 'SpecLevel');
-				const schemaDisplay = pickSchemaDisplay(specLevelPath, 'SpecLevel', 'ArcanumspecStats');
-				const displayValue = formatValueForDisplay(specLevelRaw, fieldLabelMap, metaForLookup, globalDefType, {
-					schemaType,
-					display: schemaDisplay,
-					fieldKey: specLevelPath
-				});
-				const tagText = String(displayValue || '').trim()
-					? `${getFieldLabel(specLevelPath, fieldLabelMap, metaForLookup, globalDefType, 'SpecLevel')}: ${displayValue}`
-					: '';
-
-				if (tagText) {
-					const targetSection = subFieldSections.find((section) => section?.querySelector?.('h3')?.textContent?.trim() === sectionTitle) || null;
-					if (targetSection) {
-						const hasSameTag = Array.from(targetSection.querySelectorAll('.tag'))
-							.some((node) => String(node?.textContent || '').trim() === tagText);
-						if (!hasSameTag) {
-							const host = targetSection.querySelector('.section__body') || targetSection;
-							host.appendChild(createDetailTagGrid([
-								el('div', { class: 'tag' }, [tagText])
-							]));
-						}
-					} else {
-						subFieldSections.push(createStandaloneSubFieldSection(
-							{ key: 'ArcanumspecStats', label: sectionTitle },
-							[createDetailTagGrid([el('div', { class: 'tag' }, [tagText])])],
-							{ collapsible: true }
-						));
-						renderedSubFieldKeySet.add('ArcanumspecStats');
-					}
-				}
-			}
-		}
-
 		// basic セクションは「基本情報テーブル + スキーマで basic 指定された追加項目」をまとめて表示
 		const basicSection = el('div', { class: 'section' }, [
 			el('h3', {}, [getFieldLabel('BasicInfo', fieldLabelMap, workMeta, globalDefType, '基本情報')]),
@@ -7452,23 +6904,11 @@ export async function renderDetail(workId, rec) {
 			basicExtraRows.length ? kvTable({}, basicExtraRows) : null,
 		].filter(Boolean));
 
-		const includeAbilityInSpecSection = abilityTags.length && !isPromotedSubFieldKey(abilityKey);
-		const includeSpecStatsInSpecSection = (effTags.length || safetyRow || specNodes.length) && !isPromotedSubFieldKey(pickedSpecStatsKey);
-
-		const specSection = (includeAbilityInSpecSection || includeSpecStatsInSpecSection || specRows.length)
+		// スペック/能力: $display.section:'spec' の top-level フィールドのみ（ability/specStats は専用レンダラーがサブフィールドで表示）
+		const specSection = specRows.length
 			? el('div', { class: 'section' }, [
 				el('h3', {}, ['スペック/能力']),
-				includeAbilityInSpecSection ? abilityGrid : null,
-				includeSpecStatsInSpecSection ? effGrid : null,
-				includeSpecStatsInSpecSection && (specTypeSingleLeafText || specNodes.length)
-					? kvTable({}, [[
-						getFieldLabel(specTypeFieldPath || 'SpecType', fieldLabelMap, workMeta, globalDefType, specTypeSubKey || '型情報'),
-						specTypeSingleLeafText
-							? createDetailTagGrid([el('div', { class: 'tag' }, [specTypeSingleLeafText])])
-							: createDetailTagGrid(specNodes)
-					]])
-					: null,
-				specRows.length ? kvTable({}, specRows) : null,
+				kvTable({}, specRows),
 			].filter(Boolean))
 			: null;
 
