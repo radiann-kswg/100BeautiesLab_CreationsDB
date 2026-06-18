@@ -290,7 +290,7 @@
     "Card": { "Stoat": "Dealer", "Num": 79 },
     "Progress": "released(beta)",
     "AnotherRegions_DBLink": {
-      "_Works": "NumberTales",
+      "_Work": "NumberTales",
       "_DB": "Secondary",
       "Num": "%"
     },
@@ -334,7 +334,7 @@
     "Card": { "Stoat": "Dealer", "Num": 80 },
     "Progress": "released(beta)",
     "AnotherRegions_DBLink": {
-      "_Works": "NumberTales",
+      "_Work": "NumberTales",
       "_DB": "Secondary",
       "Num": "∞"
     },

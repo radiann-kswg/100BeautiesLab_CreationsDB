@@ -68,7 +68,7 @@
           "IdentityMotif",
           "AbilityStats",
           "ArcanumspecStats",
-          "ThisDealer_DBLink",
+          "ThisArcanaHolder_DBLink",
           "ConversationPattern",
           "AnotherRegions_DBLink"
         ]

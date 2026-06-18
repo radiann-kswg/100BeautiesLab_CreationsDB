@@ -79,9 +79,9 @@
         "value_EN": "Ceena Snowmaider / 'Kisaragi' (Yadzuki Org. Executive Director.2)",
         "about_EN": "For test development operations",
         "_DBLink": {
-          "worksTitle": "PastDivers",
-          "dbName": "Primary",
-          "_Search": [{ "hashTag": "Lunar", "key": "Kisaragi" }]
+          "_Work": "PastDivers",
+          "_DB": "Primary",
+          "Lunar": "Kisaragi"
         }
       }
     ],
@@ -1648,11 +1648,7 @@
       {
         "value_JP": "百花繚乱研究所(N3US大学 千歳研究室) ゼミアシスタント）",
         "value_EN": "100 Beauties Lab. (N3US University Dr.Thouser Laboratory) Seminar Assistant)",
-        "_DBLink": {
-          "worksTitle": "NumberTales",
-          "dbName": "Secondary",
-          "_Search": [{ "hashTag": "Num", "key": "∞" }]
-        }
+        "_DBLink": { "_Work": "NumberTales", "_DB": "Secondary", "Num": "∞" }
       }
     ],
     "FirstPersonCalling": "あて",
@@ -2118,9 +2114,9 @@
         "value_EN": "Mikhail Arch",
         "about_EN": { "hideText": "???" },
         "_DBLink": {
-          "worksTitle": "SinisterChangingGirls",
-          "dbName": "Primary",
-          "_Search": [{ "hashTag": "Drc", "key": "NE" }]
+          "_Work": "SinisterChangingGirls",
+          "_DB": "Primary",
+          "Drc": "NE"
         }
       }
     ],
@@ -3008,9 +3004,9 @@
         "value_JP": "ゼン.エデンズグリーン/皐月（夜月機関 第5幹部）",
         "value_EN": "Bene.Edensgreen / 'Satsuki' (Yadzuki Org. Executive Director.5)",
         "_DBLink": {
-          "worksTitle": "PastDivers",
-          "dbName": "Primary",
-          "_Search": [{ "hashTag": "Lunar", "key": "Satsuki" }]
+          "_Work": "PastDivers",
+          "_DB": "Primary",
+          "Lunar": "Satsuki"
         }
       }
     ],
@@ -3287,9 +3283,9 @@
         "value_JP": "ミル.ニュクスフ",
         "value_EN": "Lamill.NuXV",
         "_DBLink": {
-          "worksTitle": "SinisterChangingGirls",
-          "dbName": "Primary",
-          "_Search": [{ "hashTag": "Drc", "key": "SW" }]
+          "_Work": "SinisterChangingGirls",
+          "_DB": "Primary",
+          "Drc": "SW"
         }
       }
     ],
@@ -3516,9 +3512,9 @@
         "value_JP": "六花 ルノ",
         "value_EN": "Luno Hexacrys",
         "_DBLink": {
-          "worksTitle": "SinisterChangingGirls",
-          "dbName": "Primary",
-          "_Search": [{ "hashTag": "Drc", "key": "E" }]
+          "_Work": "SinisterChangingGirls",
+          "_DB": "Primary",
+          "Drc": "E"
         }
       }
     ],
@@ -3731,11 +3727,9 @@
         "value_JP": "ライト.リヴァーブリッジ/ブライト.ゲイザー（78特殊探偵団 第17幹部/英皇国支部幹部）",
         "value_EN": "Light.Reverbridge / Bright.Gazer (Team.78 the Special Investigators 17th/IK.Branch Executive)",
         "_DBLink": {
-          "worksTitle": "FLInvestigator78",
-          "dbName": "PrimaryDealer",
-          "_Search": [
-            { "hashTag": "Card", "key": { "Stoat": "Major", "StoatNum": 17 } }
-          ]
+          "_Work": "FLInvestigator78",
+          "_DB": "PrimaryDealer",
+          "Card": { "Stoat": "Major", "StoatNum": 17 }
         }
       }
     ],
@@ -8279,11 +8273,7 @@
       {
         "value_JP": "桜花 訫[信]/弥生（夜月機関 第3幹部）",
         "value_EN": "Trustia Cherrybroom / 'Yayoi' (Yadzuki Org. Executive Director.3)",
-        "_DBLink": {
-          "worksTitle": "PastDivers",
-          "dbName": "Primary",
-          "_Search": [{ "hashTag": "Lunar", "key": "Yayoi" }]
-        }
+        "_DBLink": { "_Work": "PastDivers", "_DB": "Primary", "Lunar": "Yayoi" }
       }
     ],
     "FirstPersonCalling": "あたし",
@@ -10759,9 +10749,9 @@
         "value_JP": "花舞 流/卯月（夜月機関 第4幹部）",
         "value_EN": "Flur Flowee / 'Udzuki' (Yadzuki Org. Executive Director.4)",
         "_DBLink": {
-          "worksTitle": "PastDivers",
-          "dbName": "Primary",
-          "_Search": [{ "hashTag": "Lunar", "key": "Udzuki" }]
+          "_Work": "PastDivers",
+          "_DB": "Primary",
+          "Lunar": "Udzuki"
         }
       }
     ],
@@ -13219,9 +13209,9 @@
         "value_JP": "六花(ろくばな) 雙葉/クィーン.トゥエルヴ",
         "value_EN": "Dozenne Hexacrys / Queen.XII",
         "_DBLink": {
-          "worksTitle": "SinisterChangingGirls",
-          "dbName": "Primary",
-          "_Search": [{ "hashTag": "Drc", "key": "S" }]
+          "_Work": "SinisterChangingGirls",
+          "_DB": "Primary",
+          "Drc": "S"
         }
       }
     ],
@@ -13528,9 +13518,9 @@
         "value_JP": "六花(ろくばな) 雙葉/クィーン.トゥエルヴ",
         "value_EN": "Dozenne Hexacrys / Queen.XII",
         "_DBLink": {
-          "worksTitle": "SinisterChangingGirls",
-          "dbName": "Primary",
-          "_Search": [{ "hashTag": "Drc", "key": "S" }]
+          "_Work": "SinisterChangingGirls",
+          "_DB": "Primary",
+          "Drc": "S"
         }
       }
     ],
@@ -14344,9 +14334,9 @@
         "value_JP": "水無瀬 雫/水無月（夜月機関 第6幹部）",
         "value_EN": "Aquanne Afterains / 'Minadzuki' (Yadzuki Org. Executive Director.6)",
         "_DBLink": {
-          "worksTitle": "PastDivers",
-          "dbName": "Primary",
-          "_Search": [{ "hashTag": "Lunar", "key": "Minadzuki" }]
+          "_Work": "PastDivers",
+          "_DB": "Primary",
+          "Lunar": "Minadzuki"
         }
       }
     ],
@@ -15076,11 +15066,9 @@
         "value_JP": "ヴェンジー.C.テンペスト/クライシア.バベル（78特殊探偵団 第16幹部/英皇国支部幹部）",
         "value_EN": "Vengy.C.Tempest / Crisia.Babel (Team.78 the Special Investigators 16th/IK.Branch Executive)",
         "_DBLink": {
-          "worksTitle": "FLInvestigator78",
-          "dbName": "PrimaryDealer",
-          "_Search": [
-            { "hashTag": "Card", "key": { "Stoat": "Major", "StoatNum": 16 } }
-          ]
+          "_Work": "FLInvestigator78",
+          "_DB": "PrimaryDealer",
+          "Card": { "Stoat": "Major", "StoatNum": 16 }
         }
       }
     ],
@@ -15662,9 +15650,9 @@
         "value_JP": "綾沢 改奈/文月（夜月機関 第7幹部）",
         "value_EN": "Entery Lattercross / 'Fumdzuki' (Yadzuki Org. Executive Director.7)",
         "_DBLink": {
-          "worksTitle": "PastDivers",
-          "dbName": "Primary",
-          "_Search": [{ "hashTag": "Lunar", "key": "Fumdzuki" }]
+          "_Work": "PastDivers",
+          "_DB": "Primary",
+          "Lunar": "Fumdzuki"
         }
       }
     ],
@@ -16921,11 +16909,7 @@
       {
         "value_JP": "錦野 舞（シンフォニー.XVI(ゼクズィン) D-Vine開発部 最高責任部長）",
         "value_EN": "Dancy Actressilk (Symphony.XVI(Sechzehn) Chief Executive in Development Department for D-Vines)",
-        "_DBLink": {
-          "worksTitle": "NumberTales",
-          "dbName": "Secondary",
-          "_Search": [{ "hashTag": "Num", "key": "%" }]
-        }
+        "_DBLink": { "_Work": "NumberTales", "_DB": "Secondary", "Num": "%" }
       }
     ],
     "FirstPersonCalling": "私(わたくし)",
@@ -18168,11 +18152,7 @@
       {
         "value_JP": "百花繚乱研究所(N3US大学 千歳研究室) ゼミアシスタント）",
         "value_EN": "100 Beauties Lab. (N3US University Dr.Thouser Laboratory) Seminar Assistant)",
-        "_DBLink": {
-          "worksTitle": "NumberTales",
-          "dbName": "Secondary",
-          "_Search": [{ "hashTag": "Num", "key": "∞" }]
-        }
+        "_DBLink": { "_Work": "NumberTales", "_DB": "Secondary", "Num": "∞" }
       }
     ],
     "FirstPersonCalling": "私(わたし)",
@@ -20758,22 +20738,14 @@
         "about_JP": "仕方なく所持",
         "value_EN": "Zera Norumber",
         "about_EN": "Reluctantly possessed",
-        "_DBLink": {
-          "worksTitle": "NumberTales",
-          "dbName": "Primary",
-          "_Search": [{ "hashTag": "Num", "key": "0" }]
-        }
+        "_DBLink": { "_Work": "NumberTales", "_DB": "Primary", "Num": "0" }
       },
       {
         "value_JP": "零 百",
         "about_JP": "仕方なく所持",
         "value_EN": "Hudred Norumber",
         "about_EN": "Reluctantly possessed",
-        "_DBLink": {
-          "worksTitle": "NumberTales",
-          "dbName": "Primary",
-          "_Search": [{ "hashTag": "Num", "key": "00" }]
-        }
+        "_DBLink": { "_Work": "NumberTales", "_DB": "Primary", "Num": "00" }
       }
     ],
     "FirstPersonCalling": "私(わたし)",
