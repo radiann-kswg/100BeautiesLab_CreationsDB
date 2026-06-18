@@ -1,10 +1,11 @@
 [
   { "RoleType": "Lead", "RoleType_JP": "律" },
+  { "RoleType": "Advance", "RoleType_JP": "進" },
   { "RoleType": "Keep", "RoleType_JP": "秘" },
   { "RoleType": "Frier", "RoleType_JP": "遊" },
   { "RoleType": "Control", "RoleType_JP": "操" },
   { "RoleType": "Heal", "RoleType_JP": "癒" },
-  { "RoleType": "Fere", "RoleType_JP": "妨" },
+  { "RoleType": "Fear", "RoleType_JP": "妨" },
   { "RoleType": "Repair", "RoleType_JP": "修" },
   { "RoleType": "Archive", "RoleType_JP": "終" }
 ]

@@ -1,8 +1,11 @@
 [
-  { "SpecialPattern": "Ptn.A(覚醒)", "SpecialPattern_EN": "Ptn.A(Awakening)" },
+  {
+    "SpecialPattern": "Ptn.A(覚醒)",
+    "SpecialPattern_EN": "Ptn.A(Awakening or Acceleration)"
+  },
   {
     "SpecialPattern": "Ptn.B(士気操作)",
-    "SpecialPattern_EN": "Ptn.B(Morale Manipulation)"
+    "SpecialPattern_EN": "Ptn.B(Bravery Manipulation)"
   },
   {
     "SpecialPattern": "Ptn.E(元素操作)",
@@ -10,7 +13,7 @@
   },
   {
     "SpecialPattern": "Ptn.F(妨害)",
-    "SpecialPattern_EN": "Ptn.F(Interference)"
+    "SpecialPattern_EN": "Ptn.F(Fear Interference)"
   },
   {
     "SpecialPattern": "Ptn.H(癒術)",
@@ -19,7 +22,7 @@
   { "SpecialPattern": "Ptn.I(幻術)", "SpecialPattern_EN": "Ptn.I(Illusion)" },
   {
     "SpecialPattern": "Ptn.L(転化)",
-    "SpecialPattern_EN": "Ptn.L(Transmutation)"
+    "SpecialPattern_EN": "Ptn.L(Locale Transmutation)"
   },
   {
     "SpecialPattern": "Ptn.M(精神操作)",
@@ -31,7 +34,10 @@
   },
   {
     "SpecialPattern": "Ptn.Q(天変地異)",
-    "SpecialPattern_EN": "Ptn.Q(Cataclysm)"
+    "SpecialPattern_EN": "Ptn.Q(Quaking Cataclysm)"
   },
-  { "SpecialPattern": "Ptn.Z(終焉)", "SpecialPattern_EN": "Ptn.Z(Terminus)" }
+  {
+    "SpecialPattern": "Ptn.Z(終焉)",
+    "SpecialPattern_EN": "Ptn.Z(Z-end:Terminus)"
+  }
 ]

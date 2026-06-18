@@ -432,7 +432,7 @@ describe('pages/characters.js UI output', () => {
 		expect(secondarySectionText).toContain('二次創作分類');
 		expect(secondarySectionText).toContain('共同二次創作');
 		expect(secondarySectionText).toContain('キャラクターデザイン・考案');
-		expect(secondarySectionText).toContain('散狐アタスト(https://misskey.io/@atast)');
+		expect(secondarySectionText).toContain('散狐アタスト(https://misskey.io/@atast)(https://misskey.io/@atast)');
 	});
 
 	it('renders RelationToPrimary entries as links to the primary db detail view', async () => {

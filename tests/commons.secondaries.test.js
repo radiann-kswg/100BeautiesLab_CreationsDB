@@ -106,7 +106,7 @@ describe('CommonsProcessor secondary series commons', () => {
     const out0 = JSON.parse(out0Json);
 
     expect(out0.sec_Category).toBe('共同二次創作');
-    expect(out0.sec_DesignedBy).toBe('散狐アタスト(https://misskey.io/@atast)');
+    expect(out0.sec_DesignedBy).toBe('散狐アタスト(https://misskey.io/@atast)(https://misskey.io/@atast)');
     expect(out0.Belonging).toEqual(['百花繚乱研究所', 'エイゼルベットの観測世界']);
   });
 

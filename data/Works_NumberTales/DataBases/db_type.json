@@ -13,6 +13,13 @@
       "hashTag_EN": "Number"
     },
     {
+      "hashTag": "ThisMasters",
+      "$type": "$Def_ThisMastersEntry[]|#Null",
+      "hashTag_JP": "専属契約した主人",
+      "hashTag_EN": "This/Zir Master(s) with Exclusive Contract",
+      "$display": { "sectionWrapper": "thisMastersSection" }
+    },
+    {
       "hashTag": "ForMasterCalling",
       "$type": "#String|#Summary",
       "hashTag_JP": "主人の呼び方",
@@ -162,7 +169,7 @@
       ],
       "hashTag_JP": "“カバラの加護”(数秘的加護)の特性",
       "hashTag_EN": "Characteristics of 'Kabbalah's Blessing' (Numerospec)",
-      "$display": { "sectionWrapper": "statsSection" }
+      "$display": { "sectionWrapper": "numSpecSection" }
     },
     {
       "hashTag": "Relation",
@@ -208,6 +215,30 @@
     }
   ],
   "$VersDef": {
+    "$Def_ThisMastersEntry": {
+      "$DefType": [
+        {
+          "hashTag": "value_JP",
+          "$type": "#String_JP|#Null",
+          "hashTag_JP": "名前(和)"
+        },
+        {
+          "hashTag": "about_JP",
+          "$type": "#String_JP|#Null",
+          "hashTag_JP": "備考(和)"
+        },
+        {
+          "hashTag": "value_EN",
+          "$type": "#String_EN|#Null",
+          "hashTag_EN": "Name (EN)"
+        },
+        {
+          "hashTag": "about_EN",
+          "$type": "#String_EN|#Null",
+          "hashTag_EN": "Note (EN)"
+        }
+      ]
+    },
     "$Def_EffectText": {
       "$DefType": [
         {

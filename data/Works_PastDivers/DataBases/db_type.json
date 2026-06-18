@@ -187,7 +187,7 @@
       ],
       "hashTag_JP": "時空遷移能力の特性",
       "hashTag_EN": "Chronospec Ability Characteristics",
-      "$display": { "sectionWrapper": "statsSection" }
+      "$display": { "sectionWrapper": "chronoSpecSection" }
     },
     {
       "hashTag": "Relation",
