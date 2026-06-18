@@ -6781,7 +6781,7 @@ export async function renderDetail(workId, rec) {
 			openDetail,
 			openViewerNavigation,
 			getCharState: () => window.__CHAR_STATE__,
-			fetchDbRecords: (wId, dbName) => fetchDB(wId, dbName, { resolve: false })
+			fetchDbRecords: (wId, dbName) => fetchDB(wId, dbName, { resolve: true })
 		};
 
 		const renderStandaloneFieldSection = (it) => {
@@ -7120,6 +7120,7 @@ function renderRelations(rel, fieldLabelMap, workMeta, globalDefType, fieldDispl
 				pickPrimaryIndexSubDef,
 				recordMatchesIndexQuery,
 				buildViewerNavigationHref,
+				fetchDbRecords: (wId, dbName) => fetchDB(wId, dbName, { resolve: true }),
 				openDetail,
 				openViewerNavigation,
 				getCharState: () => window.__CHAR_STATE__
