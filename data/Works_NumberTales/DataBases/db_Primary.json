@@ -112,7 +112,6 @@
         "Formation": "corefolder",
         "Motif": {
           "Motif_JP": [
-            "コアフォルダ形態",
             "赤橙色の髪",
             "ショートヘア",
             "狐の耳（左耳が垂れている）",
@@ -122,7 +121,6 @@
             "矢印形の胸ジッパー"
           ],
           "Motif_EN": [
-            "corefolder form",
             "red orange hair",
             "short hair",
             "fox ears(left ear drooping)",
@@ -137,7 +135,6 @@
         "Formation": "humanoid",
         "Motif": {
           "Motif_JP": [
-            "ヒューマノイド形態",
             "赤橙色のショートヘア",
             "狐の耳（左耳が垂れている）",
             "狐の尾1本",
@@ -149,7 +146,6 @@
             "灰色のショートブーツ"
           ],
           "Motif_EN": [
-            "humanoid form",
             "red orange short hair",
             "fox ears(left ear drooping)",
             "single fox tail",
@@ -422,7 +418,6 @@
         "Formation": "corefolder",
         "Motif": {
           "Motif_JP": [
-            "コアフォルダ形態",
             "オレンジ色の髪",
             "ショートヘア",
             "狐の耳（右耳が垂れている）",
@@ -431,7 +426,6 @@
             "二重結びスカーフ"
           ],
           "Motif_EN": [
-            "corefolder form",
             "orange hair",
             "short hair",
             "fox ears(right ear drooping)",
@@ -445,7 +439,6 @@
         "Formation": "humanoid",
         "Motif": {
           "Motif_JP": [
-            "ヒューマノイド形態",
             "オレンジ色の髪",
             "ショートヘア",
             "狐の耳",
@@ -457,7 +450,6 @@
             "スカート"
           ],
           "Motif_EN": [
-            "humanoid form",
             "orange hair",
             "short hair",
             "fox ears",
@@ -632,7 +624,6 @@
         "Formation": "corefolder",
         "Motif": {
           "Motif_JP": [
-            "コアフォルダ形態",
             "黄色い髪",
             "スパイキーヘア",
             "狐の耳",
@@ -641,7 +632,6 @@
             "表情豊かな顔"
           ],
           "Motif_EN": [
-            "corefolder form",
             "yellow hair",
             "spiky hair",
             "fox ears",
@@ -655,7 +645,6 @@
         "Formation": "humanoid",
         "Motif": {
           "Motif_JP": [
-            "ヒューマノイド形態",
             "黄色い髪",
             "スパイキーヘア",
             "狐の耳",
@@ -666,7 +655,6 @@
             "表情豊かな顔"
           ],
           "Motif_EN": [
-            "humanoid form",
             "yellow hair",
             "spiky hair",
             "fox ears",
@@ -837,7 +825,6 @@
         "Formation": "corefolder",
         "Motif": {
           "Motif_JP": [
-            "コアフォルダ形態",
             "青い長い髪",
             "狐の垂れ耳",
             "シアンブルーの目",
@@ -846,7 +833,6 @@
             "ティールのケープ"
           ],
           "Motif_EN": [
-            "corefolder form",
             "long blue hair",
             "fox drooping ears",
             "cyan blue eyes",
@@ -860,7 +846,6 @@
         "Formation": "humanoid",
         "Motif": {
           "Motif_JP": [
-            "ヒューマノイド形態",
             "青い長い髪",
             "狐の垂れ耳",
             "シアンブルーの目",
@@ -871,7 +856,6 @@
             "小さな耳横のヘアアクセサリー"
           ],
           "Motif_EN": [
-            "humanoid form",
             "long blue hair",
             "fox drooping ears",
             "cyan blue eyes",
@@ -1096,7 +1080,6 @@
         "Formation": "corefolder",
         "Motif": {
           "Motif_JP": [
-            "コアフォルダ形態",
             "ティールグリーンの髪",
             "狐の耳",
             "深緑色のオッドアイ/虹彩異色症(包帯で隠れている右目の方が少し水色)",
@@ -1104,7 +1087,6 @@
             "テープリストバンド"
           ],
           "Motif_EN": [
-            "corefolder form",
             "teal green hair",
             "fox ears",
             "dark green heterochromia (right eye slightly light blue, covered with bandage)",
@@ -1117,7 +1099,6 @@
         "Formation": "humanoid",
         "Motif": {
           "Motif_JP": [
-            "ヒューマノイド形態",
             "ティールグリーンの髪",
             "狐の耳",
             "深緑色のオッドアイ/虹彩異色症(包帯で隠れている右目の方が少し水色)",
@@ -1129,7 +1110,6 @@
             "ティールのストッキング"
           ],
           "Motif_EN": [
-            "humanoid form",
             "teal green hair",
             "fox ears",
             "dark green heterochromia (right eye slightly light blue, covered with bandage)",
@@ -1299,7 +1279,6 @@
         "Formation": "corefolder",
         "Motif": {
           "Motif_JP": [
-            "コアフォルダ形態",
             "ピンクの髪",
             "狐の耳",
             "ラベンダーブルーの目",
@@ -1308,7 +1287,6 @@
             "レーストリム"
           ],
           "Motif_EN": [
-            "corefolder form",
             "pink hair",
             "fox ears",
             "lavender blue eyes",
@@ -1322,7 +1300,6 @@
         "Formation": "humanoid",
         "Motif": {
           "Motif_JP": [
-            "ヒューマノイド形態",
             "ピンクの髪",
             "狐の耳",
             "ラベンダーブルーの目",
@@ -1333,7 +1310,6 @@
             "レーストリム"
           ],
           "Motif_EN": [
-            "humanoid form",
             "pink hair",
             "fox ears",
             "lavender blue eyes",
@@ -1499,7 +1475,6 @@
         "Formation": "corefolder",
         "Motif": {
           "Motif_JP": [
-            "コアフォルダ形態",
             "ネイビーダークブルーの髪",
             "狐の耳",
             "紺灰色の目",
@@ -1507,7 +1482,6 @@
             "念珠ネックレス"
           ],
           "Motif_EN": [
-            "corefolder form",
             "navy dark blue hair",
             "fox ears",
             "dark grayish blue eyes",
@@ -1520,7 +1494,6 @@
         "Formation": "humanoid",
         "Motif": {
           "Motif_JP": [
-            "ヒューマノイド形態",
             "ネイビーダークブルーの髪",
             "狐の耳",
             "紺灰色の目",
@@ -1531,7 +1504,6 @@
             "和風カジュアルな服装"
           ],
           "Motif_EN": [
-            "humanoid form",
             "navy dark blue hair",
             "fox ears",
             "dark grayish blue eyes",
@@ -1710,7 +1682,6 @@
         "Formation": "corefolder",
         "Motif": {
           "Motif_JP": [
-            "コアフォルダ形態",
             "オレンジ赤の髪",
             "狐の耳(フードに隠れている)",
             "赤い目",
@@ -1719,7 +1690,6 @@
             "メカニックスタイル"
           ],
           "Motif_EN": [
-            "corefolder form",
             "orange red hair",
             "fox ears(hidden under hood)",
             "red eyes",
@@ -1734,7 +1704,6 @@
         "Formation": "humanoid",
         "Motif": {
           "Motif_JP": [
-            "ヒューマノイド形態",
             "オレンジ赤の髪",
             "狐の耳(フードに隠れている)",
             "赤い目",
@@ -1745,7 +1714,6 @@
             "工具入れポーチ"
           ],
           "Motif_EN": [
-            "humanoid form",
             "orange red hair",
             "fox ears(hidden under hood)",
             "red eyes",
@@ -1913,7 +1881,6 @@
         "Formation": "corefolder",
         "Motif": {
           "Motif_JP": [
-            "コアフォルダ形態",
             "白髪がアクセントに交じった銀灰色の長い髪",
             "白いまつげでラベンダーの目",
             "狐の耳",
@@ -1921,7 +1888,6 @@
             "落ち着いた神秘的な微笑み"
           ],
           "Motif_EN": [
-            "corefolder form",
             "silver gray long hair with white accents",
             "white eyelashes with lavender eyes",
             "fox ears",
@@ -1934,7 +1900,6 @@
         "Formation": "humanoid",
         "Motif": {
           "Motif_JP": [
-            "ヒューマノイド形態",
             "白髪がアクセントに交じった銀灰色の長い髪",
             "白いまつげでラベンダーの目",
             "狐の耳",
@@ -1944,7 +1909,6 @@
             "長身スレンダー"
           ],
           "Motif_EN": [
-            "humanoid form",
             "silver gray long hair with white accents",
             "white eyelashes with lavender eyes",
             "fox ears",
@@ -2183,7 +2147,6 @@
         "Formation": "corefolder",
         "Motif": {
           "Motif_JP": [
-            "コアフォルダ形態",
             "深紅の髪",
             "赤黒色の目(通常時)",
             "白く染まった目(なにか核心をついた時)",
@@ -2192,7 +2155,6 @@
             "余裕ある自信の微笑み"
           ],
           "Motif_EN": [
-            "corefolder form",
             "deep red hair",
             "red-black eyes (normal state)",
             "white eyes (when hitting the core of something)",
@@ -2206,7 +2168,6 @@
         "Formation": "humanoid",
         "Motif": {
           "Motif_JP": [
-            "ヒューマノイド形態",
             "深紅の髪",
             "赤黒色の目(通常時)",
             "白く染まった目(なにか核心をついた時)",
@@ -2217,7 +2178,6 @@
             "ワイドレッグパンツ"
           ],
           "Motif_EN": [
-            "humanoid form",
             "deep red hair",
             "red-black eyes (normal state)",
             "white eyes (when hitting the core of something)",
@@ -2458,7 +2418,6 @@
         "Formation": "corefolder",
         "Motif": {
           "Motif_JP": [
-            "コアフォルダ形態",
             "銀灰色の長い髪",
             "猫の立った耳(フードに隠れている)",
             "シルバーのまつげで赤い瞳孔の銀目",
@@ -2468,7 +2427,6 @@
             "コートの赤く大き目の番号"
           ],
           "Motif_EN": [
-            "corefolder form",
             "silver gray long hair",
             "erected cat ears(hidden under hood)",
             "silver eyelashes with red pupils",
@@ -2483,7 +2441,6 @@
         "Formation": "humanoid",
         "Motif": {
           "Motif_JP": [
-            "ヒューマノイド形態",
             "銀灰色の長い髪",
             "猫の立った耳(フードに隠れている)",
             "シルバーのまつげで赤い瞳孔の銀目",
@@ -2493,7 +2450,6 @@
             "コートの赤く大き目の番号"
           ],
           "Motif_EN": [
-            "humanoid form",
             "silver gray long hair",
             "erected cat ears(hidden under hood)",
             "silver eyelashes with red pupils",
@@ -2669,7 +2625,6 @@
         "Formation": "corefolder",
         "Motif": {
           "Motif_JP": [
-            "コアフォルダ形態",
             "ピーチオレンジの髪",
             "長髪",
             "狐の耳",
@@ -2677,7 +2632,6 @@
             "ポンチョケープ"
           ],
           "Motif_EN": [
-            "corefolder form",
             "peach orange hair",
             "long hair",
             "fox ears",
@@ -2690,7 +2644,6 @@
         "Formation": "humanoid",
         "Motif": {
           "Motif_JP": [
-            "ヒューマノイド形態",
             "ピーチオレンジの長い髪",
             "狐の耳",
             "穏やかな無表情",
@@ -2699,7 +2652,6 @@
             "ピーチカラースキーム"
           ],
           "Motif_EN": [
-            "humanoid form",
             "long peach orange hair",
             "fox ears",
             "serene blank expression",
@@ -2871,13 +2823,11 @@
         "Formation": "corefolder",
         "Motif": {
           "Motif_JP": [
-            "コアフォルダ形態",
             "ティールライトブルーの髪",
             "狐の耳",
             "熱狂的な満面の笑顔"
           ],
           "Motif_EN": [
-            "corefolder form",
             "teal light blue hair",
             "fox ears",
             "wide enthusiastic smile"
@@ -2888,7 +2838,6 @@
         "Formation": "humanoid",
         "Motif": {
           "Motif_JP": [
-            "ヒューマノイド形態",
             "ティールライトブルーの髪",
             "狐の耳",
             "熱狂的な満面の笑顔",
@@ -2898,7 +2847,6 @@
             "赤い口の白い手袋"
           ],
           "Motif_EN": [
-            "humanoid form",
             "teal light blue hair",
             "fox ears",
             "wide enthusiastic smile",
@@ -3089,7 +3037,6 @@
         "Formation": "corefolder",
         "Motif": {
           "Motif_JP": [
-            "コアフォルダ形態",
             "青い長い髪",
             "狐の耳",
             "水色のまつげで赤い瞳",
@@ -3097,7 +3044,6 @@
             "サーモンピンクの襟"
           ],
           "Motif_EN": [
-            "corefolder form",
             "long blue hair",
             "fox ears",
             "light blue eyelashes with red eyes",
@@ -3110,7 +3056,6 @@
         "Formation": "humanoid",
         "Motif": {
           "Motif_JP": [
-            "ヒューマノイド形態",
             "青い長い髪",
             "狐の耳",
             "水色のまつげで赤い瞳",
@@ -3121,7 +3066,6 @@
             "トリカラーの衣装"
           ],
           "Motif_EN": [
-            "humanoid form",
             "long blue hair",
             "fox ears",
             "light blue eyelashes with red eyes",
@@ -3372,7 +3316,6 @@
         "Formation": "corefolder",
         "Motif": {
           "Motif_JP": [
-            "コアフォルダ形態",
             "ピンクの髪",
             "右サイドポニーテール",
             "狐の耳",
@@ -3381,7 +3324,6 @@
             "右目右耳に焼け跡"
           ],
           "Motif_EN": [
-            "corefolder form",
             "pink hair",
             "right-side ponytail",
             "fox ears",
@@ -3395,7 +3337,6 @@
         "Formation": "humanoid",
         "Motif": {
           "Motif_JP": [
-            "ヒューマノイド形態",
             "ピンクの髪",
             "右サイドポニーテール",
             "狐の耳",
@@ -3406,7 +3347,6 @@
             "右目右耳に焼け跡"
           ],
           "Motif_EN": [
-            "humanoid form",
             "pink hair",
             "right-side ponytail",
             "fox ears",
@@ -3605,7 +3545,6 @@
         "Formation": "corefolder",
         "Motif": {
           "Motif_JP": [
-            "コアフォルダ形態",
             "マゼンタの非常に長いポニーテール",
             "ウェーブヘア",
             "狐の耳（帽子を被っているときは隠れている）",
@@ -3613,7 +3552,6 @@
             "赤い眉染め"
           ],
           "Motif_EN": [
-            "corefolder form",
             "very long magenta ponytail",
             "wavy hair",
             "fox ears (hidden when wearing a hat)",
@@ -3626,7 +3564,6 @@
         "Formation": "humanoid",
         "Motif": {
           "Motif_JP": [
-            "ヒューマノイド形態",
             "マゼンタの非常に長いポニーテール",
             "ウェーブヘア",
             "狐の耳（帽子を被っているときは隠れている）",
@@ -3637,7 +3574,6 @@
             "豊かな女性シルエット"
           ],
           "Motif_EN": [
-            "humanoid form",
             "very long magenta ponytail",
             "wavy hair",
             "fox ears (hidden when wearing a hat)",
@@ -3826,7 +3762,6 @@
         "Formation": "corefolder",
         "Motif": {
           "Motif_JP": [
-            "コアフォルダ形態",
             "青みがかった藍色のショートヘア",
             "狐の耳",
             "落ち着いた外見",
@@ -3834,7 +3769,6 @@
             "中性的"
           ],
           "Motif_EN": [
-            "corefolder form",
             "short blue indigo hair",
             "fox ears",
             "calm composed look",
@@ -3847,7 +3781,6 @@
         "Formation": "humanoid",
         "Motif": {
           "Motif_JP": [
-            "ヒューマノイド形態",
             "青みがかった藍色のショートボブ",
             "狐の耳",
             "落ち着いた外見",
@@ -3858,7 +3791,6 @@
             "カジュアルな勉強用服装"
           ],
           "Motif_EN": [
-            "humanoid form",
             "short blue indigo bob",
             "fox ears",
             "calm composed look",
@@ -4037,14 +3969,12 @@
         "Formation": "corefolder",
         "Motif": {
           "Motif_JP": [
-            "コアフォルダ形態",
             "茶色がかった暗赤色のショートヘア",
             "狐の耳",
             "薄紅色のアクセントカラーの前髪",
             "頬に横線模様"
           ],
           "Motif_EN": [
-            "corefolder form",
             "short brown dark red hair",
             "fox ears",
             "light crimson accent color in bangs",
@@ -4056,7 +3986,6 @@
         "Formation": "humanoid",
         "Motif": {
           "Motif_JP": [
-            "ヒューマノイド形態",
             "茶色がかった暗赤色のショートヘア",
             "狐の耳",
             "薄紅色のアクセントカラーの前髪",
@@ -4065,7 +3994,6 @@
             "スカート"
           ],
           "Motif_EN": [
-            "humanoid form",
             "short brown dark red hair",
             "fox ears",
             "light crimson accent color in bangs",
@@ -4230,14 +4158,12 @@
         "Formation": "corefolder",
         "Motif": {
           "Motif_JP": [
-            "コアフォルダ形態",
             "茶色がかった赤いショートヘア",
             "乱れた髪",
             "狐の耳",
             "半目/紅色の目"
           ],
           "Motif_EN": [
-            "corefolder form",
             "short brown red hair",
             "messy hair",
             "fox ears",
@@ -4249,7 +4175,6 @@
         "Formation": "humanoid",
         "Motif": {
           "Motif_JP": [
-            "ヒューマノイド形態",
             "茶色がかった赤いショートヘア",
             "乱れた髪",
             "狐の耳",
@@ -4258,7 +4183,6 @@
             "ワイドレッグの濃い赤いパンツ"
           ],
           "Motif_EN": [
-            "humanoid form",
             "short brown red hair",
             "messy hair",
             "fox ears",
@@ -4431,7 +4355,6 @@
         "Formation": "corefolder",
         "Motif": {
           "Motif_JP": [
-            "コアフォルダ形態",
             "銀白色の長い髪",
             "狐の耳",
             "穏やかな微笑み/心配そうな表情",
@@ -4439,7 +4362,6 @@
             "番号付きのチョーカー"
           ],
           "Motif_EN": [
-            "corefolder form",
             "silver white long hair",
             "fox ears",
             "serene gentle smile/worried expression",
@@ -4452,7 +4374,6 @@
         "Formation": "humanoid",
         "Motif": {
           "Motif_JP": [
-            "ヒューマノイド形態",
             "銀白色の長い髪",
             "ハート形をモチーフにした髪型",
             "狐の耳",
@@ -4465,7 +4386,6 @@
             "カジュアルなプライベート服装"
           ],
           "Motif_EN": [
-            "humanoid form",
             "silver white long hair",
             "heart-shaped hair motif",
             "fox ears",
@@ -4703,7 +4623,6 @@
         "Formation": "corefolder",
         "Motif": {
           "Motif_JP": [
-            "コアフォルダ形態",
             "オレンジ色の髪",
             "狐の耳",
             "淡いオレンジ色の目",
@@ -4711,7 +4630,6 @@
             "中性的な外見"
           ],
           "Motif_EN": [
-            "corefolder form",
             "orange hair",
             "fox ears",
             "pale orange eyes",
@@ -4724,7 +4642,6 @@
         "Formation": "humanoid",
         "Motif": {
           "Motif_JP": [
-            "ヒューマノイド形態",
             "オレンジ色の髪",
             "狐の耳",
             "淡いオレンジ色の目",
@@ -4733,7 +4650,6 @@
             "中性的な外見"
           ],
           "Motif_EN": [
-            "humanoid form",
             "orange hair",
             "fox ears",
             "pale orange eyes",
@@ -4917,7 +4833,6 @@
         "Formation": "corefolder",
         "Motif": {
           "Motif_JP": [
-            "コアフォルダ形態",
             "淡い金色の髪",
             "狐の耳(イヤリング付き)",
             "サソリ型の分節尾2本（腕のように自在に動く）",
@@ -4926,7 +4841,6 @@
             "自分の頭を地球に見立て月と太陽を模したホログラム"
           ],
           "Motif_EN": [
-            "corefolder form",
             "pale golden hair",
             "fox ears (with earrings)",
             "two scorpion-type segmented tails (freely movable like arms)",
@@ -4940,7 +4854,6 @@
         "Formation": "humanoid",
         "Motif": {
           "Motif_JP": [
-            "ヒューマノイド形態",
             "淡い金色の髪",
             "狐の耳(イヤリング付き)",
             "サソリ型の分節尾2本（腕のように自在に動く）",
@@ -4952,7 +4865,6 @@
             "自分の頭を地球に見立て月と太陽を模したホログラム"
           ],
           "Motif_EN": [
-            "humanoid form",
             "pale golden hair",
             "fox ears (with earrings)",
             "two scorpion-type segmented tails (freely movable like arms)",
@@ -5179,7 +5091,6 @@
         "Formation": "corefolder",
         "Motif": {
           "Motif_JP": [
-            "コアフォルダ形態",
             "ミントグリーンの髪",
             "狐の耳",
             "冒険的な笑顔",
@@ -5187,7 +5098,6 @@
             "番号のマーキングとストライプ模様"
           ],
           "Motif_EN": [
-            "corefolder form",
             "mint green hair",
             "fox ears",
             "adventurous smile",
@@ -5200,7 +5110,6 @@
         "Formation": "humanoid",
         "Motif": {
           "Motif_JP": [
-            "ヒューマノイド形態",
             "ミントグリーンの髪",
             "狐の耳",
             "冒険的な笑顔",
@@ -5212,7 +5121,6 @@
             "番号のマーキングとストライプ模様"
           ],
           "Motif_EN": [
-            "humanoid form",
             "mint green hair",
             "fox ears",
             "adventurous smile",
@@ -5390,7 +5298,6 @@
         "Formation": "corefolder",
         "Motif": {
           "Motif_JP": [
-            "コアフォルダ形態",
             "ピンクの長い髪",
             "狐の耳(先がアクセントカラー)",
             "紫の目",
@@ -5399,7 +5306,6 @@
             "二色のツインテールと紫のリボン"
           ],
           "Motif_EN": [
-            "corefolder form",
             "long pink hair",
             "fox ears (accent color at the tips)",
             "purple eyes",
@@ -5413,7 +5319,6 @@
         "Formation": "humanoid",
         "Motif": {
           "Motif_JP": [
-            "ヒューマノイド形態",
             "ピンクの長い髪",
             "狐の耳(先がアクセントカラー)",
             "紫の目",
@@ -5425,7 +5330,6 @@
             "カジュアルなプライベート服装"
           ],
           "Motif_EN": [
-            "humanoid form",
             "long pink hair",
             "fox ears (accent color at the tips)",
             "purple eyes",
@@ -5613,7 +5517,6 @@
         "Formation": "corefolder",
         "Motif": {
           "Motif_JP": [
-            "コアフォルダ形態",
             "スチールブルーのショートヘア",
             "狐の耳",
             "紺色のまつげでティールの目",
@@ -5622,7 +5525,6 @@
             "5つの紺色の葉っぱ型ジュエルをリングでまとめたチャームが付けられている深緑色のスカーフ"
           ],
           "Motif_EN": [
-            "corefolder form",
             "steel blue short hair",
             "fox ears",
             "navy eyelashes with teal eyes",
@@ -5636,7 +5538,6 @@
         "Formation": "humanoid",
         "Motif": {
           "Motif_JP": [
-            "ヒューマノイド形態",
             "スチールブルーのショートヘア",
             "狐の耳",
             "紺色のまつげでティールの目",
@@ -5649,7 +5550,6 @@
             "5つの紺色の葉っぱ型ジュエルをリングでまとめたチャームが付けられている深緑色のスカーフ"
           ],
           "Motif_EN": [
-            "humanoid form",
             "steel blue short hair",
             "fox ears",
             "navy eyelashes with teal eyes",
@@ -5893,14 +5793,12 @@
         "Formation": "corefolder",
         "Motif": {
           "Motif_JP": [
-            "コアフォルダ形態",
             "ピンクの長い髪",
             "狐の耳(先が白のアクセントカラー)",
             "包み込むような微笑み",
             "白いアクセントカラーの前髪"
           ],
           "Motif_EN": [
-            "corefolder form",
             "long pink hair",
             "fox ears (white accent color at the tips)",
             "gentle nurturing smile",
@@ -5912,7 +5810,6 @@
         "Formation": "humanoid",
         "Motif": {
           "Motif_JP": [
-            "ヒューマノイド形態",
             "ピンクの長い髪",
             "狐の耳(先が白のアクセントカラー)",
             "包み込むような微笑み",
@@ -5922,7 +5819,6 @@
             "大きな胸"
           ],
           "Motif_EN": [
-            "humanoid form",
             "long pink hair",
             "fox ears (white accent color at the tips)",
             "gentle nurturing smile",
@@ -6133,7 +6029,6 @@
         "Formation": "corefolder",
         "Motif": {
           "Motif_JP": [
-            "コアフォルダ形態",
             "青いショートヘア",
             "サイドポニーテール",
             "狐の立った耳",
@@ -6142,7 +6037,6 @@
             "数字「27」マーキングがなされた紫色の名札"
           ],
           "Motif_EN": [
-            "corefolder form",
             "short blue hair",
             "side ponytail",
             "erected fox ears",
@@ -6156,7 +6050,6 @@
         "Formation": "humanoid",
         "Motif": {
           "Motif_JP": [
-            "ヒューマノイド形態",
             "青いショートヘア",
             "サイドポニーテール",
             "狐の立った耳",
@@ -6169,7 +6062,6 @@
             "カジュアルなプライベート服装"
           ],
           "Motif_EN": [
-            "humanoid form",
             "short blue hair",
             "side ponytail",
             "erected fox ears",
@@ -6395,14 +6287,12 @@
         "Formation": "corefolder",
         "Motif": {
           "Motif_JP": [
-            "コアフォルダ形態",
             "ウェーブしたオレンジ色の髪",
             "狐の耳",
             "ダングルイヤリング",
             "数学的なボディタトゥー"
           ],
           "Motif_EN": [
-            "corefolder form",
             "wavy orange hair",
             "fox ears",
             "dangling earrings",
@@ -6414,7 +6304,6 @@
         "Formation": "humanoid",
         "Motif": {
           "Motif_JP": [
-            "ヒューマノイド形態",
             "ウェーブしたオレンジ色の髪",
             "狐の耳",
             "ダングルイヤリング",
@@ -6424,7 +6313,6 @@
             "赤いブレザー(2パターンの着用方法)"
           ],
           "Motif_EN": [
-            "humanoid form",
             "wavy orange hair",
             "fox ears",
             "dangling earrings",
@@ -6586,14 +6474,12 @@
         "Formation": "corefolder",
         "Motif": {
           "Motif_JP": [
-            "コアフォルダ形態",
             "青みがかったラベンダーのインテークロングヘア",
             "狐の耳",
             "不安げな表情",
             "首元の紫のボウリボン"
           ],
           "Motif_EN": [
-            "corefolder form",
             "blue-lavender intake long hair",
             "fox ears",
             "anxious expression",
@@ -6605,7 +6491,6 @@
         "Formation": "humanoid",
         "Motif": {
           "Motif_JP": [
-            "ヒューマノイド形態",
             "青みがかったラベンダーのインテークロングヘア",
             "狐の耳",
             "不安げな表情",
@@ -6615,7 +6500,6 @@
             "やや大きめの胸"
           ],
           "Motif_EN": [
-            "humanoid form",
             "blue-lavender intake long hair",
             "fox ears",
             "anxious expression",
@@ -6845,14 +6729,12 @@
         "Formation": "corefolder",
         "Motif": {
           "Motif_JP": [
-            "コアフォルダ形態",
             "金橙色の長いウェーブヘアとアホ毛",
             "白いボウヘアオーナメントと黄色のリボン",
             "狐の耳",
             "温かく明るい笑顔"
           ],
           "Motif_EN": [
-            "corefolder form",
             "long wavy golden orange hair with ahoge",
             "white bow hair ornament and yellow ribbon",
             "fox ears",
@@ -6864,7 +6746,6 @@
         "Formation": "humanoid",
         "Motif": {
           "Motif_JP": [
-            "ヒューマノイド形態",
             "金橙色の長いウェーブヘアとアホ毛",
             "白いボウヘアオーナメントと黄色のリボン",
             "狐の耳",
@@ -6874,7 +6755,6 @@
             "大きな胸"
           ],
           "Motif_EN": [
-            "humanoid form",
             "long wavy golden orange hair with ahoge",
             "white bow hair ornament and yellow ribbon",
             "fox ears",
@@ -7061,7 +6941,6 @@
         "Formation": "corefolder",
         "Motif": {
           "Motif_JP": [
-            "コアフォルダ形態",
             "青シアンのショートヘア",
             "狐の耳",
             "元気で競争心あふれる笑み",
@@ -7070,7 +6949,6 @@
             "数学的なボディペイント"
           ],
           "Motif_EN": [
-            "corefolder form",
             "short blue-cyan hair",
             "fox ears",
             "energetic competitive grin",
@@ -7084,7 +6962,6 @@
         "Formation": "humanoid",
         "Motif": {
           "Motif_JP": [
-            "ヒューマノイド形態",
             "青シアンのショートヘア",
             "狐の耳",
             "元気で競争心あふれる笑み",
@@ -7097,7 +6974,6 @@
             "数学的なボディペイント"
           ],
           "Motif_EN": [
-            "humanoid form",
             "short blue-cyan hair",
             "fox ears",
             "energetic competitive grin",
@@ -7273,7 +7149,6 @@
         "Formation": "corefolder",
         "Motif": {
           "Motif_JP": [
-            "コアフォルダ形態",
             "ミントグリーンのショートヘア",
             "狐の耳",
             "自信ありげな表情",
@@ -7281,7 +7156,6 @@
             "番号のマーキングとストライプ模様"
           ],
           "Motif_EN": [
-            "corefolder form",
             "short mint green hair",
             "fox ears",
             "confident expression",
@@ -7294,7 +7168,6 @@
         "Formation": "corefolder",
         "Motif": {
           "Motif_JP": [
-            "コアフォルダ形態",
             "ミントグリーンのショートヘア",
             "狐の耳",
             "自信ありげな表情",
@@ -7306,7 +7179,6 @@
             "番号のマーキングとストライプ模様"
           ],
           "Motif_EN": [
-            "corefolder form",
             "short mint green hair",
             "fox ears",
             "confident expression",
@@ -7494,7 +7366,6 @@
         "Formation": "corefolder",
         "Motif": {
           "Motif_JP": [
-            "コアフォルダ形態",
             "オレンジピンクの長い編み込みヘア",
             "大きなピンクのボウリボン",
             "狐の耳",
@@ -7504,7 +7375,6 @@
             "ピンクの重ね着ドレスのようなケープ"
           ],
           "Motif_EN": [
-            "corefolder form",
             "long orange-pink braided hair",
             "large pink bow ribbon",
             "fox ears",
@@ -7520,7 +7390,6 @@
         "Formation": "humanoid",
         "Motif": {
           "Motif_JP": [
-            "ヒューマノイド形態",
             "オレンジピンクの長い編み込みヘア",
             "大きなピンクのボウリボン",
             "狐の耳",
@@ -7532,7 +7401,6 @@
             "番号付きの白い手袋"
           ],
           "Motif_EN": [
-            "humanoid form",
             "long orange-pink braided hair",
             "large pink bow ribbon",
             "fox ears",
@@ -7716,7 +7584,6 @@
         "Formation": "corefolder",
         "Motif": {
           "Motif_JP": [
-            "コアフォルダ形態",
             "濃い紺色のショートヘア",
             "狐の耳",
             "黄色い太眉",
@@ -7725,7 +7592,6 @@
             "紺灰色の目(悪いことを考えているときに開く)"
           ],
           "Motif_EN": [
-            "corefolder form",
             "short dark navy blue hair",
             "fox ears",
             "yellow thick eyebrows",
@@ -7739,7 +7605,6 @@
         "Formation": "humanoid",
         "Motif": {
           "Motif_JP": [
-            "ヒューマノイド形態",
             "濃い紺色のショートヘア",
             "狐の耳",
             "黄色い太眉",
@@ -7751,7 +7616,6 @@
             "小柄"
           ],
           "Motif_EN": [
-            "humanoid form",
             "short dark navy blue hair",
             "fox ears",
             "yellow thick eyebrows",
@@ -7936,7 +7800,6 @@
         "Formation": "corefolder",
         "Motif": {
           "Motif_JP": [
-            "コアフォルダ形態",
             "黄褐色のミディアムヘア",
             "狐の耳",
             "黄緑色の目",
@@ -7947,7 +7810,6 @@
             "御幣（巫女）"
           ],
           "Motif_EN": [
-            "corefolder form",
             "medium yellow-tan hair",
             "fox ears",
             "yellow-green eyes",
@@ -7963,7 +7825,6 @@
         "Formation": "humanoid",
         "Motif": {
           "Motif_JP": [
-            "ヒューマノイド形態",
             "オレンジ色のミディアムヘア",
             "狐の耳",
             "黄緑色の目",
@@ -7976,7 +7837,6 @@
             "御幣（巫女）"
           ],
           "Motif_EN": [
-            "humanoid form",
             "medium yellow-tan hair",
             "fox ears",
             "yellow-green eyes",
@@ -8169,14 +8029,12 @@
         "Formation": "corefolder",
         "Motif": {
           "Motif_JP": [
-            "コアフォルダ形態",
             "オレンジ色のショートミディアムヘア",
             "大きくふわふわした広がり狐の耳",
             "優しい微笑み",
             "胸元のボウリボン"
           ],
           "Motif_EN": [
-            "corefolder form",
             "orange short-medium hair",
             "oversized fluffy flared fox ears",
             "gentle caring smile",
@@ -8188,7 +8046,6 @@
         "Formation": "humanoid",
         "Motif": {
           "Motif_JP": [
-            "ヒューマノイド形態",
             "オレンジ色のショートミディアムヘア",
             "大きくふわふわした広がり狐の耳",
             "優しい微笑み",
@@ -8199,7 +8056,6 @@
             "胸元のボウリボン"
           ],
           "Motif_EN": [
-            "humanoid form",
             "orange short-medium hair",
             "oversized fluffy flared fox ears",
             "gentle caring smile",
@@ -8453,7 +8309,6 @@
         "Formation": "corefolder",
         "Motif": {
           "Motif_JP": [
-            "コアフォルダ形態",
             "サーモンピンクのショートヘア",
             "狐の耳",
             "赤いまつげで赤と黄色の目",
@@ -8462,7 +8317,6 @@
             "黄色いネクタイと'37'の数字をモチーフにしたピン"
           ],
           "Motif_EN": [
-            "corefolder form",
             "short salmon-pink hair",
             "fox ears",
             "red eyelashes with red and yellow eyes",
@@ -8476,7 +8330,6 @@
         "Formation": "humanoid",
         "Motif": {
           "Motif_JP": [
-            "ヒューマノイド形態",
             "サーモンピンクのショートヘア",
             "狐の耳",
             "赤いまつげで赤と黄色の目",
@@ -8488,7 +8341,6 @@
             "黄色いネクタイと'37'の数字をモチーフにしたピン"
           ],
           "Motif_EN": [
-            "humanoid form",
             "short salmon-pink hair",
             "fox ears",
             "red eyelashes with red and yellow eyes",
@@ -8761,7 +8613,6 @@
         "Formation": "corefolder",
         "Motif": {
           "Motif_JP": [
-            "コアフォルダ形態",
             "若い成人男性",
             "琥珀金髪のショートヘア",
             "狐の耳",
@@ -8769,7 +8620,6 @@
             "男性体型"
           ],
           "Motif_EN": [
-            "corefolder form",
             "young adult male",
             "short amber-blonde hair",
             "fox ears",
@@ -8782,7 +8632,6 @@
         "Formation": "humanoid",
         "Motif": {
           "Motif_JP": [
-            "ヒューマノイド形態",
             "琥珀金髪のショートヘア",
             "狐の耳",
             "クールな落ち着いた表情",
@@ -8793,7 +8642,6 @@
             "長身男性体形"
           ],
           "Motif_EN": [
-            "humanoid form",
             "short amber-blonde hair",
             "fox ears",
             "cool composed expression",
@@ -9015,7 +8863,6 @@
         "Formation": "corefolder",
         "Motif": {
           "Motif_JP": [
-            "コアフォルダ形態",
             "ティールのサイドブレイドヘア",
             "狐の耳",
             "中立的・諦めた表情(通常時)",
@@ -9025,7 +8872,6 @@
             "「40」をモチーフにした紋様"
           ],
           "Motif_EN": [
-            "corefolder form",
             "teal side-braid hair",
             "fox ears",
             "neutral resigned expression (usual)",
@@ -9040,7 +8886,6 @@
         "Formation": "humanoid",
         "Motif": {
           "Motif_JP": [
-            "ヒューマノイド形態",
             "ティールのサイドブレイドヘア",
             "狐の耳",
             "中立的・諦めた表情",
@@ -9050,7 +8895,6 @@
             "「40」をモチーフにした紋様"
           ],
           "Motif_EN": [
-            "humanoid form",
             "teal side-braid hair",
             "fox ears",
             "neutral resigned expression",
@@ -9215,14 +9059,12 @@
         "Formation": "corefolder",
         "Motif": {
           "Motif_JP": [
-            "コアフォルダ形態",
             "狐の耳",
             "青みがかった灰色のショートヘア",
             "水色のまつげで青灰色の目",
             "サーモンピンクの襟"
           ],
           "Motif_EN": [
-            "corefolder form",
             "fox ears",
             "short blue-gray hair",
             "blue-gray eyes with light blue eyelashes",
@@ -9234,7 +9076,6 @@
         "Formation": "humanoid",
         "Motif": {
           "Motif_JP": [
-            "ヒューマノイド形態",
             "狐の耳",
             "青みがかった灰色のショートヘア",
             "青みがかった灰色の目",
@@ -9245,7 +9086,6 @@
             "シアンの靴"
           ],
           "Motif_EN": [
-            "humanoid form",
             "fox ears",
             "short blue-gray hair",
             "blue-gray eyes",
@@ -9483,14 +9323,12 @@
         "Formation": "corefolder",
         "Motif": {
           "Motif_JP": [
-            "コアフォルダ形態",
             "狐の耳(先がアクセントカラー)",
             "ハート形の薄いアクセントカラーの前髪",
             "二色のツインテールと青のリボン",
             "青い目"
           ],
           "Motif_EN": [
-            "corefolder form",
             "fox ears (accent color at the tips)",
             "heart-shaped light accent color bangs",
             "two-tone twin-tails with blue ribbons",
@@ -9502,7 +9340,6 @@
         "Formation": "humanoid",
         "Motif": {
           "Motif_JP": [
-            "ヒューマノイド形態",
             "狐の耳(先がアクセントカラー)",
             "青い目",
             "白い襟付きピンクのパフスリーブブラウス",
@@ -9514,7 +9351,6 @@
             "ピンクの靴"
           ],
           "Motif_EN": [
-            "humanoid form",
             "fox ears (accent color at the tips)",
             "heart-shaped light accent color bangs",
             "two-tone twin-tails with blue ribbons",
@@ -9688,13 +9524,11 @@
         "Formation": "corefolder",
         "Motif": {
           "Motif_JP": [
-            "コアフォルダ形態",
             "狐の耳",
             "濃い紺色のショートヘア",
             "琥珀色の目"
           ],
           "Motif_EN": [
-            "corefolder form",
             "fox ears",
             "short dark navy hair",
             "amber eyes"
@@ -9705,7 +9539,6 @@
         "Formation": "humanoid",
         "Motif": {
           "Motif_JP": [
-            "ヒューマノイド形態",
             "狐の耳",
             "濃い紺色のショートヘア",
             "琥珀色の目",
@@ -9716,7 +9549,6 @@
             "ゲームコントローラーを持っていることが多い"
           ],
           "Motif_EN": [
-            "humanoid form",
             "fox ears",
             "short dark navy hair",
             "amber eyes",
@@ -9902,14 +9734,12 @@
         "Formation": "corefolder",
         "Motif": {
           "Motif_JP": [
-            "コアフォルダ形態",
             "狐の耳",
             "金褐色の小さ目なツインテール",
             "アクセントカラーの前髪",
             "スチールブルーの目"
           ],
           "Motif_EN": [
-            "corefolder form",
             "fox ears",
             "golden-tan small twin tails",
             "accent-colored bangs",
@@ -9921,7 +9751,6 @@
         "Formation": "humanoid",
         "Motif": {
           "Motif_JP": [
-            "ヒューマノイド形態",
             "狐の耳",
             "金褐色の小さ目なツインテール",
             "アクセントカラーの前髪",
@@ -9933,7 +9762,6 @@
             "オレンジ色のブーツ"
           ],
           "Motif_EN": [
-            "humanoid form",
             "fox ears",
             "golden-tan small twin tails",
             "accent-colored bangs",
@@ -10112,13 +9940,11 @@
         "Formation": "corefolder",
         "Motif": {
           "Motif_JP": [
-            "コアフォルダ形態",
             "狐の耳",
             "黒い短いポニーテール",
             "ティールの目"
           ],
           "Motif_EN": [
-            "corefolder form",
             "fox ears",
             "short black ponytail",
             "teal eyes"
@@ -10129,7 +9955,6 @@
         "Formation": "humanoid",
         "Motif": {
           "Motif_JP": [
-            "ヒューマノイド形態",
             "狐の耳",
             "黒い短いポニーテール",
             "ティールの目",
@@ -10138,7 +9963,6 @@
             "ティールのサンダル"
           ],
           "Motif_EN": [
-            "humanoid form",
             "fox ears",
             "short black ponytail",
             "teal eyes",
@@ -10304,14 +10128,12 @@
         "Formation": "corefolder",
         "Motif": {
           "Motif_JP": [
-            "コアフォルダ形態",
             "狐の耳",
             "青く長い髪を4節に編み込んでいる",
             "じっとしていることに不服そうな顔",
             "赤い目"
           ],
           "Motif_EN": [
-            "corefolder form",
             "fox ears",
             "long blue hair braided into four sections",
             "discontented expression when staying still",
@@ -10323,7 +10145,6 @@
         "Formation": "humanoid",
         "Motif": {
           "Motif_JP": [
-            "ヒューマノイド形態",
             "狐の耳",
             "青く長い髪を4節に編み込んでいる",
             "溌剌としていてどこか落ち着きのない顔",
@@ -10334,7 +10155,6 @@
             "青いブーツ"
           ],
           "Motif_EN": [
-            "humanoid form",
             "fox ears",
             "long blue hair braided into four sections",
             "lively and somewhat restless expression",
@@ -10513,13 +10333,11 @@
         "Formation": "corefolder",
         "Motif": {
           "Motif_JP": [
-            "コアフォルダ形態",
             "狐の耳",
             "ラベンダーグレーの長い髪を後ろで束ねている",
             "紺色の目"
           ],
           "Motif_EN": [
-            "corefolder form",
             "fox ears",
             "long lavender-gray hair tied at the back",
             "navy eyes"
@@ -10530,7 +10348,6 @@
         "Formation": "humanoid",
         "Motif": {
           "Motif_JP": [
-            "ヒューマノイド形態",
             "狐の耳",
             "ラベンダーグレーの長い髪を後ろで束ねている",
             "紺色の目",
@@ -10540,7 +10357,6 @@
             "紺色の下駄"
           ],
           "Motif_EN": [
-            "humanoid form",
             "fox ears",
             "long lavender-gray hair tied at the back",
             "navy eyes",
@@ -10771,14 +10587,12 @@
         "Formation": "corefolder",
         "Motif": {
           "Motif_JP": [
-            "コアフォルダ形態",
             "狐の耳",
             "深緑色のショートヘア",
             "青緑色の目",
             "眼鏡付きのヘッドセット"
           ],
           "Motif_EN": [
-            "corefolder form",
             "1boy",
             "fox ears",
             "short dark green hair",
@@ -10791,7 +10605,6 @@
         "Formation": "humanoid",
         "Motif": {
           "Motif_JP": [
-            "ヒューマノイド形態",
             "狐の耳",
             "深緑色のショートヘア",
             "青緑色の目",
@@ -10802,7 +10615,6 @@
             "茶色のブーツ"
           ],
           "Motif_EN": [
-            "humanoid form",
             "fox ears",
             "short dark green hair",
             "blue-green eyes",
@@ -10992,7 +10804,6 @@
         "Formation": "corefolder",
         "Motif": {
           "Motif_JP": [
-            "コアフォルダ形態",
             "狐の耳",
             "濃い藍色のミディアムヘア",
             "紺色の目",
@@ -11000,7 +10811,6 @@
             "目が死んだように笑っていない笑顔(笑顔を取り繕っているときの表情)"
           ],
           "Motif_EN": [
-            "corefolder form",
             "fox ears",
             "medium dark indigo hair",
             "dark blue eyes",
@@ -11013,7 +10823,6 @@
         "Formation": "humanoid",
         "Motif": {
           "Motif_JP": [
-            "ヒューマノイド形態",
             "狐の耳",
             "濃い藍色のミディアムヘア",
             "紺色の目",
@@ -11024,7 +10833,6 @@
             "青のショートパンツ"
           ],
           "Motif_EN": [
-            "humanoid form",
             "fox ears",
             "medium dark indigo hair",
             "dark blue eyes",
@@ -11191,7 +10999,6 @@
         "Formation": "corefolder",
         "Motif": {
           "Motif_JP": [
-            "コアフォルダ形態",
             "猫の大き目な耳",
             "猫の髭",
             "緑色のお団子ヘアー(少しだけ後ろにも括ってある)",
@@ -11199,7 +11006,6 @@
             "体に巻かれたミント色のパーカー"
           ],
           "Motif_EN": [
-            "corefolder form",
             "large cat ears",
             "cat whiskers",
             "green hair in buns (slightly tied at the back)",
@@ -11212,7 +11018,6 @@
         "Formation": "humanoid",
         "Motif": {
           "Motif_JP": [
-            "ヒューマノイド形態",
             "猫の大き目な耳",
             "緑色のお団子ヘアー(少しだけ後ろにも括ってある)",
             "青緑色の目",
@@ -11221,7 +11026,6 @@
             "深緑色のレギンス"
           ],
           "Motif_EN": [
-            "humanoid form",
             "large cat ears",
             "green hair in buns (slightly tied at the back)",
             "blue-green eyes",
@@ -11393,14 +11197,12 @@
         "Formation": "corefolder",
         "Motif": {
           "Motif_JP": [
-            "コアフォルダ形態",
             "ピンクのショートポニーテール",
             "狐の耳",
             "軽薄で自信ありげな表情",
             "淡い色のチャームが付けられた深緑色のベルト"
           ],
           "Motif_EN": [
-            "corefolder form",
             "pink short ponytail",
             "fox ears",
             "frivolous, confident expression",
@@ -11412,7 +11214,6 @@
         "Formation": "humanoid",
         "Motif": {
           "Motif_JP": [
-            "ヒューマノイド形態",
             "ピンクのショートポニーテール",
             "狐の耳",
             "軽薄で自信ありげな表情",
@@ -11420,7 +11221,6 @@
             "淡い色のチャームが付けられた深緑色のベルト"
           ],
           "Motif_EN": [
-            "humanoid form",
             "pink short ponytail",
             "fox ears",
             "frivolous, confident expression",
@@ -11603,14 +11403,12 @@
         "Formation": "corefolder",
         "Motif": {
           "Motif_JP": [
-            "コアフォルダ形態",
             "狐の耳",
             "銀灰色の長い髪を後ろで括っている",
             "ライトグレーのアクセントカラーが入った前髪",
             "紺色のまつげでティールの目"
           ],
           "Motif_EN": [
-            "corefolder form",
             "fox ears",
             "long silver-gray hair tied at the back",
             "light gray accent color in the bangs",
@@ -11622,7 +11420,6 @@
         "Formation": "humanoid",
         "Motif": {
           "Motif_JP": [
-            "ヒューマノイド形態",
             "狐の耳",
             "銀灰色の長い髪を後ろで括っている",
             "ライトグレーのアクセントカラーが入った前髪",
@@ -11634,7 +11431,6 @@
             "灰色のインナーレイヤー"
           ],
           "Motif_EN": [
-            "humanoid form",
             "fox ears",
             "long silver-gray hair tied at the back",
             "light gray accent color in the bangs",
@@ -11877,7 +11673,6 @@
         "Formation": "corefolder",
         "Motif": {
           "Motif_JP": [
-            "コアフォルダ形態",
             "狐の耳",
             "黄褐色のショートヘア",
             "琥珀色の目",
@@ -11885,7 +11680,6 @@
             "緑のネクタイ"
           ],
           "Motif_EN": [
-            "corefolder form",
             "fox ears",
             "short yellow-tan hair",
             "amber eyes",
@@ -11898,7 +11692,6 @@
         "Formation": "humanoid",
         "Motif": {
           "Motif_JP": [
-            "ヒューマノイド形態",
             "狐の耳",
             "黄褐色のショートヘア",
             "琥珀色の目",
@@ -11911,7 +11704,6 @@
             "オレンジ色の靴"
           ],
           "Motif_EN": [
-            "humanoid form",
             "fox ears",
             "short yellow-tan hair",
             "amber eyes",
@@ -12114,14 +11906,12 @@
         "Formation": "corefolder",
         "Motif": {
           "Motif_JP": [
-            "コアフォルダ形態",
             "狐の耳(先が濃い緑色)",
             "濃い緑のミディアムヘア",
             "緑の目",
             "球体の腹から腰にかけての赤い横縞アクセント(これを境界に色がわずかに違う)"
           ],
           "Motif_EN": [
-            "corefolder form",
             "fox ears (tips dark green)",
             "medium dark green hair",
             "green eyes",
@@ -12133,7 +11923,6 @@
         "Formation": "humanoid",
         "Motif": {
           "Motif_JP": [
-            "ヒューマノイド形態",
             "狐の耳",
             "濃い緑のミディアムヘア",
             "緑の目",
@@ -12143,7 +11932,6 @@
             "白いインナーカラー"
           ],
           "Motif_EN": [
-            "humanoid form",
             "fox ears",
             "medium dark green hair",
             "green eyes",
@@ -12320,14 +12108,12 @@
         "Formation": "corefolder",
         "Motif": {
           "Motif_JP": [
-            "コアフォルダ形態",
             "狐の耳(先が薄色)",
             "薄い灰色のツートーンショートヘア",
             "緑の目",
             "ライトグリーンのスカーフ"
           ],
           "Motif_EN": [
-            "corefolder form",
             "fox ears (tips are light-colored)",
             "short light gray two-tone hair",
             "green eyes",
@@ -12339,7 +12125,6 @@
         "Formation": "humanoid",
         "Motif": {
           "Motif_JP": [
-            "ヒューマノイド形態",
             "狐の耳(先が薄色)",
             "薄い灰色のツートーンショートヘア",
             "緑の目",
@@ -12350,7 +12135,6 @@
             "ピンクの靴"
           ],
           "Motif_EN": [
-            "humanoid form",
             "fox ears (tips are light-colored)",
             "short light gray two-tone hair",
             "green eyes",
@@ -12593,14 +12377,12 @@
         "Formation": "corefolder",
         "Motif": {
           "Motif_JP": [
-            "コアフォルダ形態",
             "狐の耳",
             "金髪ポニーテール",
             "琥珀色の目",
             "右肩の番号付きの腕章"
           ],
           "Motif_EN": [
-            "corefolder form",
             "fox ears",
             "blonde ponytail",
             "amber eyes",
@@ -12612,7 +12394,6 @@
         "Formation": "humanoid",
         "Motif": {
           "Motif_JP": [
-            "ヒューマノイド形態",
             "狐の耳",
             "金髪ポニーテール",
             "琥珀色の目",
@@ -12624,7 +12405,6 @@
             "右肩の番号付きの腕章"
           ],
           "Motif_EN": [
-            "humanoid form",
             "fox ears",
             "blonde ponytail",
             "amber eyes",
@@ -12851,13 +12631,11 @@
         "Formation": "corefolder",
         "Motif": {
           "Motif_JP": [
-            "コアフォルダ形態",
             "狐の耳",
             "茶色の長い髪",
             "水色の目"
           ],
           "Motif_EN": [
-            "corefolder form",
             "fox ears",
             "long brown hair",
             "light blue eyes"
@@ -12868,7 +12646,6 @@
         "Formation": "humanoid",
         "Motif": {
           "Motif_JP": [
-            "ヒューマノイド形態",
             "狐の耳",
             "茶色の長い髪",
             "水色の目",
@@ -12876,7 +12653,6 @@
             "青の靴"
           ],
           "Motif_EN": [
-            "humanoid form",
             "fox ears",
             "long brown hair",
             "light blue eyes",
@@ -13156,7 +12932,6 @@
         "Formation": "corefolder",
         "Motif": {
           "Motif_JP": [
-            "コアフォルダ形態",
             "狐の耳",
             "ピンク色のインテークヘア",
             "紫色の目",
@@ -13165,7 +12940,6 @@
             "ブローチ付きピンクのネクタイ(通常衣装のみ)"
           ],
           "Motif_EN": [
-            "corefolder form",
             "fox ears",
             "pink intake hair",
             "purple eyes",
@@ -13179,7 +12953,6 @@
         "Formation": "humanoid",
         "Motif": {
           "Motif_JP": [
-            "ヒューマノイド形態",
             "狐の耳",
             "紫色の目",
             "2パターンの衣装",
@@ -13198,7 +12971,6 @@
             "マゼンタのブーツ"
           ],
           "Motif_EN": [
-            "humanoid form",
             "fox ears",
             "pink intake hair",
             "purple eyes",
@@ -13500,7 +13272,6 @@
         "Formation": "corefolder",
         "Motif": {
           "Motif_JP": [
-            "コアフォルダ形態",
             "狐の耳",
             "マゼンタの非常に長いポニーテール",
             "薄紫色の目",
@@ -13512,7 +13283,6 @@
             "青色の蝶ネクタイ(アイドル衣装)"
           ],
           "Motif_EN": [
-            "corefolder form",
             "fox ears",
             "magenta very long ponytail",
             "light purple eyes",
@@ -13529,7 +13299,6 @@
         "Formation": "humanoid",
         "Motif": {
           "Motif_JP": [
-            "ヒューマノイド形態",
             "狐の耳",
             "マゼンタの非常に長いポニーテール",
             "薄紫色の目",
@@ -13545,7 +13314,6 @@
             "白いインナーシャツ"
           ],
           "Motif_EN": [
-            "humanoid form",
             "fox ears",
             "magenta very long ponytail",
             "light purple eyes",
@@ -13813,14 +13581,12 @@
         "Formation": "corefolder",
         "Motif": {
           "Motif_JP": [
-            "コアフォルダ形態",
             "狐の耳(先が濃いピンクのアクセントカラー)",
             "淡いピンク色の長い髪",
             "ピンク色の目",
             "腕章(左肩側に番号)"
           ],
           "Motif_EN": [
-            "corefolder form",
             "fox ears (with dark pink accent at the tips)",
             "long light pink hair",
             "pink eyes",
@@ -13832,7 +13598,6 @@
         "Formation": "humanoid",
         "Motif": {
           "Motif_JP": [
-            "ヒューマノイド形態",
             "狐の耳(先が濃いピンクのアクセントカラー)",
             "淡いピンク色の長い髪",
             "ピンク色の目",
@@ -13842,7 +13607,6 @@
             "腕章(左肩側に番号)"
           ],
           "Motif_EN": [
-            "humanoid form",
             "fox ears (with dark pink accent at the tips)",
             "long light pink hair",
             "pink eyes",
@@ -14023,7 +13787,6 @@
         "Formation": "corefolder",
         "Motif": {
           "Motif_JP": [
-            "コアフォルダ形態",
             "狐の耳",
             "橙色の髪",
             "橙色の目",
@@ -14031,7 +13794,6 @@
             "母性のある優しい笑顔"
           ],
           "Motif_EN": [
-            "corefolder form",
             "fox ears",
             "orange hair",
             "orange eyes",
@@ -14044,7 +13806,6 @@
         "Formation": "humanoid",
         "Motif": {
           "Motif_JP": [
-            "ヒューマノイド形態",
             "狐の耳",
             "橙色の髪",
             "橙色の目",
@@ -14056,7 +13817,6 @@
             "茶色の靴"
           ],
           "Motif_EN": [
-            "humanoid form",
             "fox ears",
             "orange hair",
             "orange eyes",
@@ -14228,14 +13988,12 @@
         "Formation": "corefolder",
         "Motif": {
           "Motif_JP": [
-            "コアフォルダ形態",
             "狐の耳",
             "マゼンタの長い髪を後ろで束ねている",
             "紫の目",
             "誘い受け気味の笑顔"
           ],
           "Motif_EN": [
-            "corefolder form",
             "fox ears",
             "long magenta hair tied at the back",
             "violet eyes",
@@ -14247,7 +14005,6 @@
         "Formation": "humanoid",
         "Motif": {
           "Motif_JP": [
-            "ヒューマノイド形態",
             "狐の耳",
             "マゼンタの長い髪を後ろで束ねている",
             "紫の目",
@@ -14256,7 +14013,6 @@
             "青の靴"
           ],
           "Motif_EN": [
-            "humanoid form",
             "fox ears",
             "long magenta hair tied at the back",
             "violet eyes",
@@ -14434,13 +14190,11 @@
         "Formation": "corefolder",
         "Motif": {
           "Motif_JP": [
-            "コアフォルダ形態",
             "狐の耳(先が薄色)",
             "薄い灰色のツートーンショートヘア",
             "ライトグリーンの目"
           ],
           "Motif_EN": [
-            "corefolder form",
             "fox ears (tips are light-colored)",
             "short light gray two-tone hair",
             "light green eyes"
@@ -14451,7 +14205,6 @@
         "Formation": "humanoid",
         "Motif": {
           "Motif_JP": [
-            "ヒューマノイド形態",
             "狐の耳(先が薄色)",
             "薄い灰色のツートーンショートヘア",
             "ライトグリーンの目",
@@ -14460,7 +14213,6 @@
             "ピンクの靴"
           ],
           "Motif_EN": [
-            "humanoid form",
             "fox ears (tips are light-colored)",
             "short light gray two-tone hair",
             "light green eyes",
@@ -14644,7 +14396,6 @@
         "Formation": "corefolder",
         "Motif": {
           "Motif_JP": [
-            "コアフォルダ形態",
             "狐の耳",
             "ピンクハイライト入り茶色の髪",
             "琥珀色の目",
@@ -14652,7 +14403,6 @@
             "番号入りオレンジ黄色のヨークビブ"
           ],
           "Motif_EN": [
-            "corefolder form",
             "fox ears",
             "brown hair with pink highlights",
             "amber eyes",
@@ -14665,7 +14415,6 @@
         "Formation": "humanoid",
         "Motif": {
           "Motif_JP": [
-            "ヒューマノイド形態",
             "狐の耳",
             "ピンクハイライト入り茶色の髪",
             "琥珀色の目",
@@ -14677,7 +14426,6 @@
             "黄色いトリムアクセント"
           ],
           "Motif_EN": [
-            "humanoid form",
             "fox ears",
             "brown hair with pink highlights",
             "amber eyes",
@@ -14821,13 +14569,11 @@
         "Formation": "corefolder",
         "Motif": {
           "Motif_JP": [
-            "コアフォルダ形態",
             "狐の耳",
             "紺色のミディアムショートヘア",
             "水色の目"
           ],
           "Motif_EN": [
-            "corefolder form",
             "fox ears",
             "navy blue medium-short hair",
             "light blue eyes"
@@ -14838,7 +14584,6 @@
         "Formation": "humanoid",
         "Motif": {
           "Motif_JP": [
-            "ヒューマノイド形態",
             "狐の耳",
             "紺色のミディアムショートヘア",
             "水色の目",
@@ -14847,7 +14592,6 @@
             "シアンブルーのスニーカー"
           ],
           "Motif_EN": [
-            "humanoid form",
             "fox ears",
             "navy blue medium-short hair",
             "light blue eyes",
@@ -14963,13 +14707,11 @@
         "Formation": "corefolder",
         "Motif": {
           "Motif_JP": [
-            "コアフォルダ形態",
             "狐の耳",
             "紺色のミディアムショートヘア",
             "水色の目"
           ],
           "Motif_EN": [
-            "corefolder form",
             "fox ears",
             "navy blue medium-short hair",
             "light blue eyes"
@@ -14980,7 +14722,6 @@
         "Formation": "humanoid",
         "Motif": {
           "Motif_JP": [
-            "ヒューマノイド形態",
             "狐の耳",
             "紺色のミディアムショートヘア",
             "水色の目",
@@ -14991,7 +14732,6 @@
             "筋肉質な肉体(筋装備時)"
           ],
           "Motif_EN": [
-            "humanoid form",
             "fox ears",
             "navy blue medium-short hair",
             "light blue eyes",
@@ -15181,14 +14921,12 @@
         "Formation": "corefolder",
         "Motif": {
           "Motif_JP": [
-            "コアフォルダ形態",
             "狐の耳",
             "緑のショートヘア",
             "灰緑色の目",
             "「68」マーク入り赤いバンダナ"
           ],
           "Motif_EN": [
-            "corefolder form",
             "fox ears",
             "short green hair",
             "gray-green eyes",
@@ -15200,7 +14938,6 @@
         "Formation": "humanoid",
         "Motif": {
           "Motif_JP": [
-            "ヒューマノイド形態",
             "狐の耳",
             "緑のショートヘア",
             "灰緑色の目",
@@ -15210,7 +14947,6 @@
             "薄い茶色の作業着(作業着時)"
           ],
           "Motif_EN": [
-            "humanoid form",
             "fox ears",
             "short green hair",
             "gray-green eyes",
@@ -15405,14 +15141,12 @@
         "Formation": "corefolder",
         "Motif": {
           "Motif_JP": [
-            "コアフォルダ形態",
             "狐の耳(イヤリング付き)",
             "ピンクのショートヘア",
             "赤い目",
             "薄いピンクのマントのよう襟"
           ],
           "Motif_EN": [
-            "corefolder form",
             "fox ears (with earrings)",
             "short pink hair",
             "red eyes",
@@ -15424,7 +15158,6 @@
         "Formation": "humanoid",
         "Motif": {
           "Motif_JP": [
-            "ヒューマノイド形態",
             "狐の耳(イヤリング付き)",
             "ピンクのショートヘア",
             "赤い目",
@@ -15435,7 +15168,6 @@
             "番号付きの仮面(時々装着する)"
           ],
           "Motif_EN": [
-            "humanoid form",
             "fox ears (with earrings)",
             "short pink hair",
             "red eyes",
@@ -15603,9 +15335,8 @@
       {
         "Formation": "corefolder",
         "Motif": {
-          "Motif_JP": ["コアフォルダ形態", "狐の耳", "紫の髪", "濃紺の目"],
+          "Motif_JP": ["狐の耳", "紫の髪", "濃紺の目"],
           "Motif_EN": [
-            "corefolder form",
             "fox ears",
             "purple hair",
             "dark blue eyes"
@@ -15616,7 +15347,6 @@
         "Formation": "humanoid",
         "Motif": {
           "Motif_JP": [
-            "ヒューマノイド形態",
             "狐の耳",
             "紫の髪",
             "濃紺の目",
@@ -15626,7 +15356,6 @@
             "白いラインと紫のアクセント入りで淡い青色のアームウェア"
           ],
           "Motif_EN": [
-            "humanoid form",
             "fox ears",
             "purple hair",
             "dark blue eyes",
@@ -15794,14 +15523,12 @@
         "Formation": "corefolder",
         "Motif": {
           "Motif_JP": [
-            "コアフォルダ形態",
             "狐の耳",
             "番号モチーフのかんざし付きの青いポニーテール",
             "灰青色の目",
             "丸く剃られた灰青色の眉"
           ],
           "Motif_EN": [
-            "corefolder form",
             "fox ears",
             "blue ponytail with number motif hairpin",
             "gray-blue eyes",
@@ -15813,7 +15540,6 @@
         "Formation": "humanoid",
         "Motif": {
           "Motif_JP": [
-            "ヒューマノイド形態",
             "狐の耳",
             "番号モチーフのかんざし付きの青いポニーテール",
             "灰青色の目",
@@ -15824,7 +15550,6 @@
             "青い靴"
           ],
           "Motif_EN": [
-            "humanoid form",
             "fox ears",
             "blue ponytail with number motif hairpin",
             "gray-blue eyes",
@@ -16004,7 +15729,6 @@
         "Formation": "corefolder",
         "Motif": {
           "Motif_JP": [
-            "コアフォルダ形態",
             "狐の耳(ダイヤマークの薄いアクセント付き)",
             "淡い青の非常に長い髪",
             "ラベンダーのまつげでラベンダーの目",
@@ -16012,7 +15736,6 @@
             "バーコードの番号タグ"
           ],
           "Motif_EN": [
-            "corefolder form",
             "fox ears (with a faint diamond-shaped accent)",
             "very long pale blue hair",
             "lavender eyelashes with lavender eyes",
@@ -16025,7 +15748,6 @@
         "Formation": "humanoid",
         "Motif": {
           "Motif_JP": [
-            "ヒューマノイド形態",
             "狐の耳(ダイヤマークの薄いアクセント付き)",
             "淡い青の非常に長い髪",
             "ラベンダーのまつげでラベンダーの目",
@@ -16036,7 +15758,6 @@
             "バーコードの番号タグ"
           ],
           "Motif_EN": [
-            "humanoid form",
             "fox ears (with a faint diamond-shaped accent)",
             "very long pale blue hair",
             "lavender eyelashes with lavender eyes",
@@ -16223,7 +15944,6 @@
         "Formation": "corefolder",
         "Motif": {
           "Motif_JP": [
-            "コアフォルダ形態",
             "狐の耳",
             "帽子付きピンクのショートヘア",
             "赤いまつげで金色の目",
@@ -16231,7 +15951,6 @@
             "「73」モチーフのパッチ付きの青いベレー帽"
           ],
           "Motif_EN": [
-            "corefolder form",
             "fox ears",
             "short pink hair with cap",
             "red eyelashes with golden eyes",
@@ -16244,7 +15963,6 @@
         "Formation": "humanoid",
         "Motif": {
           "Motif_JP": [
-            "ヒューマノイド形態",
             "狐の耳",
             "帽子付きピンクのショートヘア",
             "赤いまつげで金色の目",
@@ -16257,7 +15975,6 @@
             "赤い靴"
           ],
           "Motif_EN": [
-            "humanoid form",
             "fox ears",
             "short pink hair with cap",
             "red eyelashes with golden eyes",
@@ -16439,14 +16156,12 @@
         "Formation": "corefolder",
         "Motif": {
           "Motif_JP": [
-            "コアフォルダ形態",
             "狐の耳",
             "銀灰色の長い髪",
             "鮮やかな青の目",
             "番号付きで半透明の白いショールマント"
           ],
           "Motif_EN": [
-            "corefolder form",
             "fox ears",
             "long silver-gray hair",
             "bright blue eyes",
@@ -16458,7 +16173,6 @@
         "Formation": "humanoid",
         "Motif": {
           "Motif_JP": [
-            "ヒューマノイド形態",
             "狐の耳",
             "銀灰色の長い髪",
             "鮮やかな青の目",
@@ -16468,7 +16182,6 @@
             "灰色の下駄"
           ],
           "Motif_EN": [
-            "humanoid form",
             "fox ears",
             "long silver-gray hair",
             "bright blue eyes",
@@ -16643,14 +16356,12 @@
         "Formation": "corefolder",
         "Motif": {
           "Motif_JP": [
-            "コアフォルダ形態",
             "狐の耳",
             "黄色いサイドテールの髪",
             "黄色い目",
             "左肩の番号付きの腕章"
           ],
           "Motif_EN": [
-            "corefolder form",
             "fox ears",
             "yellow side-tail hair",
             "yellow eyes",
@@ -16662,7 +16373,6 @@
         "Formation": "humanoid",
         "Motif": {
           "Motif_JP": [
-            "ヒューマノイド形態",
             "狐の耳",
             "黄色いサイドテールの髪",
             "黄色い目",
@@ -16674,7 +16384,6 @@
             "左肩の番号付きの腕章"
           ],
           "Motif_EN": [
-            "humanoid form",
             "fox ears",
             "yellow side-tail hair",
             "yellow eyes",
@@ -16866,7 +16575,6 @@
         "Formation": "corefolder",
         "Motif": {
           "Motif_JP": [
-            "コアフォルダ形態",
             "狐の耳",
             "紺色のミディアムロングヘア",
             "ピンクのネクタイスカーフ",
@@ -16874,7 +16582,6 @@
             "ピンク色の目(眼鏡付きヘッドセットをしている時は見えづらい)"
           ],
           "Motif_EN": [
-            "corefolder form",
             "fox ears",
             "navy blue medium-length hair",
             "pink necktie scarf",
@@ -16887,7 +16594,6 @@
         "Formation": "humanoid",
         "Motif": {
           "Motif_JP": [
-            "ヒューマノイド形態",
             "狐の耳",
             "紺色のミディアムロングヘア",
             "ピンクのネクタイスカーフ",
@@ -16900,7 +16606,6 @@
             "青い靴"
           ],
           "Motif_EN": [
-            "humanoid form",
             "fox ears",
             "dark blue medium-long hair",
             "pink necktie scarf",
@@ -17071,13 +16776,11 @@
         "Formation": "corefolder",
         "Motif": {
           "Motif_JP": [
-            "コアフォルダ形態",
             "狐の耳(先がアクセントカラー)",
             "クリスタルマーク付きティールブルーのショートヘア",
             "灰青色の目"
           ],
           "Motif_EN": [
-            "corefolder form",
             "fox ears (with accent color tips)",
             "short teal-blue hair with crystal mark",
             "gray-blue eyes"
@@ -17088,7 +16791,6 @@
         "Formation": "humanoid",
         "Motif": {
           "Motif_JP": [
-            "ヒューマノイド形態",
             "狐の耳(先がアクセントカラー)",
             "クリスタルマーク付きティールブルーのショートヘア",
             "灰青色の目",
@@ -17098,7 +16800,6 @@
             "青いプラットフォームサンダル"
           ],
           "Motif_EN": [
-            "humanoid form",
             "fox ears (with accent color tips)",
             "short teal-blue hair with crystal mark",
             "gray-blue eyes",
@@ -17288,7 +16989,6 @@
         "Formation": "corefolder",
         "Motif": {
           "Motif_JP": [
-            "コアフォルダ形態",
             "狐の耳(耳マーキングと先で多色になっている)",
             "ダイヤとハート柄の耳マーキング",
             "ピンクの非常に長い髪",
@@ -17296,7 +16996,6 @@
             "ハートペンダント付き青いビーズネックレス"
           ],
           "Motif_EN": [
-            "corefolder form",
             "fox ears (ear markings and multicolored tips)",
             "diamond and heart-patterned ear markings",
             "very long pink hair",
@@ -17309,7 +17008,6 @@
         "Formation": "humanoid",
         "Motif": {
           "Motif_JP": [
-            "ヒューマノイド形態",
             "狐の耳(耳マーキングと先で多色になっている)",
             "ダイヤとハート柄の耳マーキング",
             "ピンクの非常に長い髪",
@@ -17321,7 +17019,6 @@
             "紫の靴"
           ],
           "Motif_EN": [
-            "humanoid form",
             "fox ears (ear markings and multicolored tips)",
             "diamond and heart-patterned ear markings",
             "very long pink hair",
@@ -17601,14 +17298,12 @@
         "Formation": "corefolder",
         "Motif": {
           "Motif_JP": [
-            "コアフォルダ形態",
             "狐の耳",
             "オレンジのヘアバンド付き茶色のショートヘア",
             "オレンジ赤の目",
             "頬に横線模様"
           ],
           "Motif_EN": [
-            "corefolder form",
             "fox ears",
             "short brown side-tail hair with orange hairband",
             "orange-red eyes",
@@ -17620,7 +17315,6 @@
         "Formation": "humanoid",
         "Motif": {
           "Motif_JP": [
-            "ヒューマノイド形態",
             "狐の耳",
             "オレンジのヘアバンド付き茶色のサイドテールのショートヘア",
             "オレンジ赤の目",
@@ -17631,7 +17325,6 @@
             "ピンクの靴"
           ],
           "Motif_EN": [
-            "humanoid form",
             "fox ears",
             "short brown side-tail hair with orange hairband",
             "orange-red eyes",
@@ -17880,14 +17573,12 @@
         "Formation": "corefolder",
         "Motif": {
           "Motif_JP": [
-            "コアフォルダ形態",
             "狐の耳(左耳にアクセサリー付き)",
             "灰緑色のショートヘア",
             "オレンジ色の目",
             "オレンジ色のネッカチーフ"
           ],
           "Motif_EN": [
-            "corefolder form",
             "fox ears (with accessory on left ear)",
             "short gray-green hair",
             "orange eyes",
@@ -17899,7 +17590,6 @@
         "Formation": "humanoid",
         "Motif": {
           "Motif_JP": [
-            "ヒューマノイド形態",
             "狐の耳(左耳にアクセサリー付き)",
             "灰緑色のショートヘア",
             "オレンジ色の目",
@@ -17911,7 +17601,6 @@
             "灰緑色のレースアップブーツ"
           ],
           "Motif_EN": [
-            "humanoid form",
             "fox ears (with accessory on left ear)",
             "short gray-green hair",
             "orange eyes",
@@ -18088,14 +17777,12 @@
         "Formation": "corefolder",
         "Motif": {
           "Motif_JP": [
-            "コアフォルダ形態",
             "狐の耳",
             "茶色のポニーテール",
             "シアンの目",
             "シアンの涙滴型ペンダントネックレス"
           ],
           "Motif_EN": [
-            "corefolder form",
             "fox ears",
             "brown ponytail",
             "cyan eyes",
@@ -18107,7 +17794,6 @@
         "Formation": "humanoid",
         "Motif": {
           "Motif_JP": [
-            "ヒューマノイド形態",
             "狐の耳",
             "茶色のポニーテール",
             "シアンの目",
@@ -18118,7 +17804,6 @@
             "シアンブルーのオフショルダーのネックライン"
           ],
           "Motif_EN": [
-            "humanoid form",
             "fox ears",
             "brown ponytail",
             "cyan eyes",
@@ -18335,14 +18020,12 @@
         "Formation": "corefolder",
         "Motif": {
           "Motif_JP": [
-            "コアフォルダ形態",
             "狐の耳(右耳はバンダナで隠れている)",
             "緑のショートヘア",
             "灰茶色の目",
             "右耳を覆う赤い番号付きのバンダナ"
           ],
           "Motif_EN": [
-            "corefolder form",
             "fox ears (right ear covered by bandana)",
             "short green hair",
             "gray-brown eyes",
@@ -18354,7 +18037,6 @@
         "Formation": "humanoid",
         "Motif": {
           "Motif_JP": [
-            "ヒューマノイド形態",
             "狐の耳(右耳はバンダナで隠れている)",
             "緑のショートヘア",
             "灰茶色の目",
@@ -18365,7 +18047,6 @@
             "ピンクのアンクルストラップ付き濃い茶色の靴"
           ],
           "Motif_EN": [
-            "humanoid form",
             "fox ears (right ear covered by bandana)",
             "short green hair",
             "gray-brown eyes",
@@ -18555,7 +18236,6 @@
         "Formation": "corefolder",
         "Motif": {
           "Motif_JP": [
-            "コアフォルダ形態",
             "狐の耳(耳マーキングと先で多色になっている)",
             "ダイヤとハート柄の耳マーキング",
             "ピンクの非常に長い髪",
@@ -18563,7 +18243,6 @@
             "ハート形ダイヤモンドペンダントネックレス"
           ],
           "Motif_EN": [
-            "corefolder form",
             "fox ears (with multi-colored ear markings and tips)",
             "diamond and heart-patterned ear markings",
             "very long pink hair",
@@ -18576,7 +18255,6 @@
         "Formation": "humanoid",
         "Motif": {
           "Motif_JP": [
-            "ヒューマノイド形態",
             "狐の耳(耳マーキングと先で多色になっている)",
             "ダイヤとハート柄の耳マーキング",
             "ピンクの非常に長い髪",
@@ -18588,7 +18266,6 @@
             "ピンクの靴"
           ],
           "Motif_EN": [
-            "humanoid form",
             "fox ears (with multi-colored ear markings and tips)",
             "diamond and heart-patterned ear markings",
             "very long pink hair",
@@ -18762,7 +18439,6 @@
         "Formation": "corefolder",
         "Motif": {
           "Motif_JP": [
-            "コアフォルダ形態",
             "狐の耳(左耳にアクセサリー付き)",
             "ヘアバンド付きで紺色のアクセントが入ったオレンジ色の長いポニーテール",
             "赤い目",
@@ -18770,7 +18446,6 @@
             "ピアノ鍵盤ホログラフィックリング"
           ],
           "Motif_EN": [
-            "corefolder form",
             "fox ears (with accessory on left ear)",
             "branching fox 8 tails",
             "orange long ponytail with hair-band",
@@ -18785,7 +18460,6 @@
         "Formation": "humanoid",
         "Motif": {
           "Motif_JP": [
-            "ヒューマノイド形態",
             "狐の耳(左耳にアクセサリー付き)",
             "ヘアバンド付きで紺色のアクセントが入ったオレンジ色の長いポニーテール",
             "赤い目",
@@ -18796,7 +18470,6 @@
             "青い靴"
           ],
           "Motif_EN": [
-            "humanoid form",
             "fox ears (with accessory on left ear)",
             "branching fox 8 tails",
             "orange long ponytail with hair-band",
@@ -18989,14 +18662,12 @@
         "Formation": "corefolder",
         "Motif": {
           "Motif_JP": [
-            "コアフォルダ形態",
             "狐の耳",
             "マゼンタの長い髪",
             "赤い目",
             "赤いネクタイ"
           ],
           "Motif_EN": [
-            "corefolder form",
             "fox ears",
             "long magenta hair",
             "red eyes",
@@ -19008,7 +18679,6 @@
         "Formation": "humanoid",
         "Motif": {
           "Motif_JP": [
-            "ヒューマノイド形態",
             "狐の耳",
             "マゼンタの長い髪",
             "赤い目",
@@ -19019,7 +18689,6 @@
             "白いウィンプル風カラー"
           ],
           "Motif_EN": [
-            "humanoid form",
             "fox ears",
             "long magenta hair",
             "red eyes",
@@ -19221,14 +18890,12 @@
         "Formation": "corefolder",
         "Motif": {
           "Motif_JP": [
-            "コアフォルダ形態",
             "狐の耳",
             "淡い青のショートヘア",
             "ラベンダーグレーの目",
             "ゆるいラベンダー色のネクタイ"
           ],
           "Motif_EN": [
-            "corefolder form",
             "fox ears",
             "short pale-blue hair",
             "lavender-gray eyes",
@@ -19240,7 +18907,6 @@
         "Formation": "humanoid",
         "Motif": {
           "Motif_JP": [
-            "ヒューマノイド形態",
             "狐の耳",
             "淡い青のショートヘア",
             "ラベンダーグレーの目",
@@ -19252,7 +18918,6 @@
             "ゆるいラベンダー色のネクタイ"
           ],
           "Motif_EN": [
-            "humanoid form",
             "fox ears",
             "short pale-blue hair",
             "lavender-gray eyes",
@@ -19427,14 +19092,12 @@
         "Formation": "corefolder",
         "Motif": {
           "Motif_JP": [
-            "コアフォルダ形態",
             "狐の耳",
             "白いヘアバンド付きの黄色いショートヘア",
             "黄色い目",
             "白い鉢巻"
           ],
           "Motif_EN": [
-            "corefolder form",
             "fox ears",
             "short yellow hair with white headband",
             "yellow eyes",
@@ -19446,7 +19109,6 @@
         "Formation": "humanoid",
         "Motif": {
           "Motif_JP": [
-            "ヒューマノイド形態",
             "狐の耳",
             "白いヘアバンド付き黄色い長い髪",
             "黄色い目",
@@ -19458,7 +19120,6 @@
             "白い鉢巻"
           ],
           "Motif_EN": [
-            "humanoid form",
             "fox ears",
             "short yellow hair with white headband",
             "yellow eyes",
@@ -19681,14 +19342,12 @@
         "Formation": "corefolder",
         "Motif": {
           "Motif_JP": [
-            "コアフォルダ形態",
             "狐の垂れ耳",
             "青いミディアムヘア",
             "青い目(普段は閉じている)",
             "普段から眠そう"
           ],
           "Motif_EN": [
-            "corefolder form",
             "fox drooping ears",
             "medium blue hair",
             "blue eyes (usually closed)",
@@ -19700,7 +19359,6 @@
         "Formation": "humanoid",
         "Motif": {
           "Motif_JP": [
-            "ヒューマノイド形態",
             "狐の垂れ耳",
             "青いミディアムヘア",
             "青い目(普段は閉じている)",
@@ -19711,7 +19369,6 @@
             "普段から眠そう"
           ],
           "Motif_EN": [
-            "humanoid form",
             "fox drooping ears",
             "medium blue hair",
             "blue eyes (usually closed)",
@@ -19955,14 +19612,12 @@
         "Formation": "corefolder",
         "Motif": {
           "Motif_JP": [
-            "コアフォルダ形態",
             "狐の耳(少し欠けている)",
             "三日月型のアホ毛付きピンクのショートヘア(後ろ髪を束ねている)",
             "ピンクの目",
             "番号装飾付きピンクのマスカレードマスク(時々装着する)"
           ],
           "Motif_EN": [
-            "corefolder form",
             "fox ears (slightly damaged)",
             "short pink hair with crescent-shaped ahoge (tied back)",
             "pink eyes",
@@ -19974,7 +19629,6 @@
         "Formation": "humanoid",
         "Motif": {
           "Motif_JP": [
-            "ヒューマノイド形態",
             "狐の耳(少し欠けている)",
             "三日月型のアホ毛付きピンクのショートヘア(後ろ髪を束ねている)",
             "ピンクの目(仮面装着時は見えない)",
@@ -19985,7 +19639,6 @@
             "白い襟と白い裾と白い前立て付きピンクのパフスリーブドレス(普段着)"
           ],
           "Motif_EN": [
-            "humanoid form",
             "fox ears (slightly damaged)",
             "short pink hair with crescent-shaped ahoge (tied back)",
             "pink eyes (not visible when wearing mask)",
@@ -20225,14 +19878,12 @@
         "Formation": "corefolder",
         "Motif": {
           "Motif_JP": [
-            "コアフォルダ形態",
             "狐の垂れ耳",
             "サイドブレイド付きの長い横編み込みがされた青く非常に長い髪",
             "淡いラベンダーグレーの目",
             "白い十字紋章と番号付きの紫色ボーダーが入った灰色の修道女風トップハット"
           ],
           "Motif_EN": [
-            "corefolder form",
             "fox drooping ears",
             "long side braid with very long blue hair",
             "pale lavender-gray eyes",
@@ -20244,7 +19895,6 @@
         "Formation": "humanoid",
         "Motif": {
           "Motif_JP": [
-            "ヒューマノイド形態",
             "狐の垂れ耳",
             "サイドブレイド付きの長い横編み込みがされた青く非常に長い髪",
             "淡いラベンダーグレーの目",
@@ -20254,7 +19904,6 @@
             "灰色のアンクルブーツ"
           ],
           "Motif_EN": [
-            "humanoid form",
             "fox drooping ears",
             "long side braid with very long blue hair",
             "pale lavender-gray eyes",
@@ -20418,14 +20067,12 @@
         "Formation": "corefolder",
         "Motif": {
           "Motif_JP": [
-            "コアフォルダ形態",
             "狐の耳",
             "マゼンタピンクのミディアムヘア",
             "赤い目",
             "赤いネクタイ"
           ],
           "Motif_EN": [
-            "corefolder form",
             "fox ears",
             "magenta-pink medium hair",
             "red eyes",
@@ -20437,7 +20084,6 @@
         "Formation": "humanoid",
         "Motif": {
           "Motif_JP": [
-            "ヒューマノイド形態",
             "狐の耳",
             "マゼンタピンクのミディアムヘア",
             "赤い目",
@@ -20447,7 +20093,6 @@
             "ストラップ付き赤いアンクルブーツ"
           ],
           "Motif_EN": [
-            "humanoid form",
             "fox ears",
             "magenta-pink medium hair",
             "red eyes",
@@ -20639,7 +20284,6 @@
         "Formation": "corefolder",
         "Motif": {
           "Motif_JP": [
-            "コアフォルダ形態",
             "狐の耳(先が紅色のアクセントカラー)",
             "ダークグレーのショートヘア",
             "丸く剃られた赤い眉",
@@ -20649,7 +20293,6 @@
             "漢数字が書かれたチョーカー"
           ],
           "Motif_EN": [
-            "corefolder form",
             "fox ears (with dark red accent tips)",
             "dark gray short hair",
             "roundly shaved red eyebrows",
@@ -20664,7 +20307,6 @@
         "Formation": "humanoid",
         "Motif": {
           "Motif_JP": [
-            "ヒューマノイド形態",
             "狐の耳(先が紅色のアクセントカラー)",
             "ダークグレーのショートヘア",
             "丸く剃られた赤い眉",
@@ -20679,7 +20321,6 @@
             "白いリストカフス"
           ],
           "Motif_EN": [
-            "humanoid form",
             "fox ears (with dark red accent tips)",
             "dark gray short hair",
             "roundly shaved red eyebrows",
@@ -20891,14 +20532,12 @@
         "Formation": "corefolder",
         "Motif": {
           "Motif_JP": [
-            "コアフォルダ形態",
             "狐の耳",
             "淡い銀灰色の長い髪",
             "琥珀オレンジの目",
             "オレンジ色の「試用中」ラベル"
           ],
           "Motif_EN": [
-            "corefolder form",
             "fox ears",
             "pale silver-gray long hair",
             "amber-orange eyes",
@@ -20910,14 +20549,12 @@
         "Formation": "humanoid",
         "Motif": {
           "Motif_JP": [
-            "ヒューマノイド形態",
             "狐の耳",
             "淡い銀灰色の長い髪",
             "琥珀オレンジの目",
             "ホログラムの身体（プロトタイプ状態）"
           ],
           "Motif_EN": [
-            "humanoid form",
             "fox ears",
             "fox tails",
             "pale silver-gray long hair",
@@ -21033,7 +20670,6 @@
         "Formation": "corefolder",
         "Motif": {
           "Motif_JP": [
-            "コアフォルダ形態",
             "狐の耳",
             "濃い茶色の長いポニーテール",
             "濃黄色の瞳孔をした赤くハイライトのない目",
@@ -21045,7 +20681,6 @@
             "「取扱注意」注意ラベル(台座)"
           ],
           "Motif_EN": [
-            "corefolder form",
             "fox ears",
             "dark brown long ponytail",
             "red eyes with dark yellow pupils and no highlights",
@@ -21201,14 +20836,12 @@
         "Formation": "corefolder",
         "Motif": {
           "Motif_JP": [
-            "コアフォルダ形態",
             "猫の耳",
             "灰色のショルダーレングスヘア",
             "黄色い目",
             "灰色ベージュの長いマフラー(端がストライプ模様)"
           ],
           "Motif_EN": [
-            "corefolder form",
             "cat ears",
             "gray shoulder-length hair",
             "yellow eyes",
@@ -21220,7 +20853,6 @@
         "Formation": "humanoid",
         "Motif": {
           "Motif_JP": [
-            "ヒューマノイド形態",
             "猫の耳",
             "灰色のショルダーレングスヘア",
             "黄色い目",
@@ -21228,7 +20860,6 @@
             "白衣のようなカジュアルスーツ"
           ],
           "Motif_EN": [
-            "humanoid form",
             "cat ears",
             "gray shoulder-length hair",
             "yellow eyes",
