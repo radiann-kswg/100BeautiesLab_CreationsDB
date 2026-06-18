@@ -32,6 +32,7 @@ import '../lib/section-renders/abilityStats.js';
 import '../lib/section-renders/numSpec.js';
 import '../lib/section-renders/arcanumSpec.js';
 import '../lib/section-renders/chronoSpec.js';
+import '../lib/section-renders/relation.js';
 
 // Characters page: fetch from /api/v1 and render list/detail
 
@@ -6239,7 +6240,10 @@ export async function renderDetail(workId, rec) {
 			// profile/relations/DBLinkResolved は個別表示する
 			if (rec.Summary && !isPromotedSubFieldKey('Summary')) s.add('Summary');
 			if (rec.Relation && !isPromotedSubFieldKey('Relation')) s.add('Relation');
-			if (rec.RelationToPrimary && !isPromotedSubFieldKey('RelationToPrimary')) s.add('RelationToPrimary');
+			for (const k of Object.keys(rec || {})) {
+				if (!/^RelationTo_/.test(k)) continue;
+				if (!isPromotedSubFieldKey(k)) s.add(k);
+			}
 
 			// Images は左カラムのギャラリー担当（キーとして持っていれば抑止）
 			if (rec.Images) s.add('Images');
@@ -6776,7 +6780,8 @@ export async function renderDetail(workId, rec) {
 			buildViewerNavigationHref,
 			openDetail,
 			openViewerNavigation,
-			getCharState: () => window.__CHAR_STATE__
+			getCharState: () => window.__CHAR_STATE__,
+			fetchDbRecords: (wId, dbName) => fetchDB(wId, dbName, { resolve: false })
 		};
 
 		const renderStandaloneFieldSection = (it) => {
@@ -6814,7 +6819,7 @@ export async function renderDetail(workId, rec) {
 			});
 			if (wrappedSection) return wrappedSection;
 
-			const relationSection = ((it.key === 'Relation' || it.key === 'RelationToPrimary') && it.value)
+			const relationSection = ((it.key === 'Relation' || /^RelationTo_/.test(it.key)) && it.value)
 				? renderRelations(it.value, fieldLabelMap, metaForLookup, globalDefType, fieldDisplayMap, {
 					containerKey: it.key,
 					fieldTypeMap,
@@ -6991,9 +6996,14 @@ export async function renderDetail(workId, rec) {
 			!renderedSubFieldKeySet.has('Relation') && rec.Relation && (rec.Relation.Related || rec.Relation.Commented)
 				? renderRelations(rec.Relation, fieldLabelMap, metaForLookup, globalDefType, fieldDisplayMap, { containerKey: 'Relation', fieldTypeMap })
 				: null,
-			!renderedSubFieldKeySet.has('RelationToPrimary') && rec.RelationToPrimary && (rec.RelationToPrimary.Related || rec.RelationToPrimary.Commented)
-				? renderRelations(rec.RelationToPrimary, fieldLabelMap, metaForLookup, globalDefType, fieldDisplayMap, { containerKey: 'RelationToPrimary', fieldTypeMap })
-				: null
+			...Object.keys(rec || {})
+				.filter((k) => /^RelationTo_/.test(k) && !renderedSubFieldKeySet.has(k))
+				.map((k) => {
+					const rv = rec[k];
+					return (rv?.Related || rv?.Commented)
+						? renderRelations(rv, fieldLabelMap, metaForLookup, globalDefType, fieldDisplayMap, { containerKey: k, fieldTypeMap })
+						: null;
+				})
 		].filter(Boolean));
 
 		mount.appendChild(el('div', { class: 'detail' }, [left, right]));
@@ -7081,7 +7091,7 @@ function renderRelations(rel, fieldLabelMap, workMeta, globalDefType, fieldDispl
 		? options.item
 		: {
 			key: containerKey,
-			label: getFieldLabel(containerKey, fieldLabelMap, workMeta, globalDefType, containerKey === 'RelationToPrimary' ? '原作との関係' : '関係'),
+			label: getFieldLabel(containerKey, fieldLabelMap, workMeta, globalDefType, '関係'),
 			value: rel,
 			display: { sectionWrapper: 'relationSection' }
 		};

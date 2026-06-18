@@ -161,7 +161,7 @@
       "$display": { "sectionWrapper": "relationSection" }
     },
     {
-      "hashTag": "RelationToPrimary",
+      "hashTag": "RelationTo_Primary",
       "$type": [
         {
           "hashTag": "Related",
