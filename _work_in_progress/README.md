@@ -15,11 +15,16 @@
 
 ## いま進行中のファイル
 
-- 2026-05-29_progress_bilingual-wrapper-apiswui.md（bilingual wrapper API/SW 対応・UI 表示未完了）
-- 2026-06-01_remaining-task.md（現行の未完了タスク一覧・最新）
-- 2026-06-09_progress_identitymotif-conversion.md（IdentityMotif 新形式変換・Motif_JP 整備残）
-- 2026-06-11_progress_english-fields-addition.md（英訳フィールド追加依頼・進捗記録）
-- 2026-06-12_progress_translation-style-unified.md（英訳対応総覧・共通ルール統合版）
+- 2026-06-01_remaining-task.md（未完了タスク一覧・2026-06-01 時点）
+- 2026-06-13_remaining-task.md（未完了タスク一覧・2026-06-13 時点・最新）
+- 2026-06-13_progress_vocabulary-db.md（語彙DB・用語DB対応）
+- 2026-06-15_progress_localization-audit.md（ローカライズ監査）
+- 2026-06-16_progress_NumberMarkLocation.md（NumberMarkLocation 実装）
+- 2026-06-18_progress_stats-modulize.md（Stats 系レンダラーモジュール化）
+- 2026-06-18_progress_relation-modulize.md（Relation レンダラーモジュール化）
+- 2026-06-18_progress_dblink-enrich.md（`*_DBLink` suffix エンリッチ処理）
+- 2026-06-18_progress_thisMasters-merge.md（ThisMasters DB 参照マージ対応）
+- 2026-06-18_progress_dblink-renderer.md（`*_DBLink` suffix セクションレンダラー実装・ほぼ完了、db_type.json 追記と動作確認が残）
 
 補足:
 
@@ -30,6 +35,14 @@
 - 2026-06-01 の棚卸しで、`2026-04-21_progress_secondary-commons-defaults.md`・`2026-04-22_progress_requested-tasks-overview.md`・`2026-04-22_remaining-task.md`・`2026-05-29_progress_guideline-consolidation.md` を `.completed` へ退避しました。
 - `2026-06-01_remaining-task.md` に、現時点の未完了・着手中タスクを統合しました。
 - 2026-06-11 の棚卸しで、`2026-04-22_progress_task1-day-era-softcoding.md`・`2026-04-23_progress_requested-tasks-implementation-plan.md`・`2026-05-11_progress_storyera-schema.md`・`2026-05-15_progress_subfields-wrapper-unification.md`・`2026-06-02_progress_pkg-client-libraries.md`・`2026-06-02_progress_pkg-library.md` を `.completed` へ退避しました。
+- 2026-06-18 の棚卸しで、`2026-05-29_progress_bilingual-wrapper-apiswui.md`・`2026-06-09_progress_identitymotif-conversion.md`・`2026-06-12_progress_language-toggle.md`・`2026-06-12_progress_translation-style-unified.md` を `.completed` へ退避予定（二春が手動確認後）。
+
+## 退避予定（二春が動作確認後に .completed へ移動）
+
+- 2026-05-29_progress_bilingual-wrapper-apiswui.md（bilingual wrapper 対応）
+- 2026-06-09_progress_identitymotif-conversion.md（IdentityMotif 新形式変換）
+- 2026-06-12_progress_language-toggle.md（言語トグル対応）
+- 2026-06-12_progress_translation-style-unified.md（英訳スタイル統一）
 
 ## 完了（.completed へ退避済み）
 

@@ -96,6 +96,10 @@
 - 同名フィールド穴埋めはベース側が空値の場合のみ
 - 画像系フィールドは別DB（別JSON）から参照・穴埋めしない
 - `_Search` による参照先特定は1件一致のみ採用、複数一致はスキップ
+- `{FieldName}_DBLink` suffix フィールドのUI表示は `lib/section-renders/dblink.js` の `dbLinkSection` renderer が自動ディスパッチ（`$display.sectionWrapper` 指定不要）
+- `*_DBLink` エントリのフォーマットは `$Def_DBLinkRef` 形式（`{ _Work, _DB, {IndexKey: Value} }`）を正とする
+  - `EnrichmentProcessor` が使うレコードルートの `_DBLink`（マージ用）のみ旧形式（`{worksTitle, dbName, _Search}`）を維持
+- `isPrivate: true` への `*_DBLink` 参照はクライアント側でフィルタし非表示にする（セクション全体も非表示）
 
 ### CSS/SASS
 

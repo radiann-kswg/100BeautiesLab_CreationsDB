@@ -1,5 +1,19 @@
 # 最新のリファクタリング・仕様変更履歴
 
+### `*_DBLink` suffix セクションレンダラー実装・`ThisMasters` リンク対応
+
+- `lib/section-renders/dblink.js` を新規実装し、`*_DBLink` suffix フィールドを「キャラクターリンク参照」セクションとして描画する `dbLinkSection` renderer を追加した。
+  - `$display.sectionWrapper` の指定は不要。`*_DBLink` suffix を自動検出して `CharacterSectionRendererRegistry` に登録する suffix-based dispatch。
+  - `$Def_DBLinkRef` 形式（`{ _Work, _DB, {IndexKey: Value} }`）に基づき非同期でキャラクター名をハイドレーション。同DB・クロスDB・クロスワーク参照に対応。ネストインデックス（例: FLInvestigator78 の `Card: { Stoat, StoatNum }`）は subset match で解決。
+  - `isPrivate: true` への参照はクライアント側フィルタで非表示にし、全タグ非表示の場合はセクションごと隠す。
+- `lib/section-wrapper-common.js` の `structuredObjectSection.match` に `*_DBLink` suffix 除外を追加した。単一オブジェクト形式（`$Def_DBLinkRef|#Null`）の `*_DBLink` フィールドが `structuredObjectSection` に横取りされる問題を修正。
+- `lib/section-renders/thisMasters.js` の `hydrateThisMastersLink` を `$Def_DBLinkRef` 形式へ刷新した。
+  - 旧フォーマット: `{worksTitle, dbName, _Search: [{hashTag, key}]}` → 新フォーマット: `{_Work, _DB, {IndexKey: Value}}`
+  - スカラーインデックス（`Drc: "E"` など）・ネストオブジェクト（`Card: {Stoat, StoatNum}` など）どちらも解決。
+  - `about` テキストが空のエントリでリンクが付与されないバグを修正した（`!aboutText` 早期 return がリンク処理を飛ばす問題）。
+- `data/Works_NumberTales/DataBases/db_Primary.json`（18件）と `db_SemiPrimary.json`（3件）の `ThisMasters._DBLink` を新フォーマットへ一括移行した。
+  - `EnrichmentProcessor` が使うレコードルートの `_DBLink`（マージ用、`db_SelfSecondary.json` 等）は旧フォーマットのまま維持。
+
 ### `pkg/` クライアントライブラリ群を新規追加
 
 - サブモジュールとして別リポジトリに導入するための独立クライアントパッケージ群 `pkg/` を新規実装した。
