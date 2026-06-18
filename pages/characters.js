@@ -7077,8 +7077,8 @@ export async function renderDetail(workId, rec) {
 		};
 
 		/**
-		 * IdentityMotif (#Def_FormsMotif[]) の Formation+Motif 配列を描画する
-		 * Formation は辞書引きでラベル化し、Motif は言語別配列から tag 群として展開する。
+		 * IdentityMotif (#Def_FormsMotif[]) の Formation+Motif 配列を描画する。
+		 * ConversationPattern と同様に、外側ラベル + Formation ラベル + Motif テキストのレイアウトで表示する。
 		 */
 		const renderFormsMotifSection = (it) => {
 			if (!it || !Array.isArray(it.value) || !it.value.length) return null;
@@ -7107,22 +7107,88 @@ export async function renderDetail(workId, rec) {
 							: (motifData.Motif_JP || motifData.Motif_EN))
 						: null;
 
-					const tags = Array.isArray(motifItems)
-						? motifItems.filter(Boolean).map((text) => el('div', { class: 'tag' }, [String(text)]))
-						: [];
+					const motifText = Array.isArray(motifItems)
+						? motifItems.filter(Boolean).map(String).join('、')
+						: '';
 
-					if (!formationLabel && !tags.length) return null;
+					if (!formationLabel && !motifText) return null;
 
 					return el('div', { style: 'margin-bottom: 10px;' }, [
 						formationLabel ? el('div', { class: 'tag', style: 'margin-bottom: 6px;' }, [formationLabel]) : null,
-						tags.length ? createDetailTagGrid(tags) : null
+						motifText ? preWrapText(motifText) : null
 					].filter(Boolean));
 				})
 				.filter(Boolean);
 
 			if (!groups.length) return null;
 
-			return createStandaloneSubFieldSection(it, groups);
+			// ConversationPattern と同様：外側ラベル + 内側ブロック群
+			const outerBlock = el('div', { style: 'margin-bottom: 10px;' }, [
+				el('div', { class: 'tag', style: 'margin-bottom: 6px;' }, [it.label]),
+				el('div', {}, groups)
+			]);
+
+			return createStandaloneSubFieldSection(it, [outerBlock]);
+		};
+
+		/**
+		 * ThisMasters ($Def_ThisMastersEntry[]) を描画する。
+		 * value_JP/about_JP (または value_EN/about_EN) を用いてConversationPatternと同様のレイアウトで表示する。
+		 */
+		const renderThisMastersSection = (it) => {
+			if (!it || !Array.isArray(it.value) || !it.value.length) return null;
+
+			const lang = getCurrentPageLanguage();
+
+			/** about フィールドが string / {hideText} オブジェクト のどちらでも文字列に変換する */
+			const resolveAbout = (raw) => {
+				if (!raw && raw !== 0) return '';
+				if (typeof raw === 'string') return raw;
+				if (isPlainObject(raw) && raw.hideText != null) return String(raw.hideText);
+				return String(raw);
+			};
+
+			const blocks = it.value
+				.map((entry) => {
+					if (!isPlainObject(entry)) return null;
+
+					const valueKey = lang === 'en' ? 'value_EN' : 'value_JP';
+					const aboutKey = lang === 'en' ? 'about_EN' : 'about_JP';
+
+					// EN フィールド未設定の場合は JP にフォールバック
+					const rawValue = (entry[valueKey] !== undefined && entry[valueKey] !== null)
+						? entry[valueKey]
+						: entry['value_JP'];
+					const rawAbout = (entry[aboutKey] !== undefined && entry[aboutKey] !== null)
+						? entry[aboutKey]
+						: entry['about_JP'];
+
+					const aboutText = resolveAbout(rawAbout);
+					const valueText = rawValue != null ? String(rawValue).trim() : '';
+
+					if (!valueText && !aboutText) return null;
+
+					// about が null で value のみの場合（専属契約不可 など）
+					if (!aboutText) {
+						return el('div', { style: 'margin-bottom: 10px;' }, [preWrapText(valueText)]);
+					}
+
+					return el('div', { style: 'margin-bottom: 10px;' }, [
+						el('div', { class: 'tag', style: 'margin-bottom: 6px;' }, [aboutText]),
+						valueText ? preWrapText(valueText) : null
+					].filter(Boolean));
+				})
+				.filter(Boolean);
+
+			if (!blocks.length) return null;
+
+			// ConversationPattern と同様：外側ラベル + 内側ブロック群
+			const outerBlock = el('div', { style: 'margin-bottom: 10px;' }, [
+				el('div', { class: 'tag', style: 'margin-bottom: 6px;' }, [it.label]),
+				el('div', {}, blocks)
+			]);
+
+			return createStandaloneSubFieldSection(it, [outerBlock]);
 		};
 
 		const renderStatsSubFieldSection = (it) => {
@@ -7249,7 +7315,8 @@ export async function renderDetail(workId, rec) {
 					renderStatsSection: renderStatsSubFieldSection,
 					wrapStandaloneSection: createStandaloneSubFieldSection,
 					relationApi: relationRendererApi,
-					renderFormsMotifSection
+					renderFormsMotifSection,
+					renderThisMastersSection
 				}
 			});
 			if (wrappedSection) return wrappedSection;

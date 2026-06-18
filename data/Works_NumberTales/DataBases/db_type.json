@@ -16,7 +16,8 @@
       "hashTag": "ThisMasters",
       "$type": "$Def_ThisMastersEntry[]|#Null",
       "hashTag_JP": "専属契約した主人",
-      "hashTag_EN": "This/Zir Master(s) with Exclusive Contract"
+      "hashTag_EN": "This/Zir Master(s) with Exclusive Contract",
+      "$display": { "sectionWrapper": "thisMastersSection" }
     },
     {
       "hashTag": "ForMasterCalling",
