@@ -247,17 +247,8 @@
     "Class": ["マスタートリプル"],
     "ThisMasters": [
       {
-        "value": "霧島 博(とおる)/霜月（夜月機関 第11幹部）",
-        "_DBLink": {
-          "worksTitle": "PastDivers",
-          "dbName": "Primary",
-          "_Search": [{ "hashTag": "Lunar", "key": "Shimotsuki" }]
-        }
-      }
-    ],
-    "ThisMasters_EN": [
-      {
-        "value": "Knowns Smogger / 'Shimotsuki' (Yadzuki Org. Executive Director.11)",
+        "value_JP": "霧島 博(とおる)/霜月（夜月機関 第11幹部）",
+        "value_EN": "Knowns Smogger / 'Shimotsuki' (Yadzuki Org. Executive Director.11)",
         "_DBLink": {
           "worksTitle": "PastDivers",
           "dbName": "Primary",
@@ -849,17 +840,8 @@
     "Class": ["マスタートリプル", "フェイタルテールズ"],
     "ThisMasters": [
       {
-        "value": "中月 ルイス=ノア.ナイターエイド（夜月機関 第9幹部）",
-        "_DBLink": {
-          "worksTitle": "PastDivers",
-          "dbName": "Primary",
-          "_Search": [{ "hashTag": "Lunar", "key": "Nagatsuki" }]
-        }
-      }
-    ],
-    "ThisMasters_EN": [
-      {
-        "value": "Luis-Noah.Nighteraid Nakatsuki (Yadzuki Org. Executive Director.9)",
+        "value_JP": "中月 ルイス=ノア.ナイターエイド（夜月機関 第9幹部）",
+        "value_EN": "Luis-Noah.Nighteraid Nakatsuki (Yadzuki Org. Executive Director.9)",
         "_DBLink": {
           "worksTitle": "PastDivers",
           "dbName": "Primary",
@@ -1025,17 +1007,8 @@
     "Class": ["マスタートリプル"],
     "ThisMasters": [
       {
-        "value": "八坂 兵汰/ヘクター.キロバスター/葉月（夜月機関 第8幹部）",
-        "_DBLink": {
-          "worksTitle": "PastDivers",
-          "dbName": "Primary",
-          "_Search": [{ "hashTag": "Lunar", "key": "Hadzuki" }]
-        }
-      }
-    ],
-    "ThisMasters_EN": [
-      {
-        "value": "Yasaka Hector / Hector.Kilobuster / 'Hadzuki' (Yadzuki Org. Executive Director.8)",
+        "value_JP": "八坂 兵汰/ヘクター.キロバスター/葉月（夜月機関 第8幹部）",
+        "value_EN": "Yasaka Hector / Hector.Kilobuster / 'Hadzuki' (Yadzuki Org. Executive Director.8)",
         "_DBLink": {
           "worksTitle": "PastDivers",
           "dbName": "Primary",
