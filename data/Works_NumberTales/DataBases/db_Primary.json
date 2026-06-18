@@ -838,7 +838,7 @@
     "Progress": "released",
     "Images": {
       "concept_PNGName": "cnsp_img3",
-      "corefolder_PNGPath": ["3/emstk_corefolder3-1"]
+      "corefolder_PNGPath": ["3/emstk_corefolder3-1", "3/emstk_corefolder3-2"]
     },
     "Name": "3(ナオ)",
     "Name_EN": "3(Treiya)",
@@ -18455,7 +18455,10 @@
     "Progress": "released",
     "Images": {
       "concept_PNGName": "cnsp_img52",
-      "corefolder_PNGPath": ["52/emstk_corefolder52-1"],
+      "corefolder_PNGPath": [
+        "52/emstk_corefolder52-1",
+        "52/emstk_corefolder52-2"
+      ],
       "arts_PNGPath": ["corefolders/2023/art_img52-corefolder"]
     },
     "Name": "52(イツギ)",
