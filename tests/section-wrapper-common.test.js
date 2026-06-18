@@ -24,32 +24,16 @@ describe('section-wrapper-common registry', () => {
     expect(typeof registry.renderNamedSectionRenderer).toBe('function');
 
     const rendererNames = registry.getRegisteredSectionRenderers().map((renderer) => renderer.name).sort();
-    // formsMotifSection / thisMastersSection は lib/section-renders/ に移動し characters.js import 時に登録される
-    expect(rendererNames).toEqual(['relationSection', 'statsSection', 'structuredObjectSection']);
+    // statsSection / formsMotifSection / thisMastersSection は lib/section-renders/ に移動し characters.js import 時に登録される
+    expect(rendererNames).toEqual(['relationSection', 'structuredObjectSection']);
   });
 
   it('resolves section renderer names from display metadata', () => {
     const registry = globalThis.CharacterSectionRendererRegistry;
 
     expect(registry.resolveSectionRendererName({
-      display: { sectionWrapper: 'statsSection' }
-    })).toBe('statsSection');
-  });
-
-  it('dispatches stats helpers via named section wrappers', () => {
-    const registry = globalThis.CharacterSectionRendererRegistry;
-
-    const statsResult = registry.renderWithRegisteredSectionRenderer(
-      { key: 'AbilityStats', value: { Speed: { Rank: 'A' } } },
-      {
-        display: { sectionWrapper: 'statsSection' },
-        helpers: {
-          renderStatsSection: (item) => `stats:${item.key}`
-        }
-      }
-    );
-
-    expect(statsResult).toBe('stats:AbilityStats');
+      display: { sectionWrapper: 'relationSection' }
+    })).toBe('relationSection');
   });
 
   it('renders built-in relation sections from relationApi helpers', () => {
