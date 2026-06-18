@@ -3,11 +3,9 @@
     "Drc": "N",
     "Progress": "released(beta)",
     "Images": { "concept_PNGName": "cnsp_imgDrcN" },
-    "_DBLink": {
-      "worksTitle": "NumberTales",
-      "dbName": "Primary",
-      "_Search": [{ "hashTag": "Num", "key": "0" }]
-    },
+    "AnotherRegions_DBLink": [
+      { "_Work": "NumberTales", "_DB": "Primary", "Num": "0" }
+    ],
     "Name": "零(かずない) 零(れい)",
     "Name_EN": "Zera Norumber",
     "FormalName": "千歳 玲(れい)",
@@ -169,14 +167,13 @@
   {
     "Drc": "S",
     "Progress": "released(beta)",
-    "_DBLink": {
-      "worksTitle": "UnauthedLogica",
-      "dbName": "Primary",
-      "_Search": [
-        { "hashTag": "LogicSeries", "key": null },
-        { "hashTag": "Num", "key": null }
-      ]
-    },
+    "AnotherRegions_DBLink": [
+      {
+        "_Work": "UnauthedLogica",
+        "_DB": "Primary",
+        "Model": { "LogicSeries": null, "Num": null }
+      }
+    ],
     "Images": { "concept_PNGName": "cnsp_imgDrcS" },
     "Name": "六花 雙葉(ろくばな-ふたは)\nクィーン.トゥエルヴ",
     "Name_EN": "Dozenne Hexacrys\nQueen.XII",

@@ -22217,6 +22217,7 @@
   {
     "Num": 64,
     "Progress": "released",
+    "AnotherVersions_DBLink": [{ "_DB": "SemiPrimary", "Num": "64-sxp" }],
     "Images": {
       "concept_PNGName": "cnsp_img64",
       "corefolder_PNGPath": ["64/emstk_corefolder64-1"]
@@ -23248,11 +23249,7 @@
     "Num": "67-old",
     "Progress": "released",
     "Images": { "concept_PNGName": "cnsp_img67-A" },
-    "_DBLink": {
-      "worksTitle": "NumberTales",
-      "dbName": "Primary",
-      "_Search": [{ "hashTag": "Num", "key": 67 }]
-    },
+    "SameModels_DBLink": [{ "_DB": "Primary", "Num": 67 }],
     "Name": "67(ムナ)",
     "Name_EN": "67(Sicsevan)",
     "ModelName": "ナンバーテールズ6+7号機甲(旧67番機)",
@@ -23355,6 +23352,7 @@
   {
     "Num": 67,
     "Progress": "released",
+    "SameModels_DBLink": [{ "_DB": "Primary", "Num": "67-old" }],
     "Images": { "concept_PNGName": "cnsp_img67-B" },
     "Name": "67(ムナ)",
     "Name_EN": "67(Sicsevan)",
@@ -33562,11 +33560,9 @@
       "concept_PNGName": "cnsp_img0",
       "arts_PNGPath": ["art_img0-developper"]
     },
-    "_DBLink": {
-      "worksTitle": "SinisterChangingGirls",
-      "dbName": "Primary",
-      "_Search": [{ "hashTag": "Drc", "key": "N" }]
-    },
+    "AnotherRegions_DBLink": [
+      { "_Work": "SinisterChangingGirls", "_DB": "Primary", "Drc": "N" }
+    ],
     "Name": "零(かずない) 零(れい)",
     "Name_EN": "Zera Norumber",
     "FormalName": "千歳 玲(れい)",

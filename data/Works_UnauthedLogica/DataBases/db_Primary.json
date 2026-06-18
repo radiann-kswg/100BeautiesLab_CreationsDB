@@ -2,11 +2,9 @@
   {
     "Model": { "LogicSeries": null, "Num": 10 },
     "Progress": "notProceeded",
-    "_DBLink": {
-      "worksTitle": "NumberTales",
-      "dbName": "Primary",
-      "_Search": [{ "hashTag": "Num", "key": "10-alt" }]
-    },
+    "AnotherRegions_DBLink": [
+      { "_Work": "NumberTales", "_DB": "Primary", "Num": "10-alt" }
+    ],
     "ModelName": "人形兵ゼロイド10号機(10番機)",
     "ModelName_EN": "AttackerZeroid Unit.10 (Mk.10)",
     "ModelNumber": "ACAM-AZR X",
@@ -29,11 +27,9 @@
   {
     "Model": { "LogicSeries": null, "Num": 61 },
     "Progress": "notProceeded",
-    "_DBLink": {
-      "worksTitle": "NumberTales",
-      "dbName": "Primary",
-      "_Search": [{ "hashTag": "Num", "key": 61 }]
-    },
+    "AnotherRegions_DBLink": [
+      { "_Work": "NumberTales", "_DB": "Primary", "Num": 61 }
+    ],
     "ModelName": "人形兵ゼロイド1+6号機乙(61番機)",
     "ModelName_EN": "AttackerZeroid Unit.1+6.B (Mk.61)",
     "ModelNumber": "ACAM-AZR I+VI.B",
@@ -47,11 +43,9 @@
   {
     "Model": { "LogicSeries": null, "Num": 62 },
     "Progress": "notProceeded",
-    "_DBLink": {
-      "worksTitle": "NumberTales",
-      "dbName": "Primary",
-      "_Search": [{ "hashTag": "Num", "key": 62 }]
-    },
+    "AnotherRegions_DBLink": [
+      { "_Work": "NumberTales", "_DB": "Primary", "Num": 62 }
+    ],
     "ModelName": "人形兵ゼロイド2+6号機乙(62番機)",
     "ModelName_EN": "AttackerZeroid Unit.2+6.B (Mk.62)",
     "ModelNumber": "ACAM-AZR II+VI.B",
@@ -65,11 +59,9 @@
   {
     "Model": { "LogicSeries": null, "Num": "10-alt" },
     "Progress": "notProceeded",
-    "_DBLink": {
-      "worksTitle": "NumberTales",
-      "dbName": "Primary",
-      "_Search": [{ "hashTag": "Num", "key": 10 }]
-    },
+    "AnotherRegions_DBLink": [
+      { "_Work": "NumberTales", "_DB": "Primary", "Num": 10 }
+    ],
     "ModelName": "人形兵ゼロイド最終1号機",
     "ModelName_EN": "AttackerZeroid Unit.1 Final",
     "ModelNumber": "ACAM-AZR I.FIN",
@@ -97,11 +89,9 @@
   {
     "Model": { "LogicSeries": null, "Num": "0" },
     "Progress": "stillTentative",
-    "_DBLink": {
-      "worksTitle": "SinisterChangingGirls",
-      "dbName": "Primary",
-      "_Search": [{ "hashTag": "Drc", "key": "N" }]
-    },
+    "AnotherRegions_DBLink": [
+      { "_Work": "SinisterChangingGirls", "_DB": "Primary", "Num": "N" }
+    ],
     "Name": "零(かずない) 零(れい)",
     "Name_EN": "Zera Norumber",
     "FormalName": "千歳 玲(れい)",
@@ -120,11 +110,9 @@
   {
     "Model": { "LogicSeries": null, "Num": "00" },
     "Progress": "stillTentative",
-    "_DBLink": {
-      "worksTitle": "NumberTales",
-      "dbName": "Primary",
-      "_Search": [{ "hashTag": "Num", "key": "00" }]
-    },
+    "AnotherRegions_DBLink": [
+      { "_Work": "NumberTales", "_DB": "Primary", "Num": "00" }
+    ],
     "Name": "零 百(かずない-はげむ)",
     "Name_EN": "Hudret Norumber",
     "FormalName": "千歳 励(はげむ)",
@@ -141,11 +129,9 @@
   {
     "Model": { "LogicSeries": null, "Num": null },
     "Progress": "stillTentative",
-    "_DBLink": {
-      "worksTitle": "SinisterChangingGirls",
-      "dbName": "Primary",
-      "_Search": [{ "hashTag": "Drc", "key": "S" }]
-    },
+    "AnotherRegions_DBLink": [
+      { "_Work": "SinisterChangingGirls", "_DB": "Primary", "Num": "S" }
+    ],
     "Name": "六花 雙葉(ろくばな-ふたは)\nクィーン.トゥエルヴ",
     "Name_EN": "Dozenne Hexacrys\nQueen.XII",
     "FormalName": null,

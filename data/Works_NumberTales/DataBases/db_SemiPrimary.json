@@ -39,6 +39,7 @@
   {
     "Num": "101-dev",
     "Progress": "notProceeded",
+    "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 101 }],
     "Name": "101(ヒノマルイ)",
     "Name_EN": "101(Sunrizer=Origin)",
     "ModelName": "ナンバーテールズ試作正規型1+10号機(開発用101番機)",
@@ -58,6 +59,7 @@
   {
     "Num": "102-dev",
     "Progress": "notProceeded",
+    "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 102 }],
     "Name": "102(ヒノマルフ)",
     "Name_EN": "102(Sunrizer=Twens)",
     "ModelName": "ナンバーテールズ試作正規型2+10号機(開発用102番機)",
@@ -77,6 +79,7 @@
   {
     "Num": "103-dev",
     "Progress": "notProceeded",
+    "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 103 }],
     "Name": "103(ヒノマルミ)",
     "Name_EN": "103(Sunrizer=Treiya)",
     "ModelName": "ナンバーテールズ3+10号機(開発用103番機)",
@@ -96,6 +99,7 @@
   {
     "Num": "104-dev",
     "Progress": "notProceeded",
+    "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 104 }],
     "Name": "104(ヒノマルヨ)",
     "Name_EN": "104(Sunrizer=Forna)",
     "ModelName": "ナンバーテールズ4+10号機(開発用104番機)",
@@ -114,6 +118,7 @@
   {
     "Num": "105-dev",
     "Progress": "notProceeded",
+    "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 105 }],
     "Name": "105(ヒノマルゴ)",
     "Name_EN": "105(Sunrizer=Fifa)",
     "ModelName": "ナンバーテールズ5+10号機(開発用105番機)",
@@ -132,6 +137,7 @@
   {
     "Num": "106-dev",
     "Progress": "notProceeded",
+    "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 106 }],
     "Name": "106(ヒノマルム)",
     "Name_EN": "106(Sunrizer=Sics)",
     "ModelName": "ナンバーテールズ6+10号機(開発用106番機)",
@@ -150,6 +156,7 @@
   {
     "Num": "107-dev",
     "Progress": "notProceeded",
+    "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 107 }],
     "Name": "107(ヒノマルナ)",
     "Name_EN": "107(Sunrizer=Sevan)",
     "ModelName": "ナンバーテールズ7+10号機(開発用107番機)",
@@ -168,6 +175,7 @@
   {
     "Num": "108-dev",
     "Progress": "notProceeded",
+    "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 108 }],
     "Name": "108(ヒノマルヤ)",
     "Name_EN": "108(Sunrizer=Eighas)",
     "ModelName": "ナンバーテールズ8+10号機(開発用108番機)",
@@ -186,6 +194,7 @@
   {
     "Num": "109-dev",
     "Progress": "notProceeded",
+    "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 109 }],
     "Name": "109(ヒノマルク)",
     "Name_EN": "109(Sunrizer=Nina)",
     "ModelName": "ナンバーテールズ9+10号機(開発用109番機)",
@@ -204,6 +213,7 @@
   {
     "Num": "110-dev",
     "Progress": "notProceeded",
+    "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 110 }],
     "Name": "110(ハクト)",
     "Name_EN": "110(Elevantis)",
     "ModelName": "ナンバーテールズ汎用改良型11号機(開発用110番機)",
@@ -223,6 +233,9 @@
   {
     "Num": 111,
     "Progress": "released",
+    "AnotherVersions_DBLink": [
+      { "_Works": "NumberTales", "_DB": "SelfSecondary", "Num": "111-mp" }
+    ],
     "Images": { "concept_PNGName": "cnsp_img111" },
     "Name": "111(アイズ)",
     "Name_EN": "111(Ize)",
@@ -286,6 +299,7 @@
   {
     "Num": "112-dev",
     "Progress": "notProceeded",
+    "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 112 }],
     "Name": "112(ハクトウジ)",
     "Name_EN": "112(Hudres=Twelva)",
     "ModelName": "ナンバーテールズ2+11号機(開発用112番機)",
@@ -305,6 +319,7 @@
   {
     "Num": "113-dev",
     "Progress": "notProceeded",
+    "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 113 }],
     "Name": "113(ハクトミ)",
     "Name_EN": "113(Hudres=Thirteena)",
     "ModelName": "ナンバーテールズ3+11号機(開発用113番機)",
@@ -322,6 +337,7 @@
   {
     "Num": "114-dev",
     "Progress": "notProceeded",
+    "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 114 }],
     "Name": "114(ハクトヨ)",
     "Name_EN": "114(Hudres=Forteels)",
     "ModelName": "ナンバーテールズ4+11号機(開発用114番機)",
@@ -339,6 +355,10 @@
   {
     "Num": "115-dev",
     "Progress": "notProceeded",
+    "SameMPSeries_DBLink": [
+      { "_DB": "SelfSecondary", "Num": 115 },
+      { "_DB": "Secondary", "Num": "115-numberize" }
+    ],
     "Name": "115(ハクトウゴ)",
     "Name_EN": "115(Hudres=Fifteeld)",
     "ModelName": "ナンバーテールズ5+11号機(開発用115番機)",
@@ -356,6 +376,7 @@
   {
     "Num": "116-dev",
     "Progress": "notProceeded",
+    "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 116 }],
     "Name": "116(ハクソロク)",
     "Name_EN": "116(Hudres=Sixteely)",
     "ModelName": "ナンバーテールズ6+11号機(開発用116番機)",
@@ -373,6 +394,7 @@
   {
     "Num": "117-dev",
     "Progress": "notProceeded",
+    "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 117 }],
     "Name": "117(ハクトナ)",
     "Name_EN": "117(Hudres=Sevteena)",
     "ModelName": "ナンバーテールズ7+11号機(開発用117番機)",
@@ -390,6 +412,7 @@
   {
     "Num": "118-dev",
     "Progress": "notProceeded",
+    "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 118 }],
     "Name": "118(ハクトウヤ)",
     "Name_EN": "118(Hudres=Eighteeld)",
     "ModelName": "ナンバーテールズ8+11号機(開発用118番機)",
@@ -407,6 +430,7 @@
   {
     "Num": "119-dev",
     "Progress": "notProceeded",
+    "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 119 }],
     "Name": "119(ハクトク)",
     "Name_EN": "119(Hudres=Ninteels)",
     "ModelName": "ナンバーテールズ9+11号機(開発用119番機)",
@@ -424,6 +448,7 @@
   {
     "Num": "121-sq",
     "Progress": "notProceeded",
+    "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 121 }],
     "Name": "121(エルフェルト)\n11²(キャレオンズ)",
     "Name_EN": "121(Elf-elvent)\n11²(Carréonze)",
     "FormalName": "ナンバーテールズ キャレ-オンズ(同位異格121番機)",
@@ -440,6 +465,7 @@
   {
     "Num": "125-cub",
     "Progress": "notProceeded",
+    "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 125 }],
     "Name": "125(イブコ)\n5³(リツコ)",
     "Name_EN": "125(Ontwive)\n5³(Künf)",
     "FormalName": "ナンバーテールズ キュビクザール-フュンフ(同位異格125番機)",
@@ -454,6 +480,7 @@
   {
     "Num": "144-sq",
     "Progress": "notProceeded",
+    "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 144 }],
     "Name": "144(グロス)\n12²(グロス)",
     "Name_EN": "144(Groß)\n12²(Groß)",
     "FormalName": "ナンバーテールズ キャレ-ドゥーズ(同位異格144番機)",
@@ -474,6 +501,7 @@
   {
     "Num": "169-sq",
     "Progress": "notProceeded",
+    "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 169 }],
     "FormalName": "ナンバーテールズ キャレ-トレーズ(同位異格169番機)",
     "FormalName_EN": "NumberTales Unit.Carré-13 (Isotope of Mk.169)",
     "ModelNumber": "APHR-NT SQ.XIII",
@@ -484,6 +512,7 @@
   {
     "Num": "196-sq",
     "Progress": "notProceeded",
+    "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 196 }],
     "FormalName": "ナンバーテールズ キャレ-カトルズ(同位異格196番機)",
     "FormalName_EN": "NumberTales Unit.Carré-14 (Isotope of Mk.196)",
     "ModelNumber": "APHR-NT SQ.XIV",
@@ -494,6 +523,7 @@
   {
     "Num": "200-dev",
     "Progress": "notProceeded",
+    "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 200 }],
     "Name": "200(バイセンテ)",
     "Name_EN": "200(Bicentenny)",
     "ModelName": "ナンバーテールズ汎用型2号機改(開発用200番機)",
@@ -523,6 +553,7 @@
   {
     "Num": "216-cub",
     "Progress": "notProceeded",
+    "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 216 }],
     "Name": "216(ニイロ)\n6³(リク)",
     "Name_EN": "216(Biunosect)\n6³(Secubie)",
     "FormalName": "ナンバーテールズ キュビクザール-ゼクス(同位異格216番機)",
@@ -545,59 +576,118 @@
     "Progress": "released",
     "Images": {
       "concept_PNGName": "cnsp_img222",
-      "conceptAlt_PNGName": ["cnsp_img222-origA", "cnsp_img222-origB"],
+      "conceptAlt_PNGName": ["cnsp_img222-origA"],
       "corefolder_PNGPath": [
         "222/emstk_corefolder222-1",
-        "222/emstk_corefolder222-2a",
-        "222/emstk_corefolder222-2b"
+        "222/emstk_corefolder222-2a"
       ]
     },
-    "Name": "222(ドッペル)|222(ペルゲン)\n222(ドッペルゲンズ)",
-    "Name_EN": "222(Doppels)|222(Pelgäns)\n222(Doppelgäns)",
-    "ModelName": "ナンバーテールズ1+11号2倍機または3倍型2号機(222番機)",
-    "ModelName_EN": "NumberTales Unit.1+11 EXtended By.2 and EXtended By.3 Type Unit.2 (Mk.222)",
-    "ModelNumber": "APHR-NT I+XI.2|[x3]II",
-    "FormalName": "ナンバーテールズ222番機",
-    "FormalName_EN": "NumberTales #222",
+    "SameModels_DBLink": [{ "_DB": "SemiPrimary", "Num": "222-alt" }],
+    "AnotherVersions_DBLink": [
+      { "_Works": "NumberTales", "_DB": "SelfSecondary", "Num": "222-mp" }
+    ],
+    "Name": "222(ペルゲン)\n222(ドッペルゲンズ)",
+    "Name_EN": "222(Pelgäns)\n222(Doppelgäns)",
+    "ModelName": "ナンバーテールズ3倍型2号機\nナンバーテールズ1+11号2倍機または3倍型2号機(222番機)",
+    "ModelName_EN": "NumberTales EXtended By.3 Type Unit.2\nNumberTales Unit.1+11 EXtended By.2 and EXtended By.3 Type Unit.2 (Mk.222)",
+    "ModelNumber": "APHR-NT [x3]II\nAPHR-NT I+XI.2|[x3]II",
+    "FormalName": "ナンバーテールズ222番機(開発用オリジナル版3倍型2号機)",
+    "FormalName_EN": "NumberTales #222 (Original version for development of EXtended By.3 Type Unit.2)",
     "CodeName": "二二二",
     "CodeName_EN": "Two-Two-Two",
     "SPCodeName": "2×111",
     "SPCodeName_EN": "2×111, Cloned I-s",
     "GenderType": "FemaleNeutral",
-    "Height_cm": [{ "value": 148, "about_JP": "平均", "about_EN": "Average" }],
+    "Height_cm": 147,
     "ConceptAge": 16,
-    "Weight_kg": [{ "value": 42, "about_JP": "平均", "about_EN": "Average" }],
-    "BustSize": { "value": "A", "about_JP": "平均", "about_EN": "Average" },
+    "Weight_kg": 42,
+    "BustSize": "B",
     "TailsUnit": "尾鰭(特殊)型3本2枝",
     "TailsUnit_EN": "Caudal-Fin (Special) Type: 3 Fins, 2 Branches",
     "Class": ["マスタートリプル"],
-    "FirstPersonCalling": "ドッペル→ドッペル：僕\nドッペル→ペルゲン：ペーちゃん\nペルゲン→ペルゲン：私(わたし)\nペルゲン→ドッペル：ドペさん",
-    "FirstPersonCalling_EN": "Doppels -> Doppels: I (masc. casual)\nDoppels -> Pelgans: Pelly(Pe-chan)\nPelgans -> Pelgans: I (fem. neutral)\nPelgans -> Doppels: Doppy(Dope-san)",
-    "SecondPersonCalling": "ドッペル：君\nペルゲン：貴方",
-    "SecondPersonCalling_EN": "Doppels: you (casual)\nPelgans: you (fem. neutral)",
-    "ThirdPersonCalling": "ドッペル：彼/彼女;~の人,*れ;~くん/~ちゃん,~樣\nペルゲン：彼/彼女;~の方,*方(*ちら);~さん,~樣",
-    "ThirdPersonCalling_EN": "Doppels: he/she; ~ person; that/this/which/what/them (as objective); [*by name](~kun/~chan), sir/lady.~ (~-sama; very honorific)\nPelgans: he/she; ~ person; that/this/who/them one (as personal, polite); [*by name](~san), sir/lady.~ (~-sama; very honorific)",
+    "FirstPersonCalling": "自分に対し：私(わたし)\nドッペルに対し：ドペさん",
+    "FirstPersonCalling_EN": "to Pelgäns: I (fem. neutral)\nto Doppels: Doppy(Dope-san)",
+    "SecondPersonCalling": "貴方",
+    "SecondPersonCalling_EN": "you (fem. neutral)",
+    "ThirdPersonCalling": "彼/彼女;~の方,*方(*ちら);~さん,~樣",
+    "ThirdPersonCalling_EN": "he/she; ~ person; that/this/who/them one (as personal, polite); [*by name](~san), sir/lady.~ (~-sama; very honorific)",
     "ForMasterCalling": "兄樣/姉樣",
     "ForMasterCalling_EN": "my sir/lady (very honorific: nii/nee-sama)",
-    "Character": "ドッペル：人と一緒にいるのが好きでよく会話の輪に溶け込もうとする\nペルゲン：ふんわりと落ち着いた優しい気質でよく周りのことをみている",
-    "Character_EN": "Doppels: likes being with people and often tries to blend into conversations.\nPelgans: gentle, calm, and soft in temperament, with a careful eye on those around her.",
-    "Hobby": "躯体共通：ボイスチャット（主に雑談）\nドッペル：友人と番組を同時視聴すること\nペルゲン：民泊で友人と過ごすこと",
-    "Hobby_EN": "Shared body: voice chat (mainly casual talk)\nDoppels: watching programs simultaneously with friends\nPelgans: spending time with friends at guesthouses",
-    "SpecialSkill": "ドッペル：喧嘩の仲裁\nペルゲン：寝具や居室回りの掃除、ベッドメイキング",
-    "SpecialSkill_EN": "Doppels: mediating fights\nPelgans: cleaning bedding and room areas, bed-making",
-    "Favor": "躯体共通：猫、コアフォルダ\nドッペル：親しい人とのスキンシップ\nペルゲン：親しい人との会合",
-    "Favor_EN": "Shared body: cats, corefolder\nDoppels: physical closeness with trusted people\nPelgans: gatherings with close companions",
-    "Unlike": "躯体共通：自分勝手や私利私欲およびそのような態度の人\nドッペル：挟みな状況、頑なに（特定/不特定を問わず）他者を拒絶する人\nペルゲン：魔女狩り、美徳に反して他者を傷つける人",
-    "Unlike_EN": "Shared body: selfishness, greed, and people with such attitudes\nDoppels: being stuck in between, and people who stubbornly reject others (specific or not)\nPelgans: witch-hunting and those who harm others against virtue",
+    "Character": "ふんわりと落ち着いた優しい気質でよく周りのことをみている",
+    "Character_EN": "gentle, calm, and soft in temperament, with a careful eye on those around her.",
+    "Hobby": "ボイスチャット（主に雑談）\n民泊で友人と過ごすこと",
+    "Hobby_EN": "Voice chat (mainly casual talk)\nSpending time with friends at guesthouses",
+    "SpecialSkill": "寝具や居室回りの掃除、ベッドメイキング",
+    "SpecialSkill_EN": "Cleaning bedding and room areas, bed-making",
+    "Favor": "猫、コアフォルダ\n親しい人との会合",
+    "Favor_EN": "Cats, corefolder\nGatherings with close companions",
+    "Unlike": "自分勝手や私利私欲およびそのような態度の人\n魔女狩り、美徳に反して他者を傷つける人",
+    "Unlike_EN": "Selfishness, greed, and people with such attitudes\nWitch-hunting and those who harm others against virtue",
     "NumerospecAbout": "疎外感を解消し縁を育む",
     "NumerospecAbout_EN": "Eases alienation and nurtures bonds",
     "Summary": "量産販売型かつ3桁ゾロ目の数字を持つ「マスタートリプル」という高性能な特殊クラスの個体。\nそのうち222番機の開発専用オリジナル機は２体存在し、「222(ペルゲン)」は「バイナ」らの後続型、「222(ドッペル)」は「111(アイズ)」の後続型にあたる。\nどちらも「2(ツグ)」・「バイナ」や「22(フジ)」にも劣らず、「222(ペルゲン)」は周囲状況に対する配慮に秀でた“優しいお姉さん”のごとく、「222(ドッペル)」は仲介や縁づくりが得意で“クラスのマドンナ”のごとく周りに親しまれている。\n222番機こと腹違いの双子としてお互い同式扱いとなっている２人は、よく生活を共にすることから信頼の強さもみられており、「222(ドッペル)」が「222(ペルゲン)」によく甘えている義姉妹愛の溢れる様子も。",
-    "Summary_EN": "A high-performance special class unit called \"MasterTriple\" that is both mass-produced and assigned a three-digit repdigit number.\nFor Mk.222, two developer-original units exist: 222(Pelgans) is a successor to Binor and related lines, while 222(Doppels) is a successor to 111(Ize).\nBoth rival 2(Twiny), Binor, and 22(Twin-twina): 222(Pelgans) is loved as a considerate \"gentle big sister\", while 222(Doppels) is cherished like a \"class madonna\" for mediation and bond-building.\nThough treated under one model number as paternal half-twins, they often live together and show deep trust, with 222(Doppels) frequently leaning affectionately on 222(Pelgans).",
+    "Summary_EN": "A high-performance special class unit called \"MasterTriple\" that is both mass-produced and assigned a three-digit repdigit number.\nFor Mk.222, two developer-original units exist: 222(Pelgäns) is a successor to Binor and related lines, while 222(Doppels) is a successor to 111(Ize).\nBoth rival 2(Twiny), Binor, and 22(Twin-twina): 222(Pelgäns) is loved as a considerate \"gentle big sister\", while 222(Doppels) is cherished like a \"class madonna\" for mediation and bond-building.\nThough treated under one model number as paternal half-twins, they often live together and show deep trust, with 222(Doppels) frequently leaning affectionately on 222(Pelgäns).",
     "Backgrounds": "1+11号2倍機が現「222(ドッペル)」、3倍型2号機が現「222(ペルゲン)」にあたりそれぞれ別個体として設計が進められていたが、開発の事情で最終的にひとつの型式として統合された。そのため開発用オリジナル機は、形式上1体として扱われる2体1式の個体となっている。",
-    "Backgrounds_EN": "The extended By.2 type of Unit.1+11 model became the current 222(Doppels), while the extended Unit.2 model as By.3 Type became the current 222(Pelgans), and both were originally designed as separate units. Due to development circumstances, they were ultimately unified into a single model format. As a result, the developer-original configuration is formally treated as one model consisting of a two-unit pair."
+    "Backgrounds_EN": "The extended By.2 type of Unit.1+11 model became the current 222(Doppels), while the extended Unit.2 model as By.3 Type became the current 222(Pelgäns), and both were originally designed as separate units. Due to development circumstances, they were ultimately unified into a single model format. As a result, the developer-original configuration is formally treated as one model consisting of a two-unit pair."
+  },
+  {
+    "Num": "222-alt",
+    "Progress": "released",
+    "Images": {
+      "concept_PNGName": "cnsp_img222",
+      "conceptAlt_PNGName": ["cnsp_img222-origB"],
+      "corefolder_PNGPath": [
+        "222/emstk_corefolder222-1",
+        "222/emstk_corefolder222-2b"
+      ]
+    },
+    "SameModels_DBLink": [{ "_DB": "SemiPrimary", "Num": 222 }],
+    "AnotherVersions_DBLink": [
+      { "_Works": "NumberTales", "_DB": "SelfSecondary", "Num": "222-mp" }
+    ],
+    "Name": "222(ドッペル)\n222(ドッペルゲンズ)",
+    "Name_EN": "222(Doppels)\n222(Doppelgäns)",
+    "ModelName": "ナンバーテールズ1+11号2倍機\nナンバーテールズ1+11号2倍機または3倍型2号機(222番機)",
+    "ModelName_EN": "NumberTales Unit.1+11 EXtended By.2\nNumberTales Unit.1+11 EXtended By.2 and EXtended By.3 Type Unit.2 (Mk.222)",
+    "ModelNumber": "APHR-NT I+XI.2\nAPHR-NT I+XI.2|[x3]II",
+    "FormalName": "ナンバーテールズ222番機(開発用オリジナル版1+11号2倍機)",
+    "FormalName_EN": "NumberTales #222 (Original version for development of Unit.1+11 EXtended By.2)",
+    "CodeName": "二二二",
+    "CodeName_EN": "Two-Two-Two",
+    "SPCodeName": "2×111",
+    "SPCodeName_EN": "2×111, Cloned I-s",
+    "GenderType": "FemaleNeutral",
+    "Height_cm": 146,
+    "ConceptAge": 16,
+    "Weight_kg": 43,
+    "BustSize": "A",
+    "TailsUnit": "尾鰭(特殊)型3本2枝",
+    "TailsUnit_EN": "Caudal-Fin (Special) Type: 3 Fins, 2 Branches",
+    "Class": ["マスタートリプル"],
+    "FirstPersonCalling": "自分に対して：僕\nペルゲンに対して：ペーちゃん",
+    "FirstPersonCalling_EN": "to Doppels: I (masc. casual)\nto Pelgäns: Pelly(Pe-chan)",
+    "SecondPersonCalling": "君",
+    "SecondPersonCalling_EN": "you (casual)",
+    "ThirdPersonCalling": "彼/彼女;~の人,*れ;~くん/~ちゃん,~樣",
+    "ThirdPersonCalling_EN": "he/she; ~ person; that/this/which/what/them (as objective); [*by name](~kun/~chan), sir/lady.~ (~-sama; very honorific)",
+    "ForMasterCalling": "兄樣/姉樣",
+    "ForMasterCalling_EN": "my sir/lady (very honorific: nii/nee-sama)",
+    "Character": "人と一緒にいるのが好きでよく会話の輪に溶け込もうとする",
+    "Character_EN": "Likes being with people and often tries to blend into conversations.",
+    "Hobby": "ボイスチャット（主に雑談）\n友人と番組を同時視聴すること",
+    "Hobby_EN": "Voice chat (mainly casual talk)\nWatching programs simultaneously with friends",
+    "SpecialSkill": "喧嘩の仲裁",
+    "SpecialSkill_EN": "Mediating fights",
+    "Favor": "猫、コアフォルダ\n親しい人とのスキンシップ",
+    "Favor_EN": "Cats, corefolder\nPhysical closeness with trusted people",
+    "Unlike": "自分勝手や私利私欲およびそのような態度の人\n挟みな状況、頑なに（特定/不特定を問わず）他者を拒絶する人",
+    "Unlike_EN": "Selfishness, greed, and people with such attitudes\nBeing stuck in between, and people who stubbornly reject others (specific or not)",
+    "NumerospecAbout": "疎外感を解消し縁を育む",
+    "NumerospecAbout_EN": "Eases alienation and nurtures bonds"
   },
   {
     "Num": "225-sq",
+    "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 225 }],
     "Progress": "notProceeded",
     "FormalName": "ナンバーテールズ キャレ-クインズ(同位異格225番機)",
     "FormalName_EN": "NumberTales Unit.Carré-15 (Isotope of Mk.225)",
@@ -608,6 +698,7 @@
   },
   {
     "Num": "256-sq",
+    "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 256 }],
     "Progress": "notProceeded",
     "Name": "256(バイツ)\n16²(バイツ)",
     "Name_EN": "256(Bytz)\n16²(Bytz)",
@@ -631,6 +722,7 @@
   },
   {
     "Num": "289-sq",
+    "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 289 }],
     "Progress": "notProceeded",
     "FormalName": "ナンバーテールズ キャレ-ディセット(同位異格289番機)",
     "FormalName_EN": "NumberTales Unit.Carré-17 (Isotope of Mk.289)",
@@ -641,6 +733,7 @@
   },
   {
     "Num": "324-sq",
+    "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 324 }],
     "Progress": "notProceeded",
     "FormalName": "ナンバーテールズ キャレ-ディズュイット(同位異格324番機)",
     "FormalName_EN": "NumberTales Unit.Carré-18 (Isotope of Mk.324)",
@@ -652,6 +745,9 @@
   {
     "Num": 333,
     "Progress": "notProceeded",
+    "AnotherVersions_DBLink": [
+      { "_Works": "NumberTales", "_DB": "SelfSecondary", "Num": "333-mp" }
+    ],
     "Name": "333(トリニティア)",
     "Name_EN": "333(Trinitia)",
     "ModelName": "ナンバーテールズ3倍型3号機(333番機)",
@@ -669,6 +765,7 @@
   {
     "Num": "343-cub",
     "Progress": "notProceeded",
+    "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 343 }],
     "Name": "343(ミシミ)\n7³(ズューブ)",
     "Name_EN": "343(Threfortrey)\n7³(Sieubic)",
     "FormalName": "ナンバーテールズ キュビクザール-ズィベン(同位異格343番機)",
@@ -682,6 +779,7 @@
   },
   {
     "Num": "361-sq",
+    "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 361 }],
     "Progress": "notProceeded",
     "FormalName": "ナンバーテールズ キャレ-ディズネフ(同位異格361番機)",
     "FormalName_EN": "NumberTales Unit.Carré-19 (Isotope of Mk.361)",
@@ -695,6 +793,10 @@
   {
     "Num": "400-sq",
     "Progress": "notProceeded",
+    "SameMPSeries_DBLink": [
+      { "_DB": "SelfSecondary", "Num": 400 },
+      { "_DB": "SemiPrimary", "Num": "400-dev" }
+    ],
     "Name": "400(ヴィンティ-ヴィンティ)\n20²(ヴィンティ-ヴィンティ)",
     "Name_EN": "400(Vingt-vingtee)\n20²(Vingt-vingtee)",
     "FormalName": "ナンバーテールズ キャレ-ヴィント(同位異格400番機)",
@@ -711,6 +813,10 @@
   {
     "Num": "400-dev",
     "Progress": "notProceeded",
+    "SameMPSeries_DBLink": [
+      { "_DB": "SelfSecondary", "Num": 400 },
+      { "_DB": "SemiPrimary", "Num": "400-sq" }
+    ],
     "Name": "400(マタウルウ)",
     "Name_EN": "400(Leap-againer)",
     "ModelName": "ナンバーテールズ汎用型4号機改(開発用400番機)",
@@ -730,6 +836,9 @@
   {
     "Num": 444,
     "Progress": "nowCreating",
+    "AnotherVersions_DBLink": [
+      { "_Works": "NumberTales", "_DB": "SelfSecondary", "Num": "444-mp" }
+    ],
     "Name": "444(シテン)",
     "Name_EN": "444(Quad-emperone)",
     "ModelName": "ナンバーテールズ3倍型4号機(444番機)",
@@ -781,6 +890,7 @@
   },
   {
     "Num": "512-cub",
+    "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 512 }],
     "Progress": "notProceeded",
     "Name": "512(ハキビ)\n8³(ハキビ)",
     "Name_EN": "512(Hav-kiB)\n8³(Hav-kiB)",
@@ -798,6 +908,9 @@
   {
     "Num": 555,
     "Progress": "notProceeded",
+    "AnotherVersions_DBLink": [
+      { "_Works": "NumberTales", "_DB": "SelfSecondary", "Num": "555-mp" }
+    ],
     "Name": "555(ハイファイブ)",
     "Name_EN": "555(High-Fiver)",
     "ModelName": "ナンバーテールズ3倍型5号機(555番機)",
@@ -815,6 +928,9 @@
   {
     "Num": 666,
     "Progress": "released",
+    "AnotherVersions_DBLink": [
+      { "_Works": "NumberTales", "_DB": "SelfSecondary", "Num": "666-mp" }
+    ],
     "Images": {
       "concept_PNGName": "cnsp_img666",
       "corefolder_PNGPath": ["emstk_corefolder666-mp1"]
@@ -877,6 +993,7 @@
   {
     "Num": "729-sxp",
     "Progress": "notProceeded",
+    "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 729 }],
     "Name": "729(ナブク)",
     "Name_EN": "729(Seventwínina)",
     "FormalName": "ナンバーテールズ特殊個体：セクストパワーサード(同位異格729番機)",
@@ -890,6 +1007,10 @@
   },
   {
     "Num": 777,
+    "AnotherVersions_DBLink": [
+      { "_DB": "SelfSecondary", "Num": "777.Jackpot-mp" }
+    ],
+    "SameModels_DBLink": [{ "_DB": "SemiPrimary", "Num": "777.Jackpot" }],
     "Progress": "released",
     "Images": { "concept_PNGName": "cnsp_img777" },
     "Name": "777(ヨロコビ)",
@@ -949,11 +1070,7 @@
   },
   {
     "Num": "777.Jackpot",
-    "_DBLink": {
-      "worksTitle": "NumberTales",
-      "dbName": "SemiPrimary",
-      "_Search": [{ "hashTag": "Num", "key": 777 }]
-    },
+    "SameModels_DBLink": [{ "_DB": "SemiPrimary", "Num": 777 }],
     "Name": "777(ヨロコビ)",
     "Name_EN": "777(Lucky-sevens)\n777(Luckies)",
     "ModelName": "ナンバーテールズ特殊個体:ラッキーセブンアール(777番機-ジャックポット)",
@@ -992,6 +1109,9 @@
   {
     "Num": 888,
     "Progress": "notProceeded",
+    "AnotherVersions_DBLink": [
+      { "_Works": "NumberTales", "_DB": "SelfSecondary", "Num": "888-mp" }
+    ],
     "Name": "888(ムゲン)",
     "Name_EN": "888(Infy)",
     "ModelName": "ナンバーテールズ3倍型8号機(888番機)",
@@ -1020,6 +1140,9 @@
   {
     "Num": 999,
     "Progress": "notProceeded",
+    "AnotherVersions_DBLink": [
+      { "_Works": "NumberTales", "_DB": "SelfSecondary", "Num": "999-mp" }
+    ],
     "Name": "999(カンスト)",
     "Name_EN": "999(Counstop)",
     "ModelName": "ナンバーテールズ改良最終型9号機(999番機)",
@@ -1123,6 +1246,9 @@
   {
     "Num": "64-sxp",
     "Progress": "notProceeded",
+    "AnotherVersions_DBLink": [
+      { "_Works": "NumberTales", "_DB": "Primary", "Num": 64 }
+    ],
     "Name": "ゼフィア\n64(ゼフィア)",
     "Name_EN": "Secvier\n64(Secvier)",
     "FormalName": "ナンバーテールズ特殊個体：セクストパワーセカンド(仮説新64番機)",

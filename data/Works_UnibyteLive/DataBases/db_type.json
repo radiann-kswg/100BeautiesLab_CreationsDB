@@ -53,6 +53,13 @@
       "hashTag_EN": "Key Letter"
     },
     {
+      "hashTag": "ThisPerformer_DBLink",
+      "$type": "$Def_DBLinkRef|#Null",
+      "$enrich": false,
+      "hashTag_JP": "演者(リアル空間での姿)",
+      "hashTag_EN": "Performer (Real-world Appearance)"
+    },
+    {
       "hashTag": "AccessoryUnit",
       "$type": "#String",
       "hashTag_JP": "モチーフアクセサリの特徴"
