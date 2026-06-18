@@ -5,11 +5,11 @@
   },
   {
     "SpecialPattern": "Ptn.Ar(能力発揮効果)",
-    "SpecialPattern_EN": "Ptn.Ar(Ability Manifestation Effect)"
+    "SpecialPattern_EN": "Ptn.Ar(Ability Realization Effect)"
   },
   {
     "SpecialPattern": "Ptn.Av(能力比例作用)",
-    "SpecialPattern_EN": "Ptn.Av(Ability-Scaled Effect)"
+    "SpecialPattern_EN": "Ptn.Av(Ability-Scaled Variable Effect)"
   },
   {
     "SpecialPattern": "Ptn.B(バイタリティ強化効果)",
@@ -33,19 +33,19 @@
   },
   {
     "SpecialPattern": "Ptn.Dr(目標比例作用)",
-    "SpecialPattern_EN": "Ptn.Dr(Goal-Scaled Effect)"
+    "SpecialPattern_EN": "Ptn.Dr(Goal-Scaled Realization Effect)"
   },
   {
     "SpecialPattern": "Ptn.Dr-(目標比例作用がある傾向)",
-    "SpecialPattern_EN": "Ptn.Dr-(Tendency toward Goal-Scaled Effect)"
+    "SpecialPattern_EN": "Ptn.Dr-(Tendency toward Goal-Scaled Realization Effect)"
   },
   {
     "SpecialPattern": "Ptn.Ec(士気比例作用)",
-    "SpecialPattern_EN": "Ptn.Ec(Morale-Scaled Effect)"
+    "SpecialPattern_EN": "Ptn.Ec(Encouragement-Scaled Effect)"
   },
   {
     "SpecialPattern": "Ptn.Ec-(士気比例作用と思われる)",
-    "SpecialPattern_EN": "Ptn.Ec-(Presumed Morale-Scaled Effect)"
+    "SpecialPattern_EN": "Ptn.Ec-(Presumed Encouragement-Scaled Effect)"
   },
   {
     "SpecialPattern": "Ptn.Es(自己認知効果)",
@@ -53,11 +53,11 @@
   },
   {
     "SpecialPattern": "Ptn.F(超能力保有)",
-    "SpecialPattern_EN": "Ptn.F(Psychic Ability Possession)"
+    "SpecialPattern_EN": "Ptn.F(Psychic Ability/Function Possession)"
   },
   {
     "SpecialPattern": "Ptn.F-(超能力保有の可能性)",
-    "SpecialPattern_EN": "Ptn.F-(Possible Psychic Ability Possession)"
+    "SpecialPattern_EN": "Ptn.F-(Possible Psychic Ability/Function Possession)"
   },
   {
     "SpecialPattern": "Ptn.Hm(心理安定化効果)",
@@ -69,23 +69,23 @@
   },
   {
     "SpecialPattern": "Ptn.Kn(知性効果)",
-    "SpecialPattern_EN": "Ptn.Kn(Intelligence Effect)"
+    "SpecialPattern_EN": "Ptn.Kn(Knowledge/Intelligence Effect)"
   },
   {
     "SpecialPattern": "Ptn.Lg(思考向上効果)",
-    "SpecialPattern_EN": "Ptn.Lg(Thinking Enhancement Effect)"
+    "SpecialPattern_EN": "Ptn.Lg(Logical-Thinking Enhancement Effect)"
   },
   {
     "SpecialPattern": "Ptn.Lg-(思考向上効果がある可能性)",
-    "SpecialPattern_EN": "Ptn.Lg-(Possible Thinking Enhancement Effect)"
+    "SpecialPattern_EN": "Ptn.Lg-(Possible Logical-Thinking Enhancement Effect)"
   },
   {
     "SpecialPattern": "Ptn.Lr(幸福実現効果)",
-    "SpecialPattern_EN": "Ptn.Lr(Happiness Realization Effect)"
+    "SpecialPattern_EN": "Ptn.Lr(Luck Realization Effect)"
   },
   {
     "SpecialPattern": "Ptn.Lr-(条件付き幸福実現効果)",
-    "SpecialPattern_EN": "Ptn.Lr-(Conditional Happiness Realization Effect)"
+    "SpecialPattern_EN": "Ptn.Lr-(Conditional Luck Realization Effect)"
   },
   {
     "SpecialPattern": "Ptn.M(マネタイズ効果または資産操作能力)",
@@ -101,11 +101,11 @@
   },
   {
     "SpecialPattern": "Ptn.Ms(自己転化効果)",
-    "SpecialPattern_EN": "Ptn.Ms(Self-Conversion Effect)"
+    "SpecialPattern_EN": "Ptn.Ms(Mind Self-Conversion Effect)"
   },
   {
     "SpecialPattern": "Ptn.Ms-(自己転化効果がある可能性)",
-    "SpecialPattern_EN": "Ptn.Ms-(Possible Self-Conversion Effect)"
+    "SpecialPattern_EN": "Ptn.Ms-(Possible Mind Self-Conversion Effect)"
   },
   {
     "SpecialPattern": "Ptn.Mt(母性的作用の傾向)",
@@ -117,11 +117,11 @@
   },
   {
     "SpecialPattern": "Ptn.Py(読心効果)",
-    "SpecialPattern_EN": "Ptn.Py(Mind-Reading Effect)"
+    "SpecialPattern_EN": "Ptn.Py(Psychic Mind-Reading Effect)"
   },
   {
     "SpecialPattern": "Ptn.R-(効果保証作用がある傾向)",
-    "SpecialPattern_EN": "Ptn.R-(Tendency toward Effect-Guarantee Influence)"
+    "SpecialPattern_EN": "Ptn.R-(Tendency toward Realize-Effect Influence)"
   },
   {
     "SpecialPattern": "Ptn.Rc(救済効果)",
@@ -133,11 +133,11 @@
   },
   {
     "SpecialPattern": "Ptn.Rz(実現性向上効果)",
-    "SpecialPattern_EN": "Ptn.Rz(Feasibility Enhancement Effect)"
+    "SpecialPattern_EN": "Ptn.Rz(Realization Enhancement Effect)"
   },
   {
     "SpecialPattern": "Ptn.Rz-(実現性向上効果がある傾向)",
-    "SpecialPattern_EN": "Ptn.Rz-(Tendency toward Feasibility Enhancement Effect)"
+    "SpecialPattern_EN": "Ptn.Rz-(Tendency toward Realization Enhancement Effect)"
   },
   {
     "SpecialPattern": "Ptn.S(感性向上効果)",
@@ -149,7 +149,7 @@
   },
   {
     "SpecialPattern": "Ptn.St(状況比例作用)",
-    "SpecialPattern_EN": "Ptn.St(Situation-Scaled Effect)"
+    "SpecialPattern_EN": "Ptn.St(Situation-Scaled Variable Effect)"
   },
   {
     "SpecialPattern": "Ptn.X(転化・転送効果)",
@@ -169,7 +169,7 @@
   },
   {
     "SpecialPattern": "Ptn.Z[Hd](効果に一定の精神的耐性が必要)",
-    "SpecialPattern_EN": "Ptn.Z[Hd](Caution: Requires Certain Mental Resistance to the Effect)"
+    "SpecialPattern_EN": "Ptn.Z[Hd](Caution: Requires Certain Mental Resistance to the more Hard Effects)"
   },
   {
     "SpecialPattern": "Ptn.Z[MT](不安またはモラトリアム思想に注意)",
@@ -185,6 +185,6 @@
   },
   {
     "SpecialPattern": "Ptn.ZZ(逆効能および禁断効果に警戒)",
-    "SpecialPattern_EN": "Ptn.ZZ(Caution: Reverse Efficacy and Forbidden Effects)"
+    "SpecialPattern_EN": "Ptn.ZZ(Strictly Caution: Reverse Efficacy and Forbidden Effects)"
   }
 ]

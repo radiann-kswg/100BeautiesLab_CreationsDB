@@ -1,5 +1,8 @@
 [
-  { "SpecialPattern": "Ptn.A(覚醒)", "SpecialPattern_EN": "Ptn.A(Awakening)" },
+  {
+    "SpecialPattern": "Ptn.A(覚醒)",
+    "SpecialPattern_EN": "Ptn.A(Awakening or Acceleration)"
+  },
   {
     "SpecialPattern": "Ptn.B(士気操作)",
     "SpecialPattern_EN": "Ptn.B(Bravery Manipulation)"

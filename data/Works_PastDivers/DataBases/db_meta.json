@@ -25,73 +25,73 @@
             "Lunar": "Mutsuki",
             "CodeName_JP": "睦月",
             "CodeName_EN": "January",
-            "Class": ["第1幹部", "睦月研究所"]
+            "Class": ["幹部", "睦月研究所"]
           },
           {
             "Lunar": "Kisaragi",
             "CodeName_JP": "如月",
             "CodeName_EN": "February",
-            "Class": ["第2幹部", "如月研究所"]
+            "Class": ["幹部", "如月研究所"]
           },
           {
             "Lunar": "Yayoi",
             "CodeName_JP": "弥生",
             "CodeName_EN": "March",
-            "Class": ["第3幹部", "弥生研究所(破滅対策本部2課)"]
+            "Class": ["幹部", "弥生研究所(破滅対策本部2課)"]
           },
           {
             "Lunar": "Udzuki",
             "CodeName_JP": "卯月",
             "CodeName_EN": "April",
-            "Class": ["第4幹部", "卯月研究所"]
+            "Class": ["幹部", "卯月研究所"]
           },
           {
             "Lunar": "Satsuki",
             "CodeName_JP": "皐月",
             "CodeName_EN": "May",
-            "Class": ["第5幹部", "皐月研究所"]
+            "Class": ["幹部", "皐月研究所"]
           },
           {
             "Lunar": "Minadzuki",
             "CodeName_JP": "水無月",
             "CodeName_EN": "June",
-            "Class": ["第6幹部", "水無月研究所"]
+            "Class": ["幹部", "水無月研究所"]
           },
           {
             "Lunar": "Fumdzuki",
             "CodeName_JP": "文月",
             "CodeName_EN": "July",
-            "Class": ["第7幹部", "文月研究所"]
+            "Class": ["幹部", "文月研究所"]
           },
           {
             "Lunar": "Hadzuki",
             "CodeName_JP": "葉月",
             "CodeName_EN": "August",
-            "Class": ["第8幹部", "葉月研究所(軍事本部)"]
+            "Class": ["幹部", "葉月研究所(軍事本部)"]
           },
           {
             "Lunar": "Nagatsuki",
             "CodeName_JP": "長月",
             "CodeName_EN": "September",
-            "Class": ["第9幹部", "長月研究所(救命本部)"]
+            "Class": ["幹部", "長月研究所(救命本部)"]
           },
           {
             "Lunar": "Kannadzuki",
             "CodeName_JP": "神無月",
             "CodeName_EN": "October",
-            "Class": ["第10幹部", "神無月研究所(破滅対策本部1課)"]
+            "Class": ["幹部", "神無月研究所(破滅対策本部1課)"]
           },
           {
             "Lunar": "Shimotsuki",
             "CodeName_JP": "霜月",
             "CodeName_EN": "November",
-            "Class": ["第11幹部", "霜月研究所(仮説)"]
+            "Class": ["幹部", "霜月研究所(仮説)"]
           },
           {
             "Lunar": "Shiwasu",
             "CodeName_JP": "師走",
             "CodeName_EN": "December",
-            "Class": ["第12幹部", "師走研究所(仮説)"]
+            "Class": ["幹部", "師走研究所(仮説)"]
           },
           {
             "Lunar": "Leap",
@@ -141,43 +141,43 @@
             "Lunar": "Januarius",
             "CodeName_JP": "睦月",
             "CodeName_EN": "January",
-            "Class": ["第1幹部", "睦月研究所"]
+            "Class": ["幹部", "睦月研究所"]
           },
           {
             "Lunar": "Februarius",
             "CodeName_JP": "如月",
             "CodeName_EN": "February",
-            "Class": ["第2幹部", "如月研究所"]
+            "Class": ["幹部", "如月研究所"]
           },
           {
             "Lunar": "Martius.II",
             "CodeName_JP": "弥生",
             "CodeName_EN": "March",
-            "Class": ["第3幹部"]
+            "Class": ["幹部"]
           },
           {
             "Lunar": "Aprilis",
             "CodeName_JP": "卯月",
             "CodeName_EN": "April",
-            "Class": ["第4幹部", "卯月研究所"]
+            "Class": ["幹部", "卯月研究所"]
           },
           {
             "Lunar": "Maius",
             "CodeName_JP": "皐月",
             "CodeName_EN": "May",
-            "Class": ["第5幹部", "皐月研究所"]
+            "Class": ["幹部", "皐月研究所"]
           },
           {
             "Lunar": "Junius.II",
             "CodeName_JP": "水無月",
             "CodeName_EN": "June",
-            "Class": ["第6幹部", "水無月研究所"]
+            "Class": ["幹部", "水無月研究所"]
           },
           {
             "Lunar": "Julius",
             "CodeName_JP": "文月",
             "CodeName_EN": "July",
-            "Class": ["第7幹部", "文月研究所"]
+            "Class": ["幹部", "文月研究所"]
           },
           {
             "Lunar": "Augustus",
@@ -201,13 +201,13 @@
             "Lunar": "Martius",
             "CodeName_JP": "弥生",
             "CodeName_EN": "March",
-            "Class": ["第3幹部"]
+            "Class": ["幹部"]
           },
           {
             "Lunar": "Junius",
             "CodeName_JP": "水無月",
             "CodeName_EN": "June",
-            "Class": ["第6幹部", "水無月研究所"]
+            "Class": ["幹部", "水無月研究所"]
           },
           {
             "Lunar": "Chronos",
