@@ -82,7 +82,7 @@
   {
     "Num": "111-mp",
     "AnotherVersions_DBLink": [
-      { "_Works": "NumberTales", "_DB": "SemiPrimary", "Num": 111 }
+      { "_Work": "NumberTales", "_DB": "SemiPrimary", "Num": 111 }
     ],
     "Images": { "concept_PNGName": "cnsp_img111-mp" },
     "Name": "111(アイズ)",
@@ -314,11 +314,6 @@
     "SameMPSeries_DBLink": [{ "_DB": "SemiPrimary", "Num": "169-sq" }],
     "Name": "169(ワイドアスペクツ)",
     "Name_EN": "169(Wide-Aspects)",
-    "_DBLink": {
-      "worksTitle": "NumberTales",
-      "dbName": "SemiPrimary",
-      "_Search": [{ "hashTag": "Num", "key": "sq-13" }]
-    },
     "FormalName": "量産型ナンバーテールズ169番機シリーズ",
     "FormalName_EN": "NumberTales #169 Series Mass Production Version for Sales",
     "ModelNumber": "APHR-NT [MP]169-*****",
@@ -377,8 +372,8 @@
     "Num": "222-mp",
     "Progress": "notProceeded",
     "AnotherVersions_DBLink": [
-      { "_Works": "NumberTales", "_DB": "SemiPrimary", "Num": 222 },
-      { "_Works": "NumberTales", "_DB": "SemiPrimary", "Num": "222-alt" }
+      { "_Work": "NumberTales", "_DB": "SemiPrimary", "Num": 222 },
+      { "_Work": "NumberTales", "_DB": "SemiPrimary", "Num": "222-alt" }
     ],
     "Name": "222(ドッペルゲン)",
     "Name_EN": "222(Doppelgän)",
@@ -483,7 +478,7 @@
     "Num": 255,
     "Progress": "notProceeded",
     "AnotherVersions_DBLink": [
-      { "_Works": "NumberTales", "_DB": "Secondary", "Num": "0xFF" }
+      { "_Work": "NumberTales", "_DB": "Secondary", "Num": "0xFF" }
     ],
     "Name": "255(エフエフ)",
     "Name_EN": "255(0xFF)",
@@ -597,7 +592,7 @@
     "Num": "333-mp",
     "Progress": "notProceeded",
     "AnotherVersions_DBLink": [
-      { "_Works": "NumberTales", "_DB": "SemiPrimary", "Num": 333 }
+      { "_Work": "NumberTales", "_DB": "SemiPrimary", "Num": 333 }
     ],
     "Name": "333(トリニティア)",
     "Name_EN": "333(Trinitia)",
@@ -870,7 +865,7 @@
     "Num": "444-mp",
     "Progress": "notProceeded",
     "AnotherVersions_DBLink": [
-      { "_Works": "NumberTales", "_DB": "SemiPrimary", "Num": 444 }
+      { "_Work": "NumberTales", "_DB": "SemiPrimary", "Num": 444 }
     ],
     "Name": "444(シテン)",
     "Name_EN": "444(Quad-emperone)",
@@ -992,7 +987,7 @@
     "Num": "555-mp",
     "Progress": "notProceeded",
     "AnotherVersions_DBLink": [
-      { "_Works": "NumberTales", "_DB": "SemiPrimary", "Num": 555 }
+      { "_Work": "NumberTales", "_DB": "SemiPrimary", "Num": 555 }
     ],
     "Name": "555(ハイファイブ)",
     "Name_EN": "555(High-Fiver)",
@@ -1110,7 +1105,7 @@
     "Num": "666-mp",
     "Progress": "released",
     "AnotherVersions_DBLink": [
-      { "_Works": "NumberTales", "_DB": "SemiPrimary", "Num": 666 }
+      { "_Work": "NumberTales", "_DB": "SemiPrimary", "Num": 666 }
     ],
     "Images": {
       "concept_PNGName": "cnsp_img666-mp",
@@ -1234,7 +1229,7 @@
     "Num": "777-mp",
     "Progress": "released",
     "AnotherVersions_DBLink": [
-      { "_Works": "NumberTales", "_DB": "SemiPrimary", "Num": 777 }
+      { "_Work": "NumberTales", "_DB": "SemiPrimary", "Num": 777 }
     ],
     "SameModels_DBLink": [{ "_DB": "SelfSecondary", "Num": "777.Jackpot-mp" }],
     "Images": { "concept_PNGName": "cnsp_img777-mp" },
@@ -1266,7 +1261,7 @@
     "Num": "777.Jackpot-mp",
     "Progress": "released",
     "AnotherVersions_DBLink": [
-      { "_Works": "NumberTales", "_DB": "SemiPrimary", "Num": 777 }
+      { "_Work": "NumberTales", "_DB": "SemiPrimary", "Num": 777 }
     ],
     "SameModels_DBLink": [{ "_DB": "SelfSecondary", "Num": "777-mp" }],
     "Name": "777(ヨロコビ)",
@@ -1343,7 +1338,7 @@
     "Num": "888-mp",
     "Progress": "notProceeded",
     "AnotherVersions_DBLink": [
-      { "_Works": "NumberTales", "_DB": "SemiPrimary", "Num": 888 }
+      { "_Work": "NumberTales", "_DB": "SemiPrimary", "Num": 888 }
     ],
     "Name": "888(ムゲン)",
     "Name_EN": "888(Infy)",
@@ -1395,7 +1390,7 @@
     "Num": "999-mp",
     "Progress": "notProceeded",
     "AnotherVersions_DBLink": [
-      { "_Works": "NumberTales", "_DB": "SemiPrimary", "Num": 999 }
+      { "_Work": "NumberTales", "_DB": "SemiPrimary", "Num": 999 }
     ],
     "Name": "999(カンスト)",
     "Name_EN": "999(Counstop)",

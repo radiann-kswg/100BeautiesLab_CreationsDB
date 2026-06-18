@@ -44,9 +44,19 @@
 
 現時点の built-in section renderer:
 
-- `structuredObjectSection`
-- `relationSection`
-- `statsSection`
+`lib/section-wrapper-common.js` に直接登録（常に最初にロードされる）:
+- `structuredObjectSection` — plain object の subField を汎用 structured section へ流す。`*_DBLink` suffix キーは除外（後述の `dbLinkSection` へ委譲）。
+
+`lib/section-renders/` 配下の IIFE ファイルで登録（`characters.js` から import されたタイミングで追加）:
+- `relationSection` — `RelationTo_*` suffix フィールドのリレーション表示（`lib/section-renders/relation.js`）
+- `statsSection` — 汎用 Stats 系表示（`lib/section-renders/abilityStats.js` 等）
+- `formsMotifSection` — IdentityMotif / FormsMotif 表示（`lib/section-renders/formsMotif.js`）
+- `thisMastersSection` — ThisMasters (`$Def_ThisMastersEntry[]`) 表示（`lib/section-renders/thisMasters.js`）
+- `dbLinkSection` — `*_DBLink` suffix フィールドのキャラクターリンク参照表示（`lib/section-renders/dblink.js`）
+
+**suffix 自動ディスパッチ**: `dbLinkSection` と `relationSection` は `$display.sectionWrapper` の宣言なしに suffix だけで自動マッチする。
+- `*_DBLink` → `dbLinkSection` が `match` 関数で自動検出
+- `RelationTo_*` → `relationSection` が `match` 関数で自動検出（`$display.sectionWrapper: "relationSection"` を付けても同じ）
 
 `relationSection` は 2026-05-15 時点で、`pages/characters.js` にあった `Relation` / `RelationToPrimary` の個別表示ロジック本体も吸収しています。`characters.js` 側は DOM/format/navigation の core helper を渡す bridge に留め、relation label 解決・comment 整形・index link 組み立て・standalone wrapper への接続は `lib/section-wrapper-common.js` 側で処理します。
 

@@ -234,7 +234,7 @@
     "Num": 111,
     "Progress": "released",
     "AnotherVersions_DBLink": [
-      { "_Works": "NumberTales", "_DB": "SelfSecondary", "Num": "111-mp" }
+      { "_Work": "NumberTales", "_DB": "SelfSecondary", "Num": "111-mp" }
     ],
     "Images": { "concept_PNGName": "cnsp_img111" },
     "Name": "111(アイズ)",
@@ -262,11 +262,7 @@
       {
         "value_JP": "霧島 博(とおる)/霜月（夜月機関 第11幹部）",
         "value_EN": "Knowns Smogger / 'Shimotsuki' (Yadzuki Org. Executive Director.11)",
-        "_DBLink": {
-          "worksTitle": "PastDivers",
-          "dbName": "Primary",
-          "_Search": [{ "hashTag": "Lunar", "key": "Shimotsuki" }]
-        }
+        "_DBLink": { "_Work": "PastDivers", "_DB": "Primary", "Lunar": "Shimotsuki" }
       }
     ],
     "FirstPersonCalling": "私(わたし)",
@@ -584,7 +580,7 @@
     },
     "SameModels_DBLink": [{ "_DB": "SemiPrimary", "Num": "222-alt" }],
     "AnotherVersions_DBLink": [
-      { "_Works": "NumberTales", "_DB": "SelfSecondary", "Num": "222-mp" }
+      { "_Work": "NumberTales", "_DB": "SelfSecondary", "Num": "222-mp" }
     ],
     "Name": "222(ペルゲン)\n222(ドッペルゲンズ)",
     "Name_EN": "222(Pelgäns)\n222(Doppelgäns)",
@@ -643,7 +639,7 @@
     },
     "SameModels_DBLink": [{ "_DB": "SemiPrimary", "Num": 222 }],
     "AnotherVersions_DBLink": [
-      { "_Works": "NumberTales", "_DB": "SelfSecondary", "Num": "222-mp" }
+      { "_Work": "NumberTales", "_DB": "SelfSecondary", "Num": "222-mp" }
     ],
     "Name": "222(ドッペル)\n222(ドッペルゲンズ)",
     "Name_EN": "222(Doppels)\n222(Doppelgäns)",
@@ -746,7 +742,7 @@
     "Num": 333,
     "Progress": "notProceeded",
     "AnotherVersions_DBLink": [
-      { "_Works": "NumberTales", "_DB": "SelfSecondary", "Num": "333-mp" }
+      { "_Work": "NumberTales", "_DB": "SelfSecondary", "Num": "333-mp" }
     ],
     "Name": "333(トリニティア)",
     "Name_EN": "333(Trinitia)",
@@ -837,7 +833,7 @@
     "Num": 444,
     "Progress": "nowCreating",
     "AnotherVersions_DBLink": [
-      { "_Works": "NumberTales", "_DB": "SelfSecondary", "Num": "444-mp" }
+      { "_Work": "NumberTales", "_DB": "SelfSecondary", "Num": "444-mp" }
     ],
     "Name": "444(シテン)",
     "Name_EN": "444(Quad-emperone)",
@@ -909,7 +905,7 @@
     "Num": 555,
     "Progress": "notProceeded",
     "AnotherVersions_DBLink": [
-      { "_Works": "NumberTales", "_DB": "SelfSecondary", "Num": "555-mp" }
+      { "_Work": "NumberTales", "_DB": "SelfSecondary", "Num": "555-mp" }
     ],
     "Name": "555(ハイファイブ)",
     "Name_EN": "555(High-Fiver)",
@@ -929,7 +925,7 @@
     "Num": 666,
     "Progress": "released",
     "AnotherVersions_DBLink": [
-      { "_Works": "NumberTales", "_DB": "SelfSecondary", "Num": "666-mp" }
+      { "_Work": "NumberTales", "_DB": "SelfSecondary", "Num": "666-mp" }
     ],
     "Images": {
       "concept_PNGName": "cnsp_img666",
@@ -958,11 +954,7 @@
       {
         "value_JP": "中月 ルイス=ノア.ナイターエイド（夜月機関 第9幹部）",
         "value_EN": "Luis-Noah.Nighteraid Nakatsuki (Yadzuki Org. Executive Director.9)",
-        "_DBLink": {
-          "worksTitle": "PastDivers",
-          "dbName": "Primary",
-          "_Search": [{ "hashTag": "Lunar", "key": "Nagatsuki" }]
-        }
+        "_DBLink": { "_Work": "PastDivers", "_DB": "Primary", "Lunar": "Nagatsuki" }
       }
     ],
     "FirstPersonCalling": "我\n私(わたくし)",
@@ -1110,7 +1102,7 @@
     "Num": 888,
     "Progress": "notProceeded",
     "AnotherVersions_DBLink": [
-      { "_Works": "NumberTales", "_DB": "SelfSecondary", "Num": "888-mp" }
+      { "_Work": "NumberTales", "_DB": "SelfSecondary", "Num": "888-mp" }
     ],
     "Name": "888(ムゲン)",
     "Name_EN": "888(Infy)",
@@ -1129,11 +1121,7 @@
       {
         "value_JP": "八坂 兵汰/ヘクター.キロバスター/葉月（夜月機関 第8幹部）",
         "value_EN": "Yasaka Hector / Hector.Kilobuster / 'Hadzuki' (Yadzuki Org. Executive Director.8)",
-        "_DBLink": {
-          "worksTitle": "PastDivers",
-          "dbName": "Primary",
-          "_Search": [{ "hashTag": "Lunar", "key": "Hadzuki" }]
-        }
+        "_DBLink": { "_Work": "PastDivers", "_DB": "Primary", "Lunar": "Hadzuki" }
       }
     ]
   },
@@ -1141,7 +1129,7 @@
     "Num": 999,
     "Progress": "notProceeded",
     "AnotherVersions_DBLink": [
-      { "_Works": "NumberTales", "_DB": "SelfSecondary", "Num": "999-mp" }
+      { "_Work": "NumberTales", "_DB": "SelfSecondary", "Num": "999-mp" }
     ],
     "Name": "999(カンスト)",
     "Name_EN": "999(Counstop)",
@@ -1247,7 +1235,7 @@
     "Num": "64-sxp",
     "Progress": "notProceeded",
     "AnotherVersions_DBLink": [
-      { "_Works": "NumberTales", "_DB": "Primary", "Num": 64 }
+      { "_Work": "NumberTales", "_DB": "Primary", "Num": 64 }
     ],
     "Name": "ゼフィア\n64(ゼフィア)",
     "Name_EN": "Secvier\n64(Secvier)",
