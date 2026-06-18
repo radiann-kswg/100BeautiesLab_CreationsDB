@@ -334,7 +334,7 @@
         ],
         "immutable_traits": [
           "red Arabic numeral '1' marking on the front shoulder area near the hood opening (humanoid)",
-          "red Arabic numeral '1' marking on Left chest area of the hoodie (corefolder)"
+          "red Arabic numeral '1' marking on Left chest area of the hooded top (corefolder)"
         ],
         "expression_tendency": null,
         "age_appearance": "early teenager",
@@ -359,7 +359,7 @@
         "corefolder": {
           "form_tags": ["corefolder form"],
           "outfit_features": [
-            "red hoodie",
+            "red hooded top",
             "arrow-shaped chest zipper",
             "red number '1' marking"
           ],
@@ -387,7 +387,7 @@
             "high heels",
             "arms",
             "hands",
-            "hoodie",
+            "hooded top",
             "blazer",
             "fashion outfit",
             "bound by rope"
@@ -401,7 +401,7 @@
             "short hair",
             "fox ears(left ear drooping)",
             "energetic open smile",
-            "red hoodie",
+            "red hooded top",
             "arrow-shaped chest zipper",
             "red number '1' marking"
           ],
@@ -411,8 +411,8 @@
             "shorts",
             "boots"
           ],
-          "natural_language_description": "Corefolder form: a spherical cushion-like body in red orange, with red Arabic numeral '1' marking on Left chest area of the hoodie.",
-          "prompt_export": "corefolder form, fox single tail, short stature (about 146cm), early teenager, red orange hair, short hair, fox ears(left ear drooping), energetic open smile, red hoodie, arrow-shaped chest zipper, red number '1' marking",
+          "natural_language_description": "Corefolder form: a spherical cushion-like body in red orange, with red Arabic numeral '1' marking on Left chest area of the hooded top.",
+          "prompt_export": "corefolder form, fox single tail, short stature (about 146cm), early teenager, red orange hair, short hair, fox ears(left ear drooping), energetic open smile, red hooded top, arrow-shaped chest zipper, red number '1' marking",
           "negative_prompt_export": "humanoid form, casual outfit, shorts, boots",
           "reference_images": {
             "main": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primary/concept/cnsp_img1.png",
@@ -448,12 +448,12 @@
           ],
           "negative_visuals": [
             "corefolder form",
-            "red hoodie",
+            "red hooded top",
             "arrow-shaped chest zipper"
           ],
           "natural_language_description": null,
           "prompt_export": "humanoid form, fox single tail, short stature (about 146cm), early teenager, red orange short hair, fox ears(left ear drooping), energetic open smile, casual outfit, shorts, boots, red number '1' marking",
-          "negative_prompt_export": "corefolder form, red hoodie, arrow-shaped chest zipper",
+          "negative_prompt_export": "corefolder form, red hooded top, arrow-shaped chest zipper",
           "reference_images": {
             "main": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primary/concept/cnsp_img1.png",
             "humanoid": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primary/arts/humanoids/2023/art_img1-humanoid.png"
@@ -752,7 +752,7 @@
             "high heels",
             "arms",
             "hands",
-            "hoodie",
+            "hooded top",
             "blazer",
             "fashion outfit",
             "bound by rope"
@@ -1090,7 +1090,7 @@
             "high heels",
             "arms",
             "hands",
-            "hoodie",
+            "hooded top",
             "blazer",
             "fashion outfit",
             "bound by rope"
@@ -1479,7 +1479,7 @@
             "high heels",
             "arms",
             "hands",
-            "hoodie",
+            "hooded top",
             "blazer",
             "fashion outfit",
             "bound by rope"
@@ -1816,7 +1816,7 @@
             "high heels",
             "arms",
             "hands",
-            "hoodie",
+            "hooded top",
             "blazer",
             "fashion outfit",
             "bound by rope"
@@ -2156,7 +2156,7 @@
             "high heels",
             "arms",
             "hands",
-            "hoodie",
+            "hooded top",
             "blazer",
             "fashion outfit",
             "bound by rope"
@@ -2488,7 +2488,7 @@
             "high heels",
             "arms",
             "hands",
-            "hoodie",
+            "hooded top",
             "blazer",
             "fashion outfit",
             "bound by rope"
@@ -2843,7 +2843,7 @@
             "high heels",
             "arms",
             "hands",
-            "hoodie",
+            "hooded top",
             "blazer",
             "fashion outfit",
             "bound by rope"
@@ -3231,7 +3231,7 @@
             "high heels",
             "arms",
             "hands",
-            "hoodie",
+            "hooded top",
             "blazer",
             "fashion outfit",
             "bound by rope"
@@ -3662,7 +3662,7 @@
             "high heels",
             "arms",
             "hands",
-            "hoodie",
+            "hooded top",
             "blazer",
             "fashion outfit",
             "bound by rope"
@@ -3999,7 +3999,7 @@
             "high heels",
             "arms",
             "hands",
-            "hoodie",
+            "hooded top",
             "blazer",
             "fashion outfit",
             "bound by rope"
@@ -4331,7 +4331,7 @@
             "high heels",
             "arms",
             "hands",
-            "hoodie",
+            "hooded top",
             "blazer",
             "fashion outfit",
             "bound by rope"
@@ -4669,7 +4669,7 @@
             "high heels",
             "arms",
             "hands",
-            "hoodie",
+            "hooded top",
             "blazer",
             "fashion outfit",
             "bound by rope"
@@ -5088,7 +5088,7 @@
             "high heels",
             "arms",
             "hands",
-            "hoodie",
+            "hooded top",
             "blazer",
             "fashion outfit",
             "bound by rope"
@@ -5470,7 +5470,7 @@
             "high heels",
             "arms",
             "hands",
-            "hoodie",
+            "hooded top",
             "blazer",
             "fashion outfit",
             "bound by rope"
@@ -5845,7 +5845,7 @@
             "high heels",
             "arms",
             "hands",
-            "hoodie",
+            "hooded top",
             "blazer",
             "fashion outfit",
             "bound by rope"
@@ -6203,7 +6203,7 @@
             "high heels",
             "arms",
             "hands",
-            "hoodie",
+            "hooded top",
             "blazer",
             "fashion outfit",
             "bound by rope"
@@ -6541,7 +6541,7 @@
             "high heels",
             "arms",
             "hands",
-            "hoodie",
+            "hooded top",
             "blazer",
             "fashion outfit",
             "bound by rope"
@@ -6867,7 +6867,7 @@
             "high heels",
             "arms",
             "hands",
-            "hoodie",
+            "hooded top",
             "blazer",
             "fashion outfit",
             "bound by rope"
@@ -7282,7 +7282,7 @@
             "high heels",
             "arms",
             "hands",
-            "hoodie",
+            "hooded top",
             "blazer",
             "fashion outfit",
             "bound by rope"
@@ -7625,7 +7625,7 @@
             "high heels",
             "arms",
             "hands",
-            "hoodie",
+            "hooded top",
             "blazer",
             "fashion outfit",
             "bound by rope"
@@ -8035,7 +8035,7 @@
             "high heels",
             "arms",
             "hands",
-            "hoodie",
+            "hooded top",
             "blazer",
             "fashion outfit",
             "bound by rope"
@@ -8339,7 +8339,7 @@
         ],
         "immutable_traits": [
           "dark Arabic numeral '23' marking on the right side of the light green fur area with a pale stripe pattern at the equator of the sphere, somewhat large to match the vertical size of the stripe pattern (corefolder)",
-          "dark Arabic numeral '23' marking on the right side of the area with a pale stripe pattern from the chest to the waist of the hoodie, somewhat large to match the vertical size of the stripe pattern (humanoid)"
+          "dark Arabic numeral '23' marking on the right side of the area with a pale stripe pattern from the chest to the waist of the hooded top, somewhat large to match the vertical size of the stripe pattern (humanoid)"
         ],
         "expression_tendency": null,
         "age_appearance": "teenager (16)",
@@ -8388,7 +8388,7 @@
             "high heels",
             "arms",
             "hands",
-            "hoodie",
+            "hooded top",
             "blazer",
             "fashion outfit",
             "bound by rope"
@@ -8405,14 +8405,14 @@
           ],
           "negative_visuals": [
             "humanoid form",
-            "green hoodie",
+            "green hooded top",
             "athletic outfit",
             "wide-leg pants",
             "casual private outfit"
           ],
           "natural_language_description": "Corefolder form: a spherical cushion-like body in mint green, with dark Arabic numeral '23' marking on the right side of the light green fur area with a pale stripe pattern at the equator of the sphere, somewhat large to match the vertical size of the stripe pattern.",
           "prompt_export": "corefolder form, branching fox 3 tails, short stature (about 149cm), teenager (16), mint green hair, fox ears, confident adventurous smile, dark number '23' marking",
-          "negative_prompt_export": "humanoid form, green hoodie, athletic outfit, wide-leg pants, casual private outfit",
+          "negative_prompt_export": "humanoid form, green hooded top, athletic outfit, wide-leg pants, casual private outfit",
           "reference_images": {
             "main": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primary/concept/cnsp_img23.png",
             "corefolder": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primary/corefolder/23/emstk_corefolder23-1.png"
@@ -8421,7 +8421,7 @@
         "humanoid": {
           "form_tags": ["humanoid form"],
           "outfit_features": [
-            "green hoodie",
+            "green hooded top",
             "athletic outfit",
             "wide-leg pants",
             "casual private outfit",
@@ -8446,7 +8446,7 @@
             "mint green hair",
             "fox ears",
             "confident adventurous smile",
-            "green hoodie",
+            "green hooded top",
             "athletic outfit",
             "wide-leg pants",
             "casual private outfit",
@@ -8454,7 +8454,7 @@
           ],
           "negative_visuals": ["corefolder form"],
           "natural_language_description": null,
-          "prompt_export": "humanoid form, branching fox 3 tails, short stature (about 149cm), teenager (16), mint green hair, fox ears, confident adventurous smile, green hoodie, athletic outfit, wide-leg pants, casual private outfit, dark number '23' marking",
+          "prompt_export": "humanoid form, branching fox 3 tails, short stature (about 149cm), teenager (16), mint green hair, fox ears, confident adventurous smile, green hooded top, athletic outfit, wide-leg pants, casual private outfit, dark number '23' marking",
           "negative_prompt_export": "corefolder form",
           "reference_images": {
             "main": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primary/concept/cnsp_img23.png",
@@ -8741,7 +8741,7 @@
             "high heels",
             "arms",
             "hands",
-            "hoodie",
+            "hooded top",
             "blazer",
             "fashion outfit",
             "bound by rope"
@@ -9179,7 +9179,7 @@
             "high heels",
             "arms",
             "hands",
-            "hoodie",
+            "hooded top",
             "blazer",
             "fashion outfit",
             "bound by rope"
@@ -9562,7 +9562,7 @@
             "high heels",
             "arms",
             "hands",
-            "hoodie",
+            "hooded top",
             "blazer",
             "fashion outfit",
             "bound by rope"
@@ -9907,7 +9907,7 @@
             "high heels",
             "arms",
             "hands",
-            "hoodie",
+            "hooded top",
             "blazer",
             "fashion outfit",
             "bound by rope"
@@ -10321,7 +10321,7 @@
             "high heels",
             "arms",
             "hands",
-            "hoodie",
+            "hooded top",
             "blazer",
             "fashion outfit",
             "bound by rope"
@@ -10694,7 +10694,7 @@
             "high heels",
             "arms",
             "hands",
-            "hoodie",
+            "hooded top",
             "blazer",
             "fashion outfit",
             "bound by rope"
@@ -11032,7 +11032,7 @@
             "high heels",
             "arms",
             "hands",
-            "hoodie",
+            "hooded top",
             "blazer",
             "fashion outfit",
             "bound by rope"
@@ -11401,7 +11401,7 @@
             "high heels",
             "arms",
             "hands",
-            "hoodie",
+            "hooded top",
             "blazer",
             "fashion outfit",
             "bound by rope"
@@ -11714,7 +11714,7 @@
         ],
         "immutable_traits": [
           "dark Arabic numeral '32' marking on the right side of the light green fur area with a pale stripe pattern at the equator of the sphere, somewhat large to match the vertical size of the stripe pattern (corefolder)",
-          "dark Arabic numeral '32' marking on the right side of the area with a pale stripe pattern from the chest to the waist of the hoodie, somewhat large to match the vertical size of the stripe pattern (humanoid)"
+          "dark Arabic numeral '32' marking on the right side of the area with a pale stripe pattern from the chest to the waist of the hooded top, somewhat large to match the vertical size of the stripe pattern (humanoid)"
         ],
         "expression_tendency": null,
         "age_appearance": "teenager (16)",
@@ -11770,7 +11770,7 @@
             "high heels",
             "arms",
             "hands",
-            "hoodie",
+            "hooded top",
             "blazer",
             "fashion outfit",
             "bound by rope"
@@ -12108,7 +12108,7 @@
             "high heels",
             "arms",
             "hands",
-            "hoodie",
+            "hooded top",
             "blazer",
             "fashion outfit",
             "bound by rope"
@@ -12476,7 +12476,7 @@
             "high heels",
             "arms",
             "hands",
-            "hoodie",
+            "hooded top",
             "blazer",
             "fashion outfit",
             "bound by rope"
@@ -12848,7 +12848,7 @@
             "high heels",
             "arms",
             "hands",
-            "hoodie",
+            "hooded top",
             "blazer",
             "fashion outfit",
             "bound by rope"
@@ -13269,7 +13269,7 @@
             "high heels",
             "arms",
             "hands",
-            "hoodie",
+            "hooded top",
             "blazer",
             "fashion outfit",
             "bound by rope"
@@ -13684,7 +13684,7 @@
             "high heels",
             "arms",
             "hands",
-            "hoodie",
+            "hooded top",
             "blazer",
             "fashion outfit",
             "bound by rope"
@@ -14132,7 +14132,7 @@
             "high heels",
             "arms",
             "hands",
-            "hoodie",
+            "hooded top",
             "blazer",
             "fashion outfit",
             "bound by rope"
@@ -14479,7 +14479,7 @@
             "high heels",
             "arms",
             "hands",
-            "hoodie",
+            "hooded top",
             "blazer",
             "fashion outfit",
             "bound by rope"
@@ -14870,7 +14870,7 @@
             "high heels",
             "arms",
             "hands",
-            "hoodie",
+            "hooded top",
             "blazer",
             "fashion outfit",
             "bound by rope"
@@ -15213,7 +15213,7 @@
             "high heels",
             "arms",
             "hands",
-            "hoodie",
+            "hooded top",
             "blazer",
             "fashion outfit",
             "bound by rope"
@@ -15538,7 +15538,7 @@
             "high heels",
             "arms",
             "hands",
-            "hoodie",
+            "hooded top",
             "blazer",
             "fashion outfit",
             "bound by rope"
@@ -15892,7 +15892,7 @@
             "high heels",
             "arms",
             "hands",
-            "hoodie",
+            "hooded top",
             "blazer",
             "fashion outfit",
             "bound by rope"
@@ -16207,7 +16207,7 @@
             "high heels",
             "arms",
             "hands",
-            "hoodie",
+            "hooded top",
             "blazer",
             "fashion outfit",
             "bound by rope"
@@ -16529,7 +16529,7 @@
             "high heels",
             "arms",
             "hands",
-            "hoodie",
+            "hooded top",
             "blazer",
             "fashion outfit",
             "bound by rope"
@@ -16925,7 +16925,7 @@
             "high heels",
             "arms",
             "hands",
-            "hoodie",
+            "hooded top",
             "blazer",
             "fashion outfit",
             "bound by rope"
@@ -17266,7 +17266,7 @@
             "high heels",
             "arms",
             "hands",
-            "hoodie",
+            "hooded top",
             "blazer",
             "fashion outfit",
             "bound by rope"
@@ -17617,7 +17617,7 @@
             "high heels",
             "arms",
             "hands",
-            "hoodie",
+            "hooded top",
             "blazer",
             "fashion outfit",
             "bound by rope"
@@ -17902,8 +17902,8 @@
           "blue-green eyes"
         ],
         "immutable_traits": [
-          "dark green Arabic numeral '50' marking on On the right-hand sleeve of the hoodie, which is wrapped around the body like a scarf, there is a small detail on the mint-coloured tip (which may be partially hidden by the part where the sleeve is tied) (corefolder)",
-          "dark green Arabic numeral '50' marking on On the right-hand sleeve of the hoodie, which is wrapped around the waist, there is a small detail on the mint-coloured tip (which may be partially hidden by the part where the sleeve is tied) (corefolder)"
+          "dark green Arabic numeral '50' marking on On the right-hand sleeve of the hooded top, which is wrapped around the body like a scarf, there is a small detail on the mint-coloured tip (which may be partially hidden by the part where the sleeve is tied) (corefolder)",
+          "dark green Arabic numeral '50' marking on On the right-hand sleeve of the hooded top, which is wrapped around the waist, there is a small detail on the mint-coloured tip (which may be partially hidden by the part where the sleeve is tied) (corefolder)"
         ],
         "expression_tendency": null,
         "age_appearance": "teenager",
@@ -17951,7 +17951,7 @@
             "high heels",
             "arms",
             "hands",
-            "hoodie",
+            "hooded top",
             "blazer",
             "fashion outfit",
             "bound by rope"
@@ -17971,7 +17971,7 @@
             "green tunic",
             "dark green leggings"
           ],
-          "natural_language_description": "Corefolder form: a spherical cushion-like body in green, with dark green Arabic numeral '50' marking on On the right-hand sleeve of the hoodie, which is wrapped around the body like a scarf, there is a small detail on the mint-coloured tip (which may be partially hidden by the part where the sleeve is tied).",
+          "natural_language_description": "Corefolder form: a spherical cushion-like body in green, with dark green Arabic numeral '50' marking on On the right-hand sleeve of the hooded top, which is wrapped around the body like a scarf, there is a small detail on the mint-coloured tip (which may be partially hidden by the part where the sleeve is tied).",
           "prompt_export": "corefolder form, fox 5 tails, short stature (about 140cm), teenager, fox ears, green hair, blue-green eyes, dark green number '50' marking",
           "negative_prompt_export": "humanoid form, green tunic, dark green leggings",
           "reference_images": {
@@ -18580,7 +18580,7 @@
             "high heels",
             "arms",
             "hands",
-            "hoodie",
+            "hooded top",
             "blazer",
             "fashion outfit",
             "bound by rope"
@@ -18925,7 +18925,7 @@
             "high heels",
             "arms",
             "hands",
-            "hoodie",
+            "hooded top",
             "blazer",
             "fashion outfit",
             "bound by rope"
@@ -19298,7 +19298,7 @@
             "high heels",
             "arms",
             "hands",
-            "hoodie",
+            "hooded top",
             "blazer",
             "fashion outfit",
             "bound by rope"
@@ -19711,7 +19711,7 @@
             "high heels",
             "arms",
             "hands",
-            "hoodie",
+            "hooded top",
             "blazer",
             "fashion outfit",
             "bound by rope"
@@ -20115,7 +20115,7 @@
             "high heels",
             "arms",
             "hands",
-            "hoodie",
+            "hooded top",
             "blazer",
             "fashion outfit",
             "bound by rope"
@@ -20502,7 +20502,7 @@
             "high heels",
             "arms",
             "hands",
-            "hoodie",
+            "hooded top",
             "blazer",
             "fashion outfit",
             "bound by rope"
@@ -20973,7 +20973,7 @@
             "high heels",
             "arms",
             "hands",
-            "hoodie",
+            "hooded top",
             "blazer",
             "fashion outfit",
             "bound by rope"
@@ -21446,7 +21446,7 @@
             "high heels",
             "arms",
             "hands",
-            "hoodie",
+            "hooded top",
             "blazer",
             "fashion outfit",
             "bound by rope"
@@ -21795,7 +21795,7 @@
             "high heels",
             "arms",
             "hands",
-            "hoodie",
+            "hooded top",
             "blazer",
             "fashion outfit",
             "bound by rope"
@@ -22137,7 +22137,7 @@
             "high heels",
             "arms",
             "hands",
-            "hoodie",
+            "hooded top",
             "blazer",
             "fashion outfit",
             "bound by rope"
@@ -22477,7 +22477,7 @@
             "high heels",
             "arms",
             "hands",
-            "hoodie",
+            "hooded top",
             "blazer",
             "fashion outfit",
             "bound by rope"
@@ -22794,7 +22794,7 @@
             "high heels",
             "arms",
             "hands",
-            "hoodie",
+            "hooded top",
             "blazer",
             "fashion outfit",
             "bound by rope"
@@ -23157,7 +23157,7 @@
             "high heels",
             "arms",
             "hands",
-            "hoodie",
+            "hooded top",
             "blazer",
             "fashion outfit",
             "bound by rope"
@@ -23850,7 +23850,7 @@
             "high heels",
             "arms",
             "hands",
-            "hoodie",
+            "hooded top",
             "blazer",
             "fashion outfit",
             "bound by rope"
@@ -24199,7 +24199,7 @@
             "high heels",
             "arms",
             "hands",
-            "hoodie",
+            "hooded top",
             "blazer",
             "fashion outfit",
             "bound by rope"
@@ -24759,7 +24759,7 @@
             "high heels",
             "arms",
             "hands",
-            "hoodie",
+            "hooded top",
             "blazer",
             "fashion outfit",
             "bound by rope"
@@ -25121,7 +25121,7 @@
             "high heels",
             "arms",
             "hands",
-            "hoodie",
+            "hooded top",
             "blazer",
             "fashion outfit",
             "bound by rope"
@@ -25481,7 +25481,7 @@
             "high heels",
             "arms",
             "hands",
-            "hoodie",
+            "hooded top",
             "blazer",
             "fashion outfit",
             "bound by rope"
@@ -25843,7 +25843,7 @@
             "high heels",
             "arms",
             "hands",
-            "hoodie",
+            "hooded top",
             "blazer",
             "fashion outfit",
             "bound by rope"
@@ -26189,7 +26189,7 @@
             "high heels",
             "arms",
             "hands",
-            "hoodie",
+            "hooded top",
             "blazer",
             "fashion outfit",
             "bound by rope"
@@ -26551,7 +26551,7 @@
             "high heels",
             "arms",
             "hands",
-            "hoodie",
+            "hooded top",
             "blazer",
             "fashion outfit",
             "bound by rope"
@@ -26901,7 +26901,7 @@
             "high heels",
             "arms",
             "hands",
-            "hoodie",
+            "hooded top",
             "blazer",
             "fashion outfit",
             "bound by rope"
@@ -27258,7 +27258,7 @@
             "high heels",
             "arms",
             "hands",
-            "hoodie",
+            "hooded top",
             "blazer",
             "fashion outfit",
             "bound by rope"
@@ -27701,7 +27701,7 @@
             "high heels",
             "arms",
             "hands",
-            "hoodie",
+            "hooded top",
             "blazer",
             "fashion outfit",
             "bound by rope"
@@ -28126,7 +28126,7 @@
             "high heels",
             "arms",
             "hands",
-            "hoodie",
+            "hooded top",
             "blazer",
             "fashion outfit",
             "bound by rope"
@@ -28519,7 +28519,7 @@
             "high heels",
             "arms",
             "hands",
-            "hoodie",
+            "hooded top",
             "blazer",
             "fashion outfit",
             "bound by rope"
@@ -28853,7 +28853,7 @@
             "high heels",
             "arms",
             "hands",
-            "hoodie",
+            "hooded top",
             "blazer",
             "fashion outfit",
             "bound by rope"
@@ -29220,7 +29220,7 @@
             "high heels",
             "arms",
             "hands",
-            "hoodie",
+            "hooded top",
             "blazer",
             "fashion outfit",
             "bound by rope"
@@ -29583,7 +29583,7 @@
             "high heels",
             "arms",
             "hands",
-            "hoodie",
+            "hooded top",
             "blazer",
             "fashion outfit",
             "bound by rope"
@@ -29927,7 +29927,7 @@
             "high heels",
             "arms",
             "hands",
-            "hoodie",
+            "hooded top",
             "blazer",
             "fashion outfit",
             "bound by rope"
@@ -30289,7 +30289,7 @@
             "high heels",
             "arms",
             "hands",
-            "hoodie",
+            "hooded top",
             "blazer",
             "fashion outfit",
             "bound by rope"
@@ -30695,7 +30695,7 @@
             "high heels",
             "arms",
             "hands",
-            "hoodie",
+            "hooded top",
             "blazer",
             "fashion outfit",
             "bound by rope"
@@ -31037,7 +31037,7 @@
             "high heels",
             "arms",
             "hands",
-            "hoodie",
+            "hooded top",
             "blazer",
             "fashion outfit",
             "bound by rope"
@@ -31500,7 +31500,7 @@
             "high heels",
             "arms",
             "hands",
-            "hoodie",
+            "hooded top",
             "blazer",
             "fashion outfit",
             "bound by rope"
@@ -31870,7 +31870,7 @@
             "high heels",
             "arms",
             "hands",
-            "hoodie",
+            "hooded top",
             "blazer",
             "fashion outfit",
             "bound by rope"
@@ -32208,7 +32208,7 @@
             "high heels",
             "arms",
             "hands",
-            "hoodie",
+            "hooded top",
             "blazer",
             "fashion outfit",
             "bound by rope"
@@ -32583,7 +32583,7 @@
             "high heels",
             "arms",
             "hands",
-            "hoodie",
+            "hooded top",
             "blazer",
             "fashion outfit",
             "bound by rope"
@@ -32925,7 +32925,7 @@
             "high heels",
             "arms",
             "hands",
-            "hoodie",
+            "hooded top",
             "blazer",
             "fashion outfit",
             "bound by rope"
@@ -33188,7 +33188,7 @@
             "high heels",
             "arms",
             "hands",
-            "hoodie",
+            "hooded top",
             "blazer",
             "fashion outfit",
             "bound by rope"
@@ -33491,7 +33491,7 @@
             "high heels",
             "arms",
             "hands",
-            "hoodie",
+            "hooded top",
             "blazer",
             "fashion outfit",
             "bound by rope"
