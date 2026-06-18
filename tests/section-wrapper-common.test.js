@@ -24,7 +24,8 @@ describe('section-wrapper-common registry', () => {
     expect(typeof registry.renderNamedSectionRenderer).toBe('function');
 
     const rendererNames = registry.getRegisteredSectionRenderers().map((renderer) => renderer.name).sort();
-    expect(rendererNames).toEqual(['formsMotifSection', 'relationSection', 'statsSection', 'structuredObjectSection']);
+    // formsMotifSection / thisMastersSection は lib/section-renders/ に移動し characters.js import 時に登録される
+    expect(rendererNames).toEqual(['relationSection', 'statsSection', 'structuredObjectSection']);
   });
 
   it('resolves section renderer names from display metadata', () => {

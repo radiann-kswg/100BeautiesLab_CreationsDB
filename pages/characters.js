@@ -25,6 +25,8 @@
 
 import '../lib/wrapper-common.js';
 import '../lib/section-wrapper-common.js';
+import '../lib/section-renders/formsMotif.js';
+import '../lib/section-renders/thisMasters.js';
 
 // Characters page: fetch from /api/v1 and render list/detail
 
@@ -7076,121 +7078,6 @@ export async function renderDetail(workId, rec) {
 			return createStandaloneSubFieldSection(it, [structuredSection]);
 		};
 
-		/**
-		 * IdentityMotif (#Def_FormsMotif[]) の Formation+Motif 配列を描画する。
-		 * ConversationPattern と同様に、外側ラベル + Formation ラベル + Motif テキストのレイアウトで表示する。
-		 */
-		const renderFormsMotifSection = (it) => {
-			if (!it || !Array.isArray(it.value) || !it.value.length) return null;
-
-			const lang = getCurrentPageLanguage();
-			const formationPath = `${it.key}.Formation`;
-			// fieldTypeMap は $Def_FormsMotif 内部まで展開しないため、schema 定義に従い直接指定する
-			const formationSchemaType = pickSchemaType(formationPath, 'Formation') || '#DictIndex';
-
-			const groups = it.value
-				.map((entry) => {
-					if (!isPlainObject(entry)) return null;
-
-					const formationRaw = entry.Formation;
-					const formationLabel = formationRaw
-						? (String(formatValueForDisplay(formationRaw, fieldLabelMap, metaForLookup, globalDefType, {
-							schemaType: formationSchemaType,
-							fieldKey: formationPath
-						}) || '').trim() || String(formationRaw).trim())
-						: '';
-
-					const motifData = entry.Motif;
-					const motifItems = isPlainObject(motifData)
-						? (lang === 'en'
-							? (motifData.Motif_EN || motifData.Motif_JP)
-							: (motifData.Motif_JP || motifData.Motif_EN))
-						: null;
-
-					const motifText = Array.isArray(motifItems)
-						? motifItems.filter(Boolean).map(String).join('、')
-						: '';
-
-					if (!formationLabel && !motifText) return null;
-
-					return el('div', { style: 'margin-bottom: 10px;' }, [
-						formationLabel ? el('div', { class: 'tag', style: 'margin-bottom: 6px;' }, [formationLabel]) : null,
-						motifText ? preWrapText(motifText) : null
-					].filter(Boolean));
-				})
-				.filter(Boolean);
-
-			if (!groups.length) return null;
-
-			// ConversationPattern と同様：外側ラベル + 内側ブロック群
-			const outerBlock = el('div', { style: 'margin-bottom: 10px;' }, [
-				el('div', { class: 'tag', style: 'margin-bottom: 6px;' }, [it.label]),
-				el('div', {}, groups)
-			]);
-
-			return createStandaloneSubFieldSection(it, [outerBlock]);
-		};
-
-		/**
-		 * ThisMasters ($Def_ThisMastersEntry[]) を描画する。
-		 * value_JP/about_JP (または value_EN/about_EN) を用いてConversationPatternと同様のレイアウトで表示する。
-		 */
-		const renderThisMastersSection = (it) => {
-			if (!it || !Array.isArray(it.value) || !it.value.length) return null;
-
-			const lang = getCurrentPageLanguage();
-
-			/** about フィールドが string / {hideText} オブジェクト のどちらでも文字列に変換する */
-			const resolveAbout = (raw) => {
-				if (!raw && raw !== 0) return '';
-				if (typeof raw === 'string') return raw;
-				if (isPlainObject(raw) && raw.hideText != null) return String(raw.hideText);
-				return String(raw);
-			};
-
-			const blocks = it.value
-				.map((entry) => {
-					if (!isPlainObject(entry)) return null;
-
-					const valueKey = lang === 'en' ? 'value_EN' : 'value_JP';
-					const aboutKey = lang === 'en' ? 'about_EN' : 'about_JP';
-
-					// EN フィールド未設定の場合は JP にフォールバック
-					const rawValue = (entry[valueKey] !== undefined && entry[valueKey] !== null)
-						? entry[valueKey]
-						: entry['value_JP'];
-					const rawAbout = (entry[aboutKey] !== undefined && entry[aboutKey] !== null)
-						? entry[aboutKey]
-						: entry['about_JP'];
-
-					const aboutText = resolveAbout(rawAbout);
-					const valueText = rawValue != null ? String(rawValue).trim() : '';
-
-					if (!valueText && !aboutText) return null;
-
-					// about が null で value のみの場合（専属契約不可 など）
-					if (!aboutText) {
-						return el('div', { style: 'margin-bottom: 10px;' }, [preWrapText(valueText)]);
-					}
-
-					return el('div', { style: 'margin-bottom: 10px;' }, [
-						el('div', { class: 'tag', style: 'margin-bottom: 6px;' }, [aboutText]),
-						valueText ? preWrapText(valueText) : null
-					].filter(Boolean));
-				})
-				.filter(Boolean);
-
-			if (!blocks.length) return null;
-
-			// ConversationPattern と同様：外側ラベル + 内側ブロック群
-			const outerBlock = el('div', { style: 'margin-bottom: 10px;' }, [
-				el('div', { class: 'tag', style: 'margin-bottom: 6px;' }, [it.label]),
-				el('div', {}, blocks)
-			]);
-
-			return createStandaloneSubFieldSection(it, [outerBlock]);
-		};
-
 		const renderStatsSubFieldSection = (it) => {
 			if (!it) return null;
 
@@ -7311,12 +7198,16 @@ export async function renderDetail(workId, rec) {
 				fieldDisplayMap,
 				fieldTypeMap,
 				helpers: {
+					el,
+					preWrapText,
+					isPlainObject,
+					getCurrentPageLanguage,
+					formatValueForDisplay,
+					pickSchemaType,
 					renderStructuredObjectSection: stringLikeStandalone ? null : renderStructuredObjectSection,
 					renderStatsSection: renderStatsSubFieldSection,
 					wrapStandaloneSection: createStandaloneSubFieldSection,
-					relationApi: relationRendererApi,
-					renderFormsMotifSection,
-					renderThisMastersSection
+					relationApi: relationRendererApi
 				}
 			});
 			if (wrappedSection) return wrappedSection;
