@@ -224,7 +224,7 @@ describe('AIHints data: upgraded NumberTales/DB_Primary records', () => {
         }
     });
 
-    it('corefolder.natural_language_description は球体本体テンプレートに準拠し humanoid 衣装語を含まない', () => {
+    it('corefolder.natural_language_description は球体本体テンプレートに準拠し outfit_features 外の衣装語を含まない', () => {
         const aihRecords = records.filter(r => r && r.AIHints?.forms?.corefolder);
         const garmentRe = /\b(hoodie|blazer|coat|jacket|dress|bodysuit|pants|shorts|skirt|trousers|shoes|boots|socks|sneakers|loafers|stockings|leggings)\b/i;
         for (const rec of aihRecords) {
@@ -232,16 +232,23 @@ describe('AIHints data: upgraded NumberTales/DB_Primary records', () => {
             const nld = cf.natural_language_description;
             if (typeof nld !== 'string' || !nld.trim()) continue;
             // テンプレ準拠（"Corefolder form: a spherical cushion-like body in ..."）
-            // または明示的な "no number identifier ..." 系も許容
             expect(
                 /^Corefolder form:\s*a spherical cushion-like body in\b/i.test(nld),
                 `#${rec.Num} corefolder NLD は球体本体テンプレート形`,
             ).toBe(true);
-            // humanoid 衣装語が混入していない
+            // コアフォルダ形態固有の衣装（outfit_features に宣言済み）は許容し、
+            // それ以外の衣装語の混入がないことを確認する。
+            // 形態ごとに衣装の在り方が異なるため、固有衣装は outfit_features で管理する。
+            const cfOutfitText = Array.isArray(cf.outfit_features)
+                ? cf.outfit_features.join(' ').toLowerCase()
+                : '';
+            const leakedGarments = [...nld.matchAll(new RegExp(garmentRe.source, 'gi'))]
+                .map(m => m[0])
+                .filter(g => !cfOutfitText.includes(g.toLowerCase()));
             expect(
-                garmentRe.test(nld),
-                `#${rec.Num} corefolder NLD に humanoid 衣装語を含まない`,
-            ).toBe(false);
+                leakedGarments.length === 0,
+                `#${rec.Num} corefolder NLD の衣装語はすべて outfit_features に宣言済み（未宣言: ${leakedGarments.join(', ')}）`,
+            ).toBe(true);
         }
     });
 });
