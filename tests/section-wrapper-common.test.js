@@ -13,8 +13,12 @@ const __dirname = dirname(__filename);
 const repoRoot = dirname(__dirname);
 
 beforeAll(async () => {
-  const moduleUrl = `${pathToFileURL(join(repoRoot, 'lib/section-wrapper-common.js')).href}?section-wrapper-common-test=${Date.now()}`;
+  const ts = Date.now();
+  const moduleUrl = `${pathToFileURL(join(repoRoot, 'lib/section-wrapper-common.js')).href}?section-wrapper-common-test=${ts}`;
   await import(moduleUrl);
+  // relation.js が relationSection を上書き登録する（section-wrapper-common の後に必ず import）
+  const relationUrl = `${pathToFileURL(join(repoRoot, 'lib/section-renders/relation.js')).href}?section-wrapper-common-test=${ts}`;
+  await import(relationUrl);
 });
 
 describe('section-wrapper-common registry', () => {

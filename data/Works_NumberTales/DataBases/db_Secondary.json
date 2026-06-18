@@ -425,7 +425,7 @@
         { "Num": "0xF", "RelationLabel": ["trusted", "secretRelation"] }
       ]
     },
-    "RelationToPrimary": {
+    "RelationTo_Primary": {
       "Related": [
         {
           "Num": 1,
@@ -558,7 +558,7 @@
         { "Num": "0xF", "RelationLabel": ["trusted"] }
       ]
     },
-    "RelationToPrimary": {
+    "RelationTo_Primary": {
       "Related": [
         {
           "Num": 11,
@@ -704,7 +704,7 @@
     "InStory": "「エイゼルベット」の観測者「シグマ-クロステールズ」の元で観測を受けている、ある電脳世界との間で生まれた個体\n試験中に機材を暴走させることがあり……",
     "InStory_EN": "An entity born from the interaction between a certain cyber world and \"Sigma-CrossTales,\" an observer of \"∀selbuet.\"\nSometimes causes equipment to go berserk during tests...",
     "Relation": { "Related": [] },
-    "RelationToPrimary": {
+    "RelationTo_Primary": {
       "Related": [
         {
           "Num": 12,
@@ -855,7 +855,7 @@
     "Relation": {
       "Related": [{ "Num": "0xE", "RelationLabel": ["unmatched"] }]
     },
-    "RelationToPrimary": {
+    "RelationTo_Primary": {
       "Related": [
         {
           "Num": 12,
@@ -1006,7 +1006,7 @@
     "InStory": "「エイゼルベット」の観測者「シグマ-クロステールズ」の元で観測を受けている、ある電脳世界との間で生まれた個体\n向こう側の電脳世界でもこちらの世界でも、色んなものの魔改造に勤しんでいる",
     "InStory_EN": "An entity born from the interaction between a certain cyber world and \"Sigma-CrossTales,\" an observer of \"∀selbuet.\"\nEngaged in modding various things in both the cyber world over there and this world.",
     "Relation": { "Related": [{ "Num": "0xD", "RelationLabel": ["abusing"] }] },
-    "RelationToPrimary": {
+    "RelationTo_Primary": {
       "Related": [
         {
           "Num": 5,
@@ -1134,7 +1134,7 @@
     "Relation": {
       "Related": [{ "Num": "0xA", "RelationLabel": ["secretRelation"] }]
     },
-    "RelationToPrimary": {
+    "RelationTo_Primary": {
       "Related": [
         {
           "Num": 2,
@@ -1249,7 +1249,7 @@
     "Relation": {
       "Related": [{ "Num": "∞", "RelationLabel": ["brother|sister"] }]
     },
-    "RelationToPrimary": {
+    "RelationTo_Primary": {
       "Related": [
         { "Num": 78, "RelationLabel": ["hadInCommision"] },
         {
@@ -1297,7 +1297,7 @@
     "Relation": {
       "Related": [{ "Num": "%", "RelationLabel": ["brother|sister"] }]
     },
-    "RelationToPrimary": {
+    "RelationTo_Primary": {
       "Related": [
         { "Num": 8, "RelationLabel": ["hadInCommision"] },
         { "Num": 87, "RelationLabel": ["hadInCommision"] },
