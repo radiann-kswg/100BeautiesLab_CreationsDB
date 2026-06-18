@@ -30,6 +30,7 @@
           "NumerospecAbout",
           "NumerospecStats",
           "Relation",
+          "ThisMasters",
           "ConversationPattern"
         ]
       }

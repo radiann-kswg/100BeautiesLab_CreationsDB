@@ -15,8 +15,8 @@
     {
       "hashTag": "ThisMasters",
       "$type": "$Def_ThisMastersEntry[]|#Null",
-      "hashTag_JP": "担当マスター",
-      "hashTag_EN": "This Character's Masters"
+      "hashTag_JP": "専属契約した主人",
+      "hashTag_EN": "This/Zir Master(s) with Exclusive Contract"
     },
     {
       "hashTag": "ForMasterCalling",
