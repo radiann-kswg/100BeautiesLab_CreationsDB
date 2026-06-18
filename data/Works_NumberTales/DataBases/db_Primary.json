@@ -67,27 +67,27 @@
     ],
     "Class": ["試験用個体", "1桁番(ユニデジッツ)", "1号機型"],
     "ThisMasters": [
-      {
-        "value": null,
-        "about": "(専属契約不可)",
-        "about_EN": "(Exclusive contract not possible)"
-      },
+      { "value": null, "about": "(専属契約不可)" },
       {
         "value": "雪乙女 しいな/如月（夜月機関 第2幹部）",
         "about": "試験開発向けの運用",
-        "about_EN": "For test development operations"
+        "_DBLink": {
+          "worksTitle": "PastDivers",
+          "dbName": "Primary",
+          "_Search": [{ "hashTag": "Lunar", "key": "Kisaragi" }]
+        }
       }
     ],
     "ThisMasters_EN": [
+      { "value": null, "about": "(Exclusive contract not possible)" },
       {
-        "value": null,
-        "about": "(専属契約不可)",
-        "about_EN": "(Exclusive contract not possible)"
-      },
-      {
-        "value": "雪乙女 しいな/如月（夜月機関 第2幹部）",
-        "about": "試験開発向けの運用",
-        "about_EN": "For test development operations"
+        "value": "Ceena Snowmaider / 'Kisaragi' (Yadzuki Org. Executive Director.2)",
+        "about": "For test development operations",
+        "_DBLink": {
+          "worksTitle": "PastDivers",
+          "dbName": "Primary",
+          "_Search": [{ "hashTag": "Lunar", "key": "Kisaragi" }]
+        }
       }
     ],
     "FirstPersonCalling": "ぼく",
@@ -1069,10 +1069,10 @@
     ],
     "Class": ["1桁番(ユニデジッツ)"],
     "ThisMasters": [
-      "五剣(いつつるぎ)/Spade.5(Cinque)（78特殊探偵団 風の刀剣支部 構成員）"
+      "五剣(いつつるぎ)/スクアッド.ブラン（78特殊探偵団 風の刀剣支部 五番札(シンカー)）"
     ],
     "ThisMasters_EN": [
-      "五剣(いつつるぎ)/Spade.5(Cinque)（78特殊探偵団 風の刀剣支部 構成員）"
+      "Cinqlair/Squad.Blans (Team.78 the Special Investigators SlashSwords Branch Cinque-r) "
     ],
     "FirstPersonCalling": "アタシ",
     "FirstPersonCalling_EN": "I (fem. casual)",
@@ -1679,21 +1679,21 @@
     "Class": ["1桁番(ユニデジッツ)"],
     "ThisMasters": [
       {
-        "value": "錦野 歌嫁（78特殊探偵団 采配幹部(ディーラー)/百花繚乱研究所(N3US大学 千歳研究室)ゼミアシスタント）",
+        "value": "百花繚乱研究所(N3US大学 千歳研究室) ゼミアシスタント）",
         "_DBLink": {
           "worksTitle": "NumberTales",
           "dbName": "Secondary",
-          "_Search": [{ "hashTag": "Num", "key": "%" }]
+          "_Search": [{ "hashTag": "Num", "key": "∞" }]
         }
       }
     ],
     "ThisMasters_EN": [
       {
-        "value": "錦野 歌嫁（78特殊探偵団 采配幹部(ディーラー)/百花繚乱研究所(N3US大学 千歳研究室)ゼミアシスタント）",
+        "value": "100 Beauties Lab. (N3US University Dr.Thouser Laboratory) Seminar Assistant)",
         "_DBLink": {
           "worksTitle": "NumberTales",
           "dbName": "Secondary",
-          "_Search": [{ "hashTag": "Num", "key": "%" }]
+          "_Search": [{ "hashTag": "Num", "key": "∞" }]
         }
       }
     ],
@@ -1899,7 +1899,7 @@
     ],
     "Class": ["1桁番(ユニデジッツ)"],
     "ThisMasters": ["中月 カイン.ナイターエイド"],
-    "ThisMasters_EN": ["中月 カイン.ナイターエイド"],
+    "ThisMasters_EN": ["Cain.Nighteraid Nakatsuki"],
     "FirstPersonCalling": "私(わたし)",
     "FirstPersonCalling_EN": "I (fem. neutral)",
     "SecondPersonCalling": "あなた;[主人の呼び方]",
@@ -2152,11 +2152,7 @@
     ],
     "Class": ["10倍番(テンズデジッツ)", "デシベルモデレーターズ", "1号機型"],
     "ThisMasters": [
-      {
-        "value": null,
-        "about": "(専属契約不可)",
-        "about_EN": "(Exclusive contract not possible)"
-      },
+      { "value": null, "about": "(専属契約不可)" },
       {
         "value": "扇三春",
         "about": { "hideText": "？？？" },
@@ -2168,15 +2164,10 @@
       }
     ],
     "ThisMasters_EN": [
+      { "value": null, "about": "(Exclusive contract not possible)" },
       {
-        "value": null,
-        "about": "(専属契約不可)",
-        "about_EN": "(Exclusive contract not possible)"
-      },
-      {
-        "value": "扇三春",
-        "about": { "hideText": "？？？" },
-        "about_EN": { "hideText": "???" },
+        "value": "Mikhail Arch",
+        "about": { "hideText": "???" },
         "_DBLink": {
           "worksTitle": "SinisterChangingGirls",
           "dbName": "Primary",
@@ -2665,10 +2656,10 @@
     ],
     "Class": ["デュアルスリーズ"],
     "ThisMasters": [
-      "オードリー.カッツェ.ブラックフレア/アルジーヌ（78特殊探偵団 副支部長(火の棍棒支部)）"
+      "オードリー.カッツェ.ブラックフレア/アルジーヌ（78特殊探偵団 火の棍棒支部 女王札(クイーン)）"
     ],
     "ThisMasters_EN": [
-      "オードリー.カッツェ.ブラックフレア/アルジーヌ（78特殊探偵団 副支部長(火の棍棒支部)）"
+      "Audrey.Katze.Blackflare/Argine (Team.78 the Special Investigators FireWands Branch Queen)"
     ],
     "FirstPersonCalling": "私(わたし)",
     "FirstPersonCalling_EN": "I",
@@ -3079,8 +3070,26 @@
       }
     ],
     "Class": ["デュアルファイブズ"],
-    "ThisMasters": ["ゼン.エデンズグリーン/皐月（夜月機関 第5幹部）"],
-    "ThisMasters_EN": ["ゼン.エデンズグリーン/皐月（夜月機関 第5幹部）"],
+    "ThisMasters": [
+      {
+        "value": "ゼン.エデンズグリーン/皐月（夜月機関 第5幹部）",
+        "_DBLink": {
+          "worksTitle": "PastDivers",
+          "dbName": "Primary",
+          "_Search": [{ "hashTag": "Lunar", "key": "Satsuki" }]
+        }
+      }
+    ],
+    "ThisMasters_EN": [
+      {
+        "value": "Bene.Edensgreen / 'Satsuki' (Yadzuki Org. Executive Director.5)",
+        "_DBLink": {
+          "worksTitle": "PastDivers",
+          "dbName": "Primary",
+          "_Search": [{ "hashTag": "Lunar", "key": "Satsuki" }]
+        }
+      }
+    ],
     "FirstPersonCalling": "私(わたし)",
     "FirstPersonCalling_EN": "I",
     "SecondPersonCalling": "君",
@@ -3365,7 +3374,7 @@
     ],
     "ThisMasters_EN": [
       {
-        "value": "ミル.ニュクスフ",
+        "value": "Lamill.NuXV",
         "_DBLink": {
           "worksTitle": "SinisterChangingGirls",
           "dbName": "Primary",
@@ -3597,7 +3606,7 @@
     "Class": ["デュアルセブンズ", "バーチャリティテールズ"],
     "ThisMasters": [
       {
-        "value": "六花 ルノ（夜月機関 先代第6幹部/白の六芒星 技術長）",
+        "value": "六花 ルノ",
         "_DBLink": {
           "worksTitle": "SinisterChangingGirls",
           "dbName": "Primary",
@@ -3607,7 +3616,7 @@
     ],
     "ThisMasters_EN": [
       {
-        "value": "六花 ルノ（夜月機関 先代第6幹部/白の六芒星 技術長）",
+        "value": "Luno Hexacrys",
         "_DBLink": {
           "worksTitle": "SinisterChangingGirls",
           "dbName": "Primary",
@@ -3825,7 +3834,7 @@
     "Class": ["デュアルエイツ"],
     "ThisMasters": [
       {
-        "value": "ライト.リヴァーブリッジ/ブライト.ゲイザー（78特殊探偵団 第17幹部）",
+        "value": "ライト.リヴァーブリッジ/ブライト.ゲイザー（78特殊探偵団 第17幹部/英皇国支部幹部）",
         "_DBLink": {
           "worksTitle": "FLInvestigator78",
           "dbName": "PrimaryDealer",
@@ -3837,7 +3846,7 @@
     ],
     "ThisMasters_EN": [
       {
-        "value": "ライト.リヴァーブリッジ/ブライト.ゲイザー（78特殊探偵団 第17幹部）",
+        "value": "Light.Reverbridge / Bright.Gazer (Team.78 the Special Investigators 17th/IK.Branch Executive)",
         "_DBLink": {
           "worksTitle": "FLInvestigator78",
           "dbName": "PrimaryDealer",
@@ -4450,7 +4459,7 @@
     ],
     "Class": ["10倍番(テンズデジッツ)", "2号機型"],
     "ThisMasters": ["メルランディア.シラユキ"],
-    "ThisMasters_EN": ["メルランディア.シラユキ"],
+    "ThisMasters_EN": ["Merlandia.S.White"],
     "FirstPersonCalling": "わたし",
     "FirstPersonCalling_EN": "I",
     "SecondPersonCalling": "あなたさま",
@@ -4932,10 +4941,10 @@
     ],
     "Class": ["マスターテールズ9"],
     "ThisMasters": [
-      "江戸川 笑(えみ)/Diamond.2(Duece)（78特殊探偵団 金の硬貨支部 構成員）"
+      "江戸川 笑（78特殊探偵団 金の硬貨支部 二番札(デューサー)）"
     ],
     "ThisMasters_EN": [
-      "江戸川 笑(えみ)/Diamond.2(Duece)（78特殊探偵団 金の硬貨支部 構成員）"
+      "Emmy Edogawa (Team.78 the Special Investigators PentacleObjects Branch Deuce-r)"
     ],
     "FirstPersonCalling": "フジ ※名前呼び",
     "FirstPersonCalling_EN": "Twin-twina (*by name)",
@@ -5628,10 +5637,10 @@
     ],
     "Class": ["デュアルセブンズ"],
     "ThisMasters": [
-      "亜高 蝶嵐(てふらん)/Heart.7(Seven)（78特殊探偵団 水の聖杯支部 構成員）"
+      "亜高 蝶嵐（78特殊探偵団 水の聖杯支部 七番札(セヴニスト)）"
     ],
     "ThisMasters_EN": [
-      "亜高 蝶嵐(てふらん)/Heart.7(Seven)（78特殊探偵団 水の聖杯支部 構成員）"
+      "Thœfran Adaka (Team.78 the Special Investigators WaterCups Branch Seven-ist)"
     ],
     "FirstPersonCalling": "私(わたし)",
     "FirstPersonCalling_EN": "I",
@@ -6604,7 +6613,7 @@
     ],
     "Class": ["デュアルイレブンズ"],
     "ThisMasters": ["メイリア.シラユキ"],
-    "ThisMasters_EN": ["メイリア.シラユキ"],
+    "ThisMasters_EN": ["Meilia.S.White"],
     "FirstPersonCalling": "わたし",
     "FirstPersonCalling_EN": "I",
     "SecondPersonCalling": "あなた",
@@ -7507,11 +7516,9 @@
       }
     ],
     "Class": ["マスターテールズ9"],
-    "ThisMasters": [
-      "手塚 桃/Diamond.3(Trey)（78特殊探偵団 金の硬貨支部 構成員）"
-    ],
+    "ThisMasters": ["手塚 桃（78特殊探偵団 金の硬貨支部 三番札(トレイヤー)）"],
     "ThisMasters_EN": [
-      "手塚 桃/Diamond.3(Trey)（78特殊探偵団 金の硬貨支部 構成員）"
+      "Momo Tedzka (Team.78 the Special Investigators PentacleObjects Branch Trey-er)"
     ],
     "FirstPersonCalling": "ミサ ※名前呼び",
     "FirstPersonCalling_EN": "Thirthrey (*by name)",
@@ -8179,12 +8186,12 @@
     ],
     "Class": ["9倍2桁番(ナインズデュアルズ)"],
     "ThisMasters": [
-      "颯 洋(はやて うみ)/Spade.2(Duece)（78特殊探偵団 風の刀剣 構成員）",
-      "颯 天(はやて そら)/Spade.3(Trey)（78特殊探偵団 風の刀剣 構成員）"
+      "颯 洋（78特殊探偵団 風の刀剣 二番札(デューサー)）",
+      "颯 天（78特殊探偵団 風の刀剣 三番札(トレイヤー)）"
     ],
     "ThisMasters_EN": [
-      "颯 洋(はやて うみ)/Spade.2(Duece)（78特殊探偵団 風の刀剣 構成員）",
-      "颯 天(はやて そら)/Spade.3(Trey)（78特殊探偵団 風の刀剣 構成員）"
+      "Séa Hayate (Team.78 the Special Investigators SlashSwords Branch Duece-r)",
+      "Skye Hayate (Team.78 the Special Investigators SlashSwords Branch Trey-r)"
     ],
     "FirstPersonCalling": "僕",
     "FirstPersonCalling_EN": "I (masc. casual)",
@@ -8459,8 +8466,26 @@
       }
     ],
     "Class": ["デュアルキャリーズ"],
-    "ThisMasters": ["桜花 訫[信](とき)/弥生（夜月機関 第3幹部）"],
-    "ThisMasters_EN": ["桜花 訫[信](とき)/弥生（夜月機関 第3幹部）"],
+    "ThisMasters": [
+      {
+        "value": "桜花 訫[信]/弥生（夜月機関 第3幹部）",
+        "_DBLink": {
+          "worksTitle": "PastDivers",
+          "dbName": "Primary",
+          "_Search": [{ "hashTag": "Lunar", "key": "Yayoi" }]
+        }
+      }
+    ],
+    "ThisMasters_EN": [
+      {
+        "value": "Trustia Cherrybroom / 'Yayoi' (Yadzuki Org. Executive Director.3)",
+        "_DBLink": {
+          "worksTitle": "PastDivers",
+          "dbName": "Primary",
+          "_Search": [{ "hashTag": "Lunar", "key": "Yayoi" }]
+        }
+      }
+    ],
     "FirstPersonCalling": "あたし",
     "FirstPersonCalling_EN": "I (fem. casual)",
     "SecondPersonCalling": "君",
@@ -8765,7 +8790,7 @@
     "Class": ["デュアルスリーズ"],
     "ThisMasters": ["乃木 希（VIPマスター;夜月機関 救命本部 推薦所属候補者）"],
     "ThisMasters_EN": [
-      "乃木 希（VIPマスター;夜月機関 救命本部 推薦所属候補者）"
+      "Nozomi Nogi（VIP-Master; Yadzuki Org. Lifeguards Headquarter Recommended Candidate）"
     ],
     "FirstPersonCalling": "俺",
     "FirstPersonCalling_EN": "I (ore; rough masc.)",
@@ -9902,11 +9927,9 @@
       }
     ],
     "Class": ["マスターテールズ9", "スクエアエリート"],
-    "ThisMasters": [
-      "古山 沢海/Club.5(Cinque)（78特殊探偵団 火の棍棒支部 構成員）"
-    ],
+    "ThisMasters": ["古山 沢海（78特殊探偵団 火の棍棒支部 五番札(シンカー)）"],
     "ThisMasters_EN": [
-      "古山 沢海/Club.5(Cinque)（78特殊探偵団 火の棍棒支部 構成員）"
+      "Sawami Furuyama (Team.78 the Special Investigators FireWands Branch Cinque-r)"
     ],
     "FirstPersonCalling": "オレ",
     "FirstPersonCalling_EN": "I (ore; masc.)",
@@ -10987,8 +11010,26 @@
       }
     ],
     "Class": ["デュアルフォーズ"],
-    "ThisMasters": ["花舞 流(るぅ)/卯月（夜月機関 第4幹部）"],
-    "ThisMasters_EN": ["花舞 流(るぅ)/卯月（夜月機関 第4幹部）"],
+    "ThisMasters": [
+      {
+        "value": "花舞 流/卯月（夜月機関 第4幹部）",
+        "_DBLink": {
+          "worksTitle": "PastDivers",
+          "dbName": "Primary",
+          "_Search": [{ "hashTag": "Lunar", "key": "Udzuki" }]
+        }
+      }
+    ],
+    "ThisMasters_EN": [
+      {
+        "value": "Flur Flowee / 'Udzuki' (Yadzuki Org. Executive Director.4)",
+        "_DBLink": {
+          "worksTitle": "PastDivers",
+          "dbName": "Primary",
+          "_Search": [{ "hashTag": "Lunar", "key": "Udzuki" }]
+        }
+      }
+    ],
     "FirstPersonCalling": "ボク",
     "FirstPersonCalling_EN": "I (masc. casual)",
     "SecondPersonCalling": "キミ",
@@ -11592,10 +11633,10 @@
     ],
     "Class": ["デュアルセブンズ"],
     "ThisMasters": [
-      "亜高 蝶嵐(てふらん)/Heart.7(Seven)（78特殊探偵団 水の聖杯支部 構成員）"
+      "亜高 蝶嵐（78特殊探偵団 水の聖杯支部 七番札(セヴニスト)）"
     ],
     "ThisMasters_EN": [
-      "亜高 蝶嵐(てふらん)/Heart.7(Seven)（78特殊探偵団 水の聖杯支部 構成員）"
+      "Thœfran Adaka (Team.78 the Special Investigators WaterCups Branch Seven-ist)"
     ],
     "FirstPersonCalling": "私(わたし)",
     "FirstPersonCalling_EN": "I",
@@ -13148,7 +13189,7 @@
     ],
     "Class": ["10倍番(テンズデジッツ)"],
     "ThisMasters": ["水無瀬 霙(はなゆき)"],
-    "ThisMasters_EN": ["水無瀬 霙(はなゆき)"],
+    "ThisMasters_EN": ["Sleety Afterains"],
     "FirstPersonCalling": "私(わたし)",
     "FirstPersonCalling_EN": "I",
     "SecondPersonCalling": "あなた",
@@ -13484,7 +13525,7 @@
     "Class": ["デュアルセブンズ"],
     "ThisMasters": [
       {
-        "value": "六花(ろくばな) 雙葉",
+        "value": "六花(ろくばな) 雙葉/クィーン.トゥエルヴ",
         "_DBLink": {
           "worksTitle": "SinisterChangingGirls",
           "dbName": "Primary",
@@ -13494,7 +13535,7 @@
     ],
     "ThisMasters_EN": [
       {
-        "value": "六花(ろくばな) 雙葉",
+        "value": "Dozenne Hexacrys / Queen.XII",
         "_DBLink": {
           "worksTitle": "SinisterChangingGirls",
           "dbName": "Primary",
@@ -13806,7 +13847,7 @@
     "Class": ["デュアルエイツ"],
     "ThisMasters": [
       {
-        "value": "六花(ろくばな) 雙葉",
+        "value": "六花(ろくばな) 雙葉/クィーン.トゥエルヴ",
         "_DBLink": {
           "worksTitle": "SinisterChangingGirls",
           "dbName": "Primary",
@@ -13816,7 +13857,7 @@
     ],
     "ThisMasters_EN": [
       {
-        "value": "六花(ろくばな) 雙葉",
+        "value": "Dozenne Hexacrys / Queen.XII",
         "_DBLink": {
           "worksTitle": "SinisterChangingGirls",
           "dbName": "Primary",
@@ -14029,10 +14070,10 @@
     ],
     "Class": ["9倍2桁番(ナインズデュアルズ)"],
     "ThisMasters": [
-      "恵比寿 ことは/Spade.9(Nine)（78特殊探偵団 風の刀剣 構成員）"
+      "恵比寿 ことは（78特殊探偵団 風の刀剣 九番札(ナイニスト)）"
     ],
     "ThisMasters_EN": [
-      "恵比寿 ことは/Spade.9(Nine)（78特殊探偵団 風の刀剣 構成員）"
+      "Kotoha Ebisu (Team.78 the Special Investigators SlashSwords Branch Nine-ist)"
     ],
     "FirstPersonCalling": "僕",
     "FirstPersonCalling_EN": "I (masc. casual)",
@@ -14644,8 +14685,26 @@
       }
     ],
     "Class": ["マスターテールズ9"],
-    "ThisMasters": ["水無瀬 雫/水無月（夜月機関 第6幹部）"],
-    "ThisMasters_EN": ["水無瀬 雫/水無月（夜月機関 第6幹部）"],
+    "ThisMasters": [
+      {
+        "value": "水無瀬 雫/水無月（夜月機関 第6幹部）",
+        "_DBLink": {
+          "worksTitle": "PastDivers",
+          "dbName": "Primary",
+          "_Search": [{ "hashTag": "Lunar", "key": "Minadzuki" }]
+        }
+      }
+    ],
+    "ThisMasters_EN": [
+      {
+        "value": "Aquanne Afterains / 'Minadzuki' (Yadzuki Org. Executive Director.6)",
+        "_DBLink": {
+          "worksTitle": "PastDivers",
+          "dbName": "Primary",
+          "_Search": [{ "hashTag": "Lunar", "key": "Minadzuki" }]
+        }
+      }
+    ],
     "FirstPersonCalling": "私(わたくし)",
     "FirstPersonCalling_EN": "I (watakushi; very formal)",
     "SecondPersonCalling": "あなた様",
@@ -15396,7 +15455,7 @@
     "Class": ["デュアルシックスズ"],
     "ThisMasters": [
       {
-        "value": "ヴェンジー.C.テンペスト/クライシア.バベル（78特殊探偵団 第16幹部）",
+        "value": "ヴェンジー.C.テンペスト/クライシア.バベル（78特殊探偵団 第16幹部/英皇国支部幹部）",
         "_DBLink": {
           "worksTitle": "FLInvestigator78",
           "dbName": "PrimaryDealer",
@@ -15408,7 +15467,7 @@
     ],
     "ThisMasters_EN": [
       {
-        "value": "ヴェンジー.C.テンペスト/クライシア.バベル（78特殊探偵団 第16幹部）",
+        "value": "Vengy.C.Tempest / Crisia.Babel (Team.78 the Special Investigators 16th/IK.Branch Executive)",
         "_DBLink": {
           "worksTitle": "FLInvestigator78",
           "dbName": "PrimaryDealer",
@@ -16006,8 +16065,26 @@
       }
     ],
     "Class": ["9倍2桁番(ナインズデュアルズ)"],
-    "ThisMasters": ["綾沢 改奈/文月（夜月機関 第7幹部）"],
-    "ThisMasters_EN": ["綾沢 改奈/文月（夜月機関 第7幹部）"],
+    "ThisMasters": [
+      {
+        "value": "綾沢 改奈/文月（夜月機関 第7幹部）",
+        "_DBLink": {
+          "worksTitle": "PastDivers",
+          "dbName": "Primary",
+          "_Search": [{ "hashTag": "Lunar", "key": "Fumdzuki" }]
+        }
+      }
+    ],
+    "ThisMasters_EN": [
+      {
+        "value": "Entery Lattercross / 'Fumdzuki' (Yadzuki Org. Executive Director.7)",
+        "_DBLink": {
+          "worksTitle": "PastDivers",
+          "dbName": "Primary",
+          "_Search": [{ "hashTag": "Lunar", "key": "Fumdzuki" }]
+        }
+      }
+    ],
     "FirstPersonCalling": "ナフタ ※名前呼び",
     "FirstPersonCalling_EN": "Nafta (*self-name)",
     "SecondPersonCalling": "[※三人称]",
@@ -17283,7 +17360,7 @@
     "Class": ["デュアルシックスズ"],
     "ThisMasters": [
       {
-        "value": "錦野 舞（78特殊探偵団 采配幹部(ディーラー)/シンフォニー.XVI(ゼクズィン)所属 デザインエンジニア）",
+        "value": "錦野 舞（シンフォニー.XVI(ゼクズィン) D-Vine開発部 最高責任部長）",
         "_DBLink": {
           "worksTitle": "NumberTales",
           "dbName": "Secondary",
@@ -17293,7 +17370,7 @@
     ],
     "ThisMasters_EN": [
       {
-        "value": "錦野 舞（78特殊探偵団 采配幹部(ディーラー)/シンフォニー.XVI(ゼクズィン)所属 デザインエンジニア）",
+        "value": "Dancy Actressilk (Symphony.XVI(Sechzehn) Chief Executive in Development Department for D-Vines)",
         "_DBLink": {
           "worksTitle": "NumberTales",
           "dbName": "Secondary",
@@ -18096,10 +18173,10 @@
     ],
     "Class": ["デュアルフォーズ"],
     "ThisMasters": [
-      "リーチェ.エリザベス/レイチェル(78特殊探偵団 金の硬貨支部 副支部長)"
+      "リーチェ.エリザベス/レイチェル(78特殊探偵団 金の硬貨支部 女王札(クィーン))"
     ],
     "ThisMasters_EN": [
-      "リーチェ.エリザベス/レイチェル(78特殊探偵団 金の硬貨支部 副支部長)"
+      "Leiche.Elizabeth / Rachel (Team.78 the Special Investigators PentacleObjects Branch Queen)"
     ],
     "FirstPersonCalling": "うち",
     "FirstPersonCalling_EN": "I (uchi; fem. casual, Kansai)",
@@ -18559,7 +18636,7 @@
     "Class": ["デュアルシックスズ"],
     "ThisMasters": [
       {
-        "value": "錦野 歌嫁（78特殊探偵団 采配幹部(ディーラー)/百花繚乱研究所(N3US大学 千歳研究室)ゼミアシスタント）",
+        "value": "百花繚乱研究所(N3US大学 千歳研究室) ゼミアシスタント）",
         "_DBLink": {
           "worksTitle": "NumberTales",
           "dbName": "Secondary",
@@ -18569,7 +18646,7 @@
     ],
     "ThisMasters_EN": [
       {
-        "value": "錦野 歌嫁（78特殊探偵団 采配幹部(ディーラー)/百花繚乱研究所(N3US大学 千歳研究室)ゼミアシスタント）",
+        "value": "100 Beauties Lab. (N3US University Dr.Thouser Laboratory) Seminar Assistant)",
         "_DBLink": {
           "worksTitle": "NumberTales",
           "dbName": "Secondary",
@@ -19009,7 +19086,7 @@
       "氏原（仮称;夜月機関 第12幹部:キャサリン=アインツヴァイス の専属執事）"
     ],
     "ThisMasters_EN": [
-      "氏原（仮称;夜月機関 第12幹部:キャサリン=アインツヴァイス の専属執事）"
+      "Ujihar (tentative; Yadzuki Org. Executive Director.12: Catherine=Einzweiss's exclusive butler)"
     ],
     "FirstPersonCalling": "私(わたし)",
     "FirstPersonCalling_EN": "I",
@@ -19445,7 +19522,7 @@
     "Class": ["デュアルスリーズ"],
     "ThisMasters": ["乃木 希（VIPマスター;夜月機関 救命本部 推薦所属候補者）"],
     "ThisMasters_EN": [
-      "乃木 希（VIPマスター;夜月機関 救命本部 推薦所属候補者）"
+      "Nozomi Nogi（VIP-Master; Yadzuki Org. Lifeguards Headquarter Recommended Candidate）"
     ],
     "FirstPersonCalling": "あたし",
     "FirstPersonCalling_EN": "I (fem. casual)",
@@ -19701,7 +19778,7 @@
     ],
     "Class": ["デュアルフォーズ"],
     "ThisMasters": ["花舞 彗"],
-    "ThisMasters_EN": ["花舞 彗"],
+    "ThisMasters_EN": ["Comets Flowee"],
     "FirstPersonCalling": "ぼく",
     "FirstPersonCalling_EN": "I",
     "SecondPersonCalling": "きみ",
@@ -19971,7 +20048,7 @@
     ],
     "Class": ["デュアルシックスズ"],
     "ThisMasters": ["ジャッヂ=ジャストリー/神谷崎 幻影"],
-    "ThisMasters_EN": ["ジャッヂ=ジャストリー/神谷崎 幻影"],
+    "ThisMasters_EN": ["Judger=Justicy / Phantoma Theolessnight"],
     "FirstPersonCalling": "[※その時により変わる]\nあたしゃ ※非常に稀（または素を知る相手に対して）",
     "FirstPersonCalling_EN": "[*changes by situation]\nme * extremely rare (or when with someone who knows her true self)",
     "SecondPersonCalling": "あなた\nあんた ※非常に稀（または素を知る相手に対して）",
@@ -20901,10 +20978,7 @@
       "バーチャリティテールズ"
     ],
     "ThisMasters": [
-      {
-        "value": null,
-        "about": "(専属契約不可,未リリース状態)"
-      }
+      { "value": null, "about": "(専属契約不可,未リリース状態)" }
     ],
     "ThisMasters_EN": [
       {
@@ -21057,17 +21131,12 @@
     ],
     "Class": ["調整個体", "退任個体", "デシベルモデレーターズ", "10号機型"],
     "ThisMasters": [
-      {
-        "value": null,
-        "about": "(専属契約不可,厳重な謹慎処分中)",
-        "about_EN": "(専属契約不可,厳重な謹慎処分中)"
-      }
+      { "value": null, "about": "(専属契約不可,厳重な謹慎処分中)" }
     ],
     "ThisMasters_EN": [
       {
         "value": null,
-        "about": "(専属契約不可,厳重な謹慎処分中)",
-        "about_EN": "(専属契約不可,厳重な謹慎処分中)"
+        "about": "(Cannot be exclusively contracted, under strict suspension)"
       }
     ],
     "FirstPersonCalling": "俺",
@@ -21211,9 +21280,8 @@
         "about_EN": "(Exclusive contract not possible)"
       },
       {
-        "value": "零 零(カズナイ レイ)",
+        "value": "零 零",
         "about": "仕方なく所持",
-        "about_EN": "仕方なく所持",
         "_DBLink": {
           "worksTitle": "NumberTales",
           "dbName": "Primary",
@@ -21221,9 +21289,8 @@
         }
       },
       {
-        "value": "零 百(カズナイ ハゲム)",
+        "value": "零 百",
         "about": "仕方なく所持",
-        "about_EN": "仕方なく所持",
         "_DBLink": {
           "worksTitle": "NumberTales",
           "dbName": "Primary",
@@ -21232,15 +21299,10 @@
       }
     ],
     "ThisMasters_EN": [
+      { "value": null, "about": "(Exclusive contract not possible)" },
       {
-        "value": null,
-        "about": "(専属契約不可)",
-        "about_EN": "(専属契約不可)"
-      },
-      {
-        "value": "零 零(カズナイ レイ)",
-        "about": "仕方なく所持",
-        "about_EN": "仕方なく所持",
+        "value": "Zera Norumber",
+        "about": "Reluctantly possessed",
         "_DBLink": {
           "worksTitle": "NumberTales",
           "dbName": "Primary",
@@ -21248,9 +21310,8 @@
         }
       },
       {
-        "value": "零 百(カズナイ ハゲム)",
-        "about": "仕方なく所持",
-        "about_EN": "仕方なく所持",
+        "value": "Hudred Norumber",
+        "about": "Reluctantly possessed",
         "_DBLink": {
           "worksTitle": "NumberTales",
           "dbName": "Primary",

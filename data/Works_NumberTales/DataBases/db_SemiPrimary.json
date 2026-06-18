@@ -245,8 +245,26 @@
     "TailsUnit": "猫又(特殊)型1本3束[枝]",
     "TailsUnit_EN": "Nekomata (Special) Type: 1 Tail, 3 Tufts [Branches]",
     "Class": ["マスタートリプル"],
-    "ThisMasters": ["霧島 博(とおる)（夜月機関 幹部(霜月支部)）"],
-    "ThisMasters_EN": ["霧島 博(とおる)（夜月機関 幹部(霜月支部)）"],
+    "ThisMasters": [
+      {
+        "value": "霧島 博(とおる)/霜月（夜月機関 第11幹部）",
+        "_DBLink": {
+          "worksTitle": "PastDivers",
+          "dbName": "Primary",
+          "_Search": [{ "hashTag": "Lunar", "key": "Shimotsuki" }]
+        }
+      }
+    ],
+    "ThisMasters_EN": [
+      {
+        "value": "Knowns Smogger / 'Shimotsuki' (Yadzuki Org. Executive Director.11)",
+        "_DBLink": {
+          "worksTitle": "PastDivers",
+          "dbName": "Primary",
+          "_Search": [{ "hashTag": "Lunar", "key": "Shimotsuki" }]
+        }
+      }
+    ],
     "FirstPersonCalling": "私(わたし)",
     "FirstPersonCalling_EN": "I",
     "SecondPersonCalling": "貴樣/貴様",
@@ -829,8 +847,26 @@
     "TailsUnit": "キツネ(特殊)型3束x6本",
     "TailsUnit_EN": "Fox (Special) Type: 6 Tails x 3 Tufts",
     "Class": ["マスタートリプル", "フェイタルテールズ"],
-    "ThisMasters": ["中月 ルイス=ノア.ナイターエイド（夜月機関 第9幹部）"],
-    "ThisMasters_EN": ["中月 ルイス=ノア.ナイターエイド（夜月機関 第9幹部）"],
+    "ThisMasters": [
+      {
+        "value": "中月 ルイス=ノア.ナイターエイド（夜月機関 第9幹部）",
+        "_DBLink": {
+          "worksTitle": "PastDivers",
+          "dbName": "Primary",
+          "_Search": [{ "hashTag": "Lunar", "key": "Nagatsuki" }]
+        }
+      }
+    ],
+    "ThisMasters_EN": [
+      {
+        "value": "Luis-Noah.Nighteraid Nakatsuki (Yadzuki Org. Executive Director.9)",
+        "_DBLink": {
+          "worksTitle": "PastDivers",
+          "dbName": "Primary",
+          "_Search": [{ "hashTag": "Lunar", "key": "Nagatsuki" }]
+        }
+      }
+    ],
     "FirstPersonCalling": "我\n私(わたくし)",
     "FirstPersonCalling_EN": "I (ware; archaic)\nI (formally)",
     "SecondPersonCalling": "汝(なんじ)",
@@ -988,10 +1024,24 @@
     "GenderType": "Neutral",
     "Class": ["マスタートリプル"],
     "ThisMasters": [
-      "八坂 兵汰(へいた)/ヘクター.キロバスター（夜月機関 第8幹部）"
+      {
+        "value": "八坂 兵汰/ヘクター.キロバスター/葉月（夜月機関 第8幹部）",
+        "_DBLink": {
+          "worksTitle": "PastDivers",
+          "dbName": "Primary",
+          "_Search": [{ "hashTag": "Lunar", "key": "Hadzuki" }]
+        }
+      }
     ],
     "ThisMasters_EN": [
-      "八坂 兵汰(へいた)/ヘクター.キロバスター（夜月機関 第8幹部）"
+      {
+        "value": "Yasaka Hector / Hector.Kilobuster / 'Hadzuki' (Yadzuki Org. Executive Director.8)",
+        "_DBLink": {
+          "worksTitle": "PastDivers",
+          "dbName": "Primary",
+          "_Search": [{ "hashTag": "Lunar", "key": "Hadzuki" }]
+        }
+      }
     ]
   },
   {
