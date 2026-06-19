@@ -1,0 +1,18 @@
+name: Notify AI Dataset Repo
+
+on:
+  push:
+    branches:
+      - addon-ai-tag
+
+jobs:
+  dispatch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger AI dataset sync
+        run: |
+          curl -X POST \
+            -H "Authorization: Bearer ${{ secrets.AI_DATASET_DISPATCH_TOKEN }}" \
+            -H "Accept: application/vnd.github.v3+json" \
+            https://api.github.com/repos/radiann-kswg/100BeautiesLab_CreationsAI/dispatches \
+            -d '{"event_type":"creations-db-updated"}'
