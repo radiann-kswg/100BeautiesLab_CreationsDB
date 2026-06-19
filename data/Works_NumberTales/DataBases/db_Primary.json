@@ -328,7 +328,7 @@
       "concept_PNGName": "cnsp_img2",
       "corefolder_PNGPath": ["2/emstk_corefolder2-1", "2/emstk_corefolder2-2"],
       "arts_PNGPath": [
-        "art_numbertalesAniv2nd",
+        "humanoids/art_numbertalesAniv2nd",
         "corefolders/2023/art_img2-corefolderWinter"
       ]
     },
@@ -746,7 +746,7 @@
       ],
       "arts_PNGPath": [
         "corefolders/sphericateDay/art_sphericateDay202302r1",
-        "art_numbertalesAniv4th"
+        "humanoids/art_numbertalesAniv4th"
       ]
     },
     "Name": "4(モチ)",
@@ -7744,7 +7744,7 @@
         "35/emstk_corefolder35-2",
         "35/emstk_corefolder35-3"
       ],
-      "designAlt_PNGPath": ["chattingArt/chart_img35-swimwear"]
+      "designAlt_PNGPath": ["chattingArt/chart_img35-humanoidswimwear"]
     },
     "Name": "35(サトコ)\n35(ミコ)",
     "Name_EN": "35(Thirfivan)\n35(Míko)",
@@ -7961,7 +7961,7 @@
         "36/emstk_corefolder36-2"
       ],
       "arts_PNGPath": [
-        "art_mothersDay2023",
+        "humanoids/art_mothersDay2023",
         "chattingArt/chart_img36-corefolderMyNewGear"
       ]
     },
@@ -9664,8 +9664,8 @@
         "corefolders/sphericateDay/art_sphericateDay202310"
       ],
       "designAlt_PNGPath": [
-        "eventArt/art_halloween2023A",
-        "eventArt/art_halloween2023B"
+        "eventArt/art_sphericateDay-halloween2023A",
+        "eventArt/art_sphericateDay-halloween2023B"
       ]
     },
     "Name": "44(シトシ)",
@@ -10929,7 +10929,7 @@
         "50/emstk_corefolder50-1",
         "50/emstk_corefolder50-2"
       ],
-      "arts_PNGPath": ["chattingArt/chart_img50-ballingRole"]
+      "arts_PNGPath": ["chattingArt/chart_img50-humanoidBallingRole"]
     },
     "Name": "50(ナカバ)",
     "Name_EN": "50(Halvan)",
@@ -12572,7 +12572,7 @@
         "58/emstk_corefolder58-1",
         "58/emstk_corefolder58-2"
       ],
-      "arts_PNGPath": ["chattingArt/chart_img58-noNipples"]
+      "arts_PNGPath": ["chattingArt/chart_img58-humanoidNoNipples"]
     },
     "Name": "58(イソヤ)",
     "Name_EN": "58(Fiveighs)",
@@ -13172,7 +13172,7 @@
         "corefolders/sphericateDay/art_sphericateDay202209r1B",
         "humanoids/2023/art_img61-humanoid"
       ],
-      "designAlt_PNGPath": ["subcostumes/chr-dsgn-alt_wip61-idol"]
+      "designAlt_PNGPath": ["catalog/chr-dsgn-alt_wip61-idol"]
     },
     "Name": "61(ロクイチ)\n61(ロイ)",
     "Name_EN": "61(Síxone)\n61(Síon)",
@@ -13706,7 +13706,7 @@
         "63/emstk_corefolder63-2",
         "63/emstk_corefolder63-3"
       ],
-      "arts_PNGPath": ["art_mothersDay2023"]
+      "arts_PNGPath": ["humanoids/art_mothersDay2023"]
     },
     "Name": "63(ムツミ)",
     "Name_EN": "63(Sicthrey)",
@@ -14313,8 +14313,8 @@
         "corefolders/sphericateDay/art_sphericateDay202310"
       ],
       "designAlt_PNGPath": [
-        "eventArt/art_halloween2023A",
-        "eventArt/art_halloween2023B",
+        "eventArt/art_sphericateDay-halloween2023A",
+        "eventArt/art_sphericateDay-halloween2023B",
         "chattingArt/chart_img66-corefolderHalloween"
       ]
     },
@@ -14842,7 +14842,7 @@
         "corefolders/sphericateDay/art_sphericateDay202301r2",
         "corefolders/2023/art_img68-corefolder"
       ],
-      "designAlt_PNGPath": ["art/art_img68-humanoidOnWorkSuit"]
+      "designAlt_PNGPath": ["arts/art_img68-humanoidOnWorkSuit"]
     },
     "Name": "68(ロクヤ)",
     "Name_EN": "68(Siceighns)",
@@ -15858,7 +15858,7 @@
         "humanoids/2023/art_img73-humanoid",
         "humanoids/parody/art_img73-parody",
         "corefolders/autumnMoon/art_autumnMoon2024",
-        "chattingArt/chart_img73-whereIsEho"
+        "chattingArt/chart_img73-humanoidWhereIsEho"
       ]
     },
     "Name": "73(ナトミ)",
@@ -17695,8 +17695,8 @@
         "corefolders/sphericateDay/art_sphericateDay202310"
       ],
       "designAlt_PNGPath": [
-        "eventArt/art_halloween2023A",
-        "eventArt/art_halloween2023B"
+        "eventArt/art_sphericateDay-halloween2023A",
+        "eventArt/art_sphericateDay-halloween2023B"
       ]
     },
     "Name": "85(ハッコ)\n85(パコ)",
@@ -18133,7 +18133,7 @@
         "87/emstk_corefolder87-2",
         "87/emstk_corefolder87-3"
       ],
-      "arts_PNGPath": ["chattingArt/chart_img87-tooOrdered"]
+      "arts_PNGPath": ["chattingArt/chart_img87-humanoidTooOrdered"]
     },
     "Name": "87(ヤシナ)\n87(ハナ)",
     "Name_EN": "87(Eighteven)\n87(Eivee)",
@@ -18988,7 +18988,10 @@
         "93/emstk_corefolder93-1",
         "93/emstk_corefolder93-2"
       ],
-      "arts_PNGPath": ["corefolders/sphericateDay/art_sphericateDay202201"]
+      "arts_PNGPath": [
+        "corefolders/sphericateDay/art_sphericateDay202201",
+        "humanoids/cnsp_chrst93"
+      ]
     },
     "Name": "93(クミ)",
     "Name_EN": "93(Nintris)",
@@ -20408,7 +20411,7 @@
         "corefolders/sphericateDay/art_sphericateDay202112",
         "corefolders/sphericateDay/art_sphericateDay202209r1A",
         "corefolders/sphericateDay/art_sphericateDay202209r1B",
-        "art_numbertalesAniv2nd"
+        "humanoids/art_numbertalesAniv2nd"
       ]
     },
     "Name": "バイナ\n2(ツギ)",
@@ -21170,13 +21173,13 @@
           "value_JP": "「お前……馬鹿にしてるのか？あと、寝不足でお酒なんか飲むな。ただでさえ悪酔いするのに、今度は構内で吐いて事故ったらどうする」",
           "value_EN": "\"You... are you kidding me? And don't drink when you're sleep-deprived. You already get nasty drunk as it is — what if you end up getting sick on campus and cause an accident?\"",
           "about": "調子に乗っていそうな姉：零に対して①",
-          "about_EN": "Toward his older sister Zera when she seems to be getting carried away ①"
+          "about_EN": "Toward his older sister Zera when she seems to be getting carried away (case.1)"
         },
         {
           "value_JP": "「お前の休憩意欲はヒューマノイド以下か、IQ200どこ行ったんだよ」",
           "value_EN": "\"Is your drive to rest even lower than a humanoid's? Where did your IQ of 200 go?\"",
           "about": "調子に乗っていそうな姉：零に対して②",
-          "about_EN": "Toward his older sister Zera when she seems to be getting carried away ②"
+          "about_EN": "Toward his older sister Zera when she seems to be getting carried away (case.2)"
         }
       ]
     }
