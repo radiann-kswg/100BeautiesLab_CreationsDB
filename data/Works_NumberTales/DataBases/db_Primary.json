@@ -34703,13 +34703,13 @@
           "value_JP": "「お前……馬鹿にしてるのか？あと、寝不足でお酒なんか飲むな。ただでさえ悪酔いするのに、今度は構内で吐いて事故ったらどうする」",
           "value_EN": "\"You... are you kidding me? And don't drink when you're sleep-deprived. You already get nasty drunk as it is — what if you end up getting sick on campus and cause an accident?\"",
           "about": "調子に乗っていそうな姉：零に対して①",
-          "about_EN": "Toward his older sister Zera when she seems to be getting carried away ①"
+          "about_EN": "Toward his older sister Zera when she seems to be getting carried away (case.1)"
         },
         {
           "value_JP": "「お前の休憩意欲はヒューマノイド以下か、IQ200どこ行ったんだよ」",
           "value_EN": "\"Is your drive to rest even lower than a humanoid's? Where did your IQ of 200 go?\"",
           "about": "調子に乗っていそうな姉：零に対して②",
-          "about_EN": "Toward his older sister Zera when she seems to be getting carried away ②"
+          "about_EN": "Toward his older sister Zera when she seems to be getting carried away (case.2)"
         }
       ]
     },
