@@ -33,7 +33,7 @@
       "AI_Optout": true
     },
     "#DB_PrimaryDealer": {
-      "DB_Label": "一次創作(アルカナ保有者)",
+      "DB_Label": "一次創作(アルカナホルダー)",
       "DB_Label_EN": "Primary(Arcana Holders)",
       "DB_Summary": "運命線探偵の公式一次創作作品に登場するキャラクター。\nこちらにはタロットをモチーフにした能力の保有者に関する情報をまとめている。",
       "DB_Summary_EN": "Characters appearing in the official primary work of FateLine Investigator 78.\nThis DB compiles information on those who possess tarot-motif abilities.",
@@ -53,6 +53,15 @@
         "about_EN": "between WDCE.VII.24 to WDCE.VIII.2(Equivalent to between: DC.2044-2046)\n\nThis period is significant for the “World Development Creation VIII” "
       },
       "_Commons": {},
+      "AI_Optout": true
+    },
+    "#DB_UnprocessedDealer": {
+      "DB_Label": "未整理のアルカナホルダー",
+      "DB_Label_EN": "Unprocessed Arcana Holder",
+      "DB_Summary": "運命線探偵のうち、まだ制作の目途が立っていないキャラクター。\nこちらには主に小アルカナのタロットをモチーフにした能力の保有者に関する情報をまとめている。",
+      "DB_Summary_EN": "Characters in FateLine Investigator 78 for whom production is not yet underway.\nThis DB mainly compiles information on those who possess tarot-motif abilities based on the Minor Arcana.",
+      "_Commons": {},
+      "DB_Hidden": true,
       "AI_Optout": true
     }
   },
