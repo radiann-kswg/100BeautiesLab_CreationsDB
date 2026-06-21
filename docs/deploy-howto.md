@@ -6,6 +6,36 @@
 
 ---
 
+## GitHub Actions による自動更新（`cf-api-sync.yml`）
+
+`develop` ブランチへの push 時に、変更パスに応じて自動実行される:
+
+| 変更パス | 実行されるジョブ |
+|---------|----------------|
+| `data/**` | R2/D1 データ同期（`--clean` 付きで全件再投入） |
+| `pkg/cloudflare/worker.js` / `wrangler.toml` / `schema/**` / `scripts/**` | Worker デプロイ |
+
+### 初回セットアップ: GitHub Secrets の登録
+
+GitHub リポジトリの **Settings → Secrets and variables → Actions** で以下を登録する:
+
+| Secret 名 | 値の取得方法 |
+|-----------|------------|
+| `CLOUDFLARE_API_TOKEN` | Cloudflare ダッシュボード → My Profile → API Tokens → Create Token<br>テンプレート「**Edit Cloudflare Workers**」を使い、D1・R2 の権限も追加する |
+| `CLOUDFLARE_ACCOUNT_ID` | Cloudflare ダッシュボード右サイドバー「Account ID」 |
+
+#### API Token に必要な権限
+
+| リソース | 権限 |
+|---------|------|
+| Workers Scripts | Edit |
+| Workers Routes | Edit |
+| D1 | Edit |
+| R2 Storage | Edit |
+| Zone (numbertales-radiann.net) | Read |
+
+---
+
 ## 0. 前提: wrangler ログイン確認
 
 ```bash

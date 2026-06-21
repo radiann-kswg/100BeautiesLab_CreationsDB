@@ -1,0 +1,86 @@
+name: Cloudflare API 自動更新
+
+# develop ブランチへの push で、変更パスに応じて R2/D1 同期 or Worker デプロイを実行する。
+on:
+  push:
+    branches:
+      - develop
+    paths:
+      - "data/**"
+      - "pkg/cloudflare/worker.js"
+      - "pkg/cloudflare/wrangler.toml"
+      - "pkg/cloudflare/schema/**"
+      - "pkg/cloudflare/scripts/**"
+
+jobs:
+  # ──────────────────────────────────────────────────────────────────────────
+  # 変更ファイル検出（後続ジョブの実行可否を決定）
+  # ──────────────────────────────────────────────────────────────────────────
+  changes:
+    name: 変更ファイル検出
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    outputs:
+      data:   ${{ steps.filter.outputs.data }}
+      worker: ${{ steps.filter.outputs.worker }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dorny/paths-filter@v3
+        id: filter
+        with:
+          filters: |
+            data:
+              - "data/**"
+            worker:
+              - "pkg/cloudflare/worker.js"
+              - "pkg/cloudflare/wrangler.toml"
+              - "pkg/cloudflare/schema/**"
+              - "pkg/cloudflare/scripts/**"
+
+  # ──────────────────────────────────────────────────────────────────────────
+  # R2 + D1 データ同期（data/** が変更された場合のみ実行）
+  # ──────────────────────────────────────────────────────────────────────────
+  sync-r2-d1:
+    name: R2/D1 データ同期
+    needs: changes
+    if: needs.changes.outputs.data == 'true'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      # --clean で D1 既存データを全削除してから再投入（重複防止）
+      - name: R2 + D1 データ同期
+        run: node pkg/cloudflare/scripts/migrate.mjs --repo-root . --clean
+        env:
+          CLOUDFLARE_API_TOKEN:   ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID:  ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+
+  # ──────────────────────────────────────────────────────────────────────────
+  # Worker デプロイ（pkg/cloudflare/** が変更された場合のみ実行）
+  # ──────────────────────────────────────────────────────────────────────────
+  deploy-worker:
+    name: Worker デプロイ
+    needs: changes
+    if: needs.changes.outputs.worker == 'true'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Worker デプロイ
+        run: npx wrangler deploy --config pkg/cloudflare/wrangler.toml
+        env:
+          CLOUDFLARE_API_TOKEN:   ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID:  ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}

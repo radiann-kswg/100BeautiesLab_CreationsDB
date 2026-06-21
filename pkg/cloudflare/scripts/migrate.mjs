@@ -14,11 +14,12 @@
  *     --dry-run            実際の投入は行わず、処理内容のみを出力
  *     --r2-only            R2 アップロードのみ実行
  *     --d1-only            D1 投入のみ実行
+ *     --clean              D1 投入前に既存データを全削除（CI / 再投入向け）
  *     --db-id <uuid>       D1 データベース ID（省略時は wrangler.toml から読む）
  *     --bucket <name>      R2 バケット名（省略時: creationsdb-data）
  *
  * @author 100BeautiesLab.
- * @version 1.0.0
+ * @version 1.1.0
  */
 
 import { readFileSync, readdirSync, statSync, existsSync, writeFileSync, mkdirSync } from "node:fs";
@@ -54,6 +55,7 @@ function getArg(name) {
 const DRY_RUN  = args.includes("--dry-run");
 const R2_ONLY  = args.includes("--r2-only");
 const D1_ONLY  = args.includes("--d1-only");
+const CLEAN    = args.includes("--clean");
 const DB_ID    = getArg("--db-id") ?? "b8bf7187-1966-4831-88d2-2b8906cfa745";
 const BUCKET   = getArg("--bucket") ?? "creationsdb-data";
 
@@ -65,6 +67,7 @@ console.log(`[migrate] REPO_ROOT = ${REPO_ROOT}`);
 console.log(`[migrate] D1 DB_ID  = ${DB_ID}`);
 console.log(`[migrate] R2 BUCKET = ${BUCKET}`);
 if (DRY_RUN) console.log("[migrate] ⚠️  DRY RUN モード（実際の投入はしません）");
+if (CLEAN)   console.log("[migrate] 🗑️  CLEAN モード（D1 既存データを削除してから投入）");
 
 // ─────────────────────────────────────────────────────────────────────────────
 // ユーティリティ
@@ -233,10 +236,19 @@ if (!D1_ONLY) {
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
-// STEP 2: D1 — works テーブル投入
+// STEP 2: D1 — テーブルクリア（--clean 時）→ works 投入
 // ─────────────────────────────────────────────────────────────────────────────
 
 if (!R2_ONLY) {
+  // records テーブルは AUTOINCREMENT で自然キーがないため、再投入前に全削除が必要。
+  if (CLEAN) {
+    console.log("\n[D1] 既存データをクリア...");
+    d1Execute("clean/records", "DELETE FROM records;");
+    d1Execute("clean/dbs",     "DELETE FROM dbs;");
+    d1Execute("clean/works",   "DELETE FROM works;");
+    console.log("[D1] クリア完了");
+  }
+
   console.log("\n[D1] works テーブルを構築...");
 
   const worksValues = Object.entries(creationWorks).map(([key, info]) => {
