@@ -170,7 +170,7 @@ function d1Execute(label, sql) {
   const tmpFile = join(TMP_SQL_DIR, `${label.replace(/\W+/g, "_")}.sql`);
   writeFileSync(tmpFile, sql, "utf8");
   try {
-    execSync(`${WRANGLER} d1 execute ${DB_ID} --file="${tmpFile}" --remote`, {
+    execSync(`${WRANGLER} d1 execute ${DB_ID} --file="${tmpFile}" --remote --yes`, {
       stdio: "inherit",
       cwd: REPO_ROOT,
     });
