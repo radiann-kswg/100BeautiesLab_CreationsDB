@@ -122,9 +122,11 @@
 - **パッケージマネージャー**: npm
 - **バージョン管理**: Git
 - **スタイリング**: CSS3 + SASS (プリプロセッサ)
-- **API アーキテクチャ**: Service Worker による疑似 API + 共通ライブラリ化
-- **共通ライブラリ**: `lib/sw-common.js`, `lib/data-common.js`
-- **ホスティング**: GitHub Pages (静的サイト)
+- **API アーキテクチャ（二層構成）**:
+  - **実 API**: Cloudflare Workers (`database.numbertales-radiann.net/api/v1/`) + R2 + D1 → `pkg/cloudflare/`
+  - **疑似 API（ブラウザ専用）**: Service Worker (`/pages/v1/`, `/svc/v1/`) + 共通ライブラリ化（`lib/sw-common.js`, `lib/data-common.js`）
+- **ホスティング**: GitHub Pages (静的サイト) + Cloudflare Workers (エッジ実 API)
+- **生成・バッチ処理（計画中）**: Google Cloud (Cloud Run / GCE) → ADR-0002
 - **テスト**: Vitest
 - **コードフォーマット**: 手動整形 (将来的に Prettier 導入予定)
 
@@ -209,14 +211,15 @@
 
 ### システム設計原則
 
-1. **静的サイト設計**: GitHub Pages 上で動作する完全な静的サイト
-2. **Service Worker API**: バックエンドサーバーの代わりに Service Worker で疑似 API を実現
-3. **共通ライブラリアーキテクチャ**: `lib/sw-common.js`、`lib/data-common.js`による機能統合
-4. **データ駆動設計**: JSON スキーマ(`db_type.json`)に基づく型安全なデータ操作
-5. **マルチエンドポイント**: `/api/v1`, `/pages/v1`, `/svc/v1` の 3 つの API エンドポイント提供
-6. **参照解決**: データベース間の関連性を動的に解決する仕組み
-7. **統一エンドポイント**: StandardEndpointHandlers による重複コード削減
+1. **静的サイト設計**: GitHub Pages 上で動作する完全な静的サイト（アセット配信に専念）
+2. **実 API（Cloudflare Workers）**: `database.numbertales-radiann.net/api/v1/` → R2（JSON ミラー）+ D1（FTS5）で外部クライアントから直接利用可能（`pkg/cloudflare/`）
+3. **疑似 API（Service Worker）**: `/pages/v1/`, `/svc/v1/` はブラウザ専用・完全 enrich 付き API として GitHub Pages で継続稼働
+4. **共通ライブラリアーキテクチャ**: `lib/sw-common.js`、`lib/data-common.js`による機能統合
+5. **データ駆動設計**: JSON スキーマ(`db_type.json`)に基づく型安全なデータ操作
+6. **マルチエンドポイント**: `/api/v1`, `/pages/v1`, `/svc/v1` の 3 つの API エンドポイント提供
+7. **参照解決**: データベース間の関連性を動的に解決する仕組み（SW 側で完全実施、Workers 側は段階実装）
 8. **`pkg/` パッケージ群**: サブモジュールとして別リポジトリに導入するための独立クライアント群（Node.js / Python / C# / Cloudflare Workers / MCP）
+9. **生成・バッチ処理（計画中）**: 重い処理（画像生成・GPU）は Google Cloud に棲み分け（ADR-0002）
 
 ### データフロー
 
@@ -312,7 +315,8 @@
 
 ### Service Worker API
 
-- **マルチプレフィックス**: `/api/v1/`, `/pages/v1/`, `/svc/v1/` の 3 つのエンドポイント
+- **Cloudflare Workers 実 API**: `database.numbertales-radiann.net/api/v1/` → R2 + D1。データ更新時は `scripts/migrate.mjs` を再実行して同期。詳細は `pkg/cloudflare/README.md` を参照。
+- **マルチプレフィックス（SW 疑似 API）**: `/api/v1/`, `/pages/v1/`, `/svc/v1/` の 3 つのエンドポイント
 - **参照解決機能**: データベース間の関連データ自動取得
 - **キャッシュ戦略**: 頻繁にアクセスするメタデータの効率的キャッシュ
 - **エラー処理**: 404/400 エラーの適切なハンドリング

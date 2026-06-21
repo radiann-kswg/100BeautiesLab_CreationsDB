@@ -1,12 +1,51 @@
 # API / Service Worker 技術仕様メモ
 
-このドキュメントは、`/api/v1/*`・`/pages/v1/*`・`/svc/v1/*` の擬似 API と、その背後にある Service Worker / 共通ライブラリの役割分担を、実装に沿って整理した技術メモです。
+このドキュメントは、`/api/v1/*`・`/pages/v1/*`・`/svc/v1/*` の擬似 API と、その背後にある Service Worker / 共通ライブラリの役割分担、および Cloudflare Workers 実 API の仕様を、実装に沿って整理した技術メモです。
 
 対象読者:
 
 - API / SW 周辺のコードを追いたい人
 - `db_meta.json` と `db_type.json` の責務差を理解したい人
 - `_enrichment` や `_DBLink` の挙動を修正したい人
+- Cloudflare Workers 実 API (`pkg/cloudflare/`) を参照したい人
+
+---
+
+## 0. API 二層構成（ADR-0001 採択、2026-06-21）
+
+本リポジトリの API は以下の二層で提供される。
+
+| 層 | エンドポイント | 実装 | データソース | 主な用途 |
+|----|--------------|------|------------|--------|
+| **実 API** | `database.numbertales-radiann.net/api/v1/*` | Cloudflare Workers (`pkg/cloudflare/worker.js`) | R2（JSON ミラー）+ D1（FTS5） | 外部クライアント・curl・モバイルアプリ |
+| **疑似 API** | `(同一オリジン)/api/v1/*` `/pages/v1/*` `/svc/v1/*` | Service Worker (`pages/sw.js` 等) | GitHub Pages 静的 JSON | ブラウザ・キャラシート UI |
+
+- 疑似 API（SW）は完全 enrich（`_DBLink`/`_Jump` 解決）付き。実 API（Workers）は現時点で `_Commons` 適用のみ（次フェーズで拡張予定）。
+- クライアント（`pkg/nodejs`, `pkg/python`, `pkg/csharp`）はローカル JSON を直接読むため、どちらの API にも依存しない。
+- Workers のセットアップ手順: `pkg/cloudflare/README.md` を参照。
+
+### Cloudflare Workers 実 API エンドポイント
+
+| メソッド | パス | データソース | 説明 |
+|---------|------|------------|------|
+| GET | `/api/v1/meta` | R2 | グローバルメタ (`data/db_meta.json`) |
+| GET | `/api/v1/works` | D1 `works` | 作品一覧（`Works_Hidden=true` 除外） |
+| GET | `/api/v1/:work/meta` | R2 | 作品別メタ (`data/Works_*/DataBases/db_meta.json`) |
+| GET | `/api/v1/:work/dbs` | D1 `dbs` | DB 一覧（`DB_Hidden=true` 除外） |
+| GET | `/api/v1/:work/:db/records` | D1 `records` | レコード一覧（`isPrivate=0`・`_Commons` 適用） |
+| GET | `/api/v1/:work/:db/records/:idx` | D1 `records` | 1 件取得（`?idxKey=X` でフィールド指定） |
+| GET | `/api/v1/:work/:db/search?q=` | D1 FTS5 | DB 内全文検索 |
+| GET | `/api/v1/:work/search?q=` | D1 FTS5 | 作品横断全文検索 |
+
+### D1 スキーマ概要
+
+- `works`: 作品メタ（`key`, `title`, `title_en`, `summary`, `is_hidden`, `meta_json`）
+- `dbs`: DB メタ（`work_key`, `db_key`, `db_label`, `db_label_en`, `db_layer`, `is_hidden`）
+- `records`: レコード本体（`work_key`, `db_name`, `idx_key`, `idx_value`, `is_private`, `searchable_text`, `data_json`）
+- `records_fts`: FTS5 仮想テーブル（`records` を content として外部コンテンツ。INSERT/DELETE/UPDATE トリガーで自動同期）
+
+スキーマ定義: `pkg/cloudflare/schema/d1-init.sql`
+マイグレーション: `pkg/cloudflare/scripts/migrate.mjs`
 
 ---
 
