@@ -25,7 +25,7 @@
 import { readFileSync, readdirSync, statSync, existsSync, writeFileSync, mkdirSync } from "node:fs";
 import { resolve, join, relative, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
-import { execSync } from "node:child_process";
+import { execFileSync } from "node:child_process";
 
 // ─────────────────────────────────────────────────────────────────────────────
 // 定数・設定
@@ -39,8 +39,9 @@ const __dirname  = dirname(__filename);
  *  この値は SQL ファイル 1 本あたりの文数（= レコード数）の上限。 */
 const D1_BATCH_SIZE = 10;
 
-/** wrangler コマンドのプレフィックス（npx 経由で常に最新版を使用） */
-const WRANGLER = "npx wrangler";
+/** wrangler 実行コマンド（シェルを介さず引数配列で実行する） */
+const WRANGLER_CMD = "npx";
+const WRANGLER_BASE_ARGS = ["wrangler"];
 
 // ─────────────────────────────────────────────────────────────────────────────
 // 引数パース
@@ -228,8 +229,19 @@ if (!D1_ONLY) {
       continue;
     }
     try {
-      execSync(
-        `${WRANGLER} r2 object put "${BUCKET}/${rel}" --file="${filepath}" --content-type="application/json"`,
+      execFileSync(
+        WRANGLER_CMD,
+        [
+          ...WRANGLER_BASE_ARGS,
+          "r2",
+          "object",
+          "put",
+          `${BUCKET}/${rel}`,
+          "--file",
+          filepath,
+          "--content-type",
+          "application/json"
+        ],
         { stdio: "pipe", cwd: REPO_ROOT }
       );
       console.log(`[R2] ✓ ${rel}`);
