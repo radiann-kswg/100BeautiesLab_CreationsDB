@@ -5,9 +5,14 @@ on:
     branches:
       - addon-ai-tag
 
+permissions:
+  contents: read
+
 jobs:
   dispatch:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
     steps:
       - name: Trigger AI dataset sync
         run: |
