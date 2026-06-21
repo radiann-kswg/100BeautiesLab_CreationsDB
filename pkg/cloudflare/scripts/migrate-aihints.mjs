@@ -22,7 +22,7 @@
 import { readFileSync, readdirSync, statSync, existsSync, writeFileSync, mkdirSync } from "node:fs";
 import { resolve, join, relative, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
-import { execSync } from "node:child_process";
+import { execFileSync } from "node:child_process";
 
 // ─────────────────────────────────────────────────────────────────────────────
 // 定数・設定
@@ -33,7 +33,8 @@ const __dirname  = dirname(__filename);
 
 // D1 は 1 文あたり最大 100KB 制限があるため、AIHints の大型 JSON は 1 レコード 1 INSERT にする
 const D1_BATCH_SIZE = 10;
-const WRANGLER      = "npx wrangler";
+const WRANGLER_CMD       = "npx";
+const WRANGLER_BASE_ARGS = ["wrangler"];
 
 // ─────────────────────────────────────────────────────────────────────────────
 // 引数パース
@@ -137,10 +138,11 @@ function d1Execute(label, sql) {
   const tmpFile = join(TMP_SQL_DIR, `${label.replace(/\W+/g, "_")}.sql`);
   writeFileSync(tmpFile, sql, "utf8");
   try {
-    execSync(`${WRANGLER} d1 execute ${DB_ID} --file="${tmpFile}" --remote --yes`, {
-      stdio: "inherit",
-      cwd: REPO_ROOT,
-    });
+    execFileSync(
+      WRANGLER_CMD,
+      [...WRANGLER_BASE_ARGS, "d1", "execute", DB_ID, "--file", tmpFile, "--remote", "--yes"],
+      { stdio: "inherit", cwd: REPO_ROOT }
+    );
     console.log(`[D1] ✓ ${label}`);
   } catch (err) {
     console.error(`[D1] ✗ ${label}: ${err.message}`);
