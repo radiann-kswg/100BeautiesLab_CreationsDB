@@ -7076,7 +7076,7 @@ export async function renderDetail(workId, rec) {
 		mount.textContent = '';
 		mount.appendChild(el('div', {
 			style: 'padding: 20px; text-align: center; color: red;'
-		}, [`エラー: 詳細情報の読み込みに失敗しました (${error && error.message ? error.message : String(error)})`]));
+		}, ['エラー: 詳細情報の読み込みに失敗しました (', getSafeErrorMessage(error), ')']));
 	}
 }
 
@@ -8064,7 +8064,7 @@ if (!isCharactersTestMode()) {
 			console.error('Initialization error:', err);
 			const fallbackError = el('div', {
 				style: 'padding: 20px; color: red;'
-			}, [`初期化エラー: ${err && err.message ? err.message : String(err)}`]);
+			}, ['初期化エラー: ', getSafeErrorMessage(err)]);
 			document.body.textContent = '';
 			document.body.appendChild(fallbackError);
 		});
