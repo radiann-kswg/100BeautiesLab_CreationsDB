@@ -16,6 +16,9 @@
  *     GET /api/v1/:work/:db/records/:idx?idxKey=X   — インデックスキー指定 (D1)
  *     GET /api/v1/:work/:db/search?q=キーワード      — DB 内全文検索 (D1 FTS5)
  *     GET /api/v1/:work/search?q=キーワード          — 作品横断検索 (D1 FTS5)
+ *     GET /api/v1/:work/:db/aihints                 — AIHints 一覧 (D1 aihints テーブル)
+ *     GET /api/v1/:work/:db/aihints/:idx            — キャラ AIHints 1 件 (D1)
+ *     GET /api/v1/:work/:db/aihints/:idx?form=<f>   — 特定形態のみ抽出
  *
  *   バインディング（wrangler.toml）:
  *     BUCKET  — R2 バケット (creationsdb-data): data/** の JSON 静的ミラー
@@ -373,6 +376,62 @@ async function searchAllRecordsInD1(env, workKey, query) {
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
+// AIHints D1 クエリ
+// ─────────────────────────────────────────────────────────────────────────────
+
+/**
+ * DB 内の全 AIHints を取得する。
+ * @param {object} env
+ * @param {string} workKey
+ * @param {string} dbName
+ * @returns {Promise<Array<{idx_value: string, forms: string|null, data: object}>>}
+ */
+async function getAihintsFromD1(env, workKey, dbName) {
+  const rows = await d1Query(
+    env,
+    "SELECT idx_value, forms, data_json FROM aihints WHERE work_key = ? AND db_name = ? ORDER BY idx_value",
+    [workKey, dbName]
+  );
+  return rows.map((r) => ({
+    idx_value: r.idx_value,
+    forms: r.forms ? r.forms.split(",") : [],
+    data: JSON.parse(r.data_json),
+  }));
+}
+
+/**
+ * 特定キャラクターの AIHints を取得する。
+ * @param {object} env
+ * @param {string} workKey
+ * @param {string} dbName
+ * @param {string} idxValue
+ * @param {string} [form] - 特定形態のみ返す場合に指定
+ * @returns {Promise<object|null>}
+ */
+async function getAihintFromD1(env, workKey, dbName, idxValue, form = null) {
+  const row = await d1First(
+    env,
+    "SELECT idx_value, forms, data_json FROM aihints WHERE work_key = ? AND db_name = ? AND idx_value = ?",
+    [workKey, dbName, idxValue]
+  );
+  if (!row) return null;
+  const data = JSON.parse(row.data_json);
+  if (form && data.forms) {
+    return {
+      idx_value: row.idx_value,
+      forms: row.forms ? row.forms.split(",") : [],
+      common: data.common ?? null,
+      form: data.forms[form] ?? null,
+    };
+  }
+  return {
+    idx_value: row.idx_value,
+    forms: row.forms ? row.forms.split(",") : [],
+    data,
+  };
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
 // _Commons 適用
 // ─────────────────────────────────────────────────────────────────────────────
 
@@ -660,6 +719,21 @@ async function handleRequest(request, env) {
           if (!q) return jsonResponse([]);
           const hits = await searchRecordsInD1(env, workKey, capitalize(dbNorm), q);
           return jsonResponse(hits);
+        }
+
+        // ── GET /api/v1/:work/:db/aihints ─────────────────────────────────
+        if (segments[2] === "aihints" && segments.length === 3) {
+          const hints = await getAihintsFromD1(env, workKey, capitalize(dbNorm));
+          return jsonResponse(hints);
+        }
+
+        // ── GET /api/v1/:work/:db/aihints/:idx?form=<form> ────────────────
+        if (segments[2] === "aihints" && segments.length === 4) {
+          const idxValue = decodeURIComponent(segments[3]);
+          const form     = url.searchParams.get("form") ?? null;
+          const hint     = await getAihintFromD1(env, workKey, capitalize(dbNorm), idxValue, form);
+          if (!hint) return errorResponse(404, "AIHints not found");
+          return jsonResponse(hint);
         }
       }
     }

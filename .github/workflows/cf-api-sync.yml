@@ -5,6 +5,7 @@ on:
   push:
     branches:
       - develop
+      - addon-ai-tag
     paths:
       - "data/**"
       - "pkg/cloudflare/worker.js"
@@ -58,6 +59,13 @@ jobs:
       # --clean で D1 既存データを全削除してから再投入（重複防止）
       - name: R2 + D1 データ同期
         run: node pkg/cloudflare/scripts/migrate.mjs --repo-root . --clean
+        env:
+          CLOUDFLARE_API_TOKEN:   ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID:  ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+
+      # AIHints を aihints テーブルへ同期（addon-ai-tag ブランチ向け）
+      - name: AIHints D1 同期
+        run: node pkg/cloudflare/scripts/migrate-aihints.mjs --repo-root . --clean
         env:
           CLOUDFLARE_API_TOKEN:   ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID:  ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
