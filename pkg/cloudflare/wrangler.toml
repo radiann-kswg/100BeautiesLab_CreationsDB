@@ -1,6 +1,26 @@
 name = "creationsdb-api"
 main = "worker.js"
 compatibility_date = "2024-12-01"
+workers_dev = false
+
+# ─────────────────────────────────────────────────────────────────────────────
+# R2 バインディング
+#   creationsdb-data: data/** の JSON を格納する静的ミラーバケット
+# ─────────────────────────────────────────────────────────────────────────────
+
+[[r2_buckets]]
+binding = "BUCKET"
+bucket_name = "creationsdb-data"
+
+# ─────────────────────────────────────────────────────────────────────────────
+# D1 バインディング
+#   creationsdb-d1: 正規化メタ・レコードインデックス・全文検索テーブル
+# ─────────────────────────────────────────────────────────────────────────────
+
+[[d1_databases]]
+binding = "DB"
+database_name = "creationsdb-d1"
+database_id = "b8bf7187-1966-4831-88d2-2b8906cfa745"
 
 # ─────────────────────────────────────────────────────────────────────────────
 # 環境変数 (Cloudflare Dashboard または .dev.vars で上書き可能)
@@ -8,8 +28,16 @@ compatibility_date = "2024-12-01"
 
 [vars]
 # GitHub Pages の配信 URL（末尾スラッシュなし）
-# 本番環境では Cloudflare Dashboard の「Variables」でセキュアに上書きしてください
+# R2 に未収録の静的アセット（画像等）のフォールバック参照先
 REPO_BASE_URL = "https://radiann-kswg.github.io/100BeautiesLab_CreationsDB"
+
+# ─────────────────────────────────────────────────────────────────────────────
+# カスタムドメイン ルーティング
+# ─────────────────────────────────────────────────────────────────────────────
+
+routes = [
+  { pattern = "database.numbertales-radiann.net/api/v1/*", zone_name = "numbertales-radiann.net" }
+]
 
 # ─────────────────────────────────────────────────────────────────────────────
 # ローカル開発環境 (wrangler dev)
@@ -26,6 +54,15 @@ local_protocol = "http"
 [env.production]
 name = "creationsdb-api"
 
+[[env.production.r2_buckets]]
+binding = "BUCKET"
+bucket_name = "creationsdb-data"
+
+[[env.production.d1_databases]]
+binding = "DB"
+database_name = "creationsdb-d1"
+database_id = "b8bf7187-1966-4831-88d2-2b8906cfa745"
+
 [env.production.vars]
 REPO_BASE_URL = "https://radiann-kswg.github.io/100BeautiesLab_CreationsDB"
 
@@ -35,5 +72,10 @@ REPO_BASE_URL = "https://radiann-kswg.github.io/100BeautiesLab_CreationsDB"
 
 # [env.staging]
 # name = "creationsdb-api-staging"
-# [env.staging.vars]
-# REPO_BASE_URL = "https://radiann-kswg.github.io/100BeautiesLab_CreationsDB"
+# [[env.staging.r2_buckets]]
+# binding = "BUCKET"
+# bucket_name = "creationsdb-data"
+# [[env.staging.d1_databases]]
+# binding = "DB"
+# database_name = "creationsdb-d1"
+# database_id = "b8bf7187-1966-4831-88d2-2b8906cfa745"

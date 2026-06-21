@@ -2,45 +2,41 @@
  * worker.js — 100BeautiesLab CreationsDB Cloudflare Workers エントリーポイント
  *
  * @description
- *   Cloudflare Workers 上で動作する真のサーバーサイド API。
- *   GitHub Pages で配信されている静的 JSON を fetch で取得し、
- *   Service Worker 版 (/pages/v1) と同等のルーティングと参照解決を提供する。
+ *   Cloudflare Workers 上で動作するサーバーサイド API。
+ *   データは R2 バケット（静的 JSON ミラー）と D1 データベース
+ *   （正規化メタ・FTS5 検索インデックス）から取得する。
  *
  *   エンドポイント一覧:
- *     GET /api/v1/meta                              — グローバルメタ
- *     GET /api/v1/works                             — 作品一覧
- *     GET /api/v1/:work/meta                        — 作品別メタ
- *     GET /api/v1/:work/dbs                         — DB 一覧
- *     GET /api/v1/:work/:db/records                 — レコード一覧
- *     GET /api/v1/:work/:db/records/:idx            — レコード 1 件（Num インデックス）
- *     GET /api/v1/:work/:db/records/:idx?idxKey=X   — インデックスキー指定
- *     GET /api/v1/:work/:db/search?q=キーワード      — 全文検索
- *     GET /api/v1/:work/search?q=キーワード          — 作品横断検索
+ *     GET /api/v1/meta                              — グローバルメタ (R2)
+ *     GET /api/v1/works                             — 作品一覧 (D1)
+ *     GET /api/v1/:work/meta                        — 作品別メタ (R2)
+ *     GET /api/v1/:work/dbs                         — DB 一覧 (D1)
+ *     GET /api/v1/:work/:db/records                 — レコード一覧 (D1)
+ *     GET /api/v1/:work/:db/records/:idx            — レコード 1 件 (D1)
+ *     GET /api/v1/:work/:db/records/:idx?idxKey=X   — インデックスキー指定 (D1)
+ *     GET /api/v1/:work/:db/search?q=キーワード      — DB 内全文検索 (D1 FTS5)
+ *     GET /api/v1/:work/search?q=キーワード          — 作品横断検索 (D1 FTS5)
+ *
+ *   バインディング（wrangler.toml）:
+ *     BUCKET  — R2 バケット (creationsdb-data): data/** の JSON 静的ミラー
+ *     DB      — D1 データベース (creationsdb-d1): メタ・FTS インデックス
+ *
+ *   注: _DBLink / _Jump 解決 (EnrichmentProcessor 移植) は次フェーズ実装予定。
+ *       現在の /api/v1 は _Commons 適用・isPrivate 除外まで対応。
  *
  * @author 100BeautiesLab.
- * @version 1.0.0
+ * @version 2.0.0
  */
-
-// ─────────────────────────────────────────────────────────────────────────────
-// 環境変数
-//   wrangler.toml または Cloudflare ダッシュボードで設定する。
-//   REPO_BASE_URL: GitHub Pages のベース URL（末尾スラッシュなし）
-//                  例: https://radiann-kswg.github.io/100BeautiesLab_CreationsDB
-// ─────────────────────────────────────────────────────────────────────────────
-
-/** @type {string} */
-const DEFAULT_REPO_BASE_URL =
-  "https://radiann-kswg.github.io/100BeautiesLab_CreationsDB";
 
 // ─────────────────────────────────────────────────────────────────────────────
 // セキュリティユーティリティ
 // ─────────────────────────────────────────────────────────────────────────────
 
-const SAFE_TOKEN_RE = /^[A-Za-z0-9_]+$/;
+const SAFE_TOKEN_RE      = /^[A-Za-z0-9_]+$/;
 const VALID_JSON_FILE_RE = /^[A-Za-z0-9_.\-]+\.json$/;
 
 /**
- * 英数字とアンダースコアのみ許可するトークン検証（パストラバーサル防止）
+ * パストラバーサル防止: 英数字とアンダースコアのみ許可
  * @param {unknown} s
  * @returns {boolean}
  */
@@ -88,7 +84,7 @@ function toWorkKey(workId) {
 }
 
 /**
- * '#Works_XXX' → 'Works_XXX'
+ * '#Works_XXX' → 'Works_XXX'（ファイルシステムパス用）
  * @param {string} workKey
  * @returns {string}
  */
@@ -115,38 +111,44 @@ function normalizeDbKeyForMeta(dbName) {
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
-// HTTP フェッチ
+// R2 データアクセス
 // ─────────────────────────────────────────────────────────────────────────────
 
 /**
- * JSON ファイルを GitHub Pages からフェッチ
- * @param {string} repoBaseUrl
+ * R2 パス変換: URL パス → R2 オブジェクトキー
+ * 例: '/data/db_meta.json' → 'data/db_meta.json'
+ * @param {string} path - '/data/...' 形式
+ * @returns {string}
+ */
+function pathToR2Key(path) {
+  return path.replace(/^\/+/, "");
+}
+
+/**
+ * R2 から JSON を取得してパース。キャッシュを活用する。
+ * @param {object} env - Workers env (env.BUCKET が R2 バインディング)
  * @param {string} path - '/data/...' 形式のパス
- * @param {Request} incomingRequest - キャッシュヒントに使う
  * @returns {Promise<object|null>}
  */
-async function fetchJson(repoBaseUrl, path, incomingRequest) {
-  const url = `${repoBaseUrl}${path}`;
+async function fetchJsonFromR2(env, path) {
+  const key = pathToR2Key(path);
   try {
-    // Cloudflare Cache API でキャッシュ（CF Workers 環境でのみ有効）
-    const cacheKey = new Request(url, { method: "GET" });
+    // Cloudflare Cache API でキャッシュ
+    const cacheUrl = `https://r2-cache.internal/${key}`;
+    const cacheKey = new Request(cacheUrl);
     let cache;
-    try { cache = caches.default; } catch { /* ローカルテスト時はスキップ */ }
+    try { cache = caches.default; } catch { /* ローカル開発時はスキップ */ }
 
     if (cache) {
       const cached = await cache.match(cacheKey);
       if (cached) return cached.json();
     }
 
-    const res = await fetch(url, {
-      headers: { Accept: "application/json" },
-      cf: { cacheTtl: 300, cacheEverything: true }, // Cloudflare 独自: 5 分キャッシュ
-    });
-    if (!res.ok) return null;
+    const obj = await env.BUCKET.get(key);
+    if (!obj) return null;
 
-    const data = await res.json();
+    const data = await obj.json();
 
-    // Cloudflare Cache に保存
     if (cache) {
       const cacheRes = new Response(JSON.stringify(data), {
         headers: {
@@ -154,7 +156,7 @@ async function fetchJson(repoBaseUrl, path, incomingRequest) {
           "Cache-Control": "public, max-age=300",
         },
       });
-      await cache.put(cacheKey, cacheRes);
+      cache.put(cacheKey, cacheRes);
     }
 
     return data;
@@ -164,19 +166,47 @@ async function fetchJson(repoBaseUrl, path, incomingRequest) {
 }
 
 /**
- * ファイルが存在するか HEAD リクエストで確認
- * @param {string} repoBaseUrl
+ * R2 オブジェクトの存在確認
+ * @param {object} env
  * @param {string} path
  * @returns {Promise<boolean>}
  */
-async function fileExists(repoBaseUrl, path) {
-  const url = `${repoBaseUrl}${path}`;
+async function existsInR2(env, path) {
   try {
-    const res = await fetch(url, { method: "HEAD" });
-    return res.ok;
+    const obj = await env.BUCKET.head(pathToR2Key(path));
+    return obj !== null;
   } catch {
     return false;
   }
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// D1 データアクセス
+// ─────────────────────────────────────────────────────────────────────────────
+
+/**
+ * D1 クエリを実行して結果を返す
+ * @param {object} env
+ * @param {string} sql
+ * @param {Array} params
+ * @returns {Promise<object[]>}
+ */
+async function d1Query(env, sql, params = []) {
+  const stmt = env.DB.prepare(sql).bind(...params);
+  const { results } = await stmt.all();
+  return results ?? [];
+}
+
+/**
+ * D1 クエリを実行して最初の行を返す
+ * @param {object} env
+ * @param {string} sql
+ * @param {Array} params
+ * @returns {Promise<object|null>}
+ */
+async function d1First(env, sql, params = []) {
+  const stmt = env.DB.prepare(sql).bind(...params);
+  return stmt.first();
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -184,72 +214,68 @@ async function fileExists(repoBaseUrl, path) {
 // ─────────────────────────────────────────────────────────────────────────────
 
 /**
- * グローバルメタ (data/db_meta.json) を取得
- * @param {string} base
- * @param {Request} req
+ * グローバルメタ (data/db_meta.json) を R2 から取得
+ * @param {object} env
  * @returns {Promise<object>}
  */
-async function getGlobalMeta(base, req) {
-  const meta = await fetchJson(base, "/data/db_meta.json", req);
+async function getGlobalMeta(env) {
+  const meta = await fetchJsonFromR2(env, "/data/db_meta.json");
   if (!meta) throw new ApiError(503, "Global meta unavailable");
   return meta;
 }
 
 /**
- * 作品別メタ (data/Works_X/DataBases/db_meta.json) を取得
- * @param {string} base
+ * 作品別メタ (data/Works_X/DataBases/db_meta.json) を R2 から取得
+ * @param {object} env
  * @param {string} workKey - '#Works_XXX' 形式
- * @param {Request} req
  * @returns {Promise<object|null>}
  */
-async function getWorkMeta(base, workKey, req) {
+async function getWorkMeta(env, workKey) {
   const workDir = resolveWorkDir(workKey);
-  return fetchJson(base, `/data/${workDir}/DataBases/db_meta.json`, req);
+  return fetchJsonFromR2(env, `/data/${workDir}/DataBases/db_meta.json`);
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
-// DB ファイル解決
+// DB ファイル解決 (R2 ベース)
 // ─────────────────────────────────────────────────────────────────────────────
 
 /** DB 名 → 既定ファイル名の対応マップ */
 const CONVENTIONAL_DB_FILES = {
-  Primary:        "db_Primary.json",
-  Secondary:      "db_Secondary.json",
-  SemiPrimary:    "db_SemiPrimary.json",
-  SelfSecondary:  "db_SelfSecondary.json",
-  Proxy:          "db_Proxy.json",
-  Mobs:           "db_Mobs.json",
+  Primary:       "db_Primary.json",
+  Secondary:     "db_Secondary.json",
+  SemiPrimary:   "db_SemiPrimary.json",
+  SelfSecondary: "db_SelfSecondary.json",
+  Proxy:         "db_Proxy.json",
+  Mobs:          "db_Mobs.json",
 };
 
 /**
- * DB レコード配列を取得する。
+ * R2 からレコード配列を取得する。
  * db_meta.json で DB_File が宣言されていれば優先し、なければ候補ファイル名を順番に試す。
- *
- * @param {string} base
+ * @param {object} env
  * @param {string} workKey
  * @param {string} dbName
  * @param {object|null} workMeta
- * @param {Request} req
  * @returns {Promise<{records: object[], dbEntry: object}>}
  */
-async function resolveAndFetchDb(base, workKey, dbName, workMeta, req) {
+async function resolveAndFetchDbFromR2(env, workKey, dbName, workMeta) {
   const norm = stripMetaDbPrefix(dbName);
   if (!isSafeToken(norm)) throw new ApiError(400, "Invalid dbName");
   const key = capitalize(norm);
 
   const databases = workMeta?.Databases ?? {};
-  const metaKey = `#DB_${key}`;
-  const refKey = `#Ref_${key}`;
-  const dbEntry = databases[metaKey] ?? databases[refKey] ?? {};
-  const isRef = !!databases[refKey];
+  const metaKey   = `#DB_${key}`;
+  const refKey    = `#Ref_${key}`;
+  const dbEntry   = databases[metaKey] ?? databases[refKey] ?? {};
+  const isRef     = !!databases[refKey];
 
-  const layerRaw = (dbEntry.DB_Layer || "").trim();
-  const layer = isSafeToken(layerRaw) ? layerRaw : "DataBases";
-  const fileRaw = (dbEntry.DB_File || "").trim();
+  const layerRaw     = (dbEntry.DB_Layer || "").trim();
+  const layer        = isSafeToken(layerRaw) ? layerRaw : "DataBases";
+  const fileRaw      = (dbEntry.DB_File  || "").trim();
   const configuredFile = isValidJsonFile(fileRaw) ? fileRaw : "";
-  const defaultPrefix = isRef ? "ref_" : "db_";
-  const workDir = resolveWorkDir(workKey);
-  const basePath = `/data/${workDir}/${layer}`;
+  const defaultPrefix  = isRef ? "ref_" : "db_";
+  const workDir        = resolveWorkDir(workKey);
+  const basePath       = `/data/${workDir}/${layer}`;
 
   const candidates = [
     configuredFile,
@@ -261,12 +287,89 @@ async function resolveAndFetchDb(base, workKey, dbName, workMeta, req) {
 
   for (const fname of candidates) {
     const path = `${basePath}/${fname}`;
-    if (await fileExists(base, path)) {
-      const records = await fetchJson(base, path, req);
+    if (await existsInR2(env, path)) {
+      const records = await fetchJsonFromR2(env, path);
       if (Array.isArray(records)) return { records, dbEntry };
     }
   }
   throw new ApiError(404, `DB not found: ${dbName}`);
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// D1 経由のレコード取得
+// ─────────────────────────────────────────────────────────────────────────────
+
+/**
+ * D1 からレコード一覧を取得（isPrivate=0 のみ）
+ * @param {object} env
+ * @param {string} workKey
+ * @param {string} dbName
+ * @returns {Promise<object[]>}
+ */
+async function getRecordsFromD1(env, workKey, dbName) {
+  const rows = await d1Query(
+    env,
+    "SELECT data_json FROM records WHERE work_key = ? AND db_name = ? AND is_private = 0",
+    [workKey, dbName]
+  );
+  return rows.map((r) => JSON.parse(r.data_json));
+}
+
+/**
+ * D1 からインデックス値でレコード 1 件を取得
+ * @param {object} env
+ * @param {string} workKey
+ * @param {string} dbName
+ * @param {string} idxValue
+ * @param {string} idxKey
+ * @returns {Promise<object|null>}
+ */
+async function getRecordFromD1(env, workKey, dbName, idxValue, idxKey = "Num") {
+  const row = await d1First(
+    env,
+    "SELECT data_json FROM records WHERE work_key = ? AND db_name = ? AND idx_key = ? AND idx_value = ? AND is_private = 0",
+    [workKey, dbName, idxKey, String(idxValue)]
+  );
+  return row ? JSON.parse(row.data_json) : null;
+}
+
+/**
+ * D1 FTS5 で DB 内キーワード検索
+ * @param {object} env
+ * @param {string} workKey
+ * @param {string} dbName
+ * @param {string} query
+ * @returns {Promise<object[]>}
+ */
+async function searchRecordsInD1(env, workKey, dbName, query) {
+  const rows = await d1Query(
+    env,
+    `SELECT r.data_json FROM records r
+     WHERE r.id IN (SELECT rowid FROM records_fts WHERE searchable_text MATCH ?)
+       AND r.work_key = ? AND r.db_name = ? AND r.is_private = 0
+     LIMIT 200`,
+    [query, workKey, dbName]
+  );
+  return rows.map((r) => JSON.parse(r.data_json));
+}
+
+/**
+ * D1 FTS5 で作品横断キーワード検索
+ * @param {object} env
+ * @param {string} workKey
+ * @param {string} query
+ * @returns {Promise<Array<{db: string, record: object}>>}
+ */
+async function searchAllRecordsInD1(env, workKey, query) {
+  const rows = await d1Query(
+    env,
+    `SELECT r.db_name, r.data_json FROM records r
+     WHERE r.id IN (SELECT rowid FROM records_fts WHERE searchable_text MATCH ?)
+       AND r.work_key = ? AND r.is_private = 0
+     LIMIT 500`,
+    [query, workKey]
+  );
+  return rows.map((r) => ({ db: r.db_name, record: JSON.parse(r.data_json) }));
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -297,11 +400,11 @@ function isEmptyForCommons(v) {
  */
 function applyCommons(records, workMeta, dbName) {
   if (!workMeta) return records;
-  const dbKey = normalizeDbKeyForMeta(dbName);
+  const dbKey    = normalizeDbKeyForMeta(dbName);
   const databases = workMeta?.Databases ?? {};
-  const dbInfo = databases[dbKey] ?? {};
-  const commons = dbInfo._Commons ?? null;
-  const secDefs = dbInfo._Secondaries ?? dbInfo.Secondaries ?? null;
+  const dbInfo   = databases[dbKey] ?? {};
+  const commons  = dbInfo._Commons  ?? null;
+  const secDefs  = dbInfo._Secondaries ?? dbInfo.Secondaries ?? null;
   if (!commons && !secDefs) return records;
 
   /** デフォルト値オブジェクトを構築 */
@@ -317,7 +420,7 @@ function applyCommons(records, workMeta, dbName) {
     if (!secDefs) return {};
     let fallback = null;
     for (const def of secDefs) {
-      const defCmn = def._Commons;
+      const defCmn   = def._Commons;
       if (!defCmn) continue;
       const defTitle = def.sec_SeriesTitle ?? def.SecondarySeriesTitle;
       if (!defTitle) { fallback ??= buildDefaults(defCmn); continue; }
@@ -354,17 +457,6 @@ function isPublicRecord(rec) {
   if (typeof v === "boolean") return !v;
   if (typeof v === "string") return v.toLowerCase() !== "true";
   return true;
-}
-
-/**
- * レコードの全文字列テキストを抽出（検索用）
- * @param {object} rec
- * @returns {string}
- */
-function getSearchText(rec) {
-  const searchable = rec?._enrichment?.searchableText;
-  if (typeof searchable === "string") return searchable;
-  return JSON.stringify(rec);
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -421,11 +513,11 @@ function errorResponse(status, message) {
 /**
  * リクエストをルーティングして Response を返す
  * @param {Request} request
- * @param {string} repoBaseUrl
+ * @param {object} env - Workers バインディング (BUCKET, DB)
  * @returns {Promise<Response>}
  */
-async function handleRequest(request, repoBaseUrl) {
-  const url = new URL(request.url);
+async function handleRequest(request, env) {
+  const url      = new URL(request.url);
   const pathname = url.pathname;
 
   // CORS プリフライト
@@ -447,29 +539,32 @@ async function handleRequest(request, repoBaseUrl) {
   // パス解析: /api/v1/...
   const match = pathname.match(/^\/api\/v1(\/.*)?$/);
   if (!match) return errorResponse(404, "Not found");
-  const sub = (match[1] || "/").replace(/\/$/, "") || "/";
+  const sub      = (match[1] || "/").replace(/\/$/, "") || "/";
   const segments = sub.split("/").filter(Boolean);
 
   try {
-    // GET /api/v1/meta
+    // ── GET /api/v1/meta ────────────────────────────────────────────────────
     if (segments.length === 1 && segments[0] === "meta") {
-      const meta = await getGlobalMeta(repoBaseUrl, request);
+      const meta = await getGlobalMeta(env);
       return jsonResponse(meta);
     }
 
-    // GET /api/v1/works
+    // ── GET /api/v1/works ───────────────────────────────────────────────────
     if (segments.length === 1 && segments[0] === "works") {
-      const meta = await getGlobalMeta(repoBaseUrl, request);
-      const creationWorks = meta?.CreationWorks ?? {};
-      const works = Object.entries(creationWorks)
-        .filter(([, info]) => !info?.Works_Hidden)
-        .map(([key, info]) => ({
-          key,
-          Title:         info?.Title         ?? "",
-          Title_EN:      info?.Title_EN       ?? "",
-          Works_Summary: info?.Works_Summary  ?? "",
-          OldTitles:     info?.OldTitles      ?? [],
-        }));
+      const rows = await d1Query(
+        env,
+        "SELECT key, title, title_en, summary, meta_json FROM works WHERE is_hidden = 0"
+      );
+      const works = rows.map((r) => {
+        const info = r.meta_json ? JSON.parse(r.meta_json) : {};
+        return {
+          key:           r.key,
+          Title:         r.title         ?? "",
+          Title_EN:      r.title_en       ?? "",
+          Works_Summary: r.summary        ?? "",
+          OldTitles:     info.OldTitles   ?? [],
+        };
+      });
       return jsonResponse(works);
     }
 
@@ -479,114 +574,91 @@ async function handleRequest(request, repoBaseUrl) {
       const workKey = toWorkKey(rawWork);
       if (!workKey) return errorResponse(400, "Invalid work ID");
 
-      // Works_Hidden チェック
-      const globalMeta = await getGlobalMeta(repoBaseUrl, request);
-      const workInfo = globalMeta?.CreationWorks?.[workKey];
-      if (workInfo?.Works_Hidden) return errorResponse(404, "Work not found");
+      // Works_Hidden チェック (D1)
+      const workRow = await d1First(
+        env,
+        "SELECT is_hidden FROM works WHERE key = ?",
+        [workKey]
+      );
+      if (workRow?.is_hidden) return errorResponse(404, "Work not found");
 
-      const workMeta = await getWorkMeta(repoBaseUrl, workKey, request);
-
-      // GET /api/v1/:work/meta
+      // ── GET /api/v1/:work/meta ───────────────────────────────────────────
       if (segments[1] === "meta" && segments.length === 2) {
+        const workMeta = await getWorkMeta(env, workKey);
         return jsonResponse(workMeta ?? { key: workKey });
       }
 
-      // GET /api/v1/:work/dbs
+      // ── GET /api/v1/:work/dbs ────────────────────────────────────────────
       if (segments[1] === "dbs" && segments.length === 2) {
-        const databases = workMeta?.Databases ?? {};
-        const dbs = Object.entries(databases)
-          .filter(([, info]) => !info?.DB_Hidden)
-          .map(([key, info]) => ({
-            key:      key.replace(/^#?(DB|Ref)_/i, ""),
-            label:    info?.DB_Label    ?? key,
-            labelEN:  info?.DB_Label_EN ?? key,
-            layer:    info?.DB_Layer    ?? "DataBases",
-          }));
+        const rows = await d1Query(
+          env,
+          "SELECT db_key, db_label, db_label_en, db_layer FROM dbs WHERE work_key = ? AND is_hidden = 0",
+          [workKey]
+        );
+        const dbs = rows.map((r) => ({
+          key:     r.db_key.replace(/^#?(DB|Ref)_/i, ""),
+          label:   r.db_label    ?? r.db_key,
+          labelEN: r.db_label_en ?? r.db_key,
+          layer:   r.db_layer    ?? "DataBases",
+        }));
         return jsonResponse(dbs);
       }
 
-      // GET /api/v1/:work/search?q=...
+      // ── GET /api/v1/:work/search?q=... ──────────────────────────────────
       if (segments[1] === "search" && segments.length === 2) {
-        const q = (url.searchParams.get("q") ?? "").toLowerCase();
+        const q = (url.searchParams.get("q") ?? "").trim();
         if (!q) return jsonResponse([]);
-
-        const databases = workMeta?.Databases ?? {};
-        const results = [];
-        for (const dbKey of Object.keys(databases)) {
-          if (databases[dbKey]?.DB_Hidden) continue;
-          const dbName = stripMetaDbPrefix(dbKey);
-          try {
-            const { records } = await resolveAndFetchDb(
-              repoBaseUrl, workKey, dbName, workMeta, request
-            );
-            const publicRecs = records.filter(isPublicRecord);
-            const enriched = applyCommons(publicRecs, workMeta, dbName);
-            for (const rec of enriched) {
-              if (getSearchText(rec).toLowerCase().includes(q)) {
-                results.push({ db: dbName, record: rec });
-              }
-            }
-          } catch { /* DB 欠損は無視して継続 */ }
-        }
+        const results = await searchAllRecordsInD1(env, workKey, q);
         return jsonResponse(results);
       }
 
       // :db が必要なルート
       if (segments.length >= 3) {
-        const rawDb = segments[1];
+        const rawDb  = segments[1];
         const dbNorm = stripMetaDbPrefix(rawDb);
         if (!isSafeToken(dbNorm)) return errorResponse(400, "Invalid DB name");
 
-        // DB_Hidden チェック
-        const dbMeta = workMeta?.Databases?.[normalizeDbKeyForMeta(dbNorm)] ?? {};
-        if (dbMeta?.DB_Hidden) return errorResponse(404, "DB not found");
+        // DB_Hidden チェック (D1)
+        const dbRow = await d1First(
+          env,
+          "SELECT is_hidden FROM dbs WHERE work_key = ? AND (db_key = ? OR db_key = ?)",
+          [workKey, `#DB_${capitalize(dbNorm)}`, `#Ref_${capitalize(dbNorm)}`]
+        );
+        if (dbRow?.is_hidden) return errorResponse(404, "DB not found");
 
-        // GET /api/v1/:work/:db/records
+        // ── GET /api/v1/:work/:db/records ──────────────────────────────────
         if (segments[2] === "records" && segments.length === 3) {
-          const { records } = await resolveAndFetchDb(
-            repoBaseUrl, workKey, dbNorm, workMeta, request
-          );
-          const publicRecs = records.filter(isPublicRecord);
-          const enriched = applyCommons(publicRecs, workMeta, dbNorm);
+          const records = await getRecordsFromD1(env, workKey, capitalize(dbNorm));
+          const workMeta = await getWorkMeta(env, workKey);
+          const enriched = applyCommons(records, workMeta, dbNorm);
           return jsonResponse(enriched);
         }
 
-        // GET /api/v1/:work/:db/records/:idx?idxKey=...
+        // ── GET /api/v1/:work/:db/records/:idx?idxKey=... ─────────────────
         if (segments[2] === "records" && segments.length === 4) {
           const idxValue = decodeURIComponent(segments[3]);
-          const idxKey = url.searchParams.get("idxKey") ?? "Num";
-          if (!isSafeToken(idxKey.replace(/\./g, "")))
+          const idxKey   = url.searchParams.get("idxKey") ?? "Num";
+          // num 後方互換: Num インデックス前提の旧パラメータ
+          const resolvedIdxKey = (url.searchParams.get("num") && !url.searchParams.get("idxKey"))
+            ? "Num" : idxKey;
+          if (!isSafeToken(resolvedIdxKey.replace(/\./g, "")))
             return errorResponse(400, "Invalid idxKey");
 
-          const { records } = await resolveAndFetchDb(
-            repoBaseUrl, workKey, dbNorm, workMeta, request
+          const rec = await getRecordFromD1(
+            env, workKey, capitalize(dbNorm), idxValue, resolvedIdxKey
           );
-          const publicRecs = records.filter(isPublicRecord);
-          const enriched = applyCommons(publicRecs, workMeta, dbNorm);
-
-          /** ドット区切りパスで値を取得 */
-          function getByPath(obj, path) {
-            return path.split(".").reduce((cur, k) => cur?.[k], obj);
-          }
-
-          const rec = enriched.find((r) => String(getByPath(r, idxKey)) === String(idxValue));
           if (!rec) return errorResponse(404, "Record not found");
-          return jsonResponse(rec);
+
+          const workMeta = await getWorkMeta(env, workKey);
+          const [enriched] = applyCommons([rec], workMeta, dbNorm);
+          return jsonResponse(enriched);
         }
 
-        // GET /api/v1/:work/:db/search?q=...
+        // ── GET /api/v1/:work/:db/search?q=... ────────────────────────────
         if (segments[2] === "search" && segments.length === 3) {
-          const q = (url.searchParams.get("q") ?? "").toLowerCase();
+          const q = (url.searchParams.get("q") ?? "").trim();
           if (!q) return jsonResponse([]);
-
-          const { records } = await resolveAndFetchDb(
-            repoBaseUrl, workKey, dbNorm, workMeta, request
-          );
-          const publicRecs = records.filter(isPublicRecord);
-          const enriched = applyCommons(publicRecs, workMeta, dbNorm);
-          const hits = enriched.filter((r) =>
-            getSearchText(r).toLowerCase().includes(q)
-          );
+          const hits = await searchRecordsInD1(env, workKey, capitalize(dbNorm), q);
           return jsonResponse(hits);
         }
       }
@@ -608,15 +680,11 @@ export default {
   /**
    * Cloudflare Workers fetch ハンドラー
    * @param {Request} request
-   * @param {object} env - wrangler.toml で定義した環境変数オブジェクト
+   * @param {object} env - wrangler.toml で定義したバインディング (BUCKET, DB)
    * @param {ExecutionContext} ctx
    * @returns {Promise<Response>}
    */
   async fetch(request, env, ctx) {
-    const repoBaseUrl = (env?.REPO_BASE_URL ?? DEFAULT_REPO_BASE_URL).replace(
-      /\/$/,
-      ""
-    );
-    return handleRequest(request, repoBaseUrl);
+    return handleRequest(request, env);
   },
 };

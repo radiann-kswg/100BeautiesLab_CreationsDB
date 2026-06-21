@@ -1,5 +1,21 @@
 # 最新のリファクタリング・仕様変更履歴
 
+### ADR-0001 採択: API 配信基盤を Cloudflare Workers + R2 + D1 へ移行 (2026-06-21)
+
+- **ADR-0001** を採択。API 配信基盤を GitHub Pages + Service Worker の疑似 API から、Cloudflare Workers + R2 + D1 による実 API へ移行する設計を確定した。
+- **インフラ作成**: R2 バケット `creationsdb-data`（JSON 静的ミラー）、D1 データベース `creationsdb-d1`（FTS5 検索インデックス）を Cloudflare アカウントに作成した。
+- **D1 スキーマ適用**: `pkg/cloudflare/schema/d1-init.sql` を新規作成し、`works` / `dbs` / `records` テーブルと FTS5 仮想テーブル (`records_fts`)・同期トリガーを D1 に適用した。
+- **マイグレーションスクリプト**: `pkg/cloudflare/scripts/migrate.mjs` を新規作成。`data/**/*.json` の全 JSON を R2 へアップロードし、作品メタ・DB メタ・レコードを D1 へ投入する。`$IndexDef`（フラット型・ネスト型両対応）から主インデックスキーを自動解決する。
+- **Worker 全面改修** (`pkg/cloudflare/worker.js` v2.0.0):
+  - データアクセス層を GitHub Pages HTTP fetch → R2 `env.BUCKET.get()` / D1 `env.DB.prepare()` に差し替えた。
+  - 検索エンドポイント (`/search`) を D1 FTS5 クエリに変更した。
+  - `Works_Hidden` / `DB_Hidden` を D1 クエリレベルで判定するよう改修した。
+  - 単一レコード取得を D1 `records` テーブルのインデックスクエリに変更した。
+- **wrangler.toml 更新**: R2 バインディング・D1 バインディング・カスタムドメインルーティング (`database.numbertales-radiann.net/api/v1/*`) を追加した。
+- **ドキュメント更新**: `CLAUDE.md` / `.github/copilot-instructions.md` / `docs/api-sw-spec.md` / `pkg/cloudflare/README.md` を新アーキテクチャに合わせて更新した。
+- **ADR-0002 ドラフト**: Google Cloud (Cloud Run / GCE) を画像生成・バッチ処理専用バックエンドとして設計するドラフトを `_work_in_progress/2026-06-21_progress_cloudflare-api-adr2-gcloud.md` に作成した。GCP プロジェクト ID 確認後に正式着手予定。
+- **Service Worker 疑似 API は継続稼働**: `/pages/v1/`, `/svc/v1/` は `_DBLink`/`_Jump` 解決を含む完全 enrich 付き疑似 API として GitHub Pages 上で引き続き稼働する。
+
 ### `*_DBLink` suffix セクションレンダラー実装・`ThisMasters` リンク対応
 
 - `lib/section-renders/dblink.js` を新規実装し、`*_DBLink` suffix フィールドを「キャラクターリンク参照」セクションとして描画する `dbLinkSection` renderer を追加した。
