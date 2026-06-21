@@ -15,7 +15,7 @@
  *     --r2-only            R2 アップロードのみ実行
  *     --d1-only            D1 投入のみ実行
  *     --clean              D1 投入前に既存データを全削除（CI / 再投入向け）
- *     --db-id <uuid>       D1 データベース ID（省略時は wrangler.toml から読む）
+ *     --db-id <name>       D1 データベース名（省略時: creationsdb-d1）
  *     --bucket <name>      R2 バケット名（省略時: creationsdb-data）
  *
  * @author 100BeautiesLab.
@@ -58,7 +58,7 @@ const DRY_RUN  = args.includes("--dry-run");
 const R2_ONLY  = args.includes("--r2-only");
 const D1_ONLY  = args.includes("--d1-only");
 const CLEAN    = args.includes("--clean");
-const DB_ID    = getArg("--db-id") ?? "b8bf7187-1966-4831-88d2-2b8906cfa745";
+const DB_ID    = getArg("--db-id") ?? "creationsdb-d1";
 const BUCKET   = getArg("--bucket") ?? "creationsdb-data";
 
 // リポジトリルート: --repo-root 引数 → scripts/ の 3 階層上

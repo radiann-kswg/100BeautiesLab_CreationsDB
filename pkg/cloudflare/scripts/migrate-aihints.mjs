@@ -13,7 +13,7 @@
  *     --repo-root <path>   リポジトリルートのパス（省略時は自動解決）
  *     --dry-run            実際の投入は行わず、処理内容のみを出力
  *     --clean              投入前に aihints テーブルを全削除（CI / 再投入向け）
- *     --db-id <uuid>       D1 データベース ID（省略時: creationsdb-d1）
+ *     --db-id <name>       D1 データベース名（省略時: creationsdb-d1）
  *
  * @author 100BeautiesLab.
  * @version 1.0.0
@@ -49,7 +49,7 @@ function getArg(name) {
 
 const DRY_RUN  = args.includes("--dry-run");
 const CLEAN    = args.includes("--clean");
-const DB_ID    = getArg("--db-id") ?? "b8bf7187-1966-4831-88d2-2b8906cfa745";
+const DB_ID    = getArg("--db-id") ?? "creationsdb-d1";
 
 const REPO_ROOT = resolve(getArg("--repo-root") ?? join(__dirname, "../../.."));
 const DATA_DIR  = join(REPO_ROOT, "data");
