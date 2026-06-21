@@ -62,11 +62,13 @@ node pkg/cloudflare/scripts/migrate.mjs
 ### 4. Worker デプロイ
 
 ```sh
-cd pkg/cloudflare
-npx wrangler deploy
-# 本番環境:
-npx wrangler deploy --env production
+# リポジトリルートで実行（--config でパス指定）
+npx wrangler deploy --config pkg/cloudflare/wrangler.toml
 ```
+
+> **注意**: `--env production` は使用しない。`wrangler.toml` で `[env.production]` を定義すると wrangler が名前付き環境を優先し、トップレベルの `routes` が引き継がれず "No targets deployed" になる。環境定義は設けず、トップレベル設定のみで運用する。
+
+> **wrangler.toml のルーティング配置について**: `routes = [...]` は TOML の root-level キーとして、すべての `[section]` / `[[array]]` ヘッダーより前に配置すること。`[vars]` や `[[d1_databases]]` の後ろに書くと、そのスコープ内の環境変数・フィールドとして誤解釈される。
 
 ### 5. ローカル開発
 

@@ -34,8 +34,10 @@ import { execSync } from "node:child_process";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname  = dirname(__filename);
 
-/** D1 バッチ INSERT の最大行数（D1 の制約に合わせて調整） */
-const D1_BATCH_SIZE = 100;
+/** D1 バッチ INSERT の最大行数。1 ファイル=1 SQL 文にする単位。
+ *  レコード JSON は大きいため SQLITE_TOOBIG 回避で 1 レコード 1 INSERT にしており、
+ *  この値は SQL ファイル 1 本あたりの文数（= レコード数）の上限。 */
+const D1_BATCH_SIZE = 10;
 
 /** wrangler コマンドのプレフィックス（npx 経由で常に最新版を使用） */
 const WRANGLER = "npx wrangler";
@@ -194,7 +196,10 @@ function d1Execute(label, sql) {
 function d1BatchInsert(table, columns, valueParts, labelPrefix) {
   for (let i = 0; i < valueParts.length; i += D1_BATCH_SIZE) {
     const chunk = valueParts.slice(i, i + D1_BATCH_SIZE);
-    const sql = `INSERT OR REPLACE INTO ${table} (${columns}) VALUES\n${chunk.join(",\n")};`;
+    // レコード JSON は大きいため SQLITE_TOOBIG 回避で 1 レコード 1 INSERT 文にする
+    const sql = chunk
+      .map((v) => `INSERT OR REPLACE INTO ${table} (${columns}) VALUES\n${v};`)
+      .join("\n");
     d1Execute(`${labelPrefix} [${i + 1}-${i + chunk.length}]`, sql);
   }
 }
