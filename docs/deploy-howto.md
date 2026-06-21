@@ -10,28 +10,28 @@
 
 `develop` ブランチへの push 時に、変更パスに応じて自動実行される:
 
-| 変更パス | 実行されるジョブ |
-|---------|----------------|
-| `data/**` | R2/D1 データ同期（`--clean` 付きで全件再投入） |
-| `pkg/cloudflare/worker.js` / `wrangler.toml` / `schema/**` / `scripts/**` | Worker デプロイ |
+| 変更パス                                                                  | 実行されるジョブ                               |
+| ------------------------------------------------------------------------- | ---------------------------------------------- |
+| `data/**`                                                                 | R2/D1 データ同期（`--clean` 付きで全件再投入） |
+| `pkg/cloudflare/worker.js` / `wrangler.toml` / `schema/**` / `scripts/**` | Worker デプロイ                                |
 
 ### 初回セットアップ: GitHub Secrets の登録
 
 GitHub リポジトリの **Settings → Secrets and variables → Actions** で以下を登録する:
 
-| Secret 名 | 値の取得方法 |
-|-----------|------------|
-| `CLOUDFLARE_API_TOKEN` | Cloudflare ダッシュボード → My Profile → API Tokens → Create Token<br>テンプレート「**Edit Cloudflare Workers**」を使い、D1・R2 の権限も追加する |
-| `CLOUDFLARE_ACCOUNT_ID` | Cloudflare ダッシュボード右サイドバー「Account ID」 |
+| Secret 名               | 値の取得方法                                                                                                                                     |
+| ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `CLOUDFLARE_API_TOKEN`  | Cloudflare ダッシュボード → My Profile → API Tokens → Create Token<br>テンプレート「**Edit Cloudflare Workers**」を使い、D1・R2 の権限も追加する |
+| `CLOUDFLARE_ACCOUNT_ID` | Cloudflare ダッシュボード右サイドバー「Account ID」                                                                                              |
 
 #### API Token に必要な権限
 
-| リソース | 権限 |
-|---------|------|
-| Workers Scripts | Edit |
-| Workers Routes | Edit |
-| D1 | Edit |
-| R2 Storage | Edit |
+| リソース                       | 権限 |
+| ------------------------------ | ---- |
+| Workers Scripts                | Edit |
+| Workers Routes                 | Edit |
+| D1                             | Edit |
+| R2 Storage                     | Edit |
 | Zone (numbertales-radiann.net) | Read |
 
 ---
@@ -63,11 +63,11 @@ npx wrangler deploy --config pkg/cloudflare/wrangler.toml
 
 ### よくあるエラー
 
-| エラー | 対処 |
-|-------|------|
-| `[ERROR] No account id found.` | `wrangler.toml` の `account_id` を確認 |
+| エラー                         | 対処                                              |
+| ------------------------------ | ------------------------------------------------- |
+| `[ERROR] No account id found.` | `wrangler.toml` の `account_id` を確認            |
 | `[ERROR] Route already exists` | Cloudflare ダッシュボードで既存ルートを確認・削除 |
-| `authentication error` | `npx wrangler login` を再実行 |
+| `authentication error`         | `npx wrangler login` を再実行                     |
 
 ---
 
@@ -177,6 +177,7 @@ node pkg/cloudflare/scripts/migrate.mjs --repo-root . --d1-only --clean
 
 > FTS5 トリガーが自動で同期するため、`records_fts` の手動操作は不要。
 > `--clean` なしで `--d1-only` を使う場合は、先に手動でテーブルをクリアすること:
+>
 > ```bash
 > npx wrangler d1 execute b8bf7187-1966-4831-88d2-2b8906cfa745 --remote --yes \
 >   --command "DELETE FROM records; DELETE FROM dbs; DELETE FROM works;"
@@ -286,10 +287,10 @@ gcloud run deploy numbertales-imagegen \
 
 ## 参考
 
-| 対象 | 参照先 |
-|------|--------|
-| Workers 実 API 仕様 | `docs/api-sw-spec.md` §0 |
-| AIHints 仕様 | `docs/aihints-spec.md` |
-| Cloudflare セットアップ全般 | `pkg/cloudflare/README.md` |
-| ADR-0001 実装記録 | `_work_in_progress/2026-06-21_progress_cloudflare-api-adr.md` |
-| ADR-0002 Google Cloud 設計 | `_work_in_progress/2026-06-21_progress_cloudflare-api-adr2-gcloud.md` |
+| 対象                        | 参照先                                                                |
+| --------------------------- | --------------------------------------------------------------------- |
+| Workers 実 API 仕様         | `docs/api-sw-spec.md` §0                                              |
+| AIHints 仕様                | `docs/aihints-spec.md`                                                |
+| Cloudflare セットアップ全般 | `pkg/cloudflare/README.md`                                            |
+| ADR-0001 実装記録           | `_work_in_progress/2026-06-21_progress_cloudflare-api-adr.md`         |
+| ADR-0002 Google Cloud 設計  | `_work_in_progress/2026-06-21_progress_cloudflare-api-adr2-gcloud.md` |
