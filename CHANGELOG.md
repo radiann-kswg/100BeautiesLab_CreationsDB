@@ -1,5 +1,11 @@
 # 最新のリファクタリング・仕様変更履歴
 
+### Cloudflare Workers 実 API 初回デプロイ完了・疎通確認 (2026-06-21)
+
+- **`pkg/cloudflare/wrangler.toml` TOML パース修正**: `routes = [...]` が `[vars]` / `[[d1_databases]]` スコープ内に誤配置されており、wrangler が `vars.routes` または `d1_databases[0].routes` として解釈する問題を修正。TOML の root-level キーはすべての `[section]` / `[[array]]` ヘッダーより前に配置しなければならない仕様に従い、`routes = [...]` を先頭スカラー群の直後に移動した。合わせて `[env.production]` セクション（冗長な重複定義）を削除。
+- **`pkg/cloudflare/scripts/migrate.mjs` SQLITE_TOOBIG 修正**: `records` テーブルへの D1 INSERT で D1 の 1 文あたり約 100KB 上限を超えて `SQLITE_TOOBIG` が発生する問題を修正。`d1BatchInsert()` を複数 VALUES の一括 INSERT から 1 レコード 1 INSERT 文（`D1_BATCH_SIZE = 10` ファイルあたり 10 文）に変更した（`migrate-aihints.mjs` と同方式）。
+- **初回デプロイ・疎通確認完了**: `database.numbertales-radiann.net/api/v1/*` への Worker デプロイが完了し、全エンドポイントの動作を確認した（`/works` 7件・`/Primary/records` 376件・単一レコード取得・FTS5 全文検索）。
+
 ### ADR-0001 採択: API 配信基盤を Cloudflare Workers + R2 + D1 へ移行 (2026-06-21)
 
 - **ADR-0001** を採択。API 配信基盤を GitHub Pages + Service Worker の疑似 API から、Cloudflare Workers + R2 + D1 による実 API へ移行する設計を確定した。

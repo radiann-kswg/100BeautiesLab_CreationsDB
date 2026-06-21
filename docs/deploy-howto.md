@@ -117,45 +117,60 @@ node pkg/cloudflare/scripts/migrate.mjs --repo-root . --clean
 
 Worker デプロイ + データ投入が完了したら以下のエンドポイントを順番に確認する。
 
+> **Worker 実 API の URL 書式について**
+> Cloudflare Workers 実 API のルートは `/api/v1/:work/:db/records` 形式（`works/` プレフィックスと `db/` インフィックスを持たない）。
+> Service Worker 疑似 API の `/api/v1/works/:work/db/:db/records` 形式と異なる点に注意。
+> 詳細は `docs/api-sw-spec.md` §0 の書式対比表を参照。
+
 ### 3-1. 作品一覧
 
 ```
 GET https://database.numbertales-radiann.net/api/v1/works
 ```
 
-期待レスポンス例:
+期待レスポンス例（配列形式）:
 
 ```json
-{
-  "works": [
-    { "key": "Works_NumberTales", "title": "ナンバーテールズ", ... },
-    ...
-  ]
-}
+[
+  { "key": "#Works_NumberTales", "Title": "ナンバーテールズ", "Title_EN": "NumberTales", ... },
+  ...
+]
 ```
 
 ### 3-2. 特定作品のDB一覧
 
 ```
-GET https://database.numbertales-radiann.net/api/v1/works/Works_NumberTales/dbs
+GET https://database.numbertales-radiann.net/api/v1/Works_NumberTales/dbs
 ```
 
 ### 3-3. レコード一覧
 
 ```
-GET https://database.numbertales-radiann.net/api/v1/works/Works_NumberTales/db/Primary
+GET https://database.numbertales-radiann.net/api/v1/Works_NumberTales/Primary/records
 ```
 
 ### 3-4. 単一レコード取得
 
 ```
-GET https://database.numbertales-radiann.net/api/v1/works/Works_NumberTales/db/Primary/record?idx=1
+GET https://database.numbertales-radiann.net/api/v1/Works_NumberTales/Primary/records/1
 ```
 
-### 3-5. 全文検索
+インデックスキーを明示する場合:
 
 ```
-GET https://database.numbertales-radiann.net/api/v1/search?q=テスト&works=Works_NumberTales
+GET https://database.numbertales-radiann.net/api/v1/Works_NumberTales/Primary/records/1?idxKey=Num
+```
+
+### 3-5. 全文検索（DB 内）
+
+```
+GET https://database.numbertales-radiann.net/api/v1/Works_NumberTales/Primary/search?q=ハジメ
+```
+
+### 3-6. 全文検索（作品横断）
+
+```
+GET https://database.numbertales-radiann.net/api/v1/Works_NumberTales/search?q=ハジメ
 ```
 
 ---

@@ -83,6 +83,20 @@
 - **`$Def_DBLinkRef` フォーマット**: `*_DBLink` エントリ（UI向けリンク用）は `{ "_Work": "WorksTitle", "_DB": "DbName", "IndexKey": "IndexValue" }` 形式を正とします。ネストインデックスも可（例: `"Card": { "Stoat": "Major", "StoatNum": 17 }`）。旧フォーマット（`{ worksTitle, dbName, _Search: [{hashTag, key}] }`）は廃止。ただし `EnrichmentProcessor.resolveDbLinkPrimaryRecord()` が使うレコードルートの `_DBLink`（マージ用）は旧フォーマットのまま維持します。
 - **`ThisMasters._DBLink` のフォーマット**: `$Def_DBLinkRef` 形式を使います。`lib/section-renders/thisMasters.js` の `hydrateThisMastersLink` は SENTINEL_KEYS（`_DB / _Work / label_JP / label_EN`）を除いた最初のキーをインデックスとして動的解決します。
 
+### ブランチ運用方針
+
+#### `develop` ブランチ（コアドキュメント・主機能）
+
+- コアコード・ドキュメントの source of truth。通常の実装・修正はこのブランチに行う。
+- **AIHints 関連のコード・スキーマ・エンドポイントは `develop` に含めない**（`addon-ai-tag` ブランチで管理）。
+
+#### `addon-ai-tag` ブランチ（AIHints 専用機能）
+
+- `develop` を定期的にマージしながら派生する「拡張ブランチ」。`develop` → `addon-ai-tag` の一方向マージのみ。
+- **`addon-ai-tag` → `develop` への逆マージは行わない**。
+- 対象: `pkg/cloudflare/schema/d1-aihints.sql`、AIHints Worker エンドポイント、`migrate-aihints.mjs`、`cf-api-sync.yml` の AIHints 投入ステップ、`docs/aihints-spec.md`。
+- `develop` で作業中に AIHints 関連の要件に触れた場合、実装は `addon-ai-tag` に委ね `develop` 側では注記にとどめること。
+
 ### 会話パターン情報追加時の運用制約（重要）
 
 - **User 手動入力が主体**: 会話パターン情報（口調、話題傾向、会話頻度、補足など）の「値」は、Copilot の自動生成前提にせず User が手動入力・監修することを原則とします。
@@ -212,7 +226,7 @@
 ### システム設計原則
 
 1. **静的サイト設計**: GitHub Pages 上で動作する完全な静的サイト（アセット配信に専念）
-2. **実 API（Cloudflare Workers）**: `database.numbertales-radiann.net/api/v1/` → R2（JSON ミラー）+ D1（FTS5）で外部クライアントから直接利用可能（`pkg/cloudflare/`）
+2. **実 API（Cloudflare Workers）**: `database.numbertales-radiann.net/api/v1/` → R2（JSON ミラー）+ D1（FTS5）で外部クライアントから直接利用可能（`pkg/cloudflare/`）（**ADR-0001 実装・稼働済み。2026-06-21 初回デプロイ完了**）
 3. **疑似 API（Service Worker）**: `/pages/v1/`, `/svc/v1/` はブラウザ専用・完全 enrich 付き API として GitHub Pages で継続稼働
 4. **共通ライブラリアーキテクチャ**: `lib/sw-common.js`、`lib/data-common.js`による機能統合
 5. **データ駆動設計**: JSON スキーマ(`db_type.json`)に基づく型安全なデータ操作

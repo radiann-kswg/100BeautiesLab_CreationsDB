@@ -47,6 +47,24 @@
 スキーマ定義: `pkg/cloudflare/schema/d1-init.sql`
 マイグレーション: `pkg/cloudflare/scripts/migrate.mjs`
 
+### Workers 実 API と SW 疑似 API の URL 書式比較
+
+両 API は `/api/v1/` を共有するが、`:work` と `:db` の配置が異なる。
+
+| 操作 | Workers 実 API | SW 疑似 API |
+|------|---------------|-------------|
+| 作品一覧 | `/api/v1/works` | `/api/v1/works` |
+| DB 一覧 | `/api/v1/:work/dbs` | `/api/v1/works/:work/dbs` |
+| レコード一覧 | `/api/v1/:work/:db/records` | `/api/v1/works/:work/db/:db/records` |
+| レコード 1 件 | `/api/v1/:work/:db/records/:idx` | `/api/v1/works/:work/db/:db/records/:idx` |
+| DB 内検索 | `/api/v1/:work/:db/search?q=` | `/api/v1/works/:work/db/:db/search?q=` |
+| 作品横断検索 | `/api/v1/:work/search?q=` | `/api/v1/works/:work/search?q=` |
+
+主な差分:
+- SW 疑似 API: `works/` プレフィックスと `db/` インフィックスを持つ
+- Workers 実 API: `:work` と `:db` が直接パスに並ぶ（`works/` / `db/` は省略）
+- 疎通確認の具体的な URL 例は `docs/deploy-howto.md` §3 を参照。
+
 ---
 
 ## 1. 全体像
