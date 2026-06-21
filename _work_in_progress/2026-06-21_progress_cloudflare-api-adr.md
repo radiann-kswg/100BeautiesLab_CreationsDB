@@ -125,12 +125,47 @@ D1 には `_Commons`・`isPrivate` 適用済みのレコードインデックス
 
 ---
 
+## 追加実装（後続セッション: 2026-06-21）
+
+### D: GitHub Actions 自動更新（`cf-api-sync.yml`）✓
+
+`.github/workflows/cf-api-sync.yml` を作成：
+- `develop` ブランチへの `data/**` push → R2/D1 データ同期（`migrate.mjs --clean`）
+- `pkg/cloudflare/**` push → Worker デプロイ（`wrangler deploy`）
+
+### E: migrate.mjs 改善 ✓
+
+- `--yes` フラグ追加（D1 確認プロンプトを抑制）
+- `--clean` フラグ追加（`DELETE FROM records/dbs/works;` 後に再投入）
+
+### F: addon-ai-tag ブランチ — AIHints D1 パイプライン ✓
+
+| 成果物 | 内容 |
+|-------|------|
+| `pkg/cloudflare/schema/d1-aihints.sql` | `aihints` テーブル・UNIQUE インデックス |
+| `pkg/cloudflare/scripts/migrate-aihints.mjs` | AIHints 抽出 → D1 投入スクリプト（1レコード1 INSERT 文） |
+| `pkg/cloudflare/worker.js` | `/aihints` / `/aihints/:idx?form=` エンドポイント追加 |
+| `.github/workflows/cf-api-sync.yml`（addon-ai-tag） | スキーマ自動適用 + AIHints D1 同期ステップ追加 |
+| `docs/aihints-spec.md` | AIHints 仕様ドキュメント（新規作成） |
+
+**D1 データ投入済み**: Works_NumberTales/Primary 95件（2026-06-21）
+
+### G: ドキュメント整備 ✓
+
+| ファイル | 更新内容 |
+|---------|---------|
+| `docs/deploy-howto.md` | `--clean` フラグ運用に更新、AIHints §7 追加 |
+| `docs/api-sw-spec.md` | `/aihints` エンドポイントと `aihints` テーブルを追記 |
+| `docs/aihints-spec.md` | 新規作成（AIHints 仕様全般） |
+
+---
+
 ## 未完了タスク / 次アクション
 
-- [ ] **`npx wrangler deploy` でデプロイ実行**（ローカルで `wrangler login` 済みの環境から実行）
-- [ ] **`node pkg/cloudflare/scripts/migrate.mjs` でデータ投入**（R2 + D1 初回マイグレーション）
+- [ ] **`npx wrangler deploy` でデプロイ実行**（Worker コード最新化）
 - [ ] **`database.numbertales-radiann.net/api/v1/works` で疎通確認**
-- [ ] **ADR-0002 着手**: GCP プロジェクト ID を確認 → GCE インスタンス一覧で疎通 → Cloud Run 設計
+- [ ] **`/api/v1/works_numbertales/db/primary/aihints` で AIHints 疎通確認**（addon-ai-tag デプロイ後）
+- [ ] **ADR-0002 着手**: GCP プロジェクト確認済み（`claude-radiannkswg`）→ Cloud Run 設計は `_work_in_progress/2026-06-21_progress_cloudflare-api-adr2-gcloud.md` 参照
 - [ ] **EnrichmentProcessor の Worker 移植**（`_DBLink`/`_Jump` 解決を Workers にも実装。次フェーズ）
 
 ---

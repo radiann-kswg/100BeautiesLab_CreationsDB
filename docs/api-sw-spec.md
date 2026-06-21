@@ -36,6 +36,8 @@
 | GET | `/api/v1/:work/:db/records/:idx` | D1 `records` | 1 件取得（`?idxKey=X` でフィールド指定） |
 | GET | `/api/v1/:work/:db/search?q=` | D1 FTS5 | DB 内全文検索 |
 | GET | `/api/v1/:work/search?q=` | D1 FTS5 | 作品横断全文検索 |
+| GET | `/api/v1/:work/:db/aihints` | D1 `aihints` | AIHints 一覧（addon-ai-tag ブランチ） |
+| GET | `/api/v1/:work/:db/aihints/:idx` | D1 `aihints` | 1件取得（`?form=<form>` で形態絞り込み） |
 
 ### D1 スキーマ概要
 
@@ -43,9 +45,12 @@
 - `dbs`: DB メタ（`work_key`, `db_key`, `db_label`, `db_label_en`, `db_layer`, `is_hidden`）
 - `records`: レコード本体（`work_key`, `db_name`, `idx_key`, `idx_value`, `is_private`, `searchable_text`, `data_json`）
 - `records_fts`: FTS5 仮想テーブル（`records` を content として外部コンテンツ。INSERT/DELETE/UPDATE トリガーで自動同期）
+- `aihints`: AIHints 専用テーブル（`work_key`, `db_name`, `idx_key`, `idx_value`, `forms`, `common_json`, `forms_json`, `data_json`）— addon-ai-tag ブランチ
 
-スキーマ定義: `pkg/cloudflare/schema/d1-init.sql`
-マイグレーション: `pkg/cloudflare/scripts/migrate.mjs`
+スキーマ定義: `pkg/cloudflare/schema/d1-init.sql`（基本テーブル）/ `pkg/cloudflare/schema/d1-aihints.sql`（AIHints テーブル）
+マイグレーション: `pkg/cloudflare/scripts/migrate.mjs`（基本データ）/ `pkg/cloudflare/scripts/migrate-aihints.mjs`（AIHints）
+
+詳細: `docs/aihints-spec.md`
 
 ---
 

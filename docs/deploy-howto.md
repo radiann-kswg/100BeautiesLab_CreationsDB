@@ -207,7 +207,50 @@ npx wrangler dev --config pkg/cloudflare/wrangler.toml --remote
 
 ---
 
-## 7. Google Cloud Run デプロイ（ADR-0002 / 将来手順）
+## 7. AIHints D1 投入（addon-ai-tag ブランチ）
+
+> このセクションは `addon-ai-tag` ブランチのみ対象。AIHints テーブルのスキーマ適用と、
+> `data/` 内の `AIHints` フィールドを D1 `aihints` テーブルへ投入する手順です。
+
+### 7-1. スキーマ適用（初回のみ）
+
+```bash
+npx wrangler d1 execute b8bf7187-1966-4831-88d2-2b8906cfa745 \
+  --file="pkg/cloudflare/schema/d1-aihints.sql" --remote --yes
+```
+
+`CREATE TABLE IF NOT EXISTS` なので、2回実行しても安全。
+
+### 7-2. AIHints データ投入
+
+```bash
+# ドライランで確認
+node pkg/cloudflare/scripts/migrate-aihints.mjs --repo-root . --dry-run
+
+# 実投入（--clean で既存データを全削除してから再投入）
+node pkg/cloudflare/scripts/migrate-aihints.mjs --repo-root . --clean
+```
+
+### 7-3. 疎通確認
+
+```
+# AIHints 一覧
+GET https://database.numbertales-radiann.net/api/v1/works_numbertales/db/primary/aihints
+
+# 1 件取得（例: Num=1）
+GET https://database.numbertales-radiann.net/api/v1/works_numbertales/db/primary/aihints/1
+
+# 形態絞り込み
+GET https://database.numbertales-radiann.net/api/v1/works_numbertales/db/primary/aihints/1?form=humanoid
+```
+
+GitHub Actions（`cf-api-sync.yml`）は `data/**` に変更があると自動でスキーマ適用 + データ投入を実行する。
+
+詳細仕様: `docs/aihints-spec.md`
+
+---
+
+## 8. Google Cloud Run デプロイ（ADR-0002 / 将来手順）
 
 > 現時点では未実装。`numbertales-imagegen` のコンテナ化が完了したら実施。
 
@@ -243,6 +286,7 @@ gcloud run deploy numbertales-imagegen \
 | 対象 | 参照先 |
 |------|--------|
 | Workers 実 API 仕様 | `docs/api-sw-spec.md` §0 |
+| AIHints 仕様 | `docs/aihints-spec.md` |
 | Cloudflare セットアップ全般 | `pkg/cloudflare/README.md` |
 | ADR-0001 実装記録 | `_work_in_progress/2026-06-21_progress_cloudflare-api-adr.md` |
 | ADR-0002 Google Cloud 設計 | `_work_in_progress/2026-06-21_progress_cloudflare-api-adr2-gcloud.md` |
