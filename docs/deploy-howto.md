@@ -247,21 +247,40 @@ node pkg/cloudflare/scripts/migrate-aihints.mjs --repo-root . --dry-run
 node pkg/cloudflare/scripts/migrate-aihints.mjs --repo-root . --clean
 ```
 
-### 7-3. 疎通確認
+### 7-3. AI_ACCESS_TOKEN シークレット設定
 
+AIHints エンドポイントは Bearer トークン認証を使用する。トークンは Cloudflare Secret として設定する。
+
+```bash
+# リポジトリルートで実行（addon-ai-tag ブランチの Worker 名で設定）
+npx wrangler secret put AI_ACCESS_TOKEN --name creationsdb-api-ai
 ```
-# AIHints 一覧
-GET https://database.numbertales-radiann.net/api/v1/works_numbertales/db/primary/aihints
+
+プロンプトが表示されたらトークン文字列を入力して Enter。
+設定後は再デプロイ不要（Secrets は即時反映される）。
+
+GitHub Actions から自動デプロイする場合は、GitHub Secrets にも `CF_AI_ACCESS_TOKEN`（任意の名前）を追加して
+`cf-api-sync.yml` 内で `wrangler secret put` を実行するよう設定すること。
+
+### 7-4. 疎通確認
+
+```bash
+# AIHints 一覧（Bearer トークン必須）
+curl -H "Authorization: Bearer <your-token>" \
+  https://database.numbertales-radiann.net/api/ai/Works_NumberTales/Primary/aihints
 
 # 1 件取得（例: Num=1）
-GET https://database.numbertales-radiann.net/api/v1/works_numbertales/db/primary/aihints/1
+curl -H "Authorization: Bearer <your-token>" \
+  https://database.numbertales-radiann.net/api/ai/Works_NumberTales/Primary/aihints/1
 
 # 形態絞り込み
-GET https://database.numbertales-radiann.net/api/v1/works_numbertales/db/primary/aihints/1?form=humanoid
+curl -H "Authorization: Bearer <your-token>" \
+  "https://database.numbertales-radiann.net/api/ai/Works_NumberTales/Primary/aihints/1?form=humanoid"
 ```
 
-> `:work` / `:db` パラメータは大文字小文字を Worker が正規化（lowercase → capitalize）するので
-> `Works_NumberTales/Primary` → `works_numbertales/primary` と入力しても動作する。
+> **注意**: `addon-ai-tag` の Worker は `/api/ai/` プレフィックスを使用する（`develop` の `/api/v1/` とは別）。
+> `:work` / `:db` パラメータは大文字小文字を Worker が正規化するので
+> `works_numbertales/primary` と入力しても動作する。
 
 GitHub Actions（`cf-api-sync.yml`）は `data/**` に変更があると自動でスキーマ適用 + データ投入を実行する。
 

@@ -1,4 +1,4 @@
-name = "creationsdb-api"
+name = "creationsdb-api-ai"
 main = "worker.js"
 compatibility_date = "2024-12-01"
 workers_dev = false
@@ -10,7 +10,7 @@ workers_dev = false
 # ─────────────────────────────────────────────────────────────────────────────
 
 routes = [
-  { pattern = "database.numbertales-radiann.net/api/v1/*", zone_name = "numbertales-radiann.net" }
+  { pattern = "database.numbertales-radiann.net/api/ai/*", zone_name = "numbertales-radiann.net" }
 ]
 
 # ─────────────────────────────────────────────────────────────────────────────

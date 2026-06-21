@@ -90,10 +90,33 @@ CREATE INDEX IF NOT EXISTS idx_aihints_list
 
 `pkg/cloudflare/worker.js` に実装済み（addon-ai-tag ブランチ）。
 
+ベース URL: `https://database.numbertales-radiann.net/api/ai/`
+
+> **addon-ai-tag ブランチのルーティングについて**:
+> `develop` ブランチの公開 Worker は `/api/v1/*`（閲覧者向け）。
+> `addon-ai-tag` の AI Worker は `/api/ai/*`（サークル関係者向け）。
+> AIHints エンドポイント（`/aihints`）は Bearer トークン認証が必要。
+
+### 3-0. 認証
+
+AIHints エンドポイントへのリクエストには `Authorization` ヘッダーが必要。
+
+```
+Authorization: Bearer <AI_ACCESS_TOKEN>
+```
+
+| 認証結果 | レスポンス |
+|---------|----------|
+| トークン一致 | 200（通常レスポンス） |
+| トークン不一致・ヘッダーなし | 401 `{"error":"Unauthorized","status":401}` |
+| `AI_ACCESS_TOKEN` 未設定（ローカル開発） | 認証バイパス（全リクエスト通過） |
+
+トークンは Cloudflare Secret で管理: `npx wrangler secret put AI_ACCESS_TOKEN`
+
 ### 3-1. AIHints 一覧取得
 
 ```
-GET /api/v1/:work/:db/aihints
+GET /api/ai/:work/:db/aihints
 ```
 
 | パラメータ | 説明 |
@@ -121,7 +144,7 @@ GET /api/v1/:work/:db/aihints
 ### 3-2. 1 件取得
 
 ```
-GET /api/v1/:work/:db/aihints/:idx
+GET /api/ai/:work/:db/aihints/:idx
 ```
 
 | パラメータ | 説明 |
@@ -205,7 +228,7 @@ D1 は 1 SQL 文あたり最大約 100KB の制限がある。AIHints の `data_
 
 ```
 Cloud Run POST /generate
-  → GET /api/v1/:work/:db/aihints/:idx?form=<form>
+  → GET /api/ai/:work/:db/aihints/:idx?form=<form>
   → Stable Diffusion / SDXL へプロンプト送信
   → 生成画像を R2 / GCS へ保存
 ```

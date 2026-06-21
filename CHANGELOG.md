@@ -1,5 +1,13 @@
 # 最新のリファクタリング・仕様変更履歴
 
+### addon-ai-tag: API エンドポイント分離・AIHints Bearer 認証追加 (2026-06-21)
+
+- **`pkg/cloudflare/wrangler.toml` (addon-ai-tag)**: Worker 名を `creationsdb-api-ai` に変更し、ルートを `/api/v1/*` から `/api/ai/*` に変更。公開 API (`develop` / `creationsdb-api`) との共存体制を確立した。
+- **`pkg/cloudflare/worker.js` (addon-ai-tag)**: パスプレフィックス正規表現を `/api/v1` → `/api/ai` に変更。`checkAiAuth()` 関数を追加し、AIHints エンドポイント（`/:work/:db/aihints` / `/:work/:db/aihints/:idx`）への全リクエストに Bearer トークン認証を適用した。`AI_ACCESS_TOKEN` が未設定の場合はローカル開発向けにバイパス。`errorResponse()` を拡張して追加レスポンスヘッダーに対応した。
+- **`docs/aihints-spec.md`**: エンドポイント URL を `/api/v1/` → `/api/ai/` に統一更新。認証セクション（§3-0）を新設し、Bearer トークンの取得・設定方法と 401 レスポンス仕様を記載した。
+- **`docs/api-sw-spec.md` §0**: API 三層構成（公開実 API `/api/v1/` / AI 実 API `/api/ai/` / 疑似 API）の対比表を更新。`/api/ai/` エンドポイント説明と Bearer 認証注記を追加した。
+- **`docs/deploy-howto.md` §7**: AIHints 疎通確認の URL を `/api/ai/` に修正（旧: `/api/v1/`）。`AI_ACCESS_TOKEN` シークレット設定手順を §7-3 に新設した。
+
 ### Cloudflare Workers 実 API 初回デプロイ完了・疎通確認 (2026-06-21)
 
 - **`pkg/cloudflare/wrangler.toml` TOML パース修正**: `routes = [...]` が `[vars]` / `[[d1_databases]]` スコープ内に誤配置されており、wrangler が `vars.routes` または `d1_databases[0].routes` として解釈する問題を修正。TOML の root-level キーはすべての `[section]` / `[[array]]` ヘッダーより前に配置しなければならない仕様に従い、`routes = [...]` を先頭スカラー群の直後に移動した。合わせて `[env.production]` セクション（冗長な重複定義）を削除。

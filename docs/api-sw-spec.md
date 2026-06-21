@@ -17,8 +17,13 @@
 
 | 層 | エンドポイント | 実装 | データソース | 主な用途 |
 |----|--------------|------|------------|--------|
-| **実 API** | `database.numbertales-radiann.net/api/v1/*` | Cloudflare Workers (`pkg/cloudflare/worker.js`) | R2（JSON ミラー）+ D1（FTS5） | 外部クライアント・curl・モバイルアプリ |
+| **実 API（公開）** | `database.numbertales-radiann.net/api/v1/*` | Cloudflare Workers `creationsdb-api` (`develop`) | R2（JSON ミラー）+ D1（FTS5） | 外部クライアント・curl・モバイルアプリ |
+| **実 API（AI 用）** | `database.numbertales-radiann.net/api/ai/*` | Cloudflare Workers `creationsdb-api-ai` (`addon-ai-tag`) | R2 + D1 + D1 `aihints` | サークル関係者・Cloud Run 画像生成 |
 | **疑似 API** | `(同一オリジン)/api/v1/*` `/pages/v1/*` `/svc/v1/*` | Service Worker (`pages/sw.js` 等) | GitHub Pages 静的 JSON | ブラウザ・キャラシート UI |
+
+> **`/api/ai/` について**: `addon-ai-tag` ブランチ専用の Worker が提供するサークル関係者向けエンドポイント。
+> `aihints` エンドポイント（`/:work/:db/aihints`）は `Authorization: Bearer <AI_ACCESS_TOKEN>` が必要。
+> トークンは Cloudflare Secret で管理する（`wrangler secret put AI_ACCESS_TOKEN`）。
 
 - 疑似 API（SW）は完全 enrich（`_DBLink`/`_Jump` 解決）付き。実 API（Workers）は現時点で `_Commons` 適用のみ（次フェーズで拡張予定）。
 - クライアント（`pkg/nodejs`, `pkg/python`, `pkg/csharp`）はローカル JSON を直接読むため、どちらの API にも依存しない。
@@ -36,8 +41,8 @@
 | GET | `/api/v1/:work/:db/records/:idx` | D1 `records` | 1 件取得（`?idxKey=X` でフィールド指定） |
 | GET | `/api/v1/:work/:db/search?q=` | D1 FTS5 | DB 内全文検索 |
 | GET | `/api/v1/:work/search?q=` | D1 FTS5 | 作品横断全文検索 |
-| GET | `/api/v1/:work/:db/aihints` | D1 `aihints` | AIHints 一覧（addon-ai-tag ブランチ） |
-| GET | `/api/v1/:work/:db/aihints/:idx` | D1 `aihints` | 1件取得（`?form=<form>` で形態絞り込み） |
+| GET | `/api/ai/:work/:db/aihints` | D1 `aihints` | AIHints 一覧（addon-ai-tag / 要 Bearer 認証） |
+| GET | `/api/ai/:work/:db/aihints/:idx` | D1 `aihints` | 1件取得（`?form=<form>` で形態絞り込み / 要 Bearer 認証） |
 
 ### D1 スキーマ概要
 
