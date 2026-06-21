@@ -32,11 +32,11 @@ D1 には `_Commons`・`isPrivate` 適用済みのレコードインデックス
 
 ### A-1: インフラ作成 ✓
 
-| リソース | 名前 | リージョン |
-|----------|------|-----------|
-| R2 バケット | `creationsdb-data` | ENAM |
-| D1 データベース | `creationsdb-d1` | APAC (SIN) |
-| D1 UUID | `b8bf7187-1966-4831-88d2-2b8906cfa745` | — |
+| リソース        | 名前                                   | リージョン |
+| --------------- | -------------------------------------- | ---------- |
+| R2 バケット     | `creationsdb-data`                     | ENAM       |
+| D1 データベース | `creationsdb-d1`                       | APAC (SIN) |
+| D1 UUID         | `b8bf7187-1966-4831-88d2-2b8906cfa745` | —          |
 
 `pkg/cloudflare/wrangler.toml` にバインディングとカスタムドメインルーティング (`database.numbertales-radiann.net/api/v1/*`) を追加した。
 
@@ -69,17 +69,17 @@ D1 には `_Commons`・`isPrivate` 適用済みのレコードインデックス
 
 `pkg/cloudflare/worker.js` を全面改修：
 
-| 変更点 | 旧実装 | 新実装 |
-|--------|-------|--------|
-| JSON 読み込み | `fetch(github-pages-url)` | `env.BUCKET.get(key)` (R2) |
-| ファイル存在確認 | HTTP HEAD | `env.BUCKET.head(key)` (R2) |
-| 作品一覧 | R2 全体メタ解析 | D1 `works` テーブル |
-| DB 一覧 | R2 作品メタ解析 | D1 `dbs` テーブル |
-| レコード一覧 | R2 JSON 全件読み | D1 `records` テーブル |
-| 単一レコード | R2 → JS フィルタ | D1 インデックスクエリ |
-| 検索 | R2 → `JSON.stringify` LIKE | D1 FTS5 全文検索 |
-| 公開フラグ判定 | JS フィルタ | D1 クエリ (`is_private = 0`) |
-| 非公開フラグ判定 | グローバルメタ参照 | D1 `is_hidden` カラム |
+| 変更点           | 旧実装                     | 新実装                       |
+| ---------------- | -------------------------- | ---------------------------- |
+| JSON 読み込み    | `fetch(github-pages-url)`  | `env.BUCKET.get(key)` (R2)   |
+| ファイル存在確認 | HTTP HEAD                  | `env.BUCKET.head(key)` (R2)  |
+| 作品一覧         | R2 全体メタ解析            | D1 `works` テーブル          |
+| DB 一覧          | R2 作品メタ解析            | D1 `dbs` テーブル            |
+| レコード一覧     | R2 JSON 全件読み           | D1 `records` テーブル        |
+| 単一レコード     | R2 → JS フィルタ           | D1 インデックスクエリ        |
+| 検索             | R2 → `JSON.stringify` LIKE | D1 FTS5 全文検索             |
+| 公開フラグ判定   | JS フィルタ                | D1 クエリ (`is_private = 0`) |
+| 非公開フラグ判定 | グローバルメタ参照         | D1 `is_hidden` カラム        |
 
 ### A-5: デプロイ設定・README 更新 ✓
 
@@ -97,24 +97,26 @@ D1 には `_Commons`・`isPrivate` 適用済みのレコードインデックス
 
 ## C: ドキュメント更新 ✓
 
-| ファイル | 更新内容 |
-|---------|---------|
-| `CLAUDE.md` | 技術スタック・アーキテクチャ・API 節・大規模更新確認事項・参照先テーブルを更新 |
-| `.github/copilot-instructions.md` | 技術スタック・アーキテクチャ・API 節を更新 |
-| `docs/api-sw-spec.md` | §0「API 二層構成」を新規追加（Workers 実 API 仕様・D1 スキーマ概要） |
-| `CHANGELOG.md` | ADR-0001 実装完了エントリを追加 |
-| `pkg/cloudflare/README.md` | R2/D1 アーキテクチャ・セットアップ手順・エンドポイント表を更新 |
+| ファイル                          | 更新内容                                                                       |
+| --------------------------------- | ------------------------------------------------------------------------------ |
+| `CLAUDE.md`                       | 技術スタック・アーキテクチャ・API 節・大規模更新確認事項・参照先テーブルを更新 |
+| `.github/copilot-instructions.md` | 技術スタック・アーキテクチャ・API 節を更新                                     |
+| `docs/api-sw-spec.md`             | §0「API 二層構成」を新規追加（Workers 実 API 仕様・D1 スキーマ概要）           |
+| `CHANGELOG.md`                    | ADR-0001 実装完了エントリを追加                                                |
+| `pkg/cloudflare/README.md`        | R2/D1 アーキテクチャ・セットアップ手順・エンドポイント表を更新                 |
 
 ---
 
 ## 変更ファイル一覧
 
 **新規作成:**
+
 - `pkg/cloudflare/schema/d1-init.sql`
 - `pkg/cloudflare/scripts/migrate.mjs`
 - `_work_in_progress/2026-06-21_progress_cloudflare-api-adr2-gcloud.md`
 
 **更新:**
+
 - `pkg/cloudflare/worker.js` (v1.0.0 → v2.0.0)
 - `pkg/cloudflare/wrangler.toml`
 - `pkg/cloudflare/README.md`
@@ -130,6 +132,7 @@ D1 には `_Commons`・`isPrivate` 適用済みのレコードインデックス
 ### D: GitHub Actions 自動更新（`cf-api-sync.yml`）✓
 
 `.github/workflows/cf-api-sync.yml` を作成：
+
 - `develop` ブランチへの `data/**` push → R2/D1 データ同期（`migrate.mjs --clean`）
 - `pkg/cloudflare/**` push → Worker デプロイ（`wrangler deploy`）
 
@@ -152,10 +155,9 @@ D1 には `_Commons`・`isPrivate` 適用済みのレコードインデックス
 
 ### G: ドキュメント整備 ✓
 
-| ファイル | 更新内容 |
-|---------|---------|
-| `docs/deploy-howto.md` | `--clean` フラグ運用に更新、AIHints §7 追加 |
-| `docs/api-sw-spec.md` | `/aihints` エンドポイントと `aihints` テーブルを追記 |
+| ファイル               | 更新内容                     |
+| ---------------------- | ---------------------------- |
+| `docs/deploy-howto.md` | `--clean` フラグ運用に更新   |
 | `docs/aihints-spec.md` | 新規作成（AIHints 仕様全般） |
 
 ---
@@ -164,7 +166,6 @@ D1 には `_Commons`・`isPrivate` 適用済みのレコードインデックス
 
 - [ ] **`npx wrangler deploy` でデプロイ実行**（Worker コード最新化）
 - [ ] **`database.numbertales-radiann.net/api/v1/works` で疎通確認**
-- [ ] **`/api/v1/works_numbertales/db/primary/aihints` で AIHints 疎通確認**（addon-ai-tag デプロイ後）
 - [ ] **ADR-0002 着手**: GCP プロジェクト確認済み（`claude-radiannkswg`）→ Cloud Run 設計は `_work_in_progress/2026-06-21_progress_cloudflare-api-adr2-gcloud.md` 参照
 - [ ] **EnrichmentProcessor の Worker 移植**（`_DBLink`/`_Jump` 解決を Workers にも実装。次フェーズ）
 
@@ -172,13 +173,13 @@ D1 には `_Commons`・`isPrivate` 適用済みのレコードインデックス
 
 ## 受け入れ条件（DoD）の状況
 
-| 条件 | 状態 |
-|------|------|
-| `npm test` グリーン | 未確認（本変更は `data/`/`lib/`/`pages/` 非タッチのため影響なし想定） |
-| `pkg/` クライアントの動作維持 | ✓（ローカルFS 読みは変更なし） |
-| Workers 経由でエンドポイント同等レスポンス | デプロイ後に確認 |
-| `database.numbertales-radiann.net/api/v1/*` アクセス可 | デプロイ後に確認 |
-| `_DBLink`/`_Jump` 解決の維持 | SW 疑似 API 側で継続。Workers 側は次フェーズ |
+| 条件                                                   | 状態                                                                  |
+| ------------------------------------------------------ | --------------------------------------------------------------------- |
+| `npm test` グリーン                                    | 未確認（本変更は `data/`/`lib/`/`pages/` 非タッチのため影響なし想定） |
+| `pkg/` クライアントの動作維持                          | ✓（ローカルFS 読みは変更なし）                                        |
+| Workers 経由でエンドポイント同等レスポンス             | デプロイ後に確認                                                      |
+| `database.numbertales-radiann.net/api/v1/*` アクセス可 | デプロイ後に確認                                                      |
+| `_DBLink`/`_Jump` 解決の維持                           | SW 疑似 API 側で継続。Workers 側は次フェーズ                          |
 
 ---
 
