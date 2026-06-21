@@ -103,11 +103,13 @@ node pkg/cloudflare/scripts/migrate.mjs --repo-root . --d1-only
 ### 2-4. R2 + D1 まとめて投入（通常運用）
 
 ```bash
-node pkg/cloudflare/scripts/migrate.mjs --repo-root .
+# 初回・再投入共通（--clean で D1 既存データを全削除してから再投入）
+node pkg/cloudflare/scripts/migrate.mjs --repo-root . --clean
 ```
 
-> **注意**: D1 に既にデータが入っている場合、`records` テーブルは `INSERT` のみ（重複 upsert なし）。
-> 再投入する場合は先に D1 を手動でクリアしてください（後述）。
+> **`--clean` フラグについて**: `records` テーブルは AUTOINCREMENT PK のため `INSERT OR REPLACE` が upsert として機能しない。
+> `--clean` を付けると投入前に `DELETE FROM records/dbs/works;` を実行して重複を防ぐ。
+> GitHub Actions (`cf-api-sync.yml`) も `--clean` 付きで実行する。
 
 ---
 
@@ -163,18 +165,22 @@ GET https://database.numbertales-radiann.net/api/v1/search?q=テスト&works=Wor
 `data/` 配下の JSON を更新した場合は以下の手順でデータを同期する。
 
 ```bash
-# R2 を同期（JSON ファイルの追加・更新）
+# R2 + D1 を一括再投入（推奨: --clean で既存データをクリアしてから再投入）
+node pkg/cloudflare/scripts/migrate.mjs --repo-root . --clean
+
+# R2 のみ更新したい場合
 node pkg/cloudflare/scripts/migrate.mjs --repo-root . --r2-only
 
-# D1 を再投入する場合は一度クリアしてから
-npx wrangler d1 execute creationsdb-d1 --remote \
-  --command "DELETE FROM records; DELETE FROM dbs; DELETE FROM works;"
-
-# D1 再投入
-node pkg/cloudflare/scripts/migrate.mjs --repo-root . --d1-only
+# D1 のみ再投入したい場合（--clean で既存データを削除してから投入）
+node pkg/cloudflare/scripts/migrate.mjs --repo-root . --d1-only --clean
 ```
 
 > FTS5 トリガーが自動で同期するため、`records_fts` の手動操作は不要。
+> `--clean` なしで `--d1-only` を使う場合は、先に手動でテーブルをクリアすること:
+> ```bash
+> npx wrangler d1 execute b8bf7187-1966-4831-88d2-2b8906cfa745 --remote --yes \
+>   --command "DELETE FROM records; DELETE FROM dbs; DELETE FROM works;"
+> ```
 
 ---
 
