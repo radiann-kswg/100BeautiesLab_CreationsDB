@@ -848,6 +848,8 @@ function workKeyForAPI(workKey) {
  */
 function el(tag, props = {}, children = []) {
 	const e = document.createElement(tag);
+	// Mark elements created by this helper so nested composition remains safe.
+	try { e.__trustedEl = true; } catch (_) { /* no-op */ }
 	for (const [k, v] of Object.entries(props)) {
 		if (k === 'class') e.className = v;
 		else if (k === 'text') e.textContent = v;
@@ -857,9 +859,13 @@ function el(tag, props = {}, children = []) {
 	const appendAny = (child) => {
 		if (child == null) return;
 		if (Array.isArray(child)) { child.forEach(appendAny); return; }
-		// Only append trusted DOM Nodes directly; everything else becomes text
+		// Only append Nodes that were created by this helper; render others as text.
 		if (child instanceof Node) {
-			e.appendChild(child);
+			if (child.__trustedEl === true) {
+				e.appendChild(child);
+			} else {
+				e.appendChild(document.createTextNode(child.textContent || ''));
+			}
 			return;
 		}
 		const t = typeof child;
