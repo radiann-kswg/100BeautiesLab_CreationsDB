@@ -1,6 +1,7 @@
 name = "creationsdb-api"
 main = "worker.js"
 compatibility_date = "2024-12-01"
+workers_dev = false
 
 # ─────────────────────────────────────────────────────────────────────────────
 # R2 バインディング
