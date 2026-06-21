@@ -8,7 +8,7 @@
 
 ## GitHub Actions による自動更新（`cf-api-sync.yml`）
 
-`develop` ブランチへの push 時に、変更パスに応じて自動実行される:
+`develop` / `addon-ai-tag` ブランチへの push 時に、変更パスに応じて自動実行される:
 
 | 変更パス                                                                  | 実行されるジョブ                               |
 | ------------------------------------------------------------------------- | ---------------------------------------------- |
@@ -23,6 +23,8 @@ GitHub リポジトリの **Settings → Secrets and variables → Actions** で
 | ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
 | `CLOUDFLARE_API_TOKEN`  | Cloudflare ダッシュボード → My Profile → API Tokens → Create Token<br>テンプレート「**Edit Cloudflare Workers**」を使い、D1・R2 の権限も追加する |
 | `CLOUDFLARE_ACCOUNT_ID` | Cloudflare ダッシュボード右サイドバー「Account ID」                                                                                              |
+
+> **addon-ai-tag ブランチの追加設定**: `AI_ACCESS_TOKEN`（AIHints Bearer 認証トークン）は GitHub Secret ではなく **Cloudflare Secret** で管理する（`wrangler secret put AI_ACCESS_TOKEN --name creationsdb-api-ai`）。GitHub Actions の deploy-worker ジョブは `wrangler.toml` の `name` を参照して自動的に `creationsdb-api-ai` へデプロイするため、`cf-api-sync.yml` の編集は不要。
 
 #### API Token に必要な権限
 
@@ -59,7 +61,10 @@ npx wrangler deploy --config pkg/cloudflare/wrangler.toml
 ```
 
 成功するとデプロイ URL が表示される。カスタムドメインルートが設定済みなので、
-`database.numbertales-radiann.net/api/v1/works` で応答が返れば OK。
+以下の URL で応答が返れば OK。
+
+- `develop` ブランチ（`creationsdb-api`）: `database.numbertales-radiann.net/api/v1/works`
+- `addon-ai-tag` ブランチ（`creationsdb-api-ai`）: `database.numbertales-radiann.net/api/ai/works`
 
 ### よくあるエラー
 
