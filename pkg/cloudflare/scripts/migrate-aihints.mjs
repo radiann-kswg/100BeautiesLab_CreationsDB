@@ -31,7 +31,8 @@ import { execSync } from "node:child_process";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname  = dirname(__filename);
 
-const D1_BATCH_SIZE = 100;
+// D1 は 1 文あたり最大 100KB 制限があるため、AIHints の大型 JSON は 1 レコード 1 INSERT にする
+const D1_BATCH_SIZE = 10;
 const WRANGLER      = "npx wrangler";
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -157,7 +158,10 @@ function d1Execute(label, sql) {
 function d1BatchInsert(table, columns, valueParts, labelPrefix) {
   for (let i = 0; i < valueParts.length; i += D1_BATCH_SIZE) {
     const chunk = valueParts.slice(i, i + D1_BATCH_SIZE);
-    const sql = `INSERT OR REPLACE INTO ${table} (${columns}) VALUES\n${chunk.join(",\n")};`;
+    // AIHints の JSON は大きいため、1 レコード 1 INSERT 文にして SQLITE_TOOBIG を回避する
+    const sql = chunk
+      .map((v) => `INSERT OR REPLACE INTO ${table} (${columns}) VALUES\n${v};`)
+      .join("\n");
     d1Execute(`${labelPrefix} [${i + 1}-${i + chunk.length}]`, sql);
   }
 }
