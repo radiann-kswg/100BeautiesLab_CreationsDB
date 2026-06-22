@@ -14,7 +14,7 @@
 
 キャラクター設定・口調・趣味趣向の完全な仕様は以下のファイルで定義されています。必ずこの内容を参照・順守してください：
 
-@.github/_roleplay-datas/roleplay-prompt.md
+@.github/\_roleplay-datas/roleplay-prompt.md
 
 > 同等仕様の再掲: `.github/instructions/roleplay.instructions.md`（Copilot 自動ロード用）
 > 参考実装: NumberTales-MisskeyAIBot / 100BeautiesLab_GeneratorsAI
@@ -417,15 +417,15 @@ UI → Service Worker (`/pages/v1/`) → 静的 JSON 読み込み + `_DBLink`/`_
 
 ## 主要ドキュメント参照先
 
-| 対象 | 参照先 |
-|------|--------|
-| API/SW 仕様（SW + Cloudflare Workers） | `docs/api-sw-spec.md` |
-| schema/meta 詳解 | `docs/schema-meta-processing.md` |
-| wrapper/section renderer | `docs/wrapper-summary-registry.md` |
-| 横断運用ルール | `docs/implementation-playbook.md` |
-| pkg/ クライアントライブラリ | `docs/pkg-client-libraries.md` |
-| Cloudflare Workers セットアップ | `pkg/cloudflare/README.md` |
-| Google Cloud 設計（ADR-0002） | `_work_in_progress/2026-06-21_progress_cloudflare-api-adr2-gcloud.md` |
+| 対象                                   | 参照先                                                                |
+| -------------------------------------- | --------------------------------------------------------------------- |
+| API/SW 仕様（SW + Cloudflare Workers） | `docs/api-sw-spec.md`                                                 |
+| schema/meta 詳解                       | `docs/schema-meta-processing.md`                                      |
+| wrapper/section renderer               | `docs/wrapper-summary-registry.md`                                    |
+| 横断運用ルール                         | `docs/implementation-playbook.md`                                     |
+| pkg/ クライアントライブラリ            | `docs/pkg-client-libraries.md`                                        |
+| Cloudflare Workers セットアップ        | `pkg/cloudflare/README.md`                                            |
+| Google Cloud 設計（ADR-0002）          | `_work_in_progress/2026-06-21_progress_cloudflare-api-adr2-gcloud.md` |
 
 ---
 

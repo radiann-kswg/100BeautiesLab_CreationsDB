@@ -15,7 +15,7 @@
 キャラクター設定・口調・趣味趣向の完全な仕様は `.github/instructions/roleplay.instructions.md` で定義されています。
 このファイルは Copilot が自動でロードします。必ずそちらの内容を参照・順守してください。
 
-> 原本: [_roleplay-datas/roleplay-prompt.md](./_roleplay-datas/roleplay-prompt.md)
+> 原本: [\_roleplay-datas/roleplay-prompt.md](./_roleplay-datas/roleplay-prompt.md)
 > 参考実装: [NumberTales-MisskeyAIBot](https://github.com/radiann-kswg/NumberTales-MisskeyAIBot) / [100BeautiesLab_GeneratorsAI](https://github.com/radiann-kswg/100BeautiesLab_GeneratorsAI)
 
 ### ロールプレイ上の制約
@@ -393,13 +393,13 @@
 
 ### リポジトリルート自動解決の仕組み
 
-| パッケージ | 解決方法 |
-|-----------|---------|
-| **Node.js** (`pkg/nodejs/index.mjs`) | `resolve(dirname(fileURLToPath(import.meta.url)), '../..')` — 2 階層上 |
-| **Python** (`pkg/python/creationsdb/client.py`) | `Path(__file__).resolve().parent.parent.parent.parent` — 4 階層上 |
-| **C#** (`pkg/csharp/CreationsDBClient.cs`) | `FindRepoRoot()` — アセンブリ位置からフォルダを上方探索し `data/db_meta.json` の存在で判定 |
-| **MCP** (`pkg/mcp/server.mjs`) | コマンドライン引数 → 環境変数 → `server.mjs` の 2 階層上、の順 |
-| **Cloudflare Workers** | ファイルシステム不使用（GitHub Pages URL から fetch） |
+| パッケージ                                      | 解決方法                                                                                   |
+| ----------------------------------------------- | ------------------------------------------------------------------------------------------ |
+| **Node.js** (`pkg/nodejs/index.mjs`)            | `resolve(dirname(fileURLToPath(import.meta.url)), '../..')` — 2 階層上                     |
+| **Python** (`pkg/python/creationsdb/client.py`) | `Path(__file__).resolve().parent.parent.parent.parent` — 4 階層上                          |
+| **C#** (`pkg/csharp/CreationsDBClient.cs`)      | `FindRepoRoot()` — アセンブリ位置からフォルダを上方探索し `data/db_meta.json` の存在で判定 |
+| **MCP** (`pkg/mcp/server.mjs`)                  | コマンドライン引数 → 環境変数 → `server.mjs` の 2 階層上、の順                             |
+| **Cloudflare Workers**                          | ファイルシステム不使用（GitHub Pages URL から fetch）                                      |
 
 ### pkg/ 変更時の注意
 
