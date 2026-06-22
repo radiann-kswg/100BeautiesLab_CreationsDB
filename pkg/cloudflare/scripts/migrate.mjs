@@ -39,10 +39,13 @@ const __dirname  = dirname(__filename);
  *  この値は SQL ファイル 1 本あたりの文数（= レコード数）の上限。 */
 const D1_BATCH_SIZE = 10;
 
-/** wrangler 実行コマンド（シェルを介さず引数配列で実行する）
- *  Windows では execFileSync が .cmd を自動解決しないため npx.cmd を使用する */
-const WRANGLER_CMD = process.platform === "win32" ? "npx.cmd" : "npx";
+/** wrangler 実行コマンド。
+ *  Windows (Node v22+) では .cmd を execFileSync で直接起動できないため
+ *  shell オプションを使用する（WRANGLER_CMD は "npx" のまま、shell: true で解決）。 */
+const WRANGLER_CMD = "npx";
 const WRANGLER_BASE_ARGS = ["wrangler"];
+/** Windows では shell: true が必要（.cmd 解決 + パスのスペース対応） */
+const SPAWN_OPTS_BASE = process.platform === "win32" ? { shell: true } : {};
 
 // ─────────────────────────────────────────────────────────────────────────────
 // 引数パース
@@ -180,7 +183,7 @@ function d1Execute(label, sql) {
     execFileSync(
       WRANGLER_CMD,
       [...WRANGLER_BASE_ARGS, "d1", "execute", DB_ID, "--file", tmpFile, "--remote", "--yes"],
-      { stdio: "inherit", cwd: REPO_ROOT }
+      { stdio: "inherit", cwd: REPO_ROOT, ...SPAWN_OPTS_BASE }
     );
     console.log(`[D1] ✓ ${label}`);
   } catch (err) {
@@ -240,7 +243,7 @@ if (!D1_ONLY) {
           "--file", filepath,
           "--content-type", "application/json"
         ],
-        { stdio: "pipe", cwd: REPO_ROOT }
+        { stdio: "pipe", cwd: REPO_ROOT, ...SPAWN_OPTS_BASE }
       );
       console.log(`[R2] ✓ ${rel}`);
     } catch (err) {
