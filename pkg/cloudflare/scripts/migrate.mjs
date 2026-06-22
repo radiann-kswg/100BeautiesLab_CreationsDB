@@ -182,7 +182,7 @@ function d1Execute(label, sql) {
   try {
     execFileSync(
       WRANGLER_CMD,
-      [...WRANGLER_BASE_ARGS, "d1", "execute", DB_ID, "--file", tmpFile, "--remote", "--yes"],
+      [...WRANGLER_BASE_ARGS, "d1", "execute", DB_ID, "--file", relative(REPO_ROOT, tmpFile).replace(/\\/g, "/"), "--remote", "--yes"],
       { stdio: "inherit", cwd: REPO_ROOT, ...SPAWN_OPTS_BASE }
     );
     console.log(`[D1] ✓ ${label}`);
@@ -240,7 +240,7 @@ if (!D1_ONLY) {
           ...WRANGLER_BASE_ARGS,
           "r2", "object", "put",
           `${BUCKET}/${rel}`,
-          "--file", filepath,
+          "--file", rel,
           "--content-type", "application/json"
         ],
         { stdio: "pipe", cwd: REPO_ROOT, ...SPAWN_OPTS_BASE }
