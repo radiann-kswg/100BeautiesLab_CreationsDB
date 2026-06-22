@@ -39,8 +39,9 @@ const __dirname  = dirname(__filename);
  *  この値は SQL ファイル 1 本あたりの文数（= レコード数）の上限。 */
 const D1_BATCH_SIZE = 10;
 
-/** wrangler 実行コマンド（シェルを介さず引数配列で実行する） */
-const WRANGLER_CMD = "npx";
+/** wrangler 実行コマンド（シェルを介さず引数配列で実行する）
+ *  Windows では execFileSync が .cmd を自動解決しないため npx.cmd を使用する */
+const WRANGLER_CMD = process.platform === "win32" ? "npx.cmd" : "npx";
 const WRANGLER_BASE_ARGS = ["wrangler"];
 
 // ─────────────────────────────────────────────────────────────────────────────
