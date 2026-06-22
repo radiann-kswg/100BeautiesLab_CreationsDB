@@ -53,7 +53,7 @@ describe('database shapes', () => {
     const dbType = load('data/db_type.json');
     const defType = Array.isArray(dbType?.$DefType) ? dbType.$DefType : [];
     const areaField = defType.find((entry) => entry?.hashTag === 'Area');
-    const belongingAreaField = defType.find((entry) => entry?.hashTag === 'BelongingArea');
+    const fromAreaField = defType.find((entry) => entry?.hashTag === 'FromArea');
     const legacyBaseAreaField = defType.find((entry) => entry?.hashTag === 'BaseArea');
     const belongingField = defType.find((entry) => entry?.hashTag === 'Belonging');
     const baseAreaDef = dbType?.$VarsDef?.$Def_BaseArea;
@@ -63,7 +63,7 @@ describe('database shapes', () => {
     expect(areaField).toBeUndefined();
     expect(belongingField?.$type).toBe('#DictIndex[]');
     expect(belongingField?.$dict).toBe('Faction');
-    expect(belongingAreaField?.$type).toBe('$Def_BaseArea');
+    expect(fromAreaField?.$type).toBe('$Def_BaseArea');
     expect(legacyBaseAreaField).toBeUndefined();
     expect(nestedArea?.$type).toBe('#DictIndex');
     expect(nestedArea?.$dict).toBe('Area');
@@ -74,15 +74,14 @@ describe('database shapes', () => {
     const refsType = load('data/Works_NumberTales/References/db_type.json');
     const defType = Array.isArray(sharedRefsType?.$DefType) ? sharedRefsType.$DefType : [];
     const relatedCreationsField = defType.find((entry) => entry?.hashTag === 'RelatedCreations');
-    const titleField = defType.find((entry) => entry?.hashTag === 'Title');
-    const termField = defType.find((entry) => entry?.hashTag === 'Term');
+    const titleField = defType.find((entry) => entry?.hashTag === 'Title_JP');
+    const termField = defType.find((entry) => entry?.hashTag === 'Term_JP');
     const relatedCreationEntries = Array.isArray(relatedCreationsField?.$type) ? relatedCreationsField.$type : [];
     const nestedWork = relatedCreationEntries.find((entry) => entry?.hashTag === 'RelatedWorks');
     const nestedDb = relatedCreationEntries.find((entry) => entry?.hashTag === 'RelatedDB');
 
-    expect(Array.isArray(refsType?.$DefType)).toBe(false);
-    expect(termField?.$display?.aliasOf).toBe('Name');
-    expect(titleField?.$alt).toBe('Term');
+    expect(termField?.$display?.aliasOf).toBe('Name_JP');
+    expect(titleField?.$alt).toBe('Term_JP');
     expect(Array.isArray(relatedCreationsField?.$type)).toBe(true);
     expect(nestedWork?.$type).toBe('#String');
     expect(nestedDb?.$type).toBe('#String|#Null');

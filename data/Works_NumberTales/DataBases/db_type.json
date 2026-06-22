@@ -78,7 +78,7 @@
       "$display": { "sectionWrapper": "thisMastersSection" }
     },
     {
-      "hashTag": "ForMasterCalling",
+      "hashTag": "ForMasterCalling_JP",
       "$type": "#String|#Summary",
       "hashTag_JP": "主人の呼び方",
       "hashTag_EN": "For Master Calling"
@@ -89,7 +89,7 @@
       "hashTag_EN": "For Master Calling"
     },
     {
-      "hashTag": "TailsUnit",
+      "hashTag": "TailsUnit_JP",
       "$type": "#String",
       "hashTag_JP": "尻尾の形状",
       "hashTag_EN": "Shape of Tails Unit"
@@ -106,7 +106,7 @@
       "hashTag_EN": "Number Mark Location"
     },
     {
-      "hashTag": "NumerospecAbout",
+      "hashTag": "NumerospecAbout_JP",
       "$type": "#Summary",
       "hashTag_JP": "\"カバラの加護\"(数秘的加護)について",
       "hashTag_EN": "About Kabbalistic Protection (Numerospec)"
@@ -271,7 +271,7 @@
     "$Def_NumberMark": {
       "$DefType": [
         {
-          "hashTag": "MarkPosition",
+          "hashTag": "MarkPosition_JP",
           "$type": "#String|#Null",
           "hashTag_JP": "印字位置"
         },
@@ -281,7 +281,7 @@
           "hashTag_EN": "Mark Position"
         },
         {
-          "hashTag": "MarkColor",
+          "hashTag": "MarkColor_JP",
           "$type": "#String|#Null",
           "hashTag_JP": "印字色"
         },
@@ -291,7 +291,7 @@
           "hashTag_EN": "Mark Color"
         },
         {
-          "hashTag": "MarkNotation",
+          "hashTag": "MarkNotation_JP",
           "$type": "#String|#Null",
           "hashTag_JP": "表記方式"
         },

@@ -1,10 +1,10 @@
 {
   "Databases": {
     "#DB_Primary": {
-      "DB_Label": "一次創作",
+      "DB_Label_JP": "一次創作",
       "DB_Label_EN": "Primary",
       "DB_Summary": "２代目ラジアン代理の周辺キャラクター。\n物理単位や数学用語をモチーフにした設定が付与されている。\nなお、このキャラクター群は創作世界を管理する作者に最も近い位置付けに存在している。",
-      "DB_Summary_EN": "Characters surrounding the second-generation Radian proxy.\nThey are given motifs based on physical units and mathematical terminology.\nThese characters are positioned closest to the creator who manages the creative world.",
+      "DB_Summary_EN": "Characters surrounding the second-generation RadianN proxy.\nThey are given motifs based on physical units and mathematical terminology.\nThese characters are positioned closest to the creator who manages the creative world.",
       "_Commons": {},
       "AI_Optout": true
     }

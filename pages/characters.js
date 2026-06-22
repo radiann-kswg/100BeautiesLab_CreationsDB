@@ -185,10 +185,10 @@ function getRecordPrimaryTitle(rec) {
 	const primaryOrder = lang === 'en'
 		? [
 			rec.Name_EN, rec.FormalName_EN, rec.Title_EN, rec.Term_EN,
-			rec.Name, rec.FormalName, rec.ModelName, rec.Title, rec.Term
+			rec.Name_JP, rec.FormalName_JP, rec.ModelName_JP, rec.Title_JP, rec.Term_JP
 		]
 		: [
-			rec.Name, rec.FormalName, rec.ModelName, rec.Title, rec.Term,
+			rec.Name_JP, rec.FormalName_JP, rec.ModelName_JP, rec.Title_JP, rec.Term_JP,
 			rec.Name_EN, rec.FormalName_EN, rec.Title_EN, rec.Term_EN
 		];
 	const base = primaryOrder.find((value) => typeof value === 'string' && value.trim());
@@ -199,7 +199,7 @@ function getRecordSecondaryTitle(rec) {
 	if (!rec || typeof rec !== 'object') return '';
 	const lang = getCurrentPageLanguage();
 	const order = lang === 'en'
-		? [rec.Name, rec.FormalName, rec.Term, rec.Title, rec.Name_EN, rec.FormalName_EN, rec.Term_EN, rec.Title_EN, rec.ModelNumber]
+		? [rec.Name_JP, rec.FormalName_JP, rec.Term_JP, rec.Title_JP, rec.Name_EN, rec.FormalName_EN, rec.Term_EN, rec.Title_EN, rec.ModelNumber]
 		: [rec.Name_EN, rec.FormalName_EN, rec.Term_EN, rec.Title_EN, rec.ModelNumber];
 	const sub = order
 		.find((value) => typeof value === 'string' && value.trim());
@@ -4678,7 +4678,7 @@ async function imageFromRecord(workId, rec, dbName = 'Primary', imageFields = nu
 		workId,
 		dbName,
 		img,
-		recordName: rec.Name || rec.FormalName || 'Unknown',
+		recordName: rec.Name_JP || rec.FormalName_JP || rec.Name_EN || 'Unknown',
 		hasImageFields: !!imageFields
 	});
 
@@ -4885,7 +4885,7 @@ function resolveImageStatically(workId, rec, dbName, layer = '') {
 		hasImages: !!(rec && (rec.Images || rec.images || rec.Iamges || rec.Image)),
 		hasImage: !!rec.Image,
 		availableFields: Object.keys(img),
-		recordName: rec.Name || rec.FormalName || 'Unknown'
+		recordName: rec.Name_JP || rec.FormalName_JP || rec.Name_EN || 'Unknown'
 	});
 
 	// Enhanced priority list with more field types
@@ -5750,7 +5750,18 @@ export async function renderDetail(workId, rec) {
 				.map((key) => String(key ?? '').trim())
 				.filter(Boolean)
 			: [];
-		const detailSubFieldKeySet = new Set(detailSubFieldKeys);
+		// ベース名・_JP・_EN の三方向を全て登録して、どの形でも照合できるようにする
+		// （db_meta.json の subFields はベース名で宣言し、レコードや typedef 側の _JP/_EN キーも一致させる）
+		const detailSubFieldKeySet = (() => {
+			const s = new Set();
+			for (const k of detailSubFieldKeys) {
+				s.add(k);
+				const m = k.match(/^(.+)_(JP|EN)$/);
+				if (m) s.add(m[1]);
+				else { s.add(`${k}_JP`); s.add(`${k}_EN`); }
+			}
+			return s;
+		})();
 		const isPromotedSubFieldKey = (key) => {
 			const normalized = String(key ?? '').trim();
 			return normalized ? detailSubFieldKeySet.has(normalized) : false;
@@ -6189,8 +6200,8 @@ export async function renderDetail(workId, rec) {
 			const s = new Set();
 
 			// タイトル行（表示に使った実体キーを記録）
-			if (rec.Name) s.add('Name');
-			else if (rec.FormalName) s.add('FormalName');
+			if (rec.Name_JP) s.add('Name_JP');
+			else if (rec.FormalName_JP) s.add('FormalName_JP');
 			else if (rec.Name_EN) s.add('Name_EN');
 
 			if (rec.Name_EN) s.add('Name_EN');
@@ -6239,6 +6250,7 @@ export async function renderDetail(workId, rec) {
 			}
 
 			// profile/relations/DBLinkResolved は個別表示する
+			if (rec.Summary_JP && !isPromotedSubFieldKey('Summary_JP')) s.add('Summary_JP');
 			if (rec.Summary && !isPromotedSubFieldKey('Summary')) s.add('Summary');
 			if (rec.Relation && !isPromotedSubFieldKey('Relation')) s.add('Relation');
 			for (const k of Object.keys(rec || {})) {

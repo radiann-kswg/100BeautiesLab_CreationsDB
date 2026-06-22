@@ -39,9 +39,17 @@ const __dirname  = dirname(__filename);
  *  この値は SQL ファイル 1 本あたりの文数（= レコード数）の上限。 */
 const D1_BATCH_SIZE = 10;
 
-/** wrangler 実行コマンド（シェルを介さず引数配列で実行する） */
+/** wrangler 実行コマンド。
+ *  Windows (Node v22+) では .cmd を execFileSync で直接起動できないため
+ *  shell オプションを使用する（WRANGLER_CMD は "npx" のまま、shell: true で解決）。 */
 const WRANGLER_CMD = "npx";
 const WRANGLER_BASE_ARGS = ["wrangler"];
+/** Windows では shell: true が必要（.cmd 解決 + パスのスペース対応） */
+const SPAWN_OPTS_BASE = process.platform === "win32" ? { shell: true } : {};
+/** D1 操作時に wrangler.toml の場所を明示するための相対パス（REPO_ROOT 基準）。
+ *  cwd を REPO_ROOT に固定しているため wrangler が pkg/cloudflare/ を自動探索できず、
+ *  database_id（UUID）を解決できない問題を防ぐ。 */
+const WRANGLER_CONFIG_REL = "pkg/cloudflare/wrangler.toml";
 
 // ─────────────────────────────────────────────────────────────────────────────
 // 引数パース
@@ -178,8 +186,8 @@ function d1Execute(label, sql) {
   try {
     execFileSync(
       WRANGLER_CMD,
-      [...WRANGLER_BASE_ARGS, "d1", "execute", DB_ID, "--file", tmpFile, "--remote", "--yes"],
-      { stdio: "inherit", cwd: REPO_ROOT }
+      [...WRANGLER_BASE_ARGS, "--config", WRANGLER_CONFIG_REL, "d1", "execute", DB_ID, "--file", relative(REPO_ROOT, tmpFile).replace(/\\/g, "/"), "--remote", "--yes"],
+      { stdio: "inherit", cwd: REPO_ROOT, ...SPAWN_OPTS_BASE }
     );
     console.log(`[D1] ✓ ${label}`);
   } catch (err) {
@@ -236,10 +244,10 @@ if (!D1_ONLY) {
           ...WRANGLER_BASE_ARGS,
           "r2", "object", "put",
           `${BUCKET}/${rel}`,
-          "--file", filepath,
+          "--file", rel,
           "--content-type", "application/json"
         ],
-        { stdio: "pipe", cwd: REPO_ROOT }
+        { stdio: "pipe", cwd: REPO_ROOT, ...SPAWN_OPTS_BASE }
       );
       console.log(`[R2] ✓ ${rel}`);
     } catch (err) {
@@ -267,7 +275,7 @@ if (!R2_ONLY) {
 
   const worksValues = Object.entries(creationWorks).map(([key, info]) => {
     const isHidden = info?.Works_Hidden ? 1 : 0;
-    return `(${esc(key)}, ${esc(info?.Title)}, ${esc(info?.Title_EN)}, ${esc(info?.Works_Summary)}, ${isHidden}, ${esc(JSON.stringify(info))})`;
+    return `(${esc(key)}, ${esc(info?.Title_JP)}, ${esc(info?.Title_EN)}, ${esc(info?.Works_Summary_JP)}, ${isHidden}, ${esc(JSON.stringify(info))})`;
   });
 
   if (worksValues.length > 0) {

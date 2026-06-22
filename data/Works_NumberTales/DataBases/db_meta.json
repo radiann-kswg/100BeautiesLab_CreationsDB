@@ -1,7 +1,7 @@
 {
   "Databases": {
     "#DB_Primary": {
-      "DB_Label": "一次創作",
+      "DB_Label_JP": "一次創作",
       "DB_Label_EN": "Primary",
       "DB_Summary": "ナンバーテールズのうち、公式一次創作作品に登場するキャラクター。\n99以内の非負整数である数秘をそれぞれ有している。",
       "DB_Summary_EN": "Among NumberTales, characters appearing in official primary works.\nEach one has numerology based on a non-negative integer up to 99.",
@@ -31,7 +31,7 @@
       "AI_Optout": false
     },
     "#DB_SemiPrimary": {
-      "DB_Label": "準一次創作",
+      "DB_Label_JP": "準一次創作",
       "DB_Label_EN": "Semi-Primary",
       "DB_Summary": "ナンバーテールズのうち、公式の下でアンソロジーとしてデザインされたキャラクターで、こちらは一次創作に準ずる括りとする。\n公式一次創作作品の延長として登場する番号やゾロ目(マスターナンバーとしての33および111の倍数)や一部キリ番などの非負整数を主とした数秘をそれぞれ有している。",
       "DB_Summary_EN": "Among NumberTales, characters designed as an anthology under official supervision and treated as quasi-primary creations.\nEach one has numerology centered on non-negative integers, including numbers extended from official primary works, repdigits (33 and multiples of 111 as master numbers), and selected milestone numbers.",
@@ -57,7 +57,7 @@
       "AI_Optout": true
     },
     "#DB_SelfSecondary": {
-      "DB_Label": "セルフ二次創作",
+      "DB_Label_JP": "セルフ二次創作",
       "DB_Label_EN": "Self-Secondary",
       "DB_Summary": "ナンバーテールズのうち、公式または公式指導の下で副次創作としてデザインされたキャラクターで、こちらは二次創作に準ずる括りとする。\nゾロ目(111の倍数)などの予約された番号を除く101以上999未満の非負整数である数秘をそれぞれ有している。",
       "DB_Summary_EN": "Among NumberTales, characters designed as derivative creations under official production or official guidance, treated as quasi-secondary creations.\nEach one has numerology based on a non-negative integer from 101 to below 999, excluding reserved numbers such as repdigits (multiples of 111).",
@@ -87,7 +87,7 @@
       ]
     },
     "#DB_Secondary": {
-      "DB_Label": "二次創作",
+      "DB_Label_JP": "二次創作",
       "DB_Label_EN": "Secondary",
       "DB_Summary": "ナンバーテールズのうち、公認された副次創作作品内で登場した二次創作キャラクター。\n有している数秘の制約については、原則としてガイドラインに準拠したものであるならば概ね何でもよい。",
       "DB_Summary_EN": "Among NumberTales, secondary-creation characters appearing in approved derivative works.\nAs for numerology constraints, almost any setting is acceptable in principle as long as it follows the guidelines.",
@@ -172,7 +172,7 @@
         }
       ],
       "#DB_UnprocessedSecondary": {
-        "DB_Label": "未整理の二次創作枠",
+        "DB_Label_JP": "未整理の二次創作枠",
         "DB_Label_EN": "Unprocessed Secondary",
         "DB_Summary": "ナンバーテールズのうち、まだ制作予定のない3桁の番号をもつキャラクターの空き枠で、こちらは二次創作に準ずる括りとする。\nゾロ目(111の倍数)などの予約された番号を除く101以上999未満の非負整数である数秘をそれぞれ有している。",
         "DB_Summary_EN": "Among NumberTales, placeholder slots for characters with three-digit numbers that are not yet planned for production, treated as quasi-secondary creations.\nEach one has numerology based on a non-negative integer from 101 to below 999, excluding reserved numbers such as repdigits (multiples of 111).",

@@ -1,10 +1,10 @@
 {
   "$DefType": [
     {
-      "hashTag": "Term",
+      "hashTag": "Term_JP",
       "$type": "##String_JP|#Null",
       "hashTag_JP": "用語名",
-      "$display": { "section": "basic", "aliasOf": "Name" }
+      "$display": { "section": "basic", "aliasOf": "Name_JP" }
     },
     {
       "hashTag": "Term_EN",
@@ -18,11 +18,11 @@
       "hashTag_JP": "読み仮名"
     },
     {
-      "hashTag": "Title",
+      "hashTag": "Title_JP",
       "$type": "##String_JP|#Null",
       "hashTag_JP": "資料名",
-      "$alt": "Term",
-      "$display": { "section": "basic", "aliasOf": "Name" }
+      "$alt": "Term_JP",
+      "$display": { "section": "basic", "aliasOf": "Name_JP" }
     },
     {
       "hashTag": "Title_EN",
@@ -46,7 +46,7 @@
       "$display": { "section": "basic" }
     },
     {
-      "hashTag": "BodyBlocks",
+      "hashTag": "BodyBlocks_JP",
       "$type": "#Summary[]|#Null",
       "hashTag_JP": "本文ブロック"
     },
@@ -56,7 +56,7 @@
       "hashTag_EN": "Body Blocks"
     },
     {
-      "hashTag": "Summary",
+      "hashTag": "Summary_JP",
       "$type": "#Summary|#Null",
       "hashTag_JP": "概要"
     },

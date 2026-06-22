@@ -71,7 +71,7 @@
       "hashTag_EN": "ArcanaHolder"
     },
     {
-      "hashTag": "For79thDealerCalling",
+      "hashTag": "For79thDealerCalling_JP",
       "$type": "#String|#Null",
       "hashTag_JP": "錦野舞(第79アルカナ)の呼び方",
       "$display": { "section": "profile" }
@@ -83,7 +83,7 @@
       "$display": { "section": "profile" }
     },
     {
-      "hashTag": "For80thDealerCalling",
+      "hashTag": "For80thDealerCalling_JP",
       "$type": "#String|#Null",
       "hashTag_JP": "錦野歌嫁(第80アルカナ)の呼び方",
       "$display": { "section": "profile" }
@@ -95,7 +95,7 @@
       "$display": { "section": "profile" }
     },
     {
-      "hashTag": "ArcanamspecAbout",
+      "hashTag": "ArcanamspecAbout_JP",
       "$type": "#Summary",
       "hashTag_JP": "アルカナムスペック(アルカナ能力)について",
       "hashTag_EN": "About Arcanamspecs (Arcana Abilities)"

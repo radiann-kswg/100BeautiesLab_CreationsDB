@@ -21,16 +21,30 @@
       "$enrich": true,
       "hashTag_EN": "ANOTHER-REGIONs"
     },
-    { "hashTag": "Name", "$type": "##String_JP|#Null", "hashTag_JP": "愛称" },
+    {
+      "hashTag": "Name_JP",
+      "$type": "##String_JP|#Null",
+      "hashTag_JP": "愛称"
+    },
+    {
+      "hashTag": "Name_JPReading",
+      "$type": "##String_JP|#Null",
+      "hashTag_JP": "愛称の読み仮名"
+    },
     {
       "hashTag": "Name_EN",
       "$type": "##String_EN|#Null",
       "hashTag_EN": "Name"
     },
     {
-      "hashTag": "FormalName",
+      "hashTag": "FormalName_JP",
       "$type": "##String_JP|#Null",
       "hashTag_JP": "正式名称"
+    },
+    {
+      "hashTag": "FormalName_JPReading",
+      "$type": "##String_JP|#Null",
+      "hashTag_JP": "正式名称の読み仮名"
     },
     {
       "hashTag": "FormalName_EN",
@@ -38,9 +52,9 @@
       "hashTag_EN": "Formal Name"
     },
     {
-      "hashTag": "CodeName",
+      "hashTag": "CodeName_JP",
       "$type": "##String_JP|#Null",
-      "$alt": "SPCodeName",
+      "$alt": "SPCodeName_JP",
       "hashTag_JP": "コードネーム",
       "$display": { "auto": false }
     },
@@ -52,7 +66,7 @@
       "$display": { "auto": false }
     },
     {
-      "hashTag": "SPCodeName",
+      "hashTag": "SPCodeName_JP",
       "$type": "##String_JP|#Null",
       "hashTag_JP": "特殊なコードネーム",
       "$display": { "auto": false }
@@ -71,10 +85,15 @@
       "$display": { "langMode": "shared" }
     },
     {
-      "hashTag": "ModelName",
+      "hashTag": "ModelName_JP",
       "$type": "##String_JP|#Summary|#Null",
       "hashTag_JP": "モデル名",
       "$display": { "section": "basic", "tagSpace": "creation" }
+    },
+    {
+      "hashTag": "ModelName_JPReading",
+      "$type": "##String_JP|#Null",
+      "hashTag_JP": "モデル名の読み仮名"
     },
     {
       "hashTag": "ModelName_EN",
@@ -173,7 +192,7 @@
       "$display": { "section": "basic" }
     },
     {
-      "hashTag": "FirstPersonCalling",
+      "hashTag": "FirstPersonCalling_JP",
       "$type": "#String|#Summary",
       "hashTag_JP": "一人称"
     },
@@ -183,7 +202,7 @@
       "hashTag_EN": "First Person Calling"
     },
     {
-      "hashTag": "SecondPersonCalling",
+      "hashTag": "SecondPersonCalling_JP",
       "$type": "#String|#Summary",
       "hashTag_JP": "二人称"
     },
@@ -193,7 +212,7 @@
       "hashTag_EN": "Second Person Calling"
     },
     {
-      "hashTag": "ThirdPersonCalling",
+      "hashTag": "ThirdPersonCalling_JP",
       "$type": "#String|#Summary",
       "hashTag_JP": "三人称"
     },
@@ -203,7 +222,7 @@
       "hashTag_EN": "Third Person Calling"
     },
     {
-      "hashTag": "Character",
+      "hashTag": "Character_JP",
       "$type": "#String|#Summary",
       "hashTag_JP": "性格"
     },
@@ -213,7 +232,7 @@
       "hashTag_EN": "Character"
     },
     {
-      "hashTag": "Hobby",
+      "hashTag": "Hobby_JP",
       "$type": "#String|#Summary|#Null",
       "hashTag_JP": "趣味"
     },
@@ -223,7 +242,7 @@
       "hashTag_EN": "Hobby"
     },
     {
-      "hashTag": "SpecialSkill",
+      "hashTag": "SpecialSkill_JP",
       "$type": "#String|#Summary|#Null",
       "hashTag_JP": "特技"
     },
@@ -233,7 +252,7 @@
       "hashTag_EN": "Special Skill"
     },
     {
-      "hashTag": "Favor",
+      "hashTag": "Favor_JP",
       "$type": "#String|#Summary|#Null",
       "hashTag_JP": "好きなもの"
     },
@@ -243,7 +262,7 @@
       "hashTag_EN": "Favor"
     },
     {
-      "hashTag": "Unlike",
+      "hashTag": "Unlike_JP",
       "$type": "#String|#Summary|#Null",
       "hashTag_JP": "苦手なもの"
     },
@@ -253,7 +272,7 @@
       "hashTag_EN": "Unlike"
     },
     {
-      "hashTag": "Strength",
+      "hashTag": "Strength_JP",
       "$type": "#String|#Summary|#Null",
       "hashTag_JP": "強み"
     },
@@ -263,7 +282,7 @@
       "hashTag_EN": "Strength"
     },
     {
-      "hashTag": "Weakness",
+      "hashTag": "Weakness_JP",
       "$type": "#String|#Summary|#Null",
       "hashTag_JP": "弱み"
     },
@@ -287,7 +306,7 @@
       "hashTag": "ConversationPattern",
       "$type": [
         {
-          "hashTag": "TalkingTone",
+          "hashTag": "TalkingTone_JP",
           "$type": "#String|#Summary|#Null",
           "hashTag_JP": "口調"
         },
@@ -297,7 +316,7 @@
           "hashTag_EN": "Talking Tone"
         },
         {
-          "hashTag": "TopicPreference",
+          "hashTag": "TopicPreference_JP",
           "$type": "#String|#Summary|#Null",
           "hashTag_JP": "話題嗜好"
         },
@@ -307,7 +326,7 @@
           "hashTag_EN": "Topic Preference"
         },
         {
-          "hashTag": "TalkFrequency",
+          "hashTag": "TalkFrequency_JP",
           "$type": "#String|#Summary|#Null",
           "hashTag_JP": "会話頻度"
         },
@@ -317,7 +336,7 @@
           "hashTag_EN": "Talk Frequency"
         },
         {
-          "hashTag": "PreferredTopics",
+          "hashTag": "PreferredTopics_JP",
           "$type": "#String|#Summary|#Null",
           "hashTag_JP": "やりがちな話題"
         },
@@ -327,7 +346,7 @@
           "hashTag_EN": "Preferred Topics"
         },
         {
-          "hashTag": "AvoidedTopics",
+          "hashTag": "AvoidedTopics_JP",
           "$type": "#String|#Summary|#Null",
           "hashTag_JP": "避けがちな話題"
         },
@@ -337,7 +356,7 @@
           "hashTag_EN": "Avoided Topics"
         },
         {
-          "hashTag": "ConversationNotes",
+          "hashTag": "ConversationNotes_JP",
           "$type": "#String|#Summary|#Null",
           "hashTag_JP": "会話における補足"
         },
@@ -362,7 +381,7 @@
       }
     },
     {
-      "hashTag": "RelationNotes",
+      "hashTag": "RelationNotes_JP",
       "$type": "#Summary",
       "hashTag_JP": "関連性について"
     },
@@ -371,7 +390,11 @@
       "$type": "#Summary|#Null",
       "hashTag_EN": "Relation Notes"
     },
-    { "hashTag": "Summary", "$type": "#Summary", "hashTag_JP": "概要・紹介文" },
+    {
+      "hashTag": "Summary_JP",
+      "$type": "#Summary",
+      "hashTag_JP": "概要・紹介文"
+    },
     {
       "hashTag": "Summary_EN",
       "$type": "#Summary|#Null",
@@ -426,7 +449,7 @@
       }
     },
     {
-      "hashTag": "Backgrounds",
+      "hashTag": "Backgrounds_JP",
       "$type": "#Summary",
       "hashTag_JP": "キャラクターの背景"
     },
@@ -435,14 +458,14 @@
       "$type": "#Summary|#Null",
       "hashTag_EN": "Character Background"
     },
-    { "hashTag": "InStory", "$type": "#Summary", "hashTag_JP": "劇中では" },
+    { "hashTag": "InStory_JP", "$type": "#Summary", "hashTag_JP": "劇中では" },
     {
       "hashTag": "InStory_EN",
       "$type": "#Summary|#Null",
       "hashTag_EN": "In Story"
     },
     {
-      "hashTag": "AdditionalDesigned",
+      "hashTag": "AdditionalDesigned_JP",
       "$type": "#Summary",
       "hashTag_JP": "追加デザイン協力者について",
       "searchable": false
@@ -465,7 +488,7 @@
     "$Def_OldTitleCatalog": {
       "$DefType": [
         {
-          "hashTag": "Title",
+          "hashTag": "Title_JP",
           "$type": "##String_JP|#Summary|#Null",
           "hashTag_JP": "旧題"
         },
@@ -561,7 +584,7 @@
     "$Def_CreationWorkCatalog": {
       "$DefType": [
         {
-          "hashTag": "Title",
+          "hashTag": "Title_JP",
           "$type": "##String_JP|#Summary|#Null",
           "hashTag_JP": "作品名"
         },
@@ -571,9 +594,14 @@
           "hashTag_EN": "Title"
         },
         {
-          "hashTag": "Works_Summary",
+          "hashTag": "Works_Summary_JP",
           "$type": "#Summary|#Null",
           "hashTag_JP": "作品概要",
+          "hashTag_EN": "Work Summary"
+        },
+        {
+          "hashTag": "Works_Summary_EN",
+          "$type": "#Summary|#Null",
           "hashTag_EN": "Work Summary"
         },
         {
@@ -587,7 +615,7 @@
     "$Def_DatabaseCatalog": {
       "$DefType": [
         {
-          "hashTag": "DB_Label",
+          "hashTag": "DB_Label_JP",
           "$type": "##String_JP|#Summary|#Null",
           "hashTag_JP": "DB表示名"
         },
@@ -597,9 +625,14 @@
           "hashTag_EN": "DB Label"
         },
         {
-          "hashTag": "DB_Summary",
+          "hashTag": "DB_Summary_JP",
           "$type": "#Summary|#Null",
           "hashTag_JP": "DB概要",
+          "hashTag_EN": "DB Summary"
+        },
+        {
+          "hashTag": "DB_Summary_EN",
+          "$type": "#Summary|#Null",
           "hashTag_EN": "DB Summary"
         },
         {
@@ -697,10 +730,16 @@
           "$display": { "role": "dayOfMonth" }
         },
         {
-          "hashTag": "DayAbout",
+          "hashTag": "DayAbout_JP",
           "$type": "#String",
           "hashTag_JP": "この日付について",
           "$display": { "role": "annotation" }
+        },
+        {
+          "hashTag": "DayAbout_EN",
+          "$type": "#String_EN|#Null",
+          "hashTag_EN": "Day Annotation",
+          "$display": { "role": "annotationAlt" }
         }
       ],
       "#List_Month": [
@@ -727,7 +766,7 @@
           "hashTag_JP": "地域(エリア)"
         },
         {
-          "hashTag": "about",
+          "hashTag": "about_JP",
           "$type": "#Summary|#Null",
           "hashTag_JP": "地域補足"
         },

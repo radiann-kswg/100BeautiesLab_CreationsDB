@@ -66,9 +66,9 @@ describe('catalog meta schema declarations', () => {
     const primary = workMeta?.Databases?.['#DB_Primary'];
     const vocabulary = refMeta?.Databases?.['#Ref_Vocabulary'];
 
-    expect(primary?.DB_Label).toBe('一次創作');
+    expect(primary?.DB_Label_JP).toBe('一次創作');
     expect(primary?.DB_Label_EN).toBe('Primary');
-    expect(vocabulary?.DB_Label).toBe('語彙辞書');
+    expect(vocabulary?.DB_Label_JP).toBe('語彙辞書');
     expect(vocabulary?.DB_Label_EN).toBe('Vocabulary');
   });
 

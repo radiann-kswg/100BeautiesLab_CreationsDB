@@ -1,12 +1,12 @@
 {
   "Databases": {
     "#Ref_Vocabulary": {
-      "DB_Label": "語彙辞書",
+      "DB_Label_JP": "語彙辞書",
       "DB_Label_EN": "Vocabulary",
       "DB_Summary": "「ユニバイト・ユニバース」および「アルベッツ」に関する固有の用語に関する資料。"
     },
     "#Ref_Reference": {
-      "DB_Label": "創作基本資料",
+      "DB_Label_JP": "創作基本資料",
       "DB_Label_EN": "Reference",
       "DB_Summary": "「ユニバイト・ユニバース」の世界観および「アルベッツ」に関する基本資料。"
     }

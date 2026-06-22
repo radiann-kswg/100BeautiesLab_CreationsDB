@@ -15,6 +15,8 @@
 
 ## いま進行中のファイル
 
+- 2026-06-22_progress_jp-en-naming-standardization.md（JP/EN フィールド命名標準化・**Phase 2〜5 全完了** ⚠️ D1/R2 再同期は手動実施が必要）
+
 - 2026-06-01_remaining-task.md（未完了タスク一覧・2026-06-01 時点）
 - 2026-06-12_progress_translation-style-unified.md（英訳ルール基準書・継続参照用）
 - 2026-06-13_remaining-task.md（希望タスク一覧・2026-06-13 時点・最新）
