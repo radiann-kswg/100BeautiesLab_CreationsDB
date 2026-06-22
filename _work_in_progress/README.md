@@ -15,6 +15,8 @@
 
 ## いま進行中のファイル
 
+- 2026-06-23_progress_security-ci-audit.md（GitHub 通知由来の未解決課題 調査・修正方針【提案のみ】・依存3件はマージ済/cf-api-sync の `--config` 欠落と characters.js DOM が要対応）
+
 - 2026-06-22_progress_jp-en-naming-standardization.md（JP/EN フィールド命名標準化・**Phase 2〜5 全完了** ⚠️ D1/R2 再同期は手動実施が必要）
 
 - 2026-06-01_remaining-task.md（未完了タスク一覧・2026-06-01 時点）
