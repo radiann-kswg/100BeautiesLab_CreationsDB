@@ -46,6 +46,10 @@ const WRANGLER_CMD = "npx";
 const WRANGLER_BASE_ARGS = ["wrangler"];
 /** Windows では shell: true が必要（.cmd 解決 + パスのスペース対応） */
 const SPAWN_OPTS_BASE = process.platform === "win32" ? { shell: true } : {};
+/** D1 操作時に wrangler.toml の場所を明示するための相対パス（REPO_ROOT 基準）。
+ *  cwd を REPO_ROOT に固定しているため wrangler が pkg/cloudflare/ を自動探索できず、
+ *  database_id（UUID）を解決できない問題を防ぐ。 */
+const WRANGLER_CONFIG_REL = "pkg/cloudflare/wrangler.toml";
 
 // ─────────────────────────────────────────────────────────────────────────────
 // 引数パース
@@ -182,7 +186,7 @@ function d1Execute(label, sql) {
   try {
     execFileSync(
       WRANGLER_CMD,
-      [...WRANGLER_BASE_ARGS, "d1", "execute", DB_ID, "--file", relative(REPO_ROOT, tmpFile).replace(/\\/g, "/"), "--remote", "--yes"],
+      [...WRANGLER_BASE_ARGS, "--config", WRANGLER_CONFIG_REL, "d1", "execute", DB_ID, "--file", relative(REPO_ROOT, tmpFile).replace(/\\/g, "/"), "--remote", "--yes"],
       { stdio: "inherit", cwd: REPO_ROOT, ...SPAWN_OPTS_BASE }
     );
     console.log(`[D1] ✓ ${label}`);
