@@ -49,7 +49,7 @@
       "hashTag_EN": "Images"
     },
     {
-      "hashTag": "BeastspecName",
+      "hashTag": "BeastspecName_JP",
       "$type": "#String_JP",
       "hashTag_JP": "獣騎能力名"
     },
@@ -93,7 +93,7 @@
       "$display": { "sectionWrapper": "statsSection" }
     },
     {
-      "hashTag": "BeastspecAbout",
+      "hashTag": "BeastspecAbout_JP",
       "$type": "#Summary",
       "hashTag_JP": "獣騎能力について"
     },

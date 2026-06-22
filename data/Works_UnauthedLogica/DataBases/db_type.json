@@ -24,7 +24,7 @@
       "hashTag_EN": "Model"
     },
     {
-      "hashTag": "ForMasterCalling",
+      "hashTag": "ForMasterCalling_JP",
       "$type": "#String|#Summary",
       "isForMobs": false,
       "hashTag_JP": "主人の呼び方"
@@ -36,7 +36,7 @@
       "hashTag_EN": "For Master Calling"
     },
     {
-      "hashTag": "LogicspecAbout",
+      "hashTag": "LogicspecAbout_JP",
       "$type": "#Summary",
       "isForMobs": null,
       "hashTag_JP": "ロジカ(論理特殊能力)について"

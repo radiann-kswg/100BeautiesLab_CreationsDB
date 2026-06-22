@@ -2,23 +2,24 @@
   {
     "Letter": { "Alphabet": "A", "Generation": 0, "AlphaGen": 1 },
     "Progress": "notProceeded",
-    "Name": "A:アロー",
+    "Name_JP": "A:アロー",
     "Name_EN": "A:Arrows",
-    "FormalName": "英文字アロー",
+    "FormalName_JP": "英文字アロー",
+    "FormalName_JPReading": "えいもんじアロー",
     "FormalName_EN": "Arrows A-Letter",
-    "CodeName": "英(A),弓矢",
+    "CodeName_JP": "英(A),弓矢",
     "CodeName_EN": "A,Arrow",
     "Height_cm": 146,
     "ConceptAge": 17,
     "AnivDay": [
       {
         "Day": { "Month": 2, "DayOfMonth": 6 },
-        "DayAbout": "「アルベッツ」結成記念",
+        "DayAbout_JP": "「アルベッツ」結成記念",
         "DayAbout_EN": "ALPBETS formation commemoration"
       },
       {
         "Day": { "Month": 1, "DayOfMonth": 27 },
-        "DayAbout": "誕生日（アルベッツ名義）",
+        "DayAbout_JP": "誕生日（アルベッツ名義）",
         "DayAbout_EN": "Birthday (as the ALPBETS)"
       }
     ]
@@ -26,29 +27,28 @@
   {
     "Letter": { "Alphabet": "S", "Generation": 5, "AlphaGen": 2 },
     "Progress": "nowCreating",
-    "Images": {
-      "keycapper_PNGPath": ["S/emstk_keycapperS-1.png"]
-    },
-    "Name": "S:ナーミィ",
+    "Images": { "keycapper_PNGPath": ["S/emstk_keycapperS-1.png"] },
+    "Name_JP": "S:ナーミィ",
     "Name_EN": "S:Surgey",
-    "FormalName": "左伯(さえき)ナーミィ",
+    "FormalName_JP": "左伯ナーミィ",
+    "FormalName_JPReading": "さえきナーミィ",
     "FormalName_EN": "Surgey S-Curve",
-    "CodeName": "左(S),波",
+    "CodeName_JP": "左(S),波",
     "CodeName_EN": "S,Surge",
     "Height_cm": 121,
     "ConceptAge": 14,
     "AnivDay": [
       {
         "Day": { "Month": 5, "DayOfMonth": 19 },
-        "DayAbout": "誕生日（アルベッツ名義）",
+        "DayAbout_JP": "誕生日（アルベッツ名義）",
         "DayAbout_EN": "Birthday (as the ALPBETS)"
       }
     ],
     "BustSize": "H",
-    "AccessoryUnit": "Sの字状に波打ったポニーテールや猫型の尻尾",
+    "AccessoryUnit_JP": "Sの字状に波打ったポニーテールや猫型の尻尾",
     "AccessoryUnit_EN": "S-shaped wavy ponytail and cat-like tail",
     "StreamingActivity": {
-      "StreamingCategory": [
+      "StreamingCategory_JP": [
         {
           "value": "リスナーとの交流",
           "about": "メイン活動,「ユニバイト・ユニバース」内での活動"
@@ -94,7 +94,7 @@
         "ListenerNickname_JP": "なみのりー",
         "ListenerNickname_EN": "Surger(s)"
       },
-      "StreamingAwards": [
+      "StreamingAwards_JP": [
         "「ユニバイト・ユニバース」九蓮国サーバ公認クリエイター",
         "ゲームエンジン特許あり"
       ],
@@ -102,37 +102,35 @@
         "'Unibyte Universe' LotusNinean Server trusted creator",
         "Holds a game engine patent"
       ],
-      "StreamingSummary": "ライブ配信では主に映像作品の公開をメインとしており、現実空間では味わえない斬新なプレイ体験でなみのりー(リスナー)たちを楽しませている。\n「ユニバイト・ユニバース」内ではトゥーンギャグに特化した様々なギミックを搭載したアバターでなみのりーと交流しており、時にVRユーザたちの性癖を大いに歪めたコンテンツを世に出したと噂されている。\n個人の同人ショップでアバターカスタムコンテンツも頒布しており、メタバースの新しい楽しみ方の提供にも積極的。",
+      "StreamingSummary_JP": "ライブ配信では主に映像作品の公開をメインとしており、現実空間では味わえない斬新なプレイ体験でなみのりー(リスナー)たちを楽しませている。\n「ユニバイト・ユニバース」内ではトゥーンギャグに特化した様々なギミックを搭載したアバターでなみのりーと交流しており、時にVRユーザたちの性癖を大いに歪めたコンテンツを世に出したと噂されている。\n個人の同人ショップでアバターカスタムコンテンツも頒布しており、メタバースの新しい楽しみ方の提供にも積極的。",
       "StreamingSummary_EN": "Primarily focused on publishing video content in live streams, entertaining the Surgers (listeners) with innovative play experiences unattainable in real space.\nWithin 'Unibyte Universe', she interacts with Surgers using an avatar packed with toon-gag-specialized gimmicks, and is sometimes rumored to have released content that greatly skewed the sensibilities of VR users.\nAlso actively distributes avatar custom content through her personal doujin shop, enthusiastically offering new ways to enjoy the metaverse."
     }
   },
   {
     "Letter": { "Alphabet": "Z", "Generation": 2, "AlphaGen": 1 },
     "Progress": "nowCreating",
-    "Images": {
-      "keycapper_PNGPath": ["Z/emstk_keycapperZ-1.png"]
-    },
-    "Name": "Z:ジグ",
+    "Images": { "keycapper_PNGPath": ["Z/emstk_keycapperZ-1.png"] },
+    "Name_JP": "Z:ジグ",
     "Name_EN": "Z:Zig",
-    "FormalName": "右仗(ゆうじょう)ジグ",
+    "FormalName_JP": "右仗ジグ",
+    "FormalName_JPReading": "ゆうじょうジグ",
     "FormalName_EN": "Zig Z-Drifts",
-    "CodeName": "右(Z),ジグ",
+    "CodeName_JP": "右(Z),ジグ",
     "CodeName_EN": "Z,Zig",
     "Height_cm": 142,
     "ConceptAge": 16,
     "AnivDay": [
       {
         "Day": { "Month": 2, "DayOfMonth": 26 },
-        "DayAbout": "誕生日（アルベッツ名義）",
+        "DayAbout_JP": "誕生日（アルベッツ名義）",
         "DayAbout_EN": "Birthday (as the ALPBETS)"
       }
     ],
     "BustSize": "B",
-    "AccessoryUnit": "Zの字状に折り曲げられたポニーテールや鞄(錘)付きの尻尾",
+    "AccessoryUnit_JP": "Zの字状に折り曲げられたポニーテールや鞄(錘)付きの尻尾",
     "AccessoryUnit_EN": "Z-shaped bent ponytail and a tail with a weighted bag attached",
     "StreamingActivity": {
-      "StreamingCategory": [
-      ],
+      "StreamingCategory_JP": [],
       "StreamingGreeting": {
         "StreamingGreeting_JP": ["ジグザってるか〜！"],
         "StreamingGreeting_EN": ["Are you zigzagging?"]
@@ -141,8 +139,8 @@
         "ListenerNickname_JP": "ノコギリ族",
         "ListenerNickname_EN": "Zigzaggers"
       },
-      "StreamingAwards": [],
-      "StreamingSummary": ""
+      "StreamingAwards_JP": [],
+      "StreamingSummary_JP": ""
     }
   }
 ]

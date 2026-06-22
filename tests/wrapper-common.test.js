@@ -98,7 +98,7 @@ describe('wrapper-common registry', () => {
           Month: 8,
           DayOfMonth: 15
         },
-        DayAbout: '誕生日'
+        DayAbout_JP: '誕生日'
       },
       {
         schemaType: '$Def_Day',

@@ -11,10 +11,10 @@
       "concept_PNGName": "numberize/cnsp_img115-numberize",
       "conceptAlt_PNGPath": ["numberize/cnsp_img115-numberize-image"]
     },
-    "Name": "(ナンバーテールズ化企画絵)",
+    "Name_JP": "(ナンバーテールズ化企画絵)",
     "Name_EN": "(Illustration of NumberizeTales Project)",
     "Class": ["ナンバーテールズ化"],
-    "AdditionalDesigned": "企画参加者：おゆうわちゃん さん(https://www.pixiv.net/artworks/137497481)",
+    "AdditionalDesigned_JP": "企画参加者：おゆうわちゃん さん(https://www.pixiv.net/artworks/137497481)",
     "AdditionalDesigned_EN": "Project Participant: おゆうわちゃん (https://www.pixiv.net/artworks/137497481)"
   },
   {
@@ -23,10 +23,10 @@
     "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 148 }],
     "Progress": "released",
     "Images": { "concept_PNGName": "numberize/cnsp_img148-numberize" },
-    "Name": "(ナンバーテールズ化企画絵)",
+    "Name_JP": "(ナンバーテールズ化企画絵)",
     "Name_EN": "(Illustration of NumberizeTales Project)",
     "Class": ["ナンバーテールズ化"],
-    "AdditionalDesigned": "企画参加者：よだれ さん(https://www.pixiv.net/artworks/137497481)",
+    "AdditionalDesigned_JP": "企画参加者：よだれ さん(https://www.pixiv.net/artworks/137497481)",
     "AdditionalDesigned_EN": "Project Participant: よだれ (https://www.pixiv.net/artworks/137497481)"
   },
   {
@@ -35,10 +35,10 @@
     "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 227 }],
     "Progress": "released",
     "Images": { "concept_PNGName": "numberize/cnsp_img227-numberize" },
-    "Name": "(ナンバーテールズ化企画絵)",
+    "Name_JP": "(ナンバーテールズ化企画絵)",
     "Name_EN": "(Illustration of NumberizeTales Project)",
     "Class": ["ナンバーテールズ化"],
-    "AdditionalDesigned": "企画参加者：散狐アタスト さん(https://www.pixiv.net/artworks/137497481)",
+    "AdditionalDesigned_JP": "企画参加者：散狐アタスト さん(https://www.pixiv.net/artworks/137497481)",
     "AdditionalDesigned_EN": "Project Participant: 散狐アタスト (https://www.pixiv.net/artworks/137497481)"
   },
   {
@@ -47,10 +47,10 @@
     "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 232 }],
     "Progress": "released",
     "Images": { "concept_PNGName": "numberize/cnsp_img232-numberize" },
-    "Name": "(ナンバーテールズ化企画絵)",
+    "Name_JP": "(ナンバーテールズ化企画絵)",
     "Name_EN": "(Illustration of NumberizeTales Project)",
     "Class": ["ナンバーテールズ化"],
-    "AdditionalDesigned": "企画参加者：広小路トトカ さん(https://www.pixiv.net/artworks/137497481)",
+    "AdditionalDesigned_JP": "企画参加者：広小路トトカ さん(https://www.pixiv.net/artworks/137497481)",
     "AdditionalDesigned_EN": "Project Participant: 広小路トトカ (https://www.pixiv.net/artworks/137497481)"
   },
   {
@@ -59,10 +59,10 @@
     "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 238 }],
     "Progress": "released",
     "Images": { "concept_PNGName": "numberize/cnsp_img238-numberize" },
-    "Name": "(ナンバーテールズ化企画絵)",
+    "Name_JP": "(ナンバーテールズ化企画絵)",
     "Name_EN": "(Illustration of NumberizeTales Project)",
     "Class": ["ナンバーテールズ化"],
-    "AdditionalDesigned": "企画参加者：「み」のひと さん(https://www.pixiv.net/artworks/137497481)",
+    "AdditionalDesigned_JP": "企画参加者：「み」のひと さん(https://www.pixiv.net/artworks/137497481)",
     "AdditionalDesigned_EN": "Project Participant: 「み」のひと (https://www.pixiv.net/artworks/137497481)"
   },
   {
@@ -71,10 +71,10 @@
     "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 241 }],
     "Progress": "released",
     "Images": { "concept_PNGName": "numberize/cnsp_img241-numberize" },
-    "Name": "(ナンバーテールズ化企画絵)",
+    "Name_JP": "(ナンバーテールズ化企画絵)",
     "Name_EN": "(Illustration of NumberizeTales Project)",
     "Class": ["ナンバーテールズ化"],
-    "AdditionalDesigned": "企画参加者：SIANO さん(https://www.pixiv.net/artworks/137497481)",
+    "AdditionalDesigned_JP": "企画参加者：SIANO さん(https://www.pixiv.net/artworks/137497481)",
     "AdditionalDesigned_EN": "Project Participant: SIANO (https://www.pixiv.net/artworks/137497481)"
   },
   {
@@ -83,10 +83,10 @@
     "Progress": "released",
     "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 258 }],
     "Images": { "concept_PNGName": "numberize/cnsp_img258-numberize" },
-    "Name": "(ナンバーテールズ化企画絵)",
+    "Name_JP": "(ナンバーテールズ化企画絵)",
     "Name_EN": "(Illustration of NumberizeTales Project)",
     "Class": ["ナンバーテールズ化"],
-    "AdditionalDesigned": "企画参加者：CoiL25 さん(https://www.pixiv.net/artworks/137497481)",
+    "AdditionalDesigned_JP": "企画参加者：CoiL25 さん(https://www.pixiv.net/artworks/137497481)",
     "AdditionalDesigned_EN": "Project Participant: CoiL25 (https://www.pixiv.net/artworks/137497481)"
   },
   {
@@ -95,10 +95,10 @@
     "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 263 }],
     "Progress": "released",
     "Images": { "concept_PNGName": "numberize/cnsp_img263-numberize" },
-    "Name": "(ナンバーテールズ化企画絵)",
+    "Name_JP": "(ナンバーテールズ化企画絵)",
     "Name_EN": "(Illustration of NumberizeTales Project)",
     "Class": ["ナンバーテールズ化"],
-    "AdditionalDesigned": "企画参加者：月凪葉茶 さん(https://www.pixiv.net/artworks/137497481)",
+    "AdditionalDesigned_JP": "企画参加者：月凪葉茶 さん(https://www.pixiv.net/artworks/137497481)",
     "AdditionalDesigned_EN": "Project Participant: 月凪葉茶 (https://www.pixiv.net/artworks/137497481)"
   },
   {
@@ -107,10 +107,10 @@
     "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 265 }],
     "Progress": "released",
     "Images": { "concept_PNGName": "numberize/cnsp_img265-numberize" },
-    "Name": "(ナンバーテールズ化企画絵)",
+    "Name_JP": "(ナンバーテールズ化企画絵)",
     "Name_EN": "(Illustration of NumberizeTales Project)",
     "Class": ["ナンバーテールズ化"],
-    "AdditionalDesigned": "企画参加者(敬称略)：青木凪(https://www.pixiv.net/artworks/137497481)",
+    "AdditionalDesigned_JP": "企画参加者(敬称略)：青木凪(https://www.pixiv.net/artworks/137497481)",
     "AdditionalDesigned_EN": "Project Participant: 青木凪 (https://www.pixiv.net/artworks/137497481)"
   },
   {
@@ -119,10 +119,10 @@
     "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 294 }],
     "Progress": "released",
     "Images": { "concept_PNGName": "numberize/cnsp_img294-numberize" },
-    "Name": "(ナンバーテールズ化企画絵)",
+    "Name_JP": "(ナンバーテールズ化企画絵)",
     "Name_EN": "(Illustration of NumberizeTales Project)",
     "Class": ["ナンバーテールズ化"],
-    "AdditionalDesigned": "企画参加者：ALK!(プロトタイプ) さん(https://www.pixiv.net/artworks/137497481)",
+    "AdditionalDesigned_JP": "企画参加者：ALK!(プロトタイプ) さん(https://www.pixiv.net/artworks/137497481)",
     "AdditionalDesigned_EN": "Project Participant: ALK!(プロトタイプ) (https://www.pixiv.net/artworks/137497481)"
   },
   {
@@ -131,10 +131,10 @@
     "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 295 }],
     "Progress": "released",
     "Images": { "concept_PNGName": "numberize/cnsp_img295-numberize" },
-    "Name": "(ナンバーテールズ化企画絵)",
+    "Name_JP": "(ナンバーテールズ化企画絵)",
     "Name_EN": "(Illustration of NumberizeTales Project)",
     "Class": ["ナンバーテールズ化"],
-    "AdditionalDesigned": "企画参加者：いるいる さん(https://www.pixiv.net/artworks/137497481)",
+    "AdditionalDesigned_JP": "企画参加者：いるいる さん(https://www.pixiv.net/artworks/137497481)",
     "AdditionalDesigned_EN": "Project Participant: いるいる (https://www.pixiv.net/artworks/137497481)"
   },
   {
@@ -143,10 +143,10 @@
     "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 337 }],
     "Progress": "released",
     "Images": { "concept_PNGName": "numberize/cnsp_img337-numberize" },
-    "Name": "(ナンバーテールズ化企画絵)",
+    "Name_JP": "(ナンバーテールズ化企画絵)",
     "Name_EN": "(Illustration of NumberizeTales Project)",
     "Class": ["ナンバーテールズ化"],
-    "AdditionalDesigned": "企画参加者：猫吉よりお さん(https://www.pixiv.net/artworks/137497481)",
+    "AdditionalDesigned_JP": "企画参加者：猫吉よりお さん(https://www.pixiv.net/artworks/137497481)",
     "AdditionalDesigned_EN": "Project Participant: 猫吉よりお (https://www.pixiv.net/artworks/137497481)"
   },
   {
@@ -155,10 +155,10 @@
     "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 366 }],
     "Progress": "released",
     "Images": { "concept_PNGName": "numberize/cnsp_img366-numberize" },
-    "Name": "(ナンバーテールズ化企画絵)",
+    "Name_JP": "(ナンバーテールズ化企画絵)",
     "Name_EN": "(Illustration of NumberizeTales Project)",
     "Class": ["ナンバーテールズ化"],
-    "AdditionalDesigned": "企画参加者：うどん さん(https://www.pixiv.net/artworks/137497481)",
+    "AdditionalDesigned_JP": "企画参加者：うどん さん(https://www.pixiv.net/artworks/137497481)",
     "AdditionalDesigned_EN": "Project Participant: うどん (https://www.pixiv.net/artworks/137497481)"
   },
   {
@@ -167,10 +167,10 @@
     "Progress": "released",
     "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 376 }],
     "Images": { "concept_PNGName": "numberize/cnsp_img376-numberize" },
-    "Name": "(ナンバーテールズ化企画絵)",
+    "Name_JP": "(ナンバーテールズ化企画絵)",
     "Name_EN": "(Illustration of NumberizeTales Project)",
     "Class": ["ナンバーテールズ化"],
-    "AdditionalDesigned": "企画参加者：きたやこ さん(https://www.pixiv.net/artworks/137497481)",
+    "AdditionalDesigned_JP": "企画参加者：きたやこ さん(https://www.pixiv.net/artworks/137497481)",
     "AdditionalDesigned_EN": "Project Participant: きたやこ (https://www.pixiv.net/artworks/137497481)"
   },
   {
@@ -179,10 +179,10 @@
     "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 377 }],
     "Progress": "released",
     "Images": { "concept_PNGName": "numberize/cnsp_img377-numberize" },
-    "Name": "(ナンバーテールズ化企画絵)",
+    "Name_JP": "(ナンバーテールズ化企画絵)",
     "Name_EN": "(Illustration of NumberizeTales Project)",
     "Class": ["ナンバーテールズ化"],
-    "AdditionalDesigned": "企画参加者：爪葉京 さん(https://www.pixiv.net/artworks/137497481)",
+    "AdditionalDesigned_JP": "企画参加者：爪葉京 さん(https://www.pixiv.net/artworks/137497481)",
     "AdditionalDesigned_EN": "Project Participant: 爪葉京 (https://www.pixiv.net/artworks/137497481)"
   },
   {
@@ -191,10 +191,10 @@
     "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 387 }],
     "Progress": "released",
     "Images": { "concept_PNGName": "numberize/cnsp_img387-numberize" },
-    "Name": "(ナンバーテールズ化企画絵)",
+    "Name_JP": "(ナンバーテールズ化企画絵)",
     "Name_EN": "(Illustration of NumberizeTales Project)",
     "Class": ["ナンバーテールズ化"],
-    "AdditionalDesigned": "企画参加者：つくえちゃん さん(https://www.pixiv.net/artworks/137497481)",
+    "AdditionalDesigned_JP": "企画参加者：つくえちゃん さん(https://www.pixiv.net/artworks/137497481)",
     "AdditionalDesigned_EN": "Project Participant: つくえちゃん (https://www.pixiv.net/artworks/137497481)"
   },
   {
@@ -203,10 +203,10 @@
     "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 401 }],
     "Progress": "released",
     "Images": { "concept_PNGName": "numberize/cnsp_img401-numberize" },
-    "Name": "(ナンバーテールズ化企画絵)",
+    "Name_JP": "(ナンバーテールズ化企画絵)",
     "Name_EN": "(Illustration of NumberizeTales Project)",
     "Class": ["ナンバーテールズ化"],
-    "AdditionalDesigned": "企画参加者：江小森えこ さん(https://www.pixiv.net/artworks/137497481)",
+    "AdditionalDesigned_JP": "企画参加者：江小森えこ さん(https://www.pixiv.net/artworks/137497481)",
     "AdditionalDesigned_EN": "Project Participant: 江小森えこ (https://www.pixiv.net/artworks/137497481)"
   },
   {
@@ -215,10 +215,10 @@
     "Progress": "released",
     "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 411 }],
     "Images": { "concept_PNGName": "numberize/cnsp_img411-numberize" },
-    "Name": "(ナンバーテールズ化企画絵)",
+    "Name_JP": "(ナンバーテールズ化企画絵)",
     "Name_EN": "(Illustration of NumberizeTales Project)",
     "Class": ["ナンバーテールズ化"],
-    "AdditionalDesigned": "企画参加者：Nor東 さん(https://www.pixiv.net/artworks/137497481)",
+    "AdditionalDesigned_JP": "企画参加者：Nor東 さん(https://www.pixiv.net/artworks/137497481)",
     "AdditionalDesigned_EN": "Project Participant: Nor東 (https://www.pixiv.net/artworks/137497481)"
   },
   {
@@ -227,10 +227,10 @@
     "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 421 }],
     "Progress": "released",
     "Images": { "concept_PNGName": "numberize/cnsp_img421-numberize" },
-    "Name": "(ナンバーテールズ化企画絵)",
+    "Name_JP": "(ナンバーテールズ化企画絵)",
     "Name_EN": "(Illustration of NumberizeTales Project)",
     "Class": ["ナンバーテールズ化"],
-    "AdditionalDesigned": "企画参加者：でんねこ さん(https://www.pixiv.net/artworks/137497481)",
+    "AdditionalDesigned_JP": "企画参加者：でんねこ さん(https://www.pixiv.net/artworks/137497481)",
     "AdditionalDesigned_EN": "Project Participant: でんねこ (https://www.pixiv.net/artworks/137497481)"
   },
   {
@@ -239,10 +239,10 @@
     "Progress": "released",
     "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 467 }],
     "Images": { "concept_PNGName": "numberize/cnsp_img467-numberize" },
-    "Name": "(ナンバーテールズ化企画絵)",
+    "Name_JP": "(ナンバーテールズ化企画絵)",
     "Name_EN": "(Illustration of NumberizeTales Project)",
     "Class": ["ナンバーテールズ化"],
-    "AdditionalDesigned": "企画参加者：キノアダモスデキノ さん(https://www.pixiv.net/artworks/137497481)",
+    "AdditionalDesigned_JP": "企画参加者：キノアダモスデキノ さん(https://www.pixiv.net/artworks/137497481)",
     "AdditionalDesigned_EN": "Project Participant: キノアダモスデキノ (https://www.pixiv.net/artworks/137497481)"
   },
   {
@@ -251,10 +251,10 @@
     "Progress": "released",
     "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 476 }],
     "Images": { "concept_PNGName": "numberize/cnsp_img476-numberize" },
-    "Name": "(ナンバーテールズ化企画絵)",
+    "Name_JP": "(ナンバーテールズ化企画絵)",
     "Name_EN": "(Illustration of NumberizeTales Project)",
     "Class": ["ナンバーテールズ化"],
-    "AdditionalDesigned": "企画参加者：ヨシアミさん(https://www.pixiv.net/artworks/137497481)",
+    "AdditionalDesigned_JP": "企画参加者：ヨシアミさん(https://www.pixiv.net/artworks/137497481)",
     "AdditionalDesigned_EN": "Project Participant: ヨシアミ (https://www.pixiv.net/artworks/137497481)"
   },
   {
@@ -263,10 +263,10 @@
     "Progress": "released",
     "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 510 }],
     "Images": { "concept_PNGName": "numberize/cnsp_img510-numberize" },
-    "Name": "(ナンバーテールズ化企画絵)",
+    "Name_JP": "(ナンバーテールズ化企画絵)",
     "Name_EN": "(Illustration of NumberizeTales Project)",
     "Class": ["ナンバーテールズ化"],
-    "AdditionalDesigned": "企画参加者：エメラルド さん(https://www.pixiv.net/artworks/137497481)",
+    "AdditionalDesigned_JP": "企画参加者：エメラルド さん(https://www.pixiv.net/artworks/137497481)",
     "AdditionalDesigned_EN": "Project Participant: エメラルド (https://www.pixiv.net/artworks/137497481)"
   },
   {
@@ -275,10 +275,10 @@
     "Progress": "released",
     "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 558 }],
     "Images": { "concept_PNGName": "numberize/cnsp_img558-numberize" },
-    "Name": "(ナンバーテールズ化企画絵)",
+    "Name_JP": "(ナンバーテールズ化企画絵)",
     "Name_EN": "(Illustration of NumberizeTales Project)",
     "Class": ["ナンバーテールズ化"],
-    "AdditionalDesigned": "企画参加者：さふ さん(https://www.pixiv.net/artworks/137497481)",
+    "AdditionalDesigned_JP": "企画参加者：さふ さん(https://www.pixiv.net/artworks/137497481)",
     "AdditionalDesigned_EN": "Project Participant: さふ (https://www.pixiv.net/artworks/137497481)"
   },
   {
@@ -287,10 +287,10 @@
     "Progress": "released",
     "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 605 }],
     "Images": { "concept_PNGName": "numberize/cnsp_img605-numberize" },
-    "Name": "(ナンバーテールズ化企画絵)",
+    "Name_JP": "(ナンバーテールズ化企画絵)",
     "Name_EN": "(Illustration of NumberizeTales Project)",
     "Class": ["ナンバーテールズ化"],
-    "AdditionalDesigned": "企画参加者：蓬 さん(https://www.pixiv.net/artworks/137497481)",
+    "AdditionalDesigned_JP": "企画参加者：蓬 さん(https://www.pixiv.net/artworks/137497481)",
     "AdditionalDesigned_EN": "Project Participant: 蓬 (https://www.pixiv.net/artworks/137497481)"
   },
   {
@@ -299,10 +299,10 @@
     "Progress": "released",
     "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 625 }],
     "Images": { "concept_PNGName": "numberize/cnsp_img625-numberize" },
-    "Name": "(ナンバーテールズ化企画絵)",
+    "Name_JP": "(ナンバーテールズ化企画絵)",
     "Name_EN": "(Illustration of NumberizeTales Project)",
     "Class": ["ナンバーテールズ化"],
-    "AdditionalDesigned": "企画参加者：リヘナラ人形 さん(https://www.pixiv.net/artworks/137497481)",
+    "AdditionalDesigned_JP": "企画参加者：リヘナラ人形 さん(https://www.pixiv.net/artworks/137497481)",
     "AdditionalDesigned_EN": "Project Participant: リヘナラ人形 (https://www.pixiv.net/artworks/137497481)"
   },
   {
@@ -311,10 +311,10 @@
     "Progress": "released",
     "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 638 }],
     "Images": { "concept_PNGName": "numberize/cnsp_img638-numberize" },
-    "Name": "(ナンバーテールズ化企画絵)",
+    "Name_JP": "(ナンバーテールズ化企画絵)",
     "Name_EN": "(Illustration of NumberizeTales Project)",
     "Class": ["ナンバーテールズ化"],
-    "AdditionalDesigned": "企画参加者：猫餅 さん(https://www.pixiv.net/artworks/137497481)",
+    "AdditionalDesigned_JP": "企画参加者：猫餅 さん(https://www.pixiv.net/artworks/137497481)",
     "AdditionalDesigned_EN": "Project Participant: 猫餅 (https://www.pixiv.net/artworks/137497481)"
   },
   {
@@ -323,10 +323,10 @@
     "Progress": "released",
     "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 670 }],
     "Images": { "concept_PNGName": "numberize/cnsp_img670-numberize" },
-    "Name": "(ナンバーテールズ化企画絵)",
+    "Name_JP": "(ナンバーテールズ化企画絵)",
     "Name_EN": "(Illustration of NumberizeTales Project)",
     "Class": ["ナンバーテールズ化"],
-    "AdditionalDesigned": "企画参加者：みとにゃん/Mitten さん(https://www.pixiv.net/artworks/137497481)",
+    "AdditionalDesigned_JP": "企画参加者：みとにゃん/Mitten さん(https://www.pixiv.net/artworks/137497481)",
     "AdditionalDesigned_EN": "Project Participant: Mitten (https://www.pixiv.net/artworks/137497481)"
   },
   {
@@ -335,10 +335,10 @@
     "Progress": "released",
     "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 736 }],
     "Images": { "concept_PNGName": "numberize/cnsp_img736-numberize" },
-    "Name": "(ナンバーテールズ化企画絵)",
+    "Name_JP": "(ナンバーテールズ化企画絵)",
     "Name_EN": "(Illustration of NumberizeTales Project)",
     "Class": ["ナンバーテールズ化"],
-    "AdditionalDesigned": "企画参加者：みるく・フローランス さん(https://www.pixiv.net/artworks/137497481)",
+    "AdditionalDesigned_JP": "企画参加者：みるく・フローランス さん(https://www.pixiv.net/artworks/137497481)",
     "AdditionalDesigned_EN": "Project Participant: みるく・フローランス (https://www.pixiv.net/artworks/137497481)"
   },
   {
@@ -347,10 +347,10 @@
     "Progress": "released",
     "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 773 }],
     "Images": { "concept_PNGName": "numberize/cnsp_img773-numberize" },
-    "Name": "(ナンバーテールズ化企画絵)",
+    "Name_JP": "(ナンバーテールズ化企画絵)",
     "Name_EN": "(Illustration of NumberizeTales Project)",
     "Class": ["ナンバーテールズ化"],
-    "AdditionalDesigned": "企画参加者：テンタクル七海 さん(https://www.pixiv.net/artworks/137497481)",
+    "AdditionalDesigned_JP": "企画参加者：テンタクル七海 さん(https://www.pixiv.net/artworks/137497481)",
     "AdditionalDesigned_EN": "Project Participant: テンタクル七海 (https://www.pixiv.net/artworks/137497481)"
   },
   {
@@ -359,10 +359,10 @@
     "Progress": "released",
     "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 979 }],
     "Images": { "concept_PNGName": "numberize/cnsp_img979-numberize" },
-    "Name": "(ナンバーテールズ化企画絵)",
+    "Name_JP": "(ナンバーテールズ化企画絵)",
     "Name_EN": "(Illustration of NumberizeTales Project)",
     "Class": ["ナンバーテールズ化"],
-    "AdditionalDesigned": "企画参加者：さくらば さん(https://www.pixiv.net/artworks/137497481)",
+    "AdditionalDesigned_JP": "企画参加者：さくらば さん(https://www.pixiv.net/artworks/137497481)",
     "AdditionalDesigned_EN": "Project Participant: さくらば (https://www.pixiv.net/artworks/137497481)"
   },
   {
@@ -370,10 +370,10 @@
     "Num": "1122-numberize",
     "Progress": "released",
     "Images": { "concept_PNGName": "numberize/cnsp_img1122-numberize" },
-    "Name": "(ナンバーテールズ化企画絵)",
+    "Name_JP": "(ナンバーテールズ化企画絵)",
     "Name_EN": "(Illustration of NumberizeTales Project)",
     "Class": ["ナンバーテールズ化"],
-    "AdditionalDesigned": "企画参加者：しおん/猫又紫苑 さん(https://www.pixiv.net/artworks/137497481)",
+    "AdditionalDesigned_JP": "企画参加者：しおん/猫又紫苑 さん(https://www.pixiv.net/artworks/137497481)",
     "AdditionalDesigned_EN": "Project Participant: しおん/猫又紫苑 (https://www.pixiv.net/artworks/137497481)"
   },
   {
@@ -384,9 +384,9 @@
       "concept_PNGName": "hexademical/cnsp_img0xA",
       "corefolder_PNGPath": ["0xA/emstk_corefolder0xA-1"]
     },
-    "Name": "0xA(エース)",
+    "Name_JP": "0xA(エース)",
     "Name_EN": "0xA(Ace)",
-    "FormalName": "ヘキサデミカル-テールズ仮説A番機",
+    "FormalName_JP": "ヘキサデミカル-テールズ仮説A番機",
     "FormalName_EN": "HexademicalTales #0xA",
     "ModelNumber": "AVCR-HxT 0xA",
     "GenderType": "Neutral",
@@ -401,7 +401,7 @@
     "AnivDay": [
       {
         "Day": { "Month": 6, "DayOfMonth": 10 },
-        "DayAbout": "開発記念",
+        "DayAbout_JP": "開発記念",
         "DayAbout_EN": "Development commemoration"
       }
     ],
@@ -409,29 +409,29 @@
       { "value": 39, "about_JP": "推定", "about_EN": "Presumption" }
     ],
     "BustSize": "AA",
-    "TailsUnit": "つぼみ型1本（大1束+小9束）",
+    "TailsUnit_JP": "つぼみ型1本（大1束+小9束）",
     "TailsUnit_EN": "Single bud-type tail (1 large cluster + 9 small clusters)",
     "Class": ["ヘキサデミカル-テールズ"],
-    "FirstPersonCalling": "ボク",
+    "FirstPersonCalling_JP": "ボク",
     "FirstPersonCalling_EN": "I (masc. casual)",
-    "SecondPersonCalling": "キミ",
+    "SecondPersonCalling_JP": "キミ",
     "SecondPersonCalling_EN": "you (familiar)",
-    "ThirdPersonCalling": "彼/彼女;[※名前呼び],~クン",
+    "ThirdPersonCalling_JP": "彼/彼女;[※名前呼び],~クン",
     "ThirdPersonCalling_EN": "he/she; [*by name], ~-kun",
-    "ForMasterCalling": "センパイ",
+    "ForMasterCalling_JP": "センパイ",
     "ForMasterCalling_EN": "Senpai",
-    "Character": "胸に秘めている思考か読めない不思議系\n「10(ミツル)」と似ている",
+    "Character_JP": "胸に秘めている思考か読めない不思議系\n「10(ミツル)」と似ている",
     "Character_EN": "A mysterious type whose thoughts are unreadable and hidden in the chest. Similar to '10(Tenim).'",
-    "Hobby": "賭け事",
+    "Hobby_JP": "賭け事",
     "Hobby_EN": "Gambling",
-    "SpecialSkill": "ディール",
+    "SpecialSkill_JP": "ディール",
     "SpecialSkill_EN": "Dealing",
-    "Favor": "カード",
+    "Favor_JP": "カード",
     "Favor_EN": "Cards",
-    "Unlike": "",
-    "RelationNotes": "「10(ミツル)」の派生とされている",
+    "Unlike_JP": "",
+    "RelationNotes_JP": "「10(ミツル)」の派生とされている",
     "RelationNotes_EN": "Considered a derivative of '10(Tenim)'",
-    "NumerospecAbout": { "hideText": "極秘事項" },
+    "NumerospecAbout_JP": { "hideText": "極秘事項" },
     "NumerospecStats": {
       "EffectStats": {
         "Mental": { "hideText": "非公開" },
@@ -451,7 +451,7 @@
       "Technic": { "Rank": "S" },
       "Actuation": { "hideText": "非公開" }
     },
-    "InStory": "「エイゼルベット」の観測者「シグマ-クロステールズ」の元で観測を受けている、ある電脳世界との間で生まれた個体\n彼(女)が切るカードには強い潜在能力が秘められていると推測されているようだが…？",
+    "InStory_JP": "「エイゼルベット」の観測者「シグマ-クロステールズ」の元で観測を受けている、ある電脳世界との間で生まれた個体\n彼(女)が切るカードには強い潜在能力が秘められていると推測されているようだが…？",
     "InStory_EN": "An entity born from the interaction between a certain cyber world and \"Sigma-CrossTales,\" an observer of \"∀selbuet.\" It is speculated that the cards ze cuts hold strong latent abilities... but?",
     "Relation": {
       "Related": [
@@ -520,9 +520,9 @@
       "concept_PNGName": "hexademical/cnsp_img0xB",
       "corefolder_PNGPath": ["0xB/emstk_corefolder0xB-1"]
     },
-    "Name": "0xB(ベータ)",
+    "Name_JP": "0xB(ベータ)",
     "Name_EN": "0xB(Beta)",
-    "FormalName": "ヘキサデミカル-テールズ仮説B番機",
+    "FormalName_JP": "ヘキサデミカル-テールズ仮説B番機",
     "FormalName_EN": "HexademicalTales #0xB",
     "ModelNumber": "AVCR-HxT 0xB",
     "GenderType": "FemaleNeutral",
@@ -537,7 +537,7 @@
     "AnivDay": [
       {
         "Day": { "Month": 6, "DayOfMonth": 11 },
-        "DayAbout": "開発記念",
+        "DayAbout_JP": "開発記念",
         "DayAbout_EN": "Development commemoration"
       }
     ],
@@ -545,25 +545,25 @@
       { "value": 36, "about_JP": "推定", "about_EN": "Presumption" }
     ],
     "BustSize": "D",
-    "TailsUnit": "猫型2本",
+    "TailsUnit_JP": "猫型2本",
     "TailsUnit_EN": "Cat Type: 2 Tails",
     "Class": ["ヘキサデミカル-テールズ"],
-    "FirstPersonCalling": "わたし",
+    "FirstPersonCalling_JP": "わたし",
     "FirstPersonCalling_EN": "I",
-    "SecondPersonCalling": "",
-    "ThirdPersonCalling": "~さん\nナンバーテールズに対して：先輩",
+    "SecondPersonCalling_JP": "",
+    "ThirdPersonCalling_JP": "~さん\nナンバーテールズに対して：先輩",
     "ThirdPersonCalling_EN": "~-san\nsenpai (*toward NumberTales)",
-    "ForMasterCalling": "",
-    "Character": "繊細で泣き虫\n時々単独行動に出ることがある",
+    "ForMasterCalling_JP": "",
+    "Character_JP": "繊細で泣き虫\n時々単独行動に出ることがある",
     "Character_EN": "Delicate and a crybaby. Sometimes goes off on her own.",
-    "Hobby": "",
-    "SpecialSkill": "一緒に泣いて慰める",
+    "Hobby_JP": "",
+    "SpecialSkill_JP": "一緒に泣いて慰める",
     "SpecialSkill_EN": "Cry together and offer comfort",
-    "Favor": "",
-    "Unlike": "",
-    "RelationNotes": "「11(トウイチ)」の派生とされている",
+    "Favor_JP": "",
+    "Unlike_JP": "",
+    "RelationNotes_JP": "「11(トウイチ)」の派生とされている",
     "RelationNotes_EN": "Considered a derivative of '11(Elevan)'",
-    "NumerospecAbout": { "hideText": "極秘事項" },
+    "NumerospecAbout_JP": { "hideText": "極秘事項" },
     "NumerospecStats": {
       "EffectStats": {
         "Mental": { "hideText": "検証中" },
@@ -583,7 +583,7 @@
       "Technic": { "Rank": "A" },
       "Actuation": { "Rank": "C" }
     },
-    "InStory": "「エイゼルベット」の観測者「シグマ-クロステールズ」の元で観測を受けている、ある電脳世界との間で生まれた個体\n試験を受けた後に突然 自分自身の性能が良くなることがあるらしく……",
+    "InStory_JP": "「エイゼルベット」の観測者「シグマ-クロステールズ」の元で観測を受けている、ある電脳世界との間で生まれた個体\n試験を受けた後に突然 自分自身の性能が良くなることがあるらしく……",
     "InStory_EN": "An entity born from the interaction between a certain cyber world and \"Sigma-CrossTales,\" an observer of \"∀selbuet.\" It seems that after taking tests, her own performance suddenly improves...",
     "Relation": {
       "Related": [
@@ -673,9 +673,9 @@
         "0xC/emstk_corefolder0xC-2"
       ]
     },
-    "Name": "0xC(セレス)",
+    "Name_JP": "0xC(セレス)",
     "Name_EN": "0xC(Ceres)",
-    "FormalName": "ヘキサデミカル-テールズ仮説C番機",
+    "FormalName_JP": "ヘキサデミカル-テールズ仮説C番機",
     "FormalName_EN": "HexademicalTales #0xC",
     "ModelNumber": "AVCR-HxT 0xC",
     "GenderType": "MaleNeutral",
@@ -690,31 +690,31 @@
     "AnivDay": [
       {
         "Day": { "Month": 6, "DayOfMonth": 12 },
-        "DayAbout": "開発記念",
+        "DayAbout_JP": "開発記念",
         "DayAbout_EN": "Development commemoration"
       }
     ],
     "Weight_kg": { "hideText": "未公開希望" },
-    "TailsUnit": "犬型3本",
+    "TailsUnit_JP": "犬型3本",
     "TailsUnit_EN": "Dog Type: 3 Tails",
     "Class": ["ヘキサデミカル-テールズ"],
-    "FirstPersonCalling": "オレ\nぼく(※ナイーヴ時)",
+    "FirstPersonCalling_JP": "オレ\nぼく(※ナイーヴ時)",
     "FirstPersonCalling_EN": "I (ore; rough)\nI (boku; when naive)",
-    "SecondPersonCalling": "",
-    "ThirdPersonCalling": "*イツ;[※名前呼び]\nナンバーテールズに対して：先輩",
+    "SecondPersonCalling_JP": "",
+    "ThirdPersonCalling_JP": "*イツ;[※名前呼び]\nナンバーテールズに対して：先輩",
     "ThirdPersonCalling_EN": "this/that/who/what/which/them (as personal or objective); [*by name]\nsenpai (*toward NumberTales)",
-    "ForMasterCalling": "",
-    "Character": "自分を信じて動いているが、メンタルの変動が激しく少し単純。かわいい\nアイドルを志望している",
+    "ForMasterCalling_JP": "",
+    "Character_JP": "自分を信じて動いているが、メンタルの変動が激しく少し単純。かわいい\nアイドルを志望している",
     "Character_EN": "Believes in himself and acts accordingly, but has extreme mental fluctuations and is a bit simple. Cute.\nAspires to be an idol.",
-    "Hobby": "アイドルを目指すこと",
+    "Hobby_JP": "アイドルを目指すこと",
     "Hobby_EN": "Aspiring to be an idol",
-    "SpecialSkill": "",
-    "Favor": "",
-    "Unlike": "メンタルブレイク",
+    "SpecialSkill_JP": "",
+    "Favor_JP": "",
+    "Unlike_JP": "メンタルブレイク",
     "Unlike_EN": "Mental breakdown",
-    "RelationNotes": "アイドルを志望しているが、アイドルの素質があるナンバーテールズとは少しすれ違い気味らしい",
+    "RelationNotes_JP": "アイドルを志望しているが、アイドルの素質があるナンバーテールズとは少しすれ違い気味らしい",
     "RelationNotes_EN": "Aspires to be an idol, but seems to have some misunderstandings with NumberTales who have idol potential",
-    "NumerospecAbout": { "hideText": "極秘事項" },
+    "NumerospecAbout_JP": { "hideText": "極秘事項" },
     "NumerospecStats": {
       "EffectStats": {
         "Mental": { "EffectText": "特殊" },
@@ -734,7 +734,7 @@
       "Technic": { "Rank": "B" },
       "Actuation": { "Rank": "C" }
     },
-    "InStory": "「エイゼルベット」の観測者「シグマ-クロステールズ」の元で観測を受けている、ある電脳世界との間で生まれた個体\n試験中に機材を暴走させることがあり……",
+    "InStory_JP": "「エイゼルベット」の観測者「シグマ-クロステールズ」の元で観測を受けている、ある電脳世界との間で生まれた個体\n試験中に機材を暴走させることがあり……",
     "InStory_EN": "An entity born from the interaction between a certain cyber world and \"Sigma-CrossTales,\" an observer of \"∀selbuet.\"\nSometimes causes equipment to go berserk during tests...",
     "Relation": { "Related": [] },
     "RelationTo_Primary": {
@@ -819,9 +819,9 @@
         "0xD/emstk_corefolder0xD-2"
       ]
     },
-    "Name": "0xD(デプス)",
+    "Name_JP": "0xD(デプス)",
     "Name_EN": "0xD(Depth)",
-    "FormalName": "ヘキサデミカル-テールズ仮説D番機",
+    "FormalName_JP": "ヘキサデミカル-テールズ仮説D番機",
     "FormalName_EN": "HexademicalTales #0xD",
     "ModelNumber": "AVCR-HxT 0xD",
     "GenderType": "FemaleNeutral",
@@ -836,34 +836,34 @@
     "AnivDay": [
       {
         "Day": { "Month": 6, "DayOfMonth": 13 },
-        "DayAbout": "開発記念",
+        "DayAbout_JP": "開発記念",
         "DayAbout_EN": "Development commemoration"
       }
     ],
     "Weight_kg": { "hideText": "未公開希望" },
     "BustSize": "E",
-    "TailsUnit": "狐型4本",
+    "TailsUnit_JP": "狐型4本",
     "TailsUnit_EN": "Fox Type: 4 Tails",
     "Class": ["ヘキサデミカル-テールズ"],
-    "FirstPersonCalling": "こっち",
+    "FirstPersonCalling_JP": "こっち",
     "FirstPersonCalling_EN": "I/me (kocchi; informal self-ref.)",
-    "SecondPersonCalling": "あなた",
+    "SecondPersonCalling_JP": "あなた",
     "SecondPersonCalling_EN": "you (neutral/polite)",
-    "ThirdPersonCalling": "*の子/*っち;[※名前呼び]",
+    "ThirdPersonCalling_JP": "*の子/*っち;[※名前呼び]",
     "ThirdPersonCalling_EN": "that/this/which kid (*no-ko), ~-cchi; [*by name]",
-    "ForMasterCalling": "",
-    "Character": "勤勉で几帳面\n仕事熱心で少しストイック\nアニヲタの可能性あり",
+    "ForMasterCalling_JP": "",
+    "Character_JP": "勤勉で几帳面\n仕事熱心で少しストイック\nアニヲタの可能性あり",
     "Character_EN": "Diligent and meticulous.\nHardworking and a bit stoic.\nPossibly an anime otaku.",
-    "Hobby": "興味持ったことをメモすること",
+    "Hobby_JP": "興味持ったことをメモすること",
     "Hobby_EN": "Taking notes on things of interest",
-    "SpecialSkill": "",
-    "Favor": "ノート",
+    "SpecialSkill_JP": "",
+    "Favor_JP": "ノート",
     "Favor_EN": "Notebook",
-    "Unlike": "見られたくないものを見られること",
+    "Unlike_JP": "見られたくないものを見られること",
     "Unlike_EN": "Being seen things she doesn't want to be seen",
-    "RelationNotes": "「0xE(エネ)」に特大空ビ化の非検体にされたことがあり…？",
+    "RelationNotes_JP": "「0xE(エネ)」に特大空ビ化の非検体にされたことがあり…？",
     "RelationNotes_EN": "Was turned into a non-test subject with mega-extra-large inflatable floatization by '0xE(Enè)'...?",
-    "NumerospecAbout": { "hideText": "極秘事項" },
+    "NumerospecAbout_JP": { "hideText": "極秘事項" },
     "NumerospecStats": {
       "EffectStats": {
         "Mental": { "EffectText": "希薄" },
@@ -883,7 +883,7 @@
       "Technic": { "Rank": "A" },
       "Actuation": { "Rank": "A" }
     },
-    "InStory": "「エイゼルベット」の観測者「シグマ-クロステールズ」の元で観測を受けている、ある電脳世界との間で生まれた個体\n高い記録能力から、ヘキサデミカル-テールズの躯体開発で途中から記録担当を務めることとなった",
+    "InStory_JP": "「エイゼルベット」の観測者「シグマ-クロステールズ」の元で観測を受けている、ある電脳世界との間で生まれた個体\n高い記録能力から、ヘキサデミカル-テールズの躯体開発で途中から記録担当を務めることとなった",
     "InStory_EN": "An entity born from the interaction between a certain cyber world and \"Sigma-CrossTales,\" an observer of \"∀selbuet.\"\nDue to her high recording ability, she took on the role of recording during the development of HexademicalTales' body.",
     "Relation": {
       "Related": [{ "Num": "0xE", "RelationLabel": ["unmatched"] }]
@@ -969,9 +969,9 @@
       "concept_PNGName": "hexademical/cnsp_img0xE",
       "corefolder_PNGPath": ["0xE/emstk_corefolder0xE-1"]
     },
-    "Name": "0xE(エネ)",
+    "Name_JP": "0xE(エネ)",
     "Name_EN": "0xE(Enè)",
-    "FormalName": "ヘキサデミカル-テールズ仮説E番機",
+    "FormalName_JP": "ヘキサデミカル-テールズ仮説E番機",
     "FormalName_EN": "HexademicalTales #0xE",
     "ModelNumber": "AVCR-HxT 0xE",
     "GenderType": "Neutral",
@@ -986,7 +986,7 @@
     "AnivDay": [
       {
         "Day": { "Month": 6, "DayOfMonth": 14 },
-        "DayAbout": "開発記念",
+        "DayAbout_JP": "開発記念",
         "DayAbout_EN": "Development commemoration"
       }
     ],
@@ -994,29 +994,29 @@
       { "value": 39, "about_JP": "推定", "about_EN": "Presumption" }
     ],
     "BustSize": "AA",
-    "TailsUnit": "猫型5本(バンドで束ねている)",
+    "TailsUnit_JP": "猫型5本(バンドで束ねている)",
     "TailsUnit_EN": "Cat Type: 5 Tails (bound together with a band)",
     "Class": ["ヘキサデミカル-テールズ"],
-    "FirstPersonCalling": "オイラ\n俺っち",
+    "FirstPersonCalling_JP": "オイラ\n俺っち",
     "FirstPersonCalling_EN": "I (oira)\nI (orecchi)",
-    "SecondPersonCalling": "[※三人称]\n貴殿(きでん) ※稀",
+    "SecondPersonCalling_JP": "[※三人称]\n貴殿(きでん) ※稀",
     "SecondPersonCalling_EN": "[*third-person calling]\nyour lordship (kiden; rare)",
-    "ThirdPersonCalling": "~殿/*イツ",
+    "ThirdPersonCalling_JP": "~殿/*イツ",
     "ThirdPersonCalling_EN": "~-dono / this/that/who/what/which/them (*itsu, as personal or objective)",
-    "ForMasterCalling": "",
-    "Character": "優しく明るい\nなんでも技術で解決しようとしないと気が済まない",
+    "ForMasterCalling_JP": "",
+    "Character_JP": "優しく明るい\nなんでも技術で解決しようとしないと気が済まない",
     "Character_EN": "Kind and cheerful.\nCan't be satisfied unless trying to solve everything with technology.",
-    "Hobby": "メンテナンス（魔改造付き）",
+    "Hobby_JP": "メンテナンス（魔改造付き）",
     "Hobby_EN": "Maintenance (with some modding)",
-    "SpecialSkill": "魔改造",
+    "SpecialSkill_JP": "魔改造",
     "SpecialSkill_EN": "Modding",
-    "Favor": "（魔）改造",
+    "Favor_JP": "（魔）改造",
     "Favor_EN": "Modification (as modding)",
-    "Unlike": "機械で解決できない問題",
+    "Unlike_JP": "機械で解決できない問題",
     "Unlike_EN": "Problems that can't be solved with machines",
-    "RelationNotes": "ナンバーテールズの改造案を出しているが……",
+    "RelationNotes_JP": "ナンバーテールズの改造案を出しているが……",
     "RelationNotes_EN": "Has been giving modification ideas to NumberTales, but...",
-    "NumerospecAbout": { "hideText": "極秘事項" },
+    "NumerospecAbout_JP": { "hideText": "極秘事項" },
     "NumerospecStats": {
       "EffectStats": {
         "Mental": { "EffectText": "効果無" },
@@ -1036,7 +1036,7 @@
       "Technic": { "hideText": "非公開" },
       "Actuation": { "Rank": "S" }
     },
-    "InStory": "「エイゼルベット」の観測者「シグマ-クロステールズ」の元で観測を受けている、ある電脳世界との間で生まれた個体\n向こう側の電脳世界でもこちらの世界でも、色んなものの魔改造に勤しんでいる",
+    "InStory_JP": "「エイゼルベット」の観測者「シグマ-クロステールズ」の元で観測を受けている、ある電脳世界との間で生まれた個体\n向こう側の電脳世界でもこちらの世界でも、色んなものの魔改造に勤しんでいる",
     "InStory_EN": "An entity born from the interaction between a certain cyber world and \"Sigma-CrossTales,\" an observer of \"∀selbuet.\"\nEngaged in modding various things in both the cyber world over there and this world.",
     "Relation": { "Related": [{ "Num": "0xD", "RelationLabel": ["abusing"] }] },
     "RelationTo_Primary": {
@@ -1102,9 +1102,9 @@
         "0xF/emstk_corefolder0xF-2a"
       ]
     },
-    "Name": "0xF(フォルテ)",
+    "Name_JP": "0xF(フォルテ)",
     "Name_EN": "0xF(Forte)",
-    "FormalName": "ヘキサデミカル-テールズ仮説F番機",
+    "FormalName_JP": "ヘキサデミカル-テールズ仮説F番機",
     "FormalName_EN": "HexademicalTales #0xF",
     "ModelNumber": "AVCR-HxT 0xF",
     "GenderType": "FemaleNeutral",
@@ -1115,34 +1115,34 @@
     "AnivDay": [
       {
         "Day": { "Month": 6, "DayOfMonth": 15 },
-        "DayAbout": "開発記念",
+        "DayAbout_JP": "開発記念",
         "DayAbout_EN": "Development commemoration"
       }
     ],
     "Weight_kg": { "hideText": "？？？" },
     "BustSize": "J",
-    "TailsUnit": "狐型6本",
+    "TailsUnit_JP": "狐型6本",
     "TailsUnit_EN": "Fox Type: 6 Tails",
     "Class": ["ヘキサデミカル-テールズ"],
-    "FirstPersonCalling": "ママ",
+    "FirstPersonCalling_JP": "ママ",
     "FirstPersonCalling_EN": "Mama",
-    "SecondPersonCalling": "",
-    "ThirdPersonCalling": "~ちゃん;~(な)コ",
+    "SecondPersonCalling_JP": "",
+    "ThirdPersonCalling_JP": "~ちゃん;~(な)コ",
     "ThirdPersonCalling_EN": "~-chan; ~ boy/girl(s) (adjectival)",
-    "ForMasterCalling": "",
-    "Character": "母性の化身\n全人類のママになろうとしている",
+    "ForMasterCalling_JP": "",
+    "Character_JP": "母性の化身\n全人類のママになろうとしている",
     "Character_EN": "Embodiment of maternal love.\nTrying to become the mama of all humanity.",
-    "Hobby": "ママになること",
+    "Hobby_JP": "ママになること",
     "Hobby_EN": "Trying to become a mama",
-    "SpecialSkill": "ママになること",
+    "SpecialSkill_JP": "ママになること",
     "SpecialSkill_EN": "Trying to become a mama",
-    "Favor": "ママになること",
+    "Favor_JP": "ママになること",
     "Favor_EN": "Trying to become a mama",
-    "Unlike": "機械",
+    "Unlike_JP": "機械",
     "Unlike_EN": "Machines",
-    "RelationNotes": "他のヘキサデミカル-テールズの心の支えになっているらしい",
+    "RelationNotes_JP": "他のヘキサデミカル-テールズの心の支えになっているらしい",
     "RelationNotes_EN": "Seems to be a source of emotional support for the other HexademicalTales",
-    "NumerospecAbout": { "hideText": "公開不能" },
+    "NumerospecAbout_JP": { "hideText": "公開不能" },
     "NumerospecStats": {
       "EffectStats": {
         "Mental": { "EffectText": "危険" },
@@ -1162,7 +1162,7 @@
       "Technic": { "hideText": "判定失敗" },
       "Actuation": { "hideText": "判定失敗" }
     },
-    "InStory": "「エイゼルベット」の観測者「シグマ-クロステールズ」の元で観測を受けている、ある電脳世界との間で生まれた個体\n彼女を前にした人々は彼女に「ママ」だと甘えだし……",
+    "InStory_JP": "「エイゼルベット」の観測者「シグマ-クロステールズ」の元で観測を受けている、ある電脳世界との間で生まれた個体\n彼女を前にした人々は彼女に「ママ」だと甘えだし……",
     "InStory_EN": "An entity born from the interaction between a certain cyber world and \"Sigma-CrossTales,\" an observer of \"∀selbuet.\"\nPeople who are in front of her start to rely on her as their \"mama\"...",
     "Relation": {
       "Related": [{ "Num": "0xA", "RelationLabel": ["secretRelation"] }]
@@ -1245,15 +1245,15 @@
       "Num": "255"
     },
     "sec_SeriesTitle": "ヘキサデミカル・テールズ(ナンバーテールズ公式副次創作版)",
-    "Name": "0xFF(エフエフ)",
+    "Name_JP": "0xFF(エフエフ)",
     "Name_EN": "0xFF(eFeF)",
-    "FormalName": "ヘキサデミカル-テールズ 第二最終番機(ナンバーテールズ異元255番機)",
+    "FormalName_JP": "ヘキサデミカル-テールズ 第二最終番機(ナンバーテールズ異元255番機)",
     "FormalName_EN": "HexademicalTales 2nd Final Unit (Over-dimension of NumberTales Mk.255)",
     "ModelNumber": "AVCR/APHR-HxT Final.2",
     "RaceType": "PortableHumanoid(TaleBeastType,SoftwareBody)",
     "GenderType": "Neutral",
     "Class": ["ヘキサデミカル-テールズ", "バーチャリティテールズ"],
-    "Backgrounds": "1バイト値の最大値（16進法）から由来",
+    "Backgrounds_JP": "1バイト値の最大値（16進法）から由来",
     "Backgrounds_EN": "Derived from the maximum value of a 1-byte (hexadecimal)"
   },
   {
@@ -1265,7 +1265,7 @@
       "Card": { "Stoat": "Dealer", "Num": 79 }
     },
     "sec_SeriesTitle": "D-Vines(ディ-ヴァインズ)",
-    "Name": "錦野 舞",
+    "Name_JP": "錦野 舞",
     "Name_EN": "Dancy Actressilk",
     "Age": 24,
     "AnivDay": [
@@ -1277,11 +1277,11 @@
     "BustSize": "B",
     "RaceType": "Human",
     "Class": ["開発者", "D-Vine開発部 最高責任部長"],
-    "ForMasterCalling": "クライアントさん",
+    "ForMasterCalling_JP": "クライアントさん",
     "ForMasterCalling_EN": "Client-san",
-    "RelationNotes": "ナンバーテールズ開発者である零(カズナイ)姉弟の後輩。妹:歌嫁は同じくしてかつ百花繚乱研究所のアシスタントを行なっている。",
+    "RelationNotes_JP": "ナンバーテールズ開発者である零(カズナイ)姉弟の後輩。妹:歌嫁は同じくしてかつ百花繚乱研究所のアシスタントを行なっている。",
     "RelationNotes_EN": "Junior to the Norumber siblings, developers of NumberTales. Her sister, Phonia, is also an assistant at the 100 Beauties Lab.",
-    "InStory": "シンフォニー.XVI(ゼクズィン)に所属後、量産販売型ナンバーテールズの相場的販売コストを抑えた互換個体ユニットの開発・提供を百花繚乱研究所（の主に零零(カズナイレイ)）と提携して行なっている\nちなみに運命線探偵としての錦野舞は、妹:歌嫁を含めおよそ7年前のパラレル存在に相当する",
+    "InStory_JP": "シンフォニー.XVI(ゼクズィン)に所属後、量産販売型ナンバーテールズの相場的販売コストを抑えた互換個体ユニットの開発・提供を百花繚乱研究所（の主に零零(カズナイレイ)）と提携して行なっている\nちなみに運命線探偵としての錦野舞は、妹:歌嫁を含めおよそ7年前のパラレル存在に相当する",
     "InStory_EN": "After joining Symphony.XVI(Sechzehn), she has been developing and providing compatible unit models with reduced market cost for mass-produced NumberTales in partnership with the 100 Beauties Lab. (mainly with Zera Norumber).\nBy the way, as a FateLine Investigators, Dancy Actressilk corresponds to a parallel existence from about 7 years ago, including her sister Phonia Actressilk.",
     "Relation": {
       "Related": [{ "Num": "∞", "RelationLabel": ["brother|sister"] }]
@@ -1311,7 +1311,7 @@
       "Card": { "Stoat": "Dealer", "Num": 80 }
     },
     "sec_SeriesTitle": "D-Vines(ディ-ヴァインズ)",
-    "Name": "錦野 歌嫁",
+    "Name_JP": "錦野 歌嫁",
     "Name_EN": "Phonia Actressilk",
     "Age": 24,
     "AnivDay": [
@@ -1324,11 +1324,11 @@
     "RaceType": "Human",
     "Belonging": ["百花繚乱研究所"],
     "Class": ["ゼミアシスタント"],
-    "ForMasterCalling": "クライアントさん",
+    "ForMasterCalling_JP": "クライアントさん",
     "ForMasterCalling_EN": "Client-san",
-    "RelationNotes": "ナンバーテールズ開発者である零(カズナイ)姉弟の後輩。姉:舞は同じくしてシンフォニー.XVI(ゼクズィン)に所属し黒薔薇国へ単身赴任している",
+    "RelationNotes_JP": "ナンバーテールズ開発者である零(カズナイ)姉弟の後輩。姉:舞は同じくしてシンフォニー.XVI(ゼクズィン)に所属し黒薔薇国へ単身赴任している",
     "RelationNotes_EN": "Junior to the Norumber siblings, developers of NumberTales. Her sister, Dancy, belongs to Symphony.XVI(Sechzehn) and is on a solo assignment in the Black Rose Kingdom.",
-    "InStory": "百花繚乱研究所の本体である元藤・千歳研究室にてN3US大学の大学院修士課程を卒業後、一時的な就職活動を経て同研究室で博士課程に進学し 主に零百(カズナイハゲム)の作業補助などといったゼミのアシスタントを務めている\nちなみに運命線探偵としての錦野歌嫁は、姉:舞を含めおよそ7年前のパラレル存在に相当する",
+    "InStory_JP": "百花繚乱研究所の本体である元藤・千歳研究室にてN3US大学の大学院修士課程を卒業後、一時的な就職活動を経て同研究室で博士課程に進学し 主に零百(カズナイハゲム)の作業補助などといったゼミのアシスタントを務めている\nちなみに運命線探偵としての錦野歌嫁は、姉:舞を含めおよそ7年前のパラレル存在に相当する",
     "InStory_EN": "After graduating from the master's program at N3US University in the Dr.Wisterigen & Dr.Thouser Seminar, which is the mainbase of the 100 Beauties Lab, she temporarily job-hunted before entering the doctoral program at the same laboratory, where she mainly serves as an assistant in seminars such as assisting Hudret Norumber.\nBy the way, as a FateLine Investigators, Phonia Actressilk corresponds to a parallel existence from about 7 years ago, including her sister Dancy Actressilk.",
     "Relation": {
       "Related": [{ "Num": "%", "RelationLabel": ["brother|sister"] }]

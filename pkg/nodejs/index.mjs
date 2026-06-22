@@ -449,7 +449,7 @@ export class CreationsDBClient {
 
   /**
    * 作品一覧を取得
-   * @returns {Promise<Array<{ key: string, Title: string, Title_EN: string, Works_Summary: string }>>}
+   * @returns {Promise<Array<{ key: string, Title_JP: string, Title_EN: string, Works_Summary_JP: string, OldTitles: Array }>>}
    */
   async listWorks() {
     const globalMeta = await readGlobalMeta(this.repoRoot);
@@ -457,9 +457,9 @@ export class CreationsDBClient {
       .filter(([, info]) => info?.Works_Hidden !== true)
       .map(([key, info]) => ({
         key,
-        Title: typeof info?.Title === 'string' ? info.Title : '',
+        Title_JP: typeof info?.Title_JP === 'string' ? info.Title_JP : '',
         Title_EN: typeof info?.Title_EN === 'string' ? info.Title_EN : '',
-        Works_Summary: typeof info?.Works_Summary === 'string' ? info.Works_Summary : '',
+        Works_Summary_JP: typeof info?.Works_Summary_JP === 'string' ? info.Works_Summary_JP : '',
         OldTitles: Array.isArray(info?.OldTitles) ? info.OldTitles : []
       }));
   }

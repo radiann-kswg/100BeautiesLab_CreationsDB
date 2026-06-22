@@ -365,8 +365,8 @@ describe('_DBLink / _Jump merge (in-process)', () => {
     const out = await proc.enrichRecords([rec], '#Works_MainWork', 'Primary');
     const e = out[0];
 
-    // UnauthedLogica の Model:{LogicSeries:null,Num:62} は FormalName が「人形兵ゼロイド62番機」
-    expect(e.FormalName).toBe('人形兵ゼロイド62番機');
+    // UnauthedLogica の Model:{LogicSeries:null,Num:62} は FormalName_JP が「人形兵ゼロイド62番機」
+    expect(e.FormalName_JP).toBe('人形兵ゼロイド62番機');
   });
 
   it('_Search の key がオブジェクト型の場合、AND 条件でサブフィールドを比較できる（インメモリ）', async () => {
@@ -449,7 +449,7 @@ describe('_DBLink / _Jump merge (in-process)', () => {
 
     const rec = {
       Id: 'BASE',
-      Character: '',
+      Character_JP: '',
       _DBLink: {
         worksTitle: 'FLInvestigator78',
         dbName: 'PrimaryDealer',
@@ -460,8 +460,8 @@ describe('_DBLink / _Jump merge (in-process)', () => {
     const out = await proc.enrichRecords([rec], '#Works_MainWork', 'Primary');
     const e = out[0];
 
-    // PrimaryDealer の Card:{Stoat:'Major',StoatNum:0} は Character が「能天気でどこか浮いている」
-    expect(e.Character).toBe('能天気でどこか浮いている');
+    // PrimaryDealer の Card:{Stoat:'Major',StoatNum:0} は Character_JP が「能天気でどこか浮いている」
+    expect(e.Character_JP).toBe('能天気でどこか浮いている');
   });
 
   it('base に $alt フィールドの値がある場合、_DBLink からの primary フィールドマージをスキップする（インメモリ）', async () => {
@@ -550,7 +550,7 @@ describe('_DBLink / _Jump merge (in-process)', () => {
     const proc = new globalThis.EnrichmentProcessor(dataFetcher, testConfig);
 
     const primary = loadJson('data/Works_FLInvestigator78/DataBases/db_Primary.json');
-    const phoenix = primary.find(r => r?.Name === 'フェニクス');
+    const phoenix = primary.find(r => r?.Name_JP === 'フェニクス');
     expect(phoenix).toBeTruthy();
     expect(phoenix.ConceptAge).toEqual({ hideText: '不定' });
 

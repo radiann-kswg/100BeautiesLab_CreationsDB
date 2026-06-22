@@ -267,7 +267,7 @@ if (!R2_ONLY) {
 
   const worksValues = Object.entries(creationWorks).map(([key, info]) => {
     const isHidden = info?.Works_Hidden ? 1 : 0;
-    return `(${esc(key)}, ${esc(info?.Title)}, ${esc(info?.Title_EN)}, ${esc(info?.Works_Summary)}, ${isHidden}, ${esc(JSON.stringify(info))})`;
+    return `(${esc(key)}, ${esc(info?.Title_JP)}, ${esc(info?.Title_EN)}, ${esc(info?.Works_Summary_JP)}, ${isHidden}, ${esc(JSON.stringify(info))})`;
   });
 
   if (worksValues.length > 0) {

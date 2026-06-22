@@ -1,43 +1,43 @@
 {
   "Dictionaries": {
     "#Dict_Class": {
-      "DB_Label": "クラス辞書",
+      "DB_Label_JP": "クラス辞書",
       "DB_Label_EN": "Class Dictionary",
       "keyField": "Class",
       "compatListKey": "#List_Class"
     },
     "#Dict_Stoat": {
-      "DB_Label": "カード種別辞書",
+      "DB_Label_JP": "カード種別辞書",
       "DB_Label_EN": "Card Type(Stoat) Dictionary",
       "keyField": "Stoat",
       "compatListKey": "#List_Stoat"
     },
     "#Dict_Material": {
-      "DB_Label": "元素属性辞書",
+      "DB_Label_JP": "元素属性辞書",
       "DB_Label_EN": "Material Dictionary",
       "keyField": "Material",
       "compatListKey": "#List_Material"
     },
     "#Dict_KinematicOrStatic": {
-      "DB_Label": "動的/静的に関する辞書",
+      "DB_Label_JP": "動的/静的に関する辞書",
       "DB_Label_EN": "Status value about Kinematic/Static Dictionary",
       "keyField": "KinematicOrStatic",
       "compatListKey": "#List_KinematicOrStatic"
     },
     "#Dict_RoleType": {
-      "DB_Label": "ロール種別辞書",
+      "DB_Label_JP": "ロール種別辞書",
       "DB_Label_EN": "Role Type Dictionary",
       "keyField": "RoleType",
       "compatListKey": "#List_RoleType"
     },
     "#Dict_DualizePattern": {
-      "DB_Label": "双極特性パターン辞書",
+      "DB_Label_JP": "双極特性パターン辞書",
       "DB_Label_EN": "Dualize Pattern Dictionary",
       "keyField": "DualizePattern",
       "compatListKey": "#List_DualizePattern"
     },
     "#Dict_SpecialPattern": {
-      "DB_Label": "特殊パターン辞書",
+      "DB_Label_JP": "特殊パターン辞書",
       "DB_Label_EN": "Special Pattern Dictionary",
       "keyField": "SpecialPattern",
       "compatListKey": "#List_SpecialPattern"

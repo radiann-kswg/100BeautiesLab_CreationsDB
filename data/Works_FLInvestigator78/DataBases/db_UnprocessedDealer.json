@@ -2,67 +2,75 @@
   {
     "Card": { "Stoat": "FireWands", "StoatNum": 1, "Num": 23 },
     "Progress": "notProceeded",
-    "FormalName": "馬場 界座(ばば-カイザ)",
+    "FormalName_JP": "馬場 界座",
+    "FormalName_JPReading": "ばば カイザ",
     "FormalName_EN": "Kaiser Baba"
   },
   {
     "Card": { "Stoat": "FireWands", "StoatNum": 2, "Num": 24 },
     "Progress": "notProceeded",
-    "FormalName": "田淵 ひより(たぶち-ひより)",
+    "FormalName_JP": "田淵 ひより",
+    "FormalName_JPReading": "たぶち ひより",
     "FormalName_EN": "Hiyori Tabuchi"
   },
   {
     "Card": { "Stoat": "FireWands", "StoatNum": 3, "Num": 25 },
     "Progress": "notProceeded",
-    "FormalName": "軽間 ながめ(かるま-ながめ)",
+    "FormalName_JP": "軽間 ながめ",
+    "FormalName_JPReading": "かるま ながめ",
     "FormalName_EN": "Nagame Karma"
   },
   {
     "Card": { "Stoat": "FireWands", "StoatNum": 4, "Num": 26 },
     "Progress": "notProceeded",
-    "FormalName": "カトレック.アンバトル",
+    "FormalName_JP": "カトレック.アンバトル",
     "FormalName_EN": "Catrec.Unbattle"
   },
   {
     "Card": { "Stoat": "FireWands", "StoatNum": 5, "Num": 27 },
     "Progress": "notProceeded",
-    "FormalName": "古沢 沢海(ふるやま-たくみ)",
+    "FormalName_JP": "古沢 沢海",
+    "FormalName_JPReading": "ふるやま たくみ",
     "FormalName_EN": "Takumi Furuyama"
   },
   {
     "Card": { "Stoat": "FireWands", "StoatNum": 6, "Num": 28 },
     "Progress": "notProceeded",
-    "FormalName": "凱旋 てるか(がいせん-てるか)",
+    "FormalName_JP": "凱旋 てるか",
+    "FormalName_JPReading": "がいせん てるか",
     "FormalName_EN": "Telca Victorics"
   },
   {
     "Card": { "Stoat": "FireWands", "StoatNum": 7, "Num": 29 },
     "Progress": "notProceeded",
-    "FormalName": "勝俣 誇挑(かつまた-ゆうちょう)",
+    "FormalName_JP": "勝俣 誇挑",
+    "FormalName_JPReading": "かつまた ゆうちょう",
     "FormalName_EN": "Yūchō Katsumata"
   },
   {
     "Card": { "Stoat": "FireWands", "StoatNum": 8, "Num": 30 },
     "Progress": "notProceeded",
-    "FormalName": "卜部 早香(うらべ-はやか)",
+    "FormalName_JP": "卜部 早香",
+    "FormalName_JPReading": "うらべ はやか",
     "FormalName_EN": "Fasta Urabe"
   },
   {
     "Card": { "Stoat": "FireWands", "StoatNum": 9, "Num": 31 },
     "Progress": "notProceeded",
-    "FormalName": "古山 瑞希理(ふるやま-みきり)",
+    "FormalName_JP": "古山 瑞希理",
+    "FormalName_JPReading": "ふるやま みきり",
     "FormalName_EN": "Mikiri Furuyama"
   },
   {
     "Card": { "Stoat": "FireWands", "StoatNum": 10, "Num": 32 },
     "Progress": "notProceeded",
-    "FormalName": "ブランシュ.バーン",
+    "FormalName_JP": "ブランシュ.バーン",
     "FormalName_EN": "Blanche.Burn"
   },
   {
     "Card": { "Stoat": "FireWands", "StoatNum": 11, "Num": 33 },
     "Progress": "notProceeded",
-    "FormalName": "リード.アンカレッヂ",
+    "FormalName_JP": "リード.アンカレッヂ",
     "FormalName_EN": "Leads.Anchorage"
   },
   {
@@ -72,7 +80,7 @@
   {
     "Card": { "Stoat": "FireWands", "StoatNum": 13, "Num": 35 },
     "Progress": "notProceeded",
-    "FormalName": "オードリー.カッツェ.ブラックフレア",
+    "FormalName_JP": "オードリー.カッツェ.ブラックフレア",
     "FormalName_EN": "Audrey.Katze.Blackflare"
   },
   {
@@ -82,67 +90,76 @@
   {
     "Card": { "Stoat": "WaterCups", "StoatNum": 1, "Num": 37 },
     "Progress": "notProceeded",
-    "FormalName": "蓮宮 遥(はすみや-はる)",
+    "FormalName_JP": "蓮宮 遥",
+    "FormalName_JPReading": "はすみや はる",
     "FormalName_EN": "Hal Losas"
   },
   {
     "Card": { "Stoat": "WaterCups", "StoatNum": 2, "Num": 38 },
     "Progress": "notProceeded",
-    "FormalName": "紫恩 ちあ(しおん-ちあ)",
+    "FormalName_JP": "紫恩 ちあ",
+    "FormalName_JPReading": "しおん ちあ",
     "FormalName_EN": "Cheers Xion"
   },
   {
     "Card": { "Stoat": "WaterCups", "StoatNum": 3, "Num": 39 },
     "Progress": "notProceeded",
-    "FormalName": "トリシャ.オンパラッド",
+    "FormalName_JP": "トリシャ.オンパラッド",
     "FormalName_EN": "Trisia.Onparad"
   },
   {
     "Card": { "Stoat": "WaterCups", "StoatNum": 4, "Num": 40 },
     "Progress": "notProceeded",
-    "FormalName": "志明 あきの(しめい-あきの)",
+    "FormalName_JP": "志明 あきの",
+    "FormalName_JPReading": "しめい あきの",
     "FormalName_EN": "Akino Shimei"
   },
   {
     "Card": { "Stoat": "WaterCups", "StoatNum": 5, "Num": 41 },
     "Progress": "notProceeded",
-    "FormalName": "志明 せつな(しめい-せつな)",
+    "FormalName_JP": "志明 せつな",
+    "FormalName_JPReading": "しめい せつな",
     "FormalName_EN": "Setsuna Shimei"
   },
   {
     "Card": { "Stoat": "WaterCups", "StoatNum": 6, "Num": 42 },
     "Progress": "notProceeded",
-    "FormalName": "亜高 純恋(あだか-すみれ)",
+    "FormalName_JP": "亜高 純恋",
+    "FormalName_JPReading": "あだか すみれ",
     "FormalName_EN": "Sumire Adaka"
   },
   {
     "Card": { "Stoat": "WaterCups", "StoatNum": 7, "Num": 43 },
     "Progress": "notProceeded",
-    "FormalName": "亜高 蝶嵐(あだか-てふらん)",
+    "FormalName_JP": "亜高 蝶嵐",
+    "FormalName_JPReading": "あだか てふらん/あだか ちょうらん",
     "FormalName_EN": "Thœfran Adaka"
   },
   {
     "Card": { "Stoat": "WaterCups", "StoatNum": 8, "Num": 44 },
     "Progress": "notProceeded",
-    "FormalName": "亜高 智離沙(あだか-ちるさ)",
+
+    "FormalName_JP": "亜高 智離沙",
+    "FormalName_JPReading": "あだか ちるさ",
     "FormalName_EN": "Chirusha Adaka"
   },
   {
     "Card": { "Stoat": "WaterCups", "StoatNum": 9, "Num": 45 },
     "Progress": "notProceeded",
-    "FormalName": "亜高 巨峰(あだか-たかね)",
+    "FormalName_JP": "亜高 巨峰",
+    "FormalName_JPReading": "あだか たかね",
     "FormalName_EN": "Takane Adaka"
   },
   {
     "Card": { "Stoat": "WaterCups", "StoatNum": 10, "Num": 46 },
     "Progress": "notProceeded",
-    "FormalName": "ホーパー.アラン",
+    "FormalName_JP": "ホーパー.アラン",
     "FormalName_EN": "Hoper.Aran"
   },
   {
     "Card": { "Stoat": "WaterCups", "StoatNum": 11, "Num": 47 },
     "Progress": "notProceeded",
-    "FormalName": "ディッシュ.ロマネス",
+    "FormalName_JP": "ディッシュ.ロマネス",
     "FormalName_EN": "Dishes.Romanes"
   },
   {
@@ -152,7 +169,7 @@
   {
     "Card": { "Stoat": "WaterCups", "StoatNum": 13, "Num": 49 },
     "Progress": "notProceeded",
-    "FormalName": "ユリィ.ジューン",
+    "FormalName_JP": "ユリィ.ジューン",
     "FormalName_EN": "Yurie.Junes"
   },
   {
@@ -162,147 +179,164 @@
   {
     "Card": { "Stoat": "SlashSwords", "StoatNum": 1, "Num": 51 },
     "Progress": "notProceeded",
-    "FormalName": "神谷 瑛志(かみや-エース)",
+    "FormalName_JP": "神谷 瑛志",
+    "FormalName_JPReading": "かみや エース",
     "FormalName_EN": "Ace Kamiya"
   },
   {
     "Card": { "Stoat": "SlashSwords", "StoatNum": 2, "Num": 52 },
     "Progress": "notProceeded",
-    "FormalName": "颯 洋(はやて-うみ)",
+    "FormalName_JP": "颯 洋",
+    "FormalName_JPReading": "はやて うみ",
     "FormalName_EN": "Séa Hayate"
   },
   {
     "Card": { "Stoat": "SlashSwords", "StoatNum": 3, "Num": 53 },
     "Progress": "notProceeded",
-    "FormalName": "颯 天(はやて-そら)",
+    "FormalName_JP": "颯 天",
+    "FormalName_JPReading": "はやて そら",
     "FormalName_EN": "Skye Hayate"
   },
   {
     "Card": { "Stoat": "SlashSwords", "StoatNum": 4, "Num": 54 },
     "Progress": "notProceeded",
-    "FormalName": "千臨 休(せんのみ-きゅう)",
+    "FormalName_JP": "千臨 休",
+    "FormalName_JPReading": "せんのみ きゅう",
     "FormalName_EN": "Kyū Sennomi"
   },
   {
     "Card": { "Stoat": "SlashSwords", "StoatNum": 5, "Num": 55 },
     "Progress": "notProceeded",
-    "Name": "五剣(いつつるぎ)",
+    "Name_JP": "五剣",
+    "Name_JPReading": "いつつるぎ",
     "Name_EN": "Cinqlair",
-    "FormalName": "スクアッド.ブラン",
+    "FormalName_JP": "スクアッド.ブラン",
     "FormalName_EN": "Squad.Blans"
   },
   {
     "Card": { "Stoat": "SlashSwords", "StoatNum": 6, "Num": 56 },
     "Progress": "notProceeded",
-    "FormalName": "船越 のがれ(ふなこし-のがれ)",
+    "FormalName_JP": "船越 のがれ",
+    "FormalName_JPReading": "ふなこし のがれ",
     "FormalName_EN": "Esca Funakoshi"
   },
   {
     "Card": { "Stoat": "SlashSwords", "StoatNum": 7, "Num": 57 },
     "Progress": "notProceeded",
-    "FormalName": "豊富 秀喜(とよとみ-ひでき)",
+    "FormalName_JP": "豊富 秀喜",
+    "FormalName_JPReading": "とよとみ ひでき",
     "FormalName_EN": "Hideki Toyotomi"
   },
   {
     "Card": { "Stoat": "SlashSwords", "StoatNum": 8, "Num": 58 },
     "Progress": "notProceeded",
-    "FormalName": "荻原 ハギト(おぎわら-ハギト)",
+    "FormalName_JP": "荻原 ハギト",
+    "FormalName_JPReading": "おぎわら ハギト",
     "FormalName_EN": "Hagito Ogiwara"
   },
   {
     "Card": { "Stoat": "SlashSwords", "StoatNum": 9, "Num": 59 },
     "Progress": "notProceeded",
-    "FormalName": "恵比寿 ことは(えびす-ことは)",
+    "FormalName_JP": "恵比寿 ことは",
+    "FormalName_JPReading": "えびす ことは",
     "FormalName_EN": "Kotoha Ebisu"
   },
   {
     "Card": { "Stoat": "SlashSwords", "StoatNum": 10, "Num": 60 },
     "Progress": "notProceeded",
-    "FormalName": "ペディ.ディスト",
+    "FormalName_JP": "ペディ.ディスト",
     "FormalName_EN": "Peddy.Dist"
   },
   {
     "Card": { "Stoat": "SlashSwords", "StoatNum": 11, "Num": 61 },
     "Progress": "notProceeded",
-    "FormalName": "ダウス.インターズ",
+    "FormalName_JP": "ダウス.インターズ",
     "FormalName_EN": "Daus.Interns"
   },
   {
     "Card": { "Stoat": "SlashSwords", "StoatNum": 13, "Num": 63 },
     "Progress": "notProceeded",
-    "FormalName": "ミネルヴァ.パルテノン",
+    "FormalName_JP": "ミネルヴァ.パルテノン",
     "FormalName_EN": "Minerva.Parthenon"
   },
   {
     "Card": { "Stoat": "SlashSwords", "StoatNum": 14, "Num": 64 },
     "Progress": "notProceeded",
-    "FormalName": "カール.ホワイト.ヴァレンタイン",
+    "FormalName_JP": "カール.ホワイト.ヴァレンタイン",
     "FormalName_EN": "Carl.White.Valentine"
   },
   {
     "Card": { "Stoat": "PentacleObjects", "StoatNum": 1, "Num": 65 },
     "Progress": "notProceeded",
-    "FormalName": "鏡花 夢中(きょうか-とりこ)",
+    "FormalName_JP": "鏡花 夢中",
+    "FormalName_JPReading": "きょうか とりこ",
     "FormalName_EN": "Dreamin Mirrors"
   },
   {
     "Card": { "Stoat": "PentacleObjects", "StoatNum": 2, "Num": 66 },
     "Progress": "notProceeded",
-    "FormalName": "江戸川 笑(えどがわ-えみ)",
+    "FormalName_JP": "江戸川 笑",
+    "FormalName_JPReading": "えどがわ えみ",
     "FormalName_EN": "Emmy Edogawa"
   },
   {
     "Card": { "Stoat": "PentacleObjects", "StoatNum": 3, "Num": 67 },
     "Progress": "notProceeded",
-    "FormalName": "手塚 桃(てづか-もも)",
+    "FormalName_JP": "手塚 桃",
+    "FormalName_JPReading": "てづか もも",
     "FormalName_EN": "Momo Tedzka"
   },
   {
     "Card": { "Stoat": "PentacleObjects", "StoatNum": 4, "Num": 68 },
     "Progress": "notProceeded",
-    "FormalName": "摩天楼ローディ.まもり",
+    "FormalName_JP": "摩天楼ローディ.まもり",
+    "FormalName_JPReading": "まてんろうローディ.まもり",
     "FormalName_EN": "Roady-Skyscrapers.Mamori"
   },
   {
     "Card": { "Stoat": "PentacleObjects", "StoatNum": 5, "Num": 69 },
     "Progress": "notProceeded",
-    "FormalName": "愛嬌 黒(あいきょう-くらみ)",
+    "FormalName_JP": "愛嬌 黒",
+    "FormalName_JPReading": "あいきょう くらみ",
     "FormalName_EN": "Noirs Aikyoh"
   },
   {
     "Card": { "Stoat": "PentacleObjects", "StoatNum": 6, "Num": 70 },
     "Progress": "notProceeded",
-    "FormalName": "愛嬌 白(あいきょう-あかり)",
+    "FormalName_JP": "愛嬌 白",
+    "FormalName_JPReading": "あいきょう あかり",
     "FormalName_EN": "Blancs Aikyoh"
   },
   {
     "Card": { "Stoat": "PentacleObjects", "StoatNum": 7, "Num": 71 },
     "Progress": "notProceeded",
-    "FormalName": "ダイモン.サルベーズ",
+    "FormalName_JP": "ダイモン.サルベーズ",
     "FormalName_EN": "Dimmon.Salvages"
   },
   {
     "Card": { "Stoat": "PentacleObjects", "StoatNum": 8, "Num": 72 },
     "Progress": "notProceeded",
-    "FormalName": "鈴風 かさね(すずかぜ-かさね)",
+    "FormalName_JP": "鈴風 かさね",
+    "FormalName_JPReading": "すずかぜ かさね",
     "FormalName_EN": "Kasane Suzukaze"
   },
   {
     "Card": { "Stoat": "PentacleObjects", "StoatNum": 9, "Num": 73 },
     "Progress": "notProceeded",
-    "FormalName": "大隈 あいか(おおくま-あいか)",
+    "FormalName_JP": "大隈 あいか",
+    "FormalName_JPReading": "おおくま あいか",
     "FormalName_EN": "Aika Okuma"
   },
   {
     "Card": { "Stoat": "PentacleObjects", "StoatNum": 10, "Num": 74 },
     "Progress": "notProceeded",
-    "FormalName": "ディノ.メディック",
+    "FormalName_JP": "ディノ.メディック",
     "FormalName_EN": "Dinos.Medic"
   },
   {
     "Card": { "Stoat": "PentacleObjects", "StoatNum": 11, "Num": 75 },
     "Progress": "notProceeded",
-    "FormalName": "リッチ.インテリス",
+    "FormalName_JP": "リッチ.インテリス",
     "FormalName_EN": "Ritch.Intelis"
   },
   {
@@ -312,7 +346,7 @@
   {
     "Card": { "Stoat": "PentacleObjects", "StoatNum": 13, "Num": 77 },
     "Progress": "notProceeded",
-    "FormalName": "リーチェ.エリザベス",
+    "FormalName_JP": "リーチェ.エリザベス",
     "FormalName_EN": "Leiche.Elizabeth"
   },
   {

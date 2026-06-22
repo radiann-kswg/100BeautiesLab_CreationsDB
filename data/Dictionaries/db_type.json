@@ -4,7 +4,7 @@
     "$Def_DictionaryCatalog": {
       "$DefType": [
         {
-          "hashTag": "DB_Label",
+          "hashTag": "DB_Label_JP",
           "$type": "##String_JP|#Summary|#Null",
           "hashTag_JP": "辞書表示名"
         },

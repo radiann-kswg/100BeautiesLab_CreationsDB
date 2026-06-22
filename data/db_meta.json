@@ -1,10 +1,10 @@
 {
   "CreationWorks": {
     "#Works_NumberTales": {
-      "Title": "ナンバーテールズ",
+      "Title_JP": "ナンバーテールズ",
       "Title_EN": "NumberTales",
-      "Works_Summary": "九蓮国にあるヴェンチャーラボ「百花繚乱研究所」で零(レイ)と百(ハゲム)が手掛けている妖獣型生活支援ポータブルヒューマノイド。\n主に数字や数秘に基づいた妖獣型のキャラクターが存在する。",
-      "Works_Summary_EN": "TaleBeast-type portable humanoids for daily-life support, developed by Zera and Hudlet at the venture lab '100 Beauties Lab.' in LotusNinea.\nThe series mainly features beast-type characters based on numbers and numerology.",
+      "Works_Summary_JP": "九蓮国にあるヴェンチャーラボ「百花繚乱研究所」で零(レイ)と百(ハゲム)が手掛けている妖獣型生活支援ポータブルヒューマノイド。\n主に数字や数秘に基づいた妖獣型のキャラクターが存在する。",
+      "Works_Summary_EN": "TaleBeast-type portable humanoids for daily-life support, developed by Zera and Hudret at the venture lab '100 Beauties Lab.' in LotusNinea.\nThe series mainly features beast-type characters based on numbers and numerology.",
       "$DetailLayout": {
         "headerPills": ["Progress"],
         "basicFields": [
@@ -40,17 +40,17 @@
       }
     },
     "#Works_FLInvestigator78": {
-      "Title": "運命線探偵78",
+      "Title_JP": "運命線探偵78",
       "Title_EN": "the Fate-Line Investigator 78",
       "OldTitles": [
         {
-          "Title": "運命線探偵OCTOGINTA",
+          "Title_JP": "運命線探偵OCTOGINTA",
           "Title_EN": "OCTOGINTA the Destiny Detectives",
           "ArchivedYear": 2024
         }
       ],
-      "Works_Summary": "英皇国と九蓮国にある異能調査組織「特殊探偵団セブンティエイト」に所属する少年少女。\n主にタロットカードに基づいた能力の憑依が可能なキャラクターが存在する。",
-      "Works_Summary_EN": "Young investigators belonging to the paranormal investigation organization 'Special Detectives Team.78', active across the British Empire and LotusNinea.\nCharacters capable of hosting abilities primarily based on tarot cards are featured.",
+      "Works_Summary_JP": "英皇国と九蓮国にある異能調査組織「セブンティエイト特殊探偵団」に所属する少年少女。\n主にタロットカードに基づいた能力の憑依が可能なキャラクターが存在する。",
+      "Works_Summary_EN": "Young investigators belonging to the paranormal investigation organization 'Team.78(Seventy-Eight) the Special Investigators', active across Internic.Kingdom and LotusNinea.\nCharacters capable of hosting abilities primarily based on tarot cards are featured.",
       "$DetailLayout": {
         "headerPills": ["Progress"],
         "basicFields": [
@@ -75,9 +75,9 @@
       }
     },
     "#Works_ShouArRiders": {
-      "Title": "獣爾騎兵",
+      "Title_JP": "獣爾騎兵",
       "Title_EN": "Shou'ar Riders\nBeasted Cavalry",
-      "Works_Summary": "龍天国にある山月病(変化病)対策組織「獣爾騎兵」に所属する獣人型改造人間。\n主に十二支などの動物に基づいた獣人キャラクターが存在する。",
+      "Works_Summary_JP": "龍天国にある山月病(変化病)対策組織「獣爾騎兵」に所属する獣人型改造人間。\n主に十二支などの動物に基づいた獣人キャラクターが存在する。",
       "Works_Summary_EN": "Beastfolk-type modified humans affiliated with 'Shou'ar Riders,' an organization in LóngZhōu's.Republic that counters Shanyu Disease (metamorphosis syndrome).\nThe series mainly features beastfolk characters based on animals such as the zodiac.",
       "$DetailLayout": {
         "headerPills": ["Progress"],
@@ -103,9 +103,9 @@
       }
     },
     "#Works_UnibyteLive": {
-      "Title": "ハンカクライブ",
+      "Title_JP": "ハンカクライブ",
       "Title_EN": "UnibyteLive",
-      "Works_Summary": "メタバースプラットフォーム「ユニバイト・ユニバース」で活動する個人ヴァーチャル配信アイドルグループ「アルベッツ」所属の少女。\n主にアルファベットに基づいたモチーフのヴァーチャルアバターを有するキャラクターからなる。",
+      "Works_Summary_JP": "メタバースプラットフォーム「ユニバイト・ユニバース」で活動する個人ヴァーチャル配信アイドルグループ「アルベッツ」所属の少女。\n主にアルファベットに基づいたモチーフのヴァーチャルアバターを有するキャラクターからなる。",
       "Works_Summary_EN": "A girl affiliated with 'ALPBETS,' an independent virtual streaming idol group active on the metaverse platform 'Unibyte Universe.'\nThe title consists mainly of characters with virtual avatars themed around alphabet motifs.",
       "$DetailLayout": {
         "headerPills": ["Progress"],
@@ -133,9 +133,9 @@
       "Works_Hidden": true
     },
     "#Works_SinisterChangingGirls": {
-      "Title": "豹変系女子",
+      "Title_JP": "豹変系女子",
       "Title_EN": "Sinister Changing Girls",
-      "Works_Summary": "創作世界の各国を放浪している謎多き少女。\n主に七つの大罪や八方位などに基づいた二面性と特徴を持つガーリッシュな８人のキャラクターからなる。",
+      "Works_Summary_JP": "創作世界の各国を放浪している謎多き少女。\n主に七つの大罪や八方位などに基づいた二面性と特徴を持つガーリッシュな８人のキャラクターからなる。",
       "Works_Summary_EN": "A mysterious girl wandering across nations in the creative world.\nIt mainly consists of eight girlish characters with dual aspects and traits based on motifs such as the seven deadly sins and the eight directions.",
       "$DetailLayout": {
         "headerPills": ["Progress"],
@@ -157,15 +157,14 @@
       }
     },
     "#Works_UnauthedLogica": {
-      "Title": "アンオースドロジカ",
+      "Title_JP": "アンオースドロジカ",
       "Title_EN": "UnauthedLogica",
-      "Works_Summary": "汎用オートマトンとその後継改良存在たち。\n主に汎用ロジックを基にしたモブ種族、および「ナンバーテールズ」のパラレル存在にある妖獣型カスタムオートマトンの「人形兵ゼロイド」が存在する。",
+      "Works_Summary_JP": "汎用オートマトンとその後継改良存在たち。\n主に汎用ロジックを基にしたモブ種族、および「ナンバーテールズ」のパラレル存在にある妖獣型カスタムオートマトンの「人形兵ゼロイド」が存在する。",
       "Works_Summary_EN": "General-purpose automatons and their improved successor entities.\nIt mainly features mob races based on generic logic, along with 'AttackerZeroids,' beast-type custom automatons that exist as a parallel lineage to NumberTales.",
       "$DetailLayout": {
         "headerPills": ["Progress"],
         "basicFields": [
           "FormalName",
-          "FormalName_EN",
           "ModelName",
           "ModelNumber",
           "Belonging",
@@ -185,15 +184,14 @@
       "Works_Hidden": true
     },
     "#Works_PastDivers": {
-      "Title": "パストダイヴァー",
+      "Title_JP": "パストダイヴァー",
       "Title_EN": "PastDivers",
-      "Works_Summary": "九蓮国の国家技術と国防を担う「夜月機関」に所属する特殊技術者。\n主に和暦などに基づいたキャラクターが存在する。",
+      "Works_Summary_JP": "九蓮国の国家技術と国防を担う「夜月機関」に所属する特殊技術者。\n主に和暦などに基づいたキャラクターが存在する。",
       "Works_Summary_EN": "Specialized engineers affiliated with 'Yadzuki Organization,' responsible for national technology and defense in LotusNinea.\nThe title mainly features characters based on motifs such as Far-Eastern era names.",
       "$DetailLayout": {
         "headerPills": ["Progress"],
         "basicFields": [
           "FormalName",
-          "FormalName_EN",
           "ModelName",
           "ModelNumber",
           "CodeName",
@@ -216,22 +214,21 @@
       }
     },
     "#Works_DestinyFoxRecords": {
-      "Title": "運命線狐の記録\nフィジカル9",
+      "Title_JP": "運命線狐の記録\nフィジカル9",
       "Title_EN": "Destiny Fox's Records\nPhysical 9",
       "OldTitles": [
         {
-          "Title": "運命線探偵上官ラジアンの記録",
+          "Title_JP": "運命線探偵上官ラジアンの記録",
           "Title_EN": "Destiny Detective Superintendent: RadianN's Records",
           "ArchivedYear": 2021
         }
       ],
-      "Works_Summary": "弊創作を執筆している「ラジアン」の仲間たち。\n主に科学単位や数学用語に基づいた獣人のキャラクターからなる。\nちなみに、当タイトルのいう「ラジアン」とは作者の２代目代理のことである。",
+      "Works_Summary_JP": "弊創作を執筆している「ラジアン」の仲間たち。\n主に科学単位や数学用語に基づいた獣人のキャラクターからなる。\nちなみに、当タイトルのいう「ラジアン」とは作者の２代目代理のことである。",
       "Works_Summary_EN": "Companions of 'RadianN', the author writing this creative series.\nThey mainly consist of beastfolk characters themed around scientific units and mathematical terms.\nIn this title, 'RadianN' refers to the author's second-generation proxy character.",
       "$DetailLayout": {
         "headerPills": ["Progress"],
         "basicFields": [
           "FormalName",
-          "FormalName_EN",
           "ModelName",
           "ModelNumber",
           "CodeName",
@@ -247,15 +244,14 @@
       }
     },
     "#Works_Proxies": {
-      "Title": "ラジアン代理",
+      "Title_JP": "ラジアン代理",
       "Title_EN": "RadianN's Proxy",
-      "Works_Summary": "弊創作を執筆している「ラジアン」の代理キャラクター",
+      "Works_Summary_JP": "弊創作を執筆している「ラジアン」の代理キャラクター",
       "Works_Summary_EN": "Proxy characters of 'RadianN,' the author writing this creative series.",
       "$DetailLayout": {
         "headerPills": ["Progress"],
         "basicFields": [
           "FormalName",
-          "FormalName_EN",
           "ModelName",
           "ModelNumber",
           "CodeName",
@@ -338,10 +334,7 @@
           "GenderType": "FemaleNeutral",
           "GenderType_JP": "無性別女性型"
         },
-        "#GenderType_Male": {
-          "GenderType": "Male",
-          "GenderType_JP": "男性"
-        },
+        "#GenderType_Male": { "GenderType": "Male", "GenderType_JP": "男性" },
         "#GenderType_MaleNeutral": {
           "GenderType": "MaleNeutral",
           "GenderType_JP": "無性別男性型"

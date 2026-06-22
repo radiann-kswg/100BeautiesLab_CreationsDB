@@ -60,7 +60,7 @@
       "hashTag_EN": "Performer (Real-world Appearance)"
     },
     {
-      "hashTag": "AccessoryUnit",
+      "hashTag": "AccessoryUnit_JP",
       "$type": "#String",
       "hashTag_JP": "モチーフアクセサリの特徴"
     },
@@ -73,7 +73,7 @@
       "hashTag": "StreamingActivity",
       "$type": [
         {
-          "hashTag": "StreamingCategory",
+          "hashTag": "StreamingCategory_JP",
           "$type": "#String_withAbout[]",
           "hashTag_JP": "配信ジャンルについて"
         },
@@ -123,7 +123,7 @@
           "$display": { "langMode": "jp" }
         },
         {
-          "hashTag": "StreamingAwards",
+          "hashTag": "StreamingAwards_JP",
           "$type": "#String[]",
           "hashTag_JP": "配信実績"
         },
@@ -133,7 +133,7 @@
           "hashTag_EN": "Streaming Awards"
         },
         {
-          "hashTag": "StreamingSummary",
+          "hashTag": "StreamingSummary_JP",
           "$type": "#Summary",
           "hashTag_JP": "配信概要"
         },

@@ -40,7 +40,11 @@
       "hashTag_JP": "画像",
       "hashTag_EN": "Images"
     },
-    { "hashTag": "Career", "$type": "#Summary", "hashTag_JP": "経歴について" },
+    {
+      "hashTag": "Career_JP",
+      "$type": "#Summary",
+      "hashTag_JP": "経歴について"
+    },
     {
       "hashTag": "Career_EN",
       "$type": "#Summary|#Null",
@@ -53,9 +57,14 @@
       "hashTag_EN": "Chronos"
     },
     {
-      "hashTag": "ChronoholderName",
+      "hashTag": "ChronoholderName_JP",
       "$type": "#String_JP",
       "hashTag_JP": "時空象器能力名"
+    },
+    {
+      "hashTag": "ChronoholderName_JPReading",
+      "$type": "##String_JP|#Null",
+      "hashTag_JP": "時空象器能力名の読み"
     },
     {
       "hashTag": "ChronoholderName_EN",
@@ -63,24 +72,29 @@
       "hashTag_EN": "Chronoholder Name"
     },
     {
-      "hashTag": "ChronospecName",
+      "hashTag": "ChronospecName_JP",
       "$type": "#String_JP",
-      "hashTag_JP": "時空遷移能力名"
+      "hashTag_JP": "時空遷移(クロノシフト)能力名"
+    },
+    {
+      "hashTag": "ChronospecName_JPReading",
+      "$type": "##String_JP|#Null",
+      "hashTag_JP": "時空遷移(クロノシフト)能力名の読み"
     },
     {
       "hashTag": "ChronospecName_EN",
       "$type": "##String_EN|#Null",
-      "hashTag_EN": "Chronospec Name"
+      "hashTag_EN": "ChronoidShift(Chronospec) Name"
     },
     {
-      "hashTag": "ChronospecAbout",
+      "hashTag": "ChronospecAbout_JP",
       "$type": "#Summary",
-      "hashTag_JP": "時空遷移能力について"
+      "hashTag_JP": "時空遷移(クロノシフト)能力について"
     },
     {
       "hashTag": "ChronospecAbout_EN",
       "$type": "#Summary|#Null",
-      "hashTag_EN": "About Chronospec"
+      "hashTag_EN": "About ChronoidShift(Chronospec)"
     },
     {
       "hashTag": "ChronospecStats",
@@ -108,7 +122,7 @@
           }
         },
         {
-          "hashTag": "ChronoizedPurity",
+          "hashTag": "ChronoizedPurity_JP",
           "$type": "#String|#String_withAbout",
           "hashTag_JP": "時空遷移(クロノイド)純度",
           "$display": { "section": "spec", "tagSpace": "creation" }
@@ -120,7 +134,7 @@
           "$display": { "section": "spec", "tagSpace": "creation" }
         },
         {
-          "hashTag": "ChronoizedAbout",
+          "hashTag": "ChronoizedAbout_JP",
           "$type": "#Summary",
           "hashTag_JP": "時空遷移(クロノイド)状態に関する概要",
           "$display": { "section": "profile" }
@@ -185,8 +199,8 @@
           "hashTag_EN": "Safety Level"
         }
       ],
-      "hashTag_JP": "時空遷移能力の特性",
-      "hashTag_EN": "Chronospec Ability Characteristics",
+      "hashTag_JP": "時空遷移(クロノシフト)能力の特性",
+      "hashTag_EN": "ChronoidShift(Chronospec) Ability Characteristics",
       "$display": { "sectionWrapper": "chronoSpecSection" }
     },
     {

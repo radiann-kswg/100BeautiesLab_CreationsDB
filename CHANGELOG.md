@@ -1,5 +1,20 @@
 # 最新のリファクタリング・仕様変更履歴
 
+### JP/EN 命名規則の標準化（Phase 2〜5 完了）(2026-06-22)
+
+- **Phase 2 — typedef リネーム**: `data/db_type.json` および `data/Works_*/DataBases/db_type.json` の全 `$DefType` エントリで、`Name → Name_JP`、`FormalName → FormalName_JP`、`ModelName → ModelName_JP`、`Title → Title_JP`、`Term → Term_JP`、`DayAbout → DayAbout_JP`、`DB_Label → DB_Label_JP` 等の言語サフィックス付与を適用した。
+- **Phase 3 — コードフォールバック追加**: Phase 4 のデータ移行完了まで旧フィールド名を許容する一時フォールバックを `lib/` / `pages/` / `pkg/` に追加した（`Name_JP || Name` 等のチェーン）。
+- **Phase 4 — データ一括リネーム**: `data/Works_*/DataBases/*.json` 等の全レコードデータと `db_meta.json`（全 works）の `DB_Label → DB_Label_JP` を一括移行した。
+- **Phase 4.5 — テスト修正 & `basicFields`/`subFields` ベース名化**: Phase 4 で生じたテスト失敗（`DB_Label`/`FormalName`/`Character` 参照）を修正し、`db_meta.json`（全 works）の `$DetailLayout.basicFields`/`.subFields` から `_JP`/`_EN` サフィックスを除去するベース名書式へ統一した。コードサイドでは `detailSubFieldKeySet`（`pages/characters.js`）と `detailSubFieldSet`（`lib/data-common.js`）がベース名・`_JP`・`_EN` の 3 バリアントを自動展開するよう拡張した。
+- **Phase 5 — フォールバック除去（本 PR）**: Phase 3 で追加した旧フィールド名フォールバックを全箇所から削除した。
+  - `lib/wrapper-common.js`: `?? value.DayAbout` 削除
+  - `lib/section-renders/dblink.js`、`relation.js`: `|| found?.Name`、`|| found?.FormalName`、`|| found?.ModelName` 削除
+  - `pages/characters.js`: `getRecordPrimaryTitle`、`getRecordSecondaryTitle`、画像ログ、`shownKeys` 分岐から旧裸フォームを除去
+  - `pkg/cloudflare/scripts/migrate.mjs`: `?? info?.Title`、`?? info?.Works_Summary` 削除
+  - `pkg/nodejs/index.mjs`: `listWorks()` 戻り値から廃止フィールド `Title`、`Works_Summary` を除去し JSDoc 更新
+- **テストデータ更新**: `tests/wrapper-common.test.js` のテストデータを `DayAbout → DayAbout_JP` に更新。
+- **注意**: Cloudflare D1/R2 の再同期（`scripts/migrate.mjs` 再実行 → `wrangler deploy`）は別途実施が必要。
+
 ### Cloudflare Workers 実 API 初回デプロイ完了・疎通確認 (2026-06-21)
 
 - **`pkg/cloudflare/wrangler.toml` TOML パース修正**: `routes = [...]` が `[vars]` / `[[d1_databases]]` スコープ内に誤配置されており、wrangler が `vars.routes` または `d1_databases[0].routes` として解釈する問題を修正。TOML の root-level キーはすべての `[section]` / `[[array]]` ヘッダーより前に配置しなければならない仕様に従い、`routes = [...]` を先頭スカラー群の直後に移動した。合わせて `[env.production]` セクション（冗長な重複定義）を削除。
