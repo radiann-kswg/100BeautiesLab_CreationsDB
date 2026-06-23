@@ -35,6 +35,8 @@ import '../lib/section-renders/arcanumSpec.js';
 import '../lib/section-renders/chronoSpec.js';
 import '../lib/section-renders/relation.js';
 import '../lib/section-renders/dblink.js';
+import '../lib/section-renders/storyEra.js';
+import '../lib/section-renders/day.js';
 
 // Characters page: fetch from /api/v1 and render list/detail
 
