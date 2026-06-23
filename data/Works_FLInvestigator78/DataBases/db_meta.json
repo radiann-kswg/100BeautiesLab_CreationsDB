@@ -17,8 +17,8 @@
           { "EraGen": 7, "YearInEra": 25 },
           { "byRealYear": 2045 }
         ],
-        "about_JP": "第7創世紀24年〜第8創世紀2年(西暦2044〜2046年相当)\n『第8の世界創造』に関する重要な時期となる",
-        "about_EN": "between WDCE.VII.24 to WDCE.VIII.2(Equivalent to between: DC.2044-2046)\n\nThis period is significant for the “World Development Creation VIII” "
+        "StoryEraAbout_JP": "第7創世紀24年〜第8創世紀2年(西暦2044〜2046年相当)\n『第8の世界創造』に関する重要な時期となる",
+        "StoryEraAbout_EN": "between WDCE.VII.24 to WDCE.VIII.2(Equivalent to between: DC.2044-2046)\n\nThis period is significant for the “World Development Creation VIII” "
       },
       "_Commons": {
         "Belonging": ["セブンティエイト特殊探偵団"],
@@ -48,8 +48,8 @@
           { "EraGen": 7, "YearInEra": 25 },
           { "byRealYear": 2045 }
         ],
-        "about_JP": "第7創世紀24年〜第8創世紀2年(西暦2044〜2046年相当)\n『第8の世界創造』に関する重要な時期となる",
-        "about_EN": "between WDCE.VII.24 to WDCE.VIII.2(Equivalent to between: DC.2044-2046)\n\nThis period is significant for the “World Development Creation VIII” "
+        "StoryEraAbout_JP": "第7創世紀24年〜第8創世紀2年(西暦2044〜2046年相当)\n『第8の世界創造』に関する重要な時期となる",
+        "StoryEraAbout_EN": "between WDCE.VII.24 to WDCE.VIII.2(Equivalent to between: DC.2044-2046)\n\nThis period is significant for the “World Development Creation VIII” "
       },
       "_Commons": {}
     },

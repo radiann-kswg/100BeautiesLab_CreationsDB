@@ -5593,6 +5593,27 @@ export async function renderDetail(workId, rec) {
 			}
 			if (lang === 'jp') {
 				const text = baseText || '';
+				if (text) {
+					// *_JPReading フィールドがあれば「JP （読み仮名）」形式にマージ
+					const readingKey = `${base}_JPReading`;
+					const readingRaw = rec?.[readingKey];
+					const readingText = !isEmptyValueLoose(readingRaw) && typeof readingRaw === 'string'
+						? readingRaw.trim() : '';
+					if (readingText) {
+						usedKeys.push(readingKey);
+						const jpLines = text.split('\n');
+						const readingLines = readingText.split('\n');
+						// 改行区切りで同順にマージ: 「JP行 （reading行）」
+						const mergedLines = jpLines.map((jpLine, i) => {
+							const r = (readingLines[i] ?? '').trim();
+							return r ? `${jpLine} （${r}）` : jpLine;
+						});
+						if (mergedLines.length > 1) {
+							return { text: mergedLines[0], usedKeys, node: preWrapText(mergedLines.join('\n')) };
+						}
+						return { text: mergedLines[0], usedKeys, node: null };
+					}
+				}
 				return { text, usedKeys, node: null };
 			}
 
@@ -5700,8 +5721,25 @@ export async function renderDetail(workId, rec) {
 			});
 		};
 
+		// JP モードかつ Name_JP が主タイトルの場合、Name_JPReading を見出しに付与する
+		// （Name_JP は shownKeys に事前追加されるため sectionBuckets 経由では表示されない）
+		const _primaryTitle = getRecordPrimaryTitle(rec);
+		const _titleNameContent = (() => {
+			if (getCurrentPageLanguage() !== 'jp') return _primaryTitle;
+			const nameJP = typeof rec.Name_JP === 'string' ? rec.Name_JP.trim() : '';
+			if (!nameJP || _primaryTitle !== nameJP) return _primaryTitle;
+			const reading = typeof rec.Name_JPReading === 'string' ? rec.Name_JPReading.trim() : '';
+			if (!reading) return _primaryTitle;
+			const jpLines = nameJP.split('\n');
+			const readingLines = reading.split('\n');
+			const merged = jpLines.map((l, i) => {
+				const r = (readingLines[i] ?? '').trim();
+				return r ? `${l} （${r}）` : l;
+			}).join('\n');
+			return merged.includes('\n') ? el('span', { style: 'white-space: pre-wrap;' }, [merged]) : merged;
+		})();
 		const titleRow = el('div', { class: 'kv' }, [
-			el('div', { class: 'name' }, getRecordPrimaryTitle(rec)),
+			el('div', { class: 'name' }, _titleNameContent),
 			getRecordSecondaryTitle(rec) ? el('div', { class: 'name-en' }, getRecordSecondaryTitle(rec)) : null,
 			el('div', { class: 'row small' }, [
 				(() => {

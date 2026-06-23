@@ -9,8 +9,8 @@
         "FromEra": [{ "EraGen": 8, "YearInEra": 3 }, { "byRealYear": 2047 }],
         "ToEra": [{ "EraGen": 8, "YearInEra": 4 }, { "byRealYear": 2048 }],
         "InEra": [{ "EraGen": 8, "YearInEra": 4 }, { "byRealYear": 2048 }],
-        "about_JP": "第8創世紀3〜4年(西暦2047〜2048年相当)",
-        "about_EN": "between WDCE.VIII.3-4(Equivalent to between: DC.2047-2048)"
+        "StoryEraAbout_JP": "第8創世紀3〜4年(西暦2047〜2048年相当)",
+        "StoryEraAbout_EN": "between WDCE.VIII.3-4(Equivalent to between: DC.2047-2048)"
       },
       "_Commons": {
         "Belonging": ["夜月機関"],
@@ -125,8 +125,8 @@
           { "EraGen": 8, "YearInEra": 1 },
           { "byRealYear": 2045 }
         ],
-        "about_JP": "第7創世紀24〜26年(西暦2044〜2046年相当)\n『第8の世界破壊』に関する重要な時期となる",
-        "about_EN": "between WDCE.VII.24-26(Equivalent to between: DC.2044-2046)\nThis period is significant for the “World Destruction Pandemic VIII”"
+        "StoryEraAbout_JP": "第7創世紀24〜26年(西暦2044〜2046年相当)\n『第8の世界破壊』に関する重要な時期となる",
+        "StoryEraAbout_EN": "between WDCE.VII.24-26(Equivalent to between: DC.2044-2046)\nThis period is significant for the “World Destruction Pandemic VIII”"
       },
       "_Commons": {
         "Belonging": ["夜月機関"],

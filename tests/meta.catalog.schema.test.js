@@ -41,8 +41,8 @@ describe('catalog meta schema declarations', () => {
       'FromEra',
       'ToEra',
       'InEra',
-      'about_JP',
-      'about_EN'
+      'StoryEraAbout_JP',
+      'StoryEraAbout_EN'
     ]);
     expect(storyEra.map((entry) => entry?.$display?.role || null)).toEqual([
       'eraGeneration',
@@ -81,6 +81,6 @@ describe('catalog meta schema declarations', () => {
     expect(Array.isArray(primary?.StoryEra?.InEra)).toBe(true);
     expect(primary?.StoryEra?.FromEra?.[0]).toMatchObject({ EraGen: 9, YearInEra: 3 });
     expect(primary?.StoryEra?.InEra?.[2]).toMatchObject({ byRealYear: 2050 });
-    expect(typeof primary?.StoryEra?.about_JP).toBe('string');
+    expect(typeof primary?.StoryEra?.StoryEraAbout_JP).toBe('string');
   });
 });

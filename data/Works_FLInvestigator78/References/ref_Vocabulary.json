@@ -1,8 +1,8 @@
 [
   {
-    "Term": "カード種別(ソート)",
-    "Term_EN": "Sort",
+    "Term_JP": "カード種別(ソート)",
     "Term_JPReading": "カードしゅべつ(ソート)",
+    "Term_EN": "Card Category (Sort)",
     "TermType": null,
     "Category": "基本情報",
     "Summary": null,
@@ -11,9 +11,9 @@
     "Links": []
   },
   {
-    "Term": "采配幹部",
-    "Term_EN": "Dealers",
+    "Term_JP": "采配幹部",
     "Term_JPReading": "ディーラーズ",
+    "Term_EN": "Dealers",
     "TermType": null,
     "Category": "役職・肩書",
     "Summary": null,
@@ -22,9 +22,9 @@
     "Links": []
   },
   {
-    "Term": "アルカナムスペック",
-    "Term_EN": "Arcanamspec",
+    "Term_JP": "アルカナムスペック",
     "Term_JPReading": "アルカナムスペック",
+    "Term_EN": "Arcanamspec",
     "TermType": null,
     "Category": "能力特性用語",
     "Summary": null,
@@ -33,9 +33,9 @@
     "Links": []
   },
   {
-    "Term": "アルカナホルダー",
-    "Term_EN": "Arcanaholder",
+    "Term_JP": "アルカナホルダー",
     "Term_JPReading": "アルカナホルダー",
+    "Term_EN": "Arcanaholder",
     "TermType": null,
     "Category": "能力特性用語",
     "Summary": null,
@@ -44,9 +44,9 @@
     "Links": []
   },
   {
-    "Term": "元素属性",
-    "Term_EN": "Material",
+    "Term_JP": "元素属性",
     "Term_JPReading": "マテリアル",
+    "Term_EN": "Material",
     "TermType": null,
     "Category": "能力特性用語",
     "Summary": null,
@@ -55,9 +55,8 @@
     "Links": []
   },
   {
-    "Term": "ロールタイプ",
+    "Term_JP": "ロールタイプ",
     "Term_EN": "Role Type",
-    "Term_JPReading": "ロールタイプ",
     "TermType": null,
     "Category": "能力特性用語",
     "Summary": null,
@@ -66,9 +65,9 @@
     "Links": []
   },
   {
-    "Term": "双極性パターン",
-    "Term_EN": "Dualize Pattern",
+    "Term_JP": "双極性パターン",
     "Term_JPReading": "デュアライズパターン",
+    "Term_EN": "Dualize Pattern",
     "TermType": null,
     "Category": "能力特性用語",
     "Summary": null,
@@ -77,9 +76,9 @@
     "Links": []
   },
   {
-    "Term": "情報屋",
-    "Term_EN": "Informant",
+    "Term_JP": "情報屋",
     "Term_JPReading": "じょうほうや",
+    "Term_EN": "Informant",
     "TermType": null,
     "Category": "役職・肩書",
     "Summary": null,
@@ -88,9 +87,9 @@
     "Links": []
   },
   {
-    "Term": "最高幹部",
-    "Term_EN": "Top Executive",
+    "Term_JP": "最高幹部",
     "Term_JPReading": "さいこうかんぶ",
+    "Term_EN": "Top Executive",
     "TermType": null,
     "Category": "役職・肩書",
     "Summary": null,
@@ -99,9 +98,9 @@
     "Links": []
   },
   {
-    "Term": "国際幹部",
-    "Term_EN": "International Executive",
+    "Term_JP": "国際幹部",
     "Term_JPReading": "こくさいかんぶ",
+    "Term_EN": "International Executive",
     "TermType": null,
     "Category": "役職・肩書",
     "Summary": null,
@@ -110,9 +109,9 @@
     "Links": []
   },
   {
-    "Term": "国境幹部",
-    "Term_EN": "Border Executive",
+    "Term_JP": "国境幹部",
     "Term_JPReading": "こっきょうかんぶ",
+    "Term_EN": "Border Executive",
     "TermType": null,
     "Category": "役職・肩書",
     "Summary": null,
@@ -121,9 +120,9 @@
     "Links": []
   },
   {
-    "Term": "九蓮国支部幹部",
-    "Term_EN": "RN.Branch Executive",
+    "Term_JP": "九蓮国支部幹部",
     "Term_JPReading": "きゅうれんこくしぶかんぶ",
+    "Term_EN": "RN.Branch Executive",
     "TermType": null,
     "Category": "役職・肩書",
     "Summary": null,
@@ -132,9 +131,9 @@
     "Links": []
   },
   {
-    "Term": "英皇国支部幹部",
-    "Term_EN": "IK.Branch Executive",
+    "Term_JP": "英皇国支部幹部",
     "Term_JPReading": "えいこうこくしぶかんぶ",
+    "Term_EN": "IK.Branch Executive",
     "TermType": null,
     "Category": "役職・肩書",
     "Summary": null,
@@ -143,9 +142,9 @@
     "Links": []
   },
   {
-    "Term": "火の棍棒支部",
+    "Term_JP": "火の棍棒支部",
+    "Term_JPReading": "ひのこんぼうしぶ/ファイアワンズ",
     "Term_EN": "FireWands Branch",
-    "Term_JPReading": "ひのこんぼうしぶ",
     "TermType": null,
     "Category": "役職・肩書",
     "Summary": null,
@@ -154,9 +153,9 @@
     "Links": []
   },
   {
-    "Term": "水の聖杯支部",
+    "Term_JP": "水の聖杯支部",
     "Term_EN": "WaterCups Branch",
-    "Term_JPReading": "みずのせいはいしぶ",
+    "Term_JPReading": "みずのせいはいしぶ/ウォーターカップス",
     "TermType": null,
     "Category": "役職・肩書",
     "Summary": null,
@@ -165,9 +164,9 @@
     "Links": []
   },
   {
-    "Term": "風の刀剣支部",
+    "Term_JP": "風の刀剣支部",
     "Term_EN": "SlashSwords Branch",
-    "Term_JPReading": "かぜのとうけんしぶ",
+    "Term_JPReading": "かぜのとうけんしぶ/スラッシュソード",
     "TermType": null,
     "Category": "役職・肩書",
     "Summary": null,
@@ -176,9 +175,9 @@
     "Links": []
   },
   {
-    "Term": "金の硬貨支部",
+    "Term_JP": "金の硬貨支部",
     "Term_EN": "PentacleObjects Branch",
-    "Term_JPReading": "きんのこうかしぶ",
+    "Term_JPReading": "きんのこうかしぶ/ペンタクルオブジェクツ",
     "TermType": null,
     "Category": "役職・肩書",
     "Summary": null,

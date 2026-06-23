@@ -29,7 +29,8 @@
     {
       "hashTag": "Name_JPReading",
       "$type": "##String_JP|#Null",
-      "hashTag_JP": "愛称の読み仮名"
+      "hashTag_JP": "愛称の読み仮名",
+      "$display": { "auto": false }
     },
     {
       "hashTag": "Name_EN",
@@ -44,7 +45,8 @@
     {
       "hashTag": "FormalName_JPReading",
       "$type": "##String_JP|#Null",
-      "hashTag_JP": "正式名称の読み仮名"
+      "hashTag_JP": "正式名称の読み仮名",
+      "$display": { "auto": false }
     },
     {
       "hashTag": "FormalName_EN",
@@ -93,7 +95,8 @@
     {
       "hashTag": "ModelName_JPReading",
       "$type": "##String_JP|#Null",
-      "hashTag_JP": "モデル名の読み仮名"
+      "hashTag_JP": "モデル名の読み仮名",
+      "$display": { "auto": false }
     },
     {
       "hashTag": "ModelName_EN",

@@ -24,6 +24,12 @@
       "langMode": "shared",
       "keyField": "RaceType",
       "compatListKey": "#List_RaceType"
+    },
+    "#Dict_DesignedBy": {
+      "DB_Label_JP": "サークル公認作者辞書",
+      "DB_Label_EN": "Circle-Approved Author Dictionary",
+      "keyField": "DesignedBy",
+      "dictFile": "sec_DesignedBy.json"
     }
   }
 }

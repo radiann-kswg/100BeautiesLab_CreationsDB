@@ -13,8 +13,8 @@
           { "EraGen": 8, "YearInEra": 5 },
           { "byRealYear": 2049 }
         ],
-        "about_JP": "第8創世紀2〜第9創世紀6年(西暦2046〜2053年相当)",
-        "about_EN": "between WDCE.VIII.2-IX.6(Equivalent to between: DC.2046-2053)"
+        "StoryEraAbout_JP": "第8創世紀2〜第9創世紀6年(西暦2046〜2053年相当)",
+        "StoryEraAbout_EN": "between WDCE.VIII.2-IX.6(Equivalent to between: DC.2046-2053)"
       },
       "_Commons": {
         "Belonging": ["アルベッツ"],
@@ -35,8 +35,8 @@
           { "EraGen": 8, "YearInEra": 5 },
           { "byRealYear": 2049 }
         ],
-        "about_JP": "第8創世紀1〜第9創世紀6年(西暦2045〜2053年相当)",
-        "about_EN": "between WDCE.VIII.1-IX.6(Equivalent to between: DC.2045-2053)"
+        "StoryEraAbout_JP": "第8創世紀1〜第9創世紀6年(西暦2045〜2053年相当)",
+        "StoryEraAbout_EN": "between WDCE.VIII.1-IX.6(Equivalent to between: DC.2045-2053)"
       },
       "_Commons": { "GenderType": "Female" },
       "Works_Hidden": true

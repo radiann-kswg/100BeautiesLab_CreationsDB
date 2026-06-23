@@ -17,6 +17,18 @@
       "DB_Label_EN": "Special Pattern Dictionary",
       "keyField": "SpecialPattern",
       "compatListKey": "#List_SpecialPattern"
+    },
+    "#Dict_SeriesTitle": {
+      "DB_Label_JP": "二次創作シリーズ名辞書",
+      "DB_Label_EN": "Secondary Series Title Dictionary",
+      "keyField": "SeriesTitle",
+      "dictFile": "sec_SeriesTitle.json"
+    },
+    "#Dict_Category": {
+      "DB_Label_JP": "二次創作分類辞書",
+      "DB_Label_EN": "Secondary Category Dictionary",
+      "keyField": "Category",
+      "dictFile": "sec_Category.json"
     }
   }
 }

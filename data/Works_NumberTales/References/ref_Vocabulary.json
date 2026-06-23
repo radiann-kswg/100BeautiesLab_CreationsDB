@@ -1,6 +1,6 @@
 [
   {
-    "Term": "数秘的加護",
+    "Term_JP": "数秘的加護",
     "Term_EN": "Numerospec",
     "Term_JPReading": "すうひてきかご",
     "TermType": null,
@@ -11,7 +11,7 @@
     "Links": []
   },
   {
-    "Term": "ヒューマノイド形態",
+    "Term_JP": "ヒューマノイド形態",
     "Term_EN": "Humanoid Form",
     "Term_JPReading": "ヒューマノイドけいたい",
     "TermType": null,
@@ -23,7 +23,7 @@
     "Links": []
   },
   {
-    "Term": "コアフォルダ",
+    "Term_JP": "コアフォルダ",
     "Term_EN": "corefolder",
     "Term_JPReading": "コアフォルダ",
     "Images": { "concept-figure_PNGName": ["cnsp-fg_NTscorefolder"] },
@@ -34,7 +34,7 @@
     "Links": []
   },
   {
-    "Term": "試験用個体",
+    "Term_JP": "試験用個体",
     "Term_EN": "Test Model",
     "Term_JPReading": "しけんようこたい",
     "TermType": null,
@@ -45,7 +45,7 @@
     "Links": []
   },
   {
-    "Term": "1桁番",
+    "Term_JP": "1桁番",
     "Term_JPReading": "ユニデジッツ",
     "Term_EN": "UniDigits",
     "TermType": null,
@@ -56,7 +56,7 @@
     "Links": []
   },
   {
-    "Term": "10倍番",
+    "Term_JP": "10倍番",
     "Term_JPReading": "テンズデジッツ",
     "Term_EN": "Tens-Digits",
     "TermType": null,
@@ -72,7 +72,7 @@
     "Links": []
   },
   {
-    "Term": "マスターテールズ9",
+    "Term_JP": "マスターテールズ9",
     "Term_JPReading": "マスターテールズ・ナイン",
     "Term_EN": "MasterTales 9",
     "TermType": null,
@@ -83,7 +83,7 @@
     "Links": []
   },
   {
-    "Term": "デシベルモデレーターズ",
+    "Term_JP": "デシベルモデレーターズ",
     "Term_JPReading": "デシベルモデレーターズ",
     "Term_EN": "Decibel Moderators",
     "TermType": null,
@@ -94,7 +94,7 @@
     "Links": []
   },
   {
-    "Term": "マスタートリプル",
+    "Term_JP": "マスタートリプル",
     "Term_JPReading": "マスタートリプル",
     "Term_EN": "MasterTriples",
     "TermType": null,
@@ -105,7 +105,7 @@
     "Links": []
   },
   {
-    "Term": "仮説型ハイナンバー",
+    "Term_JP": "仮説型ハイナンバー",
     "Term_JPReading": "かせつがたハイナンバー",
     "Term_EN": "Tentative HighNumbers",
     "TermType": null,
@@ -116,7 +116,7 @@
     "Links": []
   },
   {
-    "Term": "キャレ型ハイナンバーズ",
+    "Term_JP": "キャレ型ハイナンバーズ",
     "Term_JPReading": "キャレがたハイナンバーズ",
     "Term_EN": "Carré-Series HighNumbers",
     "TermType": null,
@@ -127,7 +127,7 @@
     "Links": []
   },
   {
-    "Term": "キュビクザール型ハイナンバーズ",
+    "Term_JP": "キュビクザール型ハイナンバーズ",
     "Term_JPReading": "キュビクザールがたハイナンバーズ",
     "Term_EN": "Kubikzahl-Series HighNumbers",
     "TermType": null,

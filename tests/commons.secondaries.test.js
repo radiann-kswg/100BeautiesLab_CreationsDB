@@ -106,7 +106,7 @@ describe('CommonsProcessor secondary series commons', () => {
     const out0 = JSON.parse(out0Json);
 
     expect(out0.sec_Category).toBe('共同二次創作');
-    expect(out0.sec_DesignedBy).toBe('散狐アタスト(https://misskey.io/@atast)(https://misskey.io/@atast)');
+    expect(out0.sec_DesignedBy).toEqual(['Atast']);
     expect(out0.Belonging).toEqual(['百花繚乱研究所', 'エイゼルベットの観測世界']);
   });
 
@@ -240,17 +240,19 @@ describe('CommonsProcessor secondary series commons', () => {
     expect(outDefault.RaceType).toBe('DefaultRace');
   });
 
-  it('applies NumberTales SelfSecondary commons to numberize records with sec_DesignedBy', () => {
+  it('applies NumberTales SelfSecondary commons to records with array sec_DesignedBy', () => {
     const ctx = loadSwCommonIntoContext();
     expect(ctx?.self?.CommonsProcessor).toBeTypeOf('function');
 
     const meta = loadJSON('data/Works_NumberTales/DataBases/db_meta.json');
     const records = loadJSON('data/Works_NumberTales/DataBases/db_SelfSecondary.json');
-    const target = records.find((record) => record.Num === '115-numberize');
+    // リクエストナンバー系レコード: sec_DesignedBy は配列キー形式になっている
+    const target = records.find((record) => record.sec_Category === 'リクエストナンバー');
 
     expect(target).toBeTruthy();
-    expect(target.sec_Category).toBe('ナンバーテールズ化企画');
-    expect(target.sec_DesignedBy).toBe('ラジアン(柏木主税)');
+    expect(target.sec_Category).toBe('リクエストナンバー');
+    expect(Array.isArray(target.sec_DesignedBy)).toBe(true);
+    expect(target.sec_DesignedBy).toContain('RadianN');
 
     const out0Json = vm.runInNewContext(
       `(() => {
@@ -261,21 +263,13 @@ describe('CommonsProcessor secondary series commons', () => {
       })()`
       ,
       ctx,
-      { filename: 'tests/commons.secondaries.test.js#numberize_selfsecondary' }
+      { filename: 'tests/commons.secondaries.test.js#selfsecondary_designedby_array' }
     );
     const out0 = JSON.parse(out0Json);
 
-    expect(out0.Belonging).toEqual([]);
-    expect(out0.RaceType).toEqual([
-      {
-        value: 'PortableHumanoid(TaleBeastType)',
-        about_JP: '自創作キャラ化の便宜上',
-        about_EN: 'For the convenience of being adapted into our creations'
-      },
-      {
-        about_JP: '実際の種族はわずかに異なる部分あり',
-        about_EN: 'The actual species may differ slightly'
-      }
-    ]);
+    // SelfSecondary の リクエストナンバー 定義から GenderType / Belonging / RaceType が補完される
+    expect(out0.GenderType).toBe('Neutral');
+    expect(out0.Belonging).toEqual(['百花繚乱研究所']);
+    expect(out0.RaceType).toBe('PortableHumanoid(TaleBeastType)');
   });
 });
