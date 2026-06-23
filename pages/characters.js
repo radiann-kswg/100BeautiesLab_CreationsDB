@@ -785,8 +785,8 @@ async function listWorkDBs(workKey) {
 function getDbDisplayLabel(db, fallback = '') {
 	const lang = getCurrentPageLanguage();
 	const label = lang === 'en'
-		? String(db?.DB_Label_EN || db?.DB_Label || db?.key || fallback || '').trim()
-		: String(db?.DB_Label || db?.DB_Label_EN || db?.key || fallback || '').trim();
+		? String(db?.DB_Label_EN || db?.DB_Label_JP || db?.key || fallback || '').trim()
+		: String(db?.DB_Label_JP || db?.DB_Label_EN || db?.key || fallback || '').trim();
 	return label || String(fallback || '-');
 }
 
@@ -4204,18 +4204,25 @@ function formatValueForDisplay(value, labelMap = {}, workMeta = null, globalDefT
 		}
 
 		// Handle objects with common text patterns
+		const _objLang = getCurrentPageLanguage();
 		if (value.Rank && value.EffectText) {
-			const effectLabel = value.EffectText_JP || value.EffectText;
+			const effectLabel = _objLang === 'en'
+				? (value.EffectText_EN || value.EffectText_JP || value.EffectText)
+				: (value.EffectText_JP || value.EffectText);
 			return `${value.Rank} (${effectLabel})`;
 		}
 
 		if (value.Rank && value.SafetyLevelText) {
-			const safetyLabel = value.SafetyLevelText_JP || value.SafetyLevelText;
+			const safetyLabel = _objLang === 'en'
+				? (value.SafetyLevelText_EN || value.SafetyLevelText_JP || value.SafetyLevelText)
+				: (value.SafetyLevelText_JP || value.SafetyLevelText);
 			return `${value.Rank} (${safetyLabel})`;
 		}
 
 		if (value.Rank && value.AbilityText) {
-			const abilityLabel = value.AbilityText_JP || value.AbilityText;
+			const abilityLabel = _objLang === 'en'
+				? (value.AbilityText_EN || value.AbilityText_JP || value.AbilityText)
+				: (value.AbilityText_JP || value.AbilityText);
 			return `${value.Rank} (${abilityLabel})`;
 		}
 
@@ -4228,11 +4235,11 @@ function formatValueForDisplay(value, labelMap = {}, workMeta = null, globalDefT
 				if (enumKey.startsWith('$EnumDef_') && typeof enumDef === 'object') {
 					for (const [valueKey, valueDef] of Object.entries(enumDef)) {
 						if (typeof valueDef === 'object' && Object.values(valueDef).some(v => v === value.GenderType || v === value.RaceType || v === value.Progress)) {
-							// Return Japanese version if available
-							const jpField = Object.keys(valueDef).find(k => k.endsWith('_JP'));
-							if (jpField && valueDef[jpField]) {
-								return valueDef[jpField];
-							}
+							const _targetSuffix = _objLang === 'en' ? '_EN' : '_JP';
+							const _targetField = Object.keys(valueDef).find(k => k.endsWith(_targetSuffix));
+							if (_targetField && valueDef[_targetField]) return valueDef[_targetField];
+							const _jpField = Object.keys(valueDef).find(k => k.endsWith('_JP'));
+							if (_jpField && valueDef[_jpField]) return valueDef[_jpField];
 						}
 					}
 				}
@@ -4243,26 +4250,28 @@ function formatValueForDisplay(value, labelMap = {}, workMeta = null, globalDefT
 				if (listKey.startsWith('#List_') && Array.isArray(listDef)) {
 					for (const item of listDef) {
 						if (typeof item === 'object' && Object.values(item).some(v => v === value.Area || v === value.Belonging || v === value.RaceType)) {
-							// Return Japanese version if available
-							const jpField = Object.keys(item).find(k => k.endsWith('_JP'));
-							if (jpField && item[jpField]) {
-								return item[jpField];
-							}
+							const _targetSuffix = _objLang === 'en' ? '_EN' : '_JP';
+							const _targetField = Object.keys(item).find(k => k.endsWith(_targetSuffix));
+							if (_targetField && item[_targetField]) return item[_targetField];
+							const _jpField = Object.keys(item).find(k => k.endsWith('_JP'));
+							if (_jpField && item[_jpField]) return item[_jpField];
 						}
 					}
 				}
 			}
 		}
 
-		// Try Japanese version first, then English, then raw value
-		const jpKeys = Object.keys(value).filter(k => k.endsWith('_JP'));
-		if (jpKeys.length > 0) {
-			return jpKeys.map(k => value[k]).filter(v => v).join(', ');
+		// 言語優先の _JP/_EN キーフォールバック
+		const _primarySuffix = _objLang === 'en' ? '_EN' : '_JP';
+		const _fallbackSuffix = _objLang === 'en' ? '_JP' : '_EN';
+		const _primaryKeys = Object.keys(value).filter(k => k.endsWith(_primarySuffix));
+		if (_primaryKeys.length > 0) {
+			const _primaryVals = _primaryKeys.map(k => value[k]).filter(v => v);
+			if (_primaryVals.length > 0) return _primaryVals.join(', ');
 		}
-
-		const enKeys = Object.keys(value).filter(k => k.endsWith('_EN'));
-		if (enKeys.length > 0) {
-			return enKeys.map(k => value[k]).filter(v => v).join(', ');
+		const _fallbackKeys = Object.keys(value).filter(k => k.endsWith(_fallbackSuffix));
+		if (_fallbackKeys.length > 0) {
+			return _fallbackKeys.map(k => value[k]).filter(v => v).join(', ');
 		}
 
 		// Try common text fields
@@ -6941,9 +6950,9 @@ export async function renderDetail(workId, rec) {
 
 		const profileSummaryText = (() => {
 			const lang = getCurrentPageLanguage();
-			if (lang === 'en') return String(rec?.Summary_EN || rec?.Summary || '').trim();
-			if (lang === 'jp') return String(rec?.Summary || rec?.Summary_EN || '').trim();
-			return String(rec?.Summary || rec?.Summary_EN || '').trim();
+			if (lang === 'en') return String(rec?.Summary_EN || rec?.Summary_JP || '').trim();
+			if (lang === 'jp') return String(rec?.Summary_JP || rec?.Summary_EN || '').trim();
+			return String(rec?.Summary_JP || rec?.Summary_EN || '').trim();
 		})();
 		const includeSummaryInProfileSection = Boolean(profileSummaryText) && !isPromotedSubFieldKey('Summary');
 		const profileSection = (includeSummaryInProfileSection || profileItems.length)
@@ -7348,12 +7357,17 @@ function renderDBLinkResolved(dbLinkResolved, fieldLabelMap, workMeta, globalDef
 							style: 'margin: 8px 0; padding: 8px; border-left: 3px solid var(--accent-2); background: rgba(158, 119, 255, 0.1);'
 						}, [
 							el('div', { style: 'font-weight: 600; font-size: var(--font-size-sm);' }, [
-								record.Name || record.FormalName || record.ModelName || record.Name_EN || `Record #${index + 1}`
+								getRecordPrimaryTitle(record) || `Record #${index + 1}`
 							]),
-							record.Name_EN || record.FormalName_EN ?
-								el('div', { style: 'color: var(--muted); font-size: var(--font-size-xs); margin: 2px 0;' }, [
-									record.Name_EN || record.FormalName_EN
-								]) : null,
+							(() => {
+								const _recLang = getCurrentPageLanguage();
+								const secondary = _recLang === 'en'
+									? (record.Name_JP || record.FormalName_JP || '')
+									: (record.Name_EN || record.FormalName_EN || '');
+								return secondary
+									? el('div', { style: 'color: var(--muted); font-size: var(--font-size-xs); margin: 2px 0;' }, [secondary])
+									: null;
+							})(),
 							record.Class || record.RaceType || record.GenderType ?
 								el('div', { style: 'margin-top: 4px;' }, [
 									(() => {
