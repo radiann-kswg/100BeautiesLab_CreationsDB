@@ -29,6 +29,7 @@ import '../lib/section-renders/formsMotif.js';
 import '../lib/section-renders/thisMasters.js';
 import '../lib/section-renders/specStatsHelpers.js';
 import '../lib/section-renders/abilityStats.js';
+import '../lib/section-renders/streamingActivity.js';
 import '../lib/section-renders/numSpec.js';
 import '../lib/section-renders/arcanumSpec.js';
 import '../lib/section-renders/chronoSpec.js';

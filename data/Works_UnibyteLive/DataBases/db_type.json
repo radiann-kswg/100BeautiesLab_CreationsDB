@@ -145,7 +145,7 @@
       ],
       "hashTag_JP": "配信活動について",
       "hashTag_EN": "About Streaming Activities",
-      "$display": { "sectionWrapper": "statsSection" }
+      "$display": { "sectionWrapper": "streamingActivitySection" }
     },
     {
       "hashTag": "Relation",

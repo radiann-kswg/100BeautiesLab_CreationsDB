@@ -1683,6 +1683,23 @@ body[data-lang='en'] .lang-toggle .lang-toggle__opt[data-opt='en']
 		.detail-tag-grid--triple
 			grid-template-columns: repeat(2, 1fr)
 
+// streamingActivitySection などで summary テキストをプロズとして表示するブロック
+.detail-prose
+	width: 100%
+	margin-top: 4px
+
+	.detail-prose__label
+		font-size: 11px
+		color: #7a9ab5
+		margin: 0 0 4px
+		font-weight: 600
+
+	.detail-prose__body
+		margin: 0
+		font-size: 13px
+		white-space: pre-wrap
+		overflow-wrap: anywhere
+
 @media (min-width: 480px)
 	.detail .image-item
 		flex-basis: calc(50% - 7px)
