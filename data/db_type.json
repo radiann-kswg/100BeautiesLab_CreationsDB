@@ -589,8 +589,7 @@
         {
           "hashTag": "Works_Summary_JP",
           "$type": "#Summary|#Null",
-          "hashTag_JP": "作品概要",
-          "hashTag_EN": "Work Summary"
+          "hashTag_JP": "作品概要"
         },
         {
           "hashTag": "Works_Summary_EN",
@@ -620,8 +619,7 @@
         {
           "hashTag": "DB_Summary_JP",
           "$type": "#Summary|#Null",
-          "hashTag_JP": "DB概要",
-          "hashTag_EN": "DB Summary"
+          "hashTag_JP": "DB概要"
         },
         {
           "hashTag": "DB_Summary_EN",
@@ -661,24 +659,28 @@
           "hashTag": "sec_SeriesTitle",
           "$type": "##String_JP|#Summary|#Null",
           "hashTag_JP": "二次創作シリーズ名",
+          "hashTag_EN": "Secondary Title",
           "$display": { "auto": false }
         },
         {
           "hashTag": "sec_Category",
           "$type": "##String_JP|#Summary|#Null",
           "hashTag_JP": "二次創作分類",
+          "hashTag_EN": "Secondary Category",
           "$display": { "section": "secondaryInfo" }
         },
         {
           "hashTag": "sec_DesignedBy",
           "$type": "#Summary|#Null",
           "hashTag_JP": "キャラクターデザイン・考案",
+          "hashTag_EN": "Character Design / Concept By",
           "$display": { "section": "secondaryInfo" }
         },
         {
           "hashTag": "SecondarySummary",
           "$type": "#Summary|#Null",
           "hashTag_JP": "二次創作概要",
+          "hashTag_EN": "Secondary Summary",
           "$display": { "auto": false }
         },
         {

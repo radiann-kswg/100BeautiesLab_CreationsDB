@@ -43,10 +43,10 @@ describe('StandardEndpointHandlers exposes work/db catalog meta info', () => {
       readGlobalMeta: async () => ({
         CreationWorks: {
           '#Works_NumberTales': {
-            Title: 'ナンバーテールズ',
+            Title_JP: 'ナンバーテールズ',
             Title_EN: 'NumberTales',
-            Works_Summary: '作品概要です。',
-            OldTitles: [{ Title: '旧題', ArchivedYear: 2024 }]
+            Works_Summary_JP: '作品概要です。',
+            OldTitles: [{ Title_JP: '旧題', ArchivedYear: 2024 }]
           }
         }
       })
@@ -57,8 +57,8 @@ describe('StandardEndpointHandlers exposes work/db catalog meta info', () => {
     const json = await res.json();
 
     expect(res.status).toBe(200);
-    expect(json[0].Title).toBe('ナンバーテールズ');
-    expect(json[0].Works_Summary).toBe('作品概要です。');
+    expect(json[0].Title_JP).toBe('ナンバーテールズ');
+    expect(json[0].Works_Summary_JP).toBe('作品概要です。');
     expect(Array.isArray(json[0].OldTitles)).toBe(true);
   });
 
@@ -104,7 +104,7 @@ describe('StandardEndpointHandlers exposes work/db catalog meta info', () => {
       readWorkMeta: async () => ({
         Databases: {
           '#DB_Primary': {
-            DB_Label: '一次創作',
+            DB_Label_JP: '一次創作',
             DB_Label_EN: 'Primary',
             DB_Summary: 'DB概要です。',
             StoryEra: {
@@ -121,7 +121,7 @@ describe('StandardEndpointHandlers exposes work/db catalog meta info', () => {
     const json = await res.json();
 
     expect(res.status).toBe(200);
-    expect(json.databases[0].DB_Label).toBe('一次創作');
+    expect(json.databases[0].DB_Label_JP).toBe('一次創作');
     expect(json.databases[0].DB_Label_EN).toBe('Primary');
     expect(json.databases[0].DB_Summary).toBe('DB概要です。');
     expect(json.databases[0].StoryEra.about_JP).toBe('第9創世紀3年ごろ');
@@ -138,9 +138,9 @@ describe('StandardEndpointHandlers exposes work/db catalog meta info', () => {
       readGlobalMeta: async () => ({
         CreationWorks: {
           '#Works_PastDivers': {
-            Title: 'パストダイヴァー',
+            Title_JP: 'パストダイヴァー',
             Title_EN: 'PastDivers',
-            Works_Summary: '作品側の概要'
+            Works_Summary_JP: '作品側の概要'
           }
         }
       }),
