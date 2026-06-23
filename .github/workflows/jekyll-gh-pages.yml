@@ -28,6 +28,14 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      # 創作キャラの誕生日・記念日カレンダー(.ics)を data/ から生成し、
+      # Jekyll ビルドに含めて GitHub Pages から配信する(コミットバック不要)。
+      - name: Build calendar ICS
+        run: node tools/build-calendar-ics.mjs
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Build with Jekyll

@@ -1,5 +1,17 @@
 # 最新のリファクタリング・仕様変更履歴
 
+### Google カレンダー連携: 誕生日・記念日 ICS 自動生成・配信 (2026-06-24)
+
+- **`tools/build-calendar-ics.mjs` 新規追加**: `data/Works_*/DataBases/db_*.json` の全公開レコードから `BirthDay`(単一) / `AnivDay`(配列) を収集し、終日・毎年繰り返し(`RRULE:FREQ=YEARLY`)の iCalendar(.ics) を生成する。
+- **公開ルール順守**: `isPrivate` レコード、グローバル `CreationWorks.#Works_*.Works_Hidden`、作品別 `Databases` 配下(ネスト含む)の `#DB_*` に付く `DB_Hidden`/`Works_Hidden`、`{hideText}`・日付欠損を除外する。
+- **決定的出力**: UID 安定化(作品+DB+索引+種別の SHA-1)・月日順ソート・固定 DTSTAMP により、購読側の再読込時に冪等反映される。
+- **`package.json`** に `calendar:build` スクリプト、**`.gitignore`** に生成物 `/calendar/*.ics`(ビルド成果物・コミット対象外)を追加。
+- **`.github/workflows/jekyll-gh-pages.yml`** に Node セットアップ＋生成ステップを追加し、`develop` への push 毎に `.ics` を生成して GitHub Pages へ配信する(`https://database.numbertales-radiann.net/calendar/100beautieslab-creations.ics`)。コミットバック不要。
+- **テスト `tests/calendar.ics.test.js` 追加**: 除外ルール・UID 一意・終日繰り返し・行折返し(≤75 オクテット)・決定性を検証。
+- **ドキュメント**: 利用方法・Google カレンダー購読手順は `docs/calendar-ics-spec.md` を参照。
+- **初回イベント数**: 誕生日 19・記念日 131(計 150)。
+
+
 ### JP/EN 命名規則の標準化（Phase 2〜5 完了）(2026-06-22)
 
 - **Phase 2 — typedef リネーム**: `data/db_type.json` および `data/Works_*/DataBases/db_type.json` の全 `$DefType` エントリで、`Name → Name_JP`、`FormalName → FormalName_JP`、`ModelName → ModelName_JP`、`Title → Title_JP`、`Term → Term_JP`、`DayAbout → DayAbout_JP`、`DB_Label → DB_Label_JP` 等の言語サフィックス付与を適用した。

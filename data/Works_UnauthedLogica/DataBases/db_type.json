@@ -27,13 +27,15 @@
       "hashTag": "ForMasterCalling_JP",
       "$type": "#String|#Summary",
       "isForMobs": false,
-      "hashTag_JP": "主人の呼び方"
+      "hashTag_JP": "主人の呼び方",
+      "$display": { "section": "sub" }
     },
     {
       "hashTag": "ForMasterCalling_EN",
       "$type": "#String_EN|#Summary|#Null",
       "isForMobs": false,
-      "hashTag_EN": "For Master Calling"
+      "hashTag_EN": "For Master Calling",
+      "$display": { "section": "sub" }
     },
     {
       "hashTag": "LogicspecAbout_JP",

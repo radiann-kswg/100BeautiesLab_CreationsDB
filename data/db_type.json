@@ -197,32 +197,38 @@
     {
       "hashTag": "FirstPersonCalling_JP",
       "$type": "#String|#Summary",
-      "hashTag_JP": "一人称"
+      "hashTag_JP": "一人称",
+      "$display": { "section": "sub" }
     },
     {
       "hashTag": "FirstPersonCalling_EN",
       "$type": "#String_EN|#Summary|#Null",
-      "hashTag_EN": "First Person Calling"
+      "hashTag_EN": "First Person Calling",
+      "$display": { "section": "sub" }
     },
     {
       "hashTag": "SecondPersonCalling_JP",
       "$type": "#String|#Summary",
-      "hashTag_JP": "二人称"
+      "hashTag_JP": "二人称",
+      "$display": { "section": "sub" }
     },
     {
       "hashTag": "SecondPersonCalling_EN",
       "$type": "#String_EN|#Summary|#Null",
-      "hashTag_EN": "Second Person Calling"
+      "hashTag_EN": "Second Person Calling",
+      "$display": { "section": "sub" }
     },
     {
       "hashTag": "ThirdPersonCalling_JP",
       "$type": "#String|#Summary",
-      "hashTag_JP": "三人称"
+      "hashTag_JP": "三人称",
+      "$display": { "section": "sub" }
     },
     {
       "hashTag": "ThirdPersonCalling_EN",
       "$type": "#String_EN|#Summary|#Null",
-      "hashTag_EN": "Third Person Calling"
+      "hashTag_EN": "Third Person Calling",
+      "$display": { "section": "sub" }
     },
     {
       "hashTag": "Character_JP",

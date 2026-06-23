@@ -81,12 +81,14 @@
       "hashTag": "ForMasterCalling_JP",
       "$type": "#String|#Summary",
       "hashTag_JP": "主人の呼び方",
-      "hashTag_EN": "For Master Calling"
+      "hashTag_EN": "For Master Calling",
+      "$display": { "section": "sub" }
     },
     {
       "hashTag": "ForMasterCalling_EN",
       "$type": "#String_EN|#Summary|#Null",
-      "hashTag_EN": "For Master Calling"
+      "hashTag_EN": "For Master Calling",
+      "$display": { "section": "sub" }
     },
     {
       "hashTag": "TailsUnit_JP",

@@ -16,7 +16,7 @@
 
 キャラクター設定・口調・趣味趣向の完全な仕様は以下のファイルで定義されています。必ずこの内容を参照・順守してください：
 
-@.github/_roleplay-datas/roleplay-prompt.md
+@.github/\_roleplay-datas/roleplay-prompt.md
 
 > 同等仕様の再掲: `.github/instructions/roleplay.instructions.md`（Copilot 自動ロード用）
 > 参考実装: NumberTales-MisskeyAIBot / 100BeautiesLab_GeneratorsAI
@@ -225,13 +225,14 @@ UI → Service Worker (`/pages/v1/`) → 静的 JSON 読み込み + `_DBLink`/`_
 ### 作品シリーズ
 
 1. **ナンバーテールズ (NumberTales)** — 数字・数秘術ベースの妖獣型キャラクター
-2. **運命線探偵78 (FLInvestigator78)** — タロットカードベースの異能調査組織
+2. **運命線探偵78 (FLInvestigator78)** — タロットカードベースの異能調査探偵団
 3. **獣爾騎兵 (ShouArRiders)** — 十二支ベースの獣人型改造人間
-4. **豹変系女子 (SinisterChangingGirls)** — 七つの大罪・八方位ベースのキャラクター
-5. **アンオースドロジカ (UnauthedLogica)** — 論理 IC・姓名診断ベースの人造キャラクター（構想途中）
-6. **パストダイヴァー (PastDivers)** — 和暦ベースの特殊国家技術者（構想途中）
-7. **運命線狐の記録 (DestinyFoxRecords)** — 作者の日常投稿に登場する代理キャラクター周辺
-8. **代理 (Proxies)** — 代理キャラクター
+4. **ハンカクライブ (UnibyteLive)** — ナンバーテールズと類似するキャラクターデザインを持つ、アルファベットベースのVTuber系メタバース配信者（構想途中）
+5. **豹変系女子 (SinisterChangingGirls)** — 七つの大罪・八方位ベースの女性的なキャラクター
+6. **アンオースドロジカ (UnauthedLogica)** — 論理 ICベースの機械人形とナンバーテールズのパラレルキャラクター（構想途中）
+7. **パストダイヴァー (PastDivers)** — 和暦ベースの特殊国家技術者（構想途中）
+8. **運命線狐の記録 (DestinyFoxRecords)** — 作者の日常投稿に登場する代理キャラクター周辺
+9. **代理 (Proxies)** — 代理キャラクター
 
 ### データベース種別
 
@@ -431,15 +432,15 @@ UI → Service Worker (`/pages/v1/`) → 静的 JSON 読み込み + `_DBLink`/`_
 
 ## 主要ドキュメント参照先
 
-| 対象 | 参照先 |
-|------|--------|
-| API/SW 仕様（SW + Cloudflare Workers） | `docs/api-sw-spec.md` |
-| schema/meta 詳解 | `docs/schema-meta-processing.md` |
-| wrapper/section renderer | `docs/wrapper-summary-registry.md` |
-| 横断運用ルール | `docs/implementation-playbook.md` |
-| pkg/ クライアントライブラリ | `docs/pkg-client-libraries.md` |
-| Cloudflare Workers セットアップ | `pkg/cloudflare/README.md` |
-| Google Cloud 設計（ADR-0002） | `_work_in_progress/2026-06-21_progress_cloudflare-api-adr2-gcloud.md` |
+| 対象                                   | 参照先                                                                |
+| -------------------------------------- | --------------------------------------------------------------------- |
+| API/SW 仕様（SW + Cloudflare Workers） | `docs/api-sw-spec.md`                                                 |
+| schema/meta 詳解                       | `docs/schema-meta-processing.md`                                      |
+| wrapper/section renderer               | `docs/wrapper-summary-registry.md`                                    |
+| 横断運用ルール                         | `docs/implementation-playbook.md`                                     |
+| pkg/ クライアントライブラリ            | `docs/pkg-client-libraries.md`                                        |
+| Cloudflare Workers セットアップ        | `pkg/cloudflare/README.md`                                            |
+| Google Cloud 設計（ADR-0002）          | `_work_in_progress/2026-06-21_progress_cloudflare-api-adr2-gcloud.md` |
 
 ---
 

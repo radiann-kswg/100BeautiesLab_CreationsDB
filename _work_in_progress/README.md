@@ -15,6 +15,8 @@
 
 ## いま進行中のファイル
 
+- 2026-06-24_progress_calendar-ics.md（誕生日・記念日の Google カレンダー連携: ICS 自動生成・配信。⚠️ `npm test` は User 環境で実行、Google 購読登録は User 手動）
+
 - 2026-06-22_progress_jp-en-naming-standardization.md（JP/EN フィールド命名標準化・**Phase 2〜5 全完了** ⚠️ D1/R2 再同期は手動実施が必要）
 
 - 2026-06-01_remaining-task.md（未完了タスク一覧・2026-06-01 時点）
@@ -103,12 +105,4 @@
 - 2026-02-21_progress_bilingual-enum-listindex.md
 - 2026-02-21_remaining-task.md
 - 2026-03-04_progress_phase0.md
-- 2026-03-04_progress_phase1_index.md
-- 2026-03-04_progress_phase2_dbtype-resilience.md
-- 2026-03-04_progress_phase3-prompt.md
-- 2026-03-04_progress_phase3_reserved-keys.md
-- 2026-03-04_progress_phase4_api-integration.md
-- 2026-03-04_progress_phase5-prompt.md
-- 2026-03-04_remaining-task.md
-- 2026-03-06_progress_phase5_conversation-pattern.md
-- 2026-04-06_progress_decave-enum-api-ui.md
+- 2026-03-04_progress_phase1_index

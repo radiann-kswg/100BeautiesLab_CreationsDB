@@ -35,6 +35,7 @@ import '../lib/section-renders/arcanumSpec.js';
 import '../lib/section-renders/chronoSpec.js';
 import '../lib/section-renders/relation.js';
 import '../lib/section-renders/dblink.js';
+import '../lib/section-renders/calling.js';
 import '../lib/section-renders/storyEra.js';
 import '../lib/section-renders/day.js';
 

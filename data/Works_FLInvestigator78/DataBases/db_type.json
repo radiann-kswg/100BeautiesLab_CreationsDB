@@ -74,25 +74,25 @@
       "hashTag": "For79thDealerCalling_JP",
       "$type": "#String|#Null",
       "hashTag_JP": "錦野舞(第79アルカナ)の呼び方",
-      "$display": { "section": "profile" }
+      "$display": { "section": "sub" }
     },
     {
       "hashTag": "For79thDealerCalling_EN",
       "$type": "#String_EN|#Null",
       "hashTag_EN": "Dancy Actressilk(79th Arcana) Calling",
-      "$display": { "section": "profile" }
+      "$display": { "section": "sub" }
     },
     {
       "hashTag": "For80thDealerCalling_JP",
       "$type": "#String|#Null",
       "hashTag_JP": "錦野歌嫁(第80アルカナ)の呼び方",
-      "$display": { "section": "profile" }
+      "$display": { "section": "sub" }
     },
     {
       "hashTag": "For80thDealerCalling_EN",
       "$type": "#String_EN|#Null",
       "hashTag_EN": "Phonia Actressilk(80th Arcana) Calling",
-      "$display": { "section": "profile" }
+      "$display": { "section": "sub" }
     },
     {
       "hashTag": "ArcanamspecAbout_JP",
