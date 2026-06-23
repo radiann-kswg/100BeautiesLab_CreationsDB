@@ -1415,13 +1415,50 @@ body {
 }
 
 .controls .control-row.small .lang-toggle {
-  min-width: 64px;
-  font-weight: 700;
-  letter-spacing: 0.04em;
+  min-width: 0;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
 }
 
-body[data-lang=en] .controls .control-row.small .lang-toggle {
-  border-color: color-mix(in srgb, var(--accent) 50%, var(--border));
+body[data-lang] .controls .control-row.small .lang-toggle {
+  border-color: color-mix(in srgb, var(--accent) 30%, var(--border));
+}
+
+.lang-toggle__label {
+  font-size: var(--font-size-xs, 11px);
+  color: var(--muted);
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+}
+
+.lang-toggle__opts {
+  display: inline-flex;
+  align-items: center;
+  gap: 0;
+}
+
+.lang-toggle__sep {
+  color: var(--muted);
+  font-weight: 400;
+  font-size: 0.9em;
+  opacity: 0.5;
+  padding: 0 1px;
+}
+
+.lang-toggle__opt {
+  font-weight: 700;
+  font-size: var(--font-size-sm, 13px);
+  opacity: 0.35;
+  transition: opacity 0.15s, color 0.15s;
+}
+
+body[data-lang=jp] .lang-toggle .lang-toggle__opt[data-opt=jp],
+body[data-lang=en] .lang-toggle .lang-toggle__opt[data-opt=en] {
+  opacity: 1;
   color: var(--accent);
 }
 

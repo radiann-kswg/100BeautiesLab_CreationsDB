@@ -2502,6 +2502,12 @@ function getFieldLabel(fieldName, labelMap, workMeta = null, globalDefType = nul
 			if (typeof labelMap?.[enKey] === 'string' && labelMap[enKey].trim()) {
 				return labelMap[enKey].trim();
 			}
+			// EN ラベル未定義で JP ラベルが日本語の場合、フィールド名から _JP/_EN サフィックスを除去して英語表記として使う
+			const jpEntry = typeof entry === 'string' ? entry : '';
+			if (/[぀-ヿ㐀-鿿]/.test(jpEntry)) {
+				const cleanKey = String(key || '').replace(/_(JP|EN)$/, '').trim();
+				return cleanKey || key;
+			}
 		}
 		return (typeof entry === 'string') ? entry : '';
 	};
@@ -3227,6 +3233,9 @@ function formatValueForDisplay(value, labelMap = {}, workMeta = null, globalDefT
 	 */
 	const isPlainObject = (v) => !!v && typeof v === 'object' && !Array.isArray(v);
 
+	// formatValueForDisplay 内で共通利用する現在言語
+	const _fvLang = getCurrentPageLanguage();
+
 	/**
 	 * Rank 表現を人間向け表示に正規化
 	 * - { Rank: 'A' } / { Rank: { hideText: '???' } } / { Rank: { Rank: 'A', about: '...' } }
@@ -3239,7 +3248,7 @@ function formatValueForDisplay(value, labelMap = {}, workMeta = null, globalDefT
 		if (!Object.prototype.hasOwnProperty.call(obj, 'Rank')) return '';
 
 		const rawRank = obj.Rank;
-		const about = obj.about_JP || obj.about_EN || obj.about;
+		const about = _fvLang === 'en' ? (obj.about_EN || obj.about_JP || obj.about) : (obj.about_JP || obj.about_EN || obj.about);
 
 		// Rank がプリミティブ
 		if (typeof rawRank === 'string' || typeof rawRank === 'number' || typeof rawRank === 'boolean') {
@@ -3257,7 +3266,7 @@ function formatValueForDisplay(value, labelMap = {}, workMeta = null, globalDefT
 		// Rank が { Rank: 'A', about: '...' } のようなネスト
 		if (isPlainObject(rawRank) && Object.prototype.hasOwnProperty.call(rawRank, 'Rank')) {
 			const nestedBaseRaw = rawRank.Rank;
-			const nestedAbout = rawRank.about_JP || rawRank.about_EN || rawRank.about;
+			const nestedAbout = _fvLang === 'en' ? (rawRank.about_EN || rawRank.about_JP || rawRank.about) : (rawRank.about_JP || rawRank.about_EN || rawRank.about);
 
 			if (typeof nestedBaseRaw === 'string' || typeof nestedBaseRaw === 'number' || typeof nestedBaseRaw === 'boolean') {
 				const base = String(nestedBaseRaw).trim();
@@ -3283,7 +3292,7 @@ function formatValueForDisplay(value, labelMap = {}, workMeta = null, globalDefT
 		if (!isPlainObject(obj)) return null;
 		if (!Object.prototype.hasOwnProperty.call(obj, 'Rank')) return null;
 
-		const aboutOuter = obj.about_JP || obj.about_EN || obj.about;
+		const aboutOuter = _fvLang === 'en' ? (obj.about_EN || obj.about_JP || obj.about) : (obj.about_JP || obj.about_EN || obj.about);
 		const rawRank = obj.Rank;
 
 		// Rank がプリミティブ
@@ -3301,7 +3310,7 @@ function formatValueForDisplay(value, labelMap = {}, workMeta = null, globalDefT
 		// Rank が { Rank: 'A', about: '...' } のようなネスト
 		if (isPlainObject(rawRank) && Object.prototype.hasOwnProperty.call(rawRank, 'Rank')) {
 			const nestedBaseRaw = rawRank.Rank;
-			const aboutNested = rawRank.about_JP || rawRank.about_EN || rawRank.about;
+			const aboutNested = _fvLang === 'en' ? (rawRank.about_EN || rawRank.about_JP || rawRank.about) : (rawRank.about_JP || rawRank.about_EN || rawRank.about);
 			const about = aboutNested || aboutOuter;
 
 			if (typeof nestedBaseRaw === 'string' || typeof nestedBaseRaw === 'number' || typeof nestedBaseRaw === 'boolean') {
@@ -3329,7 +3338,7 @@ function formatValueForDisplay(value, labelMap = {}, workMeta = null, globalDefT
 		if (!isPlainObject(obj)) return null;
 		if (!Object.prototype.hasOwnProperty.call(obj, en)) return null;
 
-		const aboutOuter = obj.about_JP || obj.about_EN || obj.about;
+		const aboutOuter = _fvLang === 'en' ? (obj.about_EN || obj.about_JP || obj.about) : (obj.about_JP || obj.about_EN || obj.about);
 		const raw = obj[en];
 
 		if (typeof raw === 'string' || typeof raw === 'number' || typeof raw === 'boolean') {
@@ -3344,7 +3353,7 @@ function formatValueForDisplay(value, labelMap = {}, workMeta = null, globalDefT
 
 		if (isPlainObject(raw) && Object.prototype.hasOwnProperty.call(raw, en)) {
 			const nested = raw[en];
-			const aboutNested = raw.about_JP || raw.about_EN || raw.about;
+			const aboutNested = _fvLang === 'en' ? (raw.about_EN || raw.about_JP || raw.about) : (raw.about_JP || raw.about_EN || raw.about);
 			const about = aboutNested || aboutOuter;
 			if (typeof nested === 'string' || typeof nested === 'number' || typeof nested === 'boolean') {
 				const code = String(nested).trim();
@@ -3975,8 +3984,8 @@ function formatValueForDisplay(value, labelMap = {}, workMeta = null, globalDefT
 		// - value キーを持たず value_JP または value_EN を持つオブジェクトを対象とする
 		if (!Object.prototype.hasOwnProperty.call(value, 'value') &&
 			(Object.prototype.hasOwnProperty.call(value, 'value_JP') || Object.prototype.hasOwnProperty.call(value, 'value_EN'))) {
-			const base = value.value_JP || value.value_EN || '';
-			const about = value.about_JP || value.about_EN || value.about;
+			const base = _fvLang === 'en' ? (value.value_EN || value.value_JP || '') : (value.value_JP || value.value_EN || '');
+			const about = _fvLang === 'en' ? (value.about_EN || value.about_JP || value.about) : (value.about_JP || value.about_EN || value.about);
 			const baseWithUnit = base ? withUnit(String(base).trim()) : '';
 			if (about && baseWithUnit) return `${baseWithUnit}（${about}）`;
 			if (baseWithUnit) return baseWithUnit;
@@ -3986,7 +3995,7 @@ function formatValueForDisplay(value, labelMap = {}, workMeta = null, globalDefT
 		// NOTE: value が Enum/List のコード値のケースがあるため、schemaType に応じて辞書解決して表示する
 		if (Object.prototype.hasOwnProperty.call(value, 'value')) {
 			const base = value.value;
-			const about = value.about_JP || value.about_EN || value.about;
+			const about = _fvLang === 'en' ? (value.about_EN || value.about_JP || value.about) : (value.about_JP || value.about_EN || value.about);
 
 			// value 自体がマスク表現の場合
 			if (isPlainObject(base) && typeof base.hideText === 'string' && base.hideText.trim()) {
@@ -4024,6 +4033,7 @@ function formatValueForDisplay(value, labelMap = {}, workMeta = null, globalDefT
 			labelMap,
 			workMeta,
 			globalDefType,
+			pageLang: _fvLang,
 			typeSources: wrapperTypeSources
 		});
 		if (wrappedText) return wrappedText;
@@ -4036,6 +4046,7 @@ function formatValueForDisplay(value, labelMap = {}, workMeta = null, globalDefT
 				labelMap,
 				workMeta,
 				globalDefType,
+				pageLang: _fvLang,
 				typeSources: wrapperTypeSources
 			});
 			if (implicitDayText) return implicitDayText;
@@ -4047,7 +4058,7 @@ function formatValueForDisplay(value, labelMap = {}, workMeta = null, globalDefT
 				schemaType: '#DictIndex',
 				fieldKey: 'Area'
 			});
-			const aboutValue = value.about_JP ?? value.about_EN ?? value.about;
+			const aboutValue = _fvLang === 'en' ? (value.about_EN ?? value.about_JP ?? value.about) : (value.about_JP ?? value.about_EN ?? value.about);
 			const about = isPlainObject(aboutValue)
 				? (typeof aboutValue.hideText === 'string' && aboutValue.hideText.trim() ? aboutValue.hideText.trim() : '')
 				: (aboutValue == null ? '' : String(aboutValue).trim());
@@ -4508,8 +4519,8 @@ function getRecordImages(rec) {
 function humanWorkLabel(work) {
 	const lang = getCurrentPageLanguage();
 	const t = (lang === 'en')
-		? (work.Title_EN || work.Title || work.key || '')
-		: (work.Title || work.Title_EN || work.key || '');
+		? (work.Title_EN || work.Title_JP || work.key || '')
+		: (work.Title_JP || work.Title_EN || work.key || '');
 	return `${t} (${work.key.replace('#Works_', '')})`;
 }
 
@@ -4527,8 +4538,8 @@ function formatOldTitles(oldTitles) {
 		.map((entry) => {
 			if (!entry || typeof entry !== 'object') return '';
 			const label = lang === 'en'
-				? String(entry.Title_EN || entry.Title || '').trim()
-				: String(entry.Title || entry.Title_EN || '').trim();
+				? String(entry.Title_EN || entry.Title_JP || '').trim()
+				: String(entry.Title_JP || entry.Title_EN || '').trim();
 			const year = entry.ArchivedYear == null ? '' : ` (${entry.ArchivedYear})`;
 			if (!label) return '';
 			return lang === 'en' ? `Old title: ${label}${year}` : `旧題: ${label}${year}`;
@@ -4563,8 +4574,7 @@ function getUiCopyByLanguage(lang) {
 			back: '<- Back to list',
 			reset: 'Reset Cache/SW',
 			resetTitle: 'Reset caches and Service Worker, then reload.',
-			langButton: 'JP',
-			langTitle: 'Switch page language to Japanese.'
+			langTitle: 'Switch page language to Japanese (日本語).'
 		};
 	}
 
@@ -4584,8 +4594,7 @@ function getUiCopyByLanguage(lang) {
 		back: '← 一覧へ戻る',
 		reset: 'キャッシュ/SWリセット',
 		resetTitle: 'キャッシュとService Workerをリセットしてリロードします',
-		langButton: 'EN',
-		langTitle: '表示言語を英語へ切り替え',
+		langTitle: '表示言語を英語 (English) へ切り替え',
 	};
 }
 
@@ -4621,7 +4630,6 @@ function applyStaticTextLanguage() {
 
 	const langBtn = $('#btn-lang-toggle');
 	if (langBtn) {
-		langBtn.textContent = copy.langButton;
 		langBtn.title = copy.langTitle;
 	}
 
@@ -4651,10 +4659,10 @@ async function renderSelectionMeta(workKey, dbKey) {
 
 	const lang = getCurrentPageLanguage();
 	$('#meta-work-title').textContent = (lang === 'en')
-		? (work?.Title_EN || work?.Title || normalizeWorkKey(workKey) || '-')
-		: (work?.Title || work?.Title_EN || normalizeWorkKey(workKey) || '-');
-	setTextAndHidden('#meta-work-sub', [lang === 'en' ? work?.Title : work?.Title_EN, formatOldTitles(work?.OldTitles)].filter(Boolean).join('\n'));
-	setTextAndHidden('#meta-work-summary', (lang === 'en') ? (work?.Works_Summary_EN || work?.Works_Summary || '') : (work?.Works_Summary || work?.Works_Summary_EN || ''));
+		? (work?.Title_EN || work?.Title_JP || normalizeWorkKey(workKey) || '-')
+		: (work?.Title_JP || work?.Title_EN || normalizeWorkKey(workKey) || '-');
+	setTextAndHidden('#meta-work-sub', [lang === 'en' ? work?.Title_JP : work?.Title_EN, formatOldTitles(work?.OldTitles)].filter(Boolean).join('\n'));
+	setTextAndHidden('#meta-work-summary', (lang === 'en') ? (work?.Works_Summary_EN || work?.Works_Summary_JP || '') : (work?.Works_Summary_JP || work?.Works_Summary_EN || ''));
 
 	$('#meta-db-title').textContent = getDbDisplayLabel(db, dbKey || '-');
 	setTextAndHidden('#meta-db-era', getStoryEraSummary(db?.StoryEra));
@@ -6178,6 +6186,7 @@ export async function renderDetail(workId, rec) {
 				const sharedLanguage = isSharedLanguageDisplay(baseDisplayHint);
 				if (lang === 'jp' && ck.endsWith('_EN')) continue;
 				if (lang === 'en' && ck.endsWith('_JP')) continue;
+				if (lang === 'en' && ck.endsWith('_JPReading')) continue;
 				if (lang === 'en' && !ck.endsWith('_EN') && Object.prototype.hasOwnProperty.call(obj, `${ck}_EN`) && !sharedLanguage) continue;
 				if (isEmptyValueLoose(cv)) continue;
 
@@ -6293,6 +6302,8 @@ export async function renderDetail(workId, rec) {
 		const isEmptyValue = (v) => isEmptyValueLoose(v);
 		const isInternalButAllowed = () => false;
 		const shouldSkipKey = (k, v) => {
+			// *_JPReading は JP モードのみ表示（EN モードでは読み仮名不要）
+			if (getCurrentPageLanguage() === 'en' && k.endsWith('_JPReading')) return true;
 			// base が表示済みなら *_JP/_EN は二重表示しない
 			const lang = parseLangSuffix(k);
 			if (lang?.base && shownKeys.has(lang.base)) return true;
