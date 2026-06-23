@@ -857,9 +857,10 @@ function el(tag, props = {}, children = []) {
 	const appendAny = (child) => {
 		if (child == null) return;
 		if (Array.isArray(child)) { child.forEach(appendAny); return; }
-		// Only append trusted DOM Nodes directly; everything else becomes text
+		// Only append DOM Nodes created by el() (marked __trustedEl); others become text to prevent
+		// exception-text reinterpretation as HTML (CodeQL: js/xss-through-exception).
 		if (child instanceof Node) {
-			e.appendChild(child);
+			if (child.__trustedEl === true) e.appendChild(child);
 			return;
 		}
 		const t = typeof child;
@@ -871,6 +872,7 @@ function el(tag, props = {}, children = []) {
 		e.appendChild(document.createTextNode(String(child)));
 	};
 	[].concat(children).forEach(appendAny);
+	e.__trustedEl = true;
 	return e;
 }
 
