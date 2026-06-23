@@ -9,7 +9,8 @@
     "test:watch": "vitest",
     "dict:plan-enums": "node tools/extract-enum-lists-to-dictionaries.mjs",
     "dict:export-enums": "node tools/extract-enum-lists-to-dictionaries.mjs --write",
-    "dict:export-enums:prune": "node tools/extract-enum-lists-to-dictionaries.mjs --write --prune"
+    "dict:export-enums:prune": "node tools/extract-enum-lists-to-dictionaries.mjs --write --prune",
+    "calendar:build": "node tools/build-calendar-ics.mjs"
   },
   "devDependencies": {
     "glob": "^11.1.0",
