@@ -1736,4 +1736,77 @@ body[data-lang='en'] .lang-toggle .lang-toggle__opt[data-opt='en']
 	.image-lightbox__caption
 		font-size: var(--font-size-xs)
 
+// ===== Calling フィールド専用スタイル（lib/section-renders/calling.js）=====
+
+.calling-value
+	display: flex
+	flex-direction: column
+	gap: var(--spacing-sm)
+
+.calling-ctx
+	display: flex
+	flex-wrap: wrap
+	align-items: baseline
+	gap: 3px var(--spacing-sm)
+
+.calling-ctx--labeled
+	flex-direction: column
+	align-items: flex-start
+	gap: 3px
+
+.calling-ctx-label
+	font-size: var(--font-size-xs)
+	color: var(--muted)
+	font-style: italic
+
+.calling-ctx-cats
+	display: flex
+	flex-wrap: wrap
+	align-items: baseline
+	gap: 3px var(--spacing-sm)
+
+.calling-cat
+	display: inline-flex
+	flex-wrap: wrap
+	align-items: center
+	gap: 2px 1px
+
+.calling-sep-cat
+	color: var(--muted)
+	padding: 0 3px
+	user-select: none
+	font-size: var(--font-size-xs)
+
+.calling-sep-alt
+	color: var(--muted)
+	padding: 0 1px
+	user-select: none
+	font-size: var(--font-size-xs)
+
+.calling-tok
+	white-space: nowrap
+	font-size: var(--font-size-sm)
+	color: var(--fg)
+
+.calling-tok--ref
+	display: inline-block
+	padding: 0 5px
+	border-radius: 4px
+	background: color-mix(in srgb, var(--accent-2) 12%, transparent)
+	border: 1px solid color-mix(in srgb, var(--accent-2) 28%, transparent)
+	color: color-mix(in srgb, var(--accent-2) 85%, var(--fg))
+	font-size: var(--font-size-xs)
+	line-height: 1.6
+
+.calling-tok--demo
+	display: inline-block
+	padding: 0 5px
+	border-radius: 4px
+	background: color-mix(in srgb, var(--accent) 10%, transparent)
+	border: 1px solid color-mix(in srgb, var(--accent) 24%, transparent)
+	color: color-mix(in srgb, var(--accent) 90%, var(--fg))
+	font-size: var(--font-size-xs)
+	line-height: 1.6
+	cursor: help
+
 /*# sourceMappingURL=characters.css.map
