@@ -393,7 +393,7 @@
   },
   {
     "sec_Category": "リクエストナンバー",
-    "sec_DesignedBy": "ラジアン(柏木主税)",
+    "sec_DesignedBy": ["RadianN"],
     "Num": 223,
     "Progress": "released",
     "Images": { "concept_PNGName": "cnsp_img223" },
@@ -1177,7 +1177,7 @@
   },
   {
     "sec_Category": "リクエストナンバー",
-    "sec_DesignedBy": "ラジアン(柏木主税)",
+    "sec_DesignedBy": ["RadianN"],
     "Num": 753,
     "Progress": "released",
     "Images": { "concept_PNGName": "cnsp_img753" },

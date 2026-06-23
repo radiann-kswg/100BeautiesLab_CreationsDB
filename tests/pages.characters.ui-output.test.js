@@ -86,7 +86,10 @@ function loadDictionaryBundle(relDir) {
 		const compatListKey = (typeof info.compatListKey === 'string' && info.compatListKey.trim())
 			? info.compatListKey.trim()
 			: `#List_${derivedName}`;
-		const rows = loadJson(`${relDir}/dict_${derivedName}.json`);
+		const fileName = (typeof info.dictFile === 'string' && info.dictFile.trim())
+			? info.dictFile.trim()
+			: `dict_${derivedName}.json`;
+		const rows = loadJson(`${relDir}/${fileName}`);
 		vars[dictKey] = rows;
 		if (!vars[compatListKey]) vars[compatListKey] = rows;
 	}

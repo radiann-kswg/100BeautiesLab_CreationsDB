@@ -1,6 +1,6 @@
 [
   {
-    "Term": "クロノス",
+    "Term_JP": "クロノス",
     "Term_EN": "Chronos",
     "Term_JPReading": "クロノス",
     "TermType": null,
@@ -11,7 +11,7 @@
     "Links": []
   },
   {
-    "Term": "月明",
+    "Term_JP": "月明",
     "Term_EN": "Lunar",
     "Term_JPReading": "ルナー",
     "TermType": null,
@@ -22,7 +22,7 @@
     "Links": []
   },
   {
-    "Term": "時空遷移",
+    "Term_JP": "時空遷移",
     "Term_EN": "ChronoidShift",
     "Term_JPReading": "クロノシフト",
     "TermType": null,
@@ -33,7 +33,7 @@
     "Links": []
   },
   {
-    "Term": "時空遷移者",
+    "Term_JP": "時空遷移者",
     "Term_EN": "Chronoholder",
     "Term_JPReading": "クロノホルダー",
     "TermType": null,
@@ -44,7 +44,7 @@
     "Links": []
   },
   {
-    "Term": "時空遷移能力",
+    "Term_JP": "時空遷移能力",
     "Term_EN": "Chronospec",
     "Term_JPReading": "クロノスペック",
     "TermType": null,
@@ -55,9 +55,9 @@
     "Links": []
   },
   {
-    "Term": "時空遷移純度",
+    "Term_JP": "時空遷移純度",
     "Term_EN": "Chronoized Purity",
-    "Term_JPReading": "クロノイド純度",
+    "Term_JPReading": "クロノイドじゅんど",
     "TermType": null,
     "Category": "異常・社会問題",
     "Summary": null,

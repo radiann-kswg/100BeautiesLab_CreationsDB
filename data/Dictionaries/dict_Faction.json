@@ -105,8 +105,8 @@
     "Belonging_EN": "DeusMakhina",
     "BelongingArea": {
       "Area": "紅雪連邦",
-      "about_JP": "名義上の所在地",
-      "about_EN": "Nominal Location"
+      "BaseAreaAbout_JP": "名義上の所在地",
+      "BaseAreaAbout_EN": "Nominal Location"
     },
     "isForSecondary": null,
     "isMaker": false
@@ -127,8 +127,8 @@
     "Belonging_EN": "International Humanoid Technology Society",
     "BelongingArea": {
       "Area": "雄姿結国",
-      "about_JP": "本拠地（国際機関のため複数のエリアに所在）",
-      "about_EN": "Headquarters (Due to being an international organization, it is located in multiple areas)"
+      "BaseAreaAbout_JP": "本拠地（国際機関のため複数のエリアに所在）",
+      "BaseAreaAbout_EN": "Headquarters (Due to being an international organization, it is located in multiple areas)"
     },
     "isForSecondary": null,
     "isMaker": false
@@ -158,8 +158,8 @@
     "Belonging_EN": "Neo.LotusNinea(n)",
     "BelongingArea": {
       "Area": "四蓮島",
-      "about_JP": "名義上の所在地",
-      "about_EN": "Nominal Location"
+      "BaseAreaAbout_JP": "名義上の所在地",
+      "BaseAreaAbout_EN": "Nominal Location"
     },
     "isForSecondary": false,
     "isMaker": false
@@ -171,8 +171,8 @@
     "Belonging_EN": "“Mikhail” the International Information & Public Relations Agency",
     "BelongingArea": {
       "Area": "第８界",
-      "about_JP": "厳密には本拠点を置かない",
-      "about_EN": "Strictly speaking, it does not have a headquarters"
+      "BaseAreaAbout_JP": "厳密には本拠点を置かない",
+      "BaseAreaAbout_EN": "Strictly speaking, it does not have a headquarters"
     },
     "isForSecondary": false,
     "isMaker": false
@@ -195,8 +195,8 @@
     "Belonging_EN": "World Owners",
     "BelongingArea": {
       "Area": "超次元執筆空間(アトリエ)",
-      "about_JP": "第８界の管理を行っている",
-      "about_EN": "Managing #REGION.8"
+      "BaseAreaAbout_JP": "第８界の管理を行っている",
+      "BaseAreaAbout_EN": "Managing #REGION.8"
     },
     "isForSecondary": false,
     "isMaker": false
@@ -207,8 +207,8 @@
     "Belonging": "エイゼルベットの観測世界",
     "Belonging_EN": "∀sellbuet's Observational World",
     "BelongingArea": {
-      "about_JP": "別次元の世界",
-      "about_EN": "A world of another dimension"
+      "BaseAreaAbout_JP": "別次元の世界",
+      "BaseAreaAbout_EN": "A world of another dimension"
     },
     "isForSecondary": true,
     "isMaker": null

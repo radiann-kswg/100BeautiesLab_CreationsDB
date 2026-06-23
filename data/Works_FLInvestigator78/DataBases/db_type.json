@@ -96,9 +96,8 @@
     },
     {
       "hashTag": "ArcanamspecAbout_JP",
-      "$type": "#Summary",
-      "hashTag_JP": "アルカナムスペック(アルカナ能力)について",
-      "hashTag_EN": "About Arcanamspecs (Arcana Abilities)"
+      "$type": "#Summary|#Null",
+      "hashTag_JP": "アルカナムスペック(アルカナ能力)について"
     },
     {
       "hashTag": "ArcanamspecAbout_EN",

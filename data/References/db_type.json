@@ -7,15 +7,15 @@
       "$display": { "section": "basic", "aliasOf": "Name_JP" }
     },
     {
+      "hashTag": "Term_JPReading",
+      "$type": "##String_JP|#Null",
+      "hashTag_JP": "用語の読み仮名"
+    },
+    {
       "hashTag": "Term_EN",
       "$type": "##String_EN|#Null",
       "hashTag_EN": "Term Name",
       "$display": { "section": "basic", "aliasOf": "Name_EN" }
-    },
-    {
-      "hashTag": "Term_JPReading",
-      "$type": "##String_JP|#Null",
-      "hashTag_JP": "読み仮名"
     },
     {
       "hashTag": "Title_JP",

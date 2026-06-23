@@ -1,6 +1,6 @@
 [
   {
-    "Title": "ナンバーテールズについて",
+    "Title_JP": "ナンバーテールズについて",
     "Title_EN": "About NumberTales",
     "Images": {
       "catalog_PNGName": ["../../General/catalog/chr-dsgn_NTsCatalog-Summary"]
@@ -20,7 +20,7 @@
     "Visibility": null
   },
   {
-    "Title": "クラスについて(ナンバーテールズ)",
+    "Title_JP": "クラスについて(ナンバーテールズ)",
     "Title_EN": "About Classes for NumberTales",
     "Images": { "concept-figure_PNGName": ["cnsp-fg_NTsClass"] },
     "Category": "分類・種族について",
@@ -38,7 +38,7 @@
     "Visibility": null
   },
   {
-    "Title": "ヒューマノイド原則法",
+    "Title_JP": "ヒューマノイド原則法",
     "Category": "異常・社会問題",
     "Summary": "創作世界における架空の法律「ヒューマノイド原則法」に関する基本資料。",
     "BodyBlocks": [

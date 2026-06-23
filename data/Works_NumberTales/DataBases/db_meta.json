@@ -21,8 +21,8 @@
           { "EraGen": 8, "YearInEra": 6 },
           { "byRealYear": 2050 }
         ],
-        "about_JP": "第9創世紀3〜4年(第8創世紀6〜7年,西暦2050〜2051年相当)",
-        "about_EN": "between WDCE.IX.3-4(Equivalent to between: WDCE.VIII.6-7, DC.2050-2051)"
+        "StoryEraAbout_JP": "第9創世紀3〜4年(第8創世紀6〜7年,西暦2050〜2051年相当)",
+        "StoryEraAbout_EN": "between WDCE.IX.3-4(Equivalent to between: WDCE.VIII.6-7, DC.2050-2051)"
       },
       "_Commons": {
         "Belonging": ["百花繚乱研究所"],
@@ -47,8 +47,8 @@
           { "byRealYear": 2052 }
         ],
         "InEra": [{ "EraGen": 8, "YearInEra": 6 }, { "byRealYear": 2050 }],
-        "about_JP": "第9創世紀3〜5年(第8創世紀6〜8年,西暦2050〜2052年相当)",
-        "about_EN": "between WDCE.IX.3-5(Equivalent to between: WDCE.VIII.6-8, DC.2050-2052)"
+        "StoryEraAbout_JP": "第9創世紀3〜5年(第8創世紀6〜8年,西暦2050〜2052年相当)",
+        "StoryEraAbout_EN": "between WDCE.IX.3-5(Equivalent to between: WDCE.VIII.6-8, DC.2050-2052)"
       },
       "_Commons": {
         "Belonging": ["百花繚乱研究所"],
@@ -64,7 +64,7 @@
       "_Secondaries": [
         {
           "sec_Category": "リクエストナンバー",
-          "sec_DesignedBy": "ラジアン(柏木主税)",
+          "sec_DesignedBy": ["RadianN"],
           "sec_SeriesTitle": null,
           "_Commons": {
             "Belonging": ["百花繚乱研究所"],
@@ -94,7 +94,7 @@
       "_Secondaries": [
         {
           "sec_Category": "自創作キャラ化企画",
-          "sec_DesignedBy": "ラジアン(柏木主税)",
+          "sec_DesignedBy": ["RadianN"],
           "sec_SeriesTitle": "ナンバーテールズ化企画",
           "_Commons": {
             "Belonging": [],
@@ -114,17 +114,17 @@
         },
         {
           "sec_Category": "共同二次創作",
-          "sec_DesignedBy": "散狐アタスト(https://misskey.io/@atast)",
+          "sec_DesignedBy": ["Atast"],
           "sec_SeriesTitle": "ヘキサデミカル・テールズ",
-          "SecondarySummary": "散狐アタストさんにより原案がキャラデザされ、現在はラジアン(柏木主税)に権利を譲渡されている。\n異世界から(散狐アタストさんの代理キャラである)「エイゼルベット」によりナンバーテールズを基にして生み出され、(同じく二次創作観測キャラである)「シグマ.クロステールズ」により百花繚乱研究所のある世界へ仲介された、十六進拡張用の数字を持つ６体のバーチャル同位体。現在は百花繚乱研究所に託され、研究開発の一要因として活動している。",
+          "SecondarySummary_JP": "散狐アタストさんにより原案がキャラデザされ、現在はラジアン(柏木主税)に権利を譲渡されている。\n異世界から(散狐アタストさんの代理キャラである)「エイゼルベット」によりナンバーテールズを基にして生み出され、(同じく二次創作観測キャラである)「シグマ.クロステールズ」により百花繚乱研究所のある世界へ仲介された、十六進拡張用の数字を持つ６体のバーチャル同位体。現在は百花繚乱研究所に託され、研究開発の一要因として活動している。",
           "StoryEra": {
             "InEra": [
               { "EraGen": 9, "YearInEra": 4 },
               { "EraGen": 8, "YearInEra": 7 },
               { "byRealYear": 2051 }
             ],
-            "about_JP": "第9創世紀4年(第8創世紀7年,西暦2051年相当)周辺",
-            "about_EN": "in around WDCE.IX.4(Equivalent to in around: WDCE.VIII.7, DC.2051)"
+            "StoryEraAbout_JP": "第9創世紀4年(第8創世紀7年,西暦2051年相当)周辺",
+            "StoryEraAbout_EN": "in around WDCE.IX.4(Equivalent to in around: WDCE.VIII.7, DC.2051)"
           },
           "_Commons": {
             "Belonging": ["百花繚乱研究所", "エイゼルベットの観測世界"],
@@ -134,34 +134,34 @@
         },
         {
           "sec_Category": "セルフ三次創作",
-          "sec_DesignedBy": "ラジアン(柏木主税)",
+          "sec_DesignedBy": ["RadianN"],
           "sec_SeriesTitle": "ヘキサデミカル・テールズ(ナンバーテールズ公式副次創作版)",
-          "SecondarySummary": "散狐アタストさんにより原案がキャラデザされた「ヘキサデミカル・テールズ」をもとにナンバーテールズの公式副次創作としてキャラの構想を拡張した。\n百花繚乱研究所と「エイゼルベット」によりある世界からあらゆる“観測”を経て誕生した、特殊な十六進数を持つナンバーテールズ同位体。百花繚乱研究所にて研究開発の一要因として活動している。",
+          "SecondarySummary_JP": "散狐アタストさんにより原案がキャラデザされた「ヘキサデミカル・テールズ」をもとにナンバーテールズの公式副次創作としてキャラの構想を拡張した。\n百花繚乱研究所と「エイゼルベット」によりある世界からあらゆる“観測”を経て誕生した、特殊な十六進数を持つナンバーテールズ同位体。百花繚乱研究所にて研究開発の一要因として活動している。",
           "StoryEra": {
             "InEra": [
               { "EraGen": 9, "YearInEra": 5 },
               { "EraGen": 8, "YearInEra": 8 },
               { "byRealYear": 2052 }
             ],
-            "about_JP": "第9創世紀5年(第8創世紀8年,西暦2052年相当)周辺",
-            "about_EN": "in around WDCE.IX.5(Equivalent to in around: WDCE.VIII.8, DC.2052)"
+            "StoryEraAbout_JP": "第9創世紀5年(第8創世紀8年,西暦2052年相当)周辺",
+            "StoryEraAbout_EN": "in around WDCE.IX.5(Equivalent to in around: WDCE.VIII.8, DC.2052)"
           },
           "_Commons": { "isPrivate": true },
           "AI_Optout": true
         },
         {
           "sec_Category": "共同二次創作",
-          "sec_DesignedBy": "ラジアン(柏木主税)\n散狐アタスト(https://misskey.io/@atast)",
+          "sec_DesignedBy": ["RadianN", "Atast"],
           "sec_SeriesTitle": "D-Vines(ディ-ヴァインズ)",
-          "SecondarySummary": "散狐アタストさんの提案により考案された。\nシンフォニー.XVI(ゼクズィン)に所属する「錦野舞」によりナンバーテールズの互換プロダクションとして開発された、胴部襷掛け方向に上下体の乖離・組み換え再接続が可能なカスタマイズ特化型ディビエイタブルヒューマノイド。上下の組み換え次第で性格に変化が生じるため、個体の外見デザイン以上のキャラクターバリエーションを有することが特徴。",
+          "SecondarySummary_JP": "散狐アタストさんの提案により考案された。\nシンフォニー.XVI(ゼクズィン)に所属する「錦野舞」によりナンバーテールズの互換プロダクションとして開発された、胴部襷掛け方向に上下体の乖離・組み換え再接続が可能なカスタマイズ特化型ディビエイタブルヒューマノイド。上下の組み換え次第で性格に変化が生じるため、個体の外見デザイン以上のキャラクターバリエーションを有することが特徴。",
           "StoryEra": {
             "InEra": [
               { "EraGen": 9, "YearInEra": 5 },
               { "EraGen": 8, "YearInEra": 8 },
               { "byRealYear": 2052 }
             ],
-            "about_JP": "第9創世紀5年(第8創世紀8年,西暦2052年相当)周辺",
-            "about_EN": "in around WDCE.IX.5(Equivalent to in around: WDCE.VIII.8, DC.2052)"
+            "StoryEraAbout_JP": "第9創世紀5年(第8創世紀8年,西暦2052年相当)周辺",
+            "StoryEraAbout_EN": "in around WDCE.IX.5(Equivalent to in around: WDCE.VIII.8, DC.2052)"
           },
           "_Commons": {
             "Belonging": ["シンフォニー.XVI(ゼクズィン)"],

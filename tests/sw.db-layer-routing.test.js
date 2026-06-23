@@ -178,7 +178,7 @@ describe('DB layer aware routing', () => {
       readWorkMeta: async () => ({
         Databases: {
           '#Ref_Glossary': {
-            DB_Label: '創作用語',
+            DB_Label_JP: '創作用語',
             DB_Label_EN: 'Glossary',
             DB_Layer: 'References',
             DB_Summary: '作品用語の一覧。'
@@ -195,6 +195,6 @@ describe('DB layer aware routing', () => {
     expect(json.databases[0].key).toBe('Glossary');
     expect(json.databases[0].DB_Layer).toBe('References');
     expect(json.databases[0].file).toBe('ref_Glossary.json');
-    expect(json.databases[0].DB_Label).toBe('創作用語');
+    expect(json.databases[0].DB_Label_JP).toBe('創作用語');
   });
 });

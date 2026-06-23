@@ -13,8 +13,8 @@
           { "byRealYear": 2051 }
         ],
         "InEra": [{ "EraGen": 7, "YearInEra": 29 }, { "byRealYear": 2049 }],
-        "about_JP": "第7創世紀23〜31年(第8創世紀元前1〜第8創世紀7年,西暦2044〜2051年相当)",
-        "about_EN": "between WDCE.VII.23-31(Equivalent to between: WDC.VIII.BCE.1-WDCE.VIII.7, DC.2044-2051)"
+        "StoryEraAbout_JP": "第7創世紀23〜31年(第8創世紀元前1〜第8創世紀7年,西暦2044〜2051年相当)",
+        "StoryEraAbout_EN": "between WDCE.VII.23-31(Equivalent to between: WDC.VIII.BCE.1-WDCE.VIII.7, DC.2044-2051)"
       },
       "_Commons": {
         "Belonging": ["ラストラステクニカ-インストゥルメント"],
@@ -43,8 +43,8 @@
           { "EraGen": 8, "YearInEra": 5 },
           { "byRealYear": 2049 }
         ],
-        "about_JP": "第7創世紀28〜31年(第8創世紀4〜7年,西暦2048〜2051年相当)",
-        "about_EN": "between WDCE.VII.28-31(Equivalent to between: WDCE.VIII.4-WDCE.VIII.7, DC.2048-2051)"
+        "StoryEraAbout_JP": "第7創世紀28〜31年(第8創世紀4〜7年,西暦2048〜2051年相当)",
+        "StoryEraAbout_EN": "between WDCE.VII.28-31(Equivalent to between: WDCE.VIII.4-WDCE.VIII.7, DC.2048-2051)"
       },
       "_Commons": { "RaceType": "CustomAutomaton(TaleBeastType)" },
       "AI_Optout": true

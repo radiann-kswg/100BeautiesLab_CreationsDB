@@ -29,7 +29,8 @@
     {
       "hashTag": "Name_JPReading",
       "$type": "##String_JP|#Null",
-      "hashTag_JP": "愛称の読み仮名"
+      "hashTag_JP": "愛称の読み仮名",
+      "$display": { "auto": false }
     },
     {
       "hashTag": "Name_EN",
@@ -44,7 +45,8 @@
     {
       "hashTag": "FormalName_JPReading",
       "$type": "##String_JP|#Null",
-      "hashTag_JP": "正式名称の読み仮名"
+      "hashTag_JP": "正式名称の読み仮名",
+      "$display": { "auto": false }
     },
     {
       "hashTag": "FormalName_EN",
@@ -93,7 +95,8 @@
     {
       "hashTag": "ModelName_JPReading",
       "$type": "##String_JP|#Null",
-      "hashTag_JP": "モデル名の読み仮名"
+      "hashTag_JP": "モデル名の読み仮名",
+      "$display": { "auto": false }
     },
     {
       "hashTag": "ModelName_EN",
@@ -568,14 +571,14 @@
           "$display": { "role": "representativePoint" }
         },
         {
-          "hashTag": "about_JP",
-          "$type": "#Summary|#Null",
+          "hashTag": "StoryEraAbout_JP",
+          "$type": "#Summary_JP|#Null",
           "hashTag_JP": "年代概要",
           "$display": { "role": "preferredLabel" }
         },
         {
-          "hashTag": "about_EN",
-          "$type": "#Summary|#Null",
+          "hashTag": "StoryEraAbout_EN",
+          "$type": "#Summary_EN|#Null",
           "hashTag_EN": "Era Summary",
           "$display": { "role": "preferredLabelAlt" }
         }
@@ -596,8 +599,7 @@
         {
           "hashTag": "Works_Summary_JP",
           "$type": "#Summary|#Null",
-          "hashTag_JP": "作品概要",
-          "hashTag_EN": "Work Summary"
+          "hashTag_JP": "作品概要"
         },
         {
           "hashTag": "Works_Summary_EN",
@@ -627,8 +629,7 @@
         {
           "hashTag": "DB_Summary_JP",
           "$type": "#Summary|#Null",
-          "hashTag_JP": "DB概要",
-          "hashTag_EN": "DB Summary"
+          "hashTag_JP": "DB概要"
         },
         {
           "hashTag": "DB_Summary_EN",
@@ -651,13 +652,20 @@
           "hashTag": "StoryEra",
           "$type": "$Def_StoryEraCatalog|#Null",
           "hashTag_JP": "物語上の年代",
-          "hashTag_EN": "Era Summary"
+          "hashTag_EN": "Era Summary",
+          "$display": { "sectionWrapper": "storyEraSection" }
         },
         {
-          "hashTag": "SecondarySummary",
+          "hashTag": "SecondarySummary_JP",
           "$type": "#Summary|#Null",
-          "hashTag_JP": "二次創作概要",
-          "hashTag_EN": "Secondary Summary"
+          "hashTag_JP": "二次創作概要（日本語）",
+          "hashTag_EN": "Secondary Summary (JP)"
+        },
+        {
+          "hashTag": "SecondarySummary_EN",
+          "$type": "#Summary|#Null",
+          "hashTag_JP": "二次創作概要（英語）",
+          "hashTag_EN": "Secondary Summary (EN)"
         }
       ]
     },
@@ -666,26 +674,40 @@
       "$DefType": [
         {
           "hashTag": "sec_SeriesTitle",
-          "$type": "##String_JP|#Summary|#Null",
+          "$type": "#DictIndex|#Null",
+          "$dict": "SeriesTitle",
           "hashTag_JP": "二次創作シリーズ名",
+          "hashTag_EN": "Secondary Title",
           "$display": { "auto": false }
         },
         {
           "hashTag": "sec_Category",
-          "$type": "##String_JP|#Summary|#Null",
+          "$type": "#DictIndex|#Null",
+          "$dict": "Category",
           "hashTag_JP": "二次創作分類",
+          "hashTag_EN": "Secondary Category",
           "$display": { "section": "secondaryInfo" }
         },
         {
           "hashTag": "sec_DesignedBy",
-          "$type": "#Summary|#Null",
+          "$type": "#DictIndex[]|#Null",
+          "$dict": "DesignedBy",
           "hashTag_JP": "キャラクターデザイン・考案",
+          "hashTag_EN": "Character Design / Concept By",
           "$display": { "section": "secondaryInfo" }
         },
         {
-          "hashTag": "SecondarySummary",
+          "hashTag": "SecondarySummary_JP",
           "$type": "#Summary|#Null",
-          "hashTag_JP": "二次創作概要",
+          "hashTag_JP": "二次創作概要（日本語）",
+          "hashTag_EN": "Secondary Summary (JP)",
+          "$display": { "auto": false }
+        },
+        {
+          "hashTag": "SecondarySummary_EN",
+          "$type": "#Summary|#Null",
+          "hashTag_JP": "二次創作概要（英語）",
+          "hashTag_EN": "Secondary Summary (EN)",
           "$display": { "auto": false }
         },
         {
@@ -693,7 +715,7 @@
           "$type": "$Def_StoryEraCatalog|#Null",
           "hashTag_JP": "物語上の年代",
           "hashTag_EN": "Era Summary",
-          "$display": { "auto": false }
+          "$display": { "auto": false, "sectionWrapper": "storyEraSection" }
         }
       ]
     }
@@ -715,7 +737,7 @@
       { "hideText": "不定", "hideText_EN": "Indefinite" }
     ],
     "$Def_Day": {
-      "$display": { "wrapper": "daySummary" },
+      "$display": { "wrapper": "daySummary", "sectionWrapper": "daySection" },
       "$DefType": [
         {
           "hashTag": "Month",
@@ -731,7 +753,7 @@
         },
         {
           "hashTag": "DayAbout_JP",
-          "$type": "#String",
+          "$type": "#String_JP|#Null",
           "hashTag_JP": "この日付について",
           "$display": { "role": "annotation" }
         },
@@ -766,14 +788,14 @@
           "hashTag_JP": "地域(エリア)"
         },
         {
-          "hashTag": "about_JP",
+          "hashTag": "BaseAreaAbout_JP",
           "$type": "#Summary|#Null",
           "hashTag_JP": "地域補足"
         },
         {
-          "hashTag": "about_EN",
+          "hashTag": "BaseAreaAbout_EN",
           "$type": "#Summary|#Null",
-          "hashTag_JP": "地域補足_EN"
+          "hashTag_EN": "Area Supplement"
         }
       ],
       "hashTag_JP": "活動地域",
