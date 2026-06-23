@@ -2,16 +2,32 @@
 
 > **対象**: Claude Code / GitHub Copilot / その他 AI 翻訳ツール  
 > **目的**: 100BeautiesLab. Creations DB の全作品における `_EN` フィールドの英訳を、既存実装と一貫した形式で生成・補完するための規則集  
-> **最終更新**: 2026-06-15
+> **最終更新**: 2026-06-24（実データ突き合わせによる項目追補。前回 2026-06-15）
 
 ---
 
 ## 0. 最優先原則
 
-1. **既存の `_EN` 値を上書きしない**: `field_EN` が存在し、かつその値が対応する `field`（JP）の値と異なる場合は上書き禁止（すでに人間が監修した英訳）。
+1. **既存の `_EN` 値を上書きしない**: `field_EN` が存在し、かつその値が対応する JP 値（→ §0-1）と異なる場合は上書き禁止（すでに人間が監修した英訳）。
 2. **スキーマ駆動**: `db_type.json($DefType)` に登録されていないフィールドへ `_EN` を勝手に追加しない。
-3. **キー順序**: `field_EN` は必ず対応する `field`（JP）の **直後** に挿入する。末尾への追記は禁止。
+3. **キー順序**: `field_EN` は必ず対応する JP キー（→ §0-1）の **直後** に挿入する。末尾への追記は禁止。
 4. **コード生成時のパターン**: `Object.assign` を使わず、`insertAfterKey()` + `db.map()` パターンを使う（→ [実装メモ](#実装メモ)）。
+
+---
+
+## 0-1. JP/EN キーの命名規約（実データ準拠）
+
+実データ（`data/Works_*/DataBases/db_*.json`）を走査した結果、和英対応は次の 3 系統で格納されている。本書で「対応する `field`（JP）」と表記する箇所は、原則として **`field_JP`** を指す。
+
+| 系統 | 形式 | 該当フィールド（実データで確認） |
+|---|---|---|
+| **`_JP`/`_EN` ペア型（既定・大多数）** | `field_JP` と `field_EN` を隣接配置 | `CodeName` / `FormalName` / `Name` / `Summary` / `Character` / `Hobby` / `SpecialSkill` / `Favor` / `Unlike` / `Motif` / `TailsUnit` / `*PersonCalling` / `ForMasterCalling` / `NumerospecAbout` / `Backgrounds` / `InStory` / `RelationNotes` ほか、本書記載のほぼ全項目 |
+| **plain + `_EN` 型（例外）** | `Comments` と `Comments_EN` を隣接配置（`_JP` 無し） | `Relation.*.Comments`（§3-8）のみ（実データ 671 件すべて plain） |
+| **移行中（混在）** | `value` / `about` は plain と `_JP` が混在 | `DialogueExamples` の `value`・`about`（§3-9。文字列 → `value_JP` へ移行途上。plain 約 1/3・`_JP` 約 2/3） |
+
+- **挿入位置**: ペア型は `field_JP` の直後、plain 型は `Comments` の直後。
+- **上書き判定の参照元**: ペア型では `field_JP`、plain 型では `Comments` の値を「JP 値」とみなす（§6）。
+- 一覧の件数根拠は §3 各節および本リビジョンの突き合わせ結果による。
 
 ---
 
@@ -300,6 +316,7 @@ he/she; [指示表現 or 敬称/参照形]; [*by name or 参照]
 | PastDivers | 全件あり |
 | SinisterChangingGirls | 全件あり（2026-06-15 修正: `[by name]` `*` 欠落 1件・`(as Mr/Ms.)` 注釈削除 1件） |
 | UnauthedLogica | 全件あり（2026-06-15 修正: `(as Mr/Ms.~)` → `Mr./Ms.~` 変換 1件） |
+| UnibyteLive | `ThirdPersonCalling` なし（配信系フィールド中心。→ §4-7） |
 
 ---
 
@@ -411,6 +428,115 @@ NT db_SelfSecondary 等でよく使われる頻出パターン:
 
 ---
 
+### 3-10. `FormalName_EN` / `Name_EN`
+
+実データで最多の `_EN` フィールド（`FormalName_EN` 1185 件 / `Name_EN` 308 件、全作品）。いずれも `_JP`/`_EN` ペア型。
+
+**`FormalName_EN`**: 正式名称・型式名の英訳。作品ごとに体系が異なるため、既存値の体系をそのまま踏襲する。
+
+| 作品 | JP 例 | EN 例 | 方針 |
+|---|---|---|---|
+| NumberTales | `ナンバーテールズ1番機` | `NumberTales #1` | `#N` 表記 |
+| DestinyFoxRecords | `銫133:=9192631770刻` | `Cesium133:=9192631770clocks (* no one knows how to read)` | SI 単位系の固有表現を維持（→ §4-5） |
+| FLInvestigator78 等 | — | — | 既存体系を踏襲 |
+
+**`Name_EN`**: 呼び名・通称の英訳。DestinyFoxRecords では SI 単位記号を冠した固有名（`メトレ` → `Metre_SI-L`、`ケルビン` → `Kelvin_SI-Θ`）になっており、`_SI-<記号>` サフィックスを保持する。
+
+---
+
+### 3-11. `ModelName_EN`
+
+機体名・型式（`_JP`/`_EN` ペア型、146 件。NumberTales / PastDivers / SinisterChangingGirls / UnauthedLogica）。
+
+- 「N号機 / N番機」→ `Unit.N` または `Mk.N` 形式。
+- 例: `ナンバーテールズ試作型1号機(1番機)` → `NumberTales' Prototype Mk.1 as Standard Unit.1 (Mk.1)` / `ナンバーテールズ1号機改(2番機)` → `NumberTales Unit.1 Revised (Mk.2)`。
+- 括弧書きの補助番号（`(N番機)`）は `(Mk.N)` として保持。
+
+---
+
+### 3-12. `SPCodeName_EN`（NumberTales 固有）
+
+特殊コードネーム（`_JP`/`_EN` ペア型、124 件。NumberTales の Primary / SemiPrimary / SelfSecondary）。
+
+> **重要 — `CodeName_EN`（§3-1）とは数詞方式が異なる。** `SPCodeName_EN` は**標準の英語数詞（複合形あり）**を使う。`CodeName_EN` の「桁別連結（`Seven-Zero`）」方式を適用しないこと。
+
+| JP | EN |
+|---|---|
+| `一,初` | `First` |
+| `次` | `Next` |
+| `十` | `Ten` |
+| `十一` | `Eleven` |
+| `十五\n(一半十)` | `Fifteen\n(One-Half Ten)` |
+| `廿` | `Twenty` |
+| `廿一` | `Twenty-One` |
+
+- 複数候補のカンマ区切り（`一,初`）は、代表 1 語（`First`）に集約された実例がある。
+- 補足の括弧書き・改行（`\n`）は JP の構造を保持。
+
+---
+
+### 3-13. `Motif_EN`
+
+デザインモチーフの語句リスト。`Motif` オブジェクト内に **`Motif_JP`（配列）と `Motif_EN`（配列）** を持つ入れ子ペア型（187 件）。
+
+- 各要素は外見・服飾・特徴を表す短い英語句（`"red orange hair"`, `"fox ears(left ear drooping)"`, `"arrow-shaped chest zipper"` 等）。
+- `Motif_JP` と要素数・順序を一致させる。
+- 文ではなく名詞句で統一。冠詞は原則付けない。
+
+---
+
+### 3-14. `MarkColor_EN` / `MarkNotation_EN` / `MarkPosition_EN`（NumberTales Primary）
+
+刻印（マーク）の色・表記・位置（各 201 件、`_JP`/`_EN` ペア型）。
+
+| フィールド | 方針 | 例 |
+|---|---|---|
+| `MarkColor_EN` | 色名のみ・小文字 | `赤` → `red` / `橙色` → `orange` / `暗色` → `dark` |
+| `MarkNotation_EN` | 表記内容。和文の鉤括弧「」内はシングルクォート `'...'` で囲む | `アラビア数字の「1」` → `Arabic numeral '1'` |
+| `MarkPosition_EN` | 位置を説明する名詞句 | `トップスの左胸` → `the left chest of the top` / `球体の前面左胸の白色部分` → `the white area on the front-left chest of the sphere` |
+
+---
+
+### 3-15. `Strength_EN` / `Weakness_EN`
+
+長所・短所（`Strength_EN` 29 件 / `Weakness_EN` 32 件、`_JP`/`_EN` ペア型）。
+
+- 1 項目 1 文の説明句。主語は省略し、動詞句・形容詞句で始める実例が多い。
+- 補足の括弧書きは保持: `泳げない（炭酸風呂でさえ溺れかけた経験あり）` → `Cannot swim (has nearly drowned even in a sparkling bath)`。
+- 並列は ` / ` または `;`、`—`（em dash）で接続した実例がある: `予定が狂わない/予定を狂わさせない` → `Never falls behind schedule / refuses to let others fall behind schedule either`。
+- 複数行は `\n` で区切る。
+
+---
+
+### 3-16. `DayAbout_EN`
+
+記念日・特定日の説明（131 件、`_JP`/`_EN` ペア型。NumberTales / SinisterChangingGirls / UnauthedLogica / UnibyteLive）。
+
+- 簡潔な名詞句。`記念` → `commemoration`、`〜の日` → `Day ...`。
+- 文脈注記の括弧は保持: `第一リリース記念(劇中)` → `First release commemoration (in-story)` / `第一リリース記念(忠実)` → `First release commemoration (faithful ver.)`。
+- 例: `開発記念` → `Development commemoration` / `育て主に拾われた日` → `Day found by foster master`。
+
+---
+
+### 3-17. `AdditionalDesigned_EN`
+
+追加デザイン・制作クレジット（39 件、`_JP`/`_EN` ペア型。FLInvestigator78 / NumberTales）。
+
+- **固有名・ハンドルネーム・URL はそのまま保持**（翻訳・改変しない）。
+- ラベル部分のみ英訳: `カードイラスト：` → `Card Illustration：` / `カード背景・CG：` → `Card Backimage & CG：`。
+- 全角コロン `：` と改行 `\n` の区切り構造を維持する。
+
+---
+
+### 3-18. `Unit_EN`（DestinyFoxRecords 固有）
+
+単位記号に対する物理量名（9 件、`_JP`/`_EN` ペア型）。
+
+- `Unit_JP` は SI 単位記号（`s`, `m`, `kg`, `cd`, `K`, `A`）、`Unit_EN` は対応する物理量名。
+- 例: `s` → `Time(KMS Method)` / `m` → `Length(KMS Method)` / `kg` → `Mass(KMS Method)` / `cd` → `Luminous Intensity` / `K` → `Thermodynamic Temperature` / `A` → `Electric Current`。
+
+---
+
 ## 4. 作品別固有ルール
 
 ### 4-1. NumberTales
@@ -424,7 +550,7 @@ NT db_SelfSecondary 等でよく使われる頻出パターン:
 
 - `CodeName_EN`: タロットカードの公式英語名（例: `High-Priestess`, `Hermit`）
 - `ArcanamspecAbout_EN`: NumerospecAbout_EN と同じ形式
-- `EffectText_EN`: ランク説明固定文（例: `"Dangerous"`, `"No Benefit"`, `"Expected"`）
+- `EffectText_EN`: ランク説明の固定文。**レコード側ではなく辞書側**（`DataBases/db_meta.json` の `General.$VarsDef.$Def_ArcanumspecStats.$Def_EffectStats.#ListLink_EffectText[]`）に `EffectText` / `EffectText_EN` ペアとして定義される enum。レコードの `EffectText`（JP）は enum 値を参照する。固定訳の例: `危険`→`Dangerous` / `絶大`→`Tremendous` / `期待`→`Expected` / `希薄`→`Dilute` / `効果無`→`No Benefit` / `逆効果`→`Counterproductive`。新訳は追加せず、既存 enum に従う。
 - `For79thDealerCalling_EN` / `For80thDealerCalling_EN`: ForMasterCalling_EN と同形式
 
 ### 4-3. ShouArRiders
@@ -436,12 +562,34 @@ NT db_SelfSecondary 等でよく使われる頻出パターン:
 
 - `ChronoholderName_EN`: `ChronoRize`, `ChronoFreeze` 等の固有 EN 名
 - `ChronospecName_EN`: 詩的な英語表現（`"Beginning of Impulse"` 等）
+- `ChronospecAbout_EN`: 時間能力の効果説明（13 件）。主語を省いた動詞句で統一。例: `時間の進行を加速させる` → `Accelerates the flow of time` / `時間の進行を止めて動きを封じる` → `Stops the flow of time, sealing movement` / `時間を逆行し傷を癒す` → `Reverses time to heal wounds`。
 - `ChronoizedAbout_EN`: 複数段落可
+- `Career_EN`: 経歴文（13 件）。複数文の散文。`夜月機関` → `Yadzuki Orgs`、登場キャラ名は `'Name'` 形式で引用するなど、固有名詞の既存訳を踏襲する。
 
 ### 4-5. DestinyFoxRecords / Proxies
 
 - `CodeName_EN`: SI 単位系（`Metre_SI-L`, `Kelvin_SI-Θ` 等）
+- `Name_EN` / `FormalName_EN`: SI 単位系の固有名（§3-10）。`_SI-<記号>` サフィックスや特殊表記を保持
+- `Unit_EN`: SI 単位記号 → 物理量名（§3-18）
 - `InStory_EN` / `Backgrounds_EN`: メタキャラクター向けの簡潔な説明
+
+### 4-6. UnauthedLogica
+
+- `LogicspecAbout_EN`: 論理能力の効果説明（4 件、`db_PrimaryMobs`）。動詞句で統一。例: `状態を切り下げ/切り上げする` → `Cuts off / rounds up state values` / `論理的計算をする` → `Performs logical calculations` / `アリスメティアの能力を拡張する` → `Extends the capabilities of the Arithmetica series`。
+- 固有シリーズ名（`アリスメティア` → `Arithmetica` 等）は既存訳を踏襲。
+- `Strength_EN` / `Weakness_EN`: §3-15（`db_PrimaryMobs` に実在）。
+
+### 4-7. UnibyteLive
+
+配信者（VTuber 系）モチーフの作品。本作固有の配信系フィールドを持つ（いずれも `_JP`/`_EN` ペア型）。
+
+- `StreamingSummary_EN`: 配信活動の概要（散文、複数段落可）。
+- `StreamingCategory_EN`: 配信カテゴリの配列。各要素は `{ "value": ..., "about": ... }` 形式で、`value` / `about` を英訳（§3-9 の DialogueExamples と同様の object 配列構造）。例: `{ "value": "Interaction with listeners", "about": "Main activity, ..." }`。
+- `StreamingGreeting_EN`: 挨拶定型句の配列。キャラの口癖を反映した意訳。例: `["こんな～み！"]` → `["Hi, Surger!"]` / `["ジグザってるか〜！"]` → `["Are you zigzagging?"]`。
+- `StreamingAwards_EN`: 受賞・実績の配列。例: `Holds a game engine patent`。
+- `ListenerNickname_EN`: リスナー呼称（ファンネーム）。造語は意訳: `なみのりー` → `Surger(s)` / `ノコギリ族` → `Zigzaggers`。
+- `AccessoryUnit_EN`: 装身具・付属パーツの説明（名詞句）。例: `Sの字状に波打ったポニーテールや猫型の尻尾` → `S-shaped wavy ponytail and cat-like tail`。
+- 基本フィールド（`FormalName_EN` / `Name_EN` / `CodeName_EN` / `DayAbout_EN`）も使用。`ThirdPersonCalling` 系は現状未収録（→ §3-3-9）。
 
 ---
 
@@ -556,5 +704,5 @@ function setCommentEN(record, type, targetNum, enText) {
 | スキーマ全体 | `data/db_type.json ($DefType)` |
 | API/SW 仕様 | `docs/api-sw-spec.md` |
 | 実装方針 | `docs/implementation-playbook.md` |
-| 英訳作業進捗（最新） | `_work_in_progress/2026-06-15_progress_localization-audit.md` |
-| 英訳作業進捗（旧） | `_work_in_progress/2026-06-12_progress_translation-style-unified.md` |
+| 英訳作業進捗（最新） | `_work_in_progress/2026-06-24_progress_localization-rules-audit.md` |
+| 英訳作業進捗（旧） | `_work_in_progress/2026-06-15_progress_localization-audit.md` |
