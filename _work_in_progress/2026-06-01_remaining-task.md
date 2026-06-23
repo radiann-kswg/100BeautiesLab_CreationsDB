@@ -142,7 +142,7 @@
 - 本文生成や設定本文の自動補完は行わず、User 手動入力を前提とした構造設計を優先する。
 - UI 影響を伴う変更は、`pages.characters.syntax.test.js` と UI 出力回帰テストの対象追加を検討する。
 
-## 既知の不安定なテスト
+## 既知の不安定なテスト（2026-06-23 更新）
 
-- `tests/data.shape.test.js`: 2026-05-29 時点で既存の失敗が 2 件。今後要確認。
-- `tests/enrich.dblink.jump.merge.test.js`: 2026-05-29 時点で既存の失敗が 1 件。今後要確認。
+- `tests/sw.enrich.basic.test.js` ／ `tests/enrich.dblink.jump.merge.test.js` ／ `tests/data.shape.test.js` 合計 5 件失敗（2026-06-23、`npm audit fix` 後に確認）。`commons.secondaries` 条件分岐・`enrich.dblink.jump` マージ・`ref_Glossary.json` 欠損 が原因で、audit fix とは無関係の既存不具合。
+- **軽微な確認残り（任意）**: GitHub Security タブで Dependabot PR #5/#6/#7 の Closed 状態をブラウザ手動確認推奨。Dependabot ブランチ `origin/dependabot/npm_and_yarn/npm_and_yarn-3f9ee708be` の削除も任意で可。

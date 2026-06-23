@@ -15,8 +15,6 @@
 
 ## いま進行中のファイル
 
-- 2026-06-23_progress_security-ci-audit.md（GitHub 通知由来の未解決課題 調査・修正方針【提案のみ】・依存3件はマージ済/cf-api-sync の `--config` 欠落と characters.js DOM が要対応）
-
 - 2026-06-22_progress_jp-en-naming-standardization.md（JP/EN フィールド命名標準化・**Phase 2〜5 全完了** ⚠️ D1/R2 再同期は手動実施が必要）
 
 - 2026-06-01_remaining-task.md（未完了タスク一覧・2026-06-01 時点）
@@ -40,6 +38,7 @@
 - `2026-06-01_remaining-task.md` に、現時点の未完了・着手中タスクを統合しました。
 - 2026-06-11 の棚卸しで、`2026-04-22_progress_task1-day-era-softcoding.md`・`2026-04-23_progress_requested-tasks-implementation-plan.md`・`2026-05-11_progress_storyera-schema.md`・`2026-05-15_progress_subfields-wrapper-unification.md`・`2026-06-02_progress_pkg-client-libraries.md`・`2026-06-02_progress_pkg-library.md` を `.completed` へ退避しました。
 - 2026-06-11 の addon-ai-tag ブランチ棚卸しで、`2026-05-15_progress_aihints-numbertales-1to40.md`・`2026-05-30_progress_aihints-twolayer.md`・`2026-06-01_progress_aihints-schema-move-fixrefs.md`・`2026-06-01_progress_aihints-vision-final-and-playbook.md`・`2026-06-02_progress_ai-optout-flag.md`・`2026-06-08_progress_aihints-corefolder-enhancements.md`・`2026-06-08_progress_aihints-corefolder-vision-fill.md`・`2026-06-08_progress_aihints-remove-harness-contamination.md` を `.completed` へ退避しました。
+- 2026-06-23 の棚卸しで、`2026-06-23_progress_security-ci-audit.md`（セキュリティ/CI 監査・全 7 件完了）を `.completed` へ退避。残留テスト失敗 5 件と軽微確認事項は `2026-06-01_remaining-task.md` へ引き継ぎ済み。
 - 2026-06-21 の棚卸しで、以下 10件を `.completed` へ退避しました:
   - `2026-05-29_progress_bilingual-wrapper-apiswui.md`（bilingual wrapper enrich 基盤完了）
   - `2026-06-09_progress_identitymotif-conversion.md`（IdentityMotif 新形式変換完了）
@@ -54,6 +53,7 @@
 
 ## 完了（.completed へ退避済み）
 
+- 2026-06-23_progress_security-ci-audit.md（GitHub 通知 6 件 + audit fix 完全対処済み）
 - 2026-06-21_progress_cloudflare-api-adr.md（ADR-0001 Cloudflare Workers 実装完了・初回デプロイ済み）
 - 2026-06-21_progress_claude-md-merge.md（CLAUDE.md 統合更新完了）
 - 2026-06-18_progress_thisMasters-merge.md（ThisMasters 統合形式変換・スキーマ更新完了）
