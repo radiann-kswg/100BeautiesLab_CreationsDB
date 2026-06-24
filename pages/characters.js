@@ -7281,7 +7281,9 @@ function renderReferenceConnectionsSection(rec, workId, workMeta, globalMeta, fi
 	const currentWorkKey = normalizeWorkKey(workId || '');
 	const getWorkLabel = (targetWorkId) => {
 		const normalized = normalizeWorkKey(targetWorkId || currentWorkKey);
-		const rawTitle = globalMeta?.CreationWorks?.[normalized]?.Title;
+		const cw = globalMeta?.CreationWorks?.[normalized];
+		const lang = getCurrentPageLanguage();
+		const rawTitle = (lang === 'en' ? cw?.Title_EN : cw?.Title_JP) || cw?.Title_JP || cw?.Title_EN || cw?.Title;
 		if (typeof rawTitle === 'string' && rawTitle.trim()) return rawTitle.trim();
 		return String(normalized || '').replace(/^#?Works_/, '').trim() || '作品';
 	};

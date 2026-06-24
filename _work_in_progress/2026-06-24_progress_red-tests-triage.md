@@ -1,8 +1,21 @@
 # 2026-06-24 進捗ログ — 赤テスト2系統の原因調査と修正方針（提案）
 
 > 作成: 扇一春（調査代理）
-> 種別: **調査・提案のみ**。本ログの作成以外に、コード・データ・スキーマ・テストの変更、および git 書き込み系操作（add/commit/push/stash/reset 等）は一切行っていない。
+> 種別: **調査・提案のみ**（本ログ作成時点）。続セッション（2026-06-24）にて全3件を修正済み。
 > 参照は読み取り専用（`git log`/`git show`/`git cat-file`、ファイル読み取り、grep）にとどめた。
+
+## ✅ 続セッション対応結果（2026-06-24）
+
+3件すべて修正済み（コミット `8684d85 テスト回路調整`）。
+
+| 系統 | 修正内容 | 結果 |
+| --- | --- | --- |
+| 失敗1（ref_Glossary.json） | `ref_Vocabulary.json` へ追従・`Term_JP`・`db:'Vocabulary'`・画像パス・`数秘的加護` を更新 | ✅ 解消 |
+| 失敗2-A（#Index→ハジメ） | `expect(e.Name_JP).toBe('1(ハジメ)')` へ更新 | ✅ 解消 |
+| 失敗2-B（ネスト#Index→フェニクス） | `key:{ Stoat:'Major', StoatNum:0 }` + `expect(e.Name_JP).toBe('フェニクス')` へ更新 | ✅ 解消 |
+| 失敗2-C（_DBLink+BirthDay._Jump） | テストを合成レコード（インメモリ JumpDataFetcher）で固定化（方針1を採用） | ✅ 解消 |
+
+全体 126 件中 125 pass / 1 fail（残る1件は B-2: References basicFields、本テストとは別系統）。
 
 ## 目的
 

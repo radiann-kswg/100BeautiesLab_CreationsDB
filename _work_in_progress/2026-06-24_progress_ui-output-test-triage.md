@@ -4,6 +4,13 @@
 > 種別: テストファイル（`tests/pages.characters.ui-output.test.js`）のみ編集。実装(`pages/characters.js`)・データ(`data/**`)・スキーマは未変更。git 書き込み系（add/commit/push/stash/reset）は未実行。
 > 参照の正は git blob（HEAD 実体）およびホスト側（Desktop Commander）実ファイル。サンドボックスのマウント読み取り切り詰め現象は本ログの判定に用いていない。
 
+## ✅ 続セッション対応結果（2026-06-24）
+
+- **(A) 6系統のテスト追従**: コミット `8684d85 テスト回路調整` で全件緑化確認。
+- **B-1 getWorkLabel 修正**: `pages/characters.js` L7284 の `getWorkLabel` が `cw.Title` のみ参照していた実装バグを `Title_JP`/`Title_EN` フォールバックに修正。`renders related terms and related creations...` が緑化。（続セッション push 済み）
+- **現在のテスト状態**: 全体 126 件中 **125 pass / 1 fail**。
+  残る1件は B-2（References レイヤー basicFields が空になる実装課題）のみ。
+
 ## 目的
 
 ENOINT（`ref_Glossary.json` 欠落）解消後に表面化した、`tests/pages.characters.ui-output.test.js` の 7 件の失敗を 1 件ずつ「(A) テスト側の追従漏れ」か「(B) 実装・描画ロジック側の追従漏れ（実バグ）」に切り分け、(A) のみテストを新データ仕様へ最小修正、(B) はテストを変更せず本ログに記録する。
