@@ -137,14 +137,46 @@ describe('_DBLink / _Jump merge (in-process)', () => {
     expect(e._enrichment?.derivedBelongingAreas).toBeUndefined();
   });
 
-  it('SinisterChangingGirls -> NumberTales の _DBLink を解決し、BirthDay._Jump を実値に置換できる', async () => {
-    const dataFetcher = new TestDataFetcher();
+  it('ルート（旧形式）_DBLink を足場に BirthDay._Jump を参照先の実値へ置換できる', async () => {
+    // NOTE: 実データは JP/EN 命名標準化・$Def_DBLinkRef 新形式への移行で、
+    //   SinisterChangingGirls 'N' のクロスワークリンクが ルート _DBLink → AnotherRegions_DBLink へ移設され、
+    //   ルート _DBLink は null 化、参照先の DayAbout も DayAbout_JP へ改名済み。
+    //   本テストは「ルート（マージ用）旧形式 _DBLink を足場に _Jump を解決・置換する」契約の単体検証なので、
+    //   実データ依存をやめ、合成レコード + インメモリ参照先で固定化する（実装・データは変更しない）。
+    class JumpDataFetcher extends TestDataFetcher {
+      async readDB(workId, dbName) {
+        // 参照先（NumberTales 相当）の primary レコード。AnivDay 配列を持つ
+        if (workId === '#Works_NumberTales' && dbName === 'Primary') {
+          return [{
+            Id: 'NT0',
+            Name_JP: 'ゼロ',
+            AnivDay: [
+              { Day: { Month: 8, DayOfMonth: 15 }, DayAbout: '誕生日' },
+              { Day: { Month: 1, DayOfMonth: 1 }, DayAbout: '記念日' }
+            ]
+          }];
+        }
+        return [];
+      }
+    }
+
+    const dataFetcher = new JumpDataFetcher();
     // data-common.js 側で global に公開される
     const proc = new globalThis.EnrichmentProcessor(dataFetcher, testConfig);
 
-    const sinister = loadJson('data/Works_SinisterChangingGirls/DataBases/db_Primary.json');
-    const rec = sinister.find(r => r && r.Drc === 'N');
-    expect(rec).toBeTruthy();
+    // ルート旧形式 _DBLink（マージ用）を足場に、BirthDay._Jump を参照先 AnivDay の該当要素へ置換する
+    const rec = {
+      Id: 'BASE',
+      Drc: 'N',
+      BirthDay: {
+        _Jump: { hashTag: 'AnivDay', _Search: [{ hashTag: 'DayAbout', key: '誕生日' }] }
+      },
+      _DBLink: {
+        worksTitle: 'NumberTales',
+        dbName: 'Primary',
+        _Search: [{ hashTag: 'Id', key: 'NT0' }]
+      }
+    };
     expect(rec._DBLink).toBeTypeOf('object');
     expect(rec.BirthDay && rec.BirthDay._Jump).toBeTruthy();
 
@@ -229,8 +261,8 @@ describe('_DBLink / _Jump merge (in-process)', () => {
     const out = await proc.enrichRecords([rec], '#Works_MainWork', 'Primary');
     const e = out[0];
 
-    // NumberTales の Num=1 は Name が「ハジメ」
-    expect(e.Name).toBe('ハジメ');
+    // NumberTales の Num=1 は JP/EN 命名標準化により Name_JP が「1(ハジメ)」（旧 Name は null）
+    expect(e.Name_JP).toBe('1(ハジメ)');
   });
 
   it('別作品からの _DBLink マージでは、対象作品の schema に無いトップレベル項目を持ち込まない', async () => {
@@ -338,15 +370,16 @@ describe('_DBLink / _Jump merge (in-process)', () => {
       _DBLink: {
         worksTitle: 'FLInvestigator78',
         dbName: 'Primary',
-        _Search: [{ hashTag: '#Index', key: { Stoat: 'Major', Num: 0 } }]
+        _Search: [{ hashTag: '#Index', key: { Stoat: 'Major', StoatNum: 0 } }]
       }
     };
 
     const out = await proc.enrichRecords([rec], '#Works_MainWork', 'Primary');
     const e = out[0];
 
-    // FLInvestigator78 の Card:{Stoat:'Major',Num:0} は Name が「フェニクス」
-    expect(e.Name).toBe('フェニクス');
+    // インデックス意味分離（Num=通し番号 / StoatNum=種別内番号）に追従。
+    // FLInvestigator78 の Card:{Stoat:'Major',StoatNum:0}（通し番号 Num:22）は Name_JP が「フェニクス」
+    expect(e.Name_JP).toBe('フェニクス');
   });
 
   it('hashTag="#Index" は UnauthedLogica の $IndexDef（ネスト型・null許容）でも参照先を特定できる', async () => {

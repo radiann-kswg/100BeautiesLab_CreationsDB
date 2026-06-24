@@ -34,6 +34,7 @@ function mergeMetaAndTypeVars(metaLike, typeLike) {
 		...(Array.isArray(type.$DefType) ? { $DefType: type.$DefType } : {}),
 		...(Array.isArray(type.global) ? { global: type.global } : {}),
 		...(type.typedef && typeof type.typedef === 'object' ? { typedef: type.typedef } : {}),
+		...(type.$MetaType && typeof type.$MetaType === 'object' && !Array.isArray(type.$MetaType) ? { $MetaType: type.$MetaType } : {}),
 		General: {
 			...metaGeneral,
 			$VarsDef: { ...metaVars, ...typeVars }
@@ -236,17 +237,28 @@ const proxyRecords = loadJson('data/Works_Proxies/DataBases/db_Proxy.json');
 const secondGenProxyRecord = proxyRecords.find((record) => Number(record?.Generation) === 2);
 const numberTalesWorkTypeDef = loadJson('data/Works_NumberTales/DataBases/db_type.json');
 const numberTalesWorkMeta = buildWorkMetaFixture('Works_NumberTales');
+// References レイヤーの DB カタログ（#Ref_Vocabulary）を workMeta に合流する。
+// 実データでは References/db_meta.json に分離されているため、findDbCatalogEntry が
+// DB_Layer='References' を解決できるよう取り込む。これにより画像ディレクトリが
+// 汎用の Ref_<DB名> 経路（mapDbNameToImageDir の References 分岐）で Ref_Vocabulary に解決される。
+const numberTalesReferencesMeta = loadJson('data/Works_NumberTales/References/db_meta.json');
+if (numberTalesReferencesMeta?.Databases?.['#Ref_Vocabulary']) {
+	numberTalesWorkMeta.Databases = {
+		...(numberTalesWorkMeta.Databases || {}),
+		'#Ref_Vocabulary': numberTalesReferencesMeta.Databases['#Ref_Vocabulary']
+	};
+}
 const numberTalesPrimaryRecords = loadJson('data/Works_NumberTales/DataBases/db_Primary.json');
 const numberTalesSecondaryRecords = loadJson('data/Works_NumberTales/DataBases/db_Secondary.json');
 const numberTalesSelfSecondaryRecords = loadJson('data/Works_NumberTales/DataBases/db_SelfSecondary.json');
 const sharedReferencesTypeDef = loadJson('data/References/db_type.json');
 const numberTalesReferencesTypeDef = loadJson('data/Works_NumberTales/References/db_type.json');
-const numberTalesGlossaryRecords = loadJson('data/Works_NumberTales/References/ref_Glossary.json');
+const numberTalesVocabularyRecords = loadJson('data/Works_NumberTales/References/ref_Vocabulary.json');
 const numberTalesReferenceRecords = loadJson('data/Works_NumberTales/References/ref_Reference.json');
 const hexademicalRecord = numberTalesSecondaryRecords.find((record) => record?.Num === '0xA');
 const requestNumberRecord = numberTalesSelfSecondaryRecords.find((record) => record?.Num === 223);
-const numberTalesGlossaryImageRecord = numberTalesGlossaryRecords.find((record) => record?.Term === 'ヒューマノイド形態');
-const numberTalesReferenceRecord = numberTalesReferenceRecords.find((record) => record?.Title === 'ナンバーテールズについて');
+const numberTalesVocabularyImageRecord = numberTalesVocabularyRecords.find((record) => record?.Term_JP === 'ヒューマノイド形態');
+const numberTalesReferenceRecord = numberTalesReferenceRecords.find((record) => record?.Title_JP === 'ナンバーテールズについて');
 const firstNumberTalesPrimaryRecord = numberTalesPrimaryRecords.find((record) => String(record?.Num) === '1');
 const fourthNumberTalesPrimaryRecord = numberTalesPrimaryRecords.find((record) => String(record?.Num) === '4');
 const ninthNumberTalesPrimaryRecord = numberTalesPrimaryRecords.find((record) => String(record?.Num) === '9');
@@ -254,7 +266,7 @@ const ninthNumberTalesPrimaryRecord = numberTalesPrimaryRecords.find((record) =>
 const yayoiRecord = {
 	...yayoiRecordBase,
 	Belonging: ['夜月機関'],
-	Class: ['第3幹部', '弥生研究所(破滅対策本部2課)']
+	Class: ['幹部', '弥生研究所(破滅対策本部2課)']
 };
 
 let charactersModule;
@@ -300,11 +312,11 @@ describe('pages/characters.js UI output', () => {
 	it('renders dictionary-backed basic fields in detail view', async () => {
 		await charactersModule.renderDetail('#Works_PastDivers', yayoiRecord);
 
-		expect(getBasicFieldValue('正式名称')).toBe('桜花 訫(とき) / Trustia Cherrybroom');
+		expect(getBasicFieldValue('正式名称')).toBe('桜花 訫 / Trustia Cherrybroom');
 		expect(getBasicFieldValue('所属')).toBe('夜月機関 / Yadzuki Organization');
 
 		const classText = getBasicFieldValue('クラス名');
-		expect(classText).toContain('第3幹部 / Executive Director.3');
+		expect(classText).toContain('幹部 / Executive Director');
 		expect(classText).toContain('弥生研究所(破滅対策本部2課) / Laboratory.3(Pandemic Affairs Countermeasures Headquarter.2)');
 	});
 
@@ -392,7 +404,7 @@ describe('pages/characters.js UI output', () => {
 		expect(secondarySectionText).toContain('二次創作分類');
 		expect(secondarySectionText).toContain('リクエストナンバー');
 		expect(secondarySectionText).toContain('キャラクターデザイン・考案');
-		expect(secondarySectionText).toContain('ラジアン(柏木主税)');
+		expect(secondarySectionText).toContain('ラジアン（柏木主税）');
 	});
 
 	it('renders NumberTales detail headers using only the character name', async () => {
@@ -435,7 +447,7 @@ describe('pages/characters.js UI output', () => {
 		expect(secondarySectionText).toContain('二次創作分類');
 		expect(secondarySectionText).toContain('共同二次創作');
 		expect(secondarySectionText).toContain('キャラクターデザイン・考案');
-		expect(secondarySectionText).toContain('散狐アタスト(https://misskey.io/@atast)(https://misskey.io/@atast)');
+		expect(secondarySectionText).toContain('散狐アタスト');
 	});
 
 	it('renders RelationToPrimary entries as links to the primary db detail view', async () => {
@@ -596,8 +608,8 @@ describe('pages/characters.js UI output', () => {
 	it('renders other-work spec stats as standalone subField sections and keeps nested profile rows inside them', async () => {
 		await charactersModule.renderDetail('#Works_PastDivers', yayoiRecord);
 
-		const chronoSection = getSectionNode('時空遷移能力の特性');
-		const chronoTags = getSectionTagTexts('時空遷移能力の特性');
+		const chronoSection = getSectionNode('時空遷移(クロノシフト)能力の特性');
+		const chronoTags = getSectionTagTexts('時空遷移(クロノシフト)能力の特性');
 		expect(chronoSection).not.toBeNull();
 		expect(chronoSection?.textContent || '').toContain('時空遷移(クロノイド)状態に関する概要');
 		expect(chronoTags).toContain('物理的作用: B（標準 / Normal）');
@@ -695,10 +707,10 @@ describe('pages/characters.js UI output', () => {
 	it('keeps day summary formatting after role-based schema lookup is introduced', async () => {
 		await charactersModule.renderDetail('#Works_PastDivers', {
 			...yayoiRecord,
-			BirthDay: {
+			BirthDay: [{
 				Day: { Month: 8, DayOfMonth: 15 },
-				DayAbout: '誕生日'
-			}
+				DayAbout_JP: '誕生日'
+			}]
 		});
 
 		expect(getBasicFieldValue('誕生日')).toBe('8/15（誕生日）');
@@ -707,7 +719,7 @@ describe('pages/characters.js UI output', () => {
 	it('renders references poster images using work-local image typedef folder hints', async () => {
 		charactersModule.__setCharactersTestState({
 			charState: {
-				db: 'Glossary',
+				db: 'Vocabulary',
 				workTypeDef: numberTalesWorkTypeDef,
 				globalTypeDef,
 				workMeta: numberTalesWorkMeta,
@@ -734,20 +746,20 @@ describe('pages/characters.js UI output', () => {
 		};
 
 		try {
-			await charactersModule.renderDetail('#Works_NumberTales', numberTalesGlossaryImageRecord);
+			await charactersModule.renderDetail('#Works_NumberTales', numberTalesVocabularyImageRecord);
 		} finally {
 			globalThis.fetch = originalFetch;
 		}
 
 		const poster = document.querySelector('img.poster');
 		expect(poster).not.toBeNull();
-		expect(poster.getAttribute('src')).toBe('/data/Works_NumberTales/Images/Ref_Glossary/concept-figure/cnsp-fg_NTsHumanoid.png');
+		expect(poster.getAttribute('src')).toBe('/data/Works_NumberTales/Images/Ref_Vocabulary/concept-figure/cnsp-fg_NTsHumanoid.png');
 	});
 
 	it('renders glossary and reference list cards using Term and Title fallbacks', async () => {
 		charactersModule.__setCharactersTestState({
 			charState: {
-				db: 'Glossary',
+				db: 'Vocabulary',
 				workId: '#Works_NumberTales',
 				workTypeDef: numberTalesWorkTypeDef,
 				globalTypeDef,
@@ -756,8 +768,8 @@ describe('pages/characters.js UI output', () => {
 			}
 		});
 
-		await charactersModule.__renderListForTest(numberTalesGlossaryRecords, '#Works_NumberTales', { imageFields: [] });
-		expect(getListTitles()).toContain('数秘加護');
+		await charactersModule.__renderListForTest(numberTalesVocabularyRecords, '#Works_NumberTales', { imageFields: [] });
+		expect(getListTitles()).toContain('数秘的加護');
 		expect(getListSubtitles()).toContain('Numerospec');
 
 		charactersModule.__setCharactersTestState({
@@ -798,7 +810,7 @@ describe('pages/characters.js UI output', () => {
 	it('builds list thumbnail paths under Ref image directories for references dbs', async () => {
 		charactersModule.__setCharactersTestState({
 			charState: {
-				db: 'Glossary',
+				db: 'Vocabulary',
 				workId: '#Works_NumberTales',
 				workTypeDef: numberTalesWorkTypeDef,
 				globalTypeDef,
@@ -817,7 +829,7 @@ describe('pages/characters.js UI output', () => {
 
 		await charactersModule.__renderListForTest([
 			{
-				Term: '画像付き用語',
+				Term_JP: '画像付き用語',
 				Images: {
 					'concept-figure_PNGName': 'glossary-sample'
 				}
@@ -836,7 +848,7 @@ describe('pages/characters.js UI output', () => {
 
 		const img = document.querySelector('#list img.thumb');
 		expect(img).not.toBeNull();
-		expect(img.getAttribute('src')).toBe('/data/Works_NumberTales/Images/Ref_Glossary/concept-figure/glossary-sample.png');
+		expect(img.getAttribute('src')).toBe('/data/Works_NumberTales/Images/Ref_Vocabulary/concept-figure/glossary-sample.png');
 	});
 
 	it('renders related terms and related creations as navigable links for references records', async () => {
