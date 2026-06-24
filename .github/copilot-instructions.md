@@ -44,6 +44,7 @@
   - 推奨ファイル名: `YYYY-MM-DD_progress.md`（同日に複数ある場合は `YYYY-MM-DD_progress_<topic>.md` でも可）
   - 最低限入れる内容: 目的 / 変更点の要約 / 影響範囲（編集したファイル）/ 未完了タスク / 参考リンク
   - 追加で入れて良い内容: 背景・課題 / 合意事項（ルール）/ 実装方針 / 検証（テスト・確認観点）/ 補足（今後の運用）
+  - 自動トリアージ（GitHub Issue triage 等の scheduled タスク）やエージェントによる調査・修正方針の **提案ログ** も、本リポジトリでは `./_work_in_progress/` に残す（`.wip/` は使わない。ファイル名例: `YYYY-MM-DD_github-triage.md`）。
 - `_work_in_progress/` の完了ログは `_work_in_progress/.completed/` に退避します（Git 管轄外 / `.gitignore` 対象）。
   - 原則: 進行中のログのみ `_work_in_progress/` 直下に残す
   - 退避先（`.completed`）への書き込み/移動は、ユーザーの依頼がある場合のみ行う
