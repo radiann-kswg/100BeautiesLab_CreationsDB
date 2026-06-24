@@ -5832,9 +5832,19 @@ export async function renderDetail(workId, rec) {
 			if (!normalized || !normalized.includes('.')) return false;
 			return detailSubFieldKeys.some((parentKey) => normalized.startsWith(`${parentKey}.`));
 		};
-		const basicFieldKeys = Array.isArray(detailLayout?.basicFields)
-			? detailLayout.basicFields
-			: [];
+		const basicFieldKeys = (() => {
+			if (currentLayerName) {
+				// レイヤー固有の $display.section:"basic" フィールドを優先する（References 等）
+				const fromLayeredLayout = layeredTypeDef?.$DetailLayout?.basicFields;
+				if (Array.isArray(fromLayeredLayout) && fromLayeredLayout.length) return fromLayeredLayout;
+				const fromLayeredDef = (Array.isArray(layeredTypeDef?.$DefType) ? layeredTypeDef.$DefType : [])
+					.filter((d) => d?.$display?.section === 'basic')
+					.map((d) => String(d.hashTag || '').trim())
+					.filter(Boolean);
+				if (fromLayeredDef.length) return fromLayeredDef;
+			}
+			return Array.isArray(detailLayout?.basicFields) ? detailLayout.basicFields : [];
+		})();
 
 		// basicFields のキー配列から、*_JP/_EN の同義ペアによる二重表示を抑止
 		const normalizeBasicFieldKeys = (keys) => {

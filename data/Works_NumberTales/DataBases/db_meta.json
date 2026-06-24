@@ -183,6 +183,16 @@
         ],
         "DB_Hidden": true
       }
+    },
+    "#Ref_Reference": {
+      "DB_Layer": "References",
+      "DB_Label_JP": "資料",
+      "DB_Label_EN": "Reference"
+    },
+    "#Ref_Vocabulary": {
+      "DB_Layer": "References",
+      "DB_Label_JP": "語彙辞書",
+      "DB_Label_EN": "Vocabulary"
     }
   },
   "General": {

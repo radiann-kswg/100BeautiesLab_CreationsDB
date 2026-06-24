@@ -144,7 +144,7 @@
 
 ## 既知の不安定なテスト（2026-06-24 更新）
 
-- **現在の状態**: 全体 126 件中 **125 pass / 1 fail**（2026-06-24 実測）。
-- 残る 1 件: `tests/pages.characters.ui-output.test.js` > `renders references layer records...` — References レイヤー `basicFields` が作品レイアウト駆動のため `Title`/`Category` 行が生成されない実装課題（B-2）。テスト期待値は正しいため実装側の修正が必要。
-- 2026-06-23 時点の 5 件失敗（`ref_Glossary.json` 欠損・`enrich.dblink.jump` マージ取り残し）は 2026-06-24 続セッションで全解消済み。
+- **現在の状態**: 全体 **126 / 126 pass** ✅（2026-06-24 続セッション実測）。不安定なテストは現在なし。
+- B-2（References レイヤー basicFields）は 2026-06-24 続セッションで解消。
+  修正内容: NT `DataBases/db_meta.json` に `#Ref_Reference`/`#Ref_Vocabulary` 追加 + `pages/characters.js` の `basicFieldKeys` をレイヤー typedef 駆動に変更。
 - **軽微な確認残り（任意）**: GitHub Security タブで Dependabot PR #5/#6/#7 の Closed 状態をブラウザ手動確認推奨。Dependabot ブランチ `origin/dependabot/npm_and_yarn/npm_and_yarn-3f9ee708be` の削除も任意で可。

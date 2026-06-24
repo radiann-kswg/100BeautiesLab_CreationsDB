@@ -683,7 +683,7 @@ describe('pages/characters.js UI output', () => {
 
 		expect(document.querySelector('#detail-title')?.textContent?.trim()).toBe('ナンバーテールズについて');
 		expect(getBasicFieldValue('資料名')).toBe('ナンバーテールズについて / About NumberTales');
-		expect(getBasicFieldValue('分類')).toBe('キャラクターの基本情報');
+		expect(getBasicFieldValue('分類')).toBe('基本情報');
 		const profileSectionText = getSectionText('プロフィール/テキスト');
 		expect(profileSectionText).toContain('概要');
 		expect(profileSectionText).toContain('本文ブロック');
