@@ -39,14 +39,18 @@
 - 決定性: 2 回生成で同一バイト列。
 - ロジック検証: テスト相当の 16 アサーションを素の Node で実行し全合格。
 
+## 追記（2026-06-24 続セッション）
+
+- **`npm test` 実施済み**: 126 件中 125 pass / 1 fail（B-2: References basicFields 実装課題のみ、ICS テストとは無関係）。
+- **配信確認済み**: develop push 後、CI で ICS 生成・Jekyll ビルドが成功。
+  `Content-Type: text/calendar` で正常配信を PowerShell で確認（`Last-Modified: 2026-06-24 03:48 UTC`）。
+- **Google カレンダー購読登録完了**: 設定 → 他のカレンダー → URL で追加 にて購読登録済み。
+  カレンダーID `...@import.calendar.google.com` で登録確認。初回同期は数時間〜24時間かかる場合あり。
+
 ## 未完了・申し送り
 
-- **`npm test`(Vitest)は User 環境で実行が必要**。本セッションのサンドボックス(Linux)では
-  `node_modules` が Windows 用インストールのため Vitest 4 の rolldown ネイティブバインディングが無く、
-  Vitest 本体は起動できなかった(テストファイル自体は構文 OK・ロジックは Node 直接実行で全合格)。
-- **Google カレンダーでの購読登録は User が初回 1 回手動**で実施(`docs/calendar-ics-spec.md` の手順)。
-- develop へ push 後、`https://database.numbertales-radiann.net/calendar/100beautieslab-creations.ics`
-  が 200 で配信されるかを実機確認するとよい(Jekyll が `calendar/` 配下の `.ics` を `_site` に同梱するか)。
+- **Google カレンダーの初回同期待ち**: 数時間後にイベントが表示されることを確認する。
+  表示されない場合はカレンダーを削除して再登録で同期リセットできる。
 
 ## 参考
 
