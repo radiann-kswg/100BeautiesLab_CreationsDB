@@ -86,6 +86,35 @@
 - FL78: 14件 / ShouAr: 8件 / SCG: 9件 / PastDivers: 14件 / UnauthedLogica: 12件 / UnibyteLive: 4件 / DFR: 10件 / Proxies: 4件
 - TransPolicy は既存 Name_EN パターンから仮判定（原作者確認・修正前提）
 
+## 追加データ投入（2026-06-25 続）
+
+### バグ修正
+- `data/Localization/trans_Dict.json`：「神夜崎 ユノ」の `Scope` に `"Works_PastDivers"` が重複していた問題を修正
+
+### 仮データ追加
+
+**ShouArRiders**（7→17 件）
+- `BeastspecName` 7件: 子機分身/会心一中/跳躍/画竜点睛(空中走行)/束縛形態/牽引突破/軟体/着地（各 `#Cat_Ability`, `#TP_SemanticTranslate`）
+- 地名 2件: 龍天国（`#TP_KeepOriginal`）/ 雄姿結国（`#TP_SemanticTranslate`）
+- 疾患 1件: 山月病（`#Cat_Phenomenon`, `#TP_Romanize`）
+
+**FLInvestigator78**（14→24 件）
+- 組織名: セブンティエイト特殊探偵団（`#Cat_OrgName`）
+- 能力概念: アルカナムスペック（`#Cat_Ability`）
+- 現象: 未来消失（`#Cat_Phenomenon`）
+- 造語: 運命線（`#Cat_Coinage`, 作品タイトルとは別に単体概念として収録）
+- 地名: 九蓮国（`#Cat_PlaceName`, `#TP_LocalizeName` → LotusNinea）
+- 肩書/クラス 5件: 情報屋 / 最高幹部 / 国際幹部 / 九蓮国支部幹部 / 国境幹部
+- ※ `英皇国` の EN 表記未確認のため `英皇国支部幹部` は保留
+
+**UnibyteLive**（3→8 件）
+- FormalName 3件: 英文字アロー / 左伯ナーミィ / 右仗ジグ（`#Cat_PersonName`, `#TP_LocalizeName`）
+- グループ名: アルベッツ（`#Cat_OrgName`, `#TP_KeepOriginal` → ALPBETS）
+- 仮想空間名: ユニバイト・ユニバース（`#Cat_ProperNoun`, `#TP_KeepOriginal` → Unibyte Universe）
+
+### テスト
+- `npm test` → 130/130 pass ✅
+
 ## 未完了タスク / 今後の課題
 
 - Localization 層の enum 解決（`data/Localization/db_meta.json` の `$VarsDef` を `metaForLookup` に合流させる）は、UI で enum ラベル表示が必要になったタイミングで対応予定

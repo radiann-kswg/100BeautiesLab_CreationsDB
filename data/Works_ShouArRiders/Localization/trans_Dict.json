@@ -47,5 +47,61 @@
     "TransPolicy": "#TP_LocalizeName",
     "Scope": ["Works_ShouArRiders"],
     "Term_EN": "Meowcats Tigertimes"
+  },
+  {
+    "Term_JP": "子機分身",
+    "Category": "#Cat_Ability",
+    "TransPolicy": "#TP_SemanticTranslate",
+    "Scope": ["Works_ShouArRiders"],
+    "Term_EN": "ChildCroning"
+  },
+  {
+    "Term_JP": "会心一中",
+    "Category": "#Cat_Ability",
+    "TransPolicy": "#TP_SemanticTranslate",
+    "Scope": ["Works_ShouArRiders"],
+    "Term_EN": "One'sConcentration"
+  },
+  {
+    "Term_JP": "跳躍",
+    "Category": "#Cat_Ability",
+    "TransPolicy": "#TP_SemanticTranslate",
+    "Scope": ["Works_ShouArRiders"],
+    "Term_EN": "DashJumping"
+  },
+  {
+    "Term_JP": "画竜点睛(空中走行)",
+    "Category": "#Cat_Ability",
+    "TransPolicy": "#TP_SemanticTranslate",
+    "Scope": ["Works_ShouArRiders"],
+    "Term_EN": "Dragon'sSkywalk"
+  },
+  {
+    "Term_JP": "束縛形態",
+    "Category": "#Cat_Ability",
+    "TransPolicy": "#TP_SemanticTranslate",
+    "Scope": ["Works_ShouArRiders"],
+    "Term_EN": "RopeTyingForm"
+  },
+  {
+    "Term_JP": "牽引突破",
+    "Category": "#Cat_Ability",
+    "TransPolicy": "#TP_SemanticTranslate",
+    "Scope": ["Works_ShouArRiders"],
+    "Term_EN": "PullingBreakthrough"
+  },
+  {
+    "Term_JP": "軟体/着地",
+    "Category": "#Cat_Ability",
+    "TransPolicy": "#TP_SemanticTranslate",
+    "Scope": ["Works_ShouArRiders"],
+    "Term_EN": "SoftizeBody/TouchGrounding"
+  },
+  {
+    "Term_JP": "山月病",
+    "Category": "#Cat_Phenomenon",
+    "TransPolicy": "#TP_Romanize",
+    "Scope": ["Works_ShouArRiders"],
+    "Term_EN": "Shanyu Disease"
   }
 ]

@@ -63,7 +63,7 @@
     "ArcanamspecAbout_JP": "元素を操る",
     "ArcanamspecAbout_EN": "Manipulates the elements",
     "Summary_JP": "“未来消失”という神隠し現象を巡る幾つもの特殊事件を解決し、異能組織『セブンティエイト特殊探偵団』（通称『運命線探偵』）の中でも名探偵と称される最高幹部。\n【四元の魔術師】のアルカナムスペックを行使する彼は、まるで錬金術のような元素操作を得意とし 改竄された運命線の手掛かりと証拠を迅速に掴みます。\nちなみに、副業として自営業も営んでいることから 運命線探偵の人事にも強く関わりがある様子。",
-    "Summary_EN": "A top executive of the special investigations organization 'Team.78(Seventy-Eight) the Special Investigators' (commonly known as the 'FateLine Investigators'), renowned as a great detective for resolving countless special incidents surrounding the mysterious disappearance phenomenon known as 'Future Erasure'.\nBrandishing the ArcanumSpec of the [⁠Magician of Elements⁠], he excels at element manipulation reminiscent of alchemy, swiftly seizing clues and evidence from falsified fate lines.\nIncidentally, as he also runs his own side business, he seems to have a strong hand in the organization's personnel affairs as well.",
+    "Summary_EN": "A top executive of the special investigations organization 'Team.78(Seventy-Eight) the Special Investigators' (commonly known as the 'FateLine Investigators'), renowned as a great detective for resolving countless special incidents surrounding the mysterious disappearance phenomenon known as 'Future Erasure'.\nBrandishing the ArcanumSpec of the [⁠Magician of Elements⁠], he excels at element manipulation reminiscent of alchemy, swiftly seizing clues and evidence from falsified FateLines.\nIncidentally, as he also runs his own side business, he seems to have a strong hand in the organization's personnel affairs as well.",
     "ArcanumspecStats": {
       "SpecType": {
         "Material": [{ "Material": "Quart" }],
@@ -224,7 +224,7 @@
     "ArcanamspecAbout_JP": "怒りを操作する",
     "ArcanamspecAbout_EN": "Manipulates anger",
     "Summary_JP": "運命線の乱れの原因となる暴走したアルカナム存在の鎮圧をこなしている、異能組織『セブンティエイト特殊探偵団』（通称『運命線探偵』）の第８幹部。\n【力の獅子遣い】のアルカナムスペックを行使する彼女は、相手の怒りや熱情を操作する力を有しており、九蓮国に出現した凶悪な犯行を取り押さえてきました。\nちなみに彼女はサーカス鑑賞という趣味があり、自分も興味本位で獅子を手名付けたいという一心から生まれた「レオ」という召喚獣と行動を共にすることも。",
-    "Summary_EN": "The 8th executive of the special investigations organization 'Team.78(Seventy-Eight) the Special Investigators' (commonly known as the 'FateLine Investigators'), tasked with suppressing rampaging Arcanum entities that cause disturbances in fate lines.\nBrandishing the ArcanumSpec of the [⁠Strength Tamer⁠], she possesses the power to manipulate the anger and passion of her opponents, and has been subduing vicious criminal acts that appeared in LotusNinea.\nIncidentally, she has a hobby of watching circus performances, and sometimes acts alongside a summoned beast named 'Leo' — born from her wholehearted desire to tame a lion out of pure curiosity.",
+    "Summary_EN": "The 8th executive of the special investigations organization 'Team.78(Seventy-Eight) the Special Investigators' (commonly known as the 'FateLine Investigators'), tasked with suppressing rampaging Arcanum entities that cause disturbances in FateLines.\nBrandishing the ArcanumSpec of the [⁠Strength Tamer⁠], she possesses the power to manipulate the anger and passion of her opponents, and has been subduing vicious criminal acts that appeared in LotusNinea.\nIncidentally, she has a hobby of watching circus performances, and sometimes acts alongside a summoned beast named 'Leo' — born from her wholehearted desire to tame a lion out of pure curiosity.",
     "ArcanumspecStats": {
       "SpecType": {
         "Material": [{ "Material": "Fire" }],

@@ -19,5 +19,40 @@
     "TransPolicy": "#TP_LocalizeName",
     "Scope": ["Works_UnibyteLive"],
     "Term_EN": "Z:Zig"
+  },
+  {
+    "Term_JP": "英文字アロー",
+    "Category": "#Cat_PersonName",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_UnibyteLive"],
+    "Term_EN": "Arrows A-Letter"
+  },
+  {
+    "Term_JP": "左伯ナーミィ",
+    "Category": "#Cat_PersonName",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_UnibyteLive"],
+    "Term_EN": "Surgey S-Curve"
+  },
+  {
+    "Term_JP": "右仗ジグ",
+    "Category": "#Cat_PersonName",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_UnibyteLive"],
+    "Term_EN": "Zig Z-Drifts"
+  },
+  {
+    "Term_JP": "アルベッツ",
+    "Category": "#Cat_OrgName",
+    "TransPolicy": "#TP_KeepOriginal",
+    "Scope": ["Works_UnibyteLive"],
+    "Term_EN": "ALPBETS"
+  },
+  {
+    "Term_JP": "ユニバイト・ユニバース",
+    "Category": "#Cat_ProperNoun",
+    "TransPolicy": "#TP_KeepOriginal",
+    "Scope": ["Works_UnibyteLive"],
+    "Term_EN": "Unibyte Universe"
   }
 ]

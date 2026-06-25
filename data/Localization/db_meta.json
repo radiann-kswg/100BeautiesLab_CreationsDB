@@ -32,6 +32,7 @@
       },
       "$EnumDef_Category": {
         "#Cat_Coinage": { "Category": "造語", "Category_EN": "Coined Term" },
+        "#Cat_Titles": { "Category": "創作名", "Category_EN": "Title" },
         "#Cat_PersonName": {
           "Category": "人物名・呼称",
           "Category_EN": "Person Name / Appellation"
@@ -52,6 +53,10 @@
         "#Cat_Rank": {
           "Category": "称号・肩書",
           "Category_EN": "Title / Rank"
+        },
+        "#Cat_Class": {
+          "Category": "役職",
+          "Category_EN": "Position / Role"
         },
         "#Cat_Ability": {
           "Category": "能力・スキル名",
