@@ -1,0 +1,174 @@
+[
+  {
+    "Term_JP": "ナンバーテールズ",
+    "Term_EN": "NumberTales",
+    "Category": "#Cat_Coinage",
+    "TransPolicy": "#TP_KeepOriginal",
+    "Scope": ["Works_NumberTales"]
+  },
+  {
+    "Term_JP": "運命線探偵78",
+    "Term_EN": "the Fate-Line Investigator 78",
+    "Category": "#Cat_Coinage",
+    "TransPolicy": "#TP_SemanticTranslate",
+    "Scope": ["Works_FLInvestigator78"]
+  },
+  {
+    "Term_JP": "獣爾騎兵",
+    "Term_EN": "Shou'ar Riders",
+    "Category": "#Cat_Coinage",
+    "TransPolicy": "#TP_KeepOriginal",
+    "Scope": ["Works_ShouArRiders"]
+  },
+  {
+    "Term_JP": "ハンカクライブ",
+    "Term_EN": "UnibyteLive",
+    "Category": "#Cat_Coinage",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_UnibyteLive"]
+  },
+  {
+    "Term_JP": "アンオースドロジカ",
+    "Term_EN": "UnauthedLogica",
+    "Category": "#Cat_Coinage",
+    "TransPolicy": "#TP_KeepOriginal",
+    "Scope": ["Works_UnauthedLogica"]
+  },
+  {
+    "Term_JP": "パストダイヴァー",
+    "Term_EN": "PastDivers",
+    "Category": "#Cat_Coinage",
+    "TransPolicy": "#TP_KeepOriginal",
+    "Scope": ["Works_PastDivers"]
+  },
+  {
+    "Term_JP": "豹変系女子",
+    "Term_EN": "Sinister Changing Girls",
+    "Category": "#Cat_Coinage",
+    "TransPolicy": "#TP_SemanticTranslate",
+    "Scope": ["Works_SinisterChangingGirls"]
+  },
+  {
+    "Term_JP": "運命線狐の記録",
+    "Term_EN": "Destiny Fox's Records",
+    "Category": "#Cat_Coinage",
+    "TransPolicy": "#TP_SemanticTranslate",
+    "Scope": ["Works_DestinyFoxRecords"]
+  },
+  {
+    "Term_JP": "ラジアン代理",
+    "Term_EN": "RadianN's Proxy",
+    "Category": "#Cat_Coinage",
+    "TransPolicy": "#TP_SemanticTranslate",
+    "Scope": ["Works_Proxies"]
+  },
+  {
+    "Term_JP": "零 零",
+    "Category": "#Cat_PersonName",
+    "TransPolicy": "#TP_SemanticTranslate",
+    "Scope": [
+      "Works_NumberTales",
+      "Works_UnauthedLogica",
+      "Works_SinisterChangingGirls"
+    ],
+    "Term_EN": "Zera Norumber"
+  },
+  {
+    "Term_JP": "千歳 玲",
+    "Term_EN": "Zeena Thouser",
+    "Category": "#Cat_PersonName",
+    "TransPolicy": "#TP_SemanticTranslate",
+    "Scope": ["Works_NumberTales"]
+  },
+  {
+    "Term_JP": "零 百",
+    "Category": "#Cat_PersonName",
+    "TransPolicy": "#TP_SemanticTranslate",
+    "Scope": ["Works_NumberTales", "Works_UnauthedLogica"],
+    "Term_EN": "Hudret Norumber"
+  },
+  {
+    "Term_JP": "千歳 励",
+    "Term_EN": "Hadler Thouser",
+    "Category": "#Cat_PersonName",
+    "TransPolicy": "#TP_SemanticTranslate",
+    "Scope": ["Works_NumberTales"]
+  },
+  {
+    "Term_JP": "扇 三春",
+    "Category": "#Cat_PersonName",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_SinisterChangingGirls"],
+    "Term_EN": "Mikhail Arch"
+  },
+  {
+    "Term_JP": "六花 ルノ",
+    "Category": "#Cat_PersonName",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_PastDivers", "Works_SinisterChangingGirls"],
+    "Term_EN": "Luno Hexacrys"
+  },
+  {
+    "Term_JP": "九 叶",
+    "Category": "#Cat_PersonName",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_SinisterChangingGirls", "Works_ShouArRiders"],
+    "Term_EN": "Canna Ninie"
+  },
+  {
+    "Term_JP": "六花 雙葉",
+    "Category": "#Cat_PersonName",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_SinisterChangingGirls", "Works_UnauthedLogica"],
+    "Term_EN": "Dozenne Hexacrys"
+  },
+  {
+    "Term_JP": "クィーン.トゥエルヴ",
+    "Category": "#Cat_PersonName",
+    "TransPolicy": "#TP_KeepOriginal",
+    "Scope": ["Works_SinisterChangingGirls", "Works_UnauthedLogica"],
+    "Term_EN": "Queen.XII"
+  },
+  {
+    "Term_JP": "ミル.ニュクスフ",
+    "Category": "#Cat_PersonName",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_SinisterChangingGirls"],
+    "Term_EN": "Lamill.NuXV"
+  },
+  {
+    "Term_JP": "神夜崎 ユノ",
+    "Category": "#Cat_PersonName",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": [
+      "Works_PastDivers",
+      "Works_PastDivers",
+      "Works_SinisterChangingGirls"
+    ],
+    "Term_EN": "Juno Theolessnight"
+  },
+  {
+    "Term_JP": "財前 小里",
+    "Category": "#Cat_PersonName",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": [
+      "Works_SinisterChangingGirls",
+      "Works_PastDivers",
+      "Works_ShouArRiders",
+      "Works_FLInvestigator78"
+    ],
+    "Term_EN": "Foster Empressor"
+  },
+  {
+    "Term_JP": "終藤 こさと",
+    "Category": "#Cat_PersonName",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": [
+      "Works_SinisterChangingGirls",
+      "Works_PastDivers",
+      "Works_ShouArRiders",
+      "Works_FLInvestigator78"
+    ],
+    "Term_EN": "Formar Endrof"
+  }
+]

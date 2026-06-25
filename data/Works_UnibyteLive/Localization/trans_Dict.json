@@ -1,0 +1,23 @@
+[
+  {
+    "Term_JP": "A:アロー",
+    "Category": "#Cat_PersonName",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_UnibyteLive"],
+    "Term_EN": "A:Arrows"
+  },
+  {
+    "Term_JP": "S:ナーミィ",
+    "Category": "#Cat_PersonName",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_UnibyteLive"],
+    "Term_EN": "S:Surgey"
+  },
+  {
+    "Term_JP": "Z:ジグ",
+    "Category": "#Cat_PersonName",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_UnibyteLive"],
+    "Term_EN": "Z:Zig"
+  }
+]

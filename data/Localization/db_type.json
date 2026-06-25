@@ -1,0 +1,78 @@
+{
+  "$DefType": [
+    {
+      "hashTag": "Term_JP",
+      "$type": "##String_JP|#Null",
+      "hashTag_JP": "原語表記",
+      "$display": { "section": "basic", "aliasOf": "Name_JP" }
+    },
+    {
+      "hashTag": "Term_EN",
+      "$type": "##String_EN|#Null",
+      "hashTag_EN": "English Term",
+      "$display": { "section": "basic", "aliasOf": "Name_EN" }
+    },
+    {
+      "hashTag": "Term_EN_Alt",
+      "$type": "#String[]|#Null",
+      "hashTag_JP": "英訳代替表記",
+      "hashTag_EN": "Alt. English Terms",
+      "$display": { "section": "basic" }
+    },
+    {
+      "hashTag": "Category",
+      "$type": "$EnumDef|#Null",
+      "hashTag_JP": "分類",
+      "hashTag_EN": "Category",
+      "$display": { "section": "basic" }
+    },
+    {
+      "hashTag": "TransPolicy",
+      "$type": "$EnumDef|#Null",
+      "hashTag_JP": "翻訳方針",
+      "hashTag_EN": "Translation Policy",
+      "$display": { "section": "basic" }
+    },
+    {
+      "hashTag": "Scope",
+      "$type": "#String[]|#Null",
+      "hashTag_JP": "適用作品・範囲",
+      "hashTag_EN": "Scope"
+    },
+    {
+      "hashTag": "Summary_JP",
+      "$type": "#Summary|#Null",
+      "hashTag_JP": "定義（日本語）"
+    },
+    {
+      "hashTag": "Summary_EN",
+      "$type": "#Summary|#Null",
+      "hashTag_EN": "Definition (English)"
+    },
+    {
+      "hashTag": "TransNote_JP",
+      "$type": "#Summary|#Null",
+      "hashTag_JP": "英訳注記"
+    },
+    {
+      "hashTag": "TransNote_EN",
+      "$type": "#Summary|#Null",
+      "hashTag_EN": "Translation Note"
+    },
+    {
+      "hashTag": "RelatedTerms",
+      "$type": "#String[]|#Null",
+      "hashTag_JP": "関連語",
+      "hashTag_EN": "Related Terms"
+    },
+    {
+      "hashTag": "Links",
+      "$type": "#String[]|#Null",
+      "hashTag_JP": "参考リンク",
+      "hashTag_EN": "Links"
+    }
+  ],
+  "$DetailLayout": {
+    "basicFields": ["Term", "Term_EN_Alt", "Category", "TransPolicy"]
+  }
+}

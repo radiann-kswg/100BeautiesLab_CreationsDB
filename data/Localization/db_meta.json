@@ -1,0 +1,84 @@
+{
+  "Databases": {
+    "#Loc_Dict": {
+      "DB_Layer": "Localization",
+      "DB_Label_JP": "翻訳辞書",
+      "DB_Label_EN": "Translation Dictionary"
+    }
+  },
+  "General": {
+    "$VarsDef": {
+      "$EnumDef_TransPolicy": {
+        "#TP_KeepOriginal": {
+          "TransPolicy": "原語維持",
+          "TransPolicy_EN": "Keep as-is"
+        },
+        "#TP_LocalizeName": {
+          "TransPolicy": "意音ローカライズ",
+          "TransPolicy_EN": "Phonosemantic Localization"
+        },
+        "#TP_SemanticTranslate": {
+          "TransPolicy": "意訳",
+          "TransPolicy_EN": "Semantic Translation"
+        },
+        "#TP_Romanize": {
+          "TransPolicy": "音訳（ローマ字）",
+          "TransPolicy_EN": "Romanize"
+        },
+        "#TP_Bilingual": {
+          "TransPolicy": "和英併記",
+          "TransPolicy_EN": "Bilingual"
+        }
+      },
+      "$EnumDef_Category": {
+        "#Cat_Coinage": { "Category": "造語", "Category_EN": "Coined Term" },
+        "#Cat_PersonName": {
+          "Category": "人物名・呼称",
+          "Category_EN": "Person Name / Appellation"
+        },
+        "#Cat_PlaceName": { "Category": "地名", "Category_EN": "Place Name" },
+        "#Cat_OrgName": {
+          "Category": "組織名",
+          "Category_EN": "Organization Name"
+        },
+        "#Cat_FamilyName": {
+          "Category": "種族名・襲名",
+          "Category_EN": "Race / Succession Name"
+        },
+        "#Cat_ProductName": {
+          "Category": "品名・モデル名",
+          "Category_EN": "Product / Model Name"
+        },
+        "#Cat_Rank": {
+          "Category": "称号・肩書",
+          "Category_EN": "Title / Rank"
+        },
+        "#Cat_Ability": {
+          "Category": "能力・スキル名",
+          "Category_EN": "Ability / Skill Name"
+        },
+        "#Cat_Attribute": {
+          "Category": "属性名",
+          "Category_EN": "Attribute Name"
+        },
+        "#Cat_Phenomenon": {
+          "Category": "事象・現象",
+          "Category_EN": "Event / Phenomenon"
+        },
+        "#Cat_EventName": {
+          "Category": "イベント名・出来事",
+          "Category_EN": "Event Name / Occurrence"
+        },
+        "#Cat_Slang": {
+          "Category": "独自スラング・特殊表現",
+          "Category_EN": "Original Slang / Special Expression"
+        },
+        "#Cat_Tradition": { "Category": "伝統", "Category_EN": "Tradition" },
+        "#Cat_ProperNoun": {
+          "Category": "その他固有名詞",
+          "Category_EN": "Other Proper Noun"
+        }
+      }
+    }
+  }
+}

@@ -197,4 +197,105 @@ describe('DB layer aware routing', () => {
     expect(json.databases[0].file).toBe('ref_Glossary.json');
     expect(json.databases[0].DB_Label_JP).toBe('創作用語');
   });
+
+  it('DataFetcher.readWorkMeta merges Localization/db_meta.json Databases into the result', async () => {
+    const jsonByPath = {
+      '/data/Works_Test/DataBases/db_meta.json': {
+        Databases: { '#DB_Primary': { DB_Label: '一次創作' } }
+      },
+      '/data/Works_Test/Localization/db_meta.json': {
+        Databases: {
+          '#Loc_Dict': { DB_Label_JP: '翻訳辞書', DB_Label_EN: 'Translation Dictionary' }
+        }
+      }
+    };
+
+    const fetchStub = async (url, opt = {}) => {
+      const pathname = new URL(url).pathname;
+      const body = jsonByPath[pathname];
+      if ((opt?.method || 'GET').toUpperCase() === 'HEAD') {
+        return new Response('', { status: body ? 200 : 404 });
+      }
+      if (!body) return new Response('not found', { status: 404 });
+      return new Response(JSON.stringify(body), {
+        status: 200,
+        headers: { 'content-type': 'application/json; charset=utf-8' }
+      });
+    };
+
+    const ctx = loadSwCommonIntoContext({ fetch: fetchStub });
+    const fetcher = new ctx.self.DataFetcher(new ctx.self.SWConfig('/pages'));
+    const meta = await fetcher.readWorkMeta('#Works_Test');
+
+    expect(meta.Databases?.['#DB_Primary']?.DB_Label).toBe('一次創作');
+    expect(meta.Databases?.['#Loc_Dict']?.DB_Label_JP).toBe('翻訳辞書');
+    expect(meta.Databases?.['#Loc_Dict']?.DB_Layer).toBe('Localization');
+  });
+
+  it('DataFetcher.readDB resolves Localization layer trans_*.json via Localization/db_meta.json', async () => {
+    const jsonByPath = {
+      '/data/Works_Test/DataBases/db_meta.json': {
+        Databases: {}
+      },
+      '/data/Works_Test/Localization/db_meta.json': {
+        Databases: {
+          '#Loc_Dict': {
+            DB_Layer: 'Localization',
+            DB_Label_JP: '翻訳辞書',
+            DB_Label_EN: 'Translation Dictionary'
+          }
+        }
+      },
+      '/data/Works_Test/Localization/trans_Dict.json': [
+        { Term_JP: 'ナンバーテールズ', Term_EN: 'NumberTales', Category: '#Cat_Coinage', TransPolicy: '#TP_LocalizeName' }
+      ]
+    };
+
+    const fetchStub = async (url, opt = {}) => {
+      const pathname = new URL(url).pathname;
+      const body = jsonByPath[pathname];
+      if ((opt?.method || 'GET').toUpperCase() === 'HEAD') {
+        return new Response('', { status: body ? 200 : 404 });
+      }
+      if (!body) return new Response('not found', { status: 404 });
+      return new Response(JSON.stringify(body), {
+        status: 200,
+        headers: { 'content-type': 'application/json; charset=utf-8' }
+      });
+    };
+
+    const ctx = loadSwCommonIntoContext({ fetch: fetchStub });
+    const fetcher = new ctx.self.DataFetcher(new ctx.self.SWConfig('/pages'));
+    const records = await fetcher.readDB('#Works_Test', 'Dict');
+
+    expect(records).toHaveLength(1);
+    expect(records[0].Term_JP).toBe('ナンバーテールズ');
+    expect(records[0].TransPolicy).toBe('#TP_LocalizeName');
+  });
+
+  it('DataUtils.stripMetaDbPrefix strips Loc_ prefix from #Loc_ keys', () => {
+    const ctx = loadSwCommonIntoContext();
+    const DataUtils = ctx?.self?.DataUtils;
+    expect(DataUtils).toBeTypeOf('function');
+
+    expect(DataUtils.stripMetaDbPrefix('#Loc_Dict')).toBe('Dict');
+    expect(DataUtils.stripMetaDbPrefix('Loc_Dict')).toBe('Dict');
+    expect(DataUtils.stripMetaDbPrefix('#Ref_Glossary')).toBe('Glossary');
+    expect(DataUtils.stripMetaDbPrefix('#DB_Primary')).toBe('Primary');
+  });
+
+  it('DataUtils.findMetaDbEntry finds #Loc_ entries alongside #DB_ and #Ref_', () => {
+    const ctx = loadSwCommonIntoContext();
+    const DataUtils = ctx?.self?.DataUtils;
+
+    const databases = {
+      '#DB_Primary': { DB_Label: '一次創作' },
+      '#Ref_Glossary': { DB_Layer: 'References', DB_Label: '創作用語' },
+      '#Loc_Dict': { DB_Layer: 'Localization', DB_Label_JP: '翻訳辞書' }
+    };
+
+    const r = DataUtils.findMetaDbEntry(databases, 'Dict');
+    expect(r.metaKey).toBe('#Loc_Dict');
+    expect(r.entry?.DB_Layer).toBe('Localization');
+  });
 });

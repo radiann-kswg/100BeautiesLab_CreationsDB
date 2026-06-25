@@ -1,0 +1,65 @@
+[
+  {
+    "Term_JP": "セコンド",
+    "Category": "#Cat_PersonName",
+    "TransPolicy": "#TP_SemanticTranslate",
+    "Scope": ["Works_DestinyFoxRecords"],
+    "Term_EN": "Second_SI-T"
+  },
+  {
+    "Term_JP": "メトレ",
+    "Category": "#Cat_PersonName",
+    "TransPolicy": "#TP_SemanticTranslate",
+    "Scope": ["Works_DestinyFoxRecords"],
+    "Term_EN": "Metre_SI-L"
+  },
+  {
+    "Term_JP": "キログラ",
+    "Category": "#Cat_PersonName",
+    "TransPolicy": "#TP_SemanticTranslate",
+    "Scope": ["Works_DestinyFoxRecords"],
+    "Term_EN": "Kilogra_SI-M"
+  },
+  {
+    "Term_JP": "カンデラ",
+    "Category": "#Cat_PersonName",
+    "TransPolicy": "#TP_SemanticTranslate",
+    "Scope": ["Works_DestinyFoxRecords"],
+    "Term_EN": "Candela_SI-J"
+  },
+  {
+    "Term_JP": "ケルビン",
+    "Category": "#Cat_PersonName",
+    "TransPolicy": "#TP_SemanticTranslate",
+    "Scope": ["Works_DestinyFoxRecords"],
+    "Term_EN": "Kelvin_SI-Θ"
+  },
+  {
+    "Term_JP": "アンプ",
+    "Category": "#Cat_PersonName",
+    "TransPolicy": "#TP_SemanticTranslate",
+    "Scope": ["Works_DestinyFoxRecords"],
+    "Term_EN": "Amp'_SI-I"
+  },
+  {
+    "Term_JP": "モル",
+    "Category": "#Cat_PersonName",
+    "TransPolicy": "#TP_SemanticTranslate",
+    "Scope": ["Works_DestinyFoxRecords"],
+    "Term_EN": "Mol_SI-N"
+  },
+  {
+    "Term_JP": "ラジアン",
+    "Category": "#Cat_PersonName",
+    "TransPolicy": "#TP_SemanticTranslate",
+    "Scope": ["Works_DestinyFoxRecords"],
+    "Term_EN": "RadianN"
+  },
+  {
+    "Term_JP": "ステラ",
+    "Category": "#Cat_PersonName",
+    "TransPolicy": "#TP_SemanticTranslate",
+    "Scope": ["Works_DestinyFoxRecords"],
+    "Term_EN": "Srera'N"
+  }
+]

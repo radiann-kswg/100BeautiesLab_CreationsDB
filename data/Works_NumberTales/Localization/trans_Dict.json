@@ -1,0 +1,816 @@
+[
+  {
+    "Term_JP": "1(ハジメ)",
+    "Category": "#Cat_PersonName",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales"],
+    "Term_EN": "1(Unitta)"
+  },
+  {
+    "Term_JP": "2(ツグ)",
+    "Category": "#Cat_PersonName",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales"],
+    "Term_EN": "2(Twiny)"
+  },
+  {
+    "Term_JP": "3(ナオ)",
+    "Category": "#Cat_PersonName",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales"],
+    "Term_EN": "3(Treiya)"
+  },
+  {
+    "Term_JP": "4(モチ)",
+    "Category": "#Cat_PersonName",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales"],
+    "Term_EN": "4(Forna)"
+  },
+  {
+    "Term_JP": "5(イズ)",
+    "Category": "#Cat_PersonName",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales"],
+    "Term_EN": "5(Fifa)"
+  },
+  {
+    "Term_JP": "6(ムイ)",
+    "Category": "#Cat_PersonName",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales"],
+    "Term_EN": "6(Sics)"
+  },
+  {
+    "Term_JP": "7(ナナ)",
+    "Category": "#Cat_PersonName",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales"],
+    "Term_EN": "7(Sevan)"
+  },
+  {
+    "Term_JP": "8(ワカツ)",
+    "Category": "#Cat_PersonName",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales"],
+    "Term_EN": "8(Eighas)"
+  },
+  {
+    "Term_JP": "9(チカ)",
+    "Category": "#Cat_PersonName",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales"],
+    "Term_EN": "9(Nina)"
+  },
+  {
+    "Term_JP": "10(ミツル)",
+    "Category": "#Cat_PersonName",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales"],
+    "Term_EN": "10(Tenim)"
+  },
+  {
+    "Term_JP": "11(トウイチ)",
+    "Category": "#Cat_PersonName",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales"],
+    "Term_EN": "11(Elevan)"
+  },
+  {
+    "Term_JP": "12(トウジ)",
+    "Category": "#Cat_PersonName",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales"],
+    "Term_EN": "12(Twelva)"
+  },
+  {
+    "Term_JP": "13(トミ)",
+    "Category": "#Cat_PersonName",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales"],
+    "Term_EN": "13(Thirteena)"
+  },
+  {
+    "Term_JP": "14(トヨ)",
+    "Category": "#Cat_PersonName",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales"],
+    "Term_EN": "14(Forteels)"
+  },
+  {
+    "Term_JP": "15(トウゴ)",
+    "Category": "#Cat_PersonName",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales"],
+    "Term_EN": "15(Fifteeld)"
+  },
+  {
+    "Term_JP": "16(ソロク)",
+    "Category": "#Cat_PersonName",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales"],
+    "Term_EN": "16(Sixteely)"
+  },
+  {
+    "Term_JP": "17(トナ)",
+    "Category": "#Cat_PersonName",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales"],
+    "Term_EN": "17(Sevteena)"
+  },
+  {
+    "Term_JP": "18(トウヤ)",
+    "Category": "#Cat_PersonName",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales"],
+    "Term_EN": "18(Eighteeld)"
+  },
+  {
+    "Term_JP": "19(トク)",
+    "Category": "#Cat_PersonName",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales"],
+    "Term_EN": "19(Ninteels)"
+  },
+  {
+    "Term_JP": "20(ハツカ)",
+    "Category": "#Cat_PersonName",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales"],
+    "Term_EN": "20(Twentia)"
+  },
+  {
+    "Term_JP": "21(ハツヒ)",
+    "Category": "#Cat_PersonName",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales"],
+    "Term_EN": "21(Twinone)"
+  },
+  {
+    "Term_JP": "22(フジ)",
+    "Category": "#Cat_PersonName",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales"],
+    "Term_EN": "22(Twin-twina)"
+  },
+  {
+    "Term_JP": "23(ツグミ)",
+    "Category": "#Cat_PersonName",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales"],
+    "Term_EN": "23(Twinthery)"
+  },
+  {
+    "Term_JP": "24(フトシ)",
+    "Category": "#Cat_PersonName",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales"],
+    "Term_EN": "24(Hourds)"
+  },
+  {
+    "Term_JP": "25(フィズ)",
+    "Category": "#Cat_PersonName",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales"],
+    "Term_EN": "25(Quartels)"
+  },
+  {
+    "Term_JP": "26(ニロク)",
+    "Category": "#Cat_PersonName",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales"],
+    "Term_EN": "26(Twinsix)"
+  },
+  {
+    "Term_JP": "27(ツギナ)",
+    "Category": "#Cat_PersonName",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales"],
+    "Term_EN": "27(Twißven)"
+  },
+  {
+    "Term_JP": "28(ニハチ)",
+    "Category": "#Cat_PersonName",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales"],
+    "Term_EN": "28(Tweighan)"
+  },
+  {
+    "Term_JP": "29(ニトク)",
+    "Category": "#Cat_PersonName",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales"],
+    "Term_EN": "29(Twenina)"
+  },
+  {
+    "Term_JP": "30(ミツト)",
+    "Category": "#Cat_PersonName",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales"],
+    "Term_EN": "30(Thirtens)"
+  },
+  {
+    "Term_JP": "31(ミツイ)",
+    "Category": "#Cat_PersonName",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales"],
+    "Term_EN": "31(Thirtone)"
+  },
+  {
+    "Term_JP": "32(ミツギ)",
+    "Category": "#Cat_PersonName",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales"],
+    "Term_EN": "32(Thirtwis)"
+  },
+  {
+    "Term_JP": "33(ミサ)",
+    "Category": "#Cat_PersonName",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales"],
+    "Term_EN": "33(Thirthrey)"
+  },
+  {
+    "Term_JP": "34(サトシ)",
+    "Category": "#Cat_PersonName",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales"],
+    "Term_EN": "34(Thirfory)"
+  },
+  {
+    "Term_JP": "サンジ",
+    "Category": "#Cat_PersonName",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales"],
+    "Term_EN": "Troubleforcer"
+  },
+  {
+    "Term_JP": "35(サトコ)",
+    "Category": "#Cat_PersonName",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales"],
+    "Term_EN": "35(Thirfivan)"
+  },
+  {
+    "Term_JP": "35(ミコ)",
+    "Category": "#Cat_PersonName",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales"],
+    "Term_EN": "35(Míko)"
+  },
+  {
+    "Term_JP": "36(ミトム)",
+    "Category": "#Cat_PersonName",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales"],
+    "Term_EN": "36(Trisixa)"
+  },
+  {
+    "Term_JP": "37(サナ)",
+    "Category": "#Cat_PersonName",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales"],
+    "Term_EN": "37(Trißven)"
+  },
+  {
+    "Term_JP": "38(サタハ)",
+    "Category": "#Cat_PersonName",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales"],
+    "Term_EN": "38(Threighas)"
+  },
+  {
+    "Term_JP": "39(サク)",
+    "Category": "#Cat_PersonName",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales"],
+    "Term_EN": "39(Trenína)"
+  },
+  {
+    "Term_JP": "40(ヨソ)",
+    "Category": "#Cat_PersonName",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales"],
+    "Term_EN": "40(Fortty)"
+  },
+  {
+    "Term_JP": "41(ヨソイチ)",
+    "Category": "#Cat_PersonName",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales"],
+    "Term_EN": "41(Forone)"
+  },
+  {
+    "Term_JP": "42(ヨツグ)",
+    "Category": "#Cat_PersonName",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales"],
+    "Term_EN": "42(Fortwis)"
+  },
+  {
+    "Term_JP": "43(シトミ)",
+    "Category": "#Cat_PersonName",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales"],
+    "Term_EN": "43(Forthren)"
+  },
+  {
+    "Term_JP": "44(シトシ)",
+    "Category": "#Cat_PersonName",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales"],
+    "Term_EN": "44(Folfourn)"
+  },
+  {
+    "Term_JP": "45(シゴ)",
+    "Category": "#Cat_PersonName",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales"],
+    "Term_EN": "45(Folfivas)"
+  },
+  {
+    "Term_JP": "46(シロー)",
+    "Category": "#Cat_PersonName",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales"],
+    "Term_EN": "46(Forsixen)"
+  },
+  {
+    "Term_JP": "47(シナ)",
+    "Category": "#Cat_PersonName",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales"],
+    "Term_EN": "47(Fourséve)"
+  },
+  {
+    "Term_JP": "48(シハチ)",
+    "Category": "#Cat_PersonName",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales"],
+    "Term_EN": "48(Foreighn)"
+  },
+  {
+    "Term_JP": "49(ヨチカ)",
+    "Category": "#Cat_PersonName",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales"],
+    "Term_EN": "49(Fornins)"
+  },
+  {
+    "Term_JP": "50(ナカバ)",
+    "Category": "#Cat_PersonName",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales"],
+    "Term_EN": "50(Halvan)"
+  },
+  {
+    "Term_JP": "51(イソイチ)",
+    "Category": "#Cat_PersonName",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales"],
+    "Term_EN": "51(Fivone)"
+  },
+  {
+    "Term_JP": "52(イツギ)",
+    "Category": "#Cat_PersonName",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales"],
+    "Term_EN": "52(Fiftwis)"
+  },
+  {
+    "Term_JP": "53(イツゾウ)",
+    "Category": "#Cat_PersonName",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales"],
+    "Term_EN": "53(Fifthren)"
+  },
+  {
+    "Term_JP": "54(イツヨ)",
+    "Category": "#Cat_PersonName",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales"],
+    "Term_EN": "54(Fiforn)"
+  },
+  {
+    "Term_JP": "55(イソゴ)",
+    "Category": "#Cat_PersonName",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales"],
+    "Term_EN": "55(Fifívan)"
+  },
+  {
+    "Term_JP": "56(イソロク)",
+    "Category": "#Cat_PersonName",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales"],
+    "Term_EN": "56(Fivsix)"
+  },
+  {
+    "Term_JP": "57(イズナ)",
+    "Category": "#Cat_PersonName",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales"],
+    "Term_EN": "57(Fivens)"
+  },
+  {
+    "Term_JP": "58(イソヤ)",
+    "Category": "#Cat_PersonName",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales"],
+    "Term_EN": "58(Fiveighs)"
+  },
+  {
+    "Term_JP": "59(イヅク)",
+    "Category": "#Cat_PersonName",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales"],
+    "Term_EN": "59(Fivenint)"
+  },
+  {
+    "Term_JP": "60(ムソウ)",
+    "Category": "#Cat_PersonName",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales"],
+    "Term_EN": "60(Sixtina)"
+  },
+  {
+    "Term_JP": "61(ロクイチ)",
+    "Category": "#Cat_PersonName",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales"],
+    "Term_EN": "61(Síxone)"
+  },
+  {
+    "Term_JP": "61(ロイ)",
+    "Category": "#Cat_PersonName",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales"],
+    "Term_EN": "61(Síon)"
+  },
+  {
+    "Term_JP": "62(ロジ)",
+    "Category": "#Cat_PersonName",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales"],
+    "Term_EN": "62(Sictwéna)"
+  },
+  {
+    "Term_JP": "63(ムツミ)",
+    "Category": "#Cat_PersonName",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales"],
+    "Term_EN": "63(Sicthrey)"
+  },
+  {
+    "Term_JP": "64(ムトシ)",
+    "Category": "#Cat_PersonName",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales"],
+    "Term_EN": "64(Sixforns)"
+  },
+  {
+    "Term_JP": "65(ロクゴ)",
+    "Category": "#Cat_PersonName",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales"],
+    "Term_EN": "65(Sixfivie)"
+  },
+  {
+    "Term_JP": "66(ムロク)",
+    "Category": "#Cat_PersonName",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales"],
+    "Term_EN": "66(Sixis)"
+  },
+  {
+    "Term_JP": "67(ムナ)",
+    "Category": "#Cat_PersonName",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales"],
+    "Term_EN": "67(Sicsevan)"
+  },
+  {
+    "Term_JP": "68(ロクヤ)",
+    "Category": "#Cat_PersonName",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales"],
+    "Term_EN": "68(Siceighns)"
+  },
+  {
+    "Term_JP": "69(ロック)",
+    "Category": "#Cat_PersonName",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales"],
+    "Term_EN": "69(Signine)"
+  },
+  {
+    "Term_JP": "70(ナナト)",
+    "Category": "#Cat_PersonName",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales"],
+    "Term_EN": "70(Seventia)"
+  },
+  {
+    "Term_JP": "71(ナナヒ)",
+    "Category": "#Cat_PersonName",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales"],
+    "Term_EN": "71(Sevone)"
+  },
+  {
+    "Term_JP": "72(ナフタ)",
+    "Category": "#Cat_PersonName",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales"],
+    "Term_EN": "72(Sevtwína)"
+  },
+  {
+    "Term_JP": "73(ナトミ)",
+    "Category": "#Cat_PersonName",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales"],
+    "Term_EN": "73(Sevthira)"
+  },
+  {
+    "Term_JP": "74(ナナヨ)",
+    "Category": "#Cat_PersonName",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales"],
+    "Term_EN": "74(Sefoury)"
+  },
+  {
+    "Term_JP": "75(シチゴ)",
+    "Category": "#Cat_PersonName",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales"],
+    "Term_EN": "75(Sefievn)"
+  },
+  {
+    "Term_JP": "76(シチロク)",
+    "Category": "#Cat_PersonName",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales"],
+    "Term_EN": "76(Sevsix)"
+  },
+  {
+    "Term_JP": "77(ナヅナ)",
+    "Category": "#Cat_PersonName",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales"],
+    "Term_EN": "77(Sefvens)"
+  },
+  {
+    "Term_JP": "78(ナナハ)",
+    "Category": "#Cat_PersonName",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales"],
+    "Term_EN": "78(Seveights)"
+  },
+  {
+    "Term_JP": "79(ナチカ)",
+    "Category": "#Cat_PersonName",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales"],
+    "Term_EN": "79(Sevenina)"
+  },
+  {
+    "Term_JP": "80(ヤソ)",
+    "Category": "#Cat_PersonName",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales"],
+    "Term_EN": "80(Eightis)"
+  },
+  {
+    "Term_JP": "81(ヤイチ)",
+    "Category": "#Cat_PersonName",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales"],
+    "Term_EN": "81(Eightone)"
+  },
+  {
+    "Term_JP": "82(ヤソジ)",
+    "Category": "#Cat_PersonName",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales"],
+    "Term_EN": "82(Eightwis)"
+  },
+  {
+    "Term_JP": "83(ハチゾウ)",
+    "Category": "#Cat_PersonName",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales"],
+    "Term_EN": "83(Eightrien)"
+  },
+  {
+    "Term_JP": "84(ヤツヨ)",
+    "Category": "#Cat_PersonName",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales"],
+    "Term_EN": "84(Eightifort)"
+  },
+  {
+    "Term_JP": "85(ハッコ)",
+    "Category": "#Cat_PersonName",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales"],
+    "Term_EN": "85(Eightifie)"
+  },
+  {
+    "Term_JP": "85(パコ)",
+    "Category": "#Cat_PersonName",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales"],
+    "Term_EN": "85(Eigfie)"
+  },
+  {
+    "Term_JP": "86(ハチロ)",
+    "Category": "#Cat_PersonName",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales"],
+    "Term_EN": "86(Eightix)"
+  },
+  {
+    "Term_JP": "87(ヤシナ)",
+    "Category": "#Cat_PersonName",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales"],
+    "Term_EN": "87(Eighteven)"
+  },
+  {
+    "Term_JP": "87(ハナ)",
+    "Category": "#Cat_PersonName",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales"],
+    "Term_EN": "87(Eivee)"
+  },
+  {
+    "Term_JP": "88(ヤソハチ)",
+    "Category": "#Cat_PersonName",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales"],
+    "Term_EN": "88(Infinights)"
+  },
+  {
+    "Term_JP": "89(ヤスモ)",
+    "Category": "#Cat_PersonName",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales"],
+    "Term_EN": "89(Eightine)"
+  },
+  {
+    "Term_JP": "90(キュウト)",
+    "Category": "#Cat_PersonName",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales"],
+    "Term_EN": "90(Nintiels)"
+  },
+  {
+    "Term_JP": "91(キュウイチ)",
+    "Category": "#Cat_PersonName",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales"],
+    "Term_EN": "91(Ninone)"
+  },
+  {
+    "Term_JP": "92(コトジ)",
+    "Category": "#Cat_PersonName",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales"],
+    "Term_EN": "92(Nintwina)"
+  },
+  {
+    "Term_JP": "93(クミ)",
+    "Category": "#Cat_PersonName",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales"],
+    "Term_EN": "93(Nintris)"
+  },
+  {
+    "Term_JP": "94(ツクシ)",
+    "Category": "#Cat_PersonName",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales"],
+    "Term_EN": "94(Ninfors)"
+  },
+  {
+    "Term_JP": "95(キュウゴ)",
+    "Category": "#Cat_PersonName",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales"],
+    "Term_EN": "95(Ninfife)"
+  },
+  {
+    "Term_JP": "96(クルリ)",
+    "Category": "#Cat_PersonName",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales"],
+    "Term_EN": "96(Rota)"
+  },
+  {
+    "Term_JP": "97(ココナ)",
+    "Category": "#Cat_PersonName",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales"],
+    "Term_EN": "97(Ninsefie)"
+  },
+  {
+    "Term_JP": "98(キュウヤ)",
+    "Category": "#Cat_PersonName",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales"],
+    "Term_EN": "98(Nineigha)"
+  },
+  {
+    "Term_JP": "99(ツクモ)",
+    "Category": "#Cat_PersonName",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales"],
+    "Term_EN": "99(Thukumo)"
+  },
+  {
+    "Term_JP": "バイナ",
+    "Category": "#Cat_PersonName",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales"],
+    "Term_EN": "Binor"
+  },
+  {
+    "Term_JP": "2(ツギ)",
+    "Category": "#Cat_PersonName",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales"],
+    "Term_EN": "2(Twicy)"
+  },
+  {
+    "Term_JP": "ディケ",
+    "Category": "#Cat_PersonName",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales"],
+    "Term_EN": "Dicat"
+  },
+  {
+    "Term_JP": "10(ツナイ)",
+    "Category": "#Cat_PersonName",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales"],
+    "Term_EN": "10(Decadle)"
+  },
+  {
+    "Term_JP": "000(チトセ)",
+    "Category": "#Cat_PersonName",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales"],
+    "Term_EN": "000(Thouser)"
+  },
+  {
+    "Term_JP": "ナンバーテールズ",
+    "Term_EN": "NumberTales",
+    "Category": "#Cat_FamilyName",
+    "TransPolicy": "#TP_SemanticTranslate",
+    "Scope": ["Works_NumberTales"]
+  },
+  {
+    "Term_JP": "ナンバーテールズ{n}番機",
+    "Term_EN": "NumberTales #{n}",
+    "Category": "#Cat_PersonName",
+    "TransPolicy": "#TP_SemanticTranslate",
+    "Scope": ["Works_NumberTales"],
+    "TransNote_JP": "{n} は各機体の通し番号（1〜99）を表すプレースホルダー",
+    "TransNote_EN": "{n} is a placeholder representing the serial number of each unit (1-99)"
+  },
+  {
+    "Term_JP": "ナンバーテールズ旧67番機",
+    "Term_EN": "NumberTales #67.OldType",
+    "Category": "#Cat_PersonName",
+    "TransPolicy": "#TP_SemanticTranslate",
+    "Scope": ["Works_NumberTales"]
+  },
+  {
+    "Term_JP": "ナンバーテールズ試作型2号機",
+    "Term_EN": "NumberTales' Prototype Mk.2",
+    "Category": "#Cat_PersonName",
+    "TransPolicy": "#TP_SemanticTranslate",
+    "Scope": ["Works_NumberTales"]
+  },
+  {
+    "Term_JP": "ナンバーテールズ開発支援機",
+    "Term_EN": "NumberTales [Dev.]",
+    "Category": "#Cat_PersonName",
+    "TransPolicy": "#TP_SemanticTranslate",
+    "Scope": ["Works_NumberTales"]
+  },
+  {
+    "Term_JP": "ナンバーテールズ試作型10号機",
+    "Term_EN": "NumberTales' Prototype Mk.10",
+    "Category": "#Cat_PersonName",
+    "TransPolicy": "#TP_SemanticTranslate",
+    "Scope": ["Works_NumberTales"]
+  },
+  {
+    "Term_JP": "ナンバーテールズ0番機",
+    "Term_EN": "NumberTales #000",
+    "Category": "#Cat_PersonName",
+    "TransPolicy": "#TP_SemanticTranslate",
+    "Scope": ["Works_NumberTales"]
+  }
+]

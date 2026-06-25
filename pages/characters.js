@@ -146,20 +146,22 @@ function findDbCatalogEntry(workMeta, dbName) {
 		: null;
 	if (!databases) return null;
 
-	const rawName = String(dbName || '').replace(/^#?(DB|Ref)_/i, '').trim();
+	const rawName = String(dbName || '').replace(/^#?(DB|Ref|Loc)_/i, '').trim();
 	if (!rawName) return null;
 	const normalized = `${rawName.charAt(0).toUpperCase()}${rawName.slice(1)}`;
-	return databases[`#DB_${normalized}`] || databases[`#Ref_${normalized}`] || null;
+	return databases[`#DB_${normalized}`] || databases[`#Ref_${normalized}`] || databases[`#Loc_${normalized}`] || null;
 }
 
 function mapDbNameToImageDir(dbName, layer = '') {
 	const rawName = String(dbName || '').trim();
 	if (!rawName) return 'General';
 	if (rawName === 'General') return 'General';
-	if (rawName.startsWith('DB_') || rawName.startsWith('Ref_')) return rawName;
+	if (rawName.startsWith('DB_') || rawName.startsWith('Ref_') || rawName.startsWith('Loc_')) return rawName;
 
-	// DB_Layer が "References" なら Ref_ プレフィックスを付与
-	if (String(layer || '').trim() === 'References') return `Ref_${rawName}`;
+	// DB_Layer に応じたプレフィックスを付与
+	const layerStr = String(layer || '').trim();
+	if (layerStr === 'References') return `Ref_${rawName}`;
+	if (layerStr === 'Localization') return `Loc_${rawName}`;
 
 	const refMapping = {
 		Glossary: 'Ref_Glossary',

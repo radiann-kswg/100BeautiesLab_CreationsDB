@@ -1,0 +1,9 @@
+{
+  "Databases": {
+    "#Loc_Dict": {
+      "DB_Layer": "Localization",
+      "DB_Label_JP": "翻訳辞書",
+      "DB_Label_EN": "Translation Dictionary"
+    }
+  }
+}

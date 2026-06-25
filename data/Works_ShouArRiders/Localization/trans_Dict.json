@@ -1,0 +1,51 @@
+[
+  {
+    "Term_JP": "子刻ハッカ",
+    "Category": "#Cat_PersonName",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_ShouArRiders"],
+    "Term_EN": "Mus Mousetimes"
+  },
+  {
+    "Term_JP": "寅刻コーガ",
+    "Category": "#Cat_PersonName",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_ShouArRiders"],
+    "Term_EN": "Pantheras Tigertimes"
+  },
+  {
+    "Term_JP": "卯刻ハネゝカ",
+    "Category": "#Cat_PersonName",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_ShouArRiders"],
+    "Term_EN": "Boundy Rabbitimes"
+  },
+  {
+    "Term_JP": "辰刻リウロン",
+    "Category": "#Cat_PersonName",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_ShouArRiders"],
+    "Term_EN": "Liú-lóng Dragotimes"
+  },
+  {
+    "Term_JP": "巳刻カミツ",
+    "Category": "#Cat_PersonName",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_ShouArRiders"],
+    "Term_EN": "Ciderin Snaketimes"
+  },
+  {
+    "Term_JP": "午刻ハヤテ",
+    "Category": "#Cat_PersonName",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_ShouArRiders"],
+    "Term_EN": "Windrush Horsetimes"
+  },
+  {
+    "Term_JP": "寅刻ネゝコ",
+    "Category": "#Cat_PersonName",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_ShouArRiders"],
+    "Term_EN": "Meowcats Tigertimes"
+  }
+]

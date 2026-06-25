@@ -17,9 +17,10 @@
 
 - 2026-06-24_progress_calendar-ics.md（誕生日・記念日の Google カレンダー連携: ICS 自動生成・配信。✅ 配信確認済み・購読登録済み。⚠️ Google カレンダー初回同期待ち）
 - 2026-06-24_progress_github-triage.md（GitHub 未解決通知トリアージ: CodeQL alert PR #9・vitest Dependabot PR・cf-api-sync CI 失敗。⚠️ 全件 User 判断・手動操作待ち）
+- 2026-06-24_progress_localization-db.md（英訳固有辞書 DB（Localization レイヤー）実装。✅ 130/130 pass。仮データ投入済み（全 9 作品）。TransPolicy 確認・能力名等の追記は User 手動）
 - 2026-06-24_progress_localization-rules-audit.md（英訳ルール追補・calling.js 実装。⚠️ ThirdPersonCalling_EN 要確認 6 件・calling.js UI 確認は User 手動）
 - 2026-06-24_progress_red-tests-triage.md（赤テスト 2 系統の調査・修正。✅ 全 3 件解消済み）
-- 2026-06-24_progress_ui-output-test-triage.md（ui-output テスト 7 件の調査・修正。✅ 125/126 pass。⚠️ B-2: References basicFields 実装課題 1 件残）
+- 2026-06-24_progress_ui-output-test-triage.md（ui-output テスト 7 件の調査・修正。✅ 126/126 pass。B-2 も 2026-06-24 続セッションで解消済み）
 
 - 2026-06-22_progress_jp-en-naming-standardization.md（JP/EN フィールド命名標準化・**Phase 2〜5 全完了** ⚠️ D1/R2 再同期は手動実施が必要）
 

@@ -1,0 +1,114 @@
+[
+  {
+    "Term_JP": "旭屋 雄",
+    "Category": "#Cat_PersonName",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_PastDivers"],
+    "Term_EN": "Malcolm Sunrizer"
+  },
+  {
+    "Term_JP": "雪乙女しいな",
+    "Category": "#Cat_PersonName",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_PastDivers"],
+    "Term_EN": "Ceena Snowmaider"
+  },
+  {
+    "Term_JP": "桜花 信",
+    "Category": "#Cat_PersonName",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_PastDivers"],
+    "Term_EN": "Trustia Cherrybroom"
+  },
+  {
+    "Term_JP": "花舞 流",
+    "Category": "#Cat_PersonName",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_PastDivers"],
+    "Term_EN": "Flur Flowee"
+  },
+  {
+    "Term_JP": "ゼン.エデンズグリーン",
+    "Category": "#Cat_PersonName",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_PastDivers"],
+    "Term_EN": "Bene.Edensgreen"
+  },
+  {
+    "Term_JP": "水無瀬 雫",
+    "Category": "#Cat_PersonName",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_PastDivers"],
+    "Term_EN": "Aquanne Afterains"
+  },
+  {
+    "Term_JP": "綾沢 改奈",
+    "Category": "#Cat_PersonName",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_PastDivers"],
+    "Term_EN": "Entery Lattercross"
+  },
+  {
+    "Term_JP": "八坂 兵汰",
+    "Category": "#Cat_PersonName",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_PastDivers"],
+    "Term_EN": "Yasaka Hector"
+  },
+  {
+    "Term_JP": "ヘクター.キロバスター",
+    "Category": "#Cat_PersonName",
+    "TransPolicy": "#TP_KeepOriginal",
+    "Scope": ["Works_PastDivers"],
+    "Term_EN": "Hector.Kilobuster"
+  },
+  {
+    "Term_JP": "ルイノ",
+    "Category": "#Cat_PersonName",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_PastDivers"],
+    "Term_EN": "Luis"
+  },
+  {
+    "Term_JP": "中月 ルイス-ノア",
+    "Category": "#Cat_PersonName",
+    "TransPolicy": "#TP_KeepOriginal",
+    "Scope": ["Works_PastDivers"],
+    "Term_EN": "Luis-Noah Nakatsuki"
+  },
+  {
+    "Term_JP": "神夜崎 十夜",
+    "Category": "#Cat_PersonName",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_PastDivers"],
+    "Term_EN": "Decadelune Theolessnight"
+  },
+  {
+    "Term_JP": "ジュウヤ",
+    "Category": "#Cat_PersonName",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_PastDivers"],
+    "Term_EN": "Decale"
+  },
+  {
+    "Term_JP": "霧島 博",
+    "Category": "#Cat_PersonName",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_PastDivers"],
+    "Term_EN": "Knowns Smogger"
+  },
+  {
+    "Term_JP": "キャサリン=アインツヴァイス",
+    "Category": "#Cat_PersonName",
+    "TransPolicy": "#TP_KeepOriginal",
+    "Scope": ["Works_PastDivers"],
+    "Term_EN": "Catherine=Einzweiss"
+  },
+  {
+    "Term_JP": "潤音 ミオ",
+    "Category": "#Cat_PersonName",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_PastDivers"],
+    "Term_EN": "Mi-O Lepus"
+  }
+]

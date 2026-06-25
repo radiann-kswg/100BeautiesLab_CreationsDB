@@ -1,5 +1,33 @@
 # 最新のリファクタリング・仕様変更履歴
 
+### Localization レイヤー 構造改善・仮データ投入 (2026-06-25)
+
+- **`#Loc_Dict` エントリを `DataBases/db_meta.json` から `Localization/db_meta.json` へ移動**: References レイヤーと同様に、各作品の `Localization/db_meta.json` がカタログ所在地となる。`DataBases/db_meta.json` には `#Loc_Dict` を含めない。
+- **`lib/sw-common.js` — `mergeLayerDatabases` 汎用メソッド追加**: `mergeRefDatabases` の実装を `mergeLayerDatabases(baseMeta, layerMeta, defaultLayer)` として一般化。`mergeRefDatabases` は thin wrapper に変更。
+- **`DataFetcher.readLocMeta` 追加・`readWorkMeta` で呼び出し**: `Works_*/Localization/db_meta.json` を読み込み、`mergeLayerDatabases` で DataBases にマージする。
+- **全 9 作品に `Localization/db_meta.json` 新規作成**: `#Loc_Dict` エントリ（`DB_Layer: "Localization"`）を収録。
+- **全 9 作品の仮データ投入**: 作品タイトル + 一次キャラクター全名称（`Name_JP` / `Name_EN`）+ NT FormalName（`ナンバーテールズ#番機 → NumberTales ##`）を `trans_Dict.json` に格納（NT: 211件・FL78: 14件・その他 4〜14件）。`TransPolicy`・`Category` は既存英訳パターンから仮判定（原作者による確認・修正を前提とする）。
+- **テスト追加**: `readWorkMeta merges Localization/db_meta.json` + `readDB resolves via Localization/db_meta.json` の 2 ケース追加。
+- **全スイート 130/130 pass** ✅
+
+### Localization レイヤー（英訳固有辞書 DB）追加 (2026-06-24)
+
+- **新レイヤー `Localization` を追加**: フォルダ名 `Localization/`、カタログキープレフィックス `#Loc_*`、ファイル命名規則 `trans_*.json`（TRANSlate 由来）。
+- **グローバル schema 新規作成**:
+  - `data/Localization/db_type.json` — 12 フィールド定義（`Term_JP/EN`, `Term_EN_Alt`, `Category`, `TransPolicy`, `Scope`, `Summary_JP/EN`, `TransNote_JP/EN`, `RelatedTerms`, `Links`）
+  - `data/Localization/db_meta.json` — `$EnumDef_TransPolicy`（5 件: 原語維持 / 意音ローカライズ / 意訳 / 音訳 / 和英併記）/ `$EnumDef_Category`（13 件）
+- **全 9 作品に `#Loc_Dict` エントリを追加**（後に Localization/db_meta.json へ移動）。
+- **9 作品の `trans_Dict.json` 作成**・ルーティング拡張（詳細は上のエントリ参照）。
+- **テスト `tests/sw.db-layer-routing.test.js`**: Localization 層ルーティング・`#Loc_` prefix 剥がし・`findMetaDbEntry` の 3 ケースを追加。
+- **全スイート 129/129 pass** ✅
+
+### References レイヤー basicFields のレイヤー typedef 駆動化 (2026-06-24)
+
+- **`pages/characters.js` `basicFieldKeys` をレイヤー typedef 駆動に変更**: `renderDetail` 内で、`currentLayerName` が非空のとき（References レイヤー等）、`layeredTypeDef.$DefType` の `$display.section:"basic"` エントリから `basicFieldKeys` を自動収集するよう変更した（従来は常に作品の `$DetailLayout.basicFields` を使用）。
+- **`data/Works_NumberTales/DataBases/db_meta.json` に `#Ref_Reference` / `#Ref_Vocabulary` を追加**: `findDbCatalogEntry` が `DB_Layer:"References"` を返せるよう、NT 作品メタの `Databases` 直下に両エントリを追加した。これにより `currentLayerName = "References"` が確定し `fetchSharedLayerTypeDef` が実行される。
+- **テスト**: `tests/pages.characters.ui-output.test.js` が 24/24 pass（旧 B-2 テストも解消）。全スイート 126/126 pass。
+
+
 ### Google カレンダー連携: 誕生日・記念日 ICS 自動生成・配信 (2026-06-24)
 
 - **`tools/build-calendar-ics.mjs` 新規追加**: `data/Works_*/DataBases/db_*.json` の全公開レコードから `BirthDay`(単一) / `AnivDay`(配列) を収集し、終日・毎年繰り返し(`RRULE:FREQ=YEARLY`)の iCalendar(.ics) を生成する。

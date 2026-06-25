@@ -1,0 +1,100 @@
+[
+  {
+    "Term_JP": "アルカナ",
+    "Category": "#Cat_Ability",
+    "TransPolicy": "#TP_SemanticTranslate",
+    "Scope": ["Works_FLInvestigator78"],
+    "Term_EN": "Arcana"
+  },
+  {
+    "Term_JP": "フェニクス",
+    "Category": "#Cat_FamilyName",
+    "TransPolicy": "#TP_SemanticTranslate",
+    "Scope": ["Works_FLInvestigator78"],
+    "Term_EN": "Phoenix"
+  },
+  {
+    "Term_JP": "オリジン",
+    "Category": "#Cat_FamilyName",
+    "TransPolicy": "#TP_SemanticTranslate",
+    "Scope": ["Works_FLInvestigator78"],
+    "Term_EN": "Dr.Origin"
+  },
+  {
+    "Term_JP": "ヨハネ",
+    "Category": "#Cat_FamilyName",
+    "TransPolicy": "#TP_SemanticTranslate",
+    "Scope": ["Works_FLInvestigator78"],
+    "Term_EN": "John"
+  },
+  {
+    "Term_JP": "ウェヌス",
+    "Category": "#Cat_FamilyName",
+    "TransPolicy": "#TP_SemanticTranslate",
+    "Scope": ["Works_FLInvestigator78"],
+    "Term_EN": "Venus"
+  },
+  {
+    "Term_JP": "アクセラ",
+    "Category": "#Cat_FamilyName",
+    "TransPolicy": "#TP_SemanticTranslate",
+    "Scope": ["Works_FLInvestigator78"],
+    "Term_EN": "Accela"
+  },
+  {
+    "Term_JP": "リオン",
+    "Category": "#Cat_FamilyName",
+    "TransPolicy": "#TP_SemanticTranslate",
+    "Scope": ["Works_FLInvestigator78"],
+    "Term_EN": "Lion"
+  },
+  {
+    "Term_JP": "ヴェール",
+    "Category": "#Cat_FamilyName",
+    "TransPolicy": "#TP_SemanticTranslate",
+    "Scope": ["Works_FLInvestigator78"],
+    "Term_EN": "Veil"
+  },
+  {
+    "Term_JP": "ドゥームズ",
+    "Category": "#Cat_FamilyName",
+    "TransPolicy": "#TP_SemanticTranslate",
+    "Scope": ["Works_FLInvestigator78"],
+    "Term_EN": "Dooms"
+  },
+  {
+    "Term_JP": "バベル",
+    "Category": "#Cat_FamilyName",
+    "TransPolicy": "#TP_SemanticTranslate",
+    "Scope": ["Works_FLInvestigator78"],
+    "Term_EN": "Babel"
+  },
+  {
+    "Term_JP": "ゲイザー",
+    "Category": "#Cat_FamilyName",
+    "TransPolicy": "#TP_SemanticTranslate",
+    "Scope": ["Works_FLInvestigator78"],
+    "Term_EN": "Gazer"
+  },
+  {
+    "Term_JP": "ルネ",
+    "Category": "#Cat_FamilyName",
+    "TransPolicy": "#TP_SemanticTranslate",
+    "Scope": ["Works_FLInvestigator78"],
+    "Term_EN": "Lune"
+  },
+  {
+    "Term_JP": "切り札の展開師",
+    "Category": "#Cat_Rank",
+    "TransPolicy": "#TP_SemanticTranslate",
+    "Scope": ["Works_FLInvestigator78"],
+    "Term_EN": "Trump Spreader"
+  },
+  {
+    "Term_JP": "切り札の憑英師",
+    "Category": "#Cat_Rank",
+    "TransPolicy": "#TP_SemanticTranslate",
+    "Scope": ["Works_FLInvestigator78"],
+    "Term_EN": "Trump Engager"
+  }
+]
