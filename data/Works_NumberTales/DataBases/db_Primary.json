@@ -24010,8 +24010,7 @@
       "Actuation": { "Rank": "S" }
     },
     "Backgrounds_JP": "ナンバーテールズ99体の中では珍しく、フィットネスに関するメニューも積極的に取り入れているため後に躯体が新調された。",
-    "Backgrounds_EN": "One of the rare cases among the 99 NumberTales, his active incorporation of fitness-related programs led to his frame being upgraded at a later date.",
-    "AIHints": { "concept_contains_forms": ["humanoid"] }
+    "Backgrounds_EN": "One of the rare cases among the 99 NumberTales, his active incorporation of fitness-related programs led to his frame being upgraded at a later date."
   },
   {
     "Num": 67,
@@ -34565,8 +34564,7 @@
           "about_EN": "During a transitional period in research"
         }
       ]
-    },
-    "AIHints": { "concept_contains_forms": ["humanoid"] }
+    }
   },
   {
     "Num": "00",
@@ -34716,7 +34714,6 @@
           "about_EN": "Toward his older sister Zera when she seems to be getting carried away (case.2)"
         }
       ]
-    },
-    "AIHints": { "concept_contains_forms": ["humanoid"] }
+    }
   }
 ]
