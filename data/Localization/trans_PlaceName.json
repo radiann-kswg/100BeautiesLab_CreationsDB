@@ -8,19 +8,25 @@
       "Works_FLInvestigator78",
       "Works_UnauthedLogica",
       "Works_UnibyteLive"
-    ]
+    ],
+    "Summary_JP": "この創作世界「第８界」の極東に位置する島国であり、このサークルにおける創作のメインエリア。主にヒューマノイド事業やメタバース事業への開発に積極的。",
+    "Summary_EN": "This is an island nation located in the far east of this fictional world, '#REGION.8', and is the main area of creation in our creative circle. It is mainly active in humanoid business and metaverse business development."
   },
   {
     "Term_JP": "龍天国",
     "Term_EN": "LóngTiān's.Republic",
     "TransPolicy": "#TP_Romanize",
-    "Scope": ["Works_ShouArRiders"]
+    "Scope": ["Works_ShouArRiders"],
+    "Summary_JP": "この創作世界「第８界」の東部に位置する大陸国家。人口の急増により社会問題が多数存在するが、生産力や生命力では「第８界」トップクラス。",
+    "Summary_EN": "This is a continental nation located in the eastern part of this fictional world, '#REGION.8'. Despite numerous social issues due to rapid population growth, it ranks among the top in '#REGION.8' in terms of productivity and vitality."
   },
   {
     "Term_JP": "英皇国",
     "Term_EN": "Internic.Kingdom",
     "TransPolicy": "#TP_LocalizeName",
-    "Scope": ["Works_FLInvestigator78"]
+    "Scope": ["Works_FLInvestigator78"],
+    "Summary_JP": "この創作世界「第８界」の子午線部に位置する湾岸国家。情報力と貴族文化に優れており、「第８界」の時空を司る“運命線(フェイトライン)”や“岐路(ブランチ)”という概念に関する重要な技術を担っている。",
+    "Summary_EN": "This is a coastal nation located in the meridian region of this fictional world, '#REGION.8'. It excels in information power and aristocratic culture, and is responsible for important technologies related to the concepts of 'FateLine' and 'FL_BRANCH' that govern the space-time of '#REGION.8'."
   },
   {
     "Term_JP": "雄志結国",
@@ -36,60 +42,98 @@
       "Works_PastDivers",
       "Works_DestinyFoxRecords",
       "Works_Proxies"
-    ]
-  },
-  {
-    "Term_JP": "海陸国(シーバイランド)諸島",
-    "Term_EN": "Seabyislands",
-    "TransPolicy": "#TP_KeepOriginal",
-    "Scope": []
+    ],
+    "Summary_JP": "この創作世界「第８界」の西部に位置する大陸国家。圧倒的な軍事力と資産力を兼ね揃えており、「第８界」の国際的なソーシャルメディアの大半を開発・運営・掌握している。",
+    "Summary_EN": "This is a continental nation located in the western part of this fictional world, '#REGION.8'. It possesses overwhelming military and financial power, and develops, operates, and controls the majority of international social media in '#REGION.8'."
   },
   {
     "Term_JP": "紅雪連邦",
     "Term_EN": "United.SnowRed.Republic",
     "TransPolicy": "#TP_SemanticTranslate",
-    "Scope": ["Works_UnauthedLogica"]
+    "Scope": ["Works_UnauthedLogica", "Works_SinisterChangingGirls"],
+    "Summary_JP": "この創作世界「第８界」の北部に位置する大陸国家群。かつては軍事開発で技術と政権の先頭に立つ国家だったが、技術の発展と社会の変化により危険地帯扱いされるようになった。このエリアに関する最新で詳しい情勢は誰にも知られることはないだろう。",
+    "Summary_EN": "This is a group of continental nations located in the northern part of this fictional world, '#REGION.8'. Once at the forefront of military development and governance, these nations have become considered dangerous areas due to technological advancements and societal changes. The latest and detailed situation in this area is unknown to anyone."
   },
   {
-    "Term_JP": "四蓮島",
-    "Term_EN": "LotasQuadrup.Island",
-    "TransPolicy": "#TP_LocalizeName",
-    "Scope": []
+    "Term_JP": "運命線運河",
+    "Term_JPReading": "うんめいせんうんが",
+    "Term_EN": "FateLine Canal",
+    "TransPolicy": "#TP_SemanticTranslate",
+    "Scope": ["Works_NumberTales", "Works_FLInvestigator78"],
+    "Summary_JP": "この創作世界「第８界」の子午線部と東部をつなぐ大陸間運河。東と西の文化圏の境界をつなぐことから、流通的にも崇高な航路として陸路や空路よりもこの海路を愛用する旅人も多い。",
+    "Summary_EN": "This is an intercontinental canal that connects the meridian region and the eastern part of this fictional world, '#REGION.8'. As it connects the cultural spheres of the east and west, many travelers prefer this sea route over land or air routes, considering it a sublime route for transportation."
+  },
+  {
+    "Term_JP": "英州諸国",
+    "Term_JPReading": "えいしゅうしょこく",
+    "Term_EN": "Internation States",
+    "TransPolicy": "#TP_SemanticTranslate",
+    "Scope": ["Works_NumberTales", "Works_FLInvestigator78"],
+    "Summary_JP": "この創作世界「第８界」の北西部に位置するエリア連合。現在は黒薔薇国や神皇国などのエリアで構成されている。かつては英皇国もこのエリア連合に所属していたが、“運命線”に関わる技術開発およびその他の事情で独立した。",
+    "Summary_EN": "This is an area federation located in the northwest part of this fictional world, '#REGION.8'. It currently consists of areas such as SchwarzeRoseland and SaintPapis. In the past, Internic.Kingdom also belonged to this area federation, but it became independent due to technological development related to 'FateLine' and other circumstances."
   },
   {
     "Term_JP": "黒薔薇国",
     "Term_EN": "SchwarzeRoseland",
     "TransPolicy": "#TP_SemanticTranslate",
-    "Scope": []
+    "Scope": ["Works_NumberTales", "Works_SinisterChangingGirls"],
+    "Summary_JP": "この創作世界「第８界」の北西部「英州諸国」に位置するエリア。かつては軍事参入により医療技術や暗号化の開発に秀でていた。九蓮国と類似する技術開発が多数あり、過去の社会的な政権の事情で九蓮国や神皇国との関係も深い。",
+    "Summary_EN": "This area is located in the northwest part of this fictional world, '#REGION.8', in the 'Internation States'. It was once prominent in medical technology and cryptography development due to military involvement. There are many technological developments similar to those in LotusNinea, and it has deep connections with LotusNinea and SaintPapis due to past political circumstances."
   },
   {
     "Term_JP": "神皇国",
     "Term_EN": "SaintPapis",
     "TransPolicy": "#TP_LocalizeName",
-    "Scope": []
+    "Scope": ["Works_NumberTales"],
+    "Summary_JP": "この創作世界「第８界」の北西部「英州諸国」に位置するエリア。神聖な文化を重んじることから、美徳意識が他のエリアより群を抜いて高い。美術的な観光スポットとしても海外から「運命線運河」を渡って訪れる人もいるようだ。",
+    "Summary_EN": "This area is located in the northwest part of this fictional world, '#REGION.8', in the 'Internation States'. It values sacred culture, resulting in a higher sense of virtue compared to other areas. Some travelers even cross the 'FateLine Canal' from overseas to visit its artistic tourist spots."
+  },
+  {
+    "Term_JP": "四蓮島",
+    "Term_EN": "LotasQuadrup.Island",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_SinisterChangingGirls"],
+    "Summary_JP": "九蓮国と龍天国の中立エリアとして存在する謎の島。主力エリアの政権や文化を多数担っていることから、「第８界」の重要な場所が存在されていると噂されているが、その真相は定かではない。",
+    "Summary_EN": "This is a mysterious island that exists as a neutral area between LotusNinea and LóngTiān's.Republic. It is rumored to be an important location in '#REGION.8' due to its governance and cultural influence, but the truth remains uncertain."
+  },
+  {
+    "Term_JP": "海陸国(シーバイランド)諸島",
+    "Term_EN": "Seabyislands",
+    "TransPolicy": "#TP_KeepOriginal",
+    "Scope": ["Works_FLInvestigator78"],
+    "Summary_JP": "この創作世界「第８界」の南部中央に位置する大小からなる島国。かつては英皇国の管轄内にあったことと、現在九蓮国と学業面で友好関係があることから、78特殊探偵団こと運命線探偵の中継地点となっているだけでなく、水源や自然などといった天然資源については同組織の環境保全対象となっている。",
+    "Summary_EN": "This island nation, located in the south-central part of this fictional world, '#REGION.8', consists of various sizes of islands. It was once under the jurisdiction of the Internic.Kingdom, and currently maintains friendly academic relations with LotusNinea. As a result, it serves as a relay point for Team.78 the Special Investigators, and its natural resources, such as water sources and nature, are also subject to the faction's environmental protection efforts."
   },
   {
     "Term_JP": "算象(アリスマ)諸国",
     "Term_EN": "Alismathians",
     "TransPolicy": "#TP_KeepOriginal",
-    "Scope": []
+    "Scope": [],
+    "Summary_JP": "",
+    "Summary_EN": ""
   },
   {
     "Term_JP": "金源(アウルムゲン)諸国",
     "Term_EN": "Aurumgenics",
     "TransPolicy": "#TP_KeepOriginal",
-    "Scope": []
+    "Scope": [],
+    "Summary_JP": "",
+    "Summary_EN": ""
   },
   {
     "Term_JP": "南雌(イヴソース)大陸",
     "Term_EN": "Evesouth Mainland",
     "TransPolicy": "#TP_KeepOriginal",
-    "Scope": []
+    "Scope": [],
+    "Summary_JP": "",
+    "Summary_EN": ""
   },
   {
     "Term_JP": "然天(ネーザ)大陸",
     "Term_EN": "Naitus Mainland",
     "TransPolicy": "#TP_KeepOriginal",
-    "Scope": []
+    "Scope": [],
+    "Summary_JP": "",
+    "Summary_EN": ""
   }
 ]

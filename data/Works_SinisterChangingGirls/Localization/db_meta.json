@@ -1,1 +1,9 @@
-{ "Databases": {} }
+{
+  "Databases": {
+    "#Loc_Items": {
+      "DB_Layer": "Localization",
+      "DB_Label_JP": "物・アイテム",
+      "DB_Label_EN": "Objects / Items"
+    }
+  }
+}

@@ -7,31 +7,41 @@
       "Works_NumberTales",
       "Works_UnauthedLogica",
       "Works_SinisterChangingGirls"
-    ]
+    ],
+    "Summary_JP": "「九蓮国」に所在するヒューマノイド事業の天才営業人。ナンバーテールズ/人形兵ゼロイドの人格部分の開発や運営を担っている。",
+    "Summary_EN": "A genius salesperson in the humanoid business located in LotusNinea. Responsible for the development and operation of the personality components of NumberTales / AttackerZeroid."
   },
   {
     "Term_JP": "千歳 玲",
     "Term_EN": "Zeena Thouser",
     "TransPolicy": "#TP_SemanticTranslate",
-    "Scope": ["Works_NumberTales"]
+    "Scope": ["Works_NumberTales"],
+    "Summary_JP": "零 零の本名。双子の弟と修士課程の進学旅行で不慮の事故に遭った重症により、生還できなかった時に備えて自らの人格を模倣したペルソナAIに苗字である「チトセ」と名付けてしまったことから、混合を防ぐためにこの名前で名乗ることはなくなった。",
+    "Summary_EN": "The real name of Zera Norumber. Due to a severe accident during a master's course study trip with her twin brother, they named the persona AI that mimicked their own personality with their surname 'Thouser' in case they could not survive. Therefore, she has not used this name to prevent confusion."
   },
   {
     "Term_JP": "零 百",
     "Term_EN": "Hudret Norumber",
     "TransPolicy": "#TP_SemanticTranslate",
-    "Scope": ["Works_NumberTales", "Works_UnauthedLogica"]
+    "Scope": ["Works_NumberTales", "Works_UnauthedLogica"],
+    "Summary_JP": "「九蓮国」に所在するヒューマノイド事業の天才メカニック。ナンバーテールズ/人形兵ゼロイドの躯体部分の開発や設計を担っている。",
+    "Summary_EN": "A genius mechanic in the humanoid business located in LotusNinea. Responsible for the development and design of the body components of NumberTales / AttackerZeroid."
   },
   {
     "Term_JP": "千歳 励",
     "Term_EN": "Hadler Thouser",
     "TransPolicy": "#TP_SemanticTranslate",
-    "Scope": ["Works_NumberTales"]
+    "Scope": ["Works_NumberTales"],
+    "Summary_JP": "零 百の本名。双子の姉と修士課程の進学旅行で不慮の事故に遭った重症により、彼が開発した補助機器が姉弟の生還までに完成しないことを恐れた姉により姉弟の代理人として開発されたペルソナAIに苗字である「チトセ」と名付けられてしまったことから、混合を防ぐためにこの名前で名乗ることはなくなった。",
+    "Summary_EN": "The real name of Hudret Norumber. Due to a severe accident during a master's course study trip with his twin sister, the persona AI developed as a proxy for the siblings was named 'Thouser' by his sister, fearing that the auxiliary equipment he developed would not be completed in time for their survival. Therefore, he has not used this name to prevent confusion."
   },
   {
     "Term_JP": "扇 三春",
     "Term_EN": "Mikhail Arch",
     "TransPolicy": "#TP_LocalizeName",
-    "Scope": ["Works_SinisterChangingGirls"]
+    "Scope": ["Works_SinisterChangingGirls"],
+    "Summary_JP": "「第８界」の各エリアを旅し国際情報を担う者を名乗っている謎の旅人。噂では「第８界」の創造主「扇小春」の襲名を受けているのではないかとのことだが、それはただのデマとして信じられることはないだろう…………この創作世界の中では。",
+    "Summary_EN": "A mysterious traveler who claims to be responsible for international information while traveling through various areas of '#REGION.8'. Rumor has it that they have inherited the name of the creator of #REGION.8, 'Koharu Arch', but that is just a rumor and is unlikely to be believed -- -- within this creation world."
   },
   {
     "Term_JP": "六花 ルノ",
@@ -43,25 +53,37 @@
     "Term_JP": "九 叶",
     "Term_EN": "Canna Ninie",
     "TransPolicy": "#TP_LocalizeName",
-    "Scope": ["Works_SinisterChangingGirls", "Works_ShouArRiders"]
+    "Scope": [
+      "Works_SinisterChangingGirls",
+      "Works_PastDivers",
+      "Works_ShouArRiders"
+    ],
+    "Summary_JP": "生まれは龍天国の戦争孤児で育ちは九蓮国皇族のお嬢様。だが、戦渦に巻き込まれながら育ちあまりにも質の良い教養に恵まれなかったのか、ある日自らの安寧のために突然「新生九蓮国」という革命軍を名乗り四蓮島を中心に放浪活動を始めてしまった。",
+    "Summary_EN": "Born as a war orphan in LóngTiān's.Republic and raised as a young lady of the LotusNinea royal family. However, perhaps due to not being blessed with high-quality education while growing up amidst the turmoil of war, one day she suddenly began wandering around, claiming to be a revolutionary army called 'Neo.LotusNinea', centered on LotasQuadrup.Island, for her own peace of mind."
   },
   {
     "Term_JP": "六花 雙葉",
     "Term_EN": "Dozenne Hexacrys",
     "TransPolicy": "#TP_LocalizeName",
-    "Scope": ["Works_SinisterChangingGirls", "Works_UnauthedLogica"]
+    "Scope": ["Works_SinisterChangingGirls", "Works_UnauthedLogica"],
+    "Summary_JP": "もともと四蓮島で生まれた戦争孤児だったところを義妹の六花 ルノに引き取られるはずが、数年以上の記憶不振から目覚めたら紅雪連邦のジャンクガレージにいたので、仕方なくジャンクショップを経営している二重人格の少女。裏の人格「クィーン.トゥエルヴ」を巡るトラブルによく巻き込まれているが、果たしてそれは「六花 雙葉」としての過去にどれだけ関与しているのだろうか……",
+    "Summary_EN": "Originally a war orphan born on LotasQuadrup.Island, she was supposed to be taken in by her younger sister, Luno Hexacrys. However, after awakening from several years of memory loss, she found herself in a junk garage in the United.SnowRed.Republic. As a result, she reluctantly runs a junk shop and has a dual personality. She often gets involved in troubles surrounding her alternate personality, 'Queen.XII', but how much does that actually relate to her past as 'Dozenne Hexacrys'...?"
   },
   {
     "Term_JP": "クィーン.トゥエルヴ",
     "Term_EN": "Queen.XII",
     "TransPolicy": "#TP_KeepOriginal",
-    "Scope": ["Works_SinisterChangingGirls", "Works_UnauthedLogica"]
+    "Scope": ["Works_SinisterChangingGirls", "Works_UnauthedLogica"],
+    "Summary_JP": "六花 雙葉の裏人格で、紅雪連邦の旧式部品である集積素子を誰よりも狙うバウンティーハンター。この人格が発現したのは表人格の六花 雙葉も全く心当たりがないとのことだが、少なくとも義妹：六花 ルノに引き渡されるはずの周辺（またはそれを巡る他の要因によりさらに前から）に六花 雙葉の身に何かが遭ったことは間違いない。",
+    "Summary_EN": "The alternate personality of Dozenne Hexacrys, a bounty hunter who targets IC components, which are old parts of the United.SnowRed.Republic, more than anyone else. It is said that even the primary personality, Dozenne Hexacrys, has no idea how this personality manifested. However, it is certain that something happened to Dozenne Hexacrys in the vicinity (or due to other factors surrounding it) before she was supposed to be handed over to her younger sister, Luno Hexacrys."
   },
   {
     "Term_JP": "ミル.ニュクスフ",
     "Term_EN": "Lamill.NuXV",
     "TransPolicy": "#TP_LocalizeName",
-    "Scope": ["Works_SinisterChangingGirls"]
+    "Scope": ["Works_SinisterChangingGirls", "Works_ShouArRiders"],
+    "Summary_JP": "龍天国から黒薔薇国に漂流していたところをシンフォニー.XVIのエニグマ課社員に拾われた、成体済みで稚拙な謎の女性。体に「巳-拾伍」と書かれたタグが付いていたことから、黒薔薇国現地の言語で「巳」より「ミル」、「拾伍」より「ニュクスフ」と名付けられた。現在は「扇 三春」を中心とした豹変系女子に育てられているが、生命の誕生などに関しては極めて強いトラウマがあるらしく……",
+    "Summary_EN": "A mysterious woman who was found drifting from LóngTiān's.Republic to SchwarzeRoseland by an employee of the Enigma Division of Symphony.XVI. She was named 'Lamill.NuXV' based on the tag on her body that read '巳-拾伍' in the local language of SchwarzeRoseland. She is currently being raised by the Sinister Changing Girls led by 'Mikhail Arch', but seems to have a severe trauma related to the birth of life..."
   },
   {
     "Term_JP": "神夜崎 ユノ",
@@ -78,7 +100,9 @@
       "Works_PastDivers",
       "Works_ShouArRiders",
       "Works_FLInvestigator78"
-    ]
+    ],
+    "Summary_JP": "十数年前までは芸能界やニュースメディアで毒舌コメンテータとして活動していた若手超大物政治ジャーナリスト。当時は20代でもあったことから大物入りとしてはとても期待が高まる人物だったが、ある日突如 彼女の口から引退を宣言したことで忽然と芸能界や政界から姿を消し、その後一切「財前 小里」の名が各地のメディアで取り上げられることはなくなった。",
+    "Summary_EN": "A young, up-and-coming political journalist who was active as a sharp-tongued commentator in the entertainment industry and news media until a decade ago. At the time, she was in her 20s, making her a highly promising figure among the rising stars. However, one day she suddenly announced her retirement, disappearing from the entertainment and political scenes, and since then, the name 'Foster Empressor' has not been mentioned in any media."
   },
   {
     "Term_JP": "終藤 こさと",
@@ -89,6 +113,8 @@
       "Works_PastDivers",
       "Works_ShouArRiders",
       "Works_FLInvestigator78"
-    ]
+    ],
+    "Summary_JP": "「財前 小里」という電撃引退を経て消息を絶ってしまった若手超大物政治ジャーナリストと瓜二つな謎の若人。各地のマスコミから財前 小里の目撃情報として真相を狭まれているが、彼(女)自身は「終藤 こさと」を名乗っており財前 小里との関係について謎は深まるばかりとなっている。しかしながらそれ以前に近年では、彼(女)が政治・情勢・社会・事件・戦争などといった人間の織り成すすべての歴史を“エンターテインメント”として弄び、「第８界」の至る異変に関与していることへ警戒されていることが多く－－",
+    "Summary_EN": "A mysterious young person who bears a striking resemblance to the young, up-and-coming political journalist 'Foster Empressor', who suddenly disappeared after announcing her retirement. While the media has speculated about sightings of 'Foster Empressor', ze goes by the name 'Formar Endrof', deepening the mystery surrounding their connection. In recent years, ze has been observed manipulating all aspects of human history—politics, society, events, wars—as 'entertainment', raising concerns about their involvement in various anomalies in the '#REGION.8'."
   }
 ]

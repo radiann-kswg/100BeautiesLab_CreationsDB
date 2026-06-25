@@ -3,6 +3,8 @@
     "Term_JP": "山月病",
     "Term_EN": "Shanyu Disease",
     "TransPolicy": "#TP_Romanize",
-    "Scope": ["Works_ShouArRiders"]
+    "Scope": ["Works_ShouArRiders"],
+    "TransNote_JP": "`Ref_Vocabulary`および`Ref_Reference`を参照",
+    "TransNote_EN": "See `Ref_Vocabulary` and `Ref_Reference`"
   }
 ]

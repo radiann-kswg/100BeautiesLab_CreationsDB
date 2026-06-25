@@ -3,54 +3,72 @@
     "Term_JP": "セコンド",
     "Term_EN": "Second_SI-T",
     "TransPolicy": "#TP_SemanticTranslate",
-    "Scope": ["Works_DestinyFoxRecords"]
+    "Scope": ["Works_DestinyFoxRecords"],
+    "Summary_JP": "モチーフ元はSI基本単位の「秒[sec]」。（和文では、英訳の'second'を「セカンド(2nd,二番目)」と混同しないようにローマ字読みで命名している。）",
+    "Summary_EN": "The motif is based on the SI base unit 'second [sec]'"
   },
   {
     "Term_JP": "メトレ",
     "Term_EN": "Metre_SI-L",
     "TransPolicy": "#TP_SemanticTranslate",
-    "Scope": ["Works_DestinyFoxRecords"]
+    "Scope": ["Works_DestinyFoxRecords"],
+    "Summary_JP": "モチーフ元はSI基本単位の「メートル[m]」。（和文では、英訳の'metre'('meter'のラテンスペル)をローマ字読みで命名している。）",
+    "Summary_EN": "The motif is based on the SI base unit 'metre [m]' ('meter' in Latin spelling)."
   },
   {
     "Term_JP": "キログラ",
     "Term_EN": "Kilogra_SI-M",
     "TransPolicy": "#TP_SemanticTranslate",
-    "Scope": ["Works_DestinyFoxRecords"]
+    "Scope": ["Works_DestinyFoxRecords"],
+    "Summary_JP": "モチーフ元はSI基本単位の「キログラム[kg]」。英訳の'kilogram'を崩している。",
+    "Summary_EN": "The motif is based on the SI base unit 'kilogram [kg]'. The English translation is altered from 'kilogram'."
   },
   {
     "Term_JP": "カンデラ",
     "Term_EN": "Candela_SI-J",
     "TransPolicy": "#TP_SemanticTranslate",
-    "Scope": ["Works_DestinyFoxRecords"]
+    "Scope": ["Works_DestinyFoxRecords"],
+    "Summary_JP": "モチーフ元はSI基本単位の「カンデラ[cd]」。",
+    "Summary_EN": "The motif is based on the SI base unit 'candela [cd]'"
   },
   {
     "Term_JP": "ケルビン",
     "Term_EN": "Kelvin_SI-Θ",
     "TransPolicy": "#TP_SemanticTranslate",
-    "Scope": ["Works_DestinyFoxRecords"]
+    "Scope": ["Works_DestinyFoxRecords"],
+    "Summary_JP": "モチーフ元はSI基本単位の「ケルビン[K]」。",
+    "Summary_EN": "The motif is based on the SI base unit 'kelvin [K]'"
   },
   {
     "Term_JP": "アンプ",
     "Term_EN": "Amp'_SI-I",
     "TransPolicy": "#TP_SemanticTranslate",
-    "Scope": ["Works_DestinyFoxRecords"]
+    "Scope": ["Works_DestinyFoxRecords"],
+    "Summary_JP": "モチーフ元はSI基本単位の「アンペア[A]」。英訳の'Ampere'を略している。",
+    "Summary_EN": "The motif is based on the SI base unit 'ampere [A]'. The English translation is abbreviated from 'Ampere'."
   },
   {
     "Term_JP": "モル",
     "Term_EN": "Mol_SI-N",
     "TransPolicy": "#TP_SemanticTranslate",
-    "Scope": ["Works_DestinyFoxRecords"]
+    "Scope": ["Works_DestinyFoxRecords"],
+    "Summary_JP": "モチーフ元はSI基本単位の「モル[mol]」",
+    "Summary_EN": "The motif is based on the SI base unit 'mole [mol]'"
   },
   {
     "Term_JP": "ラジアン",
     "Term_EN": "RadianN",
     "TransPolicy": "#TP_SemanticTranslate",
-    "Scope": ["Works_DestinyFoxRecords"]
+    "Scope": ["Works_DestinyFoxRecords"],
+    "Summary_JP": "モチーフ元はSI派生単位の「ラジアン[rad]」。無次元の単位でもあることから、SI基本単位と独立された指標としてSI基本単位モチーフの7人と別個性の追加要因として存在している。",
+    "Summary_EN": "The motif is based on the SI derived unit 'radian [rad]'. As it is a dimensionless unit, it exists as an independent indicator separate from the seven SI base unit motifs, adding a unique element."
   },
   {
     "Term_JP": "ステラ",
     "Term_EN": "Srera'N",
     "TransPolicy": "#TP_SemanticTranslate",
-    "Scope": ["Works_DestinyFoxRecords"]
+    "Scope": ["Works_DestinyFoxRecords"],
+    "Summary_JP": "モチーフ元はSI派生単位の「ステラジアン[sr]」。ラジアンと同様に無次元の単位でもあることから、SI基本単位と独立された指標としてSI基本単位モチーフの7人と別個性の追加要因として存在している。",
+    "Summary_EN": "The motif is based on the SI derived unit 'steradian [sr]'. Like the radian, it is also a dimensionless unit, and thus exists as an independent indicator separate from the seven SI base unit motifs, adding a unique element."
   }
 ]

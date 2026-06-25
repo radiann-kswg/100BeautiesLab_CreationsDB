@@ -31,5 +31,27 @@
     "Summary_EN": "Shanyu Disease is a vicious beast transformation disease that is said to have originated from the development and explosion of a vicious Beast Virus during the LóngTiān's.Republic's subhuman rights war, which is comparable to one of the World Destruction Pandemic VII. It also has a personality contamination effect, which has a significant impact on suppressing social participation and is a major factor in becoming the biggest social problem in LóngTiān's.Republic.",
     "Aliases": [],
     "Links": []
+  },
+  {
+    "Term_JP": "球子再起",
+    "Term_JPReading": "エッグリボーン",
+    "Term_EN": "EggSphere Rebirth",
+    "TermType": null,
+    "Category": "医術・技術",
+    "Summary_JP": "獣爾騎兵に万が一 山月病もしくは任務中の外傷により、人体に致命的な浸食が発生した場合は、身体の分解と再構築を行うリファクタリング治療「球子再起(エッグリボーン)」が行われる。この治療は、身体構造を一度球体型の単純形状になるまで身体細胞を分解し、その分解の過程で再利用可能な細胞から「獣爾余剰体」という健常なクローンを作成して、そのクローンの部位を用いて球体型となった身体を元の健常な状態に再構築するという、極めて高度かつ危険な施術である。この治療方法は獣爾騎兵兵長である「子刻ハッカ」しか扱えず、同時に他の者が“決して”扱ってはならない。",
+    "Summary_EN": "In the event that a Shou'ar Rider suffers fatal erosion of the human body due to Shanyu Disease or external injuries during a mission, a refactoring treatment called 'EggSphere Rebirth' is performed, which involves disassembling and reconstructing the body. This treatment is an extremely advanced and strictly dangerous procedure that disassembles the body's cells until it becomes a simple spherical shape, and during this process, creates a healthy clone called 'Shou'ar Surpluses' from reusable cells. The clone's parts are then used to reconstruct the spherical body back to its original healthy state. This treatment method can only be handled by the Shou'ar Rider Captain 'Mus Mousetimes', and NEVER one else is allowed to handle it.",
+    "Aliases": [],
+    "Links": []
+  },
+  {
+    "Term_JP": "獣爾余剰体",
+    "Term_JPReading": "シャウアルよじょうたい",
+    "Term_EN": "Shou'ar Surpluses",
+    "TermType": null,
+    "Category": "分類・種族",
+    "Summary_JP": "獣爾騎兵のリファクタリング治療「球子再起(エッグリボーン)」の過程で健常細胞により編纂された、獣爾騎兵兵員の残留クローン。高速で身体の生育が行われて移植施術に運用されるため、知性は低く社会参入へは絶望的に不可能とされている。だが施術の程度により一部の個体は身体の成人を終えて移植に運用されないまま残留してしまうため、その場合は家畜要因として獣爾騎兵に極めて軽度の業務へ従事させているのだが……",
+    "Summary_EN": "Shou'ar Surpluses are residual clones of Shou'ar Rider personnel, compiled from healthy cells during the refactoring treatment 'EggSphere Rebirth'. Due to their rapid physical growth and use in transplantation procedures, they have low intelligence and are considered hopelessly incapable of social participation. However, some individuals may remain after completing their physical development without being used for transplantation, and in such cases, they are employed in extremely light duties as livestock factors for the Shou'ar Riders...",
+    "Aliases": [],
+    "Links": []
   }
 ]
