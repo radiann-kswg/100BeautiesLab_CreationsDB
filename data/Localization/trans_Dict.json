@@ -72,8 +72,7 @@
     "Category": "#Cat_PlaceName",
     "TransPolicy": "#TP_Romanize",
     "Scope": ["Works_ShouArRiders"],
-    "Term_EN": "LóngTiān's.Republic",
-    "TransNote_JP": "2026-06-25 修正: LóngZhōu（誤記）→ LóngTiān。dict_Area.json / db_meta.json / ref_Vocabulary / db_Primary.json 含む全関連ファイルの一括置換完了済み。"
+    "Term_EN": "LóngTiān's.Republic"
   },
   {
     "Term_JP": "英皇国",
@@ -87,8 +86,7 @@
     "Category": "#Cat_PlaceName",
     "TransPolicy": "#TP_SemanticTranslate",
     "Scope": [],
-    "Term_EN": "United.Heroic.Nation",
-    "TransNote_JP": "2026-06-25 修正: 「雄姿結国」誤記を「雄志結国」に統一。db_Primary.json / dict_Faction.json 一括置換完了済み。"
+    "Term_EN": "United.Heroic.Nation"
   },
   {
     "Term_JP": "海陸国(シーバイランド)諸島",
