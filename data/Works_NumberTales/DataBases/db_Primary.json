@@ -3374,7 +3374,7 @@
     "RelationNotes_EN": "Mutually worries about \"33(Thirthrey)\"\nMay have some connection with \"10(Tenim)\" regarding Numerospecs...?",
     "NumerospecAbout_JP": "奇跡を起こす\nただしこの効果は対象の性格に影響される\n？？？？",
     "NumerospecAbout_EN": "Causes miracles\nHowever, this effect is influenced by the target's personality\n????",
-    "Summary_JP": "普段は極めて控えめな気質だが、「自分を律することで因果応報が成立する」と信じており、男気が強い。\n「奇跡を起こす」という”加護”を所持しており、それ目当てで契約する主人も少なくない。\nしかしその力が強力だったため、“安全装置”を背中に装着している。\nその経緯について、「10(ミツル)」と「95(キュウゴ)」が関与しているらしく…？",
+    "Summary_JP": "普段は極めて控えめな気質だが、「自分を律することで因果応報が成立する」と信じており、男気が強い。\n「奇跡を起こす」という\"加護\"を所持しており、それ目当てで契約する主人も少なくない。\nしかしその力が強力だったため、\"安全装置\"を背中に装着している。\nその経緯について、「10(ミツル)」と「95(キュウゴ)」が関与しているらしく…？",
     "Summary_EN": "Usually very reserved, yet carries a strong chivalrous spirit, believing that self-discipline brings karmic justice.\nZe possesses a Numerospec said to \"cause miracles\", and not a few Masters choose to contract with zir for that reason.\nBecause the power proved so strong, ze wears a safety device on zir back.\nAs for how that came to be, it seems \"10(Tenim)\" and \"95(Ninfife)\" were involved...?",
     "NumerospecStats": {
       "EffectStats": {
@@ -4208,7 +4208,7 @@
     "RelationNotes_EN": "Often picks needless fights with \"89(Eightine)\"",
     "NumerospecAbout_JP": "節目を迎えたときに本領発揮する\n重要な場面で失敗させない",
     "NumerospecAbout_EN": "Shows true strength at major turning points\nPrevents failure in critical situations",
-    "Summary_JP": "これまでの業績から一つの節目を迎える事例に特化した個体。\n完遂した業績に対する誇りや自信で調子に乗りやすいが、その次の業務も難なくこなすため憎みたくても憎めないと（色んな意味で）定評。\nしかしその風格に惹かれ、これから新しい取り組みをするベテラン級スキルを持つ中年層を中心に彼(女)を求める主人も少なくはない様子。\n趣味は“絵画用”ルービックキューブというが…？",
+    "Summary_JP": "これまでの業績から一つの節目を迎える事例に特化した個体。\n完遂した業績に対する誇りや自信で調子に乗りやすいが、その次の業務も難なくこなすため憎みたくても憎めないと（色んな意味で）定評。\nしかしその風格に惹かれ、これから新しい取り組みをするベテラン級スキルを持つ中年層を中心に彼(女)を求める主人も少なくはない様子。\n趣味は\"絵画用\"ルービックキューブというが…？",
     "Summary_EN": "A unit specialized in moments where accumulated achievements reach a milestone.\nEasily gets overconfident from pride in completed results, yet smoothly handles the next task as well, giving zir a reputation of being hard to dislike for various reasons.\nDrawn by that presence, not a few Masters with veteran-level skills, especially middle-aged ones starting new endeavors, seek zir out.\nZir hobby is said to be Rubik's Cubes \"for drawing\"... ?",
     "NumerospecStats": {
       "EffectStats": {
@@ -4417,7 +4417,7 @@
     "RelationNotes_EN": "Also dedicates herself to supporting '2(Twiny)'\nGets along well with '24(Hourd)' and '42(Fortwis)'",
     "NumerospecAbout_JP": "主人を信じる＆主人の心の声を聴く\nこれによる効果は主人との信頼関係に大きく比例する",
     "NumerospecAbout_EN": "Believes in the Master and hears the Master's inner voice\nIts effect scales strongly with the level of trust between them",
-    "Summary_JP": "「2(ツグ)」の従妹に相当する個体で、本来2番機となる予定だった未完成個体「バイナ」の妹こと改良機である。\n主人の心の声を聴き主人を信じるという“数秘的加護”を持ち、主人との信頼関係が強ければ強いほど高い恩恵を発揮している。\n極めて優しく純粋な性格で、多くの人から好印象を持たれている。\n「24(フトシ)」「42(ヨツグ)」姉妹と仲が良く、3人でガールズトークしている一面も。",
+    "Summary_JP": "「2(ツグ)」の従妹に相当する個体で、本来2番機となる予定だった未完成個体「バイナ」の妹こと改良機である。\n主人の心の声を聴き主人を信じるという\"数秘的加護\"を持ち、主人との信頼関係が強ければ強いほど高い恩恵を発揮している。\n極めて優しく純粋な性格で、多くの人から好印象を持たれている。\n「24(フトシ)」「42(ヨツグ)」姉妹と仲が良く、3人でガールズトークしている一面も。",
     "Summary_EN": "A unit corresponding to a cousin of '2(Twiny)', and an improved sister-model of the unfinished unit 'Binor', which had originally been intended as Unit.2.\nShe possesses the 'Numerospec' of hearing the Master's inner voice and believing in the Master, and the stronger their trust relationship, the greater the benefit she can produce.\nWith an extremely kind and pure personality, she is widely seen in a positive light.\nShe is close with the '24(Hourd)' and '42(Fortwis)' sisters, and they sometimes share girls' talk together.",
     "NumerospecStats": {
       "EffectStats": {
@@ -4673,11 +4673,11 @@
         }
       }
     ],
-    "RelationNotes_JP": "「28(ニハチ)」の“数秘的加護”を暴走させている？\n姉「12(トウジ)」とはすれ違い気味だが…",
+    "RelationNotes_JP": "「28(ニハチ)」の\"数秘的加護\"を暴走させている？\n姉「12(トウジ)」とはすれ違い気味だが…",
     "RelationNotes_EN": "May be causing the \"Numerospec\" of '28(Tweighan)' to run wild?\nThough tends to miss each other with elder sister '12(Twelva)'...",
     "NumerospecAbout_JP": "心を清らかにする",
     "NumerospecAbout_EN": "Purifies the heart",
-    "Summary_JP": "2種類の数字を持つ複合型で最初の個体である「12(トウジ)」の設計が調整された個体。\n無邪気さとポテンシャルの高さが好評のナンバーテールズで、特に人助けに積極的なこともあり周囲から信頼されている。\nただその一方で 他人への粘着など邪な思考に対し強い抵抗があったり、純粋さに反応する「28(ニハチ)」の“数秘的加護”を暴走させたりと自身の気質が裏目に出てしまうことも。",
+    "Summary_JP": "2種類の数字を持つ複合型で最初の個体である「12(トウジ)」の設計が調整された個体。\n無邪気さとポテンシャルの高さが好評のナンバーテールズで、特に人助けに積極的なこともあり周囲から信頼されている。\nただその一方で 他人への粘着など邪な思考に対し強い抵抗があったり、純粋さに反応する「28(ニハチ)」の\"数秘的加護\"を暴走させたりと自身の気質が裏目に出てしまうことも。",
     "Summary_EN": "A tuned unit derived from the design of '12(Twelva)', the first composite type to carry two kinds of numbers.\nAmong the NumberTales, this unit is well regarded for innocence and high potential, and is trusted especially for being proactive in helping others.\nOn the other hand, this same nature can backfire: strongly reacting against wicked thoughts such as unhealthy fixation, and at times driving the purity-reactive \"Numerospec\" of '28(Tweighan)' into overrun.",
     "NumerospecStats": {
       "EffectStats": {
@@ -4948,7 +4948,7 @@
         },
         {
           "Num": 47,
-          "Comments": "「“数秘的加護”って何だろ？でもありがとう！」",
+          "Comments": "「\"数秘的加護\"って何だろ？でもありがとう！」",
           "Comments_EN": "\"I wonder what a 'Numerospec' even is? But thanks anyway!\""
         },
         {
@@ -5366,7 +5366,7 @@
     "RelationNotes_EN": "Gets along well with \"4(Forna)\"\nTrusts the Unit.2 lineage [20(Twentia), Binor]",
     "NumerospecAbout_JP": "相手の望みを叶える\nただしこの効果は、相手が自分の心に正直になることで真価を発揮する",
     "NumerospecAbout_EN": "Grants the other person's wishes\nHowever, this effect shows its true value when the person is honest with their own heart",
-    "Summary_JP": "主人の心から願っている望みを叶えるという“数秘的加護”を（無自覚で）有している。\nそのためか主人との実績や彼女自身の自己実現も、十分にうまくいっており評価されている。\nただその一方で、控えめで受動的な性格が玉に瑕(きず)だと思われている。\n（本当は、望んだことが容易に叶って退屈している。）\n「20(ハツカ)」や「4(モチ)」と相性がいい傾向にある。",
+    "Summary_JP": "主人の心から願っている望みを叶えるという\"数秘的加護\"を（無自覚で）有している。\nそのためか主人との実績や彼女自身の自己実現も、十分にうまくいっており評価されている。\nただその一方で、控えめで受動的な性格が玉に瑕(きず)だと思われている。\n（本当は、望んだことが容易に叶って退屈している。）\n「20(ハツカ)」や「4(モチ)」と相性がいい傾向にある。",
     "Summary_EN": "She (unknowingly) carries a Numerospec that grants the wishes the Master truly desires from the heart.\nLikely because of that, both her achievements with the Master and her own self-realization are evaluated as consistently successful.\nAt the same time, however, her reserved and passive personality is often seen as her one flaw.\n(In truth, she is simply bored because what she wishes for comes true too easily.)\nShe also tends to be especially compatible with \"20(Twentia)\" and \"4(Forna)\".",
     "NumerospecStats": {
       "EffectStats": {
@@ -5419,7 +5419,7 @@
         },
         {
           "Num": 40,
-          "Comments": "「“ランプの魔人”を見てるような気分…」",
+          "Comments": "「\"ランプの魔人\"を見てるような気分…」",
           "Comments_EN": "\"Feels like I'm looking at a genie from a lamp...\""
         },
         {
@@ -7015,7 +7015,7 @@
     "RelationNotes_EN": "Connected with '28(Tweighan)' as a fellow math enthusiast",
     "NumerospecAbout_JP": "主人の行いを引き立てる",
     "NumerospecAbout_EN": "Enhances and elevates the master's conduct",
-    "Summary_JP": "挑戦したことに対する向上意欲が旺盛で、一度挑んだら諦めないという一途な人柄が評判。\nそのことから、彼女といると日頃の行いが良い方向に広がっていくとも主人たちに支持されている。\n一方で自分の掲げる数字「31」に対する愛着が強く、“メルセンヌ素数”をこよなく好むイタい数学学徒な一面も。\n同様に“完全数”を好む「28(ニハチ)」と縁があるとか。",
+    "Summary_JP": "挑戦したことに対する向上意欲が旺盛で、一度挑んだら諦めないという一途な人柄が評判。\nそのことから、彼女といると日頃の行いが良い方向に広がっていくとも主人たちに支持されている。\n一方で自分の掲げる数字「31」に対する愛着が強く、\"メルセンヌ素数\"をこよなく好むイタい数学学徒な一面も。\n同様に\"完全数\"を好む「28(ニハチ)」と縁があるとか。",
     "Summary_EN": "Known for her tenacious drive to improve at any challenge she takes on — once committed, she never gives up.\nBecause of this, masters find that being around her naturally brings out better behavior in their day-to-day lives.\nOn the other hand, she has a deep attachment to her signature number '31' and a cringeworthy side as a math enthusiast who adores Mersenne primes.\nShe has ties with '28(Tweighan)', who shares a love of \"perfect numbers\".",
     "NumerospecStats": {
       "EffectStats": {
@@ -7066,7 +7066,7 @@
         },
         {
           "Num": 61,
-          "Comments": "「“乙女”…っていうのかな…？」",
+          "Comments": "「\"乙女\"…っていうのかな…？」",
           "Comments_EN": "\"A 'maiden'... I suppose that's what you'd call them...?\"",
           "RelationLabel": ["cousin"]
         },
@@ -8095,7 +8095,7 @@
     "RelationNotes_EN": "Sees herself reflected in '6(Sics)' and '30(Thirtens)', and looks up to them both in her own way",
     "NumerospecAbout_JP": "豊かさを分け与える\nただしその相手が目前に居る必要がある",
     "NumerospecAbout_EN": "Shares abundance with others\nHowever, the recipient must be physically present",
-    "Summary_JP": "愛し愛されたい体質で、愛情表現を大切にしている。\n特に、母性的な感性を重んじる「6(ムイ)」と幸愛的な感性を持つ「30(ミツト)」に対しては似たものが大いにあり、彼女自身も見習っている一面がある。\nまた、そばにいる人に豊かさを分け与えるという“数秘的加護”を持つ個体で、主人に時の運をもたらすことでも定評。\nしかし彼女自身の運はというと…",
+    "Summary_JP": "愛し愛されたい体質で、愛情表現を大切にしている。\n特に、母性的な感性を重んじる「6(ムイ)」と幸愛的な感性を持つ「30(ミツト)」に対しては似たものが大いにあり、彼女自身も見習っている一面がある。\nまた、そばにいる人に豊かさを分け与えるという\"数秘的加護\"を持つ個体で、主人に時の運をもたらすことでも定評。\nしかし彼女自身の運はというと…",
     "Summary_EN": "She naturally craves to love and be loved, and holds the expression of affection close to her heart.\nShe sees a great deal of herself in '6(Sics)', who embodies maternal warmth, and '30(Thirtens)', who carries a loving and joyful nature — and looks up to both in her own way.\nShe also holds a Numerospec of sharing abundance with those nearby, and is well regarded for bringing timely good fortune to her masters.\nBut as for her own luck...",
     "NumerospecStats": {
       "EffectStats": {
@@ -8405,7 +8405,7 @@
         { "Num": 12, "RelationLabel": ["wellMatched"] },
         {
           "Num": 47,
-          "Comments": "「彼女の言う“数秘的加護”って一体何なんだろう…？」",
+          "Comments": "「彼女の言う\"数秘的加護\"って一体何なんだろう…？」",
           "Comments_EN": "\"What in the world is the Numerospec she talks about...?\"",
           "RelationLabel": ["cousin", "interested"]
         },
@@ -8489,7 +8489,7 @@
           "value_EN": "\"Whether you still have work to do or you've already finished — don't push yourself too hard, okay Leaders?\""
         },
         {
-          "value": "「時々 “かいぶんしょ”？って呼ばれてる凄い文章のノートが視界に飛び込んでくるけど、投稿してる人はどんな本を読んでいるんだろう…？」",
+          "value": "「時々 \"かいぶんしょ\"？って呼ばれてる凄い文章のノートが視界に飛び込んでくるけど、投稿してる人はどんな本を読んでいるんだろう…？」",
           "value_EN": "\"Every so often I catch sight of these amazing writings people call a 'kaibunshho'(strange writings) or something — I wonder what books the person posting them reads...?\"",
           "about": "SNSを見ている時",
           "about_EN": "While browsing social media"
@@ -8929,7 +8929,7 @@
     ],
     "NumerospecAbout_JP": "実現化する\nこの効果は限度制限がある。行動や意志に呼応するらしいが、条件や効果事例が多様なため詳細は不明",
     "NumerospecAbout_EN": "Brings things into reality\nThis effect has limitations. It appears to respond to actions and intentions, but conditions and effect cases vary so widely that details are unclear",
-    "Summary_JP": "「願いや望みを４つだけ叶えてくれる」という謎の風の噂が後を絶たず、一部界隈から“魔人”や“仙人”などと言われている。\n当の本人もその評判に恥じない達観した風格をしている……が、それはあくまでも演出にすぎず、珍妙な実績が吹聴されて引くに引けなくなっただけ。\n実際はドが付くほど苦労人であることを、お得意の建前で包み隠しているらしい。",
+    "Summary_JP": "「願いや望みを４つだけ叶えてくれる」という謎の風の噂が後を絶たず、一部界隈から\"魔人\"や\"仙人\"などと言われている。\n当の本人もその評判に恥じない達観した風格をしている……が、それはあくまでも演出にすぎず、珍妙な実績が吹聴されて引くに引けなくなっただけ。\n実際はドが付くほど苦労人であることを、お得意の建前で包み隠しているらしい。",
     "Summary_EN": "The mysterious rumor that \"ze will grant exactly four wishes\" never seems to die down, earning titles like \"genie\" or \"sage\" from certain circles.\nZe personally carries zirself with an air of enlightened composure that lives up to the reputation... but that is purely performance — ze simply got talked up by bizarre results and couldn't back down.\nIn reality, ze is apparently quite the hard-luck case, kept well hidden behind zir signature facade.",
     "NumerospecStats": {
       "EffectStats": {
@@ -9123,7 +9123,7 @@
     "RelationNotes_EN": "Cannot bring his beloved poker or gambling games anywhere near '58(Fiveighs)', who is able to calculate probabilities",
     "NumerospecAbout_JP": "失敗する恐れ/可能性を中和する\nこれにより自分の行動に自信を持たせることもある",
     "NumerospecAbout_EN": "Neutralizes the fear and possibility of failure\nThis can also instill confidence in one's own actions",
-    "Summary_JP": "新しい試みに怖気づくことなく、常に挑戦的に行動しているチャレンジャー。\nいつも楽観的で自信に溢れている気質は、周囲にも好評価を賜っている。\nただそのせいか、コアフォルダ形態でも無理やり動けると頑固に信じている様子。\n運動機能が優れず身体動作が不器用ではあるが、ほぼ全てのカード位置を記憶する“カード透視”を得意とするため賭けポーカーでは無類の強さを誇っている。",
+    "Summary_JP": "新しい試みに怖気づくことなく、常に挑戦的に行動しているチャレンジャー。\nいつも楽観的で自信に溢れている気質は、周囲にも好評価を賜っている。\nただそのせいか、コアフォルダ形態でも無理やり動けると頑固に信じている様子。\n運動機能が優れず身体動作が不器用ではあるが、ほぼ全てのカード位置を記憶する\"カード透視\"を得意とするため賭けポーカーでは無類の強さを誇っている。",
     "Summary_EN": "A challenger who faces every new attempt head-on without hesitation.\nZir ever-optimistic and self-assured nature earns high marks from those around zir.\nFor that very reason, ze appears to stubbornly believe ze can push through even in corefolder form.\nWhile zir motor functions are below average and zir movements clumsy, ze excels at \"card reading\" — memorizing nearly every card's position once dealt — which makes zir nearly unbeatable at poker gambling.",
     "NumerospecStats": {
       "EffectStats": {
@@ -9387,7 +9387,7 @@
     ],
     "NumerospecAbout_JP": "心に抱えている弱気を中和する",
     "NumerospecAbout_EN": "Neutralizes the weakness of spirit one carries in the heart",
-    "Summary_JP": "主人が心に抱えている弱気を中和するという“数秘的加護”を（無自覚で）有している。\nそのためか、恐れや心配の文字を彼女から連想できないほどの自信家で、理想がやや高く我儘な言動もとりがち。\nしかしそれで中高度に上げられた彼女または主人の思惑が、不思議と欲求不満にならない以上に実現されている事例が多い。\nさらには一部の主人から固執・溺愛されるほどに大好評らしく…？",
+    "Summary_JP": "主人が心に抱えている弱気を中和するという\"数秘的加護\"を（無自覚で）有している。\nそのためか、恐れや心配の文字を彼女から連想できないほどの自信家で、理想がやや高く我儘な言動もとりがち。\nしかしそれで中高度に上げられた彼女または主人の思惑が、不思議と欲求不満にならない以上に実現されている事例が多い。\nさらには一部の主人から固執・溺愛されるほどに大好評らしく…？",
     "Summary_EN": "She holds a Numerospec of neutralizing the inner weakness her master carries — unknowingly.\nPerhaps because of this, one cannot associate fear or worry with her at all; she is intensely self-confident, and tends toward high standards and willful behavior.\nYet in practice, the aims she or her master set — even at their most ambitious — are achieved with surprising frequency, leaving little room for frustration.\nShe is apparently so well-liked that some masters develop an obsessive attachment to her...?",
     "NumerospecStats": {
       "EffectStats": {
@@ -9795,7 +9795,7 @@
     "RelationNotes_EN": "Is evaluated by '33(Thirthrey)' as merely strong-willed, and strongly disliked\nSeen as a nuisance primarily by '72(Sevtwína)' and others\nFriendly with '52(Fiftwis)', but it seems they're talking past each other...?",
     "NumerospecAbout_JP": "思いを具現化する",
     "NumerospecAbout_EN": "Manifests one's intentions into reality",
-    "Summary_JP": "「想いを具現化する」“数秘的加護”を持ち、これまで数多くの主人が掲げてきた熱意や祈願を叶えてきたナンバーテールズの「ミッションインポッシブル」。\n勇敢で果敢な好青年で、正義感と実現意欲が群を抜いて高い姿勢は、どの主人からも熱い支持を賜っている。\nしかし彼の同クラス「マスターテールズ９」の特定個体からは、「ただ自我が強いだけ」「諦めが悪すぎる」という辛辣な指摘を受けているらしい。\nなお「男（の娘）」である、一応は。",
+    "Summary_JP": "「想いを具現化する」\"数秘的加護\"を持ち、これまで数多くの主人が掲げてきた熱意や祈願を叶えてきたナンバーテールズの「ミッションインポッシブル」。\n勇敢で果敢な好青年で、正義感と実現意欲が群を抜いて高い姿勢は、どの主人からも熱い支持を賜っている。\nしかし彼の同クラス「マスターテールズ９」の特定個体からは、「ただ自我が強いだけ」「諦めが悪すぎる」という辛辣な指摘を受けているらしい。\nなお「男（の娘）」である、一応は。",
     "Summary_EN": "The NumberTales \"Mission Impossible\" — holding a Numerospec that manifests one's intentions into reality, he has fulfilled the passions and wishes of countless masters.\nA brave and bold young man whose exceptional sense of justice and drive to see things through earns him passionate support from every master.\nYet from certain units of his same class — \"MasterTales 9\" — he reportedly receives harsh criticism: \"he's just strong-willed,\" \"he never knows when to give up.\"\nIncidentally, he is a \"(girlish) boy type\" — or something like that.",
     "NumerospecStats": {
       "EffectStats": {
@@ -9983,7 +9983,7 @@
     ],
     "NumerospecAbout_JP": "主人を奮い立たせる\n特に主人が行動を起こすべき立場にあると発動する",
     "NumerospecAbout_EN": "Rouses the master into action\nActivates especially when the master is in a position where they must act",
-    "Summary_JP": "稲妻を落とす雷神のように相手に衝動を与え、風を送る風神のように相手を奮い立たせる“数秘的加護”を持ち、変化を起こすことを必要としている多くの主人を後押ししている。\nもちろんそれはおおむね攻撃的な目的ではないので、彼(女)が従事した主人が愛と勇気をもった「正義の味方」に成長すると定評。\nただ、本人は平穏とした生き方を好んでおり…",
+    "Summary_JP": "稲妻を落とす雷神のように相手に衝動を与え、風を送る風神のように相手を奮い立たせる\"数秘的加護\"を持ち、変化を起こすことを必要としている多くの主人を後押ししている。\nもちろんそれはおおむね攻撃的な目的ではないので、彼(女)が従事した主人が愛と勇気をもった「正義の味方」に成長すると定評。\nただ、本人は平穏とした生き方を好んでおり…",
     "Summary_EN": "Holding a Numerospec that delivers a bolt of drive like a thunder deity splitting the sky, and stirs others into action like a wind deity breathing gusts — ze gives support to the many masters who need to make a change.\nOf course, this is mostly not for aggressive purposes — so it is well established that masters who work with zir grow into champions of goodwill and courage.\nThat said, ze personally prefers a life of peace and quiet...",
     "NumerospecStats": {
       "EffectStats": {
@@ -10378,7 +10378,7 @@
     ],
     "NumerospecAbout_JP": "ナンバーテールズの加護を認知できる（なお認知できるものはこの限りではない）",
     "NumerospecAbout_EN": "Can perceive the Numerospecs of other NumberTales units (though what she can perceive is not limited to this)",
-    "Summary_JP": "ナンバーテールズの中では他に類を見ない、自らが持っている”加護”を体感できるという極めて高い感受性を持っており、決断にブレが全くなく自信家である。\nなおその“数秘的加護”は他の98人にも気づくことができるはずとも思っているが、他の98人の大半は無自覚なので信じられずにいる。\nただ、応援してくれる存在としても彼女に好感を持つナンバーテールズも居るようだ。",
+    "Summary_JP": "ナンバーテールズの中では他に類を見ない、自らが持っている\"加護\"を体感できるという極めて高い感受性を持っており、決断にブレが全くなく自信家である。\nなおその\"数秘的加護\"は他の98人にも気づくことができるはずとも思っているが、他の98人の大半は無自覚なので信じられずにいる。\nただ、応援してくれる存在としても彼女に好感を持つナンバーテールズも居るようだ。",
     "Summary_EN": "She possesses a uniquely high sensitivity among the NumberTales — capable of physically sensing the Numerospec she herself holds — and her conviction is utterly unwavering.\nShe also believes that the other 98 should be able to notice their own Numerospecs, but since most of the other 98 are unaware of theirs, they find it hard to believe her.\nNonetheless, there are NumberTales who feel fondly toward her as a source of encouragement and support.",
     "NumerospecStats": {
       "EffectStats": {
@@ -10407,13 +10407,13 @@
       "Related": [
         {
           "Num": 2,
-          "Comments": "「この子により大きな“数秘的加護”が与えられてる…？」",
+          "Comments": "「この子により大きな\"数秘的加護\"が与えられてる…？」",
           "Comments_EN": "\"Has a greater Numerospec been granted to her...?\"",
           "RelationLabel": ["interested", "secretRelation"]
         },
         {
           "Num": 45,
-          "Comments": "「“数秘的加護”を巧みに使ってる様にも見えるけどなぁ…」",
+          "Comments": "「\"数秘的加護\"を巧みに使ってる様にも見えるけどなぁ…」",
           "Comments_EN": "\"It almost looks like ze is skillfully making use of zir Numerospec, but...\"",
           "RelationLabel": ["cousin", "interested"]
         },
@@ -10433,19 +10433,19 @@
         },
         {
           "Num": 29,
-          "Comments": "「“数秘的加護”が辛い思いを消し去ってくれてるね」",
+          "Comments": "「\"数秘的加護\"が辛い思いを消し去ってくれてるね」",
           "Comments_EN": "\"Her Numerospec seems to be washing away all the painful feelings.\"",
           "RelationLabel": ["classmate"]
         },
         {
           "Num": 37,
-          "Comments": "「勉強熱心だからきっと“数秘的加護”も味方に付くよ！」",
+          "Comments": "「勉強熱心だからきっと\"数秘的加護\"も味方に付くよ！」",
           "Comments_EN": "\"She's so dedicated to learning — I'm sure her Numerospec will be on her side!\"",
           "RelationLabel": ["cousin"]
         },
         {
           "Num": 83,
-          "Comments": "「この子の“数秘的加護”、かなり大きい…すごいよ!!」",
+          "Comments": "「この子の\"数秘的加護\"、かなり大きい…すごいよ!!」",
           "Comments_EN": "\"Zir Numerospec is quite something... incredible!!\"",
           "RelationLabel": ["classmate"]
         }
@@ -10454,7 +10454,7 @@
     "ConversationPattern": {
       "TalkingTone_JP": "明るく自信のある口調で、応援の言葉をためらわずに口にする。勢いはあるが押しつけがましさより励ましが前に出る。",
       "TalkingTone_EN": "Bright and confident, never hesitating to voice words of encouragement. She has energy and drive, but what comes through more than anything is her desire to cheer others on rather than push her views on them.",
-      "TopicPreference_JP": "努力が報われる兆しや、目に見えない追い風のようなものに強い関心を持つ。才能や（“数秘的加護”などといった）潜在能力の話になると、周りの理解を出し抜いてでも熱が入る。",
+      "TopicPreference_JP": "努力が報われる兆しや、目に見えない追い風のようなものに強い関心を持つ。才能や（\"数秘的加護\"などといった）潜在能力の話になると、周りの理解を出し抜いてでも熱が入る。",
       "TopicPreference_EN": "Strongly drawn to signs that effort is being rewarded and to things like invisible tailwinds. When the conversation turns to talent or latent potential (such as Numerospecs), she gets fired up — surpassing even those around her in enthusiasm.",
       "TalkFrequency_JP": "気づいたことをすぐ共有したがるため、自分から話しかけることが多い。相手を励ましたい時や自分の才能に気付かせたい時は発言頻度がさらに上がる。",
       "TalkFrequency_EN": "Eager to share things as soon as she notices them, so she often initiates conversation. When she wants to encourage the other person or help them realize their own potential, her frequency of speaking increases even further.",
@@ -11240,7 +11240,7 @@
     ],
     "NumerospecAbout_JP": "閃きをもたらす",
     "NumerospecAbout_EN": "Brings flashes of inspiration",
-    "Summary_JP": "枠にとらわれない思考の持ち主で、発想や着眼点についてはとても注目されている。\nしかし、本人が「“安全装置”を本体設計に組み込むことで“奇跡の個体”を安定最適化した個体」だと豪語している反面、その「奇跡を起こす」と噂される兄姉個体の改良個体としてはとんでもない駄作だと悪評を連ねる主人が一定数存在している。\n本人は「59(イヅク)」よりマシだと自覚していないようだが……",
+    "Summary_JP": "枠にとらわれない思考の持ち主で、発想や着眼点についてはとても注目されている。\nしかし、本人が「\"安全装置\"を本体設計に組み込むことで\"奇跡の個体\"を安定最適化した個体」だと豪語している反面、その「奇跡を起こす」と噂される兄姉個体の改良個体としてはとんでもない駄作だと悪評を連ねる主人が一定数存在している。\n本人は「59(イヅク)」よりマシだと自覚していないようだが……",
     "Summary_EN": "He possesses a free-range, out-of-the-box mind, and is highly regarded for his creativity and perspective.\nHowever, while he himself boasts of being \"the unit that stably optimized the 'miracle unit' by incorporating a safety device into the core design,\" a certain number of masters follow him with nothing but scathing reviews — calling him a remarkably terrible product as an improved model of the sibling unit said to \"produce miracles.\"\nHe doesn't seem to realize he still has it better than '59(Fivenint)', but...",
     "NumerospecStats": {
       "EffectStats": {
@@ -12272,7 +12272,7 @@
           "about_EN": "While browsing social media (case.1)"
         },
         {
-          "value": "「“通知破壊”という言葉はなるべくいわないほうが、って29(ニトク)姉さんはいってたけど……いったい何が起こるんだろう？」",
+          "value": "「\"通知破壊\"という言葉はなるべくいわないほうが、って29(ニトク)姉さんはいってたけど……いったい何が起こるんだろう？」",
           "value_EN": "\"29(Twenina)-sis told me I should try not to say the words 'notification nuke'... but what on earth would happen if I did?\"",
           "about": "SNSを見ている時②",
           "about_EN": "While browsing social media (case.2)"
@@ -12666,7 +12666,7 @@
     "RelationNotes_EN": "Keeps her distance from '41(Forone)', who is capable of seeing through cards",
     "NumerospecAbout_JP": "臨時収入を呼ぶ(臨時的な裕福をもたらす)\nこの効果は多岐にわたるため詳細な説明ができない",
     "NumerospecAbout_EN": "Invites windfall income (brings temporary wealth)\nThis effect spans so many forms that a detailed explanation is not possible",
-    "Summary_JP": "臨時収入などの物質的な幸運をもたらすという“数秘的加護”を有しているが、多岐多様な効果が確認されており詳細にどのような効果であるかは説明できない。\n他個体をからかったりおちょくったりするためＳっ気のあるように思われているが、オマセで甘えん坊な一面が拭えないところも含め、非常に可愛がられている。\nカードゲームが好きで13(トミ)たちとよく遊んでいるが、強運の持ち主で確立計算も巧みなためすぐ捻じ伏せて厭きられてしまう。",
+    "Summary_JP": "臨時収入などの物質的な幸運をもたらすという\"数秘的加護\"を有しているが、多岐多様な効果が確認されており詳細にどのような効果であるかは説明できない。\n他個体をからかったりおちょくったりするためＳっ気のあるように思われているが、オマセで甘えん坊な一面が拭えないところも含め、非常に可愛がられている。\nカードゲームが好きで13(トミ)たちとよく遊んでいるが、強運の持ち主で確立計算も巧みなためすぐ捻じ伏せて厭きられてしまう。",
     "Summary_EN": "She holds a Numerospec of bringing material good fortune — windfall income and the like — but the effects have been confirmed across such a wide variety that a precise description of what exactly it does is not possible.\nShe comes across as having a mildly sadistic streak from the way she teases and messes with other units, but her precocious, soft-at-heart side is impossible to hide — and she is very well loved for it.\nShe loves card games and often plays with '13(Thirteena)' and the others, but her extraordinary luck and skilled probability calculation means she immediately outplays them all, and they end up getting tired of playing.",
     "NumerospecStats": {
       "EffectStats": {
@@ -13339,7 +13339,7 @@
     "RelationNotes_EN": "Wants to form an idol group with '60(Sixtina)'\nHas such a strong interest in '10(Tenim)' that she can be relentlessly clingy",
     "NumerospecAbout_JP": "惚れさせる\nこの作用は主人から間接的に発させることもあるらしい",
     "NumerospecAbout_EN": "Makes others fall in love\nApparently this effect can also be triggered indirectly through the master",
-    "Summary_JP": "アイドル意識の強いナンバーテールズで、天真爛漫で可憐な性格をしている。\n加えて、相手を惚れさせる“数秘的加護”を持っているため、ファンとなる主人もかなり多い。\nしかしあまりにもメルヘンで不思議な世界観を持っているので、謎がられることもあったりするようだ。\n「60(ムソウ)」とアイドルユニットを結成しようと望んでやまない。\n「10(ミツル)」に興味があるようだが…",
+    "Summary_JP": "アイドル意識の強いナンバーテールズで、天真爛漫で可憐な性格をしている。\n加えて、相手を惚れさせる\"数秘的加護\"を持っているため、ファンとなる主人もかなり多い。\nしかしあまりにもメルヘンで不思議な世界観を持っているので、謎がられることもあったりするようだ。\n「60(ムソウ)」とアイドルユニットを結成しようと望んでやまない。\n「10(ミツル)」に興味があるようだが…",
     "Summary_EN": "An idol-minded NumberTales unit with a bright, innocent personality.\nShe also holds a Numerospec of \"making others fall in love,\" so she draws quite a large number of fan-masters.\nHowever, she has such a thoroughly fairy-tale-like and whimsical worldview that people are often left bewildered by her as well.\nShe is endlessly keen on forming an idol unit with '60(Sixtina)'.\nShe seems to have a particular interest in '10(Tenim)' as well, but...",
     "NumerospecStats": {
       "EffectStats": {
@@ -14028,7 +14028,7 @@
         }
       }
     ],
-    "RelationNotes_JP": "「67(ムナ)」に“ある意味の”服従意識がある\n兄個体「46(シロー)」を筆頭にドン引きされたり、「42(ヨツグ)」を筆頭に面白がられたりしているが、当の本人はと云うと……",
+    "RelationNotes_JP": "「67(ムナ)」に\"ある意味の\"服従意識がある\n兄個体「46(シロー)」を筆頭にドン引きされたり、「42(ヨツグ)」を筆頭に面白がられたりしているが、当の本人はと云うと……",
     "RelationNotes_EN": "Has a sense of \"submission\" toward '67(Sicsevan)' in a certain sense\nShe tends to leave '46(Forsixen)' and others utterly cold, while '42(Fortwis)' and others find her amusing to watch — but as for the subject herself...",
     "NumerospecAbout_JP": "快感を憶えさせる",
     "NumerospecAbout_EN": "Imparts a sense of pleasure",
@@ -14097,13 +14097,13 @@
         },
         {
           "Num": 28,
-          "Comments": "「あたちの“物乞い”だけ叶わない、なんで…」",
+          "Comments": "「あたちの\"物乞い\"だけ叶わない、なんで…」",
           "Comments_EN": "\"She's the only one who never grants my 'begging'... why...\"",
           "RelationLabel": ["classmate"]
         },
         {
           "Num": 44,
-          "Comments": "「“賭けゲーム”、しませんかぁ…？えへへ…」",
+          "Comments": "「\"賭けゲーム\"、しませんかぁ…？えへへ…」",
           "Comments_EN": "\"Wouldn't you like to play a 'gambling game'...? Ehehe...\""
         }
       ]
@@ -15793,13 +15793,13 @@
       "Related": [
         {
           "Num": 2,
-          "Comments": "「ステータス“気遣い”を繰り返し確認、優しさに感謝していますが、どうか無理なさらず」",
+          "Comments": "「ステータス\"気遣い\"を繰り返し確認、優しさに感謝していますが、どうか無理なさらず」",
           "Comments_EN": "\"Status: 'Consideration' repeatedly confirmed. Grateful for the kindness — but please, do not push yourself too hard.\"",
           "RelationLabel": ["pioneer_nearly", "trusted"]
         },
         {
           "Num": 7,
-          "Comments": "「属性“理性”および”感性”を同時に検出，これによる最適化現象も確認…凄い…」",
+          "Comments": "「属性\"理性\"および\"感性\"を同時に検出，これによる最適化現象も確認…凄い…」",
           "Comments_EN": "\"Attributes 'Reason' and 'Sensitivity' simultaneously detected. Optimization phenomenon resulting therefrom also confirmed... Remarkable...\"",
           "RelationLabel": ["pioneer"]
         },
@@ -15820,7 +15820,7 @@
       "Commented": [
         {
           "Num": 9,
-          "Comments": "「“悩み相談”という行為に有力と判断」",
+          "Comments": "「\"悩み相談\"という行為に有力と判断」",
           "Comments_EN": "\"Assessed as highly effective for the act of 'consulting about worries.'\""
         },
         {
@@ -15830,13 +15830,13 @@
         },
         {
           "Num": 70,
-          "Comments": "「属性“理性”および”感性”を同時に検出，これによる最適化現象も確認…凄い…」",
+          "Comments": "「属性\"理性\"および\"感性\"を同時に検出，これによる最適化現象も確認…凄い…」",
           "Comments_EN": "\"Attributes 'Reason' and 'Sensitivity' simultaneously detected. Optimization phenomenon resulting therefrom also confirmed... Remarkable...\"",
           "RelationLabel": ["successor_nearly"]
         },
         {
           "Num": 99,
-          "Comments": "「推定失敗，“記憶” 解析不能…謎です…」",
+          "Comments": "「推定失敗，\"記憶\" 解析不能…謎です…」",
           "Comments_EN": "\"Estimation failed. 'Memory' analysis impossible... A mystery...\""
         }
       ]
@@ -16189,7 +16189,7 @@
     ],
     "NumerospecAbout_JP": "「天のお告げ」を聴く",
     "NumerospecAbout_EN": "Receives 'divine messages'",
-    "Summary_JP": "ナンバーテールズの中では他に類を見ない、“天のお告げ”を受け取ることができるという極めて高く冴えわたった感性を持ち、預言者のような風格を見せている。\nなおその様子からにより他の98人からは変わり者に思われている様子だが、“天のお告げ”による預言は外れることがあまりないので、神頼み要因として彼女を信頼する（？）ナンバーテールズも居るようだ。",
+    "Summary_JP": "ナンバーテールズの中では他に類を見ない、\"天のお告げ\"を受け取ることができるという極めて高く冴えわたった感性を持ち、預言者のような風格を見せている。\nなおその様子からにより他の98人からは変わり者に思われている様子だが、\"天のお告げ\"による預言は外れることがあまりないので、神頼み要因として彼女を信頼する（？）ナンバーテールズも居るようだ。",
     "Summary_EN": "A NumberTales of uniquely sharpened sensitivity among the 99, capable of receiving 'divine messages' — carrying herself with the bearing of a prophet.\nWhile her peculiar demeanor has most of the other 98 viewing her as an eccentric, her prophecies via those 'divine messages' rarely miss the mark — and so there are NumberTales who seem to trust (?) her as a source of divine guidance.",
     "NumerospecStats": {
       "EffectStats": {
@@ -16231,7 +16231,7 @@
         { "Num": 40, "RelationLabel": ["wellMatched"] },
         {
           "Num": 47,
-          "Comments": "「“数秘的加護”が何なのかはともかく自信家な姉」",
+          "Comments": "「\"数秘的加護\"が何なのかはともかく自信家な姉」",
           "Comments_EN": "\"Whatever a Numerospec may be — she's a self-assured big sister either way.\"",
           "RelationLabel": ["brother|sister", "classmate"]
         },
@@ -16851,7 +16851,7 @@
         },
         {
           "Num": 55,
-          "Comments": "「近寄らないでこの“ハリケーン野郎”」",
+          "Comments": "「近寄らないでこの\"ハリケーン野郎\"」",
           "Comments_EN": "Keep your distance, 'hurricane gal.'",
           "RelationLabel": ["unmatched", "classmate"]
         }
@@ -16879,7 +16879,7 @@
         },
         {
           "Num": 88,
-          "Comments": "「色んな意味で“高級ピアノ君”」",
+          "Comments": "「色んな意味で\"高級ピアノ君\"」",
           "Comments_EN": "A 'luxury piano guy' in every sense of the word.",
           "RelationLabel": ["classmate"]
         }
@@ -19179,7 +19179,7 @@
         },
         {
           "Num": 63,
-          "Comments": "「あれはもう“お母さん”だよね…」",
+          "Comments": "「あれはもう\"お母さん\"だよね…」",
           "Comments_EN": "At this point, she's basically a mom, isn't she...?",
           "RelationLabel": ["cousin"]
         },
@@ -19642,7 +19642,7 @@
     "RelationNotes_EN": "Only confides her true self to '69(Signine)', but...",
     "NumerospecAbout_JP": "過去の柵(しがらみ)から解放する\nこれにより主人に挑戦意欲を奮わせる効果もある",
     "NumerospecAbout_EN": "Frees one from the shackles of the past\nThis also has the effect of stirring up her master’s drive to take on new challenges",
-    "Summary_JP": "好んで仮面を着用する”キャラブレの激しい”ナンバーテールズ。\n流行に敏感で、それに合わせて容姿や個性が移ろっており、この和服のような衣装も実は部屋着としてでしか着用していない。\nこれには他のナンバーテールズからも「キャラクターが掴めない」と不思議がられている。\n謎ばかり深くなる彼女の素は、ナンバーテールズでさえ兄の「69(ロック)」しか知らないとか。",
+    "Summary_JP": "好んで仮面を着用する\"キャラブレの激しい\"ナンバーテールズ。\n流行に敏感で、それに合わせて容姿や個性が移ろっており、この和服のような衣装も実は部屋着としてでしか着用していない。\nこれには他のナンバーテールズからも「キャラクターが掴めない」と不思議がられている。\n謎ばかり深くなる彼女の素は、ナンバーテールズでさえ兄の「69(ロック)」しか知らないとか。",
     "Summary_EN": "A NumberTales known for wearing a mask — and for wildly inconsistent character.\nShe is highly trend-sensitive, shifting her appearance and personality to match whatever is in vogue; even the kimono-like outfit she wears here is, in fact, only ever worn as loungewear at home.\nThis has left even fellow NumberTales baffled, saying they simply 'can't get a read on her'.\nAs for her true self — the mystery only deepens, and reportedly not even among the NumberTales does anyone know it except her older sibling, '69(Signine)'.",
     "NumerospecStats": {
       "EffectStats": {
@@ -20328,7 +20328,7 @@
     "RelationNotes_EN": "Consults '11(Elevan)' about circumstances regarding her memories\nHas a hunch that '10(Tenim)' might be involved...?",
     "NumerospecAbout_JP": "？？？？の記憶を持つ",
     "NumerospecAbout_EN": "Holds the memories of ？？？？",
-    "Summary_JP": "――余は誰だ？ここは何処だ？\n世界が終わったのか？望みは無いのか？……いや、確かに“あの時”すべてが終わった。\nしかし、終わりをまた迎えるであろう“此処”にまだ、救いが或るのなら、望みがあるのなら――\n「マスターテールズ9」所属、ナンバーテールズ最大の異能。\n彼(女)が観たもの、そして彼(女)が憶えているものとは……",
+    "Summary_JP": "――余は誰だ？ここは何処だ？\n世界が終わったのか？望みは無いのか？……いや、確かに\"あの時\"すべてが終わった。\nしかし、終わりをまた迎えるであろう\"此処\"にまだ、救いが或るのなら、望みがあるのなら――\n「マスターテールズ9」所属、ナンバーテールズ最大の異能。\n彼(女)が観たもの、そして彼(女)が憶えているものとは……",
     "Summary_EN": "— Who am I? Where is this?\nHas the world ended? Is there no hope? ...No — it's true: back then, everything came to an end.\nAnd yet, if there is still salvation in this place that will face an end once more — if there is still hope —\nA member of 'MasterTales 9'; the greatest anomalous power among all NumberTales.\nWhat is it that ze witnessed, and what is it that ze still remembers...?",
     "NumerospecStats": {
       "EffectStats": {

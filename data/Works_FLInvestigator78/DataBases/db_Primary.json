@@ -19,7 +19,7 @@
     "ConceptAge": { "hideText": "不定" },
     "ArcanamspecAbout_JP": "火元素の力を纏い、すべての攻撃を躱す\nこの効果が発動中、周囲の危険度が変動する",
     "ArcanamspecAbout_EN": "Shrouds itself in the power of the fire element, evading all attacks\nWhile this effect is active, the surrounding threat level fluctuates",
-    "Summary_JP": "“未来消失”という神隠し現象を悪用した特殊事件の情報を得るため、各所に視察任務を行っている異能組織『セブンティエイト特殊探偵団』（通称『運命線探偵』）の情報屋。\n【愚かな旅人】のアルカナムスペックを行使する彼は、不死鳥を宿した能力で相手の攻撃を軽やかに躱し 浄化の炎で敵を薙ぎ払います。\nただ、どうやら采配幹部(ディーラーズ)の２人の呼び名はいつも姉妹で逆になってしまう模様…",
+    "Summary_JP": "\"未来消失\"という神隠し現象を悪用した特殊事件の情報を得るため、各所に視察任務を行っている異能組織『セブンティエイト特殊探偵団』（通称『運命線探偵』）の情報屋。\n【愚かな旅人】のアルカナムスペックを行使する彼は、不死鳥を宿した能力で相手の攻撃を軽やかに躱し 浄化の炎で敵を薙ぎ払います。\nただ、どうやら采配幹部(ディーラーズ)の２人の呼び名はいつも姉妹で逆になってしまう模様…",
     "Summary_EN": "An informant of the special investigations organization 'Team.78(Seventy-Eight) the Special Investigators' (commonly known as the 'FateLine Investigators'), conducting inspection missions across various locations to gather information on special incidents involving the abuse of the mysterious disappearance phenomenon known as 'Future Erasure'.\nBrandishing the ArcanumSpec of the [⁠Foolish Tripper⁠], he gracefully evades his opponents' attacks with the power of his phoenix ability and mows down enemies with purifying flames.\nFor some reason, the two Dealer names always seem to be switched between the sisters...",
     "ArcanumspecStats": {
       "SpecType": {
@@ -62,7 +62,7 @@
     "ConceptAge": 37,
     "ArcanamspecAbout_JP": "元素を操る",
     "ArcanamspecAbout_EN": "Manipulates the elements",
-    "Summary_JP": "“未来消失”という神隠し現象を巡る幾つもの特殊事件を解決し、異能組織『セブンティエイト特殊探偵団』（通称『運命線探偵』）の中でも名探偵と称される最高幹部。\n【四元の魔術師】のアルカナムスペックを行使する彼は、まるで錬金術のような元素操作を得意とし 改竄された運命線の手掛かりと証拠を迅速に掴みます。\nちなみに、副業として自営業も営んでいることから 運命線探偵の人事にも強く関わりがある様子。",
+    "Summary_JP": "\"未来消失\"という神隠し現象を巡る幾つもの特殊事件を解決し、異能組織『セブンティエイト特殊探偵団』（通称『運命線探偵』）の中でも名探偵と称される最高幹部。\n【四元の魔術師】のアルカナムスペックを行使する彼は、まるで錬金術のような元素操作を得意とし 改竄された運命線の手掛かりと証拠を迅速に掴みます。\nちなみに、副業として自営業も営んでいることから 運命線探偵の人事にも強く関わりがある様子。",
     "Summary_EN": "A top executive of the special investigations organization 'Team.78(Seventy-Eight) the Special Investigators' (commonly known as the 'FateLine Investigators'), renowned as a great detective for resolving countless special incidents surrounding the mysterious disappearance phenomenon known as 'Future Erasure'.\nBrandishing the ArcanumSpec of the [⁠Magician of Elements⁠], he excels at element manipulation reminiscent of alchemy, swiftly seizing clues and evidence from falsified FateLines.\nIncidentally, as he also runs his own side business, he seems to have a strong hand in the organization's personnel affairs as well.",
     "ArcanumspecStats": {
       "SpecType": {
@@ -145,7 +145,7 @@
     "Class": ["国際幹部"],
     "ArcanamspecAbout_JP": "自身が止まっている間だけ、周囲の人々の精神状態を操作する",
     "ArcanamspecAbout_EN": "Manipulates the mental states of those around herself while remaining still",
-    "Summary_JP": "“未来消失”という神隠し現象を取り巻く特殊事件の未然防止に努める、異能組織『セブンティエイト特殊探偵団』（通称『運命線探偵』）の第３幹部。\n【九星の女帝】のアルカナムスペックを行使する彼女は、周囲の精神状態を静かに操作する力があり 引き金となるアリバイから特殊事件を丸く収めることに長けています。\nただ、周りの男性を駄目にしてしまうほどの母性と包容力があるせいで、宴会ではお持ち帰り（をする）役に立ちまわりがちという噂があり…",
+    "Summary_JP": "\"未来消失\"という神隠し現象を取り巻く特殊事件の未然防止に努める、異能組織『セブンティエイト特殊探偵団』（通称『運命線探偵』）の第３幹部。\n【九星の女帝】のアルカナムスペックを行使する彼女は、周囲の精神状態を静かに操作する力があり 引き金となるアリバイから特殊事件を丸く収めることに長けています。\nただ、周りの男性を駄目にしてしまうほどの母性と包容力があるせいで、宴会ではお持ち帰り（をする）役に立ちまわりがちという噂があり…",
     "Summary_EN": "The 3rd executive of the special investigations organization 'Team.78(Seventy-Eight) the Special Investigators' (commonly known as the 'FateLine Investigators'), dedicated to preventing special incidents surrounding the mysterious disappearance phenomenon known as 'Future Erasure' before they occur.\nBrandishing the ArcanumSpec of the [⁠Empress of Universe⁠], she possesses the power to quietly manipulate the mental states of those around her and excels at bringing special incidents to a peaceful resolution from the alibi that served as the trigger.\nHowever, perhaps because she has such overwhelming maternal instinct and embracing quality that men around her lose their heads — there are rumors that she tends to play the role of 'taking someone home' at banquets...",
     "ArcanumspecStats": {
       "SpecType": {
@@ -266,7 +266,7 @@
     "Class": ["九蓮国支部幹部"],
     "ArcanamspecAbout_JP": "一定範囲内の感度を上げ、範囲外の感度を下げる",
     "ArcanamspecAbout_EN": "Raises the sensitivity within a certain range and lowers it outside that range",
-    "Summary_JP": "“未来消失”という神隠し現象について 表向きでは九蓮国の大学助教授として科学的な研究を、裏向きでは異能組織『セブンティエイト特殊探偵団』（通称『運命線探偵』）の第９幹部として事件の科捜研を担っています。\n【秘匿の隠者】のアルカナムスペックを行使する彼は、知覚や感覚を自分の近辺に結集させることで 敵の注意を掻い潜ったり高い洞察力を発揮したりするなど戦闘でも迷彩的な状況掌握能力を有しています。\nしかしチームでの事件捜索にはまだ慣れない様子で……",
+    "Summary_JP": "\"未来消失\"という神隠し現象について 表向きでは九蓮国の大学助教授として科学的な研究を、裏向きでは異能組織『セブンティエイト特殊探偵団』（通称『運命線探偵』）の第９幹部として事件の科捜研を担っています。\n【秘匿の隠者】のアルカナムスペックを行使する彼は、知覚や感覚を自分の近辺に結集させることで 敵の注意を掻い潜ったり高い洞察力を発揮したりするなど戦闘でも迷彩的な状況掌握能力を有しています。\nしかしチームでの事件捜索にはまだ慣れない様子で……",
     "Summary_EN": "Regarding the mysterious disappearance phenomenon known as 'Future Erasure' — on the surface, ze conducts scientific research as an assistant professor at a university in LotusNinea; on the inside, ze serves as the 9th executive of the special investigations organization 'Team.78(Seventy-Eight) the Special Investigators' (commonly known as the 'FateLine Investigators'), handling forensic science investigations of incidents.\nBrandishing the ArcanumSpec of the [⁠Hermit of Secret⁠], by concentrating perception and sensation into zir immediate vicinity, ze possesses a camouflage-like situational control ability in combat as well — slipping past an opponent's notice or demonstrating heightened insight.\nHowever, it seems ze is still not accustomed to searching for cases as part of a team...",
     "ArcanumspecStats": {
       "SpecType": {
