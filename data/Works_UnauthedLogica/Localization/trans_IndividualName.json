@@ -1,0 +1,40 @@
+[
+  {
+    "Term_JP": "人形兵ゼロイド{n}番機",
+    "Term_EN": "AttackerZeroid #{n}",
+    "TransPolicy": "#TP_SemanticTranslate",
+    "Scope": ["Works_UnauthedLogica"],
+    "TransNote_JP": "{n} は各機体の通し番号（1〜99）を表すプレースホルダー",
+    "TransNote_EN": "{n} is a placeholder representing the serial number of each unit (1-99)"
+  },
+  {
+    "Term_JP": "人形兵ゼロイド最終1号機",
+    "Term_EN": "AttackerZeroid I.FIN",
+    "TransPolicy": "#TP_SemanticTranslate",
+    "Scope": ["Works_UnauthedLogica"]
+  },
+  {
+    "Term_JP": "シュミッツ",
+    "Term_EN": "Schmittz",
+    "TransPolicy": "#TP_SemanticTranslate",
+    "Scope": ["Works_UnauthedLogica"]
+  },
+  {
+    "Term_JP": "ニッキー",
+    "Term_EN": "Nixee",
+    "TransPolicy": "#TP_SemanticTranslate",
+    "Scope": ["Works_UnauthedLogica"]
+  },
+  {
+    "Term_JP": "アリス",
+    "Term_EN": "Arith",
+    "TransPolicy": "#TP_SemanticTranslate",
+    "Scope": ["Works_UnauthedLogica"]
+  },
+  {
+    "Term_JP": "ルッカ",
+    "Term_EN": "Looka",
+    "TransPolicy": "#TP_SemanticTranslate",
+    "Scope": ["Works_UnauthedLogica"]
+  }
+]

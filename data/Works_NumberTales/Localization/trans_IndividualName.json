@@ -1,0 +1,694 @@
+[
+  {
+    "Term_JP": "1(ハジメ)",
+    "Term_EN": "1(Unitta)",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales", "Works_UnauthedLogica"]
+  },
+  {
+    "Term_JP": "2(ツグ)",
+    "Term_EN": "2(Twiny)",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales", "Works_UnauthedLogica"]
+  },
+  {
+    "Term_JP": "3(ナオ)",
+    "Term_EN": "3(Treiya)",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales", "Works_UnauthedLogica"]
+  },
+  {
+    "Term_JP": "4(モチ)",
+    "Term_EN": "4(Forna)",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales", "Works_UnauthedLogica"]
+  },
+  {
+    "Term_JP": "5(イズ)",
+    "Term_EN": "5(Fifa)",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales", "Works_UnauthedLogica"]
+  },
+  {
+    "Term_JP": "6(ムイ)",
+    "Term_EN": "6(Sics)",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales", "Works_UnauthedLogica"]
+  },
+  {
+    "Term_JP": "7(ナナ)",
+    "Term_EN": "7(Sevan)",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales", "Works_UnauthedLogica"]
+  },
+  {
+    "Term_JP": "8(ワカツ)",
+    "Term_EN": "8(Eighas)",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales", "Works_UnauthedLogica"]
+  },
+  {
+    "Term_JP": "9(チカ)",
+    "Term_EN": "9(Nina)",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales", "Works_UnauthedLogica"]
+  },
+  {
+    "Term_JP": "10(ミツル)",
+    "Term_EN": "10(Tenim)",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales"]
+  },
+  {
+    "Term_JP": "11(トウイチ)",
+    "Term_EN": "11(Elevan)",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales", "Works_UnauthedLogica"]
+  },
+  {
+    "Term_JP": "12(トウジ)",
+    "Term_EN": "12(Twelva)",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales", "Works_UnauthedLogica"]
+  },
+  {
+    "Term_JP": "13(トミ)",
+    "Term_EN": "13(Thirteena)",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales", "Works_UnauthedLogica"]
+  },
+  {
+    "Term_JP": "14(トヨ)",
+    "Term_EN": "14(Forteels)",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales", "Works_UnauthedLogica"]
+  },
+  {
+    "Term_JP": "15(トウゴ)",
+    "Term_EN": "15(Fifteeld)",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales", "Works_UnauthedLogica"]
+  },
+  {
+    "Term_JP": "16(ソロク)",
+    "Term_EN": "16(Sixteely)",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales", "Works_UnauthedLogica"]
+  },
+  {
+    "Term_JP": "17(トナ)",
+    "Term_EN": "17(Sevteena)",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales", "Works_UnauthedLogica"]
+  },
+  {
+    "Term_JP": "18(トウヤ)",
+    "Term_EN": "18(Eighteeld)",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales", "Works_UnauthedLogica"]
+  },
+  {
+    "Term_JP": "19(トク)",
+    "Term_EN": "19(Ninteels)",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales", "Works_UnauthedLogica"]
+  },
+  {
+    "Term_JP": "20(ハツカ)",
+    "Term_EN": "20(Twentia)",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales", "Works_UnauthedLogica"]
+  },
+  {
+    "Term_JP": "21(ハツヒ)",
+    "Term_EN": "21(Twinone)",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales", "Works_UnauthedLogica"]
+  },
+  {
+    "Term_JP": "22(フジ)",
+    "Term_EN": "22(Twin-twina)",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales", "Works_UnauthedLogica"]
+  },
+  {
+    "Term_JP": "23(ツグミ)",
+    "Term_EN": "23(Twinthery)",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales", "Works_UnauthedLogica"]
+  },
+  {
+    "Term_JP": "24(フトシ)",
+    "Term_EN": "24(Hourds)",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales", "Works_UnauthedLogica"]
+  },
+  {
+    "Term_JP": "25(フィズ)",
+    "Term_EN": "25(Quartels)",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales", "Works_UnauthedLogica"]
+  },
+  {
+    "Term_JP": "26(ニロク)",
+    "Term_EN": "26(Twinsix)",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales", "Works_UnauthedLogica"]
+  },
+  {
+    "Term_JP": "27(ツギナ)",
+    "Term_EN": "27(Twißven)",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales", "Works_UnauthedLogica"]
+  },
+  {
+    "Term_JP": "28(ニハチ)",
+    "Term_EN": "28(Tweighan)",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales", "Works_UnauthedLogica"]
+  },
+  {
+    "Term_JP": "29(ニトク)",
+    "Term_EN": "29(Twenina)",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales", "Works_UnauthedLogica"]
+  },
+  {
+    "Term_JP": "30(ミツト)",
+    "Term_EN": "30(Thirtens)",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales", "Works_UnauthedLogica"]
+  },
+  {
+    "Term_JP": "31(ミツイ)",
+    "Term_EN": "31(Thirtone)",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales", "Works_UnauthedLogica"]
+  },
+  {
+    "Term_JP": "32(ミツギ)",
+    "Term_EN": "32(Thirtwis)",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales", "Works_UnauthedLogica"]
+  },
+  {
+    "Term_JP": "33(ミサ)",
+    "Term_EN": "33(Thirthrey)",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales", "Works_UnauthedLogica"]
+  },
+  {
+    "Term_JP": "34(サトシ)",
+    "Term_EN": "34(Thirfory)",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales", "Works_UnauthedLogica"]
+  },
+  {
+    "Term_JP": "サンジ",
+    "Term_EN": "Troubleforcer",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales", "Works_UnauthedLogica"]
+  },
+  {
+    "Term_JP": "35(サトコ)",
+    "Term_EN": "35(Thirfivan)",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales", "Works_UnauthedLogica"]
+  },
+  {
+    "Term_JP": "35(ミコ)",
+    "Term_EN": "35(Míko)",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales", "Works_UnauthedLogica"]
+  },
+  {
+    "Term_JP": "36(ミトム)",
+    "Term_EN": "36(Trisixa)",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales", "Works_UnauthedLogica"]
+  },
+  {
+    "Term_JP": "37(サナ)",
+    "Term_EN": "37(Trißven)",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales", "Works_UnauthedLogica"]
+  },
+  {
+    "Term_JP": "38(サタハ)",
+    "Term_EN": "38(Threighas)",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales", "Works_UnauthedLogica"]
+  },
+  {
+    "Term_JP": "39(サク)",
+    "Term_EN": "39(Trenína)",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales", "Works_UnauthedLogica"]
+  },
+  {
+    "Term_JP": "40(ヨソ)",
+    "Term_EN": "40(Fortty)",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales", "Works_UnauthedLogica"]
+  },
+  {
+    "Term_JP": "41(ヨソイチ)",
+    "Term_EN": "41(Forone)",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales", "Works_UnauthedLogica"]
+  },
+  {
+    "Term_JP": "42(ヨツグ)",
+    "Term_EN": "42(Fortwis)",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales", "Works_UnauthedLogica"]
+  },
+  {
+    "Term_JP": "43(シトミ)",
+    "Term_EN": "43(Forthren)",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales", "Works_UnauthedLogica"]
+  },
+  {
+    "Term_JP": "44(シトシ)",
+    "Term_EN": "44(Folfourn)",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales", "Works_UnauthedLogica"]
+  },
+  {
+    "Term_JP": "45(シゴ)",
+    "Term_EN": "45(Folfivas)",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales", "Works_UnauthedLogica"]
+  },
+  {
+    "Term_JP": "46(シロー)",
+    "Term_EN": "46(Forsixen)",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales", "Works_UnauthedLogica"]
+  },
+  {
+    "Term_JP": "47(シナ)",
+    "Term_EN": "47(Fourséve)",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales", "Works_UnauthedLogica"]
+  },
+  {
+    "Term_JP": "48(シハチ)",
+    "Term_EN": "48(Foreighn)",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales", "Works_UnauthedLogica"]
+  },
+  {
+    "Term_JP": "49(ヨチカ)",
+    "Term_EN": "49(Fornins)",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales", "Works_UnauthedLogica"]
+  },
+  {
+    "Term_JP": "50(ナカバ)",
+    "Term_EN": "50(Halvan)",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales", "Works_UnauthedLogica"]
+  },
+  {
+    "Term_JP": "51(イソイチ)",
+    "Term_EN": "51(Fivone)",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales", "Works_UnauthedLogica"]
+  },
+  {
+    "Term_JP": "52(イツギ)",
+    "Term_EN": "52(Fiftwis)",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales", "Works_UnauthedLogica"]
+  },
+  {
+    "Term_JP": "53(イツゾウ)",
+    "Term_EN": "53(Fifthren)",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales", "Works_UnauthedLogica"]
+  },
+  {
+    "Term_JP": "54(イツヨ)",
+    "Term_EN": "54(Fiforn)",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales", "Works_UnauthedLogica"]
+  },
+  {
+    "Term_JP": "55(イソゴ)",
+    "Term_EN": "55(Fifívan)",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales", "Works_UnauthedLogica"]
+  },
+  {
+    "Term_JP": "56(イソロク)",
+    "Term_EN": "56(Fivsix)",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales", "Works_UnauthedLogica"]
+  },
+  {
+    "Term_JP": "57(イズナ)",
+    "Term_EN": "57(Fivens)",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales", "Works_UnauthedLogica"]
+  },
+  {
+    "Term_JP": "58(イソヤ)",
+    "Term_EN": "58(Fiveighs)",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales", "Works_UnauthedLogica"]
+  },
+  {
+    "Term_JP": "59(イヅク)",
+    "Term_EN": "59(Fivenint)",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales", "Works_UnauthedLogica"]
+  },
+  {
+    "Term_JP": "60(ムソウ)",
+    "Term_EN": "60(Sixtina)",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales", "Works_UnauthedLogica"]
+  },
+  {
+    "Term_JP": "61(ロクイチ)",
+    "Term_EN": "61(Síxone)",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales", "Works_UnauthedLogica"]
+  },
+  {
+    "Term_JP": "61(ロイ)",
+    "Term_EN": "61(Síon)",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales", "Works_UnauthedLogica"]
+  },
+  {
+    "Term_JP": "62(ロジ)",
+    "Term_EN": "62(Sictwéna)",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales", "Works_UnauthedLogica"]
+  },
+  {
+    "Term_JP": "63(ムツミ)",
+    "Term_EN": "63(Sicthrey)",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales", "Works_UnauthedLogica"]
+  },
+  {
+    "Term_JP": "64(ムトシ)",
+    "Term_EN": "64(Sixforns)",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales", "Works_UnauthedLogica"]
+  },
+  {
+    "Term_JP": "65(ロクゴ)",
+    "Term_EN": "65(Sixfivie)",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales", "Works_UnauthedLogica"]
+  },
+  {
+    "Term_JP": "66(ムロク)",
+    "Term_EN": "66(Sixis)",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales", "Works_UnauthedLogica"]
+  },
+  {
+    "Term_JP": "67(ムナ)",
+    "Term_EN": "67(Sicsevan)",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales", "Works_UnauthedLogica"]
+  },
+  {
+    "Term_JP": "68(ロクヤ)",
+    "Term_EN": "68(Siceighns)",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales", "Works_UnauthedLogica"]
+  },
+  {
+    "Term_JP": "69(ロック)",
+    "Term_EN": "69(Signine)",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales", "Works_UnauthedLogica"]
+  },
+  {
+    "Term_JP": "70(ナナト)",
+    "Term_EN": "70(Seventia)",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales", "Works_UnauthedLogica"]
+  },
+  {
+    "Term_JP": "71(ナナヒ)",
+    "Term_EN": "71(Sevone)",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales", "Works_UnauthedLogica"]
+  },
+  {
+    "Term_JP": "72(ナフタ)",
+    "Term_EN": "72(Sevtwína)",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales", "Works_UnauthedLogica"]
+  },
+  {
+    "Term_JP": "73(ナトミ)",
+    "Term_EN": "73(Sevthira)",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales", "Works_UnauthedLogica"]
+  },
+  {
+    "Term_JP": "74(ナナヨ)",
+    "Term_EN": "74(Sefoury)",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales", "Works_UnauthedLogica"]
+  },
+  {
+    "Term_JP": "75(シチゴ)",
+    "Term_EN": "75(Sefievn)",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales", "Works_UnauthedLogica"]
+  },
+  {
+    "Term_JP": "76(シチロク)",
+    "Term_EN": "76(Sevsix)",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales", "Works_UnauthedLogica"]
+  },
+  {
+    "Term_JP": "77(ナヅナ)",
+    "Term_EN": "77(Sefvens)",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales", "Works_UnauthedLogica"]
+  },
+  {
+    "Term_JP": "78(ナナハ)",
+    "Term_EN": "78(Seveights)",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales", "Works_UnauthedLogica"]
+  },
+  {
+    "Term_JP": "79(ナチカ)",
+    "Term_EN": "79(Sevenina)",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales", "Works_UnauthedLogica"]
+  },
+  {
+    "Term_JP": "80(ヤソ)",
+    "Term_EN": "80(Eightis)",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales", "Works_UnauthedLogica"]
+  },
+  {
+    "Term_JP": "81(ヤイチ)",
+    "Term_EN": "81(Eightone)",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales", "Works_UnauthedLogica"]
+  },
+  {
+    "Term_JP": "82(ヤソジ)",
+    "Term_EN": "82(Eightwis)",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales", "Works_UnauthedLogica"]
+  },
+  {
+    "Term_JP": "83(ハチゾウ)",
+    "Term_EN": "83(Eightrien)",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales", "Works_UnauthedLogica"]
+  },
+  {
+    "Term_JP": "84(ヤツヨ)",
+    "Term_EN": "84(Eightifort)",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales", "Works_UnauthedLogica"]
+  },
+  {
+    "Term_JP": "85(ハッコ)",
+    "Term_EN": "85(Eightifie)",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales", "Works_UnauthedLogica"]
+  },
+  {
+    "Term_JP": "85(パコ)",
+    "Term_EN": "85(Eigfie)",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales", "Works_UnauthedLogica"]
+  },
+  {
+    "Term_JP": "86(ハチロ)",
+    "Term_EN": "86(Eightix)",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales", "Works_UnauthedLogica"]
+  },
+  {
+    "Term_JP": "87(ヤシナ)",
+    "Term_EN": "87(Eighteven)",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales", "Works_UnauthedLogica"]
+  },
+  {
+    "Term_JP": "87(ハナ)",
+    "Term_EN": "87(Eivee)",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales", "Works_UnauthedLogica"]
+  },
+  {
+    "Term_JP": "88(ヤソハチ)",
+    "Term_EN": "88(Infinights)",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales", "Works_UnauthedLogica"]
+  },
+  {
+    "Term_JP": "89(ヤスモ)",
+    "Term_EN": "89(Eightine)",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales", "Works_UnauthedLogica"]
+  },
+  {
+    "Term_JP": "90(キュウト)",
+    "Term_EN": "90(Nintiels)",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales", "Works_UnauthedLogica"]
+  },
+  {
+    "Term_JP": "91(キュウイチ)",
+    "Term_EN": "91(Ninone)",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales", "Works_UnauthedLogica"]
+  },
+  {
+    "Term_JP": "92(コトジ)",
+    "Term_EN": "92(Nintwina)",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales", "Works_UnauthedLogica"]
+  },
+  {
+    "Term_JP": "93(クミ)",
+    "Term_EN": "93(Nintris)",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales", "Works_UnauthedLogica"]
+  },
+  {
+    "Term_JP": "94(ツクシ)",
+    "Term_EN": "94(Ninfors)",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales", "Works_UnauthedLogica"]
+  },
+  {
+    "Term_JP": "95(キュウゴ)",
+    "Term_EN": "95(Ninfife)",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales", "Works_UnauthedLogica"]
+  },
+  {
+    "Term_JP": "96(クルリ)",
+    "Term_EN": "96(Rota)",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales", "Works_UnauthedLogica"]
+  },
+  {
+    "Term_JP": "97(ココナ)",
+    "Term_EN": "97(Ninsefie)",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales", "Works_UnauthedLogica"]
+  },
+  {
+    "Term_JP": "98(キュウヤ)",
+    "Term_EN": "98(Nineigha)",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales", "Works_UnauthedLogica"]
+  },
+  {
+    "Term_JP": "99(ツクモ)",
+    "Term_EN": "99(Thukumo)",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales", "Works_UnauthedLogica"]
+  },
+  {
+    "Term_JP": "バイナ",
+    "Term_EN": "Binor",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales"]
+  },
+  {
+    "Term_JP": "2(ツギ)",
+    "Term_EN": "2(Twicy)",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales", "Works_UnauthedLogica"]
+  },
+  {
+    "Term_JP": "ディケ",
+    "Term_EN": "Dicat",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales"]
+  },
+  {
+    "Term_JP": "10(ツナイ)",
+    "Term_EN": "10(Decadle)",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales", "Works_UnauthedLogica"]
+  },
+  {
+    "Term_JP": "000(チトセ)",
+    "Term_EN": "000(Thouser)",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales"]
+  },
+  {
+    "Term_JP": "ナンバーテールズ{n}番機",
+    "Term_EN": "NumberTales #{n}",
+    "TransPolicy": "#TP_SemanticTranslate",
+    "Scope": ["Works_NumberTales"],
+    "TransNote_JP": "{n} は各機体の通し番号（1〜99）を表すプレースホルダー",
+    "TransNote_EN": "{n} is a placeholder representing the serial number of each unit (1-99)"
+  },
+  {
+    "Term_JP": "ナンバーテールズ旧67番機",
+    "Term_EN": "NumberTales #67.OldType",
+    "TransPolicy": "#TP_SemanticTranslate",
+    "Scope": ["Works_NumberTales"]
+  },
+  {
+    "Term_JP": "ナンバーテールズ試作型2号機",
+    "Term_EN": "NumberTales' Prototype Mk.2",
+    "TransPolicy": "#TP_SemanticTranslate",
+    "Scope": ["Works_NumberTales"]
+  },
+  {
+    "Term_JP": "ナンバーテールズ開発支援機",
+    "Term_EN": "NumberTales [Dev.]",
+    "TransPolicy": "#TP_SemanticTranslate",
+    "Scope": ["Works_NumberTales"]
+  },
+  {
+    "Term_JP": "ナンバーテールズ試作型10号機",
+    "Term_EN": "NumberTales' Prototype Mk.10",
+    "TransPolicy": "#TP_SemanticTranslate",
+    "Scope": ["Works_NumberTales"]
+  },
+  {
+    "Term_JP": "ナンバーテールズ0番機",
+    "Term_EN": "NumberTales #000",
+    "TransPolicy": "#TP_SemanticTranslate",
+    "Scope": ["Works_NumberTales"]
+  }
+]

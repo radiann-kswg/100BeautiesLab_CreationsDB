@@ -1,0 +1,14 @@
+[
+  {
+    "Term_JP": "切り札の展開師",
+    "Term_EN": "Trump Spreader",
+    "TransPolicy": "#TP_SemanticTranslate",
+    "Scope": ["Works_FLInvestigator78"]
+  },
+  {
+    "Term_JP": "切り札の憑英師",
+    "Term_EN": "Trump Engager",
+    "TransPolicy": "#TP_SemanticTranslate",
+    "Scope": ["Works_FLInvestigator78"]
+  }
+]

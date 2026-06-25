@@ -1,0 +1,9 @@
+{
+  "Databases": {
+    "#Loc_PersonName": {
+      "DB_Layer": "Localization",
+      "DB_Label_JP": "人物名・呼称",
+      "DB_Label_EN": "Person Name / Appellation"
+    }
+  }
+}

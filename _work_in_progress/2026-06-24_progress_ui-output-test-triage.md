@@ -8,8 +8,11 @@
 
 - **(A) 6系統のテスト追従**: コミット `8684d85 テスト回路調整` で全件緑化確認。
 - **B-1 getWorkLabel 修正**: `pages/characters.js` L7284 の `getWorkLabel` が `cw.Title` のみ参照していた実装バグを `Title_JP`/`Title_EN` フォールバックに修正。`renders related terms and related creations...` が緑化。（続セッション push 済み）
-- **現在のテスト状態**: 全体 126 件中 **125 pass / 1 fail**。
-  残る1件は B-2（References レイヤー basicFields が空になる実装課題）のみ。
+- **B-2 References basicFields 修正** ✅（2026-06-24 続セッション）:
+  - `data/Works_NumberTales/DataBases/db_meta.json` の `Databases` 直下に `#Ref_Reference` / `#Ref_Vocabulary`（`DB_Layer: "References"`）を追加。
+  - `pages/characters.js` の `basicFieldKeys` ロジックを IIFE に変更し、`currentLayerName` が非空のとき `layeredTypeDef.$DefType` の `$display.section:"basic"` エントリを優先使用するよう改修。
+  - `Category` 期待値を `'キャラクターの基本情報'`（データ不在の誤値）→ `'基本情報'`（実値）に修正（前セッションの誤判定を訂正）。
+- **現在のテスト状態**: 全体 126 件中 **126 pass / 0 fail** ✅（2026-06-24 実測）。
 
 ## 目的
 

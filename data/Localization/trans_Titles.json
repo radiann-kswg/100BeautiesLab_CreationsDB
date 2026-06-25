@@ -1,0 +1,74 @@
+[
+  {
+    "Term_JP": "ナンバーテールズ",
+    "Term_EN": "NumberTales",
+    "TransPolicy": "#TP_KeepOriginal",
+    "Scope": [
+      "Works_NumberTales"
+    ]
+  },
+  {
+    "Term_JP": "運命線探偵78",
+    "Term_EN": "the Fate-Line Investigator 78",
+    "TransPolicy": "#TP_SemanticTranslate",
+    "Scope": [
+      "Works_FLInvestigator78"
+    ]
+  },
+  {
+    "Term_JP": "獣爾騎兵",
+    "Term_EN": "Shou'ar Riders",
+    "TransPolicy": "#TP_KeepOriginal",
+    "Scope": [
+      "Works_ShouArRiders"
+    ]
+  },
+  {
+    "Term_JP": "ハンカクライブ",
+    "Term_EN": "UnibyteLive",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": [
+      "Works_UnibyteLive"
+    ]
+  },
+  {
+    "Term_JP": "アンオースドロジカ",
+    "Term_EN": "UnauthedLogica",
+    "TransPolicy": "#TP_KeepOriginal",
+    "Scope": [
+      "Works_UnauthedLogica"
+    ]
+  },
+  {
+    "Term_JP": "パストダイヴァー",
+    "Term_EN": "PastDivers",
+    "TransPolicy": "#TP_KeepOriginal",
+    "Scope": [
+      "Works_PastDivers"
+    ]
+  },
+  {
+    "Term_JP": "豹変系女子",
+    "Term_EN": "Sinister Changing Girls",
+    "TransPolicy": "#TP_SemanticTranslate",
+    "Scope": [
+      "Works_SinisterChangingGirls"
+    ]
+  },
+  {
+    "Term_JP": "運命線狐の記録",
+    "Term_EN": "Destiny Fox's Records",
+    "TransPolicy": "#TP_SemanticTranslate",
+    "Scope": [
+      "Works_DestinyFoxRecords"
+    ]
+  },
+  {
+    "Term_JP": "ラジアン代理",
+    "Term_EN": "RadianN's Proxy",
+    "TransPolicy": "#TP_SemanticTranslate",
+    "Scope": [
+      "Works_Proxies"
+    ]
+  }
+]

@@ -146,20 +146,22 @@ function findDbCatalogEntry(workMeta, dbName) {
 		: null;
 	if (!databases) return null;
 
-	const rawName = String(dbName || '').replace(/^#?(DB|Ref)_/i, '').trim();
+	const rawName = String(dbName || '').replace(/^#?(DB|Ref|Loc)_/i, '').trim();
 	if (!rawName) return null;
 	const normalized = `${rawName.charAt(0).toUpperCase()}${rawName.slice(1)}`;
-	return databases[`#DB_${normalized}`] || databases[`#Ref_${normalized}`] || null;
+	return databases[`#DB_${normalized}`] || databases[`#Ref_${normalized}`] || databases[`#Loc_${normalized}`] || null;
 }
 
 function mapDbNameToImageDir(dbName, layer = '') {
 	const rawName = String(dbName || '').trim();
 	if (!rawName) return 'General';
 	if (rawName === 'General') return 'General';
-	if (rawName.startsWith('DB_') || rawName.startsWith('Ref_')) return rawName;
+	if (rawName.startsWith('DB_') || rawName.startsWith('Ref_') || rawName.startsWith('Loc_')) return rawName;
 
-	// DB_Layer が "References" なら Ref_ プレフィックスを付与
-	if (String(layer || '').trim() === 'References') return `Ref_${rawName}`;
+	// DB_Layer に応じたプレフィックスを付与
+	const layerStr = String(layer || '').trim();
+	if (layerStr === 'References') return `Ref_${rawName}`;
+	if (layerStr === 'Localization') return `Loc_${rawName}`;
 
 	const refMapping = {
 		Glossary: 'Ref_Glossary',
@@ -5832,9 +5834,19 @@ export async function renderDetail(workId, rec) {
 			if (!normalized || !normalized.includes('.')) return false;
 			return detailSubFieldKeys.some((parentKey) => normalized.startsWith(`${parentKey}.`));
 		};
-		const basicFieldKeys = Array.isArray(detailLayout?.basicFields)
-			? detailLayout.basicFields
-			: [];
+		const basicFieldKeys = (() => {
+			if (currentLayerName) {
+				// レイヤー固有の $display.section:"basic" フィールドを優先する（References 等）
+				const fromLayeredLayout = layeredTypeDef?.$DetailLayout?.basicFields;
+				if (Array.isArray(fromLayeredLayout) && fromLayeredLayout.length) return fromLayeredLayout;
+				const fromLayeredDef = (Array.isArray(layeredTypeDef?.$DefType) ? layeredTypeDef.$DefType : [])
+					.filter((d) => d?.$display?.section === 'basic')
+					.map((d) => String(d.hashTag || '').trim())
+					.filter(Boolean);
+				if (fromLayeredDef.length) return fromLayeredDef;
+			}
+			return Array.isArray(detailLayout?.basicFields) ? detailLayout.basicFields : [];
+		})();
 
 		// basicFields のキー配列から、*_JP/_EN の同義ペアによる二重表示を抑止
 		const normalizeBasicFieldKeys = (keys) => {

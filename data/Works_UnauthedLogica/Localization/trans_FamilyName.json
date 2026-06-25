@@ -1,0 +1,8 @@
+[
+  {
+    "Term_JP": "人形兵ゼロイド",
+    "Term_EN": "AttackerZeroid",
+    "TransPolicy": "#TP_SemanticTranslate",
+    "Scope": ["Works_UnauthedLogica"]
+  }
+]

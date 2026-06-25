@@ -1,0 +1,56 @@
+[
+  {
+    "Term_JP": "セコンド",
+    "Term_EN": "Second_SI-T",
+    "TransPolicy": "#TP_SemanticTranslate",
+    "Scope": ["Works_DestinyFoxRecords"]
+  },
+  {
+    "Term_JP": "メトレ",
+    "Term_EN": "Metre_SI-L",
+    "TransPolicy": "#TP_SemanticTranslate",
+    "Scope": ["Works_DestinyFoxRecords"]
+  },
+  {
+    "Term_JP": "キログラ",
+    "Term_EN": "Kilogra_SI-M",
+    "TransPolicy": "#TP_SemanticTranslate",
+    "Scope": ["Works_DestinyFoxRecords"]
+  },
+  {
+    "Term_JP": "カンデラ",
+    "Term_EN": "Candela_SI-J",
+    "TransPolicy": "#TP_SemanticTranslate",
+    "Scope": ["Works_DestinyFoxRecords"]
+  },
+  {
+    "Term_JP": "ケルビン",
+    "Term_EN": "Kelvin_SI-Θ",
+    "TransPolicy": "#TP_SemanticTranslate",
+    "Scope": ["Works_DestinyFoxRecords"]
+  },
+  {
+    "Term_JP": "アンプ",
+    "Term_EN": "Amp'_SI-I",
+    "TransPolicy": "#TP_SemanticTranslate",
+    "Scope": ["Works_DestinyFoxRecords"]
+  },
+  {
+    "Term_JP": "モル",
+    "Term_EN": "Mol_SI-N",
+    "TransPolicy": "#TP_SemanticTranslate",
+    "Scope": ["Works_DestinyFoxRecords"]
+  },
+  {
+    "Term_JP": "ラジアン",
+    "Term_EN": "RadianN",
+    "TransPolicy": "#TP_SemanticTranslate",
+    "Scope": ["Works_DestinyFoxRecords"]
+  },
+  {
+    "Term_JP": "ステラ",
+    "Term_EN": "Srera'N",
+    "TransPolicy": "#TP_SemanticTranslate",
+    "Scope": ["Works_DestinyFoxRecords"]
+  }
+]
