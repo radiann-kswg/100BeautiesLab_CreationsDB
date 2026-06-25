@@ -38,16 +38,16 @@
 | SA db_Primary | 子刻ハッカ | ThirdPersonCalling_EN | `(as personal or objective)` → `(as objective)` |
 | SCG db_Primary | 九 叶 | ThirdPersonCalling_EN | `(as personal)` → `(as personal or objective)` |
 
-**要手動確認（User 判断待ち）**
+**要手動確認（全件解消 2026-06-25）**
 
-| レコード | フィールド | 問題 |
+| レコード | フィールド | 対応 |
 |---|---|---|
-| NT Num 42 (ヨツグ) | ThirdPersonCalling_EN | JP が 2 `;`-segment なのに EN が 5 `;`-segment。内容も再確認要 |
-| NT Num 56 (イソロク) | ThirdPersonCalling_EN | JP の `,` 区切りが EN で `;` に変換（構造不整合。内容は概ね正） |
-| NT Num 11 (トウイチ) | SecondPersonCalling_EN | JP が `\n` 区切りなのに EN が `;` 区切り |
-| SA 巳刻カミツ | ThirdPersonCalling_EN | `*やつ/*れ` 複合 → EN の注釈が `(as personal or objective, archaic)` で曖昧。`*やつ`（人称・古語）と `*れ`（物質）の分離が必要 |
-| SA 辰刻リウロン | ThirdPersonCalling_EN | `*いつ/*れ` 複合 → 同上（`as personal or objective` のみで `*れ` の `as objective` が消えている） |
-| SA 午刻ハヤテ | ThirdPersonCalling_EN | `*イツ/*レ` 複合 → 同上 |
+| NT Num 42 (ヨツグ) | ThirdPersonCalling_EN | ✅ User 修正済み（セグメント数を JP に合わせて修正） |
+| NT Num 56 (イソロク) | ThirdPersonCalling_EN | ✅ User 修正済み（デリミタ統一） |
+| NT Num 11 (トウイチ) | SecondPersonCalling_EN | ✅ User 修正済み（区切り記法を JP に統一） |
+| SA 巳刻カミツ | ThirdPersonCalling_EN | ✅ 確定: `*やつ/*れ` は分離せず `(as personal or objective)` に統一する方針で意図的表記 |
+| SA 辰刻リウロン | ThirdPersonCalling_EN | ✅ 同上（`*いつ/*れ` → `(as personal or objective)` 統一） |
+| SA 午刻ハヤテ | ThirdPersonCalling_EN | ✅ 同上（`*イツ/*レ` → `(as personal or objective)` 統一） |
 
 #### C. `lib/section-renders/calling.js` レンダラー新規実装
 

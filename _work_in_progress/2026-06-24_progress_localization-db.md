@@ -115,12 +115,30 @@
 ### テスト
 - `npm test` → 130/130 pass ✅
 
+## 追加実装（2026-06-25 続²）— Category 別ファイル分割
+
+### 構造改善
+- **`trans_Dict.json` → `trans_{Category}.json` に全面分割**（全 10 作品・グローバル含む）
+  - `Category` フィールドをファイル名に昇格し、各エントリから `Category` フィールドを除去
+  - 分割後のファイル例: `trans_PersonName.json`, `trans_Ability.json`, `trans_Class.json` 等
+  - `Works_SinisterChangingGirls`: エントリ 0 件のため `trans_*.json` なし
+- **`db_meta.json` 更新**（全 10 作品 + グローバル）: `#Loc_Dict` を削除し `#Loc_{Category}` キーを追加
+- **フィールド順整理**: 全 `trans_*.json` エントリの `Term_EN` を `Term_JP` の直後に統一（17 ファイル）
+- **`tests/sw.db-layer-routing.test.js` 更新**: `#Loc_Dict`/`trans_Dict.json` → `#Loc_PersonName`/`trans_PersonName.json` へ更新
+- **テスト**: `npm test` → 130/130 pass ✅
+
+### データ整備
+- **Scope 補完**: 雄志結国（全9作品）・第1〜8界・超次元執筆空間（Works_DestinyFoxRecords / Works_Proxies）
+- **ref_Region8.json 拡張**: 英州諸国・運命線運河を追加し `BodyBlocks` に設定文を格納
+- **`trans_PlaceName.json` 方針統一**: Summary を `TransNote: "'Ref_Region8.json'を参照"` に統一（九蓮国を含む全地名エントリ）
+
 ## 未完了タスク / 今後の課題
 
 - Localization 層の enum 解決（`data/Localization/db_meta.json` の `$VarsDef` を `metaForLookup` に合流させる）は、UI で enum ラベル表示が必要になったタイミングで対応予定
 - TransPolicy・Category の仮判定は原作者（User）による確認・修正を前提とする
-- 能力名・地名・術式名・組織名など #Cat_Ability / #Cat_PlaceName 等の項目は User 手動追加予定
+- 能力名・地名・術式名・組織名など各 `trans_*.json` への項目は User 手動追加予定
 - `data.sanity.test.js` への Localization 追加は実データ充実後に検討
+- `trans_PlaceName.json` の Scope 空 4 件（算象・金源・南雌・然天）は登場作品確定後に User が入力
 
 ## 参考
 

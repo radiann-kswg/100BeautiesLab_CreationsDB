@@ -17,8 +17,10 @@
 
 - 2026-06-24_progress_calendar-ics.md（誕生日・記念日の Google カレンダー連携: ICS 自動生成・配信。✅ 配信確認済み・購読登録済み。⚠️ Google カレンダー初回同期待ち）
 - 2026-06-24_progress_github-triage.md（GitHub 未解決通知トリアージ: CodeQL alert PR #9・vitest Dependabot PR・cf-api-sync CI 失敗。⚠️ 全件 User 判断・手動操作待ち）
-- 2026-06-24_progress_localization-db.md（英訳固有辞書 DB（Localization レイヤー）実装。✅ 130/130 pass。仮データ投入済み（全 9 作品）。TransPolicy 確認・能力名等の追記は User 手動）
-- 2026-06-24_progress_localization-rules-audit.md（英訳ルール追補・calling.js 実装。⚠️ ThirdPersonCalling_EN 要確認 6 件・calling.js UI 確認は User 手動）
+- 2026-06-24_progress_localization-db.md（英訳固有辞書 DB（Localization レイヤー）実装。✅ 130/130 pass。trans_Dict.json → trans_{Category}.json 分割完了（2026-06-25）。Summary 入力・TransPolicy 確認・能力名等の追記は User 手動）
+- 2026-06-25_progress_localization-summary-inputs.md（Localization Summary 入力進捗チェックリスト。地名 9/13 ✅・人物名 11/13 ✅・SI 9/9 ✅・残 7 件 User 入力待ち）
+- 2026-06-25_progress_github-triage.md（GitHub 未解決問題トリアージ 2 回目。⚠️ PR #9・vitest Dependabot PR・cf-api-sync 確認は全件 User 判断待ち）
+- 2026-06-24_progress_localization-rules-audit.md（英訳ルール追補・calling.js 実装。✅ ThirdPersonCalling_EN 要確認 6 件 全件解消（2026-06-25）。⚠️ calling.js UI 確認は User 手動）
 - 2026-06-24_progress_red-tests-triage.md（赤テスト 2 系統の調査・修正。✅ 全 3 件解消済み）
 - 2026-06-24_progress_ui-output-test-triage.md（ui-output テスト 7 件の調査・修正。✅ 126/126 pass。B-2 も 2026-06-24 続セッションで解消済み）
 
