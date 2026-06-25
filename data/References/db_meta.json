@@ -30,6 +30,15 @@
           "Category": "インフラ・サービス",
           "Category_EN": "Infrastructure & Services"
         },
+        "#Reference_Items": {
+          "DB_Layer": "Localization",
+          "DB_Label_JP": "物・アイテム",
+          "DB_Label_EN": "Objects / Items"
+        },
+        "#Reference_Technical": {
+          "Category": "医術・技術",
+          "Category_EN": "Medical & Technical"
+        },
         "#Reference_Race": {
           "Category": "分類・種族",
           "Category_EN": "Classification & Race"

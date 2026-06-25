@@ -4,6 +4,11 @@
       "DB_Layer": "Localization",
       "DB_Label_JP": "人物名・呼称",
       "DB_Label_EN": "Person Name / Appellation"
+    },
+    "#Loc_Rank": {
+      "DB_Layer": "Localization",
+      "DB_Label_JP": "称号・肩書",
+      "DB_Label_EN": "Title / Rank"
     }
   }
 }

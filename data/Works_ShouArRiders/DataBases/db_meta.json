@@ -13,7 +13,7 @@
         "ToEra": [{ "EraGen": 7, "YearInEra": 23 }, { "byRealYear": 2043 }],
         "InEra": [{ "EraGen": 7, "YearInEra": 21 }, { "byRealYear": 2041 }],
         "StoryEraAbout_JP": "第7創世紀19〜23年(西暦2039〜2043年相当)\n劇中では第7創世紀元前にあたる第6創世紀3年(西暦1985年相当)以降の過去について描写が含まれており、『第7の世界破壊』に関する重大な場面が登場する予定",
-        "StoryEraAbout_EN": "between WDCE.VII.19-23(Equivalent to between: DC.2039-2043)\nThis Story contains descriptions of the past hereafter WDCE.VI.3(equivalent to DC.1985) as before WDCE.VII and important seens for the “World Destruction Pandemic VII”"
+        "StoryEraAbout_EN": "between WDCE.VII.19-23(Equivalent to between: DC.2039-2043)\nThis Story contains descriptions of the past hereafter WDCE.VI.3(equivalent to DC.1985) as before WDCE.VII and important seens for the \"World Destruction Pandemic VII\""
       },
       "_Commons": {
         "_ListLinkIf_Beast": [

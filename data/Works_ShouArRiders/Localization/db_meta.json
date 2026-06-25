@@ -14,6 +14,11 @@
       "DB_Layer": "Localization",
       "DB_Label_JP": "事象・現象",
       "DB_Label_EN": "Event / Phenomenon"
+    },
+    "#Loc_FamilyName": {
+      "DB_Layer": "Localization",
+      "DB_Label_JP": "種族名・襲名",
+      "DB_Label_EN": "Race / Succession Name"
     }
   }
 }

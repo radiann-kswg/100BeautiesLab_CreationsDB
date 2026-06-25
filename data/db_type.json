@@ -11,15 +11,15 @@
       "hashTag": "AnotherVersions_DBLink",
       "$type": "$Def_DBLinkRef[]|#Null",
       "hashTag_JP": "別バージョン",
-      "$enrich": false,
-      "hashTag_EN": "Another Versions"
+      "hashTag_EN": "Another Versions",
+      "$enrich": false
     },
     {
       "hashTag": "AnotherRegions_DBLink",
       "$type": "$Def_DBLinkRef[]|#Null",
       "hashTag_JP": "異空岐路存在(アナザーレギオン)",
-      "$enrich": true,
-      "hashTag_EN": "ANOTHER-REGIONs"
+      "hashTag_EN": "ANOTHER-REGIONs",
+      "$enrich": true
     },
     {
       "hashTag": "Name_JP",

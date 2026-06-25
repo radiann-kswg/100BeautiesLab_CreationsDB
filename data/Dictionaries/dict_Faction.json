@@ -91,9 +91,9 @@
   },
   {
     "Faction": "ジャンクガレージ『六花陛下』",
-    "Faction_EN": "JunkGarage “Majesty Rokka”",
+    "Faction_EN": "JunkGarage \"Majesty Rokka\"",
     "Belonging": "ジャンクガレージ『六花陛下』",
-    "Belonging_EN": "JunkGarage “Majesty Rokka”",
+    "Belonging_EN": "JunkGarage \"Majesty Rokka\"",
     "BelongingArea": { "Area": "紅雪連邦" },
     "isForSecondary": false,
     "isMaker": false
@@ -166,9 +166,9 @@
   },
   {
     "Faction": "国際情報広報機関『ミハイル』",
-    "Faction_EN": "“Mikhail” the International Information & Public Relations Agency",
+    "Faction_EN": "\"Mikhail\" the International Information & Public Relations Agency",
     "Belonging": "国際情報広報機関『ミハイル』",
-    "Belonging_EN": "“Mikhail” the International Information & Public Relations Agency",
+    "Belonging_EN": "\"Mikhail\" the International Information & Public Relations Agency",
     "BelongingArea": {
       "Area": "第８界",
       "BaseAreaAbout_JP": "厳密には本拠点を置かない",

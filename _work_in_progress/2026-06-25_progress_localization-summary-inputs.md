@@ -21,14 +21,14 @@ Claude は創作内容・設定文を自動生成しないため、値はユー�
 | 状態 | Term_JP                    | Term_EN                 | Scope（主な登場）                        |
 | ---- | -------------------------- | ----------------------- | ---------------------------------------- |
 | [x]  | 九蓮国                     | LotusNinea              | NT / FL78 / UnauthedLogica / UnibyteLive |
-| [ ]  | 龍天国                     | LóngTiān's.Republic     | ShouArRiders                             |
-| [ ]  | 英皇国                     | Internic.Kingdom        | FL78                                     |
-| [ ]  | 雄志結国                   | United.Heroic.Nation    | 全作品共通                               |
-| [ ]  | 海陸国(シーバイランド)諸島 | Seabyislands            | 未定                                     |
-| [ ]  | 紅雪連邦                   | United.SnowRed.Republic | UnauthedLogica                           |
-| [ ]  | 四蓮島                     | LotasQuadrup.Island     | 未定                                     |
-| [ ]  | 黒薔薇国                   | SchwarzeRoseland        | 未定                                     |
-| [ ]  | 神皇国                     | SaintPapis              | 未定                                     |
+| [x]  | 龍天国                     | LóngTiān's.Republic     | ShouArRiders                             |
+| [x]  | 英皇国                     | Internic.Kingdom        | FL78                                     |
+| [x]  | 雄志結国                   | United.Heroic.Nation    | 全作品共通                               |
+| [x]  | 海陸国(シーバイランド)諸島 | Seabyislands            | 未定                                     |
+| [x]  | 紅雪連邦                   | United.SnowRed.Republic | UnauthedLogica                           |
+| [x]  | 四蓮島                     | LotasQuadrup.Island     | 未定                                     |
+| [x]  | 黒薔薇国                   | SchwarzeRoseland        | 未定                                     |
+| [x]  | 神皇国                     | SaintPapis              | 未定                                     |
 | [ ]  | 算象(アリスマ)諸国         | Alismathians            | 未定                                     |
 | [ ]  | 金源(アウルムゲン)諸国     | Aurumgenics             | 未定                                     |
 | [ ]  | 南雌(イヴソース)大陸       | Evesouth Mainland       | 未定                                     |
@@ -45,19 +45,19 @@ Claude は創作内容・設定文を自動生成しないため、値はユー�
 
 | 状態 | Term_JP             | Term_EN            | 主な登場作品                   |
 | ---- | ------------------- | ------------------ | ------------------------------ |
-| [ ]  | 零 零               | Zera Norumber      | NT / UnauthedLogica / SCG      |
-| [ ]  | 千歳 玲             | Zeena Thouser      | NT                             |
-| [ ]  | 零 百               | Hudret Norumber    | NT / UnauthedLogica            |
-| [ ]  | 千歳 励             | Hadler Thouser     | NT                             |
-| [ ]  | 扇 三春             | Mikhail Arch       | SCG                            |
+| [x]  | 零 零               | Zera Norumber      | NT / UnauthedLogica / SCG      |
+| [x]  | 千歳 玲             | Zeena Thouser      | NT                             |
+| [x]  | 零 百               | Hudret Norumber    | NT / UnauthedLogica            |
+| [x]  | 千歳 励             | Hadler Thouser     | NT                             |
+| [x]  | 扇 三春             | Mikhail Arch       | SCG                            |
 | [ ]  | 六花 ルノ           | Luno Hexacrys      | PD / SCG                       |
-| [ ]  | 九 叶               | Canna Ninie        | SCG / ShouArRiders             |
-| [ ]  | 六花 雙葉           | Dozenne Hexacrys   | SCG / UnauthedLogica           |
-| [ ]  | クィーン.トゥエルヴ | Queen.XII          | SCG / UnauthedLogica           |
-| [ ]  | ミル.ニュクスフ     | Lamill.NuXV        | SCG                            |
+| [x]  | 九 叶               | Canna Ninie        | SCG / ShouArRiders             |
+| [x]  | 六花 雙葉           | Dozenne Hexacrys   | SCG / UnauthedLogica           |
+| [x]  | クィーン.トゥエルヴ | Queen.XII          | SCG / UnauthedLogica           |
+| [x]  | ミル.ニュクスフ     | Lamill.NuXV        | SCG                            |
 | [ ]  | 神夜崎 ユノ         | Juno Theolessnight | PD / SCG                       |
-| [ ]  | 財前 小里           | Foster Empressor   | SCG / PD / ShouArRiders / FL78 |
-| [ ]  | 終藤 こさと         | Formar Endrof      | SCG / PD / ShouArRiders / FL78 |
+| [x]  | 財前 小里           | Foster Empressor   | SCG / PD / ShouArRiders / FL78 |
+| [x]  | 終藤 こさと         | Formar Endrof      | SCG / PD / ShouArRiders / FL78 |
 
 > 略称: NT=NumberTales, FL78=FLInvestigator78, SCG=SinisterChangingGirls, PD=PastDivers
 
@@ -72,15 +72,15 @@ Summary に「何の単位か」を明記すると辞書としての利便性が
 
 | 状態 | Term_JP  | Term_EN      | SI 単位 / 次元          |
 | ---- | -------- | ------------ | ----------------------- |
-| [ ]  | セコンド | Second_SI-T  | 秒 / 時間 T             |
-| [ ]  | メトレ   | Metre_SI-L   | メートル / 長さ L       |
-| [ ]  | キログラ | Kilogra_SI-M | キログラム / 質量 M     |
-| [ ]  | カンデラ | Candela_SI-J | カンデラ / 光度 J       |
-| [ ]  | ケルビン | Kelvin_SI-Θ  | ケルビン / 熱力学温度 Θ |
-| [ ]  | アンプ   | Amp'\_SI-I   | アンペア / 電流 I       |
-| [ ]  | モル     | Mol_SI-N     | モル / 物質量 N         |
-| [ ]  | ラジアン | RadianN      | —                       |
-| [ ]  | ステラ   | Srera'N      | —                       |
+| [x]  | セコンド | Second_SI-T  | 秒 / 時間 T             |
+| [x]  | メトレ   | Metre_SI-L   | メートル / 長さ L       |
+| [x]  | キログラ | Kilogra_SI-M | キログラム / 質量 M     |
+| [x]  | カンデラ | Candela_SI-J | カンデラ / 光度 J       |
+| [x]  | ケルビン | Kelvin_SI-Θ  | ケルビン / 熱力学温度 Θ |
+| [x]  | アンプ   | Amp'\_SI-I   | アンペア / 電流 I       |
+| [x]  | モル     | Mol_SI-N     | モル / 物質量 N         |
+| [x]  | ラジアン | RadianN      | —                       |
+| [x]  | ステラ   | Srera'N      | —                       |
 
 ---
 
@@ -92,7 +92,7 @@ Summary に「何の単位か」を明記すると辞書としての利便性が
 
 | 状態 | Term_JP | Term_EN        | 備考                       |
 | ---- | ------- | -------------- | -------------------------- |
-| [ ]  | 山月病  | Shanyu Disease | 詳細は ref_Vocabulary 参照 |
+| [x]  | 山月病  | Shanyu Disease | 詳細は ref_Vocabulary 参照 |
 
 ---
 
@@ -102,7 +102,7 @@ Summary に「何の単位か」を明記すると辞書としての利便性が
 
 | 状態 | Term_JP            | Term_EN        | 備考                             |
 | ---- | ------------------ | -------------- | -------------------------------- |
-| [ ]  | 運命線             | FateLine       | 作品名にも含まれる中心概念       |
+| [x]  | 運命線             | FateLine       | 作品名にも含まれる中心概念       |
 | [ ]  | 未来消失           | Future Erasure | —                                |
 | [ ]  | アルカナ           | Arcana         | タロット78枚に基づく能力体系     |
 | [ ]  | アルカナムスペック | ArcanumSpec    | アルカナを用いた特殊能力の総称か |

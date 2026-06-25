@@ -183,7 +183,7 @@
           "hashTag_EN": "Safety Level"
         }
       ],
-      "hashTag_JP": "“カバラの加護”(数秘的加護)の特性",
+      "hashTag_JP": "\"カバラの加護\"(数秘的加護)の特性",
       "hashTag_EN": "Characteristics of 'Kabbalah's Blessing' (Numerospec)",
       "$display": { "sectionWrapper": "numSpecSection" }
     },

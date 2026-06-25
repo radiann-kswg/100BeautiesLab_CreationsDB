@@ -3,12 +3,8 @@
     "Term_JP": "未来消失",
     "Term_EN": "Future Erasure",
     "TransPolicy": "#TP_SemanticTranslate",
-    "Scope": ["Works_FLInvestigator78"]
-  },
-  {
-    "Term_JP": "運命線",
-    "Term_EN": "FateLine",
-    "TransPolicy": "#TP_SemanticTranslate",
-    "Scope": ["Works_FLInvestigator78"]
+    "Scope": ["Works_FLInvestigator78"],
+    "TransNote_JP": "`Ref_Vocabulary`を参照",
+    "TransNote_EN": "See `Ref_Vocabulary`"
   }
 ]

@@ -5,9 +5,9 @@
     "Term_JPReading": "すうひてきかご",
     "TermType": null,
     "Category": "能力特性用語",
-    "Summary": "ナンバーテールズは主人への従事をする際に、無自覚でありながら主人などに作用する 超潜在的な数秘的加護(スーパーポテンシャル・ヌメロスペック) ……またの名を“カバラの加護”という能力を有している。\n原理などについて詳細は不明だが、ある個体は主人に感化させる作用をもたらし、ある個体は主人の望むことを実現化する作用をもたらし、またある個体は周囲に奇跡的な出来事を呼び寄せる作用をもたらすなど、様々な加護があるようだ。\nしかし稀に、あまりにも強大な加護を有している個体も存在しており……",
+    "Summary": "ナンバーテールズは主人への従事をする際に、無自覚でありながら主人などに作用する 超潜在的な数秘的加護(スーパーポテンシャル・ヌメロスペック) ……またの名を\"カバラの加護\"という能力を有している。\n原理などについて詳細は不明だが、ある個体は主人に感化させる作用をもたらし、ある個体は主人の望むことを実現化する作用をもたらし、またある個体は周囲に奇跡的な出来事を呼び寄せる作用をもたらすなど、様々な加護があるようだ。\nしかし稀に、あまりにも強大な加護を有している個体も存在しており……",
     "Summary_EN": "While serving their Master, NumberTales possess an ability called the super-potential Numerospec — also known as 'Kabbalistic Blessing' — that acts on their Master and others, entirely without the NumberTale's own awareness.\nThe underlying mechanism is unclear, but it seems there are many forms of blessing: some individuals bring an influence that subtly sways the Master's feelings, others bring about the realization of what the Master desires, and still others attract miraculous occurrences to those around them.\nRarely, however, there are individuals possessing blessings of extraordinary magnitude...",
-    "Aliases": ["“数秘的加護”", "カバラの加護"],
+    "Aliases": ["\"数秘的加護\"", "カバラの加護"],
     "Links": []
   },
   {
@@ -50,7 +50,7 @@
     "Term_EN": "UniDigits",
     "TermType": null,
     "Category": "役職・肩書",
-    "Summary": "1桁の番号を持つナンバーテールズ（または、その他の最小単位となる番号のネーム個体）で構成されたクラスで、試作型1号機もとい1番機の「1(ハジメ)」、2番機の「2(ツグ)」、試作型2号機の「バイナ」、そして3～9番機の10人が中心となっている。\n1桁番はナンバーテールズの中でも基本的な“数秘的加護”を有している個体とされており、その動作安定度はもちろん最古参の個体としても名高く主従契約や開発実績も豊富にあり、デュアルズを筆頭とした後続個体の憧憬の的となっている。",
+    "Summary": "1桁の番号を持つナンバーテールズ（または、その他の最小単位となる番号のネーム個体）で構成されたクラスで、試作型1号機もとい1番機の「1(ハジメ)」、2番機の「2(ツグ)」、試作型2号機の「バイナ」、そして3～9番機の10人が中心となっている。\n1桁番はナンバーテールズの中でも基本的な\"数秘的加護\"を有している個体とされており、その動作安定度はもちろん最古参の個体としても名高く主従契約や開発実績も豊富にあり、デュアルズを筆頭とした後続個体の憧憬の的となっている。",
     "Summary_EN": "The class of NumberTales (or other name units with the smallest unit of number) with single-digit numbers, centered around Mk.1 '1(Unitta)', Mk.2 '2(Twiny)', prototype Mk.2 'Binor', and Mk.3 through Mk.9.\nUniDigits are said to possess the basic Numerospec of NumberTales, and are renowned for their operational stability as well as being the most senior units, with abundant Master-Servant contracts and development achievements, making them an object of admiration for subsequent units such as the Duals.",
     "Aliases": ["1桁番", "一桁番", "1桁番(ユニデジッツ)"],
     "Links": []
@@ -77,7 +77,7 @@
     "Term_EN": "MasterTales 9",
     "TermType": null,
     "Category": "役職・肩書",
-    "Summary": "ナンバーテールズの中でも2桁のゾロ目の数字を持つ9人による精鋭クラス。\nナンバーテールズの中でも特に強力な“数秘的加護”を有している個体とされており、その強力な潜在能力から優秀な実績や機能・影響を持つことから、主人の人気や契約競争率も高い。\n中には契約プランの相場が著しく高騰している個体や、極めて積極的なレビューが殺到している個体も存在しているようだ。",
+    "Summary": "ナンバーテールズの中でも2桁のゾロ目の数字を持つ9人による精鋭クラス。\nナンバーテールズの中でも特に強力な\"数秘的加護\"を有している個体とされており、その強力な潜在能力から優秀な実績や機能・影響を持つことから、主人の人気や契約競争率も高い。\n中には契約プランの相場が著しく高騰している個体や、極めて積極的なレビューが殺到している個体も存在しているようだ。",
     "Summary_EN": "An elite class of nine units with double-digit repeating numbers among the NumberTales.\nThese units are said to possess particularly powerful Numerospec, and due to their strong potential, they have excellent achievements, functions, and influence, making them highly popular among Masters and with high contract competition rates.\nSome units reportedly have contract plan prices that have skyrocketed significantly, and some are receiving an extremely high volume of positive reviews.",
     "Aliases": ["マスターテールズ9", "マスターテールズ９", "マスターテールズ"],
     "Links": []
