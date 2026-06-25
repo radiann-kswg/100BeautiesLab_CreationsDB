@@ -1,0 +1,68 @@
+[
+  {
+    "Term_JP": "火の棍棒支部",
+    "Term_EN": "FireWands Branch",
+    "TransPolicy": "#TP_SemanticTranslate",
+    "Scope": ["Works_FLInvestigator78"]
+  },
+  {
+    "Term_JP": "水の聖杯支部",
+    "Term_EN": "WaterCups Branch",
+    "TransPolicy": "#TP_SemanticTranslate",
+    "Scope": ["Works_FLInvestigator78"]
+  },
+  {
+    "Term_JP": "風の刀剣支部",
+    "Term_EN": "SlashSwords Branch",
+    "TransPolicy": "#TP_SemanticTranslate",
+    "Scope": ["Works_FLInvestigator78"]
+  },
+  {
+    "Term_JP": "金の硬貨支部",
+    "Term_EN": "PentacleObjects Branch",
+    "TransPolicy": "#TP_SemanticTranslate",
+    "Scope": ["Works_FLInvestigator78"]
+  },
+  {
+    "Term_JP": "情報屋",
+    "Term_EN": "Informant",
+    "TransPolicy": "#TP_SemanticTranslate",
+    "Scope": ["Works_FLInvestigator78"]
+  },
+  {
+    "Term_JP": "最高幹部",
+    "Term_EN": "Top Executive",
+    "TransPolicy": "#TP_SemanticTranslate",
+    "Scope": ["Works_FLInvestigator78"]
+  },
+  {
+    "Term_JP": "国際幹部",
+    "Term_EN": "International Executive",
+    "TransPolicy": "#TP_SemanticTranslate",
+    "Scope": ["Works_FLInvestigator78"]
+  },
+  {
+    "Term_JP": "九蓮国支部幹部",
+    "Term_EN": "RN.Branch Executive",
+    "TransPolicy": "#TP_SemanticTranslate",
+    "Scope": ["Works_FLInvestigator78"]
+  },
+  {
+    "Term_JP": "英皇国支部幹部",
+    "Term_EN": "IK.Branch Executive",
+    "TransPolicy": "#TP_SemanticTranslate",
+    "Scope": ["Works_FLInvestigator78"]
+  },
+  {
+    "Term_JP": "国境幹部",
+    "Term_EN": "Border Executive",
+    "TransPolicy": "#TP_SemanticTranslate",
+    "Scope": ["Works_FLInvestigator78"]
+  },
+  {
+    "Term_JP": "采配幹部(ディーラーズ)",
+    "Term_EN": "Dealers",
+    "TransPolicy": "#TP_SemanticTranslate",
+    "Scope": ["Works_FLInvestigator78"]
+  }
+]

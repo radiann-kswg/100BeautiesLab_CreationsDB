@@ -1,0 +1,14 @@
+[
+  {
+    "Term_JP": "ラジアン",
+    "Term_EN": "RadianN",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_Proxies"]
+  },
+  {
+    "Term_JP": "扇小春",
+    "Term_EN": "Koharu Arch",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_Proxies"]
+  }
+]

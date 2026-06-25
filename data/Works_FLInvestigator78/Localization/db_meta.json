@@ -1,9 +1,34 @@
 {
   "Databases": {
-    "#Loc_Dict": {
+    "#Loc_Ability": {
       "DB_Layer": "Localization",
-      "DB_Label_JP": "翻訳辞書",
-      "DB_Label_EN": "Translation Dictionary"
+      "DB_Label_JP": "能力・スキル名",
+      "DB_Label_EN": "Ability / Skill Name"
+    },
+    "#Loc_FamilyName": {
+      "DB_Layer": "Localization",
+      "DB_Label_JP": "種族名・襲名",
+      "DB_Label_EN": "Race / Succession Name"
+    },
+    "#Loc_Rank": {
+      "DB_Layer": "Localization",
+      "DB_Label_JP": "称号・肩書",
+      "DB_Label_EN": "Title / Rank"
+    },
+    "#Loc_OrgName": {
+      "DB_Layer": "Localization",
+      "DB_Label_JP": "組織名",
+      "DB_Label_EN": "Organization Name"
+    },
+    "#Loc_Class": {
+      "DB_Layer": "Localization",
+      "DB_Label_JP": "役職",
+      "DB_Label_EN": "Position / Role"
+    },
+    "#Loc_Phenomenon": {
+      "DB_Layer": "Localization",
+      "DB_Label_JP": "事象・現象",
+      "DB_Label_EN": "Event / Phenomenon"
     }
   }
 }

@@ -1,0 +1,68 @@
+[
+  {
+    "Term_JP": "フェニクス",
+    "Term_EN": "Phoenix",
+    "TransPolicy": "#TP_SemanticTranslate",
+    "Scope": ["Works_FLInvestigator78"]
+  },
+  {
+    "Term_JP": "オリジン",
+    "Term_EN": "Dr.Origin",
+    "TransPolicy": "#TP_SemanticTranslate",
+    "Scope": ["Works_FLInvestigator78"]
+  },
+  {
+    "Term_JP": "ヨハネ",
+    "Term_EN": "John",
+    "TransPolicy": "#TP_SemanticTranslate",
+    "Scope": ["Works_FLInvestigator78"]
+  },
+  {
+    "Term_JP": "ウェヌス",
+    "Term_EN": "Venus",
+    "TransPolicy": "#TP_SemanticTranslate",
+    "Scope": ["Works_FLInvestigator78"]
+  },
+  {
+    "Term_JP": "アクセラ",
+    "Term_EN": "Accela",
+    "TransPolicy": "#TP_SemanticTranslate",
+    "Scope": ["Works_FLInvestigator78"]
+  },
+  {
+    "Term_JP": "リオン",
+    "Term_EN": "Lion",
+    "TransPolicy": "#TP_SemanticTranslate",
+    "Scope": ["Works_FLInvestigator78"]
+  },
+  {
+    "Term_JP": "ヴェール",
+    "Term_EN": "Veil",
+    "TransPolicy": "#TP_SemanticTranslate",
+    "Scope": ["Works_FLInvestigator78"]
+  },
+  {
+    "Term_JP": "ドゥームズ",
+    "Term_EN": "Dooms",
+    "TransPolicy": "#TP_SemanticTranslate",
+    "Scope": ["Works_FLInvestigator78"]
+  },
+  {
+    "Term_JP": "バベル",
+    "Term_EN": "Babel",
+    "TransPolicy": "#TP_SemanticTranslate",
+    "Scope": ["Works_FLInvestigator78"]
+  },
+  {
+    "Term_JP": "ゲイザー",
+    "Term_EN": "Gazer",
+    "TransPolicy": "#TP_SemanticTranslate",
+    "Scope": ["Works_FLInvestigator78"]
+  },
+  {
+    "Term_JP": "ルネ",
+    "Term_EN": "Lune",
+    "TransPolicy": "#TP_SemanticTranslate",
+    "Scope": ["Works_FLInvestigator78"]
+  }
+]

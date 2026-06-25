@@ -1,9 +1,19 @@
 {
   "Databases": {
-    "#Loc_Dict": {
+    "#Loc_PersonName": {
       "DB_Layer": "Localization",
-      "DB_Label_JP": "翻訳辞書",
-      "DB_Label_EN": "Translation Dictionary"
+      "DB_Label_JP": "人物名・呼称",
+      "DB_Label_EN": "Person Name / Appellation"
+    },
+    "#Loc_OrgName": {
+      "DB_Layer": "Localization",
+      "DB_Label_JP": "組織名",
+      "DB_Label_EN": "Organization Name"
+    },
+    "#Loc_ServiceInfra": {
+      "DB_Layer": "Localization",
+      "DB_Label_JP": "サービス・インフラ",
+      "DB_Label_EN": "Service / Infrastructure"
     }
   }
 }

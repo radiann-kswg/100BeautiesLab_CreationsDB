@@ -1,9 +1,14 @@
 {
   "Databases": {
-    "#Loc_Dict": {
+    "#Loc_IndividualName": {
       "DB_Layer": "Localization",
-      "DB_Label_JP": "翻訳辞書",
-      "DB_Label_EN": "Translation Dictionary"
+      "DB_Label_JP": "個体名・呼称",
+      "DB_Label_EN": "Individual Name / Appellation"
+    },
+    "#Loc_FamilyName": {
+      "DB_Layer": "Localization",
+      "DB_Label_JP": "種族名・襲名",
+      "DB_Label_EN": "Race / Succession Name"
     }
   }
 }

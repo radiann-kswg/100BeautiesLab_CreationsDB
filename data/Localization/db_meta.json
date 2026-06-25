@@ -1,9 +1,29 @@
 {
   "Databases": {
-    "#Loc_Dict": {
+    "#Loc_Titles": {
       "DB_Layer": "Localization",
-      "DB_Label_JP": "翻訳辞書",
-      "DB_Label_EN": "Translation Dictionary"
+      "DB_Label_JP": "創作名",
+      "DB_Label_EN": "Title"
+    },
+    "#Loc_PlaceName": {
+      "DB_Layer": "Localization",
+      "DB_Label_JP": "地名",
+      "DB_Label_EN": "Place Name"
+    },
+    "#Loc_PersonName": {
+      "DB_Layer": "Localization",
+      "DB_Label_JP": "人物名・呼称",
+      "DB_Label_EN": "Person Name / Appellation"
+    },
+    "#Loc_FamilyName": {
+      "DB_Layer": "Localization",
+      "DB_Label_JP": "種族名・襲名",
+      "DB_Label_EN": "Race / Succession Name"
+    },
+    "#Loc_ProperNoun": {
+      "DB_Layer": "Localization",
+      "DB_Label_JP": "その他固有名詞",
+      "DB_Label_EN": "Other Proper Noun"
     }
   },
   "General": {
@@ -31,13 +51,22 @@
         }
       },
       "$EnumDef_Category": {
-        "#Cat_Coinage": { "Category": "造語", "Category_EN": "Coined Term" },
-        "#Cat_Titles": { "Category": "創作名", "Category_EN": "Title" },
+        "#Cat_Coinage": {
+          "Category": "造語",
+          "Category_EN": "Coined Term"
+        },
+        "#Cat_Titles": {
+          "Category": "創作名",
+          "Category_EN": "Title"
+        },
         "#Cat_PersonName": {
           "Category": "人物名・呼称",
           "Category_EN": "Person Name / Appellation"
         },
-        "#Cat_PlaceName": { "Category": "地名", "Category_EN": "Place Name" },
+        "#Cat_PlaceName": {
+          "Category": "地名",
+          "Category_EN": "Place Name"
+        },
         "#Cat_OrgName": {
           "Category": "組織名",
           "Category_EN": "Organization Name"
@@ -78,7 +107,10 @@
           "Category": "独自スラング・特殊表現",
           "Category_EN": "Original Slang / Special Expression"
         },
-        "#Cat_Tradition": { "Category": "伝統", "Category_EN": "Tradition" },
+        "#Cat_Tradition": {
+          "Category": "伝統",
+          "Category_EN": "Tradition"
+        },
         "#Cat_ProperNoun": {
           "Category": "その他固有名詞",
           "Category_EN": "Other Proper Noun"

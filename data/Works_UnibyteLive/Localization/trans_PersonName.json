@@ -1,0 +1,38 @@
+[
+  {
+    "Term_JP": "A:アロー",
+    "Term_EN": "A:Arrows",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_UnibyteLive"]
+  },
+  {
+    "Term_JP": "英文字アロー",
+    "Term_EN": "Arrows A-Letter",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_UnibyteLive"]
+  },
+  {
+    "Term_JP": "S:ナーミィ",
+    "Term_EN": "S:Surgey",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_UnibyteLive"]
+  },
+  {
+    "Term_JP": "左伯ナーミィ",
+    "Term_EN": "Surgey S-Curve",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_UnibyteLive"]
+  },
+  {
+    "Term_JP": "Z:ジグ",
+    "Term_EN": "Z:Zig",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_UnibyteLive"]
+  },
+  {
+    "Term_JP": "右仗ジグ",
+    "Term_EN": "Zig Z-Drifts",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_UnibyteLive"]
+  }
+]

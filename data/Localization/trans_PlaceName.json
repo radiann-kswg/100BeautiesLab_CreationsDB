@@ -1,0 +1,95 @@
+[
+  {
+    "Term_JP": "九蓮国",
+    "Term_EN": "LotusNinea",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": [
+      "Works_NumberTales",
+      "Works_FLInvestigator78",
+      "Works_UnauthedLogica",
+      "Works_UnibyteLive"
+    ]
+  },
+  {
+    "Term_JP": "龍天国",
+    "Term_EN": "LóngTiān's.Republic",
+    "TransPolicy": "#TP_Romanize",
+    "Scope": ["Works_ShouArRiders"]
+  },
+  {
+    "Term_JP": "英皇国",
+    "Term_EN": "Internic.Kingdom",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_FLInvestigator78"]
+  },
+  {
+    "Term_JP": "雄志結国",
+    "Term_EN": "United.Heroic.Nation",
+    "TransPolicy": "#TP_SemanticTranslate",
+    "Scope": [
+      "Works_NumberTales",
+      "Works_FLInvestigator78",
+      "Works_ShouArRiders",
+      "Works_UnibyteLive",
+      "Works_SinisterChangingGirls",
+      "Works_UnauthedLogica",
+      "Works_PastDivers",
+      "Works_DestinyFoxRecords",
+      "Works_Proxies"
+    ]
+  },
+  {
+    "Term_JP": "海陸国(シーバイランド)諸島",
+    "Term_EN": "Seabyislands",
+    "TransPolicy": "#TP_KeepOriginal",
+    "Scope": []
+  },
+  {
+    "Term_JP": "紅雪連邦",
+    "Term_EN": "United.SnowRed.Republic",
+    "TransPolicy": "#TP_SemanticTranslate",
+    "Scope": ["Works_UnauthedLogica"]
+  },
+  {
+    "Term_JP": "四蓮島",
+    "Term_EN": "LotasQuadrup.Island",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": []
+  },
+  {
+    "Term_JP": "黒薔薇国",
+    "Term_EN": "SchwarzeRoseland",
+    "TransPolicy": "#TP_SemanticTranslate",
+    "Scope": []
+  },
+  {
+    "Term_JP": "神皇国",
+    "Term_EN": "SaintPapis",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": []
+  },
+  {
+    "Term_JP": "算象(アリスマ)諸国",
+    "Term_EN": "Alismathians",
+    "TransPolicy": "#TP_KeepOriginal",
+    "Scope": []
+  },
+  {
+    "Term_JP": "金源(アウルムゲン)諸国",
+    "Term_EN": "Aurumgenics",
+    "TransPolicy": "#TP_KeepOriginal",
+    "Scope": []
+  },
+  {
+    "Term_JP": "南雌(イヴソース)大陸",
+    "Term_EN": "Evesouth Mainland",
+    "TransPolicy": "#TP_KeepOriginal",
+    "Scope": []
+  },
+  {
+    "Term_JP": "然天(ネーザ)大陸",
+    "Term_EN": "Naitus Mainland",
+    "TransPolicy": "#TP_KeepOriginal",
+    "Scope": []
+  }
+]

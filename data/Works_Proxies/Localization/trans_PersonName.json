@@ -1,0 +1,20 @@
+[
+  {
+    "Term_JP": "ラジアン(2代目)",
+    "Term_EN": "RadianN (2nd Gen.)",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_Proxies"]
+  },
+  {
+    "Term_JP": "ラジアン(3代目)",
+    "Term_EN": "RadianN (3rd Gen.)",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_Proxies"]
+  },
+  {
+    "Term_JP": "ラジアン(初代)",
+    "Term_EN": "RadianN (1st Gen.)",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_Proxies"]
+  }
+]

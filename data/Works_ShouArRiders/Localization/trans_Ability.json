@@ -1,0 +1,44 @@
+[
+  {
+    "Term_JP": "子機分身",
+    "Term_EN": "ChildCroning",
+    "TransPolicy": "#TP_SemanticTranslate",
+    "Scope": ["Works_ShouArRiders"]
+  },
+  {
+    "Term_JP": "会心一中",
+    "Term_EN": "One'sConcentration",
+    "TransPolicy": "#TP_SemanticTranslate",
+    "Scope": ["Works_ShouArRiders"]
+  },
+  {
+    "Term_JP": "跳躍",
+    "Term_EN": "DashJumping",
+    "TransPolicy": "#TP_SemanticTranslate",
+    "Scope": ["Works_ShouArRiders"]
+  },
+  {
+    "Term_JP": "画竜点睛(空中走行)",
+    "Term_EN": "Dragon'sSkywalk",
+    "TransPolicy": "#TP_SemanticTranslate",
+    "Scope": ["Works_ShouArRiders"]
+  },
+  {
+    "Term_JP": "束縛形態",
+    "Term_EN": "RopeTyingForm",
+    "TransPolicy": "#TP_SemanticTranslate",
+    "Scope": ["Works_ShouArRiders"]
+  },
+  {
+    "Term_JP": "牽引突破",
+    "Term_EN": "PullingBreakthrough",
+    "TransPolicy": "#TP_SemanticTranslate",
+    "Scope": ["Works_ShouArRiders"]
+  },
+  {
+    "Term_JP": "軟体/着地",
+    "Term_EN": "SoftizeBody/TouchGrounding",
+    "TransPolicy": "#TP_SemanticTranslate",
+    "Scope": ["Works_ShouArRiders"]
+  }
+]

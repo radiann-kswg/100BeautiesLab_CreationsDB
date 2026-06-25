@@ -1,0 +1,10 @@
+[
+  {
+    "Term_JP": "セブンティエイト特殊探偵団",
+    "Term_EN": "Team.78(Seventy-Eight) the Special Investigators",
+    "TransPolicy": "#TP_SemanticTranslate",
+    "Scope": [
+      "Works_FLInvestigator78"
+    ]
+  }
+]

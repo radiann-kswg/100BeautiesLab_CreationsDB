@@ -1,9 +1,19 @@
 {
   "Databases": {
-    "#Loc_Dict": {
+    "#Loc_PersonName": {
       "DB_Layer": "Localization",
-      "DB_Label_JP": "翻訳辞書",
-      "DB_Label_EN": "Translation Dictionary"
+      "DB_Label_JP": "人物名・呼称",
+      "DB_Label_EN": "Person Name / Appellation"
+    },
+    "#Loc_Ability": {
+      "DB_Layer": "Localization",
+      "DB_Label_JP": "能力・スキル名",
+      "DB_Label_EN": "Ability / Skill Name"
+    },
+    "#Loc_Phenomenon": {
+      "DB_Layer": "Localization",
+      "DB_Label_JP": "事象・現象",
+      "DB_Label_EN": "Event / Phenomenon"
     }
   }
 }

@@ -205,7 +205,7 @@ describe('DB layer aware routing', () => {
       },
       '/data/Works_Test/Localization/db_meta.json': {
         Databases: {
-          '#Loc_Dict': { DB_Label_JP: '翻訳辞書', DB_Label_EN: 'Translation Dictionary' }
+          '#Loc_PersonName': { DB_Layer: 'Localization', DB_Label_JP: '人物名・呼称', DB_Label_EN: 'Person Name / Appellation' }
         }
       }
     };
@@ -228,8 +228,8 @@ describe('DB layer aware routing', () => {
     const meta = await fetcher.readWorkMeta('#Works_Test');
 
     expect(meta.Databases?.['#DB_Primary']?.DB_Label).toBe('一次創作');
-    expect(meta.Databases?.['#Loc_Dict']?.DB_Label_JP).toBe('翻訳辞書');
-    expect(meta.Databases?.['#Loc_Dict']?.DB_Layer).toBe('Localization');
+    expect(meta.Databases?.['#Loc_PersonName']?.DB_Label_JP).toBe('人物名・呼称');
+    expect(meta.Databases?.['#Loc_PersonName']?.DB_Layer).toBe('Localization');
   });
 
   it('DataFetcher.readDB resolves Localization layer trans_*.json via Localization/db_meta.json', async () => {
@@ -239,15 +239,15 @@ describe('DB layer aware routing', () => {
       },
       '/data/Works_Test/Localization/db_meta.json': {
         Databases: {
-          '#Loc_Dict': {
+          '#Loc_PersonName': {
             DB_Layer: 'Localization',
-            DB_Label_JP: '翻訳辞書',
-            DB_Label_EN: 'Translation Dictionary'
+            DB_Label_JP: '人物名・呼称',
+            DB_Label_EN: 'Person Name / Appellation'
           }
         }
       },
-      '/data/Works_Test/Localization/trans_Dict.json': [
-        { Term_JP: 'ナンバーテールズ', Term_EN: 'NumberTales', Category: '#Cat_Coinage', TransPolicy: '#TP_LocalizeName' }
+      '/data/Works_Test/Localization/trans_PersonName.json': [
+        { Term_JP: '扇一春', Term_EN: 'Hatsuharu Ogi', TransPolicy: '#TP_LocalizeName' }
       ]
     };
 
@@ -266,10 +266,10 @@ describe('DB layer aware routing', () => {
 
     const ctx = loadSwCommonIntoContext({ fetch: fetchStub });
     const fetcher = new ctx.self.DataFetcher(new ctx.self.SWConfig('/pages'));
-    const records = await fetcher.readDB('#Works_Test', 'Dict');
+    const records = await fetcher.readDB('#Works_Test', 'PersonName');
 
     expect(records).toHaveLength(1);
-    expect(records[0].Term_JP).toBe('ナンバーテールズ');
+    expect(records[0].Term_JP).toBe('扇一春');
     expect(records[0].TransPolicy).toBe('#TP_LocalizeName');
   });
 

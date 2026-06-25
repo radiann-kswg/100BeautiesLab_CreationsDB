@@ -1,0 +1,14 @@
+[
+  {
+    "Term_JP": "アルカナ",
+    "Term_EN": "Arcana",
+    "TransPolicy": "#TP_SemanticTranslate",
+    "Scope": ["Works_FLInvestigator78"]
+  },
+  {
+    "Term_JP": "アルカナムスペック",
+    "Term_EN": "ArcanumSpec",
+    "TransPolicy": "#TP_SemanticTranslate",
+    "Scope": ["Works_FLInvestigator78"]
+  }
+]
