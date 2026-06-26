@@ -17,6 +17,7 @@ function load(file) {
 describe('catalog meta schema declarations', () => {
   it('global db_type declares work and database catalog meta definitions', () => {
     const dbType = load('data/db_type.json');
+    const dbMeta = load('data/db_meta.json');
     const storyEra = dbType?.$MetaType?.$Def_StoryEra?.$DefType;
     const storyEraCatalog = dbType?.$MetaType?.$Def_StoryEraCatalog?.$DefType;
 
@@ -25,7 +26,7 @@ describe('catalog meta schema declarations', () => {
     expect(dbType?.$MetaType?.$Def_OldTitleCatalog?.$DefType).toBeInstanceOf(Array);
     expect(dbType?.$MetaType?.$Def_StoryEra?.$display?.wrapper).toBe('eraSummary');
     expect(dbType?.$MetaType?.$Def_StoryEraCatalog?.$display?.wrapper).toBe('storyEraSummary');
-    expect(dbType?.$VarsDef?.$Def_Day?.$display?.wrapper).toBe('daySummary');
+    expect(dbMeta?.General?.$VarsDef?.$Def_Day?.$display?.wrapper).toBe('daySummary');
     expect(storyEra).toBeInstanceOf(Array);
     expect(storyEraCatalog).toBeInstanceOf(Array);
     expect(dbType?.$MetaType?.$Def_SecondaryMeta?.$DefType).toBeInstanceOf(Array);

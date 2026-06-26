@@ -51,12 +51,13 @@ describe('database shapes', () => {
 
   it('global area typedef keeps BaseArea and Area separated', () => {
     const dbType = load('data/db_type.json');
+    const dbMeta = load('data/db_meta.json');
     const defType = Array.isArray(dbType?.$DefType) ? dbType.$DefType : [];
     const areaField = defType.find((entry) => entry?.hashTag === 'Area');
     const fromAreaField = defType.find((entry) => entry?.hashTag === 'FromArea');
     const legacyBaseAreaField = defType.find((entry) => entry?.hashTag === 'BaseArea');
     const belongingField = defType.find((entry) => entry?.hashTag === 'Belonging');
-    const baseAreaDef = dbType?.$VarsDef?.$Def_BaseArea;
+    const baseAreaDef = dbMeta?.General?.$VarsDef?.$Def_BaseArea;
     const baseAreaEntries = Array.isArray(baseAreaDef?.$DefType) ? baseAreaDef.$DefType : [];
     const nestedArea = baseAreaEntries.find((entry) => entry?.hashTag === 'Area');
 

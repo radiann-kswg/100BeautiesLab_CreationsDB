@@ -506,6 +506,461 @@ function errorResponse(status, message) {
   return jsonResponse({ error: message, status }, status);
 }
 
+/**
+ * HTML レスポンスを生成（ダッシュボード本体配信用）
+ * @param {string} html
+ * @param {number} status
+ * @returns {Response}
+ */
+function htmlResponse(html, status = 200) {
+  return new Response(html, {
+    status,
+    headers: {
+      "Content-Type": "text/html; charset=utf-8",
+      // ダッシュボード HTML は短時間キャッシュ（データは別エンドポイントで都度取得）
+      "Cache-Control": "public, max-age=120",
+    },
+  });
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Today Action Board ダッシュボード
+//   GET /dashboard       — セルフコンテインドな 1 枚もの HTML（モバイル幅・ライト基調）
+//   GET /dashboard/data  — 記念日(D1) + GitHub(REST) を集約した JSON
+//
+//   端末非依存・サーバ側でデータ取得。HTML 内 JS は同一オリジンの
+//   /dashboard/data を fetch してレンダリングする（window.cowork は不使用）。
+//   scheduled-tasks / session_info は Worker からは到達不可のため非対応
+//   （ダッシュボードには「Web版では非対応」と注記のみ）。
+// ─────────────────────────────────────────────────────────────────────────────
+
+/** GitHub 監視対象ユーザー */
+const DASHBOARD_GITHUB_USER = "radiann-kswg";
+/** 記念日の表示ウィンドウ（日数） */
+const DASHBOARD_ANIV_WINDOW_DAYS = 14;
+/** サーバ側 TZ（記念日 daysUntil 計算基準） */
+const DASHBOARD_TZ = "Asia/Tokyo";
+/** JST オフセット（ミリ秒） */
+const JST_OFFSET_MS = 9 * 60 * 60 * 1000;
+
+/**
+ * JST 基準の「今日」(UTC エポック化された 0 時)を返す
+ * @returns {{ todayUTC: number, year: number }}
+ */
+function jstTodayBase() {
+  const now = new Date();
+  const jst = new Date(now.getTime() + JST_OFFSET_MS);
+  const y = jst.getUTCFullYear();
+  const m = jst.getUTCMonth();
+  const d = jst.getUTCDate();
+  return { todayUTC: Date.UTC(y, m, d), year: y };
+}
+
+/**
+ * 月/日（年なし記念日）から JST 今日までの残日数を算出。
+ * 今年の該当日が過ぎていれば翌年の同日を採用する。
+ * @param {number} month - 1-12
+ * @param {number} day   - 1-31
+ * @param {{ todayUTC: number, year: number }} base
+ * @returns {number|null}
+ */
+function daysUntilAnniversary(month, day, base) {
+  if (!Number.isFinite(month) || !Number.isFinite(day)) return null;
+  if (month < 1 || month > 12 || day < 1 || day > 31) return null;
+  let target = Date.UTC(base.year, month - 1, day);
+  if (target < base.todayUTC) target = Date.UTC(base.year + 1, month - 1, day);
+  return Math.round((target - base.todayUTC) / 86400000);
+}
+
+/**
+ * 記念日/誕生日アイテムの優先度を決定
+ * @param {number} daysUntil
+ * @returns {"urgent"|"today"|"reference"}
+ */
+function anniversaryPriority(daysUntil) {
+  if (daysUntil === 0) return "urgent";   // 当日 → 緊急
+  if (daysUntil <= 3)  return "today";    // 3 日以内 → 本日中
+  return "reference";                     // それ以降 → 参考
+}
+
+/**
+ * D1 から記念日/誕生日を集約する（is_private=0 のみ）。
+ * AnivDay / BirthDay は配列 [{ Day:{Month,DayOfMonth}, DayAbout_JP }]。
+ * hideText / _Jump 等の非配列ケースはスキップ（500 にしない）。
+ * @param {object} env
+ * @returns {Promise<object[]>}
+ */
+async function collectAnniversaries(env) {
+  // 記念日フィールドを持つ可能性のあるレコードだけを LIKE で絞る（軽量化）
+  const rows = await d1Query(
+    env,
+    `SELECT work_key, db_name, data_json FROM records
+       WHERE is_private = 0
+         AND (data_json LIKE '%"AnivDay"%' OR data_json LIKE '%"BirthDay"%')`,
+    []
+  );
+
+  const base = jstTodayBase();
+  const items = [];
+  const seen = new Set(); // 同一(name|kind|月|日|about)の重複レコードを排除
+
+  for (const row of rows) {
+    let rec;
+    try { rec = JSON.parse(row.data_json); } catch { continue; }
+    if (!rec || typeof rec !== "object") continue;
+
+    const name       = rec.Name_JP ?? rec.FormalName_JP ?? rec.Name_EN ?? "";
+    const formalName = rec.FormalName_JP ?? "";
+
+    for (const kind of ["AnivDay", "BirthDay"]) {
+      const entries = rec[kind];
+      if (!Array.isArray(entries)) continue; // hideText / _Jump 等は対象外
+      for (const e of entries) {
+        const day = e?.Day;
+        if (!day || typeof day !== "object") continue;
+        const month = Number(day.Month);
+        const dom   = Number(day.DayOfMonth);
+        const du    = daysUntilAnniversary(month, dom, base);
+        if (du === null || du > DASHBOARD_ANIV_WINDOW_DAYS) continue;
+        const dedupeKey = `${name}|${kind}|${month}|${dom}|${e?.DayAbout_JP ?? ""}`;
+        if (seen.has(dedupeKey)) continue;
+        seen.add(dedupeKey);
+        items.push({
+          source:      "anniversary",
+          sourceLabel: kind === "BirthDay" ? "誕生日" : "記念日",
+          kind,
+          name,
+          formalName,
+          work:        row.work_key,
+          month,
+          day:         dom,
+          about:       e?.DayAbout_JP ?? "",
+          daysUntil:   du,
+          priority:    anniversaryPriority(du),
+        });
+      }
+    }
+  }
+
+  // 残日数昇順 → 同日は名前順
+  items.sort((a, b) =>
+    a.daysUntil - b.daysUntil || String(a.name).localeCompare(String(b.name), "ja")
+  );
+  return items;
+}
+
+/**
+ * GitHub Search API を 1 クエリ実行して issue/PR 配列を返す。
+ * トークンはヘッダーにのみ使用し、レスポンスには一切含めない。
+ * @param {string} token
+ * @param {string} q - 検索クエリ
+ * @returns {Promise<object[]>}
+ */
+async function githubSearch(token, q) {
+  const url = `https://api.github.com/search/issues?per_page=20&q=${encodeURIComponent(q)}`;
+  const res = await fetch(url, {
+    headers: {
+      "Authorization": `Bearer ${token}`,
+      "Accept": "application/vnd.github+json",
+      "User-Agent": "100BeautiesLab-CreationsDB-Dashboard",
+      "X-GitHub-Api-Version": "2022-11-28",
+    },
+  });
+  if (!res.ok) {
+    throw new ApiError(res.status, `GitHub API ${res.status}`);
+  }
+  const json = await res.json();
+  const list = Array.isArray(json.items) ? json.items : [];
+  // 必要最小限のフィールドのみ抽出（トークン・機微情報は載せない）
+  return list.map((it) => ({
+    title:      it.title ?? "",
+    number:     it.number ?? null,
+    url:        it.html_url ?? "",
+    repo:       (it.repository_url ?? "").replace("https://api.github.com/repos/", ""),
+    isPr:       !!it.pull_request,
+    state:      it.state ?? "open",
+    updatedAt:  it.updated_at ?? "",
+  }));
+}
+
+/**
+ * GitHub パネル用データを集約。GITHUB_TOKEN 未設定なら configured:false を返す。
+ * @param {object} env
+ * @returns {Promise<object>}
+ */
+async function collectGithub(env) {
+  const token = env.GITHUB_TOKEN;
+  if (!token) {
+    // 未設定はエラーにせず空配列＋フラグで返す
+    return {
+      configured: false,
+      error: null,
+      groups: { reviewRequested: [], assigned: [], authoredIssues: [], authoredPrs: [] },
+    };
+  }
+
+  const user = DASHBOARD_GITHUB_USER;
+  try {
+    const [reviewRequested, assigned, authoredIssues, authoredPrs] = await Promise.all([
+      githubSearch(token, `is:open is:pr review-requested:${user}`),
+      githubSearch(token, `is:open assignee:${user}`),
+      githubSearch(token, `is:open is:issue author:${user}`),
+      githubSearch(token, `is:open is:pr author:${user}`),
+    ]);
+    return {
+      configured: true,
+      error: null,
+      groups: { reviewRequested, assigned, authoredIssues, authoredPrs },
+    };
+  } catch (err) {
+    const msg = err instanceof ApiError ? err.message : "GitHub fetch failed";
+    return {
+      configured: true,
+      error: msg,
+      groups: { reviewRequested: [], assigned: [], authoredIssues: [], authoredPrs: [] },
+    };
+  }
+}
+
+/**
+ * /dashboard/data の集約本体。
+ * @param {object} env
+ * @returns {Promise<object>}
+ */
+async function buildDashboardData(env) {
+  const [anniversaries, github] = await Promise.all([
+    collectAnniversaries(env),
+    collectGithub(env),
+  ]);
+
+  return {
+    generatedAt: new Date().toISOString(),
+    tz: DASHBOARD_TZ,
+    anniversaries: { windowDays: DASHBOARD_ANIV_WINDOW_DAYS, items: anniversaries },
+    github,
+    // Cloudflare Workers 稼働状況: 別途 API トークンが必要なため今回はスキップ
+    workersStatus: { available: false, note: "Cloudflare API トークン未設定のため非対応" },
+    // 端末ローカル情報（scheduled-tasks / session_info）は Web 版では非対応
+    localOnly: { available: false, note: "この端末ローカル情報のため Web 版では非対応" },
+  };
+}
+
+/** Today Action Board 本体 HTML（セルフコンテインド・モバイル幅・ライト基調） */
+const DASHBOARD_HTML = `<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Today Action Board — 100BeautiesLab. CreationsDB</title>
+<style>
+  :root {
+    --bg: #f6f7fb; --card: #ffffff; --ink: #1f2430; --muted: #6b7280;
+    --line: #e6e8ef; --accent: #4f46e5;
+    --urgent: #e11d48; --urgent-bg: #fff1f3;
+    --today: #d97706;  --today-bg: #fff7ed;
+    --ref: #2563eb;    --ref-bg: #eff6ff;
+    --aniv: #7c3aed;   --gh: #111827;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--bg); color: var(--ink);
+    font-family: -apple-system, BlinkMacSystemFont, "Hiragino Kaku Gothic ProN", "Yu Gothic", Meiryo, sans-serif;
+    -webkit-font-smoothing: antialiased; padding: env(safe-area-inset-top) 0 24px;
+  }
+  .wrap { max-width: 720px; margin: 0 auto; padding: 16px; }
+  header { display: flex; align-items: baseline; justify-content: space-between; gap: 8px; margin-bottom: 4px; }
+  h1 { font-size: 1.15rem; margin: 0; letter-spacing: .02em; }
+  .sub { color: var(--muted); font-size: .72rem; }
+  .bar { display: flex; align-items: center; gap: 8px; margin: 12px 0 18px; flex-wrap: wrap; }
+  button#refresh {
+    border: 1px solid var(--line); background: var(--card); color: var(--ink);
+    padding: 8px 14px; border-radius: 999px; font-size: .82rem; cursor: pointer;
+    display: inline-flex; align-items: center; gap: 6px;
+  }
+  button#refresh:active { transform: scale(.98); }
+  .status { font-size: .72rem; color: var(--muted); }
+  .dot { width: 8px; height: 8px; border-radius: 50%; background: #cbd5e1; display: inline-block; }
+  .dot.live { background: #22c55e; }
+  section.col { margin-bottom: 22px; }
+  .col-head { display: flex; align-items: center; gap: 8px; margin: 0 0 10px; }
+  .col-head h2 { font-size: .92rem; margin: 0; }
+  .pill { font-size: .68rem; padding: 2px 8px; border-radius: 999px; font-weight: 600; }
+  .pill.urgent { color: var(--urgent); background: var(--urgent-bg); }
+  .pill.today  { color: var(--today);  background: var(--today-bg); }
+  .pill.reference { color: var(--ref); background: var(--ref-bg); }
+  .count { color: var(--muted); font-size: .72rem; }
+  .card {
+    background: var(--card); border: 1px solid var(--line); border-radius: 14px;
+    padding: 12px 14px; margin-bottom: 10px; box-shadow: 0 1px 2px rgba(20,25,40,.04);
+  }
+  .card.urgent { border-left: 4px solid var(--urgent); }
+  .card.today  { border-left: 4px solid var(--today); }
+  .card.reference { border-left: 4px solid var(--ref); }
+  .card .row1 { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin-bottom: 4px; }
+  .badge { font-size: .66rem; padding: 2px 8px; border-radius: 6px; font-weight: 600; color: #fff; }
+  .badge.aniv { background: var(--aniv); }
+  .badge.gh   { background: var(--gh); }
+  .when { margin-left: auto; font-size: .74rem; color: var(--muted); white-space: nowrap; }
+  .when.d0 { color: var(--urgent); font-weight: 700; }
+  .title { font-size: .92rem; font-weight: 600; line-height: 1.35; }
+  .title a { color: inherit; text-decoration: none; }
+  .title a:hover { text-decoration: underline; }
+  .meta { font-size: .74rem; color: var(--muted); margin-top: 2px; }
+  .empty { color: var(--muted); font-size: .82rem; padding: 10px 2px; }
+  .ghpanel { background: var(--card); border: 1px dashed var(--line); border-radius: 14px; padding: 14px; }
+  .ghpanel.unset { color: var(--muted); font-size: .84rem; }
+  .note { font-size: .7rem; color: var(--muted); margin-top: 4px; }
+  footer { margin-top: 26px; font-size: .68rem; color: var(--muted); line-height: 1.6; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>Today Action Board</h1>
+    <span class="sub">100BeautiesLab. CreationsDB</span>
+  </header>
+  <div class="bar">
+    <button id="refresh" type="button"><span aria-hidden="true">&#x21bb;</span> 更新</button>
+    <span class="status"><span class="dot" id="livedot"></span> <span id="statustext">読み込み中…</span></span>
+  </div>
+
+  <section class="col" id="col-urgent">
+    <div class="col-head"><h2>緊急</h2><span class="pill urgent">今日 / 要対応</span><span class="count" id="cnt-urgent"></span></div>
+    <div id="list-urgent"></div>
+  </section>
+
+  <section class="col" id="col-today">
+    <div class="col-head"><h2>本日中</h2><span class="pill today">まもなく</span><span class="count" id="cnt-today"></span></div>
+    <div id="list-today"></div>
+  </section>
+
+  <section class="col" id="col-reference">
+    <div class="col-head"><h2>参考</h2><span class="pill reference">今後 14 日</span><span class="count" id="cnt-reference"></span></div>
+    <div id="list-reference"></div>
+  </section>
+
+  <footer id="foot"></footer>
+</div>
+
+<script>
+(function () {
+  "use strict";
+  var DATA_URL = "/dashboard/data";
+  var timer = null;
+
+  function el(id) { return document.getElementById(id); }
+  function esc(s) {
+    return String(s == null ? "" : s)
+      .replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;").replace(/'/g, "&#39;");
+  }
+  function whenLabel(d) {
+    if (d === 0) return "今日";
+    if (d === 1) return "明日";
+    return "あと " + d + " 日";
+  }
+  function workLabel(w) {
+    return esc(String(w || "").replace(/^#?Works_/, ""));
+  }
+
+  function anivCard(it) {
+    var d0 = it.daysUntil === 0 ? " d0" : "";
+    var mmdd = it.month + "/" + it.day;
+    var sub = it.formalName && it.formalName !== it.name ? " ・ " + esc(it.formalName) : "";
+    return '<div class="card ' + it.priority + '">' +
+      '<div class="row1">' +
+        '<span class="badge aniv">' + esc(it.sourceLabel) + '</span>' +
+        '<span class="when' + d0 + '">' + whenLabel(it.daysUntil) + '</span>' +
+      '</div>' +
+      '<div class="title">' + esc(it.name) + sub + '</div>' +
+      '<div class="meta">' + mmdd + (it.about ? ' ・ ' + esc(it.about) : '') + ' ・ ' + workLabel(it.work) + '</div>' +
+    '</div>';
+  }
+
+  function ghCard(it, priority) {
+    var kind = it.isPr ? "PR" : "Issue";
+    return '<div class="card ' + priority + '">' +
+      '<div class="row1">' +
+        '<span class="badge gh">GitHub</span>' +
+        '<span class="when">' + esc(kind) + (it.number ? " #" + it.number : "") + '</span>' +
+      '</div>' +
+      '<div class="title"><a href="' + esc(it.url) + '" target="_blank" rel="noopener">' + esc(it.title) + '</a></div>' +
+      '<div class="meta">' + esc(it.repo) + '</div>' +
+    '</div>';
+  }
+
+  function render(data) {
+    var buckets = { urgent: [], today: [], reference: [] };
+
+    (data.anniversaries && data.anniversaries.items || []).forEach(function (it) {
+      buckets[it.priority] = buckets[it.priority] || [];
+      buckets[it.priority].push(anivCard(it));
+    });
+
+    var gh = data.github || { configured: false, groups: {} };
+    var g = gh.groups || {};
+    if (gh.configured && !gh.error) {
+      (g.reviewRequested || []).forEach(function (it) { buckets.urgent.push(ghCard(it, "urgent")); });
+      (g.assigned || []).forEach(function (it) { buckets.today.push(ghCard(it, "today")); });
+      (g.authoredPrs || []).forEach(function (it) { buckets.reference.push(ghCard(it, "reference")); });
+      (g.authoredIssues || []).forEach(function (it) { buckets.reference.push(ghCard(it, "reference")); });
+    }
+
+    ["urgent", "today", "reference"].forEach(function (k) {
+      var html = (buckets[k] || []).join("");
+      el("list-" + k).innerHTML = html || '<div class="empty">項目はありません</div>';
+      el("cnt-" + k).textContent = (buckets[k] || []).length ? "(" + buckets[k].length + ")" : "";
+    });
+
+    // GitHub 未設定 / エラー時の注記を参考列の末尾に追加
+    if (!gh.configured) {
+      el("list-reference").insertAdjacentHTML("beforeend",
+        '<div class="ghpanel unset">GitHub: トークン未設定（<code>wrangler secret put GITHUB_TOKEN</code> 設定後に表示）</div>');
+    } else if (gh.error) {
+      el("list-reference").insertAdjacentHTML("beforeend",
+        '<div class="ghpanel unset">GitHub: 取得エラー（' + esc(gh.error) + '）</div>');
+    }
+
+    var hasNow = (buckets.urgent.length + buckets.today.length) > 0;
+    el("livedot").className = "dot" + (hasNow ? " live" : "");
+    var t = new Date(data.generatedAt);
+    el("statustext").textContent = "更新 " + t.toLocaleTimeString("ja-JP") + " ・ TZ " + (data.tz || "Asia/Tokyo");
+
+    var foot = "記念日は " + (data.anniversaries ? data.anniversaries.windowDays : 14) +
+      " 日以内を表示（is_private=0）。";
+    if (data.workersStatus && !data.workersStatus.available) foot += " Workers稼働: " + esc(data.workersStatus.note) + "。";
+    if (data.localOnly && !data.localOnly.available) foot += " スケジュール/セッション情報: " + esc(data.localOnly.note) + "。";
+    el("foot").innerHTML = foot;
+
+    return hasNow;
+  }
+
+  function scheduleNext(hasNow) {
+    if (timer) clearTimeout(timer);
+    // 当日/緊急があるときのみ短間隔(12s)、無ければ低頻度(90s)
+    timer = setTimeout(load, hasNow ? 12000 : 90000);
+  }
+
+  function load() {
+    el("statustext").textContent = "更新中…";
+    fetch(DATA_URL, { cache: "no-store" })
+      .then(function (r) { if (!r.ok) throw new Error("HTTP " + r.status); return r.json(); })
+      .then(function (data) { var hasNow = render(data); scheduleNext(hasNow); })
+      .catch(function (e) {
+        el("statustext").textContent = "取得失敗: " + e.message;
+        el("livedot").className = "dot";
+        scheduleNext(false);
+      });
+  }
+
+  el("refresh").addEventListener("click", load);
+  document.addEventListener("visibilitychange", function () { if (!document.hidden) load(); });
+  load();
+})();
+</script>
+</body>
+</html>`;
+
 // ─────────────────────────────────────────────────────────────────────────────
 // ルーティング
 // ─────────────────────────────────────────────────────────────────────────────
@@ -534,6 +989,23 @@ async function handleRequest(request, env) {
 
   if (request.method !== "GET") {
     return errorResponse(405, "Method not allowed");
+  }
+
+  // ── Today Action Board ────────────────────────────────────────────────────
+  // GET /dashboard       — HTML 本体（セルフコンテインド）
+  // GET /dashboard/data  — 記念日(D1)+GitHub(REST) 集約 JSON（読み取り専用）
+  if (pathname === "/dashboard" || pathname === "/dashboard/") {
+    return htmlResponse(DASHBOARD_HTML);
+  }
+  if (pathname === "/dashboard/data") {
+    try {
+      const data = await buildDashboardData(env);
+      return jsonResponse(data);
+    } catch (err) {
+      if (err instanceof ApiError) return errorResponse(err.status, err.message);
+      console.error("[Dashboard]", err);
+      return errorResponse(500, "Dashboard data error");
+    }
   }
 
   // パス解析: /api/v1/...

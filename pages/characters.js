@@ -52,6 +52,7 @@ let workTypeDefCache = new Map();
 let worksCatalogCache = null;
 let workDbCatalogCache = new Map();
 const sharedLayerTypeDefCache = new Map();
+const sharedLayerMetaCache = new Map();
 const workLayerTypeDefCache = new Map();
 const PAGE_LANG_STORAGE_KEY = '100bl.characters.pageLang';
 const PAGE_LANG_DEFAULT = 'mix';
@@ -103,6 +104,7 @@ export function __resetCharactersTestState() {
 	worksCatalogCache = null;
 	workDbCatalogCache = new Map();
 	sharedLayerTypeDefCache.clear();
+	sharedLayerMetaCache.clear();
 	workLayerTypeDefCache.clear();
 	API_BASE_REL = '../pages/';
 	if (typeof window !== 'undefined' && window.__CHAR_STATE__) {
@@ -228,6 +230,26 @@ async function fetchSharedLayerTypeDef(layerName) {
 	} catch (error) {
 		console.warn('⚠️ Failed to fetch shared layer type def:', layer, error.message);
 		sharedLayerTypeDefCache.set(layer, {});
+		return {};
+	}
+}
+
+async function fetchSharedLayerMeta(layerName) {
+	const layer = String(layerName || '').trim();
+	if (!layer) return {};
+	if (sharedLayerMetaCache.has(layer)) {
+		return sharedLayerMetaCache.get(layer) || {};
+	}
+
+	const u = new URL(`../data/${encodeURIComponent(layer)}/db_meta.json`, location.href);
+	try {
+		const res = await fetchJSON(u.toString());
+		const meta = (res && typeof res === 'object') ? res : {};
+		sharedLayerMetaCache.set(layer, meta);
+		return meta;
+	} catch (error) {
+		console.warn('⚠️ Failed to fetch shared layer meta:', layer, error.message);
+		sharedLayerMetaCache.set(layer, {});
 		return {};
 	}
 }
@@ -5409,28 +5431,33 @@ export async function renderDetail(workId, rec) {
 
 		const dbCatalogEntry = findDbCatalogEntry(workMeta, dbName);
 		const currentLayerName = String(dbCatalogEntry?.DB_Layer || '').trim();
-		const [sharedLayerTypeDef, workLayerTypeDef] = currentLayerName
+		const [sharedLayerTypeDef, workLayerTypeDef, sharedLayerMeta] = currentLayerName
 			? await Promise.all([
 				fetchSharedLayerTypeDef(currentLayerName),
-				fetchWorkLayerTypeDef(workId, currentLayerName)
+				fetchWorkLayerTypeDef(workId, currentLayerName),
+				fetchSharedLayerMeta(currentLayerName)
 			])
-			: [{}, {}];
+			: [{}, {}, {}];
 		const layeredTypeDef = mergeTypeDefSources(workLayerTypeDef, sharedLayerTypeDef);
 		const workTypeDef = mergeTypeDefSources(rawWorkTypeDef, layeredTypeDef);
 
 		// workMeta / globalMeta の $VarsDef を統合（EnumLink / ListLink の共通辞書を参照しやすくする）
+		// shared layer の db_meta.json.$VarsDef も合流する（例: References の $EnumDef_Category）
 		const metaForLookup = (() => {
 			const wm = workMeta && typeof workMeta === 'object' ? workMeta : {};
 			const gm = globalMeta && typeof globalMeta === 'object' ? globalMeta : {};
+			const lm = sharedLayerMeta && typeof sharedLayerMeta === 'object' ? sharedLayerMeta : {};
 
 			const gmGeneral = (gm.General && typeof gm.General === 'object') ? gm.General : {};
 			const wmGeneral = (wm.General && typeof wm.General === 'object') ? wm.General : {};
+			const lmGeneral = (lm.General && typeof lm.General === 'object') ? lm.General : {};
 
 			const gmVars = (gmGeneral.$VarsDef && typeof gmGeneral.$VarsDef === 'object') ? gmGeneral.$VarsDef : {};
 			const wmVars = (wmGeneral.$VarsDef && typeof wmGeneral.$VarsDef === 'object') ? wmGeneral.$VarsDef : {};
+			const lmVars = (lmGeneral.$VarsDef && typeof lmGeneral.$VarsDef === 'object') ? lmGeneral.$VarsDef : {};
 
-			const mergedGeneral = { ...gmGeneral, ...wmGeneral, $VarsDef: { ...gmVars, ...wmVars } };
-			return { ...gm, ...wm, General: mergedGeneral };
+			const mergedGeneral = { ...gmGeneral, ...lmGeneral, ...wmGeneral, $VarsDef: { ...gmVars, ...lmVars, ...wmVars } };
+			return { ...gm, ...lm, ...wm, General: mergedGeneral };
 		})();
 
 		// Clear loading message
