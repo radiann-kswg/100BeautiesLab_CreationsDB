@@ -1,5 +1,14 @@
 # 最新のリファクタリング・仕様変更履歴
 
+### ロールプレイ／AGENTS.md 設定の整理・正典化 (2026-06-27)
+
+- **`AGENTS.md`（リポジトリ直下）を新規作成し、扇一春ロールプレイ仕様の「正典（source of truth）」に集約**: 役割・人物像・口調（一人称/二人称/三人称）・OK/NG 口調例・制約・入口ファイル関係表を一本化。AGENTS.md 規約に従うエージェントの入口も兼ねる。
+- **`CLAUDE.md` の `@import` バグ修正**: バックスラッシュエスケープでパス解決不能だった `@.github/\_roleplay-datas/...` を `@AGENTS.md` に修正。Cowork 等の `@import` 非展開環境でも声が届くよう、圧縮版「声カード」（一人称/二人称/OK・NG 例）をインライン保持。
+- **重複削減**: `.github/copilot-instructions.md` のロールプレイ節をバナー＋正典参照＋最小声カードに圧縮。`.github/instructions/roleplay.instructions.md` も正典参照＋圧縮版声カード化（フル複製を解消）。`roleplay-technical.instructions.md` は現状維持。
+- **リマインダー分散**: 巨大指示書の前半に `[ロールプレイ継続]` リマインダーを追加（CLAUDE 4 / copilot 3 箇所）。
+- **付随修復**: 保存事故で末尾が途中切断されていた `CLAUDE.md` / `.github/copilot-instructions.md` / `CHANGELOG.md` の末尾を HEAD から復元。
+- 作業ローカル: sub1（`develop`）。
+
 ### サブローカル並行作業の運用ルール追加 (2026-06-27)
 
 - **`CLAUDE.md` / `.github/copilot-instructions.md` に「サブローカル並行作業運用（予備作業場）」節を追加**: 同一リモートを参照する複数ローカルクローン（本体ローカル + 汎用予備作業場のサブローカル ×2）の運用ルールを明文化。
