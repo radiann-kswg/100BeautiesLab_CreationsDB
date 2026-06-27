@@ -34,6 +34,7 @@ describe('wrapper-common registry', () => {
   it('resolves StoryEra / Era / Day wrappers from schema display metadata', () => {
     const registry = globalThis.CharacterValueWrapperRegistry;
     const globalTypeDef = loadJson('data/db_type.json');
+    const globalDefMeta = loadJson('data/db_meta.json');
 
     expect(registry.resolveWrapperName({
       schemaType: '$Def_StoryEraCatalog|#Null',
@@ -42,7 +43,7 @@ describe('wrapper-common registry', () => {
 
     expect(registry.resolveWrapperName({
       schemaType: '$Def_Day',
-      typeSources: [globalTypeDef]
+      typeSources: [globalDefMeta, globalTypeDef]
     })).toBe('daySummary');
 
     expect(registry.resolveWrapperName({

@@ -15,52 +15,68 @@
     "$VarsDef": {
       "$EnumDef_Category": {
         "#Reference_Basis": {
-          "Category": "基本情報",
+          "Category": "Basis",
+          "Category_JP": "基本情報",
           "Category_EN": "Basic Reference"
         },
         "#Reference_Faction": {
-          "Category": "組織・陣営",
+          "Category": "Faction",
+          "Category_JP": "組織・陣営",
           "Category_EN": "Organization & Faction"
         },
         "#Reference_Worlds": {
-          "Category": "世界・地域",
+          "Category": "Worlds",
+          "Category_JP": "世界・地域",
           "Category_EN": "Regions & Areas"
         },
         "#Reference_Services": {
-          "Category": "インフラ・サービス",
+          "Category": "Services",
+          "Category_JP": "インフラ・サービス",
           "Category_EN": "Infrastructure & Services"
         },
         "#Reference_Items": {
-          "DB_Layer": "Localization",
-          "DB_Label_JP": "物・アイテム",
-          "DB_Label_EN": "Objects / Items"
+          "Category": "Items",
+          "Category_JP": "物・アイテム",
+          "Category_EN": "Objects / Items"
         },
         "#Reference_Technical": {
-          "Category": "医術・技術",
+          "Category": "Technical",
+          "Category_JP": "医術・技術",
           "Category_EN": "Medical & Technical"
         },
         "#Reference_Race": {
-          "Category": "分類・種族",
+          "Category": "Race",
+          "Category_JP": "分類・種族",
           "Category_EN": "Classification & Race"
         },
         "#Reference_Role": {
-          "Category": "役職・肩書",
+          "Category": "Role",
+          "Category_JP": "役職・肩書",
           "Category_EN": "Role & Class"
         },
         "#Reference_Appearance": {
-          "Category": "特徴・姿",
+          "Category": "Appearance",
+          "Category_JP": "特徴・姿",
           "Category_EN": "Features & Appearance"
         },
         "#Reference_Bloodline": {
-          "Category": "血統・種族系列",
+          "Category": "Bloodline",
+          "Category_JP": "血統・種族系列",
           "Category_EN": "Bloodline & Lineage"
         },
         "#Reference_Abilities": {
-          "Category": "能力特性用語",
+          "Category": "Abilities",
+          "Category_JP": "能力特性用語",
           "Category_EN": "Ability Terms"
         },
+        "#Reference_Phenomenon": {
+          "Category": "Phenomenon",
+          "Category_JP": "現象・事象",
+          "Category_EN": "Phenomenon & Events"
+        },
         "#Reference_Abnormality": {
-          "Category": "異常・社会問題",
+          "Category": "Abnormality",
+          "Category_JP": "異常・社会問題",
           "Category_EN": "Abnormality & Social Issues"
         }
       }

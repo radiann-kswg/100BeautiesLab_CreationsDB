@@ -374,6 +374,8 @@ function collectEvents() {
           return;
         }
         const name = resolveName(rec, `${wmeta.titleJP} #${position + 1}`);
+        // SUMMARY は RFC 5545 上1行タイトルとして扱われるため、改行を ' / ' に置換する
+        const summaryName = name.replace(/\r?\n/g, " / ");
         const nameEN = resolveNameEN(rec);
         const recordKey = resolveRecordKey(rec, position);
         const common = {
@@ -395,7 +397,7 @@ function collectEvents() {
             disc: "birth",
             month: bd.month,
             day: bd.day,
-            summary: `🎂 ${name}（誕生日）`,
+            summary: `🎂 ${summaryName}（誕生日）`,
             category: "誕生日",
             aboutEN: "",
           });
@@ -416,7 +418,7 @@ function collectEvents() {
               disc,
               month: d.month,
               day: d.day,
-              summary: `🎉 ${name}（${aboutJP || "記念日"}）`,
+              summary: `🎉 ${summaryName}（${aboutJP || "記念日"}）`,
               category: "記念日",
               aboutEN,
             });

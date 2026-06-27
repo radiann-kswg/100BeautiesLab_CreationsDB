@@ -1,23 +1,18 @@
 [
   {
-    "Term_JP": "カード種別(ソート)",
-    "Term_JPReading": "カードしゅべつ(ソート)",
-    "Term_EN": "Card Category (Sort)",
-    "TermType": null,
-    "Category": "基本情報",
-    "Summary": null,
-    "Summary_EN": null,
-    "Aliases": [],
-    "Links": []
-  },
-  {
     "Term_JP": "采配幹部",
     "Term_JPReading": "ディーラーズ",
     "Term_EN": "Dealers",
     "TermType": null,
-    "Category": "役職・肩書",
-    "Summary": null,
-    "Summary_EN": null,
+    "Category": "Role",
+    "BodyBlocks_JP": [
+      "78人のアルカナホルダーで構成される異能探偵調査団「78特殊探偵団」のすべての能力を統べ、アルカナホルダーの采配を行う特殊幹部。",
+      "アルカナに強い知見があり戦闘力も高い人材が適しているとされており、【四元の魔術師】のアルカナホルダー「金田一 卓斗」によって錦野姉妹の２人にこの役職が与えられた。"
+    ],
+    "BodyBlocks_EN": [
+      "Special executives who oversee all abilities of the 78 Special Investigators, a group composed of 78 Arcanaholders, and manage the deployment of Arcanaholders.",
+      "It is said that individuals with strong knowledge of Arcana and high combat ability are suitable for this role, and the Arcanaholder 'Tact Kindaichi' of the [Magician of Elements] assigned this position to the two Actressilk sisters."
+    ],
     "Aliases": [],
     "Links": []
   },
@@ -26,9 +21,17 @@
     "Term_JPReading": "アルカナムスペック",
     "Term_EN": "Arcanamspec",
     "TermType": null,
-    "Category": "能力特性用語",
-    "Summary": null,
-    "Summary_EN": null,
+    "Category": "Abilities",
+    "BodyBlocks_JP": [
+      "78特殊探偵団が有する\"運命線(フェイトライン)\"の操作・介入を中心とした特殊能力。",
+      "メジャーアルカナ22枚とマイナーアルカナ4種56枚の計78枚からなる「アルカナ」という式札の1枚を用いる憑依型の能力で、アルカナホルダーはこの能力を用いて「未来消失」の真相に迫ることができる。",
+      "だがアルカナはたいてい複数の\"岐路(ブランチ)\"に跨って存在しているため、78種すべてのアルカナムスペックが共存するためには、「采配幹部(ディーラーズ)」の存在が欠かせないのである。"
+    ],
+    "BodyBlocks_EN": [
+      "A special ability of the 78 Special Investigators that focuses on the manipulation and intervention of 'FateLines'.",
+      "It is a possession-type ability that uses one of the 78 cards known as 'Arcana', which consists of 22 Major Arcana and 4×14 Minor Arcana cards.",
+      " Arcanaholders can use this ability to uncover the truth behind 'Future Erasure'. However, since Arcana usually exists across multiple 'FL_BRANCHES', the presence of 'Dealers' is essential for all 78 Arcanamspecs to coexist."
+    ],
     "Aliases": [],
     "Links": []
   },
@@ -37,9 +40,23 @@
     "Term_JPReading": "アルカナホルダー",
     "Term_EN": "Arcanaholder",
     "TermType": null,
-    "Category": "能力特性用語",
-    "Summary": null,
-    "Summary_EN": null,
+    "Summary_JP": "「未来消失」の原因となる運命の分岐：\"岐路(ブランチ)\"の異変を解決する、78枚のアルカナそれぞれを模した能力「アルカナホルダー」についての資料。",
+    "Summary_EN": "A document about 'Arcanaholders', the abilities modeled after each of the 78 Arcana, which resolve anomalies in the 'FL_BRANCHES' of fate that cause 'Future Erasure'.",
+    "Category": "Abilities",
+    "BodyBlocks_JP": [
+      "1枚の「アルカナ」を所持し、アルカナムスペックを憑依・行使することができる能力者の総称で、78特殊探偵団に構成される「采配幹部」以外の78人全員を指す。",
+      "その能力は、幾度と重なる選択の過程に影響を及ぼす\"因果衝突(コンフリクト)\"を解消し人々を正しい未来へ導く希望の光であり、同時に強力な世界改竄能力により身体と精神の分解と再構築を加速させるという強大な代償を伴う命の絶望でもある。",
+      "アルカナムスペックは世界の時空や歴史に大きく関わる能力のため、能力行使の際に自身がその世界の要因であるための「メモリア」と「エグジスタ」を代償にすることが多い。",
+      "ゆえに、アルカナムスペックの行使により消滅した先代から引き継がれる形でアルカナを譲り受けたアルカナホルダーも少なくはない。",
+      "それぞれの能力を胸に未来(あした)の路を歩む姿は、まるで占星術のような悟りを有するかのようだった－－"
+    ],
+    "BodyBlocks_EN": [
+      "A general term for individuals who possess one 'Arcana' and can possess and exercise Arcanamspec. It refers to all 78 members of the 78 Special Investigators, excluding the 'Dealers'.",
+      "Their abilities serve as a beacon of hope that resolves 'FL_CONFLICTS' affecting the process of repeated choices and guides people towards the right future. At the same time, it comes with a tremendous cost, accelerating the decomposition and reconstruction of body and mind through powerful world-altering abilities.",
+      "Since Arcanamspec is a power that significantly affects the world's space-time and history, it often requires sacrificing one's own 'Memoria' and 'Exista' as a cost when exercising the ability.",
+      "Therefore, there are also many Arcanaholders who have inherited Arcana from their predecessors who disappeared due to the exercise of Arcanamspec.",
+      "The sight of each Arcanaholder walking the path of the future with their abilities was as if they possessed the enlightenment of astrology --"
+    ],
     "Aliases": [],
     "Links": []
   },
@@ -48,9 +65,50 @@
     "Term_JPReading": "みらいしょうしつ",
     "Term_EN": "Future Erasure",
     "TermType": null,
-    "Category": "異常・社会問題",
-    "Summary": "人物・存在・記憶、または最悪の場合\"岐路(ブランチ)\"そのものが世界の歴史から消失する現象。\n近年ではブラックフェイトハッカーにより意図的な未来消失を発生させる事件が英皇国や九蓮国・海陸国(シーバイランド)諸島で多発しており、78特殊探偵団による調査が行われている。",
+    "Category": "Abnormality",
+    "Summary_JP": "人物・存在・記憶、または最悪の場合\"岐路(ブランチ)\"そのものが世界の歴史から消失する現象。\n近年ではブラックフェイトハッカーにより意図的な未来消失を発生させる事件が英皇国や九蓮国・海陸国(シーバイランド)諸島で多発しており、78特殊探偵団による調査が行われている。",
     "Summary_EN": "An event in which a person, entity, memory, or in the worst case, a 'FL_BRANCH' itself disappears from the history of the world. In recent years, incidents of intentional future erasure have been occurring frequently in the Internic.Kingdom, the LotusNinea, and Seabyislands due to Black Fate-Hackers, and investigations are being conducted by Team.78(Seventy-Eight) the Special Investigators.",
+    "Aliases": [],
+    "Links": []
+  },
+  {
+    "Term_JP": "因果衝突",
+    "Term_JPReading": "コンフリクト",
+    "Term_EN": "FL_CONFLICT",
+    "TermType": null,
+    "Category": "Phenomenon",
+    "Summary_JP": null,
+    "Summary_EN": null,
+    "Aliases": [],
+    "Links": []
+  },
+  {
+    "Term_JP": "メモリア",
+    "Term_EN": "Memoria",
+    "TermType": null,
+    "Category": "Phenomenon",
+    "Summary_JP": null,
+    "Summary_EN": null,
+    "Aliases": [],
+    "Links": []
+  },
+  {
+    "Term_JP": "エグジスタ",
+    "Term_EN": "Exista",
+    "TermType": null,
+    "Category": "Phenomenon",
+    "Summary_JP": null,
+    "Summary_EN": null,
+    "Aliases": [],
+    "Links": []
+  },
+  {
+    "Term_JP": "ソート",
+    "Term_EN": "Stoat",
+    "TermType": null,
+    "Category": "Basis",
+    "Summary_JP": null,
+    "Summary_EN": null,
     "Aliases": [],
     "Links": []
   },
@@ -59,8 +117,8 @@
     "Term_JPReading": "マテリアル",
     "Term_EN": "Material",
     "TermType": null,
-    "Category": "能力特性用語",
-    "Summary": null,
+    "Category": "Abilities",
+    "Summary_JP": null,
     "Summary_EN": null,
     "Aliases": [],
     "Links": []
@@ -69,8 +127,8 @@
     "Term_JP": "ロールタイプ",
     "Term_EN": "Role Type",
     "TermType": null,
-    "Category": "能力特性用語",
-    "Summary": null,
+    "Category": "Abilities",
+    "Summary_JP": null,
     "Summary_EN": null,
     "Aliases": [],
     "Links": []
@@ -80,8 +138,8 @@
     "Term_JPReading": "デュアライズパターン",
     "Term_EN": "Dualize Pattern",
     "TermType": null,
-    "Category": "能力特性用語",
-    "Summary": null,
+    "Category": "Abilities",
+    "Summary_JP": null,
     "Summary_EN": null,
     "Aliases": [],
     "Links": []
@@ -91,8 +149,8 @@
     "Term_JPReading": "じょうほうや",
     "Term_EN": "Informant",
     "TermType": null,
-    "Category": "役職・肩書",
-    "Summary": null,
+    "Category": "Role",
+    "Summary_JP": null,
     "Summary_EN": null,
     "Aliases": [],
     "Links": []
@@ -102,8 +160,8 @@
     "Term_JPReading": "さいこうかんぶ",
     "Term_EN": "Top Executive",
     "TermType": null,
-    "Category": "役職・肩書",
-    "Summary": null,
+    "Category": "Role",
+    "Summary_JP": null,
     "Summary_EN": null,
     "Aliases": [],
     "Links": []
@@ -113,8 +171,8 @@
     "Term_JPReading": "こくさいかんぶ",
     "Term_EN": "International Executive",
     "TermType": null,
-    "Category": "役職・肩書",
-    "Summary": null,
+    "Category": "Role",
+    "Summary_JP": null,
     "Summary_EN": null,
     "Aliases": [],
     "Links": []
@@ -124,8 +182,8 @@
     "Term_JPReading": "こっきょうかんぶ",
     "Term_EN": "Border Executive",
     "TermType": null,
-    "Category": "役職・肩書",
-    "Summary": null,
+    "Category": "Role",
+    "Summary_JP": null,
     "Summary_EN": null,
     "Aliases": [],
     "Links": []
@@ -135,8 +193,8 @@
     "Term_JPReading": "きゅうれんこくしぶかんぶ",
     "Term_EN": "RN.Branch Executive",
     "TermType": null,
-    "Category": "役職・肩書",
-    "Summary": null,
+    "Category": "Role",
+    "Summary_JP": null,
     "Summary_EN": null,
     "Aliases": [],
     "Links": []
@@ -146,8 +204,8 @@
     "Term_JPReading": "えいこうこくしぶかんぶ",
     "Term_EN": "IK.Branch Executive",
     "TermType": null,
-    "Category": "役職・肩書",
-    "Summary": null,
+    "Category": "Role",
+    "Summary_JP": null,
     "Summary_EN": null,
     "Aliases": [],
     "Links": []
@@ -157,8 +215,8 @@
     "Term_JPReading": "ひのこんぼうしぶ/ファイアワンズ",
     "Term_EN": "FireWands Branch",
     "TermType": null,
-    "Category": "役職・肩書",
-    "Summary": null,
+    "Category": "Role",
+    "Summary_JP": null,
     "Summary_EN": null,
     "Aliases": [],
     "Links": []
@@ -168,8 +226,8 @@
     "Term_EN": "WaterCups Branch",
     "Term_JPReading": "みずのせいはいしぶ/ウォーターカップス",
     "TermType": null,
-    "Category": "役職・肩書",
-    "Summary": null,
+    "Category": "Role",
+    "Summary_JP": null,
     "Summary_EN": null,
     "Aliases": [],
     "Links": []
@@ -179,8 +237,8 @@
     "Term_EN": "SlashSwords Branch",
     "Term_JPReading": "かぜのとうけんしぶ/スラッシュソード",
     "TermType": null,
-    "Category": "役職・肩書",
-    "Summary": null,
+    "Category": "Role",
+    "Summary_JP": null,
     "Summary_EN": null,
     "Aliases": [],
     "Links": []
@@ -190,8 +248,8 @@
     "Term_EN": "PentacleObjects Branch",
     "Term_JPReading": "きんのこうかしぶ/ペンタクルオブジェクツ",
     "TermType": null,
-    "Category": "役職・肩書",
-    "Summary": null,
+    "Category": "Role",
+    "Summary_JP": null,
     "Summary_EN": null,
     "Aliases": [],
     "Links": []

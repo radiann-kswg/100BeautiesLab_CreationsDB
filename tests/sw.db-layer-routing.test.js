@@ -284,6 +284,43 @@ describe('DB layer aware routing', () => {
     expect(DataUtils.stripMetaDbPrefix('#DB_Primary')).toBe('Primary');
   });
 
+  it('DataFetcher.listWorkDBs excludes #Loc_* entries from the browsable DB list', async () => {
+    const jsonByPath = {
+      '/data/Works_Test/DataBases/db_meta.json': {
+        Databases: { '#DB_Primary': { DB_Label: '一次創作' } }
+      },
+      '/data/Works_Test/Localization/db_meta.json': {
+        Databases: {
+          '#Loc_PersonName': { DB_Layer: 'Localization', DB_Label_JP: '人物名・呼称', DB_Label_EN: 'Person Name / Appellation' },
+          '#Loc_FamilyName': { DB_Layer: 'Localization', DB_Label_JP: '種族名・襲名', DB_Label_EN: 'Race / Succession Name' }
+        }
+      },
+      '/data/Works_Test/DataBases/db_Primary.json': [{ Name: 'test' }]
+    };
+
+    const fetchStub = async (url, opt = {}) => {
+      const pathname = new URL(url).pathname;
+      const body = jsonByPath[pathname];
+      if ((opt?.method || 'GET').toUpperCase() === 'HEAD') {
+        return new Response('', { status: body ? 200 : 404 });
+      }
+      if (!body) return new Response('not found', { status: 404 });
+      return new Response(JSON.stringify(body), {
+        status: 200,
+        headers: { 'content-type': 'application/json; charset=utf-8' }
+      });
+    };
+
+    const ctx = loadSwCommonIntoContext({ fetch: fetchStub });
+    const fetcher = new ctx.self.DataFetcher(new ctx.self.SWConfig('/pages'));
+    const dbs = await fetcher.listWorkDBs('#Works_Test');
+
+    const keys = dbs.map((d) => d.key);
+    expect(keys).toContain('Primary');
+    expect(keys).not.toContain('PersonName');
+    expect(keys).not.toContain('FamilyName');
+  });
+
   it('DataUtils.findMetaDbEntry finds #Loc_ entries alongside #DB_ and #Ref_', () => {
     const ctx = loadSwCommonIntoContext();
     const DataUtils = ctx?.self?.DataUtils;

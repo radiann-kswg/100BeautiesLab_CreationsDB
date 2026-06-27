@@ -10,7 +10,12 @@ workers_dev = false
 # ─────────────────────────────────────────────────────────────────────────────
 
 routes = [
-  { pattern = "database.numbertales-radiann.net/api/ai/*", zone_name = "numbertales-radiann.net" }
+  { pattern = "database.numbertales-radiann.net/api/ai/*", zone_name = "numbertales-radiann.net" },
+  # Today Action Board ダッシュボード（同一 Worker に統合）
+  #   /dashboard       … HTML 本体（完全一致）
+  #   /dashboard/*     … /dashboard/data 等の配下
+  { pattern = "database.numbertales-radiann.net/dashboard", zone_name = "numbertales-radiann.net" },
+  { pattern = "database.numbertales-radiann.net/dashboard/*", zone_name = "numbertales-radiann.net" }
 ]
 
 # ─────────────────────────────────────────────────────────────────────────────
@@ -40,6 +45,15 @@ database_id = "b8bf7187-1966-4831-88d2-2b8906cfa745"
 # GitHub Pages の配信 URL（末尾スラッシュなし）
 # R2 に未収録の静的アセット（画像等）のフォールバック参照先
 REPO_BASE_URL = "https://radiann-kswg.github.io/100BeautiesLab_CreationsDB"
+
+# ─────────────────────────────────────────────────────────────────────────────
+# シークレット運用（[vars] には書かない）
+#   Today Action Board の GitHub パネルは GITHUB_TOKEN（Worker secret）を使用する。
+#   トークンは平文で wrangler.toml に置かず、必ず secret として登録すること:
+#       wrangler secret put GITHUB_TOKEN
+#   未設定でもダッシュボードは動作し、GitHub パネルは「トークン未設定」表示になる。
+#   トークン値は /dashboard/data のレスポンスには一切含めない（ヘッダー利用のみ）。
+# ─────────────────────────────────────────────────────────────────────────────
 
 # ─────────────────────────────────────────────────────────────────────────────
 # ローカル開発環境 (wrangler dev)

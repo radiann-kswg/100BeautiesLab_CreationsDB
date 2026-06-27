@@ -1,5 +1,9 @@
 # 最新のリファクタリング・仕様変更履歴
 
+### カレンダー ICS 生成 — SUMMARY 改行バグ修正 (2026-06-26)
+
+- **`tools/build-calendar-ics.mjs` SUMMARY 改行問題を修正**: `Name_JP` に改行文字が含まれるキャラクター名（例: `バイナ\n2(ツギ)`）が ICS の `SUMMARY` フィールドにそのまま流れ込み、Google Calendar のインポート・購読パースが失敗していた問題を修正。`summaryName` 変数を追加し、SUMMARY 生成前に改行を ` / ` に置換するよう変更。`DESCRIPTION` の英名フィールドは変更なし。
+
 ### Localization レイヤー 構造改善・仮データ投入 (2026-06-25)
 
 - **`#Loc_Dict` エントリを `DataBases/db_meta.json` から `Localization/db_meta.json` へ移動**: References レイヤーと同様に、各作品の `Localization/db_meta.json` がカタログ所在地となる。`DataBases/db_meta.json` には `#Loc_Dict` を含めない。

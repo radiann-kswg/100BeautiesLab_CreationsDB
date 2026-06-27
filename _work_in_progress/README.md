@@ -15,6 +15,9 @@
 
 ## いま進行中のファイル
 
+- 2026-06-27_progress_design-part-schema.md（外見デザイン部位統合スキーマ仕様案。`AppearanceDetail` / `$Def_AppearanceDetail` / enum 設計・移行マッピング。⚠️ 未実装・機能提案段階）
+
+
 - 2026-06-24_progress_calendar-ics.md（誕生日・記念日の Google カレンダー連携: ICS 自動生成・配信。✅ 配信確認済み・購読登録済み。⚠️ Google カレンダー初回同期待ち）
 - 2026-06-24_progress_github-triage.md（GitHub 未解決通知トリアージ: CodeQL alert PR #9・vitest Dependabot PR・cf-api-sync CI 失敗。⚠️ 全件 User 判断・手動操作待ち）
 - 2026-06-24_progress_localization-db.md（英訳固有辞書 DB（Localization レイヤー）実装。✅ 130/130 pass。trans_Dict.json → trans_{Category}.json 分割完了（2026-06-25）。Summary 入力・TransPolicy 確認・能力名等の追記は User 手動）

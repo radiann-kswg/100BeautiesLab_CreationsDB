@@ -5,7 +5,7 @@
     "Images": {
       "catalog_PNGName": ["../../General/catalog/chr-dsgn_NTsCatalog-Summary"]
     },
-    "Category": "基本情報",
+    "Category": "Basis",
     "Summary": "数秘の癒やしを体感できる妖獣型ポータブルヒューマノイド「ナンバーテールズ」に関する基本資料。",
     "Summary_EN": "Basic reference material on the beast-type portable humanoids 'NumberTales', designed to let their Masters experience the healing of numerological blessings.",
     "BodyBlocks": [
@@ -23,7 +23,7 @@
     "Title_JP": "クラスについて(ナンバーテールズ)",
     "Title_EN": "About Classes for NumberTales",
     "Images": { "concept-figure_PNGName": ["cnsp-fg_NTsClass"] },
-    "Category": "分類・種族について",
+    "Category": "Race",
     "Summary": "妖獣型ポータブルヒューマノイド「ナンバーテールズ」のクラスに関する基本資料。",
     "Summary_EN": "Basic reference material on the class system of the beast-type portable humanoids 'NumberTales'.",
     "BodyBlocks": [
@@ -39,7 +39,7 @@
   },
   {
     "Title_JP": "ヒューマノイド原則法",
-    "Category": "異常・社会問題",
+    "Category": "Abnormality",
     "Summary": "創作世界における架空の法律「ヒューマノイド原則法」に関する基本資料。",
     "BodyBlocks": [
       "質問来てたわ － ヒューマノイド原則法をヒューマノイドが違反したらどうなりますか？ － 結論、人間でいう懲役刑と死刑のどちらかが執行される。",

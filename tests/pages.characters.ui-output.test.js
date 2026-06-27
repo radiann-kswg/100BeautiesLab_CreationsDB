@@ -252,6 +252,7 @@ const numberTalesPrimaryRecords = loadJson('data/Works_NumberTales/DataBases/db_
 const numberTalesSecondaryRecords = loadJson('data/Works_NumberTales/DataBases/db_Secondary.json');
 const numberTalesSelfSecondaryRecords = loadJson('data/Works_NumberTales/DataBases/db_SelfSecondary.json');
 const sharedReferencesTypeDef = loadJson('data/References/db_type.json');
+const sharedReferencesMeta = loadJson('data/References/db_meta.json');
 const numberTalesReferencesTypeDef = loadJson('data/Works_NumberTales/References/db_type.json');
 const numberTalesVocabularyRecords = loadJson('data/Works_NumberTales/References/ref_Vocabulary.json');
 const numberTalesReferenceRecords = loadJson('data/Works_NumberTales/References/ref_Reference.json');
@@ -672,6 +673,12 @@ describe('pages/characters.js UI output', () => {
 					headers: { 'Content-Type': 'application/json' }
 				});
 			}
+			if (url.includes('/data/References/db_meta.json')) {
+				return new Response(JSON.stringify(sharedReferencesMeta), {
+					status: 200,
+					headers: { 'Content-Type': 'application/json' }
+				});
+			}
 			throw new Error(`Unexpected fetch in references typedef test: ${url}`);
 		};
 
@@ -683,7 +690,7 @@ describe('pages/characters.js UI output', () => {
 
 		expect(document.querySelector('#detail-title')?.textContent?.trim()).toBe('ナンバーテールズについて');
 		expect(getBasicFieldValue('資料名')).toBe('ナンバーテールズについて / About NumberTales');
-		expect(getBasicFieldValue('分類')).toBe('基本情報');
+		expect(getBasicFieldValue('分類')).toBe('基本情報 / Basic Reference');
 		const profileSectionText = getSectionText('プロフィール/テキスト');
 		expect(profileSectionText).toContain('概要');
 		expect(profileSectionText).toContain('本文ブロック');
@@ -732,6 +739,12 @@ describe('pages/characters.js UI output', () => {
 			const url = String(input);
 			if (url.includes('/data/References/db_type.json')) {
 				return new Response(JSON.stringify(sharedReferencesTypeDef), {
+					status: 200,
+					headers: { 'Content-Type': 'application/json' }
+				});
+			}
+			if (url.includes('/data/References/db_meta.json')) {
+				return new Response(JSON.stringify(sharedReferencesMeta), {
 					status: 200,
 					headers: { 'Content-Type': 'application/json' }
 				});
@@ -868,6 +881,12 @@ describe('pages/characters.js UI output', () => {
 			const url = String(input);
 			if (url.includes('/data/References/db_type.json')) {
 				return new Response(JSON.stringify(sharedReferencesTypeDef), {
+					status: 200,
+					headers: { 'Content-Type': 'application/json' }
+				});
+			}
+			if (url.includes('/data/References/db_meta.json')) {
+				return new Response(JSON.stringify(sharedReferencesMeta), {
 					status: 200,
 					headers: { 'Content-Type': 'application/json' }
 				});
