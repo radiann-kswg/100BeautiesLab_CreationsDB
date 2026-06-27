@@ -1,7 +1,7 @@
 # デザイン部位統合スキーマ仕様案
 
 - **作成日**: 2026-06-27
-- **ステータス**: 機能提案（未実装）
+- **ステータス**: 仮実装中（`refactor-appearance-detail` ブランチ）
 - **起案者**: 扇一春（会話中の検討メモ）
 
 ---
@@ -13,6 +13,45 @@
 - あらゆる創作タイトルで運用できる汎用スキーマにする
 - フリーテキスト主体の現状を enum ベースに移行し、検索・表示の一貫性を高める
 - 細部デザイン拡大資料（腕章・ヘイロー・紋様等）の画像を DB に格納できる場所を作る
+
+---
+
+## 仕様確定事項（2026-06-27 セッション）
+
+### BodyPart / Laterality に関する決定
+
+| 論点 | 決定内容 |
+|---|---|
+| 非人型形態（corefolder 等）での BodyPart | 「部位的な位置」として運用。形態を問わず同じ enum を使う |
+| 複数部位にまたがるケース（例：右肩から二の腕） | `BodyPart` を配列型 `#DictIndex[]|#Null` にして複数指定可とする |
+| IdentityMotif の BodyPart | モチーフテキストから対応する BodyPart を解釈し付与する（キーワードマッピングで自動推論、要目視確認） |
+| Formation 単位のグルーピング | `appearanceDetailSection` sectionWrapper で Formation ごとに折りたたむ（UI 側での将来実装） |
+
+### 推論ルール（`scripts/migrate-appearance-detail.mjs` に実装済み）
+
+- **`inferBodyParts(jp)`**: モチーフテキストのキーワードマッピング（優先度順）で `BodyPart` の配列を返す。マッチなしは `null`
+- **`inferLaterality(jp)`**: 「左/右/両」キーワード検出。「右」→ `#Lat_Right`、「左」→ `#Lat_Left`、「両」複合語 → `#Lat_Both`、未マッチ → `null`
+- **NML エントリ**: `BodyPart` は `null`（位置テキストから自動推論困難）、`Laterality` は MarkPosition_JP から推論
+- **TailsUnit**: `BodyPart: ["#BodyPart_Tail"]`（固定単要素配列）
+- **AccessoryUnit**: `BodyPart: null`（複合部位記述のため）
+
+### 仮実装の実施結果（2026-06-27）
+
+| 実施内容 | 状態 |
+|---|---|
+| `data/db_meta.json` BodyPart の `$type` を `#DictIndex[]|#Null` に変更 | ✅ 完了 |
+| `data/db_meta.json` `$Def_AppearanceAttr` 新規追加 + `$Def_AppearanceDetail` の `AttrLabel/Value_JP/Value_EN` を `Attrs: $Def_AppearanceAttr[]|#Null` に変更 | ✅ 完了 |
+| `scripts/migrate-appearance-detail.mjs` を `Attrs` 構造 + BodyPart/Laterality 推論 + IdentityMotif グルーピングに更新 | ✅ 完了 |
+| NT db_Primary 再マイグレーション（97/105 件 / 合計1422エントリ / 平均14.7/キャラ） | ✅ 完了 |
+| UnibyteLive db_Primary 再マイグレーション（2/3 件） | ✅ 完了 |
+| Vitest テスト 131/131 通過 | ✅ 確認済み |
+
+### 推論後の目視確認が必要な主なケース
+
+- `IdentityMotif` で部位に対応しないモチーフ（服装・表情・体型描写）の `BodyPart: null` は正しい
+- `"狐の耳（左耳が垂れている）"` → `BodyPart: ["#BodyPart_Ear"]`, `Laterality: "#Lat_Left"` と推論されるが、耳のペア全体の説明として `Laterality: null` が適切か要確認
+- 複数部位マッチ（例：「右肩の番号付きの腕章」 → `["#BodyPart_Shoulder", "#BodyPart_Arm"]`）は意図通り
+- NML の `MarkColor` / `MarkNotation` エントリは MarkPosition テキストから Laterality を引き継ぐ（位置が同じ仮定）
 
 ---
 

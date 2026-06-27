@@ -697,6 +697,264 @@
             "AbilityText_EN": "Obstructed"
           }
         }
+      },
+      "$Def_AppearanceAttr": {
+        "$DefType": [
+          {
+            "hashTag": "AttrLabel",
+            "$type": "#DictIndex|#Null",
+            "$dict": "DesignAttrLabel",
+            "hashTag_JP": "属性ラベル",
+            "hashTag_EN": "Attribute Label"
+          },
+          {
+            "hashTag": "Value_JP",
+            "$type": "#String|#Null",
+            "hashTag_JP": "属性値"
+          },
+          {
+            "hashTag": "Value_EN",
+            "$type": "#String_EN|#Null",
+            "hashTag_EN": "Attribute Value"
+          }
+        ]
+      },
+      "$Def_AppearanceDetail": {
+        "$DefType": [
+          {
+            "hashTag": "Formation",
+            "$type": "#DictIndex|#Null",
+            "$dict": "Formation",
+            "hashTag_JP": "形態名",
+            "hashTag_EN": "Formation"
+          },
+          {
+            "hashTag": "BodyPart",
+            "$type": "#DictIndex[]|#Null",
+            "$dict": "DesignBodyPart",
+            "hashTag_JP": "身体部位",
+            "hashTag_EN": "Body Part"
+          },
+          {
+            "hashTag": "Laterality",
+            "$type": "#DictIndex|#Null",
+            "$dict": "Laterality",
+            "hashTag_JP": "左右",
+            "hashTag_EN": "Laterality"
+          },
+          {
+            "hashTag": "DesignElement",
+            "$type": "#DictIndex|#Null",
+            "$dict": "DesignElement",
+            "hashTag_JP": "デザイン要素",
+            "hashTag_EN": "Design Element"
+          },
+          {
+            "hashTag": "Attrs",
+            "$type": "$Def_AppearanceAttr[]|#Null",
+            "hashTag_JP": "属性リスト",
+            "hashTag_EN": "Attributes"
+          },
+          {
+            "hashTag": "img_PNGName",
+            "$type": "#PNGFileName|#Null",
+            "hashTag_JP": "部位詳細画像",
+            "hashTag_EN": "Detail Image"
+          },
+          {
+            "hashTag": "Note_JP",
+            "$type": "#String|#Null",
+            "hashTag_JP": "補足テキスト"
+          },
+          {
+            "hashTag": "Note_EN",
+            "$type": "#String_EN|#Null",
+            "hashTag_EN": "Note"
+          }
+        ]
+      },
+      "$EnumDef_DesignBodyPart": {
+        "#BodyPart_Head": {
+          "BodyPart": "Head",
+          "BodyPart_JP": "頭",
+          "BodyPart_EN": "Head",
+          "bilateral": false
+        },
+        "#BodyPart_Hair": {
+          "BodyPart": "Hair",
+          "BodyPart_JP": "髪",
+          "BodyPart_EN": "Hair",
+          "bilateral": false
+        },
+        "#BodyPart_Eye": {
+          "BodyPart": "Eye",
+          "BodyPart_JP": "目・瞳",
+          "BodyPart_EN": "Eye",
+          "bilateral": true
+        },
+        "#BodyPart_Ear": {
+          "BodyPart": "Ear",
+          "BodyPart_JP": "耳",
+          "BodyPart_EN": "Ear",
+          "bilateral": true
+        },
+        "#BodyPart_Neck": {
+          "BodyPart": "Neck",
+          "BodyPart_JP": "首",
+          "BodyPart_EN": "Neck",
+          "bilateral": false
+        },
+        "#BodyPart_Shoulder": {
+          "BodyPart": "Shoulder",
+          "BodyPart_JP": "肩",
+          "BodyPart_EN": "Shoulder",
+          "bilateral": true
+        },
+        "#BodyPart_Arm": {
+          "BodyPart": "Arm",
+          "BodyPart_JP": "腕",
+          "BodyPart_EN": "Arm",
+          "bilateral": true
+        },
+        "#BodyPart_Hand": {
+          "BodyPart": "Hand",
+          "BodyPart_JP": "手",
+          "BodyPart_EN": "Hand",
+          "bilateral": true
+        },
+        "#BodyPart_Chest": {
+          "BodyPart": "Chest",
+          "BodyPart_JP": "胸",
+          "BodyPart_EN": "Chest",
+          "bilateral": false
+        },
+        "#BodyPart_Back": {
+          "BodyPart": "Back",
+          "BodyPart_JP": "背中",
+          "BodyPart_EN": "Back",
+          "bilateral": false
+        },
+        "#BodyPart_Waist": {
+          "BodyPart": "Waist",
+          "BodyPart_JP": "腰",
+          "BodyPart_EN": "Waist",
+          "bilateral": false
+        },
+        "#BodyPart_Leg": {
+          "BodyPart": "Leg",
+          "BodyPart_JP": "脚",
+          "BodyPart_EN": "Leg",
+          "bilateral": true
+        },
+        "#BodyPart_Foot": {
+          "BodyPart": "Foot",
+          "BodyPart_JP": "足",
+          "BodyPart_EN": "Foot",
+          "bilateral": true
+        },
+        "#BodyPart_Tail": {
+          "BodyPart": "Tail",
+          "BodyPart_JP": "尻尾",
+          "BodyPart_EN": "Tail",
+          "bilateral": false
+        },
+        "#BodyPart_Wing": {
+          "BodyPart": "Wing",
+          "BodyPart_JP": "翼",
+          "BodyPart_EN": "Wing",
+          "bilateral": true
+        }
+      },
+      "$EnumDef_DesignElement": {
+        "#Element_NumberMark": {
+          "DesignElement": "NumberMark",
+          "DesignElement_JP": "番号の印字",
+          "DesignElement_EN": "Number Mark"
+        },
+        "#Element_Motif": {
+          "DesignElement": "Motif",
+          "DesignElement_JP": "モチーフ",
+          "DesignElement_EN": "Motif"
+        },
+        "#Element_Accessory": {
+          "DesignElement": "Accessory",
+          "DesignElement_JP": "アクセサリー",
+          "DesignElement_EN": "Accessory"
+        },
+        "#Element_Halo": {
+          "DesignElement": "Halo",
+          "DesignElement_JP": "ヘイロー",
+          "DesignElement_EN": "Halo"
+        },
+        "#Element_Armband": {
+          "DesignElement": "Armband",
+          "DesignElement_JP": "腕章",
+          "DesignElement_EN": "Armband"
+        },
+        "#Element_Emblem": {
+          "DesignElement": "Emblem",
+          "DesignElement_JP": "エムブレム/紋様",
+          "DesignElement_EN": "Emblem / Pattern"
+        },
+        "#Element_Card": {
+          "DesignElement": "Card",
+          "DesignElement_JP": "カードデザイン",
+          "DesignElement_EN": "Card Design"
+        }
+      },
+      "$EnumDef_Laterality": {
+        "#Lat_Left": {
+          "Laterality": "Left",
+          "Laterality_JP": "左",
+          "Laterality_EN": "Left"
+        },
+        "#Lat_Right": {
+          "Laterality": "Right",
+          "Laterality_JP": "右",
+          "Laterality_EN": "Right"
+        },
+        "#Lat_Both": {
+          "Laterality": "Both",
+          "Laterality_JP": "左右両方",
+          "Laterality_EN": "Both"
+        }
+      },
+      "$EnumDef_DesignAttrLabel": {
+        "#DesignAttr_Shape": {
+          "AttrLabel": "Shape",
+          "AttrLabel_JP": "形状",
+          "AttrLabel_EN": "Shape"
+        },
+        "#DesignAttr_Color": {
+          "AttrLabel": "Color",
+          "AttrLabel_JP": "色",
+          "AttrLabel_EN": "Color"
+        },
+        "#DesignAttr_Position": {
+          "AttrLabel": "Position",
+          "AttrLabel_JP": "位置",
+          "AttrLabel_EN": "Position"
+        },
+        "#DesignAttr_Notation": {
+          "AttrLabel": "Notation",
+          "AttrLabel_JP": "表記方式",
+          "AttrLabel_EN": "Notation"
+        },
+        "#DesignAttr_Count": {
+          "AttrLabel": "Count",
+          "AttrLabel_JP": "本数・個数",
+          "AttrLabel_EN": "Count"
+        },
+        "#DesignAttr_Material": {
+          "AttrLabel": "Material",
+          "AttrLabel_JP": "素材感",
+          "AttrLabel_EN": "Material"
+        },
+        "#DesignAttr_Overview": {
+          "AttrLabel": "Overview",
+          "AttrLabel_JP": "概要",
+          "AttrLabel_EN": "Overview"
+        }
       }
     }
   }

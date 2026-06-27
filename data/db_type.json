@@ -312,6 +312,17 @@
       }
     },
     {
+      "hashTag": "AppearanceDetail",
+      "$type": "$Def_AppearanceDetail[]|#Null",
+      "hashTag_JP": "外見デザイン詳細",
+      "hashTag_EN": "Appearance Design Details",
+      "searchable": false,
+      "$display": {
+        "section": "profile",
+        "sectionWrapper": "appearanceDetailSection"
+      }
+    },
+    {
       "hashTag": "ConversationPattern",
       "$type": [
         {
