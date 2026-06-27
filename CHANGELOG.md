@@ -1,5 +1,17 @@
 # 最新のリファクタリング・仕様変更履歴
 
+### サイトUI 紺×水色サイエンスファンタジー化 — テーマCSS＋キャラ紹介ヒーロー帯 (2026-06-27)
+
+- **共通デザインシステム（`pages/characters.sass` / `pages/characters.css`）を「紺×水色 近代サイエンスファンタジー」へ刷新**: `:root` パレットを再設計（`--bg`/`--card`/`--accent`/`--border` ほか値変更）し、新トークン `--bg-deep` / `--panel` / `--accent-bright` / `--azure` / `--glow` / `--border-strong` を追加。既存変数名を維持して `var(--*)` 参照を一括追従させる最小差分方式。
+- **空気感の追加**: `body` に紺グラデーション背景、`body::before` で微細グリッド＋星屑テクスチャ。`.site-header` を紺ガラス＋上端発光ライン、`.site-header h1` / `.name` を白→水色グラデーション文字。`.card` をガラス質＋14px角丸＋影、`.card h2` に左端の水色発光バー（`.detail-header h2` は抑制）。`.poster` を発光ボーダー＋内側グロー、`.pill` / `th` / `.tag` の可読性向上。
+- **API GUI（`api/stylesheet.sass` / `api/stylesheet.css`）を同テーマへ統一**: 紺グラデ背景・ガラスカード・水色ボタン/フォーカス・深紺の出力エリア。
+- **キャラ紹介ヒーロー帯（`pages/characters.js` + CSS）**: 詳細ビューを「枠付き発光バナー」構成へ再構成。`.detail` を縦積みにし、上部 `.detail-hero`（`.detail-hero__portrait` 縦長ポートレート ＋ `.detail-hero__main` 名前見出し/英名/チップ/クイックステータス）、下部 `.detail-body`（ギャラリー＋各セクション）を全幅で配置。`.detail-hero` は発光ボーダー＋上端アクセントライン＋ラジアルグロー（初回モックアップ準拠）。クイックステータス `.detail-quickstats` / `.detail-stat` は **`$DetailLayout.quickStats` を明示した時のみ**表示し、表示項目は基本情報テーブルから除外する（**1 項目 1 箇所**の原則・重複表示の防止）。既定では非表示。値解決は基本情報テーブルと同じ `resolveBasicField` を再利用。DOM は再構成したが `img.poster` / `.name-en` / `.kv-table` / `.section` 等の要素・クラスは保持し、全 UI 回帰テストのセレクタを維持。
+- **`pages/characters.html`**: `<meta name="asset-version">` を `2026.06.27.1` に更新（キャッシュ反映）。
+- 検証: jsdom で `renderDetail` を直接実行し、ヒーローバナー構成・クイックステータス生成・既存要素維持を確認（13/13・重複解消/既定オフ含む）。`.css` は正なる `.sass` から再コンパイルして整合（編集ツールの大容量ファイル末尾切断を `sass` 直生成で復旧）。Vitest 本体はローカルで実行（当環境は `rolldown` ネイティブバイナリ不在のため起動不可）。
+- **クラッタ低減 / 視線誘導**: 背景テクスチャ（グリッド＋星屑）を `opacity 0.5 → 0.28` に抑制。ヒーローは発光控えめの静かな見出し帯（`--border` / `--shadow-md`、上端アクセントは細く）に調整し、ポートレートは `max-height` でバランス。`.detail-header h2`（#detail-title）はパンくず的に控えめ化し、ヒーローの名前を唯一の主役にして重複感を解消。
+- **情報量バランス / 可読性 / サイズ感**: ヒーローを大きめ（ポートレート clamp 最大320px・名前 clamp 最大40px）にして余白の間延びを解消。既定でヒーローに基本情報先頭3項目の「要約タイル」を表示し、その項目はテーブルから除外（**1 項目 1 箇所**・重複なし）。詳細ギャラリーは `minmax(240px, 1fr)` の多列、本文系フォントは 15〜16px に拡大、テーブル行間も拡張。
+- 詳細は `_work_in_progress/2026-06-27_progress_sci-fantasy-theme.md`。
+
 ### ロールプレイ／AGENTS.md 設定の整理・正典化 (2026-06-27)
 
 - **`AGENTS.md`（リポジトリ直下）を新規作成し、扇一春ロールプレイ仕様の「正典（source of truth）」に集約**: 役割・人物像・口調（一人称/二人称/三人称）・OK/NG 口調例・制約・入口ファイル関係表を一本化。AGENTS.md 規約に従うエージェントの入口も兼ねる。

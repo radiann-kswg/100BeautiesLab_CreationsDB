@@ -5536,6 +5536,9 @@ export async function renderDetail(workId, rec) {
 		].filter(Boolean);
 
 		const left = el('div', {}, imageSection);
+		// ヒーロー帯用にポスター/ギャラリーを個別参照（imageSection[0]=poster, [1]=gallery）
+		const posterEl = imageSection[0] || null;
+		const galleryEl = imageSection[1] || null;
 
 		// トップレベルの `$display` / `$alt` を map 化（work 優先）
 		const topLevelDisplayMap = buildTopLevelDisplayMap(workTypeDef, globalTypeDef);
@@ -5926,7 +5929,19 @@ export async function renderDetail(workId, rec) {
 			.map((key) => resolveBasicField(key))
 			.filter((it) => it && it.value); // Only show fields with values
 
-		const basic = kvTable(rec, basicFields.map((it) => [
+		// クイックステータス（ヒーロー帯）に出すキー集合。$DetailLayout.quickStats を明示した時のみ。
+		// 1 項目 1 箇所の原則: quickStats に出した項目は基本情報テーブルから除外する（重複表示の防止）。
+		// 既定ではヒーロー帯に基本情報の先頭3項目を「要約タイル」として出し、テーブルからは除外する（1 項目 1 箇所）。
+		// 作品側で $DetailLayout.quickStats を指定した場合はそれを優先する。
+		const configuredQuickKeys = normalizeBasicFieldKeys(Array.isArray(detailLayout?.quickStats) ? detailLayout.quickStats : []);
+		const quickStatKeyList = configuredQuickKeys.length
+			? configuredQuickKeys
+			: basicFields.slice(0, 3).map((it) => it.sourceKey);
+		const quickStatKeySet = new Set(quickStatKeyList);
+		const quickStatItems = basicFields.filter((it) => quickStatKeySet.has(it.sourceKey));
+		const basicFieldsForTable = basicFields.filter((it) => !quickStatKeySet.has(it.sourceKey));
+
+		const basic = kvTable(rec, basicFieldsForTable.map((it) => [
 			getFieldLabel(it.labelKey, fieldLabelMap, metaForLookup, globalDefType, it.labelKey),
 			it.value
 		]));
@@ -7108,8 +7123,38 @@ export async function renderDetail(workId, rec) {
 			globalDefType
 		);
 
-		const right = el('div', {}, [
-			titleRow,
+		// クイックステータス（キャラ紹介ページ風ヒーロー帯の要約タイル）
+		// - 既存の基本情報テーブル/各セクションは一切変更せず、名前見出し直下に「加算」で要約タイルを表示する
+		// - スキーマ駆動: `$DetailLayout.quickStats`（キー配列）があればそれを優先し、無ければ basicFields の先頭から最大4件
+		// - 値解決は基本情報テーブルと同じ resolveBasicField を再利用（辞書/和英/$alt/hideText を踏襲）
+		const quickStats = (() => {
+			const layout = globalMeta?.CreationWorks?.[workId]?.$DetailLayout || null;
+			/** 値（文字列 or DOM ノード）から表示用テキストを取り出す */
+			const toText = (v) => {
+				if (v === null || v === undefined) return '';
+				if (typeof v === 'string') return v.trim();
+				if (typeof v === 'number') return String(v);
+				if (typeof v === 'object' && typeof v.textContent === 'string') return v.textContent.trim();
+				return '';
+			};
+			const tiles = quickStatItems.slice(0, 4).map((it) => {
+				const text = toText(it.value);
+				if (!text) return null;
+				const label = getFieldLabel(it.labelKey, fieldLabelMap, metaForLookup, globalDefType, it.labelKey);
+				return el('div', { class: 'detail-stat' }, [
+					el('div', { class: 'detail-stat__label' }, [label]),
+					el('div', { class: 'detail-stat__value' }, [text])
+				]);
+			}).filter(Boolean);
+			return tiles.length ? el('div', { class: 'detail-quickstats' }, tiles) : null;
+		})();
+
+		// ヒーロー帯の情報側（名前見出し＋クイックステータス）
+		const heroMain = el('div', { class: 'detail-hero__main' }, [titleRow, quickStats].filter(Boolean));
+
+		// 本文側（ギャラリー＋各セクション）を全幅で並べる
+		const body = el('div', { class: 'detail-body' }, [
+			galleryEl,
 			basicSection,
 			secondaryInfoSection,
 			specSection,
@@ -7129,7 +7174,10 @@ export async function renderDetail(workId, rec) {
 				})
 		].filter(Boolean));
 
-		mount.appendChild(el('div', { class: 'detail' }, [left, right]));
+		// ヒーローバナー（縦長ポートレート＋情報）を組み、その下に本文を全幅で配置
+		const heroPortrait = el('div', { class: 'detail-hero__portrait' }, [posterEl].filter(Boolean));
+		const hero = el('div', { class: 'detail-hero' }, [heroPortrait, heroMain]);
+		mount.appendChild(el('div', { class: 'detail' }, [hero, body]));
 
 		// デバッグ: 画面内に「生コード（例: FemaleNeutral）」が残っている箇所を自動検出
 		// - 辞書解決自体は成功しているのに表示が変わらない場合、どのDOMノードが raw を出しているかを特定する

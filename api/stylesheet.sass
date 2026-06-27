@@ -2,35 +2,44 @@
 // API プロトタイプページ用最小限スタイルシート
 // 100BeautiesLab Creations DB (Web) - api/index.html 用
 // GitHub Pages での API テスト用の軽量スタイル
+// テーマ: 紺×水色 近代サイエンスファンタジー（characters と統一感）
 // ==================================================
 
 // SASS 変数定義（カラーパレット）
-$bg: #0e0f12 // 背景色（ダークブルーグレー）
-$fg: #e7e9ee // 前景色（明るいグレー）
-$muted: #9aa3b2 // ミュート色（中間グレー）
-$card: #171a20 // カード背景色（暗いグレー）
-$accent: #4ea1ff // アクセント色（ブルー）
+$bg: #070b16        // 背景色（最深ネイビー）
+$bg-deep: #05080f   // グラデ下端
+$fg: #e9f3ff        // 前景色（青みのある明色）
+$muted: #9fb6d6     // ミュート色（青グレー）
+$card: #0f1830      // カード背景色（紺）
+$accent: #5fd6ff    // アクセント色（水色／アクア）
+$line: rgba(120, 190, 255, 0.18)        // 紺ボーダー
+$line-strong: rgba(120, 190, 255, 0.42) // 発光ボーダー
 
 // ==================================================
 // ベーススタイル
 // ==================================================
 
-// HTML・BODY の基本設定
+// HTML・BODY の基本設定（紺グラデーション背景）
 html, body
 	margin: 0
 	padding: 0
 	font-family: system-ui, -apple-system, Segoe UI, Roboto, "Hiragino Kaku Gothic ProN", Meiryo, sans-serif
-	background: $bg
 	color: $fg
+
+body
+	min-height: 100vh
+	background: radial-gradient(900px 520px at 80% -10%, rgba(58, 134, 224, 0.22), transparent 60%), radial-gradient(760px 480px at 6% 2%, rgba(95, 214, 255, 0.12), transparent 55%), linear-gradient(180deg, $bg 0%, $bg-deep 100%)
+	background-attachment: fixed
 
 // ==================================================
 // レイアウトコンポーネント
 // ==================================================
 
-// ヘッダー・フッター（グラデーション背景）
+// ヘッダー・フッター（水色グロー＋下端の発光ライン）
 header, footer
 	padding: 16px 20px
-	background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0))
+	background: linear-gradient(180deg, rgba(95, 214, 255, 0.08), rgba(255, 255, 255, 0))
+	border-bottom: 1px solid $line
 
 // リード文（説明文）
 .lead
@@ -47,13 +56,13 @@ main
 // UI コンポーネント
 // ==================================================
 
-// カードコンポーネント（セクション容器）
+// カードコンポーネント（セクション容器・ガラス質）
 .card
-	background: $card
-	border: 1px solid rgba(255,255,255,0.08)
-	border-radius: 10px
+	background: linear-gradient(180deg, rgba(95, 214, 255, 0.04), rgba(15, 24, 48, 0) 42%), $card
+	border: 1px solid $line
+	border-radius: 14px
 	padding: 16px
-	box-shadow: 0 6px 24px rgba(0,0,0,0.36)
+	box-shadow: 0 10px 30px rgba(3, 9, 24, 0.4)
 
 // グリッドレイアウト（ボタン配置用）
 .grid
@@ -67,18 +76,19 @@ main
 
 // ボタンスタイル（エンドポイントテスト用）
 button
-	background: #1f2430
+	background: rgba(8, 14, 30, 0.8)
 	color: $fg
-	border: 1px solid rgba(255,255,255,0.12)
-	border-radius: 8px
+	border: 1px solid $line-strong
+	border-radius: 9px
 	padding: 10px 12px
 	cursor: pointer
-	transition: background .2s ease, border-color .2s ease
+	transition: background .2s ease, border-color .2s ease, box-shadow .2s ease
 
-	// ホバー効果
+	// ホバー効果（水色グロー）
 	&:hover
-		background: #252b39
-		border-color: rgba(255,255,255,0.2)
+		background: rgba(95, 214, 255, 0.12)
+		border-color: $accent
+		box-shadow: 0 0 0 3px rgba(95, 214, 255, 0.12)
 
 // カスタムエンドポイント入力エリア
 .endpointInput
@@ -92,10 +102,15 @@ button
 		flex: 1
 		min-width: 260px
 		padding: 10px 12px
-		border-radius: 8px
-		border: 1px solid rgba(255,255,255,0.12)
-		background: #101319
+		border-radius: 9px
+		border: 1px solid $line
+		background: rgba(8, 14, 30, 0.8)
 		color: $fg
+
+		&:focus
+			outline: none
+			border-color: $accent
+			box-shadow: 0 0 0 3px rgba(95, 214, 255, 0.18)
 
 // ==================================================
 // レスポンス出力エリア
@@ -105,9 +120,9 @@ button
 .output
 	margin-top: 12px
 	padding: 12px
-	background: #0b0d10
-	border: 1px solid rgba(255,255,255,0.08)
-	border-radius: 8px
+	background: $bg-deep
+	border: 1px solid $line
+	border-radius: 9px
 	max-height: 60vh
 	overflow: auto
-	color: #e2f1ff
+	color: #d8eaff
