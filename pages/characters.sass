@@ -5,17 +5,23 @@
 
 // CSS カスタムプロパティ（デザインシステムの基盤）
 \:root
-	// カラーパレット（ダークテーマベース）
-	--bg: #0b0c10 /* 背景色（濃紺） */
-	--fg: #e8f0f2 /* 前景色（明るいグレー） */
-	--muted: #9fb2bd /* ミュート色（中間グレー） */
-	--card: #12151b /* カード背景色（暗いグレー） */
-	--accent: #37b7c3 /* アクセント色（シアン） */
-	--accent-2: #9e77ff /* セカンダリアクセント色（パープル） */
-	--border: #212836 /* ボーダー色（暗いグレー） */
-	--success: #00a86b /* 成功色（グリーン） */
-	--warning: #f7931e /* 警告色（オレンジ） */
-	--error: #e74c3c /* エラー色（レッド） */
+	// カラーパレット（紺×水色 近代サイエンスファンタジー）
+	--bg: #070b16 /* 背景色（最深ネイビー） */
+	--bg-deep: #05080f /* さらに深い背景（グラデ下端） */
+	--fg: #e9f3ff /* 前景色（青みのある明色） */
+	--muted: #9fb6d6 /* ミュート色（青グレー） */
+	--card: #0f1830 /* カード背景色（紺） */
+	--panel: rgba(18, 29, 58, 0.72) /* ガラス質パネル */
+	--accent: #5fd6ff /* アクセント色（水色／アクア） */
+	--accent-bright: #9be9ff /* 明るい水色（ハイライト） */
+	--accent-2: #9a8cff /* セカンダリアクセント（魔術的バイオレット） */
+	--azure: #3a86e0 /* 紺寄りブルー */
+	--glow: rgba(95, 214, 255, 0.5) /* 水色グロー */
+	--border: #1d2a4a /* ボーダー色（紺） */
+	--border-strong: rgba(120, 190, 255, 0.42) /* 発光ボーダー */
+	--success: #2bd4a0 /* 成功色（アクアグリーン） */
+	--warning: #f7b733 /* 警告色（アンバー） */
+	--error: #ff5d6c /* エラー色（コーラルレッド） */
 
 	// スペーシングシステム
 	--spacing-xs: 4px /* 最小スペース */
@@ -74,6 +80,28 @@ html, body
 	font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans JP", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif
 	font-size: var(--font-size-base)
 	line-height: var(--line-height-normal)
+
+// 紺グラデーション背景＋微細グリッド/星屑のサイエンスファンタジー質感
+body
+	min-height: 100vh
+	background: radial-gradient(1100px 620px at 78% -8%, rgba(58, 134, 224, 0.22), transparent 60%), radial-gradient(900px 560px at 8% 4%, rgba(95, 214, 255, 0.13), transparent 55%), radial-gradient(1200px 900px at 50% 120%, rgba(154, 140, 255, 0.12), transparent 60%), linear-gradient(180deg, var(--bg) 0%, var(--bg-deep) 100%)
+	background-attachment: fixed
+
+body::before
+	content: ""
+	position: fixed
+	inset: 0
+	z-index: 0
+	pointer-events: none
+	background-image: linear-gradient(rgba(120, 180, 255, 0.045) 1px, transparent 1px), linear-gradient(90deg, rgba(120, 180, 255, 0.045) 1px, transparent 1px), radial-gradient(circle, rgba(180, 225, 255, 0.6) 0.6px, transparent 0.7px)
+	background-size: 46px 46px, 46px 46px, 170px 170px
+	background-position: 0 0, 0 0, 12px 28px
+	opacity: 0.28
+
+// 背景テクスチャより前面にコンテンツを出す
+body > *
+	position: relative
+	z-index: 1
 
 body.lightbox-open
 	overflow: hidden
@@ -319,10 +347,19 @@ a
 	border-bottom: 1px solid var(--border)
 	position: sticky
 	top: 0
-	background: linear-gradient(180deg, rgba(11, 12, 16, 0.95), rgba(11, 12, 16, 0.85) 60%, rgba(11, 12, 16, 0))
-	-webkit-backdrop-filter: saturate(120%) blur(8px)
-	backdrop-filter: saturate(120%) blur(8px)
+	background: linear-gradient(180deg, rgba(13, 22, 46, 0.95), rgba(9, 15, 33, 0.82) 60%, rgba(7, 11, 22, 0))
+	-webkit-backdrop-filter: saturate(125%) blur(10px)
+	backdrop-filter: saturate(125%) blur(10px)
+	box-shadow: inset 0 2px 0 0 rgba(95, 214, 255, 0.35)
 	z-index: 2
+
+// サイトヘッダーの主見出しは白→水色のグラデーション文字にする
+.site-header h1
+	background: linear-gradient(120deg, #ffffff, #bfe7ff 55%, #8ec9ff)
+	-webkit-background-clip: text
+	background-clip: text
+	-webkit-text-fill-color: transparent
+	color: transparent
 
 h1
 	margin: 0 0 6px
@@ -339,18 +376,32 @@ h1
 	padding: 12px
 
 .card
-	background: var(--card)
+	background: linear-gradient(180deg, rgba(95, 214, 255, 0.04), rgba(15, 24, 48, 0) 42%), var(--card)
 	border: 1px solid var(--border)
-	border-radius: 10px
+	border-radius: 14px
 	padding: 14px
 	margin: 12px 0
+	box-shadow: 0 10px 30px rgba(3, 9, 24, 0.4)
 
 .card h2
-	margin: 0 0 10px
+	position: relative
+	margin: 0 0 12px
+	padding: 0 0 8px 14px
 	font-size: 16px
-	color: #d7f9ff
+	color: #dff3ff
 	border-bottom: 1px solid var(--border)
-	padding-bottom: 6px
+
+	// 左端に水色の発光バーを添える（サイエンスファンタジーのアクセント）
+	&::before
+		content: ""
+		position: absolute
+		left: 0
+		top: 1px
+		bottom: 9px
+		width: 4px
+		border-radius: 3px
+		background: linear-gradient(180deg, var(--accent), var(--azure))
+		box-shadow: 0 0 10px 1px var(--glow)
 
 /* Enhanced Form Controls
 
@@ -656,6 +707,10 @@ h3
 	margin: 0
 	font-size: 18px
 
+	// .card h2 の発光バーは戻るボタン行のタイトルには付けない
+	&::before
+		display: none
+
 .ghost
 	background: transparent
 	color: var(--accent)
@@ -704,12 +759,13 @@ h3
 
 .poster
 	width: 100%
-	border-radius: 10px
-	border: 1px solid var(--border)
-	background: var(--card)
+	border-radius: 14px
+	border: 1px solid var(--border-strong)
+	background: radial-gradient(circle at 50% 36%, #15265a, #0a1226 72%)
 	-o-object-fit: cover
 	object-fit: cover
 	aspect-ratio: 4/3
+	box-shadow: 0 14px 34px rgba(3, 9, 24, 0.5), inset 0 0 28px rgba(95, 214, 255, 0.12)
 	transition: opacity 0.3s ease
 
 	&:not([src]),
@@ -734,10 +790,15 @@ h3
 
 .name
 	font-size: var(--font-size-2xl)
-	font-weight: 600
-	letter-spacing: 0.02em
+	font-weight: 800
+	letter-spacing: 0.01em
 	line-height: var(--line-height-tight)
-	color: var(--fg)
+	// キャラ名は白→水色グラデーションのヒーロー見出し
+	background: linear-gradient(120deg, #ffffff, #c9ecff 52%, #94c9ff)
+	-webkit-background-clip: text
+	background-clip: text
+	-webkit-text-fill-color: transparent
+	color: transparent
 	margin-bottom: var(--spacing-xs)
 
 @media (min-width: 768px)
@@ -755,6 +816,31 @@ h3
 	flex-wrap: wrap
 	gap: var(--spacing-sm)
 	margin-top: var(--spacing-sm)
+
+// クイックステータス（キャラ紹介ヒーロー帯の要約タイル / characters.js が生成）
+.detail-quickstats
+	display: grid
+	grid-template-columns: repeat(auto-fit, minmax(120px, 1fr))
+	gap: 10px
+	margin: var(--spacing-md) 0 var(--spacing-lg)
+
+.detail-stat
+	padding: 10px 12px
+	border-radius: 10px
+	background: rgba(8, 14, 30, 0.55)
+	border: 1px solid var(--border)
+
+.detail-stat__label
+	font-size: 11px
+	color: var(--muted)
+	letter-spacing: 0.04em
+	margin-bottom: 3px
+	overflow-wrap: anywhere
+
+.detail-stat__value
+	font-size: 15px
+	color: #eaf5ff
+	overflow-wrap: anywhere
 
 .section
 	margin: var(--spacing-md) 0
@@ -1063,9 +1149,10 @@ th, td
 th
 	text-align: left
 	width: 140px
-	color: #c0d7e0
-	padding: 6px
-	background: #0f1320
+	color: #bcd6f2
+	font-weight: 500
+	padding: 8px 10px
+	background: rgba(8, 14, 30, 0.6)
 	white-space: normal
 	overflow-wrap: anywhere
 	word-break: normal
@@ -1108,19 +1195,19 @@ td
 	display: inline-flex
 	gap: 6px
 	align-items: center
-	padding: 3px 8px
+	padding: 4px 10px
 	border-radius: 999px
-	border: 1px solid var(--border)
-	background: #0f1320
-	color: #d9ecf2
+	border: 1px solid var(--border-strong)
+	background: rgba(95, 214, 255, 0.08)
+	color: var(--accent-bright)
 	font-size: 12px
 
 .tag
 	display: inline-block
-	padding: 2px 6px
+	padding: 3px 8px
 	border-radius: 6px
-	border: 1px solid #263245
-	background: #0f1320
+	border: 1px solid var(--border)
+	background: rgba(8, 14, 30, 0.6)
 	font-size: 12px
 	color: #b6d8e1
 
@@ -1792,21 +1879,216 @@ body[data-lang='en'] .lang-toggle .lang-toggle__opt[data-opt='en']
 	display: inline-block
 	padding: 0 5px
 	border-radius: 4px
-	background: color-mix(in srgb, var(--accent-2) 12%, transparent)
-	border: 1px solid color-mix(in srgb, var(--accent-2) 28%, transparent)
-	color: color-mix(in srgb, var(--accent-2) 85%, var(--fg))
-	font-size: var(--font-size-xs)
+	background: color-m
+
+// ==================================================
+// キャラ紹介ヒーロー（静かな見出し帯）
+// .detail を縦積みにし、上部に控えめなヒーロー（ポートレート＋名前）、
+// 下に本文（ギャラリー＋各セクション）を全幅で並べる。
+// クラッタ低減のため発光は控えめ。視線は 画像 → 名前 → 本文 の順に誘導する。
+// ==================================================
+
+.detail
+	display: block
+
+.detail-hero
+	position: relative
+	display: grid
+	grid-template-columns: clamp(200px, 26%, 280px) 1fr
+	gap: clamp(16px, 2.2vw, 24px)
+	align-items: center
+	padding: clamp(14px, 2vw, 22px)
+	margin-bottom: var(--spacing-lg)
+	border: 1px solid var(--border)
+	border-radius: 16px
+	overflow: hidden
+	background: linear-gradient(180deg, rgba(95, 214, 255, 0.05), rgba(15, 24, 48, 0) 55%), var(--card)
+	box-shadow: var(--shadow-md)
+
+	// 上端アクセントは細く控えめに
+	&::after
+		content: ""
+		position: absolute
+		left: 0
+		right: 0
+		top: 0
+		height: 2px
+		background: linear-gradient(90deg, transparent, var(--accent) 40%, transparent)
+		opacity: 0.7
+
+.detail-hero__portrait
+	position: relative
+	align-self: center
+	width: 100%
+	aspect-ratio: 3/4
+	max-height: 360px
+	border-radius: 12px
+	overflow: hidden
+	border: 1px solid var(--border)
+	background: radial-gradient(circle at 50% 38%, #14224a, #0a1226 74%)
+
+	// 額装枠に画像を全体表示（切り抜き回避）で敷き込む
+	.poster
+		width: 100%
+		height: 100%
+		margin: 0
+		border: none
+		border-radius: 0
+		box-shadow: none
+		aspect-ratio: auto
+		object-fit: contain
+		object-position: center
+		background: transparent
+
+	.poster.placeholder
+		width: 100%
+		height: 100%
+		aspect-ratio: auto
+
+.detail-hero__main
+	display: flex
+	flex-direction: column
+	justify-content: center
+	gap: var(--spacing-sm)
+	min-width: 0
+
+	// 名前はバナー内で主役（ただし過大にしない）
+	.name
+		font-size: clamp(24px, 3.4vw, 34px)
+
+	// クイックステータス（明示時のみ）は名前直下に
+	.detail-quickstats
+		margin: 6px 0 0
+
+.detail-body
+	display: block
+	min-width: 0
+
+	.image-gallery
+		margin-top: 0
+
+// 詳細ヘッダーのタイトルはパンくず的に控えめにし、ヒーローの名前を唯一の主役にする
+.detail-header h2
+	font-size: 14px
+	font-weight: 500
+	color: var(--muted)
+
+// 画面が狭い時はポートレートを上に積む（1 カラム）
+@media (max-width: 720px)
+	.detail-hero
+		grid-template-columns: 1fr
+
+	.detail-hero__portrait
+		max-width: 280px
+		margin: 0 auto
+
+// ==================================================
+// 情報量バランス＆可読性の調整
+// 画像（ギャラリー/ポートレート）を抑えめにし、本文系フォントを一段大きく。
+// ==================================================
+
+// 詳細ギャラリーのサムネを小さめ・多列にして文章とのバランスを取る
+@supports (display: grid)
+	.detail .image-grid
+		grid-template-columns: repeat(auto-fill, minmax(180px, 1fr))
+		gap: 12px
+
+	.detail .image-item
+		width: auto
+		flex: none
+
+// ヒーローのポートレートをやや小さく（画像偏重を緩和）
+.detail-hero
+	grid-template-columns: clamp(170px, 22%, 232px) 1fr
+
+.detail-hero__portrait
+	max-height: 300px
+
+// 本文系の文字を読みやすく一段大きく
+.kv-table
+	font-size: 14px
+
+th, td
+	font-size: 14px
+
+th
+	color: #c7ddf5
+
+.detail-prose__body
+	font-size: 14px
 	line-height: 1.6
 
-.calling-tok--demo
-	display: inline-block
-	padding: 0 5px
-	border-radius: 4px
-	background: color-mix(in srgb, var(--accent) 10%, transparent)
-	border: 1px solid color-mix(in srgb, var(--accent) 24%, transparent)
-	color: color-mix(in srgb, var(--accent) 90%, var(--fg))
-	font-size: var(--font-size-xs)
-	line-height: 1.6
-	cursor: help
+.detail-prose__label
+	font-size: 12px
 
-/*# sourceMappingURL=characters.css.map
+.bilingual-lines__line
+	font-size: 13.5px
+	line-height: 1.55
+
+// セクション/ギャラリー見出しを少し大きく・はっきり
+.detail h3
+	font-size: 15px
+
+.detail h4
+	font-size: 14px
+
+// チップ/タグ/ピルもわずかに大きく
+.tag, .pill
+	font-size: 13px
+
+.chip
+	font-size: 13px
+
+// 基本情報テーブルの行間を少しゆったり（可読性）
+.kv-table th, .kv-table td
+	padding: 9px 11px
+
+// ==================================================
+// サイズ感の再調整（モックアップ準拠：画像・文字を一回り大きく、余白の間延びを解消）
+// ==================================================
+
+// ヒーローを大きめに（ポートレートと名前を主役サイズへ）
+.detail-hero
+	grid-template-columns: clamp(240px, 30%, 320px) 1fr
+	gap: clamp(20px, 2.5vw, 28px)
+	padding: clamp(18px, 2.4vw, 26px)
+
+.detail-hero__portrait
+	max-height: 380px
+
+.detail-hero__main .name
+	font-size: clamp(28px, 4vw, 40px)
+
+// ヒーロー内の要約タイルはやや大きめ・読みやすく
+.detail-hero .detail-quickstats
+	grid-template-columns: repeat(auto-fit, minmax(150px, 1fr))
+	gap: 12px
+
+// 詳細ギャラリーのサムネを一回り大きく（少数でも間延びしない範囲）
+@supports (display: grid)
+	.detail .image-grid
+		grid-template-columns: repeat(auto-fill, minmax(240px, 1fr))
+		gap: 14px
+
+// 本文系をもう一段読みやすく
+.kv-table, th, td
+	font-size: 15px
+
+.detail-prose__body
+	font-size: 15px
+	line-height: 1.65
+
+.detail h3
+	font-size: 16px
+
+.detail h4
+	font-size: 15px
+
+.detail-stat__value
+	font-size: 16px
+
+.detail-stat__label
+	font-size: 12px
+
+.bilingual-lines__line
+	font-size: 14px
