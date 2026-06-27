@@ -45,6 +45,8 @@
 | NT db_Primary 再マイグレーション（97/105 件 / 合計1422エントリ / 平均14.7/キャラ） | ✅ 完了 |
 | UnibyteLive db_Primary 再マイグレーション（2/3 件） | ✅ 完了 |
 | Vitest テスト 131/131 通過 | ✅ 確認済み |
+| `lib/section-renders/appearanceDetail.js` 新規実装（`appearanceDetailSection` 登録） | ✅ 完了 |
+| `pages/characters.js` に `appearanceDetail.js` の import 追加 | ✅ 完了 |
 
 ### 推論後の目視確認が必要な主なケース
 

@@ -21,11 +21,10 @@
           "GenderType",
           "Height_cm",
           "Weight_kg",
-          "BustSize",
-          "TailsUnit"
+          "BustSize"
         ],
         "subFields": [
-          "IdentityMotif",
+          "AppearanceDetail",
           "AbilityStats",
           "NumerospecAbout",
           "NumerospecStats",
@@ -122,12 +121,11 @@
           "GenderType",
           "Height_cm",
           "BustSize",
-          "AccessoryUnit",
           "ThisPerformer_DBLink",
           "AnotherRegions_DBLink"
         ],
         "subFields": [
-          "IdentityMotif",
+          "AppearanceDetail",
           "AbilityStats",
           "StreamingActivity",
           "ConversationPattern"
