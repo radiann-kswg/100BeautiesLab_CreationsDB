@@ -2,17 +2,23 @@ html, body {
   margin: 0;
   padding: 0;
   font-family: system-ui, -apple-system, Segoe UI, Roboto, "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
-  background: #0e0f12;
-  color: #e7e9ee;
+  color: #e9f3ff;
+}
+
+body {
+  min-height: 100vh;
+  background: radial-gradient(900px 520px at 80% -10%, rgba(58, 134, 224, 0.22), transparent 60%), radial-gradient(760px 480px at 6% 2%, rgba(95, 214, 255, 0.12), transparent 55%), linear-gradient(180deg, #070b16 0%, #05080f 100%);
+  background-attachment: fixed;
 }
 
 header, footer {
   padding: 16px 20px;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0));
+  background: linear-gradient(180deg, rgba(95, 214, 255, 0.08), rgba(255, 255, 255, 0));
+  border-bottom: 1px solid rgba(120, 190, 255, 0.18);
 }
 
 .lead {
-  color: #9aa3b2;
+  color: #9fb6d6;
 }
 
 main {
@@ -23,11 +29,11 @@ main {
 }
 
 .card {
-  background: #171a20;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 10px;
+  background: linear-gradient(180deg, rgba(95, 214, 255, 0.04), rgba(15, 24, 48, 0) 42%), #0f1830;
+  border: 1px solid rgba(120, 190, 255, 0.18);
+  border-radius: 14px;
   padding: 16px;
-  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.36);
+  box-shadow: 0 10px 30px rgba(3, 9, 24, 0.4);
 }
 
 .grid {
@@ -37,17 +43,18 @@ main {
 }
 
 button {
-  background: #1f2430;
-  color: #e7e9ee;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 8px;
+  background: rgba(8, 14, 30, 0.8);
+  color: #e9f3ff;
+  border: 1px solid rgba(120, 190, 255, 0.42);
+  border-radius: 9px;
   padding: 10px 12px;
   cursor: pointer;
-  transition: background 0.2s ease, border-color 0.2s ease;
+  transition: background 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
 }
 button:hover {
-  background: #252b39;
-  border-color: rgba(255, 255, 255, 0.2);
+  background: rgba(95, 214, 255, 0.12);
+  border-color: #5fd6ff;
+  box-shadow: 0 0 0 3px rgba(95, 214, 255, 0.12);
 }
 
 .endpointInput {
@@ -60,19 +67,26 @@ button:hover {
   flex: 1;
   min-width: 260px;
   padding: 10px 12px;
-  border-radius: 8px;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  background: #101319;
-  color: #e7e9ee;
+  border-radius: 9px;
+  border: 1px solid rgba(120, 190, 255, 0.18);
+  background: rgba(8, 14, 30, 0.8);
+  color: #e9f3ff;
+}
+.endpointInput input:focus {
+  outline: none;
+  border-color: #5fd6ff;
+  box-shadow: 0 0 0 3px rgba(95, 214, 255, 0.18);
 }
 
 .output {
   margin-top: 12px;
   padding: 12px;
-  background: #0b0d10;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 8px;
+  background: #05080f;
+  border: 1px solid rgba(120, 190, 255, 0.18);
+  border-radius: 9px;
   max-height: 60vh;
   overflow: auto;
-  color: #e2f1ff;
-}/*# sourceMappingURL=stylesheet.css.map */
+  color: #d8eaff;
+}
+
+/*# sourceMappingURL=stylesheet.css.map */
