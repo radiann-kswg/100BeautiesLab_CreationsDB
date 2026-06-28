@@ -702,6 +702,7 @@ function setCommentEN(record, type, targetNum, enText) {
 | 対象 | 参照先 |
 |---|---|
 | スキーマ全体 | `data/db_type.json ($DefType)` |
+| DeepL 翻訳運用 | `docs/deepl-localization.md`（用語集・添削補助・上書き禁止の境界） |
 | API/SW 仕様 | `docs/api-sw-spec.md` |
 | 実装方針 | `docs/implementation-playbook.md` |
 | 英訳作業進捗（最新） | `_work_in_progress/2026-06-24_progress_localization-rules-audit.md` |
