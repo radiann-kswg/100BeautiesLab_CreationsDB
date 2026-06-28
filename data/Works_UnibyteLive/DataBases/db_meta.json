@@ -44,6 +44,13 @@
   },
   "General": {
     "$VarsDef": {
+      "$EnumDef_DesignElement": {
+        "#Element_AccessoryUnit": {
+          "DesignElement": "AccessoryUnit",
+          "DesignElement_JP": "モチーフアクセサリ",
+          "DesignElement_EN": "Motif Accessory Unit"
+        }
+      },
       "$Def_Letter": {
         "#List_Alphabet": [
           { "Alphabet": "A" },

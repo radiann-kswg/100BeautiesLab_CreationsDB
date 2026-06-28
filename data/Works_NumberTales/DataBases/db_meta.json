@@ -198,6 +198,25 @@
   "General": {
     "Images": { "catalog_PNGName": ["chr-dsgn_catalog-summary"] },
     "$VarsDef": {
+      "$EnumDef_DesignElement": {
+        "#Element_TailsUnit": {
+          "DesignElement": "TailsUnit",
+          "DesignElement_JP": "尻尾ユニット",
+          "DesignElement_EN": "Tails Unit"
+        }
+      },
+      "$EnumDef_DesignAttrLabel": {
+        "#DesignAttr_Branch": {
+          "AttrLabel": "Branch",
+          "AttrLabel_JP": "分岐配置",
+          "AttrLabel_EN": "Branch Layout"
+        },
+        "#DesignAttr_Segment": {
+          "AttrLabel": "Segment",
+          "AttrLabel_JP": "節数",
+          "AttrLabel_EN": "Segment Count"
+        }
+      },
       "$Def_NumerospecStats": {
         "$Def_EffectStats": {
           "#ListLink_EffectText": [

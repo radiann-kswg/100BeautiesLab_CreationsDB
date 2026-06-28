@@ -52,7 +52,7 @@
         "Formation": null,
         "BodyPart": null,
         "Laterality": null,
-        "DesignElement": "#Element_Accessory",
+        "DesignElement": "#Element_AccessoryUnit",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Overview",
@@ -152,7 +152,7 @@
         "Formation": null,
         "BodyPart": null,
         "Laterality": null,
-        "DesignElement": "#Element_Accessory",
+        "DesignElement": "#Element_AccessoryUnit",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Overview",
