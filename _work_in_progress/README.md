@@ -15,6 +15,7 @@
 
 ## いま進行中のファイル
 
+- 2026-06-28_progress_appearance-attrs-typed-schema.md（`$Def_AppearanceAttr` 型付きフィールド設計案。`value_Num` / `value_Laterality` / `value_Type` 等への分割・重複 AttrLabel 許可。⚠️ 設計検討中・未実装。Phase A〜E で段階実装予定）
 - 2026-06-27_progress_design-part-schema.md（外見デザイン部位統合スキーマ仕様案。`AppearanceDetail` / `$Def_AppearanceDetail` / enum 設計・移行マッピング。⚠️ 未実装・機能提案段階）
 
 
