@@ -250,7 +250,8 @@ Phase C のデータ変換時に一括置換する。移行期間中は SW が�
 | **Phase A** | 設計確定 ✅ | — |
 | **Phase B** | スキーマ変更 ✅ | Phase A |
 | **Phase C** | データ変換 ✅ | Phase B |
-| **Phase D** | SW/UI 対応: `vdict_*` 辞書解決・`value_Num_{n}` 集計・Count 導出・グループ表示 | Phase C |
+| **Phase C+** | 耳形状・エレメント整理 ✅ | Phase C |
+| **Phase D** | SW/UI 対応: `vdict_*` 辞書解決・`value_Num_{n}` 集計・Count 導出・グループ表示 + `value_JP/EN` 冗長削除（Shape） | Phase C+ |
 | **Phase E** | テスト更新: Vitest テスト追加・更新 | Phase D |
 
 ### Phase C 実施内容（2026-06-28）
@@ -261,6 +262,23 @@ Phase C のデータ変換時に一括置換する。移行期間中は SW が�
 - **`#DesignAttr_Branch`**: `"上N束×M本+下P束×Q本"` → 位置グループごとに1エントリに分割（67件が2エントリへ展開。`vdict_Laterality` / `value_Num_1` / `value_Num_2` を設定）。非標準形式（`'2束'` 7件、`'大1束+小9束'` 1件）は `value_JP` フォールバック
 - **`#DesignAttr_Segment`**: `"N節"` → `value_Num: N` に変換
 - **その他全ラベル（Overview/Position/Color/Notation/Material）**: `Value_JP` → `value_JP`、`Value_EN` → `value_EN` に一括改名（1977件）
+
+### Phase C+ 実施内容（2026-06-28）: 耳形状・エレメント整理
+
+- **`$EnumDef_EarShapeType` 新設（NT ローカル `db_meta.json`）**: `#EarShapeType_Fox`（狐の耳）/ `#EarShapeType_Cat`（猫の耳）の2種を定義
+- **`#DesignAttr_EarShape` 追加（NT ローカル `$EnumDef_DesignAttrLabel`）**: `$fields: ["vdict_EarShapeType", "about_JP", "about_EN"]`
+- **耳エントリ変換（`db_Primary.json`）**: 全181件の `#BodyPart_Ear` + `#Element_Motif` エントリを変換
+  - "狐の耳"/"猫の耳" → `DesignElement: null`、`#DesignAttr_EarShape` + `vdict_EarShapeType`
+  - 修飾情報（垂れ耳・先の色・帽子で隠れている等）→ `about_JP` に格納
+  - "狐の耳(イヤリング付き)" × 4・"狐の耳(左耳にアクセサリー付き)" × 4 → EarShape エントリ + 別 `#Element_CostumeItem` エントリに分離（14件の追加エントリを生成）
+  - "ダイヤとハート柄の耳マーキング" × 4 → `#Element_Emblem`
+  - "ダングルイヤリング" × 2・"猫の耳型のアクセサリー" × 2 → `#Element_CostumeItem`
+  - `BodyPart` なしで耳関連値を持つエントリ（"狐の垂れ耳" × 6、"猫の立った耳(フードに隠れている)" × 2）→ EarShape 変換 + `BodyPart: ["#BodyPart_Ear"]` を付与
+- **`#Element_Motif` → `#Element_CostumeItem` 移行**: キーワードベースで 355 エントリを移行（服装/靴/ソックス/ネクタイ/スカーフ/眼鏡/ゴーグル/ネックレス等）
+- **`#Element_Motif` → `#Element_Emblem` 移行**: 11 エントリを移行（頬の横線模様・耳マーキング・クリスタル額マーキング等）
+- **`#Element_Motif` → `#Element_Tag` 移行**: 8 エントリを移行（名札・バーコードタグ・注意ラベル等）
+- **変換統計**: 耳変換 182件・追加エントリ 14件・CostumeItem 355件・Emblem 11件・Tag 8件・Motif 残存 568件
+- **テスト**: `npm.cmd test` → 128 passed（既存 3 失敗は Phase C 前からの pre-existing）
 
 ### Phase B 実施内容（2026-06-28）
 

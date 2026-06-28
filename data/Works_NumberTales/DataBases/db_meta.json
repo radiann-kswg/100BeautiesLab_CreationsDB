@@ -210,7 +210,25 @@
           "DesignElement_EN": "Number Mark"
         }
       },
+      "$EnumDef_EarShapeType": {
+        "#EarShapeType_Fox": {
+          "EarShapeType": "Fox",
+          "EarShapeType_JP": "狐の耳",
+          "EarShapeType_EN": "Fox"
+        },
+        "#EarShapeType_Cat": {
+          "EarShapeType": "Cat",
+          "EarShapeType_JP": "猫の耳",
+          "EarShapeType_EN": "Cat"
+        }
+      },
       "$EnumDef_DesignAttrLabel": {
+        "#DesignAttr_EarShape": {
+          "AttrLabel": "EarShape",
+          "AttrLabel_JP": "耳の形状",
+          "AttrLabel_EN": "Ear Shape",
+          "$fields": ["vdict_EarShapeType", "about_JP", "about_EN"]
+        },
         "#DesignAttr_Branch": {
           "AttrLabel": "Branch",
           "AttrLabel_JP": "分岐配置",
