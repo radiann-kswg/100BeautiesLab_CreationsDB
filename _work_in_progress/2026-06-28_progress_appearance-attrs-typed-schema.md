@@ -280,6 +280,18 @@ Phase C のデータ変換時に一括置換する。移行期間中は SW が�
 - **変換統計**: 耳変換 182件・追加エントリ 14件・CostumeItem 355件・Emblem 11件・Tag 8件・Motif 残存 568件
 - **テスト**: `npm.cmd test` → 128 passed（既存 3 失敗は Phase C 前からの pre-existing）
 
+### Phase C+ 追加実施（2026-06-28）: EarUnit/TailShapeType 整備
+
+- **`#Element_EarUnit` 新設（グローバル `$EnumDef_DesignElement`）**: 耳ユニット専用エレメントを追加（`EarUnit` / `耳ユニット` / `Ear Unit`）
+- **`$EnumDef_ShapeType` → `$EnumDef_TailShapeType` リネーム（NT ローカル `db_meta.json`）**: enum キー（`#TailShapeType_*`）・内部フィールド（`TailShapeType` / `TailShapeType_JP` / `TailShapeType_EN`）を一括変換（7エントリ）
+- **`#DesignAttr_Shape.$fields` 更新（グローバル `db_meta.json`）**: `vdict_ShapeType` → `vdict_TailShapeType` に更新
+- **`db_Primary.json` 一括更新**:
+  - `vdict_ShapeType` → `vdict_TailShapeType` フィールドリネーム（97件）
+  - `#ShapeType_*` → `#TailShapeType_*` 値リネーム（97件）
+  - EarShape エントリの `DesignElement: null` → `"#Element_EarUnit"` 設定（93件、Formation 統合後）
+  - EarShape Formation 統合: corefolder + humanoid で同一シグネチャの86エントリを `Formation: null` 1件に統合（87件が null、残りは corefolder 4件・humanoid 2件）
+- **テスト**: `npm.cmd test` → 128 passed（既存 3 失敗は変更前から同一 pre-existing）
+
 ### Phase B 実施内容（2026-06-28）
 
 - **`$Def_AppearanceAttr` 簡素化**: `$DefType` から `Value_JP`/`Value_EN` を削除。`AttrLabel`（辞書参照）のみ宣言。規約駆動フィールドは `$DefType` に列挙しない。

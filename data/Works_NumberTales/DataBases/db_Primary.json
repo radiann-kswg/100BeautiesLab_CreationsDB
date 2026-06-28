@@ -168,7 +168,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "vdict_ShapeType": "#ShapeType_Fox",
+            "vdict_TailShapeType": "#TailShapeType_Fox",
             "value_JP": "キツネ型",
             "value_EN": "Fox-type"
           },
@@ -255,7 +255,7 @@
         "Formation": null,
         "BodyPart": ["#BodyPart_Ear"],
         "Laterality": "#Lat_Left",
-        "DesignElement": null,
+        "DesignElement": "#Element_EarUnit",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_EarShape",
@@ -773,7 +773,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "vdict_ShapeType": "#ShapeType_Fox",
+            "vdict_TailShapeType": "#TailShapeType_Fox",
             "value_JP": "キツネ型",
             "value_EN": "Fox-type"
           },
@@ -860,7 +860,7 @@
         "Formation": "corefolder",
         "BodyPart": ["#BodyPart_Ear"],
         "Laterality": "#Lat_Right",
-        "DesignElement": null,
+        "DesignElement": "#Element_EarUnit",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_EarShape",
@@ -945,7 +945,7 @@
         "Formation": "humanoid",
         "BodyPart": ["#BodyPart_Ear"],
         "Laterality": null,
-        "DesignElement": null,
+        "DesignElement": "#Element_EarUnit",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_EarShape",
@@ -1280,7 +1280,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "vdict_ShapeType": "#ShapeType_Fox",
+            "vdict_TailShapeType": "#TailShapeType_Fox",
             "value_JP": "キツネ型",
             "value_EN": "Fox-type"
           },
@@ -1369,10 +1369,10 @@
         "Note_EN": null
       },
       {
-        "Formation": "corefolder",
+        "Formation": null,
         "BodyPart": ["#BodyPart_Ear"],
         "Laterality": null,
-        "DesignElement": null,
+        "DesignElement": "#Element_EarUnit",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_EarShape",
@@ -1435,21 +1435,6 @@
             "AttrLabel": "#DesignAttr_Overview",
             "value_JP": "黄色いヘアクリップ",
             "value_EN": "yellow hair clip"
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
-      {
-        "Formation": "humanoid",
-        "BodyPart": ["#BodyPart_Ear"],
-        "Laterality": null,
-        "DesignElement": null,
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_EarShape",
-            "vdict_EarShapeType": "#EarShapeType_Fox"
           }
         ],
         "img_PNGName": null,
@@ -1763,7 +1748,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "vdict_ShapeType": "#ShapeType_Fox",
+            "vdict_TailShapeType": "#TailShapeType_Fox",
             "value_JP": "キツネ型",
             "value_EN": "Fox-type"
           },
@@ -1847,10 +1832,10 @@
         "Note_EN": null
       },
       {
-        "Formation": "corefolder",
+        "Formation": null,
         "BodyPart": ["#BodyPart_Ear"],
         "Laterality": null,
-        "DesignElement": null,
+        "DesignElement": "#Element_EarUnit",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_EarShape",
@@ -1925,22 +1910,6 @@
             "AttrLabel": "#DesignAttr_Overview",
             "value_JP": "小さな耳横のヘアアクセサリー",
             "value_EN": "small ear-side hair accessory"
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
-      {
-        "Formation": "humanoid",
-        "BodyPart": ["#BodyPart_Ear"],
-        "Laterality": null,
-        "DesignElement": null,
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_EarShape",
-            "vdict_EarShapeType": "#EarShapeType_Fox",
-            "about_JP": "垂れ耳"
           }
         ],
         "img_PNGName": null,
@@ -2292,7 +2261,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "vdict_ShapeType": "#ShapeType_Fox",
+            "vdict_TailShapeType": "#TailShapeType_Fox",
             "value_JP": "キツネ型",
             "value_EN": "Fox-type"
           },
@@ -2371,10 +2340,10 @@
         "Note_EN": null
       },
       {
-        "Formation": "corefolder",
+        "Formation": null,
         "BodyPart": ["#BodyPart_Ear"],
         "Laterality": null,
-        "DesignElement": null,
+        "DesignElement": "#Element_EarUnit",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_EarShape",
@@ -2443,21 +2412,6 @@
             "AttrLabel": "#DesignAttr_Overview",
             "value_JP": "ティールグリーンの髪",
             "value_EN": "teal green hair"
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
-      {
-        "Formation": "humanoid",
-        "BodyPart": ["#BodyPart_Ear"],
-        "Laterality": null,
-        "DesignElement": null,
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_EarShape",
-            "vdict_EarShapeType": "#EarShapeType_Fox"
           }
         ],
         "img_PNGName": null,
@@ -2812,7 +2766,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "vdict_ShapeType": "#ShapeType_Fox",
+            "vdict_TailShapeType": "#TailShapeType_Fox",
             "value_JP": "キツネ型",
             "value_EN": "Fox-type"
           },
@@ -2891,10 +2845,10 @@
         "Note_EN": null
       },
       {
-        "Formation": "corefolder",
+        "Formation": null,
         "BodyPart": ["#BodyPart_Ear"],
         "Laterality": null,
-        "DesignElement": null,
+        "DesignElement": "#Element_EarUnit",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_EarShape",
@@ -2979,21 +2933,6 @@
             "AttrLabel": "#DesignAttr_Overview",
             "value_JP": "ピンクの髪",
             "value_EN": "pink hair"
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
-      {
-        "Formation": "humanoid",
-        "BodyPart": ["#BodyPart_Ear"],
-        "Laterality": null,
-        "DesignElement": null,
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_EarShape",
-            "vdict_EarShapeType": "#EarShapeType_Fox"
           }
         ],
         "img_PNGName": null,
@@ -3303,7 +3242,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "vdict_ShapeType": "#ShapeType_Fox",
+            "vdict_TailShapeType": "#TailShapeType_Fox",
             "value_JP": "キツネ型",
             "value_EN": "Fox-type"
           },
@@ -3382,10 +3321,10 @@
         "Note_EN": null
       },
       {
-        "Formation": "corefolder",
+        "Formation": null,
         "BodyPart": ["#BodyPart_Ear"],
         "Laterality": null,
-        "DesignElement": null,
+        "DesignElement": "#Element_EarUnit",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_EarShape",
@@ -3454,21 +3393,6 @@
             "AttrLabel": "#DesignAttr_Overview",
             "value_JP": "ネイビーダークブルーの髪",
             "value_EN": "navy dark blue hair"
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
-      {
-        "Formation": "humanoid",
-        "BodyPart": ["#BodyPart_Ear"],
-        "Laterality": null,
-        "DesignElement": null,
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_EarShape",
-            "vdict_EarShapeType": "#EarShapeType_Fox"
           }
         ],
         "img_PNGName": null,
@@ -3787,7 +3711,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "vdict_ShapeType": "#ShapeType_Fox",
+            "vdict_TailShapeType": "#TailShapeType_Fox",
             "value_JP": "キツネ型",
             "value_EN": "Fox-type"
           },
@@ -3866,10 +3790,10 @@
         "Note_EN": null
       },
       {
-        "Formation": "corefolder",
+        "Formation": null,
         "BodyPart": ["#BodyPart_Ear"],
         "Laterality": null,
-        "DesignElement": null,
+        "DesignElement": "#Element_EarUnit",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_EarShape",
@@ -3971,22 +3895,6 @@
             "AttrLabel": "#DesignAttr_Overview",
             "value_JP": "オレンジ赤の髪",
             "value_EN": "orange red hair"
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
-      {
-        "Formation": "humanoid",
-        "BodyPart": ["#BodyPart_Ear"],
-        "Laterality": null,
-        "DesignElement": null,
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_EarShape",
-            "vdict_EarShapeType": "#EarShapeType_Fox",
-            "about_JP": "フードに隠れている"
           }
         ],
         "img_PNGName": null,
@@ -4296,7 +4204,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "vdict_ShapeType": "#ShapeType_Fox",
+            "vdict_TailShapeType": "#TailShapeType_Fox",
             "value_JP": "キツネ型",
             "value_EN": "Fox-type"
           },
@@ -4391,10 +4299,10 @@
         "Note_EN": null
       },
       {
-        "Formation": "corefolder",
+        "Formation": null,
         "BodyPart": ["#BodyPart_Ear"],
         "Laterality": null,
-        "DesignElement": null,
+        "DesignElement": "#Element_EarUnit",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_EarShape",
@@ -4463,21 +4371,6 @@
             "AttrLabel": "#DesignAttr_Overview",
             "value_JP": "白いまつげでラベンダーの目",
             "value_EN": "white eyelashes with lavender eyes"
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
-      {
-        "Formation": "humanoid",
-        "BodyPart": ["#BodyPart_Ear"],
-        "Laterality": null,
-        "DesignElement": null,
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_EarShape",
-            "vdict_EarShapeType": "#EarShapeType_Fox"
           }
         ],
         "img_PNGName": null,
@@ -4828,7 +4721,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "vdict_ShapeType": "#ShapeType_Bud",
+            "vdict_TailShapeType": "#TailShapeType_Bud",
             "value_JP": "つぼみ型",
             "value_EN": "Bud-type"
           },
@@ -4949,10 +4842,10 @@
         "Note_EN": null
       },
       {
-        "Formation": "corefolder",
+        "Formation": null,
         "BodyPart": ["#BodyPart_Ear"],
         "Laterality": null,
-        "DesignElement": null,
+        "DesignElement": "#Element_EarUnit",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_EarShape",
@@ -5037,21 +4930,6 @@
             "AttrLabel": "#DesignAttr_Overview",
             "value_JP": "白く染まった目(なにか核心をついた時)",
             "value_EN": "white eyes (when hitting the core of something)"
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
-      {
-        "Formation": "humanoid",
-        "BodyPart": ["#BodyPart_Ear"],
-        "Laterality": null,
-        "DesignElement": null,
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_EarShape",
-            "vdict_EarShapeType": "#EarShapeType_Fox"
           }
         ],
         "img_PNGName": null,
@@ -5403,7 +5281,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "vdict_ShapeType": "#ShapeType_Nekomata",
+            "vdict_TailShapeType": "#TailShapeType_Nekomata",
             "value_JP": "猫又型",
             "value_EN": "Nekomata-type"
           },
@@ -5487,10 +5365,10 @@
         "Note_EN": null
       },
       {
-        "Formation": "corefolder",
+        "Formation": null,
         "BodyPart": ["#BodyPart_Ear"],
         "Laterality": null,
-        "DesignElement": null,
+        "DesignElement": "#Element_EarUnit",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_EarShape",
@@ -5581,22 +5459,6 @@
             "AttrLabel": "#DesignAttr_Overview",
             "value_JP": "2本の矢印形のヘアピン",
             "value_EN": "two arrow-shaped hair pins"
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
-      {
-        "Formation": "humanoid",
-        "BodyPart": ["#BodyPart_Ear"],
-        "Laterality": null,
-        "DesignElement": null,
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_EarShape",
-            "vdict_EarShapeType": "#EarShapeType_Cat",
-            "about_JP": "フードに隠れている"
           }
         ],
         "img_PNGName": null,
@@ -5882,7 +5744,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "vdict_ShapeType": "#ShapeType_FoxBranched",
+            "vdict_TailShapeType": "#TailShapeType_FoxBranched",
             "value_JP": "キツネ(枝分かれ)型",
             "value_EN": "Fox (branched)"
           },
@@ -5978,10 +5840,10 @@
         "Note_EN": null
       },
       {
-        "Formation": "corefolder",
+        "Formation": null,
         "BodyPart": ["#BodyPart_Ear"],
         "Laterality": null,
-        "DesignElement": null,
+        "DesignElement": "#Element_EarUnit",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_EarShape",
@@ -6034,21 +5896,6 @@
             "AttrLabel": "#DesignAttr_Overview",
             "value_JP": "ピーチオレンジの長い髪",
             "value_EN": "long peach orange hair"
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
-      {
-        "Formation": "humanoid",
-        "BodyPart": ["#BodyPart_Ear"],
-        "Laterality": null,
-        "DesignElement": null,
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_EarShape",
-            "vdict_EarShapeType": "#EarShapeType_Fox"
           }
         ],
         "img_PNGName": null,
@@ -6325,7 +6172,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "vdict_ShapeType": "#ShapeType_FoxBranched",
+            "vdict_TailShapeType": "#TailShapeType_FoxBranched",
             "value_JP": "キツネ(枝分かれ)型",
             "value_EN": "Fox (branched)"
           },
@@ -6416,10 +6263,10 @@
         "Note_EN": null
       },
       {
-        "Formation": "corefolder",
+        "Formation": null,
         "BodyPart": ["#BodyPart_Ear"],
         "Laterality": null,
-        "DesignElement": null,
+        "DesignElement": "#Element_EarUnit",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_EarShape",
@@ -6456,21 +6303,6 @@
             "AttrLabel": "#DesignAttr_Overview",
             "value_JP": "ティールライトブルーの髪",
             "value_EN": "teal light blue hair"
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
-      {
-        "Formation": "humanoid",
-        "BodyPart": ["#BodyPart_Ear"],
-        "Laterality": null,
-        "DesignElement": null,
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_EarShape",
-            "vdict_EarShapeType": "#EarShapeType_Fox"
           }
         ],
         "img_PNGName": null,
@@ -6788,7 +6620,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "vdict_ShapeType": "#ShapeType_FoxBranched",
+            "vdict_TailShapeType": "#TailShapeType_FoxBranched",
             "value_JP": "キツネ(枝分かれ)型",
             "value_EN": "Fox (branched)"
           },
@@ -6879,10 +6711,10 @@
         "Note_EN": null
       },
       {
-        "Formation": "corefolder",
+        "Formation": null,
         "BodyPart": ["#BodyPart_Ear"],
         "Laterality": null,
-        "DesignElement": null,
+        "DesignElement": "#Element_EarUnit",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_EarShape",
@@ -6951,21 +6783,6 @@
             "AttrLabel": "#DesignAttr_Overview",
             "value_JP": "青い長い髪",
             "value_EN": "long blue hair"
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
-      {
-        "Formation": "humanoid",
-        "BodyPart": ["#BodyPart_Ear"],
-        "Laterality": null,
-        "DesignElement": null,
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_EarShape",
-            "vdict_EarShapeType": "#EarShapeType_Fox"
           }
         ],
         "img_PNGName": null,
@@ -7359,7 +7176,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "vdict_ShapeType": "#ShapeType_FoxBranched",
+            "vdict_TailShapeType": "#TailShapeType_FoxBranched",
             "value_JP": "キツネ(枝分かれ)型",
             "value_EN": "Fox (branched)"
           },
@@ -7466,10 +7283,10 @@
         "Note_EN": null
       },
       {
-        "Formation": "corefolder",
+        "Formation": null,
         "BodyPart": ["#BodyPart_Ear"],
         "Laterality": null,
-        "DesignElement": null,
+        "DesignElement": "#Element_EarUnit",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_EarShape",
@@ -7554,21 +7371,6 @@
             "AttrLabel": "#DesignAttr_Overview",
             "value_JP": "右サイドポニーテール",
             "value_EN": "right-side ponytail"
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
-      {
-        "Formation": "humanoid",
-        "BodyPart": ["#BodyPart_Ear"],
-        "Laterality": null,
-        "DesignElement": null,
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_EarShape",
-            "vdict_EarShapeType": "#EarShapeType_Fox"
           }
         ],
         "img_PNGName": null,
@@ -7894,7 +7696,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "vdict_ShapeType": "#ShapeType_FoxBranched",
+            "vdict_TailShapeType": "#TailShapeType_FoxBranched",
             "value_JP": "キツネ(枝分かれ)型",
             "value_EN": "Fox (branched)"
           },
@@ -7990,10 +7792,10 @@
         "Note_EN": null
       },
       {
-        "Formation": "corefolder",
+        "Formation": null,
         "BodyPart": ["#BodyPart_Ear", "#BodyPart_Head"],
         "Laterality": null,
-        "DesignElement": null,
+        "DesignElement": "#Element_EarUnit",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_EarShape",
@@ -8052,22 +7854,6 @@
             "AttrLabel": "#DesignAttr_Overview",
             "value_JP": "ウェーブヘア",
             "value_EN": "wavy hair"
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
-      {
-        "Formation": "humanoid",
-        "BodyPart": ["#BodyPart_Ear", "#BodyPart_Head"],
-        "Laterality": null,
-        "DesignElement": null,
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_EarShape",
-            "vdict_EarShapeType": "#EarShapeType_Fox",
-            "about_JP": "帽子を被っているときは隠れている"
           }
         ],
         "img_PNGName": null,
@@ -8379,7 +8165,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "vdict_ShapeType": "#ShapeType_FoxBranched",
+            "vdict_TailShapeType": "#TailShapeType_FoxBranched",
             "value_JP": "キツネ(枝分かれ)型",
             "value_EN": "Fox (branched)"
           },
@@ -8475,10 +8261,10 @@
         "Note_EN": null
       },
       {
-        "Formation": "corefolder",
+        "Formation": null,
         "BodyPart": ["#BodyPart_Ear"],
         "Laterality": null,
-        "DesignElement": null,
+        "DesignElement": "#Element_EarUnit",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_EarShape",
@@ -8531,21 +8317,6 @@
             "AttrLabel": "#DesignAttr_Overview",
             "value_JP": "青みがかった藍色のショートボブ",
             "value_EN": "short blue indigo bob"
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
-      {
-        "Formation": "humanoid",
-        "BodyPart": ["#BodyPart_Ear"],
-        "Laterality": null,
-        "DesignElement": null,
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_EarShape",
-            "vdict_EarShapeType": "#EarShapeType_Fox"
           }
         ],
         "img_PNGName": null,
@@ -8860,7 +8631,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "vdict_ShapeType": "#ShapeType_FoxBranched",
+            "vdict_TailShapeType": "#TailShapeType_FoxBranched",
             "value_JP": "キツネ(枝分かれ)型",
             "value_EN": "Fox (branched)"
           },
@@ -8956,10 +8727,10 @@
         "Note_EN": null
       },
       {
-        "Formation": "corefolder",
+        "Formation": null,
         "BodyPart": ["#BodyPart_Ear"],
         "Laterality": null,
-        "DesignElement": null,
+        "DesignElement": "#Element_EarUnit",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_EarShape",
@@ -9001,21 +8772,6 @@
             "AttrLabel": "#DesignAttr_Overview",
             "value_JP": "薄紅色のアクセントカラーの前髪",
             "value_EN": "light crimson accent color in bangs"
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
-      {
-        "Formation": "humanoid",
-        "BodyPart": ["#BodyPart_Ear"],
-        "Laterality": null,
-        "DesignElement": null,
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_EarShape",
-            "vdict_EarShapeType": "#EarShapeType_Fox"
           }
         ],
         "img_PNGName": null,
@@ -9284,7 +9040,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "vdict_ShapeType": "#ShapeType_FoxBranched",
+            "vdict_TailShapeType": "#TailShapeType_FoxBranched",
             "value_JP": "キツネ(枝分かれ)型",
             "value_EN": "Fox (branched)"
           },
@@ -9380,10 +9136,10 @@
         "Note_EN": null
       },
       {
-        "Formation": "corefolder",
+        "Formation": null,
         "BodyPart": ["#BodyPart_Ear"],
         "Laterality": null,
-        "DesignElement": null,
+        "DesignElement": "#Element_EarUnit",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_EarShape",
@@ -9425,21 +9181,6 @@
             "AttrLabel": "#DesignAttr_Overview",
             "value_JP": "乱れた髪",
             "value_EN": "messy hair"
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
-      {
-        "Formation": "humanoid",
-        "BodyPart": ["#BodyPart_Ear"],
-        "Laterality": null,
-        "DesignElement": null,
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_EarShape",
-            "vdict_EarShapeType": "#EarShapeType_Fox"
           }
         ],
         "img_PNGName": null,
@@ -9713,7 +9454,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "vdict_ShapeType": "#ShapeType_Fox",
+            "vdict_TailShapeType": "#TailShapeType_Fox",
             "value_JP": "キツネ型",
             "value_EN": "Fox-type"
           },
@@ -9797,10 +9538,10 @@
         "Note_EN": null
       },
       {
-        "Formation": "corefolder",
+        "Formation": null,
         "BodyPart": ["#BodyPart_Ear"],
         "Laterality": null,
-        "DesignElement": null,
+        "DesignElement": "#Element_EarUnit",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_EarShape",
@@ -9858,21 +9599,6 @@
             "AttrLabel": "#DesignAttr_Overview",
             "value_JP": "ハート形をモチーフにした髪型",
             "value_EN": "heart-shaped hair motif"
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
-      {
-        "Formation": "humanoid",
-        "BodyPart": ["#BodyPart_Ear"],
-        "Laterality": null,
-        "DesignElement": null,
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_EarShape",
-            "vdict_EarShapeType": "#EarShapeType_Fox"
           }
         ],
         "img_PNGName": null,
@@ -10250,7 +9976,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "vdict_ShapeType": "#ShapeType_FoxBranched",
+            "vdict_TailShapeType": "#TailShapeType_FoxBranched",
             "value_JP": "キツネ(枝分かれ)型",
             "value_EN": "Fox (branched)"
           },
@@ -10341,10 +10067,10 @@
         "Note_EN": null
       },
       {
-        "Formation": "corefolder",
+        "Formation": null,
         "BodyPart": ["#BodyPart_Ear"],
         "Laterality": null,
-        "DesignElement": null,
+        "DesignElement": "#Element_EarUnit",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_EarShape",
@@ -10413,21 +10139,6 @@
             "AttrLabel": "#DesignAttr_Overview",
             "value_JP": "オレンジ色の髪",
             "value_EN": "orange hair"
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
-      {
-        "Formation": "humanoid",
-        "BodyPart": ["#BodyPart_Ear"],
-        "Laterality": null,
-        "DesignElement": null,
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_EarShape",
-            "vdict_EarShapeType": "#EarShapeType_Fox"
           }
         ],
         "img_PNGName": null,
@@ -10726,7 +10437,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "vdict_ShapeType": "#ShapeType_Scorpion",
+            "vdict_TailShapeType": "#TailShapeType_Scorpion",
             "value_JP": "サソリ型",
             "value_EN": "Scorpion-type"
           },
@@ -10806,10 +10517,10 @@
         "Note_EN": null
       },
       {
-        "Formation": "corefolder",
+        "Formation": null,
         "BodyPart": ["#BodyPart_Ear"],
         "Laterality": null,
-        "DesignElement": null,
+        "DesignElement": "#Element_EarUnit",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_EarShape",
@@ -10906,21 +10617,6 @@
             "AttrLabel": "#DesignAttr_Overview",
             "value_JP": "淡い金色の髪",
             "value_EN": "pale golden hair"
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
-      {
-        "Formation": "humanoid",
-        "BodyPart": ["#BodyPart_Ear"],
-        "Laterality": null,
-        "DesignElement": null,
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_EarShape",
-            "vdict_EarShapeType": "#EarShapeType_Fox"
           }
         ],
         "img_PNGName": null,
@@ -11320,7 +11016,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "vdict_ShapeType": "#ShapeType_FoxBranched",
+            "vdict_TailShapeType": "#TailShapeType_FoxBranched",
             "value_JP": "キツネ(枝分かれ)型",
             "value_EN": "Fox (branched)"
           },
@@ -11411,10 +11107,10 @@
         "Note_EN": null
       },
       {
-        "Formation": "corefolder",
+        "Formation": null,
         "BodyPart": ["#BodyPart_Ear"],
         "Laterality": null,
-        "DesignElement": null,
+        "DesignElement": "#Element_EarUnit",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_EarShape",
@@ -11483,21 +11179,6 @@
             "AttrLabel": "#DesignAttr_Overview",
             "value_JP": "ミントグリーンの髪",
             "value_EN": "mint green hair"
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
-      {
-        "Formation": "humanoid",
-        "BodyPart": ["#BodyPart_Ear"],
-        "Laterality": null,
-        "DesignElement": null,
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_EarShape",
-            "vdict_EarShapeType": "#EarShapeType_Fox"
           }
         ],
         "img_PNGName": null,
@@ -11838,7 +11519,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "vdict_ShapeType": "#ShapeType_FoxBranched",
+            "vdict_TailShapeType": "#TailShapeType_FoxBranched",
             "value_JP": "キツネ(枝分かれ)型",
             "value_EN": "Fox (branched)"
           },
@@ -11939,10 +11620,10 @@
         "Note_EN": null
       },
       {
-        "Formation": "corefolder",
+        "Formation": null,
         "BodyPart": ["#BodyPart_Ear"],
         "Laterality": null,
-        "DesignElement": null,
+        "DesignElement": "#Element_EarUnit",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_EarShape",
@@ -12006,22 +11687,6 @@
             "AttrLabel": "#DesignAttr_Overview",
             "value_JP": "二色のツインテールと紫のリボン",
             "value_EN": "two-tone twin tails with purple ribbon"
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
-      {
-        "Formation": "humanoid",
-        "BodyPart": ["#BodyPart_Ear"],
-        "Laterality": null,
-        "DesignElement": null,
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_EarShape",
-            "vdict_EarShapeType": "#EarShapeType_Fox",
-            "about_JP": "先がアクセントカラー"
           }
         ],
         "img_PNGName": null,
@@ -12339,7 +12004,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "vdict_ShapeType": "#ShapeType_FoxBranched",
+            "vdict_TailShapeType": "#TailShapeType_FoxBranched",
             "value_JP": "キツネ(枝分かれ)型",
             "value_EN": "Fox (branched)"
           },
@@ -12435,10 +12100,10 @@
         "Note_EN": null
       },
       {
-        "Formation": "corefolder",
+        "Formation": null,
         "BodyPart": ["#BodyPart_Ear"],
         "Laterality": null,
-        "DesignElement": null,
+        "DesignElement": "#Element_EarUnit",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_EarShape",
@@ -12512,21 +12177,6 @@
             "AttrLabel": "#DesignAttr_Overview",
             "value_JP": "ライトグレーのアクセントカラーが入った前髪",
             "value_EN": "light gray accent color in the bangs"
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
-      {
-        "Formation": "humanoid",
-        "BodyPart": ["#BodyPart_Ear"],
-        "Laterality": null,
-        "DesignElement": null,
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_EarShape",
-            "vdict_EarShapeType": "#EarShapeType_Fox"
           }
         ],
         "img_PNGName": null,
@@ -12921,7 +12571,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "vdict_ShapeType": "#ShapeType_FoxBranched",
+            "vdict_TailShapeType": "#TailShapeType_FoxBranched",
             "value_JP": "キツネ(枝分かれ)型",
             "value_EN": "Fox (branched)"
           },
@@ -13017,10 +12667,10 @@
         "Note_EN": null
       },
       {
-        "Formation": "corefolder",
+        "Formation": null,
         "BodyPart": ["#BodyPart_Ear"],
         "Laterality": null,
-        "DesignElement": null,
+        "DesignElement": "#Element_EarUnit",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_EarShape",
@@ -13063,22 +12713,6 @@
             "AttrLabel": "#DesignAttr_Overview",
             "value_JP": "白いアクセントカラーの前髪",
             "value_EN": "white accent color bangs"
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
-      {
-        "Formation": "humanoid",
-        "BodyPart": ["#BodyPart_Ear"],
-        "Laterality": null,
-        "DesignElement": null,
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_EarShape",
-            "vdict_EarShapeType": "#EarShapeType_Fox",
-            "about_JP": "先が白のアクセントカラー"
           }
         ],
         "img_PNGName": null,
@@ -13408,7 +13042,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "vdict_ShapeType": "#ShapeType_FoxBranched",
+            "vdict_TailShapeType": "#TailShapeType_FoxBranched",
             "value_JP": "キツネ(枝分かれ)型",
             "value_EN": "Fox (branched)"
           },
@@ -13952,7 +13586,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "vdict_ShapeType": "#ShapeType_FoxBranched",
+            "vdict_TailShapeType": "#TailShapeType_FoxBranched",
             "value_JP": "キツネ(枝分かれ)型",
             "value_EN": "Fox (branched)"
           },
@@ -14199,10 +13833,10 @@
         "Note_EN": null
       },
       {
-        "Formation": "corefolder",
+        "Formation": null,
         "BodyPart": ["#BodyPart_Ear"],
         "Laterality": null,
-        "DesignElement": null,
+        "DesignElement": "#Element_EarUnit",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_EarShape",
@@ -14255,21 +13889,6 @@
             "AttrLabel": "#DesignAttr_Overview",
             "value_JP": "ウェーブしたオレンジ色の髪",
             "value_EN": "wavy orange hair"
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
-      {
-        "Formation": "humanoid",
-        "BodyPart": ["#BodyPart_Ear"],
-        "Laterality": null,
-        "DesignElement": null,
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_EarShape",
-            "vdict_EarShapeType": "#EarShapeType_Fox"
           }
         ],
         "img_PNGName": null,
@@ -14554,7 +14173,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "vdict_ShapeType": "#ShapeType_FoxBranched",
+            "vdict_TailShapeType": "#TailShapeType_FoxBranched",
             "value_JP": "キツネ(枝分かれ)型",
             "value_EN": "Fox (branched)"
           },
@@ -14593,10 +14212,10 @@
         "Note_EN": null
       },
       {
-        "Formation": "corefolder",
+        "Formation": null,
         "BodyPart": ["#BodyPart_Ear"],
         "Laterality": null,
-        "DesignElement": null,
+        "DesignElement": "#Element_EarUnit",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_EarShape",
@@ -14649,21 +14268,6 @@
             "AttrLabel": "#DesignAttr_Overview",
             "value_JP": "青みがかったラベンダーのインテークロングヘア",
             "value_EN": "blue-lavender intake long hair"
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
-      {
-        "Formation": "humanoid",
-        "BodyPart": ["#BodyPart_Ear"],
-        "Laterality": null,
-        "DesignElement": null,
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_EarShape",
-            "vdict_EarShapeType": "#EarShapeType_Fox"
           }
         ],
         "img_PNGName": null,
@@ -15015,7 +14619,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "vdict_ShapeType": "#ShapeType_Fox",
+            "vdict_TailShapeType": "#TailShapeType_Fox",
             "value_JP": "キツネ型",
             "value_EN": "Fox-type"
           },
@@ -15125,10 +14729,10 @@
         "Note_EN": null
       },
       {
-        "Formation": "corefolder",
+        "Formation": null,
         "BodyPart": ["#BodyPart_Ear"],
         "Laterality": null,
-        "DesignElement": null,
+        "DesignElement": "#Element_EarUnit",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_EarShape",
@@ -15170,21 +14774,6 @@
             "AttrLabel": "#DesignAttr_Overview",
             "value_JP": "白いボウヘアオーナメントと黄色のリボン",
             "value_EN": "white bow hair ornament and yellow ribbon"
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
-      {
-        "Formation": "humanoid",
-        "BodyPart": ["#BodyPart_Ear"],
-        "Laterality": null,
-        "DesignElement": null,
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_EarShape",
-            "vdict_EarShapeType": "#EarShapeType_Fox"
           }
         ],
         "img_PNGName": null,
@@ -15487,7 +15076,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "vdict_ShapeType": "#ShapeType_FoxBranched",
+            "vdict_TailShapeType": "#TailShapeType_FoxBranched",
             "value_JP": "キツネ(枝分かれ)型",
             "value_EN": "Fox (branched)"
           },
@@ -15630,10 +15219,10 @@
         "Note_EN": null
       },
       {
-        "Formation": "corefolder",
+        "Formation": null,
         "BodyPart": ["#BodyPart_Ear"],
         "Laterality": null,
-        "DesignElement": null,
+        "DesignElement": "#Element_EarUnit",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_EarShape",
@@ -15718,21 +15307,6 @@
             "AttrLabel": "#DesignAttr_Overview",
             "value_JP": "青シアンのショートヘア",
             "value_EN": "short blue-cyan hair"
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
-      {
-        "Formation": "humanoid",
-        "BodyPart": ["#BodyPart_Ear"],
-        "Laterality": null,
-        "DesignElement": null,
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_EarShape",
-            "vdict_EarShapeType": "#EarShapeType_Fox"
           }
         ],
         "img_PNGName": null,
@@ -16081,7 +15655,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "vdict_ShapeType": "#ShapeType_FoxBranched",
+            "vdict_TailShapeType": "#TailShapeType_FoxBranched",
             "value_JP": "キツネ(枝分かれ)型",
             "value_EN": "Fox (branched)"
           },
@@ -16180,7 +15754,7 @@
         "Formation": "corefolder",
         "BodyPart": ["#BodyPart_Ear"],
         "Laterality": null,
-        "DesignElement": null,
+        "DesignElement": "#Element_EarUnit",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_EarShape",
@@ -16555,7 +16129,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "vdict_ShapeType": "#ShapeType_FoxBranched",
+            "vdict_TailShapeType": "#TailShapeType_FoxBranched",
             "value_JP": "キツネ(枝分かれ)型",
             "value_EN": "Fox (branched)"
           },
@@ -16681,10 +16255,10 @@
         "Note_EN": null
       },
       {
-        "Formation": "corefolder",
+        "Formation": null,
         "BodyPart": ["#BodyPart_Ear"],
         "Laterality": null,
-        "DesignElement": null,
+        "DesignElement": "#Element_EarUnit",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_EarShape",
@@ -16779,21 +16353,6 @@
             "AttrLabel": "#DesignAttr_Overview",
             "value_JP": "大きなピンクのボウリボン",
             "value_EN": "large pink bow ribbon"
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
-      {
-        "Formation": "humanoid",
-        "BodyPart": ["#BodyPart_Ear"],
-        "Laterality": null,
-        "DesignElement": null,
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_EarShape",
-            "vdict_EarShapeType": "#EarShapeType_Fox"
           }
         ],
         "img_PNGName": null,
@@ -17114,7 +16673,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "vdict_ShapeType": "#ShapeType_FoxBranched",
+            "vdict_TailShapeType": "#TailShapeType_FoxBranched",
             "value_JP": "キツネ(枝分かれ)型",
             "value_EN": "Fox (branched)"
           },
@@ -17205,10 +16764,10 @@
         "Note_EN": null
       },
       {
-        "Formation": "corefolder",
+        "Formation": null,
         "BodyPart": ["#BodyPart_Ear"],
         "Laterality": null,
-        "DesignElement": null,
+        "DesignElement": "#Element_EarUnit",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_EarShape",
@@ -17282,21 +16841,6 @@
             "AttrLabel": "#DesignAttr_Overview",
             "value_JP": "濃い紺色のショートヘア",
             "value_EN": "short dark navy blue hair"
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
-      {
-        "Formation": "humanoid",
-        "BodyPart": ["#BodyPart_Ear"],
-        "Laterality": null,
-        "DesignElement": null,
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_EarShape",
-            "vdict_EarShapeType": "#EarShapeType_Fox"
           }
         ],
         "img_PNGName": null,
@@ -17636,7 +17180,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "vdict_ShapeType": "#ShapeType_FoxBranched",
+            "vdict_TailShapeType": "#TailShapeType_FoxBranched",
             "value_JP": "キツネ(枝分かれ)型",
             "value_EN": "Fox (branched)"
           },
@@ -17727,10 +17271,10 @@
         "Note_EN": null
       },
       {
-        "Formation": "corefolder",
+        "Formation": null,
         "BodyPart": ["#BodyPart_Ear"],
         "Laterality": null,
-        "DesignElement": null,
+        "DesignElement": "#Element_EarUnit",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_EarShape",
@@ -17847,21 +17391,6 @@
             "AttrLabel": "#DesignAttr_Overview",
             "value_JP": "オレンジ色のミディアムヘア",
             "value_EN": "medium yellow-tan hair"
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
-      {
-        "Formation": "humanoid",
-        "BodyPart": ["#BodyPart_Ear"],
-        "Laterality": null,
-        "DesignElement": null,
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_EarShape",
-            "vdict_EarShapeType": "#EarShapeType_Fox"
           }
         ],
         "img_PNGName": null,
@@ -18223,7 +17752,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "vdict_ShapeType": "#ShapeType_FoxBranched",
+            "vdict_TailShapeType": "#TailShapeType_FoxBranched",
             "value_JP": "キツネ(枝分かれ)型",
             "value_EN": "Fox (branched)"
           },
@@ -18314,10 +17843,10 @@
         "Note_EN": null
       },
       {
-        "Formation": "corefolder",
+        "Formation": null,
         "BodyPart": ["#BodyPart_Ear"],
         "Laterality": null,
-        "DesignElement": null,
+        "DesignElement": "#Element_EarUnit",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_EarShape",
@@ -18371,22 +17900,6 @@
             "AttrLabel": "#DesignAttr_Overview",
             "value_JP": "オレンジ色のショートミディアムヘア",
             "value_EN": "orange short-medium hair"
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
-      {
-        "Formation": "humanoid",
-        "BodyPart": ["#BodyPart_Ear"],
-        "Laterality": null,
-        "DesignElement": null,
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_EarShape",
-            "vdict_EarShapeType": "#EarShapeType_Fox",
-            "about_JP": "大きくふわふわした広がり"
           }
         ],
         "img_PNGName": null,
@@ -18783,7 +18296,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "vdict_ShapeType": "#ShapeType_FoxBranched",
+            "vdict_TailShapeType": "#TailShapeType_FoxBranched",
             "value_JP": "キツネ(枝分かれ)型",
             "value_EN": "Fox (branched)"
           },
@@ -18874,10 +18387,10 @@
         "Note_EN": null
       },
       {
-        "Formation": "corefolder",
+        "Formation": null,
         "BodyPart": ["#BodyPart_Ear"],
         "Laterality": null,
-        "DesignElement": null,
+        "DesignElement": "#Element_EarUnit",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_EarShape",
@@ -18962,21 +18475,6 @@
             "AttrLabel": "#DesignAttr_Overview",
             "value_JP": "サーモンピンクのショートヘア",
             "value_EN": "short salmon-pink hair"
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
-      {
-        "Formation": "humanoid",
-        "BodyPart": ["#BodyPart_Ear"],
-        "Laterality": null,
-        "DesignElement": null,
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_EarShape",
-            "vdict_EarShapeType": "#EarShapeType_Fox"
           }
         ],
         "img_PNGName": null,
@@ -19257,7 +18755,8 @@
         { "Num": 63, "RelationLabel": ["cousin_nearly"] },
         { "Num": 83, "RelationLabel": ["brother|sister", "classmate"] }
       ]
-    }
+    },
+    "AppearanceDetail": []
   },
   {
     "Num": 39,
@@ -19405,7 +18904,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "vdict_ShapeType": "#ShapeType_FoxBranched",
+            "vdict_TailShapeType": "#TailShapeType_FoxBranched",
             "value_JP": "キツネ(枝分かれ)型",
             "value_EN": "Fox (branched)"
           },
@@ -19512,10 +19011,10 @@
         "Note_EN": null
       },
       {
-        "Formation": "corefolder",
+        "Formation": null,
         "BodyPart": ["#BodyPart_Ear"],
         "Laterality": null,
-        "DesignElement": null,
+        "DesignElement": "#Element_EarUnit",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_EarShape",
@@ -19568,21 +19067,6 @@
             "AttrLabel": "#DesignAttr_Overview",
             "value_JP": "琥珀金髪のショートヘア",
             "value_EN": "short amber-blonde hair"
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
-      {
-        "Formation": "humanoid",
-        "BodyPart": ["#BodyPart_Ear"],
-        "Laterality": null,
-        "DesignElement": null,
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_EarShape",
-            "vdict_EarShapeType": "#EarShapeType_Fox"
           }
         ],
         "img_PNGName": null,
@@ -19947,7 +19431,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "vdict_ShapeType": "#ShapeType_Fox",
+            "vdict_TailShapeType": "#TailShapeType_Fox",
             "value_JP": "キツネ型",
             "value_EN": "Fox-type"
           },
@@ -20026,10 +19510,10 @@
         "Note_EN": null
       },
       {
-        "Formation": "corefolder",
+        "Formation": null,
         "BodyPart": ["#BodyPart_Ear"],
         "Laterality": null,
-        "DesignElement": null,
+        "DesignElement": "#Element_EarUnit",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_EarShape",
@@ -20119,21 +19603,6 @@
             "AttrLabel": "#DesignAttr_Overview",
             "value_JP": "ティールのサイドブレイドヘア",
             "value_EN": "teal side-braid hair"
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
-      {
-        "Formation": "humanoid",
-        "BodyPart": ["#BodyPart_Ear"],
-        "Laterality": null,
-        "DesignElement": null,
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_EarShape",
-            "vdict_EarShapeType": "#EarShapeType_Fox"
           }
         ],
         "img_PNGName": null,
@@ -20422,7 +19891,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "vdict_ShapeType": "#ShapeType_FoxBranched",
+            "vdict_TailShapeType": "#TailShapeType_FoxBranched",
             "value_JP": "キツネ(枝分かれ)型",
             "value_EN": "Fox (branched)"
           },
@@ -20497,10 +19966,10 @@
         "Note_EN": null
       },
       {
-        "Formation": "corefolder",
+        "Formation": null,
         "BodyPart": ["#BodyPart_Ear"],
         "Laterality": null,
-        "DesignElement": null,
+        "DesignElement": "#Element_EarUnit",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_EarShape",
@@ -20553,21 +20022,6 @@
             "AttrLabel": "#DesignAttr_Overview",
             "value_JP": "サーモンピンクの襟",
             "value_EN": "salmon-pink collar"
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
-      {
-        "Formation": "humanoid",
-        "BodyPart": ["#BodyPart_Ear"],
-        "Laterality": null,
-        "DesignElement": null,
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_EarShape",
-            "vdict_EarShapeType": "#EarShapeType_Fox"
           }
         ],
         "img_PNGName": null,
@@ -20951,7 +20405,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "vdict_ShapeType": "#ShapeType_FoxBranched",
+            "vdict_TailShapeType": "#TailShapeType_FoxBranched",
             "value_JP": "キツネ(枝分かれ)型",
             "value_EN": "Fox (branched)"
           },
@@ -21026,10 +20480,10 @@
         "Note_EN": null
       },
       {
-        "Formation": "corefolder",
+        "Formation": null,
         "BodyPart": ["#BodyPart_Ear"],
         "Laterality": null,
-        "DesignElement": null,
+        "DesignElement": "#Element_EarUnit",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_EarShape",
@@ -21072,22 +20526,6 @@
             "AttrLabel": "#DesignAttr_Overview",
             "value_JP": "青い目",
             "value_EN": "blue eyes"
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
-      {
-        "Formation": "humanoid",
-        "BodyPart": ["#BodyPart_Ear"],
-        "Laterality": null,
-        "DesignElement": null,
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_EarShape",
-            "vdict_EarShapeType": "#EarShapeType_Fox",
-            "about_JP": "先がアクセントカラー"
           }
         ],
         "img_PNGName": null,
@@ -21399,7 +20837,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "vdict_ShapeType": "#ShapeType_FoxBranched",
+            "vdict_TailShapeType": "#TailShapeType_FoxBranched",
             "value_JP": "キツネ(枝分かれ)型",
             "value_EN": "Fox (branched)"
           },
@@ -21474,10 +20912,10 @@
         "Note_EN": null
       },
       {
-        "Formation": "corefolder",
+        "Formation": null,
         "BodyPart": ["#BodyPart_Ear"],
         "Laterality": null,
-        "DesignElement": null,
+        "DesignElement": "#Element_EarUnit",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_EarShape",
@@ -21514,21 +20952,6 @@
             "AttrLabel": "#DesignAttr_Overview",
             "value_JP": "琥珀色の目",
             "value_EN": "amber eyes"
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
-      {
-        "Formation": "humanoid",
-        "BodyPart": ["#BodyPart_Ear"],
-        "Laterality": null,
-        "DesignElement": null,
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_EarShape",
-            "vdict_EarShapeType": "#EarShapeType_Fox"
           }
         ],
         "img_PNGName": null,
@@ -21874,7 +21297,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "vdict_ShapeType": "#ShapeType_FoxBranched",
+            "vdict_TailShapeType": "#TailShapeType_FoxBranched",
             "value_JP": "キツネ(枝分かれ)型",
             "value_EN": "Fox (branched)"
           },
@@ -21942,10 +21365,10 @@
         "Note_EN": null
       },
       {
-        "Formation": "corefolder",
+        "Formation": null,
         "BodyPart": ["#BodyPart_Ear"],
         "Laterality": null,
-        "DesignElement": null,
+        "DesignElement": "#Element_EarUnit",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_EarShape",
@@ -21987,21 +21410,6 @@
             "AttrLabel": "#DesignAttr_Overview",
             "value_JP": "スチールブルーの目",
             "value_EN": "steel-blue eyes"
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
-      {
-        "Formation": "humanoid",
-        "BodyPart": ["#BodyPart_Ear"],
-        "Laterality": null,
-        "DesignElement": null,
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_EarShape",
-            "vdict_EarShapeType": "#EarShapeType_Fox"
           }
         ],
         "img_PNGName": null,
@@ -22314,7 +21722,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "vdict_ShapeType": "#ShapeType_FoxBranched",
+            "vdict_TailShapeType": "#TailShapeType_FoxBranched",
             "value_JP": "キツネ(枝分かれ)型",
             "value_EN": "Fox (branched)"
           },
@@ -22389,10 +21797,10 @@
         "Note_EN": null
       },
       {
-        "Formation": "corefolder",
+        "Formation": null,
         "BodyPart": ["#BodyPart_Ear"],
         "Laterality": null,
-        "DesignElement": null,
+        "DesignElement": "#Element_EarUnit",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_EarShape",
@@ -22429,21 +21837,6 @@
             "AttrLabel": "#DesignAttr_Overview",
             "value_JP": "ティールの目",
             "value_EN": "teal eyes"
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
-      {
-        "Formation": "humanoid",
-        "BodyPart": ["#BodyPart_Ear"],
-        "Laterality": null,
-        "DesignElement": null,
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_EarShape",
-            "vdict_EarShapeType": "#EarShapeType_Fox"
           }
         ],
         "img_PNGName": null,
@@ -22734,7 +22127,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "vdict_ShapeType": "#ShapeType_FoxBranched",
+            "vdict_TailShapeType": "#TailShapeType_FoxBranched",
             "value_JP": "キツネ(枝分かれ)型",
             "value_EN": "Fox (branched)"
           },
@@ -22809,10 +22202,10 @@
         "Note_EN": null
       },
       {
-        "Formation": "corefolder",
+        "Formation": null,
         "BodyPart": ["#BodyPart_Ear"],
         "Laterality": null,
-        "DesignElement": null,
+        "DesignElement": "#Element_EarUnit",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_EarShape",
@@ -22865,21 +22258,6 @@
             "AttrLabel": "#DesignAttr_Overview",
             "value_JP": "赤い目",
             "value_EN": "red eyes"
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
-      {
-        "Formation": "humanoid",
-        "BodyPart": ["#BodyPart_Ear"],
-        "Laterality": null,
-        "DesignElement": null,
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_EarShape",
-            "vdict_EarShapeType": "#EarShapeType_Fox"
           }
         ],
         "img_PNGName": null,
@@ -23209,7 +22587,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "vdict_ShapeType": "#ShapeType_FoxBranched",
+            "vdict_TailShapeType": "#TailShapeType_FoxBranched",
             "value_JP": "キツネ(枝分かれ)型",
             "value_EN": "Fox (branched)"
           },
@@ -23284,10 +22662,10 @@
         "Note_EN": null
       },
       {
-        "Formation": "corefolder",
+        "Formation": null,
         "BodyPart": ["#BodyPart_Ear"],
         "Laterality": null,
-        "DesignElement": null,
+        "DesignElement": "#Element_EarUnit",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_EarShape",
@@ -23324,21 +22702,6 @@
             "AttrLabel": "#DesignAttr_Overview",
             "value_JP": "紺色の目",
             "value_EN": "navy eyes"
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
-      {
-        "Formation": "humanoid",
-        "BodyPart": ["#BodyPart_Ear"],
-        "Laterality": null,
-        "DesignElement": null,
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_EarShape",
-            "vdict_EarShapeType": "#EarShapeType_Fox"
           }
         ],
         "img_PNGName": null,
@@ -23699,7 +23062,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "vdict_ShapeType": "#ShapeType_FoxBranched",
+            "vdict_TailShapeType": "#TailShapeType_FoxBranched",
             "value_JP": "キツネ(枝分かれ)型",
             "value_EN": "Fox (branched)"
           },
@@ -23774,10 +23137,10 @@
         "Note_EN": null
       },
       {
-        "Formation": "corefolder",
+        "Formation": null,
         "BodyPart": ["#BodyPart_Ear"],
         "Laterality": null,
-        "DesignElement": null,
+        "DesignElement": "#Element_EarUnit",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_EarShape",
@@ -23835,21 +23198,6 @@
             "AttrLabel": "#DesignAttr_Overview",
             "value_JP": null,
             "value_EN": "glasses with headset"
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
-      {
-        "Formation": "humanoid",
-        "BodyPart": ["#BodyPart_Ear"],
-        "Laterality": null,
-        "DesignElement": null,
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_EarShape",
-            "vdict_EarShapeType": "#EarShapeType_Fox"
           }
         ],
         "img_PNGName": null,
@@ -24185,7 +23533,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "vdict_ShapeType": "#ShapeType_FoxBranched",
+            "vdict_TailShapeType": "#TailShapeType_FoxBranched",
             "value_JP": "キツネ(枝分かれ)型",
             "value_EN": "Fox (branched)"
           },
@@ -24260,10 +23608,10 @@
         "Note_EN": null
       },
       {
-        "Formation": "corefolder",
+        "Formation": null,
         "BodyPart": ["#BodyPart_Ear"],
         "Laterality": null,
-        "DesignElement": null,
+        "DesignElement": "#Element_EarUnit",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_EarShape",
@@ -24332,21 +23680,6 @@
             "AttrLabel": "#DesignAttr_Overview",
             "value_JP": "目が死んだように笑っていない笑顔(笑顔を取り繕っているときの表情)",
             "value_EN": "a smile that looks dead in the eyes (expression when trying to put on a smile)"
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
-      {
-        "Formation": "humanoid",
-        "BodyPart": ["#BodyPart_Ear"],
-        "Laterality": null,
-        "DesignElement": null,
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_EarShape",
-            "vdict_EarShapeType": "#EarShapeType_Fox"
           }
         ],
         "img_PNGName": null,
@@ -24666,7 +23999,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "vdict_ShapeType": "#ShapeType_Fox",
+            "vdict_TailShapeType": "#TailShapeType_Fox",
             "value_JP": "キツネ型",
             "value_EN": "Fox-type"
           },
@@ -25108,7 +24441,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "vdict_ShapeType": "#ShapeType_FoxBranched",
+            "vdict_TailShapeType": "#TailShapeType_FoxBranched",
             "value_JP": "キツネ(枝分かれ)型",
             "value_EN": "Fox (branched)"
           },
@@ -25199,10 +24532,10 @@
         "Note_EN": null
       },
       {
-        "Formation": "corefolder",
+        "Formation": null,
         "BodyPart": ["#BodyPart_Ear"],
         "Laterality": null,
-        "DesignElement": null,
+        "DesignElement": "#Element_EarUnit",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_EarShape",
@@ -25255,21 +24588,6 @@
             "AttrLabel": "#DesignAttr_Overview",
             "value_JP": "ピンクのショートポニーテール",
             "value_EN": "pink short ponytail"
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
-      {
-        "Formation": "humanoid",
-        "BodyPart": ["#BodyPart_Ear"],
-        "Laterality": null,
-        "DesignElement": null,
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_EarShape",
-            "vdict_EarShapeType": "#EarShapeType_Fox"
           }
         ],
         "img_PNGName": null,
@@ -25548,7 +24866,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "vdict_ShapeType": "#ShapeType_FoxBranched",
+            "vdict_TailShapeType": "#TailShapeType_FoxBranched",
             "value_JP": "キツネ(枝分かれ)型",
             "value_EN": "Fox (branched)"
           },
@@ -25623,10 +24941,10 @@
         "Note_EN": null
       },
       {
-        "Formation": "corefolder",
+        "Formation": null,
         "BodyPart": ["#BodyPart_Ear"],
         "Laterality": null,
-        "DesignElement": null,
+        "DesignElement": "#Element_EarUnit",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_EarShape",
@@ -25668,21 +24986,6 @@
             "AttrLabel": "#DesignAttr_Overview",
             "value_JP": "紺色のまつげでティールの目",
             "value_EN": "navy blue eyelashes and teal eyes"
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
-      {
-        "Formation": "humanoid",
-        "BodyPart": ["#BodyPart_Ear"],
-        "Laterality": null,
-        "DesignElement": null,
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_EarShape",
-            "vdict_EarShapeType": "#EarShapeType_Fox"
           }
         ],
         "img_PNGName": null,
@@ -26090,7 +25393,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "vdict_ShapeType": "#ShapeType_FoxBranched",
+            "vdict_TailShapeType": "#TailShapeType_FoxBranched",
             "value_JP": "キツネ(枝分かれ)型",
             "value_EN": "Fox (branched)"
           },
@@ -26165,10 +25468,10 @@
         "Note_EN": null
       },
       {
-        "Formation": "corefolder",
+        "Formation": null,
         "BodyPart": ["#BodyPart_Ear"],
         "Laterality": null,
-        "DesignElement": null,
+        "DesignElement": "#Element_EarUnit",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_EarShape",
@@ -26237,21 +25540,6 @@
             "AttrLabel": "#DesignAttr_Overview",
             "value_JP": "緑のネクタイ",
             "value_EN": "green necktie"
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
-      {
-        "Formation": "humanoid",
-        "BodyPart": ["#BodyPart_Ear"],
-        "Laterality": null,
-        "DesignElement": null,
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_EarShape",
-            "vdict_EarShapeType": "#EarShapeType_Fox"
           }
         ],
         "img_PNGName": null,
@@ -26493,7 +25781,8 @@
         { "Num": 72, "RelationLabel": ["classmate"] },
         { "Num": 99 }
       ]
-    }
+    },
+    "AppearanceDetail": []
   },
   {
     "Num": 55,
@@ -26626,7 +25915,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "vdict_ShapeType": "#ShapeType_FoxBranched",
+            "vdict_TailShapeType": "#TailShapeType_FoxBranched",
             "value_JP": "キツネ(枝分かれ)型",
             "value_EN": "Fox (branched)"
           },
@@ -26697,7 +25986,7 @@
         "Formation": "corefolder",
         "BodyPart": ["#BodyPart_Ear"],
         "Laterality": null,
-        "DesignElement": null,
+        "DesignElement": "#Element_EarUnit",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_EarShape",
@@ -26761,7 +26050,7 @@
         "Formation": "humanoid",
         "BodyPart": ["#BodyPart_Ear"],
         "Laterality": null,
-        "DesignElement": null,
+        "DesignElement": "#Element_EarUnit",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_EarShape",
@@ -27082,7 +26371,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "vdict_ShapeType": "#ShapeType_FoxBranched",
+            "vdict_TailShapeType": "#TailShapeType_FoxBranched",
             "value_JP": "キツネ(枝分かれ)型",
             "value_EN": "Fox (branched)"
           },
@@ -27157,10 +26446,10 @@
         "Note_EN": null
       },
       {
-        "Formation": "corefolder",
+        "Formation": null,
         "BodyPart": ["#BodyPart_Ear"],
         "Laterality": null,
-        "DesignElement": null,
+        "DesignElement": "#Element_EarUnit",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_EarShape",
@@ -27214,22 +26503,6 @@
             "AttrLabel": "#DesignAttr_Overview",
             "value_JP": "ライトグリーンのスカーフ",
             "value_EN": "light green scarf"
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
-      {
-        "Formation": "humanoid",
-        "BodyPart": ["#BodyPart_Ear"],
-        "Laterality": null,
-        "DesignElement": null,
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_EarShape",
-            "vdict_EarShapeType": "#EarShapeType_Fox",
-            "about_JP": "先が薄色"
           }
         ],
         "img_PNGName": null,
@@ -27618,7 +26891,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "vdict_ShapeType": "#ShapeType_FoxBranched",
+            "vdict_TailShapeType": "#TailShapeType_FoxBranched",
             "value_JP": "キツネ(枝分かれ)型",
             "value_EN": "Fox (branched)"
           },
@@ -27693,10 +26966,10 @@
         "Note_EN": null
       },
       {
-        "Formation": "corefolder",
+        "Formation": null,
         "BodyPart": ["#BodyPart_Ear"],
         "Laterality": null,
-        "DesignElement": null,
+        "DesignElement": "#Element_EarUnit",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_EarShape",
@@ -27749,21 +27022,6 @@
             "AttrLabel": "#DesignAttr_Overview",
             "value_JP": "右肩の番号付きの腕章",
             "value_EN": "armband with number on right shoulder"
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
-      {
-        "Formation": "humanoid",
-        "BodyPart": ["#BodyPart_Ear"],
-        "Laterality": null,
-        "DesignElement": null,
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_EarShape",
-            "vdict_EarShapeType": "#EarShapeType_Fox"
           }
         ],
         "img_PNGName": null,
@@ -28144,7 +27402,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "vdict_ShapeType": "#ShapeType_FoxBranched",
+            "vdict_TailShapeType": "#TailShapeType_FoxBranched",
             "value_JP": "キツネ(枝分かれ)型",
             "value_EN": "Fox (branched)"
           },
@@ -28193,10 +27451,10 @@
         "Note_EN": null
       },
       {
-        "Formation": "corefolder",
+        "Formation": null,
         "BodyPart": ["#BodyPart_Ear"],
         "Laterality": null,
-        "DesignElement": null,
+        "DesignElement": "#Element_EarUnit",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_EarShape",
@@ -28233,21 +27491,6 @@
             "AttrLabel": "#DesignAttr_Overview",
             "value_JP": "水色の目",
             "value_EN": "light blue eyes"
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
-      {
-        "Formation": "humanoid",
-        "BodyPart": ["#BodyPart_Ear"],
-        "Laterality": null,
-        "DesignElement": null,
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_EarShape",
-            "vdict_EarShapeType": "#EarShapeType_Fox"
           }
         ],
         "img_PNGName": null,
@@ -28495,7 +27738,8 @@
         { "Num": 50, "RelationLabel": ["pioneer_nearly"] },
         { "Num": 97, "RelationLabel": ["cousin_nearly"] }
       ]
-    }
+    },
+    "AppearanceDetail": []
   },
   {
     "Num": 60,
@@ -28657,7 +27901,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "vdict_ShapeType": "#ShapeType_Fox",
+            "vdict_TailShapeType": "#TailShapeType_Fox",
             "value_JP": "キツネ型",
             "value_EN": "Fox-type"
           },
@@ -28720,10 +27964,10 @@
         "Note_EN": null
       },
       {
-        "Formation": "corefolder",
+        "Formation": null,
         "BodyPart": ["#BodyPart_Ear"],
         "Laterality": null,
-        "DesignElement": null,
+        "DesignElement": "#Element_EarUnit",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_EarShape",
@@ -28797,21 +28041,6 @@
             "AttrLabel": "#DesignAttr_Overview",
             "value_JP": "ブローチ付きピンクのネクタイ(通常衣装のみ)",
             "value_EN": "pink necktie with brooch (usual outfit only)"
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
-      {
-        "Formation": "humanoid",
-        "BodyPart": ["#BodyPart_Ear"],
-        "Laterality": null,
-        "DesignElement": null,
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_EarShape",
-            "vdict_EarShapeType": "#EarShapeType_Fox"
           }
         ],
         "img_PNGName": null,
@@ -29368,7 +28597,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "vdict_ShapeType": "#ShapeType_FoxBranched",
+            "vdict_TailShapeType": "#TailShapeType_FoxBranched",
             "value_JP": "キツネ(枝分かれ)型",
             "value_EN": "Fox (branched)"
           },
@@ -29495,10 +28724,10 @@
         "Note_EN": null
       },
       {
-        "Formation": "corefolder",
+        "Formation": null,
         "BodyPart": ["#BodyPart_Ear"],
         "Laterality": null,
-        "DesignElement": null,
+        "DesignElement": "#Element_EarUnit",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_EarShape",
@@ -29620,21 +28849,6 @@
             "AttrLabel": "#DesignAttr_Overview",
             "value_JP": "青色の蝶ネクタイ(アイドル衣装)",
             "value_EN": "blue bow tie (idol outfit)"
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
-      {
-        "Formation": "humanoid",
-        "BodyPart": ["#BodyPart_Ear"],
-        "Laterality": null,
-        "DesignElement": null,
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_EarShape",
-            "vdict_EarShapeType": "#EarShapeType_Fox"
           }
         ],
         "img_PNGName": null,
@@ -30119,7 +29333,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "vdict_ShapeType": "#ShapeType_FoxBranched",
+            "vdict_TailShapeType": "#TailShapeType_FoxBranched",
             "value_JP": "キツネ(枝分かれ)型",
             "value_EN": "Fox (branched)"
           },
@@ -30194,10 +29408,10 @@
         "Note_EN": null
       },
       {
-        "Formation": "corefolder",
+        "Formation": null,
         "BodyPart": ["#BodyPart_Ear"],
         "Laterality": null,
-        "DesignElement": null,
+        "DesignElement": "#Element_EarUnit",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_EarShape",
@@ -30251,22 +29465,6 @@
             "AttrLabel": "#DesignAttr_Overview",
             "value_JP": "腕章(左肩側に番号)",
             "value_EN": "armband (with number on left shoulder)"
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
-      {
-        "Formation": "humanoid",
-        "BodyPart": ["#BodyPart_Ear"],
-        "Laterality": null,
-        "DesignElement": null,
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_EarShape",
-            "vdict_EarShapeType": "#EarShapeType_Fox",
-            "about_JP": "先が濃いピンクのアクセントカラー"
           }
         ],
         "img_PNGName": null,
@@ -30591,7 +29789,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "vdict_ShapeType": "#ShapeType_FoxBranched",
+            "vdict_TailShapeType": "#TailShapeType_FoxBranched",
             "value_JP": "キツネ(枝分かれ)型",
             "value_EN": "Fox (branched)"
           },
@@ -30666,10 +29864,10 @@
         "Note_EN": null
       },
       {
-        "Formation": "corefolder",
+        "Formation": null,
         "BodyPart": ["#BodyPart_Ear"],
         "Laterality": null,
-        "DesignElement": null,
+        "DesignElement": "#Element_EarUnit",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_EarShape",
@@ -30738,21 +29936,6 @@
             "AttrLabel": "#DesignAttr_Overview",
             "value_JP": "母性のある優しい笑顔",
             "value_EN": "gentle, maternal smile"
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
-      {
-        "Formation": "humanoid",
-        "BodyPart": ["#BodyPart_Ear"],
-        "Laterality": null,
-        "DesignElement": null,
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_EarShape",
-            "vdict_EarShapeType": "#EarShapeType_Fox"
           }
         ],
         "img_PNGName": null,
@@ -31091,7 +30274,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "vdict_ShapeType": "#ShapeType_FoxBranched",
+            "vdict_TailShapeType": "#TailShapeType_FoxBranched",
             "value_JP": "キツネ(枝分かれ)型",
             "value_EN": "Fox (branched)"
           },
@@ -31166,10 +30349,10 @@
         "Note_EN": null
       },
       {
-        "Formation": "corefolder",
+        "Formation": null,
         "BodyPart": ["#BodyPart_Ear"],
         "Laterality": null,
-        "DesignElement": null,
+        "DesignElement": "#Element_EarUnit",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_EarShape",
@@ -31222,21 +30405,6 @@
             "AttrLabel": "#DesignAttr_Overview",
             "value_JP": "誘い受け気味の笑顔",
             "value_EN": "inviting smile"
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
-      {
-        "Formation": "humanoid",
-        "BodyPart": ["#BodyPart_Ear"],
-        "Laterality": null,
-        "DesignElement": null,
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_EarShape",
-            "vdict_EarShapeType": "#EarShapeType_Fox"
           }
         ],
         "img_PNGName": null,
@@ -31533,7 +30701,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "vdict_ShapeType": "#ShapeType_FoxBranched",
+            "vdict_TailShapeType": "#TailShapeType_FoxBranched",
             "value_JP": "キツネ(枝分かれ)型",
             "value_EN": "Fox (branched)"
           },
@@ -31608,10 +30776,10 @@
         "Note_EN": null
       },
       {
-        "Formation": "corefolder",
+        "Formation": null,
         "BodyPart": ["#BodyPart_Ear"],
         "Laterality": null,
-        "DesignElement": null,
+        "DesignElement": "#Element_EarUnit",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_EarShape",
@@ -31649,22 +30817,6 @@
             "AttrLabel": "#DesignAttr_Overview",
             "value_JP": "ライトグリーンの目",
             "value_EN": "light green eyes"
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
-      {
-        "Formation": "humanoid",
-        "BodyPart": ["#BodyPart_Ear"],
-        "Laterality": null,
-        "DesignElement": null,
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_EarShape",
-            "vdict_EarShapeType": "#EarShapeType_Fox",
-            "about_JP": "先が薄色"
           }
         ],
         "img_PNGName": null,
@@ -31980,7 +31132,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "vdict_ShapeType": "#ShapeType_FoxBranched",
+            "vdict_TailShapeType": "#TailShapeType_FoxBranched",
             "value_JP": "キツネ(枝分かれ)型",
             "value_EN": "Fox (branched)"
           },
@@ -32048,10 +31200,10 @@
         "Note_EN": null
       },
       {
-        "Formation": "corefolder",
+        "Formation": null,
         "BodyPart": ["#BodyPart_Ear"],
         "Laterality": null,
-        "DesignElement": null,
+        "DesignElement": "#Element_EarUnit",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_EarShape",
@@ -32120,21 +31272,6 @@
             "AttrLabel": "#DesignAttr_Overview",
             "value_JP": "番号入りオレンジ黄色のヨークビブ",
             "value_EN": "orange-yellow yoke bib with number markings"
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
-      {
-        "Formation": "humanoid",
-        "BodyPart": ["#BodyPart_Ear"],
-        "Laterality": null,
-        "DesignElement": null,
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_EarShape",
-            "vdict_EarShapeType": "#EarShapeType_Fox"
           }
         ],
         "img_PNGName": null,
@@ -32434,7 +31571,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "vdict_ShapeType": "#ShapeType_FoxBranched",
+            "vdict_TailShapeType": "#TailShapeType_FoxBranched",
             "value_JP": "キツネ(枝分かれ)型",
             "value_EN": "Fox (branched)"
           },
@@ -32509,10 +31646,10 @@
         "Note_EN": null
       },
       {
-        "Formation": "corefolder",
+        "Formation": null,
         "BodyPart": ["#BodyPart_Ear"],
         "Laterality": null,
-        "DesignElement": null,
+        "DesignElement": "#Element_EarUnit",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_EarShape",
@@ -32549,21 +31686,6 @@
             "AttrLabel": "#DesignAttr_Overview",
             "value_JP": "水色の目",
             "value_EN": "light blue eyes"
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
-      {
-        "Formation": "humanoid",
-        "BodyPart": ["#BodyPart_Ear"],
-        "Laterality": null,
-        "DesignElement": null,
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_EarShape",
-            "vdict_EarShapeType": "#EarShapeType_Fox"
           }
         ],
         "img_PNGName": null,
@@ -32799,7 +31921,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "vdict_ShapeType": "#ShapeType_FoxBranched",
+            "vdict_TailShapeType": "#TailShapeType_FoxBranched",
             "value_JP": "キツネ(枝分かれ)型",
             "value_EN": "Fox (branched)"
           },
@@ -32874,10 +31996,10 @@
         "Note_EN": null
       },
       {
-        "Formation": "corefolder",
+        "Formation": null,
         "BodyPart": ["#BodyPart_Ear"],
         "Laterality": null,
-        "DesignElement": null,
+        "DesignElement": "#Element_EarUnit",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_EarShape",
@@ -32914,21 +32036,6 @@
             "AttrLabel": "#DesignAttr_Overview",
             "value_JP": "水色の目",
             "value_EN": "light blue eyes"
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
-      {
-        "Formation": "humanoid",
-        "BodyPart": ["#BodyPart_Ear"],
-        "Laterality": null,
-        "DesignElement": null,
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_EarShape",
-            "vdict_EarShapeType": "#EarShapeType_Fox"
           }
         ],
         "img_PNGName": null,
@@ -33272,7 +32379,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "vdict_ShapeType": "#ShapeType_FoxBranched",
+            "vdict_TailShapeType": "#TailShapeType_FoxBranched",
             "value_JP": "キツネ(枝分かれ)型",
             "value_EN": "Fox (branched)"
           },
@@ -33347,10 +32454,10 @@
         "Note_EN": null
       },
       {
-        "Formation": "corefolder",
+        "Formation": null,
         "BodyPart": ["#BodyPart_Ear"],
         "Laterality": null,
-        "DesignElement": null,
+        "DesignElement": "#Element_EarUnit",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_EarShape",
@@ -33403,21 +32510,6 @@
             "AttrLabel": "#DesignAttr_Overview",
             "value_JP": "「68」マーク入り赤いバンダナ",
             "value_EN": "red bandana with '68' marking"
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
-      {
-        "Formation": "humanoid",
-        "BodyPart": ["#BodyPart_Ear"],
-        "Laterality": null,
-        "DesignElement": null,
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_EarShape",
-            "vdict_EarShapeType": "#EarShapeType_Fox"
           }
         ],
         "img_PNGName": null,
@@ -33750,7 +32842,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "vdict_ShapeType": "#ShapeType_FoxBranched",
+            "vdict_TailShapeType": "#TailShapeType_FoxBranched",
             "value_JP": "キツネ(枝分かれ)型",
             "value_EN": "Fox (branched)"
           },
@@ -33851,10 +32943,10 @@
         "Note_EN": null
       },
       {
-        "Formation": "corefolder",
+        "Formation": null,
         "BodyPart": ["#BodyPart_Ear"],
         "Laterality": null,
-        "DesignElement": null,
+        "DesignElement": "#Element_EarUnit",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_EarShape",
@@ -33919,21 +33011,6 @@
             "AttrLabel": "#DesignAttr_Overview",
             "value_JP": "薄いピンクのマントのよう襟",
             "value_EN": "light pink cape-like collar"
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
-      {
-        "Formation": "humanoid",
-        "BodyPart": ["#BodyPart_Ear"],
-        "Laterality": null,
-        "DesignElement": null,
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_EarShape",
-            "vdict_EarShapeType": "#EarShapeType_Fox"
           }
         ],
         "img_PNGName": null,
@@ -34257,7 +33334,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "vdict_ShapeType": "#ShapeType_Fox",
+            "vdict_TailShapeType": "#TailShapeType_Fox",
             "value_JP": "キツネ型",
             "value_EN": "Fox-type"
           },
@@ -34320,10 +33397,10 @@
         "Note_EN": null
       },
       {
-        "Formation": "corefolder",
+        "Formation": null,
         "BodyPart": ["#BodyPart_Ear"],
         "Laterality": null,
-        "DesignElement": null,
+        "DesignElement": "#Element_EarUnit",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_EarShape",
@@ -34360,21 +33437,6 @@
             "AttrLabel": "#DesignAttr_Overview",
             "value_JP": "濃紺の目",
             "value_EN": "dark blue eyes"
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
-      {
-        "Formation": "humanoid",
-        "BodyPart": ["#BodyPart_Ear"],
-        "Laterality": null,
-        "DesignElement": null,
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_EarShape",
-            "vdict_EarShapeType": "#EarShapeType_Fox"
           }
         ],
         "img_PNGName": null,
@@ -34671,7 +33733,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "vdict_ShapeType": "#ShapeType_FoxBranched",
+            "vdict_TailShapeType": "#TailShapeType_FoxBranched",
             "value_JP": "キツネ(枝分かれ)型",
             "value_EN": "Fox (branched)"
           },
@@ -34746,10 +33808,10 @@
         "Note_EN": null
       },
       {
-        "Formation": "corefolder",
+        "Formation": null,
         "BodyPart": ["#BodyPart_Ear"],
         "Laterality": null,
-        "DesignElement": null,
+        "DesignElement": "#Element_EarUnit",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_EarShape",
@@ -34802,21 +33864,6 @@
             "AttrLabel": "#DesignAttr_Overview",
             "value_JP": "丸く剃られた灰青色の眉",
             "value_EN": "roundly shaved gray-blue eyebrows"
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
-      {
-        "Formation": "humanoid",
-        "BodyPart": ["#BodyPart_Ear"],
-        "Laterality": null,
-        "DesignElement": null,
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_EarShape",
-            "vdict_EarShapeType": "#EarShapeType_Fox"
           }
         ],
         "img_PNGName": null,
@@ -35153,7 +34200,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "vdict_ShapeType": "#ShapeType_FoxBranched",
+            "vdict_TailShapeType": "#TailShapeType_FoxBranched",
             "value_JP": "キツネ(枝分かれ)型",
             "value_EN": "Fox (branched)"
           },
@@ -35228,10 +34275,10 @@
         "Note_EN": null
       },
       {
-        "Formation": "corefolder",
+        "Formation": null,
         "BodyPart": ["#BodyPart_Ear"],
         "Laterality": null,
-        "DesignElement": null,
+        "DesignElement": "#Element_EarUnit",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_EarShape",
@@ -35301,22 +34348,6 @@
             "AttrLabel": "#DesignAttr_Overview",
             "value_JP": "バーコードの番号タグ",
             "value_EN": "barcode-style numbered tag"
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
-      {
-        "Formation": "humanoid",
-        "BodyPart": ["#BodyPart_Ear"],
-        "Laterality": null,
-        "DesignElement": null,
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_EarShape",
-            "vdict_EarShapeType": "#EarShapeType_Fox",
-            "about_JP": "ダイヤマークの薄いアクセント付き"
           }
         ],
         "img_PNGName": null,
@@ -35666,7 +34697,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "vdict_ShapeType": "#ShapeType_FoxBranched",
+            "vdict_TailShapeType": "#TailShapeType_FoxBranched",
             "value_JP": "キツネ(枝分かれ)型",
             "value_EN": "Fox (branched)"
           },
@@ -35741,10 +34772,10 @@
         "Note_EN": null
       },
       {
-        "Formation": "corefolder",
+        "Formation": null,
         "BodyPart": ["#BodyPart_Ear"],
         "Laterality": null,
-        "DesignElement": null,
+        "DesignElement": "#Element_EarUnit",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_EarShape",
@@ -35813,21 +34844,6 @@
             "AttrLabel": "#DesignAttr_Overview",
             "value_JP": "「73」モチーフのパッチ付きの青いベレー帽",
             "value_EN": "blue beret with '73' motif patch"
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
-      {
-        "Formation": "humanoid",
-        "BodyPart": ["#BodyPart_Ear"],
-        "Laterality": null,
-        "DesignElement": null,
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_EarShape",
-            "vdict_EarShapeType": "#EarShapeType_Fox"
           }
         ],
         "img_PNGName": null,
@@ -36192,7 +35208,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "vdict_ShapeType": "#ShapeType_FoxBranched",
+            "vdict_TailShapeType": "#TailShapeType_FoxBranched",
             "value_JP": "キツネ(枝分かれ)型",
             "value_EN": "Fox (branched)"
           },
@@ -36267,10 +35283,10 @@
         "Note_EN": null
       },
       {
-        "Formation": "corefolder",
+        "Formation": null,
         "BodyPart": ["#BodyPart_Ear"],
         "Laterality": null,
-        "DesignElement": null,
+        "DesignElement": "#Element_EarUnit",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_EarShape",
@@ -36323,21 +35339,6 @@
             "AttrLabel": "#DesignAttr_Overview",
             "value_JP": "番号付きで半透明の白いショールマント",
             "value_EN": "translucent white shawl/cape with number marking"
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
-      {
-        "Formation": "humanoid",
-        "BodyPart": ["#BodyPart_Ear"],
-        "Laterality": null,
-        "DesignElement": null,
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_EarShape",
-            "vdict_EarShapeType": "#EarShapeType_Fox"
           }
         ],
         "img_PNGName": null,
@@ -36654,7 +35655,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "vdict_ShapeType": "#ShapeType_FoxBranched",
+            "vdict_TailShapeType": "#TailShapeType_FoxBranched",
             "value_JP": "キツネ(枝分かれ)型",
             "value_EN": "Fox (branched)"
           },
@@ -36729,10 +35730,10 @@
         "Note_EN": null
       },
       {
-        "Formation": "corefolder",
+        "Formation": null,
         "BodyPart": ["#BodyPart_Ear"],
         "Laterality": null,
-        "DesignElement": null,
+        "DesignElement": "#Element_EarUnit",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_EarShape",
@@ -36785,21 +35786,6 @@
             "AttrLabel": "#DesignAttr_Overview",
             "value_JP": "左肩の番号付きの腕章",
             "value_EN": "left shoulder armband"
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
-      {
-        "Formation": "humanoid",
-        "BodyPart": ["#BodyPart_Ear"],
-        "Laterality": null,
-        "DesignElement": null,
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_EarShape",
-            "vdict_EarShapeType": "#EarShapeType_Fox"
           }
         ],
         "img_PNGName": null,
@@ -37167,7 +36153,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "vdict_ShapeType": "#ShapeType_FoxBranched",
+            "vdict_TailShapeType": "#TailShapeType_FoxBranched",
             "value_JP": "キツネ(枝分かれ)型",
             "value_EN": "Fox (branched)"
           },
@@ -37294,10 +36280,10 @@
         "Note_EN": null
       },
       {
-        "Formation": "corefolder",
+        "Formation": null,
         "BodyPart": ["#BodyPart_Ear"],
         "Laterality": null,
-        "DesignElement": null,
+        "DesignElement": "#Element_EarUnit",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_EarShape",
@@ -37366,21 +36352,6 @@
             "AttrLabel": "#DesignAttr_Overview",
             "value_JP": "ピンク色の目(眼鏡付きヘッドセットをしている時は見えづらい)",
             "value_EN": "pink eyes (hard to see when wearing the bespectacled headset)"
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
-      {
-        "Formation": "humanoid",
-        "BodyPart": ["#BodyPart_Ear"],
-        "Laterality": null,
-        "DesignElement": null,
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_EarShape",
-            "vdict_EarShapeType": "#EarShapeType_Fox"
           }
         ],
         "img_PNGName": null,
@@ -37721,7 +36692,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "vdict_ShapeType": "#ShapeType_FoxBranched",
+            "vdict_TailShapeType": "#TailShapeType_FoxBranched",
             "value_JP": "キツネ(枝分かれ)型",
             "value_EN": "Fox (branched)"
           },
@@ -37789,10 +36760,10 @@
         "Note_EN": null
       },
       {
-        "Formation": "corefolder",
+        "Formation": null,
         "BodyPart": ["#BodyPart_Ear"],
         "Laterality": null,
-        "DesignElement": null,
+        "DesignElement": "#Element_EarUnit",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_EarShape",
@@ -37830,22 +36801,6 @@
             "AttrLabel": "#DesignAttr_Overview",
             "value_JP": "灰青色の目",
             "value_EN": "gray-blue eyes"
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
-      {
-        "Formation": "humanoid",
-        "BodyPart": ["#BodyPart_Ear"],
-        "Laterality": null,
-        "DesignElement": null,
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_EarShape",
-            "vdict_EarShapeType": "#EarShapeType_Fox",
-            "about_JP": "先がアクセントカラー"
           }
         ],
         "img_PNGName": null,
@@ -38164,7 +37119,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "vdict_ShapeType": "#ShapeType_FoxBranched",
+            "vdict_TailShapeType": "#TailShapeType_FoxBranched",
             "value_JP": "キツネ(枝分かれ)型",
             "value_EN": "Fox (branched)"
           },
@@ -38229,10 +37184,10 @@
         "Note_EN": null
       },
       {
-        "Formation": "corefolder",
+        "Formation": null,
         "BodyPart": ["#BodyPart_Ear"],
         "Laterality": null,
-        "DesignElement": null,
+        "DesignElement": "#Element_EarUnit",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_EarShape",
@@ -38302,22 +37257,6 @@
             "AttrLabel": "#DesignAttr_Overview",
             "value_JP": "ハートペンダント付き青いビーズネックレス",
             "value_EN": "blue beaded necklace with heart pendant"
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
-      {
-        "Formation": "humanoid",
-        "BodyPart": ["#BodyPart_Ear"],
-        "Laterality": null,
-        "DesignElement": null,
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_EarShape",
-            "vdict_EarShapeType": "#EarShapeType_Fox",
-            "about_JP": "耳マーキングと先で多色になっている"
           }
         ],
         "img_PNGName": null,
@@ -38551,7 +37490,8 @@
     "Favor_EN": "Fortune and luck tips",
     "InStory_JP": "宗教勧誘者のように疑われがち",
     "InStory_EN": "Often mistaken for a religious recruiter and met with suspicion",
-    "Relation": { "Commented": [{ "Num": 7, "RelationLabel": ["pioneer"] }] }
+    "Relation": { "Commented": [{ "Num": 7, "RelationLabel": ["pioneer"] }] },
+    "AppearanceDetail": []
   },
   {
     "Num": 80,
@@ -38591,7 +37531,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "vdict_ShapeType": "#ShapeType_Fox",
+            "vdict_TailShapeType": "#TailShapeType_Fox",
             "value_JP": "キツネ型",
             "value_EN": "Fox-type"
           },
@@ -38787,7 +37727,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "vdict_ShapeType": "#ShapeType_FoxBranched",
+            "vdict_TailShapeType": "#TailShapeType_FoxBranched",
             "value_JP": "キツネ(枝分かれ)型",
             "value_EN": "Fox (branched)"
           },
@@ -38862,10 +37802,10 @@
         "Note_EN": null
       },
       {
-        "Formation": "corefolder",
+        "Formation": null,
         "BodyPart": ["#BodyPart_Ear"],
         "Laterality": null,
-        "DesignElement": null,
+        "DesignElement": "#Element_EarUnit",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_EarShape",
@@ -38918,21 +37858,6 @@
             "AttrLabel": "#DesignAttr_Overview",
             "value_JP": "頬に横線模様",
             "value_EN": "horizontal line pattern on the cheeks"
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
-      {
-        "Formation": "humanoid",
-        "BodyPart": ["#BodyPart_Ear"],
-        "Laterality": null,
-        "DesignElement": null,
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_EarShape",
-            "vdict_EarShapeType": "#EarShapeType_Fox"
           }
         ],
         "img_PNGName": null,
@@ -39156,7 +38081,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "vdict_ShapeType": "#ShapeType_FoxBranched",
+            "vdict_TailShapeType": "#TailShapeType_FoxBranched",
             "value_JP": "キツネ(枝分かれ)型",
             "value_EN": "Fox (branched)"
           },
@@ -39230,7 +38155,8 @@
         { "Num": 82, "RelationLabel": ["cousin"] },
         { "Num": 92, "RelationLabel": ["classmate"] }
       ]
-    }
+    },
+    "AppearanceDetail": []
   },
   {
     "Num": 84,
@@ -39370,7 +38296,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "vdict_ShapeType": "#ShapeType_FoxBranched",
+            "vdict_TailShapeType": "#TailShapeType_FoxBranched",
             "value_JP": "キツネ(枝分かれ)型",
             "value_EN": "Fox (branched)"
           },
@@ -39445,10 +38371,10 @@
         "Note_EN": null
       },
       {
-        "Formation": "corefolder",
+        "Formation": null,
         "BodyPart": ["#BodyPart_Ear"],
         "Laterality": "#Lat_Left",
-        "DesignElement": null,
+        "DesignElement": "#Element_EarUnit",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_EarShape",
@@ -39516,21 +38442,6 @@
             "AttrLabel": "#DesignAttr_Overview",
             "value_JP": "オレンジ色のネッカチーフ",
             "value_EN": "orange neckerchief"
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
-      {
-        "Formation": "humanoid",
-        "BodyPart": ["#BodyPart_Ear"],
-        "Laterality": "#Lat_Left",
-        "DesignElement": null,
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_EarShape",
-            "vdict_EarShapeType": "#EarShapeType_Fox"
           }
         ],
         "img_PNGName": null,
@@ -39884,7 +38795,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "vdict_ShapeType": "#ShapeType_FoxBranched",
+            "vdict_TailShapeType": "#TailShapeType_FoxBranched",
             "value_JP": "キツネ(枝分かれ)型",
             "value_EN": "Fox (branched)"
           },
@@ -39933,10 +38844,10 @@
         "Note_EN": null
       },
       {
-        "Formation": "corefolder",
+        "Formation": null,
         "BodyPart": ["#BodyPart_Ear"],
         "Laterality": null,
-        "DesignElement": null,
+        "DesignElement": "#Element_EarUnit",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_EarShape",
@@ -39989,21 +38900,6 @@
             "AttrLabel": "#DesignAttr_Overview",
             "value_JP": "シアンの涙滴型ペンダントネックレス",
             "value_EN": "cyan teardrop pendant necklace"
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
-      {
-        "Formation": "humanoid",
-        "BodyPart": ["#BodyPart_Ear"],
-        "Laterality": null,
-        "DesignElement": null,
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_EarShape",
-            "vdict_EarShapeType": "#EarShapeType_Fox"
           }
         ],
         "img_PNGName": null,
@@ -40364,7 +39260,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "vdict_ShapeType": "#ShapeType_FoxBranched",
+            "vdict_TailShapeType": "#TailShapeType_FoxBranched",
             "value_JP": "キツネ(枝分かれ)型",
             "value_EN": "Fox (branched)"
           },
@@ -40439,10 +39335,10 @@
         "Note_EN": null
       },
       {
-        "Formation": "corefolder",
+        "Formation": null,
         "BodyPart": ["#BodyPart_Ear"],
         "Laterality": "#Lat_Right",
-        "DesignElement": null,
+        "DesignElement": "#Element_EarUnit",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_EarShape",
@@ -40496,22 +39392,6 @@
             "AttrLabel": "#DesignAttr_Overview",
             "value_JP": "右耳を覆う赤い番号付きのバンダナ",
             "value_EN": "red bandana with number covering right ear"
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
-      {
-        "Formation": "humanoid",
-        "BodyPart": ["#BodyPart_Ear"],
-        "Laterality": "#Lat_Right",
-        "DesignElement": null,
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_EarShape",
-            "vdict_EarShapeType": "#EarShapeType_Fox",
-            "about_JP": "右耳はバンダナで隠れている"
           }
         ],
         "img_PNGName": null,
@@ -40856,7 +39736,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "vdict_ShapeType": "#ShapeType_FoxBranched",
+            "vdict_TailShapeType": "#TailShapeType_FoxBranched",
             "value_JP": "キツネ(枝分かれ)型",
             "value_EN": "Fox (branched)"
           },
@@ -40921,10 +39801,10 @@
         "Note_EN": null
       },
       {
-        "Formation": "corefolder",
+        "Formation": null,
         "BodyPart": ["#BodyPart_Ear"],
         "Laterality": null,
-        "DesignElement": null,
+        "DesignElement": "#Element_EarUnit",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_EarShape",
@@ -40994,22 +39874,6 @@
             "AttrLabel": "#DesignAttr_Overview",
             "value_JP": "ハート形ダイヤモンドペンダントネックレス",
             "value_EN": "heart-shaped diamond pendant necklace"
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
-      {
-        "Formation": "humanoid",
-        "BodyPart": ["#BodyPart_Ear"],
-        "Laterality": null,
-        "DesignElement": null,
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_EarShape",
-            "vdict_EarShapeType": "#EarShapeType_Fox",
-            "about_JP": "耳マーキングと先で多色になっている"
           }
         ],
         "img_PNGName": null,
@@ -41348,7 +40212,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "vdict_ShapeType": "#ShapeType_FoxBranched",
+            "vdict_TailShapeType": "#TailShapeType_FoxBranched",
             "value_JP": "キツネ(枝分かれ)型",
             "value_EN": "Fox (branched)"
           },
@@ -41416,10 +40280,10 @@
         "Note_EN": null
       },
       {
-        "Formation": "corefolder",
+        "Formation": null,
         "BodyPart": ["#BodyPart_Ear"],
         "Laterality": "#Lat_Left",
-        "DesignElement": null,
+        "DesignElement": "#Element_EarUnit",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_EarShape",
@@ -41535,21 +40399,6 @@
             "AttrLabel": "#DesignAttr_Overview",
             "value_JP": null,
             "value_EN": "piano-keyboard holographic ring"
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
-      {
-        "Formation": "humanoid",
-        "BodyPart": ["#BodyPart_Ear"],
-        "Laterality": "#Lat_Left",
-        "DesignElement": null,
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_EarShape",
-            "vdict_EarShapeType": "#EarShapeType_Fox"
           }
         ],
         "img_PNGName": null,
@@ -41937,7 +40786,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "vdict_ShapeType": "#ShapeType_FoxBranched",
+            "vdict_TailShapeType": "#TailShapeType_FoxBranched",
             "value_JP": "キツネ(枝分かれ)型",
             "value_EN": "Fox (branched)"
           },
@@ -42012,10 +40861,10 @@
         "Note_EN": null
       },
       {
-        "Formation": "corefolder",
+        "Formation": null,
         "BodyPart": ["#BodyPart_Ear"],
         "Laterality": null,
-        "DesignElement": null,
+        "DesignElement": "#Element_EarUnit",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_EarShape",
@@ -42068,21 +40917,6 @@
             "AttrLabel": "#DesignAttr_Overview",
             "value_JP": "赤いネクタイ",
             "value_EN": "red necktie"
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
-      {
-        "Formation": "humanoid",
-        "BodyPart": ["#BodyPart_Ear"],
-        "Laterality": null,
-        "DesignElement": null,
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_EarShape",
-            "vdict_EarShapeType": "#EarShapeType_Fox"
           }
         ],
         "img_PNGName": null,
@@ -42299,7 +41133,8 @@
     "NumerospecAbout_EN": "Brings out one's true potential in moments of final conclusion or last resort",
     "Relation": {
       "Commented": [{ "Num": 99, "RelationLabel": ["successor_nearly"] }]
-    }
+    },
+    "AppearanceDetail": []
   },
   {
     "Num": 91,
@@ -42330,7 +41165,8 @@
         { "Num": 19, "RelationLabel": ["brother|sister", "classmate"] },
         { "Num": 81, "RelationLabel": ["cousin"] }
       ]
-    }
+    },
+    "AppearanceDetail": []
   },
   {
     "Num": 92,
@@ -42441,7 +41277,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "vdict_ShapeType": "#ShapeType_FoxBranched",
+            "vdict_TailShapeType": "#TailShapeType_FoxBranched",
             "value_JP": "キツネ(枝分かれ)型",
             "value_EN": "Fox (branched)"
           },
@@ -42464,10 +41300,10 @@
         "Note_EN": null
       },
       {
-        "Formation": "corefolder",
+        "Formation": null,
         "BodyPart": ["#BodyPart_Ear"],
         "Laterality": null,
-        "DesignElement": null,
+        "DesignElement": "#Element_EarUnit",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_EarShape",
@@ -42520,21 +41356,6 @@
             "AttrLabel": "#DesignAttr_Overview",
             "value_JP": "ゆるいラベンダー色のネクタイ",
             "value_EN": "loose lavender necktie"
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
-      {
-        "Formation": "humanoid",
-        "BodyPart": ["#BodyPart_Ear"],
-        "Laterality": null,
-        "DesignElement": null,
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_EarShape",
-            "vdict_EarShapeType": "#EarShapeType_Fox"
           }
         ],
         "img_PNGName": null,
@@ -42873,7 +41694,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "vdict_ShapeType": "#ShapeType_FoxBranched",
+            "vdict_TailShapeType": "#TailShapeType_FoxBranched",
             "value_JP": "キツネ(枝分かれ)型",
             "value_EN": "Fox (branched)"
           },
@@ -42948,10 +41769,10 @@
         "Note_EN": null
       },
       {
-        "Formation": "corefolder",
+        "Formation": null,
         "BodyPart": ["#BodyPart_Ear"],
         "Laterality": null,
-        "DesignElement": null,
+        "DesignElement": "#Element_EarUnit",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_EarShape",
@@ -43004,21 +41825,6 @@
             "AttrLabel": "#DesignAttr_Overview",
             "value_JP": "白い鉢巻",
             "value_EN": "white long headband"
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
-      {
-        "Formation": "humanoid",
-        "BodyPart": ["#BodyPart_Ear"],
-        "Laterality": null,
-        "DesignElement": null,
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_EarShape",
-            "vdict_EarShapeType": "#EarShapeType_Fox"
           }
         ],
         "img_PNGName": null,
@@ -43400,7 +42206,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "vdict_ShapeType": "#ShapeType_FoxBranched",
+            "vdict_TailShapeType": "#TailShapeType_FoxBranched",
             "value_JP": "キツネ(枝分かれ)型",
             "value_EN": "Fox (branched)"
           },
@@ -43475,10 +42281,10 @@
         "Note_EN": null
       },
       {
-        "Formation": "corefolder",
+        "Formation": null,
         "BodyPart": ["#BodyPart_Ear"],
         "Laterality": null,
-        "DesignElement": null,
+        "DesignElement": "#Element_EarUnit",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_EarShape",
@@ -43532,22 +42338,6 @@
             "AttrLabel": "#DesignAttr_Overview",
             "value_JP": "普段から眠そう",
             "value_EN": "always looking drowsy"
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
-      {
-        "Formation": "humanoid",
-        "BodyPart": ["#BodyPart_Ear"],
-        "Laterality": null,
-        "DesignElement": null,
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_EarShape",
-            "vdict_EarShapeType": "#EarShapeType_Fox",
-            "about_JP": "垂れ耳"
           }
         ],
         "img_PNGName": null,
@@ -43791,7 +42581,8 @@
           ]
         }
       ]
-    }
+    },
+    "AppearanceDetail": []
   },
   {
     "Num": 96,
@@ -43946,7 +42737,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "vdict_ShapeType": "#ShapeType_FoxBranched",
+            "vdict_TailShapeType": "#TailShapeType_FoxBranched",
             "value_JP": "キツネ(枝分かれ)型",
             "value_EN": "Fox (branched)"
           },
@@ -44047,10 +42838,10 @@
         "Note_EN": null
       },
       {
-        "Formation": "corefolder",
+        "Formation": null,
         "BodyPart": ["#BodyPart_Ear"],
         "Laterality": null,
-        "DesignElement": null,
+        "DesignElement": "#Element_EarUnit",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_EarShape",
@@ -44104,22 +42895,6 @@
             "AttrLabel": "#DesignAttr_Overview",
             "value_JP": "番号装飾付きピンクのマスカレードマスク(時々装着する)",
             "value_EN": "pink masquerade mask with number decoration (occasionally worn)"
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
-      {
-        "Formation": "humanoid",
-        "BodyPart": ["#BodyPart_Ear"],
-        "Laterality": null,
-        "DesignElement": null,
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_EarShape",
-            "vdict_EarShapeType": "#EarShapeType_Fox",
-            "about_JP": "少し欠けている"
           }
         ],
         "img_PNGName": null,
@@ -44512,7 +43287,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "vdict_ShapeType": "#ShapeType_FoxBranched",
+            "vdict_TailShapeType": "#TailShapeType_FoxBranched",
             "value_JP": "キツネ(枝分かれ)型",
             "value_EN": "Fox (branched)"
           },
@@ -44639,10 +43414,10 @@
         "Note_EN": null
       },
       {
-        "Formation": "corefolder",
+        "Formation": null,
         "BodyPart": ["#BodyPart_Ear"],
         "Laterality": null,
-        "DesignElement": null,
+        "DesignElement": "#Element_EarUnit",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_EarShape",
@@ -44696,22 +43471,6 @@
             "AttrLabel": "#DesignAttr_Overview",
             "value_JP": "白い十字紋章と番号付きの紫色ボーダーが入った灰色の修道女風トップハット",
             "value_EN": "gray nun-like top hat with white cross emblem and '97' band"
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
-      {
-        "Formation": "humanoid",
-        "BodyPart": ["#BodyPart_Ear"],
-        "Laterality": null,
-        "DesignElement": null,
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_EarShape",
-            "vdict_EarShapeType": "#EarShapeType_Fox",
-            "about_JP": "垂れ耳"
           }
         ],
         "img_PNGName": null,
@@ -45013,7 +43772,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "vdict_ShapeType": "#ShapeType_FoxBranched",
+            "vdict_TailShapeType": "#TailShapeType_FoxBranched",
             "value_JP": "キツネ(枝分かれ)型",
             "value_EN": "Fox (branched)"
           },
@@ -45088,10 +43847,10 @@
         "Note_EN": null
       },
       {
-        "Formation": "corefolder",
+        "Formation": null,
         "BodyPart": ["#BodyPart_Ear"],
         "Laterality": null,
-        "DesignElement": null,
+        "DesignElement": "#Element_EarUnit",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_EarShape",
@@ -45144,21 +43903,6 @@
             "AttrLabel": "#DesignAttr_Overview",
             "value_JP": "赤いネクタイ",
             "value_EN": "red necktie"
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
-      {
-        "Formation": "humanoid",
-        "BodyPart": ["#BodyPart_Ear"],
-        "Laterality": null,
-        "DesignElement": null,
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_EarShape",
-            "vdict_EarShapeType": "#EarShapeType_Fox"
           }
         ],
         "img_PNGName": null,
@@ -45504,7 +44248,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "vdict_ShapeType": "#ShapeType_FoxBranched",
+            "vdict_TailShapeType": "#TailShapeType_FoxBranched",
             "value_JP": "キツネ(枝分かれ)型",
             "value_EN": "Fox (branched)"
           },
@@ -45624,10 +44368,10 @@
         "Note_EN": null
       },
       {
-        "Formation": "corefolder",
+        "Formation": null,
         "BodyPart": ["#BodyPart_Ear"],
         "Laterality": null,
-        "DesignElement": null,
+        "DesignElement": "#Element_EarUnit",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_EarShape",
@@ -45729,22 +44473,6 @@
             "AttrLabel": "#DesignAttr_Overview",
             "value_JP": "漢数字が書かれたチョーカー",
             "value_EN": "choker with kanji numerals"
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
-      {
-        "Formation": "humanoid",
-        "BodyPart": ["#BodyPart_Ear"],
-        "Laterality": null,
-        "DesignElement": null,
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_EarShape",
-            "vdict_EarShapeType": "#EarShapeType_Fox",
-            "about_JP": "先が紅色のアクセントカラー"
           }
         ],
         "img_PNGName": null,
@@ -46166,7 +44894,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "vdict_ShapeType": "#ShapeType_Fox",
+            "vdict_TailShapeType": "#TailShapeType_Fox",
             "value_JP": "キツネ型",
             "value_EN": "Fox-type"
           },
@@ -46229,10 +44957,10 @@
         "Note_EN": null
       },
       {
-        "Formation": "corefolder",
+        "Formation": null,
         "BodyPart": ["#BodyPart_Ear"],
         "Laterality": null,
-        "DesignElement": null,
+        "DesignElement": "#Element_EarUnit",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_EarShape",
@@ -46285,21 +45013,6 @@
             "AttrLabel": "#DesignAttr_Overview",
             "value_JP": "オレンジ色の「試用中」ラベル",
             "value_EN": "orange '試用中' (trial / test version) label"
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
-      {
-        "Formation": "humanoid",
-        "BodyPart": ["#BodyPart_Ear"],
-        "Laterality": null,
-        "DesignElement": null,
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_EarShape",
-            "vdict_EarShapeType": "#EarShapeType_Fox"
           }
         ],
         "img_PNGName": null,
@@ -46510,7 +45223,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "vdict_ShapeType": "#ShapeType_Fox",
+            "vdict_TailShapeType": "#TailShapeType_Fox",
             "value_JP": "キツネ型",
             "value_EN": "Fox-type"
           },
@@ -46550,7 +45263,7 @@
         "Formation": "corefolder",
         "BodyPart": ["#BodyPart_Ear"],
         "Laterality": null,
-        "DesignElement": null,
+        "DesignElement": "#Element_EarUnit",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_EarShape",
@@ -46866,7 +45579,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "vdict_ShapeType": "#ShapeType_Cat",
+            "vdict_TailShapeType": "#TailShapeType_Cat",
             "value_JP": "猫型",
             "value_EN": "Cat-type"
           },
@@ -46929,10 +45642,10 @@
         "Note_EN": null
       },
       {
-        "Formation": "corefolder",
+        "Formation": null,
         "BodyPart": ["#BodyPart_Ear"],
         "Laterality": null,
-        "DesignElement": null,
+        "DesignElement": "#Element_EarUnit",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_EarShape",
@@ -46985,21 +45698,6 @@
             "AttrLabel": "#DesignAttr_Overview",
             "value_JP": "灰色ベージュの長いマフラー(端がストライプ模様)",
             "value_EN": "long gray-beige scarf (with striped ends)"
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
-      {
-        "Formation": "humanoid",
-        "BodyPart": ["#BodyPart_Ear"],
-        "Laterality": null,
-        "DesignElement": null,
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_EarShape",
-            "vdict_EarShapeType": "#EarShapeType_Cat"
           }
         ],
         "img_PNGName": null,
@@ -47218,7 +45916,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "vdict_ShapeType": "#ShapeType_CatAccessory",
+            "vdict_TailShapeType": "#TailShapeType_CatAccessory",
             "value_JP": "猫型(アクセサリー)",
             "value_EN": "Cat-type (accessory)"
           },
@@ -47499,7 +46197,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "vdict_ShapeType": "#ShapeType_CatAccessory",
+            "vdict_TailShapeType": "#TailShapeType_CatAccessory",
             "value_JP": "猫型(アクセサリー)",
             "value_EN": "Cat-type (accessory)"
           },

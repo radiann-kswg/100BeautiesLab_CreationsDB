@@ -884,6 +884,11 @@
           "DesignElement": "CostumeItem",
           "DesignElement_JP": "衣装アイテム",
           "DesignElement_EN": "Costume Item"
+        },
+        "#Element_EarUnit": {
+          "DesignElement": "EarUnit",
+          "DesignElement_JP": "耳ユニット",
+          "DesignElement_EN": "Ear Unit"
         }
       },
       "$EnumDef_Laterality": {
@@ -933,7 +938,7 @@
           "AttrLabel": "Shape",
           "AttrLabel_JP": "形状",
           "AttrLabel_EN": "Shape",
-          "$fields": ["vdict_ShapeType", "value_JP", "value_EN"]
+          "$fields": ["vdict_TailShapeType", "value_JP", "value_EN"]
         },
         "#DesignAttr_Color": {
           "AttrLabel": "Color",
