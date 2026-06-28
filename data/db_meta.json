@@ -700,8 +700,7 @@
         "$DefType": [
           {
             "hashTag": "AttrLabel",
-            "$type": "#DictIndex|#Null",
-            "$dict": "DesignAttrLabel",
+            "$type": "#ListIndex|#Null",
             "hashTag_JP": "属性ラベル",
             "hashTag_EN": "Attribute Label"
           }
@@ -718,22 +717,19 @@
           },
           {
             "hashTag": "BodyPart",
-            "$type": "#DictIndex[]|#Null",
-            "$dict": "DesignBodyPart",
+            "$type": "#ListIndex[]|#Null",
             "hashTag_JP": "身体部位",
             "hashTag_EN": "Body Part"
           },
           {
             "hashTag": "Laterality",
-            "$type": "#DictIndex|#Null",
-            "$dict": "Laterality",
+            "$type": "#ListIndex|#Null",
             "hashTag_JP": "左右",
             "hashTag_EN": "Laterality"
           },
           {
             "hashTag": "DesignElement",
-            "$type": "#DictIndex|#Null",
-            "$dict": "DesignElement",
+            "$type": "#ListIndex|#Null",
             "hashTag_JP": "デザイン要素",
             "hashTag_EN": "Design Element"
           },

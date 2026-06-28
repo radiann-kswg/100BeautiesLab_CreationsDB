@@ -251,7 +251,7 @@ Phase C のデータ変換時に一括置換する。移行期間中は SW が�
 | **Phase B** | スキーマ変更 ✅ | Phase A |
 | **Phase C** | データ変換 ✅ | Phase B |
 | **Phase C+** | 耳形状・エレメント整理 ✅ | Phase C |
-| **Phase D** | SW/UI 対応: `vdict_*` 辞書解決・`value_Num_{n}` 集計・Count 導出・グループ表示 + `value_JP/EN` 冗長削除（Shape） | Phase C+ |
+| **Phase D** | SW/UI 対応: `vdict_*` 辞書解決・`value_Num_{n}` ペア表示・`value_JP/EN` 冗長スキップ・`#ListIndex` 統一 ✅ | Phase C+ |
 | **Phase E** | テスト更新: Vitest テスト追加・更新 | Phase D |
 
 ### Phase C 実施内容（2026-06-28）
@@ -279,6 +279,22 @@ Phase C のデータ変換時に一括置換する。移行期間中は SW が�
 - **`#Element_Motif` → `#Element_Tag` 移行**: 8 エントリを移行（名札・バーコードタグ・注意ラベル等）
 - **変換統計**: 耳変換 182件・追加エントリ 14件・CostumeItem 355件・Emblem 11件・Tag 8件・Motif 残存 568件
 - **テスト**: `npm.cmd test` → 128 passed（既存 3 失敗は Phase C 前からの pre-existing）
+
+### Phase D 実施内容（2026-06-28）: SW/UI 対応 + #ListIndex 統一
+
+- **`$Def_AppearanceAttr.AttrLabel`**: `#DictIndex|#Null` + `$dict` → `#ListIndex|#Null`（`$dict` 削除）
+- **`$Def_AppearanceDetail.BodyPart`**: `#DictIndex[]|#Null` + `$dict` → `#ListIndex[]|#Null`（`$dict` 削除）
+- **`$Def_AppearanceDetail.Laterality`**: `#DictIndex|#Null` + `$dict` → `#ListIndex|#Null`（`$dict` 削除）
+- **`$Def_AppearanceDetail.DesignElement`**: `#DictIndex|#Null` + `$dict` → `#ListIndex|#Null`（`$dict` 削除）
+  - `Formation` のみ `#DictIndex` + `$dict` を維持（形態識別子として`formatValueForDisplay`経路で解決）
+  - `characters.js` では `#DictIndex` と `#ListIndex` は同一分岐で処理されるため、表示挙動に変化なし
+  - `$dict` は `resolveVarsDefLabelPack` で `#List_*`/`#Dict_*` 系を探すが、`$EnumDef_DesignBodyPart` 等の名称不一致で実質無効だったため削除
+- **`lib/section-renders/appearanceDetail.js` `buildAttrRows` 刷新（Phase D 主体）**:
+  - `resolveVdict(rawKey, dictName)` 関数を追加: `vdict_{DictName}` → `$EnumDef_{DictName}` でラベル解決
+  - 旧: `attr.Value_JP / Value_EN` のみ参照（Phase C 変換後のフィールドを読めず空欄になっていた）
+  - 新: `vdict_*`（辞書解決）→ `value_Num_1 × value_Num_2`（Branch ペア）→ `value_Num`（数値）→ `value_JP/EN`（vdict と重複する場合はスキップ）→ `about_JP/EN`（補足、括弧付き）の順で処理
+  - 後方互換: `Value_JP`（大文字）も `value_JP`（小文字）と同様に処理
+- **テスト**: `npm.cmd test` → 128 passed（既存 3 失敗は pre-existing で変化なし）
 
 ### Phase C+ 追加実施（2026-06-28）: EarUnit/TailShapeType 整備
 
