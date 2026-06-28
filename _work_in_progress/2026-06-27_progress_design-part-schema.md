@@ -151,16 +151,17 @@
 
 #### フィールドの使い分け早見表
 
-| 記録したい内容       | `BodyPart`           | `Laterality` | `DesignElement`       |
-| -------------------- | -------------------- | ------------ | --------------------- |
-| 尻尾の形状           | `#BodyPart_Tail`     | —            | —                     |
-| 右腕の番号印字       | `#BodyPart_Arm`      | `#Lat_Right` | `#Element_NumberMark` |
-| 左耳のアクセサリー   | `#BodyPart_Ear`      | `#Lat_Left`  | `#Element_Accessory`  |
-| 両肩の紋様           | `#BodyPart_Shoulder` | `#Lat_Both`  | `#Element_Emblem`     |
-| キャラ全体のモチーフ | —                    | —            | `#Element_Motif`      |
-| 腕章（部位特定なし） | —                    | —            | `#Element_Armband`    |
-| ヘイロー             | —                    | —            | `#Element_Halo`       |
-| カードデザイン全体   | —                    | —            | `#Element_Card`       |
+| 記録したい内容           | `BodyPart`           | `Laterality` | `DesignElement`        |
+| ------------------------ | -------------------- | ------------ | ---------------------- |
+| 尻尾の形状               | `#BodyPart_Tail`     | —            | —                      |
+| 右腕の番号印字（NT）      | `#BodyPart_Arm`      | `#Lat_Right` | `#Element_NumberMark`（NT ローカル）|
+| 頬の刻印・模様           | `#BodyPart_Cheek`    | `#Lat_Left`等| `#Element_Emblem` 等   |
+| 両肩の紋様               | `#BodyPart_Shoulder` | `#Lat_Both`  | `#Element_Emblem`      |
+| キャラ全体のモチーフ     | —                    | —            | `#Element_Motif`       |
+| 腕章・衣装小物           | `#BodyPart_Arm` 等   | 左右等       | `#Element_CostumeItem` |
+| ヘイロー                 | —                    | —            | `#Element_Halo`        |
+| タグ・ラベル             | 対象部位             | —            | `#Element_Tag`         |
+| カードデザイン（FL78）    | —                    | —            | `#Element_Card`（FL78 ローカル）   |
 
 ### グローバル `data/db_type.json` の `IdentityMotif` エントリ変更案
 
@@ -192,6 +193,7 @@
   "#BodyPart_Hair":     { "BodyPart": "Hair",     "BodyPart_JP": "髪",     "BodyPart_EN": "Hair",     "bilateral": false },
   "#BodyPart_Eye":      { "BodyPart": "Eye",      "BodyPart_JP": "目・瞳", "BodyPart_EN": "Eye",      "bilateral": true  },
   "#BodyPart_Ear":      { "BodyPart": "Ear",      "BodyPart_JP": "耳",     "BodyPart_EN": "Ear",      "bilateral": true  },
+  "#BodyPart_Cheek":    { "BodyPart": "Cheek",    "BodyPart_JP": "頬",     "BodyPart_EN": "Cheek",    "bilateral": true  },
   "#BodyPart_Neck":     { "BodyPart": "Neck",     "BodyPart_JP": "首",     "BodyPart_EN": "Neck",     "bilateral": false },
   "#BodyPart_Shoulder": { "BodyPart": "Shoulder", "BodyPart_JP": "肩",     "BodyPart_EN": "Shoulder", "bilateral": true  },
   "#BodyPart_Arm":      { "BodyPart": "Arm",      "BodyPart_JP": "腕",     "BodyPart_EN": "Arm",      "bilateral": true  },
@@ -212,27 +214,44 @@
 
 身体部位とは独立した「デザイン上の要素・アイテム・装飾・モチーフ」。
 
+**✅ 確定（2026-06-28）** — グローバル `data/db_meta.json` 更新済み。
+
 ```json
+// グローバル data/db_meta.json — 汎用共通 enum のみ
 "$EnumDef_DesignElement": {
-  "#Element_NumberMark": { "DesignElement": "NumberMark", "DesignElement_JP": "番号の印字",      "DesignElement_EN": "Number Mark"      },
-  "#Element_Motif":      { "DesignElement": "Motif",      "DesignElement_JP": "モチーフ",        "DesignElement_EN": "Motif"            },
-  "#Element_Accessory":  { "DesignElement": "Accessory",  "DesignElement_JP": "アクセサリー",    "DesignElement_EN": "Accessory"        },
-  "#Element_Halo":       { "DesignElement": "Halo",       "DesignElement_JP": "ヘイロー",        "DesignElement_EN": "Halo"             },
-  "#Element_Armband":    { "DesignElement": "Armband",    "DesignElement_JP": "腕章",            "DesignElement_EN": "Armband"          },
-  "#Element_Emblem":     { "DesignElement": "Emblem",     "DesignElement_JP": "エムブレム/紋様", "DesignElement_EN": "Emblem / Pattern" },
-  "#Element_Card":       { "DesignElement": "Card",       "DesignElement_JP": "カードデザイン",  "DesignElement_EN": "Card Design"      }
+  "#Element_Motif":       { "DesignElement": "Motif",       "DesignElement_JP": "モチーフ",        "DesignElement_EN": "Motif"         },
+  "#Element_Halo":        { "DesignElement": "Halo",        "DesignElement_JP": "ヘイロー",        "DesignElement_EN": "Halo"          },
+  "#Element_Emblem":      { "DesignElement": "Emblem",      "DesignElement_JP": "エムブレム/紋様", "DesignElement_EN": "Emblem / Pattern" },
+  "#Element_Tag":         { "DesignElement": "Tag",         "DesignElement_JP": "タグ/ラベル",     "DesignElement_EN": "Tag / Label"   },
+  "#Element_CostumeItem": { "DesignElement": "CostumeItem", "DesignElement_JP": "衣装アイテム",    "DesignElement_EN": "Costume Item"  }
 }
 ```
 
-### 左右 `$EnumDef_Laterality`
+> **ローカル移動済み（2026-06-28）**:
+> - `#Element_NumberMark` → NT `Works_NumberTales/DataBases/db_meta.json`（`#Element_TailsUnit` と並列）
+> - `#Element_Card` → FL78 `Works_FLInvestigator78/DataBases/db_meta.json`（新規追加）
+> - `#Element_AccessoryUnit` → UL `Works_UnibyteLive/DataBases/db_meta.json`（Phase 1 から既存）
+>
+> **廃止（2026-06-28）**:
+> - `#Element_Armband`（使用データなし。案A: `#Element_CostumeItem` に統合）
+> - `#Element_Accessory`（使用データなし。UL の `#Element_AccessoryUnit` はローカルで維持）
 
-`BodyPart.bilateral == true` の部位にのみ有意。
+### 左右・方向 `$EnumDef_Laterality`
+
+`BodyPart.bilateral == true` の部位に `#Lat_Left/Right/Both` が有意。上下・前後は方向修飾（尻尾の位置グループ等）で使用。
+
+**✅ 確定（2026-06-28）** — グローバル `data/db_meta.json` 更新済み。
 
 ```json
 "$EnumDef_Laterality": {
-  "#Lat_Left":  { "Laterality": "Left",  "Laterality_JP": "左",       "Laterality_EN": "Left"  },
-  "#Lat_Right": { "Laterality": "Right", "Laterality_JP": "右",       "Laterality_EN": "Right" },
-  "#Lat_Both":  { "Laterality": "Both",  "Laterality_JP": "左右両方", "Laterality_EN": "Both"  }
+  "#Lat_Left":   { "Laterality": "Left",   "Laterality_JP": "左",       "Laterality_EN": "Left"        },
+  "#Lat_Right":  { "Laterality": "Right",  "Laterality_JP": "右",       "Laterality_EN": "Right"       },
+  "#Lat_Both":   { "Laterality": "Both",   "Laterality_JP": "左右両方", "Laterality_EN": "Both"        },
+  "#Lat_Upper":  { "Laterality": "Upper",  "Laterality_JP": "上",       "Laterality_EN": "Upper"       },
+  "#Lat_Lower":  { "Laterality": "Lower",  "Laterality_JP": "下",       "Laterality_EN": "Lower"       },
+  "#Lat_Front":  { "Laterality": "Front",  "Laterality_JP": "前方",     "Laterality_EN": "Front"       },
+  "#Lat_Rear":   { "Laterality": "Rear",   "Laterality_JP": "後方",     "Laterality_EN": "Rear"        },
+  "#Lat_Around": { "Laterality": "Around", "Laterality_JP": "周囲",     "Laterality_EN": "Surrounding" }
 }
 ```
 
@@ -263,7 +282,7 @@
 | `NumberMarkLocation[*].Marks[*].MarkColor_JP/EN`    | 同上             | 同上             | `#Element_NumberMark` | `#DesignAttr_Color`    | Formation もセット    |
 | `NumberMarkLocation[*].Marks[*].MarkNotation_JP/EN` | —                | —                | `#Element_NumberMark` | `#DesignAttr_Notation` | Formation もセット    |
 | `IdentityMotif[*].Motif_JP/EN[*]`（配列展開）       | —                | —                | `#Element_Motif`      | `#DesignAttr_Overview` | 1要素→1エントリに展開 |
-| `AccessoryUnit_JP/EN`                               | —                | —                | `#Element_Accessory`  | `#DesignAttr_Overview` | 値そのままコピー      |
+| `AccessoryUnit_JP/EN`（UL）                         | —                | —                | `#Element_AccessoryUnit`（UL ローカル）| `#DesignAttr_Overview` | 値そのままコピー  |
 | 新規 `designParts`（画像用）                        | 部位によって選択 | 部位によって選択 | 要素によって選択      | 状況により選択         | 詳細画像も格納可      |
 
 ### 記入例（ナンバーテールズの場合）
@@ -274,7 +293,7 @@
     "Formation": "humanoid",
     "BodyPart": "#BodyPart_Arm",
     "Laterality": "#Lat_Left",
-    "DesignElement": "#Element_Armband",
+    "DesignElement": "#Element_CostumeItem",
     "AttrLabel": null,
     "Value_JP": null,
     "img_PNGName": "dsgn-parts_img57-humanoid-leftarm-armband.png"

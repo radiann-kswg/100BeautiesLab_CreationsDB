@@ -203,6 +203,11 @@
           "DesignElement": "TailsUnit",
           "DesignElement_JP": "尻尾ユニット",
           "DesignElement_EN": "Tails Unit"
+        },
+        "#Element_NumberMark": {
+          "DesignElement": "NumberMark",
+          "DesignElement_JP": "番号の印字",
+          "DesignElement_EN": "Number Mark"
         }
       },
       "$EnumDef_DesignAttrLabel": {

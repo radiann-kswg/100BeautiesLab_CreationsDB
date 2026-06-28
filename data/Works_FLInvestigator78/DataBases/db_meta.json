@@ -218,6 +218,13 @@
             }
           }
         }
+      },
+      "$EnumDef_DesignElement": {
+        "#Element_Card": {
+          "DesignElement": "Card",
+          "DesignElement_JP": "カードデザイン",
+          "DesignElement_EN": "Card Design"
+        }
       }
     }
   }

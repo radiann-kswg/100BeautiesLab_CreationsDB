@@ -796,6 +796,12 @@
           "BodyPart_EN": "Ear",
           "bilateral": true
         },
+        "#BodyPart_Cheek": {
+          "BodyPart": "Cheek",
+          "BodyPart_JP": "頬",
+          "BodyPart_EN": "Cheek",
+          "bilateral": true
+        },
         "#BodyPart_Neck": {
           "BodyPart": "Neck",
           "BodyPart_JP": "首",
@@ -864,40 +870,30 @@
         }
       },
       "$EnumDef_DesignElement": {
-        "#Element_NumberMark": {
-          "DesignElement": "NumberMark",
-          "DesignElement_JP": "番号の印字",
-          "DesignElement_EN": "Number Mark"
-        },
         "#Element_Motif": {
           "DesignElement": "Motif",
           "DesignElement_JP": "モチーフ",
           "DesignElement_EN": "Motif"
-        },
-        "#Element_Accessory": {
-          "DesignElement": "Accessory",
-          "DesignElement_JP": "アクセサリー",
-          "DesignElement_EN": "Accessory"
         },
         "#Element_Halo": {
           "DesignElement": "Halo",
           "DesignElement_JP": "ヘイロー",
           "DesignElement_EN": "Halo"
         },
-        "#Element_Armband": {
-          "DesignElement": "Armband",
-          "DesignElement_JP": "腕章",
-          "DesignElement_EN": "Armband"
-        },
         "#Element_Emblem": {
           "DesignElement": "Emblem",
           "DesignElement_JP": "エムブレム/紋様",
           "DesignElement_EN": "Emblem / Pattern"
         },
-        "#Element_Card": {
-          "DesignElement": "Card",
-          "DesignElement_JP": "カードデザイン",
-          "DesignElement_EN": "Card Design"
+        "#Element_Tag": {
+          "DesignElement": "Tag",
+          "DesignElement_JP": "タグ/ラベル",
+          "DesignElement_EN": "Tag / Label"
+        },
+        "#Element_CostumeItem": {
+          "DesignElement": "CostumeItem",
+          "DesignElement_JP": "衣装アイテム",
+          "DesignElement_EN": "Costume Item"
         }
       },
       "$EnumDef_Laterality": {
@@ -915,6 +911,31 @@
           "Laterality": "Both",
           "Laterality_JP": "左右両方",
           "Laterality_EN": "Both"
+        },
+        "#Lat_Upper": {
+          "Laterality": "Upper",
+          "Laterality_JP": "上",
+          "Laterality_EN": "Upper"
+        },
+        "#Lat_Lower": {
+          "Laterality": "Lower",
+          "Laterality_JP": "下",
+          "Laterality_EN": "Lower"
+        },
+        "#Lat_Front": {
+          "Laterality": "Front",
+          "Laterality_JP": "前方",
+          "Laterality_EN": "Front"
+        },
+        "#Lat_Rear": {
+          "Laterality": "Rear",
+          "Laterality_JP": "後方",
+          "Laterality_EN": "Rear"
+        },
+        "#Lat_Around": {
+          "Laterality": "Around",
+          "Laterality_JP": "周囲",
+          "Laterality_EN": "Surrounding"
         }
       },
       "$EnumDef_DesignAttrLabel": {

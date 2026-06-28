@@ -206,9 +206,10 @@ Phase C のデータ変換時に一括置換する。移行期間中は SW が�
    現状の文字列形式「上2束×3本」で「3本」が「1クラスターあたり3本」なのか「上グループの合計本数」なのかを
    データ設計上で明確に定義する必要がある。Count 導出の正確性に直結する。
 
-2. **`$EnumDef_Laterality` への `#Lat_Upper`/`#Lat_Lower` 追加**  
-   Branch の「上/下（upper/lower）」は既存の Left/Right/Both とは別次元の概念。
-   `$EnumDef_Laterality` を拡張するか、Branch 専用辞書 `$EnumDef_PositionUD` を別立てするか。
+2. ~~**`$EnumDef_Laterality` への `#Lat_Upper`/`#Lat_Lower` 追加**~~  
+   **✅ 解決（2026-06-28）**: `$EnumDef_Laterality` を拡張する方針に確定し実装済み。  
+   追加値: `#Lat_Upper`（上）/ `#Lat_Lower`（下）/ `#Lat_Front`（前方）/ `#Lat_Rear`（後方）/ `#Lat_Around`（周囲）  
+   → `vdict_Laterality` で `#Lat_Upper` / `#Lat_Lower` をそのまま使用可能。
 
 3. **`vdict_ShapeType` 用の形状辞書 `$EnumDef_ShapeType` の設計**  
    キツネ型・猫型・サソリ型 etc. は NT固有のため、NT作品別 `db_meta.json` に配置予定。
