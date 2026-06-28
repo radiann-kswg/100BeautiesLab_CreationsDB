@@ -183,7 +183,7 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Shoulder"],
         "Laterality": null,
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -209,7 +209,7 @@
       },
       {
         "Formation": "corefolder",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Chest"],
         "Laterality": "#Lat_Left",
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -807,7 +807,7 @@
       },
       {
         "Formation": "corefolder",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Chest"],
         "Laterality": "#Lat_Left",
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -833,7 +833,7 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Chest"],
         "Laterality": "#Lat_Left",
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -1293,7 +1293,7 @@
       },
       {
         "Formation": "corefolder",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Chest"],
         "Laterality": "#Lat_Left",
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -1319,7 +1319,7 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Chest"],
         "Laterality": "#Lat_Left",
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -1752,7 +1752,7 @@
       },
       {
         "Formation": "corefolder",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Shoulder"],
         "Laterality": null,
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -1778,7 +1778,7 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Shoulder"],
         "Laterality": null,
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -2284,7 +2284,7 @@
       },
       {
         "Formation": "corefolder",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Chest"],
         "Laterality": "#Lat_Left",
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -2310,7 +2310,7 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Chest"],
         "Laterality": "#Lat_Left",
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -2772,7 +2772,7 @@
       },
       {
         "Formation": "corefolder",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Chest"],
         "Laterality": "#Lat_Left",
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -2798,7 +2798,7 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Chest"],
         "Laterality": "#Lat_Left",
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -3268,7 +3268,7 @@
       },
       {
         "Formation": "corefolder",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Chest"],
         "Laterality": "#Lat_Left",
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -3294,7 +3294,7 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Chest"],
         "Laterality": "#Lat_Left",
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -3757,7 +3757,7 @@
       },
       {
         "Formation": "corefolder",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Chest"],
         "Laterality": "#Lat_Left",
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -3783,7 +3783,7 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Chest"],
         "Laterality": "#Lat_Left",
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -4269,7 +4269,7 @@
       },
       {
         "Formation": "corefolder",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Chest"],
         "Laterality": "#Lat_Left",
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -4295,7 +4295,7 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Chest"],
         "Laterality": "#Lat_Left",
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -4811,7 +4811,7 @@
       },
       {
         "Formation": "corefolder",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Chest"],
         "Laterality": "#Lat_Left",
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -4837,7 +4837,7 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Chest"],
         "Laterality": "#Lat_Left",
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -5381,7 +5381,7 @@
       },
       {
         "Formation": "corefolder",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Waist"],
         "Laterality": null,
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -5407,7 +5407,7 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Waist"],
         "Laterality": null,
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -5868,7 +5868,7 @@
       },
       {
         "Formation": "corefolder",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Shoulder"],
         "Laterality": "#Lat_Right",
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -5894,7 +5894,7 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Shoulder"],
         "Laterality": "#Lat_Right",
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -6309,7 +6309,7 @@
       },
       {
         "Formation": "corefolder",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Chest"],
         "Laterality": "#Lat_Left",
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -6335,7 +6335,7 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Chest"],
         "Laterality": "#Lat_Left",
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -6770,7 +6770,7 @@
       },
       {
         "Formation": "corefolder",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Chest"],
         "Laterality": null,
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -6796,7 +6796,7 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Chest"],
         "Laterality": "#Lat_Left",
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -7339,7 +7339,7 @@
       },
       {
         "Formation": "corefolder",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Chest"],
         "Laterality": "#Lat_Left",
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -7365,7 +7365,7 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Neck"],
         "Laterality": "#Lat_Left",
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -7872,7 +7872,7 @@
       },
       {
         "Formation": "corefolder",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Head"],
         "Laterality": "#Lat_Right",
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -7898,7 +7898,7 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Head"],
         "Laterality": "#Lat_Right",
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -8353,7 +8353,7 @@
       },
       {
         "Formation": "corefolder",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Hair"],
         "Laterality": null,
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -8379,7 +8379,7 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Hair"],
         "Laterality": null,
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -8832,7 +8832,7 @@
       },
       {
         "Formation": "corefolder",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Chest"],
         "Laterality": "#Lat_Left",
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -8858,7 +8858,7 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Chest"],
         "Laterality": "#Lat_Left",
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -9254,7 +9254,7 @@
       },
       {
         "Formation": "corefolder",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Chest"],
         "Laterality": "#Lat_Left",
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -9280,7 +9280,7 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Chest"],
         "Laterality": "#Lat_Left",
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -9676,7 +9676,7 @@
       },
       {
         "Formation": "corefolder",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Neck"],
         "Laterality": null,
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -9702,7 +9702,7 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Waist"],
         "Laterality": null,
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -10223,7 +10223,7 @@
       },
       {
         "Formation": "corefolder",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Chest"],
         "Laterality": "#Lat_Left",
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -10249,7 +10249,7 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Shoulder"],
         "Laterality": "#Lat_Left",
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -10697,7 +10697,7 @@
       },
       {
         "Formation": "corefolder",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Chest"],
         "Laterality": "#Lat_Left",
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -10723,7 +10723,7 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Chest"],
         "Laterality": null,
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -11276,7 +11276,7 @@
       },
       {
         "Formation": "corefolder",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Waist"],
         "Laterality": "#Lat_Right",
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -11302,7 +11302,7 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Chest"],
         "Laterality": "#Lat_Right",
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -11792,7 +11792,7 @@
       },
       {
         "Formation": "corefolder",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Neck"],
         "Laterality": null,
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -11818,7 +11818,7 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Neck"],
         "Laterality": null,
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -12289,7 +12289,7 @@
       },
       {
         "Formation": "corefolder",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Chest"],
         "Laterality": "#Lat_Left",
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -12315,7 +12315,7 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Chest"],
         "Laterality": null,
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -12869,7 +12869,7 @@
       },
       {
         "Formation": "corefolder",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Chest"],
         "Laterality": null,
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -12895,7 +12895,7 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Chest"],
         "Laterality": null,
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -13352,7 +13352,7 @@
       },
       {
         "Formation": "corefolder",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Chest"],
         "Laterality": "#Lat_Left",
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -13378,7 +13378,7 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Chest"],
         "Laterality": "#Lat_Left",
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -13892,7 +13892,7 @@
       },
       {
         "Formation": "corefolder",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Chest"],
         "Laterality": null,
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -13918,7 +13918,7 @@
       },
       {
         "Formation": "corefolder",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Ear"],
         "Laterality": null,
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -13944,7 +13944,7 @@
       },
       {
         "Formation": "corefolder",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Shoulder"],
         "Laterality": "#Lat_Left",
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -13970,7 +13970,7 @@
       },
       {
         "Formation": "corefolder",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Shoulder"],
         "Laterality": "#Lat_Right",
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -13996,7 +13996,7 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Chest"],
         "Laterality": null,
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -14022,7 +14022,7 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Ear"],
         "Laterality": null,
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -14048,7 +14048,7 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Shoulder"],
         "Laterality": "#Lat_Left",
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -14074,7 +14074,7 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Shoulder"],
         "Laterality": "#Lat_Right",
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -14924,7 +14924,7 @@
       },
       {
         "Formation": "corefolder",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Chest"],
         "Laterality": "#Lat_Left",
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -14950,7 +14950,7 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Chest"],
         "Laterality": "#Lat_Left",
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -14976,7 +14976,7 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Hand"],
         "Laterality": "#Lat_Right",
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -15406,7 +15406,7 @@
       },
       {
         "Formation": "corefolder",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Chest"],
         "Laterality": "#Lat_Left",
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -15432,7 +15432,7 @@
       },
       {
         "Formation": "corefolder",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Shoulder"],
         "Laterality": "#Lat_Left",
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -15458,7 +15458,7 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Chest"],
         "Laterality": "#Lat_Left",
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -15484,7 +15484,7 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Shoulder"],
         "Laterality": "#Lat_Left",
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -15998,7 +15998,7 @@
       },
       {
         "Formation": "corefolder",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Waist"],
         "Laterality": "#Lat_Right",
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -16024,7 +16024,7 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Chest"],
         "Laterality": "#Lat_Right",
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -16470,7 +16470,7 @@
       },
       {
         "Formation": "corefolder",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Chest"],
         "Laterality": "#Lat_Left",
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -16496,7 +16496,7 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Chest"],
         "Laterality": "#Lat_Left",
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -16522,7 +16522,7 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Hand"],
         "Laterality": "#Lat_Right",
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -17034,7 +17034,7 @@
       },
       {
         "Formation": "corefolder",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Chest"],
         "Laterality": null,
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -17060,7 +17060,7 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Chest"],
         "Laterality": null,
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -17554,7 +17554,7 @@
       },
       {
         "Formation": "corefolder",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Chest"],
         "Laterality": "#Lat_Left",
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -17580,7 +17580,7 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Chest"],
         "Laterality": "#Lat_Left",
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -18139,7 +18139,7 @@
       },
       {
         "Formation": "corefolder",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Chest"],
         "Laterality": null,
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -18165,7 +18165,7 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Chest"],
         "Laterality": null,
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -18695,7 +18695,7 @@
       },
       {
         "Formation": "corefolder",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Neck"],
         "Laterality": null,
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -18721,7 +18721,7 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Neck"],
         "Laterality": null,
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -19315,7 +19315,7 @@
       },
       {
         "Formation": "corefolder",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Chest"],
         "Laterality": null,
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -19341,7 +19341,7 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Waist"],
         "Laterality": null,
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -19850,7 +19850,7 @@
       },
       {
         "Formation": "corefolder",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Waist"],
         "Laterality": null,
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -19876,7 +19876,7 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Waist"],
         "Laterality": null,
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -20335,7 +20335,7 @@
       },
       {
         "Formation": "corefolder",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Chest"],
         "Laterality": null,
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -20361,7 +20361,7 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Chest"],
         "Laterality": "#Lat_Left",
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -20862,7 +20862,7 @@
       },
       {
         "Formation": "corefolder",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Chest"],
         "Laterality": "#Lat_Left",
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -20888,7 +20888,7 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Chest"],
         "Laterality": "#Lat_Left",
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -21306,7 +21306,7 @@
       },
       {
         "Formation": "corefolder",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Chest"],
         "Laterality": null,
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -21332,7 +21332,7 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Chest"],
         "Laterality": null,
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -21779,7 +21779,7 @@
       },
       {
         "Formation": "corefolder",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Chest"],
         "Laterality": "#Lat_Left",
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -21805,7 +21805,7 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Chest"],
         "Laterality": "#Lat_Left",
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -22224,7 +22224,7 @@
       },
       {
         "Formation": "corefolder",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Waist"],
         "Laterality": "#Lat_Left",
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -22250,7 +22250,7 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Waist"],
         "Laterality": "#Lat_Left",
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -22642,7 +22642,7 @@
       },
       {
         "Formation": "corefolder",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Chest"],
         "Laterality": "#Lat_Left",
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -22668,7 +22668,7 @@
       },
       {
         "Formation": "corefolder",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Chest"],
         "Laterality": "#Lat_Left",
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -23115,7 +23115,7 @@
       },
       {
         "Formation": "corefolder",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Chest"],
         "Laterality": "#Lat_Left",
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -23141,7 +23141,7 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Chest"],
         "Laterality": "#Lat_Left",
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -23603,7 +23603,7 @@
       },
       {
         "Formation": "corefolder",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Chest"],
         "Laterality": "#Lat_Left",
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -23629,7 +23629,7 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Neck"],
         "Laterality": "#Lat_Left",
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -24087,7 +24087,7 @@
       },
       {
         "Formation": "corefolder",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Chest"],
         "Laterality": "#Lat_Left",
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -24113,7 +24113,7 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Shoulder"],
         "Laterality": "#Lat_Left",
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -24561,7 +24561,7 @@
       },
       {
         "Formation": "corefolder",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Arm"],
         "Laterality": "#Lat_Right",
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -24587,7 +24587,7 @@
       },
       {
         "Formation": "corefolder",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Waist"],
         "Laterality": "#Lat_Right",
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -25011,7 +25011,7 @@
       },
       {
         "Formation": "corefolder",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Chest"],
         "Laterality": "#Lat_Left",
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -25037,7 +25037,7 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Neck"],
         "Laterality": "#Lat_Left",
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -25449,7 +25449,7 @@
       },
       {
         "Formation": "corefolder",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Chest"],
         "Laterality": "#Lat_Left",
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -25475,7 +25475,7 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Shoulder"],
         "Laterality": "#Lat_Left",
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -25989,7 +25989,7 @@
       },
       {
         "Formation": "corefolder",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Chest"],
         "Laterality": "#Lat_Left",
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -26015,7 +26015,7 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Chest"],
         "Laterality": "#Lat_Left",
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -26523,7 +26523,7 @@
       },
       {
         "Formation": "corefolder",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Chest"],
         "Laterality": "#Lat_Both",
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -26549,7 +26549,7 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Chest"],
         "Laterality": "#Lat_Right",
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -26983,7 +26983,7 @@
       },
       {
         "Formation": "corefolder",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Chest"],
         "Laterality": "#Lat_Left",
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -27009,7 +27009,7 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Chest"],
         "Laterality": "#Lat_Left",
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -27515,7 +27515,7 @@
       },
       {
         "Formation": "corefolder",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Arm"],
         "Laterality": "#Lat_Right",
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -27541,7 +27541,7 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Arm"],
         "Laterality": "#Lat_Right",
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -28039,7 +28039,7 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Shoulder"],
         "Laterality": "#Lat_Left",
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -28545,7 +28545,7 @@
       },
       {
         "Formation": "corefolder",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Neck"],
         "Laterality": null,
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -28571,7 +28571,7 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Neck"],
         "Laterality": null,
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -29266,7 +29266,7 @@
       },
       {
         "Formation": "corefolder",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Head"],
         "Laterality": "#Lat_Right",
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -29292,7 +29292,7 @@
       },
       {
         "Formation": "corefolder",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Shoulder"],
         "Laterality": "#Lat_Both",
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -29318,7 +29318,7 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Head"],
         "Laterality": "#Lat_Right",
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -29344,7 +29344,7 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Shoulder"],
         "Laterality": "#Lat_Both",
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -30015,7 +30015,7 @@
       },
       {
         "Formation": "corefolder",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Arm"],
         "Laterality": "#Lat_Left",
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -30041,7 +30041,7 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Arm"],
         "Laterality": "#Lat_Left",
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -30483,7 +30483,7 @@
       },
       {
         "Formation": "corefolder",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Chest"],
         "Laterality": null,
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -30509,7 +30509,7 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Waist"],
         "Laterality": null,
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -30981,7 +30981,7 @@
       },
       {
         "Formation": "corefolder",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Chest"],
         "Laterality": "#Lat_Left",
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -31007,7 +31007,7 @@
       },
       {
         "Formation": "corefolder",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Chest"],
         "Laterality": "#Lat_Left",
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -31421,7 +31421,7 @@
       },
       {
         "Formation": "corefolder",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Chest"],
         "Laterality": "#Lat_Left",
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -31447,7 +31447,7 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Chest"],
         "Laterality": "#Lat_Left",
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -31864,7 +31864,7 @@
       },
       {
         "Formation": "corefolder",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Chest"],
         "Laterality": "#Lat_Right",
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -31890,7 +31890,7 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Chest"],
         "Laterality": "#Lat_Right",
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -32323,7 +32323,7 @@
       },
       {
         "Formation": "corefolder",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Chest"],
         "Laterality": "#Lat_Left",
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -32349,7 +32349,7 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Shoulder"],
         "Laterality": "#Lat_Left",
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -32686,7 +32686,7 @@
       },
       {
         "Formation": "corefolder",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Chest"],
         "Laterality": "#Lat_Left",
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -32712,7 +32712,7 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Shoulder"],
         "Laterality": "#Lat_Left",
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -33157,7 +33157,7 @@
       },
       {
         "Formation": "corefolder",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Head"],
         "Laterality": "#Lat_Right",
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -33183,7 +33183,7 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Head"],
         "Laterality": "#Lat_Right",
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -33633,7 +33633,7 @@
       },
       {
         "Formation": "corefolder",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Chest"],
         "Laterality": "#Lat_Left",
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -33659,7 +33659,7 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Chest"],
         "Laterality": "#Lat_Left",
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -33685,7 +33685,7 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Head"],
         "Laterality": null,
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -34109,7 +34109,7 @@
       },
       {
         "Formation": "corefolder",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Shoulder"],
         "Laterality": "#Lat_Left",
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -34135,7 +34135,7 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Waist"],
         "Laterality": "#Lat_Left",
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -34533,7 +34533,7 @@
       },
       {
         "Formation": "corefolder",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Hair"],
         "Laterality": null,
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -34559,7 +34559,7 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Hair"],
         "Laterality": null,
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -35013,7 +35013,7 @@
       },
       {
         "Formation": "corefolder",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Chest"],
         "Laterality": "#Lat_Right",
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -35039,7 +35039,7 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Neck"],
         "Laterality": "#Lat_Left",
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -35522,7 +35522,7 @@
       },
       {
         "Formation": "corefolder",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Head"],
         "Laterality": null,
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -35548,7 +35548,7 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Head"],
         "Laterality": null,
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -36046,7 +36046,7 @@
       },
       {
         "Formation": "corefolder",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Shoulder"],
         "Laterality": "#Lat_Left",
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -36072,7 +36072,7 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Shoulder"],
         "Laterality": "#Lat_Left",
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -36506,7 +36506,7 @@
       },
       {
         "Formation": "corefolder",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Arm"],
         "Laterality": "#Lat_Left",
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -36532,7 +36532,7 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Arm"],
         "Laterality": "#Lat_Left",
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -37017,7 +37017,7 @@
       },
       {
         "Formation": "corefolder",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Chest"],
         "Laterality": "#Lat_Left",
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -37043,7 +37043,7 @@
       },
       {
         "Formation": "corefolder",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Ear"],
         "Laterality": null,
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -37069,7 +37069,7 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Chest"],
         "Laterality": "#Lat_Left",
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -37095,7 +37095,7 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Ear"],
         "Laterality": null,
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -37569,7 +37569,7 @@
       },
       {
         "Formation": "corefolder",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Chest"],
         "Laterality": "#Lat_Left",
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -37595,7 +37595,7 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Chest"],
         "Laterality": "#Lat_Left",
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -38015,7 +38015,7 @@
       },
       {
         "Formation": "corefolder",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Ear"],
         "Laterality": null,
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -38036,7 +38036,7 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Ear"],
         "Laterality": null,
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -38615,7 +38615,7 @@
       },
       {
         "Formation": "corefolder",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Chest"],
         "Laterality": "#Lat_Left",
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -38641,7 +38641,7 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Chest"],
         "Laterality": "#Lat_Left",
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -39192,7 +39192,7 @@
       },
       {
         "Formation": "corefolder",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Chest"],
         "Laterality": "#Lat_Left",
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -39218,7 +39218,7 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Chest"],
         "Laterality": "#Lat_Left",
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -39674,7 +39674,7 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Shoulder"],
         "Laterality": "#Lat_Left",
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -40152,7 +40152,7 @@
       },
       {
         "Formation": "corefolder",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Head"],
         "Laterality": "#Lat_Right",
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -40178,7 +40178,7 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Head"],
         "Laterality": "#Lat_Right",
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -40640,7 +40640,7 @@
       },
       {
         "Formation": "corefolder",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Ear"],
         "Laterality": null,
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -40661,7 +40661,7 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Ear"],
         "Laterality": null,
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -41106,7 +41106,7 @@
       },
       {
         "Formation": "corefolder",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Neck"],
         "Laterality": null,
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -41132,7 +41132,7 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Neck"],
         "Laterality": null,
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -41670,7 +41670,7 @@
       },
       {
         "Formation": "corefolder",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Chest"],
         "Laterality": "#Lat_Right",
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -41696,7 +41696,7 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Chest"],
         "Laterality": "#Lat_Right",
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -42602,7 +42602,7 @@
       },
       {
         "Formation": "corefolder",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Chest"],
         "Laterality": null,
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -42628,7 +42628,7 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Waist"],
         "Laterality": null,
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -43127,7 +43127,7 @@
       },
       {
         "Formation": "corefolder",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Chest"],
         "Laterality": "#Lat_Left",
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -43153,7 +43153,7 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Shoulder"],
         "Laterality": "#Lat_Left",
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -43669,7 +43669,7 @@
       },
       {
         "Formation": "corefolder",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Chest"],
         "Laterality": "#Lat_Left",
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -43695,7 +43695,7 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Chest"],
         "Laterality": "#Lat_Left",
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -43721,7 +43721,7 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Head"],
         "Laterality": null,
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -44231,7 +44231,7 @@
       },
       {
         "Formation": "corefolder",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Chest"],
         "Laterality": "#Lat_Left",
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -44257,7 +44257,7 @@
       },
       {
         "Formation": "corefolder",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Head"],
         "Laterality": null,
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -44283,7 +44283,7 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Chest"],
         "Laterality": "#Lat_Left",
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -44309,7 +44309,7 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Head"],
         "Laterality": null,
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -44728,7 +44728,7 @@
       },
       {
         "Formation": "corefolder",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Chest"],
         "Laterality": "#Lat_Right",
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -44754,7 +44754,7 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Chest"],
         "Laterality": "#Lat_Right",
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -45217,7 +45217,7 @@
       },
       {
         "Formation": "corefolder",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Neck"],
         "Laterality": null,
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -45243,7 +45243,7 @@
       },
       {
         "Formation": "corefolder",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Head"],
         "Laterality": null,
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -45269,7 +45269,7 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Neck"],
         "Laterality": null,
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -45295,7 +45295,7 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Head"],
         "Laterality": null,
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -45877,7 +45877,7 @@
       },
       {
         "Formation": "corefolder",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Chest"],
         "Laterality": null,
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -45903,7 +45903,7 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Chest"],
         "Laterality": "#Lat_Left",
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -46226,7 +46226,7 @@
       },
       {
         "Formation": "corefolder",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Chest"],
         "Laterality": "#Lat_Left",
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -46586,7 +46586,7 @@
       },
       {
         "Formation": "corefolder",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Chest"],
         "Laterality": "#Lat_Left",
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -46612,7 +46612,7 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Chest"],
         "Laterality": "#Lat_Left",
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -46943,7 +46943,7 @@
       },
       {
         "Formation": null,
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Chest"],
         "Laterality": "#Lat_Right",
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
@@ -47227,7 +47227,7 @@
       },
       {
         "Formation": null,
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Chest"],
         "Laterality": "#Lat_Right",
         "DesignElement": "#Element_NumberMark",
         "Attrs": [
