@@ -15,6 +15,7 @@
 
 ## いま進行中のファイル
 
+- 2026-06-28_progress_deepl-localization.md（DeepL 翻訳のローカライズ運用組み込み。用語集生成/同期/添削スクリプト・`docs/deepl-localization.md`・用語集実登録 JA-EN142/EN-JA140。✅ 疎通確認済み。⚠️ `npm test` ローカル確認・`.env` 設定・コミットは User 端末で）
 - 2026-06-27_progress_design-part-schema.md（外見デザイン部位統合スキーマ仕様案。`AppearanceDetail` / `$Def_AppearanceDetail` / enum 設計・移行マッピング。⚠️ 未実装・機能提案段階）
 
 

@@ -1,5 +1,16 @@
 # 最新のリファクタリング・仕様変更履歴
 
+### DeepL 翻訳 — 創作 DB ローカライズ運用の組み込み (2026-06-28)
+
+- **監修済み辞書から DeepL 用語集を生成する仕組みを追加**: `data/Localization/trans_*.json` / `data/References/ref_*.json` / `data/Dictionaries/dict_*.json` の JP↔EN 対訳を抽出し、双方向の DeepL 用語集として登録できるようにした。固有名詞（作品名・地名・人物名・種族名等）の訳語ブレを防止。文章系フィールド（`Summary`/`BodyBlocks`/`about` 等）は用語集対象外。
+- **`tools/deepl/` 新規スクリプト群**: `build-glossary-source.mjs`（辞書走査→用語集ソース TSV/JSON 生成・キー型自動判定・衝突ログ出力）、`deepl-client.mjs`（DeepL REST API 薄いラッパ・`.env` 自動読込・Node 18 対応）、`sync-glossary.mjs`（同名削除→再作成方式で用語集更新・`glossary_id` 書き戻し）、`evaluate-translations.mjs`（既存 `_EN` と DeepL 機械訳の突き合わせレポート・**データ書き換えなし**の添削補助）。
+- **DeepL 用語集を実登録**: `100BL-CreationsDB JA-EN`（142 件）/ `100BL-CreationsDB EN-JA`（140 件）を作成。疎通確認で固有名詞（NumberTales / LotusNinea / Shôbai Technology / Zera Norumber 等）が正規表記に固定されることを確認。
+- **npm スクリプト追加**: `deepl:build-glossary` / `deepl:sync-glossary` / `deepl:eval`。
+- **ローカル環境設定**: `.env.example`（`DEEPL_API_KEY`）追加、`.gitignore` に `.env` 系を追加。生成物は `.cache/deepl/`（Git 管轄外・再生成可能）。
+- **ドキュメント**: `docs/deepl-localization.md`（運用ガイド：用語集の仕組み・ワークフロー・方向別運用・添削補助・上書き禁止の境界・既知の制約）を新規作成し、`docs/localization-en-rules.md` §8 から相互リンク。
+- **運用原則**: 既存 `_EN`/`_JP` の自動上書き禁止・創作本文の自動生成禁止を厳守。DeepL は「既存対訳の一貫適用」と「英訳突き合わせ（添削補助）」に限定。
+- 作業ローカル: 本体（`develop`）。詳細は `_work_in_progress/2026-06-28_progress_deepl-localization.md`。
+
 ### サイトUI 紺×水色サイエンスファンタジー化 — テーマCSS＋キャラ紹介ヒーロー帯 (2026-06-27)
 
 - **共通デザインシステム（`pages/characters.sass` / `pages/characters.css`）を「紺×水色 近代サイエンスファンタジー」へ刷新**: `:root` パレットを再設計（`--bg`/`--card`/`--accent`/`--border` ほか値変更）し、新トークン `--bg-deep` / `--panel` / `--accent-bright` / `--azure` / `--glow` / `--border-strong` を追加。既存変数名を維持して `var(--*)` 参照を一括追従させる最小差分方式。

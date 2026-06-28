@@ -10,6 +10,11 @@ _work_in_progress/.completed/
 
 *_temp.json
 
+# ローカル環境変数（API キー等）。.env.example のみコミットする
+.env
+.env.local
+.env.*.local
+
 # 自動生成カレンダー(.ics) — GitHub Pages ビルド時に生成する成果物(コミット対象外)
 /calendar/*.ics
 
