@@ -244,10 +244,18 @@ Phase C のデータ変換時に一括置換する。移行期間中は SW が�
 | フェーズ | 内容 | 前提 |
 |---|---|---|
 | **Phase A** | 設計確定 ✅ | — |
-| **Phase B** | スキーマ変更: `$Def_AppearanceAttr` 簡素化。`$EnumDef_ShapeType` / per-label メタ追加。`#Hexcode_Color` 登録 | Phase A |
+| **Phase B** | スキーマ変更 ✅ | Phase A |
 | **Phase C** | データ変換: NT TailsUnit Attrs を新構造に変換。`Value_JP/EN` → `value_JP/EN` 全置換 | Phase B |
 | **Phase D** | SW/UI 対応: `vdict_*` 辞書解決・`value_Num_{n}` 集計・Count 導出・グループ表示 | Phase C |
 | **Phase E** | テスト更新: Vitest テスト追加・更新 | Phase D |
+
+### Phase B 実施内容（2026-06-28）
+
+- **`$Def_AppearanceAttr` 簡素化**: `$DefType` から `Value_JP`/`Value_EN` を削除。`AttrLabel`（辞書参照）のみ宣言。規約駆動フィールドは `$DefType` に列挙しない。
+- **`$EnumDef_DesignAttrLabel` に `$fields` メタ追加（グローバル）**: 全7エントリに `$fields: [...]` を追加。各 AttrLabel で使用する規約駆動フィールドを列挙。
+- **`$EnumDef_DesignAttrLabel` に `$fields` / `$multi` メタ追加（NT ローカル）**: `#DesignAttr_Branch` に `$multi: true`（複数エントリ許容）と `$fields: ["vdict_Laterality", "value_Num_1", "value_Num_2"]`。`#DesignAttr_Segment` に `$fields: ["value_Num"]`。
+- **`$EnumDef_ShapeType` 新設（NT ローカル）**: TailsUnit で使用する形状7種を定義（Fox / FoxBranched / Cat / CatAccessory / Nekomata / Scorpion / Bud）。
+- **`$ScalarDef` 新設（`data/db_type.json`）**: `#Hexcode` ベース型と `#Hexcode_Color` サブタイプを登録。⚠️ `$TypeDef` は廃止済みキーとして既存テストで禁止されているため、`$ScalarDef` を採用。
 
 ---
 

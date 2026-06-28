@@ -704,16 +704,6 @@
             "$dict": "DesignAttrLabel",
             "hashTag_JP": "属性ラベル",
             "hashTag_EN": "Attribute Label"
-          },
-          {
-            "hashTag": "Value_JP",
-            "$type": "#String|#Null",
-            "hashTag_JP": "属性値"
-          },
-          {
-            "hashTag": "Value_EN",
-            "$type": "#String_EN|#Null",
-            "hashTag_EN": "Attribute Value"
           }
         ]
       },
@@ -942,37 +932,44 @@
         "#DesignAttr_Shape": {
           "AttrLabel": "Shape",
           "AttrLabel_JP": "形状",
-          "AttrLabel_EN": "Shape"
+          "AttrLabel_EN": "Shape",
+          "$fields": ["vdict_ShapeType", "value_JP", "value_EN"]
         },
         "#DesignAttr_Color": {
           "AttrLabel": "Color",
           "AttrLabel_JP": "色",
-          "AttrLabel_EN": "Color"
+          "AttrLabel_EN": "Color",
+          "$fields": ["value_Color", "value_JP", "value_EN"]
         },
         "#DesignAttr_Position": {
           "AttrLabel": "Position",
           "AttrLabel_JP": "位置",
-          "AttrLabel_EN": "Position"
+          "AttrLabel_EN": "Position",
+          "$fields": ["vdict_Laterality", "value_JP", "value_EN"]
         },
         "#DesignAttr_Notation": {
           "AttrLabel": "Notation",
           "AttrLabel_JP": "表記方式",
-          "AttrLabel_EN": "Notation"
+          "AttrLabel_EN": "Notation",
+          "$fields": ["vdict_NotationType", "value_JP", "value_EN"]
         },
         "#DesignAttr_Count": {
           "AttrLabel": "Count",
           "AttrLabel_JP": "本数・個数",
-          "AttrLabel_EN": "Count"
+          "AttrLabel_EN": "Count",
+          "$fields": ["value_Num"]
         },
         "#DesignAttr_Material": {
           "AttrLabel": "Material",
           "AttrLabel_JP": "素材感",
-          "AttrLabel_EN": "Material"
+          "AttrLabel_EN": "Material",
+          "$fields": ["value_JP", "value_EN"]
         },
         "#DesignAttr_Overview": {
           "AttrLabel": "Overview",
           "AttrLabel_JP": "概要",
-          "AttrLabel_EN": "Overview"
+          "AttrLabel_EN": "Overview",
+          "$fields": ["value_JP", "value_EN"]
         }
       }
     }

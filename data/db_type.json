@@ -753,5 +753,19 @@
         "hashTag_EN": "Label"
       }
     ]
+  },
+  "$ScalarDef": {
+    "#Hexcode": {
+      "description_JP": "16進数エンコーディングのベース型。長さ・用途はサブタイプで指定する。",
+      "description_EN": "Base type for hexadecimal-encoded values. Length and usage are specified by subtypes.",
+      "pattern": "^#[0-9A-Fa-f]+"
+    },
+    "#Hexcode_Color": {
+      "extends": "#Hexcode",
+      "description_JP": "RGB または RGBA カラーコード。#RRGGBB または #RRGGBBAA 形式。",
+      "description_EN": "RGB or RGBA color code in #RRGGBB or #RRGGBBAA format.",
+      "pattern": "^#[0-9A-Fa-f]{6}([0-9A-Fa-f]{2})?$",
+      "example": "#FF0000"
+    }
   }
 }
