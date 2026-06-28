@@ -207,6 +207,51 @@
   "General": {
     "Images": { "catalog_PNGName": ["chr-dsgn_catalog-summary"] },
     "$VarsDef": {
+      "$EnumDef_DesignElement": {
+        "#Element_TailsUnit": {
+          "DesignElement": "TailsUnit",
+          "DesignElement_JP": "尻尾ユニット",
+          "DesignElement_EN": "Tails Unit"
+        },
+        "#Element_NumberMark": {
+          "DesignElement": "NumberMark",
+          "DesignElement_JP": "番号の印字",
+          "DesignElement_EN": "Number Mark"
+        }
+      },
+      "$EnumDef_EarShapeType": {
+        "#EarShapeType_Fox": {
+          "EarShapeType": "Fox",
+          "EarShapeType_JP": "狐の耳",
+          "EarShapeType_EN": "Fox"
+        },
+        "#EarShapeType_Cat": {
+          "EarShapeType": "Cat",
+          "EarShapeType_JP": "猫の耳",
+          "EarShapeType_EN": "Cat"
+        }
+      },
+      "$EnumDef_DesignAttrLabel": {
+        "#DesignAttr_EarShape": {
+          "AttrLabel": "EarShape",
+          "AttrLabel_JP": "耳の形状",
+          "AttrLabel_EN": "Ear Shape",
+          "$fields": ["vdict_EarShapeType", "about_JP", "about_EN"]
+        },
+        "#DesignAttr_Branch": {
+          "AttrLabel": "Branch",
+          "AttrLabel_JP": "分岐配置",
+          "AttrLabel_EN": "Branch Layout",
+          "$fields": ["vdict_Laterality", "value_Num_1", "value_Num_2"],
+          "$multi": true
+        },
+        "#DesignAttr_Segment": {
+          "AttrLabel": "Segment",
+          "AttrLabel_JP": "節数",
+          "AttrLabel_EN": "Segment Count",
+          "$fields": ["value_Num"]
+        }
+      },
       "$Def_NumerospecStats": {
         "$Def_EffectStats": {
           "#ListLink_EffectText": [
@@ -334,6 +379,43 @@
               "Rank": "E"
             }
           ]
+        }
+      },
+      "$EnumDef_TailShapeType": {
+        "#TailShapeType_Fox": {
+          "TailShapeType": "Fox",
+          "TailShapeType_JP": "キツネ型",
+          "TailShapeType_EN": "Fox"
+        },
+        "#TailShapeType_FoxBranched": {
+          "TailShapeType": "FoxBranched",
+          "TailShapeType_JP": "キツネ(枝分かれ)型",
+          "TailShapeType_EN": "Fox (Branched)"
+        },
+        "#TailShapeType_Cat": {
+          "TailShapeType": "Cat",
+          "TailShapeType_JP": "猫型",
+          "TailShapeType_EN": "Cat"
+        },
+        "#TailShapeType_CatAccessory": {
+          "TailShapeType": "CatAccessory",
+          "TailShapeType_JP": "猫型(アクセサリー)",
+          "TailShapeType_EN": "Cat (with Accessory)"
+        },
+        "#TailShapeType_Nekomata": {
+          "TailShapeType": "Nekomata",
+          "TailShapeType_JP": "猫又型",
+          "TailShapeType_EN": "Nekomata"
+        },
+        "#TailShapeType_Scorpion": {
+          "TailShapeType": "Scorpion",
+          "TailShapeType_JP": "サソリ型",
+          "TailShapeType_EN": "Scorpion"
+        },
+        "#TailShapeType_Bud": {
+          "TailShapeType": "Bud",
+          "TailShapeType_JP": "つぼみ型",
+          "TailShapeType_EN": "Bud"
         }
       }
     },

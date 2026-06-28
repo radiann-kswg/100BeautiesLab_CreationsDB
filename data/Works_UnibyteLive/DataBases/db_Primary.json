@@ -47,6 +47,24 @@
     "BustSize": "H",
     "AccessoryUnit_JP": "Sの字状に波打ったポニーテールや猫型の尻尾",
     "AccessoryUnit_EN": "S-shaped wavy ponytail and cat-like tail",
+    "AppearanceDetail": [
+      {
+        "Formation": null,
+        "BodyPart": null,
+        "Laterality": null,
+        "DesignElement": "#Element_AccessoryUnit",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "Value_JP": "Sの字状に波打ったポニーテールや猫型の尻尾",
+            "Value_EN": "S-shaped wavy ponytail and cat-like tail"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "StreamingActivity": {
       "StreamingCategory_JP": [
         {
@@ -129,6 +147,24 @@
     "BustSize": "B",
     "AccessoryUnit_JP": "Zの字状に折り曲げられたポニーテールや鞄(錘)付きの尻尾",
     "AccessoryUnit_EN": "Z-shaped bent ponytail and a tail with a weighted bag attached",
+    "AppearanceDetail": [
+      {
+        "Formation": null,
+        "BodyPart": null,
+        "Laterality": null,
+        "DesignElement": "#Element_AccessoryUnit",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "Value_JP": "Zの字状に折り曲げられたポニーテールや鞄(錘)付きの尻尾",
+            "Value_EN": "Z-shaped bent ponytail and a tail with a weighted bag attached"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "StreamingActivity": {
       "StreamingCategory_JP": [],
       "StreamingGreeting": {
