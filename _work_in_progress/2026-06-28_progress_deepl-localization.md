@@ -72,3 +72,15 @@
 - `sync-glossary` / `eval` のローカル実行には `.env` の `DEEPL_API_KEY` 設定が必要（Cowork コネクタ経由なら不要）。
 - 本変更は `develop` 想定。AIHints 非該当のため `addon-ai-tag` への波及なし。コミット/プッシュは User 端末で実施（サンドボックスからの git 書き込みは不可）。
 - 将来案: 用語集ソースに人物呼称（`*Calling`）等の語彙を含めるかは、文章扱いとの線引きを要検討（現状は固有名詞・用語に限定）。
+
+---
+
+## 追補 (2026-06-28, sub2 / develop): 読み仮名グロス衝突対策
+
+- **背景**: 辞書再生成時、`算象(アリスマ)諸国`（読み併記形）と `算象諸国`（素形）が同一 EN `Alismathians` に対応し EN→JA で衝突。読みを振った固有名詞が増えるほど再発する構造的問題。
+- **方針（User 決定）**: EN→JA は素の漢字形を正規形／JA→EN は素形も自動追加してマッチ網羅を拡張。
+- **実装**: `build-glossary-source.mjs` v1.1。`stripReadingGloss`（漢字直後のかなのみ丸括弧だけ除去・修飾括弧は誤爆させない）。`buildJaEnMap`（素形自動追加）/`buildEnJaMap`（素形を訳先）に分離。
+- **結果**: EN→JA 衝突 2→0。JA→EN 142→144（素形展開）。誤爆なし（`(後天的)`等保持）。副産物として真の英語表記不一致 2 件を検出: `南雌大陸`(Evesouth vs Ivesouth)・`然天大陸`(Mainland vs Continent) → User 正規化待ち。
+- **用語集再登録**: 旧 ID 削除→新規作成。ja-en=`b442e49c-6496-49e4-a9d3-b031533f6ae1`(144) / en-ja=`4239f0a9-d775-49b9-a61f-822710ac28d9`(140)。疎通: 「算象諸国」⇄「Alismathians」双方向確認済み。
+- **注意（環境）**: 編集ツールの大容量ファイル末尾切断が再発したため、`build-glossary-source.mjs` は bash heredoc で書き直して整合を確保（251 行・構文OK・実行OK）。
+- **申し送り**: 本作業は sub2 の `develop` で実施。本体ローカル `develop` へ push→pull で同期すること（script/docs/CHANGELOG が対象）。

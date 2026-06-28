@@ -1,5 +1,19 @@
 # 最新のリファクタリング・仕様変更履歴
 
+### ローカライズ辞書 — 大陸名の英語表記統一 (2026-06-28)
+
+- **`南雌大陸` の英訳を `Ivesouth Mainland` に統一**（`Evesouth Mainland`／`Ivesouth Continent` の表記不一致を解消）。対象: `data/Dictionaries/dict_Area.json`・`data/Localization/trans_PlaceName.json`・`data/References/ref_Region8.json`。
+- **`然天大陸` の英訳を `Naitus Mainland` に統一**（`Naitus Continent` を是正）。対象: `data/References/ref_Region8.json`。
+- これは DeepL 用語集再生成時の「読みグロス正規化」が炙り出した真の表記不一致への対応（User 判断）。修正後、用語集ソースは JA→EN 144／EN→JA 138 で**衝突 0**。DeepL 用語集も再登録（疎通確認済み: `南雌大陸→Ivesouth Mainland`／`然天大陸→Naitus Mainland`）。
+- 作業ローカル: sub2（`develop`）。`data/**` 変更のため、本体ローカルで `npm test`（Vitest）の確認を推奨。
+
+### DeepL 用語集 — 読み仮名グロス正規化（衝突対策） (2026-06-28)
+
+- **`tools/deepl/build-glossary-source.mjs` v1.1**: 読み仮名併記形（`漢字(かな)`、例 `算象(アリスマ)諸国`）と素形（`算象諸国`）が同一 EN に対応して **EN→JA で衝突**する問題を構造的に解消。`stripReadingGloss` を追加し、「漢字直後のかなのみ丸括弧」だけを読みグロスとして検出（`(後天的)`/`(拡張装備あり)` 等の修飾括弧は誤爆させない）。
+- **EN→JA**: 訳先 JP は常に素形を採用（機械訳にフリガナを混ぜない／素の漢字形を正とする）。**JA→EN**: グロスを剥いた素形もソースへ自動追加し、素形・併記形どちらの入力でも英訳が効くようにした（マッチ網羅の拡張）。
+- **衝突ログの意味変更**: 読みグロス差は自動正規化され `glossary-conflicts.md` に出なくなり、残るのは「素形でも EN が食い違う」真の衝突のみ。これにより既存データの英語表記不一致 2 件（`南雌大陸`: Evesouth Mainland vs **I**vesouth Continent / `然天大陸`: Naitus **Mainland** vs **Continent**）を検出（User 判断で正規化）。
+- 用語集を再登録: JA-EN 142→144（素形展開分）・EN-JA 140。`docs/deepl-localization.md` に §7「読み仮名グロスの正規化」を追記。作業ローカル: sub2（`develop`）。
+
 ### DeepL 翻訳 — 創作 DB ローカライズ運用の組み込み (2026-06-28)
 
 - **監修済み辞書から DeepL 用語集を生成する仕組みを追加**: `data/Localization/trans_*.json` / `data/References/ref_*.json` / `data/Dictionaries/dict_*.json` の JP↔EN 対訳を抽出し、双方向の DeepL 用語集として登録できるようにした。固有名詞（作品名・地名・人物名・種族名等）の訳語ブレを防止。文章系フィールド（`Summary`/`BodyBlocks`/`about` 等）は用語集対象外。

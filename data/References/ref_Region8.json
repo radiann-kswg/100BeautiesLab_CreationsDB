@@ -120,11 +120,11 @@
   {
     "Term_JP": "海陸国(シーバイランド)諸島",
     "Term_JPReading": "シーバイランドしょとう",
-    "Term_EN": "(Archipelago of) Seabyislands",
+    "Term_EN": "Seabyislands",
     "TermType": null,
     "Category": "Worlds",
     "Summary_JP": "創作世界「第８界」の南部中央「海陸国(シーバイランド)諸島」についての資料。",
-    "Summary_EN": "Reference material about the south-central part of the fictional world '#REGION.8': '(Archipelago of) Seabyislands'.",
+    "Summary_EN": "Reference material about the south-central part of the fictional world '#REGION.8': 'Seabyislands'.",
     "BodyBlocks_JP": [
       "第８界の南部中央に位置する大小からなる島国。",
       "かつては英皇国の管轄内にあったことと、現在九蓮国と学業面で友好関係があることから、78特殊探偵団こと運命線探偵の中継地点となっているだけでなく、水源や自然などといった天然資源については同組織の環境保全対象となっている。"
@@ -246,7 +246,7 @@
   {
     "Term_JP": "南雌大陸",
     "Term_JPReading": "イヴソースたいりく",
-    "Term_EN": "Ivesouth Continent",
+    "Term_EN": "Ivesouth Mainland",
     "TermType": null,
     "Category": "Worlds",
     "Summary_JP": null,
@@ -259,7 +259,7 @@
   {
     "Term_JP": "然天大陸",
     "Term_JPReading": "ネーザたいりく",
-    "Term_EN": "Naitus Continent",
+    "Term_EN": "Naitus Mainland",
     "TermType": null,
     "Category": "Worlds",
     "Summary_JP": null,
