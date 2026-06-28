@@ -164,12 +164,17 @@
         "Formation": null,
         "BodyPart": ["#BodyPart_Tail"],
         "Laterality": null,
-        "DesignElement": null,
+        "DesignElement": "#Element_TailsUnit",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "Value_JP": "キツネ型1本",
-            "Value_EN": "Single fox-type tail"
+            "Value_JP": "キツネ型",
+            "Value_EN": "Fox-type"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Count",
+            "Value_JP": "1本",
+            "Value_EN": "1 tail"
           }
         ],
         "img_PNGName": null,
@@ -783,12 +788,17 @@
         "Formation": null,
         "BodyPart": ["#BodyPart_Tail"],
         "Laterality": null,
-        "DesignElement": null,
+        "DesignElement": "#Element_TailsUnit",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "Value_JP": "キツネ型2本",
-            "Value_EN": "Twin fox-type tails"
+            "Value_JP": "キツネ型",
+            "Value_EN": "Fox-type"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Count",
+            "Value_JP": "2本",
+            "Value_EN": "2 tails"
           }
         ],
         "img_PNGName": null,
@@ -1264,12 +1274,17 @@
         "Formation": null,
         "BodyPart": ["#BodyPart_Tail"],
         "Laterality": null,
-        "DesignElement": null,
+        "DesignElement": "#Element_TailsUnit",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "Value_JP": "キツネ型3本",
-            "Value_EN": "Three fox-type tails"
+            "Value_JP": "キツネ型",
+            "Value_EN": "Fox-type"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Count",
+            "Value_JP": "3本",
+            "Value_EN": "3 tails"
           }
         ],
         "img_PNGName": null,
@@ -1718,12 +1733,17 @@
         "Formation": null,
         "BodyPart": ["#BodyPart_Tail"],
         "Laterality": null,
-        "DesignElement": null,
+        "DesignElement": "#Element_TailsUnit",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "Value_JP": "キツネ型4本",
-            "Value_EN": "Four fox-type tails"
+            "Value_JP": "キツネ型",
+            "Value_EN": "Fox-type"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Count",
+            "Value_JP": "4本",
+            "Value_EN": "4 tails"
           }
         ],
         "img_PNGName": null,
@@ -2245,12 +2265,17 @@
         "Formation": null,
         "BodyPart": ["#BodyPart_Tail"],
         "Laterality": null,
-        "DesignElement": null,
+        "DesignElement": "#Element_TailsUnit",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "Value_JP": "キツネ型5本",
-            "Value_EN": "Five fox-type tails"
+            "Value_JP": "キツネ型",
+            "Value_EN": "Fox-type"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Count",
+            "Value_JP": "5本",
+            "Value_EN": "5 tails"
           }
         ],
         "img_PNGName": null,
@@ -2728,12 +2753,17 @@
         "Formation": null,
         "BodyPart": ["#BodyPart_Tail"],
         "Laterality": null,
-        "DesignElement": null,
+        "DesignElement": "#Element_TailsUnit",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "Value_JP": "キツネ型6本",
-            "Value_EN": "Six fox-type tails"
+            "Value_JP": "キツネ型",
+            "Value_EN": "Fox-type"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Count",
+            "Value_JP": "6本",
+            "Value_EN": "6 tails"
           }
         ],
         "img_PNGName": null,
@@ -3219,12 +3249,17 @@
         "Formation": null,
         "BodyPart": ["#BodyPart_Tail"],
         "Laterality": null,
-        "DesignElement": null,
+        "DesignElement": "#Element_TailsUnit",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "Value_JP": "キツネ型7本",
-            "Value_EN": "Seven fox-type tails"
+            "Value_JP": "キツネ型",
+            "Value_EN": "Fox-type"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Count",
+            "Value_JP": "7本",
+            "Value_EN": "7 tails"
           }
         ],
         "img_PNGName": null,
@@ -3703,12 +3738,17 @@
         "Formation": null,
         "BodyPart": ["#BodyPart_Tail"],
         "Laterality": null,
-        "DesignElement": null,
+        "DesignElement": "#Element_TailsUnit",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "Value_JP": "キツネ型8本",
-            "Value_EN": "Eight fox-type tails"
+            "Value_JP": "キツネ型",
+            "Value_EN": "Fox-type"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Count",
+            "Value_JP": "8本",
+            "Value_EN": "8 tails"
           }
         ],
         "img_PNGName": null,
@@ -4210,12 +4250,17 @@
         "Formation": null,
         "BodyPart": ["#BodyPart_Tail"],
         "Laterality": null,
-        "DesignElement": null,
+        "DesignElement": "#Element_TailsUnit",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "Value_JP": "キツネ型9本",
-            "Value_EN": "Nine fox-type tails"
+            "Value_JP": "キツネ型",
+            "Value_EN": "Fox-type"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Count",
+            "Value_JP": "9本",
+            "Value_EN": "9 tails"
           }
         ],
         "img_PNGName": null,
@@ -4742,12 +4787,22 @@
         "Formation": null,
         "BodyPart": ["#BodyPart_Tail"],
         "Laterality": null,
-        "DesignElement": null,
+        "DesignElement": "#Element_TailsUnit",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "Value_JP": "つぼみ型1本（大1束+小9束）",
-            "Value_EN": "Single bud-type tail (1 large cluster + 9 small clusters)"
+            "Value_JP": "つぼみ型",
+            "Value_EN": "Bud-type"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Count",
+            "Value_JP": "1本",
+            "Value_EN": "1 tail"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Branch",
+            "Value_JP": "大1束+小9束",
+            "Value_EN": "1 large cluster + 9 small clusters"
           }
         ],
         "img_PNGName": null,
@@ -5307,12 +5362,17 @@
         "Formation": null,
         "BodyPart": ["#BodyPart_Tail"],
         "Laterality": null,
-        "DesignElement": null,
+        "DesignElement": "#Element_TailsUnit",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "Value_JP": "猫又型11本",
-            "Value_EN": "Eleven nekomata-type tails"
+            "Value_JP": "猫又型",
+            "Value_EN": "Nekomata-type"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Count",
+            "Value_JP": "11本",
+            "Value_EN": "11 tails"
           }
         ],
         "img_PNGName": null,
@@ -5784,12 +5844,22 @@
         "Formation": null,
         "BodyPart": ["#BodyPart_Tail"],
         "Laterality": null,
-        "DesignElement": null,
+        "DesignElement": "#Element_TailsUnit",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "Value_JP": "キツネ(枝分かれ)型2本(上2束1本+下1束1本)",
-            "Value_EN": "Fox (branched) type: 2 tails (upper: 2 clusters x1, lower: 1 cluster x1)"
+            "Value_JP": "キツネ(枝分かれ)型",
+            "Value_EN": "Fox (branched)"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Count",
+            "Value_JP": "2本",
+            "Value_EN": "2 tails"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Branch",
+            "Value_JP": "上2束×1本+下1束×1本",
+            "Value_EN": "upper: 2 clusters × 1, lower: 1 cluster × 1"
           }
         ],
         "img_PNGName": null,
@@ -6215,12 +6285,22 @@
         "Formation": null,
         "BodyPart": ["#BodyPart_Tail"],
         "Laterality": null,
-        "DesignElement": null,
+        "DesignElement": "#Element_TailsUnit",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "Value_JP": "キツネ(枝分かれ)型3本(上2束1本+下1束2本)",
-            "Value_EN": "Fox (branched) type: 3 tails (upper: 2 clusters x1, lower: 1 cluster x2)"
+            "Value_JP": "キツネ(枝分かれ)型",
+            "Value_EN": "Fox (branched)"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Count",
+            "Value_JP": "3本",
+            "Value_EN": "3 tails"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Branch",
+            "Value_JP": "上2束×1本+下1束×2本",
+            "Value_EN": "upper: 2 clusters × 1, lower: 1 cluster × 2"
           }
         ],
         "img_PNGName": null,
@@ -6666,12 +6746,22 @@
         "Formation": null,
         "BodyPart": ["#BodyPart_Tail"],
         "Laterality": null,
-        "DesignElement": null,
+        "DesignElement": "#Element_TailsUnit",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "Value_JP": "キツネ(枝分かれ)型4本(上2束1本+下1束3本)",
-            "Value_EN": "Fox (branched) type: 4 tails (upper: 2 clusters x1, lower: 1 cluster x3)"
+            "Value_JP": "キツネ(枝分かれ)型",
+            "Value_EN": "Fox (branched)"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Count",
+            "Value_JP": "4本",
+            "Value_EN": "4 tails"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Branch",
+            "Value_JP": "上2束×1本+下1束×3本",
+            "Value_EN": "upper: 2 clusters × 1, lower: 1 cluster × 3"
           }
         ],
         "img_PNGName": null,
@@ -7225,12 +7315,22 @@
         "Formation": null,
         "BodyPart": ["#BodyPart_Tail"],
         "Laterality": null,
-        "DesignElement": null,
+        "DesignElement": "#Element_TailsUnit",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "Value_JP": "キツネ(枝分かれ)型5本(上2束1本+下1束4本)",
-            "Value_EN": "Fox (branched) type: 5 tails (upper: 2 clusters x1, lower: 1 cluster x4)"
+            "Value_JP": "キツネ(枝分かれ)型",
+            "Value_EN": "Fox (branched)"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Count",
+            "Value_JP": "5本",
+            "Value_EN": "5 tails"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Branch",
+            "Value_JP": "上2束×1本+下1束×4本",
+            "Value_EN": "upper: 2 clusters × 1, lower: 1 cluster × 4"
           }
         ],
         "img_PNGName": null,
@@ -7748,12 +7848,22 @@
         "Formation": null,
         "BodyPart": ["#BodyPart_Tail"],
         "Laterality": null,
-        "DesignElement": null,
+        "DesignElement": "#Element_TailsUnit",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "Value_JP": "キツネ(枝分かれ)型6本(上2束1本+下1束5本)",
-            "Value_EN": "Fox (branched) type: 6 tails (upper: 2 clusters x1, lower: 1 cluster x5)"
+            "Value_JP": "キツネ(枝分かれ)型",
+            "Value_EN": "Fox (branched)"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Count",
+            "Value_JP": "6本",
+            "Value_EN": "6 tails"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Branch",
+            "Value_JP": "上2束×1本+下1束×5本",
+            "Value_EN": "upper: 2 clusters × 1, lower: 1 cluster × 5"
           }
         ],
         "img_PNGName": null,
@@ -8219,12 +8329,22 @@
         "Formation": null,
         "BodyPart": ["#BodyPart_Tail"],
         "Laterality": null,
-        "DesignElement": null,
+        "DesignElement": "#Element_TailsUnit",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "Value_JP": "キツネ(枝分かれ)型7本(上2束1本+下1束6本)",
-            "Value_EN": "Fox (branched) type: 7 tails (upper: 2 clusters x1, lower: 1 cluster x6)"
+            "Value_JP": "キツネ(枝分かれ)型",
+            "Value_EN": "Fox (branched)"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Count",
+            "Value_JP": "7本",
+            "Value_EN": "7 tails"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Branch",
+            "Value_JP": "上2束×1本+下1束×6本",
+            "Value_EN": "upper: 2 clusters × 1, lower: 1 cluster × 6"
           }
         ],
         "img_PNGName": null,
@@ -8688,12 +8808,22 @@
         "Formation": null,
         "BodyPart": ["#BodyPart_Tail"],
         "Laterality": null,
-        "DesignElement": null,
+        "DesignElement": "#Element_TailsUnit",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "Value_JP": "キツネ(枝分かれ)型8本(上2束1本+下1束7本)",
-            "Value_EN": "Fox (branched) type: 8 tails (upper: 2 clusters x1, lower: 1 cluster x7)"
+            "Value_JP": "キツネ(枝分かれ)型",
+            "Value_EN": "Fox (branched)"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Count",
+            "Value_JP": "8本",
+            "Value_EN": "8 tails"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Branch",
+            "Value_JP": "上2束×1本+下1束×7本",
+            "Value_EN": "upper: 2 clusters × 1, lower: 1 cluster × 7"
           }
         ],
         "img_PNGName": null,
@@ -9100,12 +9230,22 @@
         "Formation": null,
         "BodyPart": ["#BodyPart_Tail"],
         "Laterality": null,
-        "DesignElement": null,
+        "DesignElement": "#Element_TailsUnit",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "Value_JP": "キツネ(枝分かれ)型9本(上2束1本+下1束8本)",
-            "Value_EN": "Fox (branched) type: 9 tails (upper: 2 clusters x1, lower: 1 cluster x8)"
+            "Value_JP": "キツネ(枝分かれ)型",
+            "Value_EN": "Fox (branched)"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Count",
+            "Value_JP": "9本",
+            "Value_EN": "9 tails"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Branch",
+            "Value_JP": "上2束×1本+下1束×8本",
+            "Value_EN": "upper: 2 clusters × 1, lower: 1 cluster × 8"
           }
         ],
         "img_PNGName": null,
@@ -9517,12 +9657,17 @@
         "Formation": null,
         "BodyPart": ["#BodyPart_Tail"],
         "Laterality": null,
-        "DesignElement": null,
+        "DesignElement": "#Element_TailsUnit",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "Value_JP": "キツネ型2本",
-            "Value_EN": "Two fox-type tails"
+            "Value_JP": "キツネ型",
+            "Value_EN": "Fox-type"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Count",
+            "Value_JP": "2本",
+            "Value_EN": "2 tails"
           }
         ],
         "img_PNGName": null,
@@ -10054,12 +10199,22 @@
         "Formation": null,
         "BodyPart": ["#BodyPart_Tail"],
         "Laterality": null,
-        "DesignElement": null,
+        "DesignElement": "#Element_TailsUnit",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "Value_JP": "キツネ(枝分かれ)型2本(上2束1本+下1束1本)",
-            "Value_EN": "Fox (branched) type: 2 tails (upper: 2 clusters x1, lower: 1 cluster x1)"
+            "Value_JP": "キツネ(枝分かれ)型",
+            "Value_EN": "Fox (branched)"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Count",
+            "Value_JP": "2本",
+            "Value_EN": "2 tails"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Branch",
+            "Value_JP": "上2束×1本+下1束×1本",
+            "Value_EN": "upper: 2 clusters × 1, lower: 1 cluster × 1"
           }
         ],
         "img_PNGName": null,
@@ -10518,12 +10673,22 @@
         "Formation": null,
         "BodyPart": ["#BodyPart_Tail"],
         "Laterality": null,
-        "DesignElement": null,
+        "DesignElement": "#Element_TailsUnit",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "Value_JP": "サソリ型2本（それぞれ11束[節]）",
-            "Value_EN": "Two scorpion-type tails (each with 11 clusters/segments)"
+            "Value_JP": "サソリ型",
+            "Value_EN": "Scorpion-type"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Count",
+            "Value_JP": "2本",
+            "Value_EN": "2 tails"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Segment",
+            "Value_JP": "11節",
+            "Value_EN": "11 segments each"
           }
         ],
         "img_PNGName": null,
@@ -11087,12 +11252,22 @@
         "Formation": null,
         "BodyPart": ["#BodyPart_Tail"],
         "Laterality": null,
-        "DesignElement": null,
+        "DesignElement": "#Element_TailsUnit",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "Value_JP": "キツネ(枝分かれ)型3本(上2束2本+下1束1本)",
-            "Value_EN": "Fox (branched) type: 3 tails (upper: 2 clusters x2, lower: 1 cluster x1)"
+            "Value_JP": "キツネ(枝分かれ)型",
+            "Value_EN": "Fox (branched)"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Count",
+            "Value_JP": "3本",
+            "Value_EN": "3 tails"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Branch",
+            "Value_JP": "上2束×2本+下1束×1本",
+            "Value_EN": "upper: 2 clusters × 2, lower: 1 cluster × 1"
           }
         ],
         "img_PNGName": null,
@@ -11593,12 +11768,22 @@
         "Formation": null,
         "BodyPart": ["#BodyPart_Tail"],
         "Laterality": null,
-        "DesignElement": null,
+        "DesignElement": "#Element_TailsUnit",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "Value_JP": "キツネ(枝分かれ)型4本(上2束2本+下1束2本)",
-            "Value_EN": "Fox (branched) type: 4 tails (upper: 2 clusters x2, lower: 1 cluster x2)"
+            "Value_JP": "キツネ(枝分かれ)型",
+            "Value_EN": "Fox (branched)"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Count",
+            "Value_JP": "4本",
+            "Value_EN": "4 tails"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Branch",
+            "Value_JP": "上2束×2本+下1束×2本",
+            "Value_EN": "upper: 2 clusters × 2, lower: 1 cluster × 2"
           }
         ],
         "img_PNGName": null,
@@ -12080,12 +12265,22 @@
         "Formation": null,
         "BodyPart": ["#BodyPart_Tail"],
         "Laterality": null,
-        "DesignElement": null,
+        "DesignElement": "#Element_TailsUnit",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "Value_JP": "キツネ(枝分かれ)型5本(上2束2本+下1束3本)",
-            "Value_EN": "Fox (branched) type: 5 tails (upper: 2 clusters x2, lower: 1 cluster x3)"
+            "Value_JP": "キツネ(枝分かれ)型",
+            "Value_EN": "Fox (branched)"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Count",
+            "Value_JP": "5本",
+            "Value_EN": "5 tails"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Branch",
+            "Value_JP": "上2束×2本+下1束×3本",
+            "Value_EN": "upper: 2 clusters × 2, lower: 1 cluster × 3"
           }
         ],
         "img_PNGName": null,
@@ -12650,12 +12845,22 @@
         "Formation": null,
         "BodyPart": ["#BodyPart_Tail"],
         "Laterality": null,
-        "DesignElement": null,
+        "DesignElement": "#Element_TailsUnit",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "Value_JP": "キツネ(枝分かれ)型6本(上2束2本+下1束4本)",
-            "Value_EN": "Fox (branched) type: 6 tails (upper: 2 clusters x2, lower: 1 cluster x4)"
+            "Value_JP": "キツネ(枝分かれ)型",
+            "Value_EN": "Fox (branched)"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Count",
+            "Value_JP": "6本",
+            "Value_EN": "6 tails"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Branch",
+            "Value_JP": "上2束×2本+下1束×4本",
+            "Value_EN": "upper: 2 clusters × 2, lower: 1 cluster × 4"
           }
         ],
         "img_PNGName": null,
@@ -13123,12 +13328,22 @@
         "Formation": null,
         "BodyPart": ["#BodyPart_Tail"],
         "Laterality": null,
-        "DesignElement": null,
+        "DesignElement": "#Element_TailsUnit",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "Value_JP": "キツネ(枝分かれ)型7本(上2束2本+下1束5本)",
-            "Value_EN": "Fox (branched) type: 7 tails (upper: 2 clusters x2, lower: 1 cluster x5)"
+            "Value_JP": "キツネ(枝分かれ)型",
+            "Value_EN": "Fox (branched)"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Count",
+            "Value_JP": "7本",
+            "Value_EN": "7 tails"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Branch",
+            "Value_JP": "上2束×2本+下1束×5本",
+            "Value_EN": "upper: 2 clusters × 2, lower: 1 cluster × 5"
           }
         ],
         "img_PNGName": null,
@@ -13653,12 +13868,22 @@
         "Formation": null,
         "BodyPart": ["#BodyPart_Tail"],
         "Laterality": null,
-        "DesignElement": null,
+        "DesignElement": "#Element_TailsUnit",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "Value_JP": "キツネ(枝分かれ)型8本(上2束2本+下1束6本)",
-            "Value_EN": "Fox (branched) type: 8 tails (upper: 2 clusters x2, lower: 1 cluster x6)"
+            "Value_JP": "キツネ(枝分かれ)型",
+            "Value_EN": "Fox (branched)"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Count",
+            "Value_JP": "8本",
+            "Value_EN": "8 tails"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Branch",
+            "Value_JP": "上2束×2本+下1束×6本",
+            "Value_EN": "upper: 2 clusters × 2, lower: 1 cluster × 6"
           }
         ],
         "img_PNGName": null,
@@ -14221,12 +14446,22 @@
         "Formation": null,
         "BodyPart": ["#BodyPart_Tail"],
         "Laterality": null,
-        "DesignElement": null,
+        "DesignElement": "#Element_TailsUnit",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "Value_JP": "キツネ(枝分かれ)型9本(上2束2本+下1束7本)",
-            "Value_EN": "Fox (branched) type: 9 tails (upper: 2 clusters x2, lower: 1 cluster x7)"
+            "Value_JP": "キツネ(枝分かれ)型",
+            "Value_EN": "Fox (branched)"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Count",
+            "Value_JP": "9本",
+            "Value_EN": "9 tails"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Branch",
+            "Value_JP": "上2束×2本+下1束×7本",
+            "Value_EN": "upper: 2 clusters × 2, lower: 1 cluster × 7"
           }
         ],
         "img_PNGName": null,
@@ -14670,12 +14905,17 @@
         "Formation": null,
         "BodyPart": ["#BodyPart_Tail"],
         "Laterality": null,
-        "DesignElement": null,
+        "DesignElement": "#Element_TailsUnit",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "Value_JP": "キツネ型3本",
-            "Value_EN": "Three fox-type tails"
+            "Value_JP": "キツネ型",
+            "Value_EN": "Fox-type"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Count",
+            "Value_JP": "3本",
+            "Value_EN": "3 tails"
           }
         ],
         "img_PNGName": null,
@@ -15142,12 +15382,22 @@
         "Formation": null,
         "BodyPart": ["#BodyPart_Tail"],
         "Laterality": null,
-        "DesignElement": null,
+        "DesignElement": "#Element_TailsUnit",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "Value_JP": "キツネ(枝分かれ)型3本(上1束2本+下2束1本)",
-            "Value_EN": "Fox (branched) type: 3 tails (upper: 1 cluster x2, lower: 2 clusters x1)"
+            "Value_JP": "キツネ(枝分かれ)型",
+            "Value_EN": "Fox (branched)"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Count",
+            "Value_JP": "3本",
+            "Value_EN": "3 tails"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Branch",
+            "Value_JP": "上1束×2本+下2束×1本",
+            "Value_EN": "upper: 1 cluster × 2, lower: 2 clusters × 1"
           }
         ],
         "img_PNGName": null,
@@ -15724,12 +15974,22 @@
         "Formation": null,
         "BodyPart": ["#BodyPart_Tail"],
         "Laterality": null,
-        "DesignElement": null,
+        "DesignElement": "#Element_TailsUnit",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "Value_JP": "キツネ(枝分かれ)型3本(上1束1本+下2束2本)",
-            "Value_EN": "Fox (branched) type: 3 tails (upper: 1 cluster x1, lower: 2 clusters x2)"
+            "Value_JP": "キツネ(枝分かれ)型",
+            "Value_EN": "Fox (branched)"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Count",
+            "Value_JP": "3本",
+            "Value_EN": "3 tails"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Branch",
+            "Value_JP": "上1束×1本+下2束×2本",
+            "Value_EN": "upper: 1 cluster × 1, lower: 2 clusters × 2"
           }
         ],
         "img_PNGName": null,
@@ -16186,12 +16446,22 @@
         "Formation": null,
         "BodyPart": ["#BodyPart_Tail"],
         "Laterality": null,
-        "DesignElement": null,
+        "DesignElement": "#Element_TailsUnit",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "Value_JP": "キツネ(枝分かれ)型2束x3本",
-            "Value_EN": "Fox (branched) type: 2 clusters x3 tails"
+            "Value_JP": "キツネ(枝分かれ)型",
+            "Value_EN": "Fox (branched)"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Count",
+            "Value_JP": "3本",
+            "Value_EN": "3 tails"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Branch",
+            "Value_JP": "2束",
+            "Value_EN": "2 clusters each"
           }
         ],
         "img_PNGName": null,
@@ -16740,12 +17010,22 @@
         "Formation": null,
         "BodyPart": ["#BodyPart_Tail"],
         "Laterality": null,
-        "DesignElement": null,
+        "DesignElement": "#Element_TailsUnit",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "Value_JP": "キツネ(枝分かれ)型4本(上2束3本+下1束1本)",
-            "Value_EN": "Fox (branched) type: 4 tails (upper: 2 clusters x3, lower: 1 cluster x1)"
+            "Value_JP": "キツネ(枝分かれ)型",
+            "Value_EN": "Fox (branched)"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Count",
+            "Value_JP": "4本",
+            "Value_EN": "4 tails"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Branch",
+            "Value_JP": "上2束×3本+下1束×1本",
+            "Value_EN": "upper: 2 clusters × 3, lower: 1 cluster × 1"
           }
         ],
         "img_PNGName": null,
@@ -17250,12 +17530,22 @@
         "Formation": null,
         "BodyPart": ["#BodyPart_Tail"],
         "Laterality": null,
-        "DesignElement": null,
+        "DesignElement": "#Element_TailsUnit",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "Value_JP": "キツネ(枝分かれ)型5本(上2束3本+下1束2本)",
-            "Value_EN": "Fox (branched) type: 5 tails (upper: 2 clusters x3, lower: 1 cluster x2)"
+            "Value_JP": "キツネ(枝分かれ)型",
+            "Value_EN": "Fox (branched)"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Count",
+            "Value_JP": "5本",
+            "Value_EN": "5 tails"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Branch",
+            "Value_JP": "上2束×3本+下1束×2本",
+            "Value_EN": "upper: 2 clusters × 3, lower: 1 cluster × 2"
           }
         ],
         "img_PNGName": null,
@@ -17825,12 +18115,22 @@
         "Formation": null,
         "BodyPart": ["#BodyPart_Tail"],
         "Laterality": null,
-        "DesignElement": null,
+        "DesignElement": "#Element_TailsUnit",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "Value_JP": "キツネ(枝分かれ)型6本(上2束3本+下1束3本)",
-            "Value_EN": "Fox (branched) type: 6 tails (upper: 2 clusters x3, lower: 1 cluster x3)"
+            "Value_JP": "キツネ(枝分かれ)型",
+            "Value_EN": "Fox (branched)"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Count",
+            "Value_JP": "6本",
+            "Value_EN": "6 tails"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Branch",
+            "Value_JP": "上2束×3本+下1束×3本",
+            "Value_EN": "upper: 2 clusters × 3, lower: 1 cluster × 3"
           }
         ],
         "img_PNGName": null,
@@ -18371,12 +18671,22 @@
         "Formation": null,
         "BodyPart": ["#BodyPart_Tail"],
         "Laterality": null,
-        "DesignElement": null,
+        "DesignElement": "#Element_TailsUnit",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "Value_JP": "キツネ(枝分かれ)型7本(上2束3本+下1束4本)",
-            "Value_EN": "Fox (branched) type: 7 tails (upper: 2 clusters x3, lower: 1 cluster x4)"
+            "Value_JP": "キツネ(枝分かれ)型",
+            "Value_EN": "Fox (branched)"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Count",
+            "Value_JP": "7本",
+            "Value_EN": "7 tails"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Branch",
+            "Value_JP": "上2束×3本+下1束×4本",
+            "Value_EN": "upper: 2 clusters × 3, lower: 1 cluster × 4"
           }
         ],
         "img_PNGName": null,
@@ -18981,12 +19291,22 @@
         "Formation": null,
         "BodyPart": ["#BodyPart_Tail"],
         "Laterality": null,
-        "DesignElement": null,
+        "DesignElement": "#Element_TailsUnit",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "Value_JP": "キツネ(枝分かれ)型9本(上2束3本+下1束6本)",
-            "Value_EN": "Fox (branched) type: 9 tails (upper: 2 clusters x3, lower: 1 cluster x6)"
+            "Value_JP": "キツネ(枝分かれ)型",
+            "Value_EN": "Fox (branched)"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Count",
+            "Value_JP": "9本",
+            "Value_EN": "9 tails"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Branch",
+            "Value_JP": "上2束×3本+下1束×6本",
+            "Value_EN": "upper: 2 clusters × 3, lower: 1 cluster × 6"
           }
         ],
         "img_PNGName": null,
@@ -19511,12 +19831,17 @@
         "Formation": null,
         "BodyPart": ["#BodyPart_Tail"],
         "Laterality": null,
-        "DesignElement": null,
+        "DesignElement": "#Element_TailsUnit",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "Value_JP": "キツネ型4本",
-            "Value_EN": "Four fox-type tails"
+            "Value_JP": "キツネ型",
+            "Value_EN": "Fox-type"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Count",
+            "Value_JP": "4本",
+            "Value_EN": "4 tails"
           }
         ],
         "img_PNGName": null,
@@ -19986,12 +20311,22 @@
         "Formation": null,
         "BodyPart": ["#BodyPart_Tail"],
         "Laterality": null,
-        "DesignElement": null,
+        "DesignElement": "#Element_TailsUnit",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "Value_JP": "キツネ(枝分かれ)型4本(上1束3本+下2束1本)",
-            "Value_EN": "Fox (branched) type: 4 tails (upper: 1 cluster x3, lower: 2 clusters x1)"
+            "Value_JP": "キツネ(枝分かれ)型",
+            "Value_EN": "Fox (branched)"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Count",
+            "Value_JP": "4本",
+            "Value_EN": "4 tails"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Branch",
+            "Value_JP": "上1束×3本+下2束×1本",
+            "Value_EN": "upper: 1 cluster × 3, lower: 2 clusters × 1"
           }
         ],
         "img_PNGName": null,
@@ -20503,12 +20838,22 @@
         "Formation": null,
         "BodyPart": ["#BodyPart_Tail"],
         "Laterality": null,
-        "DesignElement": null,
+        "DesignElement": "#Element_TailsUnit",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "Value_JP": "キツネ(枝分かれ)型4本(上1束2本+下2束2本)",
-            "Value_EN": "Fox (branched) type: 4 tails (upper: 1 cluster x2, lower: 2 clusters x2)"
+            "Value_JP": "キツネ(枝分かれ)型",
+            "Value_EN": "Fox (branched)"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Count",
+            "Value_JP": "4本",
+            "Value_EN": "4 tails"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Branch",
+            "Value_JP": "上1束×2本+下2束×2本",
+            "Value_EN": "upper: 1 cluster × 2, lower: 2 clusters × 2"
           }
         ],
         "img_PNGName": null,
@@ -20937,12 +21282,22 @@
         "Formation": null,
         "BodyPart": ["#BodyPart_Tail"],
         "Laterality": null,
-        "DesignElement": null,
+        "DesignElement": "#Element_TailsUnit",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "Value_JP": "キツネ(枝分かれ)型4本(上1束1本+下2束3本)",
-            "Value_EN": "Fox (branched) type: 4 tails (upper: 1 cluster x1, lower: 2 clusters x3)"
+            "Value_JP": "キツネ(枝分かれ)型",
+            "Value_EN": "Fox (branched)"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Count",
+            "Value_JP": "4本",
+            "Value_EN": "4 tails"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Branch",
+            "Value_JP": "上1束×1本+下2束×3本",
+            "Value_EN": "upper: 1 cluster × 1, lower: 2 clusters × 3"
           }
         ],
         "img_PNGName": null,
@@ -21400,12 +21755,22 @@
         "Formation": null,
         "BodyPart": ["#BodyPart_Tail"],
         "Laterality": null,
-        "DesignElement": null,
+        "DesignElement": "#Element_TailsUnit",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "Value_JP": "キツネ(枝分かれ)型2束x4本",
-            "Value_EN": "Fox (branched) type: 2 clusters x4 tails"
+            "Value_JP": "キツネ(枝分かれ)型",
+            "Value_EN": "Fox (branched)"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Count",
+            "Value_JP": "4本",
+            "Value_EN": "4 tails"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Branch",
+            "Value_JP": "2束",
+            "Value_EN": "2 clusters each"
           }
         ],
         "img_PNGName": null,
@@ -21835,12 +22200,22 @@
         "Formation": null,
         "BodyPart": ["#BodyPart_Tail"],
         "Laterality": null,
-        "DesignElement": null,
+        "DesignElement": "#Element_TailsUnit",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "Value_JP": "キツネ(枝分かれ)型5本(上2束4本+下1束1本)",
-            "Value_EN": "Fox (branched) type: 5 tails (upper: 2 clusters x4, lower: 1 cluster x1)"
+            "Value_JP": "キツネ(枝分かれ)型",
+            "Value_EN": "Fox (branched)"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Count",
+            "Value_JP": "5本",
+            "Value_EN": "5 tails"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Branch",
+            "Value_JP": "上2束×4本+下1束×1本",
+            "Value_EN": "upper: 2 clusters × 4, lower: 1 cluster × 1"
           }
         ],
         "img_PNGName": null,
@@ -22243,12 +22618,22 @@
         "Formation": null,
         "BodyPart": ["#BodyPart_Tail"],
         "Laterality": null,
-        "DesignElement": null,
+        "DesignElement": "#Element_TailsUnit",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "Value_JP": "キツネ(枝分かれ)型6本(上2束4本+下1束2本)",
-            "Value_EN": "Fox (branched) type: 6 tails (upper: 2 clusters x4, lower: 1 cluster x2)"
+            "Value_JP": "キツネ(枝分かれ)型",
+            "Value_EN": "Fox (branched)"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Count",
+            "Value_JP": "6本",
+            "Value_EN": "6 tails"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Branch",
+            "Value_JP": "上2束×4本+下1束×2本",
+            "Value_EN": "upper: 2 clusters × 4, lower: 1 cluster × 2"
           }
         ],
         "img_PNGName": null,
@@ -22706,12 +23091,22 @@
         "Formation": null,
         "BodyPart": ["#BodyPart_Tail"],
         "Laterality": null,
-        "DesignElement": null,
+        "DesignElement": "#Element_TailsUnit",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "Value_JP": "キツネ(枝分かれ)型7本(上2束4本+下1束3本)",
-            "Value_EN": "Fox (branched) type: 7 tails (upper: 2 clusters x4, lower: 1 cluster x3)"
+            "Value_JP": "キツネ(枝分かれ)型",
+            "Value_EN": "Fox (branched)"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Count",
+            "Value_JP": "7本",
+            "Value_EN": "7 tails"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Branch",
+            "Value_JP": "上2束×4本+下1束×3本",
+            "Value_EN": "upper: 2 clusters × 4, lower: 1 cluster × 3"
           }
         ],
         "img_PNGName": null,
@@ -23184,12 +23579,22 @@
         "Formation": null,
         "BodyPart": ["#BodyPart_Tail"],
         "Laterality": null,
-        "DesignElement": null,
+        "DesignElement": "#Element_TailsUnit",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "Value_JP": "キツネ(枝分かれ)型8本(上2束4本+下1束4本)",
-            "Value_EN": "Fox (branched) type: 8 tails (upper: 2 clusters x4, lower: 1 cluster x4)"
+            "Value_JP": "キツネ(枝分かれ)型",
+            "Value_EN": "Fox (branched)"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Count",
+            "Value_JP": "8本",
+            "Value_EN": "8 tails"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Branch",
+            "Value_JP": "上2束×4本+下1束×4本",
+            "Value_EN": "upper: 2 clusters × 4, lower: 1 cluster × 4"
           }
         ],
         "img_PNGName": null,
@@ -23658,12 +24063,22 @@
         "Formation": null,
         "BodyPart": ["#BodyPart_Tail"],
         "Laterality": null,
-        "DesignElement": null,
+        "DesignElement": "#Element_TailsUnit",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "Value_JP": "キツネ(枝分かれ)型9本(上2束4本+下1束5本)",
-            "Value_EN": "Fox (branched) type: 9 tails (upper: 2 clusters x4, lower: 1 cluster x5)"
+            "Value_JP": "キツネ(枝分かれ)型",
+            "Value_EN": "Fox (branched)"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Count",
+            "Value_JP": "9本",
+            "Value_EN": "9 tails"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Branch",
+            "Value_JP": "上2束×4本+下1束×5本",
+            "Value_EN": "upper: 2 clusters × 4, lower: 1 cluster × 5"
           }
         ],
         "img_PNGName": null,
@@ -24127,12 +24542,17 @@
         "Formation": null,
         "BodyPart": ["#BodyPart_Tail"],
         "Laterality": null,
-        "DesignElement": null,
+        "DesignElement": "#Element_TailsUnit",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "Value_JP": "キツネ型5本",
-            "Value_EN": "Five fox-type tails"
+            "Value_JP": "キツネ型",
+            "Value_EN": "Fox-type"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Count",
+            "Value_JP": "5本",
+            "Value_EN": "5 tails"
           }
         ],
         "img_PNGName": null,
@@ -24567,12 +24987,22 @@
         "Formation": null,
         "BodyPart": ["#BodyPart_Tail"],
         "Laterality": null,
-        "DesignElement": null,
+        "DesignElement": "#Element_TailsUnit",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "Value_JP": "キツネ(枝分かれ)型5本(上1束4本+下2束1本)",
-            "Value_EN": "Fox (branched) type: 5 tails (upper: 1 cluster x4, lower: 2 clusters x1)"
+            "Value_JP": "キツネ(枝分かれ)型",
+            "Value_EN": "Fox (branched)"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Count",
+            "Value_JP": "5本",
+            "Value_EN": "5 tails"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Branch",
+            "Value_JP": "上1束×4本+下2束×1本",
+            "Value_EN": "upper: 1 cluster × 4, lower: 2 clusters × 1"
           }
         ],
         "img_PNGName": null,
@@ -24995,12 +25425,22 @@
         "Formation": null,
         "BodyPart": ["#BodyPart_Tail"],
         "Laterality": null,
-        "DesignElement": null,
+        "DesignElement": "#Element_TailsUnit",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "Value_JP": "キツネ(枝分かれ)型5本(上1束3本+下2束2本)",
-            "Value_EN": "Fox (branched) type: 5 tails (upper: 1 cluster x3, lower: 2 clusters x2)"
+            "Value_JP": "キツネ(枝分かれ)型",
+            "Value_EN": "Fox (branched)"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Count",
+            "Value_JP": "5本",
+            "Value_EN": "5 tails"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Branch",
+            "Value_JP": "上1束×3本+下2束×2本",
+            "Value_EN": "upper: 1 cluster × 3, lower: 2 clusters × 2"
           }
         ],
         "img_PNGName": null,
@@ -25525,12 +25965,22 @@
         "Formation": null,
         "BodyPart": ["#BodyPart_Tail"],
         "Laterality": null,
-        "DesignElement": null,
+        "DesignElement": "#Element_TailsUnit",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "Value_JP": "キツネ(枝分かれ)型5本(上1束2本+下2束3本)",
-            "Value_EN": "Fox (branched) type: 5 tails (upper: 1 cluster x2, lower: 2 clusters x3)"
+            "Value_JP": "キツネ(枝分かれ)型",
+            "Value_EN": "Fox (branched)"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Count",
+            "Value_JP": "5本",
+            "Value_EN": "5 tails"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Branch",
+            "Value_JP": "上1束×2本+下2束×3本",
+            "Value_EN": "upper: 1 cluster × 2, lower: 2 clusters × 3"
           }
         ],
         "img_PNGName": null,
@@ -26049,12 +26499,22 @@
         "Formation": null,
         "BodyPart": ["#BodyPart_Tail"],
         "Laterality": null,
-        "DesignElement": null,
+        "DesignElement": "#Element_TailsUnit",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "Value_JP": "キツネ(枝分かれ)型2束x5本",
-            "Value_EN": "Fox (branched) type: 2 clusters x5 tails"
+            "Value_JP": "キツネ(枝分かれ)型",
+            "Value_EN": "Fox (branched)"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Count",
+            "Value_JP": "5本",
+            "Value_EN": "5 tails"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Branch",
+            "Value_JP": "2束",
+            "Value_EN": "2 clusters each"
           }
         ],
         "img_PNGName": null,
@@ -26499,12 +26959,22 @@
         "Formation": null,
         "BodyPart": ["#BodyPart_Tail"],
         "Laterality": null,
-        "DesignElement": null,
+        "DesignElement": "#Element_TailsUnit",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "Value_JP": "キツネ(枝分かれ)型6本(上2束5本+下1束1本)",
-            "Value_EN": "Fox (branched) type: 6 tails (upper: 2 clusters x5, lower: 1 cluster x1)"
+            "Value_JP": "キツネ(枝分かれ)型",
+            "Value_EN": "Fox (branched)"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Count",
+            "Value_JP": "6本",
+            "Value_EN": "6 tails"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Branch",
+            "Value_JP": "上2束×5本+下1束×1本",
+            "Value_EN": "upper: 2 clusters × 5, lower: 1 cluster × 1"
           }
         ],
         "img_PNGName": null,
@@ -27021,12 +27491,22 @@
         "Formation": null,
         "BodyPart": ["#BodyPart_Tail"],
         "Laterality": null,
-        "DesignElement": null,
+        "DesignElement": "#Element_TailsUnit",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "Value_JP": "キツネ(枝分かれ)型7本(上2束5本+下1束2本)",
-            "Value_EN": "Fox (branched) type: 7 tails (upper: 2 clusters x5, lower: 1 cluster x2)"
+            "Value_JP": "キツネ(枝分かれ)型",
+            "Value_EN": "Fox (branched)"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Count",
+            "Value_JP": "7本",
+            "Value_EN": "7 tails"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Branch",
+            "Value_JP": "上2束×5本+下1束×2本",
+            "Value_EN": "upper: 2 clusters × 5, lower: 1 cluster × 2"
           }
         ],
         "img_PNGName": null,
@@ -27535,12 +28015,22 @@
         "Formation": null,
         "BodyPart": ["#BodyPart_Tail"],
         "Laterality": null,
-        "DesignElement": null,
+        "DesignElement": "#Element_TailsUnit",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "Value_JP": "キツネ(枝分かれ)型8本(上2束5本+下1束3本)",
-            "Value_EN": "Fox (branched) type: 8 tails (upper: 2 clusters x5, lower: 1 cluster x3)"
+            "Value_JP": "キツネ(枝分かれ)型",
+            "Value_EN": "Fox (branched)"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Count",
+            "Value_JP": "8本",
+            "Value_EN": "8 tails"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Branch",
+            "Value_JP": "上2束×5本+下1束×3本",
+            "Value_EN": "upper: 2 clusters × 5, lower: 1 cluster × 3"
           }
         ],
         "img_PNGName": null,
@@ -28036,12 +28526,17 @@
         "Formation": null,
         "BodyPart": ["#BodyPart_Tail"],
         "Laterality": null,
-        "DesignElement": null,
+        "DesignElement": "#Element_TailsUnit",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "Value_JP": "キツネ型6本",
-            "Value_EN": "Six fox-type tails"
+            "Value_JP": "キツネ型",
+            "Value_EN": "Fox-type"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Count",
+            "Value_JP": "6本",
+            "Value_EN": "6 tails"
           }
         ],
         "img_PNGName": null,
@@ -28747,12 +29242,22 @@
         "Formation": null,
         "BodyPart": ["#BodyPart_Tail"],
         "Laterality": null,
-        "DesignElement": null,
+        "DesignElement": "#Element_TailsUnit",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "Value_JP": "キツネ(枝分かれ)型6本(上1束5本+下2束1本)",
-            "Value_EN": "Fox (branched) type: 6 tails (upper: 1 cluster x5, lower: 2 clusters x1)"
+            "Value_JP": "キツネ(枝分かれ)型",
+            "Value_EN": "Fox (branched)"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Count",
+            "Value_JP": "6本",
+            "Value_EN": "6 tails"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Branch",
+            "Value_JP": "上1束×5本+下2束×1本",
+            "Value_EN": "upper: 1 cluster × 5, lower: 2 clusters × 1"
           }
         ],
         "img_PNGName": null,
@@ -29486,12 +29991,22 @@
         "Formation": null,
         "BodyPart": ["#BodyPart_Tail"],
         "Laterality": null,
-        "DesignElement": null,
+        "DesignElement": "#Element_TailsUnit",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "Value_JP": "キツネ(枝分かれ)型6本(上1束4本+下2束2本)",
-            "Value_EN": "Fox (branched) type: 6 tails (upper: 1 cluster x4, lower: 2 clusters x2)"
+            "Value_JP": "キツネ(枝分かれ)型",
+            "Value_EN": "Fox (branched)"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Count",
+            "Value_JP": "6本",
+            "Value_EN": "6 tails"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Branch",
+            "Value_JP": "上1束×4本+下2束×2本",
+            "Value_EN": "upper: 1 cluster × 4, lower: 2 clusters × 2"
           }
         ],
         "img_PNGName": null,
@@ -29944,12 +30459,22 @@
         "Formation": null,
         "BodyPart": ["#BodyPart_Tail"],
         "Laterality": null,
-        "DesignElement": null,
+        "DesignElement": "#Element_TailsUnit",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "Value_JP": "キツネ(枝分かれ)型6本(上1束3本+下2束3本)",
-            "Value_EN": "Fox (branched) type: 6 tails (upper: 1 cluster x3, lower: 2 clusters x3)"
+            "Value_JP": "キツネ(枝分かれ)型",
+            "Value_EN": "Fox (branched)"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Count",
+            "Value_JP": "6本",
+            "Value_EN": "6 tails"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Branch",
+            "Value_JP": "上1束×3本+下2束×3本",
+            "Value_EN": "upper: 1 cluster × 3, lower: 2 clusters × 3"
           }
         ],
         "img_PNGName": null,
@@ -30432,12 +30957,22 @@
         "Formation": null,
         "BodyPart": ["#BodyPart_Tail"],
         "Laterality": null,
-        "DesignElement": null,
+        "DesignElement": "#Element_TailsUnit",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "Value_JP": "キツネ(枝分かれ)型6本(上1束4本+下2束2本)",
-            "Value_EN": "Fox (branched) type: 6 tails (upper: 1 cluster x4, lower: 2 clusters x2)"
+            "Value_JP": "キツネ(枝分かれ)型",
+            "Value_EN": "Fox (branched)"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Count",
+            "Value_JP": "6本",
+            "Value_EN": "6 tails"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Branch",
+            "Value_JP": "上1束×4本+下2束×2本",
+            "Value_EN": "upper: 1 cluster × 4, lower: 2 clusters × 2"
           }
         ],
         "img_PNGName": null,
@@ -30862,12 +31397,22 @@
         "Formation": null,
         "BodyPart": ["#BodyPart_Tail"],
         "Laterality": null,
-        "DesignElement": null,
+        "DesignElement": "#Element_TailsUnit",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "Value_JP": "キツネ(枝分かれ)型6本(上1束1本+下2束5本)",
-            "Value_EN": "Fox (branched) type: 6 tails (upper: 1 cluster x1, lower: 2 clusters x5)"
+            "Value_JP": "キツネ(枝分かれ)型",
+            "Value_EN": "Fox (branched)"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Count",
+            "Value_JP": "6本",
+            "Value_EN": "6 tails"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Branch",
+            "Value_JP": "上1束×1本+下2束×5本",
+            "Value_EN": "upper: 1 cluster × 1, lower: 2 clusters × 5"
           }
         ],
         "img_PNGName": null,
@@ -31295,12 +31840,22 @@
         "Formation": null,
         "BodyPart": ["#BodyPart_Tail"],
         "Laterality": null,
-        "DesignElement": null,
+        "DesignElement": "#Element_TailsUnit",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "Value_JP": "キツネ(枝分かれ)型2束x6本",
-            "Value_EN": "Fox (branched) type: 2 clusters x6 tails"
+            "Value_JP": "キツネ(枝分かれ)型",
+            "Value_EN": "Fox (branched)"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Count",
+            "Value_JP": "6本",
+            "Value_EN": "6 tails"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Branch",
+            "Value_JP": "2束",
+            "Value_EN": "2 clusters each"
           }
         ],
         "img_PNGName": null,
@@ -31744,12 +32299,22 @@
         "Formation": null,
         "BodyPart": ["#BodyPart_Tail"],
         "Laterality": null,
-        "DesignElement": null,
+        "DesignElement": "#Element_TailsUnit",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "Value_JP": "キツネ(枝分かれ)型7本(上2束6本+下1束1本)",
-            "Value_EN": "Fox (branched) type: 7 tails (upper: 2 clusters x6, lower: 1 cluster x1)"
+            "Value_JP": "キツネ(枝分かれ)型",
+            "Value_EN": "Fox (branched)"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Count",
+            "Value_JP": "7本",
+            "Value_EN": "7 tails"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Branch",
+            "Value_JP": "上2束×6本+下1束×1本",
+            "Value_EN": "upper: 2 clusters × 6, lower: 1 cluster × 1"
           }
         ],
         "img_PNGName": null,
@@ -32097,12 +32662,22 @@
         "Formation": null,
         "BodyPart": ["#BodyPart_Tail"],
         "Laterality": null,
-        "DesignElement": null,
+        "DesignElement": "#Element_TailsUnit",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "Value_JP": "キツネ(枝分かれ)型7本(上2束6本+下1束1本)",
-            "Value_EN": "Fox (branched) type: 7 tails (upper: 2 clusters x6, lower: 1 cluster x1)"
+            "Value_JP": "キツネ(枝分かれ)型",
+            "Value_EN": "Fox (branched)"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Count",
+            "Value_JP": "7本",
+            "Value_EN": "7 tails"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Branch",
+            "Value_JP": "上2束×6本+下1束×1本",
+            "Value_EN": "upper: 2 clusters × 6, lower: 1 cluster × 1"
           }
         ],
         "img_PNGName": null,
@@ -32558,12 +33133,22 @@
         "Formation": null,
         "BodyPart": ["#BodyPart_Tail"],
         "Laterality": null,
-        "DesignElement": null,
+        "DesignElement": "#Element_TailsUnit",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "Value_JP": "キツネ(枝分かれ)型8本(上2束6本+下1束2本)",
-            "Value_EN": "Fox (branched) type: 8 tails (upper: 2 clusters x6, lower: 1 cluster x2)"
+            "Value_JP": "キツネ(枝分かれ)型",
+            "Value_EN": "Fox (branched)"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Count",
+            "Value_JP": "8本",
+            "Value_EN": "8 tails"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Branch",
+            "Value_JP": "上2束×6本+下1束×2本",
+            "Value_EN": "upper: 2 clusters × 6, lower: 1 cluster × 2"
           }
         ],
         "img_PNGName": null,
@@ -33024,12 +33609,22 @@
         "Formation": null,
         "BodyPart": ["#BodyPart_Tail"],
         "Laterality": null,
-        "DesignElement": null,
+        "DesignElement": "#Element_TailsUnit",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "Value_JP": "キツネ(枝分かれ)型9本(上2束6本+下1束3本)",
-            "Value_EN": "Fox (branched) type: 9 tails (upper: 2 clusters x6, lower: 1 cluster x3)"
+            "Value_JP": "キツネ(枝分かれ)型",
+            "Value_EN": "Fox (branched)"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Count",
+            "Value_JP": "9本",
+            "Value_EN": "9 tails"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Branch",
+            "Value_JP": "上2束×6本+下1束×3本",
+            "Value_EN": "upper: 2 clusters × 6, lower: 1 cluster × 3"
           }
         ],
         "img_PNGName": null,
@@ -33495,12 +34090,17 @@
         "Formation": null,
         "BodyPart": ["#BodyPart_Tail"],
         "Laterality": null,
-        "DesignElement": null,
+        "DesignElement": "#Element_TailsUnit",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "Value_JP": "キツネ型7本",
-            "Value_EN": "Seven fox-type tails"
+            "Value_JP": "キツネ型",
+            "Value_EN": "Fox-type"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Count",
+            "Value_JP": "7本",
+            "Value_EN": "7 tails"
           }
         ],
         "img_PNGName": null,
@@ -33909,12 +34509,22 @@
         "Formation": null,
         "BodyPart": ["#BodyPart_Tail"],
         "Laterality": null,
-        "DesignElement": null,
+        "DesignElement": "#Element_TailsUnit",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "Value_JP": "キツネ(枝分かれ)型7本(上1束6本+下2束1本)",
-            "Value_EN": "Fox (branching-type) × 7 tails (upper bundle: 6 + lower bundle: 1)"
+            "Value_JP": "キツネ(枝分かれ)型",
+            "Value_EN": "Fox (branched)"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Count",
+            "Value_JP": "7本",
+            "Value_EN": "7 tails"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Branch",
+            "Value_JP": "上1束×6本+下2束×1本",
+            "Value_EN": "upper: 1 cluster × 6, lower: 2 clusters × 1"
           }
         ],
         "img_PNGName": null,
@@ -34379,12 +34989,22 @@
         "Formation": null,
         "BodyPart": ["#BodyPart_Tail"],
         "Laterality": null,
-        "DesignElement": null,
+        "DesignElement": "#Element_TailsUnit",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "Value_JP": "キツネ(枝分かれ)型7本(上1束5本+下2束2本)",
-            "Value_EN": "Fox (branching-type) × 7 tails (upper bundle: 5 + lower bundle: 2)"
+            "Value_JP": "キツネ(枝分かれ)型",
+            "Value_EN": "Fox (branched)"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Count",
+            "Value_JP": "7本",
+            "Value_EN": "7 tails"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Branch",
+            "Value_JP": "上1束×5本+下2束×2本",
+            "Value_EN": "upper: 1 cluster × 5, lower: 2 clusters × 2"
           }
         ],
         "img_PNGName": null,
@@ -34878,12 +35498,22 @@
         "Formation": null,
         "BodyPart": ["#BodyPart_Tail"],
         "Laterality": null,
-        "DesignElement": null,
+        "DesignElement": "#Element_TailsUnit",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "Value_JP": "キツネ(枝分かれ)型7本(上1束4本+下2束3本)",
-            "Value_EN": "Fox (branching-type) × 7 tails (upper bundle: 4 + lower bundle: 3)"
+            "Value_JP": "キツネ(枝分かれ)型",
+            "Value_EN": "Fox (branched)"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Count",
+            "Value_JP": "7本",
+            "Value_EN": "7 tails"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Branch",
+            "Value_JP": "上1束×4本+下2束×3本",
+            "Value_EN": "upper: 1 cluster × 4, lower: 2 clusters × 3"
           }
         ],
         "img_PNGName": null,
@@ -35392,12 +36022,22 @@
         "Formation": null,
         "BodyPart": ["#BodyPart_Tail"],
         "Laterality": null,
-        "DesignElement": null,
+        "DesignElement": "#Element_TailsUnit",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "Value_JP": "キツネ(枝分かれ)型7本(上1束3本+下2束4本)",
-            "Value_EN": "Fox (branching-type) × 7 tails (upper bundle: 3 + lower bundle: 4)"
+            "Value_JP": "キツネ(枝分かれ)型",
+            "Value_EN": "Fox (branched)"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Count",
+            "Value_JP": "7本",
+            "Value_EN": "7 tails"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Branch",
+            "Value_JP": "上1束×3本+下2束×4本",
+            "Value_EN": "upper: 1 cluster × 3, lower: 2 clusters × 4"
           }
         ],
         "img_PNGName": null,
@@ -35842,12 +36482,22 @@
         "Formation": null,
         "BodyPart": ["#BodyPart_Tail"],
         "Laterality": null,
-        "DesignElement": null,
+        "DesignElement": "#Element_TailsUnit",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "Value_JP": "キツネ(枝分かれ)型7本(上1束2本+下2束5本)",
-            "Value_EN": "Fox (branching-type) × 7 tails (upper bundle: 2 + lower bundle: 5)"
+            "Value_JP": "キツネ(枝分かれ)型",
+            "Value_EN": "Fox (branched)"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Count",
+            "Value_JP": "7本",
+            "Value_EN": "7 tails"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Branch",
+            "Value_JP": "上1束×2本+下2束×5本",
+            "Value_EN": "upper: 1 cluster × 2, lower: 2 clusters × 5"
           }
         ],
         "img_PNGName": null,
@@ -36343,12 +36993,22 @@
         "Formation": null,
         "BodyPart": ["#BodyPart_Tail"],
         "Laterality": null,
-        "DesignElement": null,
+        "DesignElement": "#Element_TailsUnit",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "Value_JP": "キツネ(枝分かれ)型7本(上1束1本+下2束6本)",
-            "Value_EN": "Fox (branched) type: 7 tails (upper: 1 cluster x1, lower: 2 clusters x6)"
+            "Value_JP": "キツネ(枝分かれ)型",
+            "Value_EN": "Fox (branched)"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Count",
+            "Value_JP": "7本",
+            "Value_EN": "7 tails"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Branch",
+            "Value_JP": "上1束×1本+下2束×6本",
+            "Value_EN": "upper: 1 cluster × 1, lower: 2 clusters × 6"
           }
         ],
         "img_PNGName": null,
@@ -36885,12 +37545,22 @@
         "Formation": null,
         "BodyPart": ["#BodyPart_Tail"],
         "Laterality": null,
-        "DesignElement": null,
+        "DesignElement": "#Element_TailsUnit",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "Value_JP": "キツネ(枝分かれ)型2束x7本",
-            "Value_EN": "Fox (branched) type: 2 clusters x7 tails"
+            "Value_JP": "キツネ(枝分かれ)型",
+            "Value_EN": "Fox (branched)"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Count",
+            "Value_JP": "7本",
+            "Value_EN": "7 tails"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Branch",
+            "Value_JP": "2束",
+            "Value_EN": "2 clusters each"
           }
         ],
         "img_PNGName": null,
@@ -37321,12 +37991,22 @@
         "Formation": null,
         "BodyPart": ["#BodyPart_Tail"],
         "Laterality": null,
-        "DesignElement": null,
+        "DesignElement": "#Element_TailsUnit",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "Value_JP": "キツネ(枝分かれ)型8本(上2束1本+下1束7本)",
-            "Value_EN": "Fox (branched) type: 8 tails (upper: 2 clusters x1, lower: 1 cluster x7)"
+            "Value_JP": "キツネ(枝分かれ)型",
+            "Value_EN": "Fox (branched)"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Count",
+            "Value_JP": "8本",
+            "Value_EN": "8 tails"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Branch",
+            "Value_JP": "上2束×1本+下1束×7本",
+            "Value_EN": "upper: 2 clusters × 1, lower: 1 cluster × 7"
           }
         ],
         "img_PNGName": null,
@@ -37712,12 +38392,17 @@
         "Formation": null,
         "BodyPart": ["#BodyPart_Tail"],
         "Laterality": null,
-        "DesignElement": null,
+        "DesignElement": "#Element_TailsUnit",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "Value_JP": "キツネ型8本",
-            "Value_EN": "Eight fox-type tails"
+            "Value_JP": "キツネ型",
+            "Value_EN": "Fox-type"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Count",
+            "Value_JP": "8本",
+            "Value_EN": "8 tails"
           }
         ],
         "img_PNGName": null,
@@ -37906,12 +38591,22 @@
         "Formation": null,
         "BodyPart": ["#BodyPart_Tail"],
         "Laterality": null,
-        "DesignElement": null,
+        "DesignElement": "#Element_TailsUnit",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "Value_JP": "キツネ(枝分かれ)型8本(上1束7本+下2束1本)",
-            "Value_EN": "Fox (branched) type: 8 tails (upper: 1 cluster x7, lower: 2 clusters x1)"
+            "Value_JP": "キツネ(枝分かれ)型",
+            "Value_EN": "Fox (branched)"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Count",
+            "Value_JP": "8本",
+            "Value_EN": "8 tails"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Branch",
+            "Value_JP": "上1束×7本+下2束×1本",
+            "Value_EN": "upper: 1 cluster × 7, lower: 2 clusters × 1"
           }
         ],
         "img_PNGName": null,
@@ -38263,12 +38958,22 @@
         "Formation": null,
         "BodyPart": ["#BodyPart_Tail"],
         "Laterality": null,
-        "DesignElement": null,
+        "DesignElement": "#Element_TailsUnit",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "Value_JP": "キツネ(枝分かれ)型8本(上1束6本+下2束2本)",
-            "Value_EN": "Fox (branched) type: 8 tails (upper: 1 cluster x6, lower: 2 clusters x2)"
+            "Value_JP": "キツネ(枝分かれ)型",
+            "Value_EN": "Fox (branched)"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Count",
+            "Value_JP": "8本",
+            "Value_EN": "8 tails"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Branch",
+            "Value_JP": "上1束×6本+下2束×2本",
+            "Value_EN": "upper: 1 cluster × 6, lower: 2 clusters × 2"
           }
         ],
         "img_PNGName": null,
@@ -38463,12 +39168,22 @@
         "Formation": null,
         "BodyPart": ["#BodyPart_Tail"],
         "Laterality": null,
-        "DesignElement": null,
+        "DesignElement": "#Element_TailsUnit",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "Value_JP": "キツネ(枝分かれ)型8本(上1束4本+下2束4本)",
-            "Value_EN": "Fox (branched) type: 8 tails (upper: 1 cluster x4, lower: 2 clusters x4)"
+            "Value_JP": "キツネ(枝分かれ)型",
+            "Value_EN": "Fox (branched)"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Count",
+            "Value_JP": "8本",
+            "Value_EN": "8 tails"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Branch",
+            "Value_JP": "上1束×4本+下2束×4本",
+            "Value_EN": "upper: 1 cluster × 4, lower: 2 clusters × 4"
           }
         ],
         "img_PNGName": null,
@@ -38935,12 +39650,22 @@
         "Formation": null,
         "BodyPart": ["#BodyPart_Tail"],
         "Laterality": null,
-        "DesignElement": null,
+        "DesignElement": "#Element_TailsUnit",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "Value_JP": "キツネ(枝分かれ)型8本(上1束3本+下2束5本)",
-            "Value_EN": "Fox (branched) type: 8 tails (upper: 1 cluster x3, lower: 2 clusters x5)"
+            "Value_JP": "キツネ(枝分かれ)型",
+            "Value_EN": "Fox (branched)"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Count",
+            "Value_JP": "8本",
+            "Value_EN": "8 tails"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Branch",
+            "Value_JP": "上1束×3本+下2束×5本",
+            "Value_EN": "upper: 1 cluster × 3, lower: 2 clusters × 5"
           }
         ],
         "img_PNGName": null,
@@ -39403,12 +40128,22 @@
         "Formation": null,
         "BodyPart": ["#BodyPart_Tail"],
         "Laterality": null,
-        "DesignElement": null,
+        "DesignElement": "#Element_TailsUnit",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "Value_JP": "キツネ(枝分かれ)型8本(上1束2本+下2束6本)",
-            "Value_EN": "Fox (branched) type: 8 tails (upper: 1 cluster x2, lower: 2 clusters x6)"
+            "Value_JP": "キツネ(枝分かれ)型",
+            "Value_EN": "Fox (branched)"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Count",
+            "Value_JP": "8本",
+            "Value_EN": "8 tails"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Branch",
+            "Value_JP": "上1束×2本+下2束×6本",
+            "Value_EN": "upper: 1 cluster × 2, lower: 2 clusters × 6"
           }
         ],
         "img_PNGName": null,
@@ -39881,12 +40616,22 @@
         "Formation": null,
         "BodyPart": ["#BodyPart_Tail"],
         "Laterality": null,
-        "DesignElement": null,
+        "DesignElement": "#Element_TailsUnit",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "Value_JP": "キツネ(枝分かれ)型8本(上1束1本+下2束7本)",
-            "Value_EN": "Fox (branched) type: 8 tails (upper: 1 cluster x1, lower: 2 clusters x7)"
+            "Value_JP": "キツネ(枝分かれ)型",
+            "Value_EN": "Fox (branched)"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Count",
+            "Value_JP": "8本",
+            "Value_EN": "8 tails"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Branch",
+            "Value_JP": "上1束×1本+下2束×7本",
+            "Value_EN": "upper: 1 cluster × 1, lower: 2 clusters × 7"
           }
         ],
         "img_PNGName": null,
@@ -40337,12 +41082,22 @@
         "Formation": null,
         "BodyPart": ["#BodyPart_Tail"],
         "Laterality": null,
-        "DesignElement": null,
+        "DesignElement": "#Element_TailsUnit",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "Value_JP": "キツネ(枝分かれ)型2束x8本",
-            "Value_EN": "Fox (branched) type: 2 clusters x8 tails"
+            "Value_JP": "キツネ(枝分かれ)型",
+            "Value_EN": "Fox (branched)"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Count",
+            "Value_JP": "8本",
+            "Value_EN": "8 tails"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Branch",
+            "Value_JP": "2束",
+            "Value_EN": "2 clusters each"
           }
         ],
         "img_PNGName": null,
@@ -40891,12 +41646,22 @@
         "Formation": null,
         "BodyPart": ["#BodyPart_Tail"],
         "Laterality": null,
-        "DesignElement": null,
+        "DesignElement": "#Element_TailsUnit",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "Value_JP": "キツネ(枝分かれ)型9本(上1束1本+下2束8本)",
-            "Value_EN": "Fox (branched) type: 9 tails (upper: 1 cluster x1, lower: 2 clusters x8)"
+            "Value_JP": "キツネ(枝分かれ)型",
+            "Value_EN": "Fox (branched)"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Count",
+            "Value_JP": "9本",
+            "Value_EN": "9 tails"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Branch",
+            "Value_JP": "上1束×1本+下2束×8本",
+            "Value_EN": "upper: 1 cluster × 1, lower: 2 clusters × 8"
           }
         ],
         "img_PNGName": null,
@@ -41383,12 +42148,22 @@
         "Formation": null,
         "BodyPart": ["#BodyPart_Tail"],
         "Laterality": null,
-        "DesignElement": null,
+        "DesignElement": "#Element_TailsUnit",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "Value_JP": "キツネ(枝分かれ)型9本(上1束7本+下2束3本)",
-            "Value_EN": "Fox (branching-type) × 9 tails (upper bundle: 7 + lower bundle: 3)"
+            "Value_JP": "キツネ(枝分かれ)型",
+            "Value_EN": "Fox (branched)"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Count",
+            "Value_JP": "9本",
+            "Value_EN": "9 tails"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Branch",
+            "Value_JP": "上1束×7本+下2束×3本",
+            "Value_EN": "upper: 1 cluster × 7, lower: 2 clusters × 3"
           }
         ],
         "img_PNGName": null,
@@ -41803,12 +42578,22 @@
         "Formation": null,
         "BodyPart": ["#BodyPart_Tail"],
         "Laterality": null,
-        "DesignElement": null,
+        "DesignElement": "#Element_TailsUnit",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "Value_JP": "キツネ(枝分かれ)型9本(上1束6本+下2束3本)",
-            "Value_EN": "Fox (branching-type) × 9 tails (upper bundle: 6 + lower bundle: 3)"
+            "Value_JP": "キツネ(枝分かれ)型",
+            "Value_EN": "Fox (branched)"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Count",
+            "Value_JP": "9本",
+            "Value_EN": "9 tails"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Branch",
+            "Value_JP": "上1束×6本+下2束×3本",
+            "Value_EN": "upper: 1 cluster × 6, lower: 2 clusters × 3"
           }
         ],
         "img_PNGName": null,
@@ -42318,12 +43103,22 @@
         "Formation": null,
         "BodyPart": ["#BodyPart_Tail"],
         "Laterality": null,
-        "DesignElement": null,
+        "DesignElement": "#Element_TailsUnit",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "Value_JP": "キツネ(枝分かれ)型9本(上1束5本+下2束4本)",
-            "Value_EN": "Fox (branching-type) × 9 tails (upper bundle: 5 + lower bundle: 4)"
+            "Value_JP": "キツネ(枝分かれ)型",
+            "Value_EN": "Fox (branched)"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Count",
+            "Value_JP": "9本",
+            "Value_EN": "9 tails"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Branch",
+            "Value_JP": "上1束×5本+下2束×4本",
+            "Value_EN": "upper: 1 cluster × 5, lower: 2 clusters × 4"
           }
         ],
         "img_PNGName": null,
@@ -42850,12 +43645,22 @@
         "Formation": null,
         "BodyPart": ["#BodyPart_Tail"],
         "Laterality": null,
-        "DesignElement": null,
+        "DesignElement": "#Element_TailsUnit",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "Value_JP": "キツネ(枝分かれ)型9本(上1束3本+下2束6本)",
-            "Value_EN": "Fox (branching-type) × 9 tails (upper bundle: 3 + lower bundle: 6)"
+            "Value_JP": "キツネ(枝分かれ)型",
+            "Value_EN": "Fox (branched)"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Count",
+            "Value_JP": "9本",
+            "Value_EN": "9 tails"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Branch",
+            "Value_JP": "上1束×3本+下2束×6本",
+            "Value_EN": "upper: 1 cluster × 3, lower: 2 clusters × 6"
           }
         ],
         "img_PNGName": null,
@@ -43402,12 +44207,22 @@
         "Formation": null,
         "BodyPart": ["#BodyPart_Tail"],
         "Laterality": null,
-        "DesignElement": null,
+        "DesignElement": "#Element_TailsUnit",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "Value_JP": "キツネ(枝分かれ)型9本(上1束2本+下2束7本)",
-            "Value_EN": "Fox (branching-type) × 9 tails (upper bundle: 2 + lower bundle: 7)"
+            "Value_JP": "キツネ(枝分かれ)型",
+            "Value_EN": "Fox (branched)"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Count",
+            "Value_JP": "9本",
+            "Value_EN": "9 tails"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Branch",
+            "Value_JP": "上1束×2本+下2束×7本",
+            "Value_EN": "upper: 1 cluster × 2, lower: 2 clusters × 7"
           }
         ],
         "img_PNGName": null,
@@ -43889,12 +44704,22 @@
         "Formation": null,
         "BodyPart": ["#BodyPart_Tail"],
         "Laterality": null,
-        "DesignElement": null,
+        "DesignElement": "#Element_TailsUnit",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "Value_JP": "キツネ(枝分かれ)型9本(上1束1本+下2束8本)",
-            "Value_EN": "Fox (branching-type) × 9 tails (upper bundle: 1 + lower bundle: 8)"
+            "Value_JP": "キツネ(枝分かれ)型",
+            "Value_EN": "Fox (branched)"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Count",
+            "Value_JP": "9本",
+            "Value_EN": "9 tails"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Branch",
+            "Value_JP": "上1束×1本+下2束×8本",
+            "Value_EN": "upper: 1 cluster × 1, lower: 2 clusters × 8"
           }
         ],
         "img_PNGName": null,
@@ -44368,12 +45193,22 @@
         "Formation": null,
         "BodyPart": ["#BodyPart_Tail"],
         "Laterality": null,
-        "DesignElement": null,
+        "DesignElement": "#Element_TailsUnit",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "Value_JP": "キツネ(枝分かれ)型2束x9本",
-            "Value_EN": "Fox (branching-type), 2 bundles × 9 tails"
+            "Value_JP": "キツネ(枝分かれ)型",
+            "Value_EN": "Fox (branched)"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Count",
+            "Value_JP": "9本",
+            "Value_EN": "9 tails"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Branch",
+            "Value_JP": "2束",
+            "Value_EN": "2 clusters each"
           }
         ],
         "img_PNGName": null,
@@ -45023,12 +45858,17 @@
         "Formation": null,
         "BodyPart": ["#BodyPart_Tail"],
         "Laterality": null,
-        "DesignElement": null,
+        "DesignElement": "#Element_TailsUnit",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "Value_JP": "キツネ型2本",
-            "Value_EN": "Two fox-type tails"
+            "Value_JP": "キツネ型",
+            "Value_EN": "Fox-type"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Count",
+            "Value_JP": "2本",
+            "Value_EN": "2 tails"
           }
         ],
         "img_PNGName": null,
@@ -45367,12 +46207,17 @@
         "Formation": null,
         "BodyPart": ["#BodyPart_Tail"],
         "Laterality": null,
-        "DesignElement": null,
+        "DesignElement": "#Element_TailsUnit",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "Value_JP": "キツネ型10本",
-            "Value_EN": "Ten fox-type tails"
+            "Value_JP": "キツネ型",
+            "Value_EN": "Fox-type"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Count",
+            "Value_JP": "10本",
+            "Value_EN": "10 tails"
           }
         ],
         "img_PNGName": null,
@@ -45722,12 +46567,17 @@
         "Formation": null,
         "BodyPart": ["#BodyPart_Tail"],
         "Laterality": null,
-        "DesignElement": null,
+        "DesignElement": "#Element_TailsUnit",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "Value_JP": "猫型1本",
-            "Value_EN": "One cat-type tail"
+            "Value_JP": "猫型",
+            "Value_EN": "Cat-type"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Count",
+            "Value_JP": "1本",
+            "Value_EN": "1 tail"
           }
         ],
         "img_PNGName": null,
@@ -46074,12 +46924,17 @@
         "Formation": null,
         "BodyPart": ["#BodyPart_Tail"],
         "Laterality": null,
-        "DesignElement": null,
+        "DesignElement": "#Element_TailsUnit",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "Value_JP": "猫型1本(アクセサリー)",
-            "Value_EN": "One cat-type tail (accessory)"
+            "Value_JP": "猫型(アクセサリー)",
+            "Value_EN": "Cat-type (accessory)"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Count",
+            "Value_JP": "1本",
+            "Value_EN": "1 tail"
           }
         ],
         "img_PNGName": null,
@@ -46353,12 +47208,17 @@
         "Formation": null,
         "BodyPart": ["#BodyPart_Tail"],
         "Laterality": null,
-        "DesignElement": null,
+        "DesignElement": "#Element_TailsUnit",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "Value_JP": "猫型1本(アクセサリー)",
-            "Value_EN": "One cat-type tail (accessory)"
+            "Value_JP": "猫型(アクセサリー)",
+            "Value_EN": "Cat-type (accessory)"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Count",
+            "Value_JP": "1本",
+            "Value_EN": "1 tail"
           }
         ],
         "img_PNGName": null,
