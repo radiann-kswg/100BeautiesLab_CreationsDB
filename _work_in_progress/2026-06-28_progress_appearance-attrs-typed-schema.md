@@ -202,9 +202,13 @@ Phase C のデータ変換時に一括置換する。移行期間中は SW が�
 
 ## 未解決事項（Phase B 着手前に確定が必要）
 
-1. **`value_Num_1` / `value_Num_2` の Branch における意味の確定**  
-   現状の文字列形式「上2束×3本」で「3本」が「1クラスターあたり3本」なのか「上グループの合計本数」なのかを
-   データ設計上で明確に定義する必要がある。Count 導出の正確性に直結する。
+1. ~~**`value_Num_1` / `value_Num_2` の Branch における意味の確定**~~  
+   **✅ 解決（2026-06-28 Phase C）**: 実データの変換時に確定。  
+   - `value_Num_1` = そのグループの**合計本数**（Count 導出で合算する値）  
+   - `value_Num_2` = クラスター数（「束」の数）  
+   - 例: 「上2束×3本」→ `value_Num_1: 3`（上グループの本数合計）、`value_Num_2: 2`（束数）  
+   - Count 導出: Σ `value_Num_1` = 総本数 ✅  
+   **フォールバックケース（2件）**: `'2束'`（7件）と `'大1束+小9束'`（1件）は標準パターン外のため `value_JP` テキストで保持。
 
 2. ~~**`$EnumDef_Laterality` への `#Lat_Upper`/`#Lat_Lower` 追加**~~  
    **✅ 解決（2026-06-28）**: `$EnumDef_Laterality` を拡張する方針に確定し実装済み。  
@@ -245,9 +249,18 @@ Phase C のデータ変換時に一括置換する。移行期間中は SW が�
 |---|---|---|
 | **Phase A** | 設計確定 ✅ | — |
 | **Phase B** | スキーマ変更 ✅ | Phase A |
-| **Phase C** | データ変換: NT TailsUnit Attrs を新構造に変換。`Value_JP/EN` → `value_JP/EN` 全置換 | Phase B |
+| **Phase C** | データ変換 ✅ | Phase B |
 | **Phase D** | SW/UI 対応: `vdict_*` 辞書解決・`value_Num_{n}` 集計・Count 導出・グループ表示 | Phase C |
 | **Phase E** | テスト更新: Vitest テスト追加・更新 | Phase D |
+
+### Phase C 実施内容（2026-06-28）
+
+- **変換対象**: NT `db_Primary.json` の全 `AppearanceDetail[*].Attrs[]`（2077件→2144件）
+- **`#DesignAttr_Shape`**: `Value_JP/EN` → `value_JP/value_EN` に改名。`vdict_ShapeType` を追加（7種全てマッピング）
+- **`#DesignAttr_Count`**: `"N本"` → `value_Num: N`（整数）に変換
+- **`#DesignAttr_Branch`**: `"上N束×M本+下P束×Q本"` → 位置グループごとに1エントリに分割（67件が2エントリへ展開。`vdict_Laterality` / `value_Num_1` / `value_Num_2` を設定）。非標準形式（`'2束'` 7件、`'大1束+小9束'` 1件）は `value_JP` フォールバック
+- **`#DesignAttr_Segment`**: `"N節"` → `value_Num: N` に変換
+- **その他全ラベル（Overview/Position/Color/Notation/Material）**: `Value_JP` → `value_JP`、`Value_EN` → `value_EN` に一括改名（1977件）
 
 ### Phase B 実施内容（2026-06-28）
 
