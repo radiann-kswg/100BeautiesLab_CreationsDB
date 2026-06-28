@@ -123,3 +123,20 @@ cp .env.example .env
 | 翻訳辞書ソース | `data/Localization/trans_*.json` / `data/References/ref_*.json` / `data/Dictionaries/dict_*.json` |
 | スクリプト | `tools/deepl/`（`build-glossary-source` / `sync-glossary` / `evaluate-translations` / `deepl-client`） |
 | 作業ログ | `_work_in_progress/2026-06-28_progress_deepl-localization.md` |
+
+---
+
+## 7. 読み仮名グロスの正規化（`漢字(かな)`）
+
+同じ概念が、辞書によって **読み仮名併記形**（`算象(アリスマ)諸国`）と **素形**（`算象諸国`）の 2 通りで記録されることがある（リッチ表示系の `trans_*` / `dict_*` と、資料系 `ref_*` の差など）。両者は同じ EN（`Alismathians`）に対応するため、素朴に集約すると **EN→JA で訳先が一意に定まらず衝突**する。
+
+`build-glossary-source.mjs` はこれを構造的に吸収する（`stripReadingGloss`）。
+
+- **検出対象**: 「**漢字の直後**に来る、**かなのみ**の丸括弧」だけを読みグロスとみなす（全角/半角括弧対応）。
+  - 剥がす: `算象(アリスマ)諸国` → `算象諸国` / `海陸国(シーバイランド)諸島` → `海陸国諸島`
+  - 剥がさない（誤爆防止）: `(後天的)` `(拡張装備あり)` `(時空遷移者)` など**中身に漢字を含む修飾括弧**、漢字以外（カタカナ・英字）に続く括弧。
+- **EN→JA**: 訳先 JP は常に **素形**（グロス除去後）を採用する。「併記形 vs 素形」だけの差は衝突として扱わない。読みは `Term_JPReading` から復元できる。
+- **JA→EN**: グロスを剥いた素形も**自動的にソースへ追加**する。DB 本文が素形・併記形どちらで出ても英訳が効く（マッチ網羅の拡張）。
+- **真の衝突だけ残す**: 素形にしても EN が食い違う場合（例: `南雌大陸` に `Evesouth Mainland` と `Ivesouth Continent` の 2 訳）は本物の表記不一致として `glossary-conflicts.md` に残す。和文側の正規化は User が判断する。
+
+> この正規化により、読みを振った地名・組織が増えても EN→JA 衝突が自然増殖しない。新しい固有名詞に読みグロスを付けるときは、`Term_JPReading`（資料系）か併記形（表示系）のどちらで持っても、用語集側は素形に正規化される。
