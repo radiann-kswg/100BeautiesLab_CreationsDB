@@ -53,6 +53,7 @@
 - `formsMotifSection` — IdentityMotif / FormsMotif 表示（`lib/section-renders/formsMotif.js`）
 - `thisMastersSection` — ThisMasters (`$Def_ThisMastersEntry[]`) 表示（`lib/section-renders/thisMasters.js`）
 - `dbLinkSection` — `*_DBLink` suffix フィールドのキャラクターリンク参照表示（`lib/section-renders/dblink.js`）
+- `appearanceDetailSection` — `AppearanceDetail` (`$Def_AppearanceDetail[]`) 外見デザイン詳細の Formation グループ別表示。`vdict_*` / `value_Num_*` / `value_JP` / `about_JP` の規約駆動フィールドを `$EnumDef_*`（global+local マージ）で解決する（`lib/section-renders/appearanceDetail.js`）
 
 **suffix 自動ディスパッチ**: `dbLinkSection` と `relationSection` は `$display.sectionWrapper` の宣言なしに suffix だけで自動マッチする。
 - `*_DBLink` → `dbLinkSection` が `match` 関数で自動検出
@@ -75,6 +76,7 @@
 - `$VarsDef.$Def_Day.$display.wrapper = daySummary`
 - `$MetaType.$Def_StoryEra.$display.wrapper = eraSummary`
 - `$MetaType.$Def_StoryEraCatalog.$display.wrapper = storyEraSummary`
+- `$DefType.AppearanceDetail.$display.sectionWrapper = appearanceDetailSection`（`data/db_type.json` — `$Def_AppearanceDetail[]|#Null` 型 / `searchable: false`）
 
 ### 2.3 UI 側の利用
 
