@@ -24423,7 +24423,7 @@
         { "Num": 63, "RelationLabel": ["cousin_nearly"] },
         { "Num": 83, "RelationLabel": ["brother|sister", "classmate"] }
       ]
-    },
+    }
   },
   {
     "Num": 39,
@@ -33515,7 +33515,7 @@
         { "Num": 72, "RelationLabel": ["classmate"] },
         { "Num": 99 }
       ]
-    },
+    }
   },
   {
     "Num": 55,
@@ -36063,7 +36063,7 @@
         { "Num": 50, "RelationLabel": ["pioneer_nearly"] },
         { "Num": 97, "RelationLabel": ["cousin_nearly"] }
       ]
-    },
+    }
   },
   {
     "Num": 60,
@@ -48498,7 +48498,7 @@
     "AppearanceDetail": [],
     "InStory_JP": "宗教勧誘者のように疑われがち",
     "InStory_EN": "Often mistaken for a religious recruiter and met with suspicion",
-    "Relation": { "Commented": [{ "Num": 7, "RelationLabel": ["pioneer"] }] },
+    "Relation": { "Commented": [{ "Num": 7, "RelationLabel": ["pioneer"] }] }
   },
   {
     "Num": 80,
@@ -49303,7 +49303,7 @@
         { "Num": 82, "RelationLabel": ["cousin"] },
         { "Num": 92, "RelationLabel": ["classmate"] }
       ]
-    },
+    }
   },
   {
     "Num": 84,
@@ -53182,7 +53182,7 @@
     "NumerospecAbout_EN": "Brings out one's true potential in moments of final conclusion or last resort",
     "Relation": {
       "Commented": [{ "Num": 99, "RelationLabel": ["successor_nearly"] }]
-    },
+    }
   },
   {
     "Num": 91,
@@ -53214,7 +53214,7 @@
         { "Num": 19, "RelationLabel": ["brother|sister", "classmate"] },
         { "Num": 81, "RelationLabel": ["cousin"] }
       ]
-    },
+    }
   },
   {
     "Num": 92,
