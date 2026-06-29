@@ -1,11 +1,11 @@
-[
+﻿[
   {
-    "Card": { "Stoat": "Major", "StoatNum": 0, "Num": 22 },
+    "Card": { "Suit": "Major", "SuitNum": 0, "Num": 22 },
     "Progress": "released(beta)",
     "Images": { "cardDesign_PNGName": "crddsn_imgFLM0" },
     "ThisArcanaHolder_DBLink": {
       "_DB": "PrimaryDealer",
-      "Card": { "Stoat": "Major", "StoatNum": 0 }
+      "Card": { "Suit": "Major", "SuitNum": 0 }
     },
     "Name_JP": "フェニクス",
     "Name_EN": "Phoenix",
@@ -43,12 +43,12 @@
     "AdditionalDesigned_EN": "Card Illustration：REITO_KYUN♡(https://piku.page/@REITO_KYUN)\nCard Backimage & CG：喜雨(kiu/xiyue)(https://kiucouch.myportfolio.com/)\nCard Frame & Emblem Design：散狐アタスト,ラジアン(柏木主税)"
   },
   {
-    "Card": { "Stoat": "Major", "StoatNum": 1, "Num": 1 },
+    "Card": { "Suit": "Major", "SuitNum": 1, "Num": 1 },
     "Progress": "released(beta)",
     "Images": { "cardDesign_PNGName": "crddsn_imgFLM1" },
     "ThisArcanaHolder_DBLink": {
       "_DB": "PrimaryDealer",
-      "Card": { "Stoat": "Major", "StoatNum": 1 }
+      "Card": { "Suit": "Major", "SuitNum": 1 }
     },
     "Name_JP": "オリジン",
     "Name_EN": "Dr.Origin",
@@ -86,11 +86,11 @@
     "AdditionalDesigned_EN": "Card Illustration：REITO_KYUN♡(https://piku.page/@REITO_KYUN)\nCard Backimage & CG：喜雨(kiu/xiyue)(https://kiucouch.myportfolio.com/)\nCard Frame & Emblem Design：ラジアン(柏木主税),散狐アタスト(https://misskey.io/@atast)"
   },
   {
-    "Card": { "Stoat": "Major", "StoatNum": 2, "Num": 2 },
+    "Card": { "Suit": "Major", "SuitNum": 2, "Num": 2 },
     "Progress": "notProceeded",
     "ThisArcanaHolder_DBLink": {
       "_DB": "PrimaryDealer",
-      "Card": { "Stoat": "Major", "StoatNum": 2 }
+      "Card": { "Suit": "Major", "SuitNum": 2 }
     },
     "Name_JP": "ヨハネ",
     "Name_EN": "John",
@@ -126,12 +126,12 @@
     }
   },
   {
-    "Card": { "Stoat": "Major", "StoatNum": 3, "Num": 3 },
+    "Card": { "Suit": "Major", "SuitNum": 3, "Num": 3 },
     "Progress": "released(beta)",
     "Images": { "cardDesign_PNGName": "crddsn_imgFLM3" },
     "ThisArcanaHolder_DBLink": {
       "_DB": "PrimaryDealer",
-      "Card": { "Stoat": "Major", "StoatNum": 3 }
+      "Card": { "Suit": "Major", "SuitNum": 3 }
     },
     "Name_JP": "ウェヌス",
     "Name_EN": "Venus",
@@ -169,7 +169,7 @@
     "AdditionalDesigned_EN": "Card Illustration：REITO_KYUN♡(https://piku.page/@REITO_KYUN)\nCard Backimage & CG：喜雨(kiu/xiyue)(https://kiucouch.myportfolio.com/)\nCard Frame & Emblem Design：ラジアン(柏木主税),散狐アタスト(https://misskey.io/@atast)"
   },
   {
-    "Card": { "Stoat": "Major", "StoatNum": 7, "Num": 7 },
+    "Card": { "Suit": "Major", "SuitNum": 7, "Num": 7 },
     "Progress": "notProceeded",
     "Name_JP": "アクセラ",
     "Name_EN": "Accela",
@@ -204,12 +204,12 @@
     }
   },
   {
-    "Card": { "Stoat": "Major", "StoatNum": 8, "Num": 8 },
+    "Card": { "Suit": "Major", "SuitNum": 8, "Num": 8 },
     "Progress": "released(beta)",
     "Images": { "cardDesign_PNGName": "crddsn_imgFLM8" },
     "ThisArcanaHolder_DBLink": {
       "_DB": "PrimaryDealer",
-      "Card": { "Stoat": "Major", "StoatNum": 8 }
+      "Card": { "Suit": "Major", "SuitNum": 8 }
     },
     "Name_JP": "リオン",
     "Name_EN": "Lion",
@@ -247,12 +247,12 @@
     "AdditionalDesigned_EN": "Card Illustration：REITO_KYUN♡(https://piku.page/@REITO_KYUN)\nCard Backimage & CG：喜雨(kiu/xiyue)(https://kiucouch.myportfolio.com/)\nCard Frame & Emblem Design：ラジアン(柏木主税),散狐アタスト(https://misskey.io/@atast)"
   },
   {
-    "Card": { "Stoat": "Major", "StoatNum": 9, "Num": 9 },
+    "Card": { "Suit": "Major", "SuitNum": 9, "Num": 9 },
     "Progress": "released(beta)",
     "Images": { "cardDesign_PNGName": "crddsn_imgFLM9" },
     "ThisArcanaHolder_DBLink": {
       "_DB": "PrimaryDealer",
-      "Card": { "Stoat": "Major", "StoatNum": 9 }
+      "Card": { "Suit": "Major", "SuitNum": 9 }
     },
     "Name_JP": "ヴェール",
     "Name_EN": "Veil",
@@ -290,7 +290,7 @@
     "AdditionalDesigned_EN": "Card Illustration：REITO_KYUN♡(https://piku.page/@REITO_KYUN)\nCard Backimage & CG：喜雨(kiu/xiyue)(https://kiucouch.myportfolio.com/)\nCard Frame & Emblem Design：ラジアン(柏木主税),散狐アタスト(https://misskey.io/@atast)"
   },
   {
-    "Card": { "Stoat": "Major", "StoatNum": 13, "Num": 13 },
+    "Card": { "Suit": "Major", "SuitNum": 13, "Num": 13 },
     "Progress": "unreleased",
     "Images": { "cardDesign_PNGName": "crddsn_imgFLM13" },
     "Name_JP": "ドゥームズ",
@@ -351,11 +351,11 @@
     "AdditionalDesigned_EN": "Card Illustration：喜雨(kiu/xiyue)(https://kiucouch.myportfolio.com/),REITO_KYUN♡(https://piku.page/@REITO_KYUN)\nCard Backimage & CG：喜雨(kiu/xiyue)\nCard Frame & Emblem Design：ラジアン(柏木主税),散狐アタスト(https://misskey.io/@atast)"
   },
   {
-    "Card": { "Stoat": "Major", "StoatNum": 16, "Num": 16 },
+    "Card": { "Suit": "Major", "SuitNum": 16, "Num": 16 },
     "Progress": "notProceeded",
     "ThisArcanaHolder_DBLink": {
       "_DB": "PrimaryDealer",
-      "Card": { "Stoat": "Major", "StoatNum": 16 }
+      "Card": { "Suit": "Major", "SuitNum": 16 }
     },
     "Name_JP": "バベル",
     "Name_EN": "Babel",
@@ -391,11 +391,11 @@
     }
   },
   {
-    "Card": { "Stoat": "Major", "StoatNum": 17, "Num": 17 },
+    "Card": { "Suit": "Major", "SuitNum": 17, "Num": 17 },
     "Progress": "notProceeded",
     "ThisArcanaHolder_DBLink": {
       "_DB": "PrimaryDealer",
-      "Card": { "Stoat": "Major", "StoatNum": 17 }
+      "Card": { "Suit": "Major", "SuitNum": 17 }
     },
     "Name_JP": "ゲイザー",
     "Name_EN": "Gazer",
@@ -429,7 +429,7 @@
     }
   },
   {
-    "Card": { "Stoat": "Major", "StoatNum": 18, "Num": 18 },
+    "Card": { "Suit": "Major", "SuitNum": 18, "Num": 18 },
     "Progress": "unreleased",
     "Images": { "cardDesign_PNGName": "crddsn_imgFLM18" },
     "Name_JP": "ルネ",
@@ -466,12 +466,12 @@
     "AdditionalDesigned_EN": "Card Illustration：REITO_KYUN♡(https://piku.page/@REITO_KYUN)\nCard Backimage & CG：喜雨(kiu/xiyue)(https://kiucouch.myportfolio.com/)\nCard Frame & Emblem Design：ラジアン(柏木主税),散狐アタスト(https://misskey.io/@atast)"
   },
   {
-    "Card": { "Stoat": "Dealer", "StoatNum": null, "Num": 79 },
+    "Card": { "Suit": "Dealer", "SuitNum": null, "Num": 79 },
     "Progress": "released(beta)",
     "Images": { "arts_PNGPath": ["arts_imgFLDealer"] },
     "ThisArcanaHolder_DBLink": {
       "_DB": "PrimaryDealer",
-      "Card": { "Stoat": "Dealer", "StoatNum": 79 }
+      "Card": { "Suit": "Dealer", "SuitNum": 79 }
     },
     "Name_JP": null,
     "Name_EN": null,
@@ -504,12 +504,12 @@
     }
   },
   {
-    "Card": { "Stoat": "Dealer", "StoatNum": null, "Num": 80 },
+    "Card": { "Suit": "Dealer", "SuitNum": null, "Num": 80 },
     "Progress": "released(beta)",
     "Images": { "arts_PNGPath": ["arts_imgFLDealer"] },
     "ThisArcanaHolder_DBLink": {
       "_DB": "PrimaryDealer",
-      "Card": { "Stoat": "Dealer", "StoatNum": 80 }
+      "Card": { "Suit": "Dealer", "SuitNum": 80 }
     },
     "Name_JP": null,
     "Name_EN": null,

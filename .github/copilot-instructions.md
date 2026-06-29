@@ -1,4 +1,4 @@
-# Copilot Instructions for 100BeautiesLab. Creations DB (Web)
+﻿# Copilot Instructions for 100BeautiesLab. Creations DB (Web)
 
 ## Copilot のロールプレイ設定（全会話・全応答を通じて必須）
 
@@ -82,7 +82,7 @@ Copilot 自動ロード用の同等仕様は `.github/instructions/roleplay.inst
 - **catalog summary の生成規則**: works / db カタログの summary 追加は、可能な限り `$MetaType.$Def_DatabaseCatalog` を基準に `${hashTag}Summary` を自動生成する方式へ寄せ、`StoryEra` など特定 field の個別ハードコードを増やさないでください。
 - **enrich summary の生成規則**: wrapper 対象の top-level field を SW/UI で再利用したい場合は、個別 field を別キーへ複製する前に `lib/data-common.js` の `_enrichment.wrapperSummaries` を使える形に寄せてください。
 - **`*_DBLink` suffix フィールドの自動ディスパッチ**: `{FieldName}_DBLink` で終わるフィールドは `lib/section-renders/dblink.js` の `dbLinkSection` renderer が suffix を自動検出して描画します。`$display.sectionWrapper` の指定は不要です。`lib/section-wrapper-common.js` の `structuredObjectSection.match` に `*_DBLink` 除外条件があり、単一オブジェクト形式のフィールドでも正しく `dbLinkSection` へ委譲されます。
-- **`$Def_DBLinkRef` フォーマット**: `*_DBLink` エントリ（UI向けリンク用）は `{ "_Work": "WorksTitle", "_DB": "DbName", "IndexKey": "IndexValue" }` 形式を正とします。ネストインデックスも可（例: `"Card": { "Stoat": "Major", "StoatNum": 17 }`）。旧フォーマット（`{ worksTitle, dbName, _Search: [{hashTag, key}] }`）は廃止。ただし `EnrichmentProcessor.resolveDbLinkPrimaryRecord()` が使うレコードルートの `_DBLink`（マージ用）は旧フォーマットのまま維持します。
+- **`$Def_DBLinkRef` フォーマット**: `*_DBLink` エントリ（UI向けリンク用）は `{ "_Work": "WorksTitle", "_DB": "DbName", "IndexKey": "IndexValue" }` 形式を正とします。ネストインデックスも可（例: `"Card": { "Suit": "Major", "SuitNum": 17 }`）。旧フォーマット（`{ worksTitle, dbName, _Search: [{hashTag, key}] }`）は廃止。ただし `EnrichmentProcessor.resolveDbLinkPrimaryRecord()` が使うレコードルートの `_DBLink`（マージ用）は旧フォーマットのまま維持します。
 - **`ThisMasters._DBLink` のフォーマット**: `$Def_DBLinkRef` 形式を使います。`lib/section-renders/thisMasters.js` の `hydrateThisMastersLink` は SENTINEL_KEYS（`_DB / _Work / label_JP / label_EN`）を除いた最初のキーをインデックスとして動的解決します。
 - **AIHints corefolder 強化フィールドの運用**: `$Def_AIFormVariant` の `silhouette_notes` / `immutable_constraints` / `negative_keywords` は、structural default（球体本体記述、腕脚/手禁止、humanoid 衣装禁止、`legs`/`arms`/`hoodie` 等の NG キーワード）に限り `tools/patch-aihints.mjs --upgrade-schema` で自動投入します。キャラ固有スロット（特定キャラだけが持つ NG・ハーネス形状・個別禁止要素）は `TODO:` で残し、画像と設定資料を参照した User 手動入力を正とします。Copilot は画像から推定したキャラ固有の創作描写を勝手に埋めないでください（`--apply-vision-results` 経由で User / Agent が明示的に渡した場合のみ反映可）。
 - **AIHints `silhouette_notes` は object 形式**: 2026-06-09 以降、`forms.*.silhouette_notes` は `$Def_AISilhouetteNotes`（`{ body_description: #String[], attached_items: #String[] }`）に統一します。素体（球体本体・球状コア・人型上半身）は `body_description` へ、ハーネス・髪飾り・首輪・襷・カフ等の装着付属品は `attached_items` へ分離してください。flat array からの一括移行は `tools/patch-aihints.mjs --migrate-silhouette-structure --apply` で行えます。

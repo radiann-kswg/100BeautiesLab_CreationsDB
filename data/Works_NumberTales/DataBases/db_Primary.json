@@ -1,4 +1,4 @@
-[
+﻿[
   {
     "Num": 1,
     "Progress": "released",
@@ -10504,7 +10504,7 @@
         "_DBLink": {
           "_Work": "FLInvestigator78",
           "_DB": "PrimaryDealer",
-          "Card": { "Stoat": "Major", "StoatNum": 17 }
+          "Card": { "Suit": "Major", "SuitNum": 17 }
         }
       }
     ],
@@ -42345,7 +42345,7 @@
         "_DBLink": {
           "_Work": "FLInvestigator78",
           "_DB": "PrimaryDealer",
-          "Card": { "Stoat": "Major", "StoatNum": 16 }
+          "Card": { "Suit": "Major", "SuitNum": 16 }
         }
       }
     ],
