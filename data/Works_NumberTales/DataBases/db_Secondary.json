@@ -1,4 +1,4 @@
-[
+﻿[
   {
     "sec_SeriesTitle": "ナンバーテールズ化企画",
     "Num": "115-numberize",
@@ -1262,7 +1262,7 @@
     "AnotherRegions_DBLink": {
       "_Work": "FLInvestigator78",
       "_DB": "PrimaryDealer",
-      "Card": { "Stoat": "Dealer", "Num": 79 }
+      "Card": { "Suit": "Dealer", "Num": 79 }
     },
     "sec_SeriesTitle": "D-Vines(ディ-ヴァインズ)",
     "Name_JP": "錦野 舞",
@@ -1308,7 +1308,7 @@
     "AnotherRegions_DBLink": {
       "_Work": "FLInvestigator78",
       "_DB": "PrimaryDealer",
-      "Card": { "Stoat": "Dealer", "Num": 80 }
+      "Card": { "Suit": "Dealer", "Num": 80 }
     },
     "sec_SeriesTitle": "D-Vines(ディ-ヴァインズ)",
     "Name_JP": "錦野 歌嫁",

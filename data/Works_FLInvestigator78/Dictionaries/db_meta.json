@@ -6,11 +6,11 @@
       "keyField": "Class",
       "compatListKey": "#List_Class"
     },
-    "#Dict_Stoat": {
+    "#Dict_Suit": {
       "DB_Label_JP": "カード種別辞書",
-      "DB_Label_EN": "Card Type(Stoat) Dictionary",
-      "keyField": "Stoat",
-      "compatListKey": "#List_Stoat"
+      "DB_Label_EN": "Card Type(Suit) Dictionary",
+      "keyField": "Suit",
+      "compatListKey": "#List_Suit"
     },
     "#Dict_Material": {
       "DB_Label_JP": "元素属性辞書",

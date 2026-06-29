@@ -1,4 +1,4 @@
-/**
+﻿/**
  * _DBLink / _Jump マージの基本テスト
  *
  * 目的:
@@ -361,7 +361,7 @@ describe('_DBLink / _Jump merge (in-process)', () => {
     expect(e.Name).toBe('public name');
   });
 
-  it('_DBLink._Search で hashTag="#Index" + key=object を使うと、ネストIndex（例: Card.Stoat + Card.Num）をAND条件で特定できる', async () => {
+  it('_DBLink._Search で hashTag="#Index" + key=object を使うと、ネストIndex（例: Card.Suit + Card.Num）をAND条件で特定できる', async () => {
     const dataFetcher = new TestDataFetcher();
     const proc = new globalThis.EnrichmentProcessor(dataFetcher, testConfig);
 
@@ -370,15 +370,15 @@ describe('_DBLink / _Jump merge (in-process)', () => {
       _DBLink: {
         worksTitle: 'FLInvestigator78',
         dbName: 'Primary',
-        _Search: [{ hashTag: '#Index', key: { Stoat: 'Major', StoatNum: 0 } }]
+        _Search: [{ hashTag: '#Index', key: { Suit: 'Major', SuitNum: 0 } }]
       }
     };
 
     const out = await proc.enrichRecords([rec], '#Works_MainWork', 'Primary');
     const e = out[0];
 
-    // インデックス意味分離（Num=通し番号 / StoatNum=種別内番号）に追従。
-    // FLInvestigator78 の Card:{Stoat:'Major',StoatNum:0}（通し番号 Num:22）は Name_JP が「フェニクス」
+    // インデックス意味分離（Num=通し番号 / SuitNum=種別内番号）に追従。
+    // FLInvestigator78 の Card:{Suit:'Major',SuitNum:0}（通し番号 Num:22）は Name_JP が「フェニクス」
     expect(e.Name_JP).toBe('フェニクス');
   });
 
@@ -406,9 +406,9 @@ describe('_DBLink / _Jump merge (in-process)', () => {
     class ObjKeyDataFetcher extends TestDataFetcher {
       async readDB(_workId, _dbName) {
         return [
-          { Id: 'A', Card: { Stoat: 'Major', StoatNum: 0, Num: 22 }, Name: 'フェニクス' },
-          { Id: 'B', Card: { Stoat: 'Major', StoatNum: 1, Num: 1  }, Name: 'オリジン'   },
-          { Id: 'C', Card: { Stoat: 'Minor', StoatNum: 0, Num: 1  }, Name: 'ミナーA'    },
+          { Id: 'A', Card: { Suit: 'Major', SuitNum: 0, Num: 22 }, Name: 'フェニクス' },
+          { Id: 'B', Card: { Suit: 'Major', SuitNum: 1, Num: 1  }, Name: 'オリジン'   },
+          { Id: 'C', Card: { Suit: 'Minor', SuitNum: 0, Num: 1  }, Name: 'ミナーA'    },
         ];
       }
       async readGlobalType() {
@@ -431,14 +431,14 @@ describe('_DBLink / _Jump merge (in-process)', () => {
       _DBLink: {
         worksTitle: 'TestWork',
         dbName: 'Primary',
-        _Search: [{ hashTag: 'Card', key: { Stoat: 'Major', StoatNum: 0 } }]
+        _Search: [{ hashTag: 'Card', key: { Suit: 'Major', SuitNum: 0 } }]
       }
     };
 
     const out = await proc.enrichRecords([rec], '#Works_MainWork', 'Primary');
     const e = out[0];
 
-    // Card:{Stoat:'Major',StoatNum:0} に一致するのは 'フェニクス' のみ
+    // Card:{Suit:'Major',SuitNum:0} に一致するのは 'フェニクス' のみ
     expect(e.Name).toBe('フェニクス');
   });
 
@@ -446,8 +446,8 @@ describe('_DBLink / _Jump merge (in-process)', () => {
     class ObjKeyMismatchFetcher extends TestDataFetcher {
       async readDB(_workId, _dbName) {
         return [
-          { Id: 'A', Card: { Stoat: 'Major', StoatNum: 0 }, Name: 'フェニクス' },
-          { Id: 'B', Card: { Stoat: 'Major', StoatNum: 1 }, Name: 'オリジン'   },
+          { Id: 'A', Card: { Suit: 'Major', SuitNum: 0 }, Name: 'フェニクス' },
+          { Id: 'B', Card: { Suit: 'Major', SuitNum: 1 }, Name: 'オリジン'   },
         ];
       }
       async readGlobalType() {
@@ -458,14 +458,14 @@ describe('_DBLink / _Jump merge (in-process)', () => {
     const dataFetcher = new ObjKeyMismatchFetcher();
     const proc = new globalThis.EnrichmentProcessor(dataFetcher, testConfig);
 
-    // Stoat='Major' には 2 件一致するが、StoatNum=99 で絞ると 0 件 → マージしない
+    // Suit='Major' には 2 件一致するが、SuitNum=99 で絞ると 0 件 → マージしない
     const rec = {
       Id: 'BASE',
       Name: 'ベース',
       _DBLink: {
         worksTitle: 'TestWork',
         dbName: 'Primary',
-        _Search: [{ hashTag: 'Card', key: { Stoat: 'Major', StoatNum: 99 } }]
+        _Search: [{ hashTag: 'Card', key: { Suit: 'Major', SuitNum: 99 } }]
       }
     };
 
@@ -486,14 +486,14 @@ describe('_DBLink / _Jump merge (in-process)', () => {
       _DBLink: {
         worksTitle: 'FLInvestigator78',
         dbName: 'PrimaryDealer',
-        _Search: [{ hashTag: 'Card', key: { Stoat: 'Major', StoatNum: 0 } }]
+        _Search: [{ hashTag: 'Card', key: { Suit: 'Major', SuitNum: 0 } }]
       }
     };
 
     const out = await proc.enrichRecords([rec], '#Works_MainWork', 'Primary');
     const e = out[0];
 
-    // PrimaryDealer の Card:{Stoat:'Major',StoatNum:0} は Character_JP が「能天気でどこか浮いている」
+    // PrimaryDealer の Card:{Suit:'Major',SuitNum:0} は Character_JP が「能天気でどこか浮いている」
     expect(e.Character_JP).toBe('能天気でどこか浮いている');
   });
 
