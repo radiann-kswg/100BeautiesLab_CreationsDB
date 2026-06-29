@@ -1,5 +1,22 @@
 # 最新のリファクタリング・仕様変更履歴
 
+### AppearanceDetail 型付きスキーマ改修 — develop 統合 (2026-06-29)
+
+- **`$Def_AppearanceDetail` / `$Def_AppearanceAttr` 正式スキーマ化**: `data/db_meta.json($VarsDef)` に `$Def_AppearanceDetail` / `$Def_AppearanceAttr` の `$DefType` を追加。`data/db_type.json($DefType)` の `AppearanceDetail` フィールドに `"$type": "$Def_AppearanceDetail[]|#Null"` / `"searchable": false` / `"$display.sectionWrapper": "appearanceDetailSection"` を宣言。`$ScalarDef` に `#Hexcode` / `#Hexcode_Color` の base type を追加。
+- **`lib/section-renders/appearanceDetail.js` 新規追加**: `$Def_AppearanceDetail[]` を描画する専用セクションレンダラー。Formation でグループ化し、各エントリを「DesignElement / BodyPart / Laterality タグ ＋ 属性リスト（`vdict_*` / `value_Num_*` / `value_JP` / `about_JP`）＋ 補足テキスト」として描画。`$EnumDef_*` を global+local でマージ（`getMergedEnumDef`）し、NT ローカル辞書（`$EnumDef_DesignElement` 等）と global 辞書（`$EnumDef_DesignBodyPart` 等）の両方に対応。
+- **NT Primary `db_Primary.json` 大量更新**: 旧形式の uppercase `Value_JP` / `Value_EN` を規約駆動の `value_JP` / `value_EN` へ全件移行（97 レコード × 複数エントリ）。`Formation: null` / `Laterality: null` の省略化・整合も実施。
+- **`pages/characters.js` 修正 2 件**:
+  - `quickStats` を **opt-in 専用** に変更（`$DetailLayout.quickStats` 配列が明示されている作品のみヒーロー帯に表示。未設定時は全 basicFields をテーブルに表示し、ヒーロー帯には出さない。以前は未設定時も先頭 3 項目を誤ってヒーロー帯に出していた）。
+  - `AppearanceDetail` renderer import 追加（`lib/section-renders/appearanceDetail.js`）。
+- **テスト修正 3 件** (既知失敗の解消):
+  - テスト「`正式名称` が `''` を返す」「`Model Number` が `''` を返す」: quickStats opt-in 修正に伴い解消。
+  - テスト「`資料名` が `''` を返す」: NT References メタフィクスチャに `#Ref_Reference` を追加し、fetch モックに NT References typedef ハンドラを追加して解消。
+- **テスト新規追加 5 件** (Phase E):
+  - `data.shape.test.js`: AppearanceDetail 正式スキーマ検証（`$DefType` 宣言・`$ScalarDef`・`$Def_AppearanceAttr` 内容・NT Primary uppercase フィールド件数）。
+  - `pages.characters.ui-output.test.js`: NT キャラ #9 の AppearanceDetail セクション描画検証（折りたたみセクション・辞書解決ラベル・`vdict_*` / `value_Num` の表示）。
+- Vitest: 136 テスト全 pass（修正 3 + 新規 5 込み）。
+- ブランチ: `refactor-appearance-detail` → `develop` → `addon-ai-tag` の順でマージ・push 済み（Phase 0–3 完了）。詳細は `_work_in_progress/2026-06-29_progress_appearance-detail-merge-integration.md`。
+
 ### ローカライズ辞書 — 大陸名の英語表記統一 (2026-06-28)
 
 - **`南雌大陸` の英訳を `Ivesouth Mainland` に統一**（`Evesouth Mainland`／`Ivesouth Continent` の表記不一致を解消）。対象: `data/Dictionaries/dict_Area.json`・`data/Localization/trans_PlaceName.json`・`data/References/ref_Region8.json`。

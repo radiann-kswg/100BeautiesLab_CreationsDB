@@ -237,16 +237,14 @@ const proxyRecords = loadJson('data/Works_Proxies/DataBases/db_Proxy.json');
 const secondGenProxyRecord = proxyRecords.find((record) => Number(record?.Generation) === 2);
 const numberTalesWorkTypeDef = loadJson('data/Works_NumberTales/DataBases/db_type.json');
 const numberTalesWorkMeta = buildWorkMetaFixture('Works_NumberTales');
-// References レイヤーの DB カタログ（#Ref_Vocabulary）を workMeta に合流する。
+// References レイヤーの DB カタログ（#Ref_Vocabulary / #Ref_Reference）を workMeta に合流する。
 // 実データでは References/db_meta.json に分離されているため、findDbCatalogEntry が
-// DB_Layer='References' を解決できるよう取り込む。これにより画像ディレクトリが
-// 汎用の Ref_<DB名> 経路（mapDbNameToImageDir の References 分岐）で Ref_Vocabulary に解決される。
+// DB_Layer='References' を解決できるよう全エントリを取り込む。これにより画像ディレクトリが
+// 汎用の Ref_<DB名> 経路（mapDbNameToImageDir の References 分岐）で正しく解決される。
 const numberTalesReferencesMeta = loadJson('data/Works_NumberTales/References/db_meta.json');
-if (numberTalesReferencesMeta?.Databases?.['#Ref_Vocabulary']) {
-	numberTalesWorkMeta.Databases = {
-		...(numberTalesWorkMeta.Databases || {}),
-		'#Ref_Vocabulary': numberTalesReferencesMeta.Databases['#Ref_Vocabulary']
-	};
+const numberTalesRefDbs = numberTalesReferencesMeta?.Databases || {};
+if (Object.keys(numberTalesRefDbs).length) {
+	numberTalesWorkMeta.Databases = { ...(numberTalesWorkMeta.Databases || {}), ...numberTalesRefDbs };
 }
 const numberTalesPrimaryRecords = loadJson('data/Works_NumberTales/DataBases/db_Primary.json');
 const numberTalesSecondaryRecords = loadJson('data/Works_NumberTales/DataBases/db_Secondary.json');
@@ -667,6 +665,12 @@ describe('pages/characters.js UI output', () => {
 		const originalFetch = globalThis.fetch;
 		globalThis.fetch = async (input) => {
 			const url = String(input);
+			if (url.includes('/data/Works_NumberTales/References/db_type.json')) {
+				return new Response(JSON.stringify(numberTalesReferencesTypeDef), {
+					status: 200,
+					headers: { 'Content-Type': 'application/json' }
+				});
+			}
 			if (url.includes('/data/References/db_type.json')) {
 				return new Response(JSON.stringify(sharedReferencesTypeDef), {
 					status: 200,
@@ -924,5 +928,35 @@ describe('pages/characters.js UI output', () => {
 		const primaryLink = creationLinks.find((link) => new URL(link.href).searchParams.get('db') === 'Primary');
 		expect(glossaryLink).toBeTruthy();
 		expect(primaryLink).toBeTruthy();
+	});
+
+	it('renders AppearanceDetail section with vdict and value_Num attrs for NT character', async () => {
+		// globalDefType（グローバル辞書合流済み）を上位に渡すことで $EnumDef_DesignBodyPart 等を解決可能にする
+		charactersModule.__setCharactersTestState({
+			globalDefType,
+			charState: {
+				db: 'Primary',
+				workId: '#Works_NumberTales',
+				globalTypeDef,
+				workMeta: numberTalesWorkMeta,
+				imageFields: []
+			}
+		});
+
+		await charactersModule.renderDetail('#Works_NumberTales', ninthNumberTalesPrimaryRecord);
+
+		// AppearanceDetail は non-text subField として折りたたみセクション（details）で描画される
+		expect(isCollapsibleSubFieldSection('AppearanceDetail')).toBe(true);
+		expect(isSubFieldSectionOpen('AppearanceDetail')).toBe(false);
+
+		const sectionText = getSectionText('外見デザイン詳細');
+		// DesignElement タグ（NT ローカル辞書 $EnumDef_DesignElement から解決）
+		expect(sectionText).toContain('尻尾ユニット');
+		// BodyPart タグ（グローバル辞書 $EnumDef_DesignBodyPart から解決）
+		expect(sectionText).toContain('尻尾');
+		// vdict_TailShapeType からの形状ラベル（NT ローカル辞書 $EnumDef_TailShapeType から解決）
+		expect(sectionText).toContain('キツネ型');
+		// value_Num からの個数表示
+		expect(sectionText).toContain('9');
 	});
 });
