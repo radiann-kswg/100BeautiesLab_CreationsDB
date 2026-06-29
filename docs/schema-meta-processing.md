@@ -313,6 +313,22 @@
 - `CreationWorks` / `Databases` のメタ項目を docs 上で明示する
 - 今後の API / UI 拡張時に「どのメタキーが正式扱いか」を共有する
 
+### 3.7 `$ScalarDef`
+
+`data/db_type.json` のトップレベル `$ScalarDef` は、**基底スカラー型のパターン・フォーマット制約**を宣言します（2026-06-29 追加）。
+
+`$DefType` の `$type` 文字列から参照される型エイリアスの一種ですが、フィールド定義（`$DefType`）ではなく「型そのもの」を定義するための場所です。
+
+現状の定義:
+
+- `#Hexcode` — カラーコード基底型（`pattern: "^#[0-9A-Fa-f]+"` など制約を持つ）
+- `#Hexcode_Color` — `extends: "#Hexcode"` + 6/8桁 hex 限定パターン（`^#[0-9A-Fa-f]{6}([0-9A-Fa-f]{2})?$`）
+
+利用方法:
+
+- `$Def_AppearanceAttr` の `value_Color` フィールドなどが `#Hexcode_Color` を参照する前提で設計されています。
+- UI 側のバリデーションや表示ヒントに使えますが、現時点では表示処理への組み込みは段階的な予定です。
+
 ---
 
 ## 4. `db_meta.json` の宣言面
@@ -431,6 +447,15 @@ UI 側は厳密構造より `about_JP` / `about_EN` を優先して整形表示�
 `db_meta.json` 側の `General.$VarsDef` は、表示辞書の最も古い置き場です。現在でも重要ですが、`db_type.json($VarsDef)` と分散配置される前提です。
 
 そのため実行時には、**meta だけ見ても辞書が完結しない** 場合があります。
+
+`$VarsDef` には enum 辞書（`$EnumDef_*`）だけでなく、**複合オブジェクト型の `$DefType` 定義**を持つオブジェクト（`$Def_*` キー）も置けます。
+
+例（`data/db_meta.json` に置かれているカスタム型）:
+
+- `$Def_AppearanceDetail` — `Formation` / `BodyPart` / `DesignElement` / `Attrs` 等を持つ外見デザイン詳細エントリ
+- `$Def_AppearanceAttr` — `AttrLabel` + 規約駆動フィールド（`vdict_*` / `value_*` / `about_*`）を持つ属性行
+
+これらは `db_type.json($DefType)` の `$type` 文字列（例: `"$Def_AppearanceDetail[]|#Null"`）から参照されます。UI / SW はこの `$type` 参照を辿って `$DefType` を解決します。
 
 ### 4.6 `_Commons`
 

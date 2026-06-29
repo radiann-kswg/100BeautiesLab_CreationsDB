@@ -15,54 +15,69 @@
 
 ## いま進行中のファイル
 
-- 2026-06-28_progress_deepl-localization.md（DeepL 翻訳のローカライズ運用組み込み。用語集生成/同期/添削スクリプト・`docs/deepl-localization.md`・用語集実登録 JA-EN142/EN-JA140。✅ 疎通確認済み。⚠️ `npm test` ローカル確認・`.env` 設定・コミットは User 端末で）
-- 2026-06-28_progress_appearance-attrs-typed-schema.md（`$Def_AppearanceAttr` 型付きフィールド設計案。`value_Num` / `value_Laterality` / `value_Type` 等への分割・重複 AttrLabel 許可。⚠️ 設計検討中・未実装。Phase A〜E で段階実装予定）
-- 2026-06-27_progress_design-part-schema.md（外見デザイン部位統合スキーマ仕様案。`AppearanceDetail` / `$Def_AppearanceDetail` / enum 設計・移行マッピング。⚠️ 未実装・機能提案段階）
+### 未完了タスク一覧・継続参照
 
-- 2026-06-24_progress_calendar-ics.md（誕生日・記念日の Google カレンダー連携: ICS 自動生成・配信。✅ 配信確認済み・購読登録済み。⚠️ Google カレンダー初回同期待ち）
+- 2026-06-01_remaining-task.md（未完了タスク一覧・2026-06-01 時点。継続更新中）
+- 2026-06-13_remaining-task.md（希望タスク一覧・2026-06-13 時点。継続参照中）
+- 2026-06-12_progress_translation-style-unified.md（英訳ルール基準書・継続参照用）
+
+### 設計・仕様（進行中 or 継続参照）
+
+- 2026-06-21_progress_cloudflare-api-adr2-gcloud.md（ADR-0002 Draft・Google Cloud 画像生成バックエンド設計中）
+- 2026-06-13_progress_vocabulary-db.md（語彙DB実装完了・各作品の実データ入力は User 手動進行中）
+
+### GitHub / CI（User 判断待ち）
+
 - 2026-06-24_progress_github-triage.md（GitHub 未解決通知トリアージ: CodeQL alert PR #9・vitest Dependabot PR・cf-api-sync CI 失敗。⚠️ 全件 User 判断・手動操作待ち）
-- 2026-06-24*progress_localization-db.md（英訳固有辞書 DB（Localization レイヤー）実装。✅ 130/130 pass。trans_Dict.json → trans*{Category}.json 分割完了（2026-06-25）。Summary 入力・TransPolicy 確認・能力名等の追記は User 手動）
-- 2026-06-25_progress_localization-summary-inputs.md（Localization Summary 入力進捗チェックリスト。地名 9/13 ✅・人物名 11/13 ✅・SI 9/9 ✅・残 7 件 User 入力待ち）
 - 2026-06-25_progress_github-triage.md（GitHub 未解決問題トリアージ 2 回目。⚠️ PR #9・vitest Dependabot PR・cf-api-sync 確認は全件 User 判断待ち）
-- 2026-06-24_progress_localization-rules-audit.md（英訳ルール追補・calling.js 実装。✅ ThirdPersonCalling_EN 要確認 6 件 全件解消（2026-06-25）。⚠️ calling.js UI 確認は User 手動）
-- 2026-06-24_progress_red-tests-triage.md（赤テスト 2 系統の調査・修正。✅ 全 3 件解消済み）
-- 2026-06-24_progress_ui-output-test-triage.md（ui-output テスト 7 件の調査・修正。✅ 126/126 pass。B-2 も 2026-06-24 続セッションで解消済み）
+
+### データ / ローカライズ（User 手動作業残り）
 
 - 2026-06-22_progress_jp-en-naming-standardization.md（JP/EN フィールド命名標準化・**Phase 2〜5 全完了** ⚠️ D1/R2 再同期は手動実施が必要）
+- 2026-06-24_progress_localization-db.md（英訳固有辞書 DB（Localization レイヤー）実装。✅ 130/130 pass。trans_Dict.json → trans_{Category}.json 分割完了（2026-06-25）。Summary 入力・TransPolicy 確認・能力名等の追記は User 手動）
+- 2026-06-25_progress_localization-summary-inputs.md（Localization Summary 入力進捗チェックリスト。地名 9/13 ✅・人物名 11/13 ✅・SI 9/9 ✅・残 7 件 User 入力待ち）
+- 2026-06-28_progress_deepl-localization.md（DeepL 翻訳のローカライズ運用組み込み。用語集生成/同期/添削スクリプト・`docs/deepl-localization.md`・用語集実登録 JA-EN144/EN-JA138（大陸名修正後）。✅ 疎通確認済み。⚠️ `npm test` ローカル確認・`.env` 設定・コミットは User 端末で）
 
-- 2026-06-01_remaining-task.md（未完了タスク一覧・2026-06-01 時点）
-- 2026-06-12_progress_translation-style-unified.md（英訳ルール基準書・継続参照用）
-- 2026-06-13_remaining-task.md（希望タスク一覧・2026-06-13 時点・最新）
-- 2026-06-13_progress_vocabulary-db.md（語彙DB実装完了・各作品の実データ入力は User 手動進行中）
+### 機能実装（ブラウザ確認残り）
+
 - 2026-06-18_progress_dblink-enrich.md（`*_DBLink` suffix エンリッチ処理・typedef 設定とブラウザ確認が残）
 - 2026-06-18_progress_dblink-renderer.md（`*_DBLink` suffix セクションレンダラー・db_type.json 追記とブラウザ確認が残）
-- 2026-06-21_progress_cloudflare-api-adr2-gcloud.md（ADR-0002 Draft・Google Cloud 画像生成バックエンド設計中）
 - 2026-06-09_progress_aihints-from-identitymotif.md（`--apply-identitymotif` 実装・NumberTales/DB_Primary 全件再構築完了。他作品対応・docs 追記・cleared 3 件再適用が残留）
 - 2026-06-09_progress_corefolder-nld-template-and-silhouette-structure.md（corefolder NLD テンプレ化・silhouette_notes object 構造化完了。`#28` base color・他作品確認・humanoid NLD 未実装が残留）
 
-補足:
+### カレンダー
 
-- 2026-04-18 に旧進捗ログを整理し、未完了事項は `2026-03-31_remaining-task.md` へ集約しました。
-- 2026-04-21 に、4/18 と 4/19 の完了済み progress ログを `.completed` へ整理しました。
-- 2026-04-21 に、`_Secondaries` の fallback 優先順位整理ログも完了扱いとして `.completed` へ退避しました。
-- 2026-05-11 の棚卸しで、完了済みの `2026-03-31_remaining-task.md`、`2026-04-21_progress_multi-index-display.md` 他を `.completed` へ整理しました。
-- 2026-05-15 に、NumberTales #1〜#40 への AIHints フィールド追加（#38除く 39件）を完了しました。詳細は `.completed/2026-05-15_progress_aihints-numbertales-1to40.md` を参照。
-- 2026-06-01 の棚卸しで、`2026-04-21_progress_secondary-commons-defaults.md`・`2026-04-22_progress_requested-tasks-overview.md`・`2026-04-22_remaining-task.md`・`2026-05-29_progress_guideline-consolidation.md` を `.completed` へ退避しました。
-- `2026-06-01_remaining-task.md` に、現時点の未完了・着手中タスクを統合しました。
-- 2026-06-11 の棚卸しで、`2026-04-22_progress_task1-day-era-softcoding.md`・`2026-04-23_progress_requested-tasks-implementation-plan.md`・`2026-05-11_progress_storyera-schema.md`・`2026-05-15_progress_subfields-wrapper-unification.md`・`2026-06-02_progress_pkg-client-libraries.md`・`2026-06-02_progress_pkg-library.md` を `.completed` へ退避しました。
-- 2026-06-11 の addon-ai-tag ブランチ棚卸しで、`2026-05-15_progress_aihints-numbertales-1to40.md`・`2026-05-30_progress_aihints-twolayer.md`・`2026-06-01_progress_aihints-schema-move-fixrefs.md`・`2026-06-01_progress_aihints-vision-final-and-playbook.md`・`2026-06-02_progress_ai-optout-flag.md`・`2026-06-08_progress_aihints-corefolder-enhancements.md`・`2026-06-08_progress_aihints-corefolder-vision-fill.md`・`2026-06-08_progress_aihints-remove-harness-contamination.md` を `.completed` へ退避しました。
-- 2026-06-23 の棚卸しで、`2026-06-23_progress_security-ci-audit.md`（セキュリティ/CI 監査・全 7 件完了）を `.completed` へ退避。残留テスト失敗 5 件と軽微確認事項は `2026-06-01_remaining-task.md` へ引き継ぎ済み。
-- 2026-06-21 の棚卸しで、以下 10件を `.completed` へ退避しました:
-  - `2026-05-29_progress_bilingual-wrapper-apiswui.md`（bilingual wrapper enrich 基盤完了）
-  - `2026-06-09_progress_identitymotif-conversion.md`（IdentityMotif 新形式変換完了）
-  - `2026-06-12_progress_language-toggle.md`（言語トグル実装完了）
-  - `2026-06-15_progress_localization-audit.md`（ローカライズ監査・全対応完了）
-  - `2026-06-16_progress_NumberMarkLocation.md`（NumberMarkLocation スキーマ・データ実装完了）
-  - `2026-06-18_progress_stats-modulize.md`（Stats 系レンダラーモジュール化完了）
-  - `2026-06-18_progress_relation-modulize.md`（Relation レンダラーモジュール化完了）
-  - `2026-06-18_progress_thisMasters-merge.md`（ThisMasters DB 参照マージ完了）
-  - `2026-06-21_progress_claude-md-merge.md`（CLAUDE.md 統合更新完了）
-  - `2026-06-21_progress_cloudflare-api-adr.md`（ADR-0001 Cloudflare Workers 実装完了）
+- 2026-06-24_progress_calendar-ics.md（誕生日・記念日の Google カレンダー連携: ICS 自動生成・配信。✅ 配信確認済み・購読登録済み。⚠️ Google カレンダー初回同期待ち）
+
+---
+
+## 完了（直近 — .completed 退避前）
+
+以下のファイルは実装が完了しています。ログとして `_work_in_progress/` に残しつつ、User 依頼のタイミングで `.completed/` へ退避します。
+
+### 2026-06-29 完了
+
+- 2026-06-29_progress_appearance-detail-merge-integration.md（AppearanceDetail 改修マージ整合プラン・Phase 0〜E 全完了・136 テスト全 pass）
+- 2026-06-29_runbook_appearance-detail-merge.md（AppearanceDetail マージ実行ランブック・Phase 0〜5 全完了）
+
+### 2026-06-28 完了
+
+- 2026-06-28_progress_appearance-attrs-typed-schema.md（`$Def_AppearanceAttr` 型付きスキーマ設計案。Phase A〜E 実装完了・`develop` / `addon-ai-tag` マージ済み）
+
+### 2026-06-27 完了
+
+- 2026-06-27_progress_sci-fantasy-theme.md（サイトUI 紺×水色サイエンスファンタジー化。キャラ紹介ヒーロー帯・quickStats opt-in 対応含む。✅ `develop` / `addon-ai-tag` 反映済み）
+- 2026-06-27_progress_design-part-schema.md（外見デザイン部位統合スキーマ仕様案。`AppearanceDetail` / `$Def_AppearanceDetail` 実装完了）
+- 2026-06-27_progress_roleplay-agents-consolidation.md（ロールプレイ／AGENTS.md 設定の整理・正典化。`AGENTS.md` 新規作成・`CLAUDE.md` 修正完了）
+- 2026-06-27_progress_sublocal-parallel-ops.md（サブローカル並行作業の運用ルール追加。`CLAUDE.md` / `.github/copilot-instructions.md` に運用節追加完了）
+
+### 2026-06-24 完了
+
+- 2026-06-24_progress_red-tests-triage.md（赤テスト 2 系統の調査・修正。✅ 全 3 件解消済み）
+- 2026-06-24_progress_ui-output-test-triage.md（ui-output テスト 7 件の調査・修正。✅ 136/136 pass（2026-06-29 Phase E で 5 件追加・修正 3 件込み））
+- 2026-06-24_progress_localization-rules-audit.md（英訳ルール追補・calling.js 実装。✅ ThirdPersonCalling_EN 要確認 6 件 全件解消（2026-06-25）。⚠️ calling.js UI 確認は User 手動）
+
+---
 
 ## 完了（.completed へ退避済み）
 
@@ -117,3 +132,28 @@
 - 2026-02-21_remaining-task.md
 - 2026-03-04_progress_phase0.md
 - 2026-03-04_progress_phase1_index
+
+## 整理履歴
+
+- 2026-04-18 に旧進捗ログを整理し、未完了事項は `2026-03-31_remaining-task.md` へ集約しました。
+- 2026-04-21 に、4/18 と 4/19 の完了済み progress ログを `.completed` へ整理しました。
+- 2026-04-21 に、`_Secondaries` の fallback 優先順位整理ログも完了扱いとして `.completed` へ退避しました。
+- 2026-05-11 の棚卸しで、完了済みの `2026-03-31_remaining-task.md`、`2026-04-21_progress_multi-index-display.md` 他を `.completed` へ整理しました。
+- 2026-05-15 に、NumberTales #1〜#40 への AIHints フィールド追加（#38除く 39件）を完了しました。詳細は `.completed/2026-05-15_progress_aihints-numbertales-1to40.md` を参照。
+- 2026-06-01 の棚卸しで、`2026-04-21_progress_secondary-commons-defaults.md`・`2026-04-22_progress_requested-tasks-overview.md`・`2026-04-22_remaining-task.md`・`2026-05-29_progress_guideline-consolidation.md` を `.completed` へ退避しました。
+- `2026-06-01_remaining-task.md` に、現時点の未完了・着手中タスクを統合しました。
+- 2026-06-11 の棚卸しで、`2026-04-22_progress_task1-day-era-softcoding.md`・`2026-04-23_progress_requested-tasks-implementation-plan.md`・`2026-05-11_progress_storyera-schema.md`・`2026-05-15_progress_subfields-wrapper-unification.md`・`2026-06-02_progress_pkg-client-libraries.md`・`2026-06-02_progress_pkg-library.md` を `.completed` へ退避しました。
+- 2026-06-11 の addon-ai-tag ブランチ棚卸しで、`2026-05-15_progress_aihints-numbertales-1to40.md`・`2026-05-30_progress_aihints-twolayer.md`・`2026-06-01_progress_aihints-schema-move-fixrefs.md`・`2026-06-01_progress_aihints-vision-final-and-playbook.md`・`2026-06-02_progress_ai-optout-flag.md`・`2026-06-08_progress_aihints-corefolder-enhancements.md`・`2026-06-08_progress_aihints-corefolder-vision-fill.md`・`2026-06-08_progress_aihints-remove-harness-contamination.md` を `.completed` へ退避しました。
+- 2026-06-23 の棚卸しで、`2026-06-23_progress_security-ci-audit.md`（セキュリティ/CI 監査・全 7 件完了）を `.completed` へ退避。残留テスト失敗 5 件と軽微確認事項は `2026-06-01_remaining-task.md` へ引き継ぎ済み。
+- 2026-06-21 の棚卸しで、以下 10件を `.completed` へ退避しました:
+  - `2026-05-29_progress_bilingual-wrapper-apiswui.md`（bilingual wrapper enrich 基盤完了）
+  - `2026-06-09_progress_identitymotif-conversion.md`（IdentityMotif 新形式変換完了）
+  - `2026-06-12_progress_language-toggle.md`（言語トグル実装完了）
+  - `2026-06-15_progress_localization-audit.md`（ローカライズ監査・全対応完了）
+  - `2026-06-16_progress_NumberMarkLocation.md`（NumberMarkLocation スキーマ・データ実装完了）
+  - `2026-06-18_progress_stats-modulize.md`（Stats 系レンダラーモジュール化完了）
+  - `2026-06-18_progress_relation-modulize.md`（Relation レンダラーモジュール化完了）
+  - `2026-06-18_progress_thisMasters-merge.md`（ThisMasters DB 参照マージ完了）
+  - `2026-06-21_progress_claude-md-merge.md`（CLAUDE.md 統合更新完了）
+  - `2026-06-21_progress_cloudflare-api-adr.md`（ADR-0001 Cloudflare Workers 実装完了）
+- 2026-06-29 の棚卸しで、2026-06-24 〜 2026-06-29 の完了済みファイルをステータス更新。未登録だった 2026-06-27（ × 3）・2026-06-29（ × 2）のログを一覧に追加しました。

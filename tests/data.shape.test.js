@@ -88,3 +88,53 @@ describe('database shapes', () => {
     expect(nestedDb?.$type).toBe('#String|#Null');
   });
 });
+
+describe('AppearanceDetail schema', () => {
+  it('global db_type.json declares AppearanceDetail toplevel field', () => {
+    const dbType = load('data/db_type.json');
+    const defType = Array.isArray(dbType?.$DefType) ? dbType.$DefType : [];
+    const field = defType.find((e) => e?.hashTag === 'AppearanceDetail');
+    expect(field).toBeDefined();
+    expect(field.$type).toBe('$Def_AppearanceDetail[]|#Null');
+    expect(field.searchable).toBe(false);
+    expect(field.$display?.sectionWrapper).toBe('appearanceDetailSection');
+  });
+
+  it('$ScalarDef declares #Hexcode and #Hexcode_Color base types', () => {
+    const dbType = load('data/db_type.json');
+    const scalarDef = dbType?.$ScalarDef || {};
+    expect(scalarDef['#Hexcode']).toBeDefined();
+    expect(typeof scalarDef['#Hexcode'].pattern).toBe('string');
+    expect(scalarDef['#Hexcode'].pattern).toMatch(/^\^#/);
+    expect(scalarDef['#Hexcode_Color']).toBeDefined();
+    expect(scalarDef['#Hexcode_Color'].extends).toBe('#Hexcode');
+  });
+
+  it('$Def_AppearanceAttr in db_meta.json has only AttrLabel as top-level $DefType entry', () => {
+    const dbMeta = load('data/db_meta.json');
+    const attrDef = dbMeta?.General?.$VarsDef?.['$Def_AppearanceAttr'];
+    const innerDefType = Array.isArray(attrDef?.$DefType) ? attrDef.$DefType : [];
+    expect(innerDefType).toHaveLength(1);
+    expect(innerDefType[0].hashTag).toBe('AttrLabel');
+    expect(String(innerDefType[0].$type)).toMatch(/#ListIndex/);
+  });
+
+  it('NT Primary AppearanceDetail Attrs use only lowercase convention-driven fields', () => {
+    const records = load('data/Works_NumberTales/DataBases/db_Primary.json');
+    const violations = [];
+    for (const rec of records) {
+      const entries = Array.isArray(rec?.AppearanceDetail) ? rec.AppearanceDetail : [];
+      for (const entry of entries) {
+        const attrs = Array.isArray(entry?.Attrs) ? entry.Attrs : [];
+        for (const attr of attrs) {
+          if (attr && typeof attr === 'object' && !Array.isArray(attr)) {
+            if ('Value_JP' in attr || 'Value_EN' in attr) {
+              violations.push({ Num: rec.Num });
+            }
+          }
+        }
+      }
+    }
+    expect(violations).toHaveLength(0);
+  });
+});

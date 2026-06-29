@@ -5930,14 +5930,11 @@ export async function renderDetail(workId, rec) {
 			.map((key) => resolveBasicField(key))
 			.filter((it) => it && it.value); // Only show fields with values
 
-		// クイックステータス（ヒーロー帯）に出すキー集合。$DetailLayout.quickStats を明示した時のみ。
+		// クイックステータス（ヒーロー帯）に出すキー集合。$DetailLayout.quickStats を明示した時のみ有効。
 		// 1 項目 1 箇所の原則: quickStats に出した項目は基本情報テーブルから除外する（重複表示の防止）。
-		// 既定ではヒーロー帯に基本情報の先頭3項目を「要約タイル」として出し、テーブルからは除外する（1 項目 1 箇所）。
-		// 作品側で $DetailLayout.quickStats を指定した場合はそれを優先する。
+		// quickStats キーが未設定の作品では全 basicFields をテーブルに表示し、ヒーロー帯には出さない。
 		const configuredQuickKeys = normalizeBasicFieldKeys(Array.isArray(detailLayout?.quickStats) ? detailLayout.quickStats : []);
-		const quickStatKeyList = configuredQuickKeys.length
-			? configuredQuickKeys
-			: basicFields.slice(0, 3).map((it) => it.sourceKey);
+		const quickStatKeyList = Array.isArray(detailLayout?.quickStats) ? configuredQuickKeys : [];
 		const quickStatKeySet = new Set(quickStatKeyList);
 		const quickStatItems = basicFields.filter((it) => quickStatKeySet.has(it.sourceKey));
 		const basicFieldsForTable = basicFields.filter((it) => !quickStatKeySet.has(it.sourceKey));
@@ -7126,7 +7123,7 @@ export async function renderDetail(workId, rec) {
 
 		// クイックステータス（キャラ紹介ページ風ヒーロー帯の要約タイル）
 		// - 既存の基本情報テーブル/各セクションは一切変更せず、名前見出し直下に「加算」で要約タイルを表示する
-		// - スキーマ駆動: `$DetailLayout.quickStats`（キー配列）があればそれを優先し、無ければ basicFields の先頭から最大4件
+		// - $DetailLayout.quickStats（キー配列）を明示した作品のみ有効。未設定の場合はヒーロー帯に出さない
 		// - 値解決は基本情報テーブルと同じ resolveBasicField を再利用（辞書/和英/$alt/hideText を踏襲）
 		const quickStats = (() => {
 			const layout = globalMeta?.CreationWorks?.[workId]?.$DetailLayout || null;
