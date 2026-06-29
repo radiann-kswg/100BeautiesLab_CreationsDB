@@ -203,3 +203,19 @@ git -C 100BeautiesLab_CreationsDB restore \
 - **Vitest**: **136 passed, 0 failed**（修正 3 + 新規 5）。✅
 - **CHANGELOG.md 追記**: `AppearanceDetail 型付きスキーマ改修 — develop 統合 (2026-06-29)` エントリを追加。
 - **残タスク（Phase 4–5）**: ダウンストリームサブモジュール bump（MisskeyAIBot / CreationsAI / GeneratorsAI）・Cloudflare `migrate.mjs` + `wrangler deploy`。詳細は `_work_in_progress/2026-06-29_runbook_appearance-detail-merge.md` §4–5 を参照。
+
+---
+
+## 10. JSON ファイル BOM 除去と配列開始ブラケット修復（2026-06-29）
+
+`5ef41e3`（フィールド名タイポ修正: `Stoat → Suit`）で、5 件の JSON 配列ファイルが UTF-8 BOM 付きで保存された。BOM 除去処理が BOM と同時に先頭の `[` を誤って除去し、合計 5 件が無効な JSON（裸のオブジェクト列）となっていた。
+
+- **影響ファイル（5 件）**:
+  - `data/Works_FLInvestigator78/DataBases/db_Primary.json`
+  - `data/Works_FLInvestigator78/DataBases/db_PrimaryDealer.json`
+  - `data/Works_FLInvestigator78/DataBases/db_UnprocessedDealer.json`
+  - `data/Works_NumberTales/DataBases/db_Primary.json`
+  - `data/Works_NumberTales/DataBases/db_Secondary.json`
+- **症状**: `SyntaxError: Unexpected non-whitespace character after JSON at position N`（`,` が JSON 配列外に出て不正）
+- **修復**: UTF-8 BOM 除去 + `[` を先頭に再付加（`WriteAllText` で BOM なし UTF-8 で書き直し）
+- **Vitest**: **136 passed, 0 failed** ✅（再確認）
