@@ -18743,6 +18743,7 @@
       }
     ],
     "Class": ["デュアルイレブンズ"],
+    "AppearanceDetail": [],
     "NumerospecAbout_JP": "幸運を味方にする\nこの効果は物質的なものにも大いに影響される",
     "NumerospecAbout_EN": "Draws luck to one's side\nThis effect is also greatly influenced by material things",
     "Relation": {
@@ -18756,7 +18757,6 @@
         { "Num": 83, "RelationLabel": ["brother|sister", "classmate"] }
       ]
     },
-    "AppearanceDetail": []
   },
   {
     "Num": 39,
@@ -25773,6 +25773,7 @@
       }
     ],
     "Class": ["9倍2桁番(ナインズデュアルズ)"],
+    "AppearanceDetail": [],
     "NumerospecAbout_JP": "主人に転機を与える\nこの効果は逆境を問わず発動する",
     "NumerospecAbout_EN": "Grants turning points to the master\nThis effect activates regardless of adversity",
     "Relation": {
@@ -25782,7 +25783,6 @@
         { "Num": 99 }
       ]
     },
-    "AppearanceDetail": []
   },
   {
     "Num": 55,
@@ -27731,6 +27731,7 @@
       }
     ],
     "Class": ["デュアルファイブズ"],
+    "AppearanceDetail": [],
     "NumerospecAbout_JP": "不測の事態を招く\nこの効果にもメリットがあるらしいが、詳細は不明",
     "NumerospecAbout_EN": "Invites unforeseen situations\nApparently even this effect has its upsides, but details are unknown",
     "Relation": {
@@ -27739,7 +27740,6 @@
         { "Num": 97, "RelationLabel": ["cousin_nearly"] }
       ]
     },
-    "AppearanceDetail": []
   },
   {
     "Num": 60,
@@ -37488,10 +37488,10 @@
     "Class": ["デュアルセブンズ"],
     "Favor_JP": "開運情報",
     "Favor_EN": "Fortune and luck tips",
+    "AppearanceDetail": [],
     "InStory_JP": "宗教勧誘者のように疑われがち",
     "InStory_EN": "Often mistaken for a religious recruiter and met with suspicion",
     "Relation": { "Commented": [{ "Num": 7, "RelationLabel": ["pioneer"] }] },
-    "AppearanceDetail": []
   },
   {
     "Num": 80,
@@ -38144,6 +38144,7 @@
     "Class": ["デュアルイレブンズ"],
     "SecondPersonCalling_JP": "お前",
     "SecondPersonCalling_EN": "you (omae; rough masc.)",
+    "AppearanceDetail": [],
     "NumerospecAbout_JP": "勝機を恵む\nこの効果は報酬的な効果として作用する",
     "NumerospecAbout_EN": "Bestows opportunities for victory\nThis effect acts as a reward-type effect",
     "Relation": {
@@ -38156,7 +38157,6 @@
         { "Num": 92, "RelationLabel": ["classmate"] }
       ]
     },
-    "AppearanceDetail": []
   },
   {
     "Num": 84,
@@ -41129,12 +41129,12 @@
       }
     ],
     "Class": ["10倍番(テンズデジッツ)"],
+    "AppearanceDetail": [],
     "NumerospecAbout_JP": "締めくくりや最終手段で本領発揮させる",
     "NumerospecAbout_EN": "Brings out one's true potential in moments of final conclusion or last resort",
     "Relation": {
       "Commented": [{ "Num": 99, "RelationLabel": ["successor_nearly"] }]
     },
-    "AppearanceDetail": []
   },
   {
     "Num": 91,
@@ -41157,6 +41157,7 @@
       }
     ],
     "Class": ["デュアルキャリーズ"],
+    "AppearanceDetail": [],
     "NumerospecAbout_JP": "気持ちを切り替えさせる\nこの効果は物事の節目に最大となる",
     "NumerospecAbout_EN": "Helps one switch their mindset\nThis effect reaches its peak at key turning points in one's life",
     "Relation": {
@@ -41166,7 +41167,6 @@
         { "Num": 81, "RelationLabel": ["cousin"] }
       ]
     },
-    "AppearanceDetail": []
   },
   {
     "Num": 92,
@@ -42560,6 +42560,7 @@
     "Favor_JP": "転機（転職・転校などの）",
     "Favor_EN": "Turning points (career changes, school transfers, etc.)",
     "Unlike_JP": "現状に拘束されること",
+    "AppearanceDetail": [],
     "Unlike_EN": "Being tied down to the current situation",
     "RelationNotes_JP": "「15(トウゴ)」を「死神様」と慕っているが…？",
     "RelationNotes_EN": "Looks up to '15(Fifteeld)' as a 'goddeath(Shinigami-sama)', but...?",
@@ -42581,8 +42582,7 @@
           ]
         }
       ]
-    },
-    "AppearanceDetail": []
+    }
   },
   {
     "Num": 96,
