@@ -1,6 +1,6 @@
-[
+﻿[
   {
-    "Card": { "Stoat": "Major", "StoatNum": 0 },
+    "Card": { "Suit": "Major", "SuitNum": 0 },
     "Progress": "notProceeded",
     "FormalName_JP": "恐山 ユート",
     "FormalName_JPReading": "おそれざん ユート",
@@ -40,7 +40,7 @@
     }
   },
   {
-    "Card": { "Stoat": "Major", "StoatNum": 1 },
+    "Card": { "Suit": "Major", "SuitNum": 1 },
     "Progress": "notProceeded",
     "FormalName_JP": "金田一 卓斗",
     "FormalName_JPReading": "きんだいち タクト",
@@ -81,7 +81,7 @@
     }
   },
   {
-    "Card": { "Stoat": "Major", "StoatNum": 2 },
+    "Card": { "Suit": "Major", "SuitNum": 2 },
     "Progress": "notProceeded",
     "FormalName_JP": "二宮 律",
     "FormalName_JPReading": "にのみや りつ",
@@ -122,7 +122,7 @@
     }
   },
   {
-    "Card": { "Stoat": "Major", "StoatNum": 3 },
+    "Card": { "Suit": "Major", "SuitNum": 3 },
     "Progress": "notProceeded",
     "FormalName_JP": "三笠 めぐ",
     "FormalName_JPReading": "みかさ めぐ",
@@ -169,7 +169,7 @@
     }
   },
   {
-    "Card": { "Stoat": "Major", "StoatNum": 8 },
+    "Card": { "Suit": "Major", "SuitNum": 8 },
     "Progress": "notProceeded",
     "FormalName_JP": "熱海 ふれあ",
     "FormalName_JPReading": "あたみ ふれあ",
@@ -210,7 +210,7 @@
     }
   },
   {
-    "Card": { "Stoat": "Major", "StoatNum": 9 },
+    "Card": { "Suit": "Major", "SuitNum": 9 },
     "Progress": "notProceeded",
     "FormalName_JP": "仙道 歩浪",
     "FormalName_JPReading": "せんどう ほろー",
@@ -251,7 +251,7 @@
     }
   },
   {
-    "Card": { "Stoat": "Major", "StoatNum": 16 },
+    "Card": { "Suit": "Major", "SuitNum": 16 },
     "Progress": "notProceeded",
     "FormalName_JP": "ヴェンジー.C.テンペスト",
     "FormalName_EN": "Vengy.C.Tempest",
@@ -267,7 +267,7 @@
     }
   },
   {
-    "Card": { "Stoat": "Major", "StoatNum": 17 },
+    "Card": { "Suit": "Major", "SuitNum": 17 },
     "Progress": "notProceeded",
     "FormalName_JP": "ライト.リヴァーブリッジ",
     "FormalName_EN": "Light.Reverbridge",
@@ -293,7 +293,7 @@
     }
   },
   {
-    "Card": { "Stoat": "Dealer", "Num": 79 },
+    "Card": { "Suit": "Dealer", "Num": 79 },
     "Progress": "released(beta)",
     "AnotherRegions_DBLink": {
       "_Work": "NumberTales",
@@ -338,7 +338,7 @@
     }
   },
   {
-    "Card": { "Stoat": "Dealer", "Num": 80 },
+    "Card": { "Suit": "Dealer", "Num": 80 },
     "Progress": "released(beta)",
     "AnotherRegions_DBLink": {
       "_Work": "NumberTales",

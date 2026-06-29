@@ -3,17 +3,17 @@
     "hashTag": "Card",
     "$type": [
       {
-        "hashTag": "Stoat",
+        "hashTag": "Suit",
         "$type": "#IndexListKey",
         "hashTag_JP": "カード種別",
         "hashTag_EN": "CardType",
         "$display": { "langMode": "shared" }
       },
       {
-        "hashTag": "StoatNum",
+        "hashTag": "SuitNum",
         "$type": "#Number|#Null",
         "hashTag_JP": "カード番号(種別内番号)",
-        "hashTag_EN": "CardNumber(InStoat)"
+        "hashTag_EN": "CardNumber(InSuit)"
       },
       {
         "hashTag": "Num",

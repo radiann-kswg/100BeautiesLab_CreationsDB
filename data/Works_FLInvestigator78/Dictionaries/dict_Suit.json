@@ -1,0 +1,10 @@
+[
+  { "Suit": "FireWands", "Suit_JP": "火の棍棒" },
+  { "Suit": "WaterCups", "Suit_JP": "水の聖杯" },
+  { "Suit": "SlashSwords", "Suit_JP": "風の刀剣" },
+  {
+    "Suit": "PentacleObjects",
+    "Suit_JP": "金の硬貨"
+  },
+  { "Suit": "Dealer", "Suit_JP": "采配者(ディーラー)" }
+]

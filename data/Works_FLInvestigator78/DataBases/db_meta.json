@@ -22,12 +22,12 @@
       },
       "_Commons": {
         "Belonging": ["セブンティエイト特殊探偵団"],
-        "_ListLinkIf_Stoat": [
-          { "Stoat": "FireWands", "Class": ["火の棍棒支部"] },
-          { "Stoat": "WaterCups", "Class": ["水の聖杯支部"] },
-          { "Stoat": "SlashSwords", "Class": ["風の刀剣支部"] },
-          { "Stoat": "PentacleObjects", "Class": ["金の硬貨支部"] },
-          { "Stoat": "Dealer", "Class": ["采配幹部(ディーラーズ)"] }
+        "_ListLinkIf_Suit": [
+          { "Suit": "FireWands", "Class": ["火の棍棒支部"] },
+          { "Suit": "WaterCups", "Class": ["水の聖杯支部"] },
+          { "Suit": "SlashSwords", "Class": ["風の刀剣支部"] },
+          { "Suit": "PentacleObjects", "Class": ["金の硬貨支部"] },
+          { "Suit": "Dealer", "Class": ["采配幹部(ディーラーズ)"] }
         ]
       }
     },

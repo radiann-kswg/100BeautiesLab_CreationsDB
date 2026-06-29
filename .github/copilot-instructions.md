@@ -1,4 +1,4 @@
-# Copilot Instructions for 100BeautiesLab. Creations DB (Web)
+﻿# Copilot Instructions for 100BeautiesLab. Creations DB (Web)
 
 ## Copilot のロールプレイ設定（全会話・全応答を通じて必須）
 
@@ -81,7 +81,7 @@ Copilot 自動ロード用の同等仕様は `.github/instructions/roleplay.inst
 - **catalog summary の生成規則**: works / db カタログの summary 追加は、可能な限り `$MetaType.$Def_DatabaseCatalog` を基準に `${hashTag}Summary` を自動生成する方式へ寄せ、`StoryEra` など特定 field の個別ハードコードを増やさないでください。
 - **enrich summary の生成規則**: wrapper 対象の top-level field を SW/UI で再利用したい場合は、個別 field を別キーへ複製する前に `lib/data-common.js` の `_enrichment.wrapperSummaries` を使える形に寄せてください。
 - **`*_DBLink` suffix フィールドの自動ディスパッチ**: `{FieldName}_DBLink` で終わるフィールドは `lib/section-renders/dblink.js` の `dbLinkSection` renderer が suffix を自動検出して描画します。`$display.sectionWrapper` の指定は不要です。`lib/section-wrapper-common.js` の `structuredObjectSection.match` に `*_DBLink` 除外条件があり、単一オブジェクト形式のフィールドでも正しく `dbLinkSection` へ委譲されます。
-- **`$Def_DBLinkRef` フォーマット**: `*_DBLink` エントリ（UI向けリンク用）は `{ "_Work": "WorksTitle", "_DB": "DbName", "IndexKey": "IndexValue" }` 形式を正とします。ネストインデックスも可（例: `"Card": { "Stoat": "Major", "StoatNum": 17 }`）。旧フォーマット（`{ worksTitle, dbName, _Search: [{hashTag, key}] }`）は廃止。ただし `EnrichmentProcessor.resolveDbLinkPrimaryRecord()` が使うレコードルートの `_DBLink`（マージ用）は旧フォーマットのまま維持します。
+- **`$Def_DBLinkRef` フォーマット**: `*_DBLink` エントリ（UI向けリンク用）は `{ "_Work": "WorksTitle", "_DB": "DbName", "IndexKey": "IndexValue" }` 形式を正とします。ネストインデックスも可（例: `"Card": { "Suit": "Major", "SuitNum": 17 }`）。旧フォーマット（`{ worksTitle, dbName, _Search: [{hashTag, key}] }`）は廃止。ただし `EnrichmentProcessor.resolveDbLinkPrimaryRecord()` が使うレコードルートの `_DBLink`（マージ用）は旧フォーマットのまま維持します。
 - **`ThisMasters._DBLink` のフォーマット**: `$Def_DBLinkRef` 形式を使います。`lib/section-renders/thisMasters.js` の `hydrateThisMastersLink` は SENTINEL_KEYS（`_DB / _Work / label_JP / label_EN`）を除いた最初のキーをインデックスとして動的解決します。
 
 ### ブランチ運用方針
