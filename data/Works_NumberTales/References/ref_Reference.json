@@ -6,7 +6,7 @@
       "catalog_PNGName": ["../../General/catalog/chr-dsgn_NTsCatalog-Summary"]
     },
     "Category": "Basis",
-    "Summary": "数秘の癒やしを体感できる妖獣型ポータブルヒューマノイド「ナンバーテールズ」に関する基本資料。",
+    "Summary_JP": "数秘の癒やしを体感できる妖獣型ポータブルヒューマノイド「ナンバーテールズ」に関する基本資料。",
     "Summary_EN": "Basic reference material on the beast-type portable humanoids 'NumberTales', designed to let their Masters experience the healing of numerological blessings.",
     "BodyBlocks": [
       "普段人類がなんの違和感もなく数える数字だが、カバラ数秘術やエンジェルナンバーによるとスピリチュアルな癒しの力があるらしい。\nそこで零・百(はげむ) 姉弟が「数秘の癒しを体感できる妖獣」として発明した、99のポータブルヒューマノイドである。\nしかし最近は、受注量産用に３桁の番号を持つナンバーテールズなどもこの他に存在している。",
@@ -24,7 +24,7 @@
     "Title_EN": "About Classes for NumberTales",
     "Images": { "concept-figure_PNGName": ["cnsp-fg_NTsClass"] },
     "Category": "Race",
-    "Summary": "妖獣型ポータブルヒューマノイド「ナンバーテールズ」のクラスに関する基本資料。",
+    "Summary_JP": "妖獣型ポータブルヒューマノイド「ナンバーテールズ」のクラスに関する基本資料。",
     "Summary_EN": "Basic reference material on the class system of the beast-type portable humanoids 'NumberTales'.",
     "BodyBlocks": [
       "ナンバーテールズの個体は正式稼働しているものでも99番機まで存在し、少なくとも12のクラスに分類される。\n大まかに言うと、1桁の数字9体による「1桁番(ユニデジッツ)」、11の倍数（2桁ぞろ目）の9体による「マスターテールズ9」、10の倍数の9体による「十倍番(テンズデジッツ)」、残りの72体を8体ずつ9クラスに分けた「2桁番(デュアルズ)」などがある。",
@@ -40,7 +40,7 @@
   {
     "Title_JP": "ヒューマノイド原則法",
     "Category": "Abnormality",
-    "Summary": "創作世界における架空の法律「ヒューマノイド原則法」に関する基本資料。",
+    "Summary_JP": "創作世界における架空の法律「ヒューマノイド原則法」に関する基本資料。",
     "BodyBlocks": [
       "質問来てたわ － ヒューマノイド原則法をヒューマノイドが違反したらどうなりますか？ － 結論、人間でいう懲役刑と死刑のどちらかが執行される。",
       "まず、ヒューマノイド原則法は概略すると\n- 第零条：全人類・全ヒューマノイドの危機から守る\n- 第一条：互いに危害を加えない\n- 第二条：ヒューマノイドは人類の命令を遵守する\n- 第三条：ヒューマノイドは危険から自衛する\nという1つと3つからなる法令。\nこのうち、最初の第零条に違反したヒューマノイドは、確実に解体処分－－謂わば人間でいう死刑を言い渡されるの。\n他の3つに違反したときは、だいたい稼働謹慎(通称：謹慎処分)という懲役に近い刑罰が下されるわ。",

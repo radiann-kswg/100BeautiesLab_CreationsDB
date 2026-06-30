@@ -1,0 +1,107 @@
+[
+  {
+    "Term_JP": "創世期",
+    "Term_JPReading": "そうせいき",
+    "Term_EN": "WDCE. / the \"World Development & Creation Era\"",
+    "TermType": null,
+    "Category": "Society",
+    "Summary_JP": "この創作世界全般における社会段階および時代暦についての基本資料。",
+    "Summary_EN": "Basic information about the social stages and historical eras in this fictional world.",
+    "BodyBlocks_JP": [
+      "この創作世界「第８界」では、社会を大きく揺るがす技術や文化の発足を起点に時代暦を区分する『創世期』という社会段階が設定されている。",
+      "その創世記内では、前期になかった社会的技術や文明を巡る発展と混乱が同時に起こるとされており、前者の革新や発展を『世界創造』、後者の社会問題や混乱を『世界破壊』と呼称することが慣例となっている。",
+      "この社会区分が採用された時期は第6創世記あたりで、第6創世記までは原初から順に世界創造を「原初の社会」,「生産社会」,「健幸社会」,「資本社会」,「情報社会」,「高度化社会」と呼称され、同時に各々の創世記と同時期に発生した世界破壊を「原初の恐慌」,「奴隷恐慌」,「毒殺恐慌」,「貧富格差の恐慌」,「秘匿危機の恐慌」,「高度犯罪の恐慌」と歴史学者の間で呼称されている。"
+    ],
+    "BodyBlocks_EN": [
+      "In this fictional world, known as the '#REGION.8' a social stage called the 'WDCE: World Development & Creation Era' is established, which divides historical eras based on the emergence of technologies and cultures that significantly impact society.",
+      "Within this era, it is customary to refer to the innovations and developments that occur as 'WDC: World Development & Creation,' while the social issues and turmoil that arise are referred to as 'WDP: World Destruction Pandemic.'",
+      "The adoption of this social classification is believed to have occurred around the WDCE.VI, with the world developments of the WDCE.VI being referred to as 'Primal Society,' 'Production Society,' 'Healthcare Society,' 'Capital Society,' 'Information Society,' and 'Advanced Society.' Simultaneously, the world destructions that occurred during each respective era were referred to as 'Primal Crisis,' 'Slave Crisis,' 'Poisoning Crisis,' 'Wealth Disparity Crisis,' 'Hidden Danger Crisis,' and 'Advanced Crime Crisis.'"
+    ],
+    "Aliases": ["創世記", "WDCE."],
+    "Links": []
+  },
+  {
+    "Term_JP": "『第7の世界創造』",
+    "Term_JPReading": "だいななのせかいそうぞう",
+    "Term_EN": "WDC.VII / the \"World Development & Creation VII\"",
+    "TermType": null,
+    "Category": "Society",
+    "Summary_JP": "この創作世界全般における社会的革命『第7の世界創造』こと「多様化社会」についての基本資料。",
+    "Summary_EN": "Basic information about the social revolution 'the World Development & Creation VII,' also known as 'the Diversification Society,' in this fictional world.",
+    "BodyBlocks_JP": [
+      "この世界における第7の社会「第7創世期」の起点であり、そのきっかけとなった技術および社会の革新。",
+      "仮想空間によるバーチャルアバターを着用した活動や、人類の限界を超えた成体改造、さらには人造人間やAIの開発による、人類としての在り方を多様なものにした画期的な発明全般のことを指す。"
+    ],
+    "BodyBlocks_EN": [
+      "The starting point of the 7th society in this world, known as the 'WDCE(World Development & Creation Era).VII,' and the technological and social innovations that triggered it.",
+      "It refers to groundbreaking inventions that have diversified the way of being human, including activities using virtual avatars in virtual spaces, adult modifications beyond human limits, and the development of artificial humans and AI."
+    ],
+    "Aliases": ["『第7の世界創造』", "WDC.VII", "多様化社会"],
+    "Links": []
+  },
+  {
+    "Term_JP": "『第7の世界破壊』",
+    "Term_JPReading": "だいななのせかいはかい",
+    "Term_EN": "WDP.VII / the \"World Destruction Pandemic VII\"",
+    "TermType": null,
+    "Category": "Abnormality",
+    "Summary_JP": "この創作世界全般における社会的問題『第7の世界破壊』こと「多様化恐慌」についての基本資料。",
+    "Summary_EN": "Basic information about the social collapse 'the World Destruction Pandemic VII,' also known as 'the Diversification Crisis,' in this fictional world.",
+    "BodyBlocks_JP": [
+      "「第7創世期」内の技術革新『第7の世界創造』により、同時に幾つもの人権問題や倫理問題を引き起こした。『第7の世界破壊』はその総称であり、この社会問題により困窮している状態を「多様化恐慌」とも呼ばれている。",
+      "この社会問題の例として、仮想空間内に依存した人間の社会参入、人体実験を受けた被験体の人権侵害、AIの倫理的運用や人格形成時の保守、ヒューマノイドの人権保証や法的保護の範囲が主として挙げられる。",
+      "しかしここで最も厄介なのが、『第7創世記』から種族の多用化を加速させ「妖狐」や「猫又」・「狛犬」・「超過人間」など『第6創世記』以前の人類とは身体特徴が一致しない種族を生み出したことであり、同時にこれに起因して過去6回の世界破壊で起きた恐慌を再発させかねないということである。"
+    ],
+    "BodyBlocks_EN": [
+      "The technological innovations of the 'WDC.VII' triggered numerous human rights and ethical issues. The term 'WDP.VII' serves as a collective reference to these social problems, which are also referred to as the 'Diversification Crisis' due to the hardships they cause.",
+      "Examples of these social issues include: human integration into society within a virtual space, violations of human rights for test subjects subjected to human experimentation, ethical management of AI and safeguarding during personality formation, and the scope of legal protection and human rights guarantees for humanoids.",
+      "However, the most troublesome aspect is that the 'WDCE.VII' accelerated the diversification of species, resulting in the emergence of species such as 'Warfox,' 'Nekomata,' 'Komainu,' and 'OverHumans,' which do not share physical characteristics with humans from before the 'WDCE.VI.' This has raised concerns that it could potentially trigger a recurrence of crises similar to those experienced during the previous six world destructions."
+    ],
+    "Aliases": ["『第7の世界破壊』", "WDP.VII", "多用化恐慌"],
+    "Links": []
+  },
+  {
+    "Term_JP": "『第8の世界創造』",
+    "Term_JPReading": "だいはちのせかいそうぞう",
+    "Term_EN": "WDC.VIII / the \"World Development & Creation VIII\"",
+    "TermType": null,
+    "Category": "Society",
+    "Summary_JP": "この創作世界全般における社会的革命『第8の世界創造』こと「左遷可能社会」についての基本資料。",
+    "Summary_EN": "Basic information about the social revolution 'the World Development & Creation VIII,' also known as 'the Demotable Society,' in this fictional world.",
+    "BodyBlocks_JP": [
+      "この世界における第8の社会「第8創世期」の起点であり、そのきっかけとなった技術および社会の革新。",
+      "この技術革新のほとんどが\"運命線(フェイトライン)\"の発見に大きく関与しており、別の世界線に存在する次元や存在を観測可能であることを証明した研究論文が九蓮国の夜月機関や英皇国の王家英皇学会により発表されている。"
+    ],
+    "BodyBlocks_EN": [
+      "The starting point of the 8th society in this world, known as the 'WDCE(World Development & Creation Era).VIII,' and the technological and social innovations that triggered it.",
+      "Most of these technological innovations are closely related to the discovery of 'FateLines,' and research papers proving that dimensions and entities existing in alternate world lines can be observed have been published by the Yadzuki Organization in LotusNinea and the IK.Royal Society in the Internic.Kingdom."
+    ],
+    "Aliases": ["『第8の世界創造』", "WDC.VIII", "左遷可能社会"],
+    "Links": []
+  },
+  {
+    "Term_JP": "『第8の世界破壊』",
+    "Term_JPReading": "だいはちのせかいはかい",
+    "Term_EN": "WDP.VIII / the \"World Destruction Pandemic VIII\"",
+    "TermType": null,
+    "Category": "Abnormality",
+    "Summary_JP": "この創作世界全般における社会的問題『第8の世界破壊』こと「逆行恐慌」についての基本資料。",
+    "Summary_EN": "Basic information about the social collapse 'the World Destruction Pandemic VIII,' also known as 'the Regression Crisis,' in this fictional world.",
+    "BodyBlocks_JP": [
+      "「第8創世期」内の技術革新『第8の世界創造』により、同時に甚大なる世界の危機を引き起こした。",
+      "九蓮国の夜月機関ではとあるインシデントレポートから「我々の研究試験中に時間の逆行（のちの\"時空遷移(クロノシフト)\"）を観測した」との報告が、英皇国の王家英皇学会ではとある研究報告から「神隠し現象を悪用した特殊事件（のちの\"未来消失\"）が近年の技術で犯行可能である」との報告が上がっており、各地の技術メディアを起点に世界各国で多くの混乱を引き起こした。",
+      "しかしこれらの重大な技術者倫理および超常異常現象を巡る社会問題は、突如として現れた若手天才ジャーナリスト「財前 小里」により「『第8の世界創造』および『第9の世界創造』で事態を収束させることができる」とのコメントが公表され、各所の組織や機関がその真相を迫ることで混乱は一時的に収束していた。",
+      "－－－",
+      "「…………でも、これはただの始まりに過ぎないよ。『第9の世界破壊』というエンターテインメントのための、最高の舞台が用意されているからね－－」"
+    ],
+    "BodyBlocks_EN": [
+      "The technological innovations of the 'WDC.VIII' triggered a strictly significant global crisis.",
+      "In the LotusNinea, the Yadzuki Organization reported in an incident report that \"during our research experiments, we observed a regression in time (later known as 'ChronoShift').\" In the Internic.Kingdom, the IK.Royal Society reported in a research paper that \"special incidents exploiting the phenomenon of mysterious disappearances (later known as 'Future Erasure') can be committed with recent technology.\" These reports sparked widespread confusion across various countries, originating from technical media outlets.",
+      "However, these serious social issues surrounding technological ethics and supernatural phenomena were temporarily resolved when a young genius journalist named 'Foster Empressor' publicly commented that \"the situation can be resolved through the 'WDC.VIII' and 'WDC.IX.'\" Various factions and organizations pursued the truth behind this statement, leading to a temporary resolution of the confusion.",
+      "---",
+      "\"... ...But, this is just the beginning. The perfect stage has been set for the ENTERTAINMENT of the 'WDP.IX. --\""
+    ],
+    "Aliases": ["『第8の世界破壊』", "WDP.VIII", "逆行恐慌"],
+    "Links": []
+  }
+]

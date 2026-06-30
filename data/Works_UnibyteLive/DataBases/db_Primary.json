@@ -37,6 +37,7 @@
     "CodeName_EN": "S,Surge",
     "Height_cm": 121,
     "ConceptAge": 14,
+    "BustSize": "H",
     "AnivDay": [
       {
         "Day": { "Month": 5, "DayOfMonth": 19 },
@@ -44,20 +45,35 @@
         "DayAbout_EN": "Birthday (as the ALPBETS)"
       }
     ],
-    "BustSize": "H",
     "AccessoryUnit_JP": "Sの字状に波打ったポニーテールや猫型の尻尾",
     "AccessoryUnit_EN": "S-shaped wavy ponytail and cat-like tail",
     "AppearanceDetail": [
       {
         "Formation": null,
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Hair"],
         "Laterality": null,
         "DesignElement": "#Element_AccessoryUnit",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Overview",
-            "Value_JP": "Sの字状に波打ったポニーテールや猫型の尻尾",
-            "Value_EN": "S-shaped wavy ponytail and cat-like tail"
+            "Value_JP": "Sの字状に波打ったポニーテール",
+            "Value_EN": "S-shaped wavy ponytail"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Tail"],
+        "Laterality": null,
+        "DesignElement": "#Element_AccessoryUnit",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "Value_JP": "Sの字状に波打った猫型の尻尾",
+            "Value_EN": "S-shaped wavy cat-like tail"
           }
         ],
         "img_PNGName": null,
@@ -137,6 +153,7 @@
     "CodeName_EN": "Z,Zig",
     "Height_cm": 142,
     "ConceptAge": 16,
+    "BustSize": "B",
     "AnivDay": [
       {
         "Day": { "Month": 2, "DayOfMonth": 26 },
@@ -144,20 +161,35 @@
         "DayAbout_EN": "Birthday (as the ALPBETS)"
       }
     ],
-    "BustSize": "B",
     "AccessoryUnit_JP": "Zの字状に折り曲げられたポニーテールや鞄(錘)付きの尻尾",
     "AccessoryUnit_EN": "Z-shaped bent ponytail and a tail with a weighted bag attached",
     "AppearanceDetail": [
       {
         "Formation": null,
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Hair"],
         "Laterality": null,
         "DesignElement": "#Element_AccessoryUnit",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Overview",
-            "Value_JP": "Zの字状に折り曲げられたポニーテールや鞄(錘)付きの尻尾",
-            "Value_EN": "Z-shaped bent ponytail and a tail with a weighted bag attached"
+            "Value_JP": "Zの字状に折り曲げられたポニーテール",
+            "Value_EN": "Z-shaped bent ponytail"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Tail"],
+        "Laterality": null,
+        "DesignElement": "#Element_AccessoryUnit",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "Value_JP": "Zの字状に折り曲げられた鞄(錘)付きの尻尾",
+            "Value_EN": "Z-shaped bent tail with a weighted bag attached"
           }
         ],
         "img_PNGName": null,
