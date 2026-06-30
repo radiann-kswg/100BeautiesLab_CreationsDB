@@ -179,32 +179,6 @@
         "Note_EN": null
       },
       {
-        "Formation": "humanoid",
-        "BodyPart": ["#BodyPart_Shoulder"],
-        "Laterality": null,
-        "DesignElement": "#Element_NumberMark",
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_Position",
-            "value_JP": "フードの開口部付近のフロントショルダー部分",
-            "value_EN": "the front shoulder area near the hood opening"
-          },
-          {
-            "AttrLabel": "#DesignAttr_Color",
-            "value_JP": "赤",
-            "value_EN": "red"
-          },
-          {
-            "AttrLabel": "#DesignAttr_Notation",
-            "value_JP": "アラビア数字の「1」",
-            "value_EN": "Arabic numeral '1'"
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
-      {
         "Formation": "corefolder",
         "BodyPart": ["#BodyPart_Chest"],
         "Laterality": "#Lat_Left",
@@ -231,7 +205,33 @@
         "Note_EN": null
       },
       {
-        "Formation": "corefolder",
+        "Formation": "humanoid",
+        "BodyPart": ["#BodyPart_Shoulder"],
+        "Laterality": null,
+        "DesignElement": "#Element_NumberMark",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Position",
+            "value_JP": "フードの開口部付近のフロントショルダー部分",
+            "value_EN": "the front shoulder area near the hood opening"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Color",
+            "value_JP": "赤",
+            "value_EN": "red"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Notation",
+            "value_JP": "アラビア数字の「1」",
+            "value_EN": "Arabic numeral '1'"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
         "BodyPart": ["#BodyPart_Hair"],
         "Laterality": null,
         "DesignElement": "#Element_Motif",
@@ -268,26 +268,10 @@
         "Note_EN": null
       },
       {
-        "Formation": "corefolder",
-        "BodyPart": ["#BodyPart_Tail"],
-        "Laterality": null,
-        "DesignElement": "#Element_Motif",
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_Overview",
-            "value_JP": "狐の尾1本",
-            "value_EN": "single fox tail"
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
-      {
-        "Formation": "corefolder",
+        "Formation": null,
         "BodyPart": null,
         "Laterality": null,
-        "DesignElement": "#Element_Motif",
+        "DesignElement": "#Element_Expression",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Overview",
@@ -300,23 +284,7 @@
         "Note_EN": null
       },
       {
-        "Formation": "corefolder",
-        "BodyPart": null,
-        "Laterality": null,
-        "DesignElement": "#Element_CostumeItem",
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_Overview",
-            "value_JP": "淡いピンクのパーカー",
-            "value_EN": "light pink hooded top"
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
-      {
-        "Formation": "corefolder",
+        "Formation": null,
         "BodyPart": ["#BodyPart_Chest"],
         "Laterality": null,
         "DesignElement": "#Element_Motif",
@@ -332,15 +300,15 @@
         "Note_EN": null
       },
       {
-        "Formation": "humanoid",
-        "BodyPart": ["#BodyPart_Hair"],
+        "Formation": "corefolder",
+        "BodyPart": ["#BodyPart_Neck", "#BodyPart_Head"],
         "Laterality": null,
-        "DesignElement": "#Element_Motif",
+        "DesignElement": "#Element_CostumeItem",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Overview",
-            "value_JP": "赤橙色のショートヘア",
-            "value_EN": "red orange short hair"
+            "value_JP": "淡いピンクのパーカー",
+            "value_EN": "light pink hooded top"
           }
         ],
         "img_PNGName": null,
@@ -349,14 +317,14 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": ["#BodyPart_Tail"],
+        "BodyPart": ["#BodyPart_Neck", "#BodyPart_Shoulder", "#BodyPart_Chest"],
         "Laterality": null,
-        "DesignElement": "#Element_Motif",
+        "DesignElement": "#Element_CostumeItem",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Overview",
-            "value_JP": "狐の尾1本",
-            "value_EN": "single fox tail"
+            "value_JP": "淡いピンクのパーカー",
+            "value_EN": "light pink hooded top"
           }
         ],
         "img_PNGName": null,
@@ -365,23 +333,7 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": null,
-        "Laterality": null,
-        "DesignElement": "#Element_Motif",
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_Overview",
-            "value_JP": "元気な笑顔",
-            "value_EN": "energetic open smile"
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
-      {
-        "Formation": "humanoid",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Chest", "#BodyPart_Leg", "#BodyPart_Waist"],
         "Laterality": null,
         "DesignElement": "#Element_CostumeItem",
         "Attrs": [
@@ -389,38 +341,6 @@
             "AttrLabel": "#DesignAttr_Overview",
             "value_JP": "カジュアルな服装",
             "value_EN": "casual outfit"
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
-      {
-        "Formation": "humanoid",
-        "BodyPart": null,
-        "Laterality": null,
-        "DesignElement": "#Element_CostumeItem",
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_Overview",
-            "value_JP": "淡いピンクのパーカー",
-            "value_EN": "light pink hooded top"
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
-      {
-        "Formation": "humanoid",
-        "BodyPart": ["#BodyPart_Chest"],
-        "Laterality": null,
-        "DesignElement": "#Element_Motif",
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_Overview",
-            "value_JP": "矢印形の胸ジッパー",
-            "value_EN": "arrow-shaped chest zipper"
           }
         ],
         "img_PNGName": null,
@@ -836,7 +756,7 @@
         "Note_EN": null
       },
       {
-        "Formation": "corefolder",
+        "Formation": null,
         "BodyPart": ["#BodyPart_Hair"],
         "Laterality": null,
         "DesignElement": "#Element_Motif",
@@ -857,7 +777,7 @@
         "Note_EN": null
       },
       {
-        "Formation": "corefolder",
+        "Formation": null,
         "BodyPart": ["#BodyPart_Ear"],
         "Laterality": "#Lat_Right",
         "DesignElement": "#Element_EarUnit",
@@ -873,9 +793,9 @@
         "Note_EN": null
       },
       {
-        "Formation": "corefolder",
+        "Formation": null,
         "BodyPart": ["#BodyPart_Eye"],
-        "Laterality": null,
+        "Laterality": "#Lat_Both",
         "DesignElement": "#Element_CostumeItem",
         "Attrs": [
           {
@@ -889,10 +809,10 @@
         "Note_EN": null
       },
       {
-        "Formation": "corefolder",
+        "Formation": null,
         "BodyPart": null,
         "Laterality": null,
-        "DesignElement": "#Element_Motif",
+        "DesignElement": "#Element_Expression",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Overview",
@@ -905,7 +825,7 @@
         "Note_EN": null
       },
       {
-        "Formation": "corefolder",
+        "Formation": null,
         "BodyPart": ["#BodyPart_Neck"],
         "Laterality": null,
         "DesignElement": "#Element_CostumeItem",
@@ -922,75 +842,7 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": ["#BodyPart_Hair"],
-        "Laterality": null,
-        "DesignElement": "#Element_Motif",
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_Overview",
-            "value_JP": "オレンジ色の髪",
-            "value_EN": "orange hair"
-          },
-          {
-            "AttrLabel": "#DesignAttr_Overview",
-            "value_JP": "ショートヘア",
-            "value_EN": "short hair"
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
-      {
-        "Formation": "humanoid",
-        "BodyPart": ["#BodyPart_Ear"],
-        "Laterality": null,
-        "DesignElement": "#Element_EarUnit",
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_EarShape",
-            "vdict_EarShapeType": "#EarShapeType_Fox"
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
-      {
-        "Formation": "humanoid",
-        "BodyPart": ["#BodyPart_Eye"],
-        "Laterality": null,
-        "DesignElement": "#Element_CostumeItem",
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_Overview",
-            "value_JP": "四角い眼鏡",
-            "value_EN": "rectangular glasses"
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
-      {
-        "Formation": "humanoid",
-        "BodyPart": null,
-        "Laterality": null,
-        "DesignElement": "#Element_Motif",
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_Overview",
-            "value_JP": "落ち着いた微笑み",
-            "value_EN": "calm composed smile"
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
-      {
-        "Formation": "humanoid",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Chest"],
         "Laterality": null,
         "DesignElement": "#Element_CostumeItem",
         "Attrs": [
@@ -1019,22 +871,6 @@
             "AttrLabel": "#DesignAttr_Overview",
             "value_JP": "スカート",
             "value_EN": "skirt"
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
-      {
-        "Formation": "humanoid",
-        "BodyPart": ["#BodyPart_Neck"],
-        "Laterality": null,
-        "DesignElement": "#Element_CostumeItem",
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_Overview",
-            "value_JP": "二重結びスカーフ",
-            "value_EN": "double-knotted scarf"
           }
         ],
         "img_PNGName": null,
@@ -1343,7 +1179,7 @@
         "Note_EN": null
       },
       {
-        "Formation": "corefolder",
+        "Formation": null,
         "BodyPart": ["#BodyPart_Hair"],
         "Laterality": null,
         "DesignElement": "#Element_CostumeItem",
@@ -1384,67 +1220,9 @@
         "Note_EN": null
       },
       {
-        "Formation": "corefolder",
+        "Formation": null,
         "BodyPart": ["#BodyPart_Eye"],
-        "Laterality": null,
-        "DesignElement": "#Element_Motif",
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_Overview",
-            "value_JP": "濃い黄色の目",
-            "value_EN": "dark yellow eyes"
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
-      {
-        "Formation": "corefolder",
-        "BodyPart": ["#BodyPart_Head"],
-        "Laterality": null,
-        "DesignElement": "#Element_Motif",
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_Overview",
-            "value_JP": "表情豊かな顔",
-            "value_EN": "emotive expressive face"
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
-      {
-        "Formation": "humanoid",
-        "BodyPart": ["#BodyPart_Hair"],
-        "Laterality": null,
-        "DesignElement": "#Element_CostumeItem",
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_Overview",
-            "value_JP": "黄色い髪",
-            "value_EN": "yellow hair"
-          },
-          {
-            "AttrLabel": "#DesignAttr_Overview",
-            "value_JP": "スパイキーヘア",
-            "value_EN": "spiky hair"
-          },
-          {
-            "AttrLabel": "#DesignAttr_Overview",
-            "value_JP": "黄色いヘアクリップ",
-            "value_EN": "yellow hair clip"
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
-      {
-        "Formation": "humanoid",
-        "BodyPart": ["#BodyPart_Eye"],
-        "Laterality": null,
+        "Laterality": "#Lat_Both",
         "DesignElement": "#Element_Motif",
         "Attrs": [
           {
@@ -1459,7 +1237,7 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Chest"],
         "Laterality": null,
         "DesignElement": "#Element_CostumeItem",
         "Attrs": [
@@ -1483,22 +1261,6 @@
             "AttrLabel": "#DesignAttr_Overview",
             "value_JP": "黄色のショートパンツ",
             "value_EN": "yellow short pants"
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
-      {
-        "Formation": "humanoid",
-        "BodyPart": ["#BodyPart_Head"],
-        "Laterality": null,
-        "DesignElement": "#Element_Motif",
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_Overview",
-            "value_JP": "表情豊かな顔",
-            "value_EN": "emotive expressive face"
           }
         ],
         "img_PNGName": null,
@@ -1811,27 +1573,6 @@
         "Note_EN": null
       },
       {
-        "Formation": "corefolder",
-        "BodyPart": ["#BodyPart_Hair"],
-        "Laterality": null,
-        "DesignElement": "#Element_CostumeItem",
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_Overview",
-            "value_JP": "青い長い髪",
-            "value_EN": "long blue hair"
-          },
-          {
-            "AttrLabel": "#DesignAttr_Overview",
-            "value_JP": "小さな耳横のヘアアクセサリー",
-            "value_EN": "small ear-side hair accessory"
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
-      {
         "Formation": null,
         "BodyPart": ["#BodyPart_Ear"],
         "Laterality": null,
@@ -1848,9 +1589,9 @@
         "Note_EN": null
       },
       {
-        "Formation": "corefolder",
+        "Formation": null,
         "BodyPart": ["#BodyPart_Eye"],
-        "Laterality": null,
+        "Laterality": "#Lat_Both",
         "DesignElement": "#Element_Motif",
         "Attrs": [
           {
@@ -1864,10 +1605,10 @@
         "Note_EN": null
       },
       {
-        "Formation": "corefolder",
+        "Formation": null,
         "BodyPart": null,
         "Laterality": null,
-        "DesignElement": "#Element_Motif",
+        "DesignElement": "#Element_Expression",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Overview",
@@ -1880,8 +1621,8 @@
         "Note_EN": null
       },
       {
-        "Formation": "corefolder",
-        "BodyPart": null,
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Shoulder", "#BodyPart_Neck"],
         "Laterality": null,
         "DesignElement": "#Element_CostumeItem",
         "Attrs": [
@@ -1896,7 +1637,7 @@
         "Note_EN": null
       },
       {
-        "Formation": "humanoid",
+        "Formation": null,
         "BodyPart": ["#BodyPart_Hair"],
         "Laterality": null,
         "DesignElement": "#Element_CostumeItem",
@@ -1918,55 +1659,7 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": ["#BodyPart_Eye"],
-        "Laterality": null,
-        "DesignElement": "#Element_Motif",
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_Overview",
-            "value_JP": "シアンブルーの目",
-            "value_EN": "cyan blue eyes"
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
-      {
-        "Formation": "humanoid",
-        "BodyPart": null,
-        "Laterality": null,
-        "DesignElement": "#Element_Motif",
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_Overview",
-            "value_JP": "控えめな柔らかな微笑み",
-            "value_EN": "soft understated smile"
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
-      {
-        "Formation": "humanoid",
-        "BodyPart": null,
-        "Laterality": null,
-        "DesignElement": "#Element_CostumeItem",
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_Overview",
-            "value_JP": "ティールのケープ",
-            "value_EN": "teal cape"
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
-      {
-        "Formation": "humanoid",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Chest"],
         "Laterality": null,
         "DesignElement": "#Element_CostumeItem",
         "Attrs": [
@@ -2272,7 +1965,7 @@
         "Note_EN": null
       },
       {
-        "Formation": "corefolder",
+        "Formation": null,
         "BodyPart": ["#BodyPart_Chest"],
         "Laterality": "#Lat_Left",
         "DesignElement": "#Element_NumberMark",
@@ -2324,22 +2017,6 @@
         "Note_EN": null
       },
       {
-        "Formation": "corefolder",
-        "BodyPart": ["#BodyPart_Hair"],
-        "Laterality": null,
-        "DesignElement": "#Element_Motif",
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_Overview",
-            "value_JP": "ティールグリーンの髪",
-            "value_EN": "teal green hair"
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
-      {
         "Formation": null,
         "BodyPart": ["#BodyPart_Ear"],
         "Laterality": null,
@@ -2355,63 +2032,15 @@
         "Note_EN": null
       },
       {
-        "Formation": "corefolder",
-        "BodyPart": null,
-        "Laterality": "#Lat_Right",
-        "DesignElement": "#Element_Motif",
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_Overview",
-            "value_JP": "深緑色のオッドアイ/虹彩異色症(包帯で隠れている右目の方が少し水色)",
-            "value_EN": "dark green heterochromia (right eye slightly light blue, covered with bandage)"
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
-      {
-        "Formation": "corefolder",
-        "BodyPart": null,
-        "Laterality": null,
-        "DesignElement": "#Element_Motif",
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_Overview",
-            "value_JP": "いたずらっぽいニヤリ",
-            "value_EN": "mischievous grin"
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
-      {
-        "Formation": "corefolder",
-        "BodyPart": ["#BodyPart_Hand"],
-        "Laterality": null,
-        "DesignElement": "#Element_CostumeItem",
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_Overview",
-            "value_JP": "テープリストバンド",
-            "value_EN": "tape wristbands"
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
-      {
-        "Formation": "humanoid",
+        "Formation": null,
         "BodyPart": ["#BodyPart_Hair"],
         "Laterality": null,
         "DesignElement": "#Element_Motif",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Overview",
-            "value_JP": "ティールグリーンの髪",
-            "value_EN": "teal green hair"
+            "value_JP": "ティールグリーンで多色の髪",
+            "value_EN": "teal green hair with multicolored highlights"
           }
         ],
         "img_PNGName": null,
@@ -2419,15 +2048,47 @@
         "Note_EN": null
       },
       {
-        "Formation": "humanoid",
-        "BodyPart": null,
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Hair"],
+        "Laterality": null,
+        "DesignElement": "#Element_Motif",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "ティールグリーンで多色の長いポニーテール",
+            "value_EN": "teal green hair with multicolored long ponytail"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Eye"],
+        "Laterality": "#Lat_Left",
+        "DesignElement": "#Element_Motif",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "深緑色の目(オッドアイ/虹彩異色症)",
+            "value_EN": "dark green eyes (heterochromia/odd eyes)"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Eye"],
         "Laterality": "#Lat_Right",
         "DesignElement": "#Element_Motif",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Overview",
-            "value_JP": "深緑色のオッドアイ/虹彩異色症(包帯で隠れている右目の方が少し水色)",
-            "value_EN": "dark green heterochromia (right eye slightly light blue, covered with bandage)"
+            "value_JP": "深緑色に水色の掛かった目(オッドアイ/虹彩異色症,普段は包帯で隠れている)",
+            "value_EN": "dark green eyes with a hint of light blue (heterochromia/odd eyes, usually hidden by tape wristbands)"
           }
         ],
         "img_PNGName": null,
@@ -2435,10 +2096,10 @@
         "Note_EN": null
       },
       {
-        "Formation": "humanoid",
+        "Formation": null,
         "BodyPart": null,
         "Laterality": null,
-        "DesignElement": "#Element_Motif",
+        "DesignElement": "#Element_Expression",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Overview",
@@ -2451,15 +2112,47 @@
         "Note_EN": null
       },
       {
-        "Formation": "humanoid",
-        "BodyPart": ["#BodyPart_Hand"],
-        "Laterality": null,
+        "Formation": "corefolder",
+        "BodyPart": ["#BodyPart_Head", "#BodyPart_Hair"],
+        "Laterality": "#Lat_Right",
         "DesignElement": "#Element_CostumeItem",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Overview",
-            "value_JP": "テープリストバンド",
-            "value_EN": "tape wristbands"
+            "value_JP": "包帯(頭とポニーテールに巻かれている)",
+            "value_EN": "tape wristbands (wrapped around the head and ponytail)"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": "corefolder",
+        "BodyPart": null,
+        "Laterality": null,
+        "DesignElement": "#Element_Expression",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "よく弾むように回転しながら動く球体動作",
+            "value_EN": "bouncing and rotating spherical movement"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": "humanoid",
+        "BodyPart": ["#BodyPart_Head", "#BodyPart_Arm"],
+        "Laterality": "#Lat_Right",
+        "DesignElement": "#Element_CostumeItem",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "包帯(頭と右腕に巻かれている)",
+            "value_EN": "tape wristbands (wrapped around the head and right arm)"
           }
         ],
         "img_PNGName": null,
@@ -2470,7 +2163,7 @@
         "Formation": "humanoid",
         "BodyPart": null,
         "Laterality": null,
-        "DesignElement": "#Element_Motif",
+        "DesignElement": "#Element_Expression",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Overview",
@@ -2484,7 +2177,7 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Chest", "#BodyPart_Waist", "#BodyPart_Leg"],
         "Laterality": null,
         "DesignElement": "#Element_CostumeItem",
         "Attrs": [
@@ -2803,25 +2496,14 @@
         "Note_EN": null
       },
       {
-        "Formation": "humanoid",
-        "BodyPart": ["#BodyPart_Chest"],
-        "Laterality": "#Lat_Left",
-        "DesignElement": "#Element_NumberMark",
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Ear"],
+        "Laterality": null,
+        "DesignElement": "#Element_EarUnit",
         "Attrs": [
           {
-            "AttrLabel": "#DesignAttr_Position",
-            "value_JP": "左襟,胸の正面中央にある青い六角形のペンダント付近",
-            "value_EN": "left collar, around the blue hexagonal pendant at the front center of the chest"
-          },
-          {
-            "AttrLabel": "#DesignAttr_Color",
-            "value_JP": "暗色",
-            "value_EN": "dark"
-          },
-          {
-            "AttrLabel": "#DesignAttr_Notation",
-            "value_JP": "アラビア数字の「6」",
-            "value_EN": "Arabic numeral '6'"
+            "AttrLabel": "#DesignAttr_EarShape",
+            "vdict_EarShapeType": "#EarShapeType_Fox"
           }
         ],
         "img_PNGName": null,
@@ -2829,7 +2511,7 @@
         "Note_EN": null
       },
       {
-        "Formation": "corefolder",
+        "Formation": null,
         "BodyPart": ["#BodyPart_Hair"],
         "Laterality": null,
         "DesignElement": "#Element_Motif",
@@ -2846,23 +2528,8 @@
       },
       {
         "Formation": null,
-        "BodyPart": ["#BodyPart_Ear"],
-        "Laterality": null,
-        "DesignElement": "#Element_EarUnit",
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_EarShape",
-            "vdict_EarShapeType": "#EarShapeType_Fox"
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
-      {
-        "Formation": "corefolder",
         "BodyPart": ["#BodyPart_Eye"],
-        "Laterality": null,
+        "Laterality": "#Lat_Both",
         "DesignElement": "#Element_Motif",
         "Attrs": [
           {
@@ -2876,10 +2543,10 @@
         "Note_EN": null
       },
       {
-        "Formation": "corefolder",
+        "Formation": null,
         "BodyPart": null,
         "Laterality": null,
-        "DesignElement": "#Element_Motif",
+        "DesignElement": "#Element_Expression",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Overview",
@@ -2892,8 +2559,8 @@
         "Note_EN": null
       },
       {
-        "Formation": "corefolder",
-        "BodyPart": null,
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Neck"],
         "Laterality": null,
         "DesignElement": "#Element_CostumeItem",
         "Attrs": [
@@ -2908,10 +2575,10 @@
         "Note_EN": null
       },
       {
-        "Formation": "corefolder",
-        "BodyPart": null,
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Neck"],
         "Laterality": null,
-        "DesignElement": "#Element_Motif",
+        "DesignElement": "#Element_CostumeItem",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Overview",
@@ -2925,55 +2592,7 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": ["#BodyPart_Hair"],
-        "Laterality": null,
-        "DesignElement": "#Element_Motif",
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_Overview",
-            "value_JP": "ピンクの髪",
-            "value_EN": "pink hair"
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
-      {
-        "Formation": "humanoid",
-        "BodyPart": ["#BodyPart_Eye"],
-        "Laterality": null,
-        "DesignElement": "#Element_Motif",
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_Overview",
-            "value_JP": "ラベンダーブルーの目",
-            "value_EN": "lavender blue eyes"
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
-      {
-        "Formation": "humanoid",
-        "BodyPart": null,
-        "Laterality": null,
-        "DesignElement": "#Element_Motif",
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_Overview",
-            "value_JP": "穏やかな笑顔",
-            "value_EN": "gentle warm smile"
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
-      {
-        "Formation": "humanoid",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Chest", "#BodyPart_Waist", "#BodyPart_Leg"],
         "Laterality": null,
         "DesignElement": "#Element_CostumeItem",
         "Attrs": [
@@ -2989,7 +2608,7 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Chest", "#BodyPart_Waist"],
         "Laterality": null,
         "DesignElement": "#Element_CostumeItem",
         "Attrs": [
@@ -2997,38 +2616,6 @@
             "AttrLabel": "#DesignAttr_Overview",
             "value_JP": "ツートーンのピンク紫ドレス",
             "value_EN": "two-tone pink purple dress"
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
-      {
-        "Formation": "humanoid",
-        "BodyPart": null,
-        "Laterality": null,
-        "DesignElement": "#Element_CostumeItem",
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_Overview",
-            "value_JP": "六角形のブローチ",
-            "value_EN": "hexagonal brooch"
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
-      {
-        "Formation": "humanoid",
-        "BodyPart": null,
-        "Laterality": null,
-        "DesignElement": "#Element_Motif",
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_Overview",
-            "value_JP": "レーストリム",
-            "value_EN": "lace trim"
           }
         ],
         "img_PNGName": null,
@@ -3305,7 +2892,22 @@
         "Note_EN": null
       },
       {
-        "Formation": "corefolder",
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Ear"],
+        "Laterality": null,
+        "DesignElement": "#Element_EarUnit",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_EarShape",
+            "vdict_EarShapeType": "#EarShapeType_Fox"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
         "BodyPart": ["#BodyPart_Hair"],
         "Laterality": null,
         "DesignElement": "#Element_Motif",
@@ -3322,23 +2924,8 @@
       },
       {
         "Formation": null,
-        "BodyPart": ["#BodyPart_Ear"],
-        "Laterality": null,
-        "DesignElement": "#Element_EarUnit",
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_EarShape",
-            "vdict_EarShapeType": "#EarShapeType_Fox"
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
-      {
-        "Formation": "corefolder",
         "BodyPart": ["#BodyPart_Eye"],
-        "Laterality": null,
+        "Laterality": "#Lat_Both",
         "DesignElement": "#Element_Motif",
         "Attrs": [
           {
@@ -3352,10 +2939,10 @@
         "Note_EN": null
       },
       {
-        "Formation": "corefolder",
-        "BodyPart": ["#BodyPart_Head"],
+        "Formation": null,
+        "BodyPart": null,
         "Laterality": null,
-        "DesignElement": "#Element_Motif",
+        "DesignElement": "#Element_Expression",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Overview",
@@ -3368,8 +2955,8 @@
         "Note_EN": null
       },
       {
-        "Formation": "corefolder",
-        "BodyPart": ["#BodyPart_Neck", "#BodyPart_Hand"],
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Neck"],
         "Laterality": null,
         "DesignElement": "#Element_CostumeItem",
         "Attrs": [
@@ -3385,78 +2972,30 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": ["#BodyPart_Hair"],
-        "Laterality": null,
-        "DesignElement": "#Element_Motif",
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_Overview",
-            "value_JP": "ネイビーダークブルーの髪",
-            "value_EN": "navy dark blue hair"
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
-      {
-        "Formation": "humanoid",
-        "BodyPart": ["#BodyPart_Eye"],
-        "Laterality": null,
-        "DesignElement": "#Element_Motif",
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_Overview",
-            "value_JP": "紺灰色の目",
-            "value_EN": "dark grayish blue eyes"
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
-      {
-        "Formation": "humanoid",
-        "BodyPart": ["#BodyPart_Head"],
-        "Laterality": null,
-        "DesignElement": "#Element_Motif",
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_Overview",
-            "value_JP": "瞑想的な無表情の眼差し",
-            "value_EN": "contemplative stoic gaze"
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
-      {
-        "Formation": "humanoid",
-        "BodyPart": ["#BodyPart_Neck", "#BodyPart_Hand"],
-        "Laterality": null,
-        "DesignElement": "#Element_CostumeItem",
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_Overview",
-            "value_JP": "念珠ネックレス",
-            "value_EN": "prayer bead necklace"
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
-      {
-        "Formation": "humanoid",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Chest"],
         "Laterality": null,
         "DesignElement": "#Element_CostumeItem",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Overview",
             "value_JP": "和風コート",
-            "value_EN": "Japanese-style coat"
+            "value_EN": "Far-Easten style coat"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": "humanoid",
+        "BodyPart": ["#BodyPart_Hand"],
+        "Laterality": "#Lat_Both",
+        "DesignElement": "#Element_CostumeItem",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "紺色の和風な手袋",
+            "value_EN": "Far-Easten style navy gloves"
           }
         ],
         "img_PNGName": null,
@@ -3481,7 +3020,7 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Chest", "#BodyPart_Waist", "#BodyPart_Leg"],
         "Laterality": null,
         "DesignElement": "#Element_CostumeItem",
         "Attrs": [
@@ -3774,22 +3313,6 @@
         "Note_EN": null
       },
       {
-        "Formation": "corefolder",
-        "BodyPart": ["#BodyPart_Hair"],
-        "Laterality": null,
-        "DesignElement": "#Element_Motif",
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_Overview",
-            "value_JP": "オレンジ赤の髪",
-            "value_EN": "orange red hair"
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
-      {
         "Formation": null,
         "BodyPart": ["#BodyPart_Ear"],
         "Laterality": null,
@@ -3806,9 +3329,9 @@
         "Note_EN": null
       },
       {
-        "Formation": "corefolder",
-        "BodyPart": null,
-        "Laterality": null,
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Eye"],
+        "Laterality": "#Lat_Both",
         "DesignElement": "#Element_Motif",
         "Attrs": [
           {
@@ -3822,71 +3345,7 @@
         "Note_EN": null
       },
       {
-        "Formation": "corefolder",
-        "BodyPart": ["#BodyPart_Eye"],
-        "Laterality": null,
-        "DesignElement": "#Element_CostumeItem",
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_Overview",
-            "value_JP": "VRゴーグル(赤と橙のフレームとオレンジのレンズ)",
-            "value_EN": "wide energetic grin"
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
-      {
-        "Formation": "corefolder",
-        "BodyPart": null,
-        "Laterality": null,
-        "DesignElement": "#Element_Motif",
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_Overview",
-            "value_JP": "元気で旺盛な笑み",
-            "value_EN": "VR goggles(red and orange frame with orange lenses)"
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
-      {
-        "Formation": "corefolder",
-        "BodyPart": null,
-        "Laterality": null,
-        "DesignElement": "#Element_Motif",
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_Overview",
-            "value_JP": "メカニックスタイル",
-            "value_EN": "wide energetic grin"
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
-      {
-        "Formation": "corefolder",
-        "BodyPart": null,
-        "Laterality": null,
-        "DesignElement": "#Element_Motif",
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_Overview",
-            "value_JP": null,
-            "value_EN": "mechanic style"
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
-      {
-        "Formation": "humanoid",
+        "Formation": null,
         "BodyPart": ["#BodyPart_Hair"],
         "Laterality": null,
         "DesignElement": "#Element_Motif",
@@ -3902,24 +3361,8 @@
         "Note_EN": null
       },
       {
-        "Formation": "humanoid",
-        "BodyPart": null,
-        "Laterality": null,
-        "DesignElement": "#Element_Motif",
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_Overview",
-            "value_JP": "赤い目",
-            "value_EN": "red eyes"
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
-      {
-        "Formation": "humanoid",
-        "BodyPart": ["#BodyPart_Eye"],
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Head"],
         "Laterality": null,
         "DesignElement": "#Element_CostumeItem",
         "Attrs": [
@@ -3934,15 +3377,15 @@
         "Note_EN": null
       },
       {
-        "Formation": "humanoid",
+        "Formation": null,
         "BodyPart": null,
         "Laterality": null,
-        "DesignElement": "#Element_Motif",
+        "DesignElement": "#Element_Expression",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Overview",
             "value_JP": "元気で旺盛な笑み",
-            "value_EN": "wide energetic grin"
+            "value_EN": "VR goggles(red and orange frame with orange lenses)"
           }
         ],
         "img_PNGName": null,
@@ -3950,23 +3393,7 @@
         "Note_EN": null
       },
       {
-        "Formation": "humanoid",
-        "BodyPart": null,
-        "Laterality": null,
-        "DesignElement": "#Element_CostumeItem",
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_Overview",
-            "value_JP": "タクティカルベスト",
-            "value_EN": "tactical vest"
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
-      {
-        "Formation": "humanoid",
+        "Formation": null,
         "BodyPart": null,
         "Laterality": null,
         "DesignElement": "#Element_Motif",
@@ -3975,6 +3402,22 @@
             "AttrLabel": "#DesignAttr_Overview",
             "value_JP": "メカニックスタイル",
             "value_EN": "mechanic style"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": "humanoid",
+        "BodyPart": ["#BodyPart_Chest"],
+        "Laterality": null,
+        "DesignElement": "#Element_CostumeItem",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "タクティカルベスト",
+            "value_EN": "tactical vest"
           }
         ],
         "img_PNGName": null,

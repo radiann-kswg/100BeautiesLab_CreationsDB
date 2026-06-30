@@ -885,6 +885,11 @@
           "DesignElement": "EarUnit",
           "DesignElement_JP": "耳ユニット",
           "DesignElement_EN": "Ear Unit"
+        },
+        "#Element_Expression": {
+          "DesignElement": "Expression",
+          "DesignElement_JP": "表情・動作",
+          "DesignElement_EN": "Expression / Action"
         }
       },
       "$EnumDef_Laterality": {
