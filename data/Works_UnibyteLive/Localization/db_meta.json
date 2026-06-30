@@ -14,6 +14,11 @@
       "DB_Layer": "Localization",
       "DB_Label_JP": "サービス・インフラ",
       "DB_Label_EN": "Service / Infrastructure"
+    },
+    "#Loc_OtherPropers": {
+      "DB_Layer": "Localization",
+      "DB_Label_JP": "その他の固有名詞",
+      "DB_Label_EN": "Other Proper Nouns"
     }
   }
 }

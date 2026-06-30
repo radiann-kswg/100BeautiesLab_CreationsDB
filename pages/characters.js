@@ -1090,15 +1090,37 @@ async function fetchGlobalTypeDef() {
 	// 無効キャッシュは破棄して再取得
 	globalTypeDefCache = null;
 
+	// NOTE: /pages/v1/typedef/global が SW 未実装または期待形でない場合のフォールバック。
+	// $DefType が取れないと findDictNameInSchema が $dict を解決できず辞書引きが壊れる。
+	const fetchDirectTypeDef = async () => {
+		try {
+			const r = await fetch(new URL('../data/db_type.json', location.href).toString(), { cache: 'no-store' });
+			if (!r.ok) return {};
+			const json = await r.json();
+			return (json && typeof json === 'object') ? json : {};
+		} catch {
+			return {};
+		}
+	};
+
 	const u = new URL(api('v1/typedef/global'));
 	try {
 		const res = await fetchJSON(u.toString());
 		console.log('🌐 Global TypeDef response:', res);
-		globalTypeDefCache = (res && typeof res === 'object') ? res : {};
+		if (isValid(res)) {
+			globalTypeDefCache = res;
+			return globalTypeDefCache;
+		}
+		// SW が期待形でないレスポンスを返した場合（未実装エンドポイントの 404 等）は直フェッチ
+		console.warn('🛟 fetchGlobalTypeDef: SW response not valid, falling back to direct db_type.json fetch');
+		const direct = await fetchDirectTypeDef();
+		globalTypeDefCache = isValid(direct) ? direct : (res && typeof res === 'object' ? res : {});
 		return globalTypeDefCache;
 	} catch (error) {
 		console.warn('⚠️ Failed to fetch global type def:', error.message);
-		return {};
+		const direct = await fetchDirectTypeDef();
+		globalTypeDefCache = direct;
+		return globalTypeDefCache;
 	}
 }
 
@@ -1787,6 +1809,25 @@ function getIndexIdentifierFromRecord(rec, indexDef) {
 }
 
 /**
+ * _DBLink 複合インデックス解決用 subset match
+ * filter のすべてのキーが recordVal に存在して値が一致するか（再帰対応）
+ * @param {*} recordVal
+ * @param {Object} filter
+ * @returns {boolean}
+ */
+function _dbLinkSubsetMatch(recordVal, filter) {
+	if (recordVal == null || filter == null) return false;
+	if (typeof filter !== 'object' || Array.isArray(filter)) return false;
+	if (typeof recordVal !== 'object') return false;
+	return Object.keys(filter).every((k) => {
+		const rv = recordVal[k];
+		const qv = filter[k];
+		if (typeof qv === 'object' && qv !== null && !Array.isArray(qv)) return _dbLinkSubsetMatch(rv, qv);
+		return String(rv ?? '') === String(qv ?? '');
+	});
+}
+
+/**
  * 直リンククエリ（idx/idxKey/num）に一致するかどうか
  * @param {Object} rec - レコード
  * @param {Object|null} indexDef - $IndexDef
@@ -1797,6 +1838,25 @@ function getIndexIdentifierFromRecord(rec, indexDef) {
  */
 function recordMatchesIndexQuery(rec, indexDef, idxValue, idxKeyPath, legacyNum = '') {
 	const qVal = String(idxValue || '').trim();
+
+	// JSON エンコードされた複合条件（_DBLink のネストオブジェクト/複数フラットキー対応）
+	if (qVal.length > 0 && qVal[0] === '{') {
+		try {
+			const filter = JSON.parse(qVal);
+			if (filter && typeof filter === 'object' && !Array.isArray(filter)) {
+				if (idxKeyPath === '__conditions__') {
+					// 複数フラットキー: レコード直接 subset match
+					return _dbLinkSubsetMatch(rec, filter);
+				}
+				if (idxKeyPath) {
+					// ネストオブジェクト: idxKeyPath フィールドに対して subset match
+					const fieldVal = String(idxKeyPath).split('.').reduce((o, k) => (o != null ? o[k] : undefined), rec);
+					return _dbLinkSubsetMatch(fieldVal, filter);
+				}
+			}
+		} catch {}
+	}
+
 	if (!qVal) {
 		const legacy = String(legacyNum || '').trim();
 		if (!legacy) return false;

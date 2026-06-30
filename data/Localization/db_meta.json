@@ -30,6 +30,11 @@
       "DB_Label_JP": "物・アイテム",
       "DB_Label_EN": "Objects / Items"
     },
+    "#Loc_ServiceInfra": {
+      "DB_Layer": "Localization",
+      "DB_Label_JP": "サービス・インフラ",
+      "DB_Label_EN": "Service / Infrastructure"
+    },
     "#Loc_Regions": {
       "DB_Layer": "Localization",
       "DB_Label_JP": "創作世界・この創作作品における異世界",

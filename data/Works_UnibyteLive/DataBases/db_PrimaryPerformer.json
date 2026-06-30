@@ -1,1 +1,58 @@
-[]
+[
+  {
+    "Letter": { "Alphabet": "A", "AlphaGen": 1 },
+    "Progress": "notProceeded",
+    "FormalName_JP": "栄藤 ありか",
+    "FormalName_JPReading": "えいとう ありか",
+    "FormalName_EN": "Arica Æito",
+    "Height_cm": 151,
+    "BustSize": "A",
+    "Age": 28,
+    "BirthDay": { "Day": { "Month": 4, "DayOfMonth": 17 } }
+  },
+  {
+    "Letter": { "Alphabet": "N", "AlphaGen": 1 },
+    "Progress": "notProceeded",
+    "FormalName_JP": "向居 カミーユ",
+    "FormalName_JPReading": "むかい カミーユ",
+    "FormalName_EN": "Camille Nachie",
+    "Height_cm": 144,
+    "GenderType": "Male",
+    "Age": 19,
+    "BirthDay": { "Day": { "Month": 11, "DayOfMonth": 6 } }
+  },
+  {
+    "Letter": { "Alphabet": "S", "AlphaGen": 1 },
+    "Progress": "notProceeded",
+    "FormalName_JP": "氷山 メサイア",
+    "FormalName_JPReading": "きよやま メサイア",
+    "FormalName_EN": "Messiah Snowberg",
+    "Height_cm": 150,
+    "BustSize": "AA",
+    "Age": 36,
+    "BirthDay": { "Day": { "Month": 12, "DayOfMonth": 14 } },
+    "Belonging": ["アルベッツ被害者の会"]
+  },
+  {
+    "Letter": { "Alphabet": "S", "AlphaGen": 2 },
+    "Progress": "notProceeded",
+    "FormalName_JP": "南 まな",
+    "FormalName_JPReading": "みなみ まな",
+    "FormalName_EN": "Mána Southen",
+    "Height_cm": 135,
+    "BustSize": "G",
+    "Age": 18,
+    "BirthDay": { "Day": { "Month": 5, "DayOfMonth": 22 } }
+  },
+  {
+    "Letter": { "Alphabet": "Z", "AlphaGen": 1 },
+    "Progress": "notProceeded",
+    "FormalName_JP": "北野 ザイヒ",
+    "FormalName_JPReading": "きたの ザイヒ",
+    "FormalName_EN": "Zxyhi Normus",
+    "Height_cm": 162,
+    "BustSize": "C",
+    "Age": 27,
+    "BirthDay": { "Day": { "Month": 2, "DayOfMonth": 15 } }
+  }
+]

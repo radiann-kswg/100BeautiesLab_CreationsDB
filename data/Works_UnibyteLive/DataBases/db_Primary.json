@@ -2,6 +2,10 @@
   {
     "Letter": { "Alphabet": "A", "Generation": 0, "AlphaGen": 1 },
     "Progress": "notProceeded",
+    "ThisPerformer_DBLink": {
+      "_DB": "PrimaryPerformer",
+      "Letter": { "Alphabet": "A", "AlphaGen": 1 }
+    },
     "Name_JP": "A:アロー",
     "Name_EN": "A:Arrows",
     "FormalName_JP": "英文字アロー",
@@ -11,6 +15,7 @@
     "CodeName_EN": "A,Arrow",
     "Height_cm": 146,
     "ConceptAge": 17,
+    "BustSize": "B",
     "AnivDay": [
       {
         "Day": { "Month": 2, "DayOfMonth": 6 },
@@ -22,11 +27,74 @@
         "DayAbout_JP": "誕生日（アルベッツ名義）",
         "DayAbout_EN": "Birthday (as the ALPBETS)"
       }
-    ]
+    ],
+    "Class": ["アルベッツ0期生(運営)"]
+  },
+  {
+    "Letter": { "Alphabet": "N", "Generation": 4, "AlphaGen": 1 },
+    "Progress": "notProceeded",
+    "ThisPerformer_DBLink": {
+      "_DB": "PrimaryPerformer",
+      "Letter": { "Alphabet": "N", "AlphaGen": 1 }
+    },
+    "Name_JP": "N:ギザン",
+    "Name_EN": "N:Nudgee",
+    "FormalName_JP": "北上ギザン",
+    "FormalName_JPReading": "ほくじょうギザン",
+    "FormalName_EN": "Nudgee N-Compasses",
+    "CodeName_JP": "北(N),ギザギザ",
+    "CodeName_EN": "N,North,Nudge",
+    "Height_cm": 144,
+    "ConceptAge": 16,
+    "BustSize": { "hideText": "非公開" },
+    "AnivDay": [
+      {
+        "Day": { "Month": 7, "DayOfMonth": 14 },
+        "DayAbout_JP": "誕生日（アルベッツ名義）",
+        "DayAbout_EN": "Birthday (as the ALPBETS)"
+      }
+    ],
+    "Class": ["現役アルベッツ", "アルベッツの？？？"]
+  },
+  {
+    "Letter": { "Alphabet": "S", "Generation": 2, "AlphaGen": 1 },
+    "Progress": "notProceeded",
+    "ThisPerformer_DBLink": {
+      "_DB": "PrimaryPerformer",
+      "Letter": { "Alphabet": "S", "AlphaGen": 1 }
+    },
+    "Name_JP": "S:ツェット",
+    "Name_EN": "S:'Szett",
+    "FormalName_JP": "双曲 ツェット",
+    "FormalName_JPReading": "ふたまがり ツェット",
+    "FormalName_EN": "'Szett SS-Curve",
+    "CodeName_JP": "双曲(S),ß",
+    "CodeName_EN": "S,ß(Eszett)",
+    "Height_cm": 135,
+    "ConceptAge": 16,
+    "BustSize": "E",
+    "AnivDay": [
+      {
+        "Day": { "Month": 5, "DayOfMonth": 19 },
+        "DayAbout_JP": "誕生日（アルベッツ名義）",
+        "DayAbout_EN": "Birthday (as the ALPBETS)"
+      },
+      {
+        "Day": { "Month": 12, "DayOfMonth": 14 },
+        "DayAbout_JP": "アルベッツ\"お塩\"事件（アルベッツ追放およびアカウント凍結日）",
+        "DayAbout_EN": "ALPBETS 'Salting' Incident (ALPBETS expulsion and account suspension date)"
+      }
+    ],
+    "Belonging": [],
+    "Class": ["アルベッツ追放もしくはアカウント凍結"]
   },
   {
     "Letter": { "Alphabet": "S", "Generation": 5, "AlphaGen": 2 },
     "Progress": "nowCreating",
+    "ThisPerformer_DBLink": {
+      "_DB": "PrimaryPerformer",
+      "Letter": { "Alphabet": "S", "AlphaGen": 2 }
+    },
     "Images": { "keycapper_PNGPath": ["S/emstk_keycapperS-1.png"] },
     "Name_JP": "S:ナーミィ",
     "Name_EN": "S:Surgey",
@@ -37,6 +105,7 @@
     "CodeName_EN": "S,Surge",
     "Height_cm": 121,
     "ConceptAge": 14,
+    "BustSize": "H",
     "AnivDay": [
       {
         "Day": { "Month": 5, "DayOfMonth": 19 },
@@ -44,20 +113,34 @@
         "DayAbout_EN": "Birthday (as the ALPBETS)"
       }
     ],
-    "BustSize": "H",
-    "AccessoryUnit_JP": "Sの字状に波打ったポニーテールや猫型の尻尾",
-    "AccessoryUnit_EN": "S-shaped wavy ponytail and cat-like tail",
+    "Class": ["現役アルベッツ", "シェーディングモデラ"],
     "AppearanceDetail": [
       {
         "Formation": null,
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Hair"],
         "Laterality": null,
         "DesignElement": "#Element_AccessoryUnit",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Overview",
-            "Value_JP": "Sの字状に波打ったポニーテールや猫型の尻尾",
-            "Value_EN": "S-shaped wavy ponytail and cat-like tail"
+            "Value_JP": "Sの字状に波打ったポニーテール",
+            "Value_EN": "S-shaped wavy ponytail"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Tail"],
+        "Laterality": null,
+        "DesignElement": "#Element_AccessoryUnit",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "Value_JP": "Sの字状に波打った猫型の尻尾",
+            "Value_EN": "S-shaped wavy cat-like tail"
           }
         ],
         "img_PNGName": null,
@@ -128,6 +211,10 @@
     "Letter": { "Alphabet": "Z", "Generation": 2, "AlphaGen": 1 },
     "Progress": "nowCreating",
     "Images": { "keycapper_PNGPath": ["Z/emstk_keycapperZ-1.png"] },
+    "ThisPerformer_DBLink": {
+      "_DB": "PrimaryPerformer",
+      "Letter": { "Alphabet": "Z", "AlphaGen": 1 }
+    },
     "Name_JP": "Z:ジグ",
     "Name_EN": "Z:Zig",
     "FormalName_JP": "右仗ジグ",
@@ -137,6 +224,7 @@
     "CodeName_EN": "Z,Zig",
     "Height_cm": 142,
     "ConceptAge": 16,
+    "BustSize": "B",
     "AnivDay": [
       {
         "Day": { "Month": 2, "DayOfMonth": 26 },
@@ -144,20 +232,34 @@
         "DayAbout_EN": "Birthday (as the ALPBETS)"
       }
     ],
-    "BustSize": "B",
-    "AccessoryUnit_JP": "Zの字状に折り曲げられたポニーテールや鞄(錘)付きの尻尾",
-    "AccessoryUnit_EN": "Z-shaped bent ponytail and a tail with a weighted bag attached",
+    "Class": ["現役アルベッツ", "ゲームエンジン技術者"],
     "AppearanceDetail": [
       {
         "Formation": null,
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Hair"],
         "Laterality": null,
         "DesignElement": "#Element_AccessoryUnit",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Overview",
-            "Value_JP": "Zの字状に折り曲げられたポニーテールや鞄(錘)付きの尻尾",
-            "Value_EN": "Z-shaped bent ponytail and a tail with a weighted bag attached"
+            "Value_JP": "Zの字状に折り曲げられたポニーテール",
+            "Value_EN": "Z-shaped bent ponytail"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Tail"],
+        "Laterality": null,
+        "DesignElement": "#Element_AccessoryUnit",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "Value_JP": "Zの字状に折り曲げられた鞄(錘)付きの尻尾",
+            "Value_EN": "Z-shaped bent tail with a weighted bag attached"
           }
         ],
         "img_PNGName": null,

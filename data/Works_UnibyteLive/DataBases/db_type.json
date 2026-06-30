@@ -23,7 +23,7 @@
       }
     ],
     "hashTag_JP": "キーレター",
-    "hashTag_EN": "Key Letter"
+    "hashTag_EN": "Key-Letter"
   },
   "$DefType": [
     {
@@ -50,7 +50,7 @@
       "hashTag": "Letter",
       "$type": "#Index",
       "hashTag_JP": "キーレター",
-      "hashTag_EN": "Key Letter"
+      "hashTag_EN": "Key-Letter"
     },
     {
       "hashTag": "ThisPerformer_DBLink",
@@ -58,16 +58,6 @@
       "$enrich": false,
       "hashTag_JP": "演者(リアル空間での姿)",
       "hashTag_EN": "Performer (Real-world Appearance)"
-    },
-    {
-      "hashTag": "AccessoryUnit_JP",
-      "$type": "#String",
-      "hashTag_JP": "モチーフアクセサリの特徴"
-    },
-    {
-      "hashTag": "AccessoryUnit_EN",
-      "$type": "#String_EN|#Null",
-      "hashTag_EN": "Motif Accessory Feature"
     },
     {
       "hashTag": "StreamingActivity",
@@ -197,7 +187,7 @@
           "$type": "#Index",
           "isForSecondary": false,
           "hashTag_JP": "キーレター",
-          "hashTag_EN": "Key Letter"
+          "hashTag_EN": "Key-Letter"
         },
         {
           "hashTag": "Comments",

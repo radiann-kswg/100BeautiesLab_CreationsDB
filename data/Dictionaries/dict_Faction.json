@@ -99,6 +99,22 @@
     "isMaker": false
   },
   {
+    "Faction": "アルベッツ",
+    "Faction_EN": "ALPBETS",
+    "Belonging": "アルベッツ",
+    "Belonging_EN": "ALPBETS",
+    "BelongingArea": { "Area": "九蓮国" },
+    "isForSecondary": false,
+    "isMaker": null
+  },
+  {
+    "Belonging": "アルベッツ被害者の会",
+    "Belonging_EN": "Victims Association against ALPBETS",
+    "BelongingArea": { "Area": "九蓮国" },
+    "isForSecondary": false,
+    "isMaker": false
+  },
+  {
     "Faction": "デウスマキナ",
     "Faction_EN": "DeusMakhina",
     "Belonging": "デウスマキナ",
@@ -132,6 +148,15 @@
     },
     "isForSecondary": null,
     "isMaker": false
+  },
+  {
+    "Faction": "王家英皇学会",
+    "Faction_EN": "IK.Royal Society",
+    "Belonging": "王家英皇学会",
+    "Belonging_EN": "IK.Royal Society",
+    "BelongingArea": { "Area": "英皇国" },
+    "isForSecondary": false,
+    "isMaker": null
   },
   {
     "Faction": "レゾンデイトルカンパニー",

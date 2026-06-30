@@ -128,7 +128,8 @@
           "AppearanceDetail",
           "AbilityStats",
           "StreamingActivity",
-          "ConversationPattern"
+          "ConversationPattern",
+          "ThisPerformer_DBLink"
         ]
       }
     },
