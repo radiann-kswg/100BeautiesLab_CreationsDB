@@ -421,6 +421,41 @@
       "hashTag_EN": "Summary"
     },
     {
+      "hashTag": "BodyBlocks_JP",
+      "$type": "#Summary[]",
+      "hashTag_JP": "本文ブロック",
+      "hashTag_EN": "Body Block",
+      "$display": { "langMode": "jp" }
+    },
+    {
+      "hashTag": "BodyBlocks_EN",
+      "$type": "#Summary[]|#Null",
+      "hashTag_JP": "本文ブロック（英訳）",
+      "hashTag_EN": "Body Block (English)",
+      "$display": { "langMode": "en" }
+    },
+    {
+      "hashTag": "BodyBlocks",
+      "$type": "#Summary[]",
+      "hashTag_JP": "本文ブロック",
+      "hashTag_EN": "Body Block",
+      "$display": { "langMode": "jp" }
+    },
+    {
+      "hashTag": "BodyBlock_JP",
+      "$type": "#Summary[]",
+      "hashTag_JP": "本文ブロック",
+      "hashTag_EN": "Body Block",
+      "$display": { "langMode": "jp" }
+    },
+    {
+      "hashTag": "BodyBlock_EN",
+      "$type": "#Summary[]|#Null",
+      "hashTag_JP": "本文ブロック（英訳）",
+      "hashTag_EN": "Body Block (English)",
+      "$display": { "langMode": "en" }
+    },
+    {
       "hashTag": "AbilityStats",
       "$type": [
         {

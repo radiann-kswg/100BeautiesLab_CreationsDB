@@ -1,35 +1,63 @@
 {
   "$DefType": [
     {
+      "hashTag": "Term",
+      "$type": "##String|#Null",
+      "hashTag_JP": "用語名",
+      "hashTag_EN": "Term Name",
+      "$display": {
+        "section": "basic",
+        "aliasOf": "Name",
+        "langMode": "shared"
+      }
+    },
+    {
       "hashTag": "Term_JP",
       "$type": "##String_JP|#Null",
       "hashTag_JP": "用語名",
-      "$display": { "section": "basic", "aliasOf": "Name_JP" }
+      "$display": { "section": "basic", "aliasOf": "Name_JP", "langMode": "jp" }
     },
     {
       "hashTag": "Term_JPReading",
       "$type": "##String_JP|#Null",
-      "hashTag_JP": "用語の読み仮名"
+      "hashTag_JP": "用語の読み仮名",
+      "$display": {
+        "section": "basic",
+        "aliasOf": "Name_JPReading",
+        "langMode": "jp"
+      }
     },
     {
       "hashTag": "Term_EN",
       "$type": "##String_EN|#Null",
       "hashTag_EN": "Term Name",
-      "$display": { "section": "basic", "aliasOf": "Name_EN" }
+      "$display": { "section": "basic", "aliasOf": "Name_EN", "langMode": "en" }
+    },
+    {
+      "hashTag": "Title",
+      "$type": "##String|#Null",
+      "hashTag_JP": "資料名",
+      "$alt": "Term_JP",
+      "$display": {
+        "section": "basic",
+        "aliasOf": "Name",
+        "langMode": "shared"
+      }
     },
     {
       "hashTag": "Title_JP",
       "$type": "##String_JP|#Null",
       "hashTag_JP": "資料名",
+      "hashTag_EN": "Reference Title",
       "$alt": "Term_JP",
-      "$display": { "section": "basic", "aliasOf": "Name_JP" }
+      "$display": { "section": "basic", "aliasOf": "Name_JP", "langMode": "jp" }
     },
     {
       "hashTag": "Title_EN",
       "$type": "##String_EN|#Null",
       "hashTag_EN": "Reference Title",
       "$alt": "Term_EN",
-      "$display": { "section": "basic", "aliasOf": "Name_EN" }
+      "$display": { "section": "basic", "aliasOf": "Name_EN", "langMode": "en" }
     },
     {
       "hashTag": "Category",
@@ -46,24 +74,42 @@
       "$display": { "section": "basic" }
     },
     {
+      "hashTag": "BodyBlocks",
+      "$type": "#Summary[]",
+      "hashTag_JP": "本文ブロック",
+      "hashTag_EN": "Body Block",
+      "$display": { "langMode": "shared" }
+    },
+    {
       "hashTag": "BodyBlocks_JP",
-      "$type": "#Summary[]|#Null",
-      "hashTag_JP": "本文ブロック"
+      "$type": "#Summary[]",
+      "hashTag_JP": "本文ブロック",
+      "$display": { "langMode": "jp" }
     },
     {
       "hashTag": "BodyBlocks_EN",
       "$type": "#Summary[]|#Null",
-      "hashTag_EN": "Body Blocks"
+      "hashTag_EN": "Body Block",
+      "$display": { "langMode": "en" }
+    },
+    {
+      "hashTag": "Summary",
+      "$type": "#Summary|#Null",
+      "hashTag_JP": "概要",
+      "hashTag_EN": "Summary",
+      "$display": { "langMode": "shared" }
     },
     {
       "hashTag": "Summary_JP",
       "$type": "#Summary|#Null",
-      "hashTag_JP": "概要"
+      "hashTag_JP": "概要",
+      "$display": { "langMode": "jp" }
     },
     {
       "hashTag": "Summary_EN",
       "$type": "#Summary|#Null",
-      "hashTag_EN": "Summary"
+      "hashTag_EN": "Summary",
+      "$display": { "langMode": "en" }
     },
     {
       "hashTag": "RelatedTerms",
