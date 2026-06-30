@@ -210,39 +210,6 @@
           "DesignElement_EN": "Number Mark"
         }
       },
-      "$EnumDef_EarShapeType": {
-        "#EarShapeType_Fox": {
-          "EarShapeType": "Fox",
-          "EarShapeType_JP": "狐の耳",
-          "EarShapeType_EN": "Fox"
-        },
-        "#EarShapeType_Cat": {
-          "EarShapeType": "Cat",
-          "EarShapeType_JP": "猫の耳",
-          "EarShapeType_EN": "Cat"
-        }
-      },
-      "$EnumDef_DesignAttrLabel": {
-        "#DesignAttr_EarShape": {
-          "AttrLabel": "EarShape",
-          "AttrLabel_JP": "耳の形状",
-          "AttrLabel_EN": "Ear Shape",
-          "$fields": ["vdict_EarShapeType", "about_JP", "about_EN"]
-        },
-        "#DesignAttr_Branch": {
-          "AttrLabel": "Branch",
-          "AttrLabel_JP": "分岐配置",
-          "AttrLabel_EN": "Branch Layout",
-          "$fields": ["vdict_Laterality", "value_Num_1", "value_Num_2"],
-          "$multi": true
-        },
-        "#DesignAttr_Segment": {
-          "AttrLabel": "Segment",
-          "AttrLabel_JP": "節数",
-          "AttrLabel_EN": "Segment Count",
-          "$fields": ["value_Num"]
-        }
-      },
       "$Def_NumerospecStats": {
         "$Def_EffectStats": {
           "#ListLink_EffectText": [
