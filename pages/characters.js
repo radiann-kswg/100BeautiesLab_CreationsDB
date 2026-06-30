@@ -1809,6 +1809,25 @@ function getIndexIdentifierFromRecord(rec, indexDef) {
 }
 
 /**
+ * _DBLink 複合インデックス解決用 subset match
+ * filter のすべてのキーが recordVal に存在して値が一致するか（再帰対応）
+ * @param {*} recordVal
+ * @param {Object} filter
+ * @returns {boolean}
+ */
+function _dbLinkSubsetMatch(recordVal, filter) {
+	if (recordVal == null || filter == null) return false;
+	if (typeof filter !== 'object' || Array.isArray(filter)) return false;
+	if (typeof recordVal !== 'object') return false;
+	return Object.keys(filter).every((k) => {
+		const rv = recordVal[k];
+		const qv = filter[k];
+		if (typeof qv === 'object' && qv !== null && !Array.isArray(qv)) return _dbLinkSubsetMatch(rv, qv);
+		return String(rv ?? '') === String(qv ?? '');
+	});
+}
+
+/**
  * 直リンククエリ（idx/idxKey/num）に一致するかどうか
  * @param {Object} rec - レコード
  * @param {Object|null} indexDef - $IndexDef
@@ -1819,6 +1838,25 @@ function getIndexIdentifierFromRecord(rec, indexDef) {
  */
 function recordMatchesIndexQuery(rec, indexDef, idxValue, idxKeyPath, legacyNum = '') {
 	const qVal = String(idxValue || '').trim();
+
+	// JSON エンコードされた複合条件（_DBLink のネストオブジェクト/複数フラットキー対応）
+	if (qVal.length > 0 && qVal[0] === '{') {
+		try {
+			const filter = JSON.parse(qVal);
+			if (filter && typeof filter === 'object' && !Array.isArray(filter)) {
+				if (idxKeyPath === '__conditions__') {
+					// 複数フラットキー: レコード直接 subset match
+					return _dbLinkSubsetMatch(rec, filter);
+				}
+				if (idxKeyPath) {
+					// ネストオブジェクト: idxKeyPath フィールドに対して subset match
+					const fieldVal = String(idxKeyPath).split('.').reduce((o, k) => (o != null ? o[k] : undefined), rec);
+					return _dbLinkSubsetMatch(fieldVal, filter);
+				}
+			}
+		} catch {}
+	}
+
 	if (!qVal) {
 		const legacy = String(legacyNum || '').trim();
 		if (!legacy) return false;

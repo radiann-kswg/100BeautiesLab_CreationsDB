@@ -49,8 +49,8 @@
       "$EnumDef_DesignElement": {
         "#Element_AccessoryUnit": {
           "DesignElement": "AccessoryUnit",
-          "DesignElement_JP": "モチーフアクセサリ",
-          "DesignElement_EN": "Motif Accessory Unit"
+          "DesignElement_JP": "キーレターをモチーフにしたアクセサリ",
+          "DesignElement_EN": "Accessory Units inspired by the Key-Letter"
         }
       },
       "$Def_Letter": {

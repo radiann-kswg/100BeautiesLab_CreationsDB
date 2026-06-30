@@ -1,12 +1,41 @@
 [
   {
-    "Term": "ユニバイト・ユニバース",
-    "Term_JPReading": "ゆにばいと・ゆにばーす",
+    "Term_JP": "ユニバイト・ユニバース",
     "Term_EN": "Unibyte Universe",
     "TermType": null,
     "Category": "Services",
-    "Summary": null,
+    "Summary_JP": "メタバース活動者「アルベッツ」が配信会場にも活用しているメタバースサービス「ユニバイト・ユニバース」についての基本資料。",
+    "Summary_EN": "Basic information about the metaverse service 'Unibyte Universe,' which is also used as a distribution venue by the metaverse performer 'ALPBETS.'",
+    "BodyBlocks_JP": [
+      "九蓮国・雄志結国など国際的にVR展開されているメタバース空間上の交流プラットフォーム。『第7の世界創造』による外見情報の多様性を尊重し、仮想空間上で様々な姿や種族・形状のアバターで交流可能なことが評判となっており、近年でもリアル空間の外部であるのを問わず様々な事業展開がみられる。",
+      "ストリーミング機能や収録機能で配信者活動としても活用されるほか、ゲームエンジン『コードインフィニティ』を用いることで独自のライブ会場やギミック付きワールドさらにはアバターギミックを制作・公開できるというエンジニアやクリエイターに向けた機能も豊富に兼ね揃えており、コアユーザとして玄人やヲタクから絶大的な人気を施している"
+    ],
+    "BodyBlocks_EN": [
+      "An international metaverse social platform deployed across VR networks in LotusNinea, United.Heroic.Nation, and beyond. Respecting the diversity of appearances brought about by the 'WDC.VII (World Development & Creation VII),' it has gained a reputation for enabling interaction through a wide variety of avatar appearances, races, and forms in virtual space — and in recent years, various business ventures have expanded both within and beyond physical space.",
+      "Beyond its streaming and recording features which support content creator activities, it also offers rich tools for engineers and creators — including the ability to build and publish custom live venues, gimmick-laden worlds, and avatar gimmicks using the game engine 'Codeinfinity.' As a result, it has earned overwhelming popularity among power users, enthusiasts, and dedicated fans as core users."
+    ],
+    "Aliases": [],
+    "Links": []
+  },
+  {
+    "Term_JP": "キーキャッパー",
+    "Term_EN": "keycapper",
+    "TermType": null,
+    "Category": "Appearance",
+    "Summary_JP": null,
     "Summary_EN": null,
+    "BodyBlocks_JP": [
+      "「ユニバイト・ユニバース」上で活動する「アルベッツ」のアバターには、人類型のものに加えて球体型の形状をしたデフォルメ差分が存在する。もともとリスナーのキャラ化のためにモデリングされていたが、アルベッツ２期生「S:ツェット」の提案によりメタバース空間内でこそ実現可能な別形態でのパフォーマンス要因としても採用されることとなった。",
+      "その結果 アルベッツの一部リスナーから爆発的な公表と人気を評し、リスナーのキャラ化モデルという当初の目的も S:ツェットが提唱した全く新しいパフォーマンスの在り方も実現し、瞬く間にアルベッツの象徴となった。",
+      "一方そんな発案者であるS:ツェットはアルベッツ４期生「N:ギザン」との出会いをきっかけに堕落し、「ユニバイト・ユニバース」からも「アルベッツ」からも追放されて現在はメタバースと無縁な存在になってしまったが、彼女の後代でアルベッツ５期生の「S:ナーミィ」の活躍により「キーキャッパー」の人気は収まることを知らない。",
+      "また、「キーキャッパー」のほとんどはS:ツェットやS:ナーミィを筆頭としたアバターギミックやシェーディングに詳しいメンバーによりモデリングされており、跳ねる・転がる・引っ付く・膨らむ・押し込まれるなどといった様々な動作を「ユニバイト・ユニバース」内で実現している。ゆえに S:ナーミィのリスナー「なみのりー」を筆頭に、一部リスナーの趣向やフェチを盛大に捻じ曲げてもいるらしい。"
+    ],
+    "BodyBlocks_EN": [
+      "The avatars used by ALPBETS on 'Unibyte Universe' include not only humanoid types but also a chibi deformed variant with a spherical shape. Originally modeled for listener character designs, it was later adopted — at the proposal of ALPBETS 2nd Gen. member S:'Szett — as an alternative performance form uniquely achievable within metaverse space.",
+      "The result was an explosive surge of public attention and popularity from a portion of ALPBETS listeners. Both the original goal of creating listener character models and the entirely new style of performance advocated by S:'Szett were realized, and it swiftly became a symbol of ALPBETS.",
+      "S:'Szett, its original creator, however, went astray after an encounter with ALPBETS 4th Gen. member N:Nudgee, and was expelled from both 'Unibyte Universe' and ALPBETS — now entirely removed from the metaverse world. Yet the popularity of the 'keycapper' shows no sign of fading, thanks to the efforts of S:Surgey, ALPBETS 5th Gen. and S:'Szett's successor.",
+      "Furthermore, the majority of keycappers are modeled by members skilled in avatar gimmicks and shading — led by S:'Szett and S:Surgey — featuring a wide range of motions such as bouncing, rolling, sticking, inflating, and being pressed, all realized within 'Unibyte Universe.' It seems this has also dramatically bent the tastes and preferences of certain listeners, led by S:Surgey's listener group 'Surger(s),' and more."
+    ],
     "Aliases": [],
     "Links": []
   }
