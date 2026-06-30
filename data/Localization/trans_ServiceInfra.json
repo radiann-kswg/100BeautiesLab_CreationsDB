@@ -1,0 +1,19 @@
+[
+  {
+    "Term_JP": "コードインフィニティ",
+    "Term_EN": "Codeinfinity",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_UnibyteLive", "Works_NumberTales"],
+    "Summary_JP": "物理演算やゲーム開発・ユーザインターフェースなどのライブラリパッケージが豊富に同梱されており、メタバースサービス「ユニバイト・ユニバース」のSDK提供先としても名高い多用途向けゲームエンジン。",
+    "Summary_EN": "A versatile game engine renowned as the SDK provider for the metaverse service 'Unibyte Universe,' bundled with extensive libraries for physics simulation, game development, and user interfaces."
+  },
+  {
+    "Term_JP": "R-デイトル",
+    "Term_JPReading": "レ-デイトル",
+    "Term_EN": "R-detre",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_NumberTales", "Works_PastDivers"],
+    "Summary_JP": "もともと「国際ヒューマノイド技術学会」により研究開発が進められていたが、その後 百花繚乱研究所の「ナンバーテールズ」や夜月機関の「ヤヅキリーパー」などといったヒューマノイドの開発に運用されるほどの有名オープンソースライブラリとなったROS(ロボット向け基本ソフトウェア)。命名はこのROSの国際リリースが発表された会場の提供企業である神皇国の「レゾンデイトル・カンパニー」の社名が由来。",
+    "Summary_EN": "Originally developed by the International Humanoid Technology Society, this open-source library has become renowned for its use in humanoid development by organizations such as 100 Beauties Lab's 'NumberTales' and the Yadzuki Organization's 'Yadzuki-Leaper.' The name is derived from the company 'Raison-d'être Company' of SaintPapis, which hosted the international release of ROS (Robot Operating System)."
+  }
+]
