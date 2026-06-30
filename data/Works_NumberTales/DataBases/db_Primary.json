@@ -3413,10 +3413,10 @@
         "Note_EN": null
       },
       {
-        "Formation": null,
-        "BodyPart": null,
-        "Laterality": null,
-        "DesignElement": "#Element_Expression",
+        "Formation": "humanoid",
+        "BodyPart": ["#BodyPart_Waist"],
+        "Laterality": "#Lat_Left",
+        "DesignElement": "#Element_Motif",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Overview",
@@ -3758,10 +3758,10 @@
         "Note_EN": null
       },
       {
-        "Formation": "humanoid",
+        "Formation": null,
         "BodyPart": null,
         "Laterality": null,
-        "DesignElement": "#Element_BodyType",
+        "DesignElement": "#Element_Expression",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Overview",
@@ -3790,10 +3790,10 @@
         "Note_EN": null
       },
       {
-        "Formation": null,
-        "BodyPart": ["#BodyPart_Eye"],
-        "Laterality": "#Lat_Both",
-        "DesignElement": "#Element_Expression",
+        "Formation": "humanoid",
+        "BodyPart": null,
+        "Laterality": null,
+        "DesignElement": "#Element_BodyType",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Overview",
@@ -4203,8 +4203,8 @@
       },
       {
         "Formation": null,
-        "BodyPart": null,
-        "Laterality": null,
+        "BodyPart": ["#BodyPart_Eye"],
+        "Laterality": "#Lat_Both",
         "DesignElement": "#Element_Expression",
         "Attrs": [
           {
@@ -4640,24 +4640,13 @@
         "Formation": null,
         "BodyPart": null,
         "Laterality": null,
-        "DesignElement": "#Element_Motif",
+        "DesignElement": "#Element_Expression",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Overview",
             "value_JP": "神々しい自信の落ち着き",
             "value_EN": "divine self-assured composure"
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
-      {
-        "Formation": null,
-        "BodyPart": null,
-        "Laterality": null,
-        "DesignElement": "#Element_Expression",
-        "Attrs": [
+          },
           {
             "AttrLabel": "#DesignAttr_Overview",
             "value_JP": "少し暴走気味(過集中状態にあるとき)",
@@ -5013,7 +5002,7 @@
         "Note_EN": null
       },
       {
-        "Formation": null,
+        "Formation": "humanoid",
         "BodyPart": ["#BodyPart_Hair"],
         "Laterality": null,
         "DesignElement": "#Element_Motif",
@@ -5369,10 +5358,10 @@
         "Note_EN": null
       },
       {
-        "Formation": "humanoid",
+        "Formation": null,
         "BodyPart": null,
         "Laterality": null,
-        "DesignElement": "#Element_Motif",
+        "DesignElement": "#Element_Expression",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Overview",
@@ -5798,7 +5787,7 @@
         "Note_EN": null
       },
       {
-        "Formation": "humanoid",
+        "Formation": null,
         "BodyPart": ["#BodyPart_Hair"],
         "Laterality": null,
         "DesignElement": "#Element_Motif",
@@ -5846,7 +5835,7 @@
         "Note_EN": null
       },
       {
-        "Formation": null,
+        "Formation": "humanoid",
         "BodyPart": null,
         "Laterality": null,
         "DesignElement": "#Element_Motif",
@@ -6771,7 +6760,7 @@
         "Note_EN": null
       },
       {
-        "Formation": null,
+        "Formation": "humanoid",
         "BodyPart": null,
         "Laterality": null,
         "DesignElement": "#Element_Motif",
@@ -7125,7 +7114,7 @@
         "Note_EN": null
       },
       {
-        "Formation": "humanoid",
+        "Formation": null,
         "BodyPart": null,
         "Laterality": null,
         "DesignElement": "#Element_Motif",
@@ -7189,7 +7178,7 @@
         "Note_EN": null
       },
       {
-        "Formation": "humanoid",
+        "Formation": null,
         "BodyPart": null,
         "Laterality": null,
         "DesignElement": "#Element_Motif",
@@ -7588,10 +7577,10 @@
         "Note_EN": null
       },
       {
-        "Formation": null,
+        "Formation": "humanoid",
         "BodyPart": null,
         "Laterality": null,
-        "DesignElement": "#Element_Expression",
+        "DesignElement": "#Element_Motif",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Overview",
@@ -8340,7 +8329,7 @@
         "Note_EN": null
       },
       {
-        "Formation": null,
+        "Formation": "humanoid",
         "BodyPart": null,
         "Laterality": null,
         "DesignElement": "#Element_Motif",
@@ -8356,7 +8345,7 @@
         "Note_EN": null
       },
       {
-        "Formation": null,
+        "Formation": "humanoid",
         "BodyPart": null,
         "Laterality": null,
         "DesignElement": "#Element_Motif",
@@ -9158,7 +9147,7 @@
         "Formation": null,
         "BodyPart": null,
         "Laterality": null,
-        "DesignElement": "#Element_Expression",
+        "DesignElement": "#Element_Motif",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Overview",
@@ -9174,7 +9163,7 @@
         "Formation": null,
         "BodyPart": null,
         "Laterality": null,
-        "DesignElement": "#Element_Motif",
+        "DesignElement": "#Element_Expression",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Overview",
@@ -9251,7 +9240,7 @@
         "Note_EN": null
       },
       {
-        "Formation": "humanoid",
+        "Formation": null,
         "BodyPart": null,
         "Laterality": null,
         "DesignElement": "#Element_Motif",
@@ -9638,10 +9627,10 @@
         "Note_EN": null
       },
       {
-        "Formation": "humanoid",
+        "Formation": null,
         "BodyPart": null,
         "Laterality": null,
-        "DesignElement": "#Element_Motif",
+        "DesignElement": "#Element_Expression",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Overview",
@@ -9737,7 +9726,7 @@
         "Formation": null,
         "BodyPart": null,
         "Laterality": null,
-        "DesignElement": "#Element_Expression",
+        "DesignElement": "#Element_Motif",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Overview",
@@ -10982,7 +10971,7 @@
         "Formation": null,
         "BodyPart": null,
         "Laterality": null,
-        "DesignElement": "#Element_Motif",
+        "DesignElement": "#Element_Expression",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Overview",
@@ -12039,7 +12028,7 @@
         "Formation": null,
         "BodyPart": null,
         "Laterality": null,
-        "DesignElement": "#Element_Expression",
+        "DesignElement": "#Element_Motif",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Overview",
@@ -12052,7 +12041,7 @@
         "Note_EN": null
       },
       {
-        "Formation": null,
+        "Formation": "humanoid",
         "BodyPart": null,
         "Laterality": null,
         "DesignElement": "#Element_Motif",
@@ -12084,10 +12073,10 @@
         "Note_EN": null
       },
       {
-        "Formation": null,
+        "Formation": "humanoid",
         "BodyPart": null,
         "Laterality": null,
-        "DesignElement": "#Element_Expression",
+        "DesignElement": "#Element_Motif",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Overview",
@@ -12817,7 +12806,7 @@
         "Formation": null,
         "BodyPart": null,
         "Laterality": null,
-        "DesignElement": "#Element_Motif",
+        "DesignElement": "#Element_Expression",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Overview",
@@ -13264,10 +13253,10 @@
         "Note_EN": null
       },
       {
-        "Formation": "humanoid",
+        "Formation": null,
         "BodyPart": null,
         "Laterality": null,
-        "DesignElement": "#Element_Motif",
+        "DesignElement": "#Element_Expression",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Overview",
@@ -13360,10 +13349,10 @@
         "Note_EN": null
       },
       {
-        "Formation": "humanoid",
-        "BodyPart": ["#BodyPart_Neck"],
+        "Formation": null,
+        "BodyPart": null,
         "Laterality": null,
-        "DesignElement": "#Element_CostumeItem",
+        "DesignElement": "#Element_Motif",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Overview",
@@ -14278,10 +14267,10 @@
         "Note_EN": null
       },
       {
-        "Formation": null,
-        "BodyPart": null,
+        "Formation": "humanoid",
+        "BodyPart": ["#BodyPart_Neck"],
         "Laterality": null,
-        "DesignElement": "#Element_Motif",
+        "DesignElement": "#Element_CostumeItem",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Overview",
@@ -14310,7 +14299,7 @@
         "Note_EN": null
       },
       {
-        "Formation": null,
+        "Formation": "humanoid",
         "BodyPart": null,
         "Laterality": null,
         "DesignElement": "#Element_Motif",
@@ -14655,7 +14644,7 @@
         "Formation": null,
         "BodyPart": null,
         "Laterality": null,
-        "DesignElement": "#Element_Expression",
+        "DesignElement": "#Element_Motif",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Overview",
@@ -15061,7 +15050,7 @@
         "Note_EN": null
       },
       {
-        "Formation": null,
+        "Formation": "humanoid",
         "BodyPart": ["#BodyPart_Hair"],
         "Laterality": null,
         "DesignElement": "#Element_Motif",
@@ -15096,7 +15085,7 @@
         "Formation": null,
         "BodyPart": null,
         "Laterality": null,
-        "DesignElement": "#Element_Expression",
+        "DesignElement": "#Element_Motif",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Overview",
@@ -15189,7 +15178,7 @@
         "Note_EN": null
       },
       {
-        "Formation": "humanoid",
+        "Formation": null,
         "BodyPart": null,
         "Laterality": null,
         "DesignElement": "#Element_Motif",
@@ -15538,10 +15527,10 @@
         "Note_EN": null
       },
       {
-        "Formation": "humanoid",
+        "Formation": null,
         "BodyPart": null,
         "Laterality": null,
-        "DesignElement": "#Element_Motif",
+        "DesignElement": "#Element_Expression",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Overview",
@@ -16039,7 +16028,7 @@
         "Formation": null,
         "BodyPart": null,
         "Laterality": null,
-        "DesignElement": "#Element_Motif",
+        "DesignElement": "#Element_Expression",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Overview",
@@ -16052,7 +16041,7 @@
         "Note_EN": null
       },
       {
-        "Formation": null,
+        "Formation": "humanoid",
         "BodyPart": null,
         "Laterality": null,
         "DesignElement": "#Element_Motif",
@@ -17052,7 +17041,7 @@
         "Note_EN": null
       },
       {
-        "Formation": "humanoid",
+        "Formation": null,
         "BodyPart": null,
         "Laterality": null,
         "DesignElement": "#Element_Motif",
@@ -17068,7 +17057,7 @@
         "Note_EN": null
       },
       {
-        "Formation": "humanoid",
+        "Formation": null,
         "BodyPart": null,
         "Laterality": null,
         "DesignElement": "#Element_Motif",
@@ -17404,7 +17393,7 @@
         "Note_EN": null
       },
       {
-        "Formation": "humanoid",
+        "Formation": null,
         "BodyPart": ["#BodyPart_Hair"],
         "Laterality": null,
         "DesignElement": "#Element_Motif",
@@ -17895,7 +17884,7 @@
         "Formation": "corefolder",
         "BodyPart": null,
         "Laterality": null,
-        "DesignElement": "#Element_Expression",
+        "DesignElement": "#Element_Motif",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Overview",
@@ -17961,7 +17950,7 @@
         "Note_EN": null
       },
       {
-        "Formation": null,
+        "Formation": "humanoid",
         "BodyPart": null,
         "Laterality": null,
         "DesignElement": "#Element_Motif",
@@ -18398,7 +18387,7 @@
         "Formation": "humanoid",
         "BodyPart": null,
         "Laterality": null,
-        "DesignElement": "#Element_Expression",
+        "DesignElement": "#Element_Motif",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Overview",
@@ -19479,7 +19468,7 @@
         "Note_EN": null
       },
       {
-        "Formation": null,
+        "Formation": "corefolder",
         "BodyPart": null,
         "Laterality": null,
         "DesignElement": "#Element_Expression",
@@ -19514,7 +19503,7 @@
         "Formation": "humanoid",
         "BodyPart": null,
         "Laterality": null,
-        "DesignElement": "#Element_Motif",
+        "DesignElement": "#Element_Expression",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Overview",
@@ -19527,7 +19516,7 @@
         "Note_EN": null
       },
       {
-        "Formation": "humanoid",
+        "Formation": null,
         "BodyPart": null,
         "Laterality": null,
         "DesignElement": "#Element_Motif",
@@ -19936,7 +19925,7 @@
         "Note_EN": null
       },
       {
-        "Formation": null,
+        "Formation": "humanoid",
         "BodyPart": null,
         "Laterality": null,
         "DesignElement": "#Element_Motif",
@@ -20397,7 +20386,7 @@
         "Note_EN": null
       },
       {
-        "Formation": null,
+        "Formation": "humanoid",
         "BodyPart": ["#BodyPart_Hair"],
         "Laterality": null,
         "DesignElement": "#Element_Motif",
@@ -20844,10 +20833,10 @@
         "Note_EN": null
       },
       {
-        "Formation": "corefolder",
+        "Formation": null,
         "BodyPart": null,
         "Laterality": null,
-        "DesignElement": "#Element_Motif",
+        "DesignElement": "#Element_Expression",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Overview",
@@ -21235,7 +21224,7 @@
         "Note_EN": null
       },
       {
-        "Formation": "humanoid",
+        "Formation": null,
         "BodyPart": ["#BodyPart_Hair"],
         "Laterality": null,
         "DesignElement": "#Element_Motif",
@@ -22472,7 +22461,7 @@
         "Note_EN": null
       },
       {
-        "Formation": "humanoid",
+        "Formation": null,
         "BodyPart": null,
         "Laterality": null,
         "DesignElement": "#Element_Motif",
@@ -23821,9 +23810,9 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": ["#BodyPart_Foot"],
+        "BodyPart": null,
         "Laterality": null,
-        "DesignElement": "#Element_CostumeItem",
+        "DesignElement": "#Element_Motif",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Overview",
@@ -23868,7 +23857,7 @@
         "Note_EN": null
       },
       {
-        "Formation": null,
+        "Formation": "humanoid",
         "BodyPart": null,
         "Laterality": null,
         "DesignElement": "#Element_Motif",
@@ -24760,7 +24749,7 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": ["#BodyPart_Chest", "#BodyPart_Waist", "#BodyPart_Leg"],
+        "BodyPart": null,
         "Laterality": null,
         "DesignElement": "#Element_CostumeItem",
         "Attrs": [
@@ -24828,7 +24817,7 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": ["#BodyPart_Chest"],
+        "BodyPart": ["#BodyPart_Chest", "#BodyPart_Waist", "#BodyPart_Leg"],
         "Laterality": null,
         "DesignElement": "#Element_CostumeItem",
         "Attrs": [
@@ -24844,7 +24833,7 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": ["#BodyPart_Waist"],
+        "BodyPart": ["#BodyPart_Chest"],
         "Laterality": null,
         "DesignElement": "#Element_CostumeItem",
         "Attrs": [
@@ -24860,7 +24849,7 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": ["#BodyPart_Chest", "#BodyPart_Waist", "#BodyPart_Leg"],
+        "BodyPart": ["#BodyPart_Waist"],
         "Laterality": null,
         "DesignElement": "#Element_CostumeItem",
         "Attrs": [
@@ -24875,7 +24864,7 @@
         "Note_EN": null
       },
       {
-        "Formation": null,
+        "Formation": "humanoid",
         "BodyPart": ["#BodyPart_Neck"],
         "Laterality": null,
         "DesignElement": "#Element_CostumeItem",
@@ -24891,8 +24880,8 @@
         "Note_EN": null
       },
       {
-        "Formation": null,
-        "BodyPart": null,
+        "Formation": "humanoid",
+        "BodyPart": ["#BodyPart_Chest", "#BodyPart_Waist", "#BodyPart_Leg"],
         "Laterality": null,
         "DesignElement": "#Element_CostumeItem",
         "Attrs": [
@@ -25419,7 +25408,7 @@
         "Formation": null,
         "BodyPart": null,
         "Laterality": null,
-        "DesignElement": "#Element_Expression",
+        "DesignElement": "#Element_Motif",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Overview",
@@ -25432,8 +25421,8 @@
         "Note_EN": null
       },
       {
-        "Formation": "humanoid",
-        "BodyPart": ["#BodyPart_Chest"],
+        "Formation": null,
+        "BodyPart": null,
         "Laterality": null,
         "DesignElement": "#Element_CostumeItem",
         "Attrs": [
@@ -25448,8 +25437,8 @@
         "Note_EN": null
       },
       {
-        "Formation": null,
-        "BodyPart": ["#BodyPart_Head"],
+        "Formation": "humanoid",
+        "BodyPart": ["#BodyPart_Chest"],
         "Laterality": null,
         "DesignElement": "#Element_CostumeItem",
         "Attrs": [
@@ -25465,7 +25454,7 @@
       },
       {
         "Formation": null,
-        "BodyPart": ["#BodyPart_Chest", "#BodyPart_Waist", "#BodyPart_Leg"],
+        "BodyPart": ["#BodyPart_Head"],
         "Laterality": null,
         "DesignElement": "#Element_CostumeItem",
         "Attrs": [
@@ -25480,8 +25469,8 @@
         "Note_EN": null
       },
       {
-        "Formation": "humanoid",
-        "BodyPart": ["#BodyPart_Chest"],
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Chest", "#BodyPart_Waist", "#BodyPart_Leg"],
         "Laterality": null,
         "DesignElement": "#Element_CostumeItem",
         "Attrs": [
@@ -25528,10 +25517,10 @@
         "Note_EN": null
       },
       {
-        "Formation": null,
-        "BodyPart": null,
+        "Formation": "humanoid",
+        "BodyPart": ["#BodyPart_Foot"],
         "Laterality": null,
-        "DesignElement": "#Element_Expression",
+        "DesignElement": "#Element_CostumeItem",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Overview",
@@ -25954,7 +25943,7 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": ["#BodyPart_Chest", "#BodyPart_Waist", "#BodyPart_Leg"],
+        "BodyPart": ["#BodyPart_Chest"],
         "Laterality": null,
         "DesignElement": "#Element_CostumeItem",
         "Attrs": [
@@ -26358,7 +26347,7 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": ["#BodyPart_Chest"],
+        "BodyPart": ["#BodyPart_Chest", "#BodyPart_Waist", "#BodyPart_Leg"],
         "Laterality": null,
         "DesignElement": "#Element_CostumeItem",
         "Attrs": [
@@ -26374,7 +26363,7 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": ["#BodyPart_Chest", "#BodyPart_Waist", "#BodyPart_Leg"],
+        "BodyPart": ["#BodyPart_Chest"],
         "Laterality": null,
         "DesignElement": "#Element_CostumeItem",
         "Attrs": [
@@ -26389,7 +26378,7 @@
         "Note_EN": null
       },
       {
-        "Formation": "humanoid",
+        "Formation": null,
         "BodyPart": ["#BodyPart_Neck"],
         "Laterality": null,
         "DesignElement": "#Element_CostumeItem",
@@ -26421,10 +26410,10 @@
         "Note_EN": null
       },
       {
-        "Formation": "humanoid",
+        "Formation": null,
         "BodyPart": null,
         "Laterality": null,
-        "DesignElement": "#Element_Motif",
+        "DesignElement": "#Element_Expression",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Overview",
@@ -26778,7 +26767,7 @@
         "Formation": null,
         "BodyPart": null,
         "Laterality": null,
-        "DesignElement": "#Element_Motif",
+        "DesignElement": "#Element_Expression",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Overview",
@@ -27156,7 +27145,7 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": ["#BodyPart_Neck"],
+        "BodyPart": ["#BodyPart_Chest", "#BodyPart_Waist", "#BodyPart_Leg"],
         "Laterality": null,
         "DesignElement": "#Element_CostumeItem",
         "Attrs": [
@@ -27171,8 +27160,8 @@
         "Note_EN": null
       },
       {
-        "Formation": null,
-        "BodyPart": ["#BodyPart_Shoulder", "#BodyPart_Neck"],
+        "Formation": "humanoid",
+        "BodyPart": ["#BodyPart_Neck"],
         "Laterality": null,
         "DesignElement": "#Element_CostumeItem",
         "Attrs": [
@@ -27543,8 +27532,8 @@
         "Note_EN": null
       },
       {
-        "Formation": "humanoid",
-        "BodyPart": ["#BodyPart_Chest", "#BodyPart_Waist", "#BodyPart_Leg"],
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Shoulder", "#BodyPart_Neck"],
         "Laterality": null,
         "DesignElement": "#Element_CostumeItem",
         "Attrs": [
@@ -27559,7 +27548,7 @@
         "Note_EN": null
       },
       {
-        "Formation": "humanoid",
+        "Formation": null,
         "BodyPart": null,
         "Laterality": null,
         "DesignElement": "#Element_Motif",
@@ -27576,7 +27565,7 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": ["#BodyPart_Head"],
+        "BodyPart": ["#BodyPart_Chest", "#BodyPart_Waist", "#BodyPart_Leg"],
         "Laterality": null,
         "DesignElement": "#Element_CostumeItem",
         "Attrs": [
@@ -28237,7 +28226,7 @@
         "Note_EN": null
       },
       {
-        "Formation": null,
+        "Formation": "humanoid",
         "BodyPart": null,
         "Laterality": null,
         "DesignElement": "#Element_Motif",
@@ -28677,7 +28666,7 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": ["#BodyPart_Chest", "#BodyPart_Waist"],
+        "BodyPart": ["#BodyPart_Head"],
         "Laterality": null,
         "DesignElement": "#Element_CostumeItem",
         "Attrs": [
@@ -28693,7 +28682,7 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": ["#BodyPart_Chest", "#BodyPart_Waist", "#BodyPart_Leg"],
+        "BodyPart": ["#BodyPart_Chest", "#BodyPart_Waist"],
         "Laterality": null,
         "DesignElement": "#Element_CostumeItem",
         "Attrs": [
@@ -29143,7 +29132,7 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": ["#BodyPart_Neck"],
+        "BodyPart": ["#BodyPart_Chest", "#BodyPart_Waist", "#BodyPart_Leg"],
         "Laterality": null,
         "DesignElement": "#Element_CostumeItem",
         "Attrs": [
@@ -29175,9 +29164,9 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": ["#BodyPart_Foot"],
+        "BodyPart": null,
         "Laterality": null,
-        "DesignElement": "#Element_CostumeItem",
+        "DesignElement": "#Element_Motif",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Overview",
@@ -29871,10 +29860,10 @@
         "Note_EN": null
       },
       {
-        "Formation": "humanoid",
-        "BodyPart": ["#BodyPart_Foot"],
+        "Formation": null,
+        "BodyPart": null,
         "Laterality": null,
-        "DesignElement": "#Element_CostumeItem",
+        "DesignElement": "#Element_Motif",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Overview",
@@ -29888,7 +29877,7 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": ["#BodyPart_Chest", "#BodyPart_Waist"],
+        "BodyPart": ["#BodyPart_Neck"],
         "Laterality": null,
         "DesignElement": "#Element_CostumeItem",
         "Attrs": [
@@ -29936,9 +29925,9 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Foot"],
         "Laterality": null,
-        "DesignElement": "#Element_Motif",
+        "DesignElement": "#Element_CostumeItem",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Overview",
@@ -30292,7 +30281,7 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": ["#BodyPart_Chest", "#BodyPart_Waist", "#BodyPart_Leg"],
+        "BodyPart": ["#BodyPart_Chest", "#BodyPart_Waist"],
         "Laterality": null,
         "DesignElement": "#Element_CostumeItem",
         "Attrs": [
@@ -30695,7 +30684,7 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": ["#BodyPart_Chest"],
+        "BodyPart": ["#BodyPart_Chest", "#BodyPart_Waist", "#BodyPart_Leg"],
         "Laterality": null,
         "DesignElement": "#Element_CostumeItem",
         "Attrs": [
@@ -30727,7 +30716,7 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": ["#BodyPart_Chest", "#BodyPart_Waist", "#BodyPart_Leg"],
+        "BodyPart": ["#BodyPart_Chest"],
         "Laterality": null,
         "DesignElement": "#Element_CostumeItem",
         "Attrs": [
@@ -30743,7 +30732,7 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": ["#BodyPart_Shoulder", "#BodyPart_Neck"],
+        "BodyPart": ["#BodyPart_Chest", "#BodyPart_Waist", "#BodyPart_Leg"],
         "Laterality": null,
         "DesignElement": "#Element_CostumeItem",
         "Attrs": [
@@ -30790,10 +30779,10 @@
         "Note_EN": null
       },
       {
-        "Formation": null,
-        "BodyPart": null,
+        "Formation": "humanoid",
+        "BodyPart": ["#BodyPart_Foot"],
         "Laterality": null,
-        "DesignElement": "#Element_Motif",
+        "DesignElement": "#Element_CostumeItem",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Overview",
@@ -31129,9 +31118,9 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": ["#BodyPart_Foot"],
+        "BodyPart": null,
         "Laterality": null,
-        "DesignElement": "#Element_CostumeItem",
+        "DesignElement": "#Element_Motif",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Overview",
@@ -31161,7 +31150,7 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": ["#BodyPart_Chest", "#BodyPart_Waist", "#BodyPart_Leg"],
+        "BodyPart": ["#BodyPart_Shoulder", "#BodyPart_Neck"],
         "Laterality": null,
         "DesignElement": "#Element_CostumeItem",
         "Attrs": [
@@ -31508,10 +31497,10 @@
         "Note_EN": null
       },
       {
-        "Formation": "humanoid",
-        "BodyPart": ["#BodyPart_Foot"],
+        "Formation": null,
+        "BodyPart": null,
         "Laterality": null,
-        "DesignElement": "#Element_CostumeItem",
+        "DesignElement": "#Element_Motif",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Overview",
@@ -31525,7 +31514,7 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": ["#BodyPart_Chest"],
+        "BodyPart": ["#BodyPart_Chest", "#BodyPart_Waist", "#BodyPart_Leg"],
         "Laterality": null,
         "DesignElement": "#Element_CostumeItem",
         "Attrs": [
@@ -31540,7 +31529,7 @@
         "Note_EN": null
       },
       {
-        "Formation": null,
+        "Formation": "humanoid",
         "BodyPart": ["#BodyPart_Neck"],
         "Laterality": null,
         "DesignElement": "#Element_CostumeItem",
@@ -31574,7 +31563,7 @@
       {
         "Formation": "humanoid",
         "BodyPart": ["#BodyPart_Hand"],
-        "Laterality": "#Lat_Both",
+        "Laterality": null,
         "DesignElement": "#Element_CostumeItem",
         "Attrs": [
           {
@@ -31589,9 +31578,9 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Foot"],
         "Laterality": null,
-        "DesignElement": "#Element_Motif",
+        "DesignElement": "#Element_CostumeItem",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Overview",
@@ -32077,10 +32066,10 @@
         "Note_EN": null
       },
       {
-        "Formation": null,
-        "BodyPart": null,
+        "Formation": "humanoid",
+        "BodyPart": ["#BodyPart_Foot"],
         "Laterality": null,
-        "DesignElement": "#Element_Motif",
+        "DesignElement": "#Element_CostumeItem",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Overview",
@@ -32846,7 +32835,7 @@
       {
         "Formation": "humanoid",
         "BodyPart": ["#BodyPart_Hand"],
-        "Laterality": null,
+        "Laterality": "#Lat_Both",
         "DesignElement": "#Element_CostumeItem",
         "Attrs": [
           {
@@ -33879,10 +33868,10 @@
         "Note_EN": null
       },
       {
-        "Formation": "humanoid",
-        "BodyPart": ["#BodyPart_Foot"],
+        "Formation": null,
+        "BodyPart": null,
         "Laterality": null,
-        "DesignElement": "#Element_CostumeItem",
+        "DesignElement": "#Element_Motif",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Overview",
@@ -33912,7 +33901,7 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": ["#BodyPart_Chest", "#BodyPart_Waist", "#BodyPart_Leg"],
+        "BodyPart": ["#BodyPart_Chest"],
         "Laterality": null,
         "DesignElement": "#Element_CostumeItem",
         "Attrs": [
@@ -34324,7 +34313,7 @@
         "Note_EN": null
       },
       {
-        "Formation": null,
+        "Formation": "humanoid",
         "BodyPart": null,
         "Laterality": null,
         "DesignElement": "#Element_Motif",
@@ -34731,7 +34720,7 @@
         "Note_EN": null
       },
       {
-        "Formation": null,
+        "Formation": "humanoid",
         "BodyPart": null,
         "Laterality": null,
         "DesignElement": "#Element_Motif",
@@ -34748,7 +34737,7 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": ["#BodyPart_Neck"],
+        "BodyPart": ["#BodyPart_Chest", "#BodyPart_Waist", "#BodyPart_Leg"],
         "Laterality": null,
         "DesignElement": "#Element_CostumeItem",
         "Attrs": [
@@ -35129,7 +35118,7 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": ["#BodyPart_Chest", "#BodyPart_Waist"],
+        "BodyPart": ["#BodyPart_Neck"],
         "Laterality": null,
         "DesignElement": "#Element_CostumeItem",
         "Attrs": [
@@ -35560,7 +35549,7 @@
         "Note_EN": null
       },
       {
-        "Formation": "humanoid",
+        "Formation": null,
         "BodyPart": null,
         "Laterality": null,
         "DesignElement": "#Element_Motif",
@@ -35577,7 +35566,7 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": ["#BodyPart_Chest", "#BodyPart_Waist", "#BodyPart_Leg"],
+        "BodyPart": ["#BodyPart_Chest", "#BodyPart_Waist"],
         "Laterality": null,
         "DesignElement": "#Element_CostumeItem",
         "Attrs": [
@@ -35609,9 +35598,9 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Foot"],
         "Laterality": null,
-        "DesignElement": "#Element_Motif",
+        "DesignElement": "#Element_CostumeItem",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Overview",
@@ -36013,7 +36002,7 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": ["#BodyPart_Chest"],
+        "BodyPart": ["#BodyPart_Chest", "#BodyPart_Waist", "#BodyPart_Leg"],
         "Laterality": null,
         "DesignElement": "#Element_CostumeItem",
         "Attrs": [
@@ -36076,7 +36065,7 @@
         "Note_EN": null
       },
       {
-        "Formation": null,
+        "Formation": "humanoid",
         "BodyPart": ["#BodyPart_Head"],
         "Laterality": null,
         "DesignElement": "#Element_Motif",
@@ -36416,7 +36405,7 @@
         "Note_EN": null
       },
       {
-        "Formation": null,
+        "Formation": "humanoid",
         "BodyPart": null,
         "Laterality": null,
         "DesignElement": "#Element_Motif",
@@ -36469,7 +36458,7 @@
         "Note_EN": null
       },
       {
-        "Formation": "humanoid",
+        "Formation": null,
         "BodyPart": ["#BodyPart_Neck"],
         "Laterality": null,
         "DesignElement": "#Element_CostumeItem",
@@ -36821,7 +36810,7 @@
         "Formation": null,
         "BodyPart": null,
         "Laterality": null,
-        "DesignElement": "#Element_Expression",
+        "DesignElement": "#Element_Motif",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Overview",
@@ -36835,7 +36824,7 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": ["#BodyPart_Neck"],
+        "BodyPart": ["#BodyPart_Chest"],
         "Laterality": null,
         "DesignElement": "#Element_CostumeItem",
         "Attrs": [
@@ -36903,7 +36892,7 @@
         "Note_EN": null
       },
       {
-        "Formation": "humanoid",
+        "Formation": null,
         "BodyPart": ["#BodyPart_Head"],
         "Laterality": null,
         "DesignElement": "#Element_Motif",
@@ -37283,7 +37272,7 @@
         "Note_EN": null
       },
       {
-        "Formation": "humanoid",
+        "Formation": null,
         "BodyPart": null,
         "Laterality": null,
         "DesignElement": "#Element_Motif",
@@ -37366,7 +37355,7 @@
         "Formation": null,
         "BodyPart": null,
         "Laterality": null,
-        "DesignElement": "#Element_Motif",
+        "DesignElement": "#Element_Expression",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Overview",
@@ -37708,7 +37697,7 @@
         "Note_EN": null
       },
       {
-        "Formation": null,
+        "Formation": "humanoid",
         "BodyPart": ["#BodyPart_Head"],
         "Laterality": null,
         "DesignElement": "#Element_NumberMark",
@@ -37814,7 +37803,7 @@
         "Note_EN": null
       },
       {
-        "Formation": null,
+        "Formation": "humanoid",
         "BodyPart": null,
         "Laterality": null,
         "DesignElement": "#Element_Motif",
@@ -37878,8 +37867,8 @@
         "Note_EN": null
       },
       {
-        "Formation": null,
-        "BodyPart": ["#BodyPart_Head"],
+        "Formation": "humanoid",
+        "BodyPart": ["#BodyPart_Neck"],
         "Laterality": null,
         "DesignElement": "#Element_CostumeItem",
         "Attrs": [
@@ -38290,8 +38279,8 @@
         "Note_EN": null
       },
       {
-        "Formation": "humanoid",
-        "BodyPart": ["#BodyPart_Shoulder", "#BodyPart_Neck"],
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Head"],
         "Laterality": null,
         "DesignElement": "#Element_CostumeItem",
         "Attrs": [
@@ -38307,7 +38296,7 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": ["#BodyPart_Chest", "#BodyPart_Waist", "#BodyPart_Leg"],
+        "BodyPart": ["#BodyPart_Shoulder", "#BodyPart_Neck"],
         "Laterality": null,
         "DesignElement": "#Element_CostumeItem",
         "Attrs": [
@@ -38672,7 +38661,7 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Chest", "#BodyPart_Waist", "#BodyPart_Leg"],
         "Laterality": null,
         "DesignElement": "#Element_CostumeItem",
         "Attrs": [
@@ -39019,7 +39008,7 @@
         "Note_EN": null
       },
       {
-        "Formation": "humanoid",
+        "Formation": null,
         "BodyPart": ["#BodyPart_Head"],
         "Laterality": null,
         "DesignElement": "#Element_NumberMark",
@@ -39077,7 +39066,7 @@
         "Note_EN": null
       },
       {
-        "Formation": "humanoid",
+        "Formation": null,
         "BodyPart": null,
         "Laterality": null,
         "DesignElement": "#Element_Motif",
@@ -39125,7 +39114,7 @@
         "Note_EN": null
       },
       {
-        "Formation": "humanoid",
+        "Formation": null,
         "BodyPart": null,
         "Laterality": null,
         "DesignElement": "#Element_Motif",
