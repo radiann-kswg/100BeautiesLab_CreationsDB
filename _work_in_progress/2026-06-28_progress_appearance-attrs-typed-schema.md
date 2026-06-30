@@ -51,17 +51,17 @@ Phase 2 で `AppearanceDetail[].Attrs[]` に `#Element_TailsUnit` エントリ�
 
 ### 小文字プレフィックス規約（新規）
 
-| フィールドパターン | 型 | 意味 |
-|---|---|---|
-| `value_Num` | `#Int\|#Null` | 主要な数値（単一の場合）|
-| `value_Num_{n}` (`n`=1,2,…) | `#Int\|#Null` | n番目の数値（複数必要な場合）|
-| `vdict_{DictName}` | `#DictIndex\|#Null` | `$EnumDef_{DictName}` への辞書参照 |
-| `value_Color` | `#String\|#Hexcode_Color\|#Null` | 色名またはカラーコード |
-| `value_JP` | `#String\|#Null` | 日本語テキスト |
-| `value_EN` | `#String_EN\|#Null` | 英語テキスト |
-| `value` | `#String\|#Null` | ロケール共通テキスト |
-| `about_JP` | `#String\|#Null` | 補足テキスト（日本語）|
-| `about_EN` | `#String_EN\|#Null` | 補足テキスト（英語）|
+| フィールドパターン          | 型                               | 意味                               |
+| --------------------------- | -------------------------------- | ---------------------------------- |
+| `value_Num`                 | `#Int\|#Null`                    | 主要な数値（単一の場合）           |
+| `value_Num_{n}` (`n`=1,2,…) | `#Int\|#Null`                    | n番目の数値（複数必要な場合）      |
+| `vdict_{DictName}`          | `#DictIndex\|#Null`              | `$EnumDef_{DictName}` への辞書参照 |
+| `value_Color`               | `#String\|#Hexcode_Color\|#Null` | 色名またはカラーコード             |
+| `value_JP`                  | `#String\|#Null`                 | 日本語テキスト                     |
+| `value_EN`                  | `#String_EN\|#Null`              | 英語テキスト                       |
+| `value`                     | `#String\|#Null`                 | ロケール共通テキスト               |
+| `about_JP`                  | `#String\|#Null`                 | 補足テキスト（日本語）             |
+| `about_EN`                  | `#String_EN\|#Null`              | 補足テキスト（英語）               |
 
 **命名規則の補足**:
 
@@ -71,10 +71,10 @@ Phase 2 で `AppearanceDetail[].Attrs[]` に `#Element_TailsUnit` エントリ�
 
 ### 後方互換フィールド（段階的廃止予定）
 
-| フィールド | 廃止後の代替 |
-|---|---|
-| `Value_JP`（大文字 V） | `value_JP` |
-| `Value_EN`（大文字 V） | `value_EN` |
+| フィールド             | 廃止後の代替 |
+| ---------------------- | ------------ |
+| `Value_JP`（大文字 V） | `value_JP`   |
+| `Value_EN`（大文字 V） | `value_EN`   |
 
 Phase C のデータ変換時に一括置換する。移行期間中は SW が両方を読み、`value_JP`/`value_EN` を優先し、なければ `Value_JP`/`Value_EN` にフォールバックする。
 
@@ -106,17 +106,17 @@ Phase C のデータ変換時に一括置換する。移行期間中は SW が�
 
 `$EnumDef_DesignAttrLabel` の各エントリで使用フィールドを定義（`_usedFields` 等のメタとして持つ案。詳細は Phase B で確定）。
 
-| AttrLabel | 使用フィールド |
-|---|---|
-| `#DesignAttr_Shape` | `vdict_ShapeType`（形状 enum あり）、`value_JP`、`value_EN` |
-| `#DesignAttr_Count` | `value_Num`（総本数・総個数）|
-| `#DesignAttr_Branch`（1グループ1エントリ） | `value_Num_1`（グループ内本数）、`value_Num_2`（クラスター数）、`vdict_Laterality`（位置）|
-| `#DesignAttr_Segment` | `value_Num`（節数）|
-| `#DesignAttr_Color` | `value_Color`（色名 or カラーコード）、`value_JP`、`value_EN` |
-| `#DesignAttr_Position` | `vdict_Laterality`（方向）、`value_JP`、`value_EN` |
-| `#DesignAttr_Notation` | `vdict_NotationType`（表記 enum あり）、`value_JP`、`value_EN` |
-| `#DesignAttr_Material` | `value_JP`、`value_EN` |
-| `#DesignAttr_Overview` | `value_JP`、`value_EN` |
+| AttrLabel                                  | 使用フィールド                                                                             |
+| ------------------------------------------ | ------------------------------------------------------------------------------------------ |
+| `#DesignAttr_Shape`                        | `vdict_ShapeType`（形状 enum あり）、`value_JP`、`value_EN`                                |
+| `#DesignAttr_Count`                        | `value_Num`（総本数・総個数）                                                              |
+| `#DesignAttr_Branch`（1グループ1エントリ） | `value_Num_1`（グループ内本数）、`value_Num_2`（クラスター数）、`vdict_Laterality`（位置） |
+| `#DesignAttr_Segment`                      | `value_Num`（節数）                                                                        |
+| `#DesignAttr_Color`                        | `value_Color`（色名 or カラーコード）、`value_JP`、`value_EN`                              |
+| `#DesignAttr_Position`                     | `vdict_Laterality`（方向）、`value_JP`、`value_EN`                                         |
+| `#DesignAttr_Notation`                     | `vdict_NotationType`（表記 enum あり）、`value_JP`、`value_EN`                             |
+| `#DesignAttr_Material`                     | `value_JP`、`value_EN`                                                                     |
+| `#DesignAttr_Overview`                     | `value_JP`、`value_EN`                                                                     |
 
 ### Count の導出ルール
 
@@ -167,6 +167,7 @@ Phase C のデータ変換時に一括置換する。移行期間中は SW が�
 ## 変換後のデータ例（TailsUnit / キツネ(枝分かれ)型4本）
 
 **現状（Phase 2 実装後）**:
+
 ```json
 {
   "Formation": null,
@@ -174,14 +175,27 @@ Phase C のデータ変換時に一括置換する。移行期間中は SW が�
   "Laterality": null,
   "DesignElement": "#Element_TailsUnit",
   "Attrs": [
-    { "AttrLabel": "#DesignAttr_Shape", "Value_JP": "キツネ(枝分かれ)型", "Value_EN": "Fox (branched)" },
-    { "AttrLabel": "#DesignAttr_Count", "Value_JP": "4本", "Value_EN": "4 tails" },
-    { "AttrLabel": "#DesignAttr_Branch", "Value_JP": "上2束×3本+下1束×1本", "Value_EN": "upper: 2 clusters × 3, lower: 1 cluster × 1" }
+    {
+      "AttrLabel": "#DesignAttr_Shape",
+      "Value_JP": "キツネ(枝分かれ)型",
+      "Value_EN": "Fox (branched)"
+    },
+    {
+      "AttrLabel": "#DesignAttr_Count",
+      "Value_JP": "4本",
+      "Value_EN": "4 tails"
+    },
+    {
+      "AttrLabel": "#DesignAttr_Branch",
+      "Value_JP": "上2束×3本+下1束×1本",
+      "Value_EN": "upper: 2 clusters × 3, lower: 1 cluster × 1"
+    }
   ]
 }
 ```
 
 **提案後（規約駆動・Count 省略可）**:
+
 ```json
 {
   "Formation": null,
@@ -189,9 +203,24 @@ Phase C のデータ変換時に一括置換する。移行期間中は SW が�
   "Laterality": null,
   "DesignElement": "#Element_TailsUnit",
   "Attrs": [
-    { "AttrLabel": "#DesignAttr_Shape", "vdict_ShapeType": "#ShapeType_FoxBranched", "value_JP": "キツネ(枝分かれ)型", "value_EN": "Fox (branched)" },
-    { "AttrLabel": "#DesignAttr_Branch", "vdict_Laterality": "#Lat_Upper", "value_Num_1": 3, "value_Num_2": 2 },
-    { "AttrLabel": "#DesignAttr_Branch", "vdict_Laterality": "#Lat_Lower", "value_Num_1": 1, "value_Num_2": 1 }
+    {
+      "AttrLabel": "#DesignAttr_Shape",
+      "vdict_ShapeType": "#ShapeType_FoxBranched",
+      "value_JP": "キツネ(枝分かれ)型",
+      "value_EN": "Fox (branched)"
+    },
+    {
+      "AttrLabel": "#DesignAttr_Branch",
+      "vdict_Laterality": "#Lat_Upper",
+      "value_Num_1": 3,
+      "value_Num_2": 2
+    },
+    {
+      "AttrLabel": "#DesignAttr_Branch",
+      "vdict_Laterality": "#Lat_Lower",
+      "value_Num_1": 1,
+      "value_Num_2": 1
+    }
   ]
 }
 ```
@@ -202,57 +231,57 @@ Phase C のデータ変換時に一括置換する。移行期間中は SW が�
 
 ## 未解決事項（Phase B 着手前に確定が必要）
 
-1. ~~**`value_Num_1` / `value_Num_2` の Branch における意味の確定**~~  
-   **✅ 解決（2026-06-28 Phase C）**: 実データの変換時に確定。  
-   - `value_Num_1` = そのグループの**合計本数**（Count 導出で合算する値）  
-   - `value_Num_2` = クラスター数（「束」の数）  
-   - 例: 「上2束×3本」→ `value_Num_1: 3`（上グループの本数合計）、`value_Num_2: 2`（束数）  
-   - Count 導出: Σ `value_Num_1` = 総本数 ✅  
-   **フォールバックケース（2件）**: `'2束'`（7件）と `'大1束+小9束'`（1件）は標準パターン外のため `value_JP` テキストで保持。
+1. ~~**`value_Num_1` / `value_Num_2` の Branch における意味の確定**~~
+   **✅ 解決（2026-06-28 Phase C）**: 実データの変換時に確定。
+   - `value_Num_1` = そのグループの**合計本数**（Count 導出で合算する値）
+   - `value_Num_2` = クラスター数（「束」の数）
+   - 例: 「上2束×3本」→ `value_Num_1: 3`（上グループの本数合計）、`value_Num_2: 2`（束数）
+   - Count 導出: Σ `value_Num_1` = 総本数 ✅
+     **フォールバックケース（2件）**: `'2束'`（7件）と `'大1束+小9束'`（1件）は標準パターン外のため `value_JP` テキストで保持。
 
-2. ~~**`$EnumDef_Laterality` への `#Lat_Upper`/`#Lat_Lower` 追加**~~  
-   **✅ 解決（2026-06-28）**: `$EnumDef_Laterality` を拡張する方針に確定し実装済み。  
-   追加値: `#Lat_Upper`（上）/ `#Lat_Lower`（下）/ `#Lat_Front`（前方）/ `#Lat_Rear`（後方）/ `#Lat_Around`（周囲）  
+2. ~~**`$EnumDef_Laterality` への `#Lat_Upper`/`#Lat_Lower` 追加**~~
+   **✅ 解決（2026-06-28）**: `$EnumDef_Laterality` を拡張する方針に確定し実装済み。
+   追加値: `#Lat_Upper`（上）/ `#Lat_Lower`（下）/ `#Lat_Front`（前方）/ `#Lat_Rear`（後方）/ `#Lat_Around`（周囲）
    → `vdict_Laterality` で `#Lat_Upper` / `#Lat_Lower` をそのまま使用可能。
 
-3. **`vdict_ShapeType` 用の形状辞書 `$EnumDef_ShapeType` の設計**  
+3. **`vdict_ShapeType` 用の形状辞書 `$EnumDef_ShapeType` の設計**
    キツネ型・猫型・サソリ型 etc. は NT固有のため、NT作品別 `db_meta.json` に配置予定。
    将来的に他作品でも形状 enum を使う場合の共通化方針を決める。
 
-4. **`$EnumDef_DesignAttrLabel` の per-label フィールド定義メタ**  
+4. **`$EnumDef_DesignAttrLabel` の per-label フィールド定義メタ**
    各 AttrLabel に対して使用フィールドを定義するメタ（`_usedFields` 等）の具体的な構造と、
    SW がそれをどう参照するかを設計する。
 
-5. **`#Hexcode` の全体 typedef 登録先**  
+5. **`#Hexcode` の全体 typedef 登録先**
    `data/db_type.json` のどこに `#Hexcode` / `#Hexcode_Color` を登録するか（`$VarsDef` または新設 `$TypeDef`）。
 
 ---
 
 ## 影響範囲
 
-| 対象 | 変更内容 |
-|---|---|
-| `data/db_meta.json` | `$Def_AppearanceAttr` を簡素化（AttrLabel のみ宣言）。`$EnumDef_Laterality` に Upper/Lower 追加候補 |
-| `data/db_type.json` | `#Hexcode` / `#Hexcode_Color` 型の新設登録 |
-| `data/Works_NumberTales/DataBases/db_meta.json` | `$EnumDef_ShapeType` 新設。`$EnumDef_DesignAttrLabel` に per-label フィールド定義メタを追加 |
-| `data/Works_NumberTales/DataBases/db_Primary.json` | TailsUnit Attrs の全エントリを新構造に変換（~97件）。`Value_JP/EN` → `value_JP/EN` |
-| `lib/section-renders/appearanceDetail.js` | `vdict_*` / `value_Num_{n}` / `value_Color` 対応。同一 AttrLabel グループ表示 |
-| `lib/sw-common.js` または `lib/data-common.js` | 小文字プレフィックス規約の汎用パーサー実装 |
-| `pages/characters.js` / SW | Count 導出ロジック（Branch `value_Num_1` 総和）の実装 |
-| `tests/` | 新フィールド・規約駆動フィールドに対応したテストの追加・更新 |
+| 対象                                               | 変更内容                                                                                            |
+| -------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
+| `data/db_meta.json`                                | `$Def_AppearanceAttr` を簡素化（AttrLabel のみ宣言）。`$EnumDef_Laterality` に Upper/Lower 追加候補 |
+| `data/db_type.json`                                | `#Hexcode` / `#Hexcode_Color` 型の新設登録                                                          |
+| `data/Works_NumberTales/DataBases/db_meta.json`    | `$EnumDef_ShapeType` 新設。`$EnumDef_DesignAttrLabel` に per-label フィールド定義メタを追加         |
+| `data/Works_NumberTales/DataBases/db_Primary.json` | TailsUnit Attrs の全エントリを新構造に変換（~97件）。`Value_JP/EN` → `value_JP/EN`                  |
+| `lib/section-renders/appearanceDetail.js`          | `vdict_*` / `value_Num_{n}` / `value_Color` 対応。同一 AttrLabel グループ表示                       |
+| `lib/sw-common.js` または `lib/data-common.js`     | 小文字プレフィックス規約の汎用パーサー実装                                                          |
+| `pages/characters.js` / SW                         | Count 導出ロジック（Branch `value_Num_1` 総和）の実装                                               |
+| `tests/`                                           | 新フィールド・規約駆動フィールドに対応したテストの追加・更新                                        |
 
 ---
 
 ## 実装フェーズ案
 
-| フェーズ | 内容 | 前提 |
-|---|---|---|
-| **Phase A** | 設計確定 ✅ | — |
-| **Phase B** | スキーマ変更 ✅ | Phase A |
-| **Phase C** | データ変換 ✅ | Phase B |
-| **Phase C+** | 耳形状・エレメント整理 ✅ | Phase C |
-| **Phase D** | SW/UI 対応: `vdict_*` 辞書解決・`value_Num_{n}` ペア表示・`value_JP/EN` 冗長スキップ・`#ListIndex` 統一 ✅ | Phase C+ |
-| **Phase E** | テスト更新: Vitest テスト追加・更新 | Phase D |
+| フェーズ     | 内容                                                                                                       | 前提     |
+| ------------ | ---------------------------------------------------------------------------------------------------------- | -------- |
+| **Phase A**  | 設計確定 ✅                                                                                                | —        |
+| **Phase B**  | スキーマ変更 ✅                                                                                            | Phase A  |
+| **Phase C**  | データ変換 ✅                                                                                              | Phase B  |
+| **Phase C+** | 耳形状・エレメント整理 ✅                                                                                  | Phase C  |
+| **Phase D**  | SW/UI 対応: `vdict_*` 辞書解決・`value_Num_{n}` ペア表示・`value_JP/EN` 冗長スキップ・`#ListIndex` 統一 ✅ | Phase C+ |
+| **Phase E**  | テスト更新: Vitest テスト追加・更新                                                                        | Phase D  |
 
 ### Phase C 実施内容（2026-06-28）
 
@@ -265,15 +294,15 @@ Phase C のデータ変換時に一括置換する。移行期間中は SW が�
 
 ### Phase C+ 実施内容（2026-06-28）: 耳形状・エレメント整理
 
-- **`$EnumDef_EarShapeType` 新設（NT ローカル `db_meta.json`）**: `#EarShapeType_Fox`（狐の耳）/ `#EarShapeType_Cat`（猫の耳）の2種を定義
-- **`#DesignAttr_EarShape` 追加（NT ローカル `$EnumDef_DesignAttrLabel`）**: `$fields: ["vdict_EarShapeType", "about_JP", "about_EN"]`
+- **`$EnumDef_EarType` 新設（NT ローカル `db_meta.json`）**: `#EarType_Fox`（狐の耳）/ `#EarType_Cat`（猫の耳）の2種を定義
+- **`#DesignAttr_Ear` 追加（NT ローカル `$EnumDef_DesignAttrLabel`）**: `$fields: ["vdict_EarType", "about_JP", "about_EN"]`
 - **耳エントリ変換（`db_Primary.json`）**: 全181件の `#BodyPart_Ear` + `#Element_Motif` エントリを変換
-  - "狐の耳"/"猫の耳" → `DesignElement: null`、`#DesignAttr_EarShape` + `vdict_EarShapeType`
+  - "狐の耳"/"猫の耳" → `DesignElement: null`、`#DesignAttr_Ear` + `vdict_EarType`
   - 修飾情報（垂れ耳・先の色・帽子で隠れている等）→ `about_JP` に格納
-  - "狐の耳(イヤリング付き)" × 4・"狐の耳(左耳にアクセサリー付き)" × 4 → EarShape エントリ + 別 `#Element_CostumeItem` エントリに分離（14件の追加エントリを生成）
+  - "狐の耳(イヤリング付き)" × 4・"狐の耳(左耳にアクセサリー付き)" × 4 → Ear エントリ + 別 `#Element_CostumeItem` エントリに分離（14件の追加エントリを生成）
   - "ダイヤとハート柄の耳マーキング" × 4 → `#Element_Emblem`
   - "ダングルイヤリング" × 2・"猫の耳型のアクセサリー" × 2 → `#Element_CostumeItem`
-  - `BodyPart` なしで耳関連値を持つエントリ（"狐の垂れ耳" × 6、"猫の立った耳(フードに隠れている)" × 2）→ EarShape 変換 + `BodyPart: ["#BodyPart_Ear"]` を付与
+  - `BodyPart` なしで耳関連値を持つエントリ（"狐の垂れ耳" × 6、"猫の立った耳(フードに隠れている)" × 2）→ Ear 変換 + `BodyPart: ["#BodyPart_Ear"]` を付与
 - **`#Element_Motif` → `#Element_CostumeItem` 移行**: キーワードベースで 355 エントリを移行（服装/靴/ソックス/ネクタイ/スカーフ/眼鏡/ゴーグル/ネックレス等）
 - **`#Element_Motif` → `#Element_Emblem` 移行**: 11 エントリを移行（頬の横線模様・耳マーキング・クリスタル額マーキング等）
 - **`#Element_Motif` → `#Element_Tag` 移行**: 8 エントリを移行（名札・バーコードタグ・注意ラベル等）
@@ -296,16 +325,16 @@ Phase C のデータ変換時に一括置換する。移行期間中は SW が�
   - 後方互換: `Value_JP`（大文字）も `value_JP`（小文字）と同様に処理
 - **テスト**: `npm.cmd test` → 128 passed（既存 3 失敗は pre-existing で変化なし）
 
-### Phase C+ 追加実施（2026-06-28）: EarUnit/TailShapeType 整備
+### Phase C+ 追加実施（2026-06-28）: Ear/TailShapeType 整備
 
-- **`#Element_EarUnit` 新設（グローバル `$EnumDef_DesignElement`）**: 耳ユニット専用エレメントを追加（`EarUnit` / `耳ユニット` / `Ear Unit`）
+- **`#Element_Ear` 新設（グローバル `$EnumDef_DesignElement`）**: 耳ユニット専用エレメントを追加（`Ear` / `耳ユニット` / `Ear Unit`）
 - **`$EnumDef_ShapeType` → `$EnumDef_TailShapeType` リネーム（NT ローカル `db_meta.json`）**: enum キー（`#TailShapeType_*`）・内部フィールド（`TailShapeType` / `TailShapeType_JP` / `TailShapeType_EN`）を一括変換（7エントリ）
 - **`#DesignAttr_Shape.$fields` 更新（グローバル `db_meta.json`）**: `vdict_ShapeType` → `vdict_TailShapeType` に更新
 - **`db_Primary.json` 一括更新**:
   - `vdict_ShapeType` → `vdict_TailShapeType` フィールドリネーム（97件）
   - `#ShapeType_*` → `#TailShapeType_*` 値リネーム（97件）
-  - EarShape エントリの `DesignElement: null` → `"#Element_EarUnit"` 設定（93件、Formation 統合後）
-  - EarShape Formation 統合: corefolder + humanoid で同一シグネチャの86エントリを `Formation: null` 1件に統合（87件が null、残りは corefolder 4件・humanoid 2件）
+  - Ear エントリの `DesignElement: null` → `"#Element_Ear"` 設定（93件、Formation 統合後）
+  - Ear Formation 統合: corefolder + humanoid で同一シグネチャの86エントリを `Formation: null` 1件に統合（87件が null、残りは corefolder 4件・humanoid 2件）
 - **テスト**: `npm.cmd test` → 128 passed（既存 3 失敗は変更前から同一 pre-existing）
 
 ### Phase B 実施内容（2026-06-28）

@@ -882,10 +882,20 @@
           "DesignElement_JP": "衣装アイテム",
           "DesignElement_EN": "Costume Item"
         },
-        "#Element_EarUnit": {
-          "DesignElement": "EarUnit",
-          "DesignElement_JP": "耳ユニット",
-          "DesignElement_EN": "Ear Unit"
+        "#Element_Ear": {
+          "DesignElement": "Ear",
+          "DesignElement_JP": "耳の形状",
+          "DesignElement_EN": "Ear Shape"
+        },
+        "#Element_Expression": {
+          "DesignElement": "Expression",
+          "DesignElement_JP": "表情・動作",
+          "DesignElement_EN": "Expression / Action"
+        },
+        "#Element_BodyType": {
+          "DesignElement": "BodyType",
+          "DesignElement_JP": "体型・容姿",
+          "DesignElement_EN": "Body Type / Appearance"
         }
       },
       "$EnumDef_Laterality": {
@@ -972,6 +982,37 @@
           "AttrLabel_JP": "概要",
           "AttrLabel_EN": "Overview",
           "$fields": ["value_JP", "value_EN"]
+        },
+        "#DesignAttr_Ear": {
+          "AttrLabel": "Ear",
+          "AttrLabel_JP": "耳",
+          "AttrLabel_EN": "Ear",
+          "$fields": ["vdict_EarType", "about_JP", "about_EN"]
+        },
+        "#DesignAttr_Branch": {
+          "AttrLabel": "Branch",
+          "AttrLabel_JP": "分岐配置",
+          "AttrLabel_EN": "Branch Layout",
+          "$fields": ["vdict_Laterality", "value_Num_1", "value_Num_2"],
+          "$multi": true
+        },
+        "#DesignAttr_Segment": {
+          "AttrLabel": "Segment",
+          "AttrLabel_JP": "節数",
+          "AttrLabel_EN": "Segment Count",
+          "$fields": ["value_Num"]
+        }
+      },
+      "$EnumDef_EarType": {
+        "#EarType_Fox": {
+          "EarType": "Fox",
+          "EarType_JP": "狐の耳",
+          "EarType_EN": "Fox"
+        },
+        "#EarType_Cat": {
+          "EarType": "Cat",
+          "EarType_JP": "猫の耳",
+          "EarType_EN": "Cat"
         }
       }
     }

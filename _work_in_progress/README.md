@@ -38,6 +38,10 @@
 - 2026-06-25_progress_localization-summary-inputs.md（Localization Summary 入力進捗チェックリスト。地名 9/13 ✅・人物名 11/13 ✅・SI 9/9 ✅・残 7 件 User 入力待ち）
 - 2026-06-28_progress_deepl-localization.md（DeepL 翻訳のローカライズ運用組み込み。用語集生成/同期/添削スクリプト・`docs/deepl-localization.md`・用語集実登録 JA-EN144/EN-JA138（大陸名修正後）。✅ 疎通確認済み。⚠️ `npm test` ローカル確認・`.env` 設定・コミットは User 端末で）
 
+### データ変換（手動入力残り）
+
+- 2026-06-30_progress_appearance-detail-cleanup.md（#5〜99 AppearanceDetail 一括変換: EXPR 71件・Formation 統合 282件・BodyPart 推論 113件・136 pass ✅。⚠️ 6件 BodyPart 手動入力待ち / Num:8・32・60 既存不整合手動修正待ち）
+
 ### 機能実装（ブラウザ確認残り）
 
 - 2026-06-18_progress_dblink-enrich.md（`*_DBLink` suffix エンリッチ処理・typedef 設定とブラウザ確認が残）
