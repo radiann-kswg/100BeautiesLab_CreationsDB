@@ -5,6 +5,21 @@
       "DB_Label_EN": "Vocabulary",
       "DB_Summary": "創作作品全体における固有の用語に関する資料。"
     },
+    "#Ref_Race": {
+      "DB_Label_JP": "種族辞書",
+      "DB_Label_EN": "Race",
+      "DB_Summary": "創作作品全体における種族に関する資料。"
+    },
+    "#Ref_Faction": {
+      "DB_Label_JP": "組織・陣営辞書",
+      "DB_Label_EN": "Faction",
+      "DB_Summary": "創作作品全体における組織や陣営に関する資料。"
+    },
+    "#Ref_Society": {
+      "DB_Label_JP": "社会・情勢辞書",
+      "DB_Label_EN": "Society",
+      "DB_Summary": "創作作品全体における社会や情勢に関する資料。"
+    },
     "#Ref_Region8": {
       "DB_Label_JP": "第８界の地域文化辞書",
       "DB_Label_EN": "About Regional Cultures in #REGION.8",
@@ -73,6 +88,11 @@
           "Category": "Phenomenon",
           "Category_JP": "現象・事象",
           "Category_EN": "Phenomenon & Events"
+        },
+        "#Reference_Society": {
+          "Category": "Society",
+          "Category_JP": "社会・情勢",
+          "Category_EN": "Society & Situation"
         },
         "#Reference_Abnormality": {
           "Category": "Abnormality",
