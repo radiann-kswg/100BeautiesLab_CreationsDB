@@ -7065,7 +7065,7 @@
         "Note_EN": null
       },
       {
-        "Formation": "corefolder",
+        "Formation": null,
         "BodyPart": ["#BodyPart_Hair"],
         "Laterality": null,
         "DesignElement": "#Element_CostumeItem",
@@ -7123,22 +7123,6 @@
             "AttrLabel": "#DesignAttr_Overview",
             "value_JP": "落ち着いた外見",
             "value_EN": "calm composed look"
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
-      {
-        "Formation": "humanoid",
-        "BodyPart": ["#BodyPart_Hair"],
-        "Laterality": null,
-        "DesignElement": "#Element_CostumeItem",
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_Overview",
-            "value_JP": "四角いヘアピン(17の形)",
-            "value_EN": "square hair pin (17 shape)"
           }
         ],
         "img_PNGName": null,
@@ -7553,7 +7537,7 @@
           {
             "AttrLabel": "#DesignAttr_Overview",
             "value_JP": "シャツの上にブレザー",
-            "value_EN": "red hair pin"
+            "value_EN": "blazer over shirt"
           }
         ],
         "img_PNGName": null,
@@ -7569,22 +7553,6 @@
           {
             "AttrLabel": "#DesignAttr_Overview",
             "value_JP": "スカート",
-            "value_EN": "blazer over shirt"
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
-      {
-        "Formation": "humanoid",
-        "BodyPart": null,
-        "Laterality": null,
-        "DesignElement": "#Element_Motif",
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_Overview",
-            "value_JP": null,
             "value_EN": "skirt"
           }
         ],
@@ -8297,11 +8265,6 @@
         "Laterality": null,
         "DesignElement": "#Element_Motif",
         "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_Overview",
-            "value_JP": "大きな胸",
-            "value_EN": "large breasts"
-          },
           {
             "AttrLabel": "#DesignAttr_Overview",
             "value_JP": "大きな胸",
@@ -13678,11 +13641,6 @@
             "AttrLabel": "#DesignAttr_Overview",
             "value_JP": "ミントグリーンのショートヘア",
             "value_EN": "short mint green hair"
-          },
-          {
-            "AttrLabel": "#DesignAttr_Overview",
-            "value_JP": "ミントグリーンのショートヘア",
-            "value_EN": "short mint green hair"
           }
         ],
         "img_PNGName": null,
@@ -13695,7 +13653,6 @@
         "Laterality": "#Lat_Both",
         "DesignElement": "#Element_Ear",
         "Attrs": [
-          { "AttrLabel": "#DesignAttr_Ear", "vdict_EarType": "#EarType_Fox" },
           { "AttrLabel": "#DesignAttr_Ear", "vdict_EarType": "#EarType_Fox" }
         ],
         "img_PNGName": null,
@@ -13708,16 +13665,6 @@
         "Laterality": null,
         "DesignElement": "#Element_Emblem",
         "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_Overview",
-            "value_JP": "自信ありげな表情",
-            "value_EN": "confident expression"
-          },
-          {
-            "AttrLabel": "#DesignAttr_Overview",
-            "value_JP": "頬に黄色い横線メイク",
-            "value_EN": "yellow horizontal line makeup on cheeks"
-          },
           {
             "AttrLabel": "#DesignAttr_Overview",
             "value_JP": "自信ありげな表情",
@@ -13807,22 +13754,6 @@
             "AttrLabel": "#DesignAttr_Overview",
             "value_JP": "性別中立な外見",
             "value_EN": "gender-neutral presentation"
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
-      {
-        "Formation": "corefolder",
-        "BodyPart": null,
-        "Laterality": null,
-        "DesignElement": "#Element_Motif",
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_Overview",
-            "value_JP": "番号のマーキングとストライプ模様",
-            "value_EN": "number marking and stripe pattern"
           }
         ],
         "img_PNGName": null,
@@ -14150,22 +14081,6 @@
           {
             "AttrLabel": "#DesignAttr_Overview",
             "value_JP": "ピンクの重ね着ドレスのようなケープ",
-            "value_EN": "ear-covering maid cap"
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
-      {
-        "Formation": "corefolder",
-        "BodyPart": null,
-        "Laterality": null,
-        "DesignElement": "#Element_Motif",
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_Overview",
-            "value_JP": null,
             "value_EN": "pink layered dress-like cape"
           }
         ],
@@ -14212,7 +14127,8 @@
         "Attrs": [
           {
             "value_JP": "高慢な表情（オンラインモード）",
-            "value_EN": "haughty expression (online mode)"
+            "value_EN": "haughty expression (online mode)",
+            "AttrLabel": "#DesignAttr_Overview"
           }
         ],
         "Laterality": null,
@@ -14227,7 +14143,8 @@
         "Attrs": [
           {
             "value_JP": "涙目の表情（オフラインモード）",
-            "value_EN": "teary expression (offline mode)"
+            "value_EN": "teary expression (offline mode)",
+            "AttrLabel": "#DesignAttr_Overview"
           }
         ],
         "Laterality": null,
@@ -14242,7 +14159,8 @@
         "Attrs": [
           {
             "value_JP": "耳を覆うメイドキャップ",
-            "value_EN": "ear-covering maid cap"
+            "value_EN": "ear-covering maid cap",
+            "AttrLabel": "#DesignAttr_Overview"
           }
         ],
         "Laterality": null,
@@ -14259,7 +14177,7 @@
           {
             "AttrLabel": "#DesignAttr_Overview",
             "value_JP": "ピンクの重ね着ドレス",
-            "value_EN": "ear-covering maid cap"
+            "value_EN": "pink layered dress"
           }
         ],
         "img_PNGName": null,
@@ -14275,7 +14193,7 @@
           {
             "AttrLabel": "#DesignAttr_Overview",
             "value_JP": "白いフリルカラー",
-            "value_EN": "pink layered dress"
+            "value_EN": "white ruffle collar"
           }
         ],
         "img_PNGName": null,
@@ -14291,22 +14209,6 @@
           {
             "AttrLabel": "#DesignAttr_Overview",
             "value_JP": "番号付きの白い手袋",
-            "value_EN": "white ruffle collar"
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
-      {
-        "Formation": "humanoid",
-        "BodyPart": null,
-        "Laterality": null,
-        "DesignElement": "#Element_Motif",
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_Overview",
-            "value_JP": null,
             "value_EN": "white gloves with numbers"
           }
         ],
@@ -17860,7 +17762,7 @@
         "Note_EN": null
       },
       {
-        "Formation": "corefolder",
+        "Formation": null,
         "BodyPart": ["#BodyPart_Hair"],
         "Laterality": null,
         "DesignElement": "#Element_CostumeItem",
@@ -17905,7 +17807,7 @@
           {
             "AttrLabel": "#DesignAttr_Overview",
             "value_JP": "青い目",
-            "value_EN": "heart-shaped light accent color bangs"
+            "value_EN": "blue eyes"
           }
         ],
         "img_PNGName": null,
@@ -17921,27 +17823,6 @@
           {
             "AttrLabel": "#DesignAttr_Overview",
             "value_JP": "白い襟付きピンクのパフスリーブブラウス",
-            "value_EN": "two-tone twin-tails with blue ribbons"
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
-      {
-        "Formation": "humanoid",
-        "BodyPart": ["#BodyPart_Hair"],
-        "Laterality": null,
-        "DesignElement": "#Element_CostumeItem",
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_Overview",
-            "value_JP": "ハート形の薄いアクセントカラーの前髪",
-            "value_EN": "blue eyes"
-          },
-          {
-            "AttrLabel": "#DesignAttr_Overview",
-            "value_JP": "二色のツインテールと青のリボン",
             "value_EN": "pink puff-sleeve blouse with white collar"
           }
         ],
@@ -20341,7 +20222,7 @@
           {
             "AttrLabel": "#DesignAttr_Overview",
             "value_JP": "深緑色のショートヘア",
-            "value_EN": "fox ears"
+            "value_EN": "short dark green hair"
           }
         ],
         "img_PNGName": null,
@@ -20357,27 +20238,11 @@
           {
             "AttrLabel": "#DesignAttr_Overview",
             "value_JP": "青緑色の目",
-            "value_EN": "short dark green hair"
+            "value_EN": "blue-green eyes"
           },
           {
             "AttrLabel": "#DesignAttr_Overview",
             "value_JP": "眼鏡付きのヘッドセット",
-            "value_EN": "blue-green eyes"
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
-      {
-        "Formation": "corefolder",
-        "BodyPart": null,
-        "Laterality": null,
-        "DesignElement": "#Element_Motif",
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_Overview",
-            "value_JP": null,
             "value_EN": "glasses with headset"
           }
         ],
@@ -33287,7 +33152,7 @@
         "Note_EN": null
       },
       {
-        "Formation": "corefolder",
+        "Formation": null,
         "BodyPart": ["#BodyPart_Hair"],
         "Laterality": null,
         "DesignElement": "#Element_CostumeItem",
@@ -35454,38 +35319,6 @@
         "Note_EN": null
       },
       {
-        "Formation": "corefolder",
-        "BodyPart": null,
-        "Laterality": null,
-        "DesignElement": "#Element_Motif",
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_Overview",
-            "value_JP": null,
-            "value_EN": "infinity-shaped (∞=88) pin on navy blue necktie"
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
-      {
-        "Formation": "corefolder",
-        "BodyPart": null,
-        "Laterality": null,
-        "DesignElement": "#Element_Motif",
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_Overview",
-            "value_JP": null,
-            "value_EN": "piano-keyboard holographic ring"
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
-      {
         "Formation": null,
         "BodyPart": ["#BodyPart_Ear"],
         "Laterality": "#Lat_Left",
@@ -35493,7 +35326,8 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Overview",
-            "value_JP": "左耳のアクセサリー"
+            "value_JP": "左耳のアクセサリー",
+            "value_EN": "left ear accessory"
           }
         ],
         "img_PNGName": null,
@@ -35509,7 +35343,7 @@
           {
             "AttrLabel": "#DesignAttr_Overview",
             "value_JP": "ヘアバンド付きで紺色のアクセントが入ったオレンジ色の長いポニーテール",
-            "value_EN": "branching fox 8 tails"
+            "value_EN": "orange long ponytail with hair-band"
           }
         ],
         "img_PNGName": null,
@@ -35525,7 +35359,7 @@
           {
             "AttrLabel": "#DesignAttr_Overview",
             "value_JP": "赤い目",
-            "value_EN": "orange long ponytail with hair-band"
+            "value_EN": "red eyes"
           }
         ],
         "img_PNGName": null,
@@ -35541,7 +35375,7 @@
           {
             "AttrLabel": "#DesignAttr_Overview",
             "value_JP": "無限形状（∞=88）のピンがされた濃紺のネクタイ",
-            "value_EN": "red eyes"
+            "value_EN": "infinity-shaped (∞=88) pin on navy blue necktie"
           }
         ],
         "img_PNGName": null,
@@ -35557,7 +35391,7 @@
           {
             "AttrLabel": "#DesignAttr_Overview",
             "value_JP": "ピアノ鍵盤ホログラフィックリング",
-            "value_EN": "navy blue necktie"
+            "value_EN": "piano-keyboard holographic ring"
           }
         ],
         "img_PNGName": null,
@@ -35573,7 +35407,7 @@
           {
             "AttrLabel": "#DesignAttr_Overview",
             "value_JP": "オレンジ色のウェストコートの上の濃紺ダブルブレスト執事テールコート",
-            "value_EN": "infinity-shaped (∞=88) pin on navy blue necktie"
+            "value_EN": "navy blue double-breasted butler tailcoat over orange waistcoat"
           }
         ],
         "img_PNGName": null,
@@ -35589,7 +35423,7 @@
           {
             "AttrLabel": "#DesignAttr_Overview",
             "value_JP": "オレンジ色の長いズボン",
-            "value_EN": "piano-keyboard holographic ring"
+            "value_EN": "orange long pants"
           }
         ],
         "img_PNGName": null,
@@ -35605,38 +35439,6 @@
           {
             "AttrLabel": "#DesignAttr_Overview",
             "value_JP": "青い靴",
-            "value_EN": "orange waistcoat over navy blue double-breasted butler tailcoat"
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
-      {
-        "Formation": "humanoid",
-        "BodyPart": null,
-        "Laterality": null,
-        "DesignElement": "#Element_Motif",
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_Overview",
-            "value_JP": null,
-            "value_EN": "orange long pants"
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
-      {
-        "Formation": "humanoid",
-        "BodyPart": null,
-        "Laterality": null,
-        "DesignElement": "#Element_Motif",
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_Overview",
-            "value_JP": null,
             "value_EN": "blue shoes"
           }
         ],
@@ -36775,7 +36577,7 @@
         "Note_EN": null
       },
       {
-        "Formation": "corefolder",
+        "Formation": null,
         "BodyPart": ["#BodyPart_Hair"],
         "Laterality": null,
         "DesignElement": "#Element_CostumeItem",
@@ -36783,22 +36585,6 @@
           {
             "AttrLabel": "#DesignAttr_Overview",
             "value_JP": "白いヘアバンド付きの黄色いショートヘア",
-            "value_EN": "short yellow hair with white headband"
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
-      {
-        "Formation": "humanoid",
-        "BodyPart": ["#BodyPart_Hair"],
-        "Laterality": null,
-        "DesignElement": "#Element_CostumeItem",
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_Overview",
-            "value_JP": "白いヘアバンド付き黄色い長い髪",
             "value_EN": "short yellow hair with white headband"
           }
         ],

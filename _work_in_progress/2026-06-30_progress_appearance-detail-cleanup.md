@@ -138,10 +138,32 @@ User が #1〜8 を手動調整後、同様のパターンを #9〜99 に適用�
 
 テスト: **136/136 PASS** ✅
 
+## 第4回推敲（2026-06-30 続き3）
+
+User が #1〜12 を手動調整した内容を基に、#13 以降の `AppearanceDetail` を推敲した。
+
+### 修正対象と内容
+
+| 対象     | カテゴリ                              | 内容                                                                          |
+| -------- | ------------------------------------- | ----------------------------------------------------------------------------- |
+| Num:33   | JP/EN カスケードずれ + AttrLabel 欠落 | entry[4] EN 修正 / entries[8,9,10] AttrLabel 補完 / entries[11,12,13] EN 修正 / entries[5,14] 孤立エントリ削除 |
+| Num:42   | JP/EN カスケードずれ + Formation 修正 | entry[4] Formation corefolder→null / entries[6,7] EN 修正 / entry[8] 重複削除 |
+| Num:48   | JP/EN カスケードずれ + 孤立エントリ   | entries[4,5] EN 修正 / entry[6] 孤立エントリ削除                             |
+| Num:81   | Formation 修正                        | entry[4] Formation corefolder→null                                            |
+| Num:88   | JP/EN カスケードずれ（大）+ EN 欠落   | entries[3,4,13,14] 孤立エントリ削除 / entry[5] EN 補完 / entries[6〜12] EN 修正 |
+| Num:93   | Formation 修正                        | entry[4] Formation corefolder→null                                            |
+
+### 観察事項（要確認）
+
+- **Num:93 entry[5] EN の不整合**: entry[5] humanoid/Hair の JP は `"白いヘアバンド付き黄色い長い髪"` (long hair) だが EN は `"short yellow hair with white headband"` のまま。entry[4] (null, short hair) のENが流用されている可能性あり → User 確認・手動修正推奨。
+
+テスト: 未実行（実行推奨）
+
 ## 未完了タスク
 
 - [ ] Num:35 / 61 の `"2パターンの衣装"` BodyPart — User が手動対応予定（待機中）
 - [ ] Num:60 [9] humanoid: 表情 + ハチマキ(ヲタク衣装)が混在 → 同様の分割方針を適用するか User 確認が必要
+- [ ] Num:93 [5] humanoid/Hair: EN "short yellow hair with white headband" → "long yellow hair with white headband" か否か User 確認
 - [ ] `git commit` — 変換済みデータをコミット（User 確認後）
 
 ---
