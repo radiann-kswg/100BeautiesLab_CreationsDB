@@ -30,6 +30,7 @@
 
 - 2026-06-24_progress_github-triage.md（GitHub 未解決通知トリアージ: CodeQL alert PR #9・vitest Dependabot PR・cf-api-sync CI 失敗。⚠️ 全件 User 判断・手動操作待ち）
 - 2026-06-25_progress_github-triage.md（GitHub 未解決問題トリアージ 2 回目。⚠️ PR #9・vitest Dependabot PR・cf-api-sync 確認は全件 User 判断待ち）
+- 2026-07-01_progress_github-triage.md（GitHub トリアージ提案 3 回目。06-30 `develop` 失敗 run を反映。`cf-api-sync` Worker デプロイ失敗はトークンスコープ不足/route 競合の切り分け提案、CodeQL alert #5（+ #6/#7 可能性）を継続監視。⚠️ 全件 User 判断待ち・提案のみ）
 
 ### データ / ローカライズ（User 手動作業残り）
 
@@ -42,12 +43,11 @@
 ### データ変換（手動入力残り）
 
 - 2026-06-30_progress_appearance-detail-cleanup.md（#5〜99 AppearanceDetail 一括変換: EXPR 71件・Formation 統合 282件・BodyPart 推論 113件・136 pass ✅。⚠️ 6件 BodyPart 手動入力待ち / Num:8・32・60 既存不整合手動修正待ち）
-- 2026-07-01_progress_conversationpattern-refine.md（ナンバーテールズ ConversationPattern 推敲: Num8以降+特殊枠90キャラ、Num1〜7の手直し水準に合わせて書き直し。136 pass ✅。⚠️ DialogueExamples の入力とコミットは User の手動で行う予定）
 
 ### 機能実装（ブラウザ確認残り）
 
-- 2026-06-18_progress_dblink-enrich.md（`*_DBLink` suffix エンリッチ処理・typedef 設定とブラウザ確認が残）
-- 2026-06-18_progress_dblink-renderer.md（`*_DBLink` suffix セクションレンダラー・db_type.json 追記とブラウザ確認が残）
+- 2026-06-18_progress_dblink-enrich.md（`*_DBLink` suffix エンリッチ処理・実装済み・typedef 設定済み（`AnotherRegions_DBLink`: `$enrich:true`）。⚠️ ブラウザ動作確認が残）
+- 2026-06-18_progress_dblink-renderer.md（`*_DBLink` suffix セクションレンダラー `dbLinkSection` 実装済み・`db_type.json` / NT `db_type.json` 追記済み・実データあり。⚠️ ブラウザ動作確認が残 → **Copilot で対応予定**）
 - 2026-06-09_progress_aihints-from-identitymotif.md（`--apply-identitymotif` 実装・NumberTales/DB_Primary 全件再構築完了。他作品対応・docs 追記・cleared 3 件再適用が残留）
 - 2026-06-09_progress_corefolder-nld-template-and-silhouette-structure.md（corefolder NLD テンプレ化・silhouette_notes object 構造化完了。`#28` base color・他作品確認・humanoid NLD 未実装が残留）
 
@@ -60,6 +60,13 @@
 ## 完了（直近 — .completed 退避前）
 
 以下のファイルは実装が完了しています。ログとして `_work_in_progress/` に残しつつ、User 依頼のタイミングで `.completed/` へ退避します。
+
+### 2026-07-01 完了
+
+- 2026-07-01_progress_addon-ai-tag-merge-conflict-and-log-cleanup.md（`develop`→`addon-ai-tag` 取り込み時の `_work_in_progress/README.md` 競合を解消し、Claude/Copilot の 7/1 ログを反映した進捗棚卸しを実施。⚠️ マージ commit/push は User 手動）
+- 2026-07-01_progress_readme-local-agents-rule.md（README.LOCAL.md ローカル作業メモ運用ルール追加。`CLAUDE.md` / `.github/copilot-instructions.md` に運用小節追加・`CHANGELOG.md` 追記完了。⚠️ commit/push は User 手動）
+- 2026-07-01_progress_conversationpattern-refine.md（ナンバーテールズ ConversationPattern 推敲完了: Num8〜99+特殊枠90キャラ。136 pass ✅。⚠️ DialogueExamples 入力・コミットは User 手動予定）
+- 2026-07-01_progress_copilot-localization-en.md（Copilot 英訳補助環境整備: `localization-en.instructions.md` + 早見表 `docs/localization-glossary-quickref.md`（164件）+ ジェネレータ `deepl:build-quickref` 実装完了。⚠️ `npm test`（Windows）・コミット/push は User 手動）
 
 ### 2026-06-29 完了
 

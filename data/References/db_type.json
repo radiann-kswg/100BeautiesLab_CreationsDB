@@ -150,7 +150,7 @@
     },
     {
       "hashTag": "Visibility",
-      "$type": "#String|#Null",
+      "$type": "$EnumDef|#Null",
       "hashTag_JP": "公開区分",
       "hashTag_EN": "Visibility"
     }

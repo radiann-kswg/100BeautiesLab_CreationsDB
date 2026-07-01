@@ -1,7 +1,7 @@
 [
   {
-    "Title_JP": "ナンバーテールズについて",
-    "Title_EN": "About NumberTales",
+    "Title_JP": "ナンバーテールズ",
+    "Title_EN": "NumberTales",
     "Images": {
       "catalog_PNGName": ["../../General/catalog/chr-dsgn_NTsCatalog-Summary"]
     },
@@ -20,8 +20,8 @@
     "Visibility": null
   },
   {
-    "Title_JP": "クラスについて(ナンバーテールズ)",
-    "Title_EN": "About Classes for NumberTales",
+    "Title_JP": "クラス(ナンバーテールズにおける)",
+    "Title_EN": "Classes (for NumberTales)",
     "Images": { "concept-figure_PNGName": ["cnsp-fg_NTsClass"] },
     "Category": "Race",
     "Summary_JP": "妖獣型ポータブルヒューマノイド「ナンバーテールズ」のクラスに関する基本資料。",
@@ -39,13 +39,20 @@
   },
   {
     "Title_JP": "ヒューマノイド原則法",
-    "Category": "Abnormality",
+    "Title_EN": "Humanoid Basis Principles Act",
+    "Category": "Society",
     "Summary_JP": "創作世界における架空の法律「ヒューマノイド原則法」に関する基本資料。",
     "BodyBlocks": [
       "質問来てたわ － ヒューマノイド原則法をヒューマノイドが違反したらどうなりますか？ － 結論、人間でいう懲役刑と死刑のどちらかが執行される。",
-      "まず、ヒューマノイド原則法は概略すると\n- 第零条：全人類・全ヒューマノイドの危機から守る\n- 第一条：互いに危害を加えない\n- 第二条：ヒューマノイドは人類の命令を遵守する\n- 第三条：ヒューマノイドは危険から自衛する\nという1つと3つからなる法令。\nこのうち、最初の第零条に違反したヒューマノイドは、確実に解体処分－－謂わば人間でいう死刑を言い渡されるの。\n他の3つに違反したときは、だいたい稼働謹慎(通称：謹慎処分)という懲役に近い刑罰が下されるわ。",
+      "まず、ヒューマノイド原則法は概略すると\n- 第零条：「全人類・全ヒューマノイドの危機から守る」\n- 第一条：「互いに危害を加えない」\n- 第二条：「ヒューマノイドは人類の命令を遵守する」\n- 第三条：「ヒューマノイドは危険から自衛する」\nという1つと3つからなる法令。\nこのうち、最初の第零条に違反したヒューマノイドは、確実に解体処分－－謂わば人間でいう死刑を言い渡されるの。\n他の3つに違反したときは、だいたい稼働謹慎(通称：謹慎処分)という懲役に近い刑罰が下されるわ。",
       "でも、そのヒューマノイドの使用者や開発者がヒューマノイドへこの法律を犯させようと意図的に仕組んだと裁判で疑われた場合は、例外として人類の刑法に則って使用者または開発者が刑罰を受けることになるの。\n人類のためにご奉仕してるヒューマノイドだから、法令遵守で大切に使役してあげてね",
       "（※百花繚乱研究所から投稿された、零零(カズナイレイ)によるあるショート動画より）"
+    ],
+    "BodyBlocks_EN": [
+      "A question was asked: \"What happens if a humanoid violates the Humanoid Basis Principles Act?\" The answer is: that either imprisonment or the death penalty will be executed, similar to what would happen to a human.",
+      "The Humanoid Basis Principles Act can be summarized as follows:\n- 0th Article: 'Protect all humanity and all humanoids from any danger'\n- 1st Article: 'Do never harm each other'\n- 2nd Article: 'Humanoids must obey any human orders'\n- 3rd Article: 'Humanoids must protect themselves from any danger'\nThis law consists of one article and three clauses. A humanoid that violates 0th Article will be dismantled — in other words, sentenced to death, similar to a human. If a humanoid violates any of the other three clauses, ze will generally receive a punishment similar to imprisonment, known as 'suspension of operation' (commonly referred to as 'suspension').",
+      "However, if ze is suspected in court that zir user or developer of the humanoid intentionally caused the humanoid to violate this law, as an exception, the user or developer will be punished according to human criminal law. Since humanoids serve humanity, please use them with care and ensure they comply with the law.",
+      "(* From a short streaming video submitted by the 100 Beauties Lab., feat: Zera Norumber.)"
     ],
     "RelatedTerms": [""],
     "Visibility": null

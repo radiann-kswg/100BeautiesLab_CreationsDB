@@ -186,12 +186,14 @@
     "BodyBlocks_JP": [
       "第８界の北西部にある「英州諸国」に位置するエリア。",
       "かつては軍事参入により医療技術や暗号化の開発に秀でていた。",
-      "九蓮国と類似する技術開発が多数あり、過去の社会的な政権の事情で九蓮国や神皇国との関係も深い。"
+      "九蓮国と類似する技術開発が多数あり、過去の社会的な政権の事情で九蓮国や神皇国との関係も深い。",
+      "特に、『第7の世界破壊』の渦中で培った軍事技術の応用でさまざまな技術研究を行っている機関「シンフォニー.XVI(ゼクズィン)」は、近年も未知の技術について研究展開が行われており、九蓮国や神皇国の研究機関とも連携している。"
     ],
     "BodyBlocks_EN": [
       "This area is located in the northwest part of '#REGION.8', in the 'Internation States'.",
       " It was once prominent in medical technology and cryptography development due to military involvement.",
-      "There are many technological developments similar to those in LotusNinea, and it has deep connections with LotusNinea and SaintPapis due to past political circumstances."
+      "There are many technological developments similar to those in LotusNinea, and it has deep connections with LotusNinea and SaintPapis due to past political circumstances.",
+      "In particular, the organization 'Symphony.XVI(Sechzehn)', which applies military technology cultivated during the 'WDP.VII', continues to conduct research on unknown technologies in recent years, collaborating with research institutions in LotusNinea and SaintPapis."
     ],
     "Aliases": [],
     "Links": []
