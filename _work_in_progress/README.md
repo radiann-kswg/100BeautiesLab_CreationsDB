@@ -66,6 +66,7 @@
 
 - 2026-07-01_progress_aihints-remaining-tasks-closure.md（AIHints 残タスク2件の棚卸し。`docs/ai-hints-usage.md` に `--apply-identitymotif` 節を追加し、dry-run で `identitymotif-cleared=0` を確認。旧 6/9 ログとREADMEの残タスク表記を更新）
 - 2026-07-01_progress_addon-ai-tag-merge-conflict-and-log-cleanup.md（`develop`→`addon-ai-tag` 取り込み時の `_work_in_progress/README.md` 競合を解消し、Claude/Copilot の 7/1 ログを反映した進捗棚卸しを実施。⚠️ マージ commit/push は User 手動）
+- 2026-07-01_progress_appearance-detail-ear-en.md（AppearanceDetail 耳まわり `value_EN`/`about_EN` 未入力 25 件補完完了。vitest 18ファイル/110テスト pass。⚠️ 訳文の最終確認・コミットは User 手動）
 - 2026-07-01_progress_readme-local-agents-rule.md（README.LOCAL.md ローカル作業メモ運用ルール追加。`CLAUDE.md` / `.github/copilot-instructions.md` に運用小節追加・`CHANGELOG.md` 追記完了。⚠️ commit/push は User 手動）
 - 2026-07-01_progress_conversationpattern-refine.md（ナンバーテールズ ConversationPattern 推敲完了: Num8〜99+特殊枠90キャラ。136 pass ✅。⚠️ DialogueExamples 入力・コミットは User 手動予定）
 - 2026-07-01_progress_copilot-localization-en.md（Copilot 英訳補助環境整備: `localization-en.instructions.md` + 早見表 `docs/localization-glossary-quickref.md`（164件）+ ジェネレータ `deepl:build-quickref` 実装完了。⚠️ `npm test`（Windows）・コミット/push は User 手動）

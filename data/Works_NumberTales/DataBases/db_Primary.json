@@ -265,7 +265,8 @@
           {
             "AttrLabel": "#DesignAttr_Ear",
             "vdict_EarType": "#EarType_Fox",
-            "about_JP": "左耳が垂れている"
+            "about_JP": "左耳が垂れている",
+            "about_EN": "left ear droops"
           }
         ],
         "img_PNGName": null,
@@ -943,7 +944,8 @@
           {
             "AttrLabel": "#DesignAttr_Ear",
             "vdict_EarType": "#EarType_Fox",
-            "about_JP": "右耳が垂れている"
+            "about_JP": "右耳が垂れている",
+            "about_EN": "right ear droops"
           }
         ],
         "img_PNGName": null,
@@ -2029,7 +2031,8 @@
           {
             "AttrLabel": "#DesignAttr_Ear",
             "vdict_EarType": "#EarType_Fox",
-            "about_JP": "垂れ耳"
+            "about_JP": "垂れ耳",
+            "about_EN": "drooping ears"
           }
         ],
         "img_PNGName": null,
@@ -4377,7 +4380,8 @@
           {
             "AttrLabel": "#DesignAttr_Ear",
             "vdict_EarType": "#EarType_Fox",
-            "about_JP": "フードに隠れている"
+            "about_JP": "フードに隠れている",
+            "about_EN": "hidden under the hood"
           }
         ],
         "img_PNGName": null,
@@ -8963,7 +8967,8 @@
           {
             "AttrLabel": "#DesignAttr_Ear",
             "vdict_EarType": "#EarType_Fox",
-            "about_JP": "帽子を被っているときは隠れている"
+            "about_JP": "帽子を被っているときは隠れている",
+            "about_EN": "hidden when wearing the hat"
           }
         ],
         "img_PNGName": null,
@@ -12268,7 +12273,7 @@
         "Laterality": "#Lat_Both",
         "DesignElement": "#Element_CostumeItem",
         "Attrs": [
-          { "AttrLabel": "#DesignAttr_Overview", "value_JP": "イヤリング" }
+          { "AttrLabel": "#DesignAttr_Overview", "value_JP": "イヤリング", "value_EN": "earrings" }
         ],
         "img_PNGName": null,
         "Note_JP": null,
@@ -13467,7 +13472,8 @@
           {
             "AttrLabel": "#DesignAttr_Ear",
             "vdict_EarType": "#EarType_Fox",
-            "about_JP": "先がアクセントカラー"
+            "about_JP": "先がアクセントカラー",
+            "about_EN": "with accent color tips"
           }
         ],
         "img_PNGName": null,
@@ -14702,7 +14708,8 @@
           {
             "AttrLabel": "#DesignAttr_Ear",
             "vdict_EarType": "#EarType_Fox",
-            "about_JP": "先が白のアクセントカラー"
+            "about_JP": "先が白のアクセントカラー",
+            "about_EN": "with white accent color tips"
           }
         ],
         "img_PNGName": null,
@@ -20724,7 +20731,8 @@
           {
             "AttrLabel": "#DesignAttr_Ear",
             "vdict_EarType": "#EarType_Fox",
-            "about_JP": "大きくふわふわした広がり"
+            "about_JP": "大きくふわふわした広がり",
+            "about_EN": "large, fluffy and spread out"
           }
         ],
         "img_PNGName": null,
@@ -23842,7 +23850,8 @@
           {
             "AttrLabel": "#DesignAttr_Ear",
             "vdict_EarType": "#EarType_Fox",
-            "about_JP": "先がアクセントカラー"
+            "about_JP": "先がアクセントカラー",
+            "about_EN": "with accent color tips"
           }
         ],
         "img_PNGName": null,
@@ -30415,7 +30424,8 @@
           {
             "AttrLabel": "#DesignAttr_Ear",
             "vdict_EarType": "#EarType_Fox",
-            "about_JP": "先が濃い緑色"
+            "about_JP": "先が濃い緑色",
+            "about_EN": "with dark green tips"
           }
         ],
         "img_PNGName": null,
@@ -30999,7 +31009,8 @@
           {
             "AttrLabel": "#DesignAttr_Ear",
             "vdict_EarType": "#EarType_Fox",
-            "about_JP": "先が薄色"
+            "about_JP": "先が薄色",
+            "about_EN": "with light-colored tips"
           }
         ],
         "img_PNGName": null,
@@ -34334,7 +34345,8 @@
           {
             "AttrLabel": "#DesignAttr_Ear",
             "vdict_EarType": "#EarType_Fox",
-            "about_JP": "先が濃いピンクのアクセントカラー"
+            "about_JP": "先が濃いピンクのアクセントカラー",
+            "about_EN": "with dark pink accent color tips"
           }
         ],
         "img_PNGName": null,
@@ -35949,7 +35961,8 @@
           {
             "AttrLabel": "#DesignAttr_Ear",
             "vdict_EarType": "#EarType_Fox",
-            "about_JP": "先が薄色"
+            "about_JP": "先が薄色",
+            "about_EN": "with light-colored tips"
           }
         ],
         "img_PNGName": null,
@@ -38444,7 +38457,7 @@
         "Laterality": "#Lat_Both",
         "DesignElement": "#Element_CostumeItem",
         "Attrs": [
-          { "AttrLabel": "#DesignAttr_Overview", "value_JP": "イヤリング" }
+          { "AttrLabel": "#DesignAttr_Overview", "value_JP": "イヤリング", "value_EN": "earrings" }
         ],
         "img_PNGName": null,
         "Note_JP": null,
@@ -39914,7 +39927,8 @@
           {
             "AttrLabel": "#DesignAttr_Ear",
             "vdict_EarType": "#EarType_Fox",
-            "about_JP": "ダイヤマークの薄いアクセント付き"
+            "about_JP": "ダイヤマークの薄いアクセント付き",
+            "about_EN": "with a subtle diamond-mark accent"
           }
         ],
         "img_PNGName": null,
@@ -42829,7 +42843,8 @@
           {
             "AttrLabel": "#DesignAttr_Ear",
             "vdict_EarType": "#EarType_Fox",
-            "about_JP": "先がアクセントカラー"
+            "about_JP": "先がアクセントカラー",
+            "about_EN": "with accent color tips"
           }
         ],
         "img_PNGName": null,
@@ -43347,7 +43362,8 @@
           {
             "AttrLabel": "#DesignAttr_Ear",
             "vdict_EarType": "#EarType_Fox",
-            "about_JP": "耳マーキングと先で多色になっている"
+            "about_JP": "耳マーキングと先で多色になっている",
+            "about_EN": "multicolored with ear markings and tip color"
           }
         ],
         "img_PNGName": null,
@@ -44723,7 +44739,8 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Overview",
-            "value_JP": "左耳のアクセサリー"
+            "value_JP": "左耳のアクセサリー",
+            "value_EN": "left ear accessory"
           }
         ],
         "img_PNGName": null,
@@ -45868,7 +45885,8 @@
           {
             "AttrLabel": "#DesignAttr_Ear",
             "vdict_EarType": "#EarType_Fox",
-            "about_JP": "右耳はバンダナで隠れている"
+            "about_JP": "右耳はバンダナで隠れている",
+            "about_EN": "right ear is hidden by the bandana"
           }
         ],
         "img_PNGName": null,
@@ -46415,7 +46433,8 @@
           {
             "AttrLabel": "#DesignAttr_Ear",
             "vdict_EarType": "#EarType_Fox",
-            "about_JP": "耳マーキングと先で多色になっている"
+            "about_JP": "耳マーキングと先で多色になっている",
+            "about_EN": "multicolored with ear markings and tip color"
           }
         ],
         "img_PNGName": null,
@@ -49263,7 +49282,8 @@
           {
             "AttrLabel": "#DesignAttr_Ear",
             "vdict_EarType": "#EarType_Fox",
-            "about_JP": "垂れ耳"
+            "about_JP": "垂れ耳",
+            "about_EN": "drooping ears"
           }
         ],
         "img_PNGName": null,
@@ -49893,7 +49913,8 @@
           {
             "AttrLabel": "#DesignAttr_Ear",
             "vdict_EarType": "#EarType_Fox",
-            "about_JP": "少し欠けている"
+            "about_JP": "少し欠けている",
+            "about_EN": "slightly chipped"
           }
         ],
         "img_PNGName": null,
@@ -50563,7 +50584,8 @@
           {
             "AttrLabel": "#DesignAttr_Ear",
             "vdict_EarType": "#EarType_Fox",
-            "about_JP": "垂れ耳"
+            "about_JP": "垂れ耳",
+            "about_EN": "drooping ears"
           }
         ],
         "img_PNGName": null,
@@ -51650,7 +51672,8 @@
           {
             "AttrLabel": "#DesignAttr_Ear",
             "vdict_EarType": "#EarType_Fox",
-            "about_JP": "先が紅色のアクセントカラー"
+            "about_JP": "先が紅色のアクセントカラー",
+            "about_EN": "with crimson accent color tips"
           }
         ],
         "img_PNGName": null,
