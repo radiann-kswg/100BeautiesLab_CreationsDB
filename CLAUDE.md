@@ -474,6 +474,7 @@ UI → Service Worker (`/pages/v1/`) → 静的 JSON 読み込み + `_DBLink`/`_
 | wrapper/section renderer               | `docs/wrapper-summary-registry.md`                                    |
 | 横断運用ルール                         | `docs/implementation-playbook.md`                                     |
 | pkg/ クライアントライブラリ            | `docs/pkg-client-libraries.md`                                        |
+| 英訳(_EN)補助・用語集早見表             | `.github/instructions/localization-en.instructions.md` / `docs/localization-glossary-quickref.md` / `docs/deepl-localization.md` |
 | Cloudflare Workers セットアップ        | `pkg/cloudflare/README.md`                                            |
 | Google Cloud 設計（ADR-0002）          | `_work_in_progress/2026-06-21_progress_cloudflare-api-adr2-gcloud.md` |
 

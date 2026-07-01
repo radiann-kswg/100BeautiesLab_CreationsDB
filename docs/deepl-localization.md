@@ -122,6 +122,8 @@ cp .env.example .env
 | 和文記法規則 | [`jp-notation-rules.md`](jp-notation-rules.md) |
 | 翻訳辞書ソース | `data/Localization/trans_*.json` / `data/References/ref_*.json` / `data/Dictionaries/dict_*.json` |
 | スクリプト | `tools/deepl/`（`build-glossary-source` / `sync-glossary` / `evaluate-translations` / `deepl-client`） |
+| Copilot 英訳補助指示 | [`.github/instructions/localization-en.instructions.md`](../.github/instructions/localization-en.instructions.md) |
+| 固有名詞 早見表（生成物） | [`localization-glossary-quickref.md`](localization-glossary-quickref.md)（`npm run deepl:build-quickref`） |
 | 作業ログ | `_work_in_progress/2026-06-28_progress_deepl-localization.md` |
 
 ---
