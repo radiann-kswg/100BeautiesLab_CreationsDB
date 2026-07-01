@@ -31,6 +31,7 @@
 - 2026-06-24_progress_github-triage.md（GitHub 未解決通知トリアージ: CodeQL alert PR #9・vitest Dependabot PR・cf-api-sync CI 失敗。⚠️ 全件 User 判断・手動操作待ち）
 - 2026-06-25_progress_github-triage.md（GitHub 未解決問題トリアージ 2 回目。⚠️ PR #9・vitest Dependabot PR・cf-api-sync 確認は全件 User 判断待ち）
 - 2026-07-01_progress_github-triage.md（GitHub トリアージ提案 3 回目。06-30 `develop` 失敗 run を反映。`cf-api-sync` Worker デプロイ失敗はトークンスコープ不足/route 競合の切り分け提案、CodeQL alert #5（+ #6/#7 可能性）を継続監視。⚠️ 全件 User 判断待ち・提案のみ）
+- 2026-07-01_progress_addon-ai-tag-revert-cascade-recovery.md（`addon-ai-tag` マージ事故〈逆マージ+revert 巻き込みで AIHints 一式が消える寸前〉の調査・復旧完了。全ファイル ours/theirs 判定済み・`npm test` 147 pass。⚠️ マージコミット作成・push は User 判断待ち）
 
 ### データ / ローカライズ（User 手動作業残り）
 
