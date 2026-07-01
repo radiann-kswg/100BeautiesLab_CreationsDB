@@ -1,13 +1,7 @@
-# CreationsDB — Cloudflare Workers API（addon-ai-tag ブランチ）
+# CreationsDB — Cloudflare Workers API
 
 100BeautiesLab_CreationsDB の**サーバーサイド API**。
 Cloudflare Workers 上で動作し、データを **R2（静的 JSON ミラー）+ D1（FTS5 検索インデックス）** から取得します。Service Worker が使えないクライアント（curl / Python requests / モバイルアプリ等）からも直接アクセスできます。
-
-> **ブランチ別 Worker について**:
-> - `develop` ブランチ → `creationsdb-api`（閲覧者向け公開 API: `/api/v1/*`）
-> - `addon-ai-tag` ブランチ → `creationsdb-api-ai`（サークル関係者向け AI API: `/api/ai/*`）
->
-> このドキュメントは `addon-ai-tag` ブランチ（`creationsdb-api-ai`）の手順を記載しています。
 
 ---
 
@@ -65,18 +59,7 @@ node pkg/cloudflare/scripts/migrate.mjs
 #   --d1-only   D1 投入のみ
 ```
 
-### 4. AI_ACCESS_TOKEN シークレット設定（初回のみ）
-
-AIHints エンドポイントの Bearer 認証に使用するトークンを Cloudflare Secret として登録する。
-
-```sh
-npx wrangler secret put AI_ACCESS_TOKEN --name creationsdb-api-ai
-# プロンプトにトークン文字列を入力して Enter
-```
-
-設定後は再デプロイ不要（Secrets は即時反映される）。
-
-### 5. Worker デプロイ
+### 4. Worker デプロイ
 
 ```sh
 # リポジトリルートで実行（--config でパス指定）
@@ -87,7 +70,7 @@ npx wrangler deploy --config pkg/cloudflare/wrangler.toml
 
 > **wrangler.toml のルーティング配置について**: `routes = [...]` は TOML の root-level キーとして、すべての `[section]` / `[[array]]` ヘッダーより前に配置すること。`[vars]` や `[[d1_databases]]` の後ろに書くと、そのスコープ内の環境変数・フィールドとして誤解釈される。
 
-### 6. ローカル開発
+### 5. ローカル開発
 
 ```sh
 cd pkg/cloudflare
@@ -105,28 +88,23 @@ npx wrangler dev
 | バインディング | 種別 | 名前              | 説明                              |
 | -------------- | ---- | ----------------- | --------------------------------- |
 | `BUCKET`       | R2   | `creationsdb-data` | `data/**` の JSON 静的ミラー     |
-| `DB`           | D1   | `creationsdb-d1`  | メタ・FTS5 検索インデックス・AIHints テーブル |
-| `AI_ACCESS_TOKEN` | Secret | — | AIHints エンドポイントの Bearer 認証トークン |
+| `DB`           | D1   | `creationsdb-d1`  | メタ・FTS5 検索インデックス        |
 
 ---
 
 ## エンドポイント一覧
 
-ベース URL: `https://database.numbertales-radiann.net/api/ai/`
-
-| メソッド | パス                                      | 認証 | データソース | 説明                                         |
-| -------- | ----------------------------------------- | ---- | ------------ | -------------------------------------------- |
-| `GET`    | `/api/ai/meta`                            | —    | R2           | グローバルメタデータ                         |
-| `GET`    | `/api/ai/works`                           | —    | D1           | 作品一覧                                     |
-| `GET`    | `/api/ai/:work/meta`                      | —    | R2           | 作品別メタデータ                             |
-| `GET`    | `/api/ai/:work/dbs`                       | —    | D1           | DB 一覧                                      |
-| `GET`    | `/api/ai/:work/:db/records`               | —    | D1           | レコード一覧（_Commons 補完・非公開除外）    |
-| `GET`    | `/api/ai/:work/:db/records/:idx`          | —    | D1           | インデックス値でレコード 1 件取得            |
-| `GET`    | `/api/ai/:work/:db/records/:idx?idxKey=X` | —    | D1           | インデックスキー指定（ドット記法可）         |
-| `GET`    | `/api/ai/:work/:db/search?q=キーワード`   | —    | D1 FTS5      | DB 内全文検索                                |
-| `GET`    | `/api/ai/:work/search?q=キーワード`       | —    | D1 FTS5      | 作品横断検索                                 |
-| `GET`    | `/api/ai/:work/:db/aihints`               | Bearer | D1 `aihints` | AIHints 一覧                              |
-| `GET`    | `/api/ai/:work/:db/aihints/:idx`          | Bearer | D1 `aihints` | キャラ AIHints 1 件（`?form=<f>` 形態絞り込み） |
+| メソッド | パス                                      | データソース | 説明                                         |
+| -------- | ----------------------------------------- | ------------ | -------------------------------------------- |
+| `GET`    | `/api/v1/meta`                            | R2           | グローバルメタデータ                         |
+| `GET`    | `/api/v1/works`                           | D1           | 作品一覧                                     |
+| `GET`    | `/api/v1/:work/meta`                      | R2           | 作品別メタデータ                             |
+| `GET`    | `/api/v1/:work/dbs`                       | D1           | DB 一覧                                      |
+| `GET`    | `/api/v1/:work/:db/records`               | D1           | レコード一覧（_Commons 補完・非公開除外）    |
+| `GET`    | `/api/v1/:work/:db/records/:idx`          | D1           | インデックス値でレコード 1 件取得            |
+| `GET`    | `/api/v1/:work/:db/records/:idx?idxKey=X` | D1           | インデックスキー指定（ドット記法可）         |
+| `GET`    | `/api/v1/:work/:db/search?q=キーワード`   | D1 FTS5      | DB 内全文検索                                |
+| `GET`    | `/api/v1/:work/search?q=キーワード`       | D1 FTS5      | 作品横断検索                                 |
 
 ---
 
@@ -134,30 +112,22 @@ npx wrangler dev
 
 ```sh
 # 作品一覧
-curl https://database.numbertales-radiann.net/api/ai/works
+curl https://database.numbertales-radiann.net/api/v1/works
 
 # NumberTales Primary の全レコード
-curl https://database.numbertales-radiann.net/api/ai/NumberTales/Primary/records
+curl https://database.numbertales-radiann.net/api/v1/NumberTales/Primary/records
 
 # インデックス検索（Num = "1"）
-curl "https://database.numbertales-radiann.net/api/ai/NumberTales/Primary/records/1"
+curl "https://database.numbertales-radiann.net/api/v1/NumberTales/Primary/records/1"
 
 # ドット記法インデックス（Card.Num = "0"）
-curl "https://database.numbertales-radiann.net/api/ai/FLInvestigator78/Primary/records/0?idxKey=Card.Num"
+curl "https://database.numbertales-radiann.net/api/v1/FLInvestigator78/Primary/records/0?idxKey=Card.Num"
 
 # DB 内全文検索
-curl "https://database.numbertales-radiann.net/api/ai/NumberTales/Primary/search?q=たぬき"
+curl "https://database.numbertales-radiann.net/api/v1/NumberTales/Primary/search?q=たぬき"
 
 # 作品横断検索
-curl "https://database.numbertales-radiann.net/api/ai/NumberTales/search?q=狼"
-
-# AIHints 一覧（Bearer 認証必須）
-curl -H "Authorization: Bearer <token>" \
-  https://database.numbertales-radiann.net/api/ai/NumberTales/Primary/aihints
-
-# AIHints 1 件取得・形態絞り込み
-curl -H "Authorization: Bearer <token>" \
-  "https://database.numbertales-radiann.net/api/ai/NumberTales/Primary/aihints/1?form=humanoid"
+curl "https://database.numbertales-radiann.net/api/v1/NumberTales/search?q=狼"
 ```
 
 ---
@@ -167,9 +137,9 @@ curl -H "Authorization: Bearer <token>" \
 以下はすべて同じ作品・DB を指します：
 
 ```
-/api/ai/NumberTales/Primary/records
-/api/ai/Works_NumberTales/Primary/records
-/api/ai/#Works_NumberTales/Primary/records   ← URL エンコード推奨: %23Works_NumberTales
+/api/v1/NumberTales/Primary/records
+/api/v1/Works_NumberTales/Primary/records
+/api/v1/#Works_NumberTales/Primary/records   ← URL エンコード推奨: %23Works_NumberTales
 ```
 
 ---
@@ -193,14 +163,12 @@ npx wrangler deploy
 
 ```
 pkg/cloudflare/
-├── worker.js                    # Workers エントリーポイント（/api/ai/* ルーティング）
-├── wrangler.toml                # デプロイ設定（creationsdb-api-ai / /api/ai/* ルート）
+├── worker.js         # Workers エントリーポイント
+├── wrangler.toml     # デプロイ設定（バインディング・ルート）
 ├── schema/
-│   ├── d1-init.sql              # D1 テーブル定義・FTS5・トリガー
-│   └── d1-aihints.sql           # AIHints テーブル定義
+│   └── d1-init.sql   # D1 テーブル定義・FTS5・トリガー
 └── scripts/
-    ├── migrate.mjs              # R2/D1 マイグレーションスクリプト
-    └── migrate-aihints.mjs      # AIHints D1 マイグレーションスクリプト
+    └── migrate.mjs   # R2/D1 マイグレーションスクリプト
 ```
 
 ---
@@ -233,4 +201,3 @@ pkg/cloudflare/
 - `Works_Hidden: true` / `DB_Hidden: true` は 404 を返す（D1 クエリで判定）
 - `isPrivate: true` のレコードは D1 クエリレベルで除外
 - CORS: `Access-Control-Allow-Origin: *`（読み取り専用 API のため）
-- **AIHints 認証**: `/api/ai/:work/:db/aihints` は `Authorization: Bearer <AI_ACCESS_TOKEN>` が必須。トークン不一致は 401 + `WWW-Authenticate` ヘッダーを返す。`AI_ACCESS_TOKEN` が未設定の場合は `wrangler dev` 向けにバイパスする

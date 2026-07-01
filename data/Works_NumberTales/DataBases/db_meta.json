@@ -28,8 +28,7 @@
         "Progress": "notProceeded",
         "Belonging": ["百花繚乱研究所"],
         "RaceType": "PortableHumanoid(TaleBeastType)"
-      },
-      "AI_Optout": false
+      }
     },
     "#DB_SemiPrimary": {
       "DB_Label_JP": "準一次創作",
@@ -55,8 +54,7 @@
         "Progress": "notProceeded",
         "Belonging": ["百花繚乱研究所"],
         "RaceType": "PortableHumanoid(TaleBeastType)"
-      },
-      "AI_Optout": true
+      }
     },
     "#DB_SelfSecondary": {
       "DB_Label_JP": "セルフ二次創作",
@@ -73,8 +71,7 @@
             "Belonging": ["百花繚乱研究所"],
             "RaceType": "PortableHumanoid(TaleBeastType)",
             "GenderType": "Neutral"
-          },
-          "AI_Optout": true
+          }
         },
         {
           "sec_Category": null,
@@ -85,8 +82,7 @@
             "Belonging": ["百花繚乱研究所"],
             "RaceType": "PortableHumanoid(TaleBeastType)",
             "GenderType": "Neutral"
-          },
-          "AI_Optout": true
+          }
         }
       ]
     },
@@ -114,8 +110,7 @@
             "Progress": "accepted",
             "Belonging": ["百花繚乱研究所", "エイゼルベットの観測世界"],
             "RaceType": "PortableHumanoid(TaleBeastType,SoftwareBody)"
-          },
-          "AI_Optout": true
+          }
         },
         {
           "sec_Category": "セルフ三次創作",
@@ -131,8 +126,7 @@
             "StoryEraAbout_JP": "第9創世紀5年(第8創世紀8年,西暦2052年相当)周辺",
             "StoryEraAbout_EN": "in around WDCE.IX.5(Equivalent to in around: WDCE.VIII.8, DC.2052)"
           },
-          "_Commons": { "Progress": "notProceeded", "isPrivate": true },
-          "AI_Optout": true
+          "_Commons": { "Progress": "notProceeded", "isPrivate": true }
         },
         {
           "sec_Category": "共同二次創作",
@@ -173,8 +167,7 @@
                 "about_EN": "The actual species may differ slightly"
               }
             ]
-          },
-          "AI_Optout": true
+          }
         },
         {
           "sec_Category": null,
@@ -185,8 +178,7 @@
             "Belonging": [],
             "GenderType": "Neutral"
           },
-          "isPrivate": true,
-          "AI_Optout": true
+          "isPrivate": true
         }
       ],
       "#DB_UnprocessedSecondary": {
@@ -208,8 +200,7 @@
             "isPrivate": true
           }
         ],
-        "DB_Hidden": true,
-        "AI_Optout": true
+        "DB_Hidden": true
       }
     },
     "#Ref_Reference": {

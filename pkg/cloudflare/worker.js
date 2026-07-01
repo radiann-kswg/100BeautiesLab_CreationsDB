@@ -6,23 +6,16 @@
  *   データは R2 バケット（静的 JSON ミラー）と D1 データベース
  *   （正規化メタ・FTS5 検索インデックス）から取得する。
  *
- *   エンドポイント一覧 (addon-ai-tag ブランチ: /api/ai/ プレフィックス):
- *     GET /api/ai/meta                              — グローバルメタ (R2)
- *     GET /api/ai/works                             — 作品一覧 (D1)
- *     GET /api/ai/:work/meta                        — 作品別メタ (R2)
- *     GET /api/ai/:work/dbs                         — DB 一覧 (D1)
- *     GET /api/ai/:work/:db/records                 — レコード一覧 (D1)
- *     GET /api/ai/:work/:db/records/:idx            — レコード 1 件 (D1)
- *     GET /api/ai/:work/:db/records/:idx?idxKey=X   — インデックスキー指定 (D1)
- *     GET /api/ai/:work/:db/search?q=キーワード      — DB 内全文検索 (D1 FTS5)
- *     GET /api/ai/:work/search?q=キーワード          — 作品横断検索 (D1 FTS5)
- *     GET /api/ai/:work/:db/aihints                 — AIHints 一覧 (D1 aihints テーブル) ※要 Bearer 認証
- *     GET /api/ai/:work/:db/aihints/:idx            — キャラ AIHints 1 件 (D1) ※要 Bearer 認証
- *     GET /api/ai/:work/:db/aihints/:idx?form=<f>   — 特定形態のみ抽出 ※要 Bearer 認証
- *
- *   認証:
- *     aihints エンドポイントは Authorization: Bearer <AI_ACCESS_TOKEN> が必要。
- *     AI_ACCESS_TOKEN は Cloudflare Secret で設定する。未設定時は wrangler dev 向けにバイパス。
+ *   エンドポイント一覧:
+ *     GET /api/v1/meta                              — グローバルメタ (R2)
+ *     GET /api/v1/works                             — 作品一覧 (D1)
+ *     GET /api/v1/:work/meta                        — 作品別メタ (R2)
+ *     GET /api/v1/:work/dbs                         — DB 一覧 (D1)
+ *     GET /api/v1/:work/:db/records                 — レコード一覧 (D1)
+ *     GET /api/v1/:work/:db/records/:idx            — レコード 1 件 (D1)
+ *     GET /api/v1/:work/:db/records/:idx?idxKey=X   — インデックスキー指定 (D1)
+ *     GET /api/v1/:work/:db/search?q=キーワード      — DB 内全文検索 (D1 FTS5)
+ *     GET /api/v1/:work/search?q=キーワード          — 作品横断検索 (D1 FTS5)
  *
  *   バインディング（wrangler.toml）:
  *     BUCKET  — R2 バケット (creationsdb-data): data/** の JSON 静的ミラー
@@ -380,62 +373,6 @@ async function searchAllRecordsInD1(env, workKey, query) {
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
-// AIHints D1 クエリ
-// ─────────────────────────────────────────────────────────────────────────────
-
-/**
- * DB 内の全 AIHints を取得する。
- * @param {object} env
- * @param {string} workKey
- * @param {string} dbName
- * @returns {Promise<Array<{idx_value: string, forms: string|null, data: object}>>}
- */
-async function getAihintsFromD1(env, workKey, dbName) {
-  const rows = await d1Query(
-    env,
-    "SELECT idx_value, forms, data_json FROM aihints WHERE work_key = ? AND db_name = ? ORDER BY idx_value",
-    [workKey, dbName]
-  );
-  return rows.map((r) => ({
-    idx_value: r.idx_value,
-    forms: r.forms ? r.forms.split(",") : [],
-    data: JSON.parse(r.data_json),
-  }));
-}
-
-/**
- * 特定キャラクターの AIHints を取得する。
- * @param {object} env
- * @param {string} workKey
- * @param {string} dbName
- * @param {string} idxValue
- * @param {string} [form] - 特定形態のみ返す場合に指定
- * @returns {Promise<object|null>}
- */
-async function getAihintFromD1(env, workKey, dbName, idxValue, form = null) {
-  const row = await d1First(
-    env,
-    "SELECT idx_value, forms, data_json FROM aihints WHERE work_key = ? AND db_name = ? AND idx_value = ?",
-    [workKey, dbName, idxValue]
-  );
-  if (!row) return null;
-  const data = JSON.parse(row.data_json);
-  if (form && data.forms) {
-    return {
-      idx_value: row.idx_value,
-      forms: row.forms ? row.forms.split(",") : [],
-      common: data.common ?? null,
-      form: data.forms[form] ?? null,
-    };
-  }
-  return {
-    idx_value: row.idx_value,
-    forms: row.forms ? row.forms.split(",") : [],
-    data,
-  };
-}
-
-// ─────────────────────────────────────────────────────────────────────────────
 // _Commons 適用
 // ─────────────────────────────────────────────────────────────────────────────
 
@@ -565,36 +502,8 @@ function jsonResponse(data, status = 200) {
  * @param {string} message
  * @returns {Response}
  */
-/**
- * @param {number} status
- * @param {string} message
- * @param {Record<string,string>} [extraHeaders]
- * @returns {Response}
- */
-function errorResponse(status, message, extraHeaders = {}) {
-  return new Response(JSON.stringify({ error: message, status }), {
-    status,
-    headers: {
-      "Content-Type": "application/json; charset=utf-8",
-      "Access-Control-Allow-Origin": "*",
-      ...extraHeaders,
-    },
-  });
-}
-
-/**
- * AIHints エンドポイントの Bearer トークン認証。
- * AI_ACCESS_TOKEN が未設定の場合は wrangler dev 向けにバイパスする。
- * @param {Request} request
- * @param {object} env
- * @returns {Response|null} 認証失敗時は 401 Response、成功時は null
- */
-function checkAiAuth(request, env) {
-  const token = env.AI_ACCESS_TOKEN;
-  if (!token) return null;
-  const auth = request.headers.get("Authorization") ?? "";
-  if (auth === `Bearer ${token}`) return null;
-  return errorResponse(401, "Unauthorized", { "WWW-Authenticate": 'Bearer realm="AIHints API"' });
+function errorResponse(status, message) {
+  return jsonResponse({ error: message, status }, status);
 }
 
 /**
@@ -1099,8 +1008,8 @@ async function handleRequest(request, env) {
     }
   }
 
-  // パス解析: /api/ai/... (addon-ai-tag ブランチ)
-  const match = pathname.match(/^\/api\/ai(\/.*)?$/);
+  // パス解析: /api/v1/...
+  const match = pathname.match(/^\/api\/v1(\/.*)?$/);
   if (!match) return errorResponse(404, "Not found");
   const sub      = (match[1] || "/").replace(/\/$/, "") || "/";
   const segments = sub.split("/").filter(Boolean);
@@ -1223,25 +1132,6 @@ async function handleRequest(request, env) {
           if (!q) return jsonResponse([]);
           const hits = await searchRecordsInD1(env, workKey, capitalize(dbNorm), q);
           return jsonResponse(hits);
-        }
-
-        // ── GET /api/ai/:work/:db/aihints ─────────────────────────────────
-        if (segments[2] === "aihints" && segments.length === 3) {
-          const authErr = checkAiAuth(request, env);
-          if (authErr) return authErr;
-          const hints = await getAihintsFromD1(env, workKey, capitalize(dbNorm));
-          return jsonResponse(hints);
-        }
-
-        // ── GET /api/ai/:work/:db/aihints/:idx?form=<form> ────────────────
-        if (segments[2] === "aihints" && segments.length === 4) {
-          const authErr = checkAiAuth(request, env);
-          if (authErr) return authErr;
-          const idxValue = decodeURIComponent(segments[3]);
-          const form     = url.searchParams.get("form") ?? null;
-          const hint     = await getAihintFromD1(env, workKey, capitalize(dbNorm), idxValue, form);
-          if (!hint) return errorResponse(404, "AIHints not found");
-          return jsonResponse(hint);
         }
       }
     }

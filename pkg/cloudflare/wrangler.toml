@@ -1,4 +1,4 @@
-name = "creationsdb-api-ai"
+name = "creationsdb-api"
 main = "worker.js"
 compatibility_date = "2024-12-01"
 workers_dev = false
@@ -10,9 +10,12 @@ workers_dev = false
 # ─────────────────────────────────────────────────────────────────────────────
 
 routes = [
-  { pattern = "database.numbertales-radiann.net/api/ai/*", zone_name = "numbertales-radiann.net" }
-  # /dashboard ルートは develop ブランチの creationsdb-api worker が保持。
-  # addon-ai-tag では api/ai/* のみを担当し、ルート競合を避ける。
+  { pattern = "database.numbertales-radiann.net/api/v1/*", zone_name = "numbertales-radiann.net" },
+  # Today Action Board ダッシュボード（同一 Worker に統合）
+  #   /dashboard       … HTML 本体（完全一致）
+  #   /dashboard/*     … /dashboard/data 等の配下
+  { pattern = "database.numbertales-radiann.net/dashboard", zone_name = "numbertales-radiann.net" },
+  { pattern = "database.numbertales-radiann.net/dashboard/*", zone_name = "numbertales-radiann.net" }
 ]
 
 # ─────────────────────────────────────────────────────────────────────────────

@@ -20,8 +20,7 @@
         "Belonging": ["アルベッツ"],
         "RaceType": "VirtualAvatar",
         "GenderType": "FemaleNeutral"
-      },
-      "AI_Optout": true
+      }
     },
     "#DB_PrimaryPerformer": {
       "DB_Label_JP": "一次創作(演者)",
@@ -40,8 +39,7 @@
         "StoryEraAbout_EN": "between WDCE.VIII.1-IX.6(Equivalent to between: DC.2045-2053)"
       },
       "_Commons": { "GenderType": "Female" },
-      "Works_Hidden": true,
-      "AI_Optout": true
+      "Works_Hidden": true
     }
   },
   "General": {
