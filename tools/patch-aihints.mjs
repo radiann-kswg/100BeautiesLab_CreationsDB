@@ -3178,7 +3178,9 @@ function buildCorefolderNldFromAppearanceDetail(num, silhouetteNotes, markingPhr
         : `with the number '${numStr}' TODO: marking placement for #${numStr}`;
     const accessoryPhrases = silhouetteNotes.attached_items || [];
     const accessoryPart = accessoryPhrases.length > 0 ? `; ${accessoryPhrases[0]}` : '';
-    return `Corefolder form: a spherical cushion-like body, ${bodyPart}, ${markingClause}${accessoryPart}.`;
+    // tests/aihints.schema.test.js の「a spherical cushion-like body in ...」テンプレ検証と揃える
+    // （IdentityMotif モードの buildCorefolderNldFromTemplate と同じ house style）。
+    return `Corefolder form: a spherical cushion-like body in ${bodyPart}, ${markingClause}${accessoryPart}.`;
 }
 
 /**
@@ -3240,11 +3242,14 @@ function buildAihintsFromAppearanceDetail(record, varsDef) {
         formSpecific.get(e.formation).push(e);
     }
 
-    let formationsTouched = [...formSpecific.keys()];
-    if (formationsTouched.length === 0) {
-        // 全エントリが Formation=null（共通）のみ: 既存 AIHints.forms のキーを対象に共通情報を適用
-        formationsTouched = Object.keys(existingForms);
-    }
+    // formSpecific に無い（＝形態固有の言及が一件も無い）既存 formation にも、
+    // Formation=null の共通エントリは適用されるべきなので、既存 AIHints.forms のキーと
+    // 和集合を取る。formSpecific のキーだけを対象にすると、「共通エントリ＋一部の形態にだけ
+    // 固有言及がある」レコードで、固有言及の無い方の形態が共通エントリ未適用のまま
+    // 「言及されていない formation」としてクリアされてしまう（実データ #16 等で確認済みの不具合）。
+    const formationsTouchedSet = new Set(formSpecific.keys());
+    for (const k of Object.keys(existingForms)) formationsTouchedSet.add(k);
+    let formationsTouched = [...formationsTouchedSet];
 
     const pushUnique = (arr, seen, s) => {
         const nk = normalizeMotifEntry(s);
@@ -3342,37 +3347,8 @@ function buildAihintsFromAppearanceDetail(record, varsDef) {
         ]);
     }
 
-    // ── 既存 forms にあって AppearanceDetail で言及されていない formation は AI タグ系をクリア ──
-    if (existingForms && typeof existingForms === 'object') {
-        for (const formKey of Object.keys(existingForms)) {
-            if (newForms[formKey]) continue;
-            const existingForm = existingForms[formKey];
-            if (!existingForm || typeof existingForm !== 'object') continue;
-            const isCorefolder = formKey === 'corefolder';
-            const ownFormTag = `${formKey} form`;
-            const empty = {
-                form_tags: [ownFormTag],
-                outfit_features: [],
-                silhouette_notes: { body_description: isCorefolder ? ['spherical core body with the head as the only protruding part on top'] : [], attached_items: [] },
-                immutable_constraints: isCorefolder ? [...COREFOLDER_DEFAULT_IMMUTABLE_CONSTRAINTS] : null,
-                negative_keywords: isCorefolder ? [...COREFOLDER_DEFAULT_NEGATIVE_KEYWORDS] : null,
-                ai_tags: [ownFormTag],
-                negative_visuals: [],
-                natural_language_description: null,
-                prompt_export: ownFormTag,
-                negative_prompt_export: '',
-                reference_images: 'reference_images' in existingForm ? existingForm.reference_images : null,
-            };
-            formationsTouched.push(formKey);
-            newForms[formKey] = reorderObjectKeys(empty, [
-                'form_tags', 'outfit_features',
-                'silhouette_notes', 'immutable_constraints', 'negative_keywords',
-                'ai_tags', 'negative_visuals',
-                'natural_language_description', 'prompt_export', 'negative_prompt_export',
-                'reference_images',
-            ]);
-        }
-    }
+    // 補足: formationsTouched は既存 AIHints.forms のキーを常に包含するよう組み立てて
+    // あるため（上記）、「言及されていない既存 formation」は原理的に発生しない。
 
     // ── common の組み立て ──────────────────────────────────────────
     const identityTags = [];

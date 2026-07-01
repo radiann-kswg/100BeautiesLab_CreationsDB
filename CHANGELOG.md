@@ -7,7 +7,7 @@
 - `Attrs[]`（`vdict_*` / `value_*` / `about_*`）から英語フレーズを合成する `buildAttrPhraseEN()` を新設。`lib/section-renders/appearanceDetail.js` の `buildAttrRows` と同じ解決規約（`$EnumDef_*` を global + 作品ローカルでマージ）に揃えた。`value_EN` 欠落時は `value_JP` を `[JA] ...` 付きで用い、警告ログに手動翻訳を促す。
 - corefolder の `natural_language_description` は AppearanceDetail 由来の body_description / marking フレーズから直接組み立てる専用ビルダー（`buildCorefolderNldFromAppearanceDetail`）を追加（IdentityMotif モードの正規表現抽出とは別実装）。
 - 既存 AIHints のスキーマ外トップレベルキー（例: `concept_contains_forms`）・form 単位のスキーマ外キーを保持したまま再構築するよう修正（`--apply-identitymotif` 側は未修正のまま据え置き、別件として認識）。
-- NumberTales/Primary で dry-run 検証: `appearancedetail-applied=92, cleared=0, skipped-no-aihints=13`（既存 AIHints 保有レコード数と一致）。`npm test` 147 件 pass。データ本体は今回未適用（ツール整備のみ）。
+- **実データ適用まで実施**（User 判断）: `data/Works_NumberTales/DataBases/db_Primary.json` に `--apply-appearancedetail --apply` を実行し、`appearancedetail-applied=92` を反映。適用前に発見したバグ 2 件を修正済み: (1) corefolder NLD の house style 不一致（`tests/aihints.schema.test.js` が要求する `"a spherical cushion-like body in ..."` 形式へ修正）、(2) `Formation: null`（共通）エントリしか無い形態が「言及されていない formation」として誤ってクリアされる不具合（`formationsTouched` を既存 `AIHints.forms` キーとの和集合に修正）。`IdentityMotif` 版との `ai_tags` Jaccard 類似度は平均 0.383（表現方式の差が主因で、内容欠落を示す「ほぼ空」ケースは 0 件。むしろ #32/#51/#67/#70 等は空だった form に新たに内容が入る改善方向）。`npm test` 147 件 pass。
 - 詳細は `_work_in_progress/2026-07-01_progress_appearancedetail-aihints-mode.md`、使い方は `docs/ai-hints-usage.md` §9.9。
 
 ### `README.LOCAL.md` ローカル作業メモ運用ルール追加 (2026-07-01)

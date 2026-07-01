@@ -50,7 +50,7 @@
 - 2026-06-18_progress_dblink-renderer.md（`*_DBLink` suffix セクションレンダラー `dbLinkSection` 実装済み・`db_type.json` / NT `db_type.json` 追記済み・実データあり。⚠️ ブラウザ動作確認が残 → **Copilot で対応予定**）
 - 2026-06-09_progress_aihints-from-identitymotif.md（`--apply-identitymotif` 実装・NumberTales/DB_Primary 再構築完了。2026-07-01 に docs 追記済み・`identitymotif-cleared=0` 確認済み。残は他作品対応のみ）
 - 2026-06-09_progress_corefolder-nld-template-and-silhouette-structure.md（corefolder NLD テンプレ化・silhouette_notes object 構造化完了。残は `#28` base color の手動入力・他作品確認・humanoid NLD 未実装）
-- 2026-07-01_progress_appearancedetail-aihints-mode.md（`--apply-appearancedetail` 新モード実装。IdentityMotif 後継を見据えた並行モードで `AppearanceDetail` を正源に AIHints 再構築。NT/Primary dry-run で `applied=92, cleared=0` 確認・136→147 pass。⚠️ 実データ適用・IdentityMotif との適用順方針は User 判断待ち）
+- 2026-07-01_progress_appearancedetail-aihints-mode.md（`--apply-appearancedetail` 新モード実装 + 実データ適用完了。IdentityMotif 後継を見据えた並行モードで `AppearanceDetail` を正源に AIHints 再構築、NT/Primary 92件へ `--apply` 実施済み・147 pass。適用前にバグ2件（corefolder NLD house style不一致 / Formation=null専用formationの誤クリア）を発見・修正済み。⚠️ データ変更のコミットは User 判断待ち）
 
 ### カレンダー
 

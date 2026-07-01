@@ -44,13 +44,34 @@
 - `UnibyteLive/Primary`（`AI_Optout: true` 設定済み）に対して実行 → 既存の AI_Optout ガードが新モードにも正しく適用され `[ABORT]` で拒否されることを確認（モード固有の特別扱いなしで安全機構が効くことを確認）。
 - `npm test` → **147 passed, 0 failed**。
 
+## 追記（2026-07-01 続き — 実データ適用）
+
+User 判断により、本セッション内で NumberTales/Primary への実適用まで進めた。
+
+### value_EN 未入力の解消（別ローカルで対応済み）
+
+- Ear 系 Attrs の `value_EN` / `about_EN` 未入力 25 件は、User が別のローカル環境で補完（`_work_in_progress/2026-07-01_progress_appearance-detail-ear-en.md`）。`develop` → `addon-ai-tag` マージ経由でこのローカルにも反映済み。再 dry-run で警告 **0 件**を確認。
+
+### 実装バグ 2 件を発見・修正（適用前に判明）
+
+1. **corefolder NLD テンプレ不一致**: `buildCorefolderNldFromAppearanceDetail` が `"a spherical cushion-like body, ..."` を生成しており、`tests/aihints.schema.test.js` が全 corefolder レコードに要求する house style `"a spherical cushion-like body in ..."`（`IdentityMotif` モードの `buildCorefolderNldFromTemplate` と同じ形式）と不一致だった。文言を `in` 付きに修正して解消。
+2. **Formation=null 専用レコードで一方の形態が丸ごとクリアされる不具合**: `formationsTouched` を `formSpecific`（明示的に `corefolder`/`humanoid` を持つエントリ）のキーのみから決定していたため、「共通エントリ（`Formation: null`）はあるが、片方の形態にしか固有言及が無い」レコード（実例: `#16`。共通 5 件 + `humanoid` 固有 3 件、`corefolder` 固有 0 件）で、共通エントリの適用先から漏れた `corefolder` が「言及されていない formation」として `ai_tags: ["corefolder form"]` のみにクリアされていた。`formationsTouched` を `formSpecific` のキーと既存 `AIHints.forms` のキーの**和集合**に修正し、実質使われなくなった「未言及 formation クリア」ブロックも削除（`tools/patch-aihints.mjs`）。
+
+修正後、`#16` を含め dry-run 全件で `afterCount<=1`（ほぼ空）の form が **0 件**であることを確認（修正前は该当あり）。
+
+### 実適用結果
+
+- `node tools/patch-aihints.mjs --work NumberTales --db Primary --all --apply-appearancedetail --apply` を実施。`appearancedetail-applied=92, cleared=0, unchanged=0, no-source=0, skipped-no-aihints=13`。
+- `npm test` → **147 passed, 0 failed**（修正後も継続してグリーン）。
+- **`IdentityMotif` 版との比較（ai_tags の Jaccard 類似度、corefolder/humanoid 別 183 form-entry）**: 平均 0.383。表現方式の違い（自由文 vs Attrs 由来の定型フレーズ、例: `"silver gray long hair"` vs `"silver gray long hair with white accents"`）によるテキスト差が主要因で、内容の欠落を示す「ほぼ空」ケースは 0 件。むしろ #32/#51/#67/#70 の一部 form は `IdentityMotif` 版で 0 件（空）だったのが `AppearanceDetail` 版では 4〜11 件埋まるという**改善方向の差分**だった。
+- 以上より「差が大きいので保留」に該当する兆候はなし。User 確認の上、このまま適用結果を採用する方針とした。データファイル（`data/Works_NumberTales/DataBases/db_Primary.json`）は git 管理下・working tree に反映済み（**コミットは別途 User 判断**）。
+
 ## 未完了タスク（今回の範囲外）
 
-- [ ] `AppearanceDetail` → `AIHints` の実データ適用（`--apply-appearancedetail --apply`）の実施可否・タイミングは User 判断。
-- [ ] `IdentityMotif` と `AppearanceDetail` の両方を持つレコードに対する適用順序・優先方針の確定（現状はどちらのモードを後から適用したかで結果が変わる）。
+- [ ] `data/Works_NumberTales/DataBases/db_Primary.json` の適用結果のコミット（User 判断）。
+- [ ] `IdentityMotif` と `AppearanceDetail` の両方を持つレコードに対する今後の適用順序・優先方針の確定（今回は `AppearanceDetail` を最後に適用した状態で確定）。
 - [ ] `--apply-identitymotif` 側のスキーマ外トップレベルキー欠落（`concept_contains_forms` 等）の扱い方針（修正するか、現状維持で `--apply-appearancedetail` 側だけ安全側に倒すか）。
-- [ ] `value_EN` 未入力の Ear 系 Attrs（今回の dry-run で 25 件検出）の手動翻訳。
-- [ ] `IdentityMotif` からの完全移行（本タスクは準備段階まで。移行実行は別タスク）。
+- [ ] `IdentityMotif` からの完全移行（本タスクは準備・適用段階まで。`IdentityMotif` フィールド自体の廃止・データ削除は別タスク）。
 
 ## 参考リンク
 
