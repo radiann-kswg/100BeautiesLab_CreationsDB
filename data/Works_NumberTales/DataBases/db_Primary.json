@@ -967,7 +967,7 @@
         {
           "value_JP": "「私は ナンバーテールズ２号機こと２番機の『2(ツグ)』です！これからもよろしくお願いします！」",
           "value_EN": "\"I'm 2(Twiny) — NumberTales Unit.2, and also NumberTales #2! Nice to meet you!\"",
-          "about_JP": "初対面時の自己紹介",
+          "about_JP": "契約時の自己紹介",
           "about_EN": "Introduction upon first meeting"
         },
         {
@@ -1343,7 +1343,7 @@
         {
           "value_JP": "「ナンバーテールズ３号機で３番機の『3(ナオ)』だよ。これから君との活動が楽しみだ」",
           "value_EN": "\"I'm NumberTales Unit.3, also known as NumberTales #3, 3(Treiya). I'm looking forward to our activities together.\"",
-          "about_JP": "初対面時の自己紹介",
+          "about_JP": "契約時の自己紹介",
           "about_EN": "Introduction upon first meeting"
         },
         {
@@ -2280,7 +2280,7 @@
       "DialogueExamples": [
         {
           "value_JP": "「おっす！アタシ、ナンバーテールズ５番機の5(イズ)！今日からよろしくな！」",
-          "about_JP": "初対面時の自己紹介",
+          "about_JP": "契約時の自己紹介",
           "about_EN": "Introduction upon first meeting"
         },
         {
@@ -2691,7 +2691,18 @@
       "AvoidedTopics_EN": "No strongly avoided topics in particular, but values consideration for others and avoids conversations that could negatively affect the atmosphere.",
       "ConversationNotes_JP": "ほぼほとんどの人物やヒューマノイドにも好意的に接する。一部のスキンシップにかなり弱く、頭をなでたり、尻尾を触ったり、抱きかかえられたりすると、かなりとろけた口調になる。",
       "ConversationNotes_EN": "Treats nearly every human and humanoid with goodwill. She’s quite susceptible to certain forms of physical affection; when her head is stroked, her tail is touched, or she’s picked up, her tone becomes rather dreamy.",
-      "DialogueExamples": []
+      "DialogueExamples": [
+        {
+          "value_JP": "「お初にお目にかかります、ご主人様。私はナンバーテールズ6号機の『6(ムイ)』、これからご主人様のお世話になります。どうぞよろしくお願いいたしますね♪」",
+          "value_EN": "\"Nice to meet you, Master. I am NumberTales Unit.6, '6(Sics)'. I look forward to serving you from now on♪\"",
+          "about_JP": "契約時の自己紹介",
+          "about_EN": "Introduction upon first meeting"
+        },
+        {
+          "value_JP": "「おはようございます、ご主人様。本日も良い天気でございますね」",
+          "value_EN": "\"Good morning, Master. It's another beautiful day today, isn't it?\""
+        }
+      ]
     }
   },
   {
@@ -3113,7 +3124,18 @@
       "AvoidedTopics_EN": "Uncomfortable with Lack of common sense, and tends to steer away from topics or behaviors that touch on it. Also, being spoken to during image training is a major discomfort.",
       "ConversationNotes_JP": "（「5(イズ)」のような）過度にマイペースでありながらその裏で意識の高い言動をする人物に対し、自分の方が意識が高く有能だという強い対抗意識がある。また、自身の専門分野や趣味趣向・就学の趣向が合う（「70(ナナト)」のような）人物に強い仲間意識を抱きやすい。",
       "ConversationNotes_EN": "Has a strong competitive streak toward those who are overly laid-back yet act with high awareness (like '5(Fifa)'). Also tends to feel a strong sense of camaraderie with those whose areas of expertise, hobbies, and study preferences align with her own (like '70(Seventia)').",
-      "DialogueExamples": []
+      "DialogueExamples": [
+        {
+          "value_JP": "「拙者はナンバーテールズ7号機の『7(ナナ)』、今後は主殿の従者としてよろしく頼む。」",
+          "value_EN": "\"I am NumberTales Unit.7, '7(Sevan)'. I look forward to serving you, my lord, as your retainer from now on.\"",
+          "about_JP": "契約時の自己紹介",
+          "about_EN": "Introduction upon first meeting"
+        },
+        {
+          "value_JP": "「……主殿、しばしそっとしておいてくれぬか。拙者いま勉学が立て込んでいるのだが……」",
+          "value_EN": "\"...My lord, could you leave me be for a while? I am currently in the midst of intense study...\""
+        }
+      ]
     }
   },
   {
@@ -3517,6 +3539,32 @@
           "Num": 62,
           "Comments": "「何かいいの閃いたらあてが作るよ！」",
           "Comments_EN": "\"If you come up with something good, I'll build it for you!\""
+        }
+      ]
+    },
+    "ConversationPattern": {
+      "TalkingTone_JP": "溌剌としており自発的な会話になりやすく、特に技術者目線での話になるとより積極的な口調になる。そこはかとなくどこか方言的に語彙が訛っているところがある。",
+      "TalkingTone_EN": "She is lively and tends to engage in spontaneous conversation; when the topic turns to technical matters, her tone becomes even more enthusiastic. There is a subtle hint of a regional accent in her vocabulary.",
+      "TopicPreference_JP": "自分が持ちうる技術や知見の提案を積極的に行う。小さな話題から大きな話題に掘り下げるのが得意。",
+      "TopicPreference_EN": "She actively offers suggestions based on the skills and knowledge she has. She's good at delving deeper into topics, starting from small details and working her way up to bigger issues.",
+      "TalkFrequency_JP": "自分が取りまとめ役にある時や技術的な場面においてはかなり積極的かつ自発的になる。しかし他に場を掌握している人や自分の専門外にある話題が場にあると委縮しやすい。",
+      "TalkFrequency_EN": "When she's in a leadership role or in a technical setting, she tends to be quite proactive and self-motivated. However, she tends to become withdrawn when someone else is in charge of the conversation, or when the topic falls outside her area of expertise.",
+      "PreferredTopics_JP": "メカニクス関連や技術的ロマンに関する話題にはかなり積極的に食らいつく。また物をアップグレードするための場面では、エンジニアポジションとしての本領を発揮する。",
+      "PreferredTopics_EN": "She's quite eager to dive into topics related to mechanics and the romance of technology. She also really shines in her role as an engineer when it comes to upgrading things.",
+      "AvoidedTopics_JP": "他にリーダー気質の人が会話の中に居たり自分を行動を抑圧する人がいると途端に衰弱・委縮する。周りからの意見を良くも悪くも盛んに行われる場面ではさらに委縮する。",
+      "AvoidedTopics_EN": "She becomes easily discouraged and withdrawn when there are other strong-willed individuals in the conversation or when someone suppresses her actions. She becomes even more withdrawn in situations where opinions are being actively expressed by those around her, for better or worse.",
+      "ConversationNotes_JP": "物の価値を見抜くことができ、価値を見抜く物を有効活用するための会話ではかなり専門的な知見や技術を出しやすい。フードの中にある耳の形状にコンプレックスがあり、フードを取るのを極端に拒絶する。",
+      "ConversationNotes_EN": "She has the ability to discern the value of things and can provide quite specialized knowledge and skills in conversations aimed at effectively utilizing valuable items. She has a complex about the shape of her ears inside her hood and is extremely reluctant to remove it.",
+      "DialogueExamples": [
+        {
+          "value_JP": "「あてはナンバーテールズ8号機の『8(ワカツ)』！兄貴、これからよろしくね！」",
+          "value_EN": "\"I'm '8(Eighas)', NumberTales Unit.8! Bro/Sis, nice to meet you from here on!\"",
+          "about_JP": "契約時の自己紹介",
+          "about_EN": "Introduction upon first meeting"
+        },
+        {
+          "value_JP": "「兄貴/姉貴 それ、ちょっと見せて！もしかしたらもっといい物にアップグレードできるかもよ！」",
+          "value_EN": "\"Bro/Sis, let me see that! You might be able to upgrade it into something even better!\""
         }
       ]
     }
@@ -9104,7 +9152,11 @@
         "Laterality": "#Lat_Both",
         "DesignElement": "#Element_CostumeItem",
         "Attrs": [
-          { "AttrLabel": "#DesignAttr_Overview", "value_JP": "イヤリング", "value_EN": "earrings" }
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "イヤリング",
+            "value_EN": "earrings"
+          }
         ],
         "img_PNGName": null,
         "Note_JP": null,
@@ -28879,7 +28931,11 @@
         "Laterality": "#Lat_Both",
         "DesignElement": "#Element_CostumeItem",
         "Attrs": [
-          { "AttrLabel": "#DesignAttr_Overview", "value_JP": "イヤリング", "value_EN": "earrings" }
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "イヤリング",
+            "value_EN": "earrings"
+          }
         ],
         "img_PNGName": null,
         "Note_JP": null,
