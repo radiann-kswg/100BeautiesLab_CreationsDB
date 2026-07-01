@@ -352,37 +352,37 @@
         "#TailShapeType_Fox": {
           "TailShapeType": "Fox",
           "TailShapeType_JP": "キツネ型",
-          "TailShapeType_EN": "Fox"
+          "TailShapeType_EN": "Fox-type"
         },
         "#TailShapeType_FoxBranched": {
           "TailShapeType": "FoxBranched",
           "TailShapeType_JP": "キツネ(枝分かれ)型",
-          "TailShapeType_EN": "Fox (Branched)"
+          "TailShapeType_EN": "Fox (branched)"
         },
         "#TailShapeType_Cat": {
           "TailShapeType": "Cat",
           "TailShapeType_JP": "猫型",
-          "TailShapeType_EN": "Cat"
+          "TailShapeType_EN": "Cat-type"
         },
         "#TailShapeType_CatAccessory": {
           "TailShapeType": "CatAccessory",
           "TailShapeType_JP": "猫型(アクセサリー)",
-          "TailShapeType_EN": "Cat (with Accessory)"
+          "TailShapeType_EN": "Cat-type (accessory)"
         },
         "#TailShapeType_Nekomata": {
           "TailShapeType": "Nekomata",
           "TailShapeType_JP": "猫又型",
-          "TailShapeType_EN": "Nekomata"
+          "TailShapeType_EN": "Nekomata-type"
         },
         "#TailShapeType_Scorpion": {
           "TailShapeType": "Scorpion",
           "TailShapeType_JP": "サソリ型",
-          "TailShapeType_EN": "Scorpion"
+          "TailShapeType_EN": "Scorpion-type"
         },
         "#TailShapeType_Bud": {
           "TailShapeType": "Bud",
           "TailShapeType_JP": "つぼみ型",
-          "TailShapeType_EN": "Bud"
+          "TailShapeType_EN": "Bud-type"
         }
       }
     },
