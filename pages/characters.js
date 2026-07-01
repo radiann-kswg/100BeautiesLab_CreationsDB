@@ -1256,10 +1256,24 @@ async function fetchGlobalDefType() {
 					: `#List_${derivedName}`;
 				const fileName = `dict_${derivedName}.json`;
 
-				const rows = await fetchDirectJson(`${baseRelPath}/${fileName}`);
-				if (!Array.isArray(rows)) continue;
+				// scopeField（例: { "Belonging": "シンフォニー.XVI(ゼクズィン)" }）は辞書ファイル1本まるごとに
+				// 適用される条件のため、行ごとに手書きせず読み込み時に全行へ合成する（行側の値があれば行を優先）
+				const scopeCondition = (info.scopeField && typeof info.scopeField === 'object' && !Array.isArray(info.scopeField))
+					? info.scopeField
+					: null;
+				const applyScope = (row) => (row && typeof row === 'object')
+					? (scopeCondition ? { ...scopeCondition, ...row } : row)
+					: row;
+
+				const rawRows = await fetchDirectJson(`${baseRelPath}/${fileName}`);
+				if (!Array.isArray(rawRows)) continue;
+				const rows = rawRows.map(applyScope);
 				vars[dictKey] = rows;
-				if (compatListKey && !vars[compatListKey]) vars[compatListKey] = rows;
+				if (compatListKey) {
+					// 同じ compatListKey（例: #List_Class）を持つ辞書が複数ある場合は上書きせず連結する
+					if (!vars[compatListKey]) vars[compatListKey] = [];
+					if (Array.isArray(vars[compatListKey])) vars[compatListKey].push(...rawRows.map(applyScope));
+				}
 			}
 
 			return { meta: dictMeta, vars };
@@ -1854,7 +1868,7 @@ function recordMatchesIndexQuery(rec, indexDef, idxValue, idxKeyPath, legacyNum 
 					return _dbLinkSubsetMatch(fieldVal, filter);
 				}
 			}
-		} catch {}
+		} catch { }
 	}
 
 	if (!qVal) {
@@ -2940,6 +2954,65 @@ function resolveVarsDefLabel(fieldName, rawValue, globalDefType = null, metaForL
 }
 
 /**
+ * $VarsDef層（global/localization/work等）を「配列は連結・objectは浅いマージ」で合成する
+ * - 単純な object spread による上書きだと、同名の #List_* / #Dict_* が複数レイヤーに存在する場合
+ *   （例: 所属別クラス辞書と作品共通クラス辞書が両方 #List_Class を名乗るケース）に片方が丸ごと
+ *   消えてしまう。docs/schema-meta-processing.md 3.4 の「両方から合成される」前提に合わせる。
+ * @param {...(Object|null)} sources - 優先度の低い順に並べる（object値は後方のキーが優先）
+ * @returns {Object}
+ */
+function mergeVarsDefLayers(...sources) {
+	const result = {};
+	for (const src of sources) {
+		if (!src || typeof src !== 'object' || Array.isArray(src)) continue;
+		for (const [key, val] of Object.entries(src)) {
+			if (Array.isArray(val)) {
+				const prev = Array.isArray(result[key]) ? result[key] : [];
+				result[key] = prev.concat(val);
+			} else if (val && typeof val === 'object') {
+				const prev = (result[key] && typeof result[key] === 'object' && !Array.isArray(result[key])) ? result[key] : {};
+				result[key] = { ...prev, ...val };
+			} else {
+				result[key] = val;
+			}
+		}
+	}
+	return result;
+}
+
+/**
+ * Dictionaries カタログ（#Dict_*）から、指定した辞書リストキーに対応する scopeField 条件を探す
+ * - scopeField は「その辞書ファイル1本まるごとが、どのフィールド＝値のキャラクター向けか」を
+ *   宣言する任意プロパティ（例: { "Belonging": "シンフォニー.XVI(ゼクズィン)" }）。
+ *   行ごとの手書きタグは不要で、読み込み時（sw-common.js / characters.js 双方のローダー）に
+ *   辞書の全行へ自動合成される。
+ * @param {Object|null} dictionariesCatalog - metaForLookup.Dictionaries
+ * @param {string[]} listKeyCandidates - 例: ['#List_Class', '#Dict_Class']
+ * @returns {Object|null} scopeField条件（{ フィールド名: 値, ... }。無ければ null）
+ */
+function findDictScopeCondition(dictionariesCatalog, listKeyCandidates) {
+	if (!dictionariesCatalog || typeof dictionariesCatalog !== 'object') return null;
+	const candidates = new Set((listKeyCandidates || []).filter(Boolean));
+	if (!candidates.size) return null;
+	for (const [catalogKey, info] of Object.entries(dictionariesCatalog)) {
+		if (!info || typeof info !== 'object') continue;
+		const scopeField = (info.scopeField && typeof info.scopeField === 'object' && !Array.isArray(info.scopeField))
+			? info.scopeField
+			: null;
+		if (!scopeField || !Object.keys(scopeField).length) continue;
+		const dictName = String(catalogKey || '').replace(/^#Dict_/, '').trim();
+		const keyField = typeof info.keyField === 'string' ? info.keyField.trim() : '';
+		const derivedName = dictName || keyField;
+		const compatListKey = typeof info.compatListKey === 'string' && info.compatListKey.trim()
+			? info.compatListKey.trim()
+			: `#List_${derivedName}`;
+		const ownDictKey = String(catalogKey || '').startsWith('#Dict_') ? catalogKey : `#Dict_${derivedName}`;
+		if (candidates.has(compatListKey) || candidates.has(ownDictKey)) return scopeField;
+	}
+	return null;
+}
+
+/**
  * db_meta.json の $VarsDef（$EnumDef_* / #List_* / #Dict_*）から、カテゴリ値のJP/ENペアを取得する
  * - 既存の resolveVarsDefLabel() は「JP優先の単一文字列」だが、
  *   こちらは「JP/EN両方の表示」に利用するための薄い補助。
@@ -2950,9 +3023,10 @@ function resolveVarsDefLabel(fieldName, rawValue, globalDefType = null, metaForL
  * @param {Object|null} globalDefType
  * @param {Object|null} metaForLookup
  * @param {string|null} fieldKey
+ * @param {Object|null} recordContext - 同一レコードの他フィールド値（scopeField による辞書行の絞り込みに使う。省略時は従来通りスコープ無視）
  * @returns {{ jp?: string, en?: string, raw?: string } | null}
  */
-function resolveVarsDefLabelPack(fieldName, rawValue, globalDefType = null, metaForLookup = null, fieldKey = null) {
+function resolveVarsDefLabelPack(fieldName, rawValue, globalDefType = null, metaForLookup = null, fieldKey = null, recordContext = null) {
 	const fn = String(fieldName || '').trim();
 	if (!fn) return null;
 	if (rawValue === null || rawValue === undefined || rawValue === '') return null;
@@ -3051,6 +3125,32 @@ function resolveVarsDefLabelPack(fieldName, rawValue, globalDefType = null, meta
 		}
 		return '';
 	})();
+
+	// #List_XXX / #Dict_XXX 探索で使う候補名（辞書カタログの scopeField 解決にも流用する）
+	const lookupNames = Array.from(new Set([dictLookupName, fn, keyBase].filter(Boolean)));
+	const scopeCondition = findDictScopeCondition(
+		metaForLookup?.Dictionaries,
+		lookupNames.flatMap((name) => ([`#List_${name}`, `#Dict_${name}`]))
+	);
+	const scopeKeys = scopeCondition ? Object.keys(scopeCondition) : [];
+
+	/** 行が scopeField（読み込み時に辞書全行へ合成済み）を持つか */
+	const rowHasScopeTag = (item) => scopeKeys.length > 0 && item && typeof item === 'object'
+		&& scopeKeys.some((k) => Object.prototype.hasOwnProperty.call(item, k) && item[k] !== null && item[k] !== undefined && item[k] !== '');
+
+	/** 行の scopeField 値が recordContext 側の同名フィールド値と一致するか（AND条件） */
+	const rowMatchesRecordScope = (item) => {
+		if (!scopeKeys.length || !recordContext || typeof recordContext !== 'object') return false;
+		if (!item || typeof item !== 'object') return false;
+		return scopeKeys.every((k) => {
+			const rowVal = item[k];
+			if (rowVal === null || rowVal === undefined || rowVal === '') return false;
+			const recVal = recordContext[k];
+			if (recVal === null || recVal === undefined || recVal === '') return false;
+			const recArr = Array.isArray(recVal) ? recVal : [recVal];
+			return recArr.some((x) => String(x ?? '').trim() === String(rowVal).trim());
+		});
+	};
 
 	const findNestedKey = (obj, key, depth = 0) => {
 		if (!obj || typeof obj !== 'object') return null;
@@ -3163,8 +3263,7 @@ function resolveVarsDefLabelPack(fieldName, rawValue, globalDefType = null, meta
 			}
 		}
 
-		// #List_XXX / #Dict_XXX
-		const lookupNames = Array.from(new Set([dictLookupName, fn, keyBase].filter(Boolean)));
+		// #List_XXX / #Dict_XXX（lookupNames はループ外で算出済み・scopeField解決とも共用）
 		const listSpecs = lookupNames.flatMap((name) => ([
 			{ listKey: `#List_${name}`, valueKey: name },
 			{ listKey: `#Dict_${name}`, valueKey: name }
@@ -3205,25 +3304,43 @@ function resolveVarsDefLabelPack(fieldName, rawValue, globalDefType = null, meta
 		}
 
 		if (Array.isArray(listDef)) {
-			for (const item of listDef) {
-				if (!item || typeof item !== 'object') continue;
+			// 1行ずつ value 一致を探す（preferred key優先 → フィールド名が一致しないケースの順）
+			const matchInList = (candidateList) => {
+				for (const item of candidateList) {
+					if (!item || typeof item !== 'object') continue;
 
-				// preferred key で一致する場合
-				const raw = trimStr(item[listValueKey]);
-				const jp = trimStr(item[`${listValueKey}_JP`]);
-				const en = trimStr(item[`${listValueKey}_EN`]);
-				const hit = [raw, jp, en].some(x => x && rvCandidates.includes(x));
-				if (hit) return makePack(item, listValueKey);
+					const raw = trimStr(item[listValueKey]);
+					const jp = trimStr(item[`${listValueKey}_JP`]);
+					const en = trimStr(item[`${listValueKey}_EN`]);
+					const hit = [raw, jp, en].some(x => x && rvCandidates.includes(x));
+					if (hit) return makePack(item, listValueKey);
 
-				// フィールド名が一致しないケース（DualizePattern: Pattern など）
-				for (const [k, v] of Object.entries(item)) {
-					if (!k || typeof k !== 'string') continue;
-					if (k.endsWith('_JP') || k.endsWith('_EN')) continue;
-					if (k.startsWith('_')) continue;
-					if (typeof v !== 'string') continue;
-					if (!rvCandidates.includes(v.trim())) continue;
-					return makePack(item, k);
+					// フィールド名が一致しないケース（DualizePattern: Pattern など）
+					for (const [k, v] of Object.entries(item)) {
+						if (!k || typeof k !== 'string') continue;
+						if (k.endsWith('_JP') || k.endsWith('_EN')) continue;
+						if (k.startsWith('_')) continue;
+						if (typeof v !== 'string') continue;
+						if (!rvCandidates.includes(v.trim())) continue;
+						return makePack(item, k);
+					}
 				}
+				return null;
+			};
+
+			if (scopeKeys.length && recordContext) {
+				// scopeField（辞書カタログ側の条件。例: { Belonging: '...' }）が同一レコードと一致する行を優先
+				const scopedItems = listDef.filter((item) => rowMatchesRecordScope(item));
+				const scopedHit = matchInList(scopedItems);
+				if (scopedHit) return scopedHit;
+
+				// 一致するスコープ行が無ければ、scopeField を持たない共通行へフォールバック
+				const commonItems = listDef.filter((item) => !rowHasScopeTag(item));
+				const commonHit = matchInList(commonItems);
+				if (commonHit) return commonHit;
+			} else {
+				const hit = matchInList(listDef);
+				if (hit) return hit;
 			}
 		}
 	}
@@ -3793,7 +3910,7 @@ function formatValueForDisplay(value, labelMap = {}, workMeta = null, globalDefT
 			const raw = (value === null || value === undefined) ? '' : String(value).trim();
 			if (simple && raw) {
 				const code = raw.startsWith('#') ? (resolveEnumKey(simple, raw) || raw) : raw;
-				const pack = resolveVarsDefLabelPack(simple, code, globalDefType, workMeta, opt.fieldKey);
+				const pack = resolveVarsDefLabelPack(simple, code, globalDefType, workMeta, opt.fieldKey, opt?.recordContext);
 				const text = formatBilingualLabel(pack, code, opt?.display);
 				return withUnit(text);
 			}
@@ -3803,7 +3920,7 @@ function formatValueForDisplay(value, labelMap = {}, workMeta = null, globalDefT
 			const s = String(value ?? '').trim();
 			const resolved = resolveEnumKey(enumName, s);
 			const code = resolved || (typeof value === 'string' ? s : '');
-			const enumPack = code ? resolveVarsDefLabelPack(enumName, code, globalDefType, workMeta, opt.fieldKey) : null;
+			const enumPack = code ? resolveVarsDefLabelPack(enumName, code, globalDefType, workMeta, opt.fieldKey, opt?.recordContext) : null;
 			const enumLabel = code ? formatBilingualLabel(enumPack, code, opt?.display) : '';
 
 			if (schemaTypeIncludes(opt.schemaType, '$EnumLink') && opt.fieldKey && code) {
@@ -3832,7 +3949,7 @@ function formatValueForDisplay(value, labelMap = {}, workMeta = null, globalDefT
 		if ((schemaTypeIncludes(opt.schemaType, '#ListIndex') || schemaTypeIncludes(opt.schemaType, '#DictIndex')) && opt.fieldKey) {
 			const simple = normalizeVarsDefKey(String(opt.fieldKey).split('.').pop());
 			if (simple) {
-				const pack = resolveVarsDefLabelPack(simple, value, globalDefType, workMeta, opt.fieldKey);
+				const pack = resolveVarsDefLabelPack(simple, value, globalDefType, workMeta, opt.fieldKey, opt?.recordContext);
 				const text = formatBilingualLabel(pack, String(value ?? '').trim(), opt?.display);
 				if (text) return withUnit(text);
 			}
@@ -3845,7 +3962,7 @@ function formatValueForDisplay(value, labelMap = {}, workMeta = null, globalDefT
 			const simple = normalizeVarsDefKey(String(opt.fieldKey).split('.').pop());
 			const raw = (value === null || value === undefined) ? '' : String(value).trim();
 			if (simple && raw) {
-				const pack = resolveVarsDefLabelPack(simple, raw, globalDefType, workMeta, opt.fieldKey);
+				const pack = resolveVarsDefLabelPack(simple, raw, globalDefType, workMeta, opt.fieldKey, opt?.recordContext);
 				const text = formatBilingualLabel(pack, raw, opt?.display);
 				if (text && text !== raw) return withUnit(text);
 			}
@@ -3858,7 +3975,7 @@ function formatValueForDisplay(value, labelMap = {}, workMeta = null, globalDefT
 			const simple = normalizeVarsDefKey(String(opt.fieldKey).split('.').pop());
 			const raw = (value === null || value === undefined) ? '' : String(value).trim();
 			if (simple && raw) {
-				const pack = resolveVarsDefLabelPack(simple, raw, globalDefType, workMeta, opt.fieldKey);
+				const pack = resolveVarsDefLabelPack(simple, raw, globalDefType, workMeta, opt.fieldKey, opt?.recordContext);
 				const text = formatBilingualLabel(pack, raw, opt?.display);
 				if (text && text !== raw) return withUnit(text);
 			}
@@ -4003,8 +4120,17 @@ function formatValueForDisplay(value, labelMap = {}, workMeta = null, globalDefT
 	}
 
 	if (Array.isArray(value)) {
+		// 配列型スキーマ（#DictIndex[], #ListIndex[], etc）の要素処理時は
+		// opt の schemaType から [] を削除して再帰呼び出しする
+		// そうしないと、各スカラー要素が配列スキーマのままで処理され、
+		// #DictIndex/ListIndex の辞書参照ロジックに入らない
+		const elemOpt = { ...opt };
+		if (elemOpt.schemaType && typeof elemOpt.schemaType === 'string') {
+			elemOpt.schemaType = elemOpt.schemaType.replace(/\[\]$/, '');
+		}
+
 		const formattedItems = value
-			.map(item => formatValueForDisplay(item, labelMap, workMeta, globalDefType, opt))
+			.map(item => formatValueForDisplay(item, labelMap, workMeta, globalDefType, elemOpt))
 			.filter(v => v);
 		if (formattedItems.length === 0) return '';
 
@@ -4101,11 +4227,11 @@ function formatValueForDisplay(value, labelMap = {}, workMeta = null, globalDefT
 				if (simple && schemaTypeIncludes(opt?.schemaType, '$EnumDef')) {
 					const resolvedCode = baseRaw.startsWith('#') ? (resolveEnumKey(simple, baseRaw) || baseRaw) : baseRaw;
 					const code = String(resolvedCode || '').trim();
-					const pack = resolveVarsDefLabelPack(simple, code, globalDefType, workMeta, opt.fieldKey);
+					const pack = resolveVarsDefLabelPack(simple, code, globalDefType, workMeta, opt.fieldKey, opt?.recordContext);
 					const label = formatBilingualLabel(pack, code, opt?.display);
 					if (label) displayText = label;
 				} else if (simple && (schemaTypeIncludes(opt?.schemaType, '#ListIndex') || schemaTypeIncludes(opt?.schemaType, '#DictIndex'))) {
-					const pack = resolveVarsDefLabelPack(simple, baseRaw, globalDefType, workMeta, opt.fieldKey);
+					const pack = resolveVarsDefLabelPack(simple, baseRaw, globalDefType, workMeta, opt.fieldKey, opt?.recordContext);
 					const label = formatBilingualLabel(pack, baseRaw, opt?.display);
 					if (label) displayText = label;
 				}
@@ -4164,7 +4290,7 @@ function formatValueForDisplay(value, labelMap = {}, workMeta = null, globalDefT
 			const about = value.about_JP || value.about_EN || value.about;
 			const codeRaw = simple && Object.prototype.hasOwnProperty.call(value, simple) ? value[simple] : null;
 			if (simple && (typeof codeRaw === 'string' || typeof codeRaw === 'number' || typeof codeRaw === 'boolean')) {
-				const pack = resolveVarsDefLabelPack(simple, codeRaw, globalDefType, workMeta, opt.fieldKey);
+				const pack = resolveVarsDefLabelPack(simple, codeRaw, globalDefType, workMeta, opt.fieldKey, opt?.recordContext);
 				const label = formatBilingualLabel(pack, String(codeRaw).trim(), opt?.display);
 				if (about && label) return `${label}（${about}）`;
 				if (label) return label;
@@ -4178,7 +4304,7 @@ function formatValueForDisplay(value, labelMap = {}, workMeta = null, globalDefT
 				const leaf = ks[0];
 				const raw = value?.[leaf];
 				if (typeof raw === 'string' || typeof raw === 'number' || typeof raw === 'boolean') {
-					const pack = resolveVarsDefLabelPack(simple, raw, globalDefType, workMeta, opt.fieldKey);
+					const pack = resolveVarsDefLabelPack(simple, raw, globalDefType, workMeta, opt.fieldKey, opt?.recordContext);
 					const text = formatBilingualLabel(pack, String(raw).trim(), opt?.display);
 					if (text) return withUnit(text);
 				}
@@ -4253,7 +4379,7 @@ function formatValueForDisplay(value, labelMap = {}, workMeta = null, globalDefT
 					const code = String(resolvedCode || '').trim();
 					if (!code) return '';
 
-					const pack = resolveVarsDefLabelPack(simple, code, globalDefType, workMeta, opt.fieldKey);
+					const pack = resolveVarsDefLabelPack(simple, code, globalDefType, workMeta, opt.fieldKey, opt?.recordContext);
 					const label = formatBilingualLabel(pack, code, opt?.display);
 					if (parts.about) return `${label}（${parts.about}）`;
 					return label;
@@ -4280,7 +4406,7 @@ function formatValueForDisplay(value, labelMap = {}, workMeta = null, globalDefT
 						linkedLabel = formatBilingualLabel(linkedPack, code, opt?.display);
 					}
 
-					const enumPack = resolveVarsDefLabelPack(enumName, code, globalDefType, workMeta, opt.fieldKey);
+					const enumPack = resolveVarsDefLabelPack(enumName, code, globalDefType, workMeta, opt.fieldKey, opt?.recordContext);
 					const enumLabel = formatBilingualLabel(enumPack, code, opt?.display);
 
 					// label も about もある場合は両方出せるように合成（/ 区切り）
@@ -5258,8 +5384,16 @@ async function renderList(records, workId, onOpen, imageFields = null) {
 		const gmVars = (gmGeneral.$VarsDef && typeof gmGeneral.$VarsDef === 'object') ? gmGeneral.$VarsDef : {};
 		const wmVars = (wmGeneral.$VarsDef && typeof wmGeneral.$VarsDef === 'object') ? wmGeneral.$VarsDef : {};
 
-		const mergedGeneral = { ...gmGeneral, ...wmGeneral, $VarsDef: { ...gmVars, ...wmVars } };
-		return { ...gm, ...wm, General: mergedGeneral };
+		// $VarsDef は「配列concat・objectは浅いマージ」で合成する（gm.Dictionaries.#Dict_* が
+		// 宣言する scopeField の解決先を潰さないよう、Dictionaries カタログ自体も同様に合成する）
+		const mergedGeneral = { ...gmGeneral, ...wmGeneral, $VarsDef: mergeVarsDefLayers(gmVars, wmVars) };
+		const mergedDictionaries = mergeVarsDefLayers(gm.Dictionaries, wm.Dictionaries);
+		return {
+			...gm,
+			...wm,
+			General: mergedGeneral,
+			...(Object.keys(mergedDictionaries).length ? { Dictionaries: mergedDictionaries } : {})
+		};
 	})();
 
 	console.log('📋 拡張画像解決でリストをレンダリング中:', {
@@ -5326,7 +5460,8 @@ async function renderList(records, workId, onOpen, imageFields = null) {
 			const text = formatValueForDisplay(r.Class, {}, metaForLookup, globalDefType, {
 				display: sanitizeListChipDisplay('Class', dispRaw),
 				schemaType: '#DictIndex[]',
-				fieldKey: 'Class'
+				fieldKey: 'Class',
+				recordContext: r
 			});
 			if (text) chipEls.push(el('span', { class: 'chip' }, text));
 		} else if (r.Class_EN) {
@@ -5517,8 +5652,17 @@ export async function renderDetail(workId, rec) {
 			const wmVars = (wmGeneral.$VarsDef && typeof wmGeneral.$VarsDef === 'object') ? wmGeneral.$VarsDef : {};
 			const lmVars = (lmGeneral.$VarsDef && typeof lmGeneral.$VarsDef === 'object') ? lmGeneral.$VarsDef : {};
 
-			const mergedGeneral = { ...gmGeneral, ...lmGeneral, ...wmGeneral, $VarsDef: { ...gmVars, ...lmVars, ...wmVars } };
-			return { ...gm, ...lm, ...wm, General: mergedGeneral };
+			// $VarsDef は「配列concat・objectは浅いマージ」で合成する（gm.Dictionaries.#Dict_* が
+			// 宣言する scopeField の解決先を潰さないよう、Dictionaries カタログ自体も同様に合成する）
+			const mergedGeneral = { ...gmGeneral, ...lmGeneral, ...wmGeneral, $VarsDef: mergeVarsDefLayers(gmVars, lmVars, wmVars) };
+			const mergedDictionaries = mergeVarsDefLayers(gm.Dictionaries, lm.Dictionaries, wm.Dictionaries);
+			return {
+				...gm,
+				...lm,
+				...wm,
+				General: mergedGeneral,
+				...(Object.keys(mergedDictionaries).length ? { Dictionaries: mergedDictionaries } : {})
+			};
 		})();
 
 		// Clear loading message
@@ -5665,7 +5809,8 @@ export async function renderDetail(workId, rec) {
 				const formatted = formatValueForDisplay(v, fieldLabelMap, metaForLookup, globalDefType, {
 					schemaType: fieldTypeMap?.[k] ?? fieldTypeMap?.[base] ?? null,
 					display: topLevelDisplayMap?.[k] ?? topLevelDisplayMap?.[base] ?? null,
-					fieldKey: k
+					fieldKey: k,
+					recordContext: rec
 				});
 				const t = String(formatted ?? '').trim();
 				if (!t) continue;
@@ -5811,7 +5956,8 @@ export async function renderDetail(workId, rec) {
 			return formatValueForDisplay(raw, fieldLabelMap, metaForLookup, globalDefType, {
 				display: topLevelDisplayMap?.[fieldKey] ?? null,
 				schemaType,
-				fieldKey
+				fieldKey,
+				recordContext: rec
 			});
 		};
 
@@ -5888,7 +6034,8 @@ export async function renderDetail(workId, rec) {
 							formatValueForDisplay(v, fieldLabelMap, metaForLookup, globalDefType, {
 								schemaType: fieldTypeMap?.[usedKey || key] ?? null,
 								display: topLevelDisplayMap?.[usedKey || key] ?? null,
-								fieldKey: usedKey || key
+								fieldKey: usedKey || key,
+								recordContext: rec
 							})
 						]));
 					}
@@ -6355,7 +6502,8 @@ export async function renderDetail(workId, rec) {
 				const childValue = formatValueForDisplay(cv, fieldLabelMap, metaForLookup, globalDefType, {
 					schemaType: hints.schemaType,
 					display: hints.schemaDisplay,
-					fieldKey: schemaPath
+					fieldKey: schemaPath,
+					recordContext: rec
 				});
 				if (!childValue) continue;
 
@@ -6545,7 +6693,7 @@ export async function renderDetail(workId, rec) {
 			if (schemaType != null && isSummaryType(schemaType)) {
 				const formatted = typeof v === 'string'
 					? v
-					: formatValueForDisplay(v, fieldLabelMap, metaForLookup, globalDefType, { display: schemaDisplay, schemaType, fieldKey: k });
+					: formatValueForDisplay(v, fieldLabelMap, metaForLookup, globalDefType, { display: schemaDisplay, schemaType, fieldKey: k, recordContext: rec });
 				if (formatted && String(formatted).includes('\n')) return preWrapText(formatted);
 				// Summary でも単行の場合は preWrap にしておく（安全側）
 				return preWrapText(formatted);
@@ -6553,11 +6701,11 @@ export async function renderDetail(workId, rec) {
 			if (schemaType != null && isDialogueType(schemaType)) {
 				const formatted = typeof v === 'string'
 					? v
-					: formatValueForDisplay(v, fieldLabelMap, metaForLookup, globalDefType, { display: schemaDisplay, schemaType, fieldKey: k });
+					: formatValueForDisplay(v, fieldLabelMap, metaForLookup, globalDefType, { display: schemaDisplay, schemaType, fieldKey: k, recordContext: rec });
 				if (!formatted) return '';
 				return dialogueBodyText(formatted);
 			}
-			const formatted = formatValueForDisplay(v, fieldLabelMap, metaForLookup, globalDefType, { display: schemaDisplay, schemaType, fieldKey: k });
+			const formatted = formatValueForDisplay(v, fieldLabelMap, metaForLookup, globalDefType, { display: schemaDisplay, schemaType, fieldKey: k, recordContext: rec });
 			if (typeof formatted === 'string' && formatted.includes('\n')) return preWrapText(formatted);
 
 			// #Index 型はリンク化（直リンク共有を容易にする）
@@ -6837,7 +6985,8 @@ export async function renderDetail(workId, rec) {
 						const fallbackText = formatValueForDisplay(item, fieldLabelMap, metaForLookup, globalDefType, {
 							schemaType: hints.schemaType,
 							display: hints.schemaDisplay,
-							fieldKey: schemaPath
+							fieldKey: schemaPath,
+							recordContext: rec
 						});
 						return String(fallbackText || '').trim();
 					};
@@ -7042,7 +7191,8 @@ export async function renderDetail(workId, rec) {
 							const displayValue = formatValueForDisplay(specLevelRaw, fieldLabelMap, metaForLookup, globalDefType, {
 								schemaType,
 								display: schemaDisplay,
-								fieldKey: specLevelPath
+								fieldKey: specLevelPath,
+								recordContext: rec
 							});
 							if (String(displayValue || '').trim()) {
 								return createStandaloneSubFieldSection(it, [
@@ -7574,7 +7724,8 @@ function renderDBLinkResolved(dbLinkResolved, fieldLabelMap, workMeta, globalDef
 										const classText = record.Class
 											? formatValueForDisplay(record.Class, {}, workMeta, globalDefType, {
 												schemaType: '#DictIndex[]',
-												fieldKey: 'Class'
+												fieldKey: 'Class',
+												recordContext: record
 											})
 											: (record.Class_EN || '');
 										return classText

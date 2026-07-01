@@ -90,9 +90,19 @@ function loadDictionaryBundle(relDir) {
 		const fileName = (typeof info.dictFile === 'string' && info.dictFile.trim())
 			? info.dictFile.trim()
 			: `dict_${derivedName}.json`;
-		const rows = loadJson(`${relDir}/${fileName}`);
+		// scopeField（例: { Belonging: 'シンフォニー.XVI(ゼクズィン)' }）は辞書ファイル1本まるごとの条件のため、
+		// 読み込み時に全行へ合成する（lib/sw-common.js / pages/characters.js のローダーと同じ挙動を再現）
+		const scopeCondition = (info.scopeField && typeof info.scopeField === 'object' && !Array.isArray(info.scopeField))
+			? info.scopeField
+			: null;
+		const rawRows = loadJson(`${relDir}/${fileName}`);
+		const rows = scopeCondition
+			? rawRows.map((row) => (row && typeof row === 'object' ? { ...scopeCondition, ...row } : row))
+			: rawRows;
 		vars[dictKey] = rows;
-		if (!vars[compatListKey]) vars[compatListKey] = rows;
+		// 同じ compatListKey（例: #List_Class）を持つ辞書が複数ある場合は上書きせず連結する
+		if (!vars[compatListKey]) vars[compatListKey] = [];
+		if (Array.isArray(vars[compatListKey])) vars[compatListKey].push(...rows);
 	}
 
 	return { meta, vars };
@@ -248,6 +258,7 @@ if (Object.keys(numberTalesRefDbs).length) {
 }
 const numberTalesPrimaryRecords = loadJson('data/Works_NumberTales/DataBases/db_Primary.json');
 const numberTalesSecondaryRecords = loadJson('data/Works_NumberTales/DataBases/db_Secondary.json');
+const numberTalesSemiPrimaryRecords = loadJson('data/Works_NumberTales/DataBases/db_SemiPrimary.json');
 const numberTalesSelfSecondaryRecords = loadJson('data/Works_NumberTales/DataBases/db_SelfSecondary.json');
 const sharedReferencesTypeDef = loadJson('data/References/db_type.json');
 const sharedReferencesMeta = loadJson('data/References/db_meta.json');
@@ -447,6 +458,31 @@ describe('pages/characters.js UI output', () => {
 		expect(secondarySectionText).toContain('共同二次創作');
 		expect(secondarySectionText).toContain('キャラクターデザイン・考案');
 		expect(secondarySectionText).toContain('散狐アタスト');
+	});
+
+	it('resolves Class values via a Belonging-scoped dictionary (scopeField)', async () => {
+		charactersModule.__setCharactersTestState({
+			charState: {
+				db: 'SemiPrimary',
+				workTypeDef: numberTalesWorkTypeDef,
+				globalTypeDef,
+				workMeta: numberTalesWorkMeta,
+				imageFields: []
+			}
+		});
+
+		// 錦野 舞 は db_SemiPrimary.json に移動済み（Belonging は直接レコードに入っている）。
+		// Class の1要素（グローバルの汎用クラス辞書には存在しない値）が
+		// scopeField 付きの #Dict_SymphonyXVI（Belonging一致行）から解決できることを確認する。
+		const dancyActresssilkRaw = structuredClone(numberTalesSemiPrimaryRecords.find((record) => record?.Name_JP === '錦野 舞'));
+		expect(Array.isArray(dancyActresssilkRaw?.Belonging) && dancyActresssilkRaw.Belonging).toContain('シンフォニー.XVI(ゼクズィン)');
+		// isPrivate チェックを通すためここだけ上書き
+		const dancyActresssilkRecord = { ...dancyActresssilkRaw, isPrivate: false };
+
+		await charactersModule.renderDetail('#Works_NumberTales', dancyActresssilkRecord);
+
+		const classText = getBasicFieldValue('クラス名');
+		expect(classText).toContain('ベヴストザイン課 ヒューマノイド開発部 / Bewusstsein Division, Humanoid Development Department');
 	});
 
 	it('renders RelationToPrimary entries as links to the primary db detail view', async () => {

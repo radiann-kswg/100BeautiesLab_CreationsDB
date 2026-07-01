@@ -1,5 +1,26 @@
 # 最新のリファクタリング・仕様変更履歴
 
+### fix: `/pages/v1/deftype/global` 等が `$DefType` を欠落させる不具合を修正 (2026-07-01)
+
+- **`lib/sw-common.js` `ApiEndpointHandlers.mergeMetaAndTypeVars()`**: `db_type.json` 側の `$VarsDef` / `$MetaType` は合流していたが、**`$DefType`（hashTag / `$dict` 宣言の配列）を結果へコピーしていなかった**。これにより `/pages/v1/deftype/global` と `/pages/v1/works/{work}/meta` のレスポンスから `$DefType` が丸ごと欠落していた。
+- 影響: `pages/characters.js` の `findDictNameInSchema()` は `globalDefType.$DefType` を見て「フィールド名→辞書名」（例: `Belonging` → `Faction`）を解決するが、`$DefType` が無いためこの解決が常に失敗し、フィールド名と辞書名が異なる項目（`Belonging`/`FromArea` 等）は EN 表示時に辞書引きへフォールバックできず**未翻訳の生JPテキストがそのまま表示**されていた（`Class` のようにフィールド名＝辞書名の項目は `fn`/`keyBase` 経由のフォールバックで偶然救われていたため気付かれにくかった）。
+- 本タスクの `scopeField` 実装とは無関係の既存バグ（今回 Belonging の英語表示崩れを調査する過程で発見）。`type.$DefType` が配列で存在する場合は結果へ `result.$DefType = type.$DefType` として含めるよう修正。
+- 検証: Playwright（headless Chromium）で `pages/characters.html?work=Works_SinisterChangingGirls&...&lang=en` を実描画確認。修正前は `Belonging: 百花繚乱研究所`（生JP）だったのが、修正後は `Belonging: HundredBeauties Laboratory` と正しく英訳されることを確認。`npm test` も従来通り 135 passed（既知の無関係2件のみ失敗）。
+
+### 辞書ファイル単位のスコープ条件（`scopeField`）— Belonging別Class辞書の参照解決 (2026-07-01)
+
+- **`data/Dictionaries/db_meta.json`**: `Dictionaries.#Dict_SymphonyXVI` に `"scopeField": { "Belonging": "シンフォニー.XVI(ゼクズィン)" }` を追加。辞書カタログエントリに任意で「その辞書ファイル1本まるごとがどのフィールド＝値のキャラクター向けか」を宣言できる汎用機構（複数キー指定でAND条件）。
+- **`data/Dictionaries/dict_SymphonyXVI.json`**: 行ごとのタグ付けは不要（`scopeField` 側にフィールド名・値の両方を持たせたため）。
+- **`lib/sw-common.js` / `pages/characters.js`（直fetchフォールバック） / `tests/pages.characters.ui-output.test.js`（テストフィクスチャ）**: 辞書読み込み時（`readDictionaryBundle()` / `fetchDirectDictionaryBundle()` / `loadDictionaryBundle()`）に、カタログの `scopeField` を辞書の全行へ自動合成するよう統一。行側に同名キーがあれば行を優先。
+- **`pages/characters.js`**:
+  - `findDictScopeCondition()`（旧 `findDictScopeField()`）: カタログから `scopeField` 条件オブジェクトを取得するよう変更。
+  - `resolveVarsDefLabelPack()` に第6引数 `recordContext`（対象レコード）を追加。`scopeField` の全キーが同一レコードの対応フィールド値と一致する行を優先解決し、一致が無ければ `scopeField` を持たない共通行へフォールバックする（`rowMatchesRecordScope()` / `rowHasScopeTag()`）。`recordContext` 省略時は従来通りスコープ無視（後方互換）。
+  - `formatValueForDisplay()` の `opt.recordContext` を経由して主要な呼び出し箇所（一覧chip・詳細テーブル・関連キャラプレビュー等）へ配線。
+  - `mergeVarsDefLayers()` 新設: global/Localization/作品別の `$VarsDef` と `Dictionaries` カタログを、単純な object spread（先勝ち/後勝ち）ではなく「配列は連結・objectは浅いマージ」で合成するよう修正。これにより、global辞書（`#Dict_SymphonyXVI`）と作品別辞書（`data/Works_NumberTales/Dictionaries/dict_Class.json` の `#Dict_Class`）が同じ `compatListKey`（`#List_Class`）を共有していても、作品別辞書に上書きされて global 側が参照不能になる既存の不具合を解消。
+- **`docs/schema-meta-processing.md`**: §3.4.1 に `scopeField`（辞書ファイル単位の条件）の仕様と `mergeVarsDefLayers()` の合成方針を追記。
+- 背景: NumberTales「錦野 舞」の `Class: ["...", "ベヴストザイン課 D-Vines開発部"]` が、作品別の汎用クラス辞書（`dict_Class.json`）に無い値のため、既存実装では常に未解決（生文字列表示）だった。所属（`Belonging: ["シンフォニー.XVI(ゼクズィン)"]`）を軸に専用辞書 `dict_SymphonyXVI.json` を参照できるようにして解消。
+- 詳細は `_work_in_progress/2026-07-01_progress_class-dict-scope-field.md`。
+
 ### `README.LOCAL.md` ローカル作業メモ運用ルール追加 (2026-07-01)
 
 - **`CLAUDE.md`**: 「サブローカル並行作業運用（予備作業場）」節の直後に **「`README.LOCAL.md`（ローカル環境ごとの作業メモ）」** 小節を新設。
