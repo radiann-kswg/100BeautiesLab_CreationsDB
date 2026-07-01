@@ -145,6 +145,14 @@
 - **テストデータ更新**: `tests/wrapper-common.test.js` のテストデータを `DayAbout → DayAbout_JP` に更新。
 - **注意**: Cloudflare D1/R2 の再同期（`scripts/migrate.mjs` 再実行 → `wrangler deploy`）は別途実施が必要。
 
+### addon-ai-tag: API エンドポイント分離・AIHints Bearer 認証追加 (2026-06-21)
+
+- **`pkg/cloudflare/wrangler.toml` (addon-ai-tag)**: Worker 名を `creationsdb-api-ai` に変更し、ルートを `/api/v1/*` から `/api/ai/*` に変更。公開 API (`develop` / `creationsdb-api`) との共存体制を確立した。
+- **`pkg/cloudflare/worker.js` (addon-ai-tag)**: パスプレフィックス正規表現を `/api/v1` → `/api/ai` に変更。`checkAiAuth()` 関数を追加し、AIHints エンドポイント（`/:work/:db/aihints` / `/:work/:db/aihints/:idx`）への全リクエストに Bearer トークン認証を適用した。`AI_ACCESS_TOKEN` が未設定の場合はローカル開発向けにバイパス。`errorResponse()` を拡張して追加レスポンスヘッダーに対応した。
+- **`docs/aihints-spec.md`**: エンドポイント URL を `/api/v1/` → `/api/ai/` に統一更新。認証セクション（§3-0）を新設し、Bearer トークンの取得・設定方法と 401 レスポンス仕様を記載した。
+- **`docs/api-sw-spec.md` §0**: API 三層構成（公開実 API `/api/v1/` / AI 実 API `/api/ai/` / 疑似 API）の対比表を更新。`/api/ai/` エンドポイント説明と Bearer 認証注記を追加した。
+- **`docs/deploy-howto.md` §7**: AIHints 疎通確認の URL を `/api/ai/` に修正（旧: `/api/v1/`）。`AI_ACCESS_TOKEN` シークレット設定手順を §7-3 に新設した。
+
 ### Cloudflare Workers 実 API 初回デプロイ完了・疎通確認 (2026-06-21)
 
 - **`pkg/cloudflare/wrangler.toml` TOML パース修正**: `routes = [...]` が `[vars]` / `[[d1_databases]]` スコープ内に誤配置されており、wrangler が `vars.routes` または `d1_databases[0].routes` として解釈する問題を修正。TOML の root-level キーはすべての `[section]` / `[[array]]` ヘッダーより前に配置しなければならない仕様に従い、`routes = [...]` を先頭スカラー群の直後に移動した。合わせて `[env.production]` セクション（冗長な重複定義）を削除。
@@ -166,6 +174,238 @@
 - **ドキュメント更新**: `CLAUDE.md` / `.github/copilot-instructions.md` / `docs/api-sw-spec.md` / `pkg/cloudflare/README.md` を新アーキテクチャに合わせて更新した。
 - **ADR-0002 ドラフト**: Google Cloud (Cloud Run / GCE) を画像生成・バッチ処理専用バックエンドとして設計するドラフトを `_work_in_progress/2026-06-21_progress_cloudflare-api-adr2-gcloud.md` に作成した。GCP プロジェクト ID 確認後に正式着手予定。
 - **Service Worker 疑似 API は継続稼働**: `/pages/v1/`, `/svc/v1/` は `_DBLink`/`_Jump` 解決を含む完全 enrich 付き疑似 API として GitHub Pages 上で引き続き稼働する。
+
+### `*_DBLink` suffix セクションレンダラー実装・`ThisMasters` リンク対応
+
+- `lib/section-renders/dblink.js` を新規実装し、`*_DBLink` suffix フィールドを「キャラクターリンク参照」セクションとして描画する `dbLinkSection` renderer を追加した。
+  - `$display.sectionWrapper` の指定は不要。`*_DBLink` suffix を自動検出して `CharacterSectionRendererRegistry` に登録する suffix-based dispatch。
+  - `$Def_DBLinkRef` 形式（`{ _Work, _DB, {IndexKey: Value} }`）に基づき非同期でキャラクター名をハイドレーション。同DB・クロスDB・クロスワーク参照に対応。ネストインデックス（例: FLInvestigator78 の `Card: { Stoat, StoatNum }`）は subset match で解決。
+  - `isPrivate: true` への参照はクライアント側フィルタで非表示にし、全タグ非表示の場合はセクションごと隠す。
+- `lib/section-wrapper-common.js` の `structuredObjectSection.match` に `*_DBLink` suffix 除外を追加した。単一オブジェクト形式（`$Def_DBLinkRef|#Null`）の `*_DBLink` フィールドが `structuredObjectSection` に横取りされる問題を修正。
+- `lib/section-renders/thisMasters.js` の `hydrateThisMastersLink` を `$Def_DBLinkRef` 形式へ刷新した。
+  - 旧フォーマット: `{worksTitle, dbName, _Search: [{hashTag, key}]}` → 新フォーマット: `{_Work, _DB, {IndexKey: Value}}`
+  - スカラーインデックス（`Drc: "E"` など）・ネストオブジェクト（`Card: {Stoat, StoatNum}` など）どちらも解決。
+  - `about` テキストが空のエントリでリンクが付与されないバグを修正した（`!aboutText` 早期 return がリンク処理を飛ばす問題）。
+- `data/Works_NumberTales/DataBases/db_Primary.json`（18件）と `db_SemiPrimary.json`（3件）の `ThisMasters._DBLink` を新フォーマットへ一括移行した。
+  - `EnrichmentProcessor` が使うレコードルートの `_DBLink`（マージ用、`db_SelfSecondary.json` 等）は旧フォーマットのまま維持。
+
+### IdentityMotif を正源とした AIHints 再構築モード追加（NumberTales/DB_Primary 全件適用）
+
+- `tools/patch-aihints.mjs` に新モード `--apply-identitymotif` を追加。レコードの `IdentityMotif[]` フィールド（`Array<{Formation: #DictIndex, Motif: {Motif_JP: #String[], Motif_EN: #String[]}}>`）を **AI タグの単一正源**として `AIHints.common` / `AIHints.forms.<formation>` を再構築する。
+  - 構造的正源は IdentityMotif より優先する: 尻尾形状 = `TailsUnit`（`parseTailsUnit` + `buildTailDescription`）、外見年齢 = `ConceptAge`（`ageBandOf`）、体格 = `Height_cm`（新ヘルパー `heightBandOf`）。これらの正源由来文字列は `common.silhouette_features` 先頭と `forms.*.ai_tags` の form タグ直後に必ず注入され、IdentityMotif 側に同種記述があっても捨てられる。
+  - 番号刻印の位置・デザインは 2026-06-08 セッションで導入した単一スロット記述を正とするため、`common.immutable_traits` から「番号刻印に関する行」（`'#N' number marking` / `number 'N' marking` / `no number identifier` を含む行）のみ既存値を引き継ぐ。これにより `--rewrite-corefolder-nld` テンプレの `marking placement` 部が TODO に戻らない。
+  - corefolder 形態には `COREFOLDER_DEFAULT_IMMUTABLE_CONSTRAINTS` / `COREFOLDER_DEFAULT_NEGATIVE_KEYWORDS` の structural default を再注入。humanoid 形態は正源データが無いため `immutable_constraints` / `negative_keywords` を `null` に設定する（schema 上 `#String[]|#Null` で許容）。
+  - `forms.*.negative_visuals` は対向 formation の Motif_EN 差分から body 系 + 構造的正源（尻尾本数・体格・年齢）を除外。`prompt_export` / `negative_prompt_export` は `ai_tags` / `negative_visuals` を `, ` 結合で再生成。
+  - corefolder の `silhouette_notes.body_description` には球体本体行 + IdentityMotif の body 系から合成した `<color> base coloring (synthesized from IdentityMotif)` 行を必ず投入し、`extractBaseColor()` がテンプレ生成時に正しい色を取り出せるようにする（新ヘルパー `synthesizeBaseColorFromMotif` / `COLOR_WORDS` 約 50 色辞書）。
+  - 適用結果: `data/Works_NumberTales/DataBases/db_Primary.json` で `identitymotif-applied = 89` / `identitymotif-cleared = 3`（IdentityMotif が全空のレコード）/ `skipped-no-aihints = 13`。残りは AIHints 未設置レコード。
+- IdentityMotif の Motif_EN を分類するためのヘルパー群を追加: `normalizeMotifEntry()`（lowercase + 括弧除去 + 空白正規化）、`classifyMotifEntry()`（`form|attached|outfit|body|misc` を末尾語ベース辞書で判定。未マッチは `misc` で `outfit_features` 末尾に保持して取りこぼし防止）、`buildAihintsFromIdentityMotif()` / `clearAihintsTagsForNoIdentityMotif()` / `applyIdentityMotifToAihintsInRecord()`。
+- テスト追従: `tests/aihints.schema.test.js` の humanoid 形態 `immutable_constraints` / `negative_keywords` 期待値を「array または null」へ緩和（IdentityMotif 駆動再構築仕様と schema `#String[]|#Null` 宣言に整合）。aihints.schema 11/11 pass、全体 110/116 pass（残り 6 件は本変更前から残る pre-existing failure: `commons.secondaries` / `data.shape` / `enrich.dblink.jump.merge` / `pages.characters.ui-output`）。
+
+### AIHints `silhouette_notes` の構造化 + corefolder NLD テンプレ化（NumberTales/DB_Primary）
+
+- `Works_NumberTales/DataBases/db_type.json` の `$Def_AIFormVariant.silhouette_notes` を `#String[]` から `$Def_AISilhouetteNotes|#Null` に変更。`$Def_AISilhouetteNotes` は `{ body_description: #String[], attached_items: #String[] }` の 2 フィールド構造で、素体（球体本体・球状コア・人型上半身）と装着付属品（ハーネス・髪飾り・首輪・襷・カフ等）を分離して保持する。
+- `tools/patch-aihints.mjs` に 2 つの新モードを追加。
+  - `--migrate-silhouette-structure`: 既存の flat array 形式を object 形式へ自動分割移行。`harness` / `ribbon` / `hairband` / `hairclip` / `hairpin` / `collar` / `choker` / `scarf` / `cape` / `cloak` / `halo` / `wristband` / `hood` / `accessory` / `wrapped around` / `barrel-shaped` 等の装着具語を含むエントリは `attached_items` へ、それ以外は安全側に倒して `body_description` に残す。同時に schema 宣言順（`form_tags` → `outfit_features` → `silhouette_notes` → `immutable_constraints` → `negative_keywords` → `ai_tags` → ...）へキーを再整列する。
+  - `--rewrite-corefolder-nld`: `forms.corefolder.natural_language_description` を「`Corefolder form: a spherical cushion-like body in {color}, with the number '{N}' {marking placement}; {accessory}.`」のテンプレートで再生成。humanoid 衣装語（`coat` / `dress` / `bodysuit` / `pants` / `shoes` 等。`outfit` は corefolder 衣装バリアントで正当利用があるため除外）の混入を検知して強制再生成し、`extractMarkingInfo()` でローマ数字・漢字・カタカナ・ひらがな番号 / 「no number identifier」明示にも対応する。`--force-rewrite-nld` で全件強制再生成。
+- `buildDefaultSilhouetteNotes(num, formKey)` を新設し、`--suggest` / `--upgrade-schema` 経由の scaffold 投入も object 形式へ更新。`detectVisualTodos()` と `applyVisionResultsToAihints()` も object 形式に対応（既存の `corefolderSilhouetteNotes[]` / `humanoidSilhouetteNotes[]` キーは下位互換として `body_description` 側へ追記される）。
+- 適用結果: `Works_NumberTales/DataBases/db_Primary.json` で 89 レコードを object 形式へ移行 + 82 レコードの corefolder NLD をテンプレで再生成。`#57` の `immutable_traits` は番号刻印位置を「髪束の上」ではなく「黄色い本体表面（頭部近く）に縦書き」へ手動修正。`#42` は behavior 描写が混入した旧 NLD を再生成で除去。
+- テスト追加: `tests/aihints.schema.test.js` の corefolder / humanoid 形態 silhouette_notes アサーションを object 形式へ更新（`body_description` は非空必須、`attached_items` は配列であれば空も許容）。corefolder NLD が球体本体テンプレートに準拠し humanoid 衣装語を含まないことを検査する新規ケースを追加。
+- ドキュメント整備: `docs/ai-hints-usage.md` の §4（silhouette_notes の object 化記述）、新節 §9.6（`--migrate-silhouette-structure`）、新節 §9.7（`--rewrite-corefolder-nld`）、`.github/copilot-instructions.md` の AIHints 運用ルール、本 CHANGELOG に反映。
+- 回帰確認: `tests/aihints.schema.test.js` 11/11 pass。既存失敗 6 件（commons.secondaries / data.shape / enrich.dblink.jump.merge / pages.characters.ui-output）は本変更前から残る無関係な失敗。
+
+### AIHints corefolder 形態 vision-fill バッチ（NumberTales/DB_Primary）+ `numberMarkingPlacement` 正規表現拡張
+
+- `Works_NumberTales/DataBases/db_Primary.json` の AIHints 保有レコードについて、`tools/patch-aihints.mjs --apply-vision-results --apply` を 4-5 件単位の小バッチで反復実行し、corefolder 形態の `silhouette_notes` / `immutable_constraints` / `negative_keywords` / 番号マーキング位置 (`common.immutable_traits` 内の単一スロット記述) のキャラ固有 TODO を vision 観察結果で穴埋めした。
+- 適用範囲: 整数 Num の `#1`〜`#99` のうち 80 件 + 特殊番号 `2-alt` / `10-alt` / `000` の 3 件 = 計 83 件。各バッチは `.cache/vision-results-batch-corefolder-*.json` として保存し、`.cache/merge-batch.mjs` で `.cache/vision-results.json` にマージしてから `--apply` で書き込む（gitignore 配下の `.cache/` のみを一時領域として使用）。
+- 個別対応事例: `#5` / `#8` / `#15` は -1 画像でマーキングを確認できず、追加の corefolder 画像（`-2.png`、concept サムネ）から手動補正。`#15` はハーネスベルトに半分隠れたローマ数字 `XV`。`#10-alt` は本体が黒黄縞の保護ケースに完全格納されており、ケース正面のローマ数字 `X` を識別子として記録した。`#2-alt` は化学異性体プレフィックス風表記 `Bi 2 nor`、`#000` はネコ耳バリエーション（フォックス耳でない点を silhouette に明記）+ 下線付き `000` 表記、など。
+- スキップ判定: corefolder 画像が未整備のレコード（`#28` / `#51` / `#67` / `#70`）と、キャラデザイン自体が保留中のレコード（`#38` / `#54` / `#59` / `#79` / `#80` / `#82` / `#83` / `#90` / `#91` / `#95`）はバッチから除外し、既存の `TODO:` プレースホルダを保持。残 TODO は `#28`（要画像）と上記未整備キャラのみ。
+- `tools/patch-aihints.mjs` の `applyVisionResultsToAihints()` で `numberMarkingPlacement` の置換対象正規表現を 4 パターン（`^TODO: number '...' marking placement` / `^'#N...' number marking` / `^number 'N' marking` / `^number 'N' ...`）に拡張し、`flatMap` + `replacedOnce` フラグで「レコード内 1 件のみ置換」を保証した。これにより既存の `'#N' number marking (immutable)` 形式や `number 'N' as her core identifier` 形式のレガシー記述も vision-fill 対象になる。
+- 既知の小バグ: `--records` に整数化できる特殊番号（`000` 等）と他の特殊番号を同時指定した場合、集計表示で `0` に丸められて適用カウントが減ることがある。実体は `parseRecordSpec()` が string/number 両形を Set 追加しており、単独実行では正常に書き込めることを確認済み（`#000` も最終的に書き込み完了）。集計表示の改修は後続セッションで実施予定。
+- 編集対象: `data/Works_NumberTales/DataBases/db_Primary.json` のみ。他作品 / 他 DB は `AI_Optout: true` により対象外。
+- 回帰確認: `tests/aihints.schema.test.js` を含む AIHints 系テストは pass 維持。既存失敗 6 件（commons.secondaries / data.shape / enrich.dblink.jump.merge / pages.characters.ui-output）は本変更前から残る無関係な失敗。
+
+### AIHints スキーマに corefolder 形態強化フィールドを追加 + `--upgrade-schema` モードを新設
+
+- `Works_NumberTales/DataBases/db_type.json` の `$Def_AIFormVariant` に 3 つの新フィールドを追加した（順序: `outfit_features` → `silhouette_notes` → `immutable_constraints` → `negative_keywords` → `ai_tags`）。
+  - `silhouette_notes` (`#String[]|#Null`): 形態シルエットを 1-2 行で視覚言語化（本体形状/突出部/装着具）。
+  - `immutable_constraints` (`#String[]|#Null`): キャラ単位で再宣言する不変制約（例: 「腕を描かない」「humanoid 私服にしない」）。
+  - `negative_keywords` (`#String[]|#Null`): キャラ別ブラックリスト（`feet` / `legs` / `arms` / `hoodie` 等のフラットな NG キーワード）。
+- `$Def_AIHints` トップレベルに 2 つの新セクションを追加した（順序: `common` → `work_common` → `forms` → `alt_modes`）。
+  - `work_common.reference_images.corefolder_reference[]` / `humanoid_reference[]`: 作品共通の設計図/カットモデル画像 URL を全キャラから参照可能にする（`Images/Ref_Glossary/concept-figure/` 等の `cnsp-fg_NTsCoreFolder.png` / `cnsp-fg_NTsHumanoid.png` を自動収集）。
+  - `alt_modes.corefolder_dressed` (`allowed: #Boolean|#Null`, `outfit_source: #String|#Null`): 「コアフォルダ装着時に humanoid 衣装を重ねる」など将来予約モード（既定 `null`）。
+- `tools/patch-aihints.mjs` に `--upgrade-schema` モードを新設。既存レコードへ差分追加のみを行い、入力済み値は上書きしない（`!('field' in obj)` ガード）。corefolder 形態には structural default（`silhouette_notes` の球体本体 + 安全ハーネス記述、`immutable_constraints` の腕脚/手禁止 + 頭部ハーネス保持、`negative_keywords` 10 件）を自動投入し、humanoid 形態とキャラ固有スロットは `TODO:` プレースホルダで残す。
+- `--suggest` モードの corefolder scaffold に [D] 尻尾本数テンプレ（`exactly N ${unit} total: upper trunk forks into TODO bundles of TODO ${unit} each, lower trunk has TODO single ${unit}, no more no less`）と [E] 番号マーキング位置 TODO（`TODO: number 'N' marking placement (single fixed slot, e.g., back center / collar tag / harness front)`）を投入し、AI が尻尾本数/番号配置を取り違える問題への耐性を強化した。
+- `--fill-todos` モードに、`TailsUnit` から尻尾本数テンプレを `common.silhouette_features` へ自動追記する処理を追加（既に同形式テンプレが存在すれば再追加しない）。
+- `--apply-vision-results` の `VisionResult` typedef に 7 フィールドを追加: `corefolderSilhouetteNotes[]` / `humanoidSilhouetteNotes[]` / `corefolderImmutableExtras[]` / `humanoidImmutableExtras[]` / `corefolderNegativeKeywords[]` / `humanoidNegativeKeywords[]` / `numberMarkingPlacement`。corefolder 側は重複除去で追記、humanoid 側は TODO スロット置換、`numberMarkingPlacement` は `common.immutable_traits` の `TODO: number '...' marking placement (...)` を単一スロット記述で置換する。
+- 適用範囲: `Works_NumberTales/DataBases/db_Primary.json` の AIHints 保有 92 レコード全てへ `--upgrade-schema --apply` を完了（schema-upgraded=91 + schema-unchanged=1）。AI_Optout 設定済みの他 DB / 他作品は対象外。
+- テスト追加: `tests/aihints.schema.test.js`（10 ケース）で schema 宣言・フィールド順序・92 レコードへの structural default 投入を検証。
+- ドキュメント整備: `docs/ai-hints-usage.md` の corefolder 形態節と `--upgrade-schema` 節、`.github/copilot-instructions.md` の AIHints 運用ルール、本 CHANGELOG に反映。
+- 回帰確認: 新規 10 ケース + 既存 99 ケース pass。既存失敗 6 件は本変更前から残る無関係な失敗。
+
+### `AI_Optout` による DB 単位の AI タグ生成 / AI 学習抑止フラグを追加
+
+- 作品別 `db_meta.json` の `Databases.#DB_<DbName>` 直下に `"AI_Optout": true` を置くことで、対象 DB に対する AI 関連自動処理を抑止する単一フラグを新設した。アクセス制御フラグ（`DB_Hidden` / `Works_Hidden`）と異なり API 配信は遮断せず、AI 利用に対する opt-out 表明として機能する。
+- `tools/patch-aihints.mjs` の全モード（`--suggest` / `--apply` / `--fix-refs` / `--fill-todos` / `--gen-vision-tasks` / `--apply-vision-results`）に `AI_Optout` ガードを実装。設定済み DB への書き込み・解析を exit code `2` で拒否する。緊急時のみ `--force-ai-optout` でバイパス可能。
+- 作品別 `db_meta.json` 欠損時はチェックをスキップ（既存の欠損耐性方針に追従）。スキーマ (`$Def_DatabaseCatalog`) には宣言しない（`DB_Hidden` / `Works_Hidden` と同設計）。
+- 初期適用: `Works_NumberTales/DataBases/db_meta.json` の `#DB_Primary` を**除く 19 DB / Ref エントリ**へ `AI_Optout: true` を付与済み（`DestinyFoxRecords` / `FLInvestigator78` / `NumberTales` の Semi/Self/Secondary / `Ref_Glossary` / `Ref_Reference` / `PastDivers` / `Proxies` / `ShouArRiders` / `SinisterChangingGirls` / `UnauthedLogica` / `UnibyteLive` 各 DB）。`Works_NumberTales/#DB_Primary` のみ既存の自由運用 DB として未付与のまま残す。
+- ドキュメント整備: `docs/api-sw-spec.md` §5.5、`docs/ai-hints-usage.md` §7 表、`.github/copilot-instructions.md` の運用ルール、本 CHANGELOG に反映。
+- 回帰確認: `tests/data.sanity.test.js` / `tests/sw.enrich.basic.test.js` / `tests/meta.catalog.schema.test.js` / `tests/sw.dbmeta.tolerance.test.js` は全件 pass を維持。
+
+### `tools/patch-aihints.mjs` に特殊番号（string `Num`）レコード対応 + Agent セッション再現プレイブックを整備
+
+- `parseRecordSpec()` を拡張し、`000` / `2-alt` / `10-alt` / `67-old` のような string `Num` トークンを `--records` で受け付けるようにした。純整数トークンは number / string 両形式を Set に追加して後方互換を維持。
+- `gen-vision-tasks` / メインループの `typeof num !== 'number'` ガードを number / string 両許容へ緩和。humanoid 画像マッチ正規表現を `art_img([0-9A-Za-z\-]+?)-humanoid` に拡張し、string Num と同体画像の関連付けを可能にした。
+- `Works_NumberTales/db_Primary.json` の #97 ・ #98 ・ #99 と、特殊番号レコード #000 ・ #2-alt ・ #10-alt へ `AIHints` を scaffold 生成→視覚解析適用→JSON 由来 TODO 補完まで適用した（vision-applied=6 / todos-filled=3）。詳細は `docs/ai-hints-usage.md` §9 「Agent セッション再現用プレイブック」を参照。
+- **適用範囲の明示**: 今回の作業と検証は **`data/Works_NumberTales/DataBases/db_Primary.json` のみを対象に適用されている**。他作品・他 DB（`Secondary` / `SemiPrimary` / `SelfSecondary` / `Proxy` 等）へ転用する際は画像ディレクトリ構造・`Images.*_PNGPath` 規則・作品別 schema の差異を個別に検証の上、`--work` / `--db` / 画像パス解決ロジックを調整すること。
+- 現状 `Works_NumberTales/DB_Primary` では参照画像がない以下 13 レコードは恒久的に AI タグ未付与のまま保持し、クエリ件数としてトラッキングする: `#38`, `#54`, `#59`, `#67-old`, `#79`, `#80`, `#82`, `#83`, `#90`, `#91`, `#95`, `#0`, `#00`。
+- 回帰確認: `tests/data.sanity.test.js` / `tests/sw.enrich.basic.test.js` は全件 pass を維持。
+
+### `tools/patch-aihints.mjs` に helper の named export と import gate を追加 + 残 TODO 一括補完
+
+- `parseTailsUnit` / `buildTailDescription` / `extractExpressionHints` を named export 化し、外部スクリプトから再利用可能にした。既存挙動への影響なし。
+- ファイル末尾の `main()` 呼び出しを `import.meta.url` で CLI 直接実行時のみ起動する import gate に変更し、helper を import した際の副作用（CLI が走り出すこと）を防止した。
+- これらを利用して `.cache/fill-residual-todos.mjs`（一回限りスクリプト）で `Works_NumberTales/db_Primary.json` 内の JSON 由来 TODO を一括補完した。対象 TODO: `common.expression_tendency[*]`（`extractExpressionHints` 由来）/ `common.age_appearance` / `forms.*.ai_tags[*]`（age / ear / tail）/ `forms.*.natural_language_description`（既存 `ai_tags` から 1 文生成）/ `common.silhouette_features[*]`（`buildTailDescription` 由来）。
+- 26 records, 70 fills 適用後、`Works_NumberTales/db_Primary.json` 内の `AIHints.*` 配下の `TODO:` プレースホルダはゼロになった。
+- 書き戻し時は元ファイルの主要 EOL（CRLF/LF）を検出して統一し、混在による差分爆発を防ぐ実装。
+- 回帰確認: `tests/data.sanity.test.js` / `tests/sw.enrich.basic.test.js` は全件 pass を維持。
+
+### `tools/patch-aihints.mjs` に視覚解析ワークフロー (`--gen-vision-tasks` / `--apply-vision-results`) を追加
+
+- `patch-aihints.mjs` に 2 つのモードを追加し、視覚 TODO（`palette_priority` / `silhouette_features` の hair・eye / `forms.*.outfit_features` / `forms.*.ai_tags` の hair・eye・outfit）を Agent 画像解析と組み合わせて埋める半自動ワークフローを構築した。
+  - `--gen-vision-tasks`: 視覚 TODO が残るレコードを走査し、各レコードの concept / corefolder / humanoid 画像 URL・ローカルパス・既存 ai_tags をまとめた `.cache/vision-tasks.json` を生成する（Agent 解析用マニフェスト）。
+  - `--apply-vision-results`: `.cache/vision-results.json`（Agent が画像解析結果を構造化した JSON）を読み込み、`applyVisionResultsToAihints()` で TODO を置換する。欠落フィールドは「変更しない」扱いで TODO を保持し、部分適用に対応する。
+- `PatchResult.status` に `vision-applied` / `vision-unchanged` / `vision-no-result` を追加し、サマリ表示で件数を可視化した。
+- `genVisionTasksToFile()` に `aihints.forms` が `null` のケースに対する null ガードを追加。
+- 適用範囲: `Works_NumberTales` 一次創作 DB の #41-#65 のうち解析が確定した 23 レコードへ palette・silhouette・corefolder outfit を補完した。残レコード（#66-#69 など）は次セッション以降に追加解析する。
+- 回帰確認: `tests/data.sanity.test.js` / `tests/sw.enrich.basic.test.js` は全件 pass を維持。
+
+### `$Def_AI*` スキーマを作品別 `$VersDef` へ移動 + `--fix-refs` フラグ追加
+
+- `data/db_type.json` のグローバル `$VarsDef` から `$Def_AIColorPalette` / `$Def_AIReferenceImages` / `$Def_AIHintsCommon` / `$Def_AIFormVariant` / `$Def_AIHintsForms` / `$Def_AIHints` の 6 定義を削除した。
+- 上記 6 定義を `data/Works_NumberTales/DataBases/db_type.json` の `$VersDef` へ移動した。AI 形態構造は作品ごとに異なるため、作品固有のスコープへ寄せる設計変更。グローバル `$DefType` 内の `AIHints` フィールド宣言（`"$type": "$Def_AIHints|#Null"`, `"$display": { "auto": false }`）は保持。
+- `$Def_AIReferenceImages` に `concept` / `corefolder` / `humanoid` / `corefolder_arts` フィールドを追加し、concept-first 参照構造に対応した。
+- `tools/patch-aihints.mjs` に `--fix-refs` フラグを追加。既存 AIHints の `reference_images` のみを `resolveImageInfo()` で再構築し、`identity_tags` / `ai_tags` / `natural_language_description` 等のタグ・テキスト類は保持する。AIHints が存在しないレコードは `skipped-no-aihints` としてスキップする。
+- 上記に伴い `resolveImageInfo()` を拡張。全 corefolder 画像を `corefolderImages[]` に収集し先頭を `corefolderUrl` に設定。`arts/corefolders/` 系を `corefolderArtImages[]`、`arts/humanoids/` 系を `humanoidImages[]` に分類して返す。
+- `buildFormReferenceImages()` を新規追加。`concept` 画像が存在する場合は `main = conceptUrl`、形態固有画像は `formKey`（`corefolder` / `humanoid`）スロットへ格納する concept-first 構造。
+- `fixRefsInRecord()` を新規追加。レコードの AIHints をディープコピーして各 `reference_images` のみ差し替える。
+- 回帰確認: `tests/data.sanity.test.js` / `tests/sw.enrich.basic.test.js` は全件 pass を維持。
+
+### `tools/patch-aihints.mjs` に `--suggest` フラグを追加 + Agent プロンプトファイル新規作成
+
+- `patch-aihints.mjs` に `--suggest` フラグを追加。`TailsUnit` / `GenderType` / `Character` / `Summary` などの既存フィールドから機械的に導出できる値を自動入力する半自動モード。視覚情報が必要な項目（`palette_priority` / 髪色・目色）は `TODO:` / `[TRANSLATE → ...]` 形式のプレースホルダで残す。
+- 上記に伴い `buildScaffold()` の `palette_priority` バグ（配列 `[...]` 形式）をオブジェクト `{primary, secondary, accent}` 形式に修正し、`$Def_AIColorPalette` schema との整合を確保した。
+- `--suggest` を支える補助関数 8 つを追加: `parseTailsUnit` / `buildTailDescription` / `extractExpressionHints` / `buildNlDescriptionHint` / `buildNegativeVisuals` / `buildSuggestedCorefolderForm` / `buildSuggestedHumanoidForm` / `buildSuggestedScaffold`。
+- `.github/prompts/aihints-fill.prompt.md` を新規作成。Copilot Agent モードで `AIHints` の残 TODO を既存フィールドの変換・翻訳によって対話的に補完するワークフロープロンプト（Step 0-5 構成、フィールド対応ルールテーブル・変換早見表付き）。
+- 回帰確認: `tests/data.sanity.test.js` は 3/3 pass を維持。
+
+### IdentityMotif を正源とした AIHints 再構築モード追加（NumberTales/DB_Primary 全件適用）
+
+- `tools/patch-aihints.mjs` に新モード `--apply-identitymotif` を追加。レコードの `IdentityMotif[]` フィールド（`Array<{Formation: #DictIndex, Motif: {Motif_JP: #String[], Motif_EN: #String[]}}>`）を **AI タグの単一正源**として `AIHints.common` / `AIHints.forms.<formation>` を再構築する。
+  - 構造的正源は IdentityMotif より優先する: 尻尾形状 = `TailsUnit`（`parseTailsUnit` + `buildTailDescription`）、外見年齢 = `ConceptAge`（`ageBandOf`）、体格 = `Height_cm`（新ヘルパー `heightBandOf`）。これらの正源由来文字列は `common.silhouette_features` 先頭と `forms.*.ai_tags` の form タグ直後に必ず注入され、IdentityMotif 側に同種記述があっても捨てられる。
+  - 番号刻印の位置・デザインは 2026-06-08 セッションで導入した単一スロット記述を正とするため、`common.immutable_traits` から「番号刻印に関する行」（`'#N' number marking` / `number 'N' marking` / `no number identifier` を含む行）のみ既存値を引き継ぐ。これにより `--rewrite-corefolder-nld` テンプレの `marking placement` 部が TODO に戻らない。
+  - corefolder 形態には `COREFOLDER_DEFAULT_IMMUTABLE_CONSTRAINTS` / `COREFOLDER_DEFAULT_NEGATIVE_KEYWORDS` の structural default を再注入。humanoid 形態は正源データが無いため `immutable_constraints` / `negative_keywords` を `null` に設定する（schema 上 `#String[]|#Null` で許容）。
+  - `forms.*.negative_visuals` は対向 formation の Motif_EN 差分から body 系 + 構造的正源（尻尾本数・体格・年齢）を除外。`prompt_export` / `negative_prompt_export` は `ai_tags` / `negative_visuals` を `, ` 結合で再生成。
+  - corefolder の `silhouette_notes.body_description` には球体本体行 + IdentityMotif の body 系から合成した `<color> base coloring (synthesized from IdentityMotif)` 行を必ず投入し、`extractBaseColor()` がテンプレ生成時に正しい色を取り出せるようにする（新ヘルパー `synthesizeBaseColorFromMotif` / `COLOR_WORDS` 約 50 色辞書）。
+  - 適用結果: `data/Works_NumberTales/DataBases/db_Primary.json` で `identitymotif-applied = 89` / `identitymotif-cleared = 3`（IdentityMotif が全空のレコード）/ `skipped-no-aihints = 13`。残りは AIHints 未設置レコード。
+- IdentityMotif の Motif_EN を分類するためのヘルパー群を追加: `normalizeMotifEntry()`（lowercase + 括弧除去 + 空白正規化）、`classifyMotifEntry()`（`form|attached|outfit|body|misc` を末尾語ベース辞書で判定。未マッチは `misc` で `outfit_features` 末尾に保持して取りこぼし防止）、`buildAihintsFromIdentityMotif()` / `clearAihintsTagsForNoIdentityMotif()` / `applyIdentityMotifToAihintsInRecord()`。
+- テスト追従: `tests/aihints.schema.test.js` の humanoid 形態 `immutable_constraints` / `negative_keywords` 期待値を「array または null」へ緩和（IdentityMotif 駆動再構築仕様と schema `#String[]|#Null` 宣言に整合）。aihints.schema 11/11 pass、全体 110/116 pass（残り 6 件は本変更前から残る pre-existing failure: `commons.secondaries` / `data.shape` / `enrich.dblink.jump.merge` / `pages.characters.ui-output`）。
+
+### AIHints `silhouette_notes` の構造化 + corefolder NLD テンプレ化（NumberTales/DB_Primary）
+
+- `Works_NumberTales/DataBases/db_type.json` の `$Def_AIFormVariant.silhouette_notes` を `#String[]` から `$Def_AISilhouetteNotes|#Null` に変更。`$Def_AISilhouetteNotes` は `{ body_description: #String[], attached_items: #String[] }` の 2 フィールド構造で、素体（球体本体・球状コア・人型上半身）と装着付属品（ハーネス・髪飾り・首輪・襷・カフ等）を分離して保持する。
+- `tools/patch-aihints.mjs` に 2 つの新モードを追加。
+  - `--migrate-silhouette-structure`: 既存の flat array 形式を object 形式へ自動分割移行。`harness` / `ribbon` / `hairband` / `hairclip` / `hairpin` / `collar` / `choker` / `scarf` / `cape` / `cloak` / `halo` / `wristband` / `hood` / `accessory` / `wrapped around` / `barrel-shaped` 等の装着具語を含むエントリは `attached_items` へ、それ以外は安全側に倒して `body_description` に残す。同時に schema 宣言順（`form_tags` → `outfit_features` → `silhouette_notes` → `immutable_constraints` → `negative_keywords` → `ai_tags` → ...）へキーを再整列する。
+  - `--rewrite-corefolder-nld`: `forms.corefolder.natural_language_description` を「`Corefolder form: a spherical cushion-like body in {color}, with the number '{N}' {marking placement}; {accessory}.`」のテンプレートで再生成。humanoid 衣装語（`coat` / `dress` / `bodysuit` / `pants` / `shoes` 等。`outfit` は corefolder 衣装バリアントで正当利用があるため除外）の混入を検知して強制再生成し、`extractMarkingInfo()` でローマ数字・漢字・カタカナ・ひらがな番号 / 「no number identifier」明示にも対応する。`--force-rewrite-nld` で全件強制再生成。
+- `buildDefaultSilhouetteNotes(num, formKey)` を新設し、`--suggest` / `--upgrade-schema` 経由の scaffold 投入も object 形式へ更新。`detectVisualTodos()` と `applyVisionResultsToAihints()` も object 形式に対応（既存の `corefolderSilhouetteNotes[]` / `humanoidSilhouetteNotes[]` キーは下位互換として `body_description` 側へ追記される）。
+- 適用結果: `Works_NumberTales/DataBases/db_Primary.json` で 89 レコードを object 形式へ移行 + 82 レコードの corefolder NLD をテンプレで再生成。`#57` の `immutable_traits` は番号刻印位置を「髪束の上」ではなく「黄色い本体表面（頭部近く）に縦書き」へ手動修正。`#42` は behavior 描写が混入した旧 NLD を再生成で除去。
+- テスト追加: `tests/aihints.schema.test.js` の corefolder / humanoid 形態 silhouette_notes アサーションを object 形式へ更新（`body_description` は非空必須、`attached_items` は配列であれば空も許容）。corefolder NLD が球体本体テンプレートに準拠し humanoid 衣装語を含まないことを検査する新規ケースを追加。
+- ドキュメント整備: `docs/ai-hints-usage.md` の §4（silhouette_notes の object 化記述）、新節 §9.6（`--migrate-silhouette-structure`）、新節 §9.7（`--rewrite-corefolder-nld`）、`.github/copilot-instructions.md` の AIHints 運用ルール、本 CHANGELOG に反映。
+- 回帰確認: `tests/aihints.schema.test.js` 11/11 pass。既存失敗 6 件（commons.secondaries / data.shape / enrich.dblink.jump.merge / pages.characters.ui-output）は本変更前から残る無関係な失敗。
+
+### AIHints corefolder 形態 vision-fill バッチ（NumberTales/DB_Primary）+ `numberMarkingPlacement` 正規表現拡張
+
+- `Works_NumberTales/DataBases/db_Primary.json` の AIHints 保有レコードについて、`tools/patch-aihints.mjs --apply-vision-results --apply` を 4-5 件単位の小バッチで反復実行し、corefolder 形態の `silhouette_notes` / `immutable_constraints` / `negative_keywords` / 番号マーキング位置 (`common.immutable_traits` 内の単一スロット記述) のキャラ固有 TODO を vision 観察結果で穴埋めした。
+- 適用範囲: 整数 Num の `#1`〜`#99` のうち 80 件 + 特殊番号 `2-alt` / `10-alt` / `000` の 3 件 = 計 83 件。各バッチは `.cache/vision-results-batch-corefolder-*.json` として保存し、`.cache/merge-batch.mjs` で `.cache/vision-results.json` にマージしてから `--apply` で書き込む（gitignore 配下の `.cache/` のみを一時領域として使用）。
+- 個別対応事例: `#5` / `#8` / `#15` は -1 画像でマーキングを確認できず、追加の corefolder 画像（`-2.png`、concept サムネ）から手動補正。`#15` はハーネスベルトに半分隠れたローマ数字 `XV`。`#10-alt` は本体が黒黄縞の保護ケースに完全格納されており、ケース正面のローマ数字 `X` を識別子として記録した。`#2-alt` は化学異性体プレフィックス風表記 `Bi 2 nor`、`#000` はネコ耳バリエーション（フォックス耳でない点を silhouette に明記）+ 下線付き `000` 表記、など。
+- スキップ判定: corefolder 画像が未整備のレコード（`#28` / `#51` / `#67` / `#70`）と、キャラデザイン自体が保留中のレコード（`#38` / `#54` / `#59` / `#79` / `#80` / `#82` / `#83` / `#90` / `#91` / `#95`）はバッチから除外し、既存の `TODO:` プレースホルダを保持。残 TODO は `#28`（要画像）と上記未整備キャラのみ。
+- `tools/patch-aihints.mjs` の `applyVisionResultsToAihints()` で `numberMarkingPlacement` の置換対象正規表現を 4 パターン（`^TODO: number '...' marking placement` / `^'#N...' number marking` / `^number 'N' marking` / `^number 'N' ...`）に拡張し、`flatMap` + `replacedOnce` フラグで「レコード内 1 件のみ置換」を保証した。これにより既存の `'#N' number marking (immutable)` 形式や `number 'N' as her core identifier` 形式のレガシー記述も vision-fill 対象になる。
+- 既知の小バグ: `--records` に整数化できる特殊番号（`000` 等）と他の特殊番号を同時指定した場合、集計表示で `0` に丸められて適用カウントが減ることがある。実体は `parseRecordSpec()` が string/number 両形を Set 追加しており、単独実行では正常に書き込めることを確認済み（`#000` も最終的に書き込み完了）。集計表示の改修は後続セッションで実施予定。
+- 編集対象: `data/Works_NumberTales/DataBases/db_Primary.json` のみ。他作品 / 他 DB は `AI_Optout: true` により対象外。
+- 回帰確認: `tests/aihints.schema.test.js` を含む AIHints 系テストは pass 維持。既存失敗 6 件（commons.secondaries / data.shape / enrich.dblink.jump.merge / pages.characters.ui-output）は本変更前から残る無関係な失敗。
+
+### AIHints スキーマに corefolder 形態強化フィールドを追加 + `--upgrade-schema` モードを新設
+
+- `Works_NumberTales/DataBases/db_type.json` の `$Def_AIFormVariant` に 3 つの新フィールドを追加した（順序: `outfit_features` → `silhouette_notes` → `immutable_constraints` → `negative_keywords` → `ai_tags`）。
+  - `silhouette_notes` (`#String[]|#Null`): 形態シルエットを 1-2 行で視覚言語化（本体形状/突出部/装着具）。
+  - `immutable_constraints` (`#String[]|#Null`): キャラ単位で再宣言する不変制約（例: 「腕を描かない」「humanoid 私服にしない」）。
+  - `negative_keywords` (`#String[]|#Null`): キャラ別ブラックリスト（`feet` / `legs` / `arms` / `hoodie` 等のフラットな NG キーワード）。
+- `$Def_AIHints` トップレベルに 2 つの新セクションを追加した（順序: `common` → `work_common` → `forms` → `alt_modes`）。
+  - `work_common.reference_images.corefolder_reference[]` / `humanoid_reference[]`: 作品共通の設計図/カットモデル画像 URL を全キャラから参照可能にする（`Images/Ref_Glossary/concept-figure/` 等の `cnsp-fg_NTsCoreFolder.png` / `cnsp-fg_NTsHumanoid.png` を自動収集）。
+  - `alt_modes.corefolder_dressed` (`allowed: #Boolean|#Null`, `outfit_source: #String|#Null`): 「コアフォルダ装着時に humanoid 衣装を重ねる」など将来予約モード（既定 `null`）。
+- `tools/patch-aihints.mjs` に `--upgrade-schema` モードを新設。既存レコードへ差分追加のみを行い、入力済み値は上書きしない（`!('field' in obj)` ガード）。corefolder 形態には structural default（`silhouette_notes` の球体本体 + 安全ハーネス記述、`immutable_constraints` の腕脚/手禁止 + 頭部ハーネス保持、`negative_keywords` 10 件）を自動投入し、humanoid 形態とキャラ固有スロットは `TODO:` プレースホルダで残す。
+- `--suggest` モードの corefolder scaffold に [D] 尻尾本数テンプレ（`exactly N ${unit} total: upper trunk forks into TODO bundles of TODO ${unit} each, lower trunk has TODO single ${unit}, no more no less`）と [E] 番号マーキング位置 TODO（`TODO: number 'N' marking placement (single fixed slot, e.g., back center / collar tag / harness front)`）を投入し、AI が尻尾本数/番号配置を取り違える問題への耐性を強化した。
+- `--fill-todos` モードに、`TailsUnit` から尻尾本数テンプレを `common.silhouette_features` へ自動追記する処理を追加（既に同形式テンプレが存在すれば再追加しない）。
+- `--apply-vision-results` の `VisionResult` typedef に 7 フィールドを追加: `corefolderSilhouetteNotes[]` / `humanoidSilhouetteNotes[]` / `corefolderImmutableExtras[]` / `humanoidImmutableExtras[]` / `corefolderNegativeKeywords[]` / `humanoidNegativeKeywords[]` / `numberMarkingPlacement`。corefolder 側は重複除去で追記、humanoid 側は TODO スロット置換、`numberMarkingPlacement` は `common.immutable_traits` の `TODO: number '...' marking placement (...)` を単一スロット記述で置換する。
+- 適用範囲: `Works_NumberTales/DataBases/db_Primary.json` の AIHints 保有 92 レコード全てへ `--upgrade-schema --apply` を完了（schema-upgraded=91 + schema-unchanged=1）。AI_Optout 設定済みの他 DB / 他作品は対象外。
+- テスト追加: `tests/aihints.schema.test.js`（10 ケース）で schema 宣言・フィールド順序・92 レコードへの structural default 投入を検証。
+- ドキュメント整備: `docs/ai-hints-usage.md` の corefolder 形態節と `--upgrade-schema` 節、`.github/copilot-instructions.md` の AIHints 運用ルール、本 CHANGELOG に反映。
+- 回帰確認: 新規 10 ケース + 既存 99 ケース pass。既存失敗 6 件は本変更前から残る無関係な失敗。
+
+### `AI_Optout` による DB 単位の AI タグ生成 / AI 学習抑止フラグを追加
+
+- 作品別 `db_meta.json` の `Databases.#DB_<DbName>` 直下に `"AI_Optout": true` を置くことで、対象 DB に対する AI 関連自動処理を抑止する単一フラグを新設した。アクセス制御フラグ（`DB_Hidden` / `Works_Hidden`）と異なり API 配信は遮断せず、AI 利用に対する opt-out 表明として機能する。
+- `tools/patch-aihints.mjs` の全モード（`--suggest` / `--apply` / `--fix-refs` / `--fill-todos` / `--gen-vision-tasks` / `--apply-vision-results`）に `AI_Optout` ガードを実装。設定済み DB への書き込み・解析を exit code `2` で拒否する。緊急時のみ `--force-ai-optout` でバイパス可能。
+- 作品別 `db_meta.json` 欠損時はチェックをスキップ（既存の欠損耐性方針に追従）。スキーマ (`$Def_DatabaseCatalog`) には宣言しない（`DB_Hidden` / `Works_Hidden` と同設計）。
+- 初期適用: `Works_NumberTales/DataBases/db_meta.json` の `#DB_Primary` を**除く 19 DB / Ref エントリ**へ `AI_Optout: true` を付与済み（`DestinyFoxRecords` / `FLInvestigator78` / `NumberTales` の Semi/Self/Secondary / `Ref_Glossary` / `Ref_Reference` / `PastDivers` / `Proxies` / `ShouArRiders` / `SinisterChangingGirls` / `UnauthedLogica` / `UnibyteLive` 各 DB）。`Works_NumberTales/#DB_Primary` のみ既存の自由運用 DB として未付与のまま残す。
+- ドキュメント整備: `docs/api-sw-spec.md` §5.5、`docs/ai-hints-usage.md` §7 表、`.github/copilot-instructions.md` の運用ルール、本 CHANGELOG に反映。
+- 回帰確認: `tests/data.sanity.test.js` / `tests/sw.enrich.basic.test.js` / `tests/meta.catalog.schema.test.js` / `tests/sw.dbmeta.tolerance.test.js` は全件 pass を維持。
+
+### `tools/patch-aihints.mjs` に特殊番号（string `Num`）レコード対応 + Agent セッション再現プレイブックを整備
+
+- `parseRecordSpec()` を拡張し、`000` / `2-alt` / `10-alt` / `67-old` のような string `Num` トークンを `--records` で受け付けるようにした。純整数トークンは number / string 両形式を Set に追加して後方互換を維持。
+- `gen-vision-tasks` / メインループの `typeof num !== 'number'` ガードを number / string 両許容へ緩和。humanoid 画像マッチ正規表現を `art_img([0-9A-Za-z\-]+?)-humanoid` に拡張し、string Num と同体画像の関連付けを可能にした。
+- `Works_NumberTales/db_Primary.json` の #97 ・ #98 ・ #99 と、特殊番号レコード #000 ・ #2-alt ・ #10-alt へ `AIHints` を scaffold 生成→視覚解析適用→JSON 由来 TODO 補完まで適用した（vision-applied=6 / todos-filled=3）。詳細は `docs/ai-hints-usage.md` §9 「Agent セッション再現用プレイブック」を参照。
+- **適用範囲の明示**: 今回の作業と検証は **`data/Works_NumberTales/DataBases/db_Primary.json` のみを対象に適用されている**。他作品・他 DB（`Secondary` / `SemiPrimary` / `SelfSecondary` / `Proxy` 等）へ転用する際は画像ディレクトリ構造・`Images.*_PNGPath` 規則・作品別 schema の差異を個別に検証の上、`--work` / `--db` / 画像パス解決ロジックを調整すること。
+- 現状 `Works_NumberTales/DB_Primary` では参照画像がない以下 13 レコードは恒久的に AI タグ未付与のまま保持し、クエリ件数としてトラッキングする: `#38`, `#54`, `#59`, `#67-old`, `#79`, `#80`, `#82`, `#83`, `#90`, `#91`, `#95`, `#0`, `#00`。
+- 回帰確認: `tests/data.sanity.test.js` / `tests/sw.enrich.basic.test.js` は全件 pass を維持。
+
+### `tools/patch-aihints.mjs` に helper の named export と import gate を追加 + 残 TODO 一括補完
+
+- `parseTailsUnit` / `buildTailDescription` / `extractExpressionHints` を named export 化し、外部スクリプトから再利用可能にした。既存挙動への影響なし。
+- ファイル末尾の `main()` 呼び出しを `import.meta.url` で CLI 直接実行時のみ起動する import gate に変更し、helper を import した際の副作用（CLI が走り出すこと）を防止した。
+- これらを利用して `.cache/fill-residual-todos.mjs`（一回限りスクリプト）で `Works_NumberTales/db_Primary.json` 内の JSON 由来 TODO を一括補完した。対象 TODO: `common.expression_tendency[*]`（`extractExpressionHints` 由来）/ `common.age_appearance` / `forms.*.ai_tags[*]`（age / ear / tail）/ `forms.*.natural_language_description`（既存 `ai_tags` から 1 文生成）/ `common.silhouette_features[*]`（`buildTailDescription` 由来）。
+- 26 records, 70 fills 適用後、`Works_NumberTales/db_Primary.json` 内の `AIHints.*` 配下の `TODO:` プレースホルダはゼロになった。
+- 書き戻し時は元ファイルの主要 EOL（CRLF/LF）を検出して統一し、混在による差分爆発を防ぐ実装。
+- 回帰確認: `tests/data.sanity.test.js` / `tests/sw.enrich.basic.test.js` は全件 pass を維持。
+
+### `tools/patch-aihints.mjs` に視覚解析ワークフロー (`--gen-vision-tasks` / `--apply-vision-results`) を追加
+
+- `patch-aihints.mjs` に 2 つのモードを追加し、視覚 TODO（`palette_priority` / `silhouette_features` の hair・eye / `forms.*.outfit_features` / `forms.*.ai_tags` の hair・eye・outfit）を Agent 画像解析と組み合わせて埋める半自動ワークフローを構築した。
+  - `--gen-vision-tasks`: 視覚 TODO が残るレコードを走査し、各レコードの concept / corefolder / humanoid 画像 URL・ローカルパス・既存 ai_tags をまとめた `.cache/vision-tasks.json` を生成する（Agent 解析用マニフェスト）。
+  - `--apply-vision-results`: `.cache/vision-results.json`（Agent が画像解析結果を構造化した JSON）を読み込み、`applyVisionResultsToAihints()` で TODO を置換する。欠落フィールドは「変更しない」扱いで TODO を保持し、部分適用に対応する。
+- `PatchResult.status` に `vision-applied` / `vision-unchanged` / `vision-no-result` を追加し、サマリ表示で件数を可視化した。
+- `genVisionTasksToFile()` に `aihints.forms` が `null` のケースに対する null ガードを追加。
+- 適用範囲: `Works_NumberTales` 一次創作 DB の #41-#65 のうち解析が確定した 23 レコードへ palette・silhouette・corefolder outfit を補完した。残レコード（#66-#69 など）は次セッション以降に追加解析する。
+- 回帰確認: `tests/data.sanity.test.js` / `tests/sw.enrich.basic.test.js` は全件 pass を維持。
+
+### `$Def_AI*` スキーマを作品別 `$VersDef` へ移動 + `--fix-refs` フラグ追加
+
+- `data/db_type.json` のグローバル `$VarsDef` から `$Def_AIColorPalette` / `$Def_AIReferenceImages` / `$Def_AIHintsCommon` / `$Def_AIFormVariant` / `$Def_AIHintsForms` / `$Def_AIHints` の 6 定義を削除した。
+- 上記 6 定義を `data/Works_NumberTales/DataBases/db_type.json` の `$VersDef` へ移動した。AI 形態構造は作品ごとに異なるため、作品固有のスコープへ寄せる設計変更。グローバル `$DefType` 内の `AIHints` フィールド宣言（`"$type": "$Def_AIHints|#Null"`, `"$display": { "auto": false }`）は保持。
+- `$Def_AIReferenceImages` に `concept` / `corefolder` / `humanoid` / `corefolder_arts` フィールドを追加し、concept-first 参照構造に対応した。
+- `tools/patch-aihints.mjs` に `--fix-refs` フラグを追加。既存 AIHints の `reference_images` のみを `resolveImageInfo()` で再構築し、`identity_tags` / `ai_tags` / `natural_language_description` 等のタグ・テキスト類は保持する。AIHints が存在しないレコードは `skipped-no-aihints` としてスキップする。
+- 上記に伴い `resolveImageInfo()` を拡張。全 corefolder 画像を `corefolderImages[]` に収集し先頭を `corefolderUrl` に設定。`arts/corefolders/` 系を `corefolderArtImages[]`、`arts/humanoids/` 系を `humanoidImages[]` に分類して返す。
+- `buildFormReferenceImages()` を新規追加。`concept` 画像が存在する場合は `main = conceptUrl`、形態固有画像は `formKey`（`corefolder` / `humanoid`）スロットへ格納する concept-first 構造。
+- `fixRefsInRecord()` を新規追加。レコードの AIHints をディープコピーして各 `reference_images` のみ差し替える。
+- 回帰確認: `tests/data.sanity.test.js` / `tests/sw.enrich.basic.test.js` は全件 pass を維持。
+
+### `tools/patch-aihints.mjs` に `--suggest` フラグを追加 + Agent プロンプトファイル新規作成
+
+- `patch-aihints.mjs` に `--suggest` フラグを追加。`TailsUnit` / `GenderType` / `Character` / `Summary` などの既存フィールドから機械的に導出できる値を自動入力する半自動モード。視覚情報が必要な項目（`palette_priority` / 髪色・目色）は `TODO:` / `[TRANSLATE → ...]` 形式のプレースホルダで残す。
+- 上記に伴い `buildScaffold()` の `palette_priority` バグ（配列 `[...]` 形式）をオブジェクト `{primary, secondary, accent}` 形式に修正し、`$Def_AIColorPalette` schema との整合を確保した。
+- `--suggest` を支える補助関数 8 つを追加: `parseTailsUnit` / `buildTailDescription` / `extractExpressionHints` / `buildNlDescriptionHint` / `buildNegativeVisuals` / `buildSuggestedCorefolderForm` / `buildSuggestedHumanoidForm` / `buildSuggestedScaffold`。
+- `.github/prompts/aihints-fill.prompt.md` を新規作成。Copilot Agent モードで `AIHints` の残 TODO を既存フィールドの変換・翻訳によって対話的に補完するワークフロープロンプト（Step 0-5 構成、フィールド対応ルールテーブル・変換早見表付き）。
+- 回帰確認: `tests/data.sanity.test.js` は 3/3 pass を維持。
 
 ### `*_DBLink` suffix セクションレンダラー実装・`ThisMasters` リンク対応
 
@@ -205,6 +445,19 @@
 - `lib/sw-common.js` の `listWorkDBs()` を修正し、`DB_Hidden: true` のエントリをDBリスト (`works/{work}/db`) から除外するようにした。
 - `lib/sw-common.js` の `handleDbEndpoint()` を修正し、直接URL (`works/{work}/db/{dbName}`) へのアクセスも `DB_Hidden: true` の場合は 404 を返すようにした。メタ欠損時はチェックをスキップし、既存の耐性設計を維持する。
 - 初期適用として `Works_NumberTales/DataBases/db_meta.json` の `#DB_UnprocessedSecondary` に `"DB_Hidden": true` を設定した。
+
+### `AIHints` を二層構造（common / forms）へ移行
+
+- `data/db_type.json` の `$Def_AIHints` を、フラットな構造から `common`（姿勢共通の不変属性）と `forms.<form>`（形態別の差分）の二層構造へ刷新した。新規 schema として `$Def_AIHintsCommon` / `$Def_AIHintsForms` / `$Def_AIFormVariant` を追加。
+- `forms` の既定子要素は `corefolder`（装備姿）と `humanoid`（人型通常姿）。画像が存在しない形態については `forms.<form>` ごと省略可能とする。
+- `docs/ai-hints-usage.md` を二層構造前提に全面改訂（用語統制、`ai_tags` 合成順、URL 規約、付与対象判定、環境別の使い方を整理）。
+- `data/Works_NumberTales/DataBases/db_Primary.json` の #1〜#37 と #39〜#40 を二層構造へ変換（#38 は `notProceeded` のため対象外）。`#1` `#7` `#12` `#15` `#17` `#20` `#23` `#24` `#25` `#27` `#37` `#39` は corefolder と humanoid の両形態を、`#28` は corefolder の `reference_images` を `null` とし、その他は corefolder のみを記載。
+- #26 以降の旧フォーマット（`identity_tags` / `natural_language_description` / `prompt_export` / `negative_prompt_export` / `reference_images` 未整備、`palette_priority` が記述文字列）レコードについては、既存値からの合成と hex 推定により二層構造へアップグレードした。
+- 他作品および NumberTales の #41 以降は、既存 `AIHints` ブロックが存在せず新規生成が必要となるため、本セッションでは対応せず、後日 User 監修のもとで自動パッチ適用により段階的に付与する方針とした（創作内容の自動生成を避ける運用ルールに従う）。
+- 上記の自動パッチ用ツール `tools/patch-aihints.mjs` を新規追加。`Images.corefolder_PNGPath` / `Images.arts_PNGPath` から実在画像のみを採用して二層構造の **scaffold（TODO プレースホルダ入り）** を挿入する dry-run 既定の CLI。創作面（タグ本体・自然文・台詞）は生成せず `TODO: ...` 文字列で残し、User 監修での書き起こしを前提にする。既存 AIHints はデフォルトでスキップ（`--force` で上書き）。
+- `$Def_AIReferenceImages` に `concept` / `concept_variants[]` / `catalog` / `design_sheet` を追加し、`$Def_AIHintsCommon` に `reference_images` 項目を新設。これにより `Images.concept_PNGName` / `Images.conceptAlt_PNGName` / `Images.catalog_PNGName` / `Images.designAlt_PNGName` のような「1 枚に全形態が描かれた素体イラスト」を、形態非依存の共通リソースとして `common.reference_images` に置けるようにした。
+- `tools/patch-aihints.mjs` も上記 schema 拡張に追従し、common の各画像も実在検証して `common.reference_images.main`（= concept と同 URL）/ `concept` / `concept_variants` / `catalog` / `design_sheet` を埋めるよう更新。dry-run（NumberTales/Primary）では #41-#60 範囲で `patched=18 / skipped-no-image=2 (#54 #59)` を確認した（#51 は concept のみ存在のため新たに patched 対象に昇格）。
+- 回帰確認: `tests/data.sanity.test.js` は 3/3 pass を維持。
 
 ### 創作作品ガイドラインを言語別ファイルへ集約
 

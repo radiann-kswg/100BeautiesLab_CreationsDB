@@ -17,8 +17,13 @@
 
 | 層 | エンドポイント | 実装 | データソース | 主な用途 |
 |----|--------------|------|------------|--------|
-| **実 API** | `database.numbertales-radiann.net/api/v1/*` | Cloudflare Workers (`pkg/cloudflare/worker.js`) | R2（JSON ミラー）+ D1（FTS5） | 外部クライアント・curl・モバイルアプリ |
+| **実 API（公開）** | `database.numbertales-radiann.net/api/v1/*` | Cloudflare Workers `creationsdb-api` (`develop`) | R2（JSON ミラー）+ D1（FTS5） | 外部クライアント・curl・モバイルアプリ |
+| **実 API（AI 用）** | `database.numbertales-radiann.net/api/ai/*` | Cloudflare Workers `creationsdb-api-ai` (`addon-ai-tag`) | R2 + D1 + D1 `aihints` | サークル関係者・Cloud Run 画像生成 |
 | **疑似 API** | `(同一オリジン)/api/v1/*` `/pages/v1/*` `/svc/v1/*` | Service Worker (`pages/sw.js` 等) | GitHub Pages 静的 JSON | ブラウザ・キャラシート UI |
+
+> **`/api/ai/` について**: `addon-ai-tag` ブランチ専用の Worker が提供するサークル関係者向けエンドポイント。
+> `aihints` エンドポイント（`/:work/:db/aihints`）は `Authorization: Bearer <AI_ACCESS_TOKEN>` が必要。
+> トークンは Cloudflare Secret で管理する（`wrangler secret put AI_ACCESS_TOKEN`）。
 
 - 疑似 API（SW）は完全 enrich（`_DBLink`/`_Jump` 解決）付き。実 API（Workers）は現時点で `_Commons` 適用のみ（次フェーズで拡張予定）。
 - クライアント（`pkg/nodejs`, `pkg/python`, `pkg/csharp`）はローカル JSON を直接読むため、どちらの API にも依存しない。
@@ -36,6 +41,8 @@
 | GET | `/api/v1/:work/:db/records/:idx` | D1 `records` | 1 件取得（`?idxKey=X` でフィールド指定） |
 | GET | `/api/v1/:work/:db/search?q=` | D1 FTS5 | DB 内全文検索 |
 | GET | `/api/v1/:work/search?q=` | D1 FTS5 | 作品横断全文検索 |
+| GET | `/api/ai/:work/:db/aihints` | D1 `aihints` | AIHints 一覧（addon-ai-tag / 要 Bearer 認証） |
+| GET | `/api/ai/:work/:db/aihints/:idx` | D1 `aihints` | 1件取得（`?form=<form>` で形態絞り込み / 要 Bearer 認証） |
 
 ### D1 スキーマ概要
 
@@ -43,9 +50,12 @@
 - `dbs`: DB メタ（`work_key`, `db_key`, `db_label`, `db_label_en`, `db_layer`, `is_hidden`）
 - `records`: レコード本体（`work_key`, `db_name`, `idx_key`, `idx_value`, `is_private`, `searchable_text`, `data_json`）
 - `records_fts`: FTS5 仮想テーブル（`records` を content として外部コンテンツ。INSERT/DELETE/UPDATE トリガーで自動同期）
+- `aihints`: AIHints 専用テーブル（`work_key`, `db_name`, `idx_key`, `idx_value`, `forms`, `common_json`, `forms_json`, `data_json`）— addon-ai-tag ブランチ
 
-スキーマ定義: `pkg/cloudflare/schema/d1-init.sql`
-マイグレーション: `pkg/cloudflare/scripts/migrate.mjs`
+スキーマ定義: `pkg/cloudflare/schema/d1-init.sql`（基本テーブル）/ `pkg/cloudflare/schema/d1-aihints.sql`（AIHints テーブル）
+マイグレーション: `pkg/cloudflare/scripts/migrate.mjs`（基本データ）/ `pkg/cloudflare/scripts/migrate-aihints.mjs`（AIHints）
+
+詳細: `docs/aihints-spec.md`
 
 ### Workers 実 API と SW 疑似 API の URL 書式比較
 
@@ -287,6 +297,33 @@ UI と enrich/search は、可能な限りこの `db_type.json($DefType)` に追
 | `works/{work}` 直接アクセス | 対象レコードだけ除外 | 作品情報は返る | 404 |
 | `works/{work}/db` | DBエントリは残る | 該当DBが除外 | 404 |
 | `works/{work}/db/{dbName}` | 対象レコードだけ除外 | 404 | 404 |
+
+## 5.5 `AI_Optout` による AI タグ生成 / AI 学習の抑止
+
+`db_meta.json` の `Databases.#DB_<DbName>` 直下に `"AI_Optout": true` を設定すると、そのDBに対して AI 関連の自動処理を抑止するフラグとして扱われます。`DB_Hidden` / `Works_Hidden` がアクセス制御フラグであるのに対し、`AI_Optout` は AI 利用に関する opt-out 表明であり、API 配信そのものは遮断しません。
+
+挙動と用途:
+
+- `tools/patch-aihints.mjs` の全モード（`--suggest` / `--apply` / `--fix-refs` / `--fill-todos` / `--gen-vision-tasks` / `--apply-vision-results`）は、対象 DB に `AI_Optout: true` が設定されている場合、書き込み・解析を行わず exit code `2` で終了します。
+- 緊急時のバイパスとして `--force-ai-optout` を併用した場合のみ、警告を表示したうえで処理を続行します。
+- 同時に AI 学習・LLM 取り込みへの opt-out 表明として外部利用者・スクレイパー向けのシグナルを兼ねます（規約面の解釈は `guideline.md` / `docs/third-party-policy.md` に委ねます）。
+- 作品別 `db_meta.json` が欠損している場合はチェックをスキップします（既存の欠損耐性方針に合わせます）。
+- スキーマ (`$Def_DatabaseCatalog`) には宣言しません。`DB_Hidden` / `Works_Hidden` と同様、表示メタではなくガード用フラグであるためです。
+
+他フラグとの粒度比較:
+
+| 項目 | `isPrivate: true` | `DB_Hidden: true` | `Works_Hidden: true` | `AI_Optout: true` |
+|------|------------------|-------------------|---------------------|------------------|
+| 粒度 | レコード単位 | DB 全体 | 作品全体 | DB 全体 |
+| 適用場所 | `db_*.json` の各レコード | `db_meta.json` の `Databases.#DB_<DbName>` | グローバル `db_meta.json` の `CreationWorks.#Works_<WorkName>` | 作品別 `db_meta.json` の `Databases.#DB_<DbName>` |
+| API 配信への影響 | 対象レコードを除外 | 該当DBを 404 | 作品ごと 404 | 影響なし（配信は継続） |
+| AI 補助ツール（`tools/patch-aihints.mjs`）への影響 | なし | （配信遮断のため事実上不可） | （同左） | 全モードで exit 2（`--force-ai-optout` でのみバイパス） |
+| AI 学習 opt-out 表明 | なし | なし | なし | あり |
+
+2026-06-02 時点の初期適用範囲:
+
+- `Works_NumberTales/DataBases/db_meta.json` の `#DB_Primary` のみ未付与（既存の自由運用 DB として例外扱い）。
+- それ以外の作品別 `db_meta.json` の全 DB / Ref エントリには `AI_Optout: true` を付与済み（19 エントリ）。
 
 ---
 

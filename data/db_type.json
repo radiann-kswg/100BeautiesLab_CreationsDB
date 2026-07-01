@@ -530,6 +530,13 @@
       "$type": "#Summary|#Null",
       "hashTag_EN": "Additional Design Collaborators",
       "searchable": false
+    },
+    {
+      "hashTag": "AIHints",
+      "$type": "$Def_AIHints|#Null",
+      "hashTag_JP": "AI生成向けヒント",
+      "searchable": false,
+      "$display": { "auto": false }
     }
   ],
   "$MetaType": {

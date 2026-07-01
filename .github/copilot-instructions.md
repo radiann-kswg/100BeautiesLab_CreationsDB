@@ -70,6 +70,7 @@ Copilot 自動ロード用の同等仕様は `.github/instructions/roleplay.inst
 - **DB 表示名の正**: DB セレクトや作品概要の DB 見出しに出す表示名は、作品別 `db_meta.json` の `Databases.#DB_<DbName>.DB_Label` / `DB_Label_EN` を優先し、未定義時のみ SW の既定ラベル補完に依存します。
 - **`DB_Hidden` によるDB完全非公開**: `db_meta.json` の `Databases.#DB_<DbName>` に `"DB_Hidden": true` を置くと、そのDB全体が SW の DB リストと直接アクセスの両方から 404 で遮断されます。`isPrivate`（レコード単位）と異なり DB 単位で作用します。メタ欠損時はチェックをスキップします。詳細は `docs/api-sw-spec.md` の §5.3 を参照してください。
 - **`Works_Hidden` による作品完全非公開**: `data/db_meta.json` の `CreationWorks.#Works_<WorkName>` に `"Works_Hidden": true` を置くと、その作品全体が SW の作品一覧・配下DB・検索の全エンドポイントから 404 で遮断されます。`DB_Hidden`（DB単位）と異なり作品単位で作用します。グローバルメタ欠損時はチェックをスキップします。詳細は `docs/api-sw-spec.md` の §5.4 を参照してください。
+- **`AI_Optout` による AI タグ生成 / AI 学習の抑止**: 作品別 `db_meta.json` の `Databases.#DB_<DbName>` に `"AI_Optout": true` を置くと、`tools/patch-aihints.mjs` の全モード（`--suggest` / `--apply` / `--fix-refs` / `--fill-todos` / `--gen-vision-tasks` / `--apply-vision-results`）がそのDBへの書き込み・解析を exit code 2 で拒否します。緊急時のみ `--force-ai-optout` でバイパス可能です。AI 学習・LLM 取り込みに対する opt-out 表明シグナルも兼ねる単一フラグで、`DB_Hidden` / `Works_Hidden` と同様にスキーマ非宣言・メタ欠損時はスキップという扱いです。2026-06-02 時点では `Works_NumberTales/#DB_Primary` のみ未付与で、それ以外の 19 DB / Ref エントリには付与済みです。詳細は `docs/api-sw-spec.md` の §5.5 を参照してください。
 - **API/SW 技術説明の参照先**: API / SW 周辺の仕様整理や説明追加では、まず `docs/api-sw-spec.md` を参照・更新対象に含めてください。
 - **横断運用の参照先**: 実装判断の横断ルールは `docs/implementation-playbook.md` を先に確認し、必要な差分だけ追加してください。
 - **英訳(_EN)入力補助の参照先**: `data/**` の `_EN` を補助するときは `.github/instructions/localization-en.instructions.md`（Chat/Agent/Edits に自動適用）と早見表 `docs/localization-glossary-quickref.md` を参照してください。**インライン補完（ゴーストテキスト）はカスタム指示を読み込まない**ため、早見表を隣タブで開いて近傍文脈に入れます。一括翻訳・既存英訳の突き合わせ・用語集同期は `tools/deepl/`（`docs/deepl-localization.md`）に委ねます。既存値の上書き・創作本文の新規生成はしません。
@@ -84,6 +85,10 @@ Copilot 自動ロード用の同等仕様は `.github/instructions/roleplay.inst
 - **`*_DBLink` suffix フィールドの自動ディスパッチ**: `{FieldName}_DBLink` で終わるフィールドは `lib/section-renders/dblink.js` の `dbLinkSection` renderer が suffix を自動検出して描画します。`$display.sectionWrapper` の指定は不要です。`lib/section-wrapper-common.js` の `structuredObjectSection.match` に `*_DBLink` 除外条件があり、単一オブジェクト形式のフィールドでも正しく `dbLinkSection` へ委譲されます。
 - **`$Def_DBLinkRef` フォーマット**: `*_DBLink` エントリ（UI向けリンク用）は `{ "_Work": "WorksTitle", "_DB": "DbName", "IndexKey": "IndexValue" }` 形式を正とします。ネストインデックスも可（例: `"Card": { "Suit": "Major", "SuitNum": 17 }`）。旧フォーマット（`{ worksTitle, dbName, _Search: [{hashTag, key}] }`）は廃止。ただし `EnrichmentProcessor.resolveDbLinkPrimaryRecord()` が使うレコードルートの `_DBLink`（マージ用）は旧フォーマットのまま維持します。
 - **`ThisMasters._DBLink` のフォーマット**: `$Def_DBLinkRef` 形式を使います。`lib/section-renders/thisMasters.js` の `hydrateThisMastersLink` は SENTINEL_KEYS（`_DB / _Work / label_JP / label_EN`）を除いた最初のキーをインデックスとして動的解決します。
+- **AIHints corefolder 強化フィールドの運用**: `$Def_AIFormVariant` の `silhouette_notes` / `immutable_constraints` / `negative_keywords` は、structural default（球体本体記述、腕脚/手禁止、humanoid 衣装禁止、`legs`/`arms`/`hoodie` 等の NG キーワード）に限り `tools/patch-aihints.mjs --upgrade-schema` で自動投入します。キャラ固有スロット（特定キャラだけが持つ NG・ハーネス形状・個別禁止要素）は `TODO:` で残し、画像と設定資料を参照した User 手動入力を正とします。Copilot は画像から推定したキャラ固有の創作描写を勝手に埋めないでください（`--apply-vision-results` 経由で User / Agent が明示的に渡した場合のみ反映可）。
+- **AIHints `silhouette_notes` は object 形式**: 2026-06-09 以降、`forms.*.silhouette_notes` は `$Def_AISilhouetteNotes`（`{ body_description: #String[], attached_items: #String[] }`）に統一します。素体（球体本体・球状コア・人型上半身）は `body_description` へ、ハーネス・髪飾り・首輪・襷・カフ等の装着付属品は `attached_items` へ分離してください。flat array からの一括移行は `tools/patch-aihints.mjs --migrate-silhouette-structure --apply` で行えます。
+- **AIHints corefolder NLD のテンプレ化**: `forms.corefolder.natural_language_description` は「`Corefolder form: a spherical cushion-like body in {color}, with the number '{N}' {marking placement}; {accessory}.`」のテンプレで再生成します（`tools/patch-aihints.mjs --rewrite-corefolder-nld`）。`coat` / `dress` / `bodysuit` / `pants` / `shoes` 等の humanoid 衣装語を混入させてはいけません（`outfit` は corefolder 衣装バリアントで正当利用があるため除外語に含めない）。番号刻印位置（marking placement）は `common.immutable_traits` の単一スロット記述から `extractMarkingInfo()` が抽出します。「番号刻印なし」と明示する場合は `with no number identifier printed on the body` が出力されます。
+- **AIHints schema 追加時の冪等パッチ**: AIHints / 類似スキーマに新フィールドを追加する場合、`tools/patch-aihints.mjs` の `--upgrade-schema` モード（`!('field' in obj)` ガードで差分追加のみ）を踏襲してください。既存値の上書きや TODO への戻しは禁止です。
 
 ### ブランチ運用方針
 
@@ -422,13 +427,13 @@ Copilot 自動ロード用の同等仕様は `.github/instructions/roleplay.inst
 
 ### リポジトリルート自動解決の仕組み
 
-| パッケージ | 解決方法 |
-|-----------|---------|
-| **Node.js** (`pkg/nodejs/index.mjs`) | `resolve(dirname(fileURLToPath(import.meta.url)), '../..')` — 2 階層上 |
-| **Python** (`pkg/python/creationsdb/client.py`) | `Path(__file__).resolve().parent.parent.parent.parent` — 4 階層上 |
-| **C#** (`pkg/csharp/CreationsDBClient.cs`) | `FindRepoRoot()` — アセンブリ位置からフォルダを上方探索し `data/db_meta.json` の存在で判定 |
-| **MCP** (`pkg/mcp/server.mjs`) | コマンドライン引数 → 環境変数 → `server.mjs` の 2 階層上、の順 |
-| **Cloudflare Workers** | ファイルシステム不使用（GitHub Pages URL から fetch） |
+| パッケージ                                      | 解決方法                                                                                   |
+| ----------------------------------------------- | ------------------------------------------------------------------------------------------ |
+| **Node.js** (`pkg/nodejs/index.mjs`)            | `resolve(dirname(fileURLToPath(import.meta.url)), '../..')` — 2 階層上                     |
+| **Python** (`pkg/python/creationsdb/client.py`) | `Path(__file__).resolve().parent.parent.parent.parent` — 4 階層上                          |
+| **C#** (`pkg/csharp/CreationsDBClient.cs`)      | `FindRepoRoot()` — アセンブリ位置からフォルダを上方探索し `data/db_meta.json` の存在で判定 |
+| **MCP** (`pkg/mcp/server.mjs`)                  | コマンドライン引数 → 環境変数 → `server.mjs` の 2 階層上、の順                             |
+| **Cloudflare Workers**                          | ファイルシステム不使用（GitHub Pages URL から fetch）                                      |
 
 ### pkg/ 変更時の注意
 

@@ -20,7 +20,8 @@
         "Progress": "notProceeded",
         "Belonging": ["ラストラステクニカ-インストゥルメント"],
         "RaceType": "Automaton"
-      }
+      },
+      "AI_Optout": true
     },
     "#DB_Primary": {
       "DB_Label_JP": "一次創作",
@@ -49,7 +50,8 @@
       "_Commons": {
         "Progress": "notProceeded",
         "RaceType": "CustomAutomaton(TaleBeastType)"
-      }
+      },
+      "AI_Optout": true
     }
   },
   "General": {

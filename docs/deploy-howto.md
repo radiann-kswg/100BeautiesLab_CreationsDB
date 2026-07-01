@@ -8,30 +8,32 @@
 
 ## GitHub Actions による自動更新（`cf-api-sync.yml`）
 
-`develop` ブランチへの push 時に、変更パスに応じて自動実行される:
+`develop` / `addon-ai-tag` ブランチへの push 時に、変更パスに応じて自動実行される:
 
-| 変更パス | 実行されるジョブ |
-|---------|----------------|
-| `data/**` | R2/D1 データ同期（`--clean` 付きで全件再投入） |
-| `pkg/cloudflare/worker.js` / `wrangler.toml` / `schema/**` / `scripts/**` | Worker デプロイ |
+| 変更パス                                                                  | 実行されるジョブ                               |
+| ------------------------------------------------------------------------- | ---------------------------------------------- |
+| `data/**`                                                                 | R2/D1 データ同期（`--clean` 付きで全件再投入） |
+| `pkg/cloudflare/worker.js` / `wrangler.toml` / `schema/**` / `scripts/**` | Worker デプロイ                                |
 
 ### 初回セットアップ: GitHub Secrets の登録
 
 GitHub リポジトリの **Settings → Secrets and variables → Actions** で以下を登録する:
 
-| Secret 名 | 値の取得方法 |
-|-----------|------------|
-| `CLOUDFLARE_API_TOKEN` | Cloudflare ダッシュボード → My Profile → API Tokens → Create Token<br>テンプレート「**Edit Cloudflare Workers**」を使い、D1・R2 の権限も追加する |
-| `CLOUDFLARE_ACCOUNT_ID` | Cloudflare ダッシュボード右サイドバー「Account ID」 |
+| Secret 名               | 値の取得方法                                                                                                                                     |
+| ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `CLOUDFLARE_API_TOKEN`  | Cloudflare ダッシュボード → My Profile → API Tokens → Create Token<br>テンプレート「**Edit Cloudflare Workers**」を使い、D1・R2 の権限も追加する |
+| `CLOUDFLARE_ACCOUNT_ID` | Cloudflare ダッシュボード右サイドバー「Account ID」                                                                                              |
+
+> **addon-ai-tag ブランチの追加設定**: `AI_ACCESS_TOKEN`（AIHints Bearer 認証トークン）は GitHub Secret ではなく **Cloudflare Secret** で管理する（`wrangler secret put AI_ACCESS_TOKEN --name creationsdb-api-ai`）。GitHub Actions の deploy-worker ジョブは `wrangler.toml` の `name` を参照して自動的に `creationsdb-api-ai` へデプロイするため、`cf-api-sync.yml` の編集は不要。
 
 #### API Token に必要な権限
 
-| リソース | 権限 |
-|---------|------|
-| Workers Scripts | Edit |
-| Workers Routes | Edit |
-| D1 | Edit |
-| R2 Storage | Edit |
+| リソース                       | 権限 |
+| ------------------------------ | ---- |
+| Workers Scripts                | Edit |
+| Workers Routes                 | Edit |
+| D1                             | Edit |
+| R2 Storage                     | Edit |
 | Zone (numbertales-radiann.net) | Read |
 
 ---
@@ -59,15 +61,18 @@ npx wrangler deploy --config pkg/cloudflare/wrangler.toml
 ```
 
 成功するとデプロイ URL が表示される。カスタムドメインルートが設定済みなので、
-`database.numbertales-radiann.net/api/v1/works` で応答が返れば OK。
+以下の URL で応答が返れば OK。
+
+- `develop` ブランチ（`creationsdb-api`）: `database.numbertales-radiann.net/api/v1/works`
+- `addon-ai-tag` ブランチ（`creationsdb-api-ai`）: `database.numbertales-radiann.net/api/ai/works`
 
 ### よくあるエラー
 
-| エラー | 対処 |
-|-------|------|
-| `[ERROR] No account id found.` | `wrangler.toml` の `account_id` を確認 |
+| エラー                         | 対処                                              |
+| ------------------------------ | ------------------------------------------------- |
+| `[ERROR] No account id found.` | `wrangler.toml` の `account_id` を確認            |
 | `[ERROR] Route already exists` | Cloudflare ダッシュボードで既存ルートを確認・削除 |
-| `authentication error` | `npx wrangler login` を再実行 |
+| `authentication error`         | `npx wrangler login` を再実行                     |
 
 ---
 
@@ -192,6 +197,7 @@ node pkg/cloudflare/scripts/migrate.mjs --repo-root . --d1-only --clean
 
 > FTS5 トリガーが自動で同期するため、`records_fts` の手動操作は不要。
 > `--clean` なしで `--d1-only` を使う場合は、先に手動でテーブルをクリアすること:
+>
 > ```bash
 > npx wrangler d1 execute b8bf7187-1966-4831-88d2-2b8906cfa745 --remote --yes \
 >   --command "DELETE FROM records; DELETE FROM dbs; DELETE FROM works;"
@@ -222,7 +228,72 @@ npx wrangler dev --config pkg/cloudflare/wrangler.toml --remote
 
 ---
 
-## 7. Google Cloud Run デプロイ（ADR-0002 / 将来手順）
+## 7. AIHints D1 投入（addon-ai-tag ブランチ）
+
+> このセクションは `addon-ai-tag` ブランチのみ対象。AIHints テーブルのスキーマ適用と、
+> `data/` 内の `AIHints` フィールドを D1 `aihints` テーブルへ投入する手順です。
+
+### 7-1. スキーマ適用（初回のみ）
+
+```bash
+npx wrangler d1 execute b8bf7187-1966-4831-88d2-2b8906cfa745 \
+  --file="pkg/cloudflare/schema/d1-aihints.sql" --remote --yes
+```
+
+`CREATE TABLE IF NOT EXISTS` なので、2回実行しても安全。
+
+### 7-2. AIHints データ投入
+
+```bash
+# ドライランで確認
+node pkg/cloudflare/scripts/migrate-aihints.mjs --repo-root . --dry-run
+
+# 実投入（--clean で既存データを全削除してから再投入）
+node pkg/cloudflare/scripts/migrate-aihints.mjs --repo-root . --clean
+```
+
+### 7-3. AI_ACCESS_TOKEN シークレット設定
+
+AIHints エンドポイントは Bearer トークン認証を使用する。トークンは Cloudflare Secret として設定する。
+
+```bash
+# リポジトリルートで実行（addon-ai-tag ブランチの Worker 名で設定）
+npx wrangler secret put AI_ACCESS_TOKEN --name creationsdb-api-ai
+```
+
+プロンプトが表示されたらトークン文字列を入力して Enter。
+設定後は再デプロイ不要（Secrets は即時反映される）。
+
+GitHub Actions から自動デプロイする場合は、GitHub Secrets にも `CF_AI_ACCESS_TOKEN`（任意の名前）を追加して
+`cf-api-sync.yml` 内で `wrangler secret put` を実行するよう設定すること。
+
+### 7-4. 疎通確認
+
+```bash
+# AIHints 一覧（Bearer トークン必須）
+curl -H "Authorization: Bearer <your-token>" \
+  https://database.numbertales-radiann.net/api/ai/Works_NumberTales/Primary/aihints
+
+# 1 件取得（例: Num=1）
+curl -H "Authorization: Bearer <your-token>" \
+  https://database.numbertales-radiann.net/api/ai/Works_NumberTales/Primary/aihints/1
+
+# 形態絞り込み
+curl -H "Authorization: Bearer <your-token>" \
+  "https://database.numbertales-radiann.net/api/ai/Works_NumberTales/Primary/aihints/1?form=humanoid"
+```
+
+> **注意**: `addon-ai-tag` の Worker は `/api/ai/` プレフィックスを使用する（`develop` の `/api/v1/` とは別）。
+> `:work` / `:db` パラメータは大文字小文字を Worker が正規化するので
+> `works_numbertales/primary` と入力しても動作する。
+
+GitHub Actions（`cf-api-sync.yml`）は `data/**` に変更があると自動でスキーマ適用 + データ投入を実行する。
+
+詳細仕様: `docs/aihints-spec.md`
+
+---
+
+## 8. Google Cloud Run デプロイ（ADR-0002 / 将来手順）
 
 > 現時点では未実装。`numbertales-imagegen` のコンテナ化が完了したら実施。
 
@@ -255,9 +326,10 @@ gcloud run deploy numbertales-imagegen \
 
 ## 参考
 
-| 対象 | 参照先 |
-|------|--------|
-| Workers 実 API 仕様 | `docs/api-sw-spec.md` §0 |
-| Cloudflare セットアップ全般 | `pkg/cloudflare/README.md` |
-| ADR-0001 実装記録 | `_work_in_progress/2026-06-21_progress_cloudflare-api-adr.md` |
-| ADR-0002 Google Cloud 設計 | `_work_in_progress/2026-06-21_progress_cloudflare-api-adr2-gcloud.md` |
+| 対象                        | 参照先                                                                |
+| --------------------------- | --------------------------------------------------------------------- |
+| Workers 実 API 仕様         | `docs/api-sw-spec.md` §0                                              |
+| AIHints 仕様                | `docs/aihints-spec.md`                                                |
+| Cloudflare セットアップ全般 | `pkg/cloudflare/README.md`                                            |
+| ADR-0001 実装記録           | `_work_in_progress/2026-06-21_progress_cloudflare-api-adr.md`         |
+| ADR-0002 Google Cloud 設計  | `_work_in_progress/2026-06-21_progress_cloudflare-api-adr2-gcloud.md` |
