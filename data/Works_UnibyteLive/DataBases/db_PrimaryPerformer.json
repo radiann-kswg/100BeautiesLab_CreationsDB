@@ -11,6 +11,17 @@
     "BirthDay": { "Day": { "Month": 4, "DayOfMonth": 17 } }
   },
   {
+    "Letter": { "Alphabet": "I", "AlphaGen": 1 },
+    "Progress": "notProceeded",
+    "FormalName_JP": "伊澤 ひとり",
+    "FormalName_JPReading": "いざわ ひとり",
+    "FormalName_EN": "Firstpher Izawa",
+    "Height_cm": 147,
+    "BustSize": "E",
+    "Age": 26,
+    "BirthDay": { "Day": { "Month": 7, "DayOfMonth": 23 } }
+  },
+  {
     "Letter": { "Alphabet": "N", "AlphaGen": 1 },
     "Progress": "notProceeded",
     "FormalName_JP": "向居 カミーユ",
@@ -22,16 +33,15 @@
     "BirthDay": { "Day": { "Month": 11, "DayOfMonth": 6 } }
   },
   {
-    "Letter": { "Alphabet": "S", "AlphaGen": 1 },
+    "Letter": { "Alphabet": "O", "AlphaGen": 1 },
     "Progress": "notProceeded",
-    "FormalName_JP": "氷山 メサイア",
-    "FormalName_JPReading": "きよやま メサイア",
-    "FormalName_EN": "Messiah Snowberg",
-    "Height_cm": 150,
-    "BustSize": "AA",
-    "Age": 36,
-    "BirthDay": { "Day": { "Month": 12, "DayOfMonth": 14 } },
-    "Belonging": ["アルベッツ被害者の会"]
+    "FormalName_JP": "円里 みるま",
+    "FormalName_JPReading": "まどかざと みるま",
+    "FormalName_EN": "Elcric Madokas",
+    "Height_cm": 120,
+    "BustSize": "B",
+    "Age": 25,
+    "BirthDay": { "Day": { "Month": 6, "DayOfMonth": 28 } }
   },
   {
     "Letter": { "Alphabet": "S", "AlphaGen": 2 },
@@ -54,5 +64,17 @@
     "BustSize": "C",
     "Age": 27,
     "BirthDay": { "Day": { "Month": 2, "DayOfMonth": 15 } }
+  },
+  {
+    "Letter": { "Alphabet": "S", "AlphaGen": 1 },
+    "Progress": "notProceeded",
+    "FormalName_JP": "氷山 メサイア",
+    "FormalName_JPReading": "きよやま メサイア",
+    "FormalName_EN": "Messiah Snowberg",
+    "Height_cm": 150,
+    "BustSize": "AA",
+    "Age": 36,
+    "BirthDay": { "Day": { "Month": 12, "DayOfMonth": 14 } },
+    "Belonging": ["アルベッツ被害者の会"]
   }
 ]
