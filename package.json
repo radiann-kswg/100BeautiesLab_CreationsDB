@@ -12,6 +12,7 @@
     "dict:export-enums:prune": "node tools/extract-enum-lists-to-dictionaries.mjs --write --prune",
     "calendar:build": "node tools/build-calendar-ics.mjs",
     "deepl:build-glossary": "node tools/deepl/build-glossary-source.mjs",
+    "deepl:build-quickref": "node tools/deepl/build-copilot-quickref.mjs",
     "deepl:sync-glossary": "node tools/deepl/sync-glossary.mjs",
     "deepl:eval": "node tools/deepl/evaluate-translations.mjs"
   },
