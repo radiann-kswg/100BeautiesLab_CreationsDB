@@ -111,3 +111,5 @@
 
 > 運用ルール（基本ルール・ブランチ運用・スキーマ駆動など技術面）は引き続き `CLAUDE.md` /
 > `.github/copilot-instructions.md` が本体です。本ファイルは**ロールプレイ仕様**の正典に限定します。
+
+> ローカライズ（英訳入力補助）にも同じ「正典＋薄い入口」構造を用いる。共通正典は `docs/localization-en-rules.md` の「英訳入力補助（エージェント共通方針）」節で、Copilot 入口 `.github/instructions/localization-en.instructions.md`（`applyTo: data/**`）と Claude 入口 `data/CLAUDE.md` が同節を参照する。
