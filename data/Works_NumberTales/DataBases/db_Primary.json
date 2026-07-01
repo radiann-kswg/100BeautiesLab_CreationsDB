@@ -5,14 +5,7 @@
     "Images": {
       "concept_PNGName": "cnsp_img1",
       "corefolder_PNGPath": ["1/emstk_corefolder1-1", "1/emstk_corefolder1-2"],
-      "arts_PNGPath": ["humanoids/2023/art_img1-humanoid"],
-      "arts_metadata": [
-        {
-          "path": "humanoids/2023/art_img1-humanoid",
-          "characters": [1],
-          "form": "humanoid"
-        }
-      ]
+      "arts_PNGPath": ["humanoids/2023/art_img1-humanoid"]
     },
     "Name_JP": "1(ハジメ)",
     "Name_EN": "1(Unitta)",
@@ -703,18 +696,6 @@
       "arts_PNGPath": [
         "humanoids/art_numbertalesAniv2nd",
         "corefolders/2023/art_img2-corefolderWinter"
-      ],
-      "arts_metadata": [
-        {
-          "path": "humanoids/art_numbertalesAniv2nd",
-          "characters": [2, "2-alt"],
-          "form": "humanoid"
-        },
-        {
-          "path": "corefolders/2023/art_img2-corefolderWinter",
-          "characters": [2],
-          "form": "corefolder"
-        }
       ]
     },
     "Name_JP": "2(ツグ)",
@@ -1803,18 +1784,6 @@
       "arts_PNGPath": [
         "corefolders/sphericateDay/art_sphericateDay202302r1",
         "humanoids/art_numbertalesAniv4th"
-      ],
-      "arts_metadata": [
-        {
-          "path": "corefolders/sphericateDay/art_sphericateDay202302r1",
-          "characters": [4, 6, 24],
-          "form": "corefolder"
-        },
-        {
-          "path": "humanoids/art_numbertalesAniv4th",
-          "characters": [4],
-          "form": "humanoid"
-        }
       ]
     },
     "Name_JP": "4(モチ)",
@@ -3058,14 +3027,7 @@
         "6/emstk_corefolder6-2",
         "6/emstk_corefolder6-3"
       ],
-      "arts_PNGPath": ["corefolders/sphericateDay/art_sphericateDay202302r1"],
-      "arts_metadata": [
-        {
-          "path": "corefolders/sphericateDay/art_sphericateDay202302r1",
-          "characters": [4, 6, 24],
-          "form": "corefolder"
-        }
-      ]
+      "arts_PNGPath": ["corefolders/sphericateDay/art_sphericateDay202302r1"]
     },
     "Name_JP": "6(ムイ)",
     "Name_EN": "6(Sics)",
@@ -3593,18 +3555,6 @@
       "arts_PNGPath": [
         "humanoids/2023/art_img7-humanoid",
         "corefolders/sphericateDay/art_sphericateDay202403"
-      ],
-      "arts_metadata": [
-        {
-          "path": "humanoids/2023/art_img7-humanoid",
-          "characters": [7],
-          "form": "humanoid"
-        },
-        {
-          "path": "corefolders/sphericateDay/art_sphericateDay202403",
-          "characters": [7, 9, 27, 29],
-          "form": "corefolder"
-        }
       ]
     },
     "Name_JP": "7(ナナ)",
@@ -4171,14 +4121,7 @@
     "Images": {
       "concept_PNGName": "cnsp_img8",
       "corefolder_PNGPath": ["8/emstk_corefolder8-1"],
-      "arts_PNGPath": ["corefolders/sphericateDay/art_sphericateDay202111"],
-      "arts_metadata": [
-        {
-          "path": "corefolders/sphericateDay/art_sphericateDay202111",
-          "characters": [8],
-          "form": "corefolder"
-        }
-      ]
+      "arts_PNGPath": ["corefolders/sphericateDay/art_sphericateDay202111"]
     },
     "Name_JP": "8(ワカツ)",
     "Name_EN": "8(Eighas)",
@@ -4730,18 +4673,6 @@
       "arts_PNGPath": [
         "corefolders/sphericateDay/art_sphericateDay202309-img9",
         "corefolders/sphericateDay/art_sphericateDay202403"
-      ],
-      "arts_metadata": [
-        {
-          "path": "corefolders/sphericateDay/art_sphericateDay202309-img9",
-          "characters": [9],
-          "form": "corefolder"
-        },
-        {
-          "path": "corefolders/sphericateDay/art_sphericateDay202403",
-          "characters": [7, 9, 27, 29],
-          "form": "corefolder"
-        }
       ]
     },
     "Name_JP": "9(チカ)",
@@ -6401,23 +6332,6 @@
         "corefolders/sphericateDay/art_sphericateDay202212r1A",
         "corefolders/sphericateDay/art_sphericateDay202212r1B",
         "humanoids/2023/art_img12-humanoid"
-      ],
-      "arts_metadata": [
-        {
-          "path": "corefolders/sphericateDay/art_sphericateDay202212r1A",
-          "characters": [12, 37, 73],
-          "form": "corefolder"
-        },
-        {
-          "path": "corefolders/sphericateDay/art_sphericateDay202212r1B",
-          "characters": [12, 37, 73],
-          "form": "corefolder"
-        },
-        {
-          "path": "humanoids/2023/art_img12-humanoid",
-          "characters": [12],
-          "form": "humanoid"
-        }
       ]
     },
     "Name_JP": "12(トウジ)",
@@ -6933,14 +6847,7 @@
     "Images": {
       "concept_PNGName": "cnsp_img13",
       "corefolder_PNGPath": ["13/emstk_corefolder13-1"],
-      "arts_PNGPath": ["corefolders/sphericateDay/art_sphericateDay202306"],
-      "arts_metadata": [
-        {
-          "path": "corefolders/sphericateDay/art_sphericateDay202306",
-          "characters": [13, 14],
-          "form": "corefolder"
-        }
-      ]
+      "arts_PNGPath": ["corefolders/sphericateDay/art_sphericateDay202306"]
     },
     "Name_JP": "13(トミ)",
     "Name_EN": "13(Thirteena)",
@@ -7467,23 +7374,6 @@
         "corefolders/sphericateDay/art_sphericateDay202301r2",
         "corefolders/sphericateDay/art_sphericateDay202306",
         "corefolders/sphericateDay/art_sphericateDay202309-Overall"
-      ],
-      "arts_metadata": [
-        {
-          "path": "corefolders/sphericateDay/art_sphericateDay202301r2",
-          "characters": [14, 23, 68],
-          "form": "corefolder"
-        },
-        {
-          "path": "corefolders/sphericateDay/art_sphericateDay202306",
-          "characters": [13, 14],
-          "form": "corefolder"
-        },
-        {
-          "path": "corefolders/sphericateDay/art_sphericateDay202309-Overall",
-          "characters": [14],
-          "form": "corefolder"
-        }
       ]
     },
     "Name_JP": "14(トヨ)",
@@ -8141,14 +8031,7 @@
         "15/emstk_corefolder15-1",
         "15/emstk_corefolder15-nonharness1"
       ],
-      "arts_PNGPath": ["humanoids/2023/art_img15-humanoid"],
-      "arts_metadata": [
-        {
-          "path": "humanoids/2023/art_img15-humanoid",
-          "characters": [15],
-          "form": "humanoid"
-        }
-      ]
+      "arts_PNGPath": ["humanoids/2023/art_img15-humanoid"]
     },
     "Name_JP": "15(トウゴ)",
     "Name_EN": "15(Fifteeld)",
@@ -8740,28 +8623,6 @@
         "corefolders/sphericateDay/art_sphericateDay202209r1B",
         "corefolders/2024/art_img16-corefolderA",
         "corefolders/2024/art_img16-corefolderB"
-      ],
-      "arts_metadata": [
-        {
-          "path": "corefolders/sphericateDay/art_sphericateDay202209r1A",
-          "characters": [16, 20, 61, "2-alt"],
-          "form": "corefolder"
-        },
-        {
-          "path": "corefolders/sphericateDay/art_sphericateDay202209r1B",
-          "characters": [16, 20, 61, "2-alt"],
-          "form": "corefolder"
-        },
-        {
-          "path": "corefolders/2024/art_img16-corefolderA",
-          "characters": [16],
-          "form": "corefolder"
-        },
-        {
-          "path": "corefolders/2024/art_img16-corefolderB",
-          "characters": [16],
-          "form": "corefolder"
-        }
       ]
     },
     "Name_JP": "16(ソロク)",
@@ -9291,14 +9152,7 @@
     "Images": {
       "concept_PNGName": "cnsp_img17",
       "corefolder_PNGPath": ["17/emstk_corefolder17-1"],
-      "arts_PNGPath": ["humanoids/2024/art_img17-humanoidHardStudy"],
-      "arts_metadata": [
-        {
-          "path": "humanoids/2024/art_img17-humanoidHardStudy",
-          "characters": [17],
-          "form": "humanoid"
-        }
-      ]
+      "arts_PNGPath": ["humanoids/2024/art_img17-humanoidHardStudy"]
     },
     "Name_JP": "17(トナ)",
     "Name_EN": "17(Sevteena)",
@@ -10815,28 +10669,6 @@
         "corefolders/sphericateDay/art_sphericateDay202209r1A",
         "corefolders/sphericateDay/art_sphericateDay202209r1B",
         "humanoids/2023/art_img20-humanoid"
-      ],
-      "arts_metadata": [
-        {
-          "path": "corefolders/sphericateDay/art_sphericateDay202112",
-          "characters": [20, "2-alt"],
-          "form": "corefolder"
-        },
-        {
-          "path": "corefolders/sphericateDay/art_sphericateDay202209r1A",
-          "characters": [16, 20, 61, "2-alt"],
-          "form": "corefolder"
-        },
-        {
-          "path": "corefolders/sphericateDay/art_sphericateDay202209r1B",
-          "characters": [16, 20, 61, "2-alt"],
-          "form": "corefolder"
-        },
-        {
-          "path": "humanoids/2023/art_img20-humanoid",
-          "characters": [20],
-          "form": "humanoid"
-        }
       ]
     },
     "Name_JP": "20(ハツカ)",
@@ -11979,28 +11811,6 @@
         "chattingArt/chart_img22-humanoid",
         "corefolders/autumnMoon/art_autumnMoon2024",
         "../../DB_SemiPrimary/arts/corefolders/autumnMoon/art_autumnMoon2025"
-      ],
-      "arts_metadata": [
-        {
-          "path": "corefolders/autumnMoon/art_autumnMoon2023",
-          "characters": [22, 29],
-          "form": "corefolder"
-        },
-        {
-          "path": "chattingArt/chart_img22-humanoid",
-          "characters": [22],
-          "form": "humanoid"
-        },
-        {
-          "path": "corefolders/autumnMoon/art_autumnMoon2024",
-          "characters": [22, 73],
-          "form": "corefolder"
-        },
-        {
-          "path": "../../DB_SemiPrimary/arts/corefolders/autumnMoon/art_autumnMoon2025",
-          "characters": [22],
-          "form": "corefolder"
-        }
       ]
     },
     "Name_JP": "22(フジ)",
@@ -12646,18 +12456,6 @@
       "arts_PNGPath": [
         "corefolders/sphericateDay/art_sphericateDay202301r2",
         "humanoids/2023/art_img23-humanoid"
-      ],
-      "arts_metadata": [
-        {
-          "path": "corefolders/sphericateDay/art_sphericateDay202301r2",
-          "characters": [14, 23, 68],
-          "form": "corefolder"
-        },
-        {
-          "path": "humanoids/2023/art_img23-humanoid",
-          "characters": [23],
-          "form": "humanoid"
-        }
       ]
     },
     "Name_JP": "23(ツグミ)",
@@ -13239,18 +13037,6 @@
       "arts_PNGPath": [
         "corefolders/sphericateDay/art_sphericateDay202302r1",
         "humanoids/2023/art_img24-humanoid"
-      ],
-      "arts_metadata": [
-        {
-          "path": "corefolders/sphericateDay/art_sphericateDay202302r1",
-          "characters": [4, 6, 24],
-          "form": "corefolder"
-        },
-        {
-          "path": "humanoids/2023/art_img24-humanoid",
-          "characters": [24],
-          "form": "humanoid"
-        }
       ]
     },
     "Name_JP": "24(フトシ)",
@@ -13780,23 +13566,6 @@
         "corefolders/2023/art_img25-corefolder",
         "humanoids/2024/art_img25-humanoidValentineA",
         "humanoids/2024/art_img25-humanoidValentineB"
-      ],
-      "arts_metadata": [
-        {
-          "path": "corefolders/2023/art_img25-corefolder",
-          "characters": [25],
-          "form": "corefolder"
-        },
-        {
-          "path": "humanoids/2024/art_img25-humanoidValentineA",
-          "characters": [25],
-          "form": "humanoid"
-        },
-        {
-          "path": "humanoids/2024/art_img25-humanoidValentineB",
-          "characters": [25],
-          "form": "humanoid"
-        }
       ]
     },
     "Name_JP": "25(フィズ)",
@@ -15010,18 +14779,6 @@
       "arts_PNGPath": [
         "corefolders/sphericateDay/art_sphericateDay202403",
         "humanoids/2024/art_img27-humanoid"
-      ],
-      "arts_metadata": [
-        {
-          "path": "corefolders/sphericateDay/art_sphericateDay202403",
-          "characters": [7, 9, 27, 29],
-          "form": "corefolder"
-        },
-        {
-          "path": "humanoids/2024/art_img27-humanoid",
-          "characters": [27],
-          "form": "humanoid"
-        }
       ]
     },
     "Name_JP": "27(ツギナ)",
@@ -16330,28 +16087,6 @@
         "corefolders/2023/art_img29-corefolderB",
         "corefolders/sphericateDay/art_sphericateDay202403",
         "corefolders/autumnMoon/art_autumnMoon2023"
-      ],
-      "arts_metadata": [
-        {
-          "path": "corefolders/2023/art_img29-corefolderA",
-          "characters": [29],
-          "form": "corefolder"
-        },
-        {
-          "path": "corefolders/2023/art_img29-corefolderB",
-          "characters": [29],
-          "form": "corefolder"
-        },
-        {
-          "path": "corefolders/sphericateDay/art_sphericateDay202403",
-          "characters": [7, 9, 27, 29],
-          "form": "corefolder"
-        },
-        {
-          "path": "corefolders/autumnMoon/art_autumnMoon2023",
-          "characters": [22, 29],
-          "form": "corefolder"
-        }
       ]
     },
     "Name_JP": "29(ニトク)",
@@ -16853,14 +16588,7 @@
         "30/emstk_corefolder30-1",
         "30/emstk_corefolder30-2"
       ],
-      "arts_PNGPath": ["chattingArt/chart_img30-corefolder"],
-      "arts_metadata": [
-        {
-          "path": "chattingArt/chart_img30-corefolder",
-          "characters": [30],
-          "form": "corefolder"
-        }
-      ]
+      "arts_PNGPath": ["chattingArt/chart_img30-corefolder"]
     },
     "Name_JP": "30(ミツト)",
     "Name_EN": "30(Thirtens)",
@@ -17386,14 +17114,7 @@
         "31/emstk_corefolder31-1",
         "31/emstk_corefolder31-2"
       ],
-      "arts_PNGPath": ["corefolders/2023/art_img31-corefolder"],
-      "arts_metadata": [
-        {
-          "path": "corefolders/2023/art_img31-corefolder",
-          "characters": [31],
-          "form": "corefolder"
-        }
-      ]
+      "arts_PNGPath": ["corefolders/2023/art_img31-corefolder"]
     },
     "Name_JP": "31(ミツイ)",
     "Name_EN": "31(Thirtone)",
@@ -18599,14 +18320,7 @@
         "33/emstk_corefolder33-2",
         "33/emstk_corefolder33-3"
       ],
-      "arts_PNGPath": ["corefolders/sphericateDay/art_sphericateDay202202"],
-      "arts_metadata": [
-        {
-          "path": "corefolders/sphericateDay/art_sphericateDay202202",
-          "characters": [33],
-          "form": "corefolder"
-        }
-      ]
+      "arts_PNGPath": ["corefolders/sphericateDay/art_sphericateDay202202"]
     },
     "Name_JP": "33(ミサ)",
     "Name_EN": "33(Thirthrey)",
@@ -19220,14 +18934,7 @@
         "34/emstk_corefolder34-1",
         "34/emstk_corefolder34-2"
       ],
-      "arts_PNGPath": ["humanoids/parody/art_img34,43-parody"],
-      "arts_metadata": [
-        {
-          "path": "humanoids/parody/art_img34,43-parody",
-          "characters": [34, 43],
-          "form": "humanoid"
-        }
-      ]
+      "arts_PNGPath": ["humanoids/parody/art_img34,43-parody"]
     },
     "Name_JP": "34(サトシ)\nサンジ",
     "Name_EN": "34(Thirfory)\nTroubleforcer",
@@ -19793,14 +19500,7 @@
         "35/emstk_corefolder35-2",
         "35/emstk_corefolder35-3"
       ],
-      "designAlt_PNGPath": ["chattingArt/chart_img35-humanoidswimwear"],
-      "designAlt_metadata": [
-        {
-          "path": "chattingArt/chart_img35-humanoidswimwear",
-          "characters": [35],
-          "form": "humanoid"
-        }
-      ]
+      "designAlt_PNGPath": ["chattingArt/chart_img35-humanoidswimwear"]
     },
     "Name_JP": "35(サトコ)\n35(ミコ)",
     "Name_EN": "35(Thirfivan)\n35(Míko)",
@@ -20405,18 +20105,6 @@
       "arts_PNGPath": [
         "humanoids/art_mothersDay2023",
         "chattingArt/chart_img36-corefolderMyNewGear"
-      ],
-      "arts_metadata": [
-        {
-          "path": "humanoids/art_mothersDay2023",
-          "characters": [36, 63],
-          "form": "humanoid"
-        },
-        {
-          "path": "chattingArt/chart_img36-corefolderMyNewGear",
-          "characters": [36],
-          "form": "corefolder"
-        }
       ]
     },
     "Name_JP": "36(ミトム)",
@@ -21046,33 +20734,6 @@
         "humanoids/2023/art_img37-humanoid",
         "corefolders/2024/art_img37-corefolderA",
         "corefolders/2024/art_img37-corefolderB"
-      ],
-      "arts_metadata": [
-        {
-          "path": "corefolders/sphericateDay/art_sphericateDay202212r1A",
-          "characters": [12, 37, 73],
-          "form": "corefolder"
-        },
-        {
-          "path": "corefolders/sphericateDay/art_sphericateDay202212r1B",
-          "characters": [12, 37, 73],
-          "form": "corefolder"
-        },
-        {
-          "path": "humanoids/2023/art_img37-humanoid",
-          "characters": [37],
-          "form": "humanoid"
-        },
-        {
-          "path": "corefolders/2024/art_img37-corefolderA",
-          "characters": [37],
-          "form": "corefolder"
-        },
-        {
-          "path": "corefolders/2024/art_img37-corefolderB",
-          "characters": [37],
-          "form": "corefolder"
-        }
       ]
     },
     "Name_JP": "37(サナ)",
@@ -21730,18 +21391,6 @@
       "arts_PNGPath": [
         "humanoids/2023/art_img39-humanoidA",
         "humanoids/2023/art_img39-humanoidB"
-      ],
-      "arts_metadata": [
-        {
-          "path": "humanoids/2023/art_img39-humanoidA",
-          "characters": [39],
-          "form": "humanoid"
-        },
-        {
-          "path": "humanoids/2023/art_img39-humanoidB",
-          "characters": [39],
-          "form": "humanoid"
-        }
       ]
     },
     "Name_JP": "39(サク)",
@@ -23516,28 +23165,6 @@
         "humanoids/2023/art_img42-humanoidB",
         "humanoids/parody/art_img42-homage",
         "chattingArt/chart_img42-corefolder"
-      ],
-      "arts_metadata": [
-        {
-          "path": "humanoids/2023/art_img42-humanoidA",
-          "characters": [42],
-          "form": "humanoid"
-        },
-        {
-          "path": "humanoids/2023/art_img42-humanoidB",
-          "characters": [42],
-          "form": "humanoid"
-        },
-        {
-          "path": "humanoids/parody/art_img42-homage",
-          "characters": [42],
-          "form": "humanoid"
-        },
-        {
-          "path": "chattingArt/chart_img42-corefolder",
-          "characters": [42],
-          "form": "corefolder"
-        }
       ]
     },
     "Name_JP": "42(ヨツグ)",
@@ -24093,14 +23720,7 @@
         "43/emstk_corefolder43-1",
         "43/emstk_corefolder43-2"
       ],
-      "arts_PNGPath": ["humanoids/parody/art_img34,43-parody"],
-      "arts_metadata": [
-        {
-          "path": "humanoids/parody/art_img34,43-parody",
-          "characters": [34, 43],
-          "form": "humanoid"
-        }
-      ]
+      "arts_PNGPath": ["humanoids/parody/art_img34,43-parody"]
     },
     "Name_JP": "43(シトミ)",
     "Name_EN": "43(Forthren)",
@@ -24642,30 +24262,6 @@
       "designAlt_PNGPath": [
         "eventArt/art_sphericateDay-halloween2023A",
         "eventArt/art_sphericateDay-halloween2023B"
-      ],
-      "arts_metadata": [
-        {
-          "path": "humanoids/2024/art-wip_img44-humanoid",
-          "characters": [44],
-          "form": "humanoid"
-        },
-        {
-          "path": "corefolders/sphericateDay/art_sphericateDay202310",
-          "characters": [44, 66, 85],
-          "form": "corefolder"
-        }
-      ],
-      "designAlt_metadata": [
-        {
-          "path": "eventArt/art_sphericateDay-halloween2023A",
-          "characters": [44, 66, 85],
-          "form": "corefolder"
-        },
-        {
-          "path": "eventArt/art_sphericateDay-halloween2023B",
-          "characters": [44, 66, 85],
-          "form": "corefolder"
-        }
       ]
     },
     "Name_JP": "44(シトシ)",
@@ -26249,18 +25845,6 @@
       "arts_PNGPath": [
         "humanoids/2023/art_img47-humanoid",
         "corefolders/sphericateDay/art_sphericateDay202307"
-      ],
-      "arts_metadata": [
-        {
-          "path": "humanoids/2023/art_img47-humanoid",
-          "characters": [47],
-          "form": "humanoid"
-        },
-        {
-          "path": "corefolders/sphericateDay/art_sphericateDay202307",
-          "characters": [47, 74],
-          "form": "corefolder"
-        }
       ]
     },
     "Name_JP": "47(シナ)",
@@ -27405,23 +26989,6 @@
         "humanoids/2023/art_img49-humanoid",
         "corefolders/2023/art_img49-corefolder",
         "chattingArt/chart_img49-humanoid"
-      ],
-      "arts_metadata": [
-        {
-          "path": "humanoids/2023/art_img49-humanoid",
-          "characters": [49],
-          "form": "humanoid"
-        },
-        {
-          "path": "corefolders/2023/art_img49-corefolder",
-          "characters": [49],
-          "form": "corefolder"
-        },
-        {
-          "path": "chattingArt/chart_img49-humanoid",
-          "characters": [49],
-          "form": "humanoid"
-        }
       ]
     },
     "Name_JP": "49(ヨチカ)",
@@ -27980,14 +27547,7 @@
         "50/emstk_corefolder50-1",
         "50/emstk_corefolder50-2"
       ],
-      "arts_PNGPath": ["chattingArt/chart_img50-humanoidBallingRole"],
-      "arts_metadata": [
-        {
-          "path": "chattingArt/chart_img50-humanoidBallingRole",
-          "characters": [50],
-          "form": "humanoid"
-        }
-      ]
+      "arts_PNGPath": ["chattingArt/chart_img50-humanoidBallingRole"]
     },
     "Name_JP": "50(ナカバ)",
     "Name_EN": "50(Halvan)",
@@ -28994,14 +28554,7 @@
         "52/emstk_corefolder52-1",
         "52/emstk_corefolder52-2"
       ],
-      "arts_PNGPath": ["corefolders/2023/art_img52-corefolder"],
-      "arts_metadata": [
-        {
-          "path": "corefolders/2023/art_img52-corefolder",
-          "characters": [52],
-          "form": "corefolder"
-        }
-      ]
+      "arts_PNGPath": ["corefolders/2023/art_img52-corefolder"]
     },
     "Name_JP": "52(イツギ)",
     "Name_EN": "52(Fiftwis)",
@@ -30216,14 +29769,7 @@
     "Images": {
       "concept_PNGName": "cnsp_img55",
       "corefolder_PNGPath": ["55/emstk_corefolder55-1"],
-      "arts_PNGPath": ["humanoids/2023/art_img55-humanoidTroubled"],
-      "arts_metadata": [
-        {
-          "path": "humanoids/2023/art_img55-humanoidTroubled",
-          "characters": [55],
-          "form": "humanoid"
-        }
-      ]
+      "arts_PNGPath": ["humanoids/2023/art_img55-humanoidTroubled"]
     },
     "Name_JP": "55(イソゴ)",
     "Name_EN": "55(Fifívan)",
@@ -30774,23 +30320,6 @@
         "corefolders/2024/art_img56,65-corefolderA",
         "corefolders/2024/art_img56-corefolderB",
         "chattingArt/chart_img56-humanoid"
-      ],
-      "arts_metadata": [
-        {
-          "path": "corefolders/2024/art_img56,65-corefolderA",
-          "characters": [56, 65],
-          "form": "corefolder"
-        },
-        {
-          "path": "corefolders/2024/art_img56-corefolderB",
-          "characters": [56],
-          "form": "corefolder"
-        },
-        {
-          "path": "chattingArt/chart_img56-humanoid",
-          "characters": [56],
-          "form": "humanoid"
-        }
       ]
     },
     "Name_JP": "56(イソロク)",
@@ -31405,18 +30934,6 @@
       "arts_PNGPath": [
         "humanoids/2023/art_img57-humanoid",
         "corefolders/sphericateDay/art_sphericateDay202305-img57"
-      ],
-      "arts_metadata": [
-        {
-          "path": "humanoids/2023/art_img57-humanoid",
-          "characters": [57],
-          "form": "humanoid"
-        },
-        {
-          "path": "corefolders/sphericateDay/art_sphericateDay202305-img57",
-          "characters": [57],
-          "form": "corefolder"
-        }
       ]
     },
     "Name_JP": "57(イズナ)",
@@ -32051,14 +31568,7 @@
         "58/emstk_corefolder58-1",
         "58/emstk_corefolder58-2"
       ],
-      "arts_PNGPath": ["chattingArt/chart_img58-humanoidNoNipples"],
-      "arts_metadata": [
-        {
-          "path": "chattingArt/chart_img58-humanoidNoNipples",
-          "characters": [58],
-          "form": "humanoid"
-        }
-      ]
+      "arts_PNGPath": ["chattingArt/chart_img58-humanoidNoNipples"]
     },
     "Name_JP": "58(イソヤ)",
     "Name_EN": "58(Fiveighs)",
@@ -32596,14 +32106,7 @@
         "60/emstk_corefolder60-1",
         "60/emstk_corefolder60-2"
       ],
-      "arts_PNGPath": ["humanoids/2023/art_img60-humanoid"],
-      "arts_metadata": [
-        {
-          "path": "humanoids/2023/art_img60-humanoid",
-          "characters": [60],
-          "form": "humanoid"
-        }
-      ]
+      "arts_PNGPath": ["humanoids/2023/art_img60-humanoid"]
     },
     "Name_JP": "60(ムソウ)",
     "Name_EN": "60(Sixtina)",
@@ -33407,31 +32910,7 @@
         "corefolders/sphericateDay/art_sphericateDay202209r1B",
         "humanoids/2023/art_img61-humanoid"
       ],
-      "designAlt_PNGPath": ["catalog/chr-dsgn-alt_wip61-idol"],
-      "arts_metadata": [
-        {
-          "path": "corefolders/sphericateDay/art_sphericateDay202209r1A",
-          "characters": [16, 20, 61, "2-alt"],
-          "form": "corefolder"
-        },
-        {
-          "path": "corefolders/sphericateDay/art_sphericateDay202209r1B",
-          "characters": [16, 20, 61, "2-alt"],
-          "form": "corefolder"
-        },
-        {
-          "path": "humanoids/2023/art_img61-humanoid",
-          "characters": [61],
-          "form": "humanoid"
-        }
-      ],
-      "designAlt_metadata": [
-        {
-          "path": "catalog/chr-dsgn-alt_wip61-idol",
-          "characters": [61],
-          "form": null
-        }
-      ]
+      "designAlt_PNGPath": ["catalog/chr-dsgn-alt_wip61-idol"]
     },
     "Name_JP": "61(ロクイチ)\n61(ロイ)",
     "Name_EN": "61(Síxone)\n61(Síon)",
@@ -34720,14 +34199,7 @@
         "63/emstk_corefolder63-2",
         "63/emstk_corefolder63-3"
       ],
-      "arts_PNGPath": ["humanoids/art_mothersDay2023"],
-      "arts_metadata": [
-        {
-          "path": "humanoids/art_mothersDay2023",
-          "characters": [36, 63],
-          "form": "humanoid"
-        }
-      ]
+      "arts_PNGPath": ["humanoids/art_mothersDay2023"]
     },
     "Name_JP": "63(ムツミ)",
     "Name_EN": "63(Sicthrey)",
@@ -35810,18 +35282,6 @@
       "arts_PNGPath": [
         "corefolders/2024/art_img56,65-corefolderA",
         "corefolders/2024/art_img65-corefolderB"
-      ],
-      "arts_metadata": [
-        {
-          "path": "corefolders/2024/art_img56,65-corefolderA",
-          "characters": [56, 65],
-          "form": "corefolder"
-        },
-        {
-          "path": "corefolders/2024/art_img65-corefolderB",
-          "characters": [65],
-          "form": "corefolder"
-        }
       ]
     },
     "Name_JP": "65(ロクゴ)",
@@ -36333,35 +35793,6 @@
         "eventArt/art_sphericateDay-halloween2023A",
         "eventArt/art_sphericateDay-halloween2023B",
         "chattingArt/chart_img66-corefolderHalloween"
-      ],
-      "arts_metadata": [
-        {
-          "path": "humanoids/2023/art_img66-humanoid",
-          "characters": [66],
-          "form": "humanoid"
-        },
-        {
-          "path": "corefolders/sphericateDay/art_sphericateDay202310",
-          "characters": [44, 66, 85],
-          "form": "corefolder"
-        }
-      ],
-      "designAlt_metadata": [
-        {
-          "path": "eventArt/art_sphericateDay-halloween2023A",
-          "characters": [44, 66, 85],
-          "form": "corefolder"
-        },
-        {
-          "path": "eventArt/art_sphericateDay-halloween2023B",
-          "characters": [44, 66, 85],
-          "form": "corefolder"
-        },
-        {
-          "path": "chattingArt/chart_img66-corefolderHalloween",
-          "characters": [66],
-          "form": "corefolder"
-        }
       ]
     },
     "Name_JP": "66(ムロク)",
@@ -37760,26 +37191,7 @@
         "corefolders/sphericateDay/art_sphericateDay202301r2",
         "corefolders/2023/art_img68-corefolder"
       ],
-      "designAlt_PNGPath": ["arts/art_img68-humanoidOnWorkSuit"],
-      "arts_metadata": [
-        {
-          "path": "corefolders/sphericateDay/art_sphericateDay202301r2",
-          "characters": [14, 23, 68],
-          "form": "corefolder"
-        },
-        {
-          "path": "corefolders/2023/art_img68-corefolder",
-          "characters": [68],
-          "form": "corefolder"
-        }
-      ],
-      "designAlt_metadata": [
-        {
-          "path": "arts/art_img68-humanoidOnWorkSuit",
-          "characters": [68],
-          "form": "humanoid"
-        }
-      ]
+      "designAlt_PNGPath": ["arts/art_img68-humanoidOnWorkSuit"]
     },
     "Name_JP": "68(ロクヤ)",
     "Name_EN": "68(Siceighns)",
@@ -38328,18 +37740,6 @@
       "arts_PNGPath": [
         "humanoids/2023/art_img69-humanoid",
         "humanoids/2023/art_img69-humanoidOnMask"
-      ],
-      "arts_metadata": [
-        {
-          "path": "humanoids/2023/art_img69-humanoid",
-          "characters": [69],
-          "form": "humanoid"
-        },
-        {
-          "path": "humanoids/2023/art_img69-humanoidOnMask",
-          "characters": [69],
-          "form": "humanoid"
-        }
       ]
     },
     "Name_JP": "69(ロック)",
@@ -40530,38 +39930,6 @@
         "humanoids/parody/art_img73-parody",
         "corefolders/autumnMoon/art_autumnMoon2024",
         "chattingArt/chart_img73-humanoidWhereIsEho"
-      ],
-      "arts_metadata": [
-        {
-          "path": "corefolders/sphericateDay/art_sphericateDay202212r1A",
-          "characters": [12, 37, 73],
-          "form": "corefolder"
-        },
-        {
-          "path": "corefolders/sphericateDay/art_sphericateDay202212r1B",
-          "characters": [12, 37, 73],
-          "form": "corefolder"
-        },
-        {
-          "path": "humanoids/2023/art_img73-humanoid",
-          "characters": [73],
-          "form": "humanoid"
-        },
-        {
-          "path": "humanoids/parody/art_img73-parody",
-          "characters": [73],
-          "form": "humanoid"
-        },
-        {
-          "path": "corefolders/autumnMoon/art_autumnMoon2024",
-          "characters": [22, 73],
-          "form": "corefolder"
-        },
-        {
-          "path": "chattingArt/chart_img73-humanoidWhereIsEho",
-          "characters": [73],
-          "form": "humanoid"
-        }
       ]
     },
     "Name_JP": "73(ナトミ)",
@@ -41141,23 +40509,6 @@
         "corefolders/sphericateDay/art_sphericateDay202307",
         "corefolders/2023/art_img74-corefolderAsObjectA",
         "corefolders/2023/art_img74-corefolderAsObjectB"
-      ],
-      "arts_metadata": [
-        {
-          "path": "corefolders/sphericateDay/art_sphericateDay202307",
-          "characters": [47, 74],
-          "form": "corefolder"
-        },
-        {
-          "path": "corefolders/2023/art_img74-corefolderAsObjectA",
-          "characters": [74],
-          "form": "corefolder"
-        },
-        {
-          "path": "corefolders/2023/art_img74-corefolderAsObjectB",
-          "characters": [74],
-          "form": "corefolder"
-        }
       ]
     },
     "Name_JP": "74(ナナヨ)",
@@ -41683,13 +41034,6 @@
       "corefolder_PNGPath": ["75/emstk_corefolder75-1"],
       "arts_PNGPath": [
         "corefolders/sphericateDay/art_sphericateDay202305-img75"
-      ],
-      "arts_metadata": [
-        {
-          "path": "corefolders/sphericateDay/art_sphericateDay202305-img75",
-          "characters": [75],
-          "form": "corefolder"
-        }
       ]
     },
     "Name_JP": "75(シチゴ)",
@@ -43385,14 +42729,7 @@
         "78/emstk_corefolder78-1",
         "78/emstk_corefolder78-2"
       ],
-      "arts_PNGPath": ["corefolders/2025-2026/art_img78-corefolder"],
-      "arts_metadata": [
-        {
-          "path": "corefolders/2025-2026/art_img78-corefolder",
-          "characters": [78],
-          "form": "corefolder"
-        }
-      ]
+      "arts_PNGPath": ["corefolders/2025-2026/art_img78-corefolder"]
     },
     "Name_JP": "78(ナナハ)",
     "Name_EN": "78(Seveights)",
@@ -45329,30 +44666,6 @@
       "designAlt_PNGPath": [
         "eventArt/art_sphericateDay-halloween2023A",
         "eventArt/art_sphericateDay-halloween2023B"
-      ],
-      "arts_metadata": [
-        {
-          "path": "corefolders/2023/art_img85-corefolder",
-          "characters": [85],
-          "form": "corefolder"
-        },
-        {
-          "path": "corefolders/sphericateDay/art_sphericateDay202310",
-          "characters": [44, 66, 85],
-          "form": "corefolder"
-        }
-      ],
-      "designAlt_metadata": [
-        {
-          "path": "eventArt/art_sphericateDay-halloween2023A",
-          "characters": [44, 66, 85],
-          "form": "corefolder"
-        },
-        {
-          "path": "eventArt/art_sphericateDay-halloween2023B",
-          "characters": [44, 66, 85],
-          "form": "corefolder"
-        }
       ]
     },
     "Name_JP": "85(ハッコ)\n85(パコ)",
@@ -46447,14 +45760,7 @@
         "87/emstk_corefolder87-2",
         "87/emstk_corefolder87-3"
       ],
-      "arts_PNGPath": ["chattingArt/chart_img87-humanoidTooOrdered"],
-      "arts_metadata": [
-        {
-          "path": "chattingArt/chart_img87-humanoidTooOrdered",
-          "characters": [87],
-          "form": "humanoid"
-        }
-      ]
+      "arts_PNGPath": ["chattingArt/chart_img87-humanoidTooOrdered"]
     },
     "Name_JP": "87(ヤシナ)\n87(ハナ)",
     "Name_EN": "87(Eighteven)\n87(Eivee)",
@@ -48642,18 +47948,6 @@
       "arts_PNGPath": [
         "corefolders/sphericateDay/art_sphericateDay202201",
         "humanoids/cnsp_chrst93"
-      ],
-      "arts_metadata": [
-        {
-          "path": "corefolders/sphericateDay/art_sphericateDay202201",
-          "characters": [93],
-          "form": "corefolder"
-        },
-        {
-          "path": "humanoids/cnsp_chrst93",
-          "characters": [93],
-          "form": "humanoid"
-        }
       ]
     },
     "Name_JP": "93(クミ)",
@@ -49266,14 +48560,7 @@
     "Images": {
       "concept_PNGName": "cnsp_img94",
       "corefolder_PNGPath": ["94/emstk_corefolder94-1"],
-      "arts_PNGPath": ["corefolders/2023/art_img94-corefolder"],
-      "arts_metadata": [
-        {
-          "path": "corefolders/2023/art_img94-corefolder",
-          "characters": [94],
-          "form": "corefolder"
-        }
-      ]
+      "arts_PNGPath": ["corefolders/2023/art_img94-corefolder"]
     },
     "Name_JP": "94(ツクシ)",
     "Name_EN": "94(Ninfors)",
@@ -49882,18 +49169,6 @@
       "arts_PNGPath": [
         "humanoids/2023/art_img96-humanoid",
         "humanoids/2023/art_img96-humanoidCastOff"
-      ],
-      "arts_metadata": [
-        {
-          "path": "humanoids/2023/art_img96-humanoid",
-          "characters": [96],
-          "form": "humanoid"
-        },
-        {
-          "path": "humanoids/2023/art_img96-humanoidCastOff",
-          "characters": [96],
-          "form": "humanoid"
-        }
       ]
     },
     "Name_JP": "96(クルリ)",
@@ -50546,14 +49821,7 @@
         "97/emstk_corefolder97-2",
         "97/emstk_corefolder97-3"
       ],
-      "arts_PNGPath": ["chattingArt/chart_img97-humanoid"],
-      "arts_metadata": [
-        {
-          "path": "chattingArt/chart_img97-humanoid",
-          "characters": [97],
-          "form": "humanoid"
-        }
-      ]
+      "arts_PNGPath": ["chattingArt/chart_img97-humanoid"]
     },
     "Name_JP": "97(ココナ)",
     "Name_EN": "97(Ninsefie)",
@@ -52288,28 +51556,6 @@
         "corefolders/sphericateDay/art_sphericateDay202209r1A",
         "corefolders/sphericateDay/art_sphericateDay202209r1B",
         "humanoids/art_numbertalesAniv2nd"
-      ],
-      "arts_metadata": [
-        {
-          "path": "corefolders/sphericateDay/art_sphericateDay202112",
-          "characters": [20, "2-alt"],
-          "form": "corefolder"
-        },
-        {
-          "path": "corefolders/sphericateDay/art_sphericateDay202209r1A",
-          "characters": [16, 20, 61, "2-alt"],
-          "form": "corefolder"
-        },
-        {
-          "path": "corefolders/sphericateDay/art_sphericateDay202209r1B",
-          "characters": [16, 20, 61, "2-alt"],
-          "form": "corefolder"
-        },
-        {
-          "path": "humanoids/art_numbertalesAniv2nd",
-          "characters": [2, "2-alt"],
-          "form": "humanoid"
-        }
       ]
     },
     "Name_JP": "バイナ\n2(ツギ)",
@@ -53721,14 +52967,7 @@
     "Progress": "released(beta)",
     "Images": {
       "concept_PNGName": "cnsp_img0",
-      "arts_PNGPath": ["art_img0-developper"],
-      "arts_metadata": [
-        {
-          "path": "art_img0-developper",
-          "characters": ["0"],
-          "form": "humanoid"
-        }
-      ]
+      "arts_PNGPath": ["art_img0-developper"]
     },
     "AnotherRegions_DBLink": [
       { "_Work": "SinisterChangingGirls", "_DB": "Primary", "Drc": "N" }
@@ -54005,14 +53244,7 @@
     "Progress": "released(beta)",
     "Images": {
       "concept_PNGName": "cnsp_img00",
-      "arts_PNGPath": ["art_img00-developper"],
-      "arts_metadata": [
-        {
-          "path": "art_img00-developper",
-          "characters": ["00"],
-          "form": "humanoid"
-        }
-      ]
+      "arts_PNGPath": ["art_img00-developper"]
     },
     "Name_JP": "零 百",
     "Name_JPReading": "カズナイ ハゲム",
