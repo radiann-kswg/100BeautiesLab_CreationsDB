@@ -42,12 +42,11 @@
 ### データ変換（手動入力残り）
 
 - 2026-06-30_progress_appearance-detail-cleanup.md（#5〜99 AppearanceDetail 一括変換: EXPR 71件・Formation 統合 282件・BodyPart 推論 113件・136 pass ✅。⚠️ 6件 BodyPart 手動入力待ち / Num:8・32・60 既存不整合手動修正待ち）
-- 2026-07-01_progress_conversationpattern-refine.md（ナンバーテールズ ConversationPattern 推敲: Num8以降+特殊枠90キャラ、Num1〜7の手直し水準に合わせて書き直し。136 pass ✅。⚠️ DialogueExamples の入力とコミットは User の手動で行う予定）
 
 ### 機能実装（ブラウザ確認残り）
 
-- 2026-06-18_progress_dblink-enrich.md（`*_DBLink` suffix エンリッチ処理・typedef 設定とブラウザ確認が残）
-- 2026-06-18_progress_dblink-renderer.md（`*_DBLink` suffix セクションレンダラー・db_type.json 追記とブラウザ確認が残）
+- 2026-06-18_progress_dblink-enrich.md（`*_DBLink` suffix エンリッチ処理・実装済み・typedef 設定済み（`AnotherRegions_DBLink`: `$enrich:true`）。⚠️ ブラウザ動作確認が残）
+- 2026-06-18_progress_dblink-renderer.md（`*_DBLink` suffix セクションレンダラー `dbLinkSection` 実装済み・`db_type.json` / NT `db_type.json` 追記済み・実データあり。⚠️ ブラウザ動作確認が残 → **Copilot で対応予定**）
 
 ### カレンダー
 
@@ -62,6 +61,8 @@
 ### 2026-07-01 完了
 
 - 2026-07-01_progress_readme-local-agents-rule.md（README.LOCAL.md ローカル作業メモ運用ルール追加。`CLAUDE.md` / `.github/copilot-instructions.md` に運用小節追加・`CHANGELOG.md` 追記完了。⚠️ commit/push は User 手動）
+- 2026-07-01_progress_conversationpattern-refine.md（ナンバーテールズ ConversationPattern 推敲完了: Num8〜99+特殊枠90キャラ。136 pass ✅。⚠️ DialogueExamples 入力・コミットは User 手動予定）
+- 2026-07-01_progress_copilot-localization-en.md（Copilot 英訳補助環境整備: `localization-en.instructions.md` + 早見表 `docs/localization-glossary-quickref.md`（164件）+ ジェネレータ `deepl:build-quickref` 実装完了。⚠️ `npm test`（Windows）・コミット/push は User 手動）
 
 ### 2026-06-29 完了
 
