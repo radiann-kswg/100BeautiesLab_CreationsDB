@@ -34,14 +34,15 @@
 ### データ / ローカライズ（User 手動作業残り）
 
 - 2026-06-22_progress_jp-en-naming-standardization.md（JP/EN フィールド命名標準化・**Phase 2〜5 全完了** ⚠️ D1/R2 再同期は手動実施が必要）
-- 2026-06-24_progress_localization-db.md（英訳固有辞書 DB（Localization レイヤー）実装。✅ 130/130 pass。trans_Dict.json → trans_{Category}.json 分割完了（2026-06-25）。Summary 入力・TransPolicy 確認・能力名等の追記は User 手動）
+- 2026-06-24*progress_localization-db.md（英訳固有辞書 DB（Localization レイヤー）実装。✅ 130/130 pass。trans_Dict.json → trans*{Category}.json 分割完了（2026-06-25）。Summary 入力・TransPolicy 確認・能力名等の追記は User 手動）
 - 2026-06-25_progress_localization-summary-inputs.md（Localization Summary 入力進捗チェックリスト。地名 9/13 ✅・人物名 11/13 ✅・SI 9/9 ✅・残 7 件 User 入力待ち）
 - 2026-06-28_progress_deepl-localization.md（DeepL 翻訳のローカライズ運用組み込み。用語集生成/同期/添削スクリプト・`docs/deepl-localization.md`・用語集実登録 JA-EN144/EN-JA138（大陸名修正後）。✅ 疎通確認済み。⚠️ `npm test` ローカル確認・`.env` 設定・コミットは User 端末で）
-- 2026-07-01_progress_copilot-localization-en.md（Copilot 英訳(_EN)入力補助の用語集対応。`localization-en.instructions.md`＋早見表 `docs/localization-glossary-quickref.md`（164 対訳・生成物）＋ジェネレータ `deepl:build-quickref`。sub1/`develop`。⚠️ `npm test`（Windows）・コミット/push は User 端末で）
+- 2026-07-01_progress_copilot-localization-en.md（Copilot 英訳(\_EN)入力補助の用語集対応。`localization-en.instructions.md`＋早見表 `docs/localization-glossary-quickref.md`（164 対訳・生成物）＋ジェネレータ `deepl:build-quickref`。sub1/`develop`。⚠️ `npm test`（Windows）・コミット/push は User 端末で）
 
 ### データ変換（手動入力残り）
 
 - 2026-06-30_progress_appearance-detail-cleanup.md（#5〜99 AppearanceDetail 一括変換: EXPR 71件・Formation 統合 282件・BodyPart 推論 113件・136 pass ✅。⚠️ 6件 BodyPart 手動入力待ち / Num:8・32・60 既存不整合手動修正待ち）
+- 2026-07-01_progress_conversationpattern-refine.md（ナンバーテールズ ConversationPattern 推敲: Num8以降+特殊枠90キャラ、Num1〜7の手直し水準に合わせて書き直し。136 pass ✅。⚠️ DialogueExamples の入力とコミットは User の手動で行う予定）
 
 ### 機能実装（ブラウザ確認残り）
 
