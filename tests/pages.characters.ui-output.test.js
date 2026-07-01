@@ -257,7 +257,7 @@ const numberTalesReferenceRecords = loadJson('data/Works_NumberTales/References/
 const hexademicalRecord = numberTalesSecondaryRecords.find((record) => record?.Num === '0xA');
 const requestNumberRecord = numberTalesSelfSecondaryRecords.find((record) => record?.Num === 223);
 const numberTalesVocabularyImageRecord = numberTalesVocabularyRecords.find((record) => record?.Term_JP === 'ヒューマノイド形態');
-const numberTalesReferenceRecord = numberTalesReferenceRecords.find((record) => record?.Title_JP === 'ナンバーテールズについて');
+const numberTalesReferenceRecord = numberTalesReferenceRecords.find((record) => record?.Title_JP === 'ナンバーテールズ');
 const firstNumberTalesPrimaryRecord = numberTalesPrimaryRecords.find((record) => String(record?.Num) === '1');
 const fourthNumberTalesPrimaryRecord = numberTalesPrimaryRecords.find((record) => String(record?.Num) === '4');
 const ninthNumberTalesPrimaryRecord = numberTalesPrimaryRecords.find((record) => String(record?.Num) === '9');
@@ -692,8 +692,8 @@ describe('pages/characters.js UI output', () => {
 			globalThis.fetch = originalFetch;
 		}
 
-		expect(document.querySelector('#detail-title')?.textContent?.trim()).toBe('ナンバーテールズについて');
-		expect(getBasicFieldValue('資料名')).toBe('ナンバーテールズについて / About NumberTales');
+		expect(document.querySelector('#detail-title')?.textContent?.trim()).toBe('ナンバーテールズ');
+		expect(getBasicFieldValue('資料名')).toBe('ナンバーテールズ / NumberTales');
 		expect(getBasicFieldValue('分類')).toBe('基本情報 / Basic Reference');
 		const profileSectionText = getSectionText('プロフィール/テキスト');
 		expect(profileSectionText).toContain('概要');
@@ -801,8 +801,8 @@ describe('pages/characters.js UI output', () => {
 		});
 
 		await charactersModule.__renderListForTest(numberTalesReferenceRecords, '#Works_NumberTales', { imageFields: [] });
-		expect(getListTitles()).toContain('ナンバーテールズについて');
-		expect(getListSubtitles()).toContain('About NumberTales');
+		expect(getListTitles()).toContain('ナンバーテールズ');
+		expect(getListSubtitles()).toContain('NumberTales');
 	});
 
 	it('renders NumberTales list headings using only the character name', async () => {
