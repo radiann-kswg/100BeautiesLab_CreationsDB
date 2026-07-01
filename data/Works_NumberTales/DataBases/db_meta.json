@@ -25,6 +25,7 @@
         "StoryEraAbout_EN": "between WDCE.IX.3-4(Equivalent to between: WDCE.VIII.6-7, DC.2050-2051)"
       },
       "_Commons": {
+        "Progress": "notProceeded",
         "Belonging": ["百花繚乱研究所"],
         "RaceType": "PortableHumanoid(TaleBeastType)"
       },
@@ -51,6 +52,7 @@
         "StoryEraAbout_EN": "between WDCE.IX.3-5(Equivalent to between: WDCE.VIII.6-8, DC.2050-2052)"
       },
       "_Commons": {
+        "Progress": "notProceeded",
         "Belonging": ["百花繚乱研究所"],
         "RaceType": "PortableHumanoid(TaleBeastType)"
       },
@@ -67,6 +69,7 @@
           "sec_DesignedBy": ["RadianN"],
           "sec_SeriesTitle": null,
           "_Commons": {
+            "Progress": "nowCreating",
             "Belonging": ["百花繚乱研究所"],
             "RaceType": "PortableHumanoid(TaleBeastType)",
             "GenderType": "Neutral"
@@ -78,6 +81,7 @@
           "sec_DesignedBy": null,
           "sec_SeriesTitle": null,
           "_Commons": {
+            "Progress": "notProceeded",
             "Belonging": ["百花繚乱研究所"],
             "RaceType": "PortableHumanoid(TaleBeastType)",
             "GenderType": "Neutral"
@@ -93,26 +97,6 @@
       "DB_Summary_EN": "Among NumberTales, secondary-creation characters appearing in approved derivative works.\nAs for numerology constraints, almost any setting is acceptable in principle as long as it follows the guidelines.",
       "_Secondaries": [
         {
-          "sec_Category": "自創作キャラ化企画",
-          "sec_DesignedBy": ["RadianN"],
-          "sec_SeriesTitle": "ナンバーテールズ化企画",
-          "_Commons": {
-            "Belonging": [],
-            "RaceType": [
-              {
-                "value": "PortableHumanoid(TaleBeastType)",
-                "about_JP": "自創作キャラ化の便宜上",
-                "about_EN": "For the convenience of being adapted into our creations"
-              },
-              {
-                "about_JP": "実際の種族はわずかに異なる部分あり",
-                "about_EN": "The actual species may differ slightly"
-              }
-            ]
-          },
-          "AI_Optout": true
-        },
-        {
           "sec_Category": "共同二次創作",
           "sec_DesignedBy": ["Atast"],
           "sec_SeriesTitle": "ヘキサデミカル・テールズ",
@@ -127,6 +111,7 @@
             "StoryEraAbout_EN": "in around WDCE.IX.4(Equivalent to in around: WDCE.VIII.7, DC.2051)"
           },
           "_Commons": {
+            "Progress": "accepted",
             "Belonging": ["百花繚乱研究所", "エイゼルベットの観測世界"],
             "RaceType": "PortableHumanoid(TaleBeastType,SoftwareBody)"
           },
@@ -146,7 +131,7 @@
             "StoryEraAbout_JP": "第9創世紀5年(第8創世紀8年,西暦2052年相当)周辺",
             "StoryEraAbout_EN": "in around WDCE.IX.5(Equivalent to in around: WDCE.VIII.8, DC.2052)"
           },
-          "_Commons": { "isPrivate": true },
+          "_Commons": { "Progress": "notProceeded", "isPrivate": true },
           "AI_Optout": true
         },
         {
@@ -164,10 +149,43 @@
             "StoryEraAbout_EN": "in around WDCE.IX.5(Equivalent to in around: WDCE.VIII.8, DC.2052)"
           },
           "_Commons": {
+            "Progress": "stillTentative",
             "Belonging": ["シンフォニー.XVI(ゼクズィン)"],
             "RaceType": "DeviatableHumanoid(TaleBeastType)",
             "isPrivate": true
+          }
+        },
+        {
+          "sec_Category": "自創作キャラ化企画",
+          "sec_DesignedBy": ["RadianN"],
+          "sec_SeriesTitle": "ナンバーテールズ化企画",
+          "_Commons": {
+            "Progress": "archived",
+            "Belonging": [],
+            "RaceType": [
+              {
+                "value": "PortableHumanoid(TaleBeastType)",
+                "about_JP": "自創作キャラ化の便宜上",
+                "about_EN": "For the convenience of being adapted into our creations"
+              },
+              {
+                "about_JP": "実際の種族はわずかに異なる部分あり",
+                "about_EN": "The actual species may differ slightly"
+              }
+            ]
           },
+          "AI_Optout": true
+        },
+        {
+          "sec_Category": null,
+          "sec_DesignedBy": null,
+          "sec_SeriesTitle": null,
+          "_Commons": {
+            "Progress": "notProceeded",
+            "Belonging": [],
+            "GenderType": "Neutral"
+          },
+          "isPrivate": true,
           "AI_Optout": true
         }
       ],
@@ -186,7 +204,8 @@
               "Belonging": ["百花繚乱研究所"],
               "RaceType": "PortableHumanoid(TaleBeastType)",
               "GenderType": "Neutral"
-            }
+            },
+            "isPrivate": true
           }
         ],
         "DB_Hidden": true,

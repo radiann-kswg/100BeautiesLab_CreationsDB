@@ -1,7 +1,7 @@
 [
   {
     "Chronos": { "Lunar": "Mutsuki" },
-    "Progress": "notProceeded",
+    "Progress": "stillTentative",
     "Name_JP": "旭屋 雄",
     "Name_JPReading": "あさひや ゆう",
     "Name_EN": "Malcolm Sunrizer",
@@ -56,7 +56,7 @@
   },
   {
     "Chronos": { "Lunar": "Kisaragi" },
-    "Progress": "notProceeded",
+    "Progress": "stillTentative",
     "Name_JP": "雪乙女しいな",
     "Name_JPReading": "ゆきおとめ しいな",
     "Name_EN": "Ceena Snowmaider",
@@ -117,7 +117,7 @@
   },
   {
     "Chronos": { "Lunar": "Yayoi" },
-    "Progress": "stillTentative",
+    "Progress": "nowCreating",
     "Images": { "concept_PNGName": "cnsp_imgCL3G3" },
     "Name_JP": "桜花 信",
     "Name_JPReading": "おうか とき",
@@ -179,7 +179,7 @@
   },
   {
     "Chronos": { "Lunar": "Udzuki" },
-    "Progress": "notProceeded",
+    "Progress": "stillTentative",
     "Name_JP": "花舞 流",
     "Name_JPReading": "はなまい るぅ",
     "Name_EN": "Flur Flowee",
@@ -235,7 +235,7 @@
   },
   {
     "Chronos": { "Lunar": "Satsuki" },
-    "Progress": "notProceeded",
+    "Progress": "stillTentative",
     "Name_JP": "ゼン.エデンズグリーン",
     "Name_EN": "Bene.Edensgreen",
     "FormalName_JP": "緑屋 善\nゼン.エデンズグリーン",
@@ -287,7 +287,7 @@
   },
   {
     "Chronos": { "Lunar": "Minadzuki" },
-    "Progress": "stillTentative",
+    "Progress": "nowCreating",
     "Images": { "concept_PNGName": "cnsp_imgCL6G3" },
     "Name_JP": "水無瀬 雫",
     "Name_JPReading": "みなせ しずく",
@@ -349,7 +349,7 @@
   },
   {
     "Chronos": { "Lunar": "Fumdzuki" },
-    "Progress": "notProceeded",
+    "Progress": "nowCreating",
     "Name_JP": "綾沢 改奈",
     "Name_JPReading": "あやさわ かいな",
     "Name_EN": "Entery Lattercross",
@@ -409,7 +409,7 @@
   },
   {
     "Chronos": { "Lunar": "Hadzuki" },
-    "Progress": "notProceeded",
+    "Progress": "stillTentative",
     "Name_JP": "八坂 兵汰\nヘクター.キロバスター",
     "Name_JPReading": "やさか へいた\nヘクター.キロバスター",
     "Name_EN": "Yasaka Hector\nHector.Kilobuster",
@@ -466,7 +466,7 @@
   },
   {
     "Chronos": { "Lunar": "Nagatsuki" },
-    "Progress": "notProceeded",
+    "Progress": "stillTentative",
     "Name_JP": "名前：中月 ルイス-ノア\n通称：ルイノ",
     "Name_JPReading": "なかつき ルイス-ノア",
     "Name_EN": "Name: Luis-Noah Nakatsuki\nCalled: Luis",
@@ -518,7 +518,7 @@
   },
   {
     "Chronos": { "Lunar": "Kannadzuki" },
-    "Progress": "notProceeded",
+    "Progress": "stillTentative",
     "Name_JP": "名前：神夜崎 十夜\n通称：ジュウヤ",
     "Name_JPReading": "かみやざき かずや",
     "Name_EN": "Name: Decadelune Theolessnight\nCalled: Decale",
@@ -568,7 +568,7 @@
   },
   {
     "Chronos": { "Lunar": "Shimotsuki" },
-    "Progress": "notProceeded",
+    "Progress": "stillTentative",
     "Name_JP": "霧島 博",
     "Name_JPReading": "きりしま とおる",
     "Name_EN": "Knowns Smogger",
@@ -620,7 +620,7 @@
   },
   {
     "Chronos": { "Lunar": "Shiwasu" },
-    "Progress": "notProceeded",
+    "Progress": "stillTentative",
     "Name_JP": "キャサリン=アインツヴァイス",
     "Name_EN": "Catherine=Einzweiss",
     "FormalName_JP": "キャサリン=アインツヴァイス",
@@ -670,7 +670,7 @@
   },
   {
     "Chronos": { "Lunar": "Leap" },
-    "Progress": "notProceeded",
+    "Progress": "stillTentative",
     "Name_JP": "潤音 ミオ",
     "Name_JPReading": "うるうね ミオ",
     "Name_EN": "Mi-O Lepus",

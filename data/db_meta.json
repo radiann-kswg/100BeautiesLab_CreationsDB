@@ -602,7 +602,7 @@
           "isForSecondary": true
         },
         "#Progress_Accepted": {
-          "Progress": "accpeted",
+          "Progress": "accepted",
           "Progress_JP": "公認済み",
           "isForSecondary": true
         },
@@ -615,6 +615,11 @@
           "Progress": "accepted\nremadeReleased",
           "Progress_JP": "公認済み\nこちらからも公開済み",
           "isForSecondary": true
+        },
+        "#Progress_Archived": {
+          "Progress": "archived",
+          "Progress_JP": "更新停止",
+          "isForSecondary": false
         }
       },
       "$EnumDef_GenderType": {
