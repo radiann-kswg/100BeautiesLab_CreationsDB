@@ -2292,19 +2292,27 @@
         },
         {
           "value_JP": "「あー…メリーか誰か知んねえけど、ミラノピザ9801番町店の奴か？いい加減注文早く届けてくれよ腹減ってんだ」",
-          "about_JP": "場面の乱数調整をしているとき（メリーさん(怪奇現象)から電話を受け取った場合）"
+          "value_EN": "\"Ah... I don't know if it's Mary or someone else, but is it the guy from Milano Pizza in Street.9801 shop? Hurry up and deliver my order, I'm starving.\"",
+          "about_JP": "場面の乱数調整をしているとき（メリーさん(怪奇現象)から電話を受け取った場合）",
+          "about_EN": "When she is adjusting the randomness of the situation (if she receives a call from Mary-san (paranormal phenomenon))"
         },
         {
           "value_JP": "「ナヅ公、流石にコワーキングスペースで精神統一は向いてないと思うぞ？」",
-          "about_JP": "ツッコミ役に回っているとき（ちなみに「ナヅ公」とは「77(ナヅナ)」のこと）"
+          "value_EN": "\"Sefvy, I don't think meditating in a co-working space is a good idea, you know?\"",
+          "about_JP": "ツッコミ役に回っているとき（ちなみに「ナヅ公」とは「77(ナヅナ)」のこと）",
+          "about_EN": "When she is taking on the role of pointing out flaws (by the way, 'Sefvy' refers to '77(Sefvens)')"
         },
         {
           "value_JP": "（つまんね。ちょっと散歩に行ってこよ）",
-          "about_JP": "冷めて会話から抜けるとき"
+          "value_EN": "(Boring. I think I'll go for a little walk.)",
+          "about_JP": "冷めて会話から抜けるとき",
+          "about_EN": "When she loses interest and steps out of the conversation"
         },
         {
           "value_JP": "「ただし これはあくまでも研究室構内とナンバーテールズの許可のもとで行っているぞ！これを真似てリアルでやるのは辞めような！ ナンバーテールズとの約束だぞっ☆」",
-          "about_JP": "急にナレーションを担いメタネタに奔った時"
+          "value_EN": "\"However, this is only being done with the permission of the laboratory and the NumberTales! Don't try to imitate this in real life! Please promise with the NumberTales, okay?☆\"",
+          "about_JP": "急にナレーションを担いメタネタに奔った時",
+          "about_EN": "When she suddenly takes on the role of narrator and goes off on a meta joke"
         }
       ]
     }
@@ -2678,6 +2686,21 @@
           "Comments_EN": "\"She's the sort who says, 'Do as you like,' even knowing it may be reckless\""
         }
       ]
+    },
+    "ConversationPattern": {
+      "TalkingTone_JP": "穏やかで包容力のある口調で、相手をほっとさせるような話し方をする。",
+      "TalkingTone_EN": "Speaks with a calm, welcoming warmth that tends to put others at ease.",
+      "TopicPreference_JP": "美徳に満ち溢れており個性を大切にしている「光属性」という性質から話題の幅は広く、自分から積極的に踏み込んで掘り下げていく傾向がある。",
+      "TopicPreference_EN": "A 'light-attribute' type overflowing with virtue and valuing individuality\nVery gentle and calm; inclined to range widely across topics and actively draw out depth in conversation.",
+      "TalkFrequency_JP": "会話を自分から積極的に始め、相手に気を配りながらテンポを調整する。場の空気を読む力が高く、誰とでも自然に打ち解ける。",
+      "TalkFrequency_EN": "Initiates conversation readily and adjusts the tempo while keeping the other person in mind. Highly attuned to the mood of the room and naturally at ease with most people.",
+      "PreferredTopics_JP": "かわいいぬいぐるみや美術鑑賞に関わる話題を好み、関連する話が出ると自然と興味を示す。",
+      "PreferredTopics_EN": "Enjoys topics related to cute plush toys and art appreciation, and naturally shows interest when such subjects arise.",
+      "AvoidedTopics_JP": "特定の強い忌避話題はないが、相手への配慮を大切にしていることから周囲の雰囲気を悪くする内容の会話は避ける。",
+      "AvoidedTopics_EN": "No strongly avoided topics in particular, but values consideration for others and avoids conversations that could negatively affect the atmosphere.",
+      "ConversationNotes_JP": "ほぼほとんどの人物やヒューマノイドにも好意的に接する。一部のスキンシップにかなり弱く、頭をなでたり、尻尾を触ったり、抱きかかえられたりすると、かなりとろけた口調になる。",
+      "ConversationNotes_EN": "Treats nearly every human and humanoid with goodwill. She’s quite susceptible to certain forms of physical affection; when her head is stroked, her tail is touched, or she’s picked up, her tone becomes rather dreamy.",
+      "DialogueExamples": []
     }
   },
   {
@@ -3087,6 +3110,21 @@
           "Comments_EN": "\"That's a monster of sheer assets\""
         }
       ]
+    },
+    "ConversationPattern": {
+      "TalkingTone_JP": "意識が高く単独行動を好むという気質が、言葉の選び方や話すテンポに自然と表れるが、基本物静かな侍口調で話す。",
+      "TalkingTone_EN": "Highly self-aware and prefers acting alone; Tends to become ideological through mental training and this shows in the choice of words and tempo of speech, but basically speaks in a quiet samurai-style tone.",
+      "TopicPreference_JP": "単独行動を好むあまりに、相手のペースや関心について常に意識を張り巡らせながら会話をし、長時間の対話や過度に友好的な交流は自然と避けている傾向にある。",
+      "TopicPreference_EN": "Highly self-aware and prefers acting alone; Tends to be conscious of the other person's pace and interests while conversing, and naturally avoids long conversations or overly friendly exchanges.",
+      "TalkFrequency_JP": "自分から積極的に話しかけるタイプではなく、必要なことを端的に伝える傾向がある。話題が合うと自分のペースで会話を楽しむ。",
+      "TalkFrequency_EN": "Not the type to initiate conversation, tending instead to communicate briefly when needed. Opens up when topics align with zeir own pace.",
+      "PreferredTopics_JP": "神話・伝承に興味に関わる話題を好み、関連する話が出ると自然と興味を示す。",
+      "PreferredTopics_EN": "Drawn to topics involving Hearthstone; Interested in myths and folklore, and naturally shows interest when these come up.",
+      "AvoidedTopics_JP": "非常識は苦手であり、それに絡む話題や振る舞いは会話の中で避けがちになる。また、イメージトレーニング中に話しかけられることが大の苦手。",
+      "AvoidedTopics_EN": "Uncomfortable with Lack of common sense, and tends to steer away from topics or behaviors that touch on it. Also, being spoken to during image training is a major discomfort.",
+      "ConversationNotes_JP": "（「5(イズ)」のような）過度にマイペースでありながらその裏で意識の高い言動をする人物に対し、自分の方が意識が高く有能だという強い対抗意識がある。また、自身の専門分野や趣味趣向・就学の趣向が合う（「70(ナナト)」のような）人物に強い仲間意識を抱きやすい。",
+      "ConversationNotes_EN": "Has a strong competitive streak toward those who are overly laid-back yet act with high awareness (like '5(Fifa)'). Also tends to feel a strong sense of camaraderie with those whose areas of expertise, hobbies, and study preferences align with her own (like '70(Seventia)').",
+      "DialogueExamples": []
     }
   },
   {
