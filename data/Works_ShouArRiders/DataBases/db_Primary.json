@@ -39,7 +39,7 @@
   },
   {
     "BeastType": { "Beast": "Tiger" },
-    "Progress": "notProceeded",
+    "Progress": "stillTentative",
     "Name_JP": "寅刻コーガ",
     "Name_JPReading": "とらのこくコーガ",
     "Name_EN": "Pantheras Tigertimes",
@@ -74,7 +74,7 @@
   },
   {
     "BeastType": { "Beast": "Rabbit" },
-    "Progress": "released(beta)",
+    "Progress": "unreleased",
     "Images": {
       "arts_PNGPath": ["newYear/art_imgEZ4-newyear2023"],
       "designAlt_PNGPath": ["chattingArt/chart_imgEZ4-private"]
@@ -112,7 +112,7 @@
   },
   {
     "BeastType": { "Beast": "Dragon" },
-    "Progress": "released(beta)",
+    "Progress": "unreleased",
     "Images": { "arts_PNGPath": ["newYear/art_imgEZ5-2024"] },
     "Name_JP": "辰刻リウロン",
     "Name_JPReading": "たつのこくリウロン",
@@ -150,7 +150,7 @@
   },
   {
     "BeastType": { "Beast": "Snake" },
-    "Progress": "released(beta)",
+    "Progress": "unreleased",
     "Images": {
       "arts_PNGPath": [
         "newYear/art_imgEZ6-newyear2025A",
@@ -192,7 +192,7 @@
   },
   {
     "BeastType": { "Beast": "Horse" },
-    "Progress": "released(beta)",
+    "Progress": "unreleased",
     "Images": { "arts_PNGPath": ["newYear/art_imgEZ7-newyear2026"] },
     "Name_JP": "午刻ハヤテ",
     "Name_JPReading": "うまのこくハヤテ",
@@ -228,7 +228,7 @@
   },
   {
     "BeastType": { "Beast": "Cat" },
-    "Progress": "released(beta)",
+    "Progress": "unreleased",
     "Images": {
       "concept_PNGName": "cnsp_imgEZ13",
       "arts_PNGPath": [

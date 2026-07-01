@@ -13,6 +13,7 @@
         "StoryEraAbout_EN": "between WDCE.VIII.3-4(Equivalent to between: DC.2047-2048)"
       },
       "_Commons": {
+        "Progress": "stillTentative",
         "Belonging": ["夜月機関"],
         "_ListLinkIf_Lunar": [
           {
@@ -129,6 +130,7 @@
         "StoryEraAbout_EN": "between WDCE.VII.24-26(Equivalent to between: DC.2044-2046)\nThis period is significant for the \"World Destruction Pandemic VIII\""
       },
       "_Commons": {
+        "Progress": "notProceeded",
         "Belonging": ["夜月機関"],
         "_ListLinkIf_Lunar": [
           {
