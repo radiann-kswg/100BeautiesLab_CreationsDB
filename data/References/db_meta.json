@@ -98,6 +98,63 @@
           "Category": "Abnormality",
           "Category_JP": "異常・社会問題",
           "Category_EN": "Abnormality & Social Issues"
+        },
+        "#Reference_OtherPropers": {
+          "Category": "OtherPropers",
+          "Category_JP": "その他の固有名詞",
+          "Category_EN": "Other Proper Nouns"
+        }
+      },
+      "$EnumDef_Visibility": {
+        "#Visibility_Public": {
+          "Visibility": "Public",
+          "Visibility_JP": "権限レベル：- (一般公開情報)",
+          "Visibility_EN": "Permission Level.- (Public)"
+        },
+        "#Visibility_Level1": {
+          "Visibility": "Level1",
+          "Visibility_JP": "権限レベル：I(関係者内共有事項)",
+          "Visibility_EN": "Permission Level.I (Internal Public)"
+        },
+        "#Visibility_Level2": {
+          "Visibility": "Level2",
+          "Visibility_JP": "権限レベル：II(組織内限定事項)",
+          "Visibility_EN": "Permission Level.II (Internal Use Only)"
+        },
+        "#Visibility_Level3": {
+          "Visibility": "Level3",
+          "Visibility_JP": "権限レベル：III(編集権限制限事項)",
+          "Visibility_EN": "Permission Level.III (Editing Restricted)"
+        },
+        "#Visibility_Level4": {
+          "Visibility": "Level4",
+          "Visibility_JP": "権限レベル：IV(機密事項)",
+          "Visibility_EN": "Permission Level.IV (Confidential)"
+        },
+        "#Visibility_Level5": {
+          "Visibility": "Level5",
+          "Visibility_JP": "権限レベル：V(重要機密事項)",
+          "Visibility_EN": "Permission Level.V (Strictly Confidential)"
+        },
+        "#Visibility_Level6": {
+          "Visibility": "Level6",
+          "Visibility_JP": "権限レベル：VI(国家機密事項)",
+          "Visibility_EN": "Permission Level.VI (National Secret in Area)"
+        },
+        "#Visibility_Level7": {
+          "Visibility": "Level7",
+          "Visibility_JP": "権限レベル：VII(国際機密事項)",
+          "Visibility_EN": "Permission Level.VII (International Secret)"
+        },
+        "#Visibility_RegiownerOnly": {
+          "Visibility": "RegiownerOnly",
+          "Visibility_JP": "権限レベル：VIII(厳密収容対象)",
+          "Visibility_EN": "Permission Level.VIII (Keter)"
+        },
+        "#Visibility_AdminOnly": {
+          "Visibility": "AdminOnly",
+          "Visibility_JP": "権限レベル：IX(■■■■)",
+          "Visibility_EN": "Permission Level.IX (******)"
         }
       }
     }
