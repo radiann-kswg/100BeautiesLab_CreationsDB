@@ -168,9 +168,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "vdict_TailShapeType": "#TailShapeType_Fox",
-            "value_JP": "キツネ型",
-            "value_EN": "Fox-type"
+            "vdict_TailShapeType": "#TailShapeType_Fox"
           },
           { "AttrLabel": "#DesignAttr_Count", "value_Num": 1 }
         ],
@@ -693,9 +691,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "vdict_TailShapeType": "#TailShapeType_Fox",
-            "value_JP": "キツネ型",
-            "value_EN": "Fox-type"
+            "vdict_TailShapeType": "#TailShapeType_Fox"
           },
           { "AttrLabel": "#DesignAttr_Count", "value_Num": 2 }
         ],
@@ -1116,9 +1112,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "vdict_TailShapeType": "#TailShapeType_Fox",
-            "value_JP": "キツネ型",
-            "value_EN": "Fox-type"
+            "vdict_TailShapeType": "#TailShapeType_Fox"
           },
           { "AttrLabel": "#DesignAttr_Count", "value_Num": 3 }
         ],
@@ -1507,9 +1501,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "vdict_TailShapeType": "#TailShapeType_Fox",
-            "value_JP": "キツネ型",
-            "value_EN": "Fox-type"
+            "vdict_TailShapeType": "#TailShapeType_Fox"
           },
           { "AttrLabel": "#DesignAttr_Count", "value_Num": 4 }
         ],
@@ -1951,9 +1943,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "vdict_TailShapeType": "#TailShapeType_Fox",
-            "value_JP": "キツネ型",
-            "value_EN": "Fox-type"
+            "vdict_TailShapeType": "#TailShapeType_Fox"
           },
           { "AttrLabel": "#DesignAttr_Count", "value_Num": 5 }
         ],
@@ -2453,9 +2443,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "vdict_TailShapeType": "#TailShapeType_Fox",
-            "value_JP": "キツネ型",
-            "value_EN": "Fox-type"
+            "vdict_TailShapeType": "#TailShapeType_Fox"
           },
           { "AttrLabel": "#DesignAttr_Count", "value_Num": 6 }
         ],
@@ -2820,9 +2808,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "vdict_TailShapeType": "#TailShapeType_Fox",
-            "value_JP": "キツネ型",
-            "value_EN": "Fox-type"
+            "vdict_TailShapeType": "#TailShapeType_Fox"
           },
           { "AttrLabel": "#DesignAttr_Count", "value_Num": 7 }
         ],
@@ -3238,9 +3224,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "vdict_TailShapeType": "#TailShapeType_Fox",
-            "value_JP": "キツネ型",
-            "value_EN": "Fox-type"
+            "vdict_TailShapeType": "#TailShapeType_Fox"
           },
           { "AttrLabel": "#DesignAttr_Count", "value_Num": 8 }
         ],
@@ -3608,7 +3592,7 @@
           "Motif_JP": [
             "白髪がアクセントに交じった銀灰色の長い髪",
             "白いまつげでラベンダーの目",
-            "狐の耳",
+            "狐の耳(先がアクセントカラー)",
             "円形配置の尾",
             "落ち着いた神秘的な微笑み",
             "大きな濃い色のケープ",
@@ -3617,7 +3601,7 @@
           "Motif_EN": [
             "silver gray long hair with white accents",
             "white eyelashes with lavender eyes",
-            "fox ears",
+            "fox ears (with accent color tips)",
             "tails in ring arrangement",
             "composed mysterious smile",
             "large dark cape",
@@ -3635,9 +3619,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "vdict_TailShapeType": "#TailShapeType_Fox",
-            "value_JP": "キツネ型",
-            "value_EN": "Fox-type"
+            "vdict_TailShapeType": "#TailShapeType_Fox"
           },
           { "AttrLabel": "#DesignAttr_Count", "value_Num": 9 }
         ],
@@ -3703,7 +3685,12 @@
         "Laterality": "#Lat_Both",
         "DesignElement": "#Element_Ear",
         "Attrs": [
-          { "AttrLabel": "#DesignAttr_Ear", "vdict_EarType": "#EarType_Fox" }
+          {
+            "AttrLabel": "#DesignAttr_Ear",
+            "vdict_EarType": "#EarType_Fox",
+            "about_JP": "先がアクセントカラー",
+            "about_EN": "with accent color tips"
+          }
         ],
         "img_PNGName": null,
         "Note_JP": null,
@@ -4085,9 +4072,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "vdict_TailShapeType": "#TailShapeType_Bud",
-            "value_JP": "つぼみ型",
-            "value_EN": "Bud-type"
+            "vdict_TailShapeType": "#TailShapeType_Bud"
           },
           { "AttrLabel": "#DesignAttr_Count", "value_Num": 1 },
           {
@@ -4546,9 +4531,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "vdict_TailShapeType": "#TailShapeType_Nekomata",
-            "value_JP": "猫又型",
-            "value_EN": "Nekomata-type"
+            "vdict_TailShapeType": "#TailShapeType_Nekomata"
           },
           { "AttrLabel": "#DesignAttr_Count", "value_Num": 11 }
         ],
@@ -4888,9 +4871,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "vdict_TailShapeType": "#TailShapeType_FoxBranched",
-            "value_JP": "キツネ(枝分かれ)型",
-            "value_EN": "Fox (branched)"
+            "vdict_TailShapeType": "#TailShapeType_FoxBranched"
           },
           { "AttrLabel": "#DesignAttr_Count", "value_Num": 2 },
           {
@@ -5255,9 +5236,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "vdict_TailShapeType": "#TailShapeType_FoxBranched",
-            "value_JP": "キツネ(枝分かれ)型",
-            "value_EN": "Fox (branched)"
+            "vdict_TailShapeType": "#TailShapeType_FoxBranched"
           },
           { "AttrLabel": "#DesignAttr_Count", "value_Num": 3 },
           {
@@ -5668,9 +5647,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "vdict_TailShapeType": "#TailShapeType_FoxBranched",
-            "value_JP": "キツネ(枝分かれ)型",
-            "value_EN": "Fox (branched)"
+            "vdict_TailShapeType": "#TailShapeType_FoxBranched"
           },
           { "AttrLabel": "#DesignAttr_Count", "value_Num": 4 },
           {
@@ -6189,9 +6166,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "vdict_TailShapeType": "#TailShapeType_FoxBranched",
-            "value_JP": "キツネ(枝分かれ)型",
-            "value_EN": "Fox (branched)"
+            "vdict_TailShapeType": "#TailShapeType_FoxBranched"
           },
           { "AttrLabel": "#DesignAttr_Count", "value_Num": 5 },
           {
@@ -6626,9 +6601,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "vdict_TailShapeType": "#TailShapeType_FoxBranched",
-            "value_JP": "キツネ(枝分かれ)型",
-            "value_EN": "Fox (branched)"
+            "vdict_TailShapeType": "#TailShapeType_FoxBranched"
           },
           { "AttrLabel": "#DesignAttr_Count", "value_Num": 6 },
           {
@@ -7016,9 +6989,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "vdict_TailShapeType": "#TailShapeType_FoxBranched",
-            "value_JP": "キツネ(枝分かれ)型",
-            "value_EN": "Fox (branched)"
+            "vdict_TailShapeType": "#TailShapeType_FoxBranched"
           },
           { "AttrLabel": "#DesignAttr_Count", "value_Num": 7 },
           {
@@ -7405,9 +7376,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "vdict_TailShapeType": "#TailShapeType_FoxBranched",
-            "value_JP": "キツネ(枝分かれ)型",
-            "value_EN": "Fox (branched)"
+            "vdict_TailShapeType": "#TailShapeType_FoxBranched"
           },
           { "AttrLabel": "#DesignAttr_Count", "value_Num": 8 },
           {
@@ -7758,9 +7727,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "vdict_TailShapeType": "#TailShapeType_FoxBranched",
-            "value_JP": "キツネ(枝分かれ)型",
-            "value_EN": "Fox (branched)"
+            "vdict_TailShapeType": "#TailShapeType_FoxBranched"
           },
           { "AttrLabel": "#DesignAttr_Count", "value_Num": 9 },
           {
@@ -8132,9 +8099,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "vdict_TailShapeType": "#TailShapeType_Fox",
-            "value_JP": "キツネ型",
-            "value_EN": "Fox-type"
+            "vdict_TailShapeType": "#TailShapeType_Fox"
           },
           { "AttrLabel": "#DesignAttr_Count", "value_Num": 2 }
         ],
@@ -8609,9 +8574,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "vdict_TailShapeType": "#TailShapeType_FoxBranched",
-            "value_JP": "キツネ(枝分かれ)型",
-            "value_EN": "Fox (branched)"
+            "vdict_TailShapeType": "#TailShapeType_FoxBranched"
           },
           { "AttrLabel": "#DesignAttr_Count", "value_Num": 2 },
           {
@@ -9003,9 +8966,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "vdict_TailShapeType": "#TailShapeType_Scorpion",
-            "value_JP": "サソリ型",
-            "value_EN": "Scorpion-type"
+            "vdict_TailShapeType": "#TailShapeType_Scorpion"
           },
           { "AttrLabel": "#DesignAttr_Count", "value_Num": 2 },
           { "AttrLabel": "#DesignAttr_Segment", "value_Num": 11 }
@@ -9487,9 +9448,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "vdict_TailShapeType": "#TailShapeType_FoxBranched",
-            "value_JP": "キツネ(枝分かれ)型",
-            "value_EN": "Fox (branched)"
+            "vdict_TailShapeType": "#TailShapeType_FoxBranched"
           },
           { "AttrLabel": "#DesignAttr_Count", "value_Num": 3 },
           {
@@ -9923,9 +9882,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "vdict_TailShapeType": "#TailShapeType_FoxBranched",
-            "value_JP": "キツネ(枝分かれ)型",
-            "value_EN": "Fox (branched)"
+            "vdict_TailShapeType": "#TailShapeType_FoxBranched"
           },
           { "AttrLabel": "#DesignAttr_Count", "value_Num": 4 },
           {
@@ -10324,9 +10281,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "vdict_TailShapeType": "#TailShapeType_FoxBranched",
-            "value_JP": "キツネ(枝分かれ)型",
-            "value_EN": "Fox (branched)"
+            "vdict_TailShapeType": "#TailShapeType_FoxBranched"
           },
           { "AttrLabel": "#DesignAttr_Count", "value_Num": 5 },
           {
@@ -10819,9 +10774,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "vdict_TailShapeType": "#TailShapeType_FoxBranched",
-            "value_JP": "キツネ(枝分かれ)型",
-            "value_EN": "Fox (branched)"
+            "vdict_TailShapeType": "#TailShapeType_FoxBranched"
           },
           { "AttrLabel": "#DesignAttr_Count", "value_Num": 6 },
           {
@@ -11253,9 +11206,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "vdict_TailShapeType": "#TailShapeType_FoxBranched",
-            "value_JP": "キツネ(枝分かれ)型",
-            "value_EN": "Fox (branched)"
+            "vdict_TailShapeType": "#TailShapeType_FoxBranched"
           },
           { "AttrLabel": "#DesignAttr_Count", "value_Num": 7 },
           {
@@ -11739,9 +11690,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "vdict_TailShapeType": "#TailShapeType_FoxBranched",
-            "value_JP": "キツネ(枝分かれ)型",
-            "value_EN": "Fox (branched)"
+            "vdict_TailShapeType": "#TailShapeType_FoxBranched"
           },
           { "AttrLabel": "#DesignAttr_Count", "value_Num": 8 },
           {
@@ -12249,9 +12198,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "vdict_TailShapeType": "#TailShapeType_FoxBranched",
-            "value_JP": "キツネ(枝分かれ)型",
-            "value_EN": "Fox (branched)"
+            "vdict_TailShapeType": "#TailShapeType_FoxBranched"
           },
           { "AttrLabel": "#DesignAttr_Count", "value_Num": 9 },
           {
@@ -12644,9 +12591,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "vdict_TailShapeType": "#TailShapeType_Fox",
-            "value_JP": "キツネ型",
-            "value_EN": "Fox-type"
+            "vdict_TailShapeType": "#TailShapeType_Fox"
           },
           { "AttrLabel": "#DesignAttr_Count", "value_Num": 3 }
         ],
@@ -13061,9 +13006,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "vdict_TailShapeType": "#TailShapeType_FoxBranched",
-            "value_JP": "キツネ(枝分かれ)型",
-            "value_EN": "Fox (branched)"
+            "vdict_TailShapeType": "#TailShapeType_FoxBranched"
           },
           { "AttrLabel": "#DesignAttr_Count", "value_Num": 3 },
           {
@@ -13557,9 +13500,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "vdict_TailShapeType": "#TailShapeType_FoxBranched",
-            "value_JP": "キツネ(枝分かれ)型",
-            "value_EN": "Fox (branched)"
+            "vdict_TailShapeType": "#TailShapeType_FoxBranched"
           },
           { "AttrLabel": "#DesignAttr_Count", "value_Num": 3 },
           {
@@ -13993,9 +13934,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "vdict_TailShapeType": "#TailShapeType_FoxBranched",
-            "value_JP": "キツネ(枝分かれ)型",
-            "value_EN": "Fox (branched)"
+            "vdict_TailShapeType": "#TailShapeType_FoxBranched"
           },
           { "AttrLabel": "#DesignAttr_Count", "value_Num": 3 },
           {
@@ -14440,9 +14379,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "vdict_TailShapeType": "#TailShapeType_FoxBranched",
-            "value_JP": "キツネ(枝分かれ)型",
-            "value_EN": "Fox (branched)"
+            "vdict_TailShapeType": "#TailShapeType_FoxBranched"
           },
           { "AttrLabel": "#DesignAttr_Count", "value_Num": 4 },
           {
@@ -14875,9 +14812,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "vdict_TailShapeType": "#TailShapeType_FoxBranched",
-            "value_JP": "キツネ(枝分かれ)型",
-            "value_EN": "Fox (branched)"
+            "vdict_TailShapeType": "#TailShapeType_FoxBranched"
           },
           { "AttrLabel": "#DesignAttr_Count", "value_Num": 5 },
           {
@@ -15322,9 +15257,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "vdict_TailShapeType": "#TailShapeType_FoxBranched",
-            "value_JP": "キツネ(枝分かれ)型",
-            "value_EN": "Fox (branched)"
+            "vdict_TailShapeType": "#TailShapeType_FoxBranched"
           },
           { "AttrLabel": "#DesignAttr_Count", "value_Num": 6 },
           {
@@ -15818,9 +15751,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "vdict_TailShapeType": "#TailShapeType_FoxBranched",
-            "value_JP": "キツネ(枝分かれ)型",
-            "value_EN": "Fox (branched)"
+            "vdict_TailShapeType": "#TailShapeType_FoxBranched"
           },
           { "AttrLabel": "#DesignAttr_Count", "value_Num": 7 },
           {
@@ -16317,9 +16248,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "vdict_TailShapeType": "#TailShapeType_FoxBranched",
-            "value_JP": "キツネ(枝分かれ)型",
-            "value_EN": "Fox (branched)"
+            "vdict_TailShapeType": "#TailShapeType_FoxBranched"
           },
           { "AttrLabel": "#DesignAttr_Count", "value_Num": 9 },
           {
@@ -16809,9 +16738,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "vdict_TailShapeType": "#TailShapeType_Fox",
-            "value_JP": "キツネ型",
-            "value_EN": "Fox-type"
+            "vdict_TailShapeType": "#TailShapeType_Fox"
           },
           { "AttrLabel": "#DesignAttr_Count", "value_Num": 4 }
         ],
@@ -17176,9 +17103,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "vdict_TailShapeType": "#TailShapeType_FoxBranched",
-            "value_JP": "キツネ(枝分かれ)型",
-            "value_EN": "Fox (branched)"
+            "vdict_TailShapeType": "#TailShapeType_FoxBranched"
           },
           { "AttrLabel": "#DesignAttr_Count", "value_Num": 4 },
           {
@@ -17671,9 +17596,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "vdict_TailShapeType": "#TailShapeType_FoxBranched",
-            "value_JP": "キツネ(枝分かれ)型",
-            "value_EN": "Fox (branched)"
+            "vdict_TailShapeType": "#TailShapeType_FoxBranched"
           },
           { "AttrLabel": "#DesignAttr_Count", "value_Num": 4 },
           {
@@ -18082,9 +18005,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "vdict_TailShapeType": "#TailShapeType_FoxBranched",
-            "value_JP": "キツネ(枝分かれ)型",
-            "value_EN": "Fox (branched)"
+            "vdict_TailShapeType": "#TailShapeType_FoxBranched"
           },
           { "AttrLabel": "#DesignAttr_Count", "value_Num": 4 },
           {
@@ -18507,9 +18428,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "vdict_TailShapeType": "#TailShapeType_FoxBranched",
-            "value_JP": "キツネ(枝分かれ)型",
-            "value_EN": "Fox (branched)"
+            "vdict_TailShapeType": "#TailShapeType_FoxBranched"
           },
           { "AttrLabel": "#DesignAttr_Count", "value_Num": 4 },
           {
@@ -18892,9 +18811,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "vdict_TailShapeType": "#TailShapeType_FoxBranched",
-            "value_JP": "キツネ(枝分かれ)型",
-            "value_EN": "Fox (branched)"
+            "vdict_TailShapeType": "#TailShapeType_FoxBranched"
           },
           { "AttrLabel": "#DesignAttr_Count", "value_Num": 5 },
           {
@@ -19262,9 +19179,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "vdict_TailShapeType": "#TailShapeType_FoxBranched",
-            "value_JP": "キツネ(枝分かれ)型",
-            "value_EN": "Fox (branched)"
+            "vdict_TailShapeType": "#TailShapeType_FoxBranched"
           },
           { "AttrLabel": "#DesignAttr_Count", "value_Num": 6 },
           {
@@ -19687,9 +19602,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "vdict_TailShapeType": "#TailShapeType_FoxBranched",
-            "value_JP": "キツネ(枝分かれ)型",
-            "value_EN": "Fox (branched)"
+            "vdict_TailShapeType": "#TailShapeType_FoxBranched"
           },
           { "AttrLabel": "#DesignAttr_Count", "value_Num": 7 },
           {
@@ -20127,9 +20040,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "vdict_TailShapeType": "#TailShapeType_FoxBranched",
-            "value_JP": "キツネ(枝分かれ)型",
-            "value_EN": "Fox (branched)"
+            "vdict_TailShapeType": "#TailShapeType_FoxBranched"
           },
           { "AttrLabel": "#DesignAttr_Count", "value_Num": 8 },
           {
@@ -20579,9 +20490,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "vdict_TailShapeType": "#TailShapeType_FoxBranched",
-            "value_JP": "キツネ(枝分かれ)型",
-            "value_EN": "Fox (branched)"
+            "vdict_TailShapeType": "#TailShapeType_FoxBranched"
           },
           { "AttrLabel": "#DesignAttr_Count", "value_Num": 9 },
           {
@@ -20978,9 +20887,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "vdict_TailShapeType": "#TailShapeType_Fox",
-            "value_JP": "キツネ型",
-            "value_EN": "Fox-type"
+            "vdict_TailShapeType": "#TailShapeType_Fox"
           },
           { "AttrLabel": "#DesignAttr_Count", "value_Num": 5 }
         ],
@@ -21372,9 +21279,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "vdict_TailShapeType": "#TailShapeType_FoxBranched",
-            "value_JP": "キツネ(枝分かれ)型",
-            "value_EN": "Fox (branched)"
+            "vdict_TailShapeType": "#TailShapeType_FoxBranched"
           },
           { "AttrLabel": "#DesignAttr_Count", "value_Num": 5 },
           {
@@ -21746,9 +21651,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "vdict_TailShapeType": "#TailShapeType_FoxBranched",
-            "value_JP": "キツネ(枝分かれ)型",
-            "value_EN": "Fox (branched)"
+            "vdict_TailShapeType": "#TailShapeType_FoxBranched"
           },
           { "AttrLabel": "#DesignAttr_Count", "value_Num": 5 },
           {
@@ -22233,9 +22136,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "vdict_TailShapeType": "#TailShapeType_FoxBranched",
-            "value_JP": "キツネ(枝分かれ)型",
-            "value_EN": "Fox (branched)"
+            "vdict_TailShapeType": "#TailShapeType_FoxBranched"
           },
           { "AttrLabel": "#DesignAttr_Count", "value_Num": 5 },
           {
@@ -22662,9 +22563,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "vdict_TailShapeType": "#TailShapeType_FoxBranched",
-            "value_JP": "キツネ(枝分かれ)型",
-            "value_EN": "Fox (branched)"
+            "vdict_TailShapeType": "#TailShapeType_FoxBranched"
           },
           { "AttrLabel": "#DesignAttr_Count", "value_Num": 5 },
           {
@@ -23083,9 +22982,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "vdict_TailShapeType": "#TailShapeType_FoxBranched",
-            "value_JP": "キツネ(枝分かれ)型",
-            "value_EN": "Fox (branched)"
+            "vdict_TailShapeType": "#TailShapeType_FoxBranched"
           },
           { "AttrLabel": "#DesignAttr_Count", "value_Num": 6 },
           {
@@ -23555,9 +23452,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "vdict_TailShapeType": "#TailShapeType_FoxBranched",
-            "value_JP": "キツネ(枝分かれ)型",
-            "value_EN": "Fox (branched)"
+            "vdict_TailShapeType": "#TailShapeType_FoxBranched"
           },
           { "AttrLabel": "#DesignAttr_Count", "value_Num": 7 },
           {
@@ -24015,9 +23910,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "vdict_TailShapeType": "#TailShapeType_FoxBranched",
-            "value_JP": "キツネ(枝分かれ)型",
-            "value_EN": "Fox (branched)"
+            "vdict_TailShapeType": "#TailShapeType_FoxBranched"
           },
           { "AttrLabel": "#DesignAttr_Count", "value_Num": 8 },
           {
@@ -24479,9 +24372,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "vdict_TailShapeType": "#TailShapeType_Fox",
-            "value_JP": "キツネ型",
-            "value_EN": "Fox-type"
+            "vdict_TailShapeType": "#TailShapeType_Fox"
           },
           { "AttrLabel": "#DesignAttr_Count", "value_Num": 6 }
         ],
@@ -25146,9 +25037,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "vdict_TailShapeType": "#TailShapeType_FoxBranched",
-            "value_JP": "キツネ(枝分かれ)型",
-            "value_EN": "Fox (branched)"
+            "vdict_TailShapeType": "#TailShapeType_FoxBranched"
           },
           { "AttrLabel": "#DesignAttr_Count", "value_Num": 6 },
           {
@@ -25710,9 +25599,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "vdict_TailShapeType": "#TailShapeType_FoxBranched",
-            "value_JP": "キツネ(枝分かれ)型",
-            "value_EN": "Fox (branched)"
+            "vdict_TailShapeType": "#TailShapeType_FoxBranched"
           },
           { "AttrLabel": "#DesignAttr_Count", "value_Num": 6 },
           {
@@ -26092,9 +25979,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "vdict_TailShapeType": "#TailShapeType_FoxBranched",
-            "value_JP": "キツネ(枝分かれ)型",
-            "value_EN": "Fox (branched)"
+            "vdict_TailShapeType": "#TailShapeType_FoxBranched"
           },
           { "AttrLabel": "#DesignAttr_Count", "value_Num": 6 },
           {
@@ -26510,9 +26395,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "vdict_TailShapeType": "#TailShapeType_FoxBranched",
-            "value_JP": "キツネ(枝分かれ)型",
-            "value_EN": "Fox (branched)"
+            "vdict_TailShapeType": "#TailShapeType_FoxBranched"
           },
           { "AttrLabel": "#DesignAttr_Count", "value_Num": 6 },
           {
@@ -26886,9 +26769,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "vdict_TailShapeType": "#TailShapeType_FoxBranched",
-            "value_JP": "キツネ(枝分かれ)型",
-            "value_EN": "Fox (branched)"
+            "vdict_TailShapeType": "#TailShapeType_FoxBranched"
           },
           { "AttrLabel": "#DesignAttr_Count", "value_Num": 6 },
           {
@@ -27285,9 +27166,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "vdict_TailShapeType": "#TailShapeType_FoxBranched",
-            "value_JP": "キツネ(枝分かれ)型",
-            "value_EN": "Fox (branched)"
+            "vdict_TailShapeType": "#TailShapeType_FoxBranched"
           },
           { "AttrLabel": "#DesignAttr_Count", "value_Num": 6 },
           {
@@ -27657,9 +27536,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "vdict_TailShapeType": "#TailShapeType_FoxBranched",
-            "value_JP": "キツネ(枝分かれ)型",
-            "value_EN": "Fox (branched)"
+            "vdict_TailShapeType": "#TailShapeType_FoxBranched"
           },
           { "AttrLabel": "#DesignAttr_Count", "value_Num": 7 },
           {
@@ -27972,9 +27849,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "vdict_TailShapeType": "#TailShapeType_FoxBranched",
-            "value_JP": "キツネ(枝分かれ)型",
-            "value_EN": "Fox (branched)"
+            "vdict_TailShapeType": "#TailShapeType_FoxBranched"
           },
           { "AttrLabel": "#DesignAttr_Count", "value_Num": 7 },
           {
@@ -28395,9 +28270,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "vdict_TailShapeType": "#TailShapeType_FoxBranched",
-            "value_JP": "キツネ(枝分かれ)型",
-            "value_EN": "Fox (branched)"
+            "vdict_TailShapeType": "#TailShapeType_FoxBranched"
           },
           { "AttrLabel": "#DesignAttr_Count", "value_Num": 8 },
           {
@@ -28823,9 +28696,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "vdict_TailShapeType": "#TailShapeType_FoxBranched",
-            "value_JP": "キツネ(枝分かれ)型",
-            "value_EN": "Fox (branched)"
+            "vdict_TailShapeType": "#TailShapeType_FoxBranched"
           },
           { "AttrLabel": "#DesignAttr_Count", "value_Num": 9 },
           {
@@ -29268,9 +29139,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "vdict_TailShapeType": "#TailShapeType_Fox",
-            "value_JP": "キツネ型",
-            "value_EN": "Fox-type"
+            "vdict_TailShapeType": "#TailShapeType_Fox"
           },
           { "AttrLabel": "#DesignAttr_Count", "value_Num": 7 }
         ],
@@ -29632,9 +29501,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "vdict_TailShapeType": "#TailShapeType_FoxBranched",
-            "value_JP": "キツネ(枝分かれ)型",
-            "value_EN": "Fox (branched)"
+            "vdict_TailShapeType": "#TailShapeType_FoxBranched"
           },
           { "AttrLabel": "#DesignAttr_Count", "value_Num": 7 },
           {
@@ -30022,9 +29889,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "vdict_TailShapeType": "#TailShapeType_FoxBranched",
-            "value_JP": "キツネ(枝分かれ)型",
-            "value_EN": "Fox (branched)"
+            "vdict_TailShapeType": "#TailShapeType_FoxBranched"
           },
           { "AttrLabel": "#DesignAttr_Count", "value_Num": 7 },
           {
@@ -30455,9 +30320,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "vdict_TailShapeType": "#TailShapeType_FoxBranched",
-            "value_JP": "キツネ(枝分かれ)型",
-            "value_EN": "Fox (branched)"
+            "vdict_TailShapeType": "#TailShapeType_FoxBranched"
           },
           { "AttrLabel": "#DesignAttr_Count", "value_Num": 7 },
           {
@@ -30873,9 +30736,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "vdict_TailShapeType": "#TailShapeType_FoxBranched",
-            "value_JP": "キツネ(枝分かれ)型",
-            "value_EN": "Fox (branched)"
+            "vdict_TailShapeType": "#TailShapeType_FoxBranched"
           },
           { "AttrLabel": "#DesignAttr_Count", "value_Num": 7 },
           {
@@ -31259,9 +31120,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "vdict_TailShapeType": "#TailShapeType_FoxBranched",
-            "value_JP": "キツネ(枝分かれ)型",
-            "value_EN": "Fox (branched)"
+            "vdict_TailShapeType": "#TailShapeType_FoxBranched"
           },
           { "AttrLabel": "#DesignAttr_Count", "value_Num": 7 },
           {
@@ -31706,9 +31565,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "vdict_TailShapeType": "#TailShapeType_FoxBranched",
-            "value_JP": "キツネ(枝分かれ)型",
-            "value_EN": "Fox (branched)"
+            "vdict_TailShapeType": "#TailShapeType_FoxBranched"
           },
           { "AttrLabel": "#DesignAttr_Count", "value_Num": 7 },
           {
@@ -32147,9 +32004,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "vdict_TailShapeType": "#TailShapeType_FoxBranched",
-            "value_JP": "キツネ(枝分かれ)型",
-            "value_EN": "Fox (branched)"
+            "vdict_TailShapeType": "#TailShapeType_FoxBranched"
           },
           { "AttrLabel": "#DesignAttr_Count", "value_Num": 7 },
           {
@@ -32542,9 +32397,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "vdict_TailShapeType": "#TailShapeType_FoxBranched",
-            "value_JP": "キツネ(枝分かれ)型",
-            "value_EN": "Fox (branched)"
+            "vdict_TailShapeType": "#TailShapeType_FoxBranched"
           },
           { "AttrLabel": "#DesignAttr_Count", "value_Num": 8 },
           {
@@ -32869,9 +32722,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "vdict_TailShapeType": "#TailShapeType_Fox",
-            "value_JP": "キツネ型",
-            "value_EN": "Fox-type"
+            "vdict_TailShapeType": "#TailShapeType_Fox"
           },
           { "AttrLabel": "#DesignAttr_Count", "value_Num": 8 }
         ],
@@ -33065,9 +32916,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "vdict_TailShapeType": "#TailShapeType_FoxBranched",
-            "value_JP": "キツネ(枝分かれ)型",
-            "value_EN": "Fox (branched)"
+            "vdict_TailShapeType": "#TailShapeType_FoxBranched"
           },
           { "AttrLabel": "#DesignAttr_Count", "value_Num": 8 },
           {
@@ -33384,9 +33233,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "vdict_TailShapeType": "#TailShapeType_FoxBranched",
-            "value_JP": "キツネ(枝分かれ)型",
-            "value_EN": "Fox (branched)"
+            "vdict_TailShapeType": "#TailShapeType_FoxBranched"
           },
           { "AttrLabel": "#DesignAttr_Count", "value_Num": 8 },
           {
@@ -33599,9 +33446,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "vdict_TailShapeType": "#TailShapeType_FoxBranched",
-            "value_JP": "キツネ(枝分かれ)型",
-            "value_EN": "Fox (branched)"
+            "vdict_TailShapeType": "#TailShapeType_FoxBranched"
           },
           { "AttrLabel": "#DesignAttr_Count", "value_Num": 8 },
           {
@@ -34032,9 +33877,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "vdict_TailShapeType": "#TailShapeType_FoxBranched",
-            "value_JP": "キツネ(枝分かれ)型",
-            "value_EN": "Fox (branched)"
+            "vdict_TailShapeType": "#TailShapeType_FoxBranched"
           },
           { "AttrLabel": "#DesignAttr_Count", "value_Num": 8 },
           {
@@ -34446,9 +34289,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "vdict_TailShapeType": "#TailShapeType_FoxBranched",
-            "value_JP": "キツネ(枝分かれ)型",
-            "value_EN": "Fox (branched)"
+            "vdict_TailShapeType": "#TailShapeType_FoxBranched"
           },
           { "AttrLabel": "#DesignAttr_Count", "value_Num": 8 },
           {
@@ -34874,9 +34715,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "vdict_TailShapeType": "#TailShapeType_FoxBranched",
-            "value_JP": "キツネ(枝分かれ)型",
-            "value_EN": "Fox (branched)"
+            "vdict_TailShapeType": "#TailShapeType_FoxBranched"
           },
           { "AttrLabel": "#DesignAttr_Count", "value_Num": 8 },
           {
@@ -35265,9 +35104,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "vdict_TailShapeType": "#TailShapeType_FoxBranched",
-            "value_JP": "キツネ(枝分かれ)型",
-            "value_EN": "Fox (branched)"
+            "vdict_TailShapeType": "#TailShapeType_FoxBranched"
           },
           { "AttrLabel": "#DesignAttr_Count", "value_Num": 8 },
           {
@@ -35668,9 +35505,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "vdict_TailShapeType": "#TailShapeType_FoxBranched",
-            "value_JP": "キツネ(枝分かれ)型",
-            "value_EN": "Fox (branched)"
+            "vdict_TailShapeType": "#TailShapeType_FoxBranched"
           },
           { "AttrLabel": "#DesignAttr_Count", "value_Num": 9 },
           {
@@ -36124,9 +35959,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "vdict_TailShapeType": "#TailShapeType_FoxBranched",
-            "value_JP": "キツネ(枝分かれ)型",
-            "value_EN": "Fox (branched)"
+            "vdict_TailShapeType": "#TailShapeType_FoxBranched"
           },
           { "AttrLabel": "#DesignAttr_Count", "value_Num": 9 },
           {
@@ -36458,7 +36291,7 @@
         "Motif": {
           "Motif_JP": [
             "狐の耳",
-            "白いヘアバンド付き黄色い長い髪",
+            "白いヘアバンド付き黄色いショートヘア",
             "黄色い目",
             "茶色の短いベスト",
             "腰の番号デザイン付きベルトサポーター",
@@ -36490,9 +36323,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "vdict_TailShapeType": "#TailShapeType_FoxBranched",
-            "value_JP": "キツネ(枝分かれ)型",
-            "value_EN": "Fox (branched)"
+            "vdict_TailShapeType": "#TailShapeType_FoxBranched"
           },
           { "AttrLabel": "#DesignAttr_Count", "value_Num": 9 },
           {
@@ -36951,9 +36782,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "vdict_TailShapeType": "#TailShapeType_FoxBranched",
-            "value_JP": "キツネ(枝分かれ)型",
-            "value_EN": "Fox (branched)"
+            "vdict_TailShapeType": "#TailShapeType_FoxBranched"
           },
           { "AttrLabel": "#DesignAttr_Count", "value_Num": 9 },
           {
@@ -37434,9 +37263,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "vdict_TailShapeType": "#TailShapeType_FoxBranched",
-            "value_JP": "キツネ(枝分かれ)型",
-            "value_EN": "Fox (branched)"
+            "vdict_TailShapeType": "#TailShapeType_FoxBranched"
           },
           { "AttrLabel": "#DesignAttr_Count", "value_Num": 9 },
           {
@@ -37942,9 +37769,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "vdict_TailShapeType": "#TailShapeType_FoxBranched",
-            "value_JP": "キツネ(枝分かれ)型",
-            "value_EN": "Fox (branched)"
+            "vdict_TailShapeType": "#TailShapeType_FoxBranched"
           },
           { "AttrLabel": "#DesignAttr_Count", "value_Num": 9 },
           {
@@ -38327,9 +38152,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "vdict_TailShapeType": "#TailShapeType_FoxBranched",
-            "value_JP": "キツネ(枝分かれ)型",
-            "value_EN": "Fox (branched)"
+            "vdict_TailShapeType": "#TailShapeType_FoxBranched"
           },
           { "AttrLabel": "#DesignAttr_Count", "value_Num": 9 },
           {
@@ -38752,9 +38575,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "vdict_TailShapeType": "#TailShapeType_FoxBranched",
-            "value_JP": "キツネ(枝分かれ)型",
-            "value_EN": "Fox (branched)"
+            "vdict_TailShapeType": "#TailShapeType_FoxBranched"
           },
           { "AttrLabel": "#DesignAttr_Count", "value_Num": 9 },
           {
@@ -39250,9 +39071,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "vdict_TailShapeType": "#TailShapeType_Fox",
-            "value_JP": "キツネ型",
-            "value_EN": "Fox-type"
+            "vdict_TailShapeType": "#TailShapeType_Fox"
           },
           { "AttrLabel": "#DesignAttr_Count", "value_Num": 2 }
         ],
@@ -39576,9 +39395,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "vdict_TailShapeType": "#TailShapeType_Fox",
-            "value_JP": "キツネ型",
-            "value_EN": "Fox-type"
+            "vdict_TailShapeType": "#TailShapeType_Fox"
           },
           { "AttrLabel": "#DesignAttr_Count", "value_Num": 10 }
         ],
@@ -39929,9 +39746,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "vdict_TailShapeType": "#TailShapeType_Cat",
-            "value_JP": "猫型",
-            "value_EN": "Cat-type"
+            "vdict_TailShapeType": "#TailShapeType_Cat"
           },
           { "AttrLabel": "#DesignAttr_Count", "value_Num": 1 }
         ],
@@ -40263,9 +40078,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "vdict_TailShapeType": "#TailShapeType_CatAccessory",
-            "value_JP": "猫型(アクセサリー)",
-            "value_EN": "Cat-type (accessory)"
+            "vdict_TailShapeType": "#TailShapeType_CatAccessory"
           },
           { "AttrLabel": "#DesignAttr_Count", "value_Num": 1 }
         ],
@@ -40544,9 +40357,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Shape",
-            "vdict_TailShapeType": "#TailShapeType_CatAccessory",
-            "value_JP": "猫型(アクセサリー)",
-            "value_EN": "Cat-type (accessory)"
+            "vdict_TailShapeType": "#TailShapeType_CatAccessory"
           },
           { "AttrLabel": "#DesignAttr_Count", "value_Num": 1 }
         ],
