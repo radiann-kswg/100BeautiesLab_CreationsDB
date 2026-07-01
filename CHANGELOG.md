@@ -1,5 +1,14 @@
 # 最新のリファクタリング・仕様変更履歴
 
+### Copilot 英訳(_EN)入力補助 — 用語集対応 (2026-07-01)
+
+- **`.github/instructions/localization-en.instructions.md` 新規追加**: `applyTo: data/**/db_*.json, trans_*.json, ref_*.json, dict_*.json`。Copilot Chat/Agent/Edits が `_EN` を補助するときの追加ルール（既存値の上書き禁止・創作本文の新規生成禁止・固有名詞は辞書対訳固定・`hideText` 尊重・最終採否は User）と、外しやすい中核固有名詞（種族・組織）のインライン早見を収録。
+- **`docs/localization-glossary-quickref.md` 新規追加（生成物）**: 監修済み辞書（`trans_*`/`ref_*`/`dict_*`）から抽出した固有名詞 JP↔EN 対訳（164 件）を出典別に整形。Copilot Chat 参照用＋インライン補完（ゴーストテキスト）の隣接タブ文脈用。**インライン補完はカスタム指示を読み込まない**ため、早見表を開いて近傍文脈に入れる運用。
+- **`tools/deepl/build-copilot-quickref.mjs` 新規追加 / `npm run deepl:build-quickref`**: 上記早見表を `glossary_source.json`（`deepl:build-glossary` の出力）から再生成するジェネレータ。辞書更新時に作り直す。創作本文は元スクリプト側で除外済み。
+- **導線追記**: `.github/copilot-instructions.md`・`CLAUDE.md`（主要ドキュメント参照先表）・`docs/deepl-localization.md`（§6 参照先）に相互リンクを追加。
+- 仕組み上の注意: カスタム指示ファイル（`copilot-instructions.md` / `*.instructions.md`）が効くのは Chat/Agent/Edits のみで、インライン補完には直接効かない（英訳精度はデータの `_JP`/`_EN` 近接＋早見表の隣接タブ提示で補う）。
+- 作業ローカル: sub1（`develop`）。`data/**` は未変更（回帰対象外）。`node_modules` が Windows ネイティブのためサンドボックスで `npm test` 不可 → 本体/Windows で `npm.cmd test` 確認を推奨。詳細は `_work_in_progress/2026-07-01_progress_copilot-localization-en.md`。
+
 ### AppearanceDetail 型付きスキーマ改修 — develop 統合 (2026-06-29)
 
 - **`$Def_AppearanceDetail` / `$Def_AppearanceAttr` 正式スキーマ化**: `data/db_meta.json($VarsDef)` に `$Def_AppearanceDetail` / `$Def_AppearanceAttr` の `$DefType` を追加。`data/db_type.json($DefType)` の `AppearanceDetail` フィールドに `"$type": "$Def_AppearanceDetail[]|#Null"` / `"searchable": false` / `"$display.sectionWrapper": "appearanceDetailSection"` を宣言。`$ScalarDef` に `#Hexcode` / `#Hexcode_Color` の base type を追加。
