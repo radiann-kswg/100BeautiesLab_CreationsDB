@@ -1,5 +1,12 @@
 # 最新のリファクタリング・仕様変更履歴
 
+### `README.LOCAL.md` ローカル作業メモ運用ルール追加 (2026-07-01)
+
+- **`CLAUDE.md`**: 「サブローカル並行作業運用（予備作業場）」節の直後に **「`README.LOCAL.md`（ローカル環境ごとの作業メモ）」** 小節を新設。
+- **`.github/copilot-instructions.md`**: 同節を同等内容で反映（指示書の両反映ルールに準拠）。
+- 決定事項: `README.LOCAL.md` は `.gitignore` 対象（既存）の**ローカル専用メモファイル**で、各ローカルクローン固有の情報（物理パス・作業中ブランチ・引き継ぎ注意点等）を記録する用途に限定。複数ローカル横断で共有すべき正式な進捗・決定事項は引き続き `_work_in_progress/` に記録し、`README.LOCAL.md` はその代替にはしない。パス以外の内容は User が手動追記する前提とし、Claude/Copilot が創作内容や未確認の推測を書き込まない。
+- 詳細は `_work_in_progress/2026-07-01_progress_readme-local-agents-rule.md`。
+
 ### Copilot 英訳(_EN)入力補助 — 用語集対応 (2026-07-01)
 
 - **`.github/instructions/localization-en.instructions.md` 新規追加**: `applyTo: data/**/db_*.json, trans_*.json, ref_*.json, dict_*.json`。Copilot Chat/Agent/Edits が `_EN` を補助するときの追加ルール（既存値の上書き禁止・創作本文の新規生成禁止・固有名詞は辞書対訳固定・`hideText` 尊重・最終採否は User）と、外しやすい中核固有名詞（種族・組織）のインライン早見を収録。

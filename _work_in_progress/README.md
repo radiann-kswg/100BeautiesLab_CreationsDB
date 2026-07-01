@@ -59,6 +59,10 @@
 
 以下のファイルは実装が完了しています。ログとして `_work_in_progress/` に残しつつ、User 依頼のタイミングで `.completed/` へ退避します。
 
+### 2026-07-01 完了
+
+- 2026-07-01_progress_readme-local-agents-rule.md（README.LOCAL.md ローカル作業メモ運用ルール追加。`CLAUDE.md` / `.github/copilot-instructions.md` に運用小節追加・`CHANGELOG.md` 追記完了。⚠️ commit/push は User 手動）
+
 ### 2026-06-29 完了
 
 - 2026-06-29_progress_appearance-detail-merge-integration.md（AppearanceDetail 改修マージ整合プラン・Phase 0〜E 全完了・136 テスト全 pass）
