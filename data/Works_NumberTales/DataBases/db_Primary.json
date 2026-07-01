@@ -4181,7 +4181,7 @@
       {
         "value_JP": "百花繚乱研究所(N3US大学 千歳研究室) ゼミアシスタント）",
         "value_EN": "100 Beauties Lab. (N3US University Dr.Thouser Laboratory) Seminar Assistant)",
-        "_DBLink": { "_Work": "NumberTales", "_DB": "Secondary", "Num": "∞" }
+        "_DBLink": { "_Work": "NumberTales", "_DB": "SemiPrimary", "Num": "∞" }
       }
     ],
     "FirstPersonCalling_JP": "あて",
@@ -42787,7 +42787,7 @@
       {
         "value_JP": "錦野 舞（シンフォニー.XVI(ゼクズィン) D-Vine開発部 最高責任部長）",
         "value_EN": "Dancy Actressilk (Symphony.XVI(Sechzehn) Chief Executive in Development Department for D-Vines)",
-        "_DBLink": { "_Work": "NumberTales", "_DB": "Secondary", "Num": "%" }
+        "_DBLink": { "_Work": "NumberTales", "_DB": "SemiPrimary", "Num": "%" }
       }
     ],
     "FirstPersonCalling_JP": "私(わたくし)",
@@ -45826,7 +45826,7 @@
       {
         "value_JP": "百花繚乱研究所(N3US大学 千歳研究室) ゼミアシスタント）",
         "value_EN": "100 Beauties Lab. (N3US University Dr.Thouser Laboratory) Seminar Assistant)",
-        "_DBLink": { "_Work": "NumberTales", "_DB": "Secondary", "Num": "∞" }
+        "_DBLink": { "_Work": "NumberTales", "_DB": "SemiPrimary", "Num": "∞" }
       }
     ],
     "FirstPersonCalling_JP": "私(わたし)",

@@ -1303,5 +1303,99 @@
     "Class": ["9倍2桁番(ナインズデュアルズ)", "キャレ型ハイナンバーズ"],
     "Backgrounds_JP": "「81(ヤイチ)」らによるハイナンバーズ開発予算計画の一環で見積もり目的で試作設計された個体。",
     "Backgrounds_EN": "A prototype designed for estimation purposes as part of the HighNumbers development budget plan led by 81(Eightone) and related units."
+  },
+  {
+    "Num": "%",
+    "Progress": "notProseed",
+    "AnotherRegions_DBLink": {
+      "_Work": "FLInvestigator78",
+      "_DB": "PrimaryDealer",
+      "Card": { "Suit": "Dealer", "Num": 79 }
+    },
+    "sec_SeriesTitle": "D-Vines(ディ-ヴァインズ)",
+    "Name_JP": "錦野 舞",
+    "Name_EN": "Dancy Actressilk",
+    "Age": 24,
+    "AnivDay": [
+      {
+        "_Jump": { "hashTag": "BirthDay" },
+        "_Search": [{ "hashTag": "DayAbout", "key": "誕生日" }]
+      }
+    ],
+    "BustSize": "B",
+    "RaceType": "Human",
+    "Belonging": ["シンフォニー.XVI(ゼクズィン)"],
+    "Class": ["開発者", "ベヴストザイン課 ヒューマノイド開発部"],
+    "ForMasterCalling_JP": "クライアントさん",
+    "ForMasterCalling_EN": "Client-san",
+    "RelationNotes_JP": "ナンバーテールズ開発者である零(カズナイ)姉弟の後輩。妹:歌嫁は同じくしてかつ百花繚乱研究所のアシスタントを行なっている。",
+    "RelationNotes_EN": "Junior to the Norumber siblings, developers of NumberTales. Her sister, Phonia, is also an assistant at the 100 Beauties Lab.",
+    "InStory_JP": "シンフォニー.XVI(ゼクズィン)に所属後、量産販売型ナンバーテールズの相場的販売コストを抑えた互換個体ユニットの開発・提供を百花繚乱研究所（の主に零零(カズナイレイ)）と提携して行なっている\nちなみに運命線探偵としての錦野舞は、妹:歌嫁を含めおよそ7年前のパラレル存在に相当する",
+    "InStory_EN": "After joining Symphony.XVI(Sechzehn), she has been developing and providing compatible unit models with reduced market cost for mass-produced NumberTales in partnership with the 100 Beauties Lab. (mainly with Zera Norumber).\nBy the way, as a FateLine Investigators, Dancy Actressilk corresponds to a parallel existence from about 7 years ago, including her sister Phonia Actressilk.",
+    "Relation": {
+      "Related": [{ "Num": "∞", "RelationLabel": ["brother|sister"] }]
+    },
+    "RelationTo_Primary": {
+      "Related": [
+        { "Num": 78, "RelationLabel": ["hadInCommision"] },
+        {
+          "Num": "0",
+          "RelationLabel": ["pioneer"],
+          "Reply": { "RelationLabel": ["successor_nearly"] }
+        },
+        {
+          "Num": "00",
+          "RelationLabel": ["pioneer_nearly"],
+          "Reply": { "RelationLabel": ["successor_nearly"] }
+        }
+      ]
+    }
+  },
+  {
+    "Num": "∞",
+    "Progress": "notProseed",
+    "AnotherRegions_DBLink": {
+      "_Work": "FLInvestigator78",
+      "_DB": "PrimaryDealer",
+      "Card": { "Suit": "Dealer", "Num": 80 }
+    },
+    "sec_SeriesTitle": "D-Vines(ディ-ヴァインズ)",
+    "Name_JP": "錦野 歌嫁",
+    "Name_EN": "Phonia Actressilk",
+    "Age": 24,
+    "AnivDay": [
+      {
+        "_Jump": { "hashTag": "BirthDay" },
+        "_Search": [{ "hashTag": "DayAbout", "key": "誕生日" }]
+      }
+    ],
+    "BustSize": "B",
+    "RaceType": "Human",
+    "Class": ["ゼミアシスタント"],
+    "ForMasterCalling_JP": "クライアントさん",
+    "ForMasterCalling_EN": "Client-san",
+    "RelationNotes_JP": "ナンバーテールズ開発者である零(カズナイ)姉弟の後輩。姉:舞は同じくしてシンフォニー.XVI(ゼクズィン)に所属し黒薔薇国へ単身赴任している",
+    "RelationNotes_EN": "Junior to the Norumber siblings, developers of NumberTales. Her sister, Dancy, belongs to Symphony.XVI(Sechzehn) and is on a solo assignment in the Black Rose Kingdom.",
+    "InStory_JP": "百花繚乱研究所の本体である元藤・千歳研究室にてN3US大学の大学院修士課程を卒業後、一時的な就職活動を経て同研究室で博士課程に進学し 主に零百(カズナイハゲム)の作業補助などといったゼミのアシスタントを務めている\nちなみに運命線探偵としての錦野歌嫁は、姉:舞を含めおよそ7年前のパラレル存在に相当する",
+    "InStory_EN": "After graduating from the master's program at N3US University in the Dr.Wisterigen & Dr.Thouser Seminar, which is the mainbase of the 100 Beauties Lab, she temporarily job-hunted before entering the doctoral program at the same laboratory, where she mainly serves as an assistant in seminars such as assisting Hudret Norumber.\nBy the way, as a FateLine Investigators, Phonia Actressilk corresponds to a parallel existence from about 7 years ago, including her sister Dancy Actressilk.",
+    "Relation": {
+      "Related": [{ "Num": "%", "RelationLabel": ["brother|sister"] }]
+    },
+    "RelationTo_Primary": {
+      "Related": [
+        { "Num": 8, "RelationLabel": ["hadInCommision"] },
+        { "Num": 87, "RelationLabel": ["hadInCommision"] },
+        {
+          "Num": "0",
+          "RelationLabel": ["pioneer_nearly"],
+          "Reply": { "RelationLabel": ["successor"] }
+        },
+        {
+          "Num": "00",
+          "RelationLabel": ["pioneer"],
+          "Reply": { "RelationLabel": ["successor"] }
+        }
+      ]
+    }
   }
 ]

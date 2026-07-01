@@ -56,6 +56,7 @@
     "RaceType": "OverHuman",
     "GenderType": "Female",
     "Belonging": ["国際情報広報機関『ミハイル』"],
+    "Class": ["『創造者』代理人", "国際情報屋"],
     "Height_cm": [
       {
         "value": 163,
@@ -221,6 +222,7 @@
       "国際情報広報機関『ミハイル』",
       "シンフォニー.XVI(ゼクズィン)"
     ],
+    "Class": ["国際情報屋 同行者", "ベヴストザイン課 新人類研究部"],
     "Height_cm": 159,
     "Weight_kg": { "hideText": "非公開" },
     "BustSize": "G",

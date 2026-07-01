@@ -23,6 +23,7 @@
 
 ### 設計・仕様（進行中 or 継続参照）
 
+- 2026-07-01_progress_class-dict-scope-field.md（辞書行スコープタグ `scopeField` 追加・Belonging別Class辞書参照解決。✅ 実装・テスト完了。global/work $VarsDef マージの既存不具合修正込み）
 - 2026-06-21_progress_cloudflare-api-adr2-gcloud.md（ADR-0002 Draft・Google Cloud 画像生成バックエンド設計中）
 - 2026-06-13_progress_vocabulary-db.md（語彙DB実装完了・各作品の実データ入力は User 手動進行中）
 

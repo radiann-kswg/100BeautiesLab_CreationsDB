@@ -297,7 +297,7 @@
     "Progress": "released(beta)",
     "AnotherRegions_DBLink": {
       "_Work": "NumberTales",
-      "_DB": "Secondary",
+      "_DB": "SemiPrimary",
       "Num": "%"
     },
     "Images": { "concept_PNGName": ["cnsp_imgFLDealer"] },
@@ -342,7 +342,7 @@
     "Progress": "released(beta)",
     "AnotherRegions_DBLink": {
       "_Work": "NumberTales",
-      "_DB": "Secondary",
+      "_DB": "SemiPrimary",
       "Num": "∞"
     },
     "Images": { "concept_PNGName": ["cnsp_imgFLDealer"] },

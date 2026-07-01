@@ -1,5 +1,26 @@
 # 最新のリファクタリング・仕様変更履歴
 
+### fix: `/pages/v1/deftype/global` 等が `$DefType` を欠落させる不具合を修正 (2026-07-01)
+
+- **`lib/sw-common.js` `ApiEndpointHandlers.mergeMetaAndTypeVars()`**: `db_type.json` 側の `$VarsDef` / `$MetaType` は合流していたが、**`$DefType`（hashTag / `$dict` 宣言の配列）を結果へコピーしていなかった**。これにより `/pages/v1/deftype/global` と `/pages/v1/works/{work}/meta` のレスポンスから `$DefType` が丸ごと欠落していた。
+- 影響: `pages/characters.js` の `findDictNameInSchema()` は `globalDefType.$DefType` を見て「フィールド名→辞書名」（例: `Belonging` → `Faction`）を解決するが、`$DefType` が無いためこの解決が常に失敗し、フィールド名と辞書名が異なる項目（`Belonging`/`FromArea` 等）は EN 表示時に辞書引きへフォールバックできず**未翻訳の生JPテキストがそのまま表示**されていた（`Class` のようにフィールド名＝辞書名の項目は `fn`/`keyBase` 経由のフォールバックで偶然救われていたため気付かれにくかった）。
+- 本タスクの `scopeField` 実装とは無関係の既存バグ（今回 Belonging の英語表示崩れを調査する過程で発見）。`type.$DefType` が配列で存在する場合は結果へ `result.$DefType = type.$DefType` として含めるよう修正。
+- 検証: Playwright（headless Chromium）で `pages/characters.html?work=Works_SinisterChangingGirls&...&lang=en` を実描画確認。修正前は `Belonging: 百花繚乱研究所`（生JP）だったのが、修正後は `Belonging: HundredBeauties Laboratory` と正しく英訳されることを確認。`npm test` も従来通り 135 passed（既知の無関係2件のみ失敗）。
+
+### 辞書ファイル単位のスコープ条件（`scopeField`）— Belonging別Class辞書の参照解決 (2026-07-01)
+
+- **`data/Dictionaries/db_meta.json`**: `Dictionaries.#Dict_SymphonyXVI` に `"scopeField": { "Belonging": "シンフォニー.XVI(ゼクズィン)" }` を追加。辞書カタログエントリに任意で「その辞書ファイル1本まるごとがどのフィールド＝値のキャラクター向けか」を宣言できる汎用機構（複数キー指定でAND条件）。
+- **`data/Dictionaries/dict_SymphonyXVI.json`**: 行ごとのタグ付けは不要（`scopeField` 側にフィールド名・値の両方を持たせたため）。
+- **`lib/sw-common.js` / `pages/characters.js`（直fetchフォールバック） / `tests/pages.characters.ui-output.test.js`（テストフィクスチャ）**: 辞書読み込み時（`readDictionaryBundle()` / `fetchDirectDictionaryBundle()` / `loadDictionaryBundle()`）に、カタログの `scopeField` を辞書の全行へ自動合成するよう統一。行側に同名キーがあれば行を優先。
+- **`pages/characters.js`**:
+  - `findDictScopeCondition()`（旧 `findDictScopeField()`）: カタログから `scopeField` 条件オブジェクトを取得するよう変更。
+  - `resolveVarsDefLabelPack()` に第6引数 `recordContext`（対象レコード）を追加。`scopeField` の全キーが同一レコードの対応フィールド値と一致する行を優先解決し、一致が無ければ `scopeField` を持たない共通行へフォールバックする（`rowMatchesRecordScope()` / `rowHasScopeTag()`）。`recordContext` 省略時は従来通りスコープ無視（後方互換）。
+  - `formatValueForDisplay()` の `opt.recordContext` を経由して主要な呼び出し箇所（一覧chip・詳細テーブル・関連キャラプレビュー等）へ配線。
+  - `mergeVarsDefLayers()` 新設: global/Localization/作品別の `$VarsDef` と `Dictionaries` カタログを、単純な object spread（先勝ち/後勝ち）ではなく「配列は連結・objectは浅いマージ」で合成するよう修正。これにより、global辞書（`#Dict_SymphonyXVI`）と作品別辞書（`data/Works_NumberTales/Dictionaries/dict_Class.json` の `#Dict_Class`）が同じ `compatListKey`（`#List_Class`）を共有していても、作品別辞書に上書きされて global 側が参照不能になる既存の不具合を解消。
+- **`docs/schema-meta-processing.md`**: §3.4.1 に `scopeField`（辞書ファイル単位の条件）の仕様と `mergeVarsDefLayers()` の合成方針を追記。
+- 背景: NumberTales「錦野 舞」の `Class: ["...", "ベヴストザイン課 D-Vines開発部"]` が、作品別の汎用クラス辞書（`dict_Class.json`）に無い値のため、既存実装では常に未解決（生文字列表示）だった。所属（`Belonging: ["シンフォニー.XVI(ゼクズィン)"]`）を軸に専用辞書 `dict_SymphonyXVI.json` を参照できるようにして解消。
+- 詳細は `_work_in_progress/2026-07-01_progress_class-dict-scope-field.md`。
+
 ### `tools/patch-aihints.mjs` に新モード `--apply-appearancedetail` を追加（addon-ai-tag） (2026-07-01)
 
 - `IdentityMotif`（自由文）の後継として `AppearanceDetail`（`Formation` × `DesignElement` × `BodyPart[]` × `Laterality` × `Attrs[]` の構造化フィールド）を正源に AIHints の AI タグ系を再構築する並行モードを追加。将来的な `AppearanceDetail` への完全移行に備えた準備段階の実装で、`--apply-identitymotif` モード・既存データは変更しない。
@@ -17,7 +38,7 @@
 - 決定事項: `README.LOCAL.md` は `.gitignore` 対象（既存）の**ローカル専用メモファイル**で、各ローカルクローン固有の情報（物理パス・作業中ブランチ・引き継ぎ注意点等）を記録する用途に限定。複数ローカル横断で共有すべき正式な進捗・決定事項は引き続き `_work_in_progress/` に記録し、`README.LOCAL.md` はその代替にはしない。パス以外の内容は User が手動追記する前提とし、Claude/Copilot が創作内容や未確認の推測を書き込まない。
 - 詳細は `_work_in_progress/2026-07-01_progress_readme-local-agents-rule.md`。
 
-### Copilot 英訳(_EN)入力補助 — 用語集対応 (2026-07-01)
+### Copilot 英訳(\_EN)入力補助 — 用語集対応 (2026-07-01)
 
 - **`.github/instructions/localization-en.instructions.md` 新規追加**: `applyTo: data/**/db_*.json, trans_*.json, ref_*.json, dict_*.json`。Copilot Chat/Agent/Edits が `_EN` を補助するときの追加ルール（既存値の上書き禁止・創作本文の新規生成禁止・固有名詞は辞書対訳固定・`hideText` 尊重・最終採否は User）と、外しやすい中核固有名詞（種族・組織）のインライン早見を収録。
 - **`docs/localization-glossary-quickref.md` 新規追加（生成物）**: 監修済み辞書（`trans_*`/`ref_*`/`dict_*`）から抽出した固有名詞 JP↔EN 対訳（164 件）を出典別に整形。Copilot Chat 参照用＋インライン補完（ゴーストテキスト）の隣接タブ文脈用。**インライン補完はカスタム指示を読み込まない**ため、早見表を開いて近傍文脈に入れる運用。
@@ -98,7 +119,7 @@
 
 ### カレンダー ICS 生成 — SUMMARY 改行バグ修正 (2026-06-26)
 
-- **`tools/build-calendar-ics.mjs` SUMMARY 改行問題を修正**: `Name_JP` に改行文字が含まれるキャラクター名（例: `バイナ\n2(ツギ)`）が ICS の `SUMMARY` フィールドにそのまま流れ込み、Google Calendar のインポート・購読パースが失敗していた問題を修正。`summaryName` 変数を追加し、SUMMARY 生成前に改行を ` / ` に置換するよう変更。`DESCRIPTION` の英名フィールドは変更なし。
+- **`tools/build-calendar-ics.mjs` SUMMARY 改行問題を修正**: `Name_JP` に改行文字が含まれるキャラクター名（例: `バイナ\n2(ツギ)`）が ICS の `SUMMARY` フィールドにそのまま流れ込み、Google Calendar のインポート・購読パースが失敗していた問題を修正。`summaryName` 変数を追加し、SUMMARY 生成前に改行を `/` に置換するよう変更。`DESCRIPTION` の英名フィールドは変更なし。
 
 ### Localization レイヤー 構造改善・仮データ投入 (2026-06-25)
 
@@ -127,7 +148,6 @@
 - **`data/Works_NumberTales/DataBases/db_meta.json` に `#Ref_Reference` / `#Ref_Vocabulary` を追加**: `findDbCatalogEntry` が `DB_Layer:"References"` を返せるよう、NT 作品メタの `Databases` 直下に両エントリを追加した。これにより `currentLayerName = "References"` が確定し `fetchSharedLayerTypeDef` が実行される。
 - **テスト**: `tests/pages.characters.ui-output.test.js` が 24/24 pass（旧 B-2 テストも解消）。全スイート 126/126 pass。
 
-
 ### Google カレンダー連携: 誕生日・記念日 ICS 自動生成・配信 (2026-06-24)
 
 - **`tools/build-calendar-ics.mjs` 新規追加**: `data/Works_*/DataBases/db_*.json` の全公開レコードから `BirthDay`(単一) / `AnivDay`(配列) を収集し、終日・毎年繰り返し(`RRULE:FREQ=YEARLY`)の iCalendar(.ics) を生成する。
@@ -138,7 +158,6 @@
 - **テスト `tests/calendar.ics.test.js` 追加**: 除外ルール・UID 一意・終日繰り返し・行折返し(≤75 オクテット)・決定性を検証。
 - **ドキュメント**: 利用方法・Google カレンダー購読手順は `docs/calendar-ics-spec.md` を参照。
 - **初回イベント数**: 誕生日 19・記念日 131(計 150)。
-
 
 ### JP/EN 命名規則の標準化（Phase 2〜5 完了）(2026-06-22)
 

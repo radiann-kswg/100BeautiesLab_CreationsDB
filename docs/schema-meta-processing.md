@@ -279,6 +279,22 @@
 - `#List_*` は既存の list 辞書キーです。
 - `#Dict_*` は辞書 DB 由来の正式キーとして扱い、runtime では必要に応じて `#List_*` へも互換展開します。
 - `#DictIndex` を宣言した field は、`$dict` 名に対応する辞書 DB を参照できれば field 名そのものに縛られません。
+- global（`data/Dictionaries/`）と作品別（`data/Works_<work>/Dictionaries/`）で同名の `#List_*`/`#Dict_*`（同じ `compatListKey`）を持つ辞書が両方存在する場合、`pages/characters.js` の `mergeVarsDefLayers()` が「配列は連結・objectは浅いマージ」で合成します。片方が丸ごと消える上書きにはなりません（`Dictionaries` カタログ自体も同様に合成されます）。
+
+#### 3.4.1 辞書ファイル単位のスコープ条件（`scopeField`）
+
+- `data/Dictionaries/db_meta.json`（または作品別 `Dictionaries/db_meta.json`）のカタログエントリ（`Dictionaries.#Dict_*`）に任意で `scopeField`（`{ フィールド名: 値, ... }` 形式のオブジェクト）を宣言すると、**その辞書ファイル1本まるごと**を「指定フィールドが指定値のキャラクター向け」として扱えます。複数キーを指定した場合は AND 条件です。
+  ```json
+  "#Dict_SymphonyXVI": {
+    "keyField": "Class",
+    "compatListKey": "#List_Class",
+    "scopeField": { "Belonging": "シンフォニー.XVI(ゼクズィン)" }
+  }
+  ```
+- 辞書本体（`dict_*.json`）側には行ごとにタグを書きません。`scopeField` の内容は、読み込み時（`lib/sw-common.js` の `readDictionaryBundle()` / `pages/characters.js` の `fetchDirectDictionaryBundle()` / テストの `loadDictionaryBundle()`）に辞書の全行へ自動合成されます（行が同名キーを既に持つ場合は行の値を優先）。
+- `scopeField` を持たない辞書（大多数）の行は「スコープを問わない共通行」として扱われます。
+- 解決順（`pages/characters.js` の `resolveVarsDefLabelPack()`）は「同一レコードの対応フィールド値と `scopeField` が一致する辞書由来の行 → 一致が無ければ `scopeField` を持たない共通行」です。呼び出し元が `recordContext`（対象レコード自体）を渡さない場合は従来通りスコープを無視して全行から探索するため、既存の呼び出し元への後方互換があります。
+- `scopeField` は特定のフィールド名にベタ書きしない汎用の宣言なので、`Belonging` 以外のフィールドを軸にした辞書分岐にも流用できます。
 
 ### 3.5 `$IndexDef`
 

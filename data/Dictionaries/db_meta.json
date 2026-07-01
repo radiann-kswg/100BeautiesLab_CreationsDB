@@ -12,6 +12,20 @@
       "keyField": "Artifact",
       "compatListKey": "#List_Artifact"
     },
+    "#Dict_SymphonyXVI": {
+      "DB_Label_JP": "クラス辞書(シンフォニー.XVI向け)",
+      "DB_Label_EN": "Class Dictionary (for Symphony.XVI)",
+      "keyField": "Class",
+      "compatListKey": "#List_Class",
+      "scopeField": { "Belonging": "シンフォニー.XVI(ゼクズィン)" }
+    },
+    "#Dict_Mikhail": {
+      "DB_Label_JP": "クラス辞書(『ミハイル』向け)",
+      "DB_Label_EN": "Class Dictionary (for \"Mikhail\".IIPR)",
+      "keyField": "Class",
+      "compatListKey": "#List_Class",
+      "scopeField": { "Belonging": "国際情報広報機関『ミハイル』" }
+    },
     "#Dict_Faction": {
       "DB_Label_JP": "陣営辞書",
       "DB_Label_EN": "Faction Dictionary",
