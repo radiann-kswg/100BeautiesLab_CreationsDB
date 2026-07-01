@@ -428,3 +428,40 @@ node tools/patch-aihints.mjs --work NumberTales --db Primary --all --rewrite-cor
 2. キャラ個別の `immutable_traits` 内「番号刻印位置」を必要に応じて手動微修正（例: #57 のように本体表面位置を明示）
 3. `--rewrite-corefolder-nld --apply`（テンプレ駆動で NLD を再生成）
 4. `npm test` で `tests/aihints.schema.test.js` の corefolder NLD テンプレ準拠テストが通ることを確認
+
+### 9.8 `--apply-identitymotif` モード（IdentityMotif 正源で AIHints 再構築）
+
+`IdentityMotif` を単一正源として `AIHints` を再構築するモード。2026-06-09 時点で `Works_NumberTales/DB_Primary` に適用済みで、以後の再同期・追補でも同じモードを使う。
+
+#### 基本方針
+
+- 正源は `IdentityMotif[]`。ただし次の structural 項目は構造データを優先:
+  - 尻尾形状: `TailsUnit`
+  - 外見年齢: `ConceptAge`
+  - 体格: `Height_cm`
+- `common.immutable_traits` の番号刻印記述は保持し、corefolder NLD テンプレの `{marking placement}` 抽出に使う。
+- `work_common` / `alt_modes` / `reference_images` など image-derived / structural なスロットは保持する。
+
+#### コマンド
+
+```powershell
+# dry-run（件数確認）
+node tools/patch-aihints.mjs --work NumberTales --db Primary --all --apply-identitymotif
+
+# 適用
+node tools/patch-aihints.mjs --work NumberTales --db Primary --all --apply-identitymotif --apply
+# → identitymotif-applied=<N>, identitymotif-cleared=<M>, identitymotif-unchanged=<K>, skipped-no-aihints=<L>
+```
+
+#### 集計ラベルの読み方
+
+- `identitymotif-applied`: IdentityMotif を反映して再構築された。
+- `identitymotif-cleared`: IdentityMotif が空で AI タグ系配列をクリア。
+- `identitymotif-no-source`: IdentityMotif 自体が無く再構築できない。
+- `skipped-no-aihints`: そもそも AIHints ブロックがない（モブ等）。
+
+#### 注意事項
+
+- `identitymotif-cleared` は異常ではなく、正源不足を明示するための正常系。User が `IdentityMotif` を追加入力した後に再適用する。
+- キャラ固有の創作判断が必要な本文（固有描写・台詞・未公開設定）は本モードで自動生成しない。
+- 推奨適用順は `--apply-identitymotif` → 必要なら `--rewrite-corefolder-nld`。

@@ -69,7 +69,7 @@ NumberTales/DB_Primary の AIHints corefolder 形態について、以下 3 点�
 
 ## 未完了タスク
 
-- 残 TODO の手動穴埋め: `#28` の base color、および各キャラ固有スロット（特定キャラだけが持つ NG / ハーネス形状 / 個別禁止要素）は User 手動入力の対象として継続。
+- 残 TODO の手動穴埋め: `#28` の base color、および各キャラ固有スロット（特定キャラだけが持つ NG / ハーネス形状 / 個別禁止要素）は User 手動入力の対象として継続（`#28` は 2026-07-01 時点でも自動確定しないため手動保持）。
 - 他作品（FLInvestigator78 / ShouArRiders 等）への corefolder 概念の有無確認・適用は本セッション対象外。
 - `--rewrite-corefolder-nld` の humanoid 版 (`--rewrite-humanoid-nld`) は未実装。必要になった時点で対応。
 

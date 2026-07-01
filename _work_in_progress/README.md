@@ -48,8 +48,8 @@
 
 - 2026-06-18_progress_dblink-enrich.md（`*_DBLink` suffix エンリッチ処理・実装済み・typedef 設定済み（`AnotherRegions_DBLink`: `$enrich:true`）。⚠️ ブラウザ動作確認が残）
 - 2026-06-18_progress_dblink-renderer.md（`*_DBLink` suffix セクションレンダラー `dbLinkSection` 実装済み・`db_type.json` / NT `db_type.json` 追記済み・実データあり。⚠️ ブラウザ動作確認が残 → **Copilot で対応予定**）
-- 2026-06-09_progress_aihints-from-identitymotif.md（`--apply-identitymotif` 実装・NumberTales/DB_Primary 全件再構築完了。他作品対応・docs 追記・cleared 3 件再適用が残留）
-- 2026-06-09_progress_corefolder-nld-template-and-silhouette-structure.md（corefolder NLD テンプレ化・silhouette_notes object 構造化完了。`#28` base color・他作品確認・humanoid NLD 未実装が残留）
+- 2026-06-09_progress_aihints-from-identitymotif.md（`--apply-identitymotif` 実装・NumberTales/DB_Primary 再構築完了。2026-07-01 に docs 追記済み・`identitymotif-cleared=0` 確認済み。残は他作品対応のみ）
+- 2026-06-09_progress_corefolder-nld-template-and-silhouette-structure.md（corefolder NLD テンプレ化・silhouette_notes object 構造化完了。残は `#28` base color の手動入力・他作品確認・humanoid NLD 未実装）
 
 ### カレンダー
 
@@ -63,6 +63,7 @@
 
 ### 2026-07-01 完了
 
+- 2026-07-01_progress_aihints-remaining-tasks-closure.md（AIHints 残タスク2件の棚卸し。`docs/ai-hints-usage.md` に `--apply-identitymotif` 節を追加し、dry-run で `identitymotif-cleared=0` を確認。旧 6/9 ログとREADMEの残タスク表記を更新）
 - 2026-07-01_progress_addon-ai-tag-merge-conflict-and-log-cleanup.md（`develop`→`addon-ai-tag` 取り込み時の `_work_in_progress/README.md` 競合を解消し、Claude/Copilot の 7/1 ログを反映した進捗棚卸しを実施。⚠️ マージ commit/push は User 手動）
 - 2026-07-01_progress_readme-local-agents-rule.md（README.LOCAL.md ローカル作業メモ運用ルール追加。`CLAUDE.md` / `.github/copilot-instructions.md` に運用小節追加・`CHANGELOG.md` 追記完了。⚠️ commit/push は User 手動）
 - 2026-07-01_progress_conversationpattern-refine.md（ナンバーテールズ ConversationPattern 推敲完了: Num8〜99+特殊枠90キャラ。136 pass ✅。⚠️ DialogueExamples 入力・コミットは User 手動予定）

@@ -78,9 +78,9 @@ User からの要望「AIタグの正確性を図るため、`IdentityMotif` フ
 
 ## 未完了タスク
 
-- `docs/ai-hints-usage.md` への `--apply-identitymotif` モード追記（必要に応じて User と相談のうえ反映）。
-- 他作品（FLInvestigator78 / ShouArRiders 等）への `IdentityMotif` フィールド整備および `--apply-identitymotif` 適用は本セッション対象外（NumberTales/DB_Primary のみ）。
-- `identitymotif-cleared` となった 3 レコードのうち、明示的に「番号 0/00 系」など特殊個体については後段で User が IdentityMotif を埋めた時点で再適用が必要。
+- `docs/ai-hints-usage.md` への `--apply-identitymotif` モード追記（2026-07-01 反映済み）。
+- 他作品（FLInvestigator78 / ShouArRiders 等）への `IdentityMotif` フィールド整備および `--apply-identitymotif` 適用は引き続き対象外（NumberTales/DB_Primary のみ適用）。
+- 2026-07-01 dry-run では `identitymotif-cleared=0` を確認（再適用待ち 3 件は解消）。今後新規に `cleared` が発生した場合は User の IdentityMotif 入力後に再適用する。
 
 ## 検証
 
