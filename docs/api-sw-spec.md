@@ -353,6 +353,7 @@ UI と enrich/search は、可能な限りこの `db_type.json($DefType)` に追
 - `deftype`
   - API 利用側が使いやすい「表示辞書寄り」の結果です
   - `db_meta.json` に加えて `db_type.json($VarsDef)` 側の辞書も `General.$VarsDef` へ合成して返します
+  - `db_type.json($DefType)` も併せて含みます（2026-07-01 修正）。フィールド名と `$dict` 名が異なる項目（例: `Belonging` フィールド → `Faction` 辞書）は、UI 側の辞書名解決（`findDictNameInSchema()`）が `$DefType` を必要とするため、これが欠けると当該フィールドが未翻訳のまま表示される不具合があった。
 
 特に enum/list 辞書は `db_meta.json` だけでなく `db_type.json($VarsDef)` にも分散し得るため、API/UI ともに両者の合成を前提にしています。
 
