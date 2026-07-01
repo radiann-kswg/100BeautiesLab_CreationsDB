@@ -465,3 +465,46 @@ node tools/patch-aihints.mjs --work NumberTales --db Primary --all --apply-ident
 - `identitymotif-cleared` は異常ではなく、正源不足を明示するための正常系。User が `IdentityMotif` を追加入力した後に再適用する。
 - キャラ固有の創作判断が必要な本文（固有描写・台詞・未公開設定）は本モードで自動生成しない。
 - 推奨適用順は `--apply-identitymotif` → 必要なら `--rewrite-corefolder-nld`。
+
+### 9.9 `--apply-appearancedetail` モード（AppearanceDetail 正源で AIHints 再構築 / IdentityMotif 後継の準備モード）
+
+`AppearanceDetail`（`Formation` × `DesignElement` × `BodyPart[]` × `Laterality` × `Attrs[]` の構造化フィールド）を正源に `AIHints` を再構築するモード。`IdentityMotif`（自由文）の完全移行に備えた**並行モード**で、`--apply-identitymotif` のデータ・挙動には一切触れない。2026-07-01 時点では検証（dry-run）のみで、`db_Primary.json` への `--apply` はまだ実施していない。
+
+#### 基本方針
+
+- 正源は `AppearanceDetail[]`。`Formation: null`（共通）/ `corefolder` / `humanoid` の明示区分をそのまま `common` / `forms.<formation>` の振り分けに使う（`IdentityMotif` モードのようなキーワード分類は不要）。
+- `DesignElement` → カテゴリ対応（機械的、キャラ固有の創作判断なし）:
+  - `Motif` / `BodyType` / `Ear` → body（`silhouette_features` / `silhouette_notes.body_description`）
+  - `Expression` → `common.expression_tendency`（**IdentityMotif モードでは未対応だった項目**。AppearanceDetail の型付き構造で初めて機械的に埋められる）
+  - `CostumeItem` → `outfit_features`
+  - `Halo` / `Emblem` / `Tag` → `silhouette_notes.attached_items`
+  - `NumberMark` → `immutable_traits`（`common` へは `Formation: null` のエントリのみ反映。corefolder/humanoid で位置が異なるのが通常のため、大半は formation 側の `ai_tags` / NLD に反映される）
+  - `TailsUnit` → 対象外（`TailsUnit` フィールドを構造的正源として使うため二重化を避ける）
+- 尻尾本数・体格・年齢は `IdentityMotif` モードと同じく `TailsUnit` / `Height_cm` / `ConceptAge` を構造的正源として優先する。
+- `Attrs[]`（`vdict_*` / `value_*` / `about_*`）からの英語フレーズ合成は、`lib/section-renders/appearanceDetail.js`（UI 表示用）と同じ解決規約（`$EnumDef_*` を global + 作品ローカルでマージ）に揃えている。
+- corefolder の `natural_language_description` は AppearanceDetail 由来の body_description / marking フレーズを直接連結して組み立てる（`IdentityMotif` モードの正規表現抽出とは別実装）。抽出できない部分は `TODO:` を残す。
+
+#### コマンド
+
+```powershell
+# dry-run（件数確認）
+node tools/patch-aihints.mjs --work NumberTales --db Primary --all --apply-appearancedetail
+
+# 適用
+node tools/patch-aihints.mjs --work NumberTales --db Primary --all --apply-appearancedetail --apply
+# → appearancedetail-applied=<N>, appearancedetail-cleared=<M>, appearancedetail-unchanged=<K>, skipped-no-aihints=<L>
+```
+
+#### 集計ラベルの読み方
+
+- `appearancedetail-applied`: AppearanceDetail を反映して再構築された。
+- `appearancedetail-cleared`: AppearanceDetail が空で AI タグ系配列をクリア。
+- `appearancedetail-no-source`: AppearanceDetail 自体が無く再構築できない。
+- `skipped-no-aihints`: そもそも AIHints ブロックがない（モブ等）。
+
+#### 注意事項
+
+- `value_EN` が未入力で `value_JP` のみ存在する Attrs は `[JA] ...` を付けて出力し、警告ログ（`[apply-appearancedetail] ...`）に手動翻訳が必要な旨を記録する。創作内容の自動翻訳はしない。
+- 既存 AIHints のスキーマ外トップレベルキー（例: `concept_contains_forms`）・form 単位のスキーマ外キーは変更せず保持する。
+- `IdentityMotif` と `AppearanceDetail` の両方を持つレコードでは、どちらのモードを最後に適用したかで `AIHints` の内容が変わる。完全移行までは適用順序・対象レコードを明示して運用すること（現状は User 判断待ち）。
+- キャラ固有の創作判断が必要な本文（固有描写・台詞・未公開設定）は本モードで自動生成しない。

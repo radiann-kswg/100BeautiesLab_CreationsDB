@@ -1,5 +1,15 @@
 # 最新のリファクタリング・仕様変更履歴
 
+### `tools/patch-aihints.mjs` に新モード `--apply-appearancedetail` を追加（addon-ai-tag） (2026-07-01)
+
+- `IdentityMotif`（自由文）の後継として `AppearanceDetail`（`Formation` × `DesignElement` × `BodyPart[]` × `Laterality` × `Attrs[]` の構造化フィールド）を正源に AIHints の AI タグ系を再構築する並行モードを追加。将来的な `AppearanceDetail` への完全移行に備えた準備段階の実装で、`--apply-identitymotif` モード・既存データは変更しない。
+- `DesignElement` → カテゴリ対応で機械的に分類（`Motif`/`BodyType`/`Ear` → body、`Expression` → `common.expression_tendency`（IdentityMotif モードでは未対応だった項目）、`CostumeItem` → outfit、`Halo`/`Emblem`/`Tag` → attached、`NumberMark` → immutable_traits、`TailsUnit` → skip）。`Formation: null`（共通）/ `corefolder` / `humanoid` の明示区分をそのまま common/forms 振り分けに利用。
+- `Attrs[]`（`vdict_*` / `value_*` / `about_*`）から英語フレーズを合成する `buildAttrPhraseEN()` を新設。`lib/section-renders/appearanceDetail.js` の `buildAttrRows` と同じ解決規約（`$EnumDef_*` を global + 作品ローカルでマージ）に揃えた。`value_EN` 欠落時は `value_JP` を `[JA] ...` 付きで用い、警告ログに手動翻訳を促す。
+- corefolder の `natural_language_description` は AppearanceDetail 由来の body_description / marking フレーズから直接組み立てる専用ビルダー（`buildCorefolderNldFromAppearanceDetail`）を追加（IdentityMotif モードの正規表現抽出とは別実装）。
+- 既存 AIHints のスキーマ外トップレベルキー（例: `concept_contains_forms`）・form 単位のスキーマ外キーを保持したまま再構築するよう修正（`--apply-identitymotif` 側は未修正のまま据え置き、別件として認識）。
+- NumberTales/Primary で dry-run 検証: `appearancedetail-applied=92, cleared=0, skipped-no-aihints=13`（既存 AIHints 保有レコード数と一致）。`npm test` 147 件 pass。データ本体は今回未適用（ツール整備のみ）。
+- 詳細は `_work_in_progress/2026-07-01_progress_appearancedetail-aihints-mode.md`、使い方は `docs/ai-hints-usage.md` §9.9。
+
 ### `README.LOCAL.md` ローカル作業メモ運用ルール追加 (2026-07-01)
 
 - **`CLAUDE.md`**: 「サブローカル並行作業運用（予備作業場）」節の直後に **「`README.LOCAL.md`（ローカル環境ごとの作業メモ）」** 小節を新設。

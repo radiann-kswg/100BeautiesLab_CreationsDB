@@ -5,6 +5,7 @@
 `2026-06-09` の AIHints 系ログに残っていた「未完了 2 件」を現状に合わせて整理し、実施可能な項目をこのセッションで完了させる。
 
 対象:
+
 - `2026-06-09_progress_aihints-from-identitymotif.md`
 - `2026-06-09_progress_corefolder-nld-template-and-silhouette-structure.md`
 

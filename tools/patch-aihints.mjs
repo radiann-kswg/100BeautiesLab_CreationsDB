@@ -69,6 +69,8 @@ const PUBLIC_ORIGIN = 'https://database.numbertales-radiann.net';
  * @property {boolean} genVisionTasks  true なら視覚 TODO のあるレコードの画像リストを .cache/vision-tasks.json に出力して終了
  * @property {boolean} applyVisionResults  true なら .cache/vision-results.json の解析結果を AIHints の視覚 TODO に適用
  * @property {Map<number,Object>|null} visionResultsMap  applyVisionResults 時に main() が注入する Map<num, VisionResult>
+ * @property {boolean} applyAppearanceDetail  true なら `AppearanceDetail`（構造化フィールド）を正として AIHints の AI タグ系を再構築する。
+ *   `IdentityMotif`（自由文）の後継として将来的な完全移行を見据えた並行モード。詳細は buildAihintsFromAppearanceDetail 参照
  * @property {boolean} forceAiOptout  true なら db_meta.json の `AI_Optout: true` ガードをバイパスする（緊急時のみ）
  * @property {Map<string,boolean>} secondaryOptoutMap  sec_SeriesTitle → AI_Optout。main() が _Secondaries から構築して注入
  * @property {boolean} secondaryDefaultOptout  sec_SeriesTitle が null のデフォルトエントリに AI_Optout: true がある場合
@@ -93,6 +95,7 @@ function parseArgs(argv) {
         genVisionTasks: false,
         applyVisionResults: false,
         visionResultsMap: null,
+        applyAppearanceDetail: false,
         forceAiOptout: false,
         verbose: false,
     };
@@ -114,6 +117,7 @@ function parseArgs(argv) {
             case '--rewrite-corefolder-nld': opts.rewriteCorefolderNld = true; break;
             case '--force-rewrite-nld': opts.forceRewriteNld = true; break;
             case '--apply-identitymotif': opts.applyIdentityMotif = true; break;
+            case '--apply-appearancedetail': opts.applyAppearanceDetail = true; break;
             case '--gen-vision-tasks': opts.genVisionTasks = true; break;
             case '--apply-vision-results': opts.applyVisionResults = true; break;
             case '--force-ai-optout': opts.forceAiOptout = true; break;
@@ -213,6 +217,15 @@ Options:
                       / silhouette_notes.body_description / silhouette_notes.attached_items に振り分ける
                       未分類エントリは outfit_features 末尾に追記して取りこぼしを防ぐ
                       negative_visuals は対向 formation の Motif_EN diff から body 系を除外して構築
+  --apply-appearancedetail  レコードの AppearanceDetail（構造化フィールド）を **正** として AIHints の AI タグ系を再構築する
+                      IdentityMotif の後継を見据えた並行モード（IdentityMotif は据え置き、上書きしない）
+                      Formation（null=共通 / corefolder / humanoid）と DesignElement（Motif / CostumeItem / Expression /
+                      Ear / BodyType / Halo / Emblem / Tag / NumberMark）で機械的に分類し、Attrs（vdict_* / value_* / about_*）
+                      から英語フレーズを合成する。TailsUnit / Height_cm / ConceptAge は引き続き構造的正源として優先
+                      DesignElement=NumberMark → immutable_traits（common は Formation=null のみ、corefolder NLD へも反映）
+                      DesignElement=Expression → common.expression_tendency（IdentityMotif モードでは未対応だった項目）
+                      AppearanceDetail が無い/全空のレコードは AI タグ系を空配列にクリアして fallback（IdentityMotif モードと同じ規約）
+                      value_EN が欠落し value_JP のみ使えた場合は [JA] ... 付きで出力し警告ログに記録（要手動翻訳）
   --gen-vision-tasks  視覚 TODO のあるレコードの画像パスリストを .cache/vision-tasks.json に出力して終了
                       Agent の view_image 画像解析セッションの入力として使用する
   --apply-vision-results  .cache/vision-results.json に書かれた Agent 解析結果を
@@ -1571,7 +1584,7 @@ function stringifyAihintsBlock(aihints) {
 /**
  * @typedef {Object} PatchResult
  * @property {number} num
- * @property {'patched'|'skipped-existing'|'skipped-no-image'|'overwritten'|'refs-fixed'|'todos-filled'|'todos-unchanged'|'schema-upgraded'|'schema-unchanged'|'identitymotif-applied'|'identitymotif-unchanged'|'identitymotif-cleared'|'identitymotif-no-source'|'skipped-no-aihints'} status
+ * @property {'patched'|'skipped-existing'|'skipped-no-image'|'overwritten'|'refs-fixed'|'todos-filled'|'todos-unchanged'|'schema-upgraded'|'schema-unchanged'|'identitymotif-applied'|'identitymotif-unchanged'|'identitymotif-cleared'|'identitymotif-no-source'|'appearancedetail-applied'|'appearancedetail-unchanged'|'appearancedetail-cleared'|'appearancedetail-no-source'|'skipped-no-aihints'} status
  * @property {string} [note]
  */
 
@@ -2966,6 +2979,518 @@ function applyIdentityMotifToAihintsInRecord(text, openIdx, closeIdx, record) {
     };
 }
 
+// ─────────────────────────────────────────────────────────────────────────
+// AppearanceDetail 駆動 AIHints 再構築 (--apply-appearancedetail モード)
+//
+// `AppearanceDetail`（`Formation` × `DesignElement` × `BodyPart[]` × `Laterality` ×
+// `Attrs[]` の構造化フィールド）を **AI タグの正** として、AIHints の forms / common
+// 配下の AI 関連配列を再生成する。`IdentityMotif`（自由文）の後継を見据えた並行モードで、
+// このモードは IdentityMotif 側のデータ・モードには一切触れない。
+//
+// 設計方針:
+//  - AppearanceDetail は Formation を明示的に持つため、IdentityMotif モードのような
+//    「Motif_EN のキーワード分類」ではなく、Formation=null（共通）/ Formation=<form>
+//    （形態固有）の**構造そのもの**で共通部・形態別部を振り分ける。
+//  - DesignElement → カテゴリ対応（ELEMENT_CATEGORY 参照）:
+//      Motif / BodyType / Ear → body（silhouette_features / silhouette_notes.body_description）
+//      Expression             → expression（common.expression_tendency。IdentityMotif モードでは非対応だった項目）
+//      CostumeItem            → outfit（outfit_features）
+//      Halo / Emblem / Tag    → attached（silhouette_notes.attached_items）
+//      NumberMark             → marking（immutable_traits。common へは Formation=null のみ反映）
+//      TailsUnit              → skip（TailsUnit フィールドを正源として扱うため二重化を避ける）
+//  - 尻尾本数・体格・年齢は IdentityMotif モードと同じく TailsUnit / Height_cm / ConceptAge を
+//    構造的正源として優先する（helper 関数を共用）。
+//  - Attrs（vdict_* / value_* / about_*）→ 英語フレーズの合成は
+//    `lib/section-renders/appearanceDetail.js` の buildAttrRows と同じ解決規約に揃える。
+//  - AppearanceDetail が無い／全空のレコードは AI タグ系を空配列にクリアする fallback
+//    （`clearAihintsTagsForNoIdentityMotif` をそのまま流用。処理内容は形式的に同一）。
+// ─────────────────────────────────────────────────────────────────────────
+
+/** DesignElement → 分類カテゴリのマッピング。未知の DesignElement は 'misc'（取りこぼし防止で outfit 側へ）。 */
+const ELEMENT_CATEGORY = new Map([
+    ['#Element_Motif', 'body'],
+    ['#Element_BodyType', 'body'],
+    ['#Element_Ear', 'body'],
+    ['#Element_Expression', 'expression'],
+    ['#Element_CostumeItem', 'outfit'],
+    ['#Element_Halo', 'attached'],
+    ['#Element_Emblem', 'attached'],
+    ['#Element_Tag', 'attached'],
+    ['#Element_NumberMark', 'marking'],
+    ['#Element_TailsUnit', 'skip'],
+]);
+
+/** work 単位でグローバル + 作品ローカルの $VarsDef をマージしてキャッシュする */
+const varsDefCache = new Map();
+
+/**
+ * `data/db_meta.json`（グローバル）と `data/Works_<work>/DataBases/db_meta.json`（作品ローカル）
+ * の `General.$VarsDef` をマージして返す。ローカル定義がグローバルの同名 `$EnumDef_*` を
+ * エントリ単位で上書きする（`lib/section-renders/appearanceDetail.js` の getMergedEnumDef と同じ方針）。
+ * @param {string} work
+ * @returns {Record<string, any>}
+ */
+function loadMergedVarsDef(work) {
+    if (varsDefCache.has(work)) return varsDefCache.get(work);
+    const readVarsDef = (p) => {
+        if (!fs.existsSync(p)) return {};
+        try {
+            const j = JSON.parse(fs.readFileSync(p, 'utf8'));
+            return (j && j.General && j.General.$VarsDef) || {};
+        } catch {
+            return {};
+        }
+    };
+    const globalVars = readVarsDef(path.join(REPO_ROOT, 'data', 'db_meta.json'));
+    const localVars = readVarsDef(path.join(REPO_ROOT, 'data', `Works_${work}`, 'DataBases', 'db_meta.json'));
+    const merged = { ...globalVars };
+    for (const [k, v] of Object.entries(localVars)) {
+        const g = merged[k];
+        if (v && typeof v === 'object' && !Array.isArray(v) && g && typeof g === 'object' && !Array.isArray(g)) {
+            merged[k] = { ...g, ...v };
+        } else {
+            merged[k] = v;
+        }
+    }
+    varsDefCache.set(work, merged);
+    return merged;
+}
+
+/**
+ * `$EnumDef_<enumDefKey>` からハッシュキーの英語ラベルを解決する。
+ * 解決できない場合は raw 値をそのまま返す（`resolveFromEnumDef` の英語専用版）。
+ * @param {Record<string, any>} varsDef  loadMergedVarsDef() の返り値
+ * @param {string} rawValue   '#TailShapeType_Fox' 等のハッシュキー
+ * @param {string} enumDefKey '$EnumDef_TailShapeType' 等
+ * @param {string} fieldBase  'TailShapeType' 等（JP/EN サフィックスのベース名）
+ * @returns {string}
+ */
+function resolveEnumLabelEN(varsDef, rawValue, enumDefKey, fieldBase) {
+    if (!rawValue) return '';
+    const enumDef = varsDef ? varsDef[enumDefKey] : null;
+    if (enumDef && typeof enumDef === 'object' && !Array.isArray(enumDef)) {
+        const entry = Object.prototype.hasOwnProperty.call(enumDef, rawValue)
+            ? enumDef[rawValue]
+            : Object.values(enumDef).find((e) => e && e[fieldBase] === rawValue);
+        if (entry && typeof entry === 'object') {
+            return entry[`${fieldBase}_EN`] || entry[fieldBase] || entry[`${fieldBase}_JP`] || String(rawValue).trim();
+        }
+    }
+    return String(rawValue).trim();
+}
+
+/**
+ * `AppearanceDetail` エントリ 1 件の `Attrs[]` から英語フレーズを合成する。
+ * `lib/section-renders/appearanceDetail.js` の buildAttrRows と同じ規約駆動フィールド
+ * （vdict_* / value_Num_1+2 / value_Num / value_JP・EN / about_JP・EN）を読む。
+ * value_EN が無く value_JP のみで代用した場合は `[JA] ...` を付けて警告ログへ積む
+ * （創作内容の自動翻訳はしない。手動翻訳が必要なことを可視化するだけ）。
+ *
+ * @param {Array<Record<string, any>>|undefined} attrs
+ * @param {Record<string, any>} varsDef
+ * @param {string[]} warnings  警告メッセージの蓄積先
+ * @param {number|string} num  ログ用のレコード番号
+ * @returns {string|null}
+ */
+function buildAttrPhraseEN(attrs, varsDef, warnings, num) {
+    if (!Array.isArray(attrs) || attrs.length === 0) return null;
+    const rowPhrases = [];
+    for (const attr of attrs) {
+        if (!attr || typeof attr !== 'object') continue;
+        const parts = [];
+        let hasVdict = false;
+        const numPairs = [];
+        let numVal = null;
+        let textJP = '', textEN = '';
+        let aboutJP = '', aboutEN = '';
+        for (const [k, v] of Object.entries(attr)) {
+            if (k === 'AttrLabel' || v === null || v === undefined) continue;
+            const sv = String(v).trim();
+            if (!sv) continue;
+            if (k.startsWith('vdict_')) {
+                hasVdict = true;
+                const label = resolveEnumLabelEN(varsDef, sv, `$EnumDef_${k.slice(6)}`, k.slice(6));
+                parts.push(label || sv);
+            } else if (/^value_Num_\d+$/.test(k)) {
+                numPairs.push([k, v]);
+            } else if (k === 'value_Num') {
+                numVal = v;
+            } else if (k === 'value_JP' && !textJP) {
+                textJP = sv;
+            } else if (k === 'value_EN' && !textEN) {
+                textEN = sv;
+            } else if (k === 'about_JP' && !aboutJP) {
+                aboutJP = sv;
+            } else if (k === 'about_EN' && !aboutEN) {
+                aboutEN = sv;
+            }
+        }
+        if (numPairs.length >= 2) {
+            numPairs.sort((a, b) => a[0].localeCompare(b[0]));
+            parts.push(`${numPairs[0][1]} x ${numPairs[1][1]}`);
+        } else if (numPairs.length === 1) {
+            parts.push(String(numPairs[0][1]));
+        }
+        if (numVal !== null) parts.push(String(numVal));
+
+        if (!hasVdict && (textEN || textJP)) {
+            if (textEN) {
+                parts.push(textEN);
+            } else {
+                parts.push(`[JA] ${textJP}`);
+                warnings.push(`#${num}: value_EN が未入力のため value_JP をそのまま使用 ("${textJP}") — 手動翻訳推奨`);
+            }
+        }
+        if (aboutEN || aboutJP) {
+            if (aboutEN) {
+                parts.push(`(${aboutEN})`);
+            } else {
+                parts.push(`([JA] ${aboutJP})`);
+                warnings.push(`#${num}: about_EN が未入力のため about_JP をそのまま使用 ("${aboutJP}") — 手動翻訳推奨`);
+            }
+        }
+        if (parts.length) rowPhrases.push(parts.join(' '));
+    }
+    if (rowPhrases.length === 0) return null;
+    return rowPhrases.join(', ');
+}
+
+/**
+ * corefolder.natural_language_description を AppearanceDetail 由来の情報から直接組み立てる。
+ * IdentityMotif モードの `buildCorefolderNldFromTemplate`（自由文からの正規表現抽出）とは異なり、
+ * body_description / marking フレーズを機械的に連結するだけの素直な合成。抽出できない部分は
+ * TODO を残す（存在しないデータを創作で埋めない）。
+ *
+ * @param {number|string} num
+ * @param {{ body_description: string[], attached_items: string[] }} silhouetteNotes
+ * @param {string[]} markingPhrases  corefolder 形態の NumberMark フレーズ群
+ * @returns {string}
+ */
+function buildCorefolderNldFromAppearanceDetail(num, silhouetteNotes, markingPhrases) {
+    const numStr = String(num);
+    const bodyLines = (silhouetteNotes.body_description || [])
+        .filter((s) => typeof s === 'string' && !/^spherical core body /i.test(s));
+    const bodyPart = bodyLines.length > 0
+        ? bodyLines.join('; ')
+        : `TODO: base color / body description for #${numStr}`;
+    const markingClause = markingPhrases.length > 0
+        ? `with the number '${numStr}' marking (${markingPhrases.join('; ')})`
+        : `with the number '${numStr}' TODO: marking placement for #${numStr}`;
+    const accessoryPhrases = silhouetteNotes.attached_items || [];
+    const accessoryPart = accessoryPhrases.length > 0 ? `; ${accessoryPhrases[0]}` : '';
+    return `Corefolder form: a spherical cushion-like body, ${bodyPart}, ${markingClause}${accessoryPart}.`;
+}
+
+/**
+ * `AppearanceDetail` を AIHints へ反映する際の AIHints オブジェクト全体を組み立てる。
+ * 既存 AIHints は **reference_images / age_appearance / work_common / alt_modes** のみ流用し、
+ * その他は AppearanceDetail と構造的正源（TailsUnit / Height_cm / ConceptAge）から再構築する。
+ *
+ * @param {any} record  パース済みレコード（AppearanceDetail と AIHints を含む）
+ * @param {Record<string, any>} varsDef  loadMergedVarsDef() の返り値
+ * @returns {{ aihints: any, hasSource: boolean, formationsTouched: string[], warnings: string[] }}
+ */
+function buildAihintsFromAppearanceDetail(record, varsDef) {
+    const num = record.Num;
+    const baseAihints = record.AIHints ?? {};
+    const existingCommon = baseAihints.common ?? {};
+    const existingForms = baseAihints.forms ?? {};
+    /** @type {string[]} */
+    const warnings = [];
+
+    const source = Array.isArray(record.AppearanceDetail) ? record.AppearanceDetail : [];
+
+    // ── 構造的正源（AppearanceDetail の記述より優先）──────────────
+    const tailDesc = (() => {
+        const parsed = parseTailsUnit(record.TailsUnit);
+        if (!parsed) return null;
+        const desc = buildTailDescription(parsed);
+        return (typeof desc === 'string' && !desc.startsWith('TODO:')) ? desc : null;
+    })();
+    const statureDesc = heightBandOf(record.Height_cm);
+    const ageBand = (typeof record.ConceptAge === 'number' && Number.isFinite(record.ConceptAge))
+        ? ageBandOf(record.ConceptAge)
+        : (('age_appearance' in existingCommon) ? existingCommon.age_appearance : null);
+
+    // ── 各エントリを分類してフレーズ化 ────────────────────────────
+    /** @type {Array<{ formation: string|null, category: string, phrase: string }>} */
+    const classifiedEntries = [];
+    for (const entry of source) {
+        if (!entry || typeof entry !== 'object') continue;
+        const category = ELEMENT_CATEGORY.get(entry.DesignElement) ?? 'misc';
+        if (category === 'skip') continue;
+        if (category === 'misc' && entry.DesignElement) {
+            warnings.push(`#${num}: 未知の DesignElement "${entry.DesignElement}" を outfit_features 側へフォールバック分類`);
+        }
+        const phrase = buildAttrPhraseEN(entry.Attrs, varsDef, warnings, num);
+        if (!phrase) continue;
+        classifiedEntries.push({ formation: (typeof entry.Formation === 'string' ? entry.Formation : null), category, phrase });
+    }
+
+    if (classifiedEntries.length === 0) {
+        return { aihints: baseAihints, hasSource: false, formationsTouched: [], warnings };
+    }
+
+    const sharedEntries = classifiedEntries.filter((e) => e.formation === null);
+    /** @type {Map<string, Array<{ formation: string, category: string, phrase: string }>>} */
+    const formSpecific = new Map();
+    for (const e of classifiedEntries) {
+        if (e.formation === null) continue;
+        if (!formSpecific.has(e.formation)) formSpecific.set(e.formation, []);
+        formSpecific.get(e.formation).push(e);
+    }
+
+    let formationsTouched = [...formSpecific.keys()];
+    if (formationsTouched.length === 0) {
+        // 全エントリが Formation=null（共通）のみ: 既存 AIHints.forms のキーを対象に共通情報を適用
+        formationsTouched = Object.keys(existingForms);
+    }
+
+    const pushUnique = (arr, seen, s) => {
+        const nk = normalizeMotifEntry(s);
+        if (!nk || seen.has(nk)) return;
+        seen.add(nk);
+        arr.push(s);
+    };
+
+    /** @type {Record<string, any>} */
+    const newForms = {};
+    /** @type {Map<string, string[]>} corefolder NLD 用に marking フレーズを別途保持 */
+    const markingPhrasesByForm = new Map();
+
+    for (const formKey of formationsTouched) {
+        const isCorefolder = formKey === 'corefolder';
+        const existingForm = existingForms ? existingForms[formKey] : null;
+        const ownEntries = formSpecific.get(formKey) ?? [];
+        const allForForm = [...sharedEntries, ...ownEntries];
+
+        const formTags = [`${formKey} form`];
+
+        const outfitFeatures = [];
+        const outfitSeen = new Set();
+        const attachedItems = [];
+        const attachedSeen = new Set();
+        const bodyDescription = [];
+        const bodySeen = new Set();
+        const markingPhrases = [];
+
+        for (const e of allForForm) {
+            if (e.category === 'outfit' || e.category === 'misc') pushUnique(outfitFeatures, outfitSeen, e.phrase);
+            else if (e.category === 'attached') pushUnique(attachedItems, attachedSeen, e.phrase);
+            else if (e.category === 'body') pushUnique(bodyDescription, bodySeen, e.phrase);
+            else if (e.category === 'marking') markingPhrases.push(e.phrase);
+            // 'expression' は common.expression_tendency 側で扱うため per-form には積まない
+        }
+        markingPhrasesByForm.set(formKey, markingPhrases);
+
+        const silhouetteNotes = { body_description: [], attached_items: attachedItems };
+        if (isCorefolder) {
+            silhouetteNotes.body_description.push(
+                'spherical core body with the head as the only protruding part on top',
+            );
+        }
+        silhouetteNotes.body_description.push(...bodyDescription);
+
+        const aiTags = [];
+        const aiTagSeen = new Set();
+        pushUnique(aiTags, aiTagSeen, formTags[0]);
+        if (tailDesc) pushUnique(aiTags, aiTagSeen, tailDesc);
+        if (statureDesc) pushUnique(aiTags, aiTagSeen, statureDesc);
+        if (ageBand && typeof ageBand === 'string' && !ageBand.startsWith('TODO')) pushUnique(aiTags, aiTagSeen, ageBand);
+        for (const e of allForForm) pushUnique(aiTags, aiTagSeen, e.phrase);
+
+        // negative_visuals: 他 formation 固有の outfit/attached フレーズ（body・marking は除外）
+        const negativeVisuals = [];
+        const negSeen = new Set();
+        for (const [otherKey, otherEntries] of formSpecific.entries()) {
+            if (otherKey === formKey) continue;
+            for (const e of otherEntries) {
+                if (e.category !== 'outfit' && e.category !== 'attached') continue;
+                pushUnique(negativeVisuals, negSeen, e.phrase);
+            }
+        }
+
+        const immutableConstraints = isCorefolder ? [...COREFOLDER_DEFAULT_IMMUTABLE_CONSTRAINTS] : null;
+        const negativeKeywords = isCorefolder ? [...COREFOLDER_DEFAULT_NEGATIVE_KEYWORDS] : null;
+        const promptExport = aiTags.join(', ');
+        const negativePromptExport = negativeVisuals.join(', ');
+        const referenceImages = (existingForm && typeof existingForm === 'object' && 'reference_images' in existingForm)
+            ? existingForm.reference_images
+            : null;
+
+        // 既存 form のスキーマ外キーも保持したまま既知フィールドだけ上書きする。
+        const formObj = {
+            ...(existingForm && typeof existingForm === 'object' ? existingForm : {}),
+            form_tags: formTags,
+            outfit_features: outfitFeatures,
+            silhouette_notes: silhouetteNotes,
+            immutable_constraints: immutableConstraints,
+            negative_keywords: negativeKeywords,
+            ai_tags: aiTags,
+            negative_visuals: negativeVisuals,
+            natural_language_description: null, // corefolder は後段でテンプレ生成、他は null のまま
+            prompt_export: promptExport,
+            negative_prompt_export: negativePromptExport,
+            reference_images: referenceImages,
+        };
+        newForms[formKey] = reorderObjectKeys(formObj, [
+            'form_tags', 'outfit_features',
+            'silhouette_notes', 'immutable_constraints', 'negative_keywords',
+            'ai_tags', 'negative_visuals',
+            'natural_language_description', 'prompt_export', 'negative_prompt_export',
+            'reference_images',
+        ]);
+    }
+
+    // ── 既存 forms にあって AppearanceDetail で言及されていない formation は AI タグ系をクリア ──
+    if (existingForms && typeof existingForms === 'object') {
+        for (const formKey of Object.keys(existingForms)) {
+            if (newForms[formKey]) continue;
+            const existingForm = existingForms[formKey];
+            if (!existingForm || typeof existingForm !== 'object') continue;
+            const isCorefolder = formKey === 'corefolder';
+            const ownFormTag = `${formKey} form`;
+            const empty = {
+                form_tags: [ownFormTag],
+                outfit_features: [],
+                silhouette_notes: { body_description: isCorefolder ? ['spherical core body with the head as the only protruding part on top'] : [], attached_items: [] },
+                immutable_constraints: isCorefolder ? [...COREFOLDER_DEFAULT_IMMUTABLE_CONSTRAINTS] : null,
+                negative_keywords: isCorefolder ? [...COREFOLDER_DEFAULT_NEGATIVE_KEYWORDS] : null,
+                ai_tags: [ownFormTag],
+                negative_visuals: [],
+                natural_language_description: null,
+                prompt_export: ownFormTag,
+                negative_prompt_export: '',
+                reference_images: 'reference_images' in existingForm ? existingForm.reference_images : null,
+            };
+            formationsTouched.push(formKey);
+            newForms[formKey] = reorderObjectKeys(empty, [
+                'form_tags', 'outfit_features',
+                'silhouette_notes', 'immutable_constraints', 'negative_keywords',
+                'ai_tags', 'negative_visuals',
+                'natural_language_description', 'prompt_export', 'negative_prompt_export',
+                'reference_images',
+            ]);
+        }
+    }
+
+    // ── common の組み立て ──────────────────────────────────────────
+    const identityTags = [];
+    const idSeen = new Set();
+    const silhouetteFeatures = [];
+    const sfSeen = new Set();
+    if (tailDesc) pushUnique(silhouetteFeatures, sfSeen, tailDesc);
+    if (statureDesc) pushUnique(silhouetteFeatures, sfSeen, statureDesc);
+    const expressionTendency = [];
+    const exSeen = new Set();
+    const markingLinesShared = [];
+
+    for (const e of sharedEntries) {
+        if (e.category === 'body') {
+            pushUnique(identityTags, idSeen, e.phrase);
+            pushUnique(silhouetteFeatures, sfSeen, e.phrase);
+        } else if (e.category === 'expression') {
+            pushUnique(expressionTendency, exSeen, e.phrase);
+        } else if (e.category === 'outfit' || e.category === 'attached' || e.category === 'misc') {
+            pushUnique(identityTags, idSeen, e.phrase);
+        } else if (e.category === 'marking') {
+            markingLinesShared.push(e.phrase);
+        }
+    }
+
+    const newCommon = {
+        identity_tags: identityTags,
+        silhouette_features: silhouetteFeatures,
+        immutable_traits: markingLinesShared.length > 0
+            ? markingLinesShared.map((p) => `number '${num}' marking: ${p}`)
+            : null,
+        expression_tendency: expressionTendency.length > 0 ? expressionTendency : null,
+        age_appearance: (typeof ageBand === 'string' && ageBand) ? ageBand : null,
+        palette_priority: null,
+        natural_language_description: null,
+        reference_images: ('reference_images' in existingCommon) ? existingCommon.reference_images : null,
+    };
+    const orderedCommon = reorderObjectKeys(newCommon, [
+        'identity_tags', 'silhouette_features', 'immutable_traits',
+        'expression_tendency', 'age_appearance', 'palette_priority',
+        'natural_language_description', 'reference_images',
+    ]);
+
+    // baseAihints を先にスプレッドし、`concept_contains_forms` 等スキーマ外の既存トップレベル
+    // キーを保持したまま common/work_common/forms/alt_modes だけを上書きする。
+    const newAihints = {
+        ...baseAihints,
+        common: orderedCommon,
+        work_common: ('work_common' in baseAihints) ? baseAihints.work_common : null,
+        forms: newForms,
+        alt_modes: ('alt_modes' in baseAihints) ? baseAihints.alt_modes : null,
+    };
+
+    // ── corefolder NLD を AppearanceDetail 由来の情報から直接組み立て ──
+    if (newForms.corefolder) {
+        const nld = buildCorefolderNldFromAppearanceDetail(
+            num, newForms.corefolder.silhouette_notes, markingPhrasesByForm.get('corefolder') ?? [],
+        );
+        newForms.corefolder.natural_language_description = nld;
+    }
+
+    return {
+        aihints: reorderObjectKeys(newAihints, ['common', 'work_common', 'forms', 'alt_modes']),
+        hasSource: true,
+        formationsTouched,
+        warnings,
+    };
+}
+
+// AppearanceDetail が無い／全空のレコードに対する fallback は IdentityMotif モードと処理内容が
+// 完全に同一（AIHints の構造をタグだけ空へクリアする）ため、既存関数をそのまま共用する。
+const clearAihintsTagsForNoAppearanceDetail = clearAihintsTagsForNoIdentityMotif;
+
+/**
+ * 1レコード分の AIHints を AppearanceDetail 駆動で再構築する（--apply-appearancedetail モード）。
+ *
+ * @param {string} text
+ * @param {number} openIdx
+ * @param {number} closeIdx
+ * @param {any} record
+ * @param {Record<string, any>} varsDef
+ * @returns {{ text: string, changed: boolean, status: 'appearancedetail-applied'|'appearancedetail-unchanged'|'appearancedetail-cleared'|'appearancedetail-no-source'|'skipped-no-aihints', warnings: string[] }}
+ */
+function applyAppearanceDetailToAihintsInRecord(text, openIdx, closeIdx, record, varsDef) {
+    if (!record.AIHints) {
+        return { text, changed: false, status: 'skipped-no-aihints', warnings: [] };
+    }
+
+    const { aihints: newAihints, hasSource, warnings } = buildAihintsFromAppearanceDetail(record, varsDef);
+
+    /** @type {any} */
+    let finalAihints;
+    /** @type {'appearancedetail-applied'|'appearancedetail-unchanged'|'appearancedetail-cleared'|'appearancedetail-no-source'} */
+    let status;
+
+    if (!hasSource) {
+        finalAihints = clearAihintsTagsForNoAppearanceDetail(record.AIHints);
+        status = 'appearancedetail-cleared';
+    } else {
+        finalAihints = newAihints;
+        status = 'appearancedetail-applied';
+    }
+
+    const existingJson = JSON.stringify(record.AIHints);
+    const newJson = JSON.stringify(finalAihints);
+    if (existingJson === newJson) {
+        return { text, changed: false, status: hasSource ? 'appearancedetail-unchanged' : 'appearancedetail-no-source', warnings };
+    }
+
+    const block = stringifyAihintsBlock(finalAihints);
+    return {
+        text: replaceAihintsInRecord(text, openIdx, closeIdx, block),
+        changed: true,
+        status,
+        warnings,
+    };
+}
+
 
 /**
  * 1ファイル分のパッチ処理。テキスト編集と結果集計を返す。
@@ -3098,6 +3623,23 @@ function patchFileText(text, opts) {
             );
             text = newText;
             results.push({ num, status: changed ? status : (status === 'skipped-no-aihints' ? status : 'identitymotif-unchanged') });
+            continue;
+        }
+
+        // --apply-appearancedetail モード: AppearanceDetail を AI タグの正として AIHints を再構築。
+        // 既存 reference_images / age_appearance / work_common / alt_modes は据え置き。
+        if (opts.applyAppearanceDetail) {
+            if (!hasAihints) {
+                results.push({ num, status: 'skipped-no-aihints' });
+                continue;
+            }
+            const varsDef = loadMergedVarsDef(opts.work);
+            const { text: newText, changed, status, warnings } = applyAppearanceDetailToAihintsInRecord(
+                text, openIdx, closeIdx, record, varsDef,
+            );
+            text = newText;
+            for (const w of warnings) console.warn(`[apply-appearancedetail] ${w}`);
+            results.push({ num, status: changed ? status : (status === 'skipped-no-aihints' ? status : 'appearancedetail-unchanged') });
             continue;
         }
 
@@ -3325,6 +3867,7 @@ function main() {
         'silhouette-migrated': 0, 'silhouette-unchanged': 0,
         'nld-rewritten': 0, 'nld-unchanged': 0,
         'identitymotif-applied': 0, 'identitymotif-unchanged': 0, 'identitymotif-cleared': 0, 'identitymotif-no-source': 0,
+        'appearancedetail-applied': 0, 'appearancedetail-unchanged': 0, 'appearancedetail-cleared': 0, 'appearancedetail-no-source': 0,
         'vision-applied': 0, 'vision-unchanged': 0, 'vision-no-result': 0,
         'skipped-no-aihints': 0,
     };
@@ -3346,6 +3889,8 @@ function main() {
         console.log(`  nld-rewritten=${counts['nld-rewritten']}, nld-unchanged=${counts['nld-unchanged']}, skipped-no-aihints=${counts['skipped-no-aihints']}`);
     } else if (opts.applyIdentityMotif) {
         console.log(`  identitymotif-applied=${counts['identitymotif-applied']}, identitymotif-cleared=${counts['identitymotif-cleared']}, identitymotif-unchanged=${counts['identitymotif-unchanged']}, identitymotif-no-source=${counts['identitymotif-no-source']}, skipped-no-aihints=${counts['skipped-no-aihints']}`);
+    } else if (opts.applyAppearanceDetail) {
+        console.log(`  appearancedetail-applied=${counts['appearancedetail-applied']}, appearancedetail-cleared=${counts['appearancedetail-cleared']}, appearancedetail-unchanged=${counts['appearancedetail-unchanged']}, appearancedetail-no-source=${counts['appearancedetail-no-source']}, skipped-no-aihints=${counts['skipped-no-aihints']}`);
     } else if (opts.applyVisionResults) {
         console.log(`  vision-applied=${counts['vision-applied']}, vision-unchanged=${counts['vision-unchanged']}, vision-no-result=${counts['vision-no-result']}, skipped-no-aihints=${counts['skipped-no-aihints']}`);
     } else {
