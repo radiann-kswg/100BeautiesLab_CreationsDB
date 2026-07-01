@@ -1,10 +1,10 @@
 /**
  * deepl-client.mjs - DeepL REST API 薄いクライアント
- * @description sync-glossary / evaluate-translations から共有する最小限の DeepL API ラッパ。
+ * @description sync-glossary / evaluate-translations / draft-translate から共有する最小限の DeepL API ラッパ。
  *   `DEEPL_API_KEY` 環境変数（無料キーは末尾 ':fx'）からエンドポイントを自動判定する。
  *   Cowork の DeepL コネクタとは別経路（ローカル CLI 実行用）。
  * @author 100BeautiesLab.
- * @version 1.0.0
+ * @version 1.1.0
  * @dependencies Node.js >= 18（グローバル fetch を使用）
  */
 
@@ -67,7 +67,12 @@ async function request(path, { method = "GET", body, headers = {} } = {}) {
 /**
  * テキストを翻訳する。
  * @param {string[]} texts - 翻訳対象（最大 50 件目安）
- * @param {{target_lang:string, source_lang?:string, glossary_id?:string, formality?:string}} opts
+ * @param {{target_lang:string, source_lang?:string, glossary_id?:string, formality?:string, context?:string}} opts
+ *   `context` は DeepL API v2 の同名パラメータをそのまま中継する（1 リクエスト = 1 文脈文字列。
+ *   texts 全件に共通適用される）。翻訳結果には含まれず、語義の曖昧さ解消のヒントとしてのみ使われる。
+ *   **注意**: DeepL は LLM ではなく NMT なので、`context` は「指示」としては機能しない
+ *   （例:「she で訳して」と書いても代名詞選択を強制できるとは限らない）。代名詞の確実な統一が
+ *   必要な場合は呼び出し側で後処理（正規化）を行うこと（`tools/deepl/draft-translate.mjs` 参照）。
  * @returns {Promise<string[]>} 訳文配列
  */
 export async function translate(texts, opts) {
@@ -77,6 +82,7 @@ export async function translate(texts, opts) {
   if (opts.source_lang) params.set("source_lang", opts.source_lang);
   if (opts.glossary_id) params.set("glossary_id", opts.glossary_id);
   if (opts.formality) params.set("formality", opts.formality);
+  if (opts.context) params.set("context", opts.context);
   const json = await request("/v2/translate", {
     method: "POST",
     headers: { "Content-Type": "application/x-www-form-urlencoded" },

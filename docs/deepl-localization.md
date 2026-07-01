@@ -46,8 +46,9 @@ DeepL は **既存ローカライズルールを置き換えるものではな�
 | `npm run deepl:build-glossary` | `build-glossary-source.mjs` | 辞書から用語集ソース（TSV / JSON / 衝突ログ）を生成 | 不要 |
 | `npm run deepl:sync-glossary` | `sync-glossary.mjs` | DeepL 上の用語集を「同名削除→再作成」で更新し `glossary-ids.json` を更新 | **要** |
 | `npm run deepl:eval` | `evaluate-translations.mjs` | 既存 `_EN` を DeepL 機械訳と突き合わせ、`eval-report.md` を出力（**書き換えなし**） | **要** |
+| `npm run deepl:draft` | `draft-translate.mjs` | 空の `_EN` をキャラ文脈（GenderType・呼称）付きで下書き翻訳、`draft-report.md` を出力（`--apply` 時のみ警告無し候補を書き戻し） | **要** |
 
-`deepl-client.mjs` は DeepL REST API の薄いラッパ（`.env` を自動読込）。
+`deepl-client.mjs` は DeepL REST API の薄いラッパ（`.env` を自動読込）。`pronoun-normalize.mjs` は代名詞正規化・警告検知の純粋関数群（`draft-translate.mjs` から利用、ネットワーク I/O なし）。
 
 ### 生成物（`.cache/deepl/`）
 
@@ -56,6 +57,7 @@ DeepL は **既存ローカライズルールを置き換えるものではな�
 - `glossary-conflicts.md` — 同一ソースに複数訳がある場合の衝突ログ（先勝ち。要正規化箇所の把握）
 - `glossary-ids.json` — 登録済み用語集の `glossary_id`
 - `eval-report.md` — 英訳突き合わせレポート
+- `draft-report.md` — 下書き英訳レポート（`deepl:draft` 出力。JP/DeepL生訳/正規化後候補/⚠警告）
 
 ---
 
@@ -89,6 +91,22 @@ npm run deepl:eval -- --fields Summary,Character --work Works_NumberTales --limi
 ```
 
 `.cache/deepl/eval-report.md` に「既存 EN」「DeepL 訳」を類似度の低い順で並べる。**乖離＝誤りではない**（文体・意訳の揺れが大半）。採否は人間が判断し、必要な修正は `localization-en-rules.md` の規則（キー順序・上書き条件）に従って手作業で反映する。
+
+### 3-4. キャラ文脈（GenderType・呼称）を踏まえた下書き翻訳をしたいとき
+
+空の `*_EN` フィールドを DeepL で下書き翻訳するとき、DeepL は素の状態だと代名詞を `he` や一人称 `I` で返しがちで、そのキャラ自身の既存フィールド（`GenderType` / `ForMasterCalling_EN` 等）と食い違うことがある。`draft-translate.mjs` はこれを補正する。
+
+```bash
+npm run deepl:draft -- --work Works_NumberTales --db Primary --id 8 --under ConversationPattern
+# 警告（⚠️）が無い候補だけ、実際に空の _EN へ書き戻す場合
+npm run deepl:draft -- --work Works_NumberTales --db Primary --id 8 --under ConversationPattern --apply
+```
+
+- **`--work`**（必須） `--db`（省略時は作品内の全 `db_*.json`） `--id`（`Num` 等でレコードを1件に絞る） `--under`（例: `ConversationPattern` でサブツリー限定） `--limit`（既定 30 件）
+- **代名詞の確定的正規化**: レコードの `GenderType` から代名詞ポリシー（she/he/ze/avoid）を決定し、`docs/localization-en-rules.md` §1 のルール通りに DeepL の生訳文を機械的に書き換える（`ze/zir` 活用表含む）。DeepL は LLM ではなく NMT のため、「she で訳して」という指示は信頼できない — この正規化が実質的な正しさの担保になる。
+- **一人称混入・呼称不一致は検知のみ**: `I/my/me` 等の一人称が残っていないか、`ForMasterCalling_EN` に無い呼称語（`big bro/sis` 等）が紛れ込んでいないかを検知するが、**自動では書き換えない**（文法崩壊やレコード固有の誤爆を避けるため）。⚠️ 付きでレポートに出るので人間が確認する。
+- **既定ではデータを書き換えない**: `.cache/deepl/draft-report.md` にレポートを出力するだけ。`--apply` を付けたときのみ、**警告が一つも無い候補だけ** を対象レコードの空 `_EN` へ書き戻す。警告付き候補は `--apply` 指定時も常にレポート止まり。
+- スキーマに無いキーを新規追加することはない（`db_type.json` に既に定義され、値が空の `_EN` キーのみを対象にする）。
 
 ---
 
