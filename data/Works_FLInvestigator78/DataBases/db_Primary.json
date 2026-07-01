@@ -1,7 +1,7 @@
 [
   {
     "Card": { "Suit": "Major", "SuitNum": 0, "Num": 22 },
-    "Progress": "released(beta)",
+    "Progress": "released",
     "Images": { "cardDesign_PNGName": "crddsn_imgFLM0" },
     "ThisArcanaHolder_DBLink": {
       "_DB": "PrimaryDealer",
@@ -44,7 +44,7 @@
   },
   {
     "Card": { "Suit": "Major", "SuitNum": 1, "Num": 1 },
-    "Progress": "released(beta)",
+    "Progress": "released",
     "Images": { "cardDesign_PNGName": "crddsn_imgFLM1" },
     "ThisArcanaHolder_DBLink": {
       "_DB": "PrimaryDealer",
@@ -127,7 +127,7 @@
   },
   {
     "Card": { "Suit": "Major", "SuitNum": 3, "Num": 3 },
-    "Progress": "released(beta)",
+    "Progress": "released",
     "Images": { "cardDesign_PNGName": "crddsn_imgFLM3" },
     "ThisArcanaHolder_DBLink": {
       "_DB": "PrimaryDealer",
@@ -205,7 +205,7 @@
   },
   {
     "Card": { "Suit": "Major", "SuitNum": 8, "Num": 8 },
-    "Progress": "released(beta)",
+    "Progress": "released",
     "Images": { "cardDesign_PNGName": "crddsn_imgFLM8" },
     "ThisArcanaHolder_DBLink": {
       "_DB": "PrimaryDealer",
@@ -248,7 +248,7 @@
   },
   {
     "Card": { "Suit": "Major", "SuitNum": 9, "Num": 9 },
-    "Progress": "released(beta)",
+    "Progress": "released",
     "Images": { "cardDesign_PNGName": "crddsn_imgFLM9" },
     "ThisArcanaHolder_DBLink": {
       "_DB": "PrimaryDealer",
@@ -352,7 +352,7 @@
   },
   {
     "Card": { "Suit": "Major", "SuitNum": 16, "Num": 16 },
-    "Progress": "notProceeded",
+    "Progress": "nowCreating",
     "ThisArcanaHolder_DBLink": {
       "_DB": "PrimaryDealer",
       "Card": { "Suit": "Major", "SuitNum": 16 }

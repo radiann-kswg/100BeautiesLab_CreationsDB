@@ -1,7 +1,7 @@
 [
   {
     "Drc": "N",
-    "Progress": "released(beta)",
+    "Progress": "unreleased",
     "Images": { "concept_PNGName": "cnsp_imgDrcN" },
     "AnotherRegions_DBLink": [
       { "_Work": "NumberTales", "_DB": "Primary", "Num": "0" }
@@ -37,7 +37,7 @@
   },
   {
     "Drc": "NE",
-    "Progress": "released(beta)",
+    "Progress": "unreleased",
     "Images": {
       "concept_PNGName": "cnsp_imgDrcNE",
       "arts_PNGPath": [
@@ -173,7 +173,7 @@
   },
   {
     "Drc": "S",
-    "Progress": "released(beta)",
+    "Progress": "unreleased",
     "AnotherRegions_DBLink": [
       {
         "_Work": "UnauthedLogica",
@@ -290,7 +290,7 @@
   },
   {
     "Drc": "NW",
-    "Progress": "released(beta)",
+    "Progress": "unreleased",
     "Images": {
       "concept_PNGName": "cnsp_imgDrcNW",
       "arts_PNGPath": ["chattingArt/chart_imgDrcNW"]
