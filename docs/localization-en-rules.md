@@ -6,6 +6,28 @@
 
 ---
 
+## 英訳入力補助（エージェント共通方針・両入口の正典）
+
+> **この節は Claude / Copilot 双方の「英訳入力補助」の共通正典です。** 各エージェントの入口（下表）はこの節を指すだけにし、方針の実体はここに集約します（ロールプレイにおける `AGENTS.md` と同じ「正典＋薄い入口」構造）。
+
+- **既にある日本語を訳す入力補助に限る**: 未記入のキャラ設定・台詞・固有用語などの創作本文を新規生成しない。翻訳元の JP が無いフィールドは空のままにする。
+- **既存 `_EN` は上書きしない**: 空（`null`/`""`/未定義）のときだけ訳案を補う（詳細は §0）。
+- **固有名詞は監修辞書に固定**: 早見表 [`localization-glossary-quickref.md`](localization-glossary-quickref.md) → 辞書本体（`data/Localization/trans_*.json` / `data/References/ref_*.json` / `data/Dictionaries/dict_*.json`）の順に確認し、勝手な別訳を作らない。作品タイトルの英名は `Works_` 識別子が正。
+- **`hideText` を尊重**: `{ "hideText": "..." }` はマスク。訳したり展開したりしない。
+- **一括処理との棲み分け**: 大量翻訳・既存英訳の突き合わせ(eval)・用語集同期は `tools/deepl/`（[`deepl-localization.md`](deepl-localization.md)）。エージェントの補助は単発の入力補助。
+- **最終採否は User**: 迷う訳は確定させず候補提示に留める。
+
+### 両エージェントの入口（この節を参照する薄いポインタ）
+
+| エージェント | 入口ファイル | スコープ機構 |
+|---|---|---|
+| GitHub Copilot | `.github/instructions/localization-en.instructions.md` | `applyTo: data/**`（Chat/Agent/Edits に適用） |
+| Claude (Cowork / Claude Code) | `data/CLAUDE.md` | `data/` 配下を編集する際に自動ロード |
+
+> インライン補完（Copilot ゴーストテキスト）はカスタム指示を読み込まないため、早見表を隣タブで開いて近傍文脈に入れる運用で補う。
+
+---
+
 ## 0. 最優先原則
 
 1. **既存の `_EN` 値を上書きしない**: `field_EN` が存在し、かつその値が対応する JP 値（→ §0-1）と異なる場合は上書き禁止（すでに人間が監修した英訳）。
