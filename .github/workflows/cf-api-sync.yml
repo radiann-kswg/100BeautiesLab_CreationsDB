@@ -48,6 +48,13 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: read
+    # develop / addon-ai-tag が近接 push すると同一 D1 (creationsdb-d1) への import が競合し
+    # "Currently processing a long-running import" エラーで失敗するため、ブランチ間で直列化する。
+    # cancel-in-progress: false … --clean で D1 を空にした直後にキャンセルされるとデータ欠損状態が
+    # 残るため、キャンセルではなくキューイングで待たせる。
+    concurrency:
+      group: cf-api-sync-d1-creationsdb
+      cancel-in-progress: false
     steps:
       - uses: actions/checkout@v4
 
