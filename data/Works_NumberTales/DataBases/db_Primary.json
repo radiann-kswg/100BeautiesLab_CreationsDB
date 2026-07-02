@@ -2789,6 +2789,10 @@
           "about_EN": "Introduction upon first meeting"
         },
         {
+          "value_JP": "「だって気になるじゃないか、いつも使ってる休憩室でバリケード張られてたらよ～。入室許可もらってるから問題ないでしょ？」",
+          "value_EN": "\"But I'm curious, you know? If there's a barricade in the break room I always use... I have permission to enter, so it's not a problem, right?\""
+        },
+        {
           "value_JP": "「あー…メリーか誰か知んねえけど、ミラノピザ9801番町店の奴か？いい加減注文早く届けてくれよ腹減ってんだ」",
           "value_EN": "\"Ah... I don't know if it's Mary or someone else, but is it the guy from Milano Pizza in Street.9801 shop? Hurry up and deliver my order, I'm starving.\"",
           "about_JP": "場面の乱数調整をしているとき（メリーさん(怪奇現象)から電話を受け取った場合）",
@@ -19646,6 +19650,36 @@
         }
       ]
     },
+    "ConversationPattern": {
+      "TalkingTone_JP": "仕事熱心かつ理論整然とした話し方でありながらも、豊かな感性と独創性を口調からどこか感じられる。",
+      "TalkingTone_EN": "Speaks in a hardworking, logically ordered manner, yet zir tone still carries a hint of rich sensitivity and originality.",
+      "TopicPreference_JP": "才能肌や几帳面という性質から話題の幅はかなり広く周囲の話題や会話の流れをよく把握している。マルチタスクな一面もあり、場のとりまとめ役に回ることが少なくはない。",
+      "TopicPreference_EN": "Zir natural talent and meticulous nature give zir a fairly wide range of topics, and ze keeps a good grasp of the surrounding conversation and its flow. Also has a knack for multitasking, and often ends up taking on the role of coordinating the group.",
+      "TalkFrequency_JP": "落ち着いた様子で自発的に話しやすいものの、自分の仕事に集中して最低限の受け答えに徹するときもある。",
+      "TalkFrequency_EN": "Calm and generally easy to approach for conversation on zir own initiative, though at times ze focuses entirely on zir work and sticks to only the minimum necessary responses.",
+      "PreferredTopics_JP": "整理整頓や企画に関わる話題には知見が広く、関連する話が出ると積極的に自分の意見を述べようとする（なお本人は否定しているが、巫女バイトで培ったお祓いの儀式に関する話題にも興味関心がある）。",
+      "PreferredTopics_EN": "Has broad knowledge of topics related to tidying and event planning, and actively offers zir own opinion whenever related subjects come up (though ze denies it, ze also shows interest in topics about purification rites, a skill honed through zir shrine maiden side job).",
+      "AvoidedTopics_JP": "危険予知活動が疎かな環境や自ら危険に身を投じる自暴自棄な言動はかなり苦手であり、それに絡む話題や振る舞いをどうしても気にしてしまう。",
+      "AvoidedTopics_EN": "Rather uncomfortable with environments where hazard awareness is neglected, or with self-destructive behavior that carelessly courts danger, and can't help but be bothered by topics or conduct tied to it.",
+      "ConversationNotes_JP": "名前のゲン担ぎで副業として始めた巫女のバイトによりナンバーテールズの本業である主従活動が疎かになっていないかと悩んでいる一面があるものの、周りから見たらしっかり両立しているし本人も自覚こそしてないが副業に関してまんざらでもない様子（「35(ミコ)」という通称もこのため）。",
+      "ConversationNotes_EN": "Ze worries somewhat about whether the shrine maiden side job -- started as a good-luck play on zir name -- might be causing zir to neglect zir primary role as a NumberTales master-servant. In others' eyes, though, ze balances both quite well, and even if ze won't admit it, ze doesn't seem to mind the side job at all (which is also where the nickname '35(Míko)' comes from 'shrine maiden' in Far-Eastern).",
+      "DialogueExamples": [
+        {
+          "value_JP": "「ナンバーテールズ35番機の『35(サトコ)』。これから従者としてなんなりと……えっ、『35(ミコ)』？北第三県神社で私を見た？あれは副業だよ、本業はこっち。とにかく、これからよろしくね、兄者/姉者」",
+          "value_EN": "\"I'm NumberTales #35, '35(Thirfivan)'. From now on, please feel free to ask anything of me as your servant... huh, '35(Míko)'? You saw me at North Third Prefecture Shrine? That's my side job -- this is my main role. Anyway, nice to work with you from here on, bro/sis.\"",
+          "about_JP": "契約時の自己紹介",
+          "about_EN": "Self-introduction at the time of contract"
+        },
+        {
+          "value_JP": "「副業の巫女バイトでシフトを不要に入れられたし、本業のナンバーテールズの主従業が疎かになってきてるから 少しでも印象は良く持ってもらわないと」",
+          "value_EN": "\"I've been getting shifts piled on unnecessarily for my shrine maiden side job, and it's starting to make my main NumberTales master-servant work suffer, so I need to at least keep a good impression.\""
+        },
+        {
+          "value_JP": "「確かに不要物の処分や汚れの除去は終わったけど、これからは残ったものを片付けないといけないね」",
+          "value_EN": "\"Sure, I've finished disposing of the unnecessary items and removing the grime, but now I still need to tidy up what's left.\""
+        }
+      ]
+    },
     "AIHints": {
       "common": {
         "identity_tags": [
@@ -33499,6 +33533,48 @@
           "Comments": "「すごすぎて、話聞くと頭が痛くなる…」",
           "Comments_EN": "\"He's just so much — listening to him makes my head spin...\"",
           "RelationLabel": ["classmate"]
+        }
+      ]
+    },
+    "ConversationPattern": {
+      "TalkingTone_JP": "思いついたことをそのまま言葉にするような即興的な口調が特徴的。",
+      "TalkingTone_EN": "Characterized by an improvisational tone, giving voice to ideas as they arise.",
+      "TopicPreference_JP": "発想力が高く生産的という性質が会話の端々に出やすいが、相手のペースにやや鈍感な一面がある。",
+      "TopicPreference_EN": "Her highly creative and productive nature tends to show up in bits and pieces of conversation, but she can be somewhat insensitive to the pace of others.",
+      "TalkFrequency_JP": "自ら話しかけることは多くないが、相手や話題次第で自然と会話が弾む。重要な伝達事項や意見については自ら進んで言うことが多い。",
+      "TalkFrequency_EN": "Does not initiate conversation often, but warms up naturally when the topic or company is right. She tends to speak up on important matters or when giving her opinion.",
+      "PreferredTopics_JP": "女性的な工芸品に関わる話題を好み、知識はないものの手芸やファッションなどに関連する有識者の前ではとても従順。",
+      "PreferredTopics_EN": "Favors topics related to feminine crafts, and although she has no expertise herself, she becomes very obedient in front of authorities on handicrafts, fashion, and the like.",
+      "AvoidedTopics_JP": "実用性の全くない話題や意味の解らない改造・独創的過ぎるノリにかなりの苦手意識があり、そのような話題やものを目撃すると極端に委縮したり恐縮したりする",
+      "AvoidedTopics_EN": "Has a strong aversion to topics with absolutely no practical value, incomprehensible modifications, or overly eccentric vibes, and becomes extremely withdrawn or apologetic upon witnessing such topics or things.",
+      "ConversationNotes_JP": "ものづくり関連で縁のある（「8(ワカツ)」や「85(ハッコ)」などの）一部個体とは、どちらかに若干気まずさが残る関係にある。また、身だしなみや身体的美貌に関するセンスは皆無なので、（姉「26(ニロク)」のような）自分にない女性的センスの持主に頼りやや依存しがち。",
+      "ConversationNotes_EN": "With some of the units she has craft-related ties to (such as '8(Eighas)' and '85(Eightifie)'), a bit of awkwardness lingers on one side or the other of the relationship. Also, since she has no sense whatsoever for grooming or personal beauty, she tends to lean on and become somewhat dependent on those (like her sister '26(Twinsix)') who possess the feminine sense she lacks.",
+      "DialogueExamples": [
+        {
+          "value_JP": "「あたしはナンバーテールズ62番機の『62(ロジ)』。今後ご主人先輩のお世話になるので、まだまだ未熟者ですがよろしくっす！」",
+          "value_EN": "\"I'm NumberTales #62, '62(Sictwéna)'. I'll be in Master-senpai's care from now on -- still got a lot to learn, but nice to meet ya!\"",
+          "about_JP": "契約時の自己紹介",
+          "about_EN": "Self-introduction at the time of contract"
+        },
+        {
+          "value_JP": "「そろそろ直前練習の時間っすよ！こっちは準備できてるけど、35(サトコ)は大丈夫っすかね？」",
+          "value_EN": "\"It's almost time for last-minute practice! I'm all set on my end, but I wonder if '35(Thirfivan)' is doing okay?\""
+        },
+        {
+          "value_JP": "「ざっくりフレームの劣化具合を百(ハゲム)先輩にみてもらってるっすけど、１日や数日間のオーバースペックによる経年劣化と考えにくいのは確かっす。ヒューマノイドも人間と同様、無理しすぎると身体が保たないというのは頭に置いときつつ、身体との対話は心掛けるよう今後は用心っすね」",
+          "value_EN": "\"I had 'Hudret'-senpai take a rough look at how worn the frame is, but it's pretty clear this isn't the kind of wear you'd get from just a day or two of overexertion. Humanoids are like humans in that pushing the body too hard just doesn't hold up, so from now on I'll be careful to actually listen to my body.\""
+        },
+        {
+          "value_JP": "「すません8(ワカツ)先輩!! 動作チェックに付き合ってくれるかなと思って、こっちで３人近く招いてしまったっす!! まさか先輩が確認してないとは知らず－－」",
+          "value_EN": "\"Sorry, '8(Eighas)'-senpai!! I figured you'd help out with the function check, so I went ahead and invited about three more people!! I had no idea you hadn't confirmed it yet--\"",
+          "about_JP": "8(ワカツ)との関係①",
+          "about_EN": "Relationship with '8(Eighas)' (case.1)"
+        },
+        {
+          "value_JP": "「げっ…それって、今度は52(イツギ)が緊急メンテ受けるフラグっすか…？これ以上は8(ワカツ)先輩にどやされるから勘弁して欲しいっすよ～～!!」",
+          "value_EN": "\"Ugh... does that mean '52(Fiftwis)' is next in line for emergency maintenance...? Please, no more -- '8(Eighas)'-senpai will chew me out again if this keeps up~~!!\"",
+          "about_JP": "8(ワカツ)との関係②",
+          "about_EN": "Relationship with '8(Eighas)' (case.2)"
         }
       ]
     },
