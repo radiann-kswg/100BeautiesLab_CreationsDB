@@ -4820,6 +4820,21 @@
           "Comments_EN": "\"Blessed with such a diverse array of associates\""
         }
       ]
+    },
+    "ConversationPattern": {
+      "TalkingTone_JP": "格調高く重みのある言い回しを自然に使う。",
+      "TalkingTone_EN": "Speaks with natural gravity and dignity.",
+      "TopicPreference_JP": "自我と自己認識が強く稀に暴走するという性質があり、相手のペースや関心によっては話題の流れが急発展したり破綻したりする。",
+      "TopicPreference_EN": "Has a strong ego and self-recognition; these qualities show throughout conversation, and may cause the flow of topics to escalate or break down depending on the other person's pace and interests.",
+      "TalkFrequency_JP": "自ら話しかけることはそこそこで相手や話題次第にはなるが、自分と馬の合う状況では自然と会話が弾む。",
+      "TalkFrequency_EN": "Does not initiate conversation often, but depending on the other person and topic, conversation may naturally flow when in a compatible situation.",
+      "PreferredTopics_JP": "自分の自己認知をより高める行動や習慣に関わる話題をこの上なく好み、関連する話が出ると自然と興味を示し執着しやすい。",
+      "PreferredTopics_EN": "Drawn to topics involving actions and habits that enhance self-awareness, and naturally shows interest when these come up.",
+      "AvoidedTopics_JP": "自分がスランプに陥っている状況やそれを誘発する場面にあると極端に会話を拒否したがる。",
+      "AvoidedTopics_EN": "When ze finds zirself in a slump, or in a situation likely to trigger one, ze tends to refuse conversation altogether.",
+      "ConversationNotes_JP": "（「1(ハジメ)」を「師匠」と過度に慕うように）自分のアイデンティティに対し深い理解や認知をしている存在に対しては、過剰崇拝傾向にありよりいっそう執着しやすくなる。",
+      "ConversationNotes_EN": "(As seen in zir excessive reverence for '1(Unitta)' as a 'master') Toward those who show deep understanding or recognition of zir identity, ze tends toward excessive adoration and grows even more fixated.",
+      "DialogueExamples": []
     }
   },
   {
@@ -5127,11 +5142,11 @@
       }
     ],
     "RelationNotes_JP": "「1(ハジメ)」を尊敬している\n「バイナ」を旧名の「2(ツギ)」と呼んで好んでいるが、「2(ツグ)」に対しては……",
-    "RelationNotes_EN": "Respects '1(Unitta)'\nFond of calling Byna by the old name '2(Twicy)', but regarding '2(Twiny)'...",
+    "RelationNotes_EN": "Respects '1(Unitta)'\nFond of calling Binor by the old name '2(Twicy)', but regarding '2(Twiny)'...",
     "NumerospecAbout_JP": "主人および自身が自分に正直になるようもたらす\nこれにより、対象が自分に自信を持たせる効果も",
     "NumerospecAbout_EN": "Leads both the Master and herself to become honest with themselves\nAlso gives the target greater self-confidence",
     "Summary_JP": "基本設計を融合させた2種類の数字を持つ複合型のうち、最初に開発された個体。\n自分に正直になり自信を持たせてくれると好評のナンバーテールズで、彼女の素直で正直な気質は周囲から好印象を持たれている。\n試作型の「1(ハジメ)」を慕っており、未完成の「バイナ」においても完成を心から期待して旧名（「2(ツギ)」）で呼んでいる。\nただ、「2(ツグ)」に対しては……",
-    "Summary_EN": "The first-developed member among the composite units that fuse two number bases in their design.\nWell regarded as a NumberTales who helps one be true to oneself and gain confidence, and her straightforward, honest temperament leaves a positive impression.\nShe admires the prototype '1(Unitta)' and, regarding the unfinished Byna, sincerely hopes for completion and still calls her by the old name '2(Twicy)'.\nHowever, toward '2(Twiny)'...",
+    "Summary_EN": "The first-developed member among the composite units that fuse two number bases in their design.\nWell regarded as a NumberTales who helps one be true to oneself and gain confidence, and her straightforward, honest temperament leaves a positive impression.\nShe admires the prototype '1(Unitta)' and, regarding the unfinished Binor, sincerely hopes for completion and still calls her by the old name '2(Twicy)'.\nHowever, toward '2(Twiny)'...",
     "NumerospecStats": {
       "EffectStats": {
         "Mental": { "EffectText": "絶大" },
@@ -5200,6 +5215,21 @@
           "RelationLabel": ["classmate"]
         }
       ]
+    },
+    "ConversationPattern": {
+      "TalkingTone_JP": "素直で正直という気質が、言葉の選び方や話すテンポに自然と表れる。",
+      "TalkingTone_EN": "Honest and straightforward\nVery light on her feet once she decides to do something — these qualities naturally surface in the choice of words and pace of conversation.",
+      "TopicPreference_JP": "プレゼンテーション能力が極めて高いだけでなく話題の幅も広いことから、積極的に話題を掘り下げていく能力および傾向がある。",
+      "TopicPreference_EN": "Not only has extremely high presentation skills, but also a wide range of topics, allowing her to actively delve into discussions.",
+      "TalkFrequency_JP": "会話を自分から積極的に始め、相手に気を配りながらテンポを調整する。場の空気を読む力が高く、人によってはかなり自然に打ち解ける。",
+      "TalkFrequency_EN": "Initiates conversations proactively, adjusting the pace while being considerate of others. Highly perceptive of the atmosphere, allowing her to naturally connect with people.",
+      "PreferredTopics_JP": "言葉の意味を重んじる話題をとても尊重しており、会話一つ一つに意味がある物とする態度をとった口調にはとても友好的に接しやすい",
+      "PreferredTopics_EN": "Highly respects topics that value the meaning of words, making it easy to engage with her in a friendly manner.",
+      "AvoidedTopics_JP": "あまりにも純粋すぎる所為で嘘や邪な発言に一切の体制が無く、それに絡む話題や振る舞いを見聞きすると途端に情緒が衰弱してしまう。",
+      "AvoidedTopics_EN": "Being far too pure, she has no defenses whatsoever against lies or malicious remarks, and the moment she encounters topics or behavior related to them, her emotional state deteriorates instantly.",
+      "ConversationNotes_JP": "「1(ハジメ)」や「バイナ」のような自分の兄姉的な存在であるナンバーテールズの試作型を信頼しており強く懐柔している（しかし同時にそんな試作型個体２人の経歴に執着するあまり、「2(ツグ)」に対しては姑と接するような苦手意識がある）。そのため、「バイナ」のことは試作中当時の「2(ツギ)」という旧名で呼ぶことを欠かさない。",
+      "ConversationNotes_EN": "Trusts and is strongly attached to prototype NumberTales who are like older siblings, such as '1(Unitta)' and 'Binor' (but at the same time, she has a difficult attitude toward '2(Twiny)' due to being overly fixated on the histories of those two prototype units). Therefore, she always calls Binor by the old name '2(Twicy)' from when she was still a prototype.",
+      "DialogueExamples": []
     }
   },
   {
@@ -5585,6 +5615,21 @@
           "RelationLabel": ["cousin_nearly"]
         }
       ]
+    },
+    "ConversationPattern": {
+      "TalkingTone_JP": "体育会系らしい歯切れのよいエネルギッシュな言い回しが出やすい。",
+      "TalkingTone_EN": "Tends toward crisp, energetic phrasing, reflecting an action-oriented temperament.",
+      "TopicPreference_JP": "チャレンジ精神旺盛な性質から喰らいつくような話題の幅は広く、自ら積極的に踏み込んで掘り下げていく傾向がある。特に相手を応援する場面ではより積極的になる。",
+      "TopicPreference_EN": "Drawn to a wide range of topics due to her adventurous spirit, and tends to actively delve into discussions. Especially becomes more proactive when supporting others.",
+      "TalkFrequency_JP": "会話を自分から積極的に始め、相手に気を配りながらテンポを調整する。",
+      "TalkFrequency_EN": "Initiates conversation readily and adjusts the tempo while keeping the other person in mind.",
+      "PreferredTopics_JP": "体を動かすものや体育系のイベントに関する話題を好む。自分や相手にやることができれば、思い立ったら吉日の精神で背中を押しやすい。",
+      "PreferredTopics_EN": "Favors topics related to physical activity and athletic events. If there's something she or the other person can do, she readily pushes them forward with a 'no time like the present' spirit.",
+      "AvoidedTopics_JP": "心理戦は苦手であり、それに絡む話題や振る舞いは極端に不器用さと素直さが目立つ。",
+      "AvoidedTopics_EN": "Poor at psychological mind games, and when topics or behavior related to them come up, her clumsiness and bluntness stand out to an extreme degree.",
+      "ConversationNotes_JP": "カードゲーム仲間（14(トヨ)や58(イソヤ)など）と交流している一面をよく見かけ、カードゲームに関するお誘いに積極的な一面はあるものの、大体のゲームで負け役なので時によっては不貞腐れて同様の話題にも反応しないことがある。",
+      "ConversationNotes_EN": "She's often seen mingling with her card-game friends (such as '14(Forteels)' and '58(Fiveighs)'), and while she's proactive about invitations to play card games, she usually ends up on the losing side, so at times she sulks and won't even respond to related topics.",
+      "DialogueExamples": []
     }
   },
   {
@@ -6538,6 +6583,21 @@
           "RelationLabel": ["cousin_nearly"]
         }
       ]
+    },
+    "ConversationPattern": {
+      "TalkingTone_JP": "普段は控えめで端的な物言いをするが、確信のある場面では芯の強さが口調に出る。",
+      "TalkingTone_EN": "Usually reserved and terse in speech, but when ze is certain of something, a core inner strength comes through in zir tone.",
+      "TopicPreference_JP": "基本物静かで極めて控えめに見えるが、実は男気のある気質であることがよく対話を聞いているとわかる。",
+      "TopicPreference_EN": "Appears very quiet and reserved, but careful listening to zir conversation reveals a chivalrous spirit.",
+      "TalkFrequency_JP": "自ら滅多に会話に乗じないが、必要だと判断した時は端的な口調でに会話に入る。原則 聞き役に回っている。",
+      "TalkFrequency_EN": "Rarely joins conversations on zir own initiative, but steps in with terse remarks when ze judges it necessary. As a rule, ze tends to stay in a listening role.",
+      "PreferredTopics_JP": "話題のすべてに一貫性と完膚の無さがあることを好み、話をしっかり理解している人とはかなり親密に接する。",
+      "PreferredTopics_EN": "Drawn to topics involving Lucky charms; Leaving no room for mercy, no matter what and Looking at distant scenery, and naturally shows interest when these come up.",
+      "AvoidedTopics_JP": "邪知暴虐は苦手であり、それに絡む話題や振る舞いは会話の中で避け 関する態度をとる相手とも自衛目的で距離を取る。",
+      "AvoidedTopics_EN": "Poor at handling cruel tyranny; ze avoids topics and behavior tied to it during conversation, and for self-protection also keeps distance from anyone who displays such an attitude.",
+      "ConversationNotes_JP": "極めて強い運気操作能力があるため、ハーネスで固定された背部の安全装置は絶対に外さないようにしている。万が一ハーネスおよび安全装置が外れた場合、（火傷の跡がある顔の右側の炎症が強まり）緊迫した様子で再装着させるよう促してくる。",
+      "ConversationNotes_EN": "Because ze possesses an extremely strong luck-manipulation ability, ze never removes the harness-mounted safety device fixed to zir back. Should the harness and safety device ever come loose, (the inflammation on the burn-scarred right side of zir face intensifies, and) ze urges, with visible urgency, that it be reattached at once.",
+      "DialogueExamples": []
     }
   },
   {

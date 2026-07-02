@@ -32,6 +32,10 @@
 - 2026-06-24_progress_github-triage.md（GitHub 未解決通知トリアージ: CodeQL alert PR #9・vitest Dependabot PR・cf-api-sync CI 失敗。⚠️ 全件 User 判断・手動操作待ち）
 - 2026-06-25_progress_github-triage.md（GitHub 未解決問題トリアージ 2 回目。⚠️ PR #9・vitest Dependabot PR・cf-api-sync 確認は全件 User 判断待ち）
 
+### ブランチ運用（記録）
+
+- 2026-07-02_progress_addon-ai-tag-reverse-merge-incident.md（`addon-ai-tag`→`develop` 逆マージ誤発生（`b0c539c`）と revert（`f9a3ebe`）による是正の経緯記録。✅ `develop` は運用方針どおりの状態に復帰済み・巻き添え削除されたログの実体は `addon-ai-tag` 側に残存確認済み。⚠️ `addon-ai-tag` 側ログへの後日談追記は別ブランチ作業待ち）
+
 ### データ / ローカライズ（User 手動作業残り）
 
 - 2026-06-22_progress_jp-en-naming-standardization.md（JP/EN フィールド命名標準化・**Phase 2〜5 全完了** ⚠️ D1/R2 再同期は手動実施が必要）
