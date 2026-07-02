@@ -4,7 +4,12 @@
     "Progress": "unreleased",
     "Images": { "concept_PNGName": "cnsp_imgDrcN" },
     "AnotherRegions_DBLink": [
-      { "_Work": "NumberTales", "_DB": "Primary", "Num": "0" }
+      { "_Work": "NumberTales", "_DB": "Primary", "Num": "0" },
+      {
+        "_Work": "UnauthedLogica",
+        "_DB": "Primary",
+        "Model": { "LogicSeries": null, "Num": "0" }
+      }
     ],
     "Name_JP": "零 零",
     "Name_JPReading": "かずない れい",
@@ -103,6 +108,13 @@
   {
     "Drc": "E",
     "Progress": "notProceeded",
+    "AnotherRegions_DBLink": [
+      {
+        "_Work": "PastDivers",
+        "_DB": "SemiPrimary",
+        "Chronos": { "Lunar": "Junius.II" }
+      }
+    ],
     "Name_JP": "六花 ルノ",
     "Name_JPReading": "ろくばな ルノ",
     "Name_EN": "Luno Hexacrys",
@@ -122,8 +134,11 @@
     "SecondPersonCalling_JP": "",
     "ThirdPersonCalling_JP": "",
     "Character_JP": "",
+    "Character_EN": "",
     "Hobby_JP": "",
+    "Hobby_EN": "",
     "SpecialSkill_JP": "",
+    "SpecialSkill_EN": "",
     "Favor_JP": "人間の友情や愛情",
     "Favor_EN": "Human friendship and affection",
     "Unlike_JP": "親友の危険、人体実験",
@@ -194,7 +209,7 @@
     "RaceType": "Human(DoubleIdentity)",
     "GenderType": "Female",
     "Belonging": ["ジャンクガレージ『六花陛下』"],
-    "Age": 25,
+    "Age": 27,
     "BirthDay": { "Day": { "Month": 12, "DayOfMonth": 12 } },
     "Summary_JP": "日中は「六花陛下」という相性で親しまれたスラム街のジャンクガレージで一人ジャンクショップを経営する、お淑やかで静かな看板娘……なのだが、実は二重人格で夜間（もしくは眼鏡が外れた）顔は「強欲」そのものなトレジャーハンター「クィーン.トゥエルヴ」として活動している。\n両人格とも汎用集積素子部品の「72IS」シリーズに対する共通の趣味はあるのだが、廃番で入手困難になった型番の話となると人格が切り替わり傲慢に恫喝されかねないので、くれぐれも彼女を相手にした話題の選択は慎重に。",
     "Summary_EN": "By day, a graceful and soft-spoken shopgirl who runs a junk shop alone in a slum-district garage known affectionately as 'Majesty Rokka'... but in reality she has a split personality, and by night (or when her glasses come off) her face shows the 'Greed' herself as the treasure hunter 'Queen.XII'.\nBoth personalities share a common hobby with the general-purpose IC component '72IS' series, but if the topic turns to a discontinued hard-to-find model number, the personality can switch and she may aggressively threaten you — so please choose your words very carefully when dealing with her."
@@ -315,6 +330,23 @@
     "Height_cm": 155,
     "Weight_kg": { "hideText": "判定失敗" },
     "Age": { "about_JP": "不詳", "about_EN": "Unknown or Undefined" },
+    "AnivDay": [
+      {
+        "Day": { "Month": 2, "DayOfMonth": 26 },
+        "DayAbout_JP": "「財前小里」引退報道",
+        "DayAbout_EN": "'Foster Empressor' retirement report"
+      },
+      {
+        "Day": { "Month": 2, "DayOfMonth": 27 },
+        "DayAbout_JP": "「終藤こさと」としての初目撃報道",
+        "DayAbout_EN": "First sighting report as 'Formar Endrof'"
+      },
+      {
+        "Day": { "Month": 7, "DayOfMonth": 22 },
+        "DayAbout_JP": "「財前小里」の誕生日",
+        "DayAbout_EN": "'Foster Empressor' birthday"
+      }
+    ],
     "FirstPersonCalling_JP": "ボク",
     "FirstPersonCalling_EN": "I (masc. informal)",
     "SecondPersonCalling_JP": "キミ",

@@ -1071,6 +1071,23 @@ async function fetchGlobalMeta() {
 }
 
 /**
+ * 作品キーから作品タイトル（創作名）を言語別に取得する
+ * グローバルメタ CreationWorks.#Works_*.Title_JP / Title_EN を参照（fetchGlobalMeta のキャッシュ付き）
+ * @param {string} workKey - 作品キー（'#Works_XXX' / 'Works_XXX' / 'XXX' いずれも可）
+ * @param {string} lang - 'jp' | 'en'
+ * @returns {Promise<string>} 作品タイトル（見つからない場合は空文字列）
+ */
+async function getWorkTitleForLang(workKey, lang) {
+	const gm = await fetchGlobalMeta();
+	const cw = gm?.CreationWorks?.[normalizeWorkKey(workKey)];
+	if (!cw) return '';
+	const title = lang === 'en'
+		? (cw.Title_EN || cw.Title_JP)
+		: (cw.Title_JP || cw.Title_EN);
+	return String(title || '').trim();
+}
+
+/**
  * Fetch global type definitions from ./data/db_type.json
  * @returns {Promise<Object>} Global type definitions
  */
@@ -7126,6 +7143,7 @@ export async function renderDetail(workId, rec) {
 			openDetail,
 			openViewerNavigation,
 			getCharState: () => window.__CHAR_STATE__,
+			getWorkTitle: getWorkTitleForLang,
 			fetchDbRecords: (wId, dbName) => fetchDB(wId, dbName, { resolve: true })
 		};
 
@@ -7502,7 +7520,8 @@ function renderRelations(rel, fieldLabelMap, workMeta, globalDefType, fieldDispl
 				fetchDbRecords: (wId, dbName) => fetchDB(wId, dbName, { resolve: true }),
 				openDetail,
 				openViewerNavigation,
-				getCharState: () => window.__CHAR_STATE__
+				getCharState: () => window.__CHAR_STATE__,
+				getWorkTitle: getWorkTitleForLang
 			},
 			wrapStandaloneSection: options?.wrapStandaloneSection
 		}

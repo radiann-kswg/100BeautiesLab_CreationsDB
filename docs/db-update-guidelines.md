@@ -255,6 +255,7 @@ npm run dict:export-enums:prune
 - `_DBLink` は参照先レコードの同名フィールドを **空値のときだけ穴埋め**します（既存値は上書きしません）
 - `{ hideText: "..." }` は意図的マスクなので上書きしません
 - 画像系フィールドは **別DB（別JSON）から穴埋めしません**（同一DB内のみ許可）
+- ルート `_DBLink` が無いレコードでも、`_Jump` の中に `$Def_DBLinkRef` 形式の `_DBLink` を書けばフィールド単位で参照先を明示できます（`docs/api-sw-spec.md` §8.1 参照）
 
 詳細ルールは `.github/copilot-instructions.md` の「参照マージ」節を正とします。
 

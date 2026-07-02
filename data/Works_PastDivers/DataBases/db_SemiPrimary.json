@@ -1,1 +1,53 @@
-[]
+[
+  {
+    "Chronos": { "Lunar": "Junius.II" },
+    "Progress": "notProceeded",
+    "AnotherRegions_DBLink": [
+      { "_Work": "SinisterChangingGirls", "_DB": "Primary", "Drc": "E" }
+    ],
+    "Name_JP": "六花 ルノ",
+    "Name_JPReading": "ろくばな ルノ",
+    "Name_EN": "Luno Hexacrys",
+    "FormalName_JP": "ルノ.ヘクスクリス",
+    "FormalName_EN": "Luno Hexacrys",
+    "GenderType": "Female",
+    "Height_cm": 157,
+    "Weight_kg": { "hideText": "非公開" },
+    "BustSize": "E",
+    "Age": 20,
+    "BirthDay": {
+      "_Jump": {
+        "hashTag": "BirthDay",
+        "_DBLink": { "_Work": "SinisterChangingGirls", "_DB": "Primary", "Drc": "E" }
+      }
+    },
+    "Belonging": ["夜月機関"],
+    "ChronoholderName_JP": "時空天恵\n時空霹靂",
+    "ChronoholderName_JPReading": "じくうてんけい/クロノギフト\nじくうへきれき/クロノシアンボルト",
+    "ChronoholderName_EN": "ChronoGift\nChronoCyanBolt",
+    "ChronospecName_JP": "再生の雨\n天罰の雷",
+    "ChronospecName_JPReading": "さいせいのあめ\nてんばつのかみなり",
+    "ChronospecName_EN": "Rain of Regeneration\nThunder Punishment",
+    "ChronospecAbout_JP": "乱れた時間軸を調律する\n？？？を破壊し時間を？？？",
+    "ChronospecAbout_EN": "Regulates the disturbed time axis\nDestroys ??? and ??? time",
+    "Career_JP": "先代幹部「水無瀬 青雲」の推薦により幹部に昇進予定だったが、ある日先代幹部の殉職を研修中に目撃したことを受け、幹部着任が未承認のまま現在に至る。なお、独立による脱退申請を行っているとのこと。",
+    "Career_EN": "She was scheduled to be promoted to executive by the recommendation of the previous executive 'Navisky Afterains', but after witnessing the previous executive's death during training, her executive appointment remains unapproved to this day. It is said that she has submitted a resignation request due to independence.",
+    "Summary_JP": "",
+    "Summary_EN": "",
+    "ChronospecStats": {
+      "Artifact": "哨戒(近接)",
+      "ChronoizedDecave": { "Decave": "9xVII" },
+      "ChronoizedPurity": { "hideText": "データ無" },
+      "ChronoizedAbout_JP": "（※資料が見当たらない。まだ正確な検査が行われてないようだ……）",
+      "ChronoizedAbout_EN": "(*No data found. It seems that accurate testing has not yet been conducted...)",
+      "EffectStats": {
+        "Physical": { "hideText": "判定不能" },
+        "Acceleration": { "EffectText": "特殊" },
+        "Enforcing": { "EffectText": "特殊" },
+        "Healing": { "hideText": "判定不能" },
+        "Rewriting": { "hideText": "？？？" }
+      },
+      "SafetyLevel": { "hideText": "極秘事項" }
+    }
+  }
+]

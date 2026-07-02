@@ -1,5 +1,38 @@
 # 最新のリファクタリング・仕様変更履歴
 
+### add: `*_DBLink` タグにクロスワーク参照先の創作名（作品タイトル）を併記 (2026-07-02)
+
+- **`lib/section-renders/dblink.js`**: `dbLinkSection` renderer で、参照先 `_Work` が現在表示中の作品と異なる（クロスワーク）場合のみ、キャラ名リンクの直後に参照先の作品タイトルを併記するようにした（例: `⇒ 零 零（ナンバーテールズ）`）。タイトルは非同期 hydrate で埋め、取得失敗時は無表示のまま（同一作品内の参照には併記しない）。
+- **`pages/characters.js`**: `relationApi.getWorkTitle(workKey, lang)` helper を追加。グローバルメタ `CreationWorks.#Works_*.Title_JP / Title_EN` を `fetchGlobalMeta()`（キャッシュ付き）経由で参照し、`lang=jp` は `Title_JP` 優先・`lang=en` は `Title_EN` 優先で返す（和英モード対応）。
+- **`pages/characters.sass` / `.css`**: `.tag .dblink-work`（muted・小サイズ）を追加。`pages/characters.html` の `asset-version` を `2026.07.02.1` へ更新。
+- テスト: `npm test`（156 passed、回帰なし）。
+- 参照: [`_work_in_progress/2026-07-02_progress_jump-dblinkref.md`](_work_in_progress/2026-07-02_progress_jump-dblinkref.md)。
+
+### add: `$enrich` の `$Def_DBLinkRef` 解決で null 入りネストインデックスを許容（1件一致のみ） (2026-07-02)
+
+- **`lib/data-common.js`**:
+  - `dbLinkSubsetMatch()`: クエリ側の null を「参照先レコード側も null/undefined」の明示マッチとして扱うよう変更。UnauthedLogica の `Model: { "LogicSeries": null, "Num": null }`（型番未確定インデックス）のような参照を解決可能にした。
+  - `dbLinkIndexHasNull()`（新規）: `$Def_DBLinkRef` インデックスに null が含まれるか判定（ネスト対応）。
+  - `resolveDbLinkSuffixRef()`: null 入りインデックスは複数レコードに一致し得るため、曖昧一致防止として **1 件一致のみ採用**するガードを追加（null を含まないインデックスは従来どおり先頭一致採用）。
+- **`data/Works_UnauthedLogica/DataBases/db_Primary.json`**: `AnotherRegions_DBLink` のインデックスキー誤り `"Num": "N"` / `"Num": "S"` → `"Drc": "N"` / `"Drc": "S"` を修正（SinisterChangingGirls/Primary のインデックスは `Drc`）。
+- 効果: SinisterChangingGirls/Primary「六花 雙葉」（Drc: `S`）の `AnotherRegions_DBLink`（→ UnauthedLogica/Primary `Model` 全 null レコード）で `$enrich` マージが機能し、`Height_cm` 等の空値フィールドが参照先から補完されるように。
+- テスト: `tests/enrich.dblink.jump.merge.test.js` に成功系（実データ・1件一致）と曖昧一致スキップ（全 null インデックス 2 件一致）の2件を追加。`npm test`（156 passed）。
+- ドキュメント: `docs/api-sw-spec.md` §8.2 を新設。
+- 参照: [`_work_in_progress/2026-07-02_progress_jump-dblinkref.md`](_work_in_progress/2026-07-02_progress_jump-dblinkref.md)。
+
+### add: `_Jump` に `$Def_DBLinkRef` 形式の `_DBLink` を指定してフィールド単位で参照先を明示できるように (2026-07-02)
+
+- **`lib/data-common.js`**:
+  - `EnrichmentProcessor.resolveJumpsWithDbLinkRefs()`（新規）: `{ "_Jump": { "hashTag", "_DBLink": { "_Work", "_DB", "<IndexKey>": <IndexValue> }, "_Search"? } }` 形式の `_Jump` を、レコードルートの `_DBLink`（旧形式・マージ用）が無くても解決・置換できるようにした。参照先の特定は `*_DBLink` suffix フィールドと同じ `resolveDbLinkSuffixRef()`（`$Def_DBLinkRef` 解決・`isPrivate` 除外・ネストインデックス対応）を再利用。解決失敗時は `_Jump` ラッパーを維持し誤置換しない。
+  - `enrichRecords()` のステップ 1.75 として組み込み（ルート `_DBLink` 解決より前）。
+  - `resolveJumpsInAny()`: 自前 `_DBLink` を持つ `_Jump` はルート `_DBLink` 由来のパスでは置換しないようスキップ条件を追加（二重解決・誤参照防止）。
+- **`data/Works_PastDivers/DataBases/db_SemiPrimary.json`**（六花 ルノ）:
+  - `BirthDay` の `_Jump` に `_DBLink`（SinisterChangingGirls/Primary の `Drc: "E"`）を明示し、キャラシートで誕生日が表示されるように修正。
+  - `AnotherRegions_DBLink` のインデックスキー誤り `"Num": "E"` → `"Drc": "E"` を修正（SinisterChangingGirls/Primary のインデックスは `Drc` のため、旧記述では suffix 解決が常に失敗していた）。
+- テスト: `tests/enrich.dblink.jump.merge.test.js` に成功系（実データ参照）と解決失敗時フォールバックの2件を追加。`npm test`（154 passed）。
+- ドキュメント: `docs/api-sw-spec.md` §8（順序更新・§8.1 新設）、`docs/db-update-guidelines.md` §6 に追記。
+- 参照: [`_work_in_progress/2026-07-02_progress_jump-dblinkref.md`](_work_in_progress/2026-07-02_progress_jump-dblinkref.md)。
+
 ### fix: `ChronoizedPurity`（PastDivers）を JP/EN 分割から共有フィールドへ修正 + `data/` 全体の JP→EN 未指定箇所を下書き翻訳 (2026-07-02)
 
 - **`data/Works_PastDivers/DataBases/db_type.json`**: `ChronoizedPurity_JP`（`#String|#String_withAbout`）/`ChronoizedPurity_EN`（`#String_EN|#Null`）の2エントリ構成を、`BustSize` と同じ単一フィールド構成（`ChronoizedPurity`・`hashTag_JP`+`hashTag_EN`両持ち・`$display.langMode: "shared"`）に統合。値がパーセンテージ範囲の数値文字列のみ（例: `91.70-97.11%`）で言語に依存しないにもかかわらず、2026-06-22 の JP/EN 命名標準化作業で機械的に `_JP` サフィックスが付与され、`_EN` 側は一度も入力されていなかった（13レコード中0件）ことが判明したため。

@@ -13,6 +13,13 @@
     "Class": ["獣爾騎兵"],
     "Height_cm": 129,
     "Weight_kg": 32,
+    "AnivDay": [
+      {
+        "Day": { "Month": 12, "DayOfMonth": 1 },
+        "DayAbout_JP": "「易.爾姫」の戸籍上の誕生日",
+        "DayAbout_EN": "'Yì.Ěr jī' official birthday"
+      }
+    ],
     "Age": { "value": 17, "about_JP": "？", "about_EN": "?" },
     "Character_JP": "ドＳでドＭなモルモット？\n生き残りのためなら手段を問わない",
     "Character_EN": "A guinea pig with extreme S and M tendencies?\nWill use any means necessary to survive.",
@@ -50,6 +57,7 @@
     "Class": ["獣爾騎兵"],
     "Height_cm": 170,
     "Weight_kg": 58,
+    "BirthDay": { "Day": { "Month": 2, "DayOfMonth": 25 } },
     "Age": 25,
     "Character_JP": "喧嘩っ早く短期",
     "Character_EN": "Quarrelsome and short-tempered",
@@ -87,6 +95,7 @@
     "Height_cm": 144,
     "Weight_kg": { "hideText": "非公開" },
     "Age": 19,
+    "BirthDay": { "Day": { "Month": 3, "DayOfMonth": 19 } },
     "Character_JP": "お転婆で活発",
     "Character_EN": "Tomboyish and lively",
     "Hobby_JP": "ランニング",
@@ -125,6 +134,7 @@
     "Height_cm": 170,
     "Weight_kg": 62,
     "Age": 37,
+    "BirthDay": { "Day": { "Month": 4, "DayOfMonth": 28 } },
     "Character_JP": "無口で冷静だが根は温厚なコワモテ\n力加減ができない",
     "Character_EN": "Quiet and composed on the surface, but fundamentally gentle and conflict-averse underneath\nPhysically incapable of holding back one's own strength",
     "Hobby_JP": "将棋",
@@ -168,6 +178,13 @@
     "Height_cm": 157,
     "Weight_kg": { "hideText": "？？？" },
     "Age": { "hideText": "？？？" },
+    "AnivDay": [
+      {
+        "Day": { "Month": 5, "DayOfMonth": 25 },
+        "DayAbout_JP": "本人は「旧暦の誕生日だからあてにならん」と主張",
+        "DayAbout_EN": "She claims \"my birthday according to the old calendar, so it's unreliable\""
+      }
+    ],
     "Character_JP": "能天気なのじゃロリ\n破廉恥",
     "Character_EN": "A carefree archaic-style girl\nShamelessly lewd",
     "Hobby_JP": "飲酒\nセッ●ス",
@@ -204,6 +221,7 @@
     "Height_cm": 180,
     "Weight_kg": 63,
     "Age": 33,
+    "BirthDay": { "Day": { "Month": 6, "DayOfMonth": 12 } },
     "Character_JP": "競技意識や団結意識の高い異国風",
     "Character_EN": "A foreign-styled individual with a strong competitive and team spirit",
     "Hobby_JP": "賭け事",
@@ -249,6 +267,7 @@
     "Height_cm": 145,
     "Weight_kg": 43,
     "Age": 21,
+    "BirthDay": { "Day": { "Month": 2, "DayOfMonth": 9 } },
     "Character_JP": "甘えん坊な猫語の猫被り\n人懐っこい",
     "Character_EN": "A clingy two-face who speaks in cat-speech and hides her true nature\nSociable and people-loving",
     "Hobby_JP": "寝ること",

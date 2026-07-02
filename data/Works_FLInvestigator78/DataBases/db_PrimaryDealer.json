@@ -257,6 +257,10 @@
     "FormalName_EN": "Vengy.C.Tempest",
     "RaceType": "Human",
     "GenderType": "Female",
+    "Height_cm": 160,
+    "Weight_kg": 50,
+    "Age": 21,
+    "BirthDay": { "Day": { "Month": 2, "DayOfMonth": 7 } },
     "AbilityStats": {
       "Speed": { "Rank": "E" },
       "Communication": { "Rank": { "hideText": "？？？" } },
