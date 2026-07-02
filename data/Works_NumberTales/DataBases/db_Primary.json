@@ -6578,6 +6578,21 @@
           "RelationLabel": ["cousin_nearly"]
         }
       ]
+    },
+    "ConversationPattern": {
+      "TalkingTone_JP": "普段は控えめで端的な物言いをするが、確信のある場面では芯の強さが口調に出る。",
+      "TalkingTone_EN": "Usually reserved and terse in speech, but when ze is certain of something, a core inner strength comes through in zir tone.",
+      "TopicPreference_JP": "基本物静かで極めて控えめに見えるが、実は男気のある気質であることがよく対話を聞いているとわかる。",
+      "TopicPreference_EN": "Appears very quiet and reserved, but careful listening to zir conversation reveals a chivalrous spirit.",
+      "TalkFrequency_JP": "自ら滅多に会話に乗じないが、必要だと判断した時は端的な口調でに会話に入る。原則 聞き役に回っている。",
+      "TalkFrequency_EN": "Rarely joins conversations on zir own initiative, but steps in with terse remarks when ze judges it necessary. As a rule, ze tends to stay in a listening role.",
+      "PreferredTopics_JP": "話題のすべてに一貫性と完膚の無さがあることを好み、話をしっかり理解している人とはかなり親密に接する。",
+      "PreferredTopics_EN": "Drawn to topics involving Lucky charms; Leaving no room for mercy, no matter what and Looking at distant scenery, and naturally shows interest when these come up.",
+      "AvoidedTopics_JP": "邪知暴虐は苦手であり、それに絡む話題や振る舞いは会話の中で避け 関する態度をとる相手とも自衛目的で距離を取る。",
+      "AvoidedTopics_EN": "Poor at handling cruel tyranny; ze avoids topics and behavior tied to it during conversation, and for self-protection also keeps distance from anyone who displays such an attitude.",
+      "ConversationNotes_JP": "極めて強い運気操作能力があるため、ハーネスで固定された背部の安全装置は絶対に外さないようにしている。万が一ハーネスおよび安全装置が外れた場合、（火傷の跡がある顔の右側の炎症が強まり）緊迫した様子で再装着させるよう促してくる。",
+      "ConversationNotes_EN": "Because ze possesses an extremely strong luck-manipulation ability, ze never removes the harness-mounted safety device fixed to zir back. Should the harness and safety device ever come loose, (the inflammation on the burn-scarred right side of zir face intensifies, and) ze urges, with visible urgency, that it be reattached at once.",
+      "DialogueExamples": []
     }
   },
   {
