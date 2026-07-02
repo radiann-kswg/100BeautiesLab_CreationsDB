@@ -49,3 +49,12 @@
 - `_work_in_progress/2026-07-01_progress_github-triage.md`
 - `_work_in_progress/2026-07-01_progress_readme-local-agents-rule.md`
 - `_work_in_progress/README.md`
+
+---
+
+## 後日談（2026-07-02 追記）
+
+- 本ログは `b0c539c`（2026-07-01 発生の `addon-ai-tag` → `develop` 逆マージ・ブランチ運用方針違反）によって一時的に `develop` 側へ混入し、その是正 revert `f9a3ebe`（`Revert "Merge branch 'addon-ai-tag' into develop"`）により `develop` からは削除された。
+- この削除は「`addon-ai-tag` 由来の内容を `develop` に含めない」という運用方針どおりの正しい是正であり、本ログの実体は `addon-ai-tag` ブランチ側にそのまま残存している（2026-07-02 追記時点で確認済み）。
+- `f9a3ebe` の「AIHints 削除」差分がその後の `develop` → `addon-ai-tag` 通常マージで伝播しかけた事故と復旧の詳細は、`2026-07-01_progress_addon-ai-tag-revert-cascade-recovery.md` を参照。
+- インシデント全体の経緯・是正の記録は、`develop` 側の `_work_in_progress/2026-07-02_progress_addon-ai-tag-reverse-merge-incident.md` に残してある（本ログと相互参照）。
