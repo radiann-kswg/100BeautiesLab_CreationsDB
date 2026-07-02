@@ -16,7 +16,7 @@
  *
  * 使い方:
  *   node tools/deepl/draft-translate.mjs --work Works_NumberTales [--db Primary] \
- *     [--id 8] [--under ConversationPattern] [--limit 30] [--apply]
+ *     [--id 8] [--under ConversationPattern] [--field Summary] [--limit 30] [--apply]
  */
 
 import { readFileSync, writeFileSync, existsSync, readdirSync } from "node:fs";
@@ -51,6 +51,7 @@ const WORK = arg("work", null);
 const DB_FILTER = arg("db", null);
 const ID_FILTER = arg("id", null);
 const UNDER = arg("under", null);
+const FIELD_FILTER = arg("field", null);
 const LIMIT = parseInt(arg("limit", "30"), 10);
 const APPLY = flag("apply");
 
@@ -72,6 +73,7 @@ function resolveUnder(obj, dotPath) {
  * レコード（サブツリー）を再帰的に走査し、`field_EN` が空で対応する JP 値
  * （`field_JP` 優先、無ければ plain `field` — `evaluate-translations.mjs` と同じ解決順）が
  * ある箇所を候補として収集する。スキーマに無いキーを新規に足すことはない（既存キーの空値のみ対象）。
+ * `FIELD_FILTER`（`--field`）を指定した場合、`{FIELD_FILTER}_EN` のみを対象にする（例: 'Summary'）。
  */
 function collectCandidates(node, path, out) {
   if (Array.isArray(node)) {
@@ -83,11 +85,13 @@ function collectCandidates(node, path, out) {
     const val = node[key];
     if (key.endsWith("_EN")) {
       const base = key.slice(0, -3);
-      let jp = node[`${base}_JP`];
-      if (typeof jp !== "string") jp = node[base];
-      const isEmpty = val === undefined || val === null || val === "";
-      if (isEmpty && typeof jp === "string" && jp.trim()) {
-        out.push({ path: [...path, key], jp });
+      if (!FIELD_FILTER || base === FIELD_FILTER) {
+        let jp = node[`${base}_JP`];
+        if (typeof jp !== "string") jp = node[base];
+        const isEmpty = val === undefined || val === null || val === "";
+        if (isEmpty && typeof jp === "string" && jp.trim()) {
+          out.push({ path: [...path, key], jp });
+        }
       }
     }
     if (Array.isArray(val) || (val && typeof val === "object")) {
@@ -211,7 +215,7 @@ async function main() {
     "# DeepL 下書き英訳レポート（キャラ文脈対応）",
     "",
     `生成: ${new Date().toISOString()}`,
-    `対象: ${WORK}${DB_FILTER ? `/db_${DB_FILTER}.json` : ""}${ID_FILTER ? ` / id=${ID_FILTER}` : ""}${UNDER ? ` / under=${UNDER}` : ""}`,
+    `対象: ${WORK}${DB_FILTER ? `/db_${DB_FILTER}.json` : ""}${ID_FILTER ? ` / id=${ID_FILTER}` : ""}${UNDER ? ` / under=${UNDER}` : ""}${FIELD_FILTER ? ` / field=${FIELD_FILTER}` : ""}`,
     `候補件数: ${totalCandidates}（${APPLY ? `自動反映 ${totalApplied} 件・警告付き ${totalCandidates - totalApplied} 件` : "--apply 未指定のため反映なし"}）`,
     "",
     "> DeepL は NMT であり指示には従わない。代名詞は GenderType に基づき機械的に正規化済み。",

@@ -1,5 +1,19 @@
 # 最新のリファクタリング・仕様変更履歴
 
+### add: DeepL 下書き翻訳の Python 版 + Claude 自身が翻訳する Skill を追加 (2026-07-02)
+
+- **`tools/deepl_py/`（新規）**: `tools/deepl/draft-translate.mjs`（Node 版）の Python 移植。外部ライブラリ非依存（標準ライブラリの `urllib`/`json`/`re`/`argparse` のみ）。
+  - `deepl_client.py`: DeepL REST API 薄いクライアント（`translate()` / `list_glossaries()`。`.env` 自動読込）。用語集の作成・同期は Node 側に一元化し、Python 側には持たせない。
+  - `pronoun_normalize.py`: `tools/deepl/pronoun-normalize.mjs` の 1:1 移植（GenderType 別代名詞の確定的正規化、一人称混入・呼称不一致の検知）。Node 版と同じテストケースで出力一致を確認済み。
+  - `draft_translate.py`: CLI 本体（`--work --db --id --under --field --limit --apply`）。`.cache/deepl/glossary-ids.json`（Node 版が生成）を共用し、`.cache/deepl/draft-report.md` も Node 版と同じ形式で出力。
+  - 用途: Node 環境が無い開発機、または本リポジトリをサブモジュールとして持つ外部リポジトリから Python でローカライズ作業を行いたい場合。`pkg/`（DB 読み取り専用クライアント群）とは目的が異なるため `pkg/` 配下には置かず `tools/deepl_py/` に配置。詳細は [`tools/deepl_py/README.md`](tools/deepl_py/README.md)。
+- **`tools/deepl/draft-translate.mjs` に `--field` オプションを追加**: トップレベルの `field_EN` 名で絞り込む（例: `--field Summary` で `Summary_EN` のみ対象）。Python 版にも同時実装。
+- **`.claude/skills/localize-en-draft/SKILL.md`（新規）**: Node/Python の下書き翻訳ツールは「既存の `field_EN` キーが空値のときだけ」を対象にし新規キーは追加しないため、まだ一度も `_EN` フィールドが書かれていないレコード（新規キー挿入が必要なケース）向けに、Claude Code / Cowork のセッション内で Claude 自身が `docs/localization-en-rules.md` に従って翻訳・挿入する手順を Skill として型化した。DeepL の MCP コネクタは対話セッション専用でスクリプトから呼び出せないための代替導線。
+- 背景: `Works_FLInvestigator78/DataBases/db_Primary.json` の `Summary_JP` はあるが `Summary_EN` キー自体が存在しないレコード（ドゥームズ・ルネ）を手動翻訳した際、(1) 同じ作業を Python からも自動化したい、(2) DeepL の MCP コネクタでは自動化できない旨の要望・質問を受けて対応。
+- ドキュメント: `docs/deepl-localization.md` に §2-1（Python 版）・§2-2（Skill）を追加、§3-4 に Python 実行例・`--field` 説明を追記、§6 参照表を更新。
+- 検証: `npm test`（152 passed）。Python 側は `pronoun_normalize.py` を Node 版テストと同一ケースで手動突き合わせ、`draft_translate.py` は `translate()` をモック化したフィクスチャで候補抽出・`--field` 絞り込み・`--apply` 書き戻し・スキップ挙動（既存値保持）・レポート出力を確認（DeepL API 呼び出し自体は API キー未設定のため未検証）。
+- 参照: [`docs/deepl-localization.md`](docs/deepl-localization.md) §2-1/§2-2。
+
 ### add: DeepL 下書き翻訳をキャラ文脈（GenderType・呼称）対応に強化 (2026-07-02)
 
 - **`tools/deepl/pronoun-normalize.mjs`（新規）**: `GenderType`（`FemaleNeutral`/`Female`→she, `MaleNeutral`/`Male`→he, `Neutral`→ze/zir, 未設定→avoid）から代名詞ポリシーを決定し、英文中の代名詞トークンを確定的に正規化する純粋関数群。あわせて一人称混入（`I`/`my` 等）・呼称不一致（`ForMasterCalling_EN` に無い `big bro/sis` 等）を検知するが、これらは自動修正せず警告のみ（文法崩壊やレコード固有の誤爆を避けるため）。

@@ -50,6 +50,23 @@ DeepL は **既存ローカライズルールを置き換えるものではな�
 
 `deepl-client.mjs` は DeepL REST API の薄いラッパ（`.env` を自動読込）。`pronoun-normalize.mjs` は代名詞正規化・警告検知の純粋関数群（`draft-translate.mjs` から利用、ネットワーク I/O なし）。
 
+### 2-1. Python 版（`tools/deepl_py/`）
+
+`draft-translate.mjs` 相当の下書き翻訳は、外部ライブラリ非依存の Python 実装としても提供している（Node 環境が無い開発機や、外部リポジトリから Python で使いたい場合向け）。
+
+```sh
+python tools/deepl_py/draft_translate.py --work Works_NumberTales [--db Primary] \
+  [--id 8] [--under ConversationPattern] [--field Summary] [--limit 30] [--apply]
+```
+
+- CLI オプション・`.cache/deepl/draft-report.md` の出力形式は Node 版と共通（`--field` はトップレベルの `field_EN` 名で絞り込み。例: `--field Summary` → `Summary_EN` のみ対象。Node 版にも同時追加済み）。
+- 用語集の作成・同期（`build-glossary-source` / `sync-glossary`）は Node 版に一元化し、Python 側は生成済みの `.cache/deepl/glossary-ids.json` を読むだけ（二重管理を避けるため、Python 版に用語集作成コマンドは無い）。
+- 詳細・トラブルシューティング・Node 版との対応表: [`tools/deepl_py/README.md`](../tools/deepl_py/README.md)
+
+### 2-2. `field_EN` キーが未追加のとき（Claude 自身が翻訳する Skill）
+
+Node 版・Python 版のいずれも「**既存の `field_EN` キーが空値のときだけ**」を対象にし、スキーマに無い新規キーは追加しない。まだ一度も `_EN` フィールドが書かれていないレコード（新規キー挿入が必要なケース）は、Claude Code / Cowork のセッション内で Skill **`localize-en-draft`**（[`.claude/skills/localize-en-draft/SKILL.md`](../.claude/skills/localize-en-draft/SKILL.md)）を使う。DeepL の MCP コネクタは対話セッション専用のツールでスクリプトから呼び出せないため、「Claude 自身が本書のルールに従って翻訳し、キー順序を守って挿入する」運用をこの Skill として型化している。
+
 ### 生成物（`.cache/deepl/`）
 
 - `glossary_ja-en.tsv` / `glossary_en-ja.tsv` — DeepL 入力用 TSV
@@ -102,7 +119,13 @@ npm run deepl:draft -- --work Works_NumberTales --db Primary --id 8 --under Conv
 npm run deepl:draft -- --work Works_NumberTales --db Primary --id 8 --under ConversationPattern --apply
 ```
 
-- **`--work`**（必須） `--db`（省略時は作品内の全 `db_*.json`） `--id`（`Num` 等でレコードを1件に絞る） `--under`（例: `ConversationPattern` でサブツリー限定） `--limit`（既定 30 件）
+Python 版（Node 環境が無い場合／外部リポジトリから使う場合。オプション・出力は共通。詳細は [`tools/deepl_py/README.md`](../tools/deepl_py/README.md)）:
+
+```bash
+python tools/deepl_py/draft_translate.py --work Works_NumberTales --db Primary --id 8 --under ConversationPattern --apply
+```
+
+- **`--work`**（必須） `--db`（省略時は作品内の全 `db_*.json`） `--id`（`Num` 等でレコードを1件に絞る） `--under`（例: `ConversationPattern` でサブツリー限定） `--field`（例: `Summary` でトップレベルの `field_EN` 名だけに絞り込み） `--limit`（既定 30 件）
 - **代名詞の確定的正規化**: レコードの `GenderType` から代名詞ポリシー（she/he/ze/avoid）を決定し、`docs/localization-en-rules.md` §1 のルール通りに DeepL の生訳文を機械的に書き換える（`ze/zir` 活用表含む）。DeepL は LLM ではなく NMT のため、「she で訳して」という指示は信頼できない — この正規化が実質的な正しさの担保になる。
 - **一人称混入・呼称不一致は検知のみ**: `I/my/me` 等の一人称が残っていないか、`ForMasterCalling_EN` に無い呼称語（`big bro/sis` 等）が紛れ込んでいないかを検知するが、**自動では書き換えない**（文法崩壊やレコード固有の誤爆を避けるため）。⚠️ 付きでレポートに出るので人間が確認する。
 - **既定ではデータを書き換えない**: `.cache/deepl/draft-report.md` にレポートを出力するだけ。`--apply` を付けたときのみ、**警告が一つも無い候補だけ** を対象レコードの空 `_EN` へ書き戻す。警告付き候補は `--apply` 指定時も常にレポート止まり。
@@ -139,7 +162,9 @@ cp .env.example .env
 | 和英ローカライズ規則 | [`localization-en-rules.md`](localization-en-rules.md) |
 | 和文記法規則 | [`jp-notation-rules.md`](jp-notation-rules.md) |
 | 翻訳辞書ソース | `data/Localization/trans_*.json` / `data/References/ref_*.json` / `data/Dictionaries/dict_*.json` |
-| スクリプト | `tools/deepl/`（`build-glossary-source` / `sync-glossary` / `evaluate-translations` / `deepl-client`） |
+| スクリプト（Node） | `tools/deepl/`（`build-glossary-source` / `sync-glossary` / `evaluate-translations` / `draft-translate` / `deepl-client`） |
+| スクリプト（Python） | [`tools/deepl_py/`](../tools/deepl_py/README.md)（`draft_translate.py` / `deepl_client.py` / `pronoun_normalize.py`） |
+| Claude Skill（`field_EN` 新規挿入・少数レコードの丁寧な翻訳） | [`.claude/skills/localize-en-draft/SKILL.md`](../.claude/skills/localize-en-draft/SKILL.md) |
 | Copilot 英訳補助指示 | [`.github/instructions/localization-en.instructions.md`](../.github/instructions/localization-en.instructions.md) |
 | 固有名詞 早見表（生成物） | [`localization-glossary-quickref.md`](localization-glossary-quickref.md)（`npm run deepl:build-quickref`） |
 | 作業ログ | `_work_in_progress/2026-06-28_progress_deepl-localization.md` |
