@@ -38,6 +38,7 @@
 - 2026-06-24*progress_localization-db.md（英訳固有辞書 DB（Localization レイヤー）実装。✅ 130/130 pass。trans_Dict.json → trans*{Category}.json 分割完了（2026-06-25）。Summary 入力・TransPolicy 確認・能力名等の追記は User 手動）
 - 2026-06-25_progress_localization-summary-inputs.md（Localization Summary 入力進捗チェックリスト。地名 9/13 ✅・人物名 11/13 ✅・SI 9/9 ✅・残 7 件 User 入力待ち）
 - 2026-06-28_progress_deepl-localization.md（DeepL 翻訳のローカライズ運用組み込み。用語集生成/同期/添削スクリプト・`docs/deepl-localization.md`・用語集実登録 JA-EN144/EN-JA138（大陸名修正後）。✅ 疎通確認済み。⚠️ `npm test` ローカル確認・`.env` 設定・コミットは User 端末で）
+- 2026-07-02_progress_deepl-glossary-multiform.md（DeepL 用語集ソースの EN→JA 衝突を解消。`build-glossary-source.mjs` に併記形分割・単数複数の除外・正式名vs通称の文脈依存除外ロジックを追加、`ref_Society.json` の `Aliases` 整理。✅ `npm run deepl:build-glossary` / `npm test` 152 passed 確認済み。⚠️ `deepl:sync-glossary` 実反映は User 判断待ち）
 - 2026-07-02_progress_deepl-draft-translate.md（DeepL 下書き翻訳をキャラ文脈＝GenderType・呼称対応に強化。`pronoun-normalize.mjs`/`draft-translate.mjs` 新規・`npm run deepl:draft`。✅ 単体テスト13件 pass。⚠️ 「8(ワカツ)」での実行確認・`--apply` 反映確認は次工程）
 - 2026-07-02_progress_deepl-py-and-skill.md（DeepL 下書き翻訳の Python 版 `tools/deepl_py/` 新規・Node版に `--field` 追加・Claude 自身が翻訳する Skill `localize-en-draft` 新規。✅ `npm test` 152 pass・Python側は手動フィクスチャ突き合わせ済み。⚠️ 実 `DEEPL_API_KEY` での Python 疎通確認・Skill 自動検出確認は User/次セッション待ち）
 - 2026-07-01_progress_copilot-localization-en.md（Copilot 英訳(\_EN)入力補助の用語集対応。`localization-en.instructions.md`＋早見表 `docs/localization-glossary-quickref.md`（164 対訳・生成物）＋ジェネレータ `deepl:build-quickref`。sub1/`develop`。⚠️ `npm test`（Windows）・コミット/push は User 端末で）
