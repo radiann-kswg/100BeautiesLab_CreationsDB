@@ -1104,7 +1104,8 @@
           "about_EN": "Introduction upon first meeting"
         },
         {
-          "value_JP": "「私は1(ハジメ)ちゃんたちの代わりというか、ナンバーテールズの主従契約で最初の番号を担っているんです。1(ハジメ)ちゃんは『原初(はじまり)の番号として1番機のぼくは裏方が似合っているんだ』と言っていたけど……そのためにも私は、ナンバーテールズのみんなを取りまとめないとなぁって思っているんです」"
+          "value_JP": "「私は1(ハジメ)ちゃんたちの代わりというか、ナンバーテールズの主従契約で最初の番号を担っているんです。1(ハジメ)ちゃんは『原初(はじまり)の番号として1番機のぼくは裏方が似合っているんだ』と言っていたけど……そのためにも私は、ナンバーテールズのみんなを取りまとめないとなぁって思っているんです」",
+          "value_EN": "\"I suppose I'm sort of standing in for '1(Unitta)' and the others — under the NumberTales master-servant contracts, I'm the one who ends up holding the very first number. '1(Unitta)' told me, 'As the original number, I feel like Unit.1 suits being behind the scenes,' though... so because of that too, I feel like I need to be the one holding all the NumberTales together.\""
         }
       ]
     },
@@ -1608,11 +1609,14 @@
           "about_EN": "Introduction upon first meeting"
         },
         {
-          "value_JP": "「新作のゲームの話でもしない？最近人気シリーズの新作が出たみたいだから、ちょっと興味があるんだ」"
+          "value_JP": "「新作のゲームの話でもしない？最近人気シリーズの新作が出たみたいだから、ちょっと興味があるんだ」",
+          "value_EN": "\"Wanna talk about the new game or something? Seems like the latest entry in a popular series just came out, so I'm a little interested.\""
         },
         {
           "value_JP": "「まぁまぁ。この件についてが君に気負わせすぎるのも良くなくはあるけど、一線を越えてたら僕が止めるから安心してね」",
-          "about_JP": "問題をあっさり解決しているとき"
+          "value_EN": "\"Come on, now. It's not great if this makes you too anxious about it, but don't worry — if it crosses a line, I'll stop it.\"",
+          "about_JP": "問題をあっさり解決しているとき",
+          "about_EN": "Easily resolving a problem"
         }
       ]
     },
@@ -2780,6 +2784,7 @@
       "DialogueExamples": [
         {
           "value_JP": "「おっす！アタシ、ナンバーテールズ５番機の5(イズ)！今日からよろしくな！」",
+          "value_EN": "\"Yo! I'm 5(Fifa), NumberTales' Unit.5! Nice to meet ya, starting today!\"",
           "about_JP": "契約時の自己紹介",
           "about_EN": "Introduction upon first meeting"
         },
@@ -42590,6 +42595,7 @@
     "FormalName_JP": "ナンバーテールズ80番機",
     "FormalName_EN": "NumberTales #80",
     "CodeName_JP": "八〇",
+    "CodeName_EN": "Eight-Zero",
     "SPCodeName_JP": "八十",
     "SPCodeName_EN": "Eighty",
     "GenderType": "FemaleNeutral",
@@ -46625,6 +46631,7 @@
     "FormalName_JP": "ナンバーテールズ90番機",
     "FormalName_EN": "NumberTales #90",
     "CodeName_JP": "九〇",
+    "CodeName_EN": "Nine-Zero",
     "SPCodeName_JP": "九十",
     "SPCodeName_EN": "Ninety",
     "AnivDay": [
@@ -50044,6 +50051,7 @@
     "FormalName_JP": "ナンバーテールズ99番機",
     "FormalName_EN": "NumberTales #99",
     "CodeName_JP": "九九",
+    "CodeName_EN": "Nine-Nine",
     "SPCodeName_JP": "九十九(つくも)",
     "SPCodeName_EN": "Thukumo",
     "GenderType": "Neutral",

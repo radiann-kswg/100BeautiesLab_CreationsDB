@@ -122,16 +122,11 @@
           }
         },
         {
-          "hashTag": "ChronoizedPurity_JP",
+          "hashTag": "ChronoizedPurity",
           "$type": "#String|#String_withAbout",
           "hashTag_JP": "時空遷移(クロノイド)純度",
-          "$display": { "section": "spec", "tagSpace": "creation" }
-        },
-        {
-          "hashTag": "ChronoizedPurity_EN",
-          "$type": "#String_EN|#Null",
           "hashTag_EN": "Chronoized Purity",
-          "$display": { "section": "spec", "tagSpace": "creation" }
+          "$display": { "section": "spec", "tagSpace": "creation", "langMode": "shared" }
         },
         {
           "hashTag": "ChronoizedAbout_JP",

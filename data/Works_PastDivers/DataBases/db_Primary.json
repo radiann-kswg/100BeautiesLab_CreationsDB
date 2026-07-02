@@ -41,7 +41,7 @@
     "ChronospecStats": {
       "Artifact": "工作(狙撃)",
       "ChronoizedDecave": { "Decave": "95%+" },
-      "ChronoizedPurity_JP": "91.70-97.11%",
+      "ChronoizedPurity": "91.70-97.11%",
       "ChronoizedAbout_JP": "バイタリティに影響が出るほどの能力行使や適性は見られず。引き続き鎮圧任務などへ戦力投入が可能と思われる。\nまた、能力行使により時刻観測に異常がみられたなどの報告があるが、「当幹部の時空遷移能力による副作用でありこちらで被害の抑制対応を行う予定である」と弊機関は回答している。",
       "ChronoizedAbout_EN": "No instances of ability use or aptitude significant enough to impact vitality have been observed. It is believed that continued deployment for suppression missions and similar operations will remain feasible.\nAdditionally, reports of anomalies in time observation following ability use have been received, to which the organization has responded: 'This is a side effect of the executive's Chronoizing ability, and we plan to implement measures to mitigate the damage on our end.'",
       "EffectStats": {
@@ -102,7 +102,7 @@
     "ChronospecStats": {
       "Artifact": "工作(近接)",
       "ChronoizedDecave": { "Decave": "99%+" },
-      "ChronoizedPurity_JP": "99.29-99.44%",
+      "ChronoizedPurity": "99.29-99.44%",
       "ChronoizedAbout_JP": "バイタルおよび能力行使についての問題は一切見られない。時空遷移状態の計測値も変動が一切見られないため、安定した制御が可能と弊機関は判断。\n鎮圧任務でもかなりの功績を挙げているが、能力行使を受けた対象個体のバイタルサインが不安定になる現象が確認されているため、以後は生命体に対する攻撃手段としての行使を控えるよう注意している。",
       "ChronoizedAbout_EN": "No issues whatsoever have been observed regarding vitality or ability use. As the measured values of Chronoizing states have shown no fluctuation at all, the organization has determined that stable control is achievable.\nWhile she has accumulated considerable achievements in suppression missions, a phenomenon has been confirmed in which the vital signs of subjects exposed to her ability use become unstable. Accordingly, she has been cautioned to refrain from exercising her ability as a means of attack against living beings going forward.",
       "EffectStats": {
@@ -164,7 +164,7 @@
     "ChronospecStats": {
       "Artifact": "撹乱",
       "ChronoizedDecave": { "hideText": "公開不能" },
-      "ChronoizedPurity_JP": { "hideText": "公開不能" },
+      "ChronoizedPurity": { "hideText": "公開不能" },
       "ChronoizedAbout_JP": "能力の制御力や生命への影響やインシデントはないと思われていたが、ある幹部KY会議にて 自身による過剰な能力強化訓練を行っていたことが判明。すぐにバイタルチェックの確認を行ったところ－－（※文章はここで途切れている）",
       "ChronoizedAbout_EN": "It had been believed that there were no issues with ability control, life impact, or incidents — however, it was revealed at an executive hazard-awareness meeting that she had been conducting excessive ability-strengthening training on her own. A vital check was immediately conducted, whereupon — (* the text breaks off here)",
       "EffectStats": {
@@ -216,7 +216,7 @@
     "ChronospecStats": {
       "Artifact": "哨戒(狙撃)",
       "ChronoizedDecave": { "Decave": "50%+" },
-      "ChronoizedPurity_JP": {
+      "ChronoizedPurity": {
         "value": "64%",
         "about_JP": "概算値",
         "about_EN": "Estimated value"
@@ -272,7 +272,7 @@
     "ChronospecStats": {
       "Artifact": "遊撃",
       "ChronoizedDecave": { "Decave": "99.9%+" },
-      "ChronoizedPurity_JP": "95.50-99.935%",
+      "ChronoizedPurity": "95.50-99.935%",
       "ChronoizedAbout_JP": "精神状態により適正計測値が大きく変動する傾向にあり、段階の判別が困難となっている。そのため、リスク管理の観点から 最高値（「トリナイン」(段階.III)相当）を概要値として情報開示するよう弊機関は対応。\n能力行使によるバイタルサインの変動および精密検査については、症状の特定が難しいことから経過観察を余儀なくされているため 確定的な情報判断ができかねている。（備考：生活習慣にいくつか問題あり）",
       "ChronoizedAbout_EN": "The measured aptitude values tend to fluctuate greatly depending on mental state, making stage determination difficult. As a result, from a risk management perspective, the organization has arranged to disclose the peak value (equivalent to 'TriNine' (Stage.III)) as the summary disclosed value.\nAs for fluctuations in vital signs and detailed examinations following ability use, definitive judgments cannot be made as symptom identification has necessitated continued observation. (Note: He makes several lifestyle issues)",
       "EffectStats": {
@@ -334,7 +334,7 @@
     "ChronospecStats": {
       "Artifact": "増幅",
       "ChronoizedDecave": { "Decave": "9xVI" },
-      "ChronoizedPurity_JP": "99.999066-99.9999**%",
+      "ChronoizedPurity": "99.999066-99.9999**%",
       "ChronoizedAbout_JP": "能力適性検査および生体精密検査の結果、常時「クィントナイン」（段階.V）を超える高い適性を観測しているため、能力行使に関する許可は先代幹部と同様 バイタル面と能力制御の厳重な教育が絶対条件と思われる。\n（※そのあとの文章は検閲により閲覧できない）",
       "ChronoizedAbout_EN": "As a result of ability aptitude examination and detailed biological examination, the organization has consistently observed aptitude exceeding 'QuintNine' (Stage.V). Accordingly, permission for ability use is considered to be subject to the same absolute conditions as for the previous executive — namely, strict training in both vitality and ability control.\n(* The subsequent text cannot be viewed due to censorship)",
       "EffectStats": {
@@ -394,7 +394,7 @@
     "ChronospecStats": {
       "Artifact": "牽制",
       "ChronoizedDecave": { "Decave": "99.9%+" },
-      "ChronoizedPurity_JP": "97.72-99.91%",
+      "ChronoizedPurity": "97.72-99.91%",
       "ChronoizedAbout_JP": "検査結果によると 一定の条件を満たした場合にのみ「トリナイン」(段階.III)相当の適性を数回観測しているが、再現性に乏しく 今後は能力の発現訓練やバイタル強化を重点的に行うべきと判断。\nバイタル面に関しては先代幹部の影響で過去にトラウマ意識があるとみられるため、能力の暴走が発生しないようメンタルケアも必要と思われる。",
       "ChronoizedAbout_EN": "Examination results indicate that aptitude equivalent to 'TriNine' (Stage.III) has been observed on several occasions, but only when certain conditions are met; as reproducibility is limited, it has been determined that future efforts should focus on ability-manifestation training and vitality reinforcement.\nRegarding vitality, it is believed that past trauma related to 'Julius'(a previous executive)'s influence may be present, and mental health support is also deemed necessary to prevent ability runaway.",
       "EffectStats": {
@@ -447,7 +447,7 @@
     "ChronospecStats": {
       "Artifact": "死守",
       "ChronoizedDecave": { "Decave": "9xV" },
-      "ChronoizedPurity_JP": {
+      "ChronoizedPurity": {
         "value": "99.99938%",
         "about_JP": "参考値",
         "about_EN": "Reference value"
@@ -503,7 +503,7 @@
     "ChronospecStats": {
       "Artifact": "支援",
       "ChronoizedDecave": { "hideText": "非公開希望" },
-      "ChronoizedPurity_JP": { "hideText": "非公開希望" },
+      "ChronoizedPurity": { "hideText": "非公開希望" },
       "ChronoizedAbout_JP": "（※全文が黒塗りされている……代わりに、「自分の能力くらい自身で管理する」と記されたメモが添えられていた）",
       "ChronoizedAbout_EN": "(* The entire text has been redacted... Instead, a note reading 'I'll be managing my abilities myself, plz don't care' has been attached)",
       "EffectStats": {
@@ -553,7 +553,7 @@
     "ChronospecStats": {
       "Artifact": "応戦",
       "ChronoizedDecave": { "hideText": "？？？" },
-      "ChronoizedPurity_JP": { "hideText": "？？？" },
+      "ChronoizedPurity": { "hideText": "？？？" },
       "ChronoizedAbout_JP": "－－は緊急中止されたが、被験者：神夜崎⬛︎⬛︎は⬛︎⬛︎⬛︎⬛︎⬛︎⬛︎⬛︎⬛︎⬛︎⬛︎⬛︎⬛︎⬛︎。能力適正の瞬間最高計測値は「⬛︎⬛︎⬛︎⬛︎⬛︎」（段階:⬛︎）を記録しているが、整合が取れないため 計測器の故障と思われる。その後、研究責任者：⬛︎⬛︎⬛︎⬛︎⬛︎の遺体が発見され－－（※あまりにも断片的で情報が掴めない。しかもこの報告書類は、他のものよりも古いような……）",
       "ChronoizedAbout_EN": "-- was emergency terminated, but Subject: (*crucked*) Theolessnight was (*crucked*). The instantaneous peak measured value of ability aptitude recorded '(*crucked*)' (Stage.**), but due to inconsistency, instrument malfunction is suspected. Subsequently, the remains of Research Director: Dr.(*crucked*) were discovered — (* The information is far too fragmented to make sense of. Moreover, this report document appears to be older than the others...)",
       "EffectStats": {
@@ -605,7 +605,7 @@
     "ChronospecStats": {
       "Artifact": "妨害",
       "ChronoizedDecave": { "Decave": "99%+" },
-      "ChronoizedPurity_JP": "98.11-99.20%",
+      "ChronoizedPurity": "98.11-99.20%",
       "ChronoizedAbout_JP": "バイタリティに影響はないものの、本人は能力の強化訓練に対し酷く消極的な態度を示しているため、まだ最大限の能力適正ではないと思われる。\nまた、常時安定して99%+(段階.II)の適性を発揮するため、能力の制御も卓越としており、任務への行使に関しては問題がないと判断。ただ、強い空間改竄能力を有しているため、能力行使により周囲の環境を破壊するリスクがあるとみて、仮説霜月研究所全体でKY活動の徹底を呼びかけているが……",
       "ChronoizedAbout_EN": "While there is no impact on vitality, the individual shows an extremely passive attitude toward ability-strengthening training, suggesting that maximum ability aptitude has not yet been achieved.\nHowever, as stable aptitude consistently at 99%+ (Stage.II) is demonstrated at all times, ability control is also considered excellent and no issues have been judged regarding operational use. That said, as he possesses strong space-rewriting capabilities, a risk of destroying the surrounding environment through ability use has been identified — and while the Laboratory.11(Tentative): Shimotsuki as a whole has been called upon to undertake thorough hazard-awareness activities...",
       "EffectStats": {
@@ -655,7 +655,7 @@
     "ChronospecStats": {
       "Artifact": "強襲",
       "ChronoizedDecave": { "Decave": "99.99%+" },
-      "ChronoizedPurity_JP": "99.218-99.994%",
+      "ChronoizedPurity": "99.218-99.994%",
       "ChronoizedAbout_JP": "武術経験もあることから能力適正とバイタリティの安定性が極めて高く、自ら「クァッドナイン」(段階.IV)まで安定して発現可能であることを確認。セルフケアも十分に行なっていることから、バイタル検査でも非常に優秀な診断結果を得ている。\nそのため任務への積極投与が可能とみているが、社交的な態度に問題があり、チームでの共同作戦への投入は慎重に協議する必要がある。（備考：備蓄食品や備品に対する選り好みが激しく、私物を任務や業務に持ち込む傾向あり）",
       "ChronoizedAbout_EN": "Given her martial arts experience, ability aptitude and vitality stability are extremely high; it has been confirmed that she can stably manifest up to 'QuadNine' (Stage.IV) on her own. As she also takes sufficient self-care, highly excellent diagnostic results have been obtained in vitality examinations.\nAccordingly, active deployment for missions is considered feasible — however, there are issues with her social conduct, and careful discussion is required regarding deployment in team joint operations. (Note: She has strong preferences regarding stored food and supplies, and tends to bring personal items into missions and duties)",
       "EffectStats": {
@@ -708,7 +708,7 @@
     "ChronospecStats": {
       "Artifact": "潜入",
       "ChronoizedDecave": { "Decave": "9xV" },
-      "ChronoizedPurity_JP": {
+      "ChronoizedPurity": {
         "value": "99.99922%",
         "about_JP": "理論値",
         "about_EN": "Theoretical value"

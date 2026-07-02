@@ -1,5 +1,16 @@
 # 最新のリファクタリング・仕様変更履歴
 
+### fix: `ChronoizedPurity`（PastDivers）を JP/EN 分割から共有フィールドへ修正 + `data/` 全体の JP→EN 未指定箇所を下書き翻訳 (2026-07-02)
+
+- **`data/Works_PastDivers/DataBases/db_type.json`**: `ChronoizedPurity_JP`（`#String|#String_withAbout`）/`ChronoizedPurity_EN`（`#String_EN|#Null`）の2エントリ構成を、`BustSize` と同じ単一フィールド構成（`ChronoizedPurity`・`hashTag_JP`+`hashTag_EN`両持ち・`$display.langMode: "shared"`）に統合。値がパーセンテージ範囲の数値文字列のみ（例: `91.70-97.11%`）で言語に依存しないにもかかわらず、2026-06-22 の JP/EN 命名標準化作業で機械的に `_JP` サフィックスが付与され、`_EN` 側は一度も入力されていなかった（13レコード中0件）ことが判明したため。
+- **`data/Works_PastDivers/DataBases/db_Primary.json`**: `ChronoizedPurity_JP` キーを全13件 `ChronoizedPurity` へリネーム（値は変更なし。`{value, about_JP}` 併記形の `about_JP`/`about_EN` はそのまま翻訳対象として維持）。
+- **`data/` 全体の JP→EN 未指定箇所の下書き翻訳**: 一回限りの調査（scratchpad・非コミット）で `data/` の記録系ファイル（`db_*`/`ref_*`/`dict_*`/`trans_*`。スキーマ・メタ系ファイルと `.private/` は除外）を走査し、`localize-en-draft` Skill の手順で下書きを補完:
+  - `data/Works_NumberTales/DataBases/db_Primary.json`: `CodeName_EN`（80/90/99番機、§3-1 の桁別変換規則で機械算出）3件、`ConversationPattern.DialogueExamples` の `value_EN`/`about_EN`（2(Twiny)・3(Treiya)・5(Fifa)、GenderType別代名詞ルールに準拠）5件。
+  - `data/Works_NumberTales/References/ref_Reference.json`: `Summary_EN`（ヒューマノイド原則法、既存ファイル内パターンに整合）1件。
+- 背景: `npm run deepl:build-glossary` の衝突調査（本ファイル前項）に続き、DeepL 用語集とは別に「そもそも `_EN` が未入力の箇所」を User から一通り洗い出すよう依頼された。初回スキャンは `dict_RaceType.json` 等の「素キー=EN・`_JP`が和名」パターン（`extractPairs()` と同型）を誤検知していたため（117→16件に絞り込み）、`obj[base]` が非空文字列なら EN 既存とみなす判定を追加して除外した。`ChronoizedPurity` は残る候補のうち唯一「数値のみで翻訳判断を要さないのに全件未入力」という不自然な傾向を示したため User に確認したところ、`BustSize` 同様の共有フィールド化が妥当と判断し、今回のスキーマ修正に至った。
+- 検証: JSON構文確認（両ファイル）、`npm test`（152 passed）。
+- 参照: [`_work_in_progress/2026-07-02_progress_data-en-gap-fill.md`](_work_in_progress/2026-07-02_progress_data-en-gap-fill.md)。
+
 ### fix: DeepL 用語集ソース生成の EN→JA 衝突を構造的に解消（併記形の分割・単数/複数の除外） (2026-07-02)
 
 - **`tools/deepl/build-glossary-source.mjs`**:
