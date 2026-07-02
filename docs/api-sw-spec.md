@@ -358,12 +358,13 @@ UI と enrich/search は、可能な限りこの `db_type.json($DefType)` に追
 `EnrichmentProcessor.enrichRecords()` では、概ね次の順でレコードを整えます。
 
 1. typedef に基づく軽い正規化
-2. `_DBLink` の参照先を解決
-3. `_Jump` ラッパーを参照先の実値へ置換
-4. 同名フィールドを空値のときだけ穴埋めマージ
-5. `$alt` による代替キーからの穴埋め
-6. `#ListLink_*` を varsdef から補助補完
-7. 画像メタ、検索テキスト、displaySections を付加
+2. 自前の `_DBLink`（`$Def_DBLinkRef` 形式）を持つ `_Jump` をフィールド単位で解決・置換
+3. `_DBLink` の参照先を解決
+4. `_Jump` ラッパーを参照先の実値へ置換
+5. 同名フィールドを空値のときだけ穴埋めマージ
+6. `$alt` による代替キーからの穴埋め
+7. `#ListLink_*` を varsdef から補助補完
+8. 画像メタ、検索テキスト、displaySections を付加
 
 重要ルール:
 
@@ -372,6 +373,38 @@ UI と enrich/search は、可能な限りこの `db_type.json($DefType)` に追
 - 別 DB から画像フィールドは埋めません
 - 別作品からの `_DBLink` では、対象作品の schema に宣言されたトップレベル項目だけを取り込みます
 - `_Jump` の `_Search` は 1 件一致だけ採用し、曖昧一致はスキップします
+
+### 8.1 `_Jump` + `$Def_DBLinkRef`（フィールド単位の参照先明示）
+
+レコードルートの `_DBLink`（旧形式・マージ用）が無い場合でも、`_Jump` の中に
+`$Def_DBLinkRef` 形式の `_DBLink` を書くことで、フィールド単位に参照先を明示できます。
+
+```json
+"BirthDay": {
+  "_Jump": {
+    "hashTag": "BirthDay",
+    "_DBLink": { "_Work": "SinisterChangingGirls", "_DB": "Primary", "Drc": "E" }
+  }
+}
+```
+
+- 参照先レコードの特定は `*_DBLink` suffix フィールドと同じ `resolveDbLinkSuffixRef()`（`$Def_DBLinkRef` 解決）を再利用します（`isPrivate` 除外・ネストインデックス対応も同じ）
+- `_Search` の併用も可能で、通常の `_Jump` と同じく **1 件一致のみ採用**します
+- 解決に失敗した場合（参照先が見つからない・値が取れない）は `_Jump` ラッパーを維持し、誤置換しません
+- 自前 `_DBLink` を持つ `_Jump` は、ルート `_DBLink` 由来の解決パスでは処理されません（二重解決の防止）
+
+### 8.2 `$enrich` 付き `*_DBLink` suffix と null 入りインデックス
+
+typedef で `$enrich: true` を宣言した `*_DBLink` suffix フィールド（例: グローバル
+`data/db_type.json` の `AnotherRegions_DBLink`）は、enrich 時に参照先レコードの同名フィールドを
+空値のみ穴埋めマージします。
+
+`$Def_DBLinkRef` のインデックス値には null を含められます（例: UnauthedLogica の
+`Model: { "LogicSeries": null, "Num": null }` のような型番未確定インデックス）。
+
+- クエリ側の null は「参照先レコード側も null/undefined」の明示マッチとして扱います
+- null 入りインデックスは複数レコードに一致し得るため、**1 件一致のみ採用**し、複数一致・0 件はスキップします
+- null を含まないインデックスの照合は従来どおり（先頭一致採用・null は不一致扱い）です
 
 ---
 

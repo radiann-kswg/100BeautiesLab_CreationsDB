@@ -193,6 +193,108 @@ describe('_DBLink / _Jump merge (in-process)', () => {
     expect(e.BirthDay.DayAbout).toBe('誕生日');
   });
 
+  it('_Jump 内の $Def_DBLinkRef 形式 _DBLink から、ルート _DBLink 無しでも値を取得できる', async () => {
+    // 実データ相当: PastDivers/SemiPrimary の BirthDay が
+    // SinisterChangingGirls/Primary（Drc: 'E'）の BirthDay を参照するケース
+    const dataFetcher = new TestDataFetcher();
+    const proc = new globalThis.EnrichmentProcessor(dataFetcher, testConfig);
+
+    const rec = {
+      Chronos: { Lunar: 'Junius.II' },
+      BirthDay: {
+        _Jump: {
+          hashTag: 'BirthDay',
+          _DBLink: { _Work: 'SinisterChangingGirls', _DB: 'Primary', Drc: 'E' }
+        }
+      }
+    };
+
+    const out = await proc.enrichRecords([rec], '#Works_PastDivers', 'SemiPrimary');
+    const e = out[0];
+
+    // _Jump ラッパーが消えて、参照先の BirthDay 実値（Day wrapper）が入る想定
+    expect(e.BirthDay).toBeTypeOf('object');
+    expect(e.BirthDay._Jump).toBeUndefined();
+    expect(e.BirthDay.Day).toBeTypeOf('object');
+    expect(e.BirthDay.Day.Month).toBe(4);
+    expect(e.BirthDay.Day.DayOfMonth).toBe(7);
+  });
+
+  it('_Jump 内 _DBLink の解決に失敗した場合は元のラッパーを維持する（誤置換しない）', async () => {
+    const dataFetcher = new TestDataFetcher();
+    const proc = new globalThis.EnrichmentProcessor(dataFetcher, testConfig);
+
+    const rec = {
+      Id: 'BASE',
+      BirthDay: {
+        _Jump: {
+          hashTag: 'BirthDay',
+          _DBLink: { _Work: 'SinisterChangingGirls', _DB: 'Primary', Drc: 'ZZZ_NOT_EXIST' }
+        }
+      }
+    };
+
+    const out = await proc.enrichRecords([rec], '#Works_PastDivers', 'SemiPrimary');
+    const e = out[0];
+
+    // 参照先が特定できないため、_Jump ラッパーはそのまま残す
+    expect(e.BirthDay?._Jump).toBeTypeOf('object');
+    expect(e.BirthDay._Jump.hashTag).toBe('BirthDay');
+  });
+
+  it('$enrich: null 入りネストインデックス（例: Model.LogicSeries/Num が null）でも 1 件一致なら参照先をマージできる', async () => {
+    // 実データ相当: SinisterChangingGirls/Primary（Drc: 'S' 六花 雙葉）の AnotherRegions_DBLink が
+    // UnauthedLogica/Primary の Model: { LogicSeries: null, Num: null }（型番未確定）を参照するケース
+    // NOTE: AnotherRegions_DBLink の $enrich: true はグローバル data/db_type.json 側の宣言のため、
+    //   readGlobalType を実データで返すフェッチャーを使う
+    class GlobalTypeDataFetcher extends TestDataFetcher {
+      async readGlobalType() { return loadJson('data/db_type.json'); }
+    }
+    const dataFetcher = new GlobalTypeDataFetcher();
+    const proc = new globalThis.EnrichmentProcessor(dataFetcher, testConfig);
+
+    const scg = loadJson('data/Works_SinisterChangingGirls/DataBases/db_Primary.json');
+    const base = scg.find(r => r?.Drc === 'S');
+    expect(base).toBeTruthy();
+    expect(base.Height_cm).toBeUndefined();
+
+    const out = await proc.enrichRecords([base], '#Works_SinisterChangingGirls', 'Primary');
+    const e = out[0];
+
+    // UnauthedLogica 側（雙葉レコード）の値が空値フィールドへマージされる想定
+    expect(e.Height_cm).toBe(155);
+    // 既存値は上書きされない（SCG 側の Age: 27 を維持。UnauthedLogica 側は 26）
+    expect(e.Age).toBe(27);
+  });
+
+  it('$enrich: null 入りインデックスが複数レコードに一致する場合は曖昧一致としてスキップする', async () => {
+    class AmbiguousDataFetcher extends TestDataFetcher {
+      async readGlobalType() { return loadJson('data/db_type.json'); }
+      async readDB(workId, dbName) {
+        if (workId === '#Works_UnauthedLogica' && dbName === 'Primary') {
+          // Model が全 null のレコードが 2 件 → 曖昧一致
+          return [
+            { Model: { LogicSeries: null, Num: null }, Name_JP: 'A', Height_cm: 100 },
+            { Model: { LogicSeries: null, Num: null }, Name_JP: 'B', Height_cm: 200 }
+          ];
+        }
+        return super.readDB(workId, dbName);
+      }
+    }
+
+    const dataFetcher = new AmbiguousDataFetcher();
+    const proc = new globalThis.EnrichmentProcessor(dataFetcher, testConfig);
+
+    const scg = loadJson('data/Works_SinisterChangingGirls/DataBases/db_Primary.json');
+    const base = scg.find(r => r?.Drc === 'S');
+
+    const out = await proc.enrichRecords([base], '#Works_SinisterChangingGirls', 'Primary');
+    const e = out[0];
+
+    // 2 件一致のため解決せず、Height_cm は埋まらない
+    expect(e.Height_cm).toBeUndefined();
+  });
+
   it('_DBLink 参照先の同名フィールドは空値のみ穴埋めされる（既存値は維持）', async () => {
     const dataFetcher = new TestDataFetcher();
     const proc = new globalThis.EnrichmentProcessor(dataFetcher, testConfig);

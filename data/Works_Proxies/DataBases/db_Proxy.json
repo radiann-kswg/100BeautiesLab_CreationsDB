@@ -17,7 +17,6 @@
       "about_JP": "ただし中身は男性寄り",
       "about_EN": "However, the identity are more geared towards Male."
     },
-    "BirthDay": { "Day": { "Month": 7, "DayOfMonth": 1 } },
     "Height_cm": 163,
     "Weight_kg": { "hideText": "本人すら把握されていない" },
     "Age": { "value": 21, "about_JP": "自称", "about_EN": "Self-styled" },
@@ -60,7 +59,6 @@
       "about_JP": "ただし本人は無性別女性型が好き",
       "about_EN": "However, personally prefers a genderless feminine form"
     },
-    "BirthDay": { "Day": { "Month": 7, "DayOfMonth": 1 } },
     "Height_cm": [
       {
         "about_JP": "可変\n(球体化姿時は35～72cm、人型姿時はおよそ160cmでいることが多い)",
@@ -150,7 +148,7 @@
   },
   {
     "Generation": 1,
-    "Progress": "unprofiled",
+    "Progress": "archived",
     "Name_JP": "ラジアン(初代)\n扇小春",
     "Name_JPReading": "ラジアン\nおうぎ こはる",
     "Name_EN": "RadianN (1st Gen.)\nKoharu Arch",

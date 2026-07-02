@@ -90,7 +90,8 @@
     "Model": { "LogicSeries": null, "Num": "0" },
     "Progress": "stillTentative",
     "AnotherRegions_DBLink": [
-      { "_Work": "SinisterChangingGirls", "_DB": "Primary", "Num": "N" }
+      { "_Work": "NumberTales", "_DB": "Primary", "Num": "0" },
+      { "_Work": "SinisterChangingGirls", "_DB": "Primary", "Drc": "N" }
     ],
     "Name_JP": "零 零",
     "Name_JPReading": "かずない れい",
@@ -134,7 +135,7 @@
     "Model": { "LogicSeries": null, "Num": null },
     "Progress": "stillTentative",
     "AnotherRegions_DBLink": [
-      { "_Work": "SinisterChangingGirls", "_DB": "Primary", "Num": "S" }
+      { "_Work": "SinisterChangingGirls", "_DB": "Primary", "Drc": "S" }
     ],
     "Name_JP": "六花 雙葉\nクィーン.トゥエルヴ",
     "Name_JPReading": "ろくばな ふたは\nクィーン.トゥエルヴ",
@@ -145,8 +146,8 @@
     "CodeName_EN": null,
     "RaceType": "Human(DoubleIdentity)",
     "Height_cm": 155,
-    "Age": 24,
-    "AnivDay": { "_Jump": { "hashTag": "AnivDay" } },
+    "Age": 26,
+    "BirthDay": { "_Jump": { "hashTag": "BirthDay" } },
     "Weight_kg": { "hideText": "非公開" },
     "BustSize": "AA",
     "Belonging": ["ジャンクガレージ『六花陛下』"],
