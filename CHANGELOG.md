@@ -1,5 +1,33 @@
 # 最新のリファクタリング・仕様変更履歴
 
+### fix: DeepL 用語集ソース生成の EN→JA 衝突を構造的に解消（併記形の分割・単数/複数の除外） (2026-07-02)
+
+- **`tools/deepl/build-glossary-source.mjs`**:
+  - `splitMultiForm()`（新規）: `Term_EN` に `"WDCE. / the \"World Development & Creation Era\""` のように略号と全文が併記されているエントリを、` / `（前後空白必須）または改行で分割する。`Demotion/Retrograde` のような複合語中のスラッシュ（前後空白なし）は分割しない。
+  - `buildJaEnMap()`: 併記形は**先頭断片**（本文中で優先的に使われる略号・優先表記）を JA→EN の訳語として採用するよう変更。
+  - `buildEnJaMap()`: 併記形は**分割後の全断片**を個別の EN ソースキーとして登録するよう変更。これにより `ref_Society.json` の世代呼称（`WDCE.` 系）で、`Term_JP` 由来のペアと `Aliases` 由来のペアが同一の結合文字列キーに集約されて衝突していた問題（EN→JA 10件中ほぼ全てが自己参照ノイズ）を解消。
+  - `isPluralPair()`（新規）: 単数形/複数形だけが異なる EN 候補（例: `Regiowner`/`Regiowners`）を検出した場合、JA→EN 用語集への登録を見送り `[文法差につき用語集登録なし]` として `glossary-conflicts.md` に候補を併記するのみに変更。JP側は文法上の数を持たないため、用語集で強制的に片方へ固定すると逆の文脈で誤訳になるため。EN→JA は元々キーが異なり衝突しないため両方とも正しく登録される。
+  - `buildEnJaMap()`: `Term_JP` 由来（正式名）のペアと `Aliases` 由来（通称・略称）のペアが同一 EN キーで衝突した場合も同様に**登録を見送る**よう変更（`registerDependent`）。冗長な説明文では通称・略称、該当語自体を定義・説明する文では正式名という文脈依存の使い分けがあり、EN→JA の単一キーには機械的に固定できないため。`glossary-conflicts.md` に `[文脈依存につき用語集登録なし]` として両論併記し、訳出時は人間が文脈判断する運用にした。
+- **`data/References/ref_Society.json`**: `Aliases` からEN側の略号トークン（`WDCE.` / `WDC.VII` / `WDP.VII` / `WDC.VIII` / `WDP.VIII`）を削除（本来 JP 別表記のためのリストに EN トークンが紛れていたのが上記衝突の一因だったため）。JP側の本当の別表記（`創世記` 等）は維持。
+- 背景: `npm run deepl:build-glossary` 実行時に EN→JA で 10 件の衝突が発生し、内容（文字化けした端末表示）から原因が分かりにくいとの相談を受けて調査。実際は「略号/全文併記」構造がスクリプト側で考慮されていなかったことが主因で、`創造主`（Regiowner/Regiowners）は本当の単数/複数の表記揺れ、残る10件は「正式名 vs 通称」の文脈依存の使い分けだった。いずれも用語集の単一キーには機械的に固定できないため、強制登録せず人間判断に委ねる方針で統一した。
+- 検証: `npm run deepl:build-glossary` で `WDCE.` 系の自己参照ノイズが解消し、JA→EN・EN→JA 双方に略号・全文の両方が個別に登録されることを確認（`WDCE.`→`創世期`、`the "World Development & Creation Era"`→`創世期` など）。`創造主` は JA→EN から、`WDC.VII` 系10件は EN→JA から自動除外され、それぞれ `[文法差につき用語集登録なし]` `[文脈依存につき用語集登録なし]` として記録されることを確認。`npm test`（152 passed）。
+- ドキュメント: `docs/deepl-localization.md` §8（新規、§8-1〜8-3）に分割ロジック・単数複数・正式名/通称の扱いを追記。
+- 参照: [`docs/deepl-localization.md`](docs/deepl-localization.md) §8。
+
+### add: DeepL 下書き翻訳の Python 版 + Claude 自身が翻訳する Skill を追加 (2026-07-02)
+
+- **`tools/deepl_py/`（新規）**: `tools/deepl/draft-translate.mjs`（Node 版）の Python 移植。外部ライブラリ非依存（標準ライブラリの `urllib`/`json`/`re`/`argparse` のみ）。
+  - `deepl_client.py`: DeepL REST API 薄いクライアント（`translate()` / `list_glossaries()`。`.env` 自動読込）。用語集の作成・同期は Node 側に一元化し、Python 側には持たせない。
+  - `pronoun_normalize.py`: `tools/deepl/pronoun-normalize.mjs` の 1:1 移植（GenderType 別代名詞の確定的正規化、一人称混入・呼称不一致の検知）。Node 版と同じテストケースで出力一致を確認済み。
+  - `draft_translate.py`: CLI 本体（`--work --db --id --under --field --limit --apply`）。`.cache/deepl/glossary-ids.json`（Node 版が生成）を共用し、`.cache/deepl/draft-report.md` も Node 版と同じ形式で出力。
+  - 用途: Node 環境が無い開発機、または本リポジトリをサブモジュールとして持つ外部リポジトリから Python でローカライズ作業を行いたい場合。`pkg/`（DB 読み取り専用クライアント群）とは目的が異なるため `pkg/` 配下には置かず `tools/deepl_py/` に配置。詳細は [`tools/deepl_py/README.md`](tools/deepl_py/README.md)。
+- **`tools/deepl/draft-translate.mjs` に `--field` オプションを追加**: トップレベルの `field_EN` 名で絞り込む（例: `--field Summary` で `Summary_EN` のみ対象）。Python 版にも同時実装。
+- **`.claude/skills/localize-en-draft/SKILL.md`（新規）**: Node/Python の下書き翻訳ツールは「既存の `field_EN` キーが空値のときだけ」を対象にし新規キーは追加しないため、まだ一度も `_EN` フィールドが書かれていないレコード（新規キー挿入が必要なケース）向けに、Claude Code / Cowork のセッション内で Claude 自身が `docs/localization-en-rules.md` に従って翻訳・挿入する手順を Skill として型化した。DeepL の MCP コネクタは対話セッション専用でスクリプトから呼び出せないための代替導線。
+- 背景: `Works_FLInvestigator78/DataBases/db_Primary.json` の `Summary_JP` はあるが `Summary_EN` キー自体が存在しないレコード（ドゥームズ・ルネ）を手動翻訳した際、(1) 同じ作業を Python からも自動化したい、(2) DeepL の MCP コネクタでは自動化できない旨の要望・質問を受けて対応。
+- ドキュメント: `docs/deepl-localization.md` に §2-1（Python 版）・§2-2（Skill）を追加、§3-4 に Python 実行例・`--field` 説明を追記、§6 参照表を更新。
+- 検証: `npm test`（152 passed）。Python 側は `pronoun_normalize.py` を Node 版テストと同一ケースで手動突き合わせ、`draft_translate.py` は `translate()` をモック化したフィクスチャで候補抽出・`--field` 絞り込み・`--apply` 書き戻し・スキップ挙動（既存値保持）・レポート出力を確認（DeepL API 呼び出し自体は API キー未設定のため未検証）。
+- 参照: [`docs/deepl-localization.md`](docs/deepl-localization.md) §2-1/§2-2。
+
 ### add: DeepL 下書き翻訳をキャラ文脈（GenderType・呼称）対応に強化 (2026-07-02)
 
 - **`tools/deepl/pronoun-normalize.mjs`（新規）**: `GenderType`（`FemaleNeutral`/`Female`→she, `MaleNeutral`/`Male`→he, `Neutral`→ze/zir, 未設定→avoid）から代名詞ポリシーを決定し、英文中の代名詞トークンを確定的に正規化する純粋関数群。あわせて一人称混入（`I`/`my` 等）・呼称不一致（`ForMasterCalling_EN` に無い `big bro/sis` 等）を検知するが、これらは自動修正せず警告のみ（文法崩壊やレコード固有の誤爆を避けるため）。

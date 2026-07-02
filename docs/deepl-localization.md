@@ -2,7 +2,7 @@
 
 > **対象**: Claude（Cowork）/ Claude Code / GitHub Copilot / リポジトリ運用者
 > **目的**: DeepL 翻訳を 100BeautiesLab. Creations DB のローカライズ運用に組み込み、固有名詞をブレなく訳すための手順とルールを定義する
-> **最終更新**: 2026-06-28（初版）
+> **最終更新**: 2026-07-02（§8 併記形の分割・単数/複数の扱いを追加）
 > **関連**: [`localization-en-rules.md`](localization-en-rules.md)（和英ルール）/ [`jp-notation-rules.md`](jp-notation-rules.md)（和文記法）
 
 ---
@@ -49,6 +49,23 @@ DeepL は **既存ローカライズルールを置き換えるものではな�
 | `npm run deepl:draft` | `draft-translate.mjs` | 空の `_EN` をキャラ文脈（GenderType・呼称）付きで下書き翻訳、`draft-report.md` を出力（`--apply` 時のみ警告無し候補を書き戻し） | **要** |
 
 `deepl-client.mjs` は DeepL REST API の薄いラッパ（`.env` を自動読込）。`pronoun-normalize.mjs` は代名詞正規化・警告検知の純粋関数群（`draft-translate.mjs` から利用、ネットワーク I/O なし）。
+
+### 2-1. Python 版（`tools/deepl_py/`）
+
+`draft-translate.mjs` 相当の下書き翻訳は、外部ライブラリ非依存の Python 実装としても提供している（Node 環境が無い開発機や、外部リポジトリから Python で使いたい場合向け）。
+
+```sh
+python tools/deepl_py/draft_translate.py --work Works_NumberTales [--db Primary] \
+  [--id 8] [--under ConversationPattern] [--field Summary] [--limit 30] [--apply]
+```
+
+- CLI オプション・`.cache/deepl/draft-report.md` の出力形式は Node 版と共通（`--field` はトップレベルの `field_EN` 名で絞り込み。例: `--field Summary` → `Summary_EN` のみ対象。Node 版にも同時追加済み）。
+- 用語集の作成・同期（`build-glossary-source` / `sync-glossary`）は Node 版に一元化し、Python 側は生成済みの `.cache/deepl/glossary-ids.json` を読むだけ（二重管理を避けるため、Python 版に用語集作成コマンドは無い）。
+- 詳細・トラブルシューティング・Node 版との対応表: [`tools/deepl_py/README.md`](../tools/deepl_py/README.md)
+
+### 2-2. `field_EN` キーが未追加のとき（Claude 自身が翻訳する Skill）
+
+Node 版・Python 版のいずれも「**既存の `field_EN` キーが空値のときだけ**」を対象にし、スキーマに無い新規キーは追加しない。まだ一度も `_EN` フィールドが書かれていないレコード（新規キー挿入が必要なケース）は、Claude Code / Cowork のセッション内で Skill **`localize-en-draft`**（[`.claude/skills/localize-en-draft/SKILL.md`](../.claude/skills/localize-en-draft/SKILL.md)）を使う。DeepL の MCP コネクタは対話セッション専用のツールでスクリプトから呼び出せないため、「Claude 自身が本書のルールに従って翻訳し、キー順序を守って挿入する」運用をこの Skill として型化している。
 
 ### 生成物（`.cache/deepl/`）
 
@@ -102,7 +119,13 @@ npm run deepl:draft -- --work Works_NumberTales --db Primary --id 8 --under Conv
 npm run deepl:draft -- --work Works_NumberTales --db Primary --id 8 --under ConversationPattern --apply
 ```
 
-- **`--work`**（必須） `--db`（省略時は作品内の全 `db_*.json`） `--id`（`Num` 等でレコードを1件に絞る） `--under`（例: `ConversationPattern` でサブツリー限定） `--limit`（既定 30 件）
+Python 版（Node 環境が無い場合／外部リポジトリから使う場合。オプション・出力は共通。詳細は [`tools/deepl_py/README.md`](../tools/deepl_py/README.md)）:
+
+```bash
+python tools/deepl_py/draft_translate.py --work Works_NumberTales --db Primary --id 8 --under ConversationPattern --apply
+```
+
+- **`--work`**（必須） `--db`（省略時は作品内の全 `db_*.json`） `--id`（`Num` 等でレコードを1件に絞る） `--under`（例: `ConversationPattern` でサブツリー限定） `--field`（例: `Summary` でトップレベルの `field_EN` 名だけに絞り込み） `--limit`（既定 30 件）
 - **代名詞の確定的正規化**: レコードの `GenderType` から代名詞ポリシー（she/he/ze/avoid）を決定し、`docs/localization-en-rules.md` §1 のルール通りに DeepL の生訳文を機械的に書き換える（`ze/zir` 活用表含む）。DeepL は LLM ではなく NMT のため、「she で訳して」という指示は信頼できない — この正規化が実質的な正しさの担保になる。
 - **一人称混入・呼称不一致は検知のみ**: `I/my/me` 等の一人称が残っていないか、`ForMasterCalling_EN` に無い呼称語（`big bro/sis` 等）が紛れ込んでいないかを検知するが、**自動では書き換えない**（文法崩壊やレコード固有の誤爆を避けるため）。⚠️ 付きでレポートに出るので人間が確認する。
 - **既定ではデータを書き換えない**: `.cache/deepl/draft-report.md` にレポートを出力するだけ。`--apply` を付けたときのみ、**警告が一つも無い候補だけ** を対象レコードの空 `_EN` へ書き戻す。警告付き候補は `--apply` 指定時も常にレポート止まり。
@@ -139,7 +162,9 @@ cp .env.example .env
 | 和英ローカライズ規則 | [`localization-en-rules.md`](localization-en-rules.md) |
 | 和文記法規則 | [`jp-notation-rules.md`](jp-notation-rules.md) |
 | 翻訳辞書ソース | `data/Localization/trans_*.json` / `data/References/ref_*.json` / `data/Dictionaries/dict_*.json` |
-| スクリプト | `tools/deepl/`（`build-glossary-source` / `sync-glossary` / `evaluate-translations` / `deepl-client`） |
+| スクリプト（Node） | `tools/deepl/`（`build-glossary-source` / `sync-glossary` / `evaluate-translations` / `draft-translate` / `deepl-client`） |
+| スクリプト（Python） | [`tools/deepl_py/`](../tools/deepl_py/README.md)（`draft_translate.py` / `deepl_client.py` / `pronoun_normalize.py`） |
+| Claude Skill（`field_EN` 新規挿入・少数レコードの丁寧な翻訳） | [`.claude/skills/localize-en-draft/SKILL.md`](../.claude/skills/localize-en-draft/SKILL.md) |
 | Copilot 英訳補助指示 | [`.github/instructions/localization-en.instructions.md`](../.github/instructions/localization-en.instructions.md) |
 | 固有名詞 早見表（生成物） | [`localization-glossary-quickref.md`](localization-glossary-quickref.md)（`npm run deepl:build-quickref`） |
 | 作業ログ | `_work_in_progress/2026-06-28_progress_deepl-localization.md` |
@@ -160,3 +185,37 @@ cp .env.example .env
 - **真の衝突だけ残す**: 素形にしても EN が食い違う場合（例: `南雌大陸` に `Evesouth Mainland` と `Ivesouth Continent` の 2 訳）は本物の表記不一致として `glossary-conflicts.md` に残す。和文側の正規化は User が判断する。
 
 > この正規化により、読みを振った地名・組織が増えても EN→JA 衝突が自然増殖しない。新しい固有名詞に読みグロスを付けるときは、`Term_JPReading`（資料系）か併記形（表示系）のどちらで持っても、用語集側は素形に正規化される。
+
+---
+
+## 8. 併記形（`略号 / 全文`）の分割と単数/複数の扱い
+
+### 8-1. `略号 / 全文` の自動分割（`splitMultiForm`）
+
+`Term_EN` に `"WDCE. / the \"World Development & Creation Era\""` のように**略号と全文を1つの文字列で併記**しているエントリがある（`ref_Society.json` の世代呼称など）。これをそのまま用語集ソースへ渡すと、EN→JA では「同じ結合文字列」がキーになり、`Term_JP` 由来のペアと `Aliases` 由来のペアが衝突してしまう。
+
+`build-glossary-source.mjs` の `splitMultiForm()` がこれを構造的に吸収する。
+
+- **区切り**: 前後に空白を伴う `/`（` / `）または改行。`Demotion/Retrograde` のような複合語中のスラッシュ（前後に空白が無い）は分割しない（誤爆防止）。
+- **JA→EN**: 分割した**先頭の断片**（本文中で実際に多用される略号・優先表記）を訳語として採用する。例: `創世期` → `WDCE.`（`the "World Development & Creation Era"` ではなく）。
+- **EN→JA**: 分割した**すべての断片**を個別のソースキーとして登録する。略号（`WDCE.`）・全文（`the "World Development & Creation Era"`）のどちらが本文中に出現しても同じ JP 用語へ解決できる。
+- 併記の順序（どちらを先に書くか）が JA→EN の訳語選定に直結するため、新規に併記形を追加するときは**実際の英文中で優先的に使われる表記を先頭**に置く。
+
+### 8-2. 単数形/複数形だけの差は用語集へ登録しない
+
+日本語（JP側）は文法上の数（単数/複数）を持たないため、同じ JP 用語が英語側で単数形・複数形の両方を持ちうる（例: `創造主` → 個体を指す `Regiowner` / 集団・派生存在を指す `Regiowners`）。これは表記ゆれではなく**文脈依存の正しい使い分け**であり、用語集でどちらか一方に固定すると逆の文脈で誤訳を生む。
+
+`buildJaEnMap()` の `isPluralPair()` がこのパターン（片方が `${他方}s` と一致）を検出した場合、その JA→EN エントリは**用語集へ登録せず**、`glossary-conflicts.md` に `[文法差につき用語集登録なし]` として候補を併記するだけに留める。EN→JA 側は `Regiowner`/`Regiowners` が別々のキーのため元々衝突せず、両方とも `創造主` へ正しく解決される。
+
+> 該当語を実際に翻訳するときは、単数/複数どちらの文脈かを人間が判断して個別に訳語を選ぶ（用語集に頼らない）。
+
+### 8-3. 正式名（Term_JP）vs 通称（Aliases）だけの差も用語集へ登録しない
+
+`ref_Society.json` の世代呼称のように、1つの概念に**正式名**（`Term_JP`、例: `『第7の世界創造』`）と**通称・略称**（`Aliases`、例: `多様化社会`）の両方が存在するケースがある。EN側は `splitMultiForm`（§8-1）で `WDC.VII` / `the "World Development & Creation VII"` の2断片に分かれるが、どちらの断片であっても EN→JA では「正式名 vs 通称」のどちらへ解決すべきかは**文章の性質次第**で決まる。
+
+- **冗長な説明文中で使う場合**: 通称・略称寄り（例: `多様化社会`）
+- **該当語自体を定義・説明する文で使う場合**: 正式名寄り（例: `『第7の世界創造』`）
+
+これも単数/複数の差（§8-2）と同様に**用語集の単一キーには機械的に固定できない**ため、`buildEnJaMap()` は `Term_JP` 由来のペアと `Aliases` 由来のペアが同一 EN キーで衝突した場合、どちらか一方を強制的に採用せず**登録を見送る**（`registerDependent`）。`glossary-conflicts.md` に `[文脈依存につき用語集登録なし]` として両論併記されるので、実際に EN→JA 訳出（添削・逆引き）するときは、上記の使い分けルールに沿って人間が個別に訳語を選ぶ。
+
+> JA→EN 方向は影響を受けない: `『第7の世界創造』`・`多様化社会` はいずれも JP側では異なるキーなので、どちらを訳しても同じ EN（`WDC.VII` 系）に解決できる。問題になるのは EN→JA（1つのEN文字列→1つのJP）の一方向のみ。
