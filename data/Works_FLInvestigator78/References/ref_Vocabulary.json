@@ -5,6 +5,8 @@
     "Term_EN": "Dealers",
     "TermType": null,
     "Category": "Role",
+    "Summary_JP": "この創作シリーズの主人公で、78のアルカナムスペックを\"采配\"することに長ける「采配幹部(ディーラーズ)」。彼女らを待ち受ける数奇な運命は、どのような未来(あした)を切り開くのでしょう－－",
+    "Summary_EN": "The protagonists of this series, the two 'Dealers' who are skilled in 'managing' the 78 Arcanamspecs. What kind of tomorrow or future will the strange fate that awaits them open up --",
     "BodyBlocks_JP": [
       "78人のアルカナホルダーで構成される異能探偵調査団「78特殊探偵団」のすべての能力を統べ、アルカナホルダーの采配を行う特殊幹部。",
       "アルカナに強い知見があり戦闘力も高い人材が適しているとされており、【四元の魔術師】のアルカナホルダー「金田一 卓斗」によって錦野姉妹の２人にこの役職が与えられた。"
@@ -44,6 +46,17 @@
     "Category": "Phenomenon",
     "Summary_JP": null,
     "Summary_EN": null,
+    "Aliases": [],
+    "Links": []
+  },
+  {
+    "Term_JP": "輪廻の境界",
+    "Term_JPReading": "リインカーネートボーダー",
+    "Term_EN": "Reincarnate Border",
+    "TermType": null,
+    "Category": "OtherPropers",
+    "Summary": "どの\"岐路(ブランチ)\"にも属されない空間。「未来消失」に遭うなどして\"岐路(ブランチ)\"から消失した「メモリア」や「エグジスタ」の冥界というべき空間であり、この空間からさらに先へ行くと\"運命線(フェイトライン)\"から存在が抹消され、それがこの世界にあった事実さえも失ってしまう。",
+    "Summary_EN": "An area that does not belong to any 'FL_BRANCH'. It is a space that can be described as the underworld of 'Memoria' and 'Exista' that have disappeared from the 'FL_BRANCHES' due to events such as 'Future Erasure'. If one goes further from this space, their existence will be erased from the 'FateLines', and even the fact that they existed in this world will be lost.",
     "Aliases": [],
     "Links": []
   },

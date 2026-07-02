@@ -291,7 +291,7 @@
   },
   {
     "Card": { "Suit": "Major", "SuitNum": 13, "Num": 13 },
-    "Progress": "unreleased",
+    "Progress": "released",
     "Images": { "cardDesign_PNGName": "crddsn_imgFLM13" },
     "Name_JP": "ドゥームズ",
     "Name_EN": "Dooms",
@@ -328,7 +328,8 @@
     "For80thDealerCalling_EN": "(*rarely calls by name)",
     "ArcanamspecAbout_JP": "終焉をもたらす\n？？？",
     "ArcanamspecAbout_EN": "Brings about an end\n???",
-    "Summary_JP": "",
+    "Summary_JP": "\"未来消失\"に遭った先で辿り着く\"輪廻の境界(リインカーネートボーダー)\"でただ一人残り事件の被害により失われた存在をあるべき場所へ見送り続けている、異能組織『セブンティエイト特殊探偵団』（通称『運命線探偵』）の第13幹部。\nアルカナホルダーが存在しない【転生の死神】のアルカナムスペックそのものであり、すべての物事や人生に終焉をもたらす力を有していますが、能力の詳細は未だ謎に包まれたままです。\n【愚かなる旅人】というアルカナムスペックと深い関係があるようですが……",
+    "Summary_EN": "The 13th executive of the special investigations organization 'Team.78(Seventy-Eight) the Special Investigators' (commonly known as the 'FateLine Investigators'), remaining as the sole presence at the 'Reincarnation Border' reached by those who have experienced 'Future Erasure', continuing to send off the existences lost to incident damage to where they belong.\nBeing the ArcanumSpec of the [⁠Death of Reincarnation⁠] itself — with no Arcana Holder to wield it — it possesses the power to bring an end to all things and every life, though the details of this ability remain shrouded in mystery.\nIt seems to share a deep connection with the ArcanumSpec known as the [⁠Foolish Tripper⁠]...",
     "ArcanumspecStats": {
       "SpecType": {
         "Material": [{ "Material": "Water" }],
@@ -430,7 +431,7 @@
   },
   {
     "Card": { "Suit": "Major", "SuitNum": 18, "Num": 18 },
-    "Progress": "unreleased",
+    "Progress": "released",
     "Images": { "cardDesign_PNGName": "crddsn_imgFLM18" },
     "Name_JP": "ルネ",
     "Name_EN": "Lune",
@@ -443,7 +444,8 @@
     "Class": ["英皇国支部幹部"],
     "ArcanamspecAbout_JP": "不安を増幅する\n安心感を操作する",
     "ArcanamspecAbout_EN": "Amplifies anxiety\nManipulates the sense of security",
-    "Summary_JP": "",
+    "Summary_JP": "\"未来消失\"の事件に用いられる悪用技術の研究現場を俯瞰するべく英皇国で偵察活動を行っている、異能組織『セブンティエイト特殊探偵団』（通称『運命線探偵』）の第18幹部。\n【不安の月】のアルカナムスペックを行使する彼女は、不安感や安心感を操作した隠密行動を得意としておりますが、この能力は夜間にしか発現できず計画的な作戦が必要なようです。\n少し加害妄想の強い一面がありますが、それはきっと能力適正ゆえなので悪しからず。",
+    "Summary_EN": "The 18th executive of the special investigations organization 'Team.78(Seventy-Eight) the Special Investigators' (commonly known as the 'FateLine Investigators'), conducting reconnaissance activities in Internic.Kingdom to keep watch over the research sites for the abusive technology used in incidents involving the mysterious disappearance phenomenon known as 'Future Erasure'.\nBrandishing the ArcanumSpec of the [⁠Moon of Anxiety⁠], she excels at covert operations by manipulating feelings of anxiety and security, though this ability can only manifest at night, seemingly requiring carefully planned operations.\nShe has a somewhat strong tendency toward paranoid delusions of causing harm, but that's most likely just a result of her aptitude for this ability, so please don't think poorly of her.",
     "ArcanumspecStats": {
       "SpecType": {
         "Material": [{ "Material": "Water" }],
