@@ -1,5 +1,13 @@
 # 最新のリファクタリング・仕様変更履歴
 
+### add: DeepL 下書き翻訳をキャラ文脈（GenderType・呼称）対応に強化 (2026-07-02)
+
+- **`tools/deepl/pronoun-normalize.mjs`（新規）**: `GenderType`（`FemaleNeutral`/`Female`→she, `MaleNeutral`/`Male`→he, `Neutral`→ze/zir, 未設定→avoid）から代名詞ポリシーを決定し、英文中の代名詞トークンを確定的に正規化する純粋関数群。あわせて一人称混入（`I`/`my` 等）・呼称不一致（`ForMasterCalling_EN` に無い `big bro/sis` 等）を検知するが、これらは自動修正せず警告のみ（文法崩壊やレコード固有の誤爆を避けるため）。
+- **`tools/deepl/draft-translate.mjs`（新規・`npm run deepl:draft`）**: `data/Works_*/DataBases/db_*.json` の空 `*_EN` フィールドを再帰走査で収集し、同一レコードの `GenderType`/`ForMasterCalling_EN` 等を踏まえて DeepL 下書き翻訳を行う。代名詞は上記モジュールで正規化、DeepL の `context` パラメータ（`deepl-client.mjs` に追加）もベストエフォートのヒントとして付与。既定では `.cache/deepl/draft-report.md` へレポート出力するのみでデータは書き換えず、`--apply` 指定時のみ**警告が一つも無い候補だけ**を対象レコードの空 `_EN` へ書き戻す。警告付き候補は常にレポート止まり。
+- 背景: DeepL は LLM ではなく NMT のため文脈指示に確実には従わない。既存の `evaluate-translations.mjs`（突き合わせ）は書き換えを行わない設計だったが、新規の空 `_EN` を埋める下書き作業では代名詞・呼称の食い違いが頻発していたため、確定的な後処理で補う設計とした。
+- テスト: `tests/deepl.pronoun-normalize.test.js`（純粋関数のみ、DeepL API 呼び出しは対象外）。
+- 参照: [`docs/deepl-localization.md`](docs/deepl-localization.md) §3-4。
+
 ### fix: `/pages/v1/deftype/global` 等が `$DefType` を欠落させる不具合を修正 (2026-07-01)
 
 - **`lib/sw-common.js` `ApiEndpointHandlers.mergeMetaAndTypeVars()`**: `db_type.json` 側の `$VarsDef` / `$MetaType` は合流していたが、**`$DefType`（hashTag / `$dict` 宣言の配列）を結果へコピーしていなかった**。これにより `/pages/v1/deftype/global` と `/pages/v1/works/{work}/meta` のレスポンスから `$DefType` が丸ごと欠落していた。
