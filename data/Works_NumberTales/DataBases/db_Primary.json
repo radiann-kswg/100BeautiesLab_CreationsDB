@@ -25997,6 +25997,48 @@
           "RelationLabel": ["classmate"]
         }
       ]
+    },
+    "ConversationPattern": {
+      "TalkingTone_JP": "思いついたことをそのまま言葉にするような即興的な口調が特徴的。",
+      "TalkingTone_EN": "Characterized by an improvisational tone, giving voice to ideas as they arise.",
+      "TopicPreference_JP": "発想力が高く生産的という性質が会話の端々に出やすいが、相手のペースにやや鈍感な一面がある。",
+      "TopicPreference_EN": "Her highly creative and productive nature tends to show up in bits and pieces of conversation, but she can be somewhat insensitive to the pace of others.",
+      "TalkFrequency_JP": "自ら話しかけることは多くないが、相手や話題次第で自然と会話が弾む。重要な伝達事項や意見については自ら進んで言うことが多い。",
+      "TalkFrequency_EN": "Does not initiate conversation often, but warms up naturally when the topic or company is right. She tends to speak up on important matters or when giving her opinion.",
+      "PreferredTopics_JP": "女性的な工芸品に関わる話題を好み、知識はないものの手芸やファッションなどに関連する有識者の前ではとても従順。",
+      "PreferredTopics_EN": "Favors topics related to feminine crafts, and although she has no expertise herself, she becomes very obedient in front of authorities on handicrafts, fashion, and the like.",
+      "AvoidedTopics_JP": "実用性の全くない話題や意味の解らない改造・独創的過ぎるノリにかなりの苦手意識があり、そのような話題やものを目撃すると極端に委縮したり恐縮したりする",
+      "AvoidedTopics_EN": "Has a strong aversion to topics with absolutely no practical value, incomprehensible modifications, or overly eccentric vibes, and becomes extremely withdrawn or apologetic upon witnessing such topics or things.",
+      "ConversationNotes_JP": "ものづくり関連で縁のある（「8(ワカツ)」や「85(ハッコ)」などの）一部個体とは、どちらかに若干気まずさが残る関係にある。また、身だしなみや身体的美貌に関するセンスは皆無なので、（姉「26(ニロク)」のような）自分にない女性的センスの持主に頼りやや依存しがち。",
+      "ConversationNotes_EN": "With some of the units she has craft-related ties to (such as '8(Eighas)' and '85(Eightifie)'), a bit of awkwardness lingers on one side or the other of the relationship. Also, since she has no sense whatsoever for grooming or personal beauty, she tends to lean on and become somewhat dependent on those (like her sister '26(Twinsix)') who possess the feminine sense she lacks.",
+      "DialogueExamples": [
+        {
+          "value_JP": "「あたしはナンバーテールズ62番機の『62(ロジ)』。今後ご主人先輩のお世話になるので、まだまだ未熟者ですがよろしくっす！」",
+          "value_EN": "\"I'm NumberTales #62, '62(Sictwéna)'. I'll be in Master-senpai's care from now on -- still got a lot to learn, but nice to meet ya!\"",
+          "about_JP": "契約時の自己紹介",
+          "about_EN": "Self-introduction at the time of contract"
+        },
+        {
+          "value_JP": "「そろそろ直前練習の時間っすよ！こっちは準備できてるけど、35(サトコ)は大丈夫っすかね？」",
+          "value_EN": "\"It's almost time for last-minute practice! I'm all set on my end, but I wonder if '35(Thirfivan)' is doing okay?\""
+        },
+        {
+          "value_JP": "「ざっくりフレームの劣化具合を百(ハゲム)先輩にみてもらってるっすけど、１日や数日間のオーバースペックによる経年劣化と考えにくいのは確かっす。ヒューマノイドも人間と同様、無理しすぎると身体が保たないというのは頭に置いときつつ、身体との対話は心掛けるよう今後は用心っすね」",
+          "value_EN": "\"I had 'Hudret'-senpai take a rough look at how worn the frame is, but it's pretty clear this isn't the kind of wear you'd get from just a day or two of overexertion. Humanoids are like humans in that pushing the body too hard just doesn't hold up, so from now on I'll be careful to actually listen to my body.\""
+        },
+        {
+          "value_JP": "「すません8(ワカツ)先輩!! 動作チェックに付き合ってくれるかなと思って、こっちで３人近く招いてしまったっす!! まさか先輩が確認してないとは知らず－－」",
+          "value_EN": "\"Sorry, '8(Eighas)'-senpai!! I figured you'd help out with the function check, so I went ahead and invited about three more people!! I had no idea you hadn't confirmed it yet--\"",
+          "about_JP": "8(ワカツ)との関係①",
+          "about_EN": "Relationship with '8(Eighas)' (case.1)"
+        },
+        {
+          "value_JP": "「げっ…それって、今度は52(イツギ)が緊急メンテ受けるフラグっすか…？これ以上は8(ワカツ)先輩にどやされるから勘弁して欲しいっすよ～～!!」",
+          "value_EN": "\"Ugh... does that mean '52(Fiftwis)' is next in line for emergency maintenance...? Please, no more -- '8(Eighas)'-senpai will chew me out again if this keeps up~~!!\"",
+          "about_JP": "8(ワカツ)との関係②",
+          "about_EN": "Relationship with '8(Eighas)' (case.2)"
+        }
+      ]
     }
   },
   {
