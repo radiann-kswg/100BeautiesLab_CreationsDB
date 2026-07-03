@@ -25,6 +25,7 @@
 
 - 2026-07-03_progress-log-retire-candidates.md（`.completed` への退避候補リスト。2026-07-03 に候補A/Bの実移動を実施済み）
 - 2026-07-03_current-task-ledger.md（現行タスク台帳。進行中作業だけを集約した運用起点）
+- 2026-07-03_progress_addon-ai-tag-log-inventory.md（addon-ai-tag の進捗ログ棚卸し。競合解消の反映内容と保持/完了の整理を記録）
 
 ### 設計・仕様（進行中 or 継続参照）
 
@@ -46,7 +47,7 @@
 ### データ / ローカライズ（User 手動作業残り）
 
 - 2026-06-22_progress_jp-en-naming-standardization.md（JP/EN フィールド命名標準化・**Phase 2〜5 全完了** ⚠️ D1/R2 再同期は手動実施が必要）
-- 2026-06-24_progress_localization-db.md（英訳固有辞書 DB（Localization レイヤー）実装。✅ 130/130 pass。trans_Dict.json → trans_{Category}.json 分割完了（2026-06-25）。Summary 入力・TransPolicy 確認・能力名等の追記は User 手動）
+- 2026-06-24*progress_localization-db.md（英訳固有辞書 DB（Localization レイヤー）実装。✅ 130/130 pass。trans_Dict.json → trans*{Category}.json 分割完了（2026-06-25）。Summary 入力・TransPolicy 確認・能力名等の追記は User 手動）
 - 2026-06-25_progress_localization-summary-inputs.md（Localization Summary 入力進捗チェックリスト。地名 9/13 ✅・人物名 11/13 ✅・SI 9/9 ✅・残 7 件 User 入力待ち）
 - 2026-06-28_progress_deepl-localization.md（DeepL 翻訳のローカライズ運用組み込み。用語集生成/同期/添削スクリプト・`docs/deepl-localization.md`・用語集実登録 JA-EN144/EN-JA138（大陸名修正後）。✅ 疎通確認済み。⚠️ `npm test` ローカル確認・`.env` 設定・コミットは User 端末で）
 - 2026-07-02_progress_deepl-glossary-multiform.md（DeepL 用語集ソースの EN→JA 衝突を解消。`build-glossary-source.mjs` に併記形分割・単数複数の除外・正式名vs通称の文脈依存除外ロジックを追加、`ref_Society.json` の `Aliases` 整理。✅ `npm run deepl:build-glossary` / `npm test` 152 passed 確認済み。⚠️ `deepl:sync-glossary` 実反映は User 判断待ち）
@@ -58,6 +59,7 @@
 ### データ変換（手動入力残り）
 
 - 2026-06-30_progress_appearance-detail-cleanup.md（#5〜99 AppearanceDetail 一括変換: EXPR 71件・Formation 統合 282件・BodyPart 推論 113件・136 pass ✅。⚠️ 6件 BodyPart 手動入力待ち / Num:8・32・60 既存不整合手動修正待ち）
+- 2026-06-19_progress_db-images-phase2.md（NumberTales DB整備フェーズ2。`Images` パス更新・`arts_metadata`/`designAlt_metadata` 追加・`AIHints.concept_contains_forms` 追加。⚠️ `_creations-ai` 側ビルド反映と addon-ai-tag へのマージ確認が後続タスク）
 
 ### 機能実装（ブラウザ確認残り）
 
@@ -70,6 +72,7 @@
 ### 機能実装（完了・運用反映済み）
 
 - 2026-07-03_progress_dblink-browser-check.md（`*_DBLink` 表示のブラウザ確認を実施。クロスワーク参照で JP は全角括弧、EN は半角括弧で作品名併記されることを確認）
+- 2026-06-21_progress_addon-ai-tag-api-separation.md（addon-ai-tag で実 API を `/api/ai/*` に分離し、AIHints への Bearer 認証（`AI_ACCESS_TOKEN`）を実装。関連 docs/README/CHANGELOG 更新済み）
 
 ### カレンダー
 
@@ -192,3 +195,4 @@
 - 2026-06-29 の棚卸しで、2026-06-24 〜 2026-06-29 の完了済みファイルをステータス更新。未登録だった 2026-06-27（ × 3）・2026-06-29（ × 2）のログを一覧に追加しました。
 - 2026-07-03 の棚卸しで、README 掲載漏れ（2026-06-28 handoff / 2026-07-01〜07-03 github-triage / 2026-07-02 jump-dblinkref）を補完し、`2026-06-24_progress_localization-db.md` の表記ゆれを修正しました。
 - 2026-07-03 の実行対応で、退避候補 A/B（計8件）を `.completed/` へ移動し、`*_DBLink` ブラウザ確認ログ `2026-07-03_progress_dblink-browser-check.md` を追加しました。
+- 2026-07-03 の addon-ai-tag 整理で、未掲載だった `2026-06-19_progress_db-images-phase2.md` / `2026-06-21_progress_addon-ai-tag-api-separation.md` を目録へ反映し、README コンフリクト（2 箇所）を解消しました。
