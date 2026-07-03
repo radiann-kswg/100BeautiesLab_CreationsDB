@@ -63,15 +63,12 @@
 
 ### 機能実装（ブラウザ確認残り）
 
-- 2026-06-18_progress_dblink-enrich.md（`*_DBLink` suffix エンリッチ処理・実装済み・typedef 設定済み（`AnotherRegions_DBLink`: `$enrich:true`）。⚠️ ブラウザ動作確認が残）
-- 2026-06-18_progress_dblink-renderer.md（`*_DBLink` suffix セクションレンダラー `dbLinkSection` 実装済み・`db_type.json` / NT `db_type.json` 追記済み・実データあり。⚠️ ブラウザ動作確認が残 → **Copilot で対応予定**）
 - 2026-06-09_progress_aihints-from-identitymotif.md（`--apply-identitymotif` 実装・NumberTales/DB_Primary 再構築完了。2026-07-01 に docs 追記済み・`identitymotif-cleared=0` 確認済み。残は他作品対応のみ）
 - 2026-06-09_progress_corefolder-nld-template-and-silhouette-structure.md（corefolder NLD テンプレ化・silhouette_notes object 構造化完了。残は `#28` base color の手動入力・他作品確認・humanoid NLD 未実装）
 - 2026-07-01_progress_appearancedetail-aihints-mode.md（`--apply-appearancedetail` 新モード実装 + 実データ適用完了。IdentityMotif 後継を見据えた並行モードで `AppearanceDetail` を正源に AIHints 再構築、NT/Primary 92件へ `--apply` 実施済み・147 pass。適用前にバグ2件（corefolder NLD house style不一致 / Formation=null専用formationの誤クリア）を発見・修正済み。⚠️ データ変更のコミットは User 判断待ち）
 
 ### 機能実装（完了・運用反映済み）
 
-- 2026-07-03_progress_dblink-browser-check.md（`*_DBLink` 表示のブラウザ確認を実施。クロスワーク参照で JP は全角括弧、EN は半角括弧で作品名併記されることを確認）
 - 2026-06-21_progress_addon-ai-tag-api-separation.md（addon-ai-tag で実 API を `/api/ai/*` に分離し、AIHints への Bearer 認証（`AI_ACCESS_TOKEN`）を実装。関連 docs/README/CHANGELOG 更新済み）
 
 ### カレンダー
@@ -117,6 +114,10 @@
 
 ## 完了（.completed へ退避済み）
 
+- 2026-07-03_progress_dblink-browser-check.md（`*_DBLink` 表示のブラウザ確認を実施。クロスワーク参照で JP は全角括弧、EN は半角括弧で作品名併記されることを確認）
+- 2026-07-03_progress_p6-bilingual-wrapper-ui.md（P6: bilingual wrapper UI 実装完了）
+- 2026-07-03_progress_p6-day-era-area-typedef-sw-enrich.md（P6: Day/Era/Area typedef 駆動の SW/enrich 拡張完了）
+- 2026-07-03_progress_p6-secondary-ui-tidy.md（P6: `sec_Category` / `sec_DesignedBy` の二次創作情報 UI 整理を実装完了）
 - 2026-06-23_progress_security-ci-audit.md（GitHub 通知 6 件 + audit fix 完全対処済み）
 - 2026-06-21_progress_cloudflare-api-adr.md（ADR-0001 Cloudflare Workers 実装完了・初回デプロイ済み）
 - 2026-06-21_progress_claude-md-merge.md（CLAUDE.md 統合更新完了）
@@ -196,3 +197,5 @@
 - 2026-07-03 の棚卸しで、README 掲載漏れ（2026-06-28 handoff / 2026-07-01〜07-03 github-triage / 2026-07-02 jump-dblinkref）を補完し、`2026-06-24_progress_localization-db.md` の表記ゆれを修正しました。
 - 2026-07-03 の実行対応で、退避候補 A/B（計8件）を `.completed/` へ移動し、`*_DBLink` ブラウザ確認ログ `2026-07-03_progress_dblink-browser-check.md` を追加しました。
 - 2026-07-03 の addon-ai-tag 整理で、未掲載だった `2026-06-19_progress_db-images-phase2.md` / `2026-06-21_progress_addon-ai-tag-api-separation.md` を目録へ反映し、README コンフリクト（2 箇所）を解消しました。
+- 2026-07-03 の再棚卸しで、P6完了ログ（bilingual wrapper / Day-Era-Area typedef / secondary UI tidy）を「完了・運用反映済み」へ反映し、`*_DBLink` の「ブラウザ確認残り」表記を解消しました。
+- 2026-07-03 の実退避で、P6 完了ログ一式 + DBLink ブラウザ確認ログ（計4件）を `.completed/` へ移動し、進行中一覧から退避済み一覧へ反映しました。

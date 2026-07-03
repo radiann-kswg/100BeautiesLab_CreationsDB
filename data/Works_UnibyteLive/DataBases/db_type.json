@@ -10,12 +10,6 @@
         "$display": { "langMode": "shared" }
       },
       {
-        "hashTag": "Generation",
-        "$type": "#Number|#Null",
-        "hashTag_JP": "配信者としての世代",
-        "hashTag_EN": "Generation of Streamer"
-      },
-      {
         "hashTag": "AlphaGen",
         "$type": "#Number|#Null",
         "hashTag_JP": "アルファベットごとの世代",
@@ -51,6 +45,13 @@
       "$type": "#Index",
       "hashTag_JP": "キーレター",
       "hashTag_EN": "Key-Letter"
+    },
+    {
+      "hashTag": "Generation",
+      "$type": "#Number|#Null",
+      "hashTag_JP": "アルベッツの世代",
+      "hashTag_EN": "Generation of ALPBETS",
+      "$display": { "unit_JP": "期生", "unit_EN": "Gen.", "unit_EN_ordinal": true }
     },
     {
       "hashTag": "ThisPerformer_DBLink",

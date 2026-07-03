@@ -1,5 +1,73 @@
 # 最新のリファクタリング・仕様変更履歴
 
+### fix: `Relation` のリンク表示名が英名寄りになるケースを修正（pageLang 優先） (2026-07-03)
+
+- **`lib/section-renders/relation.js`**:
+  - `Relation` / `RelationTo_*` のリンク名解決に `pickRelationRecordName()` を追加。
+  - JP表示時は `Name_JP` 系、EN表示時は `Name_EN` 系を優先するよう統一し、旧互換の `Name` はフォールバックへ移動。
+  - 同DB表示（同期）とクロスDBハイドレーション（非同期）で同じ命名優先ロジックを使うように整理。
+- **`tests/section-wrapper-common.test.js`**:
+  - `pageLang=jp` で `Relation` のリンクラベルが `Name_JP` を優先する回帰テストを追加。
+- テスト: `section-wrapper-common` / `pages.characters.ui-output`。
+
+### refine: `sec_Category` / `sec_DesignedBy` の二次創作情報 UI を整理（表示文脈の明確化 + テーブル統一） (2026-07-03)
+
+- **`pages/characters.js`**:
+  - `secondaryInfo` セクションを `isSecondaryDbName(dbName)` でガードし、`Secondary` / `SelfSecondary` / `UnprocessedSecondary` 文脈でのみ表示するように整理。
+  - セクション内の表示を「タグ + 段落」から `kvTable` ベースへ統一し、基本情報と同じ視認性・読み順に揃えた。
+  - `toDisplayNode()` 呼び出しに `recordContext` を渡し、辞書解決の文脈整合を強化。
+- **`tests/pages.characters.ui-output.test.js`**:
+  - 既存の `secondary metadata fields` 表示テストを維持。
+  - Primary 文脈では `sec_*` 値が存在しても `二次創作情報` セクションを出さない回帰テストを追加。
+- テスト: `pages.characters.ui-output` / `commons.secondaries`。
+
+### fix: `$display.unit` の和英対応と英語序数化（`0th Gen.`）を追加し、言語切替で別キャラへ飛ぶ不具合を修正 (2026-07-03)
+
+- **`pages/characters.js`**:
+  - `formatValueForDisplay()` の unit 処理を拡張し、`$display.unit_JP` / `$display.unit_EN` をページ言語で出し分けるように変更（未定義時は既存 `unit` へフォールバック）。
+  - `unit_EN_ordinal: true` 指定時、英語表示で `#Number` 系の値を序数化（`1st/2nd/3rd/...`）してから unit を付与するように対応。
+  - `collectIndexEntries()` の比較値 `value` を「表示文字列」ではなく raw 値に変更し、言語切替や表示フォーマット変更の影響を受けない一致判定へ修正。
+  - `getIndexIdentifierFromRecord()` を改善し、単一キーで一意に引けない場合は `idxKey=__conditions__` + JSON 条件（複合キー）を生成して同一レコードを再特定できるように対応。
+- **`data/Works_UnibyteLive/DataBases/db_type.json`**:
+  - `Generation.$display` に `"unit_EN_ordinal": true` を追加（英語表示を `0th Gen.` 形式に統一）。
+- **`tests/pages.characters.ui-output.test.js`**:
+  - `unit_JP` / `unit_EN + unit_EN_ordinal` の表示回帰（`0期生` / `0th Gen.`）を追加。
+  - 単一インデックスが曖昧なケースで複合識別子（`__conditions__`）が生成される回帰を追加。
+- テスト: `pages.characters.ui-output` / `wrapper-common` / `enrich.wrapper-summaries`（37 passed）。
+
+### fix: Day wrapper 表示を言語別（JP/EN）へ切替し、`5月19日` / `May.19` を出し分け (2026-07-03)
+
+- **`lib/wrapper-common.js`**: `daySummary` の日付本体を `context.pageLang` で分岐するよう修正。
+  - `lang=jp`（既定）: `5月19日`
+  - `lang=en`: `May.19`
+  - 注釈（`DayAbout_JP` / `DayAbout_EN`）は既存どおり role 解釈に従って末尾へ付与。
+- `#List_Month` が読み取れない経路でも、月番号 1..12 を `Jan..Dec` へフォールバックするため EN 表示が安定。
+- テスト更新:
+  - **`tests/wrapper-common.test.js`**: JP期待値を更新し、`pageLang: 'en'` の `May.19` ケースを追加。
+  - **`tests/enrich.wrapper-summaries.test.js`**: enrich の `wrapperSummaries.BirthDay` を JP既定表示へ更新。
+  - **`tests/pages.characters.ui-output.test.js`**: 基本情報テーブルの誕生日期待値を JP表示へ更新。
+- テスト: `wrapper-common` / `enrich.wrapper-summaries` / `pages.characters.ui-output`（35 passed）。
+
+### add: Day / Era / Area の typedef 駆動を SW/enrich 側へ拡張（role 解釈 + searchable 判定） (2026-07-03)
+
+- **`lib/data-common.js`**:
+  - `buildWrapperSummaries()` の wrapper 解決 `typeSources` に `globalMeta` と `mergedVars` 由来 source を追加。これにより `data/db_meta.json` の `General.$VarsDef.$Def_Day.$display.role`（`month`/`dayOfMonth`/`annotation`）を SW/enrich 側でも利用可能にし、field 名依存フォールバック（`Month`/`DayOfMonth` 固定）への依存を緩和。
+  - `TypeDefUtils.looksSearchableType()` に `#DictIndex` / `$Def_Day` / `$Def_StoryEra` / `$Def_BaseArea` を追加し、Day / Era / Area 系フィールドを `_enrichment.searchableText` の対象へ typedef 駆動で取り込み。
+- **`lib/sw-common.js`**: DB カタログ装飾（bootstrap / `works/{work}/db`）の wrapper summary 解決で `typeSources` に `globalMeta` を追加。
+- **`tests/enrich.wrapper-summaries.test.js`**:
+  - Day role 定義を vars 側に寄せたケース（`MM`/`DD`/`Note`）で `BirthDay` summary が `1/7（記念日）` になることを追加検証。
+  - Day/Era/Area 系型が `_enrichment.searchableText` に含まれることを追加検証。
+- テスト: `enrich.wrapper-summaries` / `sw.work-meta-info` / `pages.characters.ui-output`（32 passed）。
+- 参照: [`_work_in_progress/2026-07-03_progress_p6-day-era-area-typedef-sw-enrich.md`](_work_in_progress/2026-07-03_progress_p6-day-era-area-typedef-sw-enrich.md)。
+
+### add: bilingual wrapper の UI 列分割表示（StreamingActivity）を `_enrichment.bilingualWrapperFields` 駆動で実装 (2026-07-03)
+
+- **`pages/characters.js`**: enrich メタ `rec._enrichment.bilingualWrapperFields` を path キーで参照する `resolveBilingualWrapperMeta()` を追加。standalone section renderer へ `bilingualColumnsText` と同メタ resolver を helper として受け渡すよう変更。
+- **`lib/section-renders/streamingActivity.js`**: `streamingActivitySection` で子フィールドごとに `resolveBilingualWrapperMeta("<親>.<子>")` を照合し、bilingual wrapper（例: `StreamingGreeting` / `ListenerNickname`）は JP/EN を `bilingualColumnsText()` で 2 列表示するルートを追加。既存のタググリッド表示・Summary 表示は維持。
+- 目視確認: `Works_UnibyteLive` / `Primary` / `Letter.Generation=5`（S:ナーミィ）で `StreamingActivity` セクション内に `.bilingual-lines-grid` が 2 件生成されることを確認。
+- テスト: `pages.characters.syntax` / `pages.characters.ui-output` / `section-wrapper-common` / `enrich.wrapper-summaries`（32 passed）。
+- 参照: [`_work_in_progress/2026-07-03_progress_p6-bilingual-wrapper-ui.md`](_work_in_progress/2026-07-03_progress_p6-bilingual-wrapper-ui.md)。
+
 ### add: `*_DBLink` タグにクロスワーク参照先の創作名（作品タイトル）を併記 (2026-07-02)
 
 - **`lib/section-renders/dblink.js`**: `dbLinkSection` renderer で、参照先 `_Work` が現在表示中の作品と異なる（クロスワーク）場合のみ、キャラ名リンクの直後に参照先の作品タイトルを併記するようにした（例: `⇒ 零 零（ナンバーテールズ）`）。タイトルは非同期 hydrate で埋め、取得失敗時は無表示のまま（同一作品内の参照には併記しない）。
@@ -47,7 +115,7 @@
 ### fix: DeepL 用語集ソース生成の EN→JA 衝突を構造的に解消（併記形の分割・単数/複数の除外） (2026-07-02)
 
 - **`tools/deepl/build-glossary-source.mjs`**:
-  - `splitMultiForm()`（新規）: `Term_EN` に `"WDCE. / the \"World Development & Creation Era\""` のように略号と全文が併記されているエントリを、` / `（前後空白必須）または改行で分割する。`Demotion/Retrograde` のような複合語中のスラッシュ（前後空白なし）は分割しない。
+  - `splitMultiForm()`（新規）: `Term_EN` に `"WDCE. / the \"World Development & Creation Era\""` のように略号と全文が併記されているエントリを、`/`（前後空白必須）または改行で分割する。`Demotion/Retrograde` のような複合語中のスラッシュ（前後空白なし）は分割しない。
   - `buildJaEnMap()`: 併記形は**先頭断片**（本文中で優先的に使われる略号・優先表記）を JA→EN の訳語として採用するよう変更。
   - `buildEnJaMap()`: 併記形は**分割後の全断片**を個別の EN ソースキーとして登録するよう変更。これにより `ref_Society.json` の世代呼称（`WDCE.` 系）で、`Term_JP` 由来のペアと `Aliases` 由来のペアが同一の結合文字列キーに集約されて衝突していた問題（EN→JA 10件中ほぼ全てが自己参照ノイズ）を解消。
   - `isPluralPair()`（新規）: 単数形/複数形だけが異なる EN 候補（例: `Regiowner`/`Regiowners`）を検出した場合、JA→EN 用語集への登録を見送り `[文法差につき用語集登録なし]` として `glossary-conflicts.md` に候補を併記するのみに変更。JP側は文法上の数を持たないため、用語集で強制的に片方へ固定すると逆の文脈で誤訳になるため。EN→JA は元々キーが異なり衝突しないため両方とも正しく登録される。

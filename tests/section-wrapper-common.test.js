@@ -99,6 +99,65 @@ describe('section-wrapper-common registry', () => {
     expect(result?.children?.[0]?.nodes).toHaveLength(1);
   });
 
+  it('prefers Name_JP in Relation links when pageLang is jp', () => {
+    const registry = globalThis.CharacterSectionRendererRegistry;
+
+    const createElement = (tag, props = {}, children = []) => ({
+      tag,
+      props,
+      children: Array.isArray(children) ? children : [children]
+    });
+
+    const result = registry.renderWithRegisteredSectionRenderer(
+      {
+        key: 'Relation',
+        label: '関係キャラクター',
+        value: {
+          Related: [
+            { Num: 1, Comments: 'テストコメント' }
+          ]
+        },
+        display: { sectionWrapper: 'relationSection' }
+      },
+      {
+        isStandaloneSubField: true,
+        fieldLabelMap: {},
+        workMeta: {},
+        globalDefType: {},
+        fieldDisplayMap: {},
+        fieldTypeMap: {},
+        helpers: {
+          wrapStandaloneSection: (item, children) => ({ wrapped: item.key, children }),
+          relationApi: {
+            createElement,
+            createDetailTagGrid: (nodes) => ({ tag: 'grid', nodes }),
+            formatValueForDisplay: (value) => value,
+            dialogueBodyText: (text) => ({ tag: 'dialogue', text }),
+            getFieldLabel: (_key, _labelMap, _workMeta, _globalDefType, fallback) => fallback,
+            resolveVarsDefLabelPack: () => null,
+            formatBilingualLabel: (_pack, raw) => raw,
+            getWorkIndexField: () => ({ hashTag: 'Num' }),
+            getIndexSubDefs: () => [],
+            pickPrimaryIndexSubDef: () => null,
+            recordMatchesIndexQuery: (record, _indexDef, idxValue) => String(record?.Num) === idxValue,
+            buildViewerNavigationHref: (_workId, dbName, params) => `/?db=${dbName}&idx=${params.idx}&idxKey=${params.idxKey}&num=${params.num}`,
+            openDetail: async () => {},
+            openViewerNavigation: async () => {},
+            getCharState: () => ({
+              workId: '#Works_Test',
+              db: 'Primary',
+              pageLang: 'jp',
+              records: [{ Num: 1, Name: 'Legacy English', Name_JP: '日本語名', Name_EN: 'English Name' }]
+            })
+          }
+        }
+      }
+    );
+
+    const anchor = result?.children?.[0]?.nodes?.[0]?.children?.find((part) => part?.tag === 'a');
+    expect(anchor?.children?.[0]).toBe('日本語名');
+  });
+
   it('falls back to the structured object renderer matcher for plain objects', () => {
     const registry = globalThis.CharacterSectionRendererRegistry;
 
