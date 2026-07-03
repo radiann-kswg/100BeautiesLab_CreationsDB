@@ -21,25 +21,31 @@
 - 2026-06-13_remaining-task.md（希望タスク一覧・2026-06-13 時点。継続参照中）
 - 2026-06-12_progress_translation-style-unified.md（英訳ルール基準書・継続参照用）
 
+### 棚卸・運用管理（2026-07-03 追加）
+
+- 2026-07-03_progress-log-retire-candidates.md（`.completed` への退避候補リスト。2026-07-03 に候補A/Bの実移動を実施済み）
+- 2026-07-03_current-task-ledger.md（現行タスク台帳。進行中作業だけを集約した運用起点）
+
 ### 設計・仕様（進行中 or 継続参照）
 
 - 2026-07-01_progress_class-dict-scope-field.md（辞書行スコープタグ `scopeField` 追加・Belonging別Class辞書参照解決。✅ 実装・テスト完了。global/work $VarsDef マージの既存不具合修正込み）
 - 2026-06-21_progress_cloudflare-api-adr2-gcloud.md（ADR-0002 Draft・Google Cloud 画像生成バックエンド設計中）
 - 2026-06-13_progress_vocabulary-db.md（語彙DB実装完了・各作品の実データ入力は User 手動進行中）
 
-### GitHub / CI（User 判断待ち）
+### GitHub / CI
 
-- 2026-06-24_progress_github-triage.md（GitHub 未解決通知トリアージ: CodeQL alert PR #9・vitest Dependabot PR・cf-api-sync CI 失敗。⚠️ 全件 User 判断・手動操作待ち）
-- 2026-06-25_progress_github-triage.md（GitHub 未解決問題トリアージ 2 回目。⚠️ PR #9・vitest Dependabot PR・cf-api-sync 確認は全件 User 判断待ち）
+- triage 履歴（2026-06-24 / 2026-06-25 / 2026-07-01 / 2026-07-02 / 2026-07-03）は 2026-07-03 の棚卸しで `.completed/` へ退避済み。
+- 最新結論: 2026-07-03 時点で未解決項目は該当なし（詳細は `.completed/2026-07-03_progress_github-triage.md` を参照）。
 
 ### ブランチ運用（記録）
 
 - 2026-07-02_progress_addon-ai-tag-reverse-merge-incident.md（`addon-ai-tag`→`develop` 逆マージ誤発生（`b0c539c`）と revert（`f9a3ebe`）による是正の経緯記録。✅ `develop` は運用方針どおりの状態に復帰済み・巻き添え削除されたログの実体は `addon-ai-tag` 側に残存確認済み。⚠️ `addon-ai-tag` 側ログへの後日談追記は別ブランチ作業待ち）
+- 2026-06-28_progress_conversationpattern-handoff.md（ConversationPattern 補完の本体→sub2 引き継ぎ記録。sub2 側 stale lock 解消・最終コミット・本体側 WIP 取り下げなどの手動作業が残）
 
 ### データ / ローカライズ（User 手動作業残り）
 
 - 2026-06-22_progress_jp-en-naming-standardization.md（JP/EN フィールド命名標準化・**Phase 2〜5 全完了** ⚠️ D1/R2 再同期は手動実施が必要）
-- 2026-06-24*progress_localization-db.md（英訳固有辞書 DB（Localization レイヤー）実装。✅ 130/130 pass。trans_Dict.json → trans*{Category}.json 分割完了（2026-06-25）。Summary 入力・TransPolicy 確認・能力名等の追記は User 手動）
+- 2026-06-24_progress_localization-db.md（英訳固有辞書 DB（Localization レイヤー）実装。✅ 130/130 pass。trans_Dict.json → trans_{Category}.json 分割完了（2026-06-25）。Summary 入力・TransPolicy 確認・能力名等の追記は User 手動）
 - 2026-06-25_progress_localization-summary-inputs.md（Localization Summary 入力進捗チェックリスト。地名 9/13 ✅・人物名 11/13 ✅・SI 9/9 ✅・残 7 件 User 入力待ち）
 - 2026-06-28_progress_deepl-localization.md（DeepL 翻訳のローカライズ運用組み込み。用語集生成/同期/添削スクリプト・`docs/deepl-localization.md`・用語集実登録 JA-EN144/EN-JA138（大陸名修正後）。✅ 疎通確認済み。⚠️ `npm test` ローカル確認・`.env` 設定・コミットは User 端末で）
 - 2026-07-02_progress_deepl-glossary-multiform.md（DeepL 用語集ソースの EN→JA 衝突を解消。`build-glossary-source.mjs` に併記形分割・単数複数の除外・正式名vs通称の文脈依存除外ロジックを追加、`ref_Society.json` の `Aliases` 整理。✅ `npm run deepl:build-glossary` / `npm test` 152 passed 確認済み。⚠️ `deepl:sync-glossary` 実反映は User 判断待ち）
@@ -57,6 +63,10 @@
 - 2026-06-18_progress_dblink-enrich.md（`*_DBLink` suffix エンリッチ処理・実装済み・typedef 設定済み（`AnotherRegions_DBLink`: `$enrich:true`）。⚠️ ブラウザ動作確認が残）
 - 2026-06-18_progress_dblink-renderer.md（`*_DBLink` suffix セクションレンダラー `dbLinkSection` 実装済み・`db_type.json` / NT `db_type.json` 追記済み・実データあり。⚠️ ブラウザ動作確認が残 → **Copilot で対応予定**）
 
+### 機能実装（完了・運用反映済み）
+
+- 2026-07-03_progress_dblink-browser-check.md（`*_DBLink` 表示のブラウザ確認を実施。クロスワーク参照で JP は全角括弧、EN は半角括弧で作品名併記されることを確認）
+
 ### カレンダー
 
 - 2026-06-24_progress_calendar-ics.md（誕生日・記念日の Google カレンダー連携: ICS 自動生成・配信。✅ 配信確認済み・購読登録済み。⚠️ Google カレンダー初回同期待ち）
@@ -69,8 +79,6 @@
 
 ### 2026-07-01 完了
 
-- 2026-07-01_progress_appearance-detail-ear-en.md（AppearanceDetail 耳まわり `value_EN`/`about_EN` 未入力 25 件補完完了。vitest 18ファイル/110テスト pass。⚠️ 訳文の最終確認・コミットは User 手動）
-- 2026-07-01_progress_readme-local-agents-rule.md（README.LOCAL.md ローカル作業メモ運用ルール追加。`CLAUDE.md` / `.github/copilot-instructions.md` に運用小節追加・`CHANGELOG.md` 追記完了。⚠️ commit/push は User 手動）
 - 2026-07-01_progress_conversationpattern-refine.md（ナンバーテールズ ConversationPattern 推敲完了: Num8〜99+特殊枠90キャラ。136 pass ✅。⚠️ DialogueExamples 入力・コミットは User 手動予定）
 - 2026-07-01_progress_copilot-localization-en.md（Copilot 英訳補助環境整備: `localization-en.instructions.md` + 早見表 `docs/localization-glossary-quickref.md`（164件）+ ジェネレータ `deepl:build-quickref` 実装完了。⚠️ `npm test`（Windows）・コミット/push は User 手動）
 
@@ -166,3 +174,5 @@
   - `2026-06-21_progress_claude-md-merge.md`（CLAUDE.md 統合更新完了）
   - `2026-06-21_progress_cloudflare-api-adr.md`（ADR-0001 Cloudflare Workers 実装完了）
 - 2026-06-29 の棚卸しで、2026-06-24 〜 2026-06-29 の完了済みファイルをステータス更新。未登録だった 2026-06-27（ × 3）・2026-06-29（ × 2）のログを一覧に追加しました。
+- 2026-07-03 の棚卸しで、README 掲載漏れ（2026-06-28 handoff / 2026-07-01〜07-03 github-triage / 2026-07-02 jump-dblinkref）を補完し、`2026-06-24_progress_localization-db.md` の表記ゆれを修正しました。
+- 2026-07-03 の実行対応で、退避候補 A/B（計8件）を `.completed/` へ移動し、`*_DBLink` ブラウザ確認ログ `2026-07-03_progress_dblink-browser-check.md` を追加しました。
