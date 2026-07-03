@@ -16,6 +16,12 @@
   - `2026-07-02_progress_github-triage.md`
   - `2026-06-25_progress_github-triage.md`
   - `2026-06-24_progress_github-triage.md`
+- 同日の追加実行で、以下 4 ファイルも `.completed/` へ移動済み:
+  - `2026-07-03_progress_dblink-browser-check.md`
+  - `2026-07-03_progress_p6-bilingual-wrapper-ui.md`
+  - `2026-07-03_progress_p6-day-era-area-typedef-sw-enrich.md`
+  - `2026-07-03_progress_p6-secondary-ui-tidy.md`
+- 合計 12 ファイルを退避完了。
 
 ## 退避判定ルール（今回）
 
@@ -33,6 +39,14 @@
   - 理由: 運用ルール追記が完了済みで、残りは commit/push のみ。
 - `2026-07-01_progress_appearance-detail-ear-en.md`
   - 理由: データ補完とテスト完了。残りは訳文最終確認とコミットのみ。
+- `2026-07-03_progress_p6-bilingual-wrapper-ui.md`
+  - 理由: 実装・テスト・CHANGELOG反映まで完了済み。
+- `2026-07-03_progress_p6-day-era-area-typedef-sw-enrich.md`
+  - 理由: 実装・テスト・CHANGELOG反映まで完了済み。
+- `2026-07-03_progress_p6-secondary-ui-tidy.md`
+  - 理由: 実装・回帰テスト・台帳反映まで完了済み。
+- `2026-07-03_progress_dblink-browser-check.md`
+  - 理由: 目視確認ログとして完了済みで、現行タスク起点としての参照頻度は低い。
 
 ## 候補 B（退避可能だが、ひとまとまりで判断推奨）
 
@@ -58,6 +72,6 @@
 
 ## 推奨アクション
 
-1. 候補 A を先に `.completed` へ移す。
-2. 候補 B は「triage 履歴一式」としてまとめて移す。
-3. 候補 C は現行タスク台帳で継続管理する。
+1. 候補 A/B は退避済みとして扱う。
+2. 候補 C は現行タスク台帳で継続管理する。
+3. 次回棚卸し時は、候補 C のうち完了化したログだけを同手順で `.completed` へ移動する。
