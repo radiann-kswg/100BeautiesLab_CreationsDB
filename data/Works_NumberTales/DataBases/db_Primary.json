@@ -15288,18 +15288,18 @@
       "ConversationNotes_EN": "Ze worries somewhat about whether the shrine maiden side job -- started as a good-luck play on zir name -- might be causing zir to neglect zir primary role as a NumberTales master-servant. In others' eyes, though, ze balances both quite well, and even if ze won't admit it, ze doesn't seem to mind the side job at all (which is also where the nickname '35(Míko)' comes from 'shrine maiden' in Far-Eastern).",
       "DialogueExamples": [
         {
-          "value_JP": "「ナンバーテールズ35番機の『35(サトコ)』。これから従者としてなんなりと……えっ、『35(ミコ)』？北第三県神社で私を見た？あれは副業だよ、本業はこっち。とにかく、これからよろしくね、兄者/姉者」",
-          "value_EN": "\"I'm NumberTales #35, '35(Thirfivan)'. From now on, please feel free to ask anything of me as your servant... huh, '35(Míko)'? You saw me at North Third Prefecture Shrine? That's my side job -- this is my main role. Anyway, nice to work with you from here on, bro/sis.\"",
+          "value_JP": "「ナンバーテールズ35番機の『35(サトコ)』。……えっ、『35(ミコ)』？北第三県神社で私を見た？あぁ、一応整理しておくよ。あれは副業で、こっちが本業。これから従者として、何なりと使ってね。兄者/姉者」",
+          "value_EN": "\"I'm NumberTales #35, '35(Thirfivan)'. ...Huh, '35(Míko)'? You saw me at North Third Prefecture Shrine? Ah, let me clear that up for you. That's my side job -- this is my main role. From now on, feel free to use me however you like as your servant, bro/sis.\"",
           "about_JP": "契約時の自己紹介",
           "about_EN": "Self-introduction at the time of contract"
         },
         {
-          "value_JP": "「副業の巫女バイトでシフトを不要に入れられたし、本業のナンバーテールズの主従業が疎かになってきてるから 少しでも印象は良く持ってもらわないと」",
-          "value_EN": "\"I've been getting shifts piled on unnecessarily for my shrine maiden side job, and it's starting to make my main NumberTales master-servant work suffer, so I need to at least keep a good impression.\""
+          "value_JP": "「副業の巫女バイトでシフトを不要に入れられたし、本業のナンバーテールズの主従業が疎かになってきてる。できればこっちの本業を優先したいから、少しでも顧客である兄者/姉者に良い印象を持ってもらえるように 両立のバランスは調整していかないとね……」",
+          "value_EN": "\"I've been given more shifts than I need for my side job as a shrine maiden, and it's starting to get in the way of my main role as a NumberTales master-servant. I'd like to prioritize my main job if I can, so I need to adjust the balance between the two so you, my valued client, bro/sis, can still keep a good impression of me, even just a little...\""
         },
         {
-          "value_JP": "「確かに不要物の処分や汚れの除去は終わったけど、これからは残ったものを片付けないといけないね」",
-          "value_EN": "\"Sure, I've finished disposing of the unnecessary items and removing the grime, but now I still need to tidy up what's left.\""
+          "value_JP": "「確かに不要物の処分や汚れの除去は終わったから、次は家具の整理と再配置だね。ついでに片付けの段取りも変えて、より動きやすくできるようにするよ、兄者/姉者」",
+          "value_EN": "\"Alright, disposing of unnecessary items and removing the grime is done, so next is organizing and rearranging the furniture. While I'm at it, I'll also change up the tidying process so it's easier to move around, bro/sis.\""
         }
       ]
     }
