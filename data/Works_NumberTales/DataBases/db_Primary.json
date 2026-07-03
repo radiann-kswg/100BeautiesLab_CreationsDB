@@ -15288,18 +15288,18 @@
       "ConversationNotes_EN": "Ze worries somewhat about whether the shrine maiden side job -- started as a good-luck play on zir name -- might be causing zir to neglect zir primary role as a NumberTales master-servant. In others' eyes, though, ze balances both quite well, and even if ze won't admit it, ze doesn't seem to mind the side job at all (which is also where the nickname '35(Míko)' comes from 'shrine maiden' in Far-Eastern).",
       "DialogueExamples": [
         {
-          "value_JP": "「ナンバーテールズ35番機の『35(サトコ)』。これから従者としてなんなりと……えっ、『35(ミコ)』？北第三県神社で私を見た？あれは副業だよ、本業はこっち。とにかく、これからよろしくね、兄者/姉者」",
-          "value_EN": "\"I'm NumberTales #35, '35(Thirfivan)'. From now on, please feel free to ask anything of me as your servant... huh, '35(Míko)'? You saw me at North Third Prefecture Shrine? That's my side job -- this is my main role. Anyway, nice to work with you from here on, bro/sis.\"",
+          "value_JP": "「ナンバーテールズ35番機の『35(サトコ)』。……えっ、『35(ミコ)』？北第三県神社で私を見た？あぁ、一応整理しておくよ。あれは副業で、こっちが本業。これから従者として、何なりと使ってね。兄者/姉者」",
+          "value_EN": "\"I'm NumberTales #35, '35(Thirfivan)'. ...Huh, '35(Míko)'? You saw me at North Third Prefecture Shrine? Ah, let me clear that up for you. That's my side job -- this is my main role. From now on, feel free to use me however you like as your servant, bro/sis.\"",
           "about_JP": "契約時の自己紹介",
           "about_EN": "Self-introduction at the time of contract"
         },
         {
-          "value_JP": "「副業の巫女バイトでシフトを不要に入れられたし、本業のナンバーテールズの主従業が疎かになってきてるから 少しでも印象は良く持ってもらわないと」",
-          "value_EN": "\"I've been getting shifts piled on unnecessarily for my shrine maiden side job, and it's starting to make my main NumberTales master-servant work suffer, so I need to at least keep a good impression.\""
+          "value_JP": "「副業の巫女バイトでシフトを不要に入れられたし、本業のナンバーテールズの主従業が疎かになってきてる。できればこっちの本業を優先したいから、少しでも顧客である兄者/姉者に良い印象を持ってもらえるように 両立のバランスは調整していかないとね……」",
+          "value_EN": "\"I've been given more shifts than I need for my side job as a shrine maiden, and it's starting to get in the way of my main role as a NumberTales master-servant. I'd like to prioritize my main job if I can, so I need to adjust the balance between the two so you, my valued client, bro/sis, can still keep a good impression of me, even just a little...\""
         },
         {
-          "value_JP": "「確かに不要物の処分や汚れの除去は終わったけど、これからは残ったものを片付けないといけないね」",
-          "value_EN": "\"Sure, I've finished disposing of the unnecessary items and removing the grime, but now I still need to tidy up what's left.\""
+          "value_JP": "「確かに不要物の処分や汚れの除去は終わったから、次は家具の整理と再配置だね。ついでに片付けの段取りも変えて、より動きやすくできるようにするよ、兄者/姉者」",
+          "value_EN": "\"Alright, disposing of unnecessary items and removing the grime is done, so next is organizing and rearranging the furniture. While I'm at it, I'll also change up the tidying process so it's easier to move around, bro/sis.\""
         }
       ]
     }
@@ -32498,6 +32498,44 @@
           "Comments": "「色んな意味で\"高級ピアノ君\"」",
           "Comments_EN": "A 'luxury piano guy' in every sense of the word.",
           "RelationLabel": ["classmate"]
+        }
+      ]
+    },
+    "ConversationPattern": {
+      "TalkingTone_JP": "知識欲旺盛で理知的な話し方をするが、自分に自信がなく言葉の選び方や話すテンポが少しおどおどしい。",
+      "TalkingTone_EN": "Speaks in a knowledgeable, intellectual manner, but her lack of self-confidence leaves her word choice and pace of speech a little timid.",
+      "TopicPreference_JP": "自信不振で不要に理知的な性質が会話の端々に出やすく、相手のペースや関心など様子をうかがいながらの会話が主体。また常に謙譲的な姿勢で接する。",
+      "TopicPreference_EN": "Lacking confidence and unnecessarily intellectual — these traits tend to surface throughout conversation, and she mostly converses while gauging the other person's pace and interests. She also maintains a consistently modest, humble attitude.",
+      "TalkFrequency_JP": "自ら話しかけることは多くないが、自分に興味のある話題や話の流れ次第で会話が弾むことがある。聞き役に回ることも多いが、情報共有の場では少し積極的になる。",
+      "TalkFrequency_EN": "Does not initiate conversation often, but it can pick up depending on topics she's interested in or how the flow goes. Often takes on a listening role, but becomes a little more proactive when it comes to sharing information.",
+      "PreferredTopics_JP": "専門書や同人誌などの書物や読書に関わる話題を好む。また知識や知見および知的向上心のある人とは自然と接しやすい。",
+      "PreferredTopics_EN": "Prefers topics related to books and reading, such as specialized texts and dōjinshi. Also finds it easy to naturally connect with people who value knowledge, insight, and a desire for intellectual growth.",
+      "AvoidedTopics_JP": "非合理的・非常識なことは極めて苦手であり、特に知性や向上心に欠ける態度をとる相手との会話では顕著に困惑してしまう。",
+      "AvoidedTopics_EN": "Extremely uncomfortable with anything irrational or nonsensical, and becomes especially flustered in conversations with those who show a lack of intelligence or ambition to improve.",
+      "ConversationNotes_JP": "知識への執着が強い余り変人に見られやすい。また（分厚いレンズの眼鏡が付属したヘッドセットを取ると）意外と美貌のある顔つきをしているが、自分の容姿や外見についてそのような自覚はあまりない。",
+      "ConversationNotes_EN": "Her strong attachment to knowledge tends to make her come across as eccentric. Also, (when she takes off the headset with its thick-lensed glasses) she turns out to have a surprisingly beautiful face, though she has little awareness of that about her own appearance.",
+      "DialogueExamples": [
+        {
+          "value_JP": "「ナンバーテールズ76番機の、『76(シチロク)』です……今後よろしくお願いします」",
+          "value_EN": "\"I'm NumberTales #76, '76(Sevsix)'... I look forward to working with you from here on.\"",
+          "about_JP": "契約時の自己紹介",
+          "about_EN": "Self-introduction at the time of contract"
+        },
+        {
+          "value_JP": "「……あの。今度良かったら、主人先生の読んでいらっしゃる本とか、お伺いしてもよろしいでしょうか…？わたし、読書とかけっこう好きなんです」",
+          "value_EN": "\"...Um. If it's okay, next time may I ask what books you're reading, Master-sensei...? I actually quite like reading, myself.\""
+        },
+        {
+          "value_JP": "「今読んでいる本、ですか？これは……『第6の世界創造と世界破壊』についての評論本です。ちょっと難しい話ですけど、人間の歴史とか、文化とか、技術とか……いろんなことを知ることができて、とても興味深い本なんですよ。よかったら、主人先生も読んでみます？」",
+          "value_EN": "\"The book I'm reading right now? This one is... a critical essay about 'The 6th World Development & Creation and World Destruction Pandemic' (WDC.VI / WDP.VI). It's a bit of a difficult topic, but it lets you learn all sorts of things — human history, culture, technology... it's a genuinely fascinating book. If you'd like, would you try reading it too, Master-sensei?\"",
+          "about_JP": "自分の有する本や知識に興味を持たれた時（ちなみに：『世界創造』と『世界破壊』はこの創作世界独自の歴史用語）",
+          "about_EN": "When someone shows interest in the books or knowledge she has (note: 'WDC: World Development & Creation' and 'WDP: World Destruction Pandemic' are historical terms unique to this fictional world)"
+        },
+        {
+          "value_JP": "「ひゃう！や、やめでください！この眼鏡……ヘッドセットを外しても、そんなにいい顔はみれませんよぉ！」",
+          "value_EN": "\"Hyah! N-no, please stop! Even without this headset... these glasses, you won't see that great a face anyway!\"",
+          "about_JP": "眼鏡付きのヘッドセットを取られそうになっているとき",
+          "about_EN": "When someone is about to take the glasses-equipped headset off her"
         }
       ]
     }
