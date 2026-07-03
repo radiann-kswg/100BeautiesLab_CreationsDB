@@ -60,12 +60,11 @@
 
 ### 機能実装（ブラウザ確認残り）
 
-- 2026-06-18_progress_dblink-enrich.md（`*_DBLink` suffix エンリッチ処理・実装済み・typedef 設定済み（`AnotherRegions_DBLink`: `$enrich:true`）。⚠️ ブラウザ動作確認が残）
-- 2026-06-18_progress_dblink-renderer.md（`*_DBLink` suffix セクションレンダラー `dbLinkSection` 実装済み・`db_type.json` / NT `db_type.json` 追記済み・実データあり。⚠️ ブラウザ動作確認が残 → **Copilot で対応予定**）
+- なし（2026-07-03 棚卸しで、`*_DBLink` 系のブラウザ確認は完了扱いへ移行）
 
 ### 機能実装（完了・運用反映済み）
 
-- 2026-07-03_progress_dblink-browser-check.md（`*_DBLink` 表示のブラウザ確認を実施。クロスワーク参照で JP は全角括弧、EN は半角括弧で作品名併記されることを確認）
+- なし（2026-07-03 の実退避で .completed へ移動）
 
 ### カレンダー
 
@@ -108,6 +107,10 @@
 
 ## 完了（.completed へ退避済み）
 
+- 2026-07-03_progress_dblink-browser-check.md（`*_DBLink` 表示のブラウザ確認を実施。クロスワーク参照で JP は全角括弧、EN は半角括弧で作品名併記されることを確認）
+- 2026-07-03_progress_p6-bilingual-wrapper-ui.md（P6: bilingual wrapper UI 実装完了）
+- 2026-07-03_progress_p6-day-era-area-typedef-sw-enrich.md（P6: Day/Era/Area typedef 駆動の SW/enrich 拡張完了）
+- 2026-07-03_progress_p6-secondary-ui-tidy.md（P6: `sec_Category` / `sec_DesignedBy` の二次創作情報 UI 整理を実装完了）
 - 2026-06-23_progress_security-ci-audit.md（GitHub 通知 6 件 + audit fix 完全対処済み）
 - 2026-06-21_progress_cloudflare-api-adr.md（ADR-0001 Cloudflare Workers 実装完了・初回デプロイ済み）
 - 2026-06-21_progress_claude-md-merge.md（CLAUDE.md 統合更新完了）
@@ -176,3 +179,5 @@
 - 2026-06-29 の棚卸しで、2026-06-24 〜 2026-06-29 の完了済みファイルをステータス更新。未登録だった 2026-06-27（ × 3）・2026-06-29（ × 2）のログを一覧に追加しました。
 - 2026-07-03 の棚卸しで、README 掲載漏れ（2026-06-28 handoff / 2026-07-01〜07-03 github-triage / 2026-07-02 jump-dblinkref）を補完し、`2026-06-24_progress_localization-db.md` の表記ゆれを修正しました。
 - 2026-07-03 の実行対応で、退避候補 A/B（計8件）を `.completed/` へ移動し、`*_DBLink` ブラウザ確認ログ `2026-07-03_progress_dblink-browser-check.md` を追加しました。
+- 2026-07-03 の再棚卸しで、P6完了ログ（bilingual wrapper / Day-Era-Area typedef / secondary UI tidy）を「完了・運用反映済み」へ反映し、`*_DBLink` の「ブラウザ確認残り」表記を解消しました。
+- 2026-07-03 の実退避で、P6 完了ログ一式 + DBLink ブラウザ確認ログ（計4件）を `.completed/` へ移動し、進行中一覧から退避済み一覧へ反映しました。
