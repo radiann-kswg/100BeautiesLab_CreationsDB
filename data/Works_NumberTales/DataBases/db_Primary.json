@@ -462,9 +462,9 @@
       "DialogueExamples": [
         {
           "value_JP": "「ぼくは ナンバーテールズ試作型１号機、もとい１番機の『1(ハジメ)』！これからもよろしく！」",
-          "value_EN": "\"I'm 1(Unitta) — NumberTales Prototype Mk.1, and also NumberTales #1! Nice to meet you!\"",
+          "value_EN": "\"I'm 1(Unitta) — NumberTales Prototype Unit.1, or rather, Mk.1! Nice to meet you!\"",
           "about_JP": "初対面時の自己紹介",
-          "about_EN": "Introduction upon first meeting"
+          "about_EN": "Self-introduction on first meeting"
         },
         {
           "value_JP": "（…ん？あっちのプロセスでエラーが出てる気が…ちょっと見に行ってみよかな）",
@@ -1098,14 +1098,14 @@
       "ConversationNotes_EN": "Symmetrical to her twin sister \"1(Unitta)\", who lives true to herself, she values cooperation with others. Also has a side that seeks comfort and healing from women who are easy to rely on, with \"9(Nina)\" being a prime example.",
       "DialogueExamples": [
         {
-          "value_JP": "「私は ナンバーテールズ２号機こと２番機の『2(ツグ)』です！これからもよろしくお願いします！」",
-          "value_EN": "\"I'm 2(Twiny) — NumberTales Unit.2, and also NumberTales #2! Nice to meet you!\"",
+          "value_JP": "「私は ナンバーテールズ２番機の『2(ツグ)』です！これからもよろしくお願いします！」",
+          "value_EN": "\"I'm 2(Twiny) — NumberTales #2! Nice to meet you!\"",
           "about_JP": "契約時の自己紹介",
-          "about_EN": "Introduction upon first meeting"
+          "about_EN": "Self-introduction at the time of contract"
         },
         {
           "value_JP": "「私は1(ハジメ)ちゃんたちの代わりというか、ナンバーテールズの主従契約で最初の番号を担っているんです。1(ハジメ)ちゃんは『原初(はじまり)の番号として1番機のぼくは裏方が似合っているんだ』と言っていたけど……そのためにも私は、ナンバーテールズのみんなを取りまとめないとなぁって思っているんです」",
-          "value_EN": "\"I suppose I'm sort of standing in for '1(Unitta)' and the others — under the NumberTales master-servant contracts, I'm the one who ends up holding the very first number. '1(Unitta)' told me, 'As the original number, I feel like Unit.1 suits being behind the scenes,' though... so because of that too, I feel like I need to be the one holding all the NumberTales together.\""
+          "value_EN": "\"I suppose I'm sort of standing in for '1(Unitta)' and the others — under the NumberTales master-servant contracts, I'm the one who ends up holding the very first number. '1(Unitta)' told me, 'As the original number, I feel like Mk.1 suits being behind the scenes,' though... so because of that too, I feel like I need to be the one holding all the NumberTales together.\""
         }
       ]
     },
@@ -1606,7 +1606,7 @@
           "value_JP": "「ナンバーテールズ３号機で３番機の『3(ナオ)』だよ。これから君との活動が楽しみだ」",
           "value_EN": "\"I'm NumberTales Unit.3, also known as NumberTales #3, 3(Treiya). I'm looking forward to our activities together.\"",
           "about_JP": "契約時の自己紹介",
-          "about_EN": "Introduction upon first meeting"
+          "about_EN": "Self-introduction at the time of contract"
         },
         {
           "value_JP": "「新作のゲームの話でもしない？最近人気シリーズの新作が出たみたいだから、ちょっと興味があるんだ」",
@@ -2144,7 +2144,7 @@
       "DialogueExamples": [
         {
           "value_JP": "「ナンバーテールズ４番機の『4(モチ)』だよ、これからもよろしくね。お兄ちゃん/お姉ちゃん」",
-          "value_EN": "\"I'm NumberTales Unit 4, '4(Forna)'. Nice to be with you from here on too, big bro/sis.\"",
+          "value_EN": "\"I'm NumberTales #4, '4(Forna)'. Nice to be with you from here on too, big bro/sis.\"",
           "about_JP": "契約時の自己紹介",
           "about_EN": "Self-introduction at the time of contract"
         },
@@ -2784,9 +2784,9 @@
       "DialogueExamples": [
         {
           "value_JP": "「おっす！アタシ、ナンバーテールズ５番機の5(イズ)！今日からよろしくな！」",
-          "value_EN": "\"Yo! I'm 5(Fifa), NumberTales' Unit.5! Nice to meet ya, starting today!\"",
+          "value_EN": "\"Yo! I'm 5(Fifa), NumberTales #5! Nice to meet ya, starting today!\"",
           "about_JP": "契約時の自己紹介",
-          "about_EN": "Introduction upon first meeting"
+          "about_EN": "Self-introduction at the time of contract"
         },
         {
           "value_JP": "「だって気になるじゃないか、いつも使ってる休憩室でバリケード張られてたらよ～。入室許可もらってるから問題ないでしょ？」",
@@ -2794,7 +2794,7 @@
         },
         {
           "value_JP": "「あー…メリーか誰か知んねえけど、ミラノピザ9801番町店の奴か？いい加減注文早く届けてくれよ腹減ってんだ」",
-          "value_EN": "\"Ah... I don't know if it's Mary or someone else, but is it the guy from Milano Pizza in Street.9801 shop? Hurry up and deliver my order, I'm starving.\"",
+          "value_EN": "\"Ah... dunno if it's Mary or whoever, but is this the delivery guy from the Milano Pizza branch in Bancho-9801? Hurry up and get my order here already, I'm starving.\"",
           "about_JP": "場面の乱数調整をしているとき（メリーさん(怪奇現象)から電話を受け取った場合）",
           "about_EN": "When she is adjusting the randomness of the situation (if she receives a call from Mary-san (paranormal phenomenon))"
         },
@@ -2812,7 +2812,7 @@
         },
         {
           "value_JP": "「ただし これはあくまでも研究室構内とナンバーテールズの許可のもとで行っているぞ！これを真似てリアルでやるのは辞めような！ ナンバーテールズとの約束だぞっ☆」",
-          "value_EN": "\"However, this is only being done with the permission of the laboratory and the NumberTales! Don't try to imitate this in real life! Please promise with the NumberTales, okay?☆\"",
+          "value_EN": "\"But keep in mind, this is only happening with the lab's permission and the NumberTales' okay! Don't go trying this for real! That's a promise, between you and the NumberTales, got it?☆\"",
           "about_JP": "急にナレーションを担いメタネタに奔った時",
           "about_EN": "When she suddenly takes on the role of narrator and goes off on a meta joke"
         }
@@ -3350,7 +3350,7 @@
           "value_JP": "「お初にお目にかかります、ご主人様。私はナンバーテールズ6号機の『6(ムイ)』、これからご主人様のお世話になります。どうぞよろしくお願いいたしますね♪」",
           "value_EN": "\"Nice to meet you, Master. I am NumberTales Unit.6, '6(Sics)'. I look forward to serving you from now on♪\"",
           "about_JP": "契約時の自己紹介",
-          "about_EN": "Introduction upon first meeting"
+          "about_EN": "Self-introduction at the time of contract"
         },
         {
           "value_JP": "「おはようございます、ご主人様。本日も良い天気でございますね」",
@@ -3904,13 +3904,13 @@
       "AvoidedTopics_JP": "非常識は苦手であり、それに絡む話題や振る舞いは会話の中で避けがちになる。また、イメージトレーニング中に話しかけられることが大の苦手。",
       "AvoidedTopics_EN": "Uncomfortable with Lack of common sense, and tends to steer away from topics or behaviors that touch on it. Also, being spoken to during image training is a major discomfort.",
       "ConversationNotes_JP": "（「5(イズ)」のような）過度にマイペースでありながらその裏で意識の高い言動をする人物に対し、自分の方が意識が高く有能だという強い対抗意識がある。また、自身の専門分野や趣味趣向・就学の趣向が合う（「70(ナナト)」のような）人物に強い仲間意識を抱きやすい。",
-      "ConversationNotes_EN": "Has a strong competitive streak toward those who are overly laid-back yet act with high awareness (like '5(Fifa)'). Also tends to feel a strong sense of camaraderie with those whose areas of expertise, hobbies, and study preferences align with her own (like '70(Seventia)').",
+      "ConversationNotes_EN": "Has a strong competitive streak toward those who are overly laid-back yet act with high awareness (like '5(Fifa)'). Also tends to feel a strong sense of camaraderie with those whose areas of expertise, hobbies, and study preferences align with zir own (like '70(Seventia)').",
       "DialogueExamples": [
         {
           "value_JP": "「拙者はナンバーテールズ7号機の『7(ナナ)』、今後は主殿の従者としてよろしく頼む。」",
           "value_EN": "\"I am NumberTales Unit.7, '7(Sevan)'. I look forward to serving you, my lord, as your retainer from now on.\"",
           "about_JP": "契約時の自己紹介",
-          "about_EN": "Introduction upon first meeting"
+          "about_EN": "Self-introduction at the time of contract"
         },
         {
           "value_JP": "「……主殿、しばしそっとしておいてくれぬか。拙者いま勉学が立て込んでいるのだが……」",
@@ -4477,7 +4477,7 @@
           "value_JP": "「あてはナンバーテールズ8号機の『8(ワカツ)』！兄貴、これからよろしくね！」",
           "value_EN": "\"I'm '8(Eighas)', NumberTales Unit.8! Bro/Sis, nice to meet you from here on!\"",
           "about_JP": "契約時の自己紹介",
-          "about_EN": "Introduction upon first meeting"
+          "about_EN": "Self-introduction at the time of contract"
         },
         {
           "value_JP": "「兄貴/姉貴 それ、ちょっと見せて！もしかしたらもっといい物にアップグレードできるかもよ！」",
@@ -5016,9 +5016,9 @@
       "DialogueExamples": [
         {
           "value_JP": "「ナンバーテールズ ９番機の『9(チカ)』よ。坊や/お嬢さんが辛いときの支えになれたら嬉しいわ♡」",
-          "value_EN": "\"I'm '9(Nina)', NumberTales Unit.9. I'd be happy if I can support you, young sir/lady, when things feel hard.♡\"",
+          "value_EN": "\"I'm '9(Nina)', NumberTales #9. I'd be happy if I can support you, young sir/lady, when things feel hard.♡\"",
           "about_JP": "契約時の自己紹介",
-          "about_EN": "Self-introduction at contract"
+          "about_EN": "Self-introduction at the time of contract"
         },
         {
           "value_JP": "「…あらあら。あの子ったらまた陰でこっそり愚痴なんか零しちゃって……」",
@@ -7777,7 +7777,7 @@
           "value_JP": "「私は ナンバーテールズ14番機の『14(トヨ)』。今後もよろしくね」",
           "value_EN": "\"I'm '14(Forteels)', NumberTales #14. Looking forward to working with you from here on too.\"",
           "about_JP": "契約時の自己紹介",
-          "about_EN": "Self-introduction at contract"
+          "about_EN": "Self-introduction at the time of contract"
         },
         {
           "value_JP": "「ふーん、相当面白そうじゃない」",
@@ -10994,7 +10994,7 @@
           "value_JP": "「ナンバーテールズ20番機の『20(ハツカ)』です。ふつつかものですが、今後もよろしくお願いします。」",
           "value_EN": "\"I am '20(Twentia)', NumberTales #20. I may still be inexperienced, but I humbly ask for your continued guidance.\"",
           "about_JP": "契約時の自己紹介",
-          "about_EN": "Self-introduction at contract"
+          "about_EN": "Self-introduction at the time of contract"
         },
         {
           "value_JP": "「後ろ向きな投稿をしてる兄さま/姉さまをみてると、はやく元気になってほしいという気持ちでいっぱいになってしまいます…」",
@@ -12123,7 +12123,7 @@
           "value_JP": "「ルーキーくんの偉業を見届ける、ナンバーテールズ22番機の『22(フジ)』だよ！ヨロシクね♪」",
           "value_EN": "\"'22(Twin-twina)', NumberTales #22, comes here to witness Mr/Ms.Rookie's great achievements! Nice to have you♪\"",
           "about_JP": "契約時の自己紹介",
-          "about_EN": "Self-introduction at contract"
+          "about_EN": "Self-introduction at the time of contract"
         },
         {
           "value_JP": "「このコミュニティって面白いね！やってるみんな楽しそうだし」",
@@ -30307,7 +30307,7 @@
           "about_EN": "While browsing social media (case.2)"
         },
         {
-          "value": "「…ひっ!? 27(ツギナ)先生!? ちがうんです!! これは決して勉強をサボってるわけじゃなくて……ちゃんともどりますから『強化補修』だけはみのがしてください…!!＞＜」",
+          "value_JP": "「…ひっ!? 27(ツギナ)先生!? ちがうんです!! これは決して勉強をサボってるわけじゃなくて……ちゃんともどりますから『強化補修』だけはみのがしてください…!!＞＜」",
           "value_EN": "\"...Eek!? Teacher 27(Twißven)!? It's not what it looks like!! I am absolutely not skipping studying right now — I'll be right back I promise, so please, please don't make me do 'intensive remedial lessons'...!! >_<\"",
           "about_JP": "勉強サボりを27(ツギナ)に見つかったとき",
           "about_EN": "When caught skipping studying by 27(Twißven)"
@@ -32932,11 +32932,11 @@
       "AvoidedTopics_JP": "夢のない現実論だけで切り捨てる話や、テンションを一気に冷ますような身もふたもない会話を好まない。自分の趣向や考え方と明らかに離れた（「97(ココナ)」の信仰に関する話題などといった）話に対し素っ気ない反応をすることもある。",
       "AvoidedTopics_EN": "Dislikes conversations that dismiss ideas with cold pragmatism alone, or blunt exchanges that kill the mood all at once. She may give a detached response to topics clearly at odds with her own sensibilities — for instance, discussions centered on '97(Ninsefie)''s beliefs.",
       "ConversationNotes_JP": "可憐で無邪気に見えて、興味を持つとかなりしつこい。相手を巻き込む勢いは強いが、悪意より純粋な高揚感が先に立つ。たまに暴走して周りの目も触れず大胆な行動に出ることもある。語尾に「♡」や「♪」「☆」「★」といった楽観的な記号が付きやすい（特に「★」は他よりも陰湿な言い回しで付く）。",
-      "ConversationNotes_EN": "Despite appearing graceful and innocent, she can get quite persistent once she takes an interest. Her drive to pull others in is strong, but it comes more from genuine excitement than any ill intent. She sometimes runs loose, acting boldly without a glance at those around her. She tends to end statements with cheerful symbols like ♥, ♪, ☆, and ★ — though ★ in particular tends to carry a slightly more underhanded turn of phrase.",
+      "ConversationNotes_EN": "Despite appearing graceful and innocent, she can get quite persistent once she takes an interest. Her drive to pull others in is strong, but it comes more from genuine excitement than any ill intent. She sometimes runs loose, acting boldly without a glance at those around her. She tends to end statements with cheerful symbols like ♡, ♪, ☆, and ★ — though ★ in particular tends to carry a slightly more underhanded turn of phrase.",
       "DialogueExamples": [
         {
           "value_JP": "「ナンバーテールズ61番機の『61(ロクイチ)』だよっ！『ロイちゃん』って呼んでね♡」",
-          "value_EN": "\"I'm '61(Síxone)', NumberTales unit #61! Call me 'Síon-chan'♡\"",
+          "value_EN": "\"I'm '61(Síxone)', NumberTales #61! Call me 'Síon-chan'♡\"",
           "about_JP": "契約時の自己紹介",
           "about_EN": "Self-introduction at the time of contract"
         },
@@ -48891,9 +48891,9 @@
       "DialogueExamples": [
         {
           "value_JP": "「初めまして、あたしゃ……じゃなくて！私はナンバーテールズ96番機の『96(クルリ)』！今を生きるトレンドガールよ♪」",
-          "value_EN": "\"Nice to meet you, ... eegh! I'm NumberTales Mk.96, '96(Rota)'! A trend girl living in the now♪\"",
+          "value_EN": "\"Nice to meet you, ... eegh! I'm NumberTales #96, '96(Rota)'! A trend girl living in the now♪\"",
           "about_JP": "契約時の自己紹介",
-          "about_EN": "Introduction upon contracting"
+          "about_EN": "Self-introduction at the time of contract"
         },
         {
           "value_JP": "「おかえりなさいませ、主人さん♪ 今日は何に致します？」",
