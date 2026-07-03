@@ -8,7 +8,7 @@
       name="description"
       content="/data の創作データベースを クライアント内API (/pages/v1 ほか) 経由で取得し、キャラシートとして表示します。"
     />
-    <meta name="asset-version" content="2026.07.02.2" />
+    <meta name="asset-version" content="2026.07.04.1" />
     <!-- メインスタイルシート（SASS から自動生成） -->
     <script>
       (() => {
@@ -129,6 +129,16 @@
           <button id="btn-back" class="ghost">← 一覧へ戻る</button>
           <!-- 詳細タイトル -->
           <h2 id="detail-title">-</h2>
+          <!-- データ内容の誤り報告リンク（GitHub Issues 連携、表示中のキャラ情報を事前入力） -->
+          <a
+            id="btn-report-issue"
+            class="ghost detail-header__report"
+            href="#"
+            target="_blank"
+            rel="noopener noreferrer"
+            hidden
+            >⚠ データの誤りを報告</a
+          >
         </div>
         <!-- 詳細コンテンツエリア -->
         <div id="detail"></div>
