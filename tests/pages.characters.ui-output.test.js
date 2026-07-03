@@ -260,6 +260,13 @@ const numberTalesPrimaryRecords = loadJson('data/Works_NumberTales/DataBases/db_
 const numberTalesSecondaryRecords = loadJson('data/Works_NumberTales/DataBases/db_Secondary.json');
 const numberTalesSemiPrimaryRecords = loadJson('data/Works_NumberTales/DataBases/db_SemiPrimary.json');
 const numberTalesSelfSecondaryRecords = loadJson('data/Works_NumberTales/DataBases/db_SelfSecondary.json');
+const unibyteLiveWorkTypeDef = loadJson('data/Works_UnibyteLive/DataBases/db_type.json');
+const unibyteLiveWorkMeta = mergeMetaAndTypeVars(
+	loadJson('data/Works_UnibyteLive/DataBases/db_meta.json'),
+	unibyteLiveWorkTypeDef
+);
+const unibyteLivePrimaryRecords = loadJson('data/Works_UnibyteLive/DataBases/db_Primary.json');
+const unibyteLiveArrowRecord = unibyteLivePrimaryRecords.find((record) => record?.Name_JP === 'A:アロー');
 const sharedReferencesTypeDef = loadJson('data/References/db_type.json');
 const sharedReferencesMeta = loadJson('data/References/db_meta.json');
 const numberTalesReferencesTypeDef = loadJson('data/Works_NumberTales/References/db_type.json');
@@ -395,6 +402,50 @@ describe('pages/characters.js UI output', () => {
 		await charactersModule.renderDetail('#Works_Proxies', secondGenProxyRecord);
 
 		expect(getBasicFieldValue('Race')).toBe('Warfox(Acquired)');
+	});
+
+	it('renders unit_JP for numeric fields in Japanese and ordinal unit_EN in English', async () => {
+		charactersModule.__setCharactersTestState({
+			charState: {
+				db: 'Primary',
+				pageLang: 'jp',
+				workTypeDef: unibyteLiveWorkTypeDef,
+				globalTypeDef,
+				workMeta: unibyteLiveWorkMeta,
+				imageFields: []
+			}
+		});
+
+		await charactersModule.renderDetail('#Works_UnibyteLive', unibyteLiveArrowRecord);
+		expect(getBasicFieldValue('アルベッツの世代')).toBe('0期生');
+
+		charactersModule.__setCharactersTestState({
+			charState: {
+				db: 'Primary',
+				pageLang: 'en',
+				workTypeDef: unibyteLiveWorkTypeDef,
+				globalTypeDef,
+				workMeta: unibyteLiveWorkMeta,
+				imageFields: []
+			}
+		});
+
+		await charactersModule.renderDetail('#Works_UnibyteLive', unibyteLiveArrowRecord);
+		expect(getBasicFieldValue('Generation of ALPBETS')).toBe('0th Gen.');
+	});
+
+	it('builds a composite index identifier when single index keys are ambiguous', () => {
+		const rec = unibyteLivePrimaryRecords.find((record) => record?.Name_JP === 'S:ツェット');
+		const indexDef = unibyteLiveWorkTypeDef?.$IndexDef || null;
+		const id = charactersModule.__getIndexIdentifierFromRecordForTest(rec, indexDef, unibyteLivePrimaryRecords);
+
+		expect(id).toBeTruthy();
+		expect(id.keyPath).toBe('__conditions__');
+		expect(typeof id.value).toBe('string');
+
+		const parsed = JSON.parse(id.value);
+		expect(parsed?.Letter?.Alphabet).toBe('S');
+		expect(parsed?.Letter?.AlphaGen).toBe('1');
 	});
 
 	it('renders secondary metadata fields in a dedicated detail section', async () => {
@@ -760,7 +811,7 @@ describe('pages/characters.js UI output', () => {
 			}]
 		});
 
-		expect(getBasicFieldValue('誕生日')).toBe('8/15（誕生日）');
+		expect(getBasicFieldValue('誕生日')).toBe('8月15日（誕生日）');
 	});
 
 	it('renders references poster images using work-local image typedef folder hints', async () => {

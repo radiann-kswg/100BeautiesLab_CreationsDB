@@ -79,10 +79,15 @@
 - 対象ログ:
   - `2026-06-01_remaining-task.md`
 - 残作業:
-  - bilingual wrapper の UI 列分割表示
-  - Day / Era / Area の typedef 駆動を SW/enrich 側へ拡張
   - 二次創作 DB 表示（`sec_Category` / `sec_DesignedBy`）の UI 整理
   - 創作用語 DB / 基本資料 DB のテンプレート設計と承認
+- 実施済み（2026-07-03）:
+  - `streamingActivitySection` で `_enrichment.bilingualWrapperFields` を参照し、`StreamingGreeting` / `ListenerNickname` を JP/EN 2 列表示に対応
+  - `lib/data-common.js` の `buildWrapperSummaries()` で wrapper の `typeSources` に `globalMeta` / `mergedVars` 由来の source を追加し、`$Def_Day` role（month/dayOfMonth/annotation）を SW/enrich 側で利用できるように対応
+  - `TypeDefUtils.looksSearchableType()` に `#DictIndex` / `$Def_Day` / `$Def_StoryEra*` / `$Def_BaseArea` を追加し、Day / Era / Area 系フィールドを typedef 駆動で searchableText 対象へ拡張
+  - `lib/sw-common.js` の DB カタログ装飾で wrapper summary 解決用 `typeSources` に `globalMeta` を追加
+  - `pages/characters.js` で `$display.unit_JP` / `$display.unit_EN` / `unit_EN_ordinal` を解釈する unit 表示拡張を実装（例: `0期生` / `0th Gen.`）
+  - `collectIndexEntries()` を raw 値照合へ変更し、`getIndexIdentifierFromRecord()` に複合条件（`idxKey=__conditions__`）フォールバックを追加して、言語切替時に別キャラへ遷移する不具合を修正
 - 完了条件:
   - 仕様承認を取りながら小分けで実装し、回帰テストとログ更新を都度実施
 

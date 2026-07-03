@@ -1,5 +1,52 @@
 # 最新のリファクタリング・仕様変更履歴
 
+### fix: `$display.unit` の和英対応と英語序数化（`0th Gen.`）を追加し、言語切替で別キャラへ飛ぶ不具合を修正 (2026-07-03)
+
+- **`pages/characters.js`**:
+  - `formatValueForDisplay()` の unit 処理を拡張し、`$display.unit_JP` / `$display.unit_EN` をページ言語で出し分けるように変更（未定義時は既存 `unit` へフォールバック）。
+  - `unit_EN_ordinal: true` 指定時、英語表示で `#Number` 系の値を序数化（`1st/2nd/3rd/...`）してから unit を付与するように対応。
+  - `collectIndexEntries()` の比較値 `value` を「表示文字列」ではなく raw 値に変更し、言語切替や表示フォーマット変更の影響を受けない一致判定へ修正。
+  - `getIndexIdentifierFromRecord()` を改善し、単一キーで一意に引けない場合は `idxKey=__conditions__` + JSON 条件（複合キー）を生成して同一レコードを再特定できるように対応。
+- **`data/Works_UnibyteLive/DataBases/db_type.json`**:
+  - `Generation.$display` に `"unit_EN_ordinal": true` を追加（英語表示を `0th Gen.` 形式に統一）。
+- **`tests/pages.characters.ui-output.test.js`**:
+  - `unit_JP` / `unit_EN + unit_EN_ordinal` の表示回帰（`0期生` / `0th Gen.`）を追加。
+  - 単一インデックスが曖昧なケースで複合識別子（`__conditions__`）が生成される回帰を追加。
+- テスト: `pages.characters.ui-output` / `wrapper-common` / `enrich.wrapper-summaries`（37 passed）。
+
+### fix: Day wrapper 表示を言語別（JP/EN）へ切替し、`5月19日` / `May.19` を出し分け (2026-07-03)
+
+- **`lib/wrapper-common.js`**: `daySummary` の日付本体を `context.pageLang` で分岐するよう修正。
+  - `lang=jp`（既定）: `5月19日`
+  - `lang=en`: `May.19`
+  - 注釈（`DayAbout_JP` / `DayAbout_EN`）は既存どおり role 解釈に従って末尾へ付与。
+- `#List_Month` が読み取れない経路でも、月番号 1..12 を `Jan..Dec` へフォールバックするため EN 表示が安定。
+- テスト更新:
+  - **`tests/wrapper-common.test.js`**: JP期待値を更新し、`pageLang: 'en'` の `May.19` ケースを追加。
+  - **`tests/enrich.wrapper-summaries.test.js`**: enrich の `wrapperSummaries.BirthDay` を JP既定表示へ更新。
+  - **`tests/pages.characters.ui-output.test.js`**: 基本情報テーブルの誕生日期待値を JP表示へ更新。
+- テスト: `wrapper-common` / `enrich.wrapper-summaries` / `pages.characters.ui-output`（35 passed）。
+
+### add: Day / Era / Area の typedef 駆動を SW/enrich 側へ拡張（role 解釈 + searchable 判定） (2026-07-03)
+
+- **`lib/data-common.js`**:
+  - `buildWrapperSummaries()` の wrapper 解決 `typeSources` に `globalMeta` と `mergedVars` 由来 source を追加。これにより `data/db_meta.json` の `General.$VarsDef.$Def_Day.$display.role`（`month`/`dayOfMonth`/`annotation`）を SW/enrich 側でも利用可能にし、field 名依存フォールバック（`Month`/`DayOfMonth` 固定）への依存を緩和。
+  - `TypeDefUtils.looksSearchableType()` に `#DictIndex` / `$Def_Day` / `$Def_StoryEra` / `$Def_BaseArea` を追加し、Day / Era / Area 系フィールドを `_enrichment.searchableText` の対象へ typedef 駆動で取り込み。
+- **`lib/sw-common.js`**: DB カタログ装飾（bootstrap / `works/{work}/db`）の wrapper summary 解決で `typeSources` に `globalMeta` を追加。
+- **`tests/enrich.wrapper-summaries.test.js`**:
+  - Day role 定義を vars 側に寄せたケース（`MM`/`DD`/`Note`）で `BirthDay` summary が `1/7（記念日）` になることを追加検証。
+  - Day/Era/Area 系型が `_enrichment.searchableText` に含まれることを追加検証。
+- テスト: `enrich.wrapper-summaries` / `sw.work-meta-info` / `pages.characters.ui-output`（32 passed）。
+- 参照: [`_work_in_progress/2026-07-03_progress_p6-day-era-area-typedef-sw-enrich.md`](_work_in_progress/2026-07-03_progress_p6-day-era-area-typedef-sw-enrich.md)。
+
+### add: bilingual wrapper の UI 列分割表示（StreamingActivity）を `_enrichment.bilingualWrapperFields` 駆動で実装 (2026-07-03)
+
+- **`pages/characters.js`**: enrich メタ `rec._enrichment.bilingualWrapperFields` を path キーで参照する `resolveBilingualWrapperMeta()` を追加。standalone section renderer へ `bilingualColumnsText` と同メタ resolver を helper として受け渡すよう変更。
+- **`lib/section-renders/streamingActivity.js`**: `streamingActivitySection` で子フィールドごとに `resolveBilingualWrapperMeta("<親>.<子>")` を照合し、bilingual wrapper（例: `StreamingGreeting` / `ListenerNickname`）は JP/EN を `bilingualColumnsText()` で 2 列表示するルートを追加。既存のタググリッド表示・Summary 表示は維持。
+- 目視確認: `Works_UnibyteLive` / `Primary` / `Letter.Generation=5`（S:ナーミィ）で `StreamingActivity` セクション内に `.bilingual-lines-grid` が 2 件生成されることを確認。
+- テスト: `pages.characters.syntax` / `pages.characters.ui-output` / `section-wrapper-common` / `enrich.wrapper-summaries`（32 passed）。
+- 参照: [`_work_in_progress/2026-07-03_progress_p6-bilingual-wrapper-ui.md`](_work_in_progress/2026-07-03_progress_p6-bilingual-wrapper-ui.md)。
+
 ### add: `*_DBLink` タグにクロスワーク参照先の創作名（作品タイトル）を併記 (2026-07-02)
 
 - **`lib/section-renders/dblink.js`**: `dbLinkSection` renderer で、参照先 `_Work` が現在表示中の作品と異なる（クロスワーク）場合のみ、キャラ名リンクの直後に参照先の作品タイトルを併記するようにした（例: `⇒ 零 零（ナンバーテールズ）`）。タイトルは非同期 hydrate で埋め、取得失敗時は無表示のまま（同一作品内の参照には併記しない）。
@@ -47,7 +94,7 @@
 ### fix: DeepL 用語集ソース生成の EN→JA 衝突を構造的に解消（併記形の分割・単数/複数の除外） (2026-07-02)
 
 - **`tools/deepl/build-glossary-source.mjs`**:
-  - `splitMultiForm()`（新規）: `Term_EN` に `"WDCE. / the \"World Development & Creation Era\""` のように略号と全文が併記されているエントリを、` / `（前後空白必須）または改行で分割する。`Demotion/Retrograde` のような複合語中のスラッシュ（前後空白なし）は分割しない。
+  - `splitMultiForm()`（新規）: `Term_EN` に `"WDCE. / the \"World Development & Creation Era\""` のように略号と全文が併記されているエントリを、`/`（前後空白必須）または改行で分割する。`Demotion/Retrograde` のような複合語中のスラッシュ（前後空白なし）は分割しない。
   - `buildJaEnMap()`: 併記形は**先頭断片**（本文中で優先的に使われる略号・優先表記）を JA→EN の訳語として採用するよう変更。
   - `buildEnJaMap()`: 併記形は**分割後の全断片**を個別の EN ソースキーとして登録するよう変更。これにより `ref_Society.json` の世代呼称（`WDCE.` 系）で、`Term_JP` 由来のペアと `Aliases` 由来のペアが同一の結合文字列キーに集約されて衝突していた問題（EN→JA 10件中ほぼ全てが自己参照ノイズ）を解消。
   - `isPluralPair()`（新規）: 単数形/複数形だけが異なる EN 候補（例: `Regiowner`/`Regiowners`）を検出した場合、JA→EN 用語集への登録を見送り `[文法差につき用語集登録なし]` として `glossary-conflicts.md` に候補を併記するのみに変更。JP側は文法上の数を持たないため、用語集で強制的に片方へ固定すると逆の文脈で誤訳になるため。EN→JA は元々キーが異なり衝突しないため両方とも正しく登録される。
@@ -108,7 +155,7 @@
 - 決定事項: `README.LOCAL.md` は `.gitignore` 対象（既存）の**ローカル専用メモファイル**で、各ローカルクローン固有の情報（物理パス・作業中ブランチ・引き継ぎ注意点等）を記録する用途に限定。複数ローカル横断で共有すべき正式な進捗・決定事項は引き続き `_work_in_progress/` に記録し、`README.LOCAL.md` はその代替にはしない。パス以外の内容は User が手動追記する前提とし、Claude/Copilot が創作内容や未確認の推測を書き込まない。
 - 詳細は `_work_in_progress/2026-07-01_progress_readme-local-agents-rule.md`。
 
-### Copilot 英訳(_EN)入力補助 — 用語集対応 (2026-07-01)
+### Copilot 英訳(\_EN)入力補助 — 用語集対応 (2026-07-01)
 
 - **`.github/instructions/localization-en.instructions.md` 新規追加**: `applyTo: data/**/db_*.json, trans_*.json, ref_*.json, dict_*.json`。Copilot Chat/Agent/Edits が `_EN` を補助するときの追加ルール（既存値の上書き禁止・創作本文の新規生成禁止・固有名詞は辞書対訳固定・`hideText` 尊重・最終採否は User）と、外しやすい中核固有名詞（種族・組織）のインライン早見を収録。
 - **`docs/localization-glossary-quickref.md` 新規追加（生成物）**: 監修済み辞書（`trans_*`/`ref_*`/`dict_*`）から抽出した固有名詞 JP↔EN 対訳（164 件）を出典別に整形。Copilot Chat 参照用＋インライン補完（ゴーストテキスト）の隣接タブ文脈用。**インライン補完はカスタム指示を読み込まない**ため、早見表を開いて近傍文脈に入れる運用。
@@ -189,7 +236,7 @@
 
 ### カレンダー ICS 生成 — SUMMARY 改行バグ修正 (2026-06-26)
 
-- **`tools/build-calendar-ics.mjs` SUMMARY 改行問題を修正**: `Name_JP` に改行文字が含まれるキャラクター名（例: `バイナ\n2(ツギ)`）が ICS の `SUMMARY` フィールドにそのまま流れ込み、Google Calendar のインポート・購読パースが失敗していた問題を修正。`summaryName` 変数を追加し、SUMMARY 生成前に改行を ` / ` に置換するよう変更。`DESCRIPTION` の英名フィールドは変更なし。
+- **`tools/build-calendar-ics.mjs` SUMMARY 改行問題を修正**: `Name_JP` に改行文字が含まれるキャラクター名（例: `バイナ\n2(ツギ)`）が ICS の `SUMMARY` フィールドにそのまま流れ込み、Google Calendar のインポート・購読パースが失敗していた問題を修正。`summaryName` 変数を追加し、SUMMARY 生成前に改行を `/` に置換するよう変更。`DESCRIPTION` の英名フィールドは変更なし。
 
 ### Localization レイヤー 構造改善・仮データ投入 (2026-06-25)
 
@@ -218,7 +265,6 @@
 - **`data/Works_NumberTales/DataBases/db_meta.json` に `#Ref_Reference` / `#Ref_Vocabulary` を追加**: `findDbCatalogEntry` が `DB_Layer:"References"` を返せるよう、NT 作品メタの `Databases` 直下に両エントリを追加した。これにより `currentLayerName = "References"` が確定し `fetchSharedLayerTypeDef` が実行される。
 - **テスト**: `tests/pages.characters.ui-output.test.js` が 24/24 pass（旧 B-2 テストも解消）。全スイート 126/126 pass。
 
-
 ### Google カレンダー連携: 誕生日・記念日 ICS 自動生成・配信 (2026-06-24)
 
 - **`tools/build-calendar-ics.mjs` 新規追加**: `data/Works_*/DataBases/db_*.json` の全公開レコードから `BirthDay`(単一) / `AnivDay`(配列) を収集し、終日・毎年繰り返し(`RRULE:FREQ=YEARLY`)の iCalendar(.ics) を生成する。
@@ -229,7 +275,6 @@
 - **テスト `tests/calendar.ics.test.js` 追加**: 除外ルール・UID 一意・終日繰り返し・行折返し(≤75 オクテット)・決定性を検証。
 - **ドキュメント**: 利用方法・Google カレンダー購読手順は `docs/calendar-ics-spec.md` を参照。
 - **初回イベント数**: 誕生日 19・記念日 131(計 150)。
-
 
 ### JP/EN 命名規則の標準化（Phase 2〜5 完了）(2026-06-22)
 

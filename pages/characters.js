@@ -117,6 +117,10 @@ export function __getStoryEraSummaryForTest(storyEra) {
 	return getStoryEraSummary(storyEra);
 }
 
+export function __getIndexIdentifierFromRecordForTest(rec, indexDef, records = null) {
+	return getIndexIdentifierFromRecord(rec, indexDef, records);
+}
+
 const IMAGE_LIGHTBOX_IDS = {
 	root: 'image-lightbox',
 	dialog: 'image-lightbox-dialog',
@@ -1780,12 +1784,14 @@ function collectIndexEntries(source, indexDef, metaForLookup = null, globalDefTy
 				});
 				const text = String(formatted ?? '').trim();
 				if (!text) return null;
+				const rawIndexValue = String(leaf).trim();
+				if (!rawIndexValue) return null;
 
 				const label = getIndexLabel(subDef) || getIndexLabel(indexDef) || '';
 				const display = getIndexSubDefDisplayConfig(subDef, subDef === primarySub);
 				return {
 					keyPath: `${rootKey}.${subKey}`,
-					value: text,
+					value: rawIndexValue,
 					text: label ? `${label}: ${text}` : text,
 					label,
 					contexts: {
@@ -1813,11 +1819,13 @@ function collectIndexEntries(source, indexDef, metaForLookup = null, globalDefTy
 	});
 	const text = String(formatted ?? '').trim();
 	if (!text) return [];
+	const rawIndexValue = (rawValue === null || rawValue === undefined) ? '' : String(rawValue).trim();
+	if (!rawIndexValue) return [];
 
 	const label = getIndexLabel(indexDef) || '';
 	return [{
 		keyPath: rootKey,
-		value: text,
+		value: rawIndexValue,
 		text: label ? `${label}: ${text}` : text,
 		label,
 		contexts: { list: true, detail: true, value: true, link: true },
@@ -1831,12 +1839,57 @@ function collectIndexEntries(source, indexDef, metaForLookup = null, globalDefTy
  * レコードと Index 定義から、直リンク用の識別子（keyPath + value）を抽出
  * @param {Object} rec - レコード
  * @param {Object|null} indexDef - $IndexDef
+ * @param {Object[]|null} records - 現在表示中レコード（一意判定用）
  * @returns {{keyPath:string,value:string}|null}
  */
-function getIndexIdentifierFromRecord(rec, indexDef) {
+function getIndexIdentifierFromRecord(rec, indexDef, records = null) {
 	const entries = collectIndexEntries(rec, indexDef, null, null, { context: 'record' });
 	if (!entries.length) return null;
-	return entries.find(entry => entry?.contexts?.link) || entries[0] || null;
+
+	const linkEntries = entries.filter(entry => entry?.contexts?.link);
+	if (Array.isArray(records) && records.length > 0) {
+		for (const entry of linkEntries) {
+			const matches = records.filter((r) => recordMatchesIndexQuery(
+				r,
+				indexDef,
+				entry.value,
+				entry.keyPath,
+				entry.keyPath === 'Num' ? entry.value : ''
+			));
+			if (matches.length === 1 && matches[0] === rec) return entry;
+		}
+
+		const compositeEntries = linkEntries.length > 1 ? linkEntries : entries;
+		if (compositeEntries.length > 1) {
+			const composite = {};
+			for (const entry of compositeEntries) {
+				const path = String(entry?.keyPath || '').trim();
+				const val = String(entry?.value || '').trim();
+				if (!path || !val) continue;
+				const parts = path.split('.').filter(Boolean);
+				if (!parts.length) continue;
+				let cursor = composite;
+				for (let i = 0; i < parts.length; i += 1) {
+					const part = parts[i];
+					if (i === parts.length - 1) {
+						cursor[part] = val;
+					} else {
+						if (!isPlainObject(cursor[part])) cursor[part] = {};
+						cursor = cursor[part];
+					}
+				}
+			}
+			if (Object.keys(composite).length > 0) {
+				const payload = JSON.stringify(composite);
+				const matches = records.filter((r) => recordMatchesIndexQuery(r, indexDef, payload, '__conditions__'));
+				if (matches.length === 1 && matches[0] === rec) {
+					return { keyPath: '__conditions__', value: payload };
+				}
+			}
+		}
+	}
+
+	return linkEntries[0] || entries[0] || null;
 }
 
 /**
@@ -3442,11 +3495,56 @@ function formatValueForDisplay(value, labelMap = {}, workMeta = null, globalDefT
 		return '';
 	}
 
-	const unit = opt?.display?.unit ? String(opt.display.unit).trim() : '';
-	const withUnit = (text) => {
+	// formatValueForDisplay 内で共通利用する現在言語
+	const _fvLang = getCurrentPageLanguage();
+
+	const displayHint = (opt?.display && typeof opt.display === 'object') ? opt.display : {};
+	const unitLegacy = displayHint?.unit ? String(displayHint.unit).trim() : '';
+	const unitJP = displayHint?.unit_JP ? String(displayHint.unit_JP).trim() : '';
+	const unitEN = displayHint?.unit_EN ? String(displayHint.unit_EN).trim() : '';
+	const unitENOrdinal = displayHint?.unit_EN_ordinal === true;
+
+	const pickUnitByLanguage = () => {
+		if (_fvLang === 'en') return unitEN || unitLegacy;
+		if (_fvLang === 'jp') return unitJP || unitLegacy;
+		return unitLegacy;
+	};
+
+	const toEnglishOrdinal = (raw) => {
+		if (raw === null || raw === undefined) return '';
+		const s = String(raw).trim();
+		if (!/^[-+]?\d+$/.test(s)) return '';
+		const n = Number(s);
+		if (!Number.isFinite(n)) return '';
+		const normalized = Math.trunc(n);
+		const abs = Math.abs(normalized);
+		const mod100 = abs % 100;
+		if (mod100 >= 11 && mod100 <= 13) return `${normalized}th`;
+		switch (abs % 10) {
+			case 1: return `${normalized}st`;
+			case 2: return `${normalized}nd`;
+			case 3: return `${normalized}rd`;
+			default: return `${normalized}th`;
+		}
+	};
+
+	const withUnit = (text, rawForUnit = null) => {
 		const base = String(text ?? '').trim();
 		if (!base) return '';
-		return unit ? `${base} ${unit}`.trim() : base;
+
+		const unit = pickUnitByLanguage();
+		if (!unit) return base;
+
+		if (_fvLang === 'en' && unitEN && unitENOrdinal) {
+			const ordinalBase = toEnglishOrdinal(rawForUnit ?? base);
+			if (ordinalBase) return `${ordinalBase} ${unit}`.trim();
+		}
+
+		if (_fvLang === 'jp' && unitJP) {
+			return `${base}${unit}`.trim();
+		}
+
+		return `${base} ${unit}`.trim();
 	};
 
 	/**
@@ -3455,9 +3553,6 @@ function formatValueForDisplay(value, labelMap = {}, workMeta = null, globalDefT
 	 * @returns {boolean}
 	 */
 	const isPlainObject = (v) => !!v && typeof v === 'object' && !Array.isArray(v);
-
-	// formatValueForDisplay 内で共通利用する現在言語
-	const _fvLang = getCurrentPageLanguage();
 
 	/**
 	 * Rank 表現を人間向け表示に正規化
@@ -4133,7 +4228,7 @@ function formatValueForDisplay(value, labelMap = {}, workMeta = null, globalDefT
 
 	if (typeof value === 'string' || typeof value === 'number' || typeof value === 'boolean') {
 		if (typeof value === 'boolean') return String(value);
-		return withUnit(value);
+		return withUnit(value, value);
 	}
 
 	if (Array.isArray(value)) {
@@ -4218,7 +4313,7 @@ function formatValueForDisplay(value, labelMap = {}, workMeta = null, globalDefT
 			(Object.prototype.hasOwnProperty.call(value, 'value_JP') || Object.prototype.hasOwnProperty.call(value, 'value_EN'))) {
 			const base = _fvLang === 'en' ? (value.value_EN || value.value_JP || '') : (value.value_JP || value.value_EN || '');
 			const about = _fvLang === 'en' ? (value.about_EN || value.about_JP || value.about) : (value.about_JP || value.about_EN || value.about);
-			const baseWithUnit = base ? withUnit(String(base).trim()) : '';
+			const baseWithUnit = base ? withUnit(String(base).trim(), base) : '';
 			if (about && baseWithUnit) return `${baseWithUnit}（${about}）`;
 			if (baseWithUnit) return baseWithUnit;
 		}
@@ -4254,7 +4349,7 @@ function formatValueForDisplay(value, labelMap = {}, workMeta = null, globalDefT
 				}
 			}
 
-			const baseWithUnit = displayText ? withUnit(displayText) : '';
+			const baseWithUnit = displayText ? withUnit(displayText, baseRaw) : '';
 			if (about && baseWithUnit) return `${baseWithUnit}（${about}）`;
 			if (baseWithUnit) return baseWithUnit;
 		}
@@ -5779,6 +5874,31 @@ export async function renderDetail(workId, rec) {
 			return { base: m[1], lang: m[2] === 'JP' ? 'JP' : 'EN' };
 		};
 
+		/**
+		 * enrich メタ（_enrichment.bilingualWrapperFields）を path キーで引けるよう正規化する
+		 * - 例: StreamingActivity.StreamingGreeting
+		 * - 値: { path, langMode, primaryChildKey, altChildKey, effectiveBaseType }
+		 */
+		const bilingualWrapperMetaByPath = (() => {
+			const m = new Map();
+			const list = Array.isArray(rec?._enrichment?.bilingualWrapperFields)
+				? rec._enrichment.bilingualWrapperFields
+				: [];
+			for (const it of list) {
+				if (!it || typeof it !== 'object') continue;
+				const path = String(it.path || '').trim();
+				if (!path) continue;
+				m.set(path, it);
+			}
+			return m;
+		})();
+
+		const resolveBilingualWrapperMeta = (path) => {
+			const key = String(path || '').trim();
+			if (!key) return null;
+			return bilingualWrapperMetaByPath.get(key) || null;
+		};
+
 		const getDisplayLangMode = (display) => {
 			const mode = (display && typeof display === 'object' && typeof display.langMode === 'string')
 				? display.langMode.trim().toLowerCase()
@@ -7162,8 +7282,10 @@ export async function renderDetail(workId, rec) {
 				helpers: {
 					el,
 					preWrapText,
+					bilingualColumnsText,
 					isPlainObject,
 					getCurrentPageLanguage,
+					resolveBilingualWrapperMeta,
 					formatValueForDisplay,
 					pickSchemaType,
 					pickSchemaDisplay,
@@ -7993,6 +8115,7 @@ async function populateDBs(workKey, initialDB) {
 async function openDetail(rec) {
 	const state = window.__CHAR_STATE__;
 	if (!isPublicCharacterRecord(rec)) return;
+	state.currentDetailRecord = rec;
 	closeImageLightbox({ restoreFocus: false });
 	$('#list-view').hidden = true;
 	$('#detail-view').hidden = false;
@@ -8002,7 +8125,7 @@ async function openDetail(rec) {
 	try {
 		const globalMeta = await fetchGlobalMeta();
 		const indexDef = getWorkIndexField(state.workId, globalMeta);
-		const id = getIndexIdentifierFromRecord(rec, indexDef);
+		const id = getIndexIdentifierFromRecord(rec, indexDef, state?.records);
 		if (id) {
 			const legacyNum = id.keyPath === 'Num' ? id.value : '';
 			setQS({ idx: id.value, idxKey: id.keyPath, num: legacyNum });

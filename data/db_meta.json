@@ -114,6 +114,7 @@
           "FormalName",
           "CodeName",
           "Belonging",
+          "Generation",
           "Class",
           "Age",
           "AnivDay",
