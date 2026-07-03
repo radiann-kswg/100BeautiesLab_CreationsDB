@@ -13,6 +13,16 @@
   - `http://127.0.0.1:8080/pages/characters.html?work=Works_SinisterChangingGirls&db=Primary&idx=E&idxKey=Drc`
 - 参照解決 ON のまま、`異空岐路存在(アナザーレギオン)` / `ANOTHER-REGIONs` セクションを展開して確認。
 
+### 追加スポット確認（同日追記）
+
+- 検証 URL 1:
+  - `http://127.0.0.1:8080/pages/characters.html?work=Works_FLInvestigator78&db=PrimaryDealer&idx=79&idxKey=Card.Num&lang=en`
+- 検証 URL 2:
+  - `http://127.0.0.1:8080/pages/characters.html?work=Works_DestinyFoxRecords&db=Primary&idx=rad&idxKey=Unit&lang=en`
+- 確認観点:
+  - 両ケースで `ANOTHER-REGIONs` セクションが表示されること。
+  - 参照解決 ON のまま詳細表示まで遷移できること。
+
 ## 確認結果
 
 ### JP 表示
@@ -32,10 +42,9 @@
 ## 結論
 
 - `*_DBLink` suffix のエンリッチ + セクションレンダラ + クロスワーク作品名併記は、
-  主要確認ケース（SCG Primary Drc=E）で期待どおりに動作。
-- 2026-06-18 の「ブラウザ確認残り」は、代表ケースについて解消済み。
+  主要確認ケース（SCG Primary Drc=E）および追加スポット確認 2 ケースで期待どおりに動作。
+- 2026-06-18 の「ブラウザ確認残り」は、代表ケース + 追加スポット確認まで解消済み。
 
 ## 未完了タスク
 
-- なし（代表ケース検証としては完了）。
-- 任意追加: 他作品・他 DB の `*_DBLink` でも同様の表示確認を行う場合は、別ログで追記する。
+- なし（代表ケース + 追加スポット確認として完了）。
