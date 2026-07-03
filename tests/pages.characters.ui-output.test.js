@@ -468,6 +468,29 @@ describe('pages/characters.js UI output', () => {
 		expect(secondarySectionText).toContain('ラジアン（柏木主税）');
 	});
 
+	it('does not render secondary metadata section outside secondary db context', async () => {
+		charactersModule.__setCharactersTestState({
+			charState: {
+				db: 'Primary',
+				workTypeDef: numberTalesWorkTypeDef,
+				globalTypeDef,
+				workMeta: numberTalesWorkMeta,
+				imageFields: []
+			}
+		});
+
+		const syntheticRecord = {
+			...firstNumberTalesPrimaryRecord,
+			sec_Category: '共同二次創作',
+			sec_DesignedBy: ['Atast']
+		};
+
+		await charactersModule.renderDetail('#Works_NumberTales', syntheticRecord);
+
+		expect(getSectionNode('二次創作情報')).toBeNull();
+		expect(getSectionNode('Secondary Info')).toBeNull();
+	});
+
 	it('renders NumberTales detail headers using only the character name', async () => {
 		charactersModule.__setCharactersTestState({
 			charState: {

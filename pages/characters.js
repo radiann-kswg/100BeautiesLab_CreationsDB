@@ -7421,6 +7421,7 @@ export async function renderDetail(workId, rec) {
 			].filter(Boolean))
 			: null;
 
+		const isSecondaryContext = isSecondaryDbName(dbName);
 		const secondaryInfoItems = (secondaryMetaFieldContext.fields || [])
 			.map((fieldDef) => {
 				const labelKey = typeof fieldDef?.hashTag === 'string' ? fieldDef.hashTag.trim() : '';
@@ -7434,7 +7435,7 @@ export async function renderDetail(workId, rec) {
 				if (isEmptyValueLoose(value)) return null;
 
 				const schemaType = secondaryMetaFieldContext.typeMap?.[labelKey] ?? fieldDef?.$type ?? null;
-				const node = toDisplayNode(labelKey, value, schemaType, displayHint);
+				const node = toDisplayNode(labelKey, value, schemaType, displayHint, rec);
 				const text = (typeof node === 'string') ? node.trim() : String(node?.textContent ?? '').trim();
 				if (!text) return null;
 
@@ -7444,8 +7445,11 @@ export async function renderDetail(workId, rec) {
 				};
 			})
 			.filter(Boolean);
+		const secondaryInfoRows = secondaryInfoItems
+			.map((item) => [item.label, item.node])
+			.filter((item) => item[0] && item[1]);
 
-		const secondaryInfoSection = secondaryInfoItems.length
+		const secondaryInfoSection = isSecondaryContext && secondaryInfoRows.length
 			? el('div', { class: 'section' }, [
 				el('h3', {}, [String((() => {
 					const lang = getCurrentPageLanguage();
@@ -7454,10 +7458,7 @@ export async function renderDetail(workId, rec) {
 					}
 					return secondaryMetaFieldContext.schema?.hashTag_JP || secondaryMetaFieldContext.schema?.hashTag_EN || '二次創作情報';
 				})())]),
-				el('div', {}, secondaryInfoItems.map((item) => el('div', { style: 'margin-bottom: 10px;' }, [
-					el('div', { class: 'tag', style: 'margin-bottom: 6px;' }, [item.label]),
-					(typeof item.node === 'string') ? preWrapText(item.node) : item.node
-				])))
+				kvTable({}, secondaryInfoRows)
 			])
 			: null;
 

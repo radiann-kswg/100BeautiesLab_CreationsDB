@@ -1,5 +1,26 @@
 # 最新のリファクタリング・仕様変更履歴
 
+### fix: `Relation` のリンク表示名が英名寄りになるケースを修正（pageLang 優先） (2026-07-03)
+
+- **`lib/section-renders/relation.js`**:
+  - `Relation` / `RelationTo_*` のリンク名解決に `pickRelationRecordName()` を追加。
+  - JP表示時は `Name_JP` 系、EN表示時は `Name_EN` 系を優先するよう統一し、旧互換の `Name` はフォールバックへ移動。
+  - 同DB表示（同期）とクロスDBハイドレーション（非同期）で同じ命名優先ロジックを使うように整理。
+- **`tests/section-wrapper-common.test.js`**:
+  - `pageLang=jp` で `Relation` のリンクラベルが `Name_JP` を優先する回帰テストを追加。
+- テスト: `section-wrapper-common` / `pages.characters.ui-output`。
+
+### refine: `sec_Category` / `sec_DesignedBy` の二次創作情報 UI を整理（表示文脈の明確化 + テーブル統一） (2026-07-03)
+
+- **`pages/characters.js`**:
+  - `secondaryInfo` セクションを `isSecondaryDbName(dbName)` でガードし、`Secondary` / `SelfSecondary` / `UnprocessedSecondary` 文脈でのみ表示するように整理。
+  - セクション内の表示を「タグ + 段落」から `kvTable` ベースへ統一し、基本情報と同じ視認性・読み順に揃えた。
+  - `toDisplayNode()` 呼び出しに `recordContext` を渡し、辞書解決の文脈整合を強化。
+- **`tests/pages.characters.ui-output.test.js`**:
+  - 既存の `secondary metadata fields` 表示テストを維持。
+  - Primary 文脈では `sec_*` 値が存在しても `二次創作情報` セクションを出さない回帰テストを追加。
+- テスト: `pages.characters.ui-output` / `commons.secondaries`。
+
 ### fix: `$display.unit` の和英対応と英語序数化（`0th Gen.`）を追加し、言語切替で別キャラへ飛ぶ不具合を修正 (2026-07-03)
 
 - **`pages/characters.js`**:

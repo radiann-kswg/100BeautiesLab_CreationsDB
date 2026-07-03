@@ -88,6 +88,8 @@
   - `lib/sw-common.js` の DB カタログ装飾で wrapper summary 解決用 `typeSources` に `globalMeta` を追加
   - `pages/characters.js` で `$display.unit_JP` / `$display.unit_EN` / `unit_EN_ordinal` を解釈する unit 表示拡張を実装（例: `0期生` / `0th Gen.`）
   - `collectIndexEntries()` を raw 値照合へ変更し、`getIndexIdentifierFromRecord()` に複合条件（`idxKey=__conditions__`）フォールバックを追加して、言語切替時に別キャラへ遷移する不具合を修正
+  - `sec_Category` / `sec_DesignedBy` の `secondaryInfo` 描画を二次創作DB文脈に限定し、UI表示を `kvTable` 形式へ統一
+  - `Relation` / `RelationTo_*` のリンク表示名を pageLang 優先（JPは `Name_JP` 系、ENは `Name_EN` 系）へ修正し、英名が混在する表示不具合を解消
 - 完了条件:
   - 仕様承認を取りながら小分けで実装し、回帰テストとログ更新を都度実施
 
