@@ -410,7 +410,7 @@
 | マスターテールズ9              | MasterTales 9                | 〃（スペースなし。`Master Tales 9` は誤り） |
 | デシベルモデレーターズ         | Decibel Moderators           | 〃                                          |
 | マスタートリプル               | MasterTriples                | 〃                                          |
-| 仮説型ハイナンバー             | Tentative HighNumbers        | 〃                                          |
+| 仮設型ハイナンバー             | Tentative HighNumbers        | 〃                                          |
 
 #### Works_FLInvestigator78
 
