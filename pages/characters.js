@@ -58,6 +58,42 @@ const workLayerTypeDefCache = new Map();
 const PAGE_LANG_STORAGE_KEY = '100bl.characters.pageLang';
 const PAGE_LANG_DEFAULT = 'mix';
 
+// データ内容の誤り報告（GitHub Issues 連携）用の定数
+const ISSUE_REPORT_REPO = 'radiann-kswg/100BeautiesLab_CreationsDB';
+const ISSUE_REPORT_WORK_LABELS = {
+	NumberTales: 'ナンバーテールズ (NumberTales)',
+	FLInvestigator78: '運命線探偵78 (FLInvestigator78)',
+	ShouArRiders: '獣爾騎兵 (ShouArRiders)',
+	UnibyteLive: 'ハンカクライブ (UnibyteLive)',
+	SinisterChangingGirls: '豹変系女子 (SinisterChangingGirls)',
+	UnauthedLogica: 'アンオースドロジカ (UnauthedLogica)',
+	PastDivers: 'パストダイヴァー (PastDivers)',
+	DestinyFoxRecords: '運命線狐の記録 (DestinyFoxRecords)',
+	Proxies: 'ラジアン代理 (Proxies)'
+};
+
+/**
+ * キャラ詳細表示中の内容から、データ修正報告用 GitHub Issue フォームの事前入力URLを組み立てる
+ * `.github/ISSUE_TEMPLATE/data-correction.yml` のフィールドid（work/db/character/url）に対応させている
+ * @param {string} workId - 作品キー（例: '#Works_NumberTales' / 'NumberTales'）
+ * @param {string} dbName - DB名（例: 'Primary'）
+ * @param {string} characterLabel - キャラクター名やインデックス値などの識別情報
+ * @returns {string} GitHub Issue 作成画面へのURL
+ */
+function buildDataCorrectionIssueUrl(workId, dbName, characterLabel) {
+	const normalizedWorkId = String(workId || '').replace('#Works_', '').trim();
+	const workLabel = ISSUE_REPORT_WORK_LABELS[normalizedWorkId] || '';
+	const params = new URLSearchParams({
+		template: 'data-correction.yml',
+		title: `[データ修正] ${characterLabel || ''}`.trim(),
+		db: dbName || '',
+		character: characterLabel || '',
+		url: location.href
+	});
+	if (workLabel) params.set('work', workLabel);
+	return `https://github.com/${ISSUE_REPORT_REPO}/issues/new?${params.toString()}`;
+}
+
 function isCharactersTestMode() {
 	return Boolean(globalThis.__CHARACTERS_TEST_MODE__ || import.meta.vitest);
 }
@@ -5698,6 +5734,8 @@ export async function renderDetail(workId, rec) {
 		if (fallbackRecord && typeof fallbackRecord === 'object') rec = fallbackRecord;
 	}
 
+	const btnReportIssue = $('#btn-report-issue');
+
 	if (!isPublicCharacterRecord(rec)) {
 		$('#detail-title').textContent = '非公開';
 		const mount = $('#detail');
@@ -5705,6 +5743,7 @@ export async function renderDetail(workId, rec) {
 		mount.appendChild(el('div', {
 			style: 'padding: 20px; text-align: center; color: var(--muted);'
 		}, ['このキャラクターは非公開です。']));
+		if (btnReportIssue) btnReportIssue.hidden = true;
 		return;
 	}
 
@@ -5716,6 +5755,11 @@ export async function renderDetail(workId, rec) {
 	// 現在のデータベース名と拡張ステートを取得
 	const state = window.__CHAR_STATE__;
 	const dbName = state ? state.db : 'Primary';
+
+	if (btnReportIssue) {
+		btnReportIssue.href = buildDataCorrectionIssueUrl(workId, dbName, detailTitleBase);
+		btnReportIssue.hidden = false;
+	}
 	const cachedImageFields = state ? state.imageFields : null;
 	const cachedWorkTypeDef = state ? state.workTypeDef : null;
 	const cachedGlobalTypeDef = state ? state.globalTypeDef : null;

@@ -1,5 +1,19 @@
 # 最新のリファクタリング・仕様変更履歴
 
+### add: データベース改善用に GitHub Issues 機能を追加（サイト連携付き） (2026-07-04)
+
+- **リポジトリ設定**: `radiann-kswg/100BeautiesLab_CreationsDB` の GitHub Issues を有効化。
+- **`.github/ISSUE_TEMPLATE/`**:
+  - `data-correction.yml` — データ内容の誤り・修正報告用フォーム（対象作品/DB/キャラクター識別情報/該当フィールド/詳細/該当URL）。
+  - `feature-suggestion.yml` — 機能・改善提案用フォーム。
+  - `config.yml` — 白紙Issueを無効化し、ガイドライン・ホームページへの導線を追加。
+- **`pages/characters.html` / `characters.js` / `characters.sass`（`characters.css` も同期反映）**:
+  - キャラ詳細表示の `.detail-header` に「⚠ データの誤りを報告」リンク（`#btn-report-issue`）を追加。
+  - `buildDataCorrectionIssueUrl()` で表示中の 作品/DB/キャラクター識別情報/現在URL を `data-correction.yml` の各フィールドidへ事前入力し、GitHub Issue作成画面へ遷移させる（サーバー呼び出し無し、静的サイトの制約内で完結）。
+  - 非公開キャラクター表示時・一覧表示時はリンクを非表示に維持。
+  - `<meta name="asset-version">` を `2026.07.04.1` へ更新。
+- 確認: `npm test`（163 tests passed）。ローカルHTTPサーバー + Playwright でキャラ詳細deep link（`?work=NumberTales&db=Primary&idx=2&idxKey=Num`）からのリンク表示・事前入力URL組み立てを目視確認。
+
 ### fix: `Relation` のリンク表示名が英名寄りになるケースを修正（pageLang 優先） (2026-07-03)
 
 - **`lib/section-renders/relation.js`**:
