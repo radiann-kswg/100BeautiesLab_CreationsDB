@@ -1215,7 +1215,7 @@
     "BustSize": "D",
     "TailsUnit_JP": "サソリ型3本（それぞれ11束[節]）",
     "TailsUnit_EN": "Scorpion Type: 3 Tails (Each with 11 Tufts [Segments])",
-    "Class": ["仮説型ハイナンバー"],
+    "Class": ["仮設型ハイナンバー"],
     "FirstPersonCalling_JP": "あーし",
     "FirstPersonCalling_EN": "Trie (very casual, in English: by name casually, in Japanese: 'a-shi')",
     "SecondPersonCalling_JP": "あんた",
