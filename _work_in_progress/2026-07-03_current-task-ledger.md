@@ -77,4 +77,4 @@
 
 - triage 系は `2026-07-03_progress_github-triage.md` を最新判断の正とする。
 - 過去 triage は履歴参照用とし、現行タスク判断には直接使わない。
-- ログ退避は `2026-07-03_progress-log-retire-candidates.md` の候補 A → B の順で段階実施する。
+- ログ退避方針は `2026-07-03_progress-log-retire-candidates.md`（`.completed/` 退避済み）で確立した基準を踏襲。2026-07-04 の棚卸しで README をトピック別索引に再構成済み（詳細は `README.md` を参照）。
