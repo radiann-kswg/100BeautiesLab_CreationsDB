@@ -1,0 +1,56 @@
+# Google カレンダー直接同期（push 方式）
+#
+# data/ の誕生日・記念日を Google Calendar API で対象カレンダーへ完全ミラー同期する。
+# ICS 購読（pull）の反映遅延に依存しないための仕組み（docs/calendar-ics-spec.md §6）。
+#
+# 必要な Secrets:
+#   GCAL_SERVICE_ACCOUNT_KEY  サービスアカウント鍵 JSON（全文）
+#   GCAL_CALENDAR_ID          同期先カレンダー ID（xxx@group.calendar.google.com）
+name: Google カレンダー同期
+
+on:
+  push:
+    branches:
+      - develop
+    paths:
+      - "data/**"
+      - "tools/build-calendar-ics.mjs"
+      - "tools/sync-calendar-gcal.mjs"
+      - ".github/workflows/gcal-sync.yml"
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "dry-run（書き込みせず計画のみ表示）"
+        type: boolean
+        default: false
+
+# 同時実行を直列化（同期の競合による重複書き込みを防ぐ）
+concurrency:
+  group: "gcal-sync"
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    name: カレンダー同期
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Node セットアップ
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Google カレンダーへ同期
+        env:
+          GCAL_SERVICE_ACCOUNT_KEY: ${{ secrets.GCAL_SERVICE_ACCOUNT_KEY }}
+          GCAL_CALENDAR_ID: ${{ secrets.GCAL_CALENDAR_ID }}
+        run: |
+          if [ "${{ inputs.dry_run }}" = "true" ]; then
+            node tools/sync-calendar-gcal.mjs --dry-run
+          else
+            node tools/sync-calendar-gcal.mjs
+          fi

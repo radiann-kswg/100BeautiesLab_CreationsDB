@@ -78,8 +78,8 @@ Google カレンダーが購読 URL を定期ポーリングして反映
 
 - Google 側の購読カレンダーは**再読込の間隔を選べない**(数時間〜最大 1 日程度)。即時反映ではない。
 - 購読カレンダーは**読み取り専用**(Google 上で個別イベントを編集しても次回同期で上書き)。
-- 即時反映・編集可能なカレンダーが必要な場合は、Calendar API 直書き方式(サービスアカウント認証情報を
-  GitHub Secrets に設定)への切り替えを別途検討する。
+- 購読(pull)の反映遅延・不達はこちらから制御できないため、確実な反映が必要な運用は
+  **§6 の push 方式（Calendar API 直接同期）を正**とする。ICS 配信は外部公開用として併存。
 
 ---
 
@@ -88,6 +88,58 @@ Google カレンダーが購読 URL を定期ポーリングして反映
 | 対象 | パス |
 | --- | --- |
 | 生成スクリプト | `tools/build-calendar-ics.mjs` |
-| npm スクリプト | `package.json`(`calendar:build`) |
+| push 同期スクリプト | `tools/sync-calendar-gcal.mjs` |
+| npm スクリプト | `package.json`(`calendar:build` / `calendar:sync` / `calendar:sync:dry`) |
 | CI 生成・配信 | `.github/workflows/jekyll-gh-pages.yml` |
-| テスト | `tests/calendar.ics.test.js` |
+| CI push 同期 | `.github/workflows/gcal-sync.yml` |
+| テスト | `tests/calendar.ics.test.js` / `tests/calendar.gcal-sync.test.js` |
+
+---
+
+## 6. push 方式（Google Calendar API 直接同期）
+
+購読(pull)の「Google が取りに来ない/遅い」問題を回避するため、`data/` 更新時に
+GitHub Actions からサービスアカウントで対象カレンダーへ**完全ミラー同期**する。
+
+### 6.1 仕組み
+
+- スクリプト: `tools/sync-calendar-gcal.mjs`（外部依存なし・Node 18+）。
+  ICS 生成と同じ `collectEvents()` を再利用するため、**抽出・除外ルールは §1 と完全に同一**。
+- イベント ID は ICS の `UID` と同じ SHA-1（`作品|DB|索引|種別|識別子`）の hex 40 文字。
+  Google のイベント ID 規約(base32hex)に適合し、再実行しても**冪等に upsert** される。
+- 変更検知: 表示内容のフィンガープリントを `extendedProperties.private.blHash` に保存し、
+  一致すればスキップ、不一致なら update。**DB 側から消えたイベントは削除**（完全ミラー）。
+- 終日 + `RRULE:FREQ=YEARLY`、基準年 2024（§2 と同一）。
+- CI: `.github/workflows/gcal-sync.yml` が `develop` への push（`data/**` ほか）で自動実行。
+  手動実行(workflow_dispatch)では dry-run も選択可。
+
+### 6.2 初期設定（User 操作・初回 1 回のみ）
+
+1. **サービスアカウント作成**: Google Cloud Console → 対象プロジェクト →
+   「IAM と管理 > サービス アカウント」→ 作成（役割は不要。Calendar は共有で権限付与するため）。
+2. **Calendar API 有効化**: 「API とサービス > ライブラリ」→ Google Calendar API を有効化。
+3. **鍵の発行**: サービスアカウント → 「キー」→ 「新しい鍵を作成(JSON)」→ ダウンロード。
+4. **カレンダー共有**: Google カレンダーの対象カレンダー設定 → 「特定のユーザーとの共有」→
+   サービスアカウントのメールアドレス(`xxx@xxx.iam.gserviceaccount.com`)を
+   **「予定の変更権限」**で追加。
+5. **GitHub Secrets 登録**: リポジトリ Settings → Secrets and variables → Actions:
+   - `GCAL_SERVICE_ACCOUNT_KEY`: 鍵 JSON の全文
+   - `GCAL_CALENDAR_ID`: 対象カレンダー ID（カレンダー設定「カレンダーの統合」に記載）
+6. **疎通確認**: Actions タブ → 「Google カレンダー同期」→ Run workflow（dry_run: true → 問題なければ false）。
+
+### 6.3 ローカル検証
+
+```bash
+# 書き込みなしで計画のみ表示（認証情報不要）
+npm run calendar:sync:dry -- --calendar dummy
+
+# 実同期（鍵ファイルを使う場合）
+GCAL_SERVICE_ACCOUNT_KEY_FILE=path/to/key.json GCAL_CALENDAR_ID=xxx npm run calendar:sync
+```
+
+### 6.4 注意
+
+- 対象カレンダーは**同期専用**として扱う。手動で追加した予定は完全ミラーにより削除される。
+- 初回同期時は、過去に手動/コネクタ経由で登録した非決定 ID のイベントが一度削除され、
+  決定的 ID で再登録される（表示内容は同等）。
+- 鍵 JSON は Secrets 以外に置かない（リポジトリ・ログへ出力しない）。
