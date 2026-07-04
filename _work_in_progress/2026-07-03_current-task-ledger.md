@@ -29,12 +29,6 @@
   - handoff に記載されたユーザ端末作業がすべて完了し、再開不要状態になること
 
 ### P3) 中長期の設計残タスク（段階着手）
-<<<<<<< HEAD
-
-- 対象ログ:
-  - `2026-06-01_remaining-task.md`
-- 残作業:
-=======
 
 - 現在ステータス（2026-07-03 更新）:
   - **一時保留**（P1/P2 と実装済み領域の回帰テストを優先）
@@ -42,7 +36,6 @@
 - 対象ログ:
   - `2026-06-01_remaining-task.md`
 - 残作業（保留中）:
->>>>>>> develop
   - 創作用語 DB / 基本資料 DB のテンプレート設計と承認
 - 実施済み（2026-07-03）:
   - `streamingActivitySection` で `_enrichment.bilingualWrapperFields` を参照し、`StreamingGreeting` / `ListenerNickname` を JP/EN 2 列表示に対応
@@ -56,8 +49,6 @@
 - 完了条件:
   - 仕様承認を取りながら小分けで実装し、回帰テストとログ更新を都度実施
 
-<<<<<<< HEAD
-=======
 ## 直近優先（2026-07-03 切替）
 
 - P3 はいったん保留し、実装済み作品の回帰テストを優先する
@@ -67,7 +58,6 @@
   - `tests/enrich.wrapper-summaries.test.js`
   - `tests/wrapper-common.test.js`
 
->>>>>>> develop
 ## 本日完了（棚卸し反映済み）
 
 - DeepL 運用系の実環境確認（旧P2）
