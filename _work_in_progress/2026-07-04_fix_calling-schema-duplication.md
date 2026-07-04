@@ -13,6 +13,7 @@
 **修正対象エントリ**: lines 195-235（6 個の suffixed 版エントリを削除し、3 個の base キーに統一）
 
 #### 削除エントリ（suffix 付き）
+
 - `FirstPersonCalling_JP` (line 198)
 - `FirstPersonCalling_EN` (line 204)
 - `SecondPersonCalling_JP` (line 210)
@@ -21,6 +22,7 @@
 - `ThirdPersonCalling_EN` (line 228)
 
 #### 追加エントリ（base キーのみ）
+
 ```json
 {
   "hashTag": "FirstPersonCalling",
@@ -52,7 +54,7 @@
 1. **英語モード** (`lang=en`)
    - 英語テキストのみ表示
    - 例: "that kid, that person · [*by name]"
-   
+
 2. **日本語モード** (`lang=jp`)
    - 日本語テキストのみ表示
    - 例: "*の子, *の人 · [※名前呼び]"
@@ -112,6 +114,6 @@
 
 ---
 
-**修正者**: 扇一春（Copilot Agent）  
-**修正日**: 2026-07-04 JST  
+**修正者**: 扇一春（Copilot Agent）
+**修正日**: 2026-07-04 JST
 **関連セッション**: calling-renderer-display-fix
