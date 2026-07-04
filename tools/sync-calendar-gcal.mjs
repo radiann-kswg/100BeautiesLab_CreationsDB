@@ -24,7 +24,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
-import { collectEvents } from "./build-calendar-ics.mjs";
+import { collectEvents, buildEventDescription, buildRrule } from "./build-calendar-ics.mjs";
 
 const __filename = fileURLToPath(import.meta.url);
 
@@ -67,21 +67,6 @@ function eventIdOf(ev) {
 }
 
 /**
- * DESCRIPTION 本文を組み立てる（ICS 側 buildVevent と同じ構成）。
- * @param {object} ev
- * @returns {string}
- */
-function descriptionOf(ev) {
-  const lines = [];
-  lines.push(`作品: ${ev.titleJP}${ev.titleEN ? ` (${ev.titleEN})` : ""}`);
-  if (ev.dbLabel) lines.push(`DB: ${ev.dbLabel}`);
-  if (ev.nameEN) lines.push(`Name: ${ev.nameEN}`);
-  if (ev.aboutEN) lines.push(ev.aboutEN);
-  lines.push("Source: 100BeautiesLab. Creations DB (auto-generated)");
-  return lines.join("\n");
-}
-
-/**
  * Google Calendar のイベントリソースを組み立てる。
  * @param {object} ev - collectEvents() のイベント
  * @returns {{id: string, resource: object, hash: string}}
@@ -94,17 +79,27 @@ function buildEventResource(ev) {
     id,
     status: "confirmed",
     summary: ev.summary,
-    description: descriptionOf(ev),
+    description: buildEventDescription(ev),
     start: { date: start },
     end: { date: end },
-    recurrence: ["RRULE:FREQ=YEARLY"],
+    // 2/29 は「毎年2月末日」ルール(平年 2/28・うるう年 2/29)。ICS と共通ロジック
+    recurrence: [buildRrule(ev)],
     transparency: "transparent",
   };
+  // 作品ごとの色分け(Google イベント色 1〜11)。collectEvents が必ず付与する
+  if (ev.colorId) resource.colorId = String(ev.colorId);
   // 変更検知用フィンガープリント（表示内容が変わったときだけ update する）
   const hash = crypto
     .createHash("sha1")
     .update(
-      JSON.stringify([resource.summary, resource.description, start, end, resource.recurrence]),
+      JSON.stringify([
+        resource.summary,
+        resource.description,
+        start,
+        end,
+        resource.recurrence,
+        resource.colorId || "",
+      ]),
     )
     .digest("hex");
   resource.extendedProperties = { private: { blSync: "1", blHash: hash } };
@@ -375,4 +370,4 @@ if (process.argv[1] && path.resolve(process.argv[1]) === __filename) {
   process.exitCode = await main();
 }
 
-export { buildEventResource, eventIdOf, descriptionOf, isoDate, syncCalendar };
+export { buildEventResource, eventIdOf, isoDate, syncCalendar };

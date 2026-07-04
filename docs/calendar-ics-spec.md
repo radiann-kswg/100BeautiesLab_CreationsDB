@@ -33,8 +33,16 @@ GitHub Pages で配信して Google カレンダー等から**購読(subscribe)*
 
 - **終日 + 毎年繰り返し**: `DTSTART;VALUE=DATE` + `DTEND;VALUE=DATE`(翌日) + `RRULE:FREQ=YEARLY`。
   基準年はうるう年の `2024`(2/29 を保持できるため)。
+- **2/29 の扱い**: `RRULE:FREQ=YEARLY;BYMONTH=2;BYMONTHDAY=-1`(毎年2月末日)とし、
+  **平年は 2/28・うるう年は 2/29** に表示される(一般的な「平年は 2/28 扱い」に準拠)。
+- **作品色(`COLOR`)**: 作品ごとの色をグローバル `data/db_meta.json` の
+  `CreationWorks.#Works_*.CalendarColorId`(Google イベント色 `"1"`〜`"11"`)で宣言し、
+  ICS では RFC 7986 `COLOR`(CSS 色名)として出力する(対応クライアントのみ着色・非対応側は無視)。
+  未指定の作品には既定パレットを表示順で自動割り当て。
+  schema 宣言は `data/db_type.json($MetaType.$Def_CreationWorkCatalog)`。
 - **タイトル**: `🎂 {名前}（誕生日）` / `🎉 {名前}（{記念日の説明}）`。名前は `Name_JP` 系を優先解決。
-- **説明欄(`DESCRIPTION`)**: 作品名(JP/EN)・DB ラベル・英名・`DayAbout_EN`・出典を併記。
+- **説明欄(`DESCRIPTION`)**: **和文で統一**。「作品 / DB / 英名 / 記念日(`DayAbout_JP`) / 出典」を
+  この順で併記する(`lib` 非依存の共通関数 `buildEventDescription()`。Google 同期側と共用)。
 - **`UID`**: `作品 | DB | 索引 | 種別 | 識別子` の SHA-1。レコードを一意・安定に識別するため、
   再生成時も同じイベントは同じ UID となり、購読側で**冪等に更新**される。
 - **決定的出力**: イベントを月日順にソートし `DTSTAMP` を固定値にしているため、
@@ -109,7 +117,11 @@ GitHub Actions からサービスアカウントで対象カレンダーへ**完
   Google のイベント ID 規約(base32hex)に適合し、再実行しても**冪等に upsert** される。
 - 変更検知: 表示内容のフィンガープリントを `extendedProperties.private.blHash` に保存し、
   一致すればスキップ、不一致なら update。**DB 側から消えたイベントは削除**（完全ミラー）。
-- 終日 + `RRULE:FREQ=YEARLY`、基準年 2024（§2 と同一）。
+- 終日 + `RRULE:FREQ=YEARLY`、基準年 2024（§2 と同一）。2/29 は §2 と同じ
+  「毎年2月末日」ルール(`BYMONTH=2;BYMONTHDAY=-1`)で平年 2/28 に表示される。
+- **作品ごとの色分け**: `CreationWorks.#Works_*.CalendarColorId` を Google イベント色
+  (`colorId` 1〜11)としてそのまま適用。色の変更もフィンガープリントで検知し update する。
+- **説明欄**: §2 と同じ和文構成（`buildEventDescription()` を共用）。
 - CI: `.github/workflows/gcal-sync.yml` が `develop` への push（`data/**` ほか）で自動実行。
   手動実行(workflow_dispatch)では dry-run も選択可。
 

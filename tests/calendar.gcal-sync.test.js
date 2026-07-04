@@ -6,15 +6,10 @@
  */
 
 import { describe, it, expect } from "vitest";
-import {
-  buildEventResource,
-  eventIdOf,
-  descriptionOf,
-  isoDate,
-} from "../tools/sync-calendar-gcal.mjs";
-import { buildVevent } from "../tools/build-calendar-ics.mjs";
+import { buildEventResource, eventIdOf, isoDate } from "../tools/sync-calendar-gcal.mjs";
+import { buildVevent, buildEventDescription, buildRrule } from "../tools/build-calendar-ics.mjs";
 
-/** テスト用イベント（collectEvents() 出力と同形） */
+/** テスト用イベント（collectEvents() 出力と同形・2/29 のうるう日ケース） */
 const sampleEv = {
   work: "NumberTales",
   db: "Primary",
@@ -24,12 +19,15 @@ const sampleEv = {
   month: 2,
   day: 29,
   summary: "🎂 テスト（誕生日）",
-  category: "Birthday",
+  category: "誕生日",
   titleJP: "ナンバーテールズ",
   titleEN: "NumberTales",
   dbLabel: "一次創作",
   nameEN: "Test",
+  aboutJP: "",
   aboutEN: "",
+  colorId: "7",
+  colorName: "deepskyblue",
 };
 
 describe("isoDate（基準年 2024 の終日日付）", () => {
@@ -50,7 +48,11 @@ describe("eventIdOf（決定的イベント ID）", () => {
   });
 
   it("ICS の UID（@ より前）と同一ハッシュになる", () => {
-    const uidLine = buildVevent(sampleEv).find((l) => l.startsWith("UID:"));
+    const uidLine = buildVevent(sampleEv)
+      .join("\r\n")
+      .replace(/\r\n[ \t]/g, "")
+      .split("\r\n")
+      .find((l) => l.startsWith("UID:"));
     expect(uidLine).toContain(`UID:${eventIdOf(sampleEv)}@`);
   });
 
@@ -59,31 +61,51 @@ describe("eventIdOf（決定的イベント ID）", () => {
   });
 });
 
+describe("buildRrule（2/29 の平年 2/28 扱い）", () => {
+  it("2/29 は毎年2月末日ルール（平年 2/28・うるう年 2/29）", () => {
+    expect(buildRrule({ month: 2, day: 29 })).toBe("RRULE:FREQ=YEARLY;BYMONTH=2;BYMONTHDAY=-1");
+  });
+  it("それ以外は通常の毎年繰り返し", () => {
+    expect(buildRrule({ month: 2, day: 28 })).toBe("RRULE:FREQ=YEARLY");
+    expect(buildRrule({ month: 7, day: 1 })).toBe("RRULE:FREQ=YEARLY");
+  });
+});
+
 describe("buildEventResource（Google イベントリソース）", () => {
-  it("終日・毎年繰り返し・transparent で組み立てる", () => {
+  it("終日・繰り返し・transparent・作品色で組み立てる", () => {
     const { resource } = buildEventResource(sampleEv);
     expect(resource.start).toEqual({ date: "2024-02-29" });
     expect(resource.end).toEqual({ date: "2024-03-01" });
-    expect(resource.recurrence).toEqual(["RRULE:FREQ=YEARLY"]);
+    expect(resource.recurrence).toEqual(["RRULE:FREQ=YEARLY;BYMONTH=2;BYMONTHDAY=-1"]);
     expect(resource.transparency).toBe("transparent");
     expect(resource.status).toBe("confirmed");
+    expect(resource.colorId).toBe("7");
   });
 
-  it("変更検知ハッシュを extendedProperties.private.blHash に持つ", () => {
+  it("変更検知ハッシュを extendedProperties.private.blHash に持ち、色変更にも反応する", () => {
     const { resource, hash } = buildEventResource(sampleEv);
     expect(resource.extendedProperties.private.blSync).toBe("1");
     expect(resource.extendedProperties.private.blHash).toBe(hash);
-    // 表示内容が同じならハッシュも安定
+    // 同一入力ならハッシュも安定
     expect(buildEventResource({ ...sampleEv }).hash).toBe(hash);
-    // 表示内容が変わればハッシュも変わる
+    // 表示内容・色が変わればハッシュも変わる
     expect(buildEventResource({ ...sampleEv, summary: "別名" }).hash).not.toBe(hash);
+    expect(buildEventResource({ ...sampleEv, colorId: "5" }).hash).not.toBe(hash);
   });
 
-  it("description は ICS と同じ構成（作品/DB/Name/Source）", () => {
-    const desc = descriptionOf(sampleEv);
-    expect(desc).toContain("作品: ナンバーテールズ (NumberTales)");
-    expect(desc).toContain("DB: 一次創作");
-    expect(desc).toContain("Name: Test");
-    expect(desc).toContain("Source: 100BeautiesLab. Creations DB (auto-generated)");
+  it("description は和文構成（作品/DB/英名/出典）で ICS と共通", () => {
+    const { resource } = buildEventResource(sampleEv);
+    expect(resource.description).toBe(buildEventDescription(sampleEv));
+    expect(resource.description).toContain("作品: ナンバーテールズ (NumberTales)");
+    expect(resource.description).toContain("DB: 一次創作");
+    expect(resource.description).toContain("英名: Test");
+    expect(resource.description).toContain("出典: 100BeautiesLab. Creations DB（自動生成）");
+    expect(resource.description).not.toMatch(/Source:|Name:/);
+  });
+
+  it("記念日の説明（DayAbout_JP）は「記念日:」行として和文で載る", () => {
+    const aniv = { ...sampleEv, kind: "aniv", disc: "aniv:2-29:テスト記念", aboutJP: "テスト記念" };
+    const { resource } = buildEventResource(aniv);
+    expect(resource.description).toContain("記念日: テスト記念");
   });
 });

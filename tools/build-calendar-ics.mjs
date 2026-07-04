@@ -54,6 +54,28 @@ const BASE_YEAR = 2024;
 /** 決定的出力のための固定 DTSTAMP */
 const FIXED_DTSTAMP = "20240101T000000Z";
 
+/**
+ * Google カレンダー colorId → CSS 色名(RFC 7986 COLOR 用)。
+ * COLOR 対応クライアント(Apple カレンダー/Thunderbird 等)でのみ着色され、
+ * 非対応クライアントでは無害に無視される。Google 同期側は colorId をそのまま使う。
+ */
+const GCAL_COLOR_CSS = {
+  1: "slateblue",
+  2: "mediumseagreen",
+  3: "darkorchid",
+  4: "lightcoral",
+  5: "gold",
+  6: "orangered",
+  7: "deepskyblue",
+  8: "dimgray",
+  9: "royalblue",
+  10: "seagreen",
+  11: "crimson",
+};
+
+/** CalendarColorId 未指定の作品へ表示順(ディレクトリ名ソート)で割り当てるフォールバック色 */
+const FALLBACK_COLOR_IDS = ["7", "3", "6", "4", "11", "8", "10", "5", "1", "2", "9"];
+
 /** data ファイルとして扱わない補助 JSON */
 const NON_DATA_BASENAMES = new Set(["db_meta.json", "db_type.json", "db_temp.json"]);
 
@@ -105,6 +127,8 @@ function loadWorksMeta() {
         titleJP: val.Title_JP || val.Works_Label_JP || work,
         titleEN: val.Title_EN || val.Works_Label_EN || "",
         hidden: val.Works_Hidden === true,
+        // Google カレンダー同期・ICS COLOR 用の作品色("1"〜"11"のみ有効)
+        colorId: /^(?:[1-9]|1[01])$/.test(String(val.CalendarColorId ?? "")) ? String(val.CalendarColorId) : "",
       });
     }
   }
@@ -273,6 +297,33 @@ function ymdNext(month, day) {
 }
 
 /**
+ * DESCRIPTION 本文(和文)を組み立てる。ICS と Google カレンダー同期で共通利用する。
+ * @param {object} ev collectEvents() のイベント
+ * @returns {string}
+ */
+function buildEventDescription(ev) {
+  const lines = [];
+  lines.push(`作品: ${ev.titleJP}${ev.titleEN ? ` (${ev.titleEN})` : ""}`);
+  if (ev.dbLabel) lines.push(`DB: ${ev.dbLabel}`);
+  if (ev.nameEN) lines.push(`英名: ${ev.nameEN}`);
+  if (ev.aboutJP) lines.push(`記念日: ${ev.aboutJP}`);
+  lines.push("出典: 100BeautiesLab. Creations DB（自動生成）");
+  return lines.join("\n");
+}
+
+/**
+ * 繰り返しルールを返す。2/29 生まれは「毎年2月末日」
+ * (BYMONTHDAY=-1: 平年は 2/28、うるう年は 2/29)として扱う。
+ * @param {object} ev
+ * @returns {string} RRULE 行(ICS 形式)
+ */
+function buildRrule(ev) {
+  return ev.month === 2 && ev.day === 29
+    ? "RRULE:FREQ=YEARLY;BYMONTH=2;BYMONTHDAY=-1"
+    : "RRULE:FREQ=YEARLY";
+}
+
+/**
  * 1 件のイベント情報から VEVENT 行配列を生成する。
  * @param {object} ev
  * @returns {string[]}
@@ -284,13 +335,7 @@ function buildVevent(ev) {
       .update(`${ev.work}|${ev.db}|${ev.recordKey}|${ev.kind}|${ev.disc}`)
       .digest("hex") + `@${UID_DOMAIN}`;
 
-  const descLines = [];
-  descLines.push(`作品: ${ev.titleJP}${ev.titleEN ? ` (${ev.titleEN})` : ""}`);
-  if (ev.dbLabel) descLines.push(`DB: ${ev.dbLabel}`);
-  if (ev.nameEN) descLines.push(`Name: ${ev.nameEN}`);
-  if (ev.aboutEN) descLines.push(ev.aboutEN);
-  descLines.push("Source: 100BeautiesLab. Creations DB (auto-generated)");
-  const description = descLines.join("\n");
+  const description = buildEventDescription(ev);
 
   const lines = [
     "BEGIN:VEVENT",
@@ -299,7 +344,8 @@ function buildVevent(ev) {
     `SUMMARY:${escapeText(ev.summary)}`,
     `DTSTART;VALUE=DATE:${ymd(ev.month, ev.day)}`,
     `DTEND;VALUE=DATE:${ymdNext(ev.month, ev.day)}`,
-    "RRULE:FREQ=YEARLY",
+    buildRrule(ev),
+    ...(ev.colorName ? [`COLOR:${ev.colorName}`] : []),
     `CATEGORIES:${escapeText(ev.category)}`,
     `DESCRIPTION:${escapeText(description)}`,
     "TRANSP:TRANSPARENT",
@@ -348,6 +394,10 @@ function collectEvents() {
     }
     stats.works++;
 
+    // 作品色: メタ(CalendarColorId)優先、未指定は表示順のフォールバック色を割り当てる
+    const colorId = wmeta.colorId || FALLBACK_COLOR_IDS[(stats.works - 1) % FALLBACK_COLOR_IDS.length];
+    const colorName = GCAL_COLOR_CSS[Number(colorId)] || "";
+
     const dbFiles = fs
       .readdirSync(dbDir)
       .filter((f) => f.startsWith("db_") && f.endsWith(".json") && !NON_DATA_BASENAMES.has(f))
@@ -387,6 +437,8 @@ function collectEvents() {
           dbLabel,
           name,
           nameEN,
+          colorId,
+          colorName,
         };
 
         const bd = parseDay(rec.BirthDay && rec.BirthDay.Day);
@@ -399,6 +451,7 @@ function collectEvents() {
             day: bd.day,
             summary: `🎂 ${summaryName}（誕生日）`,
             category: "誕生日",
+            aboutJP: "",
             aboutEN: "",
           });
           stats.birth++;
@@ -420,6 +473,7 @@ function collectEvents() {
               day: d.day,
               summary: `🎉 ${summaryName}（${aboutJP || "記念日"}）`,
               category: "記念日",
+              aboutJP,
               aboutEN,
             });
             stats.aniv++;
@@ -501,6 +555,8 @@ export {
   collectEvents,
   buildCalendar,
   buildVevent,
+  buildEventDescription,
+  buildRrule,
   escapeText,
   foldLine,
   parseDay,

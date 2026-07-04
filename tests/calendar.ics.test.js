@@ -105,6 +105,40 @@ describe("buildCalendar / buildVevent: ICS 構造", () => {
     expect(ev).toContain("RRULE:FREQ=YEARLY");
   });
 
+  it("2/29 のイベントは毎年2月末日ルール(平年は 2/28 扱い)", () => {
+    const leap = events.filter((e) => e.month === 2 && e.day === 29);
+    for (const e of leap) {
+      const ev = buildVevent(e).join("\r\n").replace(/\r\n[ \t]/g, "");
+      expect(ev).toContain("RRULE:FREQ=YEARLY;BYMONTH=2;BYMONTHDAY=-1");
+    }
+  });
+
+  it("全イベントに作品色(COLOR / colorId)が付与される", () => {
+    for (const e of events) {
+      expect(e.colorId).toMatch(/^([1-9]|1[01])$/);
+      expect(typeof e.colorName).toBe("string");
+      expect(e.colorName.length).toBeGreaterThan(0);
+    }
+    const ev = buildVevent(events[0]).join("\r\n").replace(/\r\n[ \t]/g, "");
+    expect(ev).toMatch(/^COLOR:[a-z]+$/m);
+  });
+
+  it("同一作品のイベントは同色、色分けは複数作品に及ぶ", () => {
+    const byWork = new Map();
+    for (const e of events) {
+      if (byWork.has(e.work)) expect(byWork.get(e.work)).toBe(e.colorId);
+      else byWork.set(e.work, e.colorId);
+    }
+    expect(new Set(byWork.values()).size).toBeGreaterThan(1);
+  });
+
+  it("DESCRIPTION は和文構成で英文定型を含まない", () => {
+    const ev = buildVevent(events[0]).join("\r\n").replace(/\r\n[ \t]/g, "");
+    expect(ev).toContain("DESCRIPTION:作品: ");
+    expect(ev).toContain("出典: 100BeautiesLab. Creations DB（自動生成）");
+    expect(ev).not.toMatch(/Source:|\bName: /);
+  });
+
   it("UID は一意", () => {
     const uids = [...ics.replace(/\r\n[ \t]/g, "").matchAll(/^UID:(.+)$/gm)].map((m) => m[1]);
     expect(uids.length).toBe(events.length);

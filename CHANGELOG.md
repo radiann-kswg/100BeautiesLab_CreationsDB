@@ -1,5 +1,17 @@
 # 最新のリファクタリング・仕様変更履歴
 
+### refine: カレンダー(ICS/Google 同期)へ作品色・2/29 平年対応・説明欄の和文統一を追加 (2026-07-04)
+
+- **`data/db_type.json`（$MetaType.$Def_CreationWorkCatalog）**: `CalendarColorId`（カレンダー色ID, `#String|#Null`, internal）を宣言。
+- **`data/db_meta.json`（CreationWorks）**: 全9作品へ `CalendarColorId`（Google イベント色 1〜11）を設定（NumberTales=7 Peacock, FLInvestigator78=3 Grape, ShouArRiders=6 Tangerine, UnibyteLive=4 Flamingo, SinisterChangingGirls=11 Tomato, UnauthedLogica=8 Graphite, PastDivers=10 Basil, DestinyFoxRecords=5 Banana, Proxies=1 Lavender）。
+- **`tools/build-calendar-ics.mjs`**:
+  - 作品色を ICS の RFC 7986 `COLOR`（CSS 色名）として出力（未指定作品は既定パレットを表示順で自動割当）。
+  - 2/29 のイベントを `RRULE:FREQ=YEARLY;BYMONTH=2;BYMONTHDAY=-1`（毎年2月末日）へ変更し、平年は 2/28 に表示。`buildRrule()` として共通化。
+  - `DESCRIPTION` を和文統一（作品/DB/英名/記念日(`DayAbout_JP`)/出典）。`buildEventDescription()` として共通化・export。
+- **`tools/sync-calendar-gcal.mjs`**: 上記共通関数を利用し、Google 側へ `colorId` を反映。変更検知ハッシュに色を含め、色変更でも update が走るように。イベント ID は不変のため既存イベントは削除されず全件 update で移行。
+- **`tests/calendar.ics.test.js` / `tests/calendar.gcal-sync.test.js`**: 作品色（作品内同色・複数作品色分け・COLOR 行）、2/29 ルール、和文 DESCRIPTION の回帰テストを追加・追従。
+- **`docs/calendar-ics-spec.md`**: §2 / §6 を更新（色・2/29・和文構成）。
+
 ### add: Google カレンダー直接同期（push 方式）を追加 — ICS 購読の反映遅延対策 (2026-07-04)
 
 - **`tools/sync-calendar-gcal.mjs`（新規）**: `collectEvents()`（ICS 生成と同一の抽出・除外ルール）を再利用し、サービスアカウント（JWT Bearer・外部依存なし）で Google Calendar API へ**完全ミラー同期**。イベント ID は ICS `UID` と同じ SHA-1 で決定的（冪等 upsert）。`extendedProperties.private.blHash` による変更検知で差分のみ書き込み。`--dry-run` / `--calendar` / `GCAL_SERVICE_ACCOUNT_KEY(_FILE)` 対応。

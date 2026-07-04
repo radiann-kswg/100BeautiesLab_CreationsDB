@@ -2,6 +2,7 @@
   "CreationWorks": {
     "#Works_NumberTales": {
       "Title_JP": "ナンバーテールズ",
+      "CalendarColorId": "7",
       "Title_EN": "NumberTales",
       "Works_Summary_JP": "九蓮国にあるヴェンチャーラボ「百花繚乱研究所」で零(レイ)と百(ハゲム)が手掛けている妖獣型生活支援ポータブルヒューマノイド。\n主に数字や数秘に基づいた妖獣型のキャラクターが存在する。",
       "Works_Summary_EN": "TaleBeast-type portable humanoids for daily-life support, developed by Zera and Hudret at the venture lab '100 Beauties Lab.' in LotusNinea.\nThe series mainly features beast-type characters based on numbers and numerology.",
@@ -40,6 +41,7 @@
     },
     "#Works_FLInvestigator78": {
       "Title_JP": "運命線探偵78",
+      "CalendarColorId": "3",
       "Title_EN": "the Fate-Line Investigator 78",
       "OldTitles": [
         {
@@ -76,6 +78,7 @@
     },
     "#Works_ShouArRiders": {
       "Title_JP": "獣爾騎兵",
+      "CalendarColorId": "6",
       "Title_EN": "Shou'ar Riders\nBeasted Cavalry",
       "Works_Summary_JP": "龍天国にある山月病(変化病)対策組織「獣爾騎兵」に所属する獣人型改造人間。\n主に十二支などの動物に基づいた獣人キャラクターが存在する。",
       "Works_Summary_EN": "Beastfolk-type modified humans affiliated with 'Shou'ar Riders,' an organization in LóngTiān's.Republic that counters Shanyu Disease (metamorphosis syndrome).\nThe series mainly features beastfolk characters based on animals such as the zodiac.",
@@ -105,6 +108,7 @@
     },
     "#Works_UnibyteLive": {
       "Title_JP": "ハンカクライブ",
+      "CalendarColorId": "4",
       "Title_EN": "UnibyteLive",
       "Works_Summary_JP": "メタバースプラットフォーム「ユニバイト・ユニバース」で活動する個人ヴァーチャル配信アイドルグループ「アルベッツ」所属の少女。\n主にアルファベットに基づいたモチーフのヴァーチャルアバターを有するキャラクターからなる。",
       "Works_Summary_EN": "A girl affiliated with 'ALPBETS,' an independent virtual streaming idol group active on the metaverse platform 'Unibyte Universe.'\nThe title consists mainly of characters with virtual avatars themed around alphabet motifs.",
@@ -136,6 +140,7 @@
     },
     "#Works_SinisterChangingGirls": {
       "Title_JP": "豹変系女子",
+      "CalendarColorId": "11",
       "Title_EN": "Sinister Changing Girls",
       "Works_Summary_JP": "創作世界の各国を放浪している謎多き少女。\n主に七つの大罪や八方位などに基づいた二面性と特徴を持つガーリッシュな８人のキャラクターからなる。",
       "Works_Summary_EN": "A mysterious girl wandering across nations in the creative world.\nIt mainly consists of eight girlish characters with dual aspects and traits based on motifs such as the seven deadly sins and the eight directions.",
@@ -161,6 +166,7 @@
     },
     "#Works_UnauthedLogica": {
       "Title_JP": "アンオースドロジカ",
+      "CalendarColorId": "8",
       "Title_EN": "UnauthedLogica",
       "Works_Summary_JP": "汎用オートマトンとその後継改良存在たち。\n主に汎用ロジックを基にしたモブ種族、および「ナンバーテールズ」のパラレル存在にある妖獣型カスタムオートマトンの「人形兵ゼロイド」が存在する。",
       "Works_Summary_EN": "General-purpose automatons and their improved successor entities.\nIt mainly features mob races based on generic logic, along with 'AttackerZeroids,' beast-type custom automatons that exist as a parallel lineage to NumberTales.",
@@ -188,6 +194,7 @@
     },
     "#Works_PastDivers": {
       "Title_JP": "パストダイヴァー",
+      "CalendarColorId": "10",
       "Title_EN": "PastDivers",
       "Works_Summary_JP": "九蓮国の国家技術と国防を担う「夜月機関」に所属する特殊技術者。\n主に和暦などに基づいたキャラクターが存在する。",
       "Works_Summary_EN": "Specialized engineers affiliated with 'Yadzuki Organization,' responsible for national technology and defense in LotusNinea.\nThe title mainly features characters based on motifs such as Far-Eastern era names.",
@@ -219,6 +226,7 @@
     },
     "#Works_DestinyFoxRecords": {
       "Title_JP": "運命線狐の記録\nフィジカル9",
+      "CalendarColorId": "5",
       "Title_EN": "Destiny Fox's Records\nPhysical 9",
       "OldTitles": [
         {
@@ -250,6 +258,7 @@
     },
     "#Works_Proxies": {
       "Title_JP": "ラジアン代理",
+      "CalendarColorId": "1",
       "Title_EN": "RadianN's Proxy",
       "Works_Summary_JP": "弊創作を執筆している「ラジアン」の代理キャラクター",
       "Works_Summary_EN": "Proxy characters of 'RadianN,' the author writing this creative series.",

@@ -33,7 +33,8 @@
 | 英訳ルール追補・calling.js | [2026-06-24_progress_localization-rules-audit.md](./2026-06-24_progress_localization-rules-audit.md) | ⚠️ calling.js のユニットテスト/UI確認が残（後続: `fix_calling-schema-duplication`） |
 | Calling系表示バグ修正 | [2026-07-04_fix_calling-schema-duplication.md](./2026-07-04_fix_calling-schema-duplication.md) | ⚠️ 他作品への影響スポット確認・テストケース追加検討が残 |
 | Issue機能追加 | [2026-07-04_progress_issue-feature.md](./2026-07-04_progress_issue-feature.md) | ⚠️ GitHub上のテンプレート最終表示確認が残 |
-| Google カレンダー push 同期 | [2026-07-04_progress_gcal-push-sync.md](./2026-07-04_progress_gcal-push-sync.md) | ⚠️ サービスアカウント作成・Secrets 登録・初回同期（User 操作）が残 |
+| Google カレンダー push 同期 | [2026-07-04_progress_gcal-push-sync.md](./2026-07-04_progress_gcal-push-sync.md) | ✅ 初回同期完了・運用フェーズ |
+| カレンダー色分け・2/29・和文統一 | [2026-07-04_progress_calendar-color-leap-jp.md](./2026-07-04_progress_calendar-color-leap-jp.md) | ⚠️ commit/push 後の再同期確認が残 |
 | ADR-0002（Google Cloud 画像生成） | [2026-06-21_progress_cloudflare-api-adr2-gcloud.md](./2026-06-21_progress_cloudflare-api-adr2-gcloud.md) | Draft・設計検討中 |
 | addon-ai-tag 逆マージ事故記録 | [2026-07-02_progress_addon-ai-tag-reverse-merge-incident.md](./2026-07-02_progress_addon-ai-tag-reverse-merge-incident.md) | ⚠️ addon-ai-tag側ログへの後日談追記が保留中 |
 

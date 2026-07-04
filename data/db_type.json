@@ -641,6 +641,13 @@
           "$type": "$Def_OldTitleCatalog[]|#Null",
           "hashTag_JP": "旧題一覧",
           "hashTag_EN": "Old Titles"
+        },
+        {
+          "hashTag": "CalendarColorId",
+          "$type": "#String|#Null",
+          "hashTag_JP": "カレンダー色ID",
+          "hashTag_EN": "Calendar Color ID",
+          "$display": { "role": "internal" }
         }
       ]
     },
