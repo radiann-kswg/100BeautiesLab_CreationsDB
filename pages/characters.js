@@ -94,6 +94,17 @@ function buildDataCorrectionIssueUrl(workId, dbName, characterLabel) {
 	return `https://github.com/${ISSUE_REPORT_REPO}/issues/new?${params.toString()}`;
 }
 
+/**
+ * サイト機能・改善提案用 GitHub Issue フォームのURLを返す
+ * @returns {string} GitHub Issue 作成画面へのURL
+ */
+function buildFeatureSuggestionIssueUrl() {
+	const params = new URLSearchParams({
+		template: 'feature-suggestion.yml'
+	});
+	return `https://github.com/${ISSUE_REPORT_REPO}/issues/new?${params.toString()}`;
+}
+
 function isCharactersTestMode() {
 	return Boolean(globalThis.__CHARACTERS_TEST_MODE__ || import.meta.vitest);
 }
@@ -4935,8 +4946,11 @@ function getUiCopyByLanguage(lang) {
 			listTitle: 'Character List',
 			listEmpty: 'No matching characters were found.',
 			back: '<- Back to list',
+			reportIssue: '⚠ Report a data issue',
+			featureIssue: '⚙ Suggest a site feature',
 			reset: 'Reset Cache/SW',
 			resetTitle: 'Reset caches and Service Worker, then reload.',
+			featureIssueTitle: 'Open GitHub Issue form for feature suggestions.',
 			langTitle: 'Switch page language to Japanese (日本語).'
 		};
 	}
@@ -4955,8 +4969,11 @@ function getUiCopyByLanguage(lang) {
 		listTitle: 'キャラクター一覧',
 		listEmpty: '該当するキャラクターが見つかりませんでした。',
 		back: '← 一覧へ戻る',
+		reportIssue: '⚠ データの誤りを報告',
+		featureIssue: '⚙ サイト機能を提案',
 		reset: 'キャッシュ/SWリセット',
 		resetTitle: 'キャッシュとService Workerをリセットしてリロードします',
+		featureIssueTitle: 'GitHub Issue の機能提案フォームを開きます。',
 		langTitle: '表示言語を英語 (English) へ切り替え',
 	};
 }
@@ -4983,6 +5000,8 @@ function applyStaticTextLanguage() {
 	setText('#label-list-title', copy.listTitle);
 	setText('#list-empty', copy.listEmpty);
 	setText('#btn-back', copy.back);
+	setText('#btn-report-issue', copy.reportIssue);
+	setText('#btn-feature-issue', copy.featureIssue);
 	setText('#btn-reset-sw', copy.reset);
 
 	const searchInput = $('#search-input');
@@ -4990,6 +5009,12 @@ function applyStaticTextLanguage() {
 
 	const resetBtn = $('#btn-reset-sw');
 	if (resetBtn) resetBtn.title = copy.resetTitle;
+
+	const featureIssueBtn = $('#btn-feature-issue');
+	if (featureIssueBtn) {
+		featureIssueBtn.href = buildFeatureSuggestionIssueUrl();
+		featureIssueBtn.title = copy.featureIssueTitle;
+	}
 
 	const langBtn = $('#btn-lang-toggle');
 	if (langBtn) {
