@@ -195,38 +195,23 @@
       "$display": { "section": "basic" }
     },
     {
-      "hashTag": "FirstPersonCalling_JP",
-      "$type": "#String|#Summary",
+      "hashTag": "FirstPersonCalling",
+      "$type": "#String|#String_EN|#Summary|#Null",
       "hashTag_JP": "一人称",
-      "$display": { "section": "sub" }
-    },
-    {
-      "hashTag": "FirstPersonCalling_EN",
-      "$type": "#String_EN|#Summary|#Null",
       "hashTag_EN": "First Person Calling",
       "$display": { "section": "sub" }
     },
     {
-      "hashTag": "SecondPersonCalling_JP",
-      "$type": "#String|#Summary",
+      "hashTag": "SecondPersonCalling",
+      "$type": "#String|#String_EN|#Summary|#Null",
       "hashTag_JP": "二人称",
-      "$display": { "section": "sub" }
-    },
-    {
-      "hashTag": "SecondPersonCalling_EN",
-      "$type": "#String_EN|#Summary|#Null",
       "hashTag_EN": "Second Person Calling",
       "$display": { "section": "sub" }
     },
     {
-      "hashTag": "ThirdPersonCalling_JP",
-      "$type": "#String|#Summary",
+      "hashTag": "ThirdPersonCalling",
+      "$type": "#String|#String_EN|#Summary|#Null",
       "hashTag_JP": "三人称",
-      "$display": { "section": "sub" }
-    },
-    {
-      "hashTag": "ThirdPersonCalling_EN",
-      "$type": "#String_EN|#Summary|#Null",
       "hashTag_EN": "Third Person Calling",
       "$display": { "section": "sub" }
     },

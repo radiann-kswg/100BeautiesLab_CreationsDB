@@ -21,6 +21,11 @@
    - `<meta name="asset-version">` を `2026.07.02.2` → `2026.07.04.1` へ更新（CSS/JS両方更新のため）。
 4. **ドキュメント**
    - `CHANGELOG.md` に追記。
+5. **機能提案IssueボタンのUI実装（2026-07-04 追補）**
+   - コントロール行に `#btn-feature-issue`（`feature-suggestion.yml` 直リンク）を追加。
+   - `buildFeatureSuggestionIssueUrl()` を追加し、`template=feature-suggestion.yml` を付与した GitHub Issue 作成URLを生成。
+   - 言語切替に連動してボタン文言を切替（JP: `⚙ サイト機能を提案` / EN: `⚙ Suggest a site feature`）。
+   - 併せて、データ修正ボタン（`#btn-report-issue`）も言語切替に連動するよう改善（JP/EN）。
 
 ## 影響範囲（編集したファイル）
 
@@ -33,6 +38,13 @@
 - `pages/characters.css`
 - `CHANGELOG.md`
 
+（追補）
+
+- `pages/characters.html`（`#btn-feature-issue` 追加、asset-version更新）
+- `pages/characters.js`（feature suggestion URL生成、言語文言切替）
+- `pages/characters.sass`（`.control-row__issue-link` 追加）
+- `pages/characters.css`（上記SASS差分の手動同期）
+
 ## 検証
 
 - `npm test` → 21 files / 163 tests passed（既存回帰無し）。
@@ -40,6 +52,10 @@
   - `#btn-report-issue` が表示され、`href` が `https://github.com/radiann-kswg/100BeautiesLab_CreationsDB/issues/new?template=data-correction.yml&title=...&db=Primary&character=2%28%E3%83%84%E3%82%B0%29&url=...&work=%E3%83%8A%E3%83%B3%E3%83%90%E3%83%BC%E3%83%86%E3%83%BC%E3%83%AB%E3%82%BA...` の形で正しく組み立てられることを確認。
   - `?work=NumberTales&db=Primary`（詳細未選択の一覧表示）では `#btn-report-issue` が `hidden` のままであることを確認。
 - 検証用の一時スクリプト（`.cache/check_issue_btn*.mjs`）は確認後に削除済み。
+- 追補検証（ローカル `python -m http.server` + Playwright）:
+  - コントロール行に `#btn-feature-issue` が表示され、`href` が `https://github.com/radiann-kswg/100BeautiesLab_CreationsDB/issues/new?template=feature-suggestion.yml` になることを確認。
+  - 言語切替時に `#btn-feature-issue` の文言が JP/EN で切り替わることを確認。
+  - `#btn-report-issue` も JP/EN で文言切替されることを確認。
 
 ## 未完了タスク・注意点
 

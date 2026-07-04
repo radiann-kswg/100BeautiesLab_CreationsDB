@@ -9,7 +9,9 @@
   - `config.yml` — 白紙Issueを無効化し、ガイドライン・ホームページへの導線を追加。
 - **`pages/characters.html` / `characters.js` / `characters.sass`（`characters.css` も同期反映）**:
   - キャラ詳細表示の `.detail-header` に「⚠ データの誤りを報告」リンク（`#btn-report-issue`）を追加。
+  - コントロール行に「⚙ サイト機能を提案」リンク（`#btn-feature-issue`）を追加し、`feature-suggestion.yml` のIssueフォームへ遷移可能に。
   - `buildDataCorrectionIssueUrl()` で表示中の 作品/DB/キャラクター識別情報/現在URL を `data-correction.yml` の各フィールドidへ事前入力し、GitHub Issue作成画面へ遷移させる（サーバー呼び出し無し、静的サイトの制約内で完結）。
+  - 言語切替に連動してIssueボタン文言をJP/ENで切替（`#btn-report-issue` / `#btn-feature-issue`）。
   - 非公開キャラクター表示時・一覧表示時はリンクを非表示に維持。
   - `<meta name="asset-version">` を `2026.07.04.1` へ更新。
 - 確認: `npm test`（163 tests passed）。ローカルHTTPサーバー + Playwright でキャラ詳細deep link（`?work=NumberTales&db=Primary&idx=2&idxKey=Num`）からのリンク表示・事前入力URL組み立てを目視確認。
