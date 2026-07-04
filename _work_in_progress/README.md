@@ -22,20 +22,23 @@
 同じトピックでも複数ログが並ぶとどれが最新か分かりづらくなるため、**トピック単位**でまとめています。
 各トピックの「現行ログ」が最新の状態を追える起点です。過去の実装フェーズの詳細ログは `.completed/` にあります。
 
-| トピック | 現行ログ | 状態 |
-| --- | --- | --- |
-| タスク管理・起点 | [2026-07-03_current-task-ledger.md](./2026-07-03_current-task-ledger.md) | 進行中タスクの一覧（P1/P2/P3） |
-| タスク管理・母艦 | [2026-06-01_remaining-task.md](./2026-06-01_remaining-task.md) / [2026-06-13_remaining-task.md](./2026-06-13_remaining-task.md) | 中長期の残留・希望タスク一覧（継続参照） |
-| AppearanceDetail データ整備 | [2026-06-30_progress_appearance-detail-cleanup.md](./2026-06-30_progress_appearance-detail-cleanup.md) | ⚠️ BodyPart手動入力・既存不整合修正が残（current-task-ledger P1） |
-| ConversationPattern 引き継ぎ | [2026-06-28_progress_conversationpattern-handoff.md](./2026-06-28_progress_conversationpattern-handoff.md) | ⚠️ sub2側後処理が残（current-task-ledger P2） |
-| `*_DBLink` enrich/renderer | [2026-06-18_progress_dblink-enrich.md](./2026-06-18_progress_dblink-enrich.md) / [2026-06-18_progress_dblink-renderer.md](./2026-06-18_progress_dblink-renderer.md) | ⚠️ 作品別typedefへのフィールド追加・ブラウザ確認待ち |
-| 英訳ルール基準書 | [2026-06-12_progress_translation-style-unified.md](./2026-06-12_progress_translation-style-unified.md) | 継続参照用（ルール本体・バッチ作業ログ） |
-| Localization DB（`trans_*.json`） | [2026-06-24_progress_localization-db.md](./2026-06-24_progress_localization-db.md) | ⚠️ enum解決の合流・原作者確認・項目追加継続中 |
-| Localization Summary 入力 | [2026-06-25_progress_localization-summary-inputs.md](./2026-06-25_progress_localization-summary-inputs.md) | ⚠️ 入力チェックリスト（残7件、User手動） |
-| 英訳ルール追補・calling.js | [2026-06-24_progress_localization-rules-audit.md](./2026-06-24_progress_localization-rules-audit.md) | ⚠️ calling.js のユニットテスト/UI確認が残（後続: `fix_calling-schema-duplication`） |
-| Calling系表示バグ修正 | [2026-07-04_fix_calling-schema-duplication.md](./2026-07-04_fix_calling-schema-duplication.md) | ⚠️ 他作品への影響スポット確認・テストケース追加検討が残 |
-| Issue機能追加 | [2026-07-04_progress_issue-feature.md](./2026-07-04_progress_issue-feature.md) | ⚠️ GitHub上のテンプレート最終表示確認が残 |
-| ADR-0002（Google Cloud 画像生成） | [2026-06-21_progress_cloudflare-api-adr2-gcloud.md](./2026-06-21_progress_cloudflare-api-adr2-gcloud.md) | Draft・設計検討中 |
+| トピック                          | 現行ログ                                                                                                                                                            | 状態                                                                                |
+| --------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- |
+| タスク管理・起点                  | [2026-07-03_current-task-ledger.md](./2026-07-03_current-task-ledger.md)                                                                                            | 進行中タスクの一覧（P1/P2/P3）                                                      |
+| タスク管理・母艦                  | [2026-06-01_remaining-task.md](./2026-06-01_remaining-task.md) / [2026-06-13_remaining-task.md](./2026-06-13_remaining-task.md)                                     | 中長期の残留・希望タスク一覧（継続参照）                                            |
+| AppearanceDetail データ整備       | [2026-06-30_progress_appearance-detail-cleanup.md](./2026-06-30_progress_appearance-detail-cleanup.md)                                                              | ⚠️ BodyPart手動入力・既存不整合修正が残（current-task-ledger P1）                   |
+| ConversationPattern 引き継ぎ      | [2026-06-28_progress_conversationpattern-handoff.md](./2026-06-28_progress_conversationpattern-handoff.md)                                                          | ⚠️ sub2側後処理が残（current-task-ledger P2）                                       |
+| `*_DBLink` enrich/renderer        | [2026-06-18_progress_dblink-enrich.md](./2026-06-18_progress_dblink-enrich.md) / [2026-06-18_progress_dblink-renderer.md](./2026-06-18_progress_dblink-renderer.md) | ⚠️ 作品別typedefへのフィールド追加・ブラウザ確認待ち                                |
+| 英訳ルール基準書                  | [2026-06-12_progress_translation-style-unified.md](./2026-06-12_progress_translation-style-unified.md)                                                              | 継続参照用（ルール本体・バッチ作業ログ）                                            |
+| Localization DB（`trans_*.json`） | [2026-06-24_progress_localization-db.md](./2026-06-24_progress_localization-db.md)                                                                                  | ⚠️ enum解決の合流・原作者確認・項目追加継続中                                       |
+| Localization Summary 入力         | [2026-06-25_progress_localization-summary-inputs.md](./2026-06-25_progress_localization-summary-inputs.md)                                                          | ⚠️ 入力チェックリスト（残7件、User手動）                                            |
+| 英訳ルール追補・calling.js        | [2026-06-24_progress_localization-rules-audit.md](./2026-06-24_progress_localization-rules-audit.md)                                                                | ⚠️ calling.js のユニットテスト/UI確認が残（後続: `fix_calling-schema-duplication`） |
+| Calling系表示バグ修正             | [2026-07-04_fix_calling-schema-duplication.md](./2026-07-04_fix_calling-schema-duplication.md)                                                                      | ⚠️ 他作品への影響スポット確認・テストケース追加検討が残                             |
+| Issue機能追加                     | [2026-07-04_progress_issue-feature.md](./2026-07-04_progress_issue-feature.md)                                                                                      | ⚠️ GitHub上のテンプレート最終表示確認が残                                           |
+| Google カレンダー push 同期       | [2026-07-04_progress_gcal-push-sync.md](./2026-07-04_progress_gcal-push-sync.md)                                                                                    | ✅ 初回同期完了・運用フェーズ                                                       |
+| カレンダー色分け・2/29・和文統一  | [2026-07-04_progress_calendar-color-leap-jp.md](./2026-07-04_progress_calendar-color-leap-jp.md)                                                                    | ⚠️ commit/push 後の再同期確認が残                                                   |
+| ADR-0002（Google Cloud 画像生成） | [2026-06-21_progress_cloudflare-api-adr2-gcloud.md](./2026-06-21_progress_cloudflare-api-adr2-gcloud.md)                                                            | Draft・設計検討中                                                                   |
+| addon-ai-tag 逆マージ事故記録     | [2026-07-02_progress_addon-ai-tag-reverse-merge-incident.md](./2026-07-02_progress_addon-ai-tag-reverse-merge-incident.md)                                          | ⚠️ addon-ai-tag側ログへの後日談追記が保留中                                         |
 
 ### 系列の補足（過去フェーズは `.completed/` 参照）
 

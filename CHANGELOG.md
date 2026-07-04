@@ -1,5 +1,26 @@
 # 最新のリファクタリング・仕様変更履歴
 
+### refine: カレンダー(ICS/Google 同期)へ作品色・2/29 平年対応・説明欄の和文統一を追加 (2026-07-04)
+
+- **`data/db_type.json`（$MetaType.$Def_CreationWorkCatalog）**: `CalendarColorId`（カレンダー色ID, `#String|#Null`, internal）を宣言。
+- **`data/db_meta.json`（CreationWorks）**: 全9作品へ `CalendarColorId`（Google イベント色 1〜11）を設定（NumberTales=7 Peacock, FLInvestigator78=3 Grape, ShouArRiders=6 Tangerine, UnibyteLive=4 Flamingo, SinisterChangingGirls=11 Tomato, UnauthedLogica=8 Graphite, PastDivers=10 Basil, DestinyFoxRecords=5 Banana, Proxies=1 Lavender）。
+- **`tools/build-calendar-ics.mjs`**:
+  - 作品色を ICS の RFC 7986 `COLOR`（CSS 色名）として出力（未指定作品は既定パレットを表示順で自動割当）。
+  - 2/29 のイベントを `RRULE:FREQ=YEARLY;BYMONTH=2;BYMONTHDAY=-1`（毎年2月末日）へ変更し、平年は 2/28 に表示。`buildRrule()` として共通化。
+  - `DESCRIPTION` を和文統一（作品/DB/英名/記念日(`DayAbout_JP`)/出典）。`buildEventDescription()` として共通化・export。
+- **`tools/sync-calendar-gcal.mjs`**: 上記共通関数を利用し、Google 側へ `colorId` を反映。変更検知ハッシュに色を含め、色変更でも update が走るように。イベント ID は不変のため既存イベントは削除されず全件 update で移行。
+- **`tests/calendar.ics.test.js` / `tests/calendar.gcal-sync.test.js`**: 作品色（作品内同色・複数作品色分け・COLOR 行）、2/29 ルール、和文 DESCRIPTION の回帰テストを追加・追従。
+- **`docs/calendar-ics-spec.md`**: §2 / §6 を更新（色・2/29・和文構成）。
+
+### add: Google カレンダー直接同期（push 方式）を追加 — ICS 購読の反映遅延対策 (2026-07-04)
+
+- **`tools/sync-calendar-gcal.mjs`（新規）**: `collectEvents()`（ICS 生成と同一の抽出・除外ルール）を再利用し、サービスアカウント（JWT Bearer・外部依存なし）で Google Calendar API へ**完全ミラー同期**。イベント ID は ICS `UID` と同じ SHA-1 で決定的（冪等 upsert）。`extendedProperties.private.blHash` による変更検知で差分のみ書き込み。`--dry-run` / `--calendar` / `GCAL_SERVICE_ACCOUNT_KEY(_FILE)` 対応。
+- **`.github/workflows/gcal-sync.yml`（新規）**: `develop` への push（`data/**`・同期スクリプト変更時）で自動同期。workflow_dispatch で dry-run 選択可。Secrets: `GCAL_SERVICE_ACCOUNT_KEY` / `GCAL_CALENDAR_ID`。
+- **`package.json`**: `calendar:sync` / `calendar:sync:dry` を追加。
+- **`docs/calendar-ics-spec.md`**: §6「push 方式」を追加（仕組み・初期設定手順・ローカル検証・注意）。§4 の注意書きを push 方式優先の運用へ更新。
+- **`tests/calendar.gcal-sync.test.js`（新規）**: 日付導出（うるう日・年末繰越）・ID 決定性（ICS UID と同一ハッシュ）・リソース組み立て・変更検知ハッシュの回帰テスト。
+- 背景: ICS 購読(pull)は Google 側のポーリング頻度を制御できず反映されない事象が発生したため、push 方式を実運用の正とする（購読配信は外部公開用に併存）。
+
 ### add: データベース改善用に GitHub Issues 機能を追加（サイト連携付き） (2026-07-04)
 
 - **リポジトリ設定**: `radiann-kswg/100BeautiesLab_CreationsDB` の GitHub Issues を有効化。
@@ -1296,19 +1317,4 @@
 
 ### 開発支援（テスト/ドキュメント）
 
-- Test（`tests/docs.links.test.js`）: Markdown 内の既知誤リンク（例: `pages/characters.html` の単数表記）を継続検知する軽量テストを追加。
-- Docs（`README.test.md`, `CONTRIBUTING.md` ほか）: Windows/PowerShell の実行ポリシーで `npm.ps1` がブロックされる環境向けに、`npm.cmd test` / `.\node_modules\.bin\vitest.cmd run` の回避策を追記。
-
-### フェーズ3: 予約語/機械処理キーの整理（命名の言語化・ハードコード削減）
-
-- SW 共通（`lib/sw-common.js`）: 予約語（`_`/`$`/`#`）の判定・既知キー定数・`warnOnce` をまとめた `SchemaNaming` を追加。
-- SW 共通（`lib/data-common.js`）: `_DBLink/_Jump/_Search/_enrichment` 等の処理で、`SchemaNaming` を参照して予約語判定・システムキー除外を統一（`startsWith('_')` 等の散在を削減）。
-- 互換警告: 作品メタの旧キー `Secondaries` を参照した場合に、開発者向けに一度だけ警告を出す（正は `_Secondaries`）。
-- Docs（`docs/db-update-guidelines.md`）: 予約語プレフィックスと命名運用の目安を追記。
-- Data（UnauthedLogica）: typedef の legacy ラベルキー `hashtag_JP` を廃止し、`hashTag_JP` に統一。
-
-### フェーズ4: API への統合（エンリッチ/マージの段階移行）
-
-- API（`api/sw.js`）: `GET /api/v1/works/{work}/db/{dbName}` と `GET /api/v1/search` で `?enrich=1` を受け取り、UI 用 API（`/pages/v1`）と同等のエンリッチ出力（参照マージ・`$alt` フォールバック・`_enrichment` 付与など）を opt-in で返せるようにした（既定は互換維持のため enrich 無し）。
-- SVC（`svc/sw.js`）: `/svc/v1` でも同様に `?enrich=1` をサポート。
-- Docs（`docs/viewer-guide.md`）: `/api`/`/svc` の enrich opt-in を明記。
+- Test（`tests/docs.lin
