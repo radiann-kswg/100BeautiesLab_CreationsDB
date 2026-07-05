@@ -7,7 +7,10 @@
     ],
     "Name_JP": "ラジアン(2代目)",
     "Name_EN": "RadianN (2nd Gen.)",
-    "Images": { "design_PNGName": "dsgn_imgRN2" },
+    "Images": {
+      "design_PNGName": "dsgn_imgRN2",
+      "weakening_PNGPath": ["emstk_weakeningRN2-1"]
+    },
     "FormalName_JP": "扇 二春",
     "FormalName_JPReading": "おうぎ つぐはる",
     "FormalName_EN": "Arch Seconec",
@@ -48,7 +51,8 @@
     "Name_EN": "RadianN (3rd Gen.)",
     "Images": {
       "design_PNGName": "dsgn_imgRN3",
-      "designAlt_PNGName": ["dsgn_imgRN3-onCostume"]
+      "designAlt_PNGName": ["dsgn_imgRN3-onCostume"],
+      "weakening_PNGPath": ["emstk_weakeningRN3-1", "emstk_weakeningRN3-2"]
     },
     "FormalName_JP": "扇 四春.オーバーロール\n扇 四春.オーダーロール",
     "FormalName_JPReading": "おうぎ よつはる.オーバーロール\nおうぎ よつはる.オーダーロール",
