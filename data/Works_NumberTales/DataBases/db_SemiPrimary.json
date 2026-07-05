@@ -835,7 +835,8 @@
   },
   {
     "Num": 444,
-    "Progress": "nowCreating",
+    "Progress": "unreleased",
+    "Images": { "concept_PNGName": "cnsp_img444" },
     "AnotherVersions_DBLink": [
       { "_Work": "NumberTales", "_DB": "SelfSecondary", "Num": "444-mp" }
     ],
@@ -869,16 +870,16 @@
     "TailsUnit_JP": "キツネ(特殊)型3束x4本",
     "TailsUnit_EN": "Fox (Special) Type: 4 Tails x 3 Tufts",
     "Class": ["マスタートリプル", "スクエアエリート"],
-    "FirstPersonCalling_JP": "我輩\n僕(ぼく)",
-    "FirstPersonCalling_EN": "I (wagahai; archaic/formal)\nI (boku; masc. casual)",
-    "SecondPersonCalling_JP": "貴君/諸君,貴殿\n君(きみ)",
-    "SecondPersonCalling_EN": "you (kikun/shokun, kiden; very formal)\nyou (kimi; masc. casual)",
-    "ThirdPersonCalling_JP": "*ちら(の者);~殿\n[※名前呼び]",
-    "ThirdPersonCalling_EN": "that side/person there; sir/mr/lady/ms.~(~dono; formally honorific)\n[*by name]",
-    "ForMasterCalling_JP": "提督殿\n提督",
-    "ForMasterCalling_EN": "sir/lady admiral\nAdmiral",
-    "Character_JP": "気高く構えた態度で敬意深い\nたまに自分のプライドを守りたいがために様子が不安定になることも",
-    "Character_EN": "Dignified and respectful in bearing.\nAt times, trying to protect personal pride can make behavior unstable.",
+    "FirstPersonCalling_JP": "我輩\n僕(ぼく) ※想定外のことが起きて動揺しているとき",
+    "FirstPersonCalling_EN": "I (wagahai; archaic/formal)\nI (boku; masc. casual *when something unexpected happens)",
+    "SecondPersonCalling_JP": "貴君/諸君,貴殿\n君(きみ) ※想定外のことが起きて動揺しているとき",
+    "SecondPersonCalling_EN": "you (kikun/shokun, kiden; very formal)\nyou (kimi; masc. casual *when something unexpected happens)",
+    "ThirdPersonCalling_JP": "*ちら(の者);[※名前呼び],~殿",
+    "ThirdPersonCalling_EN": "that side/person there; [*by name], sir/mr/lady/ms.~(~dono; formally honorific)",
+    "ForMasterCalling_JP": "提督殿,提督",
+    "ForMasterCalling_EN": "sir/lady admiral, Admiral",
+    "Character_JP": "気高く構えた態度で敬意深い\n想定外のことが起きると自分のプライドを守りたいがために様子が不安定になることも",
+    "Character_EN": "Dignified and respectful in bearing.\nWhen something unexpected happens, trying to protect personal pride can make behavior unstable.",
     "Hobby_JP": "論文を読むこと",
     "Hobby_EN": "Reading academic papers",
     "SpecialSkill_JP": "数学（特に微分方程式などのような物理学的な代数学に強い）",
@@ -886,7 +887,11 @@
     "Favor_JP": "特異点（基礎理論によって証明できる特殊な状態）",
     "Favor_EN": "Singularities (special states provable by fundamental theory)",
     "Unlike_JP": "理論に乗らないこと",
-    "Unlike_EN": "Things that do not fit established theory"
+    "Unlike_EN": "Things that do not fit established theory",
+    "NumerospecAbout_JP": "完璧な理論に則り物事を実現する",
+    "NumerospecAbout_EN": "Realizes things in accordance with perfect theory",
+    "Summary_JP": "量産販売型ではあるが、3桁ゾロ目の数字を持つ「マスタートリプル」という特殊クラスの個体で、2桁以内の通常個体と引け目を取らない性能をもつ。\nとりわけその開発専用機ことオリジナル版である彼(女)は、4(モチ)や44(シトシ)をも凌駕する実現力の持ち主で、失敗経験のない威厳ある彼(女)の前ではどんな物事も叶えてしまうと極めて高いレヴューを受けている……\"極めて不運かつ想定外の\"ことが起きてしまった場合を除けば。",
+    "Summary_EN": "Although sold as a mass-production model, this unit belongs to the special \"MasterTriple\" class with a three-digit repdigit number and performance that rivals regular two-digit units.\nIn particular, ze — the original developer-exclusive build — possesses a manifesting power that even surpasses 4(Forna) and 44(Folfourn), and, having never once failed, receives extremely high praise for making virtually anything come true in zir dignified presence... except for those times when something \"extremely unlucky and unforeseen\" happens to occur."
   },
   {
     "Num": "512-cub",
@@ -988,7 +993,7 @@
     "NumerospecAbout_JP": "自分の本能を認知し開花させる",
     "NumerospecAbout_EN": "Helps one recognize and bloom their own instincts",
     "Summary_JP": "量産販売型ではあるが、3桁ゾロ目の数字を持つ「マスタートリプル」という特殊クラスの個体で、2桁以内の通常個体と引け目を取らない性能をもつ。\nとりわけその開発専用機ことオリジナル版である彼女は、「6(ムイ)」や「66(ムロク)」とも引け目を取らない感性や優美さの持ち主で、自身の才能に対し自信にあふれている。\nただ、その妖艶としたポテンシャルから時々\"悪魔\"の如く大罪的な衝動に駆られてしまうことがあり……",
-    "Summary_EN": "Although sold as a mass-production model, this unit belongs to the special \"MasterTriple\" class with a three-digit repdigit number and performance that rivals regular two-digit units.\nIn particular, the original developer-exclusive build possesses grace and sensitivity that stand alongside 6(Sics) and 66(Sixis), and is full of confidence in her own talents.\nYet that bewitching potential can at times drive her toward \"devil-like\" impulses of deadly sin..."
+    "Summary_EN": "Although sold as a mass-production model, this unit belongs to the special \"MasterTriple\" class with a three-digit repdigit number and performance that rivals regular two-digit units.\nIn particular, she — the original developer-exclusive build — possesses grace and sensitivity that stand alongside 6(Sics) and 66(Sixis), and is full of confidence in her own talents.\nYet that bewitching potential can at times drive her toward \"devil-like\" impulses of deadly sin..."
   },
   {
     "Num": "729-sxp",
