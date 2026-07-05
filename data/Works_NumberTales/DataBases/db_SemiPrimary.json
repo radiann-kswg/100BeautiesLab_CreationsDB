@@ -836,7 +836,14 @@
   {
     "Num": 444,
     "Progress": "unreleased",
-    "Images": { "concept_PNGName": "cnsp_img444" },
+    "Images": {
+      "concept_PNGName": "cnsp_img444",
+      "corefolder_PNGPath": [
+        "444/emstk_corefolder444-1",
+        "444/emstk_corefolder444-2",
+        "444/emstk_corefolder444-3"
+      ]
+    },
     "AnotherVersions_DBLink": [
       { "_Work": "NumberTales", "_DB": "SelfSecondary", "Num": "444-mp" }
     ],

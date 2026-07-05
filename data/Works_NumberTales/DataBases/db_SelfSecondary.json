@@ -865,7 +865,10 @@
   {
     "Num": "444-mp",
     "Progress": "unprofiled",
-    "Images": { "concept_PNGName": "cnsp_img444-mp" },
+    "Images": {
+      "concept_PNGName": "cnsp_img444-mp",
+      "corefolder_PNGPath": ["444/emstk_corefolder444-mp1"]
+    },
     "AnotherVersions_DBLink": [
       { "_Work": "NumberTales", "_DB": "SemiPrimary", "Num": 444 }
     ],
@@ -1111,7 +1114,7 @@
     ],
     "Images": {
       "concept_PNGName": "cnsp_img666-mp",
-      "corefolder_PNGPath": ["666-mp/emstk_corefolder666-mp1"]
+      "corefolder_PNGPath": ["666/emstk_corefolder666-mp1"]
     },
     "Name_JP": "666(リリス)",
     "Name_EN": "666(Lilith)",
