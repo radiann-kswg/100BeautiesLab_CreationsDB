@@ -11683,7 +11683,8 @@
     "Progress": "released",
     "Images": {
       "concept_PNGName": "cnsp_img28",
-      "conceptAlt_PNGName": ["cnsp_img28-onBusiness", "cnsp_img28-onPrivate"]
+      "conceptAlt_PNGName": ["cnsp_img28-onBusiness", "cnsp_img28-onPrivate"],
+      "corefolder_PNGPath": ["28/emstk_corefolder28-1"]
     },
     "Name_JP": "28(ニハチ)",
     "Name_EN": "28(Tweighan)",
@@ -11831,7 +11832,7 @@
             "狐の耳",
             "ダングルイヤリング",
             "数学的なボディタトゥー",
-            "グラマラスな長身体型",
+            "グラマラスな長身体形",
             "腰のオレンジ色のリボンボウ",
             "赤いブレザー(2パターンの着用方法)"
           ],
@@ -12122,11 +12123,11 @@
         "Formation": "humanoid",
         "BodyPart": null,
         "Laterality": null,
-        "DesignElement": "#Element_Motif",
+        "DesignElement": "##Element_BodyType",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Overview",
-            "value_JP": "グラマラスな長身体型",
+            "value_JP": "グラマラスな長身体形",
             "value_EN": "curvy tall figure"
           }
         ],
@@ -16399,7 +16400,7 @@
             "琥珀金髪のショートヘア",
             "狐の耳",
             "クールな落ち着いた表情",
-            "男性体型"
+            "男性体形"
           ],
           "Motif_EN": [
             "young adult male",
@@ -16549,11 +16550,11 @@
         "Formation": "corefolder",
         "BodyPart": null,
         "Laterality": null,
-        "DesignElement": "#Element_Motif",
+        "DesignElement": "#Element_BodyType",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Overview",
-            "value_JP": "男性体型",
+            "value_JP": "男性体形",
             "value_EN": "masculine stature"
           }
         ],
@@ -16661,7 +16662,7 @@
         "Formation": "humanoid",
         "BodyPart": null,
         "Laterality": null,
-        "DesignElement": "#Element_Motif",
+        "DesignElement": "#Element_BodyType",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Overview",
