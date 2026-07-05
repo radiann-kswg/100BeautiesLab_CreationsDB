@@ -184,7 +184,7 @@
     "CodeName_EN": "One-Two-Zero",
     "SPCodeName_EN": "Ten Dars",
     "GenderType": "Neutral",
-    "Class": ["テンズデュアルスリーズ"]
+    "Class": ["トライデュアルスリーズ"]
   },
   {
     "Num": 121,
@@ -200,7 +200,7 @@
     "SPCodeName_JP": "11×11",
     "SPCodeName_EN": "Eleven Elevens",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル4型丙組"]
+    "Class": ["デュオトリプル4型"]
   },
   {
     "Num": 123,
@@ -213,7 +213,7 @@
     "CodeName_JP": "一二三",
     "CodeName_EN": "One-Two-Three",
     "GenderType": "Neutral",
-    "Class": ["トリプル1+2+3組"]
+    "Class": ["トリプルシックスズ"]
   },
   {
     "Num": 125,
@@ -225,7 +225,7 @@
     "CodeName_JP": "一二五",
     "CodeName_EN": "One-Two-Five",
     "GenderType": "Neutral",
-    "Class": ["トリプル1+2+5組"]
+    "Class": ["トリプルエイツ"]
   },
   {
     "Num": 127,
@@ -238,7 +238,7 @@
     "CodeName_JP": "一二七",
     "CodeName_EN": "One-Two-Seven",
     "GenderType": "Neutral",
-    "Class": ["トリプル1+2+7組"]
+    "Class": ["トリプルキャリーズ"]
   },
   {
     "Num": 144,
@@ -254,7 +254,7 @@
     "SPCodeName_JP": "グロス",
     "SPCodeName_EN": "Gross",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル9型乙組"]
+    "Class": ["デュオトリプル9型"]
   },
   {
     "Num": 148,
@@ -266,7 +266,7 @@
     "CodeName_JP": "一四八",
     "CodeName_EN": "One-Four-Eight",
     "GenderType": "Neutral",
-    "Class": ["トリプル1+4+8組"]
+    "Class": ["トリプルフォーズ"]
   },
   {
     "Num": 150,
@@ -281,7 +281,7 @@
     "SPCodeName_JP": "一半百",
     "SPCodeName_EN": "One Half(of Percent)",
     "GenderType": "Neutral",
-    "Class": ["テンズデュアルシックスズ"]
+    "Class": ["トライデュアルシックスズ"]
   },
   {
     "Num": 153,
@@ -294,7 +294,7 @@
     "CodeName_JP": "一五三",
     "CodeName_EN": "One-Five-Three",
     "GenderType": "Neutral",
-    "Class": ["トリプル1+3+5組", "ナルシシスツ"],
+    "Class": ["トリプルナインズ", "ナルシシスツ"],
     "Backgrounds_JP": "ちなみに、153,370,371,407はナルシシスト数である",
     "Backgrounds_EN": "Incidentally, 153, 370, 371, and 407 are narcissistic numbers."
   },
@@ -311,7 +311,7 @@
     "SPCodeName_JP": "日頃",
     "SPCodeName_EN": "Dailies",
     "GenderType": "Neutral",
-    "Class": ["トリプル1+5+6組"]
+    "Class": ["トリプルスリーズ"]
   },
   {
     "Num": 169,
@@ -327,7 +327,7 @@
     "SPCodeName_JP": "ワイドスクリーンのアスペクト比(16:9)",
     "SPCodeName_EN": "Wide-Screen Aspect Ratio (16:9)",
     "GenderType": "Neutral",
-    "Class": ["トリプル1+6+9組", "マスマティカコンストレイント"]
+    "Class": ["トリプルセブンズ", "マスマティカコンストレイント"]
   },
   {
     "Num": 200,
@@ -353,7 +353,7 @@
     "CodeName_EN": "Two-One-Four",
     "SPCodeName_EN": "Valentain",
     "GenderType": "Neutral",
-    "Class": ["トリプル1+2+4組"],
+    "Class": ["トリプルセブンズ"],
     "Backgrounds_JP": "バレンタインの日付(2月14日)から由来",
     "Backgrounds_EN": "Derived from Valentine's Day (February 14th)."
   },
@@ -369,7 +369,7 @@
     "CodeName_JP": "二一六",
     "CodeName_EN": "Two-One-Six",
     "GenderType": "Neutral",
-    "Class": ["トリプル1+2+6組", "バーチャリティテールズ"],
+    "Class": ["トリプルナインズ", "バーチャリティテールズ"],
     "Backgrounds_JP": "ちなみに、三原色を1Byteで平均的に扱う際に取れる最大の色数でもある",
     "Backgrounds_EN": "Incidentally, 216 is also the maximum number of colors obtainable when the three primary colors are each evenly distributed across a 1-byte range (6 × 6 × 6 = 216; the web-safe color cube)."
   },
@@ -420,7 +420,7 @@
     "BustSize": "AA",
     "TailsUnit_JP": "サソリ型2本（各11束[節]）\n+キツネ型3本",
     "TailsUnit_EN": "Scorpion Type: 2 Tails (11 Tufts [Segments] each)\n+Fox Type: 3 Tails",
-    "Class": ["デュオトリプル7型甲組"]
+    "Class": ["デュオトリプル7型"]
   },
   {
     "Num": 227,
@@ -432,7 +432,7 @@
     "CodeName_JP": "二二七",
     "CodeName_EN": "Two-Two-Seven",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル2型甲組"]
+    "Class": ["デュオトリプル2型"]
   },
   {
     "Num": 232,
@@ -444,7 +444,7 @@
     "CodeName_JP": "二三二",
     "CodeName_EN": "Two-Three-Two",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル7型丙組"]
+    "Class": ["デュオトリプル7型"]
   },
   {
     "Num": 238,
@@ -456,7 +456,7 @@
     "CodeName_JP": "二三八",
     "CodeName_EN": "Two-Three-Eight",
     "GenderType": "Neutral",
-    "Class": ["トリプル2+3+8組"]
+    "Class": ["トリプルフォーズ"]
   },
   {
     "Num": 241,
@@ -468,7 +468,7 @@
     "CodeName_JP": "二四一",
     "CodeName_EN": "Two-Four-One",
     "GenderType": "Neutral",
-    "Class": ["トリプル1+2+4組"]
+    "Class": ["トリプルセブンズ"]
   },
   {
     "Num": 244,
@@ -481,7 +481,7 @@
     "CodeName_JP": "二四四",
     "CodeName_EN": "Two-Four-Four",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル1型乙組"]
+    "Class": ["デュオトリプル1型"]
   },
   {
     "Num": 255,
@@ -499,7 +499,7 @@
     "SPCodeName_JP": "0xFF",
     "SPCodeName_EN": "Last of Byte",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル3型乙組"],
+    "Class": ["デュオトリプル3型"],
     "Backgrounds_JP": "1バイト値の最大値（16進法）から由来\nなお、「256(バイツ)」と姉妹関係は無い",
     "Backgrounds_EN": "Derived from the maximum value of a 1-byte integer in hexadecimal (0xFF).\nNote: has no sibling relationship with '256(Bytes)'."
   },
@@ -516,7 +516,7 @@
     "CodeName_EN": "Two-Five-Six",
     "SPCodeName_EN": "One Byte",
     "GenderType": "Neutral",
-    "Class": ["トリプル2+5+6組"],
+    "Class": ["トリプルフォーズ"],
     "Backgrounds_JP": "1バイトで表現できる値の数から由来\nなお、「255(エフエフ)」と姉妹関係は無い",
     "Backgrounds_EN": "Derived from the number of distinct values representable in 1 byte (2⁸ = 256).\nNote: has no sibling relationship with '255(0xFF)'."
   },
@@ -530,7 +530,7 @@
     "CodeName_JP": "二五八",
     "CodeName_EN": "Two-Five-Eight",
     "GenderType": "Neutral",
-    "Class": ["トリプル2+5+8組"]
+    "Class": ["トリプルシックスズ"]
   },
   {
     "Num": 263,
@@ -542,7 +542,7 @@
     "CodeName_JP": "二六三",
     "CodeName_EN": "Two-Six-Three",
     "GenderType": "Neutral",
-    "Class": ["トリプル2+3+6組"]
+    "Class": ["トリプルトワイズ"]
   },
   {
     "Num": 265,
@@ -554,7 +554,7 @@
     "CodeName_JP": "二六五",
     "CodeName_EN": "Two-Six-Five",
     "GenderType": "Neutral",
-    "Class": ["トリプル2+5+6組"]
+    "Class": ["トリプルフォーズ"]
   },
   {
     "Num": 294,
@@ -566,7 +566,7 @@
     "CodeName_JP": "二九四",
     "CodeName_EN": "Two-Nine-Four",
     "GenderType": "Neutral",
-    "Class": ["トリプル2+4+9組"]
+    "Class": ["トリプルシックスズ"]
   },
   {
     "Num": 295,
@@ -578,7 +578,7 @@
     "CodeName_JP": "二九五",
     "CodeName_EN": "Two-Nine-Five",
     "GenderType": "Neutral",
-    "Class": ["トリプル2+5+9組"]
+    "Class": ["トリプルセブンズ"]
   },
   {
     "Num": 314,
@@ -593,7 +593,7 @@
     "SPCodeName_JP": "Π",
     "SPCodeName_EN": "Pi",
     "GenderType": "Neutral",
-    "Class": ["トリプル1+3+4組", "マスマティカコンストレイント"],
+    "Class": ["トリプルエイツ", "マスマティカコンストレイント"],
     "Backgrounds_JP": "円周率(3.14)から由来",
     "Backgrounds_EN": "Derived from the value of pi (3.14)."
   },
@@ -623,7 +623,7 @@
     "CodeName_JP": "三三七",
     "CodeName_EN": "Three-Three-Seven",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル4型甲組"]
+    "Class": ["デュオトリプル4型"]
   },
   {
     "Num": 343,
@@ -635,7 +635,7 @@
     "CodeName_JP": "三四三",
     "CodeName_EN": "Three-Four-Three",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル1型丙組"]
+    "Class": ["デュオトリプル1型"]
   },
   {
     "Num": 360,
@@ -650,7 +650,7 @@
     "SPCodeName_JP": "度数法",
     "SPCodeName_EN": "One Round by Degree",
     "GenderType": "Neutral",
-    "Class": ["ナインティデュアルズ", "マスマティカコンストレイント"]
+    "Class": ["ナインズトライデュアルズ", "マスマティカコンストレイント"]
   },
   {
     "Num": 365,
@@ -664,7 +664,7 @@
     "CodeName_EN": "Three-Six-Five",
     "SPCodeName_EN": "Days of Year",
     "GenderType": "Neutral",
-    "Class": ["トリプル3+5+6組", "カレンド"],
+    "Class": ["トリプルファイブズ", "カレンド"],
     "Backgrounds_JP": "1年の年数(365日)から由来\nなお、「366(ウルウニチ)」とは義理の姉妹関係にある",
     "Backgrounds_EN": "Derived from the number of days in a year (365 days).\nNote: has a step-sibling relationship with '366(Leaperlica)'."
   },
@@ -681,7 +681,7 @@
     "CodeName_EN": "Three-Six-Six",
     "SPCodeName_EN": "Days of Leaped-Year",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル6型乙組", "カレンド"],
+    "Class": ["デュオトリプル6型", "カレンド"],
     "Backgrounds_JP": "閏年の日数(366日)から由来\nなお、「365(イヤース)」とは義理の姉妹関係にある",
     "Backgrounds_EN": "Derived from the number of days in a leap year (366 days).\nNote: has a step-sibling relationship with '365(Yearß)'."
   },
@@ -697,7 +697,7 @@
     "CodeName_EN": "Three-Six-Nine",
     "SPCodeName_EN": "miracle the multiples of 3",
     "GenderType": "Neutral",
-    "Class": ["トリプル3+6+9組"]
+    "Class": ["トリプルナインズ"]
   },
   {
     "Num": 370,
@@ -710,7 +710,7 @@
     "CodeName_JP": "三七〇",
     "CodeName_EN": "Three-Seven-Zero",
     "GenderType": "Neutral",
-    "Class": ["テンズデュアルキャリーズ", "ナルシシスツ"],
+    "Class": ["トライデュアルキャリーズ", "ナルシシスツ"],
     "Backgrounds_JP": "ちなみに、153,370,371,407はナルシシスト数である",
     "Backgrounds_EN": "Incidentally, 153, 370, 371, and 407 are narcissistic numbers."
   },
@@ -725,7 +725,7 @@
     "CodeName_JP": "三七一",
     "CodeName_EN": "Three-Seven-One",
     "GenderType": "Neutral",
-    "Class": ["トリプル1+3+7組", "ナルシシスツ"],
+    "Class": ["トリプルトワイズ", "ナルシシスツ"],
     "Backgrounds_JP": "ちなみに、153,370,371,407はナルシシスト数である",
     "Backgrounds_EN": "Incidentally, 153, 370, 371, and 407 are narcissistic numbers."
   },
@@ -740,7 +740,7 @@
     "CodeName_JP": "三七三",
     "CodeName_EN": "Three-Seven-Three",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル4型丙組"]
+    "Class": ["デュオトリプル4型"]
   },
   {
     "Num": 376,
@@ -752,7 +752,7 @@
     "CodeName_JP": "三七六",
     "CodeName_EN": "Three-Seven-Six",
     "GenderType": "Neutral",
-    "Class": ["トリプル3+6+7組"]
+    "Class": ["トリプルセブンズ"]
   },
   {
     "Num": 377,
@@ -764,7 +764,7 @@
     "CodeName_JP": "三七七",
     "CodeName_EN": "Three-Seven-Seven",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル8型乙組"]
+    "Class": ["デュオトリプル8型"]
   },
   {
     "Num": 385,
@@ -779,7 +779,7 @@
     "SPCodeName_JP": "(都:みやこ)",
     "SPCodeName_EN": "(Metropolis)",
     "GenderType": "Neutral",
-    "Class": ["トリプル3+5+8組", "ワノマチ"]
+    "Class": ["トリプルセブンズ", "ワノマチ"]
   },
   {
     "Num": 387,
@@ -791,7 +791,7 @@
     "CodeName_JP": "三八七",
     "CodeName_EN": "Three-Eight-Seven",
     "GenderType": "Neutral",
-    "Class": ["トリプル3+7+8組"]
+    "Class": ["トリプルナインズ"]
   },
   {
     "Num": 400,
@@ -818,7 +818,7 @@
     "CodeName_JP": "四〇一",
     "CodeName_EN": "Four-Zero-One",
     "GenderType": "Neutral",
-    "Class": ["サイドデュアルファイブズ"]
+    "Class": ["トライデュアルファイブズ"]
   },
   {
     "Num": 404,
@@ -846,7 +846,7 @@
     "CodeName_JP": "四〇七",
     "CodeName_EN": "Four-Zero-Seven",
     "GenderType": "Neutral",
-    "Class": ["サイドデュアルイレブンズ", "ナルシシスツ"],
+    "Class": ["トライデュアルトワイズ", "ナルシシスツ"],
     "Backgrounds_JP": "ちなみに、153,370,371,407はナルシシスト数である",
     "Backgrounds_EN": "Incidentally, 153, 370, 371, and 407 are narcissistic numbers."
   },
@@ -860,7 +860,7 @@
     "CodeName_JP": "四一一",
     "CodeName_EN": "Four-One-One",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル6型甲組"]
+    "Class": ["デュオトリプル6型"]
   },
   {
     "Num": 421,
@@ -872,7 +872,7 @@
     "CodeName_JP": "四二一",
     "CodeName_EN": "Four-Two-One",
     "GenderType": "Neutral",
-    "Class": ["トリプル1+2+4組"]
+    "Class": ["トリプルセブンズ"]
   },
   {
     "sec_Category": null,
@@ -907,7 +907,7 @@
     "SPCodeName_JP": "華氏451",
     "SPCodeName_EN": "Fahrenheit 451",
     "GenderType": "Neutral",
-    "Class": ["トリプル1+4+5組", "フィジクスコンストレイント"]
+    "Class": ["トリプルキャリーズ", "フィジクスコンストレイント"]
   },
   {
     "Num": 456,
@@ -922,7 +922,7 @@
     "SPCodeName_JP": "(四五六賽)",
     "SPCodeName_EN": "Upper Dice",
     "GenderType": "Neutral",
-    "Class": ["トリプル4+5+6組", "ワノマチ"]
+    "Class": ["トリプルシックスズ", "ワノマチ"]
   },
   {
     "Num": 467,
@@ -934,7 +934,7 @@
     "CodeName_JP": "四六七",
     "CodeName_EN": "Four-Six-Seven",
     "GenderType": "Neutral",
-    "Class": ["トリプル4+6+7組"]
+    "Class": ["トリプルエイツ"]
   },
   {
     "Num": 476,
@@ -946,7 +946,7 @@
     "CodeName_JP": "四七六",
     "CodeName_EN": "Four-Seven-Six",
     "GenderType": "Neutral",
-    "Class": ["トリプル4+6+7組"]
+    "Class": ["トリプルエイツ"]
   },
   {
     "Num": 496,
@@ -959,7 +959,7 @@
     "CodeName_JP": "四九六",
     "CodeName_EN": "Four-Nine-Six",
     "GenderType": "Neutral",
-    "Class": ["トリプル4+6+9組", "マスマティカコンストレイント"]
+    "Class": ["トリプルキャリーズ", "マスマティカコンストレイント"]
   },
   {
     "Num": 500,
@@ -986,7 +986,7 @@
     "CodeName_JP": "五一〇",
     "CodeName_EN": "Five-One-Zero",
     "GenderType": "Neutral",
-    "Class": ["テンズデュアルシックスズ"]
+    "Class": ["トライデュアルシックスズ"]
   },
   {
     "Num": 512,
@@ -1002,7 +1002,7 @@
     "SPCodeName_JP": "半キロバイナリ",
     "SPCodeName_EN": "Half KiB(Kilo Binary)",
     "GenderType": "Neutral",
-    "Class": ["トリプル1+2+5組"]
+    "Class": ["トリプルエイツ"]
   },
   {
     "Num": 528,
@@ -1017,7 +1017,7 @@
     "SPCodeName_JP": "ソルフェジオ周波数",
     "SPCodeName_EN": "Solfeggio Frequencies",
     "GenderType": "Neutral",
-    "Class": ["トリプル2+5+8組", "フィジクスコンストレイント"]
+    "Class": ["トリプルシックスズ", "フィジクスコンストレイント"]
   },
   {
     "sec_Category": null,
@@ -1045,7 +1045,7 @@
     "CodeName_JP": "五五八",
     "CodeName_EN": "Five-Five-Eight",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル9型甲組"]
+    "Class": ["デュオトリプル9型"]
   },
   {
     "Num": 572,
@@ -1058,7 +1058,7 @@
     "CodeName_JP": "五七二",
     "CodeName_EN": "Five-Seven-Two",
     "GenderType": "Neutral",
-    "Class": ["トリプル2+5+7組"]
+    "Class": ["トリプルファイブズ"]
   },
   {
     "Num": 605,
@@ -1070,7 +1070,7 @@
     "CodeName_JP": "六〇五",
     "CodeName_EN": "Six-Zero-Five",
     "GenderType": "Neutral",
-    "Class": ["サイドデュアルイレブンズ"]
+    "Class": ["トライデュアルトワイズ"]
   },
   {
     "Num": 616,
@@ -1085,7 +1085,7 @@
     "SPCodeName_JP": "亜魔",
     "SPCodeName_EN": "Alter Faith",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル4型丙組", "フェイタルテールズ"],
+    "Class": ["デュオトリプル4型", "フェイタルテールズ"],
     "Backgrounds_JP": "666(リリス)に強く関連しているらしい",
     "Backgrounds_EN": "Reportedly has strong ties to '666(Lilith)'."
   },
@@ -1099,7 +1099,7 @@
     "CodeName_JP": "六二五",
     "CodeName_EN": "Six-Two-Five",
     "GenderType": "Neutral",
-    "Class": ["トリプル2+5+6組"]
+    "Class": ["トリプルフォーズ"]
   },
   {
     "Num": 634,
@@ -1112,7 +1112,7 @@
     "CodeName_JP": "六三四",
     "CodeName_EN": "Six-Three-Four",
     "GenderType": "Neutral",
-    "Class": ["トリプル3+4+6組"]
+    "Class": ["トリプルフォーズ"]
   },
   {
     "Num": 638,
@@ -1124,7 +1124,7 @@
     "CodeName_JP": "六三八",
     "CodeName_EN": "Six-Three-Eight",
     "GenderType": "Neutral",
-    "Class": ["トリプル3+6+8組"]
+    "Class": ["トリプルエイツ"]
   },
   {
     "sec_Category": null,
@@ -1163,7 +1163,7 @@
     "CodeName_JP": "六七〇",
     "CodeName_EN": "Six-Seven-Zero",
     "GenderType": "Neutral",
-    "Class": ["テンズデュアルフォーズ"]
+    "Class": ["トライデュアルフォーズ"]
   },
   {
     "Num": 696,
@@ -1176,7 +1176,7 @@
     "CodeName_JP": "六九六",
     "CodeName_EN": "Six-Nine-Six",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル3型甲組"]
+    "Class": ["デュオトリプル3型"]
   },
   {
     "Num": 729,
@@ -1190,7 +1190,7 @@
     "CodeName_JP": "七二九",
     "CodeName_EN": "Seven-Two-Nine",
     "GenderType": "Neutral",
-    "Class": ["トリプル2+7+9組"]
+    "Class": ["トリプルナインズ"]
   },
   {
     "Num": 736,
@@ -1202,7 +1202,7 @@
     "CodeName_JP": "七三六",
     "CodeName_EN": "Seven-Three-Six",
     "GenderType": "Neutral",
-    "Class": ["トリプル3+6+7組"]
+    "Class": ["トリプルセブンズ"]
   },
   {
     "sec_Category": "リクエストナンバー",
@@ -1223,7 +1223,7 @@
     "BustSize": "A",
     "TailsUnit_JP": "キツネ(枝分かれ)型7本15束",
     "TailsUnit_EN": "Fox (Branched) Type: 7 Tails, 15 Tufts",
-    "Class": ["トリプル3+5+7組"]
+    "Class": ["トリプルシックスズ"]
   },
   {
     "Num": 773,
@@ -1237,7 +1237,7 @@
     "CodeName_JP": "七七三",
     "CodeName_EN": "Seven-Seven-Three",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル8型甲組"]
+    "Class": ["デュオトリプル8型"]
   },
   {
     "Num": 774,
@@ -1252,7 +1252,7 @@
     "SPCodeName_JP": "(名無)",
     "SPCodeName_EN": "(Non-Named)",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル9型乙組"]
+    "Class": ["デュオトリプル9型"]
   },
   {
     "sec_Category": null,
@@ -1341,7 +1341,7 @@
     "CodeName_JP": "七八〇",
     "CodeName_EN": "Seven-Eight-Zero",
     "GenderType": "Neutral",
-    "Class": ["テンズデュアルシックスズ"]
+    "Class": ["トライデュアルシックスズ"]
   },
   {
     "Num": 808,
@@ -1369,7 +1369,7 @@
     "CodeName_JP": "八三三",
     "CodeName_EN": "Eight-Three-Three",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル5型乙組"]
+    "Class": ["デュオトリプル5型"]
   },
   {
     "sec_Category": null,
@@ -1398,7 +1398,7 @@
     "CodeName_JP": "九六六",
     "CodeName_EN": "Nine-Six-Six",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル3型甲組"]
+    "Class": ["デュオトリプル3型"]
   },
   {
     "Num": 969,
@@ -1413,7 +1413,7 @@
     "SPCodeName_JP": "(回)",
     "SPCodeName_EN": "(Rotation)",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル6型乙組"]
+    "Class": ["デュオトリプル6型"]
   },
   {
     "Num": 979,
@@ -1425,7 +1425,7 @@
     "CodeName_JP": "九七九",
     "CodeName_EN": "Nine-Seven-Nine",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル7型丙組"]
+    "Class": ["デュオトリプル7型"]
   },
   {
     "sec_Category": null,

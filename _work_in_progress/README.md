@@ -37,6 +37,7 @@
 | カレンダー色分け・2/29・和文統一  | [2026-07-04_progress_calendar-color-leap-jp.md](./2026-07-04_progress_calendar-color-leap-jp.md)                                                                    | ⚠️ commit/push 後の再同期確認が残                                                   |
 | ADR-0002（Google Cloud 画像生成） | [2026-06-21_progress_cloudflare-api-adr2-gcloud.md](./2026-06-21_progress_cloudflare-api-adr2-gcloud.md)                                                            | Draft・設計検討中                                                                   |
 | addon-ai-tag 逆マージ事故記録     | [2026-07-02_progress_addon-ai-tag-reverse-merge-incident.md](./2026-07-02_progress_addon-ai-tag-reverse-merge-incident.md)                                          | ⚠️ addon-ai-tag側ログへの後日談追記が保留中                                         |
+| dict_Triples.json クラス再編成    | [2026-07-06_progress_dict-triples-consolidation.md](./2026-07-06_progress_dict-triples-consolidation.md)                                                            | ⚠️ 新クラス名(ドラフト案)のUser最終確認・`777.Jackpot`のClass欠落対応が残           |
 
 ### 系列の補足（過去フェーズは `.completed/` 参照）
 

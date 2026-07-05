@@ -8,7 +8,7 @@
     "CodeName_JP": "一二二",
     "CodeName_EN": "One-Two-Two",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル5型乙組"]
+    "Class": ["デュオトリプル5型"]
   },
   {
     "Num": 124,
@@ -19,7 +19,7 @@
     "CodeName_JP": "一二四",
     "CodeName_EN": "One-Two-Four",
     "GenderType": "Neutral",
-    "Class": ["トリプル1+2+4組"]
+    "Class": ["トリプルセブンズ"]
   },
   {
     "Num": 126,
@@ -30,7 +30,7 @@
     "CodeName_JP": "一二六",
     "CodeName_EN": "One-Two-Six",
     "GenderType": "Neutral",
-    "Class": ["トリプル1+2+6組"]
+    "Class": ["トリプルナインズ"]
   },
   {
     "Num": 128,
@@ -41,7 +41,7 @@
     "CodeName_JP": "一二八",
     "CodeName_EN": "One-Two-Eight",
     "GenderType": "Neutral",
-    "Class": ["トリプル1+2+8組"]
+    "Class": ["トリプルトワイズ"]
   },
   {
     "Num": 129,
@@ -52,7 +52,7 @@
     "CodeName_JP": "一二九",
     "CodeName_EN": "One-Two-Nine",
     "GenderType": "Neutral",
-    "Class": ["トリプル1+2+9組"]
+    "Class": ["トリプルスリーズ"]
   },
   {
     "Num": 130,
@@ -63,7 +63,7 @@
     "CodeName_JP": "一三〇",
     "CodeName_EN": "One-Three-Zero",
     "GenderType": "Neutral",
-    "Class": ["テンズデュアルフォーズ"]
+    "Class": ["トライデュアルフォーズ"]
   },
   {
     "Num": 131,
@@ -74,7 +74,7 @@
     "CodeName_JP": "一三一",
     "CodeName_EN": "One-Three-One",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル5型丙組"]
+    "Class": ["デュオトリプル5型"]
   },
   {
     "Num": 132,
@@ -85,7 +85,7 @@
     "CodeName_JP": "一三二",
     "CodeName_EN": "One-Three-Two",
     "GenderType": "Neutral",
-    "Class": ["トリプル1+2+3組"]
+    "Class": ["トリプルシックスズ"]
   },
   {
     "Num": 133,
@@ -96,7 +96,7 @@
     "CodeName_JP": "一三三",
     "CodeName_EN": "One-Three-Three",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル7型乙組"]
+    "Class": ["デュオトリプル7型"]
   },
   {
     "Num": 134,
@@ -107,7 +107,7 @@
     "CodeName_JP": "一三四",
     "CodeName_EN": "One-Three-Four",
     "GenderType": "Neutral",
-    "Class": ["トリプル1+3+4組"]
+    "Class": ["トリプルエイツ"]
   },
   {
     "Num": 135,
@@ -118,7 +118,7 @@
     "CodeName_JP": "一三五",
     "CodeName_EN": "One-Three-Five",
     "GenderType": "Neutral",
-    "Class": ["トリプル1+3+5組"]
+    "Class": ["トリプルナインズ"]
   },
   {
     "Num": 136,
@@ -129,7 +129,7 @@
     "CodeName_JP": "一三六",
     "CodeName_EN": "One-Three-Six",
     "GenderType": "Neutral",
-    "Class": ["トリプル1+3+6組"]
+    "Class": ["トリプルキャリーズ"]
   },
   {
     "Num": 137,
@@ -140,7 +140,7 @@
     "CodeName_JP": "一三七",
     "CodeName_EN": "One-Three-Seven",
     "GenderType": "Neutral",
-    "Class": ["トリプル1+3+7組"]
+    "Class": ["トリプルトワイズ"]
   },
   {
     "Num": 138,
@@ -151,7 +151,7 @@
     "CodeName_JP": "一三八",
     "CodeName_EN": "One-Three-Eight",
     "GenderType": "Neutral",
-    "Class": ["トリプル1+3+8組"]
+    "Class": ["トリプルスリーズ"]
   },
   {
     "Num": 139,
@@ -162,7 +162,7 @@
     "CodeName_JP": "一三九",
     "CodeName_EN": "One-Three-Nine",
     "GenderType": "Neutral",
-    "Class": ["トリプル1+3+9組"]
+    "Class": ["トリプルフォーズ"]
   },
   {
     "Num": 140,
@@ -173,7 +173,7 @@
     "CodeName_JP": "一四〇",
     "CodeName_EN": "One-Four-Zero",
     "GenderType": "Neutral",
-    "Class": ["テンズデュアルファイブズ"]
+    "Class": ["トライデュアルファイブズ"]
   },
   {
     "Num": 141,
@@ -184,7 +184,7 @@
     "CodeName_JP": "一四一",
     "CodeName_EN": "One-Four-One",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル6型甲組"]
+    "Class": ["デュオトリプル6型"]
   },
   {
     "Num": 142,
@@ -195,7 +195,7 @@
     "CodeName_JP": "一四二",
     "CodeName_EN": "One-Four-Two",
     "GenderType": "Neutral",
-    "Class": ["トリプル1+2+4組"]
+    "Class": ["トリプルセブンズ"]
   },
   {
     "Num": 143,
@@ -206,7 +206,7 @@
     "CodeName_JP": "一四三",
     "CodeName_EN": "One-Four-Three",
     "GenderType": "Neutral",
-    "Class": ["トリプル1+3+4組"]
+    "Class": ["トリプルエイツ"]
   },
   {
     "Num": 145,
@@ -217,7 +217,7 @@
     "CodeName_JP": "一四五",
     "CodeName_EN": "One-Four-Five",
     "GenderType": "Neutral",
-    "Class": ["トリプル1+4+5組"]
+    "Class": ["トリプルキャリーズ"]
   },
   {
     "Num": 146,
@@ -228,7 +228,7 @@
     "CodeName_JP": "一四六",
     "CodeName_EN": "One-Four-Six",
     "GenderType": "Neutral",
-    "Class": ["トリプル1+4+6組"]
+    "Class": ["トリプルトワイズ"]
   },
   {
     "Num": 147,
@@ -239,7 +239,7 @@
     "CodeName_JP": "一四七",
     "CodeName_EN": "One-Four-Seven",
     "GenderType": "Neutral",
-    "Class": ["トリプル1+4+7組"]
+    "Class": ["トリプルスリーズ"]
   },
   {
     "Num": 149,
@@ -250,7 +250,7 @@
     "CodeName_JP": "一四九",
     "CodeName_EN": "One-Four-Nine",
     "GenderType": "Neutral",
-    "Class": ["トリプル1+4+9組"]
+    "Class": ["トリプルファイブズ"]
   },
   {
     "Num": 151,
@@ -261,7 +261,7 @@
     "CodeName_JP": "一五一",
     "CodeName_EN": "One-Five-One",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル7型丙組"]
+    "Class": ["デュオトリプル7型"]
   },
   {
     "Num": 152,
@@ -272,7 +272,7 @@
     "CodeName_JP": "一五二",
     "CodeName_EN": "One-Five-Two",
     "GenderType": "Neutral",
-    "Class": ["トリプル1+2+5組"]
+    "Class": ["トリプルエイツ"]
   },
   {
     "Num": 154,
@@ -283,7 +283,7 @@
     "CodeName_JP": "一五四",
     "CodeName_EN": "One-Five-Four",
     "GenderType": "Neutral",
-    "Class": ["トリプル1+4+5組"]
+    "Class": ["トリプルキャリーズ"]
   },
   {
     "Num": 155,
@@ -294,7 +294,7 @@
     "CodeName_JP": "一五五",
     "CodeName_EN": "One-Five-Five",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル2型乙組"]
+    "Class": ["デュオトリプル2型"]
   },
   {
     "Num": 157,
@@ -305,7 +305,7 @@
     "CodeName_JP": "一五七",
     "CodeName_EN": "One-Five-Seven",
     "GenderType": "Neutral",
-    "Class": ["トリプル1+5+7組"]
+    "Class": ["トリプルフォーズ"]
   },
   {
     "Num": 158,
@@ -316,7 +316,7 @@
     "CodeName_JP": "一五八",
     "CodeName_EN": "One-Five-Eight",
     "GenderType": "Neutral",
-    "Class": ["トリプル1+5+8組"]
+    "Class": ["トリプルファイブズ"]
   },
   {
     "Num": 159,
@@ -327,7 +327,7 @@
     "CodeName_JP": "一五九",
     "CodeName_EN": "One-Five-Nine",
     "GenderType": "Neutral",
-    "Class": ["トリプル1+5+9組"]
+    "Class": ["トリプルシックスズ"]
   },
   {
     "Num": 160,
@@ -338,7 +338,7 @@
     "CodeName_JP": "一六〇",
     "CodeName_EN": "One-Six-Zero",
     "GenderType": "Neutral",
-    "Class": ["テンズデュアルセブンズ"]
+    "Class": ["トライデュアルセブンズ"]
   },
   {
     "Num": 161,
@@ -349,7 +349,7 @@
     "CodeName_JP": "一六一",
     "CodeName_EN": "One-Six-One",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル8型丙組"]
+    "Class": ["デュオトリプル8型"]
   },
   {
     "Num": 162,
@@ -360,7 +360,7 @@
     "CodeName_JP": "一六二",
     "CodeName_EN": "One-Six-Two",
     "GenderType": "Neutral",
-    "Class": ["トリプル1+2+6組"]
+    "Class": ["トリプルナインズ"]
   },
   {
     "Num": 163,
@@ -371,7 +371,7 @@
     "CodeName_JP": "一六三",
     "CodeName_EN": "One-Six-Three",
     "GenderType": "Neutral",
-    "Class": ["トリプル1+3+6組"]
+    "Class": ["トリプルキャリーズ"]
   },
   {
     "Num": 164,
@@ -382,7 +382,7 @@
     "CodeName_JP": "一六四",
     "CodeName_EN": "One-Six-Four",
     "GenderType": "Neutral",
-    "Class": ["トリプル1+4+6組"]
+    "Class": ["トリプルトワイズ"]
   },
   {
     "Num": 165,
@@ -393,7 +393,7 @@
     "CodeName_JP": "一六五",
     "CodeName_EN": "One-Six-Five",
     "GenderType": "Neutral",
-    "Class": ["トリプル1+5+6組"]
+    "Class": ["トリプルスリーズ"]
   },
   {
     "Num": 166,
@@ -404,7 +404,7 @@
     "CodeName_JP": "一六六",
     "CodeName_EN": "One-Six-Six",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル4型乙組"]
+    "Class": ["デュオトリプル4型"]
   },
   {
     "Num": 167,
@@ -415,7 +415,7 @@
     "CodeName_JP": "一六七",
     "CodeName_EN": "One-Six-Seven",
     "GenderType": "Neutral",
-    "Class": ["トリプル1+6+7組"]
+    "Class": ["トリプルファイブズ"]
   },
   {
     "Num": 168,
@@ -426,7 +426,7 @@
     "CodeName_JP": "一六八",
     "CodeName_EN": "One-Six-Eight",
     "GenderType": "Neutral",
-    "Class": ["トリプル1+6+8組"]
+    "Class": ["トリプルシックスズ"]
   },
   {
     "Num": 170,
@@ -437,7 +437,7 @@
     "CodeName_JP": "一七〇",
     "CodeName_EN": "One-Seven-Zero",
     "GenderType": "Neutral",
-    "Class": ["テンズデュアルエイツ"]
+    "Class": ["トライデュアルエイツ"]
   },
   {
     "Num": 171,
@@ -448,7 +448,7 @@
     "CodeName_JP": "一七一",
     "CodeName_EN": "One-Seven-One",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル9型甲組"]
+    "Class": ["デュオトリプル9型"]
   },
   {
     "Num": 172,
@@ -459,7 +459,7 @@
     "CodeName_JP": "一七二",
     "CodeName_EN": "One-Seven-Two",
     "GenderType": "Neutral",
-    "Class": ["トリプル1+2+7組"]
+    "Class": ["トリプルキャリーズ"]
   },
   {
     "Num": 173,
@@ -470,7 +470,7 @@
     "CodeName_JP": "一七三",
     "CodeName_EN": "One-Seven-Three",
     "GenderType": "Neutral",
-    "Class": ["トリプル1+3+7組"]
+    "Class": ["トリプルトワイズ"]
   },
   {
     "Num": 174,
@@ -481,7 +481,7 @@
     "CodeName_JP": "一七四",
     "CodeName_EN": "One-Seven-Four",
     "GenderType": "Neutral",
-    "Class": ["トリプル1+4+7組"]
+    "Class": ["トリプルスリーズ"]
   },
   {
     "Num": 175,
@@ -492,7 +492,7 @@
     "CodeName_JP": "一七五",
     "CodeName_EN": "One-Seven-Five",
     "GenderType": "Neutral",
-    "Class": ["トリプル1+5+7組"]
+    "Class": ["トリプルフォーズ"]
   },
   {
     "Num": 176,
@@ -503,7 +503,7 @@
     "CodeName_JP": "一七六",
     "CodeName_EN": "One-Seven-Six",
     "GenderType": "Neutral",
-    "Class": ["トリプル1+6+7組"]
+    "Class": ["トリプルファイブズ"]
   },
   {
     "Num": 177,
@@ -514,7 +514,7 @@
     "CodeName_JP": "一七七",
     "CodeName_EN": "One-Seven-Seven",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル6型乙組"]
+    "Class": ["デュオトリプル6型"]
   },
   {
     "Num": 178,
@@ -525,7 +525,7 @@
     "CodeName_JP": "一七八",
     "CodeName_EN": "One-Seven-Eight",
     "GenderType": "Neutral",
-    "Class": ["トリプル1+7+8組"]
+    "Class": ["トリプルセブンズ"]
   },
   {
     "Num": 179,
@@ -536,7 +536,7 @@
     "CodeName_JP": "一七九",
     "CodeName_EN": "One-Seven-Nine",
     "GenderType": "Neutral",
-    "Class": ["トリプル1+7+9組"]
+    "Class": ["トリプルエイツ"]
   },
   {
     "Num": 180,
@@ -547,7 +547,7 @@
     "CodeName_JP": "一八〇",
     "CodeName_EN": "One-Eight-Zero",
     "GenderType": "Neutral",
-    "Class": ["ナインティデュアルズ"]
+    "Class": ["ナインズトライデュアルズ"]
   },
   {
     "Num": 181,
@@ -558,7 +558,7 @@
     "CodeName_JP": "一八一",
     "CodeName_EN": "One-Eight-One",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル1型丙組"]
+    "Class": ["デュオトリプル1型"]
   },
   {
     "Num": 182,
@@ -569,7 +569,7 @@
     "CodeName_JP": "一八二",
     "CodeName_EN": "One-Eight-Two",
     "GenderType": "Neutral",
-    "Class": ["トリプル1+2+8組"]
+    "Class": ["トリプルトワイズ"]
   },
   {
     "Num": 183,
@@ -580,7 +580,7 @@
     "CodeName_JP": "一八三",
     "CodeName_EN": "One-Eight-Three",
     "GenderType": "Neutral",
-    "Class": ["トリプル1+3+8組"]
+    "Class": ["トリプルスリーズ"]
   },
   {
     "Num": 184,
@@ -591,7 +591,7 @@
     "CodeName_JP": "一八四",
     "CodeName_EN": "One-Eight-Four",
     "GenderType": "Neutral",
-    "Class": ["トリプル1+4+8組"]
+    "Class": ["トリプルフォーズ"]
   },
   {
     "Num": 185,
@@ -602,7 +602,7 @@
     "CodeName_JP": "一八五",
     "CodeName_EN": "One-Eight-Five",
     "GenderType": "Neutral",
-    "Class": ["トリプル1+5+8組"]
+    "Class": ["トリプルファイブズ"]
   },
   {
     "Num": 186,
@@ -613,7 +613,7 @@
     "CodeName_JP": "一八六",
     "CodeName_EN": "One-Eight-Six",
     "GenderType": "Neutral",
-    "Class": ["トリプル1+6+8組"]
+    "Class": ["トリプルシックスズ"]
   },
   {
     "Num": 187,
@@ -624,7 +624,7 @@
     "CodeName_JP": "一八七",
     "CodeName_EN": "One-Eight-Seven",
     "GenderType": "Neutral",
-    "Class": ["トリプル1+7+8組"]
+    "Class": ["トリプルセブンズ"]
   },
   {
     "Num": 188,
@@ -635,7 +635,7 @@
     "CodeName_JP": "一八八",
     "CodeName_EN": "One-Eight-Eight",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル8型乙組"]
+    "Class": ["デュオトリプル8型"]
   },
   {
     "Num": 189,
@@ -646,7 +646,7 @@
     "CodeName_JP": "一八九",
     "CodeName_EN": "One-Eight-Nine",
     "GenderType": "Neutral",
-    "Class": ["トリプル1+8+9組"]
+    "Class": ["トリプルナインズ"]
   },
   {
     "Num": 190,
@@ -657,7 +657,7 @@
     "CodeName_JP": "一九〇",
     "CodeName_EN": "One-Nine-Zero",
     "GenderType": "Neutral",
-    "Class": ["テンズデュアルキャリーズ"]
+    "Class": ["トライデュアルキャリーズ"]
   },
   {
     "Num": 191,
@@ -668,7 +668,7 @@
     "CodeName_JP": "一九一",
     "CodeName_EN": "One-Nine-One",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル2型丙組"]
+    "Class": ["デュオトリプル2型"]
   },
   {
     "Num": 192,
@@ -679,7 +679,7 @@
     "CodeName_JP": "一九二",
     "CodeName_EN": "One-Nine-Two",
     "GenderType": "Neutral",
-    "Class": ["トリプル1+2+9組"]
+    "Class": ["トリプルスリーズ"]
   },
   {
     "Num": 193,
@@ -690,7 +690,7 @@
     "CodeName_JP": "一九三",
     "CodeName_EN": "One-Nine-Three",
     "GenderType": "Neutral",
-    "Class": ["トリプル1+3+9組"]
+    "Class": ["トリプルフォーズ"]
   },
   {
     "Num": 194,
@@ -701,7 +701,7 @@
     "CodeName_JP": "一九四",
     "CodeName_EN": "One-Nine-Four",
     "GenderType": "Neutral",
-    "Class": ["トリプル1+4+9組"]
+    "Class": ["トリプルファイブズ"]
   },
   {
     "Num": 195,
@@ -712,7 +712,7 @@
     "CodeName_JP": "一九五",
     "CodeName_EN": "One-Nine-Five",
     "GenderType": "Neutral",
-    "Class": ["トリプル1+5+9組"]
+    "Class": ["トリプルシックスズ"]
   },
   {
     "Num": 196,
@@ -723,7 +723,7 @@
     "CodeName_JP": "一九六",
     "CodeName_EN": "One-Nine-Six",
     "GenderType": "Neutral",
-    "Class": ["トリプル1+6+9組"]
+    "Class": ["トリプルセブンズ"]
   },
   {
     "Num": 197,
@@ -734,7 +734,7 @@
     "CodeName_JP": "一九七",
     "CodeName_EN": "One-Nine-Seven",
     "GenderType": "Neutral",
-    "Class": ["トリプル1+7+9組"]
+    "Class": ["トリプルエイツ"]
   },
   {
     "Num": 198,
@@ -745,7 +745,7 @@
     "CodeName_JP": "一九八",
     "CodeName_EN": "One-Nine-Eight",
     "GenderType": "Neutral",
-    "Class": ["トリプル1+8+9組"]
+    "Class": ["トリプルナインズ"]
   },
   {
     "Num": 199,
@@ -756,7 +756,7 @@
     "CodeName_JP": "一九九",
     "CodeName_EN": "One-Nine-Nine",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル1型乙組"]
+    "Class": ["デュオトリプル1型"]
   },
   {
     "Num": 201,
@@ -767,7 +767,7 @@
     "CodeName_JP": "二〇一",
     "CodeName_EN": "Two-Zero-One",
     "GenderType": "Neutral",
-    "Class": ["サイドデュアルスリーズ"]
+    "Class": ["トライデュアルスリーズ"]
   },
   {
     "Num": 202,
@@ -789,7 +789,7 @@
     "CodeName_JP": "二〇三",
     "CodeName_EN": "Two-Zero-Three",
     "GenderType": "Neutral",
-    "Class": ["サイドデュアルファイブズ"]
+    "Class": ["トライデュアルファイブズ"]
   },
   {
     "Num": 204,
@@ -800,7 +800,7 @@
     "CodeName_JP": "二〇四",
     "CodeName_EN": "Two-Zero-Four",
     "GenderType": "Neutral",
-    "Class": ["サイドデュアルシックスズ"]
+    "Class": ["トライデュアルシックスズ"]
   },
   {
     "Num": 205,
@@ -811,7 +811,7 @@
     "CodeName_JP": "二〇五",
     "CodeName_EN": "Two-Zero-Five",
     "GenderType": "Neutral",
-    "Class": ["サイドデュアルセブンズ"]
+    "Class": ["トライデュアルセブンズ"]
   },
   {
     "Num": 206,
@@ -822,7 +822,7 @@
     "CodeName_JP": "二〇六",
     "CodeName_EN": "Two-Zero-Six",
     "GenderType": "Neutral",
-    "Class": ["サイドデュアルエイツ"]
+    "Class": ["トライデュアルエイツ"]
   },
   {
     "Num": 207,
@@ -833,7 +833,7 @@
     "CodeName_JP": "二〇七",
     "CodeName_EN": "Two-Zero-Seven",
     "GenderType": "Neutral",
-    "Class": ["サイドナインズデュアルズ"]
+    "Class": ["ナインズトライデュアルズ"]
   },
   {
     "Num": 208,
@@ -844,7 +844,7 @@
     "CodeName_JP": "二〇八",
     "CodeName_EN": "Two-Zero-Eight",
     "GenderType": "Neutral",
-    "Class": ["サイドデュアルキャリーズ"]
+    "Class": ["トライデュアルキャリーズ"]
   },
   {
     "Num": 209,
@@ -855,7 +855,7 @@
     "CodeName_JP": "二〇九",
     "CodeName_EN": "Two-Zero-Nine",
     "GenderType": "Neutral",
-    "Class": ["サイドデュアルイレブンズ"]
+    "Class": ["トライデュアルトワイズ"]
   },
   {
     "Num": 210,
@@ -866,7 +866,7 @@
     "CodeName_JP": "二一〇",
     "CodeName_EN": "Two-One-Zero",
     "GenderType": "Neutral",
-    "Class": ["テンズデュアルスリーズ"]
+    "Class": ["トライデュアルスリーズ"]
   },
   {
     "Num": 211,
@@ -877,7 +877,7 @@
     "CodeName_JP": "二一一",
     "CodeName_EN": "Two-One-One",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル4型乙組"]
+    "Class": ["デュオトリプル4型"]
   },
   {
     "Num": 212,
@@ -888,7 +888,7 @@
     "CodeName_JP": "二一二",
     "CodeName_EN": "Two-One-Two",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル5型丙組"]
+    "Class": ["デュオトリプル5型"]
   },
   {
     "Num": 213,
@@ -899,7 +899,7 @@
     "CodeName_JP": "二一三",
     "CodeName_EN": "Two-One-Three",
     "GenderType": "Neutral",
-    "Class": ["トリプル1+2+3組"]
+    "Class": ["トリプルシックスズ"]
   },
   {
     "Num": 215,
@@ -910,7 +910,7 @@
     "CodeName_JP": "二一五",
     "CodeName_EN": "Two-One-Five",
     "GenderType": "Neutral",
-    "Class": ["トリプル1+2+5組"]
+    "Class": ["トリプルエイツ"]
   },
   {
     "Num": 217,
@@ -921,7 +921,7 @@
     "CodeName_JP": "二一七",
     "CodeName_EN": "Two-One-Seven",
     "GenderType": "Neutral",
-    "Class": ["トリプル1+2+7組"]
+    "Class": ["トリプルキャリーズ"]
   },
   {
     "Num": 218,
@@ -932,7 +932,7 @@
     "CodeName_JP": "二一八",
     "CodeName_EN": "Two-One-Eight",
     "GenderType": "Neutral",
-    "Class": ["トリプル1+2+8組"]
+    "Class": ["トリプルトワイズ"]
   },
   {
     "Num": 219,
@@ -943,7 +943,7 @@
     "CodeName_JP": "二一九",
     "CodeName_EN": "Two-One-Nine",
     "GenderType": "Neutral",
-    "Class": ["トリプル1+2+9組"]
+    "Class": ["トリプルスリーズ"]
   },
   {
     "Num": 220,
@@ -954,7 +954,7 @@
     "CodeName_JP": "二二〇",
     "CodeName_EN": "Two-Two-Zero",
     "GenderType": "Neutral",
-    "Class": ["マスターテンズデュアルズ9"]
+    "Class": ["マスターテンズデュアルズ"]
   },
   {
     "Num": 221,
@@ -965,7 +965,7 @@
     "CodeName_JP": "二二一",
     "CodeName_EN": "Two-Two-One",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル5型甲組"]
+    "Class": ["デュオトリプル5型"]
   },
   {
     "Num": 224,
@@ -976,7 +976,7 @@
     "CodeName_JP": "二二四",
     "CodeName_EN": "Two-Two-Four",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル8型甲組"]
+    "Class": ["デュオトリプル8型"]
   },
   {
     "Num": 225,
@@ -987,7 +987,7 @@
     "CodeName_JP": "二二五",
     "CodeName_EN": "Two-Two-Five",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル9型甲組"]
+    "Class": ["デュオトリプル9型"]
   },
   {
     "Num": 226,
@@ -998,7 +998,7 @@
     "CodeName_JP": "二二六",
     "CodeName_EN": "Two-Two-Six",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル1型甲組"]
+    "Class": ["デュオトリプル1型"]
   },
   {
     "Num": 228,
@@ -1009,7 +1009,7 @@
     "CodeName_JP": "二二八",
     "CodeName_EN": "Two-Two-Eight",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル3型甲組"]
+    "Class": ["デュオトリプル3型"]
   },
   {
     "Num": 229,
@@ -1020,7 +1020,7 @@
     "CodeName_JP": "二二九",
     "CodeName_EN": "Two-Two-Nine",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル4型甲組"]
+    "Class": ["デュオトリプル4型"]
   },
   {
     "Num": 230,
@@ -1031,7 +1031,7 @@
     "CodeName_JP": "二三〇",
     "CodeName_EN": "Two-Three-Zero",
     "GenderType": "Neutral",
-    "Class": ["テンズデュアルファイブズ"]
+    "Class": ["トライデュアルファイブズ"]
   },
   {
     "Num": 231,
@@ -1042,7 +1042,7 @@
     "CodeName_JP": "二三一",
     "CodeName_EN": "Two-Three-One",
     "GenderType": "Neutral",
-    "Class": ["トリプル1+2+3組"]
+    "Class": ["トリプルシックスズ"]
   },
   {
     "Num": 233,
@@ -1053,7 +1053,7 @@
     "CodeName_JP": "二三三",
     "CodeName_EN": "Two-Three-Three",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル8型乙組"]
+    "Class": ["デュオトリプル8型"]
   },
   {
     "Num": 234,
@@ -1064,7 +1064,7 @@
     "CodeName_JP": "二三四",
     "CodeName_EN": "Two-Three-Four",
     "GenderType": "Neutral",
-    "Class": ["トリプル2+3+4組"]
+    "Class": ["トリプルナインズ"]
   },
   {
     "Num": 235,
@@ -1075,7 +1075,7 @@
     "CodeName_JP": "二三五",
     "CodeName_EN": "Two-Three-Five",
     "GenderType": "Neutral",
-    "Class": ["トリプル2+3+5組"]
+    "Class": ["トリプルキャリーズ"]
   },
   {
     "Num": 236,
@@ -1086,7 +1086,7 @@
     "CodeName_JP": "二三六",
     "CodeName_EN": "Two-Three-Six",
     "GenderType": "Neutral",
-    "Class": ["トリプル2+3+6組"]
+    "Class": ["トリプルトワイズ"]
   },
   {
     "Num": 237,
@@ -1097,7 +1097,7 @@
     "CodeName_JP": "二三七",
     "CodeName_EN": "Two-Three-Seven",
     "GenderType": "Neutral",
-    "Class": ["トリプル2+3+7組"]
+    "Class": ["トリプルスリーズ"]
   },
   {
     "Num": 239,
@@ -1108,7 +1108,7 @@
     "CodeName_JP": "二三九",
     "CodeName_EN": "Two-Three-Nine",
     "GenderType": "Neutral",
-    "Class": ["トリプル2+3+9組"]
+    "Class": ["トリプルファイブズ"]
   },
   {
     "Num": 240,
@@ -1119,7 +1119,7 @@
     "CodeName_JP": "二四〇",
     "CodeName_EN": "Two-Four-Zero",
     "GenderType": "Neutral",
-    "Class": ["テンズデュアルシックスズ"]
+    "Class": ["トライデュアルシックスズ"]
   },
   {
     "Num": 242,
@@ -1130,7 +1130,7 @@
     "CodeName_JP": "二四二",
     "CodeName_EN": "Two-Four-Two",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル8型丙組"]
+    "Class": ["デュオトリプル8型"]
   },
   {
     "Num": 243,
@@ -1141,7 +1141,7 @@
     "CodeName_JP": "二四三",
     "CodeName_EN": "Two-Four-Three",
     "GenderType": "Neutral",
-    "Class": ["トリプル2+3+4組"]
+    "Class": ["トリプルナインズ"]
   },
   {
     "Num": 245,
@@ -1152,7 +1152,7 @@
     "CodeName_JP": "二四五",
     "CodeName_EN": "Two-Four-Five",
     "GenderType": "Neutral",
-    "Class": ["トリプル2+4+5組"]
+    "Class": ["トリプルトワイズ"]
   },
   {
     "Num": 246,
@@ -1163,7 +1163,7 @@
     "CodeName_JP": "二四六",
     "CodeName_EN": "Two-Four-Six",
     "GenderType": "Neutral",
-    "Class": ["トリプル2+4+6組"]
+    "Class": ["トリプルスリーズ"]
   },
   {
     "Num": 247,
@@ -1174,7 +1174,7 @@
     "CodeName_JP": "二四七",
     "CodeName_EN": "Two-Four-Seven",
     "GenderType": "Neutral",
-    "Class": ["トリプル2+4+7組"]
+    "Class": ["トリプルフォーズ"]
   },
   {
     "Num": 248,
@@ -1185,7 +1185,7 @@
     "CodeName_JP": "二四八",
     "CodeName_EN": "Two-Four-Eight",
     "GenderType": "Neutral",
-    "Class": ["トリプル2+4+8組"]
+    "Class": ["トリプルファイブズ"]
   },
   {
     "Num": 249,
@@ -1196,7 +1196,7 @@
     "CodeName_JP": "二四九",
     "CodeName_EN": "Two-Four-Nine",
     "GenderType": "Neutral",
-    "Class": ["トリプル2+4+9組"]
+    "Class": ["トリプルシックスズ"]
   },
   {
     "Num": 250,
@@ -1207,7 +1207,7 @@
     "CodeName_JP": "二五〇",
     "CodeName_EN": "Two-Five-Zero",
     "GenderType": "Neutral",
-    "Class": ["テンズデュアルセブンズ"]
+    "Class": ["トライデュアルセブンズ"]
   },
   {
     "Num": 251,
@@ -1218,7 +1218,7 @@
     "CodeName_JP": "二五一",
     "CodeName_EN": "Two-Five-One",
     "GenderType": "Neutral",
-    "Class": ["トリプル1+2+5組"]
+    "Class": ["トリプルエイツ"]
   },
   {
     "Num": 252,
@@ -1229,7 +1229,7 @@
     "CodeName_JP": "二五二",
     "CodeName_EN": "Two-Five-Two",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル9型甲組"]
+    "Class": ["デュオトリプル9型"]
   },
   {
     "Num": 253,
@@ -1240,7 +1240,7 @@
     "CodeName_JP": "二五三",
     "CodeName_EN": "Two-Five-Three",
     "GenderType": "Neutral",
-    "Class": ["トリプル2+3+5組"]
+    "Class": ["トリプルキャリーズ"]
   },
   {
     "Num": 254,
@@ -1251,7 +1251,7 @@
     "CodeName_JP": "二五四",
     "CodeName_EN": "Two-Five-Four",
     "GenderType": "Neutral",
-    "Class": ["トリプル2+4+5組"]
+    "Class": ["トリプルトワイズ"]
   },
   {
     "Num": 257,
@@ -1262,7 +1262,7 @@
     "CodeName_JP": "二五七",
     "CodeName_EN": "Two-Five-Seven",
     "GenderType": "Neutral",
-    "Class": ["トリプル2+5+7組"]
+    "Class": ["トリプルファイブズ"]
   },
   {
     "Num": 259,
@@ -1273,7 +1273,7 @@
     "CodeName_JP": "二五九",
     "CodeName_EN": "Two-Five-Nine",
     "GenderType": "Neutral",
-    "Class": ["トリプル2+5+9組"]
+    "Class": ["トリプルセブンズ"]
   },
   {
     "Num": 260,
@@ -1284,7 +1284,7 @@
     "CodeName_JP": "二六〇",
     "CodeName_EN": "Two-Six-Zero",
     "GenderType": "Neutral",
-    "Class": ["テンズデュアルエイツ"]
+    "Class": ["トライデュアルエイツ"]
   },
   {
     "Num": 261,
@@ -1295,7 +1295,7 @@
     "CodeName_JP": "二六一",
     "CodeName_EN": "Two-Six-One",
     "GenderType": "Neutral",
-    "Class": ["トリプル1+2+6組"]
+    "Class": ["トリプルナインズ"]
   },
   {
     "Num": 262,
@@ -1306,7 +1306,7 @@
     "CodeName_JP": "二六二",
     "CodeName_EN": "Two-Six-Two",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル1型丙組"]
+    "Class": ["デュオトリプル1型"]
   },
   {
     "Num": 264,
@@ -1317,7 +1317,7 @@
     "CodeName_JP": "二六四",
     "CodeName_EN": "Two-Six-Four",
     "GenderType": "Neutral",
-    "Class": ["トリプル2+4+6組"]
+    "Class": ["トリプルスリーズ"]
   },
   {
     "Num": 266,
@@ -1328,7 +1328,7 @@
     "CodeName_JP": "二六六",
     "CodeName_EN": "Two-Six-Six",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル5型乙組"]
+    "Class": ["デュオトリプル5型"]
   },
   {
     "Num": 267,
@@ -1339,7 +1339,7 @@
     "CodeName_JP": "二六七",
     "CodeName_EN": "Two-Six-Seven",
     "GenderType": "Neutral",
-    "Class": ["トリプル2+6+7組"]
+    "Class": ["トリプルシックスズ"]
   },
   {
     "Num": 268,
@@ -1350,7 +1350,7 @@
     "CodeName_JP": "二六八",
     "CodeName_EN": "Two-Six-Eight",
     "GenderType": "Neutral",
-    "Class": ["トリプル2+6+8組"]
+    "Class": ["トリプルセブンズ"]
   },
   {
     "Num": 269,
@@ -1361,7 +1361,7 @@
     "CodeName_JP": "二六九",
     "CodeName_EN": "Two-Six-Nine",
     "GenderType": "Neutral",
-    "Class": ["トリプル2+6+9組"]
+    "Class": ["トリプルエイツ"]
   },
   {
     "Num": 270,
@@ -1372,7 +1372,7 @@
     "CodeName_JP": "二七〇",
     "CodeName_EN": "Two-Seven-Zero",
     "GenderType": "Neutral",
-    "Class": ["ナインティデュアルズ"]
+    "Class": ["ナインズトライデュアルズ"]
   },
   {
     "Num": 271,
@@ -1383,7 +1383,7 @@
     "CodeName_JP": "二七一",
     "CodeName_EN": "Two-Seven-One",
     "GenderType": "Neutral",
-    "Class": ["トリプル1+2+7組"]
+    "Class": ["トリプルキャリーズ"]
   },
   {
     "Num": 272,
@@ -1394,7 +1394,7 @@
     "CodeName_JP": "二七二",
     "CodeName_EN": "Two-Seven-Two",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル2型丙組"]
+    "Class": ["デュオトリプル2型"]
   },
   {
     "Num": 273,
@@ -1405,7 +1405,7 @@
     "CodeName_JP": "二七三",
     "CodeName_EN": "Two-Seven-Three",
     "GenderType": "Neutral",
-    "Class": ["トリプル2+3+7組"]
+    "Class": ["トリプルスリーズ"]
   },
   {
     "Num": 274,
@@ -1416,7 +1416,7 @@
     "CodeName_JP": "二七四",
     "CodeName_EN": "Two-Seven-Four",
     "GenderType": "Neutral",
-    "Class": ["トリプル2+4+7組"]
+    "Class": ["トリプルフォーズ"]
   },
   {
     "Num": 275,
@@ -1427,7 +1427,7 @@
     "CodeName_JP": "二七五",
     "CodeName_EN": "Two-Seven-Five",
     "GenderType": "Neutral",
-    "Class": ["トリプル2+5+7組"]
+    "Class": ["トリプルファイブズ"]
   },
   {
     "Num": 276,
@@ -1438,7 +1438,7 @@
     "CodeName_JP": "二七六",
     "CodeName_EN": "Two-Seven-Six",
     "GenderType": "Neutral",
-    "Class": ["トリプル2+6+7組"]
+    "Class": ["トリプルシックスズ"]
   },
   {
     "Num": 277,
@@ -1449,7 +1449,7 @@
     "CodeName_JP": "二七七",
     "CodeName_EN": "Two-Seven-Seven",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル7型乙組"]
+    "Class": ["デュオトリプル7型"]
   },
   {
     "Num": 278,
@@ -1460,7 +1460,7 @@
     "CodeName_JP": "二七八",
     "CodeName_EN": "Two-Seven-Eight",
     "GenderType": "Neutral",
-    "Class": ["トリプル2+7+8組"]
+    "Class": ["トリプルエイツ"]
   },
   {
     "Num": 279,
@@ -1471,7 +1471,7 @@
     "CodeName_JP": "二七九",
     "CodeName_EN": "Two-Seven-Nine",
     "GenderType": "Neutral",
-    "Class": ["トリプル2+7+9組"]
+    "Class": ["トリプルナインズ"]
   },
   {
     "Num": 280,
@@ -1482,7 +1482,7 @@
     "CodeName_JP": "二八〇",
     "CodeName_EN": "Two-Eight-Zero",
     "GenderType": "Neutral",
-    "Class": ["テンズデュアルキャリーズ"]
+    "Class": ["トライデュアルキャリーズ"]
   },
   {
     "Num": 281,
@@ -1493,7 +1493,7 @@
     "CodeName_JP": "二八一",
     "CodeName_EN": "Two-Eight-One",
     "GenderType": "Neutral",
-    "Class": ["トリプル1+2+8組"]
+    "Class": ["トリプルトワイズ"]
   },
   {
     "Num": 282,
@@ -1504,7 +1504,7 @@
     "CodeName_JP": "二八二",
     "CodeName_EN": "Two-Eight-Two",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル3型甲組"]
+    "Class": ["デュオトリプル3型"]
   },
   {
     "Num": 283,
@@ -1515,7 +1515,7 @@
     "CodeName_JP": "二八三",
     "CodeName_EN": "Two-Eight-Three",
     "GenderType": "Neutral",
-    "Class": ["トリプル2+3+8組"]
+    "Class": ["トリプルフォーズ"]
   },
   {
     "Num": 284,
@@ -1526,7 +1526,7 @@
     "CodeName_JP": "二八四",
     "CodeName_EN": "Two-Eight-Four",
     "GenderType": "Neutral",
-    "Class": ["トリプル2+4+8組"]
+    "Class": ["トリプルファイブズ"]
   },
   {
     "Num": 285,
@@ -1537,7 +1537,7 @@
     "CodeName_JP": "二八五",
     "CodeName_EN": "Two-Eight-Five",
     "GenderType": "Neutral",
-    "Class": ["トリプル2+5+8組"]
+    "Class": ["トリプルシックスズ"]
   },
   {
     "Num": 286,
@@ -1548,7 +1548,7 @@
     "CodeName_JP": "二八六",
     "CodeName_EN": "Two-Eight-Six",
     "GenderType": "Neutral",
-    "Class": ["トリプル2+6+8組"]
+    "Class": ["トリプルセブンズ"]
   },
   {
     "Num": 287,
@@ -1559,7 +1559,7 @@
     "CodeName_JP": "二八七",
     "CodeName_EN": "Two-Eight-Seven",
     "GenderType": "Neutral",
-    "Class": ["トリプル2+7+8組"]
+    "Class": ["トリプルエイツ"]
   },
   {
     "Num": 288,
@@ -1570,7 +1570,7 @@
     "CodeName_JP": "二八八",
     "CodeName_EN": "Two-Eight-Eight",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル9型乙組"]
+    "Class": ["デュオトリプル9型"]
   },
   {
     "Num": 289,
@@ -1581,7 +1581,7 @@
     "CodeName_JP": "二八九",
     "CodeName_EN": "Two-Eight-Nine",
     "GenderType": "Neutral",
-    "Class": ["トリプル2+8+9組"]
+    "Class": ["トリプルキャリーズ"]
   },
   {
     "Num": 290,
@@ -1592,7 +1592,7 @@
     "CodeName_JP": "二九〇",
     "CodeName_EN": "Two-Nine-Zero",
     "GenderType": "Neutral",
-    "Class": ["テンズデュアルイレブンズ"]
+    "Class": ["トライデュアルトワイズ"]
   },
   {
     "Num": 291,
@@ -1603,7 +1603,7 @@
     "CodeName_JP": "二九一",
     "CodeName_EN": "Two-Nine-One",
     "GenderType": "Neutral",
-    "Class": ["トリプル1+2+9組"]
+    "Class": ["トリプルスリーズ"]
   },
   {
     "Num": 292,
@@ -1614,7 +1614,7 @@
     "CodeName_JP": "二九二",
     "CodeName_EN": "Two-Nine-Two",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル4型丙組"]
+    "Class": ["デュオトリプル4型"]
   },
   {
     "Num": 293,
@@ -1625,7 +1625,7 @@
     "CodeName_JP": "二九三",
     "CodeName_EN": "Two-Nine-Three",
     "GenderType": "Neutral",
-    "Class": ["トリプル2+3+9組"]
+    "Class": ["トリプルファイブズ"]
   },
   {
     "Num": 296,
@@ -1636,7 +1636,7 @@
     "CodeName_JP": "二九六",
     "CodeName_EN": "Two-Nine-Six",
     "GenderType": "Neutral",
-    "Class": ["トリプル2+6+9組"]
+    "Class": ["トリプルエイツ"]
   },
   {
     "Num": 297,
@@ -1647,7 +1647,7 @@
     "CodeName_JP": "二九七",
     "CodeName_EN": "Two-Nine-Seven",
     "GenderType": "Neutral",
-    "Class": ["トリプル2+7+9組"]
+    "Class": ["トリプルナインズ"]
   },
   {
     "Num": 298,
@@ -1658,7 +1658,7 @@
     "CodeName_JP": "二九八",
     "CodeName_EN": "Two-Nine-Eight",
     "GenderType": "Neutral",
-    "Class": ["トリプル2+8+9組"]
+    "Class": ["トリプルキャリーズ"]
   },
   {
     "Num": 299,
@@ -1669,7 +1669,7 @@
     "CodeName_JP": "二九九",
     "CodeName_EN": "Two-Nine-Nine",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル2型乙組"]
+    "Class": ["デュオトリプル2型"]
   },
   {
     "Num": 300,
@@ -1691,7 +1691,7 @@
     "CodeName_JP": "三〇一",
     "CodeName_EN": "Three-Zero-One",
     "GenderType": "Neutral",
-    "Class": ["サイドデュアルフォーズ"]
+    "Class": ["トライデュアルフォーズ"]
   },
   {
     "Num": 302,
@@ -1702,7 +1702,7 @@
     "CodeName_JP": "三〇二",
     "CodeName_EN": "Three-Zero-Two",
     "GenderType": "Neutral",
-    "Class": ["サイドデュアルファイブズ"]
+    "Class": ["トライデュアルファイブズ"]
   },
   {
     "Num": 303,
@@ -1724,7 +1724,7 @@
     "CodeName_JP": "三〇四",
     "CodeName_EN": "Three-Zero-Four",
     "GenderType": "Neutral",
-    "Class": ["サイドデュアルセブンズ"]
+    "Class": ["トライデュアルセブンズ"]
   },
   {
     "Num": 305,
@@ -1735,7 +1735,7 @@
     "CodeName_JP": "三〇五",
     "CodeName_EN": "Three-Zero-Five",
     "GenderType": "Neutral",
-    "Class": ["サイドデュアルエイツ"]
+    "Class": ["トライデュアルエイツ"]
   },
   {
     "Num": 306,
@@ -1746,7 +1746,7 @@
     "CodeName_JP": "三〇六",
     "CodeName_EN": "Three-Zero-Six",
     "GenderType": "Neutral",
-    "Class": ["サイドナインズデュアルズ"]
+    "Class": ["ナインズトライデュアルズ"]
   },
   {
     "Num": 307,
@@ -1757,7 +1757,7 @@
     "CodeName_JP": "三〇七",
     "CodeName_EN": "Three-Zero-Seven",
     "GenderType": "Neutral",
-    "Class": ["サイドデュアルキャリーズ"]
+    "Class": ["トライデュアルキャリーズ"]
   },
   {
     "Num": 308,
@@ -1768,7 +1768,7 @@
     "CodeName_JP": "三〇八",
     "CodeName_EN": "Three-Zero-Eight",
     "GenderType": "Neutral",
-    "Class": ["サイドデュアルイレブンズ"]
+    "Class": ["トライデュアルトワイズ"]
   },
   {
     "Num": 309,
@@ -1779,7 +1779,7 @@
     "CodeName_JP": "三〇九",
     "CodeName_EN": "Three-Zero-Nine",
     "GenderType": "Neutral",
-    "Class": ["サイドデュアルスリーズ"]
+    "Class": ["トライデュアルスリーズ"]
   },
   {
     "Num": 310,
@@ -1790,7 +1790,7 @@
     "CodeName_JP": "三一〇",
     "CodeName_EN": "Three-One-Zero",
     "GenderType": "Neutral",
-    "Class": ["テンズデュアルフォーズ"]
+    "Class": ["トライデュアルフォーズ"]
   },
   {
     "Num": 311,
@@ -1801,7 +1801,7 @@
     "CodeName_JP": "三一一",
     "CodeName_EN": "Three-One-One",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル5型乙組"]
+    "Class": ["デュオトリプル5型"]
   },
   {
     "Num": 312,
@@ -1812,7 +1812,7 @@
     "CodeName_JP": "三一二",
     "CodeName_EN": "Three-One-Two",
     "GenderType": "Neutral",
-    "Class": ["トリプル1+2+3組"]
+    "Class": ["トリプルシックスズ"]
   },
   {
     "Num": 313,
@@ -1823,7 +1823,7 @@
     "CodeName_JP": "三一三",
     "CodeName_EN": "Three-One-Three",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル7型丙組"]
+    "Class": ["デュオトリプル7型"]
   },
   {
     "Num": 315,
@@ -1834,7 +1834,7 @@
     "CodeName_JP": "三一五",
     "CodeName_EN": "Three-One-Five",
     "GenderType": "Neutral",
-    "Class": ["トリプル1+3+5組"]
+    "Class": ["トリプルナインズ"]
   },
   {
     "Num": 316,
@@ -1845,7 +1845,7 @@
     "CodeName_JP": "三一六",
     "CodeName_EN": "Three-One-Six",
     "GenderType": "Neutral",
-    "Class": ["トリプル1+3+6組"]
+    "Class": ["トリプルキャリーズ"]
   },
   {
     "Num": 317,
@@ -1856,7 +1856,7 @@
     "CodeName_JP": "三一七",
     "CodeName_EN": "Three-One-Seven",
     "GenderType": "Neutral",
-    "Class": ["トリプル1+3+7組"]
+    "Class": ["トリプルトワイズ"]
   },
   {
     "Num": 318,
@@ -1867,7 +1867,7 @@
     "CodeName_JP": "三一八",
     "CodeName_EN": "Three-One-Eight",
     "GenderType": "Neutral",
-    "Class": ["トリプル1+3+8組"]
+    "Class": ["トリプルスリーズ"]
   },
   {
     "Num": 319,
@@ -1878,7 +1878,7 @@
     "CodeName_JP": "三一九",
     "CodeName_EN": "Three-One-Nine",
     "GenderType": "Neutral",
-    "Class": ["トリプル1+3+9組"]
+    "Class": ["トリプルフォーズ"]
   },
   {
     "Num": 320,
@@ -1889,7 +1889,7 @@
     "CodeName_JP": "三二〇",
     "CodeName_EN": "Three-Two-Zero",
     "GenderType": "Neutral",
-    "Class": ["テンズデュアルファイブズ"]
+    "Class": ["トライデュアルファイブズ"]
   },
   {
     "Num": 321,
@@ -1900,7 +1900,7 @@
     "CodeName_JP": "三二一",
     "CodeName_EN": "Three-Two-One",
     "GenderType": "Neutral",
-    "Class": ["トリプル1+2+3組"]
+    "Class": ["トリプルシックスズ"]
   },
   {
     "Num": 322,
@@ -1911,7 +1911,7 @@
     "CodeName_JP": "三二二",
     "CodeName_EN": "Three-Two-Two",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル7型乙組"]
+    "Class": ["デュオトリプル7型"]
   },
   {
     "Num": 323,
@@ -1922,7 +1922,7 @@
     "CodeName_JP": "三二三",
     "CodeName_EN": "Three-Two-Three",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル8型丙組"]
+    "Class": ["デュオトリプル8型"]
   },
   {
     "Num": 324,
@@ -1933,7 +1933,7 @@
     "CodeName_JP": "三二四",
     "CodeName_EN": "Three-Two-Four",
     "GenderType": "Neutral",
-    "Class": ["トリプル2+3+4組"]
+    "Class": ["トリプルナインズ"]
   },
   {
     "Num": 325,
@@ -1944,7 +1944,7 @@
     "CodeName_JP": "三二五",
     "CodeName_EN": "Three-Two-Five",
     "GenderType": "Neutral",
-    "Class": ["トリプル2+3+5組"]
+    "Class": ["トリプルキャリーズ"]
   },
   {
     "Num": 326,
@@ -1955,7 +1955,7 @@
     "CodeName_JP": "三二六",
     "CodeName_EN": "Three-Two-Six",
     "GenderType": "Neutral",
-    "Class": ["トリプル2+3+6組"]
+    "Class": ["トリプルトワイズ"]
   },
   {
     "Num": 327,
@@ -1966,7 +1966,7 @@
     "CodeName_JP": "三二七",
     "CodeName_EN": "Three-Two-Seven",
     "GenderType": "Neutral",
-    "Class": ["トリプル2+3+7組"]
+    "Class": ["トリプルスリーズ"]
   },
   {
     "Num": 328,
@@ -1977,7 +1977,7 @@
     "CodeName_JP": "三二八",
     "CodeName_EN": "Three-Two-Eight",
     "GenderType": "Neutral",
-    "Class": ["トリプル2+3+8組"]
+    "Class": ["トリプルフォーズ"]
   },
   {
     "Num": 329,
@@ -1988,7 +1988,7 @@
     "CodeName_JP": "三二九",
     "CodeName_EN": "Three-Two-Nine",
     "GenderType": "Neutral",
-    "Class": ["トリプル2+3+9組"]
+    "Class": ["トリプルファイブズ"]
   },
   {
     "Num": 330,
@@ -1999,7 +1999,7 @@
     "CodeName_JP": "三三〇",
     "CodeName_EN": "Three-Three-Zero",
     "GenderType": "Neutral",
-    "Class": ["マスターテンズデュアルズ9"]
+    "Class": ["マスターテンズデュアルズ"]
   },
   {
     "Num": 331,
@@ -2010,7 +2010,7 @@
     "CodeName_JP": "三三一",
     "CodeName_EN": "Three-Three-One",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル7型甲組"]
+    "Class": ["デュオトリプル7型"]
   },
   {
     "Num": 332,
@@ -2021,7 +2021,7 @@
     "CodeName_JP": "三三二",
     "CodeName_EN": "Three-Three-Two",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル8型甲組"]
+    "Class": ["デュオトリプル8型"]
   },
   {
     "Num": 334,
@@ -2032,7 +2032,7 @@
     "CodeName_JP": "三三四",
     "CodeName_EN": "Three-Three-Four",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル1型甲組"]
+    "Class": ["デュオトリプル1型"]
   },
   {
     "Num": 335,
@@ -2043,7 +2043,7 @@
     "CodeName_JP": "三三五",
     "CodeName_EN": "Three-Three-Five",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル2型甲組"]
+    "Class": ["デュオトリプル2型"]
   },
   {
     "Num": 336,
@@ -2054,7 +2054,7 @@
     "CodeName_JP": "三三六",
     "CodeName_EN": "Three-Three-Six",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル3型甲組"]
+    "Class": ["デュオトリプル3型"]
   },
   {
     "Num": 338,
@@ -2065,7 +2065,7 @@
     "CodeName_JP": "三三八",
     "CodeName_EN": "Three-Three-Eight",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル5型甲組"]
+    "Class": ["デュオトリプル5型"]
   },
   {
     "Num": 339,
@@ -2076,7 +2076,7 @@
     "CodeName_JP": "三三九",
     "CodeName_EN": "Three-Three-Nine",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル6型甲組"]
+    "Class": ["デュオトリプル6型"]
   },
   {
     "Num": 340,
@@ -2087,7 +2087,7 @@
     "CodeName_JP": "三四〇",
     "CodeName_EN": "Three-Four-Zero",
     "GenderType": "Neutral",
-    "Class": ["テンズデュアルセブンズ"]
+    "Class": ["トライデュアルセブンズ"]
   },
   {
     "Num": 341,
@@ -2098,7 +2098,7 @@
     "CodeName_JP": "三四一",
     "CodeName_EN": "Three-Four-One",
     "GenderType": "Neutral",
-    "Class": ["トリプル1+3+4組"]
+    "Class": ["トリプルエイツ"]
   },
   {
     "Num": 342,
@@ -2109,7 +2109,7 @@
     "CodeName_JP": "三四二",
     "CodeName_EN": "Three-Four-Two",
     "GenderType": "Neutral",
-    "Class": ["トリプル2+3+4組"]
+    "Class": ["トリプルナインズ"]
   },
   {
     "Num": 344,
@@ -2120,7 +2120,7 @@
     "CodeName_JP": "三四四",
     "CodeName_EN": "Three-Four-Four",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル2型乙組"]
+    "Class": ["デュオトリプル2型"]
   },
   {
     "Num": 345,
@@ -2131,7 +2131,7 @@
     "CodeName_JP": "三四五",
     "CodeName_EN": "Three-Four-Five",
     "GenderType": "Neutral",
-    "Class": ["トリプル3+4+5組"]
+    "Class": ["トリプルスリーズ"]
   },
   {
     "Num": 346,
@@ -2142,7 +2142,7 @@
     "CodeName_JP": "三四六",
     "CodeName_EN": "Three-Four-Six",
     "GenderType": "Neutral",
-    "Class": ["トリプル3+4+6組"]
+    "Class": ["トリプルフォーズ"]
   },
   {
     "Num": 347,
@@ -2153,7 +2153,7 @@
     "CodeName_JP": "三四七",
     "CodeName_EN": "Three-Four-Seven",
     "GenderType": "Neutral",
-    "Class": ["トリプル3+4+7組"]
+    "Class": ["トリプルファイブズ"]
   },
   {
     "Num": 348,
@@ -2164,7 +2164,7 @@
     "CodeName_JP": "三四八",
     "CodeName_EN": "Three-Four-Eight",
     "GenderType": "Neutral",
-    "Class": ["トリプル3+4+8組"]
+    "Class": ["トリプルシックスズ"]
   },
   {
     "Num": 349,
@@ -2175,7 +2175,7 @@
     "CodeName_JP": "三四九",
     "CodeName_EN": "Three-Four-Nine",
     "GenderType": "Neutral",
-    "Class": ["トリプル3+4+9組"]
+    "Class": ["トリプルセブンズ"]
   },
   {
     "Num": 350,
@@ -2186,7 +2186,7 @@
     "CodeName_JP": "三五〇",
     "CodeName_EN": "Three-Five-Zero",
     "GenderType": "Neutral",
-    "Class": ["テンズデュアルエイツ"]
+    "Class": ["トライデュアルエイツ"]
   },
   {
     "Num": 351,
@@ -2197,7 +2197,7 @@
     "CodeName_JP": "三五一",
     "CodeName_EN": "Three-Five-One",
     "GenderType": "Neutral",
-    "Class": ["トリプル1+3+5組"]
+    "Class": ["トリプルナインズ"]
   },
   {
     "Num": 352,
@@ -2208,7 +2208,7 @@
     "CodeName_JP": "三五二",
     "CodeName_EN": "Three-Five-Two",
     "GenderType": "Neutral",
-    "Class": ["トリプル2+3+5組"]
+    "Class": ["トリプルキャリーズ"]
   },
   {
     "Num": 353,
@@ -2219,7 +2219,7 @@
     "CodeName_JP": "三五三",
     "CodeName_EN": "Three-Five-Three",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル2型丙組"]
+    "Class": ["デュオトリプル2型"]
   },
   {
     "Num": 354,
@@ -2230,7 +2230,7 @@
     "CodeName_JP": "三五四",
     "CodeName_EN": "Three-Five-Four",
     "GenderType": "Neutral",
-    "Class": ["トリプル3+4+5組"]
+    "Class": ["トリプルスリーズ"]
   },
   {
     "Num": 355,
@@ -2241,7 +2241,7 @@
     "CodeName_JP": "三五五",
     "CodeName_EN": "Three-Five-Five",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル4型乙組"]
+    "Class": ["デュオトリプル4型"]
   },
   {
     "Num": 356,
@@ -2252,7 +2252,7 @@
     "CodeName_JP": "三五六",
     "CodeName_EN": "Three-Five-Six",
     "GenderType": "Neutral",
-    "Class": ["トリプル3+5+6組"]
+    "Class": ["トリプルファイブズ"]
   },
   {
     "Num": 357,
@@ -2263,7 +2263,7 @@
     "CodeName_JP": "三五七",
     "CodeName_EN": "Three-Five-Seven",
     "GenderType": "Neutral",
-    "Class": ["トリプル3+5+7組"]
+    "Class": ["トリプルシックスズ"]
   },
   {
     "Num": 358,
@@ -2274,7 +2274,7 @@
     "CodeName_JP": "三五八",
     "CodeName_EN": "Three-Five-Eight",
     "GenderType": "Neutral",
-    "Class": ["トリプル3+5+8組"]
+    "Class": ["トリプルセブンズ"]
   },
   {
     "Num": 359,
@@ -2285,7 +2285,7 @@
     "CodeName_JP": "三五九",
     "CodeName_EN": "Three-Five-Nine",
     "GenderType": "Neutral",
-    "Class": ["トリプル3+5+9組"]
+    "Class": ["トリプルエイツ"]
   },
   {
     "Num": 361,
@@ -2296,7 +2296,7 @@
     "CodeName_JP": "三六一",
     "CodeName_EN": "Three-Six-One",
     "GenderType": "Neutral",
-    "Class": ["トリプル1+3+6組"]
+    "Class": ["トリプルキャリーズ"]
   },
   {
     "Num": 362,
@@ -2307,7 +2307,7 @@
     "CodeName_JP": "三六二",
     "CodeName_EN": "Three-Six-Two",
     "GenderType": "Neutral",
-    "Class": ["トリプル2+3+6組"]
+    "Class": ["トリプルトワイズ"]
   },
   {
     "Num": 363,
@@ -2318,7 +2318,7 @@
     "CodeName_JP": "三六三",
     "CodeName_EN": "Three-Six-Three",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル3型甲組"]
+    "Class": ["デュオトリプル3型"]
   },
   {
     "Num": 364,
@@ -2329,7 +2329,7 @@
     "CodeName_JP": "三六四",
     "CodeName_EN": "Three-Six-Four",
     "GenderType": "Neutral",
-    "Class": ["トリプル3+4+6組"]
+    "Class": ["トリプルフォーズ"]
   },
   {
     "Num": 367,
@@ -2340,7 +2340,7 @@
     "CodeName_JP": "三六七",
     "CodeName_EN": "Three-Six-Seven",
     "GenderType": "Neutral",
-    "Class": ["トリプル3+6+7組"]
+    "Class": ["トリプルセブンズ"]
   },
   {
     "Num": 368,
@@ -2351,7 +2351,7 @@
     "CodeName_JP": "三六八",
     "CodeName_EN": "Three-Six-Eight",
     "GenderType": "Neutral",
-    "Class": ["トリプル3+6+8組"]
+    "Class": ["トリプルエイツ"]
   },
   {
     "Num": 372,
@@ -2362,7 +2362,7 @@
     "CodeName_JP": "三七二",
     "CodeName_EN": "Three-Seven-Two",
     "GenderType": "Neutral",
-    "Class": ["トリプル2+3+7組"]
+    "Class": ["トリプルスリーズ"]
   },
   {
     "Num": 374,
@@ -2373,7 +2373,7 @@
     "CodeName_JP": "三七四",
     "CodeName_EN": "Three-Seven-Four",
     "GenderType": "Neutral",
-    "Class": ["トリプル3+4+7組"]
+    "Class": ["トリプルファイブズ"]
   },
   {
     "Num": 375,
@@ -2384,7 +2384,7 @@
     "CodeName_JP": "三七五",
     "CodeName_EN": "Three-Seven-Five",
     "GenderType": "Neutral",
-    "Class": ["トリプル3+5+7組"]
+    "Class": ["トリプルシックスズ"]
   },
   {
     "Num": 378,
@@ -2395,7 +2395,7 @@
     "CodeName_JP": "三七八",
     "CodeName_EN": "Three-Seven-Eight",
     "GenderType": "Neutral",
-    "Class": ["トリプル3+7+8組"]
+    "Class": ["トリプルナインズ"]
   },
   {
     "Num": 379,
@@ -2406,7 +2406,7 @@
     "CodeName_JP": "三七九",
     "CodeName_EN": "Three-Seven-Nine",
     "GenderType": "Neutral",
-    "Class": ["トリプル3+7+9組"]
+    "Class": ["トリプルキャリーズ"]
   },
   {
     "Num": 380,
@@ -2417,7 +2417,7 @@
     "CodeName_JP": "三八〇",
     "CodeName_EN": "Three-Eight-Zero",
     "GenderType": "Neutral",
-    "Class": ["テンズデュアルイレブンズ"]
+    "Class": ["トライデュアルトワイズ"]
   },
   {
     "Num": 381,
@@ -2428,7 +2428,7 @@
     "CodeName_JP": "三八一",
     "CodeName_EN": "Three-Eight-One",
     "GenderType": "Neutral",
-    "Class": ["トリプル1+3+8組"]
+    "Class": ["トリプルスリーズ"]
   },
   {
     "Num": 382,
@@ -2439,7 +2439,7 @@
     "CodeName_JP": "三八二",
     "CodeName_EN": "Three-Eight-Two",
     "GenderType": "Neutral",
-    "Class": ["トリプル2+3+8組"]
+    "Class": ["トリプルフォーズ"]
   },
   {
     "Num": 383,
@@ -2450,7 +2450,7 @@
     "CodeName_JP": "三八三",
     "CodeName_EN": "Three-Eight-Three",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル5型丙組"]
+    "Class": ["デュオトリプル5型"]
   },
   {
     "Num": 384,
@@ -2461,7 +2461,7 @@
     "CodeName_JP": "三八四",
     "CodeName_EN": "Three-Eight-Four",
     "GenderType": "Neutral",
-    "Class": ["トリプル3+4+8組"]
+    "Class": ["トリプルシックスズ"]
   },
   {
     "Num": 386,
@@ -2472,7 +2472,7 @@
     "CodeName_JP": "三八六",
     "CodeName_EN": "Three-Eight-Six",
     "GenderType": "Neutral",
-    "Class": ["トリプル3+6+8組"]
+    "Class": ["トリプルエイツ"]
   },
   {
     "Num": 388,
@@ -2483,7 +2483,7 @@
     "CodeName_JP": "三八八",
     "CodeName_EN": "Three-Eight-Eight",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル1型乙組"]
+    "Class": ["デュオトリプル1型"]
   },
   {
     "Num": 389,
@@ -2494,7 +2494,7 @@
     "CodeName_JP": "三八九",
     "CodeName_EN": "Three-Eight-Nine",
     "GenderType": "Neutral",
-    "Class": ["トリプル3+8+9組"]
+    "Class": ["トリプルトワイズ"]
   },
   {
     "Num": 390,
@@ -2505,7 +2505,7 @@
     "CodeName_JP": "三九〇",
     "CodeName_EN": "Three-Nine-Zero",
     "GenderType": "Neutral",
-    "Class": ["テンズデュアルスリーズ"]
+    "Class": ["トライデュアルスリーズ"]
   },
   {
     "Num": 391,
@@ -2516,7 +2516,7 @@
     "CodeName_JP": "三九一",
     "CodeName_EN": "Three-Nine-One",
     "GenderType": "Neutral",
-    "Class": ["トリプル1+3+9組"]
+    "Class": ["トリプルフォーズ"]
   },
   {
     "Num": 392,
@@ -2527,7 +2527,7 @@
     "CodeName_JP": "三九二",
     "CodeName_EN": "Three-Nine-Two",
     "GenderType": "Neutral",
-    "Class": ["トリプル2+3+9組"]
+    "Class": ["トリプルファイブズ"]
   },
   {
     "Num": 393,
@@ -2538,7 +2538,7 @@
     "CodeName_JP": "三九三",
     "CodeName_EN": "Three-Nine-Three",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル6型甲組"]
+    "Class": ["デュオトリプル6型"]
   },
   {
     "Num": 394,
@@ -2549,7 +2549,7 @@
     "CodeName_JP": "三九四",
     "CodeName_EN": "Three-Nine-Four",
     "GenderType": "Neutral",
-    "Class": ["トリプル3+4+9組"]
+    "Class": ["トリプルセブンズ"]
   },
   {
     "Num": 395,
@@ -2560,7 +2560,7 @@
     "CodeName_JP": "三九五",
     "CodeName_EN": "Three-Nine-Five",
     "GenderType": "Neutral",
-    "Class": ["トリプル3+5+9組"]
+    "Class": ["トリプルエイツ"]
   },
   {
     "Num": 396,
@@ -2571,7 +2571,7 @@
     "CodeName_JP": "三九六",
     "CodeName_EN": "Three-Nine-Six",
     "GenderType": "Neutral",
-    "Class": ["トリプル3+6+9組"]
+    "Class": ["トリプルナインズ"]
   },
   {
     "Num": 397,
@@ -2582,7 +2582,7 @@
     "CodeName_JP": "三九七",
     "CodeName_EN": "Three-Nine-Seven",
     "GenderType": "Neutral",
-    "Class": ["トリプル3+7+9組"]
+    "Class": ["トリプルキャリーズ"]
   },
   {
     "Num": 398,
@@ -2593,7 +2593,7 @@
     "CodeName_JP": "三九八",
     "CodeName_EN": "Three-Nine-Eight",
     "GenderType": "Neutral",
-    "Class": ["トリプル3+8+9組"]
+    "Class": ["トリプルトワイズ"]
   },
   {
     "Num": 399,
@@ -2604,7 +2604,7 @@
     "CodeName_JP": "三九九",
     "CodeName_EN": "Three-Nine-Nine",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル3型乙組"]
+    "Class": ["デュオトリプル3型"]
   },
   {
     "Num": 402,
@@ -2615,7 +2615,7 @@
     "CodeName_JP": "四〇二",
     "CodeName_EN": "Four-Zero-Two",
     "GenderType": "Neutral",
-    "Class": ["サイドデュアルシックスズ"]
+    "Class": ["トライデュアルシックスズ"]
   },
   {
     "Num": 403,
@@ -2626,7 +2626,7 @@
     "CodeName_JP": "四〇三",
     "CodeName_EN": "Four-Zero-Three",
     "GenderType": "Neutral",
-    "Class": ["サイドデュアルセブンズ"]
+    "Class": ["トライデュアルセブンズ"]
   },
   {
     "Num": 405,
@@ -2637,7 +2637,7 @@
     "CodeName_JP": "四〇五",
     "CodeName_EN": "Four-Zero-Five",
     "GenderType": "Neutral",
-    "Class": ["サイドナインズデュアルズ"]
+    "Class": ["ナインズトライデュアルズ"]
   },
   {
     "Num": 406,
@@ -2648,7 +2648,7 @@
     "CodeName_JP": "四〇六",
     "CodeName_EN": "Four-Zero-Six",
     "GenderType": "Neutral",
-    "Class": ["サイドデュアルキャリーズ"]
+    "Class": ["トライデュアルキャリーズ"]
   },
   {
     "Num": 408,
@@ -2659,7 +2659,7 @@
     "CodeName_JP": "四〇八",
     "CodeName_EN": "Four-Zero-Eight",
     "GenderType": "Neutral",
-    "Class": ["サイドデュアルスリーズ"]
+    "Class": ["トライデュアルスリーズ"]
   },
   {
     "Num": 409,
@@ -2670,7 +2670,7 @@
     "CodeName_JP": "四〇九",
     "CodeName_EN": "Four-Zero-Nine",
     "GenderType": "Neutral",
-    "Class": ["サイドデュアルフォーズ"]
+    "Class": ["トライデュアルフォーズ"]
   },
   {
     "Num": 410,
@@ -2681,7 +2681,7 @@
     "CodeName_JP": "四一〇",
     "CodeName_EN": "Four-One-Zero",
     "GenderType": "Neutral",
-    "Class": ["テンズデュアルファイブズ"]
+    "Class": ["トライデュアルファイブズ"]
   },
   {
     "Num": 412,
@@ -2692,7 +2692,7 @@
     "CodeName_JP": "四一二",
     "CodeName_EN": "Four-One-Two",
     "GenderType": "Neutral",
-    "Class": ["トリプル1+2+4組"]
+    "Class": ["トリプルセブンズ"]
   },
   {
     "Num": 413,
@@ -2703,7 +2703,7 @@
     "CodeName_JP": "四一三",
     "CodeName_EN": "Four-One-Three",
     "GenderType": "Neutral",
-    "Class": ["トリプル1+3+4組"]
+    "Class": ["トリプルエイツ"]
   },
   {
     "Num": 414,
@@ -2714,7 +2714,7 @@
     "CodeName_JP": "四一四",
     "CodeName_EN": "Four-One-Four",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル9型乙組"]
+    "Class": ["デュオトリプル9型"]
   },
   {
     "Num": 415,
@@ -2725,7 +2725,7 @@
     "CodeName_JP": "四一五",
     "CodeName_EN": "Four-One-Five",
     "GenderType": "Neutral",
-    "Class": ["トリプル1+4+5組"]
+    "Class": ["トリプルキャリーズ"]
   },
   {
     "Num": 416,
@@ -2736,7 +2736,7 @@
     "CodeName_JP": "四一六",
     "CodeName_EN": "Four-One-Six",
     "GenderType": "Neutral",
-    "Class": ["トリプル1+4+6組"]
+    "Class": ["トリプルトワイズ"]
   },
   {
     "Num": 417,
@@ -2747,7 +2747,7 @@
     "CodeName_JP": "四一七",
     "CodeName_EN": "Four-One-Seven",
     "GenderType": "Neutral",
-    "Class": ["トリプル1+4+7組"]
+    "Class": ["トリプルスリーズ"]
   },
   {
     "Num": 418,
@@ -2758,7 +2758,7 @@
     "CodeName_JP": "四一八",
     "CodeName_EN": "Four-One-Eight",
     "GenderType": "Neutral",
-    "Class": ["トリプル1+4+8組"]
+    "Class": ["トリプルフォーズ"]
   },
   {
     "Num": 419,
@@ -2769,7 +2769,7 @@
     "CodeName_JP": "四一九",
     "CodeName_EN": "Four-One-Nine",
     "GenderType": "Neutral",
-    "Class": ["トリプル1+4+9組"]
+    "Class": ["トリプルファイブズ"]
   },
   {
     "Num": 420,
@@ -2780,7 +2780,7 @@
     "CodeName_JP": "四二〇",
     "CodeName_EN": "Four-Two-Zero",
     "GenderType": "Neutral",
-    "Class": ["テンズデュアルシックスズ"]
+    "Class": ["トライデュアルシックスズ"]
   },
   {
     "Num": 422,
@@ -2791,7 +2791,7 @@
     "CodeName_JP": "四二二",
     "CodeName_EN": "Four-Two-Two",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル8型乙組"]
+    "Class": ["デュオトリプル8型"]
   },
   {
     "Num": 423,
@@ -2802,7 +2802,7 @@
     "CodeName_JP": "四二三",
     "CodeName_EN": "Four-Two-Three",
     "GenderType": "Neutral",
-    "Class": ["トリプル2+3+4組"]
+    "Class": ["トリプルナインズ"]
   },
   {
     "Num": 424,
@@ -2813,7 +2813,7 @@
     "CodeName_JP": "四二四",
     "CodeName_EN": "Four-Two-Four",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル1型丙組"]
+    "Class": ["デュオトリプル1型"]
   },
   {
     "Num": 425,
@@ -2824,7 +2824,7 @@
     "CodeName_JP": "四二五",
     "CodeName_EN": "Four-Two-Five",
     "GenderType": "Neutral",
-    "Class": ["トリプル2+4+5組"]
+    "Class": ["トリプルトワイズ"]
   },
   {
     "Num": 426,
@@ -2835,7 +2835,7 @@
     "CodeName_JP": "四二六",
     "CodeName_EN": "Four-Two-Six",
     "GenderType": "Neutral",
-    "Class": ["トリプル2+4+6組"]
+    "Class": ["トリプルスリーズ"]
   },
   {
     "Num": 427,
@@ -2846,7 +2846,7 @@
     "CodeName_JP": "四二七",
     "CodeName_EN": "Four-Two-Seven",
     "GenderType": "Neutral",
-    "Class": ["トリプル2+4+7組"]
+    "Class": ["トリプルフォーズ"]
   },
   {
     "Num": 428,
@@ -2857,7 +2857,7 @@
     "CodeName_JP": "四二八",
     "CodeName_EN": "Four-Two-Eight",
     "GenderType": "Neutral",
-    "Class": ["トリプル2+4+8組"]
+    "Class": ["トリプルファイブズ"]
   },
   {
     "Num": 429,
@@ -2868,7 +2868,7 @@
     "CodeName_JP": "四二九",
     "CodeName_EN": "Four-Two-Nine",
     "GenderType": "Neutral",
-    "Class": ["トリプル2+4+9組"]
+    "Class": ["トリプルシックスズ"]
   },
   {
     "Num": 430,
@@ -2879,7 +2879,7 @@
     "CodeName_JP": "四三〇",
     "CodeName_EN": "Four-Three-Zero",
     "GenderType": "Neutral",
-    "Class": ["テンズデュアルセブンズ"]
+    "Class": ["トライデュアルセブンズ"]
   },
   {
     "Num": 431,
@@ -2890,7 +2890,7 @@
     "CodeName_JP": "四三一",
     "CodeName_EN": "Four-Three-One",
     "GenderType": "Neutral",
-    "Class": ["トリプル1+3+4組"]
+    "Class": ["トリプルエイツ"]
   },
   {
     "Num": 432,
@@ -2901,7 +2901,7 @@
     "CodeName_JP": "四三二",
     "CodeName_EN": "Four-Three-Two",
     "GenderType": "Neutral",
-    "Class": ["トリプル2+3+4組"]
+    "Class": ["トリプルナインズ"]
   },
   {
     "Num": 433,
@@ -2912,7 +2912,7 @@
     "CodeName_JP": "四三三",
     "CodeName_EN": "Four-Three-Three",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル1型乙組"]
+    "Class": ["デュオトリプル1型"]
   },
   {
     "Num": 434,
@@ -2923,7 +2923,7 @@
     "CodeName_JP": "四三四",
     "CodeName_EN": "Four-Three-Four",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル2型丙組"]
+    "Class": ["デュオトリプル2型"]
   },
   {
     "Num": 435,
@@ -2934,7 +2934,7 @@
     "CodeName_JP": "四三五",
     "CodeName_EN": "Four-Three-Five",
     "GenderType": "Neutral",
-    "Class": ["トリプル3+4+5組"]
+    "Class": ["トリプルスリーズ"]
   },
   {
     "Num": 436,
@@ -2945,7 +2945,7 @@
     "CodeName_JP": "四三六",
     "CodeName_EN": "Four-Three-Six",
     "GenderType": "Neutral",
-    "Class": ["トリプル3+4+6組"]
+    "Class": ["トリプルフォーズ"]
   },
   {
     "Num": 437,
@@ -2956,7 +2956,7 @@
     "CodeName_JP": "四三七",
     "CodeName_EN": "Four-Three-Seven",
     "GenderType": "Neutral",
-    "Class": ["トリプル3+4+7組"]
+    "Class": ["トリプルファイブズ"]
   },
   {
     "Num": 438,
@@ -2967,7 +2967,7 @@
     "CodeName_JP": "四三八",
     "CodeName_EN": "Four-Three-Eight",
     "GenderType": "Neutral",
-    "Class": ["トリプル3+4+8組"]
+    "Class": ["トリプルシックスズ"]
   },
   {
     "Num": 439,
@@ -2978,7 +2978,7 @@
     "CodeName_JP": "四三九",
     "CodeName_EN": "Four-Three-Nine",
     "GenderType": "Neutral",
-    "Class": ["トリプル3+4+9組"]
+    "Class": ["トリプルセブンズ"]
   },
   {
     "Num": 440,
@@ -2989,7 +2989,7 @@
     "CodeName_JP": "四四〇",
     "CodeName_EN": "Four-Four-Zero",
     "GenderType": "Neutral",
-    "Class": ["マスターテンズデュアルズ9"]
+    "Class": ["マスターテンズデュアルズ"]
   },
   {
     "Num": 441,
@@ -3000,7 +3000,7 @@
     "CodeName_JP": "四四一",
     "CodeName_EN": "Four-Four-One",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル9型乙組"]
+    "Class": ["デュオトリプル9型"]
   },
   {
     "Num": 442,
@@ -3011,7 +3011,7 @@
     "CodeName_JP": "四四二",
     "CodeName_EN": "Four-Four-Two",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル1型甲組"]
+    "Class": ["デュオトリプル1型"]
   },
   {
     "Num": 443,
@@ -3022,7 +3022,7 @@
     "CodeName_JP": "四四三",
     "CodeName_EN": "Four-Four-Three",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル2型甲組"]
+    "Class": ["デュオトリプル2型"]
   },
   {
     "Num": 445,
@@ -3033,7 +3033,7 @@
     "CodeName_JP": "四四五",
     "CodeName_EN": "Four-Four-Five",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル4型甲組"]
+    "Class": ["デュオトリプル4型"]
   },
   {
     "Num": 446,
@@ -3044,7 +3044,7 @@
     "CodeName_JP": "四四六",
     "CodeName_EN": "Four-Four-Six",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル5型甲組"]
+    "Class": ["デュオトリプル5型"]
   },
   {
     "Num": 447,
@@ -3055,7 +3055,7 @@
     "CodeName_JP": "四四七",
     "CodeName_EN": "Four-Four-Seven",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル6型甲組"]
+    "Class": ["デュオトリプル6型"]
   },
   {
     "Num": 448,
@@ -3066,7 +3066,7 @@
     "CodeName_JP": "四四八",
     "CodeName_EN": "Four-Four-Eight",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル7型甲組"]
+    "Class": ["デュオトリプル7型"]
   },
   {
     "Num": 449,
@@ -3077,7 +3077,7 @@
     "CodeName_JP": "四四九",
     "CodeName_EN": "Four-Four-Nine",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル8型甲組"]
+    "Class": ["デュオトリプル8型"]
   },
   {
     "Num": 450,
@@ -3088,7 +3088,7 @@
     "CodeName_JP": "四五〇",
     "CodeName_EN": "Four-Five-Zero",
     "GenderType": "Neutral",
-    "Class": ["ナインティデュアルズ"]
+    "Class": ["ナインズトライデュアルズ"]
   },
   {
     "Num": 452,
@@ -3099,7 +3099,7 @@
     "CodeName_JP": "四五二",
     "CodeName_EN": "Four-Five-Two",
     "GenderType": "Neutral",
-    "Class": ["トリプル2+4+5組"]
+    "Class": ["トリプルトワイズ"]
   },
   {
     "Num": 453,
@@ -3110,7 +3110,7 @@
     "CodeName_JP": "四五三",
     "CodeName_EN": "Four-Five-Three",
     "GenderType": "Neutral",
-    "Class": ["トリプル3+4+5組"]
+    "Class": ["トリプルスリーズ"]
   },
   {
     "Num": 454,
@@ -3121,7 +3121,7 @@
     "CodeName_JP": "四五四",
     "CodeName_EN": "Four-Five-Four",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル4型丙組"]
+    "Class": ["デュオトリプル4型"]
   },
   {
     "Num": 455,
@@ -3132,7 +3132,7 @@
     "CodeName_JP": "四五五",
     "CodeName_EN": "Four-Five-Five",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル5型乙組"]
+    "Class": ["デュオトリプル5型"]
   },
   {
     "Num": 457,
@@ -3143,7 +3143,7 @@
     "CodeName_JP": "四五七",
     "CodeName_EN": "Four-Five-Seven",
     "GenderType": "Neutral",
-    "Class": ["トリプル4+5+7組"]
+    "Class": ["トリプルセブンズ"]
   },
   {
     "Num": 458,
@@ -3154,7 +3154,7 @@
     "CodeName_JP": "四五八",
     "CodeName_EN": "Four-Five-Eight",
     "GenderType": "Neutral",
-    "Class": ["トリプル4+5+8組"]
+    "Class": ["トリプルエイツ"]
   },
   {
     "Num": 459,
@@ -3165,7 +3165,7 @@
     "CodeName_JP": "四五九",
     "CodeName_EN": "Four-Five-Nine",
     "GenderType": "Neutral",
-    "Class": ["トリプル4+5+9組"]
+    "Class": ["トリプルナインズ"]
   },
   {
     "Num": 460,
@@ -3176,7 +3176,7 @@
     "CodeName_JP": "四六〇",
     "CodeName_EN": "Four-Six-Zero",
     "GenderType": "Neutral",
-    "Class": ["テンズデュアルキャリーズ"]
+    "Class": ["トライデュアルキャリーズ"]
   },
   {
     "Num": 461,
@@ -3187,7 +3187,7 @@
     "CodeName_JP": "四六一",
     "CodeName_EN": "Four-Six-One",
     "GenderType": "Neutral",
-    "Class": ["トリプル1+4+6組"]
+    "Class": ["トリプルトワイズ"]
   },
   {
     "Num": 462,
@@ -3198,7 +3198,7 @@
     "CodeName_JP": "四六二",
     "CodeName_EN": "Four-Six-Two",
     "GenderType": "Neutral",
-    "Class": ["トリプル2+4+6組"]
+    "Class": ["トリプルスリーズ"]
   },
   {
     "Num": 463,
@@ -3209,7 +3209,7 @@
     "CodeName_JP": "四六三",
     "CodeName_EN": "Four-Six-Three",
     "GenderType": "Neutral",
-    "Class": ["トリプル3+4+6組"]
+    "Class": ["トリプルフォーズ"]
   },
   {
     "Num": 464,
@@ -3220,7 +3220,7 @@
     "CodeName_JP": "四六四",
     "CodeName_EN": "Four-Six-Four",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル5型丙組"]
+    "Class": ["デュオトリプル5型"]
   },
   {
     "Num": 465,
@@ -3231,7 +3231,7 @@
     "CodeName_JP": "四六五",
     "CodeName_EN": "Four-Six-Five",
     "GenderType": "Neutral",
-    "Class": ["トリプル4+5+6組"]
+    "Class": ["トリプルシックスズ"]
   },
   {
     "Num": 466,
@@ -3242,7 +3242,7 @@
     "CodeName_JP": "四六六",
     "CodeName_EN": "Four-Six-Six",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル7型乙組"]
+    "Class": ["デュオトリプル7型"]
   },
   {
     "Num": 468,
@@ -3253,7 +3253,7 @@
     "CodeName_JP": "四六八",
     "CodeName_EN": "Four-Six-Eight",
     "GenderType": "Neutral",
-    "Class": ["トリプル4+6+8組"]
+    "Class": ["トリプルナインズ"]
   },
   {
     "Num": 469,
@@ -3264,7 +3264,7 @@
     "CodeName_JP": "四六九",
     "CodeName_EN": "Four-Six-Nine",
     "GenderType": "Neutral",
-    "Class": ["トリプル4+6+9組"]
+    "Class": ["トリプルキャリーズ"]
   },
   {
     "Num": 470,
@@ -3275,7 +3275,7 @@
     "CodeName_JP": "四七〇",
     "CodeName_EN": "Four-Seven-Zero",
     "GenderType": "Neutral",
-    "Class": ["テンズデュアルイレブンズ"]
+    "Class": ["トライデュアルトワイズ"]
   },
   {
     "Num": 471,
@@ -3286,7 +3286,7 @@
     "CodeName_JP": "四七一",
     "CodeName_EN": "Four-Seven-One",
     "GenderType": "Neutral",
-    "Class": ["トリプル1+4+7組"]
+    "Class": ["トリプルスリーズ"]
   },
   {
     "Num": 472,
@@ -3297,7 +3297,7 @@
     "CodeName_JP": "四七二",
     "CodeName_EN": "Four-Seven-Two",
     "GenderType": "Neutral",
-    "Class": ["トリプル2+4+7組"]
+    "Class": ["トリプルフォーズ"]
   },
   {
     "Num": 473,
@@ -3308,7 +3308,7 @@
     "CodeName_JP": "四七三",
     "CodeName_EN": "Four-Seven-Three",
     "GenderType": "Neutral",
-    "Class": ["トリプル3+4+7組"]
+    "Class": ["トリプルファイブズ"]
   },
   {
     "Num": 474,
@@ -3319,7 +3319,7 @@
     "CodeName_JP": "四七四",
     "CodeName_EN": "Four-Seven-Four",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル6型甲組"]
+    "Class": ["デュオトリプル6型"]
   },
   {
     "Num": 475,
@@ -3330,7 +3330,7 @@
     "CodeName_JP": "四七五",
     "CodeName_EN": "Four-Seven-Five",
     "GenderType": "Neutral",
-    "Class": ["トリプル4+5+7組"]
+    "Class": ["トリプルセブンズ"]
   },
   {
     "Num": 477,
@@ -3341,7 +3341,7 @@
     "CodeName_JP": "四七七",
     "CodeName_EN": "Four-Seven-Seven",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル9型乙組"]
+    "Class": ["デュオトリプル9型"]
   },
   {
     "Num": 478,
@@ -3352,7 +3352,7 @@
     "CodeName_JP": "四七八",
     "CodeName_EN": "Four-Seven-Eight",
     "GenderType": "Neutral",
-    "Class": ["トリプル4+7+8組"]
+    "Class": ["トリプルキャリーズ"]
   },
   {
     "Num": 479,
@@ -3363,7 +3363,7 @@
     "CodeName_JP": "四七九",
     "CodeName_EN": "Four-Seven-Nine",
     "GenderType": "Neutral",
-    "Class": ["トリプル4+7+9組"]
+    "Class": ["トリプルトワイズ"]
   },
   {
     "Num": 480,
@@ -3374,7 +3374,7 @@
     "CodeName_JP": "四八〇",
     "CodeName_EN": "Four-Eight-Zero",
     "GenderType": "Neutral",
-    "Class": ["テンズデュアルスリーズ"]
+    "Class": ["トライデュアルスリーズ"]
   },
   {
     "Num": 481,
@@ -3385,7 +3385,7 @@
     "CodeName_JP": "四八一",
     "CodeName_EN": "Four-Eight-One",
     "GenderType": "Neutral",
-    "Class": ["トリプル1+4+8組"]
+    "Class": ["トリプルフォーズ"]
   },
   {
     "Num": 482,
@@ -3396,7 +3396,7 @@
     "CodeName_JP": "四八二",
     "CodeName_EN": "Four-Eight-Two",
     "GenderType": "Neutral",
-    "Class": ["トリプル2+4+8組"]
+    "Class": ["トリプルファイブズ"]
   },
   {
     "Num": 483,
@@ -3407,7 +3407,7 @@
     "CodeName_JP": "四八三",
     "CodeName_EN": "Four-Eight-Three",
     "GenderType": "Neutral",
-    "Class": ["トリプル3+4+8組"]
+    "Class": ["トリプルシックスズ"]
   },
   {
     "Num": 484,
@@ -3418,7 +3418,7 @@
     "CodeName_JP": "四八四",
     "CodeName_EN": "Four-Eight-Four",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル7型丙組"]
+    "Class": ["デュオトリプル7型"]
   },
   {
     "Num": 485,
@@ -3429,7 +3429,7 @@
     "CodeName_JP": "四八五",
     "CodeName_EN": "Four-Eight-Five",
     "GenderType": "Neutral",
-    "Class": ["トリプル4+5+8組"]
+    "Class": ["トリプルエイツ"]
   },
   {
     "Num": 486,
@@ -3440,7 +3440,7 @@
     "CodeName_JP": "四八六",
     "CodeName_EN": "Four-Eight-Six",
     "GenderType": "Neutral",
-    "Class": ["トリプル4+6+8組"]
+    "Class": ["トリプルナインズ"]
   },
   {
     "Num": 487,
@@ -3451,7 +3451,7 @@
     "CodeName_JP": "四八七",
     "CodeName_EN": "Four-Eight-Seven",
     "GenderType": "Neutral",
-    "Class": ["トリプル4+7+8組"]
+    "Class": ["トリプルキャリーズ"]
   },
   {
     "Num": 488,
@@ -3462,7 +3462,7 @@
     "CodeName_JP": "四八八",
     "CodeName_EN": "Four-Eight-Eight",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル2型乙組"]
+    "Class": ["デュオトリプル2型"]
   },
   {
     "Num": 489,
@@ -3473,7 +3473,7 @@
     "CodeName_JP": "四八九",
     "CodeName_EN": "Four-Eight-Nine",
     "GenderType": "Neutral",
-    "Class": ["トリプル4+8+9組"]
+    "Class": ["トリプルスリーズ"]
   },
   {
     "Num": 490,
@@ -3484,7 +3484,7 @@
     "CodeName_JP": "四九〇",
     "CodeName_EN": "Four-Nine-Zero",
     "GenderType": "Neutral",
-    "Class": ["テンズデュアルフォーズ"]
+    "Class": ["トライデュアルフォーズ"]
   },
   {
     "Num": 491,
@@ -3495,7 +3495,7 @@
     "CodeName_JP": "四九一",
     "CodeName_EN": "Four-Nine-One",
     "GenderType": "Neutral",
-    "Class": ["トリプル1+4+9組"]
+    "Class": ["トリプルファイブズ"]
   },
   {
     "Num": 492,
@@ -3506,7 +3506,7 @@
     "CodeName_JP": "四九二",
     "CodeName_EN": "Four-Nine-Two",
     "GenderType": "Neutral",
-    "Class": ["トリプル2+4+9組"]
+    "Class": ["トリプルシックスズ"]
   },
   {
     "Num": 493,
@@ -3517,7 +3517,7 @@
     "CodeName_JP": "四九三",
     "CodeName_EN": "Four-Nine-Three",
     "GenderType": "Neutral",
-    "Class": ["トリプル3+4+9組"]
+    "Class": ["トリプルセブンズ"]
   },
   {
     "Num": 494,
@@ -3528,7 +3528,7 @@
     "CodeName_JP": "四九四",
     "CodeName_EN": "Four-Nine-Four",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル8型丙組"]
+    "Class": ["デュオトリプル8型"]
   },
   {
     "Num": 495,
@@ -3539,7 +3539,7 @@
     "CodeName_JP": "四九五",
     "CodeName_EN": "Four-Nine-Five",
     "GenderType": "Neutral",
-    "Class": ["トリプル4+5+9組"]
+    "Class": ["トリプルナインズ"]
   },
   {
     "Num": 497,
@@ -3550,7 +3550,7 @@
     "CodeName_JP": "四九七",
     "CodeName_EN": "Four-Nine-Seven",
     "GenderType": "Neutral",
-    "Class": ["トリプル4+7+9組"]
+    "Class": ["トリプルトワイズ"]
   },
   {
     "Num": 498,
@@ -3561,7 +3561,7 @@
     "CodeName_JP": "四九八",
     "CodeName_EN": "Four-Nine-Eight",
     "GenderType": "Neutral",
-    "Class": ["トリプル4+8+9組"]
+    "Class": ["トリプルスリーズ"]
   },
   {
     "Num": 499,
@@ -3572,7 +3572,7 @@
     "CodeName_JP": "四九九",
     "CodeName_EN": "Four-Nine-Nine",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル4型乙組"]
+    "Class": ["デュオトリプル4型"]
   },
   {
     "Num": 501,
@@ -3583,7 +3583,7 @@
     "CodeName_JP": "五〇一",
     "CodeName_EN": "Five-Zero-One",
     "GenderType": "Neutral",
-    "Class": ["サイドデュアルシックスズ"]
+    "Class": ["トライデュアルシックスズ"]
   },
   {
     "Num": 502,
@@ -3594,7 +3594,7 @@
     "CodeName_JP": "五〇二",
     "CodeName_EN": "Five-Zero-Two",
     "GenderType": "Neutral",
-    "Class": ["サイドデュアルセブンズ"]
+    "Class": ["トライデュアルセブンズ"]
   },
   {
     "Num": 503,
@@ -3605,7 +3605,7 @@
     "CodeName_JP": "五〇三",
     "CodeName_EN": "Five-Zero-Three",
     "GenderType": "Neutral",
-    "Class": ["サイドデュアルエイツ"]
+    "Class": ["トライデュアルエイツ"]
   },
   {
     "Num": 504,
@@ -3616,7 +3616,7 @@
     "CodeName_JP": "五〇四",
     "CodeName_EN": "Five-Zero-Four",
     "GenderType": "Neutral",
-    "Class": ["サイドナインズデュアルズ"]
+    "Class": ["ナインズトライデュアルズ"]
   },
   {
     "Num": 505,
@@ -3638,7 +3638,7 @@
     "CodeName_JP": "五〇六",
     "CodeName_EN": "Five-Zero-Six",
     "GenderType": "Neutral",
-    "Class": ["サイドデュアルイレブンズ"]
+    "Class": ["トライデュアルトワイズ"]
   },
   {
     "Num": 507,
@@ -3649,7 +3649,7 @@
     "CodeName_JP": "五〇七",
     "CodeName_EN": "Five-Zero-Seven",
     "GenderType": "Neutral",
-    "Class": ["サイドデュアルスリーズ"]
+    "Class": ["トライデュアルスリーズ"]
   },
   {
     "Num": 508,
@@ -3660,7 +3660,7 @@
     "CodeName_JP": "五〇八",
     "CodeName_EN": "Five-Zero-Eight",
     "GenderType": "Neutral",
-    "Class": ["サイドデュアルフォーズ"]
+    "Class": ["トライデュアルフォーズ"]
   },
   {
     "Num": 509,
@@ -3671,7 +3671,7 @@
     "CodeName_JP": "五〇九",
     "CodeName_EN": "Five-Zero-Nine",
     "GenderType": "Neutral",
-    "Class": ["サイドデュアルファイブズ"]
+    "Class": ["トライデュアルファイブズ"]
   },
   {
     "Num": 511,
@@ -3682,7 +3682,7 @@
     "CodeName_JP": "五一一",
     "CodeName_EN": "Five-One-One",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル7型乙組"]
+    "Class": ["デュオトリプル7型"]
   },
   {
     "Num": 513,
@@ -3693,7 +3693,7 @@
     "CodeName_JP": "五一三",
     "CodeName_EN": "Five-One-Three",
     "GenderType": "Neutral",
-    "Class": ["トリプル1+3+5組"]
+    "Class": ["トリプルナインズ"]
   },
   {
     "Num": 514,
@@ -3704,7 +3704,7 @@
     "CodeName_JP": "五一四",
     "CodeName_EN": "Five-One-Four",
     "GenderType": "Neutral",
-    "Class": ["トリプル1+4+5組"]
+    "Class": ["トリプルキャリーズ"]
   },
   {
     "Num": 515,
@@ -3715,7 +3715,7 @@
     "CodeName_JP": "五一五",
     "CodeName_EN": "Five-One-Five",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル2型丙組"]
+    "Class": ["デュオトリプル2型"]
   },
   {
     "Num": 516,
@@ -3726,7 +3726,7 @@
     "CodeName_JP": "五一六",
     "CodeName_EN": "Five-One-Six",
     "GenderType": "Neutral",
-    "Class": ["トリプル1+5+6組"]
+    "Class": ["トリプルスリーズ"]
   },
   {
     "Num": 517,
@@ -3737,7 +3737,7 @@
     "CodeName_JP": "五一七",
     "CodeName_EN": "Five-One-Seven",
     "GenderType": "Neutral",
-    "Class": ["トリプル1+5+7組"]
+    "Class": ["トリプルフォーズ"]
   },
   {
     "Num": 518,
@@ -3748,7 +3748,7 @@
     "CodeName_JP": "五一八",
     "CodeName_EN": "Five-One-Eight",
     "GenderType": "Neutral",
-    "Class": ["トリプル1+5+8組"]
+    "Class": ["トリプルファイブズ"]
   },
   {
     "Num": 519,
@@ -3759,7 +3759,7 @@
     "CodeName_JP": "五一九",
     "CodeName_EN": "Five-One-Nine",
     "GenderType": "Neutral",
-    "Class": ["トリプル1+5+9組"]
+    "Class": ["トリプルシックスズ"]
   },
   {
     "Num": 520,
@@ -3770,7 +3770,7 @@
     "CodeName_JP": "五二〇",
     "CodeName_EN": "Five-Two-Zero",
     "GenderType": "Neutral",
-    "Class": ["テンズデュアルセブンズ"]
+    "Class": ["トライデュアルセブンズ"]
   },
   {
     "Num": 521,
@@ -3781,7 +3781,7 @@
     "CodeName_JP": "五二一",
     "CodeName_EN": "Five-Two-One",
     "GenderType": "Neutral",
-    "Class": ["トリプル1+2+5組"]
+    "Class": ["トリプルエイツ"]
   },
   {
     "Num": 522,
@@ -3792,7 +3792,7 @@
     "CodeName_JP": "五二二",
     "CodeName_EN": "Five-Two-Two",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル9型甲組"]
+    "Class": ["デュオトリプル9型"]
   },
   {
     "Num": 523,
@@ -3803,7 +3803,7 @@
     "CodeName_JP": "五二三",
     "CodeName_EN": "Five-Two-Three",
     "GenderType": "Neutral",
-    "Class": ["トリプル2+3+5組"]
+    "Class": ["トリプルキャリーズ"]
   },
   {
     "Num": 524,
@@ -3814,7 +3814,7 @@
     "CodeName_JP": "五二四",
     "CodeName_EN": "Five-Two-Four",
     "GenderType": "Neutral",
-    "Class": ["トリプル2+4+5組"]
+    "Class": ["トリプルトワイズ"]
   },
   {
     "Num": 525,
@@ -3825,7 +3825,7 @@
     "CodeName_JP": "五二五",
     "CodeName_EN": "Five-Two-Five",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル3型乙組"]
+    "Class": ["デュオトリプル3型"]
   },
   {
     "Num": 526,
@@ -3836,7 +3836,7 @@
     "CodeName_JP": "五二六",
     "CodeName_EN": "Five-Two-Six",
     "GenderType": "Neutral",
-    "Class": ["トリプル2+5+6組"]
+    "Class": ["トリプルフォーズ"]
   },
   {
     "Num": 527,
@@ -3847,7 +3847,7 @@
     "CodeName_JP": "五二七",
     "CodeName_EN": "Five-Two-Seven",
     "GenderType": "Neutral",
-    "Class": ["トリプル2+5+7組"]
+    "Class": ["トリプルファイブズ"]
   },
   {
     "Num": 529,
@@ -3858,7 +3858,7 @@
     "CodeName_JP": "五二九",
     "CodeName_EN": "Five-Two-Nine",
     "GenderType": "Neutral",
-    "Class": ["トリプル2+5+9組"]
+    "Class": ["トリプルセブンズ"]
   },
   {
     "Num": 530,
@@ -3869,7 +3869,7 @@
     "CodeName_JP": "五三〇",
     "CodeName_EN": "Five-Three-Zero",
     "GenderType": "Neutral",
-    "Class": ["テンズデュアルエイツ"]
+    "Class": ["トライデュアルエイツ"]
   },
   {
     "Num": 531,
@@ -3880,7 +3880,7 @@
     "CodeName_JP": "五三一",
     "CodeName_EN": "Five-Three-One",
     "GenderType": "Neutral",
-    "Class": ["トリプル1+3+5組"]
+    "Class": ["トリプルナインズ"]
   },
   {
     "Num": 532,
@@ -3891,7 +3891,7 @@
     "CodeName_JP": "五三二",
     "CodeName_EN": "Five-Three-Two",
     "GenderType": "Neutral",
-    "Class": ["トリプル2+3+5組"]
+    "Class": ["トリプルキャリーズ"]
   },
   {
     "Num": 533,
@@ -3902,7 +3902,7 @@
     "CodeName_JP": "五三三",
     "CodeName_EN": "Five-Three-Three",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル2型乙組"]
+    "Class": ["デュオトリプル2型"]
   },
   {
     "Num": 534,
@@ -3913,7 +3913,7 @@
     "CodeName_JP": "五三四",
     "CodeName_EN": "Five-Three-Four",
     "GenderType": "Neutral",
-    "Class": ["トリプル3+4+5組"]
+    "Class": ["トリプルスリーズ"]
   },
   {
     "Num": 535,
@@ -3924,7 +3924,7 @@
     "CodeName_JP": "五三五",
     "CodeName_EN": "Five-Three-Five",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル4型丙組"]
+    "Class": ["デュオトリプル4型"]
   },
   {
     "Num": 536,
@@ -3935,7 +3935,7 @@
     "CodeName_JP": "五三六",
     "CodeName_EN": "Five-Three-Six",
     "GenderType": "Neutral",
-    "Class": ["トリプル3+5+6組"]
+    "Class": ["トリプルファイブズ"]
   },
   {
     "Num": 537,
@@ -3946,7 +3946,7 @@
     "CodeName_JP": "五三七",
     "CodeName_EN": "Five-Three-Seven",
     "GenderType": "Neutral",
-    "Class": ["トリプル3+5+7組"]
+    "Class": ["トリプルシックスズ"]
   },
   {
     "Num": 538,
@@ -3957,7 +3957,7 @@
     "CodeName_JP": "五三八",
     "CodeName_EN": "Five-Three-Eight",
     "GenderType": "Neutral",
-    "Class": ["トリプル3+5+8組"]
+    "Class": ["トリプルセブンズ"]
   },
   {
     "Num": 539,
@@ -3968,7 +3968,7 @@
     "CodeName_JP": "五三九",
     "CodeName_EN": "Five-Three-Nine",
     "GenderType": "Neutral",
-    "Class": ["トリプル3+5+9組"]
+    "Class": ["トリプルエイツ"]
   },
   {
     "Num": 540,
@@ -3979,7 +3979,7 @@
     "CodeName_JP": "五四〇",
     "CodeName_EN": "Five-Four-Zero",
     "GenderType": "Neutral",
-    "Class": ["ナインティデュアルズ"]
+    "Class": ["ナインズトライデュアルズ"]
   },
   {
     "Num": 541,
@@ -3990,7 +3990,7 @@
     "CodeName_JP": "五四一",
     "CodeName_EN": "Five-Four-One",
     "GenderType": "Neutral",
-    "Class": ["トリプル1+4+5組"]
+    "Class": ["トリプルキャリーズ"]
   },
   {
     "Num": 542,
@@ -4001,7 +4001,7 @@
     "CodeName_JP": "五四二",
     "CodeName_EN": "Five-Four-Two",
     "GenderType": "Neutral",
-    "Class": ["トリプル2+4+5組"]
+    "Class": ["トリプルトワイズ"]
   },
   {
     "Num": 543,
@@ -4012,7 +4012,7 @@
     "CodeName_JP": "五四三",
     "CodeName_EN": "Five-Four-Three",
     "GenderType": "Neutral",
-    "Class": ["トリプル3+4+5組"]
+    "Class": ["トリプルスリーズ"]
   },
   {
     "Num": 544,
@@ -4023,7 +4023,7 @@
     "CodeName_JP": "五四四",
     "CodeName_EN": "Five-Four-Four",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル4型乙組"]
+    "Class": ["デュオトリプル4型"]
   },
   {
     "Num": 545,
@@ -4034,7 +4034,7 @@
     "CodeName_JP": "五四五",
     "CodeName_EN": "Five-Four-Five",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル5型丙組"]
+    "Class": ["デュオトリプル5型"]
   },
   {
     "Num": 546,
@@ -4045,7 +4045,7 @@
     "CodeName_JP": "五四六",
     "CodeName_EN": "Five-Four-Six",
     "GenderType": "Neutral",
-    "Class": ["トリプル4+5+6組"]
+    "Class": ["トリプルシックスズ"]
   },
   {
     "Num": 547,
@@ -4056,7 +4056,7 @@
     "CodeName_JP": "五四七",
     "CodeName_EN": "Five-Four-Seven",
     "GenderType": "Neutral",
-    "Class": ["トリプル4+5+7組"]
+    "Class": ["トリプルセブンズ"]
   },
   {
     "Num": 548,
@@ -4067,7 +4067,7 @@
     "CodeName_JP": "五四八",
     "CodeName_EN": "Five-Four-Eight",
     "GenderType": "Neutral",
-    "Class": ["トリプル4+5+8組"]
+    "Class": ["トリプルエイツ"]
   },
   {
     "Num": 549,
@@ -4078,7 +4078,7 @@
     "CodeName_JP": "五四九",
     "CodeName_EN": "Five-Four-Nine",
     "GenderType": "Neutral",
-    "Class": ["トリプル4+5+9組"]
+    "Class": ["トリプルナインズ"]
   },
   {
     "Num": 550,
@@ -4089,7 +4089,7 @@
     "CodeName_JP": "五五〇",
     "CodeName_EN": "Five-Five-Zero",
     "GenderType": "Neutral",
-    "Class": ["マスターテンズデュアルズ9"]
+    "Class": ["マスターテンズデュアルズ"]
   },
   {
     "Num": 551,
@@ -4100,7 +4100,7 @@
     "CodeName_JP": "五五一",
     "CodeName_EN": "Five-Five-One",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル2型甲組"]
+    "Class": ["デュオトリプル2型"]
   },
   {
     "Num": 552,
@@ -4111,7 +4111,7 @@
     "CodeName_JP": "五五二",
     "CodeName_EN": "Five-Five-Two",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル3型乙組"]
+    "Class": ["デュオトリプル3型"]
   },
   {
     "Num": 553,
@@ -4122,7 +4122,7 @@
     "CodeName_JP": "五五三",
     "CodeName_EN": "Five-Five-Three",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル4型甲組"]
+    "Class": ["デュオトリプル4型"]
   },
   {
     "Num": 554,
@@ -4133,7 +4133,7 @@
     "CodeName_JP": "五五四",
     "CodeName_EN": "Five-Five-Four",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル5型甲組"]
+    "Class": ["デュオトリプル5型"]
   },
   {
     "Num": 556,
@@ -4144,7 +4144,7 @@
     "CodeName_JP": "五五六",
     "CodeName_EN": "Five-Five-Six",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル7型甲組"]
+    "Class": ["デュオトリプル7型"]
   },
   {
     "Num": 557,
@@ -4155,7 +4155,7 @@
     "CodeName_JP": "五五七",
     "CodeName_EN": "Five-Five-Seven",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル8型甲組"]
+    "Class": ["デュオトリプル8型"]
   },
   {
     "Num": 559,
@@ -4166,7 +4166,7 @@
     "CodeName_JP": "五五九",
     "CodeName_EN": "Five-Five-Nine",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル1型甲組"]
+    "Class": ["デュオトリプル1型"]
   },
   {
     "Num": 560,
@@ -4177,7 +4177,7 @@
     "CodeName_JP": "五六〇",
     "CodeName_EN": "Five-Six-Zero",
     "GenderType": "Neutral",
-    "Class": ["テンズデュアルイレブンズ"]
+    "Class": ["トライデュアルトワイズ"]
   },
   {
     "Num": 561,
@@ -4188,7 +4188,7 @@
     "CodeName_JP": "五六一",
     "CodeName_EN": "Five-Six-One",
     "GenderType": "Neutral",
-    "Class": ["トリプル1+5+6組"]
+    "Class": ["トリプルスリーズ"]
   },
   {
     "Num": 562,
@@ -4199,7 +4199,7 @@
     "CodeName_JP": "五六二",
     "CodeName_EN": "Five-Six-Two",
     "GenderType": "Neutral",
-    "Class": ["トリプル2+5+6組"]
+    "Class": ["トリプルフォーズ"]
   },
   {
     "Num": 563,
@@ -4210,7 +4210,7 @@
     "CodeName_JP": "五六三",
     "CodeName_EN": "Five-Six-Three",
     "GenderType": "Neutral",
-    "Class": ["トリプル3+5+6組"]
+    "Class": ["トリプルファイブズ"]
   },
   {
     "Num": 564,
@@ -4221,7 +4221,7 @@
     "CodeName_JP": "五六四",
     "CodeName_EN": "Five-Six-Four",
     "GenderType": "Neutral",
-    "Class": ["トリプル4+5+6組"]
+    "Class": ["トリプルシックスズ"]
   },
   {
     "Num": 565,
@@ -4232,7 +4232,7 @@
     "CodeName_JP": "五六五",
     "CodeName_EN": "Five-Six-Five",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル7型丙組"]
+    "Class": ["デュオトリプル7型"]
   },
   {
     "Num": 566,
@@ -4243,7 +4243,7 @@
     "CodeName_JP": "五六六",
     "CodeName_EN": "Five-Six-Six",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル8型乙組"]
+    "Class": ["デュオトリプル8型"]
   },
   {
     "Num": 567,
@@ -4254,7 +4254,7 @@
     "CodeName_JP": "五六七",
     "CodeName_EN": "Five-Six-Seven",
     "GenderType": "Neutral",
-    "Class": ["トリプル5+6+7組"]
+    "Class": ["トリプルナインズ"]
   },
   {
     "Num": 568,
@@ -4265,7 +4265,7 @@
     "CodeName_JP": "五六八",
     "CodeName_EN": "Five-Six-Eight",
     "GenderType": "Neutral",
-    "Class": ["トリプル5+6+8組"]
+    "Class": ["トリプルキャリーズ"]
   },
   {
     "Num": 569,
@@ -4276,7 +4276,7 @@
     "CodeName_JP": "五六九",
     "CodeName_EN": "Five-Six-Nine",
     "GenderType": "Neutral",
-    "Class": ["トリプル5+6+9組"]
+    "Class": ["トリプルトワイズ"]
   },
   {
     "Num": 570,
@@ -4287,7 +4287,7 @@
     "CodeName_JP": "五七〇",
     "CodeName_EN": "Five-Seven-Zero",
     "GenderType": "Neutral",
-    "Class": ["テンズデュアルスリーズ"]
+    "Class": ["トライデュアルスリーズ"]
   },
   {
     "Num": 571,
@@ -4298,7 +4298,7 @@
     "CodeName_JP": "五七一",
     "CodeName_EN": "Five-Seven-One",
     "GenderType": "Neutral",
-    "Class": ["トリプル1+5+7組"]
+    "Class": ["トリプルフォーズ"]
   },
   {
     "Num": 573,
@@ -4309,7 +4309,7 @@
     "CodeName_JP": "五七三",
     "CodeName_EN": "Five-Seven-Three",
     "GenderType": "Neutral",
-    "Class": ["トリプル3+5+7組"]
+    "Class": ["トリプルシックスズ"]
   },
   {
     "Num": 574,
@@ -4320,7 +4320,7 @@
     "CodeName_JP": "五七四",
     "CodeName_EN": "Five-Seven-Four",
     "GenderType": "Neutral",
-    "Class": ["トリプル4+5+7組"]
+    "Class": ["トリプルセブンズ"]
   },
   {
     "Num": 575,
@@ -4331,7 +4331,7 @@
     "CodeName_JP": "五七五",
     "CodeName_EN": "Five-Seven-Five",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル8型丙組"]
+    "Class": ["デュオトリプル8型"]
   },
   {
     "Num": 576,
@@ -4342,7 +4342,7 @@
     "CodeName_JP": "五七六",
     "CodeName_EN": "Five-Seven-Six",
     "GenderType": "Neutral",
-    "Class": ["トリプル5+6+7組"]
+    "Class": ["トリプルナインズ"]
   },
   {
     "Num": 577,
@@ -4353,7 +4353,7 @@
     "CodeName_JP": "五七七",
     "CodeName_EN": "Five-Seven-Seven",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル1型乙組"]
+    "Class": ["デュオトリプル1型"]
   },
   {
     "Num": 578,
@@ -4364,7 +4364,7 @@
     "CodeName_JP": "五七八",
     "CodeName_EN": "Five-Seven-Eight",
     "GenderType": "Neutral",
-    "Class": ["トリプル5+7+8組"]
+    "Class": ["トリプルトワイズ"]
   },
   {
     "Num": 579,
@@ -4375,7 +4375,7 @@
     "CodeName_JP": "五七九",
     "CodeName_EN": "Five-Seven-Nine",
     "GenderType": "Neutral",
-    "Class": ["トリプル5+7+9組"]
+    "Class": ["トリプルスリーズ"]
   },
   {
     "Num": 580,
@@ -4386,7 +4386,7 @@
     "CodeName_JP": "五八〇",
     "CodeName_EN": "Five-Eight-Zero",
     "GenderType": "Neutral",
-    "Class": ["テンズデュアルフォーズ"]
+    "Class": ["トライデュアルフォーズ"]
   },
   {
     "Num": 581,
@@ -4397,7 +4397,7 @@
     "CodeName_JP": "五八一",
     "CodeName_EN": "Five-Eight-One",
     "GenderType": "Neutral",
-    "Class": ["トリプル1+5+8組"]
+    "Class": ["トリプルファイブズ"]
   },
   {
     "Num": 582,
@@ -4408,7 +4408,7 @@
     "CodeName_JP": "五八二",
     "CodeName_EN": "Five-Eight-Two",
     "GenderType": "Neutral",
-    "Class": ["トリプル2+5+8組"]
+    "Class": ["トリプルシックスズ"]
   },
   {
     "Num": 583,
@@ -4419,7 +4419,7 @@
     "CodeName_JP": "五八三",
     "CodeName_EN": "Five-Eight-Three",
     "GenderType": "Neutral",
-    "Class": ["トリプル3+5+8組"]
+    "Class": ["トリプルセブンズ"]
   },
   {
     "Num": 584,
@@ -4430,7 +4430,7 @@
     "CodeName_JP": "五八四",
     "CodeName_EN": "Five-Eight-Four",
     "GenderType": "Neutral",
-    "Class": ["トリプル4+5+8組"]
+    "Class": ["トリプルエイツ"]
   },
   {
     "Num": 585,
@@ -4441,7 +4441,7 @@
     "CodeName_JP": "五八五",
     "CodeName_EN": "Five-Eight-Five",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル9型甲組"]
+    "Class": ["デュオトリプル9型"]
   },
   {
     "Num": 586,
@@ -4452,7 +4452,7 @@
     "CodeName_JP": "五八六",
     "CodeName_EN": "Five-Eight-Six",
     "GenderType": "Neutral",
-    "Class": ["トリプル5+6+8組"]
+    "Class": ["トリプルキャリーズ"]
   },
   {
     "Num": 587,
@@ -4463,7 +4463,7 @@
     "CodeName_JP": "五八七",
     "CodeName_EN": "Five-Eight-Seven",
     "GenderType": "Neutral",
-    "Class": ["トリプル5+7+8組"]
+    "Class": ["トリプルトワイズ"]
   },
   {
     "Num": 588,
@@ -4474,7 +4474,7 @@
     "CodeName_JP": "五八八",
     "CodeName_EN": "Five-Eight-Eight",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル3型乙組"]
+    "Class": ["デュオトリプル3型"]
   },
   {
     "Num": 589,
@@ -4485,7 +4485,7 @@
     "CodeName_JP": "五八九",
     "CodeName_EN": "Five-Eight-Nine",
     "GenderType": "Neutral",
-    "Class": ["トリプル5+8+9組"]
+    "Class": ["トリプルフォーズ"]
   },
   {
     "Num": 590,
@@ -4496,7 +4496,7 @@
     "CodeName_JP": "五九〇",
     "CodeName_EN": "Five-Nine-Zero",
     "GenderType": "Neutral",
-    "Class": ["テンズデュアルファイブズ"]
+    "Class": ["トライデュアルファイブズ"]
   },
   {
     "Num": 591,
@@ -4507,7 +4507,7 @@
     "CodeName_JP": "五九一",
     "CodeName_EN": "Five-Nine-One",
     "GenderType": "Neutral",
-    "Class": ["トリプル1+5+9組"]
+    "Class": ["トリプルシックスズ"]
   },
   {
     "Num": 592,
@@ -4518,7 +4518,7 @@
     "CodeName_JP": "五九二",
     "CodeName_EN": "Five-Nine-Two",
     "GenderType": "Neutral",
-    "Class": ["トリプル2+5+9組"]
+    "Class": ["トリプルセブンズ"]
   },
   {
     "Num": 593,
@@ -4529,7 +4529,7 @@
     "CodeName_JP": "五九三",
     "CodeName_EN": "Five-Nine-Three",
     "GenderType": "Neutral",
-    "Class": ["トリプル3+5+9組"]
+    "Class": ["トリプルエイツ"]
   },
   {
     "Num": 594,
@@ -4540,7 +4540,7 @@
     "CodeName_JP": "五九四",
     "CodeName_EN": "Five-Nine-Four",
     "GenderType": "Neutral",
-    "Class": ["トリプル4+5+9組"]
+    "Class": ["トリプルナインズ"]
   },
   {
     "Num": 595,
@@ -4551,7 +4551,7 @@
     "CodeName_JP": "五九五",
     "CodeName_EN": "Five-Nine-Five",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル1型丙組"]
+    "Class": ["デュオトリプル1型"]
   },
   {
     "Num": 596,
@@ -4562,7 +4562,7 @@
     "CodeName_JP": "五九六",
     "CodeName_EN": "Five-Nine-Six",
     "GenderType": "Neutral",
-    "Class": ["トリプル5+6+9組"]
+    "Class": ["トリプルトワイズ"]
   },
   {
     "Num": 597,
@@ -4573,7 +4573,7 @@
     "CodeName_JP": "五九七",
     "CodeName_EN": "Five-Nine-Seven",
     "GenderType": "Neutral",
-    "Class": ["トリプル5+7+9組"]
+    "Class": ["トリプルスリーズ"]
   },
   {
     "Num": 598,
@@ -4584,7 +4584,7 @@
     "CodeName_JP": "五九八",
     "CodeName_EN": "Five-Nine-Eight",
     "GenderType": "Neutral",
-    "Class": ["トリプル5+8+9組"]
+    "Class": ["トリプルフォーズ"]
   },
   {
     "Num": 599,
@@ -4595,7 +4595,7 @@
     "CodeName_JP": "五九九",
     "CodeName_EN": "Five-Nine-Nine",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル5型乙組"]
+    "Class": ["デュオトリプル5型"]
   },
   {
     "Num": 600,
@@ -4617,7 +4617,7 @@
     "CodeName_JP": "六〇一",
     "CodeName_EN": "Six-Zero-One",
     "GenderType": "Neutral",
-    "Class": ["サイドデュアルセブンズ"]
+    "Class": ["トライデュアルセブンズ"]
   },
   {
     "Num": 602,
@@ -4628,7 +4628,7 @@
     "CodeName_JP": "六〇二",
     "CodeName_EN": "Six-Zero-Two",
     "GenderType": "Neutral",
-    "Class": ["サイドデュアルエイツ"]
+    "Class": ["トライデュアルエイツ"]
   },
   {
     "Num": 603,
@@ -4639,7 +4639,7 @@
     "CodeName_JP": "六〇三",
     "CodeName_EN": "Six-Zero-Three",
     "GenderType": "Neutral",
-    "Class": ["サイドナインズデュアルズ"]
+    "Class": ["ナインズトライデュアルズ"]
   },
   {
     "Num": 604,
@@ -4650,7 +4650,7 @@
     "CodeName_JP": "六〇四",
     "CodeName_EN": "Six-Zero-Four",
     "GenderType": "Neutral",
-    "Class": ["サイドデュアルキャリーズ"]
+    "Class": ["トライデュアルキャリーズ"]
   },
   {
     "Num": 606,
@@ -4672,7 +4672,7 @@
     "CodeName_JP": "六〇七",
     "CodeName_EN": "Six-Zero-Seven",
     "GenderType": "Neutral",
-    "Class": ["サイドデュアルフォーズ"]
+    "Class": ["トライデュアルフォーズ"]
   },
   {
     "Num": 608,
@@ -4683,7 +4683,7 @@
     "CodeName_JP": "六〇八",
     "CodeName_EN": "Six-Zero-Eight",
     "GenderType": "Neutral",
-    "Class": ["サイドデュアルファイブズ"]
+    "Class": ["トライデュアルファイブズ"]
   },
   {
     "Num": 609,
@@ -4694,7 +4694,7 @@
     "CodeName_JP": "六〇九",
     "CodeName_EN": "Six-Zero-Nine",
     "GenderType": "Neutral",
-    "Class": ["サイドデュアルシックスズ"]
+    "Class": ["トライデュアルシックスズ"]
   },
   {
     "Num": 610,
@@ -4705,7 +4705,7 @@
     "CodeName_JP": "六一〇",
     "CodeName_EN": "Six-One-Zero",
     "GenderType": "Neutral",
-    "Class": ["テンズデュアルセブンズ"]
+    "Class": ["トライデュアルセブンズ"]
   },
   {
     "Num": 611,
@@ -4716,7 +4716,7 @@
     "CodeName_JP": "六一一",
     "CodeName_EN": "Six-One-One",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル8型乙組"]
+    "Class": ["デュオトリプル8型"]
   },
   {
     "Num": 612,
@@ -4727,7 +4727,7 @@
     "CodeName_JP": "六一二",
     "CodeName_EN": "Six-One-Two",
     "GenderType": "Neutral",
-    "Class": ["トリプル1+2+6組"]
+    "Class": ["トリプルナインズ"]
   },
   {
     "Num": 613,
@@ -4738,7 +4738,7 @@
     "CodeName_JP": "六一三",
     "CodeName_EN": "Six-One-Three",
     "GenderType": "Neutral",
-    "Class": ["トリプル1+3+6組"]
+    "Class": ["トリプルキャリーズ"]
   },
   {
     "Num": 614,
@@ -4749,7 +4749,7 @@
     "CodeName_JP": "六一四",
     "CodeName_EN": "Six-One-Four",
     "GenderType": "Neutral",
-    "Class": ["トリプル1+4+6組"]
+    "Class": ["トリプルトワイズ"]
   },
   {
     "Num": 615,
@@ -4760,7 +4760,7 @@
     "CodeName_JP": "六一五",
     "CodeName_EN": "Six-One-Five",
     "GenderType": "Neutral",
-    "Class": ["トリプル1+5+6組"]
+    "Class": ["トリプルスリーズ"]
   },
   {
     "Num": 617,
@@ -4771,7 +4771,7 @@
     "CodeName_JP": "六一七",
     "CodeName_EN": "Six-One-Seven",
     "GenderType": "Neutral",
-    "Class": ["トリプル1+6+7組"]
+    "Class": ["トリプルファイブズ"]
   },
   {
     "Num": 618,
@@ -4782,7 +4782,7 @@
     "CodeName_JP": "六一八",
     "CodeName_EN": "Six-One-Eight",
     "GenderType": "Neutral",
-    "Class": ["トリプル1+6+8組"]
+    "Class": ["トリプルシックスズ"]
   },
   {
     "Num": 619,
@@ -4793,7 +4793,7 @@
     "CodeName_JP": "六一九",
     "CodeName_EN": "Six-One-Nine",
     "GenderType": "Neutral",
-    "Class": ["トリプル1+6+9組"]
+    "Class": ["トリプルセブンズ"]
   },
   {
     "Num": 620,
@@ -4804,7 +4804,7 @@
     "CodeName_JP": "六二〇",
     "CodeName_EN": "Six-Two-Zero",
     "GenderType": "Neutral",
-    "Class": ["テンズデュアルエイツ"]
+    "Class": ["トライデュアルエイツ"]
   },
   {
     "Num": 621,
@@ -4815,7 +4815,7 @@
     "CodeName_JP": "六二一",
     "CodeName_EN": "Six-Two-One",
     "GenderType": "Neutral",
-    "Class": ["トリプル1+2+6組"]
+    "Class": ["トリプルナインズ"]
   },
   {
     "Num": 622,
@@ -4826,7 +4826,7 @@
     "CodeName_JP": "六二二",
     "CodeName_EN": "Six-Two-Two",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル1型乙組"]
+    "Class": ["デュオトリプル1型"]
   },
   {
     "Num": 623,
@@ -4837,7 +4837,7 @@
     "CodeName_JP": "六二三",
     "CodeName_EN": "Six-Two-Three",
     "GenderType": "Neutral",
-    "Class": ["トリプル2+3+6組"]
+    "Class": ["トリプルトワイズ"]
   },
   {
     "Num": 624,
@@ -4848,7 +4848,7 @@
     "CodeName_JP": "六二四",
     "CodeName_EN": "Six-Two-Four",
     "GenderType": "Neutral",
-    "Class": ["トリプル2+4+6組"]
+    "Class": ["トリプルスリーズ"]
   },
   {
     "Num": 626,
@@ -4859,7 +4859,7 @@
     "CodeName_JP": "六二六",
     "CodeName_EN": "Six-Two-Six",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル5型丙組"]
+    "Class": ["デュオトリプル5型"]
   },
   {
     "Num": 627,
@@ -4870,7 +4870,7 @@
     "CodeName_JP": "六二七",
     "CodeName_EN": "Six-Two-Seven",
     "GenderType": "Neutral",
-    "Class": ["トリプル2+6+7組"]
+    "Class": ["トリプルシックスズ"]
   },
   {
     "Num": 628,
@@ -4881,7 +4881,7 @@
     "CodeName_JP": "六二八",
     "CodeName_EN": "Six-Two-Eight",
     "GenderType": "Neutral",
-    "Class": ["トリプル2+6+8組"]
+    "Class": ["トリプルセブンズ"]
   },
   {
     "Num": 629,
@@ -4892,7 +4892,7 @@
     "CodeName_JP": "六二九",
     "CodeName_EN": "Six-Two-Nine",
     "GenderType": "Neutral",
-    "Class": ["トリプル2+6+9組"]
+    "Class": ["トリプルエイツ"]
   },
   {
     "Num": 630,
@@ -4903,7 +4903,7 @@
     "CodeName_JP": "六三〇",
     "CodeName_EN": "Six-Three-Zero",
     "GenderType": "Neutral",
-    "Class": ["ナインティデュアルズ"]
+    "Class": ["ナインズトライデュアルズ"]
   },
   {
     "Num": 631,
@@ -4914,7 +4914,7 @@
     "CodeName_JP": "六三一",
     "CodeName_EN": "Six-Three-One",
     "GenderType": "Neutral",
-    "Class": ["トリプル1+3+6組"]
+    "Class": ["トリプルキャリーズ"]
   },
   {
     "Num": 632,
@@ -4925,7 +4925,7 @@
     "CodeName_JP": "六三二",
     "CodeName_EN": "Six-Three-Two",
     "GenderType": "Neutral",
-    "Class": ["トリプル2+3+6組"]
+    "Class": ["トリプルトワイズ"]
   },
   {
     "Num": 633,
@@ -4936,7 +4936,7 @@
     "CodeName_JP": "六三三",
     "CodeName_EN": "Six-Three-Three",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル3型甲組"]
+    "Class": ["デュオトリプル3型"]
   },
   {
     "Num": 635,
@@ -4947,7 +4947,7 @@
     "CodeName_JP": "六三五",
     "CodeName_EN": "Six-Three-Five",
     "GenderType": "Neutral",
-    "Class": ["トリプル3+5+6組"]
+    "Class": ["トリプルファイブズ"]
   },
   {
     "Num": 636,
@@ -4958,7 +4958,7 @@
     "CodeName_JP": "六三六",
     "CodeName_EN": "Six-Three-Six",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル6型乙組"]
+    "Class": ["デュオトリプル6型"]
   },
   {
     "Num": 637,
@@ -4969,7 +4969,7 @@
     "CodeName_JP": "六三七",
     "CodeName_EN": "Six-Three-Seven",
     "GenderType": "Neutral",
-    "Class": ["トリプル3+6+7組"]
+    "Class": ["トリプルセブンズ"]
   },
   {
     "Num": 639,
@@ -4980,7 +4980,7 @@
     "CodeName_JP": "六三九",
     "CodeName_EN": "Six-Three-Nine",
     "GenderType": "Neutral",
-    "Class": ["トリプル3+6+9組"]
+    "Class": ["トリプルナインズ"]
   },
   {
     "Num": 640,
@@ -4991,7 +4991,7 @@
     "CodeName_JP": "六四〇",
     "CodeName_EN": "Six-Four-Zero",
     "GenderType": "Neutral",
-    "Class": ["テンズデュアルキャリーズ"]
+    "Class": ["トライデュアルキャリーズ"]
   },
   {
     "Num": 641,
@@ -5002,7 +5002,7 @@
     "CodeName_JP": "六四一",
     "CodeName_EN": "Six-Four-One",
     "GenderType": "Neutral",
-    "Class": ["トリプル1+4+6組"]
+    "Class": ["トリプルトワイズ"]
   },
   {
     "Num": 642,
@@ -5013,7 +5013,7 @@
     "CodeName_JP": "六四二",
     "CodeName_EN": "Six-Four-Two",
     "GenderType": "Neutral",
-    "Class": ["トリプル2+4+6組"]
+    "Class": ["トリプルスリーズ"]
   },
   {
     "Num": 643,
@@ -5024,7 +5024,7 @@
     "CodeName_JP": "六四三",
     "CodeName_EN": "Six-Four-Three",
     "GenderType": "Neutral",
-    "Class": ["トリプル3+4+6組"]
+    "Class": ["トリプルフォーズ"]
   },
   {
     "Num": 644,
@@ -5035,7 +5035,7 @@
     "CodeName_JP": "六四四",
     "CodeName_EN": "Six-Four-Four",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル5型乙組"]
+    "Class": ["デュオトリプル5型"]
   },
   {
     "Num": 645,
@@ -5046,7 +5046,7 @@
     "CodeName_JP": "六四五",
     "CodeName_EN": "Six-Four-Five",
     "GenderType": "Neutral",
-    "Class": ["トリプル4+5+6組"]
+    "Class": ["トリプルシックスズ"]
   },
   {
     "Num": 646,
@@ -5057,7 +5057,7 @@
     "CodeName_JP": "六四六",
     "CodeName_EN": "Six-Four-Six",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル7型丙組"]
+    "Class": ["デュオトリプル7型"]
   },
   {
     "Num": 647,
@@ -5068,7 +5068,7 @@
     "CodeName_JP": "六四七",
     "CodeName_EN": "Six-Four-Seven",
     "GenderType": "Neutral",
-    "Class": ["トリプル4+6+7組"]
+    "Class": ["トリプルエイツ"]
   },
   {
     "Num": 648,
@@ -5079,7 +5079,7 @@
     "CodeName_JP": "六四八",
     "CodeName_EN": "Six-Four-Eight",
     "GenderType": "Neutral",
-    "Class": ["トリプル4+6+8組"]
+    "Class": ["トリプルナインズ"]
   },
   {
     "Num": 649,
@@ -5090,7 +5090,7 @@
     "CodeName_JP": "六四九",
     "CodeName_EN": "Six-Four-Nine",
     "GenderType": "Neutral",
-    "Class": ["トリプル4+6+9組"]
+    "Class": ["トリプルキャリーズ"]
   },
   {
     "Num": 650,
@@ -5101,7 +5101,7 @@
     "CodeName_JP": "六五〇",
     "CodeName_EN": "Six-Five-Zero",
     "GenderType": "Neutral",
-    "Class": ["テンズデュアルイレブンズ"]
+    "Class": ["トライデュアルトワイズ"]
   },
   {
     "Num": 651,
@@ -5112,7 +5112,7 @@
     "CodeName_JP": "六五一",
     "CodeName_EN": "Six-Five-One",
     "GenderType": "Neutral",
-    "Class": ["トリプル1+5+6組"]
+    "Class": ["トリプルスリーズ"]
   },
   {
     "Num": 652,
@@ -5123,7 +5123,7 @@
     "CodeName_JP": "六五二",
     "CodeName_EN": "Six-Five-Two",
     "GenderType": "Neutral",
-    "Class": ["トリプル2+5+6組"]
+    "Class": ["トリプルフォーズ"]
   },
   {
     "Num": 653,
@@ -5134,7 +5134,7 @@
     "CodeName_JP": "六五三",
     "CodeName_EN": "Six-Five-Three",
     "GenderType": "Neutral",
-    "Class": ["トリプル3+5+6組"]
+    "Class": ["トリプルファイブズ"]
   },
   {
     "Num": 654,
@@ -5145,7 +5145,7 @@
     "CodeName_JP": "六五四",
     "CodeName_EN": "Six-Five-Four",
     "GenderType": "Neutral",
-    "Class": ["トリプル4+5+6組"]
+    "Class": ["トリプルシックスズ"]
   },
   {
     "Num": 655,
@@ -5156,7 +5156,7 @@
     "CodeName_JP": "六五五",
     "CodeName_EN": "Six-Five-Five",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル7型乙組"]
+    "Class": ["デュオトリプル7型"]
   },
   {
     "Num": 656,
@@ -5167,7 +5167,7 @@
     "CodeName_JP": "六五六",
     "CodeName_EN": "Six-Five-Six",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル8型丙組"]
+    "Class": ["デュオトリプル8型"]
   },
   {
     "Num": 657,
@@ -5178,7 +5178,7 @@
     "CodeName_JP": "六五七",
     "CodeName_EN": "Six-Five-Seven",
     "GenderType": "Neutral",
-    "Class": ["トリプル5+6+7組"]
+    "Class": ["トリプルナインズ"]
   },
   {
     "Num": 658,
@@ -5189,7 +5189,7 @@
     "CodeName_JP": "六五八",
     "CodeName_EN": "Six-Five-Eight",
     "GenderType": "Neutral",
-    "Class": ["トリプル5+6+8組"]
+    "Class": ["トリプルキャリーズ"]
   },
   {
     "Num": 659,
@@ -5200,7 +5200,7 @@
     "CodeName_JP": "六五九",
     "CodeName_EN": "Six-Five-Nine",
     "GenderType": "Neutral",
-    "Class": ["トリプル5+6+9組"]
+    "Class": ["トリプルトワイズ"]
   },
   {
     "Num": 660,
@@ -5211,7 +5211,7 @@
     "CodeName_JP": "六六〇",
     "CodeName_EN": "Six-Six-Zero",
     "GenderType": "Neutral",
-    "Class": ["マスターテンズデュアルズ9"]
+    "Class": ["マスターテンズデュアルズ"]
   },
   {
     "Num": 661,
@@ -5222,7 +5222,7 @@
     "CodeName_JP": "六六一",
     "CodeName_EN": "Six-Six-One",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル4型甲組"]
+    "Class": ["デュオトリプル4型"]
   },
   {
     "Num": 662,
@@ -5233,7 +5233,7 @@
     "CodeName_JP": "六六二",
     "CodeName_EN": "Six-Six-Two",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル5型甲組"]
+    "Class": ["デュオトリプル5型"]
   },
   {
     "Num": 663,
@@ -5244,7 +5244,7 @@
     "CodeName_JP": "六六三",
     "CodeName_EN": "Six-Six-Three",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル6型乙組"]
+    "Class": ["デュオトリプル6型"]
   },
   {
     "Num": 664,
@@ -5255,7 +5255,7 @@
     "CodeName_JP": "六六四",
     "CodeName_EN": "Six-Six-Four",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル7型甲組"]
+    "Class": ["デュオトリプル7型"]
   },
   {
     "Num": 665,
@@ -5266,7 +5266,7 @@
     "CodeName_JP": "六六五",
     "CodeName_EN": "Six-Six-Five",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル8型甲組"]
+    "Class": ["デュオトリプル8型"]
   },
   {
     "Num": 667,
@@ -5277,7 +5277,7 @@
     "CodeName_JP": "六六七",
     "CodeName_EN": "Six-Six-Seven",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル1型甲組"]
+    "Class": ["デュオトリプル1型"]
   },
   {
     "Num": 668,
@@ -5288,7 +5288,7 @@
     "CodeName_JP": "六六八",
     "CodeName_EN": "Six-Six-Eight",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル2型甲組"]
+    "Class": ["デュオトリプル2型"]
   },
   {
     "Num": 669,
@@ -5299,7 +5299,7 @@
     "CodeName_JP": "六六九",
     "CodeName_EN": "Six-Six-Nine",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル3型甲組"]
+    "Class": ["デュオトリプル3型"]
   },
   {
     "Num": 671,
@@ -5310,7 +5310,7 @@
     "CodeName_JP": "六七一",
     "CodeName_EN": "Six-Seven-One",
     "GenderType": "Neutral",
-    "Class": ["トリプル1+6+7組"]
+    "Class": ["トリプルファイブズ"]
   },
   {
     "Num": 672,
@@ -5321,7 +5321,7 @@
     "CodeName_JP": "六七二",
     "CodeName_EN": "Six-Seven-Two",
     "GenderType": "Neutral",
-    "Class": ["トリプル2+6+7組"]
+    "Class": ["トリプルシックスズ"]
   },
   {
     "Num": 673,
@@ -5332,7 +5332,7 @@
     "CodeName_JP": "六七三",
     "CodeName_EN": "Six-Seven-Three",
     "GenderType": "Neutral",
-    "Class": ["トリプル3+6+7組"]
+    "Class": ["トリプルセブンズ"]
   },
   {
     "Num": 674,
@@ -5343,7 +5343,7 @@
     "CodeName_JP": "六七四",
     "CodeName_EN": "Six-Seven-Four",
     "GenderType": "Neutral",
-    "Class": ["トリプル4+6+7組"]
+    "Class": ["トリプルエイツ"]
   },
   {
     "Num": 675,
@@ -5354,7 +5354,7 @@
     "CodeName_JP": "六七五",
     "CodeName_EN": "Six-Seven-Five",
     "GenderType": "Neutral",
-    "Class": ["トリプル5+6+7組"]
+    "Class": ["トリプルナインズ"]
   },
   {
     "Num": 676,
@@ -5365,7 +5365,7 @@
     "CodeName_JP": "六七六",
     "CodeName_EN": "Six-Seven-Six",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル1型丙組"]
+    "Class": ["デュオトリプル1型"]
   },
   {
     "Num": 677,
@@ -5376,7 +5376,7 @@
     "CodeName_JP": "六七七",
     "CodeName_EN": "Six-Seven-Seven",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル2型乙組"]
+    "Class": ["デュオトリプル2型"]
   },
   {
     "Num": 678,
@@ -5387,7 +5387,7 @@
     "CodeName_JP": "六七八",
     "CodeName_EN": "Six-Seven-Eight",
     "GenderType": "Neutral",
-    "Class": ["トリプル6+7+8組"]
+    "Class": ["トリプルスリーズ"]
   },
   {
     "Num": 679,
@@ -5398,7 +5398,7 @@
     "CodeName_JP": "六七九",
     "CodeName_EN": "Six-Seven-Nine",
     "GenderType": "Neutral",
-    "Class": ["トリプル6+7+9組"]
+    "Class": ["トリプルフォーズ"]
   },
   {
     "Num": 680,
@@ -5409,7 +5409,7 @@
     "CodeName_JP": "六八〇",
     "CodeName_EN": "Six-Eight-Zero",
     "GenderType": "Neutral",
-    "Class": ["テンズデュアルファイブズ"]
+    "Class": ["トライデュアルファイブズ"]
   },
   {
     "Num": 681,
@@ -5420,7 +5420,7 @@
     "CodeName_JP": "六八一",
     "CodeName_EN": "Six-Eight-One",
     "GenderType": "Neutral",
-    "Class": ["トリプル1+6+8組"]
+    "Class": ["トリプルシックスズ"]
   },
   {
     "Num": 682,
@@ -5431,7 +5431,7 @@
     "CodeName_JP": "六八二",
     "CodeName_EN": "Six-Eight-Two",
     "GenderType": "Neutral",
-    "Class": ["トリプル2+6+8組"]
+    "Class": ["トリプルセブンズ"]
   },
   {
     "Num": 683,
@@ -5442,7 +5442,7 @@
     "CodeName_JP": "六八三",
     "CodeName_EN": "Six-Eight-Three",
     "GenderType": "Neutral",
-    "Class": ["トリプル3+6+8組"]
+    "Class": ["トリプルエイツ"]
   },
   {
     "Num": 684,
@@ -5453,7 +5453,7 @@
     "CodeName_JP": "六八四",
     "CodeName_EN": "Six-Eight-Four",
     "GenderType": "Neutral",
-    "Class": ["トリプル4+6+8組"]
+    "Class": ["トリプルナインズ"]
   },
   {
     "Num": 685,
@@ -5464,7 +5464,7 @@
     "CodeName_JP": "六八五",
     "CodeName_EN": "Six-Eight-Five",
     "GenderType": "Neutral",
-    "Class": ["トリプル5+6+8組"]
+    "Class": ["トリプルキャリーズ"]
   },
   {
     "Num": 686,
@@ -5475,7 +5475,7 @@
     "CodeName_JP": "六八六",
     "CodeName_EN": "Six-Eight-Six",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル2型丙組"]
+    "Class": ["デュオトリプル2型"]
   },
   {
     "Num": 687,
@@ -5486,7 +5486,7 @@
     "CodeName_JP": "六八七",
     "CodeName_EN": "Six-Eight-Seven",
     "GenderType": "Neutral",
-    "Class": ["トリプル6+7+8組"]
+    "Class": ["トリプルスリーズ"]
   },
   {
     "Num": 688,
@@ -5497,7 +5497,7 @@
     "CodeName_JP": "六八八",
     "CodeName_EN": "Six-Eight-Eight",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル4型乙組"]
+    "Class": ["デュオトリプル4型"]
   },
   {
     "Num": 689,
@@ -5508,7 +5508,7 @@
     "CodeName_JP": "六八九",
     "CodeName_EN": "Six-Eight-Nine",
     "GenderType": "Neutral",
-    "Class": ["トリプル6+8+9組"]
+    "Class": ["トリプルファイブズ"]
   },
   {
     "Num": 690,
@@ -5519,7 +5519,7 @@
     "CodeName_JP": "六九〇",
     "CodeName_EN": "Six-Nine-Zero",
     "GenderType": "Neutral",
-    "Class": ["テンズデュアルシックスズ"]
+    "Class": ["トライデュアルシックスズ"]
   },
   {
     "Num": 691,
@@ -5530,7 +5530,7 @@
     "CodeName_JP": "六九一",
     "CodeName_EN": "Six-Nine-One",
     "GenderType": "Neutral",
-    "Class": ["トリプル1+6+9組"]
+    "Class": ["トリプルセブンズ"]
   },
   {
     "Num": 692,
@@ -5541,7 +5541,7 @@
     "CodeName_JP": "六九二",
     "CodeName_EN": "Six-Nine-Two",
     "GenderType": "Neutral",
-    "Class": ["トリプル2+6+9組"]
+    "Class": ["トリプルエイツ"]
   },
   {
     "Num": 693,
@@ -5552,7 +5552,7 @@
     "CodeName_JP": "六九三",
     "CodeName_EN": "Six-Nine-Three",
     "GenderType": "Neutral",
-    "Class": ["トリプル3+6+9組"]
+    "Class": ["トリプルナインズ"]
   },
   {
     "Num": 694,
@@ -5563,7 +5563,7 @@
     "CodeName_JP": "六九四",
     "CodeName_EN": "Six-Nine-Four",
     "GenderType": "Neutral",
-    "Class": ["トリプル4+6+9組"]
+    "Class": ["トリプルキャリーズ"]
   },
   {
     "Num": 695,
@@ -5574,7 +5574,7 @@
     "CodeName_JP": "六九五",
     "CodeName_EN": "Six-Nine-Five",
     "GenderType": "Neutral",
-    "Class": ["トリプル5+6+9組"]
+    "Class": ["トリプルトワイズ"]
   },
   {
     "Num": 697,
@@ -5585,7 +5585,7 @@
     "CodeName_JP": "六九七",
     "CodeName_EN": "Six-Nine-Seven",
     "GenderType": "Neutral",
-    "Class": ["トリプル6+7+9組"]
+    "Class": ["トリプルフォーズ"]
   },
   {
     "Num": 698,
@@ -5596,7 +5596,7 @@
     "CodeName_JP": "六九八",
     "CodeName_EN": "Six-Nine-Eight",
     "GenderType": "Neutral",
-    "Class": ["トリプル6+8+9組"]
+    "Class": ["トリプルファイブズ"]
   },
   {
     "Num": 699,
@@ -5607,7 +5607,7 @@
     "CodeName_JP": "六九九",
     "CodeName_EN": "Six-Nine-Nine",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル6型乙組"]
+    "Class": ["デュオトリプル6型"]
   },
   {
     "Num": 700,
@@ -5629,7 +5629,7 @@
     "CodeName_JP": "七〇一",
     "CodeName_EN": "Seven-Zero-One",
     "GenderType": "Neutral",
-    "Class": ["サイドデュアルエイツ"]
+    "Class": ["トライデュアルエイツ"]
   },
   {
     "Num": 702,
@@ -5640,7 +5640,7 @@
     "CodeName_JP": "七〇二",
     "CodeName_EN": "Seven-Zero-Two",
     "GenderType": "Neutral",
-    "Class": ["サイドナインズデュアルズ"]
+    "Class": ["ナインズトライデュアルズ"]
   },
   {
     "Num": 703,
@@ -5651,7 +5651,7 @@
     "CodeName_JP": "七〇三",
     "CodeName_EN": "Seven-Zero-Three",
     "GenderType": "Neutral",
-    "Class": ["サイドデュアルキャリーズ"]
+    "Class": ["トライデュアルキャリーズ"]
   },
   {
     "Num": 704,
@@ -5662,7 +5662,7 @@
     "CodeName_JP": "七〇四",
     "CodeName_EN": "Seven-Zero-Four",
     "GenderType": "Neutral",
-    "Class": ["サイドデュアルイレブンズ"]
+    "Class": ["トライデュアルトワイズ"]
   },
   {
     "Num": 705,
@@ -5673,7 +5673,7 @@
     "CodeName_JP": "七〇五",
     "CodeName_EN": "Seven-Zero-Five",
     "GenderType": "Neutral",
-    "Class": ["サイドデュアルスリーズ"]
+    "Class": ["トライデュアルスリーズ"]
   },
   {
     "Num": 706,
@@ -5684,7 +5684,7 @@
     "CodeName_JP": "七〇六",
     "CodeName_EN": "Seven-Zero-Six",
     "GenderType": "Neutral",
-    "Class": ["サイドデュアルフォーズ"]
+    "Class": ["トライデュアルフォーズ"]
   },
   {
     "Num": 707,
@@ -5706,7 +5706,7 @@
     "CodeName_JP": "七〇八",
     "CodeName_EN": "Seven-Zero-Eight",
     "GenderType": "Neutral",
-    "Class": ["サイドデュアルシックスズ"]
+    "Class": ["トライデュアルシックスズ"]
   },
   {
     "Num": 709,
@@ -5717,7 +5717,7 @@
     "CodeName_JP": "七〇九",
     "CodeName_EN": "Seven-Zero-Nine",
     "GenderType": "Neutral",
-    "Class": ["サイドデュアルセブンズ"]
+    "Class": ["トライデュアルセブンズ"]
   },
   {
     "Num": 710,
@@ -5728,7 +5728,7 @@
     "CodeName_JP": "七一〇",
     "CodeName_EN": "Seven-One-Zero",
     "GenderType": "Neutral",
-    "Class": ["テンズデュアルエイツ"]
+    "Class": ["トライデュアルエイツ"]
   },
   {
     "Num": 711,
@@ -5739,7 +5739,7 @@
     "CodeName_JP": "七一一",
     "CodeName_EN": "Seven-One-One",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル9型甲組"]
+    "Class": ["デュオトリプル9型"]
   },
   {
     "Num": 712,
@@ -5750,7 +5750,7 @@
     "CodeName_JP": "七一二",
     "CodeName_EN": "Seven-One-Two",
     "GenderType": "Neutral",
-    "Class": ["トリプル1+2+7組"]
+    "Class": ["トリプルキャリーズ"]
   },
   {
     "Num": 713,
@@ -5761,7 +5761,7 @@
     "CodeName_JP": "七一三",
     "CodeName_EN": "Seven-One-Three",
     "GenderType": "Neutral",
-    "Class": ["トリプル1+3+7組"]
+    "Class": ["トリプルトワイズ"]
   },
   {
     "Num": 714,
@@ -5772,7 +5772,7 @@
     "CodeName_JP": "七一四",
     "CodeName_EN": "Seven-One-Four",
     "GenderType": "Neutral",
-    "Class": ["トリプル1+4+7組"]
+    "Class": ["トリプルスリーズ"]
   },
   {
     "Num": 715,
@@ -5783,7 +5783,7 @@
     "CodeName_JP": "七一五",
     "CodeName_EN": "Seven-One-Five",
     "GenderType": "Neutral",
-    "Class": ["トリプル1+5+7組"]
+    "Class": ["トリプルフォーズ"]
   },
   {
     "Num": 716,
@@ -5794,7 +5794,7 @@
     "CodeName_JP": "七一六",
     "CodeName_EN": "Seven-One-Six",
     "GenderType": "Neutral",
-    "Class": ["トリプル1+6+7組"]
+    "Class": ["トリプルファイブズ"]
   },
   {
     "Num": 717,
@@ -5805,7 +5805,7 @@
     "CodeName_JP": "七一七",
     "CodeName_EN": "Seven-One-Seven",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル6型乙組"]
+    "Class": ["デュオトリプル6型"]
   },
   {
     "Num": 718,
@@ -5816,7 +5816,7 @@
     "CodeName_JP": "七一八",
     "CodeName_EN": "Seven-One-Eight",
     "GenderType": "Neutral",
-    "Class": ["トリプル1+7+8組"]
+    "Class": ["トリプルセブンズ"]
   },
   {
     "Num": 719,
@@ -5827,7 +5827,7 @@
     "CodeName_JP": "七一九",
     "CodeName_EN": "Seven-One-Nine",
     "GenderType": "Neutral",
-    "Class": ["トリプル1+7+9組"]
+    "Class": ["トリプルエイツ"]
   },
   {
     "Num": 720,
@@ -5838,7 +5838,7 @@
     "CodeName_JP": "七二〇",
     "CodeName_EN": "Seven-Two-Zero",
     "GenderType": "Neutral",
-    "Class": ["ナインティデュアルズ"]
+    "Class": ["ナインズトライデュアルズ"]
   },
   {
     "Num": 721,
@@ -5849,7 +5849,7 @@
     "CodeName_JP": "七二一",
     "CodeName_EN": "Seven-Two-One",
     "GenderType": "Neutral",
-    "Class": ["トリプル1+2+7組"]
+    "Class": ["トリプルキャリーズ"]
   },
   {
     "Num": 722,
@@ -5860,7 +5860,7 @@
     "CodeName_JP": "七二二",
     "CodeName_EN": "Seven-Two-Two",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル2型乙組"]
+    "Class": ["デュオトリプル2型"]
   },
   {
     "Num": 723,
@@ -5871,7 +5871,7 @@
     "CodeName_JP": "七二三",
     "CodeName_EN": "Seven-Two-Three",
     "GenderType": "Neutral",
-    "Class": ["トリプル2+3+7組"]
+    "Class": ["トリプルスリーズ"]
   },
   {
     "Num": 724,
@@ -5882,7 +5882,7 @@
     "CodeName_JP": "七二四",
     "CodeName_EN": "Seven-Two-Four",
     "GenderType": "Neutral",
-    "Class": ["トリプル2+4+7組"]
+    "Class": ["トリプルフォーズ"]
   },
   {
     "Num": 725,
@@ -5893,7 +5893,7 @@
     "CodeName_JP": "七二五",
     "CodeName_EN": "Seven-Two-Five",
     "GenderType": "Neutral",
-    "Class": ["トリプル2+5+7組"]
+    "Class": ["トリプルファイブズ"]
   },
   {
     "Num": 726,
@@ -5904,7 +5904,7 @@
     "CodeName_JP": "七二六",
     "CodeName_EN": "Seven-Two-Six",
     "GenderType": "Neutral",
-    "Class": ["トリプル2+6+7組"]
+    "Class": ["トリプルシックスズ"]
   },
   {
     "Num": 727,
@@ -5915,7 +5915,7 @@
     "CodeName_JP": "七二七",
     "CodeName_EN": "Seven-Two-Seven",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル7型丙組"]
+    "Class": ["デュオトリプル7型"]
   },
   {
     "Num": 728,
@@ -5926,7 +5926,7 @@
     "CodeName_JP": "七二八",
     "CodeName_EN": "Seven-Two-Eight",
     "GenderType": "Neutral",
-    "Class": ["トリプル2+7+8組"]
+    "Class": ["トリプルエイツ"]
   },
   {
     "Num": 730,
@@ -5937,7 +5937,7 @@
     "CodeName_JP": "七三〇",
     "CodeName_EN": "Seven-Three-Zero",
     "GenderType": "Neutral",
-    "Class": ["テンズデュアルキャリーズ"]
+    "Class": ["トライデュアルキャリーズ"]
   },
   {
     "Num": 731,
@@ -5948,7 +5948,7 @@
     "CodeName_JP": "七三一",
     "CodeName_EN": "Seven-Three-One",
     "GenderType": "Neutral",
-    "Class": ["トリプル1+3+7組"]
+    "Class": ["トリプルトワイズ"]
   },
   {
     "Num": 732,
@@ -5959,7 +5959,7 @@
     "CodeName_JP": "七三二",
     "CodeName_EN": "Seven-Three-Two",
     "GenderType": "Neutral",
-    "Class": ["トリプル2+3+7組"]
+    "Class": ["トリプルスリーズ"]
   },
   {
     "Num": 733,
@@ -5970,7 +5970,7 @@
     "CodeName_JP": "七三三",
     "CodeName_EN": "Seven-Three-Three",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル4型乙組"]
+    "Class": ["デュオトリプル4型"]
   },
   {
     "Num": 734,
@@ -5981,7 +5981,7 @@
     "CodeName_JP": "七三四",
     "CodeName_EN": "Seven-Three-Four",
     "GenderType": "Neutral",
-    "Class": ["トリプル3+4+7組"]
+    "Class": ["トリプルファイブズ"]
   },
   {
     "Num": 735,
@@ -5992,7 +5992,7 @@
     "CodeName_JP": "七三五",
     "CodeName_EN": "Seven-Three-Five",
     "GenderType": "Neutral",
-    "Class": ["トリプル3+5+7組"]
+    "Class": ["トリプルシックスズ"]
   },
   {
     "Num": 737,
@@ -6003,7 +6003,7 @@
     "CodeName_JP": "七三七",
     "CodeName_EN": "Seven-Three-Seven",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル8型丙組"]
+    "Class": ["デュオトリプル8型"]
   },
   {
     "Num": 738,
@@ -6014,7 +6014,7 @@
     "CodeName_JP": "七三八",
     "CodeName_EN": "Seven-Three-Eight",
     "GenderType": "Neutral",
-    "Class": ["トリプル3+7+8組"]
+    "Class": ["トリプルナインズ"]
   },
   {
     "Num": 739,
@@ -6025,7 +6025,7 @@
     "CodeName_JP": "七三九",
     "CodeName_EN": "Seven-Three-Nine",
     "GenderType": "Neutral",
-    "Class": ["トリプル3+7+9組"]
+    "Class": ["トリプルキャリーズ"]
   },
   {
     "Num": 740,
@@ -6036,7 +6036,7 @@
     "CodeName_JP": "七四〇",
     "CodeName_EN": "Seven-Four-Zero",
     "GenderType": "Neutral",
-    "Class": ["テンズデュアルイレブンズ"]
+    "Class": ["トライデュアルトワイズ"]
   },
   {
     "Num": 741,
@@ -6047,7 +6047,7 @@
     "CodeName_JP": "七四一",
     "CodeName_EN": "Seven-Four-One",
     "GenderType": "Neutral",
-    "Class": ["トリプル1+4+7組"]
+    "Class": ["トリプルスリーズ"]
   },
   {
     "Num": 742,
@@ -6058,7 +6058,7 @@
     "CodeName_JP": "七四二",
     "CodeName_EN": "Seven-Four-Two",
     "GenderType": "Neutral",
-    "Class": ["トリプル2+4+7組"]
+    "Class": ["トリプルフォーズ"]
   },
   {
     "Num": 743,
@@ -6069,7 +6069,7 @@
     "CodeName_JP": "七四三",
     "CodeName_EN": "Seven-Four-Three",
     "GenderType": "Neutral",
-    "Class": ["トリプル3+4+7組"]
+    "Class": ["トリプルファイブズ"]
   },
   {
     "Num": 744,
@@ -6080,7 +6080,7 @@
     "CodeName_JP": "七四四",
     "CodeName_EN": "Seven-Four-Four",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル6型甲組"]
+    "Class": ["デュオトリプル6型"]
   },
   {
     "Num": 745,
@@ -6091,7 +6091,7 @@
     "CodeName_JP": "七四五",
     "CodeName_EN": "Seven-Four-Five",
     "GenderType": "Neutral",
-    "Class": ["トリプル4+5+7組"]
+    "Class": ["トリプルセブンズ"]
   },
   {
     "Num": 746,
@@ -6102,7 +6102,7 @@
     "CodeName_JP": "七四六",
     "CodeName_EN": "Seven-Four-Six",
     "GenderType": "Neutral",
-    "Class": ["トリプル4+6+7組"]
+    "Class": ["トリプルエイツ"]
   },
   {
     "Num": 747,
@@ -6113,7 +6113,7 @@
     "CodeName_JP": "七四七",
     "CodeName_EN": "Seven-Four-Seven",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル9型乙組"]
+    "Class": ["デュオトリプル9型"]
   },
   {
     "Num": 748,
@@ -6124,7 +6124,7 @@
     "CodeName_JP": "七四八",
     "CodeName_EN": "Seven-Four-Eight",
     "GenderType": "Neutral",
-    "Class": ["トリプル4+7+8組"]
+    "Class": ["トリプルキャリーズ"]
   },
   {
     "Num": 749,
@@ -6135,7 +6135,7 @@
     "CodeName_JP": "七四九",
     "CodeName_EN": "Seven-Four-Nine",
     "GenderType": "Neutral",
-    "Class": ["トリプル4+7+9組"]
+    "Class": ["トリプルトワイズ"]
   },
   {
     "Num": 750,
@@ -6146,7 +6146,7 @@
     "CodeName_JP": "七五〇",
     "CodeName_EN": "Seven-Five-Zero",
     "GenderType": "Neutral",
-    "Class": ["テンズデュアルスリーズ"]
+    "Class": ["トライデュアルスリーズ"]
   },
   {
     "Num": 751,
@@ -6157,7 +6157,7 @@
     "CodeName_JP": "七五一",
     "CodeName_EN": "Seven-Five-One",
     "GenderType": "Neutral",
-    "Class": ["トリプル1+5+7組"]
+    "Class": ["トリプルフォーズ"]
   },
   {
     "Num": 752,
@@ -6168,7 +6168,7 @@
     "CodeName_JP": "七五二",
     "CodeName_EN": "Seven-Five-Two",
     "GenderType": "Neutral",
-    "Class": ["トリプル2+5+7組"]
+    "Class": ["トリプルファイブズ"]
   },
   {
     "Num": 754,
@@ -6179,7 +6179,7 @@
     "CodeName_JP": "七五四",
     "CodeName_EN": "Seven-Five-Four",
     "GenderType": "Neutral",
-    "Class": ["トリプル4+5+7組"]
+    "Class": ["トリプルセブンズ"]
   },
   {
     "Num": 755,
@@ -6190,7 +6190,7 @@
     "CodeName_JP": "七五五",
     "CodeName_EN": "Seven-Five-Five",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル8型乙組"]
+    "Class": ["デュオトリプル8型"]
   },
   {
     "Num": 756,
@@ -6201,7 +6201,7 @@
     "CodeName_JP": "七五六",
     "CodeName_EN": "Seven-Five-Six",
     "GenderType": "Neutral",
-    "Class": ["トリプル5+6+7組"]
+    "Class": ["トリプルナインズ"]
   },
   {
     "Num": 757,
@@ -6212,7 +6212,7 @@
     "CodeName_JP": "七五七",
     "CodeName_EN": "Seven-Five-Seven",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル1型丙組"]
+    "Class": ["デュオトリプル1型"]
   },
   {
     "Num": 758,
@@ -6223,7 +6223,7 @@
     "CodeName_JP": "七五八",
     "CodeName_EN": "Seven-Five-Eight",
     "GenderType": "Neutral",
-    "Class": ["トリプル5+7+8組"]
+    "Class": ["トリプルトワイズ"]
   },
   {
     "Num": 759,
@@ -6234,7 +6234,7 @@
     "CodeName_JP": "七五九",
     "CodeName_EN": "Seven-Five-Nine",
     "GenderType": "Neutral",
-    "Class": ["トリプル5+7+9組"]
+    "Class": ["トリプルスリーズ"]
   },
   {
     "Num": 760,
@@ -6245,7 +6245,7 @@
     "CodeName_JP": "七六〇",
     "CodeName_EN": "Seven-Six-Zero",
     "GenderType": "Neutral",
-    "Class": ["テンズデュアルフォーズ"]
+    "Class": ["トライデュアルフォーズ"]
   },
   {
     "Num": 761,
@@ -6256,7 +6256,7 @@
     "CodeName_JP": "七六一",
     "CodeName_EN": "Seven-Six-One",
     "GenderType": "Neutral",
-    "Class": ["トリプル1+6+7組"]
+    "Class": ["トリプルファイブズ"]
   },
   {
     "Num": 762,
@@ -6267,7 +6267,7 @@
     "CodeName_JP": "七六二",
     "CodeName_EN": "Seven-Six-Two",
     "GenderType": "Neutral",
-    "Class": ["トリプル2+6+7組"]
+    "Class": ["トリプルシックスズ"]
   },
   {
     "Num": 763,
@@ -6278,7 +6278,7 @@
     "CodeName_JP": "七六三",
     "CodeName_EN": "Seven-Six-Three",
     "GenderType": "Neutral",
-    "Class": ["トリプル3+6+7組"]
+    "Class": ["トリプルセブンズ"]
   },
   {
     "Num": 764,
@@ -6289,7 +6289,7 @@
     "CodeName_JP": "七六四",
     "CodeName_EN": "Seven-Six-Four",
     "GenderType": "Neutral",
-    "Class": ["トリプル4+6+7組"]
+    "Class": ["トリプルエイツ"]
   },
   {
     "Num": 765,
@@ -6300,7 +6300,7 @@
     "CodeName_JP": "七六五",
     "CodeName_EN": "Seven-Six-Five",
     "GenderType": "Neutral",
-    "Class": ["トリプル5+6+7組"]
+    "Class": ["トリプルナインズ"]
   },
   {
     "Num": 766,
@@ -6311,7 +6311,7 @@
     "CodeName_JP": "七六六",
     "CodeName_EN": "Seven-Six-Six",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル1型乙組"]
+    "Class": ["デュオトリプル1型"]
   },
   {
     "Num": 767,
@@ -6322,7 +6322,7 @@
     "CodeName_JP": "七六七",
     "CodeName_EN": "Seven-Six-Seven",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル2型丙組"]
+    "Class": ["デュオトリプル2型"]
   },
   {
     "Num": 768,
@@ -6333,7 +6333,7 @@
     "CodeName_JP": "七六八",
     "CodeName_EN": "Seven-Six-Eight",
     "GenderType": "Neutral",
-    "Class": ["トリプル6+7+8組"]
+    "Class": ["トリプルスリーズ"]
   },
   {
     "Num": 769,
@@ -6344,7 +6344,7 @@
     "CodeName_JP": "七六九",
     "CodeName_EN": "Seven-Six-Nine",
     "GenderType": "Neutral",
-    "Class": ["トリプル6+7+9組"]
+    "Class": ["トリプルフォーズ"]
   },
   {
     "Num": 770,
@@ -6355,7 +6355,7 @@
     "CodeName_JP": "七七〇",
     "CodeName_EN": "Seven-Seven-Zero",
     "GenderType": "Neutral",
-    "Class": ["マスターテンズデュアルズ9"]
+    "Class": ["マスターテンズデュアルズ"]
   },
   {
     "Num": 771,
@@ -6366,7 +6366,7 @@
     "CodeName_JP": "七七一",
     "CodeName_EN": "Seven-Seven-One",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル6型乙組"]
+    "Class": ["デュオトリプル6型"]
   },
   {
     "Num": 772,
@@ -6377,7 +6377,7 @@
     "CodeName_JP": "七七二",
     "CodeName_EN": "Seven-Seven-Two",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル7型甲組"]
+    "Class": ["デュオトリプル7型"]
   },
   {
     "Num": 775,
@@ -6388,7 +6388,7 @@
     "CodeName_JP": "七七五",
     "CodeName_EN": "Seven-Seven-Five",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル1型甲組"]
+    "Class": ["デュオトリプル1型"]
   },
   {
     "Num": 776,
@@ -6399,7 +6399,7 @@
     "CodeName_JP": "七七六",
     "CodeName_EN": "Seven-Seven-Six",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル2型甲組"]
+    "Class": ["デュオトリプル2型"]
   },
   {
     "Num": 778,
@@ -6410,7 +6410,7 @@
     "CodeName_JP": "七七八",
     "CodeName_EN": "Seven-Seven-Eight",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル4型甲組"]
+    "Class": ["デュオトリプル4型"]
   },
   {
     "Num": 779,
@@ -6421,7 +6421,7 @@
     "CodeName_JP": "七七九",
     "CodeName_EN": "Seven-Seven-Nine",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル5型甲組"]
+    "Class": ["デュオトリプル5型"]
   },
   {
     "Num": 781,
@@ -6432,7 +6432,7 @@
     "CodeName_JP": "七八一",
     "CodeName_EN": "Seven-Eight-One",
     "GenderType": "Neutral",
-    "Class": ["トリプル1+7+8組"]
+    "Class": ["トリプルセブンズ"]
   },
   {
     "Num": 782,
@@ -6443,7 +6443,7 @@
     "CodeName_JP": "七八二",
     "CodeName_EN": "Seven-Eight-Two",
     "GenderType": "Neutral",
-    "Class": ["トリプル2+7+8組"]
+    "Class": ["トリプルエイツ"]
   },
   {
     "Num": 783,
@@ -6454,7 +6454,7 @@
     "CodeName_JP": "七八三",
     "CodeName_EN": "Seven-Eight-Three",
     "GenderType": "Neutral",
-    "Class": ["トリプル3+7+8組"]
+    "Class": ["トリプルナインズ"]
   },
   {
     "Num": 784,
@@ -6465,7 +6465,7 @@
     "CodeName_JP": "七八四",
     "CodeName_EN": "Seven-Eight-Four",
     "GenderType": "Neutral",
-    "Class": ["トリプル4+7+8組"]
+    "Class": ["トリプルキャリーズ"]
   },
   {
     "Num": 785,
@@ -6476,7 +6476,7 @@
     "CodeName_JP": "七八五",
     "CodeName_EN": "Seven-Eight-Five",
     "GenderType": "Neutral",
-    "Class": ["トリプル5+7+8組"]
+    "Class": ["トリプルトワイズ"]
   },
   {
     "Num": 786,
@@ -6487,7 +6487,7 @@
     "CodeName_JP": "七八六",
     "CodeName_EN": "Seven-Eight-Six",
     "GenderType": "Neutral",
-    "Class": ["トリプル6+7+8組"]
+    "Class": ["トリプルスリーズ"]
   },
   {
     "Num": 787,
@@ -6498,7 +6498,7 @@
     "CodeName_JP": "七八七",
     "CodeName_EN": "Seven-Eight-Seven",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル4型丙組"]
+    "Class": ["デュオトリプル4型"]
   },
   {
     "Num": 788,
@@ -6509,7 +6509,7 @@
     "CodeName_JP": "七八八",
     "CodeName_EN": "Seven-Eight-Eight",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル5型乙組"]
+    "Class": ["デュオトリプル5型"]
   },
   {
     "Num": 789,
@@ -6520,7 +6520,7 @@
     "CodeName_JP": "七八九",
     "CodeName_EN": "Seven-Eight-Nine",
     "GenderType": "Neutral",
-    "Class": ["トリプル7+8+9組"]
+    "Class": ["トリプルシックスズ"]
   },
   {
     "Num": 790,
@@ -6531,7 +6531,7 @@
     "CodeName_JP": "七九〇",
     "CodeName_EN": "Seven-Nine-Zero",
     "GenderType": "Neutral",
-    "Class": ["テンズデュアルセブンズ"]
+    "Class": ["トライデュアルセブンズ"]
   },
   {
     "Num": 791,
@@ -6542,7 +6542,7 @@
     "CodeName_JP": "七九一",
     "CodeName_EN": "Seven-Nine-One",
     "GenderType": "Neutral",
-    "Class": ["トリプル1+7+9組"]
+    "Class": ["トリプルエイツ"]
   },
   {
     "Num": 792,
@@ -6553,7 +6553,7 @@
     "CodeName_JP": "七九二",
     "CodeName_EN": "Seven-Nine-Two",
     "GenderType": "Neutral",
-    "Class": ["トリプル2+7+9組"]
+    "Class": ["トリプルナインズ"]
   },
   {
     "Num": 793,
@@ -6564,7 +6564,7 @@
     "CodeName_JP": "七九三",
     "CodeName_EN": "Seven-Nine-Three",
     "GenderType": "Neutral",
-    "Class": ["トリプル3+7+9組"]
+    "Class": ["トリプルキャリーズ"]
   },
   {
     "Num": 794,
@@ -6575,7 +6575,7 @@
     "CodeName_JP": "七九四",
     "CodeName_EN": "Seven-Nine-Four",
     "GenderType": "Neutral",
-    "Class": ["トリプル4+7+9組"]
+    "Class": ["トリプルトワイズ"]
   },
   {
     "Num": 795,
@@ -6586,7 +6586,7 @@
     "CodeName_JP": "七九五",
     "CodeName_EN": "Seven-Nine-Five",
     "GenderType": "Neutral",
-    "Class": ["トリプル5+7+9組"]
+    "Class": ["トリプルスリーズ"]
   },
   {
     "Num": 796,
@@ -6597,7 +6597,7 @@
     "CodeName_JP": "七九六",
     "CodeName_EN": "Seven-Nine-Six",
     "GenderType": "Neutral",
-    "Class": ["トリプル6+7+9組"]
+    "Class": ["トリプルフォーズ"]
   },
   {
     "Num": 797,
@@ -6608,7 +6608,7 @@
     "CodeName_JP": "七九七",
     "CodeName_EN": "Seven-Nine-Seven",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル5型丙組"]
+    "Class": ["デュオトリプル5型"]
   },
   {
     "Num": 798,
@@ -6619,7 +6619,7 @@
     "CodeName_JP": "七九八",
     "CodeName_EN": "Seven-Nine-Eight",
     "GenderType": "Neutral",
-    "Class": ["トリプル7+8+9組"]
+    "Class": ["トリプルシックスズ"]
   },
   {
     "Num": 799,
@@ -6630,7 +6630,7 @@
     "CodeName_JP": "七九九",
     "CodeName_EN": "Seven-Nine-Nine",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル7型乙組"]
+    "Class": ["デュオトリプル7型"]
   },
   {
     "Num": 800,
@@ -6652,7 +6652,7 @@
     "CodeName_JP": "八〇一",
     "CodeName_EN": "Eight-Zero-One",
     "GenderType": "Neutral",
-    "Class": ["サイドナインズデュアルズ"]
+    "Class": ["ナインズトライデュアルズ"]
   },
   {
     "Num": 802,
@@ -6663,7 +6663,7 @@
     "CodeName_JP": "八〇二",
     "CodeName_EN": "Eight-Zero-Two",
     "GenderType": "Neutral",
-    "Class": ["サイドデュアルキャリーズ"]
+    "Class": ["トライデュアルキャリーズ"]
   },
   {
     "Num": 803,
@@ -6674,7 +6674,7 @@
     "CodeName_JP": "八〇三",
     "CodeName_EN": "Eight-Zero-Three",
     "GenderType": "Neutral",
-    "Class": ["サイドデュアルイレブンズ"]
+    "Class": ["トライデュアルトワイズ"]
   },
   {
     "Num": 804,
@@ -6685,7 +6685,7 @@
     "CodeName_JP": "八〇四",
     "CodeName_EN": "Eight-Zero-Four",
     "GenderType": "Neutral",
-    "Class": ["サイドデュアルスリーズ"]
+    "Class": ["トライデュアルスリーズ"]
   },
   {
     "Num": 805,
@@ -6696,7 +6696,7 @@
     "CodeName_JP": "八〇五",
     "CodeName_EN": "Eight-Zero-Five",
     "GenderType": "Neutral",
-    "Class": ["サイドデュアルフォーズ"]
+    "Class": ["トライデュアルフォーズ"]
   },
   {
     "Num": 806,
@@ -6707,7 +6707,7 @@
     "CodeName_JP": "八〇六",
     "CodeName_EN": "Eight-Zero-Six",
     "GenderType": "Neutral",
-    "Class": ["サイドデュアルファイブズ"]
+    "Class": ["トライデュアルファイブズ"]
   },
   {
     "Num": 807,
@@ -6718,7 +6718,7 @@
     "CodeName_JP": "八〇七",
     "CodeName_EN": "Eight-Zero-Seven",
     "GenderType": "Neutral",
-    "Class": ["サイドデュアルシックスズ"]
+    "Class": ["トライデュアルシックスズ"]
   },
   {
     "Num": 809,
@@ -6729,7 +6729,7 @@
     "CodeName_JP": "八〇九",
     "CodeName_EN": "Eight-Zero-Nine",
     "GenderType": "Neutral",
-    "Class": ["サイドデュアルエイツ"]
+    "Class": ["トライデュアルエイツ"]
   },
   {
     "Num": 810,
@@ -6740,7 +6740,7 @@
     "CodeName_JP": "八一〇",
     "CodeName_EN": "Eight-One-Zero",
     "GenderType": "Neutral",
-    "Class": ["ナインティデュアルズ"]
+    "Class": ["ナインズトライデュアルズ"]
   },
   {
     "Num": 811,
@@ -6751,7 +6751,7 @@
     "CodeName_JP": "八一一",
     "CodeName_EN": "Eight-One-One",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル1型乙組"]
+    "Class": ["デュオトリプル1型"]
   },
   {
     "Num": 812,
@@ -6762,7 +6762,7 @@
     "CodeName_JP": "八一二",
     "CodeName_EN": "Eight-One-Two",
     "GenderType": "Neutral",
-    "Class": ["トリプル1+2+8組"]
+    "Class": ["トリプルトワイズ"]
   },
   {
     "Num": 813,
@@ -6773,7 +6773,7 @@
     "CodeName_JP": "八一三",
     "CodeName_EN": "Eight-One-Three",
     "GenderType": "Neutral",
-    "Class": ["トリプル1+3+8組"]
+    "Class": ["トリプルスリーズ"]
   },
   {
     "Num": 814,
@@ -6784,7 +6784,7 @@
     "CodeName_JP": "八一四",
     "CodeName_EN": "Eight-One-Four",
     "GenderType": "Neutral",
-    "Class": ["トリプル1+4+8組"]
+    "Class": ["トリプルフォーズ"]
   },
   {
     "Num": 815,
@@ -6795,7 +6795,7 @@
     "CodeName_JP": "八一五",
     "CodeName_EN": "Eight-One-Five",
     "GenderType": "Neutral",
-    "Class": ["トリプル1+5+8組"]
+    "Class": ["トリプルファイブズ"]
   },
   {
     "Num": 816,
@@ -6806,7 +6806,7 @@
     "CodeName_JP": "八一六",
     "CodeName_EN": "Eight-One-Six",
     "GenderType": "Neutral",
-    "Class": ["トリプル1+6+8組"]
+    "Class": ["トリプルシックスズ"]
   },
   {
     "Num": 817,
@@ -6817,7 +6817,7 @@
     "CodeName_JP": "八一七",
     "CodeName_EN": "Eight-One-Seven",
     "GenderType": "Neutral",
-    "Class": ["トリプル1+7+8組"]
+    "Class": ["トリプルセブンズ"]
   },
   {
     "Num": 818,
@@ -6828,7 +6828,7 @@
     "CodeName_JP": "八一八",
     "CodeName_EN": "Eight-One-Eight",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル8型丙組"]
+    "Class": ["デュオトリプル8型"]
   },
   {
     "Num": 819,
@@ -6839,7 +6839,7 @@
     "CodeName_JP": "八一九",
     "CodeName_EN": "Eight-One-Nine",
     "GenderType": "Neutral",
-    "Class": ["トリプル1+8+9組"]
+    "Class": ["トリプルナインズ"]
   },
   {
     "Num": 820,
@@ -6850,7 +6850,7 @@
     "CodeName_JP": "八二〇",
     "CodeName_EN": "Eight-Two-Zero",
     "GenderType": "Neutral",
-    "Class": ["テンズデュアルキャリーズ"]
+    "Class": ["トライデュアルキャリーズ"]
   },
   {
     "Num": 821,
@@ -6861,7 +6861,7 @@
     "CodeName_JP": "八二一",
     "CodeName_EN": "Eight-Two-One",
     "GenderType": "Neutral",
-    "Class": ["トリプル1+2+8組"]
+    "Class": ["トリプルトワイズ"]
   },
   {
     "Num": 822,
@@ -6872,7 +6872,7 @@
     "CodeName_JP": "八二二",
     "CodeName_EN": "Eight-Two-Two",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル3型甲組"]
+    "Class": ["デュオトリプル3型"]
   },
   {
     "Num": 823,
@@ -6883,7 +6883,7 @@
     "CodeName_JP": "八二三",
     "CodeName_EN": "Eight-Two-Three",
     "GenderType": "Neutral",
-    "Class": ["トリプル2+3+8組"]
+    "Class": ["トリプルフォーズ"]
   },
   {
     "Num": 824,
@@ -6894,7 +6894,7 @@
     "CodeName_JP": "八二四",
     "CodeName_EN": "Eight-Two-Four",
     "GenderType": "Neutral",
-    "Class": ["トリプル2+4+8組"]
+    "Class": ["トリプルファイブズ"]
   },
   {
     "Num": 825,
@@ -6905,7 +6905,7 @@
     "CodeName_JP": "八二五",
     "CodeName_EN": "Eight-Two-Five",
     "GenderType": "Neutral",
-    "Class": ["トリプル2+5+8組"]
+    "Class": ["トリプルシックスズ"]
   },
   {
     "Num": 826,
@@ -6916,7 +6916,7 @@
     "CodeName_JP": "八二六",
     "CodeName_EN": "Eight-Two-Six",
     "GenderType": "Neutral",
-    "Class": ["トリプル2+6+8組"]
+    "Class": ["トリプルセブンズ"]
   },
   {
     "Num": 827,
@@ -6927,7 +6927,7 @@
     "CodeName_JP": "八二七",
     "CodeName_EN": "Eight-Two-Seven",
     "GenderType": "Neutral",
-    "Class": ["トリプル2+7+8組"]
+    "Class": ["トリプルエイツ"]
   },
   {
     "Num": 828,
@@ -6938,7 +6938,7 @@
     "CodeName_JP": "八二八",
     "CodeName_EN": "Eight-Two-Eight",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル9型乙組"]
+    "Class": ["デュオトリプル9型"]
   },
   {
     "Num": 829,
@@ -6949,7 +6949,7 @@
     "CodeName_JP": "八二九",
     "CodeName_EN": "Eight-Two-Nine",
     "GenderType": "Neutral",
-    "Class": ["トリプル2+8+9組"]
+    "Class": ["トリプルキャリーズ"]
   },
   {
     "Num": 830,
@@ -6960,7 +6960,7 @@
     "CodeName_JP": "八三〇",
     "CodeName_EN": "Eight-Three-Zero",
     "GenderType": "Neutral",
-    "Class": ["テンズデュアルイレブンズ"]
+    "Class": ["トライデュアルトワイズ"]
   },
   {
     "Num": 831,
@@ -6971,7 +6971,7 @@
     "CodeName_JP": "八三一",
     "CodeName_EN": "Eight-Three-One",
     "GenderType": "Neutral",
-    "Class": ["トリプル1+3+8組"]
+    "Class": ["トリプルスリーズ"]
   },
   {
     "Num": 832,
@@ -6982,7 +6982,7 @@
     "CodeName_JP": "八三二",
     "CodeName_EN": "Eight-Three-Two",
     "GenderType": "Neutral",
-    "Class": ["トリプル2+3+8組"]
+    "Class": ["トリプルフォーズ"]
   },
   {
     "Num": 834,
@@ -6993,7 +6993,7 @@
     "CodeName_JP": "八三四",
     "CodeName_EN": "Eight-Three-Four",
     "GenderType": "Neutral",
-    "Class": ["トリプル3+4+8組"]
+    "Class": ["トリプルシックスズ"]
   },
   {
     "Num": 835,
@@ -7004,7 +7004,7 @@
     "CodeName_JP": "八三五",
     "CodeName_EN": "Eight-Three-Five",
     "GenderType": "Neutral",
-    "Class": ["トリプル3+5+8組"]
+    "Class": ["トリプルセブンズ"]
   },
   {
     "Num": 836,
@@ -7015,7 +7015,7 @@
     "CodeName_JP": "八三六",
     "CodeName_EN": "Eight-Three-Six",
     "GenderType": "Neutral",
-    "Class": ["トリプル3+6+8組"]
+    "Class": ["トリプルエイツ"]
   },
   {
     "Num": 837,
@@ -7026,7 +7026,7 @@
     "CodeName_JP": "八三七",
     "CodeName_EN": "Eight-Three-Seven",
     "GenderType": "Neutral",
-    "Class": ["トリプル3+7+8組"]
+    "Class": ["トリプルナインズ"]
   },
   {
     "Num": 838,
@@ -7037,7 +7037,7 @@
     "CodeName_JP": "八三八",
     "CodeName_EN": "Eight-Three-Eight",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル1型丙組"]
+    "Class": ["デュオトリプル1型"]
   },
   {
     "Num": 839,
@@ -7048,7 +7048,7 @@
     "CodeName_JP": "八三九",
     "CodeName_EN": "Eight-Three-Nine",
     "GenderType": "Neutral",
-    "Class": ["トリプル3+8+9組"]
+    "Class": ["トリプルトワイズ"]
   },
   {
     "Num": 840,
@@ -7059,7 +7059,7 @@
     "CodeName_JP": "八四〇",
     "CodeName_EN": "Eight-Four-Zero",
     "GenderType": "Neutral",
-    "Class": ["テンズデュアルスリーズ"]
+    "Class": ["トライデュアルスリーズ"]
   },
   {
     "Num": 841,
@@ -7070,7 +7070,7 @@
     "CodeName_JP": "八四一",
     "CodeName_EN": "Eight-Four-One",
     "GenderType": "Neutral",
-    "Class": ["トリプル1+4+8組"]
+    "Class": ["トリプルフォーズ"]
   },
   {
     "Num": 842,
@@ -7081,7 +7081,7 @@
     "CodeName_JP": "八四二",
     "CodeName_EN": "Eight-Four-Two",
     "GenderType": "Neutral",
-    "Class": ["トリプル2+4+8組"]
+    "Class": ["トリプルファイブズ"]
   },
   {
     "Num": 843,
@@ -7092,7 +7092,7 @@
     "CodeName_JP": "八四三",
     "CodeName_EN": "Eight-Four-Three",
     "GenderType": "Neutral",
-    "Class": ["トリプル3+4+8組"]
+    "Class": ["トリプルシックスズ"]
   },
   {
     "Num": 844,
@@ -7103,7 +7103,7 @@
     "CodeName_JP": "八四四",
     "CodeName_EN": "Eight-Four-Four",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル7型乙組"]
+    "Class": ["デュオトリプル7型"]
   },
   {
     "Num": 845,
@@ -7114,7 +7114,7 @@
     "CodeName_JP": "八四五",
     "CodeName_EN": "Eight-Four-Five",
     "GenderType": "Neutral",
-    "Class": ["トリプル4+5+8組"]
+    "Class": ["トリプルエイツ"]
   },
   {
     "Num": 846,
@@ -7125,7 +7125,7 @@
     "CodeName_JP": "八四六",
     "CodeName_EN": "Eight-Four-Six",
     "GenderType": "Neutral",
-    "Class": ["トリプル4+6+8組"]
+    "Class": ["トリプルナインズ"]
   },
   {
     "Num": 847,
@@ -7136,7 +7136,7 @@
     "CodeName_JP": "八四七",
     "CodeName_EN": "Eight-Four-Seven",
     "GenderType": "Neutral",
-    "Class": ["トリプル4+7+8組"]
+    "Class": ["トリプルキャリーズ"]
   },
   {
     "Num": 848,
@@ -7147,7 +7147,7 @@
     "CodeName_JP": "八四八",
     "CodeName_EN": "Eight-Four-Eight",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル2型丙組"]
+    "Class": ["デュオトリプル2型"]
   },
   {
     "Num": 849,
@@ -7158,7 +7158,7 @@
     "CodeName_JP": "八四九",
     "CodeName_EN": "Eight-Four-Nine",
     "GenderType": "Neutral",
-    "Class": ["トリプル4+8+9組"]
+    "Class": ["トリプルスリーズ"]
   },
   {
     "Num": 850,
@@ -7169,7 +7169,7 @@
     "CodeName_JP": "八五〇",
     "CodeName_EN": "Eight-Five-Zero",
     "GenderType": "Neutral",
-    "Class": ["テンズデュアルフォーズ"]
+    "Class": ["トライデュアルフォーズ"]
   },
   {
     "Num": 851,
@@ -7180,7 +7180,7 @@
     "CodeName_JP": "八五一",
     "CodeName_EN": "Eight-Five-One",
     "GenderType": "Neutral",
-    "Class": ["トリプル1+5+8組"]
+    "Class": ["トリプルファイブズ"]
   },
   {
     "Num": 852,
@@ -7191,7 +7191,7 @@
     "CodeName_JP": "八五二",
     "CodeName_EN": "Eight-Five-Two",
     "GenderType": "Neutral",
-    "Class": ["トリプル2+5+8組"]
+    "Class": ["トリプルシックスズ"]
   },
   {
     "Num": 853,
@@ -7202,7 +7202,7 @@
     "CodeName_JP": "八五三",
     "CodeName_EN": "Eight-Five-Three",
     "GenderType": "Neutral",
-    "Class": ["トリプル3+5+8組"]
+    "Class": ["トリプルセブンズ"]
   },
   {
     "Num": 854,
@@ -7213,7 +7213,7 @@
     "CodeName_JP": "八五四",
     "CodeName_EN": "Eight-Five-Four",
     "GenderType": "Neutral",
-    "Class": ["トリプル4+5+8組"]
+    "Class": ["トリプルエイツ"]
   },
   {
     "Num": 855,
@@ -7224,7 +7224,7 @@
     "CodeName_JP": "八五五",
     "CodeName_EN": "Eight-Five-Five",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル9型甲組"]
+    "Class": ["デュオトリプル9型"]
   },
   {
     "Num": 856,
@@ -7235,7 +7235,7 @@
     "CodeName_JP": "八五六",
     "CodeName_EN": "Eight-Five-Six",
     "GenderType": "Neutral",
-    "Class": ["トリプル5+6+8組"]
+    "Class": ["トリプルキャリーズ"]
   },
   {
     "Num": 857,
@@ -7246,7 +7246,7 @@
     "CodeName_JP": "八五七",
     "CodeName_EN": "Eight-Five-Seven",
     "GenderType": "Neutral",
-    "Class": ["トリプル5+7+8組"]
+    "Class": ["トリプルトワイズ"]
   },
   {
     "Num": 858,
@@ -7257,7 +7257,7 @@
     "CodeName_JP": "八五八",
     "CodeName_EN": "Eight-Five-Eight",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル3型乙組"]
+    "Class": ["デュオトリプル3型"]
   },
   {
     "Num": 859,
@@ -7268,7 +7268,7 @@
     "CodeName_JP": "八五九",
     "CodeName_EN": "Eight-Five-Nine",
     "GenderType": "Neutral",
-    "Class": ["トリプル5+8+9組"]
+    "Class": ["トリプルフォーズ"]
   },
   {
     "Num": 860,
@@ -7279,7 +7279,7 @@
     "CodeName_JP": "八六〇",
     "CodeName_EN": "Eight-Six-Zero",
     "GenderType": "Neutral",
-    "Class": ["テンズデュアルファイブズ"]
+    "Class": ["トライデュアルファイブズ"]
   },
   {
     "Num": 861,
@@ -7290,7 +7290,7 @@
     "CodeName_JP": "八六一",
     "CodeName_EN": "Eight-Six-One",
     "GenderType": "Neutral",
-    "Class": ["トリプル1+6+8組"]
+    "Class": ["トリプルシックスズ"]
   },
   {
     "Num": 862,
@@ -7301,7 +7301,7 @@
     "CodeName_JP": "八六二",
     "CodeName_EN": "Eight-Six-Two",
     "GenderType": "Neutral",
-    "Class": ["トリプル2+6+8組"]
+    "Class": ["トリプルセブンズ"]
   },
   {
     "Num": 863,
@@ -7312,7 +7312,7 @@
     "CodeName_JP": "八六三",
     "CodeName_EN": "Eight-Six-Three",
     "GenderType": "Neutral",
-    "Class": ["トリプル3+6+8組"]
+    "Class": ["トリプルエイツ"]
   },
   {
     "Num": 864,
@@ -7323,7 +7323,7 @@
     "CodeName_JP": "八六四",
     "CodeName_EN": "Eight-Six-Four",
     "GenderType": "Neutral",
-    "Class": ["トリプル4+6+8組"]
+    "Class": ["トリプルナインズ"]
   },
   {
     "Num": 865,
@@ -7334,7 +7334,7 @@
     "CodeName_JP": "八六五",
     "CodeName_EN": "Eight-Six-Five",
     "GenderType": "Neutral",
-    "Class": ["トリプル5+6+8組"]
+    "Class": ["トリプルキャリーズ"]
   },
   {
     "Num": 866,
@@ -7345,7 +7345,7 @@
     "CodeName_JP": "八六六",
     "CodeName_EN": "Eight-Six-Six",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル2型乙組"]
+    "Class": ["デュオトリプル2型"]
   },
   {
     "Num": 867,
@@ -7356,7 +7356,7 @@
     "CodeName_JP": "八六七",
     "CodeName_EN": "Eight-Six-Seven",
     "GenderType": "Neutral",
-    "Class": ["トリプル6+7+8組"]
+    "Class": ["トリプルスリーズ"]
   },
   {
     "Num": 868,
@@ -7367,7 +7367,7 @@
     "CodeName_JP": "八六八",
     "CodeName_EN": "Eight-Six-Eight",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル4型丙組"]
+    "Class": ["デュオトリプル4型"]
   },
   {
     "Num": 869,
@@ -7378,7 +7378,7 @@
     "CodeName_JP": "八六九",
     "CodeName_EN": "Eight-Six-Nine",
     "GenderType": "Neutral",
-    "Class": ["トリプル6+8+9組"]
+    "Class": ["トリプルファイブズ"]
   },
   {
     "Num": 870,
@@ -7389,7 +7389,7 @@
     "CodeName_JP": "八七〇",
     "CodeName_EN": "Eight-Seven-Zero",
     "GenderType": "Neutral",
-    "Class": ["テンズデュアルシックスズ"]
+    "Class": ["トライデュアルシックスズ"]
   },
   {
     "Num": 871,
@@ -7400,7 +7400,7 @@
     "CodeName_JP": "八七一",
     "CodeName_EN": "Eight-Seven-One",
     "GenderType": "Neutral",
-    "Class": ["トリプル1+7+8組"]
+    "Class": ["トリプルセブンズ"]
   },
   {
     "Num": 872,
@@ -7411,7 +7411,7 @@
     "CodeName_JP": "八七二",
     "CodeName_EN": "Eight-Seven-Two",
     "GenderType": "Neutral",
-    "Class": ["トリプル2+7+8組"]
+    "Class": ["トリプルエイツ"]
   },
   {
     "Num": 873,
@@ -7422,7 +7422,7 @@
     "CodeName_JP": "八七三",
     "CodeName_EN": "Eight-Seven-Three",
     "GenderType": "Neutral",
-    "Class": ["トリプル3+7+8組"]
+    "Class": ["トリプルナインズ"]
   },
   {
     "Num": 874,
@@ -7433,7 +7433,7 @@
     "CodeName_JP": "八七四",
     "CodeName_EN": "Eight-Seven-Four",
     "GenderType": "Neutral",
-    "Class": ["トリプル4+7+8組"]
+    "Class": ["トリプルキャリーズ"]
   },
   {
     "Num": 875,
@@ -7444,7 +7444,7 @@
     "CodeName_JP": "八七五",
     "CodeName_EN": "Eight-Seven-Five",
     "GenderType": "Neutral",
-    "Class": ["トリプル5+7+8組"]
+    "Class": ["トリプルトワイズ"]
   },
   {
     "Num": 876,
@@ -7455,7 +7455,7 @@
     "CodeName_JP": "八七六",
     "CodeName_EN": "Eight-Seven-Six",
     "GenderType": "Neutral",
-    "Class": ["トリプル6+7+8組"]
+    "Class": ["トリプルスリーズ"]
   },
   {
     "Num": 877,
@@ -7466,7 +7466,7 @@
     "CodeName_JP": "八七七",
     "CodeName_EN": "Eight-Seven-Seven",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル4型乙組"]
+    "Class": ["デュオトリプル4型"]
   },
   {
     "Num": 878,
@@ -7477,7 +7477,7 @@
     "CodeName_JP": "八七八",
     "CodeName_EN": "Eight-Seven-Eight",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル5型丙組"]
+    "Class": ["デュオトリプル5型"]
   },
   {
     "Num": 879,
@@ -7488,7 +7488,7 @@
     "CodeName_JP": "八七九",
     "CodeName_EN": "Eight-Seven-Nine",
     "GenderType": "Neutral",
-    "Class": ["トリプル7+8+9組"]
+    "Class": ["トリプルシックスズ"]
   },
   {
     "Num": 880,
@@ -7499,7 +7499,7 @@
     "CodeName_JP": "八八〇",
     "CodeName_EN": "Eight-Eight-Zero",
     "GenderType": "Neutral",
-    "Class": ["マスターテンズデュアルズ9"]
+    "Class": ["マスターテンズデュアルズ"]
   },
   {
     "Num": 881,
@@ -7510,7 +7510,7 @@
     "CodeName_JP": "八八一",
     "CodeName_EN": "Eight-Eight-One",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル8型甲組"]
+    "Class": ["デュオトリプル8型"]
   },
   {
     "Num": 882,
@@ -7521,7 +7521,7 @@
     "CodeName_JP": "八八二",
     "CodeName_EN": "Eight-Eight-Two",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル9型乙組"]
+    "Class": ["デュオトリプル9型"]
   },
   {
     "Num": 883,
@@ -7532,7 +7532,7 @@
     "CodeName_JP": "八八三",
     "CodeName_EN": "Eight-Eight-Three",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル1型甲組"]
+    "Class": ["デュオトリプル1型"]
   },
   {
     "Num": 884,
@@ -7543,7 +7543,7 @@
     "CodeName_JP": "八八四",
     "CodeName_EN": "Eight-Eight-Four",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル2型甲組"]
+    "Class": ["デュオトリプル2型"]
   },
   {
     "Num": 885,
@@ -7554,7 +7554,7 @@
     "CodeName_JP": "八八五",
     "CodeName_EN": "Eight-Eight-Five",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル3型乙組"]
+    "Class": ["デュオトリプル3型"]
   },
   {
     "Num": 886,
@@ -7565,7 +7565,7 @@
     "CodeName_JP": "八八六",
     "CodeName_EN": "Eight-Eight-Six",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル4型甲組"]
+    "Class": ["デュオトリプル4型"]
   },
   {
     "Num": 887,
@@ -7576,7 +7576,7 @@
     "CodeName_JP": "八八七",
     "CodeName_EN": "Eight-Eight-Seven",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル5型甲組"]
+    "Class": ["デュオトリプル5型"]
   },
   {
     "Num": 889,
@@ -7587,7 +7587,7 @@
     "CodeName_JP": "八八九",
     "CodeName_EN": "Eight-Eight-Nine",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル7型甲組"]
+    "Class": ["デュオトリプル7型"]
   },
   {
     "Num": 890,
@@ -7598,7 +7598,7 @@
     "CodeName_JP": "八九〇",
     "CodeName_EN": "Eight-Nine-Zero",
     "GenderType": "Neutral",
-    "Class": ["テンズデュアルエイツ"]
+    "Class": ["トライデュアルエイツ"]
   },
   {
     "Num": 891,
@@ -7609,7 +7609,7 @@
     "CodeName_JP": "八九一",
     "CodeName_EN": "Eight-Nine-One",
     "GenderType": "Neutral",
-    "Class": ["トリプル1+8+9組"]
+    "Class": ["トリプルナインズ"]
   },
   {
     "Num": 892,
@@ -7620,7 +7620,7 @@
     "CodeName_JP": "八九二",
     "CodeName_EN": "Eight-Nine-Two",
     "GenderType": "Neutral",
-    "Class": ["トリプル2+8+9組"]
+    "Class": ["トリプルキャリーズ"]
   },
   {
     "Num": 893,
@@ -7631,7 +7631,7 @@
     "CodeName_JP": "八九三",
     "CodeName_EN": "Eight-Nine-Three",
     "GenderType": "Neutral",
-    "Class": ["トリプル3+8+9組"]
+    "Class": ["トリプルトワイズ"]
   },
   {
     "Num": 894,
@@ -7642,7 +7642,7 @@
     "CodeName_JP": "八九四",
     "CodeName_EN": "Eight-Nine-Four",
     "GenderType": "Neutral",
-    "Class": ["トリプル4+8+9組"]
+    "Class": ["トリプルスリーズ"]
   },
   {
     "Num": 895,
@@ -7653,7 +7653,7 @@
     "CodeName_JP": "八九五",
     "CodeName_EN": "Eight-Nine-Five",
     "GenderType": "Neutral",
-    "Class": ["トリプル5+8+9組"]
+    "Class": ["トリプルフォーズ"]
   },
   {
     "Num": 896,
@@ -7664,7 +7664,7 @@
     "CodeName_JP": "八九六",
     "CodeName_EN": "Eight-Nine-Six",
     "GenderType": "Neutral",
-    "Class": ["トリプル6+8+9組"]
+    "Class": ["トリプルファイブズ"]
   },
   {
     "Num": 897,
@@ -7675,7 +7675,7 @@
     "CodeName_JP": "八九七",
     "CodeName_EN": "Eight-Nine-Seven",
     "GenderType": "Neutral",
-    "Class": ["トリプル7+8+9組"]
+    "Class": ["トリプルシックスズ"]
   },
   {
     "Num": 898,
@@ -7686,7 +7686,7 @@
     "CodeName_JP": "八九八",
     "CodeName_EN": "Eight-Nine-Eight",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル7型丙組"]
+    "Class": ["デュオトリプル7型"]
   },
   {
     "Num": 899,
@@ -7697,7 +7697,7 @@
     "CodeName_JP": "八九九",
     "CodeName_EN": "Eight-Nine-Nine",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル8型乙組"]
+    "Class": ["デュオトリプル8型"]
   },
   {
     "Num": 900,
@@ -7719,7 +7719,7 @@
     "CodeName_JP": "九〇一",
     "CodeName_EN": "Nine-Zero-One",
     "GenderType": "Neutral",
-    "Class": ["サイドデュアルキャリーズ"]
+    "Class": ["トライデュアルキャリーズ"]
   },
   {
     "Num": 902,
@@ -7730,7 +7730,7 @@
     "CodeName_JP": "九〇二",
     "CodeName_EN": "Nine-Zero-Two",
     "GenderType": "Neutral",
-    "Class": ["サイドデュアルイレブンズ"]
+    "Class": ["トライデュアルトワイズ"]
   },
   {
     "Num": 903,
@@ -7741,7 +7741,7 @@
     "CodeName_JP": "九〇三",
     "CodeName_EN": "Nine-Zero-Three",
     "GenderType": "Neutral",
-    "Class": ["サイドデュアルスリーズ"]
+    "Class": ["トライデュアルスリーズ"]
   },
   {
     "Num": 904,
@@ -7752,7 +7752,7 @@
     "CodeName_JP": "九〇四",
     "CodeName_EN": "Nine-Zero-Four",
     "GenderType": "Neutral",
-    "Class": ["サイドデュアルフォーズ"]
+    "Class": ["トライデュアルフォーズ"]
   },
   {
     "Num": 905,
@@ -7763,7 +7763,7 @@
     "CodeName_JP": "九〇五",
     "CodeName_EN": "Nine-Zero-Five",
     "GenderType": "Neutral",
-    "Class": ["サイドデュアルファイブズ"]
+    "Class": ["トライデュアルファイブズ"]
   },
   {
     "Num": 906,
@@ -7774,7 +7774,7 @@
     "CodeName_JP": "九〇六",
     "CodeName_EN": "Nine-Zero-Six",
     "GenderType": "Neutral",
-    "Class": ["サイドデュアルシックスズ"]
+    "Class": ["トライデュアルシックスズ"]
   },
   {
     "Num": 907,
@@ -7785,7 +7785,7 @@
     "CodeName_JP": "九〇七",
     "CodeName_EN": "Nine-Zero-Seven",
     "GenderType": "Neutral",
-    "Class": ["サイドデュアルセブンズ"]
+    "Class": ["トライデュアルセブンズ"]
   },
   {
     "Num": 908,
@@ -7796,7 +7796,7 @@
     "CodeName_JP": "九〇八",
     "CodeName_EN": "Nine-Zero-Eight",
     "GenderType": "Neutral",
-    "Class": ["サイドデュアルエイツ"]
+    "Class": ["トライデュアルエイツ"]
   },
   {
     "Num": 909,
@@ -7818,7 +7818,7 @@
     "CodeName_JP": "九一〇",
     "CodeName_EN": "Nine-One-Zero",
     "GenderType": "Neutral",
-    "Class": ["テンズデュアルキャリーズ"]
+    "Class": ["トライデュアルキャリーズ"]
   },
   {
     "Num": 911,
@@ -7829,7 +7829,7 @@
     "CodeName_JP": "九一一",
     "CodeName_EN": "Nine-One-One",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル2型乙組"]
+    "Class": ["デュオトリプル2型"]
   },
   {
     "Num": 912,
@@ -7840,7 +7840,7 @@
     "CodeName_JP": "九一二",
     "CodeName_EN": "Nine-One-Two",
     "GenderType": "Neutral",
-    "Class": ["トリプル1+2+9組"]
+    "Class": ["トリプルスリーズ"]
   },
   {
     "Num": 913,
@@ -7851,7 +7851,7 @@
     "CodeName_JP": "九一三",
     "CodeName_EN": "Nine-One-Three",
     "GenderType": "Neutral",
-    "Class": ["トリプル1+3+9組"]
+    "Class": ["トリプルフォーズ"]
   },
   {
     "Num": 914,
@@ -7862,7 +7862,7 @@
     "CodeName_JP": "九一四",
     "CodeName_EN": "Nine-One-Four",
     "GenderType": "Neutral",
-    "Class": ["トリプル1+4+9組"]
+    "Class": ["トリプルファイブズ"]
   },
   {
     "Num": 915,
@@ -7873,7 +7873,7 @@
     "CodeName_JP": "九一五",
     "CodeName_EN": "Nine-One-Five",
     "GenderType": "Neutral",
-    "Class": ["トリプル1+5+9組"]
+    "Class": ["トリプルシックスズ"]
   },
   {
     "Num": 916,
@@ -7884,7 +7884,7 @@
     "CodeName_JP": "九一六",
     "CodeName_EN": "Nine-One-Six",
     "GenderType": "Neutral",
-    "Class": ["トリプル1+6+9組"]
+    "Class": ["トリプルセブンズ"]
   },
   {
     "Num": 917,
@@ -7895,7 +7895,7 @@
     "CodeName_JP": "九一七",
     "CodeName_EN": "Nine-One-Seven",
     "GenderType": "Neutral",
-    "Class": ["トリプル1+7+9組"]
+    "Class": ["トリプルエイツ"]
   },
   {
     "Num": 918,
@@ -7906,7 +7906,7 @@
     "CodeName_JP": "九一八",
     "CodeName_EN": "Nine-One-Eight",
     "GenderType": "Neutral",
-    "Class": ["トリプル1+8+9組"]
+    "Class": ["トリプルナインズ"]
   },
   {
     "Num": 919,
@@ -7917,7 +7917,7 @@
     "CodeName_JP": "九一九",
     "CodeName_EN": "Nine-One-Nine",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル1型丙組"]
+    "Class": ["デュオトリプル1型"]
   },
   {
     "Num": 920,
@@ -7928,7 +7928,7 @@
     "CodeName_JP": "九二〇",
     "CodeName_EN": "Nine-Two-Zero",
     "GenderType": "Neutral",
-    "Class": ["テンズデュアルイレブンズ"]
+    "Class": ["トライデュアルトワイズ"]
   },
   {
     "Num": 921,
@@ -7939,7 +7939,7 @@
     "CodeName_JP": "九二一",
     "CodeName_EN": "Nine-Two-One",
     "GenderType": "Neutral",
-    "Class": ["トリプル1+2+9組"]
+    "Class": ["トリプルスリーズ"]
   },
   {
     "Num": 922,
@@ -7950,7 +7950,7 @@
     "CodeName_JP": "九二二",
     "CodeName_EN": "Nine-Two-Two",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル4型乙組"]
+    "Class": ["デュオトリプル4型"]
   },
   {
     "Num": 923,
@@ -7961,7 +7961,7 @@
     "CodeName_JP": "九二三",
     "CodeName_EN": "Nine-Two-Three",
     "GenderType": "Neutral",
-    "Class": ["トリプル2+3+9組"]
+    "Class": ["トリプルファイブズ"]
   },
   {
     "Num": 924,
@@ -7972,7 +7972,7 @@
     "CodeName_JP": "九二四",
     "CodeName_EN": "Nine-Two-Four",
     "GenderType": "Neutral",
-    "Class": ["トリプル2+4+9組"]
+    "Class": ["トリプルシックスズ"]
   },
   {
     "Num": 925,
@@ -7983,7 +7983,7 @@
     "CodeName_JP": "九二五",
     "CodeName_EN": "Nine-Two-Five",
     "GenderType": "Neutral",
-    "Class": ["トリプル2+5+9組"]
+    "Class": ["トリプルセブンズ"]
   },
   {
     "Num": 926,
@@ -7994,7 +7994,7 @@
     "CodeName_JP": "九二六",
     "CodeName_EN": "Nine-Two-Six",
     "GenderType": "Neutral",
-    "Class": ["トリプル2+6+9組"]
+    "Class": ["トリプルエイツ"]
   },
   {
     "Num": 927,
@@ -8005,7 +8005,7 @@
     "CodeName_JP": "九二七",
     "CodeName_EN": "Nine-Two-Seven",
     "GenderType": "Neutral",
-    "Class": ["トリプル2+7+9組"]
+    "Class": ["トリプルナインズ"]
   },
   {
     "Num": 928,
@@ -8016,7 +8016,7 @@
     "CodeName_JP": "九二八",
     "CodeName_EN": "Nine-Two-Eight",
     "GenderType": "Neutral",
-    "Class": ["トリプル2+8+9組"]
+    "Class": ["トリプルキャリーズ"]
   },
   {
     "Num": 929,
@@ -8027,7 +8027,7 @@
     "CodeName_JP": "九二九",
     "CodeName_EN": "Nine-Two-Nine",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル2型丙組"]
+    "Class": ["デュオトリプル2型"]
   },
   {
     "Num": 930,
@@ -8038,7 +8038,7 @@
     "CodeName_JP": "九三〇",
     "CodeName_EN": "Nine-Three-Zero",
     "GenderType": "Neutral",
-    "Class": ["テンズデュアルスリーズ"]
+    "Class": ["トライデュアルスリーズ"]
   },
   {
     "Num": 931,
@@ -8049,7 +8049,7 @@
     "CodeName_JP": "九三一",
     "CodeName_EN": "Nine-Three-One",
     "GenderType": "Neutral",
-    "Class": ["トリプル1+3+9組"]
+    "Class": ["トリプルフォーズ"]
   },
   {
     "Num": 932,
@@ -8060,7 +8060,7 @@
     "CodeName_JP": "九三二",
     "CodeName_EN": "Nine-Three-Two",
     "GenderType": "Neutral",
-    "Class": ["トリプル2+3+9組"]
+    "Class": ["トリプルファイブズ"]
   },
   {
     "Num": 933,
@@ -8071,7 +8071,7 @@
     "CodeName_JP": "九三三",
     "CodeName_EN": "Nine-Three-Three",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル6型甲組"]
+    "Class": ["デュオトリプル6型"]
   },
   {
     "Num": 934,
@@ -8082,7 +8082,7 @@
     "CodeName_JP": "九三四",
     "CodeName_EN": "Nine-Three-Four",
     "GenderType": "Neutral",
-    "Class": ["トリプル3+4+9組"]
+    "Class": ["トリプルセブンズ"]
   },
   {
     "Num": 935,
@@ -8093,7 +8093,7 @@
     "CodeName_JP": "九三五",
     "CodeName_EN": "Nine-Three-Five",
     "GenderType": "Neutral",
-    "Class": ["トリプル3+5+9組"]
+    "Class": ["トリプルエイツ"]
   },
   {
     "Num": 936,
@@ -8104,7 +8104,7 @@
     "CodeName_JP": "九三六",
     "CodeName_EN": "Nine-Three-Six",
     "GenderType": "Neutral",
-    "Class": ["トリプル3+6+9組"]
+    "Class": ["トリプルナインズ"]
   },
   {
     "Num": 937,
@@ -8115,7 +8115,7 @@
     "CodeName_JP": "九三七",
     "CodeName_EN": "Nine-Three-Seven",
     "GenderType": "Neutral",
-    "Class": ["トリプル3+7+9組"]
+    "Class": ["トリプルキャリーズ"]
   },
   {
     "Num": 938,
@@ -8126,7 +8126,7 @@
     "CodeName_JP": "九三八",
     "CodeName_EN": "Nine-Three-Eight",
     "GenderType": "Neutral",
-    "Class": ["トリプル3+8+9組"]
+    "Class": ["トリプルトワイズ"]
   },
   {
     "Num": 939,
@@ -8137,7 +8137,7 @@
     "CodeName_JP": "九三九",
     "CodeName_EN": "Nine-Three-Nine",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル3型乙組"]
+    "Class": ["デュオトリプル3型"]
   },
   {
     "Num": 940,
@@ -8148,7 +8148,7 @@
     "CodeName_JP": "九四〇",
     "CodeName_EN": "Nine-Four-Zero",
     "GenderType": "Neutral",
-    "Class": ["テンズデュアルフォーズ"]
+    "Class": ["トライデュアルフォーズ"]
   },
   {
     "Num": 941,
@@ -8159,7 +8159,7 @@
     "CodeName_JP": "九四一",
     "CodeName_EN": "Nine-Four-One",
     "GenderType": "Neutral",
-    "Class": ["トリプル1+4+9組"]
+    "Class": ["トリプルファイブズ"]
   },
   {
     "Num": 942,
@@ -8170,7 +8170,7 @@
     "CodeName_JP": "九四二",
     "CodeName_EN": "Nine-Four-Two",
     "GenderType": "Neutral",
-    "Class": ["トリプル2+4+9組"]
+    "Class": ["トリプルシックスズ"]
   },
   {
     "Num": 943,
@@ -8181,7 +8181,7 @@
     "CodeName_JP": "九四三",
     "CodeName_EN": "Nine-Four-Three",
     "GenderType": "Neutral",
-    "Class": ["トリプル3+4+9組"]
+    "Class": ["トリプルセブンズ"]
   },
   {
     "Num": 944,
@@ -8192,7 +8192,7 @@
     "CodeName_JP": "九四四",
     "CodeName_EN": "Nine-Four-Four",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル8型乙組"]
+    "Class": ["デュオトリプル8型"]
   },
   {
     "Num": 945,
@@ -8203,7 +8203,7 @@
     "CodeName_JP": "九四五",
     "CodeName_EN": "Nine-Four-Five",
     "GenderType": "Neutral",
-    "Class": ["トリプル4+5+9組"]
+    "Class": ["トリプルナインズ"]
   },
   {
     "Num": 946,
@@ -8214,7 +8214,7 @@
     "CodeName_JP": "九四六",
     "CodeName_EN": "Nine-Four-Six",
     "GenderType": "Neutral",
-    "Class": ["トリプル4+6+9組"]
+    "Class": ["トリプルキャリーズ"]
   },
   {
     "Num": 947,
@@ -8225,7 +8225,7 @@
     "CodeName_JP": "九四七",
     "CodeName_EN": "Nine-Four-Seven",
     "GenderType": "Neutral",
-    "Class": ["トリプル4+7+9組"]
+    "Class": ["トリプルトワイズ"]
   },
   {
     "Num": 948,
@@ -8236,7 +8236,7 @@
     "CodeName_JP": "九四八",
     "CodeName_EN": "Nine-Four-Eight",
     "GenderType": "Neutral",
-    "Class": ["トリプル4+8+9組"]
+    "Class": ["トリプルスリーズ"]
   },
   {
     "Num": 949,
@@ -8247,7 +8247,7 @@
     "CodeName_JP": "九四九",
     "CodeName_EN": "Nine-Four-Nine",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル4型丙組"]
+    "Class": ["デュオトリプル4型"]
   },
   {
     "Num": 950,
@@ -8258,7 +8258,7 @@
     "CodeName_JP": "九五〇",
     "CodeName_EN": "Nine-Five-Zero",
     "GenderType": "Neutral",
-    "Class": ["テンズデュアルファイブズ"]
+    "Class": ["トライデュアルファイブズ"]
   },
   {
     "Num": 951,
@@ -8269,7 +8269,7 @@
     "CodeName_JP": "九五一",
     "CodeName_EN": "Nine-Five-One",
     "GenderType": "Neutral",
-    "Class": ["トリプル1+5+9組"]
+    "Class": ["トリプルシックスズ"]
   },
   {
     "Num": 952,
@@ -8280,7 +8280,7 @@
     "CodeName_JP": "九五二",
     "CodeName_EN": "Nine-Five-Two",
     "GenderType": "Neutral",
-    "Class": ["トリプル2+5+9組"]
+    "Class": ["トリプルセブンズ"]
   },
   {
     "Num": 953,
@@ -8291,7 +8291,7 @@
     "CodeName_JP": "九五三",
     "CodeName_EN": "Nine-Five-Three",
     "GenderType": "Neutral",
-    "Class": ["トリプル3+5+9組"]
+    "Class": ["トリプルエイツ"]
   },
   {
     "Num": 954,
@@ -8302,7 +8302,7 @@
     "CodeName_JP": "九五四",
     "CodeName_EN": "Nine-Five-Four",
     "GenderType": "Neutral",
-    "Class": ["トリプル4+5+9組"]
+    "Class": ["トリプルナインズ"]
   },
   {
     "Num": 955,
@@ -8313,7 +8313,7 @@
     "CodeName_JP": "九五五",
     "CodeName_EN": "Nine-Five-Five",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル1型乙組"]
+    "Class": ["デュオトリプル1型"]
   },
   {
     "Num": 956,
@@ -8324,7 +8324,7 @@
     "CodeName_JP": "九五六",
     "CodeName_EN": "Nine-Five-Six",
     "GenderType": "Neutral",
-    "Class": ["トリプル5+6+9組"]
+    "Class": ["トリプルトワイズ"]
   },
   {
     "Num": 957,
@@ -8335,7 +8335,7 @@
     "CodeName_JP": "九五七",
     "CodeName_EN": "Nine-Five-Seven",
     "GenderType": "Neutral",
-    "Class": ["トリプル5+7+9組"]
+    "Class": ["トリプルスリーズ"]
   },
   {
     "Num": 958,
@@ -8346,7 +8346,7 @@
     "CodeName_JP": "九五八",
     "CodeName_EN": "Nine-Five-Eight",
     "GenderType": "Neutral",
-    "Class": ["トリプル5+8+9組"]
+    "Class": ["トリプルフォーズ"]
   },
   {
     "Num": 959,
@@ -8357,7 +8357,7 @@
     "CodeName_JP": "九五九",
     "CodeName_EN": "Nine-Five-Nine",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル5型丙組"]
+    "Class": ["デュオトリプル5型"]
   },
   {
     "Num": 960,
@@ -8368,7 +8368,7 @@
     "CodeName_JP": "九六〇",
     "CodeName_EN": "Nine-Six-Zero",
     "GenderType": "Neutral",
-    "Class": ["テンズデュアルシックスズ"]
+    "Class": ["トライデュアルシックスズ"]
   },
   {
     "Num": 961,
@@ -8379,7 +8379,7 @@
     "CodeName_JP": "九六一",
     "CodeName_EN": "Nine-Six-One",
     "GenderType": "Neutral",
-    "Class": ["トリプル1+6+9組"]
+    "Class": ["トリプルセブンズ"]
   },
   {
     "Num": 962,
@@ -8390,7 +8390,7 @@
     "CodeName_JP": "九六二",
     "CodeName_EN": "Nine-Six-Two",
     "GenderType": "Neutral",
-    "Class": ["トリプル2+6+9組"]
+    "Class": ["トリプルエイツ"]
   },
   {
     "Num": 963,
@@ -8401,7 +8401,7 @@
     "CodeName_JP": "九六三",
     "CodeName_EN": "Nine-Six-Three",
     "GenderType": "Neutral",
-    "Class": ["トリプル3+6+9組"]
+    "Class": ["トリプルナインズ"]
   },
   {
     "Num": 964,
@@ -8412,7 +8412,7 @@
     "CodeName_JP": "九六四",
     "CodeName_EN": "Nine-Six-Four",
     "GenderType": "Neutral",
-    "Class": ["トリプル4+6+9組"]
+    "Class": ["トリプルキャリーズ"]
   },
   {
     "Num": 965,
@@ -8423,7 +8423,7 @@
     "CodeName_JP": "九六五",
     "CodeName_EN": "Nine-Six-Five",
     "GenderType": "Neutral",
-    "Class": ["トリプル5+6+9組"]
+    "Class": ["トリプルトワイズ"]
   },
   {
     "Num": 967,
@@ -8434,7 +8434,7 @@
     "CodeName_JP": "九六七",
     "CodeName_EN": "Nine-Six-Seven",
     "GenderType": "Neutral",
-    "Class": ["トリプル6+7+9組"]
+    "Class": ["トリプルフォーズ"]
   },
   {
     "Num": 968,
@@ -8445,7 +8445,7 @@
     "CodeName_JP": "九六八",
     "CodeName_EN": "Nine-Six-Eight",
     "GenderType": "Neutral",
-    "Class": ["トリプル6+8+9組"]
+    "Class": ["トリプルファイブズ"]
   },
   {
     "Num": 970,
@@ -8456,7 +8456,7 @@
     "CodeName_JP": "九七〇",
     "CodeName_EN": "Nine-Seven-Zero",
     "GenderType": "Neutral",
-    "Class": ["テンズデュアルセブンズ"]
+    "Class": ["トライデュアルセブンズ"]
   },
   {
     "Num": 971,
@@ -8467,7 +8467,7 @@
     "CodeName_JP": "九七一",
     "CodeName_EN": "Nine-Seven-One",
     "GenderType": "Neutral",
-    "Class": ["トリプル1+7+9組"]
+    "Class": ["トリプルエイツ"]
   },
   {
     "Num": 972,
@@ -8478,7 +8478,7 @@
     "CodeName_JP": "九七二",
     "CodeName_EN": "Nine-Seven-Two",
     "GenderType": "Neutral",
-    "Class": ["トリプル2+7+9組"]
+    "Class": ["トリプルナインズ"]
   },
   {
     "Num": 973,
@@ -8489,7 +8489,7 @@
     "CodeName_JP": "九七三",
     "CodeName_EN": "Nine-Seven-Three",
     "GenderType": "Neutral",
-    "Class": ["トリプル3+7+9組"]
+    "Class": ["トリプルキャリーズ"]
   },
   {
     "Num": 974,
@@ -8500,7 +8500,7 @@
     "CodeName_JP": "九七四",
     "CodeName_EN": "Nine-Seven-Four",
     "GenderType": "Neutral",
-    "Class": ["トリプル4+7+9組"]
+    "Class": ["トリプルトワイズ"]
   },
   {
     "Num": 975,
@@ -8511,7 +8511,7 @@
     "CodeName_JP": "九七五",
     "CodeName_EN": "Nine-Seven-Five",
     "GenderType": "Neutral",
-    "Class": ["トリプル5+7+9組"]
+    "Class": ["トリプルスリーズ"]
   },
   {
     "Num": 976,
@@ -8522,7 +8522,7 @@
     "CodeName_JP": "九七六",
     "CodeName_EN": "Nine-Seven-Six",
     "GenderType": "Neutral",
-    "Class": ["トリプル6+7+9組"]
+    "Class": ["トリプルフォーズ"]
   },
   {
     "Num": 977,
@@ -8533,7 +8533,7 @@
     "CodeName_JP": "九七七",
     "CodeName_EN": "Nine-Seven-Seven",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル5型乙組"]
+    "Class": ["デュオトリプル5型"]
   },
   {
     "Num": 978,
@@ -8544,7 +8544,7 @@
     "CodeName_JP": "九七八",
     "CodeName_EN": "Nine-Seven-Eight",
     "GenderType": "Neutral",
-    "Class": ["トリプル7+8+9組"]
+    "Class": ["トリプルシックスズ"]
   },
   {
     "Num": 980,
@@ -8555,7 +8555,7 @@
     "CodeName_JP": "九八〇",
     "CodeName_EN": "Nine-Eight-Zero",
     "GenderType": "Neutral",
-    "Class": ["テンズデュアルエイツ"]
+    "Class": ["トライデュアルエイツ"]
   },
   {
     "Num": 981,
@@ -8566,7 +8566,7 @@
     "CodeName_JP": "九八一",
     "CodeName_EN": "Nine-Eight-One",
     "GenderType": "Neutral",
-    "Class": ["トリプル1+8+9組"]
+    "Class": ["トリプルナインズ"]
   },
   {
     "Num": 982,
@@ -8577,7 +8577,7 @@
     "CodeName_JP": "九八二",
     "CodeName_EN": "Nine-Eight-Two",
     "GenderType": "Neutral",
-    "Class": ["トリプル2+8+9組"]
+    "Class": ["トリプルキャリーズ"]
   },
   {
     "Num": 983,
@@ -8588,7 +8588,7 @@
     "CodeName_JP": "九八三",
     "CodeName_EN": "Nine-Eight-Three",
     "GenderType": "Neutral",
-    "Class": ["トリプル3+8+9組"]
+    "Class": ["トリプルトワイズ"]
   },
   {
     "Num": 984,
@@ -8599,7 +8599,7 @@
     "CodeName_JP": "九八四",
     "CodeName_EN": "Nine-Eight-Four",
     "GenderType": "Neutral",
-    "Class": ["トリプル4+8+9組"]
+    "Class": ["トリプルスリーズ"]
   },
   {
     "Num": 985,
@@ -8610,7 +8610,7 @@
     "CodeName_JP": "九八五",
     "CodeName_EN": "Nine-Eight-Five",
     "GenderType": "Neutral",
-    "Class": ["トリプル5+8+9組"]
+    "Class": ["トリプルフォーズ"]
   },
   {
     "Num": 986,
@@ -8621,7 +8621,7 @@
     "CodeName_JP": "九八六",
     "CodeName_EN": "Nine-Eight-Six",
     "GenderType": "Neutral",
-    "Class": ["トリプル6+8+9組"]
+    "Class": ["トリプルファイブズ"]
   },
   {
     "Num": 987,
@@ -8632,7 +8632,7 @@
     "CodeName_JP": "九八七",
     "CodeName_EN": "Nine-Eight-Seven",
     "GenderType": "Neutral",
-    "Class": ["トリプル7+8+9組"]
+    "Class": ["トリプルシックスズ"]
   },
   {
     "Num": 988,
@@ -8643,7 +8643,7 @@
     "CodeName_JP": "九八八",
     "CodeName_EN": "Nine-Eight-Eight",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル7型乙組"]
+    "Class": ["デュオトリプル7型"]
   },
   {
     "Num": 989,
@@ -8654,7 +8654,7 @@
     "CodeName_JP": "九八九",
     "CodeName_EN": "Nine-Eight-Nine",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル8型丙組"]
+    "Class": ["デュオトリプル8型"]
   },
   {
     "Num": 990,
@@ -8665,7 +8665,7 @@
     "CodeName_JP": "九九〇",
     "CodeName_EN": "Nine-Nine-Zero",
     "GenderType": "Neutral",
-    "Class": ["マスターテンズデュアルズ9"]
+    "Class": ["マスターテンズデュアルズ"]
   },
   {
     "Num": 991,
@@ -8676,7 +8676,7 @@
     "CodeName_JP": "九九一",
     "CodeName_EN": "Nine-Nine-One",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル1型甲組"]
+    "Class": ["デュオトリプル1型"]
   },
   {
     "Num": 992,
@@ -8687,7 +8687,7 @@
     "CodeName_JP": "九九二",
     "CodeName_EN": "Nine-Nine-Two",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル2型甲組"]
+    "Class": ["デュオトリプル2型"]
   },
   {
     "Num": 993,
@@ -8698,7 +8698,7 @@
     "CodeName_JP": "九九三",
     "CodeName_EN": "Nine-Nine-Three",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル3型乙組"]
+    "Class": ["デュオトリプル3型"]
   },
   {
     "Num": 994,
@@ -8709,7 +8709,7 @@
     "CodeName_JP": "九九四",
     "CodeName_EN": "Nine-Nine-Four",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル4型甲組"]
+    "Class": ["デュオトリプル4型"]
   },
   {
     "Num": 995,
@@ -8720,7 +8720,7 @@
     "CodeName_JP": "九九五",
     "CodeName_EN": "Nine-Nine-Five",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル5型甲組"]
+    "Class": ["デュオトリプル5型"]
   },
   {
     "Num": 996,
@@ -8731,7 +8731,7 @@
     "CodeName_JP": "九九六",
     "CodeName_EN": "Nine-Nine-Six",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル6型乙組"]
+    "Class": ["デュオトリプル6型"]
   },
   {
     "Num": 997,
@@ -8742,7 +8742,7 @@
     "CodeName_JP": "九九七",
     "CodeName_EN": "Nine-Nine-Seven",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル7型甲組"]
+    "Class": ["デュオトリプル7型"]
   },
   {
     "Num": 998,
@@ -8753,6 +8753,6 @@
     "CodeName_JP": "九九八",
     "CodeName_EN": "Nine-Nine-Eight",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル8型甲組"]
+    "Class": ["デュオトリプル8型"]
   }
 ]
