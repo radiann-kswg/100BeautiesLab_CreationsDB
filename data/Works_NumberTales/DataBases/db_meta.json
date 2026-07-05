@@ -27,7 +27,8 @@
       "_Commons": {
         "Progress": "notProceeded",
         "Belonging": ["百花繚乱研究所"],
-        "RaceType": "PortableHumanoid(TaleBeastType)"
+        "RaceType": "PortableHumanoid(TaleBeastType)",
+        "isTriple": false
       }
     },
     "#DB_SemiPrimary": {
@@ -53,7 +54,8 @@
       "_Commons": {
         "Progress": "notProceeded",
         "Belonging": ["百花繚乱研究所"],
-        "RaceType": "PortableHumanoid(TaleBeastType)"
+        "RaceType": "PortableHumanoid(TaleBeastType)",
+        "isTriple": true
       }
     },
     "#DB_SelfSecondary": {
@@ -70,7 +72,20 @@
             "Progress": "nowCreating",
             "Belonging": ["百花繚乱研究所"],
             "RaceType": "PortableHumanoid(TaleBeastType)",
-            "GenderType": "Neutral"
+            "GenderType": "Neutral",
+            "isTriple": true
+          }
+        },
+        {
+          "sec_Category": null,
+          "sec_DesignedBy": ["RadianN"],
+          "sec_SeriesTitle": "量産型マスタートリプル",
+          "_Commons": {
+            "Progress": "nowCreating",
+            "Belonging": ["百花繚乱研究所"],
+            "RaceType": "PortableHumanoid(TaleBeastType)",
+            "GenderType": "Neutral",
+            "isTriple": false
           }
         },
         {
@@ -81,7 +96,8 @@
             "Progress": "notProceeded",
             "Belonging": ["百花繚乱研究所"],
             "RaceType": "PortableHumanoid(TaleBeastType)",
-            "GenderType": "Neutral"
+            "GenderType": "Neutral",
+            "isTriple": true
           }
         }
       ]
@@ -109,7 +125,8 @@
           "_Commons": {
             "Progress": "accepted",
             "Belonging": ["百花繚乱研究所", "エイゼルベットの観測世界"],
-            "RaceType": "PortableHumanoid(TaleBeastType,SoftwareBody)"
+            "RaceType": "PortableHumanoid(TaleBeastType,SoftwareBody)",
+            "isTriple": false
           }
         },
         {
@@ -126,7 +143,11 @@
             "StoryEraAbout_JP": "第9創世紀5年(第8創世紀8年,西暦2052年相当)周辺",
             "StoryEraAbout_EN": "in around WDCE.IX.5(Equivalent to in around: WDCE.VIII.8, DC.2052)"
           },
-          "_Commons": { "Progress": "notProceeded", "isPrivate": true }
+          "_Commons": {
+            "Progress": "notProceeded",
+            "isTriple": false,
+            "isPrivate": true
+          }
         },
         {
           "sec_Category": "共同二次創作",
@@ -146,6 +167,7 @@
             "Progress": "stillTentative",
             "Belonging": ["シンフォニー.XVI(ゼクズィン)"],
             "RaceType": "DeviatableHumanoid(TaleBeastType)",
+            "isTriple": false,
             "isPrivate": true
           }
         },
@@ -176,7 +198,8 @@
           "_Commons": {
             "Progress": "notProceeded",
             "Belonging": [],
-            "GenderType": "Neutral"
+            "GenderType": "Neutral",
+            "isTriple": true
           },
           "isPrivate": true
         }
@@ -195,7 +218,8 @@
               "Progress": "NotProcessed",
               "Belonging": ["百花繚乱研究所"],
               "RaceType": "PortableHumanoid(TaleBeastType)",
-              "GenderType": "Neutral"
+              "GenderType": "Neutral",
+              "isTriple": true
             },
             "isPrivate": true
           }

@@ -18,7 +18,11 @@
     "BirthDay": {
       "_Jump": {
         "hashTag": "BirthDay",
-        "_DBLink": { "_Work": "SinisterChangingGirls", "_DB": "Primary", "Drc": "E" }
+        "_DBLink": {
+          "_Work": "SinisterChangingGirls",
+          "_DB": "Primary",
+          "Drc": "E"
+        }
       }
     },
     "Belonging": ["夜月機関"],

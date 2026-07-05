@@ -80,6 +80,9 @@
     "ModelNumber": "APHR-NT [MP]110-*****"
   },
   {
+    "sec_Category": null,
+    "sec_DesignedBy": ["RadianN"],
+    "sec_SeriesTitle": "量産型マスタートリプル",
     "Num": "111-mp",
     "Progress": "unprofiled",
     "AnotherVersions_DBLink": [
@@ -98,6 +101,7 @@
       { "value": 37, "about_JP": "推定", "about_EN": "Presumption" }
     ],
     "BustSize": "AA",
+    "Class": ["マスタートリプル(量産販売型)"],
     "TailsUnit_JP": "猫又(特殊)型1本3束[枝]",
     "TailsUnit_EN": "Nekomata (Special) Type: 1 Tail, 3 Tufts [Branches]"
   },
@@ -370,6 +374,9 @@
     "Backgrounds_EN": "Incidentally, 216 is also the maximum number of colors obtainable when the three primary colors are each evenly distributed across a 1-byte range (6 × 6 × 6 = 216; the web-safe color cube)."
   },
   {
+    "sec_Category": null,
+    "sec_DesignedBy": ["RadianN"],
+    "sec_SeriesTitle": "量産型マスタートリプル",
     "Num": "222-mp",
     "Progress": "notProceeded",
     "AnotherVersions_DBLink": [
@@ -389,6 +396,7 @@
     "ConceptAge": 16,
     "Weight_kg": 42,
     "BustSize": "A",
+    "Class": ["マスタートリプル(量産販売型)"],
     "TailsUnit_JP": "尾鰭(特殊)型3本2枝",
     "TailsUnit_EN": "Caudal-Fin (Special) Type: 3 Fins, 2 Branches"
   },
@@ -590,6 +598,9 @@
     "Backgrounds_EN": "Derived from the value of pi (3.14)."
   },
   {
+    "sec_Category": null,
+    "sec_DesignedBy": ["RadianN"],
+    "sec_SeriesTitle": "量産型マスタートリプル",
     "Num": "333-mp",
     "Progress": "notProceeded",
     "AnotherVersions_DBLink": [
@@ -599,7 +610,8 @@
     "Name_EN": "333(Trinitia)",
     "FormalName_JP": "量産型ナンバーテールズ333番機シリーズ",
     "FormalName_EN": "NumberTales #333 Series Mass Production Version for Sales",
-    "ModelNumber": "APHR-NT [MP]333-*****"
+    "ModelNumber": "APHR-NT [MP]333-*****",
+    "Class": ["マスタートリプル(量産販売型)"]
   },
   {
     "Num": 337,
@@ -863,6 +875,9 @@
     "Class": ["トリプル1+2+4組"]
   },
   {
+    "sec_Category": null,
+    "sec_DesignedBy": ["RadianN"],
+    "sec_SeriesTitle": "量産型マスタートリプル",
     "Num": "444-mp",
     "Progress": "unprofiled",
     "Images": {
@@ -876,7 +891,8 @@
     "Name_EN": "444(Quad-emperone)",
     "FormalName_JP": "量産型ナンバーテールズ444番機シリーズ",
     "FormalName_EN": "NumberTales #444 Series Mass Production Version for Sales",
-    "ModelNumber": "APHR-NT [MP]444-*****"
+    "ModelNumber": "APHR-NT [MP]444-*****",
+    "Class": ["マスタートリプル(量産販売型)"]
   },
   {
     "Num": 451,
@@ -989,18 +1005,6 @@
     "Class": ["トリプル1+2+5組"]
   },
   {
-    "Num": "555-mp",
-    "Progress": "notProceeded",
-    "AnotherVersions_DBLink": [
-      { "_Work": "NumberTales", "_DB": "SemiPrimary", "Num": 555 }
-    ],
-    "Name_JP": "555(ハイファイブ)",
-    "Name_EN": "555(High-Fiver)",
-    "FormalName_JP": "量産型ナンバーテールズ555番機シリーズ",
-    "FormalName_EN": "NumberTales #555 Series Mass Production Version for Sales",
-    "ModelNumber": "APHR-NT [MP]555-*****"
-  },
-  {
     "Num": 528,
     "Progress": "notProceeded",
     "Name_JP": "528(ソルフェジアン)",
@@ -1014,6 +1018,22 @@
     "SPCodeName_EN": "Solfeggio Frequencies",
     "GenderType": "Neutral",
     "Class": ["トリプル2+5+8組", "フィジクスコンストレイント"]
+  },
+  {
+    "sec_Category": null,
+    "sec_DesignedBy": ["RadianN"],
+    "sec_SeriesTitle": "量産型マスタートリプル",
+    "Num": "555-mp",
+    "Progress": "notProceeded",
+    "AnotherVersions_DBLink": [
+      { "_Work": "NumberTales", "_DB": "SemiPrimary", "Num": 555 }
+    ],
+    "Name_JP": "555(ハイファイブ)",
+    "Name_EN": "555(High-Fiver)",
+    "FormalName_JP": "量産型ナンバーテールズ555番機シリーズ",
+    "FormalName_EN": "NumberTales #555 Series Mass Production Version for Sales",
+    "ModelNumber": "APHR-NT [MP]555-*****",
+    "Class": ["マスタートリプル(量産販売型)"]
   },
   {
     "Num": 558,
@@ -1107,6 +1127,9 @@
     "Class": ["トリプル3+6+8組"]
   },
   {
+    "sec_Category": null,
+    "sec_DesignedBy": ["RadianN"],
+    "sec_SeriesTitle": "量産型マスタートリプル",
     "Num": "666-mp",
     "Progress": "unprofiled",
     "AnotherVersions_DBLink": [
@@ -1126,6 +1149,7 @@
     "ConceptAge": 16,
     "Weight_kg": { "hideText": "非公開" },
     "BustSize": "E",
+    "Class": ["マスタートリプル(量産販売型)"],
     "TailsUnit_JP": "キツネ(特殊)型3束x6本",
     "TailsUnit_EN": "Fox (Special) Type: 6 Tails x 3 Tufts"
   },
@@ -1231,6 +1255,9 @@
     "Class": ["デュオトリプル9型乙組"]
   },
   {
+    "sec_Category": null,
+    "sec_DesignedBy": ["RadianN"],
+    "sec_SeriesTitle": "量産型マスタートリプル",
     "Num": "777-mp",
     "Progress": "unprofiled",
     "AnotherVersions_DBLink": [
@@ -1259,10 +1286,14 @@
     ],
     "BustSize": "AA",
     "GenderType": "MaleNeutral",
+    "Class": ["マスタートリプル(量産販売型)"],
     "TailsUnit_JP": "キツネ(特殊)型3束x7本",
     "TailsUnit_EN": "Fox (Special) Type: 7 Tails x 3 Tufts"
   },
   {
+    "sec_Category": null,
+    "sec_DesignedBy": ["RadianN"],
+    "sec_SeriesTitle": "量産型マスタートリプル",
     "Num": "777.Jackpot-mp",
     "Progress": "unprofiled",
     "AnotherVersions_DBLink": [
@@ -1295,6 +1326,7 @@
       }
     ],
     "BustSize": "AA",
+    "Class": ["マスタートリプル(量産販売型)"],
     "TailsUnit_JP": "キツネ(特殊)型3束x7本",
     "TailsUnit_EN": "Fox (Special) Type: 7 Tails x 3 Tufts"
   },
@@ -1340,6 +1372,9 @@
     "Class": ["デュオトリプル5型乙組"]
   },
   {
+    "sec_Category": null,
+    "sec_DesignedBy": ["RadianN"],
+    "sec_SeriesTitle": "量産型マスタートリプル",
     "Num": "888-mp",
     "Progress": "notProceeded",
     "AnotherVersions_DBLink": [
@@ -1349,7 +1384,8 @@
     "Name_EN": "888(Infy)",
     "FormalName_JP": "量産型ナンバーテールズ888番機シリーズ",
     "FormalName_EN": "NumberTales #888 Series Mass Production Version for Sales",
-    "ModelNumber": "APHR-NT [MP]888-*****"
+    "ModelNumber": "APHR-NT [MP]888-*****",
+    "Class": ["マスタートリプル(量産販売型)"]
   },
   {
     "Num": 966,
@@ -1392,6 +1428,9 @@
     "Class": ["デュオトリプル7型丙組"]
   },
   {
+    "sec_Category": null,
+    "sec_DesignedBy": ["RadianN"],
+    "sec_SeriesTitle": "量産型マスタートリプル",
     "Num": "999-mp",
     "Progress": "notProceeded",
     "AnotherVersions_DBLink": [
@@ -1401,6 +1440,7 @@
     "Name_EN": "999(Counstop)",
     "FormalName_JP": "量産型ナンバーテールズ999番機シリーズ",
     "FormalName_EN": "NumberTales #999 Series Mass Production Version for Sales",
-    "ModelNumber": "APHR-NT [MP]999-*****"
+    "ModelNumber": "APHR-NT [MP]999-*****",
+    "Class": ["マスタートリプル(量産販売型)"]
   }
 ]

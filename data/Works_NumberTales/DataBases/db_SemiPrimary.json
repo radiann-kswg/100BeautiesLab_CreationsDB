@@ -233,6 +233,7 @@
   {
     "Num": 111,
     "Progress": "released",
+    "isTriple": false,
     "AnotherVersions_DBLink": [
       { "_Work": "NumberTales", "_DB": "SelfSecondary", "Num": "111-mp" }
     ],
@@ -574,6 +575,7 @@
   {
     "Num": 222,
     "Progress": "released",
+    "isTriple": false,
     "Images": {
       "concept_PNGName": "cnsp_img222",
       "conceptAlt_PNGName": ["cnsp_img222-origA"],
@@ -633,6 +635,7 @@
   {
     "Num": "222-alt",
     "Progress": "released",
+    "isTriple": false,
     "Images": {
       "concept_PNGName": "cnsp_img222",
       "conceptAlt_PNGName": ["cnsp_img222-origB"],
@@ -744,6 +747,7 @@
   },
   {
     "Num": 333,
+    "isTriple": false,
     "Progress": "notProceeded",
     "AnotherVersions_DBLink": [
       { "_Work": "NumberTales", "_DB": "SelfSecondary", "Num": "333-mp" }
@@ -835,6 +839,7 @@
   },
   {
     "Num": 444,
+    "isTriple": false,
     "Progress": "unreleased",
     "Images": {
       "concept_PNGName": "cnsp_img444",
@@ -920,6 +925,7 @@
   {
     "Num": 555,
     "Progress": "notProceeded",
+    "isTriple": false,
     "AnotherVersions_DBLink": [
       { "_Work": "NumberTales", "_DB": "SelfSecondary", "Num": "555-mp" }
     ],
@@ -940,6 +946,7 @@
   {
     "Num": 666,
     "Progress": "released",
+    "isTriple": false,
     "AnotherVersions_DBLink": [
       { "_Work": "NumberTales", "_DB": "SelfSecondary", "Num": "666-mp" }
     ],
@@ -1019,11 +1026,12 @@
   },
   {
     "Num": 777,
+    "Progress": "released",
+    "isTriple": false,
     "AnotherVersions_DBLink": [
       { "_DB": "SelfSecondary", "Num": "777.Jackpot-mp" }
     ],
     "SameModels_DBLink": [{ "_DB": "SemiPrimary", "Num": "777.Jackpot" }],
-    "Progress": "released",
     "Images": { "concept_PNGName": "cnsp_img777" },
     "Name_JP": "777(ヨロコビ)",
     "Name_EN": "777(Lucky-sevens)\n777(Luckies)",
@@ -1082,6 +1090,8 @@
   },
   {
     "Num": "777.Jackpot",
+    "Progress": "released",
+    "isTriple": false,
     "SameModels_DBLink": [{ "_DB": "SemiPrimary", "Num": 777 }],
     "Name_JP": "777(ヨロコビ)",
     "Name_EN": "777(Lucky-sevens)\n777(Luckies)",
@@ -1121,6 +1131,7 @@
   {
     "Num": 888,
     "Progress": "notProceeded",
+    "isTriple": false,
     "AnotherVersions_DBLink": [
       { "_Work": "NumberTales", "_DB": "SelfSecondary", "Num": "888-mp" }
     ],
@@ -1152,6 +1163,7 @@
   {
     "Num": 999,
     "Progress": "notProceeded",
+    "isTriple": false,
     "AnotherVersions_DBLink": [
       { "_Work": "NumberTales", "_DB": "SelfSecondary", "Num": "999-mp" }
     ],
