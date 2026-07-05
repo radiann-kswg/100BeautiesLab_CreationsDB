@@ -52,7 +52,7 @@
     "SPCodeName_JP": "百一",
     "SPCodeName_EN": "Hundred One",
     "GenderType": "Neutral",
-    "Class": ["サイドシングルス", "10*(ヒノマル)型ハイナンバーズ"],
+    "Class": ["サイドシングルズ", "10*(ヒノマル)型ハイナンバーズ"],
     "Backgrounds_JP": "1号機系[1(ハジメ),2(ツグ),10(ミツル)]の類似個体で、こちらは販売用",
     "Backgrounds_EN": "A counterpart model derived from the Unit.1 lineage [1(Unitta), 2(Twiny), 10(Tenim)], prepared for commercial sales."
   },
@@ -72,7 +72,7 @@
     "SPCodeName_JP": "百二",
     "SPCodeName_EN": "Hundred Two",
     "GenderType": "Neutral",
-    "Class": ["サイドデュアルスリーズ", "10*(ヒノマル)型ハイナンバーズ"],
+    "Class": ["トライデュアルスリーズ", "10*(ヒノマル)型ハイナンバーズ"],
     "Backgrounds_JP": "2号機系[バイナ,20(ハツカ)]の類似個体で、こちらは販売用",
     "Backgrounds_EN": "A counterpart model derived from the Unit.2 lineage [Binor, 20(Twentia)], prepared for commercial sales."
   },
@@ -92,7 +92,7 @@
     "SPCodeName_JP": "百三",
     "SPCodeName_EN": "Hundred Three",
     "GenderType": "Neutral",
-    "Class": ["サイドデュアルフォーズ", "10*(ヒノマル)型ハイナンバーズ"],
+    "Class": ["トライデュアルフォーズ", "10*(ヒノマル)型ハイナンバーズ"],
     "Backgrounds_JP": "「3(ナオ)」の類似個体で、こちらは販売用\n以下「109(ヒノマルク)」まで同様（下1桁に対応）",
     "Backgrounds_EN": "A counterpart model of 3(Treiya), prepared for commercial sales.\nThe same rule applies down to 109(Sunrizer=Nina), corresponding to the last one digit."
   },
@@ -112,7 +112,7 @@
     "SPCodeName_JP": "百四",
     "SPCodeName_EN": "Hundred Four",
     "GenderType": "Neutral",
-    "Class": ["サイドデュアルファイブズ", "10*(ヒノマル)型ハイナンバーズ"],
+    "Class": ["トライデュアルファイブズ", "10*(ヒノマル)型ハイナンバーズ"],
     "Backgrounds_EN": "A counterpart model of 4(Forna), prepared for commercial sales."
   },
   {
@@ -131,7 +131,7 @@
     "SPCodeName_JP": "百五",
     "SPCodeName_EN": "Hundred Five",
     "GenderType": "Neutral",
-    "Class": ["サイドデュアルシックスズ", "10*(ヒノマル)型ハイナンバーズ"],
+    "Class": ["トライデュアルシックスズ", "10*(ヒノマル)型ハイナンバーズ"],
     "Backgrounds_EN": "A counterpart model of 5(Fifa), prepared for commercial sales."
   },
   {
@@ -150,7 +150,7 @@
     "SPCodeName_JP": "百六",
     "SPCodeName_EN": "Hundred Six",
     "GenderType": "Neutral",
-    "Class": ["サイドデュアルセブンズ", "10*(ヒノマル)型ハイナンバーズ"],
+    "Class": ["トライデュアルセブンズ", "10*(ヒノマル)型ハイナンバーズ"],
     "Backgrounds_EN": "A counterpart model of 6(Sics), prepared for commercial sales."
   },
   {
@@ -169,7 +169,7 @@
     "SPCodeName_JP": "百七",
     "SPCodeName_EN": "Hundred Seven",
     "GenderType": "Neutral",
-    "Class": ["サイドデュアルエイツ", "10*(ヒノマル)型ハイナンバーズ"],
+    "Class": ["トライデュアルエイツ", "10*(ヒノマル)型ハイナンバーズ"],
     "Backgrounds_EN": "A counterpart model of 7(Sevan), prepared for commercial sales."
   },
   {
@@ -188,7 +188,7 @@
     "SPCodeName_JP": "百八",
     "SPCodeName_EN": "Hundred Eight",
     "GenderType": "Neutral",
-    "Class": ["ナインズサイドデュアルズ", "10*(ヒノマル)型ハイナンバーズ"],
+    "Class": ["ナインズトライデュアルズ", "10*(ヒノマル)型ハイナンバーズ"],
     "Backgrounds_EN": "A counterpart model of 8(Eighas), prepared for commercial sales."
   },
   {
@@ -207,7 +207,7 @@
     "SPCodeName_JP": "百九",
     "SPCodeName_EN": "Hundred Nine",
     "GenderType": "Neutral",
-    "Class": ["サイドデュアルキャリーズ", "10*(ヒノマル)型ハイナンバーズ"],
+    "Class": ["トライデュアルキャリーズ", "10*(ヒノマル)型ハイナンバーズ"],
     "Backgrounds_EN": "A counterpart model of 9(Nina), prepared for commercial sales."
   },
   {
@@ -226,7 +226,7 @@
     "SPCodeName_JP": "百十",
     "SPCodeName_EN": "Eleventy",
     "GenderType": "Neutral",
-    "Class": ["マスターテンズデュアルズ9", "11*(ハクト)型ハイナンバーズ"],
+    "Class": ["マスターテンズデュアルズ", "11*(ハクト)型ハイナンバーズ"],
     "Backgrounds_JP": "「11(トウイチ)」の類似個体で、こちらは販売用",
     "Backgrounds_EN": "A counterpart model of 11(Elevan), prepared for commercial sales."
   },
@@ -313,7 +313,7 @@
     "SPCodeName_JP": "百十二",
     "SPCodeName_EN": "Eleventy Two",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル4型甲組", "11*(ハクト)型ハイナンバーズ"],
+    "Class": ["デュオトリプル4型", "11*(ハクト)型ハイナンバーズ"],
     "Backgrounds_JP": "「12(トウジ)」の類似個体で、こちらは販売用\n以下「119(ハクトク)」まで同様（下2桁に対応）",
     "Backgrounds_EN": "A counterpart model of 12(Twelva), prepared for commercial sales.\nThe same rule applies down to 119(Hudres=Ninteels), corresponding to the last two digits."
   },
@@ -333,7 +333,7 @@
     "SPCodeName_JP": "百十三",
     "SPCodeName_EN": "Eleventy Three",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル5型甲組", "11*(ハクト)型ハイナンバーズ"]
+    "Class": ["デュオトリプル5型", "11*(ハクト)型ハイナンバーズ"]
   },
   {
     "Num": "114-dev",
@@ -351,7 +351,7 @@
     "SPCodeName_JP": "百十四",
     "SPCodeName_EN": "Eleventy Four",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル6型甲組", "11*(ハクト)型ハイナンバーズ"]
+    "Class": ["デュオトリプル6型", "11*(ハクト)型ハイナンバーズ"]
   },
   {
     "Num": "115-dev",
@@ -372,7 +372,7 @@
     "SPCodeName_JP": "百十五",
     "SPCodeName_EN": "Eleventy Five",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル7型甲組", "11*(ハクト)型ハイナンバーズ"]
+    "Class": ["デュオトリプル7型", "11*(ハクト)型ハイナンバーズ"]
   },
   {
     "Num": "116-dev",
@@ -390,7 +390,7 @@
     "SPCodeName_JP": "百十六",
     "SPCodeName_EN": "Eleventy Six",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル8型甲組", "11*(ハクト)型ハイナンバーズ"]
+    "Class": ["デュオトリプル8型", "11*(ハクト)型ハイナンバーズ"]
   },
   {
     "Num": "117-dev",
@@ -408,7 +408,7 @@
     "SPCodeName_JP": "百十七",
     "SPCodeName_EN": "Eleventy Seven",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル9型甲組", "11*(ハクト)型ハイナンバーズ"]
+    "Class": ["デュオトリプル9型", "11*(ハクト)型ハイナンバーズ"]
   },
   {
     "Num": "118-dev",
@@ -426,7 +426,7 @@
     "SPCodeName_JP": "百十八",
     "SPCodeName_EN": "Eleventy Eight",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル1型甲組", "11*(ハクト)型ハイナンバーズ"]
+    "Class": ["デュオトリプル1型", "11*(ハクト)型ハイナンバーズ"]
   },
   {
     "Num": "119-dev",
@@ -444,7 +444,7 @@
     "SPCodeName_JP": "百十九",
     "SPCodeName_EN": "Eleventy Nine",
     "GenderType": "Neutral",
-    "Class": ["デュオトリプル2型甲組", "11*(ハクト)型ハイナンバーズ"]
+    "Class": ["デュオトリプル2型", "11*(ハクト)型ハイナンバーズ"]
   },
   {
     "Num": "121-sq",
@@ -461,7 +461,7 @@
     "SPCodeName_EN": "Eleven Elevens",
     "GenderType": "Neutral",
     "Belonging": ["百花繚乱研究所", "レゾンデイトルカンパニー"],
-    "Class": ["デュオトリプル4型丙組", "キャレ型ハイナンバーズ"]
+    "Class": ["デュオトリプル4型", "キャレ型ハイナンバーズ"]
   },
   {
     "Num": "125-cub",
@@ -494,7 +494,7 @@
     "GenderType": "Neutral",
     "Belonging": ["百花繚乱研究所", "レゾンデイトルカンパニー"],
     "Class": [
-      "デュオトリプル9型乙組",
+      "デュオトリプル9型",
       "マスマティカコンストレイント",
       "キャレ型ハイナンバーズ"
     ]
@@ -565,7 +565,7 @@
     "GenderType": "Neutral",
     "Belonging": ["百花繚乱研究所", "シンフォニー.XVI(ゼクズィン)"],
     "Class": [
-      "トリプル1+2+6組",
+      "トリプルナインズ",
       "バーチャリティテールズ",
       "キュビクザール型ハイナンバーズ"
     ],
@@ -715,7 +715,7 @@
     "GenderType": "Neutral",
     "Belonging": ["百花繚乱研究所", "レゾンデイトルカンパニー"],
     "Class": [
-      "トリプル2+5+6組",
+      "トリプルフォーズ",
       "マスマティカコンストレイント",
       "バーチャリティテールズ",
       "キャレ型ハイナンバーズ"
@@ -1123,6 +1123,7 @@
     ],
     "TailsUnit_JP": "キツネ(特殊)型3束x7本",
     "TailsUnit_EN": "Fox (Special) Type: 7 Tails x 3 Tufts",
+    "Class": ["マスタートリプル"],
     "NumerospecAbout_JP": "スロットゲーム拡張アドオンにより運勢を娯楽的に見せる",
     "NumerospecAbout_EN": "Shows fortune in an entertainment-oriented way via a slot-game expansion addon",
     "Summary_JP": "量産販売型ではあるが、3桁ゾロ目の数字と通常個体(2桁以内)に劣らない性能をもつ「マスタートリプル」というクラスに属しており、そのなかでもさらに機能拡張性に長けている極めて特殊な個体。\n拡張サンプルとして同時提供されている「VIIx3.R(ラッキーセブンアール)」型は、背中の拡張I/O制御盤にスロットゲーム機構を搭載しており、娯楽的な場面だけでなくギャンブル依存症の対策などへの運用が想定されている。\n当然ながら 背中の拡張ユニットは取り外しが可能なので、コアフォルダ形態のふんわりとした質感もしっかり残存している。",
