@@ -81,6 +81,7 @@
   },
   {
     "Num": "111-mp",
+    "Progress": "unprofiled",
     "AnotherVersions_DBLink": [
       { "_Work": "NumberTales", "_DB": "SemiPrimary", "Num": 111 }
     ],
@@ -395,7 +396,7 @@
     "sec_Category": "リクエストナンバー",
     "sec_DesignedBy": ["RadianN"],
     "Num": 223,
-    "Progress": "released",
+    "Progress": "unprofiled",
     "Images": { "concept_PNGName": "cnsp_img223" },
     "Name_JP": "223(ツヅサ)",
     "Name_EN": "223(Twitwenthir)",
@@ -863,7 +864,8 @@
   },
   {
     "Num": "444-mp",
-    "Progress": "notProceeded",
+    "Progress": "unprofiled",
+    "Images": { "concept_PNGName": "cnsp_img444-mp" },
     "AnotherVersions_DBLink": [
       { "_Work": "NumberTales", "_DB": "SemiPrimary", "Num": 444 }
     ],
@@ -1103,7 +1105,7 @@
   },
   {
     "Num": "666-mp",
-    "Progress": "released",
+    "Progress": "unprofiled",
     "AnotherVersions_DBLink": [
       { "_Work": "NumberTales", "_DB": "SemiPrimary", "Num": 666 }
     ],
@@ -1179,7 +1181,7 @@
     "sec_Category": "リクエストナンバー",
     "sec_DesignedBy": ["RadianN"],
     "Num": 753,
-    "Progress": "released",
+    "Progress": "unprofiled",
     "Images": { "concept_PNGName": "cnsp_img753" },
     "Name_JP": "753(ナゴミ)",
     "Name_EN": "753(Sefenvet-hirs)",
@@ -1227,7 +1229,7 @@
   },
   {
     "Num": "777-mp",
-    "Progress": "released",
+    "Progress": "unprofiled",
     "AnotherVersions_DBLink": [
       { "_Work": "NumberTales", "_DB": "SemiPrimary", "Num": 777 }
     ],
@@ -1259,7 +1261,7 @@
   },
   {
     "Num": "777.Jackpot-mp",
-    "Progress": "released",
+    "Progress": "unprofiled",
     "AnotherVersions_DBLink": [
       { "_Work": "NumberTales", "_DB": "SemiPrimary", "Num": 777 }
     ],
