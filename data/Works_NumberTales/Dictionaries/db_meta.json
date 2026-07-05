@@ -6,6 +6,13 @@
       "keyField": "Class",
       "compatListKey": "#List_Class"
     },
+    "#Dict_Triples": {
+      "DB_Label_JP": "クラス辞書(トリプル向け)",
+      "DB_Label_EN": "Class Dictionary (for Triples)",
+      "keyField": "Class",
+      "compatListKey": "#List_Class",
+      "scopeField": { "isTriple": true }
+    },
     "#Dict_Formation": {
       "DB_Label_JP": "形態辞書",
       "DB_Label_EN": "Formation Dictionary",
