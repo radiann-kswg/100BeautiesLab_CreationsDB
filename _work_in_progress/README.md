@@ -35,6 +35,7 @@
 | Issue機能追加                     | [2026-07-04_progress_issue-feature.md](./2026-07-04_progress_issue-feature.md)                                                                                      | ⚠️ GitHub上のテンプレート最終表示確認のみ残（構造・デプロイ状態はAPI経由で検証済み） |
 | ADR-0002（Google Cloud 画像生成） | [2026-06-21_progress_cloudflare-api-adr2-gcloud.md](./2026-06-21_progress_cloudflare-api-adr2-gcloud.md)                                                            | Draft・設計検討中                                                                   |
 | addon-ai-tag 逆マージ事故記録     | [2026-07-02_progress_addon-ai-tag-reverse-merge-incident.md](./2026-07-02_progress_addon-ai-tag-reverse-merge-incident.md)                                          | ⚠️ addon-ai-tag側ログへの後日談追記が保留中                                         |
+| UnibyteLive アルベッツ苗字命名   | [2026-07-06_progress_unibytelive-formalname-draft.md](./2026-07-06_progress_unibytelive-formalname-draft.md)                                                        | ⚠️ 下書き入力24件・User最終レビュー待ち（`npm test` 22files/178tests成功済み）      |
 
 ### 系列の補足（過去フェーズは `.completed/` 参照）
 

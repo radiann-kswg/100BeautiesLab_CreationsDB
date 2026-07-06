@@ -66,6 +66,30 @@
     "BirthDay": { "Day": { "Month": 2, "DayOfMonth": 15 } }
   },
   {
+    "Letter": { "Alphabet": "R", "AlphaGen": 1 },
+    "Progress": "notProceeded",
+    "FormalName_JP": "絡田 巡",
+    "FormalName_JPReading": "らくた めぐり",
+    "FormalName_EN": "Roames Rakuta",
+    "Height_cm": 148,
+    "BustSize": "A",
+    "Age": 21,
+    "BirthDay": { "Day": { "Month": 11, "DayOfMonth": 8 } },
+    "Belonging": ["照梅テクノロジー"]
+  },
+  {
+    "Letter": { "Alphabet": "P", "AlphaGen": 1 },
+    "Progress": "notProceeded",
+    "FormalName_JP": "鶴崎 わなみ",
+    "FormalName_JPReading": "つるさき わなみ",
+    "FormalName_EN": "Trappy Tsurusaki",
+    "Height_cm": 148,
+    "BustSize": "B",
+    "Age": 19,
+    "BirthDay": { "Day": { "Month": 11, "DayOfMonth": 17 } },
+    "Belonging": ["アルベッツ被害者の会"]
+  },
+  {
     "Letter": { "Alphabet": "S", "AlphaGen": 1 },
     "Progress": "notProceeded",
     "FormalName_JP": "氷山 メサイア",
