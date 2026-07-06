@@ -59,7 +59,11 @@
 
 ## 未完了タスク・注意点
 
-- **GitHub上でのテンプレート最終表示確認は未実施**（ローカルでYAML構文は目視確認したのみ）。User側で一度 `https://github.com/radiann-kswg/100BeautiesLab_CreationsDB/issues/new/choose` を開き、テンプレート選択画面・フォーム項目の見え方を確認してもらえると安心。
+- **GitHub上でのテンプレート最終表示確認**（2026-07-06 追記）: `gh api` でリモート側の状態を確認できる範囲は確認済み。
+  - `has_issues: true`（Issues機能はON）、`.github/ISSUE_TEMPLATE/` 配下に `config.yml` / `data-correction.yml` / `feature-suggestion.yml` の3ファイルがリモートに存在しローカルと内容一致。
+  - 両テンプレートのYAMLは GitHub Issue Forms の記法（`body[].type: markdown/dropdown/input/textarea/checkboxes`, `validations.required`, id重複なし）に沿っており構造的な破綻は無い。
+  - ただし `https://github.com/.../issues/new/choose` は GitHub 側がサインインを要求するページのため、Claude側の自動ツール（WebFetch）では実際のレンダリング（ドロップダウンの見え方等）まで確認できなかった（サインイン画面にリダイレクトされる）。
+  - → **この最終見た目確認だけは、User が実際にログイン済みブラウザで一度開いて見てもらう必要が残る**（30秒程度で完了する想定）。
 - **`feature-suggestion.yml` からサイトへの動線は未設置**（データ修正報告のみサイト連携。機能提案はGitHub側から直接起票する運用を想定）。必要であれば別途サイト側にも導線を追加可能。
 - Issue管理ラベル（`data-correction` / `enhancement`）はテンプレート側で指定済みだが、リポジトリ側にラベル自体が事前定義されているかは未確認（無ければGitHubが自動作成する想定）。
 - `characters.css` は手動同期のため、今後 `characters.sass` を編集する際は必ず対応差分を `characters.css` にも反映する（自動コンパイル環境が無い場合、フル再コンパイルすると autoprefixer 差分で無関係な変更が入るため要注意）。

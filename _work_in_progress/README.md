@@ -24,6 +24,7 @@
 | --------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- |
 | タスク管理・起点                  | [2026-07-03_current-task-ledger.md](./2026-07-03_current-task-ledger.md)                                                                                            | 進行中タスクの一覧（P1/P2/P3）                                                      |
 | タスク管理・母艦                  | [2026-06-01_remaining-task.md](./2026-06-01_remaining-task.md) / [2026-06-13_remaining-task.md](./2026-06-13_remaining-task.md)                                     | 中長期の残留・希望タスク一覧（継続参照）                                            |
+| GitHub Issue/PR トリアージ        | [2026-07-06_github-triage.md](./2026-07-06_github-triage.md)                                                                                                         | ✅ 追加対応不要（Actions画面での目視確認のみ推奨）。scheduled task `morning-github-issue-triage` による自動生成・毎回最新版が正 |
 | AppearanceDetail データ整備       | [2026-06-30_progress_appearance-detail-cleanup.md](./2026-06-30_progress_appearance-detail-cleanup.md)                                                              | ⚠️ BodyPart手動入力・既存不整合修正が残（current-task-ledger P1）                   |
 | ConversationPattern 引き継ぎ      | [2026-06-28_progress_conversationpattern-handoff.md](./2026-06-28_progress_conversationpattern-handoff.md)                                                          | ⚠️ sub2側後処理が残（current-task-ledger P2）                                       |
 | `*_DBLink` enrich/renderer        | [2026-06-18_progress_dblink-enrich.md](./2026-06-18_progress_dblink-enrich.md) / [2026-06-18_progress_dblink-renderer.md](./2026-06-18_progress_dblink-renderer.md) | ⚠️ 作品別typedefへのフィールド追加・ブラウザ確認待ち                                |
@@ -32,12 +33,9 @@
 | Localization Summary 入力         | [2026-06-25_progress_localization-summary-inputs.md](./2026-06-25_progress_localization-summary-inputs.md)                                                          | ⚠️ 入力チェックリスト（残7件、User手動）                                            |
 | 英訳ルール追補・calling.js        | [2026-06-24_progress_localization-rules-audit.md](./2026-06-24_progress_localization-rules-audit.md)                                                                | ⚠️ calling.js のユニットテスト/UI確認が残（後続: `fix_calling-schema-duplication`） |
 | Calling系表示バグ修正             | [2026-07-04_fix_calling-schema-duplication.md](./2026-07-04_fix_calling-schema-duplication.md)                                                                      | ⚠️ 他作品への影響スポット確認・テストケース追加検討が残                             |
-| Issue機能追加                     | [2026-07-04_progress_issue-feature.md](./2026-07-04_progress_issue-feature.md)                                                                                      | ⚠️ GitHub上のテンプレート最終表示確認が残                                           |
-| Google カレンダー push 同期       | [2026-07-04_progress_gcal-push-sync.md](./2026-07-04_progress_gcal-push-sync.md)                                                                                    | ✅ 初回同期完了・運用フェーズ                                                       |
-| カレンダー色分け・2/29・和文統一  | [2026-07-04_progress_calendar-color-leap-jp.md](./2026-07-04_progress_calendar-color-leap-jp.md)                                                                    | ⚠️ commit/push 後の再同期確認が残                                                   |
+| Issue機能追加                     | [2026-07-04_progress_issue-feature.md](./2026-07-04_progress_issue-feature.md)                                                                                      | ⚠️ GitHub上のテンプレート最終表示確認のみ残（構造・デプロイ状態はAPI経由で検証済み） |
 | ADR-0002（Google Cloud 画像生成） | [2026-06-21_progress_cloudflare-api-adr2-gcloud.md](./2026-06-21_progress_cloudflare-api-adr2-gcloud.md)                                                            | Draft・設計検討中                                                                   |
 | addon-ai-tag 逆マージ事故記録     | [2026-07-02_progress_addon-ai-tag-reverse-merge-incident.md](./2026-07-02_progress_addon-ai-tag-reverse-merge-incident.md)                                          | ⚠️ addon-ai-tag側ログへの後日談追記が保留中                                         |
-| dict_Triples.json クラス再編成    | [2026-07-06_progress_dict-triples-consolidation.md](./2026-07-06_progress_dict-triples-consolidation.md)                                                            | ⚠️ 新クラス名(ドラフト案)のUser最終確認・`777.Jackpot`のClass欠落対応が残           |
 
 ### 系列の補足（過去フェーズは `.completed/` 参照）
 
@@ -49,6 +47,12 @@
 ## 完了（.completed へ退避済み）
 
 以下のファイルは実装・検証が完了し、`_work_in_progress/.completed/` へ移動済みです（Git 管轄外）。
+
+### 2026-07-06 棚卸しで追加退避（3件）
+
+- `2026-07-04_progress_gcal-push-sync.md`（Googleカレンダーpush同期・初回同期でDB側187件とカレンダー側187件が完全一致・運用フェーズへ移行済み）
+- `2026-07-04_progress_calendar-color-leap-jp.md`（作品色分け・2/29対応・和文統一。commit `dc38112` 既push済み・Actions run 28722297754 で `追加=0 更新=187 削除=0` 確認・ローカル `npm test` 22files/178tests 成功確認）
+- `2026-07-06_progress_dict-triples-consolidation.md`（dict_Triples.json 30クラス再編成。`777.Jackpot`のClass欠落解消済みを確認し、新クラス名30件をUserが正式採用済み）
 
 ### 2026-07-04 棚卸しで追加退避（22件）
 
@@ -147,3 +151,5 @@
 - 2026-07-03 の再棚卸しで、P6完了ログ（bilingual wrapper / Day-Era-Area typedef / secondary UI tidy）を「完了・運用反映済み」へ反映しました。
 - 2026-07-03 の実退避で、P6 完了ログ一式 + DBLink ブラウザ確認ログ（計4件）を `.completed/` へ移動しました。
 - **2026-07-04 の大規模棚卸しで、後続ログ（`deepl-production-run` 等）で内容が上書き・解消済みと確認できたものを含む 22件を `.completed/` へ一括退避し、直下のファイル数を 37件 → 15件に削減。あわせて README のトピック索引を時系列列挙からトピック別テーブル形式に再構成し、「どのログがどのタスクに対応するか」を一目で追えるようにしました。**
+- 2026-07-06 の棚卸しで、`gcal-push-sync`（初回同期・全件一致確認済み）を `.completed/` へ退避。`github-triage` の最新ログをトピック索引へ追加。他の ⚠️ 付きログ（`calendar-color-leap-jp` / `issue-feature` / `fix_calling-schema-duplication` / `dblink-enrich` / `dblink-renderer`）は中身を再確認したが、いずれも未完了タスクが実際に残っているため現状維持。あわせて `.cache/` 配下（一次翻訳・移行バッチ等、既に `data/` へ反映済み・再現可能な一時出力）を全件清掃。
+- 2026-07-06 の追加対応で、`calendar-color-leap-jp` は commit `dc38112` 既push・Actions run 28722297754 で期待値どおりの同期結果・ローカル `npm test`（22files/178tests）成功を確認し、`.completed/` へ退避。`issue-feature` はGitHub API経由でテンプレートのデプロイ状態・YAML構造を検証（ブラウザでの最終見た目確認のみUser待ち）。`dict-triples-consolidation` は `777.Jackpot` のClass欠落解消をデータ側で確認したうえで、新クラス名30件をUserへ提示し「全30件、これで採用しよう」と正式採用を確認、`.completed/` へ退避。
