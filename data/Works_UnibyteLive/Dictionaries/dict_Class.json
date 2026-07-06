@@ -16,14 +16,6 @@
     "Class_EN": "Current ALPBETS"
   },
   {
-    "Class": "アルベッツ卒業生",
-    "Class_EN": "ALPBETS OG."
-  },
-  {
-    "Class": "アルベッツ追放もしくはアカウント凍結",
-    "Class_EN": "ALPBETS Expelled or Account Suspended"
-  },
-  {
     "Class": "アバターモデラ(通常アバター担当)",
     "Class_EN": "Avatar Modeler (for humanoid Avatar)"
   },
@@ -40,7 +32,19 @@
     "Class_EN": "Game Engine Engineer"
   },
   {
+    "Class": "『ユニバイト・ユニバース』国際公認アンバサダー",
+    "Class_EN": "'Unibyte Universe' Internationally Trusted Ambassador"
+  },
+  {
     "Class": "アルベッツの？？？",
     "Class_EN": "??? of ALPBETS"
+  },
+  {
+    "Class": "アルベッツ卒業生",
+    "Class_EN": "ALPBETS OG."
+  },
+  {
+    "Class": "アルベッツ追放もしくはアカウント凍結",
+    "Class_EN": "ALPBETS Expelled or Account Suspended"
   }
 ]

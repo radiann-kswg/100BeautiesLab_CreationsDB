@@ -75,12 +75,22 @@ E:三枝（作曲家三枝成彰氏）、X(初代):交野（大阪府交野市�
 
 - `npm test` → 22 test files / 178 tests **全件 pass** ✅
 
+## 追加対応（2026-07-06 続）
+
+- User自身がFormalName/CodeNameの多数を推敲（読み変更・CodeName表現の調整・O/Vの`Name_EN`変更
+  Orvy→Orby, Veen→Vaulte 等）。一春側はこれらを一切変更せず維持。
+- ボーナス案だった I・O の2代目候補を、User依頼により`db_Primary.json`へ**名前まわりのみ**新規レコードとして
+  仮入力（Height_cm等の基礎情報は未設定のため省略）:
+  - `I:カーソル/Inactive`（4期・AlphaGen2）: 点井カーソル／てんいカーソル／Inactive I-Cursor
+  - `O:マリル/Objeroll`（6期・AlphaGen2）: 球田マリル／たまだマリル／Objeroll O-Roll
+  - 配置は各々の初代(AlphaGen1)レコード直後に挿入（P/Q/R/S/Tのように初代を末尾へ動かす移設は今回未実施）
+- `npm test` → 22 test files / 178 tests 全件pass ✅（追加後も回帰なし）
+
 ## 未完了タスク / 今後の課題
 
-- 今回の24件はあくまで**下書き**。User自身が目視レビューし、特にH・R(初代)の再設計分を含め
-  必要に応じて個別修正する想定。
-- ボーナス案として提示した I・O の2代目候補（`I:カーソル/Inactive`(4期)・`O:マリル/Objeroll`(6期)）は
-  **未実装**。Height_cm等の基礎情報が無いため、DBへの新規レコード追加は別途User判断待ち。
+- 今回の24+2件はあくまで**下書き**。User自身が目視レビュー・推敲を継続中。
+- I・O の2代目はHeight_cm/ConceptAge/BustSize/AnivDay/Classが未設定。本採用する場合は追加入力が必要。
+- I・O の2代目の配置（初代をP/Q/R/S/T同様に末尾へ移設するか）は保留。
 - 軽度の命名衝突メモ（E:三枝／X初代:交野）は据え置きのため、気になる場合は個別に差し替え検討。
 
 ## 参考

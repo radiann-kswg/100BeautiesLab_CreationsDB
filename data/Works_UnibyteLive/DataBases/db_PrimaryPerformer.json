@@ -22,6 +22,18 @@
     "BirthDay": { "Day": { "Month": 7, "DayOfMonth": 23 } }
   },
   {
+    "Letter": { "Alphabet": "I", "AlphaGen": 2 },
+    "Progress": "notProceeded",
+    "FormalName_JP": "桜花 孝\n孝 ヴァーチュングレイス=春洋",
+    "FormalName_JPReading": "おうか たかむ\nたかむ ヴァーチュングレイス=はるなみ",
+    "FormalName_EN": "Filia.Pieter Cherrybroom\nFilia.Pieter Virtuengrace=Springer",
+    "Height_cm": 154,
+    "BustSize": "A",
+    "Age": 19,
+    "BirthDay": { "Day": { "Month": 4, "DayOfMonth": 13 } },
+    "Belonging": ["スターダスト・テクノロジー"]
+  },
+  {
     "Letter": { "Alphabet": "N", "AlphaGen": 1 },
     "Progress": "notProceeded",
     "FormalName_JP": "向居 カミーユ",
@@ -42,6 +54,19 @@
     "BustSize": "B",
     "Age": 25,
     "BirthDay": { "Day": { "Month": 6, "DayOfMonth": 28 } }
+  },
+  {
+    "Letter": { "Alphabet": "O", "AlphaGen": 2 },
+    "Progress": "unprofiled",
+    "FormalName_JP": "扇 零夏.オーバーロール\n扇 零夏.オーダーロール",
+    "FormalName_JPReading": "おうぎ れいか.オーバーロール\nおうぎ れいか.オーダーロール",
+    "FormalName_EN": "Arch Origth.Ovderroll",
+    "Height_cm": 159,
+    "BustSize": "G",
+    "Age": { "about_JP": "不詳", "about_EN": "Unknown or Undefined" },
+    "BirthDay": { "Day": { "Month": 7, "DayOfMonth": 11 } },
+    "Belonging": ["国際情報広報機関『ミハイル』"],
+    "Class": ["『創造者』代理人"]
   },
   {
     "Letter": { "Alphabet": "S", "AlphaGen": 2 },

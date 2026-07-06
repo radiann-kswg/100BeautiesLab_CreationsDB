@@ -72,6 +72,15 @@
     "isMaker": false
   },
   {
+    "Faction": "スターダスト・テクノロジー",
+    "Faction_EN": "Stardust Technology",
+    "Belonging": "スターダスト・テクノロジー",
+    "Belonging_EN": "Stardust Technology",
+    "BelongingArea": { "Area": "雄志結国" },
+    "isForSecondary": false,
+    "isMaker": true
+  },
+  {
     "Faction": "ラストラステクニカ-インストゥルメント",
     "Faction_EN": "LustrousTechnica Instrument",
     "Belonging": "ラストラステクニカ-インストゥルメント",
