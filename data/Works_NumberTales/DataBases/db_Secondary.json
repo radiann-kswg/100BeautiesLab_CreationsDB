@@ -5,7 +5,7 @@
     "sec_SeriesTitle": "ヘキサデミカル・テールズ",
     "Images": {
       "concept_PNGName": "hexademical/cnsp_img0xA",
-      "corefolder_PNGPath": ["0xA/emstk_corefolder0xA-1"]
+      "corefolder_PNGPath": ["hexademical/0xA/emstk_corefolder0xA-1"]
     },
     "Name_JP": "0xA(エース)",
     "Name_EN": "0xA(Ace)",
@@ -141,7 +141,7 @@
     "sec_SeriesTitle": "ヘキサデミカル・テールズ",
     "Images": {
       "concept_PNGName": "hexademical/cnsp_img0xB",
-      "corefolder_PNGPath": ["0xB/emstk_corefolder0xB-1"]
+      "corefolder_PNGPath": ["hexademical/0xB/emstk_corefolder0xB-1"]
     },
     "Name_JP": "0xB(ベータ)",
     "Name_EN": "0xB(Beta)",
@@ -292,8 +292,8 @@
     "Images": {
       "concept_PNGName": "hexademical/cnsp_img0xC",
       "corefolder_PNGPath": [
-        "0xC/emstk_corefolder0xC-1",
-        "0xC/emstk_corefolder0xC-2"
+        "hexademical/0xC/emstk_corefolder0xC-1",
+        "hexademical/0xC/emstk_corefolder0xC-2"
       ]
     },
     "Name_JP": "0xC(セレス)",
@@ -438,8 +438,8 @@
     "Images": {
       "concept_PNGName": "hexademical/cnsp_img0xD",
       "corefolder_PNGPath": [
-        "0xD/emstk_corefolder0xD-1",
-        "0xD/emstk_corefolder0xD-2"
+        "hexademical/0xD/emstk_corefolder0xD-1",
+        "hexademical/0xD/emstk_corefolder0xD-2"
       ]
     },
     "Name_JP": "0xD(デプス)",
@@ -590,7 +590,7 @@
     "sec_SeriesTitle": "ヘキサデミカル・テールズ",
     "Images": {
       "concept_PNGName": "hexademical/cnsp_img0xE",
-      "corefolder_PNGPath": ["0xE/emstk_corefolder0xE-1"]
+      "corefolder_PNGPath": ["hexademical/0xE/emstk_corefolder0xE-1"]
     },
     "Name_JP": "0xE(エネ)",
     "Name_EN": "0xE(Enè)",
@@ -719,10 +719,10 @@
     "Images": {
       "concept_PNGName": "hexademical/cnsp_img0xF",
       "corefolder_PNGPath": [
-        "0xF/emstk_corefolder0xF-1",
-        "0xF/emstk_corefolder0xF-2",
-        "0xF/emstk_corefolder0xF-1a",
-        "0xF/emstk_corefolder0xF-2a"
+        "hexademical/0xF/emstk_corefolder0xF-1",
+        "hexademical/0xF/emstk_corefolder0xF-2",
+        "hexademical/0xF/emstk_corefolder0xF-1a",
+        "hexademical/0xF/emstk_corefolder0xF-2a"
       ]
     },
     "Name_JP": "0xF(フォルテ)",
@@ -944,7 +944,10 @@
     "sec_SeriesTitle": "ナンバーテールズ化企画",
     "Num": "241-numberize",
     "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 241 }],
-    "Images": { "concept_PNGName": "numberize/cnsp_img241-numberize" },
+    "Images": {
+      "concept_PNGName": "numberize/cnsp_img241-numberize",
+      "corefolder_PNGPath": ["numberize/emstk_corefolder241-numberize1"]
+    },
     "Name_JP": "(ナンバーテールズ化企画絵)",
     "Name_EN": "(Illustration of NumberizeTales Project)",
     "Class": ["ナンバーテールズ化"],
@@ -1142,7 +1145,10 @@
     "sec_SeriesTitle": "ナンバーテールズ化企画",
     "Num": "605-numberize",
     "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 605 }],
-    "Images": { "concept_PNGName": "numberize/cnsp_img605-numberize" },
+    "Images": {
+      "concept_PNGName": "numberize/cnsp_img605-numberize",
+      "corefolder_PNGPath": ["numberize/emstk_corefolder605-numberize1"]
+    },
     "Name_JP": "(ナンバーテールズ化企画絵)",
     "Name_EN": "(Illustration of NumberizeTales Project)",
     "Class": ["ナンバーテールズ化"],

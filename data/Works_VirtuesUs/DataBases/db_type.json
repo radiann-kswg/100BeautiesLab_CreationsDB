@@ -1,16 +1,16 @@
 {
   "$IndexDef": {
-    "hashTag": "Drc",
+    "hashTag": "Virtues",
     "$type": "#ListIndex",
-    "hashTag_JP": "方角",
-    "hashTag_EN": "Direction"
+    "hashTag_JP": "美徳",
+    "hashTag_EN": "Virtues"
   },
   "$DefType": [
     {
-      "hashTag": "Drc",
+      "hashTag": "Virtues",
       "$type": "#Index",
-      "hashTag_JP": "方角",
-      "hashTag_EN": "Direction"
+      "hashTag_JP": "美徳",
+      "hashTag_EN": "Virtues"
     },
     {
       "hashTag": "Images",

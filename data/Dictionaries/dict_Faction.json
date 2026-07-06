@@ -27,6 +27,15 @@
     "isMaker": null
   },
   {
+    "Faction": "九蓮国皇族",
+    "Faction_EN": "Royal of LotusNinea(n)",
+    "Belonging": "九蓮国皇族",
+    "Belonging_EN": "Royal of LotusNinea(n)",
+    "BelongingArea": { "Area": "九蓮国" },
+    "isForSecondary": false,
+    "isMaker": false
+  },
+  {
     "Faction": "照梅テクノロジー",
     "Faction_EN": "Shôbai Technology",
     "Belonging": "照梅テクノロジー",
@@ -70,6 +79,15 @@
     "BelongingArea": { "Area": "雄志結国" },
     "isForSecondary": false,
     "isMaker": false
+  },
+  {
+    "Faction": "スターダスト・テクノロジー",
+    "Faction_EN": "Stardust Technology",
+    "Belonging": "スターダスト・テクノロジー",
+    "Belonging_EN": "Stardust Technology",
+    "BelongingArea": { "Area": "雄志結国" },
+    "isForSecondary": false,
+    "isMaker": true
   },
   {
     "Faction": "ラストラステクニカ-インストゥルメント",

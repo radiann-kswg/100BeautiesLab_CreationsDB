@@ -120,6 +120,13 @@
   {
     "Chronos": { "Lunar": "Yayoi" },
     "Progress": "nowCreating",
+    "AnotherRegions_DBLink": [
+      {
+        "_Work": "VirtuesUs",
+        "_DB": "SemiPrimary",
+        "Virtues": "信"
+      }
+    ],
     "Images": { "concept_PNGName": "cnsp_imgCL3G3" },
     "Name_JP": "桜花 信",
     "Name_JPReading": "おうか とき",

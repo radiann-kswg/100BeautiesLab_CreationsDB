@@ -163,6 +163,7 @@
     "RaceType": "HalfNekomata",
     "GenderType": "Female",
     "Belonging": ["新生九蓮"],
+    "Class": ["新生九蓮 陛下"],
     "Height_cm": 145,
     "Weight_kg": { "hideText": "？？？" },
     "BustSize": "A",

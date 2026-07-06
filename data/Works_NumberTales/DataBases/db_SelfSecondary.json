@@ -404,23 +404,32 @@
     "sec_Category": "リクエストナンバー",
     "sec_DesignedBy": ["RadianN"],
     "Num": 223,
-    "Progress": "unprofiled",
+    "Progress": "nowRecreating",
     "Images": { "concept_PNGName": "cnsp_img223" },
     "Name_JP": "223(ツヅサ)",
     "Name_EN": "223(Twitwenthir)",
-    "FormalName_JP": "量産型ナンバーテールズ223番機シリーズ",
-    "FormalName_EN": "NumberTales #223 Series Mass Production Version for Sales",
-    "ModelNumber": "APHR-NT [MP]223-*****",
+    "FormalName_JP": "量産型ナンバーテールズ223番機JWシリーズ(ナンバーテールズ223番機)",
+    "FormalName_EN": "NumberTales #223-JW Series Mass Production Version for Sales (NumberTales #223)",
+    "ModelNumber": "APHR-NT [MP]223-JW***",
     "CodeName_JP": "二二三",
     "CodeName_EN": "Two-Two-Three",
+    "SPCodeName_JP": "(令和天皇の誕生日)",
+    "SPCodeName_EN": "(Emperor Reiwa's Birthday in Far-Eastern Calendar)",
     "GenderType": "Neutral",
     "Height_cm": 151,
     "ConceptAge": 15,
+    "AnivDay": [
+      {
+        "Day": { "Month": 2, "DayOfMonth": 23 },
+        "DayAbout_JP": "開発記念(ワノマチ名義)",
+        "DayAbout_EN": "Development commemoration (in Wa-no-Machi Class)"
+      }
+    ],
     "Weight_kg": 41,
     "BustSize": "AA",
-    "TailsUnit_JP": "サソリ型2本（各11束[節]）\n+キツネ型3本",
-    "TailsUnit_EN": "Scorpion Type: 2 Tails (11 Tufts [Segments] each)\n+Fox Type: 3 Tails",
-    "Class": ["デュオトリプル7型"]
+    "TailsUnit_JP": "サソリ型2本×11束[節]+キツネ型3本",
+    "TailsUnit_EN": "Scorpion Type: 2 Tails x 11 Tufts/Segments + Fox Type: 3 Tails",
+    "Class": ["デュオトリプル7型", "ワノマチ"]
   },
   {
     "Num": 227,
@@ -1208,22 +1217,34 @@
     "sec_Category": "リクエストナンバー",
     "sec_DesignedBy": ["RadianN"],
     "Num": 753,
-    "Progress": "unprofiled",
-    "Images": { "concept_PNGName": "cnsp_img753" },
+    "Progress": "nowRecreating",
+    "Images": {
+      "concept_PNGName": "cnsp_img753",
+      "corefolder_PNGPath": ["753/emstk_corefolder753-1"]
+    },
     "Name_JP": "753(ナゴミ)",
-    "Name_EN": "753(Sefenvet-hirs)",
-    "FormalName_JP": "量産型ナンバーテールズ753番機シリーズ",
-    "FormalName_EN": "NumberTales #753 Series Mass Production Version for Sales",
-    "ModelNumber": "APHR-NT [MP]753-*****",
+    "Name_EN": "753(Nagomi)\n753(Sefenvethirs)",
+    "FormalName_JP": "量産型ナンバーテールズ753番機JWシリーズ(ナンバーテールズ753番機)",
+    "FormalName_EN": "NumberTales #753-JW Series Mass Production Version for Sales (NumberTales #753)",
+    "ModelNumber": "APHR-NT [MP]753-JW***",
     "CodeName_JP": "七五三",
     "CodeName_EN": "Seven-Five-Three",
+    "SPCodeName_JP": "七五三: 和風文化における子供の儀式",
+    "SPCodeName_EN": "Shichi-Go-San: Far-Eastern Ceremony for Children",
     "GenderType": "Neutral",
     "Height_cm": 153,
     "ConceptAge": 16,
+    "AnivDay": [
+      {
+        "Day": { "Month": 11, "DayOfMonth": 15 },
+        "DayAbout_JP": "開発記念(ワノマチ名義)",
+        "DayAbout_EN": "Development commemoration (in Wa-no-Machi Class)"
+      }
+    ],
     "BustSize": "A",
-    "TailsUnit_JP": "キツネ(枝分かれ)型7本15束",
-    "TailsUnit_EN": "Fox (Branched) Type: 7 Tails, 15 Tufts",
-    "Class": ["トリプルシックスズ"]
+    "TailsUnit_JP": "キツネ(枝分かれ)型7本15束\n下から上に向かって:3本が3束(アクセントカラーあり)+2本が2束(アクセントカラーあり)+1本が1束(アクセントカラーなし)",
+    "TailsUnit_EN": "Fox (Branched) Type: 7 Tails, 15 Tufts\nFrom Bottom to Top: 3 Tails x 3 Tufts (with Accent Color) + 2 Tails x 2 Tufts (with Accent Color) + 1 Tail x 1 Tuft (without Accent Color)",
+    "Class": ["トリプルシックスズ", "ワノマチ"]
   },
   {
     "Num": 773,

@@ -18,6 +18,7 @@
       },
       "_Commons": {
         "Belonging": ["アルベッツ"],
+        "Class": ["現役アルベッツ"],
         "RaceType": "VirtualAvatar",
         "GenderType": "FemaleNeutral"
       },

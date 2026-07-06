@@ -22,6 +22,25 @@
     "BirthDay": { "Day": { "Month": 7, "DayOfMonth": 23 } }
   },
   {
+    "Letter": { "Alphabet": "I", "AlphaGen": 2 },
+    "Progress": "notProceeded",
+    "AnotherRegions_DBLink": [
+      {
+        "_Work": "VirtuesUs",
+        "_DB": "SemiPrimary",
+        "Virtues": "孝"
+      }
+    ],
+    "FormalName_JP": "桜花 孝\n孝 ヴァーチュングレイス=春洋",
+    "FormalName_JPReading": "おうか たかむ\nたかむ ヴァーチュングレイス=はるなみ",
+    "FormalName_EN": "Filia.Pieter Cherrybroom\nFilia.Pieter Virtuengrace=Springer",
+    "Height_cm": 154,
+    "BustSize": "A",
+    "Age": 19,
+    "BirthDay": { "Day": { "Month": 4, "DayOfMonth": 13 } },
+    "Belonging": ["スターダスト・テクノロジー"]
+  },
+  {
     "Letter": { "Alphabet": "N", "AlphaGen": 1 },
     "Progress": "notProceeded",
     "FormalName_JP": "向居 カミーユ",
@@ -44,6 +63,19 @@
     "BirthDay": { "Day": { "Month": 6, "DayOfMonth": 28 } }
   },
   {
+    "Letter": { "Alphabet": "O", "AlphaGen": 2 },
+    "Progress": "unprofiled",
+    "FormalName_JP": "扇 零夏.オーバーロール\n扇 零夏.オーダーロール",
+    "FormalName_JPReading": "おうぎ れいか.オーバーロール\nおうぎ れいか.オーダーロール",
+    "FormalName_EN": "Arch Origth.Ovderroll",
+    "Height_cm": 159,
+    "BustSize": "G",
+    "Age": { "about_JP": "不詳", "about_EN": "Unknown or Undefined" },
+    "BirthDay": { "Day": { "Month": 7, "DayOfMonth": 11 } },
+    "Belonging": ["国際情報広報機関『ミハイル』"],
+    "Class": ["『創造者』代理人"]
+  },
+  {
     "Letter": { "Alphabet": "S", "AlphaGen": 2 },
     "Progress": "notProceeded",
     "FormalName_JP": "南 まな",
@@ -64,6 +96,30 @@
     "BustSize": "C",
     "Age": 27,
     "BirthDay": { "Day": { "Month": 2, "DayOfMonth": 15 } }
+  },
+  {
+    "Letter": { "Alphabet": "R", "AlphaGen": 1 },
+    "Progress": "notProceeded",
+    "FormalName_JP": "絡田 巡",
+    "FormalName_JPReading": "らくた めぐり",
+    "FormalName_EN": "Roames Rakuta",
+    "Height_cm": 148,
+    "BustSize": "A",
+    "Age": 21,
+    "BirthDay": { "Day": { "Month": 11, "DayOfMonth": 8 } },
+    "Belonging": ["照梅テクノロジー"]
+  },
+  {
+    "Letter": { "Alphabet": "P", "AlphaGen": 1 },
+    "Progress": "notProceeded",
+    "FormalName_JP": "鶴崎 わなみ",
+    "FormalName_JPReading": "つるさき わなみ",
+    "FormalName_EN": "Trappy Tsurusaki",
+    "Height_cm": 148,
+    "BustSize": "B",
+    "Age": 19,
+    "BirthDay": { "Day": { "Month": 11, "DayOfMonth": 17 } },
+    "Belonging": ["アルベッツ被害者の会"]
   },
   {
     "Letter": { "Alphabet": "S", "AlphaGen": 1 },

@@ -1,0 +1,30 @@
+{
+  "Databases": {
+    "#DB_SemiPrimary": {
+      "DB_Label_JP": "準一次創作",
+      "DB_Label_EN": "SemiPrimary",
+      "DB_Summary": "このアンソロジーに相当するキャラクター。\n八徳それぞれをモチーフにしている。",
+      "DB_Summary_EN": "Characters corresponding to this anthology.\nEach character is inspired by one of the Eight Virtues.",
+      "StoryEra": {
+        "InEra": [{ "EraGen": 8, "YearInEra": 6 }, { "byRealYear": 2050 }],
+        "StoryEraAbout_JP": "第8創世紀6年(西暦2050年相当)周辺",
+        "StoryEraAbout_EN": "in around WDCE.VIII.6(Equivalent to in around: DC.2050)"
+      },
+      "_Commons": { "Progress": "notProceeded" }
+    }
+  },
+  "General": {
+    "$VarsDef": {
+      "#List_Virtues": [
+        { "Virtues": "仁", "Virtues_EN": "Benevolence" },
+        { "Virtues": "義", "Virtues_EN": "Righteousness" },
+        { "Virtues": "礼", "Virtues_EN": "Propriety" },
+        { "Virtues": "智", "Virtues_EN": "Wisdom" },
+        { "Virtues": "信", "Virtues_EN": "Trustworthiness" },
+        { "Virtues": "忠", "Virtues_EN": "Loyalty" },
+        { "Virtues": "孝", "Virtues_EN": "Filial Piety" },
+        { "Virtues": "悌", "Virtues_EN": "Brotherly Love" }
+      ]
+    }
+  }
+}
