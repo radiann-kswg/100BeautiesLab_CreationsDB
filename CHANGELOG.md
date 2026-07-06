@@ -1,5 +1,21 @@
 # 最新のリファクタリング・仕様変更履歴
 
+### add/fix: AppearanceDetail に `Costume` フィールド新設・BodyPart enum拡張・NumberTales Primary データ修正 (2026-07-06)
+
+- **`data/db_meta.json`**:
+  - `$Def_AppearanceDetail.$DefType` に `Costume`（`#DictIndex|#Null`, `$dict: "Costume"`）を新設。衣装バリエーション（例: 通常/ヲタク/アイドル/巫女）を、`value_JP/EN` 内の丸括弧注記だけでなく構造化フィールドとしても表現できるようにした（既存の丸括弧注記は互換のため残置）。
+  - `$EnumDef_DesignBodyPart` に `#BodyPart_Interchangeable`（付け替え可能・手持ち小道具用）と `#BodyPart_FaceMaking`（フェイスメイク）を追加。
+- **`data/Works_NumberTales/Dictionaries/dict_Costume.json`（新規）**: `usual` / `otaku` / `idol` / `miko` の4値。
+- **`lib/section-renders/appearanceDetail.js`**: `resolveCostumeLabel()`（`resolveFormationLabel()` と同パターン）を追加し、`Costume` をヘッダータグとして表示するよう拡張。
+- **`data/Works_NumberTales/DataBases/db_Primary.json`**: P1タスク（AppearanceDetailデータ整備）の残件処理。
+  - Num 8: JP/EN値コピペ起因の誤り修正（Expression要素のEN値がVRゴーグル要素のものになっていた）。
+  - Num 32: Emblem要素に混在していたExpression内容を分離、フェイスメイク該当箇所へ `#BodyPart_FaceMaking` を付与。
+  - Num 60: JP/EN値のローテーションずれ4箇所を修正、Expression/CostumeItem混在エントリを分割、衣装別エントリへ `Costume` を付与、「2パターンの衣装」プレースホルダーを削除。
+  - Num 61: 衣装別エントリへ `Costume` を付与、プレースホルダー削除、フェイスメイク該当箇所へ `#BodyPart_FaceMaking` を付与。
+  - Num 35: 巫女衣装エントリの `BodyPart` 不足を補完（胸・腰を追加）、小道具（御幣）へ `#BodyPart_Interchangeable` を付与、`Costume` 付与、プレースホルダー削除、フェイスメイク該当箇所へ付与。
+  - Num 16/18/23/34/53/71/81/99: 同一パターン（丸く剃られた眉・頬の横線メイク）のフェイスメイク該当箇所へ `#BodyPart_FaceMaking` を一括付与（計8箇所）。
+- 確認: `npm test`（22 files / 178 tests passed）。ローカルHTTPサーバー + Playwright でNum 35詳細表示を目視確認し、`Costume`（usual/miko）・`FaceMaking`・`Interchangeable` タグの表示とコンソールエラー無しを確認。
+
 ### refine: カレンダー(ICS/Google 同期)へ作品色・2/29 平年対応・説明欄の和文統一を追加 (2026-07-04)
 
 - **`data/db_type.json`（$MetaType.$Def_CreationWorkCatalog）**: `CalendarColorId`（カレンダー色ID, `#String|#Null`, internal）を宣言。

@@ -7,15 +7,15 @@
 
 ## 現行タスク一覧（develop 観点・優先順）
 
-### P1) AppearanceDetail 手動入力の残件処理（最優先）
+### P1) AppearanceDetail 手動入力の残件処理（最優先） → 2026-07-06 完了
 
 - 対象ログ:
-  - `2026-06-30_progress_appearance-detail-cleanup.md`
-- 残作業:
-  - BodyPart 手動入力 6 件
+  - `.completed/2026-06-30_progress_appearance-detail-cleanup.md`
+- 完了内容:
+  - BodyPart 手動入力 6 件（Num:35/60/61 は `Costume` フィールド新設 + プレースホルダー削除で対応）
   - Num:8 / 32 / 60 の既存不整合修正
-- 完了条件:
-  - データ修正後にテスト再実行し、差分内容をログへ反映
+  - `Costume`フィールド新設・`#BodyPart_Interchangeable`/`#BodyPart_FaceMaking` enum追加（User判断による追加スコープ）
+- テスト再実行済み（`npm test` 22 files / 178 tests）、詳細は`CHANGELOG.md`参照
 
 ### P2) ConversationPattern handoff の後処理
 

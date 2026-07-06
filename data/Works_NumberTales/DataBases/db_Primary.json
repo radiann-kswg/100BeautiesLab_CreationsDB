@@ -4338,7 +4338,7 @@
           {
             "AttrLabel": "#DesignAttr_Overview",
             "value_JP": "元気で旺盛な笑み",
-            "value_EN": "VR goggles(red and orange frame with orange lenses)"
+            "value_EN": "wide energetic grin"
           }
         ],
         "img_PNGName": null,
@@ -8801,7 +8801,7 @@
       },
       {
         "Formation": null,
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_FaceMaking"],
         "Laterality": null,
         "DesignElement": "#Element_Motif",
         "Attrs": [
@@ -9847,7 +9847,7 @@
       },
       {
         "Formation": null,
-        "BodyPart": ["#BodyPart_Head"],
+        "BodyPart": ["#BodyPart_FaceMaking"],
         "Laterality": null,
         "DesignElement": "#Element_Emblem",
         "Attrs": [
@@ -12559,7 +12559,7 @@
       },
       {
         "Formation": null,
-        "BodyPart": ["#BodyPart_Head"],
+        "BodyPart": ["#BodyPart_FaceMaking"],
         "Laterality": null,
         "DesignElement": "#Element_Emblem",
         "Attrs": [
@@ -17769,15 +17769,26 @@
       },
       {
         "Formation": "corefolder",
-        "BodyPart": ["#BodyPart_Head"],
+        "BodyPart": null,
         "Laterality": null,
-        "DesignElement": "#Element_Emblem",
+        "DesignElement": "#Element_Expression",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Overview",
             "value_JP": "自信ありげな表情",
             "value_EN": "confident expression"
-          },
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": "corefolder",
+        "BodyPart": ["#BodyPart_FaceMaking"],
+        "Laterality": null,
+        "DesignElement": "#Element_Emblem",
+        "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Overview",
             "value_JP": "頬に黄色い横線メイク",
@@ -17822,7 +17833,7 @@
       },
       {
         "Formation": "corefolder",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_FaceMaking"],
         "Laterality": null,
         "DesignElement": "#Element_Motif",
         "Attrs": [
@@ -18899,7 +18910,7 @@
       },
       {
         "Formation": null,
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_FaceMaking"],
         "Laterality": null,
         "DesignElement": "#Element_Motif",
         "Attrs": [
@@ -19378,6 +19389,7 @@
       },
       {
         "Formation": null,
+        "Costume": "usual",
         "BodyPart": ["#BodyPart_Chest"],
         "Laterality": "#Lat_Left",
         "DesignElement": "#Element_NumberMark",
@@ -19464,7 +19476,7 @@
       },
       {
         "Formation": null,
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_FaceMaking"],
         "Laterality": null,
         "DesignElement": "#Element_Motif",
         "Attrs": [
@@ -19495,23 +19507,8 @@
         "Note_EN": null
       },
       {
-        "Formation": null,
-        "BodyPart": null,
-        "Laterality": null,
-        "DesignElement": "#Element_CostumeItem",
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_Overview",
-            "value_JP": "2パターンの衣装",
-            "value_EN": "two outfit variants"
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
-      {
         "Formation": "humanoid",
+        "Costume": "usual",
         "BodyPart": ["#BodyPart_Chest"],
         "Laterality": null,
         "DesignElement": "#Element_CostumeItem",
@@ -19528,6 +19525,7 @@
       },
       {
         "Formation": null,
+        "Costume": "usual",
         "BodyPart": ["#BodyPart_Neck"],
         "Laterality": null,
         "DesignElement": "#Element_CostumeItem",
@@ -19544,7 +19542,8 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": ["#BodyPart_Leg"],
+        "Costume": "miko",
+        "BodyPart": ["#BodyPart_Chest", "#BodyPart_Waist", "#BodyPart_Leg"],
         "Laterality": null,
         "DesignElement": "#Element_Motif",
         "Attrs": [
@@ -19560,7 +19559,8 @@
       },
       {
         "Formation": null,
-        "BodyPart": null,
+        "Costume": "miko",
+        "BodyPart": ["#BodyPart_Interchangeable"],
         "Laterality": null,
         "DesignElement": "#Element_Motif",
         "Attrs": [
@@ -28976,7 +28976,7 @@
       },
       {
         "Formation": null,
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_FaceMaking"],
         "Laterality": null,
         "DesignElement": "#Element_Motif",
         "Attrs": [
@@ -31694,7 +31694,7 @@
     "SpecialSkill_JP": "歌唱",
     "SpecialSkill_EN": "Singing",
     "Favor_JP": "推し",
-    "Favor_EN": "Her oshi (favorite person/character)",
+    "Favor_EN": "Her fav (oshi: favorite person/character)",
     "Unlike_JP": "趣味バレ",
     "Unlike_EN": "Her hobbies getting exposed",
     "IdentityMotif": [
@@ -31714,7 +31714,7 @@
             "pink intake hair",
             "purple eyes",
             "elegant and beautiful face",
-            "emotional and straightforward expression of affection (while supporting her oshi)",
+            "emotional and straightforward expression of affection (while supporting her fav)",
             "pink necktie with brooch (usual outfit only)"
           ]
         }
@@ -31745,7 +31745,7 @@
             "pink intake hair",
             "purple eyes",
             "elegant and beautiful face",
-            "emotional and straightforward expression of affection (while supporting her oshi)",
+            "emotional and straightforward expression of affection (while supporting her fav)",
             "two outfit patterns",
             "long pink hair (usual outfit)",
             "pink/magenta tunic dress (usual outfit)",
@@ -31780,6 +31780,7 @@
       },
       {
         "Formation": null,
+        "Costume": "usual",
         "BodyPart": ["#BodyPart_Neck"],
         "Laterality": null,
         "DesignElement": "#Element_NumberMark",
@@ -31817,8 +31818,8 @@
         "Note_EN": null
       },
       {
-        "Formation": "corefolder",
-        "BodyPart": ["#BodyPart_Hair"],
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Hair", "#BodyPart_Head"],
         "Laterality": null,
         "DesignElement": "#Element_Motif",
         "Attrs": [
@@ -31833,7 +31834,7 @@
         "Note_EN": null
       },
       {
-        "Formation": "corefolder",
+        "Formation": null,
         "BodyPart": ["#BodyPart_Eye"],
         "Laterality": "#Lat_Both",
         "DesignElement": "#Element_Motif",
@@ -31849,7 +31850,8 @@
         "Note_EN": null
       },
       {
-        "Formation": "corefolder",
+        "Formation": null,
+        "Costume": null,
         "BodyPart": null,
         "Laterality": null,
         "DesignElement": "#Element_Expression",
@@ -31862,7 +31864,7 @@
           {
             "AttrLabel": "#DesignAttr_Overview",
             "value_JP": "感情的で好意にまっすぐな表情(推し活中)",
-            "value_EN": "emotional and straightforward expression of affection (while supporting her oshi)"
+            "value_EN": "emotional and straightforward expression of affection (while supporting her fav)"
           }
         ],
         "img_PNGName": null,
@@ -31871,6 +31873,7 @@
       },
       {
         "Formation": "corefolder",
+        "Costume": "usual",
         "BodyPart": ["#BodyPart_Neck"],
         "Laterality": null,
         "DesignElement": "#Element_CostumeItem",
@@ -31887,82 +31890,15 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": ["#BodyPart_Eye"],
-        "Laterality": "#Lat_Both",
-        "DesignElement": "#Element_Motif",
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_Overview",
-            "value_JP": "紫色の目",
-            "value_EN": "pink intake hair"
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
-      {
-        "Formation": "humanoid",
-        "BodyPart": null,
-        "Laterality": null,
-        "DesignElement": "#Element_CostumeItem",
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_Overview",
-            "value_JP": "2パターンの衣装",
-            "value_EN": "purple eyes"
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
-      {
-        "Formation": "humanoid",
-        "BodyPart": ["#BodyPart_Head"],
-        "Laterality": null,
-        "DesignElement": "#Element_CostumeItem",
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_Overview",
-            "value_JP": "凛とした美しい顔つき",
-            "value_EN": "elegant and beautiful face"
-          },
-          {
-            "AttrLabel": "#DesignAttr_Overview",
-            "value_JP": "感情的で好意にまっすぐな表情(推し活中)",
-            "value_EN": "two outfit patterns"
-          },
-          {
-            "AttrLabel": "#DesignAttr_Overview",
-            "value_JP": "ピンクのハチマキ(ヲタク衣装)",
-            "value_EN": "pink headband (otaku outfit)"
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
-      {
-        "Formation": "humanoid",
+        "Costume": "usual",
         "BodyPart": ["#BodyPart_Hair"],
         "Laterality": null,
         "DesignElement": "#Element_CostumeItem",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Overview",
-            "value_JP": "インテークヘアな前髪",
-            "value_EN": "emotional and straightforward expression of affection (while supporting her oshi)"
-          },
-          {
-            "AttrLabel": "#DesignAttr_Overview",
             "value_JP": "ピンク色のロングヘア(通常衣装)",
             "value_EN": "long pink hair (usual outfit)"
-          },
-          {
-            "AttrLabel": "#DesignAttr_Overview",
-            "value_JP": "ピンク色のポニーテール(ヲタク衣装)",
-            "value_EN": "pink ponytail (otaku outfit)"
           }
         ],
         "img_PNGName": null,
@@ -31971,6 +31907,7 @@
       },
       {
         "Formation": "humanoid",
+        "Costume": "usual",
         "BodyPart": ["#BodyPart_Chest", "#BodyPart_Waist", "#BodyPart_Leg"],
         "Laterality": null,
         "DesignElement": "#Element_CostumeItem",
@@ -31987,6 +31924,7 @@
       },
       {
         "Formation": "humanoid",
+        "Costume": "usual",
         "BodyPart": ["#BodyPart_Chest"],
         "Laterality": null,
         "DesignElement": "#Element_CostumeItem",
@@ -32003,6 +31941,7 @@
       },
       {
         "Formation": "humanoid",
+        "Costume": "usual",
         "BodyPart": ["#BodyPart_Waist"],
         "Laterality": null,
         "DesignElement": "#Element_CostumeItem",
@@ -32019,6 +31958,7 @@
       },
       {
         "Formation": "humanoid",
+        "Costume": "usual",
         "BodyPart": ["#BodyPart_Neck"],
         "Laterality": null,
         "DesignElement": "#Element_CostumeItem",
@@ -32035,6 +31975,24 @@
       },
       {
         "Formation": "humanoid",
+        "Costume": "otaku",
+        "BodyPart": ["#BodyPart_Hair"],
+        "Laterality": null,
+        "DesignElement": "#Element_CostumeItem",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "ピンク色のポニーテール(ヲタク衣装)",
+            "value_EN": "pink ponytail (otaku outfit)"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": "humanoid",
+        "Costume": "otaku",
         "BodyPart": ["#BodyPart_Chest", "#BodyPart_Waist", "#BodyPart_Leg"],
         "Laterality": null,
         "DesignElement": "#Element_CostumeItem",
@@ -32043,6 +32001,23 @@
             "AttrLabel": "#DesignAttr_Overview",
             "value_JP": "オレンジ色のカジュアルウェア(ヲタク衣装)",
             "value_EN": "orange casual wear (otaku outfit)"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": "humanoid",
+        "Costume": "otaku",
+        "BodyPart": ["#BodyPart_Head"],
+        "Laterality": null,
+        "DesignElement": "#Element_CostumeItem",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "ピンクのハチマキ(ヲタク衣装)",
+            "value_EN": "pink headband (otaku outfit)"
           }
         ],
         "img_PNGName": null,
@@ -32185,7 +32160,7 @@
       "TalkFrequency_JP": "表向きは節度を保って話すが、相手を気遣う場面ではよく声をかける。趣味の方向に入ると内心ではかなり饒舌。",
       "TalkFrequency_EN": "Speaks with a measured, poised tone in public, but readily reaches out when caring for someone. Inwardly, when it comes to her personal interests, she becomes remarkably talkative.",
       "PreferredTopics_JP": "休憩時間や休日の過ごし方、相手のコンディション管理について気に掛けやすい。歌や鑑賞・推しなどといった、芸能や作品の魅力へ密かに強い興味関心がある。",
-      "PreferredTopics_EN": "Tends to show concern for rest time, holidays, and the other person's condition. Deep beneath the surface, she has a strong — if secret — passion for the charms of entertainment and creative works: singing, watching media, her oshi.",
+      "PreferredTopics_EN": "Tends to show concern for rest time, holidays, and the other person's condition. Deep beneath the surface, she has a strong — if secret — passion for the charms of entertainment and creative works: singing, watching media, her fav.",
       "AvoidedTopics_JP": "趣味バレに直結する話題や、本人を芸能界へ押し出す会話は意地でも拒絶する。露骨に趣向をからかわれる展開も苦手。",
       "AvoidedTopics_EN": "Topics that directly expose her hobbies, or conversations that push her toward the entertainment industry, are met with a stubborn refusal. Being openly teased about her tastes is also something she finds difficult.",
       "ConversationNotes_JP": "気品ある振る舞いと重度のヲタク趣味の落差が大きい。素質が極めて高いことから演出側の立場を勧められる場面では、あくまでも鑑賞側の立場にいることを頑なに主張している。秘密が露呈しそうになると取り繕い方が急に雑になる",
@@ -32199,7 +32174,7 @@
         },
         {
           "value_JP": "「親切に匿名メッセージ機能まであるのね……これで私も推しに…」",
-          "value_EN": "\"How thoughtful — there is even an anonymous message feature... Now I can too, with my oshi...\""
+          "value_EN": "\"How thoughtful — there is even an anonymous message feature... Now I can too, with my fav...\""
         },
         {
           "value_JP": "「はぁ……休憩時間のラノベは落ち着くわね…」",
@@ -32599,6 +32574,7 @@
       },
       {
         "Formation": null,
+        "Costume": "usual",
         "BodyPart": ["#BodyPart_Head"],
         "Laterality": "#Lat_Right",
         "DesignElement": "#Element_NumberMark",
@@ -32625,6 +32601,7 @@
       },
       {
         "Formation": null,
+        "Costume": "idol",
         "BodyPart": ["#BodyPart_Shoulder"],
         "Laterality": "#Lat_Both",
         "DesignElement": "#Element_NumberMark",
@@ -32671,7 +32648,19 @@
             "AttrLabel": "#DesignAttr_Overview",
             "value_JP": "マゼンタの非常に長いポニーテール",
             "value_EN": "magenta very long ponytail"
-          },
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "Costume": "idol",
+        "BodyPart": ["#BodyPart_Hair"],
+        "Laterality": null,
+        "DesignElement": "#Element_CostumeItem",
+        "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Overview",
             "value_JP": "ハートと鍵がモチーフのチャームヘアピン(アイドル衣装)",
@@ -32700,7 +32689,7 @@
       },
       {
         "Formation": null,
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_FaceMaking"],
         "Laterality": null,
         "DesignElement": "#Element_Motif",
         "Attrs": [
@@ -32715,23 +32704,8 @@
         "Note_EN": null
       },
       {
-        "Formation": null,
-        "BodyPart": null,
-        "Laterality": null,
-        "DesignElement": "#Element_CostumeItem",
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_Overview",
-            "value_JP": "2パターンの衣装",
-            "value_EN": "two outfit patterns"
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
-      {
         "Formation": "humanoid",
+        "Costume": "usual",
         "BodyPart": ["#BodyPart_Chest"],
         "Laterality": null,
         "DesignElement": "#Element_CostumeItem",
@@ -32748,6 +32722,7 @@
       },
       {
         "Formation": null,
+        "Costume": "usual",
         "BodyPart": ["#BodyPart_Head"],
         "Laterality": null,
         "DesignElement": "#Element_CostumeItem",
@@ -32764,6 +32739,7 @@
       },
       {
         "Formation": null,
+        "Costume": "idol",
         "BodyPart": ["#BodyPart_Chest", "#BodyPart_Waist", "#BodyPart_Leg"],
         "Laterality": null,
         "DesignElement": "#Element_CostumeItem",
@@ -32780,6 +32756,7 @@
       },
       {
         "Formation": null,
+        "Costume": "idol",
         "BodyPart": ["#BodyPart_Neck"],
         "Laterality": null,
         "DesignElement": "#Element_CostumeItem",
@@ -32981,7 +32958,7 @@
         },
         {
           "value_JP": "（おっ、ここでも60(ムソ)ちゃんが推し活してるね…★）",
-          "value_EN": "(Oh, 60(Sixtina) is doing her oshi activities here too, isn't she...★)",
+          "value_EN": "(Oh, 60(Sixtina) is doing her fav activities here too, isn't she...★)",
           "about_JP": "ちょっかいを掛ける直前①",
           "about_EN": "Just before she starts pestering someone (case.1)"
         },
@@ -38482,7 +38459,7 @@
       },
       {
         "Formation": null,
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_FaceMaking"],
         "Laterality": null,
         "DesignElement": "#Element_Motif",
         "Attrs": [
@@ -43066,7 +43043,7 @@
       },
       {
         "Formation": null,
-        "BodyPart": ["#BodyPart_Head"],
+        "BodyPart": ["#BodyPart_FaceMaking"],
         "Laterality": null,
         "DesignElement": "#Element_Emblem",
         "Attrs": [
@@ -50413,7 +50390,7 @@
       },
       {
         "Formation": null,
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_FaceMaking"],
         "Laterality": null,
         "DesignElement": "#Element_Motif",
         "Attrs": [
