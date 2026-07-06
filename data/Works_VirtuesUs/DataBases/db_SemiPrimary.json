@@ -1,0 +1,113 @@
+[
+  {
+    "Virtues": "仁",
+    "Name_JP": "桜花 仁",
+    "Name_JPReading": "おうか じん",
+    "Name_EN": "Benevoly Cherrybroom",
+    "FormalName_JP": "桜花 仁",
+    "FormalName_JPReading": "おうか じん",
+    "FormalName_EN": "Benevoly Cherrybroom",
+    "GenderType": "Male",
+    "Height_cm": 163,
+    "Weight_kg": { "hideText": "非公開希望" },
+    "Age": 31,
+    "BirthDay": { "Day": { "Month": 2, "DayOfMonth": 18 } },
+    "Belonging": ["九蓮国皇族"]
+  },
+  {
+    "Virtues": "義",
+    "Name_JP": "桜花 義",
+    "Name_JPReading": "おうか よしき",
+    "Name_EN": "Righteos Cherrybroom",
+    "FormalName_JP": "桜花 義\n何.義博",
+    "FormalName_JPReading": "おうか よしき\nハー.ヰィボー",
+    "FormalName_EN": "Brothluv Cherrybroom\nHé.YìBó",
+    "GenderType": "Male",
+    "Height_cm": 160,
+    "Weight_kg": { "hideText": "非公開希望" },
+    "Age": 30,
+    "BirthDay": { "Day": { "Month": 12, "DayOfMonth": 18 } },
+    "Belonging": ["新生九蓮", "国際情報広報機関『ミハイル』"],
+    "Class": ["新生九蓮 運航者", "国際情報屋 運航者"]
+  },
+  {
+    "Virtues": "礼",
+    "isPrivate": true
+  },
+  {
+    "Virtues": "智",
+    "Name_JP": "桜花 智",
+    "Name_JPReading": "おうか さとり",
+    "Name_EN": "Wisdmer Cherrybroom",
+    "FormalName_JP": "桜花 智\n智.ヴァーチュングレイス=春洋",
+    "FormalName_JPReading": "おうか さとり\nさとり ヴァーチュングレイス=はるなみ",
+    "FormalName_EN": "Wisdmer Cherrybroom\nWisdmer Virtuengrace=Springer",
+    "GenderType": "Female",
+    "Height_cm": 162,
+    "Weight_kg": { "hideText": "非公開希望" },
+    "BustSize": "C",
+    "Age": 25,
+    "Belonging": ["スターダスト財団"]
+  },
+
+  {
+    "Virtues": "信",
+    "AnotherRegions_DBLink": [
+      {
+        "_Work": "PastDivers",
+        "_DB": "Primary",
+        "Chronos": { "Lunar": "Yayoi" }
+      }
+    ],
+    "Name_JP": "桜花 信",
+    "Name_JPReading": "おうか とき",
+    "Name_EN": "Trustia Cherrybroom",
+    "FormalName_JP": "桜花 訫",
+    "FormalName_JPReading": "おうか とき",
+    "FormalName_EN": "Trustia Cherrybroom",
+    "GenderType": "Female",
+    "BustSize": "B",
+    "Age": 21,
+    "BirthDay": { "_Jump": { "hashTag": "BirthDay" } },
+    "Belonging": ["夜月機関"]
+  },
+  {
+    "Virtues": "忠",
+    "isPrivate": true
+  },
+  {
+    "Virtues": "孝",
+    "AnotherRegions_DBLink": [
+      {
+        "_Work": "UnibyteLive",
+        "_DB": "PrimaryPerformer",
+        "Letter": { "Alphabet": "I", "AlphaGen": 2 }
+      }
+    ],
+    "Name_JP": "桜花 孝",
+    "Name_JPReading": "おうか たかむ",
+    "Name_EN": "Filia.Pieter Cherrybroom",
+    "FormalName_JP": "桜花 孝\n孝 ヴァーチュングレイス=春洋",
+    "FormalName_JPReading": "おうか たかむ\nたかむ ヴァーチュングレイス=はるなみ",
+    "FormalName_EN": "Filia.Pieter Cherrybroom\nFilia.Pieter Virtuengrace=Springer",
+    "GenderType": "Female",
+    "Age": 20,
+    "BirthDay": { "_Jump": { "hashTag": "BirthDay" } },
+    "Belonging": ["スターダスト・テクノロジー"]
+  },
+  {
+    "Virtues": "悌",
+    "Name_JP": "桜花 悌",
+    "Name_JPReading": "おうか やすし",
+    "Name_EN": "Brothluv Cherrybroom",
+    "FormalName_JP": "桜花 悌\n何.悌博",
+    "FormalName_JPReading": "おうか やすし\nハー.ティボー",
+    "FormalName_EN": "Brothluv Cherrybroom\nHé.TìBó",
+    "GenderType": "Male",
+    "Height_cm": 160,
+    "Weight_kg": { "hideText": "非公開希望" },
+    "Age": 20,
+    "BirthDay": { "Day": { "Month": 11, "DayOfMonth": 2 } },
+    "Belonging": ["新生九蓮"]
+  }
+]

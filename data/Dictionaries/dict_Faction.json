@@ -27,6 +27,15 @@
     "isMaker": null
   },
   {
+    "Faction": "九蓮国皇族",
+    "Faction_EN": "Royal of LotusNinea(n)",
+    "Belonging": "九蓮国皇族",
+    "Belonging_EN": "Royal of LotusNinea(n)",
+    "BelongingArea": { "Area": "九蓮国" },
+    "isForSecondary": false,
+    "isMaker": false
+  },
+  {
     "Faction": "照梅テクノロジー",
     "Faction_EN": "Shôbai Technology",
     "Belonging": "照梅テクノロジー",

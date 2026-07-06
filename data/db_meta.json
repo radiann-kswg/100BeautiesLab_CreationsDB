@@ -134,7 +134,8 @@
           "AbilityStats",
           "StreamingActivity",
           "ConversationPattern",
-          "ThisPerformer_DBLink"
+          "ThisPerformer_DBLink",
+          "AnotherRegions_DBLink"
         ]
       }
     },
@@ -144,6 +145,32 @@
       "Title_EN": "Sinister Changing Girls",
       "Works_Summary_JP": "創作世界の各国を放浪している謎多き少女。\n主に七つの大罪や八方位などに基づいた二面性と特徴を持つガーリッシュな８人のキャラクターからなる。",
       "Works_Summary_EN": "A mysterious girl wandering across nations in the creative world.\nIt mainly consists of eight girlish characters with dual aspects and traits based on motifs such as the seven deadly sins and the eight directions.",
+      "$DetailLayout": {
+        "headerPills": ["Progress"],
+        "basicFields": [
+          "FormalName",
+          "ModelName",
+          "ModelNumber",
+          "CodeName",
+          "Belonging",
+          "Class",
+          "Age",
+          "AnivDay",
+          "RaceType",
+          "GenderType",
+          "Height_cm",
+          "Weight_kg",
+          "BustSize"
+        ],
+        "subFields": ["ConversationPattern", "AnotherRegions_DBLink"]
+      }
+    },
+    "#Works_VirtuesUs": {
+      "Title_JP": "我ら美徳の桜花兄弟",
+      "CalendarColorId": "12",
+      "Title_EN": "Virtues Us - the Cherrybloom Siblings",
+      "Works_Summary_JP": "創作世界の各国に所在する誇り高き８人の義兄弟姉妹。\n「豹変系女子」のアンソロジーにあたり、主に八徳に基づいた８人のキャラクターからなる。",
+      "Works_Summary_EN": "Proudly residing across nations in the creative world, eight virtuous siblings.\nIt is an anthology of 'Sinister Changing Girls' and mainly consists of eight characters based on the eight virtues.",
       "$DetailLayout": {
         "headerPills": ["Progress"],
         "basicFields": [
@@ -220,7 +247,7 @@
           "AbilityStats",
           "ChronospecAbout",
           "ChronospecStats",
-          "ConversationPattern"
+          "AnotherRegions_DBLink"
         ]
       }
     },
@@ -389,6 +416,40 @@
           }
         ]
       },
+      "#List_BustSize": [
+        { "BustSize": "AA" },
+        { "BustSize": "A" },
+        { "BustSize": "B" },
+        { "BustSize": "C" },
+        { "BustSize": "D" },
+        { "BustSize": "E" },
+        { "BustSize": "F" },
+        { "BustSize": "G" },
+        { "BustSize": "H" },
+        { "BustSize": "I" },
+        { "BustSize": "J" },
+        { "BustSize": "K" },
+        { "BustSize": "L" },
+        { "BustSize": "M" },
+        { "BustSize": "N" },
+        { "BustSize": "O" },
+        { "BustSize": "P" },
+        { "BustSize": "Q" },
+        { "BustSize": "R" },
+        { "BustSize": "S" },
+        { "BustSize": "T" },
+        { "BustSize": "U" },
+        { "BustSize": "V" },
+        { "BustSize": "W" },
+        { "BustSize": "X" },
+        { "BustSize": "Y" },
+        { "BustSize": "Z" },
+        {
+          "BustSize": "ZZ",
+          "BustSize_JP": "測量範囲外",
+          "BustSize_EN": "Out of Measurement Range"
+        }
+      ],
       "$EnumDef_Rank": {
         "#Rank0": { "Rank": "ZZ" },
         "#Rank1": { "Rank": "Z" },

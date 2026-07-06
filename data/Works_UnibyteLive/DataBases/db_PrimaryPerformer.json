@@ -24,6 +24,13 @@
   {
     "Letter": { "Alphabet": "I", "AlphaGen": 2 },
     "Progress": "notProceeded",
+    "AnotherRegions_DBLink": [
+      {
+        "_Work": "VirtuesUs",
+        "_DB": "SemiPrimary",
+        "Virtues": "孝"
+      }
+    ],
     "FormalName_JP": "桜花 孝\n孝 ヴァーチュングレイス=春洋",
     "FormalName_JPReading": "おうか たかむ\nたかむ ヴァーチュングレイス=はるなみ",
     "FormalName_EN": "Filia.Pieter Cherrybroom\nFilia.Pieter Virtuengrace=Springer",

@@ -161,7 +161,7 @@
     },
     {
       "hashTag": "BustSize",
-      "$type": "#String|#String_withAbout",
+      "$type": "#ListIndex|#ListIndex_withAbout",
       "hashTag_JP": "バストサイズ",
       "hashTag_EN": "Bust Size",
       "$display": { "langMode": "shared" }
