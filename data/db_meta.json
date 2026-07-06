@@ -667,6 +667,11 @@
           "Progress_JP": "公開済み",
           "isForSecondary": false
         },
+        "#Progress_Recreating": {
+          "Progress": "nowRecreating",
+          "Progress_JP": "再制作中",
+          "isForSecondary": false
+        },
         "#Progress_Founded": {
           "Progress": "founded",
           "Progress_JP": "確認済み",
@@ -690,7 +695,7 @@
         "#Progress_Archived": {
           "Progress": "archived",
           "Progress_JP": "更新停止",
-          "isForSecondary": false
+          "isForSecondary": null
         }
       },
       "$EnumDef_GenderType": {
