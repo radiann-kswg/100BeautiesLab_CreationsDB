@@ -11,7 +11,8 @@
         "StoryEraAbout_EN": "in around WDCE.VIII.6(Equivalent to in around: DC.2050)"
       },
       "_Commons": { "Progress": "notProceeded" }
-    }
+    },
+    "AI_Optout": true
   },
   "General": {
     "$VarsDef": {
