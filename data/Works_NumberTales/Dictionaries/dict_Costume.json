@@ -1,0 +1,22 @@
+[
+  {
+    "Costume": "usual",
+    "Costume_JP": "通常衣装",
+    "Costume_EN": "Usual Costume"
+  },
+  {
+    "Costume": "otaku",
+    "Costume_JP": "ヲタク衣装",
+    "Costume_EN": "Otaku(Nerd Fan) Costume"
+  },
+  {
+    "Costume": "idol",
+    "Costume_JP": "アイドル衣装",
+    "Costume_EN": "Idol Costume"
+  },
+  {
+    "Costume": "miko",
+    "Costume_JP": "巫女衣装",
+    "Costume_EN": "Shrine Maiden Costume"
+  }
+]

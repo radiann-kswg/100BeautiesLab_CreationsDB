@@ -732,6 +732,13 @@
             "hashTag_EN": "Formation"
           },
           {
+            "hashTag": "Costume",
+            "$type": "#DictIndex|#Null",
+            "$dict": "Costume",
+            "hashTag_JP": "衣装",
+            "hashTag_EN": "Costume"
+          },
+          {
             "hashTag": "BodyPart",
             "$type": "#ListIndex[]|#Null",
             "hashTag_JP": "身体部位",
@@ -869,6 +876,18 @@
           "BodyPart_JP": "翼",
           "BodyPart_EN": "Wing",
           "bilateral": true
+        },
+        "#BodyPart_Interchangeable": {
+          "BodyPart": "Interchangeable",
+          "BodyPart_JP": "付け替え可能",
+          "BodyPart_EN": "Interchangeable",
+          "bilateral": false
+        },
+        "#BodyPart_FaceMaking": {
+          "BodyPart": "FaceMaking",
+          "BodyPart_JP": "フェイスメイク",
+          "BodyPart_EN": "Face Makeup",
+          "bilateral": false
         }
       },
       "$EnumDef_DesignElement": {
