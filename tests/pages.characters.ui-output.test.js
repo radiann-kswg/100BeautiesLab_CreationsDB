@@ -279,6 +279,7 @@ const numberTalesReferenceRecord = numberTalesReferenceRecords.find((record) => 
 const firstNumberTalesPrimaryRecord = numberTalesPrimaryRecords.find((record) => String(record?.Num) === '1');
 const fourthNumberTalesPrimaryRecord = numberTalesPrimaryRecords.find((record) => String(record?.Num) === '4');
 const ninthNumberTalesPrimaryRecord = numberTalesPrimaryRecords.find((record) => String(record?.Num) === '9');
+const branchedTailsUnitRecord = numberTalesSecondaryRecords.find((record) => String(record?.Num) === '148-numberize');
 
 const yayoiRecord = {
 	...yayoiRecordBase,
@@ -1060,13 +1061,59 @@ describe('pages/characters.js UI output', () => {
 		expect(isSubFieldSectionOpen('AppearanceDetail')).toBe(false);
 
 		const sectionText = getSectionText('外見デザイン詳細');
-		// DesignElement タグ（NT ローカル辞書 $EnumDef_DesignElement から解決）
-		expect(sectionText).toContain('尻尾ユニット');
-		// BodyPart タグ（グローバル辞書 $EnumDef_DesignBodyPart から解決）
-		expect(sectionText).toContain('尻尾');
+		// DesignElement タグ（NT ローカル辞書 $EnumDef_DesignElement から解決。#Element_Ear）
+		expect(sectionText).toContain('耳');
+		// vdict_EarType からの形状ラベル（NT ローカル辞書 $EnumDef_EarType から解決）
+		expect(sectionText).toContain('狐');
+		// about_JP からの補足テキスト
+		expect(sectionText).toContain('先がアクセントカラー');
+	});
+
+	it('renders TailsUnit summary in the basic info table from the dedicated $Def_TailsUnit field for NT character', async () => {
+		charactersModule.__setCharactersTestState({
+			globalDefType,
+			charState: {
+				db: 'Primary',
+				workId: '#Works_NumberTales',
+				workTypeDef: numberTalesWorkTypeDef,
+				globalTypeDef,
+				workMeta: numberTalesWorkMeta,
+				imageFields: []
+			}
+		});
+
+		await charactersModule.renderDetail('#Works_NumberTales', ninthNumberTalesPrimaryRecord);
+
+		// TailsUnit は db_meta.json の $DetailLayout.basicFields 経由で基本情報テーブルへ表示される
+		// （tailsUnitSummary wrapper が $EnumDef_TailShapeType から一行サマリーを生成）
+		const sectionText = getSectionText('基本情報');
 		// vdict_TailShapeType からの形状ラベル（NT ローカル辞書 $EnumDef_TailShapeType から解決）
 		expect(sectionText).toContain('キツネ型');
-		// value_Num からの個数表示
+		// Count からの個数表示
 		expect(sectionText).toContain('9');
+	});
+
+	it('renders TailsUnit LayoutDirection (branch direction phrase) for a narrative multi-tier record', async () => {
+		charactersModule.__setCharactersTestState({
+			globalDefType,
+			charState: {
+				db: 'Secondary',
+				workId: '#Works_NumberTales',
+				records: numberTalesSecondaryRecords,
+				workTypeDef: numberTalesWorkTypeDef,
+				globalTypeDef,
+				workMeta: numberTalesWorkMeta,
+				imageFields: []
+			}
+		});
+
+		await charactersModule.renderDetail('#Works_NumberTales', branchedTailsUnitRecord);
+
+		const sectionText = getSectionText('基本情報');
+		// LayoutDirection（LayoutFrom:#Lat_Upper, LayoutTo:#Lat_Lower）からの方向句
+		expect(sectionText).toContain('上から下に向かって');
+		// Branches[] の内訳（上:1本×3束 等）も引き続き表示される
+		expect(sectionText).toContain('上');
+		expect(sectionText).toContain('下');
 	});
 });

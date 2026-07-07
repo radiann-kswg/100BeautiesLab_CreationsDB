@@ -39,6 +39,7 @@ import '../lib/section-renders/dblink.js';
 import '../lib/section-renders/calling.js';
 import '../lib/section-renders/storyEra.js';
 import '../lib/section-renders/day.js';
+import '../lib/section-renders/tailsUnit.js';
 
 // Characters page: fetch from /api/v1 and render list/detail
 

@@ -1,7 +1,7 @@
 # 和英ローカライズ ルールブック
 
-> **対象**: Claude Code / GitHub Copilot / その他 AI 翻訳ツール  
-> **目的**: 100BeautiesLab. Creations DB の全作品における `_EN` フィールドの英訳を、既存実装と一貫した形式で生成・補完するための規則集  
+> **対象**: Claude Code / GitHub Copilot / その他 AI 翻訳ツール
+> **目的**: 100BeautiesLab. Creations DB の全作品における `_EN` フィールドの英訳を、既存実装と一貫した形式で生成・補完するための規則集
 > **最終更新**: 2026-06-24（実データ突き合わせによる項目追補。前回 2026-06-15）
 
 ---
@@ -19,10 +19,10 @@
 
 ### 両エージェントの入口（この節を参照する薄いポインタ）
 
-| エージェント | 入口ファイル | スコープ機構 |
-|---|---|---|
-| GitHub Copilot | `.github/instructions/localization-en.instructions.md` | `applyTo: data/**`（Chat/Agent/Edits に適用） |
-| Claude (Cowork / Claude Code) | `data/CLAUDE.md` | `data/` 配下を編集する際に自動ロード |
+| エージェント                  | 入口ファイル                                           | スコープ機構                                  |
+| ----------------------------- | ------------------------------------------------------ | --------------------------------------------- |
+| GitHub Copilot                | `.github/instructions/localization-en.instructions.md` | `applyTo: data/**`（Chat/Agent/Edits に適用） |
+| Claude (Cowork / Claude Code) | `data/CLAUDE.md`                                       | `data/` 配下を編集する際に自動ロード          |
 
 > インライン補完（Copilot ゴーストテキスト）はカスタム指示を読み込まないため、早見表を隣タブで開いて近傍文脈に入れる運用で補う。
 
@@ -41,11 +41,11 @@
 
 実データ（`data/Works_*/DataBases/db_*.json`）を走査した結果、和英対応は次の 3 系統で格納されている。本書で「対応する `field`（JP）」と表記する箇所は、原則として **`field_JP`** を指す。
 
-| 系統 | 形式 | 該当フィールド（実データで確認） |
-|---|---|---|
-| **`_JP`/`_EN` ペア型（既定・大多数）** | `field_JP` と `field_EN` を隣接配置 | `CodeName` / `FormalName` / `Name` / `Summary` / `Character` / `Hobby` / `SpecialSkill` / `Favor` / `Unlike` / `Motif` / `TailsUnit` / `*PersonCalling` / `ForMasterCalling` / `NumerospecAbout` / `Backgrounds` / `InStory` / `RelationNotes` ほか、本書記載のほぼ全項目 |
-| **plain + `_EN` 型（例外）** | `Comments` と `Comments_EN` を隣接配置（`_JP` 無し） | `Relation.*.Comments`（§3-8）のみ（実データ 671 件すべて plain） |
-| **移行中（混在）** | `value` / `about` は plain と `_JP` が混在 | `DialogueExamples` の `value`・`about`（§3-9。文字列 → `value_JP` へ移行途上。plain 約 1/3・`_JP` 約 2/3） |
+| 系統                                   | 形式                                                 | 該当フィールド（実データで確認）                                                                                                                                                                                                                                          |
+| -------------------------------------- | ---------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **`_JP`/`_EN` ペア型（既定・大多数）** | `field_JP` と `field_EN` を隣接配置                  | `CodeName` / `FormalName` / `Name` / `Summary` / `Character` / `Hobby` / `SpecialSkill` / `Favor` / `Unlike` / `Motif` / `*PersonCalling` / `ForMasterCalling` / `NumerospecAbout` / `Backgrounds` / `InStory` / `RelationNotes` ほか、本書記載のほぼ全項目（`TailsUnit` は `$Def_TailsUnit` 構造化型へ移行済み。§3-2 参照） |
+| **plain + `_EN` 型（例外）**           | `Comments` と `Comments_EN` を隣接配置（`_JP` 無し） | `Relation.*.Comments`（§3-8）のみ（実データ 671 件すべて plain）                                                                                                                                                                                                          |
+| **移行中（混在）**                     | `value` / `about` は plain と `_JP` が混在           | `DialogueExamples` の `value`・`about`（§3-9。文字列 → `value_JP` へ移行途上。plain 約 1/3・`_JP` 約 2/3）                                                                                                                                                                |
 
 - **挿入位置**: ペア型は `field_JP` の直後、plain 型は `Comments` の直後。
 - **上書き判定の参照元**: ペア型では `field_JP`、plain 型では `Comments` の値を「JP 値」とみなす（§6）。
@@ -55,43 +55,42 @@
 
 ## 1. 代名詞ルール（GenderType 別）
 
-| GenderType | 代名詞 | 備考 |
-|---|---|---|
-| `FemaleNeutral` | `she` / `her` | |
-| `MaleNeutral` | `he` / `him` | |
-| `Female` | `she` / `her` | |
-| `Male` | `he` / `him` | |
-| `Neutral` | `ze` / `zir` | ネオプロナウン。**`they/them`・`he/she`・`him/her` は使わない** |
-| `undefined` / 未設定 | 代名詞を避ける | 名前やキャラクター呼称で代替 |
+| GenderType           | 代名詞         | 備考                                                            |
+| -------------------- | -------------- | --------------------------------------------------------------- |
+| `FemaleNeutral`      | `she` / `her`  |                                                                 |
+| `MaleNeutral`        | `he` / `him`   |                                                                 |
+| `Female`             | `she` / `her`  |                                                                 |
+| `Male`               | `he` / `him`   |                                                                 |
+| `Neutral`            | `ze` / `zir`   | ネオプロナウン。**`they/them`・`he/she`・`him/her` は使わない** |
+| `undefined` / 未設定 | 代名詞を避ける | 名前やキャラクター呼称で代替                                    |
 
 ### 1-1. `ze/zir` 活用一覧（Neutral キャラクター専用）
 
-| 文法役割 | 形式 | 例 |
-|---|---|---|
-| 主格（Subject） | `ze` | `Ze is a NumberTales who...` |
-| 目的格（Object） | `zir` | `...serving zir master` |
-| 所有格（Possessive adj.） | `zir` | `...zir unique ability` |
-| 再帰（Reflexive） | `zirself` | `Ze did it zirself` |
-| 文頭大文字 | `Ze` / `Zir` / `Zirself` | 文頭では大文字化 |
+| 文法役割                  | 形式                     | 例                           |
+| ------------------------- | ------------------------ | ---------------------------- |
+| 主格（Subject）           | `ze`                     | `Ze is a NumberTales who...` |
+| 目的格（Object）          | `zir`                    | `...serving zir master`      |
+| 所有格（Possessive adj.） | `zir`                    | `...zir unique ability`      |
+| 再帰（Reflexive）         | `zirself`                | `Ze did it zirself`          |
+| 文頭大文字                | `Ze` / `Zir` / `Zirself` | 文頭では大文字化             |
 
 > **非標準複合形への注意**: `him/herself` や `his/herself` は英語の慣習で `himself/herself` の代わりに書かれることがある。これらも `zirself` に置換する。
-> 
+>
 > **`ThirdPersonCalling_EN` は対象外**: `彼/彼女` → `he/she` のように「このキャラが他者を呼ぶスタイル」を示す呼称フィールドは、キャラクター自身の代名詞ではないため `ze` に変換しない。
 
 ### 1-2. 世界観的背景（なぜ `ze/zir` を採用したか）
 
 ナンバーテールズ（数秘術ベースの霊獣型）・運命線探偵78（異能調査者）・獣爾騎兵（獣人型改造人間）等は「人間の性別概念から外れた存在」として設定されている。英語圏の創作においても `ze/zir` は「第三の性を持つ種族・神霊・人間以外の知性体」の代名詞として機能することが確認されており、百花繚乱研究所の創作世界観の英語演出として採用した。（参考: ChatGPT「Ze Zir 言語学文化分析」2026-06-14）
 
-
 ---
 
 ## 2. 固有名詞マッピング（確定済み）
 
-| JP 表記 | EN 表記 | 備考 |
-|---|---|---|
-| `百(ハゲム)` | `Hudret` | Num 00「Hudret Norumber」の略称 |
-| `零(レイ)` | `Zera` | 開発者キャラ。`Rei` は不正解 |
-| `サンジ(惨事)` | `Troubleforcer` | Num 34 の通称 |
+| JP 表記        | EN 表記         | 備考                            |
+| -------------- | --------------- | ------------------------------- |
+| `百(ハゲム)`   | `Hudret`        | Num 00「Hudret Norumber」の略称 |
+| `零(レイ)`     | `Zera`          | 開発者キャラ。`Rei` は不正解    |
+| `サンジ(惨事)` | `Troubleforcer` | Num 34 の通称                   |
 
 ---
 
@@ -101,86 +100,49 @@
 
 **ルール**: 漢数字を1桁ずつ対応する英語数詞に変換し、ハイフン（`-`）で連結する。
 
-| 漢字 | 英語 |
-|---|---|
-| 〇 | Zero |
-| 一 | One |
-| 二 | Two |
-| 三 | Three |
-| 四 | Four |
-| 五 | Five |
-| 六 | Six |
-| 七 | Seven |
-| 八 | Eight |
-| 九 | Nine |
+| 漢字 | 英語  |
+| ---- | ----- |
+| 〇   | Zero  |
+| 一   | One   |
+| 二   | Two   |
+| 三   | Three |
+| 四   | Four  |
+| 五   | Five  |
+| 六   | Six   |
+| 七   | Seven |
+| 八   | Eight |
+| 九   | Nine  |
 
 **実例:**
 
-| JP | EN |
-|---|---|
-| `一` | `One` |
-| `(二)` | `(Second)` ※特殊例外：括弧保持、Second |
-| `一〇` | `One-Zero` |
-| `六六` | `Six-Six` |
-| `七〇` | `Seven-Zero` |
-| `(二〇)` | `(Two-Zero)` ※括弧は保持 |
+| JP       | EN                                     |
+| -------- | -------------------------------------- |
+| `一`     | `One`                                  |
+| `(二)`   | `(Second)` ※特殊例外：括弧保持、Second |
+| `一〇`   | `One-Zero`                             |
+| `六六`   | `Six-Six`                              |
+| `七〇`   | `Seven-Zero`                           |
+| `(二〇)` | `(Two-Zero)` ※括弧は保持               |
 
 **注意**: `七〇` = `Seventy` ではなく `Seven-Zero`。複合英数詞（Seventy, Sixty-six 等）は使わない。
 
-**作品固有の CodeName_EN** は全く別体系なので注意:  
-- FLInvestigator78: タロットカード名（`Fool`, `Magician`, `High-Priestess` 等）  
-- SinisterChangingGirls: `Lust o'clock in Midnight` 等  
+**作品固有の CodeName_EN** は全く別体系なので注意:
+
+- FLInvestigator78: タロットカード名（`Fool`, `Magician`, `High-Priestess` 等）
+- SinisterChangingGirls: `Lust o'clock in Midnight` 等
 - DestinyFoxRecords: SI 単位系（`Metre_SI-L`, `Kelvin_SI-Θ` 等）
 
 ---
 
-### 3-2. `TailsUnit_EN`（NumberTales 固有）
+### 3-2. `TailsUnit`（NumberTales 固有・構造化型）
 
-**基本形式**（枝分かれ型）:
+`TailsUnit` は自由記述の `TailsUnit_JP`/`TailsUnit_EN` ではなく、`$Def_TailsUnit[]`（`data/Works_NumberTales/DataBases/db_meta.json` の `General.$VarsDef`）による構造化型。フィールドは `TailShapeType`（`$EnumDef_TailShapeType` への参照）/ `Count` / `Segment`（任意）/ `Branches[]`（任意、各要素は `Laterality`/`TailCount`/`ClusterCount`）/ `Note_JP`・`Note_EN`（任意の補足）。
 
-```
-Fox (branched) type: N tails (upper: X clusters xY, lower: Z clusters xW)
-```
+表示文字列（例: 「キツネ(枝分かれ)型: 4本 (上: 1本×2束, 下: 3本×1束)」/ "Fox (branched): 4 tails (Upper: 1 tails x2 clusters, Lower: 3 tails x1 clusters)"）は `lib/section-renders/tailsUnit.js` の `tailsUnitSummary` wrapper が `$EnumDef_TailShapeType`/`$EnumDef_Laterality` の辞書エントリから自動生成する。**レコード単位の自由記述訳（本節旧内容）は不要**になった。
 
-- `xY` = その上段/下段グループの合計本数（束の数 × 本数）
-- `upper:` と `lower:` は存在する束グループの分だけ記載
+新しい尻尾形状を追加する場合は、`$EnumDef_TailShapeType`（`data/Works_NumberTales/DataBases/db_meta.json`）に enum エントリ（`TailShapeType_JP`/`TailShapeType_EN`）を追加するだけでよい。個別レコードの英訳は発生しない。
 
-**単一クラスターのみの場合**:
-
-```
-Fox (branched) type: N clusters xM tails
-```
-
-**単純型**（枝分かれなし）:
-
-```
-Single fox-type tail
-Twin fox-type tails
-Three fox-type tails
-... Nine fox-type tails
-Seven fox-type tails  ← Seven は既存値があれば保持
-```
-
-**特殊型**:
-
-```
-Single bud-type tail (1 large cluster + 9 small clusters)
-Eleven nekomata-type tails
-Two scorpion-type tails (each with 11 clusters/segments)
-Nekomata (Special) Type: 1 Tail, 3 Tufts [Branches]   ← 猫又(特殊)型1本3束[枝]
-```
-
-> **猫又の分岐型**は `Nekomata (Special) Type: N Tail(s), M Tufts [Branches]` 形式。枝分かれなしの複数本型（`Eleven nekomata-type tails`）とは書式が異なる。
-
-**実例（Num 66〜70）**:
-
-| Num | EN |
-|---|---|
-| 66 | `Fox (branched) type: 2 clusters x6 tails` |
-| 67 | `Fox (branched) type: 7 tails (upper: 2 clusters x6, lower: 1 cluster x1)` |
-| 68 | `Fox (branched) type: 8 tails (upper: 2 clusters x6, lower: 1 cluster x2)` |
-| 69 | `Fox (branched) type: 9 tails (upper: 2 clusters x6, lower: 1 cluster x3)` |
-| 70 | `Seven fox-type tails` ※既存値を保持 |
+パターン・スキーマ詳細は `docs/schema-meta-processing.md` / `docs/wrapper-summary-registry.md` を参照。
 
 ---
 
@@ -201,33 +163,33 @@ EN でもこの構造（`;`, `/`, `\n`）をそのまま維持する。
 
 #### 3-3-2. 共通翻訳ルール
 
-| 要素 | EN 翻訳 | 備考 |
-|---|---|---|
-| `[※名前呼び]` | `[*by name]` | 統一表記 — `[*Name calling]` は使わない |
-| `[※二人称]` | `[*second-person calling]` | 統一表記 |
-| `[※三人称]` | `[*third-person calling]` | 統一表記 |
-| `[※その時により変わる]` | `[*Varies depending on the situation]` | |
-| `彼/彼女` | `he/she` | ThirdPersonCalling 内では GenderType 非依存 |
-| `あんた` | `guy/girl(s) (anta; rough)` | `you (anta)` は使わない |
-| romaji 注釈 | `(romaji; 補足)` | 括弧**内**に全注釈を収める |
-| 例外付き注釈 | `(*shi; exceptions apply)` ○ / `(*shi); exceptions apply` ✗ | |
-| 複数文脈 | `\n` で区切る | JP と同じ区切り数を維持 |
+| 要素                    | EN 翻訳                                                     | 備考                                        |
+| ----------------------- | ----------------------------------------------------------- | ------------------------------------------- |
+| `[※名前呼び]`           | `[*by name]`                                                | 統一表記 — `[*Name calling]` は使わない     |
+| `[※二人称]`             | `[*second-person calling]`                                  | 統一表記                                    |
+| `[※三人称]`             | `[*third-person calling]`                                   | 統一表記                                    |
+| `[※その時により変わる]` | `[*Varies depending on the situation]`                      |                                             |
+| `彼/彼女`               | `he/she`                                                    | ThirdPersonCalling 内では GenderType 非依存 |
+| `あんた`                | `guy/girl(s) (anta; rough)`                                 | `you (anta)` は使わない                     |
+| romaji 注釈             | `(romaji; 補足)`                                            | 括弧**内**に全注釈を収める                  |
+| 例外付き注釈            | `(*shi; exceptions apply)` ○ / `(*shi); exceptions apply` ✗ |                                             |
+| 複数文脈                | `\n` で区切る                                               | JP と同じ区切り数を維持                     |
 
 #### 3-3-3. 指示表現（`*` 系）の EN 翻訳
 
-| JP 指示表現 | EN 翻訳 | 用法 |
-|---|---|---|
-| `*いつ` / `*イツ` | `this/that/who/what/which/them (as personal or objective)` | あいつ/こいつ系・主語目的語両用 |
-| `*れ` / `*レ` | `this/that/who/what/which/them (as objective)` | あれ/それ系・主に目的語 |
-| `*いつ/*れ`（組み合わせ） | `this/that/who/what/which/them (as personal or objective)` | 両用 |
-| `*ちら` | `that/this person (*chira, formal)` | 丁寧な指示 |
-| `*やつ` / `*奴(*やつ)` | `that fellow (*yatsu)` または `that guy/gal (*yatsu)` | 粗野な指示 |
-| `*の方` | `that person` | 丁寧・ロマナイズ不要 |
-| `*の人` | `that/this person` | 中立・ロマナイズ不要 |
-| `*の子` | `that/this/which kid` | カジュアル |
-| `*の子/*っち` | `that/this/which kid (*no-ko), ~-cchi` | バリアント統合 |
-| `*の子;~(な)コ` | `that/this kid (*no ko; ~na ko)` | バリアント統合（括弧内） |
-| `*の者` | `that/this/which one (as personal)` | 格式ある指示 |
+| JP 指示表現               | EN 翻訳                                                    | 用法                            |
+| ------------------------- | ---------------------------------------------------------- | ------------------------------- |
+| `*いつ` / `*イツ`         | `this/that/who/what/which/them (as personal or objective)` | あいつ/こいつ系・主語目的語両用 |
+| `*れ` / `*レ`             | `this/that/who/what/which/them (as objective)`             | あれ/それ系・主に目的語         |
+| `*いつ/*れ`（組み合わせ） | `this/that/who/what/which/them (as personal or objective)` | 両用                            |
+| `*ちら`                   | `that/this person (*chira, formal)`                        | 丁寧な指示                      |
+| `*やつ` / `*奴(*やつ)`    | `that fellow (*yatsu)` または `that guy/gal (*yatsu)`      | 粗野な指示                      |
+| `*の方`                   | `that person`                                              | 丁寧・ロマナイズ不要            |
+| `*の人`                   | `that/this person`                                         | 中立・ロマナイズ不要            |
+| `*の子`                   | `that/this/which kid`                                      | カジュアル                      |
+| `*の子/*っち`             | `that/this/which kid (*no-ko), ~-cchi`                     | バリアント統合                  |
+| `*の子;~(な)コ`           | `that/this kid (*no ko; ~na ko)`                           | バリアント統合（括弧内）        |
+| `*の者`                   | `that/this/which one (as personal)`                        | 格式ある指示                    |
 
 > **注意**: `"that/this/who/which/them guy/girl"` 形式や `"that/this/whom one"` 形式は旧パターン。新規翻訳では上記の `(as personal or objective)` / `(as objective)` 形式を使う。
 
@@ -240,30 +202,33 @@ EN でもこの構造（`;`, `/`, `\n`）をそのまま維持する。
 - **補足注釈 `(as Mr/Ms.~)` を付けることは禁止**（どちらか一方に決定する）
 - `Mr./Ms.~` を使う場合は必ずピリオドを付ける：`Mr.` `Ms.`（`Mr/Ms.~` はNG）
 
-| JP 敬称 | EN 変換 | 備考 |
-|---|---|---|
-| `~君` / ロール名+君 / `~クン` | `~-kun` または `Mr./Ms.~` / `Client-kun` 等 | キャラクター性格依存（上記の基準を参照）。ロール名はそのまま前置 |
-| `~さん` / ロール名+さん | `~-san` または `Mr./Ms.~` / `Client-san` 等 | 同上。ロール名はそのまま前置 |
-| `~ちゃん` | `~-chan` | |
-| `~殿` | `~-dono` | |
-| `~様` / `~さま` | `~-sama` または `sir/lady.~(~-sama; very honorific)` | |
-| `~先輩` | `~-senpai` / 単独では `senpai` | |
-| `~(な)コ` | `~-na-ko (adjectival)` | |
-| `~(な)ヤツ` | `~ one (*na yatsu; adjectival)` | |
+| JP 敬称                       | EN 変換                                              | 備考                                                             |
+| ----------------------------- | ---------------------------------------------------- | ---------------------------------------------------------------- |
+| `~君` / ロール名+君 / `~クン` | `~-kun` または `Mr./Ms.~` / `Client-kun` 等          | キャラクター性格依存（上記の基準を参照）。ロール名はそのまま前置 |
+| `~さん` / ロール名+さん       | `~-san` または `Mr./Ms.~` / `Client-san` 等          | 同上。ロール名はそのまま前置                                     |
+| `~ちゃん`                     | `~-chan`                                             |                                                                  |
+| `~殿`                         | `~-dono`                                             |                                                                  |
+| `~様` / `~さま`               | `~-sama` または `sir/lady.~(~-sama; very honorific)` |                                                                  |
+| `~先輩`                       | `~-senpai` / 単独では `senpai`                       |                                                                  |
+| `~(な)コ`                     | `~-na-ko (adjectival)`                               |                                                                  |
+| `~(な)ヤツ`                   | `~ one (*na yatsu; adjectival)`                      |                                                                  |
 
 #### 3-3-5. `ThirdPersonCalling_EN` 書式
 
 **標準形 1（代名詞あり）:**
+
 ```
 he/she; [指示表現 or 敬称/参照形]; [*by name or 参照]
 ```
 
 **標準形 2（代名詞なし）:**
+
 ```
 [指示表現 or 敬称/参照形]; [*by name or 参照]
 ```
 
 実例（NT db_Primary の Num を参照）:
+
 ```
 "he/she; [*by name]"                                                          ← Num 3
 "he/she; ~-kun/~-san"                                                         ← Num 19
@@ -280,65 +245,65 @@ he/she; [指示表現 or 敬称/参照形]; [*by name or 参照]
 
 #### 3-3-6. `ForMasterCalling_EN` 書式
 
-| パターン | 書き方 | 備考 |
-|---|---|---|
-| 名前プレースホルダー | `~` | チルダ記法 |
-| ロール称号+名前 | `Instructor.~` / `Trainer.~` | ピリオド+チルダ |
-| 敬称+名前 | `~-senpai` / `~-kun` | チルダ-ダッシュ-単語 |
-| 先生 | `Teacher [Name]` | 名前の前 |
-| ～兄さん/姉さん | `~-bro/sis (-niisan/-neesan), big bro/sis` | |
-| 角括弧参照型 | `[*Adapts to the master's preferences]` | `[Free Style]` ラベルは含めない |
-| 括弧内注釈 | `Master.~ (*shi; exceptions apply)` | 括弧を閉じる前に全注釈を収める |
-| ロール名+さん | `Client-san` 等 | `クライアントさん` → `Client-san`（`Client` のみは不正解） |
-| ロール名+君 | `Client-kun` 等 | `クライアント君` → `Client-kun`（`Client` のみは不正解） |
-| 複数の呼び方 | `\n` で区切る | |
+| パターン             | 書き方                                     | 備考                                                       |
+| -------------------- | ------------------------------------------ | ---------------------------------------------------------- |
+| 名前プレースホルダー | `~`                                        | チルダ記法                                                 |
+| ロール称号+名前      | `Instructor.~` / `Trainer.~`               | ピリオド+チルダ                                            |
+| 敬称+名前            | `~-senpai` / `~-kun`                       | チルダ-ダッシュ-単語                                       |
+| 先生                 | `Teacher [Name]`                           | 名前の前                                                   |
+| ～兄さん/姉さん      | `~-bro/sis (-niisan/-neesan), big bro/sis` |                                                            |
+| 角括弧参照型         | `[*Adapts to the master's preferences]`    | `[Free Style]` ラベルは含めない                            |
+| 括弧内注釈           | `Master.~ (*shi; exceptions apply)`        | 括弧を閉じる前に全注釈を収める                             |
+| ロール名+さん        | `Client-san` 等                            | `クライアントさん` → `Client-san`（`Client` のみは不正解） |
+| ロール名+君          | `Client-kun` 等                            | `クライアント君` → `Client-kun`（`Client` のみは不正解）   |
+| 複数の呼び方         | `\n` で区切る                              |                                                            |
 
-複数候補をスラッシュ区切りにする場合、共通修飾語は前置：  
+複数候補をスラッシュ区切りにする場合、共通修飾語は前置：
 `Holy Father/Mother`（`Father / Holy Mother` ではない）
 
 #### 3-3-7. `FirstPersonCalling_EN` 書式
 
-| JP 一人称 | EN 形式 |
-|---|---|
-| `ぼく` / `僕` | `I (boku; masc. casual)` |
-| `オレ` / `俺` | `I (ore; masc. rough)` |
-| `わたし` / `私` | `I`（女性マーカー不要なら省略可） |
-| `ママ` | `Mama` |
-| `こっち` | `I/me (kocchi; informal self-ref.)` |
-| `オイラ` | `I (oira)` |
-| `俺っち` | `I (orecchi)` |
-| 方言・古語 | `I (archaic masc. dialect)` 等コンテキスト注釈を付ける |
-| 複数の一人称（文脈別） | `\n` で区切る |
+| JP 一人称              | EN 形式                                                |
+| ---------------------- | ------------------------------------------------------ |
+| `ぼく` / `僕`          | `I (boku; masc. casual)`                               |
+| `オレ` / `俺`          | `I (ore; masc. rough)`                                 |
+| `わたし` / `私`        | `I`（女性マーカー不要なら省略可）                      |
+| `ママ`                 | `Mama`                                                 |
+| `こっち`               | `I/me (kocchi; informal self-ref.)`                    |
+| `オイラ`               | `I (oira)`                                             |
+| `俺っち`               | `I (orecchi)`                                          |
+| 方言・古語             | `I (archaic masc. dialect)` 等コンテキスト注釈を付ける |
+| 複数の一人称（文脈別） | `\n` で区切る                                          |
 
 #### 3-3-8. `SecondPersonCalling_EN` 書式
 
-| JP 二人称 | EN |
-|---|---|
-| `あなた` | `you (neutral/polite)` |
-| `あなた様` | `you (very polite)` |
-| `あんた` | `guy/girl(s) (anta; rough)` |
-| `キミ` / `君` | `you (familiar)` |
-| `お前` / `おまえ` | `you (omae; rough/familiar)` |
-| `[※三人称]` | `[*third-person calling]` |
-| `貴殿(きでん)` | `your lordship (kiden; rare)` |
-| 名前呼び | `[*by name]` |
+| JP 二人称         | EN                            |
+| ----------------- | ----------------------------- |
+| `あなた`          | `you (neutral/polite)`        |
+| `あなた様`        | `you (very polite)`           |
+| `あんた`          | `guy/girl(s) (anta; rough)`   |
+| `キミ` / `君`     | `you (familiar)`              |
+| `お前` / `おまえ` | `you (omae; rough/familiar)`  |
+| `[※三人称]`       | `[*third-person calling]`     |
+| `貴殿(きでん)`    | `your lordship (kiden; rare)` |
+| 名前呼び          | `[*by name]`                  |
 
 #### 3-3-9. DB 別 ThirdPersonCalling_EN 対応状況
 
-| DB | 状況 |
-|---|---|
-| NT db_Primary | 全件あり（2026-06-14 修正: Num 5/7/14/19/32/40/41/51） |
-| NT db_SemiPrimary | 全件あり（2026-06-14 修正: 200-dev） |
-| NT db_Secondary | 0xA–0xF 追加済（2026-06-14）。他レコードに ThirdPersonCalling なし |
-| FL db_Primary | 全件あり |
-| FL db_PrimaryDealer | 全件あり（2026-06-14 修正: `*のこ` / `~君` 各1件） |
-| DestinyFoxRecords | 全件あり（2026-06-15 修正: `(as Mr/Ms.~)` 注釈削除 2件） |
-| ShouArRiders | 全件あり |
-| Proxies | 全件あり（2026-06-15 修正: `(as Mr/Ms.~)` 注釈削除・`[by name]` → `[*by name]` 各1件） |
-| PastDivers | 全件あり |
-| SinisterChangingGirls | 全件あり（2026-06-15 修正: `[by name]` `*` 欠落 1件・`(as Mr/Ms.)` 注釈削除 1件） |
-| UnauthedLogica | 全件あり（2026-06-15 修正: `(as Mr/Ms.~)` → `Mr./Ms.~` 変換 1件） |
-| UnibyteLive | `ThirdPersonCalling` なし（配信系フィールド中心。→ §4-7） |
+| DB                    | 状況                                                                                   |
+| --------------------- | -------------------------------------------------------------------------------------- |
+| NT db_Primary         | 全件あり（2026-06-14 修正: Num 5/7/14/19/32/40/41/51）                                 |
+| NT db_SemiPrimary     | 全件あり（2026-06-14 修正: 200-dev）                                                   |
+| NT db_Secondary       | 0xA–0xF 追加済（2026-06-14）。他レコードに ThirdPersonCalling なし                     |
+| FL db_Primary         | 全件あり                                                                               |
+| FL db_PrimaryDealer   | 全件あり（2026-06-14 修正: `*のこ` / `~君` 各1件）                                     |
+| DestinyFoxRecords     | 全件あり（2026-06-15 修正: `(as Mr/Ms.~)` 注釈削除 2件）                               |
+| ShouArRiders          | 全件あり                                                                               |
+| Proxies               | 全件あり（2026-06-15 修正: `(as Mr/Ms.~)` 注釈削除・`[by name]` → `[*by name]` 各1件） |
+| PastDivers            | 全件あり                                                                               |
+| SinisterChangingGirls | 全件あり（2026-06-15 修正: `[by name]` `*` 欠落 1件・`(as Mr/Ms.)` 注釈削除 1件）      |
+| UnauthedLogica        | 全件あり（2026-06-15 修正: `(as Mr/Ms.~)` → `Mr./Ms.~` 変換 1件）                      |
+| UnibyteLive           | `ThirdPersonCalling` なし（配信系フィールド中心。→ §4-7）                              |
 
 ---
 
@@ -352,7 +317,7 @@ he/she; [指示表現 or 敬称/参照形]; [*by name or 参照]
 
 ### 3-5. `NumerospecAbout_EN`（NumberTales 固有）
 
-1〜2行の簡潔な説明文。複数行は `\n` で区切る。  
+1〜2行の簡潔な説明文。複数行は `\n` で区切る。
 主語を省いた体言止め or 動詞句で統一:
 
 ```
@@ -379,22 +344,23 @@ he/she; [指示表現 or 敬称/参照形]; [*by name or 参照]
 
 NT db_SelfSecondary 等でよく使われる頻出パターン:
 
-| JP パターン | EN パターン |
-|---|---|
-| `ちなみに、〜` | `Incidentally, ...` |
-| `〜から由来` | `Derived from ...` |
-| `なお、〜` | `Note: ...` |
-| `〜と姉妹関係は無い` | `has no sibling relationship with '...'` |
-| `〜と義理の姉妹関係にある` | `has a step-sibling relationship with '...'` |
-| `〜に強く関連しているらしい` | `Reportedly has strong ties to '...'` |
+| JP パターン                  | EN パターン                                  |
+| ---------------------------- | -------------------------------------------- |
+| `ちなみに、〜`               | `Incidentally, ...`                          |
+| `〜から由来`                 | `Derived from ...`                           |
+| `なお、〜`                   | `Note: ...`                                  |
+| `〜と姉妹関係は無い`         | `has no sibling relationship with '...'`     |
+| `〜と義理の姉妹関係にある`   | `has a step-sibling relationship with '...'` |
+| `〜に強く関連しているらしい` | `Reportedly has strong ties to '...'`        |
 
 キャラクター名を引用する場合は `'Num(Name)'` 形式（例: `'366 (Leaperlica)'`）。
 
 **`InStory_EN`**: 作品内の役割・立場説明。特殊ユニット型は `"Unit.N+M type"` 形式。
 
-**`RelationNotes_EN`**: 各キャラとの関係メモ。  
-- キャラクター名: `'N(Name)'` 形式（例: `'6(Sics)'`）または `\"Quoted Name\"` 形式  
-- 独自の呼称スタイルを持つキャラは、そのスタイルをそのまま反映:  
+**`RelationNotes_EN`**: 各キャラとの関係メモ。
+
+- キャラクター名: `'N(Name)'` 形式（例: `'6(Sics)'`）または `\"Quoted Name\"` 形式
+- 独自の呼称スタイルを持つキャラは、そのスタイルをそのまま反映:
   例) `Looks up to '6(Sics)' as her "Sister.6(Sics)"`（`nee-sama` というロマナイズより実際の呼称形式）
 - 複数行は `\n` で区切る
 
@@ -412,9 +378,10 @@ NT db_SelfSecondary 等でよく使われる頻出パターン:
 
 **代名詞**: 言及対象キャラの GenderType に従う（→ セクション 1）。例外なし。
 
-**セリフ形式**: 台詞はそのままの文体を保つ。  
-- `w`（笑）→ `hehe`（`lol` は使わない）  
-- `はぁ…` → `*Sigh*...`  
+**セリフ形式**: 台詞はそのままの文体を保つ。
+
+- `w`（笑）→ `hehe`（`lol` は使わない）
+- `はぁ…` → `*Sigh*...`
 - 絵文字（`♡` `♪` `☆` `★`）は JP 原文のまま保持（`♥` 等に変換しない）
 
 ---
@@ -423,13 +390,13 @@ NT db_SelfSecondary 等でよく使われる頻出パターン:
 
 `ConversationPattern` オブジェクトに以下の `_EN` フィールドを対応する JP フィールドの直後に挿入:
 
-| JP フィールド | EN フィールド |
-|---|---|
-| `TalkingTone` | `TalkingTone_EN` |
-| `TopicPreference` | `TopicPreference_EN` |
-| `TalkFrequency` | `TalkFrequency_EN` |
-| `PreferredTopics` | `PreferredTopics_EN` |
-| `AvoidedTopics` | `AvoidedTopics_EN` |
+| JP フィールド       | EN フィールド          |
+| ------------------- | ---------------------- |
+| `TalkingTone`       | `TalkingTone_EN`       |
+| `TopicPreference`   | `TopicPreference_EN`   |
+| `TalkFrequency`     | `TalkFrequency_EN`     |
+| `PreferredTopics`   | `PreferredTopics_EN`   |
+| `AvoidedTopics`     | `AvoidedTopics_EN`     |
 | `ConversationNotes` | `ConversationNotes_EN` |
 
 **`DialogueExamples`（DE）の処理**:
@@ -456,11 +423,11 @@ NT db_SelfSecondary 等でよく使われる頻出パターン:
 
 **`FormalName_EN`**: 正式名称・型式名の英訳。作品ごとに体系が異なるため、既存値の体系をそのまま踏襲する。
 
-| 作品 | JP 例 | EN 例 | 方針 |
-|---|---|---|---|
-| NumberTales | `ナンバーテールズ1番機` | `NumberTales #1` | `#N` 表記 |
-| DestinyFoxRecords | `銫133:=9192631770刻` | `Cesium133:=9192631770clocks (* no one knows how to read)` | SI 単位系の固有表現を維持（→ §4-5） |
-| FLInvestigator78 等 | — | — | 既存体系を踏襲 |
+| 作品                | JP 例                   | EN 例                                                      | 方針                                |
+| ------------------- | ----------------------- | ---------------------------------------------------------- | ----------------------------------- |
+| NumberTales         | `ナンバーテールズ1番機` | `NumberTales #1`                                           | `#N` 表記                           |
+| DestinyFoxRecords   | `銫133:=9192631770刻`   | `Cesium133:=9192631770clocks (* no one knows how to read)` | SI 単位系の固有表現を維持（→ §4-5） |
+| FLInvestigator78 等 | —                       | —                                                          | 既存体系を踏襲                      |
 
 **`Name_EN`**: 呼び名・通称の英訳。DestinyFoxRecords では SI 単位記号を冠した固有名（`メトレ` → `Metre_SI-L`、`ケルビン` → `Kelvin_SI-Θ`）になっており、`_SI-<記号>` サフィックスを保持する。
 
@@ -482,15 +449,15 @@ NT db_SelfSecondary 等でよく使われる頻出パターン:
 
 > **重要 — `CodeName_EN`（§3-1）とは数詞方式が異なる。** `SPCodeName_EN` は**標準の英語数詞（複合形あり）**を使う。`CodeName_EN` の「桁別連結（`Seven-Zero`）」方式を適用しないこと。
 
-| JP | EN |
-|---|---|
-| `一,初` | `First` |
-| `次` | `Next` |
-| `十` | `Ten` |
-| `十一` | `Eleven` |
+| JP               | EN                        |
+| ---------------- | ------------------------- |
+| `一,初`          | `First`                   |
+| `次`             | `Next`                    |
+| `十`             | `Ten`                     |
+| `十一`           | `Eleven`                  |
 | `十五\n(一半十)` | `Fifteen\n(One-Half Ten)` |
-| `廿` | `Twenty` |
-| `廿一` | `Twenty-One` |
+| `廿`             | `Twenty`                  |
+| `廿一`           | `Twenty-One`              |
 
 - 複数候補のカンマ区切り（`一,初`）は、代表 1 語（`First`）に集約された実例がある。
 - 補足の括弧書き・改行（`\n`）は JP の構造を保持。
@@ -511,11 +478,11 @@ NT db_SelfSecondary 等でよく使われる頻出パターン:
 
 刻印（マーク）の色・表記・位置（各 201 件、`_JP`/`_EN` ペア型）。
 
-| フィールド | 方針 | 例 |
-|---|---|---|
-| `MarkColor_EN` | 色名のみ・小文字 | `赤` → `red` / `橙色` → `orange` / `暗色` → `dark` |
-| `MarkNotation_EN` | 表記内容。和文の鉤括弧「」内はシングルクォート `'...'` で囲む | `アラビア数字の「1」` → `Arabic numeral '1'` |
-| `MarkPosition_EN` | 位置を説明する名詞句 | `トップスの左胸` → `the left chest of the top` / `球体の前面左胸の白色部分` → `the white area on the front-left chest of the sphere` |
+| フィールド        | 方針                                                          | 例                                                                                                                                   |
+| ----------------- | ------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
+| `MarkColor_EN`    | 色名のみ・小文字                                              | `赤` → `red` / `橙色` → `orange` / `暗色` → `dark`                                                                                   |
+| `MarkNotation_EN` | 表記内容。和文の鉤括弧「」内はシングルクォート `'...'` で囲む | `アラビア数字の「1」` → `Arabic numeral '1'`                                                                                         |
+| `MarkPosition_EN` | 位置を説明する名詞句                                          | `トップスの左胸` → `the left chest of the top` / `球体の前面左胸の白色部分` → `the white area on the front-left chest of the sphere` |
 
 ---
 
@@ -525,7 +492,7 @@ NT db_SelfSecondary 等でよく使われる頻出パターン:
 
 - 1 項目 1 文の説明句。主語は省略し、動詞句・形容詞句で始める実例が多い。
 - 補足の括弧書きは保持: `泳げない（炭酸風呂でさえ溺れかけた経験あり）` → `Cannot swim (has nearly drowned even in a sparkling bath)`。
-- 並列は ` / ` または `;`、`—`（em dash）で接続した実例がある: `予定が狂わない/予定を狂わさせない` → `Never falls behind schedule / refuses to let others fall behind schedule either`。
+- 並列は `/` または `;`、`—`（em dash）で接続した実例がある: `予定が狂わない/予定を狂わさせない` → `Never falls behind schedule / refuses to let others fall behind schedule either`。
 - 複数行は `\n` で区切る。
 
 ---
@@ -563,7 +530,7 @@ NT db_SelfSecondary 等でよく使われる頻出パターン:
 
 ### 4-1. NumberTales
 
-- `TailsUnit_EN`: セクション 3-2 参照
+- `TailsUnit`: `$Def_TailsUnit` 構造化型（自由記述訳は不要）。セクション 3-2 参照
 - `CodeName_EN`: 漢数字→桁別英語数詞（セクション 3-1）
 - `NumerospecAbout_EN`: 体言止め or 動詞句
 - `corefolder` は**全文小文字**（`CoreFolder` ではない）
@@ -619,39 +586,39 @@ NT db_SelfSecondary 等でよく使われる頻出パターン:
 
 ### 5-1. 括弧・ブラケット
 
-| 用途 | 記法 | 例 |
-|---|---|---|
-| 参照・補足 | `[*説明]` | `[*by name]`, `[*Adapts to the master's preferences]` |
-| ロマナイズ注釈 | `(romaji; 補足)` | `(ore; masc. rough)`, `(shi; exceptions apply)` |
+| 用途             | 記法               | 例                                                          |
+| ---------------- | ------------------ | ----------------------------------------------------------- |
+| 参照・補足       | `[*説明]`          | `[*by name]`, `[*Adapts to the master's preferences]`       |
+| ロマナイズ注釈   | `(romaji; 補足)`   | `(ore; masc. rough)`, `(shi; exceptions apply)`             |
 | 注釈のセミコロン | 括弧**内**に収める | `(*shi; exceptions apply)` ○ / `(*shi); exceptions apply` ✗ |
 
 ### 5-2. 特殊ユニット・役職名
 
-| JP | EN |
-|---|---|
-| `Unit.N+M 型` | `Unit.N+M type` |
-| `～教官` | `Instructor.~` |
-| `～トレーナー` | `Trainer.~` |
-| `先生` | `Teacher [Name]` |
-| `～先輩` | `~-senpai` |
-| `～君/くん` | `~-kun` |
-| `～ちゃん` | `~-chan` |
+| JP                | EN                                        |
+| ----------------- | ----------------------------------------- |
+| `Unit.N+M 型`     | `Unit.N+M type`                           |
+| `～教官`          | `Instructor.~`                            |
+| `～トレーナー`    | `Trainer.~`                               |
+| `先生`            | `Teacher [Name]`                          |
+| `～先輩`          | `~-senpai`                                |
+| `～君/くん`       | `~-kun`                                   |
+| `～ちゃん`        | `~-chan`                                  |
 | `～兄さん/姉さん` | `-bro/sis (-niisan/-neesan), big bro/sis` |
 
 ### 5-3. 絵文字・特殊文字
 
-| JP 原文 | EN 処理 |
-|---|---|
-| `♡` | そのまま `♡`（`♥` に変換しない）|
-| `♪` | そのまま `♪` |
-| `☆` / `★` | そのまま `☆` / `★` |
-| `w`（笑） | `hehe` |
-| `はぁ…` | `*Sigh*...` |
-| `（※検閲で削除されている…）` | `(* censored...)` |
+| JP 原文                      | EN 処理                          |
+| ---------------------------- | -------------------------------- |
+| `♡`                          | そのまま `♡`（`♥` に変換しない） |
+| `♪`                          | そのまま `♪`                     |
+| `☆` / `★`                    | そのまま `☆` / `★`               |
+| `w`（笑）                    | `hehe`                           |
+| `はぁ…`                      | `*Sigh*...`                      |
+| `（※検閲で削除されている…）` | `(* censored...)`                |
 
 ### 5-4. 架空コンテンツ名
 
-JP タイトル + ローマ字副題（`タイトル(ローマ字副題)` 形式）の場合、ローマ字副題のみを使用:  
+JP タイトル + ローマ字副題（`タイトル(ローマ字副題)` 形式）の場合、ローマ字副題のみを使用:
 例) `御伽の電子妖精(テールズ ｅ-フェアリーズ)` → `Tales e-Fairies`
 
 ---
@@ -673,7 +640,7 @@ JP タイトル + ローマ字副題（`タイトル(ローマ字副題)` 形式
 
 ```javascript
 function insertAfterKey(obj, baseKey, enKey, enValue) {
-  if (enKey in obj) return obj;  // すでに存在する場合はスキップ
+  if (enKey in obj) return obj; // すでに存在する場合はスキップ
   const keys = Object.keys(obj);
   const idx = keys.indexOf(baseKey);
   const result = {};
@@ -689,10 +656,10 @@ function insertAfterKey(obj, baseKey, enKey, enValue) {
 }
 
 // 必ずこのパターンで使う（Object.assign は使わない）
-db = db.map(rec => {
+db = db.map((rec) => {
   if (rec.Num !== TARGET_NUM) return rec;
   let current = rec;
-  current = insertAfterKey(current, 'FieldJP', 'FieldJP_EN', 'EN value');
+  current = insertAfterKey(current, "FieldJP", "FieldJP_EN", "EN value");
   // ... 追加フィールド分だけ current = insertAfterKey(...) を連鎖
   return current;
 });
@@ -708,9 +675,11 @@ function setCommentEN(record, type, targetNum, enText) {
   if (!entries) return;
   for (const entry of entries) {
     // String() で比較することで "00"（文字列）も安全にマッチ
-    if (String(entry.Num) === String(targetNum)
-        && entry.Comments
-        && entry.Comments_EN === entry.Comments) {
+    if (
+      String(entry.Num) === String(targetNum) &&
+      entry.Comments &&
+      entry.Comments_EN === entry.Comments
+    ) {
       entry.Comments_EN = enText;
     }
   }
@@ -721,11 +690,11 @@ function setCommentEN(record, type, targetNum, enText) {
 
 ## 8. 参照先ドキュメント
 
-| 対象 | 参照先 |
-|---|---|
-| スキーマ全体 | `data/db_type.json ($DefType)` |
-| DeepL 翻訳運用 | `docs/deepl-localization.md`（用語集・添削補助・上書き禁止の境界） |
-| API/SW 仕様 | `docs/api-sw-spec.md` |
-| 実装方針 | `docs/implementation-playbook.md` |
+| 対象                 | 参照先                                                              |
+| -------------------- | ------------------------------------------------------------------- |
+| スキーマ全体         | `data/db_type.json ($DefType)`                                      |
+| DeepL 翻訳運用       | `docs/deepl-localization.md`（用語集・添削補助・上書き禁止の境界）  |
+| API/SW 仕様          | `docs/api-sw-spec.md`                                               |
+| 実装方針             | `docs/implementation-playbook.md`                                   |
 | 英訳作業進捗（最新） | `_work_in_progress/2026-06-24_progress_localization-rules-audit.md` |
-| 英訳作業進捗（旧） | `_work_in_progress/2026-06-15_progress_localization-audit.md` |
+| 英訳作業進捗（旧）   | `_work_in_progress/2026-06-15_progress_localization-audit.md`       |

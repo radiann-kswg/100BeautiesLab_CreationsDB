@@ -35,8 +35,14 @@
     ],
     "Weight_kg": 39,
     "BustSize": "AA",
-    "TailsUnit_JP": "キツネ型1本",
-    "TailsUnit_EN": "Single fox-type tail",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_Fox",
+        "Count": 1,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "NumberMarkLocation": [
       {
         "Formation": "humanoid",
@@ -160,22 +166,6 @@
       }
     ],
     "AppearanceDetail": [
-      {
-        "Formation": null,
-        "BodyPart": ["#BodyPart_Tail"],
-        "Laterality": null,
-        "DesignElement": "#Element_TailsUnit",
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_Shape",
-            "vdict_TailShapeType": "#TailShapeType_Fox"
-          },
-          { "AttrLabel": "#DesignAttr_Count", "value_Num": 1 }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
       {
         "Formation": "corefolder",
         "BodyPart": ["#BodyPart_Chest"],
@@ -713,8 +703,14 @@
     ],
     "Weight_kg": 39,
     "BustSize": "C",
-    "TailsUnit_JP": "キツネ型2本",
-    "TailsUnit_EN": "Twin fox-type tails",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_Fox",
+        "Count": 2,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "NumberMarkLocation": [
       {
         "Formation": "corefolder",
@@ -817,22 +813,6 @@
       }
     ],
     "AppearanceDetail": [
-      {
-        "Formation": null,
-        "BodyPart": ["#BodyPart_Tail"],
-        "Laterality": null,
-        "DesignElement": "#Element_TailsUnit",
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_Shape",
-            "vdict_TailShapeType": "#TailShapeType_Fox"
-          },
-          { "AttrLabel": "#DesignAttr_Count", "value_Num": 2 }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
       {
         "Formation": "corefolder",
         "BodyPart": ["#BodyPart_Chest"],
@@ -1266,8 +1246,14 @@
     ],
     "Weight_kg": 43,
     "BustSize": "AA",
-    "TailsUnit_JP": "キツネ型3本",
-    "TailsUnit_EN": "Three fox-type tails",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_Fox",
+        "Count": 3,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "NumberMarkLocation": [
       {
         "Formation": "corefolder",
@@ -1368,22 +1354,6 @@
       }
     ],
     "AppearanceDetail": [
-      {
-        "Formation": null,
-        "BodyPart": ["#BodyPart_Tail"],
-        "Laterality": null,
-        "DesignElement": "#Element_TailsUnit",
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_Shape",
-            "vdict_TailShapeType": "#TailShapeType_Fox"
-          },
-          { "AttrLabel": "#DesignAttr_Count", "value_Num": 3 }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
       {
         "Formation": "corefolder",
         "BodyPart": ["#BodyPart_Chest"],
@@ -1774,8 +1744,14 @@
     ],
     "Weight_kg": 42,
     "BustSize": "B",
-    "TailsUnit_JP": "キツネ型4本",
-    "TailsUnit_EN": "Four fox-type tails",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_Fox",
+        "Count": 4,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "NumberMarkLocation": [
       {
         "Formation": "corefolder",
@@ -1876,22 +1852,6 @@
       }
     ],
     "AppearanceDetail": [
-      {
-        "Formation": null,
-        "BodyPart": ["#BodyPart_Tail"],
-        "Laterality": null,
-        "DesignElement": "#Element_TailsUnit",
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_Shape",
-            "vdict_TailShapeType": "#TailShapeType_Fox"
-          },
-          { "AttrLabel": "#DesignAttr_Count", "value_Num": 4 }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
       {
         "Formation": "corefolder",
         "BodyPart": ["#BodyPart_Shoulder"],
@@ -2334,8 +2294,14 @@
     ],
     "Weight_kg": 42,
     "BustSize": "AA",
-    "TailsUnit_JP": "キツネ型5本",
-    "TailsUnit_EN": "Five fox-type tails",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_Fox",
+        "Count": 5,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "NumberMarkLocation": [
       {
         "Formation": "corefolder",
@@ -2442,22 +2408,6 @@
       }
     ],
     "AppearanceDetail": [
-      {
-        "Formation": null,
-        "BodyPart": ["#BodyPart_Tail"],
-        "Laterality": null,
-        "DesignElement": "#Element_TailsUnit",
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_Shape",
-            "vdict_TailShapeType": "#TailShapeType_Fox"
-          },
-          { "AttrLabel": "#DesignAttr_Count", "value_Num": 5 }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
       {
         "Formation": "corefolder",
         "BodyPart": ["#BodyPart_Chest"],
@@ -2998,8 +2948,14 @@
     ],
     "Weight_kg": 41,
     "BustSize": "E",
-    "TailsUnit_JP": "キツネ型6本",
-    "TailsUnit_EN": "Six fox-type tails",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_Fox",
+        "Count": 6,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "NumberMarkLocation": [
       {
         "Formation": "corefolder",
@@ -3100,22 +3056,6 @@
       }
     ],
     "AppearanceDetail": [
-      {
-        "Formation": null,
-        "BodyPart": ["#BodyPart_Tail"],
-        "Laterality": null,
-        "DesignElement": "#Element_TailsUnit",
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_Shape",
-            "vdict_TailShapeType": "#TailShapeType_Fox"
-          },
-          { "AttrLabel": "#DesignAttr_Count", "value_Num": 6 }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
       {
         "Formation": null,
         "BodyPart": ["#BodyPart_Chest"],
@@ -3518,8 +3458,14 @@
     ],
     "Weight_kg": 44,
     "BustSize": "AA",
-    "TailsUnit_JP": "キツネ型7本",
-    "TailsUnit_EN": "Seven fox-type tails",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_Fox",
+        "Count": 7,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "NumberMarkLocation": [
       {
         "Formation": "corefolder",
@@ -3618,22 +3564,6 @@
       }
     ],
     "AppearanceDetail": [
-      {
-        "Formation": null,
-        "BodyPart": ["#BodyPart_Tail"],
-        "Laterality": null,
-        "DesignElement": "#Element_TailsUnit",
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_Shape",
-            "vdict_TailShapeType": "#TailShapeType_Fox"
-          },
-          { "AttrLabel": "#DesignAttr_Count", "value_Num": 7 }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
       {
         "Formation": "corefolder",
         "BodyPart": ["#BodyPart_Chest"],
@@ -4086,8 +4016,14 @@
       { "value": 43, "about_JP": "推定", "about_EN": "Presumption" }
     ],
     "BustSize": "B",
-    "TailsUnit_JP": "キツネ型8本",
-    "TailsUnit_EN": "Eight fox-type tails",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_Fox",
+        "Count": 8,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "NumberMarkLocation": [
       {
         "Formation": "corefolder",
@@ -4196,22 +4132,6 @@
       }
     ],
     "AppearanceDetail": [
-      {
-        "Formation": null,
-        "BodyPart": ["#BodyPart_Tail"],
-        "Laterality": null,
-        "DesignElement": "#Element_TailsUnit",
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_Shape",
-            "vdict_TailShapeType": "#TailShapeType_Fox"
-          },
-          { "AttrLabel": "#DesignAttr_Count", "value_Num": 8 }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
       {
         "Formation": "corefolder",
         "BodyPart": ["#BodyPart_Chest"],
@@ -4653,8 +4573,14 @@
     ],
     "Weight_kg": 43,
     "BustSize": "E",
-    "TailsUnit_JP": "キツネ型9本",
-    "TailsUnit_EN": "Nine fox-type tails",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_Fox",
+        "Count": 9,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "NumberMarkLocation": [
       {
         "Formation": "corefolder",
@@ -4753,22 +4679,6 @@
       }
     ],
     "AppearanceDetail": [
-      {
-        "Formation": null,
-        "BodyPart": ["#BodyPart_Tail"],
-        "Laterality": null,
-        "DesignElement": "#Element_TailsUnit",
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_Shape",
-            "vdict_TailShapeType": "#TailShapeType_Fox"
-          },
-          { "AttrLabel": "#DesignAttr_Count", "value_Num": 9 }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
       {
         "Formation": "corefolder",
         "BodyPart": ["#BodyPart_Chest"],
@@ -5216,8 +5126,14 @@
     ],
     "Weight_kg": 39,
     "BustSize": "AA",
-    "TailsUnit_JP": "つぼみ型1本（大1束+小9束）",
-    "TailsUnit_EN": "Single bud-type tail (1 large cluster + 9 small clusters)",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_Bud",
+        "Count": 1,
+        "Note_JP": "大1束+小9束（大小の束構成）",
+        "Note_EN": "1 large cluster + 9 small clusters (large/small cluster composition)"
+      }
+    ],
     "NumberMarkLocation": [
       {
         "Formation": "corefolder",
@@ -5333,32 +5249,6 @@
       }
     ],
     "AppearanceDetail": [
-      {
-        "Formation": null,
-        "BodyPart": ["#BodyPart_Tail"],
-        "Laterality": null,
-        "DesignElement": "#Element_TailsUnit",
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_Shape",
-            "vdict_TailShapeType": "#TailShapeType_Bud"
-          },
-          { "AttrLabel": "#DesignAttr_Count", "value_Num": 1 },
-          {
-            "AttrLabel": "#DesignAttr_Branch",
-            "value_JP": "大1束",
-            "value_EN": "1 large cluster + 9 small clusters"
-          },
-          {
-            "AttrLabel": "#DesignAttr_Branch",
-            "value_JP": "小9束",
-            "value_EN": "1 large cluster + 9 small clusters"
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
       {
         "Formation": "corefolder",
         "BodyPart": ["#BodyPart_Chest"],
@@ -5822,8 +5712,14 @@
     ],
     "Weight_kg": 43,
     "BustSize": "AA",
-    "TailsUnit_JP": "猫又型11本",
-    "TailsUnit_EN": "Eleven nekomata-type tails",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_Nekomata",
+        "Count": 11,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "NumberMarkLocation": [
       {
         "Formation": "corefolder",
@@ -5920,22 +5816,6 @@
       }
     ],
     "AppearanceDetail": [
-      {
-        "Formation": null,
-        "BodyPart": ["#BodyPart_Tail"],
-        "Laterality": null,
-        "DesignElement": "#Element_TailsUnit",
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_Shape",
-            "vdict_TailShapeType": "#TailShapeType_Nekomata"
-          },
-          { "AttrLabel": "#DesignAttr_Count", "value_Num": 11 }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
       {
         "Formation": null,
         "BodyPart": ["#BodyPart_Waist"],
@@ -6325,8 +6205,18 @@
     ],
     "Weight_kg": 39,
     "BustSize": "B",
-    "TailsUnit_JP": "キツネ(枝分かれ)型2本(上2束1本+下1束1本)",
-    "TailsUnit_EN": "Fox (branched) type: 2 tails (upper: 2 clusters x1, lower: 1 cluster x1)",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxBranched",
+        "Count": 2,
+        "Branches": [
+          { "Laterality": "#Lat_Upper", "TailCount": 1, "ClusterCount": 2 },
+          { "Laterality": "#Lat_Lower", "TailCount": 1, "ClusterCount": 1 }
+        ],
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "NumberMarkLocation": [
       {
         "Formation": "corefolder",
@@ -6423,34 +6313,6 @@
       }
     ],
     "AppearanceDetail": [
-      {
-        "Formation": null,
-        "BodyPart": ["#BodyPart_Tail"],
-        "Laterality": null,
-        "DesignElement": "#Element_TailsUnit",
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_Shape",
-            "vdict_TailShapeType": "#TailShapeType_FoxBranched"
-          },
-          { "AttrLabel": "#DesignAttr_Count", "value_Num": 2 },
-          {
-            "AttrLabel": "#DesignAttr_Branch",
-            "vdict_Laterality": "#Lat_Upper",
-            "value_Num_1": 1,
-            "value_Num_2": 2
-          },
-          {
-            "AttrLabel": "#DesignAttr_Branch",
-            "vdict_Laterality": "#Lat_Lower",
-            "value_Num_1": 1,
-            "value_Num_2": 1
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
       {
         "Formation": null,
         "BodyPart": ["#BodyPart_Shoulder"],
@@ -6857,8 +6719,18 @@
     ],
     "Weight_kg": 40,
     "BustSize": "A",
-    "TailsUnit_JP": "キツネ(枝分かれ)型3本(上2束1本+下1束2本)",
-    "TailsUnit_EN": "Fox (branched) type: 3 tails (upper: 2 clusters x1, lower: 1 cluster x2)",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxBranched",
+        "Count": 3,
+        "Branches": [
+          { "Laterality": "#Lat_Upper", "TailCount": 1, "ClusterCount": 2 },
+          { "Laterality": "#Lat_Lower", "TailCount": 2, "ClusterCount": 1 }
+        ],
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "NumberMarkLocation": [
       {
         "Formation": "corefolder",
@@ -6947,34 +6819,6 @@
       }
     ],
     "AppearanceDetail": [
-      {
-        "Formation": null,
-        "BodyPart": ["#BodyPart_Tail"],
-        "Laterality": null,
-        "DesignElement": "#Element_TailsUnit",
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_Shape",
-            "vdict_TailShapeType": "#TailShapeType_FoxBranched"
-          },
-          { "AttrLabel": "#DesignAttr_Count", "value_Num": 3 },
-          {
-            "AttrLabel": "#DesignAttr_Branch",
-            "vdict_Laterality": "#Lat_Upper",
-            "value_Num_1": 1,
-            "value_Num_2": 2
-          },
-          {
-            "AttrLabel": "#DesignAttr_Branch",
-            "vdict_Laterality": "#Lat_Lower",
-            "value_Num_1": 2,
-            "value_Num_2": 1
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
       {
         "Formation": "corefolder",
         "BodyPart": ["#BodyPart_Chest"],
@@ -7404,8 +7248,18 @@
     ],
     "Weight_kg": 39,
     "BustSize": "F",
-    "TailsUnit_JP": "キツネ(枝分かれ)型4本(上2束1本+下1束3本)",
-    "TailsUnit_EN": "Fox (branched) type: 4 tails (upper: 2 clusters x1, lower: 1 cluster x3)",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxBranched",
+        "Count": 4,
+        "Branches": [
+          { "Laterality": "#Lat_Upper", "TailCount": 1, "ClusterCount": 2 },
+          { "Laterality": "#Lat_Lower", "TailCount": 3, "ClusterCount": 1 }
+        ],
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "NumberMarkLocation": [
       {
         "Formation": "corefolder",
@@ -7511,34 +7365,6 @@
       }
     ],
     "AppearanceDetail": [
-      {
-        "Formation": null,
-        "BodyPart": ["#BodyPart_Tail"],
-        "Laterality": null,
-        "DesignElement": "#Element_TailsUnit",
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_Shape",
-            "vdict_TailShapeType": "#TailShapeType_FoxBranched"
-          },
-          { "AttrLabel": "#DesignAttr_Count", "value_Num": 4 },
-          {
-            "AttrLabel": "#DesignAttr_Branch",
-            "vdict_Laterality": "#Lat_Upper",
-            "value_Num_1": 1,
-            "value_Num_2": 2
-          },
-          {
-            "AttrLabel": "#DesignAttr_Branch",
-            "vdict_Laterality": "#Lat_Lower",
-            "value_Num_1": 3,
-            "value_Num_2": 1
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
       {
         "Formation": "corefolder",
         "BodyPart": ["#BodyPart_Chest"],
@@ -8058,8 +7884,18 @@
       { "value": 4, "about_JP": "安全装置", "about_EN": "Safety Unit" }
     ],
     "BustSize": "AA",
-    "TailsUnit_JP": "キツネ(枝分かれ)型5本(上2束1本+下1束4本)",
-    "TailsUnit_EN": "Fox (branched) type: 5 tails (upper: 2 clusters x1, lower: 1 cluster x4)",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxBranched",
+        "Count": 5,
+        "Branches": [
+          { "Laterality": "#Lat_Upper", "TailCount": 1, "ClusterCount": 2 },
+          { "Laterality": "#Lat_Lower", "TailCount": 4, "ClusterCount": 1 }
+        ],
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "NumberMarkLocation": [
       {
         "Formation": "corefolder",
@@ -8167,34 +8003,6 @@
       }
     ],
     "AppearanceDetail": [
-      {
-        "Formation": null,
-        "BodyPart": ["#BodyPart_Tail"],
-        "Laterality": null,
-        "DesignElement": "#Element_TailsUnit",
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_Shape",
-            "vdict_TailShapeType": "#TailShapeType_FoxBranched"
-          },
-          { "AttrLabel": "#DesignAttr_Count", "value_Num": 5 },
-          {
-            "AttrLabel": "#DesignAttr_Branch",
-            "vdict_Laterality": "#Lat_Upper",
-            "value_Num_1": 1,
-            "value_Num_2": 2
-          },
-          {
-            "AttrLabel": "#DesignAttr_Branch",
-            "vdict_Laterality": "#Lat_Lower",
-            "value_Num_1": 4,
-            "value_Num_2": 1
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
       {
         "Formation": "corefolder",
         "BodyPart": ["#BodyPart_Chest"],
@@ -8645,8 +8453,18 @@
     ],
     "Weight_kg": { "hideText": "非公開" },
     "BustSize": "H",
-    "TailsUnit_JP": "キツネ(枝分かれ)型6本(上2束1本+下1束5本)",
-    "TailsUnit_EN": "Fox (branched) type: 6 tails (upper: 2 clusters x1, lower: 1 cluster x5)",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxBranched",
+        "Count": 6,
+        "Branches": [
+          { "Laterality": "#Lat_Upper", "TailCount": 1, "ClusterCount": 2 },
+          { "Laterality": "#Lat_Lower", "TailCount": 5, "ClusterCount": 1 }
+        ],
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "NumberMarkLocation": [
       {
         "Formation": "corefolder",
@@ -8752,34 +8570,6 @@
       }
     ],
     "AppearanceDetail": [
-      {
-        "Formation": null,
-        "BodyPart": ["#BodyPart_Tail"],
-        "Laterality": null,
-        "DesignElement": "#Element_TailsUnit",
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_Shape",
-            "vdict_TailShapeType": "#TailShapeType_FoxBranched"
-          },
-          { "AttrLabel": "#DesignAttr_Count", "value_Num": 6 },
-          {
-            "AttrLabel": "#DesignAttr_Branch",
-            "vdict_Laterality": "#Lat_Upper",
-            "value_Num_1": 1,
-            "value_Num_2": 2
-          },
-          {
-            "AttrLabel": "#DesignAttr_Branch",
-            "vdict_Laterality": "#Lat_Lower",
-            "value_Num_1": 5,
-            "value_Num_2": 1
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
       {
         "Formation": null,
         "BodyPart": ["#BodyPart_Head"],
@@ -9162,8 +8952,18 @@
       { "value": 40, "about_JP": "推定", "about_EN": "Presumption" }
     ],
     "BustSize": "AA",
-    "TailsUnit_JP": "キツネ(枝分かれ)型7本(上2束1本+下1束6本)",
-    "TailsUnit_EN": "Fox (branched) type: 7 tails (upper: 2 clusters x1, lower: 1 cluster x6)",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxBranched",
+        "Count": 7,
+        "Branches": [
+          { "Laterality": "#Lat_Upper", "TailCount": 1, "ClusterCount": 2 },
+          { "Laterality": "#Lat_Lower", "TailCount": 6, "ClusterCount": 1 }
+        ],
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "NumberMarkLocation": [
       {
         "Formation": "corefolder",
@@ -9269,34 +9069,6 @@
       }
     ],
     "AppearanceDetail": [
-      {
-        "Formation": null,
-        "BodyPart": ["#BodyPart_Tail"],
-        "Laterality": null,
-        "DesignElement": "#Element_TailsUnit",
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_Shape",
-            "vdict_TailShapeType": "#TailShapeType_FoxBranched"
-          },
-          { "AttrLabel": "#DesignAttr_Count", "value_Num": 7 },
-          {
-            "AttrLabel": "#DesignAttr_Branch",
-            "vdict_Laterality": "#Lat_Upper",
-            "value_Num_1": 1,
-            "value_Num_2": 2
-          },
-          {
-            "AttrLabel": "#DesignAttr_Branch",
-            "vdict_Laterality": "#Lat_Lower",
-            "value_Num_1": 6,
-            "value_Num_2": 1
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
       {
         "Formation": null,
         "BodyPart": ["#BodyPart_Hair"],
@@ -9702,8 +9474,18 @@
     ],
     "Weight_kg": 42,
     "BustSize": "C",
-    "TailsUnit_JP": "キツネ(枝分かれ)型8本(上2束1本+下1束7本)",
-    "TailsUnit_EN": "Fox (branched) type: 8 tails (upper: 2 clusters x1, lower: 1 cluster x7)",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxBranched",
+        "Count": 8,
+        "Branches": [
+          { "Laterality": "#Lat_Upper", "TailCount": 1, "ClusterCount": 2 },
+          { "Laterality": "#Lat_Lower", "TailCount": 7, "ClusterCount": 1 }
+        ],
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "NumberMarkLocation": [
       {
         "Formation": "corefolder",
@@ -9793,34 +9575,6 @@
       }
     ],
     "AppearanceDetail": [
-      {
-        "Formation": null,
-        "BodyPart": ["#BodyPart_Tail"],
-        "Laterality": null,
-        "DesignElement": "#Element_TailsUnit",
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_Shape",
-            "vdict_TailShapeType": "#TailShapeType_FoxBranched"
-          },
-          { "AttrLabel": "#DesignAttr_Count", "value_Num": 8 },
-          {
-            "AttrLabel": "#DesignAttr_Branch",
-            "vdict_Laterality": "#Lat_Upper",
-            "value_Num_1": 1,
-            "value_Num_2": 2
-          },
-          {
-            "AttrLabel": "#DesignAttr_Branch",
-            "vdict_Laterality": "#Lat_Lower",
-            "value_Num_1": 7,
-            "value_Num_2": 1
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
       {
         "Formation": "corefolder",
         "BodyPart": ["#BodyPart_Chest"],
@@ -10166,8 +9920,18 @@
     ],
     "Weight_kg": 42,
     "BustSize": "AA",
-    "TailsUnit_JP": "キツネ(枝分かれ)型9本(上2束1本+下1束8本)",
-    "TailsUnit_EN": "Fox (branched) type: 9 tails (upper: 2 clusters x1, lower: 1 cluster x8)",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxBranched",
+        "Count": 9,
+        "Branches": [
+          { "Laterality": "#Lat_Upper", "TailCount": 1, "ClusterCount": 2 },
+          { "Laterality": "#Lat_Lower", "TailCount": 8, "ClusterCount": 1 }
+        ],
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "NumberMarkLocation": [
       {
         "Formation": "corefolder",
@@ -10256,34 +10020,6 @@
       }
     ],
     "AppearanceDetail": [
-      {
-        "Formation": null,
-        "BodyPart": ["#BodyPart_Tail"],
-        "Laterality": null,
-        "DesignElement": "#Element_TailsUnit",
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_Shape",
-            "vdict_TailShapeType": "#TailShapeType_FoxBranched"
-          },
-          { "AttrLabel": "#DesignAttr_Count", "value_Num": 9 },
-          {
-            "AttrLabel": "#DesignAttr_Branch",
-            "vdict_Laterality": "#Lat_Upper",
-            "value_Num_1": 1,
-            "value_Num_2": 2
-          },
-          {
-            "AttrLabel": "#DesignAttr_Branch",
-            "vdict_Laterality": "#Lat_Lower",
-            "value_Num_1": 8,
-            "value_Num_2": 1
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
       {
         "Formation": "corefolder",
         "BodyPart": ["#BodyPart_Chest"],
@@ -10646,8 +10382,14 @@
     ],
     "Weight_kg": 41,
     "BustSize": "H",
-    "TailsUnit_JP": "キツネ型2本",
-    "TailsUnit_EN": "Two fox-type tails",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_Fox",
+        "Count": 2,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "NumberMarkLocation": [
       {
         "Formation": "corefolder",
@@ -10749,22 +10491,6 @@
       }
     ],
     "AppearanceDetail": [
-      {
-        "Formation": null,
-        "BodyPart": ["#BodyPart_Tail"],
-        "Laterality": null,
-        "DesignElement": "#Element_TailsUnit",
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_Shape",
-            "vdict_TailShapeType": "#TailShapeType_Fox"
-          },
-          { "AttrLabel": "#DesignAttr_Count", "value_Num": 2 }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
       {
         "Formation": "corefolder",
         "BodyPart": ["#BodyPart_Neck"],
@@ -11256,8 +10982,18 @@
     "ConceptAge": 14,
     "Weight_kg": 39,
     "BustSize": "A",
-    "TailsUnit_JP": "キツネ(枝分かれ)型2本(上2束1本+下1束1本)",
-    "TailsUnit_EN": "Fox (branched) type: 2 tails (upper: 2 clusters x1, lower: 1 cluster x1)",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxBranched",
+        "Count": 2,
+        "Branches": [
+          { "Laterality": "#Lat_Upper", "TailCount": 1, "ClusterCount": 2 },
+          { "Laterality": "#Lat_Lower", "TailCount": 1, "ClusterCount": 1 }
+        ],
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "NumberMarkLocation": [
       {
         "Formation": "corefolder",
@@ -11348,34 +11084,6 @@
       }
     ],
     "AppearanceDetail": [
-      {
-        "Formation": null,
-        "BodyPart": ["#BodyPart_Tail"],
-        "Laterality": null,
-        "DesignElement": "#Element_TailsUnit",
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_Shape",
-            "vdict_TailShapeType": "#TailShapeType_FoxBranched"
-          },
-          { "AttrLabel": "#DesignAttr_Count", "value_Num": 2 },
-          {
-            "AttrLabel": "#DesignAttr_Branch",
-            "vdict_Laterality": "#Lat_Upper",
-            "value_Num_1": 1,
-            "value_Num_2": 2
-          },
-          {
-            "AttrLabel": "#DesignAttr_Branch",
-            "vdict_Laterality": "#Lat_Lower",
-            "value_Num_1": 1,
-            "value_Num_2": 1
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
       {
         "Formation": "corefolder",
         "BodyPart": ["#BodyPart_Chest"],
@@ -11756,8 +11464,15 @@
     ],
     "Weight_kg": { "hideText": "非公開" },
     "BustSize": "I",
-    "TailsUnit_JP": "サソリ型2本（それぞれ11束[節]）",
-    "TailsUnit_EN": "Scorpion type: 2 tails (Each with 11 cluster/segments)",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_Scorpion",
+        "Count": 2,
+        "Segment": 11,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "NumberMarkLocation": [
       {
         "Formation": "corefolder",
@@ -11862,23 +11577,6 @@
       }
     ],
     "AppearanceDetail": [
-      {
-        "Formation": null,
-        "BodyPart": ["#BodyPart_Tail"],
-        "Laterality": null,
-        "DesignElement": "#Element_TailsUnit",
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_Shape",
-            "vdict_TailShapeType": "#TailShapeType_Scorpion"
-          },
-          { "AttrLabel": "#DesignAttr_Count", "value_Num": 2 },
-          { "AttrLabel": "#DesignAttr_Segment", "value_Num": 11 }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
       {
         "Formation": "corefolder",
         "BodyPart": ["#BodyPart_Chest"],
@@ -12396,8 +12094,18 @@
     ],
     "Weight_kg": 40,
     "BustSize": "B",
-    "TailsUnit_JP": "キツネ(枝分かれ)型3本(上2束2本+下1束1本)",
-    "TailsUnit_EN": "Fox (branched) type: 3 tails (upper: 2 clusters x2, lower: 1 cluster x1)",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxBranched",
+        "Count": 3,
+        "Branches": [
+          { "Laterality": "#Lat_Upper", "TailCount": 2, "ClusterCount": 2 },
+          { "Laterality": "#Lat_Lower", "TailCount": 1, "ClusterCount": 1 }
+        ],
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "NumberMarkLocation": [
       {
         "Formation": "corefolder",
@@ -12494,34 +12202,6 @@
       }
     ],
     "AppearanceDetail": [
-      {
-        "Formation": null,
-        "BodyPart": ["#BodyPart_Tail"],
-        "Laterality": null,
-        "DesignElement": "#Element_TailsUnit",
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_Shape",
-            "vdict_TailShapeType": "#TailShapeType_FoxBranched"
-          },
-          { "AttrLabel": "#DesignAttr_Count", "value_Num": 3 },
-          {
-            "AttrLabel": "#DesignAttr_Branch",
-            "vdict_Laterality": "#Lat_Upper",
-            "value_Num_1": 2,
-            "value_Num_2": 2
-          },
-          {
-            "AttrLabel": "#DesignAttr_Branch",
-            "vdict_Laterality": "#Lat_Lower",
-            "value_Num_1": 1,
-            "value_Num_2": 1
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
       {
         "Formation": "corefolder",
         "BodyPart": ["#BodyPart_Waist"],
@@ -12964,8 +12644,18 @@
     ],
     "Weight_kg": { "hideText": "非公開" },
     "BustSize": "E",
-    "TailsUnit_JP": "キツネ(枝分かれ)型4本(上2束2本+下1束2本)",
-    "TailsUnit_EN": "Fox (branched) type: 4 tails (upper: 2 clusters x2, lower: 1 cluster x2)",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxBranched",
+        "Count": 4,
+        "Branches": [
+          { "Laterality": "#Lat_Upper", "TailCount": 2, "ClusterCount": 2 },
+          { "Laterality": "#Lat_Lower", "TailCount": 2, "ClusterCount": 1 }
+        ],
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "NumberMarkLocation": [
       {
         "Formation": "corefolder",
@@ -13064,34 +12754,6 @@
       }
     ],
     "AppearanceDetail": [
-      {
-        "Formation": null,
-        "BodyPart": ["#BodyPart_Tail"],
-        "Laterality": null,
-        "DesignElement": "#Element_TailsUnit",
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_Shape",
-            "vdict_TailShapeType": "#TailShapeType_FoxBranched"
-          },
-          { "AttrLabel": "#DesignAttr_Count", "value_Num": 4 },
-          {
-            "AttrLabel": "#DesignAttr_Branch",
-            "vdict_Laterality": "#Lat_Upper",
-            "value_Num_1": 2,
-            "value_Num_2": 2
-          },
-          {
-            "AttrLabel": "#DesignAttr_Branch",
-            "vdict_Laterality": "#Lat_Lower",
-            "value_Num_1": 2,
-            "value_Num_2": 1
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
       {
         "Formation": null,
         "BodyPart": ["#BodyPart_Neck"],
@@ -13486,8 +13148,18 @@
       { "value": 42, "about_JP": "推定", "about_EN": "Presumption" }
     ],
     "BustSize": "G",
-    "TailsUnit_JP": "キツネ(枝分かれ)型5本(上2束2本+下1束3本)",
-    "TailsUnit_EN": "Fox (branched) type: 5 tails (upper: 2 clusters x2, lower: 1 cluster x3)",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxBranched",
+        "Count": 5,
+        "Branches": [
+          { "Laterality": "#Lat_Upper", "TailCount": 2, "ClusterCount": 2 },
+          { "Laterality": "#Lat_Lower", "TailCount": 3, "ClusterCount": 1 }
+        ],
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "NumberMarkLocation": [
       {
         "Formation": "corefolder",
@@ -13594,34 +13266,6 @@
       }
     ],
     "AppearanceDetail": [
-      {
-        "Formation": null,
-        "BodyPart": ["#BodyPart_Tail"],
-        "Laterality": null,
-        "DesignElement": "#Element_TailsUnit",
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_Shape",
-            "vdict_TailShapeType": "#TailShapeType_FoxBranched"
-          },
-          { "AttrLabel": "#DesignAttr_Count", "value_Num": 5 },
-          {
-            "AttrLabel": "#DesignAttr_Branch",
-            "vdict_Laterality": "#Lat_Upper",
-            "value_Num_1": 2,
-            "value_Num_2": 2
-          },
-          {
-            "AttrLabel": "#DesignAttr_Branch",
-            "vdict_Laterality": "#Lat_Lower",
-            "value_Num_1": 3,
-            "value_Num_2": 1
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
       {
         "Formation": "corefolder",
         "BodyPart": ["#BodyPart_Chest"],
@@ -14135,8 +13779,18 @@
     ],
     "Weight_kg": { "hideText": "非公開" },
     "BustSize": "G",
-    "TailsUnit_JP": "キツネ(枝分かれ)型6本(上2束2本+下1束4本)",
-    "TailsUnit_EN": "Fox (branched) type: 6 tails (upper: 2 clusters x2, lower: 1 cluster x4)",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxBranched",
+        "Count": 6,
+        "Branches": [
+          { "Laterality": "#Lat_Upper", "TailCount": 2, "ClusterCount": 2 },
+          { "Laterality": "#Lat_Lower", "TailCount": 4, "ClusterCount": 1 }
+        ],
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "NumberMarkLocation": [
       {
         "Formation": "corefolder",
@@ -14227,34 +13881,6 @@
       }
     ],
     "AppearanceDetail": [
-      {
-        "Formation": null,
-        "BodyPart": ["#BodyPart_Tail"],
-        "Laterality": null,
-        "DesignElement": "#Element_TailsUnit",
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_Shape",
-            "vdict_TailShapeType": "#TailShapeType_FoxBranched"
-          },
-          { "AttrLabel": "#DesignAttr_Count", "value_Num": 6 },
-          {
-            "AttrLabel": "#DesignAttr_Branch",
-            "vdict_Laterality": "#Lat_Upper",
-            "value_Num_1": 2,
-            "value_Num_2": 2
-          },
-          {
-            "AttrLabel": "#DesignAttr_Branch",
-            "vdict_Laterality": "#Lat_Lower",
-            "value_Num_1": 4,
-            "value_Num_2": 1
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
       {
         "Formation": "corefolder",
         "BodyPart": ["#BodyPart_Chest"],
@@ -14677,8 +14303,18 @@
     ],
     "Weight_kg": 43,
     "BustSize": "B",
-    "TailsUnit_JP": "キツネ(枝分かれ)型7本(上2束2本+下1束5本)",
-    "TailsUnit_EN": "Fox (branched) type: 7 tails (upper: 2 clusters x2, lower: 1 cluster x5)",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxBranched",
+        "Count": 7,
+        "Branches": [
+          { "Laterality": "#Lat_Upper", "TailCount": 2, "ClusterCount": 2 },
+          { "Laterality": "#Lat_Lower", "TailCount": 5, "ClusterCount": 1 }
+        ],
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "NumberMarkLocation": [
       {
         "Formation": "corefolder",
@@ -14779,34 +14415,6 @@
       }
     ],
     "AppearanceDetail": [
-      {
-        "Formation": null,
-        "BodyPart": ["#BodyPart_Tail"],
-        "Laterality": null,
-        "DesignElement": "#Element_TailsUnit",
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_Shape",
-            "vdict_TailShapeType": "#TailShapeType_FoxBranched"
-          },
-          { "AttrLabel": "#DesignAttr_Count", "value_Num": 7 },
-          {
-            "AttrLabel": "#DesignAttr_Branch",
-            "vdict_Laterality": "#Lat_Upper",
-            "value_Num_1": 2,
-            "value_Num_2": 2
-          },
-          {
-            "AttrLabel": "#DesignAttr_Branch",
-            "vdict_Laterality": "#Lat_Lower",
-            "value_Num_1": 5,
-            "value_Num_2": 1
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
       {
         "Formation": "corefolder",
         "BodyPart": ["#BodyPart_Chest"],
@@ -15284,8 +14892,18 @@
     ],
     "Weight_kg": { "hideText": "非公開" },
     "BustSize": "D",
-    "TailsUnit_JP": "キツネ(枝分かれ)型8本(上2束2本+下1束6本)",
-    "TailsUnit_EN": "Fox (branched) type: 8 tails (upper: 2 clusters x2, lower: 1 cluster x6)",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxBranched",
+        "Count": 8,
+        "Branches": [
+          { "Laterality": "#Lat_Upper", "TailCount": 2, "ClusterCount": 2 },
+          { "Laterality": "#Lat_Lower", "TailCount": 6, "ClusterCount": 1 }
+        ],
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "NumberMarkLocation": [
       {
         "Formation": "corefolder",
@@ -15424,34 +15042,6 @@
       }
     ],
     "AppearanceDetail": [
-      {
-        "Formation": null,
-        "BodyPart": ["#BodyPart_Tail"],
-        "Laterality": null,
-        "DesignElement": "#Element_TailsUnit",
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_Shape",
-            "vdict_TailShapeType": "#TailShapeType_FoxBranched"
-          },
-          { "AttrLabel": "#DesignAttr_Count", "value_Num": 8 },
-          {
-            "AttrLabel": "#DesignAttr_Branch",
-            "vdict_Laterality": "#Lat_Upper",
-            "value_Num_1": 2,
-            "value_Num_2": 2
-          },
-          {
-            "AttrLabel": "#DesignAttr_Branch",
-            "vdict_Laterality": "#Lat_Lower",
-            "value_Num_1": 6,
-            "value_Num_2": 1
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
       {
         "Formation": "corefolder",
         "BodyPart": ["#BodyPart_Chest"],
@@ -15996,8 +15586,18 @@
     ],
     "Weight_kg": { "hideText": "非公開" },
     "BustSize": "E",
-    "TailsUnit_JP": "キツネ(枝分かれ)型9本(上2束2本+下1束7本)",
-    "TailsUnit_EN": "Fox (branched) type: 9 tails (upper: 2 clusters x2, lower: 1 cluster x7)",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxBranched",
+        "Count": 9,
+        "Branches": [
+          { "Laterality": "#Lat_Upper", "TailCount": 2, "ClusterCount": 2 },
+          { "Laterality": "#Lat_Lower", "TailCount": 7, "ClusterCount": 1 }
+        ],
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "NumberMarkLocation": [
       { "Formation": "corefolder", "Marks": null },
       { "Formation": "humanoid", "Marks": null }
@@ -16067,34 +15667,6 @@
       }
     ],
     "AppearanceDetail": [
-      {
-        "Formation": null,
-        "BodyPart": ["#BodyPart_Tail"],
-        "Laterality": null,
-        "DesignElement": "#Element_TailsUnit",
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_Shape",
-            "vdict_TailShapeType": "#TailShapeType_FoxBranched"
-          },
-          { "AttrLabel": "#DesignAttr_Count", "value_Num": 9 },
-          {
-            "AttrLabel": "#DesignAttr_Branch",
-            "vdict_Laterality": "#Lat_Upper",
-            "value_Num_1": 2,
-            "value_Num_2": 2
-          },
-          {
-            "AttrLabel": "#DesignAttr_Branch",
-            "vdict_Laterality": "#Lat_Lower",
-            "value_Num_1": 7,
-            "value_Num_2": 1
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
       {
         "Formation": null,
         "BodyPart": ["#BodyPart_Ear"],
@@ -16486,8 +16058,14 @@
       }
     ],
     "BustSize": "F",
-    "TailsUnit_JP": "キツネ型3本",
-    "TailsUnit_EN": "Three fox-type tails",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_Fox",
+        "Count": 3,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "NumberMarkLocation": [
       {
         "Formation": "corefolder",
@@ -16586,22 +16164,6 @@
       }
     ],
     "AppearanceDetail": [
-      {
-        "Formation": null,
-        "BodyPart": ["#BodyPart_Tail"],
-        "Laterality": null,
-        "DesignElement": "#Element_TailsUnit",
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_Shape",
-            "vdict_TailShapeType": "#TailShapeType_Fox"
-          },
-          { "AttrLabel": "#DesignAttr_Count", "value_Num": 3 }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
       {
         "Formation": "corefolder",
         "BodyPart": ["#BodyPart_Chest"],
@@ -16997,8 +16559,18 @@
     ],
     "Weight_kg": 40,
     "BustSize": "D",
-    "TailsUnit_JP": "キツネ(枝分かれ)型3本(上1束2本+下2束1本)",
-    "TailsUnit_EN": "Fox (branched) type: 3 tails (upper: 1 cluster x2, lower: 2 clusters x1)",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxBranched",
+        "Count": 3,
+        "Branches": [
+          { "Laterality": "#Lat_Upper", "TailCount": 2, "ClusterCount": 1 },
+          { "Laterality": "#Lat_Lower", "TailCount": 1, "ClusterCount": 2 }
+        ],
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "NumberMarkLocation": [
       {
         "Formation": "corefolder",
@@ -17115,34 +16687,6 @@
       }
     ],
     "AppearanceDetail": [
-      {
-        "Formation": null,
-        "BodyPart": ["#BodyPart_Tail"],
-        "Laterality": null,
-        "DesignElement": "#Element_TailsUnit",
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_Shape",
-            "vdict_TailShapeType": "#TailShapeType_FoxBranched"
-          },
-          { "AttrLabel": "#DesignAttr_Count", "value_Num": 3 },
-          {
-            "AttrLabel": "#DesignAttr_Branch",
-            "vdict_Laterality": "#Lat_Upper",
-            "value_Num_1": 2,
-            "value_Num_2": 1
-          },
-          {
-            "AttrLabel": "#DesignAttr_Branch",
-            "vdict_Laterality": "#Lat_Lower",
-            "value_Num_1": 1,
-            "value_Num_2": 2
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
       {
         "Formation": "corefolder",
         "BodyPart": ["#BodyPart_Chest"],
@@ -17694,8 +17238,18 @@
     ],
     "Weight_kg": 40,
     "BustSize": "A",
-    "TailsUnit_JP": "キツネ(枝分かれ)型3本(上1束1本+下2束2本)",
-    "TailsUnit_EN": "Fox (branched) type: 3 tails (upper: 1 cluster x1, lower: 2 clusters x2)",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxBranched",
+        "Count": 3,
+        "Branches": [
+          { "Laterality": "#Lat_Upper", "TailCount": 1, "ClusterCount": 1 },
+          { "Laterality": "#Lat_Lower", "TailCount": 2, "ClusterCount": 2 }
+        ],
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "NumberMarkLocation": [
       {
         "Formation": "corefolder",
@@ -17792,34 +17346,6 @@
       }
     ],
     "AppearanceDetail": [
-      {
-        "Formation": null,
-        "BodyPart": ["#BodyPart_Tail"],
-        "Laterality": null,
-        "DesignElement": "#Element_TailsUnit",
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_Shape",
-            "vdict_TailShapeType": "#TailShapeType_FoxBranched"
-          },
-          { "AttrLabel": "#DesignAttr_Count", "value_Num": 3 },
-          {
-            "AttrLabel": "#DesignAttr_Branch",
-            "vdict_Laterality": "#Lat_Upper",
-            "value_Num_1": 1,
-            "value_Num_2": 1
-          },
-          {
-            "AttrLabel": "#DesignAttr_Branch",
-            "vdict_Laterality": "#Lat_Lower",
-            "value_Num_1": 2,
-            "value_Num_2": 2
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
       {
         "Formation": "corefolder",
         "BodyPart": ["#BodyPart_Waist"],
@@ -18265,8 +17791,15 @@
     ],
     "Weight_kg": { "hideText": "非公開" },
     "BustSize": "A",
-    "TailsUnit_JP": "キツネ(枝分かれ)型2束x3本",
-    "TailsUnit_EN": "Fox (branched) type: 2 clusters x3 tails",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxBranched",
+        "Count": 3,
+        "Segment": 2,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "NumberMarkLocation": [
       {
         "Formation": "corefolder",
@@ -18383,27 +17916,6 @@
       }
     ],
     "AppearanceDetail": [
-      {
-        "Formation": null,
-        "BodyPart": ["#BodyPart_Tail"],
-        "Laterality": null,
-        "DesignElement": "#Element_TailsUnit",
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_Shape",
-            "vdict_TailShapeType": "#TailShapeType_FoxBranched"
-          },
-          { "AttrLabel": "#DesignAttr_Count", "value_Num": 3 },
-          {
-            "AttrLabel": "#DesignAttr_Branch",
-            "value_JP": "2束",
-            "value_EN": "2 clusters each"
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
       {
         "Formation": null,
         "BodyPart": ["#BodyPart_Chest"],
@@ -18919,8 +18431,18 @@
     ],
     "Weight_kg": { "hideText": "非公開" },
     "BustSize": "A",
-    "TailsUnit_JP": "キツネ(枝分かれ)型4本(上2束3本+下1束1本)",
-    "TailsUnit_EN": "Fox (branched) type: 4 tails (upper: 2 clusters x3, lower: 1 cluster x1)",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxBranched",
+        "Count": 4,
+        "Branches": [
+          { "Laterality": "#Lat_Upper", "TailCount": 3, "ClusterCount": 2 },
+          { "Laterality": "#Lat_Lower", "TailCount": 1, "ClusterCount": 1 }
+        ],
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "NumberMarkLocation": [
       {
         "Formation": "corefolder",
@@ -19019,34 +18541,6 @@
       }
     ],
     "AppearanceDetail": [
-      {
-        "Formation": null,
-        "BodyPart": ["#BodyPart_Tail"],
-        "Laterality": null,
-        "DesignElement": "#Element_TailsUnit",
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_Shape",
-            "vdict_TailShapeType": "#TailShapeType_FoxBranched"
-          },
-          { "AttrLabel": "#DesignAttr_Count", "value_Num": 4 },
-          {
-            "AttrLabel": "#DesignAttr_Branch",
-            "vdict_Laterality": "#Lat_Upper",
-            "value_Num_1": 3,
-            "value_Num_2": 2
-          },
-          {
-            "AttrLabel": "#DesignAttr_Branch",
-            "vdict_Laterality": "#Lat_Lower",
-            "value_Num_1": 1,
-            "value_Num_2": 1
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
       {
         "Formation": "corefolder",
         "BodyPart": ["#BodyPart_Chest"],
@@ -19475,8 +18969,18 @@
     "ConceptAge": 14,
     "Weight_kg": 36,
     "BustSize": "A",
-    "TailsUnit_JP": "キツネ(枝分かれ)型5本(上2束3本+下1束2本)",
-    "TailsUnit_EN": "Fox (branched) type: 5 tails (upper: 2 clusters x3, lower: 1 cluster x2)",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxBranched",
+        "Count": 5,
+        "Branches": [
+          { "Laterality": "#Lat_Upper", "TailCount": 3, "ClusterCount": 2 },
+          { "Laterality": "#Lat_Lower", "TailCount": 2, "ClusterCount": 1 }
+        ],
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "NumberMarkLocation": [
       {
         "Formation": "corefolder",
@@ -19578,34 +19082,6 @@
       }
     ],
     "AppearanceDetail": [
-      {
-        "Formation": null,
-        "BodyPart": ["#BodyPart_Tail"],
-        "Laterality": null,
-        "DesignElement": "#Element_TailsUnit",
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_Shape",
-            "vdict_TailShapeType": "#TailShapeType_FoxBranched"
-          },
-          { "AttrLabel": "#DesignAttr_Count", "value_Num": 5 },
-          {
-            "AttrLabel": "#DesignAttr_Branch",
-            "vdict_Laterality": "#Lat_Upper",
-            "value_Num_1": 3,
-            "value_Num_2": 2
-          },
-          {
-            "AttrLabel": "#DesignAttr_Branch",
-            "vdict_Laterality": "#Lat_Lower",
-            "value_Num_1": 2,
-            "value_Num_2": 1
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
       {
         "Formation": null,
         "Costume": "usual",
@@ -20082,8 +19558,18 @@
     ],
     "Weight_kg": { "hideText": "非公開" },
     "BustSize": "E",
-    "TailsUnit_JP": "キツネ(枝分かれ)型6本(上2束3本+下1束3本)",
-    "TailsUnit_EN": "Fox (branched) type: 6 tails (upper: 2 clusters x3, lower: 1 cluster x3)",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxBranched",
+        "Count": 6,
+        "Branches": [
+          { "Laterality": "#Lat_Upper", "TailCount": 3, "ClusterCount": 2 },
+          { "Laterality": "#Lat_Lower", "TailCount": 3, "ClusterCount": 1 }
+        ],
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "NumberMarkLocation": [
       {
         "Formation": "corefolder",
@@ -20186,34 +19672,6 @@
       }
     ],
     "AppearanceDetail": [
-      {
-        "Formation": null,
-        "BodyPart": ["#BodyPart_Tail"],
-        "Laterality": null,
-        "DesignElement": "#Element_TailsUnit",
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_Shape",
-            "vdict_TailShapeType": "#TailShapeType_FoxBranched"
-          },
-          { "AttrLabel": "#DesignAttr_Count", "value_Num": 6 },
-          {
-            "AttrLabel": "#DesignAttr_Branch",
-            "vdict_Laterality": "#Lat_Upper",
-            "value_Num_1": 3,
-            "value_Num_2": 2
-          },
-          {
-            "AttrLabel": "#DesignAttr_Branch",
-            "vdict_Laterality": "#Lat_Lower",
-            "value_Num_1": 3,
-            "value_Num_2": 1
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
       {
         "Formation": "corefolder",
         "BodyPart": ["#BodyPart_Chest"],
@@ -20700,8 +20158,18 @@
       { "value": 42, "about_JP": "推定", "about_EN": "Presumption" }
     ],
     "BustSize": "C",
-    "TailsUnit_JP": "キツネ(枝分かれ)型7本(上2束3本+下1束4本)",
-    "TailsUnit_EN": "Fox (branched) type: 7 tails (upper: 2 clusters x3, lower: 1 cluster x4)",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxBranched",
+        "Count": 7,
+        "Branches": [
+          { "Laterality": "#Lat_Upper", "TailCount": 3, "ClusterCount": 2 },
+          { "Laterality": "#Lat_Lower", "TailCount": 4, "ClusterCount": 1 }
+        ],
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "NumberMarkLocation": [
       {
         "Formation": "corefolder",
@@ -20807,34 +20275,6 @@
       }
     ],
     "AppearanceDetail": [
-      {
-        "Formation": null,
-        "BodyPart": ["#BodyPart_Tail"],
-        "Laterality": null,
-        "DesignElement": "#Element_TailsUnit",
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_Shape",
-            "vdict_TailShapeType": "#TailShapeType_FoxBranched"
-          },
-          { "AttrLabel": "#DesignAttr_Count", "value_Num": 7 },
-          {
-            "AttrLabel": "#DesignAttr_Branch",
-            "vdict_Laterality": "#Lat_Upper",
-            "value_Num_1": 3,
-            "value_Num_2": 2
-          },
-          {
-            "AttrLabel": "#DesignAttr_Branch",
-            "vdict_Laterality": "#Lat_Lower",
-            "value_Num_1": 4,
-            "value_Num_2": 1
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
       {
         "Formation": null,
         "BodyPart": ["#BodyPart_Neck"],
@@ -21342,8 +20782,18 @@
       }
     ],
     "Weight_kg": 44,
-    "TailsUnit_JP": "キツネ(枝分かれ)型9本(上2束3本+下1束6本)",
-    "TailsUnit_EN": "Fox (branched) type: 9 tails (upper: 2 clusters x3, lower: 1 cluster x6)",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxBranched",
+        "Count": 9,
+        "Branches": [
+          { "Laterality": "#Lat_Upper", "TailCount": 3, "ClusterCount": 2 },
+          { "Laterality": "#Lat_Lower", "TailCount": 6, "ClusterCount": 1 }
+        ],
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "NumberMarkLocation": [
       {
         "Formation": "corefolder",
@@ -21444,34 +20894,6 @@
       }
     ],
     "AppearanceDetail": [
-      {
-        "Formation": null,
-        "BodyPart": ["#BodyPart_Tail"],
-        "Laterality": null,
-        "DesignElement": "#Element_TailsUnit",
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_Shape",
-            "vdict_TailShapeType": "#TailShapeType_FoxBranched"
-          },
-          { "AttrLabel": "#DesignAttr_Count", "value_Num": 9 },
-          {
-            "AttrLabel": "#DesignAttr_Branch",
-            "vdict_Laterality": "#Lat_Upper",
-            "value_Num_1": 3,
-            "value_Num_2": 2
-          },
-          {
-            "AttrLabel": "#DesignAttr_Branch",
-            "vdict_Laterality": "#Lat_Lower",
-            "value_Num_1": 6,
-            "value_Num_2": 1
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
       {
         "Formation": "corefolder",
         "BodyPart": ["#BodyPart_Chest"],
@@ -21965,8 +21387,14 @@
     ],
     "Weight_kg": 39,
     "BustSize": "A",
-    "TailsUnit_JP": "キツネ型4本",
-    "TailsUnit_EN": "Four fox-type tails",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_Fox",
+        "Count": 4,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "NumberMarkLocation": [
       {
         "Formation": "corefolder",
@@ -22063,22 +21491,6 @@
       }
     ],
     "AppearanceDetail": [
-      {
-        "Formation": null,
-        "BodyPart": ["#BodyPart_Tail"],
-        "Laterality": null,
-        "DesignElement": "#Element_TailsUnit",
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_Shape",
-            "vdict_TailShapeType": "#TailShapeType_Fox"
-          },
-          { "AttrLabel": "#DesignAttr_Count", "value_Num": 4 }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
       {
         "Formation": null,
         "BodyPart": ["#BodyPart_Waist"],
@@ -22464,8 +21876,18 @@
     ],
     "Weight_kg": 41,
     "BustSize": "AA",
-    "TailsUnit_JP": "キツネ(枝分かれ)型4本(上1束3本+下2束1本)",
-    "TailsUnit_EN": "Fox (branched) type: 4 tails (upper: 1 cluster x3, lower: 2 clusters x1)",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxBranched",
+        "Count": 4,
+        "Branches": [
+          { "Laterality": "#Lat_Upper", "TailCount": 3, "ClusterCount": 1 },
+          { "Laterality": "#Lat_Lower", "TailCount": 1, "ClusterCount": 2 }
+        ],
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "NumberMarkLocation": [
       {
         "Formation": "corefolder",
@@ -22558,34 +21980,6 @@
       }
     ],
     "AppearanceDetail": [
-      {
-        "Formation": null,
-        "BodyPart": ["#BodyPart_Tail"],
-        "Laterality": null,
-        "DesignElement": "#Element_TailsUnit",
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_Shape",
-            "vdict_TailShapeType": "#TailShapeType_FoxBranched"
-          },
-          { "AttrLabel": "#DesignAttr_Count", "value_Num": 4 },
-          {
-            "AttrLabel": "#DesignAttr_Branch",
-            "vdict_Laterality": "#Lat_Upper",
-            "value_Num_1": 3,
-            "value_Num_2": 1
-          },
-          {
-            "AttrLabel": "#DesignAttr_Branch",
-            "vdict_Laterality": "#Lat_Lower",
-            "value_Num_1": 1,
-            "value_Num_2": 2
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
       {
         "Formation": "corefolder",
         "BodyPart": ["#BodyPart_Chest"],
@@ -23080,8 +22474,18 @@
     ],
     "Weight_kg": { "hideText": "非公開" },
     "BustSize": "C",
-    "TailsUnit_JP": "キツネ(枝分かれ)型4本(上1束2本+下2束2本)",
-    "TailsUnit_EN": "Fox (branched) type: 4 tails (upper: 1 cluster x2, lower: 2 clusters x2)",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxBranched",
+        "Count": 4,
+        "Branches": [
+          { "Laterality": "#Lat_Upper", "TailCount": 2, "ClusterCount": 1 },
+          { "Laterality": "#Lat_Lower", "TailCount": 2, "ClusterCount": 2 }
+        ],
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "NumberMarkLocation": [
       {
         "Formation": "corefolder",
@@ -23176,34 +22580,6 @@
       }
     ],
     "AppearanceDetail": [
-      {
-        "Formation": null,
-        "BodyPart": ["#BodyPart_Tail"],
-        "Laterality": null,
-        "DesignElement": "#Element_TailsUnit",
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_Shape",
-            "vdict_TailShapeType": "#TailShapeType_FoxBranched"
-          },
-          { "AttrLabel": "#DesignAttr_Count", "value_Num": 4 },
-          {
-            "AttrLabel": "#DesignAttr_Branch",
-            "vdict_Laterality": "#Lat_Upper",
-            "value_Num_1": 2,
-            "value_Num_2": 1
-          },
-          {
-            "AttrLabel": "#DesignAttr_Branch",
-            "vdict_Laterality": "#Lat_Lower",
-            "value_Num_1": 2,
-            "value_Num_2": 2
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
       {
         "Formation": "corefolder",
         "BodyPart": ["#BodyPart_Chest"],
@@ -23631,8 +23007,18 @@
     "Weight_kg": { "hideText": "非公開" },
     "Class": ["デュアルセブンズ"],
     "BustSize": "D",
-    "TailsUnit_JP": "キツネ(枝分かれ)型4本(上1束1本+下2束3本)",
-    "TailsUnit_EN": "Fox (branched) type: 4 tails (upper: 1 cluster x1, lower: 2 clusters x3)",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxBranched",
+        "Count": 4,
+        "Branches": [
+          { "Laterality": "#Lat_Upper", "TailCount": 1, "ClusterCount": 1 },
+          { "Laterality": "#Lat_Lower", "TailCount": 3, "ClusterCount": 2 }
+        ],
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "NumberMarkLocation": [
       {
         "Formation": "corefolder",
@@ -23714,34 +23100,6 @@
       }
     ],
     "AppearanceDetail": [
-      {
-        "Formation": null,
-        "BodyPart": ["#BodyPart_Tail"],
-        "Laterality": null,
-        "DesignElement": "#Element_TailsUnit",
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_Shape",
-            "vdict_TailShapeType": "#TailShapeType_FoxBranched"
-          },
-          { "AttrLabel": "#DesignAttr_Count", "value_Num": 4 },
-          {
-            "AttrLabel": "#DesignAttr_Branch",
-            "vdict_Laterality": "#Lat_Upper",
-            "value_Num_1": 1,
-            "value_Num_2": 1
-          },
-          {
-            "AttrLabel": "#DesignAttr_Branch",
-            "vdict_Laterality": "#Lat_Lower",
-            "value_Num_1": 3,
-            "value_Num_2": 2
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
       {
         "Formation": "corefolder",
         "BodyPart": ["#BodyPart_Chest"],
@@ -24160,8 +23518,15 @@
       }
     ],
     "Weight_kg": { "hideText": "非公開" },
-    "TailsUnit_JP": "キツネ(枝分かれ)型2束x4本",
-    "TailsUnit_EN": "Fox (branched) type: 2 clusters x4 tails",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxBranched",
+        "Count": 4,
+        "Segment": 2,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "NumberMarkLocation": [
       {
         "Formation": "corefolder",
@@ -24262,27 +23627,6 @@
       }
     ],
     "AppearanceDetail": [
-      {
-        "Formation": null,
-        "BodyPart": ["#BodyPart_Tail"],
-        "Laterality": null,
-        "DesignElement": "#Element_TailsUnit",
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_Shape",
-            "vdict_TailShapeType": "#TailShapeType_FoxBranched"
-          },
-          { "AttrLabel": "#DesignAttr_Count", "value_Num": 4 },
-          {
-            "AttrLabel": "#DesignAttr_Branch",
-            "value_JP": "2束",
-            "value_EN": "2 clusters each"
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
       {
         "Formation": "corefolder",
         "BodyPart": ["#BodyPart_Chest"],
@@ -24692,8 +24036,18 @@
     ],
     "Weight_kg": 42,
     "BustSize": "AA",
-    "TailsUnit_JP": "キツネ(枝分かれ)型5本(上2束4本+下1束1本)",
-    "TailsUnit_EN": "Fox (branched) type: 5 tails (upper: 2 clusters x4, lower: 1 cluster x1)",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxBranched",
+        "Count": 5,
+        "Branches": [
+          { "Laterality": "#Lat_Upper", "TailCount": 4, "ClusterCount": 2 },
+          { "Laterality": "#Lat_Lower", "TailCount": 1, "ClusterCount": 1 }
+        ],
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "NumberMarkLocation": [
       {
         "Formation": "corefolder",
@@ -24772,34 +24126,6 @@
       }
     ],
     "AppearanceDetail": [
-      {
-        "Formation": null,
-        "BodyPart": ["#BodyPart_Tail"],
-        "Laterality": null,
-        "DesignElement": "#Element_TailsUnit",
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_Shape",
-            "vdict_TailShapeType": "#TailShapeType_FoxBranched"
-          },
-          { "AttrLabel": "#DesignAttr_Count", "value_Num": 5 },
-          {
-            "AttrLabel": "#DesignAttr_Branch",
-            "vdict_Laterality": "#Lat_Upper",
-            "value_Num_1": 4,
-            "value_Num_2": 2
-          },
-          {
-            "AttrLabel": "#DesignAttr_Branch",
-            "vdict_Laterality": "#Lat_Lower",
-            "value_Num_1": 1,
-            "value_Num_2": 1
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
       {
         "Formation": "corefolder",
         "BodyPart": ["#BodyPart_Waist"],
@@ -25162,8 +24488,18 @@
     ],
     "Weight_kg": 39,
     "BustSize": "A",
-    "TailsUnit_JP": "キツネ(枝分かれ)型6本(上2束4本+下1束2本)",
-    "TailsUnit_EN": "Fox (branched) type: 6 tails (upper: 2 clusters x4, lower: 1 cluster x2)",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxBranched",
+        "Count": 6,
+        "Branches": [
+          { "Laterality": "#Lat_Upper", "TailCount": 4, "ClusterCount": 2 },
+          { "Laterality": "#Lat_Lower", "TailCount": 2, "ClusterCount": 1 }
+        ],
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "NumberMarkLocation": [
       {
         "Formation": "corefolder",
@@ -25256,34 +24592,6 @@
       }
     ],
     "AppearanceDetail": [
-      {
-        "Formation": null,
-        "BodyPart": ["#BodyPart_Tail"],
-        "Laterality": null,
-        "DesignElement": "#Element_TailsUnit",
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_Shape",
-            "vdict_TailShapeType": "#TailShapeType_FoxBranched"
-          },
-          { "AttrLabel": "#DesignAttr_Count", "value_Num": 6 },
-          {
-            "AttrLabel": "#DesignAttr_Branch",
-            "vdict_Laterality": "#Lat_Upper",
-            "value_Num_1": 4,
-            "value_Num_2": 2
-          },
-          {
-            "AttrLabel": "#DesignAttr_Branch",
-            "vdict_Laterality": "#Lat_Lower",
-            "value_Num_1": 2,
-            "value_Num_2": 1
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
       {
         "Formation": "corefolder",
         "BodyPart": ["#BodyPart_Chest"],
@@ -25718,8 +25026,18 @@
     ],
     "Weight_kg": 39,
     "BustSize": "B",
-    "TailsUnit_JP": "キツネ(枝分かれ)型7本(上2束4本+下1束3本)",
-    "TailsUnit_EN": "Fox (branched) type: 7 tails (upper: 2 clusters x4, lower: 1 cluster x3)",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxBranched",
+        "Count": 7,
+        "Branches": [
+          { "Laterality": "#Lat_Upper", "TailCount": 4, "ClusterCount": 2 },
+          { "Laterality": "#Lat_Lower", "TailCount": 3, "ClusterCount": 1 }
+        ],
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "NumberMarkLocation": [
       {
         "Formation": "corefolder",
@@ -25808,34 +25126,6 @@
       }
     ],
     "AppearanceDetail": [
-      {
-        "Formation": null,
-        "BodyPart": ["#BodyPart_Tail"],
-        "Laterality": null,
-        "DesignElement": "#Element_TailsUnit",
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_Shape",
-            "vdict_TailShapeType": "#TailShapeType_FoxBranched"
-          },
-          { "AttrLabel": "#DesignAttr_Count", "value_Num": 7 },
-          {
-            "AttrLabel": "#DesignAttr_Branch",
-            "vdict_Laterality": "#Lat_Upper",
-            "value_Num_1": 4,
-            "value_Num_2": 2
-          },
-          {
-            "AttrLabel": "#DesignAttr_Branch",
-            "vdict_Laterality": "#Lat_Lower",
-            "value_Num_1": 3,
-            "value_Num_2": 1
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
       {
         "Formation": "corefolder",
         "BodyPart": ["#BodyPart_Chest"],
@@ -26277,8 +25567,18 @@
       }
     ],
     "Weight_kg": { "hideText": "非公開" },
-    "TailsUnit_JP": "キツネ(枝分かれ)型8本(上2束4本+下1束4本)",
-    "TailsUnit_EN": "Fox (branched) type: 8 tails (upper: 2 clusters x4, lower: 1 cluster x4)",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxBranched",
+        "Count": 8,
+        "Branches": [
+          { "Laterality": "#Lat_Upper", "TailCount": 4, "ClusterCount": 2 },
+          { "Laterality": "#Lat_Lower", "TailCount": 4, "ClusterCount": 1 }
+        ],
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "NumberMarkLocation": [
       {
         "Formation": "corefolder",
@@ -26372,34 +25672,6 @@
       }
     ],
     "AppearanceDetail": [
-      {
-        "Formation": null,
-        "BodyPart": ["#BodyPart_Tail"],
-        "Laterality": null,
-        "DesignElement": "#Element_TailsUnit",
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_Shape",
-            "vdict_TailShapeType": "#TailShapeType_FoxBranched"
-          },
-          { "AttrLabel": "#DesignAttr_Count", "value_Num": 8 },
-          {
-            "AttrLabel": "#DesignAttr_Branch",
-            "vdict_Laterality": "#Lat_Upper",
-            "value_Num_1": 4,
-            "value_Num_2": 2
-          },
-          {
-            "AttrLabel": "#DesignAttr_Branch",
-            "vdict_Laterality": "#Lat_Lower",
-            "value_Num_1": 4,
-            "value_Num_2": 1
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
       {
         "Formation": "corefolder",
         "BodyPart": ["#BodyPart_Chest"],
@@ -26830,8 +26102,18 @@
       { "value": 39, "about_JP": "推定", "about_EN": "Presumption" }
     ],
     "BustSize": "A",
-    "TailsUnit_JP": "キツネ(枝分かれ)型9本(上2束4本+下1束5本)",
-    "TailsUnit_EN": "Fox (branched) type: 9 tails (upper: 2 clusters x4, lower: 1 cluster x5)",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxBranched",
+        "Count": 9,
+        "Branches": [
+          { "Laterality": "#Lat_Upper", "TailCount": 4, "ClusterCount": 2 },
+          { "Laterality": "#Lat_Lower", "TailCount": 5, "ClusterCount": 1 }
+        ],
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "NumberMarkLocation": [
       {
         "Formation": "corefolder",
@@ -26937,34 +26219,6 @@
       }
     ],
     "AppearanceDetail": [
-      {
-        "Formation": null,
-        "BodyPart": ["#BodyPart_Tail"],
-        "Laterality": null,
-        "DesignElement": "#Element_TailsUnit",
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_Shape",
-            "vdict_TailShapeType": "#TailShapeType_FoxBranched"
-          },
-          { "AttrLabel": "#DesignAttr_Count", "value_Num": 9 },
-          {
-            "AttrLabel": "#DesignAttr_Branch",
-            "vdict_Laterality": "#Lat_Upper",
-            "value_Num_1": 4,
-            "value_Num_2": 2
-          },
-          {
-            "AttrLabel": "#DesignAttr_Branch",
-            "vdict_Laterality": "#Lat_Lower",
-            "value_Num_1": 5,
-            "value_Num_2": 1
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
       {
         "Formation": "corefolder",
         "BodyPart": ["#BodyPart_Chest"],
@@ -27376,8 +26630,14 @@
       }
     ],
     "Weight_kg": 39,
-    "TailsUnit_JP": "キツネ型5本",
-    "TailsUnit_EN": "Five fox-type tails",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_Fox",
+        "Count": 5,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "NumberMarkLocation": [
       {
         "Formation": "corefolder",
@@ -27468,22 +26728,6 @@
       }
     ],
     "AppearanceDetail": [
-      {
-        "Formation": null,
-        "BodyPart": ["#BodyPart_Tail"],
-        "Laterality": null,
-        "DesignElement": "#Element_TailsUnit",
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_Shape",
-            "vdict_TailShapeType": "#TailShapeType_Fox"
-          },
-          { "AttrLabel": "#DesignAttr_Count", "value_Num": 5 }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
       {
         "Formation": "corefolder",
         "BodyPart": ["#BodyPart_Arm"],
@@ -27897,8 +27141,18 @@
       }
     ],
     "Weight_kg": 44,
-    "TailsUnit_JP": "キツネ(枝分かれ)型5本(上1束4本+下2束1本)",
-    "TailsUnit_EN": "Fox (branched) type: 5 tails (upper: 1 cluster x4, lower: 2 clusters x1)",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxBranched",
+        "Count": 5,
+        "Branches": [
+          { "Laterality": "#Lat_Upper", "TailCount": 4, "ClusterCount": 1 },
+          { "Laterality": "#Lat_Lower", "TailCount": 1, "ClusterCount": 2 }
+        ],
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "NumberMarkLocation": [
       {
         "Formation": "corefolder",
@@ -27989,34 +27243,6 @@
       }
     ],
     "AppearanceDetail": [
-      {
-        "Formation": null,
-        "BodyPart": ["#BodyPart_Tail"],
-        "Laterality": null,
-        "DesignElement": "#Element_TailsUnit",
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_Shape",
-            "vdict_TailShapeType": "#TailShapeType_FoxBranched"
-          },
-          { "AttrLabel": "#DesignAttr_Count", "value_Num": 5 },
-          {
-            "AttrLabel": "#DesignAttr_Branch",
-            "vdict_Laterality": "#Lat_Upper",
-            "value_Num_1": 4,
-            "value_Num_2": 1
-          },
-          {
-            "AttrLabel": "#DesignAttr_Branch",
-            "vdict_Laterality": "#Lat_Lower",
-            "value_Num_1": 1,
-            "value_Num_2": 2
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
       {
         "Formation": "corefolder",
         "BodyPart": ["#BodyPart_Chest"],
@@ -28376,8 +27602,18 @@
       { "value": 42, "about_JP": "推定", "about_EN": "Presumption" }
     ],
     "BustSize": "F",
-    "TailsUnit_JP": "キツネ(枝分かれ)型5本(上1束3本+下2束2本)",
-    "TailsUnit_EN": "Fox (branched) type: 5 tails (upper: 1 cluster x3, lower: 2 clusters x2)",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxBranched",
+        "Count": 5,
+        "Branches": [
+          { "Laterality": "#Lat_Upper", "TailCount": 3, "ClusterCount": 1 },
+          { "Laterality": "#Lat_Lower", "TailCount": 2, "ClusterCount": 2 }
+        ],
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "NumberMarkLocation": [
       {
         "Formation": "corefolder",
@@ -28478,34 +27714,6 @@
       }
     ],
     "AppearanceDetail": [
-      {
-        "Formation": null,
-        "BodyPart": ["#BodyPart_Tail"],
-        "Laterality": null,
-        "DesignElement": "#Element_TailsUnit",
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_Shape",
-            "vdict_TailShapeType": "#TailShapeType_FoxBranched"
-          },
-          { "AttrLabel": "#DesignAttr_Count", "value_Num": 5 },
-          {
-            "AttrLabel": "#DesignAttr_Branch",
-            "vdict_Laterality": "#Lat_Upper",
-            "value_Num_1": 3,
-            "value_Num_2": 1
-          },
-          {
-            "AttrLabel": "#DesignAttr_Branch",
-            "vdict_Laterality": "#Lat_Lower",
-            "value_Num_1": 2,
-            "value_Num_2": 2
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
       {
         "Formation": "corefolder",
         "BodyPart": ["#BodyPart_Chest"],
@@ -28996,8 +28204,18 @@
     "ConceptAge": 14,
     "Weight_kg": 36,
     "BustSize": "A",
-    "TailsUnit_JP": "キツネ(枝分かれ)型5本(上1束2本+下2束3本)",
-    "TailsUnit_EN": "Fox (branched) type: 5 tails (upper: 1 cluster x2, lower: 2 clusters x3)",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxBranched",
+        "Count": 5,
+        "Branches": [
+          { "Laterality": "#Lat_Upper", "TailCount": 2, "ClusterCount": 1 },
+          { "Laterality": "#Lat_Lower", "TailCount": 3, "ClusterCount": 2 }
+        ],
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "NumberMarkLocation": [
       {
         "Formation": "corefolder",
@@ -29095,34 +28313,6 @@
       }
     ],
     "AppearanceDetail": [
-      {
-        "Formation": null,
-        "BodyPart": ["#BodyPart_Tail"],
-        "Laterality": null,
-        "DesignElement": "#Element_TailsUnit",
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_Shape",
-            "vdict_TailShapeType": "#TailShapeType_FoxBranched"
-          },
-          { "AttrLabel": "#DesignAttr_Count", "value_Num": 5 },
-          {
-            "AttrLabel": "#DesignAttr_Branch",
-            "vdict_Laterality": "#Lat_Upper",
-            "value_Num_1": 2,
-            "value_Num_2": 1
-          },
-          {
-            "AttrLabel": "#DesignAttr_Branch",
-            "vdict_Laterality": "#Lat_Lower",
-            "value_Num_1": 3,
-            "value_Num_2": 2
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
       {
         "Formation": null,
         "BodyPart": ["#BodyPart_Chest"],
@@ -29568,8 +28758,15 @@
     ],
     "Weight_kg": { "hideText": "非公開" },
     "BustSize": "AA",
-    "TailsUnit_JP": "キツネ(枝分かれ)型2束x5本",
-    "TailsUnit_EN": "Fox (branched) type: 2 clusters x5 tails",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxBranched",
+        "Count": 5,
+        "Segment": 2,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "NumberMarkLocation": [
       {
         "Formation": "corefolder",
@@ -29660,27 +28857,6 @@
       }
     ],
     "AppearanceDetail": [
-      {
-        "Formation": null,
-        "BodyPart": ["#BodyPart_Tail"],
-        "Laterality": null,
-        "DesignElement": "#Element_TailsUnit",
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_Shape",
-            "vdict_TailShapeType": "#TailShapeType_FoxBranched"
-          },
-          { "AttrLabel": "#DesignAttr_Count", "value_Num": 5 },
-          {
-            "AttrLabel": "#DesignAttr_Branch",
-            "value_JP": "2束",
-            "value_EN": "2 clusters each"
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
       {
         "Formation": "corefolder",
         "BodyPart": ["#BodyPart_Chest"],
@@ -30111,8 +29287,18 @@
       { "value": 39, "about_JP": "推定", "about_EN": "Presumption" }
     ],
     "BustSize": "B",
-    "TailsUnit_JP": "キツネ(枝分かれ)型6本(上2束5本+下1束1本)",
-    "TailsUnit_EN": "Fox (branched) type: 6 tails (upper: 2 clusters x5, lower: 1 cluster x1)",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxBranched",
+        "Count": 6,
+        "Branches": [
+          { "Laterality": "#Lat_Upper", "TailCount": 5, "ClusterCount": 2 },
+          { "Laterality": "#Lat_Lower", "TailCount": 1, "ClusterCount": 1 }
+        ],
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "NumberMarkLocation": [
       {
         "Formation": "corefolder",
@@ -30205,34 +29391,6 @@
       }
     ],
     "AppearanceDetail": [
-      {
-        "Formation": null,
-        "BodyPart": ["#BodyPart_Tail"],
-        "Laterality": null,
-        "DesignElement": "#Element_TailsUnit",
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_Shape",
-            "vdict_TailShapeType": "#TailShapeType_FoxBranched"
-          },
-          { "AttrLabel": "#DesignAttr_Count", "value_Num": 6 },
-          {
-            "AttrLabel": "#DesignAttr_Branch",
-            "vdict_Laterality": "#Lat_Upper",
-            "value_Num_1": 5,
-            "value_Num_2": 2
-          },
-          {
-            "AttrLabel": "#DesignAttr_Branch",
-            "vdict_Laterality": "#Lat_Lower",
-            "value_Num_1": 1,
-            "value_Num_2": 1
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
       {
         "Formation": "corefolder",
         "BodyPart": ["#BodyPart_Chest"],
@@ -30712,8 +29870,18 @@
     ],
     "Weight_kg": 42,
     "BustSize": "AA",
-    "TailsUnit_JP": "キツネ(枝分かれ)型7本(上2束5本+下1束2本)",
-    "TailsUnit_EN": "Fox (branched) type: 7 tails (upper: 2 clusters x5, lower: 1 cluster x2)",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxBranched",
+        "Count": 7,
+        "Branches": [
+          { "Laterality": "#Lat_Upper", "TailCount": 5, "ClusterCount": 2 },
+          { "Laterality": "#Lat_Lower", "TailCount": 2, "ClusterCount": 1 }
+        ],
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "NumberMarkLocation": [
       {
         "Formation": "corefolder",
@@ -30808,34 +29976,6 @@
       }
     ],
     "AppearanceDetail": [
-      {
-        "Formation": null,
-        "BodyPart": ["#BodyPart_Tail"],
-        "Laterality": null,
-        "DesignElement": "#Element_TailsUnit",
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_Shape",
-            "vdict_TailShapeType": "#TailShapeType_FoxBranched"
-          },
-          { "AttrLabel": "#DesignAttr_Count", "value_Num": 7 },
-          {
-            "AttrLabel": "#DesignAttr_Branch",
-            "vdict_Laterality": "#Lat_Upper",
-            "value_Num_1": 5,
-            "value_Num_2": 2
-          },
-          {
-            "AttrLabel": "#DesignAttr_Branch",
-            "vdict_Laterality": "#Lat_Lower",
-            "value_Num_1": 2,
-            "value_Num_2": 1
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
       {
         "Formation": "corefolder",
         "BodyPart": ["#BodyPart_Arm"],
@@ -31341,8 +30481,18 @@
     ],
     "Weight_kg": { "hideText": "非公開" },
     "BustSize": "F",
-    "TailsUnit_JP": "キツネ(枝分かれ)型8本(上2束5本+下1束3本)",
-    "TailsUnit_EN": "Fox (branched) type: 8 tails (upper: 2 clusters x5, lower: 1 cluster x3)",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxBranched",
+        "Count": 8,
+        "Branches": [
+          { "Laterality": "#Lat_Upper", "TailCount": 5, "ClusterCount": 2 },
+          { "Laterality": "#Lat_Lower", "TailCount": 3, "ClusterCount": 1 }
+        ],
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "NumberMarkLocation": [
       { "Formation": "corefolder", "Marks": null },
       {
@@ -31407,34 +30557,6 @@
       }
     ],
     "AppearanceDetail": [
-      {
-        "Formation": null,
-        "BodyPart": ["#BodyPart_Tail"],
-        "Laterality": null,
-        "DesignElement": "#Element_TailsUnit",
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_Shape",
-            "vdict_TailShapeType": "#TailShapeType_FoxBranched"
-          },
-          { "AttrLabel": "#DesignAttr_Count", "value_Num": 8 },
-          {
-            "AttrLabel": "#DesignAttr_Branch",
-            "vdict_Laterality": "#Lat_Upper",
-            "value_Num_1": 5,
-            "value_Num_2": 2
-          },
-          {
-            "AttrLabel": "#DesignAttr_Branch",
-            "vdict_Laterality": "#Lat_Lower",
-            "value_Num_1": 3,
-            "value_Num_2": 1
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
       {
         "Formation": "humanoid",
         "BodyPart": ["#BodyPart_Shoulder"],
@@ -31864,8 +30986,14 @@
     ],
     "Weight_kg": { "hideText": "非公開" },
     "BustSize": "G",
-    "TailsUnit_JP": "キツネ型6本",
-    "TailsUnit_EN": "Six fox-type tails",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_Fox",
+        "Count": 6,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "NumberMarkLocation": [
       {
         "Formation": "corefolder",
@@ -31981,22 +31109,6 @@
       }
     ],
     "AppearanceDetail": [
-      {
-        "Formation": null,
-        "BodyPart": ["#BodyPart_Tail"],
-        "Laterality": null,
-        "DesignElement": "#Element_TailsUnit",
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_Shape",
-            "vdict_TailShapeType": "#TailShapeType_Fox"
-          },
-          { "AttrLabel": "#DesignAttr_Count", "value_Num": 6 }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
       {
         "Formation": null,
         "Costume": "usual",
@@ -32622,8 +31734,18 @@
     ],
     "Weight_kg": { "hideText": "非公開" },
     "BustSize": "H",
-    "TailsUnit_JP": "キツネ(枝分かれ)型6本(上1束5本+下2束1本)",
-    "TailsUnit_EN": "Fox (branched) type: 6 tails (upper: 1 cluster x5, lower: 2 clusters x1)",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxBranched",
+        "Count": 6,
+        "Branches": [
+          { "Laterality": "#Lat_Upper", "TailCount": 5, "ClusterCount": 1 },
+          { "Laterality": "#Lat_Lower", "TailCount": 1, "ClusterCount": 2 }
+        ],
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "NumberMarkLocation": [
       {
         "Formation": "corefolder",
@@ -32763,34 +31885,6 @@
       }
     ],
     "AppearanceDetail": [
-      {
-        "Formation": null,
-        "BodyPart": ["#BodyPart_Tail"],
-        "Laterality": null,
-        "DesignElement": "#Element_TailsUnit",
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_Shape",
-            "vdict_TailShapeType": "#TailShapeType_FoxBranched"
-          },
-          { "AttrLabel": "#DesignAttr_Count", "value_Num": 6 },
-          {
-            "AttrLabel": "#DesignAttr_Branch",
-            "vdict_Laterality": "#Lat_Upper",
-            "value_Num_1": 5,
-            "value_Num_2": 1
-          },
-          {
-            "AttrLabel": "#DesignAttr_Branch",
-            "vdict_Laterality": "#Lat_Lower",
-            "value_Num_1": 1,
-            "value_Num_2": 2
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
       {
         "Formation": null,
         "Costume": "usual",
@@ -33389,8 +32483,18 @@
     ],
     "Weight_kg": 43,
     "BustSize": "F",
-    "TailsUnit_JP": "キツネ(枝分かれ)型6本(上1束4本+下2束2本)",
-    "TailsUnit_EN": "Fox (branched) type: 6 tails (upper: 1 cluster x4, lower: 2 clusters x2)",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxBranched",
+        "Count": 6,
+        "Branches": [
+          { "Laterality": "#Lat_Upper", "TailCount": 4, "ClusterCount": 1 },
+          { "Laterality": "#Lat_Lower", "TailCount": 2, "ClusterCount": 2 }
+        ],
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "NumberMarkLocation": [
       {
         "Formation": "corefolder",
@@ -33492,34 +32596,6 @@
       }
     ],
     "AppearanceDetail": [
-      {
-        "Formation": null,
-        "BodyPart": ["#BodyPart_Tail"],
-        "Laterality": null,
-        "DesignElement": "#Element_TailsUnit",
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_Shape",
-            "vdict_TailShapeType": "#TailShapeType_FoxBranched"
-          },
-          { "AttrLabel": "#DesignAttr_Count", "value_Num": 6 },
-          {
-            "AttrLabel": "#DesignAttr_Branch",
-            "vdict_Laterality": "#Lat_Upper",
-            "value_Num_1": 4,
-            "value_Num_2": 1
-          },
-          {
-            "AttrLabel": "#DesignAttr_Branch",
-            "vdict_Laterality": "#Lat_Lower",
-            "value_Num_1": 2,
-            "value_Num_2": 2
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
       {
         "Formation": null,
         "BodyPart": ["#BodyPart_Arm"],
@@ -33943,8 +33019,18 @@
     ],
     "Weight_kg": { "hideText": "非公開" },
     "BustSize": "D",
-    "TailsUnit_JP": "キツネ(枝分かれ)型6本(上1束3本+下2束3本)",
-    "TailsUnit_EN": "Fox (branched) type: 6 tails (upper: 1 cluster x3, lower: 2 clusters x3)",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxBranched",
+        "Count": 6,
+        "Branches": [
+          { "Laterality": "#Lat_Upper", "TailCount": 3, "ClusterCount": 1 },
+          { "Laterality": "#Lat_Lower", "TailCount": 3, "ClusterCount": 2 }
+        ],
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "NumberMarkLocation": [
       {
         "Formation": "corefolder",
@@ -34047,34 +33133,6 @@
       }
     ],
     "AppearanceDetail": [
-      {
-        "Formation": null,
-        "BodyPart": ["#BodyPart_Tail"],
-        "Laterality": null,
-        "DesignElement": "#Element_TailsUnit",
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_Shape",
-            "vdict_TailShapeType": "#TailShapeType_FoxBranched"
-          },
-          { "AttrLabel": "#DesignAttr_Count", "value_Num": 6 },
-          {
-            "AttrLabel": "#DesignAttr_Branch",
-            "vdict_Laterality": "#Lat_Upper",
-            "value_Num_1": 3,
-            "value_Num_2": 1
-          },
-          {
-            "AttrLabel": "#DesignAttr_Branch",
-            "vdict_Laterality": "#Lat_Lower",
-            "value_Num_1": 3,
-            "value_Num_2": 2
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
       {
         "Formation": "corefolder",
         "BodyPart": ["#BodyPart_Chest"],
@@ -34500,8 +33558,18 @@
       "about_JP": "有志による情報。しかし公式(百花繚乱研)情報では否定している",
       "about_EN": "value provided by volunteers, but the official (100Beauties Lab.) source denies it"
     },
-    "TailsUnit_JP": "キツネ(枝分かれ)型6本(上1束4本+下2束2本)",
-    "TailsUnit_EN": "Fox (branched) type: 6 tails (upper: 1 cluster x4, lower: 2 clusters x2)",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxBranched",
+        "Count": 6,
+        "Branches": [
+          { "Laterality": "#Lat_Upper", "TailCount": 4, "ClusterCount": 1 },
+          { "Laterality": "#Lat_Lower", "TailCount": 2, "ClusterCount": 2 }
+        ],
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "NumberMarkLocation": [
       {
         "Formation": "corefolder",
@@ -34590,34 +33658,6 @@
       }
     ],
     "AppearanceDetail": [
-      {
-        "Formation": null,
-        "BodyPart": ["#BodyPart_Tail"],
-        "Laterality": null,
-        "DesignElement": "#Element_TailsUnit",
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_Shape",
-            "vdict_TailShapeType": "#TailShapeType_FoxBranched"
-          },
-          { "AttrLabel": "#DesignAttr_Count", "value_Num": 6 },
-          {
-            "AttrLabel": "#DesignAttr_Branch",
-            "vdict_Laterality": "#Lat_Upper",
-            "value_Num_1": 4,
-            "value_Num_2": 1
-          },
-          {
-            "AttrLabel": "#DesignAttr_Branch",
-            "vdict_Laterality": "#Lat_Lower",
-            "value_Num_1": 2,
-            "value_Num_2": 2
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
       {
         "Formation": "corefolder",
         "BodyPart": ["#BodyPart_Chest"],
@@ -34993,8 +34033,18 @@
     ],
     "Weight_kg": 37,
     "BustSize": "A",
-    "TailsUnit_JP": "キツネ(枝分かれ)型6本(上1束1本+下2束5本)",
-    "TailsUnit_EN": "Fox (branched) type: 6 tails (upper: 1 cluster x1, lower: 2 clusters x5)",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxBranched",
+        "Count": 6,
+        "Branches": [
+          { "Laterality": "#Lat_Upper", "TailCount": 1, "ClusterCount": 1 },
+          { "Laterality": "#Lat_Lower", "TailCount": 5, "ClusterCount": 2 }
+        ],
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "NumberMarkLocation": [
       {
         "Formation": "corefolder",
@@ -35081,34 +34131,6 @@
       }
     ],
     "AppearanceDetail": [
-      {
-        "Formation": null,
-        "BodyPart": ["#BodyPart_Tail"],
-        "Laterality": null,
-        "DesignElement": "#Element_TailsUnit",
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_Shape",
-            "vdict_TailShapeType": "#TailShapeType_FoxBranched"
-          },
-          { "AttrLabel": "#DesignAttr_Count", "value_Num": 6 },
-          {
-            "AttrLabel": "#DesignAttr_Branch",
-            "vdict_Laterality": "#Lat_Upper",
-            "value_Num_1": 1,
-            "value_Num_2": 1
-          },
-          {
-            "AttrLabel": "#DesignAttr_Branch",
-            "vdict_Laterality": "#Lat_Lower",
-            "value_Num_1": 5,
-            "value_Num_2": 2
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
       {
         "Formation": "corefolder",
         "BodyPart": ["#BodyPart_Chest"],
@@ -35497,8 +34519,15 @@
     ],
     "Weight_kg": { "hideText": "非公開" },
     "BustSize": "F",
-    "TailsUnit_JP": "キツネ(枝分かれ)型2束x6本",
-    "TailsUnit_EN": "Fox (branched) type: 2 clusters x6 tails",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxBranched",
+        "Count": 6,
+        "Segment": 2,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "NumberMarkLocation": [
       {
         "Formation": "corefolder",
@@ -35606,27 +34635,6 @@
       }
     ],
     "AppearanceDetail": [
-      {
-        "Formation": null,
-        "BodyPart": ["#BodyPart_Tail"],
-        "Laterality": null,
-        "DesignElement": "#Element_TailsUnit",
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_Shape",
-            "vdict_TailShapeType": "#TailShapeType_FoxBranched"
-          },
-          { "AttrLabel": "#DesignAttr_Count", "value_Num": 6 },
-          {
-            "AttrLabel": "#DesignAttr_Branch",
-            "value_JP": "2束",
-            "value_EN": "2 clusters each"
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
       {
         "Formation": "corefolder",
         "BodyPart": ["#BodyPart_Chest"],
@@ -36052,8 +35060,18 @@
     "Height_cm": 145,
     "ConceptAge": 22,
     "Weight_kg": { "hideText": "非公開希望" },
-    "TailsUnit_JP": "キツネ(枝分かれ)型7本(上2束6本+下1束1本)",
-    "TailsUnit_EN": "Fox (branched) type: 7 tails (upper: 2 clusters x6, lower: 1 cluster x1)",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxBranched",
+        "Count": 7,
+        "Branches": [
+          { "Laterality": "#Lat_Upper", "TailCount": 6, "ClusterCount": 2 },
+          { "Laterality": "#Lat_Lower", "TailCount": 1, "ClusterCount": 1 }
+        ],
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "NumberMarkLocation": [
       {
         "Formation": "corefolder",
@@ -36117,34 +35135,6 @@
       }
     ],
     "AppearanceDetail": [
-      {
-        "Formation": null,
-        "BodyPart": ["#BodyPart_Tail"],
-        "Laterality": null,
-        "DesignElement": "#Element_TailsUnit",
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_Shape",
-            "vdict_TailShapeType": "#TailShapeType_FoxBranched"
-          },
-          { "AttrLabel": "#DesignAttr_Count", "value_Num": 7 },
-          {
-            "AttrLabel": "#DesignAttr_Branch",
-            "vdict_Laterality": "#Lat_Upper",
-            "value_Num_1": 6,
-            "value_Num_2": 2
-          },
-          {
-            "AttrLabel": "#DesignAttr_Branch",
-            "vdict_Laterality": "#Lat_Lower",
-            "value_Num_1": 1,
-            "value_Num_2": 1
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
       {
         "Formation": "corefolder",
         "BodyPart": ["#BodyPart_Chest"],
@@ -36335,8 +35325,18 @@
     ],
     "ConceptAge": { "value": 22, "about_JP": "？", "about_EN": "?" },
     "Weight_kg": { "hideText": "非公開" },
-    "TailsUnit_JP": "キツネ(枝分かれ)型7本(上2束6本+下1束1本)",
-    "TailsUnit_EN": "Fox (branched) type: 7 tails (upper: 2 clusters x6, lower: 1 cluster x1)",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxBranched",
+        "Count": 7,
+        "Branches": [
+          { "Laterality": "#Lat_Upper", "TailCount": 6, "ClusterCount": 2 },
+          { "Laterality": "#Lat_Lower", "TailCount": 1, "ClusterCount": 1 }
+        ],
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "NumberMarkLocation": [
       {
         "Formation": "corefolder",
@@ -36430,34 +35430,6 @@
       }
     ],
     "AppearanceDetail": [
-      {
-        "Formation": null,
-        "BodyPart": ["#BodyPart_Tail"],
-        "Laterality": null,
-        "DesignElement": "#Element_TailsUnit",
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_Shape",
-            "vdict_TailShapeType": "#TailShapeType_FoxBranched"
-          },
-          { "AttrLabel": "#DesignAttr_Count", "value_Num": 7 },
-          {
-            "AttrLabel": "#DesignAttr_Branch",
-            "vdict_Laterality": "#Lat_Upper",
-            "value_Num_1": 6,
-            "value_Num_2": 2
-          },
-          {
-            "AttrLabel": "#DesignAttr_Branch",
-            "vdict_Laterality": "#Lat_Lower",
-            "value_Num_1": 1,
-            "value_Num_2": 1
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
       {
         "Formation": "corefolder",
         "BodyPart": ["#BodyPart_Chest"],
@@ -36877,8 +35849,18 @@
     ],
     "Weight_kg": 39,
     "BustSize": "AA",
-    "TailsUnit_JP": "キツネ(枝分かれ)型8本(上2束6本+下1束2本)",
-    "TailsUnit_EN": "Fox (branched) type: 8 tails (upper: 2 clusters x6, lower: 1 cluster x2)",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxBranched",
+        "Count": 8,
+        "Branches": [
+          { "Laterality": "#Lat_Upper", "TailCount": 6, "ClusterCount": 2 },
+          { "Laterality": "#Lat_Lower", "TailCount": 2, "ClusterCount": 1 }
+        ],
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "NumberMarkLocation": [
       {
         "Formation": "corefolder",
@@ -36969,34 +35951,6 @@
       }
     ],
     "AppearanceDetail": [
-      {
-        "Formation": null,
-        "BodyPart": ["#BodyPart_Tail"],
-        "Laterality": null,
-        "DesignElement": "#Element_TailsUnit",
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_Shape",
-            "vdict_TailShapeType": "#TailShapeType_FoxBranched"
-          },
-          { "AttrLabel": "#DesignAttr_Count", "value_Num": 8 },
-          {
-            "AttrLabel": "#DesignAttr_Branch",
-            "vdict_Laterality": "#Lat_Upper",
-            "value_Num_1": 6,
-            "value_Num_2": 2
-          },
-          {
-            "AttrLabel": "#DesignAttr_Branch",
-            "vdict_Laterality": "#Lat_Lower",
-            "value_Num_1": 2,
-            "value_Num_2": 1
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
       {
         "Formation": "corefolder",
         "BodyPart": ["#BodyPart_Head"],
@@ -37410,8 +36364,18 @@
       }
     ],
     "Weight_kg": { "hideText": "非公開" },
-    "TailsUnit_JP": "キツネ(枝分かれ)型9本(上2束6本+下1束3本)",
-    "TailsUnit_EN": "Fox (branched) type: 9 tails (upper: 2 clusters x6, lower: 1 cluster x3)",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxBranched",
+        "Count": 9,
+        "Branches": [
+          { "Laterality": "#Lat_Upper", "TailCount": 6, "ClusterCount": 2 },
+          { "Laterality": "#Lat_Lower", "TailCount": 3, "ClusterCount": 1 }
+        ],
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "NumberMarkLocation": [
       {
         "Formation": "corefolder",
@@ -37523,34 +36487,6 @@
       }
     ],
     "AppearanceDetail": [
-      {
-        "Formation": null,
-        "BodyPart": ["#BodyPart_Tail"],
-        "Laterality": null,
-        "DesignElement": "#Element_TailsUnit",
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_Shape",
-            "vdict_TailShapeType": "#TailShapeType_FoxBranched"
-          },
-          { "AttrLabel": "#DesignAttr_Count", "value_Num": 9 },
-          {
-            "AttrLabel": "#DesignAttr_Branch",
-            "vdict_Laterality": "#Lat_Upper",
-            "value_Num_1": 6,
-            "value_Num_2": 2
-          },
-          {
-            "AttrLabel": "#DesignAttr_Branch",
-            "vdict_Laterality": "#Lat_Lower",
-            "value_Num_1": 3,
-            "value_Num_2": 1
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
       {
         "Formation": "corefolder",
         "BodyPart": ["#BodyPart_Chest"],
@@ -38022,8 +36958,14 @@
       }
     ],
     "Weight_kg": 43,
-    "TailsUnit_JP": "キツネ型7本",
-    "TailsUnit_EN": "Seven fox-type tails",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_Fox",
+        "Count": 7,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "NumberMarkLocation": [
       {
         "Formation": "corefolder",
@@ -38104,22 +37046,6 @@
       }
     ],
     "AppearanceDetail": [
-      {
-        "Formation": null,
-        "BodyPart": ["#BodyPart_Tail"],
-        "Laterality": null,
-        "DesignElement": "#Element_TailsUnit",
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_Shape",
-            "vdict_TailShapeType": "#TailShapeType_Fox"
-          },
-          { "AttrLabel": "#DesignAttr_Count", "value_Num": 7 }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
       {
         "Formation": "corefolder",
         "BodyPart": ["#BodyPart_Shoulder"],
@@ -38484,8 +37410,18 @@
     "Weight_kg": [
       { "value": 40, "about_JP": "推定", "about_EN": "Presumption" }
     ],
-    "TailsUnit_JP": "キツネ(枝分かれ)型7本(上1束6本+下2束1本)",
-    "TailsUnit_EN": "Fox (branching-type) × 7 tails (upper bundle: 6 + lower bundle: 1)",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxBranched",
+        "Count": 7,
+        "Branches": [
+          { "Laterality": "#Lat_Upper", "TailCount": 6, "ClusterCount": 1 },
+          { "Laterality": "#Lat_Lower", "TailCount": 1, "ClusterCount": 2 }
+        ],
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "NumberMarkLocation": [
       {
         "Formation": "corefolder",
@@ -38578,34 +37514,6 @@
       }
     ],
     "AppearanceDetail": [
-      {
-        "Formation": null,
-        "BodyPart": ["#BodyPart_Tail"],
-        "Laterality": null,
-        "DesignElement": "#Element_TailsUnit",
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_Shape",
-            "vdict_TailShapeType": "#TailShapeType_FoxBranched"
-          },
-          { "AttrLabel": "#DesignAttr_Count", "value_Num": 7 },
-          {
-            "AttrLabel": "#DesignAttr_Branch",
-            "vdict_Laterality": "#Lat_Upper",
-            "value_Num_1": 6,
-            "value_Num_2": 1
-          },
-          {
-            "AttrLabel": "#DesignAttr_Branch",
-            "vdict_Laterality": "#Lat_Lower",
-            "value_Num_1": 1,
-            "value_Num_2": 2
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
       {
         "Formation": null,
         "BodyPart": ["#BodyPart_Hair"],
@@ -38992,8 +37900,18 @@
     ],
     "Weight_kg": 43,
     "BustSize": "B",
-    "TailsUnit_JP": "キツネ(枝分かれ)型7本(上1束5本+下2束2本)",
-    "TailsUnit_EN": "Fox (branching-type) × 7 tails (upper bundle: 5 + lower bundle: 2)",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxBranched",
+        "Count": 7,
+        "Branches": [
+          { "Laterality": "#Lat_Upper", "TailCount": 5, "ClusterCount": 1 },
+          { "Laterality": "#Lat_Lower", "TailCount": 2, "ClusterCount": 2 }
+        ],
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "NumberMarkLocation": [
       {
         "Formation": "corefolder",
@@ -39099,34 +38017,6 @@
       }
     ],
     "AppearanceDetail": [
-      {
-        "Formation": null,
-        "BodyPart": ["#BodyPart_Tail"],
-        "Laterality": null,
-        "DesignElement": "#Element_TailsUnit",
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_Shape",
-            "vdict_TailShapeType": "#TailShapeType_FoxBranched"
-          },
-          { "AttrLabel": "#DesignAttr_Count", "value_Num": 7 },
-          {
-            "AttrLabel": "#DesignAttr_Branch",
-            "vdict_Laterality": "#Lat_Upper",
-            "value_Num_1": 5,
-            "value_Num_2": 1
-          },
-          {
-            "AttrLabel": "#DesignAttr_Branch",
-            "vdict_Laterality": "#Lat_Lower",
-            "value_Num_1": 2,
-            "value_Num_2": 2
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
       {
         "Formation": "corefolder",
         "BodyPart": ["#BodyPart_Chest"],
@@ -39567,8 +38457,18 @@
     ],
     "Weight_kg": { "hideText": "非公開" },
     "BustSize": "C",
-    "TailsUnit_JP": "キツネ(枝分かれ)型7本(上1束4本+下2束3本)",
-    "TailsUnit_EN": "Fox (branching-type) × 7 tails (upper bundle: 4 + lower bundle: 3)",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxBranched",
+        "Count": 7,
+        "Branches": [
+          { "Laterality": "#Lat_Upper", "TailCount": 4, "ClusterCount": 1 },
+          { "Laterality": "#Lat_Lower", "TailCount": 3, "ClusterCount": 2 }
+        ],
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "NumberMarkLocation": [
       {
         "Formation": "corefolder",
@@ -39667,34 +38567,6 @@
       }
     ],
     "AppearanceDetail": [
-      {
-        "Formation": null,
-        "BodyPart": ["#BodyPart_Tail"],
-        "Laterality": null,
-        "DesignElement": "#Element_TailsUnit",
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_Shape",
-            "vdict_TailShapeType": "#TailShapeType_FoxBranched"
-          },
-          { "AttrLabel": "#DesignAttr_Count", "value_Num": 7 },
-          {
-            "AttrLabel": "#DesignAttr_Branch",
-            "vdict_Laterality": "#Lat_Upper",
-            "value_Num_1": 4,
-            "value_Num_2": 1
-          },
-          {
-            "AttrLabel": "#DesignAttr_Branch",
-            "vdict_Laterality": "#Lat_Lower",
-            "value_Num_1": 3,
-            "value_Num_2": 2
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
       {
         "Formation": null,
         "BodyPart": ["#BodyPart_Head"],
@@ -40137,8 +39009,18 @@
       { "value": 1, "about_JP": "マント", "about_EN": "Cloak" }
     ],
     "BustSize": "B",
-    "TailsUnit_JP": "キツネ(枝分かれ)型7本(上1束3本+下2束4本)",
-    "TailsUnit_EN": "Fox (branching-type) × 7 tails (upper bundle: 3 + lower bundle: 4)",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxBranched",
+        "Count": 7,
+        "Branches": [
+          { "Laterality": "#Lat_Upper", "TailCount": 3, "ClusterCount": 1 },
+          { "Laterality": "#Lat_Lower", "TailCount": 4, "ClusterCount": 2 }
+        ],
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "NumberMarkLocation": [
       {
         "Formation": "corefolder",
@@ -40229,34 +39111,6 @@
       }
     ],
     "AppearanceDetail": [
-      {
-        "Formation": null,
-        "BodyPart": ["#BodyPart_Tail"],
-        "Laterality": null,
-        "DesignElement": "#Element_TailsUnit",
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_Shape",
-            "vdict_TailShapeType": "#TailShapeType_FoxBranched"
-          },
-          { "AttrLabel": "#DesignAttr_Count", "value_Num": 7 },
-          {
-            "AttrLabel": "#DesignAttr_Branch",
-            "vdict_Laterality": "#Lat_Upper",
-            "value_Num_1": 3,
-            "value_Num_2": 1
-          },
-          {
-            "AttrLabel": "#DesignAttr_Branch",
-            "vdict_Laterality": "#Lat_Lower",
-            "value_Num_1": 4,
-            "value_Num_2": 2
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
       {
         "Formation": null,
         "BodyPart": ["#BodyPart_Shoulder"],
@@ -40648,8 +39502,18 @@
     ],
     "Weight_kg": 42,
     "BustSize": "AA",
-    "TailsUnit_JP": "キツネ(枝分かれ)型7本(上1束2本+下2束5本)",
-    "TailsUnit_EN": "Fox (branching-type) × 7 tails (upper bundle: 2 + lower bundle: 5)",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxBranched",
+        "Count": 7,
+        "Branches": [
+          { "Laterality": "#Lat_Upper", "TailCount": 2, "ClusterCount": 1 },
+          { "Laterality": "#Lat_Lower", "TailCount": 5, "ClusterCount": 2 }
+        ],
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "NumberMarkLocation": [
       {
         "Formation": "corefolder",
@@ -40744,34 +39608,6 @@
       }
     ],
     "AppearanceDetail": [
-      {
-        "Formation": null,
-        "BodyPart": ["#BodyPart_Tail"],
-        "Laterality": null,
-        "DesignElement": "#Element_TailsUnit",
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_Shape",
-            "vdict_TailShapeType": "#TailShapeType_FoxBranched"
-          },
-          { "AttrLabel": "#DesignAttr_Count", "value_Num": 7 },
-          {
-            "AttrLabel": "#DesignAttr_Branch",
-            "vdict_Laterality": "#Lat_Upper",
-            "value_Num_1": 2,
-            "value_Num_2": 1
-          },
-          {
-            "AttrLabel": "#DesignAttr_Branch",
-            "vdict_Laterality": "#Lat_Lower",
-            "value_Num_1": 5,
-            "value_Num_2": 2
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
       {
         "Formation": "corefolder",
         "BodyPart": ["#BodyPart_Arm"],
@@ -41212,8 +40048,18 @@
     ],
     "Weight_kg": { "hideText": "非公開" },
     "BustSize": "G",
-    "TailsUnit_JP": "キツネ(枝分かれ)型7本(上1束1本+下2束6本)",
-    "TailsUnit_EN": "Fox (branched) type: 7 tails (upper: 1 cluster x1, lower: 2 clusters x6)",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxBranched",
+        "Count": 7,
+        "Branches": [
+          { "Laterality": "#Lat_Upper", "TailCount": 1, "ClusterCount": 1 },
+          { "Laterality": "#Lat_Lower", "TailCount": 6, "ClusterCount": 2 }
+        ],
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "NumberMarkLocation": [
       {
         "Formation": "corefolder",
@@ -41328,34 +40174,6 @@
       }
     ],
     "AppearanceDetail": [
-      {
-        "Formation": null,
-        "BodyPart": ["#BodyPart_Tail"],
-        "Laterality": null,
-        "DesignElement": "#Element_TailsUnit",
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_Shape",
-            "vdict_TailShapeType": "#TailShapeType_FoxBranched"
-          },
-          { "AttrLabel": "#DesignAttr_Count", "value_Num": 7 },
-          {
-            "AttrLabel": "#DesignAttr_Branch",
-            "vdict_Laterality": "#Lat_Upper",
-            "value_Num_1": 1,
-            "value_Num_2": 1
-          },
-          {
-            "AttrLabel": "#DesignAttr_Branch",
-            "vdict_Laterality": "#Lat_Lower",
-            "value_Num_1": 6,
-            "value_Num_2": 2
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
       {
         "Formation": "corefolder",
         "BodyPart": ["#BodyPart_Chest"],
@@ -41815,8 +40633,15 @@
       { "value": 39, "about_JP": "推定", "about_EN": "Presumption" }
     ],
     "BustSize": "A",
-    "TailsUnit_JP": "キツネ(枝分かれ)型2束x7本",
-    "TailsUnit_EN": "Fox (branched) type: 2 clusters x7 tails",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxBranched",
+        "Count": 7,
+        "Segment": 2,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "NumberMarkLocation": [
       {
         "Formation": "corefolder",
@@ -41905,27 +40730,6 @@
       }
     ],
     "AppearanceDetail": [
-      {
-        "Formation": null,
-        "BodyPart": ["#BodyPart_Tail"],
-        "Laterality": null,
-        "DesignElement": "#Element_TailsUnit",
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_Shape",
-            "vdict_TailShapeType": "#TailShapeType_FoxBranched"
-          },
-          { "AttrLabel": "#DesignAttr_Count", "value_Num": 7 },
-          {
-            "AttrLabel": "#DesignAttr_Branch",
-            "value_JP": "2束",
-            "value_EN": "2 clusters each"
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
       {
         "Formation": "corefolder",
         "BodyPart": ["#BodyPart_Chest"],
@@ -42355,8 +41159,18 @@
     ],
     "Weight_kg": { "hideText": "非公開" },
     "BustSize": "E",
-    "TailsUnit_JP": "キツネ(枝分かれ)型8本(上2束1本+下1束7本)",
-    "TailsUnit_EN": "Fox (branched) type: 8 tails (upper: 2 clusters x1, lower: 1 cluster x7)",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxBranched",
+        "Count": 8,
+        "Branches": [
+          { "Laterality": "#Lat_Upper", "TailCount": 1, "ClusterCount": 2 },
+          { "Laterality": "#Lat_Lower", "TailCount": 7, "ClusterCount": 1 }
+        ],
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "NumberMarkLocation": [
       {
         "Formation": "corefolder",
@@ -42460,34 +41274,6 @@
       }
     ],
     "AppearanceDetail": [
-      {
-        "Formation": null,
-        "BodyPart": ["#BodyPart_Tail"],
-        "Laterality": null,
-        "DesignElement": "#Element_TailsUnit",
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_Shape",
-            "vdict_TailShapeType": "#TailShapeType_FoxBranched"
-          },
-          { "AttrLabel": "#DesignAttr_Count", "value_Num": 8 },
-          {
-            "AttrLabel": "#DesignAttr_Branch",
-            "vdict_Laterality": "#Lat_Upper",
-            "value_Num_1": 1,
-            "value_Num_2": 2
-          },
-          {
-            "AttrLabel": "#DesignAttr_Branch",
-            "vdict_Laterality": "#Lat_Lower",
-            "value_Num_1": 7,
-            "value_Num_2": 1
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
       {
         "Formation": null,
         "BodyPart": ["#BodyPart_Ear"],
@@ -42923,26 +41709,15 @@
       { "value": 45, "about_JP": "推定", "about_EN": "Presumption" }
     ],
     "BustSize": "G",
-    "TailsUnit_JP": "キツネ型8本",
-    "TailsUnit_EN": "Eight fox-type tails",
-    "AppearanceDetail": [
+    "TailsUnit": [
       {
-        "Formation": null,
-        "BodyPart": ["#BodyPart_Tail"],
-        "Laterality": null,
-        "DesignElement": "#Element_TailsUnit",
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_Shape",
-            "vdict_TailShapeType": "#TailShapeType_Fox"
-          },
-          { "AttrLabel": "#DesignAttr_Count", "value_Num": 8 }
-        ],
-        "img_PNGName": null,
+        "TailShapeType": "#TailShapeType_Fox",
+        "Count": 8,
         "Note_JP": null,
         "Note_EN": null
       }
     ],
+    "AppearanceDetail": null,
     "Class": ["10倍番(テンズデジッツ)"],
     "FirstPersonCalling_JP": "わたくしめ\nおれ",
     "FirstPersonCalling_EN": "I (watakushime; extremely humble)\nI (ore; rough masc.)",
@@ -43026,8 +41801,18 @@
     ],
     "Weight_kg": 41,
     "BustSize": "D",
-    "TailsUnit_JP": "キツネ(枝分かれ)型8本(上1束7本+下2束1本)",
-    "TailsUnit_EN": "Fox (branched) type: 8 tails (upper: 1 cluster x7, lower: 2 clusters x1)",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxBranched",
+        "Count": 8,
+        "Branches": [
+          { "Laterality": "#Lat_Upper", "TailCount": 7, "ClusterCount": 1 },
+          { "Laterality": "#Lat_Lower", "TailCount": 1, "ClusterCount": 2 }
+        ],
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "NumberMarkLocation": [
       {
         "Formation": "corefolder",
@@ -43120,34 +41905,6 @@
       }
     ],
     "AppearanceDetail": [
-      {
-        "Formation": null,
-        "BodyPart": ["#BodyPart_Tail"],
-        "Laterality": null,
-        "DesignElement": "#Element_TailsUnit",
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_Shape",
-            "vdict_TailShapeType": "#TailShapeType_FoxBranched"
-          },
-          { "AttrLabel": "#DesignAttr_Count", "value_Num": 8 },
-          {
-            "AttrLabel": "#DesignAttr_Branch",
-            "vdict_Laterality": "#Lat_Upper",
-            "value_Num_1": 7,
-            "value_Num_2": 1
-          },
-          {
-            "AttrLabel": "#DesignAttr_Branch",
-            "vdict_Laterality": "#Lat_Lower",
-            "value_Num_1": 1,
-            "value_Num_2": 2
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
       {
         "Formation": "corefolder",
         "BodyPart": ["#BodyPart_Chest"],
@@ -43562,38 +42319,19 @@
     ],
     "Weight_kg": { "hideText": "非公開" },
     "BustSize": "B",
-    "TailsUnit_JP": "キツネ(枝分かれ)型8本(上1束6本+下2束2本)",
-    "TailsUnit_EN": "Fox (branched) type: 8 tails (upper: 1 cluster x6, lower: 2 clusters x2)",
-    "AppearanceDetail": [
+    "TailsUnit": [
       {
-        "Formation": null,
-        "BodyPart": ["#BodyPart_Tail"],
-        "Laterality": null,
-        "DesignElement": "#Element_TailsUnit",
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_Shape",
-            "vdict_TailShapeType": "#TailShapeType_FoxBranched"
-          },
-          { "AttrLabel": "#DesignAttr_Count", "value_Num": 8 },
-          {
-            "AttrLabel": "#DesignAttr_Branch",
-            "vdict_Laterality": "#Lat_Upper",
-            "value_Num_1": 6,
-            "value_Num_2": 1
-          },
-          {
-            "AttrLabel": "#DesignAttr_Branch",
-            "vdict_Laterality": "#Lat_Lower",
-            "value_Num_1": 2,
-            "value_Num_2": 2
-          }
+        "TailShapeType": "#TailShapeType_FoxBranched",
+        "Count": 8,
+        "Branches": [
+          { "Laterality": "#Lat_Upper", "TailCount": 6, "ClusterCount": 1 },
+          { "Laterality": "#Lat_Lower", "TailCount": 2, "ClusterCount": 2 }
         ],
-        "img_PNGName": null,
         "Note_JP": null,
         "Note_EN": null
       }
     ],
+    "AppearanceDetail": null,
     "Class": ["デュアルキャリーズ"],
     "FirstPersonCalling_JP": "私(わたし)",
     "FirstPersonCalling_EN": "I",
@@ -43682,8 +42420,18 @@
       "about_JP": "着痩せ時(の値である可能性)",
       "about_EN": "When appearing slimmer (possibly)"
     },
-    "TailsUnit_JP": "キツネ(枝分かれ)型8本(上1束4本+下2束4本)",
-    "TailsUnit_EN": "Fox (branched) type: 8 tails (upper: 1 cluster x4, lower: 2 clusters x4)",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxBranched",
+        "Count": 8,
+        "Branches": [
+          { "Laterality": "#Lat_Upper", "TailCount": 4, "ClusterCount": 1 },
+          { "Laterality": "#Lat_Lower", "TailCount": 4, "ClusterCount": 2 }
+        ],
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "NumberMarkLocation": [
       {
         "Formation": "corefolder",
@@ -43778,34 +42526,6 @@
       }
     ],
     "AppearanceDetail": [
-      {
-        "Formation": null,
-        "BodyPart": ["#BodyPart_Tail"],
-        "Laterality": null,
-        "DesignElement": "#Element_TailsUnit",
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_Shape",
-            "vdict_TailShapeType": "#TailShapeType_FoxBranched"
-          },
-          { "AttrLabel": "#DesignAttr_Count", "value_Num": 8 },
-          {
-            "AttrLabel": "#DesignAttr_Branch",
-            "vdict_Laterality": "#Lat_Upper",
-            "value_Num_1": 4,
-            "value_Num_2": 1
-          },
-          {
-            "AttrLabel": "#DesignAttr_Branch",
-            "vdict_Laterality": "#Lat_Lower",
-            "value_Num_1": 4,
-            "value_Num_2": 2
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
       {
         "Formation": "corefolder",
         "BodyPart": ["#BodyPart_Chest"],
@@ -44259,8 +42979,18 @@
     ],
     "Weight_kg": { "hideText": "非公開" },
     "BustSize": "A",
-    "TailsUnit_JP": "キツネ(枝分かれ)型8本(上1束3本+下2束5本)",
-    "TailsUnit_EN": "Fox (branched) type: 8 tails (upper: 1 cluster x3, lower: 2 clusters x5)",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxBranched",
+        "Count": 8,
+        "Branches": [
+          { "Laterality": "#Lat_Upper", "TailCount": 3, "ClusterCount": 1 },
+          { "Laterality": "#Lat_Lower", "TailCount": 5, "ClusterCount": 2 }
+        ],
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "NumberMarkLocation": [
       { "Formation": "corefolder", "Marks": null },
       {
@@ -44347,34 +43077,6 @@
       }
     ],
     "AppearanceDetail": [
-      {
-        "Formation": null,
-        "BodyPart": ["#BodyPart_Tail"],
-        "Laterality": null,
-        "DesignElement": "#Element_TailsUnit",
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_Shape",
-            "vdict_TailShapeType": "#TailShapeType_FoxBranched"
-          },
-          { "AttrLabel": "#DesignAttr_Count", "value_Num": 8 },
-          {
-            "AttrLabel": "#DesignAttr_Branch",
-            "vdict_Laterality": "#Lat_Upper",
-            "value_Num_1": 3,
-            "value_Num_2": 1
-          },
-          {
-            "AttrLabel": "#DesignAttr_Branch",
-            "vdict_Laterality": "#Lat_Lower",
-            "value_Num_1": 5,
-            "value_Num_2": 2
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
       {
         "Formation": "humanoid",
         "BodyPart": ["#BodyPart_Shoulder"],
@@ -44796,8 +43498,18 @@
     "Weight_kg": { "hideText": "非公開" },
     "BustSize": "B",
     "Class": ["デュアルファイブズ"],
-    "TailsUnit_JP": "キツネ(枝分かれ)型8本(上1束2本+下2束6本)",
-    "TailsUnit_EN": "Fox (branched) type: 8 tails (upper: 1 cluster x2, lower: 2 clusters x6)",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxBranched",
+        "Count": 8,
+        "Branches": [
+          { "Laterality": "#Lat_Upper", "TailCount": 2, "ClusterCount": 1 },
+          { "Laterality": "#Lat_Lower", "TailCount": 6, "ClusterCount": 2 }
+        ],
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "NumberMarkLocation": [
       {
         "Formation": "corefolder",
@@ -44889,34 +43601,6 @@
       }
     ],
     "AppearanceDetail": [
-      {
-        "Formation": null,
-        "BodyPart": ["#BodyPart_Tail"],
-        "Laterality": null,
-        "DesignElement": "#Element_TailsUnit",
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_Shape",
-            "vdict_TailShapeType": "#TailShapeType_FoxBranched"
-          },
-          { "AttrLabel": "#DesignAttr_Count", "value_Num": 8 },
-          {
-            "AttrLabel": "#DesignAttr_Branch",
-            "vdict_Laterality": "#Lat_Upper",
-            "value_Num_1": 2,
-            "value_Num_2": 1
-          },
-          {
-            "AttrLabel": "#DesignAttr_Branch",
-            "vdict_Laterality": "#Lat_Lower",
-            "value_Num_1": 6,
-            "value_Num_2": 2
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
       {
         "Formation": "corefolder",
         "BodyPart": ["#BodyPart_Head"],
@@ -45341,8 +44025,18 @@
       "about_JP": "着痩せ時(の値である可能性)",
       "about_EN": "When appearing slimmer (possibly)"
     },
-    "TailsUnit_JP": "キツネ(枝分かれ)型8本(上1束1本+下2束7本)",
-    "TailsUnit_EN": "Fox (branched) type: 8 tails (upper: 1 cluster x1, lower: 2 clusters x7)",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxBranched",
+        "Count": 8,
+        "Branches": [
+          { "Laterality": "#Lat_Upper", "TailCount": 1, "ClusterCount": 1 },
+          { "Laterality": "#Lat_Lower", "TailCount": 7, "ClusterCount": 2 }
+        ],
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "NumberMarkLocation": [
       {
         "Formation": "corefolder",
@@ -45446,34 +44140,6 @@
       }
     ],
     "AppearanceDetail": [
-      {
-        "Formation": null,
-        "BodyPart": ["#BodyPart_Tail"],
-        "Laterality": null,
-        "DesignElement": "#Element_TailsUnit",
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_Shape",
-            "vdict_TailShapeType": "#TailShapeType_FoxBranched"
-          },
-          { "AttrLabel": "#DesignAttr_Count", "value_Num": 8 },
-          {
-            "AttrLabel": "#DesignAttr_Branch",
-            "vdict_Laterality": "#Lat_Upper",
-            "value_Num_1": 1,
-            "value_Num_2": 1
-          },
-          {
-            "AttrLabel": "#DesignAttr_Branch",
-            "vdict_Laterality": "#Lat_Lower",
-            "value_Num_1": 7,
-            "value_Num_2": 2
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
       {
         "Formation": null,
         "BodyPart": ["#BodyPart_Ear"],
@@ -45869,8 +44535,15 @@
       }
     ],
     "Weight_kg": 45,
-    "TailsUnit_JP": "キツネ(枝分かれ)型2束x8本",
-    "TailsUnit_EN": "Fox (branched) type: 2 clusters x8 tails",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxBranched",
+        "Count": 8,
+        "Segment": 2,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "NumberMarkLocation": [
       {
         "Formation": "corefolder",
@@ -45969,27 +44642,6 @@
       }
     ],
     "AppearanceDetail": [
-      {
-        "Formation": null,
-        "BodyPart": ["#BodyPart_Tail"],
-        "Laterality": null,
-        "DesignElement": "#Element_TailsUnit",
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_Shape",
-            "vdict_TailShapeType": "#TailShapeType_FoxBranched"
-          },
-          { "AttrLabel": "#DesignAttr_Count", "value_Num": 8 },
-          {
-            "AttrLabel": "#DesignAttr_Branch",
-            "value_JP": "2束",
-            "value_EN": "2 clusters each"
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
       {
         "Formation": null,
         "BodyPart": ["#BodyPart_Neck"],
@@ -46417,8 +45069,18 @@
     ],
     "Weight_kg": { "hideText": "非公開" },
     "BustSize": "C",
-    "TailsUnit_JP": "キツネ(枝分かれ)型9本(上1束1本+下2束8本)",
-    "TailsUnit_EN": "Fox (branched) type: 9 tails (upper: 1 cluster x1, lower: 2 clusters x8)",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxBranched",
+        "Count": 9,
+        "Branches": [
+          { "Laterality": "#Lat_Upper", "TailCount": 1, "ClusterCount": 1 },
+          { "Laterality": "#Lat_Lower", "TailCount": 8, "ClusterCount": 2 }
+        ],
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "NumberMarkLocation": [
       {
         "Formation": "corefolder",
@@ -46512,34 +45174,6 @@
       }
     ],
     "AppearanceDetail": [
-      {
-        "Formation": null,
-        "BodyPart": ["#BodyPart_Tail"],
-        "Laterality": null,
-        "DesignElement": "#Element_TailsUnit",
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_Shape",
-            "vdict_TailShapeType": "#TailShapeType_FoxBranched"
-          },
-          { "AttrLabel": "#DesignAttr_Count", "value_Num": 9 },
-          {
-            "AttrLabel": "#DesignAttr_Branch",
-            "vdict_Laterality": "#Lat_Upper",
-            "value_Num_1": 1,
-            "value_Num_2": 1
-          },
-          {
-            "AttrLabel": "#DesignAttr_Branch",
-            "vdict_Laterality": "#Lat_Lower",
-            "value_Num_1": 8,
-            "value_Num_2": 2
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
       {
         "Formation": "corefolder",
         "BodyPart": ["#BodyPart_Chest"],
@@ -47021,8 +45655,18 @@
       }
     ],
     "Weight_kg": 41,
-    "TailsUnit_JP": "キツネ(枝分かれ)型9本(上1束7本+下2束3本)",
-    "TailsUnit_EN": "Fox (branching-type) × 9 tails (upper bundle: 7 + lower bundle: 3)",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxBranched",
+        "Count": 9,
+        "Branches": [
+          { "Laterality": "#Lat_Upper", "TailCount": 7, "ClusterCount": 1 },
+          { "Laterality": "#Lat_Lower", "TailCount": 3, "ClusterCount": 2 }
+        ],
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "NumberMarkLocation": [
       { "Formation": "corefolder", "Marks": null },
       { "Formation": "humanoid", "Marks": null }
@@ -47093,34 +45737,6 @@
       }
     ],
     "AppearanceDetail": [
-      {
-        "Formation": null,
-        "BodyPart": ["#BodyPart_Tail"],
-        "Laterality": null,
-        "DesignElement": "#Element_TailsUnit",
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_Shape",
-            "vdict_TailShapeType": "#TailShapeType_FoxBranched"
-          },
-          { "AttrLabel": "#DesignAttr_Count", "value_Num": 9 },
-          {
-            "AttrLabel": "#DesignAttr_Branch",
-            "vdict_Laterality": "#Lat_Upper",
-            "value_Num_1": 7,
-            "value_Num_2": 1
-          },
-          {
-            "AttrLabel": "#DesignAttr_Branch",
-            "vdict_Laterality": "#Lat_Lower",
-            "value_Num_1": 3,
-            "value_Num_2": 2
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
       {
         "Formation": null,
         "BodyPart": ["#BodyPart_Ear"],
@@ -47483,8 +46099,18 @@
     ],
     "Weight_kg": 39,
     "BustSize": "A",
-    "TailsUnit_JP": "キツネ(枝分かれ)型9本(上1束6本+下2束3本)",
-    "TailsUnit_EN": "Fox (branching-type) × 9 tails (upper bundle: 6 + lower bundle: 3)",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxBranched",
+        "Count": 9,
+        "Branches": [
+          { "Laterality": "#Lat_Upper", "TailCount": 6, "ClusterCount": 1 },
+          { "Laterality": "#Lat_Lower", "TailCount": 3, "ClusterCount": 2 }
+        ],
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "NumberMarkLocation": [
       {
         "Formation": "corefolder",
@@ -47585,34 +46211,6 @@
       }
     ],
     "AppearanceDetail": [
-      {
-        "Formation": null,
-        "BodyPart": ["#BodyPart_Tail"],
-        "Laterality": null,
-        "DesignElement": "#Element_TailsUnit",
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_Shape",
-            "vdict_TailShapeType": "#TailShapeType_FoxBranched"
-          },
-          { "AttrLabel": "#DesignAttr_Count", "value_Num": 9 },
-          {
-            "AttrLabel": "#DesignAttr_Branch",
-            "vdict_Laterality": "#Lat_Upper",
-            "value_Num_1": 6,
-            "value_Num_2": 1
-          },
-          {
-            "AttrLabel": "#DesignAttr_Branch",
-            "vdict_Laterality": "#Lat_Lower",
-            "value_Num_1": 3,
-            "value_Num_2": 2
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
       {
         "Formation": "corefolder",
         "BodyPart": ["#BodyPart_Chest"],
@@ -48083,8 +46681,18 @@
     ],
     "Weight_kg": 39,
     "BustSize": "A",
-    "TailsUnit_JP": "キツネ(枝分かれ)型9本(上1束5本+下2束4本)",
-    "TailsUnit_EN": "Fox (branching-type) × 9 tails (upper bundle: 5 + lower bundle: 4)",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxBranched",
+        "Count": 9,
+        "Branches": [
+          { "Laterality": "#Lat_Upper", "TailCount": 5, "ClusterCount": 1 },
+          { "Laterality": "#Lat_Lower", "TailCount": 4, "ClusterCount": 2 }
+        ],
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "NumberMarkLocation": [
       {
         "Formation": "corefolder",
@@ -48178,34 +46786,6 @@
       }
     ],
     "AppearanceDetail": [
-      {
-        "Formation": null,
-        "BodyPart": ["#BodyPart_Tail"],
-        "Laterality": null,
-        "DesignElement": "#Element_TailsUnit",
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_Shape",
-            "vdict_TailShapeType": "#TailShapeType_FoxBranched"
-          },
-          { "AttrLabel": "#DesignAttr_Count", "value_Num": 9 },
-          {
-            "AttrLabel": "#DesignAttr_Branch",
-            "vdict_Laterality": "#Lat_Upper",
-            "value_Num_1": 5,
-            "value_Num_2": 1
-          },
-          {
-            "AttrLabel": "#DesignAttr_Branch",
-            "vdict_Laterality": "#Lat_Lower",
-            "value_Num_1": 4,
-            "value_Num_2": 2
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
       {
         "Formation": "corefolder",
         "BodyPart": ["#BodyPart_Chest"],
@@ -48683,8 +47263,18 @@
     ],
     "Weight_kg": { "hideText": "非公開" },
     "BustSize": "G",
-    "TailsUnit_JP": "キツネ(枝分かれ)型9本(上1束3本+下2束6本)",
-    "TailsUnit_EN": "Fox (branching-type) × 9 tails (upper bundle: 3 + lower bundle: 6)",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxBranched",
+        "Count": 9,
+        "Branches": [
+          { "Laterality": "#Lat_Upper", "TailCount": 3, "ClusterCount": 1 },
+          { "Laterality": "#Lat_Lower", "TailCount": 6, "ClusterCount": 2 }
+        ],
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "NumberMarkLocation": [
       {
         "Formation": "corefolder",
@@ -48791,34 +47381,6 @@
       }
     ],
     "AppearanceDetail": [
-      {
-        "Formation": null,
-        "BodyPart": ["#BodyPart_Tail"],
-        "Laterality": null,
-        "DesignElement": "#Element_TailsUnit",
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_Shape",
-            "vdict_TailShapeType": "#TailShapeType_FoxBranched"
-          },
-          { "AttrLabel": "#DesignAttr_Count", "value_Num": 9 },
-          {
-            "AttrLabel": "#DesignAttr_Branch",
-            "vdict_Laterality": "#Lat_Upper",
-            "value_Num_1": 3,
-            "value_Num_2": 1
-          },
-          {
-            "AttrLabel": "#DesignAttr_Branch",
-            "vdict_Laterality": "#Lat_Lower",
-            "value_Num_1": 6,
-            "value_Num_2": 2
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
       {
         "Formation": null,
         "BodyPart": ["#BodyPart_Chest"],
@@ -49326,8 +47888,18 @@
     ],
     "Weight_kg": 39,
     "BustSize": "E",
-    "TailsUnit_JP": "キツネ(枝分かれ)型9本(上1束2本+下2束7本)",
-    "TailsUnit_EN": "Fox (branching-type) × 9 tails (upper bundle: 2 + lower bundle: 7)",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxBranched",
+        "Count": 9,
+        "Branches": [
+          { "Laterality": "#Lat_Upper", "TailCount": 2, "ClusterCount": 1 },
+          { "Laterality": "#Lat_Lower", "TailCount": 7, "ClusterCount": 2 }
+        ],
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "NumberMarkLocation": [
       {
         "Formation": "corefolder",
@@ -49434,34 +48006,6 @@
       }
     ],
     "AppearanceDetail": [
-      {
-        "Formation": null,
-        "BodyPart": ["#BodyPart_Tail"],
-        "Laterality": null,
-        "DesignElement": "#Element_TailsUnit",
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_Shape",
-            "vdict_TailShapeType": "#TailShapeType_FoxBranched"
-          },
-          { "AttrLabel": "#DesignAttr_Count", "value_Num": 9 },
-          {
-            "AttrLabel": "#DesignAttr_Branch",
-            "vdict_Laterality": "#Lat_Upper",
-            "value_Num_1": 2,
-            "value_Num_2": 1
-          },
-          {
-            "AttrLabel": "#DesignAttr_Branch",
-            "vdict_Laterality": "#Lat_Lower",
-            "value_Num_1": 7,
-            "value_Num_2": 2
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
       {
         "Formation": null,
         "BodyPart": ["#BodyPart_Chest"],
@@ -49861,8 +48405,18 @@
     ],
     "Weight_kg": { "hideText": "非公開" },
     "BustSize": "D",
-    "TailsUnit_JP": "キツネ(枝分かれ)型9本(上1束1本+下2束8本)",
-    "TailsUnit_EN": "Fox (branching-type) × 9 tails (upper bundle: 1 + lower bundle: 8)",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxBranched",
+        "Count": 9,
+        "Branches": [
+          { "Laterality": "#Lat_Upper", "TailCount": 1, "ClusterCount": 1 },
+          { "Laterality": "#Lat_Lower", "TailCount": 8, "ClusterCount": 2 }
+        ],
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "NumberMarkLocation": [
       {
         "Formation": "corefolder",
@@ -49953,34 +48507,6 @@
       }
     ],
     "AppearanceDetail": [
-      {
-        "Formation": null,
-        "BodyPart": ["#BodyPart_Tail"],
-        "Laterality": null,
-        "DesignElement": "#Element_TailsUnit",
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_Shape",
-            "vdict_TailShapeType": "#TailShapeType_FoxBranched"
-          },
-          { "AttrLabel": "#DesignAttr_Count", "value_Num": 9 },
-          {
-            "AttrLabel": "#DesignAttr_Branch",
-            "vdict_Laterality": "#Lat_Upper",
-            "value_Num_1": 1,
-            "value_Num_2": 1
-          },
-          {
-            "AttrLabel": "#DesignAttr_Branch",
-            "vdict_Laterality": "#Lat_Lower",
-            "value_Num_1": 8,
-            "value_Num_2": 2
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
       {
         "Formation": "corefolder",
         "BodyPart": ["#BodyPart_Chest"],
@@ -50377,8 +48903,15 @@
     ],
     "Weight_kg": 43,
     "BustSize": "AA",
-    "TailsUnit_JP": "キツネ(枝分かれ)型2束x9本",
-    "TailsUnit_EN": "Fox (branching-type), 2 bundles × 9 tails",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxBranched",
+        "Count": 9,
+        "Segment": 2,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "NumberMarkLocation": [
       {
         "Formation": "corefolder",
@@ -50501,27 +49034,6 @@
       }
     ],
     "AppearanceDetail": [
-      {
-        "Formation": null,
-        "BodyPart": ["#BodyPart_Tail"],
-        "Laterality": null,
-        "DesignElement": "#Element_TailsUnit",
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_Shape",
-            "vdict_TailShapeType": "#TailShapeType_FoxBranched"
-          },
-          { "AttrLabel": "#DesignAttr_Count", "value_Num": 9 },
-          {
-            "AttrLabel": "#DesignAttr_Branch",
-            "value_JP": "2束",
-            "value_EN": "2 clusters each"
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
       {
         "Formation": null,
         "BodyPart": ["#BodyPart_Neck"],
@@ -51048,8 +49560,14 @@
     ],
     "Weight_kg": [{ "value": 40, "about_JP": "想定", "about_EN": "Scenario" }],
     "BustSize": "F",
-    "TailsUnit_JP": "キツネ型2本",
-    "TailsUnit_EN": "Two fox-type tails",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_Fox",
+        "Count": 2,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "NumberMarkLocation": [
       {
         "Formation": "corefolder",
@@ -51148,22 +49666,6 @@
       }
     ],
     "AppearanceDetail": [
-      {
-        "Formation": null,
-        "BodyPart": ["#BodyPart_Tail"],
-        "Laterality": null,
-        "DesignElement": "#Element_TailsUnit",
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_Shape",
-            "vdict_TailShapeType": "#TailShapeType_Fox"
-          },
-          { "AttrLabel": "#DesignAttr_Count", "value_Num": 2 }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
       {
         "Formation": "corefolder",
         "BodyPart": ["#BodyPart_Chest"],
@@ -51518,8 +50020,14 @@
       }
     ],
     "Weight_kg": { "hideText": "データ無" },
-    "TailsUnit_JP": "キツネ型10本",
-    "TailsUnit_EN": "Ten fox-type tails",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_Fox",
+        "Count": 10,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "NumberMarkLocation": [
       {
         "Formation": "corefolder",
@@ -51582,22 +50090,6 @@
       }
     ],
     "AppearanceDetail": [
-      {
-        "Formation": null,
-        "BodyPart": ["#BodyPart_Tail"],
-        "Laterality": null,
-        "DesignElement": "#Element_TailsUnit",
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_Shape",
-            "vdict_TailShapeType": "#TailShapeType_Fox"
-          },
-          { "AttrLabel": "#DesignAttr_Count", "value_Num": 10 }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
       {
         "Formation": "corefolder",
         "BodyPart": ["#BodyPart_Chest"],
@@ -51911,8 +50403,14 @@
     "BirthDay": { "Day": { "Month": 8, "DayOfMonth": 15 } },
     "Weight_kg": { "hideText": "？？？" },
     "BustSize": "A",
-    "TailsUnit_JP": "猫型1本",
-    "TailsUnit_EN": "One cat-type tail",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_Cat",
+        "Count": 1,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "NumberMarkLocation": [
       {
         "Formation": "corefolder",
@@ -52015,22 +50513,6 @@
       }
     ],
     "AppearanceDetail": [
-      {
-        "Formation": null,
-        "BodyPart": ["#BodyPart_Tail"],
-        "Laterality": null,
-        "DesignElement": "#Element_TailsUnit",
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_Shape",
-            "vdict_TailShapeType": "#TailShapeType_Cat"
-          },
-          { "AttrLabel": "#DesignAttr_Count", "value_Num": 1 }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
       {
         "Formation": "corefolder",
         "BodyPart": ["#BodyPart_Chest"],
@@ -52406,8 +50888,14 @@
     "BirthDay": { "Day": { "Month": 8, "DayOfMonth": 15 } },
     "Weight_kg": { "hideText": "非公開" },
     "BustSize": "D",
-    "TailsUnit_JP": "猫型1本(アクセサリー)",
-    "TailsUnit_EN": "One cat-type tail (accessory)",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_CatAccessory",
+        "Count": 1,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "NumberMarkLocation": [
       {
         "Formation": null,
@@ -52460,22 +50948,6 @@
       }
     ],
     "AppearanceDetail": [
-      {
-        "Formation": null,
-        "BodyPart": ["#BodyPart_Tail"],
-        "Laterality": null,
-        "DesignElement": "#Element_TailsUnit",
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_Shape",
-            "vdict_TailShapeType": "#TailShapeType_CatAccessory"
-          },
-          { "AttrLabel": "#DesignAttr_Count", "value_Num": 1 }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
       {
         "Formation": null,
         "BodyPart": ["#BodyPart_Chest"],
@@ -52685,8 +51157,14 @@
       }
     ],
     "Weight_kg": { "hideText": "非公開" },
-    "TailsUnit_JP": "猫型1本(アクセサリー)",
-    "TailsUnit_EN": "One cat-type tail (accessory)",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_CatAccessory",
+        "Count": 1,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "NumberMarkLocation": [
       {
         "Formation": null,
@@ -52739,22 +51217,6 @@
       }
     ],
     "AppearanceDetail": [
-      {
-        "Formation": null,
-        "BodyPart": ["#BodyPart_Tail"],
-        "Laterality": null,
-        "DesignElement": "#Element_TailsUnit",
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_Shape",
-            "vdict_TailShapeType": "#TailShapeType_CatAccessory"
-          },
-          { "AttrLabel": "#DesignAttr_Count", "value_Num": 1 }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
       {
         "Formation": null,
         "BodyPart": ["#BodyPart_Chest"],
