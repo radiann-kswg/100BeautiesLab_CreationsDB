@@ -2776,7 +2776,7 @@
         ]
       }
     ],
-    "Class": ["1桁番(ユニデジッツ)"],
+    "Class": ["1桁番(ユニデジッツ)", "キャロルズ"],
     "FirstPersonCalling_JP": "拙者(せっしゃ)",
     "FirstPersonCalling_EN": "I (archaic warrior-style: sessha)",
     "SecondPersonCalling_JP": "其方(そなた)",
@@ -9013,7 +9013,7 @@
     "Weight_kg": { "hideText": "非公開" },
     "BustSize": "I",
     "TailsUnit_JP": "サソリ型2本（それぞれ11束[節]）",
-    "TailsUnit_EN": "Two scorpion-type tails (each with 11 clusters/segments)",
+    "TailsUnit_EN": "Scorpion type: 2 tails (Each with 11 cluster/segments)",
     "NumberMarkLocation": [
       {
         "Formation": "corefolder",
@@ -19733,7 +19733,7 @@
         ]
       }
     ],
-    "Class": ["デュアルイレブンズ"],
+    "Class": ["デュアルイレブンズ", "キャロルズ"],
     "FirstPersonCalling_JP": "私(わたし)",
     "FirstPersonCalling_EN": "I",
     "SecondPersonCalling_JP": "君",
