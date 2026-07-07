@@ -273,7 +273,7 @@ const numberTalesReferencesTypeDef = loadJson('data/Works_NumberTales/References
 const numberTalesVocabularyRecords = loadJson('data/Works_NumberTales/References/ref_Vocabulary.json');
 const numberTalesReferenceRecords = loadJson('data/Works_NumberTales/References/ref_Reference.json');
 const hexademicalRecord = numberTalesSecondaryRecords.find((record) => record?.Num === '0xA');
-const requestNumberRecord = numberTalesSelfSecondaryRecords.find((record) => record?.Num === 223);
+const requestNumberRecord = numberTalesSelfSecondaryRecords.find((record) => record?.Num === '223-jw');
 const numberTalesVocabularyImageRecord = numberTalesVocabularyRecords.find((record) => record?.Term_JP === 'ヒューマノイド形態');
 const numberTalesReferenceRecord = numberTalesReferenceRecords.find((record) => record?.Title_JP === 'ナンバーテールズ');
 const firstNumberTalesPrimaryRecord = numberTalesPrimaryRecords.find((record) => String(record?.Num) === '1');
