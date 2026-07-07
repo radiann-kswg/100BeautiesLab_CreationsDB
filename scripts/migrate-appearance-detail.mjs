@@ -4,7 +4,7 @@
  *
  * 対象DB:
  *   - data/Works_NumberTales/DataBases/db_Primary.json
- *     (TailsUnit + IdentityMotif + NumberMarkLocation → AppearanceDetail)
+ *     (IdentityMotif + NumberMarkLocation → AppearanceDetail)
  *   - data/Works_UnibyteLive/DataBases/db_Primary.json
  *     (AccessoryUnit + IdentityMotif → AppearanceDetail)
  *
@@ -16,10 +16,12 @@
  *               1つの特徴（マーク・モチーフ）を 1 AppearanceDetail エントリにまとめる。
  *
  * BodyPart / Laterality の推論:
- *   - TailsUnit: BodyPart = ["#BodyPart_Tail"]（固定）
  *   - IdentityMotif: キーワードマッピングで推論（要目視確認）
  *   - NumberMarkLocation: BodyPart = null, Laterality = 左右キーワードから推論
  *   - AccessoryUnit: BodyPart = null（複合部位のため）
+ *
+ * 注記: TailsUnit（尻尾の形状）は `$Def_TailsUnit` 専用構造化型へ移行済み
+ *   （scripts/migrate-appearancedetail-to-tailsunit.mjs）。AppearanceDetail は経由しない。
  */
 
 import { readFileSync, writeFileSync } from 'fs';
@@ -87,23 +89,6 @@ function inferLaterality(jp) {
 }
 
 // ---------- builders ----------
-
-/** TailsUnit_JP/EN → AppearanceDetail エントリ */
-function fromTailsUnit(char) {
-  const jp = char.TailsUnit_JP ?? null;
-  const en = char.TailsUnit_EN ?? null;
-  if (jp === null && en === null) return [];
-  return [{
-    Formation:     null,
-    BodyPart:      ['#BodyPart_Tail'],
-    Laterality:    null,
-    DesignElement: null,
-    Attrs:         [{ AttrLabel: '#DesignAttr_Shape', Value_JP: jp, Value_EN: en }],
-    img_PNGName:   null,
-    Note_JP:       null,
-    Note_EN:       null
-  }];
-}
 
 /**
  * NumberMarkLocation[] → AppearanceDetail エントリ群
@@ -297,9 +282,10 @@ const targets = [
   {
     label:   'NT db_Primary',
     path:    'data/Works_NumberTales/DataBases/db_Primary.json',
-    builders: [fromTailsUnit, fromNumberMarkLocation, fromIdentityMotif],
+    builders: [fromNumberMarkLocation, fromIdentityMotif],
     // IdentityMotif が最後の参照元フィールドなので直後に挿入
-    anchors: ['IdentityMotif', 'TailsUnit_EN', 'NumberMarkLocation'],
+    // TailsUnit は scripts/migrate-appearancedetail-to-tailsunit.mjs が専用typedefへ移行済み
+    anchors: ['IdentityMotif', 'NumberMarkLocation'],
   },
   {
     label:   'UnibyteLive db_Primary',

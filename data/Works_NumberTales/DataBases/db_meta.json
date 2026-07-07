@@ -242,11 +242,6 @@
     "Images": { "catalog_PNGName": ["chr-dsgn_catalog-summary"] },
     "$VarsDef": {
       "$EnumDef_DesignElement": {
-        "#Element_TailsUnit": {
-          "DesignElement": "TailsUnit",
-          "DesignElement_JP": "尻尾ユニット",
-          "DesignElement_EN": "Tails Unit"
-        },
         "#Element_NumberMark": {
           "DesignElement": "NumberMark",
           "DesignElement_JP": "番号の印字",
@@ -417,7 +412,125 @@
           "TailShapeType": "Bud",
           "TailShapeType_JP": "つぼみ型",
           "TailShapeType_EN": "Bud-type"
+        },
+        "#TailShapeType_Dog": {
+          "TailShapeType": "Dog",
+          "TailShapeType_JP": "犬型",
+          "TailShapeType_EN": "Dog-type"
+        },
+        "#TailShapeType_FoxSpecial": {
+          "TailShapeType": "FoxSpecial",
+          "TailShapeType_JP": "キツネ(特殊)型",
+          "TailShapeType_EN": "Fox (Special) type"
+        },
+        "#TailShapeType_NekomataSpecial": {
+          "TailShapeType": "NekomataSpecial",
+          "TailShapeType_JP": "猫又(特殊)型",
+          "TailShapeType_EN": "Nekomata (Special) type"
+        },
+        "#TailShapeType_CaudalFin": {
+          "TailShapeType": "CaudalFin",
+          "TailShapeType_JP": "尾鰭(特殊)型",
+          "TailShapeType_EN": "Caudal-Fin (Special) type"
+        },
+        "#TailShapeType_Octopus": {
+          "TailShapeType": "Octopus",
+          "TailShapeType_JP": "蛸足(特殊)型",
+          "TailShapeType_EN": "Octopus-leg (Special) type"
+        },
+        "#TailShapeType_Mixed": {
+          "TailShapeType": "Mixed",
+          "TailShapeType_JP": "多様(枝分かれ)型",
+          "TailShapeType_EN": "Mixed (branched) type"
+        },
+        "#TailShapeType_Reptile": {
+          "TailShapeType": "Reptile",
+          "TailShapeType_JP": "爬虫類型",
+          "TailShapeType_EN": "Reptile-type"
         }
+      },
+      "$Def_TailsUnit": {
+        "$display": {
+          "wrapper": "tailsUnitSummary",
+          "sectionWrapper": "tailsUnitSection"
+        },
+        "$DefType": [
+          {
+            "hashTag": "TailShapeType",
+            "$type": "#ListIndex",
+            "hashTag_JP": "尻尾の形状",
+            "hashTag_EN": "Tail Shape Type"
+          },
+          {
+            "hashTag": "Count",
+            "$type": "#Number",
+            "hashTag_JP": "本数",
+            "hashTag_EN": "Tail Count"
+          },
+          {
+            "hashTag": "Segment",
+            "$type": "#Number|#Null",
+            "hashTag_JP": "節数",
+            "hashTag_EN": "Segment Count"
+          },
+          {
+            "hashTag": "Branches",
+            "$type": "$Def_TailsUnitBranch[]|#Null",
+            "hashTag_JP": "分岐配置",
+            "hashTag_EN": "Branch Layout"
+          },
+          {
+            "hashTag": "LayoutDirection",
+            "$type": [
+              {
+                "hashTag": "LayoutFrom",
+                "$type": "#ListIndex|#Null",
+                "hashTag_JP": "配置の起点",
+                "hashTag_EN": "Layout Start"
+              },
+              {
+                "hashTag": "LayoutTo",
+                "$type": "#ListIndex|#Null",
+                "hashTag_JP": "配置の終点",
+                "hashTag_EN": "Layout End"
+              }
+            ],
+            "hashTag_JP": "分岐配置の並び",
+            "hashTag_EN": "Branch Layout Direction"
+          },
+          {
+            "hashTag": "Note_JP",
+            "$type": "#String|#Null",
+            "hashTag_JP": "補足テキスト"
+          },
+          {
+            "hashTag": "Note_EN",
+            "$type": "#String_EN|#Null",
+            "hashTag_EN": "Note"
+          }
+        ]
+      },
+      "$Def_TailsUnitBranch": {
+        "$DefType": [
+          {
+            "hashTag": "Laterality",
+            "$type": "#ListIndex|#Null",
+            "hashTag_JP": "配置",
+            "hashTag_EN": "Laterality"
+          },
+          {
+            "hashTag": "TailCount",
+            "$type": "#Number",
+            "hashTag_JP": "本数",
+            "hashTag_EN": "Tail Count"
+          },
+          {
+            "hashTag": "ClusterCount",
+            "$type": "#Number",
+            "hashTag_JP": "束数",
+            "hashTag_EN": "Cluster Count"
+          }
+        ]
       }
     },
     "$Def_Relations": {

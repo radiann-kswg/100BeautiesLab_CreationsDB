@@ -91,15 +91,12 @@
       "$display": { "section": "sub" }
     },
     {
-      "hashTag": "TailsUnit_JP",
-      "$type": "#String",
-      "hashTag_JP": "尻尾の形状",
-      "hashTag_EN": "Shape of Tails Unit"
-    },
-    {
-      "hashTag": "TailsUnit_EN",
-      "$type": "#String_EN|#Null",
-      "hashTag_EN": "Shape of Tails Unit"
+      "hashTag": "TailsUnit",
+      "$type": "$Def_TailsUnit[]",
+      "hashTag_JP": "尻尾ユニット",
+      "hashTag_EN": "Tails Unit",
+      "searchable": false,
+      "$display": { "section": "profile", "sectionWrapper": "tailsUnitSection" }
     },
     {
       "hashTag": "NumberMarkLocation",

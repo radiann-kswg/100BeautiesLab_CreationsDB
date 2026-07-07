@@ -21,11 +21,7 @@
     "Height_cm": [
       { "value": 147, "about_JP": "推定", "about_EN": "Presumption" }
     ],
-    "ConceptAge": {
-      "value": 15,
-      "about_JP": "推定",
-      "about_EN": "Presumption"
-    },
+    "ConceptAge": { "value": 15, "about_JP": "推定", "about_EN": "Presumption" },
     "AnivDay": [
       {
         "Day": { "Month": 6, "DayOfMonth": 10 },
@@ -33,12 +29,17 @@
         "DayAbout_EN": "Development commemoration"
       }
     ],
-    "Weight_kg": [
-      { "value": 39, "about_JP": "推定", "about_EN": "Presumption" }
-    ],
+    "Weight_kg": [{ "value": 39, "about_JP": "推定", "about_EN": "Presumption" }],
     "BustSize": "AA",
-    "TailsUnit_JP": "つぼみ型1本（大1束+小9束）",
-    "TailsUnit_EN": "Single bud-type tail (1 large cluster + 9 small clusters)",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_Bud",
+        "Count": 1,
+        "Note_JP": "大1束+小9束（大小の束構成）",
+        "Note_EN": "1 large cluster + 9 small clusters (large/small cluster composition)"
+      }
+    ],
+    "AppearanceDetail": null,
     "Class": ["ヘキサデミカル-テールズ"],
     "FirstPersonCalling_JP": "ボク",
     "FirstPersonCalling_EN": "I (masc. casual)",
@@ -162,11 +163,7 @@
     "Height_cm": [
       { "value": 144, "about_JP": "推定", "about_EN": "Presumption" }
     ],
-    "ConceptAge": {
-      "value": 14,
-      "about_JP": "推定",
-      "about_EN": "Presumption"
-    },
+    "ConceptAge": { "value": 14, "about_JP": "推定", "about_EN": "Presumption" },
     "AnivDay": [
       {
         "Day": { "Month": 6, "DayOfMonth": 11 },
@@ -174,12 +171,17 @@
         "DayAbout_EN": "Development commemoration"
       }
     ],
-    "Weight_kg": [
-      { "value": 36, "about_JP": "推定", "about_EN": "Presumption" }
-    ],
+    "Weight_kg": [{ "value": 36, "about_JP": "推定", "about_EN": "Presumption" }],
     "BustSize": "D",
-    "TailsUnit_JP": "猫型2本",
-    "TailsUnit_EN": "Cat Type: 2 Tails",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_Cat",
+        "Count": 2,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
+    "AppearanceDetail": null,
     "Class": ["ヘキサデミカル-テールズ"],
     "FirstPersonCalling_JP": "わたし",
     "FirstPersonCalling_EN": "I",
@@ -320,11 +322,7 @@
     "Height_cm": [
       { "value": 151, "about_JP": "推定", "about_EN": "Presumption" }
     ],
-    "ConceptAge": {
-      "value": 17,
-      "about_JP": "推定",
-      "about_EN": "Presumption"
-    },
+    "ConceptAge": { "value": 17, "about_JP": "推定", "about_EN": "Presumption" },
     "AnivDay": [
       {
         "Day": { "Month": 6, "DayOfMonth": 12 },
@@ -333,8 +331,15 @@
       }
     ],
     "Weight_kg": { "hideText": "未公開希望" },
-    "TailsUnit_JP": "犬型3本",
-    "TailsUnit_EN": "Dog Type: 3 Tails",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_Dog",
+        "Count": 3,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
+    "AppearanceDetail": null,
     "Class": ["ヘキサデミカル-テールズ"],
     "FirstPersonCalling_JP": "オレ\nぼく(※ナイーヴ時)",
     "FirstPersonCalling_EN": "I (ore; rough)\nI (boku; when naive)",
@@ -471,11 +476,7 @@
     "Height_cm": [
       { "value": 130, "about_JP": "推定", "about_EN": "Presumption" }
     ],
-    "ConceptAge": {
-      "value": 12,
-      "about_JP": "推定",
-      "about_EN": "Presumption"
-    },
+    "ConceptAge": { "value": 12, "about_JP": "推定", "about_EN": "Presumption" },
     "AnivDay": [
       {
         "Day": { "Month": 6, "DayOfMonth": 13 },
@@ -485,8 +486,15 @@
     ],
     "Weight_kg": { "hideText": "未公開希望" },
     "BustSize": "E",
-    "TailsUnit_JP": "狐型4本",
-    "TailsUnit_EN": "Fox Type: 4 Tails",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_Fox",
+        "Count": 4,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
+    "AppearanceDetail": null,
     "Class": ["ヘキサデミカル-テールズ"],
     "FirstPersonCalling_JP": "こっち",
     "FirstPersonCalling_EN": "I/me (kocchi; informal self-ref.)",
@@ -528,9 +536,7 @@
     },
     "InStory_JP": "「エイゼルベット」の観測者「シグマ-クロステールズ」の元で観測を受けている、ある電脳世界との間で生まれた個体\n高い記録能力から、ヘキサデミカル-テールズの躯体開発で途中から記録担当を務めることとなった",
     "InStory_EN": "An entity born from the interaction between a certain cyber world and \"Sigma-CrossTales,\" an observer of \"∀selbuet.\"\nDue to her high recording ability, she took on the role of recording during the development of HexademicalTales' body.",
-    "Relation": {
-      "Related": [{ "Num": "0xE", "RelationLabel": ["unmatched"] }]
-    },
+    "Relation": { "Related": [{ "Num": "0xE", "RelationLabel": ["unmatched"] }] },
     "RelationTo_Primary": {
       "Related": [
         {
@@ -626,11 +632,7 @@
     "Height_cm": [
       { "value": 143, "about_JP": "推定", "about_EN": "Presumption" }
     ],
-    "ConceptAge": {
-      "value": 18,
-      "about_JP": "推定",
-      "about_EN": "Presumption"
-    },
+    "ConceptAge": { "value": 18, "about_JP": "推定", "about_EN": "Presumption" },
     "AnivDay": [
       {
         "Day": { "Month": 6, "DayOfMonth": 14 },
@@ -638,12 +640,17 @@
         "DayAbout_EN": "Development commemoration"
       }
     ],
-    "Weight_kg": [
-      { "value": 39, "about_JP": "推定", "about_EN": "Presumption" }
-    ],
+    "Weight_kg": [{ "value": 39, "about_JP": "推定", "about_EN": "Presumption" }],
     "BustSize": "AA",
-    "TailsUnit_JP": "猫型5本(バンドで束ねている)",
-    "TailsUnit_EN": "Cat Type: 5 Tails (bound together with a band)",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_Cat",
+        "Count": 5,
+        "Note_JP": "猫型5本(バンドで束ねている)",
+        "Note_EN": "Cat Type: 5 Tails (bound together with a band)"
+      }
+    ],
+    "AppearanceDetail": null,
     "Class": ["ヘキサデミカル-テールズ"],
     "FirstPersonCalling_JP": "オイラ\n俺っち",
     "FirstPersonCalling_EN": "I (oira)\nI (orecchi)",
@@ -774,8 +781,15 @@
     ],
     "Weight_kg": { "hideText": "？？？" },
     "BustSize": "J",
-    "TailsUnit_JP": "狐型6本",
-    "TailsUnit_EN": "Fox Type: 6 Tails",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_Fox",
+        "Count": 6,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
+    "AppearanceDetail": null,
     "Class": ["ヘキサデミカル-テールズ"],
     "FirstPersonCalling_JP": "ママ",
     "FirstPersonCalling_EN": "Mama",
@@ -922,6 +936,21 @@
     },
     "Name_JP": "(ナンバーテールズ化企画絵)",
     "Name_EN": "(Illustration of NumberizeTales Project)",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_Nekomata",
+        "Count": 2,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "TailShapeType": "#TailShapeType_Fox",
+        "Count": 5,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
+    "AppearanceDetail": null,
     "Class": ["ナンバーテールズ化"],
     "AdditionalDesigned_JP": "企画参加者：おゆうわちゃん さん(https://www.pixiv.net/artworks/137497481)",
     "AdditionalDesigned_EN": "Project Participant: おゆうわちゃん (https://www.pixiv.net/artworks/137497481)"
@@ -933,6 +962,24 @@
     "Images": { "concept_PNGName": "numberize/cnsp_img148-numberize" },
     "Name_JP": "(ナンバーテールズ化企画絵)",
     "Name_EN": "(Illustration of NumberizeTales Project)",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxBranched",
+        "Count": 8,
+        "Branches": [
+          { "Laterality": "#Lat_Upper", "TailCount": 1, "ClusterCount": 3 },
+          { "Laterality": null, "TailCount": 3, "ClusterCount": 2 },
+          { "Laterality": "#Lat_Lower", "TailCount": 4, "ClusterCount": 1 }
+        ],
+        "LayoutDirection": {
+          "LayoutFrom": "#Lat_Upper",
+          "LayoutTo": "#Lat_Lower"
+        },
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
+    "AppearanceDetail": null,
     "Class": ["ナンバーテールズ化"],
     "AdditionalDesigned_JP": "企画参加者：よだれ さん(https://www.pixiv.net/artworks/137497481)",
     "AdditionalDesigned_EN": "Project Participant: よだれ (https://www.pixiv.net/artworks/137497481)"
@@ -944,6 +991,22 @@
     "Images": { "concept_PNGName": "numberize/cnsp_img227-numberize" },
     "Name_JP": "(ナンバーテールズ化企画絵)",
     "Name_EN": "(Illustration of NumberizeTales Project)",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_Nekomata",
+        "Count": 2,
+        "Segment": 2,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "TailShapeType": "#TailShapeType_Fox",
+        "Count": 7,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
+    "AppearanceDetail": null,
     "Class": ["ナンバーテールズ化"],
     "AdditionalDesigned_JP": "企画参加者：散狐アタスト さん(https://www.pixiv.net/artworks/137497481)",
     "AdditionalDesigned_EN": "Project Participant: 散狐アタスト (https://www.pixiv.net/artworks/137497481)"
@@ -955,6 +1018,23 @@
     "Images": { "concept_PNGName": "numberize/cnsp_img232-numberize" },
     "Name_JP": "(ナンバーテールズ化企画絵)",
     "Name_EN": "(Illustration of NumberizeTales Project)",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_Reptile",
+        "Count": 1,
+        "Segment": 3,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "TailShapeType": "#TailShapeType_Fox",
+        "Count": 2,
+        "Segment": 2,
+        "Note_JP": "周辺から中央に向かって: 下(爬虫類型)1本3束 + キツネ型2本が2束（複合形状の一部）",
+        "Note_EN": "From periphery to center: lower (reptile-type) 1 tail x 3 clusters + fox-type 2 tails x 2 clusters (part of a mixed-shape design)"
+      }
+    ],
+    "AppearanceDetail": null,
     "Class": ["ナンバーテールズ化"],
     "AdditionalDesigned_JP": "企画参加者：広小路トトカ さん(https://www.pixiv.net/artworks/137497481)",
     "AdditionalDesigned_EN": "Project Participant: 広小路トトカ (https://www.pixiv.net/artworks/137497481)"
@@ -966,6 +1046,24 @@
     "Images": { "concept_PNGName": "numberize/cnsp_img238-numberize" },
     "Name_JP": "(ナンバーテールズ化企画絵)",
     "Name_EN": "(Illustration of NumberizeTales Project)",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxBranched",
+        "Count": 8,
+        "Branches": [
+          { "Laterality": "#Lat_Upper", "TailCount": 2, "ClusterCount": 3 },
+          { "Laterality": null, "TailCount": 1, "ClusterCount": 2 },
+          { "Laterality": "#Lat_Lower", "TailCount": 5, "ClusterCount": 1 }
+        ],
+        "LayoutDirection": {
+          "LayoutFrom": "#Lat_Upper",
+          "LayoutTo": "#Lat_Lower"
+        },
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
+    "AppearanceDetail": null,
     "Class": ["ナンバーテールズ化"],
     "AdditionalDesigned_JP": "企画参加者：「み」のひと さん(https://www.pixiv.net/artworks/137497481)",
     "AdditionalDesigned_EN": "Project Participant: 「み」のひと (https://www.pixiv.net/artworks/137497481)"
@@ -977,12 +1075,34 @@
     "Images": {
       "concept_PNGName": "numberize/cnsp_img241-numberize",
       "corefolder_PNGPath": ["numberize/emstk_corefolder241-numberize1"],
-      "arts_PNGPath": [
-        "numberize-corefolders/art_img96,241numberize-corefolder"
-      ]
+      "arts_PNGPath": ["numberize-corefolders/art_img96,241numberize-corefolder"]
     },
     "Name_JP": "(ナンバーテールズ化企画絵)",
     "Name_EN": "(Illustration of NumberizeTales Project)",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_Cat",
+        "Count": 1,
+        "Segment": 1,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "TailShapeType": "#TailShapeType_FoxBranched",
+        "Count": 4,
+        "Branches": [
+          { "Laterality": "#Lat_Upper", "TailCount": 2, "ClusterCount": 2 },
+          { "Laterality": "#Lat_Lower", "TailCount": 2, "ClusterCount": 1 }
+        ],
+        "LayoutDirection": {
+          "LayoutFrom": "#Lat_Center",
+          "LayoutTo": "#Lat_Periphery"
+        },
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
+    "AppearanceDetail": null,
     "Class": ["ナンバーテールズ化"],
     "AdditionalDesigned_JP": "企画参加者：SIANO さん(https://www.pixiv.net/artworks/137497481)",
     "AdditionalDesigned_EN": "Project Participant: SIANO (https://www.pixiv.net/artworks/137497481)"
@@ -994,6 +1114,24 @@
     "Images": { "concept_PNGName": "numberize/cnsp_img258-numberize" },
     "Name_JP": "(ナンバーテールズ化企画絵)",
     "Name_EN": "(Illustration of NumberizeTales Project)",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxBranched",
+        "Count": 8,
+        "Branches": [
+          { "Laterality": "#Lat_Upper", "TailCount": 2, "ClusterCount": 3 },
+          { "Laterality": null, "TailCount": 3, "ClusterCount": 2 },
+          { "Laterality": "#Lat_Lower", "TailCount": 3, "ClusterCount": 1 }
+        ],
+        "LayoutDirection": {
+          "LayoutFrom": "#Lat_Upper",
+          "LayoutTo": "#Lat_Lower"
+        },
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
+    "AppearanceDetail": null,
     "Class": ["ナンバーテールズ化"],
     "AdditionalDesigned_JP": "企画参加者：CoiL25 さん(https://www.pixiv.net/artworks/137497481)",
     "AdditionalDesigned_EN": "Project Participant: CoiL25 (https://www.pixiv.net/artworks/137497481)"
@@ -1005,6 +1143,24 @@
     "Images": { "concept_PNGName": "numberize/cnsp_img263-numberize" },
     "Name_JP": "(ナンバーテールズ化企画絵)",
     "Name_EN": "(Illustration of NumberizeTales Project)",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxBranched",
+        "Count": 6,
+        "Branches": [
+          { "Laterality": "#Lat_Upper", "TailCount": 2, "ClusterCount": 3 },
+          { "Laterality": null, "TailCount": 3, "ClusterCount": 1 },
+          { "Laterality": "#Lat_Lower", "TailCount": 1, "ClusterCount": 2 }
+        ],
+        "LayoutDirection": {
+          "LayoutFrom": "#Lat_Upper",
+          "LayoutTo": "#Lat_Lower"
+        },
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
+    "AppearanceDetail": null,
     "Class": ["ナンバーテールズ化"],
     "AdditionalDesigned_JP": "企画参加者：月凪葉茶 さん(https://www.pixiv.net/artworks/137497481)",
     "AdditionalDesigned_EN": "Project Participant: 月凪葉茶 (https://www.pixiv.net/artworks/137497481)"
@@ -1016,6 +1172,24 @@
     "Images": { "concept_PNGName": "numberize/cnsp_img265-numberize" },
     "Name_JP": "(ナンバーテールズ化企画絵)",
     "Name_EN": "(Illustration of NumberizeTales Project)",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxBranched",
+        "Count": 6,
+        "Branches": [
+          { "Laterality": "#Lat_Upper", "TailCount": 2, "ClusterCount": 3 },
+          { "Laterality": null, "TailCount": 1, "ClusterCount": 1 },
+          { "Laterality": "#Lat_Lower", "TailCount": 3, "ClusterCount": 2 }
+        ],
+        "LayoutDirection": {
+          "LayoutFrom": "#Lat_Upper",
+          "LayoutTo": "#Lat_Lower"
+        },
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
+    "AppearanceDetail": null,
     "Class": ["ナンバーテールズ化"],
     "AdditionalDesigned_JP": "企画参加者(敬称略)：青木凪(https://www.pixiv.net/artworks/137497481)",
     "AdditionalDesigned_EN": "Project Participant: 青木凪 (https://www.pixiv.net/artworks/137497481)"
@@ -1032,6 +1206,24 @@
     },
     "Name_JP": "(ナンバーテールズ化企画絵)",
     "Name_EN": "(Illustration of NumberizeTales Project)",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxBranched",
+        "Count": 9,
+        "Branches": [
+          { "Laterality": "#Lat_Upper", "TailCount": 2, "ClusterCount": 3 },
+          { "Laterality": null, "TailCount": 5, "ClusterCount": 1 },
+          { "Laterality": "#Lat_Lower", "TailCount": 2, "ClusterCount": 2 }
+        ],
+        "LayoutDirection": {
+          "LayoutFrom": "#Lat_Upper",
+          "LayoutTo": "#Lat_Lower"
+        },
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
+    "AppearanceDetail": null,
     "Class": ["ナンバーテールズ化"],
     "AdditionalDesigned_JP": "企画参加者：ALK!(プロトタイプ) さん(https://www.pixiv.net/artworks/137497481)",
     "AdditionalDesigned_EN": "Project Participant: ALK!(プロトタイプ) (https://www.pixiv.net/artworks/137497481)"
@@ -1048,6 +1240,24 @@
     },
     "Name_JP": "(ナンバーテールズ化企画絵)",
     "Name_EN": "(Illustration of NumberizeTales Project)",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxBranched",
+        "Count": 9,
+        "Branches": [
+          { "Laterality": "#Lat_Upper", "TailCount": 2, "ClusterCount": 3 },
+          { "Laterality": null, "TailCount": 4, "ClusterCount": 1 },
+          { "Laterality": "#Lat_Lower", "TailCount": 3, "ClusterCount": 2 }
+        ],
+        "LayoutDirection": {
+          "LayoutFrom": "#Lat_Upper",
+          "LayoutTo": "#Lat_Lower"
+        },
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
+    "AppearanceDetail": null,
     "Class": ["ナンバーテールズ化"],
     "AdditionalDesigned_JP": "企画参加者：いるいる さん(https://www.pixiv.net/artworks/137497481)",
     "AdditionalDesigned_EN": "Project Participant: いるいる (https://www.pixiv.net/artworks/137497481)"
@@ -1062,6 +1272,23 @@
     },
     "Name_JP": "(ナンバーテールズ化企画絵)",
     "Name_EN": "(Illustration of NumberizeTales Project)",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxBranched",
+        "Count": 7,
+        "Branches": [
+          { "Laterality": "#Lat_Upper", "TailCount": 3, "ClusterCount": 3 },
+          { "Laterality": "#Lat_Lower", "TailCount": 4, "ClusterCount": 1 }
+        ],
+        "LayoutDirection": {
+          "LayoutFrom": "#Lat_Upper",
+          "LayoutTo": "#Lat_Lower"
+        },
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
+    "AppearanceDetail": null,
     "Class": ["ナンバーテールズ化"],
     "AdditionalDesigned_JP": "企画参加者：猫吉よりお さん(https://www.pixiv.net/artworks/137497481)",
     "AdditionalDesigned_EN": "Project Participant: 猫吉よりお (https://www.pixiv.net/artworks/137497481)"
@@ -1073,6 +1300,23 @@
     "Images": { "concept_PNGName": "numberize/cnsp_img366-numberize" },
     "Name_JP": "(ナンバーテールズ化企画絵)",
     "Name_EN": "(Illustration of NumberizeTales Project)",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxBranched",
+        "Count": 6,
+        "Branches": [
+          { "Laterality": "#Lat_Upper", "TailCount": 3, "ClusterCount": 3 },
+          { "Laterality": "#Lat_Lower", "TailCount": 3, "ClusterCount": 2 }
+        ],
+        "LayoutDirection": {
+          "LayoutFrom": "#Lat_Upper",
+          "LayoutTo": "#Lat_Lower"
+        },
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
+    "AppearanceDetail": null,
     "Class": ["ナンバーテールズ化"],
     "AdditionalDesigned_JP": "企画参加者：うどん さん(https://www.pixiv.net/artworks/137497481)",
     "AdditionalDesigned_EN": "Project Participant: うどん (https://www.pixiv.net/artworks/137497481)"
@@ -1084,6 +1328,24 @@
     "Images": { "concept_PNGName": "numberize/cnsp_img376-numberize" },
     "Name_JP": "(ナンバーテールズ化企画絵)",
     "Name_EN": "(Illustration of NumberizeTales Project)",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxBranched",
+        "Count": 7,
+        "Branches": [
+          { "Laterality": null, "TailCount": 3, "ClusterCount": 3 },
+          { "Laterality": "#Lat_Upper", "TailCount": 3, "ClusterCount": 2 },
+          { "Laterality": "#Lat_Lower", "TailCount": 1, "ClusterCount": 1 }
+        ],
+        "LayoutDirection": {
+          "LayoutFrom": "#Lat_Center",
+          "LayoutTo": "#Lat_Periphery"
+        },
+        "Note_JP": "キツネ(枝分かれ)型7本16束\n中央から周辺に向かって:3本が3束+上左右3本が2束+下1本が1束",
+        "Note_EN": "Fox (branched) type: 7 tails, 16 clusters\nFrom center to periphery: 3 tails x 3 clusters + upper-sides 3 tails x 2 clusters + lower 1 tail x 1 cluster"
+      }
+    ],
+    "AppearanceDetail": null,
     "Class": ["ナンバーテールズ化"],
     "AdditionalDesigned_JP": "企画参加者：きたやこ さん(https://www.pixiv.net/artworks/137497481)",
     "AdditionalDesigned_EN": "Project Participant: きたやこ (https://www.pixiv.net/artworks/137497481)"
@@ -1095,6 +1357,23 @@
     "Images": { "concept_PNGName": "numberize/cnsp_img377-numberize" },
     "Name_JP": "(ナンバーテールズ化企画絵)",
     "Name_EN": "(Illustration of NumberizeTales Project)",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxBranched",
+        "Count": 7,
+        "Branches": [
+          { "Laterality": "#Lat_Upper", "TailCount": 3, "ClusterCount": 3 },
+          { "Laterality": "#Lat_Lower", "TailCount": 4, "ClusterCount": 2 }
+        ],
+        "LayoutDirection": {
+          "LayoutFrom": "#Lat_Upper",
+          "LayoutTo": "#Lat_Lower"
+        },
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
+    "AppearanceDetail": null,
     "Class": ["ナンバーテールズ化"],
     "AdditionalDesigned_JP": "企画参加者：爪葉京 さん(https://www.pixiv.net/artworks/137497481)",
     "AdditionalDesigned_EN": "Project Participant: 爪葉京 (https://www.pixiv.net/artworks/137497481)"
@@ -1106,6 +1385,24 @@
     "Images": { "concept_PNGName": "numberize/cnsp_img387-numberize" },
     "Name_JP": "(ナンバーテールズ化企画絵)",
     "Name_EN": "(Illustration of NumberizeTales Project)",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxBranched",
+        "Count": 8,
+        "Branches": [
+          { "Laterality": null, "TailCount": 3, "ClusterCount": 3 },
+          { "Laterality": "#Lat_Upper", "TailCount": 4, "ClusterCount": 2 },
+          { "Laterality": "#Lat_Lower", "TailCount": 1, "ClusterCount": 1 }
+        ],
+        "LayoutDirection": {
+          "LayoutFrom": "#Lat_Center",
+          "LayoutTo": "#Lat_Periphery"
+        },
+        "Note_JP": "キツネ(枝分かれ)型8本18束\n中央から周辺に向かって:3本が3束+上左右4本が2束+下1本が1束",
+        "Note_EN": "Fox (branched) type: 8 tails, 18 clusters\nFrom center to periphery: 3 tails x 3 clusters + upper-sides 4 tails x 2 clusters + lower 1 tail x 1 cluster"
+      }
+    ],
+    "AppearanceDetail": null,
     "Class": ["ナンバーテールズ化"],
     "AdditionalDesigned_JP": "企画参加者：つくえちゃん さん(https://www.pixiv.net/artworks/137497481)",
     "AdditionalDesigned_EN": "Project Participant: つくえちゃん (https://www.pixiv.net/artworks/137497481)"
@@ -1120,6 +1417,19 @@
     },
     "Name_JP": "(ナンバーテールズ化企画絵)",
     "Name_EN": "(Illustration of NumberizeTales Project)",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxBranched",
+        "Count": 4,
+        "Branches": [
+          { "Laterality": "#Lat_Upper", "TailCount": 3, "ClusterCount": 1 },
+          { "Laterality": "#Lat_Lower", "TailCount": 1, "ClusterCount": 2 }
+        ],
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
+    "AppearanceDetail": null,
     "Class": ["ナンバーテールズ化"],
     "AdditionalDesigned_JP": "企画参加者：江小森えこ さん(https://www.pixiv.net/artworks/137497481)",
     "AdditionalDesigned_EN": "Project Participant: 江小森えこ (https://www.pixiv.net/artworks/137497481)"
@@ -1131,6 +1441,21 @@
     "Images": { "concept_PNGName": "numberize/cnsp_img411-numberize" },
     "Name_JP": "(ナンバーテールズ化企画絵)",
     "Name_EN": "(Illustration of NumberizeTales Project)",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_Fox",
+        "Count": 4,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "TailShapeType": "#TailShapeType_Nekomata",
+        "Count": 1,
+        "Note_JP": "枝数・節数は不定",
+        "Note_EN": "Branch/segment count undetermined"
+      }
+    ],
+    "AppearanceDetail": null,
     "Class": ["ナンバーテールズ化"],
     "AdditionalDesigned_JP": "企画参加者：Nor東 さん(https://www.pixiv.net/artworks/137497481)",
     "AdditionalDesigned_EN": "Project Participant: Nor東 (https://www.pixiv.net/artworks/137497481)"
@@ -1142,6 +1467,30 @@
     "Images": { "concept_PNGName": "numberize/cnsp_img421-numberize" },
     "Name_JP": "(ナンバーテールズ化企画絵)",
     "Name_EN": "(Illustration of NumberizeTales Project)",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_Cat",
+        "Count": 1,
+        "Segment": 1,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "TailShapeType": "#TailShapeType_FoxBranched",
+        "Count": 4,
+        "Branches": [
+          { "Laterality": "#Lat_Upper", "TailCount": 2, "ClusterCount": 1 },
+          { "Laterality": "#Lat_Lower", "TailCount": 2, "ClusterCount": 2 }
+        ],
+        "LayoutDirection": {
+          "LayoutFrom": "#Lat_Center",
+          "LayoutTo": "#Lat_Periphery"
+        },
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
+    "AppearanceDetail": null,
     "Class": ["ナンバーテールズ化"],
     "AdditionalDesigned_JP": "企画参加者：でんねこ さん(https://www.pixiv.net/artworks/137497481)",
     "AdditionalDesigned_EN": "Project Participant: でんねこ (https://www.pixiv.net/artworks/137497481)"
@@ -1153,6 +1502,24 @@
     "Images": { "concept_PNGName": "numberize/cnsp_img467-numberize" },
     "Name_JP": "(ナンバーテールズ化企画絵)",
     "Name_EN": "(Illustration of NumberizeTales Project)",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxBranched",
+        "Count": 7,
+        "Branches": [
+          { "Laterality": "#Lat_Upper", "TailCount": 4, "ClusterCount": 3 },
+          { "Laterality": null, "TailCount": 2, "ClusterCount": 2 },
+          { "Laterality": "#Lat_Lower", "TailCount": 1, "ClusterCount": 1 }
+        ],
+        "LayoutDirection": {
+          "LayoutFrom": "#Lat_Upper",
+          "LayoutTo": "#Lat_Lower"
+        },
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
+    "AppearanceDetail": null,
     "Class": ["ナンバーテールズ化"],
     "AdditionalDesigned_JP": "企画参加者：キノアダモスデキノ さん(https://www.pixiv.net/artworks/137497481)",
     "AdditionalDesigned_EN": "Project Participant: キノアダモスデキノ (https://www.pixiv.net/artworks/137497481)"
@@ -1164,6 +1531,24 @@
     "Images": { "concept_PNGName": "numberize/cnsp_img476-numberize" },
     "Name_JP": "(ナンバーテールズ化企画絵)",
     "Name_EN": "(Illustration of NumberizeTales Project)",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxBranched",
+        "Count": 7,
+        "Branches": [
+          { "Laterality": "#Lat_Upper", "TailCount": 4, "ClusterCount": 3 },
+          { "Laterality": "#Lat_Lower", "TailCount": 2, "ClusterCount": 2 },
+          { "Laterality": null, "TailCount": 1, "ClusterCount": 1 }
+        ],
+        "LayoutDirection": {
+          "LayoutFrom": "#Lat_Periphery",
+          "LayoutTo": "#Lat_Center"
+        },
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
+    "AppearanceDetail": null,
     "Class": ["ナンバーテールズ化"],
     "AdditionalDesigned_JP": "企画参加者：ヨシアミさん(https://www.pixiv.net/artworks/137497481)",
     "AdditionalDesigned_EN": "Project Participant: ヨシアミ (https://www.pixiv.net/artworks/137497481)"
@@ -1175,6 +1560,19 @@
     "Images": { "concept_PNGName": "numberize/cnsp_img510-numberize" },
     "Name_JP": "(ナンバーテールズ化企画絵)",
     "Name_EN": "(Illustration of NumberizeTales Project)",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxBranched",
+        "Count": 5,
+        "Branches": [
+          { "Laterality": "#Lat_Upper", "TailCount": 4, "ClusterCount": 1 },
+          { "Laterality": "#Lat_Lower", "TailCount": 1, "ClusterCount": 2 }
+        ],
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
+    "AppearanceDetail": null,
     "Class": ["ナンバーテールズ化"],
     "AdditionalDesigned_JP": "企画参加者：エメラルド さん(https://www.pixiv.net/artworks/137497481)",
     "AdditionalDesigned_EN": "Project Participant: エメラルド (https://www.pixiv.net/artworks/137497481)"
@@ -1186,6 +1584,23 @@
     "Images": { "concept_PNGName": "numberize/cnsp_img558-numberize" },
     "Name_JP": "(ナンバーテールズ化企画絵)",
     "Name_EN": "(Illustration of NumberizeTales Project)",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxBranched",
+        "Count": 8,
+        "Branches": [
+          { "Laterality": "#Lat_Upper", "TailCount": 5, "ClusterCount": 3 },
+          { "Laterality": "#Lat_Lower", "TailCount": 3, "ClusterCount": 1 }
+        ],
+        "LayoutDirection": {
+          "LayoutFrom": "#Lat_Upper",
+          "LayoutTo": "#Lat_Lower"
+        },
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
+    "AppearanceDetail": null,
     "Class": ["ナンバーテールズ化"],
     "AdditionalDesigned_JP": "企画参加者：さふ さん(https://www.pixiv.net/artworks/137497481)",
     "AdditionalDesigned_EN": "Project Participant: さふ (https://www.pixiv.net/artworks/137497481)"
@@ -1200,6 +1615,19 @@
     },
     "Name_JP": "(ナンバーテールズ化企画絵)",
     "Name_EN": "(Illustration of NumberizeTales Project)",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxBranched",
+        "Count": 6,
+        "Branches": [
+          { "Laterality": "#Lat_Upper", "TailCount": 1, "ClusterCount": 1 },
+          { "Laterality": "#Lat_Lower", "TailCount": 5, "ClusterCount": 2 }
+        ],
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
+    "AppearanceDetail": null,
     "Class": ["ナンバーテールズ化"],
     "AdditionalDesigned_JP": "企画参加者：蓬 さん(https://www.pixiv.net/artworks/137497481)",
     "AdditionalDesigned_EN": "Project Participant: 蓬 (https://www.pixiv.net/artworks/137497481)"
@@ -1211,6 +1639,24 @@
     "Images": { "concept_PNGName": "numberize/cnsp_img625-numberize" },
     "Name_JP": "(ナンバーテールズ化企画絵)",
     "Name_EN": "(Illustration of NumberizeTales Project)",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxBranched",
+        "Count": 6,
+        "Branches": [
+          { "Laterality": null, "TailCount": 2, "ClusterCount": 3 },
+          { "Laterality": "#Lat_Upper", "TailCount": 3, "ClusterCount": 2 },
+          { "Laterality": "#Lat_Lower", "TailCount": 1, "ClusterCount": 1 }
+        ],
+        "LayoutDirection": {
+          "LayoutFrom": "#Lat_Center",
+          "LayoutTo": "#Lat_Periphery"
+        },
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
+    "AppearanceDetail": null,
     "Class": ["ナンバーテールズ化"],
     "AdditionalDesigned_JP": "企画参加者：リヘナラ人形 さん(https://www.pixiv.net/artworks/137497481)",
     "AdditionalDesigned_EN": "Project Participant: リヘナラ人形 (https://www.pixiv.net/artworks/137497481)"
@@ -1222,6 +1668,24 @@
     "Images": { "concept_PNGName": "numberize/cnsp_img638-numberize" },
     "Name_JP": "(ナンバーテールズ化企画絵)",
     "Name_EN": "(Illustration of NumberizeTales Project)",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxBranched",
+        "Count": 8,
+        "Branches": [
+          { "Laterality": null, "TailCount": 3, "ClusterCount": 3 },
+          { "Laterality": "#Lat_Upper", "TailCount": 3, "ClusterCount": 2 },
+          { "Laterality": "#Lat_Lower", "TailCount": 2, "ClusterCount": 1 }
+        ],
+        "LayoutDirection": {
+          "LayoutFrom": "#Lat_Center",
+          "LayoutTo": "#Lat_Periphery"
+        },
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
+    "AppearanceDetail": null,
     "Class": ["ナンバーテールズ化"],
     "AdditionalDesigned_JP": "企画参加者：猫餅 さん(https://www.pixiv.net/artworks/137497481)",
     "AdditionalDesigned_EN": "Project Participant: 猫餅 (https://www.pixiv.net/artworks/137497481)"
@@ -1233,6 +1697,19 @@
     "Images": { "concept_PNGName": "numberize/cnsp_img670-numberize" },
     "Name_JP": "(ナンバーテールズ化企画絵)",
     "Name_EN": "(Illustration of NumberizeTales Project)",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxBranched",
+        "Count": 7,
+        "Branches": [
+          { "Laterality": "#Lat_Upper", "TailCount": 6, "ClusterCount": 2 },
+          { "Laterality": "#Lat_Lower", "TailCount": 1, "ClusterCount": 1 }
+        ],
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
+    "AppearanceDetail": null,
     "Class": ["ナンバーテールズ化"],
     "AdditionalDesigned_JP": "企画参加者：みとにゃん/Mitten さん(https://www.pixiv.net/artworks/137497481)",
     "AdditionalDesigned_EN": "Project Participant: Mitten (https://www.pixiv.net/artworks/137497481)"
@@ -1244,6 +1721,24 @@
     "Images": { "concept_PNGName": "numberize/cnsp_img736-numberize" },
     "Name_JP": "(ナンバーテールズ化企画絵)",
     "Name_EN": "(Illustration of NumberizeTales Project)",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxBranched",
+        "Count": 7,
+        "Branches": [
+          { "Laterality": null, "TailCount": 3, "ClusterCount": 3 },
+          { "Laterality": "#Lat_Lower", "TailCount": 3, "ClusterCount": 2 },
+          { "Laterality": "#Lat_Upper", "TailCount": 1, "ClusterCount": 1 }
+        ],
+        "LayoutDirection": {
+          "LayoutFrom": "#Lat_Center",
+          "LayoutTo": "#Lat_Periphery"
+        },
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
+    "AppearanceDetail": null,
     "Class": ["ナンバーテールズ化"],
     "AdditionalDesigned_JP": "企画参加者：みるく・フローランス さん(https://www.pixiv.net/artworks/137497481)",
     "AdditionalDesigned_EN": "Project Participant: みるく・フローランス (https://www.pixiv.net/artworks/137497481)"
@@ -1255,6 +1750,23 @@
     "Images": { "concept_PNGName": "numberize/cnsp_img773-numberize" },
     "Name_JP": "(ナンバーテールズ化企画絵)",
     "Name_EN": "(Illustration of NumberizeTales Project)",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_Octopus",
+        "Count": 7,
+        "Branches": [
+          { "Laterality": "#Lat_Lower", "TailCount": 3, "ClusterCount": 3 },
+          { "Laterality": "#Lat_Upper", "TailCount": 4, "ClusterCount": 2 }
+        ],
+        "LayoutDirection": {
+          "LayoutFrom": "#Lat_Lower",
+          "LayoutTo": "#Lat_Upper"
+        },
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
+    "AppearanceDetail": null,
     "Class": ["ナンバーテールズ化"],
     "AdditionalDesigned_JP": "企画参加者：テンタクル七海 さん(https://www.pixiv.net/artworks/137497481)",
     "AdditionalDesigned_EN": "Project Participant: テンタクル七海 (https://www.pixiv.net/artworks/137497481)"
@@ -1266,6 +1778,23 @@
     "Images": { "concept_PNGName": "numberize/cnsp_img979-numberize" },
     "Name_JP": "(ナンバーテールズ化企画絵)",
     "Name_EN": "(Illustration of NumberizeTales Project)",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxBranched",
+        "Count": 9,
+        "Branches": [
+          { "Laterality": "#Lat_Center", "TailCount": 7, "ClusterCount": 3 },
+          { "Laterality": "#Lat_Periphery", "TailCount": 2, "ClusterCount": 2 }
+        ],
+        "LayoutDirection": {
+          "LayoutFrom": "#Lat_Center",
+          "LayoutTo": "#Lat_Periphery"
+        },
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
+    "AppearanceDetail": null,
     "Class": ["ナンバーテールズ化"],
     "AdditionalDesigned_JP": "企画参加者：さくらば さん(https://www.pixiv.net/artworks/137497481)",
     "AdditionalDesigned_EN": "Project Participant: さくらば (https://www.pixiv.net/artworks/137497481)"
@@ -1276,6 +1805,22 @@
     "Images": { "concept_PNGName": "numberize/cnsp_img1122-numberize" },
     "Name_JP": "(ナンバーテールズ化企画絵)",
     "Name_EN": "(Illustration of NumberizeTales Project)",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_Nekomata",
+        "Count": 2,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "TailShapeType": "#TailShapeType_FoxBranched",
+        "Count": 2,
+        "Segment": 2,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
+    "AppearanceDetail": null,
     "Class": ["ナンバーテールズ化"],
     "AdditionalDesigned_JP": "企画参加者：しおん/猫又紫苑 さん(https://www.pixiv.net/artworks/137497481)",
     "AdditionalDesigned_EN": "Project Participant: しおん/猫又紫苑 (https://www.pixiv.net/artworks/137497481)"

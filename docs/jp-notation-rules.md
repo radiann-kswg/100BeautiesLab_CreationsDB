@@ -361,7 +361,7 @@ EN: NT の漢数字は 1 桁ずつ英語数詞にしてハイフン連結（`七
 | フィールド | 書式補足 |
 |-----------|---------|
 | `ForMasterCalling` | §2-5 参照 |
-| `TailsUnit` | 尻尾の形状。自由記述。 |
+| `TailsUnit` | 尻尾の形状。`$Def_TailsUnit` 構造化型（`TailShapeType`/`Count`/`Segment`/`Branches`/`Note_JP`・`_EN`）。自由記述ではない。 |
 | `NumerospecAbout` | カバラの加護説明。1〜2 行の体言止め or 動詞句。 |
 | `NumerospecStats.SafetyLevel` | `SafetyLevelText` にランク記述 |
 

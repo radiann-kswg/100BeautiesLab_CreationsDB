@@ -22,7 +22,8 @@
           "GenderType",
           "Height_cm",
           "Weight_kg",
-          "BustSize"
+          "BustSize",
+          "TailsUnit"
         ],
         "subFields": [
           "AppearanceDetail",
@@ -67,7 +68,7 @@
           "Weight_kg"
         ],
         "subFields": [
-          "IdentityMotif",
+          "AppearanceDetail",
           "AbilityStats",
           "ArcanumspecStats",
           "ThisArcanaHolder_DBLink",
@@ -1038,6 +1039,16 @@
           "Laterality": "Around",
           "Laterality_JP": "周囲",
           "Laterality_EN": "Surrounding"
+        },
+        "#Lat_Center": {
+          "Laterality": "Center",
+          "Laterality_JP": "中央",
+          "Laterality_EN": "Center"
+        },
+        "#Lat_Periphery": {
+          "Laterality": "Periphery",
+          "Laterality_JP": "周辺",
+          "Laterality_EN": "Periphery"
         }
       },
       "$EnumDef_DesignAttrLabel": {

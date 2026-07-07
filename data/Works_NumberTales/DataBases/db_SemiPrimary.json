@@ -252,12 +252,18 @@
     "GenderType": "Neutral",
     "Height_cm": 141,
     "ConceptAge": 14,
-    "Weight_kg": [
-      { "value": 37, "about_JP": "推定", "about_EN": "Presumption" }
-    ],
+    "Weight_kg": [{ "value": 37, "about_JP": "推定", "about_EN": "Presumption" }],
     "BustSize": "AA",
-    "TailsUnit_JP": "猫又(特殊)型1本3束[枝]",
-    "TailsUnit_EN": "Nekomata (Special) Type: 1 Tail, 3 Tufts [Branches]",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_NekomataSpecial",
+        "Count": 1,
+        "Segment": 3,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
+    "AppearanceDetail": null,
     "Class": ["マスタートリプル"],
     "ThisMasters": [
       {
@@ -604,8 +610,16 @@
     "ConceptAge": 16,
     "Weight_kg": 42,
     "BustSize": "B",
-    "TailsUnit_JP": "尾鰭(特殊)型3本2枝",
-    "TailsUnit_EN": "Caudal-Fin (Special) Type: 3 Fins, 2 Branches",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_CaudalFin",
+        "Count": 3,
+        "Segment": 2,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
+    "AppearanceDetail": null,
     "Class": ["マスタートリプル"],
     "FirstPersonCalling_JP": "自分に対し：私(わたし)\nドッペルに対し：ドペさん",
     "FirstPersonCalling_EN": "to Pelgäns: I (fem. neutral)\nto Doppels: Doppy(Dope-san)",
@@ -664,8 +678,16 @@
     "ConceptAge": 16,
     "Weight_kg": 43,
     "BustSize": "A",
-    "TailsUnit_JP": "尾鰭(特殊)型3本2枝",
-    "TailsUnit_EN": "Caudal-Fin (Special) Type: 3 Fins, 2 Branches",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_CaudalFin",
+        "Count": 3,
+        "Segment": 2,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
+    "AppearanceDetail": null,
     "Class": ["マスタートリプル"],
     "FirstPersonCalling_JP": "自分に対して：僕\nペルゲンに対して：ペーちゃん",
     "FirstPersonCalling_EN": "to Doppels: I (masc. casual)\nto Pelgäns: Pelly(Pe-chan)",
@@ -877,8 +899,16 @@
     ],
     "Weight_kg": 59,
     "BustSize": "A",
-    "TailsUnit_JP": "キツネ(特殊)型3束x4本",
-    "TailsUnit_EN": "Fox (Special) Type: 4 Tails x 3 Tufts",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxSpecial",
+        "Count": 4,
+        "Segment": 3,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
+    "AppearanceDetail": null,
     "Class": ["マスタートリプル", "スクエアエリート"],
     "FirstPersonCalling_JP": "我輩\n僕(ぼく) ※想定外のことが起きて動揺しているとき",
     "FirstPersonCalling_EN": "I (wagahai; archaic/formal)\nI (boku; masc. casual *when something unexpected happens)",
@@ -968,8 +998,16 @@
     "ConceptAge": 16,
     "Weight_kg": { "hideText": "非公開" },
     "BustSize": "E",
-    "TailsUnit_JP": "キツネ(特殊)型3束x6本",
-    "TailsUnit_EN": "Fox (Special) Type: 6 Tails x 3 Tufts",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxSpecial",
+        "Count": 6,
+        "Segment": 3,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
+    "AppearanceDetail": null,
     "Class": ["マスタートリプル", "フェイタルテールズ"],
     "ThisMasters": [
       {
@@ -1058,8 +1096,16 @@
     ],
     "BustSize": "AA",
     "GenderType": "MaleNeutral",
-    "TailsUnit_JP": "キツネ(特殊)型3束x7本",
-    "TailsUnit_EN": "Fox (Special) Type: 7 Tails x 3 Tufts",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxSpecial",
+        "Count": 7,
+        "Segment": 3,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
+    "AppearanceDetail": null,
     "Class": ["マスタートリプル"],
     "FirstPersonCalling_JP": "おれ",
     "FirstPersonCalling_EN": "I (rough masc.)",
@@ -1119,8 +1165,16 @@
         "about_EN": "Addon for Amusement Equipment"
       }
     ],
-    "TailsUnit_JP": "キツネ(特殊)型3束x7本",
-    "TailsUnit_EN": "Fox (Special) Type: 7 Tails x 3 Tufts",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxSpecial",
+        "Count": 7,
+        "Segment": 3,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
+    "AppearanceDetail": null,
     "Class": ["マスタートリプル"],
     "NumerospecAbout_JP": "スロットゲーム拡張アドオンにより運勢を娯楽的に見せる",
     "NumerospecAbout_EN": "Shows fortune in an entertainment-oriented way via a slot-game expansion addon",
@@ -1181,8 +1235,16 @@
     "Height_cm": 155,
     "ConceptAge": 14,
     "BustSize": "A",
-    "TailsUnit_JP": "キツネ(枝分かれ)型9本x各3束",
-    "TailsUnit_EN": "Fox (Branched) Type: 9 Tails x 3 Tufts Each",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxBranched",
+        "Count": 9,
+        "Segment": 3,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
+    "AppearanceDetail": null,
     "Class": ["マスタートリプル"],
     "FirstPersonCalling_JP": "わらわ",
     "FirstPersonCalling_EN": "I (warawa; fem. archaic)",
@@ -1236,8 +1298,16 @@
     "ConceptAge": 18,
     "Weight_kg": { "hideText": "非公開" },
     "BustSize": "D",
-    "TailsUnit_JP": "サソリ型3本（それぞれ11束[節]）",
-    "TailsUnit_EN": "Scorpion type: 3 tails (Each with 11 cluster/segments)",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_Scorpion",
+        "Count": 3,
+        "Segment": 11,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
+    "AppearanceDetail": null,
     "Class": ["仮設型ハイナンバー"],
     "FirstPersonCalling_JP": "あーし",
     "FirstPersonCalling_EN": "Trie (very casual, in English: by name casually, in Japanese: 'a-shi')",

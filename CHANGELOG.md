@@ -1,5 +1,31 @@
 # 最新のリファクタリング・仕様変更履歴
 
+### add: `TailsUnit` に `LayoutDirection`（分岐の方向性）フィールドを追加 (2026-07-08)
+
+`$Def_TailsUnit` に `LayoutDirection`（`{LayoutFrom, LayoutTo}`、`$EnumDef_Laterality` 参照）を追加し、元の `TailsUnit_JP` にあった「上から下に向かって」「中央から周辺に向かって」のような全体の方向性を構造化した（`Branches[]` の各要素は個別の `Laterality` を持つのみで、段に位置語が無い場合は方向情報が失われていたのを補う）。
+
+- **`data/Works_NumberTales/DataBases/db_meta.json`**: `$Def_TailsUnit.$DefType` に `LayoutDirection`（`Branches` の直後、`Note_JP` の直前）を追加。
+- **`lib/section-renders/tailsUnit.js`**: `formatLayoutDirection()` を追加し、`tailsUnitSummary`/`tailsUnitSection` の両方で方向句（JP: 「○○から○○に向かって」/ EN: "From ○○ to ○○"）をBranch内訳の直前に表示するよう更新。
+- **`scripts/backfill-tailsunit-layoutdirection.mjs`（新規）**: `db_Secondary.json`/`db_SelfSecondary.json`（narrative形式が存在する2ファイルのみ）の既存 `Branches[]` データから `LayoutDirection` を逆算・付与する一回限りのバックフィルスクリプト（dry-run既定・`--write`で反映）。計44件（22件×2ファイル）に適用。大半は `Branches` 先頭/末尾の `Laterality` から自動導出、8パターン（個別の段の位置語とヘッダ方向語が食い違うケース）は本セッション内での精査記録に基づき直接指定。
+- **`tests/data.shape.test.js`** / **`tests/pages.characters.ui-output.test.js`**: `LayoutDirection`/`LayoutFrom`/`LayoutTo` の型宣言・命名規約テストと、方向句の描画確認テストを追加。
+- 確認: `npm test` 全件成功（190件）。
+
+### refactor: NumberTales `TailsUnit` を専用構造化型へ移行（`AppearanceDetail` からの離脱） (2026-07-07)
+
+**破壊的変更（例外的にフィールド削除を伴う）**: 尻尾の形状情報を、汎用カタログ `AppearanceDetail[]`（`DesignElement:"#Element_TailsUnit"`）から独立した専用typedef `TailsUnit`（`$Def_TailsUnit[]`）へ全面移行した。旧 `TailsUnit_JP`/`TailsUnit_EN`（自由記述）と、AppearanceDetail 側の `#Element_TailsUnit` エントリは削除（このリポジトリの通常方針「既存フィールドは削除せず並走追加」の明示的な例外）。
+
+- **`data/Works_NumberTales/DataBases/db_meta.json`**:
+  - `General.$VarsDef` に `$Def_TailsUnit`（`TailShapeType`/`Count`/`Segment`/`Branches`/`Note_JP`/`Note_EN`）と `$Def_TailsUnitBranch`（`Laterality`/`TailCount`/`ClusterCount`）を新設。`$display:{wrapper:"tailsUnitSummary", sectionWrapper:"tailsUnitSection"}`。
+  - `$EnumDef_DesignElement` から `#Element_TailsUnit` を削除（AppearanceDetail側では使用しなくなったため）。
+- **`data/Works_NumberTales/DataBases/db_type.json`**: `TailsUnit_JP`/`TailsUnit_EN` を `TailsUnit`（`$Def_TailsUnit[]|#Null`, `$display:{section:"profile", sectionWrapper:"tailsUnitSection"}`）に置き換え。
+- **`lib/section-renders/tailsUnit.js`（新規）**: `tailsUnitSummary`（一行サマリー wrapper）と `tailsUnitSection`（標準セクションレンダラー）を自己登録。`pages/characters.js` へ import 追加。
+- **`scripts/migrate-appearancedetail-to-tailsunit.mjs`（新規）**: 既存の `AppearanceDetail` Attrs（Shape/Count/Segment/Branch）を新shapeへ機械的変換し、旧フィールドを削除する移行スクリプト（dry-run既定・`--write`で反映）。対象4ファイル計180レコード（`db_Primary.json` 97 / `db_Secondary.json` 37 / `db_SemiPrimary.json` 9 / `db_SelfSecondary.json` 37）に適用済み。
+- **`scripts/migrate-appearance-detail.mjs`**: `fromTailsUnit()`（TailsUnit_JP/EN → AppearanceDetail への旧変換）を削除。
+- 削除: `scripts/migrate-tailsunit-appearancedetail-secondary.mjs`（前回セッションで作成した TailsUnit→AppearanceDetail 方向の移行スクリプト。今回の方向転換により用済み）。
+- **`docs/localization-en-rules.md`** / **`docs/jp-notation-rules.md`**: `TailsUnit_EN` 固有の自由記述翻訳ルール（§3-2）を、`$Def_TailsUnit` 構造化型の説明（辞書ベースの自動生成に置き換わり、レコード単位の翻訳は不要）に更新。
+- **`tests/pages.characters.ui-output.test.js`** / **`tests/data.shape.test.js`**: `TailsUnit`/`tailsUnitSection` の描画確認テストと、`$Def_TailsUnit`/`$Def_TailsUnitBranch` の型宣言・命名規約テストを追加。
+- 確認: `npm test` 全件成功（既知の無関係な1件を除く）。
+
 ### add/fix: AppearanceDetail に `Costume` フィールド新設・BodyPart enum拡張・NumberTales Primary データ修正 (2026-07-06)
 
 - **`data/db_meta.json`**:

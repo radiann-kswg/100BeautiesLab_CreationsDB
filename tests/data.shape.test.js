@@ -119,8 +119,13 @@ describe('AppearanceDetail schema', () => {
     expect(String(innerDefType[0].$type)).toMatch(/#ListIndex/);
   });
 
-  it('NT Primary AppearanceDetail Attrs use only lowercase convention-driven fields', () => {
-    const records = load('data/Works_NumberTales/DataBases/db_Primary.json');
+  it.each([
+    'data/Works_NumberTales/DataBases/db_Primary.json',
+    'data/Works_NumberTales/DataBases/db_Secondary.json',
+    'data/Works_NumberTales/DataBases/db_SemiPrimary.json',
+    'data/Works_NumberTales/DataBases/db_SelfSecondary.json',
+  ])('NT %s AppearanceDetail Attrs use only lowercase convention-driven fields', (dbPath) => {
+    const records = load(dbPath);
     const violations = [];
     for (const rec of records) {
       const entries = Array.isArray(rec?.AppearanceDetail) ? rec.AppearanceDetail : [];
@@ -136,5 +141,84 @@ describe('AppearanceDetail schema', () => {
       }
     }
     expect(violations).toHaveLength(0);
+  });
+});
+
+describe('TailsUnit schema', () => {
+  it('NT db_type.json declares TailsUnit toplevel field as $Def_TailsUnit[]', () => {
+    const dbType = load('data/Works_NumberTales/DataBases/db_type.json');
+    const defType = Array.isArray(dbType?.$DefType) ? dbType.$DefType : [];
+    const field = defType.find((e) => e?.hashTag === 'TailsUnit');
+    expect(field).toBeDefined();
+    expect(field.$type).toBe('$Def_TailsUnit[]');
+    expect(field.searchable).toBe(false);
+    expect(field.$display?.sectionWrapper).toBe('tailsUnitSection');
+  });
+
+  it('$Def_TailsUnit / $Def_TailsUnitBranch are declared in NT db_meta.json with expected field names', () => {
+    const dbMeta = load('data/Works_NumberTales/DataBases/db_meta.json');
+    const tailsUnitDef = dbMeta?.General?.$VarsDef?.['$Def_TailsUnit'];
+    expect(tailsUnitDef?.$display?.wrapper).toBe('tailsUnitSummary');
+    expect(tailsUnitDef?.$display?.sectionWrapper).toBe('tailsUnitSection');
+    const fieldNames = (tailsUnitDef?.$DefType || []).map((e) => e.hashTag);
+    expect(fieldNames).toEqual(['TailShapeType', 'Count', 'Segment', 'Branches', 'LayoutDirection', 'Note_JP', 'Note_EN']);
+
+    const branchDef = dbMeta?.General?.$VarsDef?.['$Def_TailsUnitBranch'];
+    const branchFieldNames = (branchDef?.$DefType || []).map((e) => e.hashTag);
+    expect(branchFieldNames).toEqual(['Laterality', 'TailCount', 'ClusterCount']);
+
+    const layoutDirectionField = (tailsUnitDef?.$DefType || []).find((e) => e.hashTag === 'LayoutDirection');
+    const layoutDirectionFieldNames = (Array.isArray(layoutDirectionField?.$type) ? layoutDirectionField.$type : []).map((e) => e.hashTag);
+    expect(layoutDirectionFieldNames).toEqual(['LayoutFrom', 'LayoutTo']);
+  });
+
+  it.each([
+    'data/Works_NumberTales/DataBases/db_Primary.json',
+    'data/Works_NumberTales/DataBases/db_Secondary.json',
+    'data/Works_NumberTales/DataBases/db_SemiPrimary.json',
+    'data/Works_NumberTales/DataBases/db_SelfSecondary.json',
+  ])('NT %s TailsUnit[] entries use only declared field names', (dbPath) => {
+    const records = load(dbPath);
+    const allowedTailsUnitKeys = new Set(['TailShapeType', 'Count', 'Segment', 'Branches', 'LayoutDirection', 'Note_JP', 'Note_EN']);
+    const allowedBranchKeys = new Set(['Laterality', 'TailCount', 'ClusterCount']);
+    const allowedLayoutDirectionKeys = new Set(['LayoutFrom', 'LayoutTo']);
+    const violations = [];
+    for (const rec of records) {
+      const entries = Array.isArray(rec?.TailsUnit) ? rec.TailsUnit : [];
+      for (const entry of entries) {
+        if (!entry || typeof entry !== 'object') continue;
+        for (const key of Object.keys(entry)) {
+          if (!allowedTailsUnitKeys.has(key)) violations.push({ Num: rec.Num, key });
+        }
+        for (const branch of Array.isArray(entry.Branches) ? entry.Branches : []) {
+          if (!branch || typeof branch !== 'object') continue;
+          for (const key of Object.keys(branch)) {
+            if (!allowedBranchKeys.has(key)) violations.push({ Num: rec.Num, key: `Branches.${key}` });
+          }
+        }
+        if (entry.LayoutDirection && typeof entry.LayoutDirection === 'object') {
+          for (const key of Object.keys(entry.LayoutDirection)) {
+            if (!allowedLayoutDirectionKeys.has(key)) violations.push({ Num: rec.Num, key: `LayoutDirection.${key}` });
+          }
+        }
+      }
+    }
+    expect(violations).toHaveLength(0);
+  });
+
+  it('no AppearanceDetail entry uses DesignElement:"#Element_TailsUnit" anymore (migrated to dedicated TailsUnit field)', () => {
+    const files = [
+      'data/Works_NumberTales/DataBases/db_Primary.json',
+      'data/Works_NumberTales/DataBases/db_Secondary.json',
+      'data/Works_NumberTales/DataBases/db_SemiPrimary.json',
+      'data/Works_NumberTales/DataBases/db_SelfSecondary.json',
+    ];
+    for (const dbPath of files) {
+      const records = load(dbPath);
+      for (const rec of records) {
+        const entries = Array.isArray(rec?.AppearanceDetail) ? rec.AppearanceDetail : [];
+        expect(entries.some((e) => e?.DesignElement === '#Element_TailsUnit')).toBe(false);
+      }
+    }
   });
 });
