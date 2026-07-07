@@ -37,9 +37,9 @@
     "Backgrounds_EN": "A prototype prepared for the release of mass-production models.\nThrough a technical partnership with Raison-d'être Company in SaintPapis, the Unit.10 lineage [Dicat] design was completed."
   },
   {
-    "Num": "101-dev",
+    "Num": 101,
     "Progress": "notProceeded",
-    "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 101 }],
+    "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": "101-mp" }],
     "Name_JP": "101(ヒノマルイ)",
     "Name_EN": "101(Sunrizer=Origin)",
     "ModelName_JP": "ナンバーテールズ試作正規型1+10号機(開発用101番機)",
@@ -57,9 +57,9 @@
     "Backgrounds_EN": "A counterpart model derived from the Unit.1 lineage [1(Unitta), 2(Twiny), 10(Tenim)], prepared for commercial sales."
   },
   {
-    "Num": "102-dev",
+    "Num": 102,
     "Progress": "notProceeded",
-    "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 102 }],
+    "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": "102-mp" }],
     "Name_JP": "102(ヒノマルフ)",
     "Name_EN": "102(Sunrizer=Twens)",
     "ModelName_JP": "ナンバーテールズ試作正規型2+10号機(開発用102番機)",
@@ -77,9 +77,9 @@
     "Backgrounds_EN": "A counterpart model derived from the Unit.2 lineage [Binor, 20(Twentia)], prepared for commercial sales."
   },
   {
-    "Num": "103-dev",
+    "Num": 103,
     "Progress": "notProceeded",
-    "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 103 }],
+    "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": "103-mp" }],
     "Name_JP": "103(ヒノマルミ)",
     "Name_EN": "103(Sunrizer=Treiya)",
     "ModelName_JP": "ナンバーテールズ3+10号機(開発用103番機)",
@@ -97,9 +97,9 @@
     "Backgrounds_EN": "A counterpart model of 3(Treiya), prepared for commercial sales.\nThe same rule applies down to 109(Sunrizer=Nina), corresponding to the last one digit."
   },
   {
-    "Num": "104-dev",
+    "Num": 104,
     "Progress": "notProceeded",
-    "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 104 }],
+    "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": "104-mp" }],
     "Name_JP": "104(ヒノマルヨ)",
     "Name_EN": "104(Sunrizer=Forna)",
     "ModelName_JP": "ナンバーテールズ4+10号機(開発用104番機)",
@@ -116,9 +116,9 @@
     "Backgrounds_EN": "A counterpart model of 4(Forna), prepared for commercial sales."
   },
   {
-    "Num": "105-dev",
+    "Num": 105,
     "Progress": "notProceeded",
-    "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 105 }],
+    "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": "105-mp" }],
     "Name_JP": "105(ヒノマルゴ)",
     "Name_EN": "105(Sunrizer=Fifa)",
     "ModelName_JP": "ナンバーテールズ5+10号機(開発用105番機)",
@@ -135,9 +135,9 @@
     "Backgrounds_EN": "A counterpart model of 5(Fifa), prepared for commercial sales."
   },
   {
-    "Num": "106-dev",
+    "Num": 106,
     "Progress": "notProceeded",
-    "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 106 }],
+    "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": "106-mp" }],
     "Name_JP": "106(ヒノマルム)",
     "Name_EN": "106(Sunrizer=Sics)",
     "ModelName_JP": "ナンバーテールズ6+10号機(開発用106番機)",
@@ -154,9 +154,9 @@
     "Backgrounds_EN": "A counterpart model of 6(Sics), prepared for commercial sales."
   },
   {
-    "Num": "107-dev",
+    "Num": 107,
     "Progress": "notProceeded",
-    "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 107 }],
+    "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": "107-mp" }],
     "Name_JP": "107(ヒノマルナ)",
     "Name_EN": "107(Sunrizer=Sevan)",
     "ModelName_JP": "ナンバーテールズ7+10号機(開発用107番機)",
@@ -173,9 +173,9 @@
     "Backgrounds_EN": "A counterpart model of 7(Sevan), prepared for commercial sales."
   },
   {
-    "Num": "108-dev",
+    "Num": 108,
     "Progress": "notProceeded",
-    "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 108 }],
+    "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": "108-mp" }],
     "Name_JP": "108(ヒノマルヤ)",
     "Name_EN": "108(Sunrizer=Eighas)",
     "ModelName_JP": "ナンバーテールズ8+10号機(開発用108番機)",
@@ -192,9 +192,9 @@
     "Backgrounds_EN": "A counterpart model of 8(Eighas), prepared for commercial sales."
   },
   {
-    "Num": "109-dev",
+    "Num": 109,
     "Progress": "notProceeded",
-    "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 109 }],
+    "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": "109-mp" }],
     "Name_JP": "109(ヒノマルク)",
     "Name_EN": "109(Sunrizer=Nina)",
     "ModelName_JP": "ナンバーテールズ9+10号機(開発用109番機)",
@@ -211,9 +211,9 @@
     "Backgrounds_EN": "A counterpart model of 9(Nina), prepared for commercial sales."
   },
   {
-    "Num": "110-dev",
+    "Num": 110,
     "Progress": "notProceeded",
-    "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 110 }],
+    "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": "110-mp" }],
     "Name_JP": "110(ハクト)",
     "Name_EN": "110(Elevantis)",
     "ModelName_JP": "ナンバーテールズ汎用改良型11号機(開発用110番機)",
@@ -298,9 +298,9 @@
     "Backgrounds_EN": "The first high-tier unit for commercial sales. As with the other MasterTriples, it is priced above regular retail models."
   },
   {
-    "Num": "112-dev",
+    "Num": 112,
     "Progress": "notProceeded",
-    "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 112 }],
+    "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": "112-mp" }],
     "Name_JP": "112(ハクトウジ)",
     "Name_EN": "112(Hudres=Twelva)",
     "ModelName_JP": "ナンバーテールズ2+11号機(開発用112番機)",
@@ -318,9 +318,9 @@
     "Backgrounds_EN": "A counterpart model of 12(Twelva), prepared for commercial sales.\nThe same rule applies down to 119(Hudres=Ninteels), corresponding to the last two digits."
   },
   {
-    "Num": "113-dev",
+    "Num": 113,
     "Progress": "notProceeded",
-    "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 113 }],
+    "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": "113-mp" }],
     "Name_JP": "113(ハクトミ)",
     "Name_EN": "113(Hudres=Thirteena)",
     "ModelName_JP": "ナンバーテールズ3+11号機(開発用113番機)",
@@ -336,9 +336,9 @@
     "Class": ["デュオトリプル5型", "11*(ハクト)型ハイナンバーズ"]
   },
   {
-    "Num": "114-dev",
+    "Num": 114,
     "Progress": "notProceeded",
-    "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 114 }],
+    "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": "114-mp" }],
     "Name_JP": "114(ハクトヨ)",
     "Name_EN": "114(Hudres=Forteels)",
     "ModelName_JP": "ナンバーテールズ4+11号機(開発用114番機)",
@@ -354,10 +354,10 @@
     "Class": ["デュオトリプル6型", "11*(ハクト)型ハイナンバーズ"]
   },
   {
-    "Num": "115-dev",
+    "Num": 115,
     "Progress": "notProceeded",
     "SameMPSeries_DBLink": [
-      { "_DB": "SelfSecondary", "Num": 115 },
+      { "_DB": "SelfSecondary", "Num": "115-mp" },
       { "_DB": "Secondary", "Num": "115-numberize" }
     ],
     "Name_JP": "115(ハクトウゴ)",
@@ -375,9 +375,9 @@
     "Class": ["デュオトリプル7型", "11*(ハクト)型ハイナンバーズ"]
   },
   {
-    "Num": "116-dev",
+    "Num": 116,
     "Progress": "notProceeded",
-    "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 116 }],
+    "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": "116-mp" }],
     "Name_JP": "116(ハクソロク)",
     "Name_EN": "116(Hudres=Sixteely)",
     "ModelName_JP": "ナンバーテールズ6+11号機(開発用116番機)",
@@ -393,9 +393,9 @@
     "Class": ["デュオトリプル8型", "11*(ハクト)型ハイナンバーズ"]
   },
   {
-    "Num": "117-dev",
+    "Num": 117,
     "Progress": "notProceeded",
-    "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 117 }],
+    "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": "117-mp" }],
     "Name_JP": "117(ハクトナ)",
     "Name_EN": "117(Hudres=Sevteena)",
     "ModelName_JP": "ナンバーテールズ7+11号機(開発用117番機)",
@@ -411,9 +411,9 @@
     "Class": ["デュオトリプル9型", "11*(ハクト)型ハイナンバーズ"]
   },
   {
-    "Num": "118-dev",
+    "Num": 118,
     "Progress": "notProceeded",
-    "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 118 }],
+    "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": "118-mp" }],
     "Name_JP": "118(ハクトウヤ)",
     "Name_EN": "118(Hudres=Eighteeld)",
     "ModelName_JP": "ナンバーテールズ8+11号機(開発用118番機)",
@@ -429,9 +429,9 @@
     "Class": ["デュオトリプル1型", "11*(ハクト)型ハイナンバーズ"]
   },
   {
-    "Num": "119-dev",
+    "Num": 119,
     "Progress": "notProceeded",
-    "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 119 }],
+    "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": "119-mp" }],
     "Name_JP": "119(ハクトク)",
     "Name_EN": "119(Hudres=Ninteels)",
     "ModelName_JP": "ナンバーテールズ9+11号機(開発用119番機)",
@@ -798,8 +798,8 @@
     "Num": "400-sq",
     "Progress": "notProceeded",
     "SameMPSeries_DBLink": [
-      { "_DB": "SelfSecondary", "Num": 400 },
-      { "_DB": "SemiPrimary", "Num": "400-dev" }
+      { "_DB": "SelfSecondary", "Num": "400-gc" },
+      { "_DB": "SemiPrimary", "Num": 400 }
     ],
     "Name_JP": "400(ヴィンティ-ヴィンティ)\n20²(ヴィンティ-ヴィンティ)",
     "Name_EN": "400(Vingt-vingtee)\n20²(Vingt-vingtee)",
@@ -815,12 +815,10 @@
     "Class": ["百倍番(ハンドレッズデジッツ)", "キャレ型ハイナンバーズ"]
   },
   {
-    "Num": "400-dev",
+    "Num": 400,
     "Progress": "notProceeded",
-    "SameMPSeries_DBLink": [
-      { "_DB": "SelfSecondary", "Num": 400 },
-      { "_DB": "SemiPrimary", "Num": "400-sq" }
-    ],
+    "SameMPSeries_DBLink": [{ "_DB": "SemiPrimary", "Num": "400-sq" }],
+    "AnotherVersions_DBLink": [{ "_DB": "SelfSecondary", "Num": "400-gc" }],
     "Name_JP": "400(マタウルウ)",
     "Name_EN": "400(Leap-againer)",
     "ModelName_JP": "ナンバーテールズ汎用型4号機改(開発用400番機)",
@@ -1239,7 +1237,7 @@
     "Weight_kg": { "hideText": "非公開" },
     "BustSize": "D",
     "TailsUnit_JP": "サソリ型3本（それぞれ11束[節]）",
-    "TailsUnit_EN": "Scorpion Type: 3 Tails (Each with 11 Tufts [Segments])",
+    "TailsUnit_EN": "Scorpion type: 3 tails (Each with 11 cluster/segments)",
     "Class": ["仮設型ハイナンバー"],
     "FirstPersonCalling_JP": "あーし",
     "FirstPersonCalling_EN": "Trie (very casual, in English: by name casually, in Japanese: 'a-shi')",

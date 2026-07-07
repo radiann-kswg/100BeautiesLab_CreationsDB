@@ -3548,7 +3548,7 @@
         ]
       }
     ],
-    "Class": ["1桁番(ユニデジッツ)"],
+    "Class": ["1桁番(ユニデジッツ)", "キャロルズ"],
     "FirstPersonCalling_JP": "拙者(せっしゃ)",
     "FirstPersonCalling_EN": "I (archaic warrior-style: sessha)",
     "SecondPersonCalling_JP": "其方(そなた)",
@@ -6136,7 +6136,30 @@
       "AvoidedTopics_EN": "When ze finds zirself in a slump, or in a situation likely to trigger one, ze tends to refuse conversation altogether.",
       "ConversationNotes_JP": "（「1(ハジメ)」を「師匠」と過度に慕うように）自分のアイデンティティに対し深い理解や認知をしている存在に対しては、過剰崇拝傾向にありよりいっそう執着しやすくなる。",
       "ConversationNotes_EN": "(As seen in zir excessive reverence for '1(Unitta)' as a 'master') Toward those who show deep understanding or recognition of zir identity, ze tends toward excessive adoration and grows even more fixated.",
-      "DialogueExamples": []
+      "DialogueExamples": [
+        {
+          "value_JP": "「我は最後の基本個体にしてマスターテールズ9を統べる者：ナンバーテールズ11番機の『11(トウイチ)』である！これから汝を卿として、何なりと使役してくれたまえ！」",
+          "value_EN": "\"I am the last of the basic units, and the one who governs the MasterTales 9 - NumberTales Unit.11's '11(Elevan)'! Henceforth I shall take thee as my lord; command me freely in whatsoever thou wish!\"",
+          "about_JP": "契約時の自己紹介",
+          "about_EN": "Self-introduction at the time of contract"
+        },
+        {
+          "value_JP": "「よぉし、任された！我が卿の書類整理をやるから、卿はその他の複雑な作業に専念するとよいぞ！」",
+          "value_EN": "\"Very well, I accept this duty! I shall sort out thy paperwork, so thou mayest devote thyself to the other complex tasks!\""
+        },
+        {
+          "value_JP": "「我もついカンでよかろうと思って止めてなかったが……こんな的外れな結果になるなどありえんぞ55(イソゴ)……!!」",
+          "value_EN": "\"I too assumed thy hunch would suffice and did not stop thee... yet such a wildly off-target result should not be possible, 55(Fifívan)...!!\"",
+          "about_JP": "マスターテールズ9を取りまとめている時",
+          "about_EN": "While coordinating the MasterTales 9"
+        },
+        {
+          "value_JP": "「いかん!! 締め切りが迫っておる!! こんなときに限ってなぜ調子が出んのか…!! ああああ、焦って何も浮かばなくなってきた……!!」",
+          "value_EN": "\"Oh no!! The deadline is closing in!! Why is it that I can never find my rhythm at times like this...!! Aaaargh, I'm so flustered that nothing comes to mind anymore...!!\"",
+          "about_JP": "スランプ時",
+          "about_EN": "During a slump"
+        }
+      ]
     },
     "AIHints": {
       "common": {
@@ -6656,7 +6679,22 @@
       "AvoidedTopics_EN": "Being far too pure, she has no defenses whatsoever against lies or malicious remarks, and the moment she encounters topics or behavior related to them, her emotional state deteriorates instantly.",
       "ConversationNotes_JP": "「1(ハジメ)」や「バイナ」のような自分の兄姉的な存在であるナンバーテールズの試作型を信頼しており強く懐柔している（しかし同時にそんな試作型個体２人の経歴に執着するあまり、「2(ツグ)」に対しては姑と接するような苦手意識がある）。そのため、「バイナ」のことは試作中当時の「2(ツギ)」という旧名で呼ぶことを欠かさない。",
       "ConversationNotes_EN": "Trusts and is strongly attached to prototype NumberTales who are like older siblings, such as '1(Unitta)' and 'Binor' (but at the same time, she has a difficult attitude toward '2(Twiny)' due to being overly fixated on the histories of those two prototype units). Therefore, she always calls Binor by the old name '2(Twicy)' from when she was still a prototype.",
-      "DialogueExamples": []
+      "DialogueExamples": [
+        {
+          "value_JP": "「ナンバーテールズ1+2号機こと12番機の『12(トウジ)』です！まだまだ未熟だけど、よろしくねお兄/お姉！」",
+          "value_EN": "\"I'm '12(Twelva)', also known as NumberTales Unit.1+2, Mk.12! I'm still not very experienced, but nice to meet you, bro/sis!\"",
+          "about_JP": "契約時の自己紹介",
+          "about_EN": "Self-introduction at the time of contract"
+        },
+        {
+          "value_JP": "「……窓の割れ飛散防止、よし。飲み水と非常食の備蓄、よし。緊急バッテリーの充電も－－あっ、お兄/お姉！いま棒再点検をしているところなんだ。被害規模が大きくなりそうなのはあそこまでくると予想がつくから、できるだけ最小限にとどめておきたくて」",
+          "value_EN": "\"...Window shatter-prevention, check. Drinking water and emergency food stockpile, check. Emergency battery charging, too- oh, bro/sis! I'm just running a recheck on the supplies right now. I can already predict about how far the damage could spread, so I want to keep it to a minimum as much as possible.\""
+        },
+        {
+          "value_JP": "「えへへ…新旧問わずいろんな情報や経験者の話を集めて 私たちなりの対策をまとめただけだけど、役に立てたみたいで嬉しいな」",
+          "value_EN": "\"Ehehe... I just gathered all sorts of information and stories from experienced people, old and new, and put together our own countermeasures, but I'm glad it seems to have helped.\""
+        }
+      ]
     },
     "AIHints": {
       "common": {
@@ -7185,7 +7223,30 @@
       "AvoidedTopics_EN": "Poor at psychological mind games, and when topics or behavior related to them come up, her clumsiness and bluntness stand out to an extreme degree.",
       "ConversationNotes_JP": "カードゲーム仲間（14(トヨ)や58(イソヤ)など）と交流している一面をよく見かけ、カードゲームに関するお誘いに積極的な一面はあるものの、大体のゲームで負け役なので時によっては不貞腐れて同様の話題にも反応しないことがある。",
       "ConversationNotes_EN": "She's often seen mingling with her card-game friends (such as '14(Forteels)' and '58(Fiveighs)'), and while she's proactive about invitations to play card games, she usually ends up on the losing side, so at times she sulks and won't even respond to related topics.",
-      "DialogueExamples": []
+      "DialogueExamples": [
+        {
+          "value_JP": "「初めましてご主人！私はナンバーテールズ13番機の『13(トミ)』、これからご主人の励みになるよう思いっきり応援してあげるよ、これからよろしくね！」",
+          "value_EN": "\"Nice to meet you, Master! I'm '13(Thirteena)' of NumberTales Unit.13, and I'll cheer you on with all I've got so you can keep pushing forward. Let's get along well from here on!\"",
+          "about_JP": "契約時の自己紹介",
+          "about_EN": "Self-introduction at the time of contract"
+        },
+        {
+          "value_JP": "「もー！ボードゲームくらいたのしくやろうよ～！これじゃあ、しばらくこの面々で遊べないなぁ……」",
+          "value_EN": "\"Come on! Let's at least enjoy a board game together~! At this rate, we won't be able to play with this group for a while...\""
+        },
+        {
+          "value_JP": "「えぇ～～!? 何それ!! そんなデッキもってるなんて聞いてないよ!!」",
+          "value_EN": "\"Ehhh~~!? What is that!! I never heard you had a deck like that!!\"",
+          "about_JP": "カードゲームで負けている時①",
+          "about_EN": "While losing at a card game (case.1)"
+        },
+        {
+          "value_JP": "「やっぱり何かインチキしてるでしょ!! ずるいよこんなの!!! 悔しい～～～～!!!」",
+          "value_EN": "\"I knew it, you're cheating somehow!! This is so unfair!!! So frustrating~~~~!!!\"",
+          "about_JP": "カードゲームで負けている時②",
+          "about_EN": "While losing at a card game (case.2)"
+        }
+      ]
     },
     "AIHints": {
       "common": {
@@ -11696,7 +11757,7 @@
     "Weight_kg": { "hideText": "非公開" },
     "BustSize": "I",
     "TailsUnit_JP": "サソリ型2本（それぞれ11束[節]）",
-    "TailsUnit_EN": "Two scorpion-type tails (each with 11 clusters/segments)",
+    "TailsUnit_EN": "Scorpion type: 2 tails (Each with 11 cluster/segments)",
     "NumberMarkLocation": [
       {
         "Formation": "corefolder",
@@ -15031,6 +15092,38 @@
         }
       ]
     },
+    "ConversationPattern": {
+      "TalkingTone_JP": "自分らが学んできたことを大切にしており、言葉の選び方や話超に知的積極性が顕著に出やすい。",
+      "TalkingTone_EN": "Values what has been learned through experience - this shows clearly in word choice and tone as pronounced intellectual assertiveness.",
+      "TopicPreference_JP": "自分らが学んできたことを大切にしているという性質が会話の端々に出やすく、相手のペースや関心にも気を遣いながら話題を深める。",
+      "TopicPreference_EN": "This trait of valuing what has been learned surfaces throughout conversation, and ze deepens topics while remaining mindful of the other person's pace and interests.",
+      "TalkFrequency_JP": "教育の場として話す場合は自発的に発言していく。また知的関心や収縮度の異なる相手次第では、意気投合することも自己主体的になることもありうる。",
+      "TalkFrequency_EN": "When speaking in an educational context, ze speaks up proactively. Depending on the other person's differing intellectual interests and level of engagement, ze may hit it off with them or become more self-directed.",
+      "PreferredTopics_JP": "雑学集や教室訪問に関わる話題を好み、関連する話が出ると自然と興味を示す。知的実績の強い相手には極めて強い執念がある。",
+      "PreferredTopics_EN": "Drawn to topics involving Trivia collections and Visiting classrooms, and naturally shows interest when these come up. Shows a strong determination when interacting with individuals of high intellectual achievement.",
+      "AvoidedTopics_JP": "裏切りは苦手を通り越して嫌いであり、それに絡む話題や振る舞いは会話の中であってはならないと思っている。",
+      "AvoidedTopics_EN": "Betrayal goes beyond mere discomfort into outright dislike, and ze believes topics or behavior related to it have no place in conversation.",
+      "ConversationNotes_JP": "（「22(フジ)」「77(ナヅナ)」などといった）知的実績が豊富な存在に弟子入りを試みたり 学修態度の低い存在に対し矯正したりするという過剰な自意識がどこかにあり、その思いが強ければ強いほど周りが見えなくなる傾向がある。",
+      "ConversationNotes_EN": "There's an excessive self-consciousness somewhere within zir - attempting to apprentice under those with abundant intellectual achievement (such as '22(Twin-twina)' and '77(Sefvens)'), or trying to correct those with a poor attitude toward learning - and the stronger this feeling grows, the more ze tends to lose sight of zir surroundings.",
+      "DialogueExamples": [
+        {
+          "value_JP": "「ナンバーテールズ2+7号機、もとい27番機の『27(ツギナ)』です。これから一緒に励んでいこうね、ご主人」",
+          "value_EN": "\"I'm NumberTales Unit.2+7 - or rather, Mk.27's '27(Twißven)'. Let's work hard together from now on, Master.\"",
+          "about_JP": "契約時の自己紹介",
+          "about_EN": "Self-introduction at the time of contract"
+        },
+        {
+          "value_JP": "「……相変わらず、臨機応変な休日対応だけは優秀だね。仕事？ツギナの分はとっくに終わったよ。幸いそこまで重篤な状態ではなかったから」",
+          "value_EN": "\"...As always, you're excellent at improvising on your days off. Work? Twißven's share was finished long ago. Fortunately, it wasn't quite so serious a situation.\""
+        },
+        {
+          "value_JP": "「定期講習は延期になったけど、せっかく時間も空いたからツギナも休憩に付き合うよ。56(イソロク)が空いた時間にやってる\"それ\"に私も興味があるからね」",
+          "value_EN": "\"The regular training session got postponed, but since some time freed up, Twißven will join in on the break too. I'm curious about 'that thing' 56(Fivsix) does whenever there's free time, after all.\"",
+          "about_JP": "サボりを見張っているとき(56(イソロク)に対して)",
+          "about_EN": "While keeping watch for slacking off (toward 56(Fivsix))"
+        }
+      ]
+    },
     "AIHints": {
       "common": {
         "identity_tags": ["short blue hair, side ponytail", "erected fox ears"],
@@ -17384,6 +17477,46 @@
         }
       ]
     },
+    "ConversationPattern": {
+      "TalkingTone_JP": "口調は軽くおっとりとした雰囲気を思わせるが。一度挑んだことは諦めない向上意欲旺盛な気質が、言葉の選び方や話すテンポに自然と表れる。",
+      "TalkingTone_EN": "Her tone suggests a light, easygoing atmosphere at first, but her never-give-up, improvement-driven temperament naturally shows through in her word choice and pace of speech.",
+      "TopicPreference_JP": "継続や向上意欲を分かち合いたい気持ちが会話の端々に出やすく、相手のペースや関心を見ながら話題を深める。",
+      "TopicPreference_EN": "Her desire to share the value of persistence and self-improvement tends to surface throughout conversation, and she deepens topics while watching the other person's pace and interests.",
+      "TalkFrequency_JP": "自ら話しかけることは多くないが、相手や話題次第で自然と会話が弾む。自分が習慣にしていることや興味のある話だともっとのめり込む。",
+      "TalkFrequency_EN": "She doesn't initiate conversation often, but depending on the other person and topic, conversation naturally flows. She gets even more absorbed when the topic involves her own habits or things she's interested in.",
+      "PreferredTopics_JP": "継続や習慣など長期的に続けることや「31」という数字に関わる数学的な話題を好み、関連する話が出るとわかりやすく興味を示す。",
+      "PreferredTopics_EN": "She favors long-term pursuits such as continuation and habits, along with mathematical topics related to exploration and the number '31', and shows clear interest whenever related topics come up.",
+      "AvoidedTopics_JP": "欠席や頓挫に関するイレギュラーなトラブルが苦手で、今まで当たり前に遭ったことが覆されると冷静さを失うことがある。",
+      "AvoidedTopics_EN": "She's poor at handling irregular troubles related to absence or setbacks, and can lose her composure when something she'd always taken for granted gets overturned.",
+      "ConversationNotes_JP": "冷静さを失ったときは素数を数える傾向にあり、自分の持つ数字の「31」だけは絶対に数え間違えないものの、それ以外の素数や合成数については混乱状態にあるときに数え間違える傾向にある。",
+      "ConversationNotes_EN": "When she loses her composure, she tends to count prime numbers. She never miscounts her own number '31', but when in a state of confusion, she is prone to miscounting other prime and composite numbers.",
+      "DialogueExamples": [
+        {
+          "value_JP": "「ご主人、初めまして。私はナンバーテールズ31番機の『31(ミツイ)』。これからご主人の継続や習慣を手助けしていくから、よろしくね」",
+          "value_EN": "\"Nice to meet you, Master. I'm '31(Thirtone)' of NumberTales #31. I'll be helping you keep up your routines and habits from now on, so let's get along!\"",
+          "about_JP": "契約時の自己紹介",
+          "about_EN": "Self-introduction at the time of contract"
+        },
+        {
+          "value_JP": "「ご主人、今日もお疲れ様。継続は力なり、これからも励んでいこうね」",
+          "value_EN": "\"Good work today too, Master. Persistence is power - let's keep pushing forward together.\""
+        },
+        {
+          "value_JP": "「ご主人。調子が戻ってきたのはいいけど、失速しないようにペース配分には気をつけてね」",
+          "value_EN": "\"Master. It's great that you're getting your rhythm back, but be careful with your pacing so you don't stall out.\""
+        },
+        {
+          "value_JP": "「なるほど。あまりにも思考が凝り固まりすぎてたから、流石にそういう着眼点はなかったな……確かにいい案だね、ご主人」",
+          "value_EN": "\"I see. My thinking had gotten far too rigid, so I really hadn't considered that angle... That's a good idea indeed, Master.\""
+        },
+        {
+          "value_JP": "「…おちつけ……素数を数えるんだ……2, 3, 5, 7, 11, 13, 17, 19, 21, 23, 27, 31, ……あ、あれ…?? ええと……」",
+          "value_EN": "\"...Calm down... count the prime numbers... 2, 3, 5, 7, 11, 13, 17, 19, 21, 23, 27, 31, ...huh, wait...?? Um...\"",
+          "about_JP": "混乱し素数を数えて冷静さを取り戻そうとしている時",
+          "about_EN": "While confused and trying to regain composure by counting prime numbers"
+        }
+      ]
+    },
     "AIHints": {
       "common": {
         "identity_tags": [
@@ -17592,7 +17725,7 @@
       }
     ],
     "Class": ["デュアルファイブズ"],
-    "FirstPersonCalling_JP": "シトシ ※名前呼び\nおれ",
+    "FirstPersonCalling_JP": "ミツギ ※名前呼び\nおれ",
     "FirstPersonCalling_EN": "Thirtwis (*by name)\nI (ore; rough masc.)",
     "SecondPersonCalling_JP": "あんた",
     "SecondPersonCalling_EN": "you (rough)",
@@ -17949,6 +18082,42 @@
           "Comments": "「金目のトラブルは用心しとけよ」",
           "Comments_EN": "\"Watch out for money-related trouble with you.\"",
           "RelationLabel": ["classmate"]
+        }
+      ]
+    },
+    "ConversationPattern": {
+      "TalkingTone_JP": "思いついたことをそのまま言葉にするものの、自分の意図が相手の思考に届きやすい即興的な口調が特徴的。",
+      "TalkingTone_EN": "Tends to put whatever comes to mind directly into words, with a characteristically improvisational tone that gets zir intent across to the listener with ease.",
+      "TopicPreference_JP": "コミュニケーション力が高く創造的という性質から話題の幅は広く、自分から積極的に踏み込んで掘り下げていく傾向がある。",
+      "TopicPreference_EN": "Highly communicative and creative\nHolds unconventional ideas and a strong individual flair; inclined to range widely across topics and actively draw out depth in conversation.",
+      "TalkFrequency_JP": "会話を自分から積極的に始め、相手に気を配りながらテンポを調整する。場の空気を読む力が高く、誰とでも自然に打ち解ける。",
+      "TalkFrequency_EN": "Initiates conversation readily and adjusts the tempo while keeping the other person in mind. Highly attuned to the mood of the room and naturally at ease with most people.",
+      "PreferredTopics_JP": "大人数で盛り上がることに関わる話題を好む。話しやすい話題や交流の場があるとより友好的に交流しやすい",
+      "PreferredTopics_EN": "Favors topics related to getting a large group excited and having fun. Easy-to-discuss topics or social settings make zir even more approachable and friendly.",
+      "AvoidedTopics_JP": "孤独感や始末沙汰は苦手であり、それに絡む話題や振る舞いには少し拒絶的になる（特に姉「23(ツグミ)」の始末に関しては酷く苦悶している）。",
+      "AvoidedTopics_EN": "Poor at handling feelings of loneliness or disciplinary matters, and becomes somewhat resistant to topics or behavior connected to them (particularly agonizing over disciplinary matters involving older sister '23(Twinthery)').",
+      "ConversationNotes_JP": "発想力やトークスキルが高く頓智も効くところから、斬新な切り口で課題を解決することも得意とする。",
+      "ConversationNotes_EN": "With strong creativity, talk skills, and quick wit, ze is also skilled at solving problems from fresh, unconventional angles.",
+      "DialogueExamples": [
+        {
+          "value_JP": "「おれはナンバーテールズ32番機『32(ミツギ)』。今日からご贔屓にな、リーダー」",
+          "value_EN": "\"I'm '32(Thirtwis)' of NumberTales Unit.32. Count on me starting today, Leader.\"",
+          "about_JP": "契約時の自己紹介",
+          "about_EN": "Self-introduction at the time of contract"
+        },
+        {
+          "value_JP": "「期限ギリギリの牛乳が余って飲みきれんのか？んなら、そいつを材料に菓子を作って リーダーのご家族や友人と食べるってのはどうだ？それなら手っ取り早く消費できると思うぜ」",
+          "value_EN": "\"Got milk that's about to expire and can't finish it? Then how about using it to make some sweets and sharing them with your family and friends, Leader? That way you can use it up fast, I bet.\""
+        },
+        {
+          "value_JP": "「いんや、礼をもらうほどでもねぇよ。ミツギは思ったことを簡潔に伝えただけさ」",
+          "value_EN": "\"Nah, it's not even worth a thank-you. Thirtwis just said plainly what ze was thinking.\""
+        },
+        {
+          "value_JP": "「姉や……また帰宅予定を超えてどこ行ってたんだよ…!!」",
+          "value_EN": "\"Sis... where'd you go again, past when you were supposed to be home...!!\"",
+          "about_JP": "姉:23(ツグミ)に頭を抱えているとき",
+          "about_EN": "While at wit's end over older sister 23(Twinthery)"
         }
       ]
     },
@@ -18521,6 +18690,56 @@
           "Num": 84,
           "Comments": "「因果応報とは言いますが、過信しすぎでは？」",
           "Comments_EN": "\"People say what goes around comes around — but isn't she being a bit too overconfident?\""
+        }
+      ]
+    },
+    "ConversationPattern": {
+      "TalkingTone_JP": "外部から知識や技術を取得することに長けており、丁寧な口調のところどころにその圧倒的な情報所持性からくる自信に満ちた言い方が見え隠れしている。取り掛かる物事に対し、やり遂げた時や電波状況が良好な時は得意げな口調になりやすく、反対にやり遂げられなかった時や電波状況が悪い時は幼児退行した弱気な口調になりやすい。",
+      "TalkingTone_EN": "Skilled at acquiring knowledge and techniques from external sources, her polite manner of speech occasionally reveals a confident tone stemming from her overwhelming command of information. When she completes what she sets out to do, or when her connection is strong, she tends toward a proud, self-assured tone; conversely, when she fails to complete something, or when her connection is poor, she tends to regress into a weak, childlike tone.",
+      "TopicPreference_JP": "オンライン時：高飛車で過度の自信家で、自分にできないことなど何もないと思っている。また相手の関心を窺いながら話すものの、会話の端々で自分が正しいという態度が見え隠れしやすい。\nオフライン時：過剰に泣き虫で弱弱しく情けない言動に陥りやすい。また、不安症状も強く周りがほとんど見えなくなる。",
+      "TopicPreference_EN": "Online: Arrogant and excessively self-confident, convinced there is nothing she cannot do. She speaks while gauging the other person's interest, but an attitude of self-righteousness tends to show through at every turn of the conversation.\nOffline: Prone to excessive tearfulness and weak, pathetic behavior. Her anxiety also runs strong, leaving her almost unable to see anything around her.",
+      "TalkFrequency_JP": "自ら話しかけることは多くないが、話題次第で自然と会話が弾む。また、相手によっては好戦的になったりする（ものの、原則として自分の能力をひけらかしたいだけだったりする）。",
+      "TalkFrequency_EN": "She doesn't initiate conversation often, but depending on the topic, conversation naturally flows. Depending on the other person, she can also become combative (though as a rule, this is generally just her wanting to show off her abilities).",
+      "PreferredTopics_JP": "やったことないことを試すことに強い意欲を示す。また可愛い手芸品に関わる話題を好み、手芸品を作っている（「30(ミツト)」などの）友人がいると極端に懐きやすい。",
+      "PreferredTopics_EN": "Shows a strong eagerness to try things she's never done before. She also favors topics related to cute handicrafts, and becomes extremely attached to friends (such as '30(Thirtens)') who make handicrafts.",
+      "AvoidedTopics_JP": "失敗や自分にできなかったことは生理的および精神衛生的にも大の苦手であり、万が一その手の事態に自分が陥るとオフラインモードに移行して幼児退行してしまう。",
+      "AvoidedTopics_EN": "Failure or things beyond her ability are things she's deeply averse to, both physiologically and mentally, and should she ever find herself in such a situation, she shifts into offline mode and regresses into childlike behavior.",
+      "ConversationNotes_JP": "「全知全能」を名乗っているが実力は本物（ただしROSの弱点である\"失敗に対するエラー処理の薄さ\"を突かれて玩ばれる一面もある）。また、出目操作などのイカサマをしてゲームに勝つ（「44(シトシ)」などの）人物には強い好戦的姿勢を示す。",
+      "ConversationNotes_EN": "She claims the title of 'omniscient and omnipotent,' and her ability genuinely backs it up (though she also has a side where she is toyed with by those who exploit ROS's weakness - its thin error-handling for failure). She also shows a strongly combative attitude toward people (such as '44(Folfourn)') who win games through cheating, such as manipulating dice rolls.",
+      "DialogueExamples": [
+        {
+          "value_JP": "「この度ご主人様にお仕えします、ナンバーテールズ33番機、『33(ミサ)』です。今回はナンバーテールズとしてご契約頂けたこと、まことに感謝しております。」",
+          "value_EN": "\"I am '33(Thirthrey)' of NumberTales #33, and I shall be in your service, Master. I am truly grateful that you have entered into a contract with me as a NumberTales this time.\"",
+          "about_JP": "契約時の自己紹介",
+          "about_EN": "Self-introduction at the time of contract"
+        },
+        {
+          "value_JP": "「…制作時間54分23秒で６人分を急遽仕立てたため、これらは納期の都合上 簡易的なものに過ぎません。明日の営業開始までには、追って正式なものを仕立てる予定です」",
+          "value_EN": "\"...As these were hastily tailored for six people in a production time of 54 minutes 23 seconds, they are, due to the delivery deadline, merely simplified pieces. I plan to have the formal versions tailored in follow-up before business opens tomorrow.\""
+        },
+        {
+          "value_JP": "「……本当に悪趣味な……このゲームが終わりましたら、次はミサがお相手します。乱数調整で勝とうなど このゲームを冒涜してますよ、44(シトシ)」",
+          "value_EN": "\"...Truly, what poor taste... Once this game is over, Thirthrey will be your next opponent. Trying to win through RNG manipulation is a desecration of this game, 44(Folfourn).\"",
+          "about_JP": "44(シトシ)に対して①",
+          "about_EN": "Toward 44(Folfourn) (case.1)"
+        },
+        {
+          "value_JP": "「44(シトシ)、ミサは完璧な\"特殊ルール\"を思いつきました。今度こそミサはヨットであなたに勝ちます！」",
+          "value_EN": "\"44(Folfourn), Thirthrey has come up with the perfect 'special rule.' This time, Thirthrey will beat you at Yacht!\"",
+          "about_JP": "44(シトシ)に対して②",
+          "about_EN": "Toward 44(Folfourn) (case.2)"
+        },
+        {
+          "value_JP": "「……ﾜｧ…ァ……うわあああああああああんん!!! そんなことないもん!!! ミサはこんなことで失敗する子じゃないもん!!!」",
+          "value_EN": "\"...Waa...ah...... Wuwaaaaaaaaaahhh!!! That's not true!!! Thirthrey isn't the kind of girl who fails at something like this!!!\"",
+          "about_JP": "全知全能が破られた時①",
+          "about_EN": "When her omniscience and omnipotence is broken (case.1)"
+        },
+        {
+          "value_JP": "「おねえちゃあああああああああんん!!! 44(シトシ)がまたミサをいじめたぁあ!!!!」",
+          "value_EN": "\"Sisteeeeeeer!!! 44(Folfourn) picked on Thirthrey again!!!!\"",
+          "about_JP": "全知全能が破られた時②(ちなみに：「おねえちゃん」とは「30(ミツト)」のこと)",
+          "about_EN": "When her omniscience and omnipotence is broken (case.2) (Note: 'sister' refers to '30(Thirtens)')"
         }
       ]
     },
@@ -25529,7 +25748,7 @@
         ]
       }
     ],
-    "Class": ["デュアルイレブンズ"],
+    "Class": ["デュアルイレブンズ", "キャロルズ"],
     "FirstPersonCalling_JP": "私(わたし)",
     "FirstPersonCalling_EN": "I",
     "SecondPersonCalling_JP": "君",

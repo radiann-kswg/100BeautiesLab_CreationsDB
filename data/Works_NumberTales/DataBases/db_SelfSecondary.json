@@ -1,83 +1,93 @@
 [
   {
-    "Num": 101,
+    "Num": "101-mp",
     "Progress": "notProceeded",
-    "SameModels_DBLink": [{ "_DB": "SemiPrimary", "Num": "101-dev" }],
+    "SameModels_DBLink": [{ "_DB": "SemiPrimary", "Num": 101 }],
     "FormalName_JP": "量産型ナンバーテールズ101番機シリーズ",
     "FormalName_EN": "NumberTales #101 Series Mass Production Version for Sales",
-    "ModelNumber": "APHR-NT [MP]101-*****"
+    "ModelNumber": "APHR-NT [MP]101-*****",
+    "Class": ["サイドシングルズ"]
   },
   {
-    "Num": 102,
+    "Num": "102-mp",
     "Progress": "notProceeded",
-    "SameModels_DBLink": [{ "_DB": "SemiPrimary", "Num": "102-dev" }],
+    "SameModels_DBLink": [{ "_DB": "SemiPrimary", "Num": 102 }],
     "FormalName_JP": "量産型ナンバーテールズ102番機シリーズ",
     "FormalName_EN": "NumberTales #102 Series Mass Production Version for Sales",
-    "ModelNumber": "APHR-NT [MP]102-*****"
+    "ModelNumber": "APHR-NT [MP]102-*****",
+    "Class": ["トライデュアルスリーズ"]
   },
   {
-    "Num": 103,
+    "Num": "103-mp",
     "Progress": "notProceeded",
-    "SameModels_DBLink": [{ "_DB": "SemiPrimary", "Num": "103-dev" }],
+    "SameModels_DBLink": [{ "_DB": "SemiPrimary", "Num": 103 }],
     "FormalName_JP": "量産型ナンバーテールズ103番機シリーズ",
     "FormalName_EN": "NumberTales #103 Series Mass Production Version for Sales",
-    "ModelNumber": "APHR-NT [MP]103-*****"
+    "ModelNumber": "APHR-NT [MP]103-*****",
+    "Class": ["トライデュアルフォーズ"]
   },
   {
-    "Num": 104,
+    "Num": "104-mp",
     "Progress": "notProceeded",
-    "SameModels_DBLink": [{ "_DB": "SemiPrimary", "Num": "104-dev" }],
+    "SameModels_DBLink": [{ "_DB": "SemiPrimary", "Num": 104 }],
     "FormalName_JP": "量産型ナンバーテールズ104番機シリーズ",
     "FormalName_EN": "NumberTales #104 Series Mass Production Version for Sales",
-    "ModelNumber": "APHR-NT [MP]104-*****"
+    "ModelNumber": "APHR-NT [MP]104-*****",
+    "Class": ["トライデュアルファイブズ"]
   },
   {
-    "Num": 105,
+    "Num": "105-mp",
     "Progress": "notProceeded",
-    "SameModels_DBLink": [{ "_DB": "SemiPrimary", "Num": "105-dev" }],
+    "SameModels_DBLink": [{ "_DB": "SemiPrimary", "Num": 105 }],
     "FormalName_JP": "量産型ナンバーテールズ105番機シリーズ",
     "FormalName_EN": "NumberTales #105 Series Mass Production Version for Sales",
-    "ModelNumber": "APHR-NT [MP]105-*****"
+    "ModelNumber": "APHR-NT [MP]105-*****",
+    "Class": ["トライデュアルシックスズ"]
   },
   {
-    "Num": 106,
+    "Num": "106-mp",
     "Progress": "notProceeded",
-    "SameModels_DBLink": [{ "_DB": "SemiPrimary", "Num": "106-dev" }],
+    "SameModels_DBLink": [{ "_DB": "SemiPrimary", "Num": 106 }],
     "FormalName_JP": "量産型ナンバーテールズ106番機シリーズ",
     "FormalName_EN": "NumberTales #106 Series Mass Production Version for Sales",
-    "ModelNumber": "APHR-NT [MP]106-*****"
+    "ModelNumber": "APHR-NT [MP]106-*****",
+    "Class": ["トライデュアルセブンズ"]
   },
   {
-    "Num": 107,
+    "Num": "107-mp",
     "Progress": "notProceeded",
-    "SameModels_DBLink": [{ "_DB": "SemiPrimary", "Num": "107-dev" }],
+    "SameModels_DBLink": [{ "_DB": "SemiPrimary", "Num": 107 }],
     "FormalName_JP": "量産型ナンバーテールズ107番機シリーズ",
     "FormalName_EN": "NumberTales #107 Series Mass Production Version for Sales",
-    "ModelNumber": "APHR-NT [MP]107-*****"
+    "ModelNumber": "APHR-NT [MP]107-*****",
+    "Class": ["トライデュアルエイツ"]
   },
   {
-    "Num": 108,
+    "Num": "108-mp",
     "Progress": "notProceeded",
-    "SameModels_DBLink": [{ "_DB": "SemiPrimary", "Num": "108-dev" }],
+    "SameModels_DBLink": [{ "_DB": "SemiPrimary", "Num": 108 }],
     "FormalName_JP": "量産型ナンバーテールズ108番機シリーズ",
     "FormalName_EN": "NumberTales #108 Series Mass Production Version for Sales",
-    "ModelNumber": "APHR-NT [MP]108-*****"
+    "ModelNumber": "APHR-NT [MP]108-*****",
+    "Class": ["ナインズトライデュアルズ"]
   },
   {
-    "Num": 109,
+    "Num": "109-mp",
     "Progress": "notProceeded",
-    "SameModels_DBLink": [{ "_DB": "SemiPrimary", "Num": "109-dev" }],
+    "SameModels_DBLink": [{ "_DB": "SemiPrimary", "Num": 109 }],
     "FormalName_JP": "量産型ナンバーテールズ109番機シリーズ",
     "FormalName_EN": "NumberTales #109 Series Mass Production Version for Sales",
-    "ModelNumber": "APHR-NT [MP]109-*****"
+    "ModelNumber": "APHR-NT [MP]109-*****",
+    "Class": ["トライデュアルキャリーズ"]
   },
   {
-    "Num": 110,
+    "Num": "110-mp",
     "Progress": "notProceeded",
-    "SameModels_DBLink": [{ "_DB": "SemiPrimary", "Num": "110-dev" }],
+    "SameModels_DBLink": [{ "_DB": "SemiPrimary", "Num": 110 }],
     "FormalName_JP": "量産型ナンバーテールズ110番機シリーズ",
     "FormalName_EN": "NumberTales #110 Series Mass Production Version for Sales",
-    "ModelNumber": "APHR-NT [MP]110-*****"
+    "ModelNumber": "APHR-NT [MP]110-*****",
+    "Class": ["マスターテンズデュアルズ"]
   },
   {
     "sec_Category": null,
@@ -102,75 +112,85 @@
     ],
     "BustSize": "AA",
     "Class": ["マスタートリプル(量産販売型)"],
-    "TailsUnit_JP": "猫又(特殊)型1本3束[枝]",
-    "TailsUnit_EN": "Nekomata (Special) Type: 1 Tail, 3 Tufts [Branches]"
+    "TailsUnit_JP": "猫又(特殊)型3本[枝]",
+    "TailsUnit_EN": "Nekomata (Special) type: 3 tails/branches"
   },
   {
-    "Num": 112,
+    "Num": "112-mp",
     "Progress": "notProceeded",
-    "SameMPSeries_DBLink": [{ "_DB": "SemiPrimary", "Num": "112-dev" }],
+    "SameMPSeries_DBLink": [{ "_DB": "SemiPrimary", "Num": 112 }],
     "FormalName_JP": "量産型ナンバーテールズ112番機シリーズ",
     "FormalName_EN": "NumberTales #112 Series Mass Production Version for Sales",
-    "ModelNumber": "APHR-NT [MP]112-*****"
+    "ModelNumber": "APHR-NT [MP]112-*****",
+    "Class": ["デュオトリプル4型"]
   },
   {
-    "Num": 113,
+    "Num": "113-mp",
     "Progress": "notProceeded",
-    "SameMPSeries_DBLink": [{ "_DB": "SemiPrimary", "Num": "113-dev" }],
+    "SameMPSeries_DBLink": [{ "_DB": "SemiPrimary", "Num": 113 }],
     "FormalName_JP": "量産型ナンバーテールズ113番機シリーズ",
     "FormalName_EN": "NumberTales #113 Series Mass Production Version for Sales",
-    "ModelNumber": "APHR-NT [MP]113-*****"
+    "ModelNumber": "APHR-NT [MP]113-*****",
+    "Class": ["デュオトリプル5型"]
   },
   {
-    "Num": 114,
+    "Num": "114-mp",
     "Progress": "notProceeded",
-    "SameMPSeries_DBLink": [{ "_DB": "SemiPrimary", "Num": "114-dev" }],
+    "SameMPSeries_DBLink": [{ "_DB": "SemiPrimary", "Num": 114 }],
     "FormalName_JP": "量産型ナンバーテールズ114番機シリーズ",
     "FormalName_EN": "NumberTales #114 Series Mass Production Version for Sales",
-    "ModelNumber": "APHR-NT [MP]114-*****"
+    "ModelNumber": "APHR-NT [MP]114-*****",
+    "Class": ["デュオトリプル6型"]
   },
   {
-    "Num": 115,
+    "Num": "115-mp",
     "Progress": "stillTentative",
     "SameMPSeries_DBLink": [
-      { "_DB": "SemiPrimary", "Num": "115-dev" },
+      { "_DB": "SemiPrimary", "Num": 115 },
       { "_DB": "Secondary", "Num": "115-numberize" }
     ],
     "FormalName_JP": "量産型ナンバーテールズ115番機シリーズ",
     "FormalName_EN": "NumberTales #115 Series Mass Production Version for Sales",
-    "ModelNumber": "APHR-NT [MP]115-*****"
+    "ModelNumber": "APHR-NT [MP]115-*****",
+    "TailsUnit_JP": "猫又型2本+キツネ型5本",
+    "TailsUnit_EN": "Nekomata type: 2 tails/branches + Fox type: 5 tails",
+    "Class": ["デュオトリプル7型"]
   },
   {
-    "Num": 116,
+    "Num": "116-mp",
     "Progress": "notProceeded",
-    "SameMPSeries_DBLink": [{ "_DB": "SemiPrimary", "Num": "116-dev" }],
+    "SameMPSeries_DBLink": [{ "_DB": "SemiPrimary", "Num": 116 }],
     "FormalName_JP": "量産型ナンバーテールズ116番機シリーズ",
     "FormalName_EN": "NumberTales #116 Series Mass Production Version for Sales",
-    "ModelNumber": "APHR-NT [MP]116-*****"
+    "ModelNumber": "APHR-NT [MP]116-*****",
+    "Class": ["デュオトリプル8型"]
   },
   {
-    "Num": 117,
+    "Num": "117-mp",
     "Progress": "notProceeded",
-    "SameMPSeries_DBLink": [{ "_DB": "SemiPrimary", "Num": "117-dev" }],
+    "SameMPSeries_DBLink": [{ "_DB": "SemiPrimary", "Num": 117 }],
     "FormalName_JP": "量産型ナンバーテールズ117番機シリーズ",
     "FormalName_EN": "NumberTales #117 Series Mass Production Version for Sales",
-    "ModelNumber": "APHR-NT [MP]117-*****"
+    "ModelNumber": "APHR-NT [MP]117-*****",
+    "Class": ["デュオトリプル9型"]
   },
   {
-    "Num": 118,
+    "Num": "118-mp",
     "Progress": "notProceeded",
-    "SameMPSeries_DBLink": [{ "_DB": "SemiPrimary", "Num": "118-dev" }],
+    "SameMPSeries_DBLink": [{ "_DB": "SemiPrimary", "Num": 118 }],
     "FormalName_JP": "量産型ナンバーテールズ118番機シリーズ",
     "FormalName_EN": "NumberTales #118 Series Mass Production Version for Sales",
-    "ModelNumber": "APHR-NT [MP]118-*****"
+    "ModelNumber": "APHR-NT [MP]118-*****",
+    "Class": ["デュオトリプル1型"]
   },
   {
-    "Num": 119,
+    "Num": "119-mp",
     "Progress": "notProceeded",
-    "SameMPSeries_DBLink": [{ "_DB": "SemiPrimary", "Num": "119-dev" }],
+    "SameMPSeries_DBLink": [{ "_DB": "SemiPrimary", "Num": 119 }],
     "FormalName_JP": "量産型ナンバーテールズ119番機シリーズ",
     "FormalName_EN": "NumberTales #119 Series Mass Production Version for Sales",
-    "ModelNumber": "APHR-NT [MP]119-*****"
+    "ModelNumber": "APHR-NT [MP]119-*****",
+    "Class": ["デュオトリプル2型"]
   },
   {
     "Num": 120,
@@ -288,9 +308,9 @@
     "Progress": "notProceeded",
     "Name_JP": "153(ヒゴミ)",
     "Name_EN": "153(Unipetri)",
-    "FormalName_JP": "量産型ナンバーテールズ153番機シリーズ",
-    "FormalName_EN": "NumberTales #153 Series Mass Production Version for Sales",
-    "ModelNumber": "APHR-NT [MP]153-*****",
+    "FormalName_JP": "量産型ナンバーテールズ153番機NCシリーズ(ナンバーテールズ153番機)",
+    "FormalName_EN": "NumberTales #153-NC Series Mass Production Version for Sales (NumberTales #153)",
+    "ModelNumber": "APHR-NT [MP]153-NC***",
     "CodeName_JP": "一五三",
     "CodeName_EN": "One-Five-Three",
     "GenderType": "Neutral",
@@ -396,20 +416,44 @@
     "ConceptAge": 16,
     "Weight_kg": 42,
     "BustSize": "A",
-    "Class": ["マスタートリプル(量産販売型)"],
     "TailsUnit_JP": "尾鰭(特殊)型3本2枝",
-    "TailsUnit_EN": "Caudal-Fin (Special) Type: 3 Fins, 2 Branches"
+    "TailsUnit_EN": "Caudal-Fin (Special) Type: 3 Fins, 2 branches",
+    "Class": ["マスタートリプル(量産販売型)"]
+  },
+  {
+    "sec_Category": null,
+    "sec_DesignedBy": ["RadianN"],
+    "Num": 223,
+    "Progress": "notProseeded",
+    "Name_JP": "223(フブミ)",
+    "Name_EN": "223(Twitwintrey)",
+    "FormalName_JP": "量産型ナンバーテールズ223番機CRシリーズ(ナンバーテールズ223番機)",
+    "FormalName_EN": "NumberTales #223-CR Series Mass Production Version for Sales (NumberTales #223)",
+    "ModelNumber": "APHR-NT [MP]223-CR***",
+    "CodeName_JP": "二二三",
+    "CodeName_EN": "Two-Two-Three",
+    "GenderType": "Neutral",
+    "AnivDay": [
+      {
+        "Day": { "Month": 2, "DayOfMonth": 24 },
+        "DayAbout_JP": "開発記念(キャロルズ名義)",
+        "DayAbout_EN": "Development commemoration (in Caroles Class)"
+      }
+    ],
+    "TailsUnit_JP": "猫又型2本2枝+キツネ型3本",
+    "TailsUnit_EN": "Nekomata type: 2 tails/branches + Fox type: 3 tails",
+    "Class": ["デュオトリプル7型", "キャロルズ"]
   },
   {
     "sec_Category": "リクエストナンバー",
     "sec_DesignedBy": ["RadianN"],
-    "Num": 223,
+    "Num": "223-jw",
     "Progress": "nowRecreating",
-    "Images": { "concept_PNGName": "cnsp_img223" },
+    "Images": { "concept_PNGName": "cnsp_img223-jw" },
     "Name_JP": "223(ツヅサ)",
     "Name_EN": "223(Twitwenthir)",
-    "FormalName_JP": "量産型ナンバーテールズ223番機JWシリーズ(ナンバーテールズ223番機)",
-    "FormalName_EN": "NumberTales #223-JW Series Mass Production Version for Sales (NumberTales #223)",
+    "FormalName_JP": "量産型ナンバーテールズ223番機JWシリーズ(ナンバーテールズ異格223番機)",
+    "FormalName_EN": "NumberTales #223-JW Series Mass Production Version for Sales (NumberTales Isotope-#223)",
     "ModelNumber": "APHR-NT [MP]223-JW***",
     "CodeName_JP": "二二三",
     "CodeName_EN": "Two-Two-Three",
@@ -428,7 +472,7 @@
     "Weight_kg": 41,
     "BustSize": "AA",
     "TailsUnit_JP": "サソリ型2本×11束[節]+キツネ型3本",
-    "TailsUnit_EN": "Scorpion Type: 2 Tails x 11 Tufts/Segments + Fox Type: 3 Tails",
+    "TailsUnit_EN": "Scorpion type: 2 tails x 11 cluster/segments + Fox type: 3 tails",
     "Class": ["デュオトリプル7型", "ワノマチ"]
   },
   {
@@ -666,9 +710,9 @@
     "Progress": "notProceeded",
     "Name_JP": "365(イヤース)",
     "Name_EN": "365(Yearß)",
-    "FormalName_JP": "量産型ナンバーテールズ365番機シリーズ",
-    "FormalName_EN": "NumberTales #365 Series Mass Production Version for Sales",
-    "ModelNumber": "APHR-NT [MP]365-*****",
+    "FormalName_JP": "量産型ナンバーテールズ365番機GCシリーズ",
+    "FormalName_EN": "NumberTales #365-GC Series Mass Production Version for Sales",
+    "ModelNumber": "APHR-NT [MP]365-GC***",
     "CodeName_JP": "三六五",
     "CodeName_EN": "Three-Six-Five",
     "SPCodeName_EN": "Days of Year",
@@ -683,9 +727,9 @@
     "SameMPSeries_DBLink": [{ "_DB": "Secondary", "Num": "366-numberize" }],
     "Name_JP": "366(ウルウニチ)",
     "Name_EN": "366(Leaperlica)",
-    "FormalName_JP": "量産型ナンバーテールズ366番機シリーズ",
-    "FormalName_EN": "NumberTales #366 Series Mass Production Version for Sales",
-    "ModelNumber": "APHR-NT [MP]366-*****",
+    "FormalName_JP": "量産型ナンバーテールズ366番機GCシリーズ",
+    "FormalName_EN": "NumberTales #366-GC Series Mass Production Version for Sales",
+    "ModelNumber": "APHR-NT [MP]366-GC***",
     "CodeName_JP": "三六六",
     "CodeName_EN": "Three-Six-Six",
     "SPCodeName_EN": "Days of Leaped-Year",
@@ -713,9 +757,9 @@
     "Progress": "notProceeded",
     "Name_JP": "370(サチマル)",
     "Name_EN": "370(Threeventy)",
-    "FormalName_JP": "量産型ナンバーテールズ370番機シリーズ",
-    "FormalName_EN": "NumberTales #370 Series Mass Production Version for Sales",
-    "ModelNumber": "APHR-NT [MP]370-*****",
+    "FormalName_JP": "量産型ナンバーテールズ370番機NCシリーズ（ナンバーテールズ370番機）",
+    "FormalName_EN": "NumberTales #370-NC Series Mass Production Version for Sales (NumberTales #370)",
+    "ModelNumber": "APHR-NT [MP]370-NC***",
     "CodeName_JP": "三七〇",
     "CodeName_EN": "Three-Seven-Zero",
     "GenderType": "Neutral",
@@ -728,9 +772,9 @@
     "Progress": "notProceeded",
     "Name_JP": "371(ミナヒト)",
     "Name_EN": "371(Treventone)",
-    "FormalName_JP": "量産型ナンバーテールズ371番機シリーズ",
-    "FormalName_EN": "NumberTales #371 Series Mass Production Version for Sales",
-    "ModelNumber": "APHR-NT [MP]371-*****",
+    "FormalName_JP": "量産型ナンバーテールズ371番機NCシリーズ（ナンバーテールズ371番機）",
+    "FormalName_EN": "NumberTales #371-NC Series Mass Production Version for Sales (NumberTales #371)",
+    "ModelNumber": "APHR-NT [MP]371-NC***",
     "CodeName_JP": "三七一",
     "CodeName_EN": "Three-Seven-One",
     "GenderType": "Neutral",
@@ -803,17 +847,19 @@
     "Class": ["トリプルナインズ"]
   },
   {
-    "Num": 400,
+    "Num": "400-gc",
     "Progress": "notProceeded",
-    "SameMPSeries_DBLink": [
-      { "_DB": "SemiPrimary", "Num": "400-dev" },
-      { "_DB": "SemiPrimary", "Num": "400-sq" }
-    ],
-    "FormalName_JP": "量産型ナンバーテールズ400番機シリーズ",
-    "FormalName_EN": "NumberTales #400 Series Mass Production Version for Sales",
-    "ModelNumber": "APHR-NT [MP]400-*****",
+    "SameMPSeries_DBLink": [{ "_DB": "SemiPrimary", "Num": "400-sq" }],
+    "AnotherVersions_DBLink": [{ "_DB": "SemiPrimary", "Num": 400 }],
+    "Name_JP": "400(マタウルウ)",
+    "Name_EN": "400(Leap-againer)",
+    "FormalName_JP": "量産型ナンバーテールズ400番機GCシリーズ",
+    "FormalName_EN": "NumberTales #400-GC Series Mass Production Version for Sales",
+    "ModelNumber": "APHR-NT [MP]400-GC***",
     "CodeName_JP": "四〇〇",
     "CodeName_EN": "Four-Zero-Zero",
+    "SPCodeName_JP": "閏周期",
+    "SPCodeName_EN": "Leap Term(by years)",
     "GenderType": "Neutral",
     "Class": ["百倍番(ハンドレッズデジッツ)"]
   },
@@ -849,9 +895,9 @@
     "Progress": "notProceeded",
     "Name_JP": "407(シレナ)",
     "Name_EN": "407(Fore-o-sept)",
-    "FormalName_JP": "量産型ナンバーテールズ407番機シリーズ",
-    "FormalName_EN": "NumberTales #407 Series Mass Production Version for Sales",
-    "ModelNumber": "APHR-NT [MP]407-*****",
+    "FormalName_JP": "量産型ナンバーテールズ407番機NCシリーズ（ナンバーテールズ407番機）",
+    "FormalName_EN": "NumberTales #407-NC Series Mass Production Version for Sales (NumberTales #407)",
+    "ModelNumber": "APHR-NT [MP]407-NC***",
     "CodeName_JP": "四〇七",
     "CodeName_EN": "Four-Zero-Seven",
     "GenderType": "Neutral",
@@ -1407,6 +1453,26 @@
     "FormalName_EN": "NumberTales #888 Series Mass Production Version for Sales",
     "ModelNumber": "APHR-NT [MP]888-*****",
     "Class": ["マスタートリプル(量産販売型)"]
+  },
+  {
+    "Num": 959,
+    "Progress": "notProceeded",
+    "Name_JP": "959(クゴク)",
+    "Name_EN": "959(Nifinine)",
+    "FormalName_JP": "量産型ナンバーテールズ959番機CRシリーズ(ナンバーテールズ959番機)",
+    "FormalName_EN": "NumberTales #959-CR Series Mass Production Version for Sales (NumberTales #959)",
+    "ModelNumber": "APHR-NT [MP]959-CR***",
+    "CodeName_JP": "九五九",
+    "CodeName_EN": "Nine-Five-Nine",
+    "GenderType": "Neutral",
+    "AnivDay": [
+      {
+        "Day": { "Month": 2, "DayOfMonth": 25 },
+        "DayAbout_JP": "開発記念(キャロルズ名義)",
+        "DayAbout_EN": "Development commemoration (in Caroles Class)"
+      }
+    ],
+    "Class": ["デュオトリプル5型", "キャロルズ"]
   },
   {
     "Num": 966,

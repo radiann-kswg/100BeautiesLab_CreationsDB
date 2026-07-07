@@ -50,5 +50,6 @@
     "npx.cmd": true,
     "ConvertFrom-Json": true,
     "ConvertTo-Json": true
-  }
+  },
+  "js/ts.experimental.useTsgo": false
 }
