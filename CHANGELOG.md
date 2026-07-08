@@ -1,5 +1,15 @@
 # 最新のリファクタリング・仕様変更履歴
 
+### fix: `addon-ai-tag` の AIHints 生成ロジックを新しい構造化 `TailsUnit` に追従 (2026-07-08)
+
+`addon-ai-tag` ブランチの AIHints 生成 CLI ツール `tools/patch-aihints.mjs` が、`develop` で構造化型へ移行済みの `TailsUnit`（旧: 自由記述文字列）に未追従で、渡すと常に `null` を返し尻尾関連の生成内容が空・ゴミ文字列化する状態だったのを修正。
+
+- **`tools/patch-aihints.mjs`**: `parseTailsUnit(tailsUnit, varsDef)` を `TailsUnit[0]`（先頭エントリ）から `TailShapeType`/`Count`/`Segment`/`Branches`/`LayoutDirection` を構造的に読み取る実装へ全面書き換え（`$EnumDef_TailShapeType`/`$EnumDef_Laterality` は既存の `resolveEnumLabelEN`/`loadMergedVarsDef` を再利用して解決）。`buildTailDescription` を新形状に追従、新関数 `buildTailBundleDescription` を追加し、シルエット説明テンプレを `Branches[]`/`LayoutDirection` の実データから TODO なしで具体的に自動生成するよう改善。`unit`（feather/blade 区別）は新スキーマに概念が存在しないため廃止。耳タグ（`"fox ears"` 等）は Fox/Cat/Nekomata/Dog 系統のみに限定し、他形状は暫定的に既存の TODO フォールバックへ委ねる（正式な切り分けは `develop` 側の DB/スキーマ調整で対応予定）。死んだ `ELEMENT_CATEGORY` エントリ（`#Element_TailsUnit`、対応する `AppearanceDetail` enum 値が既に削除済みのため到達不能）を削除。
+- **副次的なバグ修正**: `tools/patch-aihints.mjs` 冒頭の shebang 行（`#!/usr/bin/env node`）が、Windows 環境の CRLF 改行と組み合わさると Vite/Vitest の SSR モジュール変換で `SyntaxError` を起こす潜在バグを発見（このファイルを import するテストがこれまで存在せず未発見だった）。実行は常に `node tools/patch-aihints.mjs ...` 形式のためshebangは不要と判断し削除。
+- **`.github/prompts/aihints-fill.prompt.md`** / **`docs/ai-hints-usage.md`**: 旧フラット文字列前提の「TailsUnit 変換早見表」等を、新しい構造化フィールドの読み方（enum 辞書解決込み）の説明に更新。
+- **`tests/patch-aihints.tailsunit.test.js`（新規）**: `parseTailsUnit`/`buildTailDescription`/`buildTailBundleDescription` の変換結果を検証するテストを追加。
+- 確認: `npm test` 全件成功（207件）。dry-run（`--suggest`/`--fill-todos`/`--apply-identitymotif`/`--apply-appearancedetail`）を NumberTales Primary 全105件に対して実行し例外なし。1件（Num:12）に対する実 `--apply` → `git diff` 目視確認 → revert、および `--fill-todos` の重複挿入防止（冪等性）を2回連続適用で確認 → revert。
+
 ### add: `TailsUnit` に `LayoutDirection`（分岐の方向性）フィールドを追加 (2026-07-08)
 
 `$Def_TailsUnit` に `LayoutDirection`（`{LayoutFrom, LayoutTo}`、`$EnumDef_Laterality` 参照）を追加し、元の `TailsUnit_JP` にあった「上から下に向かって」「中央から周辺に向かって」のような全体の方向性を構造化した（`Branches[]` の各要素は個別の `Laterality` を持つのみで、段に位置語が無い場合は方向情報が失われていたのを補う）。

@@ -53,7 +53,7 @@ node tools/patch-aihints.mjs --records <Num> --suggest --apply
 
 | フィールド                     | 導出元                             | 変換方針                                                                                                               |
 | ------------------------------ | ---------------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
-| `identity_tags`                | `Num`, `TailsUnit`, `Class[]`      | Num を番号識別子に。TailsUnit から動物種を英語化。Class は固有名詞のまま残す。Summary に特徴的な外見描写があれば追加。 |
+| `identity_tags`                | `Num`, `TailsUnit`, `Class[]`      | Num を番号識別子に。TailsUnit[0] の `TailShapeType` を `$EnumDef_TailShapeType` で英語化。Class は固有名詞のまま残す。Summary に特徴的な外見描写があれば追加。 |
 | `silhouette_features`          | `TailsUnit` + `Summary` の視覚描写 | 耳・尾を英語化。髪色・目色は Summary に記述があれば抽出。なければ TODO 維持。                                          |
 | `immutable_traits`             | `TailsUnit`                        | 動物耳の種類・尾の本数を `(immutable)` 付きで英語化。                                                                  |
 | `expression_tendency`          | `Character`                        | 性格テキストのキーワードを表情タグに変換（→ 変換早見表を参照）。                                                       |
@@ -72,24 +72,24 @@ node tools/patch-aihints.mjs --records <Num> --suggest --apply
 
 ---
 
-### TailsUnit 変換早見表
+### TailsUnit の読み方（構造化型 `$Def_TailsUnit[]`）
 
-| 日本語     | 英語            |
-| ---------- | --------------- |
-| キツネ     | fox             |
-| キタキツネ | arctic fox      |
-| ウサギ     | rabbit          |
-| オオカミ   | wolf            |
-| タヌキ     | tanuki          |
-| ネコ       | cat             |
-| イヌ       | dog             |
-| トラ       | tiger           |
-| キジ       | pheasant        |
-| 枝分かれ   | branching       |
-| N本        | N tails         |
-| N枚        | N tail feathers |
+`TailsUnit` は自由記述ではなく構造化配列。**先頭エントリ `TailsUnit[0]`（主形状）のみ**を対象にする。
 
-**例**: `キツネ(枝分かれ)型4本(上1束3本+下2束1本)` → `branching fox 4 tails`
+| フィールド                | 内容                                                        | 英語化の方法                                                                 |
+| -------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------------------------ |
+| `TailShapeType`             | 形状の enum キー（例: `#TailShapeType_FoxBranched`）        | `data/db_meta.json` / 作品別 `db_meta.json` の `$EnumDef_TailShapeType` から `TailShapeType_EN` を引く（例: "Fox (branched)"）。 |
+| `Count`                     | 総本数（数値）                                               | そのまま `"N tails"` / `Count===1` なら `"single tail"`。                     |
+| `Segment`                   | 節・分割数（数値、任意）                                     | 補足情報。identity_tags 等では通常省略可。                                    |
+| `Branches[]`                | `{Laterality, TailCount, ClusterCount}` の配列（任意）       | 各 `Laterality` を `$EnumDef_Laterality` の `Laterality_EN` で解決し、`"<Laterality>: <TailCount> tails x<ClusterCount> clusters"` の形で列挙。 |
+| `LayoutDirection`           | `{LayoutFrom, LayoutTo}`（`Laterality` と同じ enum、任意）   | 同様に解決し `"from <From> to <To>"`。                                        |
+| `Note_JP` / `Note_EN`       | 補足自由記述（任意）                                          | 既に対訳が入っている場合はそのまま参照可。                                    |
+
+`$EnumDef_TailShapeType` / `$EnumDef_Laterality` は `tools/patch-aihints.mjs` の `loadMergedVarsDef(work)` / `resolveEnumLabelEN(varsDef, rawValue, enumDefKey, fieldBase)`（グローバル + 作品ローカル `db_meta.json` の `General.$VarsDef` をマージ）で解決する。同じロジックの export 済み関数 `parseTailsUnit(tailsUnit, varsDef)` / `buildTailDescription(tu)` / `buildTailBundleDescription(tu)` があるので、Agent セッションでも新規に変換ロジックを書かずこれらを再利用してよい。
+
+**例**（`Num: 148` 相当）: `TailsUnit[0] = {TailShapeType:'#TailShapeType_FoxBranched', Count:8, Branches:[{Laterality:'#Lat_Upper',TailCount:1,ClusterCount:3},{Laterality:null,TailCount:3,ClusterCount:2},{Laterality:'#Lat_Lower',TailCount:4,ClusterCount:1}], LayoutDirection:{LayoutFrom:'#Lat_Upper',LayoutTo:'#Lat_Lower'}}`
+→ `identity_tags`/`silhouette_features` 向け短句: `buildTailDescription` → `"branching fox 8 tails"`
+→ `silhouette_features` の内訳文: `buildTailBundleDescription` → `"exactly 8 tails total: from Upper to Lower — Upper: 1 tails x3 clusters, 3 tails x2 clusters, Lower: 4 tails x1 clusters, no more no less"`
 
 ### Character → expression_tendency 変換早見表（代表例）
 

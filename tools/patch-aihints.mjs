@@ -1,4 +1,3 @@
-#!/usr/bin/env node
 /**
  * patch-aihints.mjs
  *
@@ -951,6 +950,7 @@ function buildScaffold(record, imageInfo, work) {
     const ageBand = ageBandOf(record.ConceptAge);
     const conceptUrl = imageInfo.common.concept ?? null;
     const artUrls = imageInfo.corefolderArtImages.map(i => i.url);
+    const tailHint = buildTailDescription(parseTailsUnit(record.TailsUnit, loadMergedVarsDef(work)));
 
     const common = {
         identity_tags: [
@@ -958,7 +958,7 @@ function buildScaffold(record, imageInfo, work) {
             'TODO: add 3-5 more distinctive identity tags',
         ],
         silhouette_features: [
-            `TODO: describe silhouette (refer to TailsUnit: ${record.TailsUnit ?? 'N/A'})`,
+            `TODO: describe silhouette (refer to TailsUnit: ${tailHint})`,
         ],
         immutable_traits: [
             'digital construct (NumberTales unit)',
@@ -1152,78 +1152,128 @@ function buildHumanoidForm(num, genderTag, ageBand, images, conceptUrl) {
 // ────────────────────────────────────────────────────────────────────────────
 
 /**
- * TailsUnit 文字列から動物種・本数・形状を構造化して抽出する。
- * 創作内容の生成ではなく、既存文字列の変換・翻訳処理。
+ * `TailShapeType` の英語ラベルから、耳タグ等に使う簡易な種別語を機械的に導出する。
+ * 創作内容の生成ではなく、既存ラベル文字列の整形（括弧除去・小文字化・"type" 接尾辞除去）のみ。
+ * `normalizeMotifEntry`（IdentityMotif 系で使用中の括弧除去・小文字化ヘルパー）を再利用する。
  *
- * @param {string|undefined} tailsUnit
- * @returns {{ animal: string|null, count: number|null, branching: boolean, unit: 'tail'|'feather'|'blade' } | null}
+ * @param {string|null} shapeLabel  resolveEnumLabelEN 済みの $EnumDef_TailShapeType ラベル（例: "Fox (branched)"）
+ * @returns {string|null}
  */
-export function parseTailsUnit(tailsUnit) {
-    if (!tailsUnit || typeof tailsUnit !== 'string') return null;
+function deriveAnimalWordFromShapeLabel(shapeLabel) {
+    if (!shapeLabel) return null;
+    const stripped = normalizeMotifEntry(shapeLabel).replace(/-?\s*type\b/gi, '').trim();
+    return stripped || null;
+}
 
-    // 日本語動物名 → 英語タグのマッピング（出現順に優先）
-    const ANIMAL_MAP = [
-        ['キタキツネ', 'arctic fox'], ['キツネ', 'fox'],
-        ['シロウサギ', 'white rabbit'], ['ウサギ', 'rabbit'],
-        ['オオカミ', 'wolf'],
-        ['タヌキ', 'tanuki'],
-        ['ネコ', 'cat'],
-        ['イヌ', 'dog'],
-        ['トラ', 'tiger'], ['ヒョウ', 'leopard'],
-        ['クマ', 'bear'], ['パンダ', 'panda'],
-        ['キジ', 'pheasant'], ['カラス', 'crow'], ['ハト', 'dove'],
-        ['ヘビ', 'snake'], ['ドラゴン', 'dragon'],
-        ['ウシ', 'ox'], ['ウマ', 'horse'],
-        ['サル', 'monkey'], ['ネズミ', 'mouse'],
-        ['トナカイ', 'reindeer'], ['シカ', 'deer'],
-        ['ヒツジ', 'sheep'], ['ブタ', 'pig'],
-        ['タコ', 'octopus'], ['リス', 'squirrel'],
-        ['カメ', 'turtle'], ['ハチ', 'bee'],
-    ];
+/**
+ * `animalWord` が「耳」の概念が自然な系統（Fox/Cat/Nekomata/Dog 系）かどうかを判定する。
+ * Scorpion/Bud/CaudalFin/Octopus/Mixed/Reptile 等は対象外とし、
+ * 呼び出し側で既存の `TODO: ear type from TailsUnit` フォールバックへ委ねる。
+ * 暫定対応: 「耳」概念の正式な切り分けは develop ブランチ側の DB/スキーマ調整で行う予定。
+ * @param {string|null} animalWord
+ * @returns {boolean}
+ */
+function isEarBearingAnimalWord(animalWord) {
+    return typeof animalWord === 'string' && /^(fox|cat|nekomata|dog)/i.test(animalWord);
+}
 
-    let animal = null;
-    for (const [jp, en] of ANIMAL_MAP) {
-        if (tailsUnit.includes(jp)) { animal = en; break; }
-    }
+/**
+ * `TailsUnit`（構造化配列 `$Def_TailsUnit[]`）の先頭エントリから、
+ * 形状・本数・分岐・方向を構造化して抽出する。創作内容の生成ではなく、
+ * 既存の enum キー（`TailShapeType`/`Laterality`）を `$EnumDef_*` で解決するだけの変換処理。
+ * 複数エントリを持つレコードでも `TailsUnit[0]`（主形状）のみを対象とする。
+ *
+ * @param {Array<any>|undefined} tailsUnit  record.TailsUnit（$Def_TailsUnit[]）
+ * @param {Record<string, any>} varsDef     loadMergedVarsDef() の返り値
+ * @returns {{
+ *   shapeLabel: string,
+ *   animalWord: string|null,
+ *   count: number|null,
+ *   segment: number|null,
+ *   branches: Array<{ lateralityLabel: string|null, tailCount: number|null, clusterCount: number|null }>|null,
+ *   direction: { fromLabel: string|null, toLabel: string|null }|null,
+ *   branching: boolean,
+ * } | null}
+ */
+export function parseTailsUnit(tailsUnit, varsDef) {
+    if (!Array.isArray(tailsUnit) || tailsUnit.length === 0) return null;
+    const entry = tailsUnit[0];
+    if (!entry || typeof entry !== 'object') return null;
 
-    // 本数: "N本" / "N枚" / "Nつ" のパターンを抽出
-    const countMatch = tailsUnit.match(/(\d+)(?:本|枚|つ)/);
-    const count = countMatch ? Number(countMatch[1]) : null;
+    const shapeLabel = resolveEnumLabelEN(varsDef, entry.TailShapeType, '$EnumDef_TailShapeType', 'TailShapeType');
+    if (!shapeLabel) return null;
 
-    // 形状修飾子
-    const branching = tailsUnit.includes('枝分かれ');
+    const count = typeof entry.Count === 'number' ? entry.Count : null;
+    const segment = typeof entry.Segment === 'number' ? entry.Segment : null;
 
-    // 単位種別（尾・羽・刃）
-    let unit = 'tail';
-    if (tailsUnit.includes('羽') || (tailsUnit.includes('枚') && !tailsUnit.includes('本'))) {
-        unit = 'feather';
-    } else if (tailsUnit.includes('刃') || tailsUnit.includes('ブレード')) {
-        unit = 'blade';
-    }
+    const branches = (Array.isArray(entry.Branches) && entry.Branches.length > 0)
+        ? entry.Branches.filter(b => b && typeof b === 'object').map(b => ({
+            lateralityLabel: b.Laterality
+                ? (resolveEnumLabelEN(varsDef, b.Laterality, '$EnumDef_Laterality', 'Laterality') || null)
+                : null,
+            tailCount: typeof b.TailCount === 'number' ? b.TailCount : null,
+            clusterCount: typeof b.ClusterCount === 'number' ? b.ClusterCount : null,
+        }))
+        : null;
 
-    return { animal, count, branching, unit };
+    const direction = (entry.LayoutDirection && typeof entry.LayoutDirection === 'object')
+        ? {
+            fromLabel: entry.LayoutDirection.LayoutFrom
+                ? (resolveEnumLabelEN(varsDef, entry.LayoutDirection.LayoutFrom, '$EnumDef_Laterality', 'Laterality') || null)
+                : null,
+            toLabel: entry.LayoutDirection.LayoutTo
+                ? (resolveEnumLabelEN(varsDef, entry.LayoutDirection.LayoutTo, '$EnumDef_Laterality', 'Laterality') || null)
+                : null,
+        }
+        : null;
+
+    const branching = Array.isArray(branches) && branches.length > 1;
+    const animalWord = deriveAnimalWordFromShapeLabel(shapeLabel);
+
+    return { shapeLabel, animalWord, count, segment, branches, direction, branching };
 }
 
 /**
  * TailsUnit 解析結果から尾の英語説明文字列を生成する。
- * @param {{ animal: string|null, count: number|null, branching: boolean, unit: string } | null} tu
+ * @param {ReturnType<typeof parseTailsUnit>} tu
  * @returns {string}
  */
 export function buildTailDescription(tu) {
-    if (!tu?.animal) return 'TODO: tail description from TailsUnit';
+    if (!tu?.shapeLabel || tu.count == null) return 'TODO: tail description from TailsUnit';
     const parts = [];
     if (tu.branching) parts.push('branching');
-    parts.push(tu.animal);
-    if (tu.count !== null) {
-        if (tu.unit === 'feather') {
-            parts.push(tu.count === 1 ? 'single tail feather' : `${tu.count} tail feathers`);
-        } else {
-            parts.push(tu.count === 1 ? 'single tail' : `${tu.count} tails`);
-        }
-    } else {
-        parts.push('tail(s)');
-    }
+    parts.push(tu.animalWord || tu.shapeLabel.toLowerCase());
+    parts.push(tu.count === 1 ? 'single tail' : `${tu.count} tails`);
     return parts.join(' ');
+}
+
+/**
+ * TailsUnit 解析結果から、画像生成 AI 向けの「尾本数の内訳」説明文字列を生成する。
+ * `Branches`/`LayoutDirection` の実データがあれば TODO なしで具体的に組み立て、
+ * 無ければ本数のみの簡潔な文に留める（`lib/section-renders/tailsUnit.js` の
+ * `formatBranch`/`formatLayoutDirection` と同じ "N tails xM clusters" 表記規約を踏襲）。
+ *
+ * @param {ReturnType<typeof parseTailsUnit>} tu
+ * @returns {string|null}
+ */
+export function buildTailBundleDescription(tu) {
+    if (!tu?.count) return null;
+    const tailWord = tu.count === 1 ? 'tail' : 'tails';
+    const branchTexts = (Array.isArray(tu.branches) ? tu.branches : [])
+        .filter(b => b.tailCount != null && b.clusterCount != null)
+        .map(b => {
+            const pair = `${b.tailCount} tails x${b.clusterCount} clusters`;
+            return b.lateralityLabel ? `${b.lateralityLabel}: ${pair}` : pair;
+        });
+
+    if (branchTexts.length === 0) {
+        return `exactly ${tu.count} ${tailWord} total, no more no less`;
+    }
+
+    const dir = (tu.direction?.fromLabel && tu.direction?.toLabel)
+        ? `from ${tu.direction.fromLabel} to ${tu.direction.toLabel} — `
+        : '';
+    return `exactly ${tu.count} ${tailWord} total: ${dir}${branchTexts.join(', ')}, no more no less`;
 }
 
 /**
@@ -1292,19 +1342,18 @@ function buildNlDescriptionHint(summary) {
 /**
  * TailsUnit 解析結果と形態種別から negative_visuals の推定リストを生成する。
  *
- * @param {{ animal: string|null, count: number|null, branching: boolean, unit: string } | null} tu
+ * @param {ReturnType<typeof parseTailsUnit>} tu
  * @param {'corefolder'|'humanoid'} formType
  * @returns {string[]}
  */
 function buildNegativeVisuals(tu, formType) {
     const negatives = [];
     // キャラクター自身の動物以外の耳タグを禁止（混入しやすい耳を先に列挙）
-    if (!tu?.animal || tu.animal !== 'cat')    negatives.push('cat ears');
-    if (!tu?.animal || tu.animal !== 'rabbit') negatives.push('rabbit ears');
+    if (!tu?.animalWord || tu.animalWord !== 'cat')    negatives.push('cat ears');
+    if (!tu?.animalWord || tu.animalWord !== 'rabbit') negatives.push('rabbit ears');
     // 正規尾数と異なる本数の禁止
     if (tu?.count != null) {
-        const tailWord = tu.unit === 'feather' ? 'tail feather(s)' : 'tail(s)';
-        negatives.push(`fewer or more than ${tu.count} ${tailWord}`);
+        negatives.push(`fewer or more than ${tu.count} tail(s)`);
     }
     // 形態固有の服装制約
     // 注意: 'safety device harness' は 15(トウゴ)固有の設定。標準キャラのデフォルトには含めない
@@ -1324,7 +1373,7 @@ function buildNegativeVisuals(tu, formType) {
  * @param {number} num
  * @param {string} genderTag
  * @param {string} ageBand
- * @param {{ animal: string|null, count: number|null, branching: boolean, unit: string } | null} tu
+ * @param {ReturnType<typeof parseTailsUnit>} tu
  * @param {string} url                corefolder 代表画像 URL
  * @param {any} record
  * @param {string|null} conceptUrl    concept 画像 URL（形態共通デザイン基準。main に優先）
@@ -1333,7 +1382,7 @@ function buildNegativeVisuals(tu, formType) {
  */
 function buildSuggestedCorefolderForm(num, genderTag, ageBand, tu, url, record, conceptUrl, artUrls) {
     const tailDesc = buildTailDescription(tu);
-    const earTag = tu?.animal ? `${tu.animal} ears` : 'TODO: ear type from TailsUnit';
+    const earTag = isEarBearingAnimalWord(tu?.animalWord) ? `${tu.animalWord} ears` : 'TODO: ear type from TailsUnit';
 
     const aiTags = [
         'corefolder form',
@@ -1381,7 +1430,7 @@ function buildSuggestedCorefolderForm(num, genderTag, ageBand, tu, url, record, 
  * @param {number} num
  * @param {string} genderTag
  * @param {string} ageBand
- * @param {{ animal: string|null, count: number|null, branching: boolean, unit: string } | null} tu
+ * @param {ReturnType<typeof parseTailsUnit>} tu
  * @param {Array<{url: string, label: string}>} images
  * @param {any} record
  * @param {string|null} conceptUrl  concept 画像 URL（形態共通デザイン基準）
@@ -1401,7 +1450,7 @@ function buildSuggestedHumanoidForm(num, genderTag, ageBand, tu, images, record,
     for (const [k, v] of Object.entries(extraHumanoid)) refs[k] = v;
 
     const tailDesc = buildTailDescription(tu);
-    const earTag = tu?.animal ? `${tu.animal} ears` : 'TODO: ear type from TailsUnit';
+    const earTag = isEarBearingAnimalWord(tu?.animalWord) ? `${tu.animalWord} ears` : 'TODO: ear type from TailsUnit';
 
     const aiTags = [
         'humanoid form',
@@ -1464,16 +1513,17 @@ function buildSuggestedScaffold(record, imageInfo, work) {
     const num = record.Num;
     const genderTag = genderTagOf(record.GenderType);
     const ageBand = ageBandOf(record.ConceptAge);
-    const tu = parseTailsUnit(record.TailsUnit);
+    const varsDef = loadMergedVarsDef(work);
+    const tu = parseTailsUnit(record.TailsUnit, varsDef);
     const conceptUrl = imageInfo.common.concept ?? null;
     const artUrls = imageInfo.corefolderArtImages.map(i => i.url);
     const exprHints = extractExpressionHints(record.Character);
     const tailDesc = buildTailDescription(tu);
-    const earTag = tu?.animal ? `${tu.animal} ears` : null;
+    const earTag = isEarBearingAnimalWord(tu?.animalWord) ? `${tu.animalWord} ears` : null;
 
     // identity_tags: Num + 動物種 + TODO（視覚的識別子は Agent / 手動で補完）
     const identityTags = [`number '${num}' as core identifier`];
-    if (tu?.animal) identityTags.push(`${tu.animal}-type android unit`);
+    if (tu?.animalWord) identityTags.push(`${tu.animalWord}-type android unit`);
     identityTags.push('TODO: add 2-3 distinctive visual identity tags');
 
     // silhouette_features: 耳・尾は確定。髪/目は視覚情報が必要のため TODO。
@@ -1482,22 +1532,15 @@ function buildSuggestedScaffold(record, imageInfo, work) {
     silhouetteFeatures.push(tailDesc);
     silhouetteFeatures.push('TODO: hair color and length');
     silhouetteFeatures.push('TODO: eye color');
-    // [D] 尾本数テンプレ：TailsUnit から本数 N が判明していれば「上下分袋構造」の TODO を付加
-    if (tu?.count != null && tu.count > 0) {
-        const unitWord = tu.unit === 'feather' ? 'tail feather(s)' : 'tail(s)';
-        silhouetteFeatures.push(
-            `exactly ${tu.count} ${unitWord} total: upper trunk forks into TODO bundles of TODO ${unitWord} each, lower trunk has TODO single ${unitWord}, no more no less`,
-        );
-    }
+    // [D] 尾本数テンプレ：TailsUnit の Branches/LayoutDirection 実データから具体的に生成（TODO なし）
+    const bundleDesc = buildTailBundleDescription(tu);
+    if (bundleDesc) silhouetteFeatures.push(bundleDesc);
 
     // immutable_traits: 構造的に変わらない形質（動物耳・尾の種類/本数）
     const immutableTraits = ['digital construct (NumberTales unit)'];
     if (earTag) immutableTraits.push(`${earTag} (immutable)`);
-    if (tu?.animal) {
-        const tailSpec = tu.count != null
-            ? `${tu.branching ? 'branching ' : ''}${tu.animal} ${tu.count > 1 ? `${tu.count} tails` : 'single tail'} (immutable count)`
-            : `${tu.animal} tail(s) (immutable)`;
-        immutableTraits.push(tailSpec);
+    if (tu?.shapeLabel) {
+        immutableTraits.push(`${buildTailDescription(tu)} (immutable count)`);
     }
     // [E] 番号ロゴの設置箱所を 1 スロットに固定（複数尾へのバラ擒き抑制）
     immutableTraits.push(
@@ -1599,9 +1642,10 @@ function stringifyAihintsBlock(aihints) {
  * @param {number} openIdx  レコード `{` のインデックス
  * @param {number} closeIdx レコード `}` のインデックス
  * @param {any} record      パース済みレコードオブジェクト
+ * @param {string} work     作品名（TailsUnit の $EnumDef_* 解決に使用）
  * @returns {{ text: string, changed: boolean }}
  */
-function fillJsonTodosInRecord(text, openIdx, closeIdx, record) {
+function fillJsonTodosInRecord(text, openIdx, closeIdx, record, work) {
     const recText = text.slice(openIdx, closeIdx + 1);
     const rec = JSON.parse(recText);
     if (!rec.AIHints) throw new Error('fillJsonTodosInRecord: AIHints key not found');
@@ -1670,19 +1714,18 @@ function fillJsonTodosInRecord(text, openIdx, closeIdx, record) {
 
     // --- common.silhouette_features: TailsUnit から尻尾本数テンプレを追記 ---
     // 目的: 画像生成 AI が尻尾本数を取り違える問題への対策（User 要望 [D]）。
-    // 既に "exactly N tails total: ..." 形式のエントリが含まれていれば再追加しない。
+    // 既に "exactly N tail(s) total: ..." 形式のエントリが含まれていれば再追加しない。
     if (Array.isArray(aihints.common?.silhouette_features)) {
-        const tu = parseTailsUnit(rec.TailsUnit);
-        if (tu?.count != null && tu.count > 0) {
-            const unitWord = tu.unit === 'feather' ? 'tail feather(s)' : 'tail(s)';
-            const templateRe = /^exactly\s+\d+\s+.*total:\s+upper\s+trunk/i;
+        const varsDef = loadMergedVarsDef(work);
+        const tu = parseTailsUnit(rec.TailsUnit, varsDef);
+        const bundleDesc = buildTailBundleDescription(tu);
+        if (bundleDesc) {
+            const templateRe = /^exactly\s+\d+\s+tails?\s+total[:,]/i;
             const alreadyHas = aihints.common.silhouette_features.some(
                 f => typeof f === 'string' && templateRe.test(f),
             );
             if (!alreadyHas) {
-                aihints.common.silhouette_features.push(
-                    `exactly ${tu.count} ${unitWord} total: upper trunk forks into TODO bundles of TODO ${unitWord} each, lower trunk has TODO single ${unitWord}, no more no less`,
-                );
+                aihints.common.silhouette_features.push(bundleDesc);
                 changed = true;
             }
         }
@@ -2515,10 +2558,11 @@ function synthesizeBaseColorFromMotif(bodyEntries) {
  * その他は IdentityMotif と structural default から再構築する。
  *
  * @param {any} record  パース済みレコード（IdentityMotif と AIHints を含む）
+ * @param {Record<string, any>} varsDef  loadMergedVarsDef() の返り値（TailsUnit の $EnumDef_* 解決に使用）
  * @returns {{ aihints: any, hasSource: boolean, formationsTouched: string[] }}
  *   hasSource=false の場合は IdentityMotif が無いか全空。呼び出し側で fallback クリアを行う。
  */
-function buildAihintsFromIdentityMotif(record) {
+function buildAihintsFromIdentityMotif(record, varsDef) {
     const num = record.Num;
     const baseAihints = record.AIHints ?? {};
     const existingCommon = baseAihints.common ?? {};
@@ -2528,7 +2572,7 @@ function buildAihintsFromIdentityMotif(record) {
     //   尻尾形状 = TailsUnit / 外見年齢 = ConceptAge / 体格 = Height_cm
     //   これらは IdentityMotif の文言で上書きされず、必ず構造ソースを正とする。
     const tailDesc = (() => {
-        const parsed = parseTailsUnit(record.TailsUnit);
+        const parsed = parseTailsUnit(record.TailsUnit, varsDef);
         if (!parsed) return null;
         const desc = buildTailDescription(parsed);
         if (typeof desc !== 'string' || desc.startsWith('TODO:')) return null;
@@ -2941,14 +2985,15 @@ function clearAihintsTagsForNoIdentityMotif(baseAihints) {
  * @param {number} openIdx
  * @param {number} closeIdx
  * @param {any} record
+ * @param {Record<string, any>} varsDef  loadMergedVarsDef() の返り値
  * @returns {{ text: string, changed: boolean, status: 'identitymotif-applied'|'identitymotif-unchanged'|'identitymotif-cleared'|'identitymotif-no-source'|'skipped-no-aihints' }}
  */
-function applyIdentityMotifToAihintsInRecord(text, openIdx, closeIdx, record) {
+function applyIdentityMotifToAihintsInRecord(text, openIdx, closeIdx, record, varsDef) {
     if (!record.AIHints) {
         return { text, changed: false, status: 'skipped-no-aihints' };
     }
 
-    const { aihints: newAihints, hasSource } = buildAihintsFromIdentityMotif(record);
+    const { aihints: newAihints, hasSource } = buildAihintsFromIdentityMotif(record, varsDef);
 
     /** @type {any} */
     let finalAihints;
@@ -2997,7 +3042,8 @@ function applyIdentityMotifToAihintsInRecord(text, openIdx, closeIdx, record) {
 //      CostumeItem            → outfit（outfit_features）
 //      Halo / Emblem / Tag    → attached（silhouette_notes.attached_items）
 //      NumberMark             → marking（immutable_traits。common へは Formation=null のみ反映）
-//      TailsUnit              → skip（TailsUnit フィールドを正源として扱うため二重化を避ける）
+//  - `#Element_TailsUnit`（AppearanceDetail の DesignElement 値）は既に削除済みのため
+//    ELEMENT_CATEGORY には登場しない。尻尾情報は常に TailsUnit フィールドを正源として扱う。
 //  - 尻尾本数・体格・年齢は IdentityMotif モードと同じく TailsUnit / Height_cm / ConceptAge を
 //    構造的正源として優先する（helper 関数を共用）。
 //  - Attrs（vdict_* / value_* / about_*）→ 英語フレーズの合成は
@@ -3017,7 +3063,6 @@ const ELEMENT_CATEGORY = new Map([
     ['#Element_Emblem', 'attached'],
     ['#Element_Tag', 'attached'],
     ['#Element_NumberMark', 'marking'],
-    ['#Element_TailsUnit', 'skip'],
 ]);
 
 /** work 単位でグローバル + 作品ローカルの $VarsDef をマージしてキャッシュする */
@@ -3204,7 +3249,7 @@ function buildAihintsFromAppearanceDetail(record, varsDef) {
 
     // ── 構造的正源（AppearanceDetail の記述より優先）──────────────
     const tailDesc = (() => {
-        const parsed = parseTailsUnit(record.TailsUnit);
+        const parsed = parseTailsUnit(record.TailsUnit, varsDef);
         if (!parsed) return null;
         const desc = buildTailDescription(parsed);
         return (typeof desc === 'string' && !desc.startsWith('TODO:')) ? desc : null;
@@ -3532,7 +3577,7 @@ function patchFileText(text, opts) {
                 results.push({ num, status: 'skipped-no-aihints' });
                 continue;
             }
-            const { text: newText, changed } = fillJsonTodosInRecord(text, openIdx, closeIdx, record);
+            const { text: newText, changed } = fillJsonTodosInRecord(text, openIdx, closeIdx, record, opts.work);
             text = newText;
             results.push({ num, status: changed ? 'todos-filled' : 'todos-unchanged' });
             continue;
@@ -3594,8 +3639,9 @@ function patchFileText(text, opts) {
                 results.push({ num, status: 'skipped-no-aihints' });
                 continue;
             }
+            const varsDef = loadMergedVarsDef(opts.work);
             const { text: newText, changed, status } = applyIdentityMotifToAihintsInRecord(
-                text, openIdx, closeIdx, record,
+                text, openIdx, closeIdx, record, varsDef,
             );
             text = newText;
             results.push({ num, status: changed ? status : (status === 'skipped-no-aihints' ? status : 'identitymotif-unchanged') });

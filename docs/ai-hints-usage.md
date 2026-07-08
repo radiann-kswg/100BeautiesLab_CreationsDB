@@ -290,7 +290,7 @@ node tools/patch-aihints.mjs --apply-vision-results --apply
 node .cache/fill-residual-todos.mjs --apply
 ```
 
-- `extractExpressionHints(Character)` / `parseTailsUnit(TailsUnit)` を使い、`expression` / `age` / `tail` / `ear` / `forms.*.natural_language_description` を JSON から補完する。
+- `extractExpressionHints(Character)` / `parseTailsUnit(TailsUnit, varsDef)` を使い、`expression` / `age` / `tail` / `ear` / `forms.*.natural_language_description` を JSON から補完する。`parseTailsUnit` は `TailsUnit` が構造化型 `$Def_TailsUnit[]` になったため `varsDef`（`loadMergedVarsDef(work)` の返り値）を第2引数に取る。この一回限りスクリプトは `.cache/`（Git 管轄外）に置かれ現存しないため、再作成する場合は新シグネチャに合わせること。
 - **`common.natural_language_description` は補完対象外**（作品設定本文に踏み込むため User 手動入力推奨）。
 
 #### Step 8: 回帰テスト
@@ -479,7 +479,7 @@ node tools/patch-aihints.mjs --work NumberTales --db Primary --all --apply-ident
   - `CostumeItem` → `outfit_features`
   - `Halo` / `Emblem` / `Tag` → `silhouette_notes.attached_items`
   - `NumberMark` → `immutable_traits`（`common` へは `Formation: null` のエントリのみ反映。corefolder/humanoid で位置が異なるのが通常のため、大半は formation 側の `ai_tags` / NLD に反映される）
-  - `TailsUnit` → 対象外（`TailsUnit` フィールドを構造的正源として使うため二重化を避ける）
+  - `TailsUnit` → 対象外（`TailsUnit` フィールドを構造的正源として使うため二重化を避ける。`TailsUnit` は現在 `$Def_TailsUnit[]`（`TailShapeType`/`Count`/`Segment`/`Branches`/`LayoutDirection`）の構造化型だが、この除外ルール自体は内部形状に関わらず変わらない）
 - 尻尾本数・体格・年齢は `IdentityMotif` モードと同じく `TailsUnit` / `Height_cm` / `ConceptAge` を構造的正源として優先する。
 - `Attrs[]`（`vdict_*` / `value_*` / `about_*`）からの英語フレーズ合成は、`lib/section-renders/appearanceDetail.js`（UI 表示用）と同じ解決規約（`$EnumDef_*` を global + 作品ローカルでマージ）に揃えている。
 - corefolder の `natural_language_description` は AppearanceDetail 由来の body_description / marking フレーズを直接連結して組み立てる（`IdentityMotif` モードの正規表現抽出とは別実装）。抽出できない部分は `TODO:` を残す。
