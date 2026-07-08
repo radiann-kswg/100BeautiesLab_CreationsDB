@@ -762,6 +762,47 @@
           "$display": { "auto": false, "sectionWrapper": "storyEraSection" }
         }
       ]
+    },
+    "$Def_SupersededDesignElement": {
+      "hashTag_JP": "廃止デザイン要素",
+      "$DefType": [
+        {
+          "hashTag": "DesignElement",
+          "$type": "#ListIndex",
+          "hashTag_JP": "旧デザイン要素キー",
+          "hashTag_EN": "Retired Design Element Key"
+        },
+        {
+          "hashTag": "SupersededByField",
+          "$type": "#String",
+          "hashTag_JP": "移行先フィールド名",
+          "hashTag_EN": "Superseded-By Field"
+        },
+        {
+          "hashTag": "SupersededByType",
+          "$type": "#String|#Null",
+          "hashTag_JP": "移行先の型",
+          "hashTag_EN": "Superseded-By Type"
+        },
+        {
+          "hashTag": "SupersededDate",
+          "$type": "#String|#Null",
+          "hashTag_JP": "移行日",
+          "hashTag_EN": "Superseded Date"
+        },
+        {
+          "hashTag": "Note_JP",
+          "$type": "#String|#Null",
+          "hashTag_JP": "補足（日本語）",
+          "hashTag_EN": "Note (JP)"
+        },
+        {
+          "hashTag": "Note_EN",
+          "$type": "#String_EN|#Null",
+          "hashTag_JP": "補足（英語）",
+          "hashTag_EN": "Note (EN)"
+        }
+      ]
     }
   },
   "$Def_DBLinkRef": {

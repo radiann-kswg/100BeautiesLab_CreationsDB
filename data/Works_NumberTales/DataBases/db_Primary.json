@@ -247,7 +247,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Ear",
-            "vdict_EarType": "#EarType_Fox",
+            "vdict_EarShapeType": "#EarShapeType_Fox",
             "about_JP": "左耳が垂れている",
             "about_EN": "left ear droops"
           }
@@ -894,7 +894,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Ear",
-            "vdict_EarType": "#EarType_Fox",
+            "vdict_EarShapeType": "#EarShapeType_Fox",
             "about_JP": "右耳が垂れている",
             "about_EN": "right ear droops"
           }
@@ -1438,7 +1438,10 @@
         "Laterality": "#Lat_Both",
         "DesignElement": "#Element_Ear",
         "Attrs": [
-          { "AttrLabel": "#DesignAttr_Ear", "vdict_EarType": "#EarType_Fox" }
+          {
+            "AttrLabel": "#DesignAttr_Ear",
+            "vdict_EarShapeType": "#EarShapeType_Fox"
+          }
         ],
         "img_PNGName": null,
         "Note_JP": null,
@@ -1912,7 +1915,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Ear",
-            "vdict_EarType": "#EarType_Fox",
+            "vdict_EarShapeType": "#EarShapeType_Fox",
             "about_JP": "垂れ耳",
             "about_EN": "drooping ears"
           }
@@ -2466,7 +2469,10 @@
         "Laterality": "#Lat_Both",
         "DesignElement": "#Element_Ear",
         "Attrs": [
-          { "AttrLabel": "#DesignAttr_Ear", "vdict_EarType": "#EarType_Fox" }
+          {
+            "AttrLabel": "#DesignAttr_Ear",
+            "vdict_EarShapeType": "#EarShapeType_Fox"
+          }
         ],
         "img_PNGName": null,
         "Note_JP": null,
@@ -3088,7 +3094,10 @@
         "Laterality": "#Lat_Both",
         "DesignElement": "#Element_Ear",
         "Attrs": [
-          { "AttrLabel": "#DesignAttr_Ear", "vdict_EarType": "#EarType_Fox" }
+          {
+            "AttrLabel": "#DesignAttr_Ear",
+            "vdict_EarShapeType": "#EarShapeType_Fox"
+          }
         ],
         "img_PNGName": null,
         "Note_JP": null,
@@ -3622,7 +3631,10 @@
         "Laterality": "#Lat_Both",
         "DesignElement": "#Element_Ear",
         "Attrs": [
-          { "AttrLabel": "#DesignAttr_Ear", "vdict_EarType": "#EarType_Fox" }
+          {
+            "AttrLabel": "#DesignAttr_Ear",
+            "vdict_EarShapeType": "#EarShapeType_Fox"
+          }
         ],
         "img_PNGName": null,
         "Note_JP": null,
@@ -4012,9 +4024,7 @@
         "DayAbout_EN": "Development commemoration"
       }
     ],
-    "Weight_kg": [
-      { "value": 43, "about_JP": "推定", "about_EN": "Presumption" }
-    ],
+    "Weight_kg": [{ "value": 43, "about_JP": "推定", "about_EN": "Presumption" }],
     "BustSize": "B",
     "TailsUnit": [
       {
@@ -4192,7 +4202,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Ear",
-            "vdict_EarType": "#EarType_Fox",
+            "vdict_EarShapeType": "#EarShapeType_Fox",
             "about_JP": "フードに隠れている",
             "about_EN": "hidden under the hood"
           }
@@ -4739,7 +4749,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Ear",
-            "vdict_EarType": "#EarType_Fox",
+            "vdict_EarShapeType": "#EarShapeType_Fox",
             "about_JP": "先がアクセントカラー",
             "about_EN": "with accent color tips"
           }
@@ -5093,10 +5103,7 @@
     "Progress": "released",
     "Images": {
       "concept_PNGName": "cnsp_img10",
-      "corefolder_PNGPath": [
-        "10/emstk_corefolder10-1",
-        "10/emstk_corefolder10-2"
-      ]
+      "corefolder_PNGPath": ["10/emstk_corefolder10-1", "10/emstk_corefolder10-2"]
     },
     "Name_JP": "10(ミツル)",
     "Name_EN": "10(Tenim)",
@@ -5307,7 +5314,10 @@
         "Laterality": "#Lat_Both",
         "DesignElement": "#Element_Ear",
         "Attrs": [
-          { "AttrLabel": "#DesignAttr_Ear", "vdict_EarType": "#EarType_Fox" }
+          {
+            "AttrLabel": "#DesignAttr_Ear",
+            "vdict_EarShapeType": "#EarShapeType_Fox"
+          }
         ],
         "img_PNGName": null,
         "Note_JP": null,
@@ -5850,7 +5860,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Ear",
-            "vdict_EarType": "#EarType_Cat",
+            "vdict_EarShapeType": "#EarShapeType_Cat",
             "about_JP": "フードに隠れている",
             "about_EN": "hidden under the hood"
           }
@@ -6377,7 +6387,10 @@
         "Laterality": "#Lat_Both",
         "DesignElement": "#Element_Ear",
         "Attrs": [
-          { "AttrLabel": "#DesignAttr_Ear", "vdict_EarType": "#EarType_Fox" }
+          {
+            "AttrLabel": "#DesignAttr_Ear",
+            "vdict_EarShapeType": "#EarShapeType_Fox"
+          }
         ],
         "img_PNGName": null,
         "Note_JP": null,
@@ -6877,7 +6890,10 @@
         "Laterality": "#Lat_Both",
         "DesignElement": "#Element_Ear",
         "Attrs": [
-          { "AttrLabel": "#DesignAttr_Ear", "vdict_EarType": "#EarType_Fox" }
+          {
+            "AttrLabel": "#DesignAttr_Ear",
+            "vdict_EarShapeType": "#EarShapeType_Fox"
+          }
         ],
         "img_PNGName": null,
         "Note_JP": null,
@@ -7293,11 +7309,7 @@
       {
         "value_JP": "ゼン.エデンズグリーン/皐月（夜月機関 第5幹部）",
         "value_EN": "Bene.Edensgreen / 'Satsuki' (Yadzuki Org. Executive Director.5)",
-        "_DBLink": {
-          "_Work": "PastDivers",
-          "_DB": "Primary",
-          "Lunar": "Satsuki"
-        }
+        "_DBLink": { "_Work": "PastDivers", "_DB": "Primary", "Lunar": "Satsuki" }
       }
     ],
     "FirstPersonCalling_JP": "私(わたし)",
@@ -7423,7 +7435,10 @@
         "Laterality": "#Lat_Both",
         "DesignElement": "#Element_Ear",
         "Attrs": [
-          { "AttrLabel": "#DesignAttr_Ear", "vdict_EarType": "#EarType_Fox" }
+          {
+            "AttrLabel": "#DesignAttr_Ear",
+            "vdict_EarShapeType": "#EarShapeType_Fox"
+          }
         ],
         "img_PNGName": null,
         "Note_JP": null,
@@ -8061,7 +8076,10 @@
         "Laterality": "#Lat_Both",
         "DesignElement": "#Element_Ear",
         "Attrs": [
-          { "AttrLabel": "#DesignAttr_Ear", "vdict_EarType": "#EarType_Fox" }
+          {
+            "AttrLabel": "#DesignAttr_Ear",
+            "vdict_EarShapeType": "#EarShapeType_Fox"
+          }
         ],
         "img_PNGName": null,
         "Note_JP": null,
@@ -8228,11 +8246,7 @@
           "Num": 51,
           "Comments": "「弟、発想力は認める」",
           "Comments_EN": "\"Brother, I have to admit - your ideas are creative\"",
-          "RelationLabel": [
-            "brother|sister",
-            "alternative|redesign",
-            "classmate"
-          ]
+          "RelationLabel": ["brother|sister", "alternative|redesign", "classmate"]
         },
         {
           "Num": 95,
@@ -8604,7 +8618,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Ear",
-            "vdict_EarType": "#EarType_Fox",
+            "vdict_EarShapeType": "#EarShapeType_Fox",
             "about_JP": "帽子を被っているときは隠れている",
             "about_EN": "hidden when wearing the hat"
           }
@@ -8948,9 +8962,7 @@
         "DayAbout_EN": "Development commemoration"
       }
     ],
-    "Weight_kg": [
-      { "value": 40, "about_JP": "推定", "about_EN": "Presumption" }
-    ],
+    "Weight_kg": [{ "value": 40, "about_JP": "推定", "about_EN": "Presumption" }],
     "BustSize": "AA",
     "TailsUnit": [
       {
@@ -9122,7 +9134,10 @@
         "Laterality": "#Lat_Both",
         "DesignElement": "#Element_Ear",
         "Attrs": [
-          { "AttrLabel": "#DesignAttr_Ear", "vdict_EarType": "#EarType_Fox" }
+          {
+            "AttrLabel": "#DesignAttr_Ear",
+            "vdict_EarShapeType": "#EarShapeType_Fox"
+          }
         ],
         "img_PNGName": null,
         "Note_JP": null,
@@ -9446,10 +9461,7 @@
     "Progress": "released",
     "Images": {
       "concept_PNGName": "cnsp_img18",
-      "corefolder_PNGPath": [
-        "18/emstk_corefolder18-1",
-        "18/emstk_corefolder18-2"
-      ]
+      "corefolder_PNGPath": ["18/emstk_corefolder18-1", "18/emstk_corefolder18-2"]
     },
     "Name_JP": "18(トウヤ)",
     "Name_EN": "18(Eighteeld)",
@@ -9633,7 +9645,10 @@
         "Laterality": "#Lat_Both",
         "DesignElement": "#Element_Ear",
         "Attrs": [
-          { "AttrLabel": "#DesignAttr_Ear", "vdict_EarType": "#EarType_Fox" }
+          {
+            "AttrLabel": "#DesignAttr_Ear",
+            "vdict_EarShapeType": "#EarShapeType_Fox"
+          }
         ],
         "img_PNGName": null,
         "Note_JP": null,
@@ -10078,7 +10093,10 @@
         "Laterality": "#Lat_Both",
         "DesignElement": "#Element_Ear",
         "Attrs": [
-          { "AttrLabel": "#DesignAttr_Ear", "vdict_EarType": "#EarType_Fox" }
+          {
+            "AttrLabel": "#DesignAttr_Ear",
+            "vdict_EarShapeType": "#EarShapeType_Fox"
+          }
         ],
         "img_PNGName": null,
         "Note_JP": null,
@@ -10549,7 +10567,10 @@
         "Laterality": "#Lat_Both",
         "DesignElement": "#Element_Ear",
         "Attrs": [
-          { "AttrLabel": "#DesignAttr_Ear", "vdict_EarType": "#EarType_Fox" }
+          {
+            "AttrLabel": "#DesignAttr_Ear",
+            "vdict_EarShapeType": "#EarShapeType_Fox"
+          }
         ],
         "img_PNGName": null,
         "Note_JP": null,
@@ -11142,7 +11163,10 @@
         "Laterality": "#Lat_Both",
         "DesignElement": "#Element_Ear",
         "Attrs": [
-          { "AttrLabel": "#DesignAttr_Ear", "vdict_EarType": "#EarType_Fox" }
+          {
+            "AttrLabel": "#DesignAttr_Ear",
+            "vdict_EarShapeType": "#EarShapeType_Fox"
+          }
         ],
         "img_PNGName": null,
         "Note_JP": null,
@@ -11635,7 +11659,10 @@
         "Laterality": "#Lat_Both",
         "DesignElement": "#Element_Ear",
         "Attrs": [
-          { "AttrLabel": "#DesignAttr_Ear", "vdict_EarType": "#EarType_Fox" }
+          {
+            "AttrLabel": "#DesignAttr_Ear",
+            "vdict_EarShapeType": "#EarShapeType_Fox"
+          }
         ],
         "img_PNGName": null,
         "Note_JP": null,
@@ -12260,7 +12287,10 @@
         "Laterality": "#Lat_Both",
         "DesignElement": "#Element_Ear",
         "Attrs": [
-          { "AttrLabel": "#DesignAttr_Ear", "vdict_EarType": "#EarType_Fox" }
+          {
+            "AttrLabel": "#DesignAttr_Ear",
+            "vdict_EarShapeType": "#EarShapeType_Fox"
+          }
         ],
         "img_PNGName": null,
         "Note_JP": null,
@@ -12788,7 +12818,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Ear",
-            "vdict_EarType": "#EarType_Fox",
+            "vdict_EarShapeType": "#EarShapeType_Fox",
             "about_JP": "先がアクセントカラー",
             "about_EN": "with accent color tips"
           }
@@ -13144,9 +13174,7 @@
         "DayAbout_EN": "Development commemoration"
       }
     ],
-    "Weight_kg": [
-      { "value": 42, "about_JP": "推定", "about_EN": "Presumption" }
-    ],
+    "Weight_kg": [{ "value": 42, "about_JP": "推定", "about_EN": "Presumption" }],
     "BustSize": "G",
     "TailsUnit": [
       {
@@ -13324,7 +13352,10 @@
         "Laterality": "#Lat_Both",
         "DesignElement": "#Element_Ear",
         "Attrs": [
-          { "AttrLabel": "#DesignAttr_Ear", "vdict_EarType": "#EarType_Fox" }
+          {
+            "AttrLabel": "#DesignAttr_Ear",
+            "vdict_EarShapeType": "#EarShapeType_Fox"
+          }
         ],
         "img_PNGName": null,
         "Note_JP": null,
@@ -13941,7 +13972,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Ear",
-            "vdict_EarType": "#EarType_Fox",
+            "vdict_EarShapeType": "#EarShapeType_Fox",
             "about_JP": "先が白のアクセントカラー",
             "about_EN": "with white accent color tips"
           }
@@ -15230,7 +15261,10 @@
         "Laterality": "#Lat_Both",
         "DesignElement": "#Element_Ear",
         "Attrs": [
-          { "AttrLabel": "#DesignAttr_Ear", "vdict_EarType": "#EarType_Fox" }
+          {
+            "AttrLabel": "#DesignAttr_Ear",
+            "vdict_EarShapeType": "#EarShapeType_Fox"
+          }
         ],
         "img_PNGName": null,
         "Note_JP": null,
@@ -15673,7 +15707,10 @@
         "Laterality": "#Lat_Both",
         "DesignElement": "#Element_Ear",
         "Attrs": [
-          { "AttrLabel": "#DesignAttr_Ear", "vdict_EarType": "#EarType_Fox" }
+          {
+            "AttrLabel": "#DesignAttr_Ear",
+            "vdict_EarShapeType": "#EarShapeType_Fox"
+          }
         ],
         "img_PNGName": null,
         "Note_JP": null,
@@ -16248,7 +16285,10 @@
         "Laterality": "#Lat_Both",
         "DesignElement": "#Element_Ear",
         "Attrs": [
-          { "AttrLabel": "#DesignAttr_Ear", "vdict_EarType": "#EarType_Fox" }
+          {
+            "AttrLabel": "#DesignAttr_Ear",
+            "vdict_EarShapeType": "#EarShapeType_Fox"
+          }
         ],
         "img_PNGName": null,
         "Note_JP": null,
@@ -16797,7 +16837,10 @@
         "Laterality": "#Lat_Both",
         "DesignElement": "#Element_Ear",
         "Attrs": [
-          { "AttrLabel": "#DesignAttr_Ear", "vdict_EarType": "#EarType_Fox" }
+          {
+            "AttrLabel": "#DesignAttr_Ear",
+            "vdict_EarShapeType": "#EarShapeType_Fox"
+          }
         ],
         "img_PNGName": null,
         "Note_JP": null,
@@ -17210,10 +17253,7 @@
     "Progress": "released",
     "Images": {
       "concept_PNGName": "cnsp_img32",
-      "corefolder_PNGPath": [
-        "32/emstk_corefolder32-1",
-        "32/emstk_corefolder32-2"
-      ]
+      "corefolder_PNGPath": ["32/emstk_corefolder32-1", "32/emstk_corefolder32-2"]
     },
     "Name_JP": "32(ミツギ)",
     "Name_EN": "32(Thirtwis)",
@@ -17420,7 +17460,10 @@
         "Laterality": "#Lat_Both",
         "DesignElement": "#Element_Ear",
         "Attrs": [
-          { "AttrLabel": "#DesignAttr_Ear", "vdict_EarType": "#EarType_Fox" }
+          {
+            "AttrLabel": "#DesignAttr_Ear",
+            "vdict_EarShapeType": "#EarShapeType_Fox"
+          }
         ],
         "img_PNGName": null,
         "Note_JP": null,
@@ -17974,7 +18017,10 @@
         "Laterality": "#Lat_Both",
         "DesignElement": "#Element_Ear",
         "Attrs": [
-          { "AttrLabel": "#DesignAttr_Ear", "vdict_EarType": "#EarType_Fox" }
+          {
+            "AttrLabel": "#DesignAttr_Ear",
+            "vdict_EarShapeType": "#EarShapeType_Fox"
+          }
         ],
         "img_PNGName": null,
         "Note_JP": null,
@@ -18599,7 +18645,10 @@
         "Laterality": "#Lat_Both",
         "DesignElement": "#Element_Ear",
         "Attrs": [
-          { "AttrLabel": "#DesignAttr_Ear", "vdict_EarType": "#EarType_Fox" }
+          {
+            "AttrLabel": "#DesignAttr_Ear",
+            "vdict_EarShapeType": "#EarShapeType_Fox"
+          }
         ],
         "img_PNGName": null,
         "Note_JP": null,
@@ -19131,7 +19180,10 @@
         "Laterality": "#Lat_Both",
         "DesignElement": "#Element_Ear",
         "Attrs": [
-          { "AttrLabel": "#DesignAttr_Ear", "vdict_EarType": "#EarType_Fox" }
+          {
+            "AttrLabel": "#DesignAttr_Ear",
+            "vdict_EarShapeType": "#EarShapeType_Fox"
+          }
         ],
         "img_PNGName": null,
         "Note_JP": null,
@@ -19732,7 +19784,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Ear",
-            "vdict_EarType": "#EarType_Fox",
+            "vdict_EarShapeType": "#EarShapeType_Fox",
             "about_JP": "大きくふわふわした広がり",
             "about_EN": "large, fluffy and spread out"
           }
@@ -20154,9 +20206,7 @@
         "DayAbout_EN": "Development commemoration"
       }
     ],
-    "Weight_kg": [
-      { "value": 42, "about_JP": "推定", "about_EN": "Presumption" }
-    ],
+    "Weight_kg": [{ "value": 42, "about_JP": "推定", "about_EN": "Presumption" }],
     "BustSize": "C",
     "TailsUnit": [
       {
@@ -20307,7 +20357,10 @@
         "Laterality": "#Lat_Both",
         "DesignElement": "#Element_Ear",
         "Attrs": [
-          { "AttrLabel": "#DesignAttr_Ear", "vdict_EarType": "#EarType_Fox" }
+          {
+            "AttrLabel": "#DesignAttr_Ear",
+            "vdict_EarShapeType": "#EarShapeType_Fox"
+          }
         ],
         "img_PNGName": null,
         "Note_JP": null,
@@ -20968,7 +21021,10 @@
         "Laterality": "#Lat_Both",
         "DesignElement": "#Element_Ear",
         "Attrs": [
-          { "AttrLabel": "#DesignAttr_Ear", "vdict_EarType": "#EarType_Fox" }
+          {
+            "AttrLabel": "#DesignAttr_Ear",
+            "vdict_EarShapeType": "#EarShapeType_Fox"
+          }
         ],
         "img_PNGName": null,
         "Note_JP": null,
@@ -21359,10 +21415,7 @@
     "Progress": "released",
     "Images": {
       "concept_PNGName": "cnsp_img40",
-      "corefolder_PNGPath": [
-        "40/emstk_corefolder40-1",
-        "40/emstk_corefolder40-2"
-      ]
+      "corefolder_PNGPath": ["40/emstk_corefolder40-1", "40/emstk_corefolder40-2"]
     },
     "Name_JP": "40(ヨソ)",
     "Name_EN": "40(Fortty)",
@@ -21523,7 +21576,10 @@
         "Laterality": "#Lat_Both",
         "DesignElement": "#Element_Ear",
         "Attrs": [
-          { "AttrLabel": "#DesignAttr_Ear", "vdict_EarType": "#EarType_Fox" }
+          {
+            "AttrLabel": "#DesignAttr_Ear",
+            "vdict_EarShapeType": "#EarShapeType_Fox"
+          }
         ],
         "img_PNGName": null,
         "Note_JP": null,
@@ -22038,7 +22094,10 @@
         "Laterality": "#Lat_Both",
         "DesignElement": "#Element_Ear",
         "Attrs": [
-          { "AttrLabel": "#DesignAttr_Ear", "vdict_EarType": "#EarType_Fox" }
+          {
+            "AttrLabel": "#DesignAttr_Ear",
+            "vdict_EarShapeType": "#EarShapeType_Fox"
+          }
         ],
         "img_PNGName": null,
         "Note_JP": null,
@@ -22640,7 +22699,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Ear",
-            "vdict_EarType": "#EarType_Fox",
+            "vdict_EarShapeType": "#EarShapeType_Fox",
             "about_JP": "先がアクセントカラー",
             "about_EN": "with accent color tips"
           }
@@ -23158,7 +23217,10 @@
         "Laterality": "#Lat_Both",
         "DesignElement": "#Element_Ear",
         "Attrs": [
-          { "AttrLabel": "#DesignAttr_Ear", "vdict_EarType": "#EarType_Fox" }
+          {
+            "AttrLabel": "#DesignAttr_Ear",
+            "vdict_EarShapeType": "#EarShapeType_Fox"
+          }
         ],
         "img_PNGName": null,
         "Note_JP": null,
@@ -23315,12 +23377,7 @@
           "Num": 34,
           "Comments": "「にぃにのざーこ★ばーか★」",
           "Comments_EN": "\"Big sibly is such a weakling ★ idiot ★\"",
-          "RelationLabel": [
-            "brother|sister",
-            "unmatched",
-            "abusing",
-            "classmate"
-          ]
+          "RelationLabel": ["brother|sister", "unmatched", "abusing", "classmate"]
         },
         {
           "Num": 46,
@@ -23685,7 +23742,10 @@
         "Laterality": "#Lat_Both",
         "DesignElement": "#Element_Ear",
         "Attrs": [
-          { "AttrLabel": "#DesignAttr_Ear", "vdict_EarType": "#EarType_Fox" }
+          {
+            "AttrLabel": "#DesignAttr_Ear",
+            "vdict_EarShapeType": "#EarShapeType_Fox"
+          }
         ],
         "img_PNGName": null,
         "Note_JP": null,
@@ -24184,7 +24244,10 @@
         "Laterality": "#Lat_Both",
         "DesignElement": "#Element_Ear",
         "Attrs": [
-          { "AttrLabel": "#DesignAttr_Ear", "vdict_EarType": "#EarType_Fox" }
+          {
+            "AttrLabel": "#DesignAttr_Ear",
+            "vdict_EarShapeType": "#EarShapeType_Fox"
+          }
         ],
         "img_PNGName": null,
         "Note_JP": null,
@@ -24650,7 +24713,10 @@
         "Laterality": "#Lat_Both",
         "DesignElement": "#Element_Ear",
         "Attrs": [
-          { "AttrLabel": "#DesignAttr_Ear", "vdict_EarType": "#EarType_Fox" }
+          {
+            "AttrLabel": "#DesignAttr_Ear",
+            "vdict_EarShapeType": "#EarShapeType_Fox"
+          }
         ],
         "img_PNGName": null,
         "Note_JP": null,
@@ -25184,7 +25250,10 @@
         "Laterality": "#Lat_Both",
         "DesignElement": "#Element_Ear",
         "Attrs": [
-          { "AttrLabel": "#DesignAttr_Ear", "vdict_EarType": "#EarType_Fox" }
+          {
+            "AttrLabel": "#DesignAttr_Ear",
+            "vdict_EarShapeType": "#EarShapeType_Fox"
+          }
         ],
         "img_PNGName": null,
         "Note_JP": null,
@@ -25730,7 +25799,10 @@
         "Laterality": "#Lat_Both",
         "DesignElement": "#Element_Ear",
         "Attrs": [
-          { "AttrLabel": "#DesignAttr_Ear", "vdict_EarType": "#EarType_Fox" }
+          {
+            "AttrLabel": "#DesignAttr_Ear",
+            "vdict_EarShapeType": "#EarShapeType_Fox"
+          }
         ],
         "img_PNGName": null,
         "Note_JP": null,
@@ -26098,9 +26170,7 @@
         "DayAbout_EN": "Development commemoration"
       }
     ],
-    "Weight_kg": [
-      { "value": 39, "about_JP": "推定", "about_EN": "Presumption" }
-    ],
+    "Weight_kg": [{ "value": 39, "about_JP": "推定", "about_EN": "Presumption" }],
     "BustSize": "A",
     "TailsUnit": [
       {
@@ -26147,11 +26217,7 @@
       {
         "value_JP": "花舞 流/卯月（夜月機関 第4幹部）",
         "value_EN": "Flur Flowee / 'Udzuki' (Yadzuki Org. Executive Director.4)",
-        "_DBLink": {
-          "_Work": "PastDivers",
-          "_DB": "Primary",
-          "Lunar": "Udzuki"
-        }
+        "_DBLink": { "_Work": "PastDivers", "_DB": "Primary", "Lunar": "Udzuki" }
       }
     ],
     "FirstPersonCalling_JP": "ボク",
@@ -26277,7 +26343,10 @@
         "Laterality": "#Lat_Both",
         "DesignElement": "#Element_Ear",
         "Attrs": [
-          { "AttrLabel": "#DesignAttr_Ear", "vdict_EarType": "#EarType_Fox" }
+          {
+            "AttrLabel": "#DesignAttr_Ear",
+            "vdict_EarShapeType": "#EarShapeType_Fox"
+          }
         ],
         "img_PNGName": null,
         "Note_JP": null,
@@ -27301,7 +27370,10 @@
         "Laterality": "#Lat_Both",
         "DesignElement": "#Element_Ear",
         "Attrs": [
-          { "AttrLabel": "#DesignAttr_Ear", "vdict_EarType": "#EarType_Fox" }
+          {
+            "AttrLabel": "#DesignAttr_Ear",
+            "vdict_EarShapeType": "#EarShapeType_Fox"
+          }
         ],
         "img_PNGName": null,
         "Note_JP": null,
@@ -27598,9 +27670,7 @@
         "DayAbout_EN": "2+5-type special plan establishment commemoration (in-story)"
       }
     ],
-    "Weight_kg": [
-      { "value": 42, "about_JP": "推定", "about_EN": "Presumption" }
-    ],
+    "Weight_kg": [{ "value": 42, "about_JP": "推定", "about_EN": "Presumption" }],
     "BustSize": "F",
     "TailsUnit": [
       {
@@ -27772,7 +27842,10 @@
         "Laterality": "#Lat_Both",
         "DesignElement": "#Element_Ear",
         "Attrs": [
-          { "AttrLabel": "#DesignAttr_Ear", "vdict_EarType": "#EarType_Fox" }
+          {
+            "AttrLabel": "#DesignAttr_Ear",
+            "vdict_EarShapeType": "#EarShapeType_Fox"
+          }
         ],
         "img_PNGName": null,
         "Note_JP": null,
@@ -28345,7 +28418,10 @@
         "Laterality": "#Lat_Both",
         "DesignElement": "#Element_Ear",
         "Attrs": [
-          { "AttrLabel": "#DesignAttr_Ear", "vdict_EarType": "#EarType_Fox" }
+          {
+            "AttrLabel": "#DesignAttr_Ear",
+            "vdict_EarShapeType": "#EarShapeType_Fox"
+          }
         ],
         "img_PNGName": null,
         "Note_JP": null,
@@ -28917,7 +28993,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Ear",
-            "vdict_EarType": "#EarType_Fox",
+            "vdict_EarShapeType": "#EarShapeType_Fox",
             "about_JP": "先が濃い緑色",
             "about_EN": "with dark green tips"
           }
@@ -28948,7 +29024,10 @@
         "Laterality": "#Lat_Both",
         "DesignElement": "#Element_Ear",
         "Attrs": [
-          { "AttrLabel": "#DesignAttr_Ear", "vdict_EarType": "#EarType_Fox" }
+          {
+            "AttrLabel": "#DesignAttr_Ear",
+            "vdict_EarShapeType": "#EarShapeType_Fox"
+          }
         ],
         "img_PNGName": null,
         "Note_JP": null,
@@ -29283,9 +29362,7 @@
         "DayAbout_EN": "Development commemoration"
       }
     ],
-    "Weight_kg": [
-      { "value": 39, "about_JP": "推定", "about_EN": "Presumption" }
-    ],
+    "Weight_kg": [{ "value": 39, "about_JP": "推定", "about_EN": "Presumption" }],
     "BustSize": "B",
     "TailsUnit": [
       {
@@ -29451,7 +29528,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Ear",
-            "vdict_EarType": "#EarType_Fox",
+            "vdict_EarShapeType": "#EarShapeType_Fox",
             "about_JP": "先が薄色",
             "about_EN": "with light-colored tips"
           }
@@ -30034,7 +30111,10 @@
         "Laterality": "#Lat_Both",
         "DesignElement": "#Element_Ear",
         "Attrs": [
-          { "AttrLabel": "#DesignAttr_Ear", "vdict_EarType": "#EarType_Fox" }
+          {
+            "AttrLabel": "#DesignAttr_Ear",
+            "vdict_EarShapeType": "#EarShapeType_Fox"
+          }
         ],
         "img_PNGName": null,
         "Note_JP": null,
@@ -30589,7 +30669,10 @@
         "Laterality": "#Lat_Both",
         "DesignElement": "#Element_Ear",
         "Attrs": [
-          { "AttrLabel": "#DesignAttr_Ear", "vdict_EarType": "#EarType_Fox" }
+          {
+            "AttrLabel": "#DesignAttr_Ear",
+            "vdict_EarShapeType": "#EarShapeType_Fox"
+          }
         ],
         "img_PNGName": null,
         "Note_JP": null,
@@ -31142,7 +31225,10 @@
         "Laterality": "#Lat_Both",
         "DesignElement": "#Element_Ear",
         "Attrs": [
-          { "AttrLabel": "#DesignAttr_Ear", "vdict_EarType": "#EarType_Fox" }
+          {
+            "AttrLabel": "#DesignAttr_Ear",
+            "vdict_EarShapeType": "#EarShapeType_Fox"
+          }
         ],
         "img_PNGName": null,
         "Note_JP": null,
@@ -31431,11 +31517,7 @@
           "Num": 61,
           "Comments": "「私に構うな!!!（※この文面だけ字が荒れている）」",
           "Comments_EN": "\"Stop meddling with me!!! (*this entry alone is written in rough, messy handwriting)\"",
-          "RelationLabel": [
-            "successor_nearly",
-            "unmatched",
-            "adverselyAffected"
-          ]
+          "RelationLabel": ["successor_nearly", "unmatched", "adverselyAffected"]
         },
         {
           "Num": 63,
@@ -31945,7 +32027,10 @@
         "Laterality": "#Lat_Both",
         "DesignElement": "#Element_Ear",
         "Attrs": [
-          { "AttrLabel": "#DesignAttr_Ear", "vdict_EarType": "#EarType_Fox" }
+          {
+            "AttrLabel": "#DesignAttr_Ear",
+            "vdict_EarShapeType": "#EarShapeType_Fox"
+          }
         ],
         "img_PNGName": null,
         "Note_JP": null,
@@ -32630,7 +32715,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Ear",
-            "vdict_EarType": "#EarType_Fox",
+            "vdict_EarShapeType": "#EarShapeType_Fox",
             "about_JP": "先が濃いピンクのアクセントカラー",
             "about_EN": "with dark pink accent color tips"
           }
@@ -33191,7 +33276,10 @@
         "Laterality": "#Lat_Both",
         "DesignElement": "#Element_Ear",
         "Attrs": [
-          { "AttrLabel": "#DesignAttr_Ear", "vdict_EarType": "#EarType_Fox" }
+          {
+            "AttrLabel": "#DesignAttr_Ear",
+            "vdict_EarShapeType": "#EarShapeType_Fox"
+          }
         ],
         "img_PNGName": null,
         "Note_JP": null,
@@ -33388,11 +33476,7 @@
           "Comments_EN": "\"Ze seems to have a lot going on.\"",
           "RelationLabel": ["classmate"]
         },
-        {
-          "Num": 90,
-          "Comments": "「頼もしい」",
-          "Comments_EN": "\"Reliable.\""
-        }
+        { "Num": 90, "Comments": "「頼もしい」", "Comments_EN": "\"Reliable.\"" }
       ]
     },
     "AIHints": {
@@ -33716,7 +33800,10 @@
         "Laterality": "#Lat_Both",
         "DesignElement": "#Element_Ear",
         "Attrs": [
-          { "AttrLabel": "#DesignAttr_Ear", "vdict_EarType": "#EarType_Fox" }
+          {
+            "AttrLabel": "#DesignAttr_Ear",
+            "vdict_EarShapeType": "#EarShapeType_Fox"
+          }
         ],
         "img_PNGName": null,
         "Note_JP": null,
@@ -34191,7 +34278,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Ear",
-            "vdict_EarType": "#EarType_Fox",
+            "vdict_EarShapeType": "#EarShapeType_Fox",
             "about_JP": "先が薄色",
             "about_EN": "with light-colored tips"
           }
@@ -34693,7 +34780,10 @@
         "Laterality": "#Lat_Both",
         "DesignElement": "#Element_Ear",
         "Attrs": [
-          { "AttrLabel": "#DesignAttr_Ear", "vdict_EarType": "#EarType_Fox" }
+          {
+            "AttrLabel": "#DesignAttr_Ear",
+            "vdict_EarShapeType": "#EarShapeType_Fox"
+          }
         ],
         "img_PNGName": null,
         "Note_JP": null,
@@ -35193,7 +35283,10 @@
         "Laterality": "#Lat_Both",
         "DesignElement": "#Element_Ear",
         "Attrs": [
-          { "AttrLabel": "#DesignAttr_Ear", "vdict_EarType": "#EarType_Fox" }
+          {
+            "AttrLabel": "#DesignAttr_Ear",
+            "vdict_EarShapeType": "#EarShapeType_Fox"
+          }
         ],
         "img_PNGName": null,
         "Note_JP": null,
@@ -35488,7 +35581,10 @@
         "Laterality": "#Lat_Both",
         "DesignElement": "#Element_Ear",
         "Attrs": [
-          { "AttrLabel": "#DesignAttr_Ear", "vdict_EarType": "#EarType_Fox" }
+          {
+            "AttrLabel": "#DesignAttr_Ear",
+            "vdict_EarShapeType": "#EarShapeType_Fox"
+          }
         ],
         "img_PNGName": null,
         "Note_JP": null,
@@ -36009,7 +36105,10 @@
         "Laterality": "#Lat_Both",
         "DesignElement": "#Element_Ear",
         "Attrs": [
-          { "AttrLabel": "#DesignAttr_Ear", "vdict_EarType": "#EarType_Fox" }
+          {
+            "AttrLabel": "#DesignAttr_Ear",
+            "vdict_EarShapeType": "#EarShapeType_Fox"
+          }
         ],
         "img_PNGName": null,
         "Note_JP": null,
@@ -36571,7 +36670,10 @@
         "Laterality": "#Lat_Both",
         "DesignElement": "#Element_Ear",
         "Attrs": [
-          { "AttrLabel": "#DesignAttr_Ear", "vdict_EarType": "#EarType_Fox" }
+          {
+            "AttrLabel": "#DesignAttr_Ear",
+            "vdict_EarShapeType": "#EarShapeType_Fox"
+          }
         ],
         "img_PNGName": null,
         "Note_JP": null,
@@ -37104,7 +37206,10 @@
         "Laterality": "#Lat_Both",
         "DesignElement": "#Element_Ear",
         "Attrs": [
-          { "AttrLabel": "#DesignAttr_Ear", "vdict_EarType": "#EarType_Fox" }
+          {
+            "AttrLabel": "#DesignAttr_Ear",
+            "vdict_EarShapeType": "#EarShapeType_Fox"
+          }
         ],
         "img_PNGName": null,
         "Note_JP": null,
@@ -37407,9 +37512,7 @@
         "DayAbout_EN": "Development commemoration"
       }
     ],
-    "Weight_kg": [
-      { "value": 40, "about_JP": "推定", "about_EN": "Presumption" }
-    ],
+    "Weight_kg": [{ "value": 40, "about_JP": "推定", "about_EN": "Presumption" }],
     "TailsUnit": [
       {
         "TailShapeType": "#TailShapeType_FoxBranched",
@@ -37546,7 +37649,10 @@
         "Laterality": "#Lat_Both",
         "DesignElement": "#Element_Ear",
         "Attrs": [
-          { "AttrLabel": "#DesignAttr_Ear", "vdict_EarType": "#EarType_Fox" }
+          {
+            "AttrLabel": "#DesignAttr_Ear",
+            "vdict_EarShapeType": "#EarShapeType_Fox"
+          }
         ],
         "img_PNGName": null,
         "Note_JP": null,
@@ -38077,7 +38183,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Ear",
-            "vdict_EarType": "#EarType_Fox",
+            "vdict_EarShapeType": "#EarShapeType_Fox",
             "about_JP": "ダイヤマークの薄いアクセント付き",
             "about_EN": "with a subtle diamond-mark accent"
           }
@@ -38599,7 +38705,10 @@
         "Laterality": "#Lat_Both",
         "DesignElement": "#Element_Ear",
         "Attrs": [
-          { "AttrLabel": "#DesignAttr_Ear", "vdict_EarType": "#EarType_Fox" }
+          {
+            "AttrLabel": "#DesignAttr_Ear",
+            "vdict_EarShapeType": "#EarShapeType_Fox"
+          }
         ],
         "img_PNGName": null,
         "Note_JP": null,
@@ -39143,7 +39252,10 @@
         "Laterality": "#Lat_Both",
         "DesignElement": "#Element_Ear",
         "Attrs": [
-          { "AttrLabel": "#DesignAttr_Ear", "vdict_EarType": "#EarType_Fox" }
+          {
+            "AttrLabel": "#DesignAttr_Ear",
+            "vdict_EarShapeType": "#EarShapeType_Fox"
+          }
         ],
         "img_PNGName": null,
         "Note_JP": null,
@@ -39477,9 +39589,7 @@
     "Images": {
       "concept_PNGName": "cnsp_img75",
       "corefolder_PNGPath": ["75/emstk_corefolder75-1"],
-      "arts_PNGPath": [
-        "corefolders/sphericateDay/art_sphericateDay202305-img75"
-      ]
+      "arts_PNGPath": ["corefolders/sphericateDay/art_sphericateDay202305-img75"]
     },
     "Name_JP": "75(シチゴ)",
     "Name_EN": "75(Sefievn)",
@@ -39666,7 +39776,10 @@
         "Laterality": "#Lat_Both",
         "DesignElement": "#Element_Ear",
         "Attrs": [
-          { "AttrLabel": "#DesignAttr_Ear", "vdict_EarType": "#EarType_Fox" }
+          {
+            "AttrLabel": "#DesignAttr_Ear",
+            "vdict_EarShapeType": "#EarShapeType_Fox"
+          }
         ],
         "img_PNGName": null,
         "Note_JP": null,
@@ -40258,7 +40371,10 @@
         "Laterality": "#Lat_Both",
         "DesignElement": "#Element_Ear",
         "Attrs": [
-          { "AttrLabel": "#DesignAttr_Ear", "vdict_EarType": "#EarType_Fox" }
+          {
+            "AttrLabel": "#DesignAttr_Ear",
+            "vdict_EarShapeType": "#EarShapeType_Fox"
+          }
         ],
         "img_PNGName": null,
         "Note_JP": null,
@@ -40603,10 +40719,7 @@
     "Progress": "released",
     "Images": {
       "concept_PNGName": "cnsp_img77",
-      "corefolder_PNGPath": [
-        "77/emstk_corefolder77-1",
-        "77/emstk_corefolder77-2"
-      ]
+      "corefolder_PNGPath": ["77/emstk_corefolder77-1", "77/emstk_corefolder77-2"]
     },
     "Name_JP": "77(ナヅナ)",
     "Name_EN": "77(Sefvens)",
@@ -40629,9 +40742,7 @@
         "DayAbout_EN": "Development commemoration"
       }
     ],
-    "Weight_kg": [
-      { "value": 39, "about_JP": "推定", "about_EN": "Presumption" }
-    ],
+    "Weight_kg": [{ "value": 39, "about_JP": "推定", "about_EN": "Presumption" }],
     "BustSize": "A",
     "TailsUnit": [
       {
@@ -40790,7 +40901,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Ear",
-            "vdict_EarType": "#EarType_Fox",
+            "vdict_EarShapeType": "#EarShapeType_Fox",
             "about_JP": "先がアクセントカラー",
             "about_EN": "with accent color tips"
           }
@@ -40899,10 +41010,7 @@
         "Luck": { "EffectText": "普通" },
         "Communication": { "EffectText": "普通" }
       },
-      "SpecialPattern": [
-        "Ptn.Hm(心理安定化効果)",
-        "Ptn.F-(超能力保有の可能性)"
-      ],
+      "SpecialPattern": ["Ptn.Hm(心理安定化効果)", "Ptn.F-(超能力保有の可能性)"],
       "SafetyLevel": { "SafetyLevelText": "完全保証" }
     },
     "AbilityStats": {
@@ -41303,7 +41411,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Ear",
-            "vdict_EarType": "#EarType_Fox",
+            "vdict_EarShapeType": "#EarShapeType_Fox",
             "about_JP": "耳マーキングと先で多色になっている",
             "about_EN": "multicolored with ear markings and tip color"
           }
@@ -41963,7 +42071,10 @@
         "Laterality": "#Lat_Both",
         "DesignElement": "#Element_Ear",
         "Attrs": [
-          { "AttrLabel": "#DesignAttr_Ear", "vdict_EarType": "#EarType_Fox" }
+          {
+            "AttrLabel": "#DesignAttr_Ear",
+            "vdict_EarShapeType": "#EarShapeType_Fox"
+          }
         ],
         "img_PNGName": null,
         "Note_JP": null,
@@ -42584,7 +42695,10 @@
         "Laterality": "#Lat_Left",
         "DesignElement": "#Element_Ear",
         "Attrs": [
-          { "AttrLabel": "#DesignAttr_Ear", "vdict_EarType": "#EarType_Fox" }
+          {
+            "AttrLabel": "#DesignAttr_Ear",
+            "vdict_EarShapeType": "#EarShapeType_Fox"
+          }
         ],
         "img_PNGName": null,
         "Note_JP": null,
@@ -43109,7 +43223,10 @@
         "Laterality": "#Lat_Both",
         "DesignElement": "#Element_Ear",
         "Attrs": [
-          { "AttrLabel": "#DesignAttr_Ear", "vdict_EarType": "#EarType_Fox" }
+          {
+            "AttrLabel": "#DesignAttr_Ear",
+            "vdict_EarShapeType": "#EarShapeType_Fox"
+          }
         ],
         "img_PNGName": null,
         "Note_JP": null,
@@ -43661,7 +43778,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Ear",
-            "vdict_EarType": "#EarType_Fox",
+            "vdict_EarShapeType": "#EarShapeType_Fox",
             "about_JP": "右耳はバンダナで隠れている",
             "about_EN": "right ear is hidden by the bandana"
           }
@@ -44013,11 +44130,7 @@
       }
     ],
     "GenderType": "FemaleNeutral",
-    "ConceptAge": {
-      "value": 19,
-      "about_JP": "自称",
-      "about_EN": "Self-styled"
-    },
+    "ConceptAge": { "value": 19, "about_JP": "自称", "about_EN": "Self-styled" },
     "Height_cm": 156,
     "Weight_kg": { "hideText": "非公開" },
     "BustSize": {
@@ -44169,7 +44282,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Ear",
-            "vdict_EarType": "#EarType_Fox",
+            "vdict_EarShapeType": "#EarShapeType_Fox",
             "about_JP": "耳マーキングと先で多色になっている",
             "about_EN": "multicolored with ear markings and tip color"
           }
@@ -44303,10 +44416,7 @@
     "NumerospecStats": {
       "EffectStats": {
         "Mental": { "EffectText": "普通" },
-        "Monetize": {
-          "Rank": "Z",
-          "EffectText": "極めて絶大(場合により逆効果)"
-        },
+        "Monetize": { "Rank": "Z", "EffectText": "極めて絶大(場合により逆効果)" },
         "Working": { "EffectText": "普通" },
         "Luck": { "EffectText": "絶大" },
         "Communication": { "EffectText": "普通" }
@@ -44674,7 +44784,10 @@
         "Laterality": "#Lat_Left",
         "DesignElement": "#Element_Ear",
         "Attrs": [
-          { "AttrLabel": "#DesignAttr_Ear", "vdict_EarType": "#EarType_Fox" }
+          {
+            "AttrLabel": "#DesignAttr_Ear",
+            "vdict_EarShapeType": "#EarShapeType_Fox"
+          }
         ],
         "img_PNGName": null,
         "Note_JP": null,
@@ -45041,10 +45154,7 @@
     "Progress": "released",
     "Images": {
       "concept_PNGName": "cnsp_img89",
-      "corefolder_PNGPath": [
-        "89/emstk_corefolder89-1",
-        "89/emstk_corefolder89-2"
-      ]
+      "corefolder_PNGPath": ["89/emstk_corefolder89-1", "89/emstk_corefolder89-2"]
     },
     "Name_JP": "89(ヤスモ)",
     "Name_EN": "89(Eightine)",
@@ -45139,12 +45249,7 @@
         "Formation": "corefolder",
         "Motif": {
           "Motif_JP": ["狐の耳", "マゼンタの長い髪", "赤い目", "赤いネクタイ"],
-          "Motif_EN": [
-            "fox ears",
-            "long magenta hair",
-            "red eyes",
-            "red necktie"
-          ]
+          "Motif_EN": ["fox ears", "long magenta hair", "red eyes", "red necktie"]
         }
       },
       {
@@ -45232,7 +45337,10 @@
         "Laterality": "#Lat_Both",
         "DesignElement": "#Element_Ear",
         "Attrs": [
-          { "AttrLabel": "#DesignAttr_Ear", "vdict_EarType": "#EarType_Fox" }
+          {
+            "AttrLabel": "#DesignAttr_Ear",
+            "vdict_EarShapeType": "#EarShapeType_Fox"
+          }
         ],
         "img_PNGName": null,
         "Note_JP": null,
@@ -45743,7 +45851,10 @@
         "Laterality": "#Lat_Both",
         "DesignElement": "#Element_Ear",
         "Attrs": [
-          { "AttrLabel": "#DesignAttr_Ear", "vdict_EarType": "#EarType_Fox" }
+          {
+            "AttrLabel": "#DesignAttr_Ear",
+            "vdict_EarShapeType": "#EarShapeType_Fox"
+          }
         ],
         "img_PNGName": null,
         "Note_JP": null,
@@ -46269,7 +46380,10 @@
         "Laterality": "#Lat_Both",
         "DesignElement": "#Element_Ear",
         "Attrs": [
-          { "AttrLabel": "#DesignAttr_Ear", "vdict_EarType": "#EarType_Fox" }
+          {
+            "AttrLabel": "#DesignAttr_Ear",
+            "vdict_EarShapeType": "#EarShapeType_Fox"
+          }
         ],
         "img_PNGName": null,
         "Note_JP": null,
@@ -46846,7 +46960,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Ear",
-            "vdict_EarType": "#EarType_Fox",
+            "vdict_EarShapeType": "#EarShapeType_Fox",
             "about_JP": "垂れ耳",
             "about_EN": "drooping ears"
           }
@@ -46982,10 +47096,7 @@
         "Luck": { "EffectText": "強化済" },
         "Communication": { "EffectText": "希薄" }
       },
-      "SpecialPattern": [
-        "Ptn.B(バイタリティ強化効果)",
-        "Ptn.Hm(心理安定化効果)"
-      ],
+      "SpecialPattern": ["Ptn.B(バイタリティ強化効果)", "Ptn.Hm(心理安定化効果)"],
       "SafetyLevel": { "SafetyLevelText": "完全保証" }
     },
     "AbilityStats": {
@@ -47441,7 +47552,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Ear",
-            "vdict_EarType": "#EarType_Fox",
+            "vdict_EarShapeType": "#EarShapeType_Fox",
             "about_JP": "少し欠けている",
             "about_EN": "slightly chipped"
           }
@@ -48066,7 +48177,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Ear",
-            "vdict_EarType": "#EarType_Fox",
+            "vdict_EarShapeType": "#EarShapeType_Fox",
             "about_JP": "垂れ耳",
             "about_EN": "drooping ears"
           }
@@ -48565,7 +48676,10 @@
         "Laterality": "#Lat_Both",
         "DesignElement": "#Element_Ear",
         "Attrs": [
-          { "AttrLabel": "#DesignAttr_Ear", "vdict_EarType": "#EarType_Fox" }
+          {
+            "AttrLabel": "#DesignAttr_Ear",
+            "vdict_EarShapeType": "#EarShapeType_Fox"
+          }
         ],
         "img_PNGName": null,
         "Note_JP": null,
@@ -48875,10 +48989,7 @@
     "Progress": "released",
     "Images": {
       "concept_PNGName": "cnsp_img99",
-      "corefolder_PNGPath": [
-        "99/emstk_corefolder99-1",
-        "99/emstk_corefolder99-2"
-      ]
+      "corefolder_PNGPath": ["99/emstk_corefolder99-1", "99/emstk_corefolder99-2"]
     },
     "Name_JP": "99(ツクモ)",
     "Name_EN": "99(Thukumo)",
@@ -49094,7 +49205,7 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Ear",
-            "vdict_EarType": "#EarType_Fox",
+            "vdict_EarShapeType": "#EarShapeType_Fox",
             "about_JP": "先が紅色のアクセントカラー",
             "about_EN": "with crimson accent color tips"
           }
@@ -49724,7 +49835,10 @@
         "Laterality": "#Lat_Both",
         "DesignElement": "#Element_Ear",
         "Attrs": [
-          { "AttrLabel": "#DesignAttr_Ear", "vdict_EarType": "#EarType_Fox" }
+          {
+            "AttrLabel": "#DesignAttr_Ear",
+            "vdict_EarShapeType": "#EarShapeType_Fox"
+          }
         ],
         "img_PNGName": null,
         "Note_JP": null,
@@ -49870,10 +49984,7 @@
         { "Num": 3, "RelationLabel": ["trusted", "interested", "classmate"] },
         { "Num": 20, "RelationLabel": ["brother|sister", "wellMatched"] },
         { "Num": 24, "RelationLabel": ["successor", "wellMatched"] },
-        {
-          "Num": "10-alt",
-          "RelationLabel": ["trusted", "awkward", "classmate"]
-        }
+        { "Num": "10-alt", "RelationLabel": ["trusted", "awkward", "classmate"] }
       ]
     },
     "AIHints": {
@@ -49990,9 +50101,7 @@
   {
     "Num": "10-alt",
     "Progress": "stillTentative",
-    "Images": {
-      "corefolder_PNGPath": ["10-alt/emstk_corefolder10alt-ondeck1"]
-    },
+    "Images": { "corefolder_PNGPath": ["10-alt/emstk_corefolder10alt-ondeck1"] },
     "Name_JP": "ディケ\n10(ツナイ)",
     "Name_EN": "Dicat\n10(Decadle)",
     "ModelName_JP": "ナンバーテールズ試作型10号機",
@@ -50122,7 +50231,10 @@
         "Laterality": "#Lat_Both",
         "DesignElement": "#Element_Ear",
         "Attrs": [
-          { "AttrLabel": "#DesignAttr_Ear", "vdict_EarType": "#EarType_Fox" }
+          {
+            "AttrLabel": "#DesignAttr_Ear",
+            "vdict_EarShapeType": "#EarShapeType_Fox"
+          }
         ],
         "img_PNGName": null,
         "Note_JP": null,
@@ -50571,7 +50683,10 @@
         "Laterality": "#Lat_Both",
         "DesignElement": "#Element_Ear",
         "Attrs": [
-          { "AttrLabel": "#DesignAttr_Ear", "vdict_EarType": "#EarType_Cat" }
+          {
+            "AttrLabel": "#DesignAttr_Ear",
+            "vdict_EarShapeType": "#EarShapeType_Cat"
+          }
         ],
         "img_PNGName": null,
         "Note_JP": null,
@@ -50701,14 +50816,8 @@
     "Relation": {
       "Related": [
         { "Num": 81, "RelationLabel": ["wellMatched"] },
-        {
-          "Num": "0",
-          "RelationLabel": ["secretRelation", "adverselyAffected"]
-        },
-        {
-          "Num": "00",
-          "RelationLabel": ["secretRelation", "adverselyAffected"]
-        }
+        { "Num": "0", "RelationLabel": ["secretRelation", "adverselyAffected"] },
+        { "Num": "00", "RelationLabel": ["secretRelation", "adverselyAffected"] }
       ]
     },
     "ConversationPattern": {

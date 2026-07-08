@@ -93,6 +93,7 @@
 - `Databases.#DB_<DbName>` による DB カタログ
 - `_Commons` / `_Secondaries` による補完ルール
 - 作品固有 `General.$VarsDef`
+- `SupersededDesignElements` による `AppearanceDetail` の `DesignElement` 廃止宣言（§4.8 参照）
 
 典型用途:
 
@@ -321,6 +322,7 @@
 - `$Def_OldTitleCatalog`
 - `$Def_DatabaseCatalog`
 - `$Def_StoryEraCatalog`
+- `$Def_SupersededDesignElement`（§4.8 参照）
 
 `$Def_DatabaseCatalog` は現在、`DB_Label`, `DB_Label_EN`, `DB_Summary`, `DB_Layer`, `DB_File`, `StoryEra`, `SecondarySummary` を補助宣言します。catalog key 自体は `#DB_*` に加えて資料系の `#Ref_*` も許容します。
 
@@ -505,6 +507,29 @@ UI 側は厳密構造より `about_JP` / `about_EN` を優先して整形表示�
 
 これは主に `Secondary` / `SelfSecondary` のような二次創作系 DB で使います。
 
+### 4.8 `SupersededDesignElements`
+
+`AppearanceDetail[].DesignElement` の特定の値を、汎用カタログ運用から専用構造化フィールドへ移行（廃止）した際、そのことを宣言するための作品別トップレベルキーです（`Databases`/`General` と同じ階層）。型は `$MetaType.$Def_SupersededDesignElement`（§3.6）で宣言し、データは各作品の `db_meta.json` に配列で持たせます。
+
+背景: `TailsUnit`（尻尾）が `AppearanceDetail[].DesignElement:"#Element_TailsUnit"` から専用フィールド `TailsUnit`（`$Def_TailsUnit[]`）へ移行した際、この宣言機構が無かったため、テスト・ドキュメント・`addon-ai-tag` 側の AIHints ツールの複数箇所で個別に手作業クリーンアップが必要になり、一部（`tools/patch-aihints.mjs` の分類マップ等）に廃止済みキーへの参照が残っていた。以後、同様の移行を行う際はこの宣言を追加することで、テスト（`tests/data.shape.test.js`）が自動的に汎用チェックできるようにする。
+
+例（NumberTales `data/Works_NumberTales/DataBases/db_meta.json`）:
+
+```json
+"SupersededDesignElements": [
+  {
+    "DesignElement": "#Element_TailsUnit",
+    "SupersededByField": "TailsUnit",
+    "SupersededByType": "$Def_TailsUnit[]",
+    "SupersededDate": "2026-07-07",
+    "Note_JP": "尻尾の形状情報は AppearanceDetail(#Element_TailsUnit) から専用構造化フィールド TailsUnit($Def_TailsUnit[]) へ全面移行済み。",
+    "Note_EN": "Tail shape info was fully migrated from AppearanceDetail (#Element_TailsUnit) to the dedicated TailsUnit ($Def_TailsUnit[]) field."
+  }
+]
+```
+
+`tests/data.shape.test.js` の `SupersededDesignElement schema` テスト群は、この配列に列挙された `DesignElement` 値が、対象作品のどの DB ファイルの `AppearanceDetail[]` にも一件も使われていないことを機械的に検証します。新しい `DesignElement` を廃止する際は、この配列へ1行追加するだけでテストが自動的に追従します（テストコード側の個別追記は不要）。
+
 ---
 
 ## 5. 実行時の合流順
@@ -682,6 +707,13 @@ UI 側は厳密構造より `about_JP` / `about_EN` を優先して整形表示�
 
 - `Databases.#DB_<DbName>.DB_Label`
 - `Databases.#DB_<DbName>.DB_Label_EN`
+
+### 7.6 `AppearanceDetail` の `DesignElement` を廃止して専用フィールドへ移行したい
+
+更新先:
+
+- `data/db_type.json($MetaType.$Def_SupersededDesignElement)`（型宣言、通常は変更不要）
+- 対象作品の `db_meta.json(SupersededDesignElements)`（廃止した `DesignElement` を1件追加。§4.8 参照）
 
 ---
 

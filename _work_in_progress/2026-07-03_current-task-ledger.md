@@ -69,12 +69,11 @@
 
 ## 参照タスク（中長期）
 
-- `2026-06-01_remaining-task.md`（残留タスク母艦）
-- `2026-06-13_remaining-task.md`（希望タスク整理）
+- `2026-07-08_remaining-task.md`（残留タスク母艦・統合版）
 - `2026-06-12_progress_translation-style-unified.md`（英訳ルール基準）
 
 ## 運用メモ
 
-- triage 系は `2026-07-03_progress_github-triage.md` を最新判断の正とする。
+- triage 系は `2026-07-08_github-triage.md` を最新判断の正とする。
 - 過去 triage は履歴参照用とし、現行タスク判断には直接使わない。
 - ログ退避方針は `2026-07-03_progress-log-retire-candidates.md`（`.completed/` 退避済み）で確立した基準を踏襲。2026-07-04 の棚卸しで README をトピック別索引に再構成済み（詳細は `README.md` を参照）。

@@ -10,6 +10,27 @@
 - **`tests/patch-aihints.tailsunit.test.js`（新規）**: `parseTailsUnit`/`buildTailDescription`/`buildTailBundleDescription` の変換結果を検証するテストを追加。
 - 確認: `npm test` 全件成功（207件）。dry-run（`--suggest`/`--fill-todos`/`--apply-identitymotif`/`--apply-appearancedetail`）を NumberTales Primary 全105件に対して実行し例外なし。1件（Num:12）に対する実 `--apply` → `git diff` 目視確認 → revert、および `--fill-todos` の重複挿入防止（冪等性）を2回連続適用で確認 → revert。
 
+### refactor: NumberTales 耳の形状 `EarType` を `EarShapeType` へ改名・work-local化 (2026-07-08)
+
+`AppearanceDetail[].DesignElement:"#Element_Ear"` の `vdict_EarType`（グローバル `$EnumDef_EarType`、Fox/Catの2値のみ）を、命名を `TailShapeType` と揃えた `vdict_EarShapeType`（`$EnumDef_EarShapeType`）へ改名し、NumberTales work-local `db_meta.json` へ移設した。尻尾形状（`TailShapeType`）と耳の形状は完全に独立した軸として扱う方針（尻尾形状からの導出はしない）。実データ調査の結果、既存の全92件の耳エントリは Fox/Cat の2値で100%カバーされているため、語彙（enum値）の拡張は行っていない（Scorpion/Bud等「耳」概念の無い形状の代替語彙はUser自身の今後の創作判断であり、今回は作らない）。
+
+- **`data/db_meta.json`（グローバル）**: `$EnumDef_DesignAttrLabel.#DesignAttr_Ear.$fields` を `["vdict_EarShapeType", "about_JP", "about_EN"]` に更新。`$EnumDef_EarType` を削除。`#Element_Ear`（`$EnumDef_DesignElement`）自体は他作品も使う共有インフラのためグローバルのまま変更なし。
+- **`data/Works_NumberTales/DataBases/db_meta.json`**: `General.$VarsDef` に `$EnumDef_EarShapeType`（`#EarShapeType_Fox`/`#EarShapeType_Cat`、ラベル文言は旧 `EarType_JP`/`EarType_EN` から変更なしで転記）を新設。
+- **`scripts/migrate-eartype-to-earshapetype.mjs`（新規）**: `db_Primary.json`（`#Element_Ear` が存在する唯一のファイル）の `vdict_EarType` キー・値を `vdict_EarShapeType` へ機械的に改名する一回限りの移行スクリプト（dry-run既定・`--write`で反映）。91レコード・92件のAttrs行に適用。旧キーの並走維持はしない（値の意味を保つ単純改名のため、通常方針「既存フィールドは削除せず並走追加」の明示的な例外）。
+- **`lib/section-renders/appearanceDetail.js`**: 変更なし（`vdict_{DictName}` から動的に `$EnumDef_{DictName}` を解決する規約駆動実装のため、改名・work-local化ともにコード変更不要）。
+- **`tests/data.shape.test.js`**: `EarShapeType schema` テスト群を追加（work-local宣言確認・グローバル側の完全移設確認・全Attrs行が新キーを使うことの確認）。
+- 確認: `npm test` 全件成功（199件）。
+
+### add: `AppearanceDetail` の `DesignElement` 廃止を宣言する汎用機構 `SupersededDesignElements` を新設 (2026-07-08)
+
+`AppearanceDetail[].DesignElement` の値を専用フィールドへ移行（廃止）した際に、作品別 `db_meta.json` で宣言的に示せる機構を新設した。`TailsUnit`（`#Element_TailsUnit` → `TailsUnit`）移行時はこの機構が無く、テスト・ドキュメント・`addon-ai-tag` 側のAIHintsツールで個別の手作業クリーンアップが必要になった反省を踏まえる。**データ移行は発生せず、既に完了済みのTailsUnit移行を遡って文書化するのみ**。
+
+- **`data/db_type.json`（グローバル）**: `$MetaType.$Def_SupersededDesignElement` を新設（`DesignElement`/`SupersededByField`/`SupersededByType`/`SupersededDate`/`Note_JP`/`Note_EN`）。既存の `$Def_DatabaseCatalog` と同じ「型はグローバル宣言、データは作品別」パターン。
+- **`data/Works_NumberTales/DataBases/db_meta.json`**: 新規トップレベル `SupersededDesignElements` に `#Element_TailsUnit → TailsUnit`（2026-07-07完了分）の1件を追加。
+- **`tests/data.shape.test.js`**: 従来ハードコードされていた「`#Element_TailsUnit` を使うAppearanceDetailが無いこと」のテストを、`SupersededDesignElements` を読む汎用テストに置き換え。将来別の `DesignElement` を廃止する際は、この配列へ1行追加するだけでテストが自動追従する。
+- **`docs/schema-meta-processing.md`**: §2.4/§3.6/§4.8（新設）/§7.6（新設）に本機構の説明を追記。
+- 確認: `npm test` 全件成功（199件）。
+
 ### add: `TailsUnit` に `LayoutDirection`（分岐の方向性）フィールドを追加 (2026-07-08)
 
 `$Def_TailsUnit` に `LayoutDirection`（`{LayoutFrom, LayoutTo}`、`$EnumDef_Laterality` 参照）を追加し、元の `TailsUnit_JP` にあった「上から下に向かって」「中央から周辺に向かって」のような全体の方向性を構造化した（`Branches[]` の各要素は個別の `Laterality` を持つのみで、段に位置語が無い場合は方向情報が失われていたのを補う）。
