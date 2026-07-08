@@ -37,7 +37,8 @@
 | addon-ai-tag 逆マージ事故記録            | [2026-07-02_progress_addon-ai-tag-reverse-merge-incident.md](./2026-07-02_progress_addon-ai-tag-reverse-merge-incident.md)                                          | ⚠️ addon-ai-tag側ログへの後日談追記が保留中                                                      |
 | UnibyteLive アルベッツ苗字命名           | [2026-07-06_progress_unibytelive-formalname-draft.md](./2026-07-06_progress_unibytelive-formalname-draft.md)                                                        | ⚠️ 下書き入力24件・User最終レビュー待ち（`npm test` 22files/178tests成功済み）                   |
 | NumberTales TailsUnit 専用型移行         | [2026-07-07_progress_tailsunit-dedicated-type.md](./2026-07-07_progress_tailsunit-dedicated-type.md)                                                                | ⚠️ 一行サマリー/独立セクションの表示方針は運用しながら微調整の余地あり                           |
-| NumberTales 耳の形状(EarShapeType)再設計 | [2026-07-08_progress_numbertales-earshapetype-restructure.md](./2026-07-08_progress_numbertales-earshapetype-restructure.md)                                        | ⚠️ ブラウザ目視確認待ち（`npm test` 22files/199tests成功済み・addon-ai-tag側追従は後日別タスク） |
+| NumberTales 耳の形状(EarShapeType)再設計 | [2026-07-08_progress_numbertales-earshapetype-restructure.md](./2026-07-08_progress_numbertales-earshapetype-restructure.md)                                        | ⚠️ ブラウザ目視確認待ち（`npm test` 22files/199tests成功済み・addon-ai-tag側追従は実施済み）     |
+| AIHints 構造的再同期 設計提案            | [2026-07-08_progress_aihints-structural-resync-proposal.md](./2026-07-08_progress_aihints-structural-resync-proposal.md)                                            | 📝 提案書のみ・実装未着手。User の優先度判断待ち（実装は addon-ai-tag 側の別タスク）             |
 
 ### 系列の補足（過去フェーズは `.completed/` 参照）
 
