@@ -206,19 +206,86 @@ describe('TailsUnit schema', () => {
     expect(violations).toHaveLength(0);
   });
 
-  it('no AppearanceDetail entry uses DesignElement:"#Element_TailsUnit" anymore (migrated to dedicated TailsUnit field)', () => {
-    const files = [
-      'data/Works_NumberTales/DataBases/db_Primary.json',
-      'data/Works_NumberTales/DataBases/db_Secondary.json',
-      'data/Works_NumberTales/DataBases/db_SemiPrimary.json',
-      'data/Works_NumberTales/DataBases/db_SelfSecondary.json',
-    ];
-    for (const dbPath of files) {
-      const records = load(dbPath);
-      for (const rec of records) {
-        const entries = Array.isArray(rec?.AppearanceDetail) ? rec.AppearanceDetail : [];
-        expect(entries.some((e) => e?.DesignElement === '#Element_TailsUnit')).toBe(false);
+});
+
+describe('SupersededDesignElement schema', () => {
+  it('global db_type.json declares the $Def_SupersededDesignElement meta shape', () => {
+    const dbType = load('data/db_type.json');
+    const fieldNames = (dbType?.$MetaType?.$Def_SupersededDesignElement?.$DefType || []).map((e) => e.hashTag);
+    expect(fieldNames).toEqual(['DesignElement', 'SupersededByField', 'SupersededByType', 'SupersededDate', 'Note_JP', 'Note_EN']);
+  });
+
+  it('NT db_meta.json documents the completed #Element_TailsUnit -> TailsUnit supersession', () => {
+    const dbMeta = load('data/Works_NumberTales/DataBases/db_meta.json');
+    const list = Array.isArray(dbMeta?.SupersededDesignElements) ? dbMeta.SupersededDesignElements : [];
+    const entry = list.find((e) => e?.DesignElement === '#Element_TailsUnit');
+    expect(entry?.SupersededByField).toBe('TailsUnit');
+    expect(entry?.SupersededByType).toBe('$Def_TailsUnit[]');
+  });
+
+  it.each([
+    'data/Works_NumberTales/DataBases/db_Primary.json',
+    'data/Works_NumberTales/DataBases/db_Secondary.json',
+    'data/Works_NumberTales/DataBases/db_SemiPrimary.json',
+    'data/Works_NumberTales/DataBases/db_SelfSecondary.json',
+  ])('NT %s AppearanceDetail entries never use a DesignElement declared as superseded', (dbPath) => {
+    const dbMeta = load('data/Works_NumberTales/DataBases/db_meta.json');
+    const supersededKeys = new Set(
+      (dbMeta?.SupersededDesignElements || []).map((e) => e?.DesignElement).filter(Boolean),
+    );
+    // 廃止宣言リストが空になっている場合、このテスト自体が無意味な素通りになってしまうため
+    // 明示的に検知する（TailsUnit分の登録漏れ・誤削除に対するガード）。
+    expect(supersededKeys.size).toBeGreaterThan(0);
+
+    const records = load(dbPath);
+    const violations = [];
+    for (const rec of records) {
+      const entries = Array.isArray(rec?.AppearanceDetail) ? rec.AppearanceDetail : [];
+      for (const entry of entries) {
+        if (supersededKeys.has(entry?.DesignElement)) {
+          violations.push({ Num: rec.Num, DesignElement: entry.DesignElement });
+        }
       }
     }
+    expect(violations).toHaveLength(0);
+  });
+});
+
+describe('EarShapeType schema', () => {
+  it('NT db_meta.json declares $EnumDef_EarShapeType work-locally with Fox/Cat values', () => {
+    const dbMeta = load('data/Works_NumberTales/DataBases/db_meta.json');
+    const earShapeTypeDef = dbMeta?.General?.$VarsDef?.$EnumDef_EarShapeType;
+    expect(earShapeTypeDef?.['#EarShapeType_Fox']?.EarShapeType).toBe('Fox');
+    expect(earShapeTypeDef?.['#EarShapeType_Cat']?.EarShapeType).toBe('Cat');
+  });
+
+  it('global db_meta.json no longer declares $EnumDef_EarType or $EnumDef_EarShapeType (fully relocated)', () => {
+    const globalDbMeta = load('data/db_meta.json');
+    expect(globalDbMeta?.General?.$VarsDef?.$EnumDef_EarType).toBeUndefined();
+    expect(globalDbMeta?.General?.$VarsDef?.$EnumDef_EarShapeType).toBeUndefined();
+  });
+
+  it('global #DesignAttr_Ear.$fields references vdict_EarShapeType', () => {
+    const globalDbMeta = load('data/db_meta.json');
+    const designAttrEar = globalDbMeta?.General?.$VarsDef?.$EnumDef_DesignAttrLabel?.['#DesignAttr_Ear'];
+    expect(designAttrEar?.$fields).toEqual(['vdict_EarShapeType', 'about_JP', 'about_EN']);
+  });
+
+  it('NT db_Primary.json #Element_Ear Attrs entries all use vdict_EarShapeType (not vdict_EarType)', () => {
+    const records = load('data/Works_NumberTales/DataBases/db_Primary.json');
+    let earAttrCount = 0;
+    for (const rec of records) {
+      const entries = Array.isArray(rec?.AppearanceDetail) ? rec.AppearanceDetail : [];
+      for (const entry of entries) {
+        if (entry?.DesignElement !== '#Element_Ear') continue;
+        for (const attr of Array.isArray(entry.Attrs) ? entry.Attrs : []) {
+          if (attr?.AttrLabel !== '#DesignAttr_Ear') continue;
+          earAttrCount++;
+          expect(attr).not.toHaveProperty('vdict_EarType');
+          expect(attr.vdict_EarShapeType).toMatch(/^#EarShapeType_/);
+        }
+      }
+    }
+    expect(earAttrCount).toBeGreaterThan(0);
   });
 });

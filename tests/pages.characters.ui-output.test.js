@@ -1061,9 +1061,9 @@ describe('pages/characters.js UI output', () => {
 		expect(isSubFieldSectionOpen('AppearanceDetail')).toBe(false);
 
 		const sectionText = getSectionText('外見デザイン詳細');
-		// DesignElement タグ（NT ローカル辞書 $EnumDef_DesignElement から解決。#Element_Ear）
+		// DesignElement タグ（グローバル辞書 $EnumDef_DesignElement から解決。#Element_Ear）
 		expect(sectionText).toContain('耳');
-		// vdict_EarType からの形状ラベル（NT ローカル辞書 $EnumDef_EarType から解決）
+		// vdict_EarShapeType からの形状ラベル（NT ローカル辞書 $EnumDef_EarShapeType から解決）
 		expect(sectionText).toContain('狐');
 		// about_JP からの補足テキスト
 		expect(sectionText).toContain('先がアクセントカラー');

@@ -449,6 +449,18 @@
           "TailShapeType_EN": "Reptile-type"
         }
       },
+      "$EnumDef_EarShapeType": {
+        "#EarShapeType_Fox": {
+          "EarShapeType": "Fox",
+          "EarShapeType_JP": "狐の耳",
+          "EarShapeType_EN": "Fox"
+        },
+        "#EarShapeType_Cat": {
+          "EarShapeType": "Cat",
+          "EarShapeType_JP": "猫の耳",
+          "EarShapeType_EN": "Cat"
+        }
+      },
       "$Def_TailsUnit": {
         "$display": {
           "wrapper": "tailsUnitSummary",
@@ -693,5 +705,15 @@
         }
       ]
     }
-  }
+  },
+  "SupersededDesignElements": [
+    {
+      "DesignElement": "#Element_TailsUnit",
+      "SupersededByField": "TailsUnit",
+      "SupersededByType": "$Def_TailsUnit[]",
+      "SupersededDate": "2026-07-07",
+      "Note_JP": "尻尾の形状情報は AppearanceDetail(#Element_TailsUnit) から専用構造化フィールド TailsUnit($Def_TailsUnit[]) へ全面移行済み。",
+      "Note_EN": "Tail shape info was fully migrated from AppearanceDetail (#Element_TailsUnit) to the dedicated TailsUnit ($Def_TailsUnit[]) field."
+    }
+  ]
 }

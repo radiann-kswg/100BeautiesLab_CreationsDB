@@ -1098,7 +1098,7 @@
           "AttrLabel": "Ear",
           "AttrLabel_JP": "耳",
           "AttrLabel_EN": "Ear",
-          "$fields": ["vdict_EarType", "about_JP", "about_EN"]
+          "$fields": ["vdict_EarShapeType", "about_JP", "about_EN"]
         },
         "#DesignAttr_Branch": {
           "AttrLabel": "Branch",
@@ -1112,18 +1112,6 @@
           "AttrLabel_JP": "節数",
           "AttrLabel_EN": "Segment Count",
           "$fields": ["value_Num"]
-        }
-      },
-      "$EnumDef_EarType": {
-        "#EarType_Fox": {
-          "EarType": "Fox",
-          "EarType_JP": "狐の耳",
-          "EarType_EN": "Fox"
-        },
-        "#EarType_Cat": {
-          "EarType": "Cat",
-          "EarType_JP": "猫の耳",
-          "EarType_EN": "Cat"
         }
       }
     }
