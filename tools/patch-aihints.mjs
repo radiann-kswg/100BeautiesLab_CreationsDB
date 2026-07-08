@@ -1166,15 +1166,27 @@ function deriveAnimalWordFromShapeLabel(shapeLabel) {
 }
 
 /**
- * `animalWord` が「耳」の概念が自然な系統（Fox/Cat/Nekomata/Dog 系）かどうかを判定する。
- * Scorpion/Bud/CaudalFin/Octopus/Mixed/Reptile 等は対象外とし、
- * 呼び出し側で既存の `TODO: ear type from TailsUnit` フォールバックへ委ねる。
- * 暫定対応: 「耳」概念の正式な切り分けは develop ブランチ側の DB/スキーマ調整で行う予定。
- * @param {string|null} animalWord
- * @returns {boolean}
+ * `record.AppearanceDetail[]` から `#Element_Ear` エントリを探し、`vdict_EarShapeType` を
+ * `$EnumDef_EarShapeType`（NumberTales work-local、develop ブランチで TailShapeType とは
+ * 独立した軸として整備済み）で解決した英語ラベル（例: "Fox"）を返す。
+ * 尻尾形状（TailShapeType）からの推測は行わない — 耳と尻尾は別軸であるため、
+ * 実際の Ear エントリが無ければ素直に `null` を返し、呼び出し側は TODO フォールバックへ委ねる。
+ * 複数 Ear エントリがある場合は先頭の解決成功分を採用する。
+ * @param {any} record
+ * @param {Record<string, any>} varsDef  loadMergedVarsDef() の返り値
+ * @returns {string|null}
  */
-function isEarBearingAnimalWord(animalWord) {
-    return typeof animalWord === 'string' && /^(fox|cat|nekomata|dog)/i.test(animalWord);
+export function resolveEarShapeLabel(record, varsDef) {
+    const entries = Array.isArray(record?.AppearanceDetail) ? record.AppearanceDetail : [];
+    for (const entry of entries) {
+        if (entry?.DesignElement !== '#Element_Ear') continue;
+        for (const attr of Array.isArray(entry.Attrs) ? entry.Attrs : []) {
+            if (attr?.AttrLabel !== '#DesignAttr_Ear' || !attr.vdict_EarShapeType) continue;
+            const label = resolveEnumLabelEN(varsDef, attr.vdict_EarShapeType, '$EnumDef_EarShapeType', 'EarShapeType');
+            if (label) return label;
+        }
+    }
+    return null;
 }
 
 /**
@@ -1340,17 +1352,19 @@ function buildNlDescriptionHint(summary) {
 }
 
 /**
- * TailsUnit 解析結果と形態種別から negative_visuals の推定リストを生成する。
+ * TailsUnit 解析結果・形態種別・実際の耳形状（AppearanceDetail #Element_Ear 由来）から
+ * negative_visuals の推定リストを生成する。
  *
  * @param {ReturnType<typeof parseTailsUnit>} tu
  * @param {'corefolder'|'humanoid'} formType
+ * @param {string|null} [earAnimalWord]  resolveEarShapeLabel() の結果を小文字化したもの（例: "fox"）
  * @returns {string[]}
  */
-function buildNegativeVisuals(tu, formType) {
+function buildNegativeVisuals(tu, formType, earAnimalWord) {
     const negatives = [];
-    // キャラクター自身の動物以外の耳タグを禁止（混入しやすい耳を先に列挙）
-    if (!tu?.animalWord || tu.animalWord !== 'cat')    negatives.push('cat ears');
-    if (!tu?.animalWord || tu.animalWord !== 'rabbit') negatives.push('rabbit ears');
+    // キャラクター自身の耳（AppearanceDetail #Element_Ear が正源）以外の耳タグを禁止
+    if (earAnimalWord !== 'cat')    negatives.push('cat ears');
+    if (earAnimalWord !== 'rabbit') negatives.push('rabbit ears');
     // 正規尾数と異なる本数の禁止
     if (tu?.count != null) {
         negatives.push(`fewer or more than ${tu.count} tail(s)`);
@@ -1378,11 +1392,13 @@ function buildNegativeVisuals(tu, formType) {
  * @param {any} record
  * @param {string|null} conceptUrl    concept 画像 URL（形態共通デザイン基準。main に優先）
  * @param {string[]} [artUrls]        corefolder アート URL 群
+ * @param {string|null} [earShapeLabel]  resolveEarShapeLabel() の結果（例: "Fox"）
  * @returns {any}
  */
-function buildSuggestedCorefolderForm(num, genderTag, ageBand, tu, url, record, conceptUrl, artUrls) {
+function buildSuggestedCorefolderForm(num, genderTag, ageBand, tu, url, record, conceptUrl, artUrls, earShapeLabel) {
     const tailDesc = buildTailDescription(tu);
-    const earTag = isEarBearingAnimalWord(tu?.animalWord) ? `${tu.animalWord} ears` : 'TODO: ear type from TailsUnit';
+    const earAnimalWord = earShapeLabel ? earShapeLabel.toLowerCase() : null;
+    const earTag = earAnimalWord ? `${earAnimalWord} ears` : 'TODO: ear type (no AppearanceDetail #Element_Ear entry found)';
 
     const aiTags = [
         'corefolder form',
@@ -1394,7 +1410,7 @@ function buildSuggestedCorefolderForm(num, genderTag, ageBand, tu, url, record, 
         'TODO: eye color',
         'TODO: corefolder outfit key terms',
     ];
-    const negativeVisuals = buildNegativeVisuals(tu, 'corefolder');
+    const negativeVisuals = buildNegativeVisuals(tu, 'corefolder', earAnimalWord);
 
     // 確定タグだけ prompt_export に先行生成（TODO は省く）
     const confirmedTags = aiTags.filter(t => !t.startsWith('TODO:'));
@@ -1434,9 +1450,10 @@ function buildSuggestedCorefolderForm(num, genderTag, ageBand, tu, url, record, 
  * @param {Array<{url: string, label: string}>} images
  * @param {any} record
  * @param {string|null} conceptUrl  concept 画像 URL（形態共通デザイン基準）
+ * @param {string|null} [earShapeLabel]  resolveEarShapeLabel() の結果（例: "Fox"）
  * @returns {any}
  */
-function buildSuggestedHumanoidForm(num, genderTag, ageBand, tu, images, record, conceptUrl) {
+function buildSuggestedHumanoidForm(num, genderTag, ageBand, tu, images, record, conceptUrl, earShapeLabel) {
     const firstUrl = images[0].url;
     /** @type {Record<string, string>} */
     const extraHumanoid = {};
@@ -1450,7 +1467,8 @@ function buildSuggestedHumanoidForm(num, genderTag, ageBand, tu, images, record,
     for (const [k, v] of Object.entries(extraHumanoid)) refs[k] = v;
 
     const tailDesc = buildTailDescription(tu);
-    const earTag = isEarBearingAnimalWord(tu?.animalWord) ? `${tu.animalWord} ears` : 'TODO: ear type from TailsUnit';
+    const earAnimalWord = earShapeLabel ? earShapeLabel.toLowerCase() : null;
+    const earTag = earAnimalWord ? `${earAnimalWord} ears` : 'TODO: ear type (no AppearanceDetail #Element_Ear entry found)';
 
     const aiTags = [
         'humanoid form',
@@ -1462,7 +1480,7 @@ function buildSuggestedHumanoidForm(num, genderTag, ageBand, tu, images, record,
         'TODO: eye color',
         'TODO: humanoid outfit key terms',
     ];
-    const negativeVisuals = buildNegativeVisuals(tu, 'humanoid');
+    const negativeVisuals = buildNegativeVisuals(tu, 'humanoid', earAnimalWord);
 
     const confirmedTags = aiTags.filter(t => !t.startsWith('TODO:'));
     const promptExport = confirmedTags.join(', ');
@@ -1519,7 +1537,9 @@ function buildSuggestedScaffold(record, imageInfo, work) {
     const artUrls = imageInfo.corefolderArtImages.map(i => i.url);
     const exprHints = extractExpressionHints(record.Character);
     const tailDesc = buildTailDescription(tu);
-    const earTag = isEarBearingAnimalWord(tu?.animalWord) ? `${tu.animalWord} ears` : null;
+    const earShapeLabel = resolveEarShapeLabel(record, varsDef);
+    const earAnimalWord = earShapeLabel ? earShapeLabel.toLowerCase() : null;
+    const earTag = earAnimalWord ? `${earAnimalWord} ears` : null;
 
     // identity_tags: Num + 動物種 + TODO（視覚的識別子は Agent / 手動で補完）
     const identityTags = [`number '${num}' as core identifier`];
@@ -1575,7 +1595,7 @@ function buildSuggestedScaffold(record, imageInfo, work) {
     if (imageInfo.corefolderUrl !== null) {
         forms.corefolder = buildSuggestedCorefolderForm(
             num, genderTag, ageBand, tu, imageInfo.corefolderUrl, record,
-            conceptUrl, artUrls.length ? artUrls : undefined,
+            conceptUrl, artUrls.length ? artUrls : undefined, earShapeLabel,
         );
     } else {
         forms.corefolder = null;
@@ -1583,7 +1603,7 @@ function buildSuggestedScaffold(record, imageInfo, work) {
 
     if (imageInfo.humanoidImages.length > 0) {
         forms.humanoid = buildSuggestedHumanoidForm(
-            num, genderTag, ageBand, tu, imageInfo.humanoidImages, record, conceptUrl,
+            num, genderTag, ageBand, tu, imageInfo.humanoidImages, record, conceptUrl, earShapeLabel,
         );
     }
 

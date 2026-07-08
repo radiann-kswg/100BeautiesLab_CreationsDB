@@ -1,5 +1,5 @@
 /**
- * tools/patch-aihints.mjs の TailsUnit 解析ロジックのテスト
+ * tools/patch-aihints.mjs の TailsUnit / 耳形状（EarShapeType）解析ロジックのテスト
  *
  * @description
  *   `TailsUnit` が旧来の自由記述文字列（`TailsUnit_JP`/`TailsUnit_EN`）から
@@ -8,10 +8,15 @@
  *   `buildTailBundleDescription(tu)` の変換結果を検証する。
  *   実データ（`db_Primary.json` Num:1 / `db_SelfSecondary.json` Num:148）を模した
  *   最小フィクスチャを使い、ディスク読み込みには依存しない。
+ *
+ *   あわせて、耳の形状（`AppearanceDetail[].DesignElement:"#Element_Ear"` の
+ *   `vdict_EarShapeType`、develop ブランチで `TailShapeType` とは独立した軸として
+ *   work-local 化・改名済み）を実データから読み取る `resolveEarShapeLabel(record, varsDef)`
+ *   も検証する。尻尾形状からの推測（旧 `isEarBearingAnimalWord` allow-list）は行わない。
  */
 
 import { describe, it, expect } from 'vitest';
-import { parseTailsUnit, buildTailDescription, buildTailBundleDescription } from '../tools/patch-aihints.mjs';
+import { parseTailsUnit, buildTailDescription, buildTailBundleDescription, resolveEarShapeLabel } from '../tools/patch-aihints.mjs';
 
 /** テスト用の最小 $VarsDef フィクスチャ（実データの部分集合） */
 const varsDef = {
@@ -22,6 +27,10 @@ const varsDef = {
     $EnumDef_Laterality: {
         '#Lat_Upper': { Laterality: '#Lat_Upper', Laterality_JP: '上', Laterality_EN: 'Upper' },
         '#Lat_Lower': { Laterality: '#Lat_Lower', Laterality_JP: '下', Laterality_EN: 'Lower' },
+    },
+    $EnumDef_EarShapeType: {
+        '#EarShapeType_Fox': { EarShapeType: 'Fox', EarShapeType_JP: '狐の耳', EarShapeType_EN: 'Fox' },
+        '#EarShapeType_Cat': { EarShapeType: 'Cat', EarShapeType_JP: '猫の耳', EarShapeType_EN: 'Cat' },
     },
 };
 
@@ -111,5 +120,50 @@ describe('parseTailsUnit / buildTailDescription / buildTailBundleDescription', (
     it('buildTailDescription(null) / buildTailBundleDescription(null) は TODO / null を返す', () => {
         expect(buildTailDescription(null)).toMatch(/^TODO:/);
         expect(buildTailBundleDescription(null)).toBeNull();
+    });
+});
+
+describe('resolveEarShapeLabel', () => {
+    it('#Element_Ear エントリの vdict_EarShapeType を解決する（db_Primary.json Num:1 相当、狐耳）', () => {
+        const record = {
+            AppearanceDetail: [
+                {
+                    Formation: null,
+                    BodyPart: ['#BodyPart_Ear'],
+                    Laterality: '#Lat_Left',
+                    DesignElement: '#Element_Ear',
+                    Attrs: [{ AttrLabel: '#DesignAttr_Ear', vdict_EarShapeType: '#EarShapeType_Fox', about_JP: '左耳が垂れている', about_EN: 'left ear droops' }],
+                },
+            ],
+        };
+        expect(resolveEarShapeLabel(record, varsDef)).toBe('Fox');
+    });
+
+    it('猫耳（db_Primary.json Num:11 相当、Nekomata 尻尾だが耳は独立して Cat）を解決する', () => {
+        const record = {
+            AppearanceDetail: [
+                { Formation: null, BodyPart: ['#BodyPart_Ear'], Laterality: '#Lat_Both', DesignElement: '#Element_Ear',
+                  Attrs: [{ AttrLabel: '#DesignAttr_Ear', vdict_EarShapeType: '#EarShapeType_Cat', about_JP: 'フードに隠れている', about_EN: 'hidden under the hood' }] },
+            ],
+        };
+        expect(resolveEarShapeLabel(record, varsDef)).toBe('Cat');
+    });
+
+    it('#Element_Ear エントリが無ければ null を返す（尻尾形状からの推測はしない）', () => {
+        const record = { AppearanceDetail: [{ DesignElement: '#Element_CostumeItem', Attrs: [] }] };
+        expect(resolveEarShapeLabel(record, varsDef)).toBeNull();
+        expect(resolveEarShapeLabel({ AppearanceDetail: [] }, varsDef)).toBeNull();
+        expect(resolveEarShapeLabel({}, varsDef)).toBeNull();
+        expect(resolveEarShapeLabel(null, varsDef)).toBeNull();
+    });
+
+    it('複数 #Element_Ear エントリがある場合は先頭の解決成功分を採用する（Num:55 相当、左右耳）', () => {
+        const record = {
+            AppearanceDetail: [
+                { DesignElement: '#Element_Ear', Laterality: '#Lat_Left', Attrs: [{ AttrLabel: '#DesignAttr_Ear', vdict_EarShapeType: '#EarShapeType_Fox', about_JP: '先が濃い緑色' }] },
+                { DesignElement: '#Element_Ear', Laterality: '#Lat_Right', Attrs: [{ AttrLabel: '#DesignAttr_Ear', vdict_EarShapeType: '#EarShapeType_Fox' }] },
+            ],
+        };
+        expect(resolveEarShapeLabel(record, varsDef)).toBe('Fox');
     });
 });

@@ -1,5 +1,14 @@
 # 最新のリファクタリング・仕様変更履歴
 
+### fix: `addon-ai-tag` の AIHints 耳タグ生成を、尻尾形状からの推測から実際の耳データへ追従 (2026-07-08)
+
+`develop` ブランチで「耳の形状」が `AppearanceDetail[].DesignElement:"#Element_Ear"` の `vdict_EarShapeType`（`$EnumDef_EarShapeType`、`TailShapeType` とは独立した軸として work-local 整備）へ改名・整理された（`develop` → `addon-ai-tag` マージ済み）。これに伴い、`tools/patch-aihints.mjs` の `--suggest` モードが使っていた暫定コード（`isEarBearingAnimalWord`: 尻尾形状の allow-list から耳を「推測」していた）を、実際の耳データを読む正しい実装へ置き換えた。
+
+- **`tools/patch-aihints.mjs`**: `isEarBearingAnimalWord`（尻尾形状 allow-list による推測）を削除し、新関数 `resolveEarShapeLabel(record, varsDef)`（`record.AppearanceDetail[]` から `#Element_Ear` エントリを探し `vdict_EarShapeType` を `$EnumDef_EarShapeType` で解決。尻尾形状からの推測は行わない）に置き換え。`buildSuggestedCorefolderForm`/`buildSuggestedHumanoidForm`/`buildSuggestedScaffold`/`buildNegativeVisuals` の耳タグ・耳除外ロジックを全てこの実データ源に追従させた。実データ無し（`#Element_Ear` エントリが存在しない）場合は `TODO: ear type (no AppearanceDetail #Element_Ear entry found)` と正直に表示し、尻尾形状からの誤った推測はしない。
+- **確認された実害**: Num:11（Nekomata尻尾・実際はCat耳）で検証したところ、旧allow-list実装は「nekomata ears」という誤ったタグを生成していた（allow-listが `/^(fox|cat|nekomata|dog)/i` で「nekomata」にマッチしてしまうため）。新実装では実データ通り「cat ears」を正しく生成することを確認。
+- **`tests/patch-aihints.tailsunit.test.js`**: `resolveEarShapeLabel` の変換結果を検証するテストを追加（狐耳・猫耳・エントリ無し・複数エントリのケース）。
+- 確認: `npm test` 全件成功（220件）。`--suggest` モードを NumberTales Primary 全105件に dry-run 実行し例外なし。Num:11 に実 `--apply` して尻尾（nekomata）と耳（cat）が正しく独立して生成されることを確認 → revert。
+
 ### fix: `addon-ai-tag` の AIHints 生成ロジックを新しい構造化 `TailsUnit` に追従 (2026-07-08)
 
 `addon-ai-tag` ブランチの AIHints 生成 CLI ツール `tools/patch-aihints.mjs` が、`develop` で構造化型へ移行済みの `TailsUnit`（旧: 自由記述文字列）に未追従で、渡すと常に `null` を返し尻尾関連の生成内容が空・ゴミ文字列化する状態だったのを修正。

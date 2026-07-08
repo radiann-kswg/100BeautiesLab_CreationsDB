@@ -38,7 +38,8 @@
 | ADR-0002（Google Cloud 画像生成）        | [2026-06-21_progress_cloudflare-api-adr2-gcloud.md](./2026-06-21_progress_cloudflare-api-adr2-gcloud.md)                                                            | Draft・設計検討中                                                                                |
 | UnibyteLive アルベッツ苗字命名           | [2026-07-06_progress_unibytelive-formalname-draft.md](./2026-07-06_progress_unibytelive-formalname-draft.md)                                                        | ⚠️ 下書き入力24件・User最終レビュー待ち（`npm test` 22files/178tests成功済み）                   |
 | NumberTales TailsUnit 専用型移行         | [2026-07-07_progress_tailsunit-dedicated-type.md](./2026-07-07_progress_tailsunit-dedicated-type.md)                                                                | ⚠️ 一行サマリー/独立セクションの表示方針は運用しながら微調整の余地あり                           |
-| NumberTales 耳の形状(EarShapeType)再設計 | [2026-07-08_progress_numbertales-earshapetype-restructure.md](./2026-07-08_progress_numbertales-earshapetype-restructure.md)                                        | ⚠️ ブラウザ目視確認待ち（`npm test` 22files/199tests成功済み・addon-ai-tag側追従は後日別タスク） |
+| NumberTales 耳の形状(EarShapeType)再設計 | [2026-07-08_progress_numbertales-earshapetype-restructure.md](./2026-07-08_progress_numbertales-earshapetype-restructure.md)                                        | ⚠️ ブラウザ目視確認待ち（develop側。`npm test` 22files/199tests成功済み） |
+| addon-ai-tag AIHints 耳タグ追従           | [2026-07-08_progress_addon-ai-tag-earshapetype-aihints.md](./2026-07-08_progress_addon-ai-tag-earshapetype-aihints.md)                                              | ⚠️ 「ビルド」範囲（実データ`--apply`かCloudflareデプロイか）User確認待ち（`npm test` 24files/220tests成功済み） |
 
 ### 系列の補足（過去フェーズは `.completed/` 参照）
 
