@@ -3116,7 +3116,9 @@
         "DayAbout_EN": "Development commemoration"
       }
     ],
-    "Weight_kg": [{ "value": 43, "about_JP": "推定", "about_EN": "Presumption" }],
+    "Weight_kg": [
+      { "value": 43, "about_JP": "推定", "about_EN": "Presumption" }
+    ],
     "BustSize": "B",
     "TailsUnit": [
       {
@@ -3933,7 +3935,10 @@
     "Progress": "released",
     "Images": {
       "concept_PNGName": "cnsp_img10",
-      "corefolder_PNGPath": ["10/emstk_corefolder10-1", "10/emstk_corefolder10-2"]
+      "corefolder_PNGPath": [
+        "10/emstk_corefolder10-1",
+        "10/emstk_corefolder10-2"
+      ]
     },
     "Name_JP": "10(ミツル)",
     "Name_EN": "10(Tenim)",
@@ -5642,7 +5647,11 @@
       {
         "value_JP": "ゼン.エデンズグリーン/皐月（夜月機関 第5幹部）",
         "value_EN": "Bene.Edensgreen / 'Satsuki' (Yadzuki Org. Executive Director.5)",
-        "_DBLink": { "_Work": "PastDivers", "_DB": "Primary", "Lunar": "Satsuki" }
+        "_DBLink": {
+          "_Work": "PastDivers",
+          "_DB": "Primary",
+          "Lunar": "Satsuki"
+        }
       }
     ],
     "FirstPersonCalling_JP": "私(わたし)",
@@ -6442,7 +6451,11 @@
           "Num": 51,
           "Comments": "「弟、発想力は認める」",
           "Comments_EN": "\"Brother, I have to admit - your ideas are creative\"",
-          "RelationLabel": ["brother|sister", "alternative|redesign", "classmate"]
+          "RelationLabel": [
+            "brother|sister",
+            "alternative|redesign",
+            "classmate"
+          ]
         },
         {
           "Num": 95,
@@ -6895,7 +6908,9 @@
         "DayAbout_EN": "Development commemoration"
       }
     ],
-    "Weight_kg": [{ "value": 40, "about_JP": "推定", "about_EN": "Presumption" }],
+    "Weight_kg": [
+      { "value": 40, "about_JP": "推定", "about_EN": "Presumption" }
+    ],
     "BustSize": "AA",
     "TailsUnit": [
       {
@@ -7257,7 +7272,10 @@
     "Progress": "released",
     "Images": {
       "concept_PNGName": "cnsp_img18",
-      "corefolder_PNGPath": ["18/emstk_corefolder18-1", "18/emstk_corefolder18-2"]
+      "corefolder_PNGPath": [
+        "18/emstk_corefolder18-1",
+        "18/emstk_corefolder18-2"
+      ]
     },
     "Name_JP": "18(トウヤ)",
     "Name_EN": "18(Eighteeld)",
@@ -10079,7 +10097,9 @@
         "DayAbout_EN": "Development commemoration"
       }
     ],
-    "Weight_kg": [{ "value": 42, "about_JP": "推定", "about_EN": "Presumption" }],
+    "Weight_kg": [
+      { "value": 42, "about_JP": "推定", "about_EN": "Presumption" }
+    ],
     "BustSize": "G",
     "TailsUnit": [
       {
@@ -13253,7 +13273,10 @@
     "Progress": "released",
     "Images": {
       "concept_PNGName": "cnsp_img32",
-      "corefolder_PNGPath": ["32/emstk_corefolder32-1", "32/emstk_corefolder32-2"]
+      "corefolder_PNGPath": [
+        "32/emstk_corefolder32-1",
+        "32/emstk_corefolder32-2"
+      ]
     },
     "Name_JP": "32(ミツギ)",
     "Name_EN": "32(Thirtwis)",
@@ -15559,7 +15582,9 @@
         "DayAbout_EN": "Development commemoration"
       }
     ],
-    "Weight_kg": [{ "value": 42, "about_JP": "推定", "about_EN": "Presumption" }],
+    "Weight_kg": [
+      { "value": 42, "about_JP": "推定", "about_EN": "Presumption" }
+    ],
     "BustSize": "C",
     "TailsUnit": [
       {
@@ -16499,7 +16524,10 @@
     "Progress": "released",
     "Images": {
       "concept_PNGName": "cnsp_img40",
-      "corefolder_PNGPath": ["40/emstk_corefolder40-1", "40/emstk_corefolder40-2"]
+      "corefolder_PNGPath": [
+        "40/emstk_corefolder40-1",
+        "40/emstk_corefolder40-2"
+      ]
     },
     "Name_JP": "40(ヨソ)",
     "Name_EN": "40(Fortty)",
@@ -18078,7 +18106,12 @@
           "Num": 34,
           "Comments": "「にぃにのざーこ★ばーか★」",
           "Comments_EN": "\"Big sibly is such a weakling ★ idiot ★\"",
-          "RelationLabel": ["brother|sister", "unmatched", "abusing", "classmate"]
+          "RelationLabel": [
+            "brother|sister",
+            "unmatched",
+            "abusing",
+            "classmate"
+          ]
         },
         {
           "Num": 46,
@@ -20133,7 +20166,9 @@
         "DayAbout_EN": "Development commemoration"
       }
     ],
-    "Weight_kg": [{ "value": 39, "about_JP": "推定", "about_EN": "Presumption" }],
+    "Weight_kg": [
+      { "value": 39, "about_JP": "推定", "about_EN": "Presumption" }
+    ],
     "BustSize": "A",
     "TailsUnit": [
       {
@@ -20180,7 +20215,11 @@
       {
         "value_JP": "花舞 流/卯月（夜月機関 第4幹部）",
         "value_EN": "Flur Flowee / 'Udzuki' (Yadzuki Org. Executive Director.4)",
-        "_DBLink": { "_Work": "PastDivers", "_DB": "Primary", "Lunar": "Udzuki" }
+        "_DBLink": {
+          "_Work": "PastDivers",
+          "_DB": "Primary",
+          "Lunar": "Udzuki"
+        }
       }
     ],
     "FirstPersonCalling_JP": "ボク",
@@ -21253,7 +21292,9 @@
         "DayAbout_EN": "2+5-type special plan establishment commemoration (in-story)"
       }
     ],
-    "Weight_kg": [{ "value": 42, "about_JP": "推定", "about_EN": "Presumption" }],
+    "Weight_kg": [
+      { "value": 42, "about_JP": "推定", "about_EN": "Presumption" }
+    ],
     "BustSize": "F",
     "TailsUnit": [
       {
@@ -22550,7 +22591,9 @@
         "DayAbout_EN": "Development commemoration"
       }
     ],
-    "Weight_kg": [{ "value": 39, "about_JP": "推定", "about_EN": "Presumption" }],
+    "Weight_kg": [
+      { "value": 39, "about_JP": "推定", "about_EN": "Presumption" }
+    ],
     "BustSize": "B",
     "TailsUnit": [
       {
@@ -24320,7 +24363,11 @@
           "Num": 61,
           "Comments": "「私に構うな!!!（※この文面だけ字が荒れている）」",
           "Comments_EN": "\"Stop meddling with me!!! (*this entry alone is written in rough, messy handwriting)\"",
-          "RelationLabel": ["successor_nearly", "unmatched", "adverselyAffected"]
+          "RelationLabel": [
+            "successor_nearly",
+            "unmatched",
+            "adverselyAffected"
+          ]
         },
         {
           "Num": 63,
@@ -25840,7 +25887,11 @@
           "Comments_EN": "\"Ze seems to have a lot going on.\"",
           "RelationLabel": ["classmate"]
         },
-        { "Num": 90, "Comments": "「頼もしい」", "Comments_EN": "\"Reliable.\"" }
+        {
+          "Num": 90,
+          "Comments": "「頼もしい」",
+          "Comments_EN": "\"Reliable.\""
+        }
       ]
     }
   },
@@ -28872,7 +28923,9 @@
         "DayAbout_EN": "Development commemoration"
       }
     ],
-    "Weight_kg": [{ "value": 40, "about_JP": "推定", "about_EN": "Presumption" }],
+    "Weight_kg": [
+      { "value": 40, "about_JP": "推定", "about_EN": "Presumption" }
+    ],
     "TailsUnit": [
       {
         "TailShapeType": "#TailShapeType_FoxBranched",
@@ -30403,7 +30456,9 @@
     "Images": {
       "concept_PNGName": "cnsp_img75",
       "corefolder_PNGPath": ["75/emstk_corefolder75-1"],
-      "arts_PNGPath": ["corefolders/sphericateDay/art_sphericateDay202305-img75"]
+      "arts_PNGPath": [
+        "corefolders/sphericateDay/art_sphericateDay202305-img75"
+      ]
     },
     "Name_JP": "75(シチゴ)",
     "Name_EN": "75(Sefievn)",
@@ -31256,7 +31311,10 @@
     "Progress": "released",
     "Images": {
       "concept_PNGName": "cnsp_img77",
-      "corefolder_PNGPath": ["77/emstk_corefolder77-1", "77/emstk_corefolder77-2"]
+      "corefolder_PNGPath": [
+        "77/emstk_corefolder77-1",
+        "77/emstk_corefolder77-2"
+      ]
     },
     "Name_JP": "77(ナヅナ)",
     "Name_EN": "77(Sefvens)",
@@ -31279,7 +31337,9 @@
         "DayAbout_EN": "Development commemoration"
       }
     ],
-    "Weight_kg": [{ "value": 39, "about_JP": "推定", "about_EN": "Presumption" }],
+    "Weight_kg": [
+      { "value": 39, "about_JP": "推定", "about_EN": "Presumption" }
+    ],
     "BustSize": "A",
     "TailsUnit": [
       {
@@ -31547,7 +31607,10 @@
         "Luck": { "EffectText": "普通" },
         "Communication": { "EffectText": "普通" }
       },
-      "SpecialPattern": ["Ptn.Hm(心理安定化効果)", "Ptn.F-(超能力保有の可能性)"],
+      "SpecialPattern": [
+        "Ptn.Hm(心理安定化効果)",
+        "Ptn.F-(超能力保有の可能性)"
+      ],
       "SafetyLevel": { "SafetyLevelText": "完全保証" }
     },
     "AbilityStats": {
@@ -32041,8 +32104,8 @@
     "Progress": "notProceeded",
     "Name_JP": "79(ナチカ)",
     "Name_EN": "79(Sevenina)",
-    "ModelName_JP": "ナンバーテールズ7+9号機乙(79番機)",
-    "ModelName_EN": "NumberTales Unit.7+9.B (Mk.79)",
+    "ModelName_JP": "ナンバーテールズ7+9号機甲(79番機)",
+    "ModelName_EN": "NumberTales Unit.7+9.A (Mk.79)",
     "ModelNumber": "APHR-NT VII+IX.A",
     "FormalName_JP": "ナンバーテールズ79番機",
     "FormalName_EN": "NumberTales #79",
@@ -33880,7 +33943,11 @@
       }
     ],
     "GenderType": "FemaleNeutral",
-    "ConceptAge": { "value": 19, "about_JP": "自称", "about_EN": "Self-styled" },
+    "ConceptAge": {
+      "value": 19,
+      "about_JP": "自称",
+      "about_EN": "Self-styled"
+    },
     "Height_cm": 156,
     "Weight_kg": { "hideText": "非公開" },
     "BustSize": {
@@ -34166,7 +34233,10 @@
     "NumerospecStats": {
       "EffectStats": {
         "Mental": { "EffectText": "普通" },
-        "Monetize": { "Rank": "Z", "EffectText": "極めて絶大(場合により逆効果)" },
+        "Monetize": {
+          "Rank": "Z",
+          "EffectText": "極めて絶大(場合により逆効果)"
+        },
         "Working": { "EffectText": "普通" },
         "Luck": { "EffectText": "絶大" },
         "Communication": { "EffectText": "普通" }
@@ -34629,7 +34699,10 @@
     "Progress": "released",
     "Images": {
       "concept_PNGName": "cnsp_img89",
-      "corefolder_PNGPath": ["89/emstk_corefolder89-1", "89/emstk_corefolder89-2"]
+      "corefolder_PNGPath": [
+        "89/emstk_corefolder89-1",
+        "89/emstk_corefolder89-2"
+      ]
     },
     "Name_JP": "89(ヤスモ)",
     "Name_EN": "89(Eightine)",
@@ -34724,7 +34797,12 @@
         "Formation": "corefolder",
         "Motif": {
           "Motif_JP": ["狐の耳", "マゼンタの長い髪", "赤い目", "赤いネクタイ"],
-          "Motif_EN": ["fox ears", "long magenta hair", "red eyes", "red necktie"]
+          "Motif_EN": [
+            "fox ears",
+            "long magenta hair",
+            "red eyes",
+            "red necktie"
+          ]
         }
       },
       {
@@ -36183,7 +36261,10 @@
         "Luck": { "EffectText": "強化済" },
         "Communication": { "EffectText": "希薄" }
       },
-      "SpecialPattern": ["Ptn.B(バイタリティ強化効果)", "Ptn.Hm(心理安定化効果)"],
+      "SpecialPattern": [
+        "Ptn.B(バイタリティ強化効果)",
+        "Ptn.Hm(心理安定化効果)"
+      ],
       "SafetyLevel": { "SafetyLevelText": "完全保証" }
     },
     "AbilityStats": {
@@ -37550,7 +37631,10 @@
     "Progress": "released",
     "Images": {
       "concept_PNGName": "cnsp_img99",
-      "corefolder_PNGPath": ["99/emstk_corefolder99-1", "99/emstk_corefolder99-2"]
+      "corefolder_PNGPath": [
+        "99/emstk_corefolder99-1",
+        "99/emstk_corefolder99-2"
+      ]
     },
     "Name_JP": "99(ツクモ)",
     "Name_EN": "99(Thukumo)",
@@ -38395,14 +38479,19 @@
         { "Num": 3, "RelationLabel": ["trusted", "interested", "classmate"] },
         { "Num": 20, "RelationLabel": ["brother|sister", "wellMatched"] },
         { "Num": 24, "RelationLabel": ["successor", "wellMatched"] },
-        { "Num": "10-alt", "RelationLabel": ["trusted", "awkward", "classmate"] }
+        {
+          "Num": "10-alt",
+          "RelationLabel": ["trusted", "awkward", "classmate"]
+        }
       ]
     }
   },
   {
     "Num": "10-alt",
     "Progress": "stillTentative",
-    "Images": { "corefolder_PNGPath": ["10-alt/emstk_corefolder10alt-ondeck1"] },
+    "Images": {
+      "corefolder_PNGPath": ["10-alt/emstk_corefolder10alt-ondeck1"]
+    },
     "Name_JP": "ディケ\n10(ツナイ)",
     "Name_EN": "Dicat\n10(Decadle)",
     "ModelName_JP": "ナンバーテールズ試作型10号機",
@@ -39035,8 +39124,14 @@
     "Relation": {
       "Related": [
         { "Num": 81, "RelationLabel": ["wellMatched"] },
-        { "Num": "0", "RelationLabel": ["secretRelation", "adverselyAffected"] },
-        { "Num": "00", "RelationLabel": ["secretRelation", "adverselyAffected"] }
+        {
+          "Num": "0",
+          "RelationLabel": ["secretRelation", "adverselyAffected"]
+        },
+        {
+          "Num": "00",
+          "RelationLabel": ["secretRelation", "adverselyAffected"]
+        }
       ]
     },
     "ConversationPattern": {
