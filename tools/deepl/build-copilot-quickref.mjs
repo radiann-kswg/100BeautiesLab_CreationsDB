@@ -53,9 +53,11 @@ const SOURCE_LABELS = {
   "Dictionaries/dict_RaceType.json": "種族タイプ",
 };
 
-/** Markdown テーブルセル内の `|` を安全化する。固有名詞に稀に含まれるため。 */
+/** Markdown テーブルセル内の `\` と `|` を安全化する。固有名詞に稀に含まれるため。 */
 function escapeCell(value) {
-  return String(value ?? "").replace(/\|/g, "\\|");
+  return String(value ?? "")
+    .replace(/\\/g, "\\\\")
+    .replace(/\|/g, "\\|");
 }
 
 /**
