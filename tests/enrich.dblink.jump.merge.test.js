@@ -698,4 +698,50 @@ describe('_DBLink / _Jump merge (in-process)', () => {
     expect(e.Age).toEqual({ hideText: '不定' });
     expect(e.ConceptAge).toEqual({ hideText: '不定' });
   });
+
+  it('FLInvestigator78/PrimaryDealer の cross-work AnotherRegions_DBLink は現DBキーと文脈を優先する', async () => {
+    class RealGlobalTypeFetcher extends TestDataFetcher {
+      async readGlobalType() { return loadJson('data/db_type.json'); }
+    }
+
+    const dataFetcher = new RealGlobalTypeFetcher();
+    const proc = new globalThis.EnrichmentProcessor(dataFetcher, testConfig);
+
+    const primaryDealer = loadJson('data/Works_FLInvestigator78/DataBases/db_PrimaryDealer.json');
+    const mai = primaryDealer.find(r => r?.Card?.Suit === 'Dealer' && Number(r?.Card?.Num) === 79);
+    expect(mai).toBeTruthy();
+    expect(Array.isArray(mai.Class)).toBe(true);
+    expect(mai.Class).toHaveLength(0);
+    expect(mai.RelationTo_Primary).toBeUndefined();
+
+    const out = await proc.enrichRecords([mai], '#Works_FLInvestigator78', 'PrimaryDealer');
+    const e = out[0];
+
+    expect(e.Class).toEqual([]);
+    expect(e.RelationTo_Primary).toBeUndefined();
+    expect(e.RelationNotes_JP).toContain('アルカナホルダー');
+  });
+
+  it('UnauthedLogica/Primary の cross-work AnotherRegions_DBLink は明示 null の CodeName を $alt 経由でも埋めない', async () => {
+    class RealGlobalTypeFetcher extends TestDataFetcher {
+      async readGlobalType() { return loadJson('data/db_type.json'); }
+    }
+
+    const dataFetcher = new RealGlobalTypeFetcher();
+    const proc = new globalThis.EnrichmentProcessor(dataFetcher, testConfig);
+
+    const primary = loadJson('data/Works_UnauthedLogica/DataBases/db_Primary.json');
+    const rei = primary.find(r => r?.FormalName_JP === '千歳 玲');
+    expect(rei).toBeTruthy();
+    expect(rei.CodeName_JP).toBeNull();
+    expect(rei.CodeName_EN).toBeNull();
+
+    const out = await proc.enrichRecords([rei], '#Works_UnauthedLogica', 'Primary');
+    const e = out[0];
+
+    expect(e.CodeName_JP).toBeNull();
+    expect(e.CodeName_EN).toBeNull();
+    expect(e.SPCodeName_JP).toBeUndefined();
+    expect(e.SPCodeName_EN).toBeUndefined();
+  });
 });
