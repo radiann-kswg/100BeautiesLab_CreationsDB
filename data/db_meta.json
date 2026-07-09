@@ -71,6 +71,7 @@
           "AppearanceDetail",
           "AbilityStats",
           "ArcanumspecStats",
+          "Relation",
           "ThisArcanaHolder_DBLink",
           "ConversationPattern",
           "AnotherRegions_DBLink"
