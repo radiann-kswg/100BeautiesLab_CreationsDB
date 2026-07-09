@@ -314,6 +314,8 @@
     "Weight_kg": 52,
     "Age": 17,
     "BirthDay": { "Day": { "Month": 7, "DayOfMonth": 6 } },
+    "Belonging": ["第三県立技巧美術女子高校"],
+    "Class": [],
     "Character_JP": "仲間想いだが極めて受難体質、繊細で涙もろい",
     "Character_EN": "Caring for companions but extremely prone to hardship, delicate and easily moved to tears",
     "Hobby_JP": "タロット占い、キャラクターデザイン",
@@ -332,6 +334,8 @@
     "ThirdPersonCalling_EN": "he/she; [*by name]",
     "For80thDealerCalling_JP": "歌嫁(うたか)",
     "For80thDealerCalling_EN": "Phonia",
+    "RelationNotes_JP": "原則としてどのアルカナホルダーにも温厚に接するが、どこか受動的で自発的意欲が見られないようにも見受けられる。",
+    "RelationNotes_EN": "In principle, she treats all Arcana holders kindly, but she seems somewhat passive and lacks spontaneous motivation.",
     "AbilityStats": {
       "Speed": { "Rank": "C" },
       "Communication": { "Rank": "B" },
@@ -339,6 +343,42 @@
       "Precision": { "Rank": "S" },
       "Technic": { "Rank": "S" },
       "Actuation": { "Rank": "B+" }
+    },
+    "InStory_JP": "占い師である母親の影響でタロットカードに対する知見が深く、そのことから采配幹部の一人として78特殊探偵団に加入することになった\n妹「歌嫁(うたか)」とは双子でありながらも高校から別の進路に進んでいるが、自宅内での交流や采配幹部としての活動を見るからには強い信頼関係が期待できそうだ",
+    "InStory_EN": "Influenced by her mother, a fortune-teller, she has deep insight into tarot cards, which led her to join the 78 Special Investigators as one of the Dealers.\nAlthough she and her younger sister 'Phonia' are twins who have taken different paths since high school, their interactions at home and their activities as Dealers suggest they share a strong bond of trust.",
+    "ConversationPattern": {
+      "TalkingTone_JP": "やわらかで落ち着いたトーンで温厚に接するものの、会話の要所要所で受難系な一面が露になったり不意に涙を浮かべたりなど、周りに惑わされて感情を揺らされる様子も見受けられる",
+      "TalkingTone_EN": "She speaks in a soft, calm tone and treats others with warmth, but at key moments in conversation her hardship-prone side tends to surface, and she may suddenly well up with tears — a sign that she can be easily swayed emotionally by those around her.",
+      "TopicPreference_JP": "相手の心理状態を窺いながら気遣うよう意識して会話をしようとするものの、その結果 聞き専になりがちで、会話の主導権を握ることは少ない",
+      "TopicPreference_EN": "She tries to be mindful of the other person's state of mind and speak considerately, but as a result she tends to fall into the role of listener and rarely takes the lead in a conversation.",
+      "TalkFrequency_JP": "自ら発言することがやや少ない。ただし、相手を気遣ったり相手の力になりたいときに、勇気を出して発言することもある",
+      "TalkFrequency_EN": "She speaks up on her own initiative somewhat rarely. However, when she wants to look out for someone or be of help to them, she sometimes musters the courage to speak.",
+      "PreferredTopics_JP": "人とつながっていることやタロットカードを通じて気持ちを整理することに安心感を憶えやすい。特に、相手に自分の意図を知ってもらえた時の安心感が大きく、その際は場合により稀に涙が出るほどに感動する。",
+      "PreferredTopics_EN": "She easily finds reassurance in feeling connected to others and in sorting out her feelings through tarot cards. In particular, the relief she feels when someone comes to understand her intentions is significant, and on occasion she is moved to the point of tears.",
+      "AvoidedTopics_JP": "中学時代に自分の才能を否定されたトラウマから、自分の弱さを強く攻め立てる発言や態度に極めて弱い。仮にそのような態度を取られた場合は、激しく内向的になってしまう。",
+      "AvoidedTopics_EN": "Due to the trauma of having her talent denied back in junior high school, she is extremely vulnerable to remarks or attitudes that harshly attack her own weaknesses. Should she be treated that way, she becomes intensely withdrawn.",
+      "ConversationNotes_JP": "性格や気質は姉妹で相反するものの、根本的な話し方の傾向は妹「歌嫁(うたか)」とかなり似ている。",
+      "ConversationNotes_EN": "Although she and her sister have contrasting personalities and temperaments, her fundamental way of speaking is quite similar to that of her younger sister 'Phonia'.",
+      "DialogueExamples": [
+        {
+          "value_JP": "「はじめまして、私は錦野舞。まだまだ未熟だけど、これからよろしくね」",
+          "value_EN": "\"Nice to meet you, I'm Dancy Actressilk. I still have a lot to learn, but I look forward to working with you.\"",
+          "about_JP": "初対面の挨拶",
+          "about_EN": "Introduction upon first meeting"
+        },
+        {
+          "value_JP": "「そうだ、タロット占いをしてみない？そんなに難しくないよ。引いてみたカードの絵柄を見て、自分の考えていることと照らし合わせて占うんだ……私でよかったら、あなたのこと占ってみようか？」",
+          "value_EN": "\"Oh, why don't we try a tarot reading? It's not that difficult. You look at the picture on the card you draw and compare it with what's on your mind to read your fortune... If you'd like, shall I do a reading for you?\""
+        },
+        {
+          "value_JP": "「……大丈夫。私は絶対に、みんなのことを諦めたりなんかしない。落ち着いてこの場を乗り越えよう」",
+          "value_EN": "\"...It's okay. I will never give up on any of you. Let's stay calm and get through this together.\""
+        },
+        {
+          "value_JP": "「うぇえ……そんなに私のこと攻めないでよ…私だって、真剣にみんなのことを思っているのに……（※泣）」",
+          "value_EN": "\"Waah... please don't come at me like that... I really do care about everyone, seriously... (*crying)\""
+        }
+      ]
     }
   },
   {
@@ -359,6 +399,8 @@
     "Weight_kg": 52,
     "Age": 17,
     "BirthDay": { "Day": { "Month": 7, "DayOfMonth": 6 } },
+    "Belonging": ["南第三県専門学校"],
+    "Class": [],
     "Character_JP": "ムードメーカで友好的だが極めて強気で頑固、裏で悩みを抱え込みやすい",
     "Character_EN": "A mood-maker who is friendly but extremely headstrong and stubborn; tends to bottle up worries deep down",
     "Hobby_JP": "プラモデル制作",
@@ -377,6 +419,8 @@
     "ThirdPersonCalling_EN": "he/she; [*by name]",
     "For79thDealerCalling_JP": "舞(まい)",
     "For79thDealerCalling_EN": "Dancy",
+    "RelationNotes_JP": "原則としてどのアルカナホルダーにも友好的に接するが、どこか自責思考があり悩みを抱え込みやすいようにも見受けられる。",
+    "RelationNotes_EN": "In principle, she treats all Arcana holders kindly, but she seems somewhat self-critical and tends to bottle up worries.",
     "AbilityStats": {
       "Speed": { "Rank": "S" },
       "Communication": { "Rank": "B+" },
@@ -384,6 +428,42 @@
       "Precision": { "Rank": "B" },
       "Technic": { "Rank": "A" },
       "Actuation": { "Rank": "S" }
+    },
+    "InStory_JP": "剣道のアスリートである父親の影響で剣術に対する技術力が深く、そのことから采配幹部の一人として78特殊探偵団に加入することになった\n姉「舞(まい)」とは双子でありながらも高校から別の進路に進んでいるが、自宅内での交流や采配幹部としての活動を見るからには強い信頼関係が期待できそうだ",
+    "InStory_EN": "Influenced by her father, a kendo athlete, she has deep technical skill in swordsmanship, which led her to join the 78 Special Investigators as one of the Dealers.\nAlthough she and her older sister 'Dancy' are twins who have taken different paths since high school, their interactions at home and their activities as Dealers suggest they share a strong bond of trust.",
+    "ConversationPattern": {
+      "TalkingTone_JP": "軽やかで接しやすいトーンで友好的に接するものの、会話の要所要所で頑固な部分や自責的な部分が露呈したりなど、自分の弱みに対し少しストイックな様子も見受けられる",
+      "TalkingTone_EN": "She speaks in a light, approachable tone and treats others in a friendly manner, but at key moments in conversation her stubborn and self-blaming side tends to show through, revealing a somewhat stoic attitude toward her own weaknesses.",
+      "TopicPreference_JP": "相手の考えに対し自分の意見を述べるよう自発的な発言を心がけているものの、その結果周りにどう思われているかを不要に気にしてしまい、頭の整理が不安定なまま会話の主導権を握ってしまうことがある",
+      "TopicPreference_EN": "She tries to speak up on her own initiative and voice her own opinions in response to others' ideas, but as a result she ends up worrying unnecessarily about how she's perceived, and sometimes ends up taking the lead in a conversation while her thoughts are still unsettled.",
+      "TalkFrequency_JP": "自ら発言することがやや多い。ただし、相手の意見と自分の思考をすり合わせるために、ふと冷静に聞き役に徹しようと努める姿勢もある",
+      "TalkFrequency_EN": "She speaks up on her own initiative somewhat often. That said, she also makes an effort to calmly settle into the role of listener at times, in order to reconcile her own thinking with the other person's opinion.",
+      "PreferredTopics_JP": "剣術や物創りなどで得意分野を披露している時の満足感はとても大きい。特に、自分の活躍やパフォーマンスで誰かの役に立てた時の満足感は大きく、その際はかなりの上機嫌になり稀に調子に乗る。",
+      "PreferredTopics_EN": "She feels great satisfaction when showing off skills she excels at, such as swordsmanship or crafting. In particular, the satisfaction she feels when her achievements or performance help someone out is significant, and on such occasions she becomes quite cheerful and, on rare occasions, gets a little carried away.",
+      "AvoidedTopics_JP": "中学時代に学級崩壊に巻き込まれたトラウマから、どうにもならない不毛な状況や修羅場の下での会話や交流に極めて弱い。仮にそのような状況に陥った場合は、激しく自責的になってしまう。",
+      "AvoidedTopics_EN": "Due to the trauma of being caught up in a classroom breakdown back in junior high school, she is extremely vulnerable to conversation or interaction under hopeless, unproductive situations or crises. Should she find herself in such a situation, she becomes intensely self-blaming.",
+      "ConversationNotes_JP": "性格や気質は姉妹で相反するものの、根本的な話し方の傾向は姉「舞(まい)」とかなり似ている。",
+      "ConversationNotes_EN": "Although she and her sister have contrasting personalities and temperaments, her fundamental way of speaking is quite similar to that of her older sister 'Dancy'.",
+      "DialogueExamples": [
+        {
+          "value_JP": "「あなたとははじめましてかな？私は錦野歌嫁。まだまだ頼りないところはあるかもしれないけど、これからもよろしく！」",
+          "value_EN": "\"Is this our first time meeting? I'm Phonia Actressilk. I might still be a bit unreliable, but let's get along well from here on!\"",
+          "about_JP": "初対面の挨拶",
+          "about_EN": "Introduction upon first meeting"
+        },
+        {
+          "value_JP": "「そうだ、一緒に剣道の練習しようよ。武器を振り回すのって危ないじゃん！って思われるかもしれないけど、ちゃんと防具の装着方法とレギュレーションさえ守っていれば、誰だって真剣勝負ができるよ。試してみる？」",
+          "value_EN": "\"Oh, let's practice kendo together. You might think swinging weapons around sounds dangerous! But as long as you properly wear your protective gear and follow the regulations, anyone can have a real match. Want to give it a try?\""
+        },
+        {
+          "value_JP": "「……心配いらないよ。あなたがたとえ悪者になったとしても、あなたを悪者扱いするような奴は私がみんな懲らしめてあげるから」",
+          "value_EN": "\"...No need to worry. Even if you end up being seen as the villain, I'll deal with anyone who treats you that way.\""
+        },
+        {
+          "value_JP": "「あ～もう、どうしてこんなうまくいかないの……！もっと私がしっかりしていたら何とかなっていたかもしれないのに……！」",
+          "value_EN": "\"Argh, seriously, why isn't this working out...! If only I'd been more on top of things, maybe it could've turned out fine...!\""
+        }
+      ]
     }
   }
 ]

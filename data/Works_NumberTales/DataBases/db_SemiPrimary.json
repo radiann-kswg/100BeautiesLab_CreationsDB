@@ -1,14 +1,15 @@
 [
   {
     "Num": 100,
-    "Progress": "notProceeded",
+    "Progress": "stillTentative",
     "Name_JP": "100(モモ)",
     "Name_EN": "100(Centa)",
-    "ModelName_JP": "ナンバーテールズ試作正規型10号機改(100番機)",
-    "ModelName_EN": "NumberTales' Proto-Standard: NumberTales Unit.10 Refactored (Mk.100)",
-    "ModelNumber": "APHR-NT [PS]X.R(APHR-NT X.R)",
-    "FormalName_JP": "ナンバーテールズ100番機",
-    "FormalName_EN": "NumberTales #100",
+    "Images": { "corefolder_PNGPath": ["100/emstk_corefolder100-1"] },
+    "ModelName_JP": "ナンバーテールズ試作正規型10号機改(100番機/キャレ-ディス)",
+    "ModelName_EN": "NumberTales' Proto-Standard: NumberTales Unit.10 Refactored (Mk.100 / Unit.Carré-10)",
+    "ModelNumber": "APHR-NT [PS]X.R(APHR-NT X.R/APHR-NT SQ.X)",
+    "FormalName_JP": "ナンバーテールズ100番機\nナンバーテールズ キャレ-ディス",
+    "FormalName_EN": "NumberTales #100\nNumberTales Unit.Carré-10",
     "CodeName_JP": "一〇〇",
     "CodeName_EN": "One-Zero-Zero",
     "SPCodeName_JP": "百",
@@ -18,10 +19,27 @@
     "ConceptAge": 17,
     "BustSize": "AA",
     "Belonging": ["百花繚乱研究所", "レゾンデイトルカンパニー"],
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_Fox",
+        "Count": 10,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "Class": [
       "百倍番(ハンドレッズデジッツ)",
       "デシベルモデレーターズ",
-      "10号機型"
+      "10号機型",
+      "キャレ型ハイナンバーズ"
+    ],
+    "ThisMasters": [
+      {
+        "value_JP": null,
+        "about_JP": "(専属契約不可)",
+        "value_EN": null,
+        "about_EN": "(Cannot be exclusively contracted)"
+      }
     ],
     "FirstPersonCalling_JP": "おれ",
     "FirstPersonCalling_EN": "I (rough masc.)",
@@ -31,10 +49,50 @@
     "ThirdPersonCalling_EN": "[*by name]",
     "ForMasterCalling_JP": "センパイ",
     "ForMasterCalling_EN": "Senpai",
+    "Character_JP": "様々な苦境を乗り越えてきた戦士の男看護長のような威厳があり、やや不器用な一面がありながらも先輩思いで接しやすい。",
+    "Character_EN": "Has the dignity of a battle-hardened male head nurse, and while somewhat clumsy, is considerate of seniors and easy to approach.",
+    "Hobby_JP": "ナンバーテールズとその主人たちの活動を見守ること",
+    "Hobby_EN": "Watching over the activities of NumberTales and their masters",
+    "SpecialSkill_JP": "認知行動療法",
+    "SpecialSkill_EN": "Cognitive behavioral therapy",
+    "Favor_JP": "社会復帰・精神的な更生",
+    "Favor_EN": "Social reintegration and mental rehabilitation",
+    "Unlike_JP": "自分の命を諦めること",
+    "Unlike_EN": "Giving up on one's own life",
+    "Strength_JP": "精神的に不安定な相手であっても決して見放さないこと",
+    "Strength_EN": "Never abandoning even mentally unstable individuals",
     "RelationNotes_JP": "「ディケ」を「アニキ」と慕っているが、10(ミツル)に対しては少し慣れない様子",
     "RelationNotes_EN": "Looks up to \"Dicat\" as an elder-brother figure, but still seems slightly awkward around 10(Tenim)",
+    "NumerospecAbout_JP": "ナンバーテールズの暴走と、ナンバーテールズと契約する主人との関係悪化を抑止する",
+    "NumerospecAbout_EN": "Suppresses both runaway incidents among NumberTales and the deterioration of relationships between NumberTales and their contracted masters.",
+    "Summary_JP": "兄個体「ディケ」の復帰のため、傘下に神皇国の心理技術士企業「レゾンデイトルカンパニー」を置くことで試作された、対暴走キャレ型ハイナンバーズ。\nナンバーテールズの暴走と、ナンバーテールズと契約する主人との関係悪化を抑止する独自の機能が搭載されたことで、人間やヒューマノイドの精神衛生面について深い知見を有する個体となった。\n現在 他のナンバーテールズにとっては不器用ながらも親しみやすい後輩のような存在であり、今後の主従契約の安泰にも貢献することから期待も高まっている。",
+    "Summary_EN": "Prototyped as an anti-runaway Carré-Series HighNumbers unit, developed by bringing the SaintPapis-based psychological-technician company \"Raison-d'être Company\" under (100BeautiesLab.'s) umbrella, for the sake of her elder-brother unit \"Dicat\"'s eventual return to duty.\nEquipped with a unique function to suppress both runaway incidents among NumberTales and the deterioration of relationships between NumberTales and their contracted masters, she became a unit with deep insight into the mental health of both humans and humanoids.\nAt present, she is seen by the other NumberTales as a somewhat clumsy yet approachable junior-like presence, and expectations are rising for her future contributions to the stability of master-servant contracts.",
     "Backgrounds_JP": "量産型のリリースに向けたプロトタイプ\n神皇国の有限会社「レゾンデイトルカンパニー」との技術提携を経て、10号機系[ディケ]の設計を完成させた",
-    "Backgrounds_EN": "A prototype prepared for the release of mass-production models.\nThrough a technical partnership with Raison-d'être Company in SaintPapis, the Unit.10 lineage [Dicat] design was completed."
+    "Backgrounds_EN": "A prototype prepared for the release of mass-production models.\nThrough a technical partnership with Raison-d'être Company in SaintPapis, the Unit.10 lineage [Dicat] design was completed.",
+    "ConversationPattern": {
+      "TalkingTone_JP": "やや男性的で少し不器用な一面がありながらも、先輩思いで親しみやすい話し方をする。他のナンバーテールズの話題になると、慕う気持ちがふとした所作に表れることがある。",
+      "TalkingTone_EN": "Speaks in a somewhat masculine, slightly clumsy yet approachable manner that shows consideration for her seniors. When the topic turns to the other NumberTales, her deep admiration for them sometimes shows through in small ways.",
+      "TopicPreference_JP": "「ディケ」や他のナンバーテールズの様子・成長を気にかける話題を好み、相手の精神衛生状態にも自然と意識を向ける。また、精神的に不安定な個体に対しては安定するように適切な言葉をかけることができる。",
+      "TopicPreference_EN": "Favors topics about how \"Dicat\" and the other NumberTales are doing and how they're growing, and naturally pays attention to the mental well-being of whoever she's talking with. Also, she can offer appropriate words to help stabilize mentally unstable individuals.",
+      "PreferredTopics_JP": "精神衛生的な体調や社会復帰を気遣う話題、「アニキ」ことディケや他のナンバーテールズを気にかける話題を好む。",
+      "PreferredTopics_EN": "Favors topics about mental well-being and social reintegration, and talking about how \"Aniki\" (Dicat) and the other NumberTales are doing.",
+      "ConversationNotes_JP": "精神衛生面が少しでも健常な状態になれるよう気遣い不器用ながらも親しく接することができる。暴走インシデントを起こした個体や精神的に不安定な相手であっても決して見放さず、寄り添い続ける姿勢がある。",
+      "ConversationNotes_EN": "Pays attention to the mental well-being of others and interacts in a friendly manner despite being somewhat clumsy. Never gives up on individuals who have caused runaway incidents or who are mentally unstable, and continues to stand by them.",
+      "DialogueExamples": [
+        {
+          "value_JP": "「センパイ、今日の体調はどうだ？あまり様子がすぐれないようだが……おれでよければ、相談に乗るぞ？」",
+          "value_EN": "\"Senpai, how's your condition today? You don't seem to be doing so well… If it helps, I'm here to listen.\""
+        },
+        {
+          "value_JP": "「大丈夫、センパイは悪くないよ。これから解決するためにどう考えていくか、おれと一緒に考えていこう」",
+          "value_EN": "\"It's okay, Senpai, it's not your fault. Let's think together about how to work this out from here.\""
+        },
+        {
+          "value_JP": "「進捗はどうだ、センパイ？捗ってるのは良いことだけど、無理しすぎて体調をこわさないようにな」",
+          "value_EN": "\"How's the progress going, Senpai? It's great that it's moving along, but don't push yourself so hard that you wreck your health.\""
+        }
+      ]
+    }
   },
   {
     "Num": 101,
@@ -252,7 +310,9 @@
     "GenderType": "Neutral",
     "Height_cm": 141,
     "ConceptAge": 14,
-    "Weight_kg": [{ "value": 37, "about_JP": "推定", "about_EN": "Presumption" }],
+    "Weight_kg": [
+      { "value": 37, "about_JP": "推定", "about_EN": "Presumption" }
+    ],
     "BustSize": "AA",
     "TailsUnit": [
       {

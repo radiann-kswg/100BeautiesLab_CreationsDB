@@ -45,6 +45,44 @@
     "isMaker": true
   },
   {
+    "Faction": "N3US大学",
+    "Faction_JP": "N3US(北第三県理科)大学",
+    "Faction_EN": "N3US University",
+    "Belonging": "N3US大学",
+    "Belonging_JP": "N3US(北第三県理科)大学",
+    "Belonging_EN": "N3US University",
+    "BelongingArea": { "Area": "九蓮国" },
+    "isForSecondary": false,
+    "isMaker": false
+  },
+  {
+    "Faction": "夜月機関付属大学",
+    "Faction_EN": "Yadzuki Org. Affiliated University",
+    "Belonging": "夜月機関付属大学",
+    "Belonging_EN": "Yadzuki Org. Affiliated University",
+    "BelongingArea": { "Area": "九蓮国" },
+    "isForSecondary": false,
+    "isMaker": false
+  },
+  {
+    "Faction": "南第三県専門学校",
+    "Faction_EN": "S3 Vocational School",
+    "Belonging": "南第三県専門学校",
+    "Belonging_EN": "S3 Vocational School",
+    "BelongingArea": { "Area": "九蓮国" },
+    "isForSecondary": false,
+    "isMaker": false
+  },
+  {
+    "Faction": "第三県立技巧美術女子高校",
+    "Faction_EN": "Prefecture.3 Technical Arts Girls' High School",
+    "Belonging": "第三県立技巧美術女子高校",
+    "Belonging_EN": "Prefecture.3 Technical Arts Girls' High School",
+    "BelongingArea": { "Area": "九蓮国" },
+    "isForSecondary": false,
+    "isMaker": false
+  },
+  {
     "Faction": "獣爾騎兵",
     "Faction_EN": "Shou'ar Riders",
     "Belonging": "獣爾騎兵",

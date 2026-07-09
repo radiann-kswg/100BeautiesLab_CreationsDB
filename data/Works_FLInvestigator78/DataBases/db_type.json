@@ -21,7 +21,9 @@
         "hashTag_JP": "カード番号(通し番号)",
         "hashTag_EN": "CardNumber(Total)"
       }
-    ]
+    ],
+    "hashTag_JP": "カード(アルカナ)",
+    "hashTag_EN": "Card (Arcana)"
   },
   "$DefType": [
     { "hashTag": "Card", "$type": "#Index", "hashTag_JP": "カード" },
@@ -230,9 +232,86 @@
       "hashTag_JP": "アルカナムスペック(アルカナ能力)の特性",
       "hashTag_EN": "Arcanamspec (Arcana Ability) Traits",
       "$display": { "sectionWrapper": "arcanumSpecSection" }
+    },
+    {
+      "hashTag": "Relation",
+      "$type": [
+        {
+          "hashTag": "Related",
+          "$type": "$Def_Relations[]",
+          "hashTag_JP": "親密な関係",
+          "hashTag_EN": "Close Relations"
+        },
+        {
+          "hashTag": "Commented",
+          "$type": "$Def_Relations[]",
+          "hashTag_JP": "コメント",
+          "hashTag_EN": "Comments to the Characters"
+        }
+      ],
+      "hashTag_JP": "関係キャラクター",
+      "isForSecondary": false,
+      "$display": { "sectionWrapper": "relationSection" }
+    },
+    {
+      "hashTag": "RelationTo_Primary",
+      "$type": [
+        {
+          "hashTag": "Related",
+          "$type": "$Def_Relations[]",
+          "hashTag_JP": "親密な関係",
+          "hashTag_EN": "Close Related to Primary Characters"
+        },
+        {
+          "hashTag": "Commented",
+          "$type": "$Def_Relations[]",
+          "hashTag_JP": "コメント",
+          "hashTag_EN": "Comments to Primary Characters"
+        }
+      ],
+      "hashTag_JP": "原作との関係",
+      "hashTag_EN": "Relation to Primary Characters",
+      "isForSecondary": true,
+      "$display": { "sectionWrapper": "relationSection" }
     }
   ],
   "$VersDef": {
+    "$Def_Relations": {
+      "$DefType": [
+        {
+          "hashTag": "Card",
+          "$type": "#Index",
+          "isForSecondary": false,
+          "hashTag_JP": "カード(アルカナ)",
+          "hashTag_EN": "Card (Arcana)"
+        },
+        {
+          "hashTag": "Comments",
+          "$type": "#Dialogue",
+          "isForSecondary": false,
+          "hashTag_JP": "コメント",
+          "hashTag_EN": "Comments"
+        },
+        {
+          "hashTag": "Reply",
+          "$type": "$Def_Relations[]",
+          "isForSecondary": true,
+          "hashTag_JP": "返答コメント",
+          "hashTag_EN": "Reply Comments"
+        },
+        {
+          "hashTag": "RelationLabel",
+          "$type": "#ListIndex[]",
+          "hashTag_JP": "関係性タグ",
+          "hashTag_EN": "Relation Label",
+          "$display": {
+            "section": "profile",
+            "tagSpace": "creation",
+            "langMode": "jp"
+          }
+        }
+      ]
+    },
     "$Def_EffectText": {
       "$DefType": [
         {
