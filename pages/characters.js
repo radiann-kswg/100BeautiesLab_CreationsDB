@@ -927,6 +927,8 @@ function workKeyForAPI(workKey) {
  * @param {Array|*} children - Child elements (supports nested arrays and mixed types)
  * @returns {HTMLElement} Created DOM element
  */
+const TRUSTED_EL_NODES = new WeakSet();
+
 function el(tag, props = {}, children = []) {
 	const e = document.createElement(tag);
 	for (const [k, v] of Object.entries(props)) {
@@ -938,10 +940,10 @@ function el(tag, props = {}, children = []) {
 	const appendAny = (child) => {
 		if (child == null) return;
 		if (Array.isArray(child)) { child.forEach(appendAny); return; }
-		// Only append DOM Nodes created by el() (marked __trustedEl); others become text to prevent
-		// exception-text reinterpretation as HTML (CodeQL: js/xss-through-exception).
+		// Only append DOM Nodes created by el() (tracked in TRUSTED_EL_NODES);
+		// others are ignored to prevent reinterpretation as HTML.
 		if (child instanceof Node) {
-			if (child.__trustedEl === true) e.appendChild(child);
+			if (TRUSTED_EL_NODES.has(child)) e.appendChild(child);
 			return;
 		}
 		const t = typeof child;
@@ -953,7 +955,7 @@ function el(tag, props = {}, children = []) {
 		e.appendChild(document.createTextNode(String(child)));
 	};
 	[].concat(children).forEach(appendAny);
-	e.__trustedEl = true;
+	TRUSTED_EL_NODES.add(e);
 	return e;
 }
 
