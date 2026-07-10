@@ -46,8 +46,24 @@
 3. sub2: db_Primary.json をコミット（引き継ぎ確定）
 4. メイン: `git checkout -- data/Works_NumberTales/DataBases/db_Primary.json` で切断WIPを取り下げ
    （DeepL系のWIPはメインに温存される）
-5. ConversationPattern 再追加（創作内容＝ユーザ入力）: Num 92/94/95/97/98/99/2/10
-   （93/96/000/0/00 はコミット済みCPあり）
+5. ConversationPattern 再追加: Num 92/94/95/98/99/2/10
+   （93/96/000/0/00 はコミット済みCPあり／97 は下記追記の新方式で仮入力済み・要レビュー）
+   **→ 以降は下記「追記」の手順を優先する。**
+
+## 追記(2026-07-10): 手順変更 — DialogueExamples先行方式を優先
+
+上記タスク5（Num 92/94/95/98/99/2/10 の再追加）を含め、今後のConversationPattern仮入力は以下の順序に変更する。
+
+1. **ユーザが先に`DialogueExamples[].value_JP`/`about_JP`を入力**（創作内容そのものはユーザ手動入力の原則を維持）。
+2. その`DialogueExamples`と、既存の`Character`/`Hobby`/`SpecialSkill`/`Favor`/`Unlike`/`RelationNotes`/`Relation.Comments`/`InStory`等の既存フィールドのみを根拠に、Claudeが`TalkingTone`/`TopicPreference`/`TalkFrequency`/`PreferredTopics`/`AvoidedTopics`/`ConversationNotes`の6項目（JP/EN）を**仮入力**する。
+3. `DialogueExamples`自体には手を加えない（ユーザ入力済みの`value_EN`/`about_EN`のみ翻訳補助として追記可）。
+4. ソースにない設定は創作せず、情報が薄いキャラは無理に膨らませない。
+5. あくまで仮入力（下書き）につき、コミット前にユーザが自然な言い回しへ手直しする前提。
+
+旧方式（`Character`等のみを根拠に`DialogueExamples`と無関係に仮入力するバッチ処理）は廃止し、この新方式に統一する。
+
+- 試験運用: Num97(ココナ) — ユーザが`DialogueExamples`5件を先行入力 → Claudeが上記手順で6項目を仮入力（未コミット、要レビュー）。
+- 残タスク（Num 92/94/95/98/99/2/10）も、ユーザが各`DialogueExamples`を入力した後にこの手順で対応する。
 
 ## 参考
 
