@@ -1,5 +1,21 @@
 # 最新のリファクタリング・仕様変更履歴
 
+### add: `TailsUnit` に参考画像フィールドを追加 + 新スキーマ属性 `$subfolder` を新設 (2026-07-10)
+
+`$Def_TailsUnit` に、複雑な `Branches`/`LayoutDirection` 構造（特に分岐配置）をテキストだけでは伝えにくい11キャラクター分の参考画像を紐付けられるようにした。あわせて、この画像フィールドを typedef 駆動の画像抽出（`indices.imagePathHints`）が発見できるよう、根本原因だった名前付き `$Def_*` 型参照の未解決問題を修正した。
+
+- **`data/Works_NumberTales/DataBases/db_meta.json`**: `$Def_TailsUnit.$DefType`（`LayoutDirection` と `Note_JP` の間）に `TailsUnit_PNGName`（`$type: "#PNGFileName|#Null"`）を追加。新設した `$subfolder`（`"attr/tailsUnit"`）で画像フォルダを明示宣言（`_PNG` 接頭辞からの自動推測より優先）。
+- **`data/db_meta.json`（グローバル）**: `CreationWorks.#Works_NumberTales.$DetailLayout.subFields` に `TailsUnit` を追加。これにより `TailsUnit` は「1項目1箇所の原則」で `basicFields`（基本情報テーブルの一行サマリー）から外れ、`AppearanceDetail` と同様の専用折りたたみセクション（`尻尾ユニット`）として全属性＋参考画像付きで表示されるようになった。
+- **`lib/data-common.js`**: `TypeDefUtils.buildImagePathHints()` を拡張。(1) フィールドの `$subfolder` 宣言があれば `inferFolderHintFromKey()` の正規表現推測より優先する新しい汎用スキーマ属性として対応。(2) `"$Def_TailsUnit[]"` のような名前付き型参照文字列を `CharacterValueWrapperRegistry.helpers.resolveTypeDefEntries()`（既存の公開ヘルパーを再利用）経由で解決し再帰的に辿るようにした。従来はインラインの入れ子配列（`$type` が配列）しか展開できず、`$Def_AppearanceDetail.img_PNGName`（既存宣言だが未接続のまま放置されていた先例）や `$Def_TailsUnit` 内の画像フィールドが typedef 駆動の画像抽出から漏れていた根本原因を解消した。副作用として、全作品で共有する `$Def_AppearanceDetail.img_PNGName` も `indices.imagePathHints`/`imageFields` に現れるようになる（実データは null のため実害なし）。
+- **`pages/characters.js`**: `extractImageFields()`（詳細画面上部の汎用ギャラリー）の2箇所のフィールドspec構築でも `$subfolder` を優先するよう統一。`renderStandaloneFieldSection` 周辺に `buildTailsUnitImageUrl`（`TailsUnit_PNGName` 専用のURL構築、`buildImagePath`/`resolveWorkDirName` を再利用）を追加し、`context.helpers` 経由で `lib/section-renders/tailsUnit.js` へ供給。
+- **`lib/section-renders/tailsUnit.js`**: `tailsUnitSection.render()` で `TailsUnit_PNGName` があれば、スキーマの `$subfolder` を `resolveTypeDefEntries` で解決した上でURLを構築し、既存の `createGalleryImageItem`（ライトボックス拡大表示対応）でサムネイル表示するよう拡張。
+- **`data/Works_NumberTales/Images/DB_Primary/attr/tailsUnit/`（新規）**: `.private/`（未追跡の作業用フォルダ）に置かれていた参考画像11枚（`attr_tailsUnit{Num}.png`、Num: 4/6/16/23/39/49/57/61/73/85/93）を移動・追跡開始。
+- **`scripts/backfill-tailsunit-image.mjs`（新規）**: `db_Primary.json` の対象11レコードへ `TailsUnit_PNGName` を機械的に付与する一回限りのバックフィルスクリプト（dry-run既定・`--write`で反映）。
+- **`tests/data.shape.test.js`**: `$Def_TailsUnit` のフィールド名・`$subfolder` 宣言の検証、対象11件のデータ・画像ファイル存在確認テストを追加。
+- **`tests/pages.characters.ui-output.test.js`**: `TailsUnit` が専用セクションとして描画され基本情報テーブルとは重複しないこと、参考画像がある/ない場合双方の描画確認テストを追加（既存2件は新しいセクション構成に合わせて更新）。
+- **`tests/enrich.wrapper-summaries.test.js`**: 名前付き `$Def_*` 参照内の画像フィールド解決、および `$subfolder` が `_PNG` 接頭辞推測より優先されることを検証するテストを追加。
+- 確認: `npm test` 全件成功（207件）。
+
 ### fix: `addon-ai-tag` の AIHints 耳タグ生成を、尻尾形状からの推測から実際の耳データへ追従 (2026-07-08)
 
 `develop` ブランチで「耳の形状」が `AppearanceDetail[].DesignElement:"#Element_Ear"` の `vdict_EarShapeType`（`$EnumDef_EarShapeType`、`TailShapeType` とは独立した軸として work-local 整備）へ改名・整理された（`develop` → `addon-ai-tag` マージ済み）。これに伴い、`tools/patch-aihints.mjs` の `--suggest` モードが使っていた暫定コード（`isEarBearingAnimalWord`: 尻尾形状の allow-list から耳を「推測」していた）を、実際の耳データを読む正しい実装へ置き換えた。

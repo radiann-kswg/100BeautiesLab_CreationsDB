@@ -1757,6 +1757,7 @@
       {
         "TailShapeType": "#TailShapeType_Fox",
         "Count": 4,
+        "TailsUnit_PNGName": "attr_tailsUnit4.png",
         "Note_JP": null,
         "Note_EN": null
       }
@@ -2964,6 +2965,7 @@
       {
         "TailShapeType": "#TailShapeType_Fox",
         "Count": 6,
+        "TailsUnit_PNGName": "attr_tailsUnit6.png",
         "Note_JP": null,
         "Note_EN": null
       }
@@ -8494,6 +8496,7 @@
           { "Laterality": "#Lat_Upper", "TailCount": 1, "ClusterCount": 2 },
           { "Laterality": "#Lat_Lower", "TailCount": 5, "ClusterCount": 1 }
         ],
+        "TailsUnit_PNGName": "attr_tailsUnit16.png",
         "Note_JP": null,
         "Note_EN": null
       }
@@ -12153,6 +12156,7 @@
           { "Laterality": "#Lat_Upper", "TailCount": 2, "ClusterCount": 2 },
           { "Laterality": "#Lat_Lower", "TailCount": 1, "ClusterCount": 1 }
         ],
+        "TailsUnit_PNGName": "attr_tailsUnit23.png",
         "Note_JP": null,
         "Note_EN": null
       }
@@ -20874,6 +20878,7 @@
           { "Laterality": "#Lat_Upper", "TailCount": 3, "ClusterCount": 2 },
           { "Laterality": "#Lat_Lower", "TailCount": 6, "ClusterCount": 1 }
         ],
+        "TailsUnit_PNGName": "attr_tailsUnit39.png",
         "Note_JP": null,
         "Note_EN": null
       }
@@ -26221,6 +26226,7 @@
           { "Laterality": "#Lat_Upper", "TailCount": 4, "ClusterCount": 2 },
           { "Laterality": "#Lat_Lower", "TailCount": 5, "ClusterCount": 1 }
         ],
+        "TailsUnit_PNGName": "attr_tailsUnit49.png",
         "Note_JP": null,
         "Note_EN": null
       }
@@ -30004,6 +30010,7 @@
           { "Laterality": "#Lat_Upper", "TailCount": 5, "ClusterCount": 2 },
           { "Laterality": "#Lat_Lower", "TailCount": 2, "ClusterCount": 1 }
         ],
+        "TailsUnit_PNGName": "attr_tailsUnit57.png",
         "Note_JP": null,
         "Note_EN": null
       }
@@ -31877,6 +31884,7 @@
           { "Laterality": "#Lat_Upper", "TailCount": 5, "ClusterCount": 1 },
           { "Laterality": "#Lat_Lower", "TailCount": 1, "ClusterCount": 2 }
         ],
+        "TailsUnit_PNGName": "attr_tailsUnit61.png",
         "Note_JP": null,
         "Note_EN": null
       }
@@ -38630,6 +38638,7 @@
           { "Laterality": "#Lat_Upper", "TailCount": 4, "ClusterCount": 1 },
           { "Laterality": "#Lat_Lower", "TailCount": 3, "ClusterCount": 2 }
         ],
+        "TailsUnit_PNGName": "attr_tailsUnit73.png",
         "Note_JP": null,
         "Note_EN": null
       }
@@ -43170,6 +43179,7 @@
           { "Laterality": "#Lat_Upper", "TailCount": 3, "ClusterCount": 1 },
           { "Laterality": "#Lat_Lower", "TailCount": 5, "ClusterCount": 2 }
         ],
+        "TailsUnit_PNGName": "attr_tailsUnit85.png",
         "Note_JP": null,
         "Note_EN": null
       }
@@ -46302,6 +46312,7 @@
           { "Laterality": "#Lat_Upper", "TailCount": 6, "ClusterCount": 1 },
           { "Laterality": "#Lat_Lower", "TailCount": 3, "ClusterCount": 2 }
         ],
+        "TailsUnit_PNGName": "attr_tailsUnit93.png",
         "Note_JP": null,
         "Note_EN": null
       }

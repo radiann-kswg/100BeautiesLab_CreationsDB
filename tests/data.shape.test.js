@@ -3,7 +3,7 @@
  * データベースファイルの構造整合性を検証
  */
 import { describe, it, expect } from 'vitest';
-import { readFileSync } from 'node:fs';
+import { readFileSync, existsSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -161,7 +161,7 @@ describe('TailsUnit schema', () => {
     expect(tailsUnitDef?.$display?.wrapper).toBe('tailsUnitSummary');
     expect(tailsUnitDef?.$display?.sectionWrapper).toBe('tailsUnitSection');
     const fieldNames = (tailsUnitDef?.$DefType || []).map((e) => e.hashTag);
-    expect(fieldNames).toEqual(['TailShapeType', 'Count', 'Segment', 'Branches', 'LayoutDirection', 'Note_JP', 'Note_EN']);
+    expect(fieldNames).toEqual(['TailShapeType', 'Count', 'Segment', 'Branches', 'LayoutDirection', 'TailsUnit_PNGName', 'Note_JP', 'Note_EN']);
 
     const branchDef = dbMeta?.General?.$VarsDef?.['$Def_TailsUnitBranch'];
     const branchFieldNames = (branchDef?.$DefType || []).map((e) => e.hashTag);
@@ -170,6 +170,10 @@ describe('TailsUnit schema', () => {
     const layoutDirectionField = (tailsUnitDef?.$DefType || []).find((e) => e.hashTag === 'LayoutDirection');
     const layoutDirectionFieldNames = (Array.isArray(layoutDirectionField?.$type) ? layoutDirectionField.$type : []).map((e) => e.hashTag);
     expect(layoutDirectionFieldNames).toEqual(['LayoutFrom', 'LayoutTo']);
+
+    const imgField = (tailsUnitDef?.$DefType || []).find((e) => e.hashTag === 'TailsUnit_PNGName');
+    expect(imgField?.$type).toBe('#PNGFileName|#Null');
+    expect(imgField?.$subfolder).toBe('attr/tailsUnit');
   });
 
   it.each([
@@ -179,7 +183,7 @@ describe('TailsUnit schema', () => {
     'data/Works_NumberTales/DataBases/db_SelfSecondary.json',
   ])('NT %s TailsUnit[] entries use only declared field names', (dbPath) => {
     const records = load(dbPath);
-    const allowedTailsUnitKeys = new Set(['TailShapeType', 'Count', 'Segment', 'Branches', 'LayoutDirection', 'Note_JP', 'Note_EN']);
+    const allowedTailsUnitKeys = new Set(['TailShapeType', 'Count', 'Segment', 'Branches', 'LayoutDirection', 'TailsUnit_PNGName', 'Note_JP', 'Note_EN']);
     const allowedBranchKeys = new Set(['Laterality', 'TailCount', 'ClusterCount']);
     const allowedLayoutDirectionKeys = new Set(['LayoutFrom', 'LayoutTo']);
     const violations = [];
@@ -204,6 +208,32 @@ describe('TailsUnit schema', () => {
       }
     }
     expect(violations).toHaveLength(0);
+  });
+
+  it('NT db_Primary.json backfilled TailsUnit_PNGName for the 11 reference-image characters', () => {
+    const records = load('data/Works_NumberTales/DataBases/db_Primary.json');
+    const expected = new Map([
+      [4, 'attr_tailsUnit4.png'],
+      [6, 'attr_tailsUnit6.png'],
+      [16, 'attr_tailsUnit16.png'],
+      [23, 'attr_tailsUnit23.png'],
+      [39, 'attr_tailsUnit39.png'],
+      [49, 'attr_tailsUnit49.png'],
+      [57, 'attr_tailsUnit57.png'],
+      [61, 'attr_tailsUnit61.png'],
+      [73, 'attr_tailsUnit73.png'],
+      [85, 'attr_tailsUnit85.png'],
+      [93, 'attr_tailsUnit93.png'],
+    ]);
+    for (const [num, fileName] of expected) {
+      const rec = records.find((r) => r.Num === num);
+      expect(rec?.TailsUnit?.[0]?.TailsUnit_PNGName, `Num:${num}`).toBe(fileName);
+    }
+
+    for (const fileName of expected.values()) {
+      const imgPath = join(repoRoot, 'data/Works_NumberTales/Images/DB_Primary/attr/tailsUnit', fileName);
+      expect(existsSync(imgPath), imgPath).toBe(true);
+    }
   });
 
 });

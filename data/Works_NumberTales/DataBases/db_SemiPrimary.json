@@ -80,6 +80,12 @@
       "ConversationNotes_EN": "Pays attention to the mental well-being of others and interacts in a friendly manner despite being somewhat clumsy. Never gives up on individuals who have caused runaway incidents or who are mentally unstable, and continues to stand by them.",
       "DialogueExamples": [
         {
+          "value_JP": "「おはよう、おれはナンバーテールズ100番機の「100(モモ)」。これからセンパイのメンタルに寄り添うからな。」",
+          "value_EN": "\"Good morning, I'm NumberTales #100, '100(Centa)'. From now on, I'll be here to support your mental well-being, Senpai.\"",
+          "about_JP": "初対面の挨拶（主に暴走寸前のところを回収された個体/個人に対して）",
+          "about_EN": "Introduction upon first meeting (mainly to individuals who have just been rescued from a runaway incident)"
+        },
+        {
           "value_JP": "「センパイ、今日の体調はどうだ？あまり様子がすぐれないようだが……おれでよければ、相談に乗るぞ？」",
           "value_EN": "\"Senpai, how's your condition today? You don't seem to be doing so well… If it helps, I'm here to listen.\""
         },

@@ -27,6 +27,7 @@
         ],
         "subFields": [
           "AppearanceDetail",
+          "TailsUnit",
           "AbilityStats",
           "NumerospecAbout",
           "NumerospecStats",
