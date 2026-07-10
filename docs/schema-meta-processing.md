@@ -201,6 +201,7 @@
 - `#DictIndex` は「辞書参照である」という宣言を typedef 側に寄せるための型名です。
 - `Area` / `Faction` のような共通辞書は、実体を `data/Dictionaries/dict_*.json` へ置き、SW/UI が runtime で `General.$VarsDef` へ合流して使います。
 - runtime 合流時には `#Dict_*` を正としつつ、既存実装の互換用に `#List_*` も同じ内容で補完します。
+- `#PNGFileName` / `#PNGFilePath` 系フィールドは `$subfolder`（2026-07-10 新設）で画像フォルダの相対パスを明示宣言できます（例: `"$subfolder": "attr/tailsUnit"` → `Images/DB_<DbName>/attr/tailsUnit/`）。未指定の場合は従来通り `TypeDefUtils.inferFolderHintFromKey()` がフィールド名の `_PNG` 接頭辞から推測しますが、`$subfolder` を宣言すればそちらが優先されます。同じ親フォルダ配下を参照フィールドごとにサブフォルダで分けたい場合（`attr/tailsUnit`, `attr/earShape` のように）に使います。
 
 ### 3.3 `$display`
 
@@ -591,6 +592,8 @@ UI 側は厳密構造より `about_JP` / `about_EN` を優先して整形表示�
 1. `workType.$IndexDef`
 2. `globalMeta.CreationWorks.<work>.$DefType_Index`
 3. `globalMeta.CreationWorks.<work>.$Def_Index`
+
+補足（2026-07-10）: `indices.imagePathHints` を作る `TypeDefUtils.buildImagePathHints()` は、`$type` が配列のインラインネスト（例: `Images` フィールド）だけでなく、`"$Def_TailsUnit[]"` のような名前付き型参照文字列も `CharacterValueWrapperRegistry.helpers.resolveTypeDefEntries()`（`lib/wrapper-common.js`、SW側は `importScripts` で先に読み込まれるため同一グローバルスコープから参照可能）経由で解決し、内部の画像フィールドまで再帰的に辿ります。これにより `$Def_TailsUnit.TailsUnit_PNGName` や `$Def_AppearanceDetail.img_PNGName` のような、名前付き構造化型の内部に宣言された画像フィールドも typedef 駆動で自動検出されます。
 
 ### 5.4 `$DefType` マージ
 

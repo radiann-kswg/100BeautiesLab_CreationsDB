@@ -41,6 +41,7 @@
 - `daySummary`
 - `eraSummary`
 - `storyEraSummary`
+- `tailsUnitSummary` — `$Def_TailsUnit` 単体を一行サマリー（形状・本数・節数・方向句・分岐内訳）へ整形（`lib/section-renders/tailsUnit.js`）
 
 現時点の built-in section renderer:
 
@@ -54,6 +55,7 @@
 - `thisMastersSection` — ThisMasters (`$Def_ThisMastersEntry[]`) 表示（`lib/section-renders/thisMasters.js`）
 - `dbLinkSection` — `*_DBLink` suffix フィールドのキャラクターリンク参照表示（`lib/section-renders/dblink.js`）
 - `appearanceDetailSection` — `AppearanceDetail` (`$Def_AppearanceDetail[]`) 外見デザイン詳細の Formation グループ別表示。`vdict_*` / `value_Num_*` / `value_JP` / `about_JP` の規約駆動フィールドを `$EnumDef_*`（global+local マージ）で解決する（`lib/section-renders/appearanceDetail.js`）
+- `tailsUnitSection` — `TailsUnit` (`$Def_TailsUnit[]`) の1エントリごとの標準表示（形状タグ・本数・節数・方向句・分岐内訳・補足テキスト・参考画像）。参考画像（`TailsUnit_PNGName`）は `$subfolder` をスキーマから解決した上で `createGalleryImageItem`（ライトボックス拡大表示対応）で表示する（`lib/section-renders/tailsUnit.js`）
 
 **suffix 自動ディスパッチ**: `dbLinkSection` と `relationSection` は `$display.sectionWrapper` の宣言なしに suffix だけで自動マッチする。
 - `*_DBLink` → `dbLinkSection` が `match` 関数で自動検出
@@ -77,6 +79,7 @@
 - `$MetaType.$Def_StoryEra.$display.wrapper = eraSummary`
 - `$MetaType.$Def_StoryEraCatalog.$display.wrapper = storyEraSummary`
 - `$DefType.AppearanceDetail.$display.sectionWrapper = appearanceDetailSection`（`data/db_type.json` — `$Def_AppearanceDetail[]|#Null` 型 / `searchable: false`）
+- `$VarsDef.$Def_TailsUnit.$display = { wrapper: "tailsUnitSummary", sectionWrapper: "tailsUnitSection" }`（`data/Works_NumberTales/DataBases/db_meta.json` — work-local）。`$DefType.TailsUnit.$display.sectionWrapper = tailsUnitSection`（`data/Works_NumberTales/DataBases/db_type.json` — `$Def_TailsUnit[]` 型 / `searchable: false`）。`TailsUnit` は `data/db_meta.json` の `CreationWorks.#Works_NumberTales.$DetailLayout.basicFields` にも列挙されているが、同じキーが `subFields` へ昇格すると「1項目1箇所の原則」で `pages/characters.js`（`normalizedBasicFieldKeys` の `isPromotedSubFieldKey` フィルタ）が基本情報テーブルからは自動的に除外するため、実際の表示は `tailsUnitSection`（この専用折りたたみセクション。詳細+参考画像）のみになる
 
 ### 2.3 UI 側の利用
 

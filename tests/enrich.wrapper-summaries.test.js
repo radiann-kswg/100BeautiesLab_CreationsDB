@@ -152,3 +152,72 @@ describe('enrichment wrapper summaries', () => {
 		expect(searchable).toContain('2050');
 	});
 });
+
+describe('enrichment image path hints (typedef-driven, named $Def_* refs)', () => {
+	function createTailsUnitDataFetcher() {
+		return {
+			readGeneralVarsDefGlobal: async () => ({}),
+			readGeneralVarsDefWork: async () => ({
+				$Def_TailsUnit: {
+					$DefType: [
+						{ hashTag: 'TailShapeType', $type: '#ListIndex' },
+						{ hashTag: 'Count', $type: '#Number' },
+						{
+							hashTag: 'TailsUnit_PNGName',
+							$type: '#PNGFileName|#Null',
+							$subfolder: 'attr/tailsUnit'
+						}
+					]
+				}
+			}),
+			readGlobalMeta: async () => ({ CreationWorks: {} }),
+			readGlobalType: async () => ({ $DefType: [] }),
+			readWorkType: async () => ({
+				$DefType: [
+					{
+						hashTag: 'TailsUnit',
+						$type: '$Def_TailsUnit[]',
+						hashTag_JP: '尻尾ユニット',
+						$display: { sectionWrapper: 'tailsUnitSection' }
+					}
+				]
+			})
+		};
+	}
+
+	it('resolves image fields nested inside a named $Def_* type reference (e.g. "$Def_TailsUnit[]")', async () => {
+		const proc = new EnrichmentProcessor(createTailsUnitDataFetcher(), testConfig);
+		const ctx = await proc.getWorkContext('#Works_TailsUnitImageHintTest');
+
+		const hint = (ctx.indices?.imagePathHints || []).find((h) => h.path === 'TailsUnit.TailsUnit_PNGName');
+		expect(hint).toBeDefined();
+		expect(hint.key).toBe('TailsUnit_PNGName');
+	});
+
+	it('prefers an explicit $subfolder declaration over the regex-inferred _PNG prefix folder hint', async () => {
+		const proc = new EnrichmentProcessor(createTailsUnitDataFetcher(), testConfig);
+		const ctx = await proc.getWorkContext('#Works_TailsUnitImageHintTest2');
+
+		const hint = (ctx.indices?.imagePathHints || []).find((h) => h.path === 'TailsUnit.TailsUnit_PNGName');
+		// キー名から機械的に推測すると 'TailsUnit' になるはずだが、$subfolder 明示があるためそちらを優先する
+		expect(hint?.folderHint).toBe('attr/tailsUnit');
+	});
+
+	it('still falls back to the regex-inferred folder hint when $subfolder is absent', async () => {
+		const proc = new EnrichmentProcessor({
+			readGeneralVarsDefGlobal: async () => ({}),
+			readGeneralVarsDefWork: async () => ({}),
+			readGlobalMeta: async () => ({ CreationWorks: {} }),
+			readGlobalType: async () => ({
+				$DefType: [
+					{ hashTag: 'concept_PNGName', $type: '#PNGFileName|#Null', hashTag_JP: '設定原画' }
+				]
+			}),
+			readWorkType: async () => ({ $DefType: [] })
+		}, testConfig);
+		const ctx = await proc.getWorkContext('#Works_TailsUnitImageHintTest3');
+
+		const hint = (ctx.indices?.imagePathHints || []).find((h) => h.path === 'concept_PNGName');
+		expect(hint?.folderHint).toBe('concept');
+	});
+});

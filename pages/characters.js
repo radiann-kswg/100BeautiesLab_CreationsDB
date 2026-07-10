@@ -2116,7 +2116,9 @@ function extractImageFields(workTypeDef, globalTypeDef = {}) {
 							labelEN: enLabel || jpLabel || child.hashTag,
 							label: jpLabel || enLabel || child.hashTag,
 							path: ['Images', child.hashTag],
-							folderHint: inferImageFolderHint(child.hashTag),
+							folderHint: (typeof child.$subfolder === 'string' && child.$subfolder.trim())
+								? child.$subfolder.trim()
+								: inferImageFolderHint(child.hashTag),
 							category,
 							priority,
 							source
@@ -2139,7 +2141,9 @@ function extractImageFields(workTypeDef, globalTypeDef = {}) {
 					labelEN: enLabel || jpLabel || item.hashTag,
 					label: jpLabel || enLabel || item.hashTag,
 					path: currentPath,
-					folderHint: inferImageFolderHint(item.hashTag),
+					folderHint: (typeof item.$subfolder === 'string' && item.$subfolder.trim())
+						? item.$subfolder.trim()
+						: inferImageFolderHint(item.hashTag),
 					category,
 					priority,
 					source
@@ -7319,6 +7323,19 @@ export async function renderDetail(workId, rec) {
 			return createStandaloneSubFieldSection(it, [structuredSection]);
 		};
 
+		// TailsUnit_PNGName（$Def_TailsUnit の参考画像フィールド）専用のURL構築ヘルパー。
+		// folderHint は呼び出し側（tailsUnit.js）がスキーマの $subfolder から解決した値を渡す想定。
+		const buildTailsUnitImageUrl = (fileName, folderHint) => {
+			if (!fileName) return '';
+			return buildImagePath(
+				resolveWorkDirName(workId),
+				dbName,
+				{ field: 'TailsUnit_PNGName', folderHint: folderHint || 'attr/tailsUnit', type: '#PNGFileName' },
+				fileName,
+				currentLayerName
+			);
+		};
+
 		const relationRendererApi = {
 			createElement: el,
 			createDetailTagGrid,
@@ -7371,7 +7388,9 @@ export async function renderDetail(workId, rec) {
 					buildObjectChildBlocks,
 					renderStructuredObjectSection: stringLikeStandalone ? null : renderStructuredObjectSection,
 					wrapStandaloneSection: createStandaloneSubFieldSection,
-					relationApi: relationRendererApi
+					relationApi: relationRendererApi,
+					buildTailsUnitImageUrl,
+					createGalleryImageItem
 				}
 			});
 			if (wrappedSection) return wrappedSection;

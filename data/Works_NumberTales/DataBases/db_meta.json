@@ -511,6 +511,13 @@
             "hashTag_EN": "Branch Layout Direction"
           },
           {
+            "hashTag": "TailsUnit_PNGName",
+            "$type": "#PNGFileName|#Null",
+            "$subfolder": "attr/tailsUnit",
+            "hashTag_JP": "尻尾ユニット参考画像",
+            "hashTag_EN": "Tails Unit Reference Image"
+          },
+          {
             "hashTag": "Note_JP",
             "$type": "#String|#Null",
             "hashTag_JP": "補足テキスト"

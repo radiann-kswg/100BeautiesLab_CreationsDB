@@ -1069,7 +1069,7 @@ describe('pages/characters.js UI output', () => {
 		expect(sectionText).toContain('先がアクセントカラー');
 	});
 
-	it('renders TailsUnit summary in the basic info table from the dedicated $Def_TailsUnit field for NT character', async () => {
+	it('renders TailsUnit as a dedicated standalone section (subFields) from the $Def_TailsUnit field for NT character', async () => {
 		charactersModule.__setCharactersTestState({
 			globalDefType,
 			charState: {
@@ -1084,13 +1084,19 @@ describe('pages/characters.js UI output', () => {
 
 		await charactersModule.renderDetail('#Works_NumberTales', ninthNumberTalesPrimaryRecord);
 
-		// TailsUnit は db_meta.json の $DetailLayout.basicFields 経由で基本情報テーブルへ表示される
-		// （tailsUnitSummary wrapper が $EnumDef_TailShapeType から一行サマリーを生成）
-		const sectionText = getSectionText('基本情報');
+		// TailsUnit は db_meta.json の $DetailLayout.subFields 経由で専用の折りたたみセクションへ表示される
+		// （tailsUnitSection built-in renderer。basicFields からは 1項目1箇所の原則で除外される）
+		expect(isCollapsibleSubFieldSection('TailsUnit')).toBe(true);
+		expect(isSubFieldSectionOpen('TailsUnit')).toBe(false);
+
+		const sectionText = getSectionText('尻尾ユニット');
 		// vdict_TailShapeType からの形状ラベル（NT ローカル辞書 $EnumDef_TailShapeType から解決）
 		expect(sectionText).toContain('キツネ型');
 		// Count からの個数表示
 		expect(sectionText).toContain('9');
+
+		// 基本情報テーブルには重複表示しない
+		expect(getSectionText('基本情報')).not.toContain('キツネ型');
 	});
 
 	it('renders TailsUnit LayoutDirection (branch direction phrase) for a narrative multi-tier record', async () => {
@@ -1109,11 +1115,54 @@ describe('pages/characters.js UI output', () => {
 
 		await charactersModule.renderDetail('#Works_NumberTales', branchedTailsUnitRecord);
 
-		const sectionText = getSectionText('基本情報');
+		const sectionText = getSectionText('尻尾ユニット');
 		// LayoutDirection（LayoutFrom:#Lat_Upper, LayoutTo:#Lat_Lower）からの方向句
 		expect(sectionText).toContain('上から下に向かって');
 		// Branches[] の内訳（上:1本×3束 等）も引き続き表示される
 		expect(sectionText).toContain('上');
 		expect(sectionText).toContain('下');
+	});
+
+	it('renders TailsUnit reference image when TailsUnit_PNGName is present', async () => {
+		charactersModule.__setCharactersTestState({
+			globalDefType,
+			charState: {
+				db: 'Primary',
+				workId: '#Works_NumberTales',
+				workTypeDef: numberTalesWorkTypeDef,
+				globalTypeDef,
+				workMeta: numberTalesWorkMeta,
+				imageFields: []
+			}
+		});
+
+		await charactersModule.renderDetail('#Works_NumberTales', fourthNumberTalesPrimaryRecord);
+
+		const section = getSubFieldSectionNode('TailsUnit');
+		const img = section?.querySelector('.tailsunit__reference-image .image-item img');
+		expect(img?.getAttribute('src')).toContain('/Images/DB_Primary/attr/tailsUnit/attr_tailsUnit4.png');
+		expect(img?.getAttribute('alt')).toBeTruthy();
+
+		// クリックでライトボックス拡大表示につながる既存のzoomトリガーを再利用している
+		expect(section?.querySelector('.tailsunit__reference-image .image-zoom-trigger')).toBeTruthy();
+	});
+
+	it('does not render a TailsUnit reference image block when TailsUnit_PNGName is absent', async () => {
+		charactersModule.__setCharactersTestState({
+			globalDefType,
+			charState: {
+				db: 'Primary',
+				workId: '#Works_NumberTales',
+				workTypeDef: numberTalesWorkTypeDef,
+				globalTypeDef,
+				workMeta: numberTalesWorkMeta,
+				imageFields: []
+			}
+		});
+
+		await charactersModule.renderDetail('#Works_NumberTales', ninthNumberTalesPrimaryRecord);
+
+		const section = getSubFieldSectionNode('TailsUnit');
+		expect(section?.querySelector('.tailsunit__reference-image')).toBeFalsy();
 	});
 });
