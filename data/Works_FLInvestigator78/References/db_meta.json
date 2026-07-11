@@ -3,15 +3,16 @@
     "#Ref_Vocabulary": {
       "DB_Label_JP": "語彙辞書",
       "DB_Label_EN": "Vocabulary",
+      "DB_Layer": "References",
       "DB_Summary": "「運命線探偵78」の固有の用語に関する資料。",
       "DB_Summary_EN": "Materials related to the unique terms of FL Investigator 78."
+    },
+    "#Ref_Reference": {
+      "DB_Label_JP": "創作基本資料",
+      "DB_Label_EN": "Reference",
+      "DB_Layer": "References",
+      "DB_Summary": "「運命線探偵78」の世界観に関する基本資料。",
+      "DB_Summary_EN": "Basic reference materials for the FL Investigator 78 world setting."
     }
-  },
-  "#Ref_Reference": {
-    "DB_Label_JP": "創作基本資料",
-    "DB_Label_EN": "Reference",
-    "DB_Layer": "References",
-    "DB_Summary": "「運命線探偵78」の世界観に関する基本資料。",
-    "DB_Summary_EN": "Basic reference materials for the FL Investigator 78 world setting."
   }
 }

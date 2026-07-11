@@ -3,7 +3,16 @@
     "#Ref_Vocabulary": {
       "DB_Label_JP": "語彙辞書",
       "DB_Label_EN": "Vocabulary",
-      "DB_Summary": "「運命線狐の記録」および「フィジカル９」固有の用語に関する資料。"
+      "DB_Layer": "References",
+      "DB_Summary": "「運命線狐の記録」および「フィジカル９」固有の用語に関する資料。",
+      "DB_Summary_EN": "Materials related to the unique terms of Destiny Fox Records and Physical 9."
+    },
+    "#Ref_Reference": {
+      "DB_Label_JP": "創作基本資料",
+      "DB_Label_EN": "Reference",
+      "DB_Layer": "References",
+      "DB_Summary": "「運命線狐の記録」および「フィジカル９」の世界観に関する基本資料。",
+      "DB_Summary_EN": "Basic reference materials for the Destiny Fox Records and Physical 9 world setting."
     }
   }
 }

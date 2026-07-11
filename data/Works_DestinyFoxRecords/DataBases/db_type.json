@@ -23,6 +23,18 @@
           "hashTag_EN": "Design Figure"
         },
         {
+          "hashTag": "designAlt_PNGName",
+          "$type": "#PNGFileName[]",
+          "hashTag_JP": "設定原画差分",
+          "hashTag_EN": "Concept Art Variations"
+        },
+        {
+          "hashTag": "weakening_PNGPath",
+          "$type": "#PNGFilePath[]",
+          "hashTag_JP": "弱体球体化画像",
+          "hashTag_EN": "Weakening-spherification Image"
+        },
+        {
           "hashTag": "arts_PNGPath",
           "$type": "#PNGFilePath[]",
           "hashTag_JP": "イラスト作品",

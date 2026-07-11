@@ -46,7 +46,7 @@
     "Unit_FullEN": "Meter/Metre",
     "Unit_JP": "寸法(KMS法)",
     "Unit_EN": "Length(KMS Method)",
-    "Progress": "stillTentative",
+    "Progress": "nowRecreating",
     "Images": {
       "concept_PNGName": "cnsp_imgPhysU-m",
       "design_PNGName": "design_imgPhysU-m"
@@ -364,5 +364,54 @@
     "Favor_EN": "Physical affection / skin-ship",
     "Unlike_JP": "レーザー光線\n仲間の無理",
     "Unlike_EN": "Laser beams\nWhen companions push themselves too hard"
+  },
+  {
+    "Unit": "-(normal)",
+    "Unit_FullEN": "normal",
+    "Unit_JP": "法線方向",
+    "Unit_EN": "Normal Direction",
+    "Progress": "nowRecreating",
+    "Images": {
+      "design_PNGName": "design_imgRVN",
+      "designAlt_PNGName": ["design_imgRVN-1"],
+      "weakening_PNGName": ["emstk_weakeningRVN-1", "emstk_weakeningRVN-2"]
+    },
+    "Name_JP": "ノーマル\nのるまん",
+    "Name_EN": "NormalN",
+    "FormalName_JP": "法.ベクトラム すい",
+    "FormalName_JPReading": "ほう.べくとらむ すい",
+    "FormalName_EN": "Nor.Vectorum Vert",
+    "RaceType": "LunaWolf",
+    "GenderType": "Female",
+    "BirthDay": { "Day": { "Month": 6, "DayOfMonth": 8 } },
+    "Height_cm": 144,
+    "Weight_kg": { "hideText": "非公開希望" },
+    "Age": {
+      "value": 17,
+      "about_JP": "不詳だが周囲からはそう思われている",
+      "about_EN": "Unknown or Undefined, but perceived as such by those around her"
+    },
+    "Belonging": ["超次元執筆空間(アトリエ)の住民"],
+    "Class": [],
+    "FirstPersonCalling_JP": "私(わたし)",
+    "FirstPersonCalling_EN": "I",
+    "SecondPersonCalling_JP": "[※名前呼び];~さん",
+    "SecondPersonCalling_EN": "[*by name]; ~-san",
+    "ThirdPersonCalling_JP": "[※名前呼び];~さん",
+    "ThirdPersonCalling_EN": "[*by name]; ~-san",
+    "Character_JP": "原則として平和主義\n少し臆病だがムードメーカーになろうと努めている",
+    "Character_EN": "Principally a pacifist\nSlightly timid but strives to be a mood maker",
+    "Hobby_JP": "毛布の中で寝る",
+    "Hobby_EN": "Sleeping under a blanket",
+    "SpecialSkill_JP": "毛や布製品の手入れ",
+    "SpecialSkill_EN": "Caring for fur and fabric products",
+    "Strength_JP": "毛の質が良い\n実はかなりの有能キャラらしい",
+    "Strength_EN": "Good quality fur\nActually quite a capable character",
+    "Weakness_JP": "悪天候だとすぐに萎える",
+    "Weakness_EN": "Easily discouraged in bad weather",
+    "Favor_JP": "もふもふ",
+    "Favor_EN": "Fluffy / soft textures",
+    "Unlike_JP": "乱獲・密猟、他人を盾にする行為",
+    "Unlike_EN": "Overhunting, poaching, using others as shields"
   }
 ]
