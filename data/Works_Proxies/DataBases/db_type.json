@@ -32,6 +32,12 @@
           "$type": "#PNGFilePath[]",
           "hashTag_JP": "弱体球体化画像",
           "hashTag_EN": "Weakening-spherification Image"
+        },
+        {
+          "hashTag": "arts_PNGPath",
+          "$type": "#PNGFilePath[]",
+          "hashTag_JP": "イラスト作品",
+          "hashTag_EN": "Illustration Works"
         }
       ],
       "$display": { "section": "images", "tagSpace": "internal" },

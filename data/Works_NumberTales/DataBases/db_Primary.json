@@ -11489,7 +11489,12 @@
         "corefolders/autumnMoon/art_autumnMoon2023",
         "chattingArt/chart_img22-humanoid",
         "corefolders/autumnMoon/art_autumnMoon2024",
-        "../../DB_SemiPrimary/arts/corefolders/autumnMoon/art_autumnMoon2025"
+        {
+          "_DBCrossLinkPath": {
+            "_DB": "SemiPrimary",
+            "_IsoPath": "corefolders/autumnMoon/art_autumnMoon2025"
+          }
+        }
       ]
     },
     "Name_JP": "22(フジ)",
@@ -13178,7 +13183,15 @@
       "arts_PNGPath": [
         "corefolders/2023/art_img25-corefolder",
         "humanoids/2024/art_img25-humanoidValentineA",
-        "humanoids/2024/art_img25-humanoidValentineB"
+        "humanoids/2024/art_img25-humanoidValentineB",
+        {
+          "_DBCrossLinkPath": {
+            "_DB": "Proxy",
+            "_Work": "Proxies",
+            "_Field": "arts_PNGPath",
+            "_IsoPath": "regular-birthday/arts_birthday2023"
+          }
+        }
       ]
     },
     "Name_JP": "25(フィズ)",
@@ -13817,7 +13830,17 @@
     "Progress": "released",
     "Images": {
       "concept_PNGName": "cnsp_img26",
-      "corefolder_PNGPath": ["26/emstk_corefolder26-1"]
+      "corefolder_PNGPath": ["26/emstk_corefolder26-1"],
+      "arts_PNGPath": [
+        {
+          "_DBCrossLinkPath": {
+            "_DB": "Proxy",
+            "_Work": "Proxies",
+            "_Field": "arts_PNGPath",
+            "_IsoPath": "orbify-birthday/arts_birthday2024"
+          }
+        }
+      ]
     },
     "Name_JP": "26(ニロク)",
     "Name_EN": "26(Twinsix)",
@@ -14340,7 +14363,23 @@
       "corefolder_PNGPath": ["27/emstk_corefolder27-1"],
       "arts_PNGPath": [
         "corefolders/sphericateDay/art_sphericateDay202403",
-        "humanoids/2024/art_img27-humanoid"
+        "humanoids/2024/art_img27-humanoid",
+        {
+          "_DBCrossLinkPath": {
+            "_DB": "Proxy",
+            "_Work": "Proxies",
+            "_Field": "arts_PNGPath",
+            "_IsoPath": "regular-birthday/arts_birthday2025-1"
+          }
+        },
+        {
+          "_DBCrossLinkPath": {
+            "_DB": "Proxy",
+            "_Work": "Proxies",
+            "_Field": "arts_PNGPath",
+            "_IsoPath": "regular-birthday/arts_birthday2025-2"
+          }
+        }
       ]
     },
     "Name_JP": "27(ツギナ)",
@@ -14928,7 +14967,17 @@
     "Images": {
       "concept_PNGName": "cnsp_img28",
       "conceptAlt_PNGName": ["cnsp_img28-onBusiness", "cnsp_img28-onPrivate"],
-      "corefolder_PNGPath": ["28/emstk_corefolder28-1"]
+      "corefolder_PNGPath": ["28/emstk_corefolder28-1"],
+      "arts_PNGPath": [
+        {
+          "_DBCrossLinkPath": {
+            "_DB": "Proxy",
+            "_Work": "Proxies",
+            "_Field": "arts_PNGPath",
+            "_IsoPath": "weakening-birthday/arts_birthday2026"
+          }
+        }
+      ]
     },
     "Name_JP": "28(ニハチ)",
     "Name_EN": "28(Tweighan)",
