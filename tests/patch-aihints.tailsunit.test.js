@@ -93,13 +93,14 @@ describe('parseTailsUnit / buildTailDescription / buildTailBundleDescription', (
         expect(bundle).toContain('Lower');
     });
 
-    it('buildTailDescription の出力は buildAihintsFromIdentityMotif の isStructuralOverride 正規表現と整合する', () => {
+    it('buildTailDescription の出力は「N tails」形式の tail-count 検出パターンと整合する', () => {
         const tailsUnit = [{ TailShapeType: '#TailShapeType_FoxBranched', Count: 8, Branches: [{ Laterality: '#Lat_Upper', TailCount: 1, ClusterCount: 3 }, { Laterality: '#Lat_Lower', TailCount: 4, ClusterCount: 1 }] }];
         const tu = parseTailsUnit(tailsUnit, varsDef);
         const desc = buildTailDescription(tu);
-        // tools/patch-aihints.mjs の isStructuralOverride が使う正規表現と同一（将来の破壊的変更に対するガード）
-        const structuralOverrideRe = /\b(?:single|two|three|four|five|six|seven|eight|nine|ten|\d+)\s+\S*\s*tails?\b/i;
-        expect(structuralOverrideRe.test(desc)).toBe(true);
+        // buildTailDescription の出力フォーマット（"N tails" 等）が将来変わらないことのガード。
+        // 尻尾本数を構造的正源として扱う際に、AI タグ側の同種文言と重複検出できる形式であることを保証する。
+        const tailCountRe = /\b(?:single|two|three|four|five|six|seven|eight|nine|ten|\d+)\s+\S*\s*tails?\b/i;
+        expect(tailCountRe.test(desc)).toBe(true);
     });
 
     it('null / 旧フラット文字列 / 空配列は null を返す（旧形式防御）', () => {

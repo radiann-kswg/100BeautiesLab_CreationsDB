@@ -1,5 +1,14 @@
 # 最新のリファクタリング・仕様変更履歴
 
+### refactor(addon-ai-tag): `--apply-identitymotif` モードを撤去し `--apply-appearancedetail` を唯一の AI タグ再構築モードに (2026-07-11)
+
+develop 側での `IdentityMotif` フィールド廃止（上記 refactor）を `addon-ai-tag` へ取り込みマージした際、`tools/patch-aihints.mjs` の `--apply-identitymotif` モード（`IdentityMotif` を正源として `AIHints` の AI タグ系を再構築する約650行のコード）が、正源フィールド自体の消失により全レコード `identitymotif-cleared`（AI タグ系を空にクリアする fallback）しか返せない「死んだモード」になっていたため、コードごと撤去した。放置すると誤って `--apply` 実行された場合に既存92件の `AIHints` が破壊されるリスクがあった。
+
+- **`tools/patch-aihints.mjs`**: `--apply-identitymotif` のオプション解析・help文言・専用関数群（`classifyMotifEntry` / `synthesizeBaseColorFromMotif` / `buildAihintsFromIdentityMotif` / `applyIdentityMotifToAihintsInRecord`）・メイン処理分岐・サマリー集計を削除。`--apply-appearancedetail` モードとの共有ヘルパー（`normalizeMotifEntry` / 旧 `clearAihintsTagsForNoIdentityMotif`）は残し、後者は汎用名 `clearAihintsTagsForNoSource` にリネーム（`--apply-appearancedetail` 側が使っていた別名エイリアス `clearAihintsTagsForNoAppearanceDetail` は廃止し直接呼び出しに統一）。コメント中の「`IdentityMotif` の後継を見据えた並行モード」等の記述も、唯一のモードになった実態に合わせて整理。
+- **`docs/ai-hints-usage.md`**: §9.8（`--apply-identitymotif` モード解説）を「廃止済み」の短い注記に置き換え、§9.9（`--apply-appearancedetail`）から「並行モード」「`IdentityMotif` 側は据え置き」等の古い記述を除去。
+- **`tests/aihints.schema.test.js`/`tests/patch-aihints.tailsunit.test.js`**: もう存在しない `buildAihintsFromIdentityMotif`/`isStructuralOverride` への言及コメント・テスト名を実装の現状に合わせて更新（テストロジック自体は変更なし）。
+- 確認: `node tools/patch-aihints.mjs --apply-identitymotif --dry-run` が `Unknown option` で拒否されることを確認。`--apply-appearancedetail --dry-run` は従来通り動作（`appearancedetail-applied` を正しく返す）。`npm test` 全件成功（270件）。
+
 ### refactor: NumberTales `NumberMarkLocation` / `IdentityMotif` を廃止し `AppearanceDetail` へ一本化 (2026-07-11)
 
 両フィールドは `scripts/migrate-appearance-detail.mjs` により `AppearanceDetail`（`$Def_AppearanceDetail[]`）へ試験運用として並走追加されていたが、全該当95レコード（105レコード中）で移行済み（片方のみ持つレコードなし、移行漏れなし）を確認できたため、旧フィールドを廃止した。

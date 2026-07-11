@@ -45,7 +45,8 @@
 | Works_DestinyFoxRecords / Works_Proxies 統合              | [2026-07-11_progress_works-merge-dfr-proxies.md](./2026-07-11_progress_works-merge-dfr-proxies.md)                                                                  | ⚠️ 全フェーズ実装完了・`npm test` 233件成功。ブラウザ実地確認とコミットはUser待ち                |
 | NumberTales 耳の形状(EarShapeType)再設計                  | [2026-07-08_progress_numbertales-earshapetype-restructure.md](./2026-07-08_progress_numbertales-earshapetype-restructure.md)                                        | ⚠️ ブラウザ目視確認待ち（`npm test` 22files/199tests成功済み・addon-ai-tag側追従は後日別タスク） |
 | AIHints 構造再同期案                                      | [2026-07-08_progress_aihints-structural-resync-proposal.md](./2026-07-08_progress_aihints-structural-resync-proposal.md)                                            | Draft。構造再同期方針の叩き台で、User判断待ち                                                    |
-| NumberTales `NumberMarkLocation`/`IdentityMotif` 廃止      | [2026-07-11_progress_remove-nummark-identitymotif.md](./2026-07-11_progress_remove-nummark-identitymotif.md)                                                        | develop側は実装完了・`npm test` 243/244件成功（無関係の既存1件を除く）。addon-ai-tag側のAIHints追従はこれから対応 |
+| NumberTales `NumberMarkLocation`/`IdentityMotif` 廃止      | [2026-07-11_progress_remove-nummark-identitymotif.md](./2026-07-11_progress_remove-nummark-identitymotif.md)                                                        | develop側は実装完了・`npm test` 243/244件成功（無関係の既存1件を除く） |
+| addon-ai-tag: 取り込みマージ + `--apply-identitymotif` 撤去 | [2026-07-11_progress_addon-ai-tag-identitymotif-removal.md](./2026-07-11_progress_addon-ai-tag-identitymotif-removal.md)                                            | ✅ 実装完了・`npm test` 270件成功。ブラウザ実地確認は未実施 |
 
 ### 系列の補足（過去フェーズは `.completed/` 参照）
 

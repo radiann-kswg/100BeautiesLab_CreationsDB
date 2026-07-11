@@ -171,7 +171,7 @@ describe('AIHints data: upgraded NumberTales/DB_Primary records', () => {
             ).toBe(true);
 
             for (const field of ['immutable_constraints', 'negative_keywords']) {
-                // IdentityMotif 駆動再構築では humanoid は structural default が無く null になり得る。
+                // AppearanceDetail 駆動再構築では humanoid は structural default が無く null になり得る。
                 // schema 上も `#String[]|#Null` のため、array または null を許容する。
                 const val = hu[field];
                 expect(
