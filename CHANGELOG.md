@@ -1,5 +1,13 @@
 # 最新のリファクタリング・仕様変更履歴
 
+### fix: SW 登録不能（importScripts 同一スコープでの `const` 再宣言）を修正 (2026-07-11)
+
+`Works_Proxies` 統合（下記 refactor）の際に `lib/data-common.js` へ追加したトップレベル `const LEGACY_WORK_DIR_ALIASES` が、`lib/sw-common.js` 側の同名 `const` と衝突していた。Service Worker は `importScripts()` で両ファイルを**同一グローバルスコープ**へ読み込むため、`const` の同名再宣言は SyntaxError となり、`pages/`・`svc/`・`api/` の 3 つの SW すべてが「ServiceWorker script evaluation failed」で登録・更新不能になっていた（function 宣言同士の重複は classic script では合法＝後勝ちのため無害）。ブラウザは SW 更新失敗時に**古い SW を使い続ける**ため、既存利用者には「共通資料（`#Works_CommonReferences`）だけ 500/404 になる」という形で顕在化し（旧 SW は `Works_Dir` オーバーライド未対応のため `/data/Works_CommonReferences/...` へ直行して 404）、新規訪問者には SW 全機能が動かない状態だった。
+
+- **`lib/data-common.js`**: 衝突していた `const` を `DATA_COMMON_LEGACY_WORK_DIR_ALIASES` へ改名（`resolveWorkDirName()` の function 重複による後勝ち上書き設計はそのまま維持）。
+- **`tests/sw.importscripts-scope.test.js`（新設）**: 各 SW スコープ（`pages`/`svc`/`api` + 共通 lib 群）でトップレベル `const`/`let`/`class` のファイル間再宣言が無いことを検証する回帰テストを追加。
+- 確認: `npm test` 全件成功（241件 + 新規3件）。実ブラウザで SW 再登録 → 共通資料の meta / DB 一覧 / レコード一覧 / 詳細表示 / Region8 代表画像の表示を確認。
+
 ### add: `data/References/`（全作品共通の辞書）と `data/GeneralImages/`（全作品共通の画像）を「共通資料」仮想作品として公開 (2026-07-11)
 
 これまで表示専用の「shared layer 上乗せ」（各作品のReferences層DB表示に `data/References/db_type.json` を合流するだけ）でしか使われていなかったグローバル `data/References/`・`data/GeneralImages/` を、`#Works_CommonReferences`（表示名: 共通資料 / Common References）という仮想作品として、既存の `works/{work}/db/{dbName}` の仕組みでそのまま閲覧できるようにした。物理フォルダは一切移動せず（既存の shared layer 機構を壊さないため）、宣言的なオーバーライドで解決する設計。

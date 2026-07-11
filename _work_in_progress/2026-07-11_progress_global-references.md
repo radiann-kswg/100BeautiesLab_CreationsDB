@@ -49,12 +49,12 @@
 - `node --check` で `lib/sw-common.js` / `pages/characters.js` / `pkg/cloudflare/worker.js` / `pkg/cloudflare/scripts/migrate.mjs` の構文確認。
 - **実データ検証（VMハーネス、`lib/sw-common.js`を実ファイルシステム裏付けfetchスタブで実行）**: `resolveWorkDir('#Works_CommonReferences')`→`'References'`、`listWorkDBs`で5DB全件が二重ディレクトリなく解決、`readDB`でVocabulary(7件)/Region8(15件)の実レコード取得、`handleWorksListEndpoint`/`handleWorkDbListEndpoint`で`Works_Shared`/`DB_Image`のpass-through確認、既存作品（NumberTales）が従来通り6DB解決される回帰確認、いずれも成功。
 - **`node pkg/cloudflare/scripts/migrate.mjs --dry-run --d1-only`**: 全作品・全DBが警告/エラー無しで解決。「共通資料」の5DB・475件のレコードがD1投入形式で正しく生成されることを確認（`idx_key='Term_JP'`）。上記の既存バグ修正後、`FLInvestigator78`/`ShouArRiders`/`UnibyteLive`のネスト型idxKeyも正しく解決されることを確認。
-- ローカルHTTPサーバーでの実ブラウザ目視確認（作品セレクトに「共通資料」optgroupが表示され、5DB選択・一覧・詳細表示・Region8代表画像表示ができること）: **未実施**（次のステップ）。
+- ローカルHTTPサーバーでの実ブラウザ目視確認（作品セレクトに「共通資料」optgroupが表示され、5DB選択・一覧・詳細表示・Region8代表画像表示ができること）: **実施済み（2026-07-11 追記）**。初回確認時に共通資料の meta が 500 / DB一覧が空になる事象が発生したが、原因は本機能ではなく、`Works_Proxies` 統合時に `lib/data-common.js` へ追加された `const LEGACY_WORK_DIR_ALIASES` が `lib/sw-common.js` 側の同名 `const` と衝突し、importScripts の同一グローバルスコープで SyntaxError → **SW3種すべてが登録・更新不能**（古いSWが残留稼働し `Works_Dir` オーバーライド未対応のまま）になっていたこと。`DATA_COMMON_LEGACY_WORK_DIR_ALIASES` へ改名して修正し、回帰テスト `tests/sw.importscripts-scope.test.js` を新設（詳細は `CHANGELOG.md` の fix エントリ参照）。修正後、共通資料の meta / 5DB一覧 / レコード一覧 / 詳細表示 / Region8 代表画像の表示をブラウザで確認済み。
 - Cloudflare Workers実API側の実デプロイでの疎通確認（`wrangler deploy` → `.../api/v1/works` 等）: **未実施**（本番反映はUser判断、次のステップ。`--dry-run`でのロジック検証は上記で実施済み）。
 
 ## 未完了タスク
 
-- ローカルHTTPサーバーでの実ブラウザ目視確認。
+- ~~ローカルHTTPサーバーでの実ブラウザ目視確認。~~（2026-07-11 実施済み。上記「検証」参照）
 - Cloudflare Workers実API側の実デプロイ環境がある場合の`wrangler deploy`後の疎通確認（`--dry-run`でのロジック検証は完了済み）。
 - 他の実作品（`Works_NumberTales`等）自体の「作品別Referencesレイヤーのマージ」をCloudflare Workers/D1上でサポートする改修は、今回明示的にスコープ外とした既存ギャップとして残る。将来対応する場合は`pkg/cloudflare/worker.js`の`getWorkMeta()`に`readRefMeta`/`mergeLayerDatabases`相当の実装が必要になる。
 - サーバ/enrich側画像解決（`lib/data-common.js`の`ImageProcessor`）の`Works_Dir`/`Works_ImagesDir`オーバーライド対応は見送った。将来`_enrichment.images`/`primaryImage`をUI側が参照するようになった場合は追従が必要。
