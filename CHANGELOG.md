@@ -1,5 +1,19 @@
 # 最新のリファクタリング・仕様変更履歴
 
+### refactor: NumberTales `NumberMarkLocation` / `IdentityMotif` を廃止し `AppearanceDetail` へ一本化 (2026-07-11)
+
+両フィールドは `scripts/migrate-appearance-detail.mjs` により `AppearanceDetail`（`$Def_AppearanceDetail[]`）へ試験運用として並走追加されていたが、全該当95レコード（105レコード中）で移行済み（片方のみ持つレコードなし、移行漏れなし）を確認できたため、旧フィールドを廃止した。
+
+- **`data/Works_NumberTales/DataBases/db_type.json`**: `NumberMarkLocation` フィールド宣言、専用型 `$Def_NumberMarkLocation` / `$Def_NumberMark`（他フィールド未使用）を削除。
+- **`data/db_type.json`（グローバル）**: `IdentityMotif` フィールド宣言を削除。
+- **`data/db_meta.json`（グローバル）**: `IdentityMotif` 専用型 `$Def_FormsMotif`（他フィールド未使用）を削除。
+- **`data/Works_NumberTales/DataBases/db_Primary.json`**: 該当95レコードから `NumberMarkLocation` / `IdentityMotif` を削除（`scripts/migrate-remove-nummark-identitymotif.mjs` で実施。ファイル全体の独自インデント記法を壊さないよう、`JSON.stringify` 再シリアライズではなく行ベースの外科的削除で対応）。
+- **`lib/section-renders/formsMotif.js`**: `formsMotifSection` レンダラーを削除（参照元フィールドの廃止に伴う）。
+- **`pages/characters.js`**: 上記ファイルの `import` を削除。sectionWrapper未登録時のスキップ挙動を説明するコメント例を `IdentityMotif` から `AppearanceDetail` に更新。
+- **`docs/wrapper-summary-registry.md`**: `formsMotifSection` の記載を除去。
+- **`lib/section-wrapper-common.js`/`tests/section-wrapper-common.test.js`**: built-in section renderer 一覧コメントから `formsMotifSection` を除去。
+- 確認: `npm test` 全件成功（243件。既存の無関係な1件失敗 `TailsUnit_PNGName` 拡張子欠落は今回変更前から発生していたため対象外、別課題として記録）。
+
 ### fix: SW 登録不能（importScripts 同一スコープでの `const` 再宣言）を修正 (2026-07-11)
 
 `Works_Proxies` 統合（下記 refactor）の際に `lib/data-common.js` へ追加したトップレベル `const LEGACY_WORK_DIR_ALIASES` が、`lib/sw-common.js` 側の同名 `const` と衝突していた。Service Worker は `importScripts()` で両ファイルを**同一グローバルスコープ**へ読み込むため、`const` の同名再宣言は SyntaxError となり、`pages/`・`svc/`・`api/` の 3 つの SW すべてが「ServiceWorker script evaluation failed」で登録・更新不能になっていた（function 宣言同士の重複は classic script では合法＝後勝ちのため無害）。ブラウザは SW 更新失敗時に**古い SW を使い続ける**ため、既存利用者には「共通資料（`#Works_CommonReferences`）だけ 500/404 になる」という形で顕在化し（旧 SW は `Works_Dir` オーバーライド未対応のため `/data/Works_CommonReferences/...` へ直行して 404）、新規訪問者には SW 全機能が動かない状態だった。

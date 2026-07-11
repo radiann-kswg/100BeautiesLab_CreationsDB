@@ -378,32 +378,6 @@
         "hashTag_JP": "活動地域",
         "hashTag_EN": "Base Area"
       },
-      "$Def_FormsMotif": {
-        "$DefType": [
-          {
-            "hashTag": "Formation",
-            "$type": "#DictIndex|#Null",
-            "$dict": "Formation",
-            "hashTag_JP": "形態名"
-          },
-          {
-            "hashTag": "Motif",
-            "$type": [
-              {
-                "hashTag": "Motif_JP",
-                "$type": "#String[]",
-                "hashTag_JP": "モチーフ(日本語原文)"
-              },
-              {
-                "hashTag": "Motif_EN",
-                "$type": "#String[]",
-                "hashTag_JP": "モチーフ(英語翻訳)"
-              }
-            ],
-            "hashTag_JP": "モチーフ"
-          }
-        ]
-      },
       "#List_BustSize": [
         { "BustSize": "AA" },
         { "BustSize": "A" },

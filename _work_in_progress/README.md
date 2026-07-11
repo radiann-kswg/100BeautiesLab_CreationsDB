@@ -43,10 +43,11 @@
 | Works_DestinyFoxRecords / Works_Proxies 統合  | [2026-07-11_progress_works-merge-dfr-proxies.md](./2026-07-11_progress_works-merge-dfr-proxies.md)                                                      | ⚠️ 全フェーズ実装完了・`npm test` 233件成功。ブラウザ実地確認とコミットはUser待ち               |
 | NumberTales 耳の形状(EarShapeType)再設計 | [2026-07-08_progress_numbertales-earshapetype-restructure.md](./2026-07-08_progress_numbertales-earshapetype-restructure.md)                                        | ⚠️ ブラウザ目視確認待ち（`npm test` 22files/199tests成功済み・addon-ai-tag側追従は実施済み）     |
 | AIHints 構造的再同期 設計提案            | [2026-07-08_progress_aihints-structural-resync-proposal.md](./2026-07-08_progress_aihints-structural-resync-proposal.md)                                            | 📝 提案書のみ・実装未着手。User の優先度判断待ち（実装は addon-ai-tag 側の別タスク）             |
+| NumberTales `NumberMarkLocation`/`IdentityMotif` 廃止（appearance-detail-cleanup） | [2026-07-11_progress_remove-nummark-identitymotif.md](./2026-07-11_progress_remove-nummark-identitymotif.md) | ✅ 実装完了・`npm test` 243/244件成功（既存無関係の1件失敗は対象外）。ブラウザ目視確認は未実施 |
 
 ### 系列の補足（過去フェーズは `.completed/` 参照）
 
-- **AppearanceDetail系**: `design-part-schema` → `appearance-attrs-typed-schema` → `appearance-detail-merge-integration` / `runbook` は実装完了につき `.completed/` へ退避済み。現行の残作業は `appearance-detail-cleanup` 1本に集約。
+- **AppearanceDetail系**: `design-part-schema` → `appearance-attrs-typed-schema` → `appearance-detail-merge-integration` / `runbook` は実装完了につき `.completed/` へ退避済み。残作業だった `appearance-detail-cleanup`（NumberTales `NumberMarkLocation`/`IdentityMotif` 廃止）も 2026-07-11 に実装完了。
 - **DeepL/ローカライズ運用系**: `deepl-localization` / `deepl-draft-translate` / `deepl-glossary-multiform` / `deepl-py-and-skill` / `deepl-production-run` は、2026-07-03 の本番実行ログ（`deepl-production-run`）で実API疎通・Python版・用語集同期まで確認済みにつき `.completed/` へ退避済み。データ内容そのものの継続作業は `localization-db` / `localization-summary-inputs` 側で管理。
 
 ---

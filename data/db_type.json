@@ -286,17 +286,6 @@
       "hashTag_EN": "Weakness"
     },
     {
-      "hashTag": "IdentityMotif",
-      "$type": "#Def_FormsMotif[]",
-      "hashTag_JP": "キャラクター固有のモチーフについて",
-      "hashTag_EN": "Character's Identity Motif",
-      "searchable": false,
-      "$display": {
-        "section": "profile",
-        "sectionWrapper": "formsMotifSection"
-      }
-    },
-    {
       "hashTag": "AppearanceDetail",
       "$type": "$Def_AppearanceDetail[]|#Null",
       "hashTag_JP": "外見デザイン詳細",

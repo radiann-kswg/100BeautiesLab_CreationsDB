@@ -51,7 +51,6 @@
 `lib/section-renders/` 配下の IIFE ファイルで登録（`characters.js` から import されたタイミングで追加）:
 - `relationSection` — `RelationTo_*` suffix フィールドのリレーション表示（`lib/section-renders/relation.js`）
 - `statsSection` — 汎用 Stats 系表示（`lib/section-renders/abilityStats.js` 等）
-- `formsMotifSection` — IdentityMotif / FormsMotif 表示（`lib/section-renders/formsMotif.js`）
 - `thisMastersSection` — ThisMasters (`$Def_ThisMastersEntry[]`) 表示（`lib/section-renders/thisMasters.js`）
 - `dbLinkSection` — `*_DBLink` suffix フィールドのキャラクターリンク参照表示（`lib/section-renders/dblink.js`）
 - `appearanceDetailSection` — `AppearanceDetail` (`$Def_AppearanceDetail[]`) 外見デザイン詳細の Formation グループ別表示。`vdict_*` / `value_Num_*` / `value_JP` / `about_JP` の規約駆動フィールドを `$EnumDef_*`（global+local マージ）で解決し、参考画像（`img_PNGName`）がある場合はライトボックス対応で表示する。画像フォルダは `DesignElement` の `#Element_*` から `attr/<lowerCamel>` を自動導出し、判別不能時のみ従来互換として `img/` を既定値にする（`lib/section-renders/appearanceDetail.js`）
