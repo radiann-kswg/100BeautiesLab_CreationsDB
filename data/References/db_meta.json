@@ -3,27 +3,33 @@
     "#Ref_Vocabulary": {
       "DB_Label_JP": "語彙辞書",
       "DB_Label_EN": "Vocabulary",
-      "DB_Summary": "創作作品全体における固有の用語に関する資料。"
+      "DB_Summary": "創作作品全体における固有の用語に関する資料。",
+      "DB_Layer": "References"
     },
     "#Ref_Race": {
       "DB_Label_JP": "種族辞書",
       "DB_Label_EN": "Race",
-      "DB_Summary": "創作作品全体における種族に関する資料。"
+      "DB_Summary": "創作作品全体における種族に関する資料。",
+      "DB_Layer": "References"
     },
     "#Ref_Faction": {
       "DB_Label_JP": "組織・陣営辞書",
       "DB_Label_EN": "Faction",
-      "DB_Summary": "創作作品全体における組織や陣営に関する資料。"
+      "DB_Summary": "創作作品全体における組織や陣営に関する資料。",
+      "DB_Layer": "References"
     },
     "#Ref_Society": {
       "DB_Label_JP": "社会・情勢辞書",
       "DB_Label_EN": "Society",
-      "DB_Summary": "創作作品全体における社会や情勢に関する資料。"
+      "DB_Summary": "創作作品全体における社会や情勢に関する資料。",
+      "DB_Layer": "References"
     },
     "#Ref_Region8": {
       "DB_Label_JP": "第８界の地域文化辞書",
       "DB_Label_EN": "About Regional Cultures in #REGION.8",
-      "DB_Summary": "創作作品全体における地理や地域文化に関する資料。"
+      "DB_Summary": "創作作品全体における地理や地域文化に関する資料。",
+      "DB_Layer": "References",
+      "DB_Image": "cnsp-map_region8.png"
     }
   },
   "General": {

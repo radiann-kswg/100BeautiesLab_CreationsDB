@@ -336,3 +336,92 @@ describe('DB layer aware routing', () => {
     expect(r.entry?.DB_Layer).toBe('Localization');
   });
 });
+
+describe('Works_Dir override (common references pseudo-work)', () => {
+  function makeFetchStub(jsonByPath) {
+    return async (url, opt = {}) => {
+      const pathname = new URL(url).pathname;
+      const body = jsonByPath[pathname];
+      if ((opt?.method || 'GET').toUpperCase() === 'HEAD') {
+        return new Response('', { status: body ? 200 : 404 });
+      }
+      if (!body) return new Response('not found', { status: 404 });
+      return new Response(JSON.stringify(body), {
+        status: 200,
+        headers: { 'content-type': 'application/json; charset=utf-8' }
+      });
+    };
+  }
+
+  it('DataFetcher.resolveWorkDir honors Works_Dir override from global db_meta.json', async () => {
+    const jsonByPath = {
+      '/data/db_meta.json': {
+        CreationWorks: {
+          '#Works_CommonReferences': { Works_Dir: 'References' }
+        }
+      }
+    };
+
+    const ctx = loadSwCommonIntoContext({ fetch: makeFetchStub(jsonByPath) });
+    const fetcher = new ctx.self.DataFetcher(new ctx.self.SWConfig('/pages'));
+
+    expect(await fetcher.resolveWorkDir('#Works_CommonReferences')).toBe('References');
+    // オーバーライドが無い作品は従来通りの導出のまま（回帰確認）
+    expect(await fetcher.resolveWorkDir('#Works_NumberTales')).toBe('Works_NumberTales');
+  });
+
+  it('DataFetcher.readWorkMeta/readWorkType fall back to root files when DataBases/ subfolder is absent', async () => {
+    const jsonByPath = {
+      '/data/db_meta.json': {
+        CreationWorks: {
+          '#Works_CommonReferences': { Works_Dir: 'References' }
+        }
+      },
+      '/data/References/db_meta.json': {
+        Databases: {
+          '#Ref_Vocabulary': { DB_Label_JP: '語彙辞書', DB_Layer: 'References' }
+        }
+      },
+      '/data/References/db_type.json': {
+        $IndexDef: { hashTag: 'Term_JP' }
+      }
+    };
+
+    const ctx = loadSwCommonIntoContext({ fetch: makeFetchStub(jsonByPath) });
+    const fetcher = new ctx.self.DataFetcher(new ctx.self.SWConfig('/pages'));
+
+    const meta = await fetcher.readWorkMeta('#Works_CommonReferences');
+    expect(meta.Databases?.['#Ref_Vocabulary']?.DB_Label_JP).toBe('語彙辞書');
+
+    const type = await fetcher.readWorkType('#Works_CommonReferences');
+    expect(type.$IndexDef?.hashTag).toBe('Term_JP');
+  });
+
+  it('DataFetcher.readDB/listWorkDBs collapse the layer segment when DB_Layer equals the resolved workDir', async () => {
+    const jsonByPath = {
+      '/data/db_meta.json': {
+        CreationWorks: {
+          '#Works_CommonReferences': { Works_Dir: 'References' }
+        }
+      },
+      '/data/References/db_meta.json': {
+        Databases: {
+          '#Ref_Vocabulary': { DB_Label_JP: '語彙辞書', DB_Layer: 'References' }
+        }
+      },
+      '/data/References/ref_Vocabulary.json': [
+        { Term_JP: '九蓮国' }
+      ]
+    };
+
+    const ctx = loadSwCommonIntoContext({ fetch: makeFetchStub(jsonByPath) });
+    const fetcher = new ctx.self.DataFetcher(new ctx.self.SWConfig('/pages'));
+
+    // レイヤーが workDir 自身と一致する場合、/data/References/References/... へ二重化しない
+    const records = await fetcher.readDB('#Works_CommonReferences', 'Vocabulary');
+    expect(records).toEqual([{ Term_JP: '九蓮国' }]);
+
+    const dbs = await fetcher.listWorkDBs('#Works_CommonReferences');
+    expect(dbs).toEqual([{ key: 'Vocabulary', file: 'ref_Vocabulary.json', layer: 'References' }]);
+  });
+});

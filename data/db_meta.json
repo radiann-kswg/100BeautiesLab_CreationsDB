@@ -309,6 +309,15 @@
         ],
         "subFields": ["ConversationPattern"]
       }
+    },
+    "#Works_CommonReferences": {
+      "Title_JP": "共通資料",
+      "Title_EN": "Common References",
+      "Works_Summary_JP": "特定の作品に属さない、創作世界全体で共有する種族・組織・社会情勢・地域文化・語彙などの参照資料集。",
+      "Works_Summary_EN": "A shared reference collection spanning the whole creative universe — race, faction, society, regional culture, and vocabulary records that don't belong to any single work.",
+      "Works_Dir": "References",
+      "Works_ImagesDir": "GeneralImages",
+      "Works_Shared": true
     }
   },
   "General": {

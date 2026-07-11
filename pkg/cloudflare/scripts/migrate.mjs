@@ -162,6 +162,34 @@ function getByPath(obj, path) {
   return path.split(".").reduce((cur, k) => cur?.[k], obj);
 }
 
+/**
+ * 作品IDから物理ディレクトリ名を解決する（`Works_Dir` オーバーライド対応）。
+ * 物理ディレクトリ名が既定の `Works_<id>` と異なる作品（共通資料の疑似作品等）向け。
+ * @param {string} workKey - '#Works_XXX' 形式
+ * @param {object} creationWorksMap - グローバル CreationWorks
+ * @returns {string}
+ */
+function resolveWorkDirForMigrate(workKey, creationWorksMap) {
+  const info = creationWorksMap?.[workKey];
+  const override = (info && typeof info.Works_Dir === "string") ? info.Works_Dir.trim() : "";
+  if (override) return override;
+  return workKey.replace(/^#Works_/, "Works_");
+}
+
+/**
+ * 作品ベースファイル（db_meta.json / db_type.json）を読み込む。
+ * `DataBases/` サブフォルダが無ければ直下の同名ファイルを試す
+ * （`Works_Dir` オーバーライドで `DataBases/` を持たない作品向け。未検出は想定内のため警告を出さない）。
+ * @param {string} workDir - 物理ディレクトリ名
+ * @param {string} filename - "db_meta.json" | "db_type.json"
+ * @returns {object|null}
+ */
+function readWorkBaseFile(workDir, filename) {
+  const nestedPath = join(DATA_DIR, workDir, "DataBases", filename);
+  if (existsSync(nestedPath)) return readJson(nestedPath);
+  return readJson(join(DATA_DIR, workDir, filename));
+}
+
 // ─────────────────────────────────────────────────────────────────────────────
 // D1 投入ユーティリティ
 // ─────────────────────────────────────────────────────────────────────────────
@@ -296,9 +324,8 @@ if (!R2_ONLY) {
   const dbsValues = [];
 
   for (const workKey of Object.keys(creationWorks)) {
-    const workDir = workKey.replace(/^#Works_/, "Works_");
-    const workMetaPath = join(DATA_DIR, workDir, "DataBases", "db_meta.json");
-    const workMeta = readJson(workMetaPath);
+    const workDir = resolveWorkDirForMigrate(workKey, creationWorks);
+    const workMeta = readWorkBaseFile(workDir, "db_meta.json");
     const databases = workMeta?.Databases ?? {};
 
     for (const [dbKey, dbInfo] of Object.entries(databases)) {
@@ -346,14 +373,12 @@ if (!R2_ONLY) {
   let totalRecords = 0;
 
   for (const workKey of Object.keys(creationWorks)) {
-    const workDir  = workKey.replace(/^#Works_/, "Works_");
-    const workMetaPath = join(DATA_DIR, workDir, "DataBases", "db_meta.json");
-    const workMeta     = readJson(workMetaPath);
+    const workDir  = resolveWorkDirForMigrate(workKey, creationWorks);
+    const workMeta     = readWorkBaseFile(workDir, "db_meta.json");
     const databases    = workMeta?.Databases ?? {};
 
     // 作品別 db_type.json から $IndexDef を読む
-    const workTypePath = join(DATA_DIR, workDir, "DataBases", "db_type.json");
-    const workType     = readJson(workTypePath) ?? {};
+    const workType     = readWorkBaseFile(workDir, "db_type.json") ?? {};
     const defaultIdxKey = resolveIdxKey(workType.$IndexDef);
 
     for (const [dbKey, dbInfo] of Object.entries(databases)) {
@@ -364,7 +389,11 @@ if (!R2_ONLY) {
       const fileRaw = (dbInfo?.DB_File  || "").trim();
       const isRef   = dbKey.startsWith("#Ref_");
       const defPfx  = isRef ? "ref_" : "db_";
-      const basePath = join(DATA_DIR, workDir, layer);
+      // layer が workDir 自身と一致する場合（Works_Dir オーバーライドで workDir と DB_Layer が
+      // 同名になる共通資料の疑似作品等）はレイヤーセグメントを畳み込み、二重ディレクトリを避ける
+      const basePath = (layer && layer !== workDir)
+        ? join(DATA_DIR, workDir, layer)
+        : join(DATA_DIR, workDir);
 
       // ファイル候補順に実在する JSON を探す
       const candidates = [
@@ -388,8 +417,12 @@ if (!R2_ONLY) {
       }
 
       // 作品別 db_type.json の DB 固有 $IndexDef があれば優先
+      // 注意: resolveIdxKey() は indexDef が無くても既定値 "Num" を返すため、
+      // dbSpecificType が無いのに resolveIdxKey(undefined) を呼ぶと常に "Num" が
+      // 真値として確定してしまい defaultIdxKey に絶対フォールバックしない実バグがあった
+      // （ネスト型 $IndexDef を持つ作品の idx_key が常に誤って "Num" になっていた）。
       const dbSpecificType = workType[`$IndexDef_${dbNorm}`];
-      const idxKey = resolveIdxKey(dbSpecificType) || defaultIdxKey;
+      const idxKey = dbSpecificType ? resolveIdxKey(dbSpecificType) : defaultIdxKey;
 
       const recordValues = [];
       for (const rec of records) {

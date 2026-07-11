@@ -88,6 +88,37 @@ describe('database shapes', () => {
     expect(nestedDb?.$type).toBe('#String|#Null');
   });
 
+  it('CreationWorks.#Works_CommonReferences declares safe-token Works_Dir/Works_ImagesDir overrides', () => {
+    const dbMeta = load('data/db_meta.json');
+    const entry = dbMeta?.CreationWorks?.['#Works_CommonReferences'];
+    const safeToken = /^[A-Za-z0-9_]+$/;
+
+    expect(entry).toBeTruthy();
+    expect(entry?.Works_Dir).toBe('References');
+    expect(entry?.Works_ImagesDir).toBe('GeneralImages');
+    expect(safeToken.test(entry?.Works_Dir || '')).toBe(true);
+    expect(safeToken.test(entry?.Works_ImagesDir || '')).toBe(true);
+    expect(entry?.Works_Shared).toBe(true);
+  });
+
+  it('data/References/db_meta.json declares DB_Layer:"References" for all #Ref_* catalog entries', () => {
+    const refsMeta = load('data/References/db_meta.json');
+    const databases = refsMeta?.Databases || {};
+    const refKeys = Object.keys(databases).filter((key) => key.startsWith('#Ref_'));
+
+    expect(refKeys.length).toBeGreaterThan(0);
+    for (const key of refKeys) {
+      expect(databases[key]?.DB_Layer).toBe('References');
+    }
+    // Region8 は DB全体の俯瞰マップとしてDB_Imageを持つ
+    expect(databases['#Ref_Region8']?.DB_Image).toBe('cnsp-map_region8.png');
+  });
+
+  it('data/References/db_type.json declares $IndexDef on Term_JP for the common references pseudo-work', () => {
+    const sharedRefsType = load('data/References/db_type.json');
+    expect(sharedRefsType?.$IndexDef?.hashTag).toBe('Term_JP');
+  });
+
   it('$Def_DBCrossLinkPath declares the expected sentinel fields, with _DB/_IsoPath required', () => {
     const dbType = load('data/db_type.json');
     const defEntries = Array.isArray(dbType?.$Def_DBCrossLinkPath?.$DefType) ? dbType.$Def_DBCrossLinkPath.$DefType : [];

@@ -84,12 +84,52 @@ function toWorkKey(workId) {
 }
 
 /**
- * '#Works_XXX' → 'Works_XXX'（ファイルシステムパス用）
+ * '#Works_XXX' → 'Works_XXX'（ファイルシステムパス用、既定導出）
  * @param {string} workKey
  * @returns {string}
  */
 function resolveWorkDir(workKey) {
   return (workKey || "").replace(/^#Works_/, "Works_");
+}
+
+/** CreationWorks.*.Works_Dir のオーバーライド表キャッシュ（TTL付き） */
+let worksDirOverrideCache = null; // { t, map: Map<workKey, dirName> }
+const WORKS_DIR_OVERRIDE_TTL_MS = 15 * 1000;
+
+/**
+ * CreationWorks.*.Works_Dir のオーバーライド表を取得する。
+ * 物理ディレクトリ名が既定の `Works_<id>` と異なる作品（共通資料の疑似作品等）向け。
+ * @param {object} env
+ * @returns {Promise<Map<string, string>>}
+ */
+async function getWorksDirOverrides(env) {
+  const now = Date.now();
+  if (worksDirOverrideCache && (now - worksDirOverrideCache.t) < WORKS_DIR_OVERRIDE_TTL_MS) {
+    return worksDirOverrideCache.map;
+  }
+  const map = new Map();
+  try {
+    const meta = await getGlobalMeta(env);
+    for (const [key, info] of Object.entries(meta?.CreationWorks || {})) {
+      const dir = (info && typeof info.Works_Dir === "string") ? info.Works_Dir.trim() : "";
+      if (dir && isSafeToken(dir)) map.set(key, dir);
+    }
+  } catch {
+    // 取得失敗時は空表を返し、全workが従来のresolveWorkDirへフォールバックする
+  }
+  worksDirOverrideCache = { t: now, map };
+  return map;
+}
+
+/**
+ * 作品IDから物理ディレクトリ名を解決（Works_Dir オーバーライド対応）
+ * @param {object} env
+ * @param {string} workKey
+ * @returns {Promise<string>}
+ */
+async function resolveWorkDirWithOverride(env, workKey) {
+  const overrides = await getWorksDirOverrides(env);
+  return overrides.get(workKey) || resolveWorkDir(workKey);
 }
 
 /**
@@ -225,14 +265,18 @@ async function getGlobalMeta(env) {
 }
 
 /**
- * 作品別メタ (data/Works_X/DataBases/db_meta.json) を R2 から取得
+ * 作品別メタ (data/Works_X/DataBases/db_meta.json) を R2 から取得。
+ * `DataBases/` サブフォルダを持たない作品（`Works_Dir` オーバーライドを使う
+ * 共通資料の疑似作品等）向けに、直下の db_meta.json へのフォールバックも試みる。
  * @param {object} env
  * @param {string} workKey - '#Works_XXX' 形式
  * @returns {Promise<object|null>}
  */
 async function getWorkMeta(env, workKey) {
-  const workDir = resolveWorkDir(workKey);
-  return fetchJsonFromR2(env, `/data/${workDir}/DataBases/db_meta.json`);
+  const workDir = await resolveWorkDirWithOverride(env, workKey);
+  const meta = await fetchJsonFromR2(env, `/data/${workDir}/DataBases/db_meta.json`);
+  if (meta) return meta;
+  return fetchJsonFromR2(env, `/data/${workDir}/db_meta.json`);
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -274,8 +318,10 @@ async function resolveAndFetchDbFromR2(env, workKey, dbName, workMeta) {
   const fileRaw      = (dbEntry.DB_File  || "").trim();
   const configuredFile = isValidJsonFile(fileRaw) ? fileRaw : "";
   const defaultPrefix  = isRef ? "ref_" : "db_";
-  const workDir        = resolveWorkDir(workKey);
-  const basePath       = `/data/${workDir}/${layer}`;
+  const workDir        = await resolveWorkDirWithOverride(env, workKey);
+  // layer が workDir 自身と一致する場合（Works_Dir オーバーライドで workDir と DB_Layer が
+  // 同名になる共通資料の疑似作品等）はレイヤーセグメントを畳み込み、二重ディレクトリを避ける
+  const basePath       = `/data/${workDir}${(layer && layer !== workDir) ? `/${layer}` : ""}`;
 
   const candidates = [
     configuredFile,

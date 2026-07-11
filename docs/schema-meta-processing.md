@@ -73,6 +73,8 @@
 
 - `CreationWorks.<work>` による作品カタログ
 - `CreationWorks.<work>.$DetailLayout` による詳細補助レイアウト
+- `CreationWorks.<work>.Works_Dir` / `Works_ImagesDir` による物理ディレクトリ名オーバーライド（`Works_<id>` 規約に沿わないフォルダを持つ疑似作品向け。例: 共通資料 `#Works_CommonReferences`）
+- `CreationWorks.<work>.Works_Shared` による「個別の創作タイトルではない共通カタログ」フラグ（UI の作品セレクトで別 `<optgroup>` に分離表示）
 - `General.$VarsDef` による共通表示辞書の合流先
 
 典型用途:
@@ -364,6 +366,8 @@
 - `Works_Summary`
 - `OldTitles[]`
 - `$DetailLayout`
+- `Works_Dir` / `Works_ImagesDir`（物理ディレクトリ名オーバーライド。省略時は既定の `Works_<id>` / `<workDir>/Images` を使う。詳細は `docs/api-sw-spec.md` §5.5）
+- `Works_Shared`（個別の創作タイトルではない共通カタログであることを示すフラグ）
 
 この情報は `StandardEndpointHandlers.buildWorkCatalogEntry()` で works 系 API へ正規化されます。
 
@@ -396,6 +400,7 @@
 - `DB_File`
 - `StoryEra`
 - `SecondarySummary`
+- `DB_Image`
 - `_Commons`
 - `_Secondaries`
 
@@ -410,6 +415,10 @@
 画像ディレクトリ名もこの catalog key 系に揃え、通常 DB は `Images/DB_<DbName>/...`、資料系 DB は `Images/Ref_<RefName>/...` を既定とします。作品共通画像のみ `Images/General/` を使います。
 
 資料系 DB の画像定義は shared `data/References/db_type.json` を土台にしつつ、作品別 `References/db_type.json` の `Images.*` 宣言で上書きや追加を行えます。UI の画像解決では、この 2 層を合流したうえで field 名から folder hint を導出し、DB 固有名のハードコード追加を避けます。
+
+`DB_Image` は特定レコードに紐づかない、DB全体の代表画像（俯瞰画像・DBアイコン等）のファイル名を表す補助キーです。`works/{work}/db` 応答へそのまま含まれ、UI の DB 概要欄（`renderSelectionMeta()`）に表示されます。per-record画像フィールドのようなフォルダ推論（`extractImageFields`系）は行わず、画像ディレクトリ（`Images/DB_<DbName>/` または `Images/Ref_<RefName>/`、共通資料の疑似作品では `Works_ImagesDir` オーバーライド先）直下のファイル名として直接解決します。
+
+`DB_Layer` が作品の物理ディレクトリ名（`Works_Dir` オーバーライド解決後）自身と一致する場合、SW/Workers/migrateの各実装はレイヤーセグメントをパスから畳み込みます（`docs/api-sw-spec.md` §5.5参照）。これは共通資料の疑似作品（`Works_Dir: "References"` + `DB_Layer: "References"`）のように、`DataBases/`のような追加サブフォルダを持たないフラットなレイアウトの作品を扱うための規則で、通常の作品（`DB_Layer`が`Works_<Name>`と一致することはない）には影響しません。
 
 ### 4.4 `StoryEra`
 

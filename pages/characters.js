@@ -173,6 +173,18 @@ export function __getIndexIdentifierFromRecordForTest(rec, indexDef, records = n
 	return getIndexIdentifierFromRecord(rec, indexDef, records);
 }
 
+export function __resolveWorkDirNameForTest(workId) {
+	return resolveWorkDirName(workId);
+}
+
+export function __resolveImagesRootOverrideForTest(workId) {
+	return resolveImagesRootOverride(workId);
+}
+
+export async function __populateWorksForTest(initialWork) {
+	return populateWorks(initialWork);
+}
+
 const IMAGE_LIGHTBOX_IDS = {
 	root: 'image-lightbox',
 	dialog: 'image-lightbox-dialog',
@@ -4764,8 +4776,30 @@ function dialogueBodyText(text) {
 	return preWrapText(String(text ?? ''));
 }
 
+/**
+ * 作品IDから物理ディレクトリ名を解決する。
+ * `CreationWorks.<key>.Works_Dir` が宣言されていればそれを優先し（共通資料の疑似作品等、
+ * `Works_<id>` 規約に沿わないフォルダを持つ作品向け）、無ければ従来通りの既定導出を使う。
+ * @param {string} workId
+ * @returns {string}
+ */
 function resolveWorkDirName(workId) {
+	const key = normalizeWorkKey(String(workId || ''));
+	const override = globalMetaCache?.CreationWorks?.[key]?.Works_Dir;
+	if (typeof override === 'string' && override.trim()) return override.trim();
 	return String(workId || '').replace('#Works_', 'Works_');
+}
+
+/**
+ * 作品IDの画像ルートオーバーライド（`Works_ImagesDir`）を取得する。
+ * 未宣言なら空文字を返し、呼び出し側は従来通り `<workDir>/Images` を使う。
+ * @param {string} workId
+ * @returns {string}
+ */
+function resolveImagesRootOverride(workId) {
+	const key = normalizeWorkKey(String(workId || ''));
+	const raw = globalMetaCache?.CreationWorks?.[key]?.Works_ImagesDir;
+	return (typeof raw === 'string' && raw.trim()) ? raw.trim() : '';
 }
 
 /**
@@ -4849,12 +4883,12 @@ async function resolveImageValueToUrl(workId, dbName, field, val, layer = '') {
 			resolveTargetImageField: resolveTargetImageFieldMeta,
 			isTargetHidden: isCrossLinkTargetHidden,
 			buildPath: (targetWorkId, targetDB, fieldMeta, isoPath, targetLayer) =>
-				buildImagePath(resolveWorkDirName(targetWorkId), targetDB, fieldMeta, isoPath, targetLayer)
+				buildImagePath(resolveWorkDirName(targetWorkId), targetDB, fieldMeta, isoPath, targetLayer, resolveImagesRootOverride(targetWorkId))
 		});
 		return url || '';
 	}
 	if (typeof val === 'string') {
-		return buildImagePath(resolveWorkDirName(workId), dbName, field, val, layer) || '';
+		return buildImagePath(resolveWorkDirName(workId), dbName, field, val, layer, resolveImagesRootOverride(workId)) || '';
 	}
 	return '';
 }
@@ -5136,6 +5170,24 @@ function applyStaticTextLanguage() {
 	document.title = `${copy.title} | 100BeautiesLab Creations DB`;
 }
 
+/**
+ * DBカタログの代表画像（`DB_Image`）のURLを解決する。
+ * per-record画像のようなフォルダ推論（extractImageFields系）は行わず、
+ * `${imagesBase}/${imageDbDir}/${DB_Image}` を直接組み立てる単純な専用リゾルバ。
+ * @param {string} workId
+ * @param {Object} dbEntry - listWorkDBs() が返すDBカタログエントリ
+ * @returns {string} 画像URL（無ければ空文字）
+ */
+function resolveDbCoverImageUrl(workId, dbEntry) {
+	const fileName = typeof dbEntry?.DB_Image === 'string' ? dbEntry.DB_Image.trim() : '';
+	if (!fileName) return '';
+	const wdir = resolveWorkDirName(workId);
+	const imagesRootOverride = resolveImagesRootOverride(workId);
+	const imagesBase = imagesRootOverride ? `/data/${imagesRootOverride}` : `/data/${wdir}/Images`;
+	const imageDbDir = mapDbNameToImageDir(dbEntry?.key, dbEntry?.DB_Layer || '');
+	return `${imagesBase}/${imageDbDir}/${fileName}`;
+}
+
 async function renderSelectionMeta(workKey, dbKey) {
 	const root = $('#meta-overview');
 	if (!root) return;
@@ -5169,6 +5221,19 @@ async function renderSelectionMeta(workKey, dbKey) {
 	setTextAndHidden('#meta-db-summary', (lang === 'en')
 		? (db?.DB_Summary_EN || db?.SecondarySummary_EN || db?.DB_Summary || db?.SecondarySummary || '')
 		: (db?.DB_Summary || db?.SecondarySummary || db?.DB_Summary_EN || db?.SecondarySummary_EN || ''));
+
+	const coverImageEl = $('#meta-db-image');
+	if (coverImageEl) {
+		const coverImageUrl = db ? resolveDbCoverImageUrl(workKey, db) : '';
+		if (coverImageUrl) {
+			coverImageEl.src = coverImageUrl;
+			coverImageEl.alt = getDbDisplayLabel(db, dbKey || '');
+			coverImageEl.hidden = false;
+		} else {
+			coverImageEl.removeAttribute('src');
+			coverImageEl.hidden = true;
+		}
+	}
 
 	root.hidden = false;
 }
@@ -5258,11 +5323,15 @@ async function resolveImageFromFields(workId, rec, dbName, imageFields, layer = 
  * @param {string} dbName - Database name
  * @param {Object} field - Image field definition
  * @param {string} value - Field value
+ * @param {string} layer - DB_Layer（References等）
+ * @param {string} imagesRootOverride - `Works_ImagesDir` オーバーライド（共通資料の疑似作品等、
+ *   `<wdir>/Images` ではなく別ルート直下に画像が置かれている作品向け）
  * @returns {string} Complete image path or empty string
  */
-function buildImagePath(wdir, dbName, field, value, layer = '') {
+function buildImagePath(wdir, dbName, field, value, layer = '', imagesRootOverride = '') {
 	if (!value) return '';
 	const imageDbDir = mapDbNameToImageDir(dbName, layer);
+	const imagesBase = imagesRootOverride ? `/data/${imagesRootOverride}` : `/data/${wdir}/Images`;
 	const explicitFolderHint = typeof field?.folderHint === 'string' && field.folderHint.trim()
 		? field.folderHint.trim()
 		: inferImageFolderHint(field?.field || '');
@@ -5369,15 +5438,15 @@ function buildImagePath(wdir, dbName, field, value, layer = '') {
 		rel = appendExtIfMissing(rel);
 
 		if (isGeneral) {
-			return `/data/${wdir}/Images/General/${rel}`;
+			return `${imagesBase}/General/${rel}`;
 		}
-		return `/data/${wdir}/Images/${imageDbDir}/${directory}/${rel}`;
+		return `${imagesBase}/${imageDbDir}/${directory}/${rel}`;
 	}
 
 	// Build standard path
 	const finalPath = field.category === 'general' || directory === 'General'
-		? `/data/${wdir}/Images/General/${appendExtIfMissing(normalizedValue)}`
-		: `/data/${wdir}/Images/${imageDbDir}/${directory}/${appendExtIfMissing(normalizedValue)}`;
+		? `${imagesBase}/General/${appendExtIfMissing(normalizedValue)}`
+		: `${imagesBase}/${imageDbDir}/${directory}/${appendExtIfMissing(normalizedValue)}`;
 
 	console.log('📁 Final image path:', { field: field.field, category: field.category, directory, finalPath });
 
@@ -5395,6 +5464,8 @@ function resolveImageStatically(workId, rec, dbName, layer = '') {
 	const wdir = resolveWorkDirName(workId);
 	const img = getRecordImages(rec);
 	const imageDbDir = mapDbNameToImageDir(dbName, layer);
+	const imagesRootOverride = resolveImagesRootOverride(workId);
+	const imagesBase = imagesRootOverride ? `/data/${imagesRootOverride}` : `/data/${wdir}/Images`;
 
 	console.log('🔧 Enhanced static resolution for:', {
 		workId,
@@ -5409,11 +5480,11 @@ function resolveImageStatically(workId, rec, dbName, layer = '') {
 	// Enhanced priority list with more field types
 	const imageResolvers = [
 		// Concept images (highest priority)
-		() => img.concept_PNGName ? `/data/${wdir}/Images/${imageDbDir}/concept/${img.concept_PNGName}.png` : null,
+		() => img.concept_PNGName ? `${imagesBase}/${imageDbDir}/concept/${img.concept_PNGName}.png` : null,
 		() => {
 			if (img.conceptAlt_PNGName) {
 				const val = Array.isArray(img.conceptAlt_PNGName) ? img.conceptAlt_PNGName[0] : img.conceptAlt_PNGName;
-				return `/data/${wdir}/Images/${imageDbDir}/conceptAlt/${val}.png`;
+				return `${imagesBase}/${imageDbDir}/conceptAlt/${val}.png`;
 			}
 			return null;
 		},
@@ -5421,7 +5492,7 @@ function resolveImageStatically(workId, rec, dbName, layer = '') {
 		// Design images
 		() => {
 			if (img.design_PNGName) {
-				const path = `/data/${wdir}/Images/${imageDbDir}/design/${img.design_PNGName}.png`;
+				const path = `${imagesBase}/${imageDbDir}/design/${img.design_PNGName}.png`;
 				console.log('🎨 Design image path resolved:', { field: 'design_PNGName', value: img.design_PNGName, path });
 				return path;
 			}
@@ -5429,7 +5500,7 @@ function resolveImageStatically(workId, rec, dbName, layer = '') {
 		},
 		() => {
 			if (img.cardDesign_PNGName) {
-				const path = `/data/${wdir}/Images/${imageDbDir}/cardDesign/${img.cardDesign_PNGName}.png`;
+				const path = `${imagesBase}/${imageDbDir}/cardDesign/${img.cardDesign_PNGName}.png`;
 				console.log('🃏 Card design image path resolved:', { field: 'cardDesign_PNGName', value: img.cardDesign_PNGName, path });
 				return path;
 			}
@@ -5438,14 +5509,14 @@ function resolveImageStatically(workId, rec, dbName, layer = '') {
 		() => {
 			if (img.designAlt_PNGName) {
 				const val = Array.isArray(img.designAlt_PNGName) ? img.designAlt_PNGName[0] : img.designAlt_PNGName;
-				return `/data/${wdir}/Images/${imageDbDir}/designAlt/${val}.png`;
+				return `${imagesBase}/${imageDbDir}/designAlt/${val}.png`;
 			}
 			return null;
 		},
 		() => {
 			if (img.designAlt_PNGPath) {
 				const val = Array.isArray(img.designAlt_PNGPath) ? img.designAlt_PNGPath[0] : img.designAlt_PNGPath;
-				return `/data/${wdir}/Images/${imageDbDir}/designAlt/${val}.png`;
+				return `${imagesBase}/${imageDbDir}/designAlt/${val}.png`;
 			}
 			return null;
 		},
@@ -5454,7 +5525,7 @@ function resolveImageStatically(workId, rec, dbName, layer = '') {
 		() => {
 			if (img.arts_PNGPath) {
 				const val = Array.isArray(img.arts_PNGPath) ? img.arts_PNGPath[0] : img.arts_PNGPath;
-				return `/data/${wdir}/Images/${imageDbDir}/arts/${val}.png`;
+				return `${imagesBase}/${imageDbDir}/arts/${val}.png`;
 			}
 			return null;
 		},
@@ -5463,7 +5534,7 @@ function resolveImageStatically(workId, rec, dbName, layer = '') {
 		() => {
 			if (img.corefolder_PNGPath) {
 				const val = Array.isArray(img.corefolder_PNGPath) ? img.corefolder_PNGPath[0] : img.corefolder_PNGPath;
-				return `/data/${wdir}/Images/${imageDbDir}/corefolder/${val}.png`;
+				return `${imagesBase}/${imageDbDir}/corefolder/${val}.png`;
 			}
 			return null;
 		},
@@ -5473,7 +5544,7 @@ function resolveImageStatically(workId, rec, dbName, layer = '') {
 			if (img.catalog_PNGPath) {
 				const val = Array.isArray(img.catalog_PNGPath) ? img.catalog_PNGPath[0] : img.catalog_PNGPath;
 				const ext = val.endsWith('.png') ? '' : '.png';
-				return `/data/${wdir}/Images/${imageDbDir}/catalog/${val}${ext}`;
+				return `${imagesBase}/${imageDbDir}/catalog/${val}${ext}`;
 			}
 			return null;
 		},
@@ -5481,7 +5552,7 @@ function resolveImageStatically(workId, rec, dbName, layer = '') {
 		// General/poster images
 		() => {
 			if (img.General && img.General.poster) {
-				return `/data/${wdir}/Images/General/${img.General.poster}`;
+				return `${imagesBase}/General/${img.General.poster}`;
 			}
 			return null;
 		},
@@ -5494,7 +5565,7 @@ function resolveImageStatically(workId, rec, dbName, layer = '') {
 					if (value) {
 						const ext = value.includes('.') ? '' : '.png';
 						const directory = inferImageFolderHint(key) || key;
-						return `/data/${wdir}/Images/${imageDbDir}/${directory}/${value}${ext}`;
+						return `${imagesBase}/${imageDbDir}/${directory}/${value}${ext}`;
 					}
 				}
 			}
@@ -7439,7 +7510,8 @@ export async function renderDetail(workId, rec) {
 				dbName,
 				{ field: 'TailsUnit_PNGName', folderHint: folderHint || 'attr/tailsUnit', type: '#PNGFileName' },
 				fileName,
-				currentLayerName
+				currentLayerName,
+				resolveImagesRootOverride(workId)
 			);
 		};
 
@@ -7903,6 +7975,13 @@ async function openViewerNavigation(workId, dbName, options = {}) {
 	}
 }
 
+/**
+ * `RelatedTerms` タグのリンク先。かつては現在作品内の実在しない `'Glossary'` DBを指しており
+ * 常に404で壊れていたため、「共通資料」疑似作品の Vocabulary DB（`data/References/ref_Vocabulary.json`）
+ * を指すよう修正した。
+ */
+const SHARED_VOCABULARY_TARGET = Object.freeze({ work: '#Works_CommonReferences', db: 'Vocabulary' });
+
 function renderReferenceConnectionsSection(rec, workId, workMeta, globalMeta, fieldLabelMap, metaForLookup, globalDefType) {
 	const relatedTerms = Array.isArray(rec?.RelatedTerms)
 		? rec.RelatedTerms.map((value) => String(value || '').trim()).filter(Boolean)
@@ -7940,12 +8019,12 @@ function renderReferenceConnectionsSection(rec, workId, workMeta, globalMeta, fi
 
 	if (relatedTerms.length) {
 		const termNodes = relatedTerms.map((term) => {
-			const href = buildViewerNavigationHref(currentWorkKey, 'Glossary', { q: term });
+			const href = buildViewerNavigationHref(SHARED_VOCABULARY_TARGET.work, SHARED_VOCABULARY_TARGET.db, { q: term });
 			return buildTagLink(
 				href,
 				term,
-				`${term} を創作用語 DB で開く`,
-				() => openViewerNavigation(currentWorkKey, 'Glossary', { q: term })
+				`${term} を共通資料の語彙辞書で開く`,
+				() => openViewerNavigation(SHARED_VOCABULARY_TARGET.work, SHARED_VOCABULARY_TARGET.db, { q: term })
 			);
 		});
 
@@ -8284,11 +8363,27 @@ async function populateWorks(initialWork) {
 	const sel = $('#select-work');
 	sel.textContent = '';
 	const items = await listWorks();
-	for (const w of items) {
+
+	const appendWorkOption = (parent, w) => {
 		const opt = el('option', { value: w.key }, [humanWorkLabel(w)]);
 		if (w.key === normalizeWorkKey(initialWork) || w.key.endsWith(initialWork)) opt.selected = true;
-		sel.appendChild(opt);
+		parent.appendChild(opt);
+	};
+
+	// Works_Shared:true の項目（共通資料の疑似作品等）は、個別の創作タイトルと混同されないよう
+	// 別の<optgroup>へ分離する（キー名の決め打ちではなくフラグ判定のため拡張にも耐える）
+	const regularWorks = items.filter((w) => w?.Works_Shared !== true);
+	const sharedWorks = items.filter((w) => w?.Works_Shared === true);
+
+	for (const w of regularWorks) appendWorkOption(sel, w);
+
+	if (sharedWorks.length > 0) {
+		const lang = getCurrentPageLanguage();
+		const group = el('optgroup', { label: lang === 'en' ? 'Shared References' : '共通資料' }, []);
+		for (const w of sharedWorks) appendWorkOption(group, w);
+		sel.appendChild(group);
 	}
+
 	if (!sel.value && items[0]) sel.value = items[0].key;
 	return sel.value;
 }

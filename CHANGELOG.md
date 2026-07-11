@@ -1,5 +1,26 @@
 # 最新のリファクタリング・仕様変更履歴
 
+### add: `data/References/`（全作品共通の辞書）と `data/GeneralImages/`（全作品共通の画像）を「共通資料」仮想作品として公開 (2026-07-11)
+
+これまで表示専用の「shared layer 上乗せ」（各作品のReferences層DB表示に `data/References/db_type.json` を合流するだけ）でしか使われていなかったグローバル `data/References/`・`data/GeneralImages/` を、`#Works_CommonReferences`（表示名: 共通資料 / Common References）という仮想作品として、既存の `works/{work}/db/{dbName}` の仕組みでそのまま閲覧できるようにした。物理フォルダは一切移動せず（既存の shared layer 機構を壊さないため）、宣言的なオーバーライドで解決する設計。
+
+- **`data/db_meta.json`（グローバル）**: `CreationWorks` に `#Works_CommonReferences`（`Works_Dir: "References"`, `Works_ImagesDir: "GeneralImages"`, `Works_Shared: true`）を新設。
+- **`data/References/db_meta.json`**: 5つの `Databases.#Ref_*` エントリ全てに `DB_Layer: "References"` を追加。`#Ref_Region8` には特定レコードに紐づかないDB全体の代表画像として `DB_Image: "cnsp-map_region8.png"` を追加。
+- **`data/References/db_type.json`**: `$IndexDef`（`Term_JP`）を新設（実データが自然キーとして使用している値）。
+- **`data/db_type.json`（グローバル）**: `$MetaType.$Def_DatabaseCatalog.$DefType` に `DB_Image`（DB全体の代表画像ファイル名）を追加。
+- **`lib/sw-common.js`**: `DataFetcher` に `getWorksDirOverrides()`/`resolveWorkDir()`（`Works_Dir` オーバーライドのTTLキャッシュ付き解決、既存 `WORK_CTX_CACHE` と同じ方式）と `fetchWorkBaseMeta()`（`DataBases/db_meta.json` が無ければ直下へフォールバック）を新設。`readWorkMeta`/`readWorkType`/`readRefMeta`/`readLocMeta`/`readDB`/`listWorkDBs` を更新し、`layer===workDir` の場合にレイヤーセグメントを畳み込む規則を追加（既存作品は非該当のため無影響）。`decorateDatabaseCatalogEntries()`/`buildWorkCatalogEntry()` に `DB_Image`/`Works_Shared` のpass-throughを追加。
+- **`pages/characters.js`**: `resolveWorkDirName()` を `Works_Dir` オーバーライド対応に更新（シグネチャ不変）。新設 `resolveImagesRootOverride()`。`buildImagePath()`/`resolveImageStatically()` の画像パス組み立てを `imagesBase`（オーバーライドがあれば別ルート、無ければ従来通り `<wdir>/Images`）経由に統一。新設 `resolveDbCoverImageUrl()` を `renderSelectionMeta()` から呼び出し、DB概要欄に代表画像（`#meta-db-image`）を表示。`populateWorks()` は `Works_Shared:true` の項目を別 `<optgroup>` へ分離し、個別の創作タイトルと混同されないようにした。`renderReferenceConnectionsSection()` の `RelatedTerms` リンク先ハードコード（実在しない `'Glossary'` DBを指して常に壊れていた）を、新設した共通 `Vocabulary` DB（`#Works_CommonReferences`/`Vocabulary`）への参照に修正。
+- **`pages/characters.html`/`.sass`/`.css`**: DB概要欄に `#meta-db-image`（`.meta-overview__cover`）を追加。`asset-version` を更新。
+- **`pkg/cloudflare/worker.js`**: `getWorksDirOverrides()`/`resolveWorkDirWithOverride()` を新設し、`getWorkMeta()`（root フォールバック追加）・`resolveAndFetchDbFromR2()`（レイヤー畳み込み追加、現状ルーティングからは未使用のためコード整合性維持目的）に反映。
+- **`pkg/cloudflare/scripts/migrate.mjs`**: `resolveWorkDirForMigrate()`/`readWorkBaseFile()` を新設し、D1投入（`dbs`/`records`テーブル）の作品別メタ・型定義読み込みに `Works_Dir` オーバーライドとroot フォールバックを反映。R2アップロード（`data/**/*.json` を無条件・再帰的にアップロードする既存実装）は変更不要（既にグローバルReferencesも対象に含まれていたため）。**副次発見の既存バグ修正**: `resolveIdxKey(undefined)` が既定値 `"Num"` を返すため `idxKey = resolveIdxKey(dbSpecificType) || defaultIdxKey` が常に `"Num"` に固定され、work-level `$IndexDef`（ネスト型）が事実上死んでいた（`--dry-run`で発覚: `FLInvestigator78`/`ShouArRiders`/`UnibyteLive` の D1 `records.idx_key` が常に誤って `'Num'`・`idx_value`が空文字になっていた）。`dbSpecificType ? resolveIdxKey(dbSpecificType) : defaultIdxKey` に修正し、正しくネスト型indexKey（`Card.Suit`/`BeastType.Beast`/`Letter.AlphaGen`等）が使われるようにした。
+- 既知の制限（今回スコープ外、docsに明記）: サーバ/enrich側の画像解決（`lib/data-common.js`の`ImageProcessor`）はオーバーライド未対応（UIは独自解決のため実害なし）。Cloudflare Workers/D1側は他の実作品自体のReferencesレイヤーマージ（`readRefMeta`相当）に依然未対応（既存の別ギャップ）。`data/GeneralImages/Ref_Region8/cnsp-map_region8.png`はDB代表画像として今回対応、per-record画像としての追加対応は行っていない。
+- **`tests/sw.db-layer-routing.test.js`**: `Works_Dir`オーバーライド解決・root フォールバック・レイヤー畳み込みの検証テストを追加。
+- **`tests/data.shape.test.js`**: `Works_Dir`/`Works_ImagesDir`/`Works_Shared`・5つの`#Ref_*`エントリの`DB_Layer`・`$IndexDef`の存在検証テストを追加。
+- **`tests/pages.characters.ui-output.test.js`**: `resolveWorkDirName`/`resolveImagesRootOverride`のオーバーライド反映、`populateWorks()`の`<optgroup>`分離、`RelatedTerms`リンク先修正の検証テストを追加（既存1件は新しいリンク先に合わせて更新）。
+- **`docs/api-sw-spec.md`**: §5.5（新設）に本機構の全体仕様を追記。§3.3/§5.1/§5.2/§7にも関連箇所を追記。
+- **`docs/schema-meta-processing.md`**: §2.3/§4.1/§4.3に`Works_Dir`/`Works_ImagesDir`/`Works_Shared`/`DB_Image`/レイヤー畳み込み規則を追記。
+- 確認: `npm test` 全件成功（226件）。
+
 ### add: `#PNGFilePath`/`#PNGFileName` 画像フィールド専用のDB/Work横断参照 `_DBCrossLinkPath` を新設 (2026-07-11)
 
 `../../DB_SemiPrimary/...` のような手書き相対パス（ブラウザのURL正規化に依存した非公式な回避策で、同一作品内のDBまたぎしかできず、SW/enrich側の `ImageProcessor.resolveImagePath()` では別のバグにより `Images/` セグメントが欠落する）を廃止し、`_DBLink` を参考にした画像パス専用の軽量な宣言的機構 `_DBCrossLinkPath` を新設した。`_DBLink`（対象レコードをインデックスで検索してフィールド値を穴埋めするレコード参照機構）とは異なり、`_DBCrossLinkPath` は対象Work/DBの画像フォルダ内の相対パスを直接指すだけで、対象レコードの検索・照合を一切行わない。
