@@ -2,9 +2,7 @@
   {
     "Generation": 2,
     "Progress": "unprofiled",
-    "AnotherRegions_DBLink": [
-      { "_Work": "DestinyFoxRecords", "_DB": "Primary", "Unit": "rad" }
-    ],
+    "AnotherRegions_DBLink": [{ "_DB": "Primary", "Unit": "rad" }],
     "Name_JP": "ラジアン(2代目)",
     "Name_EN": "RadianN (2nd Gen.)",
     "Images": {

@@ -21,6 +21,23 @@
 - **`docs/schema-meta-processing.md`**: §2.3/§4.1/§4.3に`Works_Dir`/`Works_ImagesDir`/`Works_Shared`/`DB_Image`/レイヤー畳み込み規則を追記。
 - 確認: `npm test` 全件成功（226件）。
 
+### refactor: `Works_Proxies` を `Works_DestinyFoxRecords` へ統合 (2026-07-11)
+
+「運命線狐の記録（フィジカル9）」（`Works_DestinyFoxRecords`）と「ラジアン代理」（`Works_Proxies`）はどちらも作者の近況報告用の作品で、既に `AnotherRegions_DBLink` で相互クロスリンクされていた（DFRの `Unit:"rad"` レコード ⇔ Proxiesの `Generation:2` レコードが同一人物「二春」を指す）。運用上1タイトルにまとめた方が見やすいという方針のもと、`Works_Proxies` を `Works_DestinyFoxRecords` の `Proxy` DB として物理統合した。従来2つの別Worksとして扱っていた理由は `$IndexDef`（Unit=物理単位 vs Generation=代理世代）の型・意味が異なるためで、`$IndexDef` は Work単位に1つしか持てない設計だったため、まず DB単位の上書きを可能にするアーキテクチャ拡張から着手した。
+
+- **`data/db_type.json`（グローバル、変更なし）/ 作品別 `db_type.json`**: `$IndexDef` はサイドカーキー `$IndexDef_<DbNorm>`（例: `$IndexDef_Proxy`）でDB単位の上書きを宣言できるようにした（`pkg/cloudflare/scripts/migrate.mjs` の既存の `$IndexDef_${dbNorm}` 命名規則に合わせた）。未宣言のDB/作品は常に work既定の `$IndexDef` にフォールバックするため、既存9作品は無変化。
+- **`lib/data-common.js`**: `EnrichmentProcessor.resolveIndexDefForDb(ctx, dbName)` を新設し、`enrichRecords()`/`searchRecords()`/`normalizeRecordByTypeDef()` の `#Index` 解釈すべてで共通に使用。あわせて `resolveWorkDirName()` に旧作品名エイリアス（`Proxies` → `Works_DestinyFoxRecords`）を追加（SW実行時は `importScripts` の読み込み順でこのファイルの定義が最終的に有効になるため、`lib/sw-common.js` 側の同名関数だけでなく必ずここにも同じ変更が要る）。
+- **`pages/characters.js`**: `getWorkIndexField(workKey, globalMeta, dbName)` に第3引数を追加しDB固有Indexを解決。`resolveWorkDirName()` にも同エイリアスを追加。`ISSUE_REPORT_WORK_LABELS` から `Proxies` エントリを削除。起動シーケンスに `?work=Proxies` 直リンク互換シム（`DestinyFoxRecords`/`Proxy` へ読み替えて `history.replaceState` でURL正規化）を追加。
+- **`lib/sw-common.js`**: `resolveWorkDirName()` に同エイリアスを追加（多層防御）。`buildDefaultDatabaseCatalogLabels()` の到達しないプリセットキー `Proxies` を実際のDB名 `Proxy` に是正。
+- **データ統合**: `data/Works_Proxies/**` を `data/Works_DestinyFoxRecords/**` へ移動・マージ（`Images/DB_Proxy/`, `DataBases/db_Proxy.json`, `Dictionaries/dict_Formation.json` の `orbify` エントリ, `Localization/trans_PersonName.json`/`trans_Rank.json`, `References/ref_Vocabulary.json` 等）。`AnotherRegions_DBLink` は同一Work内リンクとなったため `_Work` 指定を削除。`data/db_meta.json` から `#Works_Proxies` を削除。グローバル `data/Localization/trans_*.json` の `Scope` 配列に残っていた `Works_Proxies` も整理。`data/Works_Proxies/` は削除。
+- **`tests/enrich.indexdef.perdb.test.js`（新規）**: `$IndexDef_<DbNorm>` サイドカー解決の単体テスト（既存9作品の後方互換を実データで確認）。
+- **`tests/legacy-work-alias.test.js`（新規）**: 旧 `Works_Proxies` → `Works_DestinyFoxRecords` ディレクトリエイリアスの単体テスト。
+- **`tests/enrich.dblink.jump.merge.test.js`**: 統合後の同一Work内 `AnotherRegions_DBLink`（`_Work` 省略）マージの実データ回帰テストを追加。
+- **`tests/pages.characters.ui-output.test.js`**: `Works_Proxies` 参照パスを `Works_DestinyFoxRecords` へ更新。
+- **`tests/data.shape.test.js`**: `Works_Proxies` フォルダの非存在、`$IndexDef_Proxy` 宣言、`#DB_Proxy` カタログ登録を明示的にアサートするテストを追加。
+- **`docs/schema-meta-processing.md`**: §3.5.1（新設）にサイドカーキー方式を追記。
+- 確認: `npm test` 全件成功（233件）。`OldTitles`/`Works_Summary` への統合履歴文言の追記は creative content のため見送り、User確定待ち。
+
 ### add: `#PNGFilePath`/`#PNGFileName` 画像フィールド専用のDB/Work横断参照 `_DBCrossLinkPath` を新設 (2026-07-11)
 
 `../../DB_SemiPrimary/...` のような手書き相対パス（ブラウザのURL正規化に依存した非公式な回避策で、同一作品内のDBまたぎしかできず、SW/enrich側の `ImageProcessor.resolveImagePath()` では別のバグにより `Images/` セグメントが欠落する）を廃止し、`_DBLink` を参考にした画像パス専用の軽量な宣言的機構 `_DBCrossLinkPath` を新設した。`_DBLink`（対象レコードをインデックスで検索してフィールド値を穴埋めするレコード参照機構）とは異なり、`_DBCrossLinkPath` は対象Work/DBの画像フォルダ内の相対パスを直接指すだけで、対象レコードの検索・照合を一切行わない。

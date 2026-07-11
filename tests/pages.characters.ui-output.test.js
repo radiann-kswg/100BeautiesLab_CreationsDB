@@ -241,9 +241,10 @@ const flInvestigatorWorkTypeDef = loadJson('data/Works_FLInvestigator78/DataBase
 const flInvestigatorWorkMeta = buildWorkMetaFixture('Works_FLInvestigator78');
 const flInvestigatorPrimaryRecords = loadJson('data/Works_FLInvestigator78/DataBases/db_Primary.json');
 const phoenixRecord = flInvestigatorPrimaryRecords.find((record) => Number(record?.Card?.Num) === 0);
-const proxiesWorkTypeDef = loadJson('data/Works_Proxies/DataBases/db_type.json');
-const proxiesWorkMeta = buildWorkMetaFixture('Works_Proxies');
-const proxyRecords = loadJson('data/Works_Proxies/DataBases/db_Proxy.json');
+// Works_Proxies は Works_DestinyFoxRecords へ統合済み（Proxy DB として編入）
+const proxiesWorkTypeDef = loadJson('data/Works_DestinyFoxRecords/DataBases/db_type.json');
+const proxiesWorkMeta = buildWorkMetaFixture('Works_DestinyFoxRecords');
+const proxyRecords = loadJson('data/Works_DestinyFoxRecords/DataBases/db_Proxy.json');
 const secondGenProxyRecord = proxyRecords.find((record) => Number(record?.Generation) === 2);
 const numberTalesWorkTypeDef = loadJson('data/Works_NumberTales/DataBases/db_type.json');
 const numberTalesWorkMeta = buildWorkMetaFixture('Works_NumberTales');
@@ -400,7 +401,7 @@ describe('pages/characters.js UI output', () => {
 			}
 		});
 
-		await charactersModule.renderDetail('#Works_Proxies', secondGenProxyRecord);
+		await charactersModule.renderDetail('#Works_DestinyFoxRecords', secondGenProxyRecord);
 
 		expect(getBasicFieldValue('Race')).toBe('Warfox(Acquired)');
 	});

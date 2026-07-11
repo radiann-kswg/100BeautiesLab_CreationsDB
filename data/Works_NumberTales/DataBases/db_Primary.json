@@ -10092,7 +10092,7 @@
         {
           "_DBCrossLinkPath": {
             "_DB": "Proxy",
-            "_Work": "Proxies",
+            "_Work": "DestinyFoxRecords",
             "_Field": "arts_PNGPath",
             "_IsoPath": "regular-birthday/arts_birthday2023"
           }
@@ -10600,7 +10600,7 @@
         {
           "_DBCrossLinkPath": {
             "_DB": "Proxy",
-            "_Work": "Proxies",
+            "_Work": "DestinyFoxRecords",
             "_Field": "arts_PNGPath",
             "_IsoPath": "orbify-birthday/arts_birthday2024"
           }
@@ -11013,7 +11013,7 @@
         {
           "_DBCrossLinkPath": {
             "_DB": "Proxy",
-            "_Work": "Proxies",
+            "_Work": "DestinyFoxRecords",
             "_Field": "arts_PNGPath",
             "_IsoPath": "regular-birthday/arts_birthday2025-1"
           }
@@ -11021,7 +11021,7 @@
         {
           "_DBCrossLinkPath": {
             "_DB": "Proxy",
-            "_Work": "Proxies",
+            "_Work": "DestinyFoxRecords",
             "_Field": "arts_PNGPath",
             "_IsoPath": "regular-birthday/arts_birthday2025-2"
           }
@@ -11490,7 +11490,7 @@
         {
           "_DBCrossLinkPath": {
             "_DB": "Proxy",
-            "_Work": "Proxies",
+            "_Work": "DestinyFoxRecords",
             "_Field": "arts_PNGPath",
             "_IsoPath": "weakening-birthday/arts_birthday2026"
           }
