@@ -111,7 +111,7 @@ describe('database shapes', () => {
       expect(databases[key]?.DB_Layer).toBe('References');
     }
     // Region8 は DB全体の俯瞰マップとしてDB_Imageを持つ
-    expect(databases['#Ref_Region8']?.DB_Image).toBe('cnsp-map_region8.png');
+    expect(databases['#Ref_Region8']?.DB_Image).toBe('cnsp-map_region8');
   });
 
   it('data/References/db_type.json declares $IndexDef on Term_JP for the common references pseudo-work', () => {
@@ -201,6 +201,60 @@ describe('AppearanceDetail schema', () => {
     }
     expect(violations).toHaveLength(0);
   });
+
+  it.each([
+    'data/Works_NumberTales/DataBases/db_Primary.json',
+    'data/Works_NumberTales/DataBases/db_Secondary.json',
+    'data/Works_NumberTales/DataBases/db_SemiPrimary.json',
+    'data/Works_NumberTales/DataBases/db_SelfSecondary.json',
+  ])('NT %s AppearanceDetail img_PNGName values omit image file extensions (#PNGFileName convention)', (dbPath) => {
+    const records = load(dbPath);
+    const violations = [];
+    for (const rec of records) {
+      const entries = Array.isArray(rec?.AppearanceDetail) ? rec.AppearanceDetail : [];
+      for (const [idx, entry] of entries.entries()) {
+        const value = entry?.img_PNGName;
+        if (typeof value !== 'string') continue; // null / hideText wrapper 等は対象外
+        if (/\.(png|jpe?g|gif|webp|svg|bmp)$/i.test(value)) {
+          violations.push({ Num: rec.Num, idx, value });
+        }
+      }
+    }
+    expect(violations).toHaveLength(0);
+  });
+
+  it('NT db_Primary.json AppearanceDetail img_PNGName files exist under attr/<element> (DesignElement-driven dispatch)', () => {
+    const records = load('data/Works_NumberTales/DataBases/db_Primary.json');
+    // pages/characters.js の buildAppearanceDetailImageUrl と同じ導出規則:
+    // #Element_NumberMark -> attr/numberMark、判別不能時は img
+    const deriveFolder = (designElement) => {
+      const m = String(designElement || '').match(/^#Element_([A-Za-z0-9_]+)$/);
+      if (!m) return 'img';
+      return `attr/${m[1].charAt(0).toLowerCase()}${m[1].slice(1)}`;
+    };
+    const missing = [];
+    let checked = 0;
+    for (const rec of records) {
+      const entries = Array.isArray(rec?.AppearanceDetail) ? rec.AppearanceDetail : [];
+      for (const [idx, entry] of entries.entries()) {
+        const value = entry?.img_PNGName;
+        if (typeof value !== 'string' || !value.trim()) continue;
+        checked++;
+        const imgPath = join(
+          repoRoot,
+          'data/Works_NumberTales/Images/DB_Primary',
+          deriveFolder(entry?.DesignElement),
+          `${value}.png`,
+        );
+        if (!existsSync(imgPath)) {
+          missing.push({ Num: rec.Num, idx, value, imgPath });
+        }
+      }
+    }
+    // 2026-07-11 の一括登録（153件）が空回りしていないことも併せて確認する
+    expect(checked).toBeGreaterThan(0);
+    expect(missing).toHaveLength(0);
+  });
 });
 
 describe('TailsUnit schema', () => {
@@ -272,17 +326,17 @@ describe('TailsUnit schema', () => {
   it('NT db_Primary.json backfilled TailsUnit_PNGName for the 11 reference-image characters', () => {
     const records = load('data/Works_NumberTales/DataBases/db_Primary.json');
     const expected = new Map([
-      [4, 'attr_tailsUnit4.png'],
-      [6, 'attr_tailsUnit6.png'],
-      [16, 'attr_tailsUnit16.png'],
-      [23, 'attr_tailsUnit23.png'],
-      [39, 'attr_tailsUnit39.png'],
-      [49, 'attr_tailsUnit49.png'],
-      [57, 'attr_tailsUnit57.png'],
-      [61, 'attr_tailsUnit61.png'],
-      [73, 'attr_tailsUnit73.png'],
-      [85, 'attr_tailsUnit85.png'],
-      [93, 'attr_tailsUnit93.png'],
+      [4, 'attr_tailsUnit4'],
+      [6, 'attr_tailsUnit6'],
+      [16, 'attr_tailsUnit16'],
+      [23, 'attr_tailsUnit23'],
+      [39, 'attr_tailsUnit39'],
+      [49, 'attr_tailsUnit49'],
+      [57, 'attr_tailsUnit57'],
+      [61, 'attr_tailsUnit61'],
+      [73, 'attr_tailsUnit73'],
+      [85, 'attr_tailsUnit85'],
+      [93, 'attr_tailsUnit93'],
     ]);
     for (const [num, fileName] of expected) {
       const rec = records.find((r) => r.Num === num);
@@ -290,7 +344,8 @@ describe('TailsUnit schema', () => {
     }
 
     for (const fileName of expected.values()) {
-      const imgPath = join(repoRoot, 'data/Works_NumberTales/Images/DB_Primary/attr/tailsUnit', fileName);
+      // 値は #PNGFileName 規約（拡張子なし）のため、実在チェック時に .png を補完する
+      const imgPath = join(repoRoot, 'data/Works_NumberTales/Images/DB_Primary/attr/tailsUnit', `${fileName}.png`);
       expect(existsSync(imgPath), imgPath).toBe(true);
     }
   });

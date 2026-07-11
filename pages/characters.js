@@ -25,7 +25,6 @@
 
 import '../lib/wrapper-common.js';
 import '../lib/section-wrapper-common.js';
-import '../lib/section-renders/formsMotif.js';
 import '../lib/section-renders/appearanceDetail.js';
 import '../lib/section-renders/thisMasters.js';
 import '../lib/section-renders/specStatsHelpers.js';
@@ -7258,7 +7257,7 @@ export async function renderDetail(workId, rec) {
 			}
 
 			// sectionWrapper を持つフィールドは subFields が設定されている作品で subFields 未登録なら表示しない
-			// 例: IdentityMotif は NumberTales の subFields にあるが SinisterChangingGirls にはない
+			// 例: AppearanceDetail は対応作品の subFields にあるが、未対応の作品にはない
 			if (detailSubFieldKeySet.size > 0 && f.display?.sectionWrapper && !detailSubFieldKeySet.has(f.key)) {
 				shownKeys.add(f.key);
 				continue;
