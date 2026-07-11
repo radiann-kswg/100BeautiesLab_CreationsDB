@@ -6,7 +6,7 @@
       "DB_Summary": "弊創作を執筆している「ラジアン」の代理キャラクター",
       "DB_Summary_EN": "Proxy characters of 'RadianN,' the author writing this creative series.",
       "_Commons": {
-        "Belonging": ["創造主"],
+        "Belonging": ["管理主"],
         "BirthDay": { "Day": { "Month": 7, "DayOfMonth": 1 } }
       }
     }

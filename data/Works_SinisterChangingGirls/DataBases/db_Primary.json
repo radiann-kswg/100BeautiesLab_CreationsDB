@@ -328,6 +328,7 @@
       "about_EN": "Presumption"
     },
     "Belonging": { "hideText": "判定失敗" },
+    "Class": { "hideText": "判定失敗" },
     "Height_cm": 155,
     "Weight_kg": { "hideText": "判定失敗" },
     "Age": { "about_JP": "不詳", "about_EN": "Unknown or Undefined" },
