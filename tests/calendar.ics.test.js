@@ -36,8 +36,8 @@ describe("collectEvents: 収集とフィルタ", () => {
     }
   });
 
-  it("非公開DB(UnprocessedDealer/UnprocessedSecondary/PrimaryPerformer)は除外される", () => {
-    const hidden = new Set(["UnprocessedDealer", "UnprocessedSecondary", "PrimaryPerformer"]);
+  it("非公開DB(UnprocessedDealer/UnprocessedSecondary)は除外される", () => {
+    const hidden = new Set(["UnprocessedDealer", "UnprocessedSecondary"]);
     expect(events.some((e) => hidden.has(e.db))).toBe(false);
   });
 
