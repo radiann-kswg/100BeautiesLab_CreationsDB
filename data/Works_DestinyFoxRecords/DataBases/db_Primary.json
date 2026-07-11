@@ -301,7 +301,7 @@
         {
           "_DBCrossLinkPath": {
             "_DB": "Proxy",
-            "_Work": "Proxies",
+            "_Work": "DestinyFoxRecords",
             "_Field": "design_PNGName",
             "_IsoPath": "dsgn_imgRN2"
           }
@@ -311,16 +311,14 @@
         {
           "_DBCrossLinkPath": {
             "_DB": "Proxy",
-            "_Work": "Proxies",
+            "_Work": "DestinyFoxRecords",
             "_Field": "weakening_PNGPath",
             "_IsoPath": "emstk_weakeningRN2-1"
           }
         }
       ]
     },
-    "AnotherRegions_DBLink": [
-      { "_Work": "Proxies", "_DB": "Proxy", "Generation": 2 }
-    ],
+    "AnotherRegions_DBLink": [{ "_DB": "Proxy", "Generation": 2 }],
     "FormalName_JP": "扇 二春",
     "FormalName_EN": "Arch Seconec",
     "RaceType": "Warfox(Acquired)",

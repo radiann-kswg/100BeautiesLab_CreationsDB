@@ -72,8 +72,7 @@ const ISSUE_REPORT_WORK_LABELS = {
 	SinisterChangingGirls: '豹変系女子 (SinisterChangingGirls)',
 	UnauthedLogica: 'アンオースドロジカ (UnauthedLogica)',
 	PastDivers: 'パストダイヴァー (PastDivers)',
-	DestinyFoxRecords: '運命線狐の記録 (DestinyFoxRecords)',
-	Proxies: 'ラジアン代理 (Proxies)'
+	DestinyFoxRecords: '運命線狐の記録・ラジアン代理 (DestinyFoxRecords)'
 };
 
 /**
@@ -1623,18 +1622,24 @@ export function __applyCharactersCommonsForTest(records, workMeta, dbName) {
 /**
  * 作品ごとの Index 定義を取得
  * - 既定: work typedef（db_type.json）の `$IndexDef`
+ * - DB固有: サイドカーキー `$IndexDef_<DbNorm>`（migrate.mjs と同じ命名規則）があれば優先
  * - 後方互換: global meta（data/db_meta.json）の `$DefType_Index` / `$Def_Index`
  * @param {string} workKey - Work identifier
  * @param {Object} globalMeta - Global metadata object
+ * @param {string} [dbName] - データベース名（DB固有 Index の解決に使用）
  * @returns {Object|null} Index field definition or null
  */
-function getWorkIndexField(workKey, globalMeta) {
+function getWorkIndexField(workKey, globalMeta, dbName) {
 	try {
 		const state = window.__CHAR_STATE__;
 		if (state && state.workId === workKey) {
 			const wtd = state.workTypeDef;
-			if (wtd && typeof wtd === 'object' && wtd.$IndexDef && typeof wtd.$IndexDef === 'object') {
-				return wtd.$IndexDef;
+			if (wtd && typeof wtd === 'object') {
+				const rawName = String(dbName || '').replace(/^#?(DB|Ref|Loc)_/i, '').trim();
+				const dbNorm = rawName ? `${rawName.charAt(0).toUpperCase()}${rawName.slice(1)}` : '';
+				const scoped = dbNorm ? wtd[`$IndexDef_${dbNorm}`] : null;
+				if (scoped && typeof scoped === 'object') return scoped;
+				if (wtd.$IndexDef && typeof wtd.$IndexDef === 'object') return wtd.$IndexDef;
 			}
 		}
 	} catch {
@@ -3807,7 +3812,8 @@ function formatValueForDisplay(value, labelMap = {}, workMeta = null, globalDefT
 
 		// 現在の作品（UI状態）を元に indexDef を引く（無い場合はフォールバック）
 		const workId = window?.__CHAR_STATE__?.workId;
-		const indexDef = opt.indexDef || (workId ? getWorkIndexField(workId, workMeta) : null);
+		const dbNameForIndex = window?.__CHAR_STATE__?.db;
+		const indexDef = opt.indexDef || (workId ? getWorkIndexField(workId, workMeta, dbNameForIndex) : null);
 		if (!indexDef || typeof indexDef !== 'object') return '';
 
 		const rootKey = indexDef.hashTag;
@@ -4764,8 +4770,13 @@ function dialogueBodyText(text) {
 	return preWrapText(String(text ?? ''));
 }
 
+// 旧作品「Works_Proxies」直リンク互換: 統合先(Works_DestinyFoxRecords)へ読み替える
+const LEGACY_WORK_DIR_ALIASES = { Proxies: 'Works_DestinyFoxRecords' };
+
 function resolveWorkDirName(workId) {
-	return String(workId || '').replace('#Works_', 'Works_');
+	const dir = String(workId || '').replace('#Works_', 'Works_');
+	const bare = dir.replace(/^Works_/, '');
+	return LEGACY_WORK_DIR_ALIASES[bare] || dir;
 }
 
 /**
@@ -5623,11 +5634,11 @@ async function renderList(records, workId, onOpen, imageFields = null) {
 		fetchGlobalMeta(),
 		fetchGlobalDefType()
 	]);
-	const indexDef = getWorkIndexField(workId, globalMeta);
 
 	// グローバルステートから現在のデータベース名を取得
 	const state = window.__CHAR_STATE__;
 	const dbName = state ? state.db : 'Primary';
+	const indexDef = getWorkIndexField(workId, globalMeta, dbName);
 
 	// typedef-driven の $display（unit / langMode 等）をリスト側でも参照できるようにする
 	const fieldDisplayMap = (() => {
@@ -6303,7 +6314,7 @@ export async function renderDetail(workId, rec) {
 			getRecordSecondaryTitle(rec) ? el('div', { class: 'name-en' }, getRecordSecondaryTitle(rec)) : null,
 			el('div', { class: 'row small' }, [
 				(() => {
-					const workIndexDef = getWorkIndexField(workId, globalMeta);
+					const workIndexDef = getWorkIndexField(workId, globalMeta, dbName);
 					const indexChipItems = buildIndexChipItems(rec, workIndexDef, metaForLookup, globalDefType, 'detail');
 					if (!indexChipItems.length) return null;
 					const cur = getQS();
@@ -6850,7 +6861,7 @@ export async function renderDetail(workId, rec) {
 			else if (rec.FormalName_EN) s.add('FormalName_EN');
 
 			// 作品ごとのインデックス定義（typedef の $IndexDef に追従）
-			const workIndexDef = getWorkIndexField(workId, globalMeta);
+			const workIndexDef = getWorkIndexField(workId, globalMeta, dbName);
 			if (workIndexDef?.hashTag && typeof workIndexDef.hashTag === 'string') {
 				s.add(workIndexDef.hashTag);
 			} else if (rec.Num != null) {
@@ -7031,7 +7042,7 @@ export async function renderDetail(workId, rec) {
 			// #Index 型はリンク化（直リンク共有を容易にする）
 			try {
 				if (schemaTypeIncludes(schemaType, '#Index') && typeof formatted === 'string' && formatted.trim()) {
-					const workIndexDef = getWorkIndexField(workId, globalMeta);
+					const workIndexDef = getWorkIndexField(workId, globalMeta, dbName);
 					const info = buildIndexLinkInfoFromValue(v, workIndexDef, k);
 					if (info?.idxValue && info?.idxKeyPath) {
 						const href = buildIndexHref(workId, dbName, info.idxValue, info.idxKeyPath);
@@ -7045,7 +7056,7 @@ export async function renderDetail(workId, rec) {
 								try {
 									const state = window.__CHAR_STATE__;
 									const recs = Array.isArray(state?.records) ? state.records : [];
-									const indexDef = getWorkIndexField(workId, globalMeta);
+									const indexDef = getWorkIndexField(workId, globalMeta, dbName);
 									const target = recs.find(r => recordMatchesIndexQuery(r, indexDef, info.idxValue, info.idxKeyPath, info.idxKeyPath === 'Num' ? info.idxValue : '')) || null;
 									if (target) {
 										await openDetail(target);
@@ -8323,7 +8334,7 @@ async function openDetail(rec) {
 	// 作品ごとのインデックス定義に従って、直リンク用パラメータを更新
 	try {
 		const globalMeta = await fetchGlobalMeta();
-		const indexDef = getWorkIndexField(state.workId, globalMeta);
+		const indexDef = getWorkIndexField(state.workId, globalMeta, state.db);
 		const id = getIndexIdentifierFromRecord(rec, indexDef, state?.records);
 		if (id) {
 			const legacyNum = id.keyPath === 'Num' ? id.value : '';
@@ -8387,7 +8398,14 @@ async function main() {
 
 		// ステップ3: 作品リストの入力
 		stepStart = performance.now();
-		const qs = getQS();
+		let qs = getQS();
+
+		// 旧作品「Works_Proxies」直リンク互換: 統合先(DestinyFoxRecords/Proxy DB)へ読み替える
+		if (String(qs.work || '').replace(/^#?Works_/i, '').toLowerCase() === 'proxies') {
+			setQS({ work: 'DestinyFoxRecords', db: qs.db || 'Proxy' });
+			qs = getQS();
+		}
+
 		const wk = await populateWorks(qs.work);
 		console.log(`✅ 作品を ${(performance.now() - stepStart).toFixed(2)}ms で入力:`, wk);
 
@@ -8688,7 +8706,7 @@ async function reloadInternal(showLoading = true) {
 
 		// 直リンク: idx/idxKey（汎用） または num（旧互換）
 		const globalMeta = await fetchGlobalMeta();
-		const indexDef = getWorkIndexField(workId, globalMeta);
+		const indexDef = getWorkIndexField(workId, globalMeta, db);
 		const idxValue = qs.idx || qs.num;
 		const idxKeyPath = qs.idxKey || (qs.num ? 'Num' : '');
 		if (idxValue) {

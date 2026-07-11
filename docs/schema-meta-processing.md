@@ -313,6 +313,24 @@
 
 内部処理では `EnrichmentProcessor.getWorkContext()` が、まず `workType.$IndexDef` を見て、無ければ旧メタ互換にフォールバックします。
 
+#### 3.5.1 DB単位の上書き（サイドカーキー `$IndexDef_<DbNorm>`、2026-07-11 新設）
+
+`$IndexDef` は本来 Work単位の1宣言ですが、同一Work内の複数DBがそれぞれ異なる意味のIndexを持つ場合（例: 「運命線狐の記録」の `Primary` DBは理学単位 `Unit`、`Proxy` DBは代理世代 `Generation`）、`db_type.json` トップレベルに `$IndexDef_<DbNorm>` を追加宣言することで、DB単位に上書きできます。`DbNorm` は DB名から `#DB_` / `#Ref_` / `#Loc_` prefix を除去し先頭を大文字化したもの（例: `Proxy`, `Primary`）です。
+
+```jsonc
+{
+  "$IndexDef": { "hashTag": "Unit", "$type": "#String", ... },        // 既定値（Primary 相当）
+  "$IndexDef_Proxy": { "hashTag": "Generation", "$type": "#Number", ... }, // Proxy DB専用の上書き
+  "$DefType": [ ... ]
+}
+```
+
+この命名規則は `pkg/cloudflare/scripts/migrate.mjs` の `$IndexDef_${dbNorm}`（D1インデックス投入時のIndex解決）に先行実装があり、GitHub Pages側（`lib/data-common.js` の `EnrichmentProcessor.resolveIndexDefForDb()`、`pages/characters.js` の `getWorkIndexField()`）もこれに合わせています。
+
+- `$IndexDef_<DbNorm>` が未宣言のDB/作品は、常に Work既定の `$IndexDef` にフォールバックします（既存作品は無変化）。
+- `resolveIndexDefForDb(ctx, dbName)` は `enrichRecords()` / `searchRecords()` / `normalizeRecordByTypeDef()` の `#Index` 正規化・整形すべてで共通に使われます。
+- UI側 `getWorkIndexField(workKey, globalMeta, dbName)` も同じ規則で `state.workTypeDef` からDB固有Indexを解決します。
+
 ### 3.6 `$MetaType`
 
 トップレベル `$MetaType` は、作品/DB カタログの補助 schema 宣言です。キャラクター本体の `$DefType` と別系統です。
@@ -593,6 +611,8 @@ UI 側は厳密構造より `about_JP` / `about_EN` を優先して整形表示�
 1. `workType.$IndexDef`
 2. `globalMeta.CreationWorks.<work>.$DefType_Index`
 3. `globalMeta.CreationWorks.<work>.$Def_Index`
+
+補足（2026-07-11）: `getWorkContext()` が返す `ctx.indexDef` は「work既定」の値です。DB単位の解決が必要な箇所（`enrichRecords()` / `searchRecords()` / `normalizeRecordByTypeDef()`）は、`ctx.indexDef` を直接使わず `EnrichmentProcessor.resolveIndexDefForDb(ctx, dbName)` を経由します。これは `ctx.workType` から `$IndexDef_<DbNorm>`（§3.5.1）を先に探し、無ければ `ctx.indexDef` にフォールバックします。
 
 補足（2026-07-10）: `indices.imagePathHints` を作る `TypeDefUtils.buildImagePathHints()` は、`$type` が配列のインラインネスト（例: `Images` フィールド）だけでなく、`"$Def_TailsUnit[]"` のような名前付き型参照文字列も `CharacterValueWrapperRegistry.helpers.resolveTypeDefEntries()`（`lib/wrapper-common.js`、SW側は `importScripts` で先に読み込まれるため同一グローバルスコープから参照可能）経由で解決し、内部の画像フィールドまで再帰的に辿ります。これにより `$Def_TailsUnit.TailsUnit_PNGName` や `$Def_AppearanceDetail.img_PNGName` のような、名前付き構造化型の内部に宣言された画像フィールドも typedef 駆動で自動検出されます。
 

@@ -745,3 +745,52 @@ describe('_DBLink / _Jump merge (in-process)', () => {
     expect(e.SPCodeName_EN).toBeUndefined();
   });
 });
+
+describe('AnotherRegions_DBLink same-work merge (Works_DestinyFoxRecords / Proxy DB integration)', () => {
+  // AnotherRegions_DBLink の $enrich:true 宣言はグローバル db_type.json 側にあるため、
+  // グローバル typedef も実データから読む DataFetcher を使う
+  class GlobalTypeAwareDataFetcher extends TestDataFetcher {
+    async readGlobalType() {
+      return loadJson('data/db_type.json');
+    }
+  }
+
+  it('rad (Primary) merges Generation:2 (Proxy) fields via same-work AnotherRegions_DBLink (_Work omitted)', async () => {
+    const dataFetcher = new GlobalTypeAwareDataFetcher();
+    const proc = new globalThis.EnrichmentProcessor(dataFetcher, testConfig);
+
+    const primary = loadJson('data/Works_DestinyFoxRecords/DataBases/db_Primary.json');
+    const rad = primary.find(r => r?.Unit === 'rad');
+    expect(rad).toBeTruthy();
+    expect(rad.AnotherRegions_DBLink).toEqual([{ _DB: 'Proxy', Generation: 2 }]);
+    expect(rad.Character_JP).toBeUndefined();
+
+    const out = await proc.enrichRecords([rad], '#Works_DestinyFoxRecords', 'Primary');
+    const e = out[0];
+
+    // 同一Work内リンクになったため、cross-work専用ガードレール（declaredKeys等）が外れ、
+    // Proxy側にしかない空欄フィールドが穴埋めされる
+    expect(e.Character_JP).toBe('理工学系で知能的かつ技術的だが、やや思慮的で残念な一面がある');
+    expect(e.InStory_JP).toBeTypeOf('string');
+    expect(e.Backgrounds_JP).toBeTypeOf('string');
+
+    // 既存値がある同名フィールドは上書きされない（空値のみ穴埋めの原則）
+    expect(e.FirstPersonCalling_JP).toBe('ワテ,僕');
+  });
+
+  it('Generation:2 (Proxy) merges rad (Primary) fields via same-work AnotherRegions_DBLink (_Work omitted)', async () => {
+    const dataFetcher = new GlobalTypeAwareDataFetcher();
+    const proc = new globalThis.EnrichmentProcessor(dataFetcher, testConfig);
+
+    const proxyRecords = loadJson('data/Works_DestinyFoxRecords/DataBases/db_Proxy.json');
+    const gen2 = proxyRecords.find(r => r?.Generation === 2);
+    expect(gen2).toBeTruthy();
+    expect(gen2.AnotherRegions_DBLink).toEqual([{ _DB: 'Primary', Unit: 'rad' }]);
+    expect(gen2.Unit_JP).toBeUndefined();
+
+    const out = await proc.enrichRecords([gen2], '#Works_DestinyFoxRecords', 'Proxy');
+    const e = out[0];
+
+    expect(e.Unit_JP).toBe('角度(弧度法)');
+  });
+});

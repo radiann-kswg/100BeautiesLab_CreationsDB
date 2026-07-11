@@ -285,30 +285,6 @@
         ],
         "subFields": ["ConversationPattern", "AnotherRegions_DBLink"]
       }
-    },
-    "#Works_Proxies": {
-      "Title_JP": "ラジアン代理",
-      "CalendarColorId": "1",
-      "Title_EN": "RadianN's Proxy",
-      "Works_Summary_JP": "弊創作を執筆している「ラジアン」の代理キャラクター",
-      "Works_Summary_EN": "Proxy characters of 'RadianN,' the author writing this creative series.",
-      "$DetailLayout": {
-        "headerPills": ["Progress"],
-        "basicFields": [
-          "FormalName",
-          "ModelName",
-          "ModelNumber",
-          "CodeName",
-          "Class",
-          "Age",
-          "BirthDay",
-          "RaceType",
-          "GenderType",
-          "Height_cm",
-          "Weight_kg"
-        ],
-        "subFields": ["ConversationPattern"]
-      }
     }
   },
   "General": {

@@ -347,3 +347,27 @@ describe('EarShapeType schema', () => {
     expect(earAttrCount).toBeGreaterThan(0);
   });
 });
+
+describe('Works_DestinyFoxRecords / Works_Proxies merge', () => {
+  it('Works_Proxies directory no longer exists (merged into Works_DestinyFoxRecords)', () => {
+    expect(existsSync(join(repoRoot, 'data/Works_Proxies'))).toBe(false);
+  });
+
+  it('Works_DestinyFoxRecords db_type.json declares $IndexDef_Proxy sidecar for the Proxy DB', () => {
+    const dbType = load('data/Works_DestinyFoxRecords/DataBases/db_type.json');
+    expect(dbType.$IndexDef?.hashTag).toBe('Unit');
+    expect(dbType.$IndexDef_Proxy?.hashTag).toBe('Generation');
+  });
+
+  it('Works_DestinyFoxRecords db_meta.json catalogs both #DB_Primary and #DB_Proxy', () => {
+    const dbMeta = load('data/Works_DestinyFoxRecords/DataBases/db_meta.json');
+    expect(dbMeta.Databases?.['#DB_Primary']).toBeDefined();
+    expect(dbMeta.Databases?.['#DB_Proxy']).toBeDefined();
+  });
+
+  it('global db_meta.json no longer declares #Works_Proxies', () => {
+    const globalMeta = load('data/db_meta.json');
+    expect(globalMeta.CreationWorks?.['#Works_Proxies']).toBeUndefined();
+    expect(globalMeta.CreationWorks?.['#Works_DestinyFoxRecords']).toBeDefined();
+  });
+});
