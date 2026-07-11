@@ -3,7 +3,7 @@
  * データベースファイルの構造整合性を検証
  */
 import { describe, it, expect } from 'vitest';
-import { readFileSync, existsSync } from 'node:fs';
+import { readFileSync, existsSync, readdirSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -86,6 +86,20 @@ describe('database shapes', () => {
     expect(Array.isArray(relatedCreationsField?.$type)).toBe(true);
     expect(nestedWork?.$type).toBe('#String');
     expect(nestedDb?.$type).toBe('#String|#Null');
+  });
+
+  it('work references meta keeps #Ref_ database entries under Databases', () => {
+    const dataRoot = join(repoRoot, 'data');
+    const files = readdirSync(dataRoot, { withFileTypes: true })
+      .filter((entry) => entry.isDirectory() && /^Works_/i.test(entry.name))
+      .map((entry) => `data/${entry.name}/References/db_meta.json`)
+      .filter((path) => existsSync(join(repoRoot, path)));
+
+    for (const path of files) {
+      const meta = load(path);
+      const topLevelRefKeys = Object.keys(meta || {}).filter((key) => /^#Ref_/i.test(key));
+      expect(topLevelRefKeys, `${path} has misplaced top-level #Ref_ keys`).toEqual([]);
+    }
   });
 });
 

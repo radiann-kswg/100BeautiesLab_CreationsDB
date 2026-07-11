@@ -270,6 +270,15 @@
     "isMaker": false
   },
   {
+    "Belonging": "超次元執筆空間(アトリエ)の住民",
+    "Belonging_EN": "Residents of #ATELIER: the super-dimensional owners' space",
+    "BelongingArea": {
+      "Area": "超次元執筆空間(アトリエ)"
+    },
+    "isForSecondary": null,
+    "isMaker": false
+  },
+  {
     "Faction": "管理主",
     "Faction_EN": "Regioministrators",
     "Belonging": "管理主",

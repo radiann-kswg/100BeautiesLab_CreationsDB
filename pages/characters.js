@@ -320,8 +320,19 @@ async function fetchWorkLayerTypeDef(workKey, layerName) {
 	const workDir = resolveWorkDirName(normalizedWorkKey);
 	const u = new URL(`../data/${encodeURIComponent(workDir)}/${encodeURIComponent(layer)}/db_type.json`, location.href);
 	try {
-		const res = await fetchJSON(u.toString());
-		const typeDef = (res && typeof res === 'object') ? res : {};
+		const res = await fetch(u.toString(), {
+			headers: { 'Accept': 'application/json' },
+			cache: 'no-store'
+		});
+		if (res.status === 404) {
+			workLayerTypeDefCache.set(cacheKey, {});
+			return {};
+		}
+		if (!res.ok) {
+			throw new Error(`${res.status} ${res.statusText} ${u}`);
+		}
+		const json = await res.json();
+		const typeDef = (json && typeof json === 'object') ? json : {};
 		workLayerTypeDefCache.set(cacheKey, typeDef);
 		return typeDef;
 	} catch (error) {
