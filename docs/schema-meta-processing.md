@@ -202,6 +202,7 @@
 - `Area` / `Faction` のような共通辞書は、実体を `data/Dictionaries/dict_*.json` へ置き、SW/UI が runtime で `General.$VarsDef` へ合流して使います。
 - runtime 合流時には `#Dict_*` を正としつつ、既存実装の互換用に `#List_*` も同じ内容で補完します。
 - `#PNGFileName` / `#PNGFilePath` 系フィールドは `$subfolder`（2026-07-10 新設）で画像フォルダの相対パスを明示宣言できます（例: `"$subfolder": "attr/tailsUnit"` → `Images/DB_<DbName>/attr/tailsUnit/`）。未指定の場合は従来通り `TypeDefUtils.inferFolderHintFromKey()` がフィールド名の `_PNG` 接頭辞から推測しますが、`$subfolder` を宣言すればそちらが優先されます。同じ親フォルダ配下を参照フィールドごとにサブフォルダで分けたい場合（`attr/tailsUnit`, `attr/earShape` のように）に使います。
+- `#PNGFilePath` / `#PNGFileName` フィールドの値としてDB/Work横断で他の画像フォルダを参照したい場合は、`$Def_DBCrossLinkPath`（2026-07-11 新設、`data/db_type.json` グローバル宣言）を使います。従来の `../../DB_SemiPrimary/...` のような手書き相対パス（ブラウザのURL正規化に依存した非公式な回避策）を廃止し、`{ "_DBCrossLinkPath": { "_DB": "SemiPrimary", "_IsoPath": "..." } }` の形で宣言的に参照します。`_DBLink`（レコード参照機構）とは異なり対象レコードの検索を行わない、パス参照専用の軽量な機構です。詳細は `docs/api-sw-spec.md` §8.3 を参照してください。
 
 ### 3.3 `$display`
 

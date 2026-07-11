@@ -822,6 +822,34 @@
       }
     ]
   },
+  "$Def_DBCrossLinkPath": {
+    "$DefType": [
+      {
+        "hashTag": "_DB",
+        "$type": "#String",
+        "hashTag_JP": "データベース参照先",
+        "hashTag_EN": "Target DB Override"
+      },
+      {
+        "hashTag": "_Work",
+        "$type": "#String|#Null",
+        "hashTag_JP": "創作タイトル参照先",
+        "hashTag_EN": "Target Work Override"
+      },
+      {
+        "hashTag": "_Field",
+        "$type": "#String|#Null",
+        "hashTag_JP": "参照するフォルダに紐づけられたImageフィールド名",
+        "hashTag_EN": "Image Field linking Target Folder Name Override"
+      },
+      {
+        "hashTag": "_IsoPath",
+        "$type": "#PNGFilePath",
+        "hashTag_JP": "参照するフォルダからの相対パス",
+        "hashTag_EN": "Isolate Path in Target Folder"
+      }
+    ]
+  },
   "$ScalarDef": {
     "#Hexcode": {
       "description_JP": "16進数エンコーディングのベース型。長さ・用途はサブタイプで指定する。",

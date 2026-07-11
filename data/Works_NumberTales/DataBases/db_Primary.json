@@ -8806,7 +8806,7 @@
         "corefolders/autumnMoon/art_autumnMoon2023",
         "chattingArt/chart_img22-humanoid",
         "corefolders/autumnMoon/art_autumnMoon2024",
-        "../../DB_SemiPrimary/arts/corefolders/autumnMoon/art_autumnMoon2025"
+        { "_DBCrossLinkPath": { "_DB": "SemiPrimary", "_IsoPath": "corefolders/autumnMoon/art_autumnMoon2025" } }
       ]
     },
     "Name_JP": "22(フジ)",

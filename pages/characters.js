@@ -36,6 +36,7 @@ import '../lib/section-renders/arcanumSpec.js';
 import '../lib/section-renders/chronoSpec.js';
 import '../lib/section-renders/relation.js';
 import '../lib/section-renders/dblink.js';
+import '../lib/section-renders/dbcrosslinkpath.js';
 import '../lib/section-renders/calling.js';
 import '../lib/section-renders/storyEra.js';
 import '../lib/section-renders/day.js';
@@ -53,6 +54,8 @@ let globalDefTypeCache = null;
 let workTypeDefCache = new Map();
 let worksCatalogCache = null;
 let workDbCatalogCache = new Map();
+// `_DBCrossLinkPath` 解決用: 任意作品(現在作品とは限らない)の画像フィールド定義一覧キャッシュ
+let crossLinkImageFieldsCache = new Map();
 const sharedLayerTypeDefCache = new Map();
 const sharedLayerMetaCache = new Map();
 const workLayerTypeDefCache = new Map();
@@ -152,6 +155,7 @@ export function __resetCharactersTestState() {
 	workTypeDefCache = new Map();
 	worksCatalogCache = null;
 	workDbCatalogCache = new Map();
+	crossLinkImageFieldsCache = new Map();
 	sharedLayerTypeDefCache.clear();
 	sharedLayerMetaCache.clear();
 	workLayerTypeDefCache.clear();
@@ -4765,16 +4769,106 @@ function resolveWorkDirName(workId) {
 }
 
 /**
+ * `_DBCrossLinkPath` 解決用: 任意作品（現在作品とは限らない）の画像フィールド定義一覧を取得する。
+ * fetchWorkTypeDef/fetchGlobalTypeDef の結果を extractImageFields() でまとめ、専用キャッシュに保持する。
+ * @param {string} workKey - '#Works_XXX' 等、任意の表記ゆれ可
+ * @returns {Promise<Array>} extractImageFields() と同じ形の配列
+ */
+async function getCrossLinkTargetImageFields(workKey) {
+	const normalized = normalizeWorkKey(workKey);
+	if (crossLinkImageFieldsCache.has(normalized)) return crossLinkImageFieldsCache.get(normalized);
+	const promise = (async () => {
+		const [workTypeDef, globalTypeDef] = await Promise.all([
+			fetchWorkTypeDef(normalized),
+			fetchGlobalTypeDef()
+		]);
+		return extractImageFields(workTypeDef, globalTypeDef);
+	})();
+	crossLinkImageFieldsCache.set(normalized, promise);
+	return promise;
+}
+
+/**
+ * `DBCrossLinkPathResolver.resolveDBCrossLinkPath` の `resolveTargetImageField` コールバック。
+ * targetField が対象作品の schema で画像型として宣言されているかを検証し、見つかれば
+ * folderHint/type/category に加え、対象DB自身の画像レイヤー（References等）も返す
+ * （未宣言の場合は安全側で解決を打ち切らせるため null を返す）。
+ * @param {string} targetWorkId - '#Works_XXX' 形式
+ * @param {string} targetDB - 参照先DB名
+ * @param {string} targetField - 参照先の画像フィールド名
+ * @returns {Promise<{field:string,folderHint:string|null,type:string,category:string,layer:string}|null>}
+ */
+async function resolveTargetImageFieldMeta(targetWorkId, targetDB, targetField) {
+	const [fields, targetWorkMeta] = await Promise.all([
+		getCrossLinkTargetImageFields(targetWorkId),
+		fetchWorkMeta(targetWorkId)
+	]);
+	const match = fields.find((f) => f.field === targetField);
+	if (!match) return null;
+	const layer = String(findDbCatalogEntry(targetWorkMeta, targetDB)?.DB_Layer || '').trim();
+	return { field: match.field, folderHint: match.folderHint || null, type: match.type, category: match.category, layer };
+}
+
+/**
+ * `_DBCrossLinkPath` の解決前に、参照先Work/DBが `Works_Hidden`/`DB_Hidden` で
+ * 完全非公開に設定されていないかを確認する。`_DBCrossLinkPath` はレコードを介さない
+ * 直接パス参照のため `isPrivate` のようなレコード単位の制御は適用できないが、
+ * SW全体で「完全404遮断」としているWork/DB単位の非公開制御だけは同じ強度で尊重する。
+ * @param {string} targetWorkId - '#Works_XXX' 形式
+ * @param {string} targetDB - 参照先DB名
+ * @returns {Promise<boolean>} true なら非公開（解決を拒否すべき）
+ */
+async function isCrossLinkTargetHidden(targetWorkId, targetDB) {
+	const [globalMeta, targetWorkMeta] = await Promise.all([
+		fetchGlobalMeta(),
+		fetchWorkMeta(targetWorkId)
+	]);
+	if (globalMeta?.CreationWorks?.[targetWorkId]?.Works_Hidden === true) return true;
+	const dbEntry = findDbCatalogEntry(targetWorkMeta, targetDB);
+	if (dbEntry?.DB_Hidden === true) return true;
+	return false;
+}
+
+/**
+ * 画像フィールドの1要素値（文字列 or `_DBCrossLinkPath` wrapper）を実際の画像URLへ解決する。
+ * - 文字列: 従来通り buildImagePath（同一DB内の相対パス解決）
+ * - `_DBCrossLinkPath` wrapper: DBCrossLinkPathResolver でターゲットWork/DBの folderHint を解決し、
+ *   ターゲット自身の work/db/folderHint を使って絶対パスを構築する（1ホップのみ）
+ * poster解決（resolveImageFromFields）とギャラリー解決（buildImageGallery）の両方から共通利用し、
+ * wrapperオブジェクトが誤って buildImagePath に渡り "[object Object].png" になることも防ぐ。
+ * @param {string} workId @param {string} dbName @param {Object} field @param {*} val @param {string} layer
+ * @returns {Promise<string>} 解決できなければ空文字列
+ */
+async function resolveImageValueToUrl(workId, dbName, field, val, layer = '') {
+	const resolver = globalThis.DBCrossLinkPathResolver;
+	if (resolver?.isDBCrossLinkPathWrapper?.(val)) {
+		const url = await resolver.resolveDBCrossLinkPath(val, {
+			currentWorkId: workId,
+			currentDbName: dbName,
+			currentFieldName: field?.field,
+			resolveTargetImageField: resolveTargetImageFieldMeta,
+			isTargetHidden: isCrossLinkTargetHidden,
+			buildPath: (targetWorkId, targetDB, fieldMeta, isoPath, targetLayer) =>
+				buildImagePath(resolveWorkDirName(targetWorkId), targetDB, fieldMeta, isoPath, targetLayer)
+		});
+		return url || '';
+	}
+	if (typeof val === 'string') {
+		return buildImagePath(resolveWorkDirName(workId), dbName, field, val, layer) || '';
+	}
+	return '';
+}
+
+/**
  * Enhanced image gallery building with dynamic field resolution
  * Creates gallery items with appropriate URLs based on extracted image fields
  * @param {string} workId - Work ID
  * @param {Object} record - Character record
  * @param {Array} imageFields - Image field specifications from extractImageFields
  * @param {string} dbName - Database name (e.g., 'Primary', 'Secondary', etc.)
- * @returns {Array} Array of {url, caption, type, alt, category} objects
+ * @returns {Promise<Array>} Array of {url, caption, type, alt, category} objects
  */
-function buildImageGallery(workId, record, imageFields, dbName = 'Primary', layer = '') {
-	const wdir = resolveWorkDirName(workId);
+async function buildImageGallery(workId, record, imageFields, dbName = 'Primary', layer = '') {
 	const images = [];
 	// Support common "Images" key variants (typos / case)
 	const imgData = getRecordImages(record);
@@ -4818,8 +4912,8 @@ function buildImageGallery(workId, record, imageFields, dbName = 'Primary', laye
 				? (field.labelEN || field.labelJP || field.label || field.field)
 				: (field.labelJP || field.labelEN || field.label || field.field);
 
-			// Use the enhanced buildImagePath function
-			const url = buildImagePath(wdir, dbName, field, val, layer);
+			// Use the enhanced resolveImageValueToUrl (buildImagePath + `_DBCrossLinkPath` 解決)
+			const url = await resolveImageValueToUrl(workId, dbName, field, val, layer);
 
 			if (url) {
 				const imageItem = {
@@ -4861,7 +4955,7 @@ function buildImageGallery(workId, record, imageFields, dbName = 'Primary', laye
 					label: key
 				};
 
-				const url = buildImagePath(wdir, dbName, fallbackField, val, layer);
+				const url = await resolveImageValueToUrl(workId, dbName, fallbackField, val, layer);
 				if (url) {
 					const imageItem = {
 						url,
@@ -5131,7 +5225,6 @@ async function imageFromRecord(workId, rec, dbName = 'Primary', imageFields = nu
  * @returns {Promise<string>} Image URL or empty string
  */
 async function resolveImageFromFields(workId, rec, dbName, imageFields, layer = '') {
-	const wdir = resolveWorkDirName(workId);
 	const img = getRecordImages(rec);
 
 	// Sort image fields by priority for thumbnail selection
@@ -5147,8 +5240,8 @@ async function resolveImageFromFields(workId, rec, dbName, imageFields, layer = 
 		const value = Array.isArray(fieldValue) ? fieldValue[0] : fieldValue;
 		if (!value) continue;
 
-		// Build image URL based on field category and type
-		const imageUrl = buildImagePath(wdir, dbName, field, value, layer);
+		// Build image URL based on field category and type（`_DBCrossLinkPath` wrapper にも対応）
+		const imageUrl = await resolveImageValueToUrl(workId, dbName, field, value, layer);
 		if (imageUrl) {
 			console.log(`✅ Built image URL for field '${field.field}':`, imageUrl);
 			return imageUrl;
@@ -5443,8 +5536,8 @@ function resolveImageStatically(workId, rec, dbName, layer = '') {
  * @param {Object} workMeta - Work metadata
  * @param {Object} globalDefType - Global type definitions
  */
-function loadMoreImages(workId, rec, imageFields, dbName, fieldLabelMap, workMeta, globalDefType, layer = '') {
-	const galleryImages = buildImageGallery(workId, rec, imageFields, dbName, layer);
+async function loadMoreImages(workId, rec, imageFields, dbName, fieldLabelMap, workMeta, globalDefType, layer = '') {
+	const galleryImages = await buildImageGallery(workId, rec, imageFields, dbName, layer);
 	const imageGrid = document.querySelector('.image-grid');
 	const moreButton = document.querySelector('.image-more');
 
@@ -5901,7 +5994,7 @@ export async function renderDetail(workId, rec) {
 		const poster = await imageFromRecord(workId, rec, dbName, imageFields, currentLayerName);
 
 		// Build image gallery with enhanced dynamic resolution
-		const galleryImages = buildImageGallery(workId, rec, imageFields, dbName, currentLayerName);
+		const galleryImages = await buildImageGallery(workId, rec, imageFields, dbName, currentLayerName);
 
 		console.log('🖼️ Detail view images:', {
 			poster,
@@ -5926,7 +6019,10 @@ export async function renderDetail(workId, rec) {
 						el('div', { class: 'image-more', style: 'text-align: center; padding: 10px;' }, [
 							el('button', {
 								type: 'button',
-								onclick: () => loadMoreImages(workId, rec, imageFields, dbName, fieldLabelMap, workMeta, globalDefType, currentLayerName)
+								onclick: () => {
+									loadMoreImages(workId, rec, imageFields, dbName, fieldLabelMap, workMeta, globalDefType, currentLayerName)
+										.catch((e) => console.warn('⚠️ Failed to load more images:', e));
+								}
 							}, [`さらに ${galleryImages.length - 6} 枚の画像を表示`])
 						])
 					] : []

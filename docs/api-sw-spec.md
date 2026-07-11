@@ -330,6 +330,7 @@ UI と enrich/search は、可能な限りこの `db_type.json($DefType)` に追
 
 - `_enrichment.images`
   - 画像候補一覧
+  - `_DBCrossLinkPath`（§8.3）で解決したエントリも同じ配列に追記されます
 - `_enrichment.primaryImage`
   - 代表画像
 - `_enrichment.imageCount`
@@ -405,6 +406,42 @@ typedef で `$enrich: true` を宣言した `*_DBLink` suffix フィールド（
 - クエリ側の null は「参照先レコード側も null/undefined」の明示マッチとして扱います
 - null 入りインデックスは複数レコードに一致し得るため、**1 件一致のみ採用**し、複数一致・0 件はスキップします
 - null を含まないインデックスの照合は従来どおり（先頭一致採用・null は不一致扱い）です
+
+### 8.3 `_DBCrossLinkPath`（画像フィールド専用のDB/Work横断パス参照）
+
+`#PNGFilePath`/`#PNGFileName` フィールドの値（配列要素・単体値のいずれも可）として、
+`{ "_DBCrossLinkPath": { "_DB": ..., "_Work": ..., "_Field": ..., "_IsoPath": ... } }` の形の
+ラッパーオブジェクトを置くと、他DB・他作品の画像フォルダ内の相対パスを直接参照できます。
+
+```json
+"arts_PNGPath": [
+  "corefolders/autumnMoon/art_autumnMoon2023",
+  { "_DBCrossLinkPath": { "_DB": "SemiPrimary", "_IsoPath": "corefolders/autumnMoon/art_autumnMoon2025" } }
+]
+```
+
+`_DBLink`（本節冒頭〜§8.2）との決定的な違いは、**対象レコードの検索・照合を一切行わない**点です。
+`_DBLink` は「対象レコードをインデックスで検索して見つけ、そのレコードのフィールド値を穴埋めする」
+レコード参照機構ですが、`_DBCrossLinkPath` は「対象Work/DBの画像フォルダ内の相対パスを直接指す」
+パス参照機構であり、`_IsoPath` の値自体がそのまま参照先の相対パスになります。
+
+サブフィールド（`$Def_DBCrossLinkPath`、`data/db_type.json` で宣言）:
+
+- `_DB`（必須・`#String`）: 参照先DB名。同一DB参照ならこの機構自体が不要なため、意味のあるデフォルト値が存在せず必須にしています
+- `_Work`（省略可・`#String|#Null`）: 参照先作品名。省略時は現在Workと同一（同一作品内DB跨ぎ参照）
+- `_Field`（省略可・`#String|#Null`）: 参照先の画像フィールド名（folderHint 解決にのみ使用）。省略時は `_DBCrossLinkPath` が出現しているフィールド自身と同名
+- `_IsoPath`（必須・`#PNGFilePath`）: 参照先フォルダからの相対パス（単一パス固定）
+
+解決の流れと安全策:
+
+1. `_Field`（またはデフォルト値）が、参照先Workの実効スキーマ（グローバル + 参照先Workの `db_type.json`）で画像型として宣言されている場合のみ解決します。未宣言なら解決しません（安全側フェイルクローズ）
+2. 参照先Workが `Works_Hidden: true`（§5.4）、または参照先DBが参照先Workの `db_meta.json` で `DB_Hidden: true`（§5.3）の場合は解決しません。`_DBCrossLinkPath` はレコードを介さない直接パス参照のため `isPrivate` のようなレコード単位の制御は適用できませんが、Work/DB単位の完全非公開制御だけは同じ強度で尊重します
+3. 連鎖は禁止です。`_IsoPath` は常に単一の文字列であり、対象レコードを介さないため、解決結果が更に `_DBCrossLinkPath` になることは構造上ありません
+
+出力への反映:
+
+- `_DBCrossLinkPath` の解決結果は `_enrichment.images`（§7）へ**追記のみ**され、`Images.*` の生値（ラッパーオブジェクトそのもの）は書き換えません（`ImageProcessor` の非破壊方針を踏襲）
+- `_DBLink` の「別DBからは画像フィールドを埋めない」ルール（本節冒頭の重要ルール、§8 実装上は `allowImages` ゲート）とは無関係の別機構です。`_DBLink` による自動穴埋めが画像を対象外とするルールは変更していません。`_DBCrossLinkPath` は画像パスを明示的に参照するための、意図的な別の opt-in 手段です
 
 ---
 

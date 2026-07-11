@@ -88,6 +88,20 @@ describe('database shapes', () => {
     expect(nestedDb?.$type).toBe('#String|#Null');
   });
 
+  it('$Def_DBCrossLinkPath declares the expected sentinel fields, with _DB/_IsoPath required', () => {
+    const dbType = load('data/db_type.json');
+    const defEntries = Array.isArray(dbType?.$Def_DBCrossLinkPath?.$DefType) ? dbType.$Def_DBCrossLinkPath.$DefType : [];
+    const byTag = Object.fromEntries(defEntries.map((entry) => [entry?.hashTag, entry]));
+
+    expect(Object.keys(byTag)).toEqual(['_DB', '_Work', '_Field', '_IsoPath']);
+    // _DB / _IsoPath は自動解決が困難なため必須（#Null を許容しない）
+    expect(byTag._DB?.$type).toBe('#String');
+    expect(byTag._IsoPath?.$type).toBe('#PNGFilePath');
+    // _Work / _Field は既定値（現在Work / wrapperが出現したフィールド名）があるため省略可
+    expect(byTag._Work?.$type).toBe('#String|#Null');
+    expect(byTag._Field?.$type).toBe('#String|#Null');
+  });
+
   it('work references meta keeps #Ref_ database entries under Databases', () => {
     const dataRoot = join(repoRoot, 'data');
     const files = readdirSync(dataRoot, { withFileTypes: true })

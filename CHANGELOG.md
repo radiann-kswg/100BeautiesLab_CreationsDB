@@ -1,5 +1,20 @@
 # 最新のリファクタリング・仕様変更履歴
 
+### add: `#PNGFilePath`/`#PNGFileName` 画像フィールド専用のDB/Work横断参照 `_DBCrossLinkPath` を新設 (2026-07-11)
+
+`../../DB_SemiPrimary/...` のような手書き相対パス（ブラウザのURL正規化に依存した非公式な回避策で、同一作品内のDBまたぎしかできず、SW/enrich側の `ImageProcessor.resolveImagePath()` では別のバグにより `Images/` セグメントが欠落する）を廃止し、`_DBLink` を参考にした画像パス専用の軽量な宣言的機構 `_DBCrossLinkPath` を新設した。`_DBLink`（対象レコードをインデックスで検索してフィールド値を穴埋めするレコード参照機構）とは異なり、`_DBCrossLinkPath` は対象Work/DBの画像フォルダ内の相対パスを直接指すだけで、対象レコードの検索・照合を一切行わない。
+
+- **`data/db_type.json`（グローバル）**: `$Def_DBLinkRef` の直後に `$Def_DBCrossLinkPath`（`_DB`〈必須〉/`_Work`〈省略可〉/`_Field`〈省略可〉/`_IsoPath`〈必須・`#PNGFilePath`〉）を新設。`_DB`/`_IsoPath` は自動解決が困難なため必須、`_Work`/`_Field` は明確なデフォルト（現在Work／wrapperが出現したフィールド名）があるため省略可とした。
+- **`lib/section-renders/dbcrosslinkpath.js`（新規）**: `_DBCrossLinkPath` wrapper の判定・値抽出・解決を行うクライアント側ヘルパー。`_DBLink` 系（`dblink.js`）と異なり対象レコードの検索を行わないため、fetch/セッションキャッシュ/曖昧一致ガード/`isPrivate`レコード除外は不要。`CharacterSectionRendererRegistry` には登録せず `globalThis.DBCrossLinkPathResolver` として直接公開。
+- **`pages/characters.js`**: `resolveImageValueToUrl()`（新規共通ヘルパー）を追加し、`buildImageGallery()`/`resolveImageFromFields()` の両方から呼び出すよう統一。値が `_DBCrossLinkPath` wrapper ならターゲットWork/DBの `folderHint` を解決して絶対パスを構築、通常の文字列なら従来通り `buildImagePath()` を使う。`buildImageGallery`/`loadMoreImages` を `async` 化（対象Workの typedef/meta 取得が非同期のため）。ターゲットが `Works_Hidden`/`DB_Hidden`（`isCrossLinkTargetHidden()`）の場合は解決しない。
+- **`lib/data-common.js`**: `EnrichmentProcessor` に `isCrossLinkTargetHidden()`/`resolveDbCrossLinkPathEntry()`/`resolveDbCrossLinkPathImages()` を追加。`enrichRecords()` のステップ3（画像情報処理）で `_enrichment.images` へ**追記のみ**（`Images.*` の生値は書き換えない、`ImageProcessor` と同じ非破壊方針）。新規トップレベル関数 `buildCrossLinkImageAbsolutePath()`（既存 `ImageProcessor.resolveImagePath()` の「値にスラッシュを含む場合 folderHint を付与しない」既知バグを踏襲せずゼロから構築）/`findDbEntryInWorkMeta()` を追加。**既存の `_DBLink` の「別DBからは画像フィールドを埋めない」ルール（`allowImages` ゲート）・`ImageProcessor.resolveImagePath()` の既知バグには一切手を加えていない**（後者は今回スコープ外で意図的に未修正のまま残置）。
+- **`data/Works_NumberTales/DataBases/db_Primary.json`**: Num=22「22(フジ)」の `Images.arts_PNGPath[3]` を、手書き相対パス `"../../DB_SemiPrimary/arts/corefolders/autumnMoon/art_autumnMoon2025"` から `{ "_DBCrossLinkPath": { "_DB": "SemiPrimary", "_IsoPath": "corefolders/autumnMoon/art_autumnMoon2025" } }` へ移行（参照先: `db_SemiPrimary.json` Num="3x11"「トレッド」と同一画像）。`data/Works_NumberTales/References/ref_Reference.json` の類似の `../../` 使用箇所（`#PNGFileName[]` 型・Referencesレイヤー→General、型/レイヤーとも異なる別ケース）は今回のスコープ外として現状維持。
+- **`tests/enrich.dbcrosslinkpath.test.js`（新規）**: 同一Work/別DB解決、別Work解決、`_DB`/`_IsoPath` 欠落時の解決失敗、`_Field` 省略時デフォルト/明示指定、`Works_Hidden`/`DB_Hidden` 非公開制御、未宣言フィールドへの安全策ガードを検証。
+- **`tests/data.shape.test.js`**: `$Def_DBCrossLinkPath.$DefType` の宣言（フィールド名・`_DB`/`_IsoPath` の必須性）を検証するテストを追加。
+- **`docs/api-sw-spec.md`**: §8.3（新設）に `_DBCrossLinkPath` の仕様（ラッパー形状・`_DBLink` との違い・`Works_Hidden`/`DB_Hidden` の尊重・`_enrichment.images` への追記のみで非破壊）を追記。
+- **`docs/schema-meta-processing.md`**: `#PNGFileName`/`#PNGFilePath`/`$subfolder` の既存段落に `$Def_DBCrossLinkPath` の導入を追記。
+- 確認: `npm test` 全件成功（218件）。
+
 ### add: `TailsUnit` に参考画像フィールドを追加 + 新スキーマ属性 `$subfolder` を新設 (2026-07-10)
 
 `$Def_TailsUnit` に、複雑な `Branches`/`LayoutDirection` 構造（特に分岐配置）をテキストだけでは伝えにくい11キャラクター分の参考画像を紐付けられるようにした。あわせて、この画像フィールドを typedef 駆動の画像抽出（`indices.imagePathHints`）が発見できるよう、根本原因だった名前付き `$Def_*` 型参照の未解決問題を修正した。
