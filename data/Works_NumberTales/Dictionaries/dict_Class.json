@@ -77,8 +77,8 @@
   },
   { "Class": "退任個体", "Class_EN": "Retired", "isSecondary": null },
   {
-    "Class": "営業補助用個体",
-    "Class_EN": "for Consulting Assistant",
+    "Class": "開発者代理人",
+    "Class_EN": "Developer's Agent",
     "isSecondary": false
   },
   { "Class": "開発者", "Class_EN": "Developer", "isSecondary": false },

@@ -33,6 +33,13 @@
       "compatListKey": "#List_Class",
       "scopeField": { "Belonging": "国際情報広報機関『ミハイル』" }
     },
+    "#Dict_Regioministrators": {
+      "DB_Label_JP": "クラス辞書(管理主向け)",
+      "DB_Label_EN": "Class Dictionary (for Regioministrators)",
+      "keyField": "Class",
+      "compatListKey": "#List_Class",
+      "scopeField": { "Belonging": "管理主" }
+    },
     "#Dict_Faction": {
       "DB_Label_JP": "陣営辞書",
       "DB_Label_EN": "Faction Dictionary",

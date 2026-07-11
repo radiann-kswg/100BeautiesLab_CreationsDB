@@ -70,6 +70,13 @@
       }
     ],
     "Weight_kg": [{ "value": 0, "about_JP": "重量", "about_EN": "In gravity" }],
+    "BustSize": {
+      "value": "G",
+      "about_JP": "ただし自在に変更可能",
+      "about_EN": "However, can be changed freely"
+    },
+    "Belonging": { "hideText": "判定失敗" },
+    "Class": { "hideText": "判定失敗" },
     "Age": { "value": 19, "about_JP": "自称", "about_EN": "Self-styled" },
     "FirstPersonCalling_JP": "ボク",
     "FirstPersonCalling_EN": "I (masc. informal)",

@@ -12,11 +12,18 @@
     "FormalName_EN": "NumberTales #100\nNumberTales Unit.Carré-10",
     "CodeName_JP": "一〇〇",
     "CodeName_EN": "One-Zero-Zero",
-    "SPCodeName_JP": "百",
-    "SPCodeName_EN": "Hundred",
+    "SPCodeName_JP": "百,10²",
+    "SPCodeName_EN": "Hundred, 10²",
     "GenderType": "FemaleNeutral",
     "Height_cm": 164,
     "ConceptAge": 17,
+    "AnivDay": [
+      {
+        "Day": { "Month": 10, "DayOfMonth": 10 },
+        "DayAbout_JP": "開発記念（100番機,10号機型,およびキャレ型ハイナンバーのすべてにおいて）",
+        "DayAbout_EN": "Development commemoration (as all of: Mk.100, Unit.10 lineage, and Carré-Series HighNumbers)"
+      }
+    ],
     "BustSize": "AA",
     "Belonging": ["百花繚乱研究所", "レゾンデイトルカンパニー"],
     "TailsUnit": [
@@ -978,8 +985,8 @@
     "Class": ["マスタートリプル", "スクエアエリート"],
     "FirstPersonCalling_JP": "我輩\n僕(ぼく) ※想定外のことが起きて動揺しているとき",
     "FirstPersonCalling_EN": "I (wagahai; archaic/formal)\nI (boku; masc. casual *when something unexpected happens)",
-    "SecondPersonCalling_JP": "貴君/諸君,貴殿\n君(きみ) ※想定外のことが起きて動揺しているとき",
-    "SecondPersonCalling_EN": "you (kikun/shokun, kiden; very formal)\nyou (kimi; masc. casual *when something unexpected happens)",
+    "SecondPersonCalling_JP": "貴君/貴女/諸君,貴殿\n君(きみ) ※想定外のことが起きて動揺しているとき",
+    "SecondPersonCalling_EN": "you (kikun/kijo/shokun, kiden; very formal)\nyou (kimi; masc. casual *when something unexpected happens)",
     "ThirdPersonCalling_JP": "*ちら(の者);[※名前呼び],~殿",
     "ThirdPersonCalling_EN": "that side/person there; [*by name], sir/mr/lady/ms.~(~dono; formally honorific)",
     "ForMasterCalling_JP": "提督殿,提督",
@@ -1452,6 +1459,11 @@
     "CodeName_EN": "Nine Nines",
     "GenderType": "Neutral",
     "AnivDay": [
+      {
+        "Day": { "Month": 9, "DayOfMonth": 9 },
+        "DayAbout_JP": "開発記念（キャレ型ハイナンバーとして）",
+        "DayAbout_EN": "Development commemoration (as Carré-Type High-Numbers)"
+      },
       {
         "Day": { "Month": 11, "DayOfMonth": 20 },
         "DayAbout_JP": "開発記念（ハイナンバーズ開発予算計画記念）",

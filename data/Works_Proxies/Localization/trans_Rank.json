@@ -2,7 +2,7 @@
   {
     "Term_JP": "創造主",
     "Term_JPReading": "そうぞうしゅ",
-    "Term_EN": "@CREATOR",
+    "Term_EN": "Regiowner",
     "TransPolicy": "#TP_SemanticTranslate",
     "Scope": [
       "Works_NumberTales",
