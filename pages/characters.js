@@ -7527,6 +7527,33 @@ export async function renderDetail(workId, rec) {
 			);
 		};
 
+		/**
+		 * AppearanceDetail.img_PNGName 専用のURL構築ヘルパー。
+		 * - `#Element_*` から `attr/<lowerCamel>` を自動導出する
+		 * - DesignElement が無い/読めない場合は従来互換として img を既定値にする
+		 * @param {string} fileName
+		 * @param {Object} entry
+		 * @returns {string}
+		 */
+		const buildAppearanceDetailImageUrl = (fileName, entry = null) => {
+			if (!fileName) return '';
+			const designElement = String(entry?.DesignElement || '').trim();
+			const elementMatch = designElement.match(/^#Element_([A-Za-z0-9_]+)$/);
+			const elementToken = elementMatch?.[1] || '';
+			const normalizedElement = elementToken
+				? `${elementToken.charAt(0).toLowerCase()}${elementToken.slice(1)}`
+				: '';
+			const folderHint = normalizedElement ? `attr/${normalizedElement}` : 'img';
+			return buildImagePath(
+				resolveWorkDirName(workId),
+				dbName,
+				{ field: 'img_PNGName', folderHint, type: '#PNGFileName' },
+				fileName,
+				currentLayerName,
+				resolveImagesRootOverride(workId)
+			);
+		};
+
 		const relationRendererApi = {
 			createElement: el,
 			createDetailTagGrid,
@@ -7581,6 +7608,7 @@ export async function renderDetail(workId, rec) {
 					wrapStandaloneSection: createStandaloneSubFieldSection,
 					relationApi: relationRendererApi,
 					buildTailsUnitImageUrl,
+					buildAppearanceDetailImageUrl,
 					createGalleryImageItem
 				}
 			});

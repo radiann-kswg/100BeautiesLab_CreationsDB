@@ -188,7 +188,7 @@
             "value_EN": "Arabic numeral '1'"
           }
         ],
-        "img_PNGName": null,
+        "img_PNGName": "attr_numberMark1",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -214,7 +214,7 @@
             "value_EN": "Arabic numeral '1'"
           }
         ],
-        "img_PNGName": null,
+        "img_PNGName": "attr_numberMark1",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -702,7 +702,7 @@
             "value_EN": "Arabic numeral '2'"
           }
         ],
-        "img_PNGName": null,
+        "img_PNGName": "attr_numberMark2",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -728,7 +728,7 @@
             "value_EN": "Arabic numeral '2'"
           }
         ],
-        "img_PNGName": null,
+        "img_PNGName": "attr_numberMark2",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -1121,7 +1121,7 @@
             "value_EN": "Arabic numeral '3'"
           }
         ],
-        "img_PNGName": null,
+        "img_PNGName": "attr_numberMark3",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -1147,7 +1147,7 @@
             "value_EN": "Arabic numeral '3'"
           }
         ],
-        "img_PNGName": null,
+        "img_PNGName": "attr_numberMark3",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -1380,7 +1380,7 @@
       {
         "TailShapeType": "#TailShapeType_Fox",
         "Count": 4,
-        "TailsUnit_PNGName": "attr_tailsUnit4.png",
+        "TailsUnit_PNGName": "attr_tailsUnit4",
         "Note_JP": null,
         "Note_EN": null
       }
@@ -1507,7 +1507,7 @@
             "value_EN": "Arabic numeral '4'"
           }
         ],
-        "img_PNGName": null,
+        "img_PNGName": "attr_numberMark4",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -1533,7 +1533,7 @@
             "value_EN": "Arabic numeral '4'"
           }
         ],
-        "img_PNGName": null,
+        "img_PNGName": "attr_numberMark4",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -1940,7 +1940,7 @@
             "value_EN": "Arabic numeral '5'"
           }
         ],
-        "img_PNGName": null,
+        "img_PNGName": "attr_numberMark5",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -1966,7 +1966,7 @@
             "value_EN": "Arabic numeral '5'"
           }
         ],
-        "img_PNGName": null,
+        "img_PNGName": "attr_numberMark5",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -2320,7 +2320,7 @@
       {
         "TailShapeType": "#TailShapeType_Fox",
         "Count": 6,
-        "TailsUnit_PNGName": "attr_tailsUnit6.png",
+        "TailsUnit_PNGName": "attr_tailsUnit6",
         "Note_JP": null,
         "Note_EN": null
       }
@@ -2447,7 +2447,7 @@
             "value_EN": "Arabic numeral '6'"
           }
         ],
-        "img_PNGName": null,
+        "img_PNGName": "attr_numberMark6",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -2831,7 +2831,7 @@
             "value_EN": "Arabic numeral '7'"
           }
         ],
-        "img_PNGName": null,
+        "img_PNGName": "attr_numberMark7",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -2857,7 +2857,7 @@
             "value_EN": "Arabic numeral '7'"
           }
         ],
-        "img_PNGName": null,
+        "img_PNGName": "attr_numberMark7",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -3266,7 +3266,7 @@
             "value_EN": "Arabic numeral '8'"
           }
         ],
-        "img_PNGName": null,
+        "img_PNGName": "attr_numberMark8",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -3292,7 +3292,7 @@
             "value_EN": "Arabic numeral '8'"
           }
         ],
-        "img_PNGName": null,
+        "img_PNGName": "attr_numberMark8",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -3678,7 +3678,7 @@
             "value_EN": "Arabic numeral '9'"
           }
         ],
-        "img_PNGName": null,
+        "img_PNGName": "attr_numberMark9",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -3704,7 +3704,7 @@
             "value_EN": "Arabic numeral '9'"
           }
         ],
-        "img_PNGName": null,
+        "img_PNGName": "attr_numberMark9",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -4121,7 +4121,7 @@
             "value_EN": "Arabic numeral '10'"
           }
         ],
-        "img_PNGName": null,
+        "img_PNGName": "attr_numberMark10",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -4563,7 +4563,7 @@
             "value_EN": "Arabic numeral '11' (one digit on each side)"
           }
         ],
-        "img_PNGName": null,
+        "img_PNGName": "attr_numberMark11",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -4592,16 +4592,11 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Overview",
-            "value_JP": "銀灰色の長い髪",
-            "value_EN": "silver gray long hair"
-          },
-          {
-            "AttrLabel": "#DesignAttr_Overview",
             "value_JP": "2本の矢印形のヘアピン",
             "value_EN": "two arrow-shaped hair pins"
           }
         ],
-        "img_PNGName": null,
+        "img_PNGName": "attr_costumeItem11-hairpin",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -4652,6 +4647,22 @@
             "AttrLabel": "#DesignAttr_Overview",
             "value_JP": "長いフード付きコート",
             "value_EN": "long hooded coat"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": "humanoid",
+        "BodyPart": ["#BodyPart_Hair"],
+        "Laterality": null,
+        "DesignElement": "#Element_Motif",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "銀灰色の長い髪",
+            "value_EN": "silver gray long hair"
           }
         ],
         "img_PNGName": null,
@@ -4935,7 +4946,7 @@
             "value_EN": "Arabic numeral '12'"
           }
         ],
-        "img_PNGName": null,
+        "img_PNGName": "attr_numberMark12",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -5315,7 +5326,7 @@
             "value_EN": "Arabic numeral '13'"
           }
         ],
-        "img_PNGName": null,
+        "img_PNGName": "attr_numberMark13",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -5341,7 +5352,7 @@
             "value_EN": "Arabic numeral '13'"
           }
         ],
-        "img_PNGName": null,
+        "img_PNGName": "attr_numberMark13",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -5749,7 +5760,7 @@
             "value_EN": "Arabic numeral '14'"
           }
         ],
-        "img_PNGName": null,
+        "img_PNGName": "attr_numberMark14",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -5775,7 +5786,7 @@
             "value_EN": "Arabic numeral '14'"
           }
         ],
-        "img_PNGName": null,
+        "img_PNGName": "attr_numberMark14",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -6253,7 +6264,7 @@
             "value_EN": "Roman numeral 'XV'"
           }
         ],
-        "img_PNGName": null,
+        "img_PNGName": "attr_numberMark15",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -6279,7 +6290,7 @@
             "value_EN": "Roman numeral 'XV'"
           }
         ],
-        "img_PNGName": null,
+        "img_PNGName": "attr_numberMark15",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -6557,7 +6568,7 @@
           { "Laterality": "#Lat_Upper", "TailCount": 1, "ClusterCount": 2 },
           { "Laterality": "#Lat_Lower", "TailCount": 5, "ClusterCount": 1 }
         ],
-        "TailsUnit_PNGName": "attr_tailsUnit16.png",
+        "TailsUnit_PNGName": "attr_tailsUnit16",
         "Note_JP": null,
         "Note_EN": null
       }
@@ -6689,7 +6700,7 @@
             "value_EN": "Arabic numeral '16'"
           }
         ],
-        "img_PNGName": null,
+        "img_PNGName": "attr_numberMark16",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -6781,9 +6792,26 @@
       },
       {
         "Formation": "humanoid",
-        "BodyPart": null,
+        "Costume": null,
+        "BodyPart": ["#BodyPart_Chest"],
         "Laterality": null,
-        "DesignElement": "#Element_Motif",
+        "DesignElement": "#Element_Emblem",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "ハートと鍵のモチーフ",
+            "value_EN": "heart and key motif"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": "humanoid",
+        "BodyPart": ["#BodyPart_Chest"],
+        "Laterality": null,
+        "DesignElement": "#Element_CostumeItem",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Overview",
@@ -6799,7 +6827,7 @@
         "Formation": "humanoid",
         "BodyPart": null,
         "Laterality": null,
-        "DesignElement": "#Element_Motif",
+        "DesignElement": "#Element_BodyType",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Overview",
@@ -7060,7 +7088,7 @@
             "value_EN": "Arabic numeral '17' (square motif design)"
           }
         ],
-        "img_PNGName": null,
+        "img_PNGName": "attr_numberMark17",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -7432,7 +7460,7 @@
             "value_EN": "Arabic numeral with brackets: '>18<'"
           }
         ],
-        "img_PNGName": null,
+        "img_PNGName": "attr_numberMark18",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -7458,7 +7486,7 @@
             "value_EN": "Arabic numeral with brackets: '>18<'"
           }
         ],
-        "img_PNGName": null,
+        "img_PNGName": "attr_numberMark18",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -7768,7 +7796,7 @@
             "value_EN": "Arabic numeral '19'"
           }
         ],
-        "img_PNGName": null,
+        "img_PNGName": "attr_numberMark19",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -7794,7 +7822,7 @@
             "value_EN": "Arabic numeral '19'"
           }
         ],
-        "img_PNGName": null,
+        "img_PNGName": "attr_numberMark19",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -8121,7 +8149,7 @@
             "value_EN": "Arabic numeral '20'"
           }
         ],
-        "img_PNGName": null,
+        "img_PNGName": "attr_numberMark20",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -8147,7 +8175,7 @@
             "value_EN": "Arabic numeral '20'"
           }
         ],
-        "img_PNGName": null,
+        "img_PNGName": "attr_numberMark20",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -8593,7 +8621,7 @@
             "value_EN": "Arabic numeral '21'"
           }
         ],
-        "img_PNGName": null,
+        "img_PNGName": "attr_numberMark21",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -8619,7 +8647,7 @@
             "value_EN": "Arabic numeral '21'"
           }
         ],
-        "img_PNGName": null,
+        "img_PNGName": "attr_numberMark21",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -8972,7 +9000,7 @@
             "value_EN": "Arabic numeral '22'"
           }
         ],
-        "img_PNGName": null,
+        "img_PNGName": "attr_numberMark22",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -8998,7 +9026,7 @@
             "value_EN": "Arabic numeral '22' (one digit on each side of the zipper)"
           }
         ],
-        "img_PNGName": null,
+        "img_PNGName": "attr_numberMark22",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -9094,6 +9122,22 @@
           }
         ],
         "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Neck"],
+        "Laterality": null,
+        "DesignElement": "#Element_Emblem",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "十字があしらわれたグレーの丸いブローチ",
+            "value_EN": "gray round brooch with a cross"
+          }
+        ],
+        "img_PNGName": "attr_emblem22-brooch",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -9332,7 +9376,7 @@
           { "Laterality": "#Lat_Upper", "TailCount": 2, "ClusterCount": 2 },
           { "Laterality": "#Lat_Lower", "TailCount": 1, "ClusterCount": 1 }
         ],
-        "TailsUnit_PNGName": "attr_tailsUnit23.png",
+        "TailsUnit_PNGName": "attr_tailsUnit23",
         "Note_JP": null,
         "Note_EN": null
       }
@@ -9455,7 +9499,7 @@
             "value_EN": "Arabic numeral '23'"
           }
         ],
-        "img_PNGName": null,
+        "img_PNGName": "attr_numberMark23",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -9481,7 +9525,7 @@
             "value_EN": "Arabic numeral '23'"
           }
         ],
-        "img_PNGName": null,
+        "img_PNGName": "attr_numberMark23",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -9874,7 +9918,7 @@
             "value_EN": "Arabic numeral '24'"
           }
         ],
-        "img_PNGName": null,
+        "img_PNGName": "attr_numberMark24",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -10264,7 +10308,7 @@
             "value_EN": "Arabic numeral '25'"
           }
         ],
-        "img_PNGName": null,
+        "img_PNGName": "attr_numberMark25",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -10290,7 +10334,7 @@
             "value_EN": "Arabic numeral '25'"
           }
         ],
-        "img_PNGName": null,
+        "img_PNGName": "attr_numberMark25",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -10752,7 +10796,7 @@
             "value_EN": "Arabic numeral '26'"
           }
         ],
-        "img_PNGName": null,
+        "img_PNGName": "attr_numberMark26",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -10778,7 +10822,7 @@
             "value_EN": "Arabic numeral '26'"
           }
         ],
-        "img_PNGName": null,
+        "img_PNGName": "attr_numberMark26",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -11183,7 +11227,7 @@
             "value_EN": "Arabic numeral with an underbar on the left of digits: '_27'"
           }
         ],
-        "img_PNGName": null,
+        "img_PNGName": "attr_numberMark27",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -11209,7 +11253,7 @@
             "value_EN": "Arabic numeral with an underbar on the left of digits: '_27'"
           }
         ],
-        "img_PNGName": null,
+        "img_PNGName": "attr_numberMark27",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -11692,7 +11736,7 @@
             "value_EN": "Arabic numeral '28'"
           }
         ],
-        "img_PNGName": null,
+        "img_PNGName": "attr_numberMark28",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -11718,7 +11762,7 @@
             "value_EN": "Arabic numeral '28', with a small notation below indicating the sum of its divisors '=1+2+4+7+14'"
           }
         ],
-        "img_PNGName": null,
+        "img_PNGName": "attr_numberMark28-leftMath",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -11744,7 +11788,7 @@
             "value_EN": "Sigma notation indicating the sum of natural numbers up to the 3rd Mersenne number"
           }
         ],
-        "img_PNGName": null,
+        "img_PNGName": "attr_numberMark28-rightMath",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -11770,7 +11814,7 @@
             "value_EN": "Arabic numeral '28'"
           }
         ],
-        "img_PNGName": null,
+        "img_PNGName": "attr_numberMark28",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -11796,7 +11840,7 @@
             "value_EN": "Arabic numeral '28' (the four circles look like '28')"
           }
         ],
-        "img_PNGName": null,
+        "img_PNGName": "attr_numberMark28-earingFront",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -11822,7 +11866,7 @@
             "value_EN": "Arabic numeral '28', with a small notation below indicating the sum of its divisors '=1+2+4+7+14'"
           }
         ],
-        "img_PNGName": null,
+        "img_PNGName": "attr_numberMark28-leftMath",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -11848,7 +11892,7 @@
             "value_EN": "Sigma notation indicating the sum of natural numbers up to the 3rd Mersenne number"
           }
         ],
-        "img_PNGName": null,
+        "img_PNGName": "attr_numberMark28-rightMath",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -11919,7 +11963,7 @@
         "Formation": "humanoid",
         "BodyPart": null,
         "Laterality": null,
-        "DesignElement": "##Element_BodyType",
+        "DesignElement": "#Element_BodyType",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Overview",
@@ -12559,7 +12603,7 @@
             "value_EN": "Arabic numeral '30'"
           }
         ],
-        "img_PNGName": null,
+        "img_PNGName": "attr_numberMark30",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -12585,7 +12629,7 @@
             "value_EN": "Arabic numeral '30'"
           }
         ],
-        "img_PNGName": null,
+        "img_PNGName": "attr_numberMark30",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -12611,7 +12655,7 @@
             "value_EN": "Arabic numeral '30'"
           }
         ],
-        "img_PNGName": null,
+        "img_PNGName": "attr_numberMark30",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -12971,7 +13015,7 @@
             "value_EN": "Arabic numeral '31'"
           }
         ],
-        "img_PNGName": null,
+        "img_PNGName": "attr_numberMark31",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -12997,7 +13041,7 @@
             "value_EN": "Mathematical symbol 'M₅' indicating the 5th Mersenne number, with the formula '=2⁵-1' shown below in small text"
           }
         ],
-        "img_PNGName": null,
+        "img_PNGName": "attr_numberMark31-leftMath",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -13023,7 +13067,7 @@
             "value_EN": "Arabic numeral '31'"
           }
         ],
-        "img_PNGName": null,
+        "img_PNGName": "attr_numberMark31",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -13049,7 +13093,7 @@
             "value_EN": "Mathematical symbol 'M₅' indicating the 5th Mersenne number, with the formula '=2⁵-1' shown below in small text"
           }
         ],
-        "img_PNGName": null,
+        "img_PNGName": "attr_numberMark31-leftMath",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -13490,7 +13534,7 @@
             "value_EN": "Arabic numeral '32'"
           }
         ],
-        "img_PNGName": null,
+        "img_PNGName": "attr_numberMark32",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -13516,7 +13560,7 @@
             "value_EN": "Arabic numeral '32'"
           }
         ],
-        "img_PNGName": null,
+        "img_PNGName": "attr_numberMark32",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -13953,7 +13997,7 @@
             "value_EN": "Arabic numeral '33'"
           }
         ],
-        "img_PNGName": null,
+        "img_PNGName": "attr_numberMark33",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -13979,7 +14023,7 @@
             "value_EN": "Arabic numeral '33'"
           }
         ],
-        "img_PNGName": null,
+        "img_PNGName": "attr_numberMark33",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -14440,7 +14484,7 @@
             "value_EN": "Arabic numeral '34'"
           }
         ],
-        "img_PNGName": null,
+        "img_PNGName": "attr_numberMark34",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -14466,7 +14510,7 @@
             "value_EN": "Arabic numeral '34'"
           }
         ],
-        "img_PNGName": null,
+        "img_PNGName": "attr_numberMark34",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -14859,7 +14903,7 @@
             "value_EN": "Arabic numeral '35'"
           }
         ],
-        "img_PNGName": null,
+        "img_PNGName": "attr_numberMark35",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -15307,7 +15351,7 @@
             "value_EN": "Arabic numeral '36'"
           }
         ],
-        "img_PNGName": null,
+        "img_PNGName": "attr_numberMark36",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -15333,7 +15377,7 @@
             "value_EN": "Arabic numeral '36'"
           }
         ],
-        "img_PNGName": null,
+        "img_PNGName": "attr_numberMark36",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -15784,7 +15828,7 @@
             "value_EN": "Arabic numeral '37.' (motif composed of multiple triangles)"
           }
         ],
-        "img_PNGName": null,
+        "img_PNGName": "attr_numberMark37",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -16140,7 +16184,7 @@
           { "Laterality": "#Lat_Upper", "TailCount": 3, "ClusterCount": 2 },
           { "Laterality": "#Lat_Lower", "TailCount": 6, "ClusterCount": 1 }
         ],
-        "TailsUnit_PNGName": "attr_tailsUnit39.png",
+        "TailsUnit_PNGName": "attr_tailsUnit39",
         "Note_JP": null,
         "Note_EN": null
       }
@@ -16267,7 +16311,7 @@
             "value_EN": "Arabic numeral '39' (stylized motif)"
           }
         ],
-        "img_PNGName": null,
+        "img_PNGName": "attr_numberMark39",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -16293,7 +16337,7 @@
             "value_EN": "Arabic numeral '39' (stylized motif)"
           }
         ],
-        "img_PNGName": null,
+        "img_PNGName": "attr_numberMark39",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -16738,7 +16782,7 @@
             "value_EN": "Geometric pattern resembling Arabic numeral '40'"
           }
         ],
-        "img_PNGName": null,
+        "img_PNGName": "attr_numberMark40",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -17100,7 +17144,7 @@
             "value_EN": "Arabic numeral '41'"
           }
         ],
-        "img_PNGName": null,
+        "img_PNGName": "attr_numberMark41",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -17126,7 +17170,7 @@
             "value_EN": "Arabic numeral '41'"
           }
         ],
-        "img_PNGName": null,
+        "img_PNGName": "attr_numberMark41",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -17578,7 +17622,7 @@
             "value_EN": "Arabic numeral '42'"
           }
         ],
-        "img_PNGName": null,
+        "img_PNGName": "attr_numberMark42",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -17604,7 +17648,7 @@
             "value_EN": "Arabic numeral '42'"
           }
         ],
-        "img_PNGName": null,
+        "img_PNGName": "attr_numberMark42",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -17970,7 +18014,7 @@
             "value_EN": "Arabic numeral '43'"
           }
         ],
-        "img_PNGName": null,
+        "img_PNGName": "attr_numberMark43",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -17996,7 +18040,7 @@
             "value_EN": "Arabic numeral '43'"
           }
         ],
-        "img_PNGName": null,
+        "img_PNGName": "attr_numberMark43",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -18375,7 +18419,7 @@
             "value_EN": "Arabic numeral '44'"
           }
         ],
-        "img_PNGName": null,
+        "img_PNGName": "attr_numberMark44",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -18401,7 +18445,7 @@
             "value_EN": "Arabic numeral '44'"
           }
         ],
-        "img_PNGName": null,
+        "img_PNGName": "attr_numberMark44",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -18750,7 +18794,7 @@
             "value_EN": "Arabic numeral '45'"
           }
         ],
-        "img_PNGName": null,
+        "img_PNGName": "attr_numberMark45",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -18776,7 +18820,7 @@
             "value_EN": "Arabic numeral '45'"
           }
         ],
-        "img_PNGName": null,
+        "img_PNGName": "attr_numberMark45",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -19511,7 +19555,7 @@
             "value_EN": "Arabic numeral '47'"
           }
         ],
-        "img_PNGName": null,
+        "img_PNGName": "attr_numberMark47",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -19537,7 +19581,7 @@
             "value_EN": "Arabic numeral '47'"
           }
         ],
-        "img_PNGName": null,
+        "img_PNGName": "attr_numberMark47",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -19934,7 +19978,7 @@
             "value_EN": "Arabic numeral '48'"
           }
         ],
-        "img_PNGName": null,
+        "img_PNGName": "attr_numberMark48",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -19960,7 +20004,7 @@
             "value_EN": "Arabic numeral '48'"
           }
         ],
-        "img_PNGName": null,
+        "img_PNGName": "attr_numberMark48",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -20238,7 +20282,7 @@
           { "Laterality": "#Lat_Upper", "TailCount": 4, "ClusterCount": 2 },
           { "Laterality": "#Lat_Lower", "TailCount": 5, "ClusterCount": 1 }
         ],
-        "TailsUnit_PNGName": "attr_tailsUnit49.png",
+        "TailsUnit_PNGName": "attr_tailsUnit49",
         "Note_JP": null,
         "Note_EN": null
       }
@@ -20370,7 +20414,7 @@
             "value_EN": "Arabic numeral '49'"
           }
         ],
-        "img_PNGName": null,
+        "img_PNGName": "attr_numberMark49",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -20396,7 +20440,7 @@
             "value_EN": "Arabic numeral '49'"
           }
         ],
-        "img_PNGName": null,
+        "img_PNGName": "attr_numberMark49",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -20748,7 +20792,7 @@
             "value_EN": "Arabic numeral '50'"
           }
         ],
-        "img_PNGName": null,
+        "img_PNGName": "attr_numberMark50",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -20774,7 +20818,7 @@
             "value_EN": "Arabic numeral '50'"
           }
         ],
-        "img_PNGName": null,
+        "img_PNGName": "attr_numberMark50",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -21491,7 +21535,7 @@
             "value_EN": "Arabic numeral '52'"
           }
         ],
-        "img_PNGName": null,
+        "img_PNGName": "attr_numberMark52",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -21517,7 +21561,7 @@
             "value_EN": "Arabic numeral '52'"
           }
         ],
-        "img_PNGName": null,
+        "img_PNGName": "attr_numberMark52",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -21961,7 +22005,7 @@
             "value_EN": "Arabic numeral '53'"
           }
         ],
-        "img_PNGName": null,
+        "img_PNGName": "attr_numberMark53",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -22370,7 +22414,7 @@
             "value_EN": "Arabic numeral '55' (one digit on each side)"
           }
         ],
-        "img_PNGName": null,
+        "img_PNGName": "attr_numberMark55",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -22396,7 +22440,7 @@
             "value_EN": "Arabic numeral '55' (one digit on each side)"
           }
         ],
-        "img_PNGName": null,
+        "img_PNGName": "attr_numberMark55",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -22782,7 +22826,7 @@
             "value_EN": "Arabic numeral '56', with the kanji '五十六' slightly smaller below"
           }
         ],
-        "img_PNGName": null,
+        "img_PNGName": "attr_numberMark56",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -22808,7 +22852,7 @@
             "value_EN": "Arabic numeral '56', with the kanji '五十六' slightly smaller below"
           }
         ],
-        "img_PNGName": null,
+        "img_PNGName": "attr_numberMark56",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -23115,7 +23159,7 @@
           { "Laterality": "#Lat_Upper", "TailCount": 5, "ClusterCount": 2 },
           { "Laterality": "#Lat_Lower", "TailCount": 2, "ClusterCount": 1 }
         ],
-        "TailsUnit_PNGName": "attr_tailsUnit57.png",
+        "TailsUnit_PNGName": "attr_tailsUnit57",
         "Note_JP": null,
         "Note_EN": null
       }
@@ -23236,7 +23280,7 @@
             "value_EN": "Arabic numeral '57'"
           }
         ],
-        "img_PNGName": null,
+        "img_PNGName": "attr_numberMark57",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -23262,7 +23306,7 @@
             "value_EN": "Arabic numeral '57'"
           }
         ],
-        "img_PNGName": null,
+        "img_PNGName": "attr_numberMark57",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -24123,7 +24167,7 @@
             "value_EN": "Arabic numeral '60' (stylized motif)"
           }
         ],
-        "img_PNGName": null,
+        "img_PNGName": "attr_numberMark60",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -24594,7 +24638,7 @@
           { "Laterality": "#Lat_Upper", "TailCount": 5, "ClusterCount": 1 },
           { "Laterality": "#Lat_Lower", "TailCount": 1, "ClusterCount": 2 }
         ],
-        "TailsUnit_PNGName": "attr_tailsUnit61.png",
+        "TailsUnit_PNGName": "attr_tailsUnit61",
         "Note_JP": null,
         "Note_EN": null
       }
@@ -24761,7 +24805,7 @@
             "value_EN": "Arabic numeral '61'"
           }
         ],
-        "img_PNGName": null,
+        "img_PNGName": "attr_numberMark61",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -24788,7 +24832,7 @@
             "value_EN": "Arabic numeral '61'"
           }
         ],
-        "img_PNGName": null,
+        "img_PNGName": "attr_numberMark61",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -24820,6 +24864,23 @@
           }
         ],
         "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "Costume": null,
+        "BodyPart": ["#BodyPart_Interchangeable"],
+        "Laterality": null,
+        "DesignElement": "#Element_Emblem",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "ハートと鍵のモチーフ",
+            "value_EN": "heart and key motif"
+          }
+        ],
+        "img_PNGName": "attr_emblem61-heartkey",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -25309,7 +25370,7 @@
             "value_EN": "Arabic numeral '62'"
           }
         ],
-        "img_PNGName": null,
+        "img_PNGName": "attr_numberMark62",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -25714,7 +25775,7 @@
             "value_EN": "Arabic numeral '63'"
           }
         ],
-        "img_PNGName": null,
+        "img_PNGName": "attr_numberMark63",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -25740,7 +25801,7 @@
             "value_EN": "Arabic numeral '63'"
           }
         ],
-        "img_PNGName": null,
+        "img_PNGName": "attr_numberMark63",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -26474,7 +26535,7 @@
             "value_EN": "Arabic numeral '65'"
           }
         ],
-        "img_PNGName": null,
+        "img_PNGName": "attr_numberMark65",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -26500,7 +26561,7 @@
             "value_EN": "Arabic numeral '65'"
           }
         ],
-        "img_PNGName": null,
+        "img_PNGName": "attr_numberMark65",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -26851,7 +26912,7 @@
             "value_EN": "Arabic numeral '66' (one digit on each side)"
           }
         ],
-        "img_PNGName": null,
+        "img_PNGName": "attr_numberMark66",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -26877,7 +26938,7 @@
             "value_EN": "Arabic numeral '66' (one digit on each side)"
           }
         ],
-        "img_PNGName": null,
+        "img_PNGName": "attr_numberMark66",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -27917,7 +27978,7 @@
             "value_EN": "Arabic numeral '68'"
           }
         ],
-        "img_PNGName": null,
+        "img_PNGName": "attr_numberMark68",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -27943,7 +28004,7 @@
             "value_EN": "Arabic numeral '68'"
           }
         ],
-        "img_PNGName": null,
+        "img_PNGName": "attr_numberMark68",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -29115,7 +29176,7 @@
             "value_EN": "Arabic numeral '71' (square motif design)"
           }
         ],
-        "img_PNGName": null,
+        "img_PNGName": "attr_numberMark71",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -29146,7 +29207,7 @@
             "value_EN": "blue ponytail with number motif hairpin"
           }
         ],
-        "img_PNGName": null,
+        "img_PNGName": "attr_costumeItem71-number",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -29488,7 +29549,7 @@
             "value_EN": "NW-7 barcode printed with 'A-72---A' (with a small corresponding string below)"
           }
         ],
-        "img_PNGName": null,
+        "img_PNGName": "attr_numberMark72",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -29514,7 +29575,7 @@
             "value_EN": "NW-7 barcode printed with 'A-72---A' (with a small corresponding string below)"
           }
         ],
-        "img_PNGName": null,
+        "img_PNGName": "attr_numberMark72",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -29778,7 +29839,7 @@
           { "Laterality": "#Lat_Upper", "TailCount": 4, "ClusterCount": 1 },
           { "Laterality": "#Lat_Lower", "TailCount": 3, "ClusterCount": 2 }
         ],
-        "TailsUnit_PNGName": "attr_tailsUnit73.png",
+        "TailsUnit_PNGName": "attr_tailsUnit73",
         "Note_JP": null,
         "Note_EN": null
       }
@@ -29903,7 +29964,7 @@
             "value_EN": "Arabic numeral '73' (motif composed of multiple triangles)"
           }
         ],
-        "img_PNGName": null,
+        "img_PNGName": "attr_numberMark73",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -30304,7 +30365,7 @@
             "value_EN": "Arabic numeral '74'"
           }
         ],
-        "img_PNGName": null,
+        "img_PNGName": "attr_numberMark74",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -30673,7 +30734,7 @@
             "value_EN": "Arabic numeral '75'"
           }
         ],
-        "img_PNGName": null,
+        "img_PNGName": "attr_numberMark75",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -30699,7 +30760,7 @@
             "value_EN": "Arabic numeral '75'"
           }
         ],
-        "img_PNGName": null,
+        "img_PNGName": "attr_numberMark75",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -31103,7 +31164,7 @@
             "value_EN": "Arabic numeral '76'"
           }
         ],
-        "img_PNGName": null,
+        "img_PNGName": "attr_numberMark76",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -31129,7 +31190,7 @@
             "value_EN": "Arabic numeral '76'"
           }
         ],
-        "img_PNGName": null,
+        "img_PNGName": "attr_numberMark76",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -31155,7 +31216,7 @@
             "value_EN": "Arabic numeral '76' (stylized motif)"
           }
         ],
-        "img_PNGName": null,
+        "img_PNGName": "attr_numberMark76-headset",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -31562,7 +31623,7 @@
             "value_EN": "Arabic numeral '77'"
           }
         ],
-        "img_PNGName": null,
+        "img_PNGName": "attr_numberMark77",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -31588,7 +31649,7 @@
             "value_EN": "Arabic numeral '77'"
           }
         ],
-        "img_PNGName": null,
+        "img_PNGName": "attr_numberMark77",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -31642,6 +31703,22 @@
         "Note_EN": null
       },
       {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_FaceMaking"],
+        "Laterality": null,
+        "DesignElement": "#Element_Emblem",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "緑のクリスタルの額マーキング",
+            "value_EN": "green crystal forehead marking"
+          }
+        ],
+        "img_PNGName": "attr_emblem77-facemaking",
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
         "Formation": "humanoid",
         "BodyPart": ["#BodyPart_Leg"],
         "Laterality": null,
@@ -31656,22 +31733,6 @@
             "AttrLabel": "#DesignAttr_Overview",
             "value_JP": "濃い色のストッキング",
             "value_EN": "dark stockings"
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
-      {
-        "Formation": "humanoid",
-        "BodyPart": null,
-        "Laterality": null,
-        "DesignElement": "#Element_Emblem",
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_Overview",
-            "value_JP": "緑のクリスタルの額マーキング",
-            "value_EN": "green crystal forehead marking"
           }
         ],
         "img_PNGName": null,
@@ -32437,7 +32498,7 @@
             "value_EN": "Arabic numeral with brackets: '<81>'"
           }
         ],
-        "img_PNGName": null,
+        "img_PNGName": "attr_numberMark81",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -32463,7 +32524,7 @@
             "value_EN": "Arabic numeral with brackets: '<81>'"
           }
         ],
-        "img_PNGName": null,
+        "img_PNGName": "attr_numberMark81",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -32933,7 +32994,7 @@
             "value_EN": "Arabic numeral '84'"
           }
         ],
-        "img_PNGName": null,
+        "img_PNGName": "attr_numberMark84",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -32959,7 +33020,7 @@
             "value_EN": "Arabic numeral '84'"
           }
         ],
-        "img_PNGName": null,
+        "img_PNGName": "attr_numberMark84",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -33238,7 +33299,7 @@
           { "Laterality": "#Lat_Upper", "TailCount": 3, "ClusterCount": 1 },
           { "Laterality": "#Lat_Lower", "TailCount": 5, "ClusterCount": 2 }
         ],
-        "TailsUnit_PNGName": "attr_tailsUnit85.png",
+        "TailsUnit_PNGName": "attr_tailsUnit85",
         "Note_JP": null,
         "Note_EN": null
       }
@@ -33748,7 +33809,7 @@
             "value_EN": "Arabic numeral '86'"
           }
         ],
-        "img_PNGName": null,
+        "img_PNGName": "attr_numberMark86",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -33774,7 +33835,7 @@
             "value_EN": "Arabic numeral '86'"
           }
         ],
-        "img_PNGName": null,
+        "img_PNGName": "attr_numberMark86",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -34526,7 +34587,7 @@
             "value_EN": "Arabic numeral '88' (horizontal orientation; can also be seen as two infinity symbols '∞' side by side)"
           }
         ],
-        "img_PNGName": null,
+        "img_PNGName": "attr_numberMark88",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -34621,7 +34682,7 @@
             "value_EN": "piano-keyboard holographic ring"
           }
         ],
-        "img_PNGName": null,
+        "img_PNGName": "attr_motif88-piano",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -34919,7 +34980,7 @@
             "value_EN": "Arabic numeral '89'"
           }
         ],
-        "img_PNGName": null,
+        "img_PNGName": "attr_numberMark89",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -34945,7 +35006,7 @@
             "value_EN": "Arabic numeral '89'"
           }
         ],
-        "img_PNGName": null,
+        "img_PNGName": "attr_numberMark89",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -35582,7 +35643,7 @@
           { "Laterality": "#Lat_Upper", "TailCount": 6, "ClusterCount": 1 },
           { "Laterality": "#Lat_Lower", "TailCount": 3, "ClusterCount": 2 }
         ],
-        "TailsUnit_PNGName": "attr_tailsUnit93.png",
+        "TailsUnit_PNGName": "attr_tailsUnit93",
         "Note_JP": null,
         "Note_EN": null
       }
@@ -35709,7 +35770,7 @@
             "value_EN": "Arabic numeral '93' (stylized motif)"
           }
         ],
-        "img_PNGName": null,
+        "img_PNGName": "attr_numberMark93",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -35735,7 +35796,7 @@
             "value_EN": "Arabic numeral '93' (stylized motif)"
           }
         ],
-        "img_PNGName": null,
+        "img_PNGName": "attr_numberMark93",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -36153,7 +36214,7 @@
             "value_EN": "Arabic numeral '94'"
           }
         ],
-        "img_PNGName": null,
+        "img_PNGName": "attr_numberMark94",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -36179,7 +36240,7 @@
             "value_EN": "Arabic numeral '94'"
           }
         ],
-        "img_PNGName": null,
+        "img_PNGName": "attr_numberMark94",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -37106,7 +37167,7 @@
             "value_EN": "Arabic numeral '97' (slightly stylized)"
           }
         ],
-        "img_PNGName": null,
+        "img_PNGName": "attr_numberMark97-1",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -37132,7 +37193,7 @@
             "value_EN": "Arabic numeral '97' (slightly stylized)"
           }
         ],
-        "img_PNGName": null,
+        "img_PNGName": "attr_numberMark97-2",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -37182,6 +37243,22 @@
           }
         ],
         "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Head"],
+        "Laterality": null,
+        "DesignElement": "#Element_Emblem",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "灰色の修道女風トップハットにある白い十字紋章",
+            "value_EN": "white cross emblem on gray nun-like top hat"
+          }
+        ],
+        "img_PNGName": "attr_emblem97-tophat",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -37516,7 +37593,7 @@
             "value_EN": "Arabic numeral '98'"
           }
         ],
-        "img_PNGName": null,
+        "img_PNGName": "attr_numberMark98",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -37542,7 +37619,7 @@
             "value_EN": "Arabic numeral '98'"
           }
         ],
-        "img_PNGName": null,
+        "img_PNGName": "attr_numberMark98",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -37922,7 +37999,7 @@
             "value_EN": "Kanji numeral '九十九' (Thukumo)"
           }
         ],
-        "img_PNGName": null,
+        "img_PNGName": "attr_numberMark99",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -37948,7 +38025,7 @@
             "value_EN": "Two shapes resembling the Arabic numeral '9', one circular and one linear, overlapping with a slight rotational offset"
           }
         ],
-        "img_PNGName": null,
+        "img_PNGName": "attr_numberMark99",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -38037,7 +38114,7 @@
         "Formation": null,
         "BodyPart": null,
         "Laterality": null,
-        "DesignElement": "#Element_Motif",
+        "DesignElement": "#Element_Halo",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Overview",
@@ -38045,7 +38122,7 @@
             "value_EN": "pink light-ring halo behind head"
           }
         ],
-        "img_PNGName": null,
+        "img_PNGName": "attr_halo99",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -38404,7 +38481,7 @@
             "value_EN": "Arabic numeral '2' with the label 'Bi-nor' slightly smaller and spanning across the numeral (the text reads as 'Bi 2 nor')"
           }
         ],
-        "img_PNGName": null,
+        "img_PNGName": "attr_numberMark2alt",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -38489,11 +38566,11 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Overview",
-            "value_JP": "オレンジ色の「試用中」ラベル",
-            "value_EN": "orange '試用中' (trial / test version) label"
+            "value_JP": "オレンジ色の「試用」ラベル",
+            "value_EN": "orange '試用' (trial / test) label"
           }
         ],
-        "img_PNGName": null,
+        "img_PNGName": "attr_tag2alt-試用",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -38721,7 +38798,7 @@
             "value_EN": "Roman numeral 'X'"
           }
         ],
-        "img_PNGName": null,
+        "img_PNGName": "attr_numberMark10alt",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -38832,7 +38909,7 @@
             "value_EN": "yellow '調整中' (under adjustment) caution label"
           }
         ],
-        "img_PNGName": null,
+        "img_PNGName": "attr_tag10alt-調整中",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -39065,7 +39142,7 @@
             "value_EN": "Arabic numeral '000'"
           }
         ],
-        "img_PNGName": null,
+        "img_PNGName": "attr_numberMark000",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -39091,7 +39168,7 @@
             "value_EN": "Arabic numeral '000'"
           }
         ],
-        "img_PNGName": null,
+        "img_PNGName": "attr_numberMark000",
         "Note_JP": null,
         "Note_EN": null
       },

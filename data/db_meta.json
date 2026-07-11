@@ -955,6 +955,11 @@
           "DesignElement_JP": "ヘイロー",
           "DesignElement_EN": "Halo"
         },
+        "#Element_Wing": {
+          "DesignElement": "Wing",
+          "DesignElement_JP": "翼・翅",
+          "DesignElement_EN": "Wing"
+        },
         "#Element_Emblem": {
           "DesignElement": "Emblem",
           "DesignElement_JP": "エムブレム/紋様",
