@@ -1,5 +1,51 @@
 # 最新のリファクタリング・仕様変更履歴
 
+### fix: SW 登録不能（importScripts 同一スコープでの `const` 再宣言）を修正 (2026-07-11)
+
+`Works_Proxies` 統合（下記 refactor）の際に `lib/data-common.js` へ追加したトップレベル `const LEGACY_WORK_DIR_ALIASES` が、`lib/sw-common.js` 側の同名 `const` と衝突していた。Service Worker は `importScripts()` で両ファイルを**同一グローバルスコープ**へ読み込むため、`const` の同名再宣言は SyntaxError となり、`pages/`・`svc/`・`api/` の 3 つの SW すべてが「ServiceWorker script evaluation failed」で登録・更新不能になっていた（function 宣言同士の重複は classic script では合法＝後勝ちのため無害）。ブラウザは SW 更新失敗時に**古い SW を使い続ける**ため、既存利用者には「共通資料（`#Works_CommonReferences`）だけ 500/404 になる」という形で顕在化し（旧 SW は `Works_Dir` オーバーライド未対応のため `/data/Works_CommonReferences/...` へ直行して 404）、新規訪問者には SW 全機能が動かない状態だった。
+
+- **`lib/data-common.js`**: 衝突していた `const` を `DATA_COMMON_LEGACY_WORK_DIR_ALIASES` へ改名（`resolveWorkDirName()` の function 重複による後勝ち上書き設計はそのまま維持）。
+- **`tests/sw.importscripts-scope.test.js`（新設）**: 各 SW スコープ（`pages`/`svc`/`api` + 共通 lib 群）でトップレベル `const`/`let`/`class` のファイル間再宣言が無いことを検証する回帰テストを追加。
+- 確認: `npm test` 全件成功（241件 + 新規3件）。実ブラウザで SW 再登録 → 共通資料の meta / DB 一覧 / レコード一覧 / 詳細表示 / Region8 代表画像の表示を確認。
+
+### add: `data/References/`（全作品共通の辞書）と `data/GeneralImages/`（全作品共通の画像）を「共通資料」仮想作品として公開 (2026-07-11)
+
+これまで表示専用の「shared layer 上乗せ」（各作品のReferences層DB表示に `data/References/db_type.json` を合流するだけ）でしか使われていなかったグローバル `data/References/`・`data/GeneralImages/` を、`#Works_CommonReferences`（表示名: 共通資料 / Common References）という仮想作品として、既存の `works/{work}/db/{dbName}` の仕組みでそのまま閲覧できるようにした。物理フォルダは一切移動せず（既存の shared layer 機構を壊さないため）、宣言的なオーバーライドで解決する設計。
+
+- **`data/db_meta.json`（グローバル）**: `CreationWorks` に `#Works_CommonReferences`（`Works_Dir: "References"`, `Works_ImagesDir: "GeneralImages"`, `Works_Shared: true`）を新設。
+- **`data/References/db_meta.json`**: 5つの `Databases.#Ref_*` エントリ全てに `DB_Layer: "References"` を追加。`#Ref_Region8` には特定レコードに紐づかないDB全体の代表画像として `DB_Image: "cnsp-map_region8.png"` を追加。
+- **`data/References/db_type.json`**: `$IndexDef`（`Term_JP`）を新設（実データが自然キーとして使用している値）。
+- **`data/db_type.json`（グローバル）**: `$MetaType.$Def_DatabaseCatalog.$DefType` に `DB_Image`（DB全体の代表画像ファイル名）を追加。
+- **`lib/sw-common.js`**: `DataFetcher` に `getWorksDirOverrides()`/`resolveWorkDir()`（`Works_Dir` オーバーライドのTTLキャッシュ付き解決、既存 `WORK_CTX_CACHE` と同じ方式）と `fetchWorkBaseMeta()`（`DataBases/db_meta.json` が無ければ直下へフォールバック）を新設。`readWorkMeta`/`readWorkType`/`readRefMeta`/`readLocMeta`/`readDB`/`listWorkDBs` を更新し、`layer===workDir` の場合にレイヤーセグメントを畳み込む規則を追加（既存作品は非該当のため無影響）。`decorateDatabaseCatalogEntries()`/`buildWorkCatalogEntry()` に `DB_Image`/`Works_Shared` のpass-throughを追加。
+- **`pages/characters.js`**: `resolveWorkDirName()` を `Works_Dir` オーバーライド対応に更新（シグネチャ不変）。新設 `resolveImagesRootOverride()`。`buildImagePath()`/`resolveImageStatically()` の画像パス組み立てを `imagesBase`（オーバーライドがあれば別ルート、無ければ従来通り `<wdir>/Images`）経由に統一。新設 `resolveDbCoverImageUrl()` を `renderSelectionMeta()` から呼び出し、DB概要欄に代表画像（`#meta-db-image`）を表示。`populateWorks()` は `Works_Shared:true` の項目を別 `<optgroup>` へ分離し、個別の創作タイトルと混同されないようにした。`renderReferenceConnectionsSection()` の `RelatedTerms` リンク先ハードコード（実在しない `'Glossary'` DBを指して常に壊れていた）を、新設した共通 `Vocabulary` DB（`#Works_CommonReferences`/`Vocabulary`）への参照に修正。
+- **`pages/characters.html`/`.sass`/`.css`**: DB概要欄に `#meta-db-image`（`.meta-overview__cover`）を追加。`asset-version` を更新。
+- **`pkg/cloudflare/worker.js`**: `getWorksDirOverrides()`/`resolveWorkDirWithOverride()` を新設し、`getWorkMeta()`（root フォールバック追加）・`resolveAndFetchDbFromR2()`（レイヤー畳み込み追加、現状ルーティングからは未使用のためコード整合性維持目的）に反映。
+- **`pkg/cloudflare/scripts/migrate.mjs`**: `resolveWorkDirForMigrate()`/`readWorkBaseFile()` を新設し、D1投入（`dbs`/`records`テーブル）の作品別メタ・型定義読み込みに `Works_Dir` オーバーライドとroot フォールバックを反映。R2アップロード（`data/**/*.json` を無条件・再帰的にアップロードする既存実装）は変更不要（既にグローバルReferencesも対象に含まれていたため）。**副次発見の既存バグ修正**: `resolveIdxKey(undefined)` が既定値 `"Num"` を返すため `idxKey = resolveIdxKey(dbSpecificType) || defaultIdxKey` が常に `"Num"` に固定され、work-level `$IndexDef`（ネスト型）が事実上死んでいた（`--dry-run`で発覚: `FLInvestigator78`/`ShouArRiders`/`UnibyteLive` の D1 `records.idx_key` が常に誤って `'Num'`・`idx_value`が空文字になっていた）。`dbSpecificType ? resolveIdxKey(dbSpecificType) : defaultIdxKey` に修正し、正しくネスト型indexKey（`Card.Suit`/`BeastType.Beast`/`Letter.AlphaGen`等）が使われるようにした。
+- 既知の制限（今回スコープ外、docsに明記）: サーバ/enrich側の画像解決（`lib/data-common.js`の`ImageProcessor`）はオーバーライド未対応（UIは独自解決のため実害なし）。Cloudflare Workers/D1側は他の実作品自体のReferencesレイヤーマージ（`readRefMeta`相当）に依然未対応（既存の別ギャップ）。`data/GeneralImages/Ref_Region8/cnsp-map_region8.png`はDB代表画像として今回対応、per-record画像としての追加対応は行っていない。
+- **`tests/sw.db-layer-routing.test.js`**: `Works_Dir`オーバーライド解決・root フォールバック・レイヤー畳み込みの検証テストを追加。
+- **`tests/data.shape.test.js`**: `Works_Dir`/`Works_ImagesDir`/`Works_Shared`・5つの`#Ref_*`エントリの`DB_Layer`・`$IndexDef`の存在検証テストを追加。
+- **`tests/pages.characters.ui-output.test.js`**: `resolveWorkDirName`/`resolveImagesRootOverride`のオーバーライド反映、`populateWorks()`の`<optgroup>`分離、`RelatedTerms`リンク先修正の検証テストを追加（既存1件は新しいリンク先に合わせて更新）。
+- **`docs/api-sw-spec.md`**: §5.5（新設）に本機構の全体仕様を追記。§3.3/§5.1/§5.2/§7にも関連箇所を追記。
+- **`docs/schema-meta-processing.md`**: §2.3/§4.1/§4.3に`Works_Dir`/`Works_ImagesDir`/`Works_Shared`/`DB_Image`/レイヤー畳み込み規則を追記。
+- 確認: `npm test` 全件成功（226件）。
+
+### refactor: `Works_Proxies` を `Works_DestinyFoxRecords` へ統合 (2026-07-11)
+
+「運命線狐の記録（フィジカル9）」（`Works_DestinyFoxRecords`）と「ラジアン代理」（`Works_Proxies`）はどちらも作者の近況報告用の作品で、既に `AnotherRegions_DBLink` で相互クロスリンクされていた（DFRの `Unit:"rad"` レコード ⇔ Proxiesの `Generation:2` レコードが同一人物「二春」を指す）。運用上1タイトルにまとめた方が見やすいという方針のもと、`Works_Proxies` を `Works_DestinyFoxRecords` の `Proxy` DB として物理統合した。従来2つの別Worksとして扱っていた理由は `$IndexDef`（Unit=物理単位 vs Generation=代理世代）の型・意味が異なるためで、`$IndexDef` は Work単位に1つしか持てない設計だったため、まず DB単位の上書きを可能にするアーキテクチャ拡張から着手した。
+
+- **`data/db_type.json`（グローバル、変更なし）/ 作品別 `db_type.json`**: `$IndexDef` はサイドカーキー `$IndexDef_<DbNorm>`（例: `$IndexDef_Proxy`）でDB単位の上書きを宣言できるようにした（`pkg/cloudflare/scripts/migrate.mjs` の既存の `$IndexDef_${dbNorm}` 命名規則に合わせた）。未宣言のDB/作品は常に work既定の `$IndexDef` にフォールバックするため、既存9作品は無変化。
+- **`lib/data-common.js`**: `EnrichmentProcessor.resolveIndexDefForDb(ctx, dbName)` を新設し、`enrichRecords()`/`searchRecords()`/`normalizeRecordByTypeDef()` の `#Index` 解釈すべてで共通に使用。あわせて `resolveWorkDirName()` に旧作品名エイリアス（`Proxies` → `Works_DestinyFoxRecords`）を追加（SW実行時は `importScripts` の読み込み順でこのファイルの定義が最終的に有効になるため、`lib/sw-common.js` 側の同名関数だけでなく必ずここにも同じ変更が要る）。
+- **`pages/characters.js`**: `getWorkIndexField(workKey, globalMeta, dbName)` に第3引数を追加しDB固有Indexを解決。`resolveWorkDirName()` にも同エイリアスを追加。`ISSUE_REPORT_WORK_LABELS` から `Proxies` エントリを削除。起動シーケンスに `?work=Proxies` 直リンク互換シム（`DestinyFoxRecords`/`Proxy` へ読み替えて `history.replaceState` でURL正規化）を追加。
+- **`lib/sw-common.js`**: `resolveWorkDirName()` に同エイリアスを追加（多層防御）。`buildDefaultDatabaseCatalogLabels()` の到達しないプリセットキー `Proxies` を実際のDB名 `Proxy` に是正。
+- **データ統合**: `data/Works_Proxies/**` を `data/Works_DestinyFoxRecords/**` へ移動・マージ（`Images/DB_Proxy/`, `DataBases/db_Proxy.json`, `Dictionaries/dict_Formation.json` の `orbify` エントリ, `Localization/trans_PersonName.json`/`trans_Rank.json`, `References/ref_Vocabulary.json` 等）。`AnotherRegions_DBLink` は同一Work内リンクとなったため `_Work` 指定を削除。`data/db_meta.json` から `#Works_Proxies` を削除。グローバル `data/Localization/trans_*.json` の `Scope` 配列に残っていた `Works_Proxies` も整理。`data/Works_Proxies/` は削除。
+- **`tests/enrich.indexdef.perdb.test.js`（新規）**: `$IndexDef_<DbNorm>` サイドカー解決の単体テスト（既存9作品の後方互換を実データで確認）。
+- **`tests/legacy-work-alias.test.js`（新規）**: 旧 `Works_Proxies` → `Works_DestinyFoxRecords` ディレクトリエイリアスの単体テスト。
+- **`tests/enrich.dblink.jump.merge.test.js`**: 統合後の同一Work内 `AnotherRegions_DBLink`（`_Work` 省略）マージの実データ回帰テストを追加。
+- **`tests/pages.characters.ui-output.test.js`**: `Works_Proxies` 参照パスを `Works_DestinyFoxRecords` へ更新。
+- **`tests/data.shape.test.js`**: `Works_Proxies` フォルダの非存在、`$IndexDef_Proxy` 宣言、`#DB_Proxy` カタログ登録を明示的にアサートするテストを追加。
+- **`docs/schema-meta-processing.md`**: §3.5.1（新設）にサイドカーキー方式を追記。
+- 確認: `npm test` 全件成功（233件）。`OldTitles`/`Works_Summary` への統合履歴文言の追記は creative content のため見送り、User確定待ち。
+
 ### add: `#PNGFilePath`/`#PNGFileName` 画像フィールド専用のDB/Work横断参照 `_DBCrossLinkPath` を新設 (2026-07-11)
 
 `../../DB_SemiPrimary/...` のような手書き相対パス（ブラウザのURL正規化に依存した非公式な回避策で、同一作品内のDBまたぎしかできず、SW/enrich側の `ImageProcessor.resolveImagePath()` では別のバグにより `Images/` セグメントが欠落する）を廃止し、`_DBLink` を参考にした画像パス専用の軽量な宣言的機構 `_DBCrossLinkPath` を新設した。`_DBLink`（対象レコードをインデックスで検索してフィールド値を穴埋めするレコード参照機構）とは異なり、`_DBCrossLinkPath` は対象Work/DBの画像フォルダ内の相対パスを直接指すだけで、対象レコードの検索・照合を一切行わない。

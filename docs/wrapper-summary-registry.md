@@ -54,7 +54,7 @@
 - `formsMotifSection` — IdentityMotif / FormsMotif 表示（`lib/section-renders/formsMotif.js`）
 - `thisMastersSection` — ThisMasters (`$Def_ThisMastersEntry[]`) 表示（`lib/section-renders/thisMasters.js`）
 - `dbLinkSection` — `*_DBLink` suffix フィールドのキャラクターリンク参照表示（`lib/section-renders/dblink.js`）
-- `appearanceDetailSection` — `AppearanceDetail` (`$Def_AppearanceDetail[]`) 外見デザイン詳細の Formation グループ別表示。`vdict_*` / `value_Num_*` / `value_JP` / `about_JP` の規約駆動フィールドを `$EnumDef_*`（global+local マージ）で解決する（`lib/section-renders/appearanceDetail.js`）
+- `appearanceDetailSection` — `AppearanceDetail` (`$Def_AppearanceDetail[]`) 外見デザイン詳細の Formation グループ別表示。`vdict_*` / `value_Num_*` / `value_JP` / `about_JP` の規約駆動フィールドを `$EnumDef_*`（global+local マージ）で解決し、参考画像（`img_PNGName`）がある場合はライトボックス対応で表示する。画像フォルダは `DesignElement` の `#Element_*` から `attr/<lowerCamel>` を自動導出し、判別不能時のみ従来互換として `img/` を既定値にする（`lib/section-renders/appearanceDetail.js`）
 - `tailsUnitSection` — `TailsUnit` (`$Def_TailsUnit[]`) の1エントリごとの標準表示（形状タグ・本数・節数・方向句・分岐内訳・補足テキスト・参考画像）。参考画像（`TailsUnit_PNGName`）は `$subfolder` をスキーマから解決した上で `createGalleryImageItem`（ライトボックス拡大表示対応）で表示する（`lib/section-renders/tailsUnit.js`）
 
 **suffix 自動ディスパッチ**: `dbLinkSection` と `relationSection` は `$display.sectionWrapper` の宣言なしに suffix だけで自動マッチする。

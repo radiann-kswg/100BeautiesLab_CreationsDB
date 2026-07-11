@@ -11,8 +11,7 @@
       "Works_SinisterChangingGirls",
       "Works_UnauthedLogica",
       "Works_PastDivers",
-      "Works_DestinyFoxRecords",
-      "Works_Proxies"
+      "Works_DestinyFoxRecords"
     ],
     "Summary_JP": "この創作作品における創作世界全域を意味する",
     "Summary_EN": "This refers to the entire fictional world in this creation work"
@@ -21,7 +20,7 @@
     "Term_JP": "第１界",
     "Term_EN": "#REGION.1",
     "TransPolicy": "#TP_SemanticTranslate",
-    "Scope": ["Works_DestinyFoxRecords", "Works_Proxies"],
+    "Scope": ["Works_DestinyFoxRecords"],
     "Summary_JP": "この創作世界の外部にあり、時間の概念が強く描写されているとされる",
     "Summary_EN": "Outside of the creation world, where the concept of time is strongly depicted."
   },
@@ -29,7 +28,7 @@
     "Term_JP": "第２界",
     "Term_EN": "#REGION.2",
     "TransPolicy": "#TP_SemanticTranslate",
-    "Scope": ["Works_DestinyFoxRecords", "Works_Proxies"],
+    "Scope": ["Works_DestinyFoxRecords"],
     "Summary_JP": "この創作世界の外部にあり、尺度や大きさの概念が強く描写されているとされる",
     "Summary_EN": "Outside of the creation world, where the concepts of scale and size are strongly depicted."
   },
@@ -37,7 +36,7 @@
     "Term_JP": "第３界",
     "Term_EN": "#REGION.3",
     "TransPolicy": "#TP_SemanticTranslate",
-    "Scope": ["Works_DestinyFoxRecords", "Works_Proxies"],
+    "Scope": ["Works_DestinyFoxRecords"],
     "Summary_JP": "この創作世界の外部にあり、物理力や重さの概念が強く描写されているとされる",
     "Summary_EN": "Outside of the creation world, where the concepts of physical force and weight are strongly depicted."
   },
@@ -45,7 +44,7 @@
     "Term_JP": "第４界",
     "Term_EN": "#REGION.4",
     "TransPolicy": "#TP_SemanticTranslate",
-    "Scope": ["Works_DestinyFoxRecords", "Works_Proxies"],
+    "Scope": ["Works_DestinyFoxRecords"],
     "Summary_JP": "この創作世界の外部にあり、明るさや色彩の概念が強く描写されているとされる",
     "Summary_EN": "Outside of the creation world, where the concepts of brightness and color are strongly depicted."
   },
@@ -53,7 +52,7 @@
     "Term_JP": "第５界",
     "Term_EN": "#REGION.5",
     "TransPolicy": "#TP_SemanticTranslate",
-    "Scope": ["Works_DestinyFoxRecords", "Works_Proxies"],
+    "Scope": ["Works_DestinyFoxRecords"],
     "Summary_JP": "この創作世界の外部にあり、寒暖や熱量の概念が強く描写されているとされる",
     "Summary_EN": "Outside of the creation world, where the concepts of temperature and heat are strongly depicted."
   },
@@ -61,7 +60,7 @@
     "Term_JP": "第６界",
     "Term_EN": "#REGION.6",
     "TransPolicy": "#TP_SemanticTranslate",
-    "Scope": ["Works_DestinyFoxRecords", "Works_Proxies"],
+    "Scope": ["Works_DestinyFoxRecords"],
     "Summary_JP": "この創作世界の外部にあり、電機系統の概念が強く描写されているとされる",
     "Summary_EN": "Outside of the creation world, where the concepts of electrical systems are strongly depicted."
   },
@@ -69,7 +68,7 @@
     "Term_JP": "第７界",
     "Term_EN": "#REGION.7",
     "TransPolicy": "#TP_SemanticTranslate",
-    "Scope": ["Works_DestinyFoxRecords", "Works_Proxies"],
+    "Scope": ["Works_DestinyFoxRecords"],
     "Summary_JP": "この創作世界の外部にあり、粒子の概念が強く描写されているとされる",
     "Summary_EN": "Outside of the creation world, where the concepts of particles are strongly depicted."
   },
@@ -77,7 +76,7 @@
     "Term_JP": "超次元執筆空間(アトリエ)",
     "Term_EN": "#ATELIER: the super-dimensional owners' space",
     "TransPolicy": "#TP_SemanticTranslate",
-    "Scope": ["Works_DestinyFoxRecords", "Works_Proxies"],
+    "Scope": ["Works_DestinyFoxRecords"],
     "isSecondary": true,
     "Summary_JP": "どの創作世界にも属されない特殊な空間で、創造主(ことこの創作作品を創作している作者を含めた創作者)が存在している次元",
     "Summary_EN": "A special space that does not belong to the creation world, where the creator (including the author of this creation work) exists."

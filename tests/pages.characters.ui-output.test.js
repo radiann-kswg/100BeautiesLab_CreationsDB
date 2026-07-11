@@ -241,9 +241,10 @@ const flInvestigatorWorkTypeDef = loadJson('data/Works_FLInvestigator78/DataBase
 const flInvestigatorWorkMeta = buildWorkMetaFixture('Works_FLInvestigator78');
 const flInvestigatorPrimaryRecords = loadJson('data/Works_FLInvestigator78/DataBases/db_Primary.json');
 const phoenixRecord = flInvestigatorPrimaryRecords.find((record) => Number(record?.Card?.Num) === 0);
-const proxiesWorkTypeDef = loadJson('data/Works_Proxies/DataBases/db_type.json');
-const proxiesWorkMeta = buildWorkMetaFixture('Works_Proxies');
-const proxyRecords = loadJson('data/Works_Proxies/DataBases/db_Proxy.json');
+// Works_Proxies は Works_DestinyFoxRecords へ統合済み（Proxy DB として編入）
+const proxiesWorkTypeDef = loadJson('data/Works_DestinyFoxRecords/DataBases/db_type.json');
+const proxiesWorkMeta = buildWorkMetaFixture('Works_DestinyFoxRecords');
+const proxyRecords = loadJson('data/Works_DestinyFoxRecords/DataBases/db_Proxy.json');
 const secondGenProxyRecord = proxyRecords.find((record) => Number(record?.Generation) === 2);
 const numberTalesWorkTypeDef = loadJson('data/Works_NumberTales/DataBases/db_type.json');
 const numberTalesWorkMeta = buildWorkMetaFixture('Works_NumberTales');
@@ -400,7 +401,7 @@ describe('pages/characters.js UI output', () => {
 			}
 		});
 
-		await charactersModule.renderDetail('#Works_Proxies', secondGenProxyRecord);
+		await charactersModule.renderDetail('#Works_DestinyFoxRecords', secondGenProxyRecord);
 
 		expect(getBasicFieldValue('Race')).toBe('Warfox(Acquired)');
 	});
@@ -1030,7 +1031,9 @@ describe('pages/characters.js UI output', () => {
 		const links = Array.from(section.querySelectorAll('a'));
 		const termLink = links.find((link) => link.textContent?.trim() === '数秘加護');
 		expect(termLink).toBeTruthy();
-		expect(new URL(termLink.href).searchParams.get('db')).toBe('Glossary');
+		// RelatedTerms は「共通資料」疑似作品の Vocabulary DB へリンクする（旧: 実在しない Glossary への壊れたリンク）
+		expect(new URL(termLink.href).searchParams.get('work')).toBe('Works_CommonReferences');
+		expect(new URL(termLink.href).searchParams.get('db')).toBe('Vocabulary');
 		expect(new URL(termLink.href).searchParams.get('q')).toBe('数秘加護');
 
 		const creationLinks = links.filter((link) => link.textContent?.includes('ナンバーテールズ / '));
@@ -1164,5 +1167,43 @@ describe('pages/characters.js UI output', () => {
 
 		const section = getSubFieldSectionNode('TailsUnit');
 		expect(section?.querySelector('.tailsunit__reference-image')).toBeFalsy();
+	});
+
+	it('resolveWorkDirName/resolveImagesRootOverride honor Works_Dir/Works_ImagesDir overrides from CreationWorks', () => {
+		charactersModule.__setCharactersTestState({
+			globalMeta: {
+				CreationWorks: {
+					'#Works_CommonReferences': { Works_Dir: 'References', Works_ImagesDir: 'GeneralImages' }
+				}
+			}
+		});
+
+		expect(charactersModule.__resolveWorkDirNameForTest('#Works_CommonReferences')).toBe('References');
+		expect(charactersModule.__resolveImagesRootOverrideForTest('#Works_CommonReferences')).toBe('GeneralImages');
+		// オーバーライドが無い作品は従来通りの導出のまま（回帰確認）
+		expect(charactersModule.__resolveWorkDirNameForTest('#Works_NumberTales')).toBe('Works_NumberTales');
+		expect(charactersModule.__resolveImagesRootOverrideForTest('#Works_NumberTales')).toBe('');
+	});
+
+	it('populateWorks() groups Works_Shared:true entries into a separate optgroup', async () => {
+		charactersModule.__setCharactersTestState({
+			worksCatalog: [
+				{ key: '#Works_NumberTales', Title_JP: 'ナンバーテールズ', Title_EN: 'NumberTales', Works_Shared: false },
+				{ key: '#Works_CommonReferences', Title_JP: '共通資料', Title_EN: 'Common References', Works_Shared: true }
+			]
+		});
+
+		await charactersModule.__populateWorksForTest('#Works_NumberTales');
+
+		const sel = document.querySelector('#select-work');
+		const optgroups = Array.from(sel.querySelectorAll('optgroup'));
+		expect(optgroups.length).toBe(1);
+		expect(optgroups[0].getAttribute('label')).toBe('共通資料');
+
+		const sharedOption = optgroups[0].querySelector('option');
+		expect(sharedOption?.value).toBe('#Works_CommonReferences');
+
+		const topLevelOptions = Array.from(sel.children).filter((node) => node.tagName === 'OPTION');
+		expect(topLevelOptions.map((o) => o.value)).toEqual(['#Works_NumberTales']);
 	});
 });

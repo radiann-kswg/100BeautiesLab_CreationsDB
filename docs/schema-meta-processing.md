@@ -73,6 +73,8 @@
 
 - `CreationWorks.<work>` による作品カタログ
 - `CreationWorks.<work>.$DetailLayout` による詳細補助レイアウト
+- `CreationWorks.<work>.Works_Dir` / `Works_ImagesDir` による物理ディレクトリ名オーバーライド（`Works_<id>` 規約に沿わないフォルダを持つ疑似作品向け。例: 共通資料 `#Works_CommonReferences`）
+- `CreationWorks.<work>.Works_Shared` による「個別の創作タイトルではない共通カタログ」フラグ（UI の作品セレクトで別 `<optgroup>` に分離表示）
 - `General.$VarsDef` による共通表示辞書の合流先
 
 典型用途:
@@ -313,6 +315,24 @@
 
 内部処理では `EnrichmentProcessor.getWorkContext()` が、まず `workType.$IndexDef` を見て、無ければ旧メタ互換にフォールバックします。
 
+#### 3.5.1 DB単位の上書き（サイドカーキー `$IndexDef_<DbNorm>`、2026-07-11 新設）
+
+`$IndexDef` は本来 Work単位の1宣言ですが、同一Work内の複数DBがそれぞれ異なる意味のIndexを持つ場合（例: 「運命線狐の記録」の `Primary` DBは理学単位 `Unit`、`Proxy` DBは代理世代 `Generation`）、`db_type.json` トップレベルに `$IndexDef_<DbNorm>` を追加宣言することで、DB単位に上書きできます。`DbNorm` は DB名から `#DB_` / `#Ref_` / `#Loc_` prefix を除去し先頭を大文字化したもの（例: `Proxy`, `Primary`）です。
+
+```jsonc
+{
+  "$IndexDef": { "hashTag": "Unit", "$type": "#String", ... },        // 既定値（Primary 相当）
+  "$IndexDef_Proxy": { "hashTag": "Generation", "$type": "#Number", ... }, // Proxy DB専用の上書き
+  "$DefType": [ ... ]
+}
+```
+
+この命名規則は `pkg/cloudflare/scripts/migrate.mjs` の `$IndexDef_${dbNorm}`（D1インデックス投入時のIndex解決）に先行実装があり、GitHub Pages側（`lib/data-common.js` の `EnrichmentProcessor.resolveIndexDefForDb()`、`pages/characters.js` の `getWorkIndexField()`）もこれに合わせています。
+
+- `$IndexDef_<DbNorm>` が未宣言のDB/作品は、常に Work既定の `$IndexDef` にフォールバックします（既存作品は無変化）。
+- `resolveIndexDefForDb(ctx, dbName)` は `enrichRecords()` / `searchRecords()` / `normalizeRecordByTypeDef()` の `#Index` 正規化・整形すべてで共通に使われます。
+- UI側 `getWorkIndexField(workKey, globalMeta, dbName)` も同じ規則で `state.workTypeDef` からDB固有Indexを解決します。
+
 ### 3.6 `$MetaType`
 
 トップレベル `$MetaType` は、作品/DB カタログの補助 schema 宣言です。キャラクター本体の `$DefType` と別系統です。
@@ -364,6 +384,8 @@
 - `Works_Summary`
 - `OldTitles[]`
 - `$DetailLayout`
+- `Works_Dir` / `Works_ImagesDir`（物理ディレクトリ名オーバーライド。省略時は既定の `Works_<id>` / `<workDir>/Images` を使う。詳細は `docs/api-sw-spec.md` §5.5）
+- `Works_Shared`（個別の創作タイトルではない共通カタログであることを示すフラグ）
 
 この情報は `StandardEndpointHandlers.buildWorkCatalogEntry()` で works 系 API へ正規化されます。
 
@@ -396,6 +418,7 @@
 - `DB_File`
 - `StoryEra`
 - `SecondarySummary`
+- `DB_Image`
 - `_Commons`
 - `_Secondaries`
 
@@ -410,6 +433,10 @@
 画像ディレクトリ名もこの catalog key 系に揃え、通常 DB は `Images/DB_<DbName>/...`、資料系 DB は `Images/Ref_<RefName>/...` を既定とします。作品共通画像のみ `Images/General/` を使います。
 
 資料系 DB の画像定義は shared `data/References/db_type.json` を土台にしつつ、作品別 `References/db_type.json` の `Images.*` 宣言で上書きや追加を行えます。UI の画像解決では、この 2 層を合流したうえで field 名から folder hint を導出し、DB 固有名のハードコード追加を避けます。
+
+`DB_Image` は特定レコードに紐づかない、DB全体の代表画像（俯瞰画像・DBアイコン等）のファイル名を表す補助キーです。`works/{work}/db` 応答へそのまま含まれ、UI の DB 概要欄（`renderSelectionMeta()`）に表示されます。per-record画像フィールドのようなフォルダ推論（`extractImageFields`系）は行わず、画像ディレクトリ（`Images/DB_<DbName>/` または `Images/Ref_<RefName>/`、共通資料の疑似作品では `Works_ImagesDir` オーバーライド先）直下のファイル名として直接解決します。
+
+`DB_Layer` が作品の物理ディレクトリ名（`Works_Dir` オーバーライド解決後）自身と一致する場合、SW/Workers/migrateの各実装はレイヤーセグメントをパスから畳み込みます（`docs/api-sw-spec.md` §5.5参照）。これは共通資料の疑似作品（`Works_Dir: "References"` + `DB_Layer: "References"`）のように、`DataBases/`のような追加サブフォルダを持たないフラットなレイアウトの作品を扱うための規則で、通常の作品（`DB_Layer`が`Works_<Name>`と一致することはない）には影響しません。
 
 ### 4.4 `StoryEra`
 
@@ -593,6 +620,8 @@ UI 側は厳密構造より `about_JP` / `about_EN` を優先して整形表示�
 1. `workType.$IndexDef`
 2. `globalMeta.CreationWorks.<work>.$DefType_Index`
 3. `globalMeta.CreationWorks.<work>.$Def_Index`
+
+補足（2026-07-11）: `getWorkContext()` が返す `ctx.indexDef` は「work既定」の値です。DB単位の解決が必要な箇所（`enrichRecords()` / `searchRecords()` / `normalizeRecordByTypeDef()`）は、`ctx.indexDef` を直接使わず `EnrichmentProcessor.resolveIndexDefForDb(ctx, dbName)` を経由します。これは `ctx.workType` から `$IndexDef_<DbNorm>`（§3.5.1）を先に探し、無ければ `ctx.indexDef` にフォールバックします。
 
 補足（2026-07-10）: `indices.imagePathHints` を作る `TypeDefUtils.buildImagePathHints()` は、`$type` が配列のインラインネスト（例: `Images` フィールド）だけでなく、`"$Def_TailsUnit[]"` のような名前付き型参照文字列も `CharacterValueWrapperRegistry.helpers.resolveTypeDefEntries()`（`lib/wrapper-common.js`、SW側は `importScripts` で先に読み込まれるため同一グローバルスコープから参照可能）経由で解決し、内部の画像フィールドまで再帰的に辿ります。これにより `$Def_TailsUnit.TailsUnit_PNGName` や `$Def_AppearanceDetail.img_PNGName` のような、名前付き構造化型の内部に宣言された画像フィールドも typedef 駆動で自動検出されます。
 

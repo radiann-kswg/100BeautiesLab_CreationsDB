@@ -710,6 +710,13 @@
           "$type": "#Summary|#Null",
           "hashTag_JP": "二次創作概要（英語）",
           "hashTag_EN": "Secondary Summary (EN)"
+        },
+        {
+          "hashTag": "DB_Image",
+          "$type": "##String|#Null",
+          "hashTag_JP": "DB代表画像",
+          "hashTag_EN": "Database Cover Image",
+          "$display": { "role": "internal" }
         }
       ]
     },

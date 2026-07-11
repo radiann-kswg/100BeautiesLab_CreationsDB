@@ -286,29 +286,14 @@
         "subFields": ["ConversationPattern", "AnotherRegions_DBLink"]
       }
     },
-    "#Works_Proxies": {
-      "Title_JP": "ラジアン代理",
-      "CalendarColorId": "1",
-      "Title_EN": "RadianN's Proxy",
-      "Works_Summary_JP": "弊創作を執筆している「ラジアン」の代理キャラクター",
-      "Works_Summary_EN": "Proxy characters of 'RadianN,' the author writing this creative series.",
-      "$DetailLayout": {
-        "headerPills": ["Progress"],
-        "basicFields": [
-          "FormalName",
-          "ModelName",
-          "ModelNumber",
-          "CodeName",
-          "Class",
-          "Age",
-          "BirthDay",
-          "RaceType",
-          "GenderType",
-          "Height_cm",
-          "Weight_kg"
-        ],
-        "subFields": ["ConversationPattern"]
-      }
+    "#Works_CommonReferences": {
+      "Title_JP": "共通資料",
+      "Title_EN": "Common References",
+      "Works_Summary_JP": "特定の作品に属さない、創作世界全体で共有する種族・組織・社会情勢・地域文化・語彙などの参照資料集。",
+      "Works_Summary_EN": "A shared reference collection spanning the whole creative universe — race, faction, society, regional culture, and vocabulary records that don't belong to any single work.",
+      "Works_Dir": "References",
+      "Works_ImagesDir": "GeneralImages",
+      "Works_Shared": true
     }
   },
   "General": {
@@ -969,6 +954,11 @@
           "DesignElement": "Halo",
           "DesignElement_JP": "ヘイロー",
           "DesignElement_EN": "Halo"
+        },
+        "#Element_Wing": {
+          "DesignElement": "Wing",
+          "DesignElement_JP": "翼・翅",
+          "DesignElement_EN": "Wing"
         },
         "#Element_Emblem": {
           "DesignElement": "Emblem",

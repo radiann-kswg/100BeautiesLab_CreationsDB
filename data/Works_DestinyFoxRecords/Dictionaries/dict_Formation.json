@@ -8,5 +8,10 @@
     "Formation": "weakening",
     "Formation_JP": "弱体球体化姿",
     "Formation_EN": "Weakening-spherification Appearance"
+  },
+  {
+    "Formation": "orbify",
+    "Formation_JP": "オービファイ",
+    "Formation_EN": "Orbify (Orb-like Spherification) Appearance"
   }
 ]

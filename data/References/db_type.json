@@ -1,4 +1,5 @@
 {
+  "$IndexDef": { "hashTag": "Term_JP", "hashTag_JP": "用語", "hashTag_EN": "Term" },
   "$DefType": [
     {
       "hashTag": "Term",

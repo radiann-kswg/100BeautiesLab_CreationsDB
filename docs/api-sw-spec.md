@@ -154,7 +154,9 @@ UI と enrich/search は、可能な限りこの `db_type.json($DefType)` に追
   - `$MetaType`: 作品/DB カタログ向けメタ情報の補助 schema 宣言
   - `CreationWorks.<work>.Title` / `Title_EN` / `Works_Summary` / `OldTitles`: 作品一覧・作品概要のカタログ情報
   - `CreationWorks.<work>.$DetailLayout`: 詳細表示レイアウト補助
-  - `Databases.#DB_<DbName>` / `Databases.#Ref_<RefName>` の `DB_Label` / `DB_Label_EN` / `DB_Summary` / `DB_Layer` / `DB_File` / `StoryEra`: DB 一覧・DB概要のカタログ情報
+  - `CreationWorks.<work>.Works_Dir` / `Works_ImagesDir`: 物理ディレクトリ名オーバーライド（後述 §5.5）
+  - `CreationWorks.<work>.Works_Shared`: 個別の創作タイトルではない共通カタログ（例: 共通資料）であることを示すフラグ。UI ではこれを持つ作品を別 `<optgroup>` へ分離表示する
+  - `Databases.#DB_<DbName>` / `Databases.#Ref_<RefName>` の `DB_Label` / `DB_Label_EN` / `DB_Summary` / `DB_Layer` / `DB_File` / `StoryEra` / `DB_Image`: DB 一覧・DB概要のカタログ情報（`DB_Image` は特定レコードに紐づかないDB全体の代表画像ファイル名）
   - `Databases.#DB_<DbName>._Commons`: DB 全体の共通穴埋め
   - `Databases.#DB_<DbName>._Secondaries`: `sec_**` 条件に応じた `_Commons` 分岐
     - 全ての `sec_**` 条件が `null` / 空の定義はデフォルト fallback として扱い、`null` 以外の条件を持つ定義が一致した場合はそちらを優先します
@@ -214,7 +216,7 @@ UI と enrich/search は、可能な限りこの `db_type.json($DefType)` に追
 - `GET /pages/v1/works/{work}`
   - `meta` に加えて `workInfo` を返し、グローバル `CreationWorks.<work>` のカタログ情報を参照できます
 - `GET /pages/v1/works/{work}/db`
-  - 各 DB ごとに `key`, `file`, `layer`, `metaKey`, `DB_Label`, `DB_Label_EN`, `DB_Summary`, `DB_Layer`, `StoryEra`, `SecondarySummary` を返します
+  - 各 DB ごとに `key`, `file`, `layer`, `metaKey`, `DB_Label`, `DB_Label_EN`, `DB_Summary`, `DB_Layer`, `StoryEra`, `SecondarySummary`, `DB_Image` を返します
 - `GET /pages/v1/bootstrap`
   - 各作品項目に `workInfo` を含め、`databases[]` も上記の DB カタログ情報付きで返します
 
@@ -240,7 +242,7 @@ UI と enrich/search は、可能な限りこの `db_type.json($DefType)` に追
 - `$Def_StoryEra`
   - `EraGen`, `YearInEra`, `byRealYear`, `about_JP`, `about_EN`
 - `$Def_DatabaseCatalog`
-  - `DB_Label`, `DB_Label_EN`, `DB_Summary`, `DB_Layer`, `DB_File`, `StoryEra`, `SecondarySummary`
+  - `DB_Label`, `DB_Label_EN`, `DB_Summary`, `DB_Layer`, `DB_File`, `StoryEra`, `SecondarySummary`, `DB_Image`
 - `$Def_StoryEraCatalog`
   - `FromEra[]`, `ToEra[]`, `InEra[]`, `about_JP`, `about_EN`
 
@@ -327,6 +329,47 @@ UI と enrich/search は、可能な限りこの `db_type.json($DefType)` に追
 
 ---
 
+## 5.5 `Works_Dir` / `Works_ImagesDir` による物理レイアウトオーバーライド（共通資料の疑似作品）
+
+`data/References/`（種族・組織・社会情勢・地域文化・語彙などの全作品共通辞書）と `data/GeneralImages/`（全作品共通の画像）を、`#Works_CommonReferences`（表示名: 共通資料 / Common References）という**仮想作品**として `works/{work}/db/{dbName}` の既存の仕組みでそのまま閲覧できるようにする機構。
+
+背景: これらのフォルダは `Works_<Name>/DataBases/...` という通常の作品レイアウト規約に沿わない（`Works_` 接頭辞が無い・`DataBases/` サブフォルダが無い・画像も `<workDir>/Images/` ではなく別ルート直下）。フォルダを規約に合わせて移動すると、既存の「shared layer 上乗せ」機構（`pages/characters.js` の `fetchSharedLayerTypeDef('References')` 等が `data/References/db_type.json` を直接 fetch し、各作品の References レイヤーDB表示に合流する仕組み）が壊れるため、既存ファイルは一切移動せず、宣言的なオーバーライドで解決する。
+
+`CreationWorks.<key>` に追加できる新規フィールド:
+
+- `Works_Dir`（string, 省略可）: 物理ディレクトリ名オーバーライド。省略時は従来通り `Works_<id>` を導出する。
+- `Works_ImagesDir`（string, 省略可）: 画像ルートのオーバーライド。省略時は従来通り `<workDir>/Images` を使う。
+- `Works_Shared`（boolean, 省略可）: 個別の創作タイトルではない共通カタログであることを示すフラグ。UI の作品セレクトはこれを持つ項目を別 `<optgroup>` へ分離し、個別タイトルと混同されないようにする。
+
+例（`data/db_meta.json`）:
+
+```json
+"#Works_CommonReferences": {
+  "Title_JP": "共通資料",
+  "Title_EN": "Common References",
+  "Works_Dir": "References",
+  "Works_ImagesDir": "GeneralImages",
+  "Works_Shared": true
+}
+```
+
+解決の流れ:
+
+- `lib/sw-common.js` の `DataFetcher.resolveWorkDir(workId)` は、`getWorksDirOverrides()`（`data/db_meta.json` を軽量fetchして `Works_Dir` を集めたTTLキャッシュ）を優先し、無ければ既存の `resolveWorkDirName()`（`#Works_<Name>` → `Works_<Name>` の単純置換）にフォールバックする。既存作品はこのフィールドを持たないため、動作は一切変わらない。
+- `readWorkMeta`/`readWorkType` は `DataBases/db_meta.json`（`db_type.json`）を先に試し、404なら直下の同名ファイルへフォールバックする（`References/` は `DataBases/` サブフォルダを持たないため）。
+- `readDB`/`listWorkDBs` は、DB の `DB_Layer` が解決済み `workDir` 自身と一致する場合（例: `workDir==='References'` かつ `DB_Layer==='References'`）、パス結合時にレイヤーセグメントを畳み込み、`/data/References/References/...` の二重化を避ける。既存作品では `DB_Layer` が `Works_<Name>` 名と一致することは無いため非破壊。
+- 画像側は `pages/characters.js` の `resolveImagesRootOverride(workId)` が同じ `Works_ImagesDir` を読み、`buildImagePath`/`resolveImageStatically` は `imagesRootOverride` があれば `/data/${imagesRootOverride}/...` を、無ければ従来通り `/data/${wdir}/Images/...` を使う。
+- `pkg/cloudflare/worker.js`（`resolveWorkDirWithOverride`/`getWorkMeta`）と `pkg/cloudflare/scripts/migrate.mjs`（`resolveWorkDirForMigrate`/`readWorkBaseFile`）にも同じオーバーライド・フォールバック・レイヤー畳み込みを実装済み。R2アップロード（`data/**/*.json` を無条件・再帰的にアップロードする既存実装）と画像配信（GitHub Pagesからの直接静的配信、R2/D1を経由しない）は変更不要。
+
+既知の制限:
+
+- サーバ/enrich側の画像解決（`lib/data-common.js` の `ImageProcessor`）は今回オーバーライド対応していない。UI（`pages/characters.js`）は `_enrichment.images`/`primaryImage` を参照せず独自の画像解決を使うため実害は無いが、`enrich=1` の応答に含まれる `_enrichment.images` 系フィールドの値は共通資料の疑似作品では不正確になり得る（既存作品の per-work References DB でも同様の既存ギャップがあり、今回新規に持ち込んだものではない）。
+- Cloudflare Workers/D1側は、他の実作品（`Works_NumberTales` 等）自体の「作品別Referencesレイヤーのマージ」（`readRefMeta`/`mergeLayerDatabases` 相当）を依然としてサポートしていない（既存の別ギャップ）。今回追加した `Works_Dir`/フォールバック/レイヤー畳み込みは、共通資料の疑似作品を成立させるための最小限の対応である。
+
+DB全体の代表画像（`DB_Image`、§3.3/§5.2参照）も、この疑似作品向けに `data/References/db_meta.json` の `#Ref_Region8` エントリで使用している（`data/GeneralImages/Ref_Region8/cnsp-map_region8.png`、特定レコードに紐づかない第8界全体の俯瞰マップ）。
+
+---
+
 補足:
 
 - 2026-05-11 時点では `StoryEra` と `Day` の summary 組み立てに向けて `$display.role` を導入し始めており、UI は `preferredLabel` / `representativePoint` / `rangeStart` / `rangeEnd` や `month` / `dayOfMonth` / `annotation` を参照できる状態になっています。
@@ -388,6 +431,7 @@ UI と enrich/search は、可能な限りこの `db_type.json($DefType)` に追
 - `_enrichment` は UI 制御用の補助メタです
 - 公開表示では、そのまま全文を見せる前提ではありません
 - UI 側は typedef / meta を使って、必要なキーだけを表示します
+- `_enrichment.images`/`primaryImage` は `Works_Dir`/`Works_ImagesDir` オーバーライド（§5.5）に未対応。UI はこれらを参照せず独自解決するため実害は無いが、共通資料の疑似作品ではAPI応答上の値が不正確になり得る（既存の別ギャップ）
 
 ---
 

@@ -274,8 +274,7 @@ UI → Service Worker (`/pages/v1/`) → 静的 JSON 読み込み + `_DBLink`/`_
 5. **豹変系女子 (SinisterChangingGirls)** — 七つの大罪・八方位ベースの女性的なキャラクター
 6. **アンオースドロジカ (UnauthedLogica)** — 論理 ICベースの機械人形とナンバーテールズのパラレルキャラクター（構想途中）
 7. **パストダイヴァー (PastDivers)** — 和暦ベースの特殊国家技術者（構想途中）
-8. **運命線狐の記録 (DestinyFoxRecords)** — 作者の日常投稿に登場する代理キャラクター周辺
-9. **代理 (Proxies)** — 代理キャラクター
+8. **運命線狐の記録 (DestinyFoxRecords)** — 作者の日常投稿に登場する代理キャラクター周辺（2026-07-11、旧「代理 (Proxies)」を Proxy DB として統合済み）
 
 ### データベース種別
 
