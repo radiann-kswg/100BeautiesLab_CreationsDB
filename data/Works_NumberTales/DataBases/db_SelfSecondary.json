@@ -99,8 +99,8 @@
       { "_Work": "NumberTales", "_DB": "SemiPrimary", "Num": 111 }
     ],
     "Images": { "concept_PNGName": "cnsp_img111-mp" },
-    "Name_JP": "111(アイズ)",
-    "Name_EN": "111(Ize)",
+    "Name_JP": "量産型 111(アイズ)",
+    "Name_EN": "Cloned 111(Ize)",
     "FormalName_JP": "量産型ナンバーテールズ111番機シリーズ",
     "FormalName_EN": "NumberTales #111 Series Mass Production Version for Sales",
     "ModelNumber": "APHR-NT [MP]111-*****",
@@ -111,7 +111,7 @@
       { "value": 37, "about_JP": "推定", "about_EN": "Presumption" }
     ],
     "BustSize": "AA",
-    "Class": ["マスタートリプル(量産販売型)"],
+    "Class": ["量産型マスタートリプル"],
     "TailsUnit": [
       {
         "TailShapeType": "#TailShapeType_NekomataSpecial",
@@ -639,8 +639,8 @@
       { "_Work": "NumberTales", "_DB": "SemiPrimary", "Num": 222 },
       { "_Work": "NumberTales", "_DB": "SemiPrimary", "Num": "222-alt" }
     ],
-    "Name_JP": "222(ドッペルゲン)",
-    "Name_EN": "222(Doppelgän)",
+    "Name_JP": "量産型 222(ドッペルゲン)",
+    "Name_EN": "Cloned 222(Doppelgän)",
     "FormalName_JP": "量産型ナンバーテールズ222番機シリーズ",
     "FormalName_EN": "NumberTales #222 Series Mass Production Version for Sales",
     "ModelNumber": "APHR-NT [MP]222-*****",
@@ -662,7 +662,7 @@
       }
     ],
     "AppearanceDetail": null,
-    "Class": ["マスタートリプル(量産販売型)"]
+    "Class": ["量産型マスタートリプル"]
   },
   {
     "sec_Category": null,
@@ -1096,12 +1096,12 @@
     "AnotherVersions_DBLink": [
       { "_Work": "NumberTales", "_DB": "SemiPrimary", "Num": 333 }
     ],
-    "Name_JP": "333(トリニティア)",
-    "Name_EN": "333(Trinitia)",
+    "Name_JP": "量産型 333(トリニティア)",
+    "Name_EN": "Cloned 333(Trinitia)",
     "FormalName_JP": "量産型ナンバーテールズ333番機シリーズ",
     "FormalName_EN": "NumberTales #333 Series Mass Production Version for Sales",
     "ModelNumber": "APHR-NT [MP]333-*****",
-    "Class": ["マスタートリプル(量産販売型)"]
+    "Class": ["量産型マスタートリプル"]
   },
   {
     "Num": 337,
@@ -1485,8 +1485,8 @@
     "AnotherVersions_DBLink": [
       { "_Work": "NumberTales", "_DB": "SemiPrimary", "Num": 444 }
     ],
-    "Name_JP": "444(シテン)",
-    "Name_EN": "444(Quad-emperone)",
+    "Name_JP": "量産型 444(シテン)",
+    "Name_EN": "Cloned 444(Quad-emperone)",
     "FormalName_JP": "量産型ナンバーテールズ444番機シリーズ",
     "FormalName_EN": "NumberTales #444 Series Mass Production Version for Sales",
     "ModelNumber": "APHR-NT [MP]444-*****",
@@ -1499,7 +1499,7 @@
         "Note_EN": null
       }
     ],
-    "Class": ["マスタートリプル(量産販売型)"],
+    "Class": ["量産型マスタートリプル"],
     "AppearanceDetail": [
       {
         "Formation": "corefolder",
@@ -1959,12 +1959,12 @@
     "AnotherVersions_DBLink": [
       { "_Work": "NumberTales", "_DB": "SemiPrimary", "Num": 555 }
     ],
-    "Name_JP": "555(ハイファイブ)",
-    "Name_EN": "555(High-Fiver)",
+    "Name_JP": "量産型 555(ハイファイブ)",
+    "Name_EN": "Cloned 555(High-Fiver)",
     "FormalName_JP": "量産型ナンバーテールズ555番機シリーズ",
     "FormalName_EN": "NumberTales #555 Series Mass Production Version for Sales",
     "ModelNumber": "APHR-NT [MP]555-*****",
-    "Class": ["マスタートリプル(量産販売型)"]
+    "Class": ["量産型マスタートリプル"]
   },
   {
     "Num": 558,
@@ -2136,8 +2136,8 @@
       "concept_PNGName": "cnsp_img666-mp",
       "corefolder_PNGPath": ["666/emstk_corefolder666-mp1"]
     },
-    "Name_JP": "666(リリス)",
-    "Name_EN": "666(Lilith)",
+    "Name_JP": "量産型 666(リリス)",
+    "Name_EN": "Cloned 666(Lilith)",
     "FormalName_JP": "量産型ナンバーテールズ666番機シリーズ",
     "FormalName_EN": "NumberTales #666 Series Mass Production Version for Sales",
     "ModelNumber": "APHR-NT [MP]666-*****",
@@ -2146,7 +2146,7 @@
     "ConceptAge": 16,
     "Weight_kg": { "hideText": "非公開" },
     "BustSize": "E",
-    "Class": ["マスタートリプル(量産販売型)"],
+    "Class": ["量産型マスタートリプル"],
     "TailsUnit": [
       {
         "TailShapeType": "#TailShapeType_FoxSpecial",
@@ -2597,8 +2597,8 @@
       "concept_PNGName": "cnsp_img777-mpA",
       "conceptAlt_PNGName": ["cnsp_img777-mpC", "cnsp_img777-mp"]
     },
-    "Name_JP": "777(ヨロコビ)",
-    "Name_EN": "777(Lucky-sevens)\n777(Luckies)",
+    "Name_JP": "量産型 777(ヨロコビ)",
+    "Name_EN": "Cloned 777(Lucky-sevens)\nCloned 777(Luckies)",
     "FormalName_JP": "量産型ナンバーテールズ777番機シリーズ",
     "FormalName_EN": "NumberTales #777 Series Mass Production Version for Sales",
     "ModelNumber": "APHR-NT [MP]777-*****",
@@ -2618,7 +2618,7 @@
     ],
     "BustSize": "AA",
     "GenderType": "MaleNeutral",
-    "Class": ["マスタートリプル(量産販売型)"],
+    "Class": ["量産型マスタートリプル"],
     "TailsUnit": [
       {
         "TailShapeType": "#TailShapeType_FoxSpecial",
@@ -2826,8 +2826,8 @@
       "concept_PNGName": "cnsp_img777-mpB",
       "conceptAlt_PNGName": ["cnsp_img777-mpC", "cnsp_img777-mp"]
     },
-    "Name_JP": "777(ヨロコビ)",
-    "Name_EN": "777(Lucky-sevens)\n777(Luckies)",
+    "Name_JP": "量産型 777(ヨロコビ)",
+    "Name_EN": "Cloned 777(Lucky-sevens)\nCloned 777(Luckies)",
     "FormalName_JP": "量産型ナンバーテールズ777番機[ジャックポット]シリーズ",
     "FormalName_EN": "NumberTales #777.Jackpot Series Mass Production Version for Sales",
     "ModelNumber": "APHR-NT [MP]777JP-*****",
@@ -2852,7 +2852,7 @@
       }
     ],
     "BustSize": "AA",
-    "Class": ["マスタートリプル(量産販売型)"],
+    "Class": ["量産型マスタートリプル"],
     "TailsUnit": [
       {
         "TailShapeType": "#TailShapeType_FoxSpecial",
@@ -3112,12 +3112,12 @@
     "AnotherVersions_DBLink": [
       { "_Work": "NumberTales", "_DB": "SemiPrimary", "Num": 888 }
     ],
-    "Name_JP": "888(ムゲン)",
-    "Name_EN": "888(Infy)",
+    "Name_JP": "量産型 888(ムゲン)",
+    "Name_EN": "Cloned 888(Infy)",
     "FormalName_JP": "量産型ナンバーテールズ888番機シリーズ",
     "FormalName_EN": "NumberTales #888 Series Mass Production Version for Sales",
     "ModelNumber": "APHR-NT [MP]888-*****",
-    "Class": ["マスタートリプル(量産販売型)"]
+    "Class": ["量産型マスタートリプル"]
   },
   {
     "Num": 959,
@@ -3205,11 +3205,11 @@
     "AnotherVersions_DBLink": [
       { "_Work": "NumberTales", "_DB": "SemiPrimary", "Num": 999 }
     ],
-    "Name_JP": "999(カンスト)",
-    "Name_EN": "999(Counstop)",
+    "Name_JP": "量産型 999(カンスト)",
+    "Name_EN": "Cloned 999(Counstop)",
     "FormalName_JP": "量産型ナンバーテールズ999番機シリーズ",
     "FormalName_EN": "NumberTales #999 Series Mass Production Version for Sales",
     "ModelNumber": "APHR-NT [MP]999-*****",
-    "Class": ["マスタートリプル(量産販売型)"]
+    "Class": ["量産型マスタートリプル"]
   }
 ]
