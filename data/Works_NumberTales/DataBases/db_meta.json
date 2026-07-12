@@ -58,7 +58,7 @@
         "RaceType": "PortableHumanoid(TaleBeastType)",
         "isTriple": true
       },
-      "AI_Optout": true
+      "AI_Optout": false
     },
     "#DB_SelfSecondary": {
       "DB_Label_JP": "セルフ二次創作",
@@ -76,7 +76,8 @@
             "RaceType": "PortableHumanoid(TaleBeastType)",
             "GenderType": "Neutral",
             "isTriple": true
-          }
+          },
+          "AI_Optout": false
         },
         {
           "sec_Category": null,
@@ -89,7 +90,7 @@
             "GenderType": "Neutral",
             "isTriple": false
           },
-          "AI_Optout": true
+          "AI_Optout": false
         },
         {
           "sec_Category": null,
@@ -233,7 +234,7 @@
           }
         ],
         "DB_Hidden": true,
-        "AI_Optout": true
+        "AI_Optout": false
       }
     }
   },
