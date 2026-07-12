@@ -8,7 +8,7 @@
 	<meta
 		name="description"
 		content="/data の創作データベースを クライアント内API (/pages/v1 ほか) 経由で取得し、キャラシートとして表示します。" />
-	<meta name="asset-version" content="2026.07.11.1" />
+	<meta name="asset-version" content="2026.07.12.3" />
 	<!-- メインスタイルシート（SASS から自動生成） -->
 	<script>
 		(() => {
@@ -24,6 +24,22 @@
 			document.head.appendChild(stylesheet);
 			window.__CHARACTERS_ASSET_VERSION__ = version;
 		})();
+	</script>
+	<!--
+		VRM 3Dビューア（lib/section-renders/vrmViewer.js）用の import map。
+		three.js / @pixiv/three-vrm は pages/vendor/ に同梱し、外部CDNへは依存しない
+		（pages/vendor/THIRD_PARTY_NOTICES.md 参照）。ビューア起動ボタン押下時にのみ
+		動的 import() されるため、この import map があるだけでは何もロードされない。
+		import map はモジュールスクリプトより前に存在する必要があるため <head> に置く。
+	-->
+	<script type="importmap">
+		{
+			"imports": {
+				"three": "./vendor/three/build/three.module.min.js",
+				"three/addons/": "./vendor/three/addons/",
+				"@pixiv/three-vrm": "./vendor/three-vrm/three-vrm.module.min.js"
+			}
+		}
 	</script>
 </head>
 

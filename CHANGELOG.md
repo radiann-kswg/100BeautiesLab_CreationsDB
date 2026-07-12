@@ -1,8 +1,53 @@
 # 最新のリファクタリング・仕様変更履歴
 
+### fix: NumberTales 666(リリス)/3x11 の AppearanceDetail 参考画像の参照切れを修正 (2026-07-12)
+
+外見デザイン詳細（`AppearanceDetail.img_PNGName`）の参照とファイル実体の不一致3件を修正した。
+
+- **`Images/DB_SelfSecondary/attr/numberMark/`**: `attr_numbertMark666-lot.png`（「numbertMark」打ち間違い）→ `attr_numberMark666-lot.png` にリネーム。
+- **`db_SemiPrimary.json`（666 humanoid ブローチ）**: `attr_costumeItem666mp-brooch`（SelfSecondary 側にしか無い `mp` 付きファイル名）→ `attr_costumeItem666-brooch` に修正（画像は別DBフォルダから解決しない規約のため）。
+- **`db_SemiPrimary.json`（3x11 emblem）+ 画像移動**: DB値 `attr_emblem3x11-brooch` を実ファイル名 `attr_emblem3x11-doubleBrooch` に修正し、`attr/costumeItem/` に誤配置されていた画像を `DesignElement`（`#Element_Emblem`）駆動の規約どおり `attr/emblem/` へ移動。
+- **`tests/data.shape.test.js`**: `img_PNGName` の実ファイル存在チェックを db_Primary 限定から NT 全DB（Primary/Secondary/SemiPrimary/SelfSecondary）へ拡張（今回の3件はこの拡張で検出）。
+- 確認: `npm test` 全件成功（27ファイル / 258件）。実ブラウザで 666-mp / 666 / 3x11 の参考画像が全件 HTTP 200 で解決されることを確認。
+
+### fix: NumberTales `Costume` 辞書のカタログ未登録によるラベル未解決を修正 (2026-07-12)
+
+`AppearanceDetail` エントリの衣装差分タグ（`usual` / `idol` 等）が生コードのまま表示されていた問題を修正した。辞書本体 `data/Works_NumberTales/Dictionaries/dict_Costume.json` は存在していたが、辞書カタログ（`Dictionaries/db_meta.json`）に `#Dict_Costume` が未登録だったため、実行時の `$VarsDef` 合流から漏れて `formatValueForDisplay` の `#DictIndex` 解決が失敗していた。UI/レンダラー側は無改修。
+
+- **`data/Works_NumberTales/Dictionaries/db_meta.json`**: `#Dict_Costume`（`keyField: "Costume"` / `compatListKey: "#List_Costume"`）をカタログへ登録。
+- **`tests/pages.characters.ui-output.test.js`**: `Costume` タグが辞書解決済みラベル（通常衣装/アイドル衣装）で表示され、生コード（usual/idol）が残らないことを検証する回帰テストを追加。
+- 確認: `npm test` 全件成功（27ファイル / 255件）。実ブラウザで JP（通常衣装/アイドル衣装）・EN（Usual Costume / Idol Costume）両モードの表示を確認。
+
+### improve: VRM 3Dビューアと subFields 系参考画像を2カラムレイアウト化 (2026-07-12)
+
+キャラシートの縦方向の占有面積を抑えるため、VRM 3Dビューアカードと `AppearanceDetail` / `TailsUnit` エントリを横並びの flex 2カラム構造に変更した。
+
+- **`lib/section-renders/vrmViewer.js`**: カードDOMを「ポスター画像（`.model-viewer__media`）+ 起動ボタン/3Dステージ/ヒント/エラー（`.model-viewer__body`）」の2カラムに再構成。3Dビューアはポスターの右隣に並ぶ。
+- **subFields 系共通レイアウトクラスの新設**（`pages/characters.sass`）: `.subfield-entry` / `.subfield-entry__main` / `.subfield-entry__reference-image` を新設し、参考画像付きエントリを「テキスト情報（左）+ 参考画像（右・幅120pxの正方形サムネイル）」で描画する（狭幅時は wrap で縦積み）。field 固有クラス（BEM）に併せて付与する方式で、今後の renderer にも横展開可能。
+- **`lib/section-renders/appearanceDetail.js` / `tailsUnit.js`**: エントリを `__main`（ヘッダー/属性/ノート）+ `__reference-image` に分離し、共通クラスを付与。レイアウト用インラインstyleはSASSへ移管。
+- **`pages/characters.html`**: `asset-version` を `2026.07.12.3` に更新。
+- **`tests/section-renders.vrmViewer.test.js`**: カードDOMの2カラム構造にテストを追従（既存の `.tailsunit__reference-image` 参照テストはクラス名維持により無改修）。
+- 確認: `npm test` 全件成功（27ファイル / 254件）。ローカルHTTPサーバー上で実ブラウザ確認済み（3Dビューア起動・外見デザイン詳細・尻尾ユニットの右隣画像表示）。
+
+### add: NumberTales VRMアバターの3Dビューア表示に対応 (2026-07-12)
+
+`data/Works_NumberTales/VRMs/DB_Primary/corefolder/` に格納された VRM 3Dモデル（`.vrm` + 同名 `.png` サムネイル）を、キャラシート上で回転・拡大できる3Dビューアとして表示できるようにした。既存の `Images` 用パイプライン（`ImageProcessor`/ギャラリー描画、PNG専用に決め打ち）には一切手を入れず、`TailsUnit`（構造化データ + 専用 section-renderer + client側URL構築ヘルパー）と同じ設計パターンを踏襲することで、`lib/data-common.js`（enrich/SW共通処理）・Cloudflare Workers 側を無改修のまま UI 層だけで完結させた。three.js / `@pixiv/three-vrm` は「3Dビューアを起動」ボタン押下時にのみ動的 `import()` し、通常のページ閲覧やVRMを持たないキャラの表示では一切ロードしない。
+
+- **`data/Works_NumberTales/DataBases/db_type.json`**: `Images` の直後に新規トップレベル `VRMs`（`corefolder_VRMPath`: `#VRMFilePath[]`）を追加。`$display: { sectionWrapper: "vrmViewerSection" }`。
+- **`data/db_meta.json`（グローバル）**: `CreationWorks.#Works_NumberTales.$DetailLayout.subFields` に `"VRMs"` を追加。
+- **`data/Works_NumberTales/DataBases/db_Primary.json`**: 該当4レコード（`Num: 4, 16, 20, 25`）に `VRMs.corefolder_VRMPath`（例: `["16/vrm_corefolder16"]`、拡張子なしファイル名規約は `corefolder_PNGPath` と同じ）を追加。
+- **`lib/section-renders/vrmViewer.js`（新規）**: `CharacterSectionRendererRegistry` へ `vrmViewerSection` を登録。サムネイル即時表示 + 起動ボタン + 3Dステージのカードを描画し、ボタン押下時のみ three.js 一式を動的import、canvas がDOMから切断されたら自動でレンダリングループを停止・破棄する。
+- **`pages/characters.js`**: `buildVrmAssetUrl(relPath, ext)`（`Images` ではなく `VRMs` 配下を組み立てる専用ヘルパー、`buildTailsUnitImageUrl` と同じ役割分担）を追加し、`renderStandaloneFieldSection` の helpers に配線。`lib/section-renders/vrmViewer.js` の import を追加。
+- **`pages/characters.html`**: three.js / `@pixiv/three-vrm`（同梱・`pages/vendor/`）解決用の import map を追加。`asset-version` を更新。
+- **`pages/vendor/`（新規）**: `three@0.185.1` / `@pixiv/three-vrm@3.5.5` の配布物を同梱（外部CDN非依存）。`THIRD_PARTY_NOTICES.md` にライセンス・更新方法を記載。
+- **`pages/characters.sass`/`.css`**: `.model-viewer` 系のスタイルを追加。
+- **`tests/data.shape.test.js`**: `VRMs.corefolder_VRMPath` の値規約・参照ファイル実在を検証するケースを追加。
+- **`tests/section-renders.vrmViewer.test.js`（新規）**: `vrmViewerSection` の登録・`match()`・空配列時の `null` 返却・カードDOM構築（three.js未importで検証可能）を検証。
+- 確認: `npm test` 全件成功（27ファイル / 254件）。Playwright + ローカルHTTPサーバーでの実ブラウザ確認まで完了（3Dビューア起動・マウス操作での回転・別キャラ遷移時のクリーンアップ・遅延ロード・VRM非保持キャラでの非表示）。詳細・発見した修正点（`buildVrmAssetUrl` のカテゴリフォルダ名欠落バグ）は `_work_in_progress/2026-07-12_progress_vrm-viewer.md` に記録。
+
 ### refactor(addon-ai-tag): `--apply-identitymotif` モードを撤去し `--apply-appearancedetail` を唯一の AI タグ再構築モードに (2026-07-11)
 
-develop 側での `IdentityMotif` フィールド廃止（上記 refactor）を `addon-ai-tag` へ取り込みマージした際、`tools/patch-aihints.mjs` の `--apply-identitymotif` モード（`IdentityMotif` を正源として `AIHints` の AI タグ系を再構築する約650行のコード）が、正源フィールド自体の消失により全レコード `identitymotif-cleared`（AI タグ系を空にクリアする fallback）しか返せない「死んだモード」になっていたため、コードごと撤去した。放置すると誤って `--apply` 実行された場合に既存92件の `AIHints` が破壊されるリスクがあった。
+develop 側での `IdentityMotif` フィールド廃止（下記 refactor）を `addon-ai-tag` へ取り込みマージした際、`tools/patch-aihints.mjs` の `--apply-identitymotif` モード（`IdentityMotif` を正源として `AIHints` の AI タグ系を再構築する約650行のコード）が、正源フィールド自体の消失により全レコード `identitymotif-cleared`（AI タグ系を空にクリアする fallback）しか返せない「死んだモード」になっていたため、コードごと撤去した。放置すると誤って `--apply` 実行された場合に既存92件の `AIHints` が破壊されるリスクがあった。
 
 - **`tools/patch-aihints.mjs`**: `--apply-identitymotif` のオプション解析・help文言・専用関数群（`classifyMotifEntry` / `synthesizeBaseColorFromMotif` / `buildAihintsFromIdentityMotif` / `applyIdentityMotifToAihintsInRecord`）・メイン処理分岐・サマリー集計を削除。`--apply-appearancedetail` モードとの共有ヘルパー（`normalizeMotifEntry` / 旧 `clearAihintsTagsForNoIdentityMotif`）は残し、後者は汎用名 `clearAihintsTagsForNoSource` にリネーム（`--apply-appearancedetail` 側が使っていた別名エイリアス `clearAihintsTagsForNoAppearanceDetail` は廃止し直接呼び出しに統一）。コメント中の「`IdentityMotif` の後継を見据えた並行モード」等の記述も、唯一のモードになった実態に合わせて整理。
 - **`docs/ai-hints-usage.md`**: §9.8（`--apply-identitymotif` モード解説）を「廃止済み」の短い注記に置き換え、§9.9（`--apply-appearancedetail`）から「並行モード」「`IdentityMotif` 側は据え置き」等の古い記述を除去。

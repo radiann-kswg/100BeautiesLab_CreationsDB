@@ -99,22 +99,222 @@
       { "_Work": "NumberTales", "_DB": "SemiPrimary", "Num": 111 }
     ],
     "Images": { "concept_PNGName": "cnsp_img111-mp" },
-    "Name_JP": "111(アイズ)",
-    "Name_EN": "111(Ize)",
+    "Name_JP": "量産型 111(アイズ)",
+    "Name_EN": "Cloned 111(Ize)",
     "FormalName_JP": "量産型ナンバーテールズ111番機シリーズ",
     "FormalName_EN": "NumberTales #111 Series Mass Production Version for Sales",
     "ModelNumber": "APHR-NT [MP]111-*****",
     "GenderType": "Neutral",
     "Height_cm": 141,
     "ConceptAge": 14,
-    "Weight_kg": [{ "value": 37, "about_JP": "推定", "about_EN": "Presumption" }],
+    "Weight_kg": [
+      { "value": 37, "about_JP": "推定", "about_EN": "Presumption" }
+    ],
     "BustSize": "AA",
-    "AppearanceDetail": null,
-    "Class": ["マスタートリプル(量産販売型)"],
+    "Class": ["量産型マスタートリプル"],
     "TailsUnit": [
       {
         "TailShapeType": "#TailShapeType_NekomataSpecial",
         "Count": 3,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
+    "AppearanceDetail": [
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Wing"],
+        "Laterality": "#Lat_Left",
+        "DesignElement": "#Element_NumberMark",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Position",
+            "value_JP": "左肩からのマントの端",
+            "value_EN": "from the left shoulder to the edge of the cape"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Color",
+            "value_JP": "赤色",
+            "value_EN": "red"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Notation",
+            "value_JP": "アラビア数字の「111」",
+            "value_EN": "Arabic numeral '111'"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_FaceMaking"],
+        "Laterality": "#Lat_Left",
+        "DesignElement": "#Element_NumberMark",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Position",
+            "value_JP": "左頬のロットマーク",
+            "value_EN": "lot mark on the left cheek"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Color",
+            "value_JP": "赤色(下線付き)",
+            "value_EN": "red (underlined)"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Notation",
+            "value_JP": "アラビア数字の「111」",
+            "value_EN": "Arabic numeral '111'"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Ear"],
+        "Laterality": "#Lat_Both",
+        "DesignElement": "#Element_Ear",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Ear",
+            "vdict_EarShapeType": "#EarShapeType_Cat",
+            "about_JP": "フードキャップに隠れている",
+            "about_EN": "hidden under the hood cap"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Eye"],
+        "Laterality": "#Lat_Both",
+        "DesignElement": "#Element_Motif",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "瞳孔が黄色く大きいサーモンレッドで機械的な目",
+            "value_EN": "salmon-red eyes with large yellow pupils and a mechanical appearance"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": null,
+        "Laterality": null,
+        "DesignElement": "#Element_Expression",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "表情や仕草は特に大きく目立たない",
+            "value_EN": "expressions and gestures are not particularly noticeable"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Head"],
+        "Laterality": null,
+        "DesignElement": "#Element_CostumeItem",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "赤色のフードキャップにサーモンレッドの鉢巻",
+            "value_EN": "red hood cap with a salmon-red headband"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Hair"],
+        "Laterality": null,
+        "DesignElement": "#Element_Motif",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "白い前髪アクセントの金髪ショートヘア",
+            "value_EN": "short blonde hair with white bangs accent"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Back", "#BodyPart_Wing"],
+        "Laterality": null,
+        "DesignElement": "#Element_CostumeItem",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "ヒーローのようなサーモンレッドの番号付きマント",
+            "value_EN": "hero-like salmon-red numbered cape"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": "humanoid",
+        "BodyPart": ["#BodyPart_Chest", "#BodyPart_Tail"],
+        "Laterality": null,
+        "DesignElement": "#Element_Motif",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "白いクロス掛けのベルトとネクタイ",
+            "value_EN": "white cross-strap belt and tie"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": "humanoid",
+        "BodyPart": null,
+        "Laterality": null,
+        "DesignElement": "#Element_CostumeItem",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "赤色の軍服のような制服",
+            "value_EN": "red military-style uniform"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": "humanoid",
+        "BodyPart": ["#BodyPart_Foot"],
+        "Laterality": null,
+        "DesignElement": "#Element_CostumeItem",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "赤色のブーツ",
+            "value_EN": "red boots"
+          }
+        ],
+        "img_PNGName": null,
         "Note_JP": null,
         "Note_EN": null
       }
@@ -439,8 +639,8 @@
       { "_Work": "NumberTales", "_DB": "SemiPrimary", "Num": 222 },
       { "_Work": "NumberTales", "_DB": "SemiPrimary", "Num": "222-alt" }
     ],
-    "Name_JP": "222(ドッペルゲン)",
-    "Name_EN": "222(Doppelgän)",
+    "Name_JP": "量産型 222(ドッペルゲン)",
+    "Name_EN": "Cloned 222(Doppelgän)",
     "FormalName_JP": "量産型ナンバーテールズ222番機シリーズ",
     "FormalName_EN": "NumberTales #222 Series Mass Production Version for Sales",
     "ModelNumber": "APHR-NT [MP]222-*****",
@@ -462,7 +662,7 @@
       }
     ],
     "AppearanceDetail": null,
-    "Class": ["マスタートリプル(量産販売型)"]
+    "Class": ["量産型マスタートリプル"]
   },
   {
     "sec_Category": null,
@@ -896,12 +1096,12 @@
     "AnotherVersions_DBLink": [
       { "_Work": "NumberTales", "_DB": "SemiPrimary", "Num": 333 }
     ],
-    "Name_JP": "333(トリニティア)",
-    "Name_EN": "333(Trinitia)",
+    "Name_JP": "量産型 333(トリニティア)",
+    "Name_EN": "Cloned 333(Trinitia)",
     "FormalName_JP": "量産型ナンバーテールズ333番機シリーズ",
     "FormalName_EN": "NumberTales #333 Series Mass Production Version for Sales",
     "ModelNumber": "APHR-NT [MP]333-*****",
-    "Class": ["マスタートリプル(量産販売型)"]
+    "Class": ["量産型マスタートリプル"]
   },
   {
     "Num": 337,
@@ -1285,8 +1485,8 @@
     "AnotherVersions_DBLink": [
       { "_Work": "NumberTales", "_DB": "SemiPrimary", "Num": 444 }
     ],
-    "Name_JP": "444(シテン)",
-    "Name_EN": "444(Quad-emperone)",
+    "Name_JP": "量産型 444(シテン)",
+    "Name_EN": "Cloned 444(Quad-emperone)",
     "FormalName_JP": "量産型ナンバーテールズ444番機シリーズ",
     "FormalName_EN": "NumberTales #444 Series Mass Production Version for Sales",
     "ModelNumber": "APHR-NT [MP]444-*****",
@@ -1299,8 +1499,282 @@
         "Note_EN": null
       }
     ],
-    "AppearanceDetail": null,
-    "Class": ["マスタートリプル(量産販売型)"]
+    "Class": ["量産型マスタートリプル"],
+    "AppearanceDetail": [
+      {
+        "Formation": "corefolder",
+        "BodyPart": ["#BodyPart_Waist"],
+        "Laterality": "#Lat_Left",
+        "DesignElement": "#Element_NumberMark",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Position",
+            "value_JP": "ケープの左裾で留め部分周辺(色合いであまり目立たない)",
+            "value_EN": "around the fastening area on the left hem of the cape (not very noticeable due to the color)"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Color",
+            "value_JP": "灰色",
+            "value_EN": "gray"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Notation",
+            "value_JP": "アラビア数字の「444」",
+            "value_EN": "Arabic numeral '444'"
+          }
+        ],
+        "img_PNGName": "attr_numbermark444mp",
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": "humanoid",
+        "BodyPart": ["#BodyPart_Waist"],
+        "Laterality": "#Lat_Left",
+        "DesignElement": "#Element_NumberMark",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Position",
+            "value_JP": "ベースウェアの左裾で留め部分周辺(色合いであまり目立たない)",
+            "value_EN": "around the fastening area on the left hem of the basewear (not very noticeable due to the color)"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Color",
+            "value_JP": "灰色",
+            "value_EN": "gray"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Notation",
+            "value_JP": "アラビア数字の「444」",
+            "value_EN": "Arabic numeral '444'"
+          }
+        ],
+        "img_PNGName": "attr_numbermark444mp",
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_FaceMaking"],
+        "Laterality": "#Lat_Left",
+        "DesignElement": "#Element_NumberMark",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Position",
+            "value_JP": "左頬のロットマーク",
+            "value_EN": "lot mark on the left cheek"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Color",
+            "value_JP": "ダークシアン(下線付き)",
+            "value_EN": "dark cyan (underlined)"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Notation",
+            "value_JP": "アラビア数字の「444」",
+            "value_EN": "Arabic numeral '444'"
+          }
+        ],
+        "img_PNGName": "attr_numberMark444-lot",
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Ear"],
+        "Laterality": "#Lat_Both",
+        "DesignElement": "#Element_Ear",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Ear",
+            "vdict_EarShapeType": "#EarShapeType_Fox"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Eye"],
+        "Laterality": "#Lat_Both",
+        "DesignElement": "#Element_Motif",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "瞳孔が灰色で特殊なダークシアンで機械的な目",
+            "value_EN": "dark cyan eyes with gray special pupils and a mechanical appearance"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": null,
+        "Laterality": null,
+        "DesignElement": "#Element_Expression",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "表情や仕草は特に大きく目立たない",
+            "value_EN": "expressions and gestures are not particularly noticeable"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_FaceMaking"],
+        "Laterality": null,
+        "DesignElement": "#Element_Motif",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "水色の頬模様アクセント",
+            "value_EN": "light blue cheek pattern accent"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Halo"],
+        "Laterality": null,
+        "DesignElement": "#Element_Halo",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "3つの正方形/菱形からなるヘイロー",
+            "value_EN": "halo consisting of three squares/diamonds"
+          }
+        ],
+        "img_PNGName": "attr_halo444mp",
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Hair"],
+        "Laterality": null,
+        "DesignElement": "#Element_Motif",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "シアンブルーのショートヘア",
+            "value_EN": "cyan blue short hair"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": "corefolder",
+        "BodyPart": ["#BodyPart_Neck"],
+        "Laterality": null,
+        "DesignElement": "#Element_CostumeItem",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "少し古典的な黄褐色のケープ",
+            "value_EN": "slightly classical ochre cape"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "ヘイローと同じモチーフの留め具",
+            "value_EN": "fastener with the same motif as the halo"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "マントのように長い後ろ裾",
+            "value_EN": "long back hem like a cape"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": "humanoid",
+        "BodyPart": ["#BodyPart_Neck", "#BodyPart_Chest", "#BodyPart_Back"],
+        "Laterality": null,
+        "DesignElement": "#Element_CostumeItem",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "少し古典的な黄褐色のベースウェア",
+            "value_EN": "slightly classical ochre basewear"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "ヘイローと同じモチーフの留め具",
+            "value_EN": "fastener with the same motif as the halo"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "マントのように長い後ろ裾",
+            "value_EN": "long back hem like a cape"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": "humanoid",
+        "BodyPart": ["#BodyPart_Chest"],
+        "Laterality": null,
+        "DesignElement": "#Element_CostumeItem",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "薄く軽いダークシアンのアウターウェア",
+            "value_EN": "thin and light dark cyan outerwear"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": "humanoid",
+        "BodyPart": ["#BodyPart_Leg"],
+        "Laterality": null,
+        "DesignElement": "#Element_CostumeItem",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "水色のレギンス",
+            "value_EN": "light blue leggings"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": "humanoid",
+        "BodyPart": ["#BodyPart_Foot"],
+        "Laterality": null,
+        "DesignElement": "#Element_CostumeItem",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "黄褐色のブーツ",
+            "value_EN": "ochre boots"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ]
   },
   {
     "Num": 451,
@@ -1485,12 +1959,12 @@
     "AnotherVersions_DBLink": [
       { "_Work": "NumberTales", "_DB": "SemiPrimary", "Num": 555 }
     ],
-    "Name_JP": "555(ハイファイブ)",
-    "Name_EN": "555(High-Fiver)",
+    "Name_JP": "量産型 555(ハイファイブ)",
+    "Name_EN": "Cloned 555(High-Fiver)",
     "FormalName_JP": "量産型ナンバーテールズ555番機シリーズ",
     "FormalName_EN": "NumberTales #555 Series Mass Production Version for Sales",
     "ModelNumber": "APHR-NT [MP]555-*****",
-    "Class": ["マスタートリプル(量産販売型)"]
+    "Class": ["量産型マスタートリプル"]
   },
   {
     "Num": 558,
@@ -1662,8 +2136,8 @@
       "concept_PNGName": "cnsp_img666-mp",
       "corefolder_PNGPath": ["666/emstk_corefolder666-mp1"]
     },
-    "Name_JP": "666(リリス)",
-    "Name_EN": "666(Lilith)",
+    "Name_JP": "量産型 666(リリス)",
+    "Name_EN": "Cloned 666(Lilith)",
     "FormalName_JP": "量産型ナンバーテールズ666番機シリーズ",
     "FormalName_EN": "NumberTales #666 Series Mass Production Version for Sales",
     "ModelNumber": "APHR-NT [MP]666-*****",
@@ -1672,13 +2146,261 @@
     "ConceptAge": 16,
     "Weight_kg": { "hideText": "非公開" },
     "BustSize": "E",
-    "AppearanceDetail": null,
-    "Class": ["マスタートリプル(量産販売型)"],
+    "Class": ["量産型マスタートリプル"],
     "TailsUnit": [
       {
         "TailShapeType": "#TailShapeType_FoxSpecial",
         "Count": 6,
         "Segment": 3,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
+    "AppearanceDetail": [
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Halo", "#BodyPart_Neck", "#BodyPart_Wing"],
+        "Laterality": null,
+        "DesignElement": "#Element_NumberMark",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Position",
+            "value_JP": "ヘイローとブローチと翼が「666」をモチーフにしている",
+            "value_EN": "halo, brooch, and wings are themed around '666'"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Color",
+            "value_JP": "ダークマゼンタ",
+            "value_EN": "dark magenta"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Notation",
+            "value_JP": "アラビア数字の「666」をモチーフにしたデザイン",
+            "value_EN": "Arabic numeral '666' themed design"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_FaceMaking"],
+        "Laterality": "#Lat_Left",
+        "DesignElement": "#Element_NumberMark",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Position",
+            "value_JP": "左頬のロットマーク",
+            "value_EN": "lot mark on the left cheek"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Color",
+            "value_JP": "ダークマゼンタ(下線付き)",
+            "value_EN": "dark magenta (underlined)"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Notation",
+            "value_JP": "アラビア数字の「666」",
+            "value_EN": "Arabic numeral '666'"
+          }
+        ],
+        "img_PNGName": "attr_numberMark666-lot",
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Ear"],
+        "Laterality": "#Lat_Both",
+        "DesignElement": "#Element_Ear",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Ear",
+            "vdict_EarShapeType": "#EarShapeType_Fox"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Eye"],
+        "Laterality": "#Lat_Both",
+        "DesignElement": "#Element_Motif",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "瞳孔が特殊な赤紫色で機械的な目",
+            "value_EN": "reddish-purple eyes with gray special pupils and a mechanical appearance"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": null,
+        "Laterality": null,
+        "DesignElement": "#Element_Expression",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "表情や仕草は特に大きく目立たない",
+            "value_EN": "expressions and gestures are not particularly noticeable"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Halo"],
+        "Laterality": null,
+        "DesignElement": "#Element_Halo",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "3つの「6」を回転対称に配置した形状のヘイロー",
+            "value_EN": "halo with three '6's arranged in rotational symmetry"
+          }
+        ],
+        "img_PNGName": "attr_halo666mp",
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Wing"],
+        "Laterality": "#Lat_Both",
+        "DesignElement": "#Element_Wing",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "「666」をモチーフにした翅",
+            "value_EN": "wings inspired by the motif of '666'"
+          }
+        ],
+        "img_PNGName": "attr_wing666mp",
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Hair"],
+        "Laterality": null,
+        "DesignElement": "#Element_Motif",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "薄紫でくせ毛た異質な髪型",
+            "value_EN": "light purple, curly and unusual hairstyle"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "長髪を横で束ねている",
+            "value_EN": "long hair tied to the side"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": "corefolder",
+        "BodyPart": ["#BodyPart_Chest"],
+        "Laterality": null,
+        "DesignElement": "#Element_CostumeItem",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "3つの「6」を回転対称かつ六角形状にに配置した形状のブローチ",
+            "value_EN": "brooch with three '6's arranged in rotational symmetry and hexagonal shape"
+          }
+        ],
+        "img_PNGName": "attr_costumeItem666mp-brooch",
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": "corefolder",
+        "BodyPart": ["#BodyPart_Neck"],
+        "Laterality": null,
+        "DesignElement": "#Element_CostumeItem",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "少し古典的なマゼンタの襟",
+            "value_EN": "slightly classical magenta collar"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "六角形のブローチが付いたベルト",
+            "value_EN": "belt with a hexagonal brooch"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": "humanoid",
+        "BodyPart": ["#BodyPart_Waist"],
+        "Laterality": null,
+        "DesignElement": "#Element_CostumeItem",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "3つの「6」を回転対称かつ六角形状にに配置した形状のブローチ",
+            "value_EN": "brooch with three '6's arranged in rotational symmetry and hexagonal shape"
+          }
+        ],
+        "img_PNGName": "attr_costumeItem666mp-brooch",
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": "humanoid",
+        "BodyPart": ["#BodyPart_Neck", "#BodyPart_Chest", "#BodyPart_Waist"],
+        "Laterality": null,
+        "DesignElement": "#Element_CostumeItem",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "少し古典的なマゼンタの襟",
+            "value_EN": "slightly classical magenta collar"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "魔族的でカジュアルなピンクのエプロンドレス",
+            "value_EN": "demonic and casual pink apron dress"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "六角形のブローチが付いた腰のベルト",
+            "value_EN": "belt with a hexagonal brooch on the waist"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": "humanoid",
+        "BodyPart": ["#BodyPart_Foot"],
+        "Laterality": null,
+        "DesignElement": "#Element_CostumeItem",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "ハイヒールのような赤紫の靴",
+            "value_EN": "high-heeled shoes in reddish-purple"
+          }
+        ],
+        "img_PNGName": null,
         "Note_JP": null,
         "Note_EN": null
       }
@@ -1871,9 +2593,12 @@
       { "_Work": "NumberTales", "_DB": "SemiPrimary", "Num": 777 }
     ],
     "SameModels_DBLink": [{ "_DB": "SelfSecondary", "Num": "777.Jackpot-mp" }],
-    "Images": { "concept_PNGName": "cnsp_img777-mp" },
-    "Name_JP": "777(ヨロコビ)",
-    "Name_EN": "777(Lucky-sevens)\n777(Luckies)",
+    "Images": {
+      "concept_PNGName": "cnsp_img777-mpA",
+      "conceptAlt_PNGName": ["cnsp_img777-mpC", "cnsp_img777-mp"]
+    },
+    "Name_JP": "量産型 777(ヨロコビ)",
+    "Name_EN": "Cloned 777(Lucky-sevens)\nCloned 777(Luckies)",
     "FormalName_JP": "量産型ナンバーテールズ777番機シリーズ",
     "FormalName_EN": "NumberTales #777 Series Mass Production Version for Sales",
     "ModelNumber": "APHR-NT [MP]777-*****",
@@ -1893,13 +2618,195 @@
     ],
     "BustSize": "AA",
     "GenderType": "MaleNeutral",
-    "AppearanceDetail": null,
-    "Class": ["マスタートリプル(量産販売型)"],
+    "Class": ["量産型マスタートリプル"],
     "TailsUnit": [
       {
         "TailShapeType": "#TailShapeType_FoxSpecial",
         "Count": 7,
         "Segment": 3,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
+    "AppearanceDetail": [
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_FaceMaking"],
+        "Laterality": "#Lat_Center",
+        "DesignElement": "#Element_NumberMark",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Position",
+            "value_JP": "額に「777」と180度回転した「㐂」をモチーフにしたエンブレムがある",
+            "value_EN": "There is an emblem on the forehead that features '777' and a 180-degree rotated '㐂' motif."
+          },
+          {
+            "AttrLabel": "#DesignAttr_Color",
+            "value_JP": "濃い黄色",
+            "value_EN": "dark yellow"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Notation",
+            "value_JP": "アラビア数字の「777」(回転した「㐂」とも掛け合わされたタイポグラフィ)",
+            "value_EN": "Arabic numeral '777' (typography combined with rotated '㐂')"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_FaceMaking"],
+        "Laterality": "#Lat_Left",
+        "DesignElement": "#Element_NumberMark",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Position",
+            "value_JP": "左頬のロットマーク",
+            "value_EN": "lot mark on the left cheek"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Color",
+            "value_JP": "濃い黄色(下線付き)",
+            "value_EN": "dark yellow (underlined)"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Notation",
+            "value_JP": "アラビア数字の「777」",
+            "value_EN": "Arabic numeral '777'"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Ear"],
+        "Laterality": "#Lat_Both",
+        "DesignElement": "#Element_Ear",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Ear",
+            "vdict_EarShapeType": "#EarShapeType_Cat",
+            "about_JP": "垂れている",
+            "about_EN": "drooping"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Eye"],
+        "Laterality": "#Lat_Both",
+        "DesignElement": "#Element_Motif",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "紺色と黄色のグラデーションをした機械的な目",
+            "value_EN": "mechanical eyes with a navy and yellow gradient"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": null,
+        "Laterality": null,
+        "DesignElement": "#Element_Expression",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "表情や仕草は特に大きく目立たない",
+            "value_EN": "expressions and gestures are not particularly noticeable"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Head", "#BodyPart_Interchangeable"],
+        "Laterality": null,
+        "DesignElement": "#Element_CostumeItem",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "ココアシガレットバーを咥えている",
+            "value_EN": "holding a cocoa cigarette bar in the mouth"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Hair"],
+        "Laterality": null,
+        "DesignElement": "#Element_Motif",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "黄褐色の長髪で後ろに紺色の簪で束ねている",
+            "value_EN": "long light brown hair tied at the back with a navy hairpin"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Back", "#BodyPart_Chest"],
+        "Laterality": null,
+        "DesignElement": "#Element_CostumeItem",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "濃い黄色の拡張ボードを背負っている",
+            "value_EN": "carrying a dark yellow expansion board on the back"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": "humanoid",
+        "BodyPart": null,
+        "Laterality": null,
+        "DesignElement": "#Element_Motif",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "灰色の体操着のようなジャージ姿",
+            "value_EN": "gray tracksuit resembling gym clothes"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": "humanoid",
+        "BodyPart": ["#BodyPart_Foot"],
+        "Laterality": null,
+        "DesignElement": "#Element_CostumeItem",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "紺色の革靴",
+            "value_EN": "navy leather shoes"
+          }
+        ],
+        "img_PNGName": null,
         "Note_JP": null,
         "Note_EN": null
       }
@@ -1915,8 +2822,12 @@
       { "_Work": "NumberTales", "_DB": "SemiPrimary", "Num": 777 }
     ],
     "SameModels_DBLink": [{ "_DB": "SelfSecondary", "Num": "777-mp" }],
-    "Name_JP": "777(ヨロコビ)",
-    "Name_EN": "777(Lucky-sevens)\n777(Luckies)",
+    "Images": {
+      "concept_PNGName": "cnsp_img777-mpB",
+      "conceptAlt_PNGName": ["cnsp_img777-mpC", "cnsp_img777-mp"]
+    },
+    "Name_JP": "量産型 777(ヨロコビ)",
+    "Name_EN": "Cloned 777(Lucky-sevens)\nCloned 777(Luckies)",
     "FormalName_JP": "量産型ナンバーテールズ777番機[ジャックポット]シリーズ",
     "FormalName_EN": "NumberTales #777.Jackpot Series Mass Production Version for Sales",
     "ModelNumber": "APHR-NT [MP]777JP-*****",
@@ -1941,13 +2852,211 @@
       }
     ],
     "BustSize": "AA",
-    "AppearanceDetail": null,
-    "Class": ["マスタートリプル(量産販売型)"],
+    "Class": ["量産型マスタートリプル"],
     "TailsUnit": [
       {
         "TailShapeType": "#TailShapeType_FoxSpecial",
         "Count": 7,
         "Segment": 3,
+        "Note_JP": "原則として娯楽装備専用アドオンのバックパックに格納される",
+        "Note_EN": "In principle, stored in the backpack dedicated to amusement equipment addons"
+      }
+    ],
+    "AppearanceDetail": [
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_FaceMaking"],
+        "Laterality": "#Lat_Center",
+        "DesignElement": "#Element_NumberMark",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Position",
+            "value_JP": "額に「777」と180度回転した「㐂」をモチーフにしたエンブレムがある",
+            "value_EN": "There is an emblem on the forehead that features '777' and a 180-degree rotated '㐂' motif."
+          },
+          {
+            "AttrLabel": "#DesignAttr_Color",
+            "value_JP": "濃い黄色",
+            "value_EN": "dark yellow"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Notation",
+            "value_JP": "アラビア数字の「777」(回転した「㐂」とも掛け合わされたタイポグラフィ)",
+            "value_EN": "Arabic numeral '777' (typography combined with rotated '㐂')"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_FaceMaking"],
+        "Laterality": "#Lat_Left",
+        "DesignElement": "#Element_NumberMark",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Position",
+            "value_JP": "左頬のロットマーク",
+            "value_EN": "lot mark on the left cheek"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Color",
+            "value_JP": "濃い黄色(下線付き)",
+            "value_EN": "dark yellow (underlined)"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Notation",
+            "value_JP": "アラビア数字の「777」",
+            "value_EN": "Arabic numeral '777'"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Ear"],
+        "Laterality": "#Lat_Both",
+        "DesignElement": "#Element_Ear",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Ear",
+            "vdict_EarShapeType": "#EarShapeType_Cat",
+            "about_JP": "垂れている",
+            "about_EN": "drooping"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Eye"],
+        "Laterality": "#Lat_Both",
+        "DesignElement": "#Element_Motif",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "紺色と黄色のグラデーションをした機械的な目",
+            "value_EN": "mechanical eyes with a navy and yellow gradient"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": null,
+        "Laterality": null,
+        "DesignElement": "#Element_Expression",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "表情や仕草は特に大きく目立たない",
+            "value_EN": "expressions and gestures are not particularly noticeable"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Head", "#BodyPart_Interchangeable"],
+        "Laterality": null,
+        "DesignElement": "#Element_CostumeItem",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "ココアシガレットバーを咥えている",
+            "value_EN": "holding a cocoa cigarette bar in the mouth"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Hair"],
+        "Laterality": null,
+        "DesignElement": "#Element_Motif",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "黄褐色の長髪で後ろに紺色の簪で束ねている",
+            "value_EN": "long light brown hair tied at the back with a navy hairpin"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": "corefolder",
+        "BodyPart": null,
+        "Laterality": null,
+        "DesignElement": "#Element_CostumeItem",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "濃い黄色のスロットマシーン型アドオンを身にまとい、自身がスロットマシーンのように機能する",
+            "value_EN": "wearing a dark yellow slot machine-type addon and functioning like a slot machine"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": "humanoid",
+        "BodyPart": ["#BodyPart_Back", "#BodyPart_Chest"],
+        "Laterality": null,
+        "DesignElement": "#Element_CostumeItem",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "濃い黄色のスロットマシーン型アドオンを背負っている",
+            "value_EN": "carrying a dark yellow slot machine-type addon on the back"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": "humanoid",
+        "BodyPart": null,
+        "Laterality": null,
+        "DesignElement": "#Element_Motif",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "灰色の体操着のようなジャージ姿",
+            "value_EN": "gray tracksuit resembling gym clothes"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": "humanoid",
+        "BodyPart": ["#BodyPart_Foot"],
+        "Laterality": null,
+        "DesignElement": "#Element_CostumeItem",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "紺色の革靴",
+            "value_EN": "navy leather shoes"
+          }
+        ],
+        "img_PNGName": null,
         "Note_JP": null,
         "Note_EN": null
       }
@@ -2003,12 +3112,12 @@
     "AnotherVersions_DBLink": [
       { "_Work": "NumberTales", "_DB": "SemiPrimary", "Num": 888 }
     ],
-    "Name_JP": "888(ムゲン)",
-    "Name_EN": "888(Infy)",
+    "Name_JP": "量産型 888(ムゲン)",
+    "Name_EN": "Cloned 888(Infy)",
     "FormalName_JP": "量産型ナンバーテールズ888番機シリーズ",
     "FormalName_EN": "NumberTales #888 Series Mass Production Version for Sales",
     "ModelNumber": "APHR-NT [MP]888-*****",
-    "Class": ["マスタートリプル(量産販売型)"]
+    "Class": ["量産型マスタートリプル"]
   },
   {
     "Num": 959,
@@ -2096,11 +3205,11 @@
     "AnotherVersions_DBLink": [
       { "_Work": "NumberTales", "_DB": "SemiPrimary", "Num": 999 }
     ],
-    "Name_JP": "999(カンスト)",
-    "Name_EN": "999(Counstop)",
+    "Name_JP": "量産型 999(カンスト)",
+    "Name_EN": "Cloned 999(Counstop)",
     "FormalName_JP": "量産型ナンバーテールズ999番機シリーズ",
     "FormalName_EN": "NumberTales #999 Series Mass Production Version for Sales",
     "ModelNumber": "APHR-NT [MP]999-*****",
-    "Class": ["マスタートリプル(量産販売型)"]
+    "Class": ["量産型マスタートリプル"]
   }
 ]

@@ -223,8 +223,15 @@ describe('AppearanceDetail schema', () => {
     expect(violations).toHaveLength(0);
   });
 
-  it('NT db_Primary.json AppearanceDetail img_PNGName files exist under attr/<element> (DesignElement-driven dispatch)', () => {
-    const records = load('data/Works_NumberTales/DataBases/db_Primary.json');
+  it.each([
+    // [DBファイル, 画像ベースフォルダ, img_PNGName 登録が1件以上ある前提か]
+    // db_Secondary は現状 img_PNGName の登録が無いため件数要求はしない（存在チェックのみ）
+    ['data/Works_NumberTales/DataBases/db_Primary.json', 'data/Works_NumberTales/Images/DB_Primary', true],
+    ['data/Works_NumberTales/DataBases/db_Secondary.json', 'data/Works_NumberTales/Images/DB_Secondary', false],
+    ['data/Works_NumberTales/DataBases/db_SemiPrimary.json', 'data/Works_NumberTales/Images/DB_SemiPrimary', true],
+    ['data/Works_NumberTales/DataBases/db_SelfSecondary.json', 'data/Works_NumberTales/Images/DB_SelfSecondary', true],
+  ])('NT %s AppearanceDetail img_PNGName files exist under attr/<element> (DesignElement-driven dispatch)', (dbPath, imageBaseDir, expectEntries) => {
+    const records = load(dbPath);
     // pages/characters.js の buildAppearanceDetailImageUrl と同じ導出規則:
     // #Element_NumberMark -> attr/numberMark、判別不能時は img
     const deriveFolder = (designElement) => {
@@ -242,7 +249,7 @@ describe('AppearanceDetail schema', () => {
         checked++;
         const imgPath = join(
           repoRoot,
-          'data/Works_NumberTales/Images/DB_Primary',
+          imageBaseDir,
           deriveFolder(entry?.DesignElement),
           `${value}.png`,
         );
@@ -252,7 +259,7 @@ describe('AppearanceDetail schema', () => {
       }
     }
     // 2026-07-11 の一括登録（153件）が空回りしていないことも併せて確認する
-    expect(checked).toBeGreaterThan(0);
+    if (expectEntries) expect(checked).toBeGreaterThan(0);
     expect(missing).toHaveLength(0);
   });
 });
@@ -347,6 +354,26 @@ describe('TailsUnit schema', () => {
       // 値は #PNGFileName 規約（拡張子なし）のため、実在チェック時に .png を補完する
       const imgPath = join(repoRoot, 'data/Works_NumberTales/Images/DB_Primary/attr/tailsUnit', `${fileName}.png`);
       expect(existsSync(imgPath), imgPath).toBe(true);
+    }
+  });
+
+  it('NT db_Primary.json VRMs.corefolder_VRMPath references existing .vrm/.png files', () => {
+    const records = load('data/Works_NumberTales/DataBases/db_Primary.json');
+    const expected = new Map([
+      [4, 'vrm_corefolder4'],
+      [16, 'vrm_corefolder16'],
+      [20, 'vrm_corefolder20'],
+      [25, 'vrm_corefolder25'],
+    ]);
+
+    for (const [num, fileName] of expected) {
+      const rec = records.find((r) => r.Num === num);
+      // 値は「フォルダ/拡張子なしファイル名」規約（corefolder_PNGPath と同じ）
+      expect(rec?.VRMs?.corefolder_VRMPath, `Num:${num}`).toEqual([`${num}/${fileName}`]);
+
+      const baseDir = join(repoRoot, 'data/Works_NumberTales/VRMs/DB_Primary/corefolder', String(num));
+      expect(existsSync(join(baseDir, `${fileName}.vrm`)), `${fileName}.vrm`).toBe(true);
+      expect(existsSync(join(baseDir, `${fileName}.png`)), `${fileName}.png`).toBe(true);
     }
   });
 

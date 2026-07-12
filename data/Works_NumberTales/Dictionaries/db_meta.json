@@ -19,6 +19,12 @@
       "keyField": "Formation",
       "compatListKey": "#List_Formation"
     },
+    "#Dict_Costume": {
+      "DB_Label_JP": "衣装辞書",
+      "DB_Label_EN": "Costume Dictionary",
+      "keyField": "Costume",
+      "compatListKey": "#List_Costume"
+    },
     "#Dict_SpecialPattern": {
       "DB_Label_JP": "特殊パターン辞書",
       "DB_Label_EN": "Special Pattern Dictionary",

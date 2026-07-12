@@ -2118,3 +2118,121 @@ th
 
 .bilingual-lines__line
 	font-size: 14px
+
+// VRM 3Dビューア（lib/section-renders/vrmViewer.js）
+// カード1件 = サムネイル（左）+ 起動ボタン/3Dステージ（右・起動後に表示）
+// モバイルでは縦積み、768px 以上でポスター画像の右隣に 3D ビューアを並べる
+.model-viewer-list
+	display: flex
+	flex-direction: column
+	gap: var(--spacing-lg)
+
+.model-viewer
+	display: flex
+	flex-direction: column
+	gap: var(--spacing-sm)
+	max-width: 320px
+
+	@media (min-width: 768px)
+		flex-direction: row
+		align-items: flex-start
+		gap: var(--spacing-md)
+		max-width: 680px
+
+// ポスター画像カラム（左）
+.model-viewer__media
+	flex: 0 0 auto
+	width: 100%
+	min-width: 0
+
+	@media (min-width: 768px)
+		width: 320px
+
+// 起動ボタン・3Dステージ・ヒント・エラーのカラム（右）
+.model-viewer__body
+	display: flex
+	flex-direction: column
+	gap: var(--spacing-sm)
+	flex: 1 1 auto
+	min-width: 0
+
+	@media (min-width: 768px)
+		width: 320px
+
+.model-viewer__poster
+	width: 100%
+	height: auto
+	aspect-ratio: 1 / 1
+	object-fit: cover
+	display: block
+	border: 1px solid var(--border)
+	border-radius: var(--border-radius-md)
+	background: var(--card)
+
+.model-viewer__launch-btn
+	padding: var(--spacing-sm) var(--spacing-md)
+	border: 1px solid var(--border-strong)
+	border-radius: var(--border-radius-md)
+	background: var(--panel)
+	color: var(--fg)
+	font-size: var(--font-size-sm)
+	font-weight: 600
+	cursor: pointer
+	transition: all 0.2s ease
+
+	&:hover:not(:disabled)
+		border-color: var(--accent)
+		color: var(--accent-bright)
+
+	&:disabled
+		cursor: wait
+		opacity: 0.7
+
+.model-viewer__stage
+	width: 100%
+	aspect-ratio: 1 / 1
+	border: 1px solid var(--border-strong)
+	border-radius: var(--border-radius-md)
+	overflow: hidden
+	background: var(--bg-deep)
+	box-shadow: var(--glow) 0 0 16px
+
+	canvas
+		display: block
+
+.model-viewer__hint
+	font-size: var(--font-size-xs)
+	color: var(--muted)
+
+.model-viewer__error
+	font-size: var(--font-size-sm)
+	color: var(--error)
+
+// subFields 系エントリ共通レイアウト（lib/section-renders/appearanceDetail.js / tailsUnit.js など）
+// エントリ1件 = テキスト情報（左）+ 参考画像（右・小さめのサムネイル）
+// 幅が足りない場合は flex-wrap で参考画像がテキストの下に回り込む。
+// 新しい section renderer で参考画像付きエントリを描画する場合は、
+// field 固有クラス（BEM）に併せてこの共通クラスを付与すること。
+.subfield-entry
+	display: flex
+	flex-wrap: wrap
+	align-items: flex-start
+	gap: var(--spacing-sm) var(--spacing-md)
+	margin-bottom: 8px
+
+// テキスト情報カラム（ヘッダータグ・属性行・ノート）
+// flex-grow を切り、参考画像がテキストのすぐ右隣に付くようにする
+.subfield-entry__main
+	flex: 0 1 auto
+	min-width: 0
+	max-width: 100%
+
+// 参考画像カラム（右隣に小さく表示）
+.subfield-entry__reference-image
+	flex: 0 0 auto
+	width: 120px
+	max-width: 40%
+
+	// 詳細ビュー共通の .image-item（4/3 固定）より正方形サムネイルを優先する
+	.image-item img
+		aspect-ratio: 1 / 1

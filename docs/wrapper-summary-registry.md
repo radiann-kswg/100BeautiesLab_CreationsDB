@@ -53,8 +53,10 @@
 - `statsSection` — 汎用 Stats 系表示（`lib/section-renders/abilityStats.js` 等）
 - `thisMastersSection` — ThisMasters (`$Def_ThisMastersEntry[]`) 表示（`lib/section-renders/thisMasters.js`）
 - `dbLinkSection` — `*_DBLink` suffix フィールドのキャラクターリンク参照表示（`lib/section-renders/dblink.js`）
-- `appearanceDetailSection` — `AppearanceDetail` (`$Def_AppearanceDetail[]`) 外見デザイン詳細の Formation グループ別表示。`vdict_*` / `value_Num_*` / `value_JP` / `about_JP` の規約駆動フィールドを `$EnumDef_*`（global+local マージ）で解決し、参考画像（`img_PNGName`）がある場合はライトボックス対応で表示する。画像フォルダは `DesignElement` の `#Element_*` から `attr/<lowerCamel>` を自動導出し、判別不能時のみ従来互換として `img/` を既定値にする（`lib/section-renders/appearanceDetail.js`）
-- `tailsUnitSection` — `TailsUnit` (`$Def_TailsUnit[]`) の1エントリごとの標準表示（形状タグ・本数・節数・方向句・分岐内訳・補足テキスト・参考画像）。参考画像（`TailsUnit_PNGName`）は `$subfolder` をスキーマから解決した上で `createGalleryImageItem`（ライトボックス拡大表示対応）で表示する（`lib/section-renders/tailsUnit.js`）
+- `appearanceDetailSection` — `AppearanceDetail` (`$Def_AppearanceDetail[]`) 外見デザイン詳細の Formation グループ別表示。`vdict_*` / `value_Num_*` / `value_JP` / `about_JP` の規約駆動フィールドを `$EnumDef_*`（global+local マージ）で解決し、参考画像（`img_PNGName`）がある場合はライトボックス対応で表示する。エントリ1件は subFields 系共通の `.subfield-entry` クラスによる「テキスト情報（左）+ 右隣の小さな参考画像」の flex 2カラム構造。画像フォルダは `DesignElement` の `#Element_*` から `attr/<lowerCamel>` を自動導出し、判別不能時のみ従来互換として `img/` を既定値にする（`lib/section-renders/appearanceDetail.js`）
+  - subFields 系共通レイアウトクラス（`pages/characters.sass`）: `.subfield-entry`（flex コンテナ、狭幅時は wrap で縦積み）/ `.subfield-entry__main`（テキスト情報カラム）/ `.subfield-entry__reference-image`（参考画像カラム、幅120pxの正方形サムネイル）。新しい section renderer で参考画像付きエントリを描画する場合は、field 固有クラス（BEM）に併せてこの共通クラスを付与する（例: `class="tailsunit__entry subfield-entry"`）
+- `tailsUnitSection` — `TailsUnit` (`$Def_TailsUnit[]`) の1エントリごとの標準表示（形状タグ・本数・節数・方向句・分岐内訳・補足テキスト・参考画像）。エントリ1件は subFields 系共通の `.subfield-entry` クラスによる「テキスト情報（左）+ 右隣の小さな参考画像」の flex 2カラム構造。参考画像（`TailsUnit_PNGName`）は `$subfolder` をスキーマから解決した上で `createGalleryImageItem`（ライトボックス拡大表示対応）で表示する（`lib/section-renders/tailsUnit.js`）
+- `vrmViewerSection` — `VRMs.corefolder_VRMPath`（`#VRMFilePath[]`）を3Dビューア（three.js + `@pixiv/three-vrm`）として表示する。カード1件は「ポスター画像（`.model-viewer__media`）+ 右隣の起動ボタン/3Dステージ（`.model-viewer__body`）」の2カラム構造（768px未満は縦積み。レイアウトは `pages/characters.sass` 側で制御）。`TailsUnit`と同じ設計（構造化データ + 専用URL構築ヘルパー）に寄せており、`_enrichment`/`ImageProcessor`には一切依存しない。URL構築は `helpers.buildVrmAssetUrl`（`pages/characters.js`。`Images`ではなく`VRMs`配下を解決）に委譲する。three.js本体は「起動」ボタン押下時にのみ動的importし、通常表示では一切ロードしない（`pages/vendor/`に同梱、外部CDN非依存。詳細は`pages/vendor/THIRD_PARTY_NOTICES.md`）（`lib/section-renders/vrmViewer.js`）
 
 **suffix 自動ディスパッチ**: `dbLinkSection` と `relationSection` は `$display.sectionWrapper` の宣言なしに suffix だけで自動マッチする。
 - `*_DBLink` → `dbLinkSection` が `match` 関数で自動検出
@@ -79,6 +81,7 @@
 - `$MetaType.$Def_StoryEraCatalog.$display.wrapper = storyEraSummary`
 - `$DefType.AppearanceDetail.$display.sectionWrapper = appearanceDetailSection`（`data/db_type.json` — `$Def_AppearanceDetail[]|#Null` 型 / `searchable: false`）
 - `$VarsDef.$Def_TailsUnit.$display = { wrapper: "tailsUnitSummary", sectionWrapper: "tailsUnitSection" }`（`data/Works_NumberTales/DataBases/db_meta.json` — work-local）。`$DefType.TailsUnit.$display.sectionWrapper = tailsUnitSection`（`data/Works_NumberTales/DataBases/db_type.json` — `$Def_TailsUnit[]` 型 / `searchable: false`）。`TailsUnit` は `data/db_meta.json` の `CreationWorks.#Works_NumberTales.$DetailLayout.basicFields` にも列挙されているが、同じキーが `subFields` へ昇格すると「1項目1箇所の原則」で `pages/characters.js`（`normalizedBasicFieldKeys` の `isPromotedSubFieldKey` フィルタ）が基本情報テーブルからは自動的に除外するため、実際の表示は `tailsUnitSection`（この専用折りたたみセクション。詳細+参考画像）のみになる
+- `$DefType.VRMs.$display.sectionWrapper = vrmViewerSection`（`data/Works_NumberTales/DataBases/db_type.json` — サブフィールド `corefolder_VRMPath`: `#VRMFilePath[]` / `searchable: false`）。`VRMs` は `data/db_meta.json` の `CreationWorks.#Works_NumberTales.$DetailLayout.subFields` にも列挙されており、`vrmViewerSection` の折りたたみセクションとしてのみ表示される（`Images` のギャラリーパイプラインとは完全に独立）
 
 ### 2.3 UI 側の利用
 
@@ -277,6 +280,7 @@ wrapper 周辺を触ったときに優先して回すテスト:
 - `tests/sw.work-meta-info.test.js`
 - `tests/pages.characters.ui-output.test.js`
 - `tests/pages.characters.syntax.test.js`
+- `tests/section-renders.vrmViewer.test.js`
 - 必要に応じて `tests/meta.catalog.schema.test.js`
 
 ---

@@ -205,6 +205,7 @@
 - runtime 合流時には `#Dict_*` を正としつつ、既存実装の互換用に `#List_*` も同じ内容で補完します。
 - `#PNGFileName` / `#PNGFilePath` 系フィールドは `$subfolder`（2026-07-10 新設）で画像フォルダの相対パスを明示宣言できます（例: `"$subfolder": "attr/tailsUnit"` → `Images/DB_<DbName>/attr/tailsUnit/`）。未指定の場合は従来通り `TypeDefUtils.inferFolderHintFromKey()` がフィールド名の `_PNG` 接頭辞から推測しますが、`$subfolder` を宣言すればそちらが優先されます。同じ親フォルダ配下を参照フィールドごとにサブフォルダで分けたい場合（`attr/tailsUnit`, `attr/earShape` のように）に使います。
 - `#PNGFilePath` / `#PNGFileName` フィールドの値としてDB/Work横断で他の画像フォルダを参照したい場合は、`$Def_DBCrossLinkPath`（2026-07-11 新設、`data/db_type.json` グローバル宣言）を使います。従来の `../../DB_SemiPrimary/...` のような手書き相対パス（ブラウザのURL正規化に依存した非公式な回避策）を廃止し、`{ "_DBCrossLinkPath": { "_DB": "SemiPrimary", "_IsoPath": "..." } }` の形で宣言的に参照します。`_DBLink`（レコード参照機構）とは異なり対象レコードの検索を行わない、パス参照専用の軽量な機構です。詳細は `docs/api-sw-spec.md` §8.3 を参照してください。
+- `#VRMFilePath`（2026-07-12 新設、NumberTales `VRMs.corefolder_VRMPath` で使用）は画像ではなく VRM 3Dモデルを指す型です。値の規約は `#PNGFilePath`（フォルダ/拡張子なしファイル名、例: `"16/vrm_corefolder16"`）と同じですが、`Images/` ではなく `VRMs/DB_<DbName>/<category>/` 配下（例: `VRMs/DB_Primary/corefolder/16/vrm_corefolder16.vrm` + 同名 `.png` サムネイル）を指します。`ImageProcessor`/`TypeDefUtils.looksImageType()`/`_enrichment.images` には一切乗らず、`lib/section-renders/vrmViewer.js`（`$display.sectionWrapper: "vrmViewerSection"`）が `helpers.buildVrmAssetUrl`（`pages/characters.js`）経由で独立に解決・表示します。バイナリ資産の種別ごとに専用の型 + section-renderer + URLヘルパーを用意し、既存の画像パイプラインを流用・分岐で汚さない、という今回確立したパターンです。詳細は `docs/wrapper-summary-registry.md` の `vrmViewerSection` を参照してください。
 
 ### 3.3 `$display`
 

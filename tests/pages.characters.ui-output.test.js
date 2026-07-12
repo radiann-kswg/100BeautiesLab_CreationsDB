@@ -280,6 +280,7 @@ const numberTalesReferenceRecord = numberTalesReferenceRecords.find((record) => 
 const firstNumberTalesPrimaryRecord = numberTalesPrimaryRecords.find((record) => String(record?.Num) === '1');
 const fourthNumberTalesPrimaryRecord = numberTalesPrimaryRecords.find((record) => String(record?.Num) === '4');
 const ninthNumberTalesPrimaryRecord = numberTalesPrimaryRecords.find((record) => String(record?.Num) === '9');
+const sixtyFirstNumberTalesPrimaryRecord = numberTalesPrimaryRecords.find((record) => String(record?.Num) === '61');
 const branchedTailsUnitRecord = numberTalesSecondaryRecords.find((record) => String(record?.Num) === '148-numberize');
 
 const yayoiRecord = {
@@ -1070,6 +1071,35 @@ describe('pages/characters.js UI output', () => {
 		expect(sectionText).toContain('狐');
 		// about_JP からの補足テキスト
 		expect(sectionText).toContain('先がアクセントカラー');
+	});
+
+	it('resolves AppearanceDetail Costume tags via #Dict_Costume (no raw idol/usual codes)', async () => {
+		// Costume は NT ローカルの Dictionaries/dict_Costume.json（#Dict_Costume カタログ登録）から
+		// JP/EN ラベル解決される。カタログ未登録だと生コード（idol/usual）のまま表示される回帰を検知する
+		charactersModule.__setCharactersTestState({
+			globalDefType,
+			charState: {
+				db: 'Primary',
+				workId: '#Works_NumberTales',
+				globalTypeDef,
+				workMeta: numberTalesWorkMeta,
+				imageFields: []
+			}
+		});
+
+		await charactersModule.renderDetail('#Works_NumberTales', sixtyFirstNumberTalesPrimaryRecord);
+
+		const section = getSectionNode('外見デザイン詳細');
+		expect(section).not.toBeNull();
+		const tagTexts = Array.from(section.querySelectorAll('.appearance-detail__entry-header .tag'))
+			.map((t) => t.textContent?.trim());
+		// 辞書解決済みラベルが表示される（テスト環境は言語未設定のため JP/EN 併記になり得る。
+		// 実ブラウザでは pageLang に応じて JP or EN の単独表示）
+		expect(tagTexts.some((t) => t.includes('通常衣装'))).toBe(true);
+		expect(tagTexts.some((t) => t.includes('アイドル衣装'))).toBe(true);
+		// 生コードのままのタグは残らない
+		expect(tagTexts).not.toContain('usual');
+		expect(tagTexts).not.toContain('idol');
 	});
 
 	it('renders TailsUnit as a dedicated standalone section (subFields) from the $Def_TailsUnit field for NT character', async () => {

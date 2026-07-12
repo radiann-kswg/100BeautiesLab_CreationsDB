@@ -11,7 +11,7 @@ Copilot 自動ロード用の同等仕様は `.github/instructions/roleplay.inst
 重複削減のため、本ファイルではフル記述を持たず、以下の最小要点と正典参照のみを置きます。
 
 > 正典: [`AGENTS.md`](../AGENTS.md)（ロールプレイ仕様のフル記述）
-> 創作原本（User 手動管理）: [_roleplay-datas/roleplay-prompt.md](./_roleplay-datas/roleplay-prompt.md)
+> 創作原本（User 手動管理）: [\_roleplay-datas/roleplay-prompt.md](./_roleplay-datas/roleplay-prompt.md)
 > 参考実装: [NumberTales-MisskeyAIBot](https://github.com/radiann-kswg/NumberTales-MisskeyAIBot) / [100BeautiesLab_GeneratorsAI](https://github.com/radiann-kswg/100BeautiesLab_GeneratorsAI)
 
 **声カード（最小要点）**: 一人称「私」／二人称「君」「二春」／三人称 名前・「彼」「彼女」「〜の人」「〜の子」。中性的でフレンドリーな明るい先輩口調。技術応答でも口調を維持し、コード/JSON 本体はそのまま前後の説明文だけ一春の口調にする。「技術的な内容だから普通の文体で書く」判断はしない。
@@ -73,7 +73,7 @@ Copilot 自動ロード用の同等仕様は `.github/instructions/roleplay.inst
 - **`AI_Optout` による AI タグ生成 / AI 学習の抑止**: 作品別 `db_meta.json` の `Databases.#DB_<DbName>` に `"AI_Optout": true` を置くと、`tools/patch-aihints.mjs` の全モード（`--suggest` / `--apply` / `--fix-refs` / `--fill-todos` / `--gen-vision-tasks` / `--apply-vision-results`）がそのDBへの書き込み・解析を exit code 2 で拒否します。緊急時のみ `--force-ai-optout` でバイパス可能です。AI 学習・LLM 取り込みに対する opt-out 表明シグナルも兼ねる単一フラグで、`DB_Hidden` / `Works_Hidden` と同様にスキーマ非宣言・メタ欠損時はスキップという扱いです。2026-06-02 時点では `Works_NumberTales/#DB_Primary` のみ未付与で、それ以外の 19 DB / Ref エントリには付与済みです。詳細は `docs/api-sw-spec.md` の §5.5 を参照してください。
 - **API/SW 技術説明の参照先**: API / SW 周辺の仕様整理や説明追加では、まず `docs/api-sw-spec.md` を参照・更新対象に含めてください。
 - **横断運用の参照先**: 実装判断の横断ルールは `docs/implementation-playbook.md` を先に確認し、必要な差分だけ追加してください。
-- **英訳(_EN)入力補助の参照先**: `data/**` の `_EN` を補助するときは `.github/instructions/localization-en.instructions.md`（Chat/Agent/Edits に自動適用）と早見表 `docs/localization-glossary-quickref.md` を参照してください。**インライン補完（ゴーストテキスト）はカスタム指示を読み込まない**ため、早見表を隣タブで開いて近傍文脈に入れます。一括翻訳・既存英訳の突き合わせ・用語集同期は `tools/deepl/`（`docs/deepl-localization.md`）に委ねます。既存値の上書き・創作本文の新規生成はしません。
+- **英訳(\_EN)入力補助の参照先**: `data/**` の `_EN` を補助するときは `.github/instructions/localization-en.instructions.md`（Chat/Agent/Edits に自動適用）と早見表 `docs/localization-glossary-quickref.md` を参照してください。**インライン補完（ゴーストテキスト）はカスタム指示を読み込まない**ため、早見表を隣タブで開いて近傍文脈に入れます。一括翻訳・既存英訳の突き合わせ・用語集同期は `tools/deepl/`（`docs/deepl-localization.md`）に委ねます。既存値の上書き・創作本文の新規生成はしません。
 - **wrapper / section renderer の第一候補**: `Day` / `Era` / `StoryEra` のような複合 summary は、`pages/characters.js` や `lib/sw-common.js` に field 名依存の if を足す前に、`lib/wrapper-common.js` と schema の `$display.wrapper` / `$display.role` で吸収できないかを確認してください。`subFields` の standalone 描画も同様に、`pages/characters.js` に field 名依存の if を足す前に `lib/section-wrapper-common.js` と schema の `$display.sectionWrapper` で吸収できないかを確認してください。
 - **main code / subscript 分離原則**: `pages/characters.js` には可能な限り全 JSON field 共通の API bridge / renderer dispatch / generic fallback だけを残し、field 固有の特殊処理は `lib/wrapper-common.js` または `lib/section-wrapper-common.js` の built-in handler へ寄せてください。`Relation` のように DOM 組み立て・辞書解決・直リンク生成を伴う処理も同様です。
 - **subscript helper の渡し方**: built-in section renderer / wrapper が main code の helper を必要とする場合は、`helpers.relationApi` のような名前付き API object としてまとめて渡し、subscript 側に散発的な global 依存を増やさないでください。
@@ -89,6 +89,7 @@ Copilot 自動ロード用の同等仕様は `.github/instructions/roleplay.inst
 - **AIHints `silhouette_notes` は object 形式**: 2026-06-09 以降、`forms.*.silhouette_notes` は `$Def_AISilhouetteNotes`（`{ body_description: #String[], attached_items: #String[] }`）に統一します。素体（球体本体・球状コア・人型上半身）は `body_description` へ、ハーネス・髪飾り・首輪・襷・カフ等の装着付属品は `attached_items` へ分離してください。flat array からの一括移行は `tools/patch-aihints.mjs --migrate-silhouette-structure --apply` で行えます。
 - **AIHints corefolder NLD のテンプレ化**: `forms.corefolder.natural_language_description` は「`Corefolder form: a spherical cushion-like body in {color}, with the number '{N}' {marking placement}; {accessory}.`」のテンプレで再生成します（`tools/patch-aihints.mjs --rewrite-corefolder-nld`）。`coat` / `dress` / `bodysuit` / `pants` / `shoes` 等の humanoid 衣装語を混入させてはいけません（`outfit` は corefolder 衣装バリアントで正当利用があるため除外語に含めない）。番号刻印位置（marking placement）は `common.immutable_traits` の単一スロット記述から `extractMarkingInfo()` が抽出します。「番号刻印なし」と明示する場合は `with no number identifier printed on the body` が出力されます。
 - **AIHints schema 追加時の冪等パッチ**: AIHints / 類似スキーマに新フィールドを追加する場合、`tools/patch-aihints.mjs` の `--upgrade-schema` モード（`!('field' in obj)` ガードで差分追加のみ）を踏襲してください。既存値の上書きや TODO への戻しは禁止です。
+- **画像以外のバイナリ資産（3Dモデル等）の追加パターン**: VRM 3Dアバター（`VRMs.corefolder_VRMPath`: `#VRMFilePath[]`）で確立したパターンとして、既存の `Images`/`ImageProcessor` パイプラインを流用・分岐で汚さず、専用型 + 専用 section-renderer（`$display.sectionWrapper`）+ client側専用URL構築ヘルパー（`pages/characters.js` の `buildTailsUnitImageUrl` 相当）で独立実装してください。重い外部ライブラリ（three.js 等）が必要な場合は `pages/vendor/` に同梱（外部CDN非依存）し、ユーザー操作（ボタン押下等）まで動的 `import()` を遅延させます。詳細は `docs/wrapper-summary-registry.md` の `vrmViewerSection` / `docs/schema-meta-processing.md` の `#VRMFilePath` を参照してください。
 
 ### ブランチ運用方針
 
