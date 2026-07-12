@@ -84,6 +84,7 @@ Copilot 自動ロード用の同等仕様は `.github/instructions/roleplay.inst
 - **`*_DBLink` suffix フィールドの自動ディスパッチ**: `{FieldName}_DBLink` で終わるフィールドは `lib/section-renders/dblink.js` の `dbLinkSection` renderer が suffix を自動検出して描画します。`$display.sectionWrapper` の指定は不要です。`lib/section-wrapper-common.js` の `structuredObjectSection.match` に `*_DBLink` 除外条件があり、単一オブジェクト形式のフィールドでも正しく `dbLinkSection` へ委譲されます。
 - **`$Def_DBLinkRef` フォーマット**: `*_DBLink` エントリ（UI向けリンク用）は `{ "_Work": "WorksTitle", "_DB": "DbName", "IndexKey": "IndexValue" }` 形式を正とします。ネストインデックスも可（例: `"Card": { "Suit": "Major", "SuitNum": 17 }`）。旧フォーマット（`{ worksTitle, dbName, _Search: [{hashTag, key}] }`）は廃止。ただし `EnrichmentProcessor.resolveDbLinkPrimaryRecord()` が使うレコードルートの `_DBLink`（マージ用）は旧フォーマットのまま維持します。
 - **`ThisMasters._DBLink` のフォーマット**: `$Def_DBLinkRef` 形式を使います。`lib/section-renders/thisMasters.js` の `hydrateThisMastersLink` は SENTINEL_KEYS（`_DB / _Work / label_JP / label_EN`）を除いた最初のキーをインデックスとして動的解決します。
+- **画像以外のバイナリ資産（3Dモデル等）の追加パターン**: VRM 3Dアバター（`VRMs.corefolder_VRMPath`: `#VRMFilePath[]`）で確立したパターンとして、既存の `Images`/`ImageProcessor` パイプラインを流用・分岐で汚さず、専用型 + 専用 section-renderer（`$display.sectionWrapper`）+ client側専用URL構築ヘルパー（`pages/characters.js` の `buildTailsUnitImageUrl` 相当）で独立実装してください。重い外部ライブラリ（three.js 等）が必要な場合は `pages/vendor/` に同梱（外部CDN非依存）し、ユーザー操作（ボタン押下等）まで動的 `import()` を遅延させます。詳細は `docs/wrapper-summary-registry.md` の `vrmViewerSection` / `docs/schema-meta-processing.md` の `#VRMFilePath` を参照してください。
 
 ### ブランチ運用方針
 

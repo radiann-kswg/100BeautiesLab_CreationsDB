@@ -1121,6 +1121,7 @@
         "humanoids/art_numbertalesAniv4th"
       ]
     },
+    "VRMs": { "corefolder_VRMPath": ["4/vrm_corefolder4"] },
     "Name_JP": "4(モチ)",
     "Name_EN": "4(Forna)",
     "ModelName_JP": "ナンバーテールズ4号機(4番機)",
@@ -5412,6 +5413,7 @@
         "corefolders/2024/art_img16-corefolderB"
       ]
     },
+    "VRMs": { "corefolder_VRMPath": ["16/vrm_corefolder16"] },
     "Name_JP": "16(ソロク)",
     "Name_EN": "16(Sixteely)",
     "ModelName_JP": "ナンバーテールズ1+6号機甲(16番機)",
@@ -6585,6 +6587,7 @@
         "humanoids/2023/art_img20-humanoid"
       ]
     },
+    "VRMs": { "corefolder_VRMPath": ["20/vrm_corefolder20"] },
     "Name_JP": "20(ハツカ)",
     "Name_EN": "20(Twentia)",
     "ModelName_JP": "ナンバーテールズ2号機改(20番機)",
@@ -8353,6 +8356,7 @@
         }
       ]
     },
+    "VRMs": { "corefolder_VRMPath": ["25/vrm_corefolder25"] },
     "Name_JP": "25(フィズ)",
     "Name_EN": "25(Quartels)",
     "ModelName_JP": "ナンバーテールズ2+5号機(25番機)",

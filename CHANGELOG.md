@@ -1,5 +1,32 @@
 # 最新のリファクタリング・仕様変更履歴
 
+### improve: VRM 3Dビューアと subFields 系参考画像を2カラムレイアウト化 (2026-07-12)
+
+キャラシートの縦方向の占有面積を抑えるため、VRM 3Dビューアカードと `AppearanceDetail` / `TailsUnit` エントリを横並びの flex 2カラム構造に変更した。
+
+- **`lib/section-renders/vrmViewer.js`**: カードDOMを「ポスター画像（`.model-viewer__media`）+ 起動ボタン/3Dステージ/ヒント/エラー（`.model-viewer__body`）」の2カラムに再構成。3Dビューアはポスターの右隣に並ぶ。
+- **subFields 系共通レイアウトクラスの新設**（`pages/characters.sass`）: `.subfield-entry` / `.subfield-entry__main` / `.subfield-entry__reference-image` を新設し、参考画像付きエントリを「テキスト情報（左）+ 参考画像（右・幅120pxの正方形サムネイル）」で描画する（狭幅時は wrap で縦積み）。field 固有クラス（BEM）に併せて付与する方式で、今後の renderer にも横展開可能。
+- **`lib/section-renders/appearanceDetail.js` / `tailsUnit.js`**: エントリを `__main`（ヘッダー/属性/ノート）+ `__reference-image` に分離し、共通クラスを付与。レイアウト用インラインstyleはSASSへ移管。
+- **`pages/characters.html`**: `asset-version` を `2026.07.12.3` に更新。
+- **`tests/section-renders.vrmViewer.test.js`**: カードDOMの2カラム構造にテストを追従（既存の `.tailsunit__reference-image` 参照テストはクラス名維持により無改修）。
+- 確認: `npm test` 全件成功（27ファイル / 254件）。ローカルHTTPサーバー上で実ブラウザ確認済み（3Dビューア起動・外見デザイン詳細・尻尾ユニットの右隣画像表示）。
+
+### add: NumberTales VRMアバターの3Dビューア表示に対応 (2026-07-12)
+
+`data/Works_NumberTales/VRMs/DB_Primary/corefolder/` に格納された VRM 3Dモデル（`.vrm` + 同名 `.png` サムネイル）を、キャラシート上で回転・拡大できる3Dビューアとして表示できるようにした。既存の `Images` 用パイプライン（`ImageProcessor`/ギャラリー描画、PNG専用に決め打ち）には一切手を入れず、`TailsUnit`（構造化データ + 専用 section-renderer + client側URL構築ヘルパー）と同じ設計パターンを踏襲することで、`lib/data-common.js`（enrich/SW共通処理）・Cloudflare Workers 側を無改修のまま UI 層だけで完結させた。three.js / `@pixiv/three-vrm` は「3Dビューアを起動」ボタン押下時にのみ動的 `import()` し、通常のページ閲覧やVRMを持たないキャラの表示では一切ロードしない。
+
+- **`data/Works_NumberTales/DataBases/db_type.json`**: `Images` の直後に新規トップレベル `VRMs`（`corefolder_VRMPath`: `#VRMFilePath[]`）を追加。`$display: { sectionWrapper: "vrmViewerSection" }`。
+- **`data/db_meta.json`（グローバル）**: `CreationWorks.#Works_NumberTales.$DetailLayout.subFields` に `"VRMs"` を追加。
+- **`data/Works_NumberTales/DataBases/db_Primary.json`**: 該当4レコード（`Num: 4, 16, 20, 25`）に `VRMs.corefolder_VRMPath`（例: `["16/vrm_corefolder16"]`、拡張子なしファイル名規約は `corefolder_PNGPath` と同じ）を追加。
+- **`lib/section-renders/vrmViewer.js`（新規）**: `CharacterSectionRendererRegistry` へ `vrmViewerSection` を登録。サムネイル即時表示 + 起動ボタン + 3Dステージのカードを描画し、ボタン押下時のみ three.js 一式を動的import、canvas がDOMから切断されたら自動でレンダリングループを停止・破棄する。
+- **`pages/characters.js`**: `buildVrmAssetUrl(relPath, ext)`（`Images` ではなく `VRMs` 配下を組み立てる専用ヘルパー、`buildTailsUnitImageUrl` と同じ役割分担）を追加し、`renderStandaloneFieldSection` の helpers に配線。`lib/section-renders/vrmViewer.js` の import を追加。
+- **`pages/characters.html`**: three.js / `@pixiv/three-vrm`（同梱・`pages/vendor/`）解決用の import map を追加。`asset-version` を更新。
+- **`pages/vendor/`（新規）**: `three@0.185.1` / `@pixiv/three-vrm@3.5.5` の配布物を同梱（外部CDN非依存）。`THIRD_PARTY_NOTICES.md` にライセンス・更新方法を記載。
+- **`pages/characters.sass`/`.css`**: `.model-viewer` 系のスタイルを追加。
+- **`tests/data.shape.test.js`**: `VRMs.corefolder_VRMPath` の値規約・参照ファイル実在を検証するケースを追加。
+- **`tests/section-renders.vrmViewer.test.js`（新規）**: `vrmViewerSection` の登録・`match()`・空配列時の `null` 返却・カードDOM構築（three.js未importで検証可能）を検証。
+- 確認: `npm test` 全件成功（27ファイル / 254件）。Playwright + ローカルHTTPサーバーでの実ブラウザ確認まで完了（3Dビューア起動・マウス操作での回転・別キャラ遷移時のクリーンアップ・遅延ロード・VRM非保持キャラでの非表示）。詳細・発見した修正点（`buildVrmAssetUrl` のカテゴリフォルダ名欠落バグ）は `_work_in_progress/2026-07-12_progress_vrm-viewer.md` に記録。
+
 ### refactor: NumberTales `NumberMarkLocation` / `IdentityMotif` を廃止し `AppearanceDetail` へ一本化 (2026-07-11)
 
 両フィールドは `scripts/migrate-appearance-detail.mjs` により `AppearanceDetail`（`$Def_AppearanceDetail[]`）へ試験運用として並走追加されていたが、全該当95レコード（105レコード中）で移行済み（片方のみ持つレコードなし、移行漏れなし）を確認できたため、旧フィールドを廃止した。

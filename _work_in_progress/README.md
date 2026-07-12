@@ -44,6 +44,7 @@
 | NumberTales 耳の形状(EarShapeType)再設計 | [2026-07-08_progress_numbertales-earshapetype-restructure.md](./2026-07-08_progress_numbertales-earshapetype-restructure.md)                                        | ⚠️ ブラウザ目視確認待ち（`npm test` 22files/199tests成功済み・addon-ai-tag側追従は実施済み）     |
 | AIHints 構造的再同期 設計提案            | [2026-07-08_progress_aihints-structural-resync-proposal.md](./2026-07-08_progress_aihints-structural-resync-proposal.md)                                            | 📝 提案書のみ・実装未着手。User の優先度判断待ち（実装は addon-ai-tag 側の別タスク）             |
 | NumberTales `NumberMarkLocation`/`IdentityMotif` 廃止（appearance-detail-cleanup） | [2026-07-11_progress_remove-nummark-identitymotif.md](./2026-07-11_progress_remove-nummark-identitymotif.md) | ✅ 実装完了・`npm test` 243/244件成功（既存無関係の1件失敗は対象外）。ブラウザ目視確認は未実施 |
+| NumberTales VRMアバター 3Dビューア            | [2026-07-12_progress_vrm-viewer.md](./2026-07-12_progress_vrm-viewer.md)                                                                                            | ✅ 実装・`npm test`（27files/254tests）・Playwrightブラウザ実機確認まで完了                        |
 
 ### 系列の補足（過去フェーズは `.completed/` 参照）
 

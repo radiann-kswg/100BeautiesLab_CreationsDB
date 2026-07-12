@@ -40,6 +40,7 @@ import '../lib/section-renders/calling.js';
 import '../lib/section-renders/storyEra.js';
 import '../lib/section-renders/day.js';
 import '../lib/section-renders/tailsUnit.js';
+import '../lib/section-renders/vrmViewer.js';
 
 // Characters page: fetch from /api/v1 and render list/detail
 
@@ -7526,6 +7527,21 @@ export async function renderDetail(workId, rec) {
 			);
 		};
 
+		// VRMs.<category>_VRMPath（3Dアバター）専用のURL構築ヘルパー。
+		// 画像用の buildImagePath とは別に、`Images` ではなく `VRMs` 配下を組み立てる。
+		// 値は「フォルダ/拡張子なしファイル名」規約（例: "16/vrm_corefolder16"）で、
+		// corefolder_PNGPath 等と同様にカテゴリフォルダ名（"corefolder" 等）はフィールド名側が持つため、
+		// 呼び出し側（vrmViewer.js）がフィールド名から導出した folderHint を渡す想定。
+		// vrmViewer.js が `.vrm` 本体と同名 `.png` サムネイルの両方をこの関数経由で解決する。
+		const buildVrmAssetUrl = (relPath, ext, folderHint = '') => {
+			if (!relPath) return '';
+			const wdir = resolveWorkDirName(workId);
+			const dbDir = mapDbNameToImageDir(dbName);
+			const rel = String(relPath).replace(/\.(vrm|png)$/i, '');
+			const hint = folderHint ? `${folderHint}/` : '';
+			return `/data/${wdir}/VRMs/${dbDir}/${hint}${rel}${ext}`;
+		};
+
 		/**
 		 * AppearanceDetail.img_PNGName 専用のURL構築ヘルパー。
 		 * - `#Element_*` から `attr/<lowerCamel>` を自動導出する
@@ -7608,6 +7624,7 @@ export async function renderDetail(workId, rec) {
 					relationApi: relationRendererApi,
 					buildTailsUnitImageUrl,
 					buildAppearanceDetailImageUrl,
+					buildVrmAssetUrl,
 					createGalleryImageItem
 				}
 			});

@@ -57,6 +57,21 @@
       "hashTag_EN": "Images"
     },
     {
+      "hashTag": "VRMs",
+      "$type": [
+        {
+          "hashTag": "corefolder_VRMPath",
+          "$type": "#VRMFilePath[]",
+          "hashTag_JP": "コアフォルダ3Dアバター",
+          "hashTag_EN": "corefolder 3D Avatar"
+        }
+      ],
+      "$display": { "section": "other", "sectionWrapper": "vrmViewerSection", "tagSpace": "internal" },
+      "hashTag_JP": "3Dアバター",
+      "hashTag_EN": "3D Avatars",
+      "searchable": false
+    },
+    {
       "hashTag": "SameModels_DBLink",
       "$type": "$Def_DBLinkRef[]|#Null",
       "hashTag_JP": "同モデル",

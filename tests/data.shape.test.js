@@ -350,6 +350,26 @@ describe('TailsUnit schema', () => {
     }
   });
 
+  it('NT db_Primary.json VRMs.corefolder_VRMPath references existing .vrm/.png files', () => {
+    const records = load('data/Works_NumberTales/DataBases/db_Primary.json');
+    const expected = new Map([
+      [4, 'vrm_corefolder4'],
+      [16, 'vrm_corefolder16'],
+      [20, 'vrm_corefolder20'],
+      [25, 'vrm_corefolder25'],
+    ]);
+
+    for (const [num, fileName] of expected) {
+      const rec = records.find((r) => r.Num === num);
+      // 値は「フォルダ/拡張子なしファイル名」規約（corefolder_PNGPath と同じ）
+      expect(rec?.VRMs?.corefolder_VRMPath, `Num:${num}`).toEqual([`${num}/${fileName}`]);
+
+      const baseDir = join(repoRoot, 'data/Works_NumberTales/VRMs/DB_Primary/corefolder', String(num));
+      expect(existsSync(join(baseDir, `${fileName}.vrm`)), `${fileName}.vrm`).toBe(true);
+      expect(existsSync(join(baseDir, `${fileName}.png`)), `${fileName}.png`).toBe(true);
+    }
+  });
+
 });
 
 describe('SupersededDesignElement schema', () => {
