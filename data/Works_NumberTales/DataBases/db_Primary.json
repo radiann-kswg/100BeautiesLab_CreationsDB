@@ -7462,6 +7462,22 @@
       },
       {
         "Formation": null,
+        "BodyPart": ["#BodyPart_Eye"],
+        "Laterality": "#Lat_Both",
+        "DesignElement": "#Element_Motif",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "特殊な橙色の瞳孔で濃い黄色の目",
+            "value_EN": "eyes with special orange pupils and dark yellow irises"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
         "BodyPart": null,
         "Laterality": null,
         "DesignElement": "#Element_Expression",
@@ -7528,7 +7544,7 @@
         "Formation": "humanoid",
         "BodyPart": ["#BodyPart_Chest"],
         "Laterality": null,
-        "DesignElement": "#Element_Motif",
+        "DesignElement": "#Element_BodyType",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Overview",
@@ -14136,7 +14152,7 @@
         "Note_EN": null
       },
       {
-        "Formation": "corefolder",
+        "Formation": null,
         "BodyPart": ["#BodyPart_Eye"],
         "Laterality": "#Lat_Both",
         "DesignElement": "#Element_Motif",
@@ -14152,7 +14168,7 @@
         "Note_EN": null
       },
       {
-        "Formation": "corefolder",
+        "Formation": null,
         "BodyPart": ["#BodyPart_Neck"],
         "Laterality": null,
         "DesignElement": "#Element_CostumeItem",
@@ -14177,22 +14193,6 @@
             "AttrLabel": "#DesignAttr_Overview",
             "value_JP": "青みがかった灰色のショートヘア",
             "value_EN": "short blue-gray hair"
-          }
-        ],
-        "img_PNGName": null,
-        "Note_JP": null,
-        "Note_EN": null
-      },
-      {
-        "Formation": "humanoid",
-        "BodyPart": ["#BodyPart_Eye"],
-        "Laterality": "#Lat_Both",
-        "DesignElement": "#Element_Motif",
-        "Attrs": [
-          {
-            "AttrLabel": "#DesignAttr_Overview",
-            "value_JP": "青みがかった灰色の目",
-            "value_EN": "blue-gray eyes"
           }
         ],
         "img_PNGName": null,
@@ -23105,7 +23105,9 @@
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Ear",
-            "vdict_EarShapeType": "#EarShapeType_Fox"
+            "vdict_EarShapeType": "#EarShapeType_Fox",
+            "about_JP": "バンダナに重なる形で垂れている",
+            "about_EN": "hanging in a shape overlapping the bandana"
           }
         ],
         "img_PNGName": null,
@@ -32068,7 +32070,7 @@
       },
       {
         "Formation": "corefolder",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Neck"],
         "Laterality": null,
         "DesignElement": "#Element_Motif",
         "Attrs": [
@@ -32084,7 +32086,7 @@
       },
       {
         "Formation": "corefolder",
-        "BodyPart": null,
+        "BodyPart": ["#BodyPart_Chest", "#BodyPart_Neck"],
         "Laterality": null,
         "DesignElement": "#Element_Motif",
         "Attrs": [
@@ -32100,8 +32102,8 @@
       },
       {
         "Formation": "corefolder",
-        "BodyPart": null,
-        "Laterality": null,
+        "BodyPart": ["#BodyPart_Chest"],
+        "Laterality": "#Lat_Left",
         "DesignElement": "#Element_Tag",
         "Attrs": [
           {

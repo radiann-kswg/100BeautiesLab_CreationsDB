@@ -68,6 +68,113 @@
     "Unlike_EN": "Giving up on one's own life",
     "Strength_JP": "精神的に不安定な相手であっても決して見放さないこと",
     "Strength_EN": "Never abandoning even mentally unstable individuals",
+    "AppearanceDetail": [
+      {
+        "Formation": "corefolder",
+        "BodyPart": ["#BodyPart_Chest"],
+        "Laterality": "#Lat_Left",
+        "DesignElement": "#Element_NumberMark",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Position",
+            "value_JP": "球体の前面左胸の白色部分, 危険ストライプのチョーカー留め具の斜め下",
+            "value_EN": "On the left chest of the front of the sphere, below the yellow hazard stripe choker clasp"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Color",
+            "value_JP": "暗色",
+            "value_EN": "dark"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Notation",
+            "value_JP": "ローマ数字「C」,下にアラビア数字の「- 100 -」",
+            "value_EN": "Roman numeral 'C', with Arabic numeral '- 100 -' below"
+          }
+        ],
+        "img_PNGName": "attr_numberMark100",
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": "corefolder",
+        "BodyPart": ["#BodyPart_Ear"],
+        "Laterality": "#Lat_Both",
+        "DesignElement": "#Element_Ear",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Ear",
+            "vdict_EarShapeType": "#EarShapeType_Fox"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": "corefolder",
+        "BodyPart": ["#BodyPart_Hair"],
+        "Laterality": null,
+        "DesignElement": "#Element_Motif",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "濃い茶色の少し乱れたカジュアルショートヘア",
+            "value_EN": "dark brown slightly messy casual short hair"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": "corefolder",
+        "BodyPart": ["#BodyPart_Eye"],
+        "Laterality": "#Lat_Both",
+        "DesignElement": "#Element_Motif",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "濃黄色のラインと白色の小さい瞳孔が入った赤い目",
+            "value_EN": "red eyes with dark yellow lines and small white pupils"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": "corefolder",
+        "BodyPart": null,
+        "Laterality": null,
+        "DesignElement": "#Element_Expression",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "幾戦の人々を支えてきた看護長のような表情",
+            "value_EN": "An expression like that of a head nurse who has supported many people through battles"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": "corefolder",
+        "BodyPart": ["#BodyPart_Neck"],
+        "Laterality": null,
+        "DesignElement": "#Element_Motif",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "黄色い危険ストライプのチョーカー",
+            "value_EN": "yellow hazard stripe choker"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "RelationNotes_JP": "「ディケ」を「アニキ」と慕っているが、10(ミツル)に対しては少し慣れない様子",
     "RelationNotes_EN": "Looks up to \"Dicat\" as an elder-brother figure, but still seems slightly awkward around 10(Tenim)",
     "NumerospecAbout_JP": "ナンバーテールズの暴走と、ナンバーテールズと契約する主人との関係悪化を抑止する",
@@ -332,11 +439,10 @@
         "TailShapeType": "#TailShapeType_NekomataSpecial",
         "Count": 1,
         "Segment": 3,
-        "Note_JP": null,
-        "Note_EN": null
+        "Note_JP": "3つの先端にベルトが装着されている",
+        "Note_EN": "Belts are attached to the three tips"
       }
     ],
-    "AppearanceDetail": null,
     "Class": ["マスタートリプル"],
     "ThisMasters": [
       {
@@ -367,6 +473,179 @@
     "Favor_EN": "Games (open-world or sandbox)",
     "Unlike_JP": "地味なもの",
     "Unlike_EN": "Plain and unflashy things",
+    "AppearanceDetail": [
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Wing"],
+        "Laterality": "#Lat_Left",
+        "DesignElement": "#Element_NumberMark",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Position",
+            "value_JP": "左肩からのマントの端",
+            "value_EN": "from the left shoulder to the edge of the cape"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Color",
+            "value_JP": "紅色",
+            "value_EN": "dark red"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Notation",
+            "value_JP": "アラビア数字の「111」",
+            "value_EN": "Arabic numeral '111'"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Ear"],
+        "Laterality": "#Lat_Both",
+        "DesignElement": "#Element_Ear",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Ear",
+            "vdict_EarShapeType": "#EarShapeType_Cat",
+            "about_JP": "フードキャップに隠れている",
+            "about_EN": "hidden under the hood cap"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Eye"],
+        "Laterality": "#Lat_Both",
+        "DesignElement": "#Element_Motif",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "瞳孔が黄色く大きいサーモンレッドの目",
+            "value_EN": "salmon-red eyes with large yellow pupils"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Eye"],
+        "Laterality": "#Lat_Both",
+        "DesignElement": "#Element_Expression",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "激怒すると目が赤くなる",
+            "value_EN": "eyes turn red when enraged"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Head"],
+        "Laterality": null,
+        "DesignElement": "#Element_CostumeItem",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "紅色のフードキャップにサーモンレッドの鉢巻",
+            "value_EN": "dark red hood cap with a salmon-red headband"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Hair"],
+        "Laterality": null,
+        "DesignElement": "#Element_Motif",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "白い前髪アクセントの金髪ショートヘア",
+            "value_EN": "short blonde hair with white bangs accent"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Back", "#BodyPart_Wing"],
+        "Laterality": null,
+        "DesignElement": "#Element_CostumeItem",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "ヒーローのようなサーモンレッドの番号付きマント",
+            "value_EN": "hero-like salmon-red numbered cape"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": "humanoid",
+        "BodyPart": ["#BodyPart_Chest", "#BodyPart_Tail"],
+        "Laterality": null,
+        "DesignElement": "#Element_Motif",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "白いクロス掛けのベルトとネクタイ",
+            "value_EN": "white cross-strap belt and tie"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": "humanoid",
+        "BodyPart": null,
+        "Laterality": null,
+        "DesignElement": "#Element_CostumeItem",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "紅色の軍服のような制服",
+            "value_EN": "dark red military-style uniform"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": "humanoid",
+        "BodyPart": ["#BodyPart_Foot"],
+        "Laterality": null,
+        "DesignElement": "#Element_CostumeItem",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "紅色のブーツ",
+            "value_EN": "dark red boots"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "RelationNotes_JP": "開発者専用機では、「11(トウイチ)」を「殿下/陛下」と慕っている",
     "RelationNotes_EN": "In the developer-only build, deeply reveres 11(Elevan) as \"Your Highness/Majesty\"",
     "NumerospecAbout_JP": "自分のやるべきことを認識させる",
@@ -692,7 +971,6 @@
         "Note_EN": null
       }
     ],
-    "AppearanceDetail": null,
     "Class": ["マスタートリプル"],
     "FirstPersonCalling_JP": "自分に対し：私(わたし)\nドッペルに対し：ドペさん",
     "FirstPersonCalling_EN": "to Pelgäns: I (fem. neutral)\nto Doppels: Doppy(Dope-san)",
@@ -712,6 +990,179 @@
     "Favor_EN": "Cats, corefolder\nGatherings with close companions",
     "Unlike_JP": "自分勝手や私利私欲およびそのような態度の人\n魔女狩り、美徳に反して他者を傷つける人",
     "Unlike_EN": "Selfishness, greed, and people with such attitudes\nWitch-hunting and those who harm others against virtue",
+    "AppearanceDetail": [
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Neck"],
+        "Laterality": "#Lat_Left",
+        "DesignElement": "#Element_NumberMark",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Position",
+            "value_JP": "左襟,布の端周辺に小さく",
+            "value_EN": "small on the left collar, near the edge of the fabric"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Color",
+            "value_JP": "ピンク",
+            "value_EN": "pink"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Notation",
+            "value_JP": "アラビア数字の「222」",
+            "value_EN": "Arabic numeral '222'"
+          }
+        ],
+        "img_PNGName": "attr_numberMark222A",
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Ear"],
+        "Laterality": "#Lat_Both",
+        "DesignElement": "#Element_Ear",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Ear",
+            "vdict_EarShapeType": "#EarShapeType_Fox",
+            "about_JP": "キャップに重なる形で垂れている",
+            "about_EN": "hanging in a shape overlapping the cap"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Eye"],
+        "Laterality": "#Lat_Both",
+        "DesignElement": "#Element_Motif",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "瞳孔が特殊なサーモンレッドの目",
+            "value_EN": "salmon-red eyes with special pupils"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Head"],
+        "Laterality": null,
+        "DesignElement": "#Element_CostumeItem",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "サーモンレッドの鍔で薄黄色のキャップ",
+            "value_EN": "salmon-red brim with a pale yellow cap"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Hair"],
+        "Laterality": null,
+        "DesignElement": "#Element_Motif",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "薄色で長いツーサイドアップの髪型",
+            "value_EN": "long pale-colored twin-tail hairstyle"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Neck"],
+        "Laterality": null,
+        "DesignElement": "#Element_CostumeItem",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "薄色の襟",
+            "value_EN": "pale-colored collar"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Neck"],
+        "Laterality": null,
+        "DesignElement": "#Element_CostumeItem",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "3つの「2」とハートマークをモチーフにしたペンダント",
+            "value_EN": "pendant featuring three '2's and a heart motif"
+          }
+        ],
+        "img_PNGName": "attr_costumeItem222A-pendant",
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": "humanoid",
+        "BodyPart": ["#BodyPart_Chest"],
+        "Laterality": null,
+        "DesignElement": "#Element_Motif",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "薄褐色のカジュアルなベスト",
+            "value_EN": "pale brown casual vest"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": "humanoid",
+        "BodyPart": ["#BodyPart_Waist"],
+        "Laterality": null,
+        "DesignElement": "#Element_CostumeItem",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "ピンクのショートスカート",
+            "value_EN": "pink short skirt"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": "humanoid",
+        "BodyPart": ["#BodyPart_Foot"],
+        "Laterality": null,
+        "DesignElement": "#Element_CostumeItem",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "ピンクと薄色のカジュアルブーツ",
+            "value_EN": "pink and light-colored casual boots"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "NumerospecAbout_JP": "疎外感を解消し縁を育む",
     "NumerospecAbout_EN": "Eases alienation and nurtures bonds",
     "Summary_JP": "量産販売型かつ3桁ゾロ目の数字を持つ「マスタートリプル」という高性能な特殊クラスの個体。\nそのうち222番機の開発専用オリジナル機は２体存在し、「222(ペルゲン)」は「バイナ」らの後続型、「222(ドッペル)」は「111(アイズ)」の後続型にあたる。\nどちらも「2(ツグ)」・「バイナ」や「22(フジ)」にも劣らず、「222(ペルゲン)」は周囲状況に対する配慮に秀でた\"優しいお姉さん\"のごとく、「222(ドッペル)」は仲介や縁づくりが得意で\"クラスのマドンナ\"のごとく周りに親しまれている。\n222番機こと腹違いの双子としてお互い同式扱いとなっている２人は、よく生活を共にすることから信頼の強さもみられており、「222(ドッペル)」が「222(ペルゲン)」によく甘えている義姉妹愛の溢れる様子も。",
@@ -760,7 +1211,6 @@
         "Note_EN": null
       }
     ],
-    "AppearanceDetail": null,
     "Class": ["マスタートリプル"],
     "FirstPersonCalling_JP": "自分に対して：僕\nペルゲンに対して：ペーちゃん",
     "FirstPersonCalling_EN": "to Doppels: I (masc. casual)\nto Pelgäns: Pelly(Pe-chan)",
@@ -780,6 +1230,179 @@
     "Favor_EN": "Cats, corefolder\nPhysical closeness with trusted people",
     "Unlike_JP": "自分勝手や私利私欲およびそのような態度の人\n挟みな状況、頑なに（特定/不特定を問わず）他者を拒絶する人",
     "Unlike_EN": "Selfishness, greed, and people with such attitudes\nBeing stuck in between, and people who stubbornly reject others (specific or not)",
+    "AppearanceDetail": [
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Neck"],
+        "Laterality": "#Lat_Left",
+        "DesignElement": "#Element_NumberMark",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Position",
+            "value_JP": "左襟,布の端周辺に小さく",
+            "value_EN": "small on the left collar, near the edge of the fabric"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Color",
+            "value_JP": "黄色",
+            "value_EN": "yellow"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Notation",
+            "value_JP": "アラビア数字の「222」",
+            "value_EN": "Arabic numeral '222'"
+          }
+        ],
+        "img_PNGName": "attr_numberMark222B",
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Ear"],
+        "Laterality": "#Lat_Both",
+        "DesignElement": "#Element_Ear",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Ear",
+            "vdict_EarShapeType": "#EarShapeType_Fox",
+            "about_JP": "キャップに重なる形で垂れている",
+            "about_EN": "hanging in a shape overlapping the cap"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Eye"],
+        "Laterality": "#Lat_Both",
+        "DesignElement": "#Element_Motif",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "瞳孔が特殊な黄色の目",
+            "value_EN": "yellow eyes with special pupils"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Head"],
+        "Laterality": null,
+        "DesignElement": "#Element_CostumeItem",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "黄色の鍔で薄黄色のキャップ",
+            "value_EN": "yellow brim with a pale yellow cap"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Hair"],
+        "Laterality": null,
+        "DesignElement": "#Element_Motif",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "薄色で長いツインテールの髪型",
+            "value_EN": "long pale-colored twin-tail hairstyle"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Neck"],
+        "Laterality": null,
+        "DesignElement": "#Element_CostumeItem",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "薄色の襟",
+            "value_EN": "pale-colored collar"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Neck"],
+        "Laterality": null,
+        "DesignElement": "#Element_CostumeItem",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "3つの「2」とハートマークをモチーフにしたペンダント",
+            "value_EN": "pendant featuring three '2's and a heart motif"
+          }
+        ],
+        "img_PNGName": "attr_costumeItem222B-pendant",
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": "humanoid",
+        "BodyPart": ["#BodyPart_Chest"],
+        "Laterality": null,
+        "DesignElement": "#Element_Motif",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "薄褐色のカジュアルなベスト",
+            "value_EN": "pale brown casual vest"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": "humanoid",
+        "BodyPart": ["#BodyPart_Waist"],
+        "Laterality": null,
+        "DesignElement": "#Element_CostumeItem",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "黄色のショートスカート",
+            "value_EN": "yellow short skirt"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": "humanoid",
+        "BodyPart": ["#BodyPart_Foot"],
+        "Laterality": null,
+        "DesignElement": "#Element_CostumeItem",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "黄色と薄色のカジュアルブーツ",
+            "value_EN": "yellow and light-colored casual boots"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "NumerospecAbout_JP": "疎外感を解消し縁を育む",
     "NumerospecAbout_EN": "Eases alienation and nurtures bonds"
   },
@@ -981,7 +1604,6 @@
         "Note_EN": null
       }
     ],
-    "AppearanceDetail": null,
     "Class": ["マスタートリプル", "スクエアエリート"],
     "FirstPersonCalling_JP": "我輩\n僕(ぼく) ※想定外のことが起きて動揺しているとき",
     "FirstPersonCalling_EN": "I (wagahai; archaic/formal)\nI (boku; masc. casual *when something unexpected happens)",
@@ -1001,6 +1623,260 @@
     "Favor_EN": "Singularities (special states provable by fundamental theory)",
     "Unlike_JP": "理論に乗らないこと",
     "Unlike_EN": "Things that do not fit established theory",
+    "AppearanceDetail": [
+      {
+        "Formation": "humanoid",
+        "BodyPart": ["#BodyPart_Waist"],
+        "Laterality": "#Lat_Left",
+        "DesignElement": "#Element_NumberMark",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Position",
+            "value_JP": "ケープの左裾で留め部分周辺",
+            "value_EN": "around the fastening area on the left hem of the cape"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Color",
+            "value_JP": "濃い黄色",
+            "value_EN": "dark yellow"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Notation",
+            "value_JP": "アラビア数字の「444」",
+            "value_EN": "Arabic numeral '444'"
+          }
+        ],
+        "img_PNGName": "attr_numbermark444",
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": "humanoid",
+        "BodyPart": ["#BodyPart_Waist"],
+        "Laterality": "#Lat_Left",
+        "DesignElement": "#Element_NumberMark",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Position",
+            "value_JP": "ベースウェアの左裾で留め部分周辺",
+            "value_EN": "around the fastening area on the left hem of the basewear"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Color",
+            "value_JP": "濃い黄色",
+            "value_EN": "dark yellow"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Notation",
+            "value_JP": "アラビア数字の「444」",
+            "value_EN": "Arabic numeral '444'"
+          }
+        ],
+        "img_PNGName": "attr_numbermark444",
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Ear"],
+        "Laterality": "#Lat_Both",
+        "DesignElement": "#Element_Ear",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Ear",
+            "vdict_EarShapeType": "#EarShapeType_Fox"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Eye"],
+        "Laterality": "#Lat_Both",
+        "DesignElement": "#Element_Motif",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "瞳孔が濃い黄色で特殊なダークシアンな目",
+            "value_EN": "dark cyan eyes with dark yellow special pupils"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": null,
+        "Laterality": null,
+        "DesignElement": "#Element_Expression",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "威風堂々と構えている(通常時)",
+            "value_EN": "stands majestically (normal state)"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "稀にプライドを護るため自衛過剰に取り乱すことがある(理論外のことが起きた時)",
+            "value_EN": "occasionally becomes overly defensive to protect pride (when something unexpected happens)"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_FaceMaking"],
+        "Laterality": null,
+        "DesignElement": "#Element_Motif",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "水色の頬模様アクセント",
+            "value_EN": "light blue cheek pattern accent"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Halo"],
+        "Laterality": null,
+        "DesignElement": "#Element_Motif",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Halo",
+            "value_JP": "3つの正方形/菱形からなるヘイロー",
+            "value_EN": "halo consisting of three squares/diamonds"
+          }
+        ],
+        "img_PNGName": "attr_halo444",
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Hair"],
+        "Laterality": null,
+        "DesignElement": "#Element_Motif",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "シアンブルーのショートヘア",
+            "value_EN": "cyan blue short hair"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": "corefolder",
+        "BodyPart": ["#BodyPart_Neck"],
+        "Laterality": null,
+        "DesignElement": "#Element_CostumeItem",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "少し古典的な黄褐色のケープ",
+            "value_EN": "slightly classical ochre cape"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "ヘイローと同じモチーフの留め具",
+            "value_EN": "fastener with the same motif as the halo"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "マントのように長い後ろ裾",
+            "value_EN": "long back hem like a cape"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": "humanoid",
+        "BodyPart": ["#BodyPart_Neck", "#BodyPart_Chest", "#BodyPart_Back"],
+        "Laterality": null,
+        "DesignElement": "#Element_CostumeItem",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "少し古典的な黄褐色のベースウェア",
+            "value_EN": "slightly classical ochre basewear"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "ヘイローと同じモチーフの留め具",
+            "value_EN": "fastener with the same motif as the halo"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "マントのように長い後ろ裾",
+            "value_EN": "long back hem like a cape"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": "humanoid",
+        "BodyPart": ["#BodyPart_Chest"],
+        "Laterality": null,
+        "DesignElement": "#Element_CostumeItem",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "薄く軽いダークシアンのアウターウェア",
+            "value_EN": "thin and light dark cyan outerwear"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": "humanoid",
+        "BodyPart": ["#BodyPart_Leg"],
+        "Laterality": null,
+        "DesignElement": "#Element_CostumeItem",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "水色のレギンス",
+            "value_EN": "light blue leggings"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": "humanoid",
+        "BodyPart": ["#BodyPart_Foot"],
+        "Laterality": null,
+        "DesignElement": "#Element_CostumeItem",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "黄褐色のブーツ",
+            "value_EN": "ochre boots"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "NumerospecAbout_JP": "完璧な理論に則り物事を実現する",
     "NumerospecAbout_EN": "Realizes things in accordance with perfect theory",
     "Summary_JP": "量産販売型ではあるが、3桁ゾロ目の数字を持つ「マスタートリプル」という特殊クラスの個体で、2桁以内の通常個体と引け目を取らない性能をもつ。\nとりわけその開発専用機ことオリジナル版である彼(女)は、4(モチ)や44(シトシ)をも凌駕する実現力の持ち主で、失敗経験のない威厳ある彼(女)の前ではどんな物事も叶えてしまうと極めて高いレヴューを受けている……\"極めて不運かつ想定外の\"ことが起きてしまった場合を除けば。",
@@ -1080,7 +1956,6 @@
         "Note_EN": null
       }
     ],
-    "AppearanceDetail": null,
     "Class": ["マスタートリプル", "フェイタルテールズ"],
     "ThisMasters": [
       {
@@ -1111,6 +1986,229 @@
     "Favor_EN": "Ice cream",
     "Unlike_JP": "十字架の有る教会",
     "Unlike_EN": "Churches with crosses",
+    "AppearanceDetail": [
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Halo", "#BodyPart_Neck", "#BodyPart_Wing"],
+        "Laterality": null,
+        "DesignElement": "#Element_NumberMark",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Position",
+            "value_JP": "ヘイローとブローチと翼が「666」をモチーフにしている",
+            "value_EN": "halo, brooch, and wings are themed around '666'"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Color",
+            "value_JP": "マゼンタ",
+            "value_EN": "magenta"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Notation",
+            "value_JP": "アラビア数字の「666」をモチーフにしたデザイン",
+            "value_EN": "Arabic numeral '666' themed design"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Ear"],
+        "Laterality": "#Lat_Both",
+        "DesignElement": "#Element_Ear",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Ear",
+            "vdict_EarShapeType": "#EarShapeType_Fox"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Eye"],
+        "Laterality": "#Lat_Both",
+        "DesignElement": "#Element_Motif",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "瞳孔が特殊な赤紫色の目",
+            "value_EN": "reddish-purple eyes with gray special pupils"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": null,
+        "Laterality": null,
+        "DesignElement": "#Element_Expression",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "妖艶とした仕草で時々魔族的な言動をする",
+            "value_EN": "seductive gestures and occasionally demonic behavior"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Halo"],
+        "Laterality": null,
+        "DesignElement": "#Element_Halo",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "3つの「6」を回転対称に配置した形状のヘイロー(中心に円が1つある)",
+            "value_EN": "halo with three '6's arranged in rotational symmetry (with a circle in the center)"
+          }
+        ],
+        "img_PNGName": "attr_halo666",
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Wing"],
+        "Laterality": "#Lat_Both",
+        "DesignElement": "#Element_Wing",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "「666」をモチーフにした翅(端の形状がハート型になっている)",
+            "value_EN": "wings inspired by the motif of '666' (with heart-shaped tips)"
+          }
+        ],
+        "img_PNGName": "attr_wing666",
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Hair"],
+        "Laterality": null,
+        "DesignElement": "#Element_Motif",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "薄紫でくせ毛た異質な髪型",
+            "value_EN": "light purple, curly and unusual hairstyle"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "長髪を横で束ねている",
+            "value_EN": "long hair tied to the side"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": "corefolder",
+        "BodyPart": ["#BodyPart_Chest"],
+        "Laterality": null,
+        "DesignElement": "#Element_CostumeItem",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "3つの「6」を回転対称かつ六角形状にに配置した形状のブローチ",
+            "value_EN": "brooch with three '6's arranged in rotational symmetry and hexagonal shape"
+          }
+        ],
+        "img_PNGName": "attr_costumeItem666-brooch",
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": "corefolder",
+        "BodyPart": ["#BodyPart_Neck"],
+        "Laterality": null,
+        "DesignElement": "#Element_CostumeItem",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "少し古典的なマゼンタの襟",
+            "value_EN": "slightly classical magenta collar"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "六角形のブローチが付いたベルト",
+            "value_EN": "belt with a hexagonal brooch"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": "humanoid",
+        "BodyPart": ["#BodyPart_Waist"],
+        "Laterality": null,
+        "DesignElement": "#Element_CostumeItem",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "3つの「6」を回転対称かつ六角形状にに配置した形状のブローチ",
+            "value_EN": "brooch with three '6's arranged in rotational symmetry and hexagonal shape"
+          }
+        ],
+        "img_PNGName": "attr_costumeItem666mp-brooch",
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": "humanoid",
+        "BodyPart": ["#BodyPart_Neck", "#BodyPart_Chest", "#BodyPart_Waist"],
+        "Laterality": null,
+        "DesignElement": "#Element_CostumeItem",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "少し古典的なマゼンタの襟",
+            "value_EN": "slightly classical magenta collar"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "魔族的でカジュアルなピンクのエプロンドレス",
+            "value_EN": "demonic and casual pink apron dress"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "六角形のブローチが付いた腰のベルト",
+            "value_EN": "belt with a hexagonal brooch on the waist"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": "humanoid",
+        "BodyPart": ["#BodyPart_Foot"],
+        "Laterality": null,
+        "DesignElement": "#Element_CostumeItem",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "ハイヒールのような赤紫の靴",
+            "value_EN": "high-heeled shoes in reddish-purple"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "RelationNotes_JP": "開発者専用機では、「66(ムロク)」を「眷属」として労わっているが……",
     "RelationNotes_EN": "In the developer-only build, treats 66(Sixis) as calling a '(cherished) retainer', but...",
     "NumerospecAbout_JP": "自分の本能を認知し開花させる",
