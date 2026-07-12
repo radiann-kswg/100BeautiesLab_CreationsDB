@@ -2239,7 +2239,10 @@
       { "_DB": "SelfSecondary", "Num": "777.Jackpot-mp" }
     ],
     "SameModels_DBLink": [{ "_DB": "SemiPrimary", "Num": "777.Jackpot" }],
-    "Images": { "concept_PNGName": "cnsp_img777" },
+    "Images": {
+      "concept_PNGName": "cnsp_img777A",
+      "conceptAlt_PNGName": ["cnsp_img777C", "cnsp_img777-orig"]
+    },
     "Name_JP": "777(ヨロコビ)",
     "Name_EN": "777(Lucky-sevens)\n777(Luckies)",
     "ModelName_JP": "ナンバーテールズ3倍型7号機(777番機)",
@@ -2276,7 +2279,6 @@
         "Note_EN": null
       }
     ],
-    "AppearanceDetail": null,
     "Class": ["マスタートリプル"],
     "FirstPersonCalling_JP": "おれ",
     "FirstPersonCalling_EN": "I (rough masc.)",
@@ -2296,6 +2298,163 @@
     "Favor_EN": "Medal games",
     "Unlike_JP": "違法賭博",
     "Unlike_EN": "Illegal gambling",
+    "AppearanceDetail": [
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_FaceMaking"],
+        "Laterality": "#Lat_Center",
+        "DesignElement": "#Element_NumberMark",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Position",
+            "value_JP": "額に「㐂」と180度回転した「777」をモチーフにしたエンブレムがある",
+            "value_EN": "There is an emblem on the forehead that features '㐂' and a 180-degree rotated '777' motif."
+          },
+          {
+            "AttrLabel": "#DesignAttr_Color",
+            "value_JP": "黄色",
+            "value_EN": "yellow"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Notation",
+            "value_JP": "アラビア数字の「㐂」(回転した「777」とも掛け合わされたタイポグラフィ)",
+            "value_EN": "Arabic numeral '㐂' (typography combined with rotated '777')"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Ear"],
+        "Laterality": "#Lat_Both",
+        "DesignElement": "#Element_Ear",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Ear",
+            "vdict_EarShapeType": "#EarShapeType_Cat",
+            "about_JP": "垂れている",
+            "about_EN": "drooping"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Eye"],
+        "Laterality": "#Lat_Both",
+        "DesignElement": "#Element_Motif",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "紺色と黄色のグラデーションをした目",
+            "value_EN": "eyes with a navy and yellow gradient"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": null,
+        "Laterality": null,
+        "DesignElement": "#Element_Expression",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "陽気で朗らかな表情",
+            "value_EN": "cheerful and bright expressions"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Head", "#BodyPart_Interchangeable"],
+        "Laterality": null,
+        "DesignElement": "#Element_CostumeItem",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "ココアシガレットバーを咥えている",
+            "value_EN": "holding a cocoa cigarette bar in the mouth"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Hair"],
+        "Laterality": null,
+        "DesignElement": "#Element_Motif",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "黄褐色の長髪で後ろに紺色の簪で束ねている",
+            "value_EN": "long light brown hair tied at the back with a navy hairpin"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Back", "#BodyPart_Chest"],
+        "Laterality": null,
+        "DesignElement": "#Element_CostumeItem",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "濃い黄色の拡張ボードを背負っている",
+            "value_EN": "carrying a dark yellow expansion board on the back"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": "humanoid",
+        "BodyPart": null,
+        "Laterality": null,
+        "DesignElement": "#Element_Motif",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "灰色の体操着のようなジャージ姿",
+            "value_EN": "gray tracksuit resembling gym clothes"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": "humanoid",
+        "BodyPart": ["#BodyPart_Foot"],
+        "Laterality": null,
+        "DesignElement": "#Element_CostumeItem",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "紺色の革靴",
+            "value_EN": "navy leather shoes"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "NumerospecAbout_JP": "自分に拡張された機能に応じた効果をもたらす",
     "NumerospecAbout_EN": "Produces effects in accordance with functions expanded for oneself",
     "Summary_JP": "量産販売型ではあるが、3桁ゾロ目の数字と通常個体(2桁以内)に劣らない性能をもつ「マスタートリプル」というクラスに属しており、そのなかでもさらに機能拡張性に長けている極めて特殊な個体。\nとりわけその開発専用機ことオリジナル版である彼は、「7(ナナ)」や「77(ナヅナ)」をも遥かに超える知的追求心の持ち主で、興味の持ったことや楽しいものの追求のためなら惜しむことは滅多にない。\nしかしながら良心もあるため、公私の境界を超えた無謀かつ暴虐な行動はあまり勝って出ることはないことから、マスタートリプルの９人の中では健全で真面目なリア充ポジションが定着している。",
@@ -2308,6 +2467,10 @@
     "Progress": "released",
     "isTriple": false,
     "SameModels_DBLink": [{ "_DB": "SemiPrimary", "Num": 777 }],
+    "Images": {
+      "concept_PNGName": "cnsp_img777B",
+      "conceptAlt_PNGName": ["cnsp_img777C", "cnsp_img777-orig"]
+    },
     "Name_JP": "777(ヨロコビ)",
     "Name_EN": "777(Lucky-sevens)\n777(Luckies)",
     "ModelName_JP": "ナンバーテールズ特殊個体:ラッキーセブンアール(777番機-ジャックポット)",
@@ -2345,8 +2508,180 @@
         "Note_EN": null
       }
     ],
-    "AppearanceDetail": null,
     "Class": ["マスタートリプル"],
+    "AppearanceDetail": [
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_FaceMaking"],
+        "Laterality": "#Lat_Center",
+        "DesignElement": "#Element_NumberMark",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Position",
+            "value_JP": "額に「㐂」と180度回転した「777」をモチーフにしたエンブレムがある",
+            "value_EN": "There is an emblem on the forehead that features '㐂' and a 180-degree rotated '777' motif."
+          },
+          {
+            "AttrLabel": "#DesignAttr_Color",
+            "value_JP": "黄色",
+            "value_EN": "yellow"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Notation",
+            "value_JP": "アラビア数字の「㐂」(回転した「777」とも掛け合わされたタイポグラフィ)",
+            "value_EN": "Arabic numeral '㐂' (typography combined with rotated '777')"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Ear"],
+        "Laterality": "#Lat_Both",
+        "DesignElement": "#Element_Ear",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Ear",
+            "vdict_EarShapeType": "#EarShapeType_Cat",
+            "about_JP": "垂れている",
+            "about_EN": "drooping"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Eye"],
+        "Laterality": "#Lat_Both",
+        "DesignElement": "#Element_Motif",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "紺色と黄色のグラデーションをした目",
+            "value_EN": "eyes with a navy and yellow gradient"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": null,
+        "Laterality": null,
+        "DesignElement": "#Element_Expression",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "陽気で朗らかな表情",
+            "value_EN": "cheerful and bright expressions"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Head", "#BodyPart_Interchangeable"],
+        "Laterality": null,
+        "DesignElement": "#Element_CostumeItem",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "ココアシガレットバーを咥えている",
+            "value_EN": "holding a cocoa cigarette bar in the mouth"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Hair"],
+        "Laterality": null,
+        "DesignElement": "#Element_Motif",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "黄褐色の長髪で後ろに紺色の簪で束ねている",
+            "value_EN": "long light brown hair tied at the back with a navy hairpin"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": "corefolder",
+        "BodyPart": null,
+        "Laterality": null,
+        "DesignElement": "#Element_CostumeItem",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "濃い黄色のスロットマシーン型アドオンを身にまとい、自身がスロットマシーンのように機能する",
+            "value_EN": "wearing a dark yellow slot machine-type addon and functioning like a slot machine"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": "humanoid",
+        "BodyPart": ["#BodyPart_Back", "#BodyPart_Chest"],
+        "Laterality": null,
+        "DesignElement": "#Element_CostumeItem",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "濃い黄色のスロットマシーン型アドオンを背負っている",
+            "value_EN": "carrying a dark yellow slot machine-type addon on the back"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": "humanoid",
+        "BodyPart": null,
+        "Laterality": null,
+        "DesignElement": "#Element_Motif",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "灰色の体操着のようなジャージ姿",
+            "value_EN": "gray tracksuit resembling gym clothes"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": "humanoid",
+        "BodyPart": ["#BodyPart_Foot"],
+        "Laterality": null,
+        "DesignElement": "#Element_CostumeItem",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "紺色の革靴",
+            "value_EN": "navy leather shoes"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "NumerospecAbout_JP": "スロットゲーム拡張アドオンにより運勢を娯楽的に見せる",
     "NumerospecAbout_EN": "Shows fortune in an entertainment-oriented way via a slot-game expansion addon",
     "Summary_JP": "量産販売型ではあるが、3桁ゾロ目の数字と通常個体(2桁以内)に劣らない性能をもつ「マスタートリプル」というクラスに属しており、そのなかでもさらに機能拡張性に長けている極めて特殊な個体。\n拡張サンプルとして同時提供されている「VIIx3.R(ラッキーセブンアール)」型は、背中の拡張I/O制御盤にスロットゲーム機構を搭載しており、娯楽的な場面だけでなくギャンブル依存症の対策などへの運用が想定されている。\n当然ながら 背中の拡張ユニットは取り外しが可能なので、コアフォルダ形態のふんわりとした質感もしっかり残存している。",
@@ -2474,11 +2809,10 @@
         "TailShapeType": "#TailShapeType_Scorpion",
         "Count": 3,
         "Segment": 11,
-        "Note_JP": null,
-        "Note_EN": null
+        "Note_JP": "先端だけ節の先の色が異なる",
+        "Note_EN": "Only the tips of the segments have different colors"
       }
     ],
-    "AppearanceDetail": null,
     "Class": ["仮設型ハイナンバー"],
     "FirstPersonCalling_JP": "あーし",
     "FirstPersonCalling_EN": "Trie (very casual, in English: by name casually, in Japanese: 'a-shi')",
@@ -2498,6 +2832,269 @@
     "Favor_EN": "Arcade prizes",
     "Unlike_JP": "普通を問われるもの、恋愛話",
     "Unlike_EN": "Things that demand normality, romance talk",
+    "AppearanceDetail": [
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Chest"],
+        "Laterality": "#Lat_Left",
+        "DesignElement": "#Element_NumberMark",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Position",
+            "value_JP": "ケープの左裾で布の端周辺",
+            "value_EN": "around the edge of the fabric on the left hem of the cape"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Color",
+            "value_JP": "暗色",
+            "value_EN": "dark color"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Notation",
+            "value_JP": "アラビア数字の「33」,続けて小さく丸括弧つきで「(3×11)」",
+            "value_EN": "Arabic numeral '33', followed by a small parenthetical '(3×11)'"
+          }
+        ],
+        "img_PNGName": "attr_numberMark3x11",
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Ear"],
+        "Laterality": "#Lat_Both",
+        "DesignElement": "#Element_Ear",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Ear",
+            "vdict_EarShapeType": "#EarShapeType_Fox",
+            "about_JP": "先にピンクのハート型模様がある",
+            "about_EN": "pink heart-shaped pattern on the tip"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Hair"],
+        "Laterality": null,
+        "DesignElement": "#Element_Motif",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "金髪で後頭部に大きなポニーテールがある（よく見るとツートーンになっている）",
+            "value_EN": "pale golden hair with a large ponytail at the back of the head (appears to be two-tone upon closer inspection)"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "3色で面ごとに色が異なるリボンで束ねられている",
+            "value_EN": "tied with a ribbon in three colors, each face having a different color"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Ear"],
+        "Laterality": "#Lat_Left",
+        "DesignElement": "#Element_CostumeItem",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "青・紫・マゼンタのイヤリング",
+            "value_EN": "earrings in blue, purple, and magenta"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Ear"],
+        "Laterality": "#Lat_Right",
+        "DesignElement": "#Element_CostumeItem",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "黄・橙・マゼンタのイヤリング",
+            "value_EN": "earrings in yellow, orange, and magenta"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": null,
+        "Laterality": null,
+        "DesignElement": "#Element_Motif",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "サソリ型の分節尾3本（腕のように自在に動く）",
+            "value_EN": "three scorpion-type segmented tails (freely movable like arms)"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": "先端だけ節の先の色が異なる",
+        "Note_EN": "Only the tips of the segments have different colors"
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Eye"],
+        "Laterality": "#Lat_Both",
+        "DesignElement": "#Element_Motif",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "マゼンタの瞳孔でシアンブルーの鮮やかな目",
+            "value_EN": "vivid eyes with magenta pupils and cyan-blue irises"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": null,
+        "Laterality": null,
+        "DesignElement": "#Element_Expression",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "ヲタクな趣味にも寛容な光の陽キャ",
+            "value_EN": "a bright and outgoing character who is tolerant of otaku/nerd hobbies"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "涙目になりながら困惑する乙女な一面（自身に対し強い好意を抱かれた時）",
+            "value_EN": "a maidenly side that becomes tearful and confused when receiving strong affection"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Neck"],
+        "Laterality": null,
+        "DesignElement": "#Element_CostumeItem",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "三色模様があしらわれた2つの丸いブローチがついた紫色のリボン",
+            "value_EN": "purple ribbon with two round brooches featuring a three-color motif"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Neck"],
+        "Laterality": null,
+        "DesignElement": "#Element_Emblem",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "三色模様があしらわれた2つの丸いブローチ",
+            "value_EN": "two round brooches featuring a three-color motif"
+          }
+        ],
+        "img_PNGName": "attr_emblem3x11-brooch",
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Back"],
+        "Laterality": null,
+        "DesignElement": "#Element_Halo",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "ハート型と三色模様と6本の帯をモチーフにしたヘイロー",
+            "value_EN": "halo featuring heart shapes, a three-color motif, and six bands"
+          }
+        ],
+        "img_PNGName": "attr_halo3x11",
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Neck", "#BodyPart_Shoulder"],
+        "Laterality": null,
+        "DesignElement": "#Element_CostumeItem",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "白い襟をした明るいピンクのケープ",
+            "value_EN": "bright pink cape with a white collar"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": "humanoid",
+        "BodyPart": null,
+        "Laterality": null,
+        "DesignElement": "#Element_CostumeItem",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "CMY三原色をした派手なビクトリアン・ロリータドレス",
+            "value_EN": "flashy Victorian Lolita dress in CMY primary colors"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": "humanoid",
+        "BodyPart": ["#BodyPart_Chest"],
+        "Laterality": null,
+        "DesignElement": "#Element_BodyType",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "大きな胸",
+            "value_EN": "large breasts"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": "humanoid",
+        "BodyPart": ["#BodyPart_Foot"],
+        "Laterality": null,
+        "DesignElement": "#Element_CostumeItem",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "紫と明るいピンクのファッションブーツ",
+            "value_EN": "fashion boots in purple and bright pink"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "RelationNotes_JP": "同型の「22(フジ)」や同番の「33(ミサ)」とよく絡んでいる",
     "RelationNotes_EN": "Often interacts with same-type 22(Twin-twina) and same-number 33(Thirthrey)",
     "NumerospecAbout_JP": "ありのままを表現させる",

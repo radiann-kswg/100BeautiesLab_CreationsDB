@@ -2593,7 +2593,10 @@
       { "_Work": "NumberTales", "_DB": "SemiPrimary", "Num": 777 }
     ],
     "SameModels_DBLink": [{ "_DB": "SelfSecondary", "Num": "777.Jackpot-mp" }],
-    "Images": { "concept_PNGName": "cnsp_img777-mp" },
+    "Images": {
+      "concept_PNGName": "cnsp_img777-mpA",
+      "conceptAlt_PNGName": ["cnsp_img777-mpC", "cnsp_img777-mp"]
+    },
     "Name_JP": "777(ヨロコビ)",
     "Name_EN": "777(Lucky-sevens)\n777(Luckies)",
     "FormalName_JP": "量産型ナンバーテールズ777番機シリーズ",
@@ -2615,13 +2618,195 @@
     ],
     "BustSize": "AA",
     "GenderType": "MaleNeutral",
-    "AppearanceDetail": null,
     "Class": ["マスタートリプル(量産販売型)"],
     "TailsUnit": [
       {
         "TailShapeType": "#TailShapeType_FoxSpecial",
         "Count": 7,
         "Segment": 3,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
+    "AppearanceDetail": [
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_FaceMaking"],
+        "Laterality": "#Lat_Center",
+        "DesignElement": "#Element_NumberMark",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Position",
+            "value_JP": "額に「777」と180度回転した「㐂」をモチーフにしたエンブレムがある",
+            "value_EN": "There is an emblem on the forehead that features '777' and a 180-degree rotated '㐂' motif."
+          },
+          {
+            "AttrLabel": "#DesignAttr_Color",
+            "value_JP": "濃い黄色",
+            "value_EN": "dark yellow"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Notation",
+            "value_JP": "アラビア数字の「777」(回転した「㐂」とも掛け合わされたタイポグラフィ)",
+            "value_EN": "Arabic numeral '777' (typography combined with rotated '㐂')"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_FaceMaking"],
+        "Laterality": "#Lat_Left",
+        "DesignElement": "#Element_NumberMark",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Position",
+            "value_JP": "左頬のロットマーク",
+            "value_EN": "lot mark on the left cheek"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Color",
+            "value_JP": "濃い黄色(下線付き)",
+            "value_EN": "dark yellow (underlined)"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Notation",
+            "value_JP": "アラビア数字の「777」",
+            "value_EN": "Arabic numeral '777'"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Ear"],
+        "Laterality": "#Lat_Both",
+        "DesignElement": "#Element_Ear",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Ear",
+            "vdict_EarShapeType": "#EarShapeType_Cat",
+            "about_JP": "垂れている",
+            "about_EN": "drooping"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Eye"],
+        "Laterality": "#Lat_Both",
+        "DesignElement": "#Element_Motif",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "紺色と黄色のグラデーションをした機械的な目",
+            "value_EN": "mechanical eyes with a navy and yellow gradient"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": null,
+        "Laterality": null,
+        "DesignElement": "#Element_Expression",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "表情や仕草は特に大きく目立たない",
+            "value_EN": "expressions and gestures are not particularly noticeable"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Head", "#BodyPart_Interchangeable"],
+        "Laterality": null,
+        "DesignElement": "#Element_CostumeItem",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "ココアシガレットバーを咥えている",
+            "value_EN": "holding a cocoa cigarette bar in the mouth"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Hair"],
+        "Laterality": null,
+        "DesignElement": "#Element_Motif",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "黄褐色の長髪で後ろに紺色の簪で束ねている",
+            "value_EN": "long light brown hair tied at the back with a navy hairpin"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Back", "#BodyPart_Chest"],
+        "Laterality": null,
+        "DesignElement": "#Element_CostumeItem",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "濃い黄色の拡張ボードを背負っている",
+            "value_EN": "carrying a dark yellow expansion board on the back"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": "humanoid",
+        "BodyPart": null,
+        "Laterality": null,
+        "DesignElement": "#Element_Motif",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "灰色の体操着のようなジャージ姿",
+            "value_EN": "gray tracksuit resembling gym clothes"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": "humanoid",
+        "BodyPart": ["#BodyPart_Foot"],
+        "Laterality": null,
+        "DesignElement": "#Element_CostumeItem",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "紺色の革靴",
+            "value_EN": "navy leather shoes"
+          }
+        ],
+        "img_PNGName": null,
         "Note_JP": null,
         "Note_EN": null
       }
@@ -2637,6 +2822,10 @@
       { "_Work": "NumberTales", "_DB": "SemiPrimary", "Num": 777 }
     ],
     "SameModels_DBLink": [{ "_DB": "SelfSecondary", "Num": "777-mp" }],
+    "Images": {
+      "concept_PNGName": "cnsp_img777-mpB",
+      "conceptAlt_PNGName": ["cnsp_img777-mpC", "cnsp_img777-mp"]
+    },
     "Name_JP": "777(ヨロコビ)",
     "Name_EN": "777(Lucky-sevens)\n777(Luckies)",
     "FormalName_JP": "量産型ナンバーテールズ777番機[ジャックポット]シリーズ",
@@ -2663,13 +2852,211 @@
       }
     ],
     "BustSize": "AA",
-    "AppearanceDetail": null,
     "Class": ["マスタートリプル(量産販売型)"],
     "TailsUnit": [
       {
         "TailShapeType": "#TailShapeType_FoxSpecial",
         "Count": 7,
         "Segment": 3,
+        "Note_JP": "原則として娯楽装備専用アドオンのバックパックに格納される",
+        "Note_EN": "In principle, stored in the backpack dedicated to amusement equipment addons"
+      }
+    ],
+    "AppearanceDetail": [
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_FaceMaking"],
+        "Laterality": "#Lat_Center",
+        "DesignElement": "#Element_NumberMark",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Position",
+            "value_JP": "額に「777」と180度回転した「㐂」をモチーフにしたエンブレムがある",
+            "value_EN": "There is an emblem on the forehead that features '777' and a 180-degree rotated '㐂' motif."
+          },
+          {
+            "AttrLabel": "#DesignAttr_Color",
+            "value_JP": "濃い黄色",
+            "value_EN": "dark yellow"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Notation",
+            "value_JP": "アラビア数字の「777」(回転した「㐂」とも掛け合わされたタイポグラフィ)",
+            "value_EN": "Arabic numeral '777' (typography combined with rotated '㐂')"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_FaceMaking"],
+        "Laterality": "#Lat_Left",
+        "DesignElement": "#Element_NumberMark",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Position",
+            "value_JP": "左頬のロットマーク",
+            "value_EN": "lot mark on the left cheek"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Color",
+            "value_JP": "濃い黄色(下線付き)",
+            "value_EN": "dark yellow (underlined)"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Notation",
+            "value_JP": "アラビア数字の「777」",
+            "value_EN": "Arabic numeral '777'"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Ear"],
+        "Laterality": "#Lat_Both",
+        "DesignElement": "#Element_Ear",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Ear",
+            "vdict_EarShapeType": "#EarShapeType_Cat",
+            "about_JP": "垂れている",
+            "about_EN": "drooping"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Eye"],
+        "Laterality": "#Lat_Both",
+        "DesignElement": "#Element_Motif",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "紺色と黄色のグラデーションをした機械的な目",
+            "value_EN": "mechanical eyes with a navy and yellow gradient"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": null,
+        "Laterality": null,
+        "DesignElement": "#Element_Expression",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "表情や仕草は特に大きく目立たない",
+            "value_EN": "expressions and gestures are not particularly noticeable"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Head", "#BodyPart_Interchangeable"],
+        "Laterality": null,
+        "DesignElement": "#Element_CostumeItem",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "ココアシガレットバーを咥えている",
+            "value_EN": "holding a cocoa cigarette bar in the mouth"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Hair"],
+        "Laterality": null,
+        "DesignElement": "#Element_Motif",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "黄褐色の長髪で後ろに紺色の簪で束ねている",
+            "value_EN": "long light brown hair tied at the back with a navy hairpin"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": "corefolder",
+        "BodyPart": null,
+        "Laterality": null,
+        "DesignElement": "#Element_CostumeItem",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "濃い黄色のスロットマシーン型アドオンを身にまとい、自身がスロットマシーンのように機能する",
+            "value_EN": "wearing a dark yellow slot machine-type addon and functioning like a slot machine"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": "humanoid",
+        "BodyPart": ["#BodyPart_Back", "#BodyPart_Chest"],
+        "Laterality": null,
+        "DesignElement": "#Element_CostumeItem",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "濃い黄色のスロットマシーン型アドオンを背負っている",
+            "value_EN": "carrying a dark yellow slot machine-type addon on the back"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": "humanoid",
+        "BodyPart": null,
+        "Laterality": null,
+        "DesignElement": "#Element_Motif",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "灰色の体操着のようなジャージ姿",
+            "value_EN": "gray tracksuit resembling gym clothes"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": "humanoid",
+        "BodyPart": ["#BodyPart_Foot"],
+        "Laterality": null,
+        "DesignElement": "#Element_CostumeItem",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "紺色の革靴",
+            "value_EN": "navy leather shoes"
+          }
+        ],
+        "img_PNGName": null,
         "Note_JP": null,
         "Note_EN": null
       }

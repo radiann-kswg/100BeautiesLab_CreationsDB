@@ -7525,6 +7525,22 @@
         "Note_EN": null
       },
       {
+        "Formation": null,
+        "BodyPart": null,
+        "Laterality": null,
+        "DesignElement": "#Element_Motif",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "自分の頭を地球に見立て月と太陽を模したホログラム",
+            "value_EN": "holograms resembling the moon and sun on a head modeled as Earth"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
         "Formation": "humanoid",
         "BodyPart": ["#BodyPart_Chest", "#BodyPart_Waist", "#BodyPart_Leg"],
         "Laterality": null,
@@ -7573,15 +7589,15 @@
         "Note_EN": null
       },
       {
-        "Formation": null,
-        "BodyPart": null,
+        "Formation": "humanoid",
+        "BodyPart": ["#BodyPart_Foot"],
         "Laterality": null,
-        "DesignElement": "#Element_Motif",
+        "DesignElement": "#Element_CostumeItem",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Overview",
-            "value_JP": "自分の頭を地球に見立て月と太陽を模したホログラム",
-            "value_EN": "holograms resembling the moon and sun on a head modeled as Earth"
+            "value_JP": "灰色のアクセントカラーをした橙色のファッションブーツ",
+            "value_EN": "fashion boots in orange with gray accent color"
           }
         ],
         "img_PNGName": null,
