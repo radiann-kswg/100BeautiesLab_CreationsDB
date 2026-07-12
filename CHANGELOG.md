@@ -1,5 +1,13 @@
 # 最新のリファクタリング・仕様変更履歴
 
+### fix: NumberTales `Costume` 辞書のカタログ未登録によるラベル未解決を修正 (2026-07-12)
+
+`AppearanceDetail` エントリの衣装差分タグ（`usual` / `idol` 等）が生コードのまま表示されていた問題を修正した。辞書本体 `data/Works_NumberTales/Dictionaries/dict_Costume.json` は存在していたが、辞書カタログ（`Dictionaries/db_meta.json`）に `#Dict_Costume` が未登録だったため、実行時の `$VarsDef` 合流から漏れて `formatValueForDisplay` の `#DictIndex` 解決が失敗していた。UI/レンダラー側は無改修。
+
+- **`data/Works_NumberTales/Dictionaries/db_meta.json`**: `#Dict_Costume`（`keyField: "Costume"` / `compatListKey: "#List_Costume"`）をカタログへ登録。
+- **`tests/pages.characters.ui-output.test.js`**: `Costume` タグが辞書解決済みラベル（通常衣装/アイドル衣装）で表示され、生コード（usual/idol）が残らないことを検証する回帰テストを追加。
+- 確認: `npm test` 全件成功（27ファイル / 255件）。実ブラウザで JP（通常衣装/アイドル衣装）・EN（Usual Costume / Idol Costume）両モードの表示を確認。
+
 ### improve: VRM 3Dビューアと subFields 系参考画像を2カラムレイアウト化 (2026-07-12)
 
 キャラシートの縦方向の占有面積を抑えるため、VRM 3Dビューアカードと `AppearanceDetail` / `TailsUnit` エントリを横並びの flex 2カラム構造に変更した。
