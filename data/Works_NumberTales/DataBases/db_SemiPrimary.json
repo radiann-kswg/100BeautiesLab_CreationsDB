@@ -935,11 +935,11 @@
     "Progress": "released",
     "isTriple": false,
     "Images": {
-      "concept_PNGName": "cnsp_img222",
-      "conceptAlt_PNGName": ["cnsp_img222-origA"],
+      "concept_PNGName": "cnsp_img222A",
+      "conceptAlt_PNGName": ["cnsp_img222-orig"],
       "corefolder_PNGPath": [
-        "222/emstk_corefolder222-1",
-        "222/emstk_corefolder222-2a"
+        "222/emstk_corefolder222-2a",
+        "222/emstk_corefolder222-1"
       ]
     },
     "SameModels_DBLink": [{ "_DB": "SemiPrimary", "Num": "222-alt" }],
@@ -1175,11 +1175,11 @@
     "Progress": "released",
     "isTriple": false,
     "Images": {
-      "concept_PNGName": "cnsp_img222",
-      "conceptAlt_PNGName": ["cnsp_img222-origB"],
+      "concept_PNGName": "cnsp_img222B",
+      "conceptAlt_PNGName": ["cnsp_img222-orig"],
       "corefolder_PNGPath": [
-        "222/emstk_corefolder222-1",
-        "222/emstk_corefolder222-2b"
+        "222/emstk_corefolder222-2b",
+        "222/emstk_corefolder222-1"
       ]
     },
     "SameModels_DBLink": [{ "_DB": "SemiPrimary", "Num": 222 }],
