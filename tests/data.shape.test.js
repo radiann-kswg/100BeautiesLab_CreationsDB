@@ -223,8 +223,15 @@ describe('AppearanceDetail schema', () => {
     expect(violations).toHaveLength(0);
   });
 
-  it('NT db_Primary.json AppearanceDetail img_PNGName files exist under attr/<element> (DesignElement-driven dispatch)', () => {
-    const records = load('data/Works_NumberTales/DataBases/db_Primary.json');
+  it.each([
+    // [DBファイル, 画像ベースフォルダ, img_PNGName 登録が1件以上ある前提か]
+    // db_Secondary は現状 img_PNGName の登録が無いため件数要求はしない（存在チェックのみ）
+    ['data/Works_NumberTales/DataBases/db_Primary.json', 'data/Works_NumberTales/Images/DB_Primary', true],
+    ['data/Works_NumberTales/DataBases/db_Secondary.json', 'data/Works_NumberTales/Images/DB_Secondary', false],
+    ['data/Works_NumberTales/DataBases/db_SemiPrimary.json', 'data/Works_NumberTales/Images/DB_SemiPrimary', true],
+    ['data/Works_NumberTales/DataBases/db_SelfSecondary.json', 'data/Works_NumberTales/Images/DB_SelfSecondary', true],
+  ])('NT %s AppearanceDetail img_PNGName files exist under attr/<element> (DesignElement-driven dispatch)', (dbPath, imageBaseDir, expectEntries) => {
+    const records = load(dbPath);
     // pages/characters.js の buildAppearanceDetailImageUrl と同じ導出規則:
     // #Element_NumberMark -> attr/numberMark、判別不能時は img
     const deriveFolder = (designElement) => {
@@ -242,7 +249,7 @@ describe('AppearanceDetail schema', () => {
         checked++;
         const imgPath = join(
           repoRoot,
-          'data/Works_NumberTales/Images/DB_Primary',
+          imageBaseDir,
           deriveFolder(entry?.DesignElement),
           `${value}.png`,
         );
@@ -252,7 +259,7 @@ describe('AppearanceDetail schema', () => {
       }
     }
     // 2026-07-11 の一括登録（153件）が空回りしていないことも併せて確認する
-    expect(checked).toBeGreaterThan(0);
+    if (expectEntries) expect(checked).toBeGreaterThan(0);
     expect(missing).toHaveLength(0);
   });
 });

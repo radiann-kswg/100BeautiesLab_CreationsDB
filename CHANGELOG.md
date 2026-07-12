@@ -1,5 +1,15 @@
 # 最新のリファクタリング・仕様変更履歴
 
+### fix: NumberTales 666(リリス)/3x11 の AppearanceDetail 参考画像の参照切れを修正 (2026-07-12)
+
+外見デザイン詳細（`AppearanceDetail.img_PNGName`）の参照とファイル実体の不一致3件を修正した。
+
+- **`Images/DB_SelfSecondary/attr/numberMark/`**: `attr_numbertMark666-lot.png`（「numbertMark」打ち間違い）→ `attr_numberMark666-lot.png` にリネーム。
+- **`db_SemiPrimary.json`（666 humanoid ブローチ）**: `attr_costumeItem666mp-brooch`（SelfSecondary 側にしか無い `mp` 付きファイル名）→ `attr_costumeItem666-brooch` に修正（画像は別DBフォルダから解決しない規約のため）。
+- **`db_SemiPrimary.json`（3x11 emblem）+ 画像移動**: DB値 `attr_emblem3x11-brooch` を実ファイル名 `attr_emblem3x11-doubleBrooch` に修正し、`attr/costumeItem/` に誤配置されていた画像を `DesignElement`（`#Element_Emblem`）駆動の規約どおり `attr/emblem/` へ移動。
+- **`tests/data.shape.test.js`**: `img_PNGName` の実ファイル存在チェックを db_Primary 限定から NT 全DB（Primary/Secondary/SemiPrimary/SelfSecondary）へ拡張（今回の3件はこの拡張で検出）。
+- 確認: `npm test` 全件成功（27ファイル / 258件）。実ブラウザで 666-mp / 666 / 3x11 の参考画像が全件 HTTP 200 で解決されることを確認。
+
 ### fix: NumberTales `Costume` 辞書のカタログ未登録によるラベル未解決を修正 (2026-07-12)
 
 `AppearanceDetail` エントリの衣装差分タグ（`usual` / `idol` 等）が生コードのまま表示されていた問題を修正した。辞書本体 `data/Works_NumberTales/Dictionaries/dict_Costume.json` は存在していたが、辞書カタログ（`Dictionaries/db_meta.json`）に `#Dict_Costume` が未登録だったため、実行時の `$VarsDef` 合流から漏れて `formatValueForDisplay` の `#DictIndex` 解決が失敗していた。UI/レンダラー側は無改修。

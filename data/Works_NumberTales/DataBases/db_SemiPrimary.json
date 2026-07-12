@@ -1748,10 +1748,10 @@
         "Formation": null,
         "BodyPart": ["#BodyPart_Halo"],
         "Laterality": null,
-        "DesignElement": "#Element_Motif",
+        "DesignElement": "#Element_Halo",
         "Attrs": [
           {
-            "AttrLabel": "#DesignAttr_Halo",
+            "AttrLabel": "#DesignAttr_Overview",
             "value_JP": "3つの正方形/菱形からなるヘイロー",
             "value_EN": "halo consisting of three squares/diamonds"
           }
@@ -1929,7 +1929,7 @@
     ],
     "Images": {
       "concept_PNGName": "cnsp_img666",
-      "corefolder_PNGPath": ["emstk_corefolder666-mp1"]
+      "corefolder_PNGPath": ["666/emstk_corefolder666-1"]
     },
     "Name_JP": "666(リリス)",
     "Name_EN": "666(Lilith)",
@@ -2162,7 +2162,7 @@
             "value_EN": "brooch with three '6's arranged in rotational symmetry and hexagonal shape"
           }
         ],
-        "img_PNGName": "attr_costumeItem666mp-brooch",
+        "img_PNGName": "attr_costumeItem666-brooch",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -3010,7 +3010,7 @@
             "value_EN": "two round brooches featuring a three-color motif"
           }
         ],
-        "img_PNGName": "attr_emblem3x11-brooch",
+        "img_PNGName": "attr_emblem3x11-doubleBrooch",
         "Note_JP": null,
         "Note_EN": null
       },

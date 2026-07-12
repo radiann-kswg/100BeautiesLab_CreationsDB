@@ -1646,7 +1646,7 @@
         "Formation": null,
         "BodyPart": ["#BodyPart_Halo"],
         "Laterality": null,
-        "DesignElement": "#Element_Motif",
+        "DesignElement": "#Element_Halo",
         "Attrs": [
           {
             "AttrLabel": "#DesignAttr_Overview",
@@ -1654,7 +1654,7 @@
             "value_EN": "halo consisting of three squares/diamonds"
           }
         ],
-        "img_PNGName": "attr_halo666mp",
+        "img_PNGName": "attr_halo444mp",
         "Note_JP": null,
         "Note_EN": null
       },
