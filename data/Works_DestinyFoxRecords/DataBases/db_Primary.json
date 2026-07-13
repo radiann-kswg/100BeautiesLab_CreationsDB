@@ -292,27 +292,24 @@
     "Name_EN": "RadianN",
     "Images": {
       "design_PNGName": "design_imgPhysU-rad",
-      "designAlt_PNGName": [
+      "designAlt_PNGPath": [
         "arts/weakening/arts_destinyFoxRec-2021-0031",
         "arts/regular/arts_destinyFoxRec-2021-graduateA",
         "arts/regular/arts_destinyFoxRec-2021-graduateB",
-        "arts/regular/arts_destinyFoxRec-2022-recruit",
+        "arts/fullpower/arts_destinyFoxRec-2022-recruit",
         "arts/regular/arts_destinyFoxRec-2023-graduate",
         {
           "_DBCrossLinkPath": {
             "_DB": "Proxy",
-            "_Work": "DestinyFoxRecords",
             "_Field": "design_PNGName",
             "_IsoPath": "dsgn_imgRN2"
           }
         }
       ],
-      "weakening_PNGName": [
+      "weakening_PNGPath": [
         {
           "_DBCrossLinkPath": {
             "_DB": "Proxy",
-            "_Work": "DestinyFoxRecords",
-            "_Field": "weakening_PNGPath",
             "_IsoPath": "emstk_weakeningRN2-1"
           }
         }
@@ -355,7 +352,7 @@
     "Progress": "stillTentative",
     "Images": {
       "design_PNGName": "design_imgPhysU-sr",
-      "designAlt_PNGName": [
+      "designAlt_PNGPath": [
         "dsgn_imgSTRN",
         "arts/regular/art_imgSTRN-meowsday2022",
         "arts/weakening/arts_destinyFoxRec-2021-0031"
@@ -403,11 +400,11 @@
     "Progress": "nowRecreating",
     "Images": {
       "design_PNGName": "design_imgRVN",
-      "designAlt_PNGName": [
+      "designAlt_PNGPath": [
         "design_imgRVN-1",
         "arts/regular/arts_destinyFoxRec-2021-valentine"
       ],
-      "weakening_PNGName": ["emstk_weakeningRVN-1", "emstk_weakeningRVN-2"]
+      "weakening_PNGPath": ["emstk_weakeningRVN-1", "emstk_weakeningRVN-2"]
     },
     "Name_JP": "ノーマル\nのるまん",
     "Name_EN": "NormalN",
