@@ -809,6 +809,72 @@
           }
         ]
       },
+      "$Def_ColorPalette": {
+        "$DefType": [
+          {
+            "hashTag": "Role",
+            "$type": "#ListIndex|#Null",
+            "hashTag_JP": "配色役割",
+            "hashTag_EN": "Role"
+          },
+          {
+            "hashTag": "Hex",
+            "$type": "#Hexcode_Color|#Null",
+            "hashTag_JP": "カラーコード",
+            "hashTag_EN": "Color Code"
+          },
+          {
+            "hashTag": "ColorName_JP",
+            "$type": "#String|#Null",
+            "hashTag_JP": "色名"
+          },
+          {
+            "hashTag": "ColorName_EN",
+            "$type": "#String_EN|#Null",
+            "hashTag_EN": "Color Name"
+          },
+          {
+            "hashTag": "AppliesTo",
+            "$type": "#ListIndex[]|#Null",
+            "hashTag_JP": "適用部位",
+            "hashTag_EN": "Applies To"
+          },
+          {
+            "hashTag": "Formation",
+            "$type": "#DictIndex|#Null",
+            "$dict": "Formation",
+            "hashTag_JP": "形態名",
+            "hashTag_EN": "Formation"
+          },
+          {
+            "hashTag": "Note_JP",
+            "$type": "#String|#Null",
+            "hashTag_JP": "補足テキスト"
+          },
+          {
+            "hashTag": "Note_EN",
+            "$type": "#String_EN|#Null",
+            "hashTag_EN": "Note"
+          }
+        ]
+      },
+      "$EnumDef_ColorRole": {
+        "#ColorRole_Primary": {
+          "ColorRole": "Primary",
+          "ColorRole_JP": "主色",
+          "ColorRole_EN": "Primary"
+        },
+        "#ColorRole_Secondary": {
+          "ColorRole": "Secondary",
+          "ColorRole_JP": "補助色",
+          "ColorRole_EN": "Secondary"
+        },
+        "#ColorRole_Accent": {
+          "ColorRole": "Accent",
+          "ColorRole_JP": "差し色",
+          "ColorRole_EN": "Accent"
+        }
+      },
       "$EnumDef_DesignBodyPart": {
         "#BodyPart_Head": {
           "BodyPart": "Head",

@@ -289,6 +289,50 @@
         "Note_EN": null
       }
     ],
+    "ColorPalette": [
+      {
+        "Role": "#ColorRole_Primary",
+        "Hex": "#FFA195",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": [
+          "#BodyPart_Chest",
+          "#BodyPart_Shoulder",
+          "#BodyPart_Hair"
+        ],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Secondary",
+        "Hex": "#F68A6F",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": [
+          "#BodyPart_Chest",
+          "#BodyPart_Shoulder",
+          "#BodyPart_Hair"
+        ],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Accent",
+        "Hex": "#CC575C",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": [
+          "#BodyPart_Chest",
+          "#BodyPart_Shoulder",
+          "#BodyPart_Hair"
+        ],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "NumerospecAbout_JP": "ありのままに行動する\nおよび主人の自我を強める",
     "NumerospecAbout_EN": "Acts just as ze is\nAnd also strengthens the Master's sense of self",
     "Summary_JP": "相手のことを尊重する双子の妹「2(ツグ)」とは反対に、自分のありのままに生活している。\nナンバーテールズの試作過程と共に誕生した唯一の試作型で、外見で尾が1本などと正規型である他の98人と異なる特徴が多い。\nしかし彼女はそれも自分らしさと前向きに受け入れている。\nとはいえ試作型だった影響か、やってみたいことが無数にあり行動意欲が過度に突出している。",
@@ -698,6 +742,38 @@
         "Note_EN": null
       }
     ],
+    "ColorPalette": [
+      {
+        "Role": "#ColorRole_Primary",
+        "Hex": "#EFAE89",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Chest", "#BodyPart_Hair", "#BodyPart_Leg"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Secondary",
+        "Hex": "#3F3D36",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Accent",
+        "Hex": "#FC9F6F",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Chest", "#BodyPart_Hair", "#BodyPart_Leg"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "RelationNotes_JP": "「3(ナオ)」と信頼関係がある\n「9(チカ)」に甘えてる一面も",
     "RelationNotes_EN": "Has a trusting relationship with \"3(Treiya)\"\nAlso has a side that relies on \"9(Nina)\"",
     "NumerospecAbout_JP": "主人や他ナンバーテールズの日々や人脈をよりよくする",
@@ -1003,6 +1079,53 @@
           }
         ],
         "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
+    "ColorPalette": [
+      {
+        "Role": "#ColorRole_Primary",
+        "Hex": "#F7ED76",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": [
+          "#BodyPart_Hair",
+          "#BodyPart_Eye",
+          "#BodyPart_Chest",
+          "#BodyPart_Leg"
+        ],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Secondary",
+        "Hex": "#F8EB70",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": [
+          "#BodyPart_Hair",
+          "#BodyPart_Eye",
+          "#BodyPart_Chest",
+          "#BodyPart_Leg"
+        ],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Accent",
+        "Hex": "#F8EC72",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": [
+          "#BodyPart_Hair",
+          "#BodyPart_Eye",
+          "#BodyPart_Chest",
+          "#BodyPart_Leg"
+        ],
+        "Formation": null,
         "Note_JP": null,
         "Note_EN": null
       }
@@ -1343,6 +1466,38 @@
           }
         ],
         "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
+    "ColorPalette": [
+      {
+        "Role": "#ColorRole_Primary",
+        "Hex": "#11B9DC",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Eye", "#BodyPart_Shoulder", "#BodyPart_Chest"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Secondary",
+        "Hex": "#F4709D",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Accent",
+        "Hex": "#C2AAC7",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
         "Note_JP": null,
         "Note_EN": null
       }
@@ -1782,6 +1937,38 @@
         "Note_EN": null
       }
     ],
+    "ColorPalette": [
+      {
+        "Role": "#ColorRole_Primary",
+        "Hex": "#74E3BD",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Hair", "#BodyPart_Eye", "#BodyPart_Chest"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Secondary",
+        "Hex": "#60DAAE",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Hair", "#BodyPart_Eye", "#BodyPart_Chest"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Accent",
+        "Hex": "#64D3A8",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Hair", "#BodyPart_Eye", "#BodyPart_Chest"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "RelationNotes_JP": "「3(ナオ)」とは良きライバル関係\n「6(ムイ)」に苦手意識がある",
     "RelationNotes_EN": "Has a good-rival relationship with '3(Treiya)'\nFeels somewhat uneasy around '6(Sics)'",
     "NumerospecAbout_JP": "やり方を常に変える\n主人への効果量は不明だがこれによりマンネリ化を無効化できるらしい",
@@ -2114,6 +2301,38 @@
           }
         ],
         "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
+    "ColorPalette": [
+      {
+        "Role": "#ColorRole_Primary",
+        "Hex": "#11B9DC",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Secondary",
+        "Hex": "#F4709D",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Hair", "#BodyPart_Chest"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Accent",
+        "Hex": "#C2AAC7",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
         "Note_JP": null,
         "Note_EN": null
       }
@@ -2470,6 +2689,38 @@
         "Note_EN": null
       }
     ],
+    "ColorPalette": [
+      {
+        "Role": "#ColorRole_Primary",
+        "Hex": "#5276C2",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Hair", "#BodyPart_Eye", "#BodyPart_Hand"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Secondary",
+        "Hex": "#8889D0",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Hair", "#BodyPart_Eye", "#BodyPart_Hand"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Accent",
+        "Hex": "#344584",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Hair", "#BodyPart_Eye", "#BodyPart_Hand"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "RelationNotes_JP": "「5(イズ)」に対し対抗意識がある\n「70(ナナト)」とは就学仲間",
     "RelationNotes_EN": "Has a competitive streak toward '5(Fifa)'\nA study companion with '70(Seventia)'",
     "NumerospecAbout_JP": "修行や瞑想をする\nこれによる効果は主人にも少し分け与えられる",
@@ -2814,6 +3065,48 @@
         "Note_EN": null
       }
     ],
+    "ColorPalette": [
+      {
+        "Role": "#ColorRole_Primary",
+        "Hex": "#FC9481",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": [
+          "#BodyPart_Chest",
+          "#BodyPart_Eye",
+          "#BodyPart_Hair",
+          "#BodyPart_Head"
+        ],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Secondary",
+        "Hex": "#E85764",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": [
+          "#BodyPart_Chest",
+          "#BodyPart_Eye",
+          "#BodyPart_Hair",
+          "#BodyPart_Head"
+        ],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Accent",
+        "Hex": "#745F5E",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "RelationNotes_JP": "「1(ハジメ)」に少し苦手意識がある\n「62(ロジ)」とものづくりすることがある",
     "RelationNotes_EN": "Feels a slight awkwardness toward '1(Unitta)'\nSometimes does creative builds together with '62(Sictwéna)'",
     "NumerospecAbout_JP": "より高価値のものを生み出す\n付属のVRゴーグルで物の価値を見せることができる",
@@ -3134,6 +3427,38 @@
           }
         ],
         "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
+    "ColorPalette": [
+      {
+        "Role": "#ColorRole_Primary",
+        "Hex": "#9FA7BE",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Secondary",
+        "Hex": "#9FA7BE",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Accent",
+        "Hex": "#9CA2B5",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Hair"],
+        "Formation": null,
         "Note_JP": null,
         "Note_EN": null
       }
@@ -3503,6 +3828,38 @@
         "Note_EN": null
       }
     ],
+    "ColorPalette": [
+      {
+        "Role": "#ColorRole_Primary",
+        "Hex": "#C5424F",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Chest", "#BodyPart_Hair", "#BodyPart_Eye"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Secondary",
+        "Hex": "#67363B",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Chest", "#BodyPart_Hair", "#BodyPart_Eye"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Accent",
+        "Hex": "#C9A4A8",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "RelationNotes_JP": "「99(ツクモ)」の記憶について何かを察している",
     "RelationNotes_EN": "Seems to sense something regarding the memories of '99(Thukumo)'",
     "NumerospecAbout_JP": "？？？？という役目を果たす\n？？？？という危機を未然に防ぐ",
@@ -3834,6 +4191,38 @@
         "Note_EN": null
       }
     ],
+    "ColorPalette": [
+      {
+        "Role": "#ColorRole_Primary",
+        "Hex": "#B2BEC4",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Eye", "#BodyPart_Hair"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Secondary",
+        "Hex": "#BDC7CB",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Eye", "#BodyPart_Hair"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Accent",
+        "Hex": "#8E97A0",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Eye", "#BodyPart_Hair"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "RelationNotes_JP": "「1(ハジメ)」を「師匠」と過度に慕うあまり…？",
     "RelationNotes_EN": "May revere '1(Unitta)' too intensely as a 'master'... ?",
     "NumerospecAbout_JP": "自己認知(ハイパーセルフ)による直観と実現力を強化する\nこの効果は確実に主人に分け与えられる",
@@ -4157,6 +4546,38 @@
           }
         ],
         "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
+    "ColorPalette": [
+      {
+        "Role": "#ColorRole_Primary",
+        "Hex": "#FFA898",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Secondary",
+        "Hex": "#9FABCA",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Accent",
+        "Hex": "#F4B1A7",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
         "Note_JP": null,
         "Note_EN": null
       }
@@ -4490,6 +4911,38 @@
           }
         ],
         "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
+    "ColorPalette": [
+      {
+        "Role": "#ColorRole_Primary",
+        "Hex": "#C3CBD9",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Chest", "#BodyPart_Hand"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Secondary",
+        "Hex": "#8BC6E6",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Hair"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Accent",
+        "Hex": "#81A0B4",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Hair"],
+        "Formation": null,
         "Note_JP": null,
         "Note_EN": null
       }
@@ -4902,6 +5355,38 @@
         "Note_EN": null
       }
     ],
+    "ColorPalette": [
+      {
+        "Role": "#ColorRole_Primary",
+        "Hex": "#D1D3D4",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Chest"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Secondary",
+        "Hex": "#61A346",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Accent",
+        "Hex": "#739585",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "NumerospecAbout_JP": "新しいことを始める時に失敗する恐れを和らげる\nこの効果は周辺状況や心理状況に関与していないらしく、詳細は不明",
     "NumerospecAbout_EN": "Eases the fear of failure when starting something new\nThis effect seems unrelated to surrounding circumstances or psychological conditions, and details remain unknown",
     "Summary_JP": "新しいことに挑むときは常に失敗を恐れないオールラウンダー。\nいつも活発で元気溌剌な気質は、周囲にも好印象を持たれている。\nただそのせいか、コアフォルダ形態には馴染めていない様子。\n彼女が言うには右脳(感覚)派であるらしいが、左脳(理論)派な一面も持ち合わせているのではと噂されている。",
@@ -5298,6 +5783,38 @@
         "Note_EN": null
       }
     ],
+    "ColorPalette": [
+      {
+        "Role": "#ColorRole_Primary",
+        "Hex": "#FFB2AA",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Secondary",
+        "Hex": "#FFB1AB",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Accent",
+        "Hex": "#558968",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Chest", "#BodyPart_Neck"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "RelationNotes_JP": "「33(ミサ)」と心配されあっている\n「10(ミツル)」と加護について関係が…？",
     "RelationNotes_EN": "Mutually worries about \"33(Thirthrey)\"\nMay have some connection with \"10(Tenim)\" regarding Numerospecs...?",
     "NumerospecAbout_JP": "奇跡を起こす\nただしこの効果は対象の性格に影響される\n？？？？",
@@ -5643,6 +6160,38 @@
         "Note_EN": null
       }
     ],
+    "ColorPalette": [
+      {
+        "Role": "#ColorRole_Primary",
+        "Hex": "#D091A2",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Hair", "#BodyPart_Chest"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Secondary",
+        "Hex": "#F26383",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_FaceMaking"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Accent",
+        "Hex": "#7288B4",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Head"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "RelationNotes_JP": "「6(ムイ)」「26(ニロク)」に懐いている？",
     "RelationNotes_EN": "Seems attached to \"6(Sics)\" and \"26(Twinsix)\"?",
     "NumerospecAbout_JP": "才能を奮い立たせる\nこの効果はたとえ手持ちに不利があっても発動する",
@@ -5954,6 +6503,38 @@
         "Note_EN": null
       }
     ],
+    "ColorPalette": [
+      {
+        "Role": "#ColorRole_Primary",
+        "Hex": "#8BA1CD",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Hair"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Secondary",
+        "Hex": "#D0CBD4",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Hair"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Accent",
+        "Hex": "#F7B8A8",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "RelationNotes_JP": "「89(ヤスモ)」とは謎のシンパシーがある？",
     "RelationNotes_EN": "Seems to share a mysterious sympathy with \"89(Eightine)\"?",
     "NumerospecAbout_JP": "対象の能力に応じ結果を保証する",
@@ -6235,6 +6816,38 @@
         "Note_EN": null
       }
     ],
+    "ColorPalette": [
+      {
+        "Role": "#ColorRole_Primary",
+        "Hex": "#E48A90",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Chest", "#BodyPart_Hair"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Secondary",
+        "Hex": "#76423D",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Chest", "#BodyPart_Hair"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Accent",
+        "Hex": "#ED5F48",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Chest", "#BodyPart_Hair"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "RelationNotes_JP": "「19(トク)」を連れまわしている\n「9(チカ)」を警戒？しているが…",
     "RelationNotes_EN": "Often drags \"19(Ninteels)\" around\nSeems wary of \"9(Nina)\", but...",
     "NumerospecAbout_JP": "リーダーシップを奮い立たせる\nこの効果は求められた時ほど効果が高くなる",
@@ -6499,6 +7112,38 @@
           }
         ],
         "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
+    "ColorPalette": [
+      {
+        "Role": "#ColorRole_Primary",
+        "Hex": "#713D3D",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Hair", "#BodyPart_Eye", "#BodyPart_Leg"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Secondary",
+        "Hex": "#814B4B",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Hair", "#BodyPart_Eye", "#BodyPart_Leg"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Accent",
+        "Hex": "#F8B8B3",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
         "Note_JP": null,
         "Note_EN": null
       }
@@ -6839,6 +7484,38 @@
           }
         ],
         "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
+    "ColorPalette": [
+      {
+        "Role": "#ColorRole_Primary",
+        "Hex": "#FFA85E",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Secondary",
+        "Hex": "#51514F",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Hair"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Accent",
+        "Hex": "#D2BEB0",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
         "Note_JP": null,
         "Note_EN": null
       }
@@ -7188,6 +7865,38 @@
           }
         ],
         "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
+    "ColorPalette": [
+      {
+        "Role": "#ColorRole_Primary",
+        "Hex": "#FEB59A",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Secondary",
+        "Hex": "#FFAC8F",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Accent",
+        "Hex": "#FFAC8F",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
         "Note_JP": null,
         "Note_EN": null
       }
@@ -7605,6 +8314,38 @@
         "Note_EN": null
       }
     ],
+    "ColorPalette": [
+      {
+        "Role": "#ColorRole_Primary",
+        "Hex": "#A1B2DD",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Secondary",
+        "Hex": "#FFC574",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Eye", "#BodyPart_Foot"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Accent",
+        "Hex": "#F9D08B",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Eye", "#BodyPart_Foot"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "RelationNotes_JP": "「44(シトシ)」にライバル意識がある？",
     "RelationNotes_EN": "May have a rivalry toward '44(Folforn)'?",
     "NumerospecAbout_JP": "主人の偉業を保証する\n強力な加護のためこの効果の詳細は不明",
@@ -7996,6 +8737,38 @@
         "Note_EN": null
       }
     ],
+    "ColorPalette": [
+      {
+        "Role": "#ColorRole_Primary",
+        "Hex": "#D1D3D4",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Secondary",
+        "Hex": "#61A346",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Waist", "#BodyPart_Hair", "#BodyPart_Chest"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Accent",
+        "Hex": "#739585",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Waist", "#BodyPart_Hair", "#BodyPart_Chest"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "RelationNotes_JP": "困ったときは「2(ツグ)」「3(ナオ)」を頼りがち\n「55(イソゴ)」に影響されている？",
     "RelationNotes_EN": "Tends to rely on \"2(Twiny)\" and \"3(Treiya)\" when in trouble\nMay be influenced by \"55(Fifívan)\"?",
     "NumerospecAbout_JP": "主人の発想力を引き立てる",
@@ -8287,6 +9060,38 @@
           }
         ],
         "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
+    "ColorPalette": [
+      {
+        "Role": "#ColorRole_Primary",
+        "Hex": "#11B9DC",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Secondary",
+        "Hex": "#F4709D",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Hair", "#BodyPart_Leg"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Accent",
+        "Hex": "#C2AAC7",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
         "Note_JP": null,
         "Note_EN": null
       }
@@ -8649,6 +9454,38 @@
           }
         ],
         "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
+    "ColorPalette": [
+      {
+        "Role": "#ColorRole_Primary",
+        "Hex": "#AEBDC6",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Chest", "#BodyPart_Hair"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Secondary",
+        "Hex": "#21566E",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Eye", "#BodyPart_Chest"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Accent",
+        "Hex": "#A4AFB7",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Chest", "#BodyPart_Hair"],
+        "Formation": null,
         "Note_JP": null,
         "Note_EN": null
       }
@@ -9021,6 +9858,38 @@
           }
         ],
         "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
+    "ColorPalette": [
+      {
+        "Role": "#ColorRole_Primary",
+        "Hex": "#FABBC0",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Secondary",
+        "Hex": "#FABBC0",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Accent",
+        "Hex": "#F9BABF",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
         "Note_JP": null,
         "Note_EN": null
       }
@@ -9424,6 +10293,38 @@
           }
         ],
         "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
+    "ColorPalette": [
+      {
+        "Role": "#ColorRole_Primary",
+        "Hex": "#3D4093",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Chest", "#BodyPart_Hair", "#BodyPart_Foot"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Secondary",
+        "Hex": "#4245A3",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Chest", "#BodyPart_Hair", "#BodyPart_Foot"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Accent",
+        "Hex": "#44489B",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Chest", "#BodyPart_Hair", "#BodyPart_Foot"],
+        "Formation": null,
         "Note_JP": null,
         "Note_EN": null
       }
@@ -9906,6 +10807,50 @@
         "Note_EN": null
       }
     ],
+    "ColorPalette": [
+      {
+        "Role": "#ColorRole_Primary",
+        "Hex": "#694835",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": [
+          "#BodyPart_Chest",
+          "#BodyPart_Shoulder",
+          "#BodyPart_Ear",
+          "#BodyPart_Hair",
+          "#BodyPart_Waist"
+        ],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Secondary",
+        "Hex": "#817569",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Accent",
+        "Hex": "#D37745",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": [
+          "#BodyPart_Chest",
+          "#BodyPart_Shoulder",
+          "#BodyPart_Ear",
+          "#BodyPart_Hair",
+          "#BodyPart_Waist"
+        ],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "RelationNotes_JP": "「31(ミツイ)」と数学徒としてつながりがある\n「78(ナナハ)」と競っている一面が…？",
     "RelationNotes_EN": "Connected with '31(Thirtone)' as fellow math enthusiasts\nMay also have a competitive streak toward '78(Seveights)'...?",
     "NumerospecAbout_JP": "物乞いを叶える\nただしこの効果は対象者の純粋さに左右される",
@@ -10167,6 +11112,38 @@
           }
         ],
         "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
+    "ColorPalette": [
+      {
+        "Role": "#ColorRole_Primary",
+        "Hex": "#E5DCCD",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Leg"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Secondary",
+        "Hex": "#E3D4C4",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Leg"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Accent",
+        "Hex": "#C8C9C8",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
         "Note_JP": null,
         "Note_EN": null
       }
@@ -10530,6 +11507,38 @@
           }
         ],
         "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
+    "ColorPalette": [
+      {
+        "Role": "#ColorRole_Primary",
+        "Hex": "#827157",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Secondary",
+        "Hex": "#4E473C",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Accent",
+        "Hex": "#F4A33D",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Chest", "#BodyPart_Hand", "#BodyPart_Hair"],
+        "Formation": null,
         "Note_JP": null,
         "Note_EN": null
       }
@@ -10935,6 +11944,38 @@
         "Note_EN": null
       }
     ],
+    "ColorPalette": [
+      {
+        "Role": "#ColorRole_Primary",
+        "Hex": "#D7E392",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Secondary",
+        "Hex": "#F28F69",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Accent",
+        "Hex": "#597276",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Shoulder", "#BodyPart_Hair"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "RelationNotes_JP": "「28(ニハチ)」と数学徒としてつながりがある",
     "RelationNotes_EN": "Connected with '28(Tweighan)' as a fellow math enthusiast",
     "NumerospecAbout_JP": "主人の行いを引き立てる",
@@ -11306,6 +12347,38 @@
           }
         ],
         "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
+    "ColorPalette": [
+      {
+        "Role": "#ColorRole_Primary",
+        "Hex": "#C2F2DF",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Secondary",
+        "Hex": "#C2F2DE",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Accent",
+        "Hex": "#C2F1DD",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
         "Note_JP": null,
         "Note_EN": null
       }
@@ -11699,6 +12772,38 @@
         "Note_EN": null
       }
     ],
+    "ColorPalette": [
+      {
+        "Role": "#ColorRole_Primary",
+        "Hex": "#FFBEAB",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Secondary",
+        "Hex": "#F8C4B3",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Accent",
+        "Hex": "#68625F",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "RelationNotes_JP": "「30(ミツト)」に妙な愛着が…？",
     "RelationNotes_EN": "Has a peculiar attachment to '30(Thirtens)'...?",
     "NumerospecAbout_JP": "全域の知識および技能を習得できる（ROSの機能で）\nただし発動条件としてオンライン状態である必要がある",
@@ -12081,6 +13186,38 @@
         "Note_EN": null
       }
     ],
+    "ColorPalette": [
+      {
+        "Role": "#ColorRole_Primary",
+        "Hex": "#99A6C1",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Hair", "#BodyPart_Eye", "#BodyPart_Leg"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Secondary",
+        "Hex": "#3478B0",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Hair", "#BodyPart_Eye", "#BodyPart_Leg"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Accent",
+        "Hex": "#2C3742",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Hair", "#BodyPart_Eye", "#BodyPart_Leg"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "RelationNotes_JP": "妹個体「43(シトミ)」に誘発されてあらぬ事態を引き起こすことも……",
     "RelationNotes_EN": "Can be provoked by younger unit '43(Forthren)' into causing all sorts of unintended situations...",
     "NumerospecAbout_JP": "規模を発展させる",
@@ -12417,6 +13554,42 @@
           }
         ],
         "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
+    "ColorPalette": [
+      {
+        "Role": "#ColorRole_Primary",
+        "Hex": "#B39F7B",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Secondary",
+        "Hex": "#E98D30",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Chest", "#BodyPart_Hair"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Accent",
+        "Hex": "#846B3C",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": [
+          "#BodyPart_Chest",
+          "#BodyPart_Hair",
+          "#BodyPart_FaceMaking"
+        ],
+        "Formation": null,
         "Note_JP": null,
         "Note_EN": null
       }
@@ -12785,6 +13958,38 @@
           }
         ],
         "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
+    "ColorPalette": [
+      {
+        "Role": "#ColorRole_Primary",
+        "Hex": "#FFC495",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Hair", "#BodyPart_Chest"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Secondary",
+        "Hex": "#B26E8C",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Leg"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Accent",
+        "Hex": "#F2BC7C",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Hair", "#BodyPart_Chest"],
+        "Formation": null,
         "Note_JP": null,
         "Note_EN": null
       }
@@ -13172,6 +14377,38 @@
           }
         ],
         "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
+    "ColorPalette": [
+      {
+        "Role": "#ColorRole_Primary",
+        "Hex": "#FFA898",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Neck", "#BodyPart_Eye"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Secondary",
+        "Hex": "#9FABCA",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Accent",
+        "Hex": "#F4B1A7",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
         "Note_JP": null,
         "Note_EN": null
       }
@@ -13627,6 +14864,38 @@
         "Note_EN": null
       }
     ],
+    "ColorPalette": [
+      {
+        "Role": "#ColorRole_Primary",
+        "Hex": "#FEF0D6",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Secondary",
+        "Hex": "#BBB2A5",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Accent",
+        "Hex": "#EFD8C5",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "RelationNotes_JP": "なぜか女装を勧められる「61(ロクイチ)」とは大の犬猿の仲",
     "RelationNotes_EN": "At constant loggerheads with '61(Síxone)' — who, for some reason, keeps pushing crossdressing on him",
     "NumerospecAbout_JP": "主人の邪魔をするものに対し対抗心を奮い立たせる\nただし発動条件として主人との信頼関係が必要",
@@ -13969,6 +15238,53 @@
         "Note_EN": null
       }
     ],
+    "ColorPalette": [
+      {
+        "Role": "#ColorRole_Primary",
+        "Hex": "#57BBC0",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": [
+          "#BodyPart_Waist",
+          "#BodyPart_Hair",
+          "#BodyPart_Chest",
+          "#BodyPart_Foot"
+        ],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Secondary",
+        "Hex": "#ACE5E4",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": [
+          "#BodyPart_Waist",
+          "#BodyPart_Hair",
+          "#BodyPart_Chest",
+          "#BodyPart_Foot"
+        ],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Accent",
+        "Hex": "#5099A1",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": [
+          "#BodyPart_Waist",
+          "#BodyPart_Hair",
+          "#BodyPart_Chest",
+          "#BodyPart_Foot"
+        ],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "NumerospecAbout_JP": "実現化する\nこの効果は限度制限がある。行動や意志に呼応するらしいが、条件や効果事例が多様なため詳細は不明",
     "NumerospecAbout_EN": "Brings things into reality\nThis effect has limitations. It appears to respond to actions and intentions, but conditions and effect cases vary so widely that details are unclear",
     "Summary_JP": "「願いや望みを４つだけ叶えてくれる」という謎の風の噂が後を絶たず、一部界隈から\"魔人\"や\"仙人\"などと言われている。\n当の本人もその評判に恥じない達観した風格をしている……が、それはあくまでも演出にすぎず、珍妙な実績が吹聴されて引くに引けなくなっただけ。\n実際はドが付くほど苦労人であることを、お得意の建前で包み隠しているらしい。",
@@ -14281,6 +15597,38 @@
           }
         ],
         "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
+    "ColorPalette": [
+      {
+        "Role": "#ColorRole_Primary",
+        "Hex": "#9FC5EA",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Eye", "#BodyPart_Hair", "#BodyPart_Leg"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Secondary",
+        "Hex": "#98C3E7",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Eye", "#BodyPart_Hair", "#BodyPart_Leg"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Accent",
+        "Hex": "#BAC1D5",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Chest", "#BodyPart_Foot"],
+        "Formation": null,
         "Note_JP": null,
         "Note_EN": null
       }
@@ -14680,6 +16028,38 @@
         "Note_EN": null
       }
     ],
+    "ColorPalette": [
+      {
+        "Role": "#ColorRole_Primary",
+        "Hex": "#EEB8D1",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Neck", "#BodyPart_Foot"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Secondary",
+        "Hex": "#CEB5D7",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Accent",
+        "Hex": "#846D87",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "NumerospecAbout_JP": "心に抱えている弱気を中和する",
     "NumerospecAbout_EN": "Neutralizes the weakness of spirit one carries in the heart",
     "Summary_JP": "主人が心に抱えている弱気を中和するという\"数秘的加護\"を（無自覚で）有している。\nそのためか、恐れや心配の文字を彼女から連想できないほどの自信家で、理想がやや高く我儘な言動もとりがち。\nしかしそれで中高度に上げられた彼女または主人の思惑が、不思議と欲求不満にならない以上に実現されている事例が多い。\nさらには一部の主人から固執・溺愛されるほどに大好評らしく…？",
@@ -14994,6 +16374,53 @@
           }
         ],
         "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
+    "ColorPalette": [
+      {
+        "Role": "#ColorRole_Primary",
+        "Hex": "#99A6C1",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": [
+          "#BodyPart_Chest",
+          "#BodyPart_Hair",
+          "#BodyPart_Leg",
+          "#BodyPart_Foot"
+        ],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Secondary",
+        "Hex": "#3478B0",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": [
+          "#BodyPart_Chest",
+          "#BodyPart_Hair",
+          "#BodyPart_Leg",
+          "#BodyPart_Foot"
+        ],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Accent",
+        "Hex": "#2C3742",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": [
+          "#BodyPart_Chest",
+          "#BodyPart_Hair",
+          "#BodyPart_Leg",
+          "#BodyPart_Foot"
+        ],
+        "Formation": null,
         "Note_JP": null,
         "Note_EN": null
       }
@@ -15323,6 +16750,38 @@
         "Note_EN": null
       }
     ],
+    "ColorPalette": [
+      {
+        "Role": "#ColorRole_Primary",
+        "Hex": "#F0E7D6",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Chest"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Secondary",
+        "Hex": "#C8B899",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Accent",
+        "Hex": "#7FB3B1",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Chest"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "RelationNotes_JP": "「33(ミサ)」に自我が強いだけなどと評され毛嫌いされている\n「72(ナフタ)」を筆頭に煙たがれる\n「52(イツギ)」と友好的だが、すれ違い気味なようで…？",
     "RelationNotes_EN": "Is evaluated by '33(Thirthrey)' as merely strong-willed, and strongly disliked\nSeen as a nuisance primarily by '72(Sevtwína)' and others\nFriendly with '52(Fiftwis)', but it seems they're talking past each other...?",
     "NumerospecAbout_JP": "思いを具現化する",
@@ -15610,6 +17069,38 @@
           }
         ],
         "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
+    "ColorPalette": [
+      {
+        "Role": "#ColorRole_Primary",
+        "Hex": "#1A5F80",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Eye", "#BodyPart_Leg", "#BodyPart_Foot"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Secondary",
+        "Hex": "#525D75",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Waist", "#BodyPart_Chest"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Accent",
+        "Hex": "#384863",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Waist", "#BodyPart_Chest"],
+        "Formation": null,
         "Note_JP": null,
         "Note_EN": null
       }
@@ -15943,6 +17434,38 @@
         "Note_EN": null
       }
     ],
+    "ColorPalette": [
+      {
+        "Role": "#ColorRole_Primary",
+        "Hex": "#346D9A",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Hair", "#BodyPart_Chest", "#BodyPart_Foot"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Secondary",
+        "Hex": "#387EB6",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Hair", "#BodyPart_Chest", "#BodyPart_Foot"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Accent",
+        "Hex": "#C2CDD4",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Chest", "#BodyPart_Leg"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "NumerospecAbout_JP": "楽しませる",
     "NumerospecAbout_EN": "Brings entertainment and enjoyment",
     "Summary_JP": "ナンバーテールズの中では珍しく、「感情的な衝動」を癒し以上にもたらす「4+6型」個体の一つ。\nやや気性の荒く落ち着きがない様子は他の個体を見比べても浮いて見えてしまう程だが、その様子に感化され「楽しむこと」を思い出させてくれたという感想を極めて限られた層から賜っている。\nしかし実績と人気度に長らく恵まれず、実況の副業をして赤字を埋めている。",
@@ -16236,6 +17759,53 @@
           }
         ],
         "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
+    "ColorPalette": [
+      {
+        "Role": "#ColorRole_Primary",
+        "Hex": "#3475AE",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": [
+          "#BodyPart_Chest",
+          "#BodyPart_Eye",
+          "#BodyPart_Leg",
+          "#BodyPart_Foot"
+        ],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Secondary",
+        "Hex": "#467AAD",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": [
+          "#BodyPart_Chest",
+          "#BodyPart_Eye",
+          "#BodyPart_Leg",
+          "#BodyPart_Foot"
+        ],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Accent",
+        "Hex": "#6BA5D6",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": [
+          "#BodyPart_Chest",
+          "#BodyPart_Eye",
+          "#BodyPart_Leg",
+          "#BodyPart_Foot"
+        ],
+        "Formation": null,
         "Note_JP": null,
         "Note_EN": null
       }
@@ -16643,6 +18213,38 @@
         "Note_EN": null
       }
     ],
+    "ColorPalette": [
+      {
+        "Role": "#ColorRole_Primary",
+        "Hex": "#A7A180",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Secondary",
+        "Hex": "#97B9AB",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Accent",
+        "Hex": "#5E5F4F",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "NumerospecAbout_JP": "現実をよりよくする\nこの効果は対象が現実逃避していない時に真価を発揮する",
     "NumerospecAbout_EN": "Makes reality better\nThis effect truly comes into its own when the target is not escaping from reality",
     "Summary_JP": "マーケティングやビジネススキルなどに精通しており、副業や事業展開を目標とする主人層から好評を受けている。\n至って紳士的で勤勉な気質だと表向きでは評されているが、本性的には喧嘩っ早く勝気の強い性格にどこか憧れを感じているらしい。\n理想を現実にするためにあの手この手を尽くそうとする頑固な一面も。",
@@ -16979,6 +18581,50 @@
         "Note_EN": null
       }
     ],
+    "ColorPalette": [
+      {
+        "Role": "#ColorRole_Primary",
+        "Hex": "#D6AFE6",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Chest"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Secondary",
+        "Hex": "#20273B",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": [
+          "#BodyPart_Shoulder",
+          "#BodyPart_Hair",
+          "#BodyPart_Eye",
+          "#BodyPart_Chest",
+          "#BodyPart_Leg"
+        ],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Accent",
+        "Hex": "#232A40",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": [
+          "#BodyPart_Shoulder",
+          "#BodyPart_Hair",
+          "#BodyPart_Eye",
+          "#BodyPart_Chest",
+          "#BodyPart_Leg"
+        ],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "RelationNotes_JP": "「14(トヨ)」とは犬猿の仲だが……",
     "RelationNotes_EN": "At constant loggerheads with '14(Forteels)', and yet...",
     "NumerospecAbout_JP": "間に合わせる\nこの効果は期日が明確であるほど本領を発揮する",
@@ -17288,6 +18934,44 @@
         "Note_EN": null
       }
     ],
+    "ColorPalette": [
+      {
+        "Role": "#ColorRole_Primary",
+        "Hex": "#394644",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Secondary",
+        "Hex": "#7BAF9F",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": [
+          "#BodyPart_Arm",
+          "#BodyPart_Waist",
+          "#BodyPart_Hair",
+          "#BodyPart_Eye",
+          "#BodyPart_Leg"
+        ],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Accent",
+        "Hex": "#3FD4CF",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Eye"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "RelationNotes_JP": "「40(ヨソ)」に敵視され「5(イズ)」を敵視している\n「30(ミツト)」に謎の安心感を憶えている",
     "RelationNotes_EN": "Is antagonized by '40(Fortty)' while antagonizing '5(Fifa)' in return\nFinds a mysterious sense of security in '30(Thirtens)'",
     "NumerospecAbout_JP": "物事を急展開に持ち運ぶ\n詳細かつ具体的な効果は不明だがこれによりマンネリ化を無効化できるらしい",
@@ -17555,6 +19239,38 @@
           }
         ],
         "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
+    "ColorPalette": [
+      {
+        "Role": "#ColorRole_Primary",
+        "Hex": "#FDC3B7",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Secondary",
+        "Hex": "#DCE5BC",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Accent",
+        "Hex": "#F27E83",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
         "Note_JP": null,
         "Note_EN": null
       }
@@ -17891,6 +19607,59 @@
           }
         ],
         "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
+    "ColorPalette": [
+      {
+        "Role": "#ColorRole_Primary",
+        "Hex": "#455F6B",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": [
+          "#BodyPart_Shoulder",
+          "#BodyPart_Eye",
+          "#BodyPart_Chest",
+          "#BodyPart_Leg",
+          "#BodyPart_Foot",
+          "#BodyPart_Hand"
+        ],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Secondary",
+        "Hex": "#70B2B5",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": [
+          "#BodyPart_Shoulder",
+          "#BodyPart_Eye",
+          "#BodyPart_Chest",
+          "#BodyPart_Leg",
+          "#BodyPart_Foot",
+          "#BodyPart_Hand"
+        ],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Accent",
+        "Hex": "#8CFFFE",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": [
+          "#BodyPart_Shoulder",
+          "#BodyPart_Eye",
+          "#BodyPart_Chest",
+          "#BodyPart_Leg",
+          "#BodyPart_Foot",
+          "#BodyPart_Hand"
+        ],
+        "Formation": null,
         "Note_JP": null,
         "Note_EN": null
       }
@@ -18277,6 +20046,42 @@
         "Note_EN": null
       }
     ],
+    "ColorPalette": [
+      {
+        "Role": "#ColorRole_Primary",
+        "Hex": "#FFC675",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Leg", "#BodyPart_Foot"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Secondary",
+        "Hex": "#ECCD66",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": [
+          "#BodyPart_Chest",
+          "#BodyPart_Hair",
+          "#BodyPart_FaceMaking"
+        ],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Accent",
+        "Hex": "#FEC779",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Leg", "#BodyPart_Foot"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "Summary_JP": "転機を恵むと一部の層から定評であり、主人たちの活動へ貢献している。\n活動実績は然程大きくはないが、中でも彼(女)の招いたチャンスを最大限に受容できるような主人とは相性が良い傾向にある。\nただ性格で単純さが目立っており、煽(おだ)てられるとすぐに調子に乗ってしまうところなどがある。\nそのため、彼(女)の良し悪しについては主人だけでなく他のナンバーテールズからも意見が分かれている様子。",
     "Summary_EN": "Ze is well regarded by some for granting turning points, contributing meaningfully to masters' activities.\nWhile zir track record is not particularly large, ze tends to have good chemistry with masters who can make the most of the chances ze brings.\nThat said, ze has a notably simple-minded streak — easily flattered into getting carried away.\nFor that reason, opinions on zir merits seem divided, not only among masters but among other NumberTales as well.",
     "NumerospecAbout_JP": "転機を連続して招く\nこの効果は対象が積極的に受ければ受けるほど持続する",
@@ -18638,6 +20443,48 @@
         "Note_EN": null
       }
     ],
+    "ColorPalette": [
+      {
+        "Role": "#ColorRole_Primary",
+        "Hex": "#2BD6AB",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": [
+          "#BodyPart_Chest",
+          "#BodyPart_Hair",
+          "#BodyPart_Eye",
+          "#BodyPart_Neck"
+        ],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Secondary",
+        "Hex": "#7AAC73",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": [
+          "#BodyPart_Chest",
+          "#BodyPart_Hair",
+          "#BodyPart_Eye",
+          "#BodyPart_Neck"
+        ],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Accent",
+        "Hex": "#9DF0DD",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "RelationNotes_JP": "「台風の目」と呼ばれているが、それは「11(トウイチ)」のことだと錯覚している",
     "RelationNotes_EN": "Is called \"the eye of the typhoon,\" but she mistakenly thinks that refers to '11(Elevan)' instead",
     "NumerospecAbout_JP": "想像できないことを周囲に引き起こす\nただし自分自身に適応耐性があるため無自覚となる",
@@ -18948,6 +20795,38 @@
           }
         ],
         "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
+    "ColorPalette": [
+      {
+        "Role": "#ColorRole_Primary",
+        "Hex": "#D5C5C2",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Foot"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Secondary",
+        "Hex": "#AFCEB3",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Accent",
+        "Hex": "#CBC8C2",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Chest", "#BodyPart_Hair", "#BodyPart_Leg"],
+        "Formation": null,
         "Note_JP": null,
         "Note_EN": null
       }
@@ -19357,6 +21236,38 @@
         "Note_EN": null
       }
     ],
+    "ColorPalette": [
+      {
+        "Role": "#ColorRole_Primary",
+        "Hex": "#E1E88B",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Arm", "#BodyPart_Foot"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Secondary",
+        "Hex": "#F8FA49",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Arm", "#BodyPart_Foot"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Accent",
+        "Hex": "#FCFD0F",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Arm", "#BodyPart_Foot"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "RelationNotes_JP": "双子の片割「75(シチゴ)」に生真面目さを憶えている\n「66(ムロク)」を直視できない…？",
     "RelationNotes_EN": "Finds zir twin '75(Sefievn)' to be a bit too serious\nCan't look '66(Sixis)' straight in the eye...?",
     "NumerospecAbout_JP": "いつもと違うことから得た学びや教訓を味方にする（ROSの学習機能に近い）",
@@ -19662,6 +21573,38 @@
           }
         ],
         "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
+    "ColorPalette": [
+      {
+        "Role": "#ColorRole_Primary",
+        "Hex": "#4D4A44",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Secondary",
+        "Hex": "#CD9969",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Accent",
+        "Hex": "#C6CFCA",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
         "Note_JP": null,
         "Note_EN": null
       }
@@ -20193,6 +22136,45 @@
         "Note_EN": null
       }
     ],
+    "ColorPalette": [
+      {
+        "Role": "#ColorRole_Primary",
+        "Hex": "#EFAEAA",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Secondary",
+        "Hex": "#461129",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Accent",
+        "Hex": "#8F626F",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": [
+          "#BodyPart_Neck",
+          "#BodyPart_Hair",
+          "#BodyPart_Chest",
+          "#BodyPart_Head",
+          "#BodyPart_Leg",
+          "#BodyPart_Foot"
+        ],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "RelationNotes_JP": "秘密の趣味であるヲタク活動がバレたことを発端に、「61(ロクイチ)」を筆頭とした関係に苦戦している",
     "RelationNotes_EN": "Since her secret otaku hobby life was exposed, she has been struggling with relationships, led by '61(Síxone)'",
     "NumerospecAbout_JP": "心に光を灯す\nこの効果は多岐にわたるため詳細な説明ができない",
@@ -20709,6 +22691,43 @@
         "Note_EN": null
       }
     ],
+    "ColorPalette": [
+      {
+        "Role": "#ColorRole_Primary",
+        "Hex": "#D091A2",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Hair", "#BodyPart_Chest", "#BodyPart_Foot"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Secondary",
+        "Hex": "#F26383",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": [
+          "#BodyPart_Head",
+          "#BodyPart_Shoulder",
+          "#BodyPart_FaceMaking",
+          "#BodyPart_Chest"
+        ],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Accent",
+        "Hex": "#7288B4",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Head", "#BodyPart_Neck", "#BodyPart_Foot"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "RelationNotes_JP": "「60(ムソウ)」とアイドルグループの結成を望んでいる\n「10(ミツル)」に興味を持つあまりしつこく絡む一面も",
     "RelationNotes_EN": "Wants to form an idol group with '60(Sixtina)'\nHas such a strong interest in '10(Tenim)' that she can be relentlessly clingy",
     "NumerospecAbout_JP": "惚れさせる\nこの作用は主人から間接的に発させることもあるらしい",
@@ -21073,6 +23092,38 @@
           }
         ],
         "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
+    "ColorPalette": [
+      {
+        "Role": "#ColorRole_Primary",
+        "Hex": "#FBBABE",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Secondary",
+        "Hex": "#FABBC0",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Accent",
+        "Hex": "#F6B0B8",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
         "Note_JP": null,
         "Note_EN": null
       }
@@ -21462,6 +23513,38 @@
         "Note_EN": null
       }
     ],
+    "ColorPalette": [
+      {
+        "Role": "#ColorRole_Primary",
+        "Hex": "#FFC495",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Hair", "#BodyPart_Eye", "#BodyPart_Chest"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Secondary",
+        "Hex": "#B26E8C",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Neck"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Accent",
+        "Hex": "#F2BC7C",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Hair", "#BodyPart_Eye", "#BodyPart_Chest"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "NumerospecAbout_JP": "幸福をもたらす\nこの効果は主に日常生活における感情に作用する",
     "NumerospecAbout_EN": "Brings happiness\nThis effect primarily acts on emotions in daily life",
     "Summary_JP": "面倒見の良い気質で、何事にも愛情を重んじている。\n保護者のような天性の風格の持ち主でもあるため彼女に甘える人も数知れず、姉の「36(ミトム)」に至っては相手が自分の妹であるのもお構いなくとことん甘やかされている。\nまた、日常生活に幸福感をもたらすという「加護」を持つ個体で、家庭安泰の御守り役としても主人から好評を得ている。",
@@ -21743,6 +23826,38 @@
           }
         ],
         "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
+    "ColorPalette": [
+      {
+        "Role": "#ColorRole_Primary",
+        "Hex": "#543240",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Secondary",
+        "Hex": "#9380A6",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Eye"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Accent",
+        "Hex": "#923A5C",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Hair", "#BodyPart_Chest"],
+        "Formation": null,
         "Note_JP": null,
         "Note_EN": null
       }
@@ -22038,6 +24153,38 @@
           }
         ],
         "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
+    "ColorPalette": [
+      {
+        "Role": "#ColorRole_Primary",
+        "Hex": "#D5C5C2",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Secondary",
+        "Hex": "#AFCEB3",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Accent",
+        "Hex": "#CBC8C2",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Chest", "#BodyPart_Hair"],
+        "Formation": null,
         "Note_JP": null,
         "Note_EN": null
       }
@@ -22389,6 +24536,38 @@
         "Note_EN": null
       }
     ],
+    "ColorPalette": [
+      {
+        "Role": "#ColorRole_Primary",
+        "Hex": "#8F8574",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Secondary",
+        "Hex": "#FFAC3E",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Accent",
+        "Hex": "#635A5D",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Hand"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "RelationNotes_JP": "「6(ムイ)」を「姉様」と慕っている",
     "RelationNotes_EN": "Looks up to '6(Sics)' as her \"Sister.6(Sics)\"",
     "NumerospecAbout_JP": "祈りの恩恵を分け与える",
@@ -22637,6 +24816,52 @@
           }
         ],
         "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
+    "ColorPalette": [
+      {
+        "Role": "#ColorRole_Primary",
+        "Hex": "#6179A5",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": [
+          "#BodyPart_Chest",
+          "#BodyPart_Shoulder",
+          "#BodyPart_Hair",
+          "#BodyPart_Eye",
+          "#BodyPart_Leg",
+          "#BodyPart_Foot"
+        ],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Secondary",
+        "Hex": "#AC9FBA",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Accent",
+        "Hex": "#A3B4DA",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": [
+          "#BodyPart_Chest",
+          "#BodyPart_Shoulder",
+          "#BodyPart_Hair",
+          "#BodyPart_Eye",
+          "#BodyPart_Leg",
+          "#BodyPart_Foot"
+        ],
+        "Formation": null,
         "Note_JP": null,
         "Note_EN": null
       }
@@ -22901,6 +25126,52 @@
           }
         ],
         "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
+    "ColorPalette": [
+      {
+        "Role": "#ColorRole_Primary",
+        "Hex": "#BFB3C3",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Secondary",
+        "Hex": "#6277A0",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": [
+          "#BodyPart_Chest",
+          "#BodyPart_Shoulder",
+          "#BodyPart_Hair",
+          "#BodyPart_Eye",
+          "#BodyPart_Leg",
+          "#BodyPart_Foot"
+        ],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Accent",
+        "Hex": "#447FB0",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": [
+          "#BodyPart_Chest",
+          "#BodyPart_Shoulder",
+          "#BodyPart_Hair",
+          "#BodyPart_Eye",
+          "#BodyPart_Leg",
+          "#BodyPart_Foot"
+        ],
+        "Formation": null,
         "Note_JP": null,
         "Note_EN": null
       }
@@ -23239,6 +25510,38 @@
           }
         ],
         "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
+    "ColorPalette": [
+      {
+        "Role": "#ColorRole_Primary",
+        "Hex": "#D1D3D4",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Secondary",
+        "Hex": "#61A346",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Hair", "#BodyPart_Eye", "#BodyPart_Leg"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Accent",
+        "Hex": "#739585",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Hair", "#BodyPart_Eye", "#BodyPart_Leg"],
+        "Formation": null,
         "Note_JP": null,
         "Note_EN": null
       }
@@ -23632,6 +25935,38 @@
         "Note_EN": null
       }
     ],
+    "ColorPalette": [
+      {
+        "Role": "#ColorRole_Primary",
+        "Hex": "#4F1723",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Neck"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Secondary",
+        "Hex": "#F8CED8",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Accent",
+        "Hex": "#4B1B24",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Neck"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "NumerospecAbout_JP": "自分自身に対する固定概念から解放する",
     "NumerospecAbout_EN": "Liberates from one's fixed ideas about oneself",
     "Summary_JP": "主人の望むキャラを演じて従事するという、独特な契約プランを持つナンバーテールズ。\n芸達者で様々な性格を演じることができる一方、素でのコミュニケーションが乏しいことから他のナンバーテールズに「アイデンティティを見失っているのではないか」と心配されている。\nとはいえ妹「96(クルリ)」のキャラ崩壊っぷりの方が彼にとって難儀らしい。\n気分屋で新しいことに戯れるのが好き。",
@@ -23911,6 +26246,53 @@
           }
         ],
         "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
+    "ColorPalette": [
+      {
+        "Role": "#ColorRole_Primary",
+        "Hex": "#6A648C",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": [
+          "#BodyPart_Shoulder",
+          "#BodyPart_Waist",
+          "#BodyPart_Eye",
+          "#BodyPart_Leg"
+        ],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Secondary",
+        "Hex": "#676C91",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": [
+          "#BodyPart_Shoulder",
+          "#BodyPart_Waist",
+          "#BodyPart_Eye",
+          "#BodyPart_Leg"
+        ],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Accent",
+        "Hex": "#6A658C",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": [
+          "#BodyPart_Shoulder",
+          "#BodyPart_Waist",
+          "#BodyPart_Eye",
+          "#BodyPart_Leg"
+        ],
+        "Formation": null,
         "Note_JP": null,
         "Note_EN": null
       }
@@ -24199,6 +26581,52 @@
           }
         ],
         "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
+    "ColorPalette": [
+      {
+        "Role": "#ColorRole_Primary",
+        "Hex": "#526E9E",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": [
+          "#BodyPart_Hair",
+          "#BodyPart_Eye",
+          "#BodyPart_FaceMaking",
+          "#BodyPart_Foot"
+        ],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Secondary",
+        "Hex": "#394355",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": [
+          "#BodyPart_Hair",
+          "#BodyPart_Eye",
+          "#BodyPart_FaceMaking",
+          "#BodyPart_Foot"
+        ],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Accent",
+        "Hex": "#A195A6",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": [
+          "#BodyPart_Eye",
+          "#BodyPart_FaceMaking",
+          "#BodyPart_Neck"
+        ],
+        "Formation": null,
         "Note_JP": null,
         "Note_EN": null
       }
@@ -24526,6 +26954,38 @@
           }
         ],
         "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
+    "ColorPalette": [
+      {
+        "Role": "#ColorRole_Primary",
+        "Hex": "#9BC1E6",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Hair", "#BodyPart_Leg"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Secondary",
+        "Hex": "#A0C6EB",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Hair", "#BodyPart_Leg"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Accent",
+        "Hex": "#9EC0E2",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Hair", "#BodyPart_Leg"],
+        "Formation": null,
         "Note_JP": null,
         "Note_EN": null
       }
@@ -24871,6 +27331,43 @@
         "Note_EN": null
       }
     ],
+    "ColorPalette": [
+      {
+        "Role": "#ColorRole_Primary",
+        "Hex": "#FFA898",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": [
+          "#BodyPart_Head",
+          "#BodyPart_Eye",
+          "#BodyPart_Chest",
+          "#BodyPart_Foot"
+        ],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Secondary",
+        "Hex": "#9FABCA",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Chest", "#BodyPart_Neck", "#BodyPart_Head"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Accent",
+        "Hex": "#F4B1A7",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "NumerospecAbout_JP": "知識を深めさせる\nこの作用は主に知識のアウトプットにより発揮される",
     "NumerospecAbout_EN": "Deepens knowledge\nThis effect is primarily exerted through the output of knowledge",
     "Summary_JP": "少し世間知らずでなんでも知りたがるナンバーテールズ。\n単純で騙されやすく、一度触れた知識は正誤問わずすぐに共有したがるため、姉の「37(サナ)」にしばしば止められている。\n知識のアウトプットに長けた個体でもあるため、宣伝効果も兼ねてナンバーテールズ公式の配信活動も裏で行っている。\n「66(ムロク)」に憧れている一面があるようで…？",
@@ -25166,6 +27663,38 @@
           }
         ],
         "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
+    "ColorPalette": [
+      {
+        "Role": "#ColorRole_Primary",
+        "Hex": "#C8CED6",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Shoulder"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Secondary",
+        "Hex": "#2D343D",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Shoulder", "#BodyPart_Eye", "#BodyPart_Leg"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Accent",
+        "Hex": "#616974",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
         "Note_JP": null,
         "Note_EN": null
       }
@@ -25503,6 +28032,38 @@
           }
         ],
         "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
+    "ColorPalette": [
+      {
+        "Role": "#ColorRole_Primary",
+        "Hex": "#FFEE62",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Hair", "#BodyPart_Chest", "#BodyPart_Foot"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Secondary",
+        "Hex": "#FCF584",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Hair", "#BodyPart_Chest", "#BodyPart_Foot"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Accent",
+        "Hex": "#727880",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
         "Note_JP": null,
         "Note_EN": null
       }
@@ -25869,6 +28430,38 @@
         "Note_EN": null
       }
     ],
+    "ColorPalette": [
+      {
+        "Role": "#ColorRole_Primary",
+        "Hex": "#ED8DAA",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Neck", "#BodyPart_Eye", "#BodyPart_Leg"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Secondary",
+        "Hex": "#D0D8E7",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Chest", "#BodyPart_Foot"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Accent",
+        "Hex": "#375989",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Chest", "#BodyPart_Hair", "#BodyPart_Foot"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "NumerospecAbout_JP": "知識や教養から自らに磨きを掛ける",
     "NumerospecAbout_EN": "Refines oneself through knowledge and cultivation",
     "Summary_JP": "何かと理論的・知的に物事を考えがちで、読書を何よりも好む事から図書委員の様に周りから風刺されている。\n眼鏡付きのヘッドセットを外した時の容姿に反して本人は性格や内面に自信がないため、敢えてそのような風格を出しているという噂も。\nとはいえ知識を自分の美意識に適応する感性はとりわけ高いので、特定少数の主人層ではそこそこ高い好感度を安定して得ているらしい。",
@@ -26193,6 +28786,44 @@
         "Note_EN": null
       }
     ],
+    "ColorPalette": [
+      {
+        "Role": "#ColorRole_Primary",
+        "Hex": "#0A9696",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Hair"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Secondary",
+        "Hex": "#49768F",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": [
+          "#BodyPart_Chest",
+          "#BodyPart_Hair",
+          "#BodyPart_Eye",
+          "#BodyPart_Leg",
+          "#BodyPart_Foot"
+        ],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Accent",
+        "Hex": "#38687A",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Hair"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "RelationNotes_JP": "「5(イズ)」に才能を認められている\n「7(ナナ)」を良きライバルと思っているが…",
     "RelationNotes_EN": "Zir talent is recognized by '5(Fifa)'\nZe considers '7(Sevan)' a worthy rival — though...",
     "NumerospecAbout_JP": "集中力を操作できる\nこの能力は時として霊的現象を呼び覚ますらしい",
@@ -26508,6 +29139,38 @@
           }
         ],
         "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
+    "ColorPalette": [
+      {
+        "Role": "#ColorRole_Primary",
+        "Hex": "#FFA8A7",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Secondary",
+        "Hex": "#FF9DB6",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Ear"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Accent",
+        "Hex": "#77729F",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Neck", "#BodyPart_Hand"],
+        "Formation": null,
         "Note_JP": null,
         "Note_EN": null
       }
@@ -26961,6 +29624,38 @@
         "Note_EN": null
       }
     ],
+    "ColorPalette": [
+      {
+        "Role": "#ColorRole_Primary",
+        "Hex": "#74403C",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Chest", "#BodyPart_Eye", "#BodyPart_Leg"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Secondary",
+        "Hex": "#EE5D46",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Chest", "#BodyPart_Eye", "#BodyPart_Leg"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Accent",
+        "Hex": "#A57175",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "NumerospecAbout_JP": "自信および主人の自己肯定感を高め役目を全うさせる",
     "NumerospecAbout_EN": "Boosts confidence and the master's self-esteem, helping them fulfill their role",
     "Summary_JP": "社会貢献に務める主人のサポートに経験が特化しているナンバーテールズ。\n彼女が居ると、主人の行動や活動を支える効果がもたらされ、価値観や収入が向上すると評判。\n社会情勢に敏感で奉仕的。\n趣味として、投資の攻略法についてひそかに研究しているとか。\n「8(ワカツ)」にちょくちょく経理関係でアドバイスをしている一面もあるようだが…",
@@ -27388,6 +30083,38 @@
         "Note_EN": null
       }
     ],
+    "ColorPalette": [
+      {
+        "Role": "#ColorRole_Primary",
+        "Hex": "#A9AD8D",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Secondary",
+        "Hex": "#9DA389",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Accent",
+        "Hex": "#9EA388",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "NumerospecAbout_JP": "計画性に比例した結果を呼び寄せる",
     "NumerospecAbout_EN": "Attracts results in proportion to one's level of planning",
     "Summary_JP": "マネタイズや実行計画などを得意分野とし、社会的な自己実現を望む主人層から定評と信頼を得ている。\nプライベートでは貪欲に物事へ積極的な姿勢をみせる一面があるものの、根本的には若干 理屈っぽくどこか社会的思想の強い部分が否めていないと言われている。\n果たして自分の行動意欲の源にあるものは、感情的な欲求なのか あるいは……",
@@ -27684,6 +30411,43 @@
           }
         ],
         "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
+    "ColorPalette": [
+      {
+        "Role": "#ColorRole_Primary",
+        "Hex": "#ECA152",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Secondary",
+        "Hex": "#94B7B6",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Accent",
+        "Hex": "#5DD9E1",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": [
+          "#BodyPart_Shoulder",
+          "#BodyPart_Eye",
+          "#BodyPart_Leg",
+          "#BodyPart_Neck"
+        ],
+        "Formation": null,
         "Note_JP": null,
         "Note_EN": null
       }
@@ -28052,6 +30816,38 @@
         "Note_EN": null
       }
     ],
+    "ColorPalette": [
+      {
+        "Role": "#ColorRole_Primary",
+        "Hex": "#6CBA4B",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Hair", "#BodyPart_Leg"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Secondary",
+        "Hex": "#74C253",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Hair", "#BodyPart_Leg"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Accent",
+        "Hex": "#57913B",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Hair", "#BodyPart_Leg"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "NumerospecAbout_JP": "富と才能を恵む\nただしこの効果の大きさは日頃の行いの良さに比例する",
     "NumerospecAbout_EN": "Bestows wealth and talent\nHowever, the magnitude of this effect is proportional to one's everyday conduct",
     "Summary_JP": "在庫の整理や補完など、物を定期的に処分することより「使えるものを使うこと」を得意としている。\nしかし物の管理において少し生真面な部分や収集癖が強めに出る一面がある。\n一方で人当たりは良いので、ナンバーテールズの中では人も物の両方を大切にする良心が顕著に出やすい。\nちなみに、フリーマーケットにおけるレアなキャラクターグッズの物流状況にかなり詳しい。",
@@ -28359,6 +31155,38 @@
         "Note_EN": null
       }
     ],
+    "ColorPalette": [
+      {
+        "Role": "#ColorRole_Primary",
+        "Hex": "#CFB2B5",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Secondary",
+        "Hex": "#474242",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Accent",
+        "Hex": "#928C91",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "NumerospecAbout_JP": "金運を上げ、物欲を叶える\nただしこの効果は対象の物欲の種類に影響されやすい",
     "NumerospecAbout_EN": "Raises the master's financial luck and fulfills material desires\nHowever, this effect is easily influenced by the nature of the master's material desires",
     "Summary_JP": "社会的信用の向上効果が期待できるとされているナンバーテールズ。\n明るく積極的で技術力も高いことから、男性技術職の主人を筆頭に強い支持を賜っている。\nしかしながらどこか自分の望む完璧なものを得るために過度な出資も惜しまない一面があり、他個体から防犯的・自衛的な身の危険を心配されている。\nとはいえ良識や規範はちゃんと理解しているので、怪しい人や怪しいモノへは貢いでいない……はず。",
@@ -28660,6 +31488,38 @@
           }
         ],
         "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
+    "ColorPalette": [
+      {
+        "Role": "#ColorRole_Primary",
+        "Hex": "#61606F",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Secondary",
+        "Hex": "#6C86B3",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Neck", "#BodyPart_Chest", "#BodyPart_Foot"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Accent",
+        "Hex": "#C48671",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
         "Note_JP": null,
         "Note_EN": null
       }
@@ -29016,6 +31876,53 @@
         "Note_EN": null
       }
     ],
+    "ColorPalette": [
+      {
+        "Role": "#ColorRole_Primary",
+        "Hex": "#A5476E",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": [
+          "#BodyPart_Hair",
+          "#BodyPart_Chest",
+          "#BodyPart_Leg",
+          "#BodyPart_Foot"
+        ],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Secondary",
+        "Hex": "#B5547D",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": [
+          "#BodyPart_Hair",
+          "#BodyPart_Chest",
+          "#BodyPart_Leg",
+          "#BodyPart_Foot"
+        ],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Accent",
+        "Hex": "#B94E74",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": [
+          "#BodyPart_Hair",
+          "#BodyPart_Chest",
+          "#BodyPart_Leg",
+          "#BodyPart_Foot"
+        ],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "NumerospecAbout_JP": "主人の抱える未練を中和する",
     "NumerospecAbout_EN": "Neutralizes the master's lingering regrets and attachments",
     "Summary_JP": "「すべての物事には終わりがあり、終わりにはそこで行ってきたことへの報いがある」と、何事にも最後まで誠実であることを大切にしている。\nそのモットーを主人と共有することが彼女の最大の役目となっているため、定年退職や引退などを控えた中壮年層の主人から評判となっている。\nただ、他のナンバーテールズから老けて思われがちなのが悩みなんだとか。",
@@ -29339,6 +32246,38 @@
           }
         ],
         "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
+    "ColorPalette": [
+      {
+        "Role": "#ColorRole_Primary",
+        "Hex": "#A0B3DE",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Hair", "#BodyPart_Chest", "#BodyPart_Foot"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Secondary",
+        "Hex": "#9DB0DB",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Hair", "#BodyPart_Chest", "#BodyPart_Foot"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Accent",
+        "Hex": "#A3B0D6",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Hair", "#BodyPart_Chest", "#BodyPart_Foot"],
+        "Formation": null,
         "Note_JP": null,
         "Note_EN": null
       }
@@ -29667,6 +32606,38 @@
           }
         ],
         "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
+    "ColorPalette": [
+      {
+        "Role": "#ColorRole_Primary",
+        "Hex": "#FFD07E",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Secondary",
+        "Hex": "#FBF1DA",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Hair", "#BodyPart_Foot", "#BodyPart_Head"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Accent",
+        "Hex": "#5C5046",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Chest", "#BodyPart_Foot"],
+        "Formation": null,
         "Note_JP": null,
         "Note_EN": null
       }
@@ -30036,6 +33007,48 @@
           }
         ],
         "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
+    "ColorPalette": [
+      {
+        "Role": "#ColorRole_Primary",
+        "Hex": "#7BB4DD",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": [
+          "#BodyPart_Hair",
+          "#BodyPart_Neck",
+          "#BodyPart_Leg",
+          "#BodyPart_Foot"
+        ],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Secondary",
+        "Hex": "#44D1E9",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Leg"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Accent",
+        "Hex": "#6AA6D7",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": [
+          "#BodyPart_Hair",
+          "#BodyPart_Neck",
+          "#BodyPart_Leg",
+          "#BodyPart_Foot"
+        ],
+        "Formation": null,
         "Note_JP": null,
         "Note_EN": null
       }
@@ -30456,6 +33469,52 @@
         "Note_EN": null
       }
     ],
+    "ColorPalette": [
+      {
+        "Role": "#ColorRole_Primary",
+        "Hex": "#D9CECF",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Neck", "#BodyPart_Leg"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Secondary",
+        "Hex": "#F1C8DA",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": [
+          "#BodyPart_Chest",
+          "#BodyPart_Eye",
+          "#BodyPart_Hair",
+          "#BodyPart_Neck",
+          "#BodyPart_Foot",
+          "#BodyPart_Leg"
+        ],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Accent",
+        "Hex": "#E0A1BD",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": [
+          "#BodyPart_Chest",
+          "#BodyPart_Eye",
+          "#BodyPart_Hair",
+          "#BodyPart_Neck",
+          "#BodyPart_Foot",
+          "#BodyPart_Leg"
+        ],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "RelationNotes_JP": "「69(ロック)」にだけ素の自分を打ち明けているが…",
     "RelationNotes_EN": "Only confides her true self to '69(Signine)', but...",
     "NumerospecAbout_JP": "過去の柵(しがらみ)から解放する\nこれにより主人に挑戦意欲を奮わせる効果もある",
@@ -30827,6 +33886,43 @@
         "Note_EN": null
       }
     ],
+    "ColorPalette": [
+      {
+        "Role": "#ColorRole_Primary",
+        "Hex": "#504696",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Hair"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Secondary",
+        "Hex": "#C6C3CC",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": [
+          "#BodyPart_Eye",
+          "#BodyPart_Head",
+          "#BodyPart_Shoulder",
+          "#BodyPart_Foot"
+        ],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Accent",
+        "Hex": "#393B64",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Hair"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "RelationNotes_JP": "良かれと思って「61(ロクイチ)」と「72(ナフタ)」に、礼拝を勧めている（なお、相手はうまく受け流している）\n「74(ナナヨ)」に関しては否定こそしないが肯定もしておらず、その時々の感情で共感度合いが変わってしまいがち",
     "RelationNotes_EN": "She encourages '61(Síxone)' and '72(Sevtwína)' to join her in worship, thinking it would be good for them (though they skillfully brush it off)\nAs for '74(Sefoury)', she neither denies nor affirms her, and her level of empathy toward her tends to fluctuate based on her feelings at the time",
     "NumerospecAbout_JP": "善意や善行を報わせて魂を雪(そそ)ぐ\nこの効果は相手の心が清いものである程大きくなる",
@@ -31161,6 +34257,38 @@
           }
         ],
         "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
+    "ColorPalette": [
+      {
+        "Role": "#ColorRole_Primary",
+        "Hex": "#582F3C",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Secondary",
+        "Hex": "#A93A4F",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Chest", "#BodyPart_Neck", "#BodyPart_Foot"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Accent",
+        "Hex": "#905B64",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Chest", "#BodyPart_Neck", "#BodyPart_Foot"],
+        "Formation": null,
         "Note_JP": null,
         "Note_EN": null
       }
@@ -31551,6 +34679,38 @@
         "Note_EN": null
       }
     ],
+    "ColorPalette": [
+      {
+        "Role": "#ColorRole_Primary",
+        "Hex": "#D4B5D5",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Head"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Secondary",
+        "Hex": "#636B73",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Hair", "#BodyPart_Wing"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Accent",
+        "Hex": "#C2ADBA",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Hair", "#BodyPart_Wing"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "RelationNotes_JP": "「11(トウイチ)」に記憶について事情を相談している\n「10(ミツル)」に心当たりが…？",
     "RelationNotes_EN": "Consults '11(Elevan)' about circumstances regarding her memories\nHas a hunch that '10(Tenim)' might be involved...?",
     "NumerospecAbout_JP": "？？？？の記憶を持つ",
@@ -31902,6 +35062,38 @@
         "Note_EN": null
       }
     ],
+    "ColorPalette": [
+      {
+        "Role": "#ColorRole_Primary",
+        "Hex": "#FFA85E",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Chest", "#BodyPart_Eye"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Secondary",
+        "Hex": "#51514F",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Hair", "#BodyPart_Eye"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Accent",
+        "Hex": "#D2BEB0",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "Strength_JP": "葛藤しながらも周りや仲間のことを無下にしない",
     "Strength_EN": "Despite her inner conflict, she never neglects those around her or her companions",
     "Weakness_JP": "正式な実体を得ることがない間に「スキンシップができるならどんな姿や形になってもいい」とどこかで思うようになった",
@@ -32161,6 +35353,38 @@
           }
         ],
         "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
+    "ColorPalette": [
+      {
+        "Role": "#ColorRole_Primary",
+        "Hex": "#F3D8DB",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Secondary",
+        "Hex": "#EE7681",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Eye", "#BodyPart_Chest"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Accent",
+        "Hex": "#2F3738",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
         "Note_JP": null,
         "Note_EN": null
       }
@@ -32453,6 +35677,38 @@
         "Note_EN": null
       }
     ],
+    "ColorPalette": [
+      {
+        "Role": "#ColorRole_Primary",
+        "Hex": "#878E93",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Chest", "#BodyPart_Hair", "#BodyPart_Neck"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Secondary",
+        "Hex": "#969C9D",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Chest", "#BodyPart_Hair", "#BodyPart_Neck"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Accent",
+        "Hex": "#93999B",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Chest", "#BodyPart_Hair", "#BodyPart_Neck"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "RelationNotes_JP": "零姉弟が自分に恥ずかしく思っているのを知らないのか、零姉弟の前では空気が読めない言動を…？",
     "RelationNotes_EN": "Unaware that the Norumber siblings are embarrassed by zir, ze sometimes says things that are out of place around them...?",
     "NumerospecAbout_JP": "開発者 零姉弟の人格と同等のものを持つ\nちなみに名前は、零姉弟の本当の苗字「千歳」から由来",
@@ -32679,6 +35935,38 @@
           }
         ],
         "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
+    "ColorPalette": [
+      {
+        "Role": "#ColorRole_Primary",
+        "Hex": "#FFE6B3",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Secondary",
+        "Hex": "#FE8B78",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Neck"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Accent",
+        "Hex": "#EC8845",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
         "Note_JP": null,
         "Note_EN": null
       }
@@ -32910,6 +36198,38 @@
           }
         ],
         "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
+    "ColorPalette": [
+      {
+        "Role": "#ColorRole_Primary",
+        "Hex": "#C3CAA9",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Secondary",
+        "Hex": "#64B6B1",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Hair", "#BodyPart_Neck"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Accent",
+        "Hex": "#7EAEAB",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Hair", "#BodyPart_Neck"],
+        "Formation": null,
         "Note_JP": null,
         "Note_EN": null
       }
