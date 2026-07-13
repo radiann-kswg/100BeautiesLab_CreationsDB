@@ -3102,7 +3102,43 @@
     "Summary_JP": "3桁の番号を有する量産型販売型に向けた「3倍型」設計を確立するため、「11(トウイチ)」「22(フジ)」をベースに\"もう一人の33番機\"として試作された個体。\n個性や趣味に寛容なギャル属性を持ち、研究室内のムードメーカとしても一役を買って出ている。\n同番の「33(ミサ)」や姉個体はもちろん、自分の設計が活かされた「マスタートリプル」の９人とも友好的な態度を示す様子が窺われているが、それにより距離感バグを引き起こした個体に四苦八苦している様子が微笑ましいとも噂されている。",
     "Summary_EN": "A prototype unit produced as \"another Mk.33\" based on 11(Elevan) and 22(Twin-twina), to establish the \"extended by-3 model\" design standard for mass-produced sales units carrying three-digit numbers.\nWith a gyaru trait tolerant of individuality and hobbies, she also serves as a mood-maker in the lab.\nShe appears friendly not only toward same-number 33(Thirthrey) and pioneer units, but also toward all nine MasterTriples that inherited aspects of her design; it is even rumored that her closeness leaves some units struggling with blurred interpersonal distance in an oddly endearing way.",
     "Backgrounds_JP": "3桁の番号が付与される量産販売型個体のリリースに備えて中間設計として開発された個体",
-    "Backgrounds_EN": "Developed as an intermediate design in preparation for releasing mass-produced commercial units assigned three-digit numbers."
+    "Backgrounds_EN": "Developed as an intermediate design in preparation for releasing mass-produced commercial units assigned three-digit numbers.",
+    "ConversationPattern": {
+      "TalkingTone_JP": "フレンドリーで若者言葉を顕著に使う、極めて陽気でギャルらしい話し方をする。ネット文化やサブカルチャーへの知見は深いが、ヲタク特有の口語表現はあまり使わない。ただし自分へ強い好意を向けられると、途端に乙女のように言葉が崩れて恥ずかしがることがある。",
+      "TalkingTone_EN": "Speaks in an extremely cheerful, gyaru-like manner, friendly and heavy on youth slang. Although she has deep knowledge of internet culture and subcultures, she rarely uses otaku-specific turns of phrase. However, the moment strong affection is directed at her, her words fall apart and she turns bashful like a maiden.",
+      "TopicPreference_JP": "相手の趣向や活動・趣味がどんなものであっても寛容に受け止め、自分から興味を示して話を広げていく。ナンバーテールズの世代の境界に立つ個体として、先輩個体と後輩個体の話題を橋渡しするような会話運びをすることが多い。",
+      "TopicPreference_EN": "She accepts whatever tastes, activities, or hobbies the other person has with an open mind, showing interest herself and expanding the conversation from there. As a unit standing at the boundary between NumberTales generations, she often steers conversations in a way that bridges topics between senior and junior units.",
+      "TalkFrequency_JP": "コミュニケーション力が高く、自分から積極的に話しかけたり絡んだりする。研究室内のムードメーカーとして場の空気を明るく保つように会話を回すが、自分への評判や好意が話題になると急に口数が減って照れ隠しに走ることがある。",
+      "TalkFrequency_EN": "Highly communicative, she actively strikes up conversations and engages with others. As a mood-maker in the lab, she keeps the atmosphere bright and keeps the conversation flowing, but when her own reputation or the affection others feel for her comes up, she suddenly goes quiet and resorts to hiding her embarrassment.",
+      "PreferredTopics_JP": "学生などの期待の新人と談笑する話題を好み、ゲームセンターで獲得できる景品の話にも強い関心を示す。ネット文化・創作物・サブカルチャーの話題やアスキーアートの話も得意分野。（同型の「22(フジ)」や同番の「33(ミサ)」、自分の設計が活かされた「マスタートリプル」たちの話題もよく口にする。）",
+      "PreferredTopics_EN": "She enjoys chatting with promising newcomers such as students, and shows strong interest in talk about prizes won at arcades. Topics on internet culture, creative works, and subcultures — as well as ASCII art — are her specialty. (She also often brings up same-type 22(Twin-twina), same-number 33(Thirthrey), and the MasterTriples that inherited aspects of her design.)",
+      "AvoidedTopics_JP": "個性や趣味を型にはめて「普通」であることを問うような話題を好まない。また、恋愛話や自分自身へ向けられた好意・評判の話題は照れてしまうため、はぐらかして流そうとする傾向がある。",
+      "AvoidedTopics_EN": "She dislikes topics that force individuality or hobbies into a mold and demand that one be \"normal\". She also tends to dodge and deflect romance talk, as well as any discussion of the affection or praise directed at her, since it makes her flustered.",
+      "ConversationNotes_JP": "他人への好意や関心は積極的に示す一方、他人から自分への強い好意には未熟な節があり、時々乙女のように恥ずかしがる一面を見せる。先輩個体にも後輩個体にも分け隔てなく親しく接するため、その距離感の近さに戸惑ってしまった個体への対応に四苦八苦することもある。",
+      "ConversationNotes_EN": "While she actively expresses her own goodwill and interest toward others, she is immature when it comes to receiving strong affection, and at times shows a maidenly, bashful side. Because she treats senior and junior units alike with equal familiarity, she sometimes struggles to handle units who have become confused by just how close she gets.",
+      "DialogueExamples": [
+        {
+          "value_JP": "「ヲタク君今日もめちゃがんばってんね！あーしも手伝おっか？」",
+          "value_EN": "\"Otaku-kun, you're totally going hard again today! Want Trie to help out?\""
+        },
+        {
+          "value_JP": "「毎日懸命なのはチョベリグなんだけど、無理してポシャっちゃったら無意味だかんねヲタク君」",
+          "value_EN": "\"Grinding away every day is super rad and all, but if you push too hard and crash, it's all for nothing, y'know, otaku-kun.\""
+        },
+        {
+          "value_JP": "「マヂで!? ヲタク君また新しいコンテンツ降りてきたの？ちょー興味ある！kwsk！」",
+          "value_EN": "\"For real!? Otaku-kun, did another new idea just drop on you? Trie's super into it! Deets, plz!\"",
+          "about_JP": "新しい話題や創作物に食いついたとき",
+          "about_EN": "When latching onto a new topic or creative work"
+        },
+        {
+          "value_JP": "「うぇ!? あーしの絵も可愛い!? いやいやいや！ ヲタク君の絵の方がジーマーで上手いしあーしのんはそんなヲタク君に敵わんって～！」",
+          "value_EN": "\"Wha—!? Trie's drawing is cute too!? No, no, no! Otaku-kun's art is way better for real, and Trie's stuff can't hold a candle to that~!\"",
+          "about_JP": "自分へ強い好意を向けられて照れているとき",
+          "about_EN": "When flustered by strong affection directed at her"
+        }
+      ]
+    }
   },
   {
     "Num": "64-sxp",
