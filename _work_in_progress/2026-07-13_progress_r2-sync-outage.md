@@ -105,13 +105,37 @@ curl -s https://database.numbertales-radiann.net/api/v1/NumberTales/Secondary/re
 - `--remote` がリモートストレージ操作に必要であることを `wrangler r2 object put --help` で確認
 - ワークフロー YAML をパースし、`if` 条件・フィルタ・`workflow_dispatch` inputs を検証
 
+## 本番反映の結果（2026-07-13、develop へ push して CI 実行）
+
+ワークフロー修正により `sync-r2-d1` が**正しく起動した**（従来はスキップされていた）。
+
+### R2 は復旧、漏洩は停止
+
+| 確認項目 | 修正前 | 修正後 |
+| -------- | ------ | ------ |
+| `/api/v1/meta` | 503 `Global meta unavailable` | ✓ グローバルメタが返る |
+| `_Commons` 適用（`Belonging` / `RaceType` / `isTriple`） | `undefined` | ✓ 適用される |
+| `/api/v1/NumberTales/Secondary/records` | 38 件（`0xFF` を含む） | ✓ **37 件**（`0xFF` 除外） |
+| DB 内検索 `?q=0xFF` | — | ✓ `[]`（非公開レコードなし） |
+| 作品横断検索 `?q=0xFF` | — | ✓ 公開レコード 2 件のみ（SelfSecondary の `255` / `256`） |
+
+### 初回同期で顕在化した 2 つの追加問題（修正済み）
+
+1. **R2 API の一時的な 500**: 160 件中 1 件（`data/Works_FLInvestigator78/Dictionaries/db_meta.json`）が
+   `500 Internal Server Error` で失敗。逐次アップロードのため 1 件の瞬断が全体を落とす。
+   → **線形バックオフ付き 3 回リトライ**を追加。
+2. **R2 失敗が D1 投入を巻き添えにした**: R2 ステップ直後の `process.exit(1)` により **D1 投入がスキップ**され、
+   `is_private` の是正が D1 へ反映されなかった（漏洩自体は R2 復旧により Worker 側の多層防御で停止していた）。
+   → R2 と D1 は独立しているため **D1 投入は続行**し、終了コードはスクリプト末尾で立てる方式へ変更。
+   CI は赤くなるが D1 は同期済みになる。
+
 ## 未完了 / 既知の制限
 
-- **本番への反映は未実施**（push / workflow_dispatch は User の操作を待つ）。
-  反映するまで `/api/v1` は `_Commons` 未適用のままで、非公開レコード `0xFF(エフエフ)` も公開され続ける。
-- R2 アップロードはファイル 1 件ごとに `npx wrangler` を起動するため 160 ファイルで数分かかる。
-  `--remote` 追加により実際のネットワーク転送が発生するので、さらに時間が延びる可能性がある
-  （現状の同期ジョブ実行時間は約 9 分）。バッチ化・並列化は本件のスコープ外。
+- **D1 の `is_private` は未是正**（上記 2 により初回同期で D1 投入がスキップされたため）。
+  現在は R2 復旧により Worker 側の post-commons フィルタが効いており漏洩はしていないが、
+  D1 の `is_private` 列と FTS インデックスは古いまま。**本コミットを push して同期を再実行すれば是正される**。
+- R2 アップロードはファイル 1 件ごとに `npx wrangler` を起動するため 160 ファイルで数分かかる
+  （実測: 同期ジョブ全体で約 6 分）。バッチ化・並列化は本件のスコープ外。
 - GitHub Pages 側の Service Worker（`/pages/v1/`）は R2 を使わずローカル JSON を直接読むため、
   本障害の影響を受けていない（`_Commons` は正常に適用されている）。
 

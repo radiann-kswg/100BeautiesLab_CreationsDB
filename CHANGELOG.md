@@ -9,8 +9,10 @@
 - **silent failure の再発防止（`migrate.mjs`）**: R2 アップロード失敗を `console.error` するだけで握り潰していたため、1 件でも失敗したら非ゼロ終了して CI を落とすようにした。
 - **silent failure の再発防止（`pkg/cloudflare/worker.js`）**: `fetchJsonFromR2()` が全例外を無言で `null` に変換していたため、R2 が丸ごと空でも「データが無い」as-if で応答が続いていた。オブジェクト不在は `console.warn`、例外は `console.error` でログに残すようにした（`wrangler tail` / Workers Logs で追える）。
 - **CI の再同期条件を是正（`.github/workflows/cf-api-sync.yml`）**: `sync-r2-d1` ジョブが **`data/**` の変更時にしか実行されない**ため、migration ロジックの変更（`is_private` の算出方法を変える等）が R2/D1 へ反映されなかった。実際、下記の順序修正を push した際も Worker はデプロイされたが D1 同期はスキップされている。新しく `migrate` フィルタ（`pkg/cloudflare/scripts/**` / `schema/**` / `worker.js`）を追加し、これらの変更でも再同期を実行するようにした。`worker.js` を含めるのは、`migrate.mjs` が `applyCommons()` / `isPublicRecord()` を worker.js から import しており、その変更が D1 の `is_private` 算出結果を変えるため。あわせて `workflow_dispatch`（`both` / `sync-only` / `deploy-only`）を追加し、`data/**` を変更しなくても手動で強制再同期できるようにした。
-- **反映手順**: 本コミットを develop へ push すると、`worker.js` / `scripts/**` の変更により `sync-r2-d1` と `deploy-worker` の両方が実行され、R2 の初回投入と D1 の `is_private` 是正が同時に行われる。手動で再実行したい場合は Actions から「Cloudflare API 自動更新」を `workflow_dispatch` する。
-- 確認: `npm test` 全件成功（30 ファイル / 301 件）。R2 バケットが空であること（`wrangler r2 object get ... --remote` が `The specified key does not exist`）、`--remote` がリモートストレージ操作に必要であること（`wrangler r2 object put --help`）を実行して確認。
+- **R2 アップロードのリトライ（`migrate.mjs`）**: 初回の本番同期で R2 API が一時的に `500 Internal Server Error` を返し、160 件中 1 件（`data/Works_FLInvestigator78/Dictionaries/db_meta.json`）が失敗した。逐次アップロードのため 1 件の瞬断で全体が落ちるので、線形バックオフ付きの 3 回リトライを追加。
+- **R2 失敗が D1 投入を巻き添えにしないよう修正（`migrate.mjs`）**: 上記の失敗時、R2 ステップ直後の `process.exit(1)` により **D1 投入がスキップ**され、`is_private` の是正が D1 へ反映されなかった。R2 と D1 は独立しているため D1 投入は続行し、終了コードはスクリプト末尾で立てる（CI は赤くなるが D1 は同期済みになる）方式へ変更。
+- **反映結果（本番で確認済み）**: develop への push により `sync-r2-d1` が実行され R2 が復旧。`/api/v1/meta` の 503 が解消し、`_Commons` の適用（`Belonging` / `RaceType` / `isTriple` が入る）と非公開レコードの除外（`/api/v1/NumberTales/Secondary/records` が 38 件 → **37 件**、`0xFF(エフエフ)` が消える）を実測で確認。DB 内検索・作品横断検索でも非公開レコードが返らないことを確認。
+- 確認: `npm test` 全件成功（30 ファイル / 301 件）。R2 バケットが空であること（`wrangler r2 object get ... --remote` が `The specified key does not exist`）、`--remote` がリモートストレージ操作に必要であること（`wrangler r2 object put --help`）を実行して確認。本番 API への疎通確認まで完了。
 
 ### fix: SW / Cloudflare Workers の `isPrivate` フィルタ順序を修正（非公開レコードの公開を停止） (2026-07-13)
 
