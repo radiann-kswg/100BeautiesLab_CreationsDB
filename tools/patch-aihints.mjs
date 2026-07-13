@@ -35,6 +35,7 @@
 
 import fs from 'node:fs';
 import path from 'node:path';
+import crypto from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 
 // ────────────────────────────────────────────────────────────────────────────
@@ -66,6 +67,7 @@ const PUBLIC_ORIGIN = 'https://database.numbertales-radiann.net';
  * @property {boolean} rewriteCorefolderNld  true なら corefolder.natural_language_description を球体本体テンプレで再生成する（humanoid 衣装語を排除）
  * @property {boolean} forceRewriteNld  true なら既に確定済みのテンプレ風 NLD も上書き対象にする
  * @property {boolean} genVisionTasks  true なら視覚 TODO のあるレコードの画像リストを .cache/vision-tasks.json に出力して終了
+ * @property {boolean} resyncStructural  true なら構造由来の部分だけを再同期する（人の手仕上げは残す）
  * @property {boolean} applyColorPalette  true なら DB の ColorPalette から palette_priority を機械導出する
  * @property {boolean} forcePalette  true なら既存の palette_priority 確定値も上書きする
  * @property {boolean} applyVisionResults  true なら .cache/vision-results.json の解析結果を AIHints の視覚 TODO に適用
@@ -94,6 +96,7 @@ function parseArgs(argv) {
         rewriteCorefolderNld: false,
         forceRewriteNld: false,
         genVisionTasks: false,
+        resyncStructural: false,
         applyColorPalette: false,
         forcePalette: false,
         applyVisionResults: false,
@@ -121,6 +124,7 @@ function parseArgs(argv) {
             case '--force-rewrite-nld': opts.forceRewriteNld = true; break;
             case '--apply-appearancedetail': opts.applyAppearanceDetail = true; break;
             case '--gen-vision-tasks': opts.genVisionTasks = true; break;
+            case '--resync-structural': opts.resyncStructural = true; break;
             case '--apply-colorpalette': opts.applyColorPalette = true; break;
             case '--force-palette': opts.forcePalette = true; break;
             case '--apply-vision-results': opts.applyVisionResults = true; break;
@@ -212,6 +216,12 @@ Options:
                       AppearanceDetail が無い/全空のレコードは AI タグ系を空配列にクリアして fallback
                       value_EN が欠落し value_JP のみ使えた場合は [JA] ... 付きで出力し警告ログに記録（要手動翻訳）
                       palette_priority は画像由来のため本モードでは再構築せず既存値を据え置く
+  --resync-structural   構造由来の部分だけを最新化する（provenance / find-exact-and-replace）
+                      AIHints._meta にツールが挿入した文字列を記録し、次回はそれだけを差し替える
+                      人が書いた／人が編集したタグには一切触れない
+                      構造ソース（TailsUnit / AppearanceDetail / ColorPalette / GenderType /
+                      ConceptAge / Height_cm / Num）が変わっていなければ no-op
+                      --force で全面上書きする --apply-appearancedetail の安全版
   --apply-colorpalette  DB の ColorPalette（設定画のカラーチップ由来の構造化フィールド）から
                       common.palette_priority を機械導出する。画像の目視は不要
                       Role=Primary/Secondary/Accent → primary/secondary/accent へ対応付け
@@ -1952,6 +1962,230 @@ export function isUnfilledPaletteSlot(v) {
     return v == null || v === '' || (typeof v === 'string' && VISUAL_TODO_PATTERN.test(v));
 }
 
+// ────────────────────────────────────────────────────────────────────────────
+// 構造的再同期（provenance / --resync-structural）
+//
+// 背景:
+//   `--apply-appearancedetail` はタグ配列を**丸ごと作り直す**ため、User が手で足した
+//   タグも一緒に消える。一方 `--suggest --force` は AIHints 全体を TODO 雛形へ巻き戻す。
+//   つまり「全部消す」か「TODO 文字列だけ拾う」かの二択しかなく、その隙間に
+//   「構造は最新化したいが、人の手仕上げは残したい」という運用が落ちていた。
+//
+// 方針（2026-07-08 の設計提案どおり）:
+//   AIHints に `_meta` を持たせ、**ツールが実際に挿入した文字列そのもの**を記録する。
+//   再同期時は find-exact-and-replace で「記録に一致する文字列だけ」を差し替え、
+//   記録に無い文字列（= 人が書いた／人が編集した）には一切触れない。
+//   構造ソースのハッシュが変わっていなければ何もしない（no-op）。
+// ────────────────────────────────────────────────────────────────────────────
+
+/**
+ * 構造的再同期の入力となるレコード側フィールド。
+ * これらが変わったときだけ AIHints の構造由来部分を作り直す。
+ */
+const STRUCTURAL_SOURCE_FIELDS = [
+    'Num', 'GenderType', 'ConceptAge', 'Height_cm',
+    'TailsUnit', 'AppearanceDetail', 'ColorPalette',
+];
+
+/**
+ * 再同期の対象とする「構造由来の配列」パス。
+ * ここに無いフィールド（`outfit_features` / `silhouette_notes` /
+ * `natural_language_description` など視覚・人手由来のもの）は一切触らない。
+ */
+const STRUCTURAL_COMMON_ARRAYS = [
+    'identity_tags', 'silhouette_features', 'immutable_traits', 'expression_tendency',
+];
+const STRUCTURAL_FORM_ARRAYS = [
+    'form_tags', 'ai_tags', 'immutable_constraints', 'negative_keywords',
+];
+
+/**
+ * キー順に依存しない安定した JSON 文字列化（ハッシュ入力用）。
+ * @param {any} value
+ * @returns {string}
+ */
+function stableStringify(value) {
+    if (value === null || typeof value !== 'object') return JSON.stringify(value ?? null);
+    if (Array.isArray(value)) return `[${value.map(stableStringify).join(',')}]`;
+    const keys = Object.keys(value).sort();
+    return `{${keys.map(k => `${JSON.stringify(k)}:${stableStringify(value[k])}`).join(',')}}`;
+}
+
+/**
+ * 構造ソース（`STRUCTURAL_SOURCE_FIELDS`）のハッシュを計算する。
+ * 前回の再同期時と一致すれば「構造は変わっていない」と判断して no-op にできる。
+ *
+ * @param {any} record
+ * @returns {string} `sha256:...` 形式
+ */
+export function computeStructuralSourceHash(record) {
+    const source = {};
+    for (const field of STRUCTURAL_SOURCE_FIELDS) {
+        source[field] = record?.[field] ?? null;
+    }
+    const hash = crypto.createHash('sha256').update(stableStringify(source)).digest('hex');
+    return `sha256:${hash}`;
+}
+
+/**
+ * 決定論的ビルダーの出力から「構造由来であるべき値」の一覧を組み立てる。
+ *
+ * 配列は `_meta.structuralEntries` に記録するパス単位で、スカラーは丸ごと置換する値として返す。
+ * `palette_priority` は `ColorPalette`（DB の構造化フィールド）から導出する。
+ *
+ * @param {any} record
+ * @param {Record<string, any>} varsDef
+ * @returns {{ arrays: Record<string, string[]>, scalars: Record<string, any>, hasSource: boolean }}
+ */
+export function buildStructuralSnapshot(record, varsDef) {
+    const built = buildAihintsFromAppearanceDetail(JSON.parse(JSON.stringify(record)), varsDef);
+    /** @type {Record<string, string[]>} */
+    const arrays = {};
+    /** @type {Record<string, any>} */
+    const scalars = {};
+
+    const common = built.aihints?.common ?? {};
+    for (const key of STRUCTURAL_COMMON_ARRAYS) {
+        const value = common[key];
+        if (Array.isArray(value) && value.length) arrays[`common.${key}`] = value.filter(v => typeof v === 'string');
+    }
+    if (typeof common.age_appearance === 'string' && common.age_appearance) {
+        scalars['common.age_appearance'] = common.age_appearance;
+    }
+
+    const palette = derivePaletteFromColorPalette(record);
+    if (palette) scalars['common.palette_priority'] = palette;
+
+    for (const [formKey, form] of Object.entries(built.aihints?.forms ?? {})) {
+        if (!form || typeof form !== 'object') continue;
+        for (const key of STRUCTURAL_FORM_ARRAYS) {
+            const value = form[key];
+            if (Array.isArray(value) && value.length) {
+                arrays[`forms.${formKey}.${key}`] = value.filter(v => typeof v === 'string');
+            }
+        }
+    }
+
+    return { arrays, scalars, hasSource: built.hasSource };
+}
+
+/**
+ * ドットパス（`forms.corefolder.ai_tags` 等）で AIHints 内の配列を読み書きするヘルパー。
+ * @param {any} root
+ * @param {string} path
+ * @returns {{ parent: any, key: string }|null}
+ */
+function resolvePathParent(root, path) {
+    const parts = path.split('.');
+    const key = parts.pop();
+    let node = root;
+    for (const part of parts) {
+        if (!node || typeof node !== 'object') return null;
+        node = node[part];
+    }
+    if (!node || typeof node !== 'object') return null;
+    return { parent: node, key };
+}
+
+/**
+ * AIHints の構造由来部分だけを最新化する（find-exact-and-replace）。
+ *
+ * 各配列パスについて:
+ *   1. `_meta.structuralEntries[path]` に記録された文字列（= 前回ツールが入れたもの）のうち、
+ *      **今も配列に残っているもの**を取り除く。
+ *   2. 新しい構造的事実を先頭へ挿入する。
+ *   3. それ以外の文字列（人が書いた／人が編集した）は **そのまま残す**。
+ *
+ * `_meta` が無い初回は、「決定論ビルダーの出力と完全一致する文字列」をツール由来とみなして
+ * ブートストラップする（べた一致するなら人の手が入っていないと判断できる）。
+ *
+ * @param {any} aihints  元の AIHints（変更しない）
+ * @param {any} record
+ * @param {Record<string, any>} varsDef
+ * @param {{ today?: string }} [opts]  today: `_meta.lastStructuralResync` に記録する日付
+ * @returns {{ aihints: any, changed: boolean, warnings: string[], skipped: boolean }}
+ */
+export function resyncStructuralAihints(aihints, record, varsDef, opts = {}) {
+    const warnings = [];
+    const a = JSON.parse(JSON.stringify(aihints ?? {}));
+    const hash = computeStructuralSourceHash(record);
+
+    const prevMeta = (a._meta && typeof a._meta === 'object') ? a._meta : null;
+    if (prevMeta?.structuralSourceHash === hash) {
+        return { aihints: a, changed: false, warnings, skipped: true }; // 構造ソースに変化なし
+    }
+
+    const snapshot = buildStructuralSnapshot(record, varsDef);
+    if (!snapshot.hasSource) {
+        warnings.push('構造ソース（AppearanceDetail 等）が無いため再同期をスキップしました');
+        return { aihints: a, changed: false, warnings, skipped: true };
+    }
+
+    const recorded = (prevMeta?.structuralEntries && typeof prevMeta.structuralEntries === 'object')
+        ? prevMeta.structuralEntries
+        : null;
+
+    /** @type {Record<string, string[]>} */
+    const newEntries = {};
+    let changed = false;
+
+    // ── 配列パス: find-exact-and-replace
+    const allPaths = new Set([...Object.keys(snapshot.arrays), ...Object.keys(recorded ?? {})]);
+    for (const path of allPaths) {
+        const target = resolvePathParent(a, path);
+        if (!target) continue;
+
+        const current = Array.isArray(target.parent[target.key]) ? target.parent[target.key] : [];
+        const canonical = snapshot.arrays[path] ?? [];
+
+        // 初回は「ビルダー出力と完全一致する文字列」をツール由来とみなす
+        const prevStrings = recorded?.[path] ?? current.filter(s => canonical.includes(s));
+
+        const missing = prevStrings.filter(s => !current.includes(s));
+        if (missing.length) {
+            warnings.push(`${path}: ツール由来の ${missing.length} 件が編集/削除されています（そのまま残します）`);
+        }
+
+        // 人の手が入っていないツール由来文字列だけを取り除き、人が書いた分は残す
+        const humanKept = current.filter(s => !prevStrings.includes(s));
+        const merged = [...canonical, ...humanKept.filter(s => !canonical.includes(s))];
+
+        if (JSON.stringify(merged) !== JSON.stringify(current)) {
+            target.parent[target.key] = merged;
+            changed = true;
+        }
+        if (canonical.length) newEntries[path] = canonical;
+    }
+
+    // ── スカラー: 未入力スロットのみ埋める（確定値は保護する）
+    for (const [path, value] of Object.entries(snapshot.scalars)) {
+        const target = resolvePathParent(a, path);
+        if (!target) continue;
+
+        if (path === 'common.palette_priority') {
+            const res = applyColorPaletteToAihints(a, value);
+            if (res.changed) {
+                a.common.palette_priority = res.aihints.common.palette_priority;
+                changed = true;
+            }
+            continue;
+        }
+        if (isUnfilledPaletteSlot(target.parent[target.key]) && target.parent[target.key] !== value) {
+            target.parent[target.key] = value;
+            changed = true;
+        }
+    }
+
+    // ── provenance を更新
+    a._meta = {
+        structuralSourceHash: hash,
+        structuralEntries: newEntries,
+        lastStructuralResync: opts.today ?? new Date().toISOString().slice(0, 10),
+    };
+
+    return { aihints: a, changed: true, warnings, skipped: false };
+}
+
 /**
  * レコードの `ColorPalette`（DB の構造化フィールド）から `common.palette_priority` を導出する。
  *
@@ -2616,7 +2850,7 @@ const varsDefCache = new Map();
  * @param {string} work
  * @returns {Record<string, any>}
  */
-function loadMergedVarsDef(work) {
+export function loadMergedVarsDef(work) {
     if (varsDefCache.has(work)) return varsDefCache.get(work);
     const readVarsDef = (p) => {
         if (!fs.existsSync(p)) return {};
@@ -3190,6 +3424,32 @@ function patchFileText(text, opts) {
             text = newText;
             for (const w of warnings) console.warn(`[apply-appearancedetail] ${w}`);
             results.push({ num, status: changed ? status : (status === 'skipped-no-aihints' ? status : 'appearancedetail-unchanged') });
+            continue;
+        }
+
+        // --resync-structural モード: 構造由来の部分だけを最新化する。
+        // _meta にツールが挿入した文字列を記録しておき、次回はそれだけを差し替えるため、
+        // 人が書いた／人が編集したタグは残る（--apply-appearancedetail の全面上書きとの違い）。
+        if (opts.resyncStructural) {
+            if (!hasAihints) {
+                results.push({ num, status: 'skipped-no-aihints' });
+                continue;
+            }
+            const varsDef = loadMergedVarsDef(opts.work);
+            const { aihints: newAihints, changed, warnings, skipped } =
+                resyncStructuralAihints(record.AIHints, record, varsDef);
+            for (const w of warnings) console.warn(`[resync-structural] #${num} ${w}`);
+            if (skipped) {
+                results.push({ num, status: 'resync-unchanged' });
+                continue;
+            }
+            if (!changed) {
+                results.push({ num, status: 'resync-unchanged' });
+                continue;
+            }
+            const block = stringifyAihintsBlock(newAihints);
+            text = replaceAihintsInRecord(text, openIdx, closeIdx, block);
+            results.push({ num, status: 'resync-applied' });
             continue;
         }
 

@@ -1,5 +1,23 @@
 # 最新のリファクタリング・仕様変更履歴
 
+### feat(addon-ai-tag): `--resync-structural` — 人の手仕上げを残したまま構造だけ再同期する (2026-07-13)
+
+[2026-07-08 の設計提案](_work_in_progress/2026-07-08_progress_aihints-structural-resync-proposal.md) の実装（第1階 / provenance）。AIHints の再ビルドには長らく「**全部消す**（`--suggest --force` / `--apply-appearancedetail` の全面上書き）」か「**TODO 文字列だけ拾う**（`--fill-todos`）」かの二択しかなく、その隙間に「構造は最新化したいが、人の手仕上げは残したい」という運用が落ちていた。
+
+- **`_meta`（provenance）を AIHints に新設**: `structuralSourceHash` / `structuralEntries` / `lastStructuralResync`。`structuralEntries` には**ツールが実際に挿入した文字列そのもの**をパスごとに記録する。`AIHints` は `$display: { auto: false }` のため UI へ露出しない。
+- **`--resync-structural`**: 再同期は **find-exact-and-replace**。記録に一致する文字列だけを差し替え、記録に無い文字列（= 人が書いた／人が編集した）には**一切触れない**。`_meta` が無い初回は「決定論ビルダーの出力と完全一致する文字列」をツール由来とみなしてブートストラップする。
+- **構造ソース**: `Num` / `GenderType` / `ConceptAge` / `Height_cm` / `TailsUnit` / `AppearanceDetail` / `ColorPalette`。これらのハッシュが前回と一致すれば **no-op**（実測: 2 回目の実行は全 92 件が `resync-unchanged`）。
+- **再同期の対象外**（人手・視覚由来のため触らない）: `outfit_features` / `silhouette_notes` / `natural_language_description` / `reference_images`。`palette_priority` は `ColorPalette` から導出するが、**既存の確定値は保護**する。
+- **効果（実データで実証）**: Num 1 に「人が書いたタグ」を 2 件足し、構造ソース（`Height_cm` 146 → 152）を変えて両モードを比較した。
+  | | 人が書いたタグ | 構造タグ（身長） |
+  | --- | --- | --- |
+  | 旧 `--apply-appearancedetail` | **消える** | 152cm へ更新 |
+  | 新 `--resync-structural` | **残る** | 152cm へ更新 |
+- **実データ**: NumberTales / Primary の **92 件**に `_meta` を投入（ブートストラップ）。警告 0 件（= 現データはすべてツール生成物であり、人の手が入る前に provenance を入れられた）。
+- **`tests/patch-aihints.resync.test.js`（新規、15 件）**: 人が書いたタグが消えないこと、構造ソースの変化で構造タグが最新化されること、変化が無ければ no-op になること、人が編集したツール由来文字列を上書きせず警告すること、`palette_priority` の確定値を保護すること等を固定。
+- **残る課題**: `--suggest --force` そのものは依然として全面上書き（TODO 雛形への巻き戻し）。`--resync-structural` はその安全な代替として使う。`prompt_export` はタグ変更後も再生成されないため、別途対応が必要。
+- 確認: `npm test` 全件成功（36 ファイル / 414 件）。`npx prettier --check` パス。
+
 ### feat(addon-ai-tag): `palette_priority` を `ColorPalette` から機械導出（palette が構造由来になった） (2026-07-13)
 
 `develop` の `ColorPalette`（設定画のカラーチップを読み取った構造化フィールド）を `addon-ai-tag` へマージし、AIHints の `common.palette_priority` を**そこから機械導出**できるようにした。これにより palette は「画像を目視しないと決まらない値」から「**DB から再生成できる構造由来の値**」へ格上げされ、当初の目的（AIHints をビルドしても配色が失われない）が達成された。

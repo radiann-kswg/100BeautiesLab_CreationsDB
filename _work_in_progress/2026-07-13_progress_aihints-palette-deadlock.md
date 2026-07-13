@@ -264,6 +264,40 @@ Step 1 は単独で「`--force` を使わずに palette を埋められる」状
 
 当初の設計（本ログ上部）では「第2階: 画像からの決定論的な色抽出」を Agent の目視を裏付ける補助として計画していた。実際には **`ColorPalette` を本体 DB に持たせたことで、palette_priority は画像を一切見ずに DB から導出できる**ようになり、目視ワークフロー（`--gen-vision-tasks` → `view_image` → `--apply-vision-results`）は palette に関しては**不要**になった。視覚解析ワークフロー自体は髪・目・衣装など他の視覚 TODO のために引き続き有効。
 
+---
+
+## 実装結果（第1階: provenance / `--resync-structural` / 2026-07-13、`addon-ai-tag` ブランチ）
+
+[2026-07-08 の設計提案](./2026-07-08_progress_aihints-structural-resync-proposal.md) を実装した。**「構造は最新化したいが、人の手仕上げは残したい」** という運用が、これで初めて可能になった。
+
+### 変更点（`tools/patch-aihints.mjs`）
+
+- **`_meta`（provenance）を AIHints に新設**: `structuralSourceHash` / `structuralEntries` / `lastStructuralResync`。`structuralEntries` には**ツールが実際に挿入した文字列そのもの**をパスごとに記録する。`AIHints` は `$display: { auto: false }` のため UI へ露出しない。
+- **`computeStructuralSourceHash()`**（export）: 構造ソース（`Num` / `GenderType` / `ConceptAge` / `Height_cm` / `TailsUnit` / `AppearanceDetail` / `ColorPalette`）のハッシュ。キー順に依存しない安定化を行う。
+- **`buildStructuralSnapshot()`**（export）: 決定論ビルダーの出力から「構造由来であるべき値」を抽出する。**人手・視覚由来のフィールド（`outfit_features` / `silhouette_notes` / `natural_language_description` / `reference_images`）は含めない**。
+- **`resyncStructuralAihints()`**（export）: **find-exact-and-replace**。記録に一致する文字列だけを差し替え、記録に無い文字列（= 人が書いた／人が編集した）には一切触れない。`_meta` が無い初回は「決定論ビルダーの出力と完全一致する文字列」をツール由来とみなしてブートストラップする。人が編集したツール由来文字列は上書きせず、警告として報告する。
+- **CLI `--resync-structural`** を新設。構造ソースのハッシュが前回と一致すれば **no-op**。
+
+### 検証
+
+1. **`npm test` 全件成功**（36 ファイル / 414 件）。回帰テスト 15 件を新規追加（`tests/patch-aihints.resync.test.js`）。
+2. **実データ**: 92 件へ `_meta` を投入（ブートストラップ）。**警告 0 件** = 現データはすべてツール生成物であり、人の手が入る前に provenance を導入できた。
+3. **冪等性**: 2 回目の実行は全 92 件が `resync-unchanged`（ハッシュ一致で no-op）。
+4. **新旧モードの比較実験**: Num 1 に「人が書いたタグ」を 2 件足し、構造ソース（`Height_cm` 146 → 152）を変えて両モードを実行した。
+
+   | | 人が書いたタグ | 構造タグ（身長） |
+   | --- | --- | --- |
+   | 旧 `--apply-appearancedetail` | **消える** | 152cm へ更新 |
+   | 新 `--resync-structural` | **残る** | 152cm へ更新 |
+
+   確認後、実験データは復元済み（`Height_cm: 146` / `HUMAN:` タグなし / `_meta` 92 件は保持）。
+
+### 残る課題
+
+- **`--suggest --force` そのものは依然として全面上書き**（TODO 雛形への巻き戻し）。`--resync-structural` はその安全な代替として使う運用とする。
+- **`prompt_export` / `negative_prompt_export` はタグ変更後も再生成されない**。`ai_tags` を再同期しても export 文字列が古いままになるため、別途対応が必要。
+- **GitHub Actions からの自動 PR 作成**（07-08 提案の合意事項 2）は未着手。
+
 ### 残る課題（第0階では解決しない）
 
 - **`--suggest --force` の全面上書きによる巻き戻り**は未解決。第1階（`_meta` provenance + `--resync-structural`）が必要。
