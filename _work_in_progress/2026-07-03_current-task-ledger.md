@@ -1,4 +1,6 @@
-# 2026-07-03 現行タスク台帳
+# 現行タスク台帳（起点）
+
+> 作成: 2026-07-03 / **最終更新: 2026-07-13（棚卸しセッションで全面改訂）**
 
 ## 目的
 
@@ -7,73 +9,54 @@
 
 ## 現行タスク一覧（develop 観点・優先順）
 
-### P1) AppearanceDetail 手動入力の残件処理（最優先） → 2026-07-06 完了
+### P1) ConversationPattern handoff の後処理（継続中）
 
-- 対象ログ:
-  - `.completed/2026-06-30_progress_appearance-detail-cleanup.md`
-- 完了内容:
-  - BodyPart 手動入力 6 件（Num:35/60/61 は `Costume` フィールド新設 + プレースホルダー削除で対応）
-  - Num:8 / 32 / 60 の既存不整合修正
-  - `Costume`フィールド新設・`#BodyPart_Interchangeable`/`#BodyPart_FaceMaking` enum追加（User判断による追加スコープ）
-- テスト再実行済み（`npm test` 22 files / 178 tests）、詳細は`CHANGELOG.md`参照
-
-### P2) ConversationPattern handoff の後処理
-
-- 対象ログ:
-  - `2026-06-28_progress_conversationpattern-handoff.md`
+- 対象ログ: `2026-06-28_progress_conversationpattern-handoff.md`
 - 残作業:
-  - sub2 側 stale lock 解消
-  - 必要コミット確定
-  - 本体側の切断 WIP 取り下げ確認
-- 完了条件:
-  - handoff に記載されたユーザ端末作業がすべて完了し、再開不要状態になること
+  - sub2 側 stale lock（`.git/index.lock`）解消 — **User 端末で実施要**
+  - Num 92/94/95/98/99/2/10 の ConversationPattern 仮入力
+    （**DialogueExamples 先行方式**: User が `DialogueExamples[].value_JP`/`about_JP` を先に入力 → Claude が 6 項目を仮入力）
+- 完了条件: handoff に記載されたユーザ端末作業がすべて完了し、再開不要状態になること
 
-### P3) 中長期の設計残タスク（段階着手）
+### P2) User レビュー・入力待ちの実務（Claude 側の実装は完了済み）
 
-- 現在ステータス（2026-07-03 更新）:
-  - **一時保留**（P1/P2 と実装済み領域の回帰テストを優先）
+いずれも実装・テスト・確認は完了しており、**User の目視/創作判断のみ**が残っている。
 
-- 対象ログ:
-  - `2026-06-01_remaining-task.md`
-- 残作業（保留中）:
-  - 創作用語 DB / 基本資料 DB のテンプレート設計と承認
-- 実施済み（2026-07-03）:
-  - `streamingActivitySection` で `_enrichment.bilingualWrapperFields` を参照し、`StreamingGreeting` / `ListenerNickname` を JP/EN 2 列表示に対応
-  - `lib/data-common.js` の `buildWrapperSummaries()` で wrapper の `typeSources` に `globalMeta` / `mergedVars` 由来の source を追加し、`$Def_Day` role（month/dayOfMonth/annotation）を SW/enrich 側で利用できるように対応
-  - `TypeDefUtils.looksSearchableType()` に `#DictIndex` / `$Def_Day` / `$Def_StoryEra*` / `$Def_BaseArea` を追加し、Day / Era / Area 系フィールドを typedef 駆動で searchableText 対象へ拡張
-  - `lib/sw-common.js` の DB カタログ装飾で wrapper summary 解決用 `typeSources` に `globalMeta` を追加
-  - `pages/characters.js` で `$display.unit_JP` / `$display.unit_EN` / `unit_EN_ordinal` を解釈する unit 表示拡張を実装（例: `0期生` / `0th Gen.`）
-  - `collectIndexEntries()` を raw 値照合へ変更し、`getIndexIdentifierFromRecord()` に複合条件（`idxKey=__conditions__`）フォールバックを追加して、言語切替時に別キャラへ遷移する不具合を修正
-  - `sec_Category` / `sec_DesignedBy` の `secondaryInfo` 描画を二次創作DB文脈に限定し、UI表示を `kvTable` 形式へ統一
-  - `Relation` / `RelationTo_*` のリンク表示名を pageLang 優先（JPは `Name_JP` 系、ENは `Name_EN` 系）へ修正し、英名が混在する表示不具合を解消
-- 完了条件:
-  - 仕様承認を取りながら小分けで実装し、回帰テストとログ更新を都度実施
+| 項目 | 内容 | ログ |
+| ---- | ---- | ---- |
+| AppearanceDetail 参考画像 | `10` / `10alt` の corefolder/humanoid 割当の正誤確認、保留 4 枚の扱い | `2026-07-11_progress_appearancedetail-images.md` |
+| UnibyteLive 苗字命名 | 下書き 24+2 件の最終レビュー | `2026-07-06_progress_unibytelive-formalname-draft.md` |
+| Issue テンプレート | `issues/new/choose` の見た目確認（ログイン済みブラウザで 30 秒） | `2026-07-04_progress_issue-feature.md` |
+| アンオースドロジカ辞書 | `dict_ModelSeries` / `dict_LogicSeries` の null キー行ラベル | `2026-07-13_progress_unauthedlogica-index-alias.md` |
 
-## 直近優先（2026-07-03 切替）
+### P3) 創作用語DB / 基本資料DB（保留中）
 
-- P3 はいったん保留し、実装済み作品の回帰テストを優先する
-- 優先テスト対象:
-  - `tests/pages.characters.ui-output.test.js`
-  - `tests/section-wrapper-common.test.js`
-  - `tests/enrich.wrapper-summaries.test.js`
-  - `tests/wrapper-common.test.js`
+- 対象ログ: `2026-07-08_remaining-task.md`（母艦 P2）
+- 残作業: 最小テンプレート案の作成 → 承認 → API/UI 受け皿整備
+- 制約: 辞書本文は User 手動入力前提（自動生成しない）
 
-## 本日完了（棚卸し反映済み）
+### P4) 技術的な追従・既知の負債
 
-- DeepL 運用系の実環境確認（旧P2）
-  - 実行ログは `2026-07-03_progress_deepl-production-run.md` を正とし、本台帳では完了扱いへ移行。
-- クラウド同期・デプロイ確認（旧P3）
-  - `migrate --clean` / `wrangler deploy` 完了。完了扱いへ移行。
-- UI目視・追加確認（旧P5）
-  - `*_DBLink` のブラウザ確認まで実施済み（`2026-07-03_progress_dblink-browser-check.md`）。
+- 対象ログ: `2026-07-08_remaining-task.md`（母艦 P4）に集約
+- 主要項目: Workers 側 `_Secondaries` マッチャの乖離（`2026-07-13_progress_pkg-sync.md`）、
+  `ImageProcessor.resolveImagePath()` の既知バグ、`pkg/python`・`pkg/csharp` のテスト不在
 
-## 参照タスク（中長期）
+### P5) AIHints 構造的再同期（addon-ai-tag 側の別タスク）
 
-- `2026-07-08_remaining-task.md`（残留タスク母艦・統合版）
-- `2026-06-12_progress_translation-style-unified.md`（英訳ルール基準）
+- 対象ログ: `2026-07-08_progress_aihints-structural-resync-proposal.md`
+- ステータス: 📝 提案書のみ・実装未着手。**User の優先度判断待ち**
+- 実装先: `addon-ai-tag` ブランチ（`tools/patch-aihints.mjs` の `--resync-structural` モード + 専用ワークフロー）
+
+## 2026-07-13 棚卸しで完了・退避したもの
+
+以下は確認まで完了し `.completed/` へ退避済み（詳細は `README.md` の「2026-07-13 棚卸しで追加退避（17件）」）。
+
+- **本番実 API で裏取り**: R2 未同期障害の是正（D1 `is_private` / FTS も是正済み）、共通資料（`#Works_CommonReferences`）の Workers 疎通
+- **ブラウザ目視で裏取り**: `_DBCrossLinkPath` の画像解決 + SW enrich 非破壊性、TailsUnit 参考画像、`NumberMarkLocation`/`IdentityMotif` 廃止、EarShapeType 独立軸化
+- **コミット状態を確認**: DFR / Proxies 統合、アンオースドロジカ Index 拡張はいずれも `develop` にコミット済み
+- 日次 triage 4 件（現行は `2026-07-13_github-triage.md`）
 
 ## 運用メモ
 
-- triage 系は `2026-07-08_github-triage.md` を最新判断の正とする。
-- 過去 triage は履歴参照用とし、現行タスク判断には直接使わない。
-- ログ退避方針は `2026-07-03_progress-log-retire-candidates.md`（`.completed/` 退避済み）で確立した基準を踏襲。2026-07-04 の棚卸しで README をトピック別索引に再構成済み（詳細は `README.md` を参照）。
+- triage 系は `2026-07-13_github-triage.md` を最新判断の正とする。過去 triage は履歴参照用。
+- 残タスク母艦は `2026-07-08_remaining-task.md`。本台帳は「いま着手すべきもの」の起点に限定する。
