@@ -334,6 +334,58 @@
 - `resolveIndexDefForDb(ctx, dbName)` は `enrichRecords()` / `searchRecords()` / `normalizeRecordByTypeDef()` の `#Index` 正規化・整形すべてで共通に使われます。
 - UI側 `getWorkIndexField(workKey, globalMeta, dbName)` も同じ規則で `state.workTypeDef` からDB固有Indexを解決します。
 
+#### 3.5.2 エイリアスIndex（複数Index、2026-07-13 新設）
+
+1レコードが主Indexに加えて互換番号・別体系の識別子を持つ場合（例: アンオースドロジカの `LogicAlt`）、`$DefType` のトップレベルで `#Index` 型を宣言した field は、現在のDBで解決された `$IndexDef` の rootKey **以外**であれば自動的に「エイリアスIndex」として扱われます。専用の宣言キーは不要です。
+
+```jsonc
+// data/Works_UnauthedLogica/DataBases/db_type.json
+{
+  "$IndexDef":             { "hashTag": "Model", ... },   // Primary 系の主Index
+  "$IndexDef_PrimaryMobs": { "hashTag": "Logic", ... },   // Mobs 系の主Index
+  "$DefType": [
+    { "hashTag": "Model",    "$type": "#Index", ... },
+    { "hashTag": "Logic",    "$type": "#Index", ... },
+    { "hashTag": "LogicAlt", "$type": "#Index", "hashTag_JP": "互換論理/互換ロジック", ... }
+  ]
+}
+```
+
+挙動（`lib/data-common.js` の `TypeDefUtils.collectIndexAliasDefs()` / UI側 `pages/characters.js` の `getWorkIndexAliasDefs()`）:
+
+- **形状の解決順**: hashTag が一致する `$IndexDef` / `$IndexDef_*` 宣言があればその形状（サブフィールド構造）を継承し、無ければ現在のDBの `$IndexDef` の形状を流用します（`LogicAlt` は `Logic` と同構造とみなす）。
+- **正規化・辞書補完**: `enrichRecords()` は主Indexと同様に、エイリアス field も per-field の IndexDef で正規化し、`supplementIndexFieldFromVarsDef()` による辞書補完（`<key>_JP` / `_EN` の穴埋め）を適用します。
+- **表示**: 詳細 header pill に「エイリアスラベル + サブフィールドラベル」で表示されます。一覧 chip には出しません（主Indexのみ）。
+- **直リンク**: `idx=<値>&idxKey=<エイリアスfield名>.<subKey>`（例: `idx=141&idxKey=LogicAlt.Num`）で解決できます。
+- **opt-out**: `$DefType` エントリ側に `$display: { "index": "none" }`（または `false`）を宣言すると、エイリアスとして扱いません。
+- レコード上にエイリアス field の実体が無い場合は何も表示・照合されません。
+
+#### 3.5.3 `#IndexListKey` の辞書解決と null キー（2026-07-13 拡張）
+
+`$IndexDef` サブフィールドの `#IndexListKey`（後方互換: `#ListIndex`）は、`supplementIndexFieldFromVarsDef()` が辞書から兄弟サブフィールド・言語バリアントを補完します。辞書リストの解決順は次の通りです。
+
+1. `mergedVars.$Def_<rootKey>.#List_<keyField>`（`$Def_*` コンテキスト配下の宣言。従来からの正）
+2. `mergedVars.#List_<keyField>`（`Dictionaries/` の `compatListKey` によるルート実行時合流先）
+3. `mergedVars.#Dict_<keyField>`（`compatListKey` 未宣言の辞書カタログ）
+
+これにより、運命線探偵78の `Suit` やアンオースドロジカの `(Model|Logic)Series` のような「`Dictionaries/dict_*.json` に本体を置く辞書」がそのままIndex辞書として機能します（`Dictionaries/db_meta.json` のカタログ登録が必要です）。
+
+さらに **null もキーとして許容**します。キー値が `null` のレコード（例: `Model: { ModelSeries: null, Num: "0" }`）は、辞書側に null キー行が宣言されている場合のみ解決されます。
+
+```jsonc
+// data/Works_UnauthedLogica/Dictionaries/dict_ModelSeries.json（null キー行の例）
+[
+  { "ModelSeries": "AttackerZeroid", "ModelSeries_JP": "人形兵ゼロイド" },
+  { "ModelSeries": null, "ModelSeries_JP": "<系統なしのラベル>" },
+]
+```
+
+- enrich では null キー行の `<key>_JP` / `_EN` が言語バリアントとして補完されます（主キー値の `null` 自体は維持）。
+- UI（`collectIndexEntries()`）では null キーのエントリは「表示のみ」（詳細 pill / 値表示）で、単独では直リンクの識別に使いません。
+- 辞書に null キー行が無い場合は従来通りスキップされます（表示なし・エラーなし）。
+
+> **既知の修正（2026-07-13）**: `TypeDefUtils.normalizeValueByTypeSpec()` の `#Index` 正規化が、ネストIndexのフィールド値を rootKey で二重に包んでしまう（`Card: {Card:{...}}`）バグがあり、ネストIndexを持つ全作品で一覧 chip・直リンク照合・辞書補完が外れていました。現在はフィールド値を「サブフィールドを直接持つオブジェクト」（`Card: {Suit, Num}`）に正規化し、旧形の二重ネストは読み込み時に unwrap されます。
+
 ### 3.6 `$MetaType`
 
 トップレベル `$MetaType` は、作品/DB カタログの補助 schema 宣言です。キャラクター本体の `$DefType` と別系統です。

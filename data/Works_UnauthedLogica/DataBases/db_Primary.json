@@ -1,6 +1,6 @@
 [
   {
-    "Model": { "LogicSeries": null, "Num": 10 },
+    "Model": { "ModelSeries": "AttackerZeroid", "Num": 10 },
     "Progress": "notProceeded",
     "AnotherRegions_DBLink": [
       { "_Work": "NumberTales", "_DB": "Primary", "Num": "10-alt" }
@@ -25,7 +25,7 @@
     "InStory_EN": "An existence that knows the reason why the last unit 'Mitsuru' declared independence"
   },
   {
-    "Model": { "LogicSeries": null, "Num": 61 },
+    "Model": { "ModelSeries": "AttackerZeroid", "Num": 61 },
     "Progress": "notProceeded",
     "AnotherRegions_DBLink": [
       { "_Work": "NumberTales", "_DB": "Primary", "Num": 61 }
@@ -41,7 +41,7 @@
     "InStory_EN": "After being fitted with a military-service patch by HundredBattlers Development and going berserk, it was rescued by chance by Queen.XII, who happened to be visiting LotusNinea — and having taken an immediate liking to her, it now lives in the JunkGarage 'Majesty Rokka' alongside Dozenne Hexacrys / Queen.XII and her crew"
   },
   {
-    "Model": { "LogicSeries": null, "Num": 62 },
+    "Model": { "ModelSeries": "AttackerZeroid", "Num": 62 },
     "Progress": "notProceeded",
     "AnotherRegions_DBLink": [
       { "_Work": "NumberTales", "_DB": "Primary", "Num": 62 }
@@ -57,7 +57,7 @@
     "InStory_EN": "On active military duty under HundredBattlers Development, it not only ended up stranded but also suffered a parts-failure shutdown — and was taken in by Dozenne Hexacrys / Queen.XII. In gratitude for being rescued, it now cooperates with the JunkGarage (even at the cost of betraying HundredBattlers Development)"
   },
   {
-    "Model": { "LogicSeries": null, "Num": "10-alt" },
+    "Model": { "ModelSeries": "AttackerZeroid", "Num": "10-alt" },
     "Progress": "notProceeded",
     "AnotherRegions_DBLink": [
       { "_Work": "NumberTales", "_DB": "Primary", "Num": 10 }
@@ -87,7 +87,7 @@
     "Backgrounds_EN": "The runaway incident caused the critical issues surrounding automatons — such as autonomous-action algorithms and civil rights — to reverberate as 'The World Destruction Pandemic VII'"
   },
   {
-    "Model": { "LogicSeries": null, "Num": "0" },
+    "Model": { "ModelSeries": null, "Num": "0" },
     "Progress": "stillTentative",
     "AnotherRegions_DBLink": [
       { "_Work": "NumberTales", "_DB": "Primary", "Num": "0" },
@@ -111,7 +111,7 @@
     "InStory_EN": "Originally a member of the predecessor organization to HundredBattlers Development, involved with her younger brother in the development of AttackerZeroid humanoid infantry — but opposed to the militarization of individual AttackerZeroid units resulting from escalating corporate warfare between component manufacturers in the wake of 'The World Destruction Pandemic VII'. When she by chance encounters Queen.XII, who was lured in by Logicheskiy Romantika Industry — the mastermind behind it all — she petitions her to cooperate in suppressing the AttackerZeroid units that have been deployed for military use."
   },
   {
-    "Model": { "LogicSeries": null, "Num": "00" },
+    "Model": { "ModelSeries": null, "Num": "00" },
     "Progress": "stillTentative",
     "AnotherRegions_DBLink": [
       { "_Work": "NumberTales", "_DB": "Primary", "Num": "00" }
@@ -132,7 +132,7 @@
     "InStory_EN": "Developed AttackerZeroid humanoid infantry together with his older sister, but came to support the militarization of individual units resulting from escalating corporate warfare between component manufacturers in the wake of 'The World Destruction Pandemic VII' — and now conducts military development using AttackerZeroid units under HundredBattlers Development, operating in collusion with Logicheskiy Romantika Industry."
   },
   {
-    "Model": { "LogicSeries": null, "Num": null },
+    "Model": { "ModelSeries": null, "Num": null },
     "Progress": "stillTentative",
     "AnotherRegions_DBLink": [
       { "_Work": "SinisterChangingGirls", "_DB": "Primary", "Drc": "S" }

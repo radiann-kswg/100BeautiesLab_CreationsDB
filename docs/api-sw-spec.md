@@ -15,10 +15,10 @@
 
 本リポジトリの API は以下の二層で提供される。
 
-| 層 | エンドポイント | 実装 | データソース | 主な用途 |
-|----|--------------|------|------------|--------|
-| **実 API** | `database.numbertales-radiann.net/api/v1/*` | Cloudflare Workers (`pkg/cloudflare/worker.js`) | R2（JSON ミラー）+ D1（FTS5） | 外部クライアント・curl・モバイルアプリ |
-| **疑似 API** | `(同一オリジン)/api/v1/*` `/pages/v1/*` `/svc/v1/*` | Service Worker (`pages/sw.js` 等) | GitHub Pages 静的 JSON | ブラウザ・キャラシート UI |
+| 層           | エンドポイント                                      | 実装                                            | データソース                  | 主な用途                               |
+| ------------ | --------------------------------------------------- | ----------------------------------------------- | ----------------------------- | -------------------------------------- |
+| **実 API**   | `database.numbertales-radiann.net/api/v1/*`         | Cloudflare Workers (`pkg/cloudflare/worker.js`) | R2（JSON ミラー）+ D1（FTS5） | 外部クライアント・curl・モバイルアプリ |
+| **疑似 API** | `(同一オリジン)/api/v1/*` `/pages/v1/*` `/svc/v1/*` | Service Worker (`pages/sw.js` 等)               | GitHub Pages 静的 JSON        | ブラウザ・キャラシート UI              |
 
 - 疑似 API（SW）は完全 enrich（`_DBLink`/`_Jump` 解決）付き。実 API（Workers）は現時点で `_Commons` 適用のみ（次フェーズで拡張予定）。
 - クライアント（`pkg/nodejs`, `pkg/python`, `pkg/csharp`）はローカル JSON を直接読むため、どちらの API にも依存しない。
@@ -26,16 +26,16 @@
 
 ### Cloudflare Workers 実 API エンドポイント
 
-| メソッド | パス | データソース | 説明 |
-|---------|------|------------|------|
-| GET | `/api/v1/meta` | R2 | グローバルメタ (`data/db_meta.json`) |
-| GET | `/api/v1/works` | D1 `works` | 作品一覧（`Works_Hidden=true` 除外） |
-| GET | `/api/v1/:work/meta` | R2 | 作品別メタ (`data/Works_*/DataBases/db_meta.json`) |
-| GET | `/api/v1/:work/dbs` | D1 `dbs` | DB 一覧（`DB_Hidden=true` 除外） |
-| GET | `/api/v1/:work/:db/records` | D1 `records` | レコード一覧（`isPrivate=0`・`_Commons` 適用） |
-| GET | `/api/v1/:work/:db/records/:idx` | D1 `records` | 1 件取得（`?idxKey=X` でフィールド指定） |
-| GET | `/api/v1/:work/:db/search?q=` | D1 FTS5 | DB 内全文検索 |
-| GET | `/api/v1/:work/search?q=` | D1 FTS5 | 作品横断全文検索 |
+| メソッド | パス                             | データソース | 説明                                               |
+| -------- | -------------------------------- | ------------ | -------------------------------------------------- |
+| GET      | `/api/v1/meta`                   | R2           | グローバルメタ (`data/db_meta.json`)               |
+| GET      | `/api/v1/works`                  | D1 `works`   | 作品一覧（`Works_Hidden=true` 除外）               |
+| GET      | `/api/v1/:work/meta`             | R2           | 作品別メタ (`data/Works_*/DataBases/db_meta.json`) |
+| GET      | `/api/v1/:work/dbs`              | D1 `dbs`     | DB 一覧（`DB_Hidden=true` 除外）                   |
+| GET      | `/api/v1/:work/:db/records`      | D1 `records` | レコード一覧（`isPrivate=0`・`_Commons` 適用）     |
+| GET      | `/api/v1/:work/:db/records/:idx` | D1 `records` | 1 件取得（`?idxKey=X` でフィールド指定）           |
+| GET      | `/api/v1/:work/:db/search?q=`    | D1 FTS5      | DB 内全文検索                                      |
+| GET      | `/api/v1/:work/search?q=`        | D1 FTS5      | 作品横断全文検索                                   |
 
 ### D1 スキーマ概要
 
@@ -51,16 +51,17 @@
 
 両 API は `/api/v1/` を共有するが、`:work` と `:db` の配置が異なる。
 
-| 操作 | Workers 実 API | SW 疑似 API |
-|------|---------------|-------------|
-| 作品一覧 | `/api/v1/works` | `/api/v1/works` |
-| DB 一覧 | `/api/v1/:work/dbs` | `/api/v1/works/:work/dbs` |
-| レコード一覧 | `/api/v1/:work/:db/records` | `/api/v1/works/:work/db/:db/records` |
+| 操作          | Workers 実 API                   | SW 疑似 API                               |
+| ------------- | -------------------------------- | ----------------------------------------- |
+| 作品一覧      | `/api/v1/works`                  | `/api/v1/works`                           |
+| DB 一覧       | `/api/v1/:work/dbs`              | `/api/v1/works/:work/dbs`                 |
+| レコード一覧  | `/api/v1/:work/:db/records`      | `/api/v1/works/:work/db/:db/records`      |
 | レコード 1 件 | `/api/v1/:work/:db/records/:idx` | `/api/v1/works/:work/db/:db/records/:idx` |
-| DB 内検索 | `/api/v1/:work/:db/search?q=` | `/api/v1/works/:work/db/:db/search?q=` |
-| 作品横断検索 | `/api/v1/:work/search?q=` | `/api/v1/works/:work/search?q=` |
+| DB 内検索     | `/api/v1/:work/:db/search?q=`    | `/api/v1/works/:work/db/:db/search?q=`    |
+| 作品横断検索  | `/api/v1/:work/search?q=`        | `/api/v1/works/:work/search?q=`           |
 
 主な差分:
+
 - SW 疑似 API: `works/` プレフィックスと `db/` インフィックスを持つ
 - Workers 実 API: `:work` と `:db` が直接パスに並ぶ（`works/` / `db/` は省略）
 - 疎通確認の具体的な URL 例は `docs/deploy-howto.md` §3 を参照。
@@ -255,12 +256,12 @@ UI と enrich/search は、可能な限りこの `db_type.json($DefType)` に追
 
 `isPrivate: true`（レコード単位の非公開）と異なる点:
 
-| 項目 | `isPrivate: true` | `DB_Hidden: true` |
-|------|------------------|-------------------|
-| 粒度 | レコード単位 | DB 全体 |
-| 適用場所 | `db_*.json` の各レコード | `db_meta.json` の `Databases.#DB_<DbName>` |
-| DBリスト (`works/{work}/db`) | DBエントリは残る | DBエントリごと除外 |
-| `db/{dbName}` 直接アクセス | 対象レコードだけ除外 | 404 |
+| 項目                         | `isPrivate: true`        | `DB_Hidden: true`                          |
+| ---------------------------- | ------------------------ | ------------------------------------------ |
+| 粒度                         | レコード単位             | DB 全体                                    |
+| 適用場所                     | `db_*.json` の各レコード | `db_meta.json` の `Databases.#DB_<DbName>` |
+| DBリスト (`works/{work}/db`) | DBエントリは残る         | DBエントリごと除外                         |
+| `db/{dbName}` 直接アクセス   | 対象レコードだけ除外     | 404                                        |
 
 ---
 
@@ -281,14 +282,14 @@ UI と enrich/search は、可能な限りこの `db_type.json($DefType)` に追
 
 `DB_Hidden`・`isPrivate` との粒度比較:
 
-| 項目 | `isPrivate: true` | `DB_Hidden: true` | `Works_Hidden: true` |
-|------|------------------|-------------------|---------------------|
-| 粒度 | レコード単位 | DB 全体 | 作品全体 |
-| 適用場所 | `db_*.json` の各レコード | `db_meta.json` の `Databases.#DB_<DbName>` | `db_meta.json` の `CreationWorks.#Works_<WorkName>` |
-| 作品一覧 (`works`) | 作品は残る | 作品は残る | 作品ごと除外 |
-| `works/{work}` 直接アクセス | 対象レコードだけ除外 | 作品情報は返る | 404 |
-| `works/{work}/db` | DBエントリは残る | 該当DBが除外 | 404 |
-| `works/{work}/db/{dbName}` | 対象レコードだけ除外 | 404 | 404 |
+| 項目                        | `isPrivate: true`        | `DB_Hidden: true`                          | `Works_Hidden: true`                                |
+| --------------------------- | ------------------------ | ------------------------------------------ | --------------------------------------------------- |
+| 粒度                        | レコード単位             | DB 全体                                    | 作品全体                                            |
+| 適用場所                    | `db_*.json` の各レコード | `db_meta.json` の `Databases.#DB_<DbName>` | `db_meta.json` の `CreationWorks.#Works_<WorkName>` |
+| 作品一覧 (`works`)          | 作品は残る               | 作品は残る                                 | 作品ごと除外                                        |
+| `works/{work}` 直接アクセス | 対象レコードだけ除外     | 作品情報は返る                             | 404                                                 |
+| `works/{work}/db`           | DBエントリは残る         | 該当DBが除外                               | 404                                                 |
+| `works/{work}/db/{dbName}`  | 対象レコードだけ除外     | 404                                        | 404                                                 |
 
 ---
 
@@ -445,7 +446,7 @@ typedef で `$enrich: true` を宣言した `*_DBLink` suffix フィールド（
 空値のみ穴埋めマージします。
 
 `$Def_DBLinkRef` のインデックス値には null を含められます（例: UnauthedLogica の
-`Model: { "LogicSeries": null, "Num": null }` のような型番未確定インデックス）。
+`Model: { "ModelSeries": null, "Num": null }` のような型番未確定インデックス）。
 
 - クエリ側の null は「参照先レコード側も null/undefined」の明示マッチとして扱います
 - null 入りインデックスは複数レコードに一致し得るため、**1 件一致のみ採用**し、複数一致・0 件はスキップします

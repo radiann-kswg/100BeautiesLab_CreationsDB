@@ -1,5 +1,18 @@
 # 最新のリファクタリング・仕様変更履歴
 
+### add/fix: Index 機能拡張（エイリアスIndex・Index辞書のルート合流/nullキー対応）とネストIndex二重ネスト修正 (2026-07-13)
+
+アンオースドロジカの `DB_Primary`（`Model`）/ `DB_PrimaryMobs`（`Logic`）Index分割で顕在化した Index 解決不全を修正し、汎用のIndex機能を2点拡張した。
+
+- **fix（実バグ）: `#Index` 正規化の二重ネスト**（`lib/data-common.js` の `TypeDefUtils.normalizeValueByTypeSpec()`）: ネストIndexのフィールド値を rootKey で二重に包んでいた（`Card: {Card:{Suit,...}}`）ため、ネストIndexを持つ全作品（運命線探偵78・パストダイヴァー・アンオースドロジカ等）で一覧チップ・詳細ピル・直リンク照合・辞書補完が黙って外れていた。フィールド値は「サブフィールドを直接持つオブジェクト」（`Card: {Suit, Num}`）を正とし、プリミティブは `{主キー: 値}` へ、旧二重ネスト形は unwrap する。UI 側 `collectIndexEntries()` にも旧形 unwrap 耐性を追加。
+- **add: エイリアスIndex（汎用）**: `$DefType` トップレベルで `#Index` 型を宣言した field のうち、現在のDBで解決された `$IndexDef` の rootKey 以外を自動的に「エイリアスIndex」として扱う（例: `LogicAlt`）。形状は hashTag 一致の `$IndexDef*` → 現行 IndexDef の順で継承。enrich（正規化・辞書補完）、詳細ピル表示、直リンク（`idxKey=LogicAlt.Num` 等）に対応。`$display: { index: "none" }` で opt-out 可。`TypeDefUtils.collectIndexAliasDefs()` / `getWorkIndexAliasDefs()`（UI）を新設。
+- **add: Index 辞書解決のルート合流フォールバック + null キー許容**（`EnrichmentProcessor.supplementIndexFieldFromVarsDef()`）: 辞書リストの解決を `$Def_<rootKey>.#List_<key>` → ルート `#List_<key>` → ルート `#Dict_<key>` の順にフォールバック（`Dictionaries/dict_*.json` + `compatListKey` の実行時合流がそのまま Index 辞書として機能する）。また、キー値 `null` のレコード（例: `Model: {ModelSeries: null}`）も辞書側に null キー行があれば解決できる（UI では表示のみ・直リンク識別には不使用）。
+- **data: `data/Works_UnauthedLogica/Dictionaries/db_meta.json`**: `#Dict_ModelSeries` / `#Dict_LogicSeries` をカタログ登録（辞書本体 `dict_ModelSeries.json` / `dict_LogicSeries.json` は User 作成済み）。null キー行のラベル値は User 入力に委ねる。
+- **`pages/characters.js`**: `pickPrimaryIndexSubDef()` に `#IndexListKey` のスコアを追加、詳細の汎用行からエイリアス field の二重表示を抑止、composite 直リンク生成から null キー/エイリアスエントリを除外。`asset-version` を `2026.07.13.1` へ更新。
+- **`tests/enrich.index-alias-dict.test.js`（新規）**: 正規化・エイリアス収集・辞書フォールバック/null キー・実データ統合（UnauthedLogica / FLInvestigator78 回帰）の13テストを追加。
+- 確認: `npm test` 全件成功（28ファイル / 271件）。実ブラウザで UnauthedLogica（両DB・エイリアス直リンク・辞書ラベル）、FLInvestigator78 / PastDivers / NumberTales / DestinyFoxRecords の一覧チップ・詳細ピル復帰を確認。
+- 仕様詳細: `docs/schema-meta-processing.md` §3.5.2（エイリアスIndex）/ §3.5.3（辞書解決と null キー）。
+
 ### fix: NumberTales 666(リリス)/3x11 の AppearanceDetail 参考画像の参照切れを修正 (2026-07-12)
 
 外見デザイン詳細（`AppearanceDetail.img_PNGName`）の参照とファイル実体の不一致3件を修正した。
@@ -315,7 +328,7 @@
 ### add: `$enrich` の `$Def_DBLinkRef` 解決で null 入りネストインデックスを許容（1件一致のみ） (2026-07-02)
 
 - **`lib/data-common.js`**:
-  - `dbLinkSubsetMatch()`: クエリ側の null を「参照先レコード側も null/undefined」の明示マッチとして扱うよう変更。UnauthedLogica の `Model: { "LogicSeries": null, "Num": null }`（型番未確定インデックス）のような参照を解決可能にした。
+  - `dbLinkSubsetMatch()`: クエリ側の null を「参照先レコード側も null/undefined」の明示マッチとして扱うよう変更。UnauthedLogica の `Model: { "ModelSeries": null, "Num": null }`（型番未確定インデックス）のような参照を解決可能にした。
   - `dbLinkIndexHasNull()`（新規）: `$Def_DBLinkRef` インデックスに null が含まれるか判定（ネスト対応）。
   - `resolveDbLinkSuffixRef()`: null 入りインデックスは複数レコードに一致し得るため、曖昧一致防止として **1 件一致のみ採用**するガードを追加（null を含まないインデックスは従来どおり先頭一致採用）。
 - **`data/Works_UnauthedLogica/DataBases/db_Primary.json`**: `AnotherRegions_DBLink` のインデックスキー誤り `"Num": "N"` / `"Num": "S"` → `"Drc": "N"` / `"Drc": "S"` を修正（SinisterChangingGirls/Primary のインデックスは `Drc`）。
