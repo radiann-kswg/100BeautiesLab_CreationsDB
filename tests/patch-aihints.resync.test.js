@@ -25,6 +25,8 @@ import {
     computeStructuralSourceHash,
     buildStructuralSnapshot,
     resyncStructuralAihints,
+    regenerateFormExports,
+    detectHumanAuthoredContent,
     loadMergedVarsDef,
 } from '../tools/patch-aihints.mjs';
 
@@ -44,6 +46,14 @@ function makeRecord(overrides = {}) {
                 BodyPart: ['#BodyPart_Hair'],
                 DesignElement: '#Element_Motif',
                 Attrs: [{ AttrLabel: '#DesignAttr_Overview', value_JP: '赤橙色の髪', value_EN: 'red orange hair' }],
+            },
+            // forms は AppearanceDetail の Formation 付きエントリから生成される。
+            // これが無いと forms が一切作られず、export の追従を検証できない。
+            {
+                Formation: 'corefolder',
+                BodyPart: ['#BodyPart_Chest'],
+                DesignElement: '#Element_NumberMark',
+                Attrs: [{ AttrLabel: '#DesignAttr_Color', value_JP: '赤', value_EN: 'red' }],
             },
         ],
         ColorPalette: [
@@ -76,6 +86,11 @@ function makeAihints(commonOverrides = {}, formOverrides = {}) {
                 outfit_features: ['HUMAN: 手で書いた衣装'],
                 immutable_constraints: [],
                 negative_keywords: [],
+                negative_visuals: [],
+                // 導出値。実データと同じくキーが存在する状態にしておく
+                // （regenerateFormExports は「キーがある場合のみ」再計算する）
+                prompt_export: '',
+                negative_prompt_export: '',
                 ...formOverrides,
             },
         },
@@ -207,5 +222,113 @@ describe('resyncStructuralAihints — 人の手仕上げを残したまま構造
         resyncStructuralAihints(aihints, makeRecord(), varsDef);
         expect(aihints._meta).toBeUndefined();
         expect(aihints.common.identity_tags).toEqual(['HUMAN: x']);
+    });
+});
+
+describe('regenerateFormExports — 導出値をソースから作り直す', () => {
+    /**
+     * `prompt_export` / `negative_prompt_export` は「ソース配列から TODO を除いて結合したもの」
+     * という導出値。再同期でタグだけ更新して export を据え置くと、**タグは新しいのに export は
+     * 古いまま**という不整合が起きる（実測: 身長 146→152cm でタグは 152cm、export は 146cm）。
+     */
+    it('ai_tags から prompt_export を再計算する', () => {
+        const form = { ai_tags: ['a', 'b'], prompt_export: '古い値' };
+        expect(regenerateFormExports(form)).toBe(true);
+        expect(form.prompt_export).toBe('a, b');
+    });
+
+    it('negative_visuals から negative_prompt_export を再計算する', () => {
+        const form = { negative_visuals: ['x', 'y'], negative_prompt_export: '' };
+        expect(regenerateFormExports(form)).toBe(true);
+        expect(form.negative_prompt_export).toBe('x, y');
+    });
+
+    it('TODO プレースホルダは export に含めない', () => {
+        const form = { ai_tags: ['a', 'TODO: 未定', 'b'], prompt_export: '' };
+        regenerateFormExports(form);
+        expect(form.prompt_export).toBe('a, b');
+    });
+
+    it('既に整合していれば変更しない', () => {
+        const form = { ai_tags: ['a'], prompt_export: 'a' };
+        expect(regenerateFormExports(form)).toBe(false);
+    });
+
+    it('再同期でタグが変われば prompt_export も追従する', () => {
+        const first = resyncStructuralAihints(makeAihints(), makeRecord(), varsDef).aihints;
+        const second = resyncStructuralAihints(first, makeRecord({ Height_cm: 152 }), varsDef).aihints;
+
+        for (const form of Object.values(second.forms)) {
+            const expected = form.ai_tags.filter(t => !t.startsWith('TODO:')).join(', ');
+            expect(form.prompt_export).toBe(expected);
+        }
+        expect(second.forms.corefolder.prompt_export).toContain('152cm');
+        expect(second.forms.corefolder.prompt_export).not.toContain('146cm');
+    });
+});
+
+describe('detectHumanAuthoredContent — --force から人の成果を守る', () => {
+    /**
+     * `--suggest --force` は AIHints を TODO 雛形へ全面上書きするため、User が手で仕上げた
+     * 創作内容を破壊する（当初相談された「ビルドすると巻き戻る」の震源）。provenance により
+     * ツール由来と人由来を区別できるようになったので、破壊の前に検出して止める。
+     */
+    it('ツールが生成しただけの AIHints では何も検出しない（--force を無用にブロックしない）', () => {
+        const record = makeRecord();
+        const generated = resyncStructuralAihints(makeAihints({}, {}), record, varsDef).aihints;
+        // 人手フィールドを空にする（純粋にツール生成物の状態）
+        generated.common.natural_language_description = null;
+        generated.forms.corefolder.outfit_features = [];
+
+        expect(detectHumanAuthoredContent(generated, record, varsDef)).toEqual([]);
+    });
+
+    it('人が書いた自然文サマリを検出する', () => {
+        const record = makeRecord();
+        const aihints = resyncStructuralAihints(makeAihints(), record, varsDef).aihints;
+        aihints.forms.corefolder.outfit_features = [];
+        aihints.common.natural_language_description = '手で書いた説明文';
+
+        expect(detectHumanAuthoredContent(aihints, record, varsDef))
+            .toContain('common.natural_language_description');
+    });
+
+    it('人が足したタグを検出する', () => {
+        const record = makeRecord();
+        const aihints = resyncStructuralAihints(makeAihints(), record, varsDef).aihints;
+        aihints.common.natural_language_description = null;
+        aihints.forms.corefolder.outfit_features = [];
+        aihints.common.identity_tags.push('HUMAN: 手編みのマフラー');
+
+        const found = detectHumanAuthoredContent(aihints, record, varsDef);
+        expect(found.some(p => p.startsWith('common.identity_tags'))).toBe(true);
+    });
+
+    it('TODO プレースホルダは人の成果とみなさない（未入力なので守る必要がない）', () => {
+        const record = makeRecord();
+        const aihints = resyncStructuralAihints(makeAihints(), record, varsDef).aihints;
+        aihints.common.natural_language_description = 'TODO: 1-sentence summary';
+        aihints.forms.corefolder.outfit_features = ['TODO: corefolder outfit key terms'];
+
+        expect(detectHumanAuthoredContent(aihints, record, varsDef)).toEqual([]);
+    });
+
+    it('導出値（prompt_export）は人の成果とみなさない（常に再生成できるため）', () => {
+        const record = makeRecord();
+        const aihints = resyncStructuralAihints(makeAihints(), record, varsDef).aihints;
+        aihints.common.natural_language_description = null;
+        aihints.forms.corefolder.outfit_features = [];
+        aihints.forms.corefolder.prompt_export = '何か古い文字列';
+
+        expect(detectHumanAuthoredContent(aihints, record, varsDef)).toEqual([]);
+    });
+
+    it('ColorPalette から導出できる palette_priority は人の成果とみなさない', () => {
+        const record = makeRecord();
+        const aihints = resyncStructuralAihints(makeAihints(), record, varsDef).aihints;
+        aihints.common.natural_language_description = null;
+        aihints.forms.corefolder.outfit_features = [];
+        // palette は ColorPalette 由来（構造由来）なので検出されない
+        expect(detectHumanAuthoredContent(aihints, record, varsDef)).toEqual([]);
     });
 });

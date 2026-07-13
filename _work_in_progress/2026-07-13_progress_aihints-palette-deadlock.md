@@ -310,6 +310,42 @@ Step 1 は単独で「`--force` を使わずに palette を埋められる」状
 
 PR 作成には GitHub リポジトリ設定の **「Allow GitHub Actions to create and approve pull requests」が有効である必要がある**。無効の場合は `gh pr create` が権限エラーで失敗するため、`notify-ai-dataset.yml` と同様に専用 PAT へ切り替える。
 
+## 実装結果（残課題の解消 / 2026-07-13）
+
+本ログで「残る課題」としていた 2 点を解消した。**当初 User から相談された「ビルドすると巻き戻る」の震源そのもの**である。
+
+### 1. `--force` の破壊を provenance で阻止
+
+`--suggest --force` は AIHints を TODO 雛形へ全面上書きするため、User が手で仕上げた創作内容を破壊していた。provenance が入ったことでツール由来と人由来を区別できるようになったので、**破壊の前に検出して止める**ようにした。
+
+- **`detectHumanAuthoredContent()`**（export）: 決定論ビルダーが生成しうる文字列と `_meta.structuralEntries` の記録をツール由来とみなし、それ以外の非 TODO 文字列を人が書いたものと判定する。導出値（`prompt_export`）と `ColorPalette` から導出できる `palette_priority` は検出対象から外し、無用なブロックを避ける。
+- 検出したレコードは `blocked-human-content` として上書きを中止し、`--resync-structural` の使用をコマンド付きで案内する。それでも作り直す場合のみ `--force-destructive` を明示する。
+
+**実測**:
+
+| 状態 | `--suggest --force --apply` の結果 |
+| --- | --- |
+| 人の成果なし（ツール生成物のみ） | 従来どおり上書きされる（`overwritten=1`） |
+| 自然文サマリ・衣装描写 を手入力済み | **ブロックされ、両方とも残る**（従来は消えていた） |
+
+### 2. `prompt_export` の陳腐化（実バグ）
+
+`prompt_export` / `negative_prompt_export` は「ソース配列（`ai_tags` / `negative_visuals`）から TODO を除いて `, ` で結合したもの」という**導出値**なのに、`--resync-structural` がタグだけ更新して export を据え置いていた。
+
+**実測**: 身長を 146cm → 152cm に変えると `ai_tags` は `"average stature (about 152cm)"` になるが、`prompt_export` は `"short stature (about 146cm)"` のまま残っていた。**生成 AI へ渡る文字列が実データと食い違う**実害がある。
+
+`regenerateFormExports()`（export）で常にソースから作り直し、再同期の最後に全 form へ適用するようにした。
+
+### 検証
+
+- `npm test` 全件成功（36 ファイル / 425 件）。回帰テスト 11 件を追加（計 26 件）。
+- CI ワークフローが `addon-ai-tag` への push で**実際に起動・成功**することを確認（構造ソース無変更のため no-op で停止し、PR は作られない = 設計どおり）。
+
+### 判明した制約
+
+- **`workflow_dispatch` は使えない**: GitHub の仕様上、手動実行はデフォルトブランチ（`develop`）にワークフローファイルが存在しないと利用できない。本ワークフローは AIHints 専用のため `addon-ai-tag` 限定であり、手動実行は機能しない（未使用だった `force` 入力は削除した）。手動で再同期したい場合はローカル実行して通常の PR を出す。
+- **リポジトリ設定は API から確認できなかった**: 現行トークン（fine-grained PAT）に admin 権限が無く `403` になる。User が「Allow GitHub Actions to create and approve pull requests」を有効化済み。実際の PR 作成は、構造ソースが変わる次回の push で初めて検証される。
+
 ### 残る課題
 
 - **`--suggest --force` そのものは依然として全面上書き**（TODO 雛形への巻き戻し）。`--resync-structural` はその安全な代替として使う運用とする。

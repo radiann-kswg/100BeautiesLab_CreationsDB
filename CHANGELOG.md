@@ -1,5 +1,19 @@
 # 最新のリファクタリング・仕様変更履歴
 
+### fix(addon-ai-tag): `--force` の破壊を provenance で阻止 + `prompt_export` の陳腐化を修正 (2026-07-13)
+
+AIHints 再ビルド問題の**最後の 2 点**。当初 User から相談された「ビルドすると `TODO:` 状態に巻き戻って既存の AIHints が失われる」の**震源そのもの**を塞いだ。
+
+- **`--force` が人の成果を破壊する問題（震源）**: `--suggest --force` は AIHints を TODO 雛形へ全面上書きするため、User が手で仕上げた創作内容（衣装描写・自然文サマリ・独自タグ）を破壊していた。provenance（`_meta`）が入ったことで**ツール由来と人由来の文字列を区別できる**ようになったため、破壊の前に検出して止めるようにした。
+  - **`detectHumanAuthoredContent()`**（新規 / export）: 決定論ビルダーが生成しうる文字列と `_meta.structuralEntries` の記録をツール由来とみなし、**それ以外の非 TODO 文字列を人が書いたもの**と判定する。導出値（`prompt_export`）と `ColorPalette` から導出できる `palette_priority` は検出対象から除外し、無用なブロックを避ける。
+  - 人の成果を検出したレコードは `blocked-human-content` として**上書きを中止**し、`--resync-structural`（人の手仕上げを残したまま構造だけ最新化）の使用を具体的なコマンド付きで案内する。それでも作り直す場合のみ **`--force-destructive`** を明示する。
+  - 実測: 人の成果が無ければ `--force` は従来どおり通る（`overwritten=1`）。自然文サマリと衣装描写を仕込むと `--force --apply` を打っても**両方とも残る**（従来は消えていた）。
+- **`prompt_export` / `negative_prompt_export` の陳腐化（実バグ）**: この 2 つは「ソース配列（`ai_tags` / `negative_visuals`）から TODO を除いて `, ` で結合したもの」という**導出値**なのに、`--resync-structural` がタグだけ更新して export を据え置いていた。結果、**タグは新しいのに export は古いまま**という不整合が発生していた（実測: 身長 146cm → 152cm でタグは "152cm"、`prompt_export` は "146cm" のまま）。生成 AI へ渡る文字列が実データと食い違う実害がある。
+  - **`regenerateFormExports()`**（新規 / export）で常にソースから作り直し、再同期の最後に全 form へ適用する。
+- **`.github/workflows/aihints-structural-resync.yml`**: 未使用だった `workflow_dispatch` の `force` 入力を削除。GitHub の仕様上 `workflow_dispatch` は**デフォルトブランチにワークフローが存在しないと利用できない**が、本ワークフローは AIHints 専用のため `addon-ai-tag` 限定であり、手動実行は機能しない。その旨をファイル冒頭に明記し、手動時はローカル実行して通常の PR を出す手順を案内した。
+- **`tests/patch-aihints.resync.test.js` に 11 件追加**（計 26 件）: export がタグに追従すること、TODO を export に含めないこと、ツール生成物だけの AIHints を無用にブロックしないこと、人の自然文サマリ・独自タグを検出すること、TODO / 導出値 / `ColorPalette` 由来の palette を人の成果とみなさないこと。
+- 確認: `npm test` 全件成功（36 ファイル / 425 件）。CI ワークフローは `addon-ai-tag` への push で実際に起動・成功することを確認済み（構造ソース無変更のため no-op で停止）。
+
 ### feat(addon-ai-tag): 構造的再同期の CI 自動化（差分が出たら PR を立てる） (2026-07-13)
 
 [2026-07-08 の設計提案](_work_in_progress/2026-07-08_progress_aihints-structural-resync-proposal.md) の合意事項2 の実装。DB の構造ソースが変わったとき、CI が AIHints の構造由来部分だけを再同期し、**差分が出た場合のみ PR を立てる**（`addon-ai-tag` への直接 auto-commit はしない）。

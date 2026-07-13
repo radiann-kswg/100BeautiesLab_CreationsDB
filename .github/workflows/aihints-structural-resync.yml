@@ -13,6 +13,11 @@ name: AIHints 構造的再同期
 #   AIHints._meta.structuralSourceHash が一致すれば no-op になる。よって 2 周目は差分ゼロとなり
 #   PR は作られずに停止する（= 第1階の冪等性がそのまま安全装置になっている）。
 
+# 手動実行（workflow_dispatch）は用意していない。GitHub の仕様上、workflow_dispatch は
+# **デフォルトブランチ（develop）にワークフローファイルが存在しないと利用できない**が、
+# 本ワークフローは AIHints 専用のため `addon-ai-tag` 限定で保持している（CLAUDE.md のブランチ運用方針）。
+# 手動で再同期したい場合は、ローカルで次を実行して通常の PR を出す:
+#   node tools/patch-aihints.mjs --work <Work> --db <Db> --all --resync-structural --apply
 on:
   push:
     branches:
@@ -20,12 +25,6 @@ on:
     paths:
       # AIHints の構造ソースは DB 本体にある。画像やドキュメントの変更では走らせない。
       - "data/Works_*/DataBases/db_*.json"
-  workflow_dispatch:
-    inputs:
-      force:
-        description: "構造ソースが無変更でも再同期を試す（通常は不要）"
-        type: boolean
-        default: false
 
 # 同一ブランチで連続 push されたとき、PR ブランチへの force-push が競合しないよう直列化する。
 concurrency:

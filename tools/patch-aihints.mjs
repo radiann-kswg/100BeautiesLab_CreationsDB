@@ -67,6 +67,7 @@ const PUBLIC_ORIGIN = 'https://database.numbertales-radiann.net';
  * @property {boolean} rewriteCorefolderNld  true なら corefolder.natural_language_description を球体本体テンプレで再生成する（humanoid 衣装語を排除）
  * @property {boolean} forceRewriteNld  true なら既に確定済みのテンプレ風 NLD も上書き対象にする
  * @property {boolean} genVisionTasks  true なら視覚 TODO のあるレコードの画像リストを .cache/vision-tasks.json に出力して終了
+ * @property {boolean} forceDestructive  true なら人が書いた内容があっても --force の全面上書きを許可する
  * @property {boolean} resyncStructural  true なら構造由来の部分だけを再同期する（人の手仕上げは残す）
  * @property {boolean} applyColorPalette  true なら DB の ColorPalette から palette_priority を機械導出する
  * @property {boolean} forcePalette  true なら既存の palette_priority 確定値も上書きする
@@ -96,6 +97,7 @@ function parseArgs(argv) {
         rewriteCorefolderNld: false,
         forceRewriteNld: false,
         genVisionTasks: false,
+        forceDestructive: false,
         resyncStructural: false,
         applyColorPalette: false,
         forcePalette: false,
@@ -124,6 +126,7 @@ function parseArgs(argv) {
             case '--force-rewrite-nld': opts.forceRewriteNld = true; break;
             case '--apply-appearancedetail': opts.applyAppearanceDetail = true; break;
             case '--gen-vision-tasks': opts.genVisionTasks = true; break;
+            case '--force-destructive': opts.forceDestructive = true; break;
             case '--resync-structural': opts.resyncStructural = true; break;
             case '--apply-colorpalette': opts.applyColorPalette = true; break;
             case '--force-palette': opts.forcePalette = true; break;
@@ -179,6 +182,9 @@ Options:
   --all               全レコード対象
   --apply             実書き込み（指定しない場合は dry-run）
   --force             既存 AIHints がある場合も上書き
+                      ※ 人が書いた内容が残っているレコードは安全のためブロックされる
+                        （構造だけ最新化したいなら --resync-structural を使う）
+  --force-destructive --force のブロックを解除し、人が書いた内容ごと上書きする（要注意）
   --suggest           TailsUnit / GenderType / Character 等から候補値を自動導出して埋める（半自動）
                       視覚情報が必要な項目（palette / 髪・目など）は TODO / 翻訳ヒント形式で残す
   --fix-refs          既存 AIHints の reference_images だけを再構築する（タグ・テキストは保持）
@@ -2070,6 +2076,118 @@ export function buildStructuralSnapshot(record, varsDef) {
 }
 
 /**
+ * AIHints の中に「人が書いた内容」が含まれているかを検出する。
+ *
+ * `--suggest --force` は AIHints を TODO 雛形へ全面上書きするため、User が手で仕上げた
+ * 創作内容（衣装描写・自然文サマリ・独自タグなど）を破壊する。これが当初 User から
+ * 相談された「ビルドすると巻き戻る」の震源である。provenance（`_meta`）が入ったことで、
+ * **ツール由来の文字列と人由来の文字列を区別できる**ようになったため、破壊の前に検出して止める。
+ *
+ * 判定:
+ *   - 決定論ビルダー（`buildAihintsFromAppearanceDetail`）が生成しうる文字列 → ツール由来
+ *   - `_meta.structuralEntries` に記録された文字列 → ツール由来
+ *   - `TODO:` プレースホルダ → 未入力（人の成果ではない）
+ *   - **それ以外の非空文字列 → 人が書いたものとみなす**
+ *
+ * 導出値（`prompt_export` / `negative_prompt_export`）は `regenerateFormExports()` で
+ * 常に作り直せるため検出対象から外す。
+ *
+ * @param {any} aihints
+ * @param {any} record
+ * @param {Record<string, any>} varsDef
+ * @returns {string[]} 人が書いたとみなした内容のパス（空なら人の成果は無い）
+ */
+export function detectHumanAuthoredContent(aihints, record, varsDef) {
+    if (!aihints || typeof aihints !== 'object') return [];
+
+    /** 導出値。ソースから再生成できるので保護対象にしない */
+    const DERIVED_KEYS = new Set(['prompt_export', 'negative_prompt_export']);
+
+    let canonical = {};
+    try {
+        canonical = buildAihintsFromAppearanceDetail(JSON.parse(JSON.stringify(record)), varsDef).aihints ?? {};
+    } catch {
+        canonical = {};
+    }
+
+    // ツール由来と判定してよい文字列の集合（ビルダー出力 + provenance の記録）
+    const toolStrings = new Set();
+    const collect = (node) => {
+        if (typeof node === 'string') { toolStrings.add(node); return; }
+        if (Array.isArray(node)) { node.forEach(collect); return; }
+        if (node && typeof node === 'object') Object.values(node).forEach(collect);
+    };
+    collect(canonical);
+    for (const list of Object.values(aihints._meta?.structuralEntries ?? {})) {
+        if (Array.isArray(list)) list.forEach(s => toolStrings.add(s));
+    }
+
+    const derivedPalette = derivePaletteFromColorPalette(record);
+    const found = [];
+
+    /** 文字列 1 件を判定する */
+    const check = (value, path) => {
+        if (typeof value !== 'string') return;
+        const text = value.trim();
+        if (!text || text.startsWith('TODO:') || text.startsWith('[TRANSLATE')) return;
+        if (toolStrings.has(value)) return;
+        found.push(path);
+    };
+
+    const walk = (node, path) => {
+        if (node === null || node === undefined) return;
+        if (typeof node === 'string') { check(node, path); return; }
+        if (Array.isArray(node)) { node.forEach((v, i) => walk(v, `${path}[${i}]`)); return; }
+        if (typeof node !== 'object') return;
+        for (const [key, value] of Object.entries(node)) {
+            if (DERIVED_KEYS.has(key)) continue;
+            if (key === '_meta' || key === 'reference_images') continue; // 内部情報 / URL
+            if (path === 'common' && key === 'palette_priority') {
+                // ColorPalette から導出できる値なら人の成果ではない
+                if (derivedPalette && JSON.stringify(value) === JSON.stringify(derivedPalette)) continue;
+            }
+            walk(value, path ? `${path}.${key}` : key);
+        }
+    };
+    walk(aihints, '');
+
+    return found;
+}
+
+/**
+ * form の `prompt_export` / `negative_prompt_export` をソース配列から再計算する。
+ *
+ * この 2 つは **導出値** であり、それぞれ `ai_tags` / `negative_visuals` から TODO を除いて
+ * `, ` で結合したものと定義されている（scaffold 生成時の実装と同じ規則）。
+ * ところが再同期でタグだけを更新しても export は据え置かれていたため、
+ * **タグは新しいのに export は古いまま**という不整合が発生していた
+ * （実測: 身長を 146cm → 152cm に変えると `ai_tags` は "152cm" になるのに
+ *  `prompt_export` は "146cm" のまま残る）。導出値である以上、常にソースから作り直す。
+ *
+ * @param {any} form  AIHints の forms.<name>（in-place で更新する）
+ * @returns {boolean} 変更があれば true
+ */
+export function regenerateFormExports(form) {
+    if (!form || typeof form !== 'object') return false;
+    let changed = false;
+
+    /** TODO を除いて結合する（scaffold 生成時と同じ規則） */
+    const join = (arr) => (Array.isArray(arr) ? arr : [])
+        .filter(t => typeof t === 'string' && !t.startsWith('TODO:'))
+        .join(', ');
+
+    if ('prompt_export' in form) {
+        const next = join(form.ai_tags);
+        if (form.prompt_export !== next) { form.prompt_export = next; changed = true; }
+    }
+    if ('negative_prompt_export' in form) {
+        const next = join(form.negative_visuals);
+        if (form.negative_prompt_export !== next) { form.negative_prompt_export = next; changed = true; }
+    }
+    return changed;
+}
+
+/**
  * ドットパス（`forms.corefolder.ai_tags` 等）で AIHints 内の配列を読み書きするヘルパー。
  * @param {any} root
  * @param {string} path
@@ -2174,6 +2292,12 @@ export function resyncStructuralAihints(aihints, record, varsDef, opts = {}) {
             target.parent[target.key] = value;
             changed = true;
         }
+    }
+
+    // ── 導出値（prompt_export / negative_prompt_export）をソース配列から作り直す。
+    // ai_tags を差し替えたのに export が古いままだと、生成 AI へ渡る文字列が実データと食い違う。
+    for (const form of Object.values(a.forms ?? {})) {
+        if (regenerateFormExports(form)) changed = true;
     }
 
     // ── provenance を更新
@@ -3507,6 +3631,24 @@ function patchFileText(text, opts) {
             continue;
         }
 
+        // --force による全面上書きは AIHints を TODO 雛形へ巻き戻すため、User が手で仕上げた
+        // 創作内容を破壊する（当初相談された「ビルドすると巻き戻る」の震源）。provenance が
+        // 入ったことでツール由来と人由来を区別できるようになったので、破壊の前に止める。
+        // 構造だけ最新化したいなら --resync-structural を使う（人の手仕上げは残る）。
+        if (hasAihints && opts.force && !opts.forceDestructive) {
+            const humanContent = detectHumanAuthoredContent(
+                record.AIHints, record, loadMergedVarsDef(opts.work),
+            );
+            if (humanContent.length) {
+                results.push({
+                    num,
+                    status: 'blocked-human-content',
+                    note: `人が書いた内容 ${humanContent.length} 件: ${humanContent.slice(0, 3).join(', ')}${humanContent.length > 3 ? ' ...' : ''}`,
+                });
+                continue;
+            }
+        }
+
         const imageInfo = resolveImageInfo(record, opts.work, opts.db);
         const hasAnyImage = imageInfo.corefolderUrl !== null
             || imageInfo.humanoidImages.length > 0
@@ -3713,6 +3855,22 @@ function main() {
         .sort(([a], [b]) => a.localeCompare(b))
         .map(([status, count]) => `${status}=${count}`);
     console.log(`  ${tally.length ? tally.join(', ') : '（対象なし）'}`);
+
+    // --force が人の成果を守るためにブロックした場合、次に何をすべきかを明示する。
+    // ここを黙って素通りさせると「なぜ上書きされないのか」が分からず、結局
+    // --force-destructive を安易に足してしまう。
+    if (counts['blocked-human-content']) {
+        const blocked = results.filter(r => r.status === 'blocked-human-content');
+        console.warn(`\n⚠ ${blocked.length} 件のレコードで、人が書いた内容を検出したため上書きを中止しました。`);
+        for (const r of blocked.slice(0, 5)) {
+            console.warn(`   #${r.num}: ${r.note}`);
+        }
+        if (blocked.length > 5) console.warn(`   ...ほか ${blocked.length - 5} 件`);
+        console.warn('\n   構造（TailsUnit / AppearanceDetail / ColorPalette 等）だけを最新化したい場合は、');
+        console.warn('   人の手仕上げを残したまま再同期できる --resync-structural を使ってください:');
+        console.warn(`     node tools/patch-aihints.mjs --work ${opts.work} --db ${opts.db} --all --resync-structural --apply`);
+        console.warn('\n   それでも人が書いた内容ごと作り直す場合のみ --force-destructive を付けてください。');
+    }
     if (opts.verbose || !opts.apply) {
         for (const r of results) {
             const note = r.note ? `  // ${r.note}` : '';
