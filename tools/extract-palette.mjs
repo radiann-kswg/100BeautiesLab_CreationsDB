@@ -372,6 +372,367 @@ export function buildForegroundMask(img, opts = {}) {
 }
 
 // ────────────────────────────────────────────────────────────────────────────
+// カラーチップ（設定画に描かれた配色見本）の検出
+// ────────────────────────────────────────────────────────────────────────────
+
+/**
+ * 設定画（concept / catalog）に描き込まれたカラーチップを検出する。
+ *
+ * ナンバーテールズの設定画には「Color:」ラベルとともに **5〜6 色のカラーチップ**
+ * （べた塗りの円）が描かれており、これが作者の指定した配色そのものである。
+ * カタログ画像ではさらに `0x00b6d9` のような HEX コードが併記されている。
+ * 画像全体からの median-cut 推定より遥かに正確なため、こちらを優先して使う。
+ *
+ * 検出方針:
+ *   1. 背景（ほぼ白）/ 線画（暗色）/ 有色 に分類する。
+ *   2. **同色（近似）の平坦領域**を連結成分として抽出する。単純な「有色の連結成分」では、
+ *      チップ同士が重なって描かれている場合（例: Num 48）に全部が 1 つの塊に融合して
+ *      しまうため、色が変わる境界で成分を切る。
+ *   3. 線画に接する成分を捨てる（キャラクター本体は必ず黒で輪郭線が引かれているため、
+ *      これだけで本体の塗りを除外できる）。
+ *   4. 収縮（erosion）で消える細い成分を捨てる（手描き注釈のストロークを除去）。
+ *   5. 残った成分を空間クラスタリングし、「サイズの揃った 3〜8 個が密集している」
+ *      クラスタをチップ列として採用する。
+ *
+ * @param {DecodedImage} img
+ * @param {{ tol?: number, minPx?: number, mergeTol?: number, erode?: number }} [opt]
+ *        tol: 同色とみなす RGB 距離 / minPx: 最小面積 / mergeTol: 同色チップの統合距離 /
+ *        erode: 細い手描きストロークを落とす収縮回数
+ * @returns {Array<{ hex: string, count: number, cx: number, cy: number }>} 検出したチップ（0 個なら空配列）
+ */
+export function detectSwatchChips(img, opt = {}) {
+    const { width: W, height: H, data } = img;
+    const n = W * H;
+    const tol = opt.tol ?? 12;
+    // 既定 30px（半径 ~3px）。作品によってはカラーチップの丸が小さく描かれており、
+    // これを大きくすると小さいチップを取りこぼす（実測: 64px だと Num 68/86/94 が検出 0 になる）。
+    const minPx = opt.minPx ?? 30;
+    // 領域内での救済に使う下限。第2段（パレット領域の再捜査）でのみ効く。
+    // 領域を絞ったうえでの下限なので、かなり小さく取ってよい（作品によってはチップの丸が
+    // 非常に小さく描かれる。実測: 14 → 8 で検出できるレコードが 92 → 93 件に増える）。
+    const minPxLoose = opt.minPxLoose ?? 8;
+    // 「同じチップが重なり・アンチエイリアスで分割検出されたもの」を統合するための距離。
+    // 分割された断片はべた塗りゆえ **色が完全一致** するので、しきい値は小さくてよい。
+    // 大きくすると、淡い配色（色空間で互いに近い）で **別々のチップを 1 つに潰してしまう**
+    // （実測: 12 だと Num 12/21 の #FEF3D9 が #FFEFE4 と統合されて消える。両者の距離は 11.75）。
+    const mergeTol = opt.mergeTol ?? 6;
+    const erode = opt.erode ?? 2;
+
+    const BG = 0, DARK = 1, COLOR = 2;
+    const kind = new Uint8Array(n);
+    for (let i = 0; i < n; i++) {
+        if (data[i * 4 + 3] < 128) { kind[i] = BG; continue; }
+        const { s, v } = rgbToHsv(data[i * 4], data[i * 4 + 1], data[i * 4 + 2]);
+        if (v > 0.94 && s < 0.06) kind[i] = BG;
+        else if (v < 0.30) kind[i] = DARK;
+        else kind[i] = COLOR;
+    }
+
+    const label = new Int32Array(n).fill(-1);
+    /** @type {Array<{hex: string, count: number, cx: number, cy: number, rad: number}>} */
+    const chips = [];
+
+    for (let i = 0; i < n; i++) {
+        if (kind[i] !== COLOR || label[i] >= 0) continue;
+        const r0 = data[i * 4], g0 = data[i * 4 + 1], b0 = data[i * 4 + 2];
+        const id = chips.length;
+        const stack = [i];
+        label[i] = id;
+        /** @type {number[]} */ const px = [];
+        let minX = W, maxX = 0, minY = H, maxY = 0, touchesDark = false;
+
+        while (stack.length) {
+            const p = stack.pop();
+            px.push(p);
+            const x = p % W, y = (p / W) | 0;
+            if (x < minX) minX = x;
+            if (x > maxX) maxX = x;
+            if (y < minY) minY = y;
+            if (y > maxY) maxY = y;
+            const neighbors = [x > 0 ? p - 1 : -1, x < W - 1 ? p + 1 : -1, y > 0 ? p - W : -1, y < H - 1 ? p + W : -1];
+            for (const q of neighbors) {
+                if (q < 0) continue;
+                if (kind[q] === DARK) { touchesDark = true; continue; }
+                if (kind[q] !== COLOR || label[q] >= 0) continue;
+                const dr = data[q * 4] - r0, dg = data[q * 4 + 1] - g0, db = data[q * 4 + 2] - b0;
+                if (Math.sqrt(dr * dr + dg * dg + db * db) > tol) continue; // 色が変わる境界で切る
+                label[q] = id;
+                stack.push(q);
+            }
+        }
+
+        if (touchesDark || px.length < minPxLoose) continue;
+
+        // 成分を 2 段階に格付けする:
+        //   strict … 収縮 `erode` 回に耐える十分な大きさの塊。パレット領域の特定に使う。
+        //   round  … 収縮 1 回に耐え、円形でべた塗り。領域内に限り小さなチップとして救う。
+        // カラーチップは大小が不揃いに描かれることがあり（例: Num 75 は大きい黄色が半径 11.8px、
+        // 青が 3.7px）、収縮回数だけで足切りすると小さいチップを取りこぼす。一方で収縮を一律に
+        // 緩めるとノイズを拾ってクラスタ選定が乱れるため、救済は領域内に限定する。
+        const bw = maxX - minX + 1, bh = maxY - minY + 1;
+        const fill = px.length / (bw * bh);
+        const aspect = bw / bh;
+        const round = fill >= 0.55 && aspect >= 0.55 && aspect <= 1.8;
+
+        let cur = new Set(px);
+        let survived = 0;
+        for (let k = 0; k < erode && cur.size; k++) {
+            const next = new Set();
+            for (const p of cur) {
+                const x = p % W, y = (p / W) | 0;
+                if (x > 0 && cur.has(p - 1) && x < W - 1 && cur.has(p + 1) &&
+                    y > 0 && cur.has(p - W) && y < H - 1 && cur.has(p + W)) next.add(p);
+            }
+            cur = next;
+            if (cur.size) survived = k + 1;
+        }
+
+        const strict = survived >= erode && px.length >= minPx;
+        const rescuable = survived >= 1 && round;
+        if (!strict && !rescuable) continue;
+
+        chips.push({
+            hex: toHex(r0, g0, b0),
+            count: px.length,
+            cx: (minX + maxX) / 2,
+            cy: (minY + maxY) / 2,
+            rad: Math.sqrt(px.length / Math.PI),
+            strict,
+            round,
+        });
+    }
+
+    const strict = chips.filter(c => c.strict);
+    if (!strict.length) return [];
+
+    // ── 第1段: 確実なチップだけで空間クラスタリングし、パレット領域を特定する
+    const used = new Array(strict.length).fill(false);
+    /** @type {Array<typeof strict>} */
+    const clusters = [];
+    for (let i = 0; i < strict.length; i++) {
+        if (used[i]) continue;
+        const cluster = [strict[i]];
+        used[i] = true;
+        let grew = true;
+        while (grew) {
+            grew = false;
+            for (let j = 0; j < strict.length; j++) {
+                if (used[j]) continue;
+                const near = cluster.some(c =>
+                    Math.hypot(c.cx - strict[j].cx, c.cy - strict[j].cy) < Math.max(c.rad, strict[j].rad) * 7);
+                if (near) { cluster.push(strict[j]); used[j] = true; grew = true; }
+            }
+        }
+        clusters.push(cluster);
+    }
+
+    // 「チップらしい」クラスタを選ぶ: 3〜8 個が密集している
+    let best = [], bestScore = -1;
+    for (const cluster of clusters) {
+        const radii = cluster.map(c => c.rad).sort((a, b) => a - b);
+        const median = radii[radii.length >> 1];
+        const kept = cluster.filter(c => c.rad >= median * 0.25 && c.rad <= median * 4);
+        if (kept.length < 2 || kept.length > 8) continue;
+
+        let sum = 0, pairs = 0;
+        for (let a = 0; a < kept.length; a++) {
+            for (let b = a + 1; b < kept.length; b++) {
+                sum += Math.hypot(kept[a].cx - kept[b].cx, kept[a].cy - kept[b].cy);
+                pairs++;
+            }
+        }
+        const spread = pairs ? (sum / pairs) / median : 0;
+        if (spread > 9) continue;
+
+        const score = kept.length * 10 - spread;
+        if (score > bestScore) { bestScore = score; best = kept; }
+    }
+    if (!best.length) return [];
+
+    // ── 第2段: 特定したパレット領域の**中だけ**を、前処理の色分類を外して再捜査する。
+    //
+    // 第1段の分類（背景 = ほぼ白 / 線画 = 暗色）は画像全体を相手にするための安全策だが、
+    // その副作用としてチップ自体も落としてしまう:
+    //   - **淡い色のチップ**が「ほぼ白 = 背景」に分類されて消える
+    //   - **黒に近いチップ**が「暗色 = 線画」に分類されて消える（例: Num 19）
+    // 配色見本は 1 箇所にまとめて描かれるため、いったん領域を特定してしまえば、その中には
+    // チップ・白い紙面・（あれば）手描き注釈しか無い。よって領域内では色による足切りをやめ、
+    // 「紙面の白」だけを除いて、形（円形・べた塗り）でチップを拾う。
+    const radii = best.map(c => c.rad).sort((a, b) => a - b);
+    const medianRad = radii[radii.length >> 1];
+    const margin = Math.max(medianRad * 5, 28);
+    const x0 = Math.max(0, Math.round(Math.min(...best.map(c => c.cx)) - margin));
+    const x1 = Math.min(W - 1, Math.round(Math.max(...best.map(c => c.cx)) + margin));
+    const y0 = Math.max(0, Math.round(Math.min(...best.map(c => c.cy)) - margin));
+    const y1 = Math.min(H - 1, Math.round(Math.max(...best.map(c => c.cy)) + margin));
+
+    const rescanned = rescanPaletteRegion(img, { x0, x1, y0, y1 }, { minPx: minPxLoose });
+    const pool = rescanned.length >= best.length ? rescanned : best;
+
+    // 同一チップが分割検出された場合（重なり・アンチエイリアス）に近似色を統合する
+    /** @type {Array<{hex: string, count: number, cx: number, cy: number}>} */
+    const merged = [];
+    for (const chip of pool.slice().sort((a, b) => b.count - a.count)) {
+        const dup = merged.find(m => {
+            const [r1, g1, b1] = hexToRgb(m.hex);
+            const [r2, g2, b2] = hexToRgb(chip.hex);
+            return Math.sqrt((r1 - r2) ** 2 + (g1 - g2) ** 2 + (b1 - b2) ** 2) <= mergeTol;
+        });
+        if (dup) dup.count += chip.count;
+        else merged.push({ hex: chip.hex, count: chip.count, cx: chip.cx, cy: chip.cy });
+    }
+    return merged.slice(0, 8);
+}
+
+/**
+ * 特定済みのパレット領域を、色による足切りをせずに再捜査する。
+ *
+ * 領域内には「チップ / 紙面の白 / 手描き注釈」しか無い前提で、
+ *   - 紙面の白（領域の外周に接する最大の連結成分）だけを除外し、
+ *   - 残りから円形でべた塗りの成分をチップとして拾う。
+ * これにより、明度・彩度で足切りすると消えてしまう**淡い色**や**黒に近い色**の
+ * チップも検出できる。
+ *
+ * @param {DecodedImage} img
+ * @param {{x0: number, x1: number, y0: number, y1: number}} region
+ * @param {{ tol?: number, minPx?: number }} [opt]
+ * @returns {Array<{ hex: string, count: number, cx: number, cy: number, rad: number }>}
+ */
+export function rescanPaletteRegion(img, region, opt = {}) {
+    const { width: W, data } = img;
+    const tol = opt.tol ?? 10;
+    const minPx = opt.minPx ?? 14;
+    const { x0, x1, y0, y1 } = region;
+    const rw = x1 - x0 + 1, rh = y1 - y0 + 1;
+    if (rw <= 0 || rh <= 0) return [];
+
+    const idxOf = (x, y) => (y - y0) * rw + (x - x0);
+    const label = new Int32Array(rw * rh).fill(-1);
+    /** @type {Array<any>} */
+    const comps = [];
+
+    for (let y = y0; y <= y1; y++) {
+        for (let x = x0; x <= x1; x++) {
+            const li = idxOf(x, y);
+            if (label[li] >= 0) continue;
+            const p0 = (y * W + x) * 4;
+            if (data[p0 + 3] < 128) { label[li] = -2; continue; } // 透過
+            const r0 = data[p0], g0 = data[p0 + 1], b0 = data[p0 + 2];
+
+            const id = comps.length;
+            const stack = [[x, y]];
+            label[li] = id;
+            let count = 0, minX = x, maxX = x, minY = y, maxY = y, touchesEdge = false;
+
+            while (stack.length) {
+                const [cx, cy] = stack.pop();
+                count++;
+                if (cx < minX) minX = cx;
+                if (cx > maxX) maxX = cx;
+                if (cy < minY) minY = cy;
+                if (cy > maxY) maxY = cy;
+                if (cx === x0 || cx === x1 || cy === y0 || cy === y1) touchesEdge = true;
+
+                const neighbors = [[cx - 1, cy], [cx + 1, cy], [cx, cy - 1], [cx, cy + 1]];
+                for (const [nx, ny] of neighbors) {
+                    if (nx < x0 || nx > x1 || ny < y0 || ny > y1) continue;
+                    const nli = idxOf(nx, ny);
+                    if (label[nli] !== -1) continue;
+                    const np = (ny * W + nx) * 4;
+                    if (data[np + 3] < 128) { label[nli] = -2; continue; }
+                    const dr = data[np] - r0, dg = data[np + 1] - g0, db = data[np + 2] - b0;
+                    if (Math.sqrt(dr * dr + dg * dg + db * db) > tol) continue;
+                    label[nli] = id;
+                    stack.push([nx, ny]);
+                }
+            }
+
+            const bw = maxX - minX + 1, bh = maxY - minY + 1;
+            comps.push({
+                hex: toHex(r0, g0, b0), count, touchesEdge,
+                cx: (minX + maxX) / 2, cy: (minY + maxY) / 2,
+                fill: count / (bw * bh), aspect: bw / bh,
+                rad: Math.sqrt(count / Math.PI),
+                isWhite: rgbToHsv(r0, g0, b0).v > 0.93 && rgbToHsv(r0, g0, b0).s < 0.05,
+            });
+        }
+    }
+
+    // 紙面の白を除外する。純白（#FFFFFF ごく近傍）だけを落とし、**淡い色のチップは残す**
+    // （カタログの中間色には `0xf4fae8` のようなほぼ白の色が実在するため、
+    //  「明るい＝背景」で足切りすると正規のチップまで消えてしまう）。
+    const isPaperWhite = (hex) => {
+        const [r, g, b] = hexToRgb(hex);
+        return Math.sqrt((255 - r) ** 2 + (255 - g) ** 2 + (255 - b) ** 2) < 10;
+    };
+
+    // 形状条件は緩めに取る。チップが密に重なって描かれていると、隠れていない部分が
+    // 三日月形になり、厳しい円形条件では弾かれてしまう（例: Num 40）。
+    // パレット領域はすでに特定済みで、中にはチップと紙面しか無いため、
+    // ここで条件を緩めても手描き注釈などを拾う危険は小さい。
+    const fillMin = opt.fillMin ?? 0.35;
+    const aspectMin = opt.aspectMin ?? 0.35;
+    const aspectMax = opt.aspectMax ?? 3.0;
+
+    return comps
+        .filter(c => !isPaperWhite(c.hex))
+        .filter(c => c.count >= minPx)
+        .filter(c => c.fill >= fillMin && c.aspect >= aspectMin && c.aspect <= aspectMax)
+        .sort((a, b) => b.count - a.count);
+}
+
+/**
+ * `#RRGGBB` を [r, g, b] へ変換する。
+ * @param {string} hex
+ * @returns {[number, number, number]}
+ */
+export function hexToRgb(hex) {
+    const m = /^#?([0-9A-Fa-f]{6})/.exec(hex);
+    if (!m) return [0, 0, 0];
+    const v = parseInt(m[1], 16);
+    return [(v >> 16) & 255, (v >> 8) & 255, v & 255];
+}
+
+/**
+ * パレット各色が、キャラクター画像の前景をどれだけ占めているかを実測する。
+ *
+ * カラーチップは「どの色が使われているか」は教えてくれるが「どれが主色か」は教えて
+ * くれない。そこで実際の作画を測り、被覆率の高い順に主従を決める。
+ * 画像全体からの median-cut 推定と違い、**色そのものは作者指定のチップ値をそのまま使う**。
+ *
+ * @param {DecodedImage} img       キャラクター画像（arts / corefolder）
+ * @param {string[]} paletteHexes  チップから得た配色
+ * @param {{ maxDist?: number, sampleStep?: number }} [opt]
+ *        maxDist: この距離より遠い画素はどの色にも数えない
+ * @returns {number[]} paletteHexes と同じ並びの被覆率（合計は 1 以下）
+ */
+export function measurePaletteCoverage(img, paletteHexes, opt = {}) {
+    const maxDist = opt.maxDist ?? 60;
+    const sampleStep = opt.sampleStep ?? 2;
+    const mask = buildForegroundMask(img);
+    const rgbs = paletteHexes.map(hexToRgb);
+    const counts = new Array(paletteHexes.length).fill(0);
+    let total = 0;
+
+    for (let y = 0; y < img.height; y += sampleStep) {
+        for (let x = 0; x < img.width; x += sampleStep) {
+            const i = y * img.width + x;
+            if (!mask[i]) continue;
+            total++;
+            const r = img.data[i * 4], g = img.data[i * 4 + 1], b = img.data[i * 4 + 2];
+            let bestIdx = -1, bestDist = Infinity;
+            for (let k = 0; k < rgbs.length; k++) {
+                const d = Math.sqrt((r - rgbs[k][0]) ** 2 + (g - rgbs[k][1]) ** 2 + (b - rgbs[k][2]) ** 2);
+                if (d < bestDist) { bestDist = d; bestIdx = k; }
+            }
+            if (bestIdx >= 0 && bestDist <= maxDist) counts[bestIdx]++;
+        }
+    }
+    if (!total) return counts.map(() => 0);
+    return counts.map(c => Number((c / total).toFixed(4)));
+}
+
+// ────────────────────────────────────────────────────────────────────────────
 // median-cut による色量子化
 // ────────────────────────────────────────────────────────────────────────────
 

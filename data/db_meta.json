@@ -27,6 +27,7 @@
         ],
         "subFields": [
           "AppearanceDetail",
+          "ColorPalette",
           "TailsUnit",
           "AbilityStats",
           "NumerospecAbout",
@@ -873,6 +874,11 @@
           "ColorRole": "Accent",
           "ColorRole_JP": "差し色",
           "ColorRole_EN": "Accent"
+        },
+        "#ColorRole_Sub": {
+          "ColorRole": "Sub",
+          "ColorRole_JP": "副色",
+          "ColorRole_EN": "Sub"
         }
       },
       "$EnumDef_DesignBodyPart": {
