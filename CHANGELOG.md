@@ -1,5 +1,19 @@
 # 最新のリファクタリング・仕様変更履歴
 
+### improve: 詳細ピルを Index ルート単位の集約表示へ変更 (2026-07-13)
+
+複数サブフィールドを持つ Index（例: アンオースドロジカの `Logic` / `LogicAlt`、運命線探偵78の `Card`）の詳細ヒーローピルを、サブフィールドごとの個別ピルから「Index ルートごとに 1 ピル」へ集約した。
+
+- **`pages/characters.js`**:
+  - `collectIndexEntries()` の各エントリに `rootKey`（Index ルート名）を追加し、エイリアスIndex エントリにはルートラベル接頭辞を付ける前のテキストを `groupText` として保持。
+  - 詳細ヒーローのピル生成を `rootKey` 単位のグループ描画に変更。複数エントリのグループは「ルートラベル（`$DefType` の `hashTag_JP/EN`）+ サブフィールド一覧」の集約ピル（`.pill--index-group`）として描画し、グループ内の直リンク可能エントリ（例: `Logic.Num`）でピル全体をリンク化する。1 エントリのみのグループ（スカラー Index 等）は従来どおりの単一ピル表示を維持。
+  - サブフィールドの表示順は `$IndexDef` の typedef 宣言順（`$display.index.order` 指定があれば優先）とし、フィールド情報は `.pill__group-items` の 1 ユニットにまとめて、折り返し時の改行は「ルートラベルとフィールド情報の間」を優先させる（直リンク対象の選択は従来どおり優先度順）。
+  - `asset-version` を `2026.07.13.3` へ更新。
+- **`pages/characters.sass` / `pages/characters.css`**: `.pill--index-group` / `.pill__group-label` / `.pill__group-items`（フィールド情報の折り返しユニット）/ `.pill__group-item`（項目間は「・」区切り）を追加。
+- **`tests/pages.characters.ui-output.test.js`**: UnauthedLogica（`Logic`/`LogicAlt` の 2 グループ集約・宣言順表示・直リンク keyPath）と NumberTales（スカラー Index の非グループ維持）の回帰テスト 2 件を追加。
+- 確認: `npm test` 全件成功（28ファイル / 273件）。実ブラウザで UnauthedLogica（ニッキー）・FLInvestigator78（フェニクス）・NumberTales（1）の表示を確認。
+- 一覧チップ・直リンク照合（`idx` / `idxKey`）・`_DBLink` 解決には変更なし（表示レイヤーのみの変更）。
+
 ### add/fix: Index 機能拡張（エイリアスIndex・Index辞書のルート合流/nullキー対応）とネストIndex二重ネスト修正 (2026-07-13)
 
 アンオースドロジカの `DB_Primary`（`Model`）/ `DB_PrimaryMobs`（`Logic`）Index分割で顕在化した Index 解決不全を修正し、汎用のIndex機能を2点拡張した。

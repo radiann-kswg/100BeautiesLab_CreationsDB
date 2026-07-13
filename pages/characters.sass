@@ -1213,6 +1213,35 @@ td
 	color: var(--accent-bright)
 	font-size: 12px
 
+// Index ルート単位の集約ピル（例: Logic / LogicAlt のサブフィールドを 1 ピルにまとめる）
+.pill--index-group
+	flex-wrap: wrap
+	row-gap: 2px
+
+// 集約ピルの先頭に出す Index ルートラベル（例: 論理/ロジック）
+.pill__group-label
+	font-weight: 600
+	padding-right: 6px
+	border-right: 1px solid var(--border-strong)
+	white-space: nowrap
+
+// サブフィールド情報のコンテナ（1 ユニット扱いにして、改行はルートラベルとの間を優先させる）
+.pill__group-items
+	display: inline-flex
+	flex-wrap: wrap
+	gap: 6px
+	row-gap: 2px
+	align-items: center
+
+// 集約ピル内のサブフィールド項目（例: ロジック番号: 55ID1）
+.pill__group-item
+	white-space: nowrap
+
+.pill__group-item + .pill__group-item::before
+	content: "・"
+	margin-right: 2px
+	color: var(--muted)
+
 .tag
 	display: inline-block
 	padding: 3px 8px

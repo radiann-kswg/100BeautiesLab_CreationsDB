@@ -1295,6 +1295,36 @@ td {
   font-size: 12px;
 }
 
+.pill--index-group {
+  flex-wrap: wrap;
+  row-gap: 2px;
+}
+
+.pill__group-label {
+  font-weight: 600;
+  padding-right: 6px;
+  border-right: 1px solid var(--border-strong);
+  white-space: nowrap;
+}
+
+.pill__group-items {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  row-gap: 2px;
+  align-items: center;
+}
+
+.pill__group-item {
+  white-space: nowrap;
+}
+
+.pill__group-item + .pill__group-item::before {
+  content: "・";
+  margin-right: 2px;
+  color: var(--muted);
+}
+
 .tag {
   display: inline-block;
   padding: 3px 8px;
