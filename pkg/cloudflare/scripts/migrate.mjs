@@ -27,6 +27,10 @@ import { resolve, join, relative, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 import { execFileSync } from "node:child_process";
 
+// D1 の is_private 列は Worker と同一ロジックで算出する必要があるため、
+// worker.js の実装をそのまま再利用する（ロジックの二重実装による乖離を避ける）
+import { applyCommons, isPublicRecord } from "../worker.js";
+
 // ─────────────────────────────────────────────────────────────────────────────
 // 定数・設定
 // ─────────────────────────────────────────────────────────────────────────────
@@ -254,6 +258,21 @@ const creationWorks = globalMeta.CreationWorks ?? {};
 // STEP 1: R2 アップロード
 // ─────────────────────────────────────────────────────────────────────────────
 
+/** R2 アップロードに最終的に失敗したキー（スクリプト末尾で終了コードに反映する） */
+const r2Failures = [];
+
+/** R2 API が返す一時エラー（500 等）に備えたリトライ回数 */
+const R2_MAX_ATTEMPTS = 3;
+
+/**
+ * 同期的に指定ミリ秒だけ待つ（リトライのバックオフ用）。
+ * migrate は逐次処理のスクリプトであり、await へ書き換えずに済ませるため Atomics.wait を使う。
+ * @param {number} ms
+ */
+function sleepSync(ms) {
+  Atomics.wait(new Int32Array(new SharedArrayBuffer(4)), 0, 0, ms);
+}
+
 if (!D1_ONLY) {
   console.log("\n[R2] data/** の JSON ファイルを R2 にアップロード...");
   const jsonFiles = findJsonFiles(DATA_DIR);
@@ -265,24 +284,56 @@ if (!D1_ONLY) {
       console.log(`[R2 dry-run] put ${BUCKET}/${rel}`);
       continue;
     }
-    try {
-      execFileSync(
-        WRANGLER_CMD,
-        [
-          ...WRANGLER_BASE_ARGS,
-          "r2", "object", "put",
-          `${BUCKET}/${rel}`,
-          "--file", rel,
-          "--content-type", "application/json"
-        ],
-        { stdio: "pipe", cwd: REPO_ROOT, ...SPAWN_OPTS_BASE }
-      );
+
+    let lastErr = null;
+    let uploaded = false;
+
+    // R2 API は一時的に 500 Internal Server Error を返すことがある（実際に発生）。
+    // 160 ファイルを逐次アップロードするため、1 件の瞬断で全体を落とさないようリトライする。
+    for (let attempt = 1; attempt <= R2_MAX_ATTEMPTS; attempt++) {
+      try {
+        execFileSync(
+          WRANGLER_CMD,
+          [
+            ...WRANGLER_BASE_ARGS,
+            "r2", "object", "put",
+            `${BUCKET}/${rel}`,
+            "--file", rel,
+            "--content-type", "application/json",
+            // wrangler v4 の r2 object put は既定でローカルシミュレータ (.wrangler/state) へ書き込む。
+            // --remote が無いと本番バケットへ一切反映されないまま「成功」して終わる（実際に発生した）。
+            // d1 execute 側には元から --remote が付いており、R2 だけ欠けていた。
+            "--remote"
+          ],
+          { stdio: "pipe", cwd: REPO_ROOT, ...SPAWN_OPTS_BASE }
+        );
+        uploaded = true;
+        break;
+      } catch (err) {
+        lastErr = err;
+        if (attempt < R2_MAX_ATTEMPTS) {
+          console.warn(`[R2] ⟳ retry ${attempt}/${R2_MAX_ATTEMPTS - 1}: ${rel}`);
+          sleepSync(1000 * attempt); // 1s, 2s の線形バックオフ
+        }
+      }
+    }
+
+    if (uploaded) {
       console.log(`[R2] ✓ ${rel}`);
-    } catch (err) {
-      console.error(`[R2] ✗ ${rel}: ${err.message}`);
+    } else {
+      console.error(`[R2] ✗ ${rel}: ${lastErr?.message ?? lastErr}`);
+      r2Failures.push(rel);
     }
   }
-  console.log("[R2] アップロード完了");
+
+  if (r2Failures.length > 0) {
+    // ここで即 exit すると、R2 の瞬断 1 件で D1 投入まで巻き添えでスキップされる
+    // （実際に発生し、is_private の是正が D1 へ反映されなかった）。
+    // R2 と D1 は独立しているため D1 投入は続行し、終了コードはスクリプト末尾で立てる。
+    console.error(`\n[R2] ✗ ${r2Failures.length} 件のアップロードに失敗（D1 投入は続行します）`);
+  } else {
+    console.log("[R2] アップロード完了");
+  }
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -424,9 +475,18 @@ if (!R2_ONLY) {
       const dbSpecificType = workType[`$IndexDef_${dbNorm}`];
       const idxKey = dbSpecificType ? resolveIdxKey(dbSpecificType) : defaultIdxKey;
 
+      // is_private は _Commons / _Secondaries を適用「後」の値から判定する。
+      // isPrivate は `_Secondaries[]._Commons.isPrivate: true` のようにシリーズ単位で
+      // 注入されることがあり、生レコードだけを見ると非公開指定を取りこぼして
+      // D1（records の SQL フィルタ・FTS 検索の双方）へ公開レコードとして投入されてしまう。
+      // data_json は生のまま保持し、_Commons の適用は Worker 側の読み取り時に行う（従来どおり）。
+      const resolvedRecords = applyCommons(records, workMeta, dbNorm);
+
       const recordValues = [];
-      for (const rec of records) {
-        const isPrivate    = rec?.isPrivate ? 1 : 0;
+      for (let i = 0; i < records.length; i++) {
+        const rec          = records[i];
+        const resolved     = resolvedRecords[i] ?? rec;
+        const isPrivate    = isPublicRecord(resolved) ? 0 : 1;
         const idxValue     = getByPath(rec, idxKey);
         const searchText   = rec?._enrichment?.searchableText ?? JSON.stringify(rec);
         const dataJson     = JSON.stringify(rec);
@@ -448,5 +508,20 @@ if (!R2_ONLY) {
   }
 
   console.log(`\n[D1] records 合計: ${totalRecords} 件投入`);
-  console.log("\n[migrate] 完了 ✓");
 }
+
+// ─────────────────────────────────────────────────────────────────────────────
+// 終了処理
+// ─────────────────────────────────────────────────────────────────────────────
+
+// R2 の失敗を握り潰すと、R2 が欠けたまま CI が緑になり、Worker の R2 依存機能
+// （グローバル/作品メタ・_Commons 適用）が黙って劣化する。D1 投入まで終えたうえで
+// 非ゼロ終了し、CI を赤くして再実行を促す。
+if (r2Failures.length > 0) {
+  console.error(`\n[migrate] ✗ R2 アップロードに失敗したファイル (${r2Failures.length} 件):`);
+  for (const key of r2Failures) console.error(`  - ${key}`);
+  console.error("[migrate] D1 の投入は完了しています。ワークフローを再実行してください。");
+  process.exit(1);
+}
+
+console.log("\n[migrate] 完了 ✓");

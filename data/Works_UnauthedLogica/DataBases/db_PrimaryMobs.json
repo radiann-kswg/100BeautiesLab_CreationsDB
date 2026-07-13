@@ -1,6 +1,6 @@
 [
   {
-    "Model": { "LogicSeries": "74x", "Num": 14 },
+    "Logic": { "LogicSeries": "74x", "Num": 14 },
     "Progress": "notProceeded",
     "Name_JP": "シュミッツ",
     "Name_EN": "Schmittz",
@@ -30,7 +30,8 @@
     "LogicspecAbout_EN": "Cuts off / rounds up state values"
   },
   {
-    "Model": { "LogicSeries": "74x", "Num": 141 },
+    "Logic": { "LogicSeries": "K1", "Num": "55ID1" },
+    "LogicAlt": { "LogicSeries": "74x", "Num": 141 },
     "Progress": "notProceeded",
     "Name_JP": "ニッキー",
     "Name_EN": "Nixee",
@@ -59,7 +60,7 @@
     "LogicspecAbout_EN": "Illuminates incandescent lights"
   },
   {
-    "Model": { "LogicSeries": "74x", "Num": 181 },
+    "Logic": { "LogicSeries": "74x", "Num": 181 },
     "Progress": "nowCreating",
     "Name_JP": "アリス",
     "Name_EN": "Arith",
@@ -94,7 +95,7 @@
     "LogicspecAbout_EN": "Performs logical calculations"
   },
   {
-    "Model": { "LogicSeries": "74x", "Num": 182 },
+    "Logic": { "LogicSeries": "74x", "Num": 182 },
     "Progress": "nowCreating",
     "Name_JP": "ルッカ",
     "Name_EN": "Looka",

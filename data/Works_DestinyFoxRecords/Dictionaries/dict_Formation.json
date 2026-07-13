@@ -5,6 +5,11 @@
     "Formation_EN": "Regular (Human Appearance)"
   },
   {
+    "Formation": "fullpower",
+    "Formation_JP": "フルパワー状態(人姿)",
+    "Formation_EN": "Full-Power Engaged (Human Appearance)"
+  },
+  {
     "Formation": "weakening",
     "Formation_JP": "弱体球体化姿",
     "Formation_EN": "Weakening-spherification Appearance"

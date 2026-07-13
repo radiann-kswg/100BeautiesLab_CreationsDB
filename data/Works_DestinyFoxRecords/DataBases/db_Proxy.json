@@ -11,7 +11,15 @@
         "regular-birthday/arts_birthday2023",
         "regular-birthday/arts_birthday2025-1",
         "regular-birthday/arts_birthday2025-2",
-        "weakening-birthday/arts_birthday2026"
+        "weakening-birthday/arts_birthday2026",
+        "fullpower/arts_fullpowerRN2-fullpowerEngage",
+        {
+          "_DBCrossLinkPath": {
+            "_DB": "Primary",
+            "_Field": "designAlt_PNGPath",
+            "_IsoPath": "arts/fullpower/arts_destinyFoxRec-2022-recruit"
+          }
+        }
       ],
       "weakening_PNGPath": ["emstk_weakeningRN2-1"]
     },
@@ -55,7 +63,7 @@
     "Name_EN": "RadianN (3rd Gen.)",
     "Images": {
       "design_PNGName": "dsgn_imgRN3",
-      "designAlt_PNGName": ["dsgn_imgRN3-onCostume"],
+      "designAlt_PNGPath": ["dsgn_imgRN3-onCostume"],
       "arts_PNGPath": [
         "orbify-birthday/arts_birthday2024",
         "regular-birthday/arts_birthday2025-1",

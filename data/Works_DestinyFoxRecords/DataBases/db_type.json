@@ -35,7 +35,7 @@
           "hashTag_EN": "Design Figure"
         },
         {
-          "hashTag": "designAlt_PNGName",
+          "hashTag": "designAlt_PNGPath",
           "$type": "#PNGFileName[]",
           "hashTag_JP": "設定原画差分",
           "hashTag_EN": "Concept Art Variations"

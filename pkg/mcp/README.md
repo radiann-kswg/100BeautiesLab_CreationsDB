@@ -81,8 +81,29 @@ MCP サーバーは起動時にリポジトリルートを特定します。以�
 | `list_dbs` | 指定作品の DB 一覧を取得 |
 | `get_records` | 指定作品・DB の全レコードを取得 |
 | `get_record` | インデックス値でレコードを 1 件取得 |
+| `get_index_key` | DB のインデックスキーをスキーマから解決 |
 | `search_records` | DB 内全文検索 |
 | `search_all_records` | 作品横断全文検索 |
+
+### インデックスキーについて
+
+インデックスキー（`get_record` の `idxValue` が照合されるフィールド）は**作品ごとに異なります**。
+
+| 作品 | インデックスキー |
+|------|-----------------|
+| NumberTales | `Num` |
+| FLInvestigator78 | `Card.Suit` |
+| ShouArRiders | `BeastType.Beast` |
+| DestinyFoxRecords | `Unit`（ただし `Proxy` DB のみ `Generation`） |
+
+`get_record` の `idxKey` を省略すればスキーマ（`$IndexDef`）から自動解決されるため、通常は指定不要です。
+事前に確認したい場合は `get_index_key` を使います。
+
+### 公開制御
+
+`CreationsDBClient` を `includePrivate: false` / `includeHidden: false` で生成するため、
+`isPrivate: true` のレコードと `Works_Hidden` / `DB_Hidden` の作品・DB は **LLM へ一切公開されません**
+（一覧・直接アクセスの双方を遮断）。
 
 ---
 
@@ -99,7 +120,7 @@ Copilot Chat でエージェントモードを有効にし、MCP サーバーが
 ```
 
 ```
-@workspace NumberTales Primary の Num=1 のキャラクター情報を教えてください
+@workspace NumberTales Primary の Num=25 のキャラクター情報を教えてください
 ```
 
 ---

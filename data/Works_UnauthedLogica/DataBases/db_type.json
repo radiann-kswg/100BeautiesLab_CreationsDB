@@ -3,16 +3,35 @@
     "hashTag": "Model",
     "$type": [
       {
+        "hashTag": "ModelSeries",
+        "$type": "#IndexListKey|#Null",
+        "hashTag_JP": "モデル系統",
+        "hashTag_EN": "Model Series",
+        "$display": { "langMode": "shared" }
+      },
+      {
+        "hashTag": "Num",
+        "$type": "#Number|#String|#Null",
+        "hashTag_JP": "ロット番号",
+        "hashTag_EN": "Lot Number"
+      }
+    ]
+  },
+  "$IndexDef_PrimaryMobs": {
+    "hashTag": "Logic",
+    "$type": [
+      {
         "hashTag": "LogicSeries",
-        "$type": "#String|#Null",
+        "$type": "#IndexListKey|#Null",
         "hashTag_JP": "ロジック系統",
-        "hashTag_EN": "LogicSeries"
+        "hashTag_EN": "Logic Series",
+        "$display": { "langMode": "shared" }
       },
       {
         "hashTag": "Num",
         "$type": "#Number|#String|#Null",
         "hashTag_JP": "ロジック番号",
-        "hashTag_EN": "LogicNumber"
+        "hashTag_EN": "Logic Number"
       }
     ]
   },
@@ -22,6 +41,18 @@
       "$type": "#Index",
       "hashTag_JP": "型式",
       "hashTag_EN": "Model"
+    },
+    {
+      "hashTag": "Logic",
+      "$type": "#Index",
+      "hashTag_JP": "論理/ロジック",
+      "hashTag_EN": "Logic"
+    },
+    {
+      "hashTag": "LogicAlt",
+      "$type": "#Index",
+      "hashTag_JP": "互換論理/互換ロジック",
+      "hashTag_EN": "Alternative Logic"
     },
     {
       "hashTag": "ForMasterCalling_JP",

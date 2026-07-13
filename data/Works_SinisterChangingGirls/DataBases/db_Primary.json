@@ -8,7 +8,7 @@
       {
         "_Work": "UnauthedLogica",
         "_DB": "Primary",
-        "Model": { "LogicSeries": null, "Num": "0" }
+        "Model": { "ModelSeries": null, "Num": "0" }
       }
     ],
     "Name_JP": "零 零",
@@ -195,7 +195,7 @@
       {
         "_Work": "UnauthedLogica",
         "_DB": "Primary",
-        "Model": { "LogicSeries": null, "Num": null }
+        "Model": { "ModelSeries": null, "Num": null }
       }
     ],
     "Images": { "concept_PNGName": "cnsp_imgDrcS" },

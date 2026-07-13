@@ -192,7 +192,13 @@ async function fetchJsonFromR2(env, path) {
     }
 
     const obj = await env.BUCKET.get(key);
-    if (!obj) return null;
+    if (!obj) {
+      // オブジェクト不在は「まだ同期されていない」正常系にもなり得るが、
+      // R2 が丸ごと空の状態（migrate.mjs の --remote 欠落で実際に発生した）を
+      // 黙って握り潰さないよう、必ずログに残す（wrangler tail / Workers Logs で追える）。
+      console.warn(`[R2] object not found: ${key}`);
+      return null;
+    }
 
     const data = await obj.json();
 
@@ -207,7 +213,10 @@ async function fetchJsonFromR2(env, path) {
     }
 
     return data;
-  } catch {
+  } catch (err) {
+    // 例外を無言で null に変換すると、呼び出し元（getGlobalMeta / getWorkMeta）が
+    // 「データが無い」as-if で進み、_Commons 未適用のまま応答してしまう。原因を必ず残す。
+    console.error(`[R2] fetch failed: ${key}: ${err?.message ?? err}`);
     return null;
   }
 }
@@ -502,12 +511,16 @@ function isEmptyForCommons(v) {
 
 /**
  * _Commons をレコード配列に適用する（非破壊）
+ *
+ * NOTE: `scripts/migrate.mjs` からも import される（D1 の `is_private` 列を
+ * _Commons 適用後の値から算出するため）。ロジックの二重実装を避ける目的で named export している。
+ *
  * @param {object[]} records
  * @param {object|null} workMeta
  * @param {string} dbName
  * @returns {object[]}
  */
-function applyCommons(records, workMeta, dbName) {
+export function applyCommons(records, workMeta, dbName) {
   if (!workMeta) return records;
   const dbKey    = normalizeDbKeyForMeta(dbName);
   const databases = workMeta?.Databases ?? {};
@@ -557,10 +570,17 @@ function applyCommons(records, workMeta, dbName) {
 
 /**
  * isPrivate フラグによる非公開レコード除外
+ *
+ * 呼び出しは必ず `applyCommons()` の「後」に行うこと。isPrivate は
+ * `_Secondaries[]._Commons` 経由でシリーズ単位に注入されることがあり、
+ * 適用前に判定するとレコード自身が isPrivate を宣言していない限り注入値が読まれない。
+ *
+ * NOTE: `scripts/migrate.mjs` からも import される（D1 の `is_private` 列の算出用）。
+ *
  * @param {object} rec
  * @returns {boolean}
  */
-function isPublicRecord(rec) {
+export function isPublicRecord(rec) {
   const v = rec?.isPrivate;
   if (v === undefined || v === null) return true;
   if (typeof v === "boolean") return !v;
@@ -1218,7 +1238,15 @@ async function handleRequest(request, env) {
         const q = (url.searchParams.get("q") ?? "").trim();
         if (!q) return jsonResponse([]);
         const results = await searchAllRecordsInD1(env, workKey, q);
-        return jsonResponse(results);
+        const workMeta = await getWorkMeta(env, workKey);
+        // 横断検索は DB ごとに _Commons が異なるため、レコード単位で適用してから非公開判定する
+        // （FTS のヒット順を保つため、DB でグルーピングせず元の並びのまま処理する）
+        const visible = [];
+        for (const { db, record } of results) {
+          const [enriched] = applyCommons([record], workMeta, db);
+          if (isPublicRecord(enriched)) visible.push({ db, record: enriched });
+        }
+        return jsonResponse(visible);
       }
 
       // :db が必要なルート
@@ -1239,7 +1267,9 @@ async function handleRequest(request, env) {
         if (segments[2] === "records" && segments.length === 3) {
           const records = await getRecordsFromD1(env, workKey, capitalize(dbNorm));
           const workMeta = await getWorkMeta(env, workKey);
-          const enriched = applyCommons(records, workMeta, dbNorm);
+          // D1 の is_private フィルタに加え、_Commons 適用後にも非公開判定を行う（多層防御）。
+          // migrate.mjs を再実行していない古い D1 が残っていても非公開レコードを返さない。
+          const enriched = applyCommons(records, workMeta, dbNorm).filter(isPublicRecord);
           return jsonResponse(enriched);
         }
 
@@ -1260,6 +1290,8 @@ async function handleRequest(request, env) {
 
           const workMeta = await getWorkMeta(env, workKey);
           const [enriched] = applyCommons([rec], workMeta, dbNorm);
+          // _Commons 経由で isPrivate が注入されるレコードは 404 とする（多層防御）
+          if (!isPublicRecord(enriched)) return errorResponse(404, "Record not found");
           return jsonResponse(enriched);
         }
 
@@ -1268,7 +1300,11 @@ async function handleRequest(request, env) {
           const q = (url.searchParams.get("q") ?? "").trim();
           if (!q) return jsonResponse([]);
           const hits = await searchRecordsInD1(env, workKey, capitalize(dbNorm), q);
-          return jsonResponse(hits);
+          const workMeta = await getWorkMeta(env, workKey);
+          // 検索結果にも records エンドポイントと同じ _Commons 適用 + 非公開除外を通す
+          // （従来は生レコードを返しており、_Commons 経由の isPrivate を取りこぼしていた）
+          const visible = applyCommons(hits, workMeta, dbNorm).filter(isPublicRecord);
+          return jsonResponse(visible);
         }
 
         // ── GET /api/ai/:work/:db/aihints ─────────────────────────────────

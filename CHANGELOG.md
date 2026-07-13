@@ -1,5 +1,75 @@
 # 最新のリファクタリング・仕様変更履歴
 
+### fix: R2 が本番へ一度も同期されていなかった問題を修正（`--remote` 欠落）+ CI の再同期条件を是正 (2026-07-13)
+
+下記「`isPrivate` フィルタ順序」修正が本番 API で効いているかを検証したところ、**Cloudflare 実 API の R2 が完全に空**であり、R2 依存機能（グローバルメタ / 作品メタ / `_Commons` 適用）が稼働開始以来ずっと死んでいたことが判明した。`/api/v1/meta` は 503 (`Global meta unavailable`)、`/api/v1/:work/meta` は `{"key":"#Works_..."}` のみを返す状態だった。
+
+- **根本原因（`pkg/cloudflare/scripts/migrate.mjs`）**: R2 アップロードの `wrangler r2 object put` に **`--remote` が付いていなかった**。wrangler v4 の `r2 object put` は既定でローカルシミュレータ（`.wrangler/state`）へ書き込むため、CI は 160 個の JSON を GitHub Actions ランナー内の一時領域に書いて破棄していた。D1 側（`d1 execute`）には元から `--remote` が付いており、R2 だけ欠落していた。CI ログには `[R2] ✓ <file>` と成功表示が出るため、ジョブは常に緑で気付けなかった。`--remote` を追加。
+- **影響（実害）**: `getWorkMeta()` が常に null を返すため、**Cloudflare 実 API では `_Commons` / `_Secondaries` が一度も適用されていなかった**。実測で NumberTales / Secondary のレコードに `Belonging` / `RaceType` / `isTriple`（`_Secondaries[]._Commons` 由来）が欠落。さらに `isPrivate` も注入されないため、非公開指定の `0xFF(エフエフ)` が `/api/v1/NumberTales/Secondary/records` から取得できる状態だった（下記の順序修正で入れた Worker 側の多層防御も、workMeta が取れないため機能していなかった）。**D1 の `is_private` 列だけが唯一の防御であり、その算出も誤っていた**（下記参照）。
+- **silent failure の再発防止（`migrate.mjs`）**: R2 アップロード失敗を `console.error` するだけで握り潰していたため、1 件でも失敗したら非ゼロ終了して CI を落とすようにした。
+- **silent failure の再発防止（`pkg/cloudflare/worker.js`）**: `fetchJsonFromR2()` が全例外を無言で `null` に変換していたため、R2 が丸ごと空でも「データが無い」as-if で応答が続いていた。オブジェクト不在は `console.warn`、例外は `console.error` でログに残すようにした（`wrangler tail` / Workers Logs で追える）。
+- **CI の再同期条件を是正（`.github/workflows/cf-api-sync.yml`）**: `sync-r2-d1` ジョブが **`data/**` の変更時にしか実行されない**ため、migration ロジックの変更（`is_private` の算出方法を変える等）が R2/D1 へ反映されなかった。実際、下記の順序修正を push した際も Worker はデプロイされたが D1 同期はスキップされている。新しく `migrate` フィルタ（`pkg/cloudflare/scripts/**` / `schema/**` / `worker.js`）を追加し、これらの変更でも再同期を実行するようにした。`worker.js` を含めるのは、`migrate.mjs` が `applyCommons()` / `isPublicRecord()` を worker.js から import しており、その変更が D1 の `is_private` 算出結果を変えるため。あわせて `workflow_dispatch`（`both` / `sync-only` / `deploy-only`）を追加し、`data/**` を変更しなくても手動で強制再同期できるようにした。
+- **R2 アップロードのリトライ（`migrate.mjs`）**: 初回の本番同期で R2 API が一時的に `500 Internal Server Error` を返し、160 件中 1 件（`data/Works_FLInvestigator78/Dictionaries/db_meta.json`）が失敗した。逐次アップロードのため 1 件の瞬断で全体が落ちるので、線形バックオフ付きの 3 回リトライを追加。
+- **R2 失敗が D1 投入を巻き添えにしないよう修正（`migrate.mjs`）**: 上記の失敗時、R2 ステップ直後の `process.exit(1)` により **D1 投入がスキップ**され、`is_private` の是正が D1 へ反映されなかった。R2 と D1 は独立しているため D1 投入は続行し、終了コードはスクリプト末尾で立てる（CI は赤くなるが D1 は同期済みになる）方式へ変更。
+- **反映結果（本番で確認済み）**: develop への push により `sync-r2-d1` が実行され R2 が復旧。`/api/v1/meta` の 503 が解消し、`_Commons` の適用（`Belonging` / `RaceType` / `isTriple` が入る）と非公開レコードの除外（`/api/v1/NumberTales/Secondary/records` が 38 件 → **37 件**、`0xFF(エフエフ)` が消える）を実測で確認。DB 内検索・作品横断検索でも非公開レコードが返らないことを確認。
+- 確認: `npm test` 全件成功（30 ファイル / 301 件）。R2 バケットが空であること（`wrangler r2 object get ... --remote` が `The specified key does not exist`）、`--remote` がリモートストレージ操作に必要であること（`wrangler r2 object put --help`）を実行して確認。本番 API への疎通確認まで完了。
+
+### fix: SW / Cloudflare Workers の `isPrivate` フィルタ順序を修正（非公開レコードの公開を停止） (2026-07-13)
+
+`pkg/` 追従作業（下記）で発見した「`isPrivate` の除外が `_Commons` 適用より前に走る」実バグを、本体 Service Worker と Cloudflare Workers 実 API でも修正した。`isPrivate` は `_Secondaries[]._Commons.isPrivate: true` のようにレコード自身ではなく**所属シリーズ側から注入**されることがあるため、`_Commons` 適用前に判定すると注入値が読まれず、非公開指定のレコードが公開されてしまう。実データでは NumberTales / Secondary の `0xFF(エフエフ)`（シリーズ「ヘキサデミカル・テールズ」）が該当し、本番 GitHub Pages で配信されていた。
+
+- **`lib/sw-common.js`（3 経路）**: `filterPublicRecords()` を `applyCommonsToRecords()` の**後**へ移動。
+  - `handleDbEndpoint()` / 検索ハンドラ: 順序を入れ替え。メタ欠損で `_Commons` をスキップした場合も、レコード自身の `isPrivate` 宣言は必ず尊重されるよう try/catch の外へ配置。
+  - `handleBootstrapEndpoint()`: **非公開フィルタ自体が一度も呼ばれていなかった**（レコード自身が `isPrivate: true` を宣言していても素通り）。`pages/sw.js` はこのエンドポイントを `includeRecords=true` の既定で呼ぶため、キャラシート UI が叩く `/pages/v1/bootstrap` が VirtuesUs / SemiPrimary の非公開 2 件も含めて配信していた。フィルタを新規追加。
+- **`pkg/cloudflare/scripts/migrate.mjs`（根本修正）**: D1 の `is_private` 列を**生レコード**から算出していた（`rec?.isPrivate ? 1 : 0`）ため、`_Commons` 経由の非公開指定が取りこぼされ、`records` の SQL フィルタ（`is_private = 0`）と FTS5 検索インデックスの**両方**に公開レコードとして投入されていた。`applyCommons()` 適用後の値から判定するよう修正（実データで `is_private=1` が 2 件 → 3 件に是正）。`data_json` は従来どおり生のまま保持し、`_Commons` 適用は Worker 側の読み取り時に行う。
+- **`pkg/cloudflare/worker.js`（多層防御）**: `applyCommons()` / `isPublicRecord()` を named export 化（migrate.mjs から再利用し、ロジックの二重実装による乖離を防ぐ）。レコードを返す 4 経路すべてに `_Commons` 適用後の非公開判定を追加し、`migrate.mjs` を再実行していない古い D1 が残っていても非公開レコードを返さないようにした。あわせて `/api/v1/:work/:db/search` と `/api/v1/:work/search` が `_Commons` を適用せず生レコードを返していた不整合も是正（`records` エンドポイントと同じ扱いに統一）。なお `isPublicRecord()` は定義のみで**どこからも呼ばれていないデッドコード**だった。
+- **`tests/private-commons-order.test.js`（新規、10 件）**: 「フィルタは必ず `_Commons` 適用の後」という不変条件を SW（DB 取得 / 検索 / bootstrap）と Workers / migrate の共有ロジックの双方で検証。実データ回帰も含む。修正前のコードへ戻すと 8 件が失敗することを確認済み（空テストでないことの検証）。
+- **運用上の注意**: Cloudflare 実 API へ反映するには `scripts/migrate.mjs` の再実行（D1 再投入）が必要。再実行しない場合も Worker 側の多層防御により非公開レコードは返らないが、FTS 検索インデックスには残るため再実行を推奨。
+- 確認: `npm test` 全件成功（30 ファイル / 301 件）。`migrate.mjs --dry-run` 完走（475 件）。
+
+### fix: `pkg/` FS クライアント 4 種を本体 DB 機構へ追従（非公開制御バイパス・命名バグを含む） (2026-07-13)
+
+`pkg/cloudflare` のみ 2026-07-11 まで追従していた一方、FS クライアント（`pkg/nodejs` 2026-06-22 / `pkg/python`・`pkg/csharp`・`pkg/mcp` 2026-06-02）が本体の DB 機構追加に追従できておらず、実害のあるバグを含んでいた。`pkg/` は `lib/sw-common.js` / `lib/data-common.js` の移植版であり自動追従しない設計だが、追従漏れを検出するテストが 1 本も無かったことが放置の一因のため、回帰テストも併せて新設した。
+
+- **非公開制御のバイパス（実害あり）**: `DB_Hidden: true` の DB が一覧からは除外されるのに直接アクセス（`getRecords()`）では素通りしていた（`FLInvestigator78` / `UnprocessedDealer` の 55 件が取得可能だった）。`docs/api-sw-spec.md` §5.3 / §5.4 の「リストと直接アクセスの両方から 404」に合わせ、直接アクセスも遮断するよう修正。`Works_Hidden` も同様に対応。専用エラー型（`CreationsDBNotFoundError` / `CreationsDBNotFoundException`）を新設し、リポジトリ所有者のローカルツール向けに `includeHidden` オプション（既定 `false`）でオプトインできるようにした。
+- **`isPrivate` フィルタ順序の修正（実害あり）**: `isPrivate` の除外が `_Commons` 適用**より前**に行われていたため、`_Secondaries[]._Commons.isPrivate: true` によってシリーズ単位で非公開指定されたレコードが公開されていた（NumberTales / Secondary の `0xFF(エフエフ)` 1 件。レコード自身は `isPrivate` を宣言していないため注入値が読まれていなかった）。`_Commons` 適用「後」に除外するよう 3 クライアントとも修正。**同じ順序の問題が `lib/sw-common.js` / `pkg/cloudflare/` にも存在したが、本番 GitHub Pages の公開範囲が変わるため本コミットでは修正を見送り、User 判断待ちとして記録した。→ その後 User 判断により修正済み（上記「SW / Cloudflare Workers の `isPrivate` フィルタ順序を修正」を参照）**。
+- **JP/EN 命名の未追従（実害あり）**: 2026-06-22 の命名標準化（`Title` → `Title_JP` / `Works_Summary` → `Works_Summary_JP`）が `pkg/nodejs` にしか入っておらず、`pkg/python` / `pkg/csharp` の `list_works()` がタイトル・概要とも**空文字**を返していた。`Title_JP` / `Title_EN` / `Works_Summary_JP` / `Works_Summary_EN` へ追従。
+- **`Works_Dir` オーバーライド（2026-07-11 の共通資料）**: `#Works_CommonReferences` が `listWorks()` には現れるのにレコードを一切取得できなかった。`Works_Dir` / `Works_Shared` の解決、`DB_Layer` が物理ディレクトリ名と同名の場合のレイヤー畳み込み、`DataBases/` を持たない作品の root フォールバック（`db_meta.json` / `db_type.json`）を実装。
+- **`$IndexDef` のスキーマ駆動解決（2026-07-11 の DB 単位上書きを含む）**: `getRecord()` のインデックスキーが `'Num'` 決め打ちだったため、`Num` を持たない作品（`FLInvestigator78` → `Card.Suit`、`ShouArRiders` → `BeastType.Beast` 等）では常に `null` を返していた。`$IndexDef` / サイドカー `$IndexDef_<DbNorm>` から解決する `getIndexKey()` を新設し、`idxKey` 省略時の既定値として使用（明示指定時はそちらを優先）。導出規則は `pkg/cloudflare/scripts/migrate.mjs` の `resolveIdxKey()` と同一。
+- **`_Secondaries` マッチングの完全移植**: `sec_SeriesTitle` のみの簡略一致だったものを、`sec_Category` / `sec_DesignedBy` を追加条件とするスコアリング方式（`lib/sw-common.js` の `findSecondaryCommons()` と同等）へ差し替え。`_ListLinkIf_<Field>` 条件付き commons にも対応。
+- **その他の追従**: 旧作品名エイリアス（`Proxies` → `Works_DestinyFoxRecords`）、`DB_Image` / `Works_Shared` の pass-through、`#Loc_*` エントリの DB 一覧からの除外、`getWorkType()` の新設。
+- **`pkg/mcp/server.mjs`**: Node.js クライアントを内部利用するため大半は自動追従。`get_record` の `idxKey` 既定値 `"Num"` を撤廃してスキーマ自動解決に委ね、照合に使われたキーを `{ found: false, idxKey }` で返すようにした。インデックスキーを事前確認できる `get_index_key` ツールを新設。
+- **`tests/pkg.nodejs.test.js`（新規）**: 上記の全機構を実データに対する不変条件として検証（レコード件数のような変動値には依存させない）。18 件。
+- **`docs/pkg-client-libraries.md`**: 「対応する DB 機構」節（対応済み / 未対応の一覧）、インデックスキー解決、非公開制御、テストの各節を追記。API 対応表に `getIndexKey` / `getWorkType` を追加。
+- 確認: `npm test` 全件成功（29 ファイル / 289 件）。Node.js / Python / C# の 3 クライアントが同一データに対して同一結果を返すことを実行して確認（C# は Newtonsoft.Json / System.Text.Json 両バックエンドでビルド検証）。
+
+### improve: 詳細ピルを Index ルート単位の集約表示へ変更 (2026-07-13)
+
+複数サブフィールドを持つ Index（例: アンオースドロジカの `Logic` / `LogicAlt`、運命線探偵78の `Card`）の詳細ヒーローピルを、サブフィールドごとの個別ピルから「Index ルートごとに 1 ピル」へ集約した。
+
+- **`pages/characters.js`**:
+  - `collectIndexEntries()` の各エントリに `rootKey`（Index ルート名）を追加し、エイリアスIndex エントリにはルートラベル接頭辞を付ける前のテキストを `groupText` として保持。
+  - 詳細ヒーローのピル生成を `rootKey` 単位のグループ描画に変更。複数エントリのグループは「ルートラベル（`$DefType` の `hashTag_JP/EN`）+ サブフィールド一覧」の集約ピル（`.pill--index-group`）として描画し、グループ内の直リンク可能エントリ（例: `Logic.Num`）でピル全体をリンク化する。1 エントリのみのグループ（スカラー Index 等）は従来どおりの単一ピル表示を維持。
+  - サブフィールドの表示順は `$IndexDef` の typedef 宣言順（`$display.index.order` 指定があれば優先）とし、フィールド情報は `.pill__group-items` の 1 ユニットにまとめて、折り返し時の改行は「ルートラベルとフィールド情報の間」を優先させる（直リンク対象の選択は従来どおり優先度順）。
+  - `asset-version` を `2026.07.13.3` へ更新。
+- **`pages/characters.sass` / `pages/characters.css`**: `.pill--index-group` / `.pill__group-label` / `.pill__group-items`（フィールド情報の折り返しユニット）/ `.pill__group-item`（項目間は「・」区切り）を追加。
+- **`tests/pages.characters.ui-output.test.js`**: UnauthedLogica（`Logic`/`LogicAlt` の 2 グループ集約・宣言順表示・直リンク keyPath）と NumberTales（スカラー Index の非グループ維持）の回帰テスト 2 件を追加。
+- 確認: `npm test` 全件成功（28ファイル / 273件）。実ブラウザで UnauthedLogica（ニッキー）・FLInvestigator78（フェニクス）・NumberTales（1）の表示を確認。
+- 一覧チップ・直リンク照合（`idx` / `idxKey`）・`_DBLink` 解決には変更なし（表示レイヤーのみの変更）。
+
+### add/fix: Index 機能拡張（エイリアスIndex・Index辞書のルート合流/nullキー対応）とネストIndex二重ネスト修正 (2026-07-13)
+
+アンオースドロジカの `DB_Primary`（`Model`）/ `DB_PrimaryMobs`（`Logic`）Index分割で顕在化した Index 解決不全を修正し、汎用のIndex機能を2点拡張した。
+
+- **fix（実バグ）: `#Index` 正規化の二重ネスト**（`lib/data-common.js` の `TypeDefUtils.normalizeValueByTypeSpec()`）: ネストIndexのフィールド値を rootKey で二重に包んでいた（`Card: {Card:{Suit,...}}`）ため、ネストIndexを持つ全作品（運命線探偵78・パストダイヴァー・アンオースドロジカ等）で一覧チップ・詳細ピル・直リンク照合・辞書補完が黙って外れていた。フィールド値は「サブフィールドを直接持つオブジェクト」（`Card: {Suit, Num}`）を正とし、プリミティブは `{主キー: 値}` へ、旧二重ネスト形は unwrap する。UI 側 `collectIndexEntries()` にも旧形 unwrap 耐性を追加。
+- **add: エイリアスIndex（汎用）**: `$DefType` トップレベルで `#Index` 型を宣言した field のうち、現在のDBで解決された `$IndexDef` の rootKey 以外を自動的に「エイリアスIndex」として扱う（例: `LogicAlt`）。形状は hashTag 一致の `$IndexDef*` → 現行 IndexDef の順で継承。enrich（正規化・辞書補完）、詳細ピル表示、直リンク（`idxKey=LogicAlt.Num` 等）に対応。`$display: { index: "none" }` で opt-out 可。`TypeDefUtils.collectIndexAliasDefs()` / `getWorkIndexAliasDefs()`（UI）を新設。
+- **add: Index 辞書解決のルート合流フォールバック + null キー許容**（`EnrichmentProcessor.supplementIndexFieldFromVarsDef()`）: 辞書リストの解決を `$Def_<rootKey>.#List_<key>` → ルート `#List_<key>` → ルート `#Dict_<key>` の順にフォールバック（`Dictionaries/dict_*.json` + `compatListKey` の実行時合流がそのまま Index 辞書として機能する）。また、キー値 `null` のレコード（例: `Model: {ModelSeries: null}`）も辞書側に null キー行があれば解決できる（UI では表示のみ・直リンク識別には不使用）。
+- **data: `data/Works_UnauthedLogica/Dictionaries/db_meta.json`**: `#Dict_ModelSeries` / `#Dict_LogicSeries` をカタログ登録（辞書本体 `dict_ModelSeries.json` / `dict_LogicSeries.json` は User 作成済み）。null キー行のラベル値は User 入力に委ねる。
+- **`pages/characters.js`**: `pickPrimaryIndexSubDef()` に `#IndexListKey` のスコアを追加、詳細の汎用行からエイリアス field の二重表示を抑止、composite 直リンク生成から null キー/エイリアスエントリを除外。`asset-version` を `2026.07.13.1` へ更新。
+- **`tests/enrich.index-alias-dict.test.js`（新規）**: 正規化・エイリアス収集・辞書フォールバック/null キー・実データ統合（UnauthedLogica / FLInvestigator78 回帰）の13テストを追加。
+- 確認: `npm test` 全件成功（28ファイル / 271件）。実ブラウザで UnauthedLogica（両DB・エイリアス直リンク・辞書ラベル）、FLInvestigator78 / PastDivers / NumberTales / DestinyFoxRecords の一覧チップ・詳細ピル復帰を確認。
+- 仕様詳細: `docs/schema-meta-processing.md` §3.5.2（エイリアスIndex）/ §3.5.3（辞書解決と null キー）。
+
 ### fix: NumberTales 666(リリス)/3x11 の AppearanceDetail 参考画像の参照切れを修正 (2026-07-12)
 
 外見デザイン詳細（`AppearanceDetail.img_PNGName`）の参照とファイル実体の不一致3件を修正した。
@@ -343,7 +413,7 @@ develop 側での `IdentityMotif` フィールド廃止（下記 refactor）を 
 ### add: `$enrich` の `$Def_DBLinkRef` 解決で null 入りネストインデックスを許容（1件一致のみ） (2026-07-02)
 
 - **`lib/data-common.js`**:
-  - `dbLinkSubsetMatch()`: クエリ側の null を「参照先レコード側も null/undefined」の明示マッチとして扱うよう変更。UnauthedLogica の `Model: { "LogicSeries": null, "Num": null }`（型番未確定インデックス）のような参照を解決可能にした。
+  - `dbLinkSubsetMatch()`: クエリ側の null を「参照先レコード側も null/undefined」の明示マッチとして扱うよう変更。UnauthedLogica の `Model: { "ModelSeries": null, "Num": null }`（型番未確定インデックス）のような参照を解決可能にした。
   - `dbLinkIndexHasNull()`（新規）: `$Def_DBLinkRef` インデックスに null が含まれるか判定（ネスト対応）。
   - `resolveDbLinkSuffixRef()`: null 入りインデックスは複数レコードに一致し得るため、曖昧一致防止として **1 件一致のみ採用**するガードを追加（null を含まないインデックスは従来どおり先頭一致採用）。
 - **`data/Works_UnauthedLogica/DataBases/db_Primary.json`**: `AnotherRegions_DBLink` のインデックスキー誤り `"Num": "N"` / `"Num": "S"` → `"Drc": "N"` / `"Drc": "S"` を修正（SinisterChangingGirls/Primary のインデックスは `Drc`）。

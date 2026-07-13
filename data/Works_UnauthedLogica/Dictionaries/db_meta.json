@@ -5,6 +5,18 @@
       "DB_Label_EN": "Class Dictionary",
       "keyField": "Class",
       "compatListKey": "#List_Class"
+    },
+    "#Dict_ModelSeries": {
+      "DB_Label_JP": "モデル系統辞書",
+      "DB_Label_EN": "Model Series Dictionary",
+      "keyField": "ModelSeries",
+      "compatListKey": "#List_ModelSeries"
+    },
+    "#Dict_LogicSeries": {
+      "DB_Label_JP": "ロジック系統辞書",
+      "DB_Label_EN": "Logic Series Dictionary",
+      "keyField": "LogicSeries",
+      "compatListKey": "#List_LogicSeries"
     }
   }
 }

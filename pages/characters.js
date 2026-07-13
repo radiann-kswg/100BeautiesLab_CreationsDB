@@ -1665,6 +1665,78 @@ function getWorkIndexField(workKey, globalMeta, dbName) {
 }
 
 /**
+ * エイリアスIndex（$DefType 上の #Index 型 field のうち、現在の IndexDef の rootKey 以外）を収集
+ * - lib/data-common.js の TypeDefUtils.collectIndexAliasDefs() と同じ思想の UI ミラー実装
+ * - 形状（サブフィールド構造）は、hashTag が一致する `$IndexDef` / `$IndexDef_*` 宣言を優先し、
+ *   無ければ現在の indexDef の形状を流用する（例: `LogicAlt` は `Logic` と同構造とみなす）
+ * - `$display.index` が false / 'none' / 'off' / 'hidden' のエントリは除外（opt-out）
+ * @param {Object|null} indexDef - 現在のDBで解決済みの $IndexDef
+ * @returns {Array<Object>} エイリアスIndex定義（$IndexDef 互換 + `$indexAlias: true` マーカー）
+ */
+function getWorkIndexAliasDefs(indexDef) {
+	try {
+		const rootKey = typeof indexDef?.hashTag === 'string' ? indexDef.hashTag.trim() : '';
+		if (!rootKey) return [];
+
+		const state = window.__CHAR_STATE__;
+		const wtd = state?.workTypeDef || null;
+		const gtd = state?.globalTypeDef || null;
+
+		/** @type {Array<Object>} */
+		const defTypeEntries = [];
+		if (Array.isArray(wtd?.$DefType)) defTypeEntries.push(...wtd.$DefType);
+		if (Array.isArray(gtd?.$DefType)) defTypeEntries.push(...gtd.$DefType);
+		if (!defTypeEntries.length) return [];
+
+		const isIndexDisplayDisabled = (entry) => {
+			const raw = entry?.$display?.index;
+			if (raw === false) return true;
+			if (typeof raw === 'string') {
+				const t = raw.trim().toLowerCase();
+				return t === 'none' || t === 'off' || t === 'hidden';
+			}
+			return false;
+		};
+
+		// workTypeDef の $IndexDef / $IndexDef_* から hashTag が一致する形状定義を探す
+		const findShapeDefFor = (aliasKey) => {
+			if (!wtd || typeof wtd !== 'object') return null;
+			for (const [k, v] of Object.entries(wtd)) {
+				if (!/^\$IndexDef(?:_|$)/.test(k)) continue;
+				if (v && typeof v === 'object' && typeof v.hashTag === 'string' && v.hashTag.trim() === aliasKey) return v;
+			}
+			return null;
+		};
+
+		const seen = new Set();
+		const out = [];
+		for (const entry of defTypeEntries) {
+			const key = typeof entry?.hashTag === 'string' ? entry.hashTag.trim() : '';
+			if (!key || key === rootKey || seen.has(key)) continue;
+			const t = entry?.$type;
+			if (typeof t !== 'string' || !/#Index\b/i.test(t)) continue;
+			if (isIndexDisplayDisabled(entry)) continue;
+			seen.add(key);
+
+			const shape = findShapeDefFor(key) || indexDef;
+			if (!shape || typeof shape !== 'object') continue;
+
+			out.push({
+				...shape,
+				hashTag: key,
+				// 表示ラベルはエイリアス field 側（$DefType エントリ）の宣言を優先する
+				hashTag_JP: entry.hashTag_JP ?? entry.hashtag_JP ?? shape.hashTag_JP ?? null,
+				hashTag_EN: entry.hashTag_EN ?? entry.hashtag_EN ?? shape.hashTag_EN ?? null,
+				$indexAlias: true,
+			});
+		}
+		return out;
+	} catch {
+		return [];
+	}
+}
+
+/**
  * Index 定義からラベルを取得
  * @param {Object} def - $IndexDef もしくはその子要素
  * @returns {string} 表示用ラベル（日本語優先）
@@ -1722,6 +1794,7 @@ function pickPrimaryIndexSubDef(subDefs) {
 		const t = d.$type ?? d.$valType;
 		const tStr = typeof t === 'string' ? t : JSON.stringify(t);
 		if (tStr && tStr.includes('#Number')) return 30;
+		if (tStr && tStr.includes('#IndexListKey')) return 20;
 		if (tStr && tStr.includes('#ListIndex')) return 20;
 		if (tStr && tStr.includes('#String')) return 10;
 		return 0;
@@ -1845,21 +1918,140 @@ function collectIndexEntries(source, indexDef, metaForLookup = null, globalDefTy
 			return a.index - b.index;
 		});
 
+	/**
+	 * #IndexListKey サブフィールドが null のとき、辞書（#List_* / #Dict_*）の
+	 * null キー行から表示ラベルを解決する（null をキーとして許容）
+	 * - enrich 済みレコードでは supplementIndexFieldFromVarsDef() が言語バリアント
+	 *   （<subKey>_JP / _EN）を埋めるため、まずそれを優先し、無ければ辞書を直接引く
+	 * @param {Object} rootObj - インデックスオブジェクト（例: { ModelSeries: null, Num: '0' }）
+	 * @param {string} subKey - サブフィールド名（例: 'ModelSeries'）
+	 * @returns {{jp:string,en:string}|null}
+	 */
+	const lookupNullIndexKeyLabel = (rootObj, subKey) => {
+		const trim = (v) => (typeof v === 'string' ? v.trim() : '');
+
+		// 1) enrich 済み言語バリアントを優先
+		const inlineJp = trim(rootObj?.[`${subKey}_JP`]);
+		const inlineEn = trim(rootObj?.[`${subKey}_EN`]);
+		if (inlineJp || inlineEn) return { jp: inlineJp, en: inlineEn };
+
+		// 2) $VarsDef 上の辞書リストから null キー行を探す（root直下 → $Def_<rootKey> 配下）
+		const varsRoots = [
+			metaForLookup?.General?.$VarsDef,
+			globalDefType?.General?.$VarsDef,
+		].filter(v => v && typeof v === 'object');
+		for (const varsDef of varsRoots) {
+			const scopes = [varsDef, varsDef?.[`$Def_${rootKey}`]].filter(v => v && typeof v === 'object');
+			for (const scope of scopes) {
+				for (const listKey of [`#List_${subKey}`, `#Dict_${subKey}`]) {
+					const list = scope[listKey];
+					if (!Array.isArray(list)) continue;
+					const hit = list.find(item => item && typeof item === 'object'
+						&& Object.prototype.hasOwnProperty.call(item, subKey) && item[subKey] === null);
+					if (hit) return { jp: trim(hit[`${subKey}_JP`]), en: trim(hit[`${subKey}_EN`]) };
+				}
+			}
+		}
+		return null;
+	};
+
+	/**
+	 * エイリアスIndex（例: LogicAlt）のエントリを収集して合流用に整形
+	 * - keyPath は `<エイリアスfield名>.<subKey>`（recordMatchesIndexQuery / 直リンクにそのまま使える）
+	 * - 一覧チップには出さず（list: false）、詳細/値表示とリンクのみ許容する
+	 * - 主Indexより後に並ぶよう priority を大きく下げる
+	 * @returns {Array<Object>}
+	 */
+	const collectAliasEntries = () => {
+		if (context !== 'record' || options?.skipAliases) return [];
+		const aliasDefs = getWorkIndexAliasDefs(indexDef);
+		if (!aliasDefs.length) return [];
+
+		const out = [];
+		for (const aliasDef of aliasDefs) {
+			const aliasKey = typeof aliasDef?.hashTag === 'string' ? aliasDef.hashTag.trim() : '';
+			if (!aliasKey) continue;
+			// エイリアスはレコード上に実体がある場合のみ扱う（scalar フォールバック等の誤発火防止）
+			const aliasValue = source?.[aliasKey];
+			if (aliasValue === null || aliasValue === undefined || aliasValue === '') continue;
+
+			const aliasLabel = getIndexLabel(aliasDef) || aliasKey;
+			const aliasEntries = collectIndexEntries(source, aliasDef, metaForLookup, globalDefType, {
+				...options,
+				context: 'record',
+				skipAliases: true,
+			});
+			for (const entry of aliasEntries) {
+				out.push({
+					...entry,
+					// grouping 表示（Index ルート単位の集約ピル）ではルートラベルを別枠で出すため、
+					// エイリアス接頭辞を付ける前のテキストを groupText として保持する
+					groupText: entry.groupText || entry.text,
+					text: entry.label && entry.label !== aliasLabel
+						? `${aliasLabel} ${entry.text}`
+						: (entry.label ? entry.text : `${aliasLabel}: ${entry.text}`),
+					label: aliasLabel,
+					contexts: {
+						...entry.contexts,
+						list: false, // 一覧チップは主Indexのみ（エイリアスは詳細/直リンク用途）
+					},
+					priority: (Number.isFinite(entry.priority) ? entry.priority : 0) - 1000,
+					isAlias: true,
+				});
+			}
+		}
+		return out;
+	};
+
 	if (Array.isArray(subDefs) && subDefs.length > 0) {
-		const sourceRoot = context === 'value'
+		let sourceRoot = context === 'value'
 			? (isPlainObject(source?.[rootKey]) ? source[rootKey] : source)
 			: source?.[rootKey];
+		// 旧 enrich 形（{Logic:{Logic:{...}}} の二重ネスト）への耐性: rootKey で包まれていたら unwrap
+		if (isPlainObject(sourceRoot) && isPlainObject(sourceRoot[rootKey])) {
+			sourceRoot = sourceRoot[rootKey];
+		}
 		const rootObj = isPlainObject(sourceRoot) ? sourceRoot : null;
-		if (!rootObj) return [];
+		if (!rootObj) return sortEntries(collectAliasEntries());
 
 		const entries = subDefs
 			.map((subDef, index) => {
 				const subKey = typeof subDef?.hashTag === 'string' ? subDef.hashTag.trim() : '';
 				if (!subKey) return null;
 				const leaf = rootObj[subKey];
-				if (leaf === null || leaf === undefined || leaf === '') return null;
-
 				const subType = subDef?.$type ?? subDef?.$valType ?? null;
+
+				// null キー許容: #IndexListKey / #ListIndex のサブフィールドが null のとき、
+				// 辞書の null キー行にラベルがあれば「表示のみ」のエントリとして扱う
+				if (leaf === null) {
+					const subTypeStr = typeof subType === 'string' ? subType : '';
+					if (!/#IndexListKey|#ListIndex/i.test(subTypeStr)) return null;
+					const pack = lookupNullIndexKeyLabel(rootObj, subKey);
+					const nullText = pack ? formatBilingualLabel({ ...pack, raw: '' }, '', subDef?.$display) : '';
+					if (!nullText) return null;
+					const label = getIndexLabel(subDef) || getIndexLabel(indexDef) || '';
+					const display = getIndexSubDefDisplayConfig(subDef, subDef === primarySub);
+					return {
+						keyPath: `${rootKey}.${subKey}`,
+						rootKey,
+						value: 'null',
+						text: label ? `${label}: ${nullText}` : nullText,
+						label,
+						contexts: {
+							list: display.list,
+							detail: display.detail,
+							value: display.value,
+							link: false, // null キーは単独では識別に使わない（直リンク対象外）
+						},
+						priority: display.priority,
+						order: display.order,
+						index,
+						isNullKey: true,
+					};
+				}
+
+				if (leaf === undefined || leaf === '') return null;
+
 				const formatted = formatValueForDisplay(leaf, {}, metaForLookup, globalDefType, {
 					schemaType: subType,
 					fieldKey: `${rootKey}.${subKey}`
@@ -1873,6 +2065,7 @@ function collectIndexEntries(source, indexDef, metaForLookup = null, globalDefTy
 				const display = getIndexSubDefDisplayConfig(subDef, subDef === primarySub);
 				return {
 					keyPath: `${rootKey}.${subKey}`,
+					rootKey,
 					value: rawIndexValue,
 					text: label ? `${label}: ${text}` : text,
 					label,
@@ -1889,7 +2082,7 @@ function collectIndexEntries(source, indexDef, metaForLookup = null, globalDefTy
 			})
 			.filter(Boolean);
 
-		return sortEntries(entries);
+		return sortEntries([...entries, ...collectAliasEntries()]);
 	}
 
 	const rawValue = context === 'value'
@@ -1900,13 +2093,13 @@ function collectIndexEntries(source, indexDef, metaForLookup = null, globalDefTy
 		fieldKey: rootKey
 	});
 	const text = String(formatted ?? '').trim();
-	if (!text) return [];
 	const rawIndexValue = (rawValue === null || rawValue === undefined) ? '' : String(rawValue).trim();
-	if (!rawIndexValue) return [];
+	if (!text || !rawIndexValue) return sortEntries(collectAliasEntries());
 
 	const label = getIndexLabel(indexDef) || '';
-	return [{
+	return sortEntries([{
 		keyPath: rootKey,
+		rootKey,
 		value: rawIndexValue,
 		text: label ? `${label}: ${text}` : text,
 		label,
@@ -1914,7 +2107,7 @@ function collectIndexEntries(source, indexDef, metaForLookup = null, globalDefTy
 		priority: 100,
 		order: null,
 		index: 0,
-	}];
+	}, ...collectAliasEntries()]);
 }
 
 /**
@@ -1945,6 +2138,8 @@ function getIndexIdentifierFromRecord(rec, indexDef, records = null) {
 		if (compositeEntries.length > 1) {
 			const composite = {};
 			for (const entry of compositeEntries) {
+				// null キー行・エイリアスは複合条件に混ぜない（主 Index だけで識別する）
+				if (entry?.isNullKey || entry?.isAlias) continue;
 				const path = String(entry?.keyPath || '').trim();
 				const val = String(entry?.value || '').trim();
 				if (!path || !val) continue;
@@ -6390,36 +6585,86 @@ export async function renderDetail(workId, rec) {
 					const indexChipItems = buildIndexChipItems(rec, workIndexDef, metaForLookup, globalDefType, 'detail');
 					if (!indexChipItems.length) return null;
 					const cur = getQS();
-					return indexChipItems.map((item) => {
-						const legacyNum = item.keyPath === 'Num' ? item.value : '';
+
+					// Index ルート（例: Logic / LogicAlt）ごとにサブフィールドを 1 ピルへ集約する
+					// - エントリは collectIndexEntries() で優先度順に並んでいるため、
+					//   グループの並びは「最初に登場したルート順」（主Index → エイリアスIndex）になる
+					const groups = [];
+					const groupByRoot = new Map();
+					for (const item of indexChipItems) {
+						const root = String(item?.rootKey || String(item?.keyPath || '').split('.')[0] || '').trim() || String(item?.keyPath || '');
+						if (!groupByRoot.has(root)) {
+							const group = { rootKey: root, items: [] };
+							groupByRoot.set(root, group);
+							groups.push(group);
+						}
+						groupByRoot.get(root).items.push(item);
+					}
+
+					/**
+					 * Index ルート 1 グループぶんのピルを生成
+					 * - 1 エントリのみのグループは従来どおりの単一ピル表示
+					 * - 複数エントリのグループは「ルートラベル + サブフィールド一覧」の集約ピル
+					 *   - サブフィールドの表示順は $IndexDef の typedef 宣言順（$display.index.order 指定があれば優先）
+					 *   - フィールド情報は .pill__group-items の 1 ユニットにまとめ、改行は「ルートラベルとフィールド情報の間」を優先させる
+					 * - グループ内に直リンク可能エントリがあれば、ピル全体をリンクにする
+					 * @param {{rootKey:string, items:Array<Object>}} group
+					 * @returns {HTMLElement}
+					 */
+					const buildIndexGroupPill = (group) => {
+						// 直リンク対象は優先度順（collectIndexEntries のソート結果）で選ぶ
+						const linkItem = group.items.find((item) => item?.contexts?.link) || null;
+						const isSingle = group.items.length === 1;
+						const className = isSingle ? 'pill' : 'pill pill--index-group';
+						const children = isSingle
+							? [group.items[0].text]
+							: (() => {
+								const displayItems = group.items.slice().sort((a, b) => {
+									const orderA = Number.isFinite(a.order) ? a.order : Number.POSITIVE_INFINITY;
+									const orderB = Number.isFinite(b.order) ? b.order : Number.POSITIVE_INFINITY;
+									if (orderA !== orderB) return orderA - orderB;
+									return (a.index ?? 0) - (b.index ?? 0);
+								});
+								return [
+									el('span', { class: 'pill__group-label' }, [
+										getFieldLabel(group.rootKey, fieldLabelMap, workMeta, globalDefType, group.rootKey) || group.rootKey
+									]),
+									el('span', { class: 'pill__group-items' },
+										displayItems.map((item) => el('span', { class: 'pill__group-item' }, [item.groupText || item.text]))),
+								];
+							})();
+
+						if (!linkItem) return el('span', { class: className }, children);
+
+						const legacyNum = linkItem.keyPath === 'Num' ? linkItem.value : '';
 						const qs = new URLSearchParams({
 							...cur,
 							work: workId,
 							db: dbName,
-							idx: item.value,
-							idxKey: item.keyPath,
+							idx: linkItem.value,
+							idxKey: linkItem.keyPath,
 							num: legacyNum,
 						});
 						const href = `${location.pathname}?${qs.toString()}`;
 
-						return item?.contexts?.link
-							? el('a', {
-								class: 'pill',
-								href,
-								title: '直リンクをコピーできます',
-								onclick: (ev) => {
-									// 表示中のレコードなので、遷移（リロード）は不要。
-									ev.preventDefault();
-									ev.stopPropagation();
-									try {
-										setQS({ idx: item.value, idxKey: item.keyPath, num: legacyNum });
-									} catch {
-										// noop
-									}
+						return el('a', {
+							class: className,
+							href,
+							title: '直リンクをコピーできます',
+							onclick: (ev) => {
+								// 表示中のレコードなので、遷移（リロード）は不要。
+								ev.preventDefault();
+								ev.stopPropagation();
+								try {
+									setQS({ idx: linkItem.value, idxKey: linkItem.keyPath, num: legacyNum });
+								} catch {
+									// noop
 								}
-							}, [item.text])
-							: el('span', { class: 'pill' }, [item.text]);
-					});
+							}
+						}, children);
+					};
+
+					return groups.map(buildIndexGroupPill);
 				})(),
 				(() => {
 					const detailLayout = globalMeta?.CreationWorks?.[workId]?.$DetailLayout || null;
@@ -6936,6 +7181,10 @@ export async function renderDetail(workId, rec) {
 			const workIndexDef = getWorkIndexField(workId, globalMeta, dbName);
 			if (workIndexDef?.hashTag && typeof workIndexDef.hashTag === 'string') {
 				s.add(workIndexDef.hashTag);
+				// エイリアスIndex（例: LogicAlt）は詳細ピルで表示するため、汎用行での二重表示を抑止
+				for (const aliasDef of getWorkIndexAliasDefs(workIndexDef)) {
+					if (aliasDef?.hashTag && typeof aliasDef.hashTag === 'string') s.add(aliasDef.hashTag);
+				}
 			} else if (rec.Num != null) {
 				// indexDef が無い場合の最小互換
 				s.add('Num');

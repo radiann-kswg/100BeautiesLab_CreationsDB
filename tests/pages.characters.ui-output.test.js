@@ -268,6 +268,10 @@ const unibyteLiveWorkMeta = mergeMetaAndTypeVars(
 );
 const unibyteLivePrimaryRecords = loadJson('data/Works_UnibyteLive/DataBases/db_Primary.json');
 const unibyteLiveArrowRecord = unibyteLivePrimaryRecords.find((record) => record?.Name_JP === 'A:アロー');
+const unauthedLogicaWorkTypeDef = loadJson('data/Works_UnauthedLogica/DataBases/db_type.json');
+const unauthedLogicaWorkMeta = buildWorkMetaFixture('Works_UnauthedLogica');
+const unauthedLogicaMobRecords = loadJson('data/Works_UnauthedLogica/DataBases/db_PrimaryMobs.json');
+const nixeeRecord = unauthedLogicaMobRecords.find((record) => String(record?.Logic?.Num) === '55ID1');
 const sharedReferencesTypeDef = loadJson('data/References/db_type.json');
 const sharedReferencesMeta = loadJson('data/References/db_meta.json');
 const numberTalesReferencesTypeDef = loadJson('data/Works_NumberTales/References/db_type.json');
@@ -449,6 +453,69 @@ describe('pages/characters.js UI output', () => {
 		const parsed = JSON.parse(id.value);
 		expect(parsed?.Letter?.Alphabet).toBe('S');
 		expect(parsed?.Letter?.AlphaGen).toBe('1');
+	});
+
+	it('groups multi-field index pills per index root in the detail hero', async () => {
+		charactersModule.__setCharactersTestState({
+			charState: {
+				db: 'PrimaryMobs',
+				workId: '#Works_UnauthedLogica',
+				records: unauthedLogicaMobRecords,
+				workTypeDef: unauthedLogicaWorkTypeDef,
+				globalTypeDef,
+				workMeta: unauthedLogicaWorkMeta,
+				imageFields: []
+			}
+		});
+
+		await charactersModule.renderDetail('#Works_UnauthedLogica', nixeeRecord);
+
+		// Logic / LogicAlt の 2 ルートがそれぞれ 1 ピルに集約される
+		const groupPills = Array.from(document.querySelectorAll('.pill--index-group'));
+		expect(groupPills.length).toBe(2);
+
+		const [logicPill, logicAltPill] = groupPills;
+		expect(logicPill.querySelector('.pill__group-label')?.textContent?.trim()).toBe('論理/ロジック');
+		// フィールド情報は .pill__group-items の 1 ユニットにまとまり、
+		// 表示順は $IndexDef の typedef 宣言順（LogicSeries → Num）に従う
+		// （辞書ラベルは環境により和英併記になるため、前方一致で検証する）
+		expect(logicPill.querySelector('.pill__group-items')).not.toBeNull();
+		const logicItems = Array.from(logicPill.querySelectorAll('.pill__group-item')).map((node) => node.textContent?.trim() || '');
+		expect(logicItems.length).toBe(2);
+		expect(logicItems[0].startsWith('ロジック系統: キリルシリーズ')).toBe(true);
+		expect(logicItems[1]).toBe('ロジック番号: 55ID1');
+
+		expect(logicAltPill.querySelector('.pill__group-label')?.textContent?.trim()).toBe('互換論理/互換ロジック');
+		const logicAltItems = Array.from(logicAltPill.querySelectorAll('.pill__group-item')).map((node) => node.textContent?.trim() || '');
+		expect(logicAltItems.length).toBe(2);
+		expect(logicAltItems[0].startsWith('ロジック系統: 7400シリーズ')).toBe(true);
+		expect(logicAltItems[1]).toBe('ロジック番号: 141');
+
+		// グループピル全体が直リンクになり、主要サブフィールドの keyPath を使う
+		expect(logicPill.tagName).toBe('A');
+		expect(new URL(logicPill.href).searchParams.get('idxKey')).toBe('Logic.Num');
+		expect(logicAltPill.tagName).toBe('A');
+		expect(new URL(logicAltPill.href).searchParams.get('idxKey')).toBe('LogicAlt.Num');
+	});
+
+	it('keeps scalar index pills as plain single pills without grouping', async () => {
+		charactersModule.__setCharactersTestState({
+			charState: {
+				db: 'Primary',
+				workId: '#Works_NumberTales',
+				records: numberTalesPrimaryRecords,
+				workTypeDef: numberTalesWorkTypeDef,
+				globalTypeDef,
+				workMeta: numberTalesWorkMeta,
+				imageFields: []
+			}
+		});
+
+		await charactersModule.renderDetail('#Works_NumberTales', firstNumberTalesPrimaryRecord);
+
+		expect(document.querySelector('.pill--index-group')).toBeNull();
+		const pillTexts = Array.from(document.querySelectorAll('.pill')).map((node) => node.textContent?.trim() || '');
+		expect(pillTexts.some((text) => text === '番号: 1')).toBe(true);
 	});
 
 	it('renders secondary metadata fields in a dedicated detail section', async () => {

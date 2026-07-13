@@ -15,11 +15,11 @@
 
 本リポジトリの API は以下の二層で提供される。
 
-| 層 | エンドポイント | 実装 | データソース | 主な用途 |
-|----|--------------|------|------------|--------|
-| **実 API（公開）** | `database.numbertales-radiann.net/api/v1/*` | Cloudflare Workers `creationsdb-api` (`develop`) | R2（JSON ミラー）+ D1（FTS5） | 外部クライアント・curl・モバイルアプリ |
-| **実 API（AI 用）** | `database.numbertales-radiann.net/api/ai/*` | Cloudflare Workers `creationsdb-api-ai` (`addon-ai-tag`) | R2 + D1 + D1 `aihints` | サークル関係者・Cloud Run 画像生成 |
-| **疑似 API** | `(同一オリジン)/api/v1/*` `/pages/v1/*` `/svc/v1/*` | Service Worker (`pages/sw.js` 等) | GitHub Pages 静的 JSON | ブラウザ・キャラシート UI |
+| 層                  | エンドポイント                                      | 実装                                                                       | データソース                  | 主な用途                               |
+| ------------------- | --------------------------------------------------- | -------------------------------------------------------------------------- | ----------------------------- | -------------------------------------- |
+| **実 API（公開）**  | `database.numbertales-radiann.net/api/v1/*`         | Cloudflare Workers `creationsdb-api`（`pkg/cloudflare/worker.js`, `develop`） | R2（JSON ミラー）+ D1（FTS5） | 外部クライアント・curl・モバイルアプリ |
+| **実 API（AI 用）** | `database.numbertales-radiann.net/api/ai/*`         | Cloudflare Workers `creationsdb-api-ai`（`addon-ai-tag`）                    | R2 + D1 + D1 `aihints`        | サークル関係者・Cloud Run 画像生成     |
+| **疑似 API**        | `(同一オリジン)/api/v1/*` `/pages/v1/*` `/svc/v1/*` | Service Worker (`pages/sw.js` 等)                                            | GitHub Pages 静的 JSON        | ブラウザ・キャラシート UI              |
 
 > **`/api/ai/` について**: `addon-ai-tag` ブランチ専用の Worker が提供するサークル関係者向けエンドポイント。
 > `aihints` エンドポイント（`/:work/:db/aihints`）は `Authorization: Bearer <AI_ACCESS_TOKEN>` が必要。
@@ -31,18 +31,18 @@
 
 ### Cloudflare Workers 実 API エンドポイント
 
-| メソッド | パス | データソース | 説明 |
-|---------|------|------------|------|
-| GET | `/api/v1/meta` | R2 | グローバルメタ (`data/db_meta.json`) |
-| GET | `/api/v1/works` | D1 `works` | 作品一覧（`Works_Hidden=true` 除外） |
-| GET | `/api/v1/:work/meta` | R2 | 作品別メタ (`data/Works_*/DataBases/db_meta.json`) |
-| GET | `/api/v1/:work/dbs` | D1 `dbs` | DB 一覧（`DB_Hidden=true` 除外） |
-| GET | `/api/v1/:work/:db/records` | D1 `records` | レコード一覧（`isPrivate=0`・`_Commons` 適用） |
-| GET | `/api/v1/:work/:db/records/:idx` | D1 `records` | 1 件取得（`?idxKey=X` でフィールド指定） |
-| GET | `/api/v1/:work/:db/search?q=` | D1 FTS5 | DB 内全文検索 |
-| GET | `/api/v1/:work/search?q=` | D1 FTS5 | 作品横断全文検索 |
-| GET | `/api/ai/:work/:db/aihints` | D1 `aihints` | AIHints 一覧（addon-ai-tag / 要 Bearer 認証） |
-| GET | `/api/ai/:work/:db/aihints/:idx` | D1 `aihints` | 1件取得（`?form=<form>` で形態絞り込み / 要 Bearer 認証） |
+| メソッド | パス                             | データソース | 説明                                                      |
+| -------- | -------------------------------- | ------------ | --------------------------------------------------------- |
+| GET      | `/api/v1/meta`                   | R2           | グローバルメタ (`data/db_meta.json`)                      |
+| GET      | `/api/v1/works`                  | D1 `works`   | 作品一覧（`Works_Hidden=true` 除外）                      |
+| GET      | `/api/v1/:work/meta`             | R2           | 作品別メタ (`data/Works_*/DataBases/db_meta.json`)        |
+| GET      | `/api/v1/:work/dbs`              | D1 `dbs`     | DB 一覧（`DB_Hidden=true` 除外）                          |
+| GET      | `/api/v1/:work/:db/records`      | D1 `records` | レコード一覧（`isPrivate=0`・`_Commons` 適用）            |
+| GET      | `/api/v1/:work/:db/records/:idx` | D1 `records` | 1 件取得（`?idxKey=X` でフィールド指定）                  |
+| GET      | `/api/v1/:work/:db/search?q=`    | D1 FTS5      | DB 内全文検索                                             |
+| GET      | `/api/v1/:work/search?q=`        | D1 FTS5      | 作品横断全文検索                                          |
+| GET      | `/api/ai/:work/:db/aihints`      | D1 `aihints` | AIHints 一覧（addon-ai-tag / 要 Bearer 認証）             |
+| GET      | `/api/ai/:work/:db/aihints/:idx` | D1 `aihints` | 1件取得（`?form=<form>` で形態絞り込み / 要 Bearer 認証） |
 
 ### D1 スキーマ概要
 
@@ -61,16 +61,17 @@
 
 両 API は `/api/v1/` を共有するが、`:work` と `:db` の配置が異なる。
 
-| 操作 | Workers 実 API | SW 疑似 API |
-|------|---------------|-------------|
-| 作品一覧 | `/api/v1/works` | `/api/v1/works` |
-| DB 一覧 | `/api/v1/:work/dbs` | `/api/v1/works/:work/dbs` |
-| レコード一覧 | `/api/v1/:work/:db/records` | `/api/v1/works/:work/db/:db/records` |
+| 操作          | Workers 実 API                   | SW 疑似 API                               |
+| ------------- | -------------------------------- | ----------------------------------------- |
+| 作品一覧      | `/api/v1/works`                  | `/api/v1/works`                           |
+| DB 一覧       | `/api/v1/:work/dbs`              | `/api/v1/works/:work/dbs`                 |
+| レコード一覧  | `/api/v1/:work/:db/records`      | `/api/v1/works/:work/db/:db/records`      |
 | レコード 1 件 | `/api/v1/:work/:db/records/:idx` | `/api/v1/works/:work/db/:db/records/:idx` |
-| DB 内検索 | `/api/v1/:work/:db/search?q=` | `/api/v1/works/:work/db/:db/search?q=` |
-| 作品横断検索 | `/api/v1/:work/search?q=` | `/api/v1/works/:work/search?q=` |
+| DB 内検索     | `/api/v1/:work/:db/search?q=`    | `/api/v1/works/:work/db/:db/search?q=`    |
+| 作品横断検索  | `/api/v1/:work/search?q=`        | `/api/v1/works/:work/search?q=`           |
 
 主な差分:
+
 - SW 疑似 API: `works/` プレフィックスと `db/` インフィックスを持つ
 - Workers 実 API: `:work` と `:db` が直接パスに並ぶ（`works/` / `db/` は省略）
 - 疎通確認の具体的な URL 例は `docs/deploy-howto.md` §3 を参照。
@@ -117,7 +118,8 @@
 - `/pages/v1/*` は UI がそのまま使うため、既定で enrich 有効です
 - `/api/v1/*` と `/svc/v1/*` は既存互換を優先し、`?enrich=1` を付けたときだけ enrich します
 - `resolve=0` を付けると、`#Works` や `#DB` などの参照解決をスキップできます
-- `isPrivate: true` を持つレコードは、`db` / `search` / `enrich` 系レスポンスから除外します
+- `isPrivate: true` を持つレコードは、`db` / `search` / `bootstrap` / `enrich` 系レスポンスから除外します
+- **除外は必ず `_Commons` / `_Secondaries` 適用の「後」に行います**。`isPrivate` はレコード自身の宣言だけでなく、`_Secondaries[]._Commons.isPrivate: true` のように**所属シリーズ側から注入**されることがあるため、適用前に判定すると注入値が読まれず非公開指定のレコードが公開されてしまいます（実バグとして発生・修正済み）。Cloudflare Workers 側では D1 の `is_private` 列を `scripts/migrate.mjs` が `_Commons` 適用後の値から算出することでこの規則を担保します
 - `_DBLink` の参照先探索でも `isPrivate: true` の候補は採用しません
 - `Works_Hidden: true` を持つ作品は、作品一覧・配下のDB・検索の全エンドポイントから除外または 404 で遮断されます（後述の §5.4 を参照）
 - `DB_Hidden: true` を持つDBは、作品配下のDB一覧・直接アクセス・検索から除外または 404 で遮断されます（後述の §5.3 を参照）
@@ -265,12 +267,12 @@ UI と enrich/search は、可能な限りこの `db_type.json($DefType)` に追
 
 `isPrivate: true`（レコード単位の非公開）と異なる点:
 
-| 項目 | `isPrivate: true` | `DB_Hidden: true` |
-|------|------------------|-------------------|
-| 粒度 | レコード単位 | DB 全体 |
-| 適用場所 | `db_*.json` の各レコード | `db_meta.json` の `Databases.#DB_<DbName>` |
-| DBリスト (`works/{work}/db`) | DBエントリは残る | DBエントリごと除外 |
-| `db/{dbName}` 直接アクセス | 対象レコードだけ除外 | 404 |
+| 項目                         | `isPrivate: true`        | `DB_Hidden: true`                          |
+| ---------------------------- | ------------------------ | ------------------------------------------ |
+| 粒度                         | レコード単位             | DB 全体                                    |
+| 適用場所                     | `db_*.json` の各レコード | `db_meta.json` の `Databases.#DB_<DbName>` |
+| DBリスト (`works/{work}/db`) | DBエントリは残る         | DBエントリごと除外                         |
+| `db/{dbName}` 直接アクセス   | 対象レコードだけ除外     | 404                                        |
 
 ---
 
@@ -291,14 +293,14 @@ UI と enrich/search は、可能な限りこの `db_type.json($DefType)` に追
 
 `DB_Hidden`・`isPrivate` との粒度比較:
 
-| 項目 | `isPrivate: true` | `DB_Hidden: true` | `Works_Hidden: true` |
-|------|------------------|-------------------|---------------------|
-| 粒度 | レコード単位 | DB 全体 | 作品全体 |
-| 適用場所 | `db_*.json` の各レコード | `db_meta.json` の `Databases.#DB_<DbName>` | `db_meta.json` の `CreationWorks.#Works_<WorkName>` |
-| 作品一覧 (`works`) | 作品は残る | 作品は残る | 作品ごと除外 |
-| `works/{work}` 直接アクセス | 対象レコードだけ除外 | 作品情報は返る | 404 |
-| `works/{work}/db` | DBエントリは残る | 該当DBが除外 | 404 |
-| `works/{work}/db/{dbName}` | 対象レコードだけ除外 | 404 | 404 |
+| 項目                        | `isPrivate: true`        | `DB_Hidden: true`                          | `Works_Hidden: true`                                |
+| --------------------------- | ------------------------ | ------------------------------------------ | --------------------------------------------------- |
+| 粒度                        | レコード単位             | DB 全体                                    | 作品全体                                            |
+| 適用場所                    | `db_*.json` の各レコード | `db_meta.json` の `Databases.#DB_<DbName>` | `db_meta.json` の `CreationWorks.#Works_<WorkName>` |
+| 作品一覧 (`works`)          | 作品は残る               | 作品は残る                                 | 作品ごと除外                                        |
+| `works/{work}` 直接アクセス | 対象レコードだけ除外     | 作品情報は返る                             | 404                                                 |
+| `works/{work}/db`           | DBエントリは残る         | 該当DBが除外                               | 404                                                 |
+| `works/{work}/db/{dbName}`  | 対象レコードだけ除外     | 404                                        | 404                                                 |
 
 ## 5.5 `AI_Optout` による AI タグ生成 / AI 学習の抑止
 
@@ -482,7 +484,7 @@ typedef で `$enrich: true` を宣言した `*_DBLink` suffix フィールド（
 空値のみ穴埋めマージします。
 
 `$Def_DBLinkRef` のインデックス値には null を含められます（例: UnauthedLogica の
-`Model: { "LogicSeries": null, "Num": null }` のような型番未確定インデックス）。
+`Model: { "ModelSeries": null, "Num": null }` のような型番未確定インデックス）。
 
 - クエリ側の null は「参照先レコード側も null/undefined」の明示マッチとして扱います
 - null 入りインデックスは複数レコードに一致し得るため、**1 件一致のみ採用**し、複数一致・0 件はスキップします
