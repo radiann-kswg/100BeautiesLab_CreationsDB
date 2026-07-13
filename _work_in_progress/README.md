@@ -23,10 +23,9 @@
 | トピック                                 | 現行ログ                                                                                                                                                            | 状態                                                                                             |
 | ---------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------ |
 | タスク管理・起点                         | [2026-07-03_current-task-ledger.md](./2026-07-03_current-task-ledger.md)                                                                                            | 進行中タスクの一覧（P1/P2/P3）                                                                   |
-| タスク管理・母艦                         | [2026-07-08_remaining-task.md](./2026-07-08_remaining-task.md)                                                                                                     | 未完了タスクの統合版（旧 `2026-06-01` / `2026-06-13` は `.completed/` へ退避）                                                     |
-| GitHub Issue/PR トリアージ               | [2026-07-08_github-triage.md](./2026-07-08_github-triage.md)                                                                                                        | 🟡 新規失敗通知なし。Jekyll Pages の最終ステータスは Actions 画面での目視確認のみ残              |
-| ConversationPattern 引き継ぎ             | [2026-06-28_progress_conversationpattern-handoff.md](./2026-06-28_progress_conversationpattern-handoff.md)                                                          | ⚠️ sub2側後処理が残（current-task-ledger P2）                                                    |
-| `*_DBLink` enrich/renderer               | [2026-06-18_progress_dblink-enrich.md](./2026-06-18_progress_dblink-enrich.md) / [2026-06-18_progress_dblink-renderer.md](./2026-06-18_progress_dblink-renderer.md) | ⚠️ 作品別typedefへのフィールド追加・ブラウザ確認待ち                                             |
+| タスク管理・母艦                         | [2026-07-08_remaining-task.md](./2026-07-08_remaining-task.md)                                                                                                     | 未完了タスクの統合版（旧 `2026-06-01` / `2026-06-13` は `.completed/` へ退避）                   |
+| GitHub Issue/PR トリアージ               | [2026-07-13_github-triage.md](./2026-07-13_github-triage.md)                                                                                                        | 🟢 即対応が必要な新規未解決項目 0 件（過去の日次ログは `.completed/` へ退避）                    |
+| ConversationPattern 引き継ぎ             | [2026-06-28_progress_conversationpattern-handoff.md](./2026-06-28_progress_conversationpattern-handoff.md)                                                          | ⚠️ sub2側後処理 + DialogueExamples先行方式での仮入力（Num 92/94/95/98/99/2/10）が残              |
 | 英訳ルール基準書                         | [2026-06-12_progress_translation-style-unified.md](./2026-06-12_progress_translation-style-unified.md)                                                              | 継続参照用（ルール本体・バッチ作業ログ）                                                         |
 | Localization DB（`trans_*.json`）        | [2026-06-24_progress_localization-db.md](./2026-06-24_progress_localization-db.md)                                                                                  | ⚠️ enum解決の合流・原作者確認・項目追加継続中                                                    |
 | Localization Summary 入力                | [2026-06-25_progress_localization-summary-inputs.md](./2026-06-25_progress_localization-summary-inputs.md)                                                          | ⚠️ 入力チェックリスト（残7件、User手動）                                                         |
@@ -35,20 +34,18 @@
 | Issue機能追加                            | [2026-07-04_progress_issue-feature.md](./2026-07-04_progress_issue-feature.md)                                                                                      | ⚠️ GitHub上のテンプレート最終表示確認のみ残（構造・デプロイ状態はAPI経由で検証済み）             |
 | ADR-0002（Google Cloud 画像生成）        | [2026-06-21_progress_cloudflare-api-adr2-gcloud.md](./2026-06-21_progress_cloudflare-api-adr2-gcloud.md)                                                            | Draft・設計検討中                                                                                |
 | addon-ai-tag 逆マージ事故記録            | [2026-07-02_progress_addon-ai-tag-reverse-merge-incident.md](./2026-07-02_progress_addon-ai-tag-reverse-merge-incident.md)                                          | ⚠️ addon-ai-tag側ログへの後日談追記が保留中                                                      |
-| UnibyteLive アルベッツ苗字命名           | [2026-07-06_progress_unibytelive-formalname-draft.md](./2026-07-06_progress_unibytelive-formalname-draft.md)                                                        | ⚠️ 下書き入力24件・User最終レビュー待ち（`npm test` 22files/178tests成功済み）                   |
-| NumberTales TailsUnit 専用型移行         | [2026-07-07_progress_tailsunit-dedicated-type.md](./2026-07-07_progress_tailsunit-dedicated-type.md)                                                                | 表示方針の未完了タスクは `tailsunit-image-reference` で解消済み                                  |
-| NumberTales TailsUnit 参考画像 + `$subfolder` | [2026-07-10_progress_tailsunit-image-reference.md](./2026-07-10_progress_tailsunit-image-reference.md)                                                         | ⚠️ ブラウザ目視確認待ち（`npm test` 22files/207tests成功済み）                                   |
-| 画像フィールド専用DB/Work横断参照 `_DBCrossLinkPath` | [2026-07-11_progress_dbcrosslinkpath.md](./2026-07-11_progress_dbcrosslinkpath.md)                                                                       | ⚠️ ブラウザ目視確認・SW API実地確認待ち（`npm test` 23files/218tests成功済み）                   |
-| 共通資料（`data/References`+`GeneralImages`）の疑似作品化 | [2026-07-11_progress_global-references.md](./2026-07-11_progress_global-references.md)                                                             | ⚠️ ブラウザ目視確認・Workers実API疎通確認待ち（`npm test` 23files/226tests成功済み）             |
-| Works_DestinyFoxRecords / Works_Proxies 統合  | [2026-07-11_progress_works-merge-dfr-proxies.md](./2026-07-11_progress_works-merge-dfr-proxies.md)                                                      | ⚠️ 全フェーズ実装完了・`npm test` 233件成功。ブラウザ実地確認とコミットはUser待ち               |
-| NumberTales 耳の形状(EarShapeType)再設計 | [2026-07-08_progress_numbertales-earshapetype-restructure.md](./2026-07-08_progress_numbertales-earshapetype-restructure.md)                                        | ⚠️ ブラウザ目視確認待ち（`npm test` 22files/199tests成功済み・addon-ai-tag側追従は実施済み）     |
+| UnibyteLive アルベッツ苗字命名           | [2026-07-06_progress_unibytelive-formalname-draft.md](./2026-07-06_progress_unibytelive-formalname-draft.md)                                                        | ⚠️ 下書き入力24件・User最終レビュー待ち                                                          |
 | AIHints 構造的再同期 設計提案            | [2026-07-08_progress_aihints-structural-resync-proposal.md](./2026-07-08_progress_aihints-structural-resync-proposal.md)                                            | 📝 提案書のみ・実装未着手。User の優先度判断待ち（実装は addon-ai-tag 側の別タスク）             |
-| NumberTales `NumberMarkLocation`/`IdentityMotif` 廃止（appearance-detail-cleanup） | [2026-07-11_progress_remove-nummark-identitymotif.md](./2026-07-11_progress_remove-nummark-identitymotif.md) | ✅ 実装完了・`npm test` 243/244件成功（既存無関係の1件失敗は対象外）。ブラウザ目視確認は未実施 |
-| NumberTales VRMアバター 3Dビューア            | [2026-07-12_progress_vrm-viewer.md](./2026-07-12_progress_vrm-viewer.md)                                                                                            | ✅ 実装・`npm test`（27files/254tests）・Playwrightブラウザ実機確認まで完了                        |
+| AppearanceDetail 参考画像の一括登録      | [2026-07-11_progress_appearancedetail-images.md](./2026-07-11_progress_appearancedetail-images.md)                                                                  | ⚠️ `10`/`10alt` の割当正誤（User確認待ち）・保留4枚の扱い                                        |
+| pkg/ FSクライアント追従 + `isPrivate` 順序修正 | [2026-07-13_progress_pkg-sync.md](./2026-07-13_progress_pkg-sync.md)                                                                                          | ⚠️ Workers側 `_Secondaries` マッチャが簡略版のままで `lib/` と乖離（要追従）                     |
+| アンオースドロジカ Index機能拡張（エイリアスIndex・辞書解決） | [2026-07-13_progress_unauthedlogica-index-alias.md](./2026-07-13_progress_unauthedlogica-index-alias.md)                                          | ⚠️ `dict_ModelSeries`/`dict_LogicSeries` の null キー行のラベル文言（User入力）待ち              |
 
 ### 系列の補足（過去フェーズは `.completed/` 参照）
 
-- **AppearanceDetail系**: `design-part-schema` → `appearance-attrs-typed-schema` → `appearance-detail-merge-integration` / `runbook` は実装完了につき `.completed/` へ退避済み。残作業だった `appearance-detail-cleanup`（NumberTales `NumberMarkLocation`/`IdentityMotif` 廃止）も 2026-07-11 に実装完了。
+- **AppearanceDetail系**: `design-part-schema` → `appearance-attrs-typed-schema` → `appearance-detail-merge-integration` / `runbook` → `appearance-detail-cleanup` → `remove-nummark-identitymotif` はいずれも実装・確認完了につき `.completed/` へ退避済み。データ入力側の継続作業のみ `appearancedetail-images` で管理。
+- **TailsUnit系**: `tailsunit-appearancedetail-migration` → `tailsunit-dedicated-type` → `tailsunit-layoutdirection` → `tailsunit-image-reference` は 2026-07-13 のブラウザ目視確認をもって全て完了・退避済み。
+- **`*_DBLink` / 画像横断参照系**: `dblink-enrich` / `dblink-renderer` / `crosswork-dblink-audit` / `dbcrosslinkpath` は実データ稼働＋ブラウザ・SW API 確認まで完了につき退避済み。
+- **Cloudflare 実API系**: `global-references`（共通資料の疑似作品化）と `r2-sync-outage`（R2 未同期障害）は 2026-07-13 に本番実 API で疎通・是正を確認し退避済み。運用の残課題は `pkg-sync` 側で管理。
 - **DeepL/ローカライズ運用系**: `deepl-localization` / `deepl-draft-translate` / `deepl-glossary-multiform` / `deepl-py-and-skill` / `deepl-production-run` は、2026-07-03 の本番実行ログ（`deepl-production-run`）で実API疎通・Python版・用語集同期まで確認済みにつき `.completed/` へ退避済み。データ内容そのものの継続作業は `localization-db` / `localization-summary-inputs` 側で管理。
 
 ---
@@ -56,6 +53,24 @@
 ## 完了（.completed へ退避済み）
 
 以下のファイルは実装・検証が完了し、`_work_in_progress/.completed/` へ移動済みです（Git 管轄外）。
+
+### 2026-07-13 棚卸しで追加退避（17件）
+
+ブラウザ目視確認 4 件と本番実 API での裏取り 3 件を実施し、残っていた「確認待ち」を解消したうえで退避。
+
+- `2026-07-13_progress_r2-sync-outage.md`（R2 未同期障害。本番で `/api/v1/meta` 復旧・Secondary 37件・FTS `?q=0xFF` → `[]` を確認し、**D1 `is_private` 是正済み**）
+- `2026-07-13_progress_index-group-pills.md`（Index ルート単位のピル集約。未完了タスクなし）
+- `2026-07-12_progress_vrm-viewer.md`（VRM 3Dビューア。実装・テスト・Playwright 実機確認まで完了）
+- `2026-07-11_progress_global-references.md`（共通資料の疑似作品化。本番 `/api/v1/works` に `#Works_CommonReferences`、`/CommonReferences/dbs` で 5DB 取得を確認し **Workers 疎通完了**）
+- `2026-07-11_progress_dbcrosslinkpath.md`（画像の DB/Work 横断参照。Num=22 のギャラリーで SemiPrimary 参照画像の表示と、SW enrich の非破壊性（生値は `_DBCrossLinkPath` のまま・`_enrichment.images` へ追記のみ）を確認）
+- `2026-07-11_progress_works-merge-dfr-proxies.md`（DFR / Proxies 統合。コミット済み・`global-references` のブラウザ確認セッションで実地確認済み。`OldTitles` 文言のみ母艦へ引き継ぎ）
+- `2026-07-11_progress_remove-nummark-identitymotif.md`（`NumberMarkLocation`/`IdentityMotif` 廃止。ブラウザで残存ゼロを確認。既存不具合として記録されていた `TailsUnit_PNGName` 拡張子欠落も解消済み）
+- `2026-07-10_progress_tailsunit-image-reference.md`（TailsUnit 参考画像 + `$subfolder`。Num:4 の参考画像表示をブラウザ確認）
+- `2026-07-08_progress_numbertales-earshapetype-restructure.md`（EarShapeType 独立軸化。Num:9「狐の耳」/ Num:11「猫の耳」をブラウザ確認。語彙拡張のみ母艦へ引き継ぎ）
+- `2026-07-07_progress_tailsunit-dedicated-type.md`（TailsUnit 専用型移行。未完了項目は後続ログで解消済み）
+- `2026-07-09_progress_crosswork-dblink-audit.md`（cross-work `_DBLink` 明示空値監査。該当 0 件で完了）
+- `2026-06-18_progress_dblink-enrich.md` / `2026-06-18_progress_dblink-renderer.md`（`*_DBLink` enrich / renderer。実データが複数作品で稼働し、ブラウザ確認も後続ログで完了）
+- `2026-07-08_github-triage.md` / `2026-07-09_github-triage.md` / `2026-07-10_github-triage.md` / `2026-07-11_github-triage.md`（日次トリアージ履歴。現行は `2026-07-13_github-triage.md`）
 
 ### 2026-07-08 棚卸しで追加退避（8件）
 
