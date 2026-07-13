@@ -297,6 +297,16 @@
       }
     },
     {
+      "hashTag": "ColorPalette",
+      "$type": "$Def_ColorPalette[]|#Null",
+      "hashTag_JP": "配色",
+      "hashTag_EN": "Color Palette",
+      "searchable": false,
+      "$display": {
+        "section": "profile"
+      }
+    },
+    {
       "hashTag": "ConversationPattern",
       "$type": [
         {

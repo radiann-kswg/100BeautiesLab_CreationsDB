@@ -26,6 +26,7 @@
 import '../lib/wrapper-common.js';
 import '../lib/section-wrapper-common.js';
 import '../lib/section-renders/appearanceDetail.js';
+import '../lib/section-renders/colorPalette.js';
 import '../lib/section-renders/thisMasters.js';
 import '../lib/section-renders/specStatsHelpers.js';
 import '../lib/section-renders/abilityStats.js';

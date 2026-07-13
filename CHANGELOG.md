@@ -1,5 +1,38 @@
 # 最新のリファクタリング・仕様変更履歴
 
+### feat: 設定画のカラーチップから `ColorPalette` を確定 + 再利用可能なパッチスクリプト (2026-07-13)
+
+前段（下記）では画像全体からの median-cut 推定で `ColorPalette` を入れていたが、**設定画（concept / catalog）に作者がカラーチップ（配色見本の丸）を描き込んでいる**ことが判明した。カタログ画像には `0x00b6d9` のような HEX コードが文字としても併記されており、これが作者の指定した配色そのものである。推定値をこの実測値へ差し替えた。
+
+- **`$EnumDef_ColorRole` に `#ColorRole_Sub`（副色）を追加**: 実データの配色は 5〜6 色あり、Primary / Secondary / Accent の 3 役では足りなかった。4 色目以降を Sub とする。
+- **`tools/patch-colorpalette.mjs`（新規）**: `--work` / `--db` を変えれば**他作品・他 DB にも再利用できる**パッチスクリプト（`tools/patch-aihints.mjs` と同じ流儀。既定 dry-run / `--apply` で書き込み / `--force` で再生成 / `--drop-unresolved` で確定できなかったレコードの推測値を削除）。
+- **`detectSwatchChips()`（`tools/extract-palette.mjs`）**: カラーチップの検出。**2 段階検出**を採る — 確実なチップだけで**配色領域を特定**し、**その領域の中だけ**条件を緩めて再捜査する（`rescanPaletteRegion()`）。配色見本は 1 箇所にまとめて描かれるため、領域を絞ってしまえば閾値を下げてもノイズを拾う危険が小さい。実装上つまずいた点と対処:
+  - チップが**重なって描かれている**（Num 48）→ 単純な「有色の連結成分」では全部が 1 つの塊に融合するため、**色が変わる境界で成分を切る**（同色の平坦領域を成分とする）。
+  - チップの**大小が不揃い**（Num 75 は大きい黄色が半径 11.8px、青が 3.7px）→ 収縮回数だけで足切りすると小さいチップを落とす。領域内では下限を大きく下げて救済する。
+  - **淡い色のチップが「ほぼ白＝背景」に、黒に近いチップが「暗色＝線画」に分類されて消える**（Num 19 の `#423F3F` 等）→ 領域内では**色による足切りをやめ**、純白（`#FFFFFF` ごく近傍）だけを紙面として除外する。カタログの中間色には `0xf4fae8` のようなほぼ白の色が実在するため、「明るい＝背景」では切れない。
+  - **淡い配色では別々のチップが色空間で近接する** → 分割検出の統合しきい値が大きすぎると別チップを 1 つに潰す（Num 12/21 の `#FEF3D9` と `#FFEFE4` は距離 11.75）。分割された断片はべた塗りゆえ色が完全一致するので、しきい値を 6 まで絞った。
+  - 検出実績: **5 色以上を検出できたレコードが 93 件**（素朴な実装では 68 件）。
+- **`measurePaletteCoverage()`**: Role（主従）は、チップの各色が**キャラクター画像の何割を占めるか**の実測で決める。色そのものは作者指定のチップ値をそのまま使い、順序だけを実測で決める。
+- **`--chips` による手入力の受け口**: 自動検出が原理的に届かないレコードのために、User が読み取ったカラーコードを渡せるようにした（`--records 40 --chips "#67bdbd,#a4daef,..."`）。手入力値も自動検出と同じ扱いで、被覆率の降順で Role を決め `AppliesTo` を転記する。設定画を持たない作品・DB へ展開する際の経路にもなる。
+- **実データ**: NumberTales / Primary の **94 件**を median-cut 推定からチップ実測へ差し替えた（5 色: 52 件 / 6 色: 20 件 / 7 色: 15 件 / 8 色: 7 件。**全件が 5 色以上**）。うち Num 40 はチップが小さく淡く重なって自動検出では 2 色しか取れなかったため、User 提供の 5 色を `--chips` で投入（5 色すべてが corefolder 画像上で実際に使われていることを被覆率実測で確認）。設定画そのものが無い 11 件は `--drop-unresolved` で既存の推測値を削除し、**DB に推測値と実測値が混在しない**状態にした。
+- **`tests/patch-colorpalette.test.js`（新規、21 件）**: Num 4 の検出結果が**カタログに印字された HEX コードと一致する**こと（正解が判っている回帰）、重なったチップの分離（Num 48）、小さいチップの救済（Num 75 の青）、4 色目以降が Sub になること、創作内容を埋めないこと、推測値の削除、手入力チップの正規化と優先を検証。
+- 確認: `npm test` 全件成功（32 ファイル / 354 件）。`npx prettier --check` パス。
+
+### feat: `ColorPalette` スキーマ新設 + 既存画像からの配色候補抽出ツール (2026-07-13)
+
+キャラクターの配色（HEX）を本体 DB に構造化フィールドとして持たせる `ColorPalette` を新設した。従来 `AppearanceDetail` には `#DesignAttr_Color` の**色名**（`"赤"` / `"red"`）しか無く HEX が存在しなかったため、AIHints の `palette_priority` は画像を目測するしか埋める手段が無く、実データ 92 件すべてが `null` のままだった（`addon-ai-tag` 側の調査結果。`_work_in_progress/2026-07-13_progress_aihints-palette-deadlock.md`）。色を本体 DB に持たせることで、`palette_priority` を `AppearanceDetail` と同じ **「構造由来」** の値として機械導出できるようにする布石。
+
+- **`data/db_type.json`**: グローバル `$DefType` に `ColorPalette`（`$Def_ColorPalette[]|#Null`）を追加（`AppearanceDetail` の直後、`$display: { section: 'profile' }`）。
+- **`data/db_meta.json`（`General.$VarsDef`）**: `$Def_ColorPalette`（`Role` / `Hex` / `ColorName_JP` / `ColorName_EN` / `AppliesTo` / `Formation` / `Note_JP` / `Note_EN`）と `$EnumDef_ColorRole`（`#ColorRole_Primary` / `#ColorRole_Secondary` / `#ColorRole_Accent`）を新設。
+- **既存資産の活用**: `Hex` の型には `$ScalarDef` に**定義済みだが未使用だった** `#Hexcode_Color`（`#RRGGBB` / `#RRGGBBAA`）を使用。`AppliesTo` は既存の `$EnumDef_DesignBodyPart` を再利用する。
+- **`tools/extract-palette.mjs`（新規）**: 既存画像から配色候補を決定論的に抽出する入力補助ツール。**PNG デコーダを Node 標準 `zlib` のみで自前実装**（依存追加ゼロ。`sharp` 等のネイティブ依存を持ち込まない）。前景マスクは 4 段（透過除去 → 外周フラッドフィル → **外周の色分布からの背景色推定** → 線画の黒・紙面の白の除去）。median-cut で代表色と占有率を求め、`AppearanceDetail` の色語（`#DesignAttr_Color` / `#DesignAttr_Overview`）と HSV 範囲で照合して「この HEX は hair の 'red orange' に対応しそう」という根拠を付与する。`--draft` で `.private/` へ追記用の下書きメモを出力する。
+- **`--apply` による実データ追記**: `data/Works_NumberTales/DataBases/db_Primary.json` の **95 件**へ `ColorPalette` を追記した（`AppearanceDetail` の直後 = `$DefType` のフィールド順に一致。画像を持たない 10 件はスキップ）。既定は dry-run で、`--apply` を明示したときだけ書き込む（`tools/patch-aihints.mjs` と同じ流儀）。
+  - **書式非破壊**: `JSON.parse` → `JSON.stringify` の往復は prettier が 1 行に畳んでいる短い配列（`"corefolder_PNGPath": ["a", "b"]` 等）をすべて展開してしまい全行が差分になるため、`patch-aihints.mjs` と同様の**テキスト挿入**で実装（`scanTopLevelRecords()` / `findValueEnd()` / `insertColorPaletteIntoRecord()`）。結果 `git diff --numstat` は **3320 行追加 / 0 行削除**。
+  - **書き込んだ項目**: `Role`（占有率の降順で Primary / Secondary / Accent を仮割当 = **要 User 確認**）/ `Hex`（既存画像からの機械計測値）/ `AppliesTo`（色語が一致した `AppearanceDetail` の `BodyPart` を転記）。
+  - **書き込んでいない項目**: `ColorName_JP` / `ColorName_EN` / `Formation` / `Note_*` は 95 件すべて `null`。**色に名前を付ける行為は創作内容にあたるため、ツールも Claude も埋めない**（User が手入力する）。
+- **`tests/extract-palette.test.js`（新規、31 件）**: PNG デコード（実アセットを使用）・色空間変換・median-cut・色語収集・下書き生成・テキスト挿入を検証。特に「主ソースは arts → corefolder → concept の優先順に従う」（前景比率で選ぶと単色のコアフォルダ球体が humanoid 清書イラストを押しのける不具合の回帰）、「創作内容（色名 / Formation / Note）は埋めない」、「挿入箇所以外のテキストを 1 文字も書き換えない」を固定。
+- **実績**: NumberTales / Primary の全画像 155 枚をデコードして**エラー 0 件**。105 レコード中 95 件に追記（主ソース内訳: arts 58 / corefolder 28 / concept 9）。追記後の検証で `Hex` の型不適合 0 件 / `Role` の不正値 0 件 / 創作フィールドの誤記入 0 件。
+- 確認: `npm test` 全件成功（31 ファイル / 333 件）。`npx prettier --check` パス。
 ### fix(addon-ai-tag): `palette_priority` が永久に埋まらないデッドロックを解消 (2026-07-13)
 
 AIHints の再ビルドで既存の手仕上げ内容が `TODO:` へ巻き戻る問題を調査したところ、`common.palette_priority`（画像を見ないと決まらないカラーセット）が **NumberTales / Primary の AIHints 保持レコード 92 件すべてで `null` に固定**されており、Agent 連動の視覚解析ワークフロー（`--gen-vision-tasks` → Agent の `view_image` → `--apply-vision-results`）が**一度も palette に到達できていなかった**ことが判明した。パイプライン自体は実装済みで、`null` の扱いが三重に噛み合ってデッドロックを形成していた。
