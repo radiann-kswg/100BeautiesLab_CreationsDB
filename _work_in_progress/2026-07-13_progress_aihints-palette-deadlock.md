@@ -6,7 +6,7 @@ User から「AIHints をビルドすると `TODO:` 状態に巻き戻って既�
 
 調査の結果、**カラー抽出のための Agent 連動パイプラインは `addon-ai-tag` に既に実装済み**であり、詰まりの原因はパイプラインの不在ではなく **`palette_priority` の `null` ハンドリングのバグ（デッドロック）** であることが判明した。本ドキュメントはその診断結果と、[2026-07-08 の構造的再同期提案](./2026-07-08_progress_aihints-structural-resync-proposal.md) を踏まえた実装設計の確定案をまとめる。
 
-**本ドキュメントは提案のみで、実装は含まない。** User が内容を確認・優先度判断した後、`addon-ai-tag` ブランチ（サブローカル）で別タスクとして着手する。
+> **【2026-07-13 追記】第0階（`null` ハンドリング修正）は `addon-ai-tag` ブランチで実装・検証済み。** 本文の診断・設計はそのまま維持し、実装結果を末尾の「実装結果（第0階）」節に追記した。第1階（provenance）・第2階（色抽出）は未着手。
 
 ## 調査で判明した事実
 
@@ -211,6 +211,41 @@ Step 1 は単独で「`--force` を使わずに palette を埋められる」状
 - 実装着手時、サブローカル（`addon-ai-tag` チェックアウト先）の物理パスを Claude へ共有する必要がある。
 - `concept` 画像（設定画）を抽出ソースに含めるかの最終判断（赤ペン注釈のノイズ耐性が確認できてから）。
 - `AIHints` を持たない 13 件、および画像を持たない 10 件の扱い（対象外とするか、別途 scaffold するか）。
+
+---
+
+## 実装結果（第0階 / 2026-07-13、`addon-ai-tag` ブランチ）
+
+第0階「`null` ハンドリング修正」を実装・検証した。第1階（provenance）・第2階（色抽出）は未着手。
+
+### 変更点
+
+`tools/patch-aihints.mjs`:
+
+- **`isUnfilledPaletteSlot(v)` を新設**（export）。`null` / 空文字 / `TODO:` 接頭辞を等しく「未入力」とみなす単一の判定器。検出側・適用側の両方から使い、判定基準の二重定義を防ぐ。
+- **`detectVisualTodos()`**: `palette_priority` が `null` / object ごと欠落の場合も 3 スロットすべてを未入力として検出するよう修正。`genVisionTasksToFile()` 内のローカル関数だったため、テストから直接検証できるようモジュールレベルへ引き上げた（挙動は不変）。
+- **`applyVisionResultsToAihints()`**: `palette_priority` が `null` でも object を組み立て直してから書き込むよう修正。**確定済みの HEX は上書きしない**（未入力スロットのみ埋める）ガードを追加。
+- **`buildAihintsFromAppearanceDetail()` / `clearAihintsTagsForNoSource()`**: `palette_priority = null` の代入を削除し、`age_appearance` / `reference_images` と同じ**据え置き**扱いへ変更。JSDoc も実態に合わせて修正。
+- export 追加: `isUnfilledPaletteSlot` / `detectVisualTodos` / `applyVisionResultsToAihints` / `clearAihintsTagsForNoSource` / `buildAihintsFromAppearanceDetail`。
+
+`tests/patch-aihints.palette.test.js`（新規、17 件）:
+
+デッドロックの 3 点をそれぞれ回帰として固定。あわせて「確定済み HEX を上書きしない」「`--apply-appearancedetail` が palette を潰さない」「入力 AIHints を破壊しない（deep copy）」も検証。
+
+### 検証
+
+1. **`npm test` 全件成功**（33 ファイル / 339 件）。
+2. **`--gen-vision-tasks` を NumberTales / Primary 全件に実行**: palette 未入力として検出されるレコードが **0 件 → 92 件**（AIHints を持つ全件）になった。修正前は `null` が検出条件をすり抜けるため 1 件も載らなかった。
+3. **Num:1 で end-to-end 実証**: `.cache/vision-results.json` に palette を書いて `--apply-vision-results --apply` → 書き戻しに成功（修正前は `null` が falsy 判定で弾かれ書き戻せなかった）。続けて **`--apply-appearancedetail --apply` を実行しても HEX が保持される**ことを確認（修正前はここで `null` に潰されていた）。
+   確認後 `git checkout -- data/Works_NumberTales/DataBases/db_Primary.json` で revert 済み。**実データの `palette_priority` は 92 件とも未入力のまま**（投入した HEX は配管検証用の目測値であり、User 未承認のため残していない）。
+
+### 残る課題（第0階では解決しない）
+
+- **`--suggest --force` の全面上書きによる巻き戻り**は未解決。第1階（`_meta` provenance + `--resync-structural`）が必要。
+- **`common.natural_language_description`** も palette と同様、`buildAihintsFromAppearanceDetail()` が毎回 `null` へ潰しており、実データでも広く `null` のまま。ただし `VisionResult` typedef に対応フィールドが無く視覚解析ワークフローの対象外のため、今回のスコープには含めていない（第1階または別タスクで扱う）。
+- 実データ 92 件の palette を実際に埋める作業は、第2階（決定論的な色抽出）を入れてから着手するのが安全。目測のみで 92 件分の HEX を確定させると再現性が担保できない。
+
+---
 
 ## 参考リンク
 

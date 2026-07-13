@@ -1,5 +1,21 @@
 # 最新のリファクタリング・仕様変更履歴
 
+### fix(addon-ai-tag): `palette_priority` が永久に埋まらないデッドロックを解消 (2026-07-13)
+
+AIHints の再ビルドで既存の手仕上げ内容が `TODO:` へ巻き戻る問題を調査したところ、`common.palette_priority`（画像を見ないと決まらないカラーセット）が **NumberTales / Primary の AIHints 保持レコード 92 件すべてで `null` に固定**されており、Agent 連動の視覚解析ワークフロー（`--gen-vision-tasks` → Agent の `view_image` → `--apply-vision-results`）が**一度も palette に到達できていなかった**ことが判明した。パイプライン自体は実装済みで、`null` の扱いが三重に噛み合ってデッドロックを形成していた。
+
+- **根本原因（`tools/patch-aihints.mjs`、3 点）**:
+  1. `buildAihintsFromAppearanceDetail()`（`--apply-appearancedetail`）と `clearAihintsTagsForNoSource()` が `palette_priority` を実行のたびに `null` へ潰していた。palette は**画像由来であり AppearanceDetail からは導出できない**ため、そもそも本モードが再構築してよい対象ではない。
+  2. `detectVisualTodos()`（`--gen-vision-tasks`）が `TODO:` 接頭辞の**文字列しか**未入力とみなさず、`null` 化されたレコードを視覚タスクに載せなかった。
+  3. `applyVisionResultsToAihints()`（`--apply-vision-results`）が `palette_priority` を falsy 判定で弾き、Agent が解析結果を返しても**書き戻さなかった**。
+  結果として「(1) が null にする → (2) が検出しない → Agent が見に行かない → (3) が書き戻せない」というループが閉じ、TODO 文字列を復活させる唯一の経路が `--suggest --force`（= 手仕上げの創作内容ごと全面上書き）だけになっていた。これが「ビルドすると巻き戻る」の正体。
+- **修正**: `palette_priority` を `age_appearance` / `reference_images` と同じ**据え置き**扱いに変更（`--apply-appearancedetail` は触らない）。`null` / 空文字 / `TODO:` を等しく「未入力」とみなす `isUnfilledPaletteSlot()` を新設し、検出・適用の両側で使用。適用側は `palette_priority` が `null` でも object を組み立て直して書き込むが、**確定済みの HEX は上書きしない**（未入力スロットのみ埋める）。
+- **export 追加**: `isUnfilledPaletteSlot` / `detectVisualTodos` / `applyVisionResultsToAihints` / `clearAihintsTagsForNoSource` / `buildAihintsFromAppearanceDetail`。`detectVisualTodos` は `genVisionTasksToFile()` 内のローカル関数だったためモジュールレベルへ引き上げた（挙動は不変）。
+- **`tests/patch-aihints.palette.test.js`（新規、17 件）**: デッドロックの 3 点それぞれを回帰として固定。あわせて「確定済み HEX を上書きしない」「`--apply-appearancedetail` が palette を潰さない」も検証。
+- **効果（実データで確認）**: `--gen-vision-tasks` が拾う palette 未入力レコードが **0 件 → 92 件**に。Num:1 で end-to-end（`--apply-vision-results --apply` → `--apply-appearancedetail --apply`）を実行し、書き戻した HEX が再ビルド後も**失われない**ことを実証（確認後 `git checkout --` で revert 済み。実データの palette は未入力のまま）。
+- **未着手**: `--force` 全面上書きによる巻き戻り問題そのもの（構造由来と人手由来を区別する `_meta` provenance / `--resync-structural`）と、Agent の目視を裏付ける決定論的な色抽出（`tools/extract-palette.mjs`）は別タスク。設計は `_work_in_progress/2026-07-13_progress_aihints-palette-deadlock.md` / `2026-07-08_progress_aihints-structural-resync-proposal.md` を参照。
+- 確認: `npm test` 全件成功（33 ファイル / 339 件）。
+
 ### fix: R2 が本番へ一度も同期されていなかった問題を修正（`--remote` 欠落）+ CI の再同期条件を是正 (2026-07-13)
 
 下記「`isPrivate` フィルタ順序」修正が本番 API で効いているかを検証したところ、**Cloudflare 実 API の R2 が完全に空**であり、R2 依存機能（グローバルメタ / 作品メタ / `_Commons` 適用）が稼働開始以来ずっと死んでいたことが判明した。`/api/v1/meta` は 503 (`Global meta unavailable`)、`/api/v1/:work/meta` は `{"key":"#Works_..."}` のみを返す状態だった。

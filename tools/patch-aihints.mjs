@@ -205,10 +205,13 @@ Options:
                       DesignElement=Expression → common.expression_tendency
                       AppearanceDetail が無い/全空のレコードは AI タグ系を空配列にクリアして fallback
                       value_EN が欠落し value_JP のみ使えた場合は [JA] ... 付きで出力し警告ログに記録（要手動翻訳）
+                      palette_priority は画像由来のため本モードでは再構築せず既存値を据え置く
   --gen-vision-tasks  視覚 TODO のあるレコードの画像パスリストを .cache/vision-tasks.json に出力して終了
                       Agent の view_image 画像解析セッションの入力として使用する
+                      palette_priority は null / 空 / TODO: のいずれも「未入力」として検出する
   --apply-vision-results  .cache/vision-results.json に書かれた Agent 解析結果を
                       AIHints の視覚 TODO（palette / hair / eye / outfit）に適用する
+                      未入力スロットのみを埋め、確定済みの値は上書きしない
                       vision-results.json の形式は VisionResult typedef を参照
   --force-ai-optout   db_meta.json の 'AI_Optout: true' ガードをバイパスする（緊急時のみ）
                       未指定時は AI_Optout: true の DB への書き込みを exit 2 で拒否する
@@ -1920,6 +1923,90 @@ function fixRefsInRecord(text, openIdx, closeIdx, imageInfo) {
  * @property {string} [numberMarkingPlacement]        common.immutable_traits の "number 'N' marking placement: TODO" を置換する単一スロット記述
  */
 
+/** 視覚 TODO プレースホルダの接頭辞パターン */
+const VISUAL_TODO_PATTERN = /^TODO:/;
+
+/**
+ * palette スロットが「未入力」かを判定する。
+ * `null` / 空文字 / `TODO:` 接頭辞のいずれも未入力として扱う。
+ *
+ * `--apply-appearancedetail` は palette_priority を object ごと `null` に落とすため、
+ * TODO 文字列だけを未入力とみなすと、null 化されたレコードは二度と視覚タスクに載らず
+ * Agent の解析対象から永久に漏れる（= palette が埋まらないデッドロック）。
+ *
+ * @param {any} v
+ * @returns {boolean} 未入力なら true
+ */
+export function isUnfilledPaletteSlot(v) {
+    return v == null || v === '' || (typeof v === 'string' && VISUAL_TODO_PATTERN.test(v));
+}
+
+/**
+ * AIHints オブジェクト内に視覚系 TODO がどのフィールドに残っているかを調べる。
+ * `--gen-vision-tasks` が Agent 向けタスクマニフェストを組み立てる際の検出器。
+ *
+ * @param {any} aihints
+ * @returns {string[]} フィールドパスの一覧
+ */
+export function detectVisualTodos(aihints) {
+    const fields = [];
+    const common = aihints.common;
+    if (common && typeof common === 'object') {
+        const pal = common.palette_priority;
+        if (pal == null || typeof pal !== 'object') {
+            // object ごと欠落／null 化されている場合は 3 スロットすべてを未入力として扱う
+            fields.push(
+                'common.palette_priority.primary',
+                'common.palette_priority.secondary',
+                'common.palette_priority.accent',
+            );
+        } else {
+            if (isUnfilledPaletteSlot(pal.primary)) fields.push('common.palette_priority.primary');
+            if (isUnfilledPaletteSlot(pal.secondary)) fields.push('common.palette_priority.secondary');
+            if (isUnfilledPaletteSlot(pal.accent)) fields.push('common.palette_priority.accent');
+        }
+    }
+    if (Array.isArray(aihints.common?.silhouette_features) &&
+        aihints.common.silhouette_features.some(f => typeof f === 'string' && /TODO:.*hair/i.test(f)))
+        fields.push('common.silhouette_features.hair');
+    if (Array.isArray(aihints.common?.silhouette_features) &&
+        aihints.common.silhouette_features.some(f => typeof f === 'string' && /TODO:.*eye/i.test(f)))
+        fields.push('common.silhouette_features.eye');
+    for (const [formKey, form] of Object.entries(aihints.forms ?? {})) {
+        if (!form || typeof form !== 'object') continue;
+        if (Array.isArray(form.outfit_features) &&
+            form.outfit_features.some(f => typeof f === 'string' && VISUAL_TODO_PATTERN.test(f)))
+            fields.push(`forms.${formKey}.outfit_features`);
+        if (Array.isArray(form.ai_tags) &&
+            form.ai_tags.some(t => typeof t === 'string' && VISUAL_TODO_PATTERN.test(t)))
+            fields.push(`forms.${formKey}.ai_tags`);
+        // 2026-06-08 追加: corefolder 強化フィールドの TODO 検出
+        //  silhouette_notes は 2026-06-09 以降 { body_description, attached_items } object 形式
+        //  なので、配列形式 (legacy) と object 形式の双方に対応する
+        const snTodoCheck = (arr) => Array.isArray(arr) && arr.some(f => typeof f === 'string' && VISUAL_TODO_PATTERN.test(f));
+        if (Array.isArray(form.silhouette_notes) && snTodoCheck(form.silhouette_notes)) {
+            fields.push(`forms.${formKey}.silhouette_notes`);
+        } else if (form.silhouette_notes && typeof form.silhouette_notes === 'object' && !Array.isArray(form.silhouette_notes)) {
+            if (snTodoCheck(form.silhouette_notes.body_description))
+                fields.push(`forms.${formKey}.silhouette_notes.body_description`);
+            if (snTodoCheck(form.silhouette_notes.attached_items))
+                fields.push(`forms.${formKey}.silhouette_notes.attached_items`);
+        }
+        if (Array.isArray(form.immutable_constraints) &&
+            form.immutable_constraints.some(f => typeof f === 'string' && VISUAL_TODO_PATTERN.test(f)))
+            fields.push(`forms.${formKey}.immutable_constraints`);
+        if (Array.isArray(form.negative_keywords) &&
+            form.negative_keywords.some(f => typeof f === 'string' && VISUAL_TODO_PATTERN.test(f)))
+            fields.push(`forms.${formKey}.negative_keywords`);
+    }
+    // common.immutable_traits の number marking placement TODO も拾う
+    if (Array.isArray(aihints.common?.immutable_traits) &&
+        aihints.common.immutable_traits.some(t =>
+            typeof t === 'string' && /TODO:\s*number\s+['‘"“]?\S+['’"”]?\s+marking\s+placement/i.test(t)))
+        fields.push('common.immutable_traits.number_marking_placement');
+    return fields;
+}
+
 /**
  * 視覚 TODO のあるレコードを走査し、Agent 向け画像解析タスクマニフェストを生成する。
  * `.cache/vision-tasks.json` に書き出して終了する（書き込み専用操作）。
@@ -1928,63 +2015,6 @@ function fixRefsInRecord(text, openIdx, closeIdx, imageInfo) {
  * @param {CliOptions} opts
  */
 function genVisionTasksToFile(db, opts) {
-    const VISUAL_TODO_PATTERN = /^TODO:/;
-
-    /**
-     * AIHints オブジェクト内に視覚系 TODO がどのフィールドに残っているかを調べる。
-     * @param {any} aihints
-     * @returns {string[]} フィールドパスの一覧
-     */
-    function detectVisualTodos(aihints) {
-        const fields = [];
-        const pal = aihints.common?.palette_priority;
-        if (typeof pal?.primary === 'string' && VISUAL_TODO_PATTERN.test(pal.primary))
-            fields.push('common.palette_priority.primary');
-        if (typeof pal?.secondary === 'string' && VISUAL_TODO_PATTERN.test(pal.secondary))
-            fields.push('common.palette_priority.secondary');
-        if (typeof pal?.accent === 'string' && VISUAL_TODO_PATTERN.test(pal.accent))
-            fields.push('common.palette_priority.accent');
-        if (Array.isArray(aihints.common?.silhouette_features) &&
-            aihints.common.silhouette_features.some(f => typeof f === 'string' && /TODO:.*hair/i.test(f)))
-            fields.push('common.silhouette_features.hair');
-        if (Array.isArray(aihints.common?.silhouette_features) &&
-            aihints.common.silhouette_features.some(f => typeof f === 'string' && /TODO:.*eye/i.test(f)))
-            fields.push('common.silhouette_features.eye');
-        for (const [formKey, form] of Object.entries(aihints.forms ?? {})) {
-            if (!form || typeof form !== 'object') continue;
-            if (Array.isArray(form.outfit_features) &&
-                form.outfit_features.some(f => typeof f === 'string' && VISUAL_TODO_PATTERN.test(f)))
-                fields.push(`forms.${formKey}.outfit_features`);
-            if (Array.isArray(form.ai_tags) &&
-                form.ai_tags.some(t => typeof t === 'string' && VISUAL_TODO_PATTERN.test(t)))
-                fields.push(`forms.${formKey}.ai_tags`);
-            // 2026-06-08 追加: corefolder 強化フィールドの TODO 検出
-            //  silhouette_notes は 2026-06-09 以降 { body_description, attached_items } object 形式
-            //  なので、配列形式 (legacy) と object 形式の双方に対応する
-            const snTodoCheck = (arr) => Array.isArray(arr) && arr.some(f => typeof f === 'string' && VISUAL_TODO_PATTERN.test(f));
-            if (Array.isArray(form.silhouette_notes) && snTodoCheck(form.silhouette_notes)) {
-                fields.push(`forms.${formKey}.silhouette_notes`);
-            } else if (form.silhouette_notes && typeof form.silhouette_notes === 'object' && !Array.isArray(form.silhouette_notes)) {
-                if (snTodoCheck(form.silhouette_notes.body_description))
-                    fields.push(`forms.${formKey}.silhouette_notes.body_description`);
-                if (snTodoCheck(form.silhouette_notes.attached_items))
-                    fields.push(`forms.${formKey}.silhouette_notes.attached_items`);
-            }
-            if (Array.isArray(form.immutable_constraints) &&
-                form.immutable_constraints.some(f => typeof f === 'string' && VISUAL_TODO_PATTERN.test(f)))
-                fields.push(`forms.${formKey}.immutable_constraints`);
-            if (Array.isArray(form.negative_keywords) &&
-                form.negative_keywords.some(f => typeof f === 'string' && VISUAL_TODO_PATTERN.test(f)))
-                fields.push(`forms.${formKey}.negative_keywords`);
-        }
-        // common.immutable_traits の number marking placement TODO も拾う
-        if (Array.isArray(aihints.common?.immutable_traits) &&
-            aihints.common.immutable_traits.some(t =>
-                typeof t === 'string' && /TODO:\s*number\s+['‘"“]?\S+['’"”]?\s+marking\s+placement/i.test(t)))
-            fields.push('common.immutable_traits.number_marking_placement');
-        return fields;
-    }
-
     /**
      * 公開 URL → ローカル絶対パスに変換するヘルパー。
      * @param {string} url
@@ -2080,21 +2110,29 @@ function genVisionTasksToFile(db, opts) {
  * @param {VisionResult} vr       Agent が埋めた VisionResult
  * @returns {{ aihints: any, changed: boolean }}
  */
-function applyVisionResultsToAihints(aihints, vr) {
+export function applyVisionResultsToAihints(aihints, vr) {
     // deep copy してから編集する
     const a = JSON.parse(JSON.stringify(aihints));
     let changed = false;
 
     // ── palette_priority ────────────────────────────────────────────
-    if (vr.palette && a.common?.palette_priority) {
+    // palette_priority が `null`（--apply-appearancedetail に潰された状態）でも Agent の
+    // 解析結果を受け入れられるよう、必要なら object を組み立て直してから書き込む。
+    // 既に確定済みの HEX 値は上書きしない（未入力スロットだけを埋める）。
+    if (vr.palette && a.common && typeof a.common === 'object') {
+        const isUnfilled = (v) =>
+            v == null || v === '' || (typeof v === 'string' && v.startsWith('TODO:'));
+        if (a.common.palette_priority == null || typeof a.common.palette_priority !== 'object') {
+            a.common.palette_priority = { primary: null, secondary: null, accent: null };
+        }
         const p = a.common.palette_priority;
-        if (vr.palette.primary && typeof p.primary === 'string' && p.primary.startsWith('TODO:')) {
+        if (vr.palette.primary && isUnfilled(p.primary)) {
             p.primary = vr.palette.primary; changed = true;
         }
-        if (vr.palette.secondary && typeof p.secondary === 'string' && p.secondary.startsWith('TODO:')) {
+        if (vr.palette.secondary && isUnfilled(p.secondary)) {
             p.secondary = vr.palette.secondary; changed = true;
         }
-        if (vr.palette.accent && typeof p.accent === 'string' && p.accent.startsWith('TODO:')) {
+        if (vr.palette.accent && isUnfilled(p.accent)) {
             p.accent = vr.palette.accent; changed = true;
         }
     }
@@ -2394,21 +2432,23 @@ function normalizeMotifEntry(s) {
 
 /**
  * 正源（AppearanceDetail 等）が無い／全空のレコードに対する fallback。既存 AIHints の
- * AI タグ系配列を空にクリアし、構造（reference_images / age_appearance）は保持する。
+ * AI タグ系配列を空にクリアし、構造（reference_images / age_appearance / palette_priority）は保持する。
  *
  * @param {any} baseAihints
  * @returns {any}
  */
-function clearAihintsTagsForNoSource(baseAihints) {
+export function clearAihintsTagsForNoSource(baseAihints) {
     const out = JSON.parse(JSON.stringify(baseAihints ?? {}));
     if (out.common && typeof out.common === 'object') {
         out.common.identity_tags = [];
         out.common.silhouette_features = [];
         out.common.immutable_traits = null;
         out.common.expression_tendency = null;
-        out.common.palette_priority = null;
         out.common.natural_language_description = null;
-        // age_appearance / reference_images は据え置き
+        // age_appearance / reference_images / palette_priority は据え置き。
+        // palette_priority は画像由来であり AppearanceDetail 由来ではないため、
+        // 本モードがクリアしてよい対象ではない（クリアすると視覚解析ワークフローで
+        // 埋めた HEX 値が再ビルドのたびに失われる）。
     }
     if (out.forms && typeof out.forms === 'object') {
         for (const [formKey, form] of Object.entries(out.forms)) {
@@ -2653,14 +2693,17 @@ function buildCorefolderNldFromAppearanceDetail(num, silhouetteNotes, markingPhr
 
 /**
  * `AppearanceDetail` を AIHints へ反映する際の AIHints オブジェクト全体を組み立てる。
- * 既存 AIHints は **reference_images / age_appearance / work_common / alt_modes** のみ流用し、
- * その他は AppearanceDetail と構造的正源（TailsUnit / Height_cm / ConceptAge）から再構築する。
+ * 既存 AIHints は **reference_images / age_appearance / palette_priority / work_common / alt_modes**
+ * のみ流用し、その他は AppearanceDetail と構造的正源（TailsUnit / Height_cm / ConceptAge）から再構築する。
+ *
+ * `palette_priority` は画像由来であり AppearanceDetail からは導出できないため、本モードの
+ * 再構築対象に含めず既存値を据え置く（潰すと視覚解析ワークフローで埋めた HEX が失われる）。
  *
  * @param {any} record  パース済みレコード（AppearanceDetail と AIHints を含む）
  * @param {Record<string, any>} varsDef  loadMergedVarsDef() の返り値
  * @returns {{ aihints: any, hasSource: boolean, formationsTouched: string[], warnings: string[] }}
  */
-function buildAihintsFromAppearanceDetail(record, varsDef) {
+export function buildAihintsFromAppearanceDetail(record, varsDef) {
     const num = record.Num;
     const baseAihints = record.AIHints ?? {};
     const existingCommon = baseAihints.common ?? {};
@@ -2850,7 +2893,11 @@ function buildAihintsFromAppearanceDetail(record, varsDef) {
             : null,
         expression_tendency: expressionTendency.length > 0 ? expressionTendency : null,
         age_appearance: (typeof ageBand === 'string' && ageBand) ? ageBand : null,
-        palette_priority: null,
+        // palette_priority は画像由来であり AppearanceDetail からは導出できない。
+        // 本モードで null に潰すと、視覚解析ワークフロー（--gen-vision-tasks →
+        // --apply-vision-results）で埋めた HEX 値が再ビルドのたびに失われるため、
+        // age_appearance / reference_images と同様に既存値を据え置く。
+        palette_priority: ('palette_priority' in existingCommon) ? existingCommon.palette_priority : null,
         natural_language_description: null,
         reference_images: ('reference_images' in existingCommon) ? existingCommon.reference_images : null,
     };
