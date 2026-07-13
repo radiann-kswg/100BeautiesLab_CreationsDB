@@ -77,33 +77,59 @@ getRecord(ShouArRiders,     'Primary', '1') → null  ✗（実際の索引は B
 - C# は Newtonsoft.Json / System.Text.Json の**両バックエンドでビルド検証**（`.cache/csharp-verify/` に使い捨てプロジェクトを作成）
 - MCP は SDK 未インストールのため構文チェックのみ（ハンドラは検証済みの Node.js クライアントへ委譲するだけ）
 
-## 未完了タスク / User 判断待ち
+## 追記: 本体 SW / Cloudflare Workers も修正（User 判断により実施、2026-07-13）
 
-### 🔴 本体 SW にも同じ `isPrivate` 順序バグが存在する（未修正）
+上記「未完了 / User 判断待ち」として記録していた本体側の同一バグについて、User の判断（データ側の
+`isPrivate: true` 宣言を尊重する = 選択肢 1）により修正を実施した。調査の過程で、当初の想定より
+影響範囲が広いことが判明した。
 
-`lib/sw-common.js` の `handleDbRequest()` が、pkg と**まったく同じ誤った順序**で処理している。
+### 追加で判明した問題
 
-```js
-records = filterPublicRecords(records);                              // ← 先に isPrivate 除外
-...
-records = CommonsProcessor.applyCommonsToRecords(records, workMeta, dbName);  // ← 後から isPrivate 注入
-```
+**`handleBootstrapEndpoint()` は非公開フィルタを一度も呼んでいなかった**（順序の問題ですらなかった）。
 
-- 影響: 本番 GitHub Pages の疑似 API（`/pages/v1/`・`/svc/v1/`・`/api/v1/`）が、
-  非公開指定された `0xFF(エフエフ)` を**現在も配信している**
-- 同じ順序の箇所が `lib/sw-common.js` 内に他にも 2 箇所ある（`1746` / `1963` 行付近）
-- `pkg/cloudflare/worker.js`（実 API）も同様の確認が必要
+- `pages/sw.js:108` がこのエンドポイントを `includeRecords=true` の既定で呼ぶため、
+  キャラシート UI が叩く `/pages/v1/bootstrap` は、レコード自身が `isPrivate: true` を
+  宣言していても**全件そのまま配信**していた（VirtuesUs / SemiPrimary の 2 件が該当）
+- 合計で 3 件（`_Commons` 由来 1 件 + 自己宣言 2 件）が公開されていた
 
-**今回この修正を入れなかった理由**: 修正すると本番サイトの公開範囲が変わる（現在見えているレコードが 1 件消える）ため、
-User の公開意図に関わる判断が必要と考えたため。ただしデータ側の宣言（`isPrivate: true`）を尊重するなら**修正が正**と思われる。
+**Cloudflare Workers 側の根本原因は `migrate.mjs` にあった**。
 
-判断の選択肢:
+- `migrate.mjs:429` が D1 の `is_private` 列を**生レコード**から算出していた（`rec?.isPrivate ? 1 : 0`）
+- そのため `_Commons` 由来の非公開指定が取りこぼされ、`records` の SQL フィルタ（`is_private = 0`）と
+  **FTS5 検索インデックスの両方**に公開レコードとして投入されていた
+- `worker.js` の `isPublicRecord()` は定義だけで**どこからも呼ばれていないデッドコード**だった
+  （フィルタは完全に D1 のカラム頼み）
 
-1. SW / Workers も同じ順序へ修正する（データの宣言どおり非公開になる = 意図の尊重）
-2. 当該レコードを公開したいのであれば、`_Secondaries[]._Commons.isPrivate` の宣言側を見直す
+### 実施した修正
 
-### その他
+- **`lib/sw-common.js`**: 3 経路すべてで `filterPublicRecords()` を `applyCommonsToRecords()` の後へ。
+  `handleBootstrapEndpoint()` にはフィルタを新規追加。メタ欠損時も自己宣言の `isPrivate` は
+  尊重されるよう try/catch の外へ配置。
+- **`pkg/cloudflare/scripts/migrate.mjs`**: `is_private` を `applyCommons()` 適用後の値から算出（根本修正）。
+  実データで `is_private=1` が 2 件 → 3 件に是正。
+- **`pkg/cloudflare/worker.js`**: `applyCommons()` / `isPublicRecord()` を named export 化して
+  migrate.mjs から再利用（ロジックの二重実装を回避）。レコードを返す 4 経路すべてに
+  post-commons フィルタを追加（古い D1 が残っていても漏らさない多層防御）。
+  検索 2 経路が `_Commons` を適用していなかった不整合も是正。
+- **`tests/private-commons-order.test.js`（新規、10 件）**: 修正前のコードへ戻すと 8 件が失敗することを
+  確認済み（空テストでないことの検証）。
 
+### 運用上の注意
+
+Cloudflare 実 API へ反映するには **`scripts/migrate.mjs` の再実行（D1 再投入）が必要**。
+再実行しなくても Worker 側の多層防御により非公開レコードは返らないが、FTS 検索インデックスには
+残るため再実行を推奨する。
+
+確認: `npm test` 全件成功（30 ファイル / 301 件）。`migrate.mjs --dry-run` 完走（475 件）。
+
+## 未完了タスク / 既知の制限
+
+- **`pkg/cloudflare/worker.js` の `_Secondaries` マッチャは簡略版のまま**（`sec_SeriesTitle` の
+  完全一致のみ）。`lib/sw-common.js` と `pkg/` の FS クライアントは `sec_Category` / `sec_DesignedBy` を
+  追加条件とするスコアリング方式に揃っているため、**ロジックが乖離している**。
+  現行データでは非公開指定の 2 シリーズがいずれも `sec_SeriesTitle` を主キーとしているため
+  今回の修正には影響しないが、将来 `sec_Category` 等で `_Commons` を分岐させると
+  Workers 側だけ挙動が変わる。要追従（本件のスコープ外として未対応）。
 - `pkg/python` / `pkg/csharp` には自動テストが無い（Vitest 管轄外）。同一 API サーフェスの担保は
   現状 `tests/pkg.nodejs.test.js` の期待値に対する**手動追従**に依存している
 - `_DBLink` / `_Jump` の参照解決 enrich は引き続き未対応（Cloudflare Workers 版と同じスコープ。次フェーズ）

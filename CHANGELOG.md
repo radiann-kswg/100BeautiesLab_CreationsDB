@@ -1,11 +1,24 @@
 # 最新のリファクタリング・仕様変更履歴
 
+### fix: SW / Cloudflare Workers の `isPrivate` フィルタ順序を修正（非公開レコードの公開を停止） (2026-07-13)
+
+`pkg/` 追従作業（下記）で発見した「`isPrivate` の除外が `_Commons` 適用より前に走る」実バグを、本体 Service Worker と Cloudflare Workers 実 API でも修正した。`isPrivate` は `_Secondaries[]._Commons.isPrivate: true` のようにレコード自身ではなく**所属シリーズ側から注入**されることがあるため、`_Commons` 適用前に判定すると注入値が読まれず、非公開指定のレコードが公開されてしまう。実データでは NumberTales / Secondary の `0xFF(エフエフ)`（シリーズ「ヘキサデミカル・テールズ」）が該当し、本番 GitHub Pages で配信されていた。
+
+- **`lib/sw-common.js`（3 経路）**: `filterPublicRecords()` を `applyCommonsToRecords()` の**後**へ移動。
+  - `handleDbEndpoint()` / 検索ハンドラ: 順序を入れ替え。メタ欠損で `_Commons` をスキップした場合も、レコード自身の `isPrivate` 宣言は必ず尊重されるよう try/catch の外へ配置。
+  - `handleBootstrapEndpoint()`: **非公開フィルタ自体が一度も呼ばれていなかった**（レコード自身が `isPrivate: true` を宣言していても素通り）。`pages/sw.js` はこのエンドポイントを `includeRecords=true` の既定で呼ぶため、キャラシート UI が叩く `/pages/v1/bootstrap` が VirtuesUs / SemiPrimary の非公開 2 件も含めて配信していた。フィルタを新規追加。
+- **`pkg/cloudflare/scripts/migrate.mjs`（根本修正）**: D1 の `is_private` 列を**生レコード**から算出していた（`rec?.isPrivate ? 1 : 0`）ため、`_Commons` 経由の非公開指定が取りこぼされ、`records` の SQL フィルタ（`is_private = 0`）と FTS5 検索インデックスの**両方**に公開レコードとして投入されていた。`applyCommons()` 適用後の値から判定するよう修正（実データで `is_private=1` が 2 件 → 3 件に是正）。`data_json` は従来どおり生のまま保持し、`_Commons` 適用は Worker 側の読み取り時に行う。
+- **`pkg/cloudflare/worker.js`（多層防御）**: `applyCommons()` / `isPublicRecord()` を named export 化（migrate.mjs から再利用し、ロジックの二重実装による乖離を防ぐ）。レコードを返す 4 経路すべてに `_Commons` 適用後の非公開判定を追加し、`migrate.mjs` を再実行していない古い D1 が残っていても非公開レコードを返さないようにした。あわせて `/api/v1/:work/:db/search` と `/api/v1/:work/search` が `_Commons` を適用せず生レコードを返していた不整合も是正（`records` エンドポイントと同じ扱いに統一）。なお `isPublicRecord()` は定義のみで**どこからも呼ばれていないデッドコード**だった。
+- **`tests/private-commons-order.test.js`（新規、10 件）**: 「フィルタは必ず `_Commons` 適用の後」という不変条件を SW（DB 取得 / 検索 / bootstrap）と Workers / migrate の共有ロジックの双方で検証。実データ回帰も含む。修正前のコードへ戻すと 8 件が失敗することを確認済み（空テストでないことの検証）。
+- **運用上の注意**: Cloudflare 実 API へ反映するには `scripts/migrate.mjs` の再実行（D1 再投入）が必要。再実行しない場合も Worker 側の多層防御により非公開レコードは返らないが、FTS 検索インデックスには残るため再実行を推奨。
+- 確認: `npm test` 全件成功（30 ファイル / 301 件）。`migrate.mjs --dry-run` 完走（475 件）。
+
 ### fix: `pkg/` FS クライアント 4 種を本体 DB 機構へ追従（非公開制御バイパス・命名バグを含む） (2026-07-13)
 
 `pkg/cloudflare` のみ 2026-07-11 まで追従していた一方、FS クライアント（`pkg/nodejs` 2026-06-22 / `pkg/python`・`pkg/csharp`・`pkg/mcp` 2026-06-02）が本体の DB 機構追加に追従できておらず、実害のあるバグを含んでいた。`pkg/` は `lib/sw-common.js` / `lib/data-common.js` の移植版であり自動追従しない設計だが、追従漏れを検出するテストが 1 本も無かったことが放置の一因のため、回帰テストも併せて新設した。
 
 - **非公開制御のバイパス（実害あり）**: `DB_Hidden: true` の DB が一覧からは除外されるのに直接アクセス（`getRecords()`）では素通りしていた（`FLInvestigator78` / `UnprocessedDealer` の 55 件が取得可能だった）。`docs/api-sw-spec.md` §5.3 / §5.4 の「リストと直接アクセスの両方から 404」に合わせ、直接アクセスも遮断するよう修正。`Works_Hidden` も同様に対応。専用エラー型（`CreationsDBNotFoundError` / `CreationsDBNotFoundException`）を新設し、リポジトリ所有者のローカルツール向けに `includeHidden` オプション（既定 `false`）でオプトインできるようにした。
-- **`isPrivate` フィルタ順序の修正（実害あり）**: `isPrivate` の除外が `_Commons` 適用**より前**に行われていたため、`_Secondaries[]._Commons.isPrivate: true` によってシリーズ単位で非公開指定されたレコードが公開されていた（NumberTales / Secondary の `0xFF(エフエフ)` 1 件。レコード自身は `isPrivate` を宣言していないため注入値が読まれていなかった）。`_Commons` 適用「後」に除外するよう 3 クライアントとも修正。**同じ順序の問題が `lib/sw-common.js` の `handleDbRequest()`（`filterPublicRecords()` → `applyCommonsToRecords()`）にも存在するが、本番 GitHub Pages の公開範囲が変わるため今回は修正せず、User 判断待ちとして記録**（`_work_in_progress/2026-07-13_progress_pkg-sync.md`）。
+- **`isPrivate` フィルタ順序の修正（実害あり）**: `isPrivate` の除外が `_Commons` 適用**より前**に行われていたため、`_Secondaries[]._Commons.isPrivate: true` によってシリーズ単位で非公開指定されたレコードが公開されていた（NumberTales / Secondary の `0xFF(エフエフ)` 1 件。レコード自身は `isPrivate` を宣言していないため注入値が読まれていなかった）。`_Commons` 適用「後」に除外するよう 3 クライアントとも修正。**同じ順序の問題が `lib/sw-common.js` / `pkg/cloudflare/` にも存在したが、本番 GitHub Pages の公開範囲が変わるため本コミットでは修正を見送り、User 判断待ちとして記録した。→ その後 User 判断により修正済み（上記「SW / Cloudflare Workers の `isPrivate` フィルタ順序を修正」を参照）**。
 - **JP/EN 命名の未追従（実害あり）**: 2026-06-22 の命名標準化（`Title` → `Title_JP` / `Works_Summary` → `Works_Summary_JP`）が `pkg/nodejs` にしか入っておらず、`pkg/python` / `pkg/csharp` の `list_works()` がタイトル・概要とも**空文字**を返していた。`Title_JP` / `Title_EN` / `Works_Summary_JP` / `Works_Summary_EN` へ追従。
 - **`Works_Dir` オーバーライド（2026-07-11 の共通資料）**: `#Works_CommonReferences` が `listWorks()` には現れるのにレコードを一切取得できなかった。`Works_Dir` / `Works_Shared` の解決、`DB_Layer` が物理ディレクトリ名と同名の場合のレイヤー畳み込み、`DataBases/` を持たない作品の root フォールバック（`db_meta.json` / `db_type.json`）を実装。
 - **`$IndexDef` のスキーマ駆動解決（2026-07-11 の DB 単位上書きを含む）**: `getRecord()` のインデックスキーが `'Num'` 決め打ちだったため、`Num` を持たない作品（`FLInvestigator78` → `Card.Suit`、`ShouArRiders` → `BeastType.Beast` 等）では常に `null` を返していた。`$IndexDef` / サイドカー `$IndexDef_<DbNorm>` から解決する `getIndexKey()` を新設し、`idxKey` 省略時の既定値として使用（明示指定時はそちらを優先）。導出規則は `pkg/cloudflare/scripts/migrate.mjs` の `resolveIdxKey()` と同一。
@@ -15,6 +28,20 @@
 - **`tests/pkg.nodejs.test.js`（新規）**: 上記の全機構を実データに対する不変条件として検証（レコード件数のような変動値には依存させない）。18 件。
 - **`docs/pkg-client-libraries.md`**: 「対応する DB 機構」節（対応済み / 未対応の一覧）、インデックスキー解決、非公開制御、テストの各節を追記。API 対応表に `getIndexKey` / `getWorkType` を追加。
 - 確認: `npm test` 全件成功（29 ファイル / 289 件）。Node.js / Python / C# の 3 クライアントが同一データに対して同一結果を返すことを実行して確認（C# は Newtonsoft.Json / System.Text.Json 両バックエンドでビルド検証）。
+
+### improve: 詳細ピルを Index ルート単位の集約表示へ変更 (2026-07-13)
+
+複数サブフィールドを持つ Index（例: アンオースドロジカの `Logic` / `LogicAlt`、運命線探偵78の `Card`）の詳細ヒーローピルを、サブフィールドごとの個別ピルから「Index ルートごとに 1 ピル」へ集約した。
+
+- **`pages/characters.js`**:
+  - `collectIndexEntries()` の各エントリに `rootKey`（Index ルート名）を追加し、エイリアスIndex エントリにはルートラベル接頭辞を付ける前のテキストを `groupText` として保持。
+  - 詳細ヒーローのピル生成を `rootKey` 単位のグループ描画に変更。複数エントリのグループは「ルートラベル（`$DefType` の `hashTag_JP/EN`）+ サブフィールド一覧」の集約ピル（`.pill--index-group`）として描画し、グループ内の直リンク可能エントリ（例: `Logic.Num`）でピル全体をリンク化する。1 エントリのみのグループ（スカラー Index 等）は従来どおりの単一ピル表示を維持。
+  - サブフィールドの表示順は `$IndexDef` の typedef 宣言順（`$display.index.order` 指定があれば優先）とし、フィールド情報は `.pill__group-items` の 1 ユニットにまとめて、折り返し時の改行は「ルートラベルとフィールド情報の間」を優先させる（直リンク対象の選択は従来どおり優先度順）。
+  - `asset-version` を `2026.07.13.3` へ更新。
+- **`pages/characters.sass` / `pages/characters.css`**: `.pill--index-group` / `.pill__group-label` / `.pill__group-items`（フィールド情報の折り返しユニット）/ `.pill__group-item`（項目間は「・」区切り）を追加。
+- **`tests/pages.characters.ui-output.test.js`**: UnauthedLogica（`Logic`/`LogicAlt` の 2 グループ集約・宣言順表示・直リンク keyPath）と NumberTales（スカラー Index の非グループ維持）の回帰テスト 2 件を追加。
+- 確認: `npm test` 全件成功（28ファイル / 273件）。実ブラウザで UnauthedLogica（ニッキー）・FLInvestigator78（フェニクス）・NumberTales（1）の表示を確認。
+- 一覧チップ・直リンク照合（`idx` / `idxKey`）・`_DBLink` 解決には変更なし（表示レイヤーのみの変更）。
 
 ### add/fix: Index 機能拡張（エイリアスIndex・Index辞書のルート合流/nullキー対応）とネストIndex二重ネスト修正 (2026-07-13)
 

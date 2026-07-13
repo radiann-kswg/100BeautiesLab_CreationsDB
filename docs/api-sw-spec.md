@@ -108,7 +108,8 @@
 - `/pages/v1/*` は UI がそのまま使うため、既定で enrich 有効です
 - `/api/v1/*` と `/svc/v1/*` は既存互換を優先し、`?enrich=1` を付けたときだけ enrich します
 - `resolve=0` を付けると、`#Works` や `#DB` などの参照解決をスキップできます
-- `isPrivate: true` を持つレコードは、`db` / `search` / `enrich` 系レスポンスから除外します
+- `isPrivate: true` を持つレコードは、`db` / `search` / `bootstrap` / `enrich` 系レスポンスから除外します
+- **除外は必ず `_Commons` / `_Secondaries` 適用の「後」に行います**。`isPrivate` はレコード自身の宣言だけでなく、`_Secondaries[]._Commons.isPrivate: true` のように**所属シリーズ側から注入**されることがあるため、適用前に判定すると注入値が読まれず非公開指定のレコードが公開されてしまいます（実バグとして発生・修正済み）。Cloudflare Workers 側では D1 の `is_private` 列を `scripts/migrate.mjs` が `_Commons` 適用後の値から算出することでこの規則を担保します
 - `_DBLink` の参照先探索でも `isPrivate: true` の候補は採用しません
 - `Works_Hidden: true` を持つ作品は、作品一覧・配下のDB・検索の全エンドポイントから除外または 404 で遮断されます（後述の §5.4 を参照）
 - `DB_Hidden: true` を持つDBは、作品配下のDB一覧・直接アクセス・検索から除外または 404 で遮断されます（後述の §5.3 を参照）

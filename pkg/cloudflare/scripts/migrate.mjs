@@ -27,6 +27,10 @@ import { resolve, join, relative, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 import { execFileSync } from "node:child_process";
 
+// D1 の is_private 列は Worker と同一ロジックで算出する必要があるため、
+// worker.js の実装をそのまま再利用する（ロジックの二重実装による乖離を避ける）
+import { applyCommons, isPublicRecord } from "../worker.js";
+
 // ─────────────────────────────────────────────────────────────────────────────
 // 定数・設定
 // ─────────────────────────────────────────────────────────────────────────────
@@ -424,9 +428,18 @@ if (!R2_ONLY) {
       const dbSpecificType = workType[`$IndexDef_${dbNorm}`];
       const idxKey = dbSpecificType ? resolveIdxKey(dbSpecificType) : defaultIdxKey;
 
+      // is_private は _Commons / _Secondaries を適用「後」の値から判定する。
+      // isPrivate は `_Secondaries[]._Commons.isPrivate: true` のようにシリーズ単位で
+      // 注入されることがあり、生レコードだけを見ると非公開指定を取りこぼして
+      // D1（records の SQL フィルタ・FTS 検索の双方）へ公開レコードとして投入されてしまう。
+      // data_json は生のまま保持し、_Commons の適用は Worker 側の読み取り時に行う（従来どおり）。
+      const resolvedRecords = applyCommons(records, workMeta, dbNorm);
+
       const recordValues = [];
-      for (const rec of records) {
-        const isPrivate    = rec?.isPrivate ? 1 : 0;
+      for (let i = 0; i < records.length; i++) {
+        const rec          = records[i];
+        const resolved     = resolvedRecords[i] ?? rec;
+        const isPrivate    = isPublicRecord(resolved) ? 0 : 1;
         const idxValue     = getByPath(rec, idxKey);
         const searchText   = rec?._enrichment?.searchableText ?? JSON.stringify(rec);
         const dataJson     = JSON.stringify(rec);
