@@ -1,5 +1,19 @@
 # 最新のリファクタリング・仕様変更履歴
 
+### feat(addon-ai-tag): `palette_priority` を `ColorPalette` から機械導出（palette が構造由来になった） (2026-07-13)
+
+`develop` の `ColorPalette`（設定画のカラーチップを読み取った構造化フィールド）を `addon-ai-tag` へマージし、AIHints の `common.palette_priority` を**そこから機械導出**できるようにした。これにより palette は「画像を目視しないと決まらない値」から「**DB から再生成できる構造由来の値**」へ格上げされ、当初の目的（AIHints をビルドしても配色が失われない）が達成された。
+
+- **`--apply-colorpalette`（`tools/patch-aihints.mjs`）**: `ColorPalette` の `Role`（`#ColorRole_Primary` / `Secondary` / `Accent`）と `Hex` を `palette_priority` の 3 スロットへ対応付ける。`#ColorRole_Sub` は対応先が無いため使わない。既存の確定値は保護し（`--force-palette` で上書き可）、`applyVisionResultsToAihints()` と同じ規約に揃えた。**画像の目視は一切不要**。
+- **`derivePaletteFromColorPalette()` / `applyColorPaletteToAihints()`** を追加（export 済み）。
+- **実データ**: NumberTales / Primary の **91 件**で `palette_priority` が 3 色すべて確定（修正前は **92 件すべてが `null`**）。残る 1 件は `ColorPalette` を持たないレコード。
+- **検証（end-to-end）**:
+  - `--apply-appearancedetail --apply` を全 92 件に実行しても **palette が失われない**（かつてこのモードが毎回 `null` へ潰していた）。
+  - Num 1 の `palette_priority` を意図的に `null` へ潰したうえで `--apply-colorpalette` を再実行し、**同一の値へ完全復元**されることを確認。palette が構造由来（同じ入力から常に同じ値）になったことの実証。
+- **`tests/patch-aihints.palette.test.js` に 7 件追加**: Role → スロットの対応、`ColorPalette` 不在時に推定しないこと、不正な Hex を採用しないこと、潰した palette の完全復元、手仕上げの確定値を上書きしないこと、`--force-palette` の上書きを検証。
+- **残る課題**: `--suggest --force` による全面上書きの巻き戻り（構造由来と人手由来を区別する `_meta` provenance / `--resync-structural`）は未解決。ただし palette に関しては、仮に潰されても `--apply-colorpalette` で機械復元できる状態になった。
+- 確認: `npm test` 全件成功（35 ファイル / 399 件）。
+
 ### feat: 設定画のカラーチップから `ColorPalette` を確定 + 再利用可能なパッチスクリプト (2026-07-13)
 
 前段（下記）では画像全体からの median-cut 推定で `ColorPalette` を入れていたが、**設定画（concept / catalog）に作者がカラーチップ（配色見本の丸）を描き込んでいる**ことが判明した。カタログ画像には `0x00b6d9` のような HEX コードが文字としても併記されており、これが作者の指定した配色そのものである。推定値をこの実測値へ差し替えた。

@@ -30,6 +30,8 @@ import {
     applyVisionResultsToAihints,
     clearAihintsTagsForNoSource,
     buildAihintsFromAppearanceDetail,
+    derivePaletteFromColorPalette,
+    applyColorPaletteToAihints,
 } from '../tools/patch-aihints.mjs';
 
 /** 確定済みパレット（手入力・視覚解析済みを想定） */
@@ -222,5 +224,76 @@ describe('buildAihintsFromAppearanceDetail — palette_priority の据え置き'
         rec.AIHints.common.palette_priority = null;
         const { aihints } = buildAihintsFromAppearanceDetail(rec, {});
         expect(aihints.common.palette_priority).toBeNull();
+    });
+});
+
+describe('derivePaletteFromColorPalette / applyColorPaletteToAihints — 構造由来の palette', () => {
+    /**
+     * DB の `ColorPalette`（設定画のカラーチップ由来の構造化フィールド）から
+     * `palette_priority` を機械導出できることを固定する。これが成立すると palette は
+     * 「画像を目視しないと決まらない値」ではなく「DB から再生成できる構造由来の値」になり、
+     * 再ビルドで揺れない。
+     */
+    const colorPalette = [
+        { Role: '#ColorRole_Primary', Hex: '#FF8682', ColorName_JP: null, AppliesTo: null },
+        { Role: '#ColorRole_Secondary', Hex: '#ED5D47', ColorName_JP: null, AppliesTo: null },
+        { Role: '#ColorRole_Accent', Hex: '#FFAC8F', ColorName_JP: null, AppliesTo: null },
+        { Role: '#ColorRole_Sub', Hex: '#E55951', ColorName_JP: null, AppliesTo: null },
+    ];
+
+    it('Role を palette_priority の 3 スロットへ対応付ける（Sub は使わない）', () => {
+        expect(derivePaletteFromColorPalette({ ColorPalette: colorPalette })).toEqual({
+            primary: '#FF8682',
+            secondary: '#ED5D47',
+            accent: '#FFAC8F',
+        });
+    });
+
+    it('ColorPalette が無ければ null を返す（勝手に推定しない）', () => {
+        expect(derivePaletteFromColorPalette({ Num: 1 })).toBeNull();
+        expect(derivePaletteFromColorPalette({ ColorPalette: [] })).toBeNull();
+    });
+
+    it('不正な Hex は採用しない', () => {
+        expect(derivePaletteFromColorPalette({
+            ColorPalette: [{ Role: '#ColorRole_Primary', Hex: 'red' }],
+        })).toBeNull();
+    });
+
+    it('palette_priority が null でも構造由来の値を書き込める', () => {
+        const derived = derivePaletteFromColorPalette({ ColorPalette: colorPalette });
+        const { aihints, changed } = applyColorPaletteToAihints(makeAihints(null), derived);
+        expect(changed).toBe(true);
+        expect(aihints.common.palette_priority).toEqual({
+            primary: '#FF8682',
+            secondary: '#ED5D47',
+            accent: '#FFAC8F',
+        });
+    });
+
+    it('潰された palette を DB から完全復元できる（= 構造由来である）', () => {
+        const derived = derivePaletteFromColorPalette({ ColorPalette: colorPalette });
+        // 一度確定させ、その後 null に潰し、もう一度導出すると同じ値に戻る
+        const first = applyColorPaletteToAihints(makeAihints(null), derived).aihints;
+        const wiped = JSON.parse(JSON.stringify(first));
+        wiped.common.palette_priority = null;
+        const restored = applyColorPaletteToAihints(wiped, derived).aihints;
+        expect(restored.common.palette_priority).toEqual(first.common.palette_priority);
+    });
+
+    it('User が手で仕上げた確定値は上書きしない（既定）', () => {
+        const derived = derivePaletteFromColorPalette({ ColorPalette: colorPalette });
+        const { aihints, changed } = applyColorPaletteToAihints(makeAihints({ ...FILLED_PALETTE }), derived);
+        expect(changed).toBe(false);
+        expect(aihints.common.palette_priority).toEqual(FILLED_PALETTE);
+    });
+
+    it('--force-palette 相当なら確定値も構造由来の値で上書きする', () => {
+        const derived = derivePaletteFromColorPalette({ ColorPalette: colorPalette });
+        const { aihints, changed } = applyColorPaletteToAihints(
+            makeAihints({ ...FILLED_PALETTE }), derived, { force: true },
+        );
+        expect(changed).toBe(true);
+        expect(aihints.common.palette_priority.primary).toBe('#FF8682');
     });
 });

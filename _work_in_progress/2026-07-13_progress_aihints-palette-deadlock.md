@@ -239,6 +239,31 @@ Step 1 は単独で「`--force` を使わずに palette を埋められる」状
 3. **Num:1 で end-to-end 実証**: `.cache/vision-results.json` に palette を書いて `--apply-vision-results --apply` → 書き戻しに成功（修正前は `null` が falsy 判定で弾かれ書き戻せなかった）。続けて **`--apply-appearancedetail --apply` を実行しても HEX が保持される**ことを確認（修正前はここで `null` に潰されていた）。
    確認後 `git checkout -- data/Works_NumberTales/DataBases/db_Primary.json` で revert 済み。**実データの `palette_priority` は 92 件とも未入力のまま**（投入した HEX は配管検証用の目測値であり、User 未承認のため残していない）。
 
+---
+
+## 実装結果（palette の構造由来化 / 2026-07-13、`addon-ai-tag` ブランチ）
+
+`develop` の `ColorPalette`（設定画のカラーチップ由来の構造化フィールド。[2026-07-13_progress_colorpalette-schema.md](./2026-07-13_progress_colorpalette-schema.md)）を `addon-ai-tag` へマージし、**`palette_priority` をそこから機械導出**できるようにした。**本ログの当初の目的（AIHints をビルドしても配色が失われない）はここで達成された。**
+
+### 変更点
+
+`tools/patch-aihints.mjs`:
+
+- **`derivePaletteFromColorPalette(record)`**（export）: `ColorPalette` の `Role`（`#ColorRole_Primary` / `Secondary` / `Accent`）と `Hex` から `{ primary, secondary, accent }` を導出する。`#ColorRole_Sub` は palette_priority に対応先が無いため使わない。`ColorPalette` が無ければ `null`（勝手に推定しない）。
+- **`applyColorPaletteToAihints(aihints, palette, opts)`**（export）: 導出値を `common.palette_priority` へ適用する。既存の確定値は保護し、`{ force: true }` で上書きする（`applyVisionResultsToAihints()` と同じ規約）。
+- **CLI `--apply-colorpalette` / `--force-palette`** を新設。**画像の目視は一切不要**。
+
+### 検証
+
+1. **`npm test` 全件成功**（35 ファイル / 399 件）。回帰テスト 7 件を追加。
+2. **実データ**: `palette_priority` が 3 色すべて確定したレコードが **0 件 → 91 件**（残る 1 件は `ColorPalette` を持たないレコード）。
+3. **ビルド耐性**: `--apply-appearancedetail --apply` を全 92 件へ実行しても **palette が失われない**（かつてこのモードが毎回 `null` へ潰していた）。
+4. **構造由来であることの実証**: Num 1 の `palette_priority` を意図的に `null` へ潰したうえで `--apply-colorpalette` を再実行し、**同一の値へ完全復元**されることを確認した。同じ入力から常に同じ値が出る = 再ビルドで揺れない。
+
+### 位置づけの変化
+
+当初の設計（本ログ上部）では「第2階: 画像からの決定論的な色抽出」を Agent の目視を裏付ける補助として計画していた。実際には **`ColorPalette` を本体 DB に持たせたことで、palette_priority は画像を一切見ずに DB から導出できる**ようになり、目視ワークフロー（`--gen-vision-tasks` → `view_image` → `--apply-vision-results`）は palette に関しては**不要**になった。視覚解析ワークフロー自体は髪・目・衣装など他の視覚 TODO のために引き続き有効。
+
 ### 残る課題（第0階では解決しない）
 
 - **`--suggest --force` の全面上書きによる巻き戻り**は未解決。第1階（`_meta` provenance + `--resync-structural`）が必要。

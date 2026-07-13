@@ -66,6 +66,8 @@ const PUBLIC_ORIGIN = 'https://database.numbertales-radiann.net';
  * @property {boolean} rewriteCorefolderNld  true なら corefolder.natural_language_description を球体本体テンプレで再生成する（humanoid 衣装語を排除）
  * @property {boolean} forceRewriteNld  true なら既に確定済みのテンプレ風 NLD も上書き対象にする
  * @property {boolean} genVisionTasks  true なら視覚 TODO のあるレコードの画像リストを .cache/vision-tasks.json に出力して終了
+ * @property {boolean} applyColorPalette  true なら DB の ColorPalette から palette_priority を機械導出する
+ * @property {boolean} forcePalette  true なら既存の palette_priority 確定値も上書きする
  * @property {boolean} applyVisionResults  true なら .cache/vision-results.json の解析結果を AIHints の視覚 TODO に適用
  * @property {Map<number,Object>|null} visionResultsMap  applyVisionResults 時に main() が注入する Map<num, VisionResult>
  * @property {boolean} applyAppearanceDetail  true なら `AppearanceDetail`（構造化フィールド）を正として AIHints の AI タグ系を再構築する。
@@ -92,6 +94,8 @@ function parseArgs(argv) {
         rewriteCorefolderNld: false,
         forceRewriteNld: false,
         genVisionTasks: false,
+        applyColorPalette: false,
+        forcePalette: false,
         applyVisionResults: false,
         visionResultsMap: null,
         applyAppearanceDetail: false,
@@ -117,6 +121,8 @@ function parseArgs(argv) {
             case '--force-rewrite-nld': opts.forceRewriteNld = true; break;
             case '--apply-appearancedetail': opts.applyAppearanceDetail = true; break;
             case '--gen-vision-tasks': opts.genVisionTasks = true; break;
+            case '--apply-colorpalette': opts.applyColorPalette = true; break;
+            case '--force-palette': opts.forcePalette = true; break;
             case '--apply-vision-results': opts.applyVisionResults = true; break;
             case '--force-ai-optout': opts.forceAiOptout = true; break;
             case '--verbose': case '-v': opts.verbose = true; break;
@@ -206,6 +212,11 @@ Options:
                       AppearanceDetail が無い/全空のレコードは AI タグ系を空配列にクリアして fallback
                       value_EN が欠落し value_JP のみ使えた場合は [JA] ... 付きで出力し警告ログに記録（要手動翻訳）
                       palette_priority は画像由来のため本モードでは再構築せず既存値を据え置く
+  --apply-colorpalette  DB の ColorPalette（設定画のカラーチップ由来の構造化フィールド）から
+                      common.palette_priority を機械導出する。画像の目視は不要
+                      Role=Primary/Secondary/Accent → primary/secondary/accent へ対応付け
+                      既存の確定値は保護する（--force-palette で上書き）
+  --force-palette     --apply-colorpalette 時、既存の palette_priority 確定値も上書きする
   --gen-vision-tasks  視覚 TODO のあるレコードの画像パスリストを .cache/vision-tasks.json に出力して終了
                       Agent の view_image 画像解析セッションの入力として使用する
                       palette_priority は null / 空 / TODO: のいずれも「未入力」として検出する
@@ -1942,6 +1953,40 @@ export function isUnfilledPaletteSlot(v) {
 }
 
 /**
+ * レコードの `ColorPalette`（DB の構造化フィールド）から `common.palette_priority` を導出する。
+ *
+ * `ColorPalette` は作者が設定画に描き込んだカラーチップを読み取った**構造化データ**であり、
+ * `Role`（`#ColorRole_Primary` / `Secondary` / `Accent` / `Sub`）と `Hex` を持つ。
+ * これを使えば palette_priority は **画像を目視せずに DB から機械導出**できる。
+ *
+ * これにより palette_priority は `AppearanceDetail` 由来のタグ類と同じ「構造由来」の値になり、
+ * 画像解析ワークフロー（`--gen-vision-tasks` → Agent の view_image → `--apply-vision-results`）に
+ * 頼らずに再生成できる。同じ入力からは常に同じ値が出るため、再ビルドで揺れない。
+ *
+ * `Sub` は palette_priority の 3 スロット（primary/secondary/accent）に対応先が無いため使わない。
+ *
+ * @param {any} record  パース済みレコード（`ColorPalette` を含みうる）
+ * @returns {{ primary: string, secondary: string, accent: string }|null} 導出できなければ null
+ */
+export function derivePaletteFromColorPalette(record) {
+    const palette = record?.ColorPalette;
+    if (!Array.isArray(palette) || !palette.length) return null;
+
+    /** Role から HEX を引く（同じ Role が複数あれば最初のもの） */
+    const pick = (role) => {
+        const hit = palette.find(e => e?.Role === role && typeof e?.Hex === 'string' && /^#[0-9A-Fa-f]{6}$/.test(e.Hex));
+        return hit ? hit.Hex : null;
+    };
+
+    const primary = pick('#ColorRole_Primary');
+    const secondary = pick('#ColorRole_Secondary');
+    const accent = pick('#ColorRole_Accent');
+    if (!primary && !secondary && !accent) return null;
+
+    return { primary, secondary, accent };
+}
+
+/**
  * AIHints オブジェクト内に視覚系 TODO がどのフィールドに残っているかを調べる。
  * `--gen-vision-tasks` が Agent 向けタスクマニフェストを組み立てる際の検出器。
  *
@@ -2110,6 +2155,39 @@ function genVisionTasksToFile(db, opts) {
  * @param {VisionResult} vr       Agent が埋めた VisionResult
  * @returns {{ aihints: any, changed: boolean }}
  */
+/**
+ * `ColorPalette` から導出した配色を AIHints の `common.palette_priority` へ適用する。
+ *
+ * 既存の確定値は**上書きしない**（未入力スロットのみ埋める）。これは
+ * `applyVisionResultsToAihints()` と同じ規約で、User が手で仕上げた値を保護する。
+ * `--force-palette` を使うと構造由来の値で全面的に上書きする。
+ *
+ * @param {any} aihints   元の AIHints（変更しない）
+ * @param {{ primary: string|null, secondary: string|null, accent: string|null }} palette
+ * @param {{ force?: boolean }} [opts]  force: true なら既存の確定値も上書きする
+ * @returns {{ aihints: any, changed: boolean }}
+ */
+export function applyColorPaletteToAihints(aihints, palette, opts = {}) {
+    const a = JSON.parse(JSON.stringify(aihints ?? {}));
+    let changed = false;
+    if (!a.common || typeof a.common !== 'object') return { aihints: a, changed };
+
+    if (a.common.palette_priority == null || typeof a.common.palette_priority !== 'object') {
+        a.common.palette_priority = { primary: null, secondary: null, accent: null };
+    }
+    const p = a.common.palette_priority;
+
+    for (const slot of ['primary', 'secondary', 'accent']) {
+        const value = palette[slot];
+        if (!value) continue;
+        if (!opts.force && !isUnfilledPaletteSlot(p[slot])) continue; // 既存の確定値は保護する
+        if (p[slot] === value) continue;
+        p[slot] = value;
+        changed = true;
+    }
+    return { aihints: a, changed };
+}
+
 export function applyVisionResultsToAihints(aihints, vr) {
     // deep copy してから編集する
     const a = JSON.parse(JSON.stringify(aihints));
@@ -3112,6 +3190,32 @@ function patchFileText(text, opts) {
             text = newText;
             for (const w of warnings) console.warn(`[apply-appearancedetail] ${w}`);
             results.push({ num, status: changed ? status : (status === 'skipped-no-aihints' ? status : 'appearancedetail-unchanged') });
+            continue;
+        }
+
+        // --apply-colorpalette モード: DB の ColorPalette から palette_priority を機械導出する。
+        // ColorPalette は設定画のカラーチップを読み取った構造化フィールドであり、
+        // これを使えば画像を目視せずに palette を確定できる（= palette が構造由来になる）。
+        if (opts.applyColorPalette) {
+            if (!hasAihints) {
+                results.push({ num, status: 'skipped-no-aihints' });
+                continue;
+            }
+            const derived = derivePaletteFromColorPalette(record);
+            if (!derived) {
+                results.push({ num, status: 'palette-no-colorpalette' });
+                continue;
+            }
+            const { aihints: newAihints, changed } = applyColorPaletteToAihints(
+                record.AIHints, derived, { force: opts.forcePalette },
+            );
+            if (!changed) {
+                results.push({ num, status: 'palette-unchanged' });
+                continue;
+            }
+            const block = stringifyAihintsBlock(newAihints);
+            text = replaceAihintsInRecord(text, openIdx, closeIdx, block);
+            results.push({ num, status: 'palette-applied' });
             continue;
         }
 
