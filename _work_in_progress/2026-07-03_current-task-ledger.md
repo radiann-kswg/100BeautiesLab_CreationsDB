@@ -1,6 +1,6 @@
 # 現行タスク台帳（起点）
 
-> 作成: 2026-07-03 / **最終更新: 2026-07-13（棚卸しセッションで全面改訂）**
+> 作成: 2026-07-03 / **最終更新: 2026-07-14（棚卸しセッションで更新）**
 
 ## 目的
 
@@ -26,8 +26,10 @@
 | ---- | ---- | ---- |
 | AppearanceDetail 参考画像 | `10` / `10alt` の corefolder/humanoid 割当の正誤確認、保留 4 枚の扱い | `2026-07-11_progress_appearancedetail-images.md` |
 | UnibyteLive 苗字命名 | 下書き 24+2 件の最終レビュー | `2026-07-06_progress_unibytelive-formalname-draft.md` |
-| Issue テンプレート | `issues/new/choose` の見た目確認（ログイン済みブラウザで 30 秒） | `2026-07-04_progress_issue-feature.md` |
-| アンオースドロジカ辞書 | `dict_ModelSeries` / `dict_LogicSeries` の null キー行ラベル | `2026-07-13_progress_unauthedlogica-index-alias.md` |
+| ColorPalette | `Role` の妥当性レビュー、7〜8 色検出 22 件の過検出確認、`ColorName_*` / `Formation` / `Note_*` の入力 | `2026-07-13_progress_colorpalette-schema.md` |
+| アンオースドロジカ辞書 | `dict_ModelSeries` / `dict_LogicSeries` の null キー行ラベル | `.completed/2026-07-13_progress_unauthedlogica-index-alias.md`（母艦 P3-3） |
+
+> Issue テンプレートの見た目確認は **2026-07-14 に解消済み**（外部ユーザーが Issue #11 をテンプレート経由で実起票していたことで裏取り）。
 
 ### P3) 創作用語DB / 基本資料DB（保留中）
 
@@ -38,7 +40,7 @@
 ### P4) 技術的な追従・既知の負債
 
 - 対象ログ: `2026-07-08_remaining-task.md`（母艦 P4）に集約
-- 主要項目: Workers 側 `_Secondaries` マッチャの乖離（`2026-07-13_progress_pkg-sync.md`）、
+- 主要項目: Workers 側 `_Secondaries` マッチャの乖離（`.completed/2026-07-13_progress_pkg-sync.md`）、
   `ImageProcessor.resolveImagePath()` の既知バグ、`pkg/python`・`pkg/csharp` のテスト不在
 
 ### P5) AIHints 構造的再同期（addon-ai-tag 側の別タスク）
@@ -46,6 +48,14 @@
 - 対象ログ: `2026-07-08_progress_aihints-structural-resync-proposal.md`
 - ステータス: 📝 提案書のみ・実装未着手。**User の優先度判断待ち**
 - 実装先: `addon-ai-tag` ブランチ（`tools/patch-aihints.mjs` の `--resync-structural` モード + 専用ワークフロー）
+
+## 2026-07-14 棚卸しで完了・退避したもの
+
+- **Issue テンプレート**: 外部ユーザーが Issue #11 をテンプレート経由で実起票していたことを確認し、「見た目確認」を消化。あわせて `data-correction` ラベル未定義の不具合を発見・作成して修正。
+- **Calling 表示バグ**: 作品別 typedef に残る `ForMasterCalling_JP`/`_EN` の suffix 宣言は表示バグを起こさないことをブラウザ実地確認し、回帰テスト 2 件で固定。
+- **pkg-sync / unauthedlogica-index-alias**: 実装完了を確認し退避。残タスクは母艦 P3 / P4 へ引き継ぎ済み。
+
+詳細は `2026-07-14_progress_wip-tidy.md` を参照。
 
 ## 2026-07-13 棚卸しで完了・退避したもの
 
@@ -58,5 +68,5 @@
 
 ## 運用メモ
 
-- triage 系は `2026-07-13_github-triage.md` を最新判断の正とする。過去 triage は履歴参照用。
+- triage 系は `2026-07-14_github-triage.md` を最新判断の正とする。過去 triage は履歴参照用。
 - 残タスク母艦は `2026-07-08_remaining-task.md`。本台帳は「いま着手すべきもの」の起点に限定する。

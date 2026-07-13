@@ -221,6 +221,26 @@ function getSubFieldSectionKeys() {
 		.filter(Boolean);
 }
 
+function getDetailText() {
+	return document.querySelector('#detail')?.textContent?.replace(/\s+/g, ' ').trim() || '';
+}
+
+function countOccurrences(haystack, needle) {
+	if (!needle) return 0;
+	return haystack.split(needle).length - 1;
+}
+
+/**
+ * 空白を除去して突き合わせる。
+ * カンマ区切りの値（例: "partner, buddy"）はレンダラーが要素を分けて描画するため、
+ * textContent 上では区切りの空白が失われる。値の一致判定はこの正規化を通す。
+ * @param {string} s
+ * @returns {string} 空白を除去した文字列
+ */
+function squashSpaces(s) {
+	return String(s ?? '').replace(/\s+/g, '');
+}
+
 function getListTitles() {
 	return Array.from(document.querySelectorAll('#list h3')).map((node) => node.textContent?.trim() || '');
 }
@@ -282,6 +302,8 @@ const requestNumberRecord = numberTalesSelfSecondaryRecords.find((record) => rec
 const numberTalesVocabularyImageRecord = numberTalesVocabularyRecords.find((record) => record?.Term_JP === 'ヒューマノイド形態');
 const numberTalesReferenceRecord = numberTalesReferenceRecords.find((record) => record?.Title_JP === 'ナンバーテールズ');
 const firstNumberTalesPrimaryRecord = numberTalesPrimaryRecords.find((record) => String(record?.Num) === '1');
+// ForMasterCalling_JP/_EN の値が互いに重複せずレコード内で一意なため、二重表示の検出に使える
+const thirdNumberTalesPrimaryRecord = numberTalesPrimaryRecords.find((record) => String(record?.Num) === '3');
 const fourthNumberTalesPrimaryRecord = numberTalesPrimaryRecords.find((record) => String(record?.Num) === '4');
 const ninthNumberTalesPrimaryRecord = numberTalesPrimaryRecords.find((record) => String(record?.Num) === '9');
 const sixtyFirstNumberTalesPrimaryRecord = numberTalesPrimaryRecords.find((record) => String(record?.Num) === '61');
@@ -1302,5 +1324,58 @@ describe('pages/characters.js UI output', () => {
 
 		const topLevelOptions = Array.from(sel.children).filter((node) => node.tagName === 'OPTION');
 		expect(topLevelOptions.map((o) => o.value)).toEqual(['#Works_NumberTales']);
+	});
+
+	// Calling 系の行重複回帰（2026-07-04 の重複修正 → 2026-07-14 の棚卸しで裏取り）
+	//
+	// グローバル $DefType は FirstPerson/SecondPerson/ThirdPersonCalling を base キーのみで宣言するが、
+	// 作品別 $DefType（NumberTales / UnauthedLogica）の ForMasterCalling は *_JP / *_EN の
+	// 別エントリとして宣言されたままである。旧実装ではこの suffix 付き宣言が sub バケットへ
+	// 2 行別々に積まれて重複表示になっていた。現在は parseLangSuffix() が base へ統合するため 1 行になる。
+	//
+	// なお JP モードで「JP / EN」を併記するのは他フィールド（正式名称・趣味など）と同じ既定仕様であり、
+	// 重複行ではない。ここで固定したいのは「行が 1 本であること」と「EN モードは EN のみになること」。
+	// スキーマ側を base キーへ寄せる場合も、この期待値は変わらない。
+	it('merges suffix-declared Calling schema entries into one bilingual row (JP)', async () => {
+		charactersModule.__setCharactersTestState({
+			charState: {
+				db: 'Primary',
+				workTypeDef: numberTalesWorkTypeDef,
+				globalTypeDef,
+				workMeta: numberTalesWorkMeta,
+				imageFields: []
+			}
+		});
+
+		await charactersModule.renderDetail('#Works_NumberTales', thirdNumberTalesPrimaryRecord);
+
+		const text = getDetailText();
+		const jp = thirdNumberTalesPrimaryRecord.ForMasterCalling_JP;
+		const en = thirdNumberTalesPrimaryRecord.ForMasterCalling_EN;
+
+		// 行は 1 本だけ（旧バグでは *_JP / *_EN が別行として 2 本積まれていた）
+		expect(countOccurrences(text, '主人の呼び方')).toBe(1);
+		// その 1 行の中で JP / EN が併記される（他フィールドと同じ bilingual 表示）
+		expect(squashSpaces(text)).toContain(squashSpaces(`${jp} / ${en}`));
+	});
+
+	it('merges suffix-declared Calling schema entries into one row and drops JP in English mode (EN)', async () => {
+		charactersModule.__setCharactersTestState({
+			charState: {
+				db: 'Primary',
+				pageLang: 'en',
+				workTypeDef: numberTalesWorkTypeDef,
+				globalTypeDef,
+				workMeta: numberTalesWorkMeta,
+				imageFields: []
+			}
+		});
+
+		await charactersModule.renderDetail('#Works_NumberTales', thirdNumberTalesPrimaryRecord);
+
+		const text = getDetailText();
+		expect(countOccurrences(text, 'For Master Calling')).toBe(1);
+		expect(squashSpaces(text)).toContain(squashSpaces(thirdNumberTalesPrimaryRecord.ForMasterCalling_EN));
+		expect(squashSpaces(text)).not.toContain(squashSpaces(thirdNumberTalesPrimaryRecord.ForMasterCalling_JP));
 	});
 });
