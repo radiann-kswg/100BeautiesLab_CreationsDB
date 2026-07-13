@@ -151,7 +151,9 @@ Node.js / Python / C# の 3 クライアントは同じ API サーフェスを�
 | グローバルメタ取得 | `getMeta()`                                    | `get_meta()`                                        | `GetMetaAsync()`                                    |
 | 作品一覧           | `listWorks()`                                  | `list_works()`                                      | `ListWorksAsync()`                                  |
 | 作品別メタ取得     | `getWorkMeta(workId)`                          | `get_work_meta(work_id)`                            | `GetWorkMetaAsync(workId)`                          |
+| 作品別 typedef 取得 | `getWorkType(workId)`                         | `get_work_type(work_id)`                            | `GetWorkTypeAsync(workId)`                          |
 | DB 一覧            | `listDBs(workId)`                              | `list_dbs(work_id)`                                 | `ListDbsAsync(workId)`                              |
+| インデックスキー解決 | `getIndexKey(workId, dbName?)`               | `get_index_key(work_id, db_name?)`                  | `GetIndexKeyAsync(workId, dbName?)`                 |
 | レコード一覧       | `getRecords(workId, dbName)`                   | `get_records(work_id, db_name)`                     | `GetRecordsAsync(workId, dbName)`                   |
 | レコード 1 件      | `getRecord(workId, dbName, idxValue, idxKey?)` | `get_record(work_id, db_name, idx_value, idx_key?)` | `GetRecordAsync(workId, dbName, idxValue, idxKey?)` |
 | DB 内検索          | `search(workId, dbName, query)`                | `search(work_id, db_name, query)`                   | `SearchAsync(workId, dbName, query)`                |
@@ -159,9 +161,79 @@ Node.js / Python / C# の 3 クライアントは同じ API サーフェスを�
 
 ### 共通オプション
 
-| オプション       | 既定    | 説明                                   |
-| ---------------- | ------- | -------------------------------------- |
-| `includePrivate` | `false` | `isPrivate: true` のレコードを含めるか |
+| オプション       | 既定    | 説明                                                                                       |
+| ---------------- | ------- | ------------------------------------------------------------------------------------------ |
+| `includePrivate` | `false` | `isPrivate: true` のレコードを含めるか                                                     |
+| `includeHidden`  | `false` | `Works_Hidden` / `DB_Hidden` の作品・DB を含めるか。既定では一覧・直接アクセスとも遮断する |
+
+---
+
+## 対応する DB 機構
+
+`pkg/` の FS クライアント（Node.js / Python / C#）は `lib/sw-common.js` / `lib/data-common.js` の移植版です。
+**本体側の機構追加に自動追従しない**ため、以下の対応状況を把握したうえで利用してください。
+
+### 対応済み
+
+| 機構                                   | 説明                                                                                     |
+| -------------------------------------- | ---------------------------------------------------------------------------------------- |
+| `isPrivate` 除外                       | 既定で非公開レコードを返さない                                                           |
+| `_Commons` / `_Secondaries` 補完       | `sec_SeriesTitle` を主キー、`sec_Category` / `sec_DesignedBy` を追加条件とするスコア一致 |
+| `_ListLinkIf_<Field>` 条件付き commons | レコード値に応じた条件分岐の穴埋め                                                        |
+| `Works_Hidden` / `DB_Hidden`           | 一覧からの除外に加え、直接アクセスも 404 相当のエラーで遮断                               |
+| `Works_Dir` / `Works_Shared`           | 共通資料の疑似作品（`#Works_CommonReferences` → `data/References/`）の解決                |
+| レイヤー畳み込み                       | `DB_Layer` が物理ディレクトリ名と同名の場合に二重パスを避ける                             |
+| root フォールバック                    | `DataBases/` を持たない作品の `db_meta.json` / `db_type.json` を直下から読む              |
+| `$IndexDef` / `$IndexDef_<DbNorm>`     | インデックスキーをスキーマから解決（DB 単位の上書きを含む）                              |
+| `DB_Label` / `DB_Label_EN` / `DB_Image` | DB カタログ情報の pass-through                                                           |
+| 旧作品名エイリアス                     | `Proxies` → `Works_DestinyFoxRecords`                                                    |
+
+### 未対応（Service Worker 専用）
+
+| 機構                | 備考                                                                     |
+| ------------------- | ------------------------------------------------------------------------ |
+| `_DBLink` / `_Jump` | 参照解決 enrich。Cloudflare Workers 版も同様に未対応（次フェーズ）        |
+| `_DBCrossLinkPath`  | 画像パスの DB/Work 横断参照。UI 層で解決するため FS クライアントでは不要 |
+
+### インデックスキーのスキーマ駆動解決
+
+作品ごとにインデックスキーが異なるため、`getRecord()` は `idxKey` 省略時にスキーマから自動解決します。
+`idxKey` を明示した場合はそちらが優先されます。
+
+```js
+await db.getIndexKey("NumberTales", "Primary"); // → "Num"
+await db.getIndexKey("FLInvestigator78", "Primary"); // → "Card.Suit"
+await db.getIndexKey("ShouArRiders", "Primary"); // → "BeastType.Beast"
+
+// $IndexDef_<DbNorm> サイドカーによる DB 単位の上書き
+await db.getIndexKey("DestinyFoxRecords"); // → "Unit"（作品既定）
+await db.getIndexKey("DestinyFoxRecords", "Proxy"); // → "Generation"（Proxy DB のみ上書き）
+
+// idxKey 省略で正しく引ける
+await db.getRecord("FLInvestigator78", "Primary", "Major");
+```
+
+導出規則は `pkg/cloudflare/scripts/migrate.mjs` の `resolveIdxKey()` と同一です
+（ネスト型は `#IndexListKey` → `#Number` → 先頭要素 の優先順で主インデックスの子要素を選ぶ）。
+
+### 非公開制御
+
+`Works_Hidden` / `DB_Hidden` は**一覧からの除外だけでなく直接アクセスも遮断**します
+（`docs/api-sw-spec.md` §5.3 / §5.4 の「リストと直接アクセスの両方から 404」に対応）。
+
+```js
+await db.listDBs("FLInvestigator78"); // → 隠しDBは含まれない
+await db.getRecords("FLInvestigator78", "UnprocessedDealer"); // → CreationsDBNotFoundError
+```
+
+エラー型: Node.js `CreationsDBNotFoundError` / Python `CreationsDBNotFoundError` / C# `CreationsDBNotFoundException`。
+
+リポジトリ所有者のローカルツール等で非公開データを扱う場合のみ `includeHidden` でオプトインします。
+
+> **注意**: `isPrivate` のフィルタは `_Commons` 適用**後**に行います。
+> `_Secondaries[]._Commons.isPrivate: true` のように、レコード自身ではなく所属シリーズ側で
+> 非公開指定されるケースがあるためです。順序を逆にすると注入値が読まれず、
+> 非公開指定のレコードが公開されてしまいます。
 
 ---
 
@@ -189,14 +261,18 @@ GET /api/v1/:work/search?q=キーワード
 
 GitHub Copilot Agent モードや他の LLM ツールに公開するツール一覧:
 
-| ツール名             | 説明                              |
-| -------------------- | --------------------------------- |
-| `list_works`         | 作品一覧の取得                    |
-| `list_dbs`           | DB 一覧の取得                     |
-| `get_records`        | レコード一覧の取得                |
-| `get_record`         | インデックス値でレコード 1 件取得 |
-| `search_records`     | DB 内全文検索                     |
-| `search_all_records` | 作品横断全文検索                  |
+| ツール名             | 説明                                            |
+| -------------------- | ----------------------------------------------- |
+| `list_works`         | 作品一覧の取得                                  |
+| `list_dbs`           | DB 一覧の取得                                   |
+| `get_records`        | レコード一覧の取得                              |
+| `get_record`         | インデックス値でレコード 1 件取得               |
+| `get_index_key`      | DB のインデックスキーをスキーマから解決         |
+| `search_records`     | DB 内全文検索                                   |
+| `search_all_records` | 作品横断全文検索                                |
+
+MCP サーバーは Node.js クライアントを内部で利用するため、`pkg/nodejs/` の変更がそのまま反映されます。
+`includePrivate` / `includeHidden` とも `false` で生成するため、非公開データは LLM へ一切公開されません。
 
 詳細は `pkg/mcp/README.md` を参照してください。
 
@@ -214,9 +290,24 @@ git submodule update --remote
 
 ---
 
+## テスト
+
+`tests/pkg.nodejs.test.js`（Vitest）が Node.js クライアントの DB 機構追従を検証します。
+
+`pkg/` は本体側の機構追加に自動追従しないため、**`lib/` に DB 機構を追加したら本テストの
+期待値も見直してください**。Python / C# は同一 API サーフェスを持つ独立移植のため、
+Node.js 側の期待値を変更したら両者も追従させる必要があります。
+
+```sh
+npx vitest run tests/pkg.nodejs.test.js
+```
+
+---
+
 ## 更新履歴
 
-| 日付       | 内容                                                                                 |
-| ---------- | ------------------------------------------------------------------------------------ |
-| 2026-06-02 | `pkg/` 全 5 パッケージを新規実装（Node.js / Python / C# / Cloudflare Workers / MCP） |
-| 2026-06-02 | コンストラクタの `repoRoot` 引数を省略可能化（サブモジュール配置時に自動解決）       |
+| 日付       | 内容                                                                                                                                                                                  |
+| ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 2026-06-02 | `pkg/` 全 5 パッケージを新規実装（Node.js / Python / C# / Cloudflare Workers / MCP）                                                                                                  |
+| 2026-06-02 | コンストラクタの `repoRoot` 引数を省略可能化（サブモジュール配置時に自動解決）                                                                                                        |
+| 2026-07-13 | FS クライアント 4 種（Node.js / Python / C# / MCP）を本体 DB 機構へ追従。`Works_Hidden` / `DB_Hidden` の直接アクセス遮断、`Works_Dir` オーバーライド、`$IndexDef` のスキーマ駆動解決、旧作品名エイリアス、JP/EN 命名、`_Secondaries` の完全一致規則、`isPrivate` フィルタ順序の修正。`tests/pkg.nodejs.test.js` を新設 |

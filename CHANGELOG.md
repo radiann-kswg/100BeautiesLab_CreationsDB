@@ -1,5 +1,21 @@
 # 最新のリファクタリング・仕様変更履歴
 
+### fix: `pkg/` FS クライアント 4 種を本体 DB 機構へ追従（非公開制御バイパス・命名バグを含む） (2026-07-13)
+
+`pkg/cloudflare` のみ 2026-07-11 まで追従していた一方、FS クライアント（`pkg/nodejs` 2026-06-22 / `pkg/python`・`pkg/csharp`・`pkg/mcp` 2026-06-02）が本体の DB 機構追加に追従できておらず、実害のあるバグを含んでいた。`pkg/` は `lib/sw-common.js` / `lib/data-common.js` の移植版であり自動追従しない設計だが、追従漏れを検出するテストが 1 本も無かったことが放置の一因のため、回帰テストも併せて新設した。
+
+- **非公開制御のバイパス（実害あり）**: `DB_Hidden: true` の DB が一覧からは除外されるのに直接アクセス（`getRecords()`）では素通りしていた（`FLInvestigator78` / `UnprocessedDealer` の 55 件が取得可能だった）。`docs/api-sw-spec.md` §5.3 / §5.4 の「リストと直接アクセスの両方から 404」に合わせ、直接アクセスも遮断するよう修正。`Works_Hidden` も同様に対応。専用エラー型（`CreationsDBNotFoundError` / `CreationsDBNotFoundException`）を新設し、リポジトリ所有者のローカルツール向けに `includeHidden` オプション（既定 `false`）でオプトインできるようにした。
+- **`isPrivate` フィルタ順序の修正（実害あり）**: `isPrivate` の除外が `_Commons` 適用**より前**に行われていたため、`_Secondaries[]._Commons.isPrivate: true` によってシリーズ単位で非公開指定されたレコードが公開されていた（NumberTales / Secondary の `0xFF(エフエフ)` 1 件。レコード自身は `isPrivate` を宣言していないため注入値が読まれていなかった）。`_Commons` 適用「後」に除外するよう 3 クライアントとも修正。**同じ順序の問題が `lib/sw-common.js` の `handleDbRequest()`（`filterPublicRecords()` → `applyCommonsToRecords()`）にも存在するが、本番 GitHub Pages の公開範囲が変わるため今回は修正せず、User 判断待ちとして記録**（`_work_in_progress/2026-07-13_progress_pkg-sync.md`）。
+- **JP/EN 命名の未追従（実害あり）**: 2026-06-22 の命名標準化（`Title` → `Title_JP` / `Works_Summary` → `Works_Summary_JP`）が `pkg/nodejs` にしか入っておらず、`pkg/python` / `pkg/csharp` の `list_works()` がタイトル・概要とも**空文字**を返していた。`Title_JP` / `Title_EN` / `Works_Summary_JP` / `Works_Summary_EN` へ追従。
+- **`Works_Dir` オーバーライド（2026-07-11 の共通資料）**: `#Works_CommonReferences` が `listWorks()` には現れるのにレコードを一切取得できなかった。`Works_Dir` / `Works_Shared` の解決、`DB_Layer` が物理ディレクトリ名と同名の場合のレイヤー畳み込み、`DataBases/` を持たない作品の root フォールバック（`db_meta.json` / `db_type.json`）を実装。
+- **`$IndexDef` のスキーマ駆動解決（2026-07-11 の DB 単位上書きを含む）**: `getRecord()` のインデックスキーが `'Num'` 決め打ちだったため、`Num` を持たない作品（`FLInvestigator78` → `Card.Suit`、`ShouArRiders` → `BeastType.Beast` 等）では常に `null` を返していた。`$IndexDef` / サイドカー `$IndexDef_<DbNorm>` から解決する `getIndexKey()` を新設し、`idxKey` 省略時の既定値として使用（明示指定時はそちらを優先）。導出規則は `pkg/cloudflare/scripts/migrate.mjs` の `resolveIdxKey()` と同一。
+- **`_Secondaries` マッチングの完全移植**: `sec_SeriesTitle` のみの簡略一致だったものを、`sec_Category` / `sec_DesignedBy` を追加条件とするスコアリング方式（`lib/sw-common.js` の `findSecondaryCommons()` と同等）へ差し替え。`_ListLinkIf_<Field>` 条件付き commons にも対応。
+- **その他の追従**: 旧作品名エイリアス（`Proxies` → `Works_DestinyFoxRecords`）、`DB_Image` / `Works_Shared` の pass-through、`#Loc_*` エントリの DB 一覧からの除外、`getWorkType()` の新設。
+- **`pkg/mcp/server.mjs`**: Node.js クライアントを内部利用するため大半は自動追従。`get_record` の `idxKey` 既定値 `"Num"` を撤廃してスキーマ自動解決に委ね、照合に使われたキーを `{ found: false, idxKey }` で返すようにした。インデックスキーを事前確認できる `get_index_key` ツールを新設。
+- **`tests/pkg.nodejs.test.js`（新規）**: 上記の全機構を実データに対する不変条件として検証（レコード件数のような変動値には依存させない）。18 件。
+- **`docs/pkg-client-libraries.md`**: 「対応する DB 機構」節（対応済み / 未対応の一覧）、インデックスキー解決、非公開制御、テストの各節を追記。API 対応表に `getIndexKey` / `getWorkType` を追加。
+- 確認: `npm test` 全件成功（29 ファイル / 289 件）。Node.js / Python / C# の 3 クライアントが同一データに対して同一結果を返すことを実行して確認（C# は Newtonsoft.Json / System.Text.Json 両バックエンドでビルド検証）。
+
 ### add/fix: Index 機能拡張（エイリアスIndex・Index辞書のルート合流/nullキー対応）とネストIndex二重ネスト修正 (2026-07-13)
 
 アンオースドロジカの `DB_Primary`（`Model`）/ `DB_PrimaryMobs`（`Logic`）Index分割で顕在化した Index 解決不全を修正し、汎用のIndex機能を2点拡張した。

@@ -73,7 +73,7 @@ var db = new CreationsDBClient();
 // 作品一覧
 var works = await db.ListWorksAsync();
 foreach (var w in works)
-    Debug.Log($"{w.Key}: {w.Title}");
+    Debug.Log($"{w.Key}: {w.TitleJP}");
 
 // DB 一覧
 var dbs = await db.ListDbsAsync("NumberTales");
@@ -85,9 +85,14 @@ var records = await db.GetRecordsAsync("NumberTales", "Primary");
 Debug.Log($"取得件数: {records.Count}");
 
 // インデックス値でレコード 1 件取得
-var record = await db.GetRecordAsync("NumberTales", "Primary", "1", idxKey: "Num");
+// idxKey を省略するとスキーマ（$IndexDef）から自動解決される
+var record = await db.GetRecordAsync("NumberTales", "Primary", "25");
 if (record != null)
     Debug.Log(record.ToString());
+
+// 索引キーは作品ごとに異なる。事前に確認もできる
+await db.GetIndexKeyAsync("FLInvestigator78", "Primary");  // → "Card.Suit"
+var card = await db.GetRecordAsync("FLInvestigator78", "Primary", "Major");
 
 // 全文検索
 var hits = await db.SearchAsync("NumberTales", "Primary", "たぬき");
@@ -112,26 +117,56 @@ foreach (var h in allHits)
 | プロパティ | 型 | 説明 |
 |-----------|-----|------|
 | `IncludePrivate` | `bool` | `isPrivate: true` のレコードを含めるか（既定: `false`） |
+| `IncludeHidden` | `bool` | `Works_Hidden` / `DB_Hidden` の作品・DB を含めるか（既定: `false`） |
 
 ### `ListWorksAsync() → Task<IReadOnlyList<WorkInfo>>`
 
 作品一覧を返す。`Works_Hidden: true` の作品は除外。
 
-`WorkInfo` プロパティ: `Key`, `Title`, `TitleEN`, `Summary`, `OldTitles`
+`WorkInfo` プロパティ: `Key`, `TitleJP`, `TitleEN`, `SummaryJP`, `SummaryEN`, `WorksShared`, `OldTitles`
 
 ### `ListDbsAsync(workId) → Task<IReadOnlyList<DbInfo>>`
 
 指定作品の DB 一覧を返す。`DB_Hidden: true` は除外。
 
-`DbInfo` プロパティ: `Key`, `File`, `Layer`, `Label`, `LabelEN`
+`DbInfo` プロパティ: `Key`, `File`, `Layer`, `Label`, `LabelEN`, `Image`
+
+### `GetIndexKeyAsync(workId, dbName = null) → Task<string>`
+
+DB のインデックスキー（`GetRecordAsync()` の `idxValue` が照合されるフィールド）をスキーマから解決する。
+`dbName` が `null` の場合は作品既定のキーを返す。
+
+```csharp
+await db.GetIndexKeyAsync("NumberTales", "Primary");       // → "Num"
+await db.GetIndexKeyAsync("FLInvestigator78", "Primary");  // → "Card.Suit"
+await db.GetIndexKeyAsync("DestinyFoxRecords", "Proxy");   // → "Generation"（DB 単位の上書き）
+```
+
+### `GetWorkTypeAsync(workId) → Task<JObject>`
+
+作品別の型定義（`db_type.json`）を返す。未存在時は空オブジェクト。
 
 ### `GetRecordsAsync(workId, dbName, applyCommons = true) → Task<IReadOnlyList<JObject>>`
 
-DB のレコード配列を返す。
+DB のレコード配列を返す（`_Commons` / `_Secondaries` 補完・非公開除外）。
 
-### `GetRecordAsync(workId, dbName, idxValue, idxKey = "Num") → Task<JObject?>`
+### `GetRecordAsync(workId, dbName, idxValue, idxKey = null) → Task<JObject?>`
 
 インデックス値でレコードを 1 件返す。見つからない場合は `null`。
+`idxKey` が `null` の場合はスキーマ（`$IndexDef` / `$IndexDef_<DbNorm>`）から自動解決する。
+
+### `CreationsDBNotFoundException`
+
+対象が存在しない、または非公開（`Works_Hidden` / `DB_Hidden`）のため参照できない場合に送出される。
+Service Worker / Cloudflare Workers 版の 404 レスポンスに対応する。
+
+```csharp
+try {
+    await db.GetRecordsAsync("FLInvestigator78", "UnprocessedDealer");  // DB_Hidden
+} catch (CreationsDBNotFoundException) {
+    // 非公開
+}
+```
 
 ### `SearchAsync(workId, dbName, query) → Task<IReadOnlyList<JObject>>`
 

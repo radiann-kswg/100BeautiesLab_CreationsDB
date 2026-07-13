@@ -11,14 +11,20 @@
  *     list_dbs           — DB 一覧の取得
  *     get_records        — レコード一覧の取得
  *     get_record         — インデックス値でレコード 1 件取得
+ *     get_index_key      — DB のインデックスキーをスキーマから解決
  *     search_records     — DB 内全文検索
  *     search_all_records — 作品横断全文検索
+ *
+ *   公開制御:
+ *     CreationsDBClient を既定オプション（includePrivate / includeHidden とも false）で
+ *     生成するため、`isPrivate: true` のレコードと `Works_Hidden` / `DB_Hidden` の
+ *     作品・DB は LLM へ一切公開されない（一覧・直接アクセスの双方を遮断）。
  *
  *   実行方法:
  *     node server.mjs --repo-root /path/to/100BeautiesLab_CreationsDB
  *
  * @author 100BeautiesLab.
- * @version 1.0.0
+ * @version 1.1.0
  * @dependencies @modelcontextprotocol/sdk (^1.0.0), ../nodejs/index.mjs
  */
 
@@ -59,8 +65,13 @@ function resolveRepoRoot() {
 
 const REPO_ROOT = resolveRepoRoot();
 
-// CreationsDB クライアント（isPrivate: true のレコードは除外）
-const dbClient = new CreationsDBClient(REPO_ROOT, { includePrivate: false });
+// CreationsDB クライアント。
+// LLM へ非公開データを渡さないため、isPrivate レコードと Works_Hidden / DB_Hidden の
+// 作品・DB は明示的に除外する（既定値だが、意図を明示するため省略しない）。
+const dbClient = new CreationsDBClient(REPO_ROOT, {
+  includePrivate: false,
+  includeHidden: false,
+});
 
 // ─────────────────────────────────────────────────────────────────────────────
 // ツール定義（JSON Schema）
@@ -121,16 +132,35 @@ const TOOLS = [
         dbName:   { type: "string", description: 'DB 名。例: "Primary"' },
         idxValue: {
           type: "string",
-          description: 'インデックス値。例: "1", "I", "Wrath"',
+          description: 'インデックス値。例: "25", "Major", "Wrath"',
         },
         idxKey: {
           type: "string",
           description:
-            'インデックスフィールド名（ドット記法可）。省略時は "Num"。例: "Num", "Card.Num"',
-          default: "Num",
+            'インデックスフィールド名（ドット記法可）。省略時はスキーマ ($IndexDef / $IndexDef_<DB名>) から' +
+            '自動解決されるため、通常は指定不要。作品ごとに異なる（NumberTales → "Num", ' +
+            'FLInvestigator78 → "Card.Suit", ShouArRiders → "BeastType.Beast"）。' +
+            "どのキーが使われるかは get_index_key ツールで確認できる。",
         },
       },
       required: ["workId", "dbName", "idxValue"],
+    },
+  },
+  {
+    name: "get_index_key",
+    description:
+      "指定した作品・DB のインデックスキー（get_record の idxValue が照合されるフィールド）を" +
+      "スキーマから解決して返します。作品ごと・DB ごとに異なるため、get_record の前に確認できます。",
+    inputSchema: {
+      type: "object",
+      properties: {
+        workId: { type: "string", description: '作品 ID。例: "NumberTales"' },
+        dbName: {
+          type: "string",
+          description: 'DB 名。省略時は作品既定のインデックスキーを返す。例: "Primary"',
+        },
+      },
+      required: ["workId"],
     },
   },
   {
@@ -195,18 +225,35 @@ async function callTool(toolName, args) {
     }
 
     case "get_record": {
-      const { workId, dbName, idxValue, idxKey = "Num" } = args;
+      const { workId, dbName, idxValue, idxKey } = args;
       if (!workId)   throw new Error("workId is required");
       if (!dbName)   throw new Error("dbName is required");
       if (!idxValue) throw new Error("idxValue is required");
+      // idxKey 未指定時は undefined を渡し、クライアント側でスキーマ ($IndexDef) から自動解決させる
       const record = await dbClient.getRecord(
         String(workId),
         String(dbName),
         String(idxValue),
-        String(idxKey)
+        idxKey ? String(idxKey) : undefined
       );
-      if (record === null) return JSON.stringify({ found: false });
+      if (record === null) {
+        // 見つからない場合、照合に使われたキーを添えて LLM が原因を判断できるようにする
+        const usedKey = idxKey
+          ? String(idxKey)
+          : await dbClient.getIndexKey(String(workId), String(dbName));
+        return JSON.stringify({ found: false, idxKey: usedKey });
+      }
       return JSON.stringify(record, null, 2);
+    }
+
+    case "get_index_key": {
+      const { workId, dbName } = args;
+      if (!workId) throw new Error("workId is required");
+      const idxKey = await dbClient.getIndexKey(
+        String(workId),
+        dbName ? String(dbName) : undefined
+      );
+      return JSON.stringify({ workId: String(workId), dbName: dbName ?? null, idxKey }, null, 2);
     }
 
     case "search_records": {

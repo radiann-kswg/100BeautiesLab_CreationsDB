@@ -51,7 +51,7 @@ db = CreationsDBClient()
 
 # 作品一覧
 works = db.list_works()
-print([w['Title'] for w in works])
+print([w['Title_JP'] for w in works])
 # → ['ナンバーテールズ', '運命線探偵78', ...]
 
 # DB 一覧
@@ -64,8 +64,13 @@ records = db.get_records('NumberTales', 'Primary')
 print(records[0])
 
 # インデックス値でレコード 1 件取得
-record = db.get_record('NumberTales', 'Primary', '1', idx_key='Num')
-print(record.get('Name') if record else 'Not found')
+# idx_key を省略するとスキーマ（$IndexDef）から自動解決される
+record = db.get_record('NumberTales', 'Primary', '25')
+print(record.get('Name_JP') if record else 'Not found')
+
+# 索引キーは作品ごとに異なる。事前に確認もできる
+db.get_index_key('FLInvestigator78', 'Primary')   # → 'Card.Suit'
+card = db.get_record('FLInvestigator78', 'Primary', 'Major')
 
 # 全文検索（大小文字無視、部分一致）
 hits = db.search('NumberTales', 'Primary', 'たぬき')
@@ -74,37 +79,68 @@ print(f'{len(hits)} 件ヒット')
 # 作品内の全 DB を横断検索
 all_hits = db.search_all('NumberTales', '狼')
 for h in all_hits:
-    print(f"{h['db']}: {h['record'].get('Name')}")
+    print(f"{h['db']}: {h['record'].get('Name_JP')}")
 ```
 
 ---
 
 ## API リファレンス
 
-### `CreationsDBClient(repo_root, *, include_private=False)`
+### `CreationsDBClient(repo_root, *, include_private=False, include_hidden=False)`
 
-| 引数              | 型     | 説明                                                           |
-| ----------------- | ------ | -------------------------------------------------------------- |
-| `repo_root`       | `str`  | サブモジュールのルートディレクトリパス（絶対・相対どちらも可） |
-| `include_private` | `bool` | `isPrivate: true` のレコードを含めるか（既定: `False`）        |
+| 引数              | 型     | 説明                                                                          |
+| ----------------- | ------ | ----------------------------------------------------------------------------- |
+| `repo_root`       | `str`  | サブモジュールのルートディレクトリパス（絶対・相対どちらも可。省略可）        |
+| `include_private` | `bool` | `isPrivate: true` のレコードを含めるか（既定: `False`）                       |
+| `include_hidden`  | `bool` | `Works_Hidden` / `DB_Hidden` の作品・DB を含めるか（既定: `False`）           |
 
 ### `client.list_works() → list[dict]`
 
 作品一覧を返す。`Works_Hidden: true` の作品は除外。
-各要素: `{key, Title, Title_EN, Works_Summary, OldTitles}`
+各要素: `{key, Title_JP, Title_EN, Works_Summary_JP, Works_Summary_EN, Works_Shared, OldTitles}`
 
 ### `client.list_dbs(work_id) → list[dict]`
 
 指定作品で利用可能な DB 一覧を返す。`DB_Hidden: true` は除外。
-各要素: `{key, file, layer, DB_Label, DB_Label_EN}`
+各要素: `{key, file, layer, DB_Label, DB_Label_EN, DB_Image}`
+
+### `client.get_index_key(work_id, db_name=None) → str`
+
+DB のインデックスキー（`get_record()` の `idx_value` が照合されるフィールド）をスキーマから解決する。
+`db_name` 省略時は作品既定のキーを返す。
+
+```python
+db.get_index_key('NumberTales', 'Primary')       # → 'Num'
+db.get_index_key('FLInvestigator78', 'Primary')  # → 'Card.Suit'
+db.get_index_key('DestinyFoxRecords', 'Proxy')   # → 'Generation'（DB 単位の上書き）
+```
+
+### `client.get_work_type(work_id) → dict`
+
+作品別の型定義（`db_type.json`）を返す。未存在時は空 dict。
 
 ### `client.get_records(work_id, db_name, *, apply_commons=True) → list[dict]`
 
-DB のレコード配列を返す。
+DB のレコード配列を返す（`_Commons` / `_Secondaries` 補完・非公開除外）。
 
-### `client.get_record(work_id, db_name, idx_value, idx_key='Num') → dict | None`
+### `client.get_record(work_id, db_name, idx_value, idx_key=None) → dict | None`
 
 インデックス値でレコードを 1 件返す。見つからない場合は `None`。
+`idx_key` 省略時はスキーマ（`$IndexDef` / `$IndexDef_<DbNorm>`）から自動解決する。
+
+### `CreationsDBNotFoundError`
+
+対象が存在しない、または非公開（`Works_Hidden` / `DB_Hidden`）のため参照できない場合に送出される。
+Service Worker / Cloudflare Workers 版の 404 レスポンスに対応する。
+
+```python
+from creationsdb import CreationsDBClient, CreationsDBNotFoundError
+
+try:
+    db.get_records('FLInvestigator78', 'UnprocessedDealer')  # DB_Hidden
+except CreationsDBNotFoundError:
+    pass  # 非公開
+```
 
 ### `client.search(work_id, db_name, query) → list[dict]`
 
