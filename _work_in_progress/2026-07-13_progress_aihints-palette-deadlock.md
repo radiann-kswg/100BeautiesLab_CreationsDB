@@ -292,6 +292,24 @@ Step 1 は単独で「`--force` を使わずに palette を埋められる」状
 
    確認後、実験データは復元済み（`Height_cm: 146` / `HUMAN:` タグなし / `_meta` 92 件は保持）。
 
+### CI 自動化（合意事項2 / 2026-07-13）
+
+`.github/workflows/aihints-structural-resync.yml` を新設し、構造的再同期を CI で回すようにした。
+
+- **トリガー**: `addon-ai-tag` への push（`data/Works_*/DataBases/db_*.json` 変更時）/ `workflow_dispatch`
+- **動作**: 対象 DB を動的に列挙（`"AIHints"` を含む `db_*.json` を走査）→ `--resync-structural --apply` → prettier → 差分があれば `auto/aihints-structural-resync` ブランチへコミットして **PR を作成**（直接 auto-commit はしない）。既に PR が開いていれば force-push で更新する。
+- **無限ループしない**: PR のマージで再び起動しても、`structuralSourceHash` の一致により no-op となり差分ゼロで停止する。**第1階の冪等性がそのまま安全装置になっている。**
+- **PR 前に `npm test`** を実行し、壊れたデータで PR を立てない。
+
+#### 実装中に見つけて直した不具合
+
+- **prettier の glob が広すぎた**: `data/Works_*/DataBases/db_*.json` を渡していたため、リポジトリ上で prettier 準拠になっていない**無関係な 4 ファイル**（`db_Secondary.json` / 各作品の `db_type.json`）まで書き換わり、PR に整形ノイズが混入する状態だった。整形を**再同期した DB ファイルのみ**に限定し、「`data/` 配下で対象外のファイルが変更されていたら失敗させる」ガードを追加した。
+- **`patch-aihints.mjs` のサマリがモード追加に追従しない構造だった**: ステータス名をモードごとにハードコードした if/else の連鎖で、新モード（`--resync-structural` / `--apply-colorpalette`）が集計から漏れ `patched=0` としか表示されなかった（**CI のログで何が起きたか読めない**）。実際に発生したステータスをそのまま集計する形へ汎用化した。
+
+#### 運用上の前提
+
+PR 作成には GitHub リポジトリ設定の **「Allow GitHub Actions to create and approve pull requests」が有効である必要がある**。無効の場合は `gh pr create` が権限エラーで失敗するため、`notify-ai-dataset.yml` と同様に専用 PAT へ切り替える。
+
 ### 残る課題
 
 - **`--suggest --force` そのものは依然として全面上書き**（TODO 雛形への巻き戻し）。`--resync-structural` はその安全な代替として使う運用とする。

@@ -4,7 +4,14 @@
 
 `addon-ai-tag` 側の AIHints 生成ツール（`tools/patch-aihints.mjs`）を、develop 側のスキーマ変更（`TailsUnit` 専用型化・`EarShapeType` 独立軸化）へ追従修正する作業を通じて、「AIHints の再ビルド（regenerate）」という操作そのものの設計に複数の未解決課題があることが判明した。User の依頼により、これらを整理し今後の実装方針を提案としてまとめる。データベース全体・CI 運用に関わる内容のため、本記録は `develop` ブランチ側に置く。
 
-> **【2026-07-13 追記】実装完了（`addon-ai-tag`）。** 本提案の `--resync-structural` / `_meta` provenance を実装し、実データ 92 件へ投入済み。詳細は [`2026-07-13_progress_aihints-palette-deadlock.md`](./2026-07-13_progress_aihints-palette-deadlock.md) の「実装結果（第1階）」節および `CHANGELOG.md` を参照。合意事項 1（provenance マーカー方式）は実装済み、合意事項 2（GitHub Actions からの PR 自動作成）は未着手。
+> **【2026-07-13 追記】実装完了（`addon-ai-tag`）。** 本提案の `--resync-structural` / `_meta` provenance を実装し、実データ 92 件へ投入済み。詳細は [`2026-07-13_progress_aihints-palette-deadlock.md`](./2026-07-13_progress_aihints-palette-deadlock.md) の「実装結果（第1階）」節および `CHANGELOG.md` を参照。**合意事項 1（provenance マーカー方式）・合意事項 2（GitHub Actions からの PR 自動作成）ともに実装完了。**
+
+- 合意事項1: `_meta.structuralSourceHash` / `structuralEntries` + `--resync-structural`（find-exact-and-replace）
+- 合意事項2: `.github/workflows/aihints-structural-resync.yml`（差分が出たときのみ PR を作成。直接 auto-commit はしない）
+
+**運用上の前提**: PR 作成には GitHub リポジトリ設定の「Allow GitHub Actions to create and approve pull requests」が有効である必要がある。無効の場合は `gh pr create` が権限エラーで失敗するため、`notify-ai-dataset.yml` と同様に専用 PAT へ切り替えること（本提案の「未解決・要検討事項」で懸念していた点）。
+
+**未着手**: `prompt_export` / `negative_prompt_export` がタグ変更後も再生成されない件（別タスク）。
 
 **本ドキュメントは提案のみで、実装は含まない。** 実装は User が内容を確認・優先度判断した後、別タスクとして着手する。
 

@@ -1,5 +1,18 @@
 # 最新のリファクタリング・仕様変更履歴
 
+### feat(addon-ai-tag): 構造的再同期の CI 自動化（差分が出たら PR を立てる） (2026-07-13)
+
+[2026-07-08 の設計提案](_work_in_progress/2026-07-08_progress_aihints-structural-resync-proposal.md) の合意事項2 の実装。DB の構造ソースが変わったとき、CI が AIHints の構造由来部分だけを再同期し、**差分が出た場合のみ PR を立てる**（`addon-ai-tag` への直接 auto-commit はしない）。
+
+- **`.github/workflows/aihints-structural-resync.yml`（新規）**: `addon-ai-tag` への push（`data/Works_*/DataBases/db_*.json` 変更時）と `workflow_dispatch` で起動。`--resync-structural --apply` を実行し、差分があれば `auto/aihints-structural-resync` ブランチへコミットして PR を作成する（既に PR が開いていれば force-push で内容を更新）。
+- **対象 DB は動的に列挙**（`"AIHints"` を含む `db_*.json` を走査）。作品を増やしてもワークフローの修正は不要。`AI_Optout: true` の DB は `patch-aihints.mjs` 側のガードが拒否する。
+- **無限ループしない**: PR がマージされると `data/**` が変わって再び起動するが、`--resync-structural` は `structuralSourceHash` が一致すれば no-op になるため 2 周目は差分ゼロとなり PR は作られない（第1階の冪等性がそのまま安全装置になっている）。
+- **PR を立てる前に `npm test` を実行**し、壊れたデータで PR を作らないようガードする。
+- **実装中に見つけて直した不具合**: 整形ステップで `data/Works_*/DataBases/db_*.json` という広い glob を prettier に渡していたため、**リポジトリ上で prettier 準拠になっていない無関係なファイル 4 件**（`db_Secondary.json` / 各作品の `db_type.json`）まで書き換わり、PR に整形ノイズが混入する状態だった。整形を**再同期した DB ファイルのみ**に限定し、あわせて「`data/` 配下で対象外のファイルが変更されていたら失敗させる」ガードを追加した。
+- **`tools/patch-aihints.mjs` のサマリ表示を汎用化**: モードごとにステータス名をハードコードした if/else の連鎖だったため、新しいモード（`--resync-structural` / `--apply-colorpalette`）が集計から漏れて `patched=0` としか出ず、**CI のログで何が起きたか読めない**状態だった。実際に発生したステータスをそのまま集計する形へ変更（モードを追加しても壊れない）。
+- **運用上の前提**: PR 作成には GitHub リポジトリ設定の **「Allow GitHub Actions to create and approve pull requests」が有効である必要がある**。無効の場合は `gh pr create` が権限エラーで失敗するため、`notify-ai-dataset.yml` と同様に専用 PAT へ切り替える。
+- 確認: `npm test` 全件成功（36 ファイル / 414 件）。ワークフローの各ステップ（対象列挙 → 再同期 → 整形 → 差分判定）をローカルで再現し、構造ソース無変更時に no-op で停止すること、変更時に差分が対象ファイル 1 件のみに収まることを実測。
+
 ### feat(addon-ai-tag): `--resync-structural` — 人の手仕上げを残したまま構造だけ再同期する (2026-07-13)
 
 [2026-07-08 の設計提案](_work_in_progress/2026-07-08_progress_aihints-structural-resync-proposal.md) の実装（第1階 / provenance）。AIHints の再ビルドには長らく「**全部消す**（`--suggest --force` / `--apply-appearancedetail` の全面上書き）」か「**TODO 文字列だけ拾う**（`--fill-todos`）」かの二択しかなく、その隙間に「構造は最新化したいが、人の手仕上げは残したい」という運用が落ちていた。

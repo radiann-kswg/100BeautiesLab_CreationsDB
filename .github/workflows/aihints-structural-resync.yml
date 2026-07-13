@@ -1,0 +1,188 @@
+name: AIHints 構造的再同期
+
+# DB の構造ソース（TailsUnit / AppearanceDetail / ColorPalette / GenderType / ConceptAge /
+# Height_cm / Num）が変わったとき、AIHints の**構造由来の部分だけ**を最新化する。
+#
+# 設計（2026-07-08 の提案 合意事項2）:
+#   - 差分が出ても addon-ai-tag へ直接 auto-commit は **しない**。必ず PR を立てて人間のレビューを挟む。
+#   - 再同期は `--resync-structural`（find-exact-and-replace + provenance）を使う。
+#     `--apply-appearancedetail` の全面上書きと違い、User が手で書いたタグは残る。
+#
+# 無限ループしない理由:
+#   PR がマージされると data/** が変わって本ワークフローが再び走るが、`--resync-structural` は
+#   AIHints._meta.structuralSourceHash が一致すれば no-op になる。よって 2 周目は差分ゼロとなり
+#   PR は作られずに停止する（= 第1階の冪等性がそのまま安全装置になっている）。
+
+on:
+  push:
+    branches:
+      - addon-ai-tag
+    paths:
+      # AIHints の構造ソースは DB 本体にある。画像やドキュメントの変更では走らせない。
+      - "data/Works_*/DataBases/db_*.json"
+  workflow_dispatch:
+    inputs:
+      force:
+        description: "構造ソースが無変更でも再同期を試す（通常は不要）"
+        type: boolean
+        default: false
+
+# 同一ブランチで連続 push されたとき、PR ブランチへの force-push が競合しないよう直列化する。
+concurrency:
+  group: aihints-structural-resync
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  resync:
+    name: 構造的再同期と PR 作成
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write # PR ブランチへの push に必要
+      pull-requests: write # PR の作成に必要
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: 依存関係のインストール
+        run: npm ci
+
+      # AIHints を持つ DB を動的に列挙する。作品を増やしてもワークフローの修正は不要。
+      # AI_Optout: true の DB は patch-aihints.mjs 側のガードが exit 2 で拒否する。
+      - name: 対象 DB の列挙
+        id: targets
+        run: |
+          targets=""
+          files=""
+          for f in data/Works_*/DataBases/db_*.json; do
+            grep -q '"AIHints"' "$f" || continue
+            work=$(basename "$(dirname "$(dirname "$f")")" | sed 's/^Works_//')
+            db=$(basename "$f" .json | sed 's/^db_//')
+            targets="${targets}${work}:${db} "
+            files="${files}${f} "
+          done
+          echo "list=${targets}" >> "$GITHUB_OUTPUT"
+          echo "files=${files}" >> "$GITHUB_OUTPUT"
+          echo "対象: ${targets:-（なし）}"
+
+      - name: 構造的再同期の実行
+        if: steps.targets.outputs.list != ''
+        run: |
+          for target in ${{ steps.targets.outputs.list }}; do
+            work="${target%%:*}"
+            db="${target##*:}"
+            echo "::group::${work} / ${db}"
+            node tools/patch-aihints.mjs --work "$work" --db "$db" --all --resync-structural --apply
+            echo "::endgroup::"
+          done
+
+      # 整形は **再同期した DB ファイルだけ** に限定する。
+      # `data/Works_*/DataBases/db_*.json` のような広い glob を渡すと、リポジトリ上で
+      # prettier 準拠になっていない無関係なファイル（db_type.json / 他 DB 等）まで書き換わり、
+      # PR に整形ノイズが混入する（実測: 無関係な 4 ファイルが巻き込まれた）。
+      - name: 整形（prettier / 対象ファイルのみ）
+        if: steps.targets.outputs.files != ''
+        run: npx prettier --write ${{ steps.targets.outputs.files }}
+
+      # 差分判定も対象ファイルに限定する。想定外のファイルが混ざったまま PR を立てない。
+      - name: 差分の判定
+        id: diff
+        if: steps.targets.outputs.files != ''
+        env:
+          TARGET_FILES: ${{ steps.targets.outputs.files }}
+        run: |
+          # data/ 配下で対象外のファイルが変更されていたら異常（整形ノイズの混入など）。
+          # PR に混ぜず、ここで失敗させる。data/ の外（npm ci による package-lock 等）は対象外。
+          unexpected=""
+          for changed in $(git diff --name-only -- data/); do
+            found=""
+            for target in $TARGET_FILES; do
+              [ "$changed" = "$target" ] && found=1 && break
+            done
+            [ -n "$found" ] || unexpected="${unexpected}${changed} "
+          done
+          if [ -n "$unexpected" ]; then
+            echo "::error::対象 DB 以外のファイルが変更されています: ${unexpected}"
+            exit 1
+          fi
+
+          if git diff --quiet -- $TARGET_FILES; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            echo "構造ソースに変化なし（no-op）。PR は作成しません。"
+          else
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+            git diff --stat -- $TARGET_FILES
+          fi
+
+      # 壊れたデータで PR を立てないためのガード。テストが落ちたらここで失敗させる。
+      - name: テスト
+        if: steps.diff.outputs.changed == 'true'
+        run: npm test
+
+      - name: PR の作成 / 更新
+        if: steps.diff.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BRANCH: auto/aihints-structural-resync
+          TARGET_FILES: ${{ steps.targets.outputs.files }}
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git checkout -B "$BRANCH"
+          git add -- $TARGET_FILES
+          git commit -m "AIHints: 構造的再同期（自動生成）
+
+          DB の構造ソース変更に追従して AIHints の構造由来部分のみを再生成しました。
+          User が手で書いたタグには触れていません（--resync-structural / provenance）。
+
+          実行: node tools/patch-aihints.mjs --all --resync-structural --apply
+          ワークフロー: .github/workflows/aihints-structural-resync.yml"
+
+          git push -f origin "$BRANCH"
+
+          # 既に開いている PR があれば force-push で内容が更新されるだけでよい
+          if [ -n "$(gh pr list --head "$BRANCH" --state open --json number -q '.[0].number')" ]; then
+            echo "既存の PR を更新しました。"
+            exit 0
+          fi
+
+          gh pr create \
+            --base addon-ai-tag \
+            --head "$BRANCH" \
+            --title "AIHints: 構造的再同期（自動生成）" \
+            --body "$(cat <<'BODY'
+          ## 概要
+
+          DB の構造ソースが変更されたため、AIHints の**構造由来の部分だけ**を再生成しました。
+          このブランチは `.github/workflows/aihints-structural-resync.yml` が自動生成しています。
+
+          ## 何を変えたか
+
+          - `--resync-structural`（find-exact-and-replace + provenance）で再同期しています。
+          - **User が手で書いた／編集したタグには触れていません。** `AIHints._meta.structuralEntries` に
+            記録された「ツールが挿入した文字列」だけを差し替えています。
+          - 再同期の対象外: `outfit_features` / `silhouette_notes` / `natural_language_description` /
+            `reference_images`（人手・視覚由来のため）。
+
+          ## 構造ソース
+
+          `Num` / `GenderType` / `ConceptAge` / `Height_cm` / `TailsUnit` / `AppearanceDetail` / `ColorPalette`
+
+          ## レビュー観点
+
+          - 消えてはいけないタグ（手で書いたもの）が残っているか
+          - 構造タグが DB の変更内容と一致しているか
+          - ログに `編集/削除されています` の警告が出ていないか（出ていれば、人が編集したツール由来の
+            文字列があり、そこは上書きせず残しています）
+
+          差分が意図と違う場合は、このブランチを閉じて手動で対応してください。
+          BODY
+          )"

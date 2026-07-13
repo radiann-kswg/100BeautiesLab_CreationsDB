@@ -3694,42 +3694,25 @@ function main() {
 
     const { newText, results } = patchFileText(original, opts);
 
-    // 結果サマリ
-    const counts = {
-        patched: 0, 'skipped-existing': 0, 'skipped-no-image': 0, overwritten: 0,
-        'refs-fixed': 0,
-        'todos-filled': 0, 'todos-unchanged': 0,
-        'schema-upgraded': 0, 'schema-unchanged': 0,
-        'silhouette-migrated': 0, 'silhouette-unchanged': 0,
-        'nld-rewritten': 0, 'nld-unchanged': 0,
-        'appearancedetail-applied': 0, 'appearancedetail-unchanged': 0, 'appearancedetail-cleared': 0, 'appearancedetail-no-source': 0,
-        'vision-applied': 0, 'vision-unchanged': 0, 'vision-no-result': 0,
-        'skipped-no-aihints': 0,
-    };
+    // 結果サマリ。ステータス名を事前に列挙しない（モードを追加するたびに追記が必要になり、
+    // 漏れると集計から抜け落ちるため）。実際に発生したものだけを数える。
+    /** @type {Record<string, number>} */
+    const counts = {};
     for (const r of results) counts[r.status] = (counts[r.status] ?? 0) + 1;
     results.sort((a, b) => a.num - b.num);
 
     console.log(`\n=== patch-aihints summary (${opts.apply ? 'APPLY' : 'dry-run'}${opts.suggest ? ' / suggest' : ''}) ===`);
     console.log(`  DB: ${path.relative(REPO_ROOT, dbPath)}`);
     console.log(`  target: ${opts.records ? `[${[...opts.records].sort((a,b)=>a-b).join(',')}]` : 'ALL'}`);
-    if (opts.fixRefs) {
-        console.log(`  refs-fixed=${counts['refs-fixed']}, skipped-no-aihints=${counts['skipped-no-aihints']}`);
-    } else if (opts.fillTodos) {
-        console.log(`  todos-filled=${counts['todos-filled']}, todos-unchanged=${counts['todos-unchanged']}, skipped-no-aihints=${counts['skipped-no-aihints']}`);
-    } else if (opts.upgradeSchema) {
-        console.log(`  schema-upgraded=${counts['schema-upgraded']}, schema-unchanged=${counts['schema-unchanged']}, skipped-no-aihints=${counts['skipped-no-aihints']}`);
-    } else if (opts.migrateSilhouetteStructure) {
-        console.log(`  silhouette-migrated=${counts['silhouette-migrated']}, silhouette-unchanged=${counts['silhouette-unchanged']}, skipped-no-aihints=${counts['skipped-no-aihints']}`);
-    } else if (opts.rewriteCorefolderNld) {
-        console.log(`  nld-rewritten=${counts['nld-rewritten']}, nld-unchanged=${counts['nld-unchanged']}, skipped-no-aihints=${counts['skipped-no-aihints']}`);
-    } else if (opts.applyAppearanceDetail) {
-        console.log(`  appearancedetail-applied=${counts['appearancedetail-applied']}, appearancedetail-cleared=${counts['appearancedetail-cleared']}, appearancedetail-unchanged=${counts['appearancedetail-unchanged']}, appearancedetail-no-source=${counts['appearancedetail-no-source']}, skipped-no-aihints=${counts['skipped-no-aihints']}`);
-    } else if (opts.applyVisionResults) {
-        console.log(`  vision-applied=${counts['vision-applied']}, vision-unchanged=${counts['vision-unchanged']}, vision-no-result=${counts['vision-no-result']}, skipped-no-aihints=${counts['skipped-no-aihints']}`);
-    } else {
-        const aiOptoutNote = counts['skipped-ai-optout'] ? `, skipped-ai-optout=${counts['skipped-ai-optout']}` : '';
-        console.log(`  patched=${counts.patched}, overwritten=${counts.overwritten}, skipped-existing=${counts['skipped-existing']}, skipped-no-image=${counts['skipped-no-image']}${aiOptoutNote}`);
-    }
+    // 実際に発生したステータスをそのまま集計して表示する。
+    // 以前はモードごとにステータス名をハードコードした if/else の連鎖だったため、
+    // 新しいモードを追加するたびに集計から漏れて「patched=0」しか出ない状態になっていた
+    // （CI のログで何が起きたか読めない）。ここを汎用化しておけば次のモードでも壊れない。
+    const tally = Object.entries(counts)
+        .filter(([, count]) => count > 0)
+        .sort(([a], [b]) => a.localeCompare(b))
+        .map(([status, count]) => `${status}=${count}`);
+    console.log(`  ${tally.length ? tally.join(', ') : '（対象なし）'}`);
     if (opts.verbose || !opts.apply) {
         for (const r of results) {
             const note = r.note ? `  // ${r.note}` : '';
