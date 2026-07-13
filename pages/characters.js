@@ -4989,13 +4989,25 @@ const LEGACY_WORK_DIR_ALIASES = { Proxies: 'Works_DestinyFoxRecords' };
  * @param {string} workId
  * @returns {string}
  */
+function sanitizePathSegment(value) {
+	const s = String(value || '').trim();
+	if (!s) return '';
+	return s.replace(/[^A-Za-z0-9_-]/g, '');
+}
+
 function resolveWorkDirName(workId) {
 	const key = normalizeWorkKey(String(workId || ''));
 	const override = globalMetaCache?.CreationWorks?.[key]?.Works_Dir;
-	if (typeof override === 'string' && override.trim()) return override.trim();
-	const dir = String(workId || '').replace('#Works_', 'Works_');
+	if (typeof override === 'string' && override.trim()) {
+		const safeOverride = sanitizePathSegment(override);
+		if (safeOverride) return safeOverride;
+	}
+	const dirRaw = String(workId || '').replace('#Works_', 'Works_');
+	const dir = sanitizePathSegment(dirRaw);
 	const bare = dir.replace(/^Works_/, '');
-	return LEGACY_WORK_DIR_ALIASES[bare] || dir;
+	const aliased = LEGACY_WORK_DIR_ALIASES[bare] || dir;
+	const safeAliased = sanitizePathSegment(aliased);
+	return safeAliased;
 }
 
 /**
@@ -5390,10 +5402,15 @@ function resolveDbCoverImageUrl(workId, dbEntry) {
 	const fileName = typeof dbEntry?.DB_Image === 'string' ? dbEntry.DB_Image.trim() : '';
 	if (!fileName) return '';
 	const wdir = resolveWorkDirName(workId);
+	if (!wdir) return '';
 	const imagesRootOverride = resolveImagesRootOverride(workId);
-	const imagesBase = imagesRootOverride ? `/data/${imagesRootOverride}` : `/data/${wdir}/Images`;
+	const safeOverride = sanitizePathSegment(imagesRootOverride);
+	const imagesBase = safeOverride ? `/data/${safeOverride}` : `/data/${wdir}/Images`;
+	if (!imagesBase.startsWith('/data/')) return '';
 	const imageDbDir = mapDbNameToImageDir(dbEntry?.key, dbEntry?.DB_Layer || '');
-	return `${imagesBase}/${imageDbDir}/${fileName}`;
+	const url = `${imagesBase}/${imageDbDir}/${fileName}`;
+	if (!/^\/data\/[A-Za-z0-9_/-]+\.[A-Za-z0-9]+$/.test(url)) return '';
+	return url;
 }
 
 async function renderSelectionMeta(workKey, dbKey) {
