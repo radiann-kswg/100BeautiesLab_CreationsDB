@@ -1,5 +1,17 @@
 # 最新のリファクタリング・仕様変更履歴
 
+### fix: R2 が本番へ一度も同期されていなかった問題を修正（`--remote` 欠落）+ CI の再同期条件を是正 (2026-07-13)
+
+下記「`isPrivate` フィルタ順序」修正が本番 API で効いているかを検証したところ、**Cloudflare 実 API の R2 が完全に空**であり、R2 依存機能（グローバルメタ / 作品メタ / `_Commons` 適用）が稼働開始以来ずっと死んでいたことが判明した。`/api/v1/meta` は 503 (`Global meta unavailable`)、`/api/v1/:work/meta` は `{"key":"#Works_..."}` のみを返す状態だった。
+
+- **根本原因（`pkg/cloudflare/scripts/migrate.mjs`）**: R2 アップロードの `wrangler r2 object put` に **`--remote` が付いていなかった**。wrangler v4 の `r2 object put` は既定でローカルシミュレータ（`.wrangler/state`）へ書き込むため、CI は 160 個の JSON を GitHub Actions ランナー内の一時領域に書いて破棄していた。D1 側（`d1 execute`）には元から `--remote` が付いており、R2 だけ欠落していた。CI ログには `[R2] ✓ <file>` と成功表示が出るため、ジョブは常に緑で気付けなかった。`--remote` を追加。
+- **影響（実害）**: `getWorkMeta()` が常に null を返すため、**Cloudflare 実 API では `_Commons` / `_Secondaries` が一度も適用されていなかった**。実測で NumberTales / Secondary のレコードに `Belonging` / `RaceType` / `isTriple`（`_Secondaries[]._Commons` 由来）が欠落。さらに `isPrivate` も注入されないため、非公開指定の `0xFF(エフエフ)` が `/api/v1/NumberTales/Secondary/records` から取得できる状態だった（下記の順序修正で入れた Worker 側の多層防御も、workMeta が取れないため機能していなかった）。**D1 の `is_private` 列だけが唯一の防御であり、その算出も誤っていた**（下記参照）。
+- **silent failure の再発防止（`migrate.mjs`）**: R2 アップロード失敗を `console.error` するだけで握り潰していたため、1 件でも失敗したら非ゼロ終了して CI を落とすようにした。
+- **silent failure の再発防止（`pkg/cloudflare/worker.js`）**: `fetchJsonFromR2()` が全例外を無言で `null` に変換していたため、R2 が丸ごと空でも「データが無い」as-if で応答が続いていた。オブジェクト不在は `console.warn`、例外は `console.error` でログに残すようにした（`wrangler tail` / Workers Logs で追える）。
+- **CI の再同期条件を是正（`.github/workflows/cf-api-sync.yml`）**: `sync-r2-d1` ジョブが **`data/**` の変更時にしか実行されない**ため、migration ロジックの変更（`is_private` の算出方法を変える等）が R2/D1 へ反映されなかった。実際、下記の順序修正を push した際も Worker はデプロイされたが D1 同期はスキップされている。新しく `migrate` フィルタ（`pkg/cloudflare/scripts/**` / `schema/**` / `worker.js`）を追加し、これらの変更でも再同期を実行するようにした。`worker.js` を含めるのは、`migrate.mjs` が `applyCommons()` / `isPublicRecord()` を worker.js から import しており、その変更が D1 の `is_private` 算出結果を変えるため。あわせて `workflow_dispatch`（`both` / `sync-only` / `deploy-only`）を追加し、`data/**` を変更しなくても手動で強制再同期できるようにした。
+- **反映手順**: 本コミットを develop へ push すると、`worker.js` / `scripts/**` の変更により `sync-r2-d1` と `deploy-worker` の両方が実行され、R2 の初回投入と D1 の `is_private` 是正が同時に行われる。手動で再実行したい場合は Actions から「Cloudflare API 自動更新」を `workflow_dispatch` する。
+- 確認: `npm test` 全件成功（30 ファイル / 301 件）。R2 バケットが空であること（`wrangler r2 object get ... --remote` が `The specified key does not exist`）、`--remote` がリモートストレージ操作に必要であること（`wrangler r2 object put --help`）を実行して確認。
+
 ### fix: SW / Cloudflare Workers の `isPrivate` フィルタ順序を修正（非公開レコードの公開を停止） (2026-07-13)
 
 `pkg/` 追従作業（下記）で発見した「`isPrivate` の除外が `_Commons` 適用より前に走る」実バグを、本体 Service Worker と Cloudflare Workers 実 API でも修正した。`isPrivate` は `_Secondaries[]._Commons.isPrivate: true` のようにレコード自身ではなく**所属シリーズ側から注入**されることがあるため、`_Commons` 適用前に判定すると注入値が読まれず、非公開指定のレコードが公開されてしまう。実データでは NumberTales / Secondary の `0xFF(エフエフ)`（シリーズ「ヘキサデミカル・テールズ」）が該当し、本番 GitHub Pages で配信されていた。

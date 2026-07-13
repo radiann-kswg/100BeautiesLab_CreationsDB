@@ -263,6 +263,8 @@ if (!D1_ONLY) {
   const jsonFiles = findJsonFiles(DATA_DIR);
   console.log(`[R2] 対象ファイル数: ${jsonFiles.length}`);
 
+  let r2Failed = 0;
+
   for (const filepath of jsonFiles) {
     const rel = relative(REPO_ROOT, filepath).replace(/\\/g, "/");  // R2 キー
     if (DRY_RUN) {
@@ -277,14 +279,27 @@ if (!D1_ONLY) {
           "r2", "object", "put",
           `${BUCKET}/${rel}`,
           "--file", rel,
-          "--content-type", "application/json"
+          "--content-type", "application/json",
+          // wrangler v4 の r2 object put は既定でローカルシミュレータ (.wrangler/state) へ書き込む。
+          // --remote が無いと本番バケットへ一切反映されないまま「成功」して終わる（実際に発生した）。
+          // d1 execute 側には元から --remote が付いており、R2 だけ欠けていた。
+          "--remote"
         ],
         { stdio: "pipe", cwd: REPO_ROOT, ...SPAWN_OPTS_BASE }
       );
       console.log(`[R2] ✓ ${rel}`);
     } catch (err) {
       console.error(`[R2] ✗ ${rel}: ${err.message}`);
+      r2Failed++;
     }
+  }
+
+  // アップロード失敗を握り潰すと、R2 が空のまま CI が緑になり、
+  // Worker 側の R2 依存機能（グローバル/作品メタ・_Commons 適用）が黙って死ぬ。
+  // 1 件でも失敗したら非ゼロ終了して CI を落とす。
+  if (r2Failed > 0) {
+    console.error(`\n[R2] ✗ ${r2Failed} 件のアップロードに失敗しました`);
+    process.exit(1);
   }
   console.log("[R2] アップロード完了");
 }

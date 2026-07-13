@@ -185,7 +185,13 @@ async function fetchJsonFromR2(env, path) {
     }
 
     const obj = await env.BUCKET.get(key);
-    if (!obj) return null;
+    if (!obj) {
+      // オブジェクト不在は「まだ同期されていない」正常系にもなり得るが、
+      // R2 が丸ごと空の状態（migrate.mjs の --remote 欠落で実際に発生した）を
+      // 黙って握り潰さないよう、必ずログに残す（wrangler tail / Workers Logs で追える）。
+      console.warn(`[R2] object not found: ${key}`);
+      return null;
+    }
 
     const data = await obj.json();
 
@@ -200,7 +206,10 @@ async function fetchJsonFromR2(env, path) {
     }
 
     return data;
-  } catch {
+  } catch (err) {
+    // 例外を無言で null に変換すると、呼び出し元（getGlobalMeta / getWorkMeta）が
+    // 「データが無い」as-if で進み、_Commons 未適用のまま応答してしまう。原因を必ず残す。
+    console.error(`[R2] fetch failed: ${key}: ${err?.message ?? err}`);
     return null;
   }
 }
