@@ -1,5 +1,17 @@
 # 最新のリファクタリング・仕様変更履歴
 
+### fix: 主要インデックスが `null` のレコード（錦野姉妹 / Dealer カード）の直リンクを複合条件から短い圧縮ロケータへ (2026-07-15)
+
+圧縮ロケータ導入後、FLInvestigator78 の錦野姉妹（Dealer 79/80）だけが `?work=...&idx={"Card":{"Suit":"Dealer","Num":"80"}}&idxKey=__conditions__` という長い複合条件 URL のままになる「例外」が残っていた。原因は、この作品の `$IndexDef` 主要要素が `Card.SuitNum` である一方、Dealer カードは `SuitNum` が `null` で、**直リンクに使える主要インデックスが無いため複合条件（`__conditions__`）へフォールバック**していたこと。
+
+- **スキーマ駆動の修正（第一候補どおり）**: `data/Works_FLInvestigator78/DataBases/db_type.json` の `$IndexDef.Card.Num` に `"$display": { "index": { "link": true } }` を付与し、`Num` を直リンクキーとしても使えるようにした。
+  - `SuitNum`（priority 100）が優先されるため、**Major アルカナの URL は `Card.SuitNum:N` のまま不変**。`SuitNum` が `null` の Dealer カードだけ `Card.Num:80` で一意識別される（`getIndexIdentifierFromRecord` は優先度順に link エントリを試すため、SuitNum が使えないレコードのみ Num へ降りる）。
+  - `list` は既定（非主要 = false）のままなので一覧チップは不変。UI ハードコードは追加していない。
+- **併せて修正（`openDetail` の URL 癒やし）**: 詳細を開いた際の `setQS()` に `work` / `db` を `__CHAR_STATE__` から明示的に渡すようにした。`db` を省いた旧形式 URL（例: ユーザー報告の `?work=FLInvestigator78&idx={...}&idxKey=__conditions__`）で開かれた場合でも、圧縮ロケータ（`Work/Db/Index`）が `db` セグメント欠落でインデックスを落とさず、`?c=FLInvestigator78/Primary/Card.Num:80` の完全形へ書き換わる。
+- **後方互換**: 旧 `__conditions__` URL は引き続き解決可能（開いた時点で短い形へ癒える）。
+- **影響範囲**: `data/Works_FLInvestigator78/DataBases/db_type.json` / `pages/characters.js`（`openDetail`）/ `pages/characters.html`（`asset-version` → `2026.07.14.3`）/ `tests/pages.characters.url-params.test.js`（Dealer 識別の回帰 3 件追加）。
+- 確認: Playwright 実機で Dealer 79/80 が `?c=.../Card.Num:79|80` へ収束・Major アルカナが `Card.SuitNum` のまま不変・旧 `__conditions__` URL が完全形へ癒えることを確認。`npm test` — 33 ファイル / 全件成功。
+
 ### fix: グローバル辞書（`data/Dictionaries`）の妥当性判定を特定フィールド依存からスキーマ形状ベースへ (2026-07-14)
 
 DB 大幅整備（`c99ab37`）で `GenderType` の辞書が `db_meta.json($EnumDef_GenderType)` から `data/Dictionaries/dict_GenderType.json`（`#Dict_GenderType`）へ移設された結果、キャラシートで**グローバル辞書の解決が全滅**していた（性別・所属・種族・作者名などが辞書解決されずコード/素値のまま表示され、`tests/pages.characters.ui-output.test.js` が 6 件失敗）。

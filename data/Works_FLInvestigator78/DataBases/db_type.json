@@ -19,7 +19,8 @@
         "hashTag": "Num",
         "$type": "#Number",
         "hashTag_JP": "カード番号(通し番号)",
-        "hashTag_EN": "CardNumber(Total)"
+        "hashTag_EN": "CardNumber(Total)",
+        "$display": { "index": { "link": true } }
       }
     ],
     "hashTag_JP": "カード(アルカナ)",

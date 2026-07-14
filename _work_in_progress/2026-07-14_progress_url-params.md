@@ -97,14 +97,18 @@ characters.html?c=<作品>[/<DB>[/<インデックス>]]
 - ネストインデックスは、入力に別の子キー（`Card.Num`）を与えても**レコードの主要インデックス（`Card.SuitNum`）へ正規化**される（`openDetail()` の既存挙動。URL が主要インデックスへ収束するので望ましい）
 - `pageerror` の発生なし
 
+## 追記: 錦野姉妹（Dealer カード）の直リンクが複合条件に落ちる例外の解消（2026-07-15）
+
+URL 簡略化コミット（`a36ba32`）後、User から「錦野姉妹だけ URL 解決が例外的に長いまま」との指摘。原因は FLInvestigator78 の Dealer カード（79/80）が主要インデックス `Card.SuitNum` を `null` に持ち、直リンクに使える主要要素が無いため複合条件（`__conditions__`）へフォールバックしていたこと。
+
+- **スキーマ駆動修正**: `db_type.json` の `$IndexDef.Card.Num` に `$display.index.link: true` を付与。`SuitNum`（priority 100）優先のため Major アルカナは `Card.SuitNum` のまま不変、Dealer だけ `Card.Num` で解決。
+- **`openDetail` の URL 癒やし**: `setQS()` に `work` / `db` を state から明示的に渡し、`db` 省略の旧形式 URL でもインデックスが URL から欠落しないようにした。
+- **回帰テスト**: `tests/pages.characters.url-params.test.js` に Dealer 識別 3 件を追加（Dealer→`Card.Num`・Major→`Card.SuitNum` の不変）。
+- 詳細は `CHANGELOG.md`（2026-07-15 エントリ）。実機確認済み。
+
 ## 未完了タスク・申し送り
 
-- **既存の失敗テスト 6 件（本変更以前から / URL と無関係）**: `tests/pages.characters.ui-output.test.js`
-  - `renders dictionary-backed basic fields in detail view`（期待 `夜月機関 / Yadzuki Organization` に対し `夜月機関`）
-  - `renders enum and hideText values in basic info table`（期待 `女性 / Female` に対し `Female`）
-  - `renders secondary metadata fields in a dedicated detail section`（`ラジアン（柏木主税）` を含まない）
-  - `renders series-backed secondary metadata when only sec_SeriesTitle exists on the record`（`散狐アタスト` を含まない）
-  - `resolves Class values via a Belonging-scoped dictionary (scopeField)`（和英併記が出ない）
-  - `renders other-work spec stats as standalone subField sections ...`（`物理的作用: B（標準 / Normal）` にならない）
-  - いずれも**辞書解決の和英併記・二次創作メタの合流**まわりで、直近の DB 整備（`c99ab37`）以降の追従漏れの可能性が高い。テスト期待値の書き換えで隠さず、**実装側の課題として別途調査**が必要
-- ブラウザ実機確認は実施済み（上記「実機確認」節）。未コミット
+- ~~既存の失敗テスト 6 件~~ → **解消済み**。この 6 件は本 URL 変更とは無関係で、`c99ab37`（DB 大幅整備）で `GenderType` 辞書が `db_meta.json($EnumDef_GenderType)` から `data/Dictionaries/dict_GenderType.json` へ移設された結果、グローバル辞書解決が全滅していたことが原因だった。並行作業のコミット `f78cfdb`（`fetchGlobalDefType()` の妥当性判定をスキーマ形状ベースへ変更）で修正済み。詳細は `CHANGELOG.md`（同日「グローバル辞書の妥当性判定」エントリ）。
+  - 当初この 6 件を「フレーキー」と誤認したが、実際は実バグ → 別コミットで修正、という経緯。テスト期待値の書き換えで隠さず実装側で直された点は方針どおり。
+- ブラウザ実機確認は実施済み（上記「実機確認」節 + 錦野姉妹追記）。
+- URL 簡略化本体は `a36ba32` でコミット済み。錦野姉妹対応（`db_type.json` / `characters.js` / `url-params.test.js` / `characters.html`）は未コミット。
