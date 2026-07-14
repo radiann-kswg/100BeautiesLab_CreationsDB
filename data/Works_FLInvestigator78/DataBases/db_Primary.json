@@ -473,7 +473,7 @@
     "Images": { "arts_PNGPath": ["arts_imgFLDealer"] },
     "ThisArcanaHolder_DBLink": {
       "_DB": "PrimaryDealer",
-      "Card": { "Suit": "Dealer", "SuitNum": 79 }
+      "Card": { "Suit": "Dealer", "Num": 79 }
     },
     "Name_JP": null,
     "Name_EN": null,
@@ -511,7 +511,7 @@
     "Images": { "arts_PNGPath": ["arts_imgFLDealer"] },
     "ThisArcanaHolder_DBLink": {
       "_DB": "PrimaryDealer",
-      "Card": { "Suit": "Dealer", "SuitNum": 80 }
+      "Card": { "Suit": "Dealer", "Num": 80 }
     },
     "Name_JP": null,
     "Name_EN": null,

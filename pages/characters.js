@@ -8906,18 +8906,21 @@ async function openDetail(rec) {
 	renderDetail(state.workId, rec);
 
 	// 作品ごとのインデックス定義に従って、直リンク用パラメータを更新
+	// work / db を state から明示的に渡し、URL を常に完全な圧縮ロケータ（Work/Db/Index）へ癒やす。
+	// （db を省いた旧形式 URL で開かれた場合でも、インデックスが URL から欠落しないようにするため）
+	const locatorBase = { work: state.workId, db: state.db, num: '' };
 	try {
 		const globalMeta = await fetchGlobalMeta();
 		const indexDef = getWorkIndexField(state.workId, globalMeta, state.db);
 		const id = getIndexIdentifierFromRecord(rec, indexDef, state?.records);
 		if (id) {
-			setQS({ idx: id.value, idxKey: id.keyPath, num: '' });
+			setQS({ ...locatorBase, idx: id.value, idxKey: id.keyPath });
 		} else if (rec.Num != null) {
 			// $IndexDef が無い作品の最小互換（旧 ?num= 相当を Num インデックスとして表現）
-			setQS({ idx: String(rec.Num), idxKey: 'Num', num: '' });
+			setQS({ ...locatorBase, idx: String(rec.Num), idxKey: 'Num' });
 		}
 	} catch {
-		if (rec.Num != null) setQS({ idx: String(rec.Num), idxKey: 'Num', num: '' });
+		if (rec.Num != null) setQS({ ...locatorBase, idx: String(rec.Num), idxKey: 'Num' });
 	}
 }
 

@@ -11,11 +11,16 @@
  */
 import { afterAll, beforeAll, describe, expect, it } from 'vitest';
 import { JSDOM } from 'jsdom';
+import { readFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 
 const __filename = fileURLToPath(import.meta.url);
 const repoRoot = dirname(dirname(__filename));
+
+function loadJson(relPath) {
+	return JSON.parse(readFileSync(join(repoRoot, relPath), 'utf-8'));
+}
 
 let charactersModule;
 let dom;
@@ -150,5 +155,34 @@ describe('クエリ解釈（getQS）の後方互換', () => {
 	it('個別キーは圧縮ロケータより優先される', () => {
 		setLocation('?c=NumberTales/Primary/Num:57&db=Mobs');
 		expect(getQS()).toMatchObject({ work: 'NumberTales', db: 'Mobs' });
+	});
+});
+
+describe('主要インデックスが null のレコードの直リンク識別（錦野姉妹 / Dealer カード）', () => {
+	// FLInvestigator78 の $IndexDef は Card.SuitNum を主要要素とするが、Dealer カード（79/80）は
+	// SuitNum が null。Num に $display.index.link:true を付与したことで、SuitNum が使えない
+	// レコードは複合条件（__conditions__）ではなく Card.Num で一意識別できる。
+	const indexDef = loadJson('data/Works_FLInvestigator78/DataBases/db_type.json').$IndexDef;
+	const records = loadJson('data/Works_FLInvestigator78/DataBases/db_Primary.json');
+	const byNum = (n) => records.find((r) => r?.Card?.Num === n);
+	const identify = (rec) => charactersModule.__getIndexIdentifierFromRecordForTest(rec, indexDef, records);
+
+	beforeAll(() => { setLocation(''); });
+
+	it('Dealer 80 は Card.Num:80 で識別される（__conditions__ にフォールバックしない）', () => {
+		const id = identify(byNum(80));
+		expect(id).toMatchObject({ keyPath: 'Card.Num', value: '80' });
+		expect(id.keyPath).not.toBe('__conditions__');
+	});
+
+	it('Dealer 79 は Card.Num:79 で識別される', () => {
+		expect(identify(byNum(79))).toMatchObject({ keyPath: 'Card.Num', value: '79' });
+	});
+
+	it('Major アルカナ（SuitNum 生存）は従来どおり Card.SuitNum で識別される', () => {
+		// Num:22 のレコードは Suit:Major / SuitNum:0 → 主要要素 SuitNum が優先される
+		const major = byNum(22);
+		expect(major?.Card?.Suit).toBe('Major');
+		expect(identify(major)).toMatchObject({ keyPath: 'Card.SuitNum', value: '0' });
 	});
 });
