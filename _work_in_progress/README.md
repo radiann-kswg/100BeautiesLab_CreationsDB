@@ -37,6 +37,7 @@
 | AIHints カラーセット デッドロック診断    | [2026-07-13_progress_aihints-palette-deadlock.md](./2026-07-13_progress_aihints-palette-deadlock.md)                                                                | 📝 診断完了。`palette_priority` が 92/92 件 null で固定される原因を特定（上の再同期提案と対で読む）。第0階の修正は `addon-ai-tag` で実装済み |
 | ColorPalette スキーマ + 配色候補抽出     | [2026-07-13_progress_colorpalette-schema.md](./2026-07-13_progress_colorpalette-schema.md)                                                                          | ⚠️ スキーマ・抽出ツール実装済み（`npm test` 325件成功）。実データ入力は `.private/` の下書きを User がレビュー後。AIHints への機械導出は未実装 |
 | AppearanceDetail 参考画像の一括登録      | [2026-07-11_progress_appearancedetail-images.md](./2026-07-11_progress_appearancedetail-images.md)                                                                  | ⚠️ `10`/`10alt` の割当正誤（User確認待ち）・保留4枚の扱い                                        |
+| グローバル辞書解決の破損修正             | [2026-07-14_progress_global-dict-resolution-fix.md](./2026-07-14_progress_global-dict-resolution-fix.md)                                                            | ⚠️ `npm test` 6件失敗を是正（`develop`・370件成功）。ブラウザ実地確認と `addon-ai-tag` への一方向マージが残 |
 
 ### 系列の補足（過去フェーズは `.completed/` 参照）
 

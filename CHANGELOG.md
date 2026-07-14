@@ -1,5 +1,18 @@
 # 最新のリファクタリング・仕様変更履歴
 
+### fix: グローバル辞書（`data/Dictionaries`）の妥当性判定を特定フィールド依存からスキーマ形状ベースへ (2026-07-14)
+
+DB 大幅整備（`c99ab37`）で `GenderType` の辞書が `db_meta.json($EnumDef_GenderType)` から `data/Dictionaries/dict_GenderType.json`（`#Dict_GenderType`）へ移設された結果、キャラシートで**グローバル辞書の解決が全滅**していた（性別・所属・種族・作者名などが辞書解決されずコード/素値のまま表示され、`tests/pages.characters.ui-output.test.js` が 6 件失敗）。
+
+- **原因（`pages/characters.js` の `fetchGlobalDefType()`）**: 妥当性判定 `isValid()` が「`General.$VarsDef` に `$EnumDef_GenderType` が存在すること」を**必須条件としてハードコード**していた。移設によりこの条件が成立しなくなり、SW が正しく返した辞書（Dictionaries 合流済み）まで invalid と判定 → キャッシュ破棄 → 直 fetch 救済も同条件で弾かれ、最終的に `globalDefType` が空 `{}` になっていた。作品別辞書（`Works_*/Dictionaries`）は `workMeta` 経由のため影響を受けず、**グローバル辞書だけが落ちる**症状になっていた。
+- **修正**: 判定をフィールド名非依存のスキーマ形状ベースへ変更した。
+  1. `CreationWorks` を持つ = グローバルメタである（作品別 meta は `Databases` を持つ）。誤って作品別 meta を掴むのを防ぐ従来の意図を維持する。
+  2. `$VarsDef` に `#Dict_*` が 1 つ以上合流している。旧 SW / 古いキャッシュが返す「辞書未合流の `db_meta.json` 単体」は引き続き invalid とし、直 fetch 救済へ回す。
+- **併せて修正（直 fetch 救済の欠陥）**: `fetchDirectDictionaryBundle()` が辞書カタログの **`dictFile` 宣言を無視**して既定名（`dict_<辞書名>.json`）を決め打ちしていたため、別名ファイルの辞書（`#Dict_DesignedBy` → `sec_DesignedBy.json`）で 404 となり、しかも例外が bundle 全体の `try` で捕まるため**辞書バンドルが丸ごと失われる**作りだった。`dictFile` を尊重し、ファイル単位の `try/catch` で 1 本の欠損が他を巻き添えにしないようにした（`lib/sw-common.js` の `readDictionaryBundle()` と同じ耐性）。
+- **テスト追従**: `renders shared RaceType dictionary values in English from the dictionary label` の期待値を `Warfox(Acquired)` → `Warfox (Acquired)` へ更新。`langMode: 'shared'` の英語表示は「辞書に `RaceType_EN` があればそれを使い、無い場合のみベースコードへフォールバック」する仕様で、今回の整備で `RaceType_EN` が追加されたため。従来の期待値はフォールバック結果を固定していた。
+- **影響範囲**: `pages/characters.js`（`isValid()` / `fetchDirectDictionaryBundle()` / GenderType デバッグログ）/ `pages/characters.html`（`asset-version`）/ `tests/pages.characters.ui-output.test.js`。**JSON データベースはこの変更では未変更**。
+- 確認: `npm test` — 33 ファイル / 370 件すべて成功（`develop`）。上記 6 件の失敗も解消。
+
 ### feat: キャラシートの直リンク URL を圧縮ロケータ（`?c=Work/Db/Index`）へ簡略化 (2026-07-14)
 
 キャラシートの URL が `?work=Works_NumberTales&db=Primary&num=57&idx=57&idxKey=Num&q=&lang=` のように冗長で、貼付・手入力に耐えなかった。冗長さの主因は URL 文法ではなく**生成側**にあり、`setQS()` が現在のクエリ全体を `URLSearchParams` へ流し込むため**空の値まで `q=&lang=` として残り**、さらに `idxKey=Num` のときは旧互換の `num=` も併記していた。

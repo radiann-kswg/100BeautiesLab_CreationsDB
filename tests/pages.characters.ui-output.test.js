@@ -438,7 +438,9 @@ describe('pages/characters.js UI output', () => {
 		expect(getBasicFieldValue('Model Number')).toBe('ACCHR-YL[Mk.30]');
 	});
 
-	it('renders shared RaceType dictionary values in English from the base code', async () => {
+	// langMode: 'shared' の RaceType は、辞書に RaceType_EN があればそれを表示する
+	// （未定義の場合のみベースコード（例: 'Warfox(Acquired)'）へフォールバックする）
+	it('renders shared RaceType dictionary values in English from the dictionary label', async () => {
 		charactersModule.__setCharactersTestState({
 			charState: {
 				db: 'Proxy',
@@ -452,7 +454,7 @@ describe('pages/characters.js UI output', () => {
 
 		await charactersModule.renderDetail('#Works_DestinyFoxRecords', secondGenProxyRecord);
 
-		expect(getBasicFieldValue('Race')).toBe('Warfox(Acquired)');
+		expect(getBasicFieldValue('Race')).toBe('Warfox (Acquired)');
 	});
 
 	it('renders unit_JP for numeric fields in Japanese and ordinal unit_EN in English', async () => {

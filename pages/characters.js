@@ -1408,19 +1408,20 @@ async function fetchGlobalDefType() {
 		const vars = obj?.General?.$VarsDef;
 		if (!vars || typeof vars !== 'object' || Array.isArray(vars)) return false;
 
-		// NOTE:
-		// 以前は「$EnumDef_ / #List_ が何か1つでもあればOK」だったが、
-		// 誤って “別のメタ（例: 作品別 meta の #List_* だけ）” を掴んだ場合でも true になり得た。
-		// その状態でキャッシュされると、GenderType の辞書（$EnumDef_GenderType）が無く、
-		// 「性別だけ FemaleNeutral のまま残る」現象が発生する。
-		const hasGenderEnum = (() => {
-			const def = vars?.$EnumDef_GenderType;
-			return !!def && typeof def === 'object' && !Array.isArray(def);
-		})();
-		if (hasGenderEnum) return true;
+		// NOTE: 判定はスキーマ形状ベースで行う（特定フィールド名に依存させない）。
+		// - 「$EnumDef_ / #List_ が1つでもあればOK」だと、別のメタ（作品別 meta の #List_* だけ 等）を
+		//   誤って掴んだ場合にも true になり得る。
+		// - 逆に特定フィールド（旧: $EnumDef_GenderType）を必須にすると、その辞書が
+		//   db_meta.json から Dictionaries/ へ移設された時点で「正しいグローバル辞書」まで
+		//   invalid 判定となり、辞書が丸ごと失われる（表示がコードのまま残る）。
+		// そこで次の2条件で判定する:
+		//   1) CreationWorks を持つ = グローバルメタである（作品別 meta は Databases を持つ）
+		//   2) Dictionaries/ 由来の辞書（#Dict_*）が $VarsDef へ合流済みである
+		//      → 旧SW/古いキャッシュが返す「辞書未合流の db_meta 単体」は invalid とし、直fetch救済へ回す
+		const isGlobalScopedMeta = !!(obj.CreationWorks && typeof obj.CreationWorks === 'object' && !Array.isArray(obj.CreationWorks));
+		if (!isGlobalScopedMeta) return false;
 
-		// 後方互換の最低条件: enum/list キーが存在する（ただし上記が無ければ invalid 扱い）
-		return false;
+		return Object.keys(vars).some((k) => k.startsWith('#Dict_'));
 	};
 
 	/**
@@ -1526,7 +1527,11 @@ async function fetchGlobalDefType() {
 				const compatListKey = typeof info.compatListKey === 'string' && info.compatListKey.trim()
 					? info.compatListKey.trim()
 					: `#List_${derivedName}`;
-				const fileName = `dict_${derivedName}.json`;
+				// dictFile 宣言（例: #Dict_DesignedBy → sec_DesignedBy.json）を尊重する。
+				// 既定名（dict_<辞書名>.json）を決め打ちすると、別名ファイルの辞書が 404 になる。
+				const fileName = typeof info.dictFile === 'string' && info.dictFile.trim()
+					? info.dictFile.trim()
+					: `dict_${derivedName}.json`;
 
 				// scopeField（例: { "Belonging": "シンフォニー.XVI(ゼクズィン)" }）は辞書ファイル1本まるごとに
 				// 適用される条件のため、行ごとに手書きせず読み込み時に全行へ合成する（行側の値があれば行を優先）
@@ -1537,14 +1542,19 @@ async function fetchGlobalDefType() {
 					? (scopeCondition ? { ...scopeCondition, ...row } : row)
 					: row;
 
-				const rawRows = await fetchDirectJson(`${baseRelPath}/${fileName}`);
-				if (!Array.isArray(rawRows)) continue;
-				const rows = rawRows.map(applyScope);
-				vars[dictKey] = rows;
-				if (compatListKey) {
-					// 同じ compatListKey（例: #List_Class）を持つ辞書が複数ある場合は上書きせず連結する
-					if (!vars[compatListKey]) vars[compatListKey] = [];
-					if (Array.isArray(vars[compatListKey])) vars[compatListKey].push(...rawRows.map(applyScope));
+				try {
+					const rawRows = await fetchDirectJson(`${baseRelPath}/${fileName}`);
+					if (!Array.isArray(rawRows)) continue;
+					const rows = rawRows.map(applyScope);
+					vars[dictKey] = rows;
+					if (compatListKey) {
+						// 同じ compatListKey（例: #List_Class）を持つ辞書が複数ある場合は上書きせず連結する
+						if (!vars[compatListKey]) vars[compatListKey] = [];
+						if (Array.isArray(vars[compatListKey])) vars[compatListKey].push(...rawRows.map(applyScope));
+					}
+				} catch (_) {
+					// 辞書ファイル1本の欠損で他の辞書まで巻き添えにしない（lib/sw-common.js の readDictionaryBundle と同じ耐性）
+					continue;
 				}
 			}
 
@@ -6199,7 +6209,7 @@ async function renderList(records, workId, onOpen, imageFields = null) {
 							raw: rawStr,
 							text: textStr,
 							pack,
-							hasGenderEnum: !!globalDefType?.General?.$VarsDef?.$EnumDef_GenderType,
+							hasGenderDict: Array.isArray(globalDefType?.General?.$VarsDef?.['#Dict_GenderType']),
 							displayLangMode: lm,
 						});
 					}
