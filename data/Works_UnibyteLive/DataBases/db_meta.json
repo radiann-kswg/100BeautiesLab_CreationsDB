@@ -40,7 +40,7 @@
         "StoryEraAbout_JP": "第8創世紀1〜第9創世紀6年(西暦2045〜2053年相当)",
         "StoryEraAbout_EN": "between WDCE.VIII.1-IX.6(Equivalent to between: DC.2045-2053)"
       },
-      "_Commons": { "GenderType": "Female" },
+      "_Commons": { "RaceType": "Human", "GenderType": "Female" },
       "AI_Optout": true
     }
   },
@@ -52,36 +52,6 @@
           "DesignElement_JP": "キーレターをモチーフにしたアクセサリ",
           "DesignElement_EN": "Accessory Units inspired by the Key-Letter"
         }
-      },
-      "$Def_Letter": {
-        "#List_Alphabet": [
-          { "Alphabet": "A" },
-          { "Alphabet": "B" },
-          { "Alphabet": "C" },
-          { "Alphabet": "D" },
-          { "Alphabet": "E" },
-          { "Alphabet": "F" },
-          { "Alphabet": "G" },
-          { "Alphabet": "H" },
-          { "Alphabet": "I" },
-          { "Alphabet": "J" },
-          { "Alphabet": "K" },
-          { "Alphabet": "L" },
-          { "Alphabet": "M" },
-          { "Alphabet": "N" },
-          { "Alphabet": "O" },
-          { "Alphabet": "P" },
-          { "Alphabet": "Q" },
-          { "Alphabet": "R" },
-          { "Alphabet": "S" },
-          { "Alphabet": "T" },
-          { "Alphabet": "U" },
-          { "Alphabet": "V" },
-          { "Alphabet": "W" },
-          { "Alphabet": "X" },
-          { "Alphabet": "Y" },
-          { "Alphabet": "Z" }
-        ]
       },
       "$Def_Relations": {
         "#List_RelationLabel": [

@@ -1,5 +1,19 @@
 # 最新のリファクタリング・仕様変更履歴
 
+### fix: DeepL 用語集ソースの対訳ペア判定を是正（素キー優先 → `_JP`/`_EN` 優先）+ 丸括弧注釈の除去 (2026-07-14)
+
+`dict_RaceType.json` の更新後に `glossary-conflicts.md` へ `Nekomata` / `HalfNekomata` / `LunaWolf` の 3 件が「和文↔英文の対応が取れない衝突」として現れた。調査の結果、辞書データではなく `tools/deepl/build-glossary-source.mjs` の対訳ペア判定バグだった。
+
+- **原因（`extractPairs`）**: JP / EN を解決する際に**素キー（`RaceType`）を `_JP` / `_EN` より優先**していた。素キーの言語はファイルによって異なり（`dict_Area` の `Area` は和名だが `dict_RaceType` の `RaceType` は英語 ID）、後者では **JP 欄に英語 ID が入った偽ペア**（`Nekomata(Acquired)` ↔ `Nekomata / Warcat (Acquired)`）が生成されていた。`_EN` に `/` を含む 3 件だけがキー衝突として顕在化し、残りは**英語→英語の疑似エントリ 34 件**として静かに用語集へ混入していた（`Warfox (Acquired)` → `Warfox(Acquired)` 等）。
+- **修正**: 明示された `_JP` / `_EN` を常に優先し、素キーはフォールバックに限定。英→英ゴミは **34 件 → 0 件**、JA→EN 側の英語ソース **31 件 → 0 件**。
+- **丸括弧注釈の除去（`stripParenNotes`、旧 `stripReadingGloss` を一般化）**: 丸括弧は読み仮名（`算象(アリスマ)諸国`）にも補足注釈（`猫又(後天的)` / `Human (with Addon)`）にも使われるが、いずれも訳語そのものではないため**キー・訳先の双方から除去**して素形を正とする。これにより `猫又` と `猫又(後天的)` は同じ `Nekomata` へ集約され、注釈違いだけの衝突が生じない。ただし括弧の中身が**かなのみ**の読みグロスは DB 本文にその表記で出現するため、素形に加えて**原形も JA→EN のソースへ登録**する（マッチ網羅の維持）。
+- **スラッシュ分割の拡張（`splitMultiForm`）**: 空白の有無を問わず `/` を区切りとして検知する。ただし空白なしのスラッシュは「**値全体に空白を含まない**」場合に限る（`LunaWolf/Warwolf`・`繁殖鼠/生体改造済みモルモット種族` は分割し、`Enigma Division, Demotion/Retrograde Research Department` のフレーズ途中の複合語スラッシュは分割しない）。JP 側にも適用し、併記形の各断片を JA→EN のソースへ展開する。
+- **早見表を用語集生成・同期に連結**: Git 管理下の生成物である `docs/localization-glossary-quickref.md` が用語集ソースと食い違わないよう、`deepl:build-glossary` に `build-copilot-quickref.mjs` を連結し、`deepl:sync-glossary` は実行前に `deepl:build-glossary` を通すようにした（`package.json`）。早見表だけを更新しない逃げ道として `deepl:build-glossary:only` を追加。
+- **早見表の出典統合（`build-copilot-quickref.mjs`）**: 出典キーの注記サフィックス（`(reading-gloss)`。旧 `(de-glossed)`）を剥がして元ファイルの見出しへ統合し（`normalizeSourceKey`）、同一 JP↔EN ペアの重複行を排除した。従来は `Localization/trans_PlaceName.json (de-glossed)` が別セクションとして末尾に切り出されていた。
+- **早見表の base 括り見出し（`BASE_LABELS`）**: 出典ファイルではなく **base（フィールド名）** で横断的に節をまとめる仕組みを追加。`Class` を持つ辞書（`dict_Mikhail` / `dict_NeoLotusNinean` / `dict_SymphonyXVI` / `dict_Zerbas`）は所属ごとにファイルが分かれるが、早見表では「クラス（職掌）」1 つの表に統合される（同じ base の辞書が増えても自動追従）。これに伴い `glossary_source.json` の各エントリへ `base` を出力するようにした（`build-glossary-source.mjs`）。見出しラベルも追加: `dict_GenderType` → 「性別タイプ」、`trans_Society` → 「社会（Localization）」、`ref_Society` → 「社会（References）」。
+- **影響範囲**: `tools/deepl/build-glossary-source.mjs` / `tools/deepl/build-copilot-quickref.mjs` / `package.json` / `docs/deepl-localization.md`（§2 コマンド表、§3-1 ワークフロー、§7 を「対訳ペアの判定と丸括弧注釈の除去」に改訂、§8-1 の区切り規則を更新）/ `docs/localization-glossary-quickref.md`（再生成）。**JSON データベースはこの変更では未変更**。
+- 確認: `npm run deepl:build-glossary` / `npm run deepl:sync-glossary -- --dry-run` 実行。JA→EN 176 件（衝突 1 = `管理主` の単複差による意図的な登録なし）/ EN→JA 179 件（衝突 0）。並行して User が `dict_Artifact.json` / `ref_Society.json` を正規化したため、`哨戒` / `工作` の素形衝突と WDC/WDP の文脈依存衝突も解消済み。
+
 ### fix(addon-ai-tag): `--force` の破壊を provenance で阻止 + `prompt_export` の陳腐化を修正 (2026-07-13)
 
 AIHints 再ビルド問題の**最後の 2 点**。当初 User から相談された「ビルドすると `TODO:` 状態に巻き戻って既存の AIHints が失われる」の**震源そのもの**を塞いだ。
@@ -92,6 +106,7 @@ AIHints 再ビルド問題の**最後の 2 点**。当初 User から相談さ�
 - **`tests/extract-palette.test.js`（新規、31 件）**: PNG デコード（実アセットを使用）・色空間変換・median-cut・色語収集・下書き生成・テキスト挿入を検証。特に「主ソースは arts → corefolder → concept の優先順に従う」（前景比率で選ぶと単色のコアフォルダ球体が humanoid 清書イラストを押しのける不具合の回帰）、「創作内容（色名 / Formation / Note）は埋めない」、「挿入箇所以外のテキストを 1 文字も書き換えない」を固定。
 - **実績**: NumberTales / Primary の全画像 155 枚をデコードして**エラー 0 件**。105 レコード中 95 件に追記（主ソース内訳: arts 58 / corefolder 28 / concept 9）。追記後の検証で `Hex` の型不適合 0 件 / `Role` の不正値 0 件 / 創作フィールドの誤記入 0 件。
 - 確認: `npm test` 全件成功（31 ファイル / 333 件）。`npx prettier --check` パス。
+
 ### fix(addon-ai-tag): `palette_priority` が永久に埋まらないデッドロックを解消 (2026-07-13)
 
 AIHints の再ビルドで既存の手仕上げ内容が `TODO:` へ巻き戻る問題を調査したところ、`common.palette_priority`（画像を見ないと決まらないカラーセット）が **NumberTales / Primary の AIHints 保持レコード 92 件すべてで `null` に固定**されており、Agent 連動の視覚解析ワークフロー（`--gen-vision-tasks` → Agent の `view_image` → `--apply-vision-results`）が**一度も palette に到達できていなかった**ことが判明した。パイプライン自体は実装済みで、`null` の扱いが三重に噛み合ってデッドロックを形成していた。
@@ -100,7 +115,7 @@ AIHints の再ビルドで既存の手仕上げ内容が `TODO:` へ巻き戻る
   1. `buildAihintsFromAppearanceDetail()`（`--apply-appearancedetail`）と `clearAihintsTagsForNoSource()` が `palette_priority` を実行のたびに `null` へ潰していた。palette は**画像由来であり AppearanceDetail からは導出できない**ため、そもそも本モードが再構築してよい対象ではない。
   2. `detectVisualTodos()`（`--gen-vision-tasks`）が `TODO:` 接頭辞の**文字列しか**未入力とみなさず、`null` 化されたレコードを視覚タスクに載せなかった。
   3. `applyVisionResultsToAihints()`（`--apply-vision-results`）が `palette_priority` を falsy 判定で弾き、Agent が解析結果を返しても**書き戻さなかった**。
-  結果として「(1) が null にする → (2) が検出しない → Agent が見に行かない → (3) が書き戻せない」というループが閉じ、TODO 文字列を復活させる唯一の経路が `--suggest --force`（= 手仕上げの創作内容ごと全面上書き）だけになっていた。これが「ビルドすると巻き戻る」の正体。
+     結果として「(1) が null にする → (2) が検出しない → Agent が見に行かない → (3) が書き戻せない」というループが閉じ、TODO 文字列を復活させる唯一の経路が `--suggest --force`（= 手仕上げの創作内容ごと全面上書き）だけになっていた。これが「ビルドすると巻き戻る」の正体。
 - **修正**: `palette_priority` を `age_appearance` / `reference_images` と同じ**据え置き**扱いに変更（`--apply-appearancedetail` は触らない）。`null` / 空文字 / `TODO:` を等しく「未入力」とみなす `isUnfilledPaletteSlot()` を新設し、検出・適用の両側で使用。適用側は `palette_priority` が `null` でも object を組み立て直して書き込むが、**確定済みの HEX は上書きしない**（未入力スロットのみ埋める）。
 - **export 追加**: `isUnfilledPaletteSlot` / `detectVisualTodos` / `applyVisionResultsToAihints` / `clearAihintsTagsForNoSource` / `buildAihintsFromAppearanceDetail`。`detectVisualTodos` は `genVisionTasksToFile()` 内のローカル関数だったためモジュールレベルへ引き上げた（挙動は不変）。
 - **`tests/patch-aihints.palette.test.js`（新規、17 件）**: デッドロックの 3 点それぞれを回帰として固定。あわせて「確定済み HEX を上書きしない」「`--apply-appearancedetail` が palette を潰さない」も検証。
@@ -116,7 +131,7 @@ AIHints の再ビルドで既存の手仕上げ内容が `TODO:` へ巻き戻る
 - **影響（実害）**: `getWorkMeta()` が常に null を返すため、**Cloudflare 実 API では `_Commons` / `_Secondaries` が一度も適用されていなかった**。実測で NumberTales / Secondary のレコードに `Belonging` / `RaceType` / `isTriple`（`_Secondaries[]._Commons` 由来）が欠落。さらに `isPrivate` も注入されないため、非公開指定の `0xFF(エフエフ)` が `/api/v1/NumberTales/Secondary/records` から取得できる状態だった（下記の順序修正で入れた Worker 側の多層防御も、workMeta が取れないため機能していなかった）。**D1 の `is_private` 列だけが唯一の防御であり、その算出も誤っていた**（下記参照）。
 - **silent failure の再発防止（`migrate.mjs`）**: R2 アップロード失敗を `console.error` するだけで握り潰していたため、1 件でも失敗したら非ゼロ終了して CI を落とすようにした。
 - **silent failure の再発防止（`pkg/cloudflare/worker.js`）**: `fetchJsonFromR2()` が全例外を無言で `null` に変換していたため、R2 が丸ごと空でも「データが無い」as-if で応答が続いていた。オブジェクト不在は `console.warn`、例外は `console.error` でログに残すようにした（`wrangler tail` / Workers Logs で追える）。
-- **CI の再同期条件を是正（`.github/workflows/cf-api-sync.yml`）**: `sync-r2-d1` ジョブが **`data/**` の変更時にしか実行されない**ため、migration ロジックの変更（`is_private` の算出方法を変える等）が R2/D1 へ反映されなかった。実際、下記の順序修正を push した際も Worker はデプロイされたが D1 同期はスキップされている。新しく `migrate` フィルタ（`pkg/cloudflare/scripts/**` / `schema/**` / `worker.js`）を追加し、これらの変更でも再同期を実行するようにした。`worker.js` を含めるのは、`migrate.mjs` が `applyCommons()` / `isPublicRecord()` を worker.js から import しており、その変更が D1 の `is_private` 算出結果を変えるため。あわせて `workflow_dispatch`（`both` / `sync-only` / `deploy-only`）を追加し、`data/**` を変更しなくても手動で強制再同期できるようにした。
+- **CI の再同期条件を是正（`.github/workflows/cf-api-sync.yml`）**: `sync-r2-d1` ジョブが **`data/**` の変更時にしか実行されない**ため、migration ロジックの変更（`is_private`の算出方法を変える等）が R2/D1 へ反映されなかった。実際、下記の順序修正を push した際も Worker はデプロイされたが D1 同期はスキップされている。新しく`migrate` フィルタ（`pkg/cloudflare/scripts/**`/`schema/**`/`worker.js`）を追加し、これらの変更でも再同期を実行するようにした。`worker.js` を含めるのは、`migrate.mjs`が`applyCommons()`/`isPublicRecord()`を worker.js から import しており、その変更が D1 の`is_private`算出結果を変えるため。あわせて`workflow_dispatch`（`both`/`sync-only`/`deploy-only`）を追加し、`data/\*\*` を変更しなくても手動で強制再同期できるようにした。
 - **R2 アップロードのリトライ（`migrate.mjs`）**: 初回の本番同期で R2 API が一時的に `500 Internal Server Error` を返し、160 件中 1 件（`data/Works_FLInvestigator78/Dictionaries/db_meta.json`）が失敗した。逐次アップロードのため 1 件の瞬断で全体が落ちるので、線形バックオフ付きの 3 回リトライを追加。
 - **R2 失敗が D1 投入を巻き添えにしないよう修正（`migrate.mjs`）**: 上記の失敗時、R2 ステップ直後の `process.exit(1)` により **D1 投入がスキップ**され、`is_private` の是正が D1 へ反映されなかった。R2 と D1 は独立しているため D1 投入は続行し、終了コードはスクリプト末尾で立てる（CI は赤くなるが D1 は同期済みになる）方式へ変更。
 - **反映結果（本番で確認済み）**: develop への push により `sync-r2-d1` が実行され R2 が復旧。`/api/v1/meta` の 503 が解消し、`_Commons` の適用（`Belonging` / `RaceType` / `isTriple` が入る）と非公開レコードの除外（`/api/v1/NumberTales/Secondary/records` が 38 件 → **37 件**、`0xFF(エフエフ)` が消える）を実測で確認。DB 内検索・作品横断検索でも非公開レコードが返らないことを確認。
@@ -562,7 +577,7 @@ develop 側での `IdentityMotif` フィールド廃止（下記 refactor）を 
   - `buildEnJaMap()`: 併記形は**分割後の全断片**を個別の EN ソースキーとして登録するよう変更。これにより `ref_Society.json` の世代呼称（`WDCE.` 系）で、`Term_JP` 由来のペアと `Aliases` 由来のペアが同一の結合文字列キーに集約されて衝突していた問題（EN→JA 10件中ほぼ全てが自己参照ノイズ）を解消。
   - `isPluralPair()`（新規）: 単数形/複数形だけが異なる EN 候補（例: `Regiowner`/`Regiowners`）を検出した場合、JA→EN 用語集への登録を見送り `[文法差につき用語集登録なし]` として `glossary-conflicts.md` に候補を併記するのみに変更。JP側は文法上の数を持たないため、用語集で強制的に片方へ固定すると逆の文脈で誤訳になるため。EN→JA は元々キーが異なり衝突しないため両方とも正しく登録される。
   - `buildEnJaMap()`: `Term_JP` 由来（正式名）のペアと `Aliases` 由来（通称・略称）のペアが同一 EN キーで衝突した場合も同様に**登録を見送る**よう変更（`registerDependent`）。冗長な説明文では通称・略称、該当語自体を定義・説明する文では正式名という文脈依存の使い分けがあり、EN→JA の単一キーには機械的に固定できないため。`glossary-conflicts.md` に `[文脈依存につき用語集登録なし]` として両論併記し、訳出時は人間が文脈判断する運用にした。
-- **`data/References/ref_Society.json`**: `Aliases` からEN側の略号トークン（`WDCE.` / `WDC.VII` / `WDP.VII` / `WDC.VIII` / `WDP.VIII`）を削除（本来 JP 別表記のためのリストに EN トークンが紛れていたのが上記衝突の一因だったため）。JP側の本当の別表記（`創世記` 等）は維持。
+- **`data/References/ref_Society.json`**: `Aliases` からEN側の略号トークン（`WDCE.` / `WDC.VII` / `WDP.VII` / `WDC.VIII` / `WDP.VIII`）を削除（本来 JP 別表記のためのリストに EN トークンが紛れていたのが上記衝突の一因だったため）。JP側の本当の別表記（`創世期` 等）は維持。
 - 背景: `npm run deepl:build-glossary` 実行時に EN→JA で 10 件の衝突が発生し、内容（文字化けした端末表示）から原因が分かりにくいとの相談を受けて調査。実際は「略号/全文併記」構造がスクリプト側で考慮されていなかったことが主因で、`創造主`（Regiowner/Regiowners）は本当の単数/複数の表記揺れ、残る10件は「正式名 vs 通称」の文脈依存の使い分けだった。いずれも用語集の単一キーには機械的に固定できないため、強制登録せず人間判断に委ねる方針で統一した。
 - 検証: `npm run deepl:build-glossary` で `WDCE.` 系の自己参照ノイズが解消し、JA→EN・EN→JA 双方に略号・全文の両方が個別に登録されることを確認（`WDCE.`→`創世期`、`the "World Development & Creation Era"`→`創世期` など）。`創造主` は JA→EN から、`WDC.VII` 系10件は EN→JA から自動除外され、それぞれ `[文法差につき用語集登録なし]` `[文脈依存につき用語集登録なし]` として記録されることを確認。`npm test`（152 passed）。
 - ドキュメント: `docs/deepl-localization.md` §8（新規、§8-1〜8-3）に分割ロジック・単数複数・正式名/通称の扱いを追記。

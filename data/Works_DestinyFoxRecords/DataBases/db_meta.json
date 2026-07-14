@@ -5,7 +5,9 @@
       "DB_Label_EN": "Primary",
       "DB_Summary": "２代目ラジアン代理の周辺キャラクター。\n物理単位や数学用語をモチーフにした設定が付与されている。\nなお、このタイトルは作者の近況報告を主としているため、創作世界の『第８界』とは無関係であることが多い。",
       "DB_Summary_EN": "Characters surrounding the second-generation RadianN proxy.\nThey are given motifs based on physical units and mathematical terminology.\nNote: this work/title is mainly for the author's recent reports, and is often unrelated to the '#REGION.8' of the creative world.",
-      "_Commons": {},
+      "_Commons": {
+        "Belonging": ["超次元執筆空間(アトリエ)の住民"]
+      },
       "AI_Optout": true
     },
     "#DB_Proxy": {

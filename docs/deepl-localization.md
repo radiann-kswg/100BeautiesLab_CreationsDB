@@ -43,8 +43,10 @@ DeepL は **既存ローカライズルールを置き換えるものではな�
 
 | コマンド | スクリプト | 役割 | API キー |
 |---|---|---|---|
-| `npm run deepl:build-glossary` | `build-glossary-source.mjs` | 辞書から用語集ソース（TSV / JSON / 衝突ログ）を生成 | 不要 |
-| `npm run deepl:sync-glossary` | `sync-glossary.mjs` | DeepL 上の用語集を「同名削除→再作成」で更新し `glossary-ids.json` を更新 | **要** |
+| `npm run deepl:build-glossary` | `build-glossary-source.mjs` → `build-copilot-quickref.mjs` | 辞書から用語集ソース（TSV / JSON / 衝突ログ）を生成し、**続けて早見表 `docs/localization-glossary-quickref.md` も再生成** | 不要 |
+| `npm run deepl:sync-glossary` | （上記を実行してから）`sync-glossary.mjs` | **用語集ソースと早見表を再生成した上で**、DeepL 上の用語集を「同名削除→再作成」で更新し `glossary-ids.json` を更新 | **要** |
+| `npm run deepl:build-quickref` | `build-copilot-quickref.mjs` | 早見表だけを単体で再生成（通常は上記に含まれるため不要） | 不要 |
+| `npm run deepl:build-glossary:only` | `build-glossary-source.mjs` | 用語集ソースだけを生成（早見表を更新したくない場合の逃げ道） | 不要 |
 | `npm run deepl:eval` | `evaluate-translations.mjs` | 既存 `_EN` を DeepL 機械訳と突き合わせ、`eval-report.md` を出力（**書き換えなし**） | **要** |
 | `npm run deepl:draft` | `draft-translate.mjs` | 空の `_EN` をキャラ文脈（GenderType・呼称）付きで下書き翻訳、`draft-report.md` を出力（`--apply` 時のみ警告無し候補を書き戻し） | **要** |
 
@@ -70,11 +72,15 @@ Node 版・Python 版のいずれも「**既存の `field_EN` キーが空値の
 ### 生成物（`.cache/deepl/`）
 
 - `glossary_ja-en.tsv` / `glossary_en-ja.tsv` — DeepL 入力用 TSV
-- `glossary_source.json` — 出典付きエントリ（レビュー・再現用）
+- `glossary_source.json` — 出典付きエントリ（レビュー・再現用。早見表ジェネレータの入力でもある）
 - `glossary-conflicts.md` — 同一ソースに複数訳がある場合の衝突ログ（先勝ち。要正規化箇所の把握）
 - `glossary-ids.json` — 登録済み用語集の `glossary_id`
 - `eval-report.md` — 英訳突き合わせレポート
 - `draft-report.md` — 下書き英訳レポート（`deepl:draft` 出力。JP/DeepL生訳/正規化後候補/⚠警告）
+
+> **Git 管理下の生成物**: 早見表 [`docs/localization-glossary-quickref.md`](localization-glossary-quickref.md) は `.cache/` ではなく `docs/` に出力される（Copilot / エージェントが参照するリポジトリ内リファレンスのため）。用語集ソースと早見表が食い違わないよう、`deepl:build-glossary` / `deepl:sync-glossary` の実行時に**必ず一緒に再生成**される。手で編集しないこと。
+>
+> 早見表の見出しは `build-copilot-quickref.mjs` の 2 つのテーブルで決まる。**`SOURCE_LABELS`** は出典ファイル → 見出し（`dict_RaceType.json` → 「種族タイプ」）。**`BASE_LABELS`** は **base（フィールド名）→ 見出し**で、出典ファイルを横断して 1 節にまとめる（`Class` → 「クラス（職掌）」。`dict_Mikhail` / `dict_SymphonyXVI` / `dict_Zerbas` … と所属ごとにファイルが分かれていても 1 つの表で引ける）。同じ base を持つ辞書を新設した場合は自動で同じ節に入るため、追記は不要。未登録の出典はファイル名がそのまま見出しになる（欠損耐性）ので、新しい辞書を足したら見出しラベルの追加を検討する。
 
 ---
 
@@ -83,15 +89,19 @@ Node 版・Python 版のいずれも「**既存の `field_EN` キーが空値の
 ### 3-1. 辞書を更新したら（用語集の作り直し）
 
 ```bash
-# 1) 辞書 (trans_/ref_/dict_) を編集後、ソースを再生成
+# 1) 辞書 (trans_/ref_/dict_) を編集後、ソースと早見表を再生成
+#    （用語集ソース TSV/JSON/衝突ログ + docs/localization-glossary-quickref.md）
 npm run deepl:build-glossary
 
 # 2) 衝突ログを確認し、必要なら辞書側を正規化して 1) をやり直す
 cat .cache/deepl/glossary-conflicts.md
 
 # 3) DeepL 上の用語集を更新（.env に DEEPL_API_KEY が必要）
-npm run deepl:sync-glossary          # --dry-run で対象だけ確認も可
+#    1) を内部で再実行するため、辞書を直した直後にこれだけ叩いても最新が流れる
+npm run deepl:sync-glossary          # -- --dry-run で対象だけ確認も可
 ```
+
+> 早見表（`docs/localization-glossary-quickref.md`）は 1) / 3) のどちらでも自動更新される。**辞書を直したのに早見表だけ古い**という食い違いが起きないよう、Git 管理下の生成物として同じコマンドに束ねてある。
 
 > Cowork の DeepL コネクタで用語集を作る場合は API キー不要。TSV の中身（`glossary_ja-en.tsv` 等）を渡して作成し、得た `glossary_id` を `glossary-ids.json` に控える。
 
@@ -171,20 +181,27 @@ cp .env.example .env
 
 ---
 
-## 7. 読み仮名グロスの正規化（`漢字(かな)`）
+## 7. 対訳ペアの判定と丸括弧注釈の除去
 
-同じ概念が、辞書によって **読み仮名併記形**（`算象(アリスマ)諸国`）と **素形**（`算象諸国`）の 2 通りで記録されることがある（リッチ表示系の `trans_*` / `dict_*` と、資料系 `ref_*` の差など）。両者は同じ EN（`Alismathians`）に対応するため、素朴に集約すると **EN→JA で訳先が一意に定まらず衝突**する。
+### 7-1. 対訳ペアの判定は `_JP` / `_EN` を優先する（`extractPairs`）
 
-`build-glossary-source.mjs` はこれを構造的に吸収する（`stripReadingGloss`）。
+辞書の**素キー**（`Area` / `RaceType` / `Faction` など）の中身は、ファイルによって言語が異なる。
 
-- **検出対象**: 「**漢字の直後**に来る、**かなのみ**の丸括弧」だけを読みグロスとみなす（全角/半角括弧対応）。
-  - 剥がす: `算象(アリスマ)諸国` → `算象諸国` / `海陸国(シーバイランド)諸島` → `海陸国諸島`
-  - 剥がさない（誤爆防止）: `(後天的)` `(拡張装備あり)` `(時空遷移者)` など**中身に漢字を含む修飾括弧**、漢字以外（カタカナ・英字）に続く括弧。
-- **EN→JA**: 訳先 JP は常に **素形**（グロス除去後）を採用する。「併記形 vs 素形」だけの差は衝突として扱わない。読みは `Term_JPReading` から復元できる。
-- **JA→EN**: グロスを剥いた素形も**自動的にソースへ追加**する。DB 本文が素形・併記形どちらで出ても英訳が効く（マッチ網羅の拡張）。
-- **真の衝突だけ残す**: 素形にしても EN が食い違う場合（例: `南雌大陸` に `Evesouth Mainland` と `Ivesouth Continent` の 2 訳）は本物の表記不一致として `glossary-conflicts.md` に残す。和文側の正規化は User が判断する。
+- 素キー＝**和名**: `dict_Area`（`Area: "九蓮国"`）/ `dict_Faction` / `ref_*` など。`_JP` キーを持たない。
+- 素キー＝**英語の識別子**: `dict_RaceType`（`RaceType: "Nekomata(Acquired)"`）/ `dict_GenderType` / `dict_Alphabet` など。`_JP`・`_EN` を別に持つ。
 
-> この正規化により、読みを振った地名・組織が増えても EN→JA 衝突が自然増殖しない。新しい固有名詞に読みグロスを付けるときは、`Term_JPReading`（資料系）か併記形（表示系）のどちらで持っても、用語集側は素形に正規化される。
+そのため、対訳ペアの JP / EN は**明示された `_JP` / `_EN` を常に優先**し、素キーはそれが無い場合の**フォールバック**としてのみ使う。素キーを優先すると、後者の辞書で「JP 欄に英語 ID が入った偽ペア」（例: `Nekomata(Acquired)` ↔ `Nekomata / Warcat (Acquired)`）が生まれ、用語集に**英語→英語の疑似エントリ**が混入する。
+
+### 7-2. 丸括弧の中身は訳語決定に関与しない（`stripParenNotes`）
+
+丸括弧は、**読み仮名グロス**（`算象(アリスマ)諸国`）にも**補足注釈**（`猫又(後天的)` / `Human (with Addon)`）にも使われるが、いずれも**訳語そのものではない付随情報**である。用語集のキー・訳先は、括弧をすべて除去した**素形**を正とする。
+
+- **除去対象**: 全角/半角の丸括弧とその中身（`猫又(後天的)` → `猫又` / `Nekomata / Warcat (Acquired)` → `Nekomata / Warcat` / `海陸国(シーバイランド)諸島` → `海陸国諸島`）。
+- **EN→JA / JA→EN の双方**でソースキー・訳先ともに素形を用いる。これにより「素形 vs 注釈付き」「素形 vs 読み併記」だけの差は**衝突にならない**（`猫又` と `猫又(後天的)` は同じ `Nekomata` へ集約される）。読みは `Term_JPReading`、注釈の情報は原文の文脈から復元できる。
+- **例外（原形も残す）**: 括弧の中身が**すべてかな・カタカナのみ**の読みグロス（`算象(アリスマ)諸国` / `シンフォニー.XVI(ゼクズィン)`）は、DB 本文にその表記のまま出現するため、素形に加えて**原形も JA→EN のソースキーとして登録**する（マッチ網羅の維持）。中身に漢字・英字を含む注釈括弧（`(後天的)` / `(with Addon)`）は、注釈込みの語が実文にほぼ出現せず、かえって訳文から注釈が消えるため**素形のみ**を登録する。
+- **真の衝突だけ残す**: 素形にしても訳が食い違う場合（例: `哨戒(狙撃)` / `哨戒(近接)` → 素形 `哨戒` に `SentrySniper` / `SentryMelee` の 2 訳）は本物の曖昧性として `glossary-conflicts.md` に残す。採否・和文側の正規化は User が判断する。
+
+> この正規化により、読みや注釈を付けた語が増えても衝突が自然増殖しない。新しい固有名詞に読みグロスを付けるときは、`Term_JPReading`（資料系）か併記形（表示系）のどちらで持っても、用語集側は素形に正規化される。
 
 ---
 
@@ -194,12 +211,14 @@ cp .env.example .env
 
 `Term_EN` に `"WDCE. / the \"World Development & Creation Era\""` のように**略号と全文を1つの文字列で併記**しているエントリがある（`ref_Society.json` の世代呼称など）。これをそのまま用語集ソースへ渡すと、EN→JA では「同じ結合文字列」がキーになり、`Term_JP` 由来のペアと `Aliases` 由来のペアが衝突してしまう。
 
-`build-glossary-source.mjs` の `splitMultiForm()` がこれを構造的に吸収する。
+`build-glossary-source.mjs` の `splitMultiForm()` がこれを構造的に吸収する（JP / EN の**両側**に適用）。
 
-- **区切り**: 前後に空白を伴う `/`（` / `）または改行。`Demotion/Retrograde` のような複合語中のスラッシュ（前後に空白が無い）は分割しない（誤爆防止）。
-- **JA→EN**: 分割した**先頭の断片**（本文中で実際に多用される略号・優先表記）を訳語として採用する。例: `創世期` → `WDCE.`（`the "World Development & Creation Era"` ではなく）。
-- **EN→JA**: 分割した**すべての断片**を個別のソースキーとして登録する。略号（`WDCE.`）・全文（`the "World Development & Creation Era"`）のどちらが本文中に出現しても同じ JP 用語へ解決できる。
-- 併記の順序（どちらを先に書くか）が JA→EN の訳語選定に直結するため、新規に併記形を追加するときは**実際の英文中で優先的に使われる表記を先頭**に置く。
+- **区切り**: 改行、または `/`（スラッシュ）。スラッシュは**空白の有無を問わず**検知するが、空白を伴わないスラッシュは「**値全体に空白を含まない**」場合に限って区切りとみなす。
+  - 分割する: `Nekomata / Warcat`（空白あり）/ `LunaWolf/Warwolf`・`繁殖鼠/生体改造済みモルモット種族`（値全体に空白なし）
+  - 分割しない（誤爆防止）: `Enigma Division, Demotion/Retrograde Research Department` — フレーズ途中の**複合語スラッシュ**。値に空白があり、かつスラッシュ前後に空白が無いため区切りとみなさない。
+- **JA→EN**: 分割した**先頭の断片**（本文中で実際に多用される略号・優先表記）を訳語として採用する。例: `創世期` → `WDCE.`（`the "World Development & Creation Era"` ではなく）。JP 側が併記形なら**すべての断片**をソースキーとして登録する（`繁殖鼠` / `生体改造済みモルモット種族` の双方から `ClonicMouse` へ）。
+- **EN→JA**: 分割した**すべての断片**を個別のソースキーとして登録する。略号（`WDCE.`）・全文（`the "World Development & Creation Era"`）のどちらが本文中に出現しても同じ JP 用語へ解決できる。訳先 JP が併記形なら**先頭の断片**を採用する。
+- 併記の順序（どちらを先に書くか）が訳語選定に直結するため、新規に併記形を追加するときは**実際の本文中で優先的に使われる表記を先頭**に置く。
 
 ### 8-2. 単数形/複数形だけの差は用語集へ登録しない
 

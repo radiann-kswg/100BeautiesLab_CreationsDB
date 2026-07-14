@@ -1,0 +1,38 @@
+[
+  {
+    "GenderType": "Female",
+    "GenderType_JP": "女性",
+    "GenderType_EN": "Female"
+  },
+  {
+    "GenderType": "FemaleNeutral",
+    "GenderType_JP": "無性別女性型",
+    "GenderType_EN": "Female-Neutral"
+  },
+  { "GenderType": "Male", "GenderType_JP": "男性", "GenderType_EN": "Male" },
+  {
+    "GenderType": "MaleNeutral",
+    "GenderType_JP": "無性別男性型",
+    "GenderType_EN": "Male-Neutral"
+  },
+  {
+    "GenderType": "Neutral",
+    "GenderType_JP": "無性別中性型",
+    "GenderType_EN": "Neutral"
+  },
+  {
+    "GenderType": "Arbitrary",
+    "GenderType_JP": "任意",
+    "GenderType_EN": "Arbitrary"
+  },
+  {
+    "GenderType": "Variable",
+    "GenderType_JP": "可変",
+    "GenderType_EN": "Variable"
+  },
+  {
+    "GenderType": "Unknown",
+    "GenderType_JP": "不詳",
+    "GenderType_EN": "Unknown"
+  }
+]

@@ -10,12 +10,12 @@
     "isForSecondary": false
   },
   {
-    "Artifact": "哨戒(狙撃)",
+    "Artifact": "哨戒狙撃",
     "Artifact_EN": "SentrySniper",
     "isForSecondary": false
   },
   {
-    "Artifact": "哨戒(近接)",
+    "Artifact": "哨戒近接",
     "Artifact_EN": "SentryMelee",
     "isForSecondary": false
   },
@@ -35,12 +35,12 @@
     "isForSecondary": false
   },
   {
-    "Artifact": "工作(狙撃)",
+    "Artifact": "工作狙撃",
     "Artifact_EN": "Aimer",
     "isForSecondary": false
   },
   {
-    "Artifact": "工作(近接)",
+    "Artifact": "工作近接",
     "Artifact_EN": "BreakWorker",
     "isForSecondary": false
   },

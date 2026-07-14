@@ -12,7 +12,11 @@
     "Class_EN": "Navigator of International Information Officer"
   },
   {
-    "Class": "『創造者』代理人",
+    "Class": "『創造主』代理人",
     "Class_EN": "Agent of the 'Regiowner'"
+  },
+  {
+    "Class": "『管制主』代理人",
+    "Class_EN": "Agent of the 'Terministrator'"
   }
 ]

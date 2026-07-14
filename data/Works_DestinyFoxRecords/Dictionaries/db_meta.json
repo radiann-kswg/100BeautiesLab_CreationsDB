@@ -1,10 +1,18 @@
 {
   "Dictionaries": {
-    "#Dict_Class": {
-      "DB_Label_JP": "クラス辞書",
-      "DB_Label_EN": "Class Dictionary",
+    "#Dict_Physical9": {
+      "DB_Label_JP": "クラス辞書(フィジカル9向け)",
+      "DB_Label_EN": "Class Dictionary (for Physical 9)",
       "keyField": "Class",
-      "compatListKey": "#List_Class"
+      "compatListKey": "#List_Class",
+      "scopeField": { "Belonging": "フィジカル9" }
+    },
+    "#Dict_AtelierResidents": {
+      "DB_Label_JP": "クラス辞書(超次元執筆空間(アトリエ)の住民向け)",
+      "DB_Label_EN": "Class Dictionary (for Residents of #ATELIER)",
+      "keyField": "Class",
+      "compatListKey": "#List_Class",
+      "scopeField": { "Belonging": "超次元執筆空間(アトリエ)の住民" }
     },
     "#Dict_Formation": {
       "DB_Label_JP": "形態辞書",

@@ -6,7 +6,7 @@
  *   創作本文（Summary / BodyBlocks 等の文章フィールド）は対象外とし、
  *   固有名詞・用語などの「短い対訳」だけを抽出する（自動生成はしない）。
  * @author 100BeautiesLab.
- * @version 1.1.0
+ * @version 1.2.0
  * @dependencies Node.js >= 18（標準モジュールのみ）
  */
 
@@ -37,18 +37,37 @@ const EXCLUDE_BASE = new Set([
 ]);
 
 /**
- * 漢字直後の「読み仮名グロス」だけを剥がした素形を返す。
- * 例: `算象(アリスマ)諸国` → `算象諸国` / `海陸国(シーバイランド)諸島` → `海陸国諸島`。
- *
- * 対象は「漢字の直後に来る、かなのみの丸括弧」に限定する（全角/半角括弧の両対応）。
- * `(後天的)` `(拡張装備あり)` `(時空遷移者)` など中身に漢字を含む修飾括弧や、
- * 漢字以外（カタカナ・英字）に続く括弧は読みグロスではないため剥がさない（誤爆防止）。
- * @param {string} s - JP 表記
- * @returns {string} 読みグロスを除去した素形
+ * 丸括弧（全角/半角）とその中身をすべて除去した素形を返す。
+ * 用語集における丸括弧は「読み仮名」「補足注釈」いずれも訳語決定には関与しない
+ * 付随情報であり、キー・訳先の双方から落として素形を正とする。
+ * 例: `猫又(後天的)` → `猫又` / `Nekomata / Warcat (Acquired)` → `Nekomata / Warcat`
+ *     `海陸国(シーバイランド)諸島` → `海陸国諸島` / `Human (with Addon)` → `Human`
+ * @param {string} s - JP / EN 表記
+ * @returns {string} 括弧注釈を除去した素形
  */
-const READING_GLOSS = /(?<=[一-龥々〆ヶ])[（(][ぁ-んゔァ-ヴー・]+[）)]/g;
-function stripReadingGloss(s) {
-  return typeof s === "string" ? s.replace(READING_GLOSS, "") : s;
+const PAREN_NOTE = /[（(][^（()）]*[）)]/g;
+function stripParenNotes(s) {
+  if (typeof s !== "string") return s;
+  return s.replace(PAREN_NOTE, "").replace(/\s{2,}/g, " ").trim();
+}
+
+/**
+ * その表記が持つ丸括弧が「すべて読み仮名グロス（中身がかなのみ）」かどうかを判定する。
+ * 例: `算象(アリスマ)諸国` `シンフォニー.XVI(ゼクズィン)` → true
+ *     `猫又(後天的)` `Human (with Addon)` `Royal of LotusNinea(n)` → false
+ *
+ * 読み仮名グロス付きの表記は DB 本文にその形のまま出現するため、素形に加えて
+ * 原形もソースキーとして登録する（マッチ網羅の維持）。中身が注釈のものは
+ * 「注釈込みの語」を用語集キーにしても実文にほぼ出現せず、かえって訳文から
+ * 注釈が消える副作用を生むため、素形のみを登録する。
+ * @param {string} s - 判定対象の表記
+ * @returns {boolean} 括弧が1つ以上あり、そのすべてがかなグロスなら true
+ */
+const KANA_ONLY_PAREN = /^[（(][ぁ-んゔァ-ヴー・ー]+[）)]$/;
+function hasReadingGlossOnly(s) {
+  if (typeof s !== "string") return false;
+  const notes = s.match(PAREN_NOTE);
+  return Array.isArray(notes) && notes.length > 0 && notes.every((n) => KANA_ONLY_PAREN.test(n));
 }
 
 /** 用語として妥当な対訳かを判定する（短く・改行を含まない文字列ペアのみ採用）。 */
@@ -65,9 +84,13 @@ function isValidTerm(jp, en) {
 
 /**
  * 1 レコードから JP↔EN 対訳候補を抽出する。
- * - `X_EN` キー → EN=value、JP=record[X] もしくは record[X_JP]
- * - `X_JP` キー → JP=value、EN=record[X] もしくは record[X_EN]
- *   （dict_RaceType のように素キーが EN・`_JP` が和名のケースを吸収する）
+ * - `X_EN` キー → EN=value、JP=record[X_JP]（無ければ record[X]）
+ * - `X_JP` キー → JP=value、EN=record[X_EN]（無ければ record[X]）
+ *
+ * 明示された `_JP` / `_EN` を常に優先し、素キー（`X`）はそれが無い場合の
+ * フォールバックとしてのみ使う。素キーの中身はファイルによって意味が異なり
+ * （dict_Area の `Area` は和名だが、dict_RaceType の `RaceType` は英語 ID）、
+ * 素キーを優先すると後者で「JP 欄に英語 ID が入った偽ペア」が生まれるため。
  * @param {Object} rec - 対訳レコード
  * @param {string} sourceFile - 出典ファイル名（プロベナンス用）
  * @returns {Array<{jp:string, en:string, base:string, source:string, transPolicy:?string, scope:?Array}>}
@@ -90,11 +113,11 @@ function extractPairs(rec, sourceFile) {
   for (const [key, value] of Object.entries(rec)) {
     if (key.endsWith("_EN")) {
       const base = key.slice(0, -3);
-      const jp = typeof rec[base] === "string" ? rec[base] : rec[`${base}_JP`];
+      const jp = typeof rec[`${base}_JP`] === "string" ? rec[`${base}_JP`] : rec[base];
       push(jp, value, base);
     } else if (key.endsWith("_JP")) {
       const base = key.slice(0, -3);
-      const en = typeof rec[base] === "string" ? rec[base] : rec[`${base}_EN`];
+      const en = typeof rec[`${base}_EN`] === "string" ? rec[`${base}_EN`] : rec[base];
       push(value, en, base);
     }
   }
@@ -141,22 +164,33 @@ function collectFromDir(subdir, prefix) {
 }
 
 /**
- * EN側の値に「略号 / 全文」「表記A / 表記B」のような複数の言い回しが
- * 同居している場合、空白を伴うスラッシュ（` / `）または改行で分割し、
- * 各断片を独立した用語候補として返す。区切りが見つからなければ元の
- * 文字列を単一要素の配列として返す（既存挙動と同じ）。
- * `Demotion/Retrograde` のような複合語中のスラッシュ（前後に空白が無い）は
- * 意図的に分割しない（誤爆防止）。
- * @param {string} en - 分割対象の EN 値
+ * 値に「略号 / 全文」「表記A / 表記B」のような複数の言い回しが同居している場合、
+ * スラッシュまたは改行で分割し、各断片を独立した用語候補として返す。JP / EN の
+ * どちらにも適用する（例: `繁殖鼠/生体改造済みモルモット種族`）。
+ *
+ * スラッシュは空白の有無を問わず区切りとして検知するが、空白を伴わないスラッシュは
+ * 「値全体に空白を含まない」場合に限って区切りとみなす。
+ * `Enigma Division, Demotion/Retrograde Research Department` のような、フレーズの
+ * 途中に現れる複合語のスラッシュを誤って割らないための安全弁（誤爆防止）。
+ * 区切りが見つからなければ元の文字列を単一要素の配列として返す。
+ * @param {string} value - 分割対象の値（JP / EN）
  * @returns {string[]} 分割済み断片（前後空白除去・空要素除去）
  */
-function splitMultiForm(en) {
-  if (typeof en !== "string") return [en];
-  const parts = en
+function splitMultiForm(value) {
+  if (typeof value !== "string") return [value];
+  const spaced = value
     .split(/\s+\/\s+|\r?\n/)
     .map((s) => s.trim())
     .filter(Boolean);
-  return parts.length > 1 ? parts : [en];
+  if (spaced.length > 1) return spaced;
+  if (value.includes("/") && !/\s/.test(value)) {
+    const bare = value
+      .split("/")
+      .map((s) => s.trim())
+      .filter(Boolean);
+    if (bare.length > 1) return bare;
+  }
+  return [value];
 }
 
 /**
@@ -173,8 +207,10 @@ function isPluralPair(a, b) {
 }
 
 /**
- * JA→EN マップを構築する。読みグロスを剥いた素形も自動的にソースへ追加して、
- * DB 本文が素形・併記形どちらで出ても英訳が効くようにする（マッチ網羅の拡張）。
+ * JA→EN マップを構築する。ソース JP・訳語 EN ともに括弧注釈を除去した素形を用い、
+ * JP 側が併記形（`繁殖鼠/生体改造済みモルモット種族`）なら各断片をソースへ展開する。
+ * 読みグロス付きの原形（`算象(アリスマ)諸国`）は DB 本文にその形で出るため、素形に
+ * 加えてソースへ追加する（マッチ網羅の維持）。
  * EN側が `splitMultiForm` で複数断片に分かれる場合は、先頭断片（本文中で
  * 実際に多用される略号・優先表記）を JA→EN の訳語として採用する。
  * 衝突は「同一 JP ソースに異なる EN」が来た場合のみ記録するが、単数/複数形
@@ -186,11 +222,11 @@ function buildJaEnMap(pairs) {
   const map = new Map();
   const conflicts = [];
   const grammarExcluded = new Set();
-  const add = (jp, en, source) => {
+  const add = (jp, en, source, base) => {
     if (!jp || !en || jp === en) return;
     if (grammarExcluded.has(jp)) return;
     if (!map.has(jp)) {
-      map.set(jp, { target: en, source });
+      map.set(jp, { target: en, source, base });
       return;
     }
     const existing = map.get(jp);
@@ -209,18 +245,24 @@ function buildJaEnMap(pairs) {
     conflicts.push({ src: jp, kept: existing.target, dropped: en, file: source });
   };
   for (const p of pairs) {
-    const [primaryEn] = splitMultiForm(p.en);
-    add(p.jp, primaryEn, p.source);
-    const plain = stripReadingGloss(p.jp);
-    if (plain !== p.jp) add(plain, primaryEn, `${p.source} (de-glossed)`);
+    const [primaryEn] = splitMultiForm(stripParenNotes(p.en));
+    for (const seg of splitMultiForm(stripParenNotes(p.jp))) {
+      add(seg, primaryEn, p.source, p.base);
+    }
+    if (hasReadingGlossOnly(p.jp)) {
+      for (const seg of splitMultiForm(p.jp)) {
+        add(seg, primaryEn, `${p.source} (reading-gloss)`, p.base);
+      }
+    }
   }
   return { map, conflicts };
 }
 
 /**
- * EN→JA マップを構築する。訳先 JP は常に読みグロスを剥いた素形を採用する
- * （方針: 機械訳にフリガナを混ぜない・素の漢字形を正とする）。
- * これにより「併記形 vs 素形」だけの差は衝突にならない。
+ * EN→JA マップを構築する。ソース EN・訳先 JP ともに括弧注釈を除去した素形を採用する
+ * （方針: 機械訳にフリガナ・注釈を混ぜない／注釈違いだけの語を別キーにしない）。
+ * これにより「併記形 vs 素形」「注釈付き vs 素形」だけの差は衝突にならない。
+ * 訳先 JP が併記形なら先頭断片を採用する。
  * EN側が `splitMultiForm` で複数断片に分かれる場合は、断片それぞれを別の
  * ソースキーとして登録する（略号・全文のどちらで出現しても同じ JP へ解決できる）。
  *
@@ -260,9 +302,9 @@ function buildEnJaMap(pairs) {
     conflicts.push({ src: en, kept: existing.target, dropped: jpTarget, file: source });
   };
   for (const p of pairs) {
-    const target = stripReadingGloss(p.jp);
+    const [target] = splitMultiForm(stripParenNotes(p.jp));
     const isAlias = p.base === "Aliases";
-    for (const seg of splitMultiForm(p.en)) {
+    for (const seg of splitMultiForm(stripParenNotes(p.en))) {
       add(seg, target, p.source, isAlias);
     }
   }
@@ -296,7 +338,13 @@ function main() {
     totalPairs: allPairs.length,
     jaEnUnique: jaEn.map.size,
     enJaUnique: enJa.map.size,
-    entries: [...jaEn.map.entries()].map(([jp, v]) => ({ jp, en: v.target, source: v.source })),
+    // base（フィールド名。例: `Class` / `Term` / `RaceType`）は早見表の見出しグルーピングに使う
+    entries: [...jaEn.map.entries()].map(([jp, v]) => ({
+      jp,
+      en: v.target,
+      source: v.source,
+      base: v.base ?? null,
+    })),
   };
   writeFileSync(join(OUT_DIR, "glossary_source.json"), JSON.stringify(source, null, 2), "utf8");
 
@@ -307,8 +355,8 @@ function main() {
     `生成: ${source.generatedAt}`,
     "",
     "> 同一 source に複数の訳語が存在したエントリ。先に出現した訳を採用（kept）。",
-    "> 読み仮名グロス（漢字(かな)）と素形の差は自動正規化済みのため、ここには出ません。",
-    "> `略号 / 全文` のような併記形（` / ` 区切り・改行区切り）も自動分割済みのため、双方向とも登録できていればここには出ません。",
+    "> 丸括弧の中身（読み仮名グロス・補足注釈）は訳語決定に関与しない付随情報として自動除去済みのため、`猫又` と `猫又(後天的)` のような差はここには出ません。",
+    "> `略号 / 全文` のような併記形（スラッシュ区切り・改行区切り）も自動分割済みのため、双方向とも登録できていればここには出ません。",
     "> 単数形/複数形だけの差（例: `Regiowner`/`Regiowners`）は JP側に数の情報が無く用語集で強制すると逆の文脈で誤訳になるため、`[文法差につき用語集登録なし]` として自動除外し、双方をレビュー用に併記します。採否は用途に応じて人間が個別に判断してください。",
     "> 正式名（Term_JP）vs 通称（Aliases）の差（例: `『第7の世界創造』`/`多様化社会`）は、冗長な説明文では通称・略称寄り、該当語自体を定義・説明する文では正式名寄りという文脈依存の使い分けがあり、EN→JA の単一キーには固定できないため `[文脈依存につき用語集登録なし]` として自動除外し、双方をレビュー用に併記します。訳出時は文章の性質に応じて人間が個別に判断してください。",
     "> ここに残るのは「素形でも異なる」真の衝突です。必要なら trans_*.json / ref_*.json / dict_*.json 側で正規化してください。",

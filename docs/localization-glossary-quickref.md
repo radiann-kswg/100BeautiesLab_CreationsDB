@@ -1,5 +1,5 @@
 <!-- 自動生成ファイル: 直接編集しないでください。 -->
-<!-- 再生成: `npm run deepl:build-quickref`（辞書 trans_/ref_/dict_ を更新したら実行） -->
+<!-- 再生成: `npm run deepl:build-glossary`（用語集ソース生成）/ `npm run deepl:sync-glossary`（DeepL 同期）の実行時に自動更新されます。単体再生成は `npm run deepl:build-quickref`。 -->
 
 # ローカライズ固有名詞 早見表（Copilot 参照用）
 
@@ -12,7 +12,7 @@
 - **インライン補完（ゴーストテキスト）**: 補完はカスタム指示ファイルを読み込みません。英訳作業中は本ファイルを隣のタブで開いておくと、近傍文脈として対訳が補完に反映されやすくなります。
 - **正典はあくまで辞書本体**。表に無い語・揺れがある語は `data/**/trans_*.json` 等の辞書と `docs/localization-en-rules.md` を確認してください。最終採否は User 判断です。
 
-- 収録: **164 対訳**（延べ抽出。生成日時: 2026-07-01T00:23:53.984Z）
+- 収録: **176 対訳**（延べ抽出。生成日時: 2026-07-14T06:32:18.293Z）
 
 ## 人名（姓・代理）
 
@@ -51,15 +51,20 @@
 | --- | --- |
 | 英皇国 | Internic.Kingdom |
 | 海陸国(シーバイランド)諸島 | Seabyislands |
+| 海陸国諸島 | Seabyislands |
 | 金源(アウルムゲン)諸国 | Aurumgenics |
+| 金源諸国 | Aurumgenics |
 | 九蓮国 | LotusNinea |
 | 紅雪連邦 | United.SnowRed.Republic |
 | 黒薔薇国 | SchwarzeRoseland |
 | 算象(アリスマ)諸国 | Alismathians |
+| 算象諸国 | Alismathians |
 | 四蓮島 | LotasQuadrup.Island |
 | 神皇国 | SaintPapis |
 | 然天(ネーザ)大陸 | Naitus Mainland |
+| 然天大陸 | Naitus Mainland |
 | 南雌(イヴソース)大陸 | Ivesouth Mainland |
+| 南雌大陸 | Ivesouth Mainland |
 | 雄志結国 | United.Heroic.Nation |
 | 龍天国 | LóngTiān's.Republic |
 
@@ -77,6 +82,7 @@
 | 第６界 | #REGION.6 |
 | 第７界 | #REGION.7 |
 | 第８界 | #REGION.8 |
+| 超次元執筆空間 | #ATELIER: the super-dimensional owners' space |
 | 超次元執筆空間(アトリエ) | #ATELIER: the super-dimensional owners' space |
 
 ## 称号・肩書
@@ -130,6 +136,17 @@
 | R-デイトル | R-detre |
 | コードインフィニティ | Codeinfinity |
 
+## 社会（Localization）
+
+<small>出典: `data/Localization/trans_Society.json`</small>
+
+| 日本語 | English |
+| --- | --- |
+| 逆行恐慌 | the Regression Crisis |
+| 左遷可能社会 | the Demotable Society |
+| 多様化恐慌 | the Diversification Crisis |
+| 多様化社会 | the Diversification Society |
+
 ## 種族
 
 <small>出典: `data/References/ref_Race.json`</small>
@@ -154,6 +171,7 @@
 | 日本語 | English |
 | --- | --- |
 | ジャンクガレージ『六花陛下』 | JunkGarage "Majesty Rokka" |
+| シンフォニー.XVI | Symphony.XVI |
 | 百花繚乱研究所 | HundredBeauties Laboratory |
 | 百戦錬磨開発所 | HundredBattlers Development |
 | 夜月機関 | Yadzuki Organization |
@@ -167,27 +185,17 @@
 | 運命線運河 | FateLine Canal |
 | 英州諸国 | Internation States |
 
-## 社会
+## 社会（References）
 
 <small>出典: `data/References/ref_Society.json`</small>
 
 | 日本語 | English |
 | --- | --- |
-| 『第7の世界創造』 | WDC.VII / the "World Development & Creation VII" |
-| 『第7の世界破壊』 | WDP.VII / the "World Destruction Pandemic VII" |
-| 『第8の世界創造』 | WDC.VIII / the "World Development & Creation VIII" |
-| 『第8の世界破壊』 | WDP.VIII / the "World Destruction Pandemic VIII" |
-| WDC.VII | WDC.VII / the "World Development & Creation VII" |
-| WDC.VIII | WDC.VIII / the "World Development & Creation VIII" |
-| WDCE. | WDCE. / the "World Development & Creation Era" |
-| WDP.VII | WDP.VII / the "World Destruction Pandemic VII" |
-| WDP.VIII | WDP.VIII / the "World Destruction Pandemic VIII" |
-| 逆行恐慌 | WDP.VIII / the "World Destruction Pandemic VIII" |
-| 左遷可能社会 | WDC.VIII / the "World Development & Creation VIII" |
-| 創世期 | WDCE. / the "World Development & Creation Era" |
-| 創世記 | WDCE. / the "World Development & Creation Era" |
-| 多様化社会 | WDC.VII / the "World Development & Creation VII" |
-| 多用化恐慌 | WDP.VII / the "World Destruction Pandemic VII" |
+| 『第7の世界創造』 | WDC.VII |
+| 『第7の世界破壊』 | WDP.VII |
+| 『第8の世界創造』 | WDC.VIII |
+| 『第8の世界破壊』 | WDP.VIII |
+| 創世期 | WDCE. |
 
 ## 語彙
 
@@ -196,8 +204,11 @@
 | 日本語 | English |
 | --- | --- |
 | 安全レベル | Safety Level |
+| 管制主 | Terministrator |
 | 技巧属性 | Artifact |
+| 創造主 | Regiowner |
 | 特殊パターン | Special Pattern |
+| 破壊主 | Regiomitator |
 
 ## アーティファクト
 
@@ -209,12 +220,12 @@
 | 撹乱 | Confuser |
 | 強襲 | Assaulter |
 | 牽制 | Contender |
-| 工作(近接) | BreakWorker |
-| 工作(狙撃) | Aimer |
+| 工作近接 | BreakWorker |
+| 工作狙撃 | Aimer |
 | 支援 | Supporter |
 | 死守 | Defender |
-| 哨戒(近接) | SentryMelee |
-| 哨戒(狙撃) | SentrySniper |
+| 哨戒近接 | SentryMelee |
+| 哨戒狙撃 | SentrySniper |
 | 潜入 | Infiltrator |
 | 増幅 | Amplifier |
 | 妨害 | Jammer |
@@ -226,12 +237,14 @@
 
 | 日本語 | English |
 | --- | --- |
+| N3US大学 | N3US University |
 | アルベッツ | ALPBETS |
 | アルベッツ被害者の会 | Victims Association against ALPBETS |
 | エイゼルベットの観測世界 | ∀sellbuet's Observational World |
-| シンフォニー.XVI(ゼクズィン) | Symphony.XVI(Sechzehn) |
+| シンフォニー.XVI(ゼクズィン) | Symphony.XVI |
+| スターダスト・テクノロジー | Stardust Technology |
 | スターダスト財団 | Stardusts Foundation |
-| セブンティエイト特殊探偵団 | Team.78(Seventy-Eight) the Special Investigators |
+| セブンティエイト特殊探偵団 | Team.78 the Special Investigators |
 | デウスマキナ | DeusMakhina |
 | フィジカル9 | PHYSICAL.9 |
 | ラストラステクニカ-インストゥルメント | LustrousTechnica Instrument |
@@ -239,11 +252,16 @@
 | ロジケスキーロマンティカ産業 | Logicheskiy Romantika Industry |
 | 王家英皇学会 | IK.Royal Society |
 | 界座 | JièZuò |
+| 九蓮国皇族 | Royal of LotusNinea |
 | 国際ヒューマノイド技術学会 | International Humanoid Technology Society |
 | 照梅テクノロジー | Shôbai Technology |
-| 新生九蓮 | Neo.LotusNinea(n) |
-| 創造主 | World Owners |
+| 新生九蓮 | Neo.LotusNinea |
+| 第三県立技巧美術女子高校 | Prefecture.3 Technical Arts Girls' High School |
+| 超次元執筆空間(アトリエ)の住民 | Residents of #ATELIER: the super-dimensional owners' space |
+| 超次元執筆空間の住民 | Residents of #ATELIER: the super-dimensional owners' space |
+| 南第三県専門学校 | S3 Vocational School |
 | 白の六芒星 | WhiteHexagram |
+| 夜月機関付属大学 | Yadzuki Org. Affiliated University |
 
 ## 種族タイプ
 
@@ -251,62 +269,70 @@
 
 | 日本語 | English |
 | --- | --- |
-| VRアバター | VirtualAvatar |
-| オートマトン(汎用) | Automaton |
-| ヒューマノイド(人型) | Humanoid |
-| 化狸(後天的) | Raccoonian(Acquired) |
+| VRアバター | Virtual Avatar |
+| オートマトン | Automaton |
+| カスタムオートマトン | Custom Automaton |
+| ヒューマノイド | Humanoid |
+| ポータブルヒューマノイド | Portable Humanoid |
+| 恐怖概念 | Terrorinaries |
 | 金牛 | Taurus |
-| 金牛(後天的) | Taurus(Acquired) |
 | 月虎 | LunaTiger |
-| 月虎(後天的) | LunaTiger(Acquired) |
 | 月兎 | LunaRabbit |
-| 月兎(後天的) | LunaRabbit(Acquired) |
-| 月狼(超次元的) | LunaWolf(Super-dimentional) |
-| 狐惹き(時空遷移者) | HalfWarfox(ChronoidShifter) |
-| 狛犬(後天的) | Komainu(Acquired) |
 | 獅子 | Lionian |
 | 時空遷移存在 | ChronoidShifter |
-| 蛇人(後天的) | Lamia(Acquired) |
 | 人間 | Human |
-| 人間(拡張装備あり) | Human(withAddon) |
-| 人間(二重人格) | Human(DoubleIdentity) |
+| 生体改造済みモルモット種族 | ClonicMouse |
 | 猪突猛進者 | FangSpeeder |
-| 猪突猛進者(後天的) | FangSpeeder(Acquired) |
-| 超過人間(後天的) | OverHuman(Acquired) |
 | 鳥人 | Birdman |
-| 鳥人(後天的) | Birdman(Acquired) |
-| 猫又(後天的) | Nekomata(Acquired) |
-| 猫又(時空遷移者) | Nekomata(ChronoidShifter) |
 | 馬人 | Thoroughbreder |
-| 馬人(後天的) | Thoroughbreder(Acquired) |
 | 繁殖鼠 | ClonicMouse |
+| 亡霊概念 | Ghostinaries |
 | 夢羊 | DreamEater |
-| 夢羊(後天的) | DreamEater(Acquired) |
-| 妖狐(後天的) | Warfox(Acquired) |
-| 妖獣型カスタムオートマトン | CustomAutomaton(TaleBeastType) |
-| 妖獣型ディビエイタブルヒューマノイド | DeviatableHumanoid(TaleBeastType) |
-| 妖獣型ポータブルヒューマノイド | PortableHumanoid(TaleBeastType) |
-| 妖獣型ポータブルヒューマノイド(ソフトウェア躯体) | PortableHumanoid(TaleBeastType,SoftwareBody) |
-| 竜人 | Dragon |
-| 竜人(後天的) | Dragon(Acquired) |
+| 夜叉 | Midknightian |
+| 妖獣型ディビエイタブルヒューマノイド | Deviatable Humanoid |
+| 龍人 | Dragonian |
 | 麒麟 | Qílín |
 
-## Localization/trans_PlaceName.json (de-glossed)
+## 性別タイプ
 
-<small>出典: `data/Localization/trans_PlaceName.json (de-glossed)`</small>
-
-| 日本語 | English |
-| --- | --- |
-| 海陸国諸島 | Seabyislands |
-| 金源諸国 | Aurumgenics |
-| 算象諸国 | Alismathians |
-| 然天大陸 | Naitus Mainland |
-| 南雌大陸 | Ivesouth Mainland |
-
-## Localization/trans_Regions.json (de-glossed)
-
-<small>出典: `data/Localization/trans_Regions.json (de-glossed)`</small>
+<small>出典: `data/Dictionaries/dict_GenderType.json`</small>
 
 | 日本語 | English |
 | --- | --- |
-| 超次元執筆空間 | #ATELIER: the super-dimensional owners' space |
+| 可変 | Variable |
+| 女性 | Female |
+| 男性 | Male |
+| 任意 | Arbitrary |
+| 不詳 | Unknown |
+| 無性別女性型 | Female-Neutral |
+| 無性別男性型 | Male-Neutral |
+| 無性別中性型 | Neutral |
+
+## 『管理主』としてのロールコード（Role-Code of 'Regioministrator'）
+
+<small>出典: `data/Dictionaries/dict_Regioministration.json`</small>
+
+| 日本語 | English |
+| --- | --- |
+| W:"再生" | W:'Regeneration' |
+| X:"創造" | X:'Creation' |
+| Y:"破壊" | Y:'Destruction' |
+| Z:"還元" | Z:'Reduction' |
+
+## クラス（職掌）
+
+<small>出典: `data/Dictionaries/dict_Mikhail.json` / `data/Dictionaries/dict_NeoLotusNinean.json` / `data/Dictionaries/dict_SymphonyXVI.json` / `data/Dictionaries/dict_Zerbas.json`</small>
+
+| 日本語 | English |
+| --- | --- |
+| 『管制主』代理人 | Agent of the 'Terministrator' |
+| 『創造主』代理人 | Agent of the 'Regiowner' |
+| 『破壊主』代理人 | Agent of the 'Regiomitator' |
+| エニグマ課 左遷・逆行研究部 | Enigma Division, Demotion/Retrograde Research Department |
+| ベヴストザイン課 ヒューマノイド開発部 | Bewusstsein Division, Humanoid Development Department |
+| ベヴストザイン課 新人類研究部 | Bewusstsein Division, Newer Human Research Department |
+| 国際情報屋 | International Information Officer |
+| 国際情報屋 運航者 | Navigator of International Information Officer |
+| 国際情報屋 同行者 | Companion of International Information Officer |
+| 新生九蓮 運航者 | Navigator of Neo.LotusNinean |
+| 新生九蓮 陛下 | Sovereign of Neo.LotusNinean |

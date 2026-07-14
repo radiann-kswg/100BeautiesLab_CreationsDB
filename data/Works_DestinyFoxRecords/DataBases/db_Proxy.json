@@ -35,6 +35,7 @@
     "Height_cm": 163,
     "Weight_kg": { "hideText": "本人すら把握されていない" },
     "Age": { "value": 21, "about_JP": "自称", "about_EN": "Self-styled" },
+    "Class": ["創造主"],
     "FirstPersonCalling_JP": "現実味のない場面では：[※名前呼び],ワテ,おれ\n現実味のある場面では：[※名前呼び],僕(ぼく),俺\n公的かつ形式的な場面では：私(わたし),僕(ぼく)",
     "FirstPersonCalling_EN": "In fictional/unreal contexts: [*by name], I (archaic slang, rough)\nIn realistic contexts: [*by name], I (masc. informal, rough)\nIn formal/official contexts: I (rough, masc. informal)",
     "SecondPersonCalling_JP": "君(きみ),[※名前呼び],~君/~さん",
@@ -81,6 +82,18 @@
       "about_JP": "ただし本人は無性別女性型が好き",
       "about_EN": "However, personally prefers a genderless feminine form"
     },
+    "AnivDay": [
+      {
+        "Day": { "Month": 7, "DayOfMonth": 1 },
+        "DayAbout_JP": "誕生日(代理として)",
+        "DayAbout_EN": "Birthday (as a proxy)"
+      },
+      {
+        "Day": { "Month": 6, "DayOfMonth": 10 },
+        "DayAbout_JP": "誕生日(看板娘として)",
+        "DayAbout_EN": "Birthday (as a poster girl)"
+      }
+    ],
     "Height_cm": [
       {
         "about_JP": "可変\n(球体化姿時は35～72cm、人型姿時はおよそ160cmでいることが多い)",
@@ -93,9 +106,8 @@
       "about_JP": "ただし自在に変更可能",
       "about_EN": "However, can be changed freely"
     },
-    "Belonging": { "hideText": "判定失敗" },
-    "Class": { "hideText": "判定失敗" },
     "Age": { "value": 19, "about_JP": "自称", "about_EN": "Self-styled" },
+    "Class": ["管制主"],
     "FirstPersonCalling_JP": "ボク",
     "FirstPersonCalling_EN": "I (masc. informal)",
     "SecondPersonCalling_JP": "キミ,[※名前呼び]",
@@ -205,8 +217,8 @@
     "Character_EN": "A bright and lively nature with a gender-neutral disposition\nWith a big-sisterly side that always gives its best for companions, and an otaku side that dotes on creative characters",
     "Hobby_JP": "創作世界を見守ること",
     "Hobby_EN": "Watching over the creative world",
-    "SpecialSkill_JP": { "hideText": "極秘事項" },
-    "SpecialSkill_EN": { "hideText": "Confidential" },
+    "Belonging": { "hideText": "削除済み" },
+    "Class": { "hideText": "削除済み" },
     "Favor_JP": "可愛いキャラクター、縫い包みやクッションなどのノベルティグッズ",
     "Favor_EN": "Cute characters, novelty goods such as plushies and cushions",
     "Unlike_JP": "喧嘩やトラブル、緊急対応が重なること",

@@ -35,6 +35,11 @@
       "DB_Label_JP": "サービス・インフラ",
       "DB_Label_EN": "Service / Infrastructure"
     },
+    "#Loc_Society": {
+      "DB_Layer": "Localization",
+      "DB_Label_JP": "社会・情勢",
+      "DB_Label_EN": "Society / Situation"
+    },
     "#Loc_Regions": {
       "DB_Layer": "Localization",
       "DB_Label_JP": "創作世界・この創作作品における異世界",

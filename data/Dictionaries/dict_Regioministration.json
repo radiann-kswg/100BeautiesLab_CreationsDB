@@ -1,0 +1,22 @@
+[
+  {
+    "Regioministration": "X",
+    "Regioministration_JP": "X:\"創造\"",
+    "Regioministration_EN": "X:'Creation'"
+  },
+  {
+    "Regioministration": "Y",
+    "Regioministration_JP": "Y:\"破壊\"",
+    "Regioministration_EN": "Y:'Destruction'"
+  },
+  {
+    "Regioministration": "W",
+    "Regioministration_JP": "W:\"再生\"",
+    "Regioministration_EN": "W:'Regeneration'"
+  },
+  {
+    "Regioministration": "Z",
+    "Regioministration_JP": "Z:\"還元\"",
+    "Regioministration_EN": "Z:'Reduction'"
+  }
+]
