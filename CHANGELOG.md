@@ -1,5 +1,33 @@
 # 最新のリファクタリング・仕様変更履歴
 
+### fix: グローバル辞書（`data/Dictionaries`）の妥当性判定を特定フィールド依存からスキーマ形状ベースへ (2026-07-14)
+
+DB 大幅整備（`c99ab37`）で `GenderType` の辞書が `db_meta.json($EnumDef_GenderType)` から `data/Dictionaries/dict_GenderType.json`（`#Dict_GenderType`）へ移設された結果、キャラシートで**グローバル辞書の解決が全滅**していた（性別・所属・種族・作者名などが辞書解決されずコード/素値のまま表示され、`tests/pages.characters.ui-output.test.js` が 6 件失敗）。
+
+- **原因（`pages/characters.js` の `fetchGlobalDefType()`）**: 妥当性判定 `isValid()` が「`General.$VarsDef` に `$EnumDef_GenderType` が存在すること」を**必須条件としてハードコード**していた。移設によりこの条件が成立しなくなり、SW が正しく返した辞書（Dictionaries 合流済み）まで invalid と判定 → キャッシュ破棄 → 直 fetch 救済も同条件で弾かれ、最終的に `globalDefType` が空 `{}` になっていた。作品別辞書（`Works_*/Dictionaries`）は `workMeta` 経由のため影響を受けず、**グローバル辞書だけが落ちる**症状になっていた。
+- **修正**: 判定をフィールド名非依存のスキーマ形状ベースへ変更した。
+  1. `CreationWorks` を持つ = グローバルメタである（作品別 meta は `Databases` を持つ）。誤って作品別 meta を掴むのを防ぐ従来の意図を維持する。
+  2. `$VarsDef` に `#Dict_*` が 1 つ以上合流している。旧 SW / 古いキャッシュが返す「辞書未合流の `db_meta.json` 単体」は引き続き invalid とし、直 fetch 救済へ回す。
+- **併せて修正（直 fetch 救済の欠陥）**: `fetchDirectDictionaryBundle()` が辞書カタログの **`dictFile` 宣言を無視**して既定名（`dict_<辞書名>.json`）を決め打ちしていたため、別名ファイルの辞書（`#Dict_DesignedBy` → `sec_DesignedBy.json`）で 404 となり、しかも例外が bundle 全体の `try` で捕まるため**辞書バンドルが丸ごと失われる**作りだった。`dictFile` を尊重し、ファイル単位の `try/catch` で 1 本の欠損が他を巻き添えにしないようにした（`lib/sw-common.js` の `readDictionaryBundle()` と同じ耐性）。
+- **テスト追従**: `renders shared RaceType dictionary values in English from the dictionary label` の期待値を `Warfox(Acquired)` → `Warfox (Acquired)` へ更新。`langMode: 'shared'` の英語表示は「辞書に `RaceType_EN` があればそれを使い、無い場合のみベースコードへフォールバック」する仕様で、今回の整備で `RaceType_EN` が追加されたため。従来の期待値はフォールバック結果を固定していた。
+- **影響範囲**: `pages/characters.js`（`isValid()` / `fetchDirectDictionaryBundle()` / GenderType デバッグログ）/ `pages/characters.html`（`asset-version`）/ `tests/pages.characters.ui-output.test.js`。**JSON データベースはこの変更では未変更**。
+- 確認: `npm test` — 33 ファイル / 370 件すべて成功（`develop`）。上記 6 件の失敗も解消。
+
+### feat: キャラシートの直リンク URL を圧縮ロケータ（`?c=Work/Db/Index`）へ簡略化 (2026-07-14)
+
+キャラシートの URL が `?work=Works_NumberTales&db=Primary&num=57&idx=57&idxKey=Num&q=&lang=` のように冗長で、貼付・手入力に耐えなかった。冗長さの主因は URL 文法ではなく**生成側**にあり、`setQS()` が現在のクエリ全体を `URLSearchParams` へ流し込むため**空の値まで `q=&lang=` として残り**、さらに `idxKey=Num` のときは旧互換の `num=` も併記していた。
+
+- **圧縮ロケータ（新・正）**: `c=<作品>[/<DB>[/<インデックス>]]` の 1 パラメータに統合した。`<インデックス>` は `値` または `キーパス:値`（キーパス省略時は `$IndexDef` の主要要素として解釈）。作品IDは `Works_` 接頭辞なしの短縮形。
+  - 例: `?c=NumberTales/Primary/Num:57` / `?c=FLInvestigator78/Primary/Card.Num:7` / `?c=NumberTales/Primary&q=狐`
+- **空値を出力しない**: `q` / `lang` は値があるときだけ付与する。
+- **後方互換（読み取りのみ）**: 旧パラメータ（`work` / `db` / `idx` / `idxKey` / `num` の個別キー、`Works_` 接頭辞付き作品ID）は引き続き解釈する。既存の貼付URL・ドキュメント内リンクは壊れず、開いた時点で新形式へ書き換わる。
+  - `getQS()` の段階で旧 `?num=` を `idx` / `idxKey='Num'` へ正規化している。これをしないと初期化時の `setQS()`（言語の URL 反映）で `num` が落ち、**直リンク先が失われる**。
+- **実装の集約**: URL 文法を `buildViewerQueryString()` / `parseViewerLocator()` / `parseIdxToken()` / `buildViewerHref()` に集約し、各所で個別に `new URLSearchParams({...cur, ...})` を組み立てていた 4 箇所（インデックスチップ / 詳細ヒーローのグループピル / `buildIndexHref` / `buildViewerNavigationHref`）を置き換えた。`lib/section-renders/*` は `idx` / `idxKey` を渡す既存契約のままで変更不要（`num` オプションは受理するが出力しない no-op になった）。
+- **例外**: `_DBLink` の複合条件（JSON ペイロード + `idxKey=__conditions__`）は圧縮ロケータで表現できないため、従来の個別キー形式で出力する（手入力対象外のため許容）。
+- **可読性**: `URLSearchParams` が退避する `%2F` / `%3A` を復元して出力する（どちらもクエリ内では正当な文字。RFC 3986: `query = *( pchar / "/" / "?" )`）。
+- **影響範囲**: `pages/characters.js` / `pages/characters.html`（`asset-version`）/ `tests/pages.characters.url-params.test.js`（新規 14 件）/ `tests/pages.characters.ui-output.test.js`（生成 href の期待値を追従。旧形式URLを入力とするケースは後方互換の回帰テストとして維持）/ `docs/viewer-guide.md` / `CLAUDE.md` / `.github/copilot-instructions.md`。
+- 確認: `npm test` — URL 関連は全件成功。なお本変更**以前から** `tests/pages.characters.ui-output.test.js` に 6 件の失敗（辞書解決の和英併記・二次創作メタ・`scopeField` 等）があり、URL とは無関係のため本変更では手を入れていない（`_work_in_progress/2026-07-14_progress_url-params.md` に記録）。
+
 ### fix: DeepL 用語集ソースの対訳ペア判定を是正（素キー優先 → `_JP`/`_EN` 優先）+ 丸括弧注釈の除去 (2026-07-14)
 
 `dict_RaceType.json` の更新後に `glossary-conflicts.md` へ `Nekomata` / `HalfNekomata` / `LunaWolf` の 3 件が「和文↔英文の対応が取れない衝突」として現れた。調査の結果、辞書データではなく `tools/deepl/build-glossary-source.mjs` の対訳ペア判定バグだった。

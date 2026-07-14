@@ -37,6 +37,7 @@
 | **addon-ai-tag**: AIHints 残課題台帳     | [2026-07-14_progress_addon-ai-tag-log-inventory.md](./2026-07-14_progress_addon-ai-tag-log-inventory.md)                                                            | ⚠️ AIHints 系ログ 4 件を退避し、残課題（A1〜A5）を集約（本ブランチ固有。母艦は develop と共有のため衝突回避で分離） |
 | ColorPalette スキーマ + カラーチップ抽出 | [2026-07-13_progress_colorpalette-schema.md](./2026-07-13_progress_colorpalette-schema.md)                                                                          | ✅ 設定画のカラーチップから 94 件へ配色を投入済み（全件 5 色以上）。⚠️ 色名・Role は User レビュー待ち（AIHints への機械導出は `--apply-colorpalette` で完了済み） |
 | AppearanceDetail 参考画像の一括登録      | [2026-07-11_progress_appearancedetail-images.md](./2026-07-11_progress_appearancedetail-images.md)                                                                  | ⚠️ `10`/`10alt` の割当正誤（User確認待ち）・保留4枚の扱い                                        |
+| グローバル辞書解決の破損修正             | [2026-07-14_progress_global-dict-resolution-fix.md](./2026-07-14_progress_global-dict-resolution-fix.md)                                                            | ⚠️ `npm test` 6件失敗を是正（`develop`・370件成功）。ブラウザ実地確認と `addon-ai-tag` への一方向マージが残 |
 
 ### 系列の補足（過去フェーズは `.completed/` 参照）
 
