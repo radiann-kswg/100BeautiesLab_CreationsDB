@@ -349,11 +349,15 @@ Copilot 自動ロード用の同等仕様は `.github/instructions/roleplay.inst
 
 ### 直リンク（URL クエリ）
 
-- **汎用インデックス直リンク**: キャラ詳細の直リンクは `idx` / `idxKey` を使用します。
-  - `idx`: インデックス値（例: 番号、カード番号、方角など）
-  - `idxKey`: インデックスキー（`<root>` または `<root>.<child>` 形式。例: `Num`, `Card.Num`, `BeastType.Beast`）
-- **複数要素 Index の直リンク制約**: `idx` / `idxKey` は単一 key-path 前提です。object 形式の `$IndexDef` で `link:true` を付ける子要素は、単独で識別に使う前提が崩れないか確認してください。
-- **後方互換**: 旧パラメータの `num` は互換として解釈されます（主に `Num` インデックスを想定）。
+- **圧縮ロケータ（正）**: キャラ詳細の直リンクは `c=<作品>[/<DB>[/<インデックス>]]` の 1 パラメータにまとめます。
+  - 例: `?c=NumberTales/Primary/Num:57`, `?c=FLInvestigator78/Primary/Card.Num:7`, `?c=NumberTales/Primary&q=狐`
+  - 作品IDは `Works_` 接頭辞なしの短縮形（`NumberTales`）です。
+  - `<インデックス>` は `値` または `キーパス:値`（キーパスは `<root>` / `<root>.<child>` 形式。例: `Num`, `Card.Num`, `BeastType.Beast`）。省略時は `$IndexDef` の主要要素として解釈します。
+- **空値を出さない**: `q` / `lang` は値があるときだけ付与し、空パラメータは URL に残しません。
+- **複数要素 Index の直リンク制約**: インデックス指定は単一 key-path 前提です。object 形式の `$IndexDef` で `link:true` を付ける子要素は、単独で識別に使う前提が崩れないか確認してください。
+- **後方互換**: 旧パラメータ（`work` / `db` / `idx` / `idxKey` / `num` の個別キー、`Works_` 接頭辞付き作品ID）は **読み取りのみ**互換維持します。生成側は常に `c` 形式で出力し、旧形式で開かれた URL は表示時に新形式へ書き換わります。
+- **例外**: `_DBLink` の複合条件（JSON ペイロード + `idxKey=__conditions__`）は圧縮ロケータで表現できないため、従来の個別キー形式で出力します。
+- **実装の集約先**: URL 文法の実装は `pages/characters.js` の `buildViewerQueryString()` / `parseViewerLocator()` / `parseIdxToken()` に集約します。各所で `new URLSearchParams({...})` を組み立て直さないでください。
 - **運用方針**: 新規の仕様追加・作品追加で直リンク挙動を変える場合は、基本的にコード変更ではなく作品別 typedef（`data/Works_<作品名>/DataBases/db_type.json`）の `$IndexDef` を更新して追従させます。
 
 ## API 通信とデータ管理

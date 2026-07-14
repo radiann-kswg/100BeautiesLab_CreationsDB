@@ -18,6 +18,28 @@ function loadJson(relPath) {
 	return JSON.parse(readFileSync(join(repoRoot, relPath), 'utf-8'));
 }
 
+/**
+ * ビューアの直リンク URL を分解する
+ * 現行の圧縮ロケータ（`?c=Work/Db/Key:Value`）と旧形式（work/db/idx/idxKey の個別キー）の双方を読む
+ * @param {string} href - 直リンク URL
+ * @returns {{work: string, db: string, idx: string, idxKey: string, q: string}}
+ */
+function parseViewerHref(href) {
+	const params = new URL(href, 'http://127.0.0.1:5500/pages/characters.html').searchParams;
+	const locator = String(params.get('c') || '');
+	const [work = '', db = '', ...rest] = locator ? locator.split('/') : [];
+	const token = rest.join('/');
+	const sep = token.startsWith('{') ? -1 : token.indexOf(':');
+
+	return {
+		work: params.get('work') || work,
+		db: params.get('db') || db,
+		idx: params.get('idx') || (sep > 0 ? token.slice(sep + 1) : token),
+		idxKey: params.get('idxKey') || (sep > 0 ? token.slice(0, sep) : ''),
+		q: params.get('q') || ''
+	};
+}
+
 function mergeMetaAndTypeVars(metaLike, typeLike) {
 	const meta = (metaLike && typeof metaLike === 'object' && !Array.isArray(metaLike)) ? metaLike : {};
 	const type = (typeLike && typeof typeLike === 'object' && !Array.isArray(typeLike)) ? typeLike : {};
@@ -515,9 +537,9 @@ describe('pages/characters.js UI output', () => {
 
 		// グループピル全体が直リンクになり、主要サブフィールドの keyPath を使う
 		expect(logicPill.tagName).toBe('A');
-		expect(new URL(logicPill.href).searchParams.get('idxKey')).toBe('Logic.Num');
+		expect(parseViewerHref(logicPill.href).idxKey).toBe('Logic.Num');
 		expect(logicAltPill.tagName).toBe('A');
-		expect(new URL(logicAltPill.href).searchParams.get('idxKey')).toBe('LogicAlt.Num');
+		expect(parseViewerHref(logicAltPill.href).idxKey).toBe('LogicAlt.Num');
 	});
 
 	it('keeps scalar index pills as plain single pills without grouping', async () => {
@@ -673,11 +695,16 @@ describe('pages/characters.js UI output', () => {
 		const primaryLink = links.find((link) => link.textContent?.trim() === '1');
 		expect(primaryLink).toBeTruthy();
 
-		const params = new URL(primaryLink.href).searchParams;
-		expect(params.get('db')).toBe('Primary');
-		expect(params.get('idx')).toBe('1');
-		expect(params.get('idxKey')).toBe('Num');
-		expect(params.get('num')).toBe('1');
+		// 直リンクは圧縮ロケータ（?c=Work/Db/Key:Value）で生成される
+		expect(new URL(primaryLink.href).searchParams.get('c')).toBe('NumberTales/Primary/Num:1');
+
+		const link = parseViewerHref(primaryLink.href);
+		expect(link.db).toBe('Primary');
+		expect(link.idx).toBe('1');
+		expect(link.idxKey).toBe('Num');
+
+		// 旧 ?num= は読み取り互換のみで、生成側では出力しない
+		expect(new URL(primaryLink.href).searchParams.get('num')).toBeNull();
 	});
 
 	it('renders ConversationPattern as a standalone subField section driven by detail layout', async () => {
@@ -1122,14 +1149,16 @@ describe('pages/characters.js UI output', () => {
 		const termLink = links.find((link) => link.textContent?.trim() === '数秘加護');
 		expect(termLink).toBeTruthy();
 		// RelatedTerms は「共通資料」疑似作品の Vocabulary DB へリンクする（旧: 実在しない Glossary への壊れたリンク）
-		expect(new URL(termLink.href).searchParams.get('work')).toBe('Works_CommonReferences');
-		expect(new URL(termLink.href).searchParams.get('db')).toBe('Vocabulary');
-		expect(new URL(termLink.href).searchParams.get('q')).toBe('数秘加護');
+		// 作品IDは URL 上では `Works_` 接頭辞なしの短縮形になる
+		const termHref = parseViewerHref(termLink.href);
+		expect(termHref.work).toBe('CommonReferences');
+		expect(termHref.db).toBe('Vocabulary');
+		expect(termHref.q).toBe('数秘加護');
 
 		const creationLinks = links.filter((link) => link.textContent?.includes('ナンバーテールズ / '));
 		expect(creationLinks.length).toBeGreaterThanOrEqual(2);
-		const glossaryLink = creationLinks.find((link) => new URL(link.href).searchParams.get('db') === 'Glossary');
-		const primaryLink = creationLinks.find((link) => new URL(link.href).searchParams.get('db') === 'Primary');
+		const glossaryLink = creationLinks.find((link) => parseViewerHref(link.href).db === 'Glossary');
+		const primaryLink = creationLinks.find((link) => parseViewerHref(link.href).db === 'Primary');
 		expect(glossaryLink).toBeTruthy();
 		expect(primaryLink).toBeTruthy();
 	});

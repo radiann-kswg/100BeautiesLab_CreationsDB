@@ -300,9 +300,12 @@ UI → Service Worker (`/pages/v1/`) → 静的 JSON 読み込み + `_DBLink`/`_
 
 ### 直リンク（URL クエリ）
 
-- **汎用インデックス直リンク**: `idx`（インデックス値）/ `idxKey`（`<root>` または `<root>.<child>`。例: `Num`, `Card.Num`, `BeastType.Beast`）を使用。単一 key-path 前提です。
-- **後方互換**: 旧パラメータ `num` は互換解釈（主に `Num` インデックス想定）。
-- **運用方針**: 直リンク挙動の変更は、原則コード変更ではなく作品別 typedef の `$IndexDef` を更新して追従させます。
+- **圧縮ロケータ（正）**: キャラ詳細の直リンクは `c=<作品>[/<DB>[/<インデックス>]]` の 1 パラメータにまとめます（例: `?c=NumberTales/Primary/Num:57`, `?c=FLInvestigator78/Primary/Card.Num:7`）。作品IDは `Works_` 接頭辞なしの短縮形です。
+- **インデックス表記**: `値` または `キーパス:値`（キーパスは `<root>` / `<root>.<child>`。例: `Num`, `Card.Num`, `BeastType.Beast`）。キーパス省略時は `$IndexDef` の主要要素として解釈。単一 key-path 前提です。
+- **空値を出さない**: `q` / `lang` は値があるときだけ付与し、空パラメータは URL に残しません。
+- **後方互換**: 旧パラメータ（`work` / `db` / `idx` / `idxKey` / `num` の個別キー、`Works_` 接頭辞付き作品ID）は **読み取りのみ**互換維持。生成側は常に `c` 形式で出力し、旧形式で開かれた URL は表示時に新形式へ書き換わります。
+- **例外**: `_DBLink` の複合条件（JSON ペイロード + `idxKey=__conditions__`）は圧縮ロケータで表現できないため、従来の個別キー形式で出力します。
+- **運用方針**: 直リンク挙動の変更は、原則コード変更ではなく作品別 typedef の `$IndexDef` を更新して追従させます。URL 文法自体の実装は `pages/characters.js` の `buildViewerQueryString()` / `parseViewerLocator()` に集約します。
 
 ---
 

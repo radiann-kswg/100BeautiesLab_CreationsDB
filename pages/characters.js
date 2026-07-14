@@ -185,6 +185,19 @@ export async function __populateWorksForTest(initialWork) {
 	return populateWorks(initialWork);
 }
 
+/** URL 直リンク文法（圧縮ロケータ）のテスト用フック */
+export function __parseViewerLocatorForTest(raw) {
+	return parseViewerLocator(raw);
+}
+
+export function __buildViewerQueryStringForTest(params) {
+	return buildViewerQueryString(params);
+}
+
+export function __getQSForTest() {
+	return getQS();
+}
+
 const IMAGE_LIGHTBOX_IDS = {
 	root: 'image-lightbox',
 	dialog: 'image-lightbox-dialog',
@@ -651,21 +664,173 @@ async function ensureApiSW() {
 
 /**
  * URL パラメータ管理
+ *
+ * ビューアの直リンクは「圧縮ロケータ」1本を正とする:
+ *   characters.html?c=NumberTales/Primary/57
+ *   characters.html?c=FLInvestigator78/Primary/Card.Num:7
+ *   characters.html?c=NumberTales/Primary&q=狐
+ *
+ *   c = <Work>[/<Db>[/<IdxToken>]]      IdxToken = <値> または <キーパス>:<値>
+ *
+ * 旧形式（`work` / `db` / `idx` / `idxKey` / `num` の個別キー、`Works_` 接頭辞付きの作品ID）は
+ * **読み取りのみ**互換維持する。生成側は圧縮ロケータのみを出す。
  */
+
+/** 圧縮ロケータのクエリキー */
+const VIEWER_LOCATOR_PARAM = 'c';
+
+/**
+ * インデックスのキーパスとして解釈できる文字列（`Num` / `Card.Num` / `BeastType.Beast` など）。
+ * IdxToken のコロン分割は、左辺がこの形のときだけキーとみなす。
+ * （インデックス値そのものが `Ident:...` の形をしていると誤判定し得るが、実データ上は発生しない）
+ */
+const INDEX_KEY_PATH_RE = /^[A-Za-z_][A-Za-z0-9_]*(?:\.[A-Za-z_][A-Za-z0-9_]*)*$/;
+
+/**
+ * 作品IDを URL 表記（接頭辞なし）へ短縮する
+ * @param {string} workKey - '#Works_NumberTales' / 'Works_NumberTales' / 'NumberTales'
+ * @returns {string} 'NumberTales'
+ */
+function workKeyForURL(workKey) {
+	const raw = String(workKey || '').trim();
+	if (!raw) return '';
+	return raw.replace(/^#/, '').replace(/^Works_/, '');
+}
+
+/**
+ * IdxToken（`57` / `Card.Num:7`）を idx / idxKey へ分解する
+ * @param {string} raw - トークン文字列
+ * @returns {{idx: string, idxKey: string}}
+ */
+function parseIdxToken(raw) {
+	const token = String(raw || '').trim();
+	if (!token) return { idx: '', idxKey: '' };
+	// `_DBLink` の複合条件（JSON ペイロード）はコロンを含むため分割しない
+	if (token[0] === '{') return { idx: token, idxKey: '' };
+
+	const sep = token.indexOf(':');
+	if (sep > 0) {
+		const key = token.slice(0, sep);
+		const value = token.slice(sep + 1);
+		if (value && INDEX_KEY_PATH_RE.test(key)) return { idx: value, idxKey: key };
+	}
+	return { idx: token, idxKey: '' };
+}
+
+/**
+ * idx / idxKey から IdxToken を組み立てる
+ * @param {string} idx - インデックス値
+ * @param {string} idxKey - インデックスのキーパス（任意）
+ * @returns {string} IdxToken（値が空なら空文字）
+ */
+function buildIdxToken(idx, idxKey) {
+	const value = String(idx ?? '').trim();
+	if (!value) return '';
+	const key = String(idxKey ?? '').trim();
+	if (!key || !INDEX_KEY_PATH_RE.test(key)) return value;
+	return `${key}:${value}`;
+}
+
+/**
+ * 圧縮ロケータ（`Work/Db/IdxToken`）を分解する
+ * 3セグメント目以降の `/` はインデックス値の一部として保持する
+ * @param {string} raw - `c` パラメータの値
+ * @returns {{work: string, db: string, idx: string, idxKey: string}}
+ */
+function parseViewerLocator(raw) {
+	const value = String(raw || '').trim();
+	const empty = { work: '', db: '', idx: '', idxKey: '' };
+	if (!value) return empty;
+
+	const firstSlash = value.indexOf('/');
+	if (firstSlash < 0) return { ...empty, work: value };
+
+	const work = value.slice(0, firstSlash);
+	const rest = value.slice(firstSlash + 1);
+	const secondSlash = rest.indexOf('/');
+	if (secondSlash < 0) return { ...empty, work, db: rest };
+
+	const db = rest.slice(0, secondSlash);
+	return { work, db, ...parseIdxToken(rest.slice(secondSlash + 1)) };
+}
+
+/**
+ * ビューア用のクエリ文字列を組み立てる（空値のパラメータは出力しない）
+ *
+ * `_DBLink` の複合条件（JSON ペイロード + `idxKey=__conditions__`）だけは
+ * 圧縮ロケータで表現できないため、従来の個別キー形式で出す（手入力対象外のため許容）。
+ *
+ * @param {Object} params - work / db / idx / idxKey / q / lang
+ * @returns {string} '?c=...' 形式のクエリ（空なら空文字）
+ */
+function buildViewerQueryString(params = {}) {
+	const work = workKeyForURL(params?.work);
+	const db = String(params?.db ?? '').trim();
+	const idx = String(params?.idx ?? '').trim();
+	const idxKey = String(params?.idxKey ?? '').trim();
+	const q = String(params?.q ?? '').trim();
+	const lang = String(params?.lang ?? '').trim();
+
+	const qs = new URLSearchParams();
+	if (idx.startsWith('{')) {
+		if (work) qs.set('work', work);
+		if (db) qs.set('db', db);
+		qs.set('idx', idx);
+		if (idxKey) qs.set('idxKey', idxKey);
+	} else {
+		const token = buildIdxToken(idx, idxKey);
+		if (work) {
+			let locator = work;
+			if (db) locator += `/${db}`;
+			// db が無いと IdxToken の位置が決まらないため、work のみのときは値を載せない
+			if (db && token) locator += `/${token}`;
+			qs.set(VIEWER_LOCATOR_PARAM, locator);
+		} else {
+			if (db) qs.set('db', db);
+			if (token) qs.set('idx', token);
+		}
+	}
+	if (q) qs.set('q', q);
+	if (lang) qs.set('lang', lang);
+
+	const encoded = qs.toString();
+	if (!encoded) return '';
+	// `/` と `:` はクエリ内では正当な文字（RFC 3986: query = *( pchar / "/" / "?" )）なので、
+	// URLSearchParams が退避した %2F / %3A を戻して可読性を優先する
+	return `?${encoded.replace(/%2F/g, '/').replace(/%3A/g, ':')}`;
+}
 
 /**
  * 現在のクエリ文字列パラメータをオブジェクトとして取得
- * @returns {Object} work, db, num, q プロパティを持つオブジェクト
+ * 圧縮ロケータ（`c`）と旧形式の個別キーの双方を解釈し、個別キーがあればそちらを優先する
+ * @returns {Object} work, db, num, idx, idxKey, q, lang プロパティを持つオブジェクト
  */
 function getQS() {
 	const p = new URLSearchParams(location.search);
+	const locator = parseViewerLocator(p.get(VIEWER_LOCATOR_PARAM) || '');
+
+	const rawIdx = p.get('idx') || '';
+	// 旧形式の `idx` にも `Key:Value` 記法を許可する（`idxKey` の明示指定があればそちらが優先）
+	const idxSource = rawIdx ? parseIdxToken(rawIdx) : { idx: locator.idx, idxKey: locator.idxKey };
+	const explicitIdxKey = p.get('idxKey') || '';
+	const legacyNum = p.get('num') || '';
+
+	let idx = idxSource.idx || '';
+	let idxKey = explicitIdxKey || idxSource.idxKey || '';
+	// 旧互換: `?num=` は Num インデックスとして解釈する。
+	// ここで idx/idxKey へ寄せておかないと、setQS() による URL 書き換えで直リンク先が失われる
+	if (!idx && legacyNum) {
+		idx = legacyNum;
+		idxKey = idxKey || 'Num';
+	}
+
 	return {
-		work: p.get('work') || '',
-		db: p.get('db') || '',
-		num: p.get('num') || '',
+		work: p.get('work') || locator.work || '',
+		db: p.get('db') || locator.db || '',
+		num: legacyNum,
 		// 汎用インデックス直リンク（作品ごとの $IndexDef に対応）
-		idx: p.get('idx') || '',
-		idxKey: p.get('idxKey') || '',
+		idx,
+		idxKey,
 		q: p.get('q') || '',
 		lang: p.get('lang') || ''
 	};
@@ -673,12 +838,21 @@ function getQS() {
 
 /**
  * ページリロードなしでクエリ文字列パラメータを更新
+ * 旧形式で開かれた URL も、この更新を通じて圧縮ロケータへ書き換わる
  * @param {Object} next - 更新するパラメータのオブジェクト
  */
 function setQS(next) {
-	const cur = getQS();
-	const qs = new URLSearchParams({ ...cur, ...next });
-	history.replaceState(null, '', `${location.pathname}?${qs.toString()}`);
+	const search = buildViewerQueryString({ ...getQS(), ...next });
+	history.replaceState(null, '', `${location.pathname}${search}`);
+}
+
+/**
+ * 現在のクエリを引き継いだうえで、ビューアの直リンク URL を組み立てる
+ * @param {Object} next - 上書きするパラメータ（work / db / idx / idxKey / q / lang）
+ * @returns {string} 直リンク URL
+ */
+function buildViewerHref(next = {}) {
+	return `${location.pathname}${buildViewerQueryString({ ...getQS(), ...next })}`;
 }
 
 function normalizePageLanguage(lang) {
@@ -6063,18 +6237,12 @@ async function renderList(records, workId, onOpen, imageFields = null) {
 			const cur = getQS();
 			const db = window?.__CHAR_STATE__?.db || cur.db || 'Primary';
 			for (const item of indexChipItems) {
-				const legacyNum = item.keyPath === 'Num' ? item.value : '';
-				const href = (() => {
-					const qs = new URLSearchParams({
-						...cur,
-						work: workId,
-						db,
-						idx: item.value,
-						idxKey: item.keyPath,
-						num: legacyNum,
-					});
-					return `${location.pathname}?${qs.toString()}`;
-				})();
+				const href = buildViewerHref({
+					work: workId,
+					db,
+					idx: item.value,
+					idxKey: item.keyPath
+				});
 
 				chipEls.push(
 					item?.contexts?.link
@@ -6602,7 +6770,6 @@ export async function renderDetail(workId, rec) {
 					const workIndexDef = getWorkIndexField(workId, globalMeta, dbName);
 					const indexChipItems = buildIndexChipItems(rec, workIndexDef, metaForLookup, globalDefType, 'detail');
 					if (!indexChipItems.length) return null;
-					const cur = getQS();
 
 					// Index ルート（例: Logic / LogicAlt）ごとにサブフィールドを 1 ピルへ集約する
 					// - エントリは collectIndexEntries() で優先度順に並んでいるため、
@@ -6654,16 +6821,12 @@ export async function renderDetail(workId, rec) {
 
 						if (!linkItem) return el('span', { class: className }, children);
 
-						const legacyNum = linkItem.keyPath === 'Num' ? linkItem.value : '';
-						const qs = new URLSearchParams({
-							...cur,
+						const href = buildViewerHref({
 							work: workId,
 							db: dbName,
 							idx: linkItem.value,
-							idxKey: linkItem.keyPath,
-							num: legacyNum,
+							idxKey: linkItem.keyPath
 						});
-						const href = `${location.pathname}?${qs.toString()}`;
 
 						return el('a', {
 							class: className,
@@ -6674,7 +6837,7 @@ export async function renderDetail(workId, rec) {
 								ev.preventDefault();
 								ev.stopPropagation();
 								try {
-									setQS({ idx: linkItem.value, idxKey: linkItem.keyPath, num: legacyNum });
+									setQS({ idx: linkItem.value, idxKey: linkItem.keyPath, num: '' });
 								} catch {
 									// noop
 								}
@@ -7329,19 +7492,12 @@ export async function renderDetail(workId, rec) {
 			return { idxKeyPath: rootKey, idxValue: String(leaf) };
 		};
 
-		const buildIndexHref = (workId, dbName, idxValue, idxKeyPath) => {
-			const cur = getQS();
-			const legacyNum = idxKeyPath === 'Num' ? idxValue : '';
-			const qs = new URLSearchParams({
-				...cur,
-				work: workId,
-				db: dbName,
-				idx: String(idxValue ?? ''),
-				idxKey: String(idxKeyPath ?? ''),
-				num: legacyNum,
-			});
-			return `${location.pathname}?${qs.toString()}`;
-		};
+		const buildIndexHref = (workId, dbName, idxValue, idxKeyPath) => buildViewerHref({
+			work: workId,
+			db: dbName,
+			idx: String(idxValue ?? ''),
+			idxKey: String(idxKeyPath ?? '')
+		});
 
 		const toDisplayNode = (k, v, schemaType = null, schemaDisplay = null) => {
 			if (v instanceof Node) return v;
@@ -8244,26 +8400,28 @@ function renderRelations(rel, fieldLabelMap, workMeta, globalDefType, fieldDispl
 	}) ?? null;
 }
 
+/**
+ * 他レコード/他DBへ遷移するための直リンク URL を組み立てる
+ * @param {string} workId - 遷移先の作品ID（省略時は現在の作品）
+ * @param {string} dbName - 遷移先の DB 名（省略時は現在の DB）
+ * @param {Object} options - idx / idxKey / q（`num` は旧互換のため受理するが URL には出力しない）
+ * @returns {string} 直リンク URL
+ */
 function buildViewerNavigationHref(workId, dbName, options = {}) {
 	const current = getQS();
-	const normalizedWork = workKeyForAPI(workId || current.work || '');
 	const hasOwn = (key) => Object.prototype.hasOwnProperty.call(options || {}, key);
 	const q = hasOwn('q') ? String(options?.q || '').trim() : String(current.q || '').trim();
 	const idx = hasOwn('idx') ? String(options?.idx || '').trim() : '';
 	const idxKey = hasOwn('idxKey') ? String(options?.idxKey || '').trim() : '';
-	const num = hasOwn('num')
-		? String(options?.num || '').trim()
-		: (idxKey === 'Num' ? idx : '');
-	const qs = new URLSearchParams({
+	return `${location.pathname}${buildViewerQueryString({
 		...current,
-		work: normalizedWork,
+		work: workId || current.work || '',
 		db: String(dbName || current.db || ''),
 		q,
-		num,
 		idx,
-		idxKey
-	});
-	return `${location.pathname}?${qs.toString()}`;
+		idxKey,
+		num: ''
+	})}`;
 }
 
 async function openViewerNavigation(workId, dbName, options = {}) {
@@ -8276,7 +8434,6 @@ async function openViewerNavigation(workId, dbName, options = {}) {
 	const q = String(options?.q || '').trim();
 	const idx = String(options?.idx || '').trim();
 	const idxKey = String(options?.idxKey || '').trim();
-	const num = String(options?.num || (idxKey === 'Num' ? idx : '')).trim();
 
 	if (!selectWork || !selectDB || !normalizedWork || !normalizedDb) {
 		location.href = href;
@@ -8290,7 +8447,7 @@ async function openViewerNavigation(workId, dbName, options = {}) {
 		}
 		selectDB.value = normalizedDb;
 		if (searchInput) searchInput.value = q;
-		setQS({ work: workKeyForAPI(normalizedWork), db: normalizedDb, q, num, idx, idxKey });
+		setQS({ work: workKeyForURL(normalizedWork), db: normalizedDb, q, idx, idxKey, num: '' });
 		await renderSelectionMeta(normalizedWork, normalizedDb);
 		await reloadInternal(false);
 	} catch {
@@ -8564,7 +8721,7 @@ function wireControls() {
 	// Define and store new handlers
 	window.__eventHandlers.workChange = async (e) => {
 		const wk = e.target.value;
-		setQS({ work: wk.replace('#', ''), db: '', num: '', idx: '', idxKey: '' });
+		setQS({ work: workKeyForURL(wk), db: '', num: '', idx: '', idxKey: '' });
 		await populateDBs(wk);
 		await renderSelectionMeta(wk, $('#select-db').value || '');
 		await reload();
@@ -8744,14 +8901,13 @@ async function openDetail(rec) {
 		const indexDef = getWorkIndexField(state.workId, globalMeta, state.db);
 		const id = getIndexIdentifierFromRecord(rec, indexDef, state?.records);
 		if (id) {
-			const legacyNum = id.keyPath === 'Num' ? id.value : '';
-			setQS({ idx: id.value, idxKey: id.keyPath, num: legacyNum });
+			setQS({ idx: id.value, idxKey: id.keyPath, num: '' });
 		} else if (rec.Num != null) {
-			// 最小互換
-			setQS({ num: String(rec.Num), idx: '', idxKey: '' });
+			// $IndexDef が無い作品の最小互換（旧 ?num= 相当を Num インデックスとして表現）
+			setQS({ idx: String(rec.Num), idxKey: 'Num', num: '' });
 		}
 	} catch {
-		if (rec.Num != null) setQS({ num: String(rec.Num) });
+		if (rec.Num != null) setQS({ idx: String(rec.Num), idxKey: 'Num', num: '' });
 	}
 }
 

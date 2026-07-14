@@ -45,18 +45,33 @@
 
 ## 2. 直リンク（URLパラメータ）
 
-キャラ詳細は URL パラメータで直接開けます。
+キャラ詳細は URL パラメータで直接開けます。作品・DB・インデックスは `c`（compact locator）1 本にまとめます。
 
-- 例: `?work=NumberTales&db=Primary&idx=2&idxKey=Num`
+```
+characters.html?c=<作品>[/<DB>[/<インデックス>]]
 
-パラメータ:
+例:
+  ?c=NumberTales/Primary/2          # 主要インデックスの値だけ指定
+  ?c=NumberTales/Primary/Num:2      # インデックスキーを明示
+  ?c=FLInvestigator78/Primary/Card.Num:7
+  ?c=NumberTales/Primary&q=狐        # 一覧を開いて検索語を適用
+```
 
-- `work`: 作品ID（例: `NumberTales`）
-- `db`: DB 種別（例: `Primary`）
-- `idx`: インデックス値（番号など）
-- `idxKey`: インデックスキー（例: `Num`、`Card.Num` など）
+- `<作品>`: 作品ID（`Works_` 接頭辞は不要。例: `NumberTales`）
+- `<DB>`: DB 種別（例: `Primary`）
+- `<インデックス>`: `値` または `キーパス:値`
+  - キーパスは `<root>` または `<root>.<child>`（例: `Num`、`Card.Num`、`BeastType.Beast`）
+  - キーパスを省略した場合は、作品別 typedef の `$IndexDef` の主要要素として解釈します
 
-> 旧互換として `num` を解釈する場合があります（主に `Num` インデックス想定）。
+補助パラメータ（値があるときだけ付きます）:
+
+- `q`: 検索語
+- `lang`: 表示言語（`jp` / `en`）
+
+> **旧形式について**
+> `?work=Works_NumberTales&db=Primary&idx=2&idxKey=Num` や `?num=2` といった旧パラメータは
+> **読み取りのみ**互換維持しています（既存の貼付URLは引き続き開けます）。
+> ページ側が生成するURLは常に `c` 形式で、開いた時点で新形式へ書き換わります。
 
 ---
 
