@@ -34,11 +34,8 @@
 | 英訳ルール追補・calling.js               | [2026-06-24_progress_localization-rules-audit.md](./2026-06-24_progress_localization-rules-audit.md)                                                                | ⚠️ calling.js のユニットテスト/UI確認が残（後続の `fix_calling-schema-duplication` は 2026-07-14 に完了・退避済み） |
 | ADR-0002（Google Cloud 画像生成）        | [2026-06-21_progress_cloudflare-api-adr2-gcloud.md](./2026-06-21_progress_cloudflare-api-adr2-gcloud.md)                                                            | Draft・設計検討中                                                                                |
 | UnibyteLive アルベッツ苗字命名           | [2026-07-06_progress_unibytelive-formalname-draft.md](./2026-07-06_progress_unibytelive-formalname-draft.md)                                                        | ⚠️ 下書き入力24件・User最終レビュー待ち                                                          |
-| AIHints 構造的再同期 設計提案            | [2026-07-08_progress_aihints-structural-resync-proposal.md](./2026-07-08_progress_aihints-structural-resync-proposal.md)                                            | 📝 提案書のみ・実装未着手。User の優先度判断待ち（実装は本ブランチの別タスク）                   |
-| AIHints カラーセット デッドロック診断    | [2026-07-13_progress_aihints-palette-deadlock.md](./2026-07-13_progress_aihints-palette-deadlock.md)                                                                | ✅ 第0階（null ハンドリング修正）実装完了・視覚タスク検出 0→92件を実証。⚠️ 第1階（provenance）は未着手 |
-| ColorPalette スキーマ + カラーチップ抽出 | [2026-07-13_progress_colorpalette-schema.md](./2026-07-13_progress_colorpalette-schema.md)                                                                          | ✅ 設定画のカラーチップから 94 件へ配色を投入済み（全件 5 色以上）。⚠️ 色名・Role は User レビュー待ち／AIHints への機械導出は未実装 |
-| **addon-ai-tag**: EarShapeType の AIHints 追従 | [2026-07-08_progress_addon-ai-tag-earshapetype-aihints.md](./2026-07-08_progress_addon-ai-tag-earshapetype-aihints.md)                                        | ✅ 実装完了・`npm test` 220件成功・`--suggest` dry-run / Num:11 実適用まで検証済み（本ブランチ固有） |
-| **addon-ai-tag**: 取り込みマージ + `--apply-identitymotif` 撤去 | [2026-07-11_progress_addon-ai-tag-identitymotif-removal.md](./2026-07-11_progress_addon-ai-tag-identitymotif-removal.md)                          | ✅ 実装完了・`npm test` 270件成功（本ブランチ固有）                                              |
+| **addon-ai-tag**: AIHints 残課題台帳     | [2026-07-14_progress_addon-ai-tag-log-inventory.md](./2026-07-14_progress_addon-ai-tag-log-inventory.md)                                                            | ⚠️ AIHints 系ログ 4 件を退避し、残課題（A1〜A5）を集約（本ブランチ固有。母艦は develop と共有のため衝突回避で分離） |
+| ColorPalette スキーマ + カラーチップ抽出 | [2026-07-13_progress_colorpalette-schema.md](./2026-07-13_progress_colorpalette-schema.md)                                                                          | ✅ 設定画のカラーチップから 94 件へ配色を投入済み（全件 5 色以上）。⚠️ 色名・Role は User レビュー待ち（AIHints への機械導出は `--apply-colorpalette` で完了済み） |
 | AppearanceDetail 参考画像の一括登録      | [2026-07-11_progress_appearancedetail-images.md](./2026-07-11_progress_appearancedetail-images.md)                                                                  | ⚠️ `10`/`10alt` の割当正誤（User確認待ち）・保留4枚の扱い                                        |
 
 ### 系列の補足（過去フェーズは `.completed/` 参照）
@@ -53,12 +50,23 @@
 - **pkg/ 追従系**: `pkg-sync` は 2026-07-13 の実装・検証で完了。残る技術負債（Workers 側 `_Secondaries` マッチャの乖離ほか）は母艦 `2026-07-08_remaining-task.md` の P4 へ引き継ぎ済み。
 - **アンオースドロジカ Index 系**: `unauthedlogica-index-alias` は実装・テスト・ブラウザ確認完了、コミットも `develop` へ着地済み（`f3c18ae`）。残る辞書ラベル（創作文言）は母艦 P3 へ引き継ぎ済み。
 - **addon-ai-tag / AIHints系**（本ブランチ固有）: `aihints-from-identitymotif` → `corefolder-nld-template-and-silhouette-structure` → `appearancedetail-aihints-mode`（`AppearanceDetail` を正源とする並行モード追加・NumberTales/Primary 92件へ実データ適用済み）、`addon-ai-tag-api-separation`（`/api/ai/*` 分離・Bearer認証実装）、`db-images-phase2`（Images整備）は実装・適用が完了しており `.completed/` へ退避済み。`addon-ai-tag-merge-conflict-and-log-cleanup` / `addon-ai-tag-revert-cascade-recovery` / `addon-ai-tag-reverse-merge-incident` / `addon-ai-tag-log-inventory` の一連のマージ事故対応・ログ棚卸し系も是正完了につき退避済み（詳細は各ログ参照。`reverse-merge-incident` は develop 側では進行中ログとして残るが、本ブランチでは後日談追記まで完了し退避済み）。GitHub Issues機能・Calling 表示系はこのブランチにも波及しているが、いずれも develop 側の `issue-feature` / `fix_calling-schema-duplication` として 2026-07-14 に完了・退避済み。
+- **AIHints 再ビルド基盤（第0〜2階）**（本ブランチ固有）: `aihints-palette-deadlock`（第0階: `palette_priority` の `null` ハンドリング）→ `aihints-structural-resync-proposal`（第1階: `_meta` provenance + `--resync-structural` + CI）→ `develop` の `ColorPalette` + `--apply-colorpalette`（第2階: 配色の機械導出）で**3 階すべて完了**。2026-07-14 の棚卸しで、実データ 92/92 件への `_meta` 付与・`palette_priority` 確定 91 件・誤タグ 0 件を実測して裏取りし、4 件を `.completed/` へ退避した（ログ側の「未着手」記載が実装に追いついていなかった）。残課題は `2026-07-14_progress_addon-ai-tag-log-inventory.md` の「AIHints 残課題台帳」へ集約。
 
 ---
 
 ## 完了（.completed へ退避済み）
 
 以下のファイルは実装・検証が完了し、`_work_in_progress/.completed/` へ移動済みです（Git 管轄外）。
+
+### 2026-07-14 addon-ai-tag 棚卸しで追加退避（4件・本ブランチ固有）
+
+`develop` 取り込みマージ後に実施。**書面の「未着手」を鵜呑みにせず、コードと実データで実状を確認**した結果、
+提案書のまま残っていた 2 件が**実際には完了済み**と判明した（実装がログを追い越していた）。
+
+- `2026-07-08_progress_aihints-structural-resync-proposal.md`（**「📝 実装未着手」は陳腐化**: `--resync-structural` / `_meta.structuralEntries` / `structuralSourceHash` / CI ワークフロー / テスト 26 件がすべて実在し、実データ **92/92 件**に `_meta` が付与済みであることを確認。**未実施だった `docs/ai-hints-usage.md` への追記（§9.10）は本棚卸しで対応**）
+- `2026-07-13_progress_aihints-palette-deadlock.md`（第0〜2階すべて完了。親ログに育った結果**「残る課題」節が実装結果と自己矛盾**していたため、最終状態を追記して整理し退避。`palette_priority` 確定 **91 件**）
+- `2026-07-08_progress_addon-ai-tag-earshapetype-aihints.md`（「ビルド範囲の確認中」を消化: 実データで誤タグ `"nekomata ears"` **0 件**、Num:11 の耳は `AppearanceDetail` 由来の値であることを確認）
+- `2026-07-11_progress_addon-ai-tag-identitymotif-removal.md`（「未完了タスク: なし」。マージ後も全テスト成功を確認）
 
 ### 2026-07-14 棚卸しで追加退避（6件）
 
@@ -247,3 +255,4 @@
 - 2026-07-11 の develop → addon-ai-tag 取り込みマージで発生した `README.md` のコンフリクトを解消。develop側の新規完了（NumberTales `NumberMarkLocation`/`IdentityMotif` 廃止）をトピック索引・系列補足へ反映し、addon-ai-tag側の既存記載（cross-work DBLink監査・github-triage最新版・EarShapeType追従済み表記・AppearanceDetail系Costume完了情報等）は失わず保持しました。
 - **2026-07-13 の棚卸しで、「確認待ち」を実際に確認して解消したうえで 17件 を `.completed/` へ退避し、直下を 34件 → 17件（+README）に削減しました。** 単なる仕分けではなく、(1) Playwright + ローカル HTTP サーバーでブラウザ目視 4件（`_DBCrossLinkPath` / TailsUnit 参考画像 / `NumberMarkLocation`・`IdentityMotif` 廃止 / EarShapeType）、(2) 本番実 API での裏取り 3件（R2 復旧・D1 `is_private` 是正・共通資料の Workers 疎通）、(3) コミット状態の確認（`Works_Proxies` 削除済み・`origin/develop` と同期済み）を実施し、その結果を各ログへ追記してから退避しています。創作文言待ち・技術負債は `2026-07-08_remaining-task.md`（母艦 P3 / P4）へ引き継ぎ、`2026-07-03_current-task-ledger.md` も全面改訂しました。詳細は `2026-07-13_progress_wip-tidy.md` を参照。
 - **2026-07-14 の develop 側棚卸しで、6件 を `.completed/` へ退避し、直下を 21件 → 15件（+README）に削減しました。** 前回同様、書面の「未完了」を鵜呑みにせず裏取りしてから退避しています。(1) Issue テンプレートの最終確認は、外部ユーザーが Issue #11 を**テンプレート経由で実起票**していたことを `gh issue view` で確認して消化（User の目視確認より強い実地証拠）。この過程で **`data-correction` ラベルがリポジトリに未定義**で、GitHub が未定義ラベルを自動作成せず黙って無視していた不具合を発見し、ラベルを作成して修正。(2) Calling 表示バグの「他作品への影響確認」は、`ForMasterCalling_JP`/`_EN` の suffix 宣言が作品別 typedef に残っていることを発見したものの、ブラウザ実地確認で**表示バグは再現しない**（renderer 側の `parseLangSuffix()` が base 統合するため）と確認し、その挙動を回帰テスト 2 件で固定して消化。詳細は `2026-07-14_progress_wip-tidy.md` を参照。
+- **2026-07-14 の addon-ai-tag 棚卸しで、4件 を `.completed/` へ退避し、直下を 17件 → 13件（+README）に削減しました。** `develop` 取り込みマージ（`a1e259d`）で発生した `README.md` のコンフリクト 2 箇所を、**両ブランチの記載をどちらも失わずに**解消（「系列の補足」に develop 側 4 項目と addon 側 AIHints 項目の両方を保持、「整理履歴」も両者を時系列で統合）。あわせて本ブランチ側のログを棚卸ししたところ、**実装がログを追い越している**状態が判明: (1) AIHints 構造的再同期（第1階）は「📝 提案書のみ・実装未着手」と記載されていたが、`--resync-structural` / `_meta` provenance / CI ワークフロー / テスト26件がすべて実在し、実データ 92/92 件へ適用済みだった。(2) `palette-deadlock` ログは親ログに育った結果「残る課題」節が実装結果と自己矛盾していた（`prompt_export` 再生成・`--force` 阻止・CI 自動化はいずれも実装済み）。実データで裏取りし（`palette_priority` 確定 91 件・`_meta` 92/92 件・誤タグ 0 件）、最終状態を各ログへ追記してから退避。**この過程で `docs/ai-hints-usage.md` に `--resync-structural` / `--apply-colorpalette` の記載が欠落していた不備を発見し、§9.10 / §9.11 として追記しました。** AIHints の残課題は `2026-07-14_progress_addon-ai-tag-log-inventory.md` の台帳へ集約（共有母艦はマージ衝突を避けるため使わない）。

@@ -474,3 +474,76 @@ node tools/patch-aihints.mjs --work NumberTales --db Primary --all --apply-appea
 - `value_EN` が未入力で `value_JP` のみ存在する Attrs は `[JA] ...` を付けて出力し、警告ログ（`[apply-appearancedetail] ...`）に手動翻訳が必要な旨を記録する。創作内容の自動翻訳はしない。
 - 既存 AIHints のスキーマ外トップレベルキー（例: `concept_contains_forms`）・form 単位のスキーマ外キーは変更せず保持する。
 - キャラ固有の創作判断が必要な本文（固有描写・台詞・未公開設定）は本モードで自動生成しない。
+- **`--force` による全面上書きは、人が書いた内容が残っているレコードでは安全のためブロックされる**（`--force-destructive` を明示しない限り上書きされない）。構造だけを最新化したい場合は 9.10 の `--resync-structural` を使う。
+
+### 9.10 `--resync-structural` モード（provenance による構造的再同期）
+
+構造由来の部分**だけ**を最新化し、人が手仕上げした内容には一切触れないモード。`--apply-appearancedetail --force`（全面上書き）の安全な代替であり、**構造ソースが変わったときの通常運用はこちらを使う**。
+
+#### 基本方針
+
+- **provenance の記録**: `AIHints._meta.structuralEntries` に「ツールが実際に挿入した文字列そのもの」をパス単位で記録する（例: `common.identity_tags` / `common.silhouette_features` / `forms.humanoid.form_tags`）。
+- **find-exact-and-replace**: 再同期時は、記録と一致する文字列**だけ**を差し替える。人が追記・編集したタグは記録に無いため素通りする。これにより `--force` のような巻き戻り（手仕上げ内容の TODO 雛形化）が起きない。
+- **no-op 判定**: `AIHints._meta.structuralSourceHash` が構造ソース（`TailsUnit` / `AppearanceDetail` / `ColorPalette` / `GenderType` / `ConceptAge` / `Height_cm` / `Num`）のハッシュと一致すれば、そのレコードは処理せず `resync-unchanged` を返す。
+- **導出値の再生成**: `prompt_export` / `negative_prompt_export` はソース配列（`ai_tags` / `negative_visuals`）からの導出値のため、再同期の最後に `regenerateFormExports()` で常に作り直す。タグだけ更新して export が古いまま残る不整合（生成 AI へ渡る文字列と実データの食い違い）を防ぐ。
+- `_meta` は `_DBLink` と同様の内部補助情報として扱い、UI / 公開 API へは露出させない。
+
+#### コマンド
+
+```powershell
+# dry-run（差分確認）
+node tools/patch-aihints.mjs --work NumberTales --db Primary --all --resync-structural
+
+# 適用
+node tools/patch-aihints.mjs --work NumberTales --db Primary --all --resync-structural --apply
+# → resync-applied=<N>, resync-unchanged=<M>
+```
+
+#### 集計ラベルの読み方
+
+- `resync-applied`: 構造ソースが変化しており、構造由来の記録済み文字列を差し替えた。
+- `resync-unchanged`: `structuralSourceHash` が一致（構造ソース無変更）のため no-op。
+
+#### CI 連携
+
+`.github/workflows/aihints-structural-resync.yml` が `addon-ai-tag` への push で起動し、構造ソースに変化があれば再同期の PR を作成する。構造ソース無変更なら no-op で停止し PR は作られない。
+
+> **制約**: `workflow_dispatch`（手動実行）は使えない。GitHub の仕様上、手動実行はデフォルトブランチ（`develop`）にワークフローファイルが存在しないと利用できないが、本ワークフローは AIHints 専用のため `addon-ai-tag` 限定である。手動で再同期したい場合はローカル実行して通常の PR を出す。
+
+### 9.11 `--apply-colorpalette` モード（ColorPalette から palette_priority を機械導出）
+
+`develop` 側の `ColorPalette`（設定画のカラーチップ由来の構造化フィールド）を正源に、`common.palette_priority` を機械導出するモード。**画像の目視は一切不要**。
+
+#### 基本方針
+
+- `ColorPalette[]` の `Role`（`#ColorRole_Primary` / `#ColorRole_Secondary` / `#ColorRole_Accent`）と `Hex` から `{ primary, secondary, accent }` を組み立てる。
+- `#ColorRole_Sub`（副色）は `palette_priority` に対応スロットが無いため使わない。
+- `ColorPalette` を持たないレコードは `null` を返し、**勝手に推定しない**（`palette-no-colorpalette`）。
+- 既存の確定値は保護する。上書きしたい場合のみ `--force-palette` を指定する（`--apply-vision-results` と同じ規約）。
+- `--apply-appearancedetail` は `palette_priority` を再構築せず据え置くため、本モードで入れた値が次回ビルドで潰れることはない。
+
+#### コマンド
+
+```powershell
+# dry-run
+node tools/patch-aihints.mjs --work NumberTales --db Primary --all --apply-colorpalette
+
+# 適用
+node tools/patch-aihints.mjs --work NumberTales --db Primary --all --apply-colorpalette --apply
+# → palette-applied=<N>, palette-unchanged=<M>, palette-no-colorpalette=<K>
+
+# 既存の確定値も上書きする
+node tools/patch-aihints.mjs --work NumberTales --db Primary --all --apply-colorpalette --force-palette --apply
+```
+
+#### 集計ラベルの読み方
+
+- `palette-applied`: `ColorPalette` から導出した HEX を `palette_priority` へ書き込んだ。
+- `palette-unchanged`: 既に同じ値が入っている（または確定値を保護してスキップ）。
+- `palette-no-colorpalette`: レコードに `ColorPalette` が無く導出できない。
+
+#### 注意事項
+
+- `ColorPalette` は `develop` 側の本体スキーマ（`data/db_type.json` の `ColorPalette` / `data/db_meta.json` の `$Def_ColorPalette`）であり、AIHints 非依存。作品・DB を跨いで同じ経路が使える。
+- `Hex` は設定画のカラーチップ実測値であり、既存の創作物の転記にあたる（新規の創作内容を生成するものではない）。
+- `ColorName_JP` / `ColorName_EN` / `Formation` / `Note_*` は創作内容のため本モードでは扱わない。
