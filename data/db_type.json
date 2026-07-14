@@ -112,16 +112,20 @@
       "hashTag_EN": "Race",
       "$display": {
         "section": "basic",
-        "tagSpace": "creation",
-        "langMode": "shared"
+        "tagSpace": "creation"
       }
     },
     {
       "hashTag": "GenderType",
-      "$type": "$EnumDef|$EnumDef_withAbout",
+      "$type": "#DictIndex|#DictIndex_withAbout",
+      "$dict": "GenderType",
       "hashTag_JP": "性別",
       "hashTag_EN": "Gender",
-      "$display": { "section": "basic", "tagSpace": "creation" }
+      "$display": {
+        "section": "basic",
+        "tagSpace": "creation",
+        "langMode": "shared"
+      }
     },
     {
       "hashTag": "Belonging",
@@ -868,6 +872,13 @@
       "description_EN": "RGB or RGBA color code in #RRGGBB or #RRGGBBAA format.",
       "pattern": "^#[0-9A-Fa-f]{6}([0-9A-Fa-f]{2})?$",
       "example": "#FF0000"
+    },
+    "#Hexcode_ASCII": {
+      "extends": "#Hexcode",
+      "description_JP": "ASCIIコードの16進数表現。",
+      "description_EN": "Hexadecimal representation of ASCII code.",
+      "pattern": "^0x[0-9A-Fa-f]{2}$",
+      "example": "0x41"
     }
   }
 }

@@ -4,7 +4,7 @@
     "$type": [
       {
         "hashTag": "Alphabet",
-        "$type": "#ListIndex",
+        "$type": "#IndexListKey",
         "hashTag_JP": "アルファベットキー",
         "hashTag_EN": "Alphabet Key",
         "$display": { "langMode": "shared" }
@@ -51,7 +51,11 @@
       "$type": "#Number|#Null",
       "hashTag_JP": "アルベッツの世代",
       "hashTag_EN": "Generation of ALPBETS",
-      "$display": { "unit_JP": "期生", "unit_EN": "Gen.", "unit_EN_ordinal": true }
+      "$display": {
+        "unit_JP": "期生",
+        "unit_EN": "Gen.",
+        "unit_EN_ordinal": true
+      }
     },
     {
       "hashTag": "ThisPerformer_DBLink",

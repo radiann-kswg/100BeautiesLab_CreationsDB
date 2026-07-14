@@ -61,7 +61,7 @@
     "RaceType": "OverHuman",
     "GenderType": "Female",
     "Belonging": ["国際情報広報機関『ミハイル』"],
-    "Class": ["『創造者』代理人", "国際情報屋"],
+    "Class": ["『創造主』代理人", "国際情報屋"],
     "Height_cm": [
       {
         "value": 163,
@@ -309,6 +309,7 @@
   {
     "Drc": "NW",
     "Progress": "unreleased",
+    "Regioministration": "Y",
     "Images": {
       "concept_PNGName": "cnsp_imgDrcNW",
       "arts_PNGPath": ["chattingArt/chart_imgDrcNW"]
@@ -328,7 +329,7 @@
       "about_EN": "Presumption"
     },
     "Belonging": { "hideText": "判定失敗" },
-    "Class": { "hideText": "判定失敗" },
+    "Class": ["『破壊主』代理人"],
     "Height_cm": 155,
     "Weight_kg": { "hideText": "判定失敗" },
     "Age": { "about_JP": "不詳", "about_EN": "Unknown or Undefined" },

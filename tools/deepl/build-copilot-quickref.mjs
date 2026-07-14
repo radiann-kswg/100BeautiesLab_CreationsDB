@@ -42,16 +42,42 @@ const SOURCE_LABELS = {
   "Localization/trans_Items.json": "アイテム・道具",
   "Localization/trans_Phenomenon.json": "現象・事象",
   "Localization/trans_ServiceInfra.json": "サービス・インフラ",
+  "Localization/trans_Society.json": "社会（Localization）",
   "References/ref_Race.json": "種族",
   "References/ref_Faction.json": "組織・派閥（References）",
   "References/ref_Region8.json": "八地域",
-  "References/ref_Society.json": "社会",
+  "References/ref_Society.json": "社会（References）",
   "References/ref_Vocabulary.json": "語彙",
   "Dictionaries/dict_Area.json": "エリア",
   "Dictionaries/dict_Artifact.json": "アーティファクト",
   "Dictionaries/dict_Faction.json": "組織・派閥（Dictionaries）",
   "Dictionaries/dict_RaceType.json": "種族タイプ",
+  "Dictionaries/dict_GenderType.json": "性別タイプ",
+  "Dictionaries/dict_Regioministration.json":
+    "『管理主』としてのロールコード（Role-Code of 'Regioministrator'）",
 };
+
+/**
+ * 出典ファイルではなく **base（フィールド名）** で横断的に括る見出し。
+ * `Class` は所属組織ごとに `dict_Mikhail` / `dict_SymphonyXVI` / `dict_Zerbas` … と
+ * ファイルが分かれるが、早見表としては「クラス」1 つの表で引けた方が使いやすい。
+ * ここに base を登録しておけば、同じ base を持つ辞書が今後増えても自動で同じ節に入る。
+ * @type {Record<string, string>} base 名 → 見出しラベル
+ */
+const BASE_LABELS = {
+  Class: "クラス（職掌）",
+};
+
+/**
+ * 出典キーの末尾に付く注記サフィックス（例: `Localization/trans_Regions.json (reading-gloss)`）を
+ * 剥がして、元ファイルの見出しへ統合するためのキーを返す。
+ * 読みグロス原形は元ファイル由来の対訳であり、別セクションに切り出すと早見表が読みにくくなる。
+ * @param {string} source - `glossary_source.json` の出典文字列
+ * @returns {string} 注記を除いた出典キー
+ */
+function normalizeSourceKey(source) {
+  return String(source ?? "").replace(/\s*\([^()]*\)\s*$/, "");
+}
 
 /** Markdown テーブルセル内の `\` と `|` を安全化する。固有名詞に稀に含まれるため。 */
 function escapeCell(value) {
@@ -78,38 +104,63 @@ function loadSource() {
 }
 
 /**
- * entries を出典ごとにグルーピングし、JP の五十音順に近い並び（localeCompare）で整える。
- * @param {Array<{jp:string,en:string,source:string}>} entries
- * @returns {Map<string, Array<{jp:string,en:string}>>} 出典キー → 対訳配列
+ * entries を見出し単位にグルーピングし、JP の五十音順に近い並び（localeCompare）で整える。
+ *
+ * グルーピングの優先順位:
+ *   1. `BASE_LABELS` に登録された base（例: `Class`）— 出典ファイルを横断して 1 節にまとめる
+ *   2. 出典ファイル（`SOURCE_LABELS` の見出し、未知ならファイル名）
+ *
+ * 出典の注記サフィックス（`(reading-gloss)` 等）は元ファイルの見出しへ統合し、
+ * 同一の JP↔EN ペアが複数経路から来た場合は 1 行にまとめる（表の重複防止）。
+ * @param {Array<{jp:string,en:string,source:string,base:?string}>} entries
+ * @returns {Map<string, {label:string, sources:Set<string>, rows:Array<{jp:string,en:string}>}>}
  */
-function groupBySource(entries) {
+function groupEntries(entries) {
   const groups = new Map();
-  for (const { jp, en, source } of entries) {
+  const seen = new Set();
+  for (const { jp, en, source, base } of entries) {
     if (!jp || !en) continue;
-    if (!groups.has(source)) groups.set(source, []);
-    groups.get(source).push({ jp, en });
+    const file = normalizeSourceKey(source);
+    const grouped = base && BASE_LABELS[base];
+    const key = grouped ? `base:${base}` : file;
+    const dedupeKey = `${key}\t${jp}\t${en}`;
+    if (seen.has(dedupeKey)) continue;
+    seen.add(dedupeKey);
+    if (!groups.has(key)) {
+      groups.set(key, {
+        label: grouped ? BASE_LABELS[base] : (SOURCE_LABELS[file] ?? file),
+        sources: new Set(),
+        rows: [],
+      });
+    }
+    const group = groups.get(key);
+    group.sources.add(file);
+    group.rows.push({ jp, en });
   }
-  for (const list of groups.values()) {
-    list.sort((a, b) => a.jp.localeCompare(b.jp, "ja"));
+  for (const group of groups.values()) {
+    group.rows.sort((a, b) => a.jp.localeCompare(b.jp, "ja"));
   }
   return groups;
 }
 
 /** 早見表 Markdown 本文を組み立てて返す。 */
 function renderMarkdown(source) {
-  const groups = groupBySource(source.entries);
-  const total = source.entries.length;
-  // 既知ラベル順 → 未知出典（アルファベット順）で安定出力する。
-  const known = Object.keys(SOURCE_LABELS).filter((k) => groups.has(k));
-  const unknown = [...groups.keys()]
-    .filter((k) => !SOURCE_LABELS[k])
+  const groups = groupEntries(source.entries);
+  const total = [...groups.values()].reduce((n, g) => n + g.rows.length, 0);
+  // 既知ラベル順 → base 括り（`Class` 等）→ 未知出典（アルファベット順）で安定出力する。
+  const knownFiles = Object.keys(SOURCE_LABELS).filter((k) => groups.has(k));
+  const basedKeys = Object.keys(BASE_LABELS)
+    .map((b) => `base:${b}`)
+    .filter((k) => groups.has(k));
+  const rest = [...groups.keys()]
+    .filter((k) => !knownFiles.includes(k) && !basedKeys.includes(k))
     .sort((a, b) => a.localeCompare(b));
-  const orderedSources = [...known, ...unknown];
+  const orderedKeys = [...knownFiles, ...basedKeys, ...rest];
 
   const lines = [];
   lines.push("<!-- 自動生成ファイル: 直接編集しないでください。 -->");
   lines.push(
-    "<!-- 再生成: `npm run deepl:build-quickref`（辞書 trans_/ref_/dict_ を更新したら実行） -->",
+    "<!-- 再生成: `npm run deepl:build-glossary`（用語集ソース生成）/ `npm run deepl:sync-glossary`（DeepL 同期）の実行時に自動更新されます。単体再生成は `npm run deepl:build-quickref`。 -->",
   );
   lines.push("");
   lines.push("# ローカライズ固有名詞 早見表（Copilot 参照用）");
@@ -138,17 +189,21 @@ function renderMarkdown(source) {
   );
   lines.push("");
 
-  for (const src of orderedSources) {
-    const label = SOURCE_LABELS[src] ?? src;
-    const rows = groups.get(src);
-    if (!rows || rows.length === 0) continue;
-    lines.push(`## ${label}`);
+  for (const key of orderedKeys) {
+    const group = groups.get(key);
+    if (!group || group.rows.length === 0) continue;
+    // base 括りの節は複数ファイルにまたがるため、出典をすべて列挙する。
+    const cites = [...group.sources]
+      .sort((a, b) => a.localeCompare(b))
+      .map((f) => `\`data/${f}\``)
+      .join(" / ");
+    lines.push(`## ${group.label}`);
     lines.push("");
-    lines.push(`<small>出典: \`data/${src}\`</small>`);
+    lines.push(`<small>出典: ${cites}</small>`);
     lines.push("");
     lines.push("| 日本語 | English |");
     lines.push("| --- | --- |");
-    for (const { jp, en } of rows) {
+    for (const { jp, en } of group.rows) {
       lines.push(`| ${escapeCell(jp)} | ${escapeCell(en)} |`);
     }
     lines.push("");
@@ -159,7 +214,8 @@ function renderMarkdown(source) {
 
 const source = loadSource();
 const md = renderMarkdown(source);
+const rowCount = [...groupEntries(source.entries).values()].reduce((n, g) => n + g.rows.length, 0);
 writeFileSync(OUT_FILE, md, "utf8");
 console.log(`=== Copilot 早見表 生成完了 ===`);
-console.log(`対訳: ${source.entries.length} 件`);
+console.log(`対訳: ${rowCount} 件`);
 console.log(`出力: ${OUT_FILE}`);

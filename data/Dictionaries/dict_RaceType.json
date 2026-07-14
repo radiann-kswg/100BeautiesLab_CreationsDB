@@ -1,214 +1,217 @@
 [
   {
     "RaceType": "Human",
-    "RaceType_JP": "人間"
+    "RaceType_JP": "人間",
+    "RaceType_EN": "Human"
   },
   {
     "RaceType": "Human(withAddon)",
     "RaceType_JP": "人間(拡張装備あり)",
+    "RaceType_EN": "Human (with Addon)",
     "basis": [{ "RaceType": "Human" }]
   },
   {
     "RaceType": "Human(DoubleIdentity)",
     "RaceType_JP": "人間(二重人格)",
+    "RaceType_EN": "Human (Double Identity)",
     "basis": [{ "RaceType": "Human" }]
   },
   {
     "RaceType": "OverHuman",
     "RaceType_JP": "超過人間",
+    "RaceType_EN": "OverHuman",
     "basis": [{ "RaceType": "Human" }]
   },
   {
     "RaceType": "OverHuman(Acquired)",
     "RaceType_JP": "超過人間(後天的)",
-    "basis": [{ "RaceType": "Human" }]
-  },
-  {
-    "RaceType": "Humanoid",
-    "RaceType_JP": "ヒューマノイド(人型)"
+    "RaceType_EN": "OverHuman (Acquired)",
+    "basis": [{ "RaceType": "Human" }, { "RaceType": "OverHuman" }]
   },
   {
     "RaceType": "ChronoidShifter",
-    "RaceType_JP": "時空遷移存在"
+    "RaceType_JP": "時空遷移存在",
+    "RaceType_EN": "ChronoidShifter"
   },
   {
     "RaceType": "VirtualAvatar",
     "RaceType_JP": "VRアバター",
+    "RaceType_EN": "Virtual Avatar",
     "basis": [{ "RaceType": "Human" }, { "RaceType": "Humanoid" }]
   },
   {
+    "RaceType": "Immaginaries",
+    "RaceType_JP": "概念",
+    "RaceType_EN": "Immaginaries"
+  },
+  {
+    "RaceType": "Ghostinaries",
+    "RaceType_JP": "亡霊概念",
+    "RaceType_EN": "Ghostinaries (Ghostly Immaginaries)",
+    "basis": [{ "RaceType": "Immaginaries" }]
+  },
+  {
+    "RaceType": "Terrorinaries",
+    "RaceType_JP": "恐怖概念",
+    "RaceType_EN": "Terrorinaries (Terrifying Immaginaries)",
+    "basis": [{ "RaceType": "Immaginaries" }]
+  },
+  {
     "RaceType": "Warfox",
-    "RaceType_JP": "妖狐"
+    "RaceType_JP": "妖狐",
+    "RaceType_EN": "Warfox"
   },
   {
     "RaceType": "Warfox(Acquired)",
     "RaceType_JP": "妖狐(後天的)",
+    "RaceType_EN": "Warfox (Acquired)",
     "basis": [{ "RaceType": "Human" }, { "RaceType": "Warfox" }]
+  },
+  {
+    "RaceType": "Warfox(Ghostinaries)",
+    "RaceType_JP": "妖狐(霊念)",
+    "RaceType_EN": "Warfox (Ghostinaries)",
+    "basis": [{ "RaceType": "Warfox" }, { "RaceType": "Warfox" }]
   },
   {
     "RaceType": "HalfWarfox",
     "RaceType_JP": "狐惹き",
+    "RaceType_EN": "HalfWarfox",
     "basis": [{ "RaceType": "Human" }, { "RaceType": "Warfox" }]
   },
   {
+    "RaceType": "HalfWarfox(Acquired)",
+    "RaceType_JP": "狐惹き(後天的)",
+    "RaceType_EN": "HalfWarfox (Acquired)",
+    "basis": [{ "RaceType": "Human" }, { "RaceType": "HalfWarfox" }]
+  },
+  {
     "RaceType": "HalfWarfox(ChronoidShifter)",
-    "RaceType_JP": "狐惹き(時空遷移者)",
+    "RaceType_JP": "狐惹き(時空遷移により後天的に)",
+    "RaceType_EN": "HalfWarfox (Acquired by ChronoidShift)",
     "basis": [
       { "RaceType": "Human" },
-      { "RaceType": "Warfox" },
+      { "RaceType": "HalfWarfox" },
       { "RaceType": "ChronoidShifter" }
-    ]
-  },
-  {
-    "RaceType": "PortableHumanoid(TaleBeastType)",
-    "RaceType_JP": "妖獣型ポータブルヒューマノイド",
-    "basis": [{ "RaceType": "Humanoid" }, { "RaceType": "Warfox" }]
-  },
-  {
-    "RaceType": "PortableHumanoid(TaleBeastType,SoftwareBody)",
-    "RaceType_JP": "妖獣型ポータブルヒューマノイド(ソフトウェア躯体)",
-    "basis": [
-      { "RaceType": "Humanoid" },
-      { "RaceType": "Warfox" },
-      { "RaceType": "VRAvatar" }
     ]
   },
   {
     "RaceType": "Raccoonian",
-    "RaceType_JP": "化狸"
+    "RaceType_JP": "化狸",
+    "RaceType_EN": "Raccoonian"
   },
   {
     "RaceType": "Raccoonian(Acquired)",
     "RaceType_JP": "化狸(後天的)",
+    "RaceType_EN": "Raccoonian (Acquired)",
     "basis": [{ "RaceType": "Human" }, { "RaceType": "Raccoonian" }]
   },
   {
-    "RaceType": "DeviatableHumanoid(TaleBeastType)",
-    "RaceType_JP": "妖獣型ディビエイタブルヒューマノイド",
-    "basis": [{ "RaceType": "Humanoid" }, { "RaceType": "Raccoonian" }]
+    "RaceType": "Midknightian",
+    "RaceType_JP": "夜叉",
+    "RaceType_EN": "Midknightian"
   },
   {
     "RaceType": "Nekomata",
-    "RaceType_JP": "猫又"
+    "RaceType_JP": "猫又",
+    "RaceType_EN": "Nekomata / Warcat"
   },
   {
     "RaceType": "Nekomata(Acquired)",
     "RaceType_JP": "猫又(後天的)",
+    "RaceType_EN": "Nekomata / Warcat (Acquired)",
     "basis": [{ "RaceType": "Human" }, { "RaceType": "Nekomata" }]
   },
   {
+    "RaceType": "HalfNekomata",
+    "RaceType_JP": "猫惹き",
+    "RaceType_EN": "HalfNekomata / HalfWarcat"
+  },
+  {
     "RaceType": "Nekomata(ChronoidShifter)",
-    "RaceType_JP": "猫又(時空遷移者)",
+    "RaceType_JP": "猫惹き(時空遷移により後天的に)",
+    "RaceType_EN": "HalfNekomata / HalfWarcat (Acquired by ChronoidShift)",
     "basis": [
       { "RaceType": "Human" },
-      { "RaceType": "Nekomata" },
+      { "RaceType": "HalfNekomata" },
       { "RaceType": "ChronoidShifter" }
     ]
   },
   {
-    "RaceType": "HalfNekomata",
-    "RaceType_JP": "猫惹き"
-  },
-  {
     "RaceType": "Lionian",
-    "RaceType_JP": "獅子"
-  },
-  {
-    "RaceType": "Automaton",
-    "RaceType_JP": "オートマトン(汎用)"
-  },
-  {
-    "RaceType": "CustomAutomaton(TaleBeastType)",
-    "RaceType_JP": "妖獣型カスタムオートマトン",
-    "basis": [{ "RaceType": "Automaton" }, { "RaceType": "Nekomata" }]
+    "RaceType_JP": "獅子",
+    "RaceType_EN": "Lionian"
   },
   {
     "RaceType": "LunaTiger",
-    "RaceType_JP": "月虎"
+    "RaceType_JP": "月虎",
+    "RaceType_EN": "LunaTiger"
   },
   {
     "RaceType": "LunaWolf",
-    "RaceType_JP": "月狼"
+    "RaceType_JP": "月狼",
+    "RaceType_EN": "LunaWolf/Warwolf"
   },
   {
     "RaceType": "LunaWolf(Super-dimentional)",
-    "RaceType_JP": "月狼(超次元的)"
+    "RaceType_JP": "月狼(超次元的)",
+    "RaceType_EN": "LunaWolf / Warwolf (Super-dimensional)",
+    "basis": [{ "RaceType": "LunaWolf" }, { "RaceType": "ChronoidShifter" }]
   },
   {
-    "RaceType": "LunaTiger(Acquired)",
-    "RaceType_JP": "月虎(後天的)",
-    "basis": [{ "RaceType": "Human" }, { "RaceType": "LunaTiger" }]
+    "RaceType": "Dragonian",
+    "RaceType_JP": "龍人",
+    "RaceType_EN": "Dragonian"
   },
   {
-    "RaceType": "Dragon",
-    "RaceType_JP": "竜人"
-  },
-  {
-    "RaceType": "Dragon(Acquired)",
-    "RaceType_JP": "竜人(後天的)",
-    "basis": [{ "RaceType": "Human" }, { "RaceType": "Dragon" }]
+    "RaceType": "Dragonian(Acquired)",
+    "RaceType_JP": "龍人(後天的)",
+    "RaceType_EN": "Dragonian (Acquired)",
+    "basis": [{ "RaceType": "Human" }, { "RaceType": "Dragonian" }]
   },
   {
     "RaceType": "LunaRabbit",
-    "RaceType_JP": "月兎"
+    "RaceType_JP": "月兎",
+    "RaceType_EN": "LunaRabbit"
   },
   {
     "RaceType": "LunaRabbit(Acquired)",
     "RaceType_JP": "月兎(後天的)",
+    "RaceType_EN": "LunaRabbit (Acquired)",
     "basis": [{ "RaceType": "Human" }, { "RaceType": "LunaRabbit" }]
   },
   {
     "RaceType": "Lamia",
-    "RaceType_JP": "蛇人"
+    "RaceType_JP": "蛇人",
+    "RaceType_EN": "Lamia"
   },
   {
     "RaceType": "Lamia(Acquired)",
     "RaceType_JP": "蛇人(後天的)",
+    "RaceType_EN": "Lamia (Acquired)",
     "basis": [{ "RaceType": "Human" }, { "RaceType": "Lamia" }]
   },
   {
-    "RaceType": "ClonicMouse",
-    "RaceType_JP": "繁殖鼠"
-  },
-  {
     "RaceType": "Komainu",
-    "RaceType_JP": "狛犬"
+    "RaceType_JP": "狛犬",
+    "RaceType_EN": "Komainu"
   },
   {
     "RaceType": "Komainu(Acquired)",
     "RaceType_JP": "狛犬(後天的)",
+    "RaceType_EN": "Komainu (Acquired)",
     "basis": [{ "RaceType": "Human" }, { "RaceType": "Komainu" }]
   },
   {
     "RaceType": "DreamEater",
-    "RaceType_JP": "夢羊"
+    "RaceType_JP": "夢羊",
+    "RaceType_EN": "DreamEater"
   },
   {
     "RaceType": "DreamEater(Acquired)",
     "RaceType_JP": "夢羊(後天的)",
+    "RaceType_EN": "DreamEater (Acquired)",
     "basis": [{ "RaceType": "Human" }, { "RaceType": "DreamEater" }]
-  },
-  {
-    "RaceType": "Birdman",
-    "RaceType_JP": "鳥人"
-  },
-  {
-    "RaceType": "Birdman(Acquired)",
-    "RaceType_JP": "鳥人(後天的)",
-    "basis": [{ "RaceType": "Human" }, { "RaceType": "Birdman" }]
-  },
-  {
-    "RaceType": "Qílín",
-    "RaceType_JP": "麒麟"
-  },
-  {
-    "RaceType": "Thoroughbreder",
-    "RaceType_JP": "馬人"
-  },
-  {
-    "RaceType": "Thoroughbreder(Acquired)",
-    "RaceType_JP": "馬人(後天的)",
-    "basis": [{ "RaceType": "Human" }, { "RaceType": "Thoroughbreder" }]
   },
   {
     "RaceType": "FangSpeeder",
@@ -220,6 +223,15 @@
     "basis": [{ "RaceType": "Human" }, { "RaceType": "FangSpeeder" }]
   },
   {
+    "RaceType": "Thoroughbreder",
+    "RaceType_JP": "馬人"
+  },
+  {
+    "RaceType": "Thoroughbreder(Acquired)",
+    "RaceType_JP": "馬人(後天的)",
+    "basis": [{ "RaceType": "Human" }, { "RaceType": "Thoroughbreder" }]
+  },
+  {
     "RaceType": "Taurus",
     "RaceType_JP": "金牛"
   },
@@ -229,7 +241,62 @@
     "basis": [{ "RaceType": "Human" }, { "RaceType": "Taurus" }]
   },
   {
-    "RaceType": "Immaginaries",
-    "RaceType_JP": "概念"
+    "RaceType": "Birdman",
+    "RaceType_JP": "鳥人",
+    "RaceType_EN": "Birdman"
+  },
+  {
+    "RaceType": "Birdman(Acquired)",
+    "RaceType_JP": "鳥人(後天的)",
+    "RaceType_EN": "Birdman (Acquired)",
+    "basis": [{ "RaceType": "Human" }, { "RaceType": "Birdman" }]
+  },
+  {
+    "RaceType": "ClonicMouse",
+    "RaceType_JP": "繁殖鼠/生体改造済みモルモット種族",
+    "RaceType_EN": "ClonicMouse / Bioengineered Guinean"
+  },
+  {
+    "RaceType": "Qilin",
+    "RaceType_JP": "麒麟",
+    "RaceType_EN": "Qílín"
+  },
+  {
+    "RaceType": "Humanoid",
+    "RaceType_JP": "ヒューマノイド(人型)",
+    "RaceType_EN": "Humanoid (Human Appearance-Type)"
+  },
+  {
+    "RaceType": "PortableHumanoid(TaleBeastType)",
+    "RaceType_JP": "ポータブルヒューマノイド(妖獣型)",
+    "RaceType_EN": "Portable Humanoid (Tale-Beast Appearance-Type)",
+    "basis": [{ "RaceType": "Humanoid" }, { "RaceType": "Warfox" }]
+  },
+  {
+    "RaceType": "PortableHumanoid(TaleBeastType,SoftwareBody)",
+    "RaceType_JP": "ポータブルヒューマノイド(妖獣型ソフトウェア躯体)",
+    "RaceType_EN": "Portable Humanoid (Tale-Beast Appearance-Type, Software Body)",
+    "basis": [
+      { "RaceType": "Humanoid" },
+      { "RaceType": "Warfox" },
+      { "RaceType": "VRAvatar" }
+    ]
+  },
+  {
+    "RaceType": "DeviatableHumanoid(TaleBeastType)",
+    "RaceType_JP": "妖獣型ディビエイタブルヒューマノイド",
+    "RaceType_EN": "Deviatable Humanoid (Tale-Beast Appearance-Type)",
+    "basis": [{ "RaceType": "Humanoid" }, { "RaceType": "Raccoonian" }]
+  },
+  {
+    "RaceType": "Automaton",
+    "RaceType_JP": "オートマトン(汎用)",
+    "RaceType_EN": "Automaton (General Purpose)"
+  },
+  {
+    "RaceType": "CustomAutomaton(TaleBeastType)",
+    "RaceType_JP": "カスタムオートマトン(妖獣型)",
+    "RaceType_EN": "Custom Automaton (Tale-Beast Appearance-Type)",
+    "basis": [{ "RaceType": "Automaton" }, { "RaceType": "Nekomata" }]
   }
 ]

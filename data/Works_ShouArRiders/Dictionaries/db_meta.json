@@ -1,5 +1,11 @@
 {
   "Dictionaries": {
+    "#Dict_Beast": {
+      "DB_Label_JP": "獣(動物)辞書",
+      "DB_Label_EN": "Beast Dictionary",
+      "keyField": "Beast",
+      "compatListKey": "#List_Beast"
+    },
     "#Dict_Class": {
       "DB_Label_JP": "クラス辞書",
       "DB_Label_EN": "Class Dictionary",

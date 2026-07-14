@@ -6,11 +6,25 @@
       "keyField": "Area",
       "compatListKey": "#List_Area"
     },
-    "#Dict_Artifact": {
-      "DB_Label_JP": "技巧属性辞書",
-      "DB_Label_EN": "Artifact Dictionary",
-      "keyField": "Artifact",
-      "compatListKey": "#List_Artifact"
+    "#Dict_Faction": {
+      "DB_Label_JP": "陣営辞書",
+      "DB_Label_EN": "Faction Dictionary",
+      "keyField": "Faction",
+      "compatListKey": "#List_Faction"
+    },
+    "#Dict_RaceType": {
+      "DB_Label_JP": "種族辞書",
+      "DB_Label_EN": "Race Dictionary",
+      "langMode": "shared",
+      "keyField": "RaceType",
+      "compatListKey": "#List_RaceType"
+    },
+    "#Dict_GenderType": {
+      "DB_Label_JP": "性別辞書",
+      "DB_Label_EN": "Gender Dictionary",
+      "langMode": "shared",
+      "keyField": "GenderType",
+      "compatListKey": "#List_GenderType"
     },
     "#Dict_NeoLotusNinean": {
       "DB_Label_JP": "クラス辞書(新生九蓮向け)",
@@ -33,6 +47,13 @@
       "compatListKey": "#List_Class",
       "scopeField": { "Belonging": "国際情報広報機関『ミハイル』" }
     },
+    "#Dict_Zerbas": {
+      "DB_Label_JP": "クラス辞書(扇残冬向け)",
+      "DB_Label_EN": "Class Dictionary (for Arch Zerbas)",
+      "keyField": "Class",
+      "compatListKey": "#List_Class",
+      "scopeField": { "Regioministration": "Y" }
+    },
     "#Dict_Regioministrators": {
       "DB_Label_JP": "クラス辞書(管理主向け)",
       "DB_Label_EN": "Class Dictionary (for Regioministrators)",
@@ -40,18 +61,18 @@
       "compatListKey": "#List_Class",
       "scopeField": { "Belonging": "管理主" }
     },
-    "#Dict_Faction": {
-      "DB_Label_JP": "陣営辞書",
-      "DB_Label_EN": "Faction Dictionary",
-      "keyField": "Faction",
-      "compatListKey": "#List_Faction"
+    "#Dict_Artifact": {
+      "DB_Label_JP": "技巧属性辞書",
+      "DB_Label_EN": "Artifact Dictionary",
+      "keyField": "Artifact",
+      "compatListKey": "#List_Artifact"
     },
-    "#Dict_RaceType": {
-      "DB_Label_JP": "種族辞書",
-      "DB_Label_EN": "Race Dictionary",
-      "langMode": "shared",
-      "keyField": "RaceType",
-      "compatListKey": "#List_RaceType"
+    "#Dict_Regioministration": {
+      "DB_Label_JP": "『管理者』ロール辞書",
+      "DB_Label_EN": "Role of 'Regioministrators' Dictionary",
+      "keyField": "Regioministration",
+      "compatListKey": "#List_Regioministration",
+      "DB_Hidden": true
     },
     "#Dict_DesignedBy": {
       "DB_Label_JP": "サークル公認作者辞書",

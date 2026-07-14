@@ -1,0 +1,58 @@
+[
+  {
+    "Term_JP": "多様化社会",
+    "Term_EN": "the Diversification Society",
+    "TransPolicy": "#TP_SemanticTranslate",
+    "Scope": [
+      "Works_ShouArRiders",
+      "Works_NumberTales",
+      "Works_UnauthedLogica",
+      "Works_SinisterChangingGirls",
+      "Works_UnibyteLive"
+    ],
+    "Summary_JP": "『第８界』で『第７の世界創造』によりもたらされた社会のこと。",
+    "Summary_EN": "The society brought about by the WDC.VII in '#REGION.8'."
+  },
+  {
+    "Term_JP": "多様化恐慌",
+    "Term_EN": "the Diversification Crisis",
+    "TransPolicy": "#TP_SemanticTranslate",
+    "Scope": [
+      "Works_ShouArRiders",
+      "Works_NumberTales",
+      "Works_UnauthedLogica",
+      "Works_SinisterChangingGirls",
+      "Works_UnibyteLive"
+    ],
+    "Summary_JP": "『第８界』で『第７の世界破壊』によりもたらされた恐慌のこと。",
+    "Summary_EN": "The crisis brought about by the WDP.VII in '#REGION.8'."
+  },
+  {
+    "Term_JP": "左遷可能社会",
+    "Term_EN": "the Demotable Society",
+    "TransPolicy": "#TP_SemanticTranslate",
+    "Scope": [
+      "Works_FLInvestigators",
+      "Works_PastDivers",
+      "Works_UnauthedLogica",
+      "Works_SinisterChangingGirls",
+      "Works_VirtuesUs"
+    ],
+    "Summary_JP": "『第８界』で『第８の世界創造』によりもたらされた社会のこと。",
+    "Summary_EN": "The society brought about by the WDC.VIII in '#REGION.8'."
+  },
+  {
+    "Term_JP": "逆行恐慌",
+    "Term_EN": "the Regression Crisis",
+    "TransPolicy": "#TP_SemanticTranslate",
+    "Scope": [
+      "Works_FLInvestigators",
+      "Works_PastDivers",
+      "Works_UnauthedLogica",
+      "Works_SinisterChangingGirls",
+      "Works_VirtuesUs"
+    ],
+    "Summary_JP": "『第８界』で『第８の世界創造』によりもたらされた恐慌のこと。",
+    "Summary_EN": "The crisis brought about by the WDC.VIII in '#REGION.8'."
+  }
+]

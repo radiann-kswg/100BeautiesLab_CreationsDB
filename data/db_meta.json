@@ -313,7 +313,8 @@
         { "hideText": "条件による", "hideText_EN": "Depending on Conditions" },
         { "hideText": "定義不能", "hideText_EN": "Undefineble" },
         { "hideText": "本人すら把握されていない", "hideText_EN": "Not Aware" },
-        { "hideText": "不定", "hideText_EN": "Indefinite" }
+        { "hideText": "不定", "hideText_EN": "Indefinite" },
+        { "hideText": "削除済み", "hideText_EN": "Archived or Deleted" }
       ],
       "$Def_Day": {
         "$display": { "wrapper": "daySummary", "sectionWrapper": "daySection" },
@@ -660,37 +661,6 @@
           "Progress": "archived",
           "Progress_JP": "更新停止",
           "isForSecondary": null
-        }
-      },
-      "$EnumDef_GenderType": {
-        "#GenderType_Female": {
-          "GenderType": "Female",
-          "GenderType_JP": "女性"
-        },
-        "#GenderType_FemaleNeutral": {
-          "GenderType": "FemaleNeutral",
-          "GenderType_JP": "無性別女性型"
-        },
-        "#GenderType_Male": { "GenderType": "Male", "GenderType_JP": "男性" },
-        "#GenderType_MaleNeutral": {
-          "GenderType": "MaleNeutral",
-          "GenderType_JP": "無性別男性型"
-        },
-        "#GenderType_Neutral": {
-          "GenderType": "Neutral",
-          "GenderType_JP": "無性別中性型"
-        },
-        "#GenderType_Arbitrary": {
-          "GenderType": "Arbitrary",
-          "GenderType_JP": "任意"
-        },
-        "#GenderType_Variable": {
-          "GenderType": "Variable",
-          "GenderType_JP": "可変"
-        },
-        "#GenderType_Unknown": {
-          "GenderType": "Unknown",
-          "GenderType_JP": "不詳"
         }
       },
       "$Def_AbilityStats": {
