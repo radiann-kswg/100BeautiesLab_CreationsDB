@@ -646,6 +646,74 @@
         "Note_EN": null
       }
     ],
+    "ColorPalette": [
+      {
+        "Role": "#ColorRole_Primary",
+        "Hex": "#BB3E45",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": [
+          "#BodyPart_Wing",
+          "#BodyPart_Eye",
+          "#BodyPart_Head",
+          "#BodyPart_Back",
+          "#BodyPart_Foot"
+        ],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Secondary",
+        "Hex": "#FFAC8F",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Accent",
+        "Hex": "#E7E9E4",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Hair", "#BodyPart_Chest"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Sub",
+        "Hex": "#CDCCC6",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Sub",
+        "Hex": "#FCBD47",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Sub",
+        "Hex": "#FFD58F",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "RelationNotes_JP": "開発者専用機では、「11(トウイチ)」を「殿下/陛下」と慕っている",
     "RelationNotes_EN": "In the developer-only build, deeply reveres 11(Elevan) as \"Your Highness/Majesty\"",
     "NumerospecAbout_JP": "自分のやるべきことを認識させる",
@@ -1163,6 +1231,84 @@
         "Note_EN": null
       }
     ],
+    "ColorPalette": [
+      {
+        "Role": "#ColorRole_Primary",
+        "Hex": "#FFA79B",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": [
+          "#BodyPart_Eye",
+          "#BodyPart_Head",
+          "#BodyPart_Hair",
+          "#BodyPart_Neck",
+          "#BodyPart_Foot"
+        ],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Secondary",
+        "Hex": "#FFC4B8",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Accent",
+        "Hex": "#EAE5D6",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Sub",
+        "Hex": "#FFF4E6",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Sub",
+        "Hex": "#FFE1C7",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Sub",
+        "Hex": "#F3F1EA",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Sub",
+        "Hex": "#E8E9E3",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "NumerospecAbout_JP": "疎外感を解消し縁を育む",
     "NumerospecAbout_EN": "Eases alienation and nurtures bonds",
     "Summary_JP": "量産販売型かつ3桁ゾロ目の数字を持つ「マスタートリプル」という高性能な特殊クラスの個体。\nそのうち222番機の開発専用オリジナル機は２体存在し、「222(ペルゲン)」は「バイナ」らの後続型、「222(ドッペル)」は「111(アイズ)」の後続型にあたる。\nどちらも「2(ツグ)」・「バイナ」や「22(フジ)」にも劣らず、「222(ペルゲン)」は周囲状況に対する配慮に秀でた\"優しいお姉さん\"のごとく、「222(ドッペル)」は仲介や縁づくりが得意で\"クラスのマドンナ\"のごとく周りに親しまれている。\n222番機こと腹違いの双子としてお互い同式扱いとなっている２人は、よく生活を共にすることから信頼の強さもみられており、「222(ドッペル)」が「222(ペルゲン)」によく甘えている義姉妹愛の溢れる様子も。",
@@ -1399,6 +1545,68 @@
           }
         ],
         "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
+    "ColorPalette": [
+      {
+        "Role": "#ColorRole_Primary",
+        "Hex": "#FFD07D",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Secondary",
+        "Hex": "#EAE5D6",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Accent",
+        "Hex": "#FFE2C7",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Sub",
+        "Hex": "#FFF4E4",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Sub",
+        "Hex": "#F7F5EA",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Sub",
+        "Hex": "#E8E9E3",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
         "Note_JP": null,
         "Note_EN": null
       }
@@ -1877,6 +2085,74 @@
         "Note_EN": null
       }
     ],
+    "ColorPalette": [
+      {
+        "Role": "#ColorRole_Primary",
+        "Hex": "#FFD47A",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Secondary",
+        "Hex": "#94CDD5",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": [
+          "#BodyPart_Eye",
+          "#BodyPart_FaceMaking",
+          "#BodyPart_Hair",
+          "#BodyPart_Chest",
+          "#BodyPart_Leg"
+        ],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Accent",
+        "Hex": "#ECAC43",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Sub",
+        "Hex": "#C1A072",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Sub",
+        "Hex": "#C9CDCB",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Sub",
+        "Hex": "#020202",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "NumerospecAbout_JP": "完璧な理論に則り物事を実現する",
     "NumerospecAbout_EN": "Realizes things in accordance with perfect theory",
     "Summary_JP": "量産販売型ではあるが、3桁ゾロ目の数字を持つ「マスタートリプル」という特殊クラスの個体で、2桁以内の通常個体と引け目を取らない性能をもつ。\nとりわけその開発専用機ことオリジナル版である彼(女)は、4(モチ)や44(シトシ)をも凌駕する実現力の持ち主で、失敗経験のない威厳ある彼(女)の前ではどんな物事も叶えてしまうと極めて高いレヴューを受けている……\"極めて不運かつ想定外の\"ことが起きてしまった場合を除けば。",
@@ -2209,6 +2485,58 @@
         "Note_EN": null
       }
     ],
+    "ColorPalette": [
+      {
+        "Role": "#ColorRole_Primary",
+        "Hex": "#E0B0BD",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Halo", "#BodyPart_Neck"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Secondary",
+        "Hex": "#F26383",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Eye", "#BodyPart_Wing", "#BodyPart_Foot"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Accent",
+        "Hex": "#C84557",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Eye", "#BodyPart_Wing", "#BodyPart_Foot"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Sub",
+        "Hex": "#BC8797",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Halo", "#BodyPart_Neck"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Sub",
+        "Hex": "#B8507C",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Halo", "#BodyPart_Neck"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "RelationNotes_JP": "開発者専用機では、「66(ムロク)」を「眷属」として労わっているが……",
     "RelationNotes_EN": "In the developer-only build, treats 66(Sixis) as calling a '(cherished) retainer', but...",
     "NumerospecAbout_JP": "自分の本能を認知し開花させる",
@@ -2455,6 +2783,68 @@
         "Note_EN": null
       }
     ],
+    "ColorPalette": [
+      {
+        "Role": "#ColorRole_Primary",
+        "Hex": "#C1A072",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Secondary",
+        "Hex": "#504695",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Eye", "#BodyPart_Hair", "#BodyPart_Foot"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Accent",
+        "Hex": "#FFA634",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Sub",
+        "Hex": "#8B9BAC",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Sub",
+        "Hex": "#FFD47A",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Sub",
+        "Hex": "#D0B897",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "NumerospecAbout_JP": "自分に拡張された機能に応じた効果をもたらす",
     "NumerospecAbout_EN": "Produces effects in accordance with functions expanded for oneself",
     "Summary_JP": "量産販売型ではあるが、3桁ゾロ目の数字と通常個体(2桁以内)に劣らない性能をもつ「マスタートリプル」というクラスに属しており、そのなかでもさらに機能拡張性に長けている極めて特殊な個体。\nとりわけその開発専用機ことオリジナル版である彼は、「7(ナナ)」や「77(ナヅナ)」をも遥かに超える知的追求心の持ち主で、興味の持ったことや楽しいものの追求のためなら惜しむことは滅多にない。\nしかしながら良心もあるため、公私の境界を超えた無謀かつ暴虐な行動はあまり勝って出ることはないことから、マスタートリプルの９人の中では健全で真面目なリア充ポジションが定着している。",
@@ -2678,6 +3068,58 @@
           }
         ],
         "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
+    "ColorPalette": [
+      {
+        "Role": "#ColorRole_Primary",
+        "Hex": "#C1A072",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Secondary",
+        "Hex": "#504695",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Eye", "#BodyPart_Hair", "#BodyPart_Foot"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Accent",
+        "Hex": "#FFA634",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Sub",
+        "Hex": "#8B9BAC",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Sub",
+        "Hex": "#FFD47A",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
         "Note_JP": null,
         "Note_EN": null
       }
@@ -3091,6 +3533,83 @@
           }
         ],
         "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
+    "ColorPalette": [
+      {
+        "Role": "#ColorRole_Primary",
+        "Hex": "#FFD58F",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Ear"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Secondary",
+        "Hex": "#F8EC72",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Hair", "#BodyPart_Ear"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Accent",
+        "Hex": "#FFB1AB",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Sub",
+        "Hex": "#BD8AE6",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Ear", "#BodyPart_Neck", "#BodyPart_Foot"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Sub",
+        "Hex": "#F85DB3",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": [
+          "#BodyPart_Ear",
+          "#BodyPart_Eye",
+          "#BodyPart_Neck",
+          "#BodyPart_Foot"
+        ],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Sub",
+        "Hex": "#48D1EC",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Eye"],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Sub",
+        "Hex": "#6AA6D7",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": ["#BodyPart_Ear", "#BodyPart_Eye"],
+        "Formation": null,
         "Note_JP": null,
         "Note_EN": null
       }
