@@ -1,7 +1,7 @@
 [
   {
     "BeastType": { "Beast": "Mouse" },
-    "Progress": "stillTentative",
+    "Progress": "released(beta)",
     "Images": { "concept_PNGName": "cnsp_imgEZ1" },
     "Name_JP": "子刻ハッカ",
     "Name_JPReading": "ねのこくハッカ",
@@ -82,7 +82,7 @@
   },
   {
     "BeastType": { "Beast": "Rabbit" },
-    "Progress": "unreleased",
+    "Progress": "released",
     "Images": {
       "arts_PNGPath": ["newYear/art_imgEZ4-newyear2023"],
       "designAlt_PNGPath": ["chattingArt/chart_imgEZ4-private"]
@@ -121,7 +121,7 @@
   },
   {
     "BeastType": { "Beast": "Dragon" },
-    "Progress": "unreleased",
+    "Progress": "released",
     "Images": { "arts_PNGPath": ["newYear/art_imgEZ5-2024"] },
     "Name_JP": "辰刻リウロン",
     "Name_JPReading": "たつのこくリウロン",
@@ -160,7 +160,7 @@
   },
   {
     "BeastType": { "Beast": "Snake" },
-    "Progress": "unreleased",
+    "Progress": "released",
     "Images": {
       "arts_PNGPath": [
         "newYear/art_imgEZ6-newyear2025A",
@@ -209,7 +209,7 @@
   },
   {
     "BeastType": { "Beast": "Horse" },
-    "Progress": "unreleased",
+    "Progress": "released",
     "Images": { "arts_PNGPath": ["newYear/art_imgEZ7-newyear2026"] },
     "Name_JP": "午刻ハヤテ",
     "Name_JPReading": "うまのこくハヤテ",
@@ -246,7 +246,7 @@
   },
   {
     "BeastType": { "Beast": "Cat" },
-    "Progress": "unreleased",
+    "Progress": "released",
     "Images": {
       "concept_PNGName": "cnsp_imgEZ13",
       "arts_PNGPath": [
