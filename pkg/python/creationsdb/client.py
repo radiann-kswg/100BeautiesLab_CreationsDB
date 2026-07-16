@@ -763,7 +763,7 @@ class CreationsDBClient:
         -------
         list[dict]
             各要素: ``{key, Title_JP, Title_EN, Works_Summary_JP, Works_Summary_EN,
-            Works_Shared, OldTitles}``
+            Works_Shared, OldTitles, Works_OfficialLinks}``
         """
         global_meta = _read_global_meta(self._fetcher)
         creation_works = global_meta.get('CreationWorks') or {}
@@ -782,6 +782,8 @@ class CreationsDBClient:
                 # 全作品共通の資料を束ねる疑似作品（例: 共通資料）は個別の創作タイトルと区別する
                 'Works_Shared': info.get('Works_Shared') is True,
                 'OldTitles': list(info.get('OldTitles') or []),
+                # 公式サイト等の外部リンク（各要素 {URL, Label_JP, Label_EN, LinkType}）
+                'Works_OfficialLinks': list(info.get('Works_OfficialLinks') or []),
             })
         return result
 

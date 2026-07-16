@@ -46,7 +46,19 @@ describe('StandardEndpointHandlers exposes work/db catalog meta info', () => {
             Title_JP: 'ナンバーテールズ',
             Title_EN: 'NumberTales',
             Works_Summary_JP: '作品概要です。',
-            OldTitles: [{ Title_JP: '旧題', ArchivedYear: 2024 }]
+            OldTitles: [{ Title_JP: '旧題', ArchivedYear: 2024 }],
+            Works_OfficialLinks: [
+              {
+                LinkType: 'HP',
+                URL: 'https://www.numbertales-radiann.com/',
+                Label_JP: '公式サイト',
+                Label_EN: 'Official Site (JAPANESE ONLY)'
+              }
+            ]
+          },
+          '#Works_NoLinks': {
+            Title_JP: 'リンク無し作品',
+            Title_EN: 'No Links Work'
           }
         }
       })
@@ -60,6 +72,12 @@ describe('StandardEndpointHandlers exposes work/db catalog meta info', () => {
     expect(json[0].Title_JP).toBe('ナンバーテールズ');
     expect(json[0].Works_Summary_JP).toBe('作品概要です。');
     expect(Array.isArray(json[0].OldTitles)).toBe(true);
+    // 公式リンク（Works_OfficialLinks）がカタログへパススルーされる
+    expect(Array.isArray(json[0].Works_OfficialLinks)).toBe(true);
+    expect(json[0].Works_OfficialLinks[0].URL).toBe('https://www.numbertales-radiann.com/');
+    expect(json[0].Works_OfficialLinks[0].Label_EN).toBe('Official Site (JAPANESE ONLY)');
+    // 未定義の作品では空配列にフォールバックする
+    expect(json[1].Works_OfficialLinks).toEqual([]);
   });
 
   it('handleWorkDbListEndpoint includes DB labels, summary and story era from work meta', async () => {

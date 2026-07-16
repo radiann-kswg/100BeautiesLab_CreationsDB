@@ -6,6 +6,20 @@
       "Title_EN": "NumberTales",
       "Works_Summary_JP": "九蓮国にあるヴェンチャーラボ「百花繚乱研究所」で零(レイ)と百(ハゲム)が手掛けている妖獣型生活支援ポータブルヒューマノイド。\n主に数字や数秘に基づいた妖獣型のキャラクターが存在する。",
       "Works_Summary_EN": "TaleBeast-type portable humanoids for daily-life support, developed by Zera and Hudret at the venture lab '100 Beauties Lab.' in LotusNinea.\nThe series mainly features beast-type characters based on numbers and numerology.",
+      "Works_OfficialLinks": [
+        {
+          "LinkType": "HP",
+          "URL": "https://www.numbertales-radiann.com/",
+          "Label_JP": "公式サイト",
+          "Label_EN": "Official Site (JAPANESE ONLY)"
+        },
+        {
+          "LinkType": "HP",
+          "URL": "https://www.numbertales-radiann.com/request.html",
+          "Label_JP": "リクエストナンバー受付",
+          "Label_EN": "Request Number Reception (JAPANESE ONLY)"
+        }
+      ],
       "$DetailLayout": {
         "headerPills": ["Progress"],
         "basicFields": [
@@ -56,6 +70,20 @@
       ],
       "Works_Summary_JP": "英皇国と九蓮国にある異能調査組織「セブンティエイト特殊探偵団」に所属する少年少女。\n主にタロットカードに基づいた能力の憑依が可能なキャラクターが存在する。",
       "Works_Summary_EN": "Young investigators belonging to the paranormal investigation organization 'Team.78(Seventy-Eight) the Special Investigators', active across Internic.Kingdom and LotusNinea.\nCharacters capable of hosting abilities primarily based on tarot cards are featured.",
+      "Works_OfficialLinks": [
+        {
+          "LinkType": "HP",
+          "URL": "https://fateline-investigator78.com/",
+          "Label_JP": "公式サイト",
+          "Label_EN": "Official Site (JAPANESE ONLY)"
+        },
+        {
+          "LinkType": "HP",
+          "URL": "https://fateline-investigator78.com/news/official-tarot_recruitment.html",
+          "Label_JP": "公式タロット制作メンバー募集中",
+          "Label_EN": "Official Tarot Project Member Recruitment (JAPANESE ONLY)"
+        }
+      ],
       "$DetailLayout": {
         "headerPills": ["Progress"],
         "basicFields": [

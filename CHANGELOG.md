@@ -1,5 +1,17 @@
 # 最新のリファクタリング・仕様変更履歴
 
+### feat: 作品公式サイトのリンクをキャラシート「作品情報」欄へ表示 (`Works_OfficialLinks`) (2026-07-16)
+
+創作タイトルに公式 HP がある場合（ナンバーテールズ / 運命線探偵78）、キャラシートの作品情報欄から公式サイトへ導線を張れるようにした。スキーマ駆動（宣言 → SW パススルー → UI 描画）で追加し、UI ハードコードはリンク 1 種の描画に限定している。
+
+- **スキーマ宣言（`data/db_type.json` `$MetaType`）**: 配列サブ定義 `$Def_OfficialLinkCatalog`（`LinkType` / `URL` / `Label_JP` / `Label_EN`）を新設し、`$Def_CreationWorkCatalog` に `Works_OfficialLinks`（`$Def_OfficialLinkCatalog[]|#Null`）を追加。既存の `OldTitles[]`（`$Def_...Catalog[]`）と同じ配列パターンで、将来 pixiv / X / BOOTH 等の追加にも耐える。
+- **データ（`data/db_meta.json`）**: `#Works_NumberTales` / `#Works_FLInvestigator78` に公式サイト URL を追加。英語表示ラベルは日本語限定サイトである旨を含め `Official Site (JAPANESE ONLY)`。
+- **疑似 API パススルー（`lib/sw-common.js` `buildWorkCatalogEntry()`）**: `/pages/v1/works` 系カタログへ `Works_OfficialLinks` を配列パススルー（未宣言作品は `[]` フォールバック）。
+- **UI 描画（`pages/characters.js` `renderSelectionMeta()`）**: `renderWorkOfficialLinks()` を追加し、作品パネル（`#meta-work-links`）へチップ状 `<a>` を描画。`buildSafeExternalUrl()` で `http/https` のみ許可（`javascript:` / `data:` 等は破棄）、`target="_blank"` + `rel="noopener noreferrer"`、ラベルは `textContent` 主体で XSS を防止。有効リンクが 0 件なら枠ごと `hidden`。
+- **`pkg/` ミラー同期**: `pkg/nodejs` / `pkg/python` / `pkg/csharp` の `listWorks()` 相当へ `Works_OfficialLinks`（C# は `WorkInfo.OfficialLinks`）を追加し、各 README のフィールド一覧も更新。
+- **影響範囲**: `data/db_type.json` / `data/db_meta.json` / `lib/sw-common.js` / `pages/characters.js` / `pages/characters.html`（`asset-version` → `2026.07.16.1`）/ `pages/characters.sass` / `pages/characters.css` / `pkg/{nodejs,python,csharp}` / `docs/api-sw-spec.md` / `tests/sw.work-meta-info.test.js`。
+- 確認: `npm test` — 33 ファイル / 373 件すべて成功（`develop`）。
+
 ### fix: 主要インデックスが `null` のレコード（錦野姉妹 / Dealer カード）の直リンクを複合条件から短い圧縮ロケータへ (2026-07-15)
 
 圧縮ロケータ導入後、FLInvestigator78 の錦野姉妹（Dealer 79/80）だけが `?work=...&idx={"Card":{"Suit":"Dealer","Num":"80"}}&idxKey=__conditions__` という長い複合条件 URL のままになる「例外」が残っていた。原因は、この作品の `$IndexDef` 主要要素が `Card.SuitNum` である一方、Dealer カードは `SuitNum` が `null` で、**直リンクに使える主要インデックスが無いため複合条件（`__conditions__`）へフォールバック**していたこと。

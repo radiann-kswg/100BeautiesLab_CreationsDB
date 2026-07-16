@@ -5480,6 +5480,57 @@ function setTextAndHidden(selector, text) {
 	node.hidden = !normalized;
 }
 
+/**
+ * 外部リンク用に URL を検証・正規化する。
+ * `http` / `https` スキームのみ許可し、それ以外（`javascript:` / `data:` 等）は空文字を返す。
+ * @param {string} raw - 生の URL 文字列
+ * @returns {string} 安全な絶対 URL（不正なら空文字列）
+ */
+function buildSafeExternalUrl(raw) {
+	const s = String(raw || '').trim();
+	if (!s) return '';
+	try {
+		const u = new URL(s);
+		if (u.protocol !== 'http:' && u.protocol !== 'https:') return '';
+		return u.href;
+	} catch (_) {
+		return '';
+	}
+}
+
+/**
+ * 作品公式リンク（CreationWorks.*.Works_OfficialLinks）を作品情報欄へ描画する。
+ * `http/https` の URL のみ許可し、ラベルは textContent 主体で組み立てて XSS を避ける。
+ * 有効なリンクが 1 件も無い場合は枠ごと非表示にする。
+ * @param {Array} links - Works_OfficialLinks 配列（各要素 { URL, Label_JP, Label_EN, LinkType }）
+ * @param {string} lang - 'en' | 'jp'
+ */
+function renderWorkOfficialLinks(links, lang) {
+	const container = $('#meta-work-links');
+	if (!container) return;
+	container.textContent = '';
+	const items = Array.isArray(links) ? links : [];
+	let count = 0;
+	for (const item of items) {
+		const href = buildSafeExternalUrl(item?.URL);
+		if (!href) continue;
+		const labelJp = String(item?.Label_JP || '').trim();
+		const labelEn = String(item?.Label_EN || '').trim();
+		const label = (lang === 'en')
+			? (labelEn || labelJp || href)
+			: (labelJp || labelEn || href);
+		const anchor = document.createElement('a');
+		anchor.className = 'meta-overview__link';
+		anchor.href = href;
+		anchor.target = '_blank';
+		anchor.rel = 'noopener noreferrer';
+		anchor.textContent = label;
+		container.appendChild(anchor);
+		count += 1;
+	}
+	container.hidden = count === 0;
+}
+
 function getUiCopyByLanguage(lang) {
 	if (lang === 'en') {
 		return {
@@ -5624,6 +5675,7 @@ async function renderSelectionMeta(workKey, dbKey) {
 		: (work?.Title_JP || work?.Title_EN || normalizeWorkKey(workKey) || '-');
 	setTextAndHidden('#meta-work-sub', [lang === 'en' ? work?.Title_JP : work?.Title_EN, formatOldTitles(work?.OldTitles)].filter(Boolean).join('\n'));
 	setTextAndHidden('#meta-work-summary', (lang === 'en') ? (work?.Works_Summary_EN || work?.Works_Summary_JP || '') : (work?.Works_Summary_JP || work?.Works_Summary_EN || ''));
+	renderWorkOfficialLinks(work?.Works_OfficialLinks, lang);
 
 	$('#meta-db-title').textContent = getDbDisplayLabel(db, dbKey || '-');
 	setTextAndHidden('#meta-db-era', getStoryEraSummary(db?.StoryEra));

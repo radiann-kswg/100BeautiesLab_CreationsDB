@@ -776,7 +776,7 @@ export class CreationsDBClient {
 
   /**
    * 作品一覧を取得（`Works_Hidden: true` の作品は除外）
-   * @returns {Promise<Array<{ key: string, Title_JP: string, Title_EN: string, Works_Summary_JP: string, Works_Summary_EN: string, Works_Shared: boolean, OldTitles: Array }>>}
+   * @returns {Promise<Array<{ key: string, Title_JP: string, Title_EN: string, Works_Summary_JP: string, Works_Summary_EN: string, Works_Shared: boolean, OldTitles: Array, Works_OfficialLinks: Array }>>}
    */
   async listWorks() {
     const globalMeta = await this.getMeta();
@@ -790,7 +790,9 @@ export class CreationsDBClient {
         Works_Summary_EN: typeof info?.Works_Summary_EN === 'string' ? info.Works_Summary_EN : '',
         // 全作品共通の資料を束ねる疑似作品（例: 共通資料）は個別の創作タイトルと区別する
         Works_Shared: info?.Works_Shared === true,
-        OldTitles: Array.isArray(info?.OldTitles) ? info.OldTitles : []
+        OldTitles: Array.isArray(info?.OldTitles) ? info.OldTitles : [],
+        // 公式サイト等の外部リンク（各要素 { URL, Label_JP, Label_EN, LinkType }）
+        Works_OfficialLinks: Array.isArray(info?.Works_OfficialLinks) ? info.Works_OfficialLinks : []
       }));
   }
 
