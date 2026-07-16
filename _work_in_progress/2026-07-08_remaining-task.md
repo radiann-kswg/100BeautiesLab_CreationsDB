@@ -56,6 +56,8 @@
    - 引き継ぎ元: 同上
 4. `pkg/python` / `pkg/csharp` に自動テストが無い（Vitest 管轄外。同一 API サーフェスの担保は `tests/pkg.nodejs.test.js` への手動追従に依存）。
 5. Cloudflare Workers 版の `_DBLink` / `_Jump` 参照解決 enrich は未対応（次フェーズ）。
+6. **`Works_OfficialLinks` の Worker 明示追加**: SW / `pkg/` FS クライアント / UI は対応済みだが、`pkg/cloudflare/worker.js` の `/works` レスポンス整形での明示追加は未実施。`migrate.mjs` が `CreationWorks` 生 JSON を保存するため R2/D1 には自動的に含まれ実害は出ていないが、Worker レスポンス整形の追従は次フェーズ対象。
+   - 引き継ぎ元: `.completed/2026-07-16_progress_official-links.md`（2026-07-16 棚卸しで退避）
 
 ### P5. 任意拡張（優先度低）
 
