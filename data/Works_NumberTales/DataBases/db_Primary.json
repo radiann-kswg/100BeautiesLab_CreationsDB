@@ -10759,7 +10759,10 @@
     "Progress": "released",
     "Images": {
       "concept_PNGName": "cnsp_img27",
-      "corefolder_PNGPath": ["27/emstk_corefolder27-1"],
+      "corefolder_PNGPath": [
+        "27/emstk_corefolder27-1",
+        "27/emstk_corefolder27-2"
+      ],
       "arts_PNGPath": [
         "corefolders/sphericateDay/art_sphericateDay202403",
         "humanoids/2024/art_img27-humanoid",
@@ -10852,8 +10855,8 @@
           },
           {
             "AttrLabel": "#DesignAttr_Notation",
-            "value_JP": "アラビア数字で上桁の左にアンダーバーが入れられた「_27」",
-            "value_EN": "Arabic numeral with an underbar on the left of digits: '_27'"
+            "value_JP": "アラビア数字の「27」",
+            "value_EN": "Arabic numeral '27'"
           }
         ],
         "img_PNGName": "attr_numberMark27",
@@ -10878,8 +10881,8 @@
           },
           {
             "AttrLabel": "#DesignAttr_Notation",
-            "value_JP": "アラビア数字で上桁の左にアンダーバーが入れられた「_27」",
-            "value_EN": "Arabic numeral with an underbar on the left of digits: '_27'"
+            "value_JP": "アラビア数字の「27」",
+            "value_EN": "Arabic numeral '27'"
           }
         ],
         "img_PNGName": "attr_numberMark27",
@@ -10887,9 +10890,9 @@
         "Note_EN": null
       },
       {
-        "Formation": "corefolder",
-        "BodyPart": null,
-        "Laterality": null,
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Chest"],
+        "Laterality": "#Lat_Left",
         "DesignElement": "#Element_Tag",
         "Attrs": [
           {
@@ -10898,7 +10901,7 @@
             "value_EN": "number '27' marking on purple name tag"
           }
         ],
-        "img_PNGName": null,
+        "img_PNGName": "attr_tag27-numberMark",
         "Note_JP": null,
         "Note_EN": null
       },
