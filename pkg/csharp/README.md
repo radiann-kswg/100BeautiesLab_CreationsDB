@@ -123,7 +123,7 @@ foreach (var h in allHits)
 
 作品一覧を返す。`Works_Hidden: true` の作品は除外。
 
-`WorkInfo` プロパティ: `Key`, `TitleJP`, `TitleEN`, `SummaryJP`, `SummaryEN`, `WorksShared`, `OldTitles`
+`WorkInfo` プロパティ: `Key`, `TitleJP`, `TitleEN`, `SummaryJP`, `SummaryEN`, `WorksShared`, `OldTitles`, `OfficialLinks`
 
 ### `ListDbsAsync(workId) → Task<IReadOnlyList<DbInfo>>`
 

@@ -154,7 +154,7 @@ UI と enrich/search は、可能な限りこの `db_type.json($DefType)` に追
 - 主な役割:
   - `General.$VarsDef`: enum/list 辞書
   - `$MetaType`: 作品/DB カタログ向けメタ情報の補助 schema 宣言
-  - `CreationWorks.<work>.Title` / `Title_EN` / `Works_Summary` / `OldTitles`: 作品一覧・作品概要のカタログ情報
+  - `CreationWorks.<work>.Title` / `Title_EN` / `Works_Summary` / `OldTitles` / `Works_OfficialLinks`: 作品一覧・作品概要のカタログ情報
   - `CreationWorks.<work>.$DetailLayout`: 詳細表示レイアウト補助
   - `CreationWorks.<work>.Works_Dir` / `Works_ImagesDir`: 物理ディレクトリ名オーバーライド（後述 §5.5）
   - `CreationWorks.<work>.Works_Shared`: 個別の創作タイトルではない共通カタログ（例: 共通資料）であることを示すフラグ。UI ではこれを持つ作品を別 `<optgroup>` へ分離表示する
@@ -214,7 +214,8 @@ UI と enrich/search は、可能な限りこの `db_type.json($DefType)` に追
 `StandardEndpointHandlers` の一覧系エンドポイントは、`db_meta.json` の創作タイトル情報を次のように返します。
 
 - `GET /pages/v1/works`
-  - 各作品ごとに `key`, `Title`, `Title_EN`, `Works_Summary`, `OldTitles[]` を返します
+  - 各作品ごとに `key`, `Title`, `Title_EN`, `Works_Summary`, `OldTitles[]`, `Works_OfficialLinks[]` を返します
+  - `Works_OfficialLinks[]` は公式サイト等の外部リンク配列（各要素 `{ URL, Label_JP, Label_EN, LinkType }`）。宣言が無い作品では空配列（`[]`）にフォールバックします。UI（キャラシート作品情報欄）は `http/https` の URL のみをリンク化し、`http/https` 以外は破棄します
 - `GET /pages/v1/works/{work}`
   - `meta` に加えて `workInfo` を返し、グローバル `CreationWorks.<work>` のカタログ情報を参照できます
 - `GET /pages/v1/works/{work}/db`
@@ -238,9 +239,11 @@ UI と enrich/search は、可能な限りこの `db_type.json($DefType)` に追
 グローバル `data/db_type.json` では、作品/DB のカタログ情報を補助的に宣言するために `General.$MetaType` ではなくトップレベルの `$MetaType` を持ちます。
 
 - `$Def_CreationWorkCatalog`
-  - `Title`, `Title_EN`, `Works_Summary`, `OldTitles[]`
+  - `Title`, `Title_EN`, `Works_Summary`, `OldTitles[]`, `Works_OfficialLinks[]`
 - `$Def_OldTitleCatalog`
   - `Title`, `Title_EN`, `ArchivedYear`
+- `$Def_OfficialLinkCatalog`
+  - `LinkType`, `URL`, `Label_JP`, `Label_EN`
 - `$Def_StoryEra`
   - `EraGen`, `YearInEra`, `byRealYear`, `about_JP`, `about_EN`
 - `$Def_DatabaseCatalog`

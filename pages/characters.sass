@@ -1532,6 +1532,34 @@ body[data-lang='en'] .lang-toggle .lang-toggle__opt[data-opt='en']
 	object-fit: contain
 	align-self: flex-start
 
+// 公式リンク（Works_OfficialLinks）をチップ状の外部リンクとして並べる
+.meta-overview__links
+	display: flex
+	flex-wrap: wrap
+	gap: var(--spacing-sm)
+	margin-top: var(--spacing-xs)
+
+.meta-overview__link
+	display: inline-flex
+	align-items: center
+	gap: 0.35em
+	padding: 0.3em 0.75em
+	border: 1px solid color-mix(in srgb, var(--accent) 40%, var(--border))
+	border-radius: var(--border-radius-md)
+	background: color-mix(in srgb, var(--accent) 10%, var(--card))
+	color: var(--accent)
+	font-size: var(--font-size-sm)
+	text-decoration: none
+	transition: background 0.15s ease, border-color 0.15s ease
+	&::before
+		content: "🔗"
+		font-size: 0.9em
+	&:hover,
+	&:focus-visible
+		background: color-mix(in srgb, var(--accent) 20%, var(--card))
+		border-color: var(--accent)
+		text-decoration: underline
+
 .controls select,
 .controls input[type=search],
 .controls input[type=text],

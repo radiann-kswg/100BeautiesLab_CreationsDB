@@ -97,7 +97,7 @@ for h in all_hits:
 ### `client.list_works() → list[dict]`
 
 作品一覧を返す。`Works_Hidden: true` の作品は除外。
-各要素: `{key, Title_JP, Title_EN, Works_Summary_JP, Works_Summary_EN, Works_Shared, OldTitles}`
+各要素: `{key, Title_JP, Title_EN, Works_Summary_JP, Works_Summary_EN, Works_Shared, OldTitles, Works_OfficialLinks}`
 
 ### `client.list_dbs(work_id) → list[dict]`
 

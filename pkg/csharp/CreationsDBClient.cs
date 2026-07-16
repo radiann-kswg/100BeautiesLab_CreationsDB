@@ -77,6 +77,11 @@ namespace CreationsDB
         public bool WorksShared { get; set; }
 
         public IReadOnlyList<string> OldTitles { get; set; } = Array.Empty<string>();
+
+        /// <summary>
+        /// 公式サイト等の外部リンク。各要素は { URL, Label_JP, Label_EN, LinkType } を持つ JSON オブジェクト。
+        /// </summary>
+        public IReadOnlyList<JObj> OfficialLinks { get; set; } = Array.Empty<JObj>();
     }
 
     /// <summary>DB の概要情報</summary>
@@ -1002,6 +1007,7 @@ namespace CreationsDB
                 if (!IncludeHidden && Utils.IsTrue(info["Works_Hidden"])) continue;
 
                 var oldTitles = Utils.TryGetArray(info, "OldTitles");
+                var officialLinks = Utils.TryGetArray(info, "Works_OfficialLinks");
                 result.Add(new WorkInfo
                 {
                     Key         = kv.Key,
@@ -1011,7 +1017,10 @@ namespace CreationsDB
                     SummaryEN   = Utils.GetString(info, "Works_Summary_EN")  ?? "",
                     WorksShared = Utils.IsTrue(info["Works_Shared"]),
                     OldTitles   = oldTitles?.Select(t => t?.ToString() ?? "").ToArray()
-                                  ?? Array.Empty<string>()
+                                  ?? Array.Empty<string>(),
+                    // 構造を保つため各リンクは JSON オブジェクトのまま保持する
+                    OfficialLinks = officialLinks?.OfType<JObj>().ToArray()
+                                  ?? Array.Empty<JObj>()
                 });
             }
             return result;

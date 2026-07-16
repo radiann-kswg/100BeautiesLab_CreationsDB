@@ -548,6 +548,32 @@
         }
       ]
     },
+    "$Def_OfficialLinkCatalog": {
+      "$DefType": [
+        {
+          "hashTag": "LinkType",
+          "$type": "#ListIndex|#String|#Null",
+          "hashTag_JP": "リンク種別",
+          "hashTag_EN": "Link Type"
+        },
+        {
+          "hashTag": "URL",
+          "$type": "#String|#Null",
+          "hashTag_JP": "URL",
+          "hashTag_EN": "URL"
+        },
+        {
+          "hashTag": "Label_JP",
+          "$type": "##String_JP|#Summary|#Null",
+          "hashTag_JP": "リンク表示名"
+        },
+        {
+          "hashTag": "Label_EN",
+          "$type": "##String_EN|#Summary|#Null",
+          "hashTag_EN": "Link Label"
+        }
+      ]
+    },
     "$Def_StoryEra": {
       "$display": { "wrapper": "eraSummary" },
       "$DefType": [
@@ -651,6 +677,12 @@
           "$type": "$Def_OldTitleCatalog[]|#Null",
           "hashTag_JP": "旧題一覧",
           "hashTag_EN": "Old Titles"
+        },
+        {
+          "hashTag": "Works_OfficialLinks",
+          "$type": "$Def_OfficialLinkCatalog[]|#Null",
+          "hashTag_JP": "公式リンク",
+          "hashTag_EN": "Official Links"
         },
         {
           "hashTag": "CalendarColorId",

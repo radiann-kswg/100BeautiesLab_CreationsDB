@@ -82,7 +82,7 @@ console.log(allHits.map(h => `${h.db}: ${h.record.Name_JP}`));
 
 ### `client.listWorks()`
 作品一覧を返します。`Works_Hidden: true` の作品は除外されます。  
-各要素: `{ key, Title_JP, Title_EN, Works_Summary_JP, Works_Summary_EN, Works_Shared, OldTitles }`
+各要素: `{ key, Title_JP, Title_EN, Works_Summary_JP, Works_Summary_EN, Works_Shared, OldTitles, Works_OfficialLinks }`
 
 ### `client.listDBs(workId)`
 指定作品で利用可能な DB 一覧を返します。`DB_Hidden: true` の DB は除外されます。  

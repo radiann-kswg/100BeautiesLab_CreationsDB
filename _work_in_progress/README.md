@@ -26,7 +26,7 @@
 | ---------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------ |
 | タスク管理・起点                         | [2026-07-03_current-task-ledger.md](./2026-07-03_current-task-ledger.md)                                                                                            | 進行中タスクの一覧（P1/P2/P3）                                                                   |
 | タスク管理・母艦                         | [2026-07-08_remaining-task.md](./2026-07-08_remaining-task.md)                                                                                                     | 未完了タスクの統合版（旧 `2026-06-01` / `2026-06-13` は `.completed/` へ退避）                   |
-| GitHub Issue/PR トリアージ               | [2026-07-14_github-triage.md](./2026-07-14_github-triage.md)                                                                                                        | 🟢 即対応が必要な新規未解決項目 0 件（過去の日次ログは `.completed/` へ退避）                    |
+| GitHub Issue/PR トリアージ               | [2026-07-16_github-triage.md](./2026-07-16_github-triage.md)                                                                                                        | 🟢 即対応が必要な新規未解決項目 0 件（過去の日次ログは `.completed/` へ退避）                    |
 | ConversationPattern 引き継ぎ             | [2026-06-28_progress_conversationpattern-handoff.md](./2026-06-28_progress_conversationpattern-handoff.md)                                                          | ⚠️ sub2側後処理 + DialogueExamples先行方式での仮入力（Num 92/94/95/98/99/2/10）が残              |
 | 英訳ルール基準書                         | [2026-06-12_progress_translation-style-unified.md](./2026-06-12_progress_translation-style-unified.md)                                                              | 継続参照用（ルール本体・バッチ作業ログ）                                                         |
 | Localization DB（`trans_*.json`）        | [2026-06-24_progress_localization-db.md](./2026-06-24_progress_localization-db.md)                                                                                  | ⚠️ enum解決の合流・原作者確認・項目追加継続中                                                    |
@@ -37,7 +37,6 @@
 | **addon-ai-tag**: AIHints 残課題台帳     | [2026-07-14_progress_addon-ai-tag-log-inventory.md](./2026-07-14_progress_addon-ai-tag-log-inventory.md)                                                            | ⚠️ AIHints 系ログ 4 件を退避し、残課題（A1〜A5）を集約（本ブランチ固有。母艦は develop と共有のため衝突回避で分離） |
 | ColorPalette スキーマ + カラーチップ抽出 | [2026-07-13_progress_colorpalette-schema.md](./2026-07-13_progress_colorpalette-schema.md)                                                                          | ✅ 設定画のカラーチップから 94 件へ配色を投入済み（全件 5 色以上）。⚠️ 色名・Role は User レビュー待ち（AIHints への機械導出は `--apply-colorpalette` で完了済み） |
 | AppearanceDetail 参考画像の一括登録      | [2026-07-11_progress_appearancedetail-images.md](./2026-07-11_progress_appearancedetail-images.md)                                                                  | ⚠️ `10`/`10alt` の割当正誤（User確認待ち）・保留4枚の扱い                                        |
-| グローバル辞書解決の破損修正             | [2026-07-14_progress_global-dict-resolution-fix.md](./2026-07-14_progress_global-dict-resolution-fix.md)                                                            | ⚠️ `npm test` 6件失敗を是正（`develop`・370件成功）。ブラウザ実地確認と `addon-ai-tag` への一方向マージが残 |
 
 ### 系列の補足（過去フェーズは `.completed/` 参照）
 
@@ -50,6 +49,8 @@
 - **Calling 表示系**: `fix_calling-schema-duplication` は 2026-07-14 にブラウザ実地確認 + 回帰テスト追加で完了・退避済み。作品別 typedef に残る `ForMasterCalling_JP`/`_EN` の suffix 宣言は、renderer 側の base 統合により**表示バグを起こさない**ことを確認済み（スキーマ整理は任意）。ローカライズ観点の残作業は `localization-rules-audit` 側で管理。
 - **pkg/ 追従系**: `pkg-sync` は 2026-07-13 の実装・検証で完了。残る技術負債（Workers 側 `_Secondaries` マッチャの乖離ほか）は母艦 `2026-07-08_remaining-task.md` の P4 へ引き継ぎ済み。
 - **アンオースドロジカ Index 系**: `unauthedlogica-index-alias` は実装・テスト・ブラウザ確認完了、コミットも `develop` へ着地済み（`f3c18ae`）。残る辞書ラベル（創作文言）は母艦 P3 へ引き継ぎ済み。
+- **キャラシート URL / 辞書解決系**: `url-params`（圧縮ロケータ `?c=`・`a36ba32`）と `global-dict-resolution-fix`（`fetchGlobalDefType()` の妥当性判定をスキーマ形状ベースへ・`f78cfdb`）は 2026-07-16 の棚卸しで完了・退避済み。前者は錦野姉妹（Dealer カード）対応まで、後者は辞書和英併記の復旧をブラウザ実地確認済み。両コミットとも本ブランチにも取込済み（`develop` → `addon-ai-tag` 一方向マージ、2026-07-16 マージで確定）。
+- **公式サイトリンク系**: `official-links`（作品情報欄への公式 HP 導線・スキーマ駆動・`6646d50`）は実装・テスト（373件）・ブラウザ実地確認まで完了し退避済み。2026-07-16 マージで本ブランチにも取込済み。Worker 側 `/works` レスポンスへの明示追加のみ次フェーズ（母艦 P4）。
 - **addon-ai-tag / AIHints系**（本ブランチ固有）: `aihints-from-identitymotif` → `corefolder-nld-template-and-silhouette-structure` → `appearancedetail-aihints-mode`（`AppearanceDetail` を正源とする並行モード追加・NumberTales/Primary 92件へ実データ適用済み）、`addon-ai-tag-api-separation`（`/api/ai/*` 分離・Bearer認証実装）、`db-images-phase2`（Images整備）は実装・適用が完了しており `.completed/` へ退避済み。`addon-ai-tag-merge-conflict-and-log-cleanup` / `addon-ai-tag-revert-cascade-recovery` / `addon-ai-tag-reverse-merge-incident` / `addon-ai-tag-log-inventory` の一連のマージ事故対応・ログ棚卸し系も是正完了につき退避済み（詳細は各ログ参照。`reverse-merge-incident` は develop 側では進行中ログとして残るが、本ブランチでは後日談追記まで完了し退避済み）。GitHub Issues機能・Calling 表示系はこのブランチにも波及しているが、いずれも develop 側の `issue-feature` / `fix_calling-schema-duplication` として 2026-07-14 に完了・退避済み。
 - **AIHints 再ビルド基盤（第0〜2階）**（本ブランチ固有）: `aihints-palette-deadlock`（第0階: `palette_priority` の `null` ハンドリング）→ `aihints-structural-resync-proposal`（第1階: `_meta` provenance + `--resync-structural` + CI）→ `develop` の `ColorPalette` + `--apply-colorpalette`（第2階: 配色の機械導出）で**3 階すべて完了**。2026-07-14 の棚卸しで、実データ 92/92 件への `_meta` 付与・`palette_priority` 確定 91 件・誤タグ 0 件を実測して裏取りし、4 件を `.completed/` へ退避した（ログ側の「未着手」記載が実装に追いついていなかった）。残課題は `2026-07-14_progress_addon-ai-tag-log-inventory.md` の「AIHints 残課題台帳」へ集約。
 
@@ -58,6 +59,16 @@
 ## 完了（.completed へ退避済み）
 
 以下のファイルは実装・検証が完了し、`_work_in_progress/.completed/` へ移動済みです（Git 管轄外）。
+
+### 2026-07-16 棚卸しで追加退避（6件・develop 由来）
+
+前回同様、書面の「未実施/確認待ち」を鵜呑みにせず、ローカル静的サーバー（`127.0.0.1:8123`・SW ヘッダー付き）+ Playwright で 2 件を実地確認してから退避。すべて `develop` にコミット＆push 済み。本ブランチへは 2026-07-16 の `develop` → `addon-ai-tag` 一方向マージで反映（退避対象の 4 ログはマージによる削除で本ブランチ直下からも除去）。
+
+- `2026-07-14_progress_global-dict-resolution-fix.md`（**ブラウザ実地確認で消化**: グローバル辞書由来フィールド〈所属・種族・性別・作者名〉が素値でなく和英併記で復旧、EN モードは英語のみ、4xx/pageerror 0 件を確認。`f78cfdb` は本マージで `addon-ai-tag` にも取込確定）
+- `2026-07-16_progress_official-links.md`（**ブラウザ実地確認で消化**: NT / FLInvestigator78 の公式リンクが「作品情報」欄に表示・EN ラベル切替・`rel="noopener noreferrer"` まで確認。Worker `/works` 明示追加のみ次フェーズ → 母艦 P4 へ）
+- `2026-07-14_progress_url-params.md`（圧縮ロケータ `?c=` + 錦野姉妹 Dealer 対応。実装コミット済み〈`a36ba32`〉・Playwright 実機確認済み）
+- `2026-07-14_progress_wip-tidy.md`（前回の棚卸し作業ログ本体。未完了タスクなし）
+- `2026-07-14_github-triage.md` / `2026-07-15_github-triage.md`（日次トリアージ履歴。現行は `2026-07-16_github-triage.md`）
 
 ### 2026-07-14 addon-ai-tag 棚卸しで追加退避（4件・本ブランチ固有）
 
@@ -257,3 +268,5 @@
 - **2026-07-13 の棚卸しで、「確認待ち」を実際に確認して解消したうえで 17件 を `.completed/` へ退避し、直下を 34件 → 17件（+README）に削減しました。** 単なる仕分けではなく、(1) Playwright + ローカル HTTP サーバーでブラウザ目視 4件（`_DBCrossLinkPath` / TailsUnit 参考画像 / `NumberMarkLocation`・`IdentityMotif` 廃止 / EarShapeType）、(2) 本番実 API での裏取り 3件（R2 復旧・D1 `is_private` 是正・共通資料の Workers 疎通）、(3) コミット状態の確認（`Works_Proxies` 削除済み・`origin/develop` と同期済み）を実施し、その結果を各ログへ追記してから退避しています。創作文言待ち・技術負債は `2026-07-08_remaining-task.md`（母艦 P3 / P4）へ引き継ぎ、`2026-07-03_current-task-ledger.md` も全面改訂しました。詳細は `2026-07-13_progress_wip-tidy.md` を参照。
 - **2026-07-14 の develop 側棚卸しで、6件 を `.completed/` へ退避し、直下を 21件 → 15件（+README）に削減しました。** 前回同様、書面の「未完了」を鵜呑みにせず裏取りしてから退避しています。(1) Issue テンプレートの最終確認は、外部ユーザーが Issue #11 を**テンプレート経由で実起票**していたことを `gh issue view` で確認して消化（User の目視確認より強い実地証拠）。この過程で **`data-correction` ラベルがリポジトリに未定義**で、GitHub が未定義ラベルを自動作成せず黙って無視していた不具合を発見し、ラベルを作成して修正。(2) Calling 表示バグの「他作品への影響確認」は、`ForMasterCalling_JP`/`_EN` の suffix 宣言が作品別 typedef に残っていることを発見したものの、ブラウザ実地確認で**表示バグは再現しない**（renderer 側の `parseLangSuffix()` が base 統合するため）と確認し、その挙動を回帰テスト 2 件で固定して消化。詳細は `2026-07-14_progress_wip-tidy.md` を参照。
 - **2026-07-14 の addon-ai-tag 棚卸しで、4件 を `.completed/` へ退避し、直下を 17件 → 13件（+README）に削減しました。** `develop` 取り込みマージ（`a1e259d`）で発生した `README.md` のコンフリクト 2 箇所を、**両ブランチの記載をどちらも失わずに**解消（「系列の補足」に develop 側 4 項目と addon 側 AIHints 項目の両方を保持、「整理履歴」も両者を時系列で統合）。あわせて本ブランチ側のログを棚卸ししたところ、**実装がログを追い越している**状態が判明: (1) AIHints 構造的再同期（第1階）は「📝 提案書のみ・実装未着手」と記載されていたが、`--resync-structural` / `_meta` provenance / CI ワークフロー / テスト26件がすべて実在し、実データ 92/92 件へ適用済みだった。(2) `palette-deadlock` ログは親ログに育った結果「残る課題」節が実装結果と自己矛盾していた（`prompt_export` 再生成・`--force` 阻止・CI 自動化はいずれも実装済み）。実データで裏取りし（`palette_priority` 確定 91 件・`_meta` 92/92 件・誤タグ 0 件）、最終状態を各ログへ追記してから退避。**この過程で `docs/ai-hints-usage.md` に `--resync-structural` / `--apply-colorpalette` の記載が欠落していた不備を発見し、§9.10 / §9.11 として追記しました。** AIHints の残課題は `2026-07-14_progress_addon-ai-tag-log-inventory.md` の台帳へ集約（共有母艦はマージ衝突を避けるため使わない）。
+- **2026-07-16 の develop 側棚卸しで、6件 を `.completed/` へ退避し、直下を 21件 → 15件（＋棚卸しログ本体 1件で 16件・+README）に整理しました。** 前回同様、書面を鵜呑みにせず裏取りしてから退避。ローカル静的サーバー（`127.0.0.1:8123`）+ Playwright で (1) `global-dict-resolution-fix` の辞書和英併記復旧（所属・種族・性別・作者名、EN モードは英語のみ、4xx/pageerror 0）と (2) `official-links` の公式リンク表示（NT / FLInvestigator78・EN ラベル切替・安全属性）を実地確認して「未実施/確認待ち」を消化。`url-params`（`a36ba32`）と 日次トリアージ 2件、前回の棚卸しログ本体もあわせて退避。残タスクは母艦 P4（Worker `/works` 明示追加）へ引き継ぎ。詳細は `2026-07-16_progress_wip-tidy.md` を参照。
+- **2026-07-16 の addon-ai-tag 取り込みマージで、`develop` の 3 コミット（`6c6fbf6` NT DB / `6646d50` 公式リンク / `0b65400` 進捗ログ整備）を一方向マージ。** コンフリクトは前回同様 `_work_in_progress/README.md` の 1 ファイルのみ（3 箇所）で、develop 側の 2026-07-16 更新と本ブランチ固有の AIHints 記載を**両取り**で解消。`global-dict-resolution-fix`（`f78cfdb`）は既に本ブランチへ取込済みだったことを確認（README の「マージ残」記載は stale だった）。退避対象 4 ログはマージによる削除で本ブランチ直下からも除去。詳細は `2026-07-16_progress_addon-ai-tag-merge.md` を参照。
