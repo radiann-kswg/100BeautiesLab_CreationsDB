@@ -16472,7 +16472,11 @@
     },
     "AIHints": {
       "common": {
-        "identity_tags": ["short blue hair, side ponytail", "erected fox ears"],
+        "identity_tags": [
+          "number '27' marking on purple name tag",
+          "short blue hair, side ponytail",
+          "erected fox ears"
+        ],
         "silhouette_features": [
           "branching fox 7 tails",
           "slightly tall stature (about 162cm)",
@@ -16539,11 +16543,11 @@
             "branching fox 7 tails",
             "slightly tall stature (about 162cm)",
             "teenager",
+            "number '27' marking on purple name tag",
             "short blue hair, side ponytail",
             "erected fox ears",
             "calm composed expression (usual), gentle yet intimidating teacher-like expression (training mode)",
-            "As a purple name tag on the white area of the left chest on the sphere's front, light blue (printed on purple name tag), Arabic numeral with an underbar on the left of digits: '_27'",
-            "number '27' marking on purple name tag"
+            "As a purple name tag on the white area of the left chest on the sphere's front, light blue (printed on purple name tag), Arabic numeral '27'"
           ],
           "negative_visuals": [
             "white blouse",
@@ -16552,7 +16556,7 @@
             "casual private outfit"
           ],
           "natural_language_description": "Corefolder form: a spherical cushion-like body in short blue hair, side ponytail; erected fox ears, with the number '27' marking (As a purple name tag on the white area of the left chest on the sphere's front, light blue (printed on purple name tag), Arabic numeral with an underbar on the left of digits: '_27'); number '27' marking on purple name tag.",
-          "prompt_export": "corefolder form, branching fox 7 tails, slightly tall stature (about 162cm), teenager, short blue hair, side ponytail, erected fox ears, calm composed expression (usual), gentle yet intimidating teacher-like expression (training mode), As a purple name tag on the white area of the left chest on the sphere's front, light blue (printed on purple name tag), Arabic numeral with an underbar on the left of digits: '_27', number '27' marking on purple name tag",
+          "prompt_export": "corefolder form, branching fox 7 tails, slightly tall stature (about 162cm), teenager, number '27' marking on purple name tag, short blue hair, side ponytail, erected fox ears, calm composed expression (usual), gentle yet intimidating teacher-like expression (training mode), As a purple name tag on the white area of the left chest on the sphere's front, light blue (printed on purple name tag), Arabic numeral '27'",
           "negative_prompt_export": "white blouse, purple pleated skirt, blue lace-up ankle boots, casual private outfit",
           "reference_images": {
             "main": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primary/concept/cnsp_img27.png",
@@ -16582,10 +16586,11 @@
             "branching fox 7 tails",
             "slightly tall stature (about 162cm)",
             "teenager",
+            "number '27' marking on purple name tag",
             "short blue hair, side ponytail",
             "erected fox ears",
             "calm composed expression (usual), gentle yet intimidating teacher-like expression (training mode)",
-            "As a purple name tag around the left chest to left side of the casual wear, light blue (printed on purple name tag), Arabic numeral with an underbar on the left of digits: '_27'",
+            "As a purple name tag around the left chest to left side of the casual wear, light blue (printed on purple name tag), Arabic numeral '27'",
             "white blouse",
             "purple pleated skirt",
             "four white buttons",
@@ -16594,7 +16599,7 @@
           ],
           "negative_visuals": ["number '27' marking on purple name tag"],
           "natural_language_description": null,
-          "prompt_export": "humanoid form, branching fox 7 tails, slightly tall stature (about 162cm), teenager, short blue hair, side ponytail, erected fox ears, calm composed expression (usual), gentle yet intimidating teacher-like expression (training mode), As a purple name tag around the left chest to left side of the casual wear, light blue (printed on purple name tag), Arabic numeral with an underbar on the left of digits: '_27', white blouse, purple pleated skirt, four white buttons, blue lace-up ankle boots, casual private outfit",
+          "prompt_export": "humanoid form, branching fox 7 tails, slightly tall stature (about 162cm), teenager, number '27' marking on purple name tag, short blue hair, side ponytail, erected fox ears, calm composed expression (usual), gentle yet intimidating teacher-like expression (training mode), As a purple name tag around the left chest to left side of the casual wear, light blue (printed on purple name tag), Arabic numeral '27', white blouse, purple pleated skirt, four white buttons, blue lace-up ankle boots, casual private outfit",
           "negative_prompt_export": "number '27' marking on purple name tag",
           "reference_images": {
             "main": "https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primary/concept/cnsp_img27.png",
@@ -16605,9 +16610,10 @@
       "alt_modes": null,
       "concept_contains_forms": ["corefolder", "humanoid"],
       "_meta": {
-        "structuralSourceHash": "sha256:0dfd0e8bf057a88a2a8aa4bea4a0abd4b159f3c2fc63175a983a4e791aab08eb",
+        "structuralSourceHash": "sha256:1ff65149b4c1445c89a20f48c2404bdff84275d1fa168495032568aadb7493a4",
         "structuralEntries": {
           "common.identity_tags": [
+            "number '27' marking on purple name tag",
             "short blue hair, side ponytail",
             "erected fox ears"
           ],
@@ -16626,11 +16632,11 @@
             "branching fox 7 tails",
             "slightly tall stature (about 162cm)",
             "teenager",
+            "number '27' marking on purple name tag",
             "short blue hair, side ponytail",
             "erected fox ears",
             "calm composed expression (usual), gentle yet intimidating teacher-like expression (training mode)",
-            "As a purple name tag on the white area of the left chest on the sphere's front, light blue (printed on purple name tag), Arabic numeral with an underbar on the left of digits: '_27'",
-            "number '27' marking on purple name tag"
+            "As a purple name tag on the white area of the left chest on the sphere's front, light blue (printed on purple name tag), Arabic numeral '27'"
           ],
           "forms.corefolder.immutable_constraints": [
             "do not render arms or hands",
@@ -16655,10 +16661,11 @@
             "branching fox 7 tails",
             "slightly tall stature (about 162cm)",
             "teenager",
+            "number '27' marking on purple name tag",
             "short blue hair, side ponytail",
             "erected fox ears",
             "calm composed expression (usual), gentle yet intimidating teacher-like expression (training mode)",
-            "As a purple name tag around the left chest to left side of the casual wear, light blue (printed on purple name tag), Arabic numeral with an underbar on the left of digits: '_27'",
+            "As a purple name tag around the left chest to left side of the casual wear, light blue (printed on purple name tag), Arabic numeral '27'",
             "white blouse",
             "purple pleated skirt",
             "four white buttons",
@@ -16666,7 +16673,7 @@
             "casual private outfit"
           ]
         },
-        "lastStructuralResync": "2026-07-13"
+        "lastStructuralResync": "2026-07-16"
       }
     }
   },
