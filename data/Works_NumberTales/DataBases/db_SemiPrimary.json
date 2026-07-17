@@ -3727,7 +3727,7 @@
   },
   {
     "Num": "%",
-    "Progress": "notProseed",
+    "Progress": "notProceeded",
     "AnotherRegions_DBLink": {
       "_Work": "FLInvestigator78",
       "_DB": "PrimaryDealer",
@@ -3774,7 +3774,7 @@
   },
   {
     "Num": "∞",
-    "Progress": "notProseed",
+    "Progress": "notProceeded",
     "AnotherRegions_DBLink": {
       "_Work": "FLInvestigator78",
       "_DB": "PrimaryDealer",
