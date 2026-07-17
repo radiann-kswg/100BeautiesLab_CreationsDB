@@ -628,42 +628,50 @@
         "#Progress_Yet": {
           "Progress": "notProceeded",
           "Progress_JP": "未着手",
-          "isForSecondary": false
+          "isForSecondary": false,
+          "AI_Unready": true
         },
         "#Progress_Tentative": {
           "Progress": "stillTentative",
           "Progress_JP": "現状は仮公開(アルファリリース)",
-          "isForSecondary": false
+          "isForSecondary": false,
+          "AI_Unready": true
         },
         "#Progress_Unprofiled": {
           "Progress": "unprofiled",
           "Progress_JP": "プロフィール公開は無し",
-          "isForSecondary": false
+          "isForSecondary": false,
+          "AI_Unready": false
         },
         "#Progress_Creating": {
           "Progress": "nowCreating",
           "Progress_JP": "制作中",
-          "isForSecondary": false
+          "isForSecondary": false,
+          "AI_Unready": true
         },
         "#Progress_Secret": {
           "Progress": "unreleased",
           "Progress_JP": "公開待ち",
-          "isForSecondary": false
+          "isForSecondary": false,
+          "AI_Unready": false
         },
         "#Progress_BetaReleased": {
           "Progress": "released(beta)",
           "Progress_JP": "公開済み(ベータリリース)",
-          "isForSecondary": false
+          "isForSecondary": false,
+          "AI_Unready": false
         },
         "#Progress_Released": {
           "Progress": "released",
           "Progress_JP": "公開済み",
-          "isForSecondary": false
+          "isForSecondary": false,
+          "AI_Unready": false
         },
         "#Progress_Recreating": {
           "Progress": "nowRecreating",
           "Progress_JP": "再制作中",
-          "isForSecondary": false
+          "isForSecondary": false,
+          "AI_Unready": false
         },
         "#Progress_Founded": {
           "Progress": "founded",
