@@ -1,5 +1,27 @@
 # 最新のリファクタリング・仕様変更履歴
 
+### refactor: JSON DB のフィールドキー順を typedef（`$DefType` + `$slot`）へ整列 (2026-07-17)
+
+同一 DB 内でもレコードのキー順がバラついており（`NumberTales/db_Primary` は 105 件 76 通り）、レビュー・diff・手書き追記のいずれも辛い状態だった。「表示順の完全な正は `$DefType`」という既存の明文規定（`docs/schema-meta-processing.md`）に実データを追従させる整合作業。**トップレベルのキー順は UI に到達しない**（`pages/characters.js` は typedef 順でループし、スキーマ外キーを捨てる）ため、表示への影響は `basicFields` の整列に限定される。
+
+- **`$slot` マーカー（`lib/data-common.js` `TypeDefUtils.mergeDefTypes()`）**: `Index`（作品ごとに `hashTag` が異なる）・`Images`・作品固有 `_DBLink` はグローバル `$DefType` に宣言が無く、従来の「作品固有は末尾追加」では常に末尾へ落ちていた。位置をツール側の field 名ハードコードで持たず schema で宣言するため、**`hashTag` を持たないマーカーエントリ**を導入。既存の `$DefType` 走査は全 9 箇所が `hashTag` falsy を `continue` するため下流からは不可視で、`mergeDefTypes()` の結果にも含めない。マーカー 0 個なら従来仕様へフォールバックする。
+  - `$slotMatch` の語彙は `$type` / `$typeIncludes` / `$display` / `"*"` の 4 種のみに固定（表現力を意図的に低く保ち、field 名依存の分岐への逆戻りを防ぐ）。JS 側に field 名のハードコードはゼロ。
+  - `$slotExpand`: `$MetaType.$Def_SecondaryMeta` を参照展開し、`sec_*` をトップレベル `$DefType` へ再掲せず順序へ組み込む。
+  - `$slotOrder`: catch-all スロット内を `$DetailLayout.subFields`（詳細画面のセクション順）へ寄せ、ファイルの並びと画面の並びを揃える。解決には `mergeDefTypes(globalType, workType, { detailLayout })` で `$DetailLayout` を渡す。
+  - 解決順は **作品側 `$slot` 明示（逃がし弁） > `$slotMatch` 述語 > catch-all**。
+- **宣言（`data/db_type.json`）**: マーカー 5 件（`#Index` / `#SecondaryMeta` / `#WorkDBLinkRef` / `#Images` / `#WorkRest`）を追加し、`Index → Progress → _DBLinkRef 群 → Name → Images → FormalName → …` の順を作る。作品別 typedef の編集は原則不要（9 作品すべてが述語で吸着）。
+- **`$Def_DBLinkRef` の宣言順を修正**: `_DB > _Work` → **`_Work > _DB`**。実データは `_Work` 先行が 46 件・`_DB` 先行が 0 件で、宣言だけが実態と逆だった（`$Def_DBCrossLinkPath` は宣言とデータが一致するため変更なし）。
+- **`$DetailLayout.basicFields` を `$DefType` 順へ整列（`data/db_meta.json`、9 作品）**: `$DetailLayout` は「どれを出すか」の選択に専念し、並び順は `$DefType` 一本へ集約。ただし作品別 typedef で宣言されたフィールド（`TailsUnit` / `Generation` / `ThisPerformer_DBLink` / `BeastspecName` / `Chrono*Name`）は `basicFields` 側の位置に寄せる。**基本情報テーブルの表示順が変わる**（`Age` / `AnivDay` / `BirthDay` が `RaceType` / `Height` 群の後ろへ移動、`UnibyteLive` は `AnotherRegions_DBLink` が先頭）。
+- **整列ツール（`tools/normalize-field-order.mjs` 新規）**: 既定 dry-run（`--write` で書き込み / `--check` で CI / `--report` で置換シグネチャ出力）。`npm run data:order:{plan,write,check}`。
+  - **書式非破壊**: `JSON.parse` → `JSON.stringify` の往復をしない。往復するとインラインオブジェクト（2,716 行）が展開され、prettier の `objectWrap: "preserve"` は畳み直さないため、キー順と無関係な巨大差分になる。並べ替えは既存テキスト片の入れ替えのみで行う（`tools/extract-palette.mjs` の `scanTopLevelRecords()` / `findValueEnd()` を再利用）。
+  - **未宣言キーは直前の宣言済みキーへアンカー**して元の位置に留める。`isTriple` / `Regioministration` / `isPrivate` は「フラグ用にあえて宣言しない」運用のため、整列で末尾へ流さない。
+  - **fail-closed**: 書き出し前にキー順以外が変化していないこと（値・レコード数・キー集合）を検証し、失敗したら書かない。
+- **`Works_DestinyFoxRecords` の `Unit_FullEN` を宣言**: `Unit`（記号 "s"）の派生（正式名 "second"）として `#Index` スロットへ明示配置。
+- **データ整列**: 全 19 DB / 1,283 レコードのうち **1,198 件**を整列。`npm run data:order:check` → 0/1283。全ファイルで insertions と deletions が同数（行の入れ替えのみ）。
+- **CI ガード（`tests/data.field-order.test.js` 新規）**: リポジトリ初のキー順テスト。全 DB のキー順・ツールの冪等性・`$slot` マーカーの健全性・要望順（`Index → Progress → _DBLinkRef → Name → Images → FormalName`）を検証。
+- **影響範囲**: `lib/data-common.js` / `data/db_type.json` / `data/db_meta.json` / `data/Works_DestinyFoxRecords/DataBases/db_type.json` / `data/Works_*/DataBases/db_*.json`（19 DB）/ `tools/normalize-field-order.mjs` / `tests/{data.field-order,sw.deftype.slot,normalize-field-order}.test.js` / `package.json` / `docs/{schema-meta-processing,db-update-guidelines}.md`。
+- 確認: `npm test` — 36 ファイル / 468 件すべて成功（`develop`）。CI ガードが実際に乱れを検知することも、キー順を意図的に崩して確認済み。
+
 ### feat: 作品公式サイトのリンクをキャラシート「作品情報」欄へ表示 (`Works_OfficialLinks`) (2026-07-16)
 
 創作タイトルに公式 HP がある場合（ナンバーテールズ / 運命線探偵78）、キャラシートの作品情報欄から公式サイトへ導線を張れるようにした。スキーマ駆動（宣言 → SW パススルー → UI 描画）で追加し、UI ハードコードはリンク 1 種の描画に限定している。

@@ -166,6 +166,10 @@
   - セクションや単位などの表示ヒント
 - `$alt`
   - 代替キーからの穴埋め候補
+- `$slot`
+  - マージ時の配置スロット指定（§5.4.1）。作品側エントリに書くと述語より優先される逃がし弁になる
+
+`$DefType` には `hashTag` を持たない **`$slot` マーカー**も並びます。これは作品固有フィールドの挿入位置を宣言するためのもので、フィールド定義ではありません（`mergeDefTypes()` の結果には含まれません）。詳細は §5.4.1 を参照してください。
 
 ### 3.2 `$type`
 
@@ -452,10 +456,14 @@
   - 詳細上部の pill 群に出す項目
 - `basicFields`
   - basic セクションへ優先表示する項目
+- `subFields`
+  - 詳細画面で独立セクションとして描画する項目（`$slotOrder` 経由で `$DefType` の catch-all スロット内の並びも決める。§5.4.1）
 
 注意点:
 
-- 表示順の完全な正は `$DefType` だが、詳細画面の強調順は `$DetailLayout` が補助する
+- **表示順の完全な正は `$DefType`**。`$DetailLayout` は「どれを出すか」の選択を担い、並び順は `$DefType` に揃える（2026-07-17 に `basicFields` を全 9 作品分 `$DefType` 順へ整列済み）
+  - ただし作品別 typedef で宣言されたフィールド（`TailsUnit` / `Generation` / `ThisPerformer_DBLink` / `BeastspecName` / `Chrono*Name` 等）は `basicFields` 側の位置に寄せる
+- `subFields` は逆に、`$DefType` の catch-all スロット内の並びを決める側に回る（詳細画面のセクション順とデータのキー順を揃えるため）
 - `Belonging` などの補助項目は、`basicFields` にすでに含まれている場合は UI 側で重複抑制される
 
 ### 4.3 `Databases.#DB_<DbName>`
@@ -680,17 +688,70 @@ UI 側は厳密構造より `about_JP` / `about_EN` を優先して整形表示�
 
 ### 5.4 `$DefType` マージ
 
-`TypeDefUtils.mergeDefTypes(globalType, workType)` が、グローバルと作品別 `$DefType` を結合します。
+`TypeDefUtils.mergeDefTypes(globalType, workType, { detailLayout })` が、グローバルと作品別 `$DefType` を結合します。
 
 方針:
 
 - グローバルの並び順を土台にする
-- 同じ `hashTag` は作品側定義で上書きする
-- 作品側だけにある `hashTag` は末尾追加する
+- 同じ `hashTag` は作品側定義で上書きする（位置はグローバルのまま）
+- 作品側だけにある `hashTag` は、グローバルが宣言した **`$slot` マーカー**の位置へ挿す（§5.4.1）
+- `$slot` マーカーが 1 つも無ければ、従来どおり作品側だけの `hashTag` を**末尾追加**する（後方互換）
 
 結果:
 
 - UI や enrich から見た「その作品の最終的な `$DefType`」を 1 つにできる
+- レコードのキー順もこの正準順に追従させる（`tools/normalize-field-order.mjs` / §5.4.3）
+
+#### 5.4.1 `$slot` マーカー
+
+`Index`（作品ごとに `hashTag` が異なる）・`Images`・作品固有 `_DBLink` はグローバル `$DefType` に宣言が無いため、従来の「作品固有は末尾追加」では常に末尾へ落ちていました。位置をツール側の field 名ハードコードで持つのではなく、schema で宣言するための仕組みが `$slot` マーカーです。
+
+マーカーは **`hashTag` を持たないエントリ**としてグローバル `$DefType` に置きます。既存の `$DefType` 走査はいずれも `hashTag` falsy を `continue` するため、下流からは不可視です。`mergeDefTypes()` はマーカーを結果に含めません。
+
+```jsonc
+// data/db_type.json の $DefType
+{ "$slot": "#Index", "$slotMatch": { "$type": "#Index" }, "$slotNote": "..." }
+```
+
+`$slotMatch` の語彙は 4 種のみです（表現力を意図的に低く保ち、field 名依存の分岐へ逆戻りさせないため）:
+
+| 述語                               | 意味                                                                                      |
+| ---------------------------------- | ----------------------------------------------------------------------------------------- |
+| `{ "$type": "<str>" }`             | `$type` の**完全一致**（文字列型のみ）                                                    |
+| `{ "$typeIncludes": "<str>" }`     | `$type` の**部分一致**。`$Def_DBLinkRef[]\|#Null` と `$Def_DBLinkRef\|#Null` の両形を拾う |
+| `{ "$display": { "<k>": "<v>" } }` | `$display` の**浅い部分集合一致**                                                         |
+| `"*"`                              | catch-all（**厳密に 1 個必須**）                                                          |
+
+補助キー:
+
+- `$slotExpand`: ドット区切りパスが指す定義の `$DefType` をその位置へ展開する（例: `"$MetaType.$Def_SecondaryMeta"` → `sec_*` をトップレベル `$DefType` へ再掲せずに順序へ組み込む）
+- `$slotOrder`: そのスロット内の並びを `$DetailLayout` の宣言配列へ寄せる（例: `"subFields"` → 詳細画面のセクション順とデータのキー順を揃える）。解決には呼び出し側から `{ detailLayout }` を渡す必要がある
+
+解決順は **作品側エントリの `$slot` 明示（逃がし弁） > `$slotMatch` 述語（宣言順に先勝ち） > catch-all** です。述語で拾えない例外は作品側へ `"$slot": "#Images"` のように 1 行足して上書きします（例: `Works_DestinyFoxRecords` の `Unit_FullEN`）。
+
+> **注意**: `$display.index.order`（§3.3）は `#Index` のサブフィールド順であり、`$slot`（トップレベル配置）とは無関係です。名前が紛らわしいので混同しないでください。
+
+#### 5.4.2 現在の宣言（2026-07-17）
+
+`data/db_type.json` の `$DefType` には次の 5 マーカーが並び、`Index → Progress → _DBLinkRef 群 → Name → Images → FormalName → …` の順を作ります。
+
+| `$slot`          | 述語 / 補助                                   | 拾うもの                                     |
+| ---------------- | --------------------------------------------- | -------------------------------------------- |
+| `#Index`         | `$type: "#Index"`                             | `Num` / `Card` / `Unit` / `BeastType` など   |
+| `#SecondaryMeta` | `$slotExpand: "$MetaType.$Def_SecondaryMeta"` | `sec_SeriesTitle` / `sec_Category` など      |
+| `#WorkDBLinkRef` | `$typeIncludes: "$Def_DBLinkRef"`             | `SameModels_DBLink` / `ThisPerformer_DBLink` |
+| `#Images`        | `$display: { section: "images" }`             | `Images`（画像を持たない作品では空になる）   |
+| `#WorkRest`      | `"*"` + `$slotOrder: "subFields"`             | 残りすべて（`$DetailLayout.subFields` 順）   |
+
+#### 5.4.3 レコードのキー順
+
+レコードのトップレベルキー順も、この正準順に追従させます。
+
+- 整列: `npm run data:order:write`（`tools/normalize-field-order.mjs`。既定は dry-run）
+- 検証: `npm run data:order:check` / `tests/data.field-order.test.js`
+- 未宣言キー（`isTriple` / `Regioministration` / `isPrivate` など「フラグ用にあえて宣言しない」もの）は、**直前の宣言済みキーへアンカー**して元の位置に留まります
+
+なお `_Commons` 適用（§5.5）は未定義キーへの代入なので、注入されたキーはランタイムでは必ず末尾に付きます。API 応答のキー順はファイル上の順とは一致しません。
 
 ### 5.5 `_Commons` 適用
 
