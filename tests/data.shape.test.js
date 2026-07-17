@@ -49,6 +49,108 @@ describe('database shapes', () => {
     }
   });
 
+  /**
+   * `$EnumDef_Progress` に宣言された正規の Progress 値の集合を返す。
+   * 正規語彙は "accepted\nnowRemaking" のような改行複合値を含むため、
+   * 改行で分割せず値そのものと完全一致で判定すること（分割すると偽陽性が出る）。
+   * @returns {Set<string>}
+   */
+  function loadValidProgressValues() {
+    const dbMeta = load('data/db_meta.json');
+    const enumDef = dbMeta?.General?.$VarsDef?.$EnumDef_Progress ?? {};
+    return new Set(
+      Object.values(enumDef)
+        .map((entry) => entry?.Progress)
+        .filter((v) => typeof v === 'string'),
+    );
+  }
+
+  it('every record Progress value is declared in $EnumDef_Progress', () => {
+    const validProgress = loadValidProgressValues();
+    expect(validProgress.size).toBeGreaterThan(0);
+
+    const dataRoot = join(repoRoot, 'data');
+    const violations = [];
+
+    for (const workDir of readdirSync(dataRoot)) {
+      if (!workDir.startsWith('Works_')) continue;
+      const dbDir = join(dataRoot, workDir, 'DataBases');
+      if (!existsSync(dbDir)) continue;
+
+      for (const file of readdirSync(dbDir)) {
+        // db_meta.json / db_type.json はレコード配列ではないので対象外
+        if (!/^db_.*\.json$/.test(file) || file === 'db_meta.json' || file === 'db_type.json') continue;
+        let records;
+        try {
+          records = load(`data/${workDir}/DataBases/${file}`);
+        } catch (_) {
+          continue; // 破損・欠損ファイルは他テストの管轄
+        }
+        if (!Array.isArray(records)) continue;
+
+        for (const rec of records) {
+          // Progress 未設定は _Commons 継承の正当な形なので対象外
+          if (rec?.Progress == null) continue;
+          if (!validProgress.has(rec.Progress)) {
+            violations.push(`${workDir}/${file} Num=${JSON.stringify(rec.Num)} Progress=${JSON.stringify(rec.Progress)}`);
+          }
+        }
+      }
+    }
+
+    expect(violations).toEqual([]);
+  });
+
+  it('every _Commons.Progress in db_meta.json is declared in $EnumDef_Progress', () => {
+    // レコード側だけでなく `_Commons` の既定値も検証する。
+    // `_Commons` は DB / `_Secondaries` カテゴリの入れ子構造を取り、
+    // `#DB_UnprocessedSecondary` のように DB エントリがさらにネストする例もあるため、
+    // キー構造を決め打ちせず再帰的に `_Commons` を拾う。
+    const validProgress = loadValidProgressValues();
+    expect(validProgress.size).toBeGreaterThan(0);
+
+    const violations = [];
+    let checked = 0;
+
+    /**
+     * オブジェクトを再帰的に辿り `_Commons.Progress` を検証する
+     * @param {any} node
+     * @param {string} file - 表示用のファイル識別子
+     * @param {string} trail - 到達パス（違反箇所の特定用）
+     */
+    function walk(node, file, trail) {
+      if (!node || typeof node !== 'object') return;
+      if (Array.isArray(node)) {
+        node.forEach((v, i) => walk(v, file, `${trail}[${i}]`));
+        return;
+      }
+      for (const [key, value] of Object.entries(node)) {
+        if (key === '_Commons' && value && typeof value === 'object' && value.Progress != null) {
+          checked++;
+          if (!validProgress.has(value.Progress)) {
+            violations.push(`${file} ${trail}._Commons.Progress = ${JSON.stringify(value.Progress)}`);
+          }
+        }
+        walk(value, file, `${trail}.${key}`);
+      }
+    }
+
+    const dataRoot = join(repoRoot, 'data');
+    for (const workDir of readdirSync(dataRoot)) {
+      if (!workDir.startsWith('Works_')) continue;
+      const metaPath = `data/${workDir}/DataBases/db_meta.json`;
+      if (!existsSync(join(repoRoot, metaPath))) continue;
+      try {
+        walk(load(metaPath), workDir, '');
+      } catch (_) {
+        continue; // 破損・欠損は他テストの管轄
+      }
+    }
+
+    expect(checked).toBeGreaterThan(0); // 走査が空振りしていないことの担保
+    expect(violations).toEqual([]);
+  });
+
   it('global area typedef keeps BaseArea and Area separated', () => {
     const dbType = load('data/db_type.json');
     const dbMeta = load('data/db_meta.json');

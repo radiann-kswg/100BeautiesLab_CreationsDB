@@ -188,17 +188,27 @@ GET /api/ai/:work/:db/aihints/:idx
 | `--repo-root <path>` | リポジトリルート（省略時は自動解決） |
 | `--dry-run` | 実際の投入はせず処理内容だけ表示 |
 | `--clean` | 投入前に `DELETE FROM aihints` を実行（全件再投入。CI / 再投入推奨） |
-| `--db-id <uuid>` | D1 DB ID（省略時: `b8bf7187-1966-4831-88d2-2b8906cfa745`） |
+| `--db-id <name>` | D1 データベース**名**（省略時: `creationsdb-d1`。UUID ではない） |
 
 ### 動作仕様
 
 1. `data/db_meta.json` → `CreationWorks` から作品一覧を取得
-2. 各作品の `DataBases/db_meta.json` → DB 一覧を取得（`DB_Hidden=true` をスキップ）
+2. 各作品の `DataBases/db_meta.json` → DB 一覧を取得（`DB_Hidden=true` / `AI_Optout=true` をスキップ）
 3. `db_type.json` → `$IndexDef` からインデックスキーを解決
 4. `db_*.json` を読み込み、`AIHints` フィールドを持つレコードのみ抽出
 5. 10件ずつ SQL ファイルに書き出し、`wrangler d1 execute --remote --yes` で投入
    - 1レコード1 INSERT 文方式（D1 の 100KB/statement 制限を回避）
    - `INSERT OR REPLACE` + UNIQUE INDEX によりupsert として動作
+
+> **`AI_Optout` による抑止（多層防御）**
+>
+> 通常 `tools/patch-aihints.mjs` 側のガードが `AI_Optout: true` の DB への AIHints **書き込み**自体を拒否するため、該当レコードは存在しないはずです。本スクリプトの DB レベル判定は、手編集や `--force-ai-optout` で混入した場合に D1 → `/api/ai/*` へ素通りするのを防ぐための二重化です。
+>
+> **既知の未対応**: `_Secondaries` のカテゴリ単位 `AI_Optout` はレコード単位の 3 軸解決が必要で、本スクリプトは未対応です。現状カテゴリ単位の opt-out を持つのは `#DB_Secondary` のみで AIHints の実データが無いため latent ですが、同 DB へ AIHints を入れる場合は先に対応が必要です。仕様は `docs/api-sw-spec.md` §5.5 を参照。
+
+> **本仕様書の守備範囲**
+>
+> 本書は AIHints の**転送経路**（JSON → R2/D1 → Worker）を扱います。AIHints を**どう作るか**（`AppearanceDetail` を正源とした再構築、`_meta.structuralEntries` / `structuralSourceHash` による provenance、`tools/patch-aihints.mjs` の各モード）は `docs/ai-hints-usage.md` を参照してください。
 
 ### バッチサイズの制約
 

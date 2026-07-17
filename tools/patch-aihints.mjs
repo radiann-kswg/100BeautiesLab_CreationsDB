@@ -76,8 +76,12 @@ const PUBLIC_ORIGIN = 'https://database.numbertales-radiann.net';
  * @property {boolean} applyAppearanceDetail  true なら `AppearanceDetail`（構造化フィールド）を正として AIHints の AI タグ系を再構築する。
  *   詳細は buildAihintsFromAppearanceDetail 参照
  * @property {boolean} forceAiOptout  true なら db_meta.json の `AI_Optout: true` ガードをバイパスする（緊急時のみ）
- * @property {Map<string,boolean>} secondaryOptoutMap  sec_SeriesTitle → AI_Optout。main() が _Secondaries から構築して注入
- * @property {boolean} secondaryDefaultOptout  sec_SeriesTitle が null のデフォルトエントリに AI_Optout: true がある場合
+ * @property {boolean} includeNotProceeded  true なら `Progress: notProceeded`（キャラデザ未着手）のレコードも
+ *   scaffold の対象に含める。既定 false = 未着手はスキップ（docs/ai-hints-usage.md §7）。
+ *   `forceAiOptout`（権利上の可否のバイパス）とは別軸のフラグである点に注意
+ * @property {Array<any>|null} secondaryDefs  `db_meta.json` の `_Secondaries` 配列そのもの。main() が注入し、
+ *   レコード単位の解決は findSecondaryDef() が行う（AI_Optout と _Commons を 1 回の解決から取るため）
+ * @property {any|null} dbCommons  `db_meta.json` の DB レベル `_Commons`。main() が注入
  * @property {boolean} verbose    詳細ログ
  */
 
@@ -105,6 +109,7 @@ function parseArgs(argv) {
         visionResultsMap: null,
         applyAppearanceDetail: false,
         forceAiOptout: false,
+        includeNotProceeded: false,
         verbose: false,
     };
     for (let i = 0; i < argv.length; i++) {
@@ -132,6 +137,7 @@ function parseArgs(argv) {
             case '--force-palette': opts.forcePalette = true; break;
             case '--apply-vision-results': opts.applyVisionResults = true; break;
             case '--force-ai-optout': opts.forceAiOptout = true; break;
+            case '--include-not-proceeded': opts.includeNotProceeded = true; break;
             case '--verbose': case '-v': opts.verbose = true; break;
             case '--help': case '-h': printHelpAndExit(); break;
             default:
@@ -168,6 +174,27 @@ function parseRecordSpec(spec) {
         }
     }
     return set;
+}
+
+/**
+ * Num の比較子。
+ * Num は number / string が混在しうる（SemiPrimary: 121-sq, "3x11", "%", "∞" /
+ * SelfSecondary: "101-mp", "777.Jackpot-mp" / Primary: "000", "2-alt", "67-old"）。
+ * 素の `a - b` では string 同士・混在で NaN となりソートが成立しないため、
+ * 数値同士は数値順、数値と非数値は数値を先、非数値同士は文字列順に落とす。
+ * ★ number 同士では `a - b` と符号が一致するため、既存の全数値 Num な DB の出力順は変わらない。
+ * @param {number|string} a
+ * @param {number|string} b
+ * @returns {number}
+ */
+export function compareNums(a, b) {
+    const toNum = (v) => (typeof v === 'number' ? v : (/^\d+$/.test(String(v)) ? Number(v) : null));
+    const na = toNum(a);
+    const nb = toNum(b);
+    if (na !== null && nb !== null) return na - nb;
+    if (na !== null) return -1;
+    if (nb !== null) return 1;
+    return String(a).localeCompare(String(b));
 }
 
 function printHelpAndExit() {
@@ -241,6 +268,9 @@ Options:
                       未入力スロットのみを埋め、確定済みの値は上書きしない
                       vision-results.json の形式は VisionResult typedef を参照
   --force-ai-optout   db_meta.json の 'AI_Optout: true' ガードをバイパスする（緊急時のみ）
+  --include-not-proceeded
+                      'Progress: notProceeded'（キャラデザ未着手）のレコードも scaffold 対象に含める
+                      （既定は付与不要としてスキップ。--force-ai-optout とは別軸の判定）
                       未指定時は AI_Optout: true の DB への書き込みを exit 2 で拒否する
   -v, --verbose       詳細ログ
   -h, --help          このヘルプを表示
@@ -874,7 +904,14 @@ function genderTagOf(g) {
  * @returns {string}
  */
 // ────────────────────────────────────────────────────────────────────────────
-// クラス名 → 英語タグ マッピング（NumberTales DB_Primary 全クラス対応）
+// クラス名 → 英語タグ マッピング（AI タグ用に調律済みのオーバーライド）
+//
+// ★ ここに無いクラスは Class 辞書（`#Dict_*` の `keyField: "Class"`）へ fallback する。
+//   本 Map を辞書で置き換えてはいけない。両者はレジスタが異なり、
+//   本 Map は AI プロンプト用タグ（小文字・`… class` 等）、辞書は固有名詞の表示名
+//   （"Uni-Digits" 等）を持つ。29 件中 28 件で値が異なり、辞書優先にすると
+//   既存 AIHints の identity_tags が総書き換えになる。
+//   また `営業補助用個体` のように本 Map にしか無いクラスもあるため、辞書は superset ではない。
 // ────────────────────────────────────────────────────────────────────────────
 
 const CLASS_NAMES_EN = new Map([
@@ -909,14 +946,80 @@ const CLASS_NAMES_EN = new Map([
     ['最高技術所長',                  'chief technical director'],
 ]);
 
+/** work 単位でグローバル + 作品ローカルの Class 辞書をマージしてキャッシュする */
+const classDictCache = new Map();
+
 /**
- * Class 配列を英語タグ配列に変換する。マッピングにない名称はそのまま残す。
+ * `data/Dictionaries/`（グローバル）と `data/Works_<work>/Dictionaries/`（作品ローカル）から
+ * `keyField === 'Class'` の辞書を集め、Class → Class_EN の Map を返す。
+ * 対象辞書は各 `db_meta.json` の `Dictionaries` 宣言から導出し、ファイル名はハードコードしない
+ * （`dictFile` 未指定時は `#Dict_<Name>` → `dict_<Name>.json` を既定とする）。
+ *
+ * `scopeField`（`#Dict_Triples` の `isTriple: true` 等）はラベル引きには適用しない。
+ * 全 7 辞書 88 対訳でユニーク Class 88 件・値の衝突 0 件を実測しており、
+ * スコープを見なくても引ける名称が一意に定まるため。
+ *
+ * 辞書 / メタが欠損・破損していても例外を投げず空 Map を返す（作品別メタ欠損耐性と同じ思想）。
+ * @param {string} work
+ * @returns {Map<string,string>}
+ */
+export function loadMergedClassDictEN(work) {
+    if (classDictCache.has(work)) return classDictCache.get(work);
+
+    const readDir = (dir) => {
+        const out = new Map();
+        const metaPath = path.join(dir, 'db_meta.json');
+        if (!fs.existsSync(metaPath)) return out;
+        let meta;
+        try {
+            meta = JSON.parse(fs.readFileSync(metaPath, 'utf8'));
+        } catch {
+            return out;
+        }
+        for (const [key, def] of Object.entries(meta?.Dictionaries ?? {})) {
+            if (def?.keyField !== 'Class') continue;
+            const file = def.dictFile ?? `dict_${key.replace(/^#Dict_/, '')}.json`;
+            const p = path.join(dir, file);
+            if (!fs.existsSync(p)) continue;
+            try {
+                const arr = JSON.parse(fs.readFileSync(p, 'utf8'));
+                if (!Array.isArray(arr)) continue;
+                for (const e of arr) {
+                    if (e?.Class && e?.Class_EN) out.set(e.Class, e.Class_EN);
+                }
+            } catch {
+                // 壊れた辞書 1 本で全体を落とさない
+            }
+        }
+        return out;
+    };
+
+    // loadMergedVarsDef と同じ合流順（作品ローカルがグローバルを上書き）
+    const merged = new Map([
+        ...readDir(path.join(REPO_ROOT, 'data', 'Dictionaries')),
+        ...readDir(path.join(REPO_ROOT, 'data', `Works_${work}`, 'Dictionaries')),
+    ]);
+    classDictCache.set(work, merged);
+    return merged;
+}
+
+/**
+ * Class 配列を英語タグ配列に変換する。
+ * 優先順: ① CLASS_NAMES_EN（AI タグ用に調律済みの正）
+ *         ② Class 辞書の Class_EN（グローバル + 作品ローカル）
+ *         ③ TODO プレースホルダ
+ * ★ 日本語を素通しさせない。本ツールは創作内容を発明せず TODO を出す方針のため、
+ *   未対訳は TODO として可視化する（旧実装は raw の日本語を identity_tags へ漏らしていた）。
  * @param {string[]|undefined} classArray
+ * @param {string} work 作品名（Class 辞書の解決に使う）
  * @returns {string[]}
  */
-function classTagsOf(classArray) {
+function classTagsOf(classArray, work) {
     if (!Array.isArray(classArray) || classArray.length === 0) return [];
-    return classArray.map(c => CLASS_NAMES_EN.get(c) ?? c).filter(Boolean);
+    const dict = loadMergedClassDictEN(work);
+    return classArray
+        .map(c => CLASS_NAMES_EN.get(c) ?? dict.get(c) ?? `TODO: English tag for Class "${c}"`)
+        .filter(Boolean);
 }
 
 function ageBandOf(age) {
@@ -1657,7 +1760,7 @@ function stringifyAihintsBlock(aihints) {
 /**
  * @typedef {Object} PatchResult
  * @property {number} num
- * @property {'patched'|'skipped-existing'|'skipped-no-image'|'overwritten'|'refs-fixed'|'todos-filled'|'todos-unchanged'|'schema-upgraded'|'schema-unchanged'|'appearancedetail-applied'|'appearancedetail-unchanged'|'appearancedetail-cleared'|'appearancedetail-no-source'|'skipped-no-aihints'} status
+ * @property {'patched'|'skipped-existing'|'skipped-no-image'|'skipped-progress-notproceeded'|'overwritten'|'refs-fixed'|'todos-filled'|'todos-unchanged'|'schema-upgraded'|'schema-unchanged'|'appearancedetail-applied'|'appearancedetail-unchanged'|'appearancedetail-cleared'|'appearancedetail-no-source'|'skipped-no-aihints'} status
  * @property {string} [note]
  */
 
@@ -1686,7 +1789,7 @@ function fillJsonTodosInRecord(text, openIdx, closeIdx, record, work) {
 
     // --- common.identity_tags: TODO → クラスタグ ---
     if (Array.isArray(aihints.common?.identity_tags)) {
-        const classTags = classTagsOf(rec.Class);
+        const classTags = classTagsOf(rec.Class, work);
         if (classTags.length > 0) {
             const expanded = [];
             for (const tag of aihints.common.identity_tags) {
@@ -2484,7 +2587,7 @@ function genVisionTasksToFile(db, opts) {
         });
     }
 
-    tasks.sort((a, b) => a.num - b.num);
+    tasks.sort((a, b) => compareNums(a.num, b.num));
 
     // .cache/ ディレクトリが無ければ作成
     const cacheDir = path.join(REPO_ROOT, '.cache');
@@ -3000,6 +3103,230 @@ export function loadMergedVarsDef(work) {
     return merged;
 }
 
+// ============================================================================
+// `_Secondaries` 定義の解決と `_Commons` 継承
+//
+// `lib/sw-common.js` の CommonsProcessor（正）/ `pkg/nodejs/index.mjs:335` の
+// findSecondaryCommons() の移植版。本ツールは ESM CLI で、`lib/` は Service Worker
+// グローバル前提の classic script、`pkg/` は三言語パリティを保つ独立クライアント群の
+// ため、いずれも直接 import できない。`loadMergedVarsDef` と同じく意図的な移植とし、
+// 正（`lib/sw-common.js`）の仕様変更時は手動同期すること。
+//
+// ★ 本ツール版は `_Commons` ではなく **定義そのもの** を返す点だけが pkg 版と異なる。
+//   AI_Optout と _Commons の両方を 1 回の解決から取り出す必要があるため。
+// ============================================================================
+
+/**
+ * プレーンオブジェクト判定（配列・null を除く）
+ * @param {any} v
+ * @returns {boolean}
+ */
+function isObject(v) {
+    return Boolean(v) && typeof v === 'object' && !Array.isArray(v);
+}
+
+/**
+ * ドット記法でオブジェクトから値を取得（例: "Card.Num"）
+ * @param {any} obj
+ * @param {string} p
+ * @returns {any}
+ */
+function getByPath(obj, p) {
+    return String(p).split('.').reduce((cur, k) => (cur == null ? undefined : cur[k]), obj);
+}
+
+/**
+ * `_Commons` 適用時の空値判定。
+ * undefined だけでなく null / 空文字 / 空配列 / 空オブジェクトも未設定扱いにする。
+ * `{ hideText: '...' }` は意図的マスクなので空扱いしない（参照先値で上書きさせない）。
+ * @param {any} v
+ * @returns {boolean}
+ */
+function isEmptyForCommons(v) {
+    if (v === null || typeof v === 'undefined') return true;
+    if (v === '') return true;
+    if (Array.isArray(v)) return v.length === 0;
+    if (isObject(v)) {
+        if (typeof v.hideText === 'string' && v.hideText) return false;
+        return Object.keys(v).length === 0;
+    }
+    return false;
+}
+
+/** `_Secondaries` の条件軸。sec_SeriesTitle を主キー、他は追加条件として扱う。 */
+const SECONDARY_CRITERIA = [
+    { primary: true, defKeys: ['sec_SeriesTitle', 'SecondarySeriesTitle', 'SecondarySeriesTitle_EN'], recPaths: ['sec_SeriesTitle', 'SecondarySeriesTitle'] },
+    { primary: false, defKeys: ['sec_Category', 'SecondaryCategory'], recPaths: ['sec_Category', 'SecondaryCategory'] },
+    { primary: false, defKeys: ['sec_DesignedBy', 'SecondaryDesignedBy'], recPaths: ['sec_DesignedBy', 'SecondaryDesignedBy'] },
+];
+
+/**
+ * レコードに適用すべき `_Secondaries` 定義を 1 件選ぶ。
+ * `sec_**` を一切指定しない定義はデフォルト fallback、条件付き定義が一致すればそちらを優先する。
+ * 主キー（sec_SeriesTitle）指定の定義では追加条件はレコード側に値がある場合のみ絞り込みに使い、
+ * 主キー未指定の定義では追加条件が実質 primary となるため必須一致として扱う。
+ * @param {any} rec 対象レコード
+ * @param {Array<any>|null|undefined} secDefs `db_meta.json` の `_Secondaries` 配列
+ * @returns {any|null} 選ばれた定義そのもの（`_Commons` / `AI_Optout` を含む）。該当なしは null
+ */
+export function findSecondaryDef(rec, secDefs) {
+    if (!Array.isArray(secDefs) || !isObject(rec)) return null;
+
+    const normStr = (v) => (v === null || typeof v === 'undefined') ? '' : String(v);
+    // defVal が文字列 → recVal（配列可）に含まれれば一致 / defVal が配列 → 全要素が含まれれば一致
+    const matchesCriteria = (defVal, recVal) => {
+        const toArr = (v) => (Array.isArray(v) ? v : [v]).map(normStr).filter((s) => s !== '');
+        const defArr = toArr(defVal);
+        const recArr = toArr(recVal);
+        if (defArr.length === 0) return true;
+        if (recArr.length === 0) return false;
+        return defArr.every((d) => recArr.some((r) => r === d));
+    };
+    const getFirst = (obj, keys) => {
+        for (const k of keys) {
+            if (k && Object.prototype.hasOwnProperty.call(obj, k)) return obj[k];
+        }
+        return undefined;
+    };
+    const getRec = (paths) => {
+        for (const p of paths) {
+            const v = getByPath(rec, p);
+            if (v !== null && typeof v !== 'undefined') return v;
+        }
+        return undefined;
+    };
+    const isBlank = (v) => v === null || typeof v === 'undefined' || normStr(v).trim() === '';
+
+    let defaultSecondaryDef = null;
+    let bestSecondaryDef = null;
+    let bestScore = -1;
+
+    for (const def of secDefs) {
+        if (!isObject(def) || !isObject(def._Commons)) continue;
+
+        // sec_** を一つも指定しない定義はデフォルト fallback として退避
+        const hasAnyCondition = SECONDARY_CRITERIA.some((c) => !isBlank(getFirst(def, c.defKeys)));
+        if (!hasAnyCondition) {
+            if (defaultSecondaryDef === null) defaultSecondaryDef = def;
+            continue;
+        }
+
+        const primaryCriteria = SECONDARY_CRITERIA.find((x) => x.primary);
+        const hasPrimaryCondition = !isBlank(getFirst(def, primaryCriteria.defKeys));
+
+        let score = 0;
+        let ok = true;
+
+        for (const c of SECONDARY_CRITERIA) {
+            const defVal = getFirst(def, c.defKeys);
+            if (isBlank(defVal)) continue; // 条件なし（ワイルドカード）
+
+            const recVal = getRec(c.recPaths);
+
+            // 主キー（sec_SeriesTitle）は必須一致
+            if (c.primary) {
+                if (!matchesCriteria(defVal, recVal)) { ok = false; break; }
+                score += 10;
+                continue;
+            }
+
+            const recEmpty = isBlank(recVal);
+            if (hasPrimaryCondition) {
+                if (recEmpty) continue;
+                if (!matchesCriteria(defVal, recVal)) { ok = false; break; }
+                score += 1;
+                continue;
+            }
+            if (recEmpty || !matchesCriteria(defVal, recVal)) { ok = false; break; }
+            score += 1;
+        }
+
+        if (ok && score > bestScore) { bestScore = score; bestSecondaryDef = def; }
+    }
+
+    return bestSecondaryDef ?? defaultSecondaryDef;
+}
+
+/**
+ * `_Commons` オブジェクトから当該レコードへ適用する既定値を組み立てる。
+ * 単純 commons に加え、条件付き commons（`_ListLinkIf_<Field>`）も解決する。
+ * @param {any} cmn `_Commons` オブジェクト
+ * @param {any} rec 対象レコード
+ * @returns {Record<string, any>}
+ */
+function buildDefaultsFromCommons(cmn, rec) {
+    if (!isObject(cmn)) return {};
+    const CONDITIONAL_PREFIX = '_ListLinkIf_';
+    const out = {};
+
+    // 1) 単純な commons
+    for (const [k, v] of Object.entries(cmn)) {
+        if (k.startsWith('_') || k.startsWith('#')) continue;
+        out[k] = v;
+    }
+
+    /** レコード内を深さ優先で探索し、最初に見つかったキーの値を返す */
+    const deepFindFirstByKey = (obj, key) => {
+        if (!isObject(obj)) return undefined;
+        if (Object.prototype.hasOwnProperty.call(obj, key)) return obj[key];
+        for (const v of Object.values(obj)) {
+            if (isObject(v)) {
+                const found = deepFindFirstByKey(v, key);
+                if (typeof found !== 'undefined') return found;
+            }
+        }
+        return undefined;
+    };
+
+    // 2) 条件付き commons（`_ListLinkIf_<Field>`）
+    for (const [k, arr] of Object.entries(cmn)) {
+        if (!k.startsWith(CONDITIONAL_PREFIX) || !Array.isArray(arr)) continue;
+        const field = k.substring(CONDITIONAL_PREFIX.length);
+        let curVal = typeof rec[field] !== 'undefined' ? rec[field] : undefined;
+        if (typeof curVal === 'undefined' && isObject(rec.Card) && typeof rec.Card[field] !== 'undefined') curVal = rec.Card[field];
+        if (typeof curVal === 'undefined' && isObject(rec.SpecType) && typeof rec.SpecType[field] !== 'undefined') curVal = rec.SpecType[field];
+        if (typeof curVal === 'undefined') curVal = deepFindFirstByKey(rec, field);
+        if (curVal === null || typeof curVal === 'undefined') continue;
+
+        const match = arr.find((it) => isObject(it)
+            && Object.prototype.hasOwnProperty.call(it, field)
+            && String(it[field]) === String(curVal));
+        if (!match) continue;
+        for (const [ik, iv] of Object.entries(match)) {
+            if (ik === field || ik.startsWith('_') || ik.startsWith('#')) continue;
+            out[ik] = iv;
+        }
+    }
+    return out;
+}
+
+/**
+ * 1 レコードへ `_Commons`（DB レベル）と `_Secondaries[]._Commons`（カテゴリ別）を非破壊適用する。
+ * 空値のフィールドのみ埋め、既存値は上書きしない（`isEmptyForCommons` 準拠）。
+ *
+ * ★ 返り値は AIHints 生成の**入力**にのみ使うこと。DB への書き戻しは
+ *   openIdx/closeIdx のテキスト操作で行うため、継承値が JSON へ実体化することはない
+ *   （DB は `_Commons` で穴埋めする設計であり、実体化させてはいけない）。
+ * @param {any} rec 対象レコード
+ * @param {any} dbCommons DB レベルの `_Commons`
+ * @param {any} secCommons `_Secondaries` から解決した `_Commons`
+ * @returns {any} 継承適用後のレコード（浅いコピー）
+ */
+export function applyCommonsToRecord(rec, dbCommons, secCommons) {
+    if (!isObject(rec)) return rec;
+    if (!isObject(dbCommons) && !isObject(secCommons)) return rec;
+    const defaults = {
+        ...buildDefaultsFromCommons(dbCommons, rec),
+        ...buildDefaultsFromCommons(secCommons, rec),
+    };
+    const out = { ...rec };
+    for (const [k, v] of Object.entries(defaults)) {
+        if (k.startsWith('#') || k.startsWith('_')) continue;
+        if (isEmptyForCommons(out[k])) out[k] = v;
+    }
+    return out;
+}
+
 /**
  * `$EnumDef_<enumDefKey>` からハッシュキーの英語ラベルを解決する。
  * 解決できない場合は raw 値をそのまま返す（`resolveFromEnumDef` の英語専用版）。
@@ -3442,20 +3769,23 @@ function patchFileText(text, opts) {
         if (num === undefined || num === null || (typeof num !== 'number' && typeof num !== 'string')) continue;
         if (opts.records !== null && !opts.records.has(num)) continue;
 
-        // _Secondaries カテゴリ別 AI_Optout チェック
-        if (opts.secondaryOptoutMap?.size > 0 || opts.secondaryDefaultOptout) {
-            const seriesTitle = record.sec_SeriesTitle ?? null;
-            const isOptout = seriesTitle != null
-                ? opts.secondaryOptoutMap.get(seriesTitle) === true
-                : opts.secondaryDefaultOptout;
-            if (isOptout && !opts.forceAiOptout) {
-                results.push({ num, status: 'skipped-ai-optout', note: `sec_SeriesTitle="${seriesTitle}"` });
+        // このレコードに当たる _Secondaries 定義を 1 回だけ解決し、
+        // AI_Optout（カテゴリ別 opt-out）と _Commons（継承）の両方をここから取る。
+        const secDef = findSecondaryDef(record, opts.secondaryDefs);
+        if (secDef?.AI_Optout === true) {
+            const label = secDef.sec_SeriesTitle ?? secDef.sec_Category ?? '(default)';
+            if (!opts.forceAiOptout) {
+                results.push({ num, status: 'skipped-ai-optout', note: `_Secondaries: "${label}"` });
                 continue;
             }
-            if (isOptout && opts.forceAiOptout && opts.verbose) {
-                console.warn(`[WARN] AI_Optout カテゴリを --force-ai-optout でバイパス: Num=${num}, sec_SeriesTitle="${seriesTitle}"`);
+            if (opts.verbose) {
+                console.warn(`[WARN] AI_Optout カテゴリを --force-ai-optout でバイパス: Num=${num}, _Secondaries="${label}"`);
             }
         }
+
+        // _Commons 継承（DB レベル → カテゴリ別の順で空値のみ穴埋め）。
+        // 継承値は以降の AIHints 生成の入力にだけ効き、DB へは書き戻らない。
+        record = applyCommonsToRecord(record, opts.dbCommons, secDef?._Commons ?? null);
 
         const hasAihints = Object.prototype.hasOwnProperty.call(record, 'AIHints');
 
@@ -3661,6 +3991,25 @@ function patchFileText(text, opts) {
             continue;
         }
 
+        // docs/ai-hints-usage.md §7: `Progress: notProceeded`（キャラデザ未着手）は AIHints 付与不要。
+        // この「未着手を AI 学習へ流さない」意思表示は、これまで `_Secondaries.AI_Optout: true` が
+        // 代理していた（#DB_SelfSecondary の catch-all）。AI_Optout を権利上の可否専用へ純化する
+        // にあたり、その意味論をここで明示的に引き受ける。
+        //
+        // ★ 必ず画像ゲートの「後段」に置くこと。前段に置くと、これまで skipped-no-image に
+        //   落ちていたレコードが skipped-progress-notproceeded へ移り、集計が変わってしまう。
+        // ★ 「付与不要」であって「付与不可」ではないため exit 2 にはしない（soft skip）。
+        //   AI_Optout（付与不可 = 権利）とは別軸であり、フラグも分けている。
+        // ★ `stillTentative` はガードしない（既に AIHints を持つ正当なレコードが存在する）。
+        if (record.Progress === 'notProceeded' && !opts.includeNotProceeded) {
+            results.push({
+                num,
+                status: 'skipped-progress-notproceeded',
+                note: 'Progress=notProceeded (docs/ai-hints-usage.md §7). --include-not-proceeded で対象化',
+            });
+            continue;
+        }
+
         const scaffold = opts.suggest
             ? buildSuggestedScaffold(record, imageInfo, opts.work)
             : buildScaffold(record, imageInfo, opts.work);
@@ -3770,31 +4119,30 @@ function main() {
         }
     }
 
-    // ---- _Secondaries カテゴリ別 AI_Optout マップ構築 ----
-    // DB レベルの AI_Optout がない場合でも、_Secondaries の各カテゴリが
-    // 個別に AI_Optout: true を持つ場合はレコード単位でスキップできるよう opts に注入する。
-    opts.secondaryOptoutMap = new Map();
-    opts.secondaryDefaultOptout = false;
+    // ---- _Secondaries 定義 / _Commons の注入 ----
+    // 定義をここで潰さず生のまま opts へ載せ、「どの定義が当たるか」はレコード単位で
+    // findSecondaryDef() が 1 回だけ解決する。1 回の解決から AI_Optout（カテゴリ別 opt-out）と
+    // _Commons（継承）の両方を取り出せるため、両者が食い違うことがない。
+    //
+    // ★ 旧実装は sec_SeriesTitle のみをキーにした Map を先に構築していたため、
+    //   sec_SeriesTitle が null の定義が複数ある DB（例: #DB_SelfSecondary は
+    //   「リクエストナンバー(AI_Optout:false)」と catch-all(true) の 2 つが null）で、
+    //   opt-in の定義まで既定 opt-out に巻き込んで弾いていた。
+    opts.secondaryDefs = null;
+    opts.dbCommons = null;
     if (fs.existsSync(dbMetaPath)) {
         try {
             const dbMeta = JSON.parse(fs.readFileSync(dbMetaPath, 'utf8'));
             const dbEntry = dbMeta?.Databases?.[`#DB_${opts.db}`]
                 ?? dbMeta?.Databases?.[`#Ref_${opts.db}`];
-            for (const sec of (dbEntry?._Secondaries ?? [])) {
-                if (sec.AI_Optout !== true) continue;
-                if (sec.sec_SeriesTitle != null) {
-                    opts.secondaryOptoutMap.set(sec.sec_SeriesTitle, true);
-                } else {
-                    opts.secondaryDefaultOptout = true;
-                }
-            }
-            if (opts.secondaryOptoutMap.size > 0 || opts.secondaryDefaultOptout) {
-                const titles = [...opts.secondaryOptoutMap.keys()].map(t => `"${t}"`).join(', ');
-                const defaultNote = opts.secondaryDefaultOptout ? ' + デフォルト(null)' : '';
-                console.log(`[INFO] _Secondaries AI_Optout: ${titles}${defaultNote}`);
+            opts.secondaryDefs = dbEntry?._Secondaries ?? dbEntry?.Secondaries ?? null;
+            opts.dbCommons = dbEntry?._Commons ?? null;
+            const optoutCount = (opts.secondaryDefs ?? []).filter((s) => s?.AI_Optout === true).length;
+            if (optoutCount > 0) {
+                console.log(`[INFO] _Secondaries: ${opts.secondaryDefs.length} 定義中 ${optoutCount} 件が AI_Optout: true（レコード単位で判定）`);
             }
         } catch {
-            // db_meta.json 読み込み失敗時は per-category チェックもスキップ
+            // db_meta.json 読み込み失敗時は per-category チェック・_Commons 継承ともスキップ
         }
     }
 
@@ -3841,11 +4189,13 @@ function main() {
     /** @type {Record<string, number>} */
     const counts = {};
     for (const r of results) counts[r.status] = (counts[r.status] ?? 0) + 1;
-    results.sort((a, b) => a.num - b.num);
+    results.sort((a, b) => compareNums(a.num, b.num));
 
     console.log(`\n=== patch-aihints summary (${opts.apply ? 'APPLY' : 'dry-run'}${opts.suggest ? ' / suggest' : ''}) ===`);
     console.log(`  DB: ${path.relative(REPO_ROOT, dbPath)}`);
-    console.log(`  target: ${opts.records ? `[${[...opts.records].sort((a,b)=>a-b).join(',')}]` : 'ALL'}`);
+    // parseRecordSpec は純整数トークンを Number/String 両形で Set に入れる（内部マッチ用）。
+    // 表示ではその重複を潰してから並べる。
+    console.log(`  target: ${opts.records ? `[${[...new Set([...opts.records].map(String))].sort(compareNums).join(',')}]` : 'ALL'}`);
     // 実際に発生したステータスをそのまま集計して表示する。
     // 以前はモードごとにステータス名をハードコードした if/else の連鎖だったため、
     // 新しいモードを追加するたびに集計から漏れて「patched=0」しか出ない状態になっていた
@@ -3901,7 +4251,12 @@ function main() {
 }
 
 // CLI として直接実行された場合のみ main() を起動する（import 時の副作用を防ぐ）。
-if (import.meta.url === `file://${process.argv[1].replace(/\\/g, '/')}`
-    || import.meta.url.endsWith(path.basename(process.argv[1] ?? ''))) {
+// `node -e` 等では process.argv[1] が undefined になるため、先に実行パスを取り出して
+// 空なら「CLI 実行ではない」と判定する（空のまま basename('') を渡すと endsWith('') が
+// 常に true になり、import しただけで main() が走ってしまう）。
+const invokedPath = process.argv[1] ?? '';
+if (invokedPath
+    && (import.meta.url === `file://${invokedPath.replace(/\\/g, '/')}`
+        || import.meta.url.endsWith(path.basename(invokedPath)))) {
     main();
 }

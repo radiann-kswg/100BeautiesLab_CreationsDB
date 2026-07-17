@@ -156,7 +156,7 @@ UI と enrich/search は、可能な限りこの `db_type.json($DefType)` に追
   - `$MetaType`: 作品/DB カタログ向けメタ情報の補助 schema 宣言
   - `CreationWorks.<work>.Title` / `Title_EN` / `Works_Summary` / `OldTitles` / `Works_OfficialLinks`: 作品一覧・作品概要のカタログ情報
   - `CreationWorks.<work>.$DetailLayout`: 詳細表示レイアウト補助
-  - `CreationWorks.<work>.Works_Dir` / `Works_ImagesDir`: 物理ディレクトリ名オーバーライド（後述 §5.5）
+  - `CreationWorks.<work>.Works_Dir` / `Works_ImagesDir`: 物理ディレクトリ名オーバーライド（後述 §5.6）
   - `CreationWorks.<work>.Works_Shared`: 個別の創作タイトルではない共通カタログ（例: 共通資料）であることを示すフラグ。UI ではこれを持つ作品を別 `<optgroup>` へ分離表示する
   - `Databases.#DB_<DbName>` / `Databases.#Ref_<RefName>` の `DB_Label` / `DB_Label_EN` / `DB_Summary` / `DB_Layer` / `DB_File` / `StoryEra` / `DB_Image`: DB 一覧・DB概要のカタログ情報（`DB_Image` は特定レコードに紐づかないDB全体の代表画像ファイル名）
   - `Databases.#DB_<DbName>._Commons`: DB 全体の共通穴埋め
@@ -321,20 +321,43 @@ UI と enrich/search は、可能な限りこの `db_type.json($DefType)` に追
 
 | 項目 | `isPrivate: true` | `DB_Hidden: true` | `Works_Hidden: true` | `AI_Optout: true` |
 |------|------------------|-------------------|---------------------|------------------|
-| 粒度 | レコード単位 | DB 全体 | 作品全体 | DB 全体 |
-| 適用場所 | `db_*.json` の各レコード | `db_meta.json` の `Databases.#DB_<DbName>` | グローバル `db_meta.json` の `CreationWorks.#Works_<WorkName>` | 作品別 `db_meta.json` の `Databases.#DB_<DbName>` |
-| API 配信への影響 | 対象レコードを除外 | 該当DBを 404 | 作品ごと 404 | 影響なし（配信は継続） |
-| AI 補助ツール（`tools/patch-aihints.mjs`）への影響 | なし | （配信遮断のため事実上不可） | （同左） | 全モードで exit 2（`--force-ai-optout` でのみバイパス） |
+| 粒度 | レコード単位 | DB 全体 | 作品全体 | DB 全体 または `_Secondaries` カテゴリ単位 |
+| 適用場所 | `db_*.json` の各レコード | `db_meta.json` の `Databases.#DB_<DbName>` | グローバル `db_meta.json` の `CreationWorks.#Works_<WorkName>` | 作品別 `db_meta.json` の `Databases.#DB_<DbName>` 直下、および `#DB_<DbName>._Secondaries[]` の各要素 |
+| API 配信への影響 | 対象レコードを除外 | 該当DBを 404 | 作品ごと 404 | 影響なし（配信は継続）。ただし `migrate-aihints.mjs` が D1 への AIHints 投入を抑止 |
+| AI 補助ツール（`tools/patch-aihints.mjs`）への影響 | なし | （配信遮断のため事実上不可） | （同左） | DB レベルは全モードで exit 2 / カテゴリ単位は該当レコードを `skipped-ai-optout`（いずれも `--force-ai-optout` でバイパス） |
 | AI 学習 opt-out 表明 | なし | なし | なし | あり |
 
-2026-06-02 時点の初期適用範囲:
+### `_Secondaries` カテゴリ単位の `AI_Optout`
 
-- `Works_NumberTales/DataBases/db_meta.json` の `#DB_Primary` のみ未付与（既存の自由運用 DB として例外扱い）。
-- それ以外の作品別 `db_meta.json` の全 DB / Ref エントリには `AI_Optout: true` を付与済み（19 エントリ）。
+`#DB_<DbName>._Secondaries[]` の各要素にも `AI_Optout` を宣言でき、レコード単位で適用可否を分けられます。
+
+- どの定義が当たるかは `_Commons` の解決と**同じ 3 軸マッチャ**（`sec_SeriesTitle` を主キー、`sec_Category` / `sec_DesignedBy` を追加条件）で決まります。詳細は「`_Commons` / `_Secondaries`」節を参照。
+- 解決順は **当たった定義の `AI_Optout` → DB レベルの `AI_Optout` → 既定 `false`**。
+- `sec_**` を一つも持たない定義（catch-all）は既定 fallback として扱われます。**`sec_SeriesTitle` が `null` の定義は複数ありうる**ため、`sec_SeriesTitle` だけをキーに opt-out を判定してはいけません（opt-in の定義を既定 opt-out に巻き込みます）。
+
+### 意味論の境界（重要）
+
+`AI_Optout` は**権利上の可否**（AI 学習・LLM 取り込みへの opt-out 表明）のみを表します。**データの充填状況を表すフラグではありません。**
+
+「キャラクターデザインが未着手なので AI へ空のデータを渡したくない」は別軸であり、次の 2 つが担います。
+
+| 軸 | 意味 | 実装 |
+|---|---|---|
+| `AI_Optout: true` | 権利上の**付与不可** | `tools/patch-aihints.mjs` が exit 2 / レコードスキップ。`migrate-aihints.mjs` が D1 投入を抑止 |
+| `Progress: notProceeded` | 未着手のため**付与不要** | `tools/patch-aihints.mjs` が `skipped-progress-notproceeded`（soft skip。`--include-not-proceeded` で対象化） |
+| 画像が 1 枚も無い | 生成の材料が無い | `tools/patch-aihints.mjs` が `skipped-no-image` |
+
+「付与不可」と「付与不要」は別物です（`docs/ai-hints-usage.md` §7）。前者は権利判断なので保守モードも含めて全モードを止めますが、後者は新規付与だけを見送るものであり、既存 AIHints の保守（`--resync-structural` 等）は妨げません。
+
+適用状況（2026-07-17 時点）:
+
+- `Works_NumberTales/DataBases/db_meta.json`: `#DB_Primary` / `#DB_SemiPrimary` / `#DB_SelfSecondary` は `AI_Optout: false`（いずれも User 自身の創作物のため権利上の opt-out は不要）。`#DB_SelfSecondary` は `_Secondaries` の全カテゴリも `false`。
+- `#DB_Secondary`（公認二次創作）は `_Secondaries` の各カテゴリで `AI_Optout: true`（第三者デザインを含むため）。
+- その他の作品別 `db_meta.json` の DB / Ref エントリには `AI_Optout: true` を付与済み。
 
 ---
 
-## 5.5 `Works_Dir` / `Works_ImagesDir` による物理レイアウトオーバーライド（共通資料の疑似作品）
+## 5.6 `Works_Dir` / `Works_ImagesDir` による物理レイアウトオーバーライド（共通資料の疑似作品）
 
 `data/References/`（種族・組織・社会情勢・地域文化・語彙などの全作品共通辞書）と `data/GeneralImages/`（全作品共通の画像）を、`#Works_CommonReferences`（表示名: 共通資料 / Common References）という**仮想作品**として `works/{work}/db/{dbName}` の既存の仕組みでそのまま閲覧できるようにする機構。
 
@@ -436,7 +459,7 @@ DB全体の代表画像（`DB_Image`、§3.3/§5.2参照）も、この疑似作
 - `_enrichment` は UI 制御用の補助メタです
 - 公開表示では、そのまま全文を見せる前提ではありません
 - UI 側は typedef / meta を使って、必要なキーだけを表示します
-- `_enrichment.images`/`primaryImage` は `Works_Dir`/`Works_ImagesDir` オーバーライド（§5.5）に未対応。UI はこれらを参照せず独自解決するため実害は無いが、共通資料の疑似作品ではAPI応答上の値が不正確になり得る（既存の別ギャップ）
+- `_enrichment.images`/`primaryImage` は `Works_Dir`/`Works_ImagesDir` オーバーライド（§5.6）に未対応。UI はこれらを参照せず独自解決するため実害は無いが、共通資料の疑似作品ではAPI応答上の値が不正確になり得る（既存の別ギャップ）
 
 ---
 

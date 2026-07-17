@@ -54,7 +54,14 @@ jobs:
         run: npm ci
 
       # AIHints を持つ DB を動的に列挙する。作品を増やしてもワークフローの修正は不要。
-      # AI_Optout: true の DB は patch-aihints.mjs 側のガードが exit 2 で拒否する。
+      # AI_Optout: true の DB は patch-aihints.mjs 側のガードが exit 2 で拒否する
+      # （_Secondaries のカテゴリ単位 opt-out は DB 全体を止めず、該当レコードのみ
+      #  skipped-ai-optout になるため、ここでの列挙には影響しない）。
+      #
+      # ★ 本ジョブは既存 AIHints の「保守」専用。grep で "AIHints" を持つ DB だけを拾うため、
+      #   AIHints が 0 件の DB（例: 2026-07-17 時点の SemiPrimary / SelfSecondary）は対象外であり、
+      #   初回 seed はできない。seed はローカルで --suggest --apply を実行して PR を出すこと。
+      #   最初の "AIHints" キーが入った時点から、本ジョブが YAML 無編集で自動追尾を始める。
       - name: 対象 DB の列挙
         id: targets
         run: |

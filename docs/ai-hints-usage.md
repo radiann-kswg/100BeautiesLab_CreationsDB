@@ -165,7 +165,7 @@ https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primar
 例 (NumberTales #17 humanoid):
 
 ```
-https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primary/humanoids/2024/art_img17-humanoidHardStudy.png
+https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primary/arts/humanoids/2024/art_img17-humanoidHardStudy.png
 ```
 
 種別:
@@ -183,9 +183,24 @@ https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primar
 | ------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | 画像 / イラスト**あり**                          | **必須**。`common.identity_tags` を 3〜5個必ず含める。対応する `forms.<form>` を付与する                                                                      |
 | 画像 / イラスト**なし** (設定のみ)               | 任意。付与する場合でも `forms.<form>.reference_images` は省略し、`identity_tags` は設定から推測した範囲に限る                                                 |
-| `"Progress": "notProceeded"`                     | 付与不要                                                                                                                                                      |
+| `"Progress": "notProceeded"`                     | **付与不要**。scaffold 生成時に `skipped-progress-notproceeded` として soft skip する（`--include-not-proceeded` で対象化）。既存 AIHints の保守モードは妨げない |
 | ある形態の画像のみ存在 (例: corefolder 画像のみ) | 存在する形態の `forms.<form>` のみを付与し、もう一方は省略                                                                                                    |
-| DB に `AI_Optout: true` が設定                   | **付与不可**。`tools/patch-aihints.mjs` の全モードが exit 2 で拒否する（緊急時のみ `--force-ai-optout` でバイパス）。詳細は `docs/api-sw-spec.md` §5.5 を参照 |
+| `AI_Optout: true` が設定（DB または `_Secondaries` カテゴリ） | **付与不可**。DB レベルは `tools/patch-aihints.mjs` の全モードが exit 2 で拒否、カテゴリ単位は該当レコードを `skipped-ai-optout`（緊急時のみ `--force-ai-optout` でバイパス）。詳細は `docs/api-sw-spec.md` §5.5 を参照 |
+
+### 「付与不可」と「付与不要」は別軸（重要）
+
+上表の 2 つの否定は意味が異なり、実装も分かれている。
+
+| | `AI_Optout: true` | `Progress: notProceeded` |
+| --- | --- | --- |
+| 意味 | **権利上の可否**（AI 学習・LLM 取り込みへの opt-out 表明） | **データの充填状況**（キャラデザ未着手） |
+| 強さ | 付与不可（hard refusal） | 付与不要（soft skip） |
+| 挙動 | DB レベルは exit 2 / カテゴリ単位はレコードスキップ。**既存 AIHints の保守モードも止める** | 新規 scaffold のみ見送り。`--resync-structural` 等の保守は妨げない |
+| バイパス | `--force-ai-optout` | `--include-not-proceeded` |
+
+フラグを混ぜないこと。「未着手だから AI へ渡したくない」を `AI_Optout` で表現すると、対外的には**権利上の opt-out 表明**として読まれてしまう（`docs/api-sw-spec.md` §5.5 の「意味論の境界」参照）。
+
+> なお `notProceeded` かつ画像ありのレコードは現状 3 DB とも 0 件で、実質は `skipped-no-image` が先に吸収している（`tests/patch-aihints.gates.test.js` が前提を固定）。Progress ゲートは、未完成レコードに WIP 画像が 1 枚置かれた瞬間にガードが無音で消えるのを防ぐための保険であり、その場合に上表 1 行目（画像あり → 必須）ではなく本行（notProceeded → 付与不要）を優先する、という決定でもある。
 
 ---
 
@@ -201,9 +216,11 @@ https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primar
 
 > **適用範囲の明示 (重要)**
 >
-> 本セクションで記述するフロー、コマンド例、`tools/patch-aihints.mjs` の各モードの動作保証、および `.cache/fill-residual-todos.mjs` の挙動は **`data/Works_NumberTales/DataBases/db_Primary.json` のみを対象に検証・適用されている**。
+> 本セクションで記述するフロー、コマンド例、`tools/patch-aihints.mjs` の各モードの動作保証、および `.cache/fill-residual-todos.mjs` の挙動は **`data/Works_NumberTales/DataBases/db_Primary.json` を対象に検証・適用されている**。コマンド例はいずれも `--work NumberTales --db Primary` 前提であり、**Primary 以外を対象にする場合は `--work` / `--db` の両方を必ず明示すること**（省略時の既定値は `NumberTales` / `Primary`）。
 >
-> 他作品（`Works_FLInvestigator78` / `Works_ShouArRiders` / `Works_SinisterChangingGirls` / `Works_UnauthedLogica` / `Works_PastDivers` / `Works_DestinyFoxRecords` / `Works_Proxies`）や、同じ `Works_NumberTales` 内の他 DB（`Secondary` / `SemiPrimary` / `SelfSecondary` / `Proxy` 等）へ適用する際は、画像ディレクトリ構造・`Images.*_PNGPath` 規則・作品別 schema（`db_type.json($VersDef)`）の差異を個別に検証の上、`--work` / `--db` の両オプションと画像パス解決ロジックを随時調整してください。
+> **`SemiPrimary` / `SelfSecondary`（2026-07-17）**: 基盤（`_Secondaries` のカテゴリ別 `AI_Optout` 解決 / `_Commons` 継承 / Class 辞書の合流 / Num ソート）は検証済みで、dry-run が期待どおり動くところまで確認している（`SemiPrimary`: `patched=9` / `SelfSecondary`: `patched=7`）。ただし **AIHints の実データはまだ 1 件も投入していない**（`AppearanceDetail` の入力が追い付いていないため）。両 DB には humanoid 画像が存在しないため、seed した場合 `forms.humanoid` は欠落する見込み。
+>
+> **`Secondary` / `Proxy` 等、および他作品**（`Works_FLInvestigator78` / `Works_ShouArRiders` / `Works_SinisterChangingGirls` / `Works_UnauthedLogica` / `Works_PastDivers` / `Works_DestinyFoxRecords`）へ適用する際は、画像ディレクトリ構造・`Images.*_PNGPath` 規則・作品別 schema（`db_type.json($VersDef)`）の差異を個別に検証の上、`--work` / `--db` の両オプションと画像パス解決ロジックを随時調整してください。なお `#DB_Secondary` は `_Secondaries` の各カテゴリが `AI_Optout: true`（第三者デザインを含むため）であり、対象外です。
 
 ### 9.1 ワークフロー全体像
 

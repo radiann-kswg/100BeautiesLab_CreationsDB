@@ -103,9 +103,10 @@
             "GenderType": "Neutral",
             "isTriple": true
           },
-          "AI_Optout": true
+          "AI_Optout": false
         }
-      ]
+      ],
+      "AI_Optout": false
     },
     "#DB_Secondary": {
       "DB_Label_JP": "二次創作",

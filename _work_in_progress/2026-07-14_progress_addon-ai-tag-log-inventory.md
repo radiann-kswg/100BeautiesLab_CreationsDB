@@ -130,6 +130,36 @@ Num **29 / 58 / 85 / 92**。`common.immutable_traits` の number marking 行が�
 依然として全面上書きできる。**構造だけ最新化したい場合は必ず `--resync-structural` を使う**運用とする
 （`docs/ai-hints-usage.md` §9.9 / §9.10 に明記済み）。
 
+### A6. `migrate-aihints.mjs` の per-record `_Secondaries` opt-out 判定（優先度: 中）
+
+2026-07-17 の基盤整備で **DB レベル**の `AI_Optout: true` 遮断は入れたが、`_Secondaries` のカテゴリ単位
+`AI_Optout` はレコード単位の 3 軸解決が必要なため未対応。カテゴリ単位 opt-out を持つのは `#DB_Secondary`
+（公認二次創作・第三者デザインを含む）のみで、同 DB に AIHints の実データが無いため現状 latent。
+**`#DB_Secondary` へ AIHints を入れる前には必須**。
+実装する場合、`tools/patch-aihints.mjs` の `findSecondaryDef()` と同じ 3 軸マッチャが要る（下記 A7 と関連）。
+→ 詳細: [`2026-07-17_progress_aihints-scope-semiprimary-selfsecondary.md`](./2026-07-17_progress_aihints-scope-semiprimary-selfsecondary.md)
+
+### A7. `_Secondaries` マッチャの三重化（優先度: 低・保守負債）
+
+2026-07-17 時点で同一ロジックが 3 箇所に存在する。**正は `lib/sw-common.js`。仕様変更時は手動同期すること。**
+
+| 実装 | 返り値 | 備考 |
+| --- | --- | --- |
+| `lib/sw-common.js`（**正**） | 定義そのもの | Service Worker classic script |
+| `pkg/nodejs/index.mjs:335` | `_Commons` のみ | `applyCommonsToRecords` 内のクロージャ・未 export |
+| `tools/patch-aihints.mjs` `findSecondaryDef()` | 定義そのもの | 2026-07-17 追加。`AI_Optout` と `_Commons` を 1 回の解決から取るため |
+
+`pkg/nodejs` 版が `_Commons` だけを返して `AI_Optout` を捨てている点が既に乖離している。
+`pkg/nodejs/index.mjs` は `develop` 所有ファイルのため、統合するなら `develop` 側で行う必要がある
+（`addon-ai-tag` で触ると逆マージ禁止により永久分岐する）。
+
+### A8. `CLASS_NAMES_EN` と Class 辞書のレジスタ乖離（優先度: 低）
+
+2026-07-17 に Class 辞書への fallback を入れたが、ハードコード（AI プロンプト用タグ `'uni-digits class'`）と
+辞書（固有名詞の表示名 `"Uni-Digits"`）はレジスタが異なり、29 件中 28 件で値が違う。
+fallback で入る辞書値は AI タグとしては行儀が悪い。中期的には**辞書側へ AI タグ用フィールド
+（例 `Class_AITag`）を足してハードコードを退役**させるのが筋だが、スキーマ変更 + User の創作判断が要るため別議論。
+
 ## 影響範囲（編集ファイル）
 
 - `_work_in_progress/README.md`（コンフリクト解消 + 索引・退避一覧・整理履歴の更新）

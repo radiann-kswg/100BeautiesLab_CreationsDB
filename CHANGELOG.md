@@ -1,5 +1,27 @@
 # 最新のリファクタリング・仕様変更履歴
 
+### fix: AIHints の対象を NumberTales `DB_SemiPrimary` / `DB_SelfSecondary` へ拡張できるよう基盤整備（`AI_Optout` を権利軸へ純化） (2026-07-17)
+
+`DB_SemiPrimary` / `DB_SelfSecondary`（いずれも User 自身が作者）も AI 学習の対象にしたい、という要件に対する**基盤整備のみ**の対応。`AppearanceDetail` の入力が追い付いていないため、**AIHints の実データは 1 件も投入していない**（seed は `AppearanceDetail` が揃ってから）。
+
+調査の結果、パイプライン（`migrate-aihints.mjs` / `worker.js` / `cf-api-sync.yml` / `d1-aihints.sql`）とスキーマ（`AppearanceDetail` / `ColorPalette` / `AIHints` はグローバル `db_type.json` 宣言、`$Def_AIHints` は作品単位の `$VersDef`）はいずれも既に両 DB を射程に収めており、**必要だったのは既存バグの修正だった**。
+
+- **`AI_Optout` を「権利上の可否」専用へ純化（意味論の分離）**: `#DB_SelfSecondary._Secondaries` の catch-all に立っていた `AI_Optout: true` は、実際には「キャラデザ未着手なので AI へ空データを渡したくない」という**データ充填ガードの代理**だった。`docs/api-sw-spec.md` §5.5 は `AI_Optout` を「AI 学習・LLM 取り込みへの opt-out **表明**」（対外シグナル）と定義しており、User 自身の創作物 94 件に `true` が立っている状態は**仕様に反する誤った対外宣言**にあたる。仕様変更ではなく**データを仕様へ合わせる修正**として `false` へ倒し、失う意味論は下記 3 層で受け止める。
+  - `AI_Optout` = 権利上の**付与不可**（DB レベルは exit 2 / カテゴリ単位はレコードスキップ。`--force-ai-optout`）
+  - `Progress: notProceeded` = 未着手のため**付与不要**（新設 `skipped-progress-notproceeded` の soft skip。`--include-not-proceeded`）
+  - 画像なし = 生成の材料が無い（既存 `skipped-no-image`）
+  - 実測で `notProceeded` ∩ 画像あり = 0 件（3 DB とも）のため、**フリップしても出力は 1 バイトも変わらない**（`patched=7` のまま、除外理由が「権利」から「データなし」へ移るのみ）。Progress ゲートは、未完成レコードに WIP 画像が 1 枚置かれた瞬間にガードが無音で消えるのを防ぐ保険。
+- **`_Secondaries` の opt-out 判定バグ修正（本命）**: `tools/patch-aihints.mjs` は opt-out を `sec_SeriesTitle` のみをキーにした Map で保持していたため、`sec_SeriesTitle: null` の定義が複数ある `#DB_SelfSecondary`（「リクエストナンバー」= `AI_Optout: false` と catch-all = `true` の 2 つが該当）で、**明示的に opt-in の 2 件（`#223-jw` / `#753`）まで既定 opt-out に巻き込んで弾いていた**（実測 `patched=5` → `--force-ai-optout` で `7`）。`lib/sw-common.js`（正）/ `pkg/nodejs/index.mjs:335` の 3 軸マッチャ（`sec_SeriesTitle` 主キー + `sec_Category` / `sec_DesignedBy`）を `findSecondaryDef()` として移植し、**定義を 1 回だけ解決して `AI_Optout` と `_Commons` の両方をそこから取る**方式へ変更（`loadMergedVarsDef` と同じ移植＋手動同期パターン。`pkg/` の公開 API とブランチ横断ファイルを触らないため）。
+- **`_Commons` 継承の適用**: `applyCommonsToRecord()` を追加し、`_Secondaries[]._Commons` の `GenderType: "Neutral"` 等が AIHints 生成の入力に効くようにした（継承値は DB へ書き戻さない）。
+- **Class 辞書の合流**: `CLASS_NAMES_EN`（29 件・Primary スコープ）に無いクラス名を raw の日本語のまま `identity_tags` へ素通ししていた（未マップ: SemiPrimary 31/40 / SelfSecondary 36/39）。`loadMergedClassDictEN()` で `keyField: "Class"` の辞書（グローバル 5 本 + 作品ローカル 2 本 = 88 対訳）へ fallback し、**3 DB とも未解決 0 件**に。未対訳は `TODO:` を出し日本語を漏らさない。**ハードコードが優先**（両者はレジスタが異なり 29 件中 28 件で値が違う。`営業補助用個体` はハードコードにしか無く辞書は superset ではないため、辞書優先にすると Primary が退行する）。
+- **Num ソートの NaN 修正**: `(a, b) => a.num - b.num` は string Num を含むと NaN となりソートが成立しない。`compareNums()` を追加し 3 箇所（結果サマリ / `--records` 表示 / vision tasks）へ適用。number 同士では `a - b` と恒等。あわせて `--records` 表示の重複（`parseRecordSpec` が純整数を Number/String 両形で Set に入れる仕様に由来）も解消。
+- **`migrate-aihints.mjs` の多層防御**: DB レベル `AI_Optout: true` を D1 投入時に遮断（カテゴリ単位は未対応・latent として記録）。
+- **併せて修正した既存バグ**: `patch-aihints.mjs` の CLI 実行ガードが `process.argv[1]` 未定義時に throw し、かつ `basename('')` により `endsWith('')` が常に true となって **import しただけで `main()` が走り得た**問題。
+- **データ修正 + enum ガード**: `db_SemiPrimary.json` のレコード `Num: "%"` / `Num: "∞"` の `"Progress": "notProseed"`（`$EnumDef_Progress` 未定義の不正値）を `notProceeded` へ。`tests/data.shape.test.js` に enum ガードを **2 本**追加した — ①レコード側（全作品の `db_*.json` / 21 ファイル・1285 レコード）、②メタ側（全作品の `db_meta.json` の `_Commons.Progress` を**再帰走査** / 16 箇所）。**正規値に `"accepted\nnowRemaking"` 等の改行複合値があるため `\n` で分割せず完全一致で判定**（分割すると偽陽性 8 件）。②が再帰なのは `#DB_UnprocessedSecondary` が `#DB_Secondary` の中に入れ子で、キー構造を決め打ちすると見えないため。あわせて User が `#DB_UnprocessedSecondary._Commons.Progress` の enum 未登録値（`NotProcessed` → `notProcessed` → `notProceeded`）を修正済み（`b37691a` / `29dca9e`。同 DB の 795 レコードは全て明示的に `notProceeded` を持ち、この既定値を継承するレコードは 0 件だった）。
+- **docs**: `docs/api-sw-spec.md` の `## 5.5` 重複（`AI_Optout` と `Works_Dir`）を解消し `Works_Dir` を §5.6 へリナンバー（参照 4 箇所を追従）。実データに存在するのに未文書化だった **per-`_Secondaries` の `AI_Optout` 軸**と解決順を明記。`docs/ai-hints-usage.md` の stale なパス（`Images/DB_Primary/humanoids/` → `arts/humanoids/`）、`docs/aihints-spec.md` の stale な `--db-id <uuid>` 既定（実際は DB 名 `creationsdb-d1`）も修正。
+- **影響範囲**: `tools/patch-aihints.mjs` / `pkg/cloudflare/scripts/migrate-aihints.mjs` / `data/Works_NumberTales/DataBases/db_meta.json` / `data/Works_NumberTales/DataBases/db_SemiPrimary.json` / `tests/data.shape.test.js` / `tests/patch-aihints.{secondaries,classdict,gates,numsort}.test.js`（新規 4 本）/ `docs/{api-sw-spec,ai-hints-usage,aihints-spec,schema-meta-processing}.md` / `.github/copilot-instructions.md` / `.github/prompts/aihints-fill.prompt.md` / `.github/workflows/aihints-structural-resync.yml`。**`db_Primary.json` は 1 バイトも変更なし**。
+- 確認: `npm test` — 41 ファイル / 481 件すべて成功（`addon-ai-tag`）。Primary は全 6 モードの dry-run でレコード→status の割り当てがベースラインと完全一致（差は表示順のみ。従来 NaN で壊れていたソートが直った結果）、`git diff` 空、AIHints 92 件不変。`SelfSecondary` は `patched=5` → **`7`**（誤スキップ 2 件を救済）、`SemiPrimary` は `patched=9` のまま。新規ガード類は「わざと壊して赤くなること」まで確認（enum ガード 2 本 / Progress ゲートの両方向）。
+
 ### feat: 作品公式サイトのリンクをキャラシート「作品情報」欄へ表示 (`Works_OfficialLinks`) (2026-07-16)
 
 創作タイトルに公式 HP がある場合（ナンバーテールズ / 運命線探偵78）、キャラシートの作品情報欄から公式サイトへ導線を張れるようにした。スキーマ駆動（宣言 → SW パススルー → UI 描画）で追加し、UI ハードコードはリンク 1 種の描画に限定している。

@@ -34,8 +34,11 @@ tools:
 AIHints キー自体がまだない場合は以下をターミナルで実行してください（`--suggest` で半自動 scaffold を挿入）:
 
 ```powershell
-node tools/patch-aihints.mjs --records <Num> --suggest --apply
+node tools/patch-aihints.mjs --work NumberTales --db Primary --records <Num> --suggest --apply
 ```
+
+> `--work` / `--db` を省略すると既定値（`NumberTales` / `Primary`）が使われる。
+> Primary 以外（`SemiPrimary` / `SelfSecondary` 等）を対象にする場合は必ず両方を明示すること。
 
 ### Step 1: レコードを読み込む
 

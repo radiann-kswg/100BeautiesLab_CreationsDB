@@ -222,6 +222,17 @@ for (const workKey of Object.keys(creationWorks)) {
   for (const [dbKey, dbInfo] of Object.entries(databases)) {
     if (dbInfo?.DB_Hidden) continue;
 
+    // AI_Optout: true の DB は AIHints を D1 へ投入しない（多層防御）。
+    // 通常 tools/patch-aihints.mjs 側のガードが AIHints の「書き込み」自体を拒否するため
+    // 該当レコードは存在しないはずだが、手編集や --force-ai-optout で混入した場合に
+    // ここを素通りして /api/ai/* から配信されてしまうため、取り込み側でも遮断する。
+    // ※ `_Secondaries` のカテゴリ別 AI_Optout はレコード単位の解決が必要で、本スクリプトは未対応。
+    //   現状カテゴリ別 opt-out を持つのは #DB_Secondary のみで AIHints 実データが無いため latent。
+    if (dbInfo?.AI_Optout === true) {
+      console.log(`  skip (AI_Optout): ${workDir}/${dbKey}`);
+      continue;
+    }
+
     const dbNorm  = capitalize(stripDbPrefix(dbKey));
     const layer   = (dbInfo?.DB_Layer || "DataBases").trim();
     const fileRaw = (dbInfo?.DB_File  || "").trim();
