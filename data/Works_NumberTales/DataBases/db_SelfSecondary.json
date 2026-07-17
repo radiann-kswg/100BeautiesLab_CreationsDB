@@ -94,7 +94,7 @@
     "sec_DesignedBy": ["RadianN"],
     "sec_SeriesTitle": "量産型マスタートリプル",
     "Num": "111-mp",
-    "Progress": "unprofiled",
+    "Progress": "released(beta)",
     "AnotherVersions_DBLink": [
       { "_Work": "NumberTales", "_DB": "SemiPrimary", "Num": 111 }
     ],
@@ -775,7 +775,7 @@
     "sec_Category": "リクエストナンバー",
     "sec_DesignedBy": ["RadianN"],
     "Num": "223-jw",
-    "Progress": "nowRecreating",
+    "Progress": "released(beta)",
     "Images": { "concept_PNGName": "cnsp_img223-jw" },
     "Name_JP": "223(ツヅサ)",
     "Name_EN": "223(Twitwenthir)",
@@ -1608,7 +1608,7 @@
     "sec_DesignedBy": ["RadianN"],
     "sec_SeriesTitle": "量産型マスタートリプル",
     "Num": "444-mp",
-    "Progress": "unprofiled",
+    "Progress": "released(beta)",
     "Images": {
       "concept_PNGName": "cnsp_img444-mp",
       "corefolder_PNGPath": ["444/emstk_corefolder444-mp1"]
@@ -2327,7 +2327,7 @@
     "sec_DesignedBy": ["RadianN"],
     "sec_SeriesTitle": "量産型マスタートリプル",
     "Num": "666-mp",
-    "Progress": "unprofiled",
+    "Progress": "released(beta)",
     "AnotherVersions_DBLink": [
       { "_Work": "NumberTales", "_DB": "SemiPrimary", "Num": 666 }
     ],
@@ -2751,7 +2751,7 @@
     "sec_Category": "リクエストナンバー",
     "sec_DesignedBy": ["RadianN"],
     "Num": 753,
-    "Progress": "nowRecreating",
+    "Progress": "released(beta)",
     "Images": {
       "concept_PNGName": "cnsp_img753",
       "corefolder_PNGPath": ["753/emstk_corefolder753-1"]
@@ -2776,6 +2776,7 @@
       }
     ],
     "BustSize": "A",
+    "Weight_kg": 42,
     "TailsUnit": [
       {
         "TailShapeType": "#TailShapeType_FoxBranched",
@@ -2909,7 +2910,7 @@
     "sec_DesignedBy": ["RadianN"],
     "sec_SeriesTitle": "量産型マスタートリプル",
     "Num": "777-mp",
-    "Progress": "unprofiled",
+    "Progress": "released(beta)",
     "AnotherVersions_DBLink": [
       { "_Work": "NumberTales", "_DB": "SemiPrimary", "Num": 777 }
     ],
@@ -3190,7 +3191,7 @@
     "sec_DesignedBy": ["RadianN"],
     "sec_SeriesTitle": "量産型マスタートリプル",
     "Num": "777.Jackpot-mp",
-    "Progress": "unprofiled",
+    "Progress": "released(beta)",
     "AnotherVersions_DBLink": [
       { "_Work": "NumberTales", "_DB": "SemiPrimary", "Num": 777 }
     ],
