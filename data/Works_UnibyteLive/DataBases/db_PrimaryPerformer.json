@@ -30,11 +30,11 @@
     "FormalName_JP": "桜花 孝\n孝 ヴァーチュングレイス=春洋",
     "FormalName_JPReading": "おうか たかむ\nたかむ ヴァーチュングレイス=はるなみ",
     "FormalName_EN": "Filia.Pieter Cherrybroom\nFilia.Pieter Virtuengrace=Springer",
+    "Belonging": ["スターダスト・テクノロジー"],
     "Height_cm": 154,
     "BustSize": "A",
     "Age": 19,
-    "BirthDay": { "Day": { "Month": 4, "DayOfMonth": 13 } },
-    "Belonging": ["スターダスト・テクノロジー"]
+    "BirthDay": { "Day": { "Month": 4, "DayOfMonth": 13 } }
   },
   {
     "Letter": { "Alphabet": "N", "AlphaGen": 1 },
@@ -42,8 +42,8 @@
     "FormalName_JP": "向居 カミーユ",
     "FormalName_JPReading": "むかい カミーユ",
     "FormalName_EN": "Camille Nachie",
-    "Height_cm": 144,
     "GenderType": "Male",
+    "Height_cm": 144,
     "Age": 19,
     "BirthDay": { "Day": { "Month": 11, "DayOfMonth": 6 } }
   },
@@ -53,11 +53,11 @@
     "FormalName_JP": "円里 みるま",
     "FormalName_JPReading": "まどかざと みるま",
     "FormalName_EN": "Elcric Orbly",
+    "RaceType": "HalfWarfox",
     "Height_cm": 120,
     "BustSize": "B",
     "Age": 25,
-    "BirthDay": { "Day": { "Month": 6, "DayOfMonth": 28 } },
-    "RaceType": "HalfWarfox"
+    "BirthDay": { "Day": { "Month": 6, "DayOfMonth": 28 } }
   },
   {
     "Letter": { "Alphabet": "O", "AlphaGen": 2 },
@@ -68,14 +68,14 @@
     "FormalName_JP": "扇 零夏.スフィリア",
     "FormalName_JPReading": "おうぎ れいか.スフィリア",
     "FormalName_EN": "Arch Origth.Spheria",
+    "RaceType": "Warfox",
+    "GenderType": { "hideText": "？？？" },
+    "Belonging": ["国際情報広報機関『ミハイル』"],
+    "Class": ["『管制主』代理人"],
     "Height_cm": 159,
     "BustSize": "G",
     "Age": { "about_JP": "不詳", "about_EN": "Unknown or Undefined" },
-    "BirthDay": { "Day": { "Month": 6, "DayOfMonth": 10 } },
-    "Belonging": ["国際情報広報機関『ミハイル』"],
-    "Class": ["『管制主』代理人"],
-    "RaceType": "Warfox",
-    "GenderType": { "hideText": "？？？" }
+    "BirthDay": { "Day": { "Month": 6, "DayOfMonth": 10 } }
   },
   {
     "Letter": { "Alphabet": "S", "AlphaGen": 2 },
@@ -105,11 +105,11 @@
     "FormalName_JP": "絡田 巡",
     "FormalName_JPReading": "らくた めぐり",
     "FormalName_EN": "Roames Rakuta",
+    "Belonging": ["照梅テクノロジー"],
     "Height_cm": 148,
     "BustSize": "A",
     "Age": 21,
-    "BirthDay": { "Day": { "Month": 11, "DayOfMonth": 8 } },
-    "Belonging": ["照梅テクノロジー"]
+    "BirthDay": { "Day": { "Month": 11, "DayOfMonth": 8 } }
   },
   {
     "Letter": { "Alphabet": "P", "AlphaGen": 1 },
@@ -117,11 +117,11 @@
     "FormalName_JP": "鶴佐木 わなみ",
     "FormalName_JPReading": "つるさぎ わなみ",
     "FormalName_EN": "Trappy Tsurusagi",
+    "Belonging": ["アルベッツ被害者の会"],
     "Height_cm": 148,
     "BustSize": "B",
     "Age": 19,
-    "BirthDay": { "Day": { "Month": 11, "DayOfMonth": 17 } },
-    "Belonging": ["アルベッツ被害者の会"]
+    "BirthDay": { "Day": { "Month": 11, "DayOfMonth": 17 } }
   },
   {
     "Letter": { "Alphabet": "S", "AlphaGen": 1 },
@@ -129,10 +129,10 @@
     "FormalName_JP": "氷山 メサイア",
     "FormalName_JPReading": "きよやま メサイア",
     "FormalName_EN": "Messiah Snowberg",
+    "Belonging": ["アルベッツ被害者の会"],
     "Height_cm": 150,
     "BustSize": "AA",
     "Age": 36,
-    "BirthDay": { "Day": { "Month": 12, "DayOfMonth": 14 } },
-    "Belonging": ["アルベッツ被害者の会"]
+    "BirthDay": { "Day": { "Month": 12, "DayOfMonth": 14 } }
   }
 ]
