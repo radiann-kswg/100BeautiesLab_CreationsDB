@@ -32,10 +32,10 @@
       "about_JP": "ただし中身は男性寄り",
       "about_EN": "However, the identity are more geared towards Male."
     },
+    "Class": ["創造主"],
     "Height_cm": 163,
     "Weight_kg": { "hideText": "本人すら把握されていない" },
     "Age": { "value": 21, "about_JP": "自称", "about_EN": "Self-styled" },
-    "Class": ["創造主"],
     "FirstPersonCalling_JP": "現実味のない場面では：[※名前呼び],ワテ,おれ\n現実味のある場面では：[※名前呼び],僕(ぼく),俺\n公的かつ形式的な場面では：私(わたし),僕(ぼく)",
     "FirstPersonCalling_EN": "In fictional/unreal contexts: [*by name], I (archaic slang, rough)\nIn realistic contexts: [*by name], I (masc. informal, rough)\nIn formal/official contexts: I (rough, masc. informal)",
     "SecondPersonCalling_JP": "君(きみ),[※名前呼び],~君/~さん",
@@ -52,10 +52,10 @@
     "Favor_EN": "Chibified spherification, fluffy beastkin and futons, numbers",
     "Unlike_JP": { "hideText": "非公開希望" },
     "Unlike_EN": { "hideText": "Non-Public at Pleasure" },
-    "InStory_JP": "日常や思考を代弁するなどといった正なる意味の代理として登場する(という名目だが、作者はこの代理という自分の写し身をあまり良くは思ってないので、実際は作者の特権でパロディや雑コラなどへ煩雑に使われることが多い)",
-    "InStory_EN": "Appears as a genuine proxy in the sense of voicing daily life and thoughts (nominally, at least—though the author doesn't think very highly of this self-reflection as a proxy, in practice it is frequently used for parodies, quick collages, and such at the author's discretion)",
     "Backgrounds_JP": "作者の現実や性格を忠実にキャラ化した代理のため、日常や思考を代弁したりする分で作者としても代理としての動かしやすさが保証されている",
-    "Backgrounds_EN": "As a proxy that faithfully characterizes the author's reality and personality, its ease of use as both the author's and the proxy's representative is guaranteed by its role in voicing daily life and thoughts"
+    "Backgrounds_EN": "As a proxy that faithfully characterizes the author's reality and personality, its ease of use as both the author's and the proxy's representative is guaranteed by its role in voicing daily life and thoughts",
+    "InStory_JP": "日常や思考を代弁するなどといった正なる意味の代理として登場する(という名目だが、作者はこの代理という自分の写し身をあまり良くは思ってないので、実際は作者の特権でパロディや雑コラなどへ煩雑に使われることが多い)",
+    "InStory_EN": "Appears as a genuine proxy in the sense of voicing daily life and thoughts (nominally, at least—though the author doesn't think very highly of this self-reflection as a proxy, in practice it is frequently used for parodies, quick collages, and such at the author's discretion)"
   },
   {
     "Generation": 3,
@@ -82,18 +82,7 @@
       "about_JP": "ただし本人は無性別女性型が好き",
       "about_EN": "However, personally prefers a genderless feminine form"
     },
-    "AnivDay": [
-      {
-        "Day": { "Month": 7, "DayOfMonth": 1 },
-        "DayAbout_JP": "誕生日(代理として)",
-        "DayAbout_EN": "Birthday (as a proxy)"
-      },
-      {
-        "Day": { "Month": 6, "DayOfMonth": 10 },
-        "DayAbout_JP": "誕生日(看板娘として)",
-        "DayAbout_EN": "Birthday (as a poster girl)"
-      }
-    ],
+    "Class": ["管制主"],
     "Height_cm": [
       {
         "about_JP": "可変\n(球体化姿時は35～72cm、人型姿時はおよそ160cmでいることが多い)",
@@ -107,7 +96,18 @@
       "about_EN": "However, can be changed freely"
     },
     "Age": { "value": 19, "about_JP": "自称", "about_EN": "Self-styled" },
-    "Class": ["管制主"],
+    "AnivDay": [
+      {
+        "Day": { "Month": 7, "DayOfMonth": 1 },
+        "DayAbout_JP": "誕生日(代理として)",
+        "DayAbout_EN": "Birthday (as a proxy)"
+      },
+      {
+        "Day": { "Month": 6, "DayOfMonth": 10 },
+        "DayAbout_JP": "誕生日(看板娘として)",
+        "DayAbout_EN": "Birthday (as a poster girl)"
+      }
+    ],
     "FirstPersonCalling_JP": "ボク",
     "FirstPersonCalling_EN": "I (masc. informal)",
     "SecondPersonCalling_JP": "キミ,[※名前呼び]",
@@ -124,10 +124,6 @@
     "Favor_EN": "Round, soothing forms (of people who have been spherified), fluffy beds, talking about creative works",
     "Unlike_JP": "精神的に負担となるもの全般",
     "Unlike_EN": "Anything that creates mental strain in general",
-    "InStory_JP": "主に作者のもつ球体化などの(特殊)性癖を全面に出す際に代理として登場する",
-    "InStory_EN": "Appears primarily as a proxy when fully expressing the author's (particular) fetishes such as spherification",
-    "Backgrounds_JP": "作者の理想や変化欲求を押し固めていつのまにかできていたような代理のため、作者の性格に対してはある点で正方向に誇張されある点で真逆に誇張されたような存在",
-    "Backgrounds_EN": "A proxy that seems to have formed naturally by compressing the author's ideals and desire for change, existing as a presence that is in some ways a positive exaggeration of the author's personality and in other ways an opposite exaggeration",
     "ConversationPattern": {
       "TalkingTone_JP": "どこか垢ぬけたように中性的で明るく活発・溌剌と話す。どこかお馬鹿でオーバーリアクションな部分がある。やや猫語口調で文脈に寄り「な」が「にゃ」になるが、重要な文脈では一貫して「な」が変わることがない。",
       "TalkingTone_EN": "Speaks in a somewhat polished yet gender-neutral, bright, lively, and spirited manner. Has a slightly goofy and over-reactive quality. Speech takes on a slightly cat-like inflection at times, with 'na' becoming 'nya' in casual contexts, but this never happens in important ones.",
@@ -185,7 +181,11 @@
           "about_EN": "When spherifying the other party"
         }
       ]
-    }
+    },
+    "Backgrounds_JP": "作者の理想や変化欲求を押し固めていつのまにかできていたような代理のため、作者の性格に対してはある点で正方向に誇張されある点で真逆に誇張されたような存在",
+    "Backgrounds_EN": "A proxy that seems to have formed naturally by compressing the author's ideals and desire for change, existing as a presence that is in some ways a positive exaggeration of the author's personality and in other ways an opposite exaggeration",
+    "InStory_JP": "主に作者のもつ球体化などの(特殊)性癖を全面に出す際に代理として登場する",
+    "InStory_EN": "Appears primarily as a proxy when fully expressing the author's (particular) fetishes such as spherification"
   },
   {
     "Generation": 1,
@@ -202,6 +202,8 @@
       "about_JP": "ただしそこまで女性的な体格ではない",
       "about_EN": "However, not so feminine physique."
     },
+    "Belonging": { "hideText": "削除済み" },
+    "Class": { "hideText": "削除済み" },
     "Height_cm": 176,
     "Weight_kg": 61,
     "Age": {
@@ -217,16 +219,10 @@
     "Character_EN": "A bright and lively nature with a gender-neutral disposition\nWith a big-sisterly side that always gives its best for companions, and an otaku side that dotes on creative characters",
     "Hobby_JP": "創作世界を見守ること",
     "Hobby_EN": "Watching over the creative world",
-    "Belonging": { "hideText": "削除済み" },
-    "Class": { "hideText": "削除済み" },
     "Favor_JP": "可愛いキャラクター、縫い包みやクッションなどのノベルティグッズ",
     "Favor_EN": "Cute characters, novelty goods such as plushies and cushions",
     "Unlike_JP": "喧嘩やトラブル、緊急対応が重なること",
     "Unlike_EN": "Fights and trouble, a pile-up of emergency responses",
-    "InStory_JP": "この創作世界の作者：ラジアン(柏木主税)の創作活動を作者の側で支えてきた作者の初代代理。作者自身の理解者・ペルソナとして、作者の創作活動の支援や励ましを行う存在……らしい。",
-    "InStory_EN": "The first-generation proxy of the author of this creative world, RadianN_kswg, who has long supported the author's creative activities from their side. As the author's own confidant and persona, an existence that provides support and encouragement for the author's creative endeavors... apparently.",
-    "Backgrounds_JP": "この創作世界の作者：ラジアン(柏木主税)自身から生まれた作者のためのペルソナで、サークル「百花繚乱研究所」成立前から作者の創作活動を見守ってきた、この創作世界の最大の理解者で創造主：ラジアンとしての原点\nとある理由で初代ラジアン代理としての役目を後代の代理キャラへ託し消息を経ってしまったが、ふとあるたびに作者の心へ語りかけにくることがある",
-    "Backgrounds_EN": "A persona for the author born from the author of this creative world, RadianN_kswg, who has watched over the author's creative activities since before the establishment of the circle '100BeautiesLab.', and is the greatest confidant and the origin of RadianN as creator of this creative world\nFor a certain reason, they handed over their role as the first-generation RadianN proxy to later-generation proxy characters and disappeared from contact, but they sometimes come to speak to the author's heart from time to time",
     "ConversationPattern": {
       "TalkingTone_JP": "中性的でフレンドリーな明るい話し方。ヲタク的な趣向を有しているが、ヲタク特有の口語表現はあまりしない。",
       "TalkingTone_EN": "Gender-neutral, friendly, and cheerful manner of speaking. Has otaku-like tendencies but rarely uses otaku-specific colloquial expressions.",
@@ -250,6 +246,10 @@
           "about_EN": "When contacting Seconec (2nd-gen RadianN), the later-generation proxy character"
         }
       ]
-    }
+    },
+    "Backgrounds_JP": "この創作世界の作者：ラジアン(柏木主税)自身から生まれた作者のためのペルソナで、サークル「百花繚乱研究所」成立前から作者の創作活動を見守ってきた、この創作世界の最大の理解者で創造主：ラジアンとしての原点\nとある理由で初代ラジアン代理としての役目を後代の代理キャラへ託し消息を経ってしまったが、ふとあるたびに作者の心へ語りかけにくることがある",
+    "Backgrounds_EN": "A persona for the author born from the author of this creative world, RadianN_kswg, who has watched over the author's creative activities since before the establishment of the circle '100BeautiesLab.', and is the greatest confidant and the origin of RadianN as creator of this creative world\nFor a certain reason, they handed over their role as the first-generation RadianN proxy to later-generation proxy characters and disappeared from contact, but they sometimes come to speak to the author's heart from time to time",
+    "InStory_JP": "この創作世界の作者：ラジアン(柏木主税)の創作活動を作者の側で支えてきた作者の初代代理。作者自身の理解者・ペルソナとして、作者の創作活動の支援や励ましを行う存在……らしい。",
+    "InStory_EN": "The first-generation proxy of the author of this creative world, RadianN_kswg, who has long supported the author's creative activities from their side. As the author's own confidant and persona, an existence that provides support and encouragement for the author's creative endeavors... apparently."
   }
 ]

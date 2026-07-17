@@ -5,12 +5,14 @@
     "AnotherRegions_DBLink": [
       { "_Work": "NumberTales", "_DB": "Primary", "Num": "10-alt" }
     ],
-    "ModelName_JP": "人形兵ゼロイド10号機(10番機)",
-    "ModelName_EN": "AttackerZeroid Unit.10 (Mk.10)",
-    "ModelNumber": "ACAM-AZR X",
     "FormalName_JP": "人形兵ゼロイド10番機",
     "FormalName_EN": "AttackerZeroid #10",
+    "ModelNumber": "ACAM-AZR X",
+    "ModelName_JP": "人形兵ゼロイド10号機(10番機)",
+    "ModelName_EN": "AttackerZeroid Unit.10 (Mk.10)",
     "Belonging": ["百戦錬磨開発所"],
+    "Height_cm": 164,
+    "Weight_kg": { "hideText": "非公開" },
     "AnivDay": [
       {
         "Day": { "Month": 1, "DayOfMonth": 10 },
@@ -18,11 +20,9 @@
         "DayAbout_EN": "Development commemoration"
       }
     ],
-    "Height_cm": 164,
-    "Weight_kg": { "hideText": "非公開" },
-    "LogicspecAbout_JP": { "_Jump": { "hashTag": "NumerospecAbout" } },
     "InStory_JP": "最終1号機「ミツル」が独立宣言した理由を知る存在",
-    "InStory_EN": "An existence that knows the reason why the last unit 'Mitsuru' declared independence"
+    "InStory_EN": "An existence that knows the reason why the last unit 'Mitsuru' declared independence",
+    "LogicspecAbout_JP": { "_Jump": { "hashTag": "NumerospecAbout" } }
   },
   {
     "Model": { "ModelSeries": "AttackerZeroid", "Num": 61 },
@@ -30,15 +30,15 @@
     "AnotherRegions_DBLink": [
       { "_Work": "NumberTales", "_DB": "Primary", "Num": 61 }
     ],
-    "ModelName_JP": "人形兵ゼロイド1+6号機乙(61番機)",
-    "ModelName_EN": "AttackerZeroid Unit.1+6.B (Mk.61)",
-    "ModelNumber": "ACAM-AZR I+VI.B",
     "FormalName_JP": "人形兵ゼロイド61番機",
     "FormalName_EN": "AttackerZeroid #61",
+    "ModelNumber": "ACAM-AZR I+VI.B",
+    "ModelName_JP": "人形兵ゼロイド1+6号機乙(61番機)",
+    "ModelName_EN": "AttackerZeroid Unit.1+6.B (Mk.61)",
     "Belonging": ["百花繚乱研究所", "ジャンクガレージ『六花陛下』"],
-    "LogicspecAbout_JP": { "_Jump": { "hashTag": "NumerospecAbout" } },
     "InStory_JP": "百戦錬磨開発所に兵役パッチを付与されてしまい暴走してしまったところを偶然 九蓮国に訪れたクィーン-トゥエルヴに救われ、見事に懐いてしまったことから六花雙葉/クィーン-トゥエルヴらジャンクガレージに棲み着いている",
-    "InStory_EN": "After being fitted with a military-service patch by HundredBattlers Development and going berserk, it was rescued by chance by Queen.XII, who happened to be visiting LotusNinea — and having taken an immediate liking to her, it now lives in the JunkGarage 'Majesty Rokka' alongside Dozenne Hexacrys / Queen.XII and her crew"
+    "InStory_EN": "After being fitted with a military-service patch by HundredBattlers Development and going berserk, it was rescued by chance by Queen.XII, who happened to be visiting LotusNinea — and having taken an immediate liking to her, it now lives in the JunkGarage 'Majesty Rokka' alongside Dozenne Hexacrys / Queen.XII and her crew",
+    "LogicspecAbout_JP": { "_Jump": { "hashTag": "NumerospecAbout" } }
   },
   {
     "Model": { "ModelSeries": "AttackerZeroid", "Num": 62 },
@@ -46,15 +46,15 @@
     "AnotherRegions_DBLink": [
       { "_Work": "NumberTales", "_DB": "Primary", "Num": 62 }
     ],
-    "ModelName_JP": "人形兵ゼロイド2+6号機乙(62番機)",
-    "ModelName_EN": "AttackerZeroid Unit.2+6.B (Mk.62)",
-    "ModelNumber": "ACAM-AZR II+VI.B",
     "FormalName_JP": "人形兵ゼロイド62番機",
     "FormalName_EN": "AttackerZeroid #62",
+    "ModelNumber": "ACAM-AZR II+VI.B",
+    "ModelName_JP": "人形兵ゼロイド2+6号機乙(62番機)",
+    "ModelName_EN": "AttackerZeroid Unit.2+6.B (Mk.62)",
     "Belonging": ["百戦錬磨開発所", "ジャンクガレージ『六花陛下』"],
-    "LogicspecAbout_JP": { "_Jump": { "hashTag": "NumerospecAbout" } },
     "InStory_JP": "百戦錬磨開発所として兵役中に遭難してしまっただけでなくパーツエンストを起こしてしまったところを六花雙葉/クィーン-トゥエルヴに拾われ、助けられた御恩に報いるべく（百戦錬磨開発所を裏切ってでも）ジャンクガレージに協力している",
-    "InStory_EN": "On active military duty under HundredBattlers Development, it not only ended up stranded but also suffered a parts-failure shutdown — and was taken in by Dozenne Hexacrys / Queen.XII. In gratitude for being rescued, it now cooperates with the JunkGarage (even at the cost of betraying HundredBattlers Development)"
+    "InStory_EN": "On active military duty under HundredBattlers Development, it not only ended up stranded but also suffered a parts-failure shutdown — and was taken in by Dozenne Hexacrys / Queen.XII. In gratitude for being rescued, it now cooperates with the JunkGarage (even at the cost of betraying HundredBattlers Development)",
+    "LogicspecAbout_JP": { "_Jump": { "hashTag": "NumerospecAbout" } }
   },
   {
     "Model": { "ModelSeries": "AttackerZeroid", "Num": "10-alt" },
@@ -62,11 +62,11 @@
     "AnotherRegions_DBLink": [
       { "_Work": "NumberTales", "_DB": "Primary", "Num": 10 }
     ],
-    "ModelName_JP": "人形兵ゼロイド最終1号機",
-    "ModelName_EN": "AttackerZeroid Unit.1 Final",
-    "ModelNumber": "ACAM-AZR I.FIN",
     "FormalName_JP": "人形兵ゼロイド最終1号機",
     "FormalName_EN": "AttackerZeroid I.FIN",
+    "ModelNumber": "ACAM-AZR I.FIN",
+    "ModelName_JP": "人形兵ゼロイド最終1号機",
+    "ModelName_EN": "AttackerZeroid Unit.1 Final",
     "Belonging": ["デウスマキナ"],
     "AnivDay": [
       {
@@ -80,11 +80,11 @@
         "DayAbout_EN": "Automaton declaration of independence (in-story)"
       }
     ],
-    "LogicspecAbout_JP": { "_Jump": { "hashTag": "NumerospecAbout" } },
+    "Backgrounds_JP": "暴走事故により自律行動アルゴリズムや人権など、オートマトンの重大な課題を『第７の世界破壊』として轟かせてしまった",
+    "Backgrounds_EN": "The runaway incident caused the critical issues surrounding automatons — such as autonomous-action algorithms and civil rights — to reverberate as 'The World Destruction Pandemic VII'",
     "InStory_JP": "禁忌的な暴走「過剰自我(EGhOst)」を最初に発現したオートマトンであり、暴走オートマトン軍団『デウスマキナ』を指揮している",
     "InStory_EN": "The automaton that was first to manifest the forbidden runaway state known as 'Excess Ego (EGhOst)'; it now commands the rogue automaton army 'DeusMakhina'",
-    "Backgrounds_JP": "暴走事故により自律行動アルゴリズムや人権など、オートマトンの重大な課題を『第７の世界破壊』として轟かせてしまった",
-    "Backgrounds_EN": "The runaway incident caused the critical issues surrounding automatons — such as autonomous-action algorithms and civil rights — to reverberate as 'The World Destruction Pandemic VII'"
+    "LogicspecAbout_JP": { "_Jump": { "hashTag": "NumerospecAbout" } }
   },
   {
     "Model": { "ModelSeries": null, "Num": "0" },
@@ -102,13 +102,13 @@
     "CodeName_JP": null,
     "CodeName_EN": null,
     "RaceType": "Human(withAddon)",
-    "Age": 24,
     "Belonging": ["百花繚乱研究所"],
+    "Age": 24,
+    "InStory_JP": "もともと百戦錬磨開発所（の前身）の一員として弟と人形兵ゼロイドの開発に携わっていたが、\"第７の世界破壊\"に伴う素子メーカとの企業戦争の激化による人形兵ゼロイドの兵役個体化に反対しているため、偶然その首謀者であるロジケスキーロマンティカ産業に釣られたクィーン-トゥエルヴと出会い軍事運用されてしまった人形兵ゼロイドの鎮圧に協力するよう要請する",
+    "InStory_EN": "Originally a member of the predecessor organization to HundredBattlers Development, involved with her younger brother in the development of AttackerZeroid humanoid infantry — but opposed to the militarization of individual AttackerZeroid units resulting from escalating corporate warfare between component manufacturers in the wake of 'The World Destruction Pandemic VII'. When she by chance encounters Queen.XII, who was lured in by Logicheskiy Romantika Industry — the mastermind behind it all — she petitions her to cooperate in suppressing the AttackerZeroid units that have been deployed for military use.",
     "ForMasterCalling_JP": "クライアント君",
     "ForMasterCalling_EN": "Client-kun",
-    "LogicspecAbout_JP": { "_Jump": { "hashTag": "NumerospecAbout" } },
-    "InStory_JP": "もともと百戦錬磨開発所（の前身）の一員として弟と人形兵ゼロイドの開発に携わっていたが、\"第７の世界破壊\"に伴う素子メーカとの企業戦争の激化による人形兵ゼロイドの兵役個体化に反対しているため、偶然その首謀者であるロジケスキーロマンティカ産業に釣られたクィーン-トゥエルヴと出会い軍事運用されてしまった人形兵ゼロイドの鎮圧に協力するよう要請する",
-    "InStory_EN": "Originally a member of the predecessor organization to HundredBattlers Development, involved with her younger brother in the development of AttackerZeroid humanoid infantry — but opposed to the militarization of individual AttackerZeroid units resulting from escalating corporate warfare between component manufacturers in the wake of 'The World Destruction Pandemic VII'. When she by chance encounters Queen.XII, who was lured in by Logicheskiy Romantika Industry — the mastermind behind it all — she petitions her to cooperate in suppressing the AttackerZeroid units that have been deployed for military use."
+    "LogicspecAbout_JP": { "_Jump": { "hashTag": "NumerospecAbout" } }
   },
   {
     "Model": { "ModelSeries": null, "Num": "00" },
@@ -125,11 +125,11 @@
     "CodeName_JP": null,
     "CodeName_EN": null,
     "RaceType": "Human(withAddon)",
-    "Age": 24,
     "Belonging": ["百戦錬磨開発所"],
-    "LogicspecAbout_JP": { "_Jump": { "hashTag": "NumerospecAbout" } },
+    "Age": 24,
     "InStory_JP": "人形兵ゼロイドを姉と開発したが、\"第７の世界破壊\"に伴う素子メーカとの企業戦争の激化による人形兵ゼロイドの兵役個体化に賛同してしまい、ロジケスキーロマンティカ産業に業務結託する形で百戦錬磨開発所として人形兵ゼロイドを用いた軍事開発を行っている",
-    "InStory_EN": "Developed AttackerZeroid humanoid infantry together with his older sister, but came to support the militarization of individual units resulting from escalating corporate warfare between component manufacturers in the wake of 'The World Destruction Pandemic VII' — and now conducts military development using AttackerZeroid units under HundredBattlers Development, operating in collusion with Logicheskiy Romantika Industry."
+    "InStory_EN": "Developed AttackerZeroid humanoid infantry together with his older sister, but came to support the militarization of individual units resulting from escalating corporate warfare between component manufacturers in the wake of 'The World Destruction Pandemic VII' — and now conducts military development using AttackerZeroid units under HundredBattlers Development, operating in collusion with Logicheskiy Romantika Industry.",
+    "LogicspecAbout_JP": { "_Jump": { "hashTag": "NumerospecAbout" } }
   },
   {
     "Model": { "ModelSeries": null, "Num": null },
@@ -145,20 +145,18 @@
     "CodeName_JP": null,
     "CodeName_EN": null,
     "RaceType": "Human(DoubleIdentity)",
+    "Belonging": ["ジャンクガレージ『六花陛下』"],
     "Height_cm": 155,
-    "Age": 26,
-    "BirthDay": { "_Jump": { "hashTag": "BirthDay" } },
     "Weight_kg": { "hideText": "非公開" },
     "BustSize": "AA",
-    "Belonging": ["ジャンクガレージ『六花陛下』"],
+    "Age": 26,
+    "BirthDay": { "_Jump": { "hashTag": "BirthDay" } },
     "FirstPersonCalling_JP": "雙葉(表人格)→雙葉(表人格)：私(わたくし)\n雙葉(表人格)→トゥエルヴ(裏人格)：トゥエルヴさん,もう一人の私(わたし)\nトゥエルヴ(裏人格)→トゥエルヴ(裏人格)：ワタシ\nトゥエルヴ(裏人格)→雙葉(表人格)：凡愚メガネ(裏人格→表人格)",
     "FirstPersonCalling_EN": "Dozenne (front personality → front): I (formal fem.)\nDozenne (front personality → alt. self): Queen.XII-san, my other self\nQueen.XII (back personality → back): I (emphasized)\nQueen.XII (back personality → front): Dunce-glasses (back→front)",
     "SecondPersonCalling_JP": "雙葉(表人格)：あなた(表人格)\nトゥエルヴ(裏人格)：キサマ",
     "SecondPersonCalling_EN": "Dozenne (front personality): you (polite)\nQueen.XII (back personality): you (combative)",
     "ThirdPersonCalling_JP": "雙葉(表人格)：彼/彼女;~さん\nトゥエルヴ(裏人格)：キサマ;*イツ;庶民ども,凡愚/凡愚ども",
     "ThirdPersonCalling_EN": "Dozenne (front personality): he/she; Mr./Ms.~\nQueen.XII (back personality): you (combative); this/that/who/what/which/them (as personal, combative); commoners, ordinary folk/rabble",
-    "ForMasterCalling_JP": "[※三人称]",
-    "ForMasterCalling_EN": "[*third-person calling]",
     "Character_JP": "雙葉(表人格)：基本お淑やかで平穏を求めているものの裏人格に振り回されている受難体質\nトゥエルヴ(裏人格)：強欲かつ傲慢でどんな手段を使ってでも欲しいものを手にしようとする",
     "Character_EN": "Dozenne (front personality): fundamentally graceful and peace-seeking, yet constantly being dragged around by her alternate personality\nQueen.XII (back personality): greedy and arrogant, willing to resort to any means to obtain what she wants",
     "Hobby_JP": "人格共通：72ISシリーズ素子(現実世界でいう7400シリーズIC)のコレクション収集・査定\n雙葉(表人格)：ジャンク店の運営、同人誌出版\nトゥエルヴ(裏人格)：廃番・レアロットとなった型番の部品を入手すること",
@@ -169,8 +167,10 @@
     "Favor_EN": "Both personalities: GP-Comp.:general-purpose components (= generic ICs)\nDozenne (front personality): repurposing old parts\nQueen.XII (back personality): retro parts that have been discontinued and become hard to obtain",
     "Unlike_JP": "雙葉(表人格)：睡眠不足(裏人格が夕方から夜間を主として活動するため)、裏人格の暴走\nトゥエルヴ(裏人格)：朝方から夕方前にかけての活動、入手不可能なものの存在",
     "Unlike_EN": "Dozenne (front personality): sleep deprivation (as the alternate personality is primarily active from evening to nighttime), the alternate personality running rampant\nQueen.XII (back personality): activity from morning to early afternoon, the existence of things that cannot be obtained",
-    "LogicspecAbout_JP": "",
     "InStory_JP": "72ISシリーズの収集のため暴走している7274オートマトンを乱獲していたが、ある日 ロジケスキーロマンティカ産業からレアパーツを取引条件の報酬に持ち掛けられたことからオートマトンの暴走抑圧任務を承ってしまい九蓮国に降り立つが……",
-    "InStory_EN": "Had been indiscriminately hunting rampaging 7274-series Automatons in order to collect the 72IS-series comps. — until one day, being approached by Logicheskiy Romantika Industry with an offer of rare parts as a reward under the terms of a deal, she took on the mission to suppress rogue Automatons and set foot in LotusNinea..."
+    "InStory_EN": "Had been indiscriminately hunting rampaging 7274-series Automatons in order to collect the 72IS-series comps. — until one day, being approached by Logicheskiy Romantika Industry with an offer of rare parts as a reward under the terms of a deal, she took on the mission to suppress rogue Automatons and set foot in LotusNinea...",
+    "ForMasterCalling_JP": "[※三人称]",
+    "ForMasterCalling_EN": "[*third-person calling]",
+    "LogicspecAbout_JP": ""
   }
 ]

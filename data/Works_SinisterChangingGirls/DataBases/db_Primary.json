@@ -2,7 +2,6 @@
   {
     "Drc": "N",
     "Progress": "unreleased",
-    "Images": { "concept_PNGName": "cnsp_imgDrcN" },
     "AnotherRegions_DBLink": [
       { "_Work": "NumberTales", "_DB": "Primary", "Num": "0" },
       {
@@ -14,6 +13,7 @@
     "Name_JP": "零 零",
     "Name_JPReading": "かずない れい",
     "Name_EN": "Zera Norumber",
+    "Images": { "concept_PNGName": "cnsp_imgDrcN" },
     "FormalName_JP": "千歳 玲",
     "FormalName_JPReading": "ちとせ れい",
     "FormalName_EN": "Zeena Thouser",
@@ -43,6 +43,9 @@
   {
     "Drc": "NE",
     "Progress": "unreleased",
+    "Name_JP": "扇 三春",
+    "Name_JPReading": "おうぎ ミハイル",
+    "Name_EN": "Mikhail Arch",
     "Images": {
       "concept_PNGName": "cnsp_imgDrcNE",
       "arts_PNGPath": [
@@ -50,9 +53,6 @@
         "chattingArt/chart_imgDrcNE-ramen"
       ]
     },
-    "Name_JP": "扇 三春",
-    "Name_JPReading": "おうぎ ミハイル",
-    "Name_EN": "Mikhail Arch",
     "FormalName_JP": "扇 三春.ロールプラン",
     "FormalName_JPReading": "おうぎ みはる.ロールプラン",
     "FormalName_EN": "Arch Thirthal.Rollplan",
@@ -148,13 +148,13 @@
   {
     "Drc": "SE",
     "Progress": "unreleased",
+    "Name_JP": "九 叶",
+    "Name_JPReading": "いちじく かな",
+    "Name_EN": "Canna Ninie",
     "Images": {
       "concept_PNGName": "cnsp_imgDrcSE",
       "arts_PNGPath": ["chattingArt/chart_imgDrcSE-checkIntoAlive"]
     },
-    "Name_JP": "九 叶",
-    "Name_JPReading": "いちじく かな",
-    "Name_EN": "Canna Ninie",
     "FormalName_JP": "九.蓮縢",
     "FormalName_JPReading": "ヂュウ.レンテン",
     "FormalName_EN": "Jiǔ.LiánTéng",
@@ -198,10 +198,10 @@
         "Model": { "ModelSeries": null, "Num": null }
       }
     ],
-    "Images": { "concept_PNGName": "cnsp_imgDrcS" },
     "Name_JP": "六花 雙葉\nクィーン.トゥエルヴ",
     "Name_JPReading": "ろくばな ふたは\nクィーン.トゥエルヴ",
     "Name_EN": "Dozenne Hexacrys\nQueen.XII",
+    "Images": { "concept_PNGName": "cnsp_imgDrcS" },
     "FormalName_JP": "六花 雙葉",
     "FormalName_JPReading": "ろくばな ふたは",
     "FormalName_EN": "Dozenne Hexacrys",
@@ -218,20 +218,20 @@
   {
     "Drc": "SW",
     "Progress": "stillTentative",
+    "Name_JP": "ミル.ニュクスフ",
+    "Name_EN": "Lamill.NuXV",
     "Images": {
       "arts_PNGPath": [
         "chattingArt/chart_imgDrcSW-whereBabiesFrom",
         "art_imgDrcNE-InfrationAerialSwimming"
       ]
     },
-    "Name_JP": "ミル.ニュクスフ",
-    "Name_EN": "Lamill.NuXV",
+    "CodeName_JP": "嫉妬の午後",
+    "CodeName_EN": "Envy o'clock in Afternoon",
+    "ModelNumber": "BABCX SAR-CI[xS]VI.15",
     "ModelName_JP": "獣爾余剰体 巳-拾伍",
     "ModelName_JPReading": "シャウアル-よじょうたい み-１５",
     "ModelName_EN": "Shou'arSurpluses VI.15",
-    "ModelNumber": "BABCX SAR-CI[xS]VI.15",
-    "CodeName_JP": "嫉妬の午後",
-    "CodeName_EN": "Envy o'clock in Afternoon",
     "RaceType": "Lamia",
     "GenderType": "Female",
     "Belonging": [
@@ -310,13 +310,13 @@
     "Drc": "NW",
     "Progress": "unreleased",
     "Regioministration": "Y",
+    "Name_JP": "財前 小里\n終藤 こさと",
+    "Name_JPReading": "ざいぜん こさと\nすどう こさと",
+    "Name_EN": "Foster Empressor\nFormar Endrof",
     "Images": {
       "concept_PNGName": "cnsp_imgDrcNW",
       "arts_PNGPath": ["chattingArt/chart_imgDrcNW"]
     },
-    "Name_JP": "財前 小里\n終藤 こさと",
-    "Name_JPReading": "ざいぜん こさと\nすどう こさと",
-    "Name_EN": "Foster Empressor\nFormar Endrof",
     "FormalName_JP": "終藤 こさと\n扇 残冬",
     "FormalName_JPReading": "すどう こさと\nおうぎ ざんとう",
     "FormalName_EN": "Formar Endrof\nArch Zerbas",
