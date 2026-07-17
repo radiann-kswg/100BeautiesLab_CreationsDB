@@ -393,7 +393,18 @@ describe('pages/characters.js UI output', () => {
 
 		expect(getBasicFieldValue('性別')).toBe('女性 / Female');
 		expect(getBasicFieldValue('体重_kg')).toBe('非公開希望');
-		expect(getBasicFieldValue('時空象器能力名')).toBe('時空開花 / ChronoBloom');
+	});
+
+	// ChronoholderName は $DetailLayout の basicFields から subFields の先頭へ移した項目。
+	// 和英併記の値が基本情報テーブルではなく standalone subField セクションへ出ることを守る
+	it('renders a bilingual name subField as the leading standalone section once moved out of basicFields', async () => {
+		await charactersModule.renderDetail('#Works_PastDivers', yayoiRecord);
+
+		expect(getBasicFieldValue('時空象器能力名')).toBe('');
+		expect(getSubFieldSectionNode('ChronoholderName')?.textContent || '').toContain('時空開花 / ChronoBloom');
+		expect(getSubFieldSectionKeys()[0]).toBe('ChronoholderName');
+		// 元の typedef が text-like なら折りたたみ対象にしない
+		expect(isCollapsibleSubFieldSection('ChronoholderName')).toBe(false);
 	});
 
 	it('renders varsdef-backed hideText values in English without requiring a field-specific _EN sibling', async () => {

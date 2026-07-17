@@ -58,6 +58,12 @@
       "$slotNote": "画像コンテナ。field 名ではなく $display.section で識別する。画像を持たない作品(UnauthedLogica 等)は宣言自体が無く、このスロットは空になる"
     },
     {
+      "$slot": "#WorkBasic",
+      "$slotMatch": { "$inLayout": "basicFields" },
+      "$slotAnchor": "basicFields",
+      "$slotNote": "作品の $DetailLayout.basicFields に載る作品固有フィールド(TailsUnit/ForMasterCalling/For79thDealerCalling 等)。行き先が BustSize の直後・ThirdPersonCalling の直後…と点在するため、マーカー位置へまとめず $slotAnchor で basicFields 上の直前の隣人へ散らす。この位置はアンカーを解決できなかったメンバーの落とし先(基本項目ブロックの先頭)"
+    },
+    {
       "hashTag": "FormalName_JP",
       "$type": "##String_JP|#Null",
       "hashTag_JP": "正式名称"

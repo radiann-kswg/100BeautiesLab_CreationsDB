@@ -28,6 +28,12 @@
     },
     "Summary_JP": "",
     "Summary_EN": "",
+    "ChronoholderName_JP": "時空天恵\n時空霹靂",
+    "ChronoholderName_JPReading": "じくうてんけい/クロノギフト\nじくうへきれき/クロノシアンボルト",
+    "ChronoholderName_EN": "ChronoGift\nChronoCyanBolt",
+    "ChronospecName_JP": "再生の雨\n天罰の雷",
+    "ChronospecName_JPReading": "さいせいのあめ\nてんばつのかみなり",
+    "ChronospecName_EN": "Rain of Regeneration\nThunder Punishment",
     "ChronospecAbout_JP": "乱れた時間軸を調律する\n？？？を破壊し時間を？？？",
     "ChronospecAbout_EN": "Regulates the disturbed time axis\nDestroys ??? and ??? time",
     "ChronospecStats": {
@@ -46,12 +52,6 @@
       "SafetyLevel": { "hideText": "極秘事項" }
     },
     "Career_JP": "先代幹部「水無瀬 青雲」の推薦により幹部に昇進予定だったが、ある日先代幹部の殉職を研修中に目撃したことを受け、幹部着任が未承認のまま現在に至る。なお、独立による脱退申請を行っているとのこと。",
-    "Career_EN": "She was scheduled to be promoted to executive by the recommendation of the previous executive 'Navisky Afterains', but after witnessing the previous executive's death during training, her executive appointment remains unapproved to this day. It is said that she has submitted a resignation request due to independence.",
-    "ChronoholderName_JP": "時空天恵\n時空霹靂",
-    "ChronoholderName_JPReading": "じくうてんけい/クロノギフト\nじくうへきれき/クロノシアンボルト",
-    "ChronoholderName_EN": "ChronoGift\nChronoCyanBolt",
-    "ChronospecName_JP": "再生の雨\n天罰の雷",
-    "ChronospecName_JPReading": "さいせいのあめ\nてんばつのかみなり",
-    "ChronospecName_EN": "Rain of Regeneration\nThunder Punishment"
+    "Career_EN": "She was scheduled to be promoted to executive by the recommendation of the previous executive 'Navisky Afterains', but after witnessing the previous executive's death during training, her executive appointment remains unapproved to this day. It is said that she has submitted a resignation request due to independence."
   }
 ]

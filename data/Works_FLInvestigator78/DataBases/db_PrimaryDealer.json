@@ -16,6 +16,10 @@
     "SecondPersonCalling_EN": "you (masc. informal)",
     "ThirdPersonCalling_JP": "彼/彼女;*れ;[※名前呼び]",
     "ThirdPersonCalling_EN": "he/she; this/that/who/what/which/them (as objective); [*by name]",
+    "For79thDealerCalling_JP": "ウタカ ※毎回逆になる",
+    "For79thDealerCalling_EN": "Phonia (*switches every time)",
+    "For80thDealerCalling_JP": "マイ ※毎回逆になる",
+    "For80thDealerCalling_EN": "Dancy (*switches every time)",
     "Character_JP": "能天気でどこか浮いている",
     "Character_EN": "Easygoing and somewhat out-of-touch with things",
     "Hobby_JP": "面白い出来事の散策",
@@ -33,11 +37,7 @@
       "Precision": { "Rank": "A" },
       "Technic": { "Rank": "B+" },
       "Actuation": { "Rank": "S" }
-    },
-    "For79thDealerCalling_JP": "ウタカ ※毎回逆になる",
-    "For79thDealerCalling_EN": "Phonia (*switches every time)",
-    "For80thDealerCalling_JP": "マイ ※毎回逆になる",
-    "For80thDealerCalling_EN": "Dancy (*switches every time)"
+    }
   },
   {
     "Card": { "Suit": "Major", "SuitNum": 1 },
@@ -57,6 +57,10 @@
     "SecondPersonCalling_EN": "you",
     "ThirdPersonCalling_JP": "彼/彼女;[※名前呼び],~君",
     "ThirdPersonCalling_EN": "he/she; [*by name], Mr./Ms.~",
+    "For79thDealerCalling_JP": "舞(まい)君",
+    "For79thDealerCalling_EN": "Ms.Dancy",
+    "For80thDealerCalling_JP": "歌(うた)君",
+    "For80thDealerCalling_EN": "Ms.Phonia",
     "Character_JP": "行動的かつ自発的で、何事にも才能にあふれている",
     "Character_EN": "Active, self-motivated, and brimming with talent in everything",
     "Hobby_JP": "起業した自事業の拡大について計画する",
@@ -74,11 +78,7 @@
       "Precision": { "Rank": "S" },
       "Technic": { "Rank": "S" },
       "Actuation": { "Rank": "B+" }
-    },
-    "For79thDealerCalling_JP": "舞(まい)君",
-    "For79thDealerCalling_EN": "Ms.Dancy",
-    "For80thDealerCalling_JP": "歌(うた)君",
-    "For80thDealerCalling_EN": "Ms.Phonia"
+    }
   },
   {
     "Card": { "Suit": "Major", "SuitNum": 2 },
@@ -98,6 +98,10 @@
     "SecondPersonCalling_EN": "you (formal)",
     "ThirdPersonCalling_JP": "彼/彼女;[※名前呼び]",
     "ThirdPersonCalling_EN": "he/she; [*by name]",
+    "For79thDealerCalling_JP": "舞",
+    "For79thDealerCalling_EN": "Dancy",
+    "For80thDealerCalling_JP": "歌",
+    "For80thDealerCalling_EN": "Phony",
     "Character_JP": "博識かつ知力的で冷淡",
     "Character_EN": "Knowledgeable, sharp-minded, and cold",
     "Hobby_JP": "教養についての資料を集める/読む",
@@ -115,11 +119,7 @@
       "Precision": { "Rank": "A" },
       "Technic": { "Rank": "B+" },
       "Actuation": { "Rank": "B+" }
-    },
-    "For79thDealerCalling_JP": "舞",
-    "For79thDealerCalling_EN": "Dancy",
-    "For80thDealerCalling_JP": "歌",
-    "For80thDealerCalling_EN": "Phony"
+    }
   },
   {
     "Card": { "Suit": "Major", "SuitNum": 3 },
@@ -145,6 +145,10 @@
     "SecondPersonCalling_EN": "you",
     "ThirdPersonCalling_JP": "*のこ;[※名前呼び]",
     "ThirdPersonCalling_EN": "that/this/which kid (*no-ko); [*by name]",
+    "For79thDealerCalling_JP": "舞(まい)",
+    "For79thDealerCalling_EN": "Dancy",
+    "For80thDealerCalling_JP": "歌嫁(うたか)",
+    "For80thDealerCalling_EN": "Phonia",
     "Character_JP": "母性と女子力があり、相手の男性を駄目にしがち",
     "Character_EN": "Has maternal instinct and feminine charm, tends to spoil the men around her",
     "Hobby_JP": "晩餐会",
@@ -162,11 +166,7 @@
       "Precision": { "Rank": "B+" },
       "Technic": { "Rank": "C" },
       "Actuation": { "Rank": "B" }
-    },
-    "For79thDealerCalling_JP": "舞(まい)",
-    "For79thDealerCalling_EN": "Dancy",
-    "For80thDealerCalling_JP": "歌嫁(うたか)",
-    "For80thDealerCalling_EN": "Phonia"
+    }
   },
   {
     "Card": { "Suit": "Major", "SuitNum": 8 },
@@ -186,6 +186,10 @@
     "SecondPersonCalling_EN": "you",
     "ThirdPersonCalling_JP": "彼/彼女;[※名前呼び]",
     "ThirdPersonCalling_EN": "he/she; [*by name]",
+    "For79thDealerCalling_JP": "舞(まい)",
+    "For79thDealerCalling_EN": "Dancy",
+    "For80thDealerCalling_JP": "歌嫁(うたか)",
+    "For80thDealerCalling_EN": "Phonia",
     "Character_JP": "情熱的で活発な体育系女子",
     "Character_EN": "Passionate and active, a sports-oriented girl",
     "Hobby_JP": "サーカス鑑賞",
@@ -203,11 +207,7 @@
       "Precision": { "Rank": "A" },
       "Technic": { "Rank": "C" },
       "Actuation": { "Rank": "S" }
-    },
-    "For79thDealerCalling_JP": "舞(まい)",
-    "For79thDealerCalling_EN": "Dancy",
-    "For80thDealerCalling_JP": "歌嫁(うたか)",
-    "For80thDealerCalling_EN": "Phonia"
+    }
   },
   {
     "Card": { "Suit": "Major", "SuitNum": 9 },
@@ -227,6 +227,10 @@
     "SecondPersonCalling_EN": "you (blunt)",
     "ThirdPersonCalling_JP": "*いつ,*れ;[※名前呼び]\n~さん ※信頼している人に対して",
     "ThirdPersonCalling_EN": "this/that/who/what/which/them (as personal or objective); [*by name]\nMr./Ms.~ (*for those one trusts)",
+    "For79thDealerCalling_JP": "舞\n舞さん",
+    "For79thDealerCalling_EN": "Dancy\nMs.Dancy",
+    "For80thDealerCalling_JP": "歌嫁\n歌嫁さん",
+    "For80thDealerCalling_EN": "Phonia\nMs.Phonia",
     "Character_JP": "陰キャで会話が上手でない",
     "Character_EN": "An introvert who is not good at conversation",
     "Hobby_JP": "読書",
@@ -244,11 +248,7 @@
       "Precision": { "Rank": "S" },
       "Technic": { "Rank": "S" },
       "Actuation": { "Rank": "E" }
-    },
-    "For79thDealerCalling_JP": "舞\n舞さん",
-    "For79thDealerCalling_EN": "Dancy\nMs.Dancy",
-    "For80thDealerCalling_JP": "歌嫁\n歌嫁さん",
-    "For80thDealerCalling_EN": "Phonia\nMs.Phonia"
+    }
   },
   {
     "Card": { "Suit": "Major", "SuitNum": 16 },
@@ -322,6 +322,8 @@
     "SecondPersonCalling_EN": "you",
     "ThirdPersonCalling_JP": "彼/彼女;[※名前呼び]",
     "ThirdPersonCalling_EN": "he/she; [*by name]",
+    "For80thDealerCalling_JP": "歌嫁(うたか)",
+    "For80thDealerCalling_EN": "Phonia",
     "Character_JP": "仲間想いだが極めて受難体質、繊細で涙もろい",
     "Character_EN": "Caring for companions but extremely prone to hardship, delicate and easily moved to tears",
     "Hobby_JP": "タロット占い、キャラクターデザイン",
@@ -377,9 +379,7 @@
       "Actuation": { "Rank": "B+" }
     },
     "InStory_JP": "占い師である母親の影響でタロットカードに対する知見が深く、そのことから采配幹部の一人として78特殊探偵団に加入することになった\n妹「歌嫁(うたか)」とは双子でありながらも高校から別の進路に進んでいるが、自宅内での交流や采配幹部としての活動を見るからには強い信頼関係が期待できそうだ",
-    "InStory_EN": "Influenced by her mother, a fortune-teller, she has deep insight into tarot cards, which led her to join the 78 Special Investigators as one of the Dealers.\nAlthough she and her younger sister 'Phonia' are twins who have taken different paths since high school, their interactions at home and their activities as Dealers suggest they share a strong bond of trust.",
-    "For80thDealerCalling_JP": "歌嫁(うたか)",
-    "For80thDealerCalling_EN": "Phonia"
+    "InStory_EN": "Influenced by her mother, a fortune-teller, she has deep insight into tarot cards, which led her to join the 78 Special Investigators as one of the Dealers.\nAlthough she and her younger sister 'Phonia' are twins who have taken different paths since high school, their interactions at home and their activities as Dealers suggest they share a strong bond of trust."
   },
   {
     "Card": { "Suit": "Dealer", "Num": 80 },
@@ -407,6 +407,8 @@
     "SecondPersonCalling_EN": "you",
     "ThirdPersonCalling_JP": "彼/彼女;[※名前呼び]",
     "ThirdPersonCalling_EN": "he/she; [*by name]",
+    "For79thDealerCalling_JP": "舞(まい)",
+    "For79thDealerCalling_EN": "Dancy",
     "Character_JP": "ムードメーカで友好的だが極めて強気で頑固、裏で悩みを抱え込みやすい",
     "Character_EN": "A mood-maker who is friendly but extremely headstrong and stubborn; tends to bottle up worries deep down",
     "Hobby_JP": "プラモデル制作",
@@ -462,8 +464,6 @@
       "Actuation": { "Rank": "S" }
     },
     "InStory_JP": "剣道のアスリートである父親の影響で剣術に対する技術力が深く、そのことから采配幹部の一人として78特殊探偵団に加入することになった\n姉「舞(まい)」とは双子でありながらも高校から別の進路に進んでいるが、自宅内での交流や采配幹部としての活動を見るからには強い信頼関係が期待できそうだ",
-    "InStory_EN": "Influenced by her father, a kendo athlete, she has deep technical skill in swordsmanship, which led her to join the 78 Special Investigators as one of the Dealers.\nAlthough she and her older sister 'Dancy' are twins who have taken different paths since high school, their interactions at home and their activities as Dealers suggest they share a strong bond of trust.",
-    "For79thDealerCalling_JP": "舞(まい)",
-    "For79thDealerCalling_EN": "Dancy"
+    "InStory_EN": "Influenced by her father, a kendo athlete, she has deep technical skill in swordsmanship, which led her to join the 78 Special Investigators as one of the Dealers.\nAlthough she and her older sister 'Dancy' are twins who have taken different paths since high school, their interactions at home and their activities as Dealers suggest they share a strong bond of trust."
   }
 ]

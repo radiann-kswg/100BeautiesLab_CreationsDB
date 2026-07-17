@@ -86,8 +86,9 @@
 ## 最近の実装運用ルール
 
 - **UI 表示修正の第一候補**: 画面崩れや表示漏れは、まず `db_type.json($DefType)` / `$display` / `db_meta.json($DetailLayout)` で制御できないかを確認し、UI のハードコード追加は最後の手段とします。
-- **フィールド順の正**: レコードのキー順・UI の表示順とも `db_type.json($DefType)` を正とします。作品固有フィールド（`Index` / `Images` / 作品固有 `_DBLink` 等）の配置は `$slot` マーカー（`$slotMatch` / `$slotExpand` / `$slotOrder`）で宣言し、ツールや UI に field 名依存の分岐を足しません。データのキー順は `npm run data:order:write` で整列し、`npm run data:order:check` と `tests/data.field-order.test.js` が守ります。詳細は `docs/schema-meta-processing.md` §5.4.1。
-- **`$DetailLayout` の役割**: `basicFields` は「どれを basic に出すか」の選択に専念し、並び順は `$DefType` に揃えます（作品別 typedef 宣言のフィールドのみ `basicFields` 側の位置に寄せる）。`subFields` は逆に `$slotOrder` 経由で `$DefType` の catch-all スロット内の並びを決めます。
+- **フィールド順の正**: レコードのキー順・UI の表示順とも `db_type.json($DefType)` を正とします。作品固有フィールド（`Index` / `Images` / 作品固有 `_DBLink` 等）の配置は `$slot` マーカー（`$slotMatch` / `$slotExpand` / `$slotOrder` / `$slotAnchor`）で宣言し、ツールや UI に field 名依存の分岐を足しません。データのキー順は `npm run data:order:write` で整列し、`npm run data:order:check` と `tests/data.field-order.test.js` が守ります。詳細は `docs/schema-meta-processing.md` §5.4.1。
+- **`$DetailLayout` の役割**: グローバル宣言フィールドについては `basicFields` は「どれを basic に出すか」の選択に専念し、並び順は `$DefType` に揃えます。作品別 typedef 宣言のフィールドはグローバル `$DefType` に位置が無いため `$DetailLayout` が位置の正になり、`basicFields` 側は `#WorkBasic` の `$slotAnchor` が「`basicFields` 上の直前の隣人の直後」へ、`subFields` 側は `#WorkRest` の `$slotOrder` が catch-all スロット内の並びを決めます。
+- **`basicFields` / `subFields` 両載せキー**: 表示は `subFields` が勝ち（UI の「1項目1箇所の原則」= `isPromotedSubFieldKey` が基本情報テーブル側を抑制）、キー順は `basicFields` が勝ちます。現状 `Works_NumberTales` の `TailsUnit` のみが該当し、表示位置とキー順がずれるのは User 判断による意図的な例外です（`docs/schema-meta-processing.md` §4.2）。
 - **フラグ用の未宣言フィールド**: `isTriple` / `Regioministration` / `isPrivate` のように意図的に `$DefType` へ宣言していないフラグは、整列時に直前の宣言済みキーへアンカーされて元の位置に留まります。勝手に宣言を追加しません（ラベル付けは創作内容に踏み込むため User の判断）。
 - **schema/meta 詳解の参照先**: 宣言面と SW/UI/enrich 内部での合流順を説明する場合は、まず `docs/schema-meta-processing.md` を参照・更新対象に含めます。
 - **wrapper / section renderer の参照先**: `Day` / `Era` / `StoryEra` などの特殊 summary、`subFields` の standalone 描画、`$display.wrapper` / `$display.role` / `$display.sectionWrapper`、`_enrichment.wrapperSummaries`、`StoryEraSummary` 等を変更する場合は、まず `docs/wrapper-summary-registry.md` を参照・更新対象に含めます。

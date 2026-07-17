@@ -111,6 +111,14 @@
       { "value": 37, "about_JP": "推定", "about_EN": "Presumption" }
     ],
     "BustSize": "AA",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_NekomataSpecial",
+        "Count": 3,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "ConceptAge": 14,
     "AppearanceDetail": [
       {
@@ -379,14 +387,6 @@
         "Note_JP": null,
         "Note_EN": null
       }
-    ],
-    "TailsUnit": [
-      {
-        "TailShapeType": "#TailShapeType_NekomataSpecial",
-        "Count": 3,
-        "Note_JP": null,
-        "Note_EN": null
-      }
     ]
   },
   {
@@ -427,7 +427,6 @@
     "FormalName_EN": "NumberTales #115 Series Mass Production Version for Sales",
     "ModelNumber": "APHR-NT [MP]115-*****",
     "Class": ["デュオトリプル7型"],
-    "AppearanceDetail": null,
     "TailsUnit": [
       {
         "TailShapeType": "#TailShapeType_Nekomata",
@@ -441,7 +440,8 @@
         "Note_JP": null,
         "Note_EN": null
       }
-    ]
+    ],
+    "AppearanceDetail": null
   },
   {
     "Num": "116-mp",
@@ -574,7 +574,6 @@
     "ModelNumber": "APHR-NT [MP]148-*****",
     "GenderType": "Neutral",
     "Class": ["トリプルフォーズ"],
-    "AppearanceDetail": null,
     "TailsUnit": [
       {
         "TailShapeType": "#TailShapeType_FoxBranched",
@@ -591,7 +590,8 @@
         "Note_JP": null,
         "Note_EN": null
       }
-    ]
+    ],
+    "AppearanceDetail": null
   },
   {
     "Num": 150,
@@ -721,8 +721,6 @@
     "Height_cm": 148,
     "Weight_kg": 42,
     "BustSize": "A",
-    "ConceptAge": 16,
-    "AppearanceDetail": null,
     "TailsUnit": [
       {
         "TailShapeType": "#TailShapeType_CaudalFin",
@@ -731,7 +729,9 @@
         "Note_JP": null,
         "Note_EN": null
       }
-    ]
+    ],
+    "ConceptAge": 16,
+    "AppearanceDetail": null
   },
   {
     "Num": 223,
@@ -747,14 +747,6 @@
     "ModelNumber": "APHR-NT [MP]223-CR***",
     "GenderType": "Neutral",
     "Class": ["デュオトリプル7型", "キャロルズ"],
-    "AnivDay": [
-      {
-        "Day": { "Month": 2, "DayOfMonth": 24 },
-        "DayAbout_JP": "開発記念(キャロルズ名義)",
-        "DayAbout_EN": "Development commemoration (in Caroles Class)"
-      }
-    ],
-    "AppearanceDetail": null,
     "TailsUnit": [
       {
         "TailShapeType": "#TailShapeType_Nekomata",
@@ -769,7 +761,15 @@
         "Note_JP": null,
         "Note_EN": null
       }
-    ]
+    ],
+    "AnivDay": [
+      {
+        "Day": { "Month": 2, "DayOfMonth": 24 },
+        "DayAbout_JP": "開発記念(キャロルズ名義)",
+        "DayAbout_EN": "Development commemoration (in Caroles Class)"
+      }
+    ],
+    "AppearanceDetail": null
   },
   {
     "Num": "223-jw",
@@ -791,6 +791,21 @@
     "Height_cm": 151,
     "Weight_kg": 41,
     "BustSize": "AA",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_Scorpion",
+        "Count": 2,
+        "Segment": 11,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "TailShapeType": "#TailShapeType_Fox",
+        "Count": 3,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "ConceptAge": 15,
     "AnivDay": [
       {
@@ -861,21 +876,6 @@
         "Note_JP": null,
         "Note_EN": null
       }
-    ],
-    "TailsUnit": [
-      {
-        "TailShapeType": "#TailShapeType_Scorpion",
-        "Count": 2,
-        "Segment": 11,
-        "Note_JP": null,
-        "Note_EN": null
-      },
-      {
-        "TailShapeType": "#TailShapeType_Fox",
-        "Count": 3,
-        "Note_JP": null,
-        "Note_EN": null
-      }
     ]
   },
   {
@@ -889,7 +889,6 @@
     "ModelNumber": "APHR-NT [MP]227-*****",
     "GenderType": "Neutral",
     "Class": ["デュオトリプル2型"],
-    "AppearanceDetail": null,
     "TailsUnit": [
       {
         "TailShapeType": "#TailShapeType_Nekomata",
@@ -904,7 +903,8 @@
         "Note_JP": null,
         "Note_EN": null
       }
-    ]
+    ],
+    "AppearanceDetail": null
   },
   {
     "Num": 232,
@@ -917,7 +917,6 @@
     "ModelNumber": "APHR-NT [MP]232-*****",
     "GenderType": "Neutral",
     "Class": ["デュオトリプル7型"],
-    "AppearanceDetail": null,
     "TailsUnit": [
       {
         "TailShapeType": "#TailShapeType_FoxBranched",
@@ -933,7 +932,8 @@
         "Note_JP": null,
         "Note_EN": null
       }
-    ]
+    ],
+    "AppearanceDetail": null
   },
   {
     "Num": 238,
@@ -946,7 +946,6 @@
     "ModelNumber": "APHR-NT [MP]238-*****",
     "GenderType": "Neutral",
     "Class": ["トリプルフォーズ"],
-    "AppearanceDetail": null,
     "TailsUnit": [
       {
         "TailShapeType": "#TailShapeType_FoxBranched",
@@ -963,7 +962,8 @@
         "Note_JP": null,
         "Note_EN": null
       }
-    ]
+    ],
+    "AppearanceDetail": null
   },
   {
     "Num": 241,
@@ -976,7 +976,6 @@
     "ModelNumber": "APHR-NT [MP]241-*****",
     "GenderType": "Neutral",
     "Class": ["トリプルセブンズ"],
-    "AppearanceDetail": null,
     "TailsUnit": [
       {
         "TailShapeType": "#TailShapeType_Cat",
@@ -999,7 +998,8 @@
         "Note_JP": null,
         "Note_EN": null
       }
-    ]
+    ],
+    "AppearanceDetail": null
   },
   {
     "Num": 244,
@@ -1062,7 +1062,6 @@
     "ModelNumber": "APHR-NT [MP]258-*****",
     "GenderType": "Neutral",
     "Class": ["トリプルシックスズ"],
-    "AppearanceDetail": null,
     "TailsUnit": [
       {
         "TailShapeType": "#TailShapeType_FoxBranched",
@@ -1079,7 +1078,8 @@
         "Note_JP": null,
         "Note_EN": null
       }
-    ]
+    ],
+    "AppearanceDetail": null
   },
   {
     "Num": 263,
@@ -1092,7 +1092,6 @@
     "ModelNumber": "APHR-NT [MP]263-*****",
     "GenderType": "Neutral",
     "Class": ["トリプルトワイズ"],
-    "AppearanceDetail": null,
     "TailsUnit": [
       {
         "TailShapeType": "#TailShapeType_FoxBranched",
@@ -1109,7 +1108,8 @@
         "Note_JP": null,
         "Note_EN": null
       }
-    ]
+    ],
+    "AppearanceDetail": null
   },
   {
     "Num": 265,
@@ -1122,7 +1122,6 @@
     "ModelNumber": "APHR-NT [MP]265-*****",
     "GenderType": "Neutral",
     "Class": ["トリプルフォーズ"],
-    "AppearanceDetail": null,
     "TailsUnit": [
       {
         "TailShapeType": "#TailShapeType_FoxBranched",
@@ -1139,7 +1138,8 @@
         "Note_JP": null,
         "Note_EN": null
       }
-    ]
+    ],
+    "AppearanceDetail": null
   },
   {
     "Num": 294,
@@ -1152,7 +1152,6 @@
     "ModelNumber": "APHR-NT [MP]294-*****",
     "GenderType": "Neutral",
     "Class": ["トリプルシックスズ"],
-    "AppearanceDetail": null,
     "TailsUnit": [
       {
         "TailShapeType": "#TailShapeType_FoxBranched",
@@ -1169,7 +1168,8 @@
         "Note_JP": null,
         "Note_EN": null
       }
-    ]
+    ],
+    "AppearanceDetail": null
   },
   {
     "Num": 295,
@@ -1182,7 +1182,6 @@
     "ModelNumber": "APHR-NT [MP]295-*****",
     "GenderType": "Neutral",
     "Class": ["トリプルセブンズ"],
-    "AppearanceDetail": null,
     "TailsUnit": [
       {
         "TailShapeType": "#TailShapeType_FoxBranched",
@@ -1199,7 +1198,8 @@
         "Note_JP": null,
         "Note_EN": null
       }
-    ]
+    ],
+    "AppearanceDetail": null
   },
   {
     "Num": 314,
@@ -1245,7 +1245,6 @@
     "ModelNumber": "APHR-NT [MP]337-*****",
     "GenderType": "Neutral",
     "Class": ["デュオトリプル4型"],
-    "AppearanceDetail": null,
     "TailsUnit": [
       {
         "TailShapeType": "#TailShapeType_FoxBranched",
@@ -1261,7 +1260,8 @@
         "Note_JP": null,
         "Note_EN": null
       }
-    ]
+    ],
+    "AppearanceDetail": null
   },
   {
     "Num": 343,
@@ -1391,7 +1391,6 @@
     "ModelNumber": "APHR-NT [MP]376-*****",
     "GenderType": "Neutral",
     "Class": ["トリプルセブンズ"],
-    "AppearanceDetail": null,
     "TailsUnit": [
       {
         "TailShapeType": "#TailShapeType_FoxBranched",
@@ -1408,7 +1407,8 @@
         "Note_JP": "キツネ(枝分かれ)型7本16束\n中央から周辺に向かって:3本が3束+上左右3本が2束+下1本が1束",
         "Note_EN": "Fox (Branched) Type: 7 tails, 16 cluster\nFrom Center to Periphery: 3 cluster x 3 tails + Upper-Sides 2 cluster x 3 tails + Lower 1 cluster x 1 tail"
       }
-    ]
+    ],
+    "AppearanceDetail": null
   },
   {
     "Num": 377,
@@ -1448,7 +1448,6 @@
     "ModelNumber": "APHR-NT [MP]387-*****",
     "GenderType": "Neutral",
     "Class": ["トリプルナインズ"],
-    "AppearanceDetail": null,
     "TailsUnit": [
       {
         "TailShapeType": "#TailShapeType_FoxBranched",
@@ -1465,7 +1464,8 @@
         "Note_JP": "キツネ(枝分かれ)型8本18束\n中央から周辺に向かって:3本が3束+上左右4本が2束+下1本が1束",
         "Note_EN": "Fox (Branched) Type: 8 tails, 18 cluster\nFrom Center to Periphery: 3 cluster x 3 tails + Upper-Sides 2 cluster x 4 tails + Lower 1 cluster x 1 tail"
       }
-    ]
+    ],
+    "AppearanceDetail": null
   },
   {
     "Num": "400-gc",
@@ -1495,7 +1495,6 @@
     "ModelNumber": "APHR-NT [MP]401-*****",
     "GenderType": "Neutral",
     "Class": ["トライデュアルファイブズ"],
-    "AppearanceDetail": null,
     "TailsUnit": [
       {
         "TailShapeType": "#TailShapeType_FoxBranched",
@@ -1507,7 +1506,8 @@
         "Note_JP": null,
         "Note_EN": null
       }
-    ]
+    ],
+    "AppearanceDetail": null
   },
   {
     "Num": 404,
@@ -1550,7 +1550,6 @@
     "ModelNumber": "APHR-NT [MP]411-*****",
     "GenderType": "Neutral",
     "Class": ["デュオトリプル6型"],
-    "AppearanceDetail": null,
     "TailsUnit": [
       {
         "TailShapeType": "#TailShapeType_Fox",
@@ -1565,7 +1564,8 @@
         "Note_JP": null,
         "Note_EN": null
       }
-    ]
+    ],
+    "AppearanceDetail": null
   },
   {
     "Num": 421,
@@ -1578,7 +1578,6 @@
     "ModelNumber": "APHR-NT [MP]421-*****",
     "GenderType": "Neutral",
     "Class": ["トリプルセブンズ"],
-    "AppearanceDetail": null,
     "TailsUnit": [
       {
         "TailShapeType": "#TailShapeType_Cat",
@@ -1601,7 +1600,8 @@
         "Note_JP": null,
         "Note_EN": null
       }
-    ]
+    ],
+    "AppearanceDetail": null
   },
   {
     "Num": "444-mp",
@@ -1622,6 +1622,15 @@
     "FormalName_EN": "NumberTales #444 Series Mass Production Version for Sales",
     "ModelNumber": "APHR-NT [MP]444-*****",
     "Class": ["量産型マスタートリプル"],
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxSpecial",
+        "Count": 4,
+        "Segment": 3,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "AppearanceDetail": [
       {
         "Formation": "corefolder",
@@ -1964,15 +1973,6 @@
         "Note_JP": null,
         "Note_EN": null
       }
-    ],
-    "TailsUnit": [
-      {
-        "TailShapeType": "#TailShapeType_FoxSpecial",
-        "Count": 4,
-        "Segment": 3,
-        "Note_JP": null,
-        "Note_EN": null
-      }
     ]
   },
   {
@@ -2016,7 +2016,6 @@
     "ModelNumber": "APHR-NT [MP]467-*****",
     "GenderType": "Neutral",
     "Class": ["トリプルエイツ"],
-    "AppearanceDetail": null,
     "TailsUnit": [
       {
         "TailShapeType": "#TailShapeType_FoxBranched",
@@ -2033,7 +2032,8 @@
         "Note_JP": null,
         "Note_EN": null
       }
-    ]
+    ],
+    "AppearanceDetail": null
   },
   {
     "Num": 476,
@@ -2046,7 +2046,6 @@
     "ModelNumber": "APHR-NT [MP]476-*****",
     "GenderType": "Neutral",
     "Class": ["トリプルエイツ"],
-    "AppearanceDetail": null,
     "TailsUnit": [
       {
         "TailShapeType": "#TailShapeType_FoxBranched",
@@ -2063,7 +2062,8 @@
         "Note_JP": null,
         "Note_EN": null
       }
-    ]
+    ],
+    "AppearanceDetail": null
   },
   {
     "Num": 496,
@@ -2104,7 +2104,6 @@
     "ModelNumber": "APHR-NT [MP]510-*****",
     "GenderType": "Neutral",
     "Class": ["トライデュアルシックスズ"],
-    "AppearanceDetail": null,
     "TailsUnit": [
       {
         "TailShapeType": "#TailShapeType_FoxBranched",
@@ -2116,7 +2115,8 @@
         "Note_JP": null,
         "Note_EN": null
       }
-    ]
+    ],
+    "AppearanceDetail": null
   },
   {
     "Num": 512,
@@ -2176,7 +2176,6 @@
     "ModelNumber": "APHR-NT [MP]558-*****",
     "GenderType": "Neutral",
     "Class": ["デュオトリプル9型"],
-    "AppearanceDetail": null,
     "TailsUnit": [
       {
         "TailShapeType": "#TailShapeType_FoxBranched",
@@ -2192,7 +2191,8 @@
         "Note_JP": null,
         "Note_EN": null
       }
-    ]
+    ],
+    "AppearanceDetail": null
   },
   {
     "Num": 572,
@@ -2218,7 +2218,6 @@
     "ModelNumber": "APHR-NT [MP]605-*****",
     "GenderType": "Neutral",
     "Class": ["トライデュアルトワイズ"],
-    "AppearanceDetail": null,
     "TailsUnit": [
       {
         "TailShapeType": "#TailShapeType_FoxBranched",
@@ -2230,7 +2229,8 @@
         "Note_JP": null,
         "Note_EN": null
       }
-    ]
+    ],
+    "AppearanceDetail": null
   },
   {
     "Num": 616,
@@ -2260,7 +2260,6 @@
     "ModelNumber": "APHR-NT [MP]625-*****",
     "GenderType": "Neutral",
     "Class": ["トリプルフォーズ"],
-    "AppearanceDetail": null,
     "TailsUnit": [
       {
         "TailShapeType": "#TailShapeType_FoxBranched",
@@ -2277,7 +2276,8 @@
         "Note_JP": null,
         "Note_EN": null
       }
-    ]
+    ],
+    "AppearanceDetail": null
   },
   {
     "Num": 634,
@@ -2303,7 +2303,6 @@
     "ModelNumber": "APHR-NT [MP]638-*****",
     "GenderType": "Neutral",
     "Class": ["トリプルエイツ"],
-    "AppearanceDetail": null,
     "TailsUnit": [
       {
         "TailShapeType": "#TailShapeType_FoxBranched",
@@ -2320,7 +2319,8 @@
         "Note_JP": null,
         "Note_EN": null
       }
-    ]
+    ],
+    "AppearanceDetail": null
   },
   {
     "Num": "666-mp",
@@ -2345,6 +2345,15 @@
     "Height_cm": 150,
     "Weight_kg": { "hideText": "非公開" },
     "BustSize": "E",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxSpecial",
+        "Count": 6,
+        "Segment": 3,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "ConceptAge": 16,
     "AppearanceDetail": [
       {
@@ -2654,15 +2663,6 @@
         "Note_JP": null,
         "Note_EN": null
       }
-    ],
-    "TailsUnit": [
-      {
-        "TailShapeType": "#TailShapeType_FoxSpecial",
-        "Count": 6,
-        "Segment": 3,
-        "Note_JP": null,
-        "Note_EN": null
-      }
     ]
   },
   {
@@ -2676,7 +2676,6 @@
     "ModelNumber": "APHR-NT [MP]670-*****",
     "GenderType": "Neutral",
     "Class": ["トライデュアルフォーズ"],
-    "AppearanceDetail": null,
     "TailsUnit": [
       {
         "TailShapeType": "#TailShapeType_FoxBranched",
@@ -2688,7 +2687,8 @@
         "Note_JP": null,
         "Note_EN": null
       }
-    ]
+    ],
+    "AppearanceDetail": null
   },
   {
     "Num": 696,
@@ -2728,7 +2728,6 @@
     "ModelNumber": "APHR-NT [MP]736-*****",
     "GenderType": "Neutral",
     "Class": ["トリプルセブンズ"],
-    "AppearanceDetail": null,
     "TailsUnit": [
       {
         "TailShapeType": "#TailShapeType_FoxBranched",
@@ -2745,7 +2744,8 @@
         "Note_JP": null,
         "Note_EN": null
       }
-    ]
+    ],
+    "AppearanceDetail": null
   },
   {
     "Num": 753,
@@ -2770,6 +2770,23 @@
     "Height_cm": 153,
     "Weight_kg": 42,
     "BustSize": "A",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxBranched",
+        "Count": 7,
+        "Branches": [
+          { "Laterality": "#Lat_Lower", "TailCount": 3, "ClusterCount": 3 },
+          { "Laterality": null, "TailCount": 2, "ClusterCount": 2 },
+          { "Laterality": "#Lat_Upper", "TailCount": 1, "ClusterCount": 1 }
+        ],
+        "LayoutDirection": {
+          "LayoutFrom": "#Lat_Lower",
+          "LayoutTo": "#Lat_Upper"
+        },
+        "Note_JP": "下から上に向かって、3本が3束(アクセントカラーあり)+2本が2束(アクセントカラーあり)+1本が1束(アクセントカラーなし)",
+        "Note_EN": "From bottom to top: 3 tails x 3 clusters (with accent color) + 2 tails x 2 clusters (with accent color) + 1 tail x 1 cluster (without accent color)"
+      }
+    ],
     "ConceptAge": 16,
     "AnivDay": [
       {
@@ -2840,23 +2857,6 @@
         "Note_JP": null,
         "Note_EN": null
       }
-    ],
-    "TailsUnit": [
-      {
-        "TailShapeType": "#TailShapeType_FoxBranched",
-        "Count": 7,
-        "Branches": [
-          { "Laterality": "#Lat_Lower", "TailCount": 3, "ClusterCount": 3 },
-          { "Laterality": null, "TailCount": 2, "ClusterCount": 2 },
-          { "Laterality": "#Lat_Upper", "TailCount": 1, "ClusterCount": 1 }
-        ],
-        "LayoutDirection": {
-          "LayoutFrom": "#Lat_Lower",
-          "LayoutTo": "#Lat_Upper"
-        },
-        "Note_JP": "下から上に向かって、3本が3束(アクセントカラーあり)+2本が2束(アクセントカラーあり)+1本が1束(アクセントカラーなし)",
-        "Note_EN": "From bottom to top: 3 tails x 3 clusters (with accent color) + 2 tails x 2 clusters (with accent color) + 1 tail x 1 cluster (without accent color)"
-      }
     ]
   },
   {
@@ -2872,7 +2872,6 @@
     "ModelNumber": "APHR-NT [MP]773-*****",
     "GenderType": "Neutral",
     "Class": ["デュオトリプル8型"],
-    "AppearanceDetail": null,
     "TailsUnit": [
       {
         "TailShapeType": "#TailShapeType_FoxBranched",
@@ -2888,7 +2887,8 @@
         "Note_JP": null,
         "Note_EN": null
       }
-    ]
+    ],
+    "AppearanceDetail": null
   },
   {
     "Num": 774,
@@ -2936,6 +2936,15 @@
       }
     ],
     "BustSize": "AA",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxSpecial",
+        "Count": 7,
+        "Segment": 3,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "ConceptAge": {
       "value": 32,
       "about_JP": "概算値",
@@ -3175,15 +3184,6 @@
         "Note_JP": null,
         "Note_EN": null
       }
-    ],
-    "TailsUnit": [
-      {
-        "TailShapeType": "#TailShapeType_FoxSpecial",
-        "Count": 7,
-        "Segment": 3,
-        "Note_JP": null,
-        "Note_EN": null
-      }
     ]
   },
   {
@@ -3222,6 +3222,15 @@
       }
     ],
     "BustSize": "AA",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxSpecial",
+        "Count": 7,
+        "Segment": 3,
+        "Note_JP": "原則として娯楽装備専用アドオンのバックパックに格納される",
+        "Note_EN": "In principle, stored in the backpack dedicated to amusement equipment addons"
+      }
+    ],
     "ConceptAge": {
       "value": 32,
       "about_JP": "概算値",
@@ -3477,15 +3486,6 @@
         "Note_JP": null,
         "Note_EN": null
       }
-    ],
-    "TailsUnit": [
-      {
-        "TailShapeType": "#TailShapeType_FoxSpecial",
-        "Count": 7,
-        "Segment": 3,
-        "Note_JP": "原則として娯楽装備専用アドオンのバックパックに格納される",
-        "Note_EN": "In principle, stored in the backpack dedicated to amusement equipment addons"
-      }
     ]
   },
   {
@@ -3604,7 +3604,6 @@
     "ModelNumber": "APHR-NT [MP]979-*****",
     "GenderType": "Neutral",
     "Class": ["デュオトリプル7型"],
-    "AppearanceDetail": null,
     "TailsUnit": [
       {
         "TailShapeType": "#TailShapeType_FoxBranched",
@@ -3620,7 +3619,8 @@
         "Note_JP": null,
         "Note_EN": null
       }
-    ]
+    ],
+    "AppearanceDetail": null
   },
   {
     "Num": "999-mp",
