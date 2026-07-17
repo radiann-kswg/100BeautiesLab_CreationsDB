@@ -5,17 +5,25 @@
     "Name_JP": "100(モモ)",
     "Name_EN": "100(Centa)",
     "Images": { "corefolder_PNGPath": ["100/emstk_corefolder100-1"] },
-    "ModelName_JP": "ナンバーテールズ試作正規型10号機改(100番機/キャレ-ディス)",
-    "ModelName_EN": "NumberTales' Proto-Standard: NumberTales Unit.10 Refactored (Mk.100 / Unit.Carré-10)",
-    "ModelNumber": "APHR-NT [PS]X.R(APHR-NT X.R/APHR-NT SQ.X)",
     "FormalName_JP": "ナンバーテールズ100番機\nナンバーテールズ キャレ-ディス",
     "FormalName_EN": "NumberTales #100\nNumberTales Unit.Carré-10",
     "CodeName_JP": "一〇〇",
     "CodeName_EN": "One-Zero-Zero",
     "SPCodeName_JP": "百,10²",
     "SPCodeName_EN": "Hundred, 10²",
+    "ModelNumber": "APHR-NT [PS]X.R(APHR-NT X.R/APHR-NT SQ.X)",
+    "ModelName_JP": "ナンバーテールズ試作正規型10号機改(100番機/キャレ-ディス)",
+    "ModelName_EN": "NumberTales' Proto-Standard: NumberTales Unit.10 Refactored (Mk.100 / Unit.Carré-10)",
     "GenderType": "FemaleNeutral",
+    "Belonging": ["百花繚乱研究所", "レゾンデイトルカンパニー"],
+    "Class": [
+      "百倍番(ハンドレッズデジッツ)",
+      "デシベルモデレーターズ",
+      "10号機型",
+      "キャレ型ハイナンバーズ"
+    ],
     "Height_cm": 164,
+    "BustSize": "AA",
     "ConceptAge": 17,
     "AnivDay": [
       {
@@ -24,38 +32,12 @@
         "DayAbout_EN": "Development commemoration (as all of: Mk.100, Unit.10 lineage, and Carré-Series HighNumbers)"
       }
     ],
-    "BustSize": "AA",
-    "Belonging": ["百花繚乱研究所", "レゾンデイトルカンパニー"],
-    "TailsUnit": [
-      {
-        "TailShapeType": "#TailShapeType_Fox",
-        "Count": 10,
-        "Note_JP": null,
-        "Note_EN": null
-      }
-    ],
-    "Class": [
-      "百倍番(ハンドレッズデジッツ)",
-      "デシベルモデレーターズ",
-      "10号機型",
-      "キャレ型ハイナンバーズ"
-    ],
-    "ThisMasters": [
-      {
-        "value_JP": null,
-        "about_JP": "(専属契約不可)",
-        "value_EN": null,
-        "about_EN": "(Cannot be exclusively contracted)"
-      }
-    ],
     "FirstPersonCalling_JP": "おれ",
     "FirstPersonCalling_EN": "I (rough masc.)",
     "SecondPersonCalling_JP": "おまえ",
     "SecondPersonCalling_EN": "you (blunt)",
     "ThirdPersonCalling_JP": "[※名前呼び]",
     "ThirdPersonCalling_EN": "[*by name]",
-    "ForMasterCalling_JP": "センパイ",
-    "ForMasterCalling_EN": "Senpai",
     "Character_JP": "様々な苦境を乗り越えてきた戦士の男看護長のような威厳があり、やや不器用な一面がありながらも先輩思いで接しやすい。",
     "Character_EN": "Has the dignity of a battle-hardened male head nurse, and while somewhat clumsy, is considerate of seniors and easy to approach.",
     "Hobby_JP": "ナンバーテールズとその主人たちの活動を見守ること",
@@ -175,14 +157,6 @@
         "Note_EN": null
       }
     ],
-    "RelationNotes_JP": "「ディケ」を「アニキ」と慕っているが、10(ミツル)に対しては少し慣れない様子",
-    "RelationNotes_EN": "Looks up to \"Dicat\" as an elder-brother figure, but still seems slightly awkward around 10(Tenim)",
-    "NumerospecAbout_JP": "ナンバーテールズの暴走と、ナンバーテールズと契約する主人との関係悪化を抑止する",
-    "NumerospecAbout_EN": "Suppresses both runaway incidents among NumberTales and the deterioration of relationships between NumberTales and their contracted masters.",
-    "Summary_JP": "兄個体「ディケ」の復帰のため、傘下に神皇国の心理技術士企業「レゾンデイトルカンパニー」を置くことで試作された、対暴走キャレ型ハイナンバーズ。\nナンバーテールズの暴走と、ナンバーテールズと契約する主人との関係悪化を抑止する独自の機能が搭載されたことで、人間やヒューマノイドの精神衛生面について深い知見を有する個体となった。\n現在 他のナンバーテールズにとっては不器用ながらも親しみやすい後輩のような存在であり、今後の主従契約の安泰にも貢献することから期待も高まっている。",
-    "Summary_EN": "Prototyped as an anti-runaway Carré-Series HighNumbers unit, developed by bringing the SaintPapis-based psychological-technician company \"Raison-d'être Company\" under (100BeautiesLab.'s) umbrella, for the sake of her elder-brother unit \"Dicat\"'s eventual return to duty.\nEquipped with a unique function to suppress both runaway incidents among NumberTales and the deterioration of relationships between NumberTales and their contracted masters, she became a unit with deep insight into the mental health of both humans and humanoids.\nAt present, she is seen by the other NumberTales as a somewhat clumsy yet approachable junior-like presence, and expectations are rising for her future contributions to the stability of master-servant contracts.",
-    "Backgrounds_JP": "量産型のリリースに向けたプロトタイプ\n神皇国の有限会社「レゾンデイトルカンパニー」との技術提携を経て、10号機系[ディケ]の設計を完成させた",
-    "Backgrounds_EN": "A prototype prepared for the release of mass-production models.\nThrough a technical partnership with Raison-d'être Company in SaintPapis, the Unit.10 lineage [Dicat] design was completed.",
     "ConversationPattern": {
       "TalkingTone_JP": "やや男性的で少し不器用な一面がありながらも、先輩思いで親しみやすい話し方をする。他のナンバーテールズの話題になると、慕う気持ちがふとした所作に表れることがある。",
       "TalkingTone_EN": "Speaks in a somewhat masculine, slightly clumsy yet approachable manner that shows consideration for her seniors. When the topic turns to the other NumberTales, her deep admiration for them sometimes shows through in small ways.",
@@ -212,7 +186,33 @@
           "value_EN": "\"How's the progress going, Senpai? It's great that it's moving along, but don't push yourself so hard that you wreck your health.\""
         }
       ]
-    }
+    },
+    "RelationNotes_JP": "「ディケ」を「アニキ」と慕っているが、10(ミツル)に対しては少し慣れない様子",
+    "RelationNotes_EN": "Looks up to \"Dicat\" as an elder-brother figure, but still seems slightly awkward around 10(Tenim)",
+    "Summary_JP": "兄個体「ディケ」の復帰のため、傘下に神皇国の心理技術士企業「レゾンデイトルカンパニー」を置くことで試作された、対暴走キャレ型ハイナンバーズ。\nナンバーテールズの暴走と、ナンバーテールズと契約する主人との関係悪化を抑止する独自の機能が搭載されたことで、人間やヒューマノイドの精神衛生面について深い知見を有する個体となった。\n現在 他のナンバーテールズにとっては不器用ながらも親しみやすい後輩のような存在であり、今後の主従契約の安泰にも貢献することから期待も高まっている。",
+    "Summary_EN": "Prototyped as an anti-runaway Carré-Series HighNumbers unit, developed by bringing the SaintPapis-based psychological-technician company \"Raison-d'être Company\" under (100BeautiesLab.'s) umbrella, for the sake of her elder-brother unit \"Dicat\"'s eventual return to duty.\nEquipped with a unique function to suppress both runaway incidents among NumberTales and the deterioration of relationships between NumberTales and their contracted masters, she became a unit with deep insight into the mental health of both humans and humanoids.\nAt present, she is seen by the other NumberTales as a somewhat clumsy yet approachable junior-like presence, and expectations are rising for her future contributions to the stability of master-servant contracts.",
+    "Backgrounds_JP": "量産型のリリースに向けたプロトタイプ\n神皇国の有限会社「レゾンデイトルカンパニー」との技術提携を経て、10号機系[ディケ]の設計を完成させた",
+    "Backgrounds_EN": "A prototype prepared for the release of mass-production models.\nThrough a technical partnership with Raison-d'être Company in SaintPapis, the Unit.10 lineage [Dicat] design was completed.",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_Fox",
+        "Count": 10,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
+    "NumerospecAbout_JP": "ナンバーテールズの暴走と、ナンバーテールズと契約する主人との関係悪化を抑止する",
+    "NumerospecAbout_EN": "Suppresses both runaway incidents among NumberTales and the deterioration of relationships between NumberTales and their contracted masters.",
+    "ThisMasters": [
+      {
+        "value_JP": null,
+        "about_JP": "(専属契約不可)",
+        "value_EN": null,
+        "about_EN": "(Cannot be exclusively contracted)"
+      }
+    ],
+    "ForMasterCalling_JP": "センパイ",
+    "ForMasterCalling_EN": "Senpai"
   },
   {
     "Num": 101,
@@ -220,15 +220,15 @@
     "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": "101-mp" }],
     "Name_JP": "101(ヒノマルイ)",
     "Name_EN": "101(Sunrizer=Origin)",
-    "ModelName_JP": "ナンバーテールズ試作正規型1+10号機(開発用101番機)",
-    "ModelName_EN": "NumberTales' Proto-Standard: NumberTales Unit.1+10 (Development Mk.101)",
-    "ModelNumber": "APHR-NT [PS]I+X",
     "FormalName_JP": "ナンバーテールズ101番機",
     "FormalName_EN": "NumberTales #101",
     "CodeName_JP": "一〇一",
     "CodeName_EN": "One-Zero-One",
     "SPCodeName_JP": "百一",
     "SPCodeName_EN": "Hundred One",
+    "ModelNumber": "APHR-NT [PS]I+X",
+    "ModelName_JP": "ナンバーテールズ試作正規型1+10号機(開発用101番機)",
+    "ModelName_EN": "NumberTales' Proto-Standard: NumberTales Unit.1+10 (Development Mk.101)",
     "GenderType": "Neutral",
     "Class": ["サイドシングルズ", "10*(ヒノマル)型ハイナンバーズ"],
     "Backgrounds_JP": "1号機系[1(ハジメ),2(ツグ),10(ミツル)]の類似個体で、こちらは販売用",
@@ -240,15 +240,15 @@
     "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": "102-mp" }],
     "Name_JP": "102(ヒノマルフ)",
     "Name_EN": "102(Sunrizer=Twens)",
-    "ModelName_JP": "ナンバーテールズ試作正規型2+10号機(開発用102番機)",
-    "ModelName_EN": "NumberTales' Proto-Standard: NumberTales Unit.2+10 (Development Mk.102)",
-    "ModelNumber": "APHR-NT [PS]II+X",
     "FormalName_JP": "ナンバーテールズ102番機",
     "FormalName_EN": "NumberTales #102",
     "CodeName_JP": "一〇二",
     "CodeName_EN": "One-Zero-Two",
     "SPCodeName_JP": "百二",
     "SPCodeName_EN": "Hundred Two",
+    "ModelNumber": "APHR-NT [PS]II+X",
+    "ModelName_JP": "ナンバーテールズ試作正規型2+10号機(開発用102番機)",
+    "ModelName_EN": "NumberTales' Proto-Standard: NumberTales Unit.2+10 (Development Mk.102)",
     "GenderType": "Neutral",
     "Class": ["トライデュアルスリーズ", "10*(ヒノマル)型ハイナンバーズ"],
     "Backgrounds_JP": "2号機系[バイナ,20(ハツカ)]の類似個体で、こちらは販売用",
@@ -260,15 +260,15 @@
     "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": "103-mp" }],
     "Name_JP": "103(ヒノマルミ)",
     "Name_EN": "103(Sunrizer=Treiya)",
-    "ModelName_JP": "ナンバーテールズ3+10号機(開発用103番機)",
-    "ModelName_EN": "NumberTales Unit.3+10 (Development Mk.103)",
-    "ModelNumber": "APHR-NT III+X",
     "FormalName_JP": "ナンバーテールズ103番機",
     "FormalName_EN": "NumberTales #103",
     "CodeName_JP": "一〇三",
     "CodeName_EN": "One-Zero-Three",
     "SPCodeName_JP": "百三",
     "SPCodeName_EN": "Hundred Three",
+    "ModelNumber": "APHR-NT III+X",
+    "ModelName_JP": "ナンバーテールズ3+10号機(開発用103番機)",
+    "ModelName_EN": "NumberTales Unit.3+10 (Development Mk.103)",
     "GenderType": "Neutral",
     "Class": ["トライデュアルフォーズ", "10*(ヒノマル)型ハイナンバーズ"],
     "Backgrounds_JP": "「3(ナオ)」の類似個体で、こちらは販売用\n以下「109(ヒノマルク)」まで同様（下1桁に対応）",
@@ -280,15 +280,15 @@
     "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": "104-mp" }],
     "Name_JP": "104(ヒノマルヨ)",
     "Name_EN": "104(Sunrizer=Forna)",
-    "ModelName_JP": "ナンバーテールズ4+10号機(開発用104番機)",
-    "ModelName_EN": "NumberTales Unit.4+10 (Development Mk.104)",
-    "ModelNumber": "APHR-NT IV+X",
     "FormalName_JP": "ナンバーテールズ104番機",
     "FormalName_EN": "NumberTales #104",
     "CodeName_JP": "一〇四",
     "CodeName_EN": "One-Zero-Four",
     "SPCodeName_JP": "百四",
     "SPCodeName_EN": "Hundred Four",
+    "ModelNumber": "APHR-NT IV+X",
+    "ModelName_JP": "ナンバーテールズ4+10号機(開発用104番機)",
+    "ModelName_EN": "NumberTales Unit.4+10 (Development Mk.104)",
     "GenderType": "Neutral",
     "Class": ["トライデュアルファイブズ", "10*(ヒノマル)型ハイナンバーズ"],
     "Backgrounds_EN": "A counterpart model of 4(Forna), prepared for commercial sales."
@@ -299,15 +299,15 @@
     "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": "105-mp" }],
     "Name_JP": "105(ヒノマルゴ)",
     "Name_EN": "105(Sunrizer=Fifa)",
-    "ModelName_JP": "ナンバーテールズ5+10号機(開発用105番機)",
-    "ModelName_EN": "NumberTales Unit.5+10 (Development Mk.105)",
-    "ModelNumber": "APHR-NT V+X",
     "FormalName_JP": "ナンバーテールズ105番機",
     "FormalName_EN": "NumberTales #105",
     "CodeName_JP": "一〇五",
     "CodeName_EN": "One-Zero-Five",
     "SPCodeName_JP": "百五",
     "SPCodeName_EN": "Hundred Five",
+    "ModelNumber": "APHR-NT V+X",
+    "ModelName_JP": "ナンバーテールズ5+10号機(開発用105番機)",
+    "ModelName_EN": "NumberTales Unit.5+10 (Development Mk.105)",
     "GenderType": "Neutral",
     "Class": ["トライデュアルシックスズ", "10*(ヒノマル)型ハイナンバーズ"],
     "Backgrounds_EN": "A counterpart model of 5(Fifa), prepared for commercial sales."
@@ -318,15 +318,15 @@
     "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": "106-mp" }],
     "Name_JP": "106(ヒノマルム)",
     "Name_EN": "106(Sunrizer=Sics)",
-    "ModelName_JP": "ナンバーテールズ6+10号機(開発用106番機)",
-    "ModelName_EN": "NumberTales Unit.6+10 (Development Mk.106)",
-    "ModelNumber": "APHR-NT VI+X",
     "FormalName_JP": "ナンバーテールズ106番機",
     "FormalName_EN": "NumberTales #106",
     "CodeName_JP": "一〇六",
     "CodeName_EN": "One-Zero-Six",
     "SPCodeName_JP": "百六",
     "SPCodeName_EN": "Hundred Six",
+    "ModelNumber": "APHR-NT VI+X",
+    "ModelName_JP": "ナンバーテールズ6+10号機(開発用106番機)",
+    "ModelName_EN": "NumberTales Unit.6+10 (Development Mk.106)",
     "GenderType": "Neutral",
     "Class": ["トライデュアルセブンズ", "10*(ヒノマル)型ハイナンバーズ"],
     "Backgrounds_EN": "A counterpart model of 6(Sics), prepared for commercial sales."
@@ -337,15 +337,15 @@
     "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": "107-mp" }],
     "Name_JP": "107(ヒノマルナ)",
     "Name_EN": "107(Sunrizer=Sevan)",
-    "ModelName_JP": "ナンバーテールズ7+10号機(開発用107番機)",
-    "ModelName_EN": "NumberTales Unit.7+10 (Development Mk.107)",
-    "ModelNumber": "APHR-NT VII+X",
     "FormalName_JP": "ナンバーテールズ107番機",
     "FormalName_EN": "NumberTales #107",
     "CodeName_JP": "一〇七",
     "CodeName_EN": "One-Zero-Seven",
     "SPCodeName_JP": "百七",
     "SPCodeName_EN": "Hundred Seven",
+    "ModelNumber": "APHR-NT VII+X",
+    "ModelName_JP": "ナンバーテールズ7+10号機(開発用107番機)",
+    "ModelName_EN": "NumberTales Unit.7+10 (Development Mk.107)",
     "GenderType": "Neutral",
     "Class": ["トライデュアルエイツ", "10*(ヒノマル)型ハイナンバーズ"],
     "Backgrounds_EN": "A counterpart model of 7(Sevan), prepared for commercial sales."
@@ -356,15 +356,15 @@
     "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": "108-mp" }],
     "Name_JP": "108(ヒノマルヤ)",
     "Name_EN": "108(Sunrizer=Eighas)",
-    "ModelName_JP": "ナンバーテールズ8+10号機(開発用108番機)",
-    "ModelName_EN": "NumberTales Unit.8+10 (Development Mk.108)",
-    "ModelNumber": "APHR-NT VIII+X",
     "FormalName_JP": "ナンバーテールズ108番機",
     "FormalName_EN": "NumberTales #108",
     "CodeName_JP": "一〇八",
     "CodeName_EN": "One-Zero-Eight",
     "SPCodeName_JP": "百八",
     "SPCodeName_EN": "Hundred Eight",
+    "ModelNumber": "APHR-NT VIII+X",
+    "ModelName_JP": "ナンバーテールズ8+10号機(開発用108番機)",
+    "ModelName_EN": "NumberTales Unit.8+10 (Development Mk.108)",
     "GenderType": "Neutral",
     "Class": ["ナインズトライデュアルズ", "10*(ヒノマル)型ハイナンバーズ"],
     "Backgrounds_EN": "A counterpart model of 8(Eighas), prepared for commercial sales."
@@ -375,15 +375,15 @@
     "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": "109-mp" }],
     "Name_JP": "109(ヒノマルク)",
     "Name_EN": "109(Sunrizer=Nina)",
-    "ModelName_JP": "ナンバーテールズ9+10号機(開発用109番機)",
-    "ModelName_EN": "NumberTales Unit.9+10 (Development Mk.109)",
-    "ModelNumber": "APHR-NT IX+X",
     "FormalName_JP": "ナンバーテールズ109番機",
     "FormalName_EN": "NumberTales #109",
     "CodeName_JP": "一〇九",
     "CodeName_EN": "One-Zero-Nine",
     "SPCodeName_JP": "百九",
     "SPCodeName_EN": "Hundred Nine",
+    "ModelNumber": "APHR-NT IX+X",
+    "ModelName_JP": "ナンバーテールズ9+10号機(開発用109番機)",
+    "ModelName_EN": "NumberTales Unit.9+10 (Development Mk.109)",
     "GenderType": "Neutral",
     "Class": ["トライデュアルキャリーズ", "10*(ヒノマル)型ハイナンバーズ"],
     "Backgrounds_EN": "A counterpart model of 9(Nina), prepared for commercial sales."
@@ -394,15 +394,15 @@
     "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": "110-mp" }],
     "Name_JP": "110(ハクト)",
     "Name_EN": "110(Elevantis)",
-    "ModelName_JP": "ナンバーテールズ汎用改良型11号機(開発用110番機)",
-    "ModelName_EN": "NumberTales General-Renovated Type Unit.11 (Development Mk.110)",
-    "ModelNumber": "APHR-NT [GR]XI",
     "FormalName_JP": "ナンバーテールズ110番機",
     "FormalName_EN": "NumberTales #110",
     "CodeName_JP": "一一〇",
     "CodeName_EN": "One-One-Zero",
     "SPCodeName_JP": "百十",
     "SPCodeName_EN": "Eleventy",
+    "ModelNumber": "APHR-NT [GR]XI",
+    "ModelName_JP": "ナンバーテールズ汎用改良型11号機(開発用110番機)",
+    "ModelName_EN": "NumberTales General-Renovated Type Unit.11 (Development Mk.110)",
     "GenderType": "Neutral",
     "Class": ["マスターテンズデュアルズ", "11*(ハクト)型ハイナンバーズ"],
     "Backgrounds_JP": "「11(トウイチ)」の類似個体で、こちらは販売用",
@@ -415,54 +415,32 @@
     "AnotherVersions_DBLink": [
       { "_Work": "NumberTales", "_DB": "SelfSecondary", "Num": "111-mp" }
     ],
-    "Images": { "concept_PNGName": "cnsp_img111" },
     "Name_JP": "111(アイズ)",
     "Name_EN": "111(Ize)",
-    "ModelName_JP": "ナンバーテールズ1+11号機(111番機)",
-    "ModelName_EN": "NumberTales Unit.1+11 (Mk.111)",
-    "ModelNumber": "APHR-NT I+XI",
+    "Images": { "concept_PNGName": "cnsp_img111" },
     "FormalName_JP": "ナンバーテールズ111番機",
     "FormalName_EN": "NumberTales #111",
     "CodeName_JP": "一一一",
     "CodeName_EN": "One-One-One",
     "SPCodeName_JP": "一一一",
     "SPCodeName_EN": "I-s",
+    "ModelNumber": "APHR-NT I+XI",
+    "ModelName_JP": "ナンバーテールズ1+11号機(111番機)",
+    "ModelName_EN": "NumberTales Unit.1+11 (Mk.111)",
     "GenderType": "Neutral",
+    "Class": ["マスタートリプル"],
     "Height_cm": 141,
-    "ConceptAge": 14,
     "Weight_kg": [
       { "value": 37, "about_JP": "推定", "about_EN": "Presumption" }
     ],
     "BustSize": "AA",
-    "TailsUnit": [
-      {
-        "TailShapeType": "#TailShapeType_NekomataSpecial",
-        "Count": 1,
-        "Segment": 3,
-        "Note_JP": "3つの先端にベルトが装着されている",
-        "Note_EN": "Belts are attached to the three tips"
-      }
-    ],
-    "Class": ["マスタートリプル"],
-    "ThisMasters": [
-      {
-        "value_JP": "霧島 博(とおる)/霜月（夜月機関 第11幹部）",
-        "value_EN": "Knowns Smogger / 'Shimotsuki' (Yadzuki Org. Executive Director.11)",
-        "_DBLink": {
-          "_Work": "PastDivers",
-          "_DB": "Primary",
-          "Lunar": "Shimotsuki"
-        }
-      }
-    ],
+    "ConceptAge": 14,
     "FirstPersonCalling_JP": "私(わたし)",
     "FirstPersonCalling_EN": "I",
     "SecondPersonCalling_JP": "貴樣/貴様",
     "SecondPersonCalling_EN": "lord (kisama)",
     "ThirdPersonCalling_JP": "*奴(やつ);[※名前呼び]",
     "ThirdPersonCalling_EN": "that fellow (*yatsu); [*by name]",
-    "ForMasterCalling_JP": "貴殿;[※二人称]",
-    "ForMasterCalling_EN": "my lord; [*second-person calling]",
     "Character_JP": "極めて活発で少し落ち着きがない\n自由奔放な一面があり唯我独尊気味\n何もしていないor気持ちが昂ると本性が出る",
     "Character_EN": "Extremely energetic and somewhat restless.\nHas a free-spirited side and tends toward self-importance.\nWhen idle or emotionally excited, their true nature comes out.",
     "Hobby_JP": "自由時間を満喫すること",
@@ -716,12 +694,34 @@
     ],
     "RelationNotes_JP": "開発者専用機では、「11(トウイチ)」を「殿下/陛下」と慕っている",
     "RelationNotes_EN": "In the developer-only build, deeply reveres 11(Elevan) as \"Your Highness/Majesty\"",
-    "NumerospecAbout_JP": "自分のやるべきことを認識させる",
-    "NumerospecAbout_EN": "Makes one recognize what they ought to do",
     "Summary_JP": "量産販売型ではあるが、3桁ゾロ目の数字を持つ「マスタートリプル」という特殊クラスの個体で、2桁以内の通常個体と引け目を取らない性能をもつ。\nとりわけその開発専用機ことオリジナル版である彼(女)は、「1(ハジメ)」や「11(トウイチ)」をも遥かに超える行動意欲の持ち主で、空き時間は自由奔放・猪突猛進に好きなことへ没頭するのを好む。\nしかし転じて、唯我独尊な一面もあるらしく……",
     "Summary_EN": "Although sold as a mass-production model, this unit belongs to the special \"MasterTriple\" class with a three-digit repdigit number and performance that rivals regular two-digit units.\nIn particular, the original developer-exclusive build shows an even stronger drive to act than 1(Unitta) and 11(Elevan), and prefers to dive headfirst into favorite pursuits whenever free time appears.\nThat said, this also seems to come with a somewhat self-centered side...",
     "Backgrounds_JP": "初めての販売用上位個体、以下マスタートリプル同様（通常の販売価格より高値がついている）",
-    "Backgrounds_EN": "The first high-tier unit for commercial sales. As with the other MasterTriples, it is priced above regular retail models."
+    "Backgrounds_EN": "The first high-tier unit for commercial sales. As with the other MasterTriples, it is priced above regular retail models.",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_NekomataSpecial",
+        "Count": 1,
+        "Segment": 3,
+        "Note_JP": "3つの先端にベルトが装着されている",
+        "Note_EN": "Belts are attached to the three tips"
+      }
+    ],
+    "NumerospecAbout_JP": "自分のやるべきことを認識させる",
+    "NumerospecAbout_EN": "Makes one recognize what they ought to do",
+    "ThisMasters": [
+      {
+        "value_JP": "霧島 博(とおる)/霜月（夜月機関 第11幹部）",
+        "value_EN": "Knowns Smogger / 'Shimotsuki' (Yadzuki Org. Executive Director.11)",
+        "_DBLink": {
+          "_Work": "PastDivers",
+          "_DB": "Primary",
+          "Lunar": "Shimotsuki"
+        }
+      }
+    ],
+    "ForMasterCalling_JP": "貴殿;[※二人称]",
+    "ForMasterCalling_EN": "my lord; [*second-person calling]"
   },
   {
     "Num": 112,
@@ -729,15 +729,15 @@
     "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": "112-mp" }],
     "Name_JP": "112(ハクトウジ)",
     "Name_EN": "112(Hudres=Twelva)",
-    "ModelName_JP": "ナンバーテールズ2+11号機(開発用112番機)",
-    "ModelName_EN": "NumberTales Unit.2+11 (Development Mk.112)",
-    "ModelNumber": "APHR-NT II+XI",
     "FormalName_JP": "ナンバーテールズ112番機",
     "FormalName_EN": "NumberTales #112",
     "CodeName_JP": "一一二",
     "CodeName_EN": "One-One-Two",
     "SPCodeName_JP": "百十二",
     "SPCodeName_EN": "Eleventy Two",
+    "ModelNumber": "APHR-NT II+XI",
+    "ModelName_JP": "ナンバーテールズ2+11号機(開発用112番機)",
+    "ModelName_EN": "NumberTales Unit.2+11 (Development Mk.112)",
     "GenderType": "Neutral",
     "Class": ["デュオトリプル4型", "11*(ハクト)型ハイナンバーズ"],
     "Backgrounds_JP": "「12(トウジ)」の類似個体で、こちらは販売用\n以下「119(ハクトク)」まで同様（下2桁に対応）",
@@ -749,15 +749,15 @@
     "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": "113-mp" }],
     "Name_JP": "113(ハクトミ)",
     "Name_EN": "113(Hudres=Thirteena)",
-    "ModelName_JP": "ナンバーテールズ3+11号機(開発用113番機)",
-    "ModelName_EN": "NumberTales Unit.3+11 (Development Mk.113)",
-    "ModelNumber": "APHR-NT III+XI",
     "FormalName_JP": "ナンバーテールズ113番機",
     "FormalName_EN": "NumberTales #113",
     "CodeName_JP": "一一三",
     "CodeName_EN": "One-One-Three",
     "SPCodeName_JP": "百十三",
     "SPCodeName_EN": "Eleventy Three",
+    "ModelNumber": "APHR-NT III+XI",
+    "ModelName_JP": "ナンバーテールズ3+11号機(開発用113番機)",
+    "ModelName_EN": "NumberTales Unit.3+11 (Development Mk.113)",
     "GenderType": "Neutral",
     "Class": ["デュオトリプル5型", "11*(ハクト)型ハイナンバーズ"]
   },
@@ -767,15 +767,15 @@
     "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": "114-mp" }],
     "Name_JP": "114(ハクトヨ)",
     "Name_EN": "114(Hudres=Forteels)",
-    "ModelName_JP": "ナンバーテールズ4+11号機(開発用114番機)",
-    "ModelName_EN": "NumberTales Unit.4+11 (Development Mk.114)",
-    "ModelNumber": "APHR-NT IV+XI",
     "FormalName_JP": "ナンバーテールズ114番機",
     "FormalName_EN": "NumberTales #114",
     "CodeName_JP": "一一四",
     "CodeName_EN": "One-One-Four",
     "SPCodeName_JP": "百十四",
     "SPCodeName_EN": "Eleventy Four",
+    "ModelNumber": "APHR-NT IV+XI",
+    "ModelName_JP": "ナンバーテールズ4+11号機(開発用114番機)",
+    "ModelName_EN": "NumberTales Unit.4+11 (Development Mk.114)",
     "GenderType": "Neutral",
     "Class": ["デュオトリプル6型", "11*(ハクト)型ハイナンバーズ"]
   },
@@ -788,15 +788,15 @@
     ],
     "Name_JP": "115(ハクトウゴ)",
     "Name_EN": "115(Hudres=Fifteeld)",
-    "ModelName_JP": "ナンバーテールズ5+11号機(開発用115番機)",
-    "ModelName_EN": "NumberTales Unit.5+11 (Development Mk.115)",
-    "ModelNumber": "APHR-NT V+XI",
     "FormalName_JP": "ナンバーテールズ115番機",
     "FormalName_EN": "NumberTales #115",
     "CodeName_JP": "一一五",
     "CodeName_EN": "One-One-Five",
     "SPCodeName_JP": "百十五",
     "SPCodeName_EN": "Eleventy Five",
+    "ModelNumber": "APHR-NT V+XI",
+    "ModelName_JP": "ナンバーテールズ5+11号機(開発用115番機)",
+    "ModelName_EN": "NumberTales Unit.5+11 (Development Mk.115)",
     "GenderType": "Neutral",
     "Class": ["デュオトリプル7型", "11*(ハクト)型ハイナンバーズ"]
   },
@@ -806,15 +806,15 @@
     "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": "116-mp" }],
     "Name_JP": "116(ハクソロク)",
     "Name_EN": "116(Hudres=Sixteely)",
-    "ModelName_JP": "ナンバーテールズ6+11号機(開発用116番機)",
-    "ModelName_EN": "NumberTales Unit.6+11 (Development Mk.116)",
-    "ModelNumber": "APHR-NT VI+XI",
     "FormalName_JP": "ナンバーテールズ116番機",
     "FormalName_EN": "NumberTales #116",
     "CodeName_JP": "一一六",
     "CodeName_EN": "One-One-Six",
     "SPCodeName_JP": "百十六",
     "SPCodeName_EN": "Eleventy Six",
+    "ModelNumber": "APHR-NT VI+XI",
+    "ModelName_JP": "ナンバーテールズ6+11号機(開発用116番機)",
+    "ModelName_EN": "NumberTales Unit.6+11 (Development Mk.116)",
     "GenderType": "Neutral",
     "Class": ["デュオトリプル8型", "11*(ハクト)型ハイナンバーズ"]
   },
@@ -824,15 +824,15 @@
     "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": "117-mp" }],
     "Name_JP": "117(ハクトナ)",
     "Name_EN": "117(Hudres=Sevteena)",
-    "ModelName_JP": "ナンバーテールズ7+11号機(開発用117番機)",
-    "ModelName_EN": "NumberTales Unit.7+11 (Development Mk.117)",
-    "ModelNumber": "APHR-NT VII+XI",
     "FormalName_JP": "ナンバーテールズ117番機",
     "FormalName_EN": "NumberTales #117",
     "CodeName_JP": "一一七",
     "CodeName_EN": "One-One-Seven",
     "SPCodeName_JP": "百十七",
     "SPCodeName_EN": "Eleventy Seven",
+    "ModelNumber": "APHR-NT VII+XI",
+    "ModelName_JP": "ナンバーテールズ7+11号機(開発用117番機)",
+    "ModelName_EN": "NumberTales Unit.7+11 (Development Mk.117)",
     "GenderType": "Neutral",
     "Class": ["デュオトリプル9型", "11*(ハクト)型ハイナンバーズ"]
   },
@@ -842,15 +842,15 @@
     "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": "118-mp" }],
     "Name_JP": "118(ハクトウヤ)",
     "Name_EN": "118(Hudres=Eighteeld)",
-    "ModelName_JP": "ナンバーテールズ8+11号機(開発用118番機)",
-    "ModelName_EN": "NumberTales Unit.8+11 (Development Mk.118)",
-    "ModelNumber": "APHR-NT VIII+XI",
     "FormalName_JP": "ナンバーテールズ118番機",
     "FormalName_EN": "NumberTales #118",
     "CodeName_JP": "一一八",
     "CodeName_EN": "One-One-Eight",
     "SPCodeName_JP": "百十八",
     "SPCodeName_EN": "Eleventy Eight",
+    "ModelNumber": "APHR-NT VIII+XI",
+    "ModelName_JP": "ナンバーテールズ8+11号機(開発用118番機)",
+    "ModelName_EN": "NumberTales Unit.8+11 (Development Mk.118)",
     "GenderType": "Neutral",
     "Class": ["デュオトリプル1型", "11*(ハクト)型ハイナンバーズ"]
   },
@@ -860,15 +860,15 @@
     "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": "119-mp" }],
     "Name_JP": "119(ハクトク)",
     "Name_EN": "119(Hudres=Ninteels)",
-    "ModelName_JP": "ナンバーテールズ9+11号機(開発用119番機)",
-    "ModelName_EN": "NumberTales Unit.9+11 (Development Mk.119)",
-    "ModelNumber": "APHR-NT IX+XI",
     "FormalName_JP": "ナンバーテールズ119番機",
     "FormalName_EN": "NumberTales #119",
     "CodeName_JP": "一一九",
     "CodeName_EN": "One-One-Nine",
     "SPCodeName_JP": "百十九",
     "SPCodeName_EN": "Eleventy Nine",
+    "ModelNumber": "APHR-NT IX+XI",
+    "ModelName_JP": "ナンバーテールズ9+11号機(開発用119番機)",
+    "ModelName_EN": "NumberTales Unit.9+11 (Development Mk.119)",
     "GenderType": "Neutral",
     "Class": ["デュオトリプル2型", "11*(ハクト)型ハイナンバーズ"]
   },
@@ -880,11 +880,11 @@
     "Name_EN": "121(Elf-elvent)\n11²(Carréonze)",
     "FormalName_JP": "ナンバーテールズ キャレ-オンズ(同位異格121番機)",
     "FormalName_EN": "NumberTales Unit.Carré-11 (Isotope of Mk.121)",
-    "ModelNumber": "APHR-NT SQ.XI",
     "CodeName_JP": "一二一, 11²",
     "CodeName_EN": "One-Two-One, Eleven Squared",
     "SPCodeName_JP": "11×11",
     "SPCodeName_EN": "Eleven Elevens",
+    "ModelNumber": "APHR-NT SQ.XI",
     "GenderType": "Neutral",
     "Belonging": ["百花繚乱研究所", "レゾンデイトルカンパニー"],
     "Class": ["デュオトリプル4型", "キャレ型ハイナンバーズ"]
@@ -897,9 +897,9 @@
     "Name_EN": "125(Ontwive)\n5³(Künf)",
     "FormalName_JP": "ナンバーテールズ キュビクザール-フュンフ(同位異格125番機)",
     "FormalName_EN": "NumberTales Unit.Kubikzahl-V (Isotope of Mk.125)",
-    "ModelNumber": "APHR-NT Kz.V",
     "CodeName_JP": "一二五, 立法五",
     "CodeName_EN": "One-Two-Five, Five Cubed",
+    "ModelNumber": "APHR-NT Kz.V",
     "GenderType": "Neutral",
     "Belonging": ["百花繚乱研究所", "シンフォニー.XVI(ゼクズィン)"],
     "Class": ["キュビクザール型ハイナンバーズ"]
@@ -912,11 +912,11 @@
     "Name_EN": "144(Groß)\n12²(Groß)",
     "FormalName_JP": "ナンバーテールズ キャレ-ドゥーズ(同位異格144番機)",
     "FormalName_EN": "NumberTales Unit.Carré-12 (Isotope of Mk.144)",
-    "ModelNumber": "APHR-NT SQ.XII",
     "CodeName_JP": "一四四, 12²",
     "CodeName_EN": "One-Four-Four, Twelve Squared",
     "SPCodeName_JP": "グロス",
     "SPCodeName_EN": "Gross",
+    "ModelNumber": "APHR-NT SQ.XII",
     "GenderType": "Neutral",
     "Belonging": ["百花繚乱研究所", "レゾンデイトルカンパニー"],
     "Class": [
@@ -953,15 +953,15 @@
     "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 200 }],
     "Name_JP": "200(バイセンテ)",
     "Name_EN": "200(Bicentenny)",
-    "ModelName_JP": "ナンバーテールズ汎用型2号機改(開発用200番機)",
-    "ModelName_EN": "NumberTales General-Purpose Type Unit.2 (Development Mk.200)",
-    "ModelNumber": "APHR-NT [GP]II.R",
     "FormalName_JP": "ナンバーテールズ200番機",
     "FormalName_EN": "NumberTales #200",
     "CodeName_JP": "二〇〇",
     "CodeName_EN": "Two-Zero-Zero",
     "SPCodeName_JP": "皕",
     "SPCodeName_EN": "Two hundred",
+    "ModelNumber": "APHR-NT [GP]II.R",
+    "ModelName_JP": "ナンバーテールズ汎用型2号機改(開発用200番機)",
+    "ModelName_EN": "NumberTales General-Purpose Type Unit.2 (Development Mk.200)",
     "GenderType": "Neutral",
     "Class": ["百倍番(ハンドレッズデジッツ)", "カレンド", "2号機型"],
     "FirstPersonCalling_JP": "わたし",
@@ -970,12 +970,12 @@
     "SecondPersonCalling_EN": "you (very polite)",
     "ThirdPersonCalling_JP": "~さん",
     "ThirdPersonCalling_EN": "~-san",
-    "ForMasterCalling_JP": "お兄さま/お姉さま",
-    "ForMasterCalling_EN": "my brother/sister (honorific)",
     "RelationNotes_JP": "開発専用機では「バイナ」「20(ハツカ)」を、「お姉さま」と慕っている",
     "RelationNotes_EN": "In the developer-only build, calls \"Binor\" and 20(Twentia) \"big sister\"",
     "Backgrounds_JP": "2号機系直通の後継個体",
-    "Backgrounds_EN": "A direct successor unit of the Unit.2 lineage."
+    "Backgrounds_EN": "A direct successor unit of the Unit.2 lineage.",
+    "ForMasterCalling_JP": "お兄さま/お姉さま",
+    "ForMasterCalling_EN": "my brother/sister (honorific)"
   },
   {
     "Num": "216-cub",
@@ -985,9 +985,9 @@
     "Name_EN": "216(Biunosect)\n6³(Secubie)",
     "FormalName_JP": "ナンバーテールズ キュビクザール-ゼクス(同位異格216番機)",
     "FormalName_EN": "NumberTales Unit.Kubikzahl-VI (Isotope of Mk.216)",
-    "ModelNumber": "APHR-NT Kz.VI",
     "CodeName_JP": "二一六, 立法六",
     "CodeName_EN": "Two-One-Six, Six Cubed",
+    "ModelNumber": "APHR-NT Kz.VI",
     "GenderType": "Neutral",
     "Belonging": ["百花繚乱研究所", "シンフォニー.XVI(ゼクズィン)"],
     "Class": [
@@ -1002,6 +1002,12 @@
     "Num": 222,
     "Progress": "released",
     "isTriple": false,
+    "AnotherVersions_DBLink": [
+      { "_Work": "NumberTales", "_DB": "SelfSecondary", "Num": "222-mp" }
+    ],
+    "SameModels_DBLink": [{ "_DB": "SemiPrimary", "Num": "222-alt" }],
+    "Name_JP": "222(ペルゲン)\n222(ドッペルゲンズ)",
+    "Name_EN": "222(Pelgäns)\n222(Doppelgäns)",
     "Images": {
       "concept_PNGName": "cnsp_img222A",
       "conceptAlt_PNGName": ["cnsp_img222-orig"],
@@ -1010,44 +1016,27 @@
         "222/emstk_corefolder222-1"
       ]
     },
-    "SameModels_DBLink": [{ "_DB": "SemiPrimary", "Num": "222-alt" }],
-    "AnotherVersions_DBLink": [
-      { "_Work": "NumberTales", "_DB": "SelfSecondary", "Num": "222-mp" }
-    ],
-    "Name_JP": "222(ペルゲン)\n222(ドッペルゲンズ)",
-    "Name_EN": "222(Pelgäns)\n222(Doppelgäns)",
-    "ModelName_JP": "ナンバーテールズ3倍型2号機\nナンバーテールズ1+11号2倍機または3倍型2号機(222番機)",
-    "ModelName_EN": "NumberTales EXtended By.3 Type Unit.2\nNumberTales Unit.1+11 EXtended By.2 and EXtended By.3 Type Unit.2 (Mk.222)",
-    "ModelNumber": "APHR-NT [x3]II\nAPHR-NT I+XI.2|[x3]II",
     "FormalName_JP": "ナンバーテールズ222番機(開発用オリジナル版3倍型2号機)",
     "FormalName_EN": "NumberTales #222 (Original version for development of EXtended By.3 Type Unit.2)",
     "CodeName_JP": "二二二",
     "CodeName_EN": "Two-Two-Two",
     "SPCodeName_JP": "2×111",
     "SPCodeName_EN": "2×111, Cloned I-s",
+    "ModelNumber": "APHR-NT [x3]II\nAPHR-NT I+XI.2|[x3]II",
+    "ModelName_JP": "ナンバーテールズ3倍型2号機\nナンバーテールズ1+11号2倍機または3倍型2号機(222番機)",
+    "ModelName_EN": "NumberTales EXtended By.3 Type Unit.2\nNumberTales Unit.1+11 EXtended By.2 and EXtended By.3 Type Unit.2 (Mk.222)",
     "GenderType": "FemaleNeutral",
+    "Class": ["マスタートリプル"],
     "Height_cm": 147,
-    "ConceptAge": 16,
     "Weight_kg": 42,
     "BustSize": "B",
-    "TailsUnit": [
-      {
-        "TailShapeType": "#TailShapeType_CaudalFin",
-        "Count": 3,
-        "Segment": 2,
-        "Note_JP": null,
-        "Note_EN": null
-      }
-    ],
-    "Class": ["マスタートリプル"],
+    "ConceptAge": 16,
     "FirstPersonCalling_JP": "自分に対し：私(わたし)\nドッペルに対し：ドペさん",
     "FirstPersonCalling_EN": "to Pelgäns: I (fem. neutral)\nto Doppels: Doppy(Dope-san)",
     "SecondPersonCalling_JP": "貴方",
     "SecondPersonCalling_EN": "you (fem. neutral)",
     "ThirdPersonCalling_JP": "彼/彼女;~の方,*方(*ちら);~さん,~樣",
     "ThirdPersonCalling_EN": "he/she; ~ person; that/this/who/them one (as personal, polite); [*by name](~san), sir/lady.~ (~-sama; very honorific)",
-    "ForMasterCalling_JP": "兄樣/姉樣",
-    "ForMasterCalling_EN": "my sir/lady (very honorific: nii/nee-sama)",
     "Character_JP": "ふんわりと落ち着いた優しい気質でよく周りのことをみている",
     "Character_EN": "gentle, calm, and soft in temperament, with a careful eye on those around her.",
     "Hobby_JP": "ボイスチャット（主に雑談）\n民泊で友人と過ごすこと",
@@ -1309,45 +1298,10 @@
         "Note_EN": null
       }
     ],
-    "NumerospecAbout_JP": "疎外感を解消し縁を育む",
-    "NumerospecAbout_EN": "Eases alienation and nurtures bonds",
     "Summary_JP": "量産販売型かつ3桁ゾロ目の数字を持つ「マスタートリプル」という高性能な特殊クラスの個体。\nそのうち222番機の開発専用オリジナル機は２体存在し、「222(ペルゲン)」は「バイナ」らの後続型、「222(ドッペル)」は「111(アイズ)」の後続型にあたる。\nどちらも「2(ツグ)」・「バイナ」や「22(フジ)」にも劣らず、「222(ペルゲン)」は周囲状況に対する配慮に秀でた\"優しいお姉さん\"のごとく、「222(ドッペル)」は仲介や縁づくりが得意で\"クラスのマドンナ\"のごとく周りに親しまれている。\n222番機こと腹違いの双子としてお互い同式扱いとなっている２人は、よく生活を共にすることから信頼の強さもみられており、「222(ドッペル)」が「222(ペルゲン)」によく甘えている義姉妹愛の溢れる様子も。",
     "Summary_EN": "A high-performance special class unit called \"MasterTriple\" that is both mass-produced and assigned a three-digit repdigit number.\nFor Mk.222, two developer-original units exist: 222(Pelgäns) is a successor to Binor and related lines, while 222(Doppels) is a successor to 111(Ize).\nBoth rival 2(Twiny), Binor, and 22(Twin-twina): 222(Pelgäns) is loved as a considerate \"gentle big sister\", while 222(Doppels) is cherished like a \"class madonna\" for mediation and bond-building.\nThough treated under one model number as paternal half-twins, they often live together and show deep trust, with 222(Doppels) frequently leaning affectionately on 222(Pelgäns).",
     "Backgrounds_JP": "1+11号2倍機が現「222(ドッペル)」、3倍型2号機が現「222(ペルゲン)」にあたりそれぞれ別個体として設計が進められていたが、開発の事情で最終的にひとつの型式として統合された。そのため開発用オリジナル機は、形式上1体として扱われる2体1式の個体となっている。",
-    "Backgrounds_EN": "The extended By.2 type of Unit.1+11 model became the current 222(Doppels), while the extended Unit.2 model as By.3 Type became the current 222(Pelgäns), and both were originally designed as separate units. Due to development circumstances, they were ultimately unified into a single model format. As a result, the developer-original configuration is formally treated as one model consisting of a two-unit pair."
-  },
-  {
-    "Num": "222-alt",
-    "Progress": "released",
-    "isTriple": false,
-    "Images": {
-      "concept_PNGName": "cnsp_img222B",
-      "conceptAlt_PNGName": ["cnsp_img222-orig"],
-      "corefolder_PNGPath": [
-        "222/emstk_corefolder222-2b",
-        "222/emstk_corefolder222-1"
-      ]
-    },
-    "SameModels_DBLink": [{ "_DB": "SemiPrimary", "Num": 222 }],
-    "AnotherVersions_DBLink": [
-      { "_Work": "NumberTales", "_DB": "SelfSecondary", "Num": "222-mp" }
-    ],
-    "Name_JP": "222(ドッペル)\n222(ドッペルゲンズ)",
-    "Name_EN": "222(Doppels)\n222(Doppelgäns)",
-    "ModelName_JP": "ナンバーテールズ1+11号2倍機\nナンバーテールズ1+11号2倍機または3倍型2号機(222番機)",
-    "ModelName_EN": "NumberTales Unit.1+11 EXtended By.2\nNumberTales Unit.1+11 EXtended By.2 and EXtended By.3 Type Unit.2 (Mk.222)",
-    "ModelNumber": "APHR-NT I+XI.2\nAPHR-NT I+XI.2|[x3]II",
-    "FormalName_JP": "ナンバーテールズ222番機(開発用オリジナル版1+11号2倍機)",
-    "FormalName_EN": "NumberTales #222 (Original version for development of Unit.1+11 EXtended By.2)",
-    "CodeName_JP": "二二二",
-    "CodeName_EN": "Two-Two-Two",
-    "SPCodeName_JP": "2×111",
-    "SPCodeName_EN": "2×111, Cloned I-s",
-    "GenderType": "FemaleNeutral",
-    "Height_cm": 146,
-    "ConceptAge": 16,
-    "Weight_kg": 43,
-    "BustSize": "A",
+    "Backgrounds_EN": "The extended By.2 type of Unit.1+11 model became the current 222(Doppels), while the extended Unit.2 model as By.3 Type became the current 222(Pelgäns), and both were originally designed as separate units. Due to development circumstances, they were ultimately unified into a single model format. As a result, the developer-original configuration is formally treated as one model consisting of a two-unit pair.",
     "TailsUnit": [
       {
         "TailShapeType": "#TailShapeType_CaudalFin",
@@ -1357,15 +1311,50 @@
         "Note_EN": null
       }
     ],
+    "NumerospecAbout_JP": "疎外感を解消し縁を育む",
+    "NumerospecAbout_EN": "Eases alienation and nurtures bonds",
+    "ForMasterCalling_JP": "兄樣/姉樣",
+    "ForMasterCalling_EN": "my sir/lady (very honorific: nii/nee-sama)"
+  },
+  {
+    "Num": "222-alt",
+    "Progress": "released",
+    "isTriple": false,
+    "AnotherVersions_DBLink": [
+      { "_Work": "NumberTales", "_DB": "SelfSecondary", "Num": "222-mp" }
+    ],
+    "SameModels_DBLink": [{ "_DB": "SemiPrimary", "Num": 222 }],
+    "Name_JP": "222(ドッペル)\n222(ドッペルゲンズ)",
+    "Name_EN": "222(Doppels)\n222(Doppelgäns)",
+    "Images": {
+      "concept_PNGName": "cnsp_img222B",
+      "conceptAlt_PNGName": ["cnsp_img222-orig"],
+      "corefolder_PNGPath": [
+        "222/emstk_corefolder222-2b",
+        "222/emstk_corefolder222-1"
+      ]
+    },
+    "FormalName_JP": "ナンバーテールズ222番機(開発用オリジナル版1+11号2倍機)",
+    "FormalName_EN": "NumberTales #222 (Original version for development of Unit.1+11 EXtended By.2)",
+    "CodeName_JP": "二二二",
+    "CodeName_EN": "Two-Two-Two",
+    "SPCodeName_JP": "2×111",
+    "SPCodeName_EN": "2×111, Cloned I-s",
+    "ModelNumber": "APHR-NT I+XI.2\nAPHR-NT I+XI.2|[x3]II",
+    "ModelName_JP": "ナンバーテールズ1+11号2倍機\nナンバーテールズ1+11号2倍機または3倍型2号機(222番機)",
+    "ModelName_EN": "NumberTales Unit.1+11 EXtended By.2\nNumberTales Unit.1+11 EXtended By.2 and EXtended By.3 Type Unit.2 (Mk.222)",
+    "GenderType": "FemaleNeutral",
     "Class": ["マスタートリプル"],
+    "Height_cm": 146,
+    "Weight_kg": 43,
+    "BustSize": "A",
+    "ConceptAge": 16,
     "FirstPersonCalling_JP": "自分に対して：僕\nペルゲンに対して：ペーちゃん",
     "FirstPersonCalling_EN": "to Doppels: I (masc. casual)\nto Pelgäns: Pelly(Pe-chan)",
     "SecondPersonCalling_JP": "君",
     "SecondPersonCalling_EN": "you (casual)",
     "ThirdPersonCalling_JP": "彼/彼女;~の人,*れ;~くん/~ちゃん,~樣",
     "ThirdPersonCalling_EN": "he/she; ~ person; that/this/which/what/them (as objective); [*by name](~kun/~chan), sir/lady.~ (~-sama; very honorific)",
-    "ForMasterCalling_JP": "兄樣/姉樣",
-    "ForMasterCalling_EN": "my sir/lady (very honorific: nii/nee-sama)",
     "Character_JP": "人と一緒にいるのが好きでよく会話の輪に溶け込もうとする",
     "Character_EN": "Likes being with people and often tries to blend into conversations.",
     "Hobby_JP": "ボイスチャット（主に雑談）\n友人と番組を同時視聴すること",
@@ -1611,13 +1600,24 @@
         "Note_EN": null
       }
     ],
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_CaudalFin",
+        "Count": 3,
+        "Segment": 2,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "NumerospecAbout_JP": "疎外感を解消し縁を育む",
-    "NumerospecAbout_EN": "Eases alienation and nurtures bonds"
+    "NumerospecAbout_EN": "Eases alienation and nurtures bonds",
+    "ForMasterCalling_JP": "兄樣/姉樣",
+    "ForMasterCalling_EN": "my sir/lady (very honorific: nii/nee-sama)"
   },
   {
     "Num": "225-sq",
-    "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 225 }],
     "Progress": "notProceeded",
+    "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 225 }],
     "FormalName_JP": "ナンバーテールズ キャレ-クインズ(同位異格225番機)",
     "FormalName_EN": "NumberTales Unit.Carré-15 (Isotope of Mk.225)",
     "ModelNumber": "APHR-NT SQ.XV",
@@ -1627,17 +1627,17 @@
   },
   {
     "Num": "256-sq",
-    "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 256 }],
     "Progress": "notProceeded",
+    "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 256 }],
     "Name_JP": "256(バイツ)\n16²(バイツ)",
     "Name_EN": "256(Bytz)\n16²(Bytz)",
     "FormalName_JP": "ナンバーテールズ キャレ-セイズ(256番機)",
     "FormalName_EN": "NumberTales Unit.Carré-16 (Mk.256)",
-    "ModelNumber": "APHR-NT SQ.XVI",
     "CodeName_JP": "二五六,16²",
     "CodeName_EN": "Two-Five-Six, Sixteen Squared",
     "SPCodeName_JP": "バイト",
     "SPCodeName_EN": "One Byte",
+    "ModelNumber": "APHR-NT SQ.XVI",
     "GenderType": "Neutral",
     "Belonging": ["百花繚乱研究所", "レゾンデイトルカンパニー"],
     "Class": [
@@ -1651,8 +1651,8 @@
   },
   {
     "Num": "289-sq",
-    "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 289 }],
     "Progress": "notProceeded",
+    "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 289 }],
     "FormalName_JP": "ナンバーテールズ キャレ-ディセット(同位異格289番機)",
     "FormalName_EN": "NumberTales Unit.Carré-17 (Isotope of Mk.289)",
     "ModelNumber": "APHR-NT SQ.XVII",
@@ -1662,8 +1662,8 @@
   },
   {
     "Num": "324-sq",
-    "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 324 }],
     "Progress": "notProceeded",
+    "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 324 }],
     "FormalName_JP": "ナンバーテールズ キャレ-ディズュイット(同位異格324番機)",
     "FormalName_EN": "NumberTales Unit.Carré-18 (Isotope of Mk.324)",
     "ModelNumber": "APHR-NT SQ.XVIII",
@@ -1680,15 +1680,15 @@
     ],
     "Name_JP": "333(トリニティア)",
     "Name_EN": "333(Trinitia)",
-    "ModelName_JP": "ナンバーテールズ3倍型3号機(333番機)",
-    "ModelName_EN": "NumberTales EXtended By.3 Type Unit.3 (Mk.333)",
-    "ModelNumber": "APHR-NT [x3]III",
     "FormalName_JP": "ナンバーテールズ333番機",
     "FormalName_EN": "NumberTales #333",
     "CodeName_JP": "三三三",
     "CodeName_EN": "Three-Three-Three",
     "SPCodeName_JP": "三連三",
     "SPCodeName_EN": "Triple",
+    "ModelNumber": "APHR-NT [x3]III",
+    "ModelName_JP": "ナンバーテールズ3倍型3号機(333番機)",
+    "ModelName_EN": "NumberTales EXtended By.3 Type Unit.3 (Mk.333)",
     "GenderType": "Neutral",
     "Class": ["マスタートリプル"]
   },
@@ -1700,22 +1700,22 @@
     "Name_EN": "343(Threfortrey)\n7³(Sieubic)",
     "FormalName_JP": "ナンバーテールズ キュビクザール-ズィベン(同位異格343番機)",
     "FormalName_EN": "NumberTales Unit.Kubikzahl-VII (Isotope of Mk.343)",
-    "ModelNumber": "APHR-NT Kz.VII",
     "CodeName_JP": "三四三, 立法七",
     "CodeName_EN": "Three-Four-Three, Seven Cubed",
+    "ModelNumber": "APHR-NT Kz.VII",
     "GenderType": "Neutral",
     "Belonging": ["百花繚乱研究所", "シンフォニー.XVI(ゼクズィン)"],
     "Class": ["キュビクザール型ハイナンバーズ"]
   },
   {
     "Num": "361-sq",
-    "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 361 }],
     "Progress": "notProceeded",
+    "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 361 }],
     "FormalName_JP": "ナンバーテールズ キャレ-ディズネフ(同位異格361番機)",
     "FormalName_EN": "NumberTales Unit.Carré-19 (Isotope of Mk.361)",
-    "ModelNumber": "APHR-NT SQ.XIX",
     "CodeName_JP": "三六一",
     "CodeName_EN": "Three-Six-One",
+    "ModelNumber": "APHR-NT SQ.XIX",
     "GenderType": "Neutral",
     "Belonging": ["百花繚乱研究所", "レゾンデイトルカンパニー"],
     "Class": ["キャレ型ハイナンバーズ"]
@@ -1731,11 +1731,11 @@
     "Name_EN": "400(Vingt-vingtee)\n20²(Vingt-vingtee)",
     "FormalName_JP": "ナンバーテールズ キャレ-ヴィント(同位異格400番機)",
     "FormalName_EN": "NumberTales Unit.Carré-20 (Isotope of Mk.400)",
-    "ModelNumber": "APHR-NT SQ.XX",
     "CodeName_JP": "四〇〇, 20²",
     "CodeName_EN": "Four-Zero-Zero, Twenty Squared",
     "SPCodeName_JP": "20×20",
     "SPCodeName_EN": "Twenty Twenties",
+    "ModelNumber": "APHR-NT SQ.XX",
     "GenderType": "Neutral",
     "Belonging": ["百花繚乱研究所", "レゾンデイトルカンパニー"],
     "Class": ["百倍番(ハンドレッズデジッツ)", "キャレ型ハイナンバーズ"]
@@ -1743,19 +1743,19 @@
   {
     "Num": 400,
     "Progress": "notProceeded",
-    "SameMPSeries_DBLink": [{ "_DB": "SemiPrimary", "Num": "400-sq" }],
     "AnotherVersions_DBLink": [{ "_DB": "SelfSecondary", "Num": "400-gc" }],
+    "SameMPSeries_DBLink": [{ "_DB": "SemiPrimary", "Num": "400-sq" }],
     "Name_JP": "400(マタウルウ)",
     "Name_EN": "400(Leap-againer)",
-    "ModelName_JP": "ナンバーテールズ汎用型4号機改(開発用400番機)",
-    "ModelName_EN": "NumberTales General-Purpose Type Unit.4 (Development Mk.400)",
-    "ModelNumber": "APHR-NT [GP]IV.R",
     "FormalName_JP": "ナンバーテールズ400番機",
     "FormalName_EN": "NumberTales #400",
     "CodeName_JP": "四〇〇",
     "CodeName_EN": "Four-Zero-Zero",
     "SPCodeName_JP": "閏周期",
     "SPCodeName_EN": "Leap Term(by years)",
+    "ModelNumber": "APHR-NT [GP]IV.R",
+    "ModelName_JP": "ナンバーテールズ汎用型4号機改(開発用400番機)",
+    "ModelName_EN": "NumberTales General-Purpose Type Unit.4 (Development Mk.400)",
     "GenderType": "Neutral",
     "Class": ["百倍番(ハンドレッズデジッツ)", "カレンド"],
     "Backgrounds_JP": "「100倍数の年は閏年でないが、400倍数だと閏年」という（グレゴリオ暦の）400年周期法則から命名された",
@@ -1765,6 +1765,11 @@
     "Num": 444,
     "isTriple": false,
     "Progress": "unreleased",
+    "AnotherVersions_DBLink": [
+      { "_Work": "NumberTales", "_DB": "SelfSecondary", "Num": "444-mp" }
+    ],
+    "Name_JP": "444(シテン)",
+    "Name_EN": "444(Quad-emperone)",
     "Images": {
       "concept_PNGName": "cnsp_img444",
       "corefolder_PNGPath": [
@@ -1773,22 +1778,20 @@
         "444/emstk_corefolder444-3"
       ]
     },
-    "AnotherVersions_DBLink": [
-      { "_Work": "NumberTales", "_DB": "SelfSecondary", "Num": "444-mp" }
-    ],
-    "Name_JP": "444(シテン)",
-    "Name_EN": "444(Quad-emperone)",
-    "ModelName_JP": "ナンバーテールズ3倍型4号機(444番機)",
-    "ModelName_EN": "NumberTales EXtended By.3 Type Unit.4 (Mk.444)",
-    "ModelNumber": "APHR-NT [x3]IV",
     "FormalName_JP": "ナンバーテールズ444番機",
     "FormalName_EN": "NumberTales #444",
     "CodeName_JP": "四四四",
     "CodeName_EN": "Four-Four-Four",
     "SPCodeName_JP": "皇帝",
     "SPCodeName_EN": "Emperor of Talots",
+    "ModelNumber": "APHR-NT [x3]IV",
+    "ModelName_JP": "ナンバーテールズ3倍型4号機(444番機)",
+    "ModelName_EN": "NumberTales EXtended By.3 Type Unit.4 (Mk.444)",
     "GenderType": "Neutral",
+    "Class": ["マスタートリプル", "スクエアエリート"],
     "Height_cm": 163,
+    "Weight_kg": 59,
+    "BustSize": "A",
     "ConceptAge": {
       "value": 44,
       "about_JP": "便宜上はこの値だが真偽が定かでない",
@@ -1801,26 +1804,12 @@
         "DayAbout_EN": "SquareElites project commemoration"
       }
     ],
-    "Weight_kg": 59,
-    "BustSize": "A",
-    "TailsUnit": [
-      {
-        "TailShapeType": "#TailShapeType_FoxSpecial",
-        "Count": 4,
-        "Segment": 3,
-        "Note_JP": null,
-        "Note_EN": null
-      }
-    ],
-    "Class": ["マスタートリプル", "スクエアエリート"],
     "FirstPersonCalling_JP": "我輩\n僕(ぼく) ※想定外のことが起きて動揺しているとき",
     "FirstPersonCalling_EN": "I (wagahai; archaic/formal)\nI (boku; masc. casual *when something unexpected happens)",
     "SecondPersonCalling_JP": "貴君/貴女/諸君,貴殿\n君(きみ) ※想定外のことが起きて動揺しているとき",
     "SecondPersonCalling_EN": "you (kikun/kijo/shokun, kiden; very formal)\nyou (kimi; masc. casual *when something unexpected happens)",
     "ThirdPersonCalling_JP": "*ちら(の者);[※名前呼び],~殿",
     "ThirdPersonCalling_EN": "that side/person there; [*by name], sir/mr/lady/ms.~(~dono; formally honorific)",
-    "ForMasterCalling_JP": "提督殿,提督",
-    "ForMasterCalling_EN": "sir/lady admiral, Admiral",
     "Character_JP": "気高く構えた態度で敬意深い\n想定外のことが起きると自分のプライドを守りたいがために様子が不安定になることも",
     "Character_EN": "Dignified and respectful in bearing.\nWhen something unexpected happens, trying to protect personal pride can make behavior unstable.",
     "Hobby_JP": "論文を読むこと",
@@ -2153,24 +2142,35 @@
         "Note_EN": null
       }
     ],
+    "Summary_JP": "量産販売型ではあるが、3桁ゾロ目の数字を持つ「マスタートリプル」という特殊クラスの個体で、2桁以内の通常個体と引け目を取らない性能をもつ。\nとりわけその開発専用機ことオリジナル版である彼(女)は、4(モチ)や44(シトシ)をも凌駕する実現力の持ち主で、失敗経験のない威厳ある彼(女)の前ではどんな物事も叶えてしまうと極めて高いレヴューを受けている……\"極めて不運かつ想定外の\"ことが起きてしまった場合を除けば。",
+    "Summary_EN": "Although sold as a mass-production model, this unit belongs to the special \"MasterTriple\" class with a three-digit repdigit number and performance that rivals regular two-digit units.\nIn particular, ze — the original developer-exclusive build — possesses a manifesting power that even surpasses 4(Forna) and 44(Folfourn), and, having never once failed, receives extremely high praise for making virtually anything come true in zir dignified presence... except for those times when something \"extremely unlucky and unforeseen\" happens to occur.",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxSpecial",
+        "Count": 4,
+        "Segment": 3,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "NumerospecAbout_JP": "完璧な理論に則り物事を実現する",
     "NumerospecAbout_EN": "Realizes things in accordance with perfect theory",
-    "Summary_JP": "量産販売型ではあるが、3桁ゾロ目の数字を持つ「マスタートリプル」という特殊クラスの個体で、2桁以内の通常個体と引け目を取らない性能をもつ。\nとりわけその開発専用機ことオリジナル版である彼(女)は、4(モチ)や44(シトシ)をも凌駕する実現力の持ち主で、失敗経験のない威厳ある彼(女)の前ではどんな物事も叶えてしまうと極めて高いレヴューを受けている……\"極めて不運かつ想定外の\"ことが起きてしまった場合を除けば。",
-    "Summary_EN": "Although sold as a mass-production model, this unit belongs to the special \"MasterTriple\" class with a three-digit repdigit number and performance that rivals regular two-digit units.\nIn particular, ze — the original developer-exclusive build — possesses a manifesting power that even surpasses 4(Forna) and 44(Folfourn), and, having never once failed, receives extremely high praise for making virtually anything come true in zir dignified presence... except for those times when something \"extremely unlucky and unforeseen\" happens to occur."
+    "ForMasterCalling_JP": "提督殿,提督",
+    "ForMasterCalling_EN": "sir/lady admiral, Admiral"
   },
   {
     "Num": "512-cub",
-    "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 512 }],
     "Progress": "notProceeded",
+    "SameMPSeries_DBLink": [{ "_DB": "SelfSecondary", "Num": 512 }],
     "Name_JP": "512(ハキビ)\n8³(ハキビ)",
     "Name_EN": "512(Hav-kiB)\n8³(Hav-kiB)",
     "FormalName_JP": "ナンバーテールズ キュビクザール-アハト(同位異格512番機)",
     "FormalName_EN": "NumberTales Unit.Kubikzahl-VIII (Isotope of Mk.512)",
-    "ModelNumber": "APHR-NT Kz.VIII",
     "CodeName_JP": "五一二, 立法八",
     "CodeName_EN": "Five-One-Two, Eight Cubed",
     "SPCodeName_JP": "半キロバイナリ",
     "SPCodeName_EN": "Half kiB(Kilo Binary)",
+    "ModelNumber": "APHR-NT Kz.VIII",
     "GenderType": "Neutral",
     "Belonging": ["百花繚乱研究所", "シンフォニー.XVI(ゼクズィン)"],
     "Class": ["キュビクザール型ハイナンバーズ", "バーチャリティテールズ"]
@@ -2184,15 +2184,15 @@
     ],
     "Name_JP": "555(ハイファイブ)",
     "Name_EN": "555(High-Fiver)",
-    "ModelName_JP": "ナンバーテールズ3倍型5号機(555番機)",
-    "ModelName_EN": "NumberTales EXtended By.3 Type Unit.5 (Mk.555)",
-    "ModelNumber": "APHR-NT [x3]V",
     "FormalName_JP": "ナンバーテールズ555番機",
     "FormalName_EN": "NumberTales #555",
     "CodeName_JP": "五五五",
     "CodeName_EN": "Five-Five-Five",
     "SPCodeName_JP": "ハイファイブ",
     "SPCodeName_EN": "High Five",
+    "ModelNumber": "APHR-NT [x3]V",
+    "ModelName_JP": "ナンバーテールズ3倍型5号機(555番機)",
+    "ModelName_EN": "NumberTales EXtended By.3 Type Unit.5 (Mk.555)",
     "GenderType": "Neutral",
     "Class": ["マスタートリプル"]
   },
@@ -2203,55 +2203,33 @@
     "AnotherVersions_DBLink": [
       { "_Work": "NumberTales", "_DB": "SelfSecondary", "Num": "666-mp" }
     ],
+    "Name_JP": "666(リリス)",
+    "Name_EN": "666(Lilith)",
     "Images": {
       "concept_PNGName": "cnsp_img666",
       "corefolder_PNGPath": ["666/emstk_corefolder666-1"]
     },
-    "Name_JP": "666(リリス)",
-    "Name_EN": "666(Lilith)",
-    "ModelName_JP": "ナンバーテールズ3倍型6号機(666番機)",
-    "ModelName_EN": "NumberTales EXtended By.3 Type Unit.6 (Mk.666)",
-    "ModelNumber": "APHR-NT [x3]VI",
     "FormalName_JP": "ナンバーテールズ666番機",
     "FormalName_EN": "NumberTales #666",
     "CodeName_JP": "六六六",
     "CodeName_EN": "Six-Six-Six",
     "SPCodeName_JP": "魔",
     "SPCodeName_EN": "Faith",
+    "ModelNumber": "APHR-NT [x3]VI",
+    "ModelName_JP": "ナンバーテールズ3倍型6号機(666番機)",
+    "ModelName_EN": "NumberTales EXtended By.3 Type Unit.6 (Mk.666)",
     "GenderType": "FemaleNeutral",
+    "Class": ["マスタートリプル", "フェイタルテールズ"],
     "Height_cm": 150,
-    "ConceptAge": 16,
     "Weight_kg": { "hideText": "非公開" },
     "BustSize": "E",
-    "TailsUnit": [
-      {
-        "TailShapeType": "#TailShapeType_FoxSpecial",
-        "Count": 6,
-        "Segment": 3,
-        "Note_JP": null,
-        "Note_EN": null
-      }
-    ],
-    "Class": ["マスタートリプル", "フェイタルテールズ"],
-    "ThisMasters": [
-      {
-        "value_JP": "中月 ルイス=ノア.ナイターエイド（夜月機関 第9幹部）",
-        "value_EN": "Luis-Noah.Nighteraid Nakatsuki (Yadzuki Org. Executive Director.9)",
-        "_DBLink": {
-          "_Work": "PastDivers",
-          "_DB": "Primary",
-          "Lunar": "Nagatsuki"
-        }
-      }
-    ],
+    "ConceptAge": 16,
     "FirstPersonCalling_JP": "我\n私(わたくし)",
     "FirstPersonCalling_EN": "I (ware; archaic)\nI (formally)",
     "SecondPersonCalling_JP": "汝(なんじ)",
     "SecondPersonCalling_EN": "thou (nanji; archaic)",
     "ThirdPersonCalling_JP": "彼/彼女;*の者;[※名前呼び]",
     "ThirdPersonCalling_EN": "he/she; that/this/whom person/one (as personal); [*by name]",
-    "ForMasterCalling_JP": "契約者様\n[※二人称]",
-    "ForMasterCalling_EN": "my contractor\n[*second-person calling]",
     "Character_JP": "妖艶としていて自信過剰\n大罪的な衝動に駆られることがある",
     "Character_EN": "Enchantingly seductive and overconfident.\nSometimes driven by impulses akin to deadly sins.",
     "Hobby_JP": "ワインを嗜む",
@@ -2539,10 +2517,32 @@
     ],
     "RelationNotes_JP": "開発者専用機では、「66(ムロク)」を「眷属」として労わっているが……",
     "RelationNotes_EN": "In the developer-only build, treats 66(Sixis) as calling a '(cherished) retainer', but...",
+    "Summary_JP": "量産販売型ではあるが、3桁ゾロ目の数字を持つ「マスタートリプル」という特殊クラスの個体で、2桁以内の通常個体と引け目を取らない性能をもつ。\nとりわけその開発専用機ことオリジナル版である彼女は、「6(ムイ)」や「66(ムロク)」とも引け目を取らない感性や優美さの持ち主で、自身の才能に対し自信にあふれている。\nただ、その妖艶としたポテンシャルから時々\"悪魔\"の如く大罪的な衝動に駆られてしまうことがあり……",
+    "Summary_EN": "Although sold as a mass-production model, this unit belongs to the special \"MasterTriple\" class with a three-digit repdigit number and performance that rivals regular two-digit units.\nIn particular, she — the original developer-exclusive build — possesses grace and sensitivity that stand alongside 6(Sics) and 66(Sixis), and is full of confidence in her own talents.\nYet that bewitching potential can at times drive her toward \"devil-like\" impulses of deadly sin...",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxSpecial",
+        "Count": 6,
+        "Segment": 3,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "NumerospecAbout_JP": "自分の本能を認知し開花させる",
     "NumerospecAbout_EN": "Helps one recognize and bloom their own instincts",
-    "Summary_JP": "量産販売型ではあるが、3桁ゾロ目の数字を持つ「マスタートリプル」という特殊クラスの個体で、2桁以内の通常個体と引け目を取らない性能をもつ。\nとりわけその開発専用機ことオリジナル版である彼女は、「6(ムイ)」や「66(ムロク)」とも引け目を取らない感性や優美さの持ち主で、自身の才能に対し自信にあふれている。\nただ、その妖艶としたポテンシャルから時々\"悪魔\"の如く大罪的な衝動に駆られてしまうことがあり……",
-    "Summary_EN": "Although sold as a mass-production model, this unit belongs to the special \"MasterTriple\" class with a three-digit repdigit number and performance that rivals regular two-digit units.\nIn particular, she — the original developer-exclusive build — possesses grace and sensitivity that stand alongside 6(Sics) and 66(Sixis), and is full of confidence in her own talents.\nYet that bewitching potential can at times drive her toward \"devil-like\" impulses of deadly sin..."
+    "ThisMasters": [
+      {
+        "value_JP": "中月 ルイス=ノア.ナイターエイド（夜月機関 第9幹部）",
+        "value_EN": "Luis-Noah.Nighteraid Nakatsuki (Yadzuki Org. Executive Director.9)",
+        "_DBLink": {
+          "_Work": "PastDivers",
+          "_DB": "Primary",
+          "Lunar": "Nagatsuki"
+        }
+      }
+    ],
+    "ForMasterCalling_JP": "契約者様\n[※二人称]",
+    "ForMasterCalling_EN": "my contractor\n[*second-person calling]"
   },
   {
     "Num": "729-sxp",
@@ -2552,9 +2552,9 @@
     "Name_EN": "729(Seventwínina)",
     "FormalName_JP": "ナンバーテールズ特殊個体：セクストパワーサード(同位異格729番機)",
     "FormalName_EN": "NumberTales Special Model: Sextpower-III (Isotope of Mk.729)",
-    "ModelNumber": "APHR-NT SXP.III",
     "CodeName_JP": "七二九",
     "CodeName_EN": "Seven-Two-Nine",
+    "ModelNumber": "APHR-NT SXP.III",
     "GenderType": "Neutral",
     "Belonging": ["百花繚乱研究所", "国際ヒューマノイド技術学会"],
     "Class": ["キャレ型ハイナンバーズ", "キュビクザール型ハイナンバーズ"]
@@ -2567,27 +2567,24 @@
       { "_DB": "SelfSecondary", "Num": "777.Jackpot-mp" }
     ],
     "SameModels_DBLink": [{ "_DB": "SemiPrimary", "Num": "777.Jackpot" }],
+    "Name_JP": "777(ヨロコビ)",
+    "Name_EN": "777(Lucky-sevens)\n777(Luckies)",
     "Images": {
       "concept_PNGName": "cnsp_img777A",
       "conceptAlt_PNGName": ["cnsp_img777C", "cnsp_img777-orig"]
     },
-    "Name_JP": "777(ヨロコビ)",
-    "Name_EN": "777(Lucky-sevens)\n777(Luckies)",
-    "ModelName_JP": "ナンバーテールズ3倍型7号機(777番機)",
-    "ModelName_EN": "NumberTales EXtended By.3 Type Unit.7 (Mk.777)",
-    "ModelNumber": "APHR-NT [x3]VII",
     "FormalName_JP": "ナンバーテールズ777番機",
     "FormalName_EN": "NumberTales #777",
     "CodeName_JP": "七七七",
     "CodeName_EN": "Seven-Seven-Seven",
     "SPCodeName_JP": "㐂",
     "SPCodeName_EN": "Jackpot",
+    "ModelNumber": "APHR-NT [x3]VII",
+    "ModelName_JP": "ナンバーテールズ3倍型7号機(777番機)",
+    "ModelName_EN": "NumberTales EXtended By.3 Type Unit.7 (Mk.777)",
+    "GenderType": "MaleNeutral",
+    "Class": ["マスタートリプル"],
     "Height_cm": 161,
-    "ConceptAge": {
-      "value": 32,
-      "about_JP": "概算値",
-      "about_EN": "Approximation"
-    },
     "Weight_kg": [
       { "value": 50 },
       {
@@ -2597,25 +2594,17 @@
       }
     ],
     "BustSize": "AA",
-    "GenderType": "MaleNeutral",
-    "TailsUnit": [
-      {
-        "TailShapeType": "#TailShapeType_FoxSpecial",
-        "Count": 7,
-        "Segment": 3,
-        "Note_JP": null,
-        "Note_EN": null
-      }
-    ],
-    "Class": ["マスタートリプル"],
+    "ConceptAge": {
+      "value": 32,
+      "about_JP": "概算値",
+      "about_EN": "Approximation"
+    },
     "FirstPersonCalling_JP": "おれ",
     "FirstPersonCalling_EN": "I (rough masc.)",
     "SecondPersonCalling_JP": "あんた",
     "SecondPersonCalling_EN": "you (rough masc.)",
     "ThirdPersonCalling_JP": "彼/彼女;*いつ/*れ;[※名前呼び]",
     "ThirdPersonCalling_EN": "he/she; that/this/who/which/what/them (as personal or objective); [*by name]",
-    "ForMasterCalling_JP": "旦那さん/お嬢さん;[※二人称]",
-    "ForMasterCalling_EN": "young sir/lady; [*second-person calling]",
     "Character_JP": "公私を両立したリア充\n実は勤勉",
     "Character_EN": "A fulfilled social achiever who balances public and private life.\nActually very diligent.",
     "Hobby_JP": "攻略",
@@ -2845,37 +2834,43 @@
         "Note_EN": null
       }
     ],
-    "NumerospecAbout_JP": "自分に拡張された機能に応じた効果をもたらす",
-    "NumerospecAbout_EN": "Produces effects in accordance with functions expanded for oneself",
     "Summary_JP": "量産販売型ではあるが、3桁ゾロ目の数字と通常個体(2桁以内)に劣らない性能をもつ「マスタートリプル」というクラスに属しており、そのなかでもさらに機能拡張性に長けている極めて特殊な個体。\nとりわけその開発専用機ことオリジナル版である彼は、「7(ナナ)」や「77(ナヅナ)」をも遥かに超える知的追求心の持ち主で、興味の持ったことや楽しいものの追求のためなら惜しむことは滅多にない。\nしかしながら良心もあるため、公私の境界を超えた無謀かつ暴虐な行動はあまり勝って出ることはないことから、マスタートリプルの９人の中では健全で真面目なリア充ポジションが定着している。",
     "Summary_EN": "Although sold as a mass-production model, this unit belongs to the \"MasterTriple\" class with a three-digit repdigit number and performance equal to regular two-digit units, and is especially specialized in functional expandability.\nIn particular, the original developer-exclusive build possesses an intellectual drive that far exceeds 7(Sevan) and 77(Sefvens), and rarely hesitates to pursue interests and enjoyable pursuits.\nAt the same time, he has a conscience, so reckless cruelty that crosses public-private boundaries is uncommon, and he is widely regarded among the nine MasterTriples as the healthy and earnest social-success type.",
     "Backgrounds_JP": "「喜」の旧字体（「㐂」）が由来",
-    "Backgrounds_EN": "Derived from the old form of the kanji for joy (\"㐂\")."
+    "Backgrounds_EN": "Derived from the old form of the kanji for joy (\"㐂\").",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxSpecial",
+        "Count": 7,
+        "Segment": 3,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
+    "NumerospecAbout_JP": "自分に拡張された機能に応じた効果をもたらす",
+    "NumerospecAbout_EN": "Produces effects in accordance with functions expanded for oneself",
+    "ForMasterCalling_JP": "旦那さん/お嬢さん;[※二人称]",
+    "ForMasterCalling_EN": "young sir/lady; [*second-person calling]"
   },
   {
     "Num": "777.Jackpot",
     "Progress": "released",
     "isTriple": false,
     "SameModels_DBLink": [{ "_DB": "SemiPrimary", "Num": 777 }],
+    "Name_JP": "777(ヨロコビ)",
+    "Name_EN": "777(Lucky-sevens)\n777(Luckies)",
     "Images": {
       "concept_PNGName": "cnsp_img777B",
       "conceptAlt_PNGName": ["cnsp_img777C", "cnsp_img777-orig"]
     },
-    "Name_JP": "777(ヨロコビ)",
-    "Name_EN": "777(Lucky-sevens)\n777(Luckies)",
-    "ModelName_JP": "ナンバーテールズ特殊個体:ラッキーセブンアール(777番機-ジャックポット)",
-    "ModelName_EN": "NumberTales Special Model: Lucky.7R (Mk.777.Jackpot)",
-    "ModelNumber": "APHR-NT VIIx3.R",
     "FormalName_JP": "ナンバーテールズ777番機-ジャックポット",
     "FormalName_EN": "NumberTales #777.Jackpot",
-    "Height_cm": 161,
-    "ConceptAge": {
-      "value": 32,
-      "about_JP": "概算値",
-      "about_EN": "Approximation"
-    },
-    "BustSize": "AA",
+    "ModelNumber": "APHR-NT VIIx3.R",
+    "ModelName_JP": "ナンバーテールズ特殊個体:ラッキーセブンアール(777番機-ジャックポット)",
+    "ModelName_EN": "NumberTales Special Model: Lucky.7R (Mk.777.Jackpot)",
     "GenderType": "MaleNeutral",
+    "Class": ["マスタートリプル"],
+    "Height_cm": 161,
     "Weight_kg": [
       { "value": 50 },
       {
@@ -2889,16 +2884,12 @@
         "about_EN": "Addon for Amusement Equipment"
       }
     ],
-    "TailsUnit": [
-      {
-        "TailShapeType": "#TailShapeType_FoxSpecial",
-        "Count": 7,
-        "Segment": 3,
-        "Note_JP": null,
-        "Note_EN": null
-      }
-    ],
-    "Class": ["マスタートリプル"],
+    "BustSize": "AA",
+    "ConceptAge": {
+      "value": 32,
+      "about_JP": "概算値",
+      "about_EN": "Approximation"
+    },
     "AppearanceDetail": [
       {
         "Formation": null,
@@ -3124,10 +3115,19 @@
         "Note_EN": null
       }
     ],
-    "NumerospecAbout_JP": "スロットゲーム拡張アドオンにより運勢を娯楽的に見せる",
-    "NumerospecAbout_EN": "Shows fortune in an entertainment-oriented way via a slot-game expansion addon",
     "Summary_JP": "量産販売型ではあるが、3桁ゾロ目の数字と通常個体(2桁以内)に劣らない性能をもつ「マスタートリプル」というクラスに属しており、そのなかでもさらに機能拡張性に長けている極めて特殊な個体。\n拡張サンプルとして同時提供されている「VIIx3.R(ラッキーセブンアール)」型は、背中の拡張I/O制御盤にスロットゲーム機構を搭載しており、娯楽的な場面だけでなくギャンブル依存症の対策などへの運用が想定されている。\n当然ながら 背中の拡張ユニットは取り外しが可能なので、コアフォルダ形態のふんわりとした質感もしっかり残存している。",
-    "Summary_EN": "Although sold as a mass-production model, this unit belongs to the \"MasterTriple\" class with a three-digit repdigit number and performance equal to regular two-digit units, and is especially specialized in functional expandability.\nThe \"VIIx3.R (Lucky Seven-R)\" variant, provided as an expansion sample, equips a slot-game mechanism on the back expansion I/O controller, and is intended not only for entertainment scenes but also for applications such as countermeasures against gambling addiction.\nNaturally, the back expansion unit is detachable, so the soft corefolder-like texture remains intact."
+    "Summary_EN": "Although sold as a mass-production model, this unit belongs to the \"MasterTriple\" class with a three-digit repdigit number and performance equal to regular two-digit units, and is especially specialized in functional expandability.\nThe \"VIIx3.R (Lucky Seven-R)\" variant, provided as an expansion sample, equips a slot-game mechanism on the back expansion I/O controller, and is intended not only for entertainment scenes but also for applications such as countermeasures against gambling addiction.\nNaturally, the back expansion unit is detachable, so the soft corefolder-like texture remains intact.",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxSpecial",
+        "Count": 7,
+        "Segment": 3,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
+    "NumerospecAbout_JP": "スロットゲーム拡張アドオンにより運勢を娯楽的に見せる",
+    "NumerospecAbout_EN": "Shows fortune in an entertainment-oriented way via a slot-game expansion addon"
   },
   {
     "Num": 888,
@@ -3138,15 +3138,15 @@
     ],
     "Name_JP": "888(ムゲン)",
     "Name_EN": "888(Infy)",
-    "ModelName_JP": "ナンバーテールズ3倍型8号機(888番機)",
-    "ModelName_EN": "NumberTales EXtended By.3 Type Unit.8 (Mk.888)",
-    "ModelNumber": "APHR-NT [x3]VIII",
     "FormalName_JP": "ナンバーテールズ888番機",
     "FormalName_EN": "NumberTales #888",
     "CodeName_JP": "八八八",
     "CodeName_EN": "Eight-Eight-Eight",
     "SPCodeName_JP": "（無限）",
     "SPCodeName_EN": "Infinity",
+    "ModelNumber": "APHR-NT [x3]VIII",
+    "ModelName_JP": "ナンバーテールズ3倍型8号機(888番機)",
+    "ModelName_EN": "NumberTales EXtended By.3 Type Unit.8 (Mk.888)",
     "GenderType": "Neutral",
     "Class": ["マスタートリプル"],
     "ThisMasters": [
@@ -3170,19 +3170,31 @@
     ],
     "Name_JP": "999(カンスト)",
     "Name_EN": "999(Counstop)",
-    "ModelName_JP": "ナンバーテールズ改良最終型9号機(999番機)",
-    "ModelName_EN": "NumberTales Final Renovated Type Unit.9 (Mk.999)",
-    "ModelNumber": "APHR-NT [RZ]IX",
     "FormalName_JP": "ナンバーテールズ999番機",
     "FormalName_EN": "NumberTales #999",
     "CodeName_JP": "九九九",
     "CodeName_EN": "Nine-Nine-Nine",
     "SPCodeName_JP": "終",
     "SPCodeName_EN": "Final",
+    "ModelNumber": "APHR-NT [RZ]IX",
+    "ModelName_JP": "ナンバーテールズ改良最終型9号機(999番機)",
+    "ModelName_EN": "NumberTales Final Renovated Type Unit.9 (Mk.999)",
     "GenderType": "Neutral",
+    "Class": ["マスタートリプル"],
     "Height_cm": 155,
-    "ConceptAge": 14,
     "BustSize": "A",
+    "ConceptAge": 14,
+    "FirstPersonCalling_JP": "わらわ",
+    "FirstPersonCalling_EN": "I (warawa; fem. archaic)",
+    "SecondPersonCalling_JP": "お主",
+    "SecondPersonCalling_EN": "thou (onushi; casually archaic)",
+    "ThirdPersonCalling_JP": "*の者;[※名前呼び]",
+    "ThirdPersonCalling_EN": "that one (as personal); [*by name]",
+    "AppearanceDetail": null,
+    "Backgrounds_JP": "量産販売型含め最後のナンバーテールズ\n「99(ツクモ)」直通の後継個体だが…",
+    "Backgrounds_EN": "The final NumberTales unit including the mass-production line.\nA direct successor to 99(Thukumo), but...",
+    "InStory_JP": "記憶喪失系のキャラとされている\n開発専用機では…？",
+    "InStory_EN": "Presented as an amnesiac-type character.\nIn the developer-only build... ?",
     "TailsUnit": [
       {
         "TailShapeType": "#TailShapeType_FoxBranched",
@@ -3192,24 +3204,14 @@
         "Note_EN": null
       }
     ],
-    "AppearanceDetail": null,
-    "Class": ["マスタートリプル"],
-    "FirstPersonCalling_JP": "わらわ",
-    "FirstPersonCalling_EN": "I (warawa; fem. archaic)",
-    "SecondPersonCalling_JP": "お主",
-    "SecondPersonCalling_EN": "thou (onushi; casually archaic)",
-    "ThirdPersonCalling_JP": "*の者;[※名前呼び]",
-    "ThirdPersonCalling_EN": "that one (as personal); [*by name]",
     "ForMasterCalling_JP": "主君",
-    "ForMasterCalling_EN": "my lord",
-    "InStory_JP": "記憶喪失系のキャラとされている\n開発専用機では…？",
-    "InStory_EN": "Presented as an amnesiac-type character.\nIn the developer-only build... ?",
-    "Backgrounds_JP": "量産販売型含め最後のナンバーテールズ\n「99(ツクモ)」直通の後継個体だが…",
-    "Backgrounds_EN": "The final NumberTales unit including the mass-production line.\nA direct successor to 99(Thukumo), but..."
+    "ForMasterCalling_EN": "my lord"
   },
   {
     "Num": "3x11",
     "Progress": "released",
+    "Name_JP": "トレッド\n3×11(トリィレブン)",
+    "Name_EN": "Treidre'\n3×11(Trieleven)",
     "Images": {
       "concept_PNGName": "cnsp_img3x11",
       "corefolder_PNGPath": [
@@ -3218,18 +3220,21 @@
       ],
       "arts_PNGPath": ["corefolders/autumnMoon/art_autumnMoon2025"]
     },
-    "Name_JP": "トレッド\n3×11(トリィレブン)",
-    "Name_EN": "Treidre'\n3×11(Trieleven)",
-    "ModelName_JP": "ナンバーテールズ仮説11号3倍機(3x11番機(仮称))",
-    "ModelName_EN": "NumberTales' Tentative Prototype: NumberTales Unit.11 EXtended By.3 (Mk.3x11(Tentative))",
-    "ModelNumber": "APHR-NT [Px]XI.3",
     "FormalName_JP": "ナンバーテールズ3x11番機(仮称)",
     "FormalName_EN": "NumberTales #3x11(Tentative)",
     "CodeName_JP": "三倍",
     "CodeName_EN": "Threefold",
     "SPCodeName_JP": "(丗三)",
     "SPCodeName_EN": "Triple Eleven",
+    "ModelNumber": "APHR-NT [Px]XI.3",
+    "ModelName_JP": "ナンバーテールズ仮説11号3倍機(3x11番機(仮称))",
+    "ModelName_EN": "NumberTales' Tentative Prototype: NumberTales Unit.11 EXtended By.3 (Mk.3x11(Tentative))",
     "GenderType": "FemaleNeutral",
+    "Class": ["仮設型ハイナンバー"],
+    "Height_cm": 152,
+    "Weight_kg": { "hideText": "非公開" },
+    "BustSize": "D",
+    "ConceptAge": 18,
     "AnivDay": [
       {
         "Day": { "Month": 11, "DayOfMonth": 23 },
@@ -3242,28 +3247,12 @@
         "DayAbout_EN": "Development commemoration"
       }
     ],
-    "Height_cm": 152,
-    "ConceptAge": 18,
-    "Weight_kg": { "hideText": "非公開" },
-    "BustSize": "D",
-    "TailsUnit": [
-      {
-        "TailShapeType": "#TailShapeType_Scorpion",
-        "Count": 3,
-        "Segment": 11,
-        "Note_JP": "先端だけ節の先の色が異なる",
-        "Note_EN": "Only the tips of the segments have different colors"
-      }
-    ],
-    "Class": ["仮設型ハイナンバー"],
     "FirstPersonCalling_JP": "あーし",
     "FirstPersonCalling_EN": "Trie (very casual, in English: by name casually, in Japanese: 'a-shi')",
     "SecondPersonCalling_JP": "あんた",
     "SecondPersonCalling_EN": "guy/gal(s) (anta; very casual)",
     "ThirdPersonCalling_JP": "~君,パイセン",
     "ThirdPersonCalling_EN": "[*by name], senpai (paisen; very casual)",
-    "ForMasterCalling_JP": "ヲタク君",
-    "ForMasterCalling_EN": "otaku-kun",
     "Character_JP": "ヲタクに優しいギャル",
     "Character_EN": "A gyaru who is kind/familiar to otaku",
     "Hobby_JP": "学生と談笑すること",
@@ -3614,14 +3603,6 @@
         "Note_EN": null
       }
     ],
-    "RelationNotes_JP": "同型の「22(フジ)」や同番の「33(ミサ)」とよく絡んでいる",
-    "RelationNotes_EN": "Often interacts with same-type 22(Twin-twina) and same-number 33(Thirthrey)",
-    "NumerospecAbout_JP": "ありのままを表現させる",
-    "NumerospecAbout_EN": "Encourages expression of one's true self",
-    "Summary_JP": "3桁の番号を有する量産型販売型に向けた「3倍型」設計を確立するため、「11(トウイチ)」「22(フジ)」をベースに\"もう一人の33番機\"として試作された個体。\n個性や趣味に寛容なギャル属性を持ち、研究室内のムードメーカとしても一役を買って出ている。\n同番の「33(ミサ)」や姉個体はもちろん、自分の設計が活かされた「マスタートリプル」の９人とも友好的な態度を示す様子が窺われているが、それにより距離感バグを引き起こした個体に四苦八苦している様子が微笑ましいとも噂されている。",
-    "Summary_EN": "A prototype unit produced as \"another Mk.33\" based on 11(Elevan) and 22(Twin-twina), to establish the \"extended by-3 model\" design standard for mass-produced sales units carrying three-digit numbers.\nWith a gyaru trait tolerant of individuality and hobbies, she also serves as a mood-maker in the lab.\nShe appears friendly not only toward same-number 33(Thirthrey) and pioneer units, but also toward all nine MasterTriples that inherited aspects of her design; it is even rumored that her closeness leaves some units struggling with blurred interpersonal distance in an oddly endearing way.",
-    "Backgrounds_JP": "3桁の番号が付与される量産販売型個体のリリースに備えて中間設計として開発された個体",
-    "Backgrounds_EN": "Developed as an intermediate design in preparation for releasing mass-produced commercial units assigned three-digit numbers.",
     "ConversationPattern": {
       "TalkingTone_JP": "フレンドリーで若者言葉を顕著に使う、極めて陽気でギャルらしい話し方をする。ネット文化やサブカルチャーへの知見は深いが、ヲタク特有の口語表現はあまり使わない。ただし自分へ強い好意を向けられると、途端に乙女のように言葉が崩れて恥ずかしがることがある。",
       "TalkingTone_EN": "Speaks in an extremely cheerful, gyaru-like manner, friendly and heavy on youth slang. Although she has deep knowledge of internet culture and subcultures, she rarely uses otaku-specific turns of phrase. However, the moment strong affection is directed at her, her words fall apart and she turns bashful like a maiden.",
@@ -3657,7 +3638,26 @@
           "about_EN": "When flustered by strong affection directed at her"
         }
       ]
-    }
+    },
+    "RelationNotes_JP": "同型の「22(フジ)」や同番の「33(ミサ)」とよく絡んでいる",
+    "RelationNotes_EN": "Often interacts with same-type 22(Twin-twina) and same-number 33(Thirthrey)",
+    "Summary_JP": "3桁の番号を有する量産型販売型に向けた「3倍型」設計を確立するため、「11(トウイチ)」「22(フジ)」をベースに\"もう一人の33番機\"として試作された個体。\n個性や趣味に寛容なギャル属性を持ち、研究室内のムードメーカとしても一役を買って出ている。\n同番の「33(ミサ)」や姉個体はもちろん、自分の設計が活かされた「マスタートリプル」の９人とも友好的な態度を示す様子が窺われているが、それにより距離感バグを引き起こした個体に四苦八苦している様子が微笑ましいとも噂されている。",
+    "Summary_EN": "A prototype unit produced as \"another Mk.33\" based on 11(Elevan) and 22(Twin-twina), to establish the \"extended by-3 model\" design standard for mass-produced sales units carrying three-digit numbers.\nWith a gyaru trait tolerant of individuality and hobbies, she also serves as a mood-maker in the lab.\nShe appears friendly not only toward same-number 33(Thirthrey) and pioneer units, but also toward all nine MasterTriples that inherited aspects of her design; it is even rumored that her closeness leaves some units struggling with blurred interpersonal distance in an oddly endearing way.",
+    "Backgrounds_JP": "3桁の番号が付与される量産販売型個体のリリースに備えて中間設計として開発された個体",
+    "Backgrounds_EN": "Developed as an intermediate design in preparation for releasing mass-produced commercial units assigned three-digit numbers.",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_Scorpion",
+        "Count": 3,
+        "Segment": 11,
+        "Note_JP": "先端だけ節の先の色が異なる",
+        "Note_EN": "Only the tips of the segments have different colors"
+      }
+    ],
+    "NumerospecAbout_JP": "ありのままを表現させる",
+    "NumerospecAbout_EN": "Encourages expression of one's true self",
+    "ForMasterCalling_JP": "ヲタク君",
+    "ForMasterCalling_EN": "otaku-kun"
   },
   {
     "Num": "64-sxp",
@@ -3669,12 +3669,19 @@
     "Name_EN": "Secvier\n64(Secvier)",
     "FormalName_JP": "ナンバーテールズ特殊個体：セクストパワーセカンド(仮説新64番機)",
     "FormalName_EN": "NumberTales Special Model: Sextpower-II (Tentative New-Mk.64)",
-    "ModelNumber": "APHR-NT SXP.II",
     "CodeName_JP": "六四",
     "CodeName_EN": "Six-Four",
     "SPCodeName_JP": "六四",
     "SPCodeName_EN": "Six-Four",
+    "ModelNumber": "APHR-NT SXP.II",
     "GenderType": "Neutral",
+    "Belonging": ["百花繚乱研究所", "国際ヒューマノイド技術学会"],
+    "Class": [
+      "デュアルキャリーズ",
+      "キャレ型ハイナンバーズ",
+      "キュビクザール型ハイナンバーズ",
+      "バーチャリティテールズ"
+    ],
     "AnivDay": [
       {
         "Day": { "Month": 6, "DayOfMonth": 4 },
@@ -3687,13 +3694,6 @@
         "DayAbout_EN": "Development commemoration (Sextpower-type release incident)"
       }
     ],
-    "Belonging": ["百花繚乱研究所", "国際ヒューマノイド技術学会"],
-    "Class": [
-      "デュアルキャリーズ",
-      "キャレ型ハイナンバーズ",
-      "キュビクザール型ハイナンバーズ",
-      "バーチャリティテールズ"
-    ],
     "Backgrounds_JP": "「64(ムトシ)」の不祥事を受け、64番機の再設計個体として密かに開発が進められていた個体。\n3桁番号を持つ量産販売型の開発試験機として外注開発しているハイナンバーズ個体：「キャレ型」シリーズ・「キュビザール型」シリーズの基本設計も担っている。",
     "Backgrounds_EN": "Following the misconduct case of '64(Sixforns)', this unit was secretly developed as a redesigned successor for Mk.64.\nAs an outsourced HighNumbers testbed for mass-production sale models with three-digit numbers, it also serves as a core baseline design for both the 'Carré' series and the 'Kubikzahl' series."
   },
@@ -3704,10 +3704,12 @@
     "Name_EN": "81(Neuf-neuf)\n9²(Neuf-neuf)",
     "FormalName_JP": "ナンバーテールズ キャレ-ネフ(仮説9x9番機)",
     "FormalName_EN": "NumberTales Unit.Carré-9 (Tentative Mk.9x9)",
-    "ModelNumber": "APHR-NT SQ.IX",
     "CodeName_JP": "九×九",
     "CodeName_EN": "Nine Nines",
+    "ModelNumber": "APHR-NT SQ.IX",
     "GenderType": "Neutral",
+    "Belonging": ["百花繚乱研究所", "レゾンデイトルカンパニー"],
+    "Class": ["9倍2桁番(ナインズデュアルズ)", "キャレ型ハイナンバーズ"],
     "AnivDay": [
       {
         "Day": { "Month": 9, "DayOfMonth": 9 },
@@ -3720,8 +3722,6 @@
         "DayAbout_EN": "Development commemoration (High-Numbers development budget plan commemoration)"
       }
     ],
-    "Belonging": ["百花繚乱研究所", "レゾンデイトルカンパニー"],
-    "Class": ["9倍2桁番(ナインズデュアルズ)", "キャレ型ハイナンバーズ"],
     "Backgrounds_JP": "「81(ヤイチ)」らによるハイナンバーズ開発予算計画の一環で見積もり目的で試作設計された個体。",
     "Backgrounds_EN": "A prototype designed for estimation purposes as part of the HighNumbers development budget plan led by 81(Eightone) and related units."
   },
@@ -3736,6 +3736,10 @@
     "sec_SeriesTitle": "D-Vines(ディ-ヴァインズ)",
     "Name_JP": "錦野 舞",
     "Name_EN": "Dancy Actressilk",
+    "RaceType": "Human",
+    "Belonging": ["シンフォニー.XVI(ゼクズィン)"],
+    "Class": ["開発者", "ベヴストザイン課 ヒューマノイド開発部"],
+    "BustSize": "B",
     "Age": 24,
     "AnivDay": [
       {
@@ -3743,12 +3747,6 @@
         "_Search": [{ "hashTag": "DayAbout", "key": "誕生日" }]
       }
     ],
-    "BustSize": "B",
-    "RaceType": "Human",
-    "Belonging": ["シンフォニー.XVI(ゼクズィン)"],
-    "Class": ["開発者", "ベヴストザイン課 ヒューマノイド開発部"],
-    "ForMasterCalling_JP": "クライアントさん",
-    "ForMasterCalling_EN": "Client-san",
     "RelationNotes_JP": "ナンバーテールズ開発者である零(カズナイ)姉弟の後輩。妹:歌嫁は同じくしてかつ百花繚乱研究所のアシスタントを行なっている。",
     "RelationNotes_EN": "Junior to the Norumber siblings, developers of NumberTales. Her sister, Phonia, is also an assistant at the 100 Beauties Lab.",
     "InStory_JP": "シンフォニー.XVI(ゼクズィン)に所属後、量産販売型ナンバーテールズの相場的販売コストを抑えた互換個体ユニットの開発・提供を百花繚乱研究所（の主に零零(カズナイレイ)）と提携して行なっている\nちなみに運命線探偵としての錦野舞は、妹:歌嫁を含めおよそ7年前のパラレル存在に相当する",
@@ -3756,6 +3754,8 @@
     "Relation": {
       "Related": [{ "Num": "∞", "RelationLabel": ["brother|sister"] }]
     },
+    "ForMasterCalling_JP": "クライアントさん",
+    "ForMasterCalling_EN": "Client-san",
     "RelationTo_Primary": {
       "Related": [
         { "Num": 78, "RelationLabel": ["hadInCommision"] },
@@ -3783,6 +3783,9 @@
     "sec_SeriesTitle": "D-Vines(ディ-ヴァインズ)",
     "Name_JP": "錦野 歌嫁",
     "Name_EN": "Phonia Actressilk",
+    "RaceType": "Human",
+    "Class": ["ゼミアシスタント"],
+    "BustSize": "B",
     "Age": 24,
     "AnivDay": [
       {
@@ -3790,11 +3793,6 @@
         "_Search": [{ "hashTag": "DayAbout", "key": "誕生日" }]
       }
     ],
-    "BustSize": "B",
-    "RaceType": "Human",
-    "Class": ["ゼミアシスタント"],
-    "ForMasterCalling_JP": "クライアントさん",
-    "ForMasterCalling_EN": "Client-san",
     "RelationNotes_JP": "ナンバーテールズ開発者である零(カズナイ)姉弟の後輩。姉:舞は同じくしてシンフォニー.XVI(ゼクズィン)に所属し黒薔薇国へ単身赴任している",
     "RelationNotes_EN": "Junior to the Norumber siblings, developers of NumberTales. Her sister, Dancy, belongs to Symphony.XVI(Sechzehn) and is on a solo assignment in the Black Rose Kingdom.",
     "InStory_JP": "百花繚乱研究所の本体である元藤・千歳研究室にてN3US大学の大学院修士課程を卒業後、一時的な就職活動を経て同研究室で博士課程に進学し 主に零百(カズナイハゲム)の作業補助などといったゼミのアシスタントを務めている\nちなみに運命線探偵としての錦野歌嫁は、姉:舞を含めおよそ7年前のパラレル存在に相当する",
@@ -3802,6 +3800,8 @@
     "Relation": {
       "Related": [{ "Num": "%", "RelationLabel": ["brother|sister"] }]
     },
+    "ForMasterCalling_JP": "クライアントさん",
+    "ForMasterCalling_EN": "Client-san",
     "RelationTo_Primary": {
       "Related": [
         { "Num": 8, "RelationLabel": ["hadInCommision"] },
