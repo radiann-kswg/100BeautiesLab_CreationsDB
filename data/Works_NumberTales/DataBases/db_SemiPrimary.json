@@ -2144,6 +2144,54 @@
     ],
     "Summary_JP": "量産販売型ではあるが、3桁ゾロ目の数字を持つ「マスタートリプル」という特殊クラスの個体で、2桁以内の通常個体と引け目を取らない性能をもつ。\nとりわけその開発専用機ことオリジナル版である彼(女)は、4(モチ)や44(シトシ)をも凌駕する実現力の持ち主で、失敗経験のない威厳ある彼(女)の前ではどんな物事も叶えてしまうと極めて高いレヴューを受けている……\"極めて不運かつ想定外の\"ことが起きてしまった場合を除けば。",
     "Summary_EN": "Although sold as a mass-production model, this unit belongs to the special \"MasterTriple\" class with a three-digit repdigit number and performance that rivals regular two-digit units.\nIn particular, ze — the original developer-exclusive build — possesses a manifesting power that even surpasses 4(Forna) and 44(Folfourn), and, having never once failed, receives extremely high praise for making virtually anything come true in zir dignified presence... except for those times when something \"extremely unlucky and unforeseen\" happens to occur.",
+    "ConversationPattern": {
+      "TalkingTone_JP": "「我輩」を一人称に、「貴君」「諸君」「貴殿」と呼びかける格調高く重々しい口調で話す。気高く構えた態度と敬意深さがそのまま表れ、相手には「〜殿」と敬称を付ける。ただし想定外のことが起きて動揺すると、一人称が「僕」、二人称が「君」に崩れ、口調も慌てたものへ変わる。",
+      "TalkingTone_EN": "Ze speaks in a lofty, weighty register, referring to zirself as 'wagahai' and addressing others as 'kikun', 'shokun', or 'kiden'. Zir dignified bearing and deep respectfulness show directly in zir speech, and ze attaches the honorific '-dono' to others' names. When something unexpected happens and ze grows flustered, however, zir first person slips to 'boku' and zir second person to 'kimi', and zir tone turns flustered to match.",
+      "TopicPreference_JP": "理論で説明できる話題を好み、数学や物理の裏付けがある方向へ会話を運びたがる。基礎理論によって証明できる特異点のような題材には特に強い関心を示す。逆に理論に乗らない話題は扱いあぐね、説明を避けるか話を打ち切ろうとする。",
+      "TopicPreference_EN": "Ze favors topics explicable by theory, and likes to steer conversation toward whatever has mathematical or physical backing. Ze shows particularly strong interest in subject matter such as singularities, which fundamental theory can prove. Conversely, ze is at a loss with topics that do not fit established theory, and will either avoid explaining them or try to cut the conversation short.",
+      "TalkFrequency_JP": "自分の得意分野を振られると自ら進んで長く語り、話が長くなって相手から切り上げられることも少なくない。専門的すぎて誰も話題に触れてこないことは自覚しており、相手が興味を示した時は逃すまいと饒舌になる。",
+      "TalkFrequency_EN": "When a topic in zir field of expertise comes up, ze takes the lead and speaks at length — often long enough that the other party cuts the conversation short. Ze is aware that zir subjects are too specialized for anyone else to raise, so when someone does show interest, ze grows voluble, determined not to let the chance slip away.",
+      "PreferredTopics_JP": "論文で読んだ内容や数学の話題、とりわけ微分方程式のような物理学的な代数学の話を好んで持ち出す。所属クラス「スクエアエリート」と平方数の関係についての推測も語りたがる。主人には理知的な成功を授けるという形で話を運ぶ。",
+      "PreferredTopics_EN": "Ze likes to bring up what ze has read in academic papers and topics in mathematics — above all physics-oriented algebra such as differential equations. Ze is also eager to expound zir conjecture about the relationship between zir class, the 'SquareElites', and square numbers. With zir master, ze frames the conversation around bestowing intellectual success.",
+      "AvoidedTopics_JP": "理論に乗らないことや、理論以外の原因で起きた想定外の事態に触れられることを避ける。そうした場面では自分のプライドを守りたいがために様子が不安定になり、口調が崩れて「自分の所為ではない」と弁明する方向へ話を逸らす。",
+      "AvoidedTopics_EN": "Ze avoids things that do not fit established theory, as well as having unforeseen situations — ones arising from causes outside of theory — brought to zir attention. In such moments, zir wish to protect zir own pride makes zir behavior unstable: zir speech breaks down and ze steers the talk toward the excuse that it is 'not by my doing'.",
+      "ConversationNotes_JP": "「スクエアエリート」は「000(チトセ)」との2名のみからなる最小クラスで、キャレ型ハイナンバーズから「尊敬故の称号だ」と与えられたものだと説明する。想定外の事態が起きると一人称が「我輩」から「僕」へ崩れ、咳払い（ｺﾞﾎﾝ）を挟んで「我輩」へ戻すのが癖。",
+      "ConversationNotes_EN": "Ze explains that the 'SquareElites' is the smallest class of all, comprising only zirself and '000(Thouser)', bestowed upon them by the Carré-Type HighNumbers as 'a title born of respect'. When something unforeseen occurs, (zir first person slips from 'wagahai' to 'boku' in Japanese, and) ze has a habit of clearing zir throat (*Ahem*) to force it back to 'wagahai'.",
+      "DialogueExamples": [
+        {
+          "value_JP": "「貴君、もとい提督殿。よくぞ此処へ来てくれた。我輩はナンバーテールズ444番機オリジナルの『444(シテン)』。これより提督殿に理知的な成功を授けよう。」",
+          "value_EN": "\"You there — nay, Admiral. Well have you come hither. I am '444(Quad-emperone)', the original of NumberTales #444. Henceforth I shall bestow intellectual success upon the Admiral.\"",
+          "about_JP": "初対面の挨拶",
+          "about_EN": "Introduction upon first meeting"
+        },
+        {
+          "value_JP": "「理論こそ正義、数学や物理こそ真理。この世界は総て、理論の許で成り立っているのだ。すなわち、理論を完璧に網羅した我輩こそ、物事を完遂できるマスタートリプル最大の逸材なのだ」",
+          "value_EN": "\"Theory is justice; mathematics and physics are truth. This world, in its entirety, stands upon theory. Which is to say: I, who have encompassed theory in perfect entirety, am the greatest talent among the MasterTriples — the one who can see any matter through to completion.\""
+        },
+        {
+          "value_JP": "「貴君も数学の恩恵を知りたいのか？いいだろう。まずは崇高な数学の中でも最も物理学で恩恵を受ける微分方程式から…………え、『そこまで難しいものは遠慮しておく』？……そ、そうか……ま、また来るがよい」",
+          "value_EN": "\"So you too wish to know the blessings of mathematics? Very well. Let us begin with differential equations, which of all sublime mathematics confer the greatest benefit upon physics...... Eh? 'I'll pass on anything that difficult'? ...I-I see... Th-then, do come again.\""
+        },
+        {
+          "value_JP": "「『スクエアエリート』は、我輩と000(チトセ)殿の２名のみからなる最小クラスだ。キャレ型ハイナンバーの者らから『尊敬故の称号だ』と与えられたクラスだが、我輩の推測からするに、平方数の数字列と強い関係があると思われ…………『話が長くなるから続きはまた今度でいい』？……そうか」",
+          "value_EN": "\"The 'SquareElites' is the smallest class of all, comprising only two: myself and Sir.000(Thouser). It is a class bestowed upon us by those of the Carré-Type HighNumbers as, in their words, 'a title born of respect' — though by my own conjecture, it bears a strong relation to sequences of square numbers, and thus...... 'This is getting long, so save the rest for another time'? ...I see.\"",
+          "about_JP": "「000(チトセ)」および所属クラス「スクエアエリート」について（ちなみに：平方数（自然数の2乗）で下3桁がゾロ目になるパターンは'000'と'444'だけである）",
+          "about_EN": "About '000(Thouser)' and zir own class, the 'SquareElites' (Note: the only square numbers (squares of natural numbers) whose last three digits form a repdigit are '000' and '444')"
+        },
+        {
+          "value_JP": "「なんと！『四元数(クォータニオン)についての理解を深めたい』とな？いいだろう！（……だれも話題に触れてこない分類だから、うまく話すようにしないと…… ※超小声）ｺﾞﾎﾝ!! まず、この４つの数はだな－－」",
+          "value_EN": "\"Amazing! You wish to deepen your understanding of 'quaternions', you say? Very well! (...No one ever touches on this category, so I must be sure to present it well... *very quietly*) *Ahem*!! First, these four numbers are——\"",
+          "about_JP": "数学に理解のある人に話題を振られた時",
+          "about_EN": "When someone with an understanding of mathematics brings up the topic"
+        },
+        {
+          "value_JP": "「我輩の完璧な計算によると、このプログラムは精巧に動き天体位置の計算を容易に－－って、はぁ?! 取得できてないだとぉ!? 馬鹿な!! 僕のデータにないぞ!!? 僕の導き出した理論に間違いなど!!! エラーコードは…………『API取得失敗』？……あー…………心配するな、つまり少なくとも僕－－ｺﾞﾎﾝ!! 我輩の所為ではないぞ！」",
+          "value_EN": "\"By my perfect calculations, this program shall run with precision and render the computation of celestial positions a trivial matter—— wha, huh?! It hasn't retrieved anything?! Impossible!! That's not in my data!!? There's no way the theory I worked out is wrong!!! The error code is...... 'API retrieval failure'? ...Ahh...... Don't worry. I mean, at the very least, it's my—— *Ahem*!! It is NOT BY my doing!\"",
+          "about_JP": "（理論以外の原因で）想定外の事態が起きた時",
+          "about_EN": "When something unforeseen occurs (from a cause outside of theory)"
+        }
+      ]
+    },
     "TailsUnit": [
       {
         "TailShapeType": "#TailShapeType_FoxSpecial",

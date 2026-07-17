@@ -17976,6 +17976,48 @@
         "Note_EN": null
       }
     ],
+    "ConversationPattern": {
+      "TalkingTone_JP": "粗野で威勢のいい男口調で話す。勇敢で果敢な好青年気質がそのまま表れた直截な物言いで、自我の強さから語尾が断定的・挑戦的になりやすい。親しい相手には茶化すような軽口も多い。",
+      "TalkingTone_EN": "He speaks in a rough, spirited masculine tone, referring to himself as 'ore'. His brave and bold young man's temperament shows directly in his blunt way of speaking, and his strong sense of self tends to make his sentence endings assertive and challenging. With those he is close to, he often throws in teasing, flippant remarks.",
+      "TopicPreference_JP": "感情が昂るものを好むため、勝負事や熱量のある話題には自分から乗っていきやすい。「できない」で終わる話題には食い下がり、実現する方向へ話を引き戻そうとする。逆に絶対に不可能なことだと突きつけられると途端に不機嫌になる。",
+      "TopicPreference_EN": "Since he favors anything that gets the blood pumping, he readily jumps into topics about contests or matters with real heat behind them. He refuses to let a topic end at 'it can't be done,' and tries to steer the conversation back toward making it happen. Conversely, the moment he is confronted with something that is absolutely impossible, his mood turns sour.",
+      "TalkFrequency_JP": "自分の興味がある話題には積極的に話しかけていくが、会話そのものを回すのは得意ではなく、雑談を長く続けることは少ない。用件や勝負の誘いは自分から持ち掛ける一方、煙たがられている相手とは会話が続かない。",
+      "TalkFrequency_EN": "He actively speaks up on topics that interest him, but he is not good at carrying a conversation itself and rarely keeps small talk going for long. While he is the one to bring up business or a challenge to a match, conversations do not last with those who find him a nuisance.",
+      "PreferredTopics_JP": "ゲームセンターのアーケード巡りやアナログゲームの話題、勝負の誘いを持ち掛けることが多い。主人の「叶えたいこと」を聞き出す話題にも自分から入っていく。出目操作の腕前を自慢げに語ることもあるが、本人はそれをイカサマとは認めない。",
+      "PreferredTopics_EN": "He often brings up arcade hopping, tabletop games, and invitations to a match. He also takes the initiative in drawing out what his master wishes to make happen. He sometimes boasts about his skill at rigging dice rolls, though he himself refuses to call it cheating.",
+      "AvoidedTopics_JP": "絶対に不可能なことを前提にした話題を嫌い、諦めを促す流れになると露骨に避ける。「ただ自我が強いだけ」「諦めが悪すぎる」といった自身への評価に触れられることも好まず、はぐらかすか話題を勝負事へ逸らす。",
+      "AvoidedTopics_EN": "He dislikes topics premised on something being absolutely impossible, and plainly avoids any turn of conversation that urges him to give up. He has no taste for being confronted with the assessments made of him — 'he's just strong-willed,' 'he never knows when to give up' — and will either dodge the subject or steer it off toward a contest.",
+      "ConversationNotes_JP": "（「33(ミサ)」を含め）\"理論や知識の受け売りだけでできると豪語する\"ような相手には意地でも負けたくないという姿勢を崩さない。仕掛けた細工を全て見通されている（「52(イツギ)」などの）相手へは、口では悔しがりながらも相手の腕を認めている場合もある。会話で「できない」と言われると、それを覆す方向へ話を持っていく癖がある。",
+      "ConversationNotes_EN": "He refuses to give in to those who boast that they can do something 'just by parroting theories and knowledge' (including '33(Thirthrey)'). With those who see through all the tricks he sets up (like '52(Fiftwis)'), he may verbally express frustration while still acknowledging their skill. When told 'it can't be done' in conversation, he has a habit of steering the discussion toward proving otherwise.",
+      "DialogueExamples": [
+        {
+          "value_JP": "「オレはナンバーテールズ44番機『44(シトシ)』。できねぇことがあったら一番にオレのとこへ持ち掛けてくれ、解決するための一つや二つは手伝ってやるぜ」",
+          "value_EN": "\"I'm NumberTales #44, '44(Folfourn)'. If there's something you can't pull off, bring it to me first — I'll help you out with a trick or two to get it sorted.\"",
+          "about_JP": "契約時の自己紹介",
+          "about_EN": "Introduction upon first meeting"
+        },
+        {
+          "value_JP": "「イカサマとは酷え言い方だな、アナログゲームはこういうのも含めてのゲームだろ？ちょっとくらい出目操作したって怒られるほどでもねぇよ」",
+          "value_EN": "\"'Cheating' is a harsh way to put it. Tabletop games include this kind of thing as part of the game, don't they? Rigging the dice a little isn't worth getting chewed out over.\""
+        },
+        {
+          "value_JP": "「へぇ、面白いじゃねえか。ま、どちらにせよオレが勝つがな」",
+          "value_EN": "\"Heh, now that's interesting. Well, either way, I'm the one who wins.\""
+        },
+        {
+          "value_JP": "「『33(ミサ)がまたヘソ曲げて泣いて帰っていた』？知らねーな、オレはちょっとアイツとのアナログゲーム勝負で裏技使って勝っただけだ。オレはあんな『頭だけ使っていれば何でもできます』系のヤツを見ると、意地でも負けたくねえ主義なんだ」",
+          "value_EN": "\"'33(Thirthrey) went home sulking and in tears again'? No idea. All I did was use a little trick to win our tabletop match. When I see one of those 'I can do anything as long as I use my head' types, it's my policy to refuse to lose, no matter what.\"",
+          "about_JP": "犬猿の仲な「33(ミサ)」について",
+          "about_EN": "About '33(Thirthrey)', with whom he gets along like cats and dogs"
+        },
+        {
+          "value_JP": "「52(イツギ)とはよく雀卓を囲ってんだが……アイツ、オレが確実に細工しかけたものを全部見通してきやがる。なかなかたいしたもんだぜ……」",
+          "value_EN": "\"I sit at the mahjong table with 52(Fiftwis) pretty often, but... she sees right through every single trick I set up, however sure I was of it. Gotta hand it to her...\"",
+          "about_JP": "仲の良い？「52(イツギ)」について",
+          "about_EN": "About '52(Fiftwis)', with whom he is on good terms...?"
+        }
+      ]
+    },
     "RelationNotes_JP": "「33(ミサ)」に自我が強いだけなどと評され毛嫌いされている\n「72(ナフタ)」を筆頭に煙たがれる\n「52(イツギ)」と友好的だが、すれ違い気味なようで…？",
     "RelationNotes_EN": "Is evaluated by '33(Thirthrey)' as merely strong-willed, and strongly disliked\nSeen as a nuisance primarily by '72(Sevtwína)' and others\nFriendly with '52(Fiftwis)', but it seems they're talking past each other...?",
     "Summary_JP": "「想いを具現化する」\"数秘的加護\"を持ち、これまで数多くの主人が掲げてきた熱意や祈願を叶えてきたナンバーテールズの「ミッションインポッシブル」。\n勇敢で果敢な好青年で、正義感と実現意欲が群を抜いて高い姿勢は、どの主人からも熱い支持を賜っている。\nしかし彼の同クラス「マスターテールズ９」の特定個体からは、「ただ自我が強いだけ」「諦めが悪すぎる」という辛辣な指摘を受けているらしい。\nなお「男（の娘）」である、一応は。",
@@ -18027,10 +18069,15 @@
           "Comments_EN": "\"This one... stop pestering me about every little thing.\"",
           "RelationLabel": ["unmatched", "classmate"]
         },
-        { "Num": 52, "RelationLabel": ["wellMatched_maybe"] },
+        {
+          "Num": 52,
+          "RelationLabel": ["wellMatched_maybe"],
+          "Comments": "「やっぱアイツの目には誤魔化せねえもんがあるぜ、チクショウ……！」",
+          "Comments_EN": "\"There's no way to fool her eyes, damn it...!\""
+        },
         {
           "Num": 66,
-          "Comments": "「…へぇ、以外と解ってるじゃねーか」",
+          "Comments": "「…へぇ、意外と解ってるじゃねーか」",
           "Comments_EN": "\"...Huh. Surprisingly, she gets it.\"",
           "RelationLabel": ["wellMatched", "classmate"]
         },
@@ -21177,6 +21224,12 @@
             "alternative|redesign",
             "classmate"
           ]
+        },
+        {
+          "Num": 44,
+          "RelationLabel": ["abusing"],
+          "Comments": "「ちょっと乱雑だけど、それも含めて\"楽しませて\"もらっているよ」",
+          "Comments_EN": "\"He's a bit messy, but I 'enjoy it' all the same.\""
         }
       ],
       "Commented": [
