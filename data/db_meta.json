@@ -696,7 +696,8 @@
         "#Progress_Archived": {
           "Progress": "archived",
           "Progress_JP": "更新停止",
-          "isForSecondary": null
+          "isForSecondary": null,
+          "AI_Unready": true
         }
       },
       "$Def_AbilityStats": {
