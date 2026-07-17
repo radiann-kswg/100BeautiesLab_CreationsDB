@@ -179,28 +179,53 @@ https://database.numbertales-radiann.net/data/Works_NumberTales/Images/DB_Primar
 
 ## 7. 付与対象の判定
 
-| キャラの状態                                     | AIHints 付与                                                                                                                                                  |
-| ------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 画像 / イラスト**あり**                          | **必須**。`common.identity_tags` を 3〜5個必ず含める。対応する `forms.<form>` を付与する                                                                      |
-| 画像 / イラスト**なし** (設定のみ)               | 任意。付与する場合でも `forms.<form>.reference_images` は省略し、`identity_tags` は設定から推測した範囲に限る                                                 |
-| `"Progress": "notProceeded"`                     | **付与不要**。scaffold 生成時に `skipped-progress-notproceeded` として soft skip する（`--include-not-proceeded` で対象化）。既存 AIHints の保守モードは妨げない |
-| ある形態の画像のみ存在 (例: corefolder 画像のみ) | 存在する形態の `forms.<form>` のみを付与し、もう一方は省略                                                                                                    |
+| キャラの状態                                                  | AIHints 付与                                                                                                                                                                                                            |
+| ------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 画像 / イラスト**あり**                                       | **必須**。`common.identity_tags` を 3〜5個必ず含める。対応する `forms.<form>` を付与する                                                                                                                                |
+| 画像 / イラスト**なし** (設定のみ)                            | 任意。付与する場合でも `forms.<form>.reference_images` は省略し、`identity_tags` は設定から推測した範囲に限る                                                                                                           |
+| `Progress` が `AI_Unready` と宣言された段階                   | **付与不要**。scaffold 生成時に `skipped-progress` として soft skip する（`--include-ai-unready` で対象化）。既存 AIHints の保守モードは妨げない                                                                        |
+| ある形態の画像のみ存在 (例: corefolder 画像のみ)              | 存在する形態の `forms.<form>` のみを付与し、もう一方は省略                                                                                                                                                              |
 | `AI_Optout: true` が設定（DB または `_Secondaries` カテゴリ） | **付与不可**。DB レベルは `tools/patch-aihints.mjs` の全モードが exit 2 で拒否、カテゴリ単位は該当レコードを `skipped-ai-optout`（緊急時のみ `--force-ai-optout` でバイパス）。詳細は `docs/api-sw-spec.md` §5.5 を参照 |
 
 ### 「付与不可」と「付与不要」は別軸（重要）
 
 上表の 2 つの否定は意味が異なり、実装も分かれている。
 
-| | `AI_Optout: true` | `Progress: notProceeded` |
-| --- | --- | --- |
-| 意味 | **権利上の可否**（AI 学習・LLM 取り込みへの opt-out 表明） | **データの充填状況**（キャラデザ未着手） |
-| 強さ | 付与不可（hard refusal） | 付与不要（soft skip） |
-| 挙動 | DB レベルは exit 2 / カテゴリ単位はレコードスキップ。**既存 AIHints の保守モードも止める** | 新規 scaffold のみ見送り。`--resync-structural` 等の保守は妨げない |
-| バイパス | `--force-ai-optout` | `--include-not-proceeded` |
+|          | `AI_Optout: true`                                                                          | `AI_Unready: true`                                                 |
+| -------- | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------ |
+| 意味     | **権利上の可否**（AI 学習・LLM 取り込みへの opt-out 表明）                                 | **進捗の成熟度**（まだ AIHints を作る段階でない）                  |
+| 宣言場所 | `db_meta.json` の `Databases.#DB_*` / `_Secondaries[]`                                     | `db_meta.json` の `$EnumDef_Progress` の各エントリ                 |
+| 強さ     | 付与不可（hard refusal）                                                                   | 付与不要（soft skip）                                              |
+| 挙動     | DB レベルは exit 2 / カテゴリ単位はレコードスキップ。**既存 AIHints の保守モードも止める** | 新規 scaffold のみ見送り。`--resync-structural` 等の保守は妨げない |
+| バイパス | `--force-ai-optout`                                                                        | `--include-ai-unready`                                             |
 
-フラグを混ぜないこと。「未着手だから AI へ渡したくない」を `AI_Optout` で表現すると、対外的には**権利上の opt-out 表明**として読まれてしまう（`docs/api-sw-spec.md` §5.5 の「意味論の境界」参照）。
+フラグを混ぜないこと。「まだ描けてないから AI へ渡したくない」を `AI_Optout` で表現すると、対外的には**権利上の opt-out 表明**として読まれてしまう（`docs/api-sw-spec.md` §5.5 の「意味論の境界」参照）。
 
-> なお `notProceeded` かつ画像ありのレコードは現状 3 DB とも 0 件で、実質は `skipped-no-image` が先に吸収している（`tests/patch-aihints.gates.test.js` が前提を固定）。Progress ゲートは、未完成レコードに WIP 画像が 1 枚置かれた瞬間にガードが無音で消えるのを防ぐための保険であり、その場合に上表 1 行目（画像あり → 必須）ではなく本行（notProceeded → 付与不要）を優先する、という決定でもある。
+#### `AI_Unready` の判定（スキーマ駆動）
+
+対象語彙はツールに持たず、`$EnumDef_Progress` の宣言から解決する（`tools/patch-aihints.mjs` の `loadAiUnreadyProgressValues()`）。
+解決順は **① `AI_Unready` の明示 → ② 未宣言なら `isForSecondary === true`**。
+
+2026-07-17 時点で対象は 8 語:
+
+| 判定 | Progress                                                                      | 根拠                                    |
+| ---- | ----------------------------------------------------------------------------- | --------------------------------------- |
+| 弾く | `notProceeded` / `stillTentative` / `nowCreating` / `archived`                | `AI_Unready: true` の明示               |
+| 弾く | `founded` / `accepted` / `accepted\nnowRemaking` / `accepted\nremadeReleased` | `isForSecondary: true` のフォールバック |
+| 通す | `unprofiled` / `unreleased` / `released(beta)` / `released` / `nowRecreating` | `AI_Unready: false` の明示              |
+
+> `nowCreating`（制作中）は弾くが `nowRecreating`（再制作中）は通す。後者は既存デザインの作り直しであり、
+> 素材が既にあるため。
+
+**新しい進捗段階を追加するときは `AI_Unready` を明示すること**（`isForSecondary: true` の場合のみ省略可）。
+どちらの網にもかからない値は黙って「許可側」へ落ちるため、`tests/data.shape.test.js` がこれを強制する。
+
+> なお `AI_Unready` な Progress かつ画像ありの **scaffold 候補**は現状 SemiPrimary の Num 100（`stillTentative`）のみで、
+> Primary / SelfSecondary では 0 件（`tests/patch-aihints.gates.test.js` が前提を固定）。
+> Primary の Num `10-alt` は `stillTentative` かつ画像ありだが既に AIHints を持つため、前段の
+> `skipped-existing` で落ちてゲートには到達しない。
+> Progress ゲートは、未完成レコードに WIP 画像が 1 枚置かれた瞬間にガードが無音で消えるのを防ぐ保険であり、
+> その場合に上表 1 行目（画像あり → 必須）ではなく本行（`AI_Unready` → 付与不要）を優先する、という決定でもある。
 
 ---
 

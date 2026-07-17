@@ -5,6 +5,9 @@
 > **追記（2026-07-17 後半）**: 本作業のコミット（`b2fd210` AIHints判定基盤整備）後、`develop` の
 > **フィールド順整列（`$slot` マーカー）**を取り込む一方向マージ（`0bfa996`）を実施した。
 > 衝突 3 件の解消内容は末尾「`develop` 取り込みマージ」節を参照。
+>
+> さらにその後、本ログ「2.」で新設した Progress ゲートを **`$EnumDef_Progress` の `AI_Unready` へ
+> スキーマ駆動化**した（末尾「`AI_Unready` へのスキーマ駆動化」節）。
 
 ## 目的
 
@@ -272,6 +275,89 @@ develop 側エントリの末尾に、上記 1. の宣言順の理由を注記�
   `SemiPrimary` `patched=9` / `SelfSecondary` `patched=7`
 - AIHints 固有ファイル（`tools/patch-aihints.mjs` / `migrate-aihints.mjs` / `docs/aihints-spec.md` / テスト 4 本）が
   マージで消えていないことを確認（develop 側は同ファイル群を一切変更していないため、そもそも削除は起き得ない）
+
+---
+
+## `AI_Unready` へのスキーマ駆動化（2026-07-17 さらに後半）
+
+上記「2.」で新設した Progress ゲートは対象が `notProceeded` 1 語のハードコードだった。
+User の要望（`stillTentative` / `nowCreating` / `archived` と `isForSecondary: true` も弾く）に対し、
+「**判定フラグを `$EnumDef_Progress` の各エントリへ持たせる**」というフィードバックを受けて移行した。
+
+### キー名: `AI_Optout` を再利用せず `AI_Unready` を新設
+
+フィードバック原案は `AI_Optout` の再利用だったが、キー名のみ変更した。
+
+|          | `AI_Optout`                          | `AI_Unready`                      |
+| -------- | ------------------------------------ | --------------------------------- |
+| 意味     | 権利上の**付与不可**                 | 進捗が未成熟のため**付与不要**    |
+| 宣言場所 | `Databases.#DB_*` / `_Secondaries[]` | `$EnumDef_Progress` の各エントリ  |
+| 挙動     | **全モードで exit 2**                | **scaffold パス限定の soft skip** |
+| バイパス | `--force-ai-optout`                  | `--include-ai-unready`            |
+
+理由: `docs/api-sw-spec.md` §5.5 が `AI_Optout` を「AI 学習・LLM 取り込みへの opt-out **表明**」＝
+外部スクレイパー向けシグナルと定義しており、`#Progress_Yet`（未着手）に立てると
+**「未着手キャラは権利的に AI 学習拒否」という誤った対外宣言**になる（完成すれば全面許可される）。
+**これは本ログ「2.」で解消したバグそのもの**であり、同名を一段下で再利用すると混同が戻る。
+加えて同名で強さが違う（exit 2 vs soft skip）のは罠。
+
+### データ側は User が先行実装（`cdb76e5` → `455cc8b`）
+
+`isForSecondary: false` の 8 件に `AI_Unready` を明示し、`isForSecondary: true` の 4 件は
+フォールバックへ委ねる設計。当初 **`#Progress_Archived` が「未宣言 かつ `isForSecondary: null`」で
+両方の網から漏れて**いた（`db_Secondary` の 31 件が `_Commons` から `archived` を継承しているため実害あり）が、
+`455cc8b`「忘れてた」で `AI_Unready: true` が追加され解消。
+
+**この一件が「どちらの網にもかからない値は黙って許可側へ落ちる」という失敗モードの実例**となったため、
+テストで恒久検知することにした（下記）。
+
+### コード側（本作業。`data/` は 1 バイトも変更していない）
+
+- `tools/patch-aihints.mjs` に `loadAiUnreadyProgressValues(work)` を追加（export）。
+  既存の `loadMergedVarsDef()` を再利用し、**① `AI_Unready` の明示 → ② 未宣言なら `isForSecondary === true`** の順で解決。
+  **ツールに語彙のハードコードは無い。** work 単位でキャッシュ。
+- ゲート本体を `record.Progress === 'notProceeded'` から `aiUnreadyProgress.has(record.Progress)` へ。
+  解決は work 単位のためループ外で 1 回だけ実行。
+- 改名: `--include-not-proceeded` → `--include-ai-unready` / `skipped-progress-notproceeded` → `skipped-progress` /
+  `CliOptions.includeNotProceeded` → `includeAiUnready`（`--help` / status typedef も追従）。
+- **注記の是正**: 旧コメント「`stillTentative` はガードしない（既に AIHints を持つ正当なレコードが存在する）」は
+  本変更で誤りになるため書き換えた。既存 AIHints が無傷なのは前段の `skipped-existing` が拾うためであり、
+  Progress の種類とは無関係（`--force` 併用時はゲートが効く）。
+
+### 波及調査（User の「今のうちに手を打っておきたい」への回答）
+
+| 観点                  | 結論                                                                                                                                                                                                                                                                                                         |
+| --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `pkg/` 3 クライアント | **対応不要**。enum エントリのキーを列挙するコードが 1 つも無く、meta を素通しするだけ。三言語パリティの追従もゼロ。`pkg/mcp/` は meta ツール自体が無い                                                                                                                                                       |
+| スキーマ宣言          | **不要**。`$EnumDef_*` のエントリ形状を縛る schema は存在しない（`$MetaType` は `$DefType` フィールド宣言用）                                                                                                                                                                                                |
+| UI / 描画             | **影響なし**。ラベル解決は全て `entry[<fieldBase>_JP]` 形式のキー名指定。唯一の総当たり走査（`pages/characters.js:5039-5051`）も `_JP`/`_EN` サフィックス gate + 値の型不一致で二重に届かない                                                                                                                |
+| テスト                | 塞いでいない（`entry?.Progress` のみ射影し boolean を捨てる）                                                                                                                                                                                                                                                |
+| **外部公開**          | **公開される（隠す層が無い）**。`migrate.mjs` が `data/**` を無加工で R2 へ、`worker.js` の `/meta` がキー間引きなしで素通し（`/works` は明示射影するのと対照的）。GitHub Pages も `db_meta.json` を直接配信。→ **`docs/api-sw-spec.md` §5.5 に「`AI_Unready` は権利上の可否を一切表さない」と明記して対処** |
+
+### テスト
+
+- `tests/data.shape.test.js`: **全 `$EnumDef_Progress` エントリが「`AI_Unready` の明示」か「`isForSecondary: true`」の
+  いずれかを満たす**ことを検証（`archived` 類の漏れを恒久検知。新しい進捗段階の追加時に判断を強制）。
+- `tests/patch-aihints.gates.test.js`: 前提を `AI_Unready` ベースへ一般化 + `loadAiUnreadyProgressValues()` の解決テスト。
+  - ★ **一般化の際にテストが実データの見落としを捕まえた**: Primary の Num `10-alt` は `stillTentative` かつ画像ありで、
+    素朴な「`AI_Unready` ∩ 画像あり = ∅」は成立しない。しかし同レコードは AIHints 保持済みで前段の
+    `skipped-existing` が拾うためゲートに到達しない。**判定対象は「scaffold 候補」（AIHints 未保持）に限る**と
+    正確化し、あわせて「既存 AIHints 保持レコードはゲートに到達しない」ことを別テストで固定した。
+
+### 検証
+
+- **`npm test`: 44 ファイル / 586 件すべて成功**（+10 件）
+- **Primary は全 6 モードでベースライン一致** / `db_Primary.json` の `git diff` 空 / AIHints **92 件**不変
+- `SemiPrimary`: `patched=9 → 8` + `skipped-progress=1`（Num `100` = `stillTentative`）
+- `SelfSecondary`: `patched=7` **不変**
+- **`--force-ai-optout` 付き `db_Secondary`: `patched=37 → 0`**。内訳は `accepted`×6（`isForSecondary` フォールバック）+
+  `archived`×31（`_Commons` 継承）→ **2 つの機構が両方とも実機で動くことの実証**
+- **両ガードの「破って赤」確認済み**:
+  - enum 網羅ガード → `#Progress_Archived` の `AI_Unready` を外すと
+    `#Progress_Archived (Progress="archived", isForSecondary=null)` と原因ごと特定して失敗
+  - Progress ゲート → 画像ありの `released` を `stillTentative` にすると `patched` が減り `skipped-progress` が増え、
+    `--include-ai-unready` で復帰
+- `git diff -- data/`: **空**（本作業はコードのみ）
 
 ## 参考
 

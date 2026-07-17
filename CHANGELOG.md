@@ -1,5 +1,18 @@
 # 最新のリファクタリング・仕様変更履歴
 
+### feat: AIHints の付与見送り判定を `$EnumDef_Progress` の `AI_Unready` へスキーマ駆動化 (2026-07-17)
+
+同日の「`AI_Optout` を権利軸へ純化」（下記エントリ）で新設した Progress ゲートは、対象が `notProceeded` 1 語のハードコードだった。これを **`stillTentative` / `nowCreating` / `archived` / 二次創作向けの進捗段階**へ広げるにあたり、JS へ語彙リストを積むのではなく **`$EnumDef_Progress` の各エントリへ判定フラグを宣言**する方式（「スキーマ駆動（最優先）」原則）へ移行した。
+
+- **`AI_Unready`（新規・`$EnumDef_Progress` の各エントリ）**: その進捗段階が AIHints 生成に未成熟かを宣言する。**`AI_Optout` を再利用しない**のが要点 — 後者は `docs/api-sw-spec.md` §5.5 が「AI 学習・LLM 取り込みへの opt-out **表明**」（外部スクレイパー向けシグナル）と定義する**権利軸**であり、`#Progress_Yet`（未着手）に立てると「未着手キャラは権利的に AI 学習拒否」という誤った対外宣言になる（デザインが完成すれば全面的に許可される）。同名で強さも違う（`AI_Optout` は全モード exit 2 / `AI_Unready` は scaffold パス限定の soft skip）ため、名前を分けた。
+- **解決（`tools/patch-aihints.mjs` の `loadAiUnreadyProgressValues()`）**: 既存の `loadMergedVarsDef()`（グローバル + 作品ローカル合流）を再利用し、**① `AI_Unready` の明示 → ② 未宣言なら `isForSecondary === true` へフォールバック**の順で解決。ツールに語彙のハードコードは無い。現在の対象は 8 語（`notProceeded` / `stillTentative` / `nowCreating` / `archived` は明示、`founded` / `accepted` / `accepted\nnowRemaking` / `accepted\nremadeReleased` はフォールバック）。`nowCreating`（制作中）は弾くが `nowRecreating`（再制作中）は既存デザインの作り直しのため通す。
+- **★ 「どちらの網にもかからない値が黙って許可側へ落ちる」失敗モードをテストで恒久検知**: `#Progress_Archived` は `isForSecondary: null` のためフォールバックに引っかからず、`AI_Unready` の明示が無いと素通りしていた（`db_Secondary` の 31 件が `_Commons` から `archived` を継承しているため実害あり）。`tests/data.shape.test.js` に「全エントリが `AI_Unready` の明示か `isForSecondary: true` のいずれかを満たす」ガードを追加し、新しい進捗段階の追加時に判断を強制する。
+- **改名**: `--include-not-proceeded` → `--include-ai-unready` / status `skipped-progress-notproceeded` → `skipped-progress`（対象が 8 語へ広がり旧名が実態を表さなくなったため）。
+- **波及調査の結果、コード追従は本ツールのみ**: `pkg/` 3 クライアント（nodejs/python/csharp）は **enum エントリのキーを列挙するコードが 1 つも無く** meta を素通しするだけのため対応不要（三言語パリティの追従もゼロ）。`$EnumDef_*` のエントリ形状を縛る schema も存在しない。UI のラベル解決は全て `entry[<fieldBase>_JP]` 形式のキー名指定で、唯一の総当たり走査も `_JP`/`_EN` サフィックス gate + 型不一致で二重に届かない。
+- **⚠️ `AI_Unready` は公開される**（隠す層が存在しない）: `migrate.mjs` が `data/**` を無加工で R2 へ上げ、`worker.js` の `/meta` はキー間引きなしで素通し（`/works` が明示射影するのと対照的）。GitHub Pages も `db_meta.json` を直接配信する。→ **`docs/api-sw-spec.md` §5.5 に「`AI_Unready` は権利上の可否を一切表さない。AI 学習の意思表示は `AI_Optout` のみ」と明記**して対処（`AI_Unready: false` を「AI 学習の許諾」と誤読される向きが危険なため）。
+- **影響範囲**: `tools/patch-aihints.mjs` / `tests/data.shape.test.js` / `tests/patch-aihints.gates.test.js` / `docs/{api-sw-spec,ai-hints-usage,schema-meta-processing}.md` / `.github/copilot-instructions.md`。**`data/` は 1 バイトも変更していない**（`AI_Unready` の宣言は先行コミット `cdb76e5` / `455cc8b` で投入済み）。
+- 確認: `npm test` — 44 ファイル / **586 件**すべて成功（`addon-ai-tag`）。**Primary は全 6 モードでベースラインと一致**（`patched=3, skipped-existing=92, skipped-no-image=10`）・`db_Primary.json` の `git diff` 空・AIHints 92 件不変。`SemiPrimary` は `patched=9 → 8`（Num `100` = `stillTentative` をゲート）、`SelfSecondary` は `patched=7` 不変、**`--force-ai-optout` 付き `db_Secondary` は `patched=37 → 0`**（内訳 `accepted`×6 = フォールバック / `archived`×31 = `_Commons` 継承 → 両機構の実証）。両ガードとも「わざと壊して赤くなること」まで確認。
+
 ### fix: AIHints の対象を NumberTales `DB_SemiPrimary` / `DB_SelfSecondary` へ拡張できるよう基盤整備（`AI_Optout` を権利軸へ純化） (2026-07-17)
 
 `DB_SemiPrimary` / `DB_SelfSecondary`（いずれも User 自身が作者）も AI 学習の対象にしたい、という要件に対する**基盤整備のみ**の対応。`AppearanceDetail` の入力が追い付いていないため、**AIHints の実データは 1 件も投入していない**（seed は `AppearanceDetail` が揃ってから）。

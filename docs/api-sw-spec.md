@@ -15,11 +15,11 @@
 
 本リポジトリの API は以下の二層で提供される。
 
-| 層                  | エンドポイント                                      | 実装                                                                       | データソース                  | 主な用途                               |
-| ------------------- | --------------------------------------------------- | -------------------------------------------------------------------------- | ----------------------------- | -------------------------------------- |
+| 層                  | エンドポイント                                      | 実装                                                                          | データソース                  | 主な用途                               |
+| ------------------- | --------------------------------------------------- | ----------------------------------------------------------------------------- | ----------------------------- | -------------------------------------- |
 | **実 API（公開）**  | `database.numbertales-radiann.net/api/v1/*`         | Cloudflare Workers `creationsdb-api`（`pkg/cloudflare/worker.js`, `develop`） | R2（JSON ミラー）+ D1（FTS5） | 外部クライアント・curl・モバイルアプリ |
-| **実 API（AI 用）** | `database.numbertales-radiann.net/api/ai/*`         | Cloudflare Workers `creationsdb-api-ai`（`addon-ai-tag`）                    | R2 + D1 + D1 `aihints`        | サークル関係者・Cloud Run 画像生成     |
-| **疑似 API**        | `(同一オリジン)/api/v1/*` `/pages/v1/*` `/svc/v1/*` | Service Worker (`pages/sw.js` 等)                                            | GitHub Pages 静的 JSON        | ブラウザ・キャラシート UI              |
+| **実 API（AI 用）** | `database.numbertales-radiann.net/api/ai/*`         | Cloudflare Workers `creationsdb-api-ai`（`addon-ai-tag`）                     | R2 + D1 + D1 `aihints`        | サークル関係者・Cloud Run 画像生成     |
+| **疑似 API**        | `(同一オリジン)/api/v1/*` `/pages/v1/*` `/svc/v1/*` | Service Worker (`pages/sw.js` 等)                                             | GitHub Pages 静的 JSON        | ブラウザ・キャラシート UI              |
 
 > **`/api/ai/` について**: `addon-ai-tag` ブランチ専用の Worker が提供するサークル関係者向けエンドポイント。
 > `aihints` エンドポイント（`/:work/:db/aihints`）は `Authorization: Bearer <AI_ACCESS_TOKEN>` が必要。
@@ -319,13 +319,13 @@ UI と enrich/search は、可能な限りこの `db_type.json($DefType)` に追
 
 他フラグとの粒度比較:
 
-| 項目 | `isPrivate: true` | `DB_Hidden: true` | `Works_Hidden: true` | `AI_Optout: true` |
-|------|------------------|-------------------|---------------------|------------------|
-| 粒度 | レコード単位 | DB 全体 | 作品全体 | DB 全体 または `_Secondaries` カテゴリ単位 |
-| 適用場所 | `db_*.json` の各レコード | `db_meta.json` の `Databases.#DB_<DbName>` | グローバル `db_meta.json` の `CreationWorks.#Works_<WorkName>` | 作品別 `db_meta.json` の `Databases.#DB_<DbName>` 直下、および `#DB_<DbName>._Secondaries[]` の各要素 |
-| API 配信への影響 | 対象レコードを除外 | 該当DBを 404 | 作品ごと 404 | 影響なし（配信は継続）。ただし `migrate-aihints.mjs` が D1 への AIHints 投入を抑止 |
-| AI 補助ツール（`tools/patch-aihints.mjs`）への影響 | なし | （配信遮断のため事実上不可） | （同左） | DB レベルは全モードで exit 2 / カテゴリ単位は該当レコードを `skipped-ai-optout`（いずれも `--force-ai-optout` でバイパス） |
-| AI 学習 opt-out 表明 | なし | なし | なし | あり |
+| 項目                                               | `isPrivate: true`        | `DB_Hidden: true`                          | `Works_Hidden: true`                                           | `AI_Optout: true`                                                                                                          |
+| -------------------------------------------------- | ------------------------ | ------------------------------------------ | -------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
+| 粒度                                               | レコード単位             | DB 全体                                    | 作品全体                                                       | DB 全体 または `_Secondaries` カテゴリ単位                                                                                 |
+| 適用場所                                           | `db_*.json` の各レコード | `db_meta.json` の `Databases.#DB_<DbName>` | グローバル `db_meta.json` の `CreationWorks.#Works_<WorkName>` | 作品別 `db_meta.json` の `Databases.#DB_<DbName>` 直下、および `#DB_<DbName>._Secondaries[]` の各要素                      |
+| API 配信への影響                                   | 対象レコードを除外       | 該当DBを 404                               | 作品ごと 404                                                   | 影響なし（配信は継続）。ただし `migrate-aihints.mjs` が D1 への AIHints 投入を抑止                                         |
+| AI 補助ツール（`tools/patch-aihints.mjs`）への影響 | なし                     | （配信遮断のため事実上不可）               | （同左）                                                       | DB レベルは全モードで exit 2 / カテゴリ単位は該当レコードを `skipped-ai-optout`（いずれも `--force-ai-optout` でバイパス） |
+| AI 学習 opt-out 表明                               | なし                     | なし                                       | なし                                                           | あり                                                                                                                       |
 
 ### `_Secondaries` カテゴリ単位の `AI_Optout`
 
@@ -339,15 +339,36 @@ UI と enrich/search は、可能な限りこの `db_type.json($DefType)` に追
 
 `AI_Optout` は**権利上の可否**（AI 学習・LLM 取り込みへの opt-out 表明）のみを表します。**データの充填状況を表すフラグではありません。**
 
-「キャラクターデザインが未着手なので AI へ空のデータを渡したくない」は別軸であり、次の 2 つが担います。
+「キャラクターデザインがまだ AI へ流す段階ではない」は別軸であり、次の 2 つが担います。
 
-| 軸 | 意味 | 実装 |
-|---|---|---|
-| `AI_Optout: true` | 権利上の**付与不可** | `tools/patch-aihints.mjs` が exit 2 / レコードスキップ。`migrate-aihints.mjs` が D1 投入を抑止 |
-| `Progress: notProceeded` | 未着手のため**付与不要** | `tools/patch-aihints.mjs` が `skipped-progress-notproceeded`（soft skip。`--include-not-proceeded` で対象化） |
-| 画像が 1 枚も無い | 生成の材料が無い | `tools/patch-aihints.mjs` が `skipped-no-image` |
+| 軸                 | 意味                           | 宣言場所                                                 | 実装                                                                                           |
+| ------------------ | ------------------------------ | -------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
+| `AI_Optout: true`  | 権利上の**付与不可**           | `Databases.#DB_<DbName>` / `#DB_<DbName>._Secondaries[]` | `tools/patch-aihints.mjs` が exit 2 / レコードスキップ。`migrate-aihints.mjs` が D1 投入を抑止 |
+| `AI_Unready: true` | 進捗が未成熟のため**付与不要** | `General.$VarsDef.$EnumDef_Progress` の各エントリ        | `tools/patch-aihints.mjs` が `skipped-progress`（soft skip。`--include-ai-unready` で対象化）  |
+| 画像が 1 枚も無い  | 生成の材料が無い               | （宣言ではなく実データ）                                 | `tools/patch-aihints.mjs` が `skipped-no-image`                                                |
 
 「付与不可」と「付与不要」は別物です（`docs/ai-hints-usage.md` §7）。前者は権利判断なので保守モードも含めて全モードを止めますが、後者は新規付与だけを見送るものであり、既存 AIHints の保守（`--resync-structural` 等）は妨げません。
+
+#### `AI_Unready`（`$EnumDef_Progress` の各エントリ）
+
+進捗段階そのものに「AIHints を作るには未成熟」という宣言を持たせ、ツール側に語彙のハードコードを置かないための仕組みです。
+
+```jsonc
+// data/db_meta.json の General.$VarsDef.$EnumDef_Progress
+"#Progress_Yet":      { "Progress": "notProceeded", "Progress_JP": "未着手",   "isForSecondary": false, "AI_Unready": true },
+"#Progress_Released": { "Progress": "released",     "Progress_JP": "公開済み", "isForSecondary": false, "AI_Unready": false }
+```
+
+- 解決順は **① `AI_Unready` の明示 → ② 未宣言なら `isForSecondary === true` へフォールバック**（二次創作向けの進捗段階は明示せずとも対象になる）。
+- **どちらの網にもかからない値は黙って「許可側」へ落ちます。** `isForSecondary: null` の `#Progress_Archived` が実際にこの穴に落ちていたため、`tests/data.shape.test.js` が「全エントリが `AI_Unready` の明示か `isForSecondary: true` のいずれかを満たす」ことを強制します。新しい進捗段階を追加する際は必ずどちらかを宣言してください。
+- 判定は `_Commons` 継承を**適用した後**の `Progress` に対して行われます（`Progress` をレコードに書かず `_Commons` の既定値へ委ねる DB が実在するため）。
+
+> **⚠️ 外部利用者向けの注意: `AI_Unready` は権利上の可否を一切表しません。**
+> `data/db_meta.json` は R2 / Workers の `/meta`・SW の `/api/v1/meta` / `/api/v1/varsdef`・GitHub Pages の
+> いずれからも**そのまま公開**されるため、`AI_Optout` と `AI_Unready` の 2 つの `AI_*` boolean が同一ファイル内に並びます。
+> **AI 学習・LLM 取り込みに関する意思表示は `AI_Optout` のみ**です。`AI_Unready: false` は
+> 「その進捗段階なら AIHints を生成してよい」という**内部ツールの都合**を述べているだけで、
+> AI 学習の許諾を意味しません。権利面の判断は必ず `AI_Optout` と `guideline.md` を参照してください。
 
 適用状況（2026-07-17 時点）:
 

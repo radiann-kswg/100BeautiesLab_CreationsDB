@@ -5,14 +5,18 @@
  *   AIHints の付与可否は 3 層で判定される。本テストは、この分離が依拠している
  *   「実データ上の前提」を CI に固定し、前提が崩れたら気づけるようにする。
  *
- *     1. `AI_Optout`               … 権利上の可否（付与不可 / exit 2）
- *     2. `skipped-no-image`        … データ充填ガード（画像が 1 枚も無い）
- *     3. `Progress: notProceeded`  … 未着手ガード（付与不要 / soft skip）
+ *     1. `AI_Optout`（`Databases.#DB_*` / `_Secondaries[]`）… **権利上の可否**（付与不可 / exit 2）
+ *     2. `skipped-no-image`                                … データ充填ガード（画像が 1 枚も無い）
+ *     3. `AI_Unready`（`$EnumDef_Progress` の各エントリ）    … **進捗の未成熟**（付与不要 / soft skip）
+ *
+ *   1 と 3 は別軸。前者は対外的な権利表明、後者は内部の充填状況であり、
+ *   後者は既存 AIHints の保守モードを止めない。詳細は `docs/api-sw-spec.md` §5.5。
  *
  *   ★ 固定している前提:
- *     (a) `notProceeded` かつ画像ありのレコードは存在しない
- *         → 3 の Progress ゲートは今日 no-op であり、`AI_Optout` を権利専用へ純化しても
- *           未着手レコードの保護は失われない。これが崩れた日から 3 が初めて仕事をする。
+ *     (a) `AI_Unready` な Progress かつ画像ありのレコードは Primary / SelfSecondary に存在しない
+ *         → 両 DB では Progress ゲートが no-op であり、`AI_Optout` を権利専用へ純化しても
+ *           出力は変わらない。これが崩れた日からゲートが初めて仕事をする。
+ *         （SemiPrimary は Num 100 が `stillTentative` で該当するため対象外。下の専用テストで固定）
  *     (b) Primary の AIHints の identity_tags に `TODO:` 接頭辞は無い
  *         → `classTagsOf`（Class 辞書 fallback を持つ）の唯一の呼び出し経路である
  *           `--fill-todos` は Primary に到達しない。クラス辞書の変更が Primary の
@@ -23,6 +27,7 @@ import { describe, it, expect } from 'vitest';
 import { readFileSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { loadAiUnreadyProgressValues } from '../tools/patch-aihints.mjs';
 
 const repoRoot = dirname(dirname(fileURLToPath(import.meta.url)));
 
@@ -48,18 +53,42 @@ function hasAnyImage(rec) {
 }
 
 describe('ゲートの前提条件（実データ）', () => {
-    it('`Progress: notProceeded` かつ画像ありのレコードは存在しない（Progress ゲートが今日 no-op である根拠）', () => {
+    it('scaffold 候補に `AI_Unready` な Progress は Primary / SelfSecondary に存在しない（両 DB で Progress ゲートが no-op である根拠）', () => {
+        // ★ 判定対象は「scaffold 候補」= 画像があり、かつ AIHints を**まだ持たない**レコードだけ。
+        //   既存 AIHints 保持レコードは前段の skipped-existing で落ちるためゲートに到達しない。
+        //   実際 Primary の Num "10-alt" は stillTentative かつ画像ありだが AIHints 保持済みで、
+        //   ゲートの影響を受けない（＝この条件を外すと前提を過大に見積もることになる）。
+        const unready = loadAiUnreadyProgressValues('NumberTales');
         const offenders = [];
-        for (const dbFile of TARGET_DBS) {
+        for (const dbFile of ['db_Primary.json', 'db_SelfSecondary.json']) {
             for (const rec of loadDb(dbFile)) {
-                if (rec?.Progress === 'notProceeded' && hasAnyImage(rec)) {
-                    offenders.push(`${dbFile} Num=${JSON.stringify(rec.Num)}`);
+                if (rec?.AIHints) continue;
+                if (unready.has(rec?.Progress) && hasAnyImage(rec)) {
+                    offenders.push(`${dbFile} Num=${JSON.stringify(rec.Num)} Progress=${JSON.stringify(rec.Progress)}`);
                 }
             }
         }
-        // ここが落ちたら「未着手なのに画像がある」レコードが現れたということ。
+        // ここが落ちたら「まだ AI へ流す段階でないのに画像がある新規レコード」が現れたということ。
         // Progress ゲートが初めて実効を持つので、意図した状態か確認すること。
         expect(offenders).toEqual([]);
+    });
+
+    it('既存 AIHints を持つ `AI_Unready` なレコードはゲートに到達しない（skipped-existing が前段のため無傷）', () => {
+        // Primary の Num "10-alt"（stillTentative・画像あり・AIHints 保持）が該当。
+        // ゲート追加後も skipped-existing で落ち、既存 AIHints は書き換わらない。
+        const unready = loadAiUnreadyProgressValues('NumberTales');
+        const protectedRecs = loadDb('db_Primary.json')
+            .filter((r) => r?.AIHints && unready.has(r?.Progress))
+            .map((r) => r.Num);
+        expect(protectedRecs).toEqual(['10-alt']);
+    });
+
+    it('SemiPrimary の Num 100 は `stillTentative` でゲート対象（ゲートが実データで効いていることの固定）', () => {
+        const unready = loadAiUnreadyProgressValues('NumberTales');
+        const gated = loadDb('db_SemiPrimary.json')
+            .filter((r) => unready.has(r?.Progress) && hasAnyImage(r) && !r?.AIHints)
+            .map((r) => r.Num);
+        expect(gated).toEqual([100]);
     });
 
     it('Primary の AIHints の identity_tags に TODO: 接頭辞は無い（クラス辞書変更が Primary に到達しない根拠）', () => {
@@ -105,5 +134,56 @@ describe('AI_Optout の宣言（db_meta.json）', () => {
         for (const sec of secs) {
             expect(sec.AI_Optout).toBe(false);
         }
+    });
+});
+
+describe('loadAiUnreadyProgressValues: $EnumDef_Progress からの解決', () => {
+    const unready = loadAiUnreadyProgressValues('NumberTales');
+
+    it('AI_Unready: true を明示した進捗段階を拾う', () => {
+        // User が明示的にガード対象として挙げた 4 語
+        expect(unready.has('notProceeded')).toBe(true);
+        expect(unready.has('stillTentative')).toBe(true);
+        expect(unready.has('nowCreating')).toBe(true);
+        expect(unready.has('archived')).toBe(true);
+    });
+
+    it('AI_Unready 未宣言でも isForSecondary: true なら拾う（フォールバック）', () => {
+        // 二次創作向けの 4 語は AI_Unready を宣言していないが、フォールバックで拾われる
+        expect(unready.has('founded')).toBe(true);
+        expect(unready.has('accepted')).toBe(true);
+        expect(unready.has('accepted\nnowRemaking')).toBe(true);
+        expect(unready.has('accepted\nremadeReleased')).toBe(true);
+    });
+
+    it('AI_Unready: false の進捗段階は通す', () => {
+        expect(unready.has('released')).toBe(false);
+        expect(unready.has('released(beta)')).toBe(false);
+        expect(unready.has('unreleased')).toBe(false);
+        expect(unready.has('unprofiled')).toBe(false);
+        // nowCreating（制作中）はガードするが nowRecreating（再制作中）は許可（User 判断）
+        expect(unready.has('nowRecreating')).toBe(false);
+    });
+
+    it('ブロック対象はちょうど 8 語', () => {
+        expect(unready.size).toBe(8);
+    });
+
+    it('`archived` は isForSecondary: null なのでフォールバックでは拾えず、AI_Unready の明示が効いている', () => {
+        // ★ この 1 件が「どちらの網にもかからず黙って許可側へ落ちる」失敗モードの実例だった。
+        //   AI_Unready の明示を外すとフォールバック（=== true）に引っかからず素通りする。
+        //   網羅性そのものは tests/data.shape.test.js のガードが担保する。
+        const entry = JSON.parse(readFileSync(join(repoRoot, 'data/db_meta.json'), 'utf-8'))
+            .General.$VarsDef.$EnumDef_Progress['#Progress_Archived'];
+        expect(entry.isForSecondary).toBeNull();
+        expect(entry.AI_Unready).toBe(true);
+    });
+
+    it('存在しない作品でもグローバル分を返す（欠損耐性）', () => {
+        expect(loadAiUnreadyProgressValues('NoSuchWorkXYZ').has('notProceeded')).toBe(true);
+    });
+
+    it('同一 work の再呼び出しでキャッシュが効く', () => {
+        expect(loadAiUnreadyProgressValues('NumberTales')).toBe(loadAiUnreadyProgressValues('NumberTales'));
     });
 });

@@ -266,7 +266,9 @@
   "$EnumDef_Progress": {
     "#Progress_Released": {
       "Progress": "released",
-      "Progress_JP": "公開済み"
+      "Progress_JP": "公開済み",
+      "isForSecondary": false,
+      "AI_Unready": false
     }
   },
   "#List_RaceType": [
@@ -283,6 +285,18 @@
 - SW の `mergeMetaAndTypeVars()` が `db_meta.json` の辞書と合成する
 - `EnrichmentProcessor.getWorkContext()` が global/work の meta/type すべてから辞書を合成する
 - `#ListLink_*` の補助情報を wrapper object に補完する
+
+エントリのキー集合を縛る schema はありません（`$MetaType` は `$DefType` の**フィールド**宣言用）。
+ラベル解決は `entry[<fieldBase>_JP]` / `[<fieldBase>_EN]` のようにキー名を指定して読むため、
+**判定用の補助キーを足しても UI / API の描画には現れません**。現在ある補助キー:
+
+| キー             | 用途                                                                                                                          |
+| ---------------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| `isForSecondary` | その値が二次創作向けの段階か（`$EnumDef_Progress`）。`AI_Unready` 未宣言時のフォールバックにも使う                            |
+| `AI_Unready`     | その進捗段階が AIHints 生成に未成熟か（`$EnumDef_Progress`）。詳細は `docs/api-sw-spec.md` §5.5 / `docs/ai-hints-usage.md` §7 |
+
+> ⚠️ `db_meta.json` は R2 / Workers の `/meta`・SW の `/api/v1/meta`・GitHub Pages から**そのまま公開**されます。
+> 補助キーは描画されないだけで**外部からは読めます**。内部専用のつもりで機微な値を置かないでください。
 
 補足:
 

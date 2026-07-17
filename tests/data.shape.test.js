@@ -101,6 +101,30 @@ describe('database shapes', () => {
     expect(violations).toEqual([]);
   });
 
+  it('every $EnumDef_Progress entry declares AI_Unready explicitly or is isForSecondary', () => {
+    // AIHints の scaffold ゲート（tools/patch-aihints.mjs の loadAiUnreadyProgressValues）は
+    //   ① AI_Unready の明示 → ② 未宣言なら isForSecondary === true
+    // の順で「AIHints 付与不要な進捗段階」を解決する。
+    //
+    // ★ どちらの網にもかからない値は、黙って「許可側」へ落ちる。
+    //   実際に `#Progress_Archived` が `isForSecondary: null` かつ AI_Unready 未宣言で
+    //   この穴に落ちていた（2026-07-17 に AI_Unready: true を追加して解消）。
+    //   新しい進捗段階を足したとき同じ失敗を繰り返さないよう、判断を強制する。
+    const dbMeta = load('data/db_meta.json');
+    const enumDef = dbMeta?.General?.$VarsDef?.$EnumDef_Progress ?? {};
+    expect(Object.keys(enumDef).length).toBeGreaterThan(0);
+
+    const undecided = [];
+    for (const [key, entry] of Object.entries(enumDef)) {
+      const explicit = typeof entry?.AI_Unready === 'boolean';
+      const secondaryFallback = entry?.isForSecondary === true;
+      if (!explicit && !secondaryFallback) {
+        undecided.push(`${key} (Progress=${JSON.stringify(entry?.Progress)}, isForSecondary=${JSON.stringify(entry?.isForSecondary)})`);
+      }
+    }
+    expect(undecided).toEqual([]);
+  });
+
   it('every _Commons.Progress in db_meta.json is declared in $EnumDef_Progress', () => {
     // レコード側だけでなく `_Commons` の既定値も検証する。
     // `_Commons` は DB / `_Secondaries` カテゴリの入れ子構造を取り、

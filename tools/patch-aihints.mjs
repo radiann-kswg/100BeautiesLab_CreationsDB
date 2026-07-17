@@ -76,9 +76,10 @@ const PUBLIC_ORIGIN = 'https://database.numbertales-radiann.net';
  * @property {boolean} applyAppearanceDetail  true なら `AppearanceDetail`（構造化フィールド）を正として AIHints の AI タグ系を再構築する。
  *   詳細は buildAihintsFromAppearanceDetail 参照
  * @property {boolean} forceAiOptout  true なら db_meta.json の `AI_Optout: true` ガードをバイパスする（緊急時のみ）
- * @property {boolean} includeNotProceeded  true なら `Progress: notProceeded`（キャラデザ未着手）のレコードも
- *   scaffold の対象に含める。既定 false = 未着手はスキップ（docs/ai-hints-usage.md §7）。
- *   `forceAiOptout`（権利上の可否のバイパス）とは別軸のフラグである点に注意
+ * @property {boolean} includeAiUnready  true なら `$EnumDef_Progress` で `AI_Unready` と宣言された
+ *   進捗段階（未着手・仮公開・制作中・更新停止・二次創作向け等）のレコードも scaffold の対象に含める。
+ *   既定 false = 未成熟な段階はスキップ（docs/ai-hints-usage.md §7）。
+ *   `forceAiOptout`（権利上の可否のバイパス）とは**別軸**のフラグである点に注意
  * @property {Array<any>|null} secondaryDefs  `db_meta.json` の `_Secondaries` 配列そのもの。main() が注入し、
  *   レコード単位の解決は findSecondaryDef() が行う（AI_Optout と _Commons を 1 回の解決から取るため）
  * @property {any|null} dbCommons  `db_meta.json` の DB レベル `_Commons`。main() が注入
@@ -109,7 +110,7 @@ function parseArgs(argv) {
         visionResultsMap: null,
         applyAppearanceDetail: false,
         forceAiOptout: false,
-        includeNotProceeded: false,
+        includeAiUnready: false,
         verbose: false,
     };
     for (let i = 0; i < argv.length; i++) {
@@ -137,7 +138,7 @@ function parseArgs(argv) {
             case '--force-palette': opts.forcePalette = true; break;
             case '--apply-vision-results': opts.applyVisionResults = true; break;
             case '--force-ai-optout': opts.forceAiOptout = true; break;
-            case '--include-not-proceeded': opts.includeNotProceeded = true; break;
+            case '--include-ai-unready': opts.includeAiUnready = true; break;
             case '--verbose': case '-v': opts.verbose = true; break;
             case '--help': case '-h': printHelpAndExit(); break;
             default:
@@ -268,9 +269,9 @@ Options:
                       未入力スロットのみを埋め、確定済みの値は上書きしない
                       vision-results.json の形式は VisionResult typedef を参照
   --force-ai-optout   db_meta.json の 'AI_Optout: true' ガードをバイパスする（緊急時のみ）
-  --include-not-proceeded
-                      'Progress: notProceeded'（キャラデザ未着手）のレコードも scaffold 対象に含める
-                      （既定は付与不要としてスキップ。--force-ai-optout とは別軸の判定）
+  --include-ai-unready
+                      $EnumDef_Progress で 'AI_Unready' と宣言された進捗段階のレコードも scaffold 対象に含める
+                      （既定は付与不要としてスキップ。--force-ai-optout〈権利〉とは別軸の判定）
                       未指定時は AI_Optout: true の DB への書き込みを exit 2 で拒否する
   -v, --verbose       詳細ログ
   -h, --help          このヘルプを表示
@@ -1001,6 +1002,44 @@ export function loadMergedClassDictEN(work) {
     ]);
     classDictCache.set(work, merged);
     return merged;
+}
+
+/** work 単位で AI_Unready な Progress 値の集合をキャッシュする */
+const aiUnreadyCache = new Map();
+
+/**
+ * AIHints の新規付与を見送るべき Progress 値の集合を `$EnumDef_Progress` から解決する。
+ *
+ * 判定の**正はスキーマ側**（`data/db_meta.json` の `General.$VarsDef.$EnumDef_Progress`）であり、
+ * 本ツールは語彙のハードコードを持たない。作品ローカルの拡張にも追従できるよう
+ * `loadMergedVarsDef()`（グローバル + 作品ローカルの合流）経由で読む。
+ *
+ * 解決順:
+ *   ① `AI_Unready` の明示（boolean）
+ *   ② 未宣言なら `isForSecondary === true` へフォールバック
+ *      （二次創作向けの進捗段階は AIHints の新規付与対象にしない。
+ *        `AI_Unready` を明示しなくても拾えるようにするための保険）
+ *
+ * ★ `AI_Unready` は**権利上の可否を一切表さない**（それは `Databases.#DB_*` の `AI_Optout` の役割）。
+ *   本フラグは「その進捗段階は AIHints を作るには未成熟」という充填状況の宣言であり、
+ *   scaffold パスの soft skip にのみ効く。詳細は `docs/api-sw-spec.md` §5.5。
+ *
+ * @param {string} work
+ * @returns {Set<string>} AI_Unready と判定された Progress 値の集合
+ */
+export function loadAiUnreadyProgressValues(work) {
+    if (aiUnreadyCache.has(work)) return aiUnreadyCache.get(work);
+    const enumDef = loadMergedVarsDef(work)?.$EnumDef_Progress ?? {};
+    const out = new Set();
+    for (const entry of Object.values(enumDef)) {
+        if (!isObject(entry) || typeof entry.Progress !== 'string') continue;
+        const unready = (typeof entry.AI_Unready === 'boolean')
+            ? entry.AI_Unready
+            : entry.isForSecondary === true;
+        if (unready) out.add(entry.Progress);
+    }
+    aiUnreadyCache.set(work, out);
+    return out;
 }
 
 /**
@@ -1760,7 +1799,7 @@ function stringifyAihintsBlock(aihints) {
 /**
  * @typedef {Object} PatchResult
  * @property {number} num
- * @property {'patched'|'skipped-existing'|'skipped-no-image'|'skipped-progress-notproceeded'|'overwritten'|'refs-fixed'|'todos-filled'|'todos-unchanged'|'schema-upgraded'|'schema-unchanged'|'appearancedetail-applied'|'appearancedetail-unchanged'|'appearancedetail-cleared'|'appearancedetail-no-source'|'skipped-no-aihints'} status
+ * @property {'patched'|'skipped-existing'|'skipped-no-image'|'skipped-progress'|'overwritten'|'refs-fixed'|'todos-filled'|'todos-unchanged'|'schema-upgraded'|'schema-unchanged'|'appearancedetail-applied'|'appearancedetail-unchanged'|'appearancedetail-cleared'|'appearancedetail-no-source'|'skipped-no-aihints'} status
  * @property {string} [note]
  */
 
@@ -3753,6 +3792,9 @@ function patchFileText(text, opts) {
     const results = [];
     const ranges = locateTopLevelRecords(text);
 
+    // scaffold ゲート用。work 単位で決まるためループ外で 1 回だけ解決する。
+    const aiUnreadyProgress = loadAiUnreadyProgressValues(opts.work);
+
     // レコード末尾から先頭へ向かって差し込むことで、前方のインデックスを安定保持。
     for (let i = ranges.length - 1; i >= 0; i--) {
         const { openIdx, closeIdx } = ranges[i];
@@ -3991,21 +4033,28 @@ function patchFileText(text, opts) {
             continue;
         }
 
-        // docs/ai-hints-usage.md §7: `Progress: notProceeded`（キャラデザ未着手）は AIHints 付与不要。
-        // この「未着手を AI 学習へ流さない」意思表示は、これまで `_Secondaries.AI_Optout: true` が
+        // docs/ai-hints-usage.md §7: 進捗段階が未成熟なレコードは AIHints 付与不要。
+        // 「まだ AI へ流す段階ではない」意思表示は、これまで `_Secondaries.AI_Optout: true` が
         // 代理していた（#DB_SelfSecondary の catch-all）。AI_Optout を権利上の可否専用へ純化する
         // にあたり、その意味論をここで明示的に引き受ける。
         //
+        // 判定対象は `$EnumDef_Progress` の `AI_Unready`（未宣言なら `isForSecondary`）で宣言される。
+        // 語彙は本ツールに持たない（loadAiUnreadyProgressValues 参照）。
+        //
         // ★ 必ず画像ゲートの「後段」に置くこと。前段に置くと、これまで skipped-no-image に
-        //   落ちていたレコードが skipped-progress-notproceeded へ移り、集計が変わってしまう。
+        //   落ちていたレコードが skipped-progress へ移り、集計が変わってしまう。
         // ★ 「付与不要」であって「付与不可」ではないため exit 2 にはしない（soft skip）。
         //   AI_Optout（付与不可 = 権利）とは別軸であり、フラグも分けている。
-        // ★ `stillTentative` はガードしない（既に AIHints を持つ正当なレコードが存在する）。
-        if (record.Progress === 'notProceeded' && !opts.includeNotProceeded) {
+        // ★ 参照するのは `_Commons` 継承を適用した後の record であること（applyCommonsToRecord は上流）。
+        //   Progress をレコードに明示せず `_Commons` の既定値へ委ねる DB（#DB_Secondary の 31 件など）が
+        //   実在するため、生レコードだけを見ると取りこぼす。
+        // ★ 既存 AIHints を持つレコードは前段の skipped-existing で先に落ちるため、本ゲートが
+        //   既存の AIHints を壊すことはない（ただし --force 併用時はここに到達し、ゲートが効く）。
+        if (aiUnreadyProgress.has(record.Progress) && !opts.includeAiUnready) {
             results.push({
                 num,
-                status: 'skipped-progress-notproceeded',
-                note: 'Progress=notProceeded (docs/ai-hints-usage.md §7). --include-not-proceeded で対象化',
+                status: 'skipped-progress',
+                note: `Progress=${record.Progress} は AI_Unready (docs/ai-hints-usage.md §7). --include-ai-unready で対象化`,
             });
             continue;
         }
