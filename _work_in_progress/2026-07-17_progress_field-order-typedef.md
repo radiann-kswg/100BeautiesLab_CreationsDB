@@ -1,8 +1,8 @@
 # JSON DB のフィールドキー順を typedef（`$DefType` + `$slot`）へ整列
 
 - 日付: 2026-07-17
-- ブランチ: `develop`（サブローカル `100BeautiesLab_CreationsDB-sub1` で作業）
-- 状態: トップレベルの整列は完了。ネスト整列（Phase 4）と UI マージ実装の統一（Phase 6）は未着手
+- ブランチ: `develop`（1st パスはサブローカル `100BeautiesLab_CreationsDB-sub1`、2nd パスは本体ローカル）
+- 状態: トップレベルの整列は完了（**2nd パス `$slotAnchor` 追加まで反映済み**）。ネスト整列（Phase 4）と UI マージ実装の統一（Phase 6）は未着手
 
 ## 目的
 
@@ -85,9 +85,86 @@ DB 単位で分割コミット。**1,198 / 1,283 レコード**を整列。全�
 - CI ガードが実際に乱れを検知することを、`VirtuesUs` のキー順を意図的に崩して確認（2 件が失敗 → 復元して差分ゼロ）
 - 各パイロットで `git diff` の実物を目視（値・インデント・インライン形式が不変であること）
 
+---
+
+## 2nd パス: `$slotAnchor` で `basicFields` をキー順の宣言面へ昇格（同日・本体ローカル）
+
+### きっかけ
+
+User が `data/db_meta.json` の `basicFields` / `subFields` をより良い並びへ再整備し（人称呼称群を `basicFields` へ、`Numerospec*` / `Arcanamspec*` / `Beastspec*` / `Chronospec*` / `Logicspec*` を `subFields` 先頭側へ 等）、その並びでキー順を取り直したいという依頼。作業中に「`basicFields` もキー順に効くようにしたい」と追加要望。
+
+### 着手時の実測
+
+- **9 作品すべてで `basicFields` の「グローバル宣言フィールド分」は既に `$DefType` 順と完全一致**していた（1st パスの整列済み）。よって `basicFields` を順序の正へ昇格しても、グローバル項目の並びは 1 つも動かない
+- 実際に動くのは **`basicFields` に載る作品宣言フィールド 7 個だけ**。1st パスでは catch-all（`#WorkRest`）で末尾（51〜57 / 全 53〜59）へ流れていた
+
+| 作品             | フィールド                                    | `basicFields` 上の位置        |
+| ---------------- | --------------------------------------------- | ----------------------------- |
+| NumberTales      | `TailsUnit` / `ForMasterCalling`              | `BustSize` / `ThirdPersonCalling` の直後 |
+| FLInvestigator78 | `For79thDealerCalling` / `For80thDealerCalling` | `ThirdPersonCalling` の直後 |
+| UnibyteLive      | `Generation`                                  | （先頭へ移動）                |
+| UnauthedLogica   | `ForMasterCalling`                            | `ThirdPersonCalling` の直後   |
+| PastDivers       | `ChronoholderName`                            | （`subFields` 先頭へ移動）    |
+
+### 設計判断
+
+- **`$slotOrder` では表現できない**。`basicFields` は「グローバル項目の間へ作品固有フィールドが挟まる」宣言で、行き先が `BustSize` の直後・`ThirdPersonCalling` の直後…と点在する。マーカー 1 個を 1 箇所に置く `$slotOrder` では 1 箇所へまとまってしまう
+- → **`$slotAnchor`（宣言配列上の直前の隣人の直後へ散らす）** を新設。`$slotOrder` と対の概念。ツールがレコード側の未宣言キーへ適用している「直前の宣言済みキーへアンカー」規則を typedef 側へ持ち込んだもので、新規の発想ではない
+- `$slotMatch` の語彙へ `$inLayout` を追加（4 種 → 5 種）。**JS 側の field 名ハードコードはゼロを維持**
+- 実装は「マーカー位置に**番兵**を置き、`out` の組み立て後にメンバーを splice」。アンカー先のグローバル項目が揃うまで位置が確定しないため後段処理にした。番兵は戻り値から除去する
+
+### User 決定（この回）
+
+1. **`TailsUnit` は `basicFields` 優先**（`basicFields` / `subFields` 両載せキーの precedence）。後述の「表示との不一致」を提示したうえで再確認し、現状維持で確定
+2. **`Generation`（UnibyteLive）は `Images` の真下**。→ `basicFields` の**先頭**へ置くだけで、アンカー未解決時のフォールバック（＝マーカー位置＝基本項目ブロックの先頭）に落ちて狙いどおりになった。作品側 `$slot: "#Images"` の明示は**不要**だった
+3. **`ChronoholderName`（PastDivers）は `subFields` の直前**。→ `basicFields` から外し `subFields` 先頭へ（基本情報テーブルからは消える）
+
+### 判明した重要事項: 両載せキーは「表示」と「キー順」で正が分かれる
+
+`docs/wrapper-summary-registry.md` の記述を追って確認した。UI には**「1項目1箇所の原則」**があり、`pages/characters.js:6957` の `isPromotedSubFieldKey` が「`subFields` へ昇格したキー」を基本情報テーブルから除外する。
+
+- `TailsUnit` は `basicFields` にも載るが、**表示は `tailsUnitSection`（`subFields` 側）のみ**
+- 一方キー順は `basicFields` 優先で `BustSize` の直後
+
+→ **表示位置とキー順がずれる**。「詳細画面のセクション順とデータのキー順を揃える」原則の例外にあたるため、User へ再提示して意思確認したうえで現状維持を選択（尺味・体型系の基本属性としてデータ上はまとめたい）。理由ごと `docs/schema-meta-processing.md` §4.2 へ明記した。
+
+### 変更点
+
+- `lib/data-common.js`: `baseHashTag()` 新設 / `matchesSlot()` に `$inLayout` + `options` 引数 / `applySlotAnchor()` 新設 / `mergeDefTypes()` の `$slotAnchor` 対応
+- `data/db_type.json`: マーカー `#WorkBasic` を追加（5 → 6 マーカー）
+- `data/db_meta.json`: User の再整備 + `ChronoholderName` の移動 + `Generation` の重複宣言を解消
+- データ: 19 DB / 1,283 レコードのうち **259 件**を整列（11 ファイル）
+
+### 検証
+
+- `npm test` — 36 ファイル / **479 件**すべて成功（1st パス 468 + 今回 11）
+- `npm run data:order:check` → 0/1283（冪等）
+- データ 11 ファイルすべてで insertions == deletions（`git diff --numstat` で機械確認）
+- 実物のキー順を目視: UnibyteLive は `Name_EN → Generation → FormalName_JP`、PastDivers は `Summary_EN → ChronoholderName → ChronospecName`、NumberTales は `BustSize → TailsUnit → ConceptAge` / `ThirdPersonCalling_EN → ForMasterCalling_JP`
+
+### テスト追従の判断（記録）
+
+`tests/pages.characters.ui-output.test.js` の「基本情報テーブルに `時空象器能力名` が出る」期待値が落ちた。**テスト期待値の書き換えで隠す前に、描画漏れ（実バグ）でないことを確認**した:
+
+- jsdom で `renderDetail()` を実行して DOM をダンプ → `時空開花 / ChronoBloom` もラベルも描画されており、`subFieldKeys[0] === 'ChronoholderName'`（＝ `subFields` 先頭）で意図どおり。UI はレイアウト変更に追従済み
+- `git stash` で自分の変更を退避して、失敗が User の `db_meta.json` 編集由来であり自分のコード変更とは無関係であることも確認
+- → 実バグではないと判断し、和英併記の検証価値を残す形で standalone セクション側へ付け替えた（削除ではなく移設）
+
+なお `時空象器能力名` は `ChronospecName` ではなく **`ChronoholderName`** のラベル（`ChronospecName` は「時空遷移(クロノシフト)能力名」）。取り違えやすいので注意。
+
+### 調査したが問題なかった点
+
+- `tests/pages.characters.ui-output.test.js:739` の「subFields 宣言順が優先される」テストは、`basicFields` 再整備後も通っていた。UI が `subFields` 順に追従していないのかと疑ったが、このテストは `structuredClone(globalMeta)` で `$DetailLayout.subFields` を合成値へ差し替えており実データと無関係だった（UI は正しく追従している）
+
+---
+
 ## 未完了タスク
 
-- [ ] **実機確認**: `basicFields` の整列で基本情報テーブルの表示順が変わるため、ローカル HTTP サーバで目視が必要（`Age`/`AnivDay`/`BirthDay` が後方へ、`UnibyteLive` は `AnotherRegions_DBLink` が先頭）
+- [ ] **実機確認**: `basicFields` の整列で基本情報テーブルの表示順が変わるため、ローカル HTTP サーバで目視が必要。1st パス分（`Age`/`AnivDay`/`BirthDay` が後方へ）に加え、2nd パスで次も変わった。jsdom の UI テスト（479 件）は通っているが、実ブラウザでの見た目は未確認
+  - 人称呼称群（`FirstPersonCalling` 〜 / `ForMasterCalling` / `For*DealerCalling`）が基本情報テーブルへ新規表示
+  - `UnibyteLive`: `Generation` が先頭（`AnotherRegions_DBLink` より前）
+  - `PastDivers`: `ChronoholderName` が基本情報テーブルから消え、`subFields` 先頭のセクションへ
+  - `ShouArRiders`: `BeastspecName` が基本情報テーブルから `subFields` 先頭へ
 - [ ] **Phase 4: ネスト整列**（`--nested`）。`$DetailLayout.subFields` の 21 フィールドと `RelationTo_*` は表示順が変わるため除外し、`Images` の子（26 通り → 1 通り / 189 出現）が主目的。**表示に効かない範囲に限定できる**
 - [ ] **Phase 6: `extractTopLevelSchemaFields()` の統一**（別 PR）。現状 UI（work 先）と SW（global 先）でマージ順が逆。`lib/wrapper-common.js` へ `mergeDefTypes` 相当を移設して単一実装へ収束させる。**唯一の UI 変更点**なので単独 PR
 - [ ] `isPrivate` の扱い（User 確認待ち）。現状は宣言せず末尾に留めている

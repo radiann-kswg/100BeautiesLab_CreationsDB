@@ -1,5 +1,19 @@
 # 最新のリファクタリング・仕様変更履歴
 
+### feat: `$slotAnchor` を追加し、`$DetailLayout.basicFields` をキー順の宣言面へ昇格 (2026-07-17)
+
+同日先行の `$slot` マーカー整備では `basicFields` を「どれを basic に出すかの選択」に限定し、並び順は `$DefType` 一本へ寄せていた。しかしグローバル `$DefType` に宣言が無い**作品別 typedef のフィールドには「揃えるべき $DefType 上の位置」が存在しない**ため、`basicFields` に載っていても catch-all（`#WorkRest`）で末尾へ流れていた（7 フィールド）。User の `basicFields` / `subFields` 再整備を受け、`basicFields` を作品固有フィールドの位置宣言としても機能させる。
+
+- **`$slotAnchor`（`lib/data-common.js` `TypeDefUtils.mergeDefTypes()` / `applySlotAnchor()`）**: スロットのメンバーをマーカー位置へ**まとめず**、宣言配列上の**直前の隣人の直後**へ散らす。`basicFields` は `TailsUnit` が `BustSize` の直後・`ForMasterCalling` が `ThirdPersonCalling` の直後…と行き先が点在するため、1 箇所へまとめる `$slotOrder` では表現できない（`$slotOrder` と対の概念）。解決順は **移設済みの同 base 兄弟 > 宣言配列を遡って最初に見つかったキー > マーカー位置（フォールバック）**。ツールがレコード側の未宣言キーへ適用している「直前の宣言済みキーへアンカー」規則を typedef 側へ持ち込んだもの。
+- **`$slotMatch` の語彙に `$inLayout` を追加（4 種 → 5 種）**: `$DetailLayout` の宣言配列に載っているかで判定する。宣言配列は base 名（`ChronoholderName`）・実フィールドは `_JP` / `_EN` のため base 名で突き合わせる。`detailLayout` 未指定時は一致させず catch-all へ落とす（後方互換）。JS 側の field 名ハードコードは引き続きゼロ。
+- **宣言（`data/db_type.json`）**: マーカー `#WorkBasic`（`$inLayout: "basicFields"` + `$slotAnchor: "basicFields"`）を `#Images` の直後・`FormalName_JP` の直前へ追加（5 マーカー → 6）。この位置はアンカーを解決できないメンバーの落とし先も兼ねるため、`basicFields` の**先頭**に宣言された作品固有フィールドは `Images` の直下へ落ちる（`Works_UnibyteLive` の `Generation`）。`#Index` / `#WorkDBLinkRef` / `#Images` より後に宣言し、述語の先勝ちでそれらを横取りしない。
+- **`$DetailLayout` の再整備（`data/db_meta.json`）**: User による `basicFields` / `subFields` の並べ替え（人称呼称群を `basicFields` へ、`Numerospec*` / `Arcanamspec*` / `Beastspec*` / `Chronospec*` / `Logicspec*` を `subFields` 先頭側へ 等）。加えて `Works_PastDivers` の `ChronoholderName` を `basicFields` → `subFields` 先頭へ、`Works_UnibyteLive` の `Generation` を `basicFields` 先頭へ（重複宣言を解消）。
+- **`basicFields` / `subFields` 両載せキーの正**: 表示は `subFields` が勝つ（UI の「1項目1箇所の原則」= `pages/characters.js` の `isPromotedSubFieldKey` が基本情報テーブル側の行を抑制）、キー順は `basicFields` が勝つ。現状 `Works_NumberTales` の `TailsUnit` のみ該当し、表示位置とキー順がずれるのは User 判断による意図的な例外（`docs/schema-meta-processing.md` §4.2 に理由ごと明記）。
+- **データ整列**: 全 19 DB / 1,283 レコードのうち **259 件**を整列。`npm run data:order:check` → 0/1283。データ 11 ファイルすべてで insertions と deletions が同数（行の入れ替えのみ）。
+- **テスト追従**: `tests/pages.characters.ui-output.test.js` の「基本情報テーブルへ `時空象器能力名`（`ChronoholderName`）が出る」期待値は、`subFields` 移動により実仕様と乖離。描画自体は subField セクションで維持されている（描画漏れではない）ことを確認のうえ、和英併記の検証価値を残す形で standalone セクション側へ付け替えた。
+- **影響範囲**: `lib/data-common.js` / `data/db_type.json` / `data/db_meta.json` / `data/Works_*/DataBases/db_*.json`（11 DB）/ `tests/{sw.deftype.slot,pages.characters.ui-output}.test.js` / `docs/schema-meta-processing.md` / `CLAUDE.md` / `.github/copilot-instructions.md`。
+- 確認: `npm test` — 36 ファイル / 479 件すべて成功（`develop`）。`npm run data:order:check` → 0/1283（冪等）。
+
 ### refactor: JSON DB のフィールドキー順を typedef（`$DefType` + `$slot`）へ整列 (2026-07-17)
 
 同一 DB 内でもレコードのキー順がバラついており（`NumberTales/db_Primary` は 105 件 76 通り）、レビュー・diff・手書き追記のいずれも辛い状態だった。「表示順の完全な正は `$DefType`」という既存の明文規定（`docs/schema-meta-processing.md`）に実データを追従させる整合作業。**トップレベルのキー順は UI に到達しない**（`pages/characters.js` は typedef 順でループし、スキーマ外キーを捨てる）ため、表示への影響は `basicFields` の整列に限定される。

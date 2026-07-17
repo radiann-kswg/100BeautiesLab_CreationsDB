@@ -455,16 +455,21 @@
 - `headerPills`
   - 詳細上部の pill 群に出す項目
 - `basicFields`
-  - basic セクションへ優先表示する項目
+  - basic セクションへ優先表示する項目（`$slotAnchor` 経由で、作品固有フィールドの `$DefType` 上の位置も決める。§5.4.1）
 - `subFields`
   - 詳細画面で独立セクションとして描画する項目（`$slotOrder` 経由で `$DefType` の catch-all スロット内の並びも決める。§5.4.1）
 
 注意点:
 
-- **表示順の完全な正は `$DefType`**。`$DetailLayout` は「どれを出すか」の選択を担い、並び順は `$DefType` に揃える（2026-07-17 に `basicFields` を全 9 作品分 `$DefType` 順へ整列済み）
-  - ただし作品別 typedef で宣言されたフィールド（`TailsUnit` / `Generation` / `ThisPerformer_DBLink` / `BeastspecName` / `Chrono*Name` 等）は `basicFields` 側の位置に寄せる
-- `subFields` は逆に、`$DefType` の catch-all スロット内の並びを決める側に回る（詳細画面のセクション順とデータのキー順を揃えるため）
+- **グローバル宣言フィールドの表示順の正は `$DefType`**。`$DetailLayout` は「どれを出すか」の選択を担い、並び順は `$DefType` に揃える（2026-07-17 に `basicFields` を全 9 作品分 `$DefType` 順へ整列済み。以後もこの一致を保つこと）
+- **作品別 typedef で宣言されたフィールドは `$DetailLayout` が位置の正**。グローバル `$DefType` に宣言が無いため `$DefType` 側に「揃えるべき位置」が存在しない
+  - `basicFields` に載るもの（`TailsUnit` / `Generation` / `ForMasterCalling` / `For*DealerCalling` 等）は `#WorkBasic` マーカーの `$slotAnchor` が **`basicFields` 上の直前の隣人の直後**へ配置する
+  - `subFields` に載るもの（`NumerospecAbout` / `ChronoholderName` / `Relation` 等）は `#WorkRest` の `$slotOrder` が catch-all スロット内の並びを決める
 - `Belonging` などの補助項目は、`basicFields` にすでに含まれている場合は UI 側で重複抑制される
+- **両方に載るキーは「表示」と「キー順」で正が分かれる**（現状 `Works_NumberTales` の `TailsUnit` のみ）
+  - 表示: `subFields` が勝つ。UI の「1項目1箇所の原則」（`pages/characters.js` の `isPromotedSubFieldKey`）が基本情報テーブル側の行を抑制するため、`tailsUnitSection` にしか出ない
+  - キー順: `basicFields` が勝つ（`$slotAnchor` は `#WorkRest` より前に評価される）。`TailsUnit` は `BustSize` の直後に置かれる
+  - この不一致は User 判断による意図的なもの（尺味・体型系の基本属性としてデータ上はまとめたい / 2026-07-17）。「表示順とキー順を揃える」原則の例外なので、揃える方向へ直す場合は `basicFields` から `TailsUnit` を外す
 
 ### 4.3 `Databases.#DB_<DbName>`
 
@@ -713,19 +718,29 @@ UI 側は厳密構造より `about_JP` / `about_EN` を優先して整形表示�
 { "$slot": "#Index", "$slotMatch": { "$type": "#Index" }, "$slotNote": "..." }
 ```
 
-`$slotMatch` の語彙は 4 種のみです（表現力を意図的に低く保ち、field 名依存の分岐へ逆戻りさせないため）:
+`$slotMatch` の語彙は 5 種のみです（表現力を意図的に低く保ち、field 名依存の分岐へ逆戻りさせないため）:
 
 | 述語                               | 意味                                                                                      |
 | ---------------------------------- | ----------------------------------------------------------------------------------------- |
 | `{ "$type": "<str>" }`             | `$type` の**完全一致**（文字列型のみ）                                                    |
 | `{ "$typeIncludes": "<str>" }`     | `$type` の**部分一致**。`$Def_DBLinkRef[]\|#Null` と `$Def_DBLinkRef\|#Null` の両形を拾う |
 | `{ "$display": { "<k>": "<v>" } }` | `$display` の**浅い部分集合一致**                                                         |
+| `{ "$inLayout": "<path>" }`        | `$DetailLayout` の宣言配列に載っているか（例: `"basicFields"`）。base 名で突き合わせる（宣言配列は `ChronoholderName`、実フィールドは `_JP` / `_EN`）。`detailLayout` 未指定なら**一致しない**（catch-all へ落ちる） |
 | `"*"`                              | catch-all（**厳密に 1 個必須**）                                                          |
 
 補助キー:
 
 - `$slotExpand`: ドット区切りパスが指す定義の `$DefType` をその位置へ展開する（例: `"$MetaType.$Def_SecondaryMeta"` → `sec_*` をトップレベル `$DefType` へ再掲せずに順序へ組み込む）
 - `$slotOrder`: そのスロット内の並びを `$DetailLayout` の宣言配列へ寄せる（例: `"subFields"` → 詳細画面のセクション順とデータのキー順を揃える）。解決には呼び出し側から `{ detailLayout }` を渡す必要がある
+- `$slotAnchor`: メンバーをマーカー位置へ**まとめず**、`$DetailLayout` の宣言配列上の**直前の隣人の直後**へ散らす（例: `"basicFields"`）。解決には `{ detailLayout }` が必要
+
+`$slotOrder` と `$slotAnchor` は対の概念です。`basicFields` は「グローバル項目の間へ作品固有フィールドが挟まる」宣言（`TailsUnit` は `BustSize` の直後、`ForMasterCalling` は `ThirdPersonCalling` の直後…）なので、行き先が 1 箇所に定まらず `$slotOrder` では表現できません。`$slotAnchor` の解決順は:
+
+1. 既に移設済みの**同 base 兄弟**（`ChronoholderName_JP` → `_JPReading` → `_EN` を束ねる）
+2. 宣言配列を**遡って**最初に見つかったキーの直後（同じアンカーを共有する `For79th` → `For80th` は宣言順を保つ）
+3. **マーカー自身の位置**（アンカーを解決できないメンバーの落とし先）。`#WorkBasic` は基本項目ブロックの先頭に置いてあるため、`basicFields` の**先頭**に宣言された作品固有フィールドは `Images` の直下へ落ちる（例: `Works_UnibyteLive` の `Generation`）
+
+> この「未宣言/未解決は直前の宣言済みキーへアンカー」という考え方は、`tools/normalize-field-order.mjs` がレコード側の未宣言キー（§5.4.3）へ適用している規則と同じものです。
 
 解決順は **作品側エントリの `$slot` 明示（逃がし弁） > `$slotMatch` 述語（宣言順に先勝ち） > catch-all** です。述語で拾えない例外は作品側へ `"$slot": "#Images"` のように 1 行足して上書きします（例: `Works_DestinyFoxRecords` の `Unit_FullEN`）。
 
@@ -733,7 +748,7 @@ UI 側は厳密構造より `about_JP` / `about_EN` を優先して整形表示�
 
 #### 5.4.2 現在の宣言（2026-07-17）
 
-`data/db_type.json` の `$DefType` には次の 5 マーカーが並び、`Index → Progress → _DBLinkRef 群 → Name → Images → FormalName → …` の順を作ります。
+`data/db_type.json` の `$DefType` には次の 6 マーカーが並び、`Index → Progress → _DBLinkRef 群 → Name → Images → FormalName → …` の順を作ります。
 
 | `$slot`          | 述語 / 補助                                   | 拾うもの                                     |
 | ---------------- | --------------------------------------------- | -------------------------------------------- |
@@ -741,7 +756,10 @@ UI 側は厳密構造より `about_JP` / `about_EN` を優先して整形表示�
 | `#SecondaryMeta` | `$slotExpand: "$MetaType.$Def_SecondaryMeta"` | `sec_SeriesTitle` / `sec_Category` など      |
 | `#WorkDBLinkRef` | `$typeIncludes: "$Def_DBLinkRef"`             | `SameModels_DBLink` / `ThisPerformer_DBLink` |
 | `#Images`        | `$display: { section: "images" }`             | `Images`（画像を持たない作品では空になる）   |
+| `#WorkBasic`     | `$inLayout: "basicFields"` + `$slotAnchor: "basicFields"` | `TailsUnit` / `Generation` / `ForMasterCalling` / `For79thDealerCalling` / `For80thDealerCalling`（**マーカー位置ではなく basicFields 上の隣へ散る**） |
 | `#WorkRest`      | `"*"` + `$slotOrder: "subFields"`             | 残りすべて（`$DetailLayout.subFields` 順）   |
+
+`#WorkBasic` は `#Index` / `#WorkDBLinkRef` / `#Images` より**後**に宣言してあります（`$slotMatch` は宣言順に先勝ちのため）。`basicFields` に載っていても Index や `_DBLink` はそれぞれのスロットが先に拾います。
 
 #### 5.4.3 レコードのキー順
 

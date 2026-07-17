@@ -8,6 +8,7 @@
     },
     "Name_JP": "A:アロー",
     "Name_EN": "A:Arrows",
+    "Generation": 0,
     "FormalName_JP": "英文字アロー",
     "FormalName_JPReading": "えいもんじアロー",
     "FormalName_EN": "Arrows A-Letter",
@@ -28,26 +29,26 @@
         "DayAbout_JP": "誕生日（アルベッツ名義）",
         "DayAbout_EN": "Birthday (as the ALPBETS)"
       }
-    ],
-    "Generation": 0
+    ]
   },
   {
     "Letter": { "Alphabet": "A", "AlphaGen": 1 },
     "Progress": "notProceeded",
     "Name_JP": "A:エイリ",
     "Name_EN": "A:Accenty",
+    "Generation": 6,
     "FormalName_JP": "鋭峰エイリ",
     "FormalName_JPReading": "とがみねエイリ",
     "FormalName_EN": "Accenty A-Peak",
     "CodeName_JP": "鋭(A),アクセント",
-    "CodeName_EN": "A,Accent",
-    "Generation": 6
+    "CodeName_EN": "A,Accent"
   },
   {
     "Letter": { "Alphabet": "B", "AlphaGen": 1 },
     "Progress": "notProceeded",
     "Name_JP": "B:ブロッキー",
     "Name_EN": "B:Blocky",
+    "Generation": 3,
     "FormalName_JP": "積木ブロッキー",
     "FormalName_JPReading": "つみきブロッキー",
     "FormalName_EN": "Blocky B-Block",
@@ -62,14 +63,14 @@
         "DayAbout_JP": "誕生日（アルベッツ名義）",
         "DayAbout_EN": "Birthday (as the ALPBETS)"
       }
-    ],
-    "Generation": 3
+    ]
   },
   {
     "Letter": { "Alphabet": "C", "AlphaGen": 1 },
     "Progress": "notProceeded",
     "Name_JP": "C:チャーミ",
     "Name_EN": "C:Charmy",
+    "Generation": 5,
     "FormalName_JP": "弧月チャーミ",
     "FormalName_JPReading": "こづきチャーミ",
     "FormalName_EN": "Charmy C-Crescent",
@@ -84,14 +85,14 @@
         "DayAbout_JP": "誕生日（アルベッツ名義）",
         "DayAbout_EN": "Birthday (as the ALPBETS)"
       }
-    ],
-    "Generation": 5
+    ]
   },
   {
     "Letter": { "Alphabet": "D", "AlphaGen": 1 },
     "Progress": "notProceeded",
     "Name_JP": "D:ドアン",
     "Name_EN": "D:Doorn",
+    "Generation": 3,
     "FormalName_JP": "半円ドアン",
     "FormalName_JPReading": "はんげんドアン",
     "FormalName_EN": "Doorn D-Arch",
@@ -106,14 +107,14 @@
         "DayAbout_JP": "誕生日（アルベッツ名義）",
         "DayAbout_EN": "Birthday (as the ALPBETS)"
       }
-    ],
-    "Generation": 3
+    ]
   },
   {
     "Letter": { "Alphabet": "E", "AlphaGen": 1 },
     "Progress": "notProceeded",
     "Name_JP": "E:エッヂ",
     "Name_EN": "E:Edgy",
+    "Generation": 4,
     "FormalName_JP": "三枝エッヂ",
     "FormalName_JPReading": "さえぐさエッヂ",
     "FormalName_EN": "Edgy E-Ridge",
@@ -128,14 +129,14 @@
         "DayAbout_JP": "誕生日（アルベッツ名義）",
         "DayAbout_EN": "Birthday (as the ALPBETS)"
       }
-    ],
-    "Generation": 4
+    ]
   },
   {
     "Letter": { "Alphabet": "F", "AlphaGen": 1 },
     "Progress": "notProceeded",
     "Name_JP": "F:ハタカ",
     "Name_EN": "F:Flatka",
+    "Generation": 6,
     "FormalName_JP": "平旗ハタカ",
     "FormalName_JPReading": "ひらきハタカ",
     "FormalName_EN": "Flatka F-Flat",
@@ -150,14 +151,14 @@
         "DayAbout_JP": "誕生日（アルベッツ名義）",
         "DayAbout_EN": "Birthday (as the ALPBETS)"
       }
-    ],
-    "Generation": 6
+    ]
   },
   {
     "Letter": { "Alphabet": "G", "AlphaGen": 1 },
     "Progress": "notProceeded",
     "Name_JP": "G:グニー",
     "Name_EN": "G:Gooniee",
+    "Generation": 6,
     "FormalName_JP": "渦田グニー",
     "FormalName_JPReading": "うずたグニー",
     "FormalName_EN": "Gooniee G-Spiral",
@@ -172,14 +173,14 @@
         "DayAbout_JP": "誕生日（アルベッツ名義）",
         "DayAbout_EN": "Birthday (as the ALPBETS)"
       }
-    ],
-    "Generation": 6
+    ]
   },
   {
     "Letter": { "Alphabet": "H", "AlphaGen": 1 },
     "Progress": "notProceeded",
     "Name_JP": "H:ハシゴ",
     "Name_EN": "H:Headladder",
+    "Generation": 4,
     "FormalName_JP": "梯桁ハシゴ",
     "FormalName_JPReading": "はしげたハシゴ",
     "FormalName_EN": "Headladder H-Beam",
@@ -194,8 +195,7 @@
         "DayAbout_JP": "誕生日（アルベッツ名義）",
         "DayAbout_EN": "Birthday (as the ALPBETS)"
       }
-    ],
-    "Generation": 4
+    ]
   },
   {
     "Letter": { "Alphabet": "I", "AlphaGen": 1 },
@@ -206,6 +206,7 @@
     },
     "Name_JP": "I:ミィ",
     "Name_EN": "I:Imy",
+    "Generation": 1,
     "FormalName_JP": "直井ミィ",
     "FormalName_JPReading": "なおいミィ",
     "FormalName_EN": "Imy I-Beam",
@@ -226,14 +227,14 @@
         "DayAbout_JP": "誕生日（アルベッツ名義）",
         "DayAbout_EN": "Birthday (as the ALPBETS)"
       }
-    ],
-    "Generation": 1
+    ]
   },
   {
     "Letter": { "Alphabet": "I", "AlphaGen": 2 },
     "Progress": "notProceeded",
     "Name_JP": "I:カーソル",
     "Name_EN": "I:Inact",
+    "Generation": 4,
     "FormalName_JP": "カーソル.インアクト 点指",
     "FormalName_JPReading": "カーソル.インアクト ポインティング",
     "FormalName_EN": "Inact I-Cursor.Pointing",
@@ -242,14 +243,14 @@
     "Class": [
       "現役アルベッツ",
       "『ユニバイト・ユニバース』国際公認アンバサダー"
-    ],
-    "Generation": 4
+    ]
   },
   {
     "Letter": { "Alphabet": "J", "AlphaGen": 1 },
     "Progress": "notProceeded",
     "Name_JP": "J:ジャック",
     "Name_EN": "J:Jacky",
+    "Generation": 2,
     "FormalName_JP": "蛇尾ジャック",
     "FormalName_JPReading": "じゃびジャック",
     "FormalName_EN": "Jacky J-Hook",
@@ -264,14 +265,14 @@
         "DayAbout_JP": "誕生日（アルベッツ名義）",
         "DayAbout_EN": "Birthday (as the ALPBETS)"
       }
-    ],
-    "Generation": 2
+    ]
   },
   {
     "Letter": { "Alphabet": "K", "AlphaGen": 1 },
     "Progress": "notProceeded",
     "Name_JP": "K:キィ",
     "Name_EN": "K:Kèy",
+    "Generation": 6,
     "FormalName_JP": "鍵番キィ",
     "FormalName_JPReading": "かぎばんキィ",
     "FormalName_EN": "Kèy K-Number",
@@ -286,14 +287,14 @@
         "DayAbout_JP": "誕生日（アルベッツ名義）",
         "DayAbout_EN": "Birthday (as the ALPBETS)"
       }
-    ],
-    "Generation": 6
+    ]
   },
   {
     "Letter": { "Alphabet": "L", "AlphaGen": 1 },
     "Progress": "notProceeded",
     "Name_JP": "L:コナー",
     "Name_EN": "L:Lracket",
+    "Generation": 2,
     "FormalName_JP": "列柱コナー",
     "FormalName_JPReading": "れっちゅうコナー",
     "FormalName_EN": "Lracket L-Column",
@@ -308,14 +309,14 @@
         "DayAbout_JP": "誕生日（アルベッツ名義）",
         "DayAbout_EN": "Birthday (as the ALPBETS)"
       }
-    ],
-    "Generation": 2
+    ]
   },
   {
     "Letter": { "Alphabet": "M", "AlphaGen": 1 },
     "Progress": "notProceeded",
     "Name_JP": "M:ヤマネ",
     "Name_EN": "M:Mountee",
+    "Generation": 4,
     "FormalName_JP": "双峰ヤマネ",
     "FormalName_JPReading": "そうほうヤマネ",
     "FormalName_EN": "Mountee M-Peaks",
@@ -330,8 +331,7 @@
         "DayAbout_JP": "誕生日（アルベッツ名義）",
         "DayAbout_EN": "Birthday (as the ALPBETS)"
       }
-    ],
-    "Generation": 4
+    ]
   },
   {
     "Letter": { "Alphabet": "N", "AlphaGen": 1 },
@@ -342,6 +342,7 @@
     },
     "Name_JP": "N:ギザン",
     "Name_EN": "N:Nudgee",
+    "Generation": 4,
     "FormalName_JP": "北上ギザン",
     "FormalName_JPReading": "ほくじょうギザン",
     "FormalName_EN": "Nudgee N-Compass",
@@ -357,8 +358,7 @@
         "DayAbout_JP": "誕生日（アルベッツ名義）",
         "DayAbout_EN": "Birthday (as the ALPBETS)"
       }
-    ],
-    "Generation": 4
+    ]
   },
   {
     "Letter": { "Alphabet": "O", "AlphaGen": 1 },
@@ -369,6 +369,7 @@
     },
     "Name_JP": "O:マルア",
     "Name_EN": "O:Orby",
+    "Generation": 1,
     "FormalName_JP": "丸城マルア",
     "FormalName_JPReading": "まどぎマルア",
     "FormalName_EN": "Orby O-Circle",
@@ -389,8 +390,7 @@
         "DayAbout_JP": "誕生日（アルベッツ名義）",
         "DayAbout_EN": "Birthday (as the ALPBETS)"
       }
-    ],
-    "Generation": 1
+    ]
   },
   {
     "Letter": { "Alphabet": "O", "AlphaGen": 2 },
@@ -401,6 +401,7 @@
     },
     "Name_JP": "O:マリル",
     "Name_EN": "O:Objeroll",
+    "Generation": 6,
     "FormalName_JP": "球 マリルスフィア",
     "FormalName_JPReading": "たまき マリルスフィア",
     "FormalName_EN": "Objeroll O-SphereRoll",
@@ -420,14 +421,14 @@
         "about_JP": "可変\n(およそ160cmでいることが多く、キーキャッパーも同様に可変可能)",
         "about_EN": "Variable\n(Usually around 160cm, and the keycapper can also be variable)"
       }
-    ],
-    "Generation": 6
+    ]
   },
   {
     "Letter": { "Alphabet": "P", "AlphaGen": 2 },
     "Progress": "notProceeded",
     "Name_JP": "P:プラグ",
     "Name_EN": "P:Plugy",
+    "Generation": 5,
     "FormalName_JP": "音鍵プラグ",
     "FormalName_JPReading": "ぴあのプラグ",
     "FormalName_EN": "Plugy P-Stop",
@@ -442,14 +443,14 @@
         "DayAbout_JP": "誕生日（アルベッツ名義）",
         "DayAbout_EN": "Birthday (as the ALPBETS)"
       }
-    ],
-    "Generation": 5
+    ]
   },
   {
     "Letter": { "Alphabet": "Q", "AlphaGen": 2 },
     "Progress": "notProceeded",
     "Name_JP": "Q:マトア",
     "Name_EN": "Q:Que",
+    "Generation": 3,
     "FormalName_JP": "的尾マトア",
     "FormalName_JPReading": "まとのおマトア",
     "FormalName_EN": "Que Q-Tail",
@@ -464,14 +465,14 @@
         "DayAbout_JP": "誕生日（アルベッツ名義）",
         "DayAbout_EN": "Birthday (as the ALPBETS)"
       }
-    ],
-    "Generation": 3
+    ]
   },
   {
     "Letter": { "Alphabet": "R", "AlphaGen": 2 },
     "Progress": "notProceeded",
     "Name_JP": "R:ロゥ",
     "Name_EN": "R:Rows",
+    "Generation": 6,
     "FormalName_JP": "行田ロゥ",
     "FormalName_JPReading": "こうだロゥ",
     "FormalName_EN": "Rows R-Lines",
@@ -486,8 +487,7 @@
         "DayAbout_JP": "誕生日（アルベッツ名義）",
         "DayAbout_EN": "Birthday (as the ALPBETS)"
       }
-    ],
-    "Generation": 6
+    ]
   },
   {
     "Letter": { "Alphabet": "S", "AlphaGen": 2 },
@@ -499,6 +499,7 @@
     "Name_JP": "S:ナーミィ",
     "Name_EN": "S:Surgey",
     "Images": { "keycapper_PNGPath": ["S/emstk_keycapperS-1.png"] },
+    "Generation": 5,
     "FormalName_JP": "左伯ナーミィ",
     "FormalName_JPReading": "さえきナーミィ",
     "FormalName_EN": "Surgey S-Curve",
@@ -611,14 +612,14 @@
       ],
       "StreamingSummary_JP": "ライブ配信では主に映像作品の公開をメインとしており、現実空間では味わえない斬新なプレイ体験でなみのりー(リスナー)たちを楽しませている。\n「ユニバイト・ユニバース」内ではトゥーンギャグに特化した様々なギミックを搭載したアバターでなみのりーと交流しており、時にVRユーザたちの性癖を大いに歪めたコンテンツを世に出したと噂されている。\n個人の同人ショップでアバターカスタムコンテンツも頒布しており、メタバースの新しい楽しみ方の提供にも積極的。",
       "StreamingSummary_EN": "Primarily focused on publishing video content in live streams, entertaining the Surgers (listeners) with innovative play experiences unattainable in real space.\nWithin 'Unibyte Universe', she interacts with Surgers using an avatar packed with toon-gag-specialized gimmicks, and is sometimes rumored to have released content that greatly skewed the sensibilities of VR users.\nAlso actively distributes avatar custom content through her personal doujin shop, enthusiastically offering new ways to enjoy the metaverse."
-    },
-    "Generation": 5
+    }
   },
   {
     "Letter": { "Alphabet": "T", "AlphaGen": 2 },
     "Progress": "notProceeded",
     "Name_JP": "T:ティジー",
     "Name_EN": "T:Transy",
+    "Generation": 3,
     "FormalName_JP": "丁字路ティジー",
     "FormalName_JPReading": "ごうりゅうてんティジー",
     "FormalName_EN": "Transy T-Junction",
@@ -633,14 +634,14 @@
         "DayAbout_JP": "誕生日（アルベッツ名義）",
         "DayAbout_EN": "Birthday (as the ALPBETS)"
       }
-    ],
-    "Generation": 3
+    ]
   },
   {
     "Letter": { "Alphabet": "U", "AlphaGen": 1 },
     "Progress": "notProceeded",
     "Name_JP": "U:カップ",
     "Name_EN": "U:Uncove",
+    "Generation": 5,
     "FormalName_JP": "入江カップ",
     "FormalName_JPReading": "みずうけカップ",
     "FormalName_EN": "Uncove U-Curve",
@@ -655,14 +656,14 @@
         "DayAbout_JP": "誕生日（アルベッツ名義）",
         "DayAbout_EN": "Birthday (as the ALPBETS)"
       }
-    ],
-    "Generation": 5
+    ]
   },
   {
     "Letter": { "Alphabet": "V", "AlphaGen": 1 },
     "Progress": "notProceeded",
     "Name_JP": "V:トゲミ",
     "Name_EN": "V:Vaulte",
+    "Generation": 5,
     "FormalName_JP": "楔谷トゲミ",
     "FormalName_JPReading": "くさびやトゲミ",
     "FormalName_EN": "Vaulte V-Valleys",
@@ -677,14 +678,14 @@
         "DayAbout_JP": "誕生日（アルベッツ名義）",
         "DayAbout_EN": "Birthday (as the ALPBETS)"
       }
-    ],
-    "Generation": 5
+    ]
   },
   {
     "Letter": { "Alphabet": "W", "AlphaGen": 1 },
     "Progress": "notProceeded",
     "Name_JP": "W:タニネ",
     "Name_EN": "W:Windine",
+    "Generation": 4,
     "FormalName_JP": "双谷タニネ",
     "FormalName_JPReading": "そうこくタニネ",
     "FormalName_EN": "Windine W-Valleys",
@@ -699,14 +700,14 @@
         "DayAbout_JP": "誕生日（アルベッツ名義）",
         "DayAbout_EN": "Birthday (as the ALPBETS)"
       }
-    ],
-    "Generation": 4
+    ]
   },
   {
     "Letter": { "Alphabet": "X", "AlphaGen": 1 },
     "Progress": "notProceeded",
     "Name_JP": "X:カイ",
     "Name_EN": "X:Xhi",
+    "Generation": 1,
     "FormalName_JP": "交野カイ",
     "FormalName_JPReading": "こうのカイ",
     "FormalName_EN": "Xhi X-Cross",
@@ -722,14 +723,14 @@
         "DayAbout_JP": "誕生日（アルベッツ名義）",
         "DayAbout_EN": "Birthday (as the ALPBETS)"
       }
-    ],
-    "Generation": 1
+    ]
   },
   {
     "Letter": { "Alphabet": "X", "AlphaGen": 2 },
     "Progress": "notProceeded",
     "Name_JP": "X:クリス",
     "Name_EN": "X:Xriss",
+    "Generation": 6,
     "FormalName_JP": "綾織クリス",
     "FormalName_JPReading": "あやおりクリス",
     "FormalName_EN": "Xriss X-Crisscross",
@@ -744,14 +745,14 @@
         "DayAbout_JP": "誕生日（アルベッツ名義）",
         "DayAbout_EN": "Birthday (as the ALPBETS)"
       }
-    ],
-    "Generation": 6
+    ]
   },
   {
     "Letter": { "Alphabet": "Y", "AlphaGen": 1 },
     "Progress": "notProceeded",
     "Name_JP": "Y:ワケメ",
     "Name_EN": "Y:Yve",
+    "Generation": 2,
     "FormalName_JP": "丫字路ワケメ",
     "FormalName_JPReading": "ぶんきてんワケメ",
     "FormalName_EN": "Yve Y-Junction",
@@ -766,8 +767,7 @@
         "DayAbout_JP": "誕生日（アルベッツ名義）",
         "DayAbout_EN": "Birthday (as the ALPBETS)"
       }
-    ],
-    "Generation": 2
+    ]
   },
   {
     "Letter": { "Alphabet": "Z", "AlphaGen": 1 },
@@ -779,6 +779,7 @@
     "Name_JP": "Z:ジグ",
     "Name_EN": "Z:Zig",
     "Images": { "keycapper_PNGPath": ["Z/emstk_keycapperZ-1.png"] },
+    "Generation": 2,
     "FormalName_JP": "右仗ジグ",
     "FormalName_JPReading": "ゆうじょうジグ",
     "FormalName_EN": "Zig Z-Drifts",
@@ -846,14 +847,14 @@
       },
       "StreamingAwards_JP": [],
       "StreamingSummary_JP": ""
-    },
-    "Generation": 2
+    }
   },
   {
     "Letter": { "Alphabet": "Q", "AlphaGen": 1 },
     "Progress": "notProceeded",
     "Name_JP": "Q:レンズ",
     "Name_EN": "Q:Quartz",
+    "Generation": 1,
     "FormalName_JP": "鏡石レンズ",
     "FormalName_JPReading": "きょうせきレンズ",
     "FormalName_EN": "Quartz Q-Lens",
@@ -878,8 +879,7 @@
         "DayAbout_JP": "アルベッツ南第三県専門学校メタバース部生卒業",
         "DayAbout_EN": "ALPBETS members from S3 Vocational School Metaverse Club Graduation"
       }
-    ],
-    "Generation": 1
+    ]
   },
   {
     "Letter": { "Alphabet": "R", "AlphaGen": 1 },
@@ -890,6 +890,7 @@
     },
     "Name_JP": "R:リャク",
     "Name_EN": "R:Ry",
+    "Generation": 3,
     "FormalName_JP": "略歴リャク",
     "FormalName_JPReading": "らくれきリャク",
     "FormalName_EN": "Ry R-Résumé",
@@ -911,14 +912,14 @@
         "DayAbout_JP": "照梅テクノロジー就職記念（卒業日）",
         "DayAbout_EN": "Commemoration of employment at Shôbai Technology (Graduation day)"
       }
-    ],
-    "Generation": 3
+    ]
   },
   {
     "Letter": { "Alphabet": "T", "AlphaGen": 1 },
     "Progress": "notProceeded",
     "Name_JP": "T:クギィ",
     "Name_EN": "T:Tacks",
+    "Generation": 1,
     "FormalName_JP": "打金 クギィ",
     "FormalName_JPReading": "うちがね クギィ",
     "FormalName_EN": "Tacks T:Pins",
@@ -943,8 +944,7 @@
         "DayAbout_JP": "アルベッツ南第三県専門学校メタバース部生卒業",
         "DayAbout_EN": "ALPBETS members from S3 Vocational School Metaverse Club Graduation"
       }
-    ],
-    "Generation": 1
+    ]
   },
   {
     "Letter": { "Alphabet": "P", "AlphaGen": 1 },
@@ -955,6 +955,7 @@
     },
     "Name_JP": "P:フィッシュ",
     "Name_EN": "P:Phishs",
+    "Generation": 3,
     "FormalName_JP": "了津 フィッシュ",
     "FormalName_JPReading": "りょうつ フィッシュ",
     "FormalName_EN": "Phishs P-Point",
@@ -976,8 +977,7 @@
         "DayAbout_JP": "アルベッツ\"誤BAN\"事件",
         "DayAbout_EN": "ALPBETS 'Mistaken BAN' Incident"
       }
-    ],
-    "Generation": 3
+    ]
   },
   {
     "Letter": { "Alphabet": "S", "Generation": 2, "AlphaGen": 1 },

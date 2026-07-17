@@ -57,6 +57,26 @@ describe('TypeDefUtils.matchesSlot()', () => {
   it('述語を 1 つも指定しない {} は一致しない（全件誤爆の防止）', () => {
     expect(TypeDefUtils.matchesSlot({}, { hashTag: 'X', $type: '#String' })).toBe(false);
   });
+
+  it('$inLayout は $DetailLayout の宣言配列に載っているかで判定する', () => {
+    const m = { $inLayout: 'basicFields' };
+    const options = { detailLayout: { basicFields: ['TailsUnit', 'ForMasterCalling'], subFields: ['Relation'] } };
+    expect(TypeDefUtils.matchesSlot(m, { hashTag: 'TailsUnit' }, options)).toBe(true);
+    expect(TypeDefUtils.matchesSlot(m, { hashTag: 'Relation' }, options)).toBe(false);
+  });
+
+  it('$inLayout は base 名で突き合わせる（宣言配列は base、実フィールドは _JP/_EN）', () => {
+    const m = { $inLayout: 'basicFields' };
+    const options = { detailLayout: { basicFields: ['ForMasterCalling'] } };
+    expect(TypeDefUtils.matchesSlot(m, { hashTag: 'ForMasterCalling_JP' }, options)).toBe(true);
+    expect(TypeDefUtils.matchesSlot(m, { hashTag: 'ForMasterCalling_EN' }, options)).toBe(true);
+  });
+
+  it('$inLayout は detailLayout 欠損時に一致しない（catch-all へ落とすため）', () => {
+    const m = { $inLayout: 'basicFields' };
+    expect(TypeDefUtils.matchesSlot(m, { hashTag: 'TailsUnit' })).toBe(false);
+    expect(TypeDefUtils.matchesSlot(m, { hashTag: 'TailsUnit' }, { detailLayout: {} })).toBe(false);
+  });
 });
 
 describe('TypeDefUtils.mergeDefTypes() — $slot マーカー未宣言（後方互換）', () => {
@@ -277,6 +297,158 @@ describe('TypeDefUtils.mergeDefTypes() — $slotOrder（catch-all を subFields 
       'VRMs',
       'ThisMasters',
     ]);
+  });
+});
+
+describe('TypeDefUtils.mergeDefTypes() — $slotAnchor（basicFields 上の隣へ散らす）', () => {
+  // basicFields は「グローバル項目の間へ作品固有フィールドが挟まる」宣言のため、
+  // $slotOrder（マーカー位置へまとめる）では表現できない。行き先が個別に散るのを検証する
+  const globalType = {
+    $DefType: [
+      { hashTag: 'Progress', $type: '$EnumDef' },
+      { $slot: '#Images', $slotMatch: { $display: { section: 'images' } } },
+      { $slot: '#WorkBasic', $slotMatch: { $inLayout: 'basicFields' }, $slotAnchor: 'basicFields' },
+      { hashTag: 'FormalName_JP', $type: '#String_JP' },
+      { hashTag: 'BustSize', $type: '#ListIndex' },
+      { hashTag: 'Age', $type: '#Number' },
+      { hashTag: 'ThirdPersonCalling', $type: '#String' },
+      { hashTag: 'Character_JP', $type: '#Summary' },
+      { $slot: '#WorkRest', $slotMatch: '*', $slotOrder: 'subFields' },
+    ],
+  };
+
+  it('作品固有 basicField を宣言配列上の直前の隣人の直後へ散らす', () => {
+    const workType = {
+      $DefType: [
+        { hashTag: 'TailsUnit', $type: '$Def_TailsUnit[]' },
+        { hashTag: 'ForMasterCalling_JP', $type: '#String_JP' },
+        { hashTag: 'Relation', $type: '$Def_Relations' },
+      ],
+    };
+    const detailLayout = {
+      basicFields: ['FormalName', 'BustSize', 'TailsUnit', 'Age', 'ThirdPersonCalling', 'ForMasterCalling'],
+      subFields: ['Relation'],
+    };
+    expect(tags(TypeDefUtils.mergeDefTypes(globalType, workType, { detailLayout }))).toEqual([
+      'Progress',
+      'FormalName_JP',
+      'BustSize',
+      'TailsUnit', // BustSize の直後（マーカー位置ではない）
+      'Age',
+      'ThirdPersonCalling',
+      'ForMasterCalling_JP', // ThirdPersonCalling の直後
+      'Character_JP',
+      'Relation', // catch-all
+    ]);
+  });
+
+  it('同じアンカーを共有するメンバーは basicFields の宣言順を保つ', () => {
+    const workType = {
+      $DefType: [
+        { hashTag: 'For80thDealerCalling_JP', $type: '#String_JP' },
+        { hashTag: 'For79thDealerCalling_JP', $type: '#String_JP' },
+      ],
+    };
+    const detailLayout = {
+      basicFields: ['ThirdPersonCalling', 'For79thDealerCalling', 'For80thDealerCalling'],
+    };
+    // 作品別 $DefType の宣言順（80th が先）ではなく basicFields の宣言順（79th が先）に従う
+    expect(tags(TypeDefUtils.mergeDefTypes(globalType, workType, { detailLayout }))).toEqual([
+      'Progress',
+      'FormalName_JP',
+      'BustSize',
+      'Age',
+      'ThirdPersonCalling',
+      'For79thDealerCalling_JP',
+      'For80thDealerCalling_JP',
+      'Character_JP',
+    ]);
+  });
+
+  it('_JP/_JPReading/_EN の群は元の相対順を保ったまま同じアンカーの直後へ束ねる', () => {
+    const workType = {
+      $DefType: [
+        { hashTag: 'ChronoholderName_JP', $type: '#String_JP' },
+        { hashTag: 'ChronoholderName_JPReading', $type: '##String_JP|#Null' },
+        { hashTag: 'ChronoholderName_EN', $type: '##String_EN|#Null' },
+      ],
+    };
+    const detailLayout = { basicFields: ['ThirdPersonCalling', 'ChronoholderName'] };
+    expect(tags(TypeDefUtils.mergeDefTypes(globalType, workType, { detailLayout }))).toEqual([
+      'Progress',
+      'FormalName_JP',
+      'BustSize',
+      'Age',
+      'ThirdPersonCalling',
+      'ChronoholderName_JP',
+      'ChronoholderName_JPReading',
+      'ChronoholderName_EN',
+      'Character_JP',
+    ]);
+  });
+
+  it('basicFields の先頭（＝直前の隣人が無い）はマーカー位置＝基本項目ブロックの先頭へ落ちる', () => {
+    const workType = {
+      $DefType: [
+        { hashTag: 'Images', $type: '#ImageSet', $display: { section: 'images' } },
+        { hashTag: 'Generation', $type: '#Number|#Null' },
+      ],
+    };
+    const detailLayout = { basicFields: ['Generation', 'FormalName', 'BustSize'] };
+    expect(tags(TypeDefUtils.mergeDefTypes(globalType, workType, { detailLayout }))).toEqual([
+      'Progress',
+      'Images',
+      'Generation', // Images の直下（マーカー位置＝フォールバック）
+      'FormalName_JP',
+      'BustSize',
+      'Age',
+      'ThirdPersonCalling',
+      'Character_JP',
+    ]);
+  });
+
+  it('作品側の $slot 明示は $inLayout 述語より優先される（逃がし弁）', () => {
+    const workType = {
+      $DefType: [
+        { hashTag: 'Images', $type: '#ImageSet', $display: { section: 'images' } },
+        { hashTag: 'Generation', $type: '#Number|#Null', $slot: '#Images' },
+      ],
+    };
+    // basicFields 上は BustSize の直後だが、$slot 明示で Images の隣へ寄る
+    const detailLayout = { basicFields: ['FormalName', 'BustSize', 'Generation'] };
+    expect(tags(TypeDefUtils.mergeDefTypes(globalType, workType, { detailLayout }))).toEqual([
+      'Progress',
+      'Images',
+      'Generation',
+      'FormalName_JP',
+      'BustSize',
+      'Age',
+      'ThirdPersonCalling',
+      'Character_JP',
+    ]);
+  });
+
+  it('detailLayout が無ければ $inLayout は一致せず catch-all へ落ちる（後方互換）', () => {
+    const workType = { $DefType: [{ hashTag: 'TailsUnit', $type: '$Def_TailsUnit[]' }] };
+    expect(tags(TypeDefUtils.mergeDefTypes(globalType, workType))).toEqual([
+      'Progress',
+      'FormalName_JP',
+      'BustSize',
+      'Age',
+      'ThirdPersonCalling',
+      'Character_JP',
+      'TailsUnit',
+    ]);
+  });
+
+  it('番兵（$slotSentinel）がマージ結果に漏れない', () => {
+    const workType = { $DefType: [{ hashTag: 'TailsUnit', $type: '$Def_TailsUnit[]' }] };
+    const detailLayout = { basicFields: ['BustSize', 'TailsUnit'] };
+    const merged = TypeDefUtils.mergeDefTypes(globalType, workType, { detailLayout });
+    expect(merged.every((e) => e.hashTag)).toBe(true);
+    expect(merged.some((e) => '$slotSentinel' in e)).toBe(false);
+    // 保険ループによる重複 push が起きていないこと
+    expect(tags(merged).filter((t) => t === 'TailsUnit')).toHaveLength(1);
   });
 });
 

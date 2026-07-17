@@ -23,6 +23,14 @@
     "Height_cm": 146,
     "Weight_kg": 39,
     "BustSize": "AA",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_Fox",
+        "Count": 1,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "ConceptAge": 14,
     "AnivDay": [
       {
@@ -42,6 +50,8 @@
     "SecondPersonCalling_EN": "you",
     "ThirdPersonCalling_JP": "彼/彼女;~君,[※名前呼び]",
     "ThirdPersonCalling_EN": "he/she; [*by name]",
+    "ForMasterCalling_JP": "～兄(にぃ)/～姉(ねぇ)",
+    "ForMasterCalling_EN": "~Bro/~Sis",
     "Character_JP": "行動意欲が突出している怖いもの知らず\n自分らしさを前向きに受け入れている",
     "Character_EN": "Fearless with an outstanding drive to act\nPositively embracing zir own individuality",
     "Hobby_JP": "なんでも",
@@ -466,14 +476,6 @@
     "Backgrounds_EN": "The first NumberTales to be prototyped",
     "InStory_JP": "主人に従事するだけでなく、試作機として機能的な試験を定期的に受けている",
     "InStory_EN": "In addition to serving the Master, ze regularly undergoes functional testing as a prototype unit",
-    "TailsUnit": [
-      {
-        "TailShapeType": "#TailShapeType_Fox",
-        "Count": 1,
-        "Note_JP": null,
-        "Note_EN": null
-      }
-    ],
     "NumerospecAbout_JP": "ありのままに行動する\nおよび主人の自我を強める",
     "NumerospecAbout_EN": "Acts just as ze is\nAnd also strengthens the Master's sense of self",
     "NumerospecStats": {
@@ -545,9 +547,7 @@
           "Lunar": "Kisaragi"
         }
       }
-    ],
-    "ForMasterCalling_JP": "～兄(にぃ)/～姉(ねぇ)",
-    "ForMasterCalling_EN": "~Bro/~Sis"
+    ]
   },
   {
     "Num": 2,
@@ -576,6 +576,14 @@
     "Height_cm": 146,
     "Weight_kg": 39,
     "BustSize": "C",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_Fox",
+        "Count": 2,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "ConceptAge": 14,
     "AnivDay": [
       {
@@ -595,6 +603,8 @@
     "SecondPersonCalling_EN": "you",
     "ThirdPersonCalling_JP": "彼/彼女;~さん,[※名前呼び]",
     "ThirdPersonCalling_EN": "he/she; ~-san, [*by name]",
+    "ForMasterCalling_JP": "～兄(にぃ)/～姉(ねぇ)",
+    "ForMasterCalling_EN": "~Bro/~Sis",
     "Character_JP": "他人想いでマネージャー的存在\n周囲と欲求が相反して癒しを求める一面も",
     "Character_EN": "A caring manager-type who thinks of others\nAlso has a side that seeks healing when her desires conflict with those around her",
     "Hobby_JP": "他のナンバーテールズも支えること",
@@ -896,14 +906,6 @@
     "Backgrounds_EN": "Born by reusing the design of '1(Unitta)', the first NumberTales to be designed as a standard unit",
     "InStory_JP": "主人に従事するだけでなく、1桁番のマネジメントも積極的に行っている",
     "InStory_EN": "In addition to serving the Master, ze actively takes on management responsibilities for the Uni-Digits",
-    "TailsUnit": [
-      {
-        "TailShapeType": "#TailShapeType_Fox",
-        "Count": 2,
-        "Note_JP": null,
-        "Note_EN": null
-      }
-    ],
     "NumerospecAbout_JP": "主人や他ナンバーテールズの日々や人脈をよりよくする",
     "NumerospecAbout_EN": "Improves the daily life and human connections of both the Master and the other NumberTales",
     "NumerospecStats": {
@@ -961,9 +963,7 @@
           "Comments_EN": "\"I'm jealous of all the things she has\""
         }
       ]
-    },
-    "ForMasterCalling_JP": "～兄(にぃ)/～姉(ねぇ)",
-    "ForMasterCalling_EN": "~Bro/~Sis"
+    }
   },
   {
     "Num": 3,
@@ -986,6 +986,14 @@
     "Height_cm": 160,
     "Weight_kg": 43,
     "BustSize": "AA",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_Fox",
+        "Count": 3,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "ConceptAge": 17,
     "AnivDay": [
       {
@@ -1000,6 +1008,8 @@
     "SecondPersonCalling_EN": "you (familiar)",
     "ThirdPersonCalling_JP": "彼/彼女;[※名前呼び]",
     "ThirdPersonCalling_EN": "he/she; [*by name]",
+    "ForMasterCalling_JP": "相棒",
+    "ForMasterCalling_EN": "partner, buddy",
     "Character_JP": "真面目な優等生\n厳格でなく遊び心の高い青年のような気質",
     "Character_EN": "A serious honor student\nNot strict, with the temperament of a playful young person",
     "Hobby_JP": "デジタルゲーム",
@@ -1288,14 +1298,6 @@
     },
     "Backgrounds_JP": "試作量産機での試作を経て初めて1号機系と別設計で完成\n以後「9(チカ)」まで続く",
     "Backgrounds_EN": "After prototype mass-production trials, this was the first unit completed with a design line separate from the Unit-1 series\nThis lineage continues through to '9(Nina)'",
-    "TailsUnit": [
-      {
-        "TailShapeType": "#TailShapeType_Fox",
-        "Count": 3,
-        "Note_JP": null,
-        "Note_EN": null
-      }
-    ],
     "NumerospecAbout_JP": "基本を守り、普遍を破り、固定概念から離れる\nこの効果は主人に感化させることもできる",
     "NumerospecAbout_EN": "Observe the basics, break the universal, and step away from fixed ideas\nThis effect can also influence the Master",
     "NumerospecStats": {
@@ -1348,9 +1350,7 @@
           "Comments_EN": "\"Feels like she'd have a lot of followers\""
         }
       ]
-    },
-    "ForMasterCalling_JP": "相棒",
-    "ForMasterCalling_EN": "partner, buddy"
+    }
   },
   {
     "Num": 4,
@@ -1382,6 +1382,15 @@
     "Height_cm": 157,
     "Weight_kg": 42,
     "BustSize": "B",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_Fox",
+        "Count": 4,
+        "TailsUnit_PNGName": "attr_tailsUnit4",
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "ConceptAge": 17,
     "AnivDay": [
       {
@@ -1396,6 +1405,8 @@
     "SecondPersonCalling_EN": "you (neutral/polite)",
     "ThirdPersonCalling_JP": "*の子,*の人;[※名前呼び]",
     "ThirdPersonCalling_EN": "that kid, that person; [*by name]",
+    "ForMasterCalling_JP": "お兄ちゃん/お姉ちゃん",
+    "ForMasterCalling_EN": "big bro/sis",
     "Character_JP": "感情表現豊かで臆病\n根はとてもしっかりしている",
     "Character_EN": "Emotionally expressive and timid\nBut fundamentally very steady and dependable",
     "Hobby_JP": "パズル\n物語鑑賞",
@@ -1696,15 +1707,6 @@
       "Technic": { "Rank": "B+" },
       "Actuation": { "Rank": "B" }
     },
-    "TailsUnit": [
-      {
-        "TailShapeType": "#TailShapeType_Fox",
-        "Count": 4,
-        "TailsUnit_PNGName": "attr_tailsUnit4",
-        "Note_JP": null,
-        "Note_EN": null
-      }
-    ],
     "NumerospecAbout_JP": "物事の基礎を掴んで現実化する\nこの効果は主人に感化させることもできる",
     "NumerospecAbout_EN": "Grasps the basics of things and turns them into reality\nThis effect can also influence the Master",
     "NumerospecStats": {
@@ -1758,9 +1760,7 @@
         }
       ]
     },
-    "VRMs": { "corefolder_VRMPath": ["4/vrm_corefolder4"] },
-    "ForMasterCalling_JP": "お兄ちゃん/お姉ちゃん",
-    "ForMasterCalling_EN": "big bro/sis"
+    "VRMs": { "corefolder_VRMPath": ["4/vrm_corefolder4"] }
   },
   {
     "Num": 5,
@@ -1787,6 +1787,14 @@
     "Height_cm": 156,
     "Weight_kg": 42,
     "BustSize": "AA",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_Fox",
+        "Count": 5,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "ConceptAge": 17,
     "AnivDay": [
       {
@@ -1801,6 +1809,8 @@
     "SecondPersonCalling_EN": "you (blunt/casual)",
     "ThirdPersonCalling_JP": "[※その時により変わる],[※名前呼び]",
     "ThirdPersonCalling_EN": "[*Varies depending on the situation],[*by name]",
+    "ForMasterCalling_JP": "[※その時により変わる]",
+    "ForMasterCalling_EN": "[*Varies depending on the situation]",
     "Character_JP": "屈指のマイペース\n挑発に乗りやすく冷めやすくチョロい",
     "Character_EN": "One of the most easygoing of all\nEasily provoked, cools off quickly, and rather easy to sway",
     "Hobby_JP": "気分による",
@@ -2179,14 +2189,6 @@
       "Technic": { "Rank": "B+" },
       "Actuation": { "Rank": "A" }
     },
-    "TailsUnit": [
-      {
-        "TailShapeType": "#TailShapeType_Fox",
-        "Count": 5,
-        "Note_JP": null,
-        "Note_EN": null
-      }
-    ],
     "NumerospecAbout_JP": "やり方を常に変える\n主人への効果量は不明だがこれによりマンネリ化を無効化できるらしい",
     "NumerospecAbout_EN": "Constantly changes methods\nThe exact effect level on the Master is unknown, but it is said to neutralize stagnation",
     "NumerospecStats": {
@@ -2244,9 +2246,7 @@
         "value_JP": "五剣(いつつるぎ)/スクアッド.ブラン（78特殊探偵団 風の刀剣支部 五番札(シンカー)）",
         "value_EN": "Cinqlair/Squad.Blans (Team.78 the Special Investigators SlashSwords Branch Cinque-r) "
       }
-    ],
-    "ForMasterCalling_JP": "[※その時により変わる]",
-    "ForMasterCalling_EN": "[*Varies depending on the situation]"
+    ]
   },
   {
     "Num": 6,
@@ -2275,6 +2275,15 @@
     "Height_cm": 150,
     "Weight_kg": 41,
     "BustSize": "E",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_Fox",
+        "Count": 6,
+        "TailsUnit_PNGName": "attr_tailsUnit6",
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "ConceptAge": 16,
     "AnivDay": [
       {
@@ -2289,6 +2298,8 @@
     "SecondPersonCalling_EN": "you (very polite)",
     "ThirdPersonCalling_JP": "*のお方;~様",
     "ThirdPersonCalling_EN": "sir/lady; Mr/Ms.~ (~-sama; honorific)",
+    "ForMasterCalling_JP": "ご主人様（/お嬢様）",
+    "ForMasterCalling_EN": "Master(/Milady)",
     "Character_JP": "美徳に満ち溢れており個性を大切にしている「光属性」\nとても温厚で穏やか",
     "Character_EN": "A 'light-attribute' type overflowing with virtue and valuing individuality\nVery gentle and calm",
     "Hobby_JP": "美術鑑賞",
@@ -2548,15 +2559,6 @@
       "Technic": { "Rank": "B+" },
       "Actuation": { "Rank": "A" }
     },
-    "TailsUnit": [
-      {
-        "TailShapeType": "#TailShapeType_Fox",
-        "Count": 6,
-        "TailsUnit_PNGName": "attr_tailsUnit6",
-        "Note_JP": null,
-        "Note_EN": null
-      }
-    ],
     "NumerospecAbout_JP": "愛情や感性などにより主人の心の隙間を埋める\nただし副作用として一部スキンシップに過剰反応する",
     "NumerospecAbout_EN": "Fills emotional gaps in the Master's heart through affection and sensitivity\nHowever, as a side effect, she can overreact to certain physical contact",
     "NumerospecStats": {
@@ -2609,9 +2611,7 @@
           "Comments_EN": "\"She's the sort who says, 'Do as you like,' even knowing it may be reckless\""
         }
       ]
-    },
-    "ForMasterCalling_JP": "ご主人様（/お嬢様）",
-    "ForMasterCalling_EN": "Master(/Milady)"
+    }
   },
   {
     "Num": 7,
@@ -2638,6 +2638,14 @@
     "Height_cm": 162,
     "Weight_kg": 44,
     "BustSize": "AA",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_Fox",
+        "Count": 7,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "ConceptAge": 22,
     "AnivDay": [
       {
@@ -2652,6 +2660,8 @@
     "SecondPersonCalling_EN": "you (archaic: sonata)",
     "ThirdPersonCalling_JP": "*の方,*奴(*やつ);~殿",
     "ThirdPersonCalling_EN": "that person, that fellow (*yatsu); ~-dono",
+    "ForMasterCalling_JP": "主殿",
+    "ForMasterCalling_EN": "my lord (, ~dono)",
     "Character_JP": "意識が高く、単独行動を好む\nイメトレで思想的になりがち",
     "Character_EN": "Highly self-aware and prefers acting alone\nTends to become ideological through mental training",
     "Hobby_JP": "イメトレ(イメージトレーニング)\n神話・伝承に興味",
@@ -2953,14 +2963,6 @@
       "Technic": { "Rank": "B" },
       "Actuation": { "Rank": "B+" }
     },
-    "TailsUnit": [
-      {
-        "TailShapeType": "#TailShapeType_Fox",
-        "Count": 7,
-        "Note_JP": null,
-        "Note_EN": null
-      }
-    ],
     "NumerospecAbout_JP": "修行や瞑想をする\nこれによる効果は主人にも少し分け与えられる",
     "NumerospecAbout_EN": "Performs training and meditation\nA portion of this effect is also shared with the Master",
     "NumerospecStats": {
@@ -3013,9 +3015,7 @@
           "Comments_EN": "\"That's a monster of sheer assets\""
         }
       ]
-    },
-    "ForMasterCalling_JP": "主殿",
-    "ForMasterCalling_EN": "my lord (, ~dono)"
+    }
   },
   {
     "Num": 8,
@@ -3041,6 +3041,14 @@
       { "value": 43, "about_JP": "推定", "about_EN": "Presumption" }
     ],
     "BustSize": "B",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_Fox",
+        "Count": 8,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "ConceptAge": 19,
     "AnivDay": [
       {
@@ -3055,6 +3063,8 @@
     "SecondPersonCalling_EN": "you (neutral)",
     "ThirdPersonCalling_JP": "*の子,*の人;[※名前呼び]",
     "ThirdPersonCalling_EN": "that kid/that person; [*by name]",
+    "ForMasterCalling_JP": "兄貴/姉貴",
+    "ForMasterCalling_EN": "Bro/Sis (aniki/aneki)",
     "Character_JP": "格好いいもの好き、エンジニアポジション\n欲しいものややりたいことに貪欲で自分で作る",
     "Character_EN": "Loves cool things; takes the engineer role\nGreedy for what she wants to have or do, and builds it herself",
     "Hobby_JP": "機械いじり\nガジェット鑑賞",
@@ -3354,14 +3364,6 @@
     },
     "InStory_JP": "試作型の開発支援には協力していないが、ナンバーテールズのエンジニアポジションとされる",
     "InStory_EN": "Does not cooperate with prototype development support, but is regarded as the engineer-position within the NumberTales",
-    "TailsUnit": [
-      {
-        "TailShapeType": "#TailShapeType_Fox",
-        "Count": 8,
-        "Note_JP": null,
-        "Note_EN": null
-      }
-    ],
     "NumerospecAbout_JP": "より高価値のものを生み出す\n付属のVRゴーグルで物の価値を見せることができる",
     "NumerospecAbout_EN": "Produces things of higher value\nCan visualize the value of objects using the attached VR goggles",
     "NumerospecStats": {
@@ -3419,9 +3421,7 @@
         "value_EN": "100 Beauties Lab. (N3US University Dr.Thouser Laboratory) Seminar Assistant)",
         "_DBLink": { "_Work": "NumberTales", "_DB": "SemiPrimary", "Num": "∞" }
       }
-    ],
-    "ForMasterCalling_JP": "兄貴/姉貴",
-    "ForMasterCalling_EN": "Bro/Sis (aniki/aneki)"
+    ]
   },
   {
     "Num": 9,
@@ -3448,6 +3448,14 @@
     "Height_cm": 160,
     "Weight_kg": 43,
     "BustSize": "E",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_Fox",
+        "Count": 9,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "ConceptAge": 21,
     "AnivDay": [
       {
@@ -3462,6 +3470,8 @@
     "SecondPersonCalling_EN": "you; [*master calling]",
     "ThirdPersonCalling_JP": "*の子,*の方;[※名前呼び]",
     "ThirdPersonCalling_EN": "that child/that person; [*by name]",
+    "ForMasterCalling_JP": "坊や/お嬢さん",
+    "ForMasterCalling_EN": "young sir/lady",
     "Character_JP": "博愛主義で悩みを相談しやすく落ち着いている\n同情を大切にしている「闇属性」の癒し担当で、哀しみを救済してくれると評判",
     "Character_EN": "A benevolent, calm figure who is easy to consult about worries\nKnown as the 'dark-attribute' healer who values compassion and rescues others from sorrow",
     "Hobby_JP": "バラード音楽鑑賞",
@@ -3783,14 +3793,6 @@
       "Technic": { "Rank": "A" },
       "Actuation": { "Rank": "B+" }
     },
-    "TailsUnit": [
-      {
-        "TailShapeType": "#TailShapeType_Fox",
-        "Count": 9,
-        "Note_JP": null,
-        "Note_EN": null
-      }
-    ],
     "NumerospecAbout_JP": "哀しみから救済する\nただし副作用として落胆している人を見ると興奮する",
     "NumerospecAbout_EN": "Rescues others from sorrow\nHowever, as a side effect, she becomes excited when seeing someone in despair",
     "NumerospecStats": {
@@ -3849,9 +3851,7 @@
         "value_JP": "中月 カイン.ナイターエイド",
         "value_EN": "Cain.Nighteraid Nakatsuki"
       }
-    ],
-    "ForMasterCalling_JP": "坊や/お嬢さん",
-    "ForMasterCalling_EN": "young sir/lady"
+    ]
   },
   {
     "Num": 10,
@@ -3879,6 +3879,14 @@
     "Height_cm": 147,
     "Weight_kg": 39,
     "BustSize": "AA",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_Bud",
+        "Count": 1,
+        "Note_JP": "大1束+小9束（大小の束構成）",
+        "Note_EN": "1 large cluster + 9 small clusters (large/small cluster composition)"
+      }
+    ],
     "ConceptAge": 15,
     "AnivDay": [
       {
@@ -3898,6 +3906,8 @@
     "SecondPersonCalling_EN": "you (familiar)",
     "ThirdPersonCalling_JP": "彼/彼女;[※名前呼び]",
     "ThirdPersonCalling_EN": "he/she; [*by name]",
+    "ForMasterCalling_JP": "センパイ",
+    "ForMasterCalling_EN": "Senpai",
     "Character_JP": "胸に秘めている思考か読めない不思議系\n自分は何の為にいるかを常に問い、何かに導かれるような振舞いをしている",
     "Character_EN": "An enigmatic type whose inner thoughts are hard to read\nConstantly questions why ze exists and behaves as if guided by something",
     "Hobby_JP": "自分探し",
@@ -4221,14 +4231,6 @@
     "Backgrounds_EN": "Born by reusing mass-prototype hardware after the rampage incident and retirement of '10(Decadle)/Dicat'",
     "InStory_JP": "10号機「ディケ」が退役したきっかけを知る存在",
     "InStory_EN": "Knows the trigger that led Unit 10 'Dicat' to retirement",
-    "TailsUnit": [
-      {
-        "TailShapeType": "#TailShapeType_Bud",
-        "Count": 1,
-        "Note_JP": "大1束+小9束（大小の束構成）",
-        "Note_EN": "1 large cluster + 9 small clusters (large/small cluster composition)"
-      }
-    ],
     "NumerospecAbout_JP": "？？？？という役目を果たす\n？？？？という危機を未然に防ぐ",
     "NumerospecAbout_EN": "Fulfills the role of ????\nPrevents the crisis called ???? before it occurs",
     "NumerospecStats": {
@@ -4304,9 +4306,7 @@
           "Drc": "NE"
         }
       }
-    ],
-    "ForMasterCalling_JP": "センパイ",
-    "ForMasterCalling_EN": "Senpai"
+    ]
   },
   {
     "Num": 11,
@@ -4331,6 +4331,14 @@
     "Height_cm": 161,
     "Weight_kg": 43,
     "BustSize": "AA",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_Nekomata",
+        "Count": 11,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "ConceptAge": 17,
     "AnivDay": [
       {
@@ -4345,6 +4353,8 @@
     "SecondPersonCalling_EN": "thou (nanji)\nlord(kei)/lady(hime * rare)",
     "ThirdPersonCalling_JP": "[※名前呼び]",
     "ThirdPersonCalling_EN": "[*by name]",
+    "ForMasterCalling_JP": "卿(けい)/姫 ※後者は稀",
+    "ForMasterCalling_EN": "lord(kei)/lady(hime * rare)",
     "Character_JP": "自我と自己認識が強く稀に暴走する\nどこか神々しい振る舞いをしている",
     "Character_EN": "Has a strong ego and self-recognition, and may rarely go into rampage mode\nCarries a somewhat divine manner",
     "Hobby_JP": "パワースポット巡り",
@@ -4611,14 +4621,6 @@
     "Backgrounds_EN": "Failures observed in Unit.2 'Binor' and Unit.10 'Dicat' were treated as top design priorities\nThe last named unit",
     "InStory_JP": "マスターテールズ9の代表",
     "InStory_EN": "Representative of the MasterTales 9",
-    "TailsUnit": [
-      {
-        "TailShapeType": "#TailShapeType_Nekomata",
-        "Count": 11,
-        "Note_JP": null,
-        "Note_EN": null
-      }
-    ],
     "NumerospecAbout_JP": "自己認知(ハイパーセルフ)による直観と実現力を強化する\nこの効果は確実に主人に分け与えられる",
     "NumerospecAbout_EN": "Enhances intuition and realization ability through Hyper-Self-Recognition\nThis effect can be reliably shared with the Master",
     "NumerospecStats": {
@@ -4671,9 +4673,7 @@
           "Comments_EN": "\"Blessed with such a diverse array of associates\""
         }
       ]
-    },
-    "ForMasterCalling_JP": "卿(けい)/姫 ※後者は稀",
-    "ForMasterCalling_EN": "lord(kei)/lady(hime * rare)"
+    }
   },
   {
     "Num": 12,
@@ -4706,6 +4706,18 @@
     "Height_cm": 148,
     "Weight_kg": 39,
     "BustSize": "B",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxBranched",
+        "Count": 2,
+        "Branches": [
+          { "Laterality": "#Lat_Upper", "TailCount": 1, "ClusterCount": 2 },
+          { "Laterality": "#Lat_Lower", "TailCount": 1, "ClusterCount": 1 }
+        ],
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "ConceptAge": 14,
     "AnivDay": [
       {
@@ -4720,6 +4732,8 @@
     "SecondPersonCalling_EN": "you",
     "ThirdPersonCalling_JP": "彼/彼女;~さん,[※名前呼び]",
     "ThirdPersonCalling_EN": "he/she; [*by name]",
+    "ForMasterCalling_JP": "お兄(にぃ)/お姉(ねぇ)",
+    "ForMasterCalling_EN": "bro/sis",
     "Character_JP": "素直で正直\n自分がやると決めたことには物腰が極めて軽い",
     "Character_EN": "Honest and straightforward\nVery light on her feet once she decides to do something",
     "Hobby_JP": "プレゼン鑑賞",
@@ -4972,18 +4986,6 @@
     "Backgrounds_EN": "The first composite unit, reconstructed from surplus parts during Unit.1 and Unit.2 line development\nThis later led to the Duals lineage",
     "InStory_JP": "眼鏡を完成直後には掛けていたが、いつの間にかしなくなったらしい",
     "InStory_EN": "She wore glasses right after completion, but apparently stopped before anyone noticed",
-    "TailsUnit": [
-      {
-        "TailShapeType": "#TailShapeType_FoxBranched",
-        "Count": 2,
-        "Branches": [
-          { "Laterality": "#Lat_Upper", "TailCount": 1, "ClusterCount": 2 },
-          { "Laterality": "#Lat_Lower", "TailCount": 1, "ClusterCount": 1 }
-        ],
-        "Note_JP": null,
-        "Note_EN": null
-      }
-    ],
     "NumerospecAbout_JP": "主人および自身が自分に正直になるようもたらす\nこれにより、対象が自分に自信を持たせる効果も",
     "NumerospecAbout_EN": "Leads both the Master and herself to become honest with themselves\nAlso gives the target greater self-confidence",
     "NumerospecStats": {
@@ -5048,9 +5050,7 @@
         "value_JP": "オードリー.カッツェ.ブラックフレア/アルジーヌ（78特殊探偵団 火の棍棒支部 女王札(クイーン)）",
         "value_EN": "Audrey.Katze.Blackflare/Argine (Team.78 the Special Investigators FireWands Branch Queen)"
       }
-    ],
-    "ForMasterCalling_JP": "お兄(にぃ)/お姉(ねぇ)",
-    "ForMasterCalling_EN": "bro/sis"
+    ]
   },
   {
     "Num": 13,
@@ -5076,6 +5076,18 @@
     "Height_cm": 148,
     "Weight_kg": 40,
     "BustSize": "A",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxBranched",
+        "Count": 3,
+        "Branches": [
+          { "Laterality": "#Lat_Upper", "TailCount": 1, "ClusterCount": 2 },
+          { "Laterality": "#Lat_Lower", "TailCount": 2, "ClusterCount": 1 }
+        ],
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "ConceptAge": 16,
     "AnivDay": [
       {
@@ -5090,6 +5102,8 @@
     "SecondPersonCalling_EN": "you",
     "ThirdPersonCalling_JP": "[※名前呼び]",
     "ThirdPersonCalling_EN": "[*by name]",
+    "ForMasterCalling_JP": "ご主人",
+    "ForMasterCalling_EN": "Master",
     "Character_JP": "チャレンジ精神旺盛な体育会系\nただし駆け引きが苦手で地雷要因になることも",
     "Character_EN": "An athletic type full of challenge spirit\nHowever, poor at mind games and can sometimes become a trigger point",
     "Hobby_JP": "スポーツセンター巡り",
@@ -5379,18 +5393,6 @@
     },
     "Backgrounds_JP": "初めて他のナンバーテールズとの並行開発により完成\nこの個体以後、開発が安定し同時リリースも行われる",
     "Backgrounds_EN": "The first unit completed through parallel development alongside other NumberTales\nAfter this unit, development stabilized and simultaneous releases became possible",
-    "TailsUnit": [
-      {
-        "TailShapeType": "#TailShapeType_FoxBranched",
-        "Count": 3,
-        "Branches": [
-          { "Laterality": "#Lat_Upper", "TailCount": 1, "ClusterCount": 2 },
-          { "Laterality": "#Lat_Lower", "TailCount": 2, "ClusterCount": 1 }
-        ],
-        "Note_JP": null,
-        "Note_EN": null
-      }
-    ],
     "NumerospecAbout_JP": "妥協と躊躇いをしない\nおよび主人の抱える妥協と躊躇いを中和する",
     "NumerospecAbout_EN": "Does not compromise or hesitate\nAlso neutralizes the compromise and hesitation held by the Master",
     "NumerospecStats": {
@@ -5450,9 +5452,7 @@
           "RelationLabel": ["cousin_nearly"]
         }
       ]
-    },
-    "ForMasterCalling_JP": "ご主人",
-    "ForMasterCalling_EN": "Master"
+    }
   },
   {
     "Num": 14,
@@ -5487,6 +5487,18 @@
     "Height_cm": 146,
     "Weight_kg": 39,
     "BustSize": "F",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxBranched",
+        "Count": 4,
+        "Branches": [
+          { "Laterality": "#Lat_Upper", "TailCount": 1, "ClusterCount": 2 },
+          { "Laterality": "#Lat_Lower", "TailCount": 3, "ClusterCount": 1 }
+        ],
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "ConceptAge": 16,
     "AnivDay": [
       {
@@ -5501,6 +5513,8 @@
     "SecondPersonCalling_EN": "you",
     "ThirdPersonCalling_JP": "*いつ/*れ;[※名前呼び]",
     "ThirdPersonCalling_EN": "this/that/who/what/which/them (as personal or objective); [*by name]",
+    "ForMasterCalling_JP": "主人",
+    "ForMasterCalling_EN": "Master",
     "Character_JP": "元気溌剌で挑戦的な右脳(感覚)派\nかなりのオールラウンダーであるため、左脳(理論)派な一面もあるのではという噂も",
     "Character_EN": "An energetic and challenging right-brain (sensory) type\nAlso rumored to have a left-brain (logical) side, since she is quite the all-rounder",
     "Hobby_JP": "自分試し",
@@ -5846,18 +5860,6 @@
     },
     "InStory_JP": "「あまり活発に動けない」と、コアフォルダ形態で活動することに不服があるようだ",
     "InStory_EN": "She seems dissatisfied with operating in corefolder form, saying she cannot move very actively in that state",
-    "TailsUnit": [
-      {
-        "TailShapeType": "#TailShapeType_FoxBranched",
-        "Count": 4,
-        "Branches": [
-          { "Laterality": "#Lat_Upper", "TailCount": 1, "ClusterCount": 2 },
-          { "Laterality": "#Lat_Lower", "TailCount": 3, "ClusterCount": 1 }
-        ],
-        "Note_JP": null,
-        "Note_EN": null
-      }
-    ],
     "NumerospecAbout_JP": "新しいことを始める時に失敗する恐れを和らげる\nこの効果は周辺状況や心理状況に関与していないらしく、詳細は不明",
     "NumerospecAbout_EN": "Eases the fear of failure when starting something new\nThis effect seems unrelated to surrounding circumstances or psychological conditions, and details remain unknown",
     "NumerospecStats": {
@@ -5928,9 +5930,7 @@
           "Lunar": "Satsuki"
         }
       }
-    ],
-    "ForMasterCalling_JP": "主人",
-    "ForMasterCalling_EN": "Master"
+    ]
   },
   {
     "Num": 15,
@@ -5962,6 +5962,18 @@
       { "value": 4, "about_JP": "安全装置", "about_EN": "Safety Unit" }
     ],
     "BustSize": "AA",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxBranched",
+        "Count": 5,
+        "Branches": [
+          { "Laterality": "#Lat_Upper", "TailCount": 1, "ClusterCount": 2 },
+          { "Laterality": "#Lat_Lower", "TailCount": 4, "ClusterCount": 1 }
+        ],
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "ConceptAge": 18,
     "AnivDay": [
       {
@@ -5981,6 +5993,8 @@
     "SecondPersonCalling_EN": "you (rough)",
     "ThirdPersonCalling_JP": "彼/彼女;*れ;[※名前呼び]\n*いつ/*れ;[※名前呼び]",
     "ThirdPersonCalling_EN": "he/she; this/that/who/which/what/them (as objective); [*by name]\nthis/that/who/which/what/them (as personal or objective); [*by name]",
+    "ForMasterCalling_JP": "主(あるじ)",
+    "ForMasterCalling_EN": "Master (Aruji)",
     "Character_JP": "極めて控えめに見えて実は男気のある気質\n自分を律することで因果応報が成立すると、信じている",
     "Character_EN": "Appears extremely reserved, but actually has a strong chivalrous spirit\nBelieves that self-discipline brings karmic justice",
     "Hobby_JP": "遠景を眺める",
@@ -6265,18 +6279,6 @@
     "Backgrounds_EN": "The harness-equipped unit on zir back is said to be a safety device.\nIn fact, ze is believed to have one more unresolved Numerospec, but the details are reportedly undisclosed.",
     "InStory_JP": "特異個体「1+5型」のネーム機\nイベント発生要因として、他のナンバーテールズから偏見を抱かれがち",
     "InStory_EN": "A named unit of the singular \"Unit.1+5 type\".\nAs a trigger factor for incidents, ze is often viewed with prejudice by other NumberTales.",
-    "TailsUnit": [
-      {
-        "TailShapeType": "#TailShapeType_FoxBranched",
-        "Count": 5,
-        "Branches": [
-          { "Laterality": "#Lat_Upper", "TailCount": 1, "ClusterCount": 2 },
-          { "Laterality": "#Lat_Lower", "TailCount": 4, "ClusterCount": 1 }
-        ],
-        "Note_JP": null,
-        "Note_EN": null
-      }
-    ],
     "NumerospecAbout_JP": "奇跡を起こす\nただしこの効果は対象の性格に影響される\n？？？？",
     "NumerospecAbout_EN": "Causes miracles\nHowever, this effect is influenced by the target's personality\n????",
     "NumerospecStats": {
@@ -6352,9 +6354,7 @@
           "Drc": "SW"
         }
       }
-    ],
-    "ForMasterCalling_JP": "主(あるじ)",
-    "ForMasterCalling_EN": "Master (Aruji)"
+    ]
   },
   {
     "Num": 16,
@@ -6390,6 +6390,19 @@
     "Height_cm": 147,
     "Weight_kg": { "hideText": "非公開" },
     "BustSize": "H",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxBranched",
+        "Count": 6,
+        "Branches": [
+          { "Laterality": "#Lat_Upper", "TailCount": 1, "ClusterCount": 2 },
+          { "Laterality": "#Lat_Lower", "TailCount": 5, "ClusterCount": 1 }
+        ],
+        "TailsUnit_PNGName": "attr_tailsUnit16",
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "ConceptAge": { "value": 18, "about_JP": "？", "about_EN": "?" },
     "AnivDay": [
       {
@@ -6404,6 +6417,8 @@
     "SecondPersonCalling_EN": "you (familiar)",
     "ThirdPersonCalling_JP": "彼/彼女;*れ;~君",
     "ThirdPersonCalling_EN": "he/she; this/that/who/which/what/them (as objective); ~-kun",
+    "ForMasterCalling_JP": "マスター君",
+    "ForMasterCalling_EN": "Master-kun",
     "Character_JP": "才色兼備で、物質的なものより行動や能力を重んじる\n主人公意識が強く挑戦意欲がある",
     "Character_EN": "Gifted in both talent and grace, and values actions and abilities over material things\nHas strong protagonist-like self-awareness and a strong drive to take on challenges",
     "Hobby_JP": "演劇",
@@ -6643,19 +6658,6 @@
     },
     "InStory_JP": "実績こそ然程ないものの活力に満ち溢れる様子から、他のナンバーテールズから「幸せな貧乏」と称されている",
     "InStory_EN": "Though not yet heavily decorated with results, she is called \"happy poverty\" by other NumberTales for her overflowing vitality.",
-    "TailsUnit": [
-      {
-        "TailShapeType": "#TailShapeType_FoxBranched",
-        "Count": 6,
-        "Branches": [
-          { "Laterality": "#Lat_Upper", "TailCount": 1, "ClusterCount": 2 },
-          { "Laterality": "#Lat_Lower", "TailCount": 5, "ClusterCount": 1 }
-        ],
-        "TailsUnit_PNGName": "attr_tailsUnit16",
-        "Note_JP": null,
-        "Note_EN": null
-      }
-    ],
     "NumerospecAbout_JP": "才能を奮い立たせる\nこの効果はたとえ手持ちに不利があっても発動する",
     "NumerospecAbout_EN": "Rouses talent\nThis effect activates even when one is at a disadvantage",
     "NumerospecStats": {
@@ -6728,9 +6730,7 @@
         }
       }
     ],
-    "VRMs": { "corefolder_VRMPath": ["16/vrm_corefolder16"] },
-    "ForMasterCalling_JP": "マスター君",
-    "ForMasterCalling_EN": "Master-kun"
+    "VRMs": { "corefolder_VRMPath": ["16/vrm_corefolder16"] }
   },
   {
     "Num": 17,
@@ -6758,6 +6758,18 @@
       { "value": 40, "about_JP": "推定", "about_EN": "Presumption" }
     ],
     "BustSize": "AA",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxBranched",
+        "Count": 7,
+        "Branches": [
+          { "Laterality": "#Lat_Upper", "TailCount": 1, "ClusterCount": 2 },
+          { "Laterality": "#Lat_Lower", "TailCount": 6, "ClusterCount": 1 }
+        ],
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "ConceptAge": 22,
     "AnivDay": [
       {
@@ -6772,6 +6784,8 @@
     "SecondPersonCalling_EN": "you (familiar)",
     "ThirdPersonCalling_JP": "彼/彼女;*レ;[※名前呼び]",
     "ThirdPersonCalling_EN": "he/she; this/that/who/which/what/them (as objective); [*by name]",
+    "ForMasterCalling_JP": "センセ",
+    "ForMasterCalling_EN": "Teacher",
     "Character_JP": "知識欲旺盛だが少し現金\n知識や自己研鑽が自分の報酬となると信じている",
     "Character_EN": "Highly eager for knowledge but a little money-minded\nBelieves that knowledge and self-cultivation become personal reward",
     "Hobby_JP": "資格取得",
@@ -7010,18 +7024,6 @@
     "Backgrounds_EN": "Her gender is said to be \"female\", though...",
     "InStory_JP": "彼女を前に「貧乳」「男の娘」は禁句と言われている",
     "InStory_EN": "In front of her, terms like \"flat-chested\" or \"feminine boy\" are said to be taboo.",
-    "TailsUnit": [
-      {
-        "TailShapeType": "#TailShapeType_FoxBranched",
-        "Count": 7,
-        "Branches": [
-          { "Laterality": "#Lat_Upper", "TailCount": 1, "ClusterCount": 2 },
-          { "Laterality": "#Lat_Lower", "TailCount": 6, "ClusterCount": 1 }
-        ],
-        "Note_JP": null,
-        "Note_EN": null
-      }
-    ],
     "NumerospecAbout_JP": "対象の能力に応じ結果を保証する",
     "NumerospecAbout_EN": "Guarantees results according to the target's ability",
     "NumerospecStats": {
@@ -7094,9 +7096,7 @@
           "Card": { "Suit": "Major", "SuitNum": 17 }
         }
       }
-    ],
-    "ForMasterCalling_JP": "センセ",
-    "ForMasterCalling_EN": "Teacher"
+    ]
   },
   {
     "Num": 18,
@@ -7124,6 +7124,18 @@
     "Height_cm": 153,
     "Weight_kg": 42,
     "BustSize": "C",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxBranched",
+        "Count": 8,
+        "Branches": [
+          { "Laterality": "#Lat_Upper", "TailCount": 1, "ClusterCount": 2 },
+          { "Laterality": "#Lat_Lower", "TailCount": 7, "ClusterCount": 1 }
+        ],
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "ConceptAge": 20,
     "AnivDay": [
       {
@@ -7138,6 +7150,8 @@
     "SecondPersonCalling_EN": "you (rough)",
     "ThirdPersonCalling_JP": "*いつ/*れ;[※名前呼び]",
     "ThirdPersonCalling_EN": "this/that/who/which/what/them (as personal or objective); [*by name]",
+    "ForMasterCalling_JP": "親分(おやびん)",
+    "ForMasterCalling_EN": "Boss (oyabin)",
     "Character_JP": "責任感の強いエースポジション\n信頼感が圧倒的にある",
     "Character_EN": "An ace-position unit with a strong sense of responsibility\nOverwhelmingly trusted by others",
     "Hobby_JP": "偉人伝を読むこと",
@@ -7350,18 +7364,6 @@
       "Technic": { "Rank": "A" },
       "Actuation": { "Rank": "B" }
     },
-    "TailsUnit": [
-      {
-        "TailShapeType": "#TailShapeType_FoxBranched",
-        "Count": 8,
-        "Branches": [
-          { "Laterality": "#Lat_Upper", "TailCount": 1, "ClusterCount": 2 },
-          { "Laterality": "#Lat_Lower", "TailCount": 7, "ClusterCount": 1 }
-        ],
-        "Note_JP": null,
-        "Note_EN": null
-      }
-    ],
     "NumerospecAbout_JP": "リーダーシップを奮い立たせる\nこの効果は求められた時ほど効果が高くなる",
     "NumerospecAbout_EN": "Rouses leadership\nThis effect becomes stronger the more it is called for",
     "NumerospecStats": {
@@ -7417,9 +7419,7 @@
           "RelationLabel": ["classmate"]
         }
       ]
-    },
-    "ForMasterCalling_JP": "親分(おやびん)",
-    "ForMasterCalling_EN": "Boss (oyabin)"
+    }
   },
   {
     "Num": 19,
@@ -7444,6 +7444,18 @@
     "Height_cm": 157,
     "Weight_kg": 42,
     "BustSize": "AA",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxBranched",
+        "Count": 9,
+        "Branches": [
+          { "Laterality": "#Lat_Upper", "TailCount": 1, "ClusterCount": 2 },
+          { "Laterality": "#Lat_Lower", "TailCount": 8, "ClusterCount": 1 }
+        ],
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "ConceptAge": 20,
     "AnivDay": [
       {
@@ -7458,6 +7470,8 @@
     "SecondPersonCalling_EN": "you (familiar)",
     "ThirdPersonCalling_JP": "彼/彼女;~君/~さん",
     "ThirdPersonCalling_EN": "he/she; ~-kun/~-san",
+    "ForMasterCalling_JP": "(～)兄さん/(～)姉さん",
+    "ForMasterCalling_EN": "~Bro/~Sis",
     "Character_JP": "調子に乗りやすく、やり切った時はドヤる\nやるときはやるので、憎みたくても憎めない",
     "Character_EN": "Gets carried away easily and shows off when things are fully done\nBut gets it done when it matters, so hard to hate even if you try",
     "Hobby_JP": "ルービックキューブ（で絵を描く）",
@@ -7690,18 +7704,6 @@
       "Technic": { "Rank": "B" },
       "Actuation": { "hideText": "非公開" }
     },
-    "TailsUnit": [
-      {
-        "TailShapeType": "#TailShapeType_FoxBranched",
-        "Count": 9,
-        "Branches": [
-          { "Laterality": "#Lat_Upper", "TailCount": 1, "ClusterCount": 2 },
-          { "Laterality": "#Lat_Lower", "TailCount": 8, "ClusterCount": 1 }
-        ],
-        "Note_JP": null,
-        "Note_EN": null
-      }
-    ],
     "NumerospecAbout_JP": "節目を迎えたときに本領発揮する\n重要な場面で失敗させない",
     "NumerospecAbout_EN": "Shows true strength at major turning points\nPrevents failure in critical situations",
     "NumerospecStats": {
@@ -7756,9 +7758,7 @@
           "RelationLabel": ["classmate"]
         }
       ]
-    },
-    "ForMasterCalling_JP": "(～)兄さん/(～)姉さん",
-    "ForMasterCalling_EN": "~Bro/~Sis"
+    }
   },
   {
     "Num": 20,
@@ -7792,6 +7792,14 @@
     "Height_cm": 152,
     "Weight_kg": 41,
     "BustSize": "H",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_Fox",
+        "Count": 2,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "ConceptAge": 17,
     "AnivDay": [
       {
@@ -7806,6 +7814,8 @@
     "SecondPersonCalling_EN": "you (very polite)",
     "ThirdPersonCalling_JP": "彼/彼女;~さま",
     "ThirdPersonCalling_EN": "he/she; Mr/Ms.~",
+    "ForMasterCalling_JP": "～兄さま/～姉さま",
+    "ForMasterCalling_EN": "Brother/Sister.~ (honorific)",
     "Character_JP": "極めて優しく純粋なので好印象を持たれている\n献身的で怒ることが無い\n信頼を大切にしている",
     "Character_EN": "Leaves a good impression for being extremely kind and pure\nDevoted and rarely gets angry\nValues trust deeply",
     "Hobby_JP": "誰かといること",
@@ -8178,14 +8188,6 @@
     },
     "Backgrounds_JP": "2号機「バイナ」の設計を完成させた個体\nなお、2号機系は彼女によって完成した",
     "Backgrounds_EN": "The unit that completed the design lineage of Unit.2 'Binor'\nIn effect, the Unit.2 family was completed through her",
-    "TailsUnit": [
-      {
-        "TailShapeType": "#TailShapeType_Fox",
-        "Count": 2,
-        "Note_JP": null,
-        "Note_EN": null
-      }
-    ],
     "NumerospecAbout_JP": "主人を信じる＆主人の心の声を聴く\nこれによる効果は主人との信頼関係に大きく比例する",
     "NumerospecAbout_EN": "Believes in the Master and hears the Master's inner voice\nIts effect scales strongly with the level of trust between them",
     "NumerospecStats": {
@@ -8249,9 +8251,7 @@
     "ThisMasters": [
       { "value_JP": "メルランディア.シラユキ", "value_EN": "Merlandia.S.White" }
     ],
-    "VRMs": { "corefolder_VRMPath": ["20/vrm_corefolder20"] },
-    "ForMasterCalling_JP": "～兄さま/～姉さま",
-    "ForMasterCalling_EN": "Brother/Sister.~ (honorific)"
+    "VRMs": { "corefolder_VRMPath": ["20/vrm_corefolder20"] }
   },
   {
     "Num": 21,
@@ -8276,6 +8276,18 @@
     "Height_cm": 148,
     "Weight_kg": 39,
     "BustSize": "A",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxBranched",
+        "Count": 2,
+        "Branches": [
+          { "Laterality": "#Lat_Upper", "TailCount": 1, "ClusterCount": 2 },
+          { "Laterality": "#Lat_Lower", "TailCount": 1, "ClusterCount": 1 }
+        ],
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "ConceptAge": 14,
     "AnivDay": [
       {
@@ -8290,6 +8302,8 @@
     "SecondPersonCalling_EN": "you (familiar)",
     "ThirdPersonCalling_JP": "彼/彼女;~さん,[※名前呼び]",
     "ThirdPersonCalling_EN": "he/she; [*by name]",
+    "ForMasterCalling_JP": "お兄(にぃ)/お姉(ねぇ)",
+    "ForMasterCalling_EN": "bro/sis",
     "Character_JP": "無邪気で童心をくすぐるような気質\nどこか強いポテンシャルを持つ",
     "Character_EN": "Innocent with a temperament that tickles childlike wonder\nCarries strong potential",
     "Hobby_JP": "人助け",
@@ -8515,18 +8529,6 @@
     },
     "Backgrounds_JP": "初の複合型個体である姉「12(トウジ)」の調整個体",
     "Backgrounds_EN": "A tuned derivative of elder sister \"12(Twelva)\", the first composite unit",
-    "TailsUnit": [
-      {
-        "TailShapeType": "#TailShapeType_FoxBranched",
-        "Count": 2,
-        "Branches": [
-          { "Laterality": "#Lat_Upper", "TailCount": 1, "ClusterCount": 2 },
-          { "Laterality": "#Lat_Lower", "TailCount": 1, "ClusterCount": 1 }
-        ],
-        "Note_JP": null,
-        "Note_EN": null
-      }
-    ],
     "NumerospecAbout_JP": "心を清らかにする",
     "NumerospecAbout_EN": "Purifies the heart",
     "NumerospecStats": {
@@ -8584,9 +8586,7 @@
           "RelationLabel": ["classmate"]
         }
       ]
-    },
-    "ForMasterCalling_JP": "お兄(にぃ)/お姉(ねぇ)",
-    "ForMasterCalling_EN": "bro/sis"
+    }
   },
   {
     "Num": 22,
@@ -8626,6 +8626,15 @@
     "Height_cm": 153,
     "Weight_kg": { "hideText": "非公開" },
     "BustSize": "I",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_Scorpion",
+        "Count": 2,
+        "Segment": 11,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "ConceptAge": 16,
     "AnivDay": [
       {
@@ -8640,6 +8649,8 @@
     "SecondPersonCalling_EN": "you (friendly)",
     "ThirdPersonCalling_JP": "*の子;[※名前呼び]",
     "ThirdPersonCalling_EN": "that kid; [*by name]",
+    "ForMasterCalling_JP": "ルーキー君",
+    "ForMasterCalling_EN": "Mr/Ms.Rookie",
     "Character_JP": "偉才な実績とは相反して、おっとりふわふわな立ち振る舞いをしている",
     "Character_EN": "Despite brilliant achievements, carries herself in a gentle and fluffy manner",
     "Hobby_JP": "天体観測",
@@ -9047,15 +9058,6 @@
     "Backgrounds_EN": "An applied derivative of Unit.11 'Elevan'\nEven the Norumber siblings reportedly call it an out-of-place artifact so advanced that it makes one doubt the era",
     "InStory_JP": "「11(トウイチ)」の後続機(妹個体)\n尻尾の形状が独特という点については……",
     "InStory_EN": "A successor unit (younger-sister model) to '11(Elevan)'\nAs for the uniquely shaped tails...",
-    "TailsUnit": [
-      {
-        "TailShapeType": "#TailShapeType_Scorpion",
-        "Count": 2,
-        "Segment": 11,
-        "Note_JP": null,
-        "Note_EN": null
-      }
-    ],
     "NumerospecAbout_JP": "主人の偉業を保証する\n強力な加護のためこの効果の詳細は不明",
     "NumerospecAbout_EN": "Guarantees the Master's great achievements\nDue to the strength of this Numerospec, details of the effect remain unknown",
     "NumerospecStats": {
@@ -9123,9 +9125,7 @@
         "value_JP": "江戸川 笑（78特殊探偵団 金の硬貨支部 二番札(デューサー)）",
         "value_EN": "Emmy Edogawa (Team.78 the Special Investigators PentacleObjects Branch Deuce-r)"
       }
-    ],
-    "ForMasterCalling_JP": "ルーキー君",
-    "ForMasterCalling_EN": "Mr/Ms.Rookie"
+    ]
   },
   {
     "Num": 23,
@@ -9155,6 +9155,19 @@
     "Height_cm": 149,
     "Weight_kg": 40,
     "BustSize": "B",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxBranched",
+        "Count": 3,
+        "Branches": [
+          { "Laterality": "#Lat_Upper", "TailCount": 2, "ClusterCount": 2 },
+          { "Laterality": "#Lat_Lower", "TailCount": 1, "ClusterCount": 1 }
+        ],
+        "TailsUnit_PNGName": "attr_tailsUnit23",
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "ConceptAge": { "value": 16, "about_JP": "？", "about_EN": "?" },
     "AnivDay": [
       {
@@ -9169,6 +9182,8 @@
     "SecondPersonCalling_EN": "you (blunt)",
     "ThirdPersonCalling_JP": "彼/彼女;*いつ/*れ;[※名前呼び]",
     "ThirdPersonCalling_EN": "he/she; that/this/who/which/what/them (as personal or objective); [*by name]",
+    "ForMasterCalling_JP": "リーダー",
+    "ForMasterCalling_EN": "Leader",
     "Character_JP": "積極的で発想力が高く直感が鋭い\n放浪癖があり様々な経験に感化されている",
     "Character_EN": "Proactive, highly imaginative, and sharp in intuition\nHas a wandering habit and is influenced by various experiences",
     "Hobby_JP": "旅行、放浪",
@@ -9442,19 +9457,6 @@
     },
     "InStory_JP": "ふと不在になって顔を出したときに、余計なことへ巻き込むことがあるので、一部のナンバーテールズから迷惑に思われている",
     "InStory_EN": "Because she sometimes disappears and then reappears while dragging others into extra trouble, some NumberTales see her as troublesome",
-    "TailsUnit": [
-      {
-        "TailShapeType": "#TailShapeType_FoxBranched",
-        "Count": 3,
-        "Branches": [
-          { "Laterality": "#Lat_Upper", "TailCount": 2, "ClusterCount": 2 },
-          { "Laterality": "#Lat_Lower", "TailCount": 1, "ClusterCount": 1 }
-        ],
-        "TailsUnit_PNGName": "attr_tailsUnit23",
-        "Note_JP": null,
-        "Note_EN": null
-      }
-    ],
     "NumerospecAbout_JP": "主人の発想力を引き立てる",
     "NumerospecAbout_EN": "Brings out the Master's creativity",
     "NumerospecStats": {
@@ -9515,9 +9517,7 @@
           "RelationLabel": ["cousin_nearly"]
         }
       ]
-    },
-    "ForMasterCalling_JP": "リーダー",
-    "ForMasterCalling_EN": "Leader"
+    }
   },
   {
     "Num": 24,
@@ -9549,6 +9549,18 @@
     "Height_cm": 158,
     "Weight_kg": { "hideText": "非公開" },
     "BustSize": "E",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxBranched",
+        "Count": 4,
+        "Branches": [
+          { "Laterality": "#Lat_Upper", "TailCount": 2, "ClusterCount": 2 },
+          { "Laterality": "#Lat_Lower", "TailCount": 2, "ClusterCount": 1 }
+        ],
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "ConceptAge": 17,
     "AnivDay": [
       {
@@ -9563,6 +9575,8 @@
     "SecondPersonCalling_EN": "you",
     "ThirdPersonCalling_JP": "*の子,*の人;[※名前呼び]",
     "ThirdPersonCalling_EN": "that kid, that person; [*by name]",
+    "ForMasterCalling_JP": "主さん",
+    "ForMasterCalling_EN": "Master",
     "Character_JP": "実現力はあるものの、受動的で控えめ\n相手の思いに応えてくれる\n退屈症だが本当は高望みしやすい気質",
     "Character_EN": "Has the power to realize things, but is passive and reserved\nResponds to the other person's wishes\nThough prone to boredom, actually has a temperament that easily aims high",
     "Hobby_JP": "談笑",
@@ -9790,18 +9804,6 @@
     },
     "InStory_JP": "主人との実績は悪くないが受け身な姿勢でいるため、妹「42(ヨツグ)」を筆頭に玉に瑕だと思われている様子（本当は望みが容易に叶って退屈している）",
     "InStory_EN": "Her performance with the Master is not bad, but because she stays passive, others, especially younger sister \"42(Fortwis)\", tend to see that as her flaw (in reality, she is bored because wishes come true too easily)",
-    "TailsUnit": [
-      {
-        "TailShapeType": "#TailShapeType_FoxBranched",
-        "Count": 4,
-        "Branches": [
-          { "Laterality": "#Lat_Upper", "TailCount": 2, "ClusterCount": 2 },
-          { "Laterality": "#Lat_Lower", "TailCount": 2, "ClusterCount": 1 }
-        ],
-        "Note_JP": null,
-        "Note_EN": null
-      }
-    ],
     "NumerospecAbout_JP": "相手の望みを叶える\nただしこの効果は、相手が自分の心に正直になることで真価を発揮する",
     "NumerospecAbout_EN": "Grants the other person's wishes\nHowever, this effect shows its true value when the person is honest with their own heart",
     "NumerospecStats": {
@@ -9860,9 +9862,7 @@
           "RelationLabel": ["classmate"]
         }
       ]
-    },
-    "ForMasterCalling_JP": "主さん",
-    "ForMasterCalling_EN": "Master"
+    }
   },
   {
     "Num": 25,
@@ -9905,6 +9905,18 @@
       { "value": 42, "about_JP": "推定", "about_EN": "Presumption" }
     ],
     "BustSize": "G",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxBranched",
+        "Count": 5,
+        "Branches": [
+          { "Laterality": "#Lat_Upper", "TailCount": 2, "ClusterCount": 2 },
+          { "Laterality": "#Lat_Lower", "TailCount": 3, "ClusterCount": 1 }
+        ],
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "ConceptAge": 16,
     "AnivDay": [
       {
@@ -9919,6 +9931,8 @@
     "SecondPersonCalling_EN": "you",
     "ThirdPersonCalling_JP": "[※名前呼び]",
     "ThirdPersonCalling_EN": "[*by name]",
+    "ForMasterCalling_JP": "主人さん",
+    "ForMasterCalling_EN": "Master",
     "Character_JP": "直感が鋭く適応力が高い\nあらゆる結果に対して楽観的で前向き",
     "Character_EN": "Sharp intuition and high adaptability\nOptimistic and forward-looking toward any outcome",
     "Hobby_JP": "ヒットアンドブロウ（数当てゲーム）",
@@ -10275,18 +10289,6 @@
       "Technic": { "Rank": "A" },
       "Actuation": { "Rank": "A" }
     },
-    "TailsUnit": [
-      {
-        "TailShapeType": "#TailShapeType_FoxBranched",
-        "Count": 5,
-        "Branches": [
-          { "Laterality": "#Lat_Upper", "TailCount": 2, "ClusterCount": 2 },
-          { "Laterality": "#Lat_Lower", "TailCount": 3, "ClusterCount": 1 }
-        ],
-        "Note_JP": null,
-        "Note_EN": null
-      }
-    ],
     "NumerospecAbout_JP": "どんな状況でもリラックスさせる\n同時に、適応力の向上も促す\nただしこの効果は能動的な作用である",
     "NumerospecAbout_EN": "Helps one relax in any situation\nAt the same time, promotes improved adaptability\nHowever, this effect is an active-acting one",
     "NumerospecStats": {
@@ -10357,9 +10359,7 @@
         "value_EN": "Thœfran Adaka (Team.78 the Special Investigators WaterCups Branch Seven-ist)"
       }
     ],
-    "VRMs": { "corefolder_VRMPath": ["25/vrm_corefolder25"] },
-    "ForMasterCalling_JP": "主人さん",
-    "ForMasterCalling_EN": "Master"
+    "VRMs": { "corefolder_VRMPath": ["25/vrm_corefolder25"] }
   },
   {
     "Num": 26,
@@ -10392,6 +10392,18 @@
     "Height_cm": 153,
     "Weight_kg": { "hideText": "非公開" },
     "BustSize": "G",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxBranched",
+        "Count": 6,
+        "Branches": [
+          { "Laterality": "#Lat_Upper", "TailCount": 2, "ClusterCount": 2 },
+          { "Laterality": "#Lat_Lower", "TailCount": 4, "ClusterCount": 1 }
+        ],
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "ConceptAge": { "value": 22, "about_JP": "？", "about_EN": "?" },
     "AnivDay": [
       {
@@ -10406,6 +10418,8 @@
     "SecondPersonCalling_EN": "you (neutral/polite)",
     "ThirdPersonCalling_JP": "[※名前呼び],~さん\n~さま",
     "ThirdPersonCalling_EN": "[*by name]\nMr/Ms.~",
+    "ForMasterCalling_JP": "ご主人さま",
+    "ForMasterCalling_EN": "my Master",
     "Character_JP": "愛情に対する感性が優れている\n優しくて思いやりの良い姉のような存在",
     "Character_EN": "Excellent sensitivity toward affection\nA kind, caring, big-sister-like presence",
     "Hobby_JP": "ドラマ鑑賞",
@@ -10678,18 +10692,6 @@
       "Technic": { "Rank": "D" },
       "Actuation": { "Rank": "A" }
     },
-    "TailsUnit": [
-      {
-        "TailShapeType": "#TailShapeType_FoxBranched",
-        "Count": 6,
-        "Branches": [
-          { "Laterality": "#Lat_Upper", "TailCount": 2, "ClusterCount": 2 },
-          { "Laterality": "#Lat_Lower", "TailCount": 4, "ClusterCount": 1 }
-        ],
-        "Note_JP": null,
-        "Note_EN": null
-      }
-    ],
     "NumerospecAbout_JP": "愛情あふれる感性を恵む\n特に女性の魅力を高める効果が期待できる",
     "NumerospecAbout_EN": "Grants a sensibility full of affection\nEspecially expected to enhance feminine charm",
     "NumerospecStats": {
@@ -10750,9 +10752,7 @@
           "RelationLabel": ["classmate"]
         }
       ]
-    },
-    "ForMasterCalling_JP": "ご主人さま",
-    "ForMasterCalling_EN": "my Master"
+    }
   },
   {
     "Num": 27,
@@ -10798,6 +10798,18 @@
     "Height_cm": 162,
     "Weight_kg": 43,
     "BustSize": "B",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxBranched",
+        "Count": 7,
+        "Branches": [
+          { "Laterality": "#Lat_Upper", "TailCount": 2, "ClusterCount": 2 },
+          { "Laterality": "#Lat_Lower", "TailCount": 5, "ClusterCount": 1 }
+        ],
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "ConceptAge": 17,
     "AnivDay": [
       {
@@ -10812,6 +10824,8 @@
     "SecondPersonCalling_EN": "[*by name]",
     "ThirdPersonCalling_JP": "[※名前呼び]",
     "ThirdPersonCalling_EN": "[*by name]",
+    "ForMasterCalling_JP": "ご主人",
+    "ForMasterCalling_EN": "Master",
     "Character_JP": "自分らが学んできたことを大切にしている\n普段は寛容な教師のような気質だが、経験や信念の限界を試している好戦的な一面も",
     "Character_EN": "Values what has been learned through experience\nUsually has the temperament of a tolerant teacher, but also a combative side that tests the limits of experience and conviction",
     "Hobby_JP": "教室訪問",
@@ -11128,18 +11142,6 @@
     },
     "InStory_JP": "「2+7型」のネーム機で、特異個体「72(ナフタ)」と同型個体だが、こちらは特異個体ではない",
     "InStory_EN": "A named unit of the 'Unit.2+7 type'; same model type as the special unit '72(Sevtwína)', but this one is not a special unit.",
-    "TailsUnit": [
-      {
-        "TailShapeType": "#TailShapeType_FoxBranched",
-        "Count": 7,
-        "Branches": [
-          { "Laterality": "#Lat_Upper", "TailCount": 2, "ClusterCount": 2 },
-          { "Laterality": "#Lat_Lower", "TailCount": 5, "ClusterCount": 1 }
-        ],
-        "Note_JP": null,
-        "Note_EN": null
-      }
-    ],
     "NumerospecAbout_JP": "知性を向上させる\nただしこの効果は、相手が自分を信じることで真価を発揮する",
     "NumerospecAbout_EN": "Enhances intelligence\nHowever, this effect shows its true value only when the target believes in oneself",
     "NumerospecStats": {
@@ -11203,9 +11205,7 @@
           "Comments_EN": "\"I think the final phase is where ze truly shines.\""
         }
       ]
-    },
-    "ForMasterCalling_JP": "ご主人",
-    "ForMasterCalling_EN": "Master"
+    }
   },
   {
     "Num": 28,
@@ -11241,6 +11241,18 @@
     "Height_cm": 164,
     "Weight_kg": { "hideText": "非公開" },
     "BustSize": "D",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxBranched",
+        "Count": 8,
+        "Branches": [
+          { "Laterality": "#Lat_Upper", "TailCount": 2, "ClusterCount": 2 },
+          { "Laterality": "#Lat_Lower", "TailCount": 6, "ClusterCount": 1 }
+        ],
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "ConceptAge": 22,
     "AnivDay": [
       {
@@ -11255,6 +11267,8 @@
     "SecondPersonCalling_EN": "you (neutral/polite)",
     "ThirdPersonCalling_JP": "[※名前呼び]",
     "ThirdPersonCalling_EN": "[*by name]",
+    "ForMasterCalling_JP": "ご主人",
+    "ForMasterCalling_EN": "Master",
     "Character_JP": "物欲が激しく少しやさぐれているが、根は優しい\n完全数が好きな痛い数学徒でもある",
     "Character_EN": "Has intense material desires and can be a little jaded, but is kind at heart\nAlso an ardent and somewhat over-the-top math enthusiast who loves perfect numbers",
     "Hobby_JP": "アクセサリー収集",
@@ -11642,18 +11656,6 @@
       "Technic": { "Rank": "A" },
       "Actuation": { "Rank": "B+" }
     },
-    "TailsUnit": [
-      {
-        "TailShapeType": "#TailShapeType_FoxBranched",
-        "Count": 8,
-        "Branches": [
-          { "Laterality": "#Lat_Upper", "TailCount": 2, "ClusterCount": 2 },
-          { "Laterality": "#Lat_Lower", "TailCount": 6, "ClusterCount": 1 }
-        ],
-        "Note_JP": null,
-        "Note_EN": null
-      }
-    ],
     "NumerospecAbout_JP": "物乞いを叶える\nただしこの効果は対象者の純粋さに左右される",
     "NumerospecAbout_EN": "Grants begged-for wishes\nHowever, this effect depends on the target's purity",
     "NumerospecStats": {
@@ -11722,9 +11724,7 @@
           "RelationLabel": ["classmate"]
         }
       ]
-    },
-    "ForMasterCalling_JP": "ご主人",
-    "ForMasterCalling_EN": "Master"
+    }
   },
   {
     "Num": 29,
@@ -11755,6 +11755,18 @@
     "Height_cm": 150,
     "Weight_kg": { "hideText": "非公開" },
     "BustSize": "E",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxBranched",
+        "Count": 9,
+        "Branches": [
+          { "Laterality": "#Lat_Upper", "TailCount": 2, "ClusterCount": 2 },
+          { "Laterality": "#Lat_Lower", "TailCount": 7, "ClusterCount": 1 }
+        ],
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "ConceptAge": 16,
     "AnivDay": [
       {
@@ -11769,6 +11781,8 @@
     "SecondPersonCalling_EN": "you (neutral/polite)",
     "ThirdPersonCalling_JP": "[※名前呼び]",
     "ThirdPersonCalling_EN": "[*by name]",
+    "ForMasterCalling_JP": "お兄ちゃん/お姉ちゃん",
+    "ForMasterCalling_EN": "big bro/sis",
     "Character_JP": "繊細で不安症\n少し巻き込まれ体質",
     "Character_EN": "Sensitive and anxiety-prone\nSomewhat prone to getting dragged into situations",
     "Hobby_JP": "映画鑑賞",
@@ -12014,18 +12028,6 @@
       "Technic": { "Rank": "B" },
       "Actuation": { "Rank": "B" }
     },
-    "TailsUnit": [
-      {
-        "TailShapeType": "#TailShapeType_FoxBranched",
-        "Count": 9,
-        "Branches": [
-          { "Laterality": "#Lat_Upper", "TailCount": 2, "ClusterCount": 2 },
-          { "Laterality": "#Lat_Lower", "TailCount": 7, "ClusterCount": 1 }
-        ],
-        "Note_JP": null,
-        "Note_EN": null
-      }
-    ],
     "NumerospecAbout_JP": "主人の辛い思いや悩みから解放する",
     "NumerospecAbout_EN": "Releases the Master from painful feelings and worries",
     "NumerospecStats": {
@@ -12079,9 +12081,7 @@
     },
     "ThisMasters": [
       { "value_JP": "メイリア.シラユキ", "value_EN": "Meilia.S.White" }
-    ],
-    "ForMasterCalling_JP": "お兄ちゃん/お姉ちゃん",
-    "ForMasterCalling_EN": "big bro/sis"
+    ]
   },
   {
     "Num": 30,
@@ -12110,6 +12110,14 @@
     "Height_cm": 157,
     "Weight_kg": { "hideText": "非公開" },
     "BustSize": "F",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_Fox",
+        "Count": 3,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "ConceptAge": { "value": 17, "about_JP": "？", "about_EN": "?" },
     "AnivDay": [
       {
@@ -12124,6 +12132,8 @@
     "SecondPersonCalling_EN": "you (neutral/polite)",
     "ThirdPersonCalling_JP": "~ちゃん",
     "ThirdPersonCalling_EN": "~chan",
+    "ForMasterCalling_JP": "ご主人",
+    "ForMasterCalling_EN": "Master",
     "Character_JP": "幸福感あふれる気質で、創造力にあふれている\n少しオマセで背伸びしているような風格",
     "Character_EN": "Overflowing with a sense of happiness and creativity\nHas a slightly precocious, trying-to-look-grown-up demeanor",
     "Hobby_JP": "手芸、クラフト",
@@ -12378,14 +12388,6 @@
     },
     "Backgrounds_JP": "ネーム個体の設計を応用した、初の改良型個体",
     "Backgrounds_EN": "The first renovated unit applying design concepts from named units",
-    "TailsUnit": [
-      {
-        "TailShapeType": "#TailShapeType_Fox",
-        "Count": 3,
-        "Note_JP": null,
-        "Note_EN": null
-      }
-    ],
     "NumerospecAbout_JP": "幸運を味方にする\nこの効果はイメージを具現化し運勢的なものに関与する",
     "NumerospecAbout_EN": "Brings luck to one's side\nThis effect materializes imagination and influences fortune-related outcomes",
     "NumerospecStats": {
@@ -12443,9 +12445,7 @@
           "Comments_EN": "\"Please don't push yourself too hard... okay?\""
         }
       ]
-    },
-    "ForMasterCalling_JP": "ご主人",
-    "ForMasterCalling_EN": "Master"
+    }
   },
   {
     "Num": 31,
@@ -12474,6 +12474,18 @@
     "Height_cm": 147,
     "Weight_kg": 40,
     "BustSize": "D",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxBranched",
+        "Count": 3,
+        "Branches": [
+          { "Laterality": "#Lat_Upper", "TailCount": 2, "ClusterCount": 1 },
+          { "Laterality": "#Lat_Lower", "TailCount": 1, "ClusterCount": 2 }
+        ],
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "ConceptAge": 16,
     "AnivDay": [
       {
@@ -12488,6 +12500,8 @@
     "SecondPersonCalling_EN": "you",
     "ThirdPersonCalling_JP": "[※名前呼び]",
     "ThirdPersonCalling_EN": "[*by name]",
+    "ForMasterCalling_JP": "ご主人",
+    "ForMasterCalling_EN": "Master",
     "Character_JP": "一度挑んだことは諦めず、向上意欲が旺盛\nメルセンヌ素数が好きな痛い数学徒でもある",
     "Character_EN": "Never gives up on any challenge once committed; driven by a strong desire to improve\nAlso a self-styled math nerd with a deep love for Mersenne primes",
     "Hobby_JP": "探検",
@@ -12872,18 +12886,6 @@
       "Technic": { "Rank": "S" },
       "Actuation": { "Rank": "B+" }
     },
-    "TailsUnit": [
-      {
-        "TailShapeType": "#TailShapeType_FoxBranched",
-        "Count": 3,
-        "Branches": [
-          { "Laterality": "#Lat_Upper", "TailCount": 2, "ClusterCount": 1 },
-          { "Laterality": "#Lat_Lower", "TailCount": 1, "ClusterCount": 2 }
-        ],
-        "Note_JP": null,
-        "Note_EN": null
-      }
-    ],
     "NumerospecAbout_JP": "主人の行いを引き立てる",
     "NumerospecAbout_EN": "Enhances and elevates the master's conduct",
     "NumerospecStats": {
@@ -12944,9 +12946,7 @@
           "RelationLabel": ["classmate"]
         }
       ]
-    },
-    "ForMasterCalling_JP": "ご主人",
-    "ForMasterCalling_EN": "Master"
+    }
   },
   {
     "Num": 32,
@@ -12974,6 +12974,18 @@
     "Height_cm": 149,
     "Weight_kg": 40,
     "BustSize": "A",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxBranched",
+        "Count": 3,
+        "Branches": [
+          { "Laterality": "#Lat_Upper", "TailCount": 1, "ClusterCount": 1 },
+          { "Laterality": "#Lat_Lower", "TailCount": 2, "ClusterCount": 2 }
+        ],
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "ConceptAge": { "value": 16, "about_JP": "？", "about_EN": "?" },
     "AnivDay": [
       {
@@ -12988,6 +13000,8 @@
     "SecondPersonCalling_EN": "you (rough)",
     "ThirdPersonCalling_JP": "*いつ/*れ;[※名前呼び]",
     "ThirdPersonCalling_EN": "this/that/who/what/which/them (as personal or objective); [*by name]",
+    "ForMasterCalling_JP": "リーダー",
+    "ForMasterCalling_EN": "Leader",
     "Character_JP": "コミュニケーション力が高く創造的\n奇抜な発想と個性を持つ",
     "Character_EN": "Highly communicative and creative\nHolds unconventional ideas and a strong individual flair",
     "Hobby_JP": "大喜利",
@@ -13295,18 +13309,6 @@
       "Technic": { "Rank": "A" },
       "Actuation": { "Rank": "C" }
     },
-    "TailsUnit": [
-      {
-        "TailShapeType": "#TailShapeType_FoxBranched",
-        "Count": 3,
-        "Branches": [
-          { "Laterality": "#Lat_Upper", "TailCount": 1, "ClusterCount": 1 },
-          { "Laterality": "#Lat_Lower", "TailCount": 2, "ClusterCount": 2 }
-        ],
-        "Note_JP": null,
-        "Note_EN": null
-      }
-    ],
     "NumerospecAbout_JP": "相手の思考を読み交流を深める",
     "NumerospecAbout_EN": "Reads others' thoughts and deepens interactions",
     "NumerospecStats": {
@@ -13366,9 +13368,7 @@
           "RelationLabel": ["classmate"]
         }
       ]
-    },
-    "ForMasterCalling_JP": "リーダー",
-    "ForMasterCalling_EN": "Leader"
+    }
   },
   {
     "Num": 33,
@@ -13396,6 +13396,15 @@
     "Height_cm": 149,
     "Weight_kg": { "hideText": "非公開" },
     "BustSize": "A",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxBranched",
+        "Count": 3,
+        "Segment": 2,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "ConceptAge": 15,
     "AnivDay": [
       {
@@ -13410,6 +13419,8 @@
     "SecondPersonCalling_EN": "you (neutral/polite)",
     "ThirdPersonCalling_JP": "[※名前呼び]",
     "ThirdPersonCalling_EN": "[*by name]",
+    "ForMasterCalling_JP": "ご主人様（/お嬢様）",
+    "ForMasterCalling_EN": "Master(/Milady)",
     "Character_JP": "オンライン時：高飛車で過度の自信家で、自分にできないことなど何もないと思っている\nオフライン時：幼児退行気味で泣き虫",
     "Character_EN": "Online: arrogant, excessively self-confident, convinced there is nothing she cannot do\nOffline: prone to childlike regression and tearfulness",
     "Hobby_JP": "やったことないことを試す",
@@ -13785,15 +13796,6 @@
     "Backgrounds_EN": "The first unit to be a standard + improved composite type and to have enhanced ROS functions\nAdapts the NumberTales activity management cloud",
     "InStory_JP": "「全知全能」を名乗っているが実力は本物\nただしROSの弱点を突かれて玩ばれる一面も",
     "InStory_EN": "Claims the title of \"omniscient and omnipotent\" — and the ability genuinely backs it up\nHowever, she also has a side where she is toyed with by those who exploit ROS's weaknesses",
-    "TailsUnit": [
-      {
-        "TailShapeType": "#TailShapeType_FoxBranched",
-        "Count": 3,
-        "Segment": 2,
-        "Note_JP": null,
-        "Note_EN": null
-      }
-    ],
     "NumerospecAbout_JP": "全域の知識および技能を習得できる（ROSの機能で）\nただし発動条件としてオンライン状態である必要がある",
     "NumerospecAbout_EN": "Can acquire knowledge and skills across all domains (via ROS functions)\nRequires being in an online state to activate",
     "NumerospecStats": {
@@ -13863,9 +13865,7 @@
         "value_JP": "手塚 桃（78特殊探偵団 金の硬貨支部 三番札(トレイヤー)）",
         "value_EN": "Momo Tedzka (Team.78 the Special Investigators PentacleObjects Branch Trey-er)"
       }
-    ],
-    "ForMasterCalling_JP": "ご主人様（/お嬢様）",
-    "ForMasterCalling_EN": "Master(/Milady)"
+    ]
   },
   {
     "Num": 34,
@@ -13894,6 +13894,18 @@
     "Height_cm": 143,
     "Weight_kg": { "hideText": "非公開" },
     "BustSize": "A",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxBranched",
+        "Count": 4,
+        "Branches": [
+          { "Laterality": "#Lat_Upper", "TailCount": 3, "ClusterCount": 2 },
+          { "Laterality": "#Lat_Lower", "TailCount": 1, "ClusterCount": 1 }
+        ],
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "ConceptAge": { "value": 15, "about_JP": "？", "about_EN": "?" },
     "AnivDay": [
       {
@@ -13908,6 +13920,8 @@
     "SecondPersonCalling_EN": "sir/lady\nyou (anta; rough)",
     "ThirdPersonCalling_JP": "[※二人称]\n*イツ;[※名前呼び]",
     "ThirdPersonCalling_EN": "[*second-person calling]\nthat/this/who/which/them; [*by name]",
+    "ForMasterCalling_JP": "旦那様（/奥様）\nご主人様（/お嬢様）",
+    "ForMasterCalling_EN": "my lord(/my lady)\nMaster(/Milady)",
     "Character_JP": "少し頑固で不器用、一寸膨大にとらえがち\n小規模なことより大規模なことを好んでいる",
     "Character_EN": "Somewhat stubborn and clumsy, with a tendency to see things on a grand scale\nPrefers large-scale endeavors over small ones",
     "Hobby_JP": "怪しい交渉を持ちかける",
@@ -14190,18 +14204,6 @@
     },
     "InStory_JP": "関西弁を真似たような口調",
     "InStory_EN": "Speaks in a tone that mimics the Kansai dialect",
-    "TailsUnit": [
-      {
-        "TailShapeType": "#TailShapeType_FoxBranched",
-        "Count": 4,
-        "Branches": [
-          { "Laterality": "#Lat_Upper", "TailCount": 3, "ClusterCount": 2 },
-          { "Laterality": "#Lat_Lower", "TailCount": 1, "ClusterCount": 1 }
-        ],
-        "Note_JP": null,
-        "Note_EN": null
-      }
-    ],
     "NumerospecAbout_JP": "規模を発展させる",
     "NumerospecAbout_EN": "Expands and escalates the scale of things",
     "NumerospecStats": {
@@ -14267,9 +14269,7 @@
           "Comments_EN": "\"I don't quite get it, but he's really pulling it off...\""
         }
       ]
-    },
-    "ForMasterCalling_JP": "旦那様（/奥様）\nご主人様（/お嬢様）",
-    "ForMasterCalling_EN": "my lord(/my lady)\nMaster(/Milady)"
+    }
   },
   {
     "Num": 35,
@@ -14300,6 +14300,18 @@
     "Height_cm": 139,
     "Weight_kg": 36,
     "BustSize": "A",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxBranched",
+        "Count": 5,
+        "Branches": [
+          { "Laterality": "#Lat_Upper", "TailCount": 3, "ClusterCount": 2 },
+          { "Laterality": "#Lat_Lower", "TailCount": 2, "ClusterCount": 1 }
+        ],
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "ConceptAge": 14,
     "AnivDay": [
       {
@@ -14314,6 +14326,8 @@
     "SecondPersonCalling_EN": "you (neutral/polite)",
     "ThirdPersonCalling_JP": "[※名前呼び]",
     "ThirdPersonCalling_EN": "[*by name]",
+    "ForMasterCalling_JP": "兄者(あにしゃ)/姉者(あねしゃ)",
+    "ForMasterCalling_EN": "bro/sis (anisha/anesha; archaic)",
     "Character_JP": "感性が高い才能肌\n几帳面な一面も",
     "Character_EN": "Gifted with keen intuition and natural talent\nAlso has a meticulous, detail-oriented side",
     "Hobby_JP": "企画",
@@ -14618,18 +14632,6 @@
     },
     "InStory_JP": "名前のゲン担ぎで巫女のバイトを始めた結果、得意分野である庭園掃除や儀式の丁寧さが功を成し 現在副業にまで発展している（「ミコ」という通称もこのため）",
     "InStory_EN": "Started shrine maiden work for good luck based on the word play in zir name; zir strengths in garden maintenance and meticulous ritual work paid off, developing it into a side career (the nickname \"Míko\" also comes from this)",
-    "TailsUnit": [
-      {
-        "TailShapeType": "#TailShapeType_FoxBranched",
-        "Count": 5,
-        "Branches": [
-          { "Laterality": "#Lat_Upper", "TailCount": 3, "ClusterCount": 2 },
-          { "Laterality": "#Lat_Lower", "TailCount": 2, "ClusterCount": 1 }
-        ],
-        "Note_JP": null,
-        "Note_EN": null
-      }
-    ],
     "NumerospecAbout_JP": "物事や進捗を発展させる",
     "NumerospecAbout_EN": "Promotes the development and progress of matters at hand",
     "NumerospecStats": {
@@ -14693,9 +14695,7 @@
           "RelationLabel": ["classmate"]
         }
       ]
-    },
-    "ForMasterCalling_JP": "兄者(あにしゃ)/姉者(あねしゃ)",
-    "ForMasterCalling_EN": "bro/sis (anisha/anesha; archaic)"
+    }
   },
   {
     "Num": 36,
@@ -14727,6 +14727,18 @@
     "Height_cm": 150,
     "Weight_kg": { "hideText": "非公開" },
     "BustSize": "E",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxBranched",
+        "Count": 6,
+        "Branches": [
+          { "Laterality": "#Lat_Upper", "TailCount": 3, "ClusterCount": 2 },
+          { "Laterality": "#Lat_Lower", "TailCount": 3, "ClusterCount": 1 }
+        ],
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "ConceptAge": 16,
     "AnivDay": [
       {
@@ -14741,6 +14753,8 @@
     "SecondPersonCalling_EN": "you (neutral/polite)",
     "ThirdPersonCalling_JP": "[※名前呼び]",
     "ThirdPersonCalling_EN": "[*by name]",
+    "ForMasterCalling_JP": "主さん",
+    "ForMasterCalling_EN": "Master",
     "Character_JP": "愛情表現が豊か\n運を分け与えるあまり、不運体質なのがコンプレックス",
     "Character_EN": "Expressive and affectionate\nHas a complex about being prone to bad luck — a side effect of sharing her fortune with others",
     "Hobby_JP": "デートスポット巡り",
@@ -15062,18 +15076,6 @@
     },
     "InStory_JP": "相手に運をもたらしているが、彼女自身の運は低い",
     "InStory_EN": "Brings fortune to others, yet her own luck runs low",
-    "TailsUnit": [
-      {
-        "TailShapeType": "#TailShapeType_FoxBranched",
-        "Count": 6,
-        "Branches": [
-          { "Laterality": "#Lat_Upper", "TailCount": 3, "ClusterCount": 2 },
-          { "Laterality": "#Lat_Lower", "TailCount": 3, "ClusterCount": 1 }
-        ],
-        "Note_JP": null,
-        "Note_EN": null
-      }
-    ],
     "NumerospecAbout_JP": "豊かさを分け与える\nただしその相手が目前に居る必要がある",
     "NumerospecAbout_EN": "Shares abundance with others\nHowever, the recipient must be physically present",
     "NumerospecStats": {
@@ -15144,9 +15146,7 @@
         "value_JP": "颯 天（78特殊探偵団 風の刀剣 三番札(トレイヤー)）",
         "value_EN": "Skye Hayate (Team.78 the Special Investigators SlashSwords Branch Trey-r)"
       }
-    ],
-    "ForMasterCalling_JP": "主さん",
-    "ForMasterCalling_EN": "Master"
+    ]
   },
   {
     "Num": 37,
@@ -15181,6 +15181,18 @@
       { "value": 42, "about_JP": "推定", "about_EN": "Presumption" }
     ],
     "BustSize": "C",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxBranched",
+        "Count": 7,
+        "Branches": [
+          { "Laterality": "#Lat_Upper", "TailCount": 3, "ClusterCount": 2 },
+          { "Laterality": "#Lat_Lower", "TailCount": 4, "ClusterCount": 1 }
+        ],
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "ConceptAge": 19,
     "AnivDay": [
       {
@@ -15195,6 +15207,8 @@
     "SecondPersonCalling_EN": "you",
     "ThirdPersonCalling_JP": "彼/彼女;[※名前呼び]",
     "ThirdPersonCalling_EN": "he/she; [*by name]",
+    "ForMasterCalling_JP": "リーダー\nお兄(にぃ)/お姉(ねぇ)",
+    "ForMasterCalling_EN": "Leader\nbro/sis",
     "Character_JP": "勤勉で知的向上心旺盛\n褒められると甘えがち",
     "Character_EN": "Diligent and driven by intellectual curiosity\nTends to get clingy when praised",
     "Hobby_JP": "書斎(本屋,図書館)に行く",
@@ -15494,18 +15508,6 @@
       "Technic": { "Rank": "A" },
       "Actuation": { "Rank": "B" }
     },
-    "TailsUnit": [
-      {
-        "TailShapeType": "#TailShapeType_FoxBranched",
-        "Count": 7,
-        "Branches": [
-          { "Laterality": "#Lat_Upper", "TailCount": 3, "ClusterCount": 2 },
-          { "Laterality": "#Lat_Lower", "TailCount": 4, "ClusterCount": 1 }
-        ],
-        "Note_JP": null,
-        "Note_EN": null
-      }
-    ],
     "NumerospecAbout_JP": "主人の努力を報わせる\nこの効果は主人の努力による学びが深いほど拡大する",
     "NumerospecAbout_EN": "Rewards the master's efforts\nThe effect grows stronger the deeper the master's learning through effort",
     "NumerospecStats": {
@@ -15573,9 +15575,7 @@
         "value_EN": "Trustia Cherrybroom / 'Yayoi' (Yadzuki Org. Executive Director.3)",
         "_DBLink": { "_Work": "PastDivers", "_DB": "Primary", "Lunar": "Yayoi" }
       }
-    ],
-    "ForMasterCalling_JP": "リーダー\nお兄(にぃ)/お姉(ねぇ)",
-    "ForMasterCalling_EN": "Leader\nbro/sis"
+    ]
   },
   {
     "Num": 38,
@@ -15642,6 +15642,19 @@
     "Class": ["デュアルスリーズ"],
     "Height_cm": 162,
     "Weight_kg": 44,
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxBranched",
+        "Count": 9,
+        "Branches": [
+          { "Laterality": "#Lat_Upper", "TailCount": 3, "ClusterCount": 2 },
+          { "Laterality": "#Lat_Lower", "TailCount": 6, "ClusterCount": 1 }
+        ],
+        "TailsUnit_PNGName": "attr_tailsUnit39",
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "ConceptAge": 21,
     "AnivDay": [
       {
@@ -15656,6 +15669,8 @@
     "SecondPersonCalling_EN": "you (rough masc.)",
     "ThirdPersonCalling_JP": "彼/彼女;*奴(*いつ);[※名前呼び]",
     "ThirdPersonCalling_EN": "he/she; that guy/gal (*yatsu); [*by name]",
+    "ForMasterCalling_JP": "[※二人称]\n相棒",
+    "ForMasterCalling_EN": "[*second-person calling]\npartner",
     "Character_JP": "無駄や邪魔者には容赦しないドライな気質\nしかし信頼した人にとっては頼れる熱血漢",
     "Character_EN": "A dry, no-nonsense temperament that shows no mercy to inefficiency or obstacles\nYet for those he trusts, he is a dependable, passionate ally",
     "Hobby_JP": "ストラテジーゲーム",
@@ -15991,19 +16006,6 @@
     },
     "Backgrounds_JP": "（10号機「ディケ」を除くと）初めての男性個体\nこの頃から男性型にも需要があるとみられる",
     "Backgrounds_EN": "The first male unit (aside from Unit.10 \"Dicat\")\nFrom this period onward, male-type units are seen to be in demand as well",
-    "TailsUnit": [
-      {
-        "TailShapeType": "#TailShapeType_FoxBranched",
-        "Count": 9,
-        "Branches": [
-          { "Laterality": "#Lat_Upper", "TailCount": 3, "ClusterCount": 2 },
-          { "Laterality": "#Lat_Lower", "TailCount": 6, "ClusterCount": 1 }
-        ],
-        "TailsUnit_PNGName": "attr_tailsUnit39",
-        "Note_JP": null,
-        "Note_EN": null
-      }
-    ],
     "NumerospecAbout_JP": "主人の邪魔をするものに対し対抗心を奮い立たせる\nただし発動条件として主人との信頼関係が必要",
     "NumerospecAbout_EN": "Stirs up a fighting spirit against anything standing in the master's way\nHowever, requires a bond of trust with the master to activate",
     "NumerospecStats": {
@@ -16070,9 +16072,7 @@
         "value_JP": "乃木 希（VIPマスター;夜月機関 救命本部 推薦所属候補者）",
         "value_EN": "Nozomi Nogi（VIP-Master; Yadzuki Org. Lifeguards Headquarter Recommended Candidate）"
       }
-    ],
-    "ForMasterCalling_JP": "[※二人称]\n相棒",
-    "ForMasterCalling_EN": "[*second-person calling]\npartner"
+    ]
   },
   {
     "Num": 40,
@@ -16100,6 +16100,14 @@
     "Height_cm": 140,
     "Weight_kg": 39,
     "BustSize": "A",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_Fox",
+        "Count": 4,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "ConceptAge": 16,
     "AnivDay": [
       {
@@ -16114,6 +16122,8 @@
     "SecondPersonCalling_EN": "thou (sochi; archaic)\nyou (kimi; friendly)",
     "ThirdPersonCalling_JP": "彼/彼女;*レ;[※名前呼び]\n彼/彼女;*れ;~くん/~さん",
     "ThirdPersonCalling_EN": "he/she; this/that/who/what/which/them (as objective); [*by name]\nhe/she; this/that/who/what/which/them (as objective); ~-kun/~-san",
+    "ForMasterCalling_JP": "主君\n主人さん",
+    "ForMasterCalling_EN": "my liege\nMaster",
     "Character_JP": "普段は大袋を拡げながら魔人ぶっているが本当はかなりの苦労人、陰の努力家",
     "Character_EN": "Puts on the airs of a genie, bag at the ready — but in truth a considerable hard worker who has been through the wringer, toiling away quietly behind the scenes",
     "Hobby_JP": "砂金集め",
@@ -16361,14 +16371,6 @@
       "Technic": { "Rank": "B" },
       "Actuation": { "Rank": "D" }
     },
-    "TailsUnit": [
-      {
-        "TailShapeType": "#TailShapeType_Fox",
-        "Count": 4,
-        "Note_JP": null,
-        "Note_EN": null
-      }
-    ],
     "NumerospecAbout_JP": "実現化する\nこの効果は限度制限がある。行動や意志に呼応するらしいが、条件や効果事例が多様なため詳細は不明",
     "NumerospecAbout_EN": "Brings things into reality\nThis effect has limitations. It appears to respond to actions and intentions, but conditions and effect cases vary so widely that details are unclear",
     "NumerospecStats": {
@@ -16425,9 +16427,7 @@
           "RelationLabel": ["successor"]
         }
       ]
-    },
-    "ForMasterCalling_JP": "主君\n主人さん",
-    "ForMasterCalling_EN": "my liege\nMaster"
+    }
   },
   {
     "Num": 41,
@@ -16453,6 +16453,18 @@
     "Height_cm": 157,
     "Weight_kg": 41,
     "BustSize": "AA",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxBranched",
+        "Count": 4,
+        "Branches": [
+          { "Laterality": "#Lat_Upper", "TailCount": 3, "ClusterCount": 1 },
+          { "Laterality": "#Lat_Lower", "TailCount": 1, "ClusterCount": 2 }
+        ],
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "ConceptAge": 16,
     "AnivDay": [
       {
@@ -16467,6 +16479,8 @@
     "SecondPersonCalling_EN": "you (kimi, anta; rough)",
     "ThirdPersonCalling_JP": "*いつ/*れ;[※名前呼び]",
     "ThirdPersonCalling_EN": "this/that/who/what/which/them (as personal or objective); [*by name]",
+    "ForMasterCalling_JP": "主人",
+    "ForMasterCalling_EN": "Master",
     "Character_JP": "挑戦的で楽観的だが、不器用で少し頑固。ほんの若干マゾ",
     "Character_EN": "Daring and optimistic, yet clumsy and a bit stubborn. Just ever so slightly masochistic",
     "Hobby_JP": "ポーカー",
@@ -16811,18 +16825,6 @@
     },
     "InStory_JP": "コアフォルダ形態などについては身動きの取れない状況を挙って嫌う姉の「14(トヨ)」とは対称的に、身動きの取れない姿になってもできることを最大限にやろうとしている（しかし不器用なので結局は身動きが取れない）",
     "InStory_EN": "In contrast to zir older sister '14(Forteels)', who absolutely hates being unable to move freely (such as in corefolder form), ze tries to make the most of what ze can do even while immobilized — though since ze is clumsy, ze ends up stuck anyway",
-    "TailsUnit": [
-      {
-        "TailShapeType": "#TailShapeType_FoxBranched",
-        "Count": 4,
-        "Branches": [
-          { "Laterality": "#Lat_Upper", "TailCount": 3, "ClusterCount": 1 },
-          { "Laterality": "#Lat_Lower", "TailCount": 1, "ClusterCount": 2 }
-        ],
-        "Note_JP": null,
-        "Note_EN": null
-      }
-    ],
     "NumerospecAbout_JP": "失敗する恐れ/可能性を中和する\nこれにより自分の行動に自信を持たせることもある",
     "NumerospecAbout_EN": "Neutralizes the fear and possibility of failure\nThis can also instill confidence in one's own actions",
     "NumerospecStats": {
@@ -16879,9 +16881,7 @@
           "RelationLabel": ["classmate"]
         }
       ]
-    },
-    "ForMasterCalling_JP": "主人",
-    "ForMasterCalling_EN": "Master"
+    }
   },
   {
     "Num": 42,
@@ -16913,6 +16913,18 @@
     "Height_cm": 157,
     "Weight_kg": { "hideText": "非公開" },
     "BustSize": "C",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxBranched",
+        "Count": 4,
+        "Branches": [
+          { "Laterality": "#Lat_Upper", "TailCount": 2, "ClusterCount": 1 },
+          { "Laterality": "#Lat_Lower", "TailCount": 2, "ClusterCount": 2 }
+        ],
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "ConceptAge": 17,
     "AnivDay": [
       {
@@ -16927,6 +16939,8 @@
     "SecondPersonCalling_EN": "you (rough)",
     "ThirdPersonCalling_JP": "*の子,*の人/*れ;[※名前呼び],~ちゃん",
     "ThirdPersonCalling_EN": "that/this/which/whom/them kid/girl/one/person (as personal), that/this/which/what/they (as objective); [*by name], ~-chan",
+    "ForMasterCalling_JP": "あるちゃん",
+    "ForMasterCalling_EN": "Mast-chan/Mil-chan (truncated 'Master/Milady')",
     "Character_JP": "恐れや心配が全くない自信家\n理想が高く我儘な言動をとることも",
     "Character_EN": "An unshakable self-confidence with no trace of fear or worry\nCan also be demanding and willful due to high standards",
     "Hobby_JP": "グッズ収集",
@@ -17204,18 +17218,6 @@
     },
     "InStory_JP": "主人に固執されることがある",
     "InStory_EN": "Sometimes draws obsessive attachment from masters",
-    "TailsUnit": [
-      {
-        "TailShapeType": "#TailShapeType_FoxBranched",
-        "Count": 4,
-        "Branches": [
-          { "Laterality": "#Lat_Upper", "TailCount": 2, "ClusterCount": 1 },
-          { "Laterality": "#Lat_Lower", "TailCount": 2, "ClusterCount": 2 }
-        ],
-        "Note_JP": null,
-        "Note_EN": null
-      }
-    ],
     "NumerospecAbout_JP": "心に抱えている弱気を中和する",
     "NumerospecAbout_EN": "Neutralizes the weakness of spirit one carries in the heart",
     "NumerospecStats": {
@@ -17274,9 +17276,7 @@
           "Comments_EN": "\"Someone who's all omniscient and omnipotent — she's definitely dangerous...\""
         }
       ]
-    },
-    "ForMasterCalling_JP": "あるちゃん",
-    "ForMasterCalling_EN": "Mast-chan/Mil-chan (truncated 'Master/Milady')"
+    }
   },
   {
     "Num": 43,
@@ -17305,6 +17305,18 @@
     "Height_cm": 134,
     "Weight_kg": { "hideText": "非公開" },
     "BustSize": "D",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxBranched",
+        "Count": 4,
+        "Branches": [
+          { "Laterality": "#Lat_Upper", "TailCount": 1, "ClusterCount": 1 },
+          { "Laterality": "#Lat_Lower", "TailCount": 3, "ClusterCount": 2 }
+        ],
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "ConceptAge": 14,
     "AnivDay": [
       {
@@ -17319,6 +17331,8 @@
     "SecondPersonCalling_EN": "[*by name]\n[*by name (truncated, playful)]",
     "ThirdPersonCalling_JP": "*いつ,*の人/*れ;[※二人称]",
     "ThirdPersonCalling_EN": "that/this/what/which guy/person/one (*itsu, *no-hito / *re); [*second-person calling]",
+    "ForMasterCalling_JP": "あるじん ※例外あり",
+    "ForMasterCalling_EN": "Masty (truncated 'Master' *with exceptions)",
     "Character_JP": "なんでも自分の都合よく物事が動くと捉えているメスガキ",
     "Character_EN": "A self-entitled brat who assumes everything will conveniently work out in her favor",
     "Hobby_JP": "対戦ゲーム",
@@ -17592,18 +17606,6 @@
       "Technic": { "Rank": "A" },
       "Actuation": { "Rank": "A" }
     },
-    "TailsUnit": [
-      {
-        "TailShapeType": "#TailShapeType_FoxBranched",
-        "Count": 4,
-        "Branches": [
-          { "Laterality": "#Lat_Upper", "TailCount": 1, "ClusterCount": 1 },
-          { "Laterality": "#Lat_Lower", "TailCount": 3, "ClusterCount": 2 }
-        ],
-        "Note_JP": null,
-        "Note_EN": null
-      }
-    ],
     "NumerospecAbout_JP": "望みを広げる",
     "NumerospecAbout_EN": "Broadens one's aspirations",
     "NumerospecStats": {
@@ -17671,9 +17673,7 @@
           "RelationLabel": ["classmate"]
         }
       ]
-    },
-    "ForMasterCalling_JP": "あるじん ※例外あり",
-    "ForMasterCalling_EN": "Masty (truncated 'Master' *with exceptions)"
+    }
   },
   {
     "Num": 44,
@@ -17705,6 +17705,15 @@
     "Class": ["マスターテールズ9", "スクエアエリート"],
     "Height_cm": 150,
     "Weight_kg": { "hideText": "非公開" },
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxBranched",
+        "Count": 4,
+        "Segment": 2,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "ConceptAge": 16,
     "AnivDay": [
       {
@@ -17719,6 +17728,8 @@
     "SecondPersonCalling_EN": "[*by name]\nyou (omee; rough masc., rare)",
     "ThirdPersonCalling_JP": "彼/彼女;[※名前呼び]",
     "ThirdPersonCalling_EN": "he/she; [*by name]",
+    "ForMasterCalling_JP": "[※名前呼び]\nアニキ/アネキ",
+    "ForMasterCalling_EN": "[*by name]\nBro/Sis (aniki/aneki; street respect)",
     "Character_JP": "勇敢で思い（自我？）の強い好青年気質",
     "Character_EN": "A spirited young man's temperament — brave and strong-willed (or perhaps just self-assertive?)",
     "Hobby_JP": "ゲームセンターのアーケード巡り",
@@ -18030,15 +18041,6 @@
       "Technic": { "Rank": "B" },
       "Actuation": { "Rank": "Z" }
     },
-    "TailsUnit": [
-      {
-        "TailShapeType": "#TailShapeType_FoxBranched",
-        "Count": 4,
-        "Segment": 2,
-        "Note_JP": null,
-        "Note_EN": null
-      }
-    ],
     "NumerospecAbout_JP": "思いを具現化する",
     "NumerospecAbout_EN": "Manifests one's intentions into reality",
     "NumerospecStats": {
@@ -18119,9 +18121,7 @@
         "value_JP": "古山 沢海（78特殊探偵団 火の棍棒支部 五番札(シンカー)）",
         "value_EN": "Takumi Furuyama (Team.78 the Special Investigators FireWands Branch Cinque-r)"
       }
-    ],
-    "ForMasterCalling_JP": "[※名前呼び]\nアニキ/アネキ",
-    "ForMasterCalling_EN": "[*by name]\nBro/Sis (aniki/aneki; street respect)"
+    ]
   },
   {
     "Num": 45,
@@ -18144,6 +18144,18 @@
     "Height_cm": 154,
     "Weight_kg": 42,
     "BustSize": "AA",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxBranched",
+        "Count": 5,
+        "Branches": [
+          { "Laterality": "#Lat_Upper", "TailCount": 4, "ClusterCount": 2 },
+          { "Laterality": "#Lat_Lower", "TailCount": 1, "ClusterCount": 1 }
+        ],
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "ConceptAge": 16,
     "AnivDay": [
       {
@@ -18158,6 +18170,8 @@
     "SecondPersonCalling_EN": "thou (onushi; archaic)",
     "ThirdPersonCalling_JP": "[※名前呼び]",
     "ThirdPersonCalling_EN": "[*by name]",
+    "ForMasterCalling_JP": "主人",
+    "ForMasterCalling_EN": "Master",
     "Character_JP": "善意の味方に付きたい系、良心がよく威勢のいい",
     "Character_EN": "The type who wants to stand on the side of goodwill — strong-hearted and full of spirit",
     "Hobby_JP": "縁側でくつろぐ",
@@ -18401,18 +18415,6 @@
     },
     "InStory_JP": "火消案件で活躍している",
     "InStory_EN": "Makes a name for zirself in crisis-control situations",
-    "TailsUnit": [
-      {
-        "TailShapeType": "#TailShapeType_FoxBranched",
-        "Count": 5,
-        "Branches": [
-          { "Laterality": "#Lat_Upper", "TailCount": 4, "ClusterCount": 2 },
-          { "Laterality": "#Lat_Lower", "TailCount": 1, "ClusterCount": 1 }
-        ],
-        "Note_JP": null,
-        "Note_EN": null
-      }
-    ],
     "NumerospecAbout_JP": "主人を奮い立たせる\n特に主人が行動を起こすべき立場にあると発動する",
     "NumerospecAbout_EN": "Rouses the master into action\nActivates especially when the master is in a position where they must act",
     "NumerospecStats": {
@@ -18472,9 +18474,7 @@
           "Comments_EN": "\"It's something else how ze finally gets serious at the very last moment.\""
         }
       ]
-    },
-    "ForMasterCalling_JP": "主人",
-    "ForMasterCalling_EN": "Master"
+    }
   },
   {
     "Num": 46,
@@ -18497,6 +18497,18 @@
     "Height_cm": 147,
     "Weight_kg": 39,
     "BustSize": "A",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxBranched",
+        "Count": 6,
+        "Branches": [
+          { "Laterality": "#Lat_Upper", "TailCount": 4, "ClusterCount": 2 },
+          { "Laterality": "#Lat_Lower", "TailCount": 2, "ClusterCount": 1 }
+        ],
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "ConceptAge": 15,
     "AnivDay": [
       {
@@ -18511,6 +18523,8 @@
     "SecondPersonCalling_EN": "[*third-person calling]\nyou (omee; rough masc., rare)",
     "ThirdPersonCalling_JP": "*イツ;[※名前呼び];~(な)ヤツ\n~先輩",
     "ThirdPersonCalling_EN": "that/this one (*itsu); [*by name]; ~ one (*na yatsu; adjectival)\n~-senpai",
+    "ForMasterCalling_JP": "先輩\n～先輩",
+    "ForMasterCalling_EN": "Senpai\n~-senpai",
     "Character_JP": "少し気性の荒い万事エンジョイ勢\n落ち着きがない",
     "Character_EN": "A bit rough-natured but always up for a good time — the type who enjoys everything\nRestless and unable to settle down",
     "Hobby_JP": "親睦会に参加する",
@@ -18792,18 +18806,6 @@
     },
     "InStory_JP": "特殊個体「4+6型」の一人\n実績と人気度が乏しく、実況の副業をしている",
     "InStory_EN": "One of the special \"4+6 type\" units\nLacking in achievements and popularity, supplements income through a live commentary side job",
-    "TailsUnit": [
-      {
-        "TailShapeType": "#TailShapeType_FoxBranched",
-        "Count": 6,
-        "Branches": [
-          { "Laterality": "#Lat_Upper", "TailCount": 4, "ClusterCount": 2 },
-          { "Laterality": "#Lat_Lower", "TailCount": 2, "ClusterCount": 1 }
-        ],
-        "Note_JP": null,
-        "Note_EN": null
-      }
-    ],
     "NumerospecAbout_JP": "楽しませる",
     "NumerospecAbout_EN": "Brings entertainment and enjoyment",
     "NumerospecStats": {
@@ -18862,9 +18864,7 @@
           "RelationLabel": ["classmate"]
         }
       ]
-    },
-    "ForMasterCalling_JP": "先輩\n～先輩",
-    "ForMasterCalling_EN": "Senpai\n~-senpai"
+    }
   },
   {
     "Num": 47,
@@ -18894,6 +18894,18 @@
     "Height_cm": 148,
     "Weight_kg": 39,
     "BustSize": "B",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxBranched",
+        "Count": 7,
+        "Branches": [
+          { "Laterality": "#Lat_Upper", "TailCount": 4, "ClusterCount": 2 },
+          { "Laterality": "#Lat_Lower", "TailCount": 3, "ClusterCount": 1 }
+        ],
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "ConceptAge": 17,
     "AnivDay": [
       {
@@ -18913,6 +18925,8 @@
     "SecondPersonCalling_EN": "you",
     "ThirdPersonCalling_JP": "[※名前呼び]",
     "ThirdPersonCalling_EN": "[*by name]",
+    "ForMasterCalling_JP": "マスターさん\n兄さん/姉さん",
+    "ForMasterCalling_EN": "Master\nbro/sis",
     "Character_JP": "決断にブレがない自信家、少し熱血癖がある\n自分だけが認知している加護の存在を伝えたい",
     "Character_EN": "Decisive and unflinching — a self-confidence with a slight hot-blooded streak\nEager to tell others about the Numerospec that only she can perceive",
     "Hobby_JP": "才能のある人に会いに行く",
@@ -19220,18 +19234,6 @@
     "Backgrounds_EN": "Her Numerospec can almost be called an accidental product — even the Zero siblings appear to have no knowledge of her Numerospec at all",
     "InStory_JP": "特異個体「4+7型」の一人。応援は通じるが、加護の認知については話が嚙み合わない傾向にある",
     "InStory_EN": "One of the unique \"Unit.4+7 type\" units. Encouragement gets through, but conversations about Numerospec perception tend to be at cross-purposes",
-    "TailsUnit": [
-      {
-        "TailShapeType": "#TailShapeType_FoxBranched",
-        "Count": 7,
-        "Branches": [
-          { "Laterality": "#Lat_Upper", "TailCount": 4, "ClusterCount": 2 },
-          { "Laterality": "#Lat_Lower", "TailCount": 3, "ClusterCount": 1 }
-        ],
-        "Note_JP": null,
-        "Note_EN": null
-      }
-    ],
     "NumerospecAbout_JP": "ナンバーテールズの加護を認知できる（なお認知できるものはこの限りではない）",
     "NumerospecAbout_EN": "Can perceive the Numerospecs of other NumberTales units (though what she can perceive is not limited to this)",
     "NumerospecStats": {
@@ -19292,9 +19294,7 @@
           "RelationLabel": ["classmate"]
         }
       ]
-    },
-    "ForMasterCalling_JP": "マスターさん\n兄さん/姉さん",
-    "ForMasterCalling_EN": "Master\nbro/sis"
+    }
   },
   {
     "Num": 48,
@@ -19316,6 +19316,18 @@
     "Class": ["デュアルスリーズ"],
     "Height_cm": 161,
     "Weight_kg": { "hideText": "非公開" },
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxBranched",
+        "Count": 8,
+        "Branches": [
+          { "Laterality": "#Lat_Upper", "TailCount": 4, "ClusterCount": 2 },
+          { "Laterality": "#Lat_Lower", "TailCount": 4, "ClusterCount": 1 }
+        ],
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "ConceptAge": 20,
     "AnivDay": [
       {
@@ -19330,6 +19342,8 @@
     "SecondPersonCalling_EN": "you (anata; formal)\nyou (omae; rough)",
     "ThirdPersonCalling_JP": "彼/彼女;*ちら;~さん\n*いつ/*れ;[※名前呼び]",
     "ThirdPersonCalling_EN": "he/she; that/this person (*chira, formal); [*by name]\nthat/this/who/what/which/them (as personal or objective); [*by name]",
+    "ForMasterCalling_JP": "主様(あるじさま)",
+    "ForMasterCalling_EN": "my Lord (aruji-sama; formal)",
     "Character_JP": "根性強く諦めの悪い\n理想と現実の両方を尊重している",
     "Character_EN": "Gritty and tenacious — never one to give up\nRespects both ideals and reality in equal measure",
     "Hobby_JP": "クラウドソーシングで副収入を得ること",
@@ -19619,18 +19633,6 @@
       "Technic": { "Rank": "S+" },
       "Actuation": { "Rank": "C" }
     },
-    "TailsUnit": [
-      {
-        "TailShapeType": "#TailShapeType_FoxBranched",
-        "Count": 8,
-        "Branches": [
-          { "Laterality": "#Lat_Upper", "TailCount": 4, "ClusterCount": 2 },
-          { "Laterality": "#Lat_Lower", "TailCount": 4, "ClusterCount": 1 }
-        ],
-        "Note_JP": null,
-        "Note_EN": null
-      }
-    ],
     "NumerospecAbout_JP": "現実をよりよくする\nこの効果は対象が現実逃避していない時に真価を発揮する",
     "NumerospecAbout_EN": "Makes reality better\nThis effect truly comes into its own when the target is not escaping from reality",
     "NumerospecStats": {
@@ -19692,9 +19694,7 @@
           "RelationLabel": ["cousin_nearly"]
         }
       ]
-    },
-    "ForMasterCalling_JP": "主様(あるじさま)",
-    "ForMasterCalling_EN": "my Lord (aruji-sama; formal)"
+    }
   },
   {
     "Num": 49,
@@ -19728,6 +19728,19 @@
       { "value": 39, "about_JP": "推定", "about_EN": "Presumption" }
     ],
     "BustSize": "A",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxBranched",
+        "Count": 9,
+        "Branches": [
+          { "Laterality": "#Lat_Upper", "TailCount": 4, "ClusterCount": 2 },
+          { "Laterality": "#Lat_Lower", "TailCount": 5, "ClusterCount": 1 }
+        ],
+        "TailsUnit_PNGName": "attr_tailsUnit49",
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "ConceptAge": { "value": 16, "about_JP": "？", "about_EN": "?" },
     "AnivDay": [
       {
@@ -19742,6 +19755,8 @@
     "SecondPersonCalling_EN": "you (familiar)",
     "ThirdPersonCalling_JP": "彼/彼女;*イツ;[※名前呼び]",
     "ThirdPersonCalling_EN": "he/she; that/this/what/which (as objective); [*by name]",
+    "ForMasterCalling_JP": "主人サマ",
+    "ForMasterCalling_EN": "Master-sama (*grandiose)",
     "Character_JP": "せっかちで、今のうちにできることを増やしたい\n進捗が無い中で待っていると不穏な表情をしがち",
     "Character_EN": "Impatient — always wanting to add more things ze can do right now\nWhen waiting without progress, tends to take on a foreboding expression",
     "Hobby_JP": "ハッカソン参加(即興開発イベントのこと)",
@@ -20021,19 +20036,6 @@
       "Technic": { "Rank": "S" },
       "Actuation": { "Rank": "B" }
     },
-    "TailsUnit": [
-      {
-        "TailShapeType": "#TailShapeType_FoxBranched",
-        "Count": 9,
-        "Branches": [
-          { "Laterality": "#Lat_Upper", "TailCount": 4, "ClusterCount": 2 },
-          { "Laterality": "#Lat_Lower", "TailCount": 5, "ClusterCount": 1 }
-        ],
-        "TailsUnit_PNGName": "attr_tailsUnit49",
-        "Note_JP": null,
-        "Note_EN": null
-      }
-    ],
     "NumerospecAbout_JP": "間に合わせる\nこの効果は期日が明確であるほど本領を発揮する",
     "NumerospecAbout_EN": "Gets things done in time\nThe effect truly comes into its own the more clearly defined the deadline is",
     "NumerospecStats": {
@@ -20098,9 +20100,7 @@
           "Lunar": "Udzuki"
         }
       }
-    ],
-    "ForMasterCalling_JP": "主人サマ",
-    "ForMasterCalling_EN": "Master-sama (*grandiose)"
+    ]
   },
   {
     "Num": 50,
@@ -20128,6 +20128,14 @@
     "Class": ["10倍番(テンズデジッツ)"],
     "Height_cm": 140,
     "Weight_kg": 39,
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_Fox",
+        "Count": 5,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "ConceptAge": { "value": 17, "about_JP": "？", "about_EN": "?" },
     "AnivDay": [
       {
@@ -20142,6 +20150,8 @@
     "SecondPersonCalling_EN": "guy/girl(s) (anta; rough)\nyou (kimi; friendly)",
     "ThirdPersonCalling_JP": "彼/彼女;*いつ/*れ;[※名前呼び]\n*のこ,*いつ/*れ;~くん/~ちゃん/~さん",
     "ThirdPersonCalling_EN": "he/she; that/this/which (*itsu/*re); [*by name]\nthat/this/who/which one (*no-ko, *itsu/*re); [*by name] (-kun/-chan/-san)",
+    "ForMasterCalling_JP": "[※その時により変わる]",
+    "ForMasterCalling_EN": "[*Varies depending on the situation]",
     "Character_JP": "どんな状況でも落ち着いている（ように見えるが、本当はめちゃくちゃ焦り症）\n天然かマゾの可能性あり",
     "Character_EN": "Appears calm in any situation (but is actually terribly anxious beneath the surface)\nMay be naturally oblivious, or perhaps a masochist",
     "Hobby_JP": "猫と戯れる（実際は猫に遊ばれてる）",
@@ -20406,14 +20416,6 @@
     },
     "InStory_JP": "猫や知人友人にめちゃくちゃ転がされている",
     "InStory_EN": "Gets thoroughly tossed around by cats, acquaintances, and friends alike",
-    "TailsUnit": [
-      {
-        "TailShapeType": "#TailShapeType_Fox",
-        "Count": 5,
-        "Note_JP": null,
-        "Note_EN": null
-      }
-    ],
     "NumerospecAbout_JP": "物事を急展開に持ち運ぶ\n詳細かつ具体的な効果は不明だがこれによりマンネリ化を無効化できるらしい",
     "NumerospecAbout_EN": "Drives things toward a sudden turn of events\nThe specific effects in detail are unknown, but this apparently nullifies stagnation",
     "NumerospecStats": {
@@ -20475,9 +20477,7 @@
           "Comments_EN": "(I hope I'm not getting in the way...)"
         }
       ]
-    },
-    "ForMasterCalling_JP": "[※その時により変わる]",
-    "ForMasterCalling_EN": "[*Varies depending on the situation]"
+    }
   },
   {
     "Num": 51,
@@ -20498,6 +20498,18 @@
     "Class": ["デュアルシックスズ"],
     "Height_cm": 154,
     "Weight_kg": 44,
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxBranched",
+        "Count": 5,
+        "Branches": [
+          { "Laterality": "#Lat_Upper", "TailCount": 4, "ClusterCount": 1 },
+          { "Laterality": "#Lat_Lower", "TailCount": 1, "ClusterCount": 2 }
+        ],
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "ConceptAge": 16,
     "AnivDay": [
       {
@@ -20512,6 +20524,8 @@
     "SecondPersonCalling_EN": "you (blunt)",
     "ThirdPersonCalling_JP": "*いつ/*れ;[※名前呼び]",
     "ThirdPersonCalling_EN": "this/that/who/what/which/them (as personal or objective); [*by name]",
+    "ForMasterCalling_JP": "主(あるじ)",
+    "ForMasterCalling_EN": "Master (Aruji)",
     "Character_JP": "発想力が高くアイディアマンとしても名高い",
     "Character_EN": "Known for exceptional creativity — acclaimed as a true idea man",
     "Hobby_JP": "ジェンガ",
@@ -20725,18 +20739,6 @@
     "Backgrounds_EN": "Scathing reviews from connoisseur masters have circulated, calling him such a terrible improved unit that he is said to have \"tuned down\" his sibling unit '15(Fifteeld)'.",
     "InStory_JP": "特異個体「1+5型」の安定最適化版だが……",
     "InStory_EN": "The stably optimized version of the unique \"Unit.1+5 type\" units, but...",
-    "TailsUnit": [
-      {
-        "TailShapeType": "#TailShapeType_FoxBranched",
-        "Count": 5,
-        "Branches": [
-          { "Laterality": "#Lat_Upper", "TailCount": 4, "ClusterCount": 1 },
-          { "Laterality": "#Lat_Lower", "TailCount": 1, "ClusterCount": 2 }
-        ],
-        "Note_JP": null,
-        "Note_EN": null
-      }
-    ],
     "NumerospecAbout_JP": "閃きをもたらす",
     "NumerospecAbout_EN": "Brings flashes of inspiration",
     "NumerospecStats": {
@@ -20793,9 +20795,7 @@
           "RelationLabel": ["classmate"]
         }
       ]
-    },
-    "ForMasterCalling_JP": "主(あるじ)",
-    "ForMasterCalling_EN": "Master (Aruji)"
+    }
   },
   {
     "Num": 52,
@@ -20826,6 +20826,18 @@
       { "value": 42, "about_JP": "推定", "about_EN": "Presumption" }
     ],
     "BustSize": "F",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxBranched",
+        "Count": 5,
+        "Branches": [
+          { "Laterality": "#Lat_Upper", "TailCount": 3, "ClusterCount": 1 },
+          { "Laterality": "#Lat_Lower", "TailCount": 2, "ClusterCount": 2 }
+        ],
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "ConceptAge": 16,
     "AnivDay": [
       {
@@ -20845,6 +20857,8 @@
     "SecondPersonCalling_EN": "you",
     "ThirdPersonCalling_JP": "[※名前呼び]",
     "ThirdPersonCalling_EN": "[*by name]",
+    "ForMasterCalling_JP": "主人さん",
+    "ForMasterCalling_EN": "Master",
     "Character_JP": "受け身姿勢でいつも流され気味だが、自分の本領を発揮できるタイミングを掌握できる",
     "Character_EN": "Tends to go with the flow and play a passive role, yet has a knack for knowing exactly when to step forward and show her true worth",
     "Hobby_JP": "戦略ゲーム",
@@ -21188,18 +21202,6 @@
     },
     "Backgrounds_JP": "姉「25(フィズ)」の代替機体とも呼称され、姉妹で業務を交代している一面も見られる",
     "Backgrounds_EN": "She is also referred to as the backup unit for her older sister '25(Quartels)', and the two are sometimes seen taking turns on duties",
-    "TailsUnit": [
-      {
-        "TailShapeType": "#TailShapeType_FoxBranched",
-        "Count": 5,
-        "Branches": [
-          { "Laterality": "#Lat_Upper", "TailCount": 3, "ClusterCount": 1 },
-          { "Laterality": "#Lat_Lower", "TailCount": 2, "ClusterCount": 2 }
-        ],
-        "Note_JP": null,
-        "Note_EN": null
-      }
-    ],
     "NumerospecAbout_JP": "楽観主義により自己実現と適応力を発揮する\nこの効果は主人に感化させることもできる\nただしこの効果は受動的な作用である",
     "NumerospecAbout_EN": "Brings out self-actualization and adaptability through optimism\nThis effect can also inspire the same in a master\nHowever, this effect works passively",
     "NumerospecStats": {
@@ -21281,9 +21283,7 @@
         "value_JP": "亜高 蝶嵐（78特殊探偵団 水の聖杯支部 七番札(セヴニスト)）",
         "value_EN": "Thœfran Adaka (Team.78 the Special Investigators WaterCups Branch Seven-ist)"
       }
-    ],
-    "ForMasterCalling_JP": "主人さん",
-    "ForMasterCalling_EN": "Master"
+    ]
   },
   {
     "Num": 53,
@@ -21308,6 +21308,18 @@
     "Height_cm": 139,
     "Weight_kg": 36,
     "BustSize": "A",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxBranched",
+        "Count": 5,
+        "Branches": [
+          { "Laterality": "#Lat_Upper", "TailCount": 2, "ClusterCount": 1 },
+          { "Laterality": "#Lat_Lower", "TailCount": 3, "ClusterCount": 2 }
+        ],
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "ConceptAge": 14,
     "AnivDay": [
       {
@@ -21322,6 +21334,8 @@
     "SecondPersonCalling_EN": "you (neutral/polite)",
     "ThirdPersonCalling_JP": "[※名前呼び]",
     "ThirdPersonCalling_EN": "[*by name]",
+    "ForMasterCalling_JP": "兄者(あにしゃ)/姉者(あねしゃ)",
+    "ForMasterCalling_EN": "bro/sis (anisha/anesha; archaic)",
     "Character_JP": "単純で調子に乗りやすい",
     "Character_EN": "Simple-minded and easily gets carried away",
     "Hobby_JP": "ボードゲーム",
@@ -21578,18 +21592,6 @@
       "Technic": { "Rank": "B+" },
       "Actuation": { "Rank": "A" }
     },
-    "TailsUnit": [
-      {
-        "TailShapeType": "#TailShapeType_FoxBranched",
-        "Count": 5,
-        "Branches": [
-          { "Laterality": "#Lat_Upper", "TailCount": 2, "ClusterCount": 1 },
-          { "Laterality": "#Lat_Lower", "TailCount": 3, "ClusterCount": 2 }
-        ],
-        "Note_JP": null,
-        "Note_EN": null
-      }
-    ],
     "NumerospecAbout_JP": "転機を連続して招く\nこの効果は対象が積極的に受ければ受けるほど持続する",
     "NumerospecAbout_EN": "Invites one turning point after another\nThe more actively the target accepts them, the longer this effect continues",
     "NumerospecStats": {
@@ -21649,9 +21651,7 @@
           "RelationLabel": ["classmate"]
         }
       ]
-    },
-    "ForMasterCalling_JP": "兄者(あにしゃ)/姉者(あねしゃ)",
-    "ForMasterCalling_EN": "bro/sis (anisha/anesha; archaic)"
+    }
   },
   {
     "Num": 54,
@@ -21710,6 +21710,15 @@
     "Height_cm": 165,
     "Weight_kg": { "hideText": "非公開" },
     "BustSize": "AA",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxBranched",
+        "Count": 5,
+        "Segment": 2,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "ConceptAge": 21,
     "AnivDay": [
       {
@@ -21724,6 +21733,8 @@
     "SecondPersonCalling_EN": "you",
     "ThirdPersonCalling_JP": "彼/彼女;[※名前呼び]",
     "ThirdPersonCalling_EN": "he/she; [*by name]",
+    "ForMasterCalling_JP": "君,彼/彼女",
+    "ForMasterCalling_EN": "you, he/she (familiar)",
     "Character_JP": "適応力と自己実現力を併せ持つ\n何が起こっても平然としている、鈍感？",
     "Character_EN": "Possesses both adaptability and self-actualization\nUnperturbed by whatever happens — perhaps just oblivious?",
     "Hobby_JP": "普通の生活？",
@@ -22043,15 +22054,6 @@
     },
     "Backgrounds_JP": "開発中も幾度か災難に巻き込まれたと百は供述している",
     "Backgrounds_EN": "Hudret has testified that she was caught up in several mishaps even during her development",
-    "TailsUnit": [
-      {
-        "TailShapeType": "#TailShapeType_FoxBranched",
-        "Count": 5,
-        "Segment": 2,
-        "Note_JP": null,
-        "Note_EN": null
-      }
-    ],
     "NumerospecAbout_JP": "想像できないことを周囲に引き起こす\nただし自分自身に適応耐性があるため無自覚となる",
     "NumerospecAbout_EN": "Causes unimaginable things to happen around her\nHowever, her own adaptation resistance means she remains unaware of it",
     "NumerospecStats": {
@@ -22110,9 +22112,7 @@
           "RelationLabel": ["awkward_aBit", "classmate"]
         }
       ]
-    },
-    "ForMasterCalling_JP": "君,彼/彼女",
-    "ForMasterCalling_EN": "you, he/she (familiar)"
+    }
   },
   {
     "Num": 56,
@@ -22144,6 +22144,18 @@
       { "value": 39, "about_JP": "推定", "about_EN": "Presumption" }
     ],
     "BustSize": "B",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxBranched",
+        "Count": 6,
+        "Branches": [
+          { "Laterality": "#Lat_Upper", "TailCount": 5, "ClusterCount": 2 },
+          { "Laterality": "#Lat_Lower", "TailCount": 1, "ClusterCount": 1 }
+        ],
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "ConceptAge": 12,
     "AnivDay": [
       {
@@ -22158,6 +22170,8 @@
     "SecondPersonCalling_EN": "you (neutral/polite)",
     "ThirdPersonCalling_JP": "*の人;[※名前呼び],~さん",
     "ThirdPersonCalling_EN": "that/this one (as personal); [*by name], ~-san",
+    "ForMasterCalling_JP": "～兄さん/～姉さん",
+    "ForMasterCalling_EN": "-bro/sis (-niisan/-neesan), big bro/sis",
     "Character_JP": "ごく普通のお子様。気が散りやすく飽き症で、怠け癖と放浪癖がそれぞれ少しだけある",
     "Character_EN": "Thoroughly average as a child — easily distracted, prone to boredom, with a touch of both laziness and wanderlust",
     "Hobby_JP": "子供と遊ぶこと",
@@ -22474,18 +22488,6 @@
     },
     "Backgrounds_JP": "ナンバーテールズで設定年齢が取分け低い「5+6型」の一人\n不審者接触防止機能も備わっている（らしい）",
     "Backgrounds_EN": "One of the NumberTales with a notably low design age — as part of the \"Unit.5+6 type\"\nApparently also equipped with a stranger-deterrence protection feature",
-    "TailsUnit": [
-      {
-        "TailShapeType": "#TailShapeType_FoxBranched",
-        "Count": 6,
-        "Branches": [
-          { "Laterality": "#Lat_Upper", "TailCount": 5, "ClusterCount": 2 },
-          { "Laterality": "#Lat_Lower", "TailCount": 1, "ClusterCount": 1 }
-        ],
-        "Note_JP": null,
-        "Note_EN": null
-      }
-    ],
     "NumerospecAbout_JP": "新しい出会いを恵む\n特に当たり前のことから新しいことへのきっかけを促す",
     "NumerospecAbout_EN": "Grants new encounters\nIn particular, sparks the shift from the ordinary to something new",
     "NumerospecStats": {
@@ -22545,9 +22547,7 @@
           "RelationLabel": ["cousin_nearly"]
         }
       ]
-    },
-    "ForMasterCalling_JP": "～兄さん/～姉さん",
-    "ForMasterCalling_EN": "-bro/sis (-niisan/-neesan), big bro/sis"
+    }
   },
   {
     "Num": 57,
@@ -22575,6 +22575,19 @@
     "Height_cm": 152,
     "Weight_kg": 42,
     "BustSize": "AA",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxBranched",
+        "Count": 7,
+        "Branches": [
+          { "Laterality": "#Lat_Upper", "TailCount": 5, "ClusterCount": 2 },
+          { "Laterality": "#Lat_Lower", "TailCount": 2, "ClusterCount": 1 }
+        ],
+        "TailsUnit_PNGName": "attr_tailsUnit57",
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "ConceptAge": 17,
     "AnivDay": [
       {
@@ -22589,6 +22602,8 @@
     "SecondPersonCalling_EN": "you",
     "ThirdPersonCalling_JP": "彼/彼女;*の子,*の人/*れ;[※名前呼び]",
     "ThirdPersonCalling_EN": "he/she; that/this kid (*no ko), that/this person/one (*no hito/*re); [*by name]",
+    "ForMasterCalling_JP": "～先輩;先輩",
+    "ForMasterCalling_EN": "~-senpai; senpai",
     "Character_JP": "変化からの学びを尊重している\n失敗意識のない楽観的思考は圧巻されがち",
     "Character_EN": "Values learning from change and new experiences\nZir carefree, failure-unbothered optimism tends to overwhelm those around zir",
     "Hobby_JP": "景品のあるキャンペーンに\n参加する",
@@ -22924,19 +22939,6 @@
     },
     "Backgrounds_JP": "双子型として「75(シチゴ)」と同時に開発されたが、兄/弟[姉/妹]の区別はない",
     "Backgrounds_EN": "Developed simultaneously with '75(Sefievn)' as a twin-type pair, but there is no distinction of older or younger between them",
-    "TailsUnit": [
-      {
-        "TailShapeType": "#TailShapeType_FoxBranched",
-        "Count": 7,
-        "Branches": [
-          { "Laterality": "#Lat_Upper", "TailCount": 5, "ClusterCount": 2 },
-          { "Laterality": "#Lat_Lower", "TailCount": 2, "ClusterCount": 1 }
-        ],
-        "TailsUnit_PNGName": "attr_tailsUnit57",
-        "Note_JP": null,
-        "Note_EN": null
-      }
-    ],
     "NumerospecAbout_JP": "いつもと違うことから得た学びや教訓を味方にする（ROSの学習機能に近い）",
     "NumerospecAbout_EN": "Turns lessons learned from out-of-the-ordinary experiences into an asset (analogous to a ROS learning function)",
     "NumerospecStats": {
@@ -22996,9 +22998,7 @@
           "RelationLabel": ["classmate"]
         }
       ]
-    },
-    "ForMasterCalling_JP": "～先輩;先輩",
-    "ForMasterCalling_EN": "~-senpai; senpai"
+    }
   },
   {
     "Num": 58,
@@ -23027,6 +23027,18 @@
     "Height_cm": 149,
     "Weight_kg": { "hideText": "非公開" },
     "BustSize": "F",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxBranched",
+        "Count": 8,
+        "Branches": [
+          { "Laterality": "#Lat_Upper", "TailCount": 5, "ClusterCount": 2 },
+          { "Laterality": "#Lat_Lower", "TailCount": 3, "ClusterCount": 1 }
+        ],
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "ConceptAge": { "value": 17, "about_JP": "？", "about_EN": "?" },
     "AnivDay": [
       {
@@ -23041,6 +23053,8 @@
     "SecondPersonCalling_EN": "you",
     "ThirdPersonCalling_JP": "彼/彼女;*っち/*れ;[※名前呼び]\n~ちゃん",
     "ThirdPersonCalling_EN": "he/she; that/this/which (*cchi/*re); [*by name]\n~-chan",
+    "ForMasterCalling_JP": "主人ちゃん",
+    "ForMasterCalling_EN": "Master-chan",
     "Character_JP": "エスっ気のあるからかい好きで、強運の持ち主\nオマセで甘えん坊",
     "Character_EN": "A teasing, mildly sadistic personality who loves to mess around — and a holder of remarkable good luck\nPrecocious, yet a big softie at heart",
     "Hobby_JP": "カードゲーム全般",
@@ -23308,18 +23322,6 @@
       "Technic": { "Rank": "A" },
       "Actuation": { "Rank": "A" }
     },
-    "TailsUnit": [
-      {
-        "TailShapeType": "#TailShapeType_FoxBranched",
-        "Count": 8,
-        "Branches": [
-          { "Laterality": "#Lat_Upper", "TailCount": 5, "ClusterCount": 2 },
-          { "Laterality": "#Lat_Lower", "TailCount": 3, "ClusterCount": 1 }
-        ],
-        "Note_JP": null,
-        "Note_EN": null
-      }
-    ],
     "NumerospecAbout_JP": "臨時収入を呼ぶ(臨時的な裕福をもたらす)\nこの効果は多岐にわたるため詳細な説明ができない",
     "NumerospecAbout_EN": "Invites windfall income (brings temporary wealth)\nThis effect spans so many forms that a detailed explanation is not possible",
     "NumerospecStats": {
@@ -23378,9 +23380,7 @@
           "Comments_EN": "\"I can't help wanting to lean on zir.\""
         }
       ]
-    },
-    "ForMasterCalling_JP": "主人ちゃん",
-    "ForMasterCalling_EN": "Master-chan"
+    }
   },
   {
     "Num": 59,
@@ -23441,6 +23441,14 @@
     "Height_cm": 152,
     "Weight_kg": { "hideText": "非公開" },
     "BustSize": "G",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_Fox",
+        "Count": 6,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "ConceptAge": { "value": 16, "about_JP": "？", "about_EN": "?" },
     "AnivDay": [
       {
@@ -23455,6 +23463,8 @@
     "SecondPersonCalling_EN": "you (neutral/polite)",
     "ThirdPersonCalling_JP": "彼/彼女;*れ;~さん,[※名前呼び]",
     "ThirdPersonCalling_EN": "he/she; this/that/which/what (as objective); [*by name]",
+    "ForMasterCalling_JP": "ミスター/ミセス",
+    "ForMasterCalling_EN": "Mr./Mrs.",
     "Character_JP": "優美で強い母性を持ち、立ち振る舞いが素敵\n趣味趣向が少しナード",
     "Character_EN": "Graceful with a strong maternal side, and wonderfully poised in everything she does\nJust a little nerdy in her hobbies and interests",
     "Hobby_JP": "ファン活動",
@@ -23901,14 +23911,6 @@
       "Technic": { "Rank": "A" },
       "Actuation": { "Rank": "S" }
     },
-    "TailsUnit": [
-      {
-        "TailShapeType": "#TailShapeType_Fox",
-        "Count": 6,
-        "Note_JP": null,
-        "Note_EN": null
-      }
-    ],
     "NumerospecAbout_JP": "心に光を灯す\nこの効果は多岐にわたるため詳細な説明ができない",
     "NumerospecAbout_EN": "Lights a spark in the heart\nThis effect spans so many forms that a detailed explanation is not possible",
     "NumerospecStats": {
@@ -23994,9 +23996,7 @@
     },
     "ThisMasters": [
       { "value_JP": "水無瀬 霙(はなゆき)", "value_EN": "Sleety Afterains" }
-    ],
-    "ForMasterCalling_JP": "ミスター/ミセス",
-    "ForMasterCalling_EN": "Mr./Mrs."
+    ]
   },
   {
     "Num": 61,
@@ -24031,6 +24031,19 @@
     "Height_cm": 143,
     "Weight_kg": { "hideText": "非公開" },
     "BustSize": "H",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxBranched",
+        "Count": 6,
+        "Branches": [
+          { "Laterality": "#Lat_Upper", "TailCount": 5, "ClusterCount": 1 },
+          { "Laterality": "#Lat_Lower", "TailCount": 1, "ClusterCount": 2 }
+        ],
+        "TailsUnit_PNGName": "attr_tailsUnit61",
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "ConceptAge": { "about_JP": "不詳", "about_EN": "Unknown" },
     "AnivDay": [
       {
@@ -24045,6 +24058,8 @@
     "SecondPersonCalling_EN": "you (familiar)",
     "ThirdPersonCalling_JP": "*の子;~くん/ちゃん",
     "ThirdPersonCalling_EN": "that/this kid (*no ko); ~-kun/~-chan",
+    "ForMasterCalling_JP": "マネちゃん",
+    "ForMasterCalling_EN": "Manager-chan",
     "Character_JP": "天真爛漫で可憐だが、メルヘンチックで独特な世界観を持っている",
     "Character_EN": "Honest and endearing, with a quirky, fairy-tale-like worldview all her own",
     "Hobby_JP": "アイドル活動？",
@@ -24482,19 +24497,6 @@
     "InStory_EN": "The idol-position unit of NumberTales?",
     "AdditionalDesigned_JP": "アイドル衣装デザイン：MUSASHI(https://skeb.jp/@NEO_lapis_/works/43)",
     "AdditionalDesigned_EN": "Idol Costume Design：MUSASHI(https://skeb.jp/@NEO_lapis_/works/43)",
-    "TailsUnit": [
-      {
-        "TailShapeType": "#TailShapeType_FoxBranched",
-        "Count": 6,
-        "Branches": [
-          { "Laterality": "#Lat_Upper", "TailCount": 5, "ClusterCount": 1 },
-          { "Laterality": "#Lat_Lower", "TailCount": 1, "ClusterCount": 2 }
-        ],
-        "TailsUnit_PNGName": "attr_tailsUnit61",
-        "Note_JP": null,
-        "Note_EN": null
-      }
-    ],
     "NumerospecAbout_JP": "惚れさせる\nこの作用は主人から間接的に発させることもあるらしい",
     "NumerospecAbout_EN": "Makes others fall in love\nApparently this effect can also be triggered indirectly through the master",
     "NumerospecStats": {
@@ -24565,9 +24567,7 @@
           "Drc": "S"
         }
       }
-    ],
-    "ForMasterCalling_JP": "マネちゃん",
-    "ForMasterCalling_EN": "Manager-chan"
+    ]
   },
   {
     "Num": 62,
@@ -24590,6 +24590,18 @@
     "Height_cm": 153,
     "Weight_kg": 43,
     "BustSize": "F",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxBranched",
+        "Count": 6,
+        "Branches": [
+          { "Laterality": "#Lat_Upper", "TailCount": 4, "ClusterCount": 1 },
+          { "Laterality": "#Lat_Lower", "TailCount": 2, "ClusterCount": 2 }
+        ],
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "ConceptAge": 22,
     "AnivDay": [
       {
@@ -24604,6 +24616,8 @@
     "SecondPersonCalling_EN": "guy/girl(s) (anta; rough), you (neutral/polite)",
     "ThirdPersonCalling_JP": "[※名前呼び],~先輩",
     "ThirdPersonCalling_EN": "[*by name]; ~-senpai",
+    "ForMasterCalling_JP": "ご主人先輩",
+    "ForMasterCalling_EN": "Master-senpai",
     "Character_JP": "発想力が高く生産的\n女々しい一面も",
     "Character_EN": "Highly creative and productive\nWith a soft, delicate side too",
     "Hobby_JP": "工芸品づくり",
@@ -24866,18 +24880,6 @@
       "Technic": { "Rank": "B+" },
       "Actuation": { "Rank": "C" }
     },
-    "TailsUnit": [
-      {
-        "TailShapeType": "#TailShapeType_FoxBranched",
-        "Count": 6,
-        "Branches": [
-          { "Laterality": "#Lat_Upper", "TailCount": 4, "ClusterCount": 1 },
-          { "Laterality": "#Lat_Lower", "TailCount": 2, "ClusterCount": 2 }
-        ],
-        "Note_JP": null,
-        "Note_EN": null
-      }
-    ],
     "NumerospecAbout_JP": "発想を形にさせる\nこの効果は男性的よりも女性的な作用をもたらす",
     "NumerospecAbout_EN": "Turns ideas into tangible form\nThis effect works in a more feminine way than masculine",
     "NumerospecStats": {
@@ -24949,9 +24951,7 @@
           "Drc": "S"
         }
       }
-    ],
-    "ForMasterCalling_JP": "ご主人先輩",
-    "ForMasterCalling_EN": "Master-senpai"
+    ]
   },
   {
     "Num": 63,
@@ -24981,6 +24981,18 @@
     "Height_cm": 142,
     "Weight_kg": { "hideText": "非公開" },
     "BustSize": "D",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxBranched",
+        "Count": 6,
+        "Branches": [
+          { "Laterality": "#Lat_Upper", "TailCount": 3, "ClusterCount": 1 },
+          { "Laterality": "#Lat_Lower", "TailCount": 3, "ClusterCount": 2 }
+        ],
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "ConceptAge": 15,
     "AnivDay": [
       {
@@ -24995,6 +25007,8 @@
     "SecondPersonCalling_EN": "you (neutral/polite)",
     "ThirdPersonCalling_JP": "[※名前呼び]\n~くん/~ちゃん",
     "ThirdPersonCalling_EN": "[*by name]\n~-kun/~-chan",
+    "ForMasterCalling_JP": "主さん",
+    "ForMasterCalling_EN": "Master",
     "Character_JP": "面倒見がよく世話焼き",
     "Character_EN": "Caring and attentive — the nurturing type",
     "Hobby_JP": "日記を書くこと",
@@ -25274,18 +25288,6 @@
       "Technic": { "Rank": "C" },
       "Actuation": { "Rank": "B+" }
     },
-    "TailsUnit": [
-      {
-        "TailShapeType": "#TailShapeType_FoxBranched",
-        "Count": 6,
-        "Branches": [
-          { "Laterality": "#Lat_Upper", "TailCount": 3, "ClusterCount": 1 },
-          { "Laterality": "#Lat_Lower", "TailCount": 3, "ClusterCount": 2 }
-        ],
-        "Note_JP": null,
-        "Note_EN": null
-      }
-    ],
     "NumerospecAbout_JP": "幸福をもたらす\nこの効果は主に日常生活における感情に作用する",
     "NumerospecAbout_EN": "Brings happiness\nThis effect primarily acts on emotions in daily life",
     "NumerospecStats": {
@@ -25350,9 +25352,7 @@
         "value_JP": "恵比寿 ことは（78特殊探偵団 風の刀剣 九番札(ナイニスト)）",
         "value_EN": "Kotoha Ebisu (Team.78 the Special Investigators SlashSwords Branch Nine-ist)"
       }
-    ],
-    "ForMasterCalling_JP": "主さん",
-    "ForMasterCalling_EN": "Master"
+    ]
   },
   {
     "Num": 64,
@@ -25382,6 +25382,18 @@
       "about_JP": "有志による情報。しかし公式(百花繚乱研)情報では否定している",
       "about_EN": "value provided by volunteers, but the official (100Beauties Lab.) source denies it"
     },
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxBranched",
+        "Count": 6,
+        "Branches": [
+          { "Laterality": "#Lat_Upper", "TailCount": 4, "ClusterCount": 1 },
+          { "Laterality": "#Lat_Lower", "TailCount": 2, "ClusterCount": 2 }
+        ],
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "ConceptAge": { "about_JP": "不詳", "about_EN": "Unknown" },
     "AnivDay": [
       {
@@ -25396,6 +25408,8 @@
     "SecondPersonCalling_EN": "[*third-person calling]\nyou (neutral/polite; rare)",
     "ThirdPersonCalling_JP": "*のコ;[※名前呼び];~(な)コ\n~先輩;~教官",
     "ThirdPersonCalling_EN": "that/this kid (*no ko; ~na ko); [*by name]\n~-senpai; Instructor.~",
+    "ForMasterCalling_JP": "教官\n～教官",
+    "ForMasterCalling_EN": "Instructor\nInstructor.~",
     "Character_JP": "常に何かへ発情している\n加えて、ドが付くほどマゾらしく…",
     "Character_EN": "Always aroused by something\nOn top of that, an extreme masochist to boot...",
     "Hobby_JP": { "hideText": "？？？" },
@@ -25623,18 +25637,6 @@
     "Backgrounds_EN": "Her occasional pursuit of pleasure leads her to nearly dip into unauthorized side work, or she becomes aroused in all the wrong situations — leaving Rei deeply troubled.",
     "InStory_JP": "特殊個体「4+6型」の一人で問題児\n実績が乏しく赤字であるだけでなく……",
     "InStory_EN": "One of the \"Unit.4+6 type\" special units — and a problem child\nNot only does she have a poor track record and she's in the red, but...",
-    "TailsUnit": [
-      {
-        "TailShapeType": "#TailShapeType_FoxBranched",
-        "Count": 6,
-        "Branches": [
-          { "Laterality": "#Lat_Upper", "TailCount": 4, "ClusterCount": 1 },
-          { "Laterality": "#Lat_Lower", "TailCount": 2, "ClusterCount": 2 }
-        ],
-        "Note_JP": null,
-        "Note_EN": null
-      }
-    ],
     "NumerospecAbout_JP": "快感を憶えさせる",
     "NumerospecAbout_EN": "Imparts a sense of pleasure",
     "NumerospecStats": {
@@ -25698,9 +25700,7 @@
           "Comments_EN": "\"Wouldn't you like to play a 'gambling game'...? Ehehe...\""
         }
       ]
-    },
-    "ForMasterCalling_JP": "教官\n～教官",
-    "ForMasterCalling_EN": "Instructor\nInstructor.~"
+    }
   },
   {
     "Num": 65,
@@ -25727,6 +25727,18 @@
     "Height_cm": 135,
     "Weight_kg": 37,
     "BustSize": "A",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxBranched",
+        "Count": 6,
+        "Branches": [
+          { "Laterality": "#Lat_Upper", "TailCount": 1, "ClusterCount": 1 },
+          { "Laterality": "#Lat_Lower", "TailCount": 5, "ClusterCount": 2 }
+        ],
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "ConceptAge": 10,
     "AnivDay": [
       {
@@ -25741,6 +25753,8 @@
     "SecondPersonCalling_EN": "you (neutral/polite)",
     "ThirdPersonCalling_JP": "*の人;[※名前呼び],~さん",
     "ThirdPersonCalling_EN": "that/this person; [*by name]",
+    "ForMasterCalling_JP": "～兄さん/～姉さん",
+    "ForMasterCalling_EN": "-bro/sis (-niisan/-neesan), big bro/sis",
     "Character_JP": "飽き性で気分屋だが、好奇心旺盛で育ちざかりなキャラ",
     "Character_EN": "Easily bored and a bit moody, but brimming with curiosity and still in the thick of growing",
     "Hobby_JP": "子供と遊ぶこと",
@@ -25966,18 +25980,6 @@
     },
     "Backgrounds_JP": "ナンバーテールズ99体の設定年齢で最年少となる個体\n不審者接触防止機能も備わっている（らしい）",
     "Backgrounds_EN": "The youngest unit by design age among all 99 NumberTales\nApparently also equipped with a stranger-deterrence protection feature",
-    "TailsUnit": [
-      {
-        "TailShapeType": "#TailShapeType_FoxBranched",
-        "Count": 6,
-        "Branches": [
-          { "Laterality": "#Lat_Upper", "TailCount": 1, "ClusterCount": 1 },
-          { "Laterality": "#Lat_Lower", "TailCount": 5, "ClusterCount": 2 }
-        ],
-        "Note_JP": null,
-        "Note_EN": null
-      }
-    ],
     "NumerospecAbout_JP": "マンネリ化から抜け出す勇気を与える\n特に当たり前のことから新しいことへの挑戦を促す",
     "NumerospecAbout_EN": "Gives the courage to break out of a rut\nIn particular, encourages moving from the ordinary to new challenges",
     "NumerospecStats": {
@@ -26037,9 +26039,7 @@
           "RelationLabel": ["classmate"]
         }
       ]
-    },
-    "ForMasterCalling_JP": "～兄さん/～姉さん",
-    "ForMasterCalling_EN": "-bro/sis (-niisan/-neesan), big bro/sis"
+    }
   },
   {
     "Num": 66,
@@ -26072,6 +26072,15 @@
     "Height_cm": 154,
     "Weight_kg": { "hideText": "非公開" },
     "BustSize": "F",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxBranched",
+        "Count": 6,
+        "Segment": 2,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "ConceptAge": 16,
     "AnivDay": [
       {
@@ -26086,6 +26095,8 @@
     "SecondPersonCalling_EN": "you (very polite)",
     "ThirdPersonCalling_JP": "*のお方;[※名前呼び],~様",
     "ThirdPersonCalling_EN": "that honored one (*no okata); [*by name], Mr/Ms.~(~-sama; honorific)",
+    "ForMasterCalling_JP": "迷い子さん\n神父様/聖母様",
+    "ForMasterCalling_EN": "Little Stray\nHoly Father/Mother",
     "Character_JP": "博愛でロマンチスト\n修道女(シスター)に憧れている",
     "Character_EN": "A philanthropist and romantic\nLongs to be a nun (sister)",
     "Hobby_JP": "輝きがあらんことを祈る",
@@ -26367,15 +26378,6 @@
       "Technic": { "Rank": "A" },
       "Actuation": { "Rank": "A" }
     },
-    "TailsUnit": [
-      {
-        "TailShapeType": "#TailShapeType_FoxBranched",
-        "Count": 6,
-        "Segment": 2,
-        "Note_JP": null,
-        "Note_EN": null
-      }
-    ],
     "NumerospecAbout_JP": "祈りの恩恵を分け与える",
     "NumerospecAbout_EN": "Shares the blessings of prayer",
     "NumerospecStats": {
@@ -26448,9 +26450,7 @@
           "Lunar": "Minadzuki"
         }
       }
-    ],
-    "ForMasterCalling_JP": "迷い子さん\n神父様/聖母様",
-    "ForMasterCalling_EN": "Little Stray\nHoly Father/Mother"
+    ]
   },
   {
     "Num": "67-old",
@@ -26467,6 +26467,18 @@
     "GenderType": "MaleNeutral",
     "Height_cm": 145,
     "Weight_kg": { "hideText": "非公開希望" },
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxBranched",
+        "Count": 7,
+        "Branches": [
+          { "Laterality": "#Lat_Upper", "TailCount": 6, "ClusterCount": 2 },
+          { "Laterality": "#Lat_Lower", "TailCount": 1, "ClusterCount": 1 }
+        ],
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "ConceptAge": 22,
     "AppearanceDetail": [
       {
@@ -26695,18 +26707,6 @@
     },
     "Backgrounds_JP": "ナンバーテールズ99体の中では珍しく、フィットネスに関するメニューも積極的に取り入れているため後に躯体が新調された。",
     "Backgrounds_EN": "One of the rare cases among the 99 NumberTales, his active incorporation of fitness-related programs led to his frame being upgraded at a later date.",
-    "TailsUnit": [
-      {
-        "TailShapeType": "#TailShapeType_FoxBranched",
-        "Count": 7,
-        "Branches": [
-          { "Laterality": "#Lat_Upper", "TailCount": 6, "ClusterCount": 2 },
-          { "Laterality": "#Lat_Lower", "TailCount": 1, "ClusterCount": 1 }
-        ],
-        "Note_JP": null,
-        "Note_EN": null
-      }
-    ],
     "NumerospecStats": {
       "EffectStats": {
         "Mental": { "EffectText": "普通" },
@@ -26740,6 +26740,18 @@
       { "value": 190, "about_JP": "筋装備時", "about_EN": "Muscle Mode" }
     ],
     "Weight_kg": { "hideText": "非公開" },
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxBranched",
+        "Count": 7,
+        "Branches": [
+          { "Laterality": "#Lat_Upper", "TailCount": 6, "ClusterCount": 2 },
+          { "Laterality": "#Lat_Lower", "TailCount": 1, "ClusterCount": 1 }
+        ],
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "ConceptAge": { "value": 22, "about_JP": "？", "about_EN": "?" },
     "AnivDay": [
       {
@@ -26754,6 +26766,8 @@
     "SecondPersonCalling_EN": "you (omae; rough/familiar)",
     "ThirdPersonCalling_JP": "彼/彼女;*いつ;[※名前呼び]",
     "ThirdPersonCalling_EN": "he/she; that one (*itsu; rough); [*by name]",
+    "ForMasterCalling_JP": "～トレーナー",
+    "ForMasterCalling_EN": "Trainer.~",
     "Character_JP": "筋肉主義者のトレーナー気質、無理なく鍛錬することを醍醐味とする\nまだ自分の鍛錬に限界があることを恐れている一面も",
     "Character_EN": "A muscle-devotee with a trainer's mindset — takes joy in training without overstraining\nAlso secretly afraid that his own limits may still hold him back",
     "Hobby_JP": "筋トレ、食事管理",
@@ -27040,18 +27054,6 @@
     },
     "Backgrounds_JP": "ナンバーテールズ99体の中では珍しく、体調面も支援しておりトレーニングジムでコーチングをしている様子も窺われている",
     "Backgrounds_EN": "One of the rare units among the 99 NumberTales that also supports health and physical condition, reportedly seen coaching at training gyms",
-    "TailsUnit": [
-      {
-        "TailShapeType": "#TailShapeType_FoxBranched",
-        "Count": 7,
-        "Branches": [
-          { "Laterality": "#Lat_Upper", "TailCount": 6, "ClusterCount": 2 },
-          { "Laterality": "#Lat_Lower", "TailCount": 1, "ClusterCount": 1 }
-        ],
-        "Note_JP": null,
-        "Note_EN": null
-      }
-    ],
     "NumerospecAbout_JP": "心身の健康を保証する",
     "NumerospecAbout_EN": "Guarantees mental and physical health",
     "NumerospecStats": {
@@ -27129,9 +27131,7 @@
           "RelationLabel": ["trusted_maybe", "awkward_aBit"]
         }
       ]
-    },
-    "ForMasterCalling_JP": "～トレーナー",
-    "ForMasterCalling_EN": "Trainer.~"
+    }
   },
   {
     "Num": 68,
@@ -27159,6 +27159,18 @@
     "Height_cm": 147,
     "Weight_kg": 39,
     "BustSize": "AA",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxBranched",
+        "Count": 8,
+        "Branches": [
+          { "Laterality": "#Lat_Upper", "TailCount": 6, "ClusterCount": 2 },
+          { "Laterality": "#Lat_Lower", "TailCount": 2, "ClusterCount": 1 }
+        ],
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "ConceptAge": 14,
     "AnivDay": [
       {
@@ -27173,6 +27185,8 @@
     "SecondPersonCalling_EN": "you (kimi; familiar)",
     "ThirdPersonCalling_JP": "彼/彼女;[※名前呼び]",
     "ThirdPersonCalling_EN": "he/she; [*by name]",
+    "ForMasterCalling_JP": "主人",
+    "ForMasterCalling_EN": "Master",
     "Character_JP": "執着心が無く何事にも塩反応、潔癖症\n古い物への価値観が辛辣",
     "Character_EN": "No attachment to anything, gives a cold reaction to everything — a cleanliness obsessive\nHas a harsh view of anything old or outdated",
     "Hobby_JP": "整理整頓",
@@ -27442,18 +27456,6 @@
     },
     "InStory_JP": "ナンバーテールズの掃除担当？",
     "InStory_EN": "The cleaning unit of NumberTales?",
-    "TailsUnit": [
-      {
-        "TailShapeType": "#TailShapeType_FoxBranched",
-        "Count": 8,
-        "Branches": [
-          { "Laterality": "#Lat_Upper", "TailCount": 6, "ClusterCount": 2 },
-          { "Laterality": "#Lat_Lower", "TailCount": 2, "ClusterCount": 1 }
-        ],
-        "Note_JP": null,
-        "Note_EN": null
-      }
-    ],
     "NumerospecAbout_JP": "断捨離させる\nこれにより主人や相手の生活の無駄を排除できる",
     "NumerospecAbout_EN": "Makes others declutter\nThis eliminates waste and excess from the master's daily life",
     "NumerospecStats": {
@@ -27515,9 +27517,7 @@
           "RelationLabel": ["classmate"]
         }
       ]
-    },
-    "ForMasterCalling_JP": "主人",
-    "ForMasterCalling_EN": "Master"
+    }
   },
   {
     "Num": 69,
@@ -27543,6 +27543,18 @@
     "Class": ["デュアルシックスズ"],
     "Height_cm": 156,
     "Weight_kg": { "hideText": "非公開" },
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxBranched",
+        "Count": 9,
+        "Branches": [
+          { "Laterality": "#Lat_Upper", "TailCount": 6, "ClusterCount": 2 },
+          { "Laterality": "#Lat_Lower", "TailCount": 3, "ClusterCount": 1 }
+        ],
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "ConceptAge": { "value": 20, "about_JP": "？", "about_EN": "?" },
     "AnivDay": [
       {
@@ -27557,6 +27569,8 @@
     "SecondPersonCalling_EN": "guy/girl(s) (anta; rough; exceptions apply)",
     "ThirdPersonCalling_JP": "[※名前呼び] ※例外あり",
     "ThirdPersonCalling_EN": "[*by name] (exceptions apply)",
+    "ForMasterCalling_JP": "[※主人の趣向に応じる]",
+    "ForMasterCalling_EN": "[*Adapts to the master's preferences]",
     "Character_JP": "芸達者で主人の趣向に合うキャラで従事できる\nほんの若干アイデンティティを見失い気味？\n気分屋",
     "Character_EN": "A skilled performer who can serve in any character to match the master's taste\nSeems to be losing track of his own identity, just a little...?\nA bit of a moody one",
     "Hobby_JP": "新しいことに戯れること",
@@ -27872,18 +27886,6 @@
     "Backgrounds_EN": "Has a unique system where the contract plan has him perform as whatever character the master prefers",
     "InStory_JP": "特殊個体「6+9型」のネーム版\n自分を見失ってないか心配がられることもしばしば",
     "InStory_EN": "The named version of the \"Unit.6+9 type\" special unit\nPeople often worry whether he's lost track of who he is",
-    "TailsUnit": [
-      {
-        "TailShapeType": "#TailShapeType_FoxBranched",
-        "Count": 9,
-        "Branches": [
-          { "Laterality": "#Lat_Upper", "TailCount": 6, "ClusterCount": 2 },
-          { "Laterality": "#Lat_Lower", "TailCount": 3, "ClusterCount": 1 }
-        ],
-        "Note_JP": null,
-        "Note_EN": null
-      }
-    ],
     "NumerospecAbout_JP": "自分自身に対する固定概念から解放する",
     "NumerospecAbout_EN": "Liberates from one's fixed ideas about oneself",
     "NumerospecStats": {
@@ -27955,9 +27957,7 @@
           "Card": { "Suit": "Major", "SuitNum": 16 }
         }
       }
-    ],
-    "ForMasterCalling_JP": "[※主人の趣向に応じる]",
-    "ForMasterCalling_EN": "[*Adapts to the master's preferences]"
+    ]
   },
   {
     "Num": 70,
@@ -27978,6 +27978,14 @@
     "Class": ["10倍番(テンズデジッツ)"],
     "Height_cm": 159,
     "Weight_kg": 43,
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_Fox",
+        "Count": 7,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "ConceptAge": 17,
     "AnivDay": [
       {
@@ -27992,6 +28000,8 @@
     "SecondPersonCalling_EN": "you (omae; rough/familiar)",
     "ThirdPersonCalling_JP": "*奴(*いつ);[※名前呼び]",
     "ThirdPersonCalling_EN": "that guy (*itsu; rough); [*by name]",
+    "ForMasterCalling_JP": "～師(し) ※例外あり",
+    "ForMasterCalling_EN": "Master.~ (*shi; exceptions apply)",
     "Character_JP": "適当に見えて霊的？な才能を発揮している\n実はとても勤勉",
     "Character_EN": "Appears laid-back yet displays what seems to be a spiritual(?) talent\nActually very diligent beneath it all",
     "Hobby_JP": "占い、祭事",
@@ -28252,14 +28262,6 @@
     },
     "Backgrounds_JP": "開発中は完成すると趣味が合いそうだと思った、と零が供述している",
     "Backgrounds_EN": "During development, Zera noted that he thought they would share similar interests once he was complete.",
-    "TailsUnit": [
-      {
-        "TailShapeType": "#TailShapeType_Fox",
-        "Count": 7,
-        "Note_JP": null,
-        "Note_EN": null
-      }
-    ],
     "NumerospecAbout_JP": "占術や祭事ができる\nこれにより相手の悩みの整理などができる",
     "NumerospecAbout_EN": "Enables divination and ritual events\nThis helps others sort through their worries and troubles",
     "NumerospecStats": {
@@ -28317,9 +28319,7 @@
           "Comments_EN": "\"Is she actually controlling her own financial luck?\""
         }
       ]
-    },
-    "ForMasterCalling_JP": "～師(し) ※例外あり",
-    "ForMasterCalling_EN": "Master.~ (*shi; exceptions apply)"
+    }
   },
   {
     "Num": 71,
@@ -28343,6 +28343,18 @@
     "Weight_kg": [
       { "value": 40, "about_JP": "推定", "about_EN": "Presumption" }
     ],
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxBranched",
+        "Count": 7,
+        "Branches": [
+          { "Laterality": "#Lat_Upper", "TailCount": 6, "ClusterCount": 1 },
+          { "Laterality": "#Lat_Lower", "TailCount": 1, "ClusterCount": 2 }
+        ],
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "ConceptAge": 17,
     "AnivDay": [
       {
@@ -28357,6 +28369,8 @@
     "SecondPersonCalling_EN": "you",
     "ThirdPersonCalling_JP": "彼/彼女;*れ;[※名前呼び]",
     "ThirdPersonCalling_EN": "he/she; this/that/who/what/which/them (as objective); [*by name]",
+    "ForMasterCalling_JP": "先生",
+    "ForMasterCalling_EN": "Teacher (sensei)",
     "Character_JP": "知的思考が豊富で努力家な好青年",
     "Character_EN": "A hard-working young man of rich intellectual curiosity",
     "Hobby_JP": "研究",
@@ -28599,18 +28613,6 @@
       "Technic": { "Rank": "A" },
       "Actuation": { "Rank": "B" }
     },
-    "TailsUnit": [
-      {
-        "TailShapeType": "#TailShapeType_FoxBranched",
-        "Count": 7,
-        "Branches": [
-          { "Laterality": "#Lat_Upper", "TailCount": 6, "ClusterCount": 1 },
-          { "Laterality": "#Lat_Lower", "TailCount": 1, "ClusterCount": 2 }
-        ],
-        "Note_JP": null,
-        "Note_EN": null
-      }
-    ],
     "NumerospecAbout_JP": "主人へ学びを1日1つ恵む",
     "NumerospecAbout_EN": "Grants the master one lesson per day",
     "NumerospecStats": {
@@ -28673,9 +28675,7 @@
           "RelationLabel": ["classmate"]
         }
       ]
-    },
-    "ForMasterCalling_JP": "先生",
-    "ForMasterCalling_EN": "Teacher (sensei)"
+    }
   },
   {
     "Num": 72,
@@ -28698,6 +28698,18 @@
     "Height_cm": 162,
     "Weight_kg": 43,
     "BustSize": "B",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxBranched",
+        "Count": 7,
+        "Branches": [
+          { "Laterality": "#Lat_Upper", "TailCount": 5, "ClusterCount": 1 },
+          { "Laterality": "#Lat_Lower", "TailCount": 2, "ClusterCount": 2 }
+        ],
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "ConceptAge": 17,
     "AnivDay": [
       {
@@ -28712,6 +28724,8 @@
     "SecondPersonCalling_EN": "[*third-person calling]",
     "ThirdPersonCalling_JP": "[※名前呼び]",
     "ThirdPersonCalling_EN": "[*by name]",
+    "ForMasterCalling_JP": "主(root)",
+    "ForMasterCalling_EN": "root",
     "Character_JP": "機械のような振る舞いが癖となっている（本当は感情表現が苦手なだけだとも？）",
     "Character_EN": "Has developed a habit of behaving like a machine (though perhaps ze is simply not good at expressing emotions?)",
     "Hobby_JP": "天気予報を見る",
@@ -28971,18 +28985,6 @@
     "Backgrounds_EN": "The only tutorial-type entity, with ROS functions enhanced for the separate purpose of learning\nSince the completion of ROS, Zera has felt a sense of guilt toward zir...?",
     "InStory_JP": "彼(女)の機械寄りな人間味や個性について、他のナンバーテールズからの見解は様々らしい",
     "InStory_EN": "Opinions among other NumberTales on zir machine-like humanity and individuality seem to vary",
-    "TailsUnit": [
-      {
-        "TailShapeType": "#TailShapeType_FoxBranched",
-        "Count": 7,
-        "Branches": [
-          { "Laterality": "#Lat_Upper", "TailCount": 5, "ClusterCount": 1 },
-          { "Laterality": "#Lat_Lower", "TailCount": 2, "ClusterCount": 2 }
-        ],
-        "Note_JP": null,
-        "Note_EN": null
-      }
-    ],
     "NumerospecAbout_JP": "機械学習能力に特化した特殊なROSの主力機能で、ありとあらゆる学習ができる",
     "NumerospecAbout_EN": "A specialized main ROS function focused on machine-learning ability, capable of all manner of learning",
     "NumerospecStats": {
@@ -29058,9 +29060,7 @@
           "Lunar": "Fumdzuki"
         }
       }
-    ],
-    "ForMasterCalling_JP": "主(root)",
-    "ForMasterCalling_EN": "root"
+    ]
   },
   {
     "Num": 73,
@@ -29097,6 +29097,19 @@
     "Height_cm": 154,
     "Weight_kg": { "hideText": "非公開" },
     "BustSize": "C",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxBranched",
+        "Count": 7,
+        "Branches": [
+          { "Laterality": "#Lat_Upper", "TailCount": 4, "ClusterCount": 1 },
+          { "Laterality": "#Lat_Lower", "TailCount": 3, "ClusterCount": 2 }
+        ],
+        "TailsUnit_PNGName": "attr_tailsUnit73",
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "ConceptAge": { "value": 16, "about_JP": "？", "about_EN": "?" },
     "AnivDay": [
       {
@@ -29111,6 +29124,8 @@
     "SecondPersonCalling_EN": "you",
     "ThirdPersonCalling_JP": "彼/彼女;[※名前呼び]",
     "ThirdPersonCalling_EN": "he/she; [*by name]",
+    "ForMasterCalling_JP": "おにぃ/おねぇ",
+    "ForMasterCalling_EN": "Bro/Sis (onii/onee)",
     "Character_JP": "世間知らずで知りたがり\n単純で騙されやすく、知識はすぐに共有したがる",
     "Character_EN": "Naively ignorant of the world and insatiably curious\nSimple-minded and easily deceived — quick to share any knowledge she gains",
     "Hobby_JP": "情報共有",
@@ -29389,19 +29404,6 @@
     "Backgrounds_EN": "Also runs video streaming activities as a form of promotion",
     "InStory_JP": "良からぬ噂を鵜呑みにするため、姉「37(サナ)」他から心配されている",
     "InStory_EN": "Her tendency to take harmful rumors at face value has '37(Trißven)' and others worried about her",
-    "TailsUnit": [
-      {
-        "TailShapeType": "#TailShapeType_FoxBranched",
-        "Count": 7,
-        "Branches": [
-          { "Laterality": "#Lat_Upper", "TailCount": 4, "ClusterCount": 1 },
-          { "Laterality": "#Lat_Lower", "TailCount": 3, "ClusterCount": 2 }
-        ],
-        "TailsUnit_PNGName": "attr_tailsUnit73",
-        "Note_JP": null,
-        "Note_EN": null
-      }
-    ],
     "NumerospecAbout_JP": "知識を深めさせる\nこの作用は主に知識のアウトプットにより発揮される",
     "NumerospecAbout_EN": "Deepens knowledge\nThis effect is primarily exerted through the output of knowledge",
     "NumerospecStats": {
@@ -29463,9 +29465,7 @@
           "Comments_EN": "\"Maybe just a presentation-heavy style, perhaps?\""
         }
       ]
-    },
-    "ForMasterCalling_JP": "おにぃ/おねぇ",
-    "ForMasterCalling_EN": "Bro/Sis (onii/onee)"
+    }
   },
   {
     "Num": 74,
@@ -29496,6 +29496,18 @@
       { "value": 1, "about_JP": "マント", "about_EN": "Cloak" }
     ],
     "BustSize": "B",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxBranched",
+        "Count": 7,
+        "Branches": [
+          { "Laterality": "#Lat_Upper", "TailCount": 3, "ClusterCount": 1 },
+          { "Laterality": "#Lat_Lower", "TailCount": 4, "ClusterCount": 2 }
+        ],
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "ConceptAge": 17,
     "AnivDay": [
       {
@@ -29510,6 +29522,8 @@
     "SecondPersonCalling_EN": "you (neutral/polite)",
     "ThirdPersonCalling_JP": "~君\n~さん",
     "ThirdPersonCalling_EN": "~-kun\n~-san",
+    "ForMasterCalling_JP": "マスター君",
+    "ForMasterCalling_EN": "Master-kun",
     "Character_JP": "感覚が冴えわたった預言者のような存在\nその様子は「天のお告げ」のお蔭とも",
     "Character_EN": "A prophet-like entity with sharpened, heightened senses\nAn impression said to come from receiving 'divine messages'",
     "Hobby_JP": "神社参拝",
@@ -29741,18 +29755,6 @@
     "Backgrounds_EN": "Her blessing is practically a product of chance, and even Zera and siblings seem to have almost no knowledge of it",
     "InStory_JP": "特異個体「4+7型」の一人",
     "InStory_EN": "One of the unique entities: Unit.4+7 type",
-    "TailsUnit": [
-      {
-        "TailShapeType": "#TailShapeType_FoxBranched",
-        "Count": 7,
-        "Branches": [
-          { "Laterality": "#Lat_Upper", "TailCount": 3, "ClusterCount": 1 },
-          { "Laterality": "#Lat_Lower", "TailCount": 4, "ClusterCount": 2 }
-        ],
-        "Note_JP": null,
-        "Note_EN": null
-      }
-    ],
     "NumerospecAbout_JP": "「天のお告げ」を聴く",
     "NumerospecAbout_EN": "Receives 'divine messages'",
     "NumerospecStats": {
@@ -29815,9 +29817,7 @@
           "RelationLabel": ["cousin"]
         }
       ]
-    },
-    "ForMasterCalling_JP": "マスター君",
-    "ForMasterCalling_EN": "Master-kun"
+    }
   },
   {
     "Num": 75,
@@ -29843,6 +29843,18 @@
     "Height_cm": 152,
     "Weight_kg": 42,
     "BustSize": "AA",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxBranched",
+        "Count": 7,
+        "Branches": [
+          { "Laterality": "#Lat_Upper", "TailCount": 2, "ClusterCount": 1 },
+          { "Laterality": "#Lat_Lower", "TailCount": 5, "ClusterCount": 2 }
+        ],
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "ConceptAge": 17,
     "AnivDay": [
       {
@@ -29857,6 +29869,8 @@
     "SecondPersonCalling_EN": "you (familiar)",
     "ThirdPersonCalling_JP": "彼/彼女;*の子,*の人/*れ;[※名前呼び]",
     "ThirdPersonCalling_EN": "he/she; that/this kid (*no ko), that/this person/one (*no hito/*re); [*by name]",
+    "ForMasterCalling_JP": "～先輩;先輩",
+    "ForMasterCalling_EN": "~-senpai; Senpai",
     "Character_JP": "真面目で意識高い系\n教訓や知見を重んじている",
     "Character_EN": "Serious and highly self-aware\nHolds lessons learned and accumulated wisdom in high regard",
     "Hobby_JP": "統計学",
@@ -30130,18 +30144,6 @@
     },
     "Backgrounds_JP": "双子型として「57(イズナ)」と同時に開発されたが、兄/弟[姉/妹]の区別はない",
     "Backgrounds_EN": "Developed simultaneously with '57(Fivens)' as a twin type, though no distinction of elder/younger sibling exists between them",
-    "TailsUnit": [
-      {
-        "TailShapeType": "#TailShapeType_FoxBranched",
-        "Count": 7,
-        "Branches": [
-          { "Laterality": "#Lat_Upper", "TailCount": 2, "ClusterCount": 1 },
-          { "Laterality": "#Lat_Lower", "TailCount": 5, "ClusterCount": 2 }
-        ],
-        "Note_JP": null,
-        "Note_EN": null
-      }
-    ],
     "NumerospecAbout_JP": "学びや教訓を味方にし、状況を好転させる（ROSの学習機能に近いが、加護としての能力が強い）",
     "NumerospecAbout_EN": "Turns situations around by making lessons and wisdom work in one's favor (similar to ROS's learning function, but notably stronger as a blessing)",
     "NumerospecStats": {
@@ -30201,9 +30203,7 @@
           "RelationLabel": ["classmate"]
         }
       ]
-    },
-    "ForMasterCalling_JP": "～先輩;先輩",
-    "ForMasterCalling_EN": "~-senpai; Senpai"
+    }
   },
   {
     "Num": 76,
@@ -30231,6 +30231,18 @@
     "Height_cm": 144,
     "Weight_kg": { "hideText": "非公開" },
     "BustSize": "G",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxBranched",
+        "Count": 7,
+        "Branches": [
+          { "Laterality": "#Lat_Upper", "TailCount": 1, "ClusterCount": 1 },
+          { "Laterality": "#Lat_Lower", "TailCount": 6, "ClusterCount": 2 }
+        ],
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "ConceptAge": { "value": 14, "about_JP": "？", "about_EN": "?" },
     "AnivDay": [
       {
@@ -30245,6 +30257,8 @@
     "SecondPersonCalling_EN": "you (neutral/polite)",
     "ThirdPersonCalling_JP": "彼/彼女;~さん",
     "ThirdPersonCalling_EN": "he/she; ~-san",
+    "ForMasterCalling_JP": "主人先生",
+    "ForMasterCalling_EN": "Master-sensei",
     "Character_JP": "知識欲旺盛、自分に自信がなく不要に理知的",
     "Character_EN": "Thirsts for knowledge; lacks self-confidence and comes across as needlessly intellectual",
     "Hobby_JP": "読書",
@@ -30580,18 +30594,6 @@
     },
     "InStory_JP": "知識への執着が強い余り変人に見られている",
     "InStory_EN": "Her intense attachment to knowledge makes her come across as an eccentric.",
-    "TailsUnit": [
-      {
-        "TailShapeType": "#TailShapeType_FoxBranched",
-        "Count": 7,
-        "Branches": [
-          { "Laterality": "#Lat_Upper", "TailCount": 1, "ClusterCount": 1 },
-          { "Laterality": "#Lat_Lower", "TailCount": 6, "ClusterCount": 2 }
-        ],
-        "Note_JP": null,
-        "Note_EN": null
-      }
-    ],
     "NumerospecAbout_JP": "知識や教養から自らに磨きを掛ける",
     "NumerospecAbout_EN": "Refines oneself through knowledge and cultivation",
     "NumerospecStats": {
@@ -30645,9 +30647,7 @@
           "RelationLabel": ["classmate"]
         }
       ]
-    },
-    "ForMasterCalling_JP": "主人先生",
-    "ForMasterCalling_EN": "Master-sensei"
+    }
   },
   {
     "Num": 77,
@@ -30677,6 +30677,15 @@
       { "value": 39, "about_JP": "推定", "about_EN": "Presumption" }
     ],
     "BustSize": "A",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxBranched",
+        "Count": 7,
+        "Segment": 2,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "ConceptAge": { "value": 14, "about_JP": "？", "about_EN": "?" },
     "AnivDay": [
       {
@@ -30691,6 +30700,8 @@
     "SecondPersonCalling_EN": "you (kimi; friendly)",
     "ThirdPersonCalling_JP": "[※名前呼び]",
     "ThirdPersonCalling_EN": "[*by name]",
+    "ForMasterCalling_JP": "リーダー",
+    "ForMasterCalling_EN": "Leader",
     "Character_JP": "気さくで口調も軽いが実は自分を律せる真面目\n真面目な人と人望が薄いことがコンプレックス",
     "Character_EN": "Easygoing with a light, breezy manner, though in reality self-disciplined and earnest at heart\nCarries a complex about having little standing among serious-minded people",
     "Hobby_JP": "ヨガ",
@@ -30961,15 +30972,6 @@
     },
     "InStory_JP": "あだ名が独特\n実績も今後伸びしろがあると評されるダークホース",
     "InStory_EN": "Known for zir unique way of assigning nicknames\nA dark horse whose track record is expected to grow further",
-    "TailsUnit": [
-      {
-        "TailShapeType": "#TailShapeType_FoxBranched",
-        "Count": 7,
-        "Segment": 2,
-        "Note_JP": null,
-        "Note_EN": null
-      }
-    ],
     "NumerospecAbout_JP": "集中力を操作できる\nこの能力は時として霊的現象を呼び覚ますらしい",
     "NumerospecAbout_EN": "Can manipulate concentration\nThis ability is said to occasionally awaken spiritual phenomena",
     "NumerospecStats": {
@@ -31035,9 +31037,7 @@
           "RelationLabel": ["classmate"]
         }
       ]
-    },
-    "ForMasterCalling_JP": "リーダー",
-    "ForMasterCalling_EN": "Leader"
+    }
   },
   {
     "Num": 78,
@@ -31064,6 +31064,18 @@
     "Height_cm": 157,
     "Weight_kg": { "hideText": "非公開" },
     "BustSize": "E",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxBranched",
+        "Count": 8,
+        "Branches": [
+          { "Laterality": "#Lat_Upper", "TailCount": 1, "ClusterCount": 2 },
+          { "Laterality": "#Lat_Lower", "TailCount": 7, "ClusterCount": 1 }
+        ],
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "ConceptAge": 25,
     "AnivDay": [
       {
@@ -31078,6 +31090,8 @@
     "SecondPersonCalling_EN": "you (very polite)",
     "ThirdPersonCalling_JP": "彼/彼女;*ちら;~様",
     "ThirdPersonCalling_EN": "he/she; this/that one (*chira); Mr/Ms.~ (~sama)",
+    "ForMasterCalling_JP": "[※二人称];ご主人様",
+    "ForMasterCalling_EN": "[*second-person calling]; my Master (goshujin-sama)",
     "Character_JP": "清く美しい精神の持ち主だが、ややネガティヴ気味で胡散臭がられているのが玉に瑕",
     "Character_EN": "A person of pure and beautiful spirit, though somewhat prone to negativity — and the tendency for others to find her dubious is her one small flaw",
     "Hobby_JP": "タロットカード",
@@ -31330,18 +31344,6 @@
     },
     "InStory_JP": "宗教科学者のように疑われがち",
     "InStory_EN": "Often mistaken for a kind of religious scientist and met with suspicion",
-    "TailsUnit": [
-      {
-        "TailShapeType": "#TailShapeType_FoxBranched",
-        "Count": 8,
-        "Branches": [
-          { "Laterality": "#Lat_Upper", "TailCount": 1, "ClusterCount": 2 },
-          { "Laterality": "#Lat_Lower", "TailCount": 7, "ClusterCount": 1 }
-        ],
-        "Note_JP": null,
-        "Note_EN": null
-      }
-    ],
     "NumerospecAbout_JP": "経験・報酬を反省から生む\nただしこの効果は対象の性格と相互に影響する",
     "NumerospecAbout_EN": "Generates experience and rewards through reflection\nHowever, this effect is mutually influenced by the master's personality",
     "NumerospecStats": {
@@ -31408,9 +31410,7 @@
         "value_EN": "Dancy Actressilk (Symphony.XVI(Sechzehn) Chief Executive in Development Department for D-Vines)",
         "_DBLink": { "_Work": "NumberTales", "_DB": "SemiPrimary", "Num": "%" }
       }
-    ],
-    "ForMasterCalling_JP": "[※二人称];ご主人様",
-    "ForMasterCalling_EN": "[*second-person calling]; my Master (goshujin-sama)"
+    ]
   },
   {
     "Num": 79,
@@ -31461,6 +31461,14 @@
       { "value": 45, "about_JP": "推定", "about_EN": "Presumption" }
     ],
     "BustSize": "G",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_Fox",
+        "Count": 8,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "ConceptAge": 27,
     "AnivDay": [
       {
@@ -31475,6 +31483,8 @@
     "SecondPersonCalling_EN": "you (anata-sama; very formal)\nyou (anta; casual rough)",
     "ThirdPersonCalling_JP": "~サマ\n*いつ/*れ;[※名前呼び]",
     "ThirdPersonCalling_EN": "~-sama\n this/that/who/what/which/them (*itsu/*re; as personal or objective); [*by name]",
+    "ForMasterCalling_JP": "ダンナ/奥サマ\nダンナ/奥サマ;[※名前呼び]",
+    "ForMasterCalling_EN": "sir/lady (danna/oku-sama)\nsir/lady; [*by name]",
     "Character_JP": "相場や価値の流れに敏感\n不安症な一面もあり悪い意味で現金主義かつギャンブラーな本性を持つ",
     "Character_EN": "Highly attuned to market trends and the flow of value\nHas an anxious side, and at heart is something of a mercenary and gambler in the worst sense",
     "Hobby_JP": "自動売買の運用",
@@ -31496,14 +31506,6 @@
       "Technic": { "hideText": "判定不能" },
       "Actuation": { "Rank": "C" }
     },
-    "TailsUnit": [
-      {
-        "TailShapeType": "#TailShapeType_Fox",
-        "Count": 8,
-        "Note_JP": null,
-        "Note_EN": null
-      }
-    ],
     "NumerospecAbout_JP": "物流を体感できる",
     "NumerospecAbout_EN": "Allows one to intuitively experience the flow of commerce and goods",
     "NumerospecStats": {
@@ -31528,9 +31530,7 @@
         { "Num": 62 },
         { "Num": 88, "RelationLabel": ["successor", "wellMatched"] }
       ]
-    },
-    "ForMasterCalling_JP": "ダンナ/奥サマ\nダンナ/奥サマ;[※名前呼び]",
-    "ForMasterCalling_EN": "sir/lady (danna/oku-sama)\nsir/lady; [*by name]"
+    }
   },
   {
     "Num": 81,
@@ -31553,6 +31553,18 @@
     "Height_cm": 149,
     "Weight_kg": 41,
     "BustSize": "D",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxBranched",
+        "Count": 8,
+        "Branches": [
+          { "Laterality": "#Lat_Upper", "TailCount": 7, "ClusterCount": 1 },
+          { "Laterality": "#Lat_Lower", "TailCount": 1, "ClusterCount": 2 }
+        ],
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "ConceptAge": 18,
     "AnivDay": [
       {
@@ -31567,6 +31579,8 @@
     "SecondPersonCalling_EN": "you (neutral/polite)",
     "ThirdPersonCalling_JP": "[※名前呼び]",
     "ThirdPersonCalling_EN": "[*by name]",
+    "ForMasterCalling_JP": "上方(かみかた)",
+    "ForMasterCalling_EN": "My Liege (kamigata; archaic)",
     "Character_JP": "価値に敏感で奉仕的\n社会情勢に敏感な貢献家",
     "Character_EN": "Sensitive to value and naturally service-oriented\nA contributor attuned to social conditions",
     "Hobby_JP": "投資",
@@ -31856,18 +31870,6 @@
       "Technic": { "Rank": "A" },
       "Actuation": { "Rank": "B" }
     },
-    "TailsUnit": [
-      {
-        "TailShapeType": "#TailShapeType_FoxBranched",
-        "Count": 8,
-        "Branches": [
-          { "Laterality": "#Lat_Upper", "TailCount": 7, "ClusterCount": 1 },
-          { "Laterality": "#Lat_Lower", "TailCount": 1, "ClusterCount": 2 }
-        ],
-        "Note_JP": null,
-        "Note_EN": null
-      }
-    ],
     "NumerospecAbout_JP": "自信および主人の自己肯定感を高め役目を全うさせる",
     "NumerospecAbout_EN": "Boosts confidence and the master's self-esteem, helping them fulfill their role",
     "NumerospecStats": {
@@ -31923,9 +31925,7 @@
           "RelationLabel": ["cousin", "awkward_aBit"]
         }
       ]
-    },
-    "ForMasterCalling_JP": "上方(かみかた)",
-    "ForMasterCalling_EN": "My Liege (kamigata; archaic)"
+    }
   },
   {
     "Num": 82,
@@ -31946,6 +31946,18 @@
     "Height_cm": 158,
     "Weight_kg": { "hideText": "非公開" },
     "BustSize": "B",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxBranched",
+        "Count": 8,
+        "Branches": [
+          { "Laterality": "#Lat_Upper", "TailCount": 6, "ClusterCount": 1 },
+          { "Laterality": "#Lat_Lower", "TailCount": 2, "ClusterCount": 2 }
+        ],
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "ConceptAge": 20,
     "AnivDay": [
       {
@@ -31960,28 +31972,16 @@
     "SecondPersonCalling_EN": "you (neutral/polite)",
     "ThirdPersonCalling_JP": "[※名前呼び]",
     "ThirdPersonCalling_EN": "[*by name]",
+    "ForMasterCalling_JP": "ご主人",
+    "ForMasterCalling_EN": "Master",
     "AppearanceDetail": null,
-    "TailsUnit": [
-      {
-        "TailShapeType": "#TailShapeType_FoxBranched",
-        "Count": 8,
-        "Branches": [
-          { "Laterality": "#Lat_Upper", "TailCount": 6, "ClusterCount": 1 },
-          { "Laterality": "#Lat_Lower", "TailCount": 2, "ClusterCount": 2 }
-        ],
-        "Note_JP": null,
-        "Note_EN": null
-      }
-    ],
     "NumerospecAbout_JP": "物乞いを叶える\nただしこの効果は周囲の物品状況に影響されやすい",
     "NumerospecAbout_EN": "Grants wishes for goods\nHowever, this effect is easily influenced by the surrounding availability of items",
     "Relation": {
       "Commented": [
         { "Num": 28, "RelationLabel": ["brother|sister", "classmate"] }
       ]
-    },
-    "ForMasterCalling_JP": "ご主人",
-    "ForMasterCalling_EN": "Master"
+    }
   },
   {
     "Num": 83,
@@ -32047,6 +32047,18 @@
       "about_JP": "着痩せ時(の値である可能性)",
       "about_EN": "When appearing slimmer (possibly)"
     },
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxBranched",
+        "Count": 8,
+        "Branches": [
+          { "Laterality": "#Lat_Upper", "TailCount": 4, "ClusterCount": 1 },
+          { "Laterality": "#Lat_Lower", "TailCount": 4, "ClusterCount": 2 }
+        ],
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "ConceptAge": 20,
     "AnivDay": [
       {
@@ -32061,6 +32073,8 @@
     "SecondPersonCalling_EN": "guy/girl(s) (anta; rough)\nyou (anata; neutral, occasional)",
     "ThirdPersonCalling_JP": "彼/彼女;*れ,*の[な]~;[※名前呼び]",
     "ThirdPersonCalling_EN": "he/she; this/that/who/what/which/them (*re, *no[na]~); [*by name]",
+    "ForMasterCalling_JP": "主(あるじ)",
+    "ForMasterCalling_EN": "Master (Aruji)",
     "Character_JP": "欲望に従順だが計画性における理屈っぽさも併せ持つ",
     "Character_EN": "Follows her desires freely, yet pairs this with a methodical, reasoning side when it comes to planning",
     "Hobby_JP": "貯金と大人買い",
@@ -32335,18 +32349,6 @@
       "Technic": { "Rank": "S" },
       "Actuation": { "Rank": "C" }
     },
-    "TailsUnit": [
-      {
-        "TailShapeType": "#TailShapeType_FoxBranched",
-        "Count": 8,
-        "Branches": [
-          { "Laterality": "#Lat_Upper", "TailCount": 4, "ClusterCount": 1 },
-          { "Laterality": "#Lat_Lower", "TailCount": 4, "ClusterCount": 2 }
-        ],
-        "Note_JP": null,
-        "Note_EN": null
-      }
-    ],
     "NumerospecAbout_JP": "計画性に比例した結果を呼び寄せる",
     "NumerospecAbout_EN": "Attracts results in proportion to one's level of planning",
     "NumerospecStats": {
@@ -32411,9 +32413,7 @@
           "RelationLabel": ["classmate"]
         }
       ]
-    },
-    "ForMasterCalling_JP": "主(あるじ)",
-    "ForMasterCalling_EN": "Master (Aruji)"
+    }
   },
   {
     "Num": 85,
@@ -32450,6 +32450,19 @@
     "Height_cm": 147,
     "Weight_kg": { "hideText": "非公開" },
     "BustSize": "A",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxBranched",
+        "Count": 8,
+        "Branches": [
+          { "Laterality": "#Lat_Upper", "TailCount": 3, "ClusterCount": 1 },
+          { "Laterality": "#Lat_Lower", "TailCount": 5, "ClusterCount": 2 }
+        ],
+        "TailsUnit_PNGName": "attr_tailsUnit85",
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "ConceptAge": 17,
     "AnivDay": [
       {
@@ -32464,6 +32477,8 @@
     "SecondPersonCalling_EN": "you (otaku; formally polite)",
     "ThirdPersonCalling_JP": "彼/彼女;~くん",
     "ThirdPersonCalling_EN": "he/she; ~-kun",
+    "ForMasterCalling_JP": "[※三人称],主人くん",
+    "ForMasterCalling_EN": "[*third-person calling], Master-kun",
     "Character_JP": "少し甘やかされ気質で金銭感覚などに疎い",
     "Character_EN": "A bit sheltered, with little sense for money and practical matters",
     "Hobby_JP": "ジャンク漁り",
@@ -32751,19 +32766,6 @@
     },
     "Backgrounds_JP": "88(ヤソハチ)に不気味がられているが、思ったよりは嫌われていない",
     "Backgrounds_EN": "She is regarded as unsettling by '88(Infinights),' but is not as disliked as one might think.",
-    "TailsUnit": [
-      {
-        "TailShapeType": "#TailShapeType_FoxBranched",
-        "Count": 8,
-        "Branches": [
-          { "Laterality": "#Lat_Upper", "TailCount": 3, "ClusterCount": 1 },
-          { "Laterality": "#Lat_Lower", "TailCount": 5, "ClusterCount": 2 }
-        ],
-        "TailsUnit_PNGName": "attr_tailsUnit85",
-        "Note_JP": null,
-        "Note_EN": null
-      }
-    ],
     "NumerospecAbout_JP": "必要なものを引き寄せる\nただしこの効果の詳細は不明",
     "NumerospecAbout_EN": "Draws in what is needed\nThe details of this effect, however, remain unknown",
     "NumerospecStats": {
@@ -32824,9 +32826,7 @@
         "value_JP": "リーチェ.エリザベス/レイチェル(78特殊探偵団 金の硬貨支部 女王札(クィーン))",
         "value_EN": "Leiche.Elizabeth / Rachel (Team.78 the Special Investigators PentacleObjects Branch Queen)"
       }
-    ],
-    "ForMasterCalling_JP": "[※三人称],主人くん",
-    "ForMasterCalling_EN": "[*third-person calling], Master-kun"
+    ]
   },
   {
     "Num": 86,
@@ -32849,6 +32849,18 @@
     "Height_cm": 145,
     "Weight_kg": { "hideText": "非公開" },
     "BustSize": "B",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxBranched",
+        "Count": 8,
+        "Branches": [
+          { "Laterality": "#Lat_Upper", "TailCount": 2, "ClusterCount": 1 },
+          { "Laterality": "#Lat_Lower", "TailCount": 6, "ClusterCount": 2 }
+        ],
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "ConceptAge": 14,
     "AnivDay": [
       {
@@ -32863,6 +32875,8 @@
     "SecondPersonCalling_EN": "you (kimi; friendly)",
     "ThirdPersonCalling_JP": "彼/彼女;[※名前呼び]",
     "ThirdPersonCalling_EN": "he/she; [*by name]",
+    "ForMasterCalling_JP": "主人",
+    "ForMasterCalling_EN": "Master",
     "Character_JP": "人当たりはよいがやや生真面目\n収集癖の強い一面がある",
     "Character_EN": "Friendly and easy to get along with, yet somewhat strict and earnest\nHas a strong tendency to collect things",
     "Hobby_JP": "コレクション収集",
@@ -33118,18 +33132,6 @@
       "Technic": { "Rank": "C" },
       "Actuation": { "Rank": "B+" }
     },
-    "TailsUnit": [
-      {
-        "TailShapeType": "#TailShapeType_FoxBranched",
-        "Count": 8,
-        "Branches": [
-          { "Laterality": "#Lat_Upper", "TailCount": 2, "ClusterCount": 1 },
-          { "Laterality": "#Lat_Lower", "TailCount": 6, "ClusterCount": 2 }
-        ],
-        "Note_JP": null,
-        "Note_EN": null
-      }
-    ],
     "NumerospecAbout_JP": "富と才能を恵む\nただしこの効果の大きさは日頃の行いの良さに比例する",
     "NumerospecAbout_EN": "Bestows wealth and talent\nHowever, the magnitude of this effect is proportional to one's everyday conduct",
     "NumerospecStats": {
@@ -33189,9 +33191,7 @@
           "RelationLabel": ["pioneer_nearly", "awkward_aBit"]
         }
       ]
-    },
-    "ForMasterCalling_JP": "主人",
-    "ForMasterCalling_EN": "Master"
+    }
   },
   {
     "Num": 87,
@@ -33223,6 +33223,18 @@
       "about_JP": "着痩せ時(の値である可能性)",
       "about_EN": "When appearing slimmer (possibly)"
     },
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxBranched",
+        "Count": 8,
+        "Branches": [
+          { "Laterality": "#Lat_Upper", "TailCount": 1, "ClusterCount": 1 },
+          { "Laterality": "#Lat_Lower", "TailCount": 7, "ClusterCount": 2 }
+        ],
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "ConceptAge": {
       "value": 19,
       "about_JP": "自称",
@@ -33241,6 +33253,8 @@
     "SecondPersonCalling_EN": "you (anata[-sama]; polite)",
     "ThirdPersonCalling_JP": "彼/彼女;*の人/*れ;~さん[さま]",
     "ThirdPersonCalling_EN": "he/she; that/this person (*no hito/*re); [*by name] (~-san), Mr/Ms.~ (~-sama)",
+    "ForMasterCalling_JP": "あなたさま,ご主人さま",
+    "ForMasterCalling_EN": "your eminence (anata-sama), my Master (goshujin-sama)",
     "Character_JP": "ポジティブで明るい女の子だが、欲張りで拝金主義・完璧主義な一面があるのが玉に瑕",
     "Character_EN": "A positive and cheerful girl, though her greedy, money-minded, and perfectionist side is her one small flaw",
     "Hobby_JP": "時計修理・時計製作",
@@ -33500,18 +33514,6 @@
       "Technic": { "Rank": "S" },
       "Actuation": { "Rank": "B+" }
     },
-    "TailsUnit": [
-      {
-        "TailShapeType": "#TailShapeType_FoxBranched",
-        "Count": 8,
-        "Branches": [
-          { "Laterality": "#Lat_Upper", "TailCount": 1, "ClusterCount": 1 },
-          { "Laterality": "#Lat_Lower", "TailCount": 7, "ClusterCount": 2 }
-        ],
-        "Note_JP": null,
-        "Note_EN": null
-      }
-    ],
     "NumerospecAbout_JP": "金運を上げ、物欲を叶える\nただしこの効果は対象の物欲の種類に影響されやすい",
     "NumerospecAbout_EN": "Raises the master's financial luck and fulfills material desires\nHowever, this effect is easily influenced by the nature of the master's material desires",
     "NumerospecStats": {
@@ -33584,9 +33586,7 @@
         "value_EN": "100 Beauties Lab. (N3US University Dr.Thouser Laboratory) Seminar Assistant)",
         "_DBLink": { "_Work": "NumberTales", "_DB": "SemiPrimary", "Num": "∞" }
       }
-    ],
-    "ForMasterCalling_JP": "あなたさま,ご主人さま",
-    "ForMasterCalling_EN": "your eminence (anata-sama), my Master (goshujin-sama)"
+    ]
   },
   {
     "Num": 88,
@@ -33610,6 +33610,15 @@
     "Class": ["マスターテールズ9"],
     "Height_cm": 167,
     "Weight_kg": 45,
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxBranched",
+        "Count": 8,
+        "Segment": 2,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "ConceptAge": 24,
     "AnivDay": [
       {
@@ -33624,6 +33633,8 @@
     "SecondPersonCalling_EN": "you (anata-sama; very formal)\nyou (kimi; friendly)",
     "ThirdPersonCalling_JP": "~様\n[※名前呼び]",
     "ThirdPersonCalling_EN": "Mr/Ms.~ (~sama)\n[*by name]",
+    "ForMasterCalling_JP": "旦那様/奥様\n[※三人称]",
+    "ForMasterCalling_EN": "sir/madam (danna-sama/oku-sama)\n[*third-person calling]",
     "Character_JP": "執事のような存在で、貢ぎ癖が少しある\n努力に相応の成果を主人が得ることが信条",
     "Character_EN": "Something like a butler, with a slight tendency to offer tributes\nBelieves the master should receive rewards commensurate with their effort",
     "Hobby_JP": "ピアノ、音ゲー",
@@ -33883,15 +33894,6 @@
     "Backgrounds_EN": "His Numerospec is almost a product of coincidence — and even the Norumber siblings appear to have almost no knowledge of it.",
     "InStory_JP": "どこから資金や資産を得ているのか、他のナンバーテールズや一部界隈からも不気味がられている",
     "InStory_EN": "Where he obtains his funds and assets is a mystery, and even fellow NumberTales and certain circles find him unsettling.",
-    "TailsUnit": [
-      {
-        "TailShapeType": "#TailShapeType_FoxBranched",
-        "Count": 8,
-        "Segment": 2,
-        "Note_JP": null,
-        "Note_EN": null
-      }
-    ],
     "NumerospecAbout_JP": "主人の報酬を保証する\n強力な加護のためこの効果の詳細は不明",
     "NumerospecAbout_EN": "Guarantees the master's reward\nDue to the strength of this Numerospec, the details of this effect remain unknown",
     "NumerospecStats": {
@@ -33959,9 +33961,7 @@
           "Comments_EN": "Is she intending to try her hand at alchemy or something...?"
         }
       ]
-    },
-    "ForMasterCalling_JP": "旦那様/奥様\n[※三人称]",
-    "ForMasterCalling_EN": "sir/madam (danna-sama/oku-sama)\n[*third-person calling]"
+    }
   },
   {
     "Num": 89,
@@ -33989,6 +33989,18 @@
     "Height_cm": 158,
     "Weight_kg": { "hideText": "非公開" },
     "BustSize": "C",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxBranched",
+        "Count": 9,
+        "Branches": [
+          { "Laterality": "#Lat_Upper", "TailCount": 1, "ClusterCount": 1 },
+          { "Laterality": "#Lat_Lower", "TailCount": 8, "ClusterCount": 2 }
+        ],
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "ConceptAge": 21,
     "AnivDay": [
       {
@@ -34003,6 +34015,8 @@
     "SecondPersonCalling_EN": "you (neutral/polite)",
     "ThirdPersonCalling_JP": "彼/彼女;~さん;[※名前呼び]",
     "ThirdPersonCalling_EN": "he/she; ~-san; [*by name]",
+    "ForMasterCalling_JP": "～先生",
+    "ForMasterCalling_EN": "~-sensei",
     "Character_JP": "穏やかで静かな気質、誠実でしっかり者\n物事の締めくくりを大切にしている",
     "Character_EN": "A calm and quiet disposition, earnest and dependable\nPuts great importance on bringing things to a proper conclusion",
     "Hobby_JP": "長編小説",
@@ -34307,18 +34321,6 @@
       "Technic": { "Rank": "D" },
       "Actuation": { "Rank": "A" }
     },
-    "TailsUnit": [
-      {
-        "TailShapeType": "#TailShapeType_FoxBranched",
-        "Count": 9,
-        "Branches": [
-          { "Laterality": "#Lat_Upper", "TailCount": 1, "ClusterCount": 1 },
-          { "Laterality": "#Lat_Lower", "TailCount": 8, "ClusterCount": 2 }
-        ],
-        "Note_JP": null,
-        "Note_EN": null
-      }
-    ],
     "NumerospecAbout_JP": "主人の抱える未練を中和する",
     "NumerospecAbout_EN": "Neutralizes the master's lingering regrets and attachments",
     "NumerospecStats": {
@@ -34385,9 +34387,7 @@
         "value_JP": "氏原（仮称;夜月機関 第12幹部:キャサリン=アインツヴァイス の専属執事）",
         "value_EN": "Ujihar (tentative; Yadzuki Org. Executive Director.12: Catherine=Einzweiss's exclusive butler)"
       }
-    ],
-    "ForMasterCalling_JP": "～先生",
-    "ForMasterCalling_EN": "~-sensei"
+    ]
   },
   {
     "Num": 90,
@@ -34472,6 +34472,18 @@
     "Class": ["デュアルイレブンズ"],
     "Height_cm": 142,
     "Weight_kg": 41,
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxBranched",
+        "Count": 9,
+        "Branches": [
+          { "Laterality": "#Lat_Upper", "TailCount": 7, "ClusterCount": 1 },
+          { "Laterality": "#Lat_Lower", "TailCount": 3, "ClusterCount": 2 }
+        ],
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "ConceptAge": 15,
     "AnivDay": [
       {
@@ -34486,6 +34498,8 @@
     "SecondPersonCalling_EN": "you\nyou (formal)",
     "ThirdPersonCalling_JP": "彼/彼女;[※名前呼び]",
     "ThirdPersonCalling_EN": "he/she; [*by name]",
+    "ForMasterCalling_JP": "兄さん/姉さん",
+    "ForMasterCalling_EN": "Bro/Sis",
     "Character_JP": "接し方は淡泊でドライだが根はとても寛容",
     "Character_EN": "Cool and dry in manner, but genuinely generous at heart",
     "Hobby_JP": "エンタメ番組を見ること",
@@ -34704,18 +34718,6 @@
     },
     "InStory_JP": "話が長くなりそうなときは聞き専に回ることが多い\nコアフォルダ形態に癒しを感じている",
     "InStory_EN": "Often switches to listener mode when conversations threaten to run long\nFinds comfort in the corefolder form",
-    "TailsUnit": [
-      {
-        "TailShapeType": "#TailShapeType_FoxBranched",
-        "Count": 9,
-        "Branches": [
-          { "Laterality": "#Lat_Upper", "TailCount": 7, "ClusterCount": 1 },
-          { "Laterality": "#Lat_Lower", "TailCount": 3, "ClusterCount": 2 }
-        ],
-        "Note_JP": null,
-        "Note_EN": null
-      }
-    ],
     "NumerospecAbout_JP": "心を慰める\nただしこの効果は会話を通してのみ発動する",
     "NumerospecAbout_EN": "Soothes the heart\nHowever, this effect only activates through conversation",
     "NumerospecStats": {
@@ -34765,9 +34767,7 @@
           "RelationLabel": ["awkward_aBit", "classmate"]
         }
       ]
-    },
-    "ForMasterCalling_JP": "兄さん/姉さん",
-    "ForMasterCalling_EN": "Bro/Sis"
+    }
   },
   {
     "Num": 93,
@@ -34798,6 +34798,19 @@
     "Height_cm": 144,
     "Weight_kg": 39,
     "BustSize": "A",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxBranched",
+        "Count": 9,
+        "Branches": [
+          { "Laterality": "#Lat_Upper", "TailCount": 6, "ClusterCount": 1 },
+          { "Laterality": "#Lat_Lower", "TailCount": 3, "ClusterCount": 2 }
+        ],
+        "TailsUnit_PNGName": "attr_tailsUnit93",
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "ConceptAge": 15,
     "AnivDay": [
       {
@@ -34817,6 +34830,8 @@
     "SecondPersonCalling_EN": "you",
     "ThirdPersonCalling_JP": "彼/彼女;*の人;[※名前呼び]",
     "ThirdPersonCalling_EN": "he/she; that/this one (*no hito); [*by name]",
+    "ForMasterCalling_JP": "[※二人称]\n相棒",
+    "ForMasterCalling_EN": "[*second-person calling]\npartner",
     "Character_JP": "理想が高く、成果を一つの過程として捉えている\n夢ある少女で、強大な野望を掲げている",
     "Character_EN": "Sets the bar high and sees every achievement as just one step in the process\nA girl full of dreams, carrying grand dreambitions",
     "Hobby_JP": "偉人記念館巡り",
@@ -35147,19 +35162,6 @@
     "Backgrounds_EN": "Due to her strong-willed and ambitious nature, she came close to emotional runaway several times during ROS development",
     "InStory_JP": "主人と信頼関係が築かれる前は主人より意気込むあまり、感情が暴走する恐れがあった（現在は収束している）",
     "InStory_EN": "Before trust was established with her master, she was prone to emotional runaway from over-eagerness that exceeded her master's own pace (this has since stabilized)",
-    "TailsUnit": [
-      {
-        "TailShapeType": "#TailShapeType_FoxBranched",
-        "Count": 9,
-        "Branches": [
-          { "Laterality": "#Lat_Upper", "TailCount": 6, "ClusterCount": 1 },
-          { "Laterality": "#Lat_Lower", "TailCount": 3, "ClusterCount": 2 }
-        ],
-        "TailsUnit_PNGName": "attr_tailsUnit93",
-        "Note_JP": null,
-        "Note_EN": null
-      }
-    ],
     "NumerospecAbout_JP": "主人の抱える野望を叶える\nただしこの効果は主人との信頼関係に影響される",
     "NumerospecAbout_EN": "Fulfills the dreambitions her master carries\nHowever, this effect is influenced by the trust between her and her master",
     "NumerospecStats": {
@@ -35225,9 +35227,7 @@
         "value_JP": "乃木 希（VIPマスター;夜月機関 救命本部 推薦所属候補者）",
         "value_EN": "Nozomi Nogi（VIP-Master; Yadzuki Org. Lifeguards Headquarter Recommended Candidate）"
       }
-    ],
-    "ForMasterCalling_JP": "[※二人称]\n相棒",
-    "ForMasterCalling_EN": "[*second-person calling]\npartner"
+    ]
   },
   {
     "Num": 94,
@@ -35253,6 +35253,18 @@
     "Height_cm": 145,
     "Weight_kg": 39,
     "BustSize": "A",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxBranched",
+        "Count": 9,
+        "Branches": [
+          { "Laterality": "#Lat_Upper", "TailCount": 5, "ClusterCount": 1 },
+          { "Laterality": "#Lat_Lower", "TailCount": 4, "ClusterCount": 2 }
+        ],
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "ConceptAge": { "value": 13, "about_JP": "？", "about_EN": "?" },
     "AnivDay": [
       {
@@ -35267,6 +35279,8 @@
     "SecondPersonCalling_EN": "you",
     "ThirdPersonCalling_JP": "*の人;[※名前呼び]",
     "ThirdPersonCalling_EN": "*person; [*by name]",
+    "ForMasterCalling_JP": "主人さま",
+    "ForMasterCalling_EN": "Master",
     "Character_JP": "常に眠そうにしており、休止時間が活動時間よりも長くよく寝ている\nコアフォルダ形態が大好き",
     "Character_EN": "Always looking drowsy, with more downtime than uptime — ze sleeps a lot\nAnd simply adores the corefolder form",
     "Hobby_JP": "休養",
@@ -35546,18 +35560,6 @@
     },
     "InStory_JP": "滅多に活動しない個体のためマッチングを活用し、効果を最大限に発揮できる主人とだけ契約している\n無気力な活動展開だが、愛おしいと支持者も多い",
     "InStory_EN": "A unit that rarely stirs, so matchmaking is used to ensure contracts are made only with masters who can draw out the effect to its fullest\nZir activity pace is listless, but ze has no shortage of supporters who find zir endearing",
-    "TailsUnit": [
-      {
-        "TailShapeType": "#TailShapeType_FoxBranched",
-        "Count": 9,
-        "Branches": [
-          { "Laterality": "#Lat_Upper", "TailCount": 5, "ClusterCount": 1 },
-          { "Laterality": "#Lat_Lower", "TailCount": 4, "ClusterCount": 2 }
-        ],
-        "Note_JP": null,
-        "Note_EN": null
-      }
-    ],
     "NumerospecAbout_JP": "休息を与える\nこの効果は物事が終結した後に真価を発揮する",
     "NumerospecAbout_EN": "Grants rest\nThis effect shows its true worth after matters have come to a close",
     "NumerospecStats": {
@@ -35616,9 +35618,7 @@
         }
       ]
     },
-    "ThisMasters": [{ "value_JP": "花舞 彗", "value_EN": "Comets Flowee" }],
-    "ForMasterCalling_JP": "主人さま",
-    "ForMasterCalling_EN": "Master"
+    "ThisMasters": [{ "value_JP": "花舞 彗", "value_EN": "Comets Flowee" }]
   },
   {
     "Num": 95,
@@ -35704,6 +35704,18 @@
     "Height_cm": 153,
     "Weight_kg": { "hideText": "非公開" },
     "BustSize": "G",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxBranched",
+        "Count": 9,
+        "Branches": [
+          { "Laterality": "#Lat_Upper", "TailCount": 3, "ClusterCount": 1 },
+          { "Laterality": "#Lat_Lower", "TailCount": 6, "ClusterCount": 2 }
+        ],
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "ConceptAge": { "about_JP": "不詳", "about_EN": "Unknown" },
     "AnivDay": [
       {
@@ -35718,6 +35730,8 @@
     "SecondPersonCalling_EN": "you\nyou (familiar) * extremely rare (or when with someone who knows her true self)",
     "ThirdPersonCalling_JP": "[※その時により変わる],[※名前呼び]",
     "ThirdPersonCalling_EN": "[*Varies depending on the situation]; [*by name]",
+    "ForMasterCalling_JP": "ご主人",
+    "ForMasterCalling_EN": "Master",
     "Character_JP": "流行に詳しく今時なトレンドに敏感\n普段は仮面をつけている（流行に乗っている自分を模るためらしい）\n素を知られていない",
     "Character_EN": "Well-versed in trends and quick to pick up on what’s in right now\nUsually wears a mask — apparently to play the role of a trendy version of herself\nHer true self remains unknown to others",
     "Hobby_JP": "ファッション購入",
@@ -36085,18 +36099,6 @@
     "Backgrounds_EN": "Starting to wear a mask was apparently her own decision after completion\nWas developed as a gender-transitioned version of her older sibling '69(Signine)', but...",
     "InStory_JP": "特殊個体「6+9型」の改良(性転換)版\n衣服から立ち振る舞いまで流行に肖ってしまうため、他のナンバーテールズからも素を掴められていない",
     "InStory_EN": "An improved (gender-transitioned) version of the special-type '6+9 model'\nAs everything from her clothing to her mannerisms is modeled on current trends, not even fellow NumberTales can get a read on her true self",
-    "TailsUnit": [
-      {
-        "TailShapeType": "#TailShapeType_FoxBranched",
-        "Count": 9,
-        "Branches": [
-          { "Laterality": "#Lat_Upper", "TailCount": 3, "ClusterCount": 1 },
-          { "Laterality": "#Lat_Lower", "TailCount": 6, "ClusterCount": 2 }
-        ],
-        "Note_JP": null,
-        "Note_EN": null
-      }
-    ],
     "NumerospecAbout_JP": "過去の柵(しがらみ)から解放する\nこれにより主人に挑戦意欲を奮わせる効果もある",
     "NumerospecAbout_EN": "Frees one from the shackles of the past\nThis also has the effect of stirring up her master’s drive to take on new challenges",
     "NumerospecStats": {
@@ -36163,9 +36165,7 @@
         "value_JP": "ジャッヂ=ジャストリー/神谷崎 幻影",
         "value_EN": "Judger=Justicy / Phantoma Theolessnight"
       }
-    ],
-    "ForMasterCalling_JP": "ご主人",
-    "ForMasterCalling_EN": "Master"
+    ]
   },
   {
     "Num": 97,
@@ -36193,6 +36193,18 @@
     "Height_cm": 141,
     "Weight_kg": 39,
     "BustSize": "E",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxBranched",
+        "Count": 9,
+        "Branches": [
+          { "Laterality": "#Lat_Upper", "TailCount": 2, "ClusterCount": 1 },
+          { "Laterality": "#Lat_Lower", "TailCount": 7, "ClusterCount": 2 }
+        ],
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "ConceptAge": { "about_JP": "不詳", "about_EN": "Unknown" },
     "AnivDay": [
       {
@@ -36207,6 +36219,8 @@
     "SecondPersonCalling_EN": "you (sir/ma'am) * rare\n[*by name]; ~-sama",
     "ThirdPersonCalling_JP": "[※名前呼び]\n~さま",
     "ThirdPersonCalling_EN": "[*by name]\n~-sama",
+    "ForMasterCalling_JP": "神官さま",
+    "ForMasterCalling_EN": "High Priest",
     "Character_JP": "自発的だが、少し内向的でもあり陰気\n杓子定規な一面も",
     "Character_EN": "Self-motivated, but also a little introverted and gloomy\nHas a by-the-book side to her as well",
     "Hobby_JP": "祈願・礼拝",
@@ -36510,18 +36524,6 @@
     },
     "InStory_JP": "礼拝などの信仰に執着するあまり、他のナンバーテールズから距離を置かれがち",
     "InStory_EN": "Her attachment to faith and worship tends to put some distance between her and other NumberTales",
-    "TailsUnit": [
-      {
-        "TailShapeType": "#TailShapeType_FoxBranched",
-        "Count": 9,
-        "Branches": [
-          { "Laterality": "#Lat_Upper", "TailCount": 2, "ClusterCount": 1 },
-          { "Laterality": "#Lat_Lower", "TailCount": 7, "ClusterCount": 2 }
-        ],
-        "Note_JP": null,
-        "Note_EN": null
-      }
-    ],
     "NumerospecAbout_JP": "善意や善行を報わせて魂を雪(そそ)ぐ\nこの効果は相手の心が清いものである程大きくなる",
     "NumerospecAbout_EN": "Purifies the soul by rewarding acts of goodwill and goodness\nThis effect grows stronger the purer the other person’s heart",
     "NumerospecStats": {
@@ -36576,9 +36578,7 @@
           "RelationLabel": ["cousin_nearly"]
         }
       ]
-    },
-    "ForMasterCalling_JP": "神官さま",
-    "ForMasterCalling_EN": "High Priest"
+    }
   },
   {
     "Num": 98,
@@ -36601,6 +36601,18 @@
     "Height_cm": 154,
     "Weight_kg": { "hideText": "非公開" },
     "BustSize": "D",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxBranched",
+        "Count": 9,
+        "Branches": [
+          { "Laterality": "#Lat_Upper", "TailCount": 1, "ClusterCount": 1 },
+          { "Laterality": "#Lat_Lower", "TailCount": 8, "ClusterCount": 2 }
+        ],
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "ConceptAge": { "value": 20, "about_JP": "？", "about_EN": "?" },
     "AnivDay": [
       {
@@ -36615,6 +36627,8 @@
     "SecondPersonCalling_EN": "you (neutral/polite)",
     "ThirdPersonCalling_JP": "彼/彼女;~さん;[※名前呼び]",
     "ThirdPersonCalling_EN": "he/she; ~-san; [*by name]",
+    "ForMasterCalling_JP": "～先生",
+    "ForMasterCalling_EN": "~-sensei",
     "Character_JP": "飽き症で何事にも投げ遣り気味。ほんの少しだけシスターコンプレックス",
     "Character_EN": "Gets bored easily and tends to be half-hearted about everything. Just a tiny hint of a sister complex",
     "Hobby_JP": "買い出し",
@@ -36862,18 +36876,6 @@
       "Technic": { "Rank": "C" },
       "Actuation": { "Rank": "B" }
     },
-    "TailsUnit": [
-      {
-        "TailShapeType": "#TailShapeType_FoxBranched",
-        "Count": 9,
-        "Branches": [
-          { "Laterality": "#Lat_Upper", "TailCount": 1, "ClusterCount": 1 },
-          { "Laterality": "#Lat_Lower", "TailCount": 8, "ClusterCount": 2 }
-        ],
-        "Note_JP": null,
-        "Note_EN": null
-      }
-    ],
     "NumerospecAbout_JP": "諦め時を見極める\nこれにより、より即座に結果を伴わせることがあるらしい",
     "NumerospecAbout_EN": "Knows when it’s time to give up\nThis apparently allows results to follow more swiftly when applied",
     "NumerospecStats": {
@@ -36940,9 +36942,7 @@
           "Comments_EN": "So transactional about everything — it's just off-putting."
         }
       ]
-    },
-    "ForMasterCalling_JP": "～先生",
-    "ForMasterCalling_EN": "~-sensei"
+    }
   },
   {
     "Num": 99,
@@ -36970,6 +36970,15 @@
     "Height_cm": 159,
     "Weight_kg": 43,
     "BustSize": "AA",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxBranched",
+        "Count": 9,
+        "Segment": 2,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "ConceptAge": 16,
     "AnivDay": [
       {
@@ -36984,6 +36993,8 @@
     "SecondPersonCalling_EN": "thou (onushi; casually archaic)",
     "ThirdPersonCalling_JP": "*の者;[※名前呼び]",
     "ThirdPersonCalling_EN": "that one (as personal); [*by name]",
+    "ForMasterCalling_JP": "主君",
+    "ForMasterCalling_EN": "my lord",
     "Character_JP": "異世界転生者疑惑がある？\n異世界の王族だったような雰囲気を持つ",
     "Character_EN": "Suspected of being a reincarnated transmigrant from another world?\nCarries the air of former royalty from another realm",
     "Hobby_JP": "記憶を探ること",
@@ -37343,15 +37354,6 @@
     },
     "Backgrounds_JP": "最後の正規型個体\n数字表記は漢数字となっている\n加護については偶然の産物（以下略）",
     "Backgrounds_EN": "The final standard-type unit\nThe number is written in kanji form\nZir blessing is a product of coincidence — (details omitted)",
-    "TailsUnit": [
-      {
-        "TailShapeType": "#TailShapeType_FoxBranched",
-        "Count": 9,
-        "Segment": 2,
-        "Note_JP": null,
-        "Note_EN": null
-      }
-    ],
     "NumerospecAbout_JP": "？？？？の記憶を持つ",
     "NumerospecAbout_EN": "Holds the memories of ？？？？",
     "NumerospecStats": {
@@ -37410,9 +37412,7 @@
           "Comments_EN": "How admirable — your courage."
         }
       ]
-    },
-    "ForMasterCalling_JP": "主君",
-    "ForMasterCalling_EN": "my lord"
+    }
   },
   {
     "Num": "2-alt",
@@ -37463,6 +37463,14 @@
     "Height_cm": [{ "value": 150, "about_JP": "想定", "about_EN": "Scenario" }],
     "Weight_kg": [{ "value": 40, "about_JP": "想定", "about_EN": "Scenario" }],
     "BustSize": "F",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_Fox",
+        "Count": 2,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "ConceptAge": 17,
     "AnivDay": [
       {
@@ -37482,6 +37490,8 @@
     "SecondPersonCalling_EN": "[*by name]",
     "ThirdPersonCalling_JP": "彼/彼女;[※名前呼び]",
     "ThirdPersonCalling_EN": "he/she; [*by name]",
+    "ForMasterCalling_JP": "兄さま/姉さま",
+    "ForMasterCalling_EN": "Big Bro/Big Sis",
     "Character_JP": "控えめだけど可憐で仲間想い\n少し世間知らず",
     "Character_EN": "Gentle and graceful, always thinking of her companions\nA little sheltered from the world",
     "Hobby_JP": "皆を思いやること",
@@ -37763,14 +37773,6 @@
     "Backgrounds_EN": "Caused by Hudret's mechanical design and Zera's firmware design both falling behind schedule — it became Hudret's first setback",
     "InStory_JP": "ハードウェアの開発トラブルにより完成前に退役\n現在はROSのみで存在し、開発支援に徹している",
     "InStory_EN": "Retired before completion due to a hardware development issue\nCurrently exists only as ROS, dedicated entirely to development support",
-    "TailsUnit": [
-      {
-        "TailShapeType": "#TailShapeType_Fox",
-        "Count": 2,
-        "Note_JP": null,
-        "Note_EN": null
-      }
-    ],
     "NumerospecAbout_JP": "他ナンバーテールズに託す：この効果の詳細は不明",
     "NumerospecAbout_EN": "Entrusts to other NumberTales units — the details of this effect are unknown",
     "NumerospecStats": { "SpecialPattern": ["Ptn.X(転化・転送効果)"] },
@@ -37793,9 +37795,7 @@
         "value_EN": null,
         "about_EN": "(Cannot be exclusively contracted, unreleased state)"
       }
-    ],
-    "ForMasterCalling_JP": "兄さま/姉さま",
-    "ForMasterCalling_EN": "Big Bro/Big Sis"
+    ]
   },
   {
     "Num": "10-alt",
@@ -37818,6 +37818,14 @@
     "Class": ["調整個体", "退任個体", "デシベルモデレーターズ", "10号機型"],
     "Height_cm": [{ "value": 164, "about_JP": "想定", "about_EN": "Scenario" }],
     "Weight_kg": { "hideText": "データ無" },
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_Fox",
+        "Count": 10,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "ConceptAge": 17,
     "AnivDay": [
       {
@@ -37837,6 +37845,8 @@
     "SecondPersonCalling_EN": "you",
     "ThirdPersonCalling_JP": "*奴(*いつ);[※名前呼び]",
     "ThirdPersonCalling_EN": "*that one; [*by name]",
+    "ForMasterCalling_JP": "～先輩",
+    "ForMasterCalling_EN": "~-senpai",
     "AppearanceDetail": [
       {
         "Formation": "corefolder",
@@ -38014,14 +38024,6 @@
     "Backgrounds_EN": "The runaway accident left behind critical unsolved problems — including the autonomous behavior algorithm and rights — and became Zera's first setback",
     "InStory_JP": "禁忌的な暴走「過剰自我(EGhOst)」により、現在はコアフォルダ形態かつオフラインで隔離され調整中である",
     "InStory_EN": "Due to a forbidden runaway known as 'EGhOst (excessive ego)', he is currently isolated in corefolder form and offline, undergoing adjustment",
-    "TailsUnit": [
-      {
-        "TailShapeType": "#TailShapeType_Fox",
-        "Count": 10,
-        "Note_JP": null,
-        "Note_EN": null
-      }
-    ],
     "NumerospecAbout_JP": "？？？？を果たす\n暴走により唯一攻撃的な特徴のある加護となった",
     "NumerospecAbout_EN": "Fulfills ????\nHaving run amok, it became the only blessing with an offensive characteristic",
     "NumerospecStats": {
@@ -38046,9 +38048,7 @@
         "value_EN": null,
         "about_EN": "(Cannot be exclusively contracted, under strict suspension)"
       }
-    ],
-    "ForMasterCalling_JP": "～先輩",
-    "ForMasterCalling_EN": "~-senpai"
+    ]
   },
   {
     "Num": "000",
@@ -38089,6 +38089,14 @@
     "Height_cm": 165,
     "Weight_kg": { "hideText": "？？？" },
     "BustSize": "A",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_Cat",
+        "Count": 1,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "ConceptAge": 25,
     "BirthDay": { "Day": { "Month": 8, "DayOfMonth": 15 } },
     "FirstPersonCalling_JP": "私(わたし)",
@@ -38097,6 +38105,8 @@
     "SecondPersonCalling_EN": "you",
     "ThirdPersonCalling_JP": "彼/彼女;[※名前呼び]",
     "ThirdPersonCalling_EN": "he/she; [*by name]",
+    "ForMasterCalling_JP": "クライアント君",
+    "ForMasterCalling_EN": "Client",
     "Strength_JP": "他個体の体系(システム)を担っている",
     "Strength_EN": "Serves as the structural framework (system) for all other units",
     "Weakness_JP": "アイデンティティがナンバーテールズとしてではなく開発者としてのものとなっている",
@@ -38396,14 +38406,6 @@
     "Backgrounds_EN": "Reluctantly completed in their spare time by the Norumber siblings, to wipe away an embarrassment from their master's program\nApparently a byproduct born at the very start of the master's research...?",
     "InStory_JP": "量産販売型の発表後、稀に零姉弟の代理として登場する（完成時期は「99(ツクモ)」より後で「100(モモ)」より前）",
     "InStory_EN": "After the mass-production model was announced, ze occasionally appears as a proxy for the Norumber siblings (completed after '99(Thukumo)' but before '100(Centa)')",
-    "TailsUnit": [
-      {
-        "TailShapeType": "#TailShapeType_Cat",
-        "Count": 1,
-        "Note_JP": null,
-        "Note_EN": null
-      }
-    ],
     "NumerospecAbout_JP": "開発者 零姉弟の人格と同等のものを持つ\nちなみに名前は、零姉弟の本当の苗字「千歳」から由来",
     "NumerospecAbout_EN": "Holds a personality equivalent to that of the developer siblings (Zera and Hudret)\nIncidentally, zir name derives from the siblings’ true family name, \"Thouser\"",
     "Relation": {
@@ -38440,9 +38442,7 @@
         "about_EN": "Reluctantly possessed",
         "_DBLink": { "_Work": "NumberTales", "_DB": "Primary", "Num": "00" }
       }
-    ],
-    "ForMasterCalling_JP": "クライアント君",
-    "ForMasterCalling_EN": "Client"
+    ]
   },
   {
     "Num": "0",
@@ -38470,6 +38470,14 @@
     "Height_cm": 165,
     "Weight_kg": { "hideText": "非公開" },
     "BustSize": "D",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_CatAccessory",
+        "Count": 1,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "Age": 25,
     "BirthDay": { "Day": { "Month": 8, "DayOfMonth": 15 } },
     "FirstPersonCalling_JP": "私(わたし)",
@@ -38478,6 +38486,8 @@
     "SecondPersonCalling_EN": "you (, hey you)",
     "ThirdPersonCalling_JP": "彼/彼女;[※名前呼び]",
     "ThirdPersonCalling_EN": "he/she; [*by name]",
+    "ForMasterCalling_JP": "クライアント君",
+    "ForMasterCalling_EN": "Client",
     "Strength_JP": "暗算や思考がAIに後れを取らないほど早い",
     "Strength_EN": "Quick at mental arithmetic and thinking — fast enough to rival an AI",
     "Weakness_JP": "酒癖が悪い（酔うとダル絡みやみだりなスキンシップが増える）\n発達障碍で就職活動を諦めている（ただし博士課程での研究で将来的に事業化が確定しているのでそこまで困っていない）",
@@ -38742,18 +38752,8 @@
     "Backgrounds_EN": "The impetus behind NumberTales development was largely her doing\nDeveloped NumberTales as part of her doctoral research; Hudret likewise",
     "InStory_JP": "ナンバーテールズのROSを開発・保守しながら博士研究に努めている",
     "InStory_EN": "Develops and maintains the NumberTales ROS while pursuing her doctoral research",
-    "TailsUnit": [
-      {
-        "TailShapeType": "#TailShapeType_CatAccessory",
-        "Count": 1,
-        "Note_JP": null,
-        "Note_EN": null
-      }
-    ],
     "NumerospecAbout_JP": "IQ200の頭脳を持つ(学士課程以前で記録)\n飛び級のないキャリアだが裏でAIやROSを自作している",
-    "NumerospecAbout_EN": "Possesses an IQ of 200 (recorded prior to undergraduate studies)\nA non-skipped-grade career, yet has been secretly building AIs and ROS systems behind the scenes",
-    "ForMasterCalling_JP": "クライアント君",
-    "ForMasterCalling_EN": "Client"
+    "NumerospecAbout_EN": "Possesses an IQ of 200 (recorded prior to undergraduate studies)\nA non-skipped-grade career, yet has been secretly building AIs and ROS systems behind the scenes"
   },
   {
     "Num": "00",
@@ -38777,6 +38777,14 @@
     "Class": ["開発者", "最高技術所長"],
     "Height_cm": 165,
     "Weight_kg": { "hideText": "非公開" },
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_CatAccessory",
+        "Count": 1,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "Age": 25,
     "AnivDay": [
       {
@@ -38791,6 +38799,8 @@
     "SecondPersonCalling_EN": "you\nyou (rough)",
     "ThirdPersonCalling_JP": "彼/彼女;[※名前呼び]",
     "ThirdPersonCalling_EN": "he/she; [*by name]",
+    "ForMasterCalling_JP": "クライアント君",
+    "ForMasterCalling_EN": "Client",
     "Strength_JP": "技術力が非常に高くハンドメイドで大抵の装置を製造できる",
     "Strength_EN": "Extremely skilled with technology — capable of handcrafting most devices",
     "Weakness_JP": "発達障碍が就職活動に響いている（ただし姉の博士課程に協力することになってからはそこまで困っていない）",
@@ -39049,17 +39059,7 @@
     "Backgrounds_EN": "Suffered serious injuries in an unforeseen accident during a school trip for his master's program, but achieved early recovery through self-made assistive devices; Zera likewise",
     "InStory_JP": "ナンバーテールズのハードウェアを設計・製造・メンテナンスしながら博士研究に努めている",
     "InStory_EN": "Designs, manufactures, and maintains the NumberTales hardware while pursuing his doctoral research",
-    "TailsUnit": [
-      {
-        "TailShapeType": "#TailShapeType_CatAccessory",
-        "Count": 1,
-        "Note_JP": null,
-        "Note_EN": null
-      }
-    ],
     "NumerospecAbout_JP": "世界トップ10のメカニック実績がある(学士課程で記録)\n姉と同等の頭脳を持つが発達障害を患っている",
-    "NumerospecAbout_EN": "Holds a track record among the world’s top 10 mechanics (recorded during undergraduate studies)\nPossesses intellect equal to his older sister’s, but has a developmental disability",
-    "ForMasterCalling_JP": "クライアント君",
-    "ForMasterCalling_EN": "Client"
+    "NumerospecAbout_EN": "Holds a track record among the world’s top 10 mechanics (recorded during undergraduate studies)\nPossesses intellect equal to his older sister’s, but has a developmental disability"
   }
 ]

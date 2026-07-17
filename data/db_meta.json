@@ -37,15 +37,19 @@
           "BustSize",
           "TailsUnit",
           "Age",
-          "AnivDay"
+          "AnivDay",
+          "FirstPersonCalling",
+          "SecondPersonCalling",
+          "ThirdPersonCalling",
+          "ForMasterCalling"
         ],
         "subFields": [
-          "AppearanceDetail",
-          "ColorPalette",
-          "TailsUnit",
-          "AbilityStats",
           "NumerospecAbout",
           "NumerospecStats",
+          "TailsUnit",
+          "AppearanceDetail",
+          "ColorPalette",
+          "AbilityStats",
           "Relation",
           "ThisMasters",
           "ConversationPattern",
@@ -96,15 +100,21 @@
           "Height_cm",
           "Weight_kg",
           "Age",
-          "BirthDay"
+          "BirthDay",
+          "FirstPersonCalling",
+          "SecondPersonCalling",
+          "ThirdPersonCalling",
+          "For79thDealerCalling",
+          "For80thDealerCalling"
         ],
         "subFields": [
-          "AppearanceDetail",
-          "AbilityStats",
+          "ArcanamspecAbout",
           "ArcanumspecStats",
+          "AbilityStats",
+          "AppearanceDetail",
           "Relation",
-          "ThisArcanaHolder_DBLink",
           "ConversationPattern",
+          "ThisArcanaHolder_DBLink",
           "AnotherRegions_DBLink"
         ]
       }
@@ -128,11 +138,11 @@
           "Class",
           "Height_cm",
           "Weight_kg",
-          "BeastspecName",
           "Age",
           "BirthDay"
         ],
         "subFields": [
+          "BeastspecName",
           "BeastspecStats",
           "ConversationPattern",
           "AnotherRegions_DBLink"
@@ -148,24 +158,23 @@
       "$DetailLayout": {
         "headerPills": ["Progress"],
         "basicFields": [
+          "Generation",
           "AnotherRegions_DBLink",
           "FormalName",
           "CodeName",
           "RaceType",
           "GenderType",
           "Belonging",
-          "Generation",
           "Class",
           "Height_cm",
           "BustSize",
-          "ThisPerformer_DBLink",
           "Age",
           "AnivDay"
         ],
         "subFields": [
           "AppearanceDetail",
-          "AbilityStats",
           "StreamingActivity",
+          "AbilityStats",
           "ConversationPattern",
           "ThisPerformer_DBLink",
           "AnotherRegions_DBLink"
@@ -243,9 +252,15 @@
           "Height_cm",
           "Weight_kg",
           "Age",
-          "AnivDay"
+          "AnivDay",
+          "FirstPersonCalling",
+          "SecondPersonCalling",
+          "ThirdPersonCalling",
+          "ForMasterCalling"
         ],
         "subFields": [
+          "ExistingRarity",
+          "LogicspecAbout",
           "ConversationPattern",
           "AnotherVersions_DBLink",
           "AnotherRegions_DBLink"
@@ -271,15 +286,18 @@
           "Class",
           "Height_cm",
           "Weight_kg",
-          "ChronoholderName",
-          "ChronospecName",
           "Age",
-          "BirthDay"
+          "BirthDay",
+          "FirstPersonCalling",
+          "SecondPersonCalling",
+          "ThirdPersonCalling"
         ],
         "subFields": [
-          "AbilityStats",
+          "ChronoholderName",
+          "ChronospecName",
           "ChronospecAbout",
           "ChronospecStats",
+          "AbilityStats",
           "AnotherRegions_DBLink"
         ]
       }

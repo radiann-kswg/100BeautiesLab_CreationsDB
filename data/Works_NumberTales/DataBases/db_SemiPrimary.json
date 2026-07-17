@@ -24,6 +24,14 @@
     ],
     "Height_cm": 164,
     "BustSize": "AA",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_Fox",
+        "Count": 10,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "ConceptAge": 17,
     "AnivDay": [
       {
@@ -38,6 +46,8 @@
     "SecondPersonCalling_EN": "you (blunt)",
     "ThirdPersonCalling_JP": "[※名前呼び]",
     "ThirdPersonCalling_EN": "[*by name]",
+    "ForMasterCalling_JP": "センパイ",
+    "ForMasterCalling_EN": "Senpai",
     "Character_JP": "様々な苦境を乗り越えてきた戦士の男看護長のような威厳があり、やや不器用な一面がありながらも先輩思いで接しやすい。",
     "Character_EN": "Has the dignity of a battle-hardened male head nurse, and while somewhat clumsy, is considerate of seniors and easy to approach.",
     "Hobby_JP": "ナンバーテールズとその主人たちの活動を見守ること",
@@ -193,14 +203,6 @@
     "Summary_EN": "Prototyped as an anti-runaway Carré-Series HighNumbers unit, developed by bringing the SaintPapis-based psychological-technician company \"Raison-d'être Company\" under (100BeautiesLab.'s) umbrella, for the sake of her elder-brother unit \"Dicat\"'s eventual return to duty.\nEquipped with a unique function to suppress both runaway incidents among NumberTales and the deterioration of relationships between NumberTales and their contracted masters, she became a unit with deep insight into the mental health of both humans and humanoids.\nAt present, she is seen by the other NumberTales as a somewhat clumsy yet approachable junior-like presence, and expectations are rising for her future contributions to the stability of master-servant contracts.",
     "Backgrounds_JP": "量産型のリリースに向けたプロトタイプ\n神皇国の有限会社「レゾンデイトルカンパニー」との技術提携を経て、10号機系[ディケ]の設計を完成させた",
     "Backgrounds_EN": "A prototype prepared for the release of mass-production models.\nThrough a technical partnership with Raison-d'être Company in SaintPapis, the Unit.10 lineage [Dicat] design was completed.",
-    "TailsUnit": [
-      {
-        "TailShapeType": "#TailShapeType_Fox",
-        "Count": 10,
-        "Note_JP": null,
-        "Note_EN": null
-      }
-    ],
     "NumerospecAbout_JP": "ナンバーテールズの暴走と、ナンバーテールズと契約する主人との関係悪化を抑止する",
     "NumerospecAbout_EN": "Suppresses both runaway incidents among NumberTales and the deterioration of relationships between NumberTales and their contracted masters.",
     "ThisMasters": [
@@ -210,9 +212,7 @@
         "value_EN": null,
         "about_EN": "(Cannot be exclusively contracted)"
       }
-    ],
-    "ForMasterCalling_JP": "センパイ",
-    "ForMasterCalling_EN": "Senpai"
+    ]
   },
   {
     "Num": 101,
@@ -434,6 +434,15 @@
       { "value": 37, "about_JP": "推定", "about_EN": "Presumption" }
     ],
     "BustSize": "AA",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_NekomataSpecial",
+        "Count": 1,
+        "Segment": 3,
+        "Note_JP": "3つの先端にベルトが装着されている",
+        "Note_EN": "Belts are attached to the three tips"
+      }
+    ],
     "ConceptAge": 14,
     "FirstPersonCalling_JP": "私(わたし)",
     "FirstPersonCalling_EN": "I",
@@ -441,6 +450,8 @@
     "SecondPersonCalling_EN": "lord (kisama)",
     "ThirdPersonCalling_JP": "*奴(やつ);[※名前呼び]",
     "ThirdPersonCalling_EN": "that fellow (*yatsu); [*by name]",
+    "ForMasterCalling_JP": "貴殿;[※二人称]",
+    "ForMasterCalling_EN": "my lord; [*second-person calling]",
     "Character_JP": "極めて活発で少し落ち着きがない\n自由奔放な一面があり唯我独尊気味\n何もしていないor気持ちが昂ると本性が出る",
     "Character_EN": "Extremely energetic and somewhat restless.\nHas a free-spirited side and tends toward self-importance.\nWhen idle or emotionally excited, their true nature comes out.",
     "Hobby_JP": "自由時間を満喫すること",
@@ -698,15 +709,6 @@
     "Summary_EN": "Although sold as a mass-production model, this unit belongs to the special \"MasterTriple\" class with a three-digit repdigit number and performance that rivals regular two-digit units.\nIn particular, the original developer-exclusive build shows an even stronger drive to act than 1(Unitta) and 11(Elevan), and prefers to dive headfirst into favorite pursuits whenever free time appears.\nThat said, this also seems to come with a somewhat self-centered side...",
     "Backgrounds_JP": "初めての販売用上位個体、以下マスタートリプル同様（通常の販売価格より高値がついている）",
     "Backgrounds_EN": "The first high-tier unit for commercial sales. As with the other MasterTriples, it is priced above regular retail models.",
-    "TailsUnit": [
-      {
-        "TailShapeType": "#TailShapeType_NekomataSpecial",
-        "Count": 1,
-        "Segment": 3,
-        "Note_JP": "3つの先端にベルトが装着されている",
-        "Note_EN": "Belts are attached to the three tips"
-      }
-    ],
     "NumerospecAbout_JP": "自分のやるべきことを認識させる",
     "NumerospecAbout_EN": "Makes one recognize what they ought to do",
     "ThisMasters": [
@@ -719,9 +721,7 @@
           "Lunar": "Shimotsuki"
         }
       }
-    ],
-    "ForMasterCalling_JP": "貴殿;[※二人称]",
-    "ForMasterCalling_EN": "my lord; [*second-person calling]"
+    ]
   },
   {
     "Num": 112,
@@ -970,12 +970,12 @@
     "SecondPersonCalling_EN": "you (very polite)",
     "ThirdPersonCalling_JP": "~さん",
     "ThirdPersonCalling_EN": "~-san",
+    "ForMasterCalling_JP": "お兄さま/お姉さま",
+    "ForMasterCalling_EN": "my brother/sister (honorific)",
     "RelationNotes_JP": "開発専用機では「バイナ」「20(ハツカ)」を、「お姉さま」と慕っている",
     "RelationNotes_EN": "In the developer-only build, calls \"Binor\" and 20(Twentia) \"big sister\"",
     "Backgrounds_JP": "2号機系直通の後継個体",
-    "Backgrounds_EN": "A direct successor unit of the Unit.2 lineage.",
-    "ForMasterCalling_JP": "お兄さま/お姉さま",
-    "ForMasterCalling_EN": "my brother/sister (honorific)"
+    "Backgrounds_EN": "A direct successor unit of the Unit.2 lineage."
   },
   {
     "Num": "216-cub",
@@ -1030,6 +1030,15 @@
     "Height_cm": 147,
     "Weight_kg": 42,
     "BustSize": "B",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_CaudalFin",
+        "Count": 3,
+        "Segment": 2,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "ConceptAge": 16,
     "FirstPersonCalling_JP": "自分に対し：私(わたし)\nドッペルに対し：ドペさん",
     "FirstPersonCalling_EN": "to Pelgäns: I (fem. neutral)\nto Doppels: Doppy(Dope-san)",
@@ -1037,6 +1046,8 @@
     "SecondPersonCalling_EN": "you (fem. neutral)",
     "ThirdPersonCalling_JP": "彼/彼女;~の方,*方(*ちら);~さん,~樣",
     "ThirdPersonCalling_EN": "he/she; ~ person; that/this/who/them one (as personal, polite); [*by name](~san), sir/lady.~ (~-sama; very honorific)",
+    "ForMasterCalling_JP": "兄樣/姉樣",
+    "ForMasterCalling_EN": "my sir/lady (very honorific: nii/nee-sama)",
     "Character_JP": "ふんわりと落ち着いた優しい気質でよく周りのことをみている",
     "Character_EN": "gentle, calm, and soft in temperament, with a careful eye on those around her.",
     "Hobby_JP": "ボイスチャット（主に雑談）\n民泊で友人と過ごすこと",
@@ -1302,19 +1313,8 @@
     "Summary_EN": "A high-performance special class unit called \"MasterTriple\" that is both mass-produced and assigned a three-digit repdigit number.\nFor Mk.222, two developer-original units exist: 222(Pelgäns) is a successor to Binor and related lines, while 222(Doppels) is a successor to 111(Ize).\nBoth rival 2(Twiny), Binor, and 22(Twin-twina): 222(Pelgäns) is loved as a considerate \"gentle big sister\", while 222(Doppels) is cherished like a \"class madonna\" for mediation and bond-building.\nThough treated under one model number as paternal half-twins, they often live together and show deep trust, with 222(Doppels) frequently leaning affectionately on 222(Pelgäns).",
     "Backgrounds_JP": "1+11号2倍機が現「222(ドッペル)」、3倍型2号機が現「222(ペルゲン)」にあたりそれぞれ別個体として設計が進められていたが、開発の事情で最終的にひとつの型式として統合された。そのため開発用オリジナル機は、形式上1体として扱われる2体1式の個体となっている。",
     "Backgrounds_EN": "The extended By.2 type of Unit.1+11 model became the current 222(Doppels), while the extended Unit.2 model as By.3 Type became the current 222(Pelgäns), and both were originally designed as separate units. Due to development circumstances, they were ultimately unified into a single model format. As a result, the developer-original configuration is formally treated as one model consisting of a two-unit pair.",
-    "TailsUnit": [
-      {
-        "TailShapeType": "#TailShapeType_CaudalFin",
-        "Count": 3,
-        "Segment": 2,
-        "Note_JP": null,
-        "Note_EN": null
-      }
-    ],
     "NumerospecAbout_JP": "疎外感を解消し縁を育む",
-    "NumerospecAbout_EN": "Eases alienation and nurtures bonds",
-    "ForMasterCalling_JP": "兄樣/姉樣",
-    "ForMasterCalling_EN": "my sir/lady (very honorific: nii/nee-sama)"
+    "NumerospecAbout_EN": "Eases alienation and nurtures bonds"
   },
   {
     "Num": "222-alt",
@@ -1348,6 +1348,15 @@
     "Height_cm": 146,
     "Weight_kg": 43,
     "BustSize": "A",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_CaudalFin",
+        "Count": 3,
+        "Segment": 2,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "ConceptAge": 16,
     "FirstPersonCalling_JP": "自分に対して：僕\nペルゲンに対して：ペーちゃん",
     "FirstPersonCalling_EN": "to Doppels: I (masc. casual)\nto Pelgäns: Pelly(Pe-chan)",
@@ -1355,6 +1364,8 @@
     "SecondPersonCalling_EN": "you (casual)",
     "ThirdPersonCalling_JP": "彼/彼女;~の人,*れ;~くん/~ちゃん,~樣",
     "ThirdPersonCalling_EN": "he/she; ~ person; that/this/which/what/them (as objective); [*by name](~kun/~chan), sir/lady.~ (~-sama; very honorific)",
+    "ForMasterCalling_JP": "兄樣/姉樣",
+    "ForMasterCalling_EN": "my sir/lady (very honorific: nii/nee-sama)",
     "Character_JP": "人と一緒にいるのが好きでよく会話の輪に溶け込もうとする",
     "Character_EN": "Likes being with people and often tries to blend into conversations.",
     "Hobby_JP": "ボイスチャット（主に雑談）\n友人と番組を同時視聴すること",
@@ -1600,19 +1611,8 @@
         "Note_EN": null
       }
     ],
-    "TailsUnit": [
-      {
-        "TailShapeType": "#TailShapeType_CaudalFin",
-        "Count": 3,
-        "Segment": 2,
-        "Note_JP": null,
-        "Note_EN": null
-      }
-    ],
     "NumerospecAbout_JP": "疎外感を解消し縁を育む",
-    "NumerospecAbout_EN": "Eases alienation and nurtures bonds",
-    "ForMasterCalling_JP": "兄樣/姉樣",
-    "ForMasterCalling_EN": "my sir/lady (very honorific: nii/nee-sama)"
+    "NumerospecAbout_EN": "Eases alienation and nurtures bonds"
   },
   {
     "Num": "225-sq",
@@ -1792,6 +1792,15 @@
     "Height_cm": 163,
     "Weight_kg": 59,
     "BustSize": "A",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxSpecial",
+        "Count": 4,
+        "Segment": 3,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "ConceptAge": {
       "value": 44,
       "about_JP": "便宜上はこの値だが真偽が定かでない",
@@ -1810,6 +1819,8 @@
     "SecondPersonCalling_EN": "you (kikun/kijo/shokun, kiden; very formal)\nyou (kimi; masc. casual *when something unexpected happens)",
     "ThirdPersonCalling_JP": "*ちら(の者);[※名前呼び],~殿",
     "ThirdPersonCalling_EN": "that side/person there; [*by name], sir/mr/lady/ms.~(~dono; formally honorific)",
+    "ForMasterCalling_JP": "提督殿,提督",
+    "ForMasterCalling_EN": "sir/lady admiral, Admiral",
     "Character_JP": "気高く構えた態度で敬意深い\n想定外のことが起きると自分のプライドを守りたいがために様子が不安定になることも",
     "Character_EN": "Dignified and respectful in bearing.\nWhen something unexpected happens, trying to protect personal pride can make behavior unstable.",
     "Hobby_JP": "論文を読むこと",
@@ -2142,8 +2153,6 @@
         "Note_EN": null
       }
     ],
-    "Summary_JP": "量産販売型ではあるが、3桁ゾロ目の数字を持つ「マスタートリプル」という特殊クラスの個体で、2桁以内の通常個体と引け目を取らない性能をもつ。\nとりわけその開発専用機ことオリジナル版である彼(女)は、4(モチ)や44(シトシ)をも凌駕する実現力の持ち主で、失敗経験のない威厳ある彼(女)の前ではどんな物事も叶えてしまうと極めて高いレヴューを受けている……\"極めて不運かつ想定外の\"ことが起きてしまった場合を除けば。",
-    "Summary_EN": "Although sold as a mass-production model, this unit belongs to the special \"MasterTriple\" class with a three-digit repdigit number and performance that rivals regular two-digit units.\nIn particular, ze — the original developer-exclusive build — possesses a manifesting power that even surpasses 4(Forna) and 44(Folfourn), and, having never once failed, receives extremely high praise for making virtually anything come true in zir dignified presence... except for those times when something \"extremely unlucky and unforeseen\" happens to occur.",
     "ConversationPattern": {
       "TalkingTone_JP": "「我輩」を一人称に、「貴君」「諸君」「貴殿」と呼びかける格調高く重々しい口調で話す。気高く構えた態度と敬意深さがそのまま表れ、相手には「〜殿」と敬称を付ける。ただし想定外のことが起きて動揺すると、一人称が「僕」、二人称が「君」に崩れ、口調も慌てたものへ変わる。",
       "TalkingTone_EN": "Ze speaks in a lofty, weighty register, referring to zirself as 'wagahai' and addressing others as 'kikun', 'shokun', or 'kiden'. Zir dignified bearing and deep respectfulness show directly in zir speech, and ze attaches the honorific '-dono' to others' names. When something unexpected happens and ze grows flustered, however, zir first person slips to 'boku' and zir second person to 'kimi', and zir tone turns flustered to match.",
@@ -2192,19 +2201,10 @@
         }
       ]
     },
-    "TailsUnit": [
-      {
-        "TailShapeType": "#TailShapeType_FoxSpecial",
-        "Count": 4,
-        "Segment": 3,
-        "Note_JP": null,
-        "Note_EN": null
-      }
-    ],
+    "Summary_JP": "量産販売型ではあるが、3桁ゾロ目の数字を持つ「マスタートリプル」という特殊クラスの個体で、2桁以内の通常個体と引け目を取らない性能をもつ。\nとりわけその開発専用機ことオリジナル版である彼(女)は、4(モチ)や44(シトシ)をも凌駕する実現力の持ち主で、失敗経験のない威厳ある彼(女)の前ではどんな物事も叶えてしまうと極めて高いレヴューを受けている……\"極めて不運かつ想定外の\"ことが起きてしまった場合を除けば。",
+    "Summary_EN": "Although sold as a mass-production model, this unit belongs to the special \"MasterTriple\" class with a three-digit repdigit number and performance that rivals regular two-digit units.\nIn particular, ze — the original developer-exclusive build — possesses a manifesting power that even surpasses 4(Forna) and 44(Folfourn), and, having never once failed, receives extremely high praise for making virtually anything come true in zir dignified presence... except for those times when something \"extremely unlucky and unforeseen\" happens to occur.",
     "NumerospecAbout_JP": "完璧な理論に則り物事を実現する",
-    "NumerospecAbout_EN": "Realizes things in accordance with perfect theory",
-    "ForMasterCalling_JP": "提督殿,提督",
-    "ForMasterCalling_EN": "sir/lady admiral, Admiral"
+    "NumerospecAbout_EN": "Realizes things in accordance with perfect theory"
   },
   {
     "Num": "512-cub",
@@ -2271,6 +2271,15 @@
     "Height_cm": 150,
     "Weight_kg": { "hideText": "非公開" },
     "BustSize": "E",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxSpecial",
+        "Count": 6,
+        "Segment": 3,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "ConceptAge": 16,
     "FirstPersonCalling_JP": "我\n私(わたくし)",
     "FirstPersonCalling_EN": "I (ware; archaic)\nI (formally)",
@@ -2278,6 +2287,8 @@
     "SecondPersonCalling_EN": "thou (nanji; archaic)",
     "ThirdPersonCalling_JP": "彼/彼女;*の者;[※名前呼び]",
     "ThirdPersonCalling_EN": "he/she; that/this/whom person/one (as personal); [*by name]",
+    "ForMasterCalling_JP": "契約者様\n[※二人称]",
+    "ForMasterCalling_EN": "my contractor\n[*second-person calling]",
     "Character_JP": "妖艶としていて自信過剰\n大罪的な衝動に駆られることがある",
     "Character_EN": "Enchantingly seductive and overconfident.\nSometimes driven by impulses akin to deadly sins.",
     "Hobby_JP": "ワインを嗜む",
@@ -2567,15 +2578,6 @@
     "RelationNotes_EN": "In the developer-only build, treats 66(Sixis) as calling a '(cherished) retainer', but...",
     "Summary_JP": "量産販売型ではあるが、3桁ゾロ目の数字を持つ「マスタートリプル」という特殊クラスの個体で、2桁以内の通常個体と引け目を取らない性能をもつ。\nとりわけその開発専用機ことオリジナル版である彼女は、「6(ムイ)」や「66(ムロク)」とも引け目を取らない感性や優美さの持ち主で、自身の才能に対し自信にあふれている。\nただ、その妖艶としたポテンシャルから時々\"悪魔\"の如く大罪的な衝動に駆られてしまうことがあり……",
     "Summary_EN": "Although sold as a mass-production model, this unit belongs to the special \"MasterTriple\" class with a three-digit repdigit number and performance that rivals regular two-digit units.\nIn particular, she — the original developer-exclusive build — possesses grace and sensitivity that stand alongside 6(Sics) and 66(Sixis), and is full of confidence in her own talents.\nYet that bewitching potential can at times drive her toward \"devil-like\" impulses of deadly sin...",
-    "TailsUnit": [
-      {
-        "TailShapeType": "#TailShapeType_FoxSpecial",
-        "Count": 6,
-        "Segment": 3,
-        "Note_JP": null,
-        "Note_EN": null
-      }
-    ],
     "NumerospecAbout_JP": "自分の本能を認知し開花させる",
     "NumerospecAbout_EN": "Helps one recognize and bloom their own instincts",
     "ThisMasters": [
@@ -2588,9 +2590,7 @@
           "Lunar": "Nagatsuki"
         }
       }
-    ],
-    "ForMasterCalling_JP": "契約者様\n[※二人称]",
-    "ForMasterCalling_EN": "my contractor\n[*second-person calling]"
+    ]
   },
   {
     "Num": "729-sxp",
@@ -2642,6 +2642,15 @@
       }
     ],
     "BustSize": "AA",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxSpecial",
+        "Count": 7,
+        "Segment": 3,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "ConceptAge": {
       "value": 32,
       "about_JP": "概算値",
@@ -2653,6 +2662,8 @@
     "SecondPersonCalling_EN": "you (rough masc.)",
     "ThirdPersonCalling_JP": "彼/彼女;*いつ/*れ;[※名前呼び]",
     "ThirdPersonCalling_EN": "he/she; that/this/who/which/what/them (as personal or objective); [*by name]",
+    "ForMasterCalling_JP": "旦那さん/お嬢さん;[※二人称]",
+    "ForMasterCalling_EN": "young sir/lady; [*second-person calling]",
     "Character_JP": "公私を両立したリア充\n実は勤勉",
     "Character_EN": "A fulfilled social achiever who balances public and private life.\nActually very diligent.",
     "Hobby_JP": "攻略",
@@ -2886,19 +2897,8 @@
     "Summary_EN": "Although sold as a mass-production model, this unit belongs to the \"MasterTriple\" class with a three-digit repdigit number and performance equal to regular two-digit units, and is especially specialized in functional expandability.\nIn particular, the original developer-exclusive build possesses an intellectual drive that far exceeds 7(Sevan) and 77(Sefvens), and rarely hesitates to pursue interests and enjoyable pursuits.\nAt the same time, he has a conscience, so reckless cruelty that crosses public-private boundaries is uncommon, and he is widely regarded among the nine MasterTriples as the healthy and earnest social-success type.",
     "Backgrounds_JP": "「喜」の旧字体（「㐂」）が由来",
     "Backgrounds_EN": "Derived from the old form of the kanji for joy (\"㐂\").",
-    "TailsUnit": [
-      {
-        "TailShapeType": "#TailShapeType_FoxSpecial",
-        "Count": 7,
-        "Segment": 3,
-        "Note_JP": null,
-        "Note_EN": null
-      }
-    ],
     "NumerospecAbout_JP": "自分に拡張された機能に応じた効果をもたらす",
-    "NumerospecAbout_EN": "Produces effects in accordance with functions expanded for oneself",
-    "ForMasterCalling_JP": "旦那さん/お嬢さん;[※二人称]",
-    "ForMasterCalling_EN": "young sir/lady; [*second-person calling]"
+    "NumerospecAbout_EN": "Produces effects in accordance with functions expanded for oneself"
   },
   {
     "Num": "777.Jackpot",
@@ -2933,6 +2933,15 @@
       }
     ],
     "BustSize": "AA",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxSpecial",
+        "Count": 7,
+        "Segment": 3,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
     "ConceptAge": {
       "value": 32,
       "about_JP": "概算値",
@@ -3165,15 +3174,6 @@
     ],
     "Summary_JP": "量産販売型ではあるが、3桁ゾロ目の数字と通常個体(2桁以内)に劣らない性能をもつ「マスタートリプル」というクラスに属しており、そのなかでもさらに機能拡張性に長けている極めて特殊な個体。\n拡張サンプルとして同時提供されている「VIIx3.R(ラッキーセブンアール)」型は、背中の拡張I/O制御盤にスロットゲーム機構を搭載しており、娯楽的な場面だけでなくギャンブル依存症の対策などへの運用が想定されている。\n当然ながら 背中の拡張ユニットは取り外しが可能なので、コアフォルダ形態のふんわりとした質感もしっかり残存している。",
     "Summary_EN": "Although sold as a mass-production model, this unit belongs to the \"MasterTriple\" class with a three-digit repdigit number and performance equal to regular two-digit units, and is especially specialized in functional expandability.\nThe \"VIIx3.R (Lucky Seven-R)\" variant, provided as an expansion sample, equips a slot-game mechanism on the back expansion I/O controller, and is intended not only for entertainment scenes but also for applications such as countermeasures against gambling addiction.\nNaturally, the back expansion unit is detachable, so the soft corefolder-like texture remains intact.",
-    "TailsUnit": [
-      {
-        "TailShapeType": "#TailShapeType_FoxSpecial",
-        "Count": 7,
-        "Segment": 3,
-        "Note_JP": null,
-        "Note_EN": null
-      }
-    ],
     "NumerospecAbout_JP": "スロットゲーム拡張アドオンにより運勢を娯楽的に見せる",
     "NumerospecAbout_EN": "Shows fortune in an entertainment-oriented way via a slot-game expansion addon"
   },
@@ -3231,18 +3231,6 @@
     "Class": ["マスタートリプル"],
     "Height_cm": 155,
     "BustSize": "A",
-    "ConceptAge": 14,
-    "FirstPersonCalling_JP": "わらわ",
-    "FirstPersonCalling_EN": "I (warawa; fem. archaic)",
-    "SecondPersonCalling_JP": "お主",
-    "SecondPersonCalling_EN": "thou (onushi; casually archaic)",
-    "ThirdPersonCalling_JP": "*の者;[※名前呼び]",
-    "ThirdPersonCalling_EN": "that one (as personal); [*by name]",
-    "AppearanceDetail": null,
-    "Backgrounds_JP": "量産販売型含め最後のナンバーテールズ\n「99(ツクモ)」直通の後継個体だが…",
-    "Backgrounds_EN": "The final NumberTales unit including the mass-production line.\nA direct successor to 99(Thukumo), but...",
-    "InStory_JP": "記憶喪失系のキャラとされている\n開発専用機では…？",
-    "InStory_EN": "Presented as an amnesiac-type character.\nIn the developer-only build... ?",
     "TailsUnit": [
       {
         "TailShapeType": "#TailShapeType_FoxBranched",
@@ -3252,8 +3240,20 @@
         "Note_EN": null
       }
     ],
+    "ConceptAge": 14,
+    "FirstPersonCalling_JP": "わらわ",
+    "FirstPersonCalling_EN": "I (warawa; fem. archaic)",
+    "SecondPersonCalling_JP": "お主",
+    "SecondPersonCalling_EN": "thou (onushi; casually archaic)",
+    "ThirdPersonCalling_JP": "*の者;[※名前呼び]",
+    "ThirdPersonCalling_EN": "that one (as personal); [*by name]",
     "ForMasterCalling_JP": "主君",
-    "ForMasterCalling_EN": "my lord"
+    "ForMasterCalling_EN": "my lord",
+    "AppearanceDetail": null,
+    "Backgrounds_JP": "量産販売型含め最後のナンバーテールズ\n「99(ツクモ)」直通の後継個体だが…",
+    "Backgrounds_EN": "The final NumberTales unit including the mass-production line.\nA direct successor to 99(Thukumo), but...",
+    "InStory_JP": "記憶喪失系のキャラとされている\n開発専用機では…？",
+    "InStory_EN": "Presented as an amnesiac-type character.\nIn the developer-only build... ?"
   },
   {
     "Num": "3x11",
@@ -3282,6 +3282,15 @@
     "Height_cm": 152,
     "Weight_kg": { "hideText": "非公開" },
     "BustSize": "D",
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_Scorpion",
+        "Count": 3,
+        "Segment": 11,
+        "Note_JP": "先端だけ節の先の色が異なる",
+        "Note_EN": "Only the tips of the segments have different colors"
+      }
+    ],
     "ConceptAge": 18,
     "AnivDay": [
       {
@@ -3301,6 +3310,8 @@
     "SecondPersonCalling_EN": "guy/gal(s) (anta; very casual)",
     "ThirdPersonCalling_JP": "~君,パイセン",
     "ThirdPersonCalling_EN": "[*by name], senpai (paisen; very casual)",
+    "ForMasterCalling_JP": "ヲタク君",
+    "ForMasterCalling_EN": "otaku-kun",
     "Character_JP": "ヲタクに優しいギャル",
     "Character_EN": "A gyaru who is kind/familiar to otaku",
     "Hobby_JP": "学生と談笑すること",
@@ -3693,19 +3704,8 @@
     "Summary_EN": "A prototype unit produced as \"another Mk.33\" based on 11(Elevan) and 22(Twin-twina), to establish the \"extended by-3 model\" design standard for mass-produced sales units carrying three-digit numbers.\nWith a gyaru trait tolerant of individuality and hobbies, she also serves as a mood-maker in the lab.\nShe appears friendly not only toward same-number 33(Thirthrey) and pioneer units, but also toward all nine MasterTriples that inherited aspects of her design; it is even rumored that her closeness leaves some units struggling with blurred interpersonal distance in an oddly endearing way.",
     "Backgrounds_JP": "3桁の番号が付与される量産販売型個体のリリースに備えて中間設計として開発された個体",
     "Backgrounds_EN": "Developed as an intermediate design in preparation for releasing mass-produced commercial units assigned three-digit numbers.",
-    "TailsUnit": [
-      {
-        "TailShapeType": "#TailShapeType_Scorpion",
-        "Count": 3,
-        "Segment": 11,
-        "Note_JP": "先端だけ節の先の色が異なる",
-        "Note_EN": "Only the tips of the segments have different colors"
-      }
-    ],
     "NumerospecAbout_JP": "ありのままを表現させる",
-    "NumerospecAbout_EN": "Encourages expression of one's true self",
-    "ForMasterCalling_JP": "ヲタク君",
-    "ForMasterCalling_EN": "otaku-kun"
+    "NumerospecAbout_EN": "Encourages expression of one's true self"
   },
   {
     "Num": "64-sxp",
@@ -3795,6 +3795,8 @@
         "_Search": [{ "hashTag": "DayAbout", "key": "誕生日" }]
       }
     ],
+    "ForMasterCalling_JP": "クライアントさん",
+    "ForMasterCalling_EN": "Client-san",
     "RelationNotes_JP": "ナンバーテールズ開発者である零(カズナイ)姉弟の後輩。妹:歌嫁は同じくしてかつ百花繚乱研究所のアシスタントを行なっている。",
     "RelationNotes_EN": "Junior to the Norumber siblings, developers of NumberTales. Her sister, Phonia, is also an assistant at the 100 Beauties Lab.",
     "InStory_JP": "シンフォニー.XVI(ゼクズィン)に所属後、量産販売型ナンバーテールズの相場的販売コストを抑えた互換個体ユニットの開発・提供を百花繚乱研究所（の主に零零(カズナイレイ)）と提携して行なっている\nちなみに運命線探偵としての錦野舞は、妹:歌嫁を含めおよそ7年前のパラレル存在に相当する",
@@ -3802,8 +3804,6 @@
     "Relation": {
       "Related": [{ "Num": "∞", "RelationLabel": ["brother|sister"] }]
     },
-    "ForMasterCalling_JP": "クライアントさん",
-    "ForMasterCalling_EN": "Client-san",
     "RelationTo_Primary": {
       "Related": [
         { "Num": 78, "RelationLabel": ["hadInCommision"] },
@@ -3841,6 +3841,8 @@
         "_Search": [{ "hashTag": "DayAbout", "key": "誕生日" }]
       }
     ],
+    "ForMasterCalling_JP": "クライアントさん",
+    "ForMasterCalling_EN": "Client-san",
     "RelationNotes_JP": "ナンバーテールズ開発者である零(カズナイ)姉弟の後輩。姉:舞は同じくしてシンフォニー.XVI(ゼクズィン)に所属し黒薔薇国へ単身赴任している",
     "RelationNotes_EN": "Junior to the Norumber siblings, developers of NumberTales. Her sister, Dancy, belongs to Symphony.XVI(Sechzehn) and is on a solo assignment in the Black Rose Kingdom.",
     "InStory_JP": "百花繚乱研究所の本体である元藤・千歳研究室にてN3US大学の大学院修士課程を卒業後、一時的な就職活動を経て同研究室で博士課程に進学し 主に零百(カズナイハゲム)の作業補助などといったゼミのアシスタントを務めている\nちなみに運命線探偵としての錦野歌嫁は、姉:舞を含めおよそ7年前のパラレル存在に相当する",
@@ -3848,8 +3850,6 @@
     "Relation": {
       "Related": [{ "Num": "%", "RelationLabel": ["brother|sister"] }]
     },
-    "ForMasterCalling_JP": "クライアントさん",
-    "ForMasterCalling_EN": "Client-san",
     "RelationTo_Primary": {
       "Related": [
         { "Num": 8, "RelationLabel": ["hadInCommision"] },
