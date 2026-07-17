@@ -2,6 +2,10 @@
 
 > ブランチ: `addon-ai-tag`（AIHints は `develop` に含めない運用）／ 2026-07-17
 
+> **追記（2026-07-17 後半）**: 本作業のコミット（`b2fd210` AIHints判定基盤整備）後、`develop` の
+> **フィールド順整列（`$slot` マーカー）**を取り込む一方向マージ（`0bfa996`）を実施した。
+> 衝突 3 件の解消内容は末尾「`develop` 取り込みマージ」節を参照。
+
 ## 目的
 
 User から「`DB_SemiPrimary` と `DB_SelfSecondary`（いずれも User 自身が作者）も AI 学習の対象にしたい。
@@ -42,11 +46,11 @@ SelfSecondary  --force-ai-optout : patched=7, skipped-no-image=99
 
 **移植を選んだ理由**（`pkg/nodejs` から import しない）:
 
-| 案 | 判定 |
-| --- | --- |
-| `pkg/nodejs/index.mjs` から import | 却下。`findSecondaryCommons` は `applyCommonsToRecords` 内のクロージャで未 export。export 化は `pkg` の公開 API を広げ python/csharp との三言語パリティを崩す。**さらに決定的に `pkg/nodejs/index.mjs` は `develop` 所有ファイル**で、逆マージ禁止のため `addon-ai-tag` で改修すると永久分岐しマージのたびに衝突する |
-| `lib/sw-common.js` から import | 却下。classic script（`self` グローバル前提）で ESM CLI からは `vm` 経由でしか読めない |
-| **`tools/patch-aihints.mjs` 内へ移植 + export** | **採用**。同ファイルの `loadMergedVarsDef`（`lib/section-renders/appearanceDetail.js` からの移植）が同じ前例。`develop` 所有ファイルを 1 本も触らない |
+| 案                                              | 判定                                                                                                                                                                                                                                                                                                                 |
+| ----------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `pkg/nodejs/index.mjs` から import              | 却下。`findSecondaryCommons` は `applyCommonsToRecords` 内のクロージャで未 export。export 化は `pkg` の公開 API を広げ python/csharp との三言語パリティを崩す。**さらに決定的に `pkg/nodejs/index.mjs` は `develop` 所有ファイル**で、逆マージ禁止のため `addon-ai-tag` で改修すると永久分岐しマージのたびに衝突する |
+| `lib/sw-common.js` から import                  | 却下。classic script（`self` グローバル前提）で ESM CLI からは `vm` 経由でしか読めない                                                                                                                                                                                                                               |
+| **`tools/patch-aihints.mjs` 内へ移植 + export** | **採用**。同ファイルの `loadMergedVarsDef`（`lib/section-renders/appearanceDetail.js` からの移植）が同じ前例。`develop` 所有ファイルを 1 本も触らない                                                                                                                                                                |
 
 > **手動同期が必要**: `_Secondaries` マッチャの正は `lib/sw-common.js`。移植先は `pkg/nodejs/index.mjs` と
 > `tools/patch-aihints.mjs` の 2 つになった。正の仕様変更時は両方へ反映すること。
@@ -62,11 +66,11 @@ User の説明:
 User 自身の創作物 94 件に `true` が立っている状態は**仕様に反する誤った対外宣言**にあたる。
 → **仕様変更ではなくデータを仕様へ合わせる修正**として `false` へ倒し、失う意味論をコードで受け止める。
 
-| 軸 | 意味 | 実装 |
-| --- | --- | --- |
-| `AI_Optout` | 権利上の**付与不可** | DB レベルは exit 2 / カテゴリ単位はレコードスキップ（`--force-ai-optout`） |
+| 軸                       | 意味                     | 実装                                                                           |
+| ------------------------ | ------------------------ | ------------------------------------------------------------------------------ |
+| `AI_Optout`              | 権利上の**付与不可**     | DB レベルは exit 2 / カテゴリ単位はレコードスキップ（`--force-ai-optout`）     |
 | `Progress: notProceeded` | 未着手のため**付与不要** | 新設 `skipped-progress-notproceeded` の soft skip（`--include-not-proceeded`） |
-| 画像なし | 生成の材料が無い | 既存 `skipped-no-image` |
+| 画像なし                 | 生成の材料が無い         | 既存 `skipped-no-image`                                                        |
 
 - **フリップは出力を変えない**（実測）: `notProceeded` ∩ 画像あり = **0 件（3 DB とも）**。
   `patched=7` のまま、除外理由が「権利」から「データなし」へ移るのみ。
@@ -211,6 +215,63 @@ DB レベル `AI_Optout: true` を D1 投入時に遮断。
       中期的には辞書側へ AI タグ用フィールド（例 `Class_AITag`）を足してハードコードを退役させるのが筋だが、
       スキーマ変更 + User の創作判断が要るため別議論。
 - [ ] `worker.js` の aihints ルートが `isPublicRecord` / `applyCommons` を通していない（`records` / `search` ルートとの非対称）。Bearer トークンが唯一のゲート。
+
+---
+
+## `develop` 取り込みマージ（`0bfa996`・2026-07-17）
+
+`develop` の**フィールド順整列（`$slot` マーカー + `tools/normalize-field-order.mjs`）** 9 コミットを
+`develop` → `addon-ai-tag` の一方向マージで取り込んだ。衝突は **3 ファイル**。
+
+### 1. `data/db_type.json` — ★ 設計判断あり
+
+グローバル `$DefType` の**末尾に両側が別々のエントリを追加**していた（HEAD: `AIHints` 宣言 / develop: catch-all `$slot: "#WorkRest"`）。
+排他ではないため**両方を保持**。順序は **`#WorkRest` → `AIHints`** とした。
+
+**根拠**: User の要件「`AIHints` は必ずキャラクターオブジェクトの最後に置きたい」。
+`TypeDefUtils.mergeDefTypes()`（`lib/data-common.js:2114`）はグローバル `$DefType` を**宣言順に走査**し、
+`hashTag` エントリはその位置へ、`$slot` マーカーの位置には作品固有フィールドを展開する。
+したがって catch-all より後ろに `AIHints` を宣言すると、作品固有フィールドがすべて出尽くした**後**に
+`AIHints` が置かれ、最終キーに固定される。
+
+- catch-all の「**厳密に 1 個**」制約（`tests/data.field-order.test.js`）は**個数のみ**を縛り位置は縛らないため両立する（テストで確認）。
+- 検証: `mergeDefTypes()` の出力末尾が NumberTales / FLInvestigator78 / UnibyteLive の 3 作品とも `AIHints`、`$slot` マーカーの漏れなし。
+- 宣言には理由を `$slotNote` として残した（順序が意味を持つことがコードから追えないため）。
+
+### 2. `data/Works_NumberTales/DataBases/db_Primary.json` — 手でマージしない
+
+11,206 行の衝突（HEAD: 旧キー順 + AIHints 92 件 / develop: 整列済み・AIHints なし）。
+**手動解消せず、HEAD 側を採用して整列ツールを再適用**した。
+
+```
+git checkout --ours data/Works_NumberTales/DataBases/db_Primary.json
+node tools/normalize-field-order.mjs --work=NumberTales --db=Primary --write
+```
+
+**前提の裏取り**: マージベース版と develop 版を JSON パースして比較し、develop の変更が
+**105 レコード全件でキー順のみ変化・値の変更 0 件**（＝純粋な並べ替え）であることを確認した。
+これにより「HEAD 採用 + 整列再適用」が develop の変更と等価であることが保証される。
+
+**等価性の検証**（マージ後の実測）: 自分の結果から `AIHints` を除いたキー順が develop 版と**全 105 件で一致**、
+値の差分も **0 件**。＝ develop の整列結果に AIHints 92 件が末尾で乗った状態。
+
+### 3. `CHANGELOG.md`
+
+両側が先頭に 2026-07-17 のエントリを追加（トピックは無関係）。**両方を保持**し、
+土台となる develop の整列エントリを先、その上に載る AIHints エントリを後ろに置いた。
+develop 側エントリの末尾に、上記 1. の宣言順の理由を注記として追記。
+
+### 検証
+
+- **`npm test`: 44 ファイル / 576 件すべて成功**（マージ前は addon 側 41/481・develop 側 36/468）
+- **`npm run data:order:check`: 0/1283**（全 19 ファイルが正準順。AIHints 入りの `db_Primary.json` を含む）
+- **AIHints 実データ**: 105 レコード / AIHints **92 件**（不変）/ **AIHints が最終キーでないレコード 0 件**
+- **`--resync-structural`: `resync-unchanged=92`** — フィールド並べ替えで `structuralSourceHash` が壊れていない
+  （＝ハッシュがキー順に依存していないことの実証。provenance 92 件が無傷）
+- **3 DB の dry-run がマージ前と同一**: `Primary` `patched=3/skipped-existing=92/skipped-no-image=10` /
+  `SemiPrimary` `patched=9` / `SelfSecondary` `patched=7`
+- AIHints 固有ファイル（`tools/patch-aihints.mjs` / `migrate-aihints.mjs` / `docs/aihints-spec.md` / テスト 4 本）が
+  マージで消えていないことを確認（develop 側は同ファイル群を一切変更していないため、そもそも削除は起き得ない）
 
 ## 参考
 
