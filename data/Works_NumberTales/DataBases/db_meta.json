@@ -224,7 +224,7 @@
             "sec_DesignedBy": null,
             "sec_SeriesTitle": null,
             "_Commons": {
-              "Progress": "notProcessed",
+              "Progress": "notProceeded",
               "Belonging": ["百花繚乱研究所"],
               "RaceType": "PortableHumanoid(TaleBeastType)",
               "GenderType": "Neutral",
