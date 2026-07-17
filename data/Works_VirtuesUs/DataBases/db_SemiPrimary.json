@@ -8,11 +8,11 @@
     "FormalName_JPReading": "おうか じん",
     "FormalName_EN": "Benevoly Cherrybroom",
     "GenderType": "Male",
+    "Belonging": ["九蓮国皇族"],
     "Height_cm": 163,
     "Weight_kg": { "hideText": "非公開希望" },
     "Age": 31,
-    "BirthDay": { "Day": { "Month": 2, "DayOfMonth": 18 } },
-    "Belonging": ["九蓮国皇族"]
+    "BirthDay": { "Day": { "Month": 2, "DayOfMonth": 18 } }
   },
   {
     "Virtues": "義",
@@ -23,12 +23,12 @@
     "FormalName_JPReading": "おうか よしき\nハー.ヰィボー",
     "FormalName_EN": "Brothluv Cherrybroom\nHé.YìBó",
     "GenderType": "Male",
+    "Belonging": ["新生九蓮", "国際情報広報機関『ミハイル』"],
+    "Class": ["新生九蓮 運航者", "国際情報屋 運航者"],
     "Height_cm": 160,
     "Weight_kg": { "hideText": "非公開希望" },
     "Age": 30,
-    "BirthDay": { "Day": { "Month": 12, "DayOfMonth": 18 } },
-    "Belonging": ["新生九蓮", "国際情報広報機関『ミハイル』"],
-    "Class": ["新生九蓮 運航者", "国際情報屋 運航者"]
+    "BirthDay": { "Day": { "Month": 12, "DayOfMonth": 18 } }
   },
   {
     "Virtues": "礼",
@@ -43,11 +43,11 @@
     "FormalName_JPReading": "おうか さとり\nさとり ヴァーチュングレイス=はるなみ",
     "FormalName_EN": "Wisdmer Cherrybroom\nWisdmer Virtuengrace=Springer",
     "GenderType": "Female",
+    "Belonging": ["スターダスト財団"],
     "Height_cm": 162,
     "Weight_kg": { "hideText": "非公開希望" },
     "BustSize": "C",
-    "Age": 25,
-    "Belonging": ["スターダスト財団"]
+    "Age": 25
   },
 
   {
@@ -66,10 +66,10 @@
     "FormalName_JPReading": "おうか とき",
     "FormalName_EN": "Trustia Cherrybroom",
     "GenderType": "Female",
+    "Belonging": ["夜月機関"],
     "BustSize": "B",
     "Age": 21,
-    "BirthDay": { "_Jump": { "hashTag": "BirthDay" } },
-    "Belonging": ["夜月機関"]
+    "BirthDay": { "_Jump": { "hashTag": "BirthDay" } }
   },
   {
     "Virtues": "忠",
@@ -91,9 +91,9 @@
     "FormalName_JPReading": "おうか たかむ\nたかむ ヴァーチュングレイス=はるなみ",
     "FormalName_EN": "Filia.Pieter Cherrybroom\nFilia.Pieter Virtuengrace=Springer",
     "GenderType": "Female",
+    "Belonging": ["スターダスト・テクノロジー"],
     "Age": 20,
-    "BirthDay": { "_Jump": { "hashTag": "BirthDay" } },
-    "Belonging": ["スターダスト・テクノロジー"]
+    "BirthDay": { "_Jump": { "hashTag": "BirthDay" } }
   },
   {
     "Virtues": "悌",
@@ -104,10 +104,10 @@
     "FormalName_JPReading": "おうか やすし\nハー.ティボー",
     "FormalName_EN": "Brothluv Cherrybroom\nHé.TìBó",
     "GenderType": "Male",
+    "Belonging": ["新生九蓮"],
     "Height_cm": 160,
     "Weight_kg": { "hideText": "非公開希望" },
     "Age": 20,
-    "BirthDay": { "Day": { "Month": 11, "DayOfMonth": 2 } },
-    "Belonging": ["新生九蓮"]
+    "BirthDay": { "Day": { "Month": 11, "DayOfMonth": 2 } }
   }
 ]

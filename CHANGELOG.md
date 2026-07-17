@@ -22,6 +22,30 @@
 - **影響範囲**: `tools/patch-aihints.mjs` / `pkg/cloudflare/scripts/migrate-aihints.mjs` / `data/Works_NumberTales/DataBases/db_meta.json` / `data/Works_NumberTales/DataBases/db_SemiPrimary.json` / `tests/data.shape.test.js` / `tests/patch-aihints.{secondaries,classdict,gates,numsort}.test.js`（新規 4 本）/ `docs/{api-sw-spec,ai-hints-usage,aihints-spec,schema-meta-processing}.md` / `.github/copilot-instructions.md` / `.github/prompts/aihints-fill.prompt.md` / `.github/workflows/aihints-structural-resync.yml`。**`db_Primary.json` は 1 バイトも変更なし**。
 - 確認: `npm test` — 41 ファイル / 481 件すべて成功（`addon-ai-tag`）。Primary は全 6 モードの dry-run でレコード→status の割り当てがベースラインと完全一致（差は表示順のみ。従来 NaN で壊れていたソートが直った結果）、`git diff` 空、AIHints 92 件不変。`SelfSecondary` は `patched=5` → **`7`**（誤スキップ 2 件を救済）、`SemiPrimary` は `patched=9` のまま。新規ガード類は「わざと壊して赤くなること」まで確認（enum ガード 2 本 / Progress ゲートの両方向）。
 
+### refactor: JSON DB のフィールドキー順を typedef（`$DefType` + `$slot`）へ整列 (2026-07-17)
+
+同一 DB 内でもレコードのキー順がバラついており（`NumberTales/db_Primary` は 105 件 76 通り）、レビュー・diff・手書き追記のいずれも辛い状態だった。「表示順の完全な正は `$DefType`」という既存の明文規定（`docs/schema-meta-processing.md`）に実データを追従させる整合作業。**トップレベルのキー順は UI に到達しない**（`pages/characters.js` は typedef 順でループし、スキーマ外キーを捨てる）ため、表示への影響は `basicFields` の整列に限定される。
+
+- **`$slot` マーカー（`lib/data-common.js` `TypeDefUtils.mergeDefTypes()`）**: `Index`（作品ごとに `hashTag` が異なる）・`Images`・作品固有 `_DBLink` はグローバル `$DefType` に宣言が無く、従来の「作品固有は末尾追加」では常に末尾へ落ちていた。位置をツール側の field 名ハードコードで持たず schema で宣言するため、**`hashTag` を持たないマーカーエントリ**を導入。既存の `$DefType` 走査は全 9 箇所が `hashTag` falsy を `continue` するため下流からは不可視で、`mergeDefTypes()` の結果にも含めない。マーカー 0 個なら従来仕様へフォールバックする。
+  - `$slotMatch` の語彙は `$type` / `$typeIncludes` / `$display` / `"*"` の 4 種のみに固定（表現力を意図的に低く保ち、field 名依存の分岐への逆戻りを防ぐ）。JS 側に field 名のハードコードはゼロ。
+  - `$slotExpand`: `$MetaType.$Def_SecondaryMeta` を参照展開し、`sec_*` をトップレベル `$DefType` へ再掲せず順序へ組み込む。
+  - `$slotOrder`: catch-all スロット内を `$DetailLayout.subFields`（詳細画面のセクション順）へ寄せ、ファイルの並びと画面の並びを揃える。解決には `mergeDefTypes(globalType, workType, { detailLayout })` で `$DetailLayout` を渡す。
+  - 解決順は **作品側 `$slot` 明示（逃がし弁） > `$slotMatch` 述語 > catch-all**。
+- **宣言（`data/db_type.json`）**: マーカー 5 件（`#Index` / `#SecondaryMeta` / `#WorkDBLinkRef` / `#Images` / `#WorkRest`）を追加し、`Index → Progress → _DBLinkRef 群 → Name → Images → FormalName → …` の順を作る。作品別 typedef の編集は原則不要（9 作品すべてが述語で吸着）。
+- **`$Def_DBLinkRef` の宣言順を修正**: `_DB > _Work` → **`_Work > _DB`**。実データは `_Work` 先行が 46 件・`_DB` 先行が 0 件で、宣言だけが実態と逆だった（`$Def_DBCrossLinkPath` は宣言とデータが一致するため変更なし）。
+- **`$DetailLayout.basicFields` を `$DefType` 順へ整列（`data/db_meta.json`、9 作品）**: `$DetailLayout` は「どれを出すか」の選択に専念し、並び順は `$DefType` 一本へ集約。ただし作品別 typedef で宣言されたフィールド（`TailsUnit` / `Generation` / `ThisPerformer_DBLink` / `BeastspecName` / `Chrono*Name`）は `basicFields` 側の位置に寄せる。**基本情報テーブルの表示順が変わる**（`Age` / `AnivDay` / `BirthDay` が `RaceType` / `Height` 群の後ろへ移動、`UnibyteLive` は `AnotherRegions_DBLink` が先頭）。
+- **整列ツール（`tools/normalize-field-order.mjs` 新規）**: 既定 dry-run（`--write` で書き込み / `--check` で CI / `--report` で置換シグネチャ出力）。`npm run data:order:{plan,write,check}`。
+  - **書式非破壊**: `JSON.parse` → `JSON.stringify` の往復をしない。往復するとインラインオブジェクト（2,716 行）が展開され、prettier の `objectWrap: "preserve"` は畳み直さないため、キー順と無関係な巨大差分になる。並べ替えは既存テキスト片の入れ替えのみで行う（`tools/extract-palette.mjs` の `scanTopLevelRecords()` / `findValueEnd()` を再利用）。
+  - **未宣言キーは直前の宣言済みキーへアンカー**して元の位置に留める。`isTriple` / `Regioministration` / `isPrivate` は「フラグ用にあえて宣言しない」運用のため、整列で末尾へ流さない。
+  - **fail-closed**: 書き出し前にキー順以外が変化していないこと（値・レコード数・キー集合）を検証し、失敗したら書かない。
+- **`Works_DestinyFoxRecords` の `Unit_FullEN` を宣言**: `Unit`（記号 "s"）の派生（正式名 "second"）として `#Index` スロットへ明示配置。
+- **データ整列**: 全 19 DB / 1,283 レコードのうち **1,198 件**を整列。`npm run data:order:check` → 0/1283。全ファイルで insertions と deletions が同数（行の入れ替えのみ）。
+- **CI ガード（`tests/data.field-order.test.js` 新規）**: リポジトリ初のキー順テスト。全 DB のキー順・ツールの冪等性・`$slot` マーカーの健全性・要望順（`Index → Progress → _DBLinkRef → Name → Images → FormalName`）を検証。
+- **影響範囲**: `lib/data-common.js` / `data/db_type.json` / `data/db_meta.json` / `data/Works_DestinyFoxRecords/DataBases/db_type.json` / `data/Works_*/DataBases/db_*.json`（19 DB）/ `tools/normalize-field-order.mjs` / `tests/{data.field-order,sw.deftype.slot,normalize-field-order}.test.js` / `package.json` / `docs/{schema-meta-processing,db-update-guidelines}.md`。
+- 確認: `npm test` — 36 ファイル / 468 件すべて成功（`develop`）。CI ガードが実際に乱れを検知することも、キー順を意図的に崩して確認済み。
+
+> **`addon-ai-tag` での追従（2026-07-17 マージ）**: 本整列機構の上に AIHints を載せるため、グローバル `$DefType` の **catch-all（`#WorkRest`）より後ろ**に `AIHints` を宣言した。`mergeDefTypes()` はグローバル `$DefType` を宣言順に走査し、`hashTag` エントリはその位置へ、`$slot` マーカーの位置には作品固有フィールドを展開するため、この宣言順により **AIHints がレコードの最終キーに固定**される（catch-all の「厳密に 1 個」制約は位置ではなく個数のみを縛るため両立する）。`db_Primary.json` は整列ツールを再適用し、AIHints 92 件を末尾に保ったまま develop の整列結果と等価であることを検証済み。
+
 ### feat: 作品公式サイトのリンクをキャラシート「作品情報」欄へ表示 (`Works_OfficialLinks`) (2026-07-16)
 
 創作タイトルに公式 HP がある場合（ナンバーテールズ / 運命線探偵78）、キャラシートの作品情報欄から公式サイトへ導線を張れるようにした。スキーマ駆動（宣言 → SW パススルー → UI 描画）で追加し、UI ハードコードはリンク 1 種の描画に限定している。
@@ -124,10 +148,10 @@ AIHints 再ビルド問題の**最後の 2 点**。当初 User から相談さ�
 - **構造ソース**: `Num` / `GenderType` / `ConceptAge` / `Height_cm` / `TailsUnit` / `AppearanceDetail` / `ColorPalette`。これらのハッシュが前回と一致すれば **no-op**（実測: 2 回目の実行は全 92 件が `resync-unchanged`）。
 - **再同期の対象外**（人手・視覚由来のため触らない）: `outfit_features` / `silhouette_notes` / `natural_language_description` / `reference_images`。`palette_priority` は `ColorPalette` から導出するが、**既存の確定値は保護**する。
 - **効果（実データで実証）**: Num 1 に「人が書いたタグ」を 2 件足し、構造ソース（`Height_cm` 146 → 152）を変えて両モードを比較した。
-  | | 人が書いたタグ | 構造タグ（身長） |
-  | --- | --- | --- |
-  | 旧 `--apply-appearancedetail` | **消える** | 152cm へ更新 |
-  | 新 `--resync-structural` | **残る** | 152cm へ更新 |
+  |                               | 人が書いたタグ | 構造タグ（身長） |
+  | ----------------------------- | -------------- | ---------------- |
+  | 旧 `--apply-appearancedetail` | **消える**     | 152cm へ更新     |
+  | 新 `--resync-structural`      | **残る**       | 152cm へ更新     |
 - **実データ**: NumberTales / Primary の **92 件**に `_meta` を投入（ブートストラップ）。警告 0 件（= 現データはすべてツール生成物であり、人の手が入る前に provenance を入れられた）。
 - **`tests/patch-aihints.resync.test.js`（新規、15 件）**: 人が書いたタグが消えないこと、構造ソースの変化で構造タグが最新化されること、変化が無ければ no-op になること、人が編集したツール由来文字列を上書きせず警告すること、`palette_priority` の確定値を保護すること等を固定。
 - **残る課題**: `--suggest --force` そのものは依然として全面上書き（TODO 雛形への巻き戻し）。`--resync-structural` はその安全な代替として使う。`prompt_export` はタグ変更後も再生成されないため、別途対応が必要。

@@ -90,36 +90,28 @@
     "Class": ["マスターテンズデュアルズ"]
   },
   {
-    "sec_Category": null,
-    "sec_DesignedBy": ["RadianN"],
-    "sec_SeriesTitle": "量産型マスタートリプル",
     "Num": "111-mp",
     "Progress": "released(beta)",
     "AnotherVersions_DBLink": [
       { "_Work": "NumberTales", "_DB": "SemiPrimary", "Num": 111 }
     ],
-    "Images": { "concept_PNGName": "cnsp_img111-mp" },
+    "sec_SeriesTitle": "量産型マスタートリプル",
+    "sec_Category": null,
+    "sec_DesignedBy": ["RadianN"],
     "Name_JP": "量産型 111(アイズ)",
     "Name_EN": "Cloned 111(Ize)",
+    "Images": { "concept_PNGName": "cnsp_img111-mp" },
     "FormalName_JP": "量産型ナンバーテールズ111番機シリーズ",
     "FormalName_EN": "NumberTales #111 Series Mass Production Version for Sales",
     "ModelNumber": "APHR-NT [MP]111-*****",
     "GenderType": "Neutral",
+    "Class": ["量産型マスタートリプル"],
     "Height_cm": 141,
-    "ConceptAge": 14,
     "Weight_kg": [
       { "value": 37, "about_JP": "推定", "about_EN": "Presumption" }
     ],
     "BustSize": "AA",
-    "Class": ["量産型マスタートリプル"],
-    "TailsUnit": [
-      {
-        "TailShapeType": "#TailShapeType_NekomataSpecial",
-        "Count": 3,
-        "Note_JP": null,
-        "Note_EN": null
-      }
-    ],
+    "ConceptAge": 14,
     "AppearanceDetail": [
       {
         "Formation": null,
@@ -387,6 +379,14 @@
         "Note_JP": null,
         "Note_EN": null
       }
+    ],
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_NekomataSpecial",
+        "Count": 3,
+        "Note_JP": null,
+        "Note_EN": null
+      }
     ]
   },
   {
@@ -426,6 +426,8 @@
     "FormalName_JP": "量産型ナンバーテールズ115番機シリーズ",
     "FormalName_EN": "NumberTales #115 Series Mass Production Version for Sales",
     "ModelNumber": "APHR-NT [MP]115-*****",
+    "Class": ["デュオトリプル7型"],
+    "AppearanceDetail": null,
     "TailsUnit": [
       {
         "TailShapeType": "#TailShapeType_Nekomata",
@@ -439,9 +441,7 @@
         "Note_JP": null,
         "Note_EN": null
       }
-    ],
-    "AppearanceDetail": null,
-    "Class": ["デュオトリプル7型"]
+    ]
   },
   {
     "Num": "116-mp",
@@ -486,26 +486,26 @@
     "Name_EN": "120(Darst)",
     "FormalName_JP": "量産型ナンバーテールズ120番機シリーズ",
     "FormalName_EN": "NumberTales #120 Series Mass Production Version for Sales",
-    "ModelNumber": "APHR-NT [MP]120-*****",
     "CodeName_JP": "一二〇",
     "CodeName_EN": "One-Two-Zero",
     "SPCodeName_EN": "Ten Dars",
+    "ModelNumber": "APHR-NT [MP]120-*****",
     "GenderType": "Neutral",
     "Class": ["トライデュアルスリーズ"]
   },
   {
     "Num": 121,
     "Progress": "notProceeded",
+    "SameMPSeries_DBLink": [{ "_DB": "SemiPrimary", "Num": "121-sq" }],
     "Name_JP": "121(エルフェルト)",
     "Name_EN": "121(Elf-elvent)",
-    "SameMPSeries_DBLink": [{ "_DB": "SemiPrimary", "Num": "121-sq" }],
     "FormalName_JP": "量産型ナンバーテールズ121番機シリーズ",
     "FormalName_EN": "NumberTales #121 Series Mass Production Version for Sales",
-    "ModelNumber": "APHR-NT [MP]121-*****",
     "CodeName_JP": "一二一",
     "CodeName_EN": "One-Two-One",
     "SPCodeName_JP": "11×11",
     "SPCodeName_EN": "Eleven Elevens",
+    "ModelNumber": "APHR-NT [MP]121-*****",
     "GenderType": "Neutral",
     "Class": ["デュオトリプル4型"]
   },
@@ -516,9 +516,9 @@
     "Name_EN": "123(Hop-Step-Jumper)",
     "FormalName_JP": "量産型ナンバーテールズ123番機シリーズ",
     "FormalName_EN": "NumberTales #123 Series Mass Production Version for Sales",
-    "ModelNumber": "APHR-NT [MP]123-*****",
     "CodeName_JP": "一二三",
     "CodeName_EN": "One-Two-Three",
+    "ModelNumber": "APHR-NT [MP]123-*****",
     "GenderType": "Neutral",
     "Class": ["トリプルシックスズ"]
   },
@@ -528,9 +528,9 @@
     "SameMPSeries_DBLink": [{ "_DB": "SemiPrimary", "Num": "125-cub" }],
     "FormalName_JP": "量産型ナンバーテールズ125番機シリーズ",
     "FormalName_EN": "NumberTales #125 Series Mass Production Version for Sales",
-    "ModelNumber": "APHR-NT [MP]125-*****",
     "CodeName_JP": "一二五",
     "CodeName_EN": "One-Two-Five",
+    "ModelNumber": "APHR-NT [MP]125-*****",
     "GenderType": "Neutral",
     "Class": ["トリプルエイツ"]
   },
@@ -541,25 +541,25 @@
     "Name_EN": "127(Twelsven)",
     "FormalName_JP": "量産型ナンバーテールズ127番機シリーズ",
     "FormalName_EN": "NumberTales #127 Series Mass Production Version for Sales",
-    "ModelNumber": "APHR-NT [MP]127-*****",
     "CodeName_JP": "一二七",
     "CodeName_EN": "One-Two-Seven",
+    "ModelNumber": "APHR-NT [MP]127-*****",
     "GenderType": "Neutral",
     "Class": ["トリプルキャリーズ"]
   },
   {
     "Num": 144,
     "Progress": "notProceeded",
+    "SameMPSeries_DBLink": [{ "_DB": "SemiPrimary", "Num": "144-sq" }],
     "Name_JP": "144(グロス)",
     "Name_EN": "144(Groß)",
-    "SameMPSeries_DBLink": [{ "_DB": "SemiPrimary", "Num": "144-sq" }],
     "FormalName_JP": "量産型ナンバーテールズ144番機シリーズ",
     "FormalName_EN": "NumberTales #144 Series Mass Production Version for Sales",
-    "ModelNumber": "APHR-NT [MP]144-*****",
     "CodeName_JP": "一四四",
     "CodeName_EN": "One-Four-Four",
     "SPCodeName_JP": "グロス",
     "SPCodeName_EN": "Gross",
+    "ModelNumber": "APHR-NT [MP]144-*****",
     "GenderType": "Neutral",
     "Class": ["デュオトリプル9型"]
   },
@@ -569,10 +569,12 @@
     "SameMPSeries_DBLink": [{ "_DB": "Secondary", "Num": "148-numberize" }],
     "FormalName_JP": "量産型ナンバーテールズ148番機シリーズ",
     "FormalName_EN": "NumberTales #148 Series Mass Production Version for Sales",
-    "ModelNumber": "APHR-NT [MP]148-*****",
     "CodeName_JP": "一四八",
     "CodeName_EN": "One-Four-Eight",
+    "ModelNumber": "APHR-NT [MP]148-*****",
     "GenderType": "Neutral",
+    "Class": ["トリプルフォーズ"],
+    "AppearanceDetail": null,
     "TailsUnit": [
       {
         "TailShapeType": "#TailShapeType_FoxBranched",
@@ -589,9 +591,7 @@
         "Note_JP": null,
         "Note_EN": null
       }
-    ],
-    "AppearanceDetail": null,
-    "Class": ["トリプルフォーズ"]
+    ]
   },
   {
     "Num": 150,
@@ -600,11 +600,11 @@
     "Name_EN": "150(Onehalven)",
     "FormalName_JP": "量産型ナンバーテールズ150番機シリーズ",
     "FormalName_EN": "NumberTales #150 Series Mass Production Version for Sales",
-    "ModelNumber": "APHR-NT [MP]150-*****",
     "CodeName_JP": "一五〇",
     "CodeName_EN": "One-Five-Zero",
     "SPCodeName_JP": "一半百",
     "SPCodeName_EN": "One Half(of Percent)",
+    "ModelNumber": "APHR-NT [MP]150-*****",
     "GenderType": "Neutral",
     "Class": ["トライデュアルシックスズ"]
   },
@@ -615,9 +615,9 @@
     "Name_EN": "153(Unipetri)",
     "FormalName_JP": "量産型ナンバーテールズ153番機NCシリーズ(ナンバーテールズ153番機)",
     "FormalName_EN": "NumberTales #153-NC Series Mass Production Version for Sales (NumberTales #153)",
-    "ModelNumber": "APHR-NT [MP]153-NC***",
     "CodeName_JP": "一五三",
     "CodeName_EN": "One-Five-Three",
+    "ModelNumber": "APHR-NT [MP]153-NC***",
     "GenderType": "Neutral",
     "Class": ["トリプルナインズ", "ナルシシスツ"],
     "Backgrounds_JP": "ちなみに、153,370,371,407はナルシシスト数である",
@@ -630,11 +630,11 @@
     "Name_EN": "156(Onefix)",
     "FormalName_JP": "量産型ナンバーテールズ156番機シリーズ",
     "FormalName_EN": "NumberTales #156 Series Mass Production Version for Sales",
-    "ModelNumber": "APHR-NT [MP]156-*****",
     "CodeName_JP": "一五六",
     "CodeName_EN": "One-Five-Six",
     "SPCodeName_JP": "日頃",
     "SPCodeName_EN": "Dailies",
+    "ModelNumber": "APHR-NT [MP]156-*****",
     "GenderType": "Neutral",
     "Class": ["トリプルスリーズ"]
   },
@@ -646,11 +646,11 @@
     "Name_EN": "169(Wide-Aspects)",
     "FormalName_JP": "量産型ナンバーテールズ169番機シリーズ",
     "FormalName_EN": "NumberTales #169 Series Mass Production Version for Sales",
-    "ModelNumber": "APHR-NT [MP]169-*****",
     "CodeName_JP": "一六九",
     "CodeName_EN": "One-Six-Nine",
     "SPCodeName_JP": "ワイドスクリーンのアスペクト比(16:9)",
     "SPCodeName_EN": "Wide-Screen Aspect Ratio (16:9)",
+    "ModelNumber": "APHR-NT [MP]169-*****",
     "GenderType": "Neutral",
     "Class": ["トリプルセブンズ", "マスマティカコンストレイント"]
   },
@@ -660,9 +660,9 @@
     "SameMPSeries_DBLink": [{ "_DB": "SemiPrimary", "Num": "200-dev" }],
     "FormalName_JP": "量産型ナンバーテールズ200番機シリーズ",
     "FormalName_EN": "NumberTales #200 Series Mass Production Version for Sales",
-    "ModelNumber": "APHR-NT [MP]200-*****",
     "CodeName_JP": "二〇〇",
     "CodeName_EN": "Two-Zero-Zero",
+    "ModelNumber": "APHR-NT [MP]200-*****",
     "GenderType": "Neutral",
     "Class": ["百倍番(ハンドレッズデジッツ)"]
   },
@@ -673,10 +673,10 @@
     "Name_EN": "214(Valenta)",
     "FormalName_JP": "量産型ナンバーテールズ214番機シリーズ",
     "FormalName_EN": "NumberTales #214 Series Mass Production Version for Sales",
-    "ModelNumber": "APHR-NT [MP]214-*****",
     "CodeName_JP": "二一四",
     "CodeName_EN": "Two-One-Four",
     "SPCodeName_EN": "Valentain",
+    "ModelNumber": "APHR-NT [MP]214-*****",
     "GenderType": "Neutral",
     "Class": ["トリプルセブンズ"],
     "Backgrounds_JP": "バレンタインの日付(2月14日)から由来",
@@ -690,37 +690,39 @@
     "Name_EN": "216(Biunosect)",
     "FormalName_JP": "量産型ナンバーテールズ216番機シリーズ",
     "FormalName_EN": "NumberTales #216 Series Mass Production Version for Sales",
-    "ModelNumber": "APHR-NT [MP]216-*****",
     "CodeName_JP": "二一六",
     "CodeName_EN": "Two-One-Six",
+    "ModelNumber": "APHR-NT [MP]216-*****",
     "GenderType": "Neutral",
     "Class": ["トリプルナインズ", "バーチャリティテールズ"],
     "Backgrounds_JP": "ちなみに、三原色を1Byteで平均的に扱う際に取れる最大の色数でもある",
     "Backgrounds_EN": "Incidentally, 216 is also the maximum number of colors obtainable when the three primary colors are each evenly distributed across a 1-byte range (6 × 6 × 6 = 216; the web-safe color cube)."
   },
   {
-    "sec_Category": null,
-    "sec_DesignedBy": ["RadianN"],
-    "sec_SeriesTitle": "量産型マスタートリプル",
     "Num": "222-mp",
     "Progress": "notProceeded",
     "AnotherVersions_DBLink": [
       { "_Work": "NumberTales", "_DB": "SemiPrimary", "Num": 222 },
       { "_Work": "NumberTales", "_DB": "SemiPrimary", "Num": "222-alt" }
     ],
+    "sec_SeriesTitle": "量産型マスタートリプル",
+    "sec_Category": null,
+    "sec_DesignedBy": ["RadianN"],
     "Name_JP": "量産型 222(ドッペルゲン)",
     "Name_EN": "Cloned 222(Doppelgän)",
     "FormalName_JP": "量産型ナンバーテールズ222番機シリーズ",
     "FormalName_EN": "NumberTales #222 Series Mass Production Version for Sales",
-    "ModelNumber": "APHR-NT [MP]222-*****",
     "CodeName_JP": "二二二",
     "CodeName_EN": "Two-Two-Two",
     "SPCodeName_EN": "Cloned I-s",
+    "ModelNumber": "APHR-NT [MP]222-*****",
     "GenderType": "FemaleNeutral",
+    "Class": ["量産型マスタートリプル"],
     "Height_cm": 148,
-    "ConceptAge": 16,
     "Weight_kg": 42,
     "BustSize": "A",
+    "ConceptAge": 16,
+    "AppearanceDetail": null,
     "TailsUnit": [
       {
         "TailShapeType": "#TailShapeType_CaudalFin",
@@ -729,23 +731,22 @@
         "Note_JP": null,
         "Note_EN": null
       }
-    ],
-    "AppearanceDetail": null,
-    "Class": ["量産型マスタートリプル"]
+    ]
   },
   {
-    "sec_Category": null,
-    "sec_DesignedBy": ["RadianN"],
     "Num": 223,
     "Progress": "notProceeded",
+    "sec_Category": null,
+    "sec_DesignedBy": ["RadianN"],
     "Name_JP": "223(フブミ)",
     "Name_EN": "223(Twitwintrey)",
     "FormalName_JP": "量産型ナンバーテールズ223番機CRシリーズ(ナンバーテールズ223番機)",
     "FormalName_EN": "NumberTales #223-CR Series Mass Production Version for Sales (NumberTales #223)",
-    "ModelNumber": "APHR-NT [MP]223-CR***",
     "CodeName_JP": "二二三",
     "CodeName_EN": "Two-Two-Three",
+    "ModelNumber": "APHR-NT [MP]223-CR***",
     "GenderType": "Neutral",
+    "Class": ["デュオトリプル7型", "キャロルズ"],
     "AnivDay": [
       {
         "Day": { "Month": 2, "DayOfMonth": 24 },
@@ -753,6 +754,7 @@
         "DayAbout_EN": "Development commemoration (in Caroles Class)"
       }
     ],
+    "AppearanceDetail": null,
     "TailsUnit": [
       {
         "TailShapeType": "#TailShapeType_Nekomata",
@@ -767,50 +769,34 @@
         "Note_JP": null,
         "Note_EN": null
       }
-    ],
-    "AppearanceDetail": null,
-    "Class": ["デュオトリプル7型", "キャロルズ"]
+    ]
   },
   {
-    "sec_Category": "リクエストナンバー",
-    "sec_DesignedBy": ["RadianN"],
     "Num": "223-jw",
     "Progress": "released(beta)",
-    "Images": { "concept_PNGName": "cnsp_img223-jw" },
+    "sec_Category": "リクエストナンバー",
+    "sec_DesignedBy": ["RadianN"],
     "Name_JP": "223(ツヅサ)",
     "Name_EN": "223(Twitwenthir)",
+    "Images": { "concept_PNGName": "cnsp_img223-jw" },
     "FormalName_JP": "量産型ナンバーテールズ223番機JWシリーズ(ナンバーテールズ異格223番機)",
     "FormalName_EN": "NumberTales #223-JW Series Mass Production Version for Sales (NumberTales Isotope-#223)",
-    "ModelNumber": "APHR-NT [MP]223-JW***",
     "CodeName_JP": "二二三",
     "CodeName_EN": "Two-Two-Three",
     "SPCodeName_JP": "(令和天皇の誕生日)",
     "SPCodeName_EN": "(Emperor Reiwa's Birthday in Far-Eastern Calendar)",
+    "ModelNumber": "APHR-NT [MP]223-JW***",
     "GenderType": "Neutral",
+    "Class": ["デュオトリプル7型", "ワノマチ"],
     "Height_cm": 151,
+    "Weight_kg": 41,
+    "BustSize": "AA",
     "ConceptAge": 15,
     "AnivDay": [
       {
         "Day": { "Month": 2, "DayOfMonth": 23 },
         "DayAbout_JP": "開発記念(ワノマチ名義)",
         "DayAbout_EN": "Development commemoration (in Wa-no-Machi Class)"
-      }
-    ],
-    "Weight_kg": 41,
-    "BustSize": "AA",
-    "TailsUnit": [
-      {
-        "TailShapeType": "#TailShapeType_Scorpion",
-        "Count": 2,
-        "Segment": 11,
-        "Note_JP": null,
-        "Note_EN": null
-      },
-      {
-        "TailShapeType": "#TailShapeType_Fox",
-        "Count": 3,
-        "Note_JP": null,
-        "Note_EN": null
       }
     ],
     "AppearanceDetail": null,
@@ -876,7 +862,21 @@
         "Note_EN": null
       }
     ],
-    "Class": ["デュオトリプル7型", "ワノマチ"]
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_Scorpion",
+        "Count": 2,
+        "Segment": 11,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "TailShapeType": "#TailShapeType_Fox",
+        "Count": 3,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ]
   },
   {
     "Num": 227,
@@ -884,10 +884,12 @@
     "SameMPSeries_DBLink": [{ "_DB": "Secondary", "Num": "227-numberize" }],
     "FormalName_JP": "量産型ナンバーテールズ227番機シリーズ",
     "FormalName_EN": "NumberTales #227 Series Mass Production Version for Sales",
-    "ModelNumber": "APHR-NT [MP]227-*****",
     "CodeName_JP": "二二七",
     "CodeName_EN": "Two-Two-Seven",
+    "ModelNumber": "APHR-NT [MP]227-*****",
     "GenderType": "Neutral",
+    "Class": ["デュオトリプル2型"],
+    "AppearanceDetail": null,
     "TailsUnit": [
       {
         "TailShapeType": "#TailShapeType_Nekomata",
@@ -902,9 +904,7 @@
         "Note_JP": null,
         "Note_EN": null
       }
-    ],
-    "AppearanceDetail": null,
-    "Class": ["デュオトリプル2型"]
+    ]
   },
   {
     "Num": 232,
@@ -912,10 +912,12 @@
     "SameMPSeries_DBLink": [{ "_DB": "Secondary", "Num": "232-numberize" }],
     "FormalName_JP": "量産型ナンバーテールズ232番機シリーズ",
     "FormalName_EN": "NumberTales #232 Series Mass Production Version for Sales",
-    "ModelNumber": "APHR-NT [MP]232-*****",
     "CodeName_JP": "二三二",
     "CodeName_EN": "Two-Three-Two",
+    "ModelNumber": "APHR-NT [MP]232-*****",
     "GenderType": "Neutral",
+    "Class": ["デュオトリプル7型"],
+    "AppearanceDetail": null,
     "TailsUnit": [
       {
         "TailShapeType": "#TailShapeType_FoxBranched",
@@ -931,9 +933,7 @@
         "Note_JP": null,
         "Note_EN": null
       }
-    ],
-    "AppearanceDetail": null,
-    "Class": ["デュオトリプル7型"]
+    ]
   },
   {
     "Num": 238,
@@ -941,10 +941,12 @@
     "SameMPSeries_DBLink": [{ "_DB": "Secondary", "Num": "238-numberize" }],
     "FormalName_JP": "量産型ナンバーテールズ238番機シリーズ",
     "FormalName_EN": "NumberTales #238 Series Mass Production Version for Sales",
-    "ModelNumber": "APHR-NT [MP]238-*****",
     "CodeName_JP": "二三八",
     "CodeName_EN": "Two-Three-Eight",
+    "ModelNumber": "APHR-NT [MP]238-*****",
     "GenderType": "Neutral",
+    "Class": ["トリプルフォーズ"],
+    "AppearanceDetail": null,
     "TailsUnit": [
       {
         "TailShapeType": "#TailShapeType_FoxBranched",
@@ -961,9 +963,7 @@
         "Note_JP": null,
         "Note_EN": null
       }
-    ],
-    "AppearanceDetail": null,
-    "Class": ["トリプルフォーズ"]
+    ]
   },
   {
     "Num": 241,
@@ -971,10 +971,12 @@
     "SameMPSeries_DBLink": [{ "_DB": "Secondary", "Num": "241-numberize" }],
     "FormalName_JP": "量産型ナンバーテールズ241番機シリーズ",
     "FormalName_EN": "NumberTales #241 Series Mass Production Version for Sales",
-    "ModelNumber": "APHR-NT [MP]241-*****",
     "CodeName_JP": "二四一",
     "CodeName_EN": "Two-Four-One",
+    "ModelNumber": "APHR-NT [MP]241-*****",
     "GenderType": "Neutral",
+    "Class": ["トリプルセブンズ"],
+    "AppearanceDetail": null,
     "TailsUnit": [
       {
         "TailShapeType": "#TailShapeType_Cat",
@@ -997,9 +999,7 @@
         "Note_JP": null,
         "Note_EN": null
       }
-    ],
-    "AppearanceDetail": null,
-    "Class": ["トリプルセブンズ"]
+    ]
   },
   {
     "Num": 244,
@@ -1008,9 +1008,9 @@
     "Name_EN": "244(Twiforfours)",
     "FormalName_JP": "量産型ナンバーテールズ244番機シリーズ",
     "FormalName_EN": "NumberTales #244 Series Mass Production Version for Sales",
-    "ModelNumber": "APHR-NT [MP]244-*****",
     "CodeName_JP": "二四四",
     "CodeName_EN": "Two-Four-Four",
+    "ModelNumber": "APHR-NT [MP]244-*****",
     "GenderType": "Neutral",
     "Class": ["デュオトリプル1型"]
   },
@@ -1024,11 +1024,11 @@
     "Name_EN": "255(0xFF)",
     "FormalName_JP": "量産型ナンバーテールズ255番機シリーズ",
     "FormalName_EN": "NumberTales #255 Series Mass Production Version for Sales",
-    "ModelNumber": "APHR-NT [MP]255-*****",
     "CodeName_JP": "二五五",
     "CodeName_EN": "Two-Five-Five",
     "SPCodeName_JP": "0xFF",
     "SPCodeName_EN": "Last of Byte",
+    "ModelNumber": "APHR-NT [MP]255-*****",
     "GenderType": "Neutral",
     "Class": ["デュオトリプル3型"],
     "Backgrounds_JP": "1バイト値の最大値（16進法）から由来\nなお、「256(バイツ)」と姉妹関係は無い",
@@ -1042,10 +1042,10 @@
     "Name_EN": "256(Bytes)",
     "FormalName_JP": "量産型ナンバーテールズ256番機シリーズ",
     "FormalName_EN": "NumberTales #256 Series Mass Production Version for Sales",
-    "ModelNumber": "APHR-NT [MP]256-*****",
     "CodeName_JP": "二五六",
     "CodeName_EN": "Two-Five-Six",
     "SPCodeName_EN": "One Byte",
+    "ModelNumber": "APHR-NT [MP]256-*****",
     "GenderType": "Neutral",
     "Class": ["トリプルフォーズ"],
     "Backgrounds_JP": "1バイトで表現できる値の数から由来\nなお、「255(エフエフ)」と姉妹関係は無い",
@@ -1057,10 +1057,12 @@
     "SameMPSeries_DBLink": [{ "_DB": "Secondary", "Num": "258-numberize" }],
     "FormalName_JP": "量産型ナンバーテールズ258番機シリーズ",
     "FormalName_EN": "NumberTales #258 Series Mass Production Version for Sales",
-    "ModelNumber": "APHR-NT [MP]258-*****",
     "CodeName_JP": "二五八",
     "CodeName_EN": "Two-Five-Eight",
+    "ModelNumber": "APHR-NT [MP]258-*****",
     "GenderType": "Neutral",
+    "Class": ["トリプルシックスズ"],
+    "AppearanceDetail": null,
     "TailsUnit": [
       {
         "TailShapeType": "#TailShapeType_FoxBranched",
@@ -1077,9 +1079,7 @@
         "Note_JP": null,
         "Note_EN": null
       }
-    ],
-    "AppearanceDetail": null,
-    "Class": ["トリプルシックスズ"]
+    ]
   },
   {
     "Num": 263,
@@ -1087,10 +1087,12 @@
     "SameMPSeries_DBLink": [{ "_DB": "Secondary", "Num": "263-numberize" }],
     "FormalName_JP": "量産型ナンバーテールズ263番機シリーズ",
     "FormalName_EN": "NumberTales #263 Series Mass Production Version for Sales",
-    "ModelNumber": "APHR-NT [MP]263-*****",
     "CodeName_JP": "二六三",
     "CodeName_EN": "Two-Six-Three",
+    "ModelNumber": "APHR-NT [MP]263-*****",
     "GenderType": "Neutral",
+    "Class": ["トリプルトワイズ"],
+    "AppearanceDetail": null,
     "TailsUnit": [
       {
         "TailShapeType": "#TailShapeType_FoxBranched",
@@ -1107,9 +1109,7 @@
         "Note_JP": null,
         "Note_EN": null
       }
-    ],
-    "AppearanceDetail": null,
-    "Class": ["トリプルトワイズ"]
+    ]
   },
   {
     "Num": 265,
@@ -1117,10 +1117,12 @@
     "SameMPSeries_DBLink": [{ "_DB": "Secondary", "Num": "265-numberize" }],
     "FormalName_JP": "量産型ナンバーテールズ265番機シリーズ",
     "FormalName_EN": "NumberTales #265 Series Mass Production Version for Sales",
-    "ModelNumber": "APHR-NT [MP]265-*****",
     "CodeName_JP": "二六五",
     "CodeName_EN": "Two-Six-Five",
+    "ModelNumber": "APHR-NT [MP]265-*****",
     "GenderType": "Neutral",
+    "Class": ["トリプルフォーズ"],
+    "AppearanceDetail": null,
     "TailsUnit": [
       {
         "TailShapeType": "#TailShapeType_FoxBranched",
@@ -1137,9 +1139,7 @@
         "Note_JP": null,
         "Note_EN": null
       }
-    ],
-    "AppearanceDetail": null,
-    "Class": ["トリプルフォーズ"]
+    ]
   },
   {
     "Num": 294,
@@ -1147,10 +1147,12 @@
     "SameMPSeries_DBLink": [{ "_DB": "Secondary", "Num": "294-numberize" }],
     "FormalName_JP": "量産型ナンバーテールズ294番機シリーズ",
     "FormalName_EN": "NumberTales #294 Series Mass Production Version for Sales",
-    "ModelNumber": "APHR-NT [MP]294-*****",
     "CodeName_JP": "二九四",
     "CodeName_EN": "Two-Nine-Four",
+    "ModelNumber": "APHR-NT [MP]294-*****",
     "GenderType": "Neutral",
+    "Class": ["トリプルシックスズ"],
+    "AppearanceDetail": null,
     "TailsUnit": [
       {
         "TailShapeType": "#TailShapeType_FoxBranched",
@@ -1167,9 +1169,7 @@
         "Note_JP": null,
         "Note_EN": null
       }
-    ],
-    "AppearanceDetail": null,
-    "Class": ["トリプルシックスズ"]
+    ]
   },
   {
     "Num": 295,
@@ -1177,10 +1177,12 @@
     "SameMPSeries_DBLink": [{ "_DB": "Secondary", "Num": "295-numberize" }],
     "FormalName_JP": "量産型ナンバーテールズ295番機シリーズ",
     "FormalName_EN": "NumberTales #295 Series Mass Production Version for Sales",
-    "ModelNumber": "APHR-NT [MP]295-*****",
     "CodeName_JP": "二九五",
     "CodeName_EN": "Two-Nine-Five",
+    "ModelNumber": "APHR-NT [MP]295-*****",
     "GenderType": "Neutral",
+    "Class": ["トリプルセブンズ"],
+    "AppearanceDetail": null,
     "TailsUnit": [
       {
         "TailShapeType": "#TailShapeType_FoxBranched",
@@ -1197,9 +1199,7 @@
         "Note_JP": null,
         "Note_EN": null
       }
-    ],
-    "AppearanceDetail": null,
-    "Class": ["トリプルセブンズ"]
+    ]
   },
   {
     "Num": 314,
@@ -1208,25 +1208,25 @@
     "Name_EN": "314(Circcle)",
     "FormalName_JP": "量産型ナンバーテールズ314番機シリーズ",
     "FormalName_EN": "NumberTales #314 Series Mass Production Version for Sales",
-    "ModelNumber": "APHR-NT [MP]314-*****",
     "CodeName_JP": "三一四",
     "CodeName_EN": "Three-One-Four",
     "SPCodeName_JP": "Π",
     "SPCodeName_EN": "Pi",
+    "ModelNumber": "APHR-NT [MP]314-*****",
     "GenderType": "Neutral",
     "Class": ["トリプルエイツ", "マスマティカコンストレイント"],
     "Backgrounds_JP": "円周率(3.14)から由来",
     "Backgrounds_EN": "Derived from the value of pi (3.14)."
   },
   {
-    "sec_Category": null,
-    "sec_DesignedBy": ["RadianN"],
-    "sec_SeriesTitle": "量産型マスタートリプル",
     "Num": "333-mp",
     "Progress": "notProceeded",
     "AnotherVersions_DBLink": [
       { "_Work": "NumberTales", "_DB": "SemiPrimary", "Num": 333 }
     ],
+    "sec_SeriesTitle": "量産型マスタートリプル",
+    "sec_Category": null,
+    "sec_DesignedBy": ["RadianN"],
     "Name_JP": "量産型 333(トリニティア)",
     "Name_EN": "Cloned 333(Trinitia)",
     "FormalName_JP": "量産型ナンバーテールズ333番機シリーズ",
@@ -1240,10 +1240,12 @@
     "SameMPSeries_DBLink": [{ "_DB": "SemiPrimary", "Num": "337-numberize" }],
     "FormalName_JP": "量産型ナンバーテールズ337番機シリーズ",
     "FormalName_EN": "NumberTales #337 Series Mass Production Version for Sales",
-    "ModelNumber": "APHR-NT [MP]337-*****",
     "CodeName_JP": "三三七",
     "CodeName_EN": "Three-Three-Seven",
+    "ModelNumber": "APHR-NT [MP]337-*****",
     "GenderType": "Neutral",
+    "Class": ["デュオトリプル4型"],
+    "AppearanceDetail": null,
     "TailsUnit": [
       {
         "TailShapeType": "#TailShapeType_FoxBranched",
@@ -1259,9 +1261,7 @@
         "Note_JP": null,
         "Note_EN": null
       }
-    ],
-    "AppearanceDetail": null,
-    "Class": ["デュオトリプル4型"]
+    ]
   },
   {
     "Num": 343,
@@ -1269,9 +1269,9 @@
     "SameMPSeries_DBLink": [{ "_DB": "SemiPrimary", "Num": "343-cub" }],
     "FormalName_JP": "量産型ナンバーテールズ343番機シリーズ",
     "FormalName_EN": "NumberTales #343 Series Mass Production Version for Sales",
-    "ModelNumber": "APHR-NT [MP]343-*****",
     "CodeName_JP": "三四三",
     "CodeName_EN": "Three-Four-Three",
+    "ModelNumber": "APHR-NT [MP]343-*****",
     "GenderType": "Neutral",
     "Class": ["デュオトリプル1型"]
   },
@@ -1282,11 +1282,11 @@
     "Name_EN": "360(Degreel)",
     "FormalName_JP": "量産型ナンバーテールズ360番機シリーズ",
     "FormalName_EN": "NumberTales #360 Series Mass Production Version for Sales",
-    "ModelNumber": "APHR-NT [MP]360-*****",
     "CodeName_JP": "三六〇",
     "CodeName_EN": "Three-Six-Zero",
     "SPCodeName_JP": "度数法",
     "SPCodeName_EN": "One Round by Degree",
+    "ModelNumber": "APHR-NT [MP]360-*****",
     "GenderType": "Neutral",
     "Class": ["ナインズトライデュアルズ", "マスマティカコンストレイント"]
   },
@@ -1297,10 +1297,10 @@
     "Name_EN": "365(Yearß)",
     "FormalName_JP": "量産型ナンバーテールズ365番機GCシリーズ",
     "FormalName_EN": "NumberTales #365-GC Series Mass Production Version for Sales",
-    "ModelNumber": "APHR-NT [MP]365-GC***",
     "CodeName_JP": "三六五",
     "CodeName_EN": "Three-Six-Five",
     "SPCodeName_EN": "Days of Year",
+    "ModelNumber": "APHR-NT [MP]365-GC***",
     "GenderType": "Neutral",
     "Class": ["トリプルファイブズ", "カレンド"],
     "Backgrounds_JP": "1年の年数(365日)から由来\nなお、「366(ウルウニチ)」とは義理の姉妹関係にある",
@@ -1314,10 +1314,10 @@
     "Name_EN": "366(Leaperlica)",
     "FormalName_JP": "量産型ナンバーテールズ366番機GCシリーズ",
     "FormalName_EN": "NumberTales #366-GC Series Mass Production Version for Sales",
-    "ModelNumber": "APHR-NT [MP]366-GC***",
     "CodeName_JP": "三六六",
     "CodeName_EN": "Three-Six-Six",
     "SPCodeName_EN": "Days of Leaped-Year",
+    "ModelNumber": "APHR-NT [MP]366-GC***",
     "GenderType": "Neutral",
     "Class": ["デュオトリプル6型", "カレンド"],
     "Backgrounds_JP": "閏年の日数(366日)から由来\nなお、「365(イヤース)」とは義理の姉妹関係にある",
@@ -1330,10 +1330,10 @@
     "Name_EN": "369(Trilix)",
     "FormalName_JP": "量産型ナンバーテールズ369番機シリーズ",
     "FormalName_EN": "NumberTales #369 Series Mass Production Version for Sales",
-    "ModelNumber": "APHR-NT [MP]369-*****",
     "CodeName_JP": "三六九",
     "CodeName_EN": "Three-Six-Nine",
     "SPCodeName_EN": "miracle the multiples of 3",
+    "ModelNumber": "APHR-NT [MP]369-*****",
     "GenderType": "Neutral",
     "Class": ["トリプルナインズ"]
   },
@@ -1344,9 +1344,9 @@
     "Name_EN": "370(Threeventy)",
     "FormalName_JP": "量産型ナンバーテールズ370番機NCシリーズ（ナンバーテールズ370番機）",
     "FormalName_EN": "NumberTales #370-NC Series Mass Production Version for Sales (NumberTales #370)",
-    "ModelNumber": "APHR-NT [MP]370-NC***",
     "CodeName_JP": "三七〇",
     "CodeName_EN": "Three-Seven-Zero",
+    "ModelNumber": "APHR-NT [MP]370-NC***",
     "GenderType": "Neutral",
     "Class": ["トライデュアルキャリーズ", "ナルシシスツ"],
     "Backgrounds_JP": "ちなみに、153,370,371,407はナルシシスト数である",
@@ -1359,9 +1359,9 @@
     "Name_EN": "371(Treventone)",
     "FormalName_JP": "量産型ナンバーテールズ371番機NCシリーズ（ナンバーテールズ371番機）",
     "FormalName_EN": "NumberTales #371-NC Series Mass Production Version for Sales (NumberTales #371)",
-    "ModelNumber": "APHR-NT [MP]371-NC***",
     "CodeName_JP": "三七一",
     "CodeName_EN": "Three-Seven-One",
+    "ModelNumber": "APHR-NT [MP]371-NC***",
     "GenderType": "Neutral",
     "Class": ["トリプルトワイズ", "ナルシシスツ"],
     "Backgrounds_JP": "ちなみに、153,370,371,407はナルシシスト数である",
@@ -1374,9 +1374,9 @@
     "Name_EN": "373(Thrsevthy)",
     "FormalName_JP": "量産型ナンバーテールズ373番機シリーズ",
     "FormalName_EN": "NumberTales #373 Series Mass Production Version for Sales",
-    "ModelNumber": "APHR-NT [MP]373-*****",
     "CodeName_JP": "三七三",
     "CodeName_EN": "Three-Seven-Three",
+    "ModelNumber": "APHR-NT [MP]373-*****",
     "GenderType": "Neutral",
     "Class": ["デュオトリプル4型"]
   },
@@ -1386,10 +1386,12 @@
     "SameMPSeries_DBLink": [{ "_DB": "Secondary", "Num": "376-numberize" }],
     "FormalName_JP": "量産型ナンバーテールズ376番機シリーズ",
     "FormalName_EN": "NumberTales #376 Series Mass Production Version for Sales",
-    "ModelNumber": "APHR-NT [MP]376-*****",
     "CodeName_JP": "三七六",
     "CodeName_EN": "Three-Seven-Six",
+    "ModelNumber": "APHR-NT [MP]376-*****",
     "GenderType": "Neutral",
+    "Class": ["トリプルセブンズ"],
+    "AppearanceDetail": null,
     "TailsUnit": [
       {
         "TailShapeType": "#TailShapeType_FoxBranched",
@@ -1406,9 +1408,7 @@
         "Note_JP": "キツネ(枝分かれ)型7本16束\n中央から周辺に向かって:3本が3束+上左右3本が2束+下1本が1束",
         "Note_EN": "Fox (Branched) Type: 7 tails, 16 cluster\nFrom Center to Periphery: 3 cluster x 3 tails + Upper-Sides 2 cluster x 3 tails + Lower 1 cluster x 1 tail"
       }
-    ],
-    "AppearanceDetail": null,
-    "Class": ["トリプルセブンズ"]
+    ]
   },
   {
     "Num": 377,
@@ -1416,9 +1416,9 @@
     "SameMPSeries_DBLink": [{ "_DB": "Secondary", "Num": "377-numberize" }],
     "FormalName_JP": "量産型ナンバーテールズ377番機シリーズ",
     "FormalName_EN": "NumberTales #377 Series Mass Production Version for Sales",
-    "ModelNumber": "APHR-NT [MP]377-*****",
     "CodeName_JP": "三七七",
     "CodeName_EN": "Three-Seven-Seven",
+    "ModelNumber": "APHR-NT [MP]377-*****",
     "GenderType": "Neutral",
     "Class": ["デュオトリプル8型"]
   },
@@ -1429,11 +1429,11 @@
     "Name_EN": "385(Threightifiver)\n385(Miyako)",
     "FormalName_JP": "量産型ナンバーテールズ385番機シリーズ",
     "FormalName_EN": "NumberTales #385 Series Mass Production Version for Sales",
-    "ModelNumber": "APHR-NT [MP]385-*****",
     "CodeName_JP": "三八五",
     "CodeName_EN": "Three-Eight-Five",
     "SPCodeName_JP": "(都:みやこ)",
     "SPCodeName_EN": "(Metropolis)",
+    "ModelNumber": "APHR-NT [MP]385-*****",
     "GenderType": "Neutral",
     "Class": ["トリプルセブンズ", "ワノマチ"]
   },
@@ -1443,10 +1443,12 @@
     "SameMPSeries_DBLink": [{ "_DB": "Secondary", "Num": "387-numberize" }],
     "FormalName_JP": "量産型ナンバーテールズ387番機シリーズ",
     "FormalName_EN": "NumberTales #387 Series Mass Production Version for Sales",
-    "ModelNumber": "APHR-NT [MP]387-*****",
     "CodeName_JP": "三八七",
     "CodeName_EN": "Three-Eight-Seven",
+    "ModelNumber": "APHR-NT [MP]387-*****",
     "GenderType": "Neutral",
+    "Class": ["トリプルナインズ"],
+    "AppearanceDetail": null,
     "TailsUnit": [
       {
         "TailShapeType": "#TailShapeType_FoxBranched",
@@ -1463,24 +1465,22 @@
         "Note_JP": "キツネ(枝分かれ)型8本18束\n中央から周辺に向かって:3本が3束+上左右4本が2束+下1本が1束",
         "Note_EN": "Fox (Branched) Type: 8 tails, 18 cluster\nFrom Center to Periphery: 3 cluster x 3 tails + Upper-Sides 2 cluster x 4 tails + Lower 1 cluster x 1 tail"
       }
-    ],
-    "AppearanceDetail": null,
-    "Class": ["トリプルナインズ"]
+    ]
   },
   {
     "Num": "400-gc",
     "Progress": "notProceeded",
-    "SameMPSeries_DBLink": [{ "_DB": "SemiPrimary", "Num": "400-sq" }],
     "AnotherVersions_DBLink": [{ "_DB": "SemiPrimary", "Num": 400 }],
+    "SameMPSeries_DBLink": [{ "_DB": "SemiPrimary", "Num": "400-sq" }],
     "Name_JP": "400(マタウルウ)",
     "Name_EN": "400(Leap-againer)",
     "FormalName_JP": "量産型ナンバーテールズ400番機GCシリーズ",
     "FormalName_EN": "NumberTales #400-GC Series Mass Production Version for Sales",
-    "ModelNumber": "APHR-NT [MP]400-GC***",
     "CodeName_JP": "四〇〇",
     "CodeName_EN": "Four-Zero-Zero",
     "SPCodeName_JP": "閏周期",
     "SPCodeName_EN": "Leap Term(by years)",
+    "ModelNumber": "APHR-NT [MP]400-GC***",
     "GenderType": "Neutral",
     "Class": ["百倍番(ハンドレッズデジッツ)"]
   },
@@ -1490,10 +1490,12 @@
     "SameMPSeries_DBLink": [{ "_DB": "Secondary", "Num": "401-numberize" }],
     "FormalName_JP": "量産型ナンバーテールズ401番機シリーズ",
     "FormalName_EN": "NumberTales #401 Series Mass Production Version for Sales",
-    "ModelNumber": "APHR-NT [MP]401-*****",
     "CodeName_JP": "四〇一",
     "CodeName_EN": "Four-Zero-One",
+    "ModelNumber": "APHR-NT [MP]401-*****",
     "GenderType": "Neutral",
+    "Class": ["トライデュアルファイブズ"],
+    "AppearanceDetail": null,
     "TailsUnit": [
       {
         "TailShapeType": "#TailShapeType_FoxBranched",
@@ -1505,9 +1507,7 @@
         "Note_JP": null,
         "Note_EN": null
       }
-    ],
-    "AppearanceDetail": null,
-    "Class": ["トライデュアルファイブズ"]
+    ]
   },
   {
     "Num": 404,
@@ -1516,11 +1516,11 @@
     "Name_EN": "404(Foundnot)",
     "FormalName_JP": "量産型ナンバーテールズ404番機シリーズ",
     "FormalName_EN": "NumberTales #404 Series Mass Production Version for Sales",
-    "ModelNumber": "APHR-NT [MP]404-*****",
     "CodeName_JP": "四〇四",
     "CodeName_EN": "Four-Zero-Four",
     "SPCodeName_JP": "HTTP応答404",
     "SPCodeName_EN": "HTTP Response 404",
+    "ModelNumber": "APHR-NT [MP]404-*****",
     "GenderType": "Neutral",
     "Class": ["サイドシングルズ"]
   },
@@ -1531,9 +1531,9 @@
     "Name_EN": "407(Fore-o-sept)",
     "FormalName_JP": "量産型ナンバーテールズ407番機NCシリーズ（ナンバーテールズ407番機）",
     "FormalName_EN": "NumberTales #407-NC Series Mass Production Version for Sales (NumberTales #407)",
-    "ModelNumber": "APHR-NT [MP]407-NC***",
     "CodeName_JP": "四〇七",
     "CodeName_EN": "Four-Zero-Seven",
+    "ModelNumber": "APHR-NT [MP]407-NC***",
     "GenderType": "Neutral",
     "Class": ["トライデュアルトワイズ", "ナルシシスツ"],
     "Backgrounds_JP": "ちなみに、153,370,371,407はナルシシスト数である",
@@ -1542,13 +1542,15 @@
   {
     "Num": 411,
     "Progress": "stillTentative",
-    "FormalName_JP": "量産型ナンバーテールズ411番機シリーズ",
     "SameMPSeries_DBLink": [{ "_DB": "Secondary", "Num": "411-numberize" }],
+    "FormalName_JP": "量産型ナンバーテールズ411番機シリーズ",
     "FormalName_EN": "NumberTales #411 Series Mass Production Version for Sales",
-    "ModelNumber": "APHR-NT [MP]411-*****",
     "CodeName_JP": "四一一",
     "CodeName_EN": "Four-One-One",
+    "ModelNumber": "APHR-NT [MP]411-*****",
     "GenderType": "Neutral",
+    "Class": ["デュオトリプル6型"],
+    "AppearanceDetail": null,
     "TailsUnit": [
       {
         "TailShapeType": "#TailShapeType_Fox",
@@ -1563,20 +1565,20 @@
         "Note_JP": null,
         "Note_EN": null
       }
-    ],
-    "AppearanceDetail": null,
-    "Class": ["デュオトリプル6型"]
+    ]
   },
   {
     "Num": 421,
     "Progress": "stillTentative",
-    "FormalName_JP": "量産型ナンバーテールズ421番機シリーズ",
     "SameMPSeries_DBLink": [{ "_DB": "Secondary", "Num": "421-numberize" }],
+    "FormalName_JP": "量産型ナンバーテールズ421番機シリーズ",
     "FormalName_EN": "NumberTales #421 Series Mass Production Version for Sales",
-    "ModelNumber": "APHR-NT [MP]421-*****",
     "CodeName_JP": "四二一",
     "CodeName_EN": "Four-Two-One",
+    "ModelNumber": "APHR-NT [MP]421-*****",
     "GenderType": "Neutral",
+    "Class": ["トリプルセブンズ"],
+    "AppearanceDetail": null,
     "TailsUnit": [
       {
         "TailShapeType": "#TailShapeType_Cat",
@@ -1599,37 +1601,26 @@
         "Note_JP": null,
         "Note_EN": null
       }
-    ],
-    "AppearanceDetail": null,
-    "Class": ["トリプルセブンズ"]
+    ]
   },
   {
-    "sec_Category": null,
-    "sec_DesignedBy": ["RadianN"],
-    "sec_SeriesTitle": "量産型マスタートリプル",
     "Num": "444-mp",
     "Progress": "released(beta)",
+    "AnotherVersions_DBLink": [
+      { "_Work": "NumberTales", "_DB": "SemiPrimary", "Num": 444 }
+    ],
+    "sec_SeriesTitle": "量産型マスタートリプル",
+    "sec_Category": null,
+    "sec_DesignedBy": ["RadianN"],
+    "Name_JP": "量産型 444(シテン)",
+    "Name_EN": "Cloned 444(Quad-emperone)",
     "Images": {
       "concept_PNGName": "cnsp_img444-mp",
       "corefolder_PNGPath": ["444/emstk_corefolder444-mp1"]
     },
-    "AnotherVersions_DBLink": [
-      { "_Work": "NumberTales", "_DB": "SemiPrimary", "Num": 444 }
-    ],
-    "Name_JP": "量産型 444(シテン)",
-    "Name_EN": "Cloned 444(Quad-emperone)",
     "FormalName_JP": "量産型ナンバーテールズ444番機シリーズ",
     "FormalName_EN": "NumberTales #444 Series Mass Production Version for Sales",
     "ModelNumber": "APHR-NT [MP]444-*****",
-    "TailsUnit": [
-      {
-        "TailShapeType": "#TailShapeType_FoxSpecial",
-        "Count": 4,
-        "Segment": 3,
-        "Note_JP": null,
-        "Note_EN": null
-      }
-    ],
     "Class": ["量産型マスタートリプル"],
     "AppearanceDetail": [
       {
@@ -1973,6 +1964,15 @@
         "Note_JP": null,
         "Note_EN": null
       }
+    ],
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxSpecial",
+        "Count": 4,
+        "Segment": 3,
+        "Note_JP": null,
+        "Note_EN": null
+      }
     ]
   },
   {
@@ -1982,11 +1982,11 @@
     "Name_EN": "451(Bookburn)",
     "FormalName_JP": "量産型ナンバーテールズ451番機シリーズ",
     "FormalName_EN": "NumberTales #451 Series Mass Production Version for Sales",
-    "ModelNumber": "APHR-NT [MP]451-*****",
     "CodeName_JP": "四五一",
     "CodeName_EN": "Four-Five-One",
     "SPCodeName_JP": "華氏451",
     "SPCodeName_EN": "Fahrenheit 451",
+    "ModelNumber": "APHR-NT [MP]451-*****",
     "GenderType": "Neutral",
     "Class": ["トリプルキャリーズ", "フィジクスコンストレイント"]
   },
@@ -1997,24 +1997,26 @@
     "Name_EN": "456(Sigoro)",
     "FormalName_JP": "量産型ナンバーテールズ456番機シリーズ",
     "FormalName_EN": "NumberTales #456 Series Mass Production Version for Sales",
-    "ModelNumber": "APHR-NT [MP]456-*****",
     "CodeName_JP": "四五六",
     "CodeName_EN": "Four-Five-Six",
     "SPCodeName_JP": "(四五六賽)",
     "SPCodeName_EN": "Upper Dice",
+    "ModelNumber": "APHR-NT [MP]456-*****",
     "GenderType": "Neutral",
     "Class": ["トリプルシックスズ", "ワノマチ"]
   },
   {
     "Num": 467,
     "Progress": "stillTentative",
-    "FormalName_JP": "量産型ナンバーテールズ467番機シリーズ",
     "SameMPSeries_DBLink": [{ "_DB": "Secondary", "Num": "467-numberize" }],
+    "FormalName_JP": "量産型ナンバーテールズ467番機シリーズ",
     "FormalName_EN": "NumberTales #467 Series Mass Production Version for Sales",
-    "ModelNumber": "APHR-NT [MP]467-*****",
     "CodeName_JP": "四六七",
     "CodeName_EN": "Four-Six-Seven",
+    "ModelNumber": "APHR-NT [MP]467-*****",
     "GenderType": "Neutral",
+    "Class": ["トリプルエイツ"],
+    "AppearanceDetail": null,
     "TailsUnit": [
       {
         "TailShapeType": "#TailShapeType_FoxBranched",
@@ -2031,9 +2033,7 @@
         "Note_JP": null,
         "Note_EN": null
       }
-    ],
-    "AppearanceDetail": null,
-    "Class": ["トリプルエイツ"]
+    ]
   },
   {
     "Num": 476,
@@ -2041,10 +2041,12 @@
     "SameMPSeries_DBLink": [{ "_DB": "Secondary", "Num": "476-numberize" }],
     "FormalName_JP": "量産型ナンバーテールズ476番機シリーズ",
     "FormalName_EN": "NumberTales #476 Series Mass Production Version for Sales",
-    "ModelNumber": "APHR-NT [MP]476-*****",
     "CodeName_JP": "四七六",
     "CodeName_EN": "Four-Seven-Six",
+    "ModelNumber": "APHR-NT [MP]476-*****",
     "GenderType": "Neutral",
+    "Class": ["トリプルエイツ"],
+    "AppearanceDetail": null,
     "TailsUnit": [
       {
         "TailShapeType": "#TailShapeType_FoxBranched",
@@ -2061,9 +2063,7 @@
         "Note_JP": null,
         "Note_EN": null
       }
-    ],
-    "AppearanceDetail": null,
-    "Class": ["トリプルエイツ"]
+    ]
   },
   {
     "Num": 496,
@@ -2072,9 +2072,9 @@
     "Name_EN": "496(Fornix)",
     "FormalName_JP": "量産型ナンバーテールズ496番機シリーズ",
     "FormalName_EN": "NumberTales #496 Series Mass Production Version for Sales",
-    "ModelNumber": "APHR-NT [MP]496-*****",
     "CodeName_JP": "四九六",
     "CodeName_EN": "Four-Nine-Six",
+    "ModelNumber": "APHR-NT [MP]496-*****",
     "GenderType": "Neutral",
     "Class": ["トリプルキャリーズ", "マスマティカコンストレイント"]
   },
@@ -2085,11 +2085,11 @@
     "Name_EN": "500(Halvemill)",
     "FormalName_JP": "量産型ナンバーテールズ500番機シリーズ",
     "FormalName_EN": "NumberTales #500 Series Mass Production Version for Sales",
-    "ModelNumber": "APHR-NT [MP]500-*****",
     "CodeName_JP": "五〇〇",
     "CodeName_EN": "Five-Zero-Zero",
     "SPCodeName_JP": "半千",
     "SPCodeName_EN": "Half of Permill",
+    "ModelNumber": "APHR-NT [MP]500-*****",
     "GenderType": "Neutral",
     "Class": ["百倍番(ハンドレッズデジッツ)"]
   },
@@ -2099,10 +2099,12 @@
     "SameMPSeries_DBLink": [{ "_DB": "Secondary", "Num": "510-numberize" }],
     "FormalName_JP": "量産型ナンバーテールズ510番機シリーズ",
     "FormalName_EN": "NumberTales #510 Series Mass Production Version for Sales",
-    "ModelNumber": "APHR-NT [MP]510-*****",
     "CodeName_JP": "五一〇",
     "CodeName_EN": "Five-One-Zero",
+    "ModelNumber": "APHR-NT [MP]510-*****",
     "GenderType": "Neutral",
+    "Class": ["トライデュアルシックスズ"],
+    "AppearanceDetail": null,
     "TailsUnit": [
       {
         "TailShapeType": "#TailShapeType_FoxBranched",
@@ -2114,23 +2116,21 @@
         "Note_JP": null,
         "Note_EN": null
       }
-    ],
-    "AppearanceDetail": null,
-    "Class": ["トライデュアルシックスズ"]
+    ]
   },
   {
     "Num": 512,
-    "SameMPSeries_DBLink": [{ "_DB": "SemiPrimary", "Num": "512-cub" }],
     "Progress": "notProceeded",
+    "SameMPSeries_DBLink": [{ "_DB": "SemiPrimary", "Num": "512-cub" }],
     "Name_JP": "512(ハキビ)",
     "Name_EN": "512(Hav-kiB)",
     "FormalName_JP": "量産型ナンバーテールズ512番機シリーズ",
     "FormalName_EN": "NumberTales #512 Series Mass Production Version for Sales",
-    "ModelNumber": "APHR-NT [MP]512-*****",
     "CodeName_JP": "五一二",
     "CodeName_EN": "Five-One-Two",
     "SPCodeName_JP": "半キロバイナリ",
     "SPCodeName_EN": "Half KiB(Kilo Binary)",
+    "ModelNumber": "APHR-NT [MP]512-*****",
     "GenderType": "Neutral",
     "Class": ["トリプルエイツ"]
   },
@@ -2141,23 +2141,23 @@
     "Name_EN": "528(Solfeggian)",
     "FormalName_JP": "量産型ナンバーテールズ528番機シリーズ",
     "FormalName_EN": "NumberTales #528 Series Mass Production Version for Sales",
-    "ModelNumber": "APHR-NT [MP]528-*****",
     "CodeName_JP": "五二八",
     "CodeName_EN": "Five-Two-Eight",
     "SPCodeName_JP": "ソルフェジオ周波数",
     "SPCodeName_EN": "Solfeggio Frequencies",
+    "ModelNumber": "APHR-NT [MP]528-*****",
     "GenderType": "Neutral",
     "Class": ["トリプルシックスズ", "フィジクスコンストレイント"]
   },
   {
-    "sec_Category": null,
-    "sec_DesignedBy": ["RadianN"],
-    "sec_SeriesTitle": "量産型マスタートリプル",
     "Num": "555-mp",
     "Progress": "notProceeded",
     "AnotherVersions_DBLink": [
       { "_Work": "NumberTales", "_DB": "SemiPrimary", "Num": 555 }
     ],
+    "sec_SeriesTitle": "量産型マスタートリプル",
+    "sec_Category": null,
+    "sec_DesignedBy": ["RadianN"],
     "Name_JP": "量産型 555(ハイファイブ)",
     "Name_EN": "Cloned 555(High-Fiver)",
     "FormalName_JP": "量産型ナンバーテールズ555番機シリーズ",
@@ -2171,10 +2171,12 @@
     "SameMPSeries_DBLink": [{ "_DB": "Secondary", "Num": "558-numberize" }],
     "FormalName_JP": "量産型ナンバーテールズ558番機シリーズ",
     "FormalName_EN": "NumberTales #558 Series Mass Production Version for Sales",
-    "ModelNumber": "APHR-NT [MP]558-*****",
     "CodeName_JP": "五五八",
     "CodeName_EN": "Five-Five-Eight",
+    "ModelNumber": "APHR-NT [MP]558-*****",
     "GenderType": "Neutral",
+    "Class": ["デュオトリプル9型"],
+    "AppearanceDetail": null,
     "TailsUnit": [
       {
         "TailShapeType": "#TailShapeType_FoxBranched",
@@ -2190,9 +2192,7 @@
         "Note_JP": null,
         "Note_EN": null
       }
-    ],
-    "AppearanceDetail": null,
-    "Class": ["デュオトリプル9型"]
+    ]
   },
   {
     "Num": 572,
@@ -2201,9 +2201,9 @@
     "Name_EN": "572(Fiventwy)",
     "FormalName_JP": "量産型ナンバーテールズ572番機シリーズ",
     "FormalName_EN": "NumberTales #572 Series Mass Production Version for Sales",
-    "ModelNumber": "APHR-NT [MP]572-*****",
     "CodeName_JP": "五七二",
     "CodeName_EN": "Five-Seven-Two",
+    "ModelNumber": "APHR-NT [MP]572-*****",
     "GenderType": "Neutral",
     "Class": ["トリプルファイブズ"]
   },
@@ -2213,10 +2213,12 @@
     "SameMPSeries_DBLink": [{ "_DB": "Secondary", "Num": "605-numberize" }],
     "FormalName_JP": "量産型ナンバーテールズ605番機シリーズ",
     "FormalName_EN": "NumberTales #605 Series Mass Production Version for Sales",
-    "ModelNumber": "APHR-NT [MP]605-*****",
     "CodeName_JP": "六〇五",
     "CodeName_EN": "Six-Zero-Five",
+    "ModelNumber": "APHR-NT [MP]605-*****",
     "GenderType": "Neutral",
+    "Class": ["トライデュアルトワイズ"],
+    "AppearanceDetail": null,
     "TailsUnit": [
       {
         "TailShapeType": "#TailShapeType_FoxBranched",
@@ -2228,9 +2230,7 @@
         "Note_JP": null,
         "Note_EN": null
       }
-    ],
-    "AppearanceDetail": null,
-    "Class": ["トライデュアルトワイズ"]
+    ]
   },
   {
     "Num": 616,
@@ -2239,11 +2239,11 @@
     "Name_EN": "616(Lil)",
     "FormalName_JP": "量産型ナンバーテールズ616番機シリーズ",
     "FormalName_EN": "NumberTales #616 Series Mass Production Version for Sales",
-    "ModelNumber": "APHR-NT [MP]616-*****",
     "CodeName_JP": "六一六",
     "CodeName_EN": "Six-One-Six",
     "SPCodeName_JP": "亜魔",
     "SPCodeName_EN": "Alter Faith",
+    "ModelNumber": "APHR-NT [MP]616-*****",
     "GenderType": "Neutral",
     "Class": ["デュオトリプル4型", "フェイタルテールズ"],
     "Backgrounds_JP": "666(リリス)に強く関連しているらしい",
@@ -2255,10 +2255,12 @@
     "SameMPSeries_DBLink": [{ "_DB": "Secondary", "Num": "625-numberize" }],
     "FormalName_JP": "量産型ナンバーテールズ625番機シリーズ",
     "FormalName_EN": "NumberTales #625 Series Mass Production Version for Sales",
-    "ModelNumber": "APHR-NT [MP]625-*****",
     "CodeName_JP": "六二五",
     "CodeName_EN": "Six-Two-Five",
+    "ModelNumber": "APHR-NT [MP]625-*****",
     "GenderType": "Neutral",
+    "Class": ["トリプルフォーズ"],
+    "AppearanceDetail": null,
     "TailsUnit": [
       {
         "TailShapeType": "#TailShapeType_FoxBranched",
@@ -2275,9 +2277,7 @@
         "Note_JP": null,
         "Note_EN": null
       }
-    ],
-    "AppearanceDetail": null,
-    "Class": ["トリプルフォーズ"]
+    ]
   },
   {
     "Num": 634,
@@ -2286,9 +2286,9 @@
     "Name_EN": "634(Sithfone)",
     "FormalName_JP": "量産型ナンバーテールズ634番機シリーズ",
     "FormalName_EN": "NumberTales #634 Series Mass Production Version for Sales",
-    "ModelNumber": "APHR-NT [MP]634-*****",
     "CodeName_JP": "六三四",
     "CodeName_EN": "Six-Three-Four",
+    "ModelNumber": "APHR-NT [MP]634-*****",
     "GenderType": "Neutral",
     "Class": ["トリプルフォーズ"]
   },
@@ -2298,10 +2298,12 @@
     "SameMPSeries_DBLink": [{ "_DB": "Secondary", "Num": "638-numberize" }],
     "FormalName_JP": "量産型ナンバーテールズ638番機シリーズ",
     "FormalName_EN": "NumberTales #638 Series Mass Production Version for Sales",
-    "ModelNumber": "APHR-NT [MP]638-*****",
     "CodeName_JP": "六三八",
     "CodeName_EN": "Six-Three-Eight",
+    "ModelNumber": "APHR-NT [MP]638-*****",
     "GenderType": "Neutral",
+    "Class": ["トリプルエイツ"],
+    "AppearanceDetail": null,
     "TailsUnit": [
       {
         "TailShapeType": "#TailShapeType_FoxBranched",
@@ -2318,43 +2320,32 @@
         "Note_JP": null,
         "Note_EN": null
       }
-    ],
-    "AppearanceDetail": null,
-    "Class": ["トリプルエイツ"]
+    ]
   },
   {
-    "sec_Category": null,
-    "sec_DesignedBy": ["RadianN"],
-    "sec_SeriesTitle": "量産型マスタートリプル",
     "Num": "666-mp",
     "Progress": "released(beta)",
     "AnotherVersions_DBLink": [
       { "_Work": "NumberTales", "_DB": "SemiPrimary", "Num": 666 }
     ],
+    "sec_SeriesTitle": "量産型マスタートリプル",
+    "sec_Category": null,
+    "sec_DesignedBy": ["RadianN"],
+    "Name_JP": "量産型 666(リリス)",
+    "Name_EN": "Cloned 666(Lilith)",
     "Images": {
       "concept_PNGName": "cnsp_img666-mp",
       "corefolder_PNGPath": ["666/emstk_corefolder666-mp1"]
     },
-    "Name_JP": "量産型 666(リリス)",
-    "Name_EN": "Cloned 666(Lilith)",
     "FormalName_JP": "量産型ナンバーテールズ666番機シリーズ",
     "FormalName_EN": "NumberTales #666 Series Mass Production Version for Sales",
     "ModelNumber": "APHR-NT [MP]666-*****",
     "GenderType": "FemaleNeutral",
+    "Class": ["量産型マスタートリプル"],
     "Height_cm": 150,
-    "ConceptAge": 16,
     "Weight_kg": { "hideText": "非公開" },
     "BustSize": "E",
-    "Class": ["量産型マスタートリプル"],
-    "TailsUnit": [
-      {
-        "TailShapeType": "#TailShapeType_FoxSpecial",
-        "Count": 6,
-        "Segment": 3,
-        "Note_JP": null,
-        "Note_EN": null
-      }
-    ],
+    "ConceptAge": 16,
     "AppearanceDetail": [
       {
         "Formation": null,
@@ -2663,6 +2654,15 @@
         "Note_JP": null,
         "Note_EN": null
       }
+    ],
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxSpecial",
+        "Count": 6,
+        "Segment": 3,
+        "Note_JP": null,
+        "Note_EN": null
+      }
     ]
   },
   {
@@ -2671,10 +2671,12 @@
     "SameMPSeries_DBLink": [{ "_DB": "Secondary", "Num": "670-numberize" }],
     "FormalName_JP": "量産型ナンバーテールズ670番機シリーズ",
     "FormalName_EN": "NumberTales #670 Series Mass Production Version for Sales",
-    "ModelNumber": "APHR-NT [MP]670-*****",
     "CodeName_JP": "六七〇",
     "CodeName_EN": "Six-Seven-Zero",
+    "ModelNumber": "APHR-NT [MP]670-*****",
     "GenderType": "Neutral",
+    "Class": ["トライデュアルフォーズ"],
+    "AppearanceDetail": null,
     "TailsUnit": [
       {
         "TailShapeType": "#TailShapeType_FoxBranched",
@@ -2686,9 +2688,7 @@
         "Note_JP": null,
         "Note_EN": null
       }
-    ],
-    "AppearanceDetail": null,
-    "Class": ["トライデュアルフォーズ"]
+    ]
   },
   {
     "Num": 696,
@@ -2697,9 +2697,9 @@
     "Name_EN": "696(Signovix)",
     "FormalName_JP": "量産型ナンバーテールズ696番機シリーズ",
     "FormalName_EN": "NumberTales #696 Series Mass Production Version for Sales",
-    "ModelNumber": "APHR-NT [MP]696-*****",
     "CodeName_JP": "六九六",
     "CodeName_EN": "Six-Nine-Six",
+    "ModelNumber": "APHR-NT [MP]696-*****",
     "GenderType": "Neutral",
     "Class": ["デュオトリプル3型"]
   },
@@ -2711,9 +2711,9 @@
     "Name_EN": "729(Seventwínina)",
     "FormalName_JP": "量産型ナンバーテールズ729番機シリーズ",
     "FormalName_EN": "NumberTales #729 Series Mass Production Version for Sales",
-    "ModelNumber": "APHR-NT [MP]729-*****",
     "CodeName_JP": "七二九",
     "CodeName_EN": "Seven-Two-Nine",
+    "ModelNumber": "APHR-NT [MP]729-*****",
     "GenderType": "Neutral",
     "Class": ["トリプルナインズ"]
   },
@@ -2723,10 +2723,12 @@
     "SameMPSeries_DBLink": [{ "_DB": "Secondary", "Num": "736-numberize" }],
     "FormalName_JP": "量産型ナンバーテールズ736番機シリーズ",
     "FormalName_EN": "NumberTales #736 Series Mass Production Version for Sales",
-    "ModelNumber": "APHR-NT [MP]736-*****",
     "CodeName_JP": "七三六",
     "CodeName_EN": "Seven-Three-Six",
+    "ModelNumber": "APHR-NT [MP]736-*****",
     "GenderType": "Neutral",
+    "Class": ["トリプルセブンズ"],
+    "AppearanceDetail": null,
     "TailsUnit": [
       {
         "TailShapeType": "#TailShapeType_FoxBranched",
@@ -2743,55 +2745,37 @@
         "Note_JP": null,
         "Note_EN": null
       }
-    ],
-    "AppearanceDetail": null,
-    "Class": ["トリプルセブンズ"]
+    ]
   },
   {
-    "sec_Category": "リクエストナンバー",
-    "sec_DesignedBy": ["RadianN"],
     "Num": 753,
     "Progress": "released(beta)",
+    "sec_Category": "リクエストナンバー",
+    "sec_DesignedBy": ["RadianN"],
+    "Name_JP": "753(ナゴミ)",
+    "Name_EN": "753(Nagomi)\n753(Sefenvethirs)",
     "Images": {
       "concept_PNGName": "cnsp_img753",
       "corefolder_PNGPath": ["753/emstk_corefolder753-1"]
     },
-    "Name_JP": "753(ナゴミ)",
-    "Name_EN": "753(Nagomi)\n753(Sefenvethirs)",
     "FormalName_JP": "量産型ナンバーテールズ753番機JWシリーズ(ナンバーテールズ753番機)",
     "FormalName_EN": "NumberTales #753-JW Series Mass Production Version for Sales (NumberTales #753)",
-    "ModelNumber": "APHR-NT [MP]753-JW***",
     "CodeName_JP": "七五三",
     "CodeName_EN": "Seven-Five-Three",
     "SPCodeName_JP": "七五三: 和風文化における子供の儀式",
     "SPCodeName_EN": "Shichi-Go-San: Far-Eastern Ceremony for Children",
+    "ModelNumber": "APHR-NT [MP]753-JW***",
     "GenderType": "Neutral",
+    "Class": ["トリプルシックスズ", "ワノマチ"],
     "Height_cm": 153,
+    "Weight_kg": 42,
+    "BustSize": "A",
     "ConceptAge": 16,
     "AnivDay": [
       {
         "Day": { "Month": 11, "DayOfMonth": 15 },
         "DayAbout_JP": "開発記念(ワノマチ名義)",
         "DayAbout_EN": "Development commemoration (in Wa-no-Machi Class)"
-      }
-    ],
-    "BustSize": "A",
-    "Weight_kg": 42,
-    "TailsUnit": [
-      {
-        "TailShapeType": "#TailShapeType_FoxBranched",
-        "Count": 7,
-        "Branches": [
-          { "Laterality": "#Lat_Lower", "TailCount": 3, "ClusterCount": 3 },
-          { "Laterality": null, "TailCount": 2, "ClusterCount": 2 },
-          { "Laterality": "#Lat_Upper", "TailCount": 1, "ClusterCount": 1 }
-        ],
-        "LayoutDirection": {
-          "LayoutFrom": "#Lat_Lower",
-          "LayoutTo": "#Lat_Upper"
-        },
-        "Note_JP": "下から上に向かって、3本が3束(アクセントカラーあり)+2本が2束(アクセントカラーあり)+1本が1束(アクセントカラーなし)",
-        "Note_EN": "From bottom to top: 3 tails x 3 clusters (with accent color) + 2 tails x 2 clusters (with accent color) + 1 tail x 1 cluster (without accent color)"
       }
     ],
     "AppearanceDetail": null,
@@ -2857,7 +2841,23 @@
         "Note_EN": null
       }
     ],
-    "Class": ["トリプルシックスズ", "ワノマチ"]
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxBranched",
+        "Count": 7,
+        "Branches": [
+          { "Laterality": "#Lat_Lower", "TailCount": 3, "ClusterCount": 3 },
+          { "Laterality": null, "TailCount": 2, "ClusterCount": 2 },
+          { "Laterality": "#Lat_Upper", "TailCount": 1, "ClusterCount": 1 }
+        ],
+        "LayoutDirection": {
+          "LayoutFrom": "#Lat_Lower",
+          "LayoutTo": "#Lat_Upper"
+        },
+        "Note_JP": "下から上に向かって、3本が3束(アクセントカラーあり)+2本が2束(アクセントカラーあり)+1本が1束(アクセントカラーなし)",
+        "Note_EN": "From bottom to top: 3 tails x 3 clusters (with accent color) + 2 tails x 2 clusters (with accent color) + 1 tail x 1 cluster (without accent color)"
+      }
+    ]
   },
   {
     "Num": 773,
@@ -2867,10 +2867,12 @@
     "Name_EN": "773(Sevyzecthia)",
     "FormalName_JP": "量産型ナンバーテールズ773番機シリーズ",
     "FormalName_EN": "NumberTales #773 Series Mass Production Version for Sales",
-    "ModelNumber": "APHR-NT [MP]773-*****",
     "CodeName_JP": "七七三",
     "CodeName_EN": "Seven-Seven-Three",
+    "ModelNumber": "APHR-NT [MP]773-*****",
     "GenderType": "Neutral",
+    "Class": ["デュオトリプル8型"],
+    "AppearanceDetail": null,
     "TailsUnit": [
       {
         "TailShapeType": "#TailShapeType_FoxBranched",
@@ -2886,9 +2888,7 @@
         "Note_JP": null,
         "Note_EN": null
       }
-    ],
-    "AppearanceDetail": null,
-    "Class": ["デュオトリプル8型"]
+    ]
   },
   {
     "Num": 774,
@@ -2897,39 +2897,36 @@
     "Name_EN": "774(Save-Service-For-Nameless)\n774(SSFN)",
     "FormalName_JP": "量産型ナンバーテールズ774番機シリーズ",
     "FormalName_EN": "NumberTales #774 Series Mass Production Version for Sales",
-    "ModelNumber": "APHR-NT [MP]774-*****",
     "CodeName_JP": "七七四",
     "CodeName_EN": "Seven-Seven-Four",
     "SPCodeName_JP": "(名無)",
     "SPCodeName_EN": "(Non-Named)",
+    "ModelNumber": "APHR-NT [MP]774-*****",
     "GenderType": "Neutral",
     "Class": ["デュオトリプル9型"]
   },
   {
-    "sec_Category": null,
-    "sec_DesignedBy": ["RadianN"],
-    "sec_SeriesTitle": "量産型マスタートリプル",
     "Num": "777-mp",
     "Progress": "released(beta)",
     "AnotherVersions_DBLink": [
       { "_Work": "NumberTales", "_DB": "SemiPrimary", "Num": 777 }
     ],
+    "sec_SeriesTitle": "量産型マスタートリプル",
+    "sec_Category": null,
+    "sec_DesignedBy": ["RadianN"],
     "SameModels_DBLink": [{ "_DB": "SelfSecondary", "Num": "777.Jackpot-mp" }],
+    "Name_JP": "量産型 777(ヨロコビ)",
+    "Name_EN": "Cloned 777(Lucky-sevens)\nCloned 777(Luckies)",
     "Images": {
       "concept_PNGName": "cnsp_img777-mpA",
       "conceptAlt_PNGName": ["cnsp_img777-mpC", "cnsp_img777-mp"]
     },
-    "Name_JP": "量産型 777(ヨロコビ)",
-    "Name_EN": "Cloned 777(Lucky-sevens)\nCloned 777(Luckies)",
     "FormalName_JP": "量産型ナンバーテールズ777番機シリーズ",
     "FormalName_EN": "NumberTales #777 Series Mass Production Version for Sales",
     "ModelNumber": "APHR-NT [MP]777-*****",
+    "GenderType": "MaleNeutral",
+    "Class": ["量産型マスタートリプル"],
     "Height_cm": 161,
-    "ConceptAge": {
-      "value": 32,
-      "about_JP": "概算値",
-      "about_EN": "Approximation"
-    },
     "Weight_kg": [
       { "value": 50 },
       {
@@ -2939,17 +2936,11 @@
       }
     ],
     "BustSize": "AA",
-    "GenderType": "MaleNeutral",
-    "Class": ["量産型マスタートリプル"],
-    "TailsUnit": [
-      {
-        "TailShapeType": "#TailShapeType_FoxSpecial",
-        "Count": 7,
-        "Segment": 3,
-        "Note_JP": null,
-        "Note_EN": null
-      }
-    ],
+    "ConceptAge": {
+      "value": 32,
+      "about_JP": "概算値",
+      "about_EN": "Approximation"
+    },
     "AppearanceDetail": [
       {
         "Formation": null,
@@ -3184,34 +3175,39 @@
         "Note_JP": null,
         "Note_EN": null
       }
+    ],
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxSpecial",
+        "Count": 7,
+        "Segment": 3,
+        "Note_JP": null,
+        "Note_EN": null
+      }
     ]
   },
   {
-    "sec_Category": null,
-    "sec_DesignedBy": ["RadianN"],
-    "sec_SeriesTitle": "量産型マスタートリプル",
     "Num": "777.Jackpot-mp",
     "Progress": "released(beta)",
     "AnotherVersions_DBLink": [
       { "_Work": "NumberTales", "_DB": "SemiPrimary", "Num": 777 }
     ],
+    "sec_SeriesTitle": "量産型マスタートリプル",
+    "sec_Category": null,
+    "sec_DesignedBy": ["RadianN"],
     "SameModels_DBLink": [{ "_DB": "SelfSecondary", "Num": "777-mp" }],
+    "Name_JP": "量産型 777(ヨロコビ)",
+    "Name_EN": "Cloned 777(Lucky-sevens)\nCloned 777(Luckies)",
     "Images": {
       "concept_PNGName": "cnsp_img777-mpB",
       "conceptAlt_PNGName": ["cnsp_img777-mpC", "cnsp_img777-mp"]
     },
-    "Name_JP": "量産型 777(ヨロコビ)",
-    "Name_EN": "Cloned 777(Lucky-sevens)\nCloned 777(Luckies)",
     "FormalName_JP": "量産型ナンバーテールズ777番機[ジャックポット]シリーズ",
     "FormalName_EN": "NumberTales #777.Jackpot Series Mass Production Version for Sales",
     "ModelNumber": "APHR-NT [MP]777JP-*****",
     "GenderType": "MaleNeutral",
+    "Class": ["量産型マスタートリプル"],
     "Height_cm": 161,
-    "ConceptAge": {
-      "value": 32,
-      "about_JP": "概算値",
-      "about_EN": "Approximation"
-    },
     "Weight_kg": [
       { "value": 50 },
       {
@@ -3226,16 +3222,11 @@
       }
     ],
     "BustSize": "AA",
-    "Class": ["量産型マスタートリプル"],
-    "TailsUnit": [
-      {
-        "TailShapeType": "#TailShapeType_FoxSpecial",
-        "Count": 7,
-        "Segment": 3,
-        "Note_JP": "原則として娯楽装備専用アドオンのバックパックに格納される",
-        "Note_EN": "In principle, stored in the backpack dedicated to amusement equipment addons"
-      }
-    ],
+    "ConceptAge": {
+      "value": 32,
+      "about_JP": "概算値",
+      "about_EN": "Approximation"
+    },
     "AppearanceDetail": [
       {
         "Formation": null,
@@ -3486,6 +3477,15 @@
         "Note_JP": null,
         "Note_EN": null
       }
+    ],
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_FoxSpecial",
+        "Count": 7,
+        "Segment": 3,
+        "Note_JP": "原則として娯楽装備専用アドオンのバックパックに格納される",
+        "Note_EN": "In principle, stored in the backpack dedicated to amusement equipment addons"
+      }
     ]
   },
   {
@@ -3495,9 +3495,9 @@
     "Name_EN": "780(Sevighty)",
     "FormalName_JP": "量産型ナンバーテールズ780番機シリーズ",
     "FormalName_EN": "NumberTales #780 Series Mass Production Version for Sales",
-    "ModelNumber": "APHR-NT [MP]780-*****",
     "CodeName_JP": "七八〇",
     "CodeName_EN": "Seven-Eight-Zero",
+    "ModelNumber": "APHR-NT [MP]780-*****",
     "GenderType": "Neutral",
     "Class": ["トライデュアルシックスズ"]
   },
@@ -3508,11 +3508,11 @@
     "Name_EN": "808(Yaoya)\n808(Vegeta)",
     "FormalName_JP": "量産型ナンバーテールズ808番機シリーズ",
     "FormalName_EN": "NumberTales #808 Series Mass Production Version for Sales",
-    "ModelNumber": "APHR-NT [MP]808-*****",
     "CodeName_JP": "八〇八",
     "CodeName_EN": "Eight-Zero-Eight",
     "SPCodeName_JP": "八百屋",
     "SPCodeName_EN": "Vegetable",
+    "ModelNumber": "APHR-NT [MP]808-*****",
     "GenderType": "Neutral",
     "Class": ["サイドシングルズ", "ワノマチ"]
   },
@@ -3523,21 +3523,21 @@
     "Name_EN": "833(Egthirthree)",
     "FormalName_JP": "量産型ナンバーテールズ833番機シリーズ",
     "FormalName_EN": "NumberTales #833 Series Mass Production Version for Sales",
-    "ModelNumber": "APHR-NT [MP]833-*****",
     "CodeName_JP": "八三三",
     "CodeName_EN": "Eight-Three-Three",
+    "ModelNumber": "APHR-NT [MP]833-*****",
     "GenderType": "Neutral",
     "Class": ["デュオトリプル5型"]
   },
   {
-    "sec_Category": null,
-    "sec_DesignedBy": ["RadianN"],
-    "sec_SeriesTitle": "量産型マスタートリプル",
     "Num": "888-mp",
     "Progress": "notProceeded",
     "AnotherVersions_DBLink": [
       { "_Work": "NumberTales", "_DB": "SemiPrimary", "Num": 888 }
     ],
+    "sec_SeriesTitle": "量産型マスタートリプル",
+    "sec_Category": null,
+    "sec_DesignedBy": ["RadianN"],
     "Name_JP": "量産型 888(ムゲン)",
     "Name_EN": "Cloned 888(Infy)",
     "FormalName_JP": "量産型ナンバーテールズ888番機シリーズ",
@@ -3552,18 +3552,18 @@
     "Name_EN": "959(Nifinine)",
     "FormalName_JP": "量産型ナンバーテールズ959番機CRシリーズ(ナンバーテールズ959番機)",
     "FormalName_EN": "NumberTales #959-CR Series Mass Production Version for Sales (NumberTales #959)",
-    "ModelNumber": "APHR-NT [MP]959-CR***",
     "CodeName_JP": "九五九",
     "CodeName_EN": "Nine-Five-Nine",
+    "ModelNumber": "APHR-NT [MP]959-CR***",
     "GenderType": "Neutral",
+    "Class": ["デュオトリプル5型", "キャロルズ"],
     "AnivDay": [
       {
         "Day": { "Month": 2, "DayOfMonth": 25 },
         "DayAbout_JP": "開発記念(キャロルズ名義)",
         "DayAbout_EN": "Development commemoration (in Caroles Class)"
       }
-    ],
-    "Class": ["デュオトリプル5型", "キャロルズ"]
+    ]
   },
   {
     "Num": 966,
@@ -3572,9 +3572,9 @@
     "Name_EN": "966(Nixiß-ect)",
     "FormalName_JP": "量産型ナンバーテールズ966番機シリーズ",
     "FormalName_EN": "NumberTales #966 Series Mass Production Version for Sales",
-    "ModelNumber": "APHR-NT [MP]966-*****",
     "CodeName_JP": "九六六",
     "CodeName_EN": "Nine-Six-Six",
+    "ModelNumber": "APHR-NT [MP]966-*****",
     "GenderType": "Neutral",
     "Class": ["デュオトリプル3型"]
   },
@@ -3585,11 +3585,11 @@
     "Name_EN": "969(Roll-roll)",
     "FormalName_JP": "量産型ナンバーテールズ969番機シリーズ",
     "FormalName_EN": "NumberTales #969 Series Mass Production Version for Sales",
-    "ModelNumber": "APHR-NT [MP]969-*****",
     "CodeName_JP": "九六九",
     "CodeName_EN": "Nine-Six-Nine",
     "SPCodeName_JP": "(回)",
     "SPCodeName_EN": "(Rotation)",
+    "ModelNumber": "APHR-NT [MP]969-*****",
     "GenderType": "Neutral",
     "Class": ["デュオトリプル6型"]
   },
@@ -3599,10 +3599,12 @@
     "SameMPSeries_DBLink": [{ "_DB": "Secondary", "Num": "979-numberize" }],
     "FormalName_JP": "量産型ナンバーテールズ979番機シリーズ",
     "FormalName_EN": "NumberTales #979 Series Mass Production Version for Sales",
-    "ModelNumber": "APHR-NT [MP]979-*****",
     "CodeName_JP": "九七九",
     "CodeName_EN": "Nine-Seven-Nine",
+    "ModelNumber": "APHR-NT [MP]979-*****",
     "GenderType": "Neutral",
+    "Class": ["デュオトリプル7型"],
+    "AppearanceDetail": null,
     "TailsUnit": [
       {
         "TailShapeType": "#TailShapeType_FoxBranched",
@@ -3618,19 +3620,17 @@
         "Note_JP": null,
         "Note_EN": null
       }
-    ],
-    "AppearanceDetail": null,
-    "Class": ["デュオトリプル7型"]
+    ]
   },
   {
-    "sec_Category": null,
-    "sec_DesignedBy": ["RadianN"],
-    "sec_SeriesTitle": "量産型マスタートリプル",
     "Num": "999-mp",
     "Progress": "notProceeded",
     "AnotherVersions_DBLink": [
       { "_Work": "NumberTales", "_DB": "SemiPrimary", "Num": 999 }
     ],
+    "sec_SeriesTitle": "量産型マスタートリプル",
+    "sec_Category": null,
+    "sec_DesignedBy": ["RadianN"],
     "Name_JP": "量産型 999(カンスト)",
     "Name_EN": "Cloned 999(Counstop)",
     "FormalName_JP": "量産型ナンバーテールズ999番機シリーズ",

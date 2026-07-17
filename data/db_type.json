@@ -1,6 +1,11 @@
 {
   "$DefType": [
     {
+      "$slot": "#Index",
+      "$slotMatch": { "$type": "#Index" },
+      "$slotNote": "作品ごとに hashTag が異なる主インデックス(Num/Card/Unit/BeastType/Drc/Letter/Model/Chronos/Virtues 等)を先頭へ寄せる。複数宣言している作品は作品側の宣言順を保つ"
+    },
+    {
       "hashTag": "Progress",
       "$type": "$EnumDef",
       "hashTag_JP": "進捗",
@@ -22,6 +27,16 @@
       "$enrich": true
     },
     {
+      "$slot": "#SecondaryMeta",
+      "$slotExpand": "$MetaType.$Def_SecondaryMeta",
+      "$slotNote": "二次創作メタ(sec_*)は $Def_SecondaryMeta の宣言順をここへ展開する。トップレベル $DefType へ再掲すると二重管理になるため参照で解決する"
+    },
+    {
+      "$slot": "#WorkDBLinkRef",
+      "$slotMatch": { "$typeIncludes": "$Def_DBLinkRef" },
+      "$slotNote": "作品固有の _DBLink 参照(SameModels_DBLink 等)をグローバル _DBLink 群の直後へ。$type が配列(インライン構造体)のエントリには一致しない"
+    },
+    {
       "hashTag": "Name_JP",
       "$type": "##String_JP|#Null",
       "hashTag_JP": "愛称"
@@ -36,6 +51,11 @@
       "hashTag": "Name_EN",
       "$type": "##String_EN|#Null",
       "hashTag_EN": "Name"
+    },
+    {
+      "$slot": "#Images",
+      "$slotMatch": { "$display": { "section": "images" } },
+      "$slotNote": "画像コンテナ。field 名ではなく $display.section で識別する。画像を持たない作品(UnauthedLogica 等)は宣言自体が無く、このスロットは空になる"
     },
     {
       "hashTag": "FormalName_JP",
@@ -520,11 +540,18 @@
       "searchable": false
     },
     {
+      "$slot": "#WorkRest",
+      "$slotMatch": "*",
+      "$slotOrder": "subFields",
+      "$slotNote": "どのスロットにも該当しない作品固有フィールドの受け皿。並びは作品の $DetailLayout.subFields（詳細画面のセクション順）へ寄せ、subFields 未登録のものは作品別 $DefType の宣言順で後ろへ送る"
+    },
+    {
       "hashTag": "AIHints",
       "$type": "$Def_AIHints|#Null",
       "hashTag_JP": "AI生成向けヒント",
       "searchable": false,
-      "$display": { "auto": false }
+      "$display": { "auto": false },
+      "$slotNote": "catch-all(#WorkRest)より後ろに宣言することで、AIHints をレコードの最終キーに固定する。mergeDefTypes() はグローバル $DefType を宣言順に走査し、hashTag エントリはその位置へ、$slot マーカーの位置には作品固有フィールドを展開するため"
     }
   ],
   "$MetaType": {
@@ -850,14 +877,14 @@
   "$Def_DBLinkRef": {
     "$DefType": [
       {
-        "hashTag": "_DB",
-        "$type": "#String|#Null",
-        "hashTag_EN": "Target DB Override"
-      },
-      {
         "hashTag": "_Work",
         "$type": "#String|#Null",
         "hashTag_EN": "Target Work Override"
+      },
+      {
+        "hashTag": "_DB",
+        "$type": "#String|#Null",
+        "hashTag_EN": "Target DB Override"
       },
       {
         "hashTag": "label_JP",

@@ -86,6 +86,9 @@
 ## 最近の実装運用ルール
 
 - **UI 表示修正の第一候補**: 画面崩れや表示漏れは、まず `db_type.json($DefType)` / `$display` / `db_meta.json($DetailLayout)` で制御できないかを確認し、UI のハードコード追加は最後の手段とします。
+- **フィールド順の正**: レコードのキー順・UI の表示順とも `db_type.json($DefType)` を正とします。作品固有フィールド（`Index` / `Images` / 作品固有 `_DBLink` 等）の配置は `$slot` マーカー（`$slotMatch` / `$slotExpand` / `$slotOrder`）で宣言し、ツールや UI に field 名依存の分岐を足しません。データのキー順は `npm run data:order:write` で整列し、`npm run data:order:check` と `tests/data.field-order.test.js` が守ります。詳細は `docs/schema-meta-processing.md` §5.4.1。
+- **`$DetailLayout` の役割**: `basicFields` は「どれを basic に出すか」の選択に専念し、並び順は `$DefType` に揃えます（作品別 typedef 宣言のフィールドのみ `basicFields` 側の位置に寄せる）。`subFields` は逆に `$slotOrder` 経由で `$DefType` の catch-all スロット内の並びを決めます。
+- **フラグ用の未宣言フィールド**: `isTriple` / `Regioministration` / `isPrivate` のように意図的に `$DefType` へ宣言していないフラグは、整列時に直前の宣言済みキーへアンカーされて元の位置に留まります。勝手に宣言を追加しません（ラベル付けは創作内容に踏み込むため User の判断）。
 - **schema/meta 詳解の参照先**: 宣言面と SW/UI/enrich 内部での合流順を説明する場合は、まず `docs/schema-meta-processing.md` を参照・更新対象に含めます。
 - **wrapper / section renderer の参照先**: `Day` / `Era` / `StoryEra` などの特殊 summary、`subFields` の standalone 描画、`$display.wrapper` / `$display.role` / `$display.sectionWrapper`、`_enrichment.wrapperSummaries`、`StoryEraSummary` 等を変更する場合は、まず `docs/wrapper-summary-registry.md` を参照・更新対象に含めます。
 - **List 系詳細表示**: `#ListIndex[]` / `#ListLink[]` の object 配列は、詳細表示では 1 要素 1 行の multiline 表示を優先します。

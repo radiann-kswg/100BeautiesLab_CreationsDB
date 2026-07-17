@@ -6,7 +6,6 @@
       "_DB": "PrimaryPerformer",
       "Letter": { "Alphabet": "A", "AlphaGen": 1 }
     },
-    "Generation": 0,
     "Name_JP": "A:アロー",
     "Name_EN": "A:Arrows",
     "FormalName_JP": "英文字アロー",
@@ -14,9 +13,10 @@
     "FormalName_EN": "Arrows A-Letter",
     "CodeName_JP": "英(A),弓矢(Arrow)",
     "CodeName_EN": "A,Arrow",
+    "Class": ["アルベッツ0期生(運営)"],
     "Height_cm": 146,
-    "ConceptAge": 17,
     "BustSize": "B",
+    "ConceptAge": 17,
     "AnivDay": [
       {
         "Day": { "Month": 2, "DayOfMonth": 6 },
@@ -29,11 +29,10 @@
         "DayAbout_EN": "Birthday (as the ALPBETS)"
       }
     ],
-    "Class": ["アルベッツ0期生(運営)"]
+    "Generation": 0
   },
   {
     "Letter": { "Alphabet": "A", "AlphaGen": 1 },
-    "Generation": 6,
     "Progress": "notProceeded",
     "Name_JP": "A:エイリ",
     "Name_EN": "A:Accenty",
@@ -41,12 +40,12 @@
     "FormalName_JPReading": "とがみねエイリ",
     "FormalName_EN": "Accenty A-Peak",
     "CodeName_JP": "鋭(A),アクセント",
-    "CodeName_EN": "A,Accent"
+    "CodeName_EN": "A,Accent",
+    "Generation": 6
   },
   {
     "Letter": { "Alphabet": "B", "AlphaGen": 1 },
     "Progress": "notProceeded",
-    "Generation": 3,
     "Name_JP": "B:ブロッキー",
     "Name_EN": "B:Blocky",
     "FormalName_JP": "積木ブロッキー",
@@ -55,20 +54,20 @@
     "CodeName_JP": "積木(B)",
     "CodeName_EN": "B,Block",
     "Height_cm": 168,
-    "ConceptAge": 17,
     "BustSize": "I",
+    "ConceptAge": 17,
     "AnivDay": [
       {
         "Day": { "Month": 10, "DayOfMonth": 2 },
         "DayAbout_JP": "誕生日（アルベッツ名義）",
         "DayAbout_EN": "Birthday (as the ALPBETS)"
       }
-    ]
+    ],
+    "Generation": 3
   },
   {
     "Letter": { "Alphabet": "C", "AlphaGen": 1 },
     "Progress": "notProceeded",
-    "Generation": 5,
     "Name_JP": "C:チャーミ",
     "Name_EN": "C:Charmy",
     "FormalName_JP": "弧月チャーミ",
@@ -77,20 +76,20 @@
     "CodeName_JP": "弓(C),弧月,チャーム",
     "CodeName_EN": "C,Crescent,Charm",
     "Height_cm": 133,
-    "ConceptAge": 16,
     "BustSize": "E",
+    "ConceptAge": 16,
     "AnivDay": [
       {
         "Day": { "Month": 3, "DayOfMonth": 29 },
         "DayAbout_JP": "誕生日（アルベッツ名義）",
         "DayAbout_EN": "Birthday (as the ALPBETS)"
       }
-    ]
+    ],
+    "Generation": 5
   },
   {
     "Letter": { "Alphabet": "D", "AlphaGen": 1 },
     "Progress": "notProceeded",
-    "Generation": 3,
     "Name_JP": "D:ドアン",
     "Name_EN": "D:Doorn",
     "FormalName_JP": "半円ドアン",
@@ -99,20 +98,20 @@
     "CodeName_JP": "半円(D),扉",
     "CodeName_EN": "D,Door",
     "Height_cm": 160,
-    "ConceptAge": 19,
     "BustSize": "A",
+    "ConceptAge": 19,
     "AnivDay": [
       {
         "Day": { "Month": 10, "DayOfMonth": 4 },
         "DayAbout_JP": "誕生日（アルベッツ名義）",
         "DayAbout_EN": "Birthday (as the ALPBETS)"
       }
-    ]
+    ],
+    "Generation": 3
   },
   {
     "Letter": { "Alphabet": "E", "AlphaGen": 1 },
     "Progress": "notProceeded",
-    "Generation": 4,
     "Name_JP": "E:エッヂ",
     "Name_EN": "E:Edgy",
     "FormalName_JP": "三枝エッヂ",
@@ -121,20 +120,20 @@
     "CodeName_JP": "三(E),エッジ",
     "CodeName_EN": "E,Edge",
     "Height_cm": 153,
-    "ConceptAge": 16,
     "BustSize": "D",
+    "ConceptAge": 16,
     "AnivDay": [
       {
         "Day": { "Month": 3, "DayOfMonth": 31 },
         "DayAbout_JP": "誕生日（アルベッツ名義）",
         "DayAbout_EN": "Birthday (as the ALPBETS)"
       }
-    ]
+    ],
+    "Generation": 4
   },
   {
     "Letter": { "Alphabet": "F", "AlphaGen": 1 },
     "Progress": "notProceeded",
-    "Generation": 6,
     "Name_JP": "F:ハタカ",
     "Name_EN": "F:Flatka",
     "FormalName_JP": "平旗ハタカ",
@@ -143,20 +142,20 @@
     "CodeName_JP": "旗(F),フラット",
     "CodeName_EN": "F,Flag,Flat",
     "Height_cm": 159,
-    "ConceptAge": 17,
     "BustSize": "AA",
+    "ConceptAge": 17,
     "AnivDay": [
       {
         "Day": { "Month": 12, "DayOfMonth": 6 },
         "DayAbout_JP": "誕生日（アルベッツ名義）",
         "DayAbout_EN": "Birthday (as the ALPBETS)"
       }
-    ]
+    ],
+    "Generation": 6
   },
   {
     "Letter": { "Alphabet": "G", "AlphaGen": 1 },
     "Progress": "notProceeded",
-    "Generation": 6,
     "Name_JP": "G:グニー",
     "Name_EN": "G:Gooniee",
     "FormalName_JP": "渦田グニー",
@@ -165,20 +164,20 @@
     "CodeName_JP": "渦(G),ぐにゃぐにゃ",
     "CodeName_EN": "G,Wobbly",
     "Height_cm": 159,
-    "ConceptAge": 17,
     "BustSize": "AA",
+    "ConceptAge": 17,
     "AnivDay": [
       {
         "Day": { "Month": 10, "DayOfMonth": 7 },
         "DayAbout_JP": "誕生日（アルベッツ名義）",
         "DayAbout_EN": "Birthday (as the ALPBETS)"
       }
-    ]
+    ],
+    "Generation": 6
   },
   {
     "Letter": { "Alphabet": "H", "AlphaGen": 1 },
     "Progress": "notProceeded",
-    "Generation": 4,
     "Name_JP": "H:ハシゴ",
     "Name_EN": "H:Headladder",
     "FormalName_JP": "梯桁ハシゴ",
@@ -187,20 +186,20 @@
     "CodeName_JP": "梯(H),桁(H形鋼)",
     "CodeName_EN": "H,H-Beam(girder),Header+Ladder",
     "Height_cm": 148,
-    "ConceptAge": 17,
     "BustSize": "B",
+    "ConceptAge": 17,
     "AnivDay": [
       {
         "Day": { "Month": 11, "DayOfMonth": 8 },
         "DayAbout_JP": "誕生日（アルベッツ名義）",
         "DayAbout_EN": "Birthday (as the ALPBETS)"
       }
-    ]
+    ],
+    "Generation": 4
   },
   {
     "Letter": { "Alphabet": "I", "AlphaGen": 1 },
     "Progress": "notProceeded",
-    "Generation": 1,
     "ThisPerformer_DBLink": {
       "_DB": "PrimaryPerformer",
       "Letter": { "Alphabet": "I", "AlphaGen": 1 }
@@ -212,9 +211,10 @@
     "FormalName_EN": "Imy I-Beam",
     "CodeName_JP": "直(I),柱,一人称(I/my)",
     "CodeName_EN": "I,I-Beam(Pillar),I/my(pronoun)",
+    "Class": ["アルベッツ1期生(運営補佐)"],
     "Height_cm": 121,
-    "ConceptAge": 14,
     "BustSize": "AA",
+    "ConceptAge": 14,
     "AnivDay": [
       {
         "Day": { "Month": 2, "DayOfMonth": 26 },
@@ -227,12 +227,11 @@
         "DayAbout_EN": "Birthday (as the ALPBETS)"
       }
     ],
-    "Class": ["アルベッツ1期生(運営補佐)"]
+    "Generation": 1
   },
   {
     "Letter": { "Alphabet": "I", "AlphaGen": 2 },
     "Progress": "notProceeded",
-    "Generation": 4,
     "Name_JP": "I:カーソル",
     "Name_EN": "I:Inact",
     "FormalName_JP": "カーソル.インアクト 点指",
@@ -243,12 +242,12 @@
     "Class": [
       "現役アルベッツ",
       "『ユニバイト・ユニバース』国際公認アンバサダー"
-    ]
+    ],
+    "Generation": 4
   },
   {
     "Letter": { "Alphabet": "J", "AlphaGen": 1 },
     "Progress": "notProceeded",
-    "Generation": 2,
     "Name_JP": "J:ジャック",
     "Name_EN": "J:Jacky",
     "FormalName_JP": "蛇尾ジャック",
@@ -257,20 +256,20 @@
     "CodeName_JP": "蛇尾(J),フック",
     "CodeName_EN": "J,Jack(e.g. headphone jack),Hook(J-Shaped)",
     "Height_cm": 137,
-    "ConceptAge": 18,
     "BustSize": "B",
+    "ConceptAge": 18,
     "AnivDay": [
       {
         "Day": { "Month": 7, "DayOfMonth": 10 },
         "DayAbout_JP": "誕生日（アルベッツ名義）",
         "DayAbout_EN": "Birthday (as the ALPBETS)"
       }
-    ]
+    ],
+    "Generation": 2
   },
   {
     "Letter": { "Alphabet": "K", "AlphaGen": 1 },
     "Progress": "notProceeded",
-    "Generation": 6,
     "Name_JP": "K:キィ",
     "Name_EN": "K:Kèy",
     "FormalName_JP": "鍵番キィ",
@@ -279,20 +278,20 @@
     "CodeName_JP": "鍵(K),ケッヘル番号(K.)",
     "CodeName_EN": "K,Key,Köchel Number(K.)",
     "Height_cm": 137,
-    "ConceptAge": 16,
     "BustSize": "A",
+    "ConceptAge": 16,
     "AnivDay": [
       {
         "Day": { "Month": 8, "DayOfMonth": 11 },
         "DayAbout_JP": "誕生日（アルベッツ名義）",
         "DayAbout_EN": "Birthday (as the ALPBETS)"
       }
-    ]
+    ],
+    "Generation": 6
   },
   {
     "Letter": { "Alphabet": "L", "AlphaGen": 1 },
     "Progress": "notProceeded",
-    "Generation": 2,
     "Name_JP": "L:コナー",
     "Name_EN": "L:Lracket",
     "FormalName_JP": "列柱コナー",
@@ -301,20 +300,20 @@
     "CodeName_JP": "列(L),コーナー",
     "CodeName_EN": "L,L(Corner)-Bracket,Column",
     "Height_cm": 157,
-    "ConceptAge": 18,
     "BustSize": "AA",
+    "ConceptAge": 18,
     "AnivDay": [
       {
         "Day": { "Month": 5, "DayOfMonth": 12 },
         "DayAbout_JP": "誕生日（アルベッツ名義）",
         "DayAbout_EN": "Birthday (as the ALPBETS)"
       }
-    ]
+    ],
+    "Generation": 2
   },
   {
     "Letter": { "Alphabet": "M", "AlphaGen": 1 },
     "Progress": "notProceeded",
-    "Generation": 4,
     "Name_JP": "M:ヤマネ",
     "Name_EN": "M:Mountee",
     "FormalName_JP": "双峰ヤマネ",
@@ -323,20 +322,20 @@
     "CodeName_JP": "双峰(M),山(Mountain)",
     "CodeName_EN": "M,Mountain",
     "Height_cm": 158,
-    "ConceptAge": 17,
     "BustSize": "G",
+    "ConceptAge": 17,
     "AnivDay": [
       {
         "Day": { "Month": 3, "DayOfMonth": 13 },
         "DayAbout_JP": "誕生日（アルベッツ名義）",
         "DayAbout_EN": "Birthday (as the ALPBETS)"
       }
-    ]
+    ],
+    "Generation": 4
   },
   {
     "Letter": { "Alphabet": "N", "AlphaGen": 1 },
     "Progress": "notProceeded",
-    "Generation": 4,
     "ThisPerformer_DBLink": {
       "_DB": "PrimaryPerformer",
       "Letter": { "Alphabet": "N", "AlphaGen": 1 }
@@ -348,9 +347,10 @@
     "FormalName_EN": "Nudgee N-Compass",
     "CodeName_JP": "北(N),ギザギザ",
     "CodeName_EN": "N,North,Nudge",
+    "Class": ["現役アルベッツ", "アルベッツの？？？"],
     "Height_cm": 144,
-    "ConceptAge": 16,
     "BustSize": { "hideText": "非公開" },
+    "ConceptAge": 16,
     "AnivDay": [
       {
         "Day": { "Month": 7, "DayOfMonth": 14 },
@@ -358,12 +358,11 @@
         "DayAbout_EN": "Birthday (as the ALPBETS)"
       }
     ],
-    "Class": ["現役アルベッツ", "アルベッツの？？？"]
+    "Generation": 4
   },
   {
     "Letter": { "Alphabet": "O", "AlphaGen": 1 },
     "Progress": "notProceeded",
-    "Generation": 1,
     "ThisPerformer_DBLink": {
       "_DB": "PrimaryPerformer",
       "Letter": { "Alphabet": "O", "AlphaGen": 1 }
@@ -375,9 +374,10 @@
     "FormalName_EN": "Orby O-Circle",
     "CodeName_JP": "丸(O),円",
     "CodeName_EN": "O,Circle,Orb/Orbital",
+    "Class": ["アルベッツ1期生(運営補佐)"],
     "Height_cm": 120,
-    "ConceptAge": 14,
     "BustSize": "H",
+    "ConceptAge": 14,
     "AnivDay": [
       {
         "Day": { "Month": 3, "DayOfMonth": 26 },
@@ -390,7 +390,7 @@
         "DayAbout_EN": "Birthday (as the ALPBETS)"
       }
     ],
-    "Class": ["アルベッツ1期生(運営補佐)"]
+    "Generation": 1
   },
   {
     "Letter": { "Alphabet": "O", "AlphaGen": 2 },
@@ -399,7 +399,6 @@
       "_DB": "PrimaryPerformer",
       "Letter": { "Alphabet": "O", "AlphaGen": 2 }
     },
-    "Generation": 6,
     "Name_JP": "O:マリル",
     "Name_EN": "O:Objeroll",
     "FormalName_JP": "球 マリルスフィア",
@@ -412,21 +411,21 @@
       "about_JP": "ただし実は……？",
       "about_EN": "However, in fact...?"
     },
+    "Class": [
+      "現役アルベッツ",
+      "『ユニバイト・ユニバース』国際公認アンバサダー"
+    ],
     "Height_cm": [
       {
         "about_JP": "可変\n(およそ160cmでいることが多く、キーキャッパーも同様に可変可能)",
         "about_EN": "Variable\n(Usually around 160cm, and the keycapper can also be variable)"
       }
     ],
-    "Class": [
-      "現役アルベッツ",
-      "『ユニバイト・ユニバース』国際公認アンバサダー"
-    ]
+    "Generation": 6
   },
   {
     "Letter": { "Alphabet": "P", "AlphaGen": 2 },
     "Progress": "notProceeded",
-    "Generation": 5,
     "Name_JP": "P:プラグ",
     "Name_EN": "P:Plugy",
     "FormalName_JP": "音鍵プラグ",
@@ -435,20 +434,20 @@
     "CodeName_JP": "音栓(P),ピアノ(音楽記号p)",
     "CodeName_EN": "P,Plug(Stop),piano(p: musical notation)",
     "Height_cm": 139,
-    "ConceptAge": 16,
     "BustSize": "F",
+    "ConceptAge": 16,
     "AnivDay": [
       {
         "Day": { "Month": 10, "DayOfMonth": 16 },
         "DayAbout_JP": "誕生日（アルベッツ名義）",
         "DayAbout_EN": "Birthday (as the ALPBETS)"
       }
-    ]
+    ],
+    "Generation": 5
   },
   {
     "Letter": { "Alphabet": "Q", "AlphaGen": 2 },
     "Progress": "notProceeded",
-    "Generation": 3,
     "Name_JP": "Q:マトア",
     "Name_EN": "Q:Que",
     "FormalName_JP": "的尾マトア",
@@ -457,20 +456,20 @@
     "CodeName_JP": "的/的尾(Q:円形に矢が当たっている形状)",
     "CodeName_EN": "Q,Tail(Q-Shape from O),Queue",
     "Height_cm": 120,
-    "ConceptAge": 14,
     "BustSize": "F",
+    "ConceptAge": 14,
     "AnivDay": [
       {
         "Day": { "Month": 10, "DayOfMonth": 17 },
         "DayAbout_JP": "誕生日（アルベッツ名義）",
         "DayAbout_EN": "Birthday (as the ALPBETS)"
       }
-    ]
+    ],
+    "Generation": 3
   },
   {
     "Letter": { "Alphabet": "R", "AlphaGen": 2 },
     "Progress": "notProceeded",
-    "Generation": 6,
     "Name_JP": "R:ロゥ",
     "Name_EN": "R:Rows",
     "FormalName_JP": "行田ロゥ",
@@ -479,35 +478,36 @@
     "CodeName_JP": "行(R),Row ※\"L\"を「列」とすると\"左右(Left/Right)\"と同様に対になる",
     "CodeName_EN": "R,Row (*Taking 'L' as a 'Column', 'R' forms pairs like 'Left/Right')",
     "Height_cm": 156,
-    "ConceptAge": 17,
     "BustSize": "D",
+    "ConceptAge": 17,
     "AnivDay": [
       {
         "Day": { "Month": 6, "DayOfMonth": 18 },
         "DayAbout_JP": "誕生日（アルベッツ名義）",
         "DayAbout_EN": "Birthday (as the ALPBETS)"
       }
-    ]
+    ],
+    "Generation": 6
   },
   {
     "Letter": { "Alphabet": "S", "AlphaGen": 2 },
     "Progress": "nowCreating",
-    "Generation": 5,
     "ThisPerformer_DBLink": {
       "_DB": "PrimaryPerformer",
       "Letter": { "Alphabet": "S", "AlphaGen": 2 }
     },
-    "Images": { "keycapper_PNGPath": ["S/emstk_keycapperS-1.png"] },
     "Name_JP": "S:ナーミィ",
     "Name_EN": "S:Surgey",
+    "Images": { "keycapper_PNGPath": ["S/emstk_keycapperS-1.png"] },
     "FormalName_JP": "左伯ナーミィ",
     "FormalName_JPReading": "さえきナーミィ",
     "FormalName_EN": "Surgey S-Curve",
     "CodeName_JP": "左(S),波(Surge)",
     "CodeName_EN": "S,Surge",
+    "Class": ["現役アルベッツ", "シェーディングモデラ"],
     "Height_cm": 121,
-    "ConceptAge": 14,
     "BustSize": "H",
+    "ConceptAge": 14,
     "AnivDay": [
       {
         "Day": { "Month": 5, "DayOfMonth": 19 },
@@ -520,7 +520,6 @@
         "DayAbout_EN": "ALPBETS 'Sugared' Commemoration"
       }
     ],
-    "Class": ["現役アルベッツ", "シェーディングモデラ"],
     "AppearanceDetail": [
       {
         "Formation": null,
@@ -612,12 +611,12 @@
       ],
       "StreamingSummary_JP": "ライブ配信では主に映像作品の公開をメインとしており、現実空間では味わえない斬新なプレイ体験でなみのりー(リスナー)たちを楽しませている。\n「ユニバイト・ユニバース」内ではトゥーンギャグに特化した様々なギミックを搭載したアバターでなみのりーと交流しており、時にVRユーザたちの性癖を大いに歪めたコンテンツを世に出したと噂されている。\n個人の同人ショップでアバターカスタムコンテンツも頒布しており、メタバースの新しい楽しみ方の提供にも積極的。",
       "StreamingSummary_EN": "Primarily focused on publishing video content in live streams, entertaining the Surgers (listeners) with innovative play experiences unattainable in real space.\nWithin 'Unibyte Universe', she interacts with Surgers using an avatar packed with toon-gag-specialized gimmicks, and is sometimes rumored to have released content that greatly skewed the sensibilities of VR users.\nAlso actively distributes avatar custom content through her personal doujin shop, enthusiastically offering new ways to enjoy the metaverse."
-    }
+    },
+    "Generation": 5
   },
   {
     "Letter": { "Alphabet": "T", "AlphaGen": 2 },
     "Progress": "notProceeded",
-    "Generation": 3,
     "Name_JP": "T:ティジー",
     "Name_EN": "T:Transy",
     "FormalName_JP": "丁字路ティジー",
@@ -626,20 +625,20 @@
     "CodeName_JP": "丁字路(T)",
     "CodeName_EN": "T-Junction,Transmation",
     "Height_cm": 157,
-    "ConceptAge": 17,
     "BustSize": "C",
+    "ConceptAge": 17,
     "AnivDay": [
       {
         "Day": { "Month": 7, "DayOfMonth": 19 },
         "DayAbout_JP": "誕生日（アルベッツ名義）",
         "DayAbout_EN": "Birthday (as the ALPBETS)"
       }
-    ]
+    ],
+    "Generation": 3
   },
   {
     "Letter": { "Alphabet": "U", "AlphaGen": 1 },
     "Progress": "notProceeded",
-    "Generation": 5,
     "Name_JP": "U:カップ",
     "Name_EN": "U:Uncove",
     "FormalName_JP": "入江カップ",
@@ -648,20 +647,20 @@
     "CodeName_JP": "入江(U)",
     "CodeName_EN": "U,Uncover",
     "Height_cm": 140,
-    "ConceptAge": 16,
     "BustSize": "F",
+    "ConceptAge": 16,
     "AnivDay": [
       {
         "Day": { "Month": 10, "DayOfMonth": 20 },
         "DayAbout_JP": "誕生日（アルベッツ名義）",
         "DayAbout_EN": "Birthday (as the ALPBETS)"
       }
-    ]
+    ],
+    "Generation": 5
   },
   {
     "Letter": { "Alphabet": "V", "AlphaGen": 1 },
     "Progress": "notProceeded",
-    "Generation": 5,
     "Name_JP": "V:トゲミ",
     "Name_EN": "V:Vaulte",
     "FormalName_JP": "楔谷トゲミ",
@@ -670,20 +669,20 @@
     "CodeName_JP": "楔(V),棘",
     "CodeName_EN": "V,Vaulted,Valleys",
     "Height_cm": 144,
-    "ConceptAge": 16,
     "BustSize": "A",
+    "ConceptAge": 16,
     "AnivDay": [
       {
         "Day": { "Month": 7, "DayOfMonth": 21 },
         "DayAbout_JP": "誕生日（アルベッツ名義）",
         "DayAbout_EN": "Birthday (as the ALPBETS)"
       }
-    ]
+    ],
+    "Generation": 5
   },
   {
     "Letter": { "Alphabet": "W", "AlphaGen": 1 },
     "Progress": "notProceeded",
-    "Generation": 4,
     "Name_JP": "W:タニネ",
     "Name_EN": "W:Windine",
     "FormalName_JP": "双谷タニネ",
@@ -692,20 +691,20 @@
     "CodeName_JP": "双谷(W)",
     "CodeName_EN": "W,Wind/Water Gap",
     "Height_cm": 158,
-    "ConceptAge": 17,
     "BustSize": "G",
+    "ConceptAge": 17,
     "AnivDay": [
       {
         "Day": { "Month": 3, "DayOfMonth": 23 },
         "DayAbout_JP": "誕生日（アルベッツ名義）",
         "DayAbout_EN": "Birthday (as the ALPBETS)"
       }
-    ]
+    ],
+    "Generation": 4
   },
   {
     "Letter": { "Alphabet": "X", "AlphaGen": 1 },
     "Progress": "notProceeded",
-    "Generation": 1,
     "Name_JP": "X:カイ",
     "Name_EN": "X:Xhi",
     "FormalName_JP": "交野カイ",
@@ -713,9 +712,10 @@
     "FormalName_EN": "Xhi X-Cross",
     "CodeName_JP": "交(X),χ(カイ)",
     "CodeName_EN": "X,Cross,Chi(χ)",
+    "Class": ["アルベッツ1期生(南第三県専門学校メタバース部)"],
     "Height_cm": 144,
-    "ConceptAge": 18,
     "BustSize": "AA",
+    "ConceptAge": 18,
     "AnivDay": [
       {
         "Day": { "Month": 7, "DayOfMonth": 24 },
@@ -723,12 +723,11 @@
         "DayAbout_EN": "Birthday (as the ALPBETS)"
       }
     ],
-    "Class": ["アルベッツ1期生(南第三県専門学校メタバース部)"]
+    "Generation": 1
   },
   {
     "Letter": { "Alphabet": "X", "AlphaGen": 2 },
     "Progress": "notProceeded",
-    "Generation": 6,
     "Name_JP": "X:クリス",
     "Name_EN": "X:Xriss",
     "FormalName_JP": "綾織クリス",
@@ -737,20 +736,20 @@
     "CodeName_JP": "綾(X),クロス",
     "CodeName_EN": "X,Crisscross",
     "Height_cm": 141,
-    "ConceptAge": 15,
     "BustSize": "E",
+    "ConceptAge": 15,
     "AnivDay": [
       {
         "Day": { "Month": 12, "DayOfMonth": 24 },
         "DayAbout_JP": "誕生日（アルベッツ名義）",
         "DayAbout_EN": "Birthday (as the ALPBETS)"
       }
-    ]
+    ],
+    "Generation": 6
   },
   {
     "Letter": { "Alphabet": "Y", "AlphaGen": 1 },
     "Progress": "notProceeded",
-    "Generation": 2,
     "Name_JP": "Y:ワケメ",
     "Name_EN": "Y:Yve",
     "FormalName_JP": "丫字路ワケメ",
@@ -759,35 +758,36 @@
     "CodeName_JP": "丫字路(Y)",
     "CodeName_EN": "Y-Junction",
     "Height_cm": 143,
-    "ConceptAge": 17,
     "BustSize": "B",
+    "ConceptAge": 17,
     "AnivDay": [
       {
         "Day": { "Month": 4, "DayOfMonth": 25 },
         "DayAbout_JP": "誕生日（アルベッツ名義）",
         "DayAbout_EN": "Birthday (as the ALPBETS)"
       }
-    ]
+    ],
+    "Generation": 2
   },
   {
     "Letter": { "Alphabet": "Z", "AlphaGen": 1 },
     "Progress": "nowCreating",
-    "Generation": 2,
-    "Images": { "keycapper_PNGPath": ["Z/emstk_keycapperZ-1.png"] },
     "ThisPerformer_DBLink": {
       "_DB": "PrimaryPerformer",
       "Letter": { "Alphabet": "Z", "AlphaGen": 1 }
     },
     "Name_JP": "Z:ジグ",
     "Name_EN": "Z:Zig",
+    "Images": { "keycapper_PNGPath": ["Z/emstk_keycapperZ-1.png"] },
     "FormalName_JP": "右仗ジグ",
     "FormalName_JPReading": "ゆうじょうジグ",
     "FormalName_EN": "Zig Z-Drifts",
     "CodeName_JP": "右(Z),ジグ",
     "CodeName_EN": "Z,Zig",
+    "Class": ["現役アルベッツ", "ゲームエンジン技術者"],
     "Height_cm": 142,
-    "ConceptAge": 16,
     "BustSize": "B",
+    "ConceptAge": 16,
     "AnivDay": [
       {
         "Day": { "Month": 2, "DayOfMonth": 26 },
@@ -800,7 +800,6 @@
         "DayAbout_EN": "ALPBETS 'Sugared' Commemoration"
       }
     ],
-    "Class": ["現役アルベッツ", "ゲームエンジン技術者"],
     "AppearanceDetail": [
       {
         "Formation": null,
@@ -847,12 +846,12 @@
       },
       "StreamingAwards_JP": [],
       "StreamingSummary_JP": ""
-    }
+    },
+    "Generation": 2
   },
   {
     "Letter": { "Alphabet": "Q", "AlphaGen": 1 },
     "Progress": "notProceeded",
-    "Generation": 1,
     "Name_JP": "Q:レンズ",
     "Name_EN": "Q:Quartz",
     "FormalName_JP": "鏡石レンズ",
@@ -860,9 +859,14 @@
     "FormalName_EN": "Quartz Q-Lens",
     "CodeName_JP": "鏡(Q),レンズ",
     "CodeName_EN": "Q,Lens",
+    "Belonging": [],
+    "Class": [
+      "アルベッツ卒業生",
+      "アルベッツ1期生(南第三県専門学校メタバース部)"
+    ],
     "Height_cm": 140,
-    "ConceptAge": 16,
     "BustSize": "F",
+    "ConceptAge": 16,
     "AnivDay": [
       {
         "Day": { "Month": 12, "DayOfMonth": 17 },
@@ -875,11 +879,7 @@
         "DayAbout_EN": "ALPBETS members from S3 Vocational School Metaverse Club Graduation"
       }
     ],
-    "Belonging": [],
-    "Class": [
-      "アルベッツ卒業生",
-      "アルベッツ1期生(南第三県専門学校メタバース部)"
-    ]
+    "Generation": 1
   },
   {
     "Letter": { "Alphabet": "R", "AlphaGen": 1 },
@@ -888,7 +888,6 @@
       "_DB": "PrimaryPerformer",
       "Letter": { "Alphabet": "R", "AlphaGen": 1 }
     },
-    "Generation": 3,
     "Name_JP": "R:リャク",
     "Name_EN": "R:Ry",
     "FormalName_JP": "略歴リャク",
@@ -896,9 +895,11 @@
     "FormalName_EN": "Ry R-Résumé",
     "CodeName_JP": "略(R),以下略「ry」,登録商標®",
     "CodeName_EN": "R,Résumé,\"ry\"(net slang),®(Registered)",
+    "Belonging": [],
+    "Class": ["アルベッツ卒業生"],
     "Height_cm": 139,
-    "ConceptAge": 17,
     "BustSize": "A",
+    "ConceptAge": 17,
     "AnivDay": [
       {
         "Day": { "Month": 9, "DayOfMonth": 18 },
@@ -911,13 +912,11 @@
         "DayAbout_EN": "Commemoration of employment at Shôbai Technology (Graduation day)"
       }
     ],
-    "Belonging": [],
-    "Class": ["アルベッツ卒業生"]
+    "Generation": 3
   },
   {
     "Letter": { "Alphabet": "T", "AlphaGen": 1 },
     "Progress": "notProceeded",
-    "Generation": 1,
     "Name_JP": "T:クギィ",
     "Name_EN": "T:Tacks",
     "FormalName_JP": "打金 クギィ",
@@ -925,9 +924,14 @@
     "FormalName_EN": "Tacks T:Pins",
     "CodeName_JP": "丁(T:打,釘),釘・ピン(Tack)",
     "CodeName_EN": "T,Tack(Pin)",
+    "Belonging": [],
+    "Class": [
+      "アルベッツ卒業生",
+      "アルベッツ1期生(南第三県専門学校メタバース部)"
+    ],
     "Height_cm": 157,
-    "ConceptAge": 17,
     "BustSize": "C",
+    "ConceptAge": 17,
     "AnivDay": [
       {
         "Day": { "Month": 12, "DayOfMonth": 20 },
@@ -940,11 +944,7 @@
         "DayAbout_EN": "ALPBETS members from S3 Vocational School Metaverse Club Graduation"
       }
     ],
-    "Belonging": [],
-    "Class": [
-      "アルベッツ卒業生",
-      "アルベッツ1期生(南第三県専門学校メタバース部)"
-    ]
+    "Generation": 1
   },
   {
     "Letter": { "Alphabet": "P", "AlphaGen": 1 },
@@ -953,7 +953,6 @@
       "_DB": "PrimaryPerformer",
       "Letter": { "Alphabet": "P", "AlphaGen": 1 }
     },
-    "Generation": 3,
     "Name_JP": "P:フィッシュ",
     "Name_EN": "P:Phishs",
     "FormalName_JP": "了津 フィッシュ",
@@ -961,9 +960,11 @@
     "FormalName_EN": "Phishs P-Point",
     "CodeName_JP": "了(P) ※検閲により以下公開停止",
     "CodeName_EN": "P (*Public disclosure suspended due to censorship)",
+    "Belonging": [],
+    "Class": ["アルベッツ追放もしくはアカウント凍結"],
     "Height_cm": 136,
-    "ConceptAge": 16,
     "BustSize": "E",
+    "ConceptAge": 16,
     "AnivDay": [
       {
         "Day": { "Month": 9, "DayOfMonth": 16 },
@@ -976,8 +977,7 @@
         "DayAbout_EN": "ALPBETS 'Mistaken BAN' Incident"
       }
     ],
-    "Belonging": [],
-    "Class": ["アルベッツ追放もしくはアカウント凍結"]
+    "Generation": 3
   },
   {
     "Letter": { "Alphabet": "S", "Generation": 2, "AlphaGen": 1 },
@@ -993,9 +993,11 @@
     "FormalName_EN": "'Szett SS-Curve",
     "CodeName_JP": "双曲(S),ß",
     "CodeName_EN": "S,ß(Eszett)",
+    "Belonging": [],
+    "Class": ["アルベッツ追放もしくはアカウント凍結"],
     "Height_cm": 135,
-    "ConceptAge": 16,
     "BustSize": "E",
+    "ConceptAge": 16,
     "AnivDay": [
       {
         "Day": { "Month": 5, "DayOfMonth": 19 },
@@ -1007,8 +1009,6 @@
         "DayAbout_JP": "アルベッツ\"お塩\"事件",
         "DayAbout_EN": "ALPBETS 'Salted' Incident"
       }
-    ],
-    "Belonging": [],
-    "Class": ["アルベッツ追放もしくはアカウント凍結"]
+    ]
   }
 ]

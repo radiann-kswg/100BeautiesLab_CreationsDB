@@ -44,6 +44,11 @@
 
 - UI の自動表示順序・ラベル・整形は、可能な限り `$DefType` に追従します
 - 新フィールドをデータに入れたら、基本的に `$DefType` へも追加します
+- **レコードのキー順も `$DefType`（`mergeDefTypes()` の出力）に追従させます**
+  - 手書きで追加したフィールドの位置が分からない場合は `npm run data:order:plan` で確認し、`npm run data:order:write` で整列できます
+  - CI では `tests/data.field-order.test.js` が全 DB のキー順を検証します
+  - 冒頭は `Index → Progress → _DBLinkRef 群 → Name → Images → FormalName → …` の順になります（`$slot` マーカーによる宣言。`docs/schema-meta-processing.md` §5.4.1）
+  - `isTriple` / `Regioministration` / `isPrivate` のように**フラグ用にあえて宣言しない**フィールドは、直前の宣言済みキーへアンカーされて元の位置に留まります（整列で末尾へ流されません）
 
 ### 3.2 ラベルキー
 
@@ -281,6 +286,9 @@ npm.cmd test
 
 - `tests/data.sanity.test.js`: JSON 構文・存在
 - `tests/data.shape.test.js`: スキーマ/メタとの整合
+- `tests/data.field-order.test.js`: レコードのキー順が `$DefType` の正準順に追従しているか（`npm run data:order:check` と同等の検証 + `$slot` マーカーの健全性）
+- `tests/sw.deftype.slot.test.js`: `$slot` マーカーのマージ規則
+- `tests/normalize-field-order.test.js`: 整列ツールの単体（書式非破壊・冪等）
 - `tests/sw.enrich.basic.test.js`: enrich と基本エンドポイント
 - `tests/enrich.dblink.jump.merge.test.js`: 参照マージの回帰
 - `tests/docs.links.test.js`: ドキュメント内の既知誤リンク（例: `pages/characters.html` の単数表記）を継続検知

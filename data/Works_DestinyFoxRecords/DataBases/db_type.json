@@ -14,6 +14,13 @@
   "$DefType": [
     { "hashTag": "Unit", "$type": "#Index", "hashTag_JP": "理学単位次元" },
     {
+      "hashTag": "Unit_FullEN",
+      "$type": "##String_EN|#Null",
+      "hashTag_EN": "Unit Full Name",
+      "$slot": "#Index",
+      "$display": { "auto": false }
+    },
+    {
       "hashTag": "Generation",
       "$type": "#Index",
       "hashTag_JP": "代理の世代",
