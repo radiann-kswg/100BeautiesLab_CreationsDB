@@ -55,6 +55,17 @@ describe('applyFilter', () => {
 		expect(applyFilter('  x  ', 'trim')).toBe('x');
 		expect(applyFilter('x', 'unknown')).toBe('x');
 	});
+	it('commas / bullets は改行を連結・箇条書き化する', () => {
+		expect(applyFilter('A\nB', 'commas')).toBe('A、B');
+		expect(applyFilter('A\nB', 'bullets')).toBe('- A\n- B');
+	});
+	it('orjoin / altnames は複数名を「または」で連結する', () => {
+		expect(applyFilter('扇 一春\n扇 二春', 'orjoin')).toBe('扇 一春 または 扇 二春');
+		expect(applyFilter('扇 四春\n扇 五春', 'altnames')).toBe('扇四春 または 扇五春');
+	});
+	it('sentences は「。」と改行で文分割して箇条書き化する', () => {
+		expect(applyFilter('あ。い。', 'sentences')).toBe('- あ。\n- い。');
+	});
 });
 
 describe('formatDialogueItem', () => {
