@@ -1,5 +1,20 @@
 # 最新のリファクタリング・仕様変更履歴
 
+### feat: ロールプレイプロンプトの見出しアンカー方式マージ更新（フェーズ2）と `.private/` 手書きプロンプトの差分・取り込み（フェーズ3）を追加 (2026-07-18)
+
+同日先行のロールプレイプロンプト自動生成（`tools/build-roleplay-prompts.mjs`）に、既存ファイルのマージ更新と手書き実運用プロンプトの取り込みを追加した。生成物はマーカー無しのクリーンな Markdown のまま、**見出し文字列をアンカー**にセクションを識別する（マーカー方式は User フィードバックで撤去済み）。
+
+- **見出しアンカー方式マージ（`tools/roleplay/sections.mjs` 新規・純関数）**: `splitSections`（前文＋セクション分解・コードフェンス内の `#` は無視）/ `mergeByHeadings`（テンプレ由来見出しは DB 最新で上書き・手書き独自見出しは直前の管理見出しをアンカーに位置保全・独自見出しが無ければ生成物をそのまま返し完全冪等）/ `diffSections`（added/updated/unchanged/removed）。旧 `tools/roleplay/markers.mjs`（マーカー方式の下地）は撤去。
+- **build のマージ配線**: 既存ファイルの再生成を「`exists && !force` → 保護スキップ」から**マージ更新**へ差し替え。テンプレ由来節のみ DB 最新へ、手書き独自節は保全。書き込みは一時 → rename でアトミック化し、上書き前の内容を `.cache/roleplay-backups/` へ退避。`--force` は構造非依存の丸ごと再生成（脱出口）。
+- **フェーズ3 `--reconcile` / `--adopt`**: `.private/roleplay-prompt-<id>.md`（手書き実運用プロンプト）と DB 生成物を扱う。`--reconcile` はドリフト差分の表示のみ（読み取り専用）、`--adopt` は「DB 由来＝最新化／手書き独自＝保全」した管理版を生成場所へ書き出す（既定 dry-run、`--adopt --write` で実書き込み）。**原本 `.private/` はいずれのモードでも不変**。恒久的に残したい手書きは「テンプレに無い独自見出し」に置く運用。
+- **既知の非対称**: テンプレは性格を「概要」へ畳み込むため、手書きが `## 性格` を独立節に持つと adopt 後に概要（畳込）＋性格（保全）で内容が重複しうる（ツールは創作本文を書き換えないため User が手動整理）。
+- **影響範囲**: `tools/roleplay/sections.mjs`（新）/ `tools/roleplay/markers.mjs`（削除）/ `tools/build-roleplay-prompts.mjs`（マージ・reconcile・adopt・アトミック書き込みの配線、`--reconcile` 追加）/ `tests/roleplay-sections.test.js`（新）/ `tests/data.roleplay-prompts.test.js`（マージ回帰追加）/ `docs/roleplay-prompt-generation.md`。
+- 確認: `npm test` — 41 ファイル / 546 件すべて成功（`develop`）。`--reconcile` / `--adopt` を `NumberTales/Primary/57` で疎通確認（手書き独自4節の位置保全・管理節の DB 最新化・原本 `.private/` 不変）。
+
+### fix: `tools/build-roleplay-prompts.mjs` 先頭のシバンを除去し、vitest 4.1.0 でのテスト suite 読み込み失敗を解消 (2026-07-18)
+
+vitest 4.1.0 はテスト対象モジュールを関数ラップして評価するため、先頭でなくなったシバン `#!/usr/bin/env node` の `#` を V8 が不正トークンと解釈し、同ファイルから `generatePrompt` 等を import する `tests/data.roleplay-prompts.test.js` が suite ごと `SyntaxError` で失敗していた。サブローカル `addon-ai-tag` で先行検出・修正されたが、本ファイルは `develop` が source of truth のコアファイルで逆マージを行わない運用のため、`develop` 側にも同じ 1 行削除を適用する。CLI 起動は npm scripts の `node tools/build-roleplay-prompts.mjs` 経由でシバン非依存、entry guard も `import.meta.url` 判定のため動作は不変。
+
 ### feat: 符号化フィールドのデコードを `lib/basic-renders/` へ集約し、ロールプレイプロンプト自動生成ツールを追加 (2026-07-18)
 
 各創作タイトルの `RoleplayPrompts/` に蓄積してきた配布用ロールプレイプロンプトを、JSON DB の `ConversationPattern` を中心としたキャラ設定フィールド＋作品別テンプレートから半自動生成する機能を追加。あわせて、これまでキャラシート UI（`pages/characters.js`）に閉じていた符号化フィールド（呼称 DSL / GenderType・RaceType / TailsUnit）のデコードを `lib/` の純関数へ集約し、UI / Service Worker / pkg / 生成ツールで共用できるようにした。
