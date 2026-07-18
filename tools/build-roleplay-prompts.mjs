@@ -1,4 +1,3 @@
-#!/usr/bin/env node
 /**
  * [build-roleplay-prompts.mjs] - JSON DB ＋ テンプレートから配布用ロールプレイプロンプト（Markdown）を生成する CLI
  * @description

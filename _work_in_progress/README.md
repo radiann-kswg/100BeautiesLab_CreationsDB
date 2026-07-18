@@ -38,6 +38,7 @@
 | **addon-ai-tag**: AIHints 対象拡張（SemiPrimary / SelfSecondary） | [2026-07-17_progress_aihints-scope-semiprimary-selfsecondary.md](./2026-07-17_progress_aihints-scope-semiprimary-selfsecondary.md)                | ⚠️ 基盤整備は完了（`_Secondaries` opt-out バグ修正・`AI_Optout` を権利軸へ純化・Class 辞書合流）。**seed は `AppearanceDetail` の入力待ち**（本ブランチ固有） |
 | ColorPalette スキーマ + カラーチップ抽出 | [2026-07-13_progress_colorpalette-schema.md](./2026-07-13_progress_colorpalette-schema.md)                                                                          | ✅ 設定画のカラーチップから 94 件へ配色を投入済み（全件 5 色以上）。⚠️ 色名・Role は User レビュー待ち（AIHints への機械導出は `--apply-colorpalette` で完了済み） |
 | AppearanceDetail 参考画像の一括登録      | [2026-07-11_progress_appearancedetail-images.md](./2026-07-11_progress_appearancedetail-images.md)                                                                  | ⚠️ `10`/`10alt` の割当正誤（User確認待ち）・保留4枚の扱い                                        |
+| **addon-ai-tag**: ロールプレイ生成ツールのシェバン修正 | [2026-07-18_progress_roleplay-shebang-fix.md](./2026-07-18_progress_roleplay-shebang-fix.md)                                    | 🟢 vitest 4.1.0 で `build-roleplay-prompts.mjs` のシェバンが import 時に `SyntaxError` を誘発 → 1 行削除で解消（652件全緑）。⚠️ lib 分離（option 2 本体）は**別ローカルのロールプレイ更新完了後**に別担当で実施予定（二重編集回避で保留） |
 
 ### 系列の補足（過去フェーズは `.completed/` 参照）
 

@@ -1,5 +1,15 @@
 # 最新のリファクタリング・仕様変更履歴
 
+### fix: `build-roleplay-prompts.mjs` のシェバンを除去し、vitest からの import 時 `SyntaxError` を解消 (2026-07-18, `addon-ai-tag`)
+
+`develop` を `addon-ai-tag` へマージした後、`npm test`（vitest 4.1.0）で `tests/data.roleplay-prompts.test.js` が **suite ごと `SyntaxError: Invalid or unexpected token`** で落ちていた（`0 test`）。原因はアサーションではなく **`tools/build-roleplay-prompts.mjs` 先頭のシェバン `#!/usr/bin/env node`**。CLI 直接実行では node が剥がすため無害だが、テストから `generatePrompt` 等を import すると **vitest のモジュールランナーがコードを関数ラップして評価する**過程で先頭でなくなった `#` を V8 が不正トークンと解釈し、suite の読み込み時点で失敗していた（別ローカルで実装した際の旧 vitest では顕在化せず、マージで 4.1.0 に揃って表面化）。
+
+- **修正**: `tools/build-roleplay-prompts.mjs` の 1 行目シェバンを削除（差分 1 行のみ）。npm scripts（`roleplay:plan` / `:write` / `:check`）は全て `node tools/…` 経由のためシェバンは実運用で不要。`node tools/build-roleplay-prompts.mjs` の直接実行・CLI 動作は従来どおり（entry guard は `import.meta.url` 判定なので不変）。
+- **再現確認**: `.cache` にシェバン除去コピーを作り、シェバン付き import → 同一 `SyntaxError` / 除去版 import → 成功、で原因を切り分け（一時ファイルは削除済み）。
+- **後続（未実施・別担当）**: CLI エントリと再利用ライブラリ（`generatePrompt` / `hasFilledConversationPattern` / `computeOutputPath` 等）の分離（`tools/roleplay/` 配下へ移設）は、同ファイルを**現在進行形で更新中の別ローカル**とのマージ衝突を避けるため保留。ロールプレイ更新が落ち着いてから担当を分けて実施する。同じくシェバンを持つ `tools/extract-enum-lists-to-dictionaries.mjs` は現状テスト未 import のため無害だが、将来テストから import する場合は同様の分離対象。
+- **影響範囲**: `tools/build-roleplay-prompts.mjs`（1 行削除）。
+- 確認: `npm test` — 48 ファイル / 652 件すべて成功（`addon-ai-tag`）。
+
 ### feat: 符号化フィールドのデコードを `lib/basic-renders/` へ集約し、ロールプレイプロンプト自動生成ツールを追加 (2026-07-18)
 
 各創作タイトルの `RoleplayPrompts/` に蓄積してきた配布用ロールプレイプロンプトを、JSON DB の `ConversationPattern` を中心としたキャラ設定フィールド＋作品別テンプレートから半自動生成する機能を追加。あわせて、これまでキャラシート UI（`pages/characters.js`）に閉じていた符号化フィールド（呼称 DSL / GenderType・RaceType / TailsUnit）のデコードを `lib/` の純関数へ集約し、UI / Service Worker / pkg / 生成ツールで共用できるようにした。
