@@ -1,6 +1,6 @@
 # 現行タスク台帳（起点）
 
-> 作成: 2026-07-03 / **最終更新: 2026-07-16（棚卸しセッションで更新）**
+> 作成: 2026-07-03 / **最終更新: 2026-07-18（棚卸しセッションで更新）**
 
 ## 目的
 
@@ -22,12 +22,12 @@
 
 いずれも実装・テスト・確認は完了しており、**User の目視/創作判断のみ**が残っている。
 
-| 項目 | 内容 | ログ |
-| ---- | ---- | ---- |
-| AppearanceDetail 参考画像 | `10` / `10alt` の corefolder/humanoid 割当の正誤確認、保留 4 枚の扱い | `2026-07-11_progress_appearancedetail-images.md` |
-| UnibyteLive 苗字命名 | 下書き 24+2 件の最終レビュー | `2026-07-06_progress_unibytelive-formalname-draft.md` |
-| ColorPalette | `Role` の妥当性レビュー、7〜8 色検出 22 件の過検出確認、`ColorName_*` / `Formation` / `Note_*` の入力 | `2026-07-13_progress_colorpalette-schema.md` |
-| アンオースドロジカ辞書 | `dict_ModelSeries` / `dict_LogicSeries` の null キー行ラベル | `.completed/2026-07-13_progress_unauthedlogica-index-alias.md`（母艦 P3-3） |
+| 項目                      | 内容                                                                                                  | ログ                                                                        |
+| ------------------------- | ----------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------- |
+| AppearanceDetail 参考画像 | `10` / `10alt` の corefolder/humanoid 割当の正誤確認、保留 4 枚の扱い                                 | `2026-07-11_progress_appearancedetail-images.md`                            |
+| UnibyteLive 苗字命名      | 下書き 24+2 件の最終レビュー                                                                          | `2026-07-06_progress_unibytelive-formalname-draft.md`                       |
+| ColorPalette              | `Role` の妥当性レビュー、7〜8 色検出 22 件の過検出確認、`ColorName_*` / `Formation` / `Note_*` の入力 | `2026-07-13_progress_colorpalette-schema.md`                                |
+| アンオースドロジカ辞書    | `dict_ModelSeries` / `dict_LogicSeries` の null キー行ラベル                                          | `.completed/2026-07-13_progress_unauthedlogica-index-alias.md`（母艦 P3-3） |
 
 > Issue テンプレートの見た目確認は **2026-07-14 に解消済み**（外部ユーザーが Issue #11 をテンプレート経由で実起票していたことで裏取り）。
 

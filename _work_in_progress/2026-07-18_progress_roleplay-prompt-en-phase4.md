@@ -15,7 +15,7 @@
 ### A. lib デコーダの EN 対応状況
 
 | デコーダ | EN 対応 | 要点（file:line） |
-|---|---|
+|---|---|---|
 | **TailsUnit** | ✅ end-to-end 完済 | `formatTailsUnitSummary` が `pageLang` 駆動（`lib/section-renders/tailsUnit.js:121`）、EN 分岐 `${n} tails` / `(${n} segments)` / `${t} tails x${c} clusters` / `From X to Y`（:93,110,127,130）。build は `pageLang:lang` を渡す（`build-roleplay-prompts.mjs:208`）。※複数要素の連結区切りだけ build 側で JP 読点 `、` 固定（:209）。 |
 | **type（Gender/Race/Belonging）** | △ 解決口はある・build 未接続 | EN ラベルは `resolveVarsDefLabelPack(...).en`（`type-common.js:375,541-556`）が `_EN`/`Text_EN` 接尾辞から解決。`$EnumDef_*` キー直引きも対応（:586-597）。build は lang 非対応の `resolveVarsDefLabel`（JP 優先、:108,223-238）を使用（`build:190-192`）。 |
 | **呼称（calling）** | △ 受理するが翻訳しない | `parseCalling({lang:'en'})` は `isJP=false` に切替（`calling-common.js:200-204`）が**翻訳はしない**。EN の `[*xxx]` 参照のみ展開（:128-130,53-64）、JP 原文を渡すと英語化されず劣化。build の `decodeCalling` が `${baseKey}_JP` 固定読み（`build:176`）。区切りも lang 非依存で JP 固定（`・` `／` `（※...）`、:242-243,252）。 |
