@@ -6407,8 +6407,39 @@ export async function renderDetail(workId, rec) {
 		 * @param {string} key
 		 * @returns {{ value: any, labelKey: string, sourceKey: string }}
 		 */
+		/**
+		 * 呼称系（`*Calling`）フィールドを lib/basic-renders/calling-common.js で人間可読へ展開し、
+		 * ページ言語に応じて JP/EN を bilingual 表示する。
+		 * - 呼称系は `$DetailLayout.basicFields` に載るが、DSL（`;` / `/` `,` / `*`こそあど / `[※]`参照）を
+		 *   展開する calling section renderer は standalone subField 用であり basicFields には効かない。
+		 *   そのため基本情報テーブルでは同等のデコードをここで適用し、生 DSL のまま表示されるのを防ぐ。
+		 * @param {string} baseKey - 例: 'ThirdPersonCalling'
+		 * @returns {string} 展開済み表示テキスト（呼称系でない/未ロード時は空文字）
+		 */
+		const decodeCallingForBasic = (baseKey) => {
+			const CC = globalThis.CallingCommon;
+			if (!CC?.decodeCallingToText) return '';
+			const pick = (k) => (typeof rec?.[k] === 'string' && rec[k].trim()) ? rec[k].trim() : '';
+			const jpRaw = pick(`${baseKey}_JP`) || pick(baseKey);
+			const enRaw = pick(`${baseKey}_EN`);
+			const jp = jpRaw ? CC.decodeCallingToText(jpRaw, { lang: 'jp' }) : '';
+			const en = enRaw ? CC.decodeCallingToText(enRaw, { lang: 'en' }) : '';
+			const pageLang = getCurrentPageLanguage();
+			if (pageLang === 'jp') return jp;
+			if (pageLang === 'en') return en;
+			// 言語未指定は他 basicFields と同じく JP / EN 併記（値が同一なら片方のみ）
+			if (jp && en && jp !== en) return `${jp} / ${en}`;
+			return jp || en;
+		};
+
 		const resolveBasicField = (key) => {
 			if (!key || typeof key !== 'string') return { value: '', labelKey: String(key || ''), sourceKey: String(key || '') };
+
+			// 呼称系（*Calling）は DSL を含むため、生値表示ではなく calling-common.js で展開して表示する
+			if (/[A-Za-z]Calling$/.test(key)) {
+				const decodedCalling = decodeCallingForBasic(key);
+				if (decodedCalling) return { value: decodedCalling, labelKey: key, sourceKey: key };
+			}
 
 			// *_JP/_EN の同義ペアを 1 行に統合（基本情報テーブル）
 			// - key が base の場合に base/base_JP/base_EN をまとめて表示
