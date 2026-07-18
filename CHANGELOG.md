@@ -1,14 +1,19 @@
 # 最新のリファクタリング・仕様変更履歴
 
-### fix: `build-roleplay-prompts.mjs` のシェバンを除去し、vitest からの import 時 `SyntaxError` を解消 (2026-07-18, `addon-ai-tag`)
+### feat: ロールプレイプロンプトの見出しアンカー方式マージ更新（フェーズ2）と `.private/` 手書きプロンプトの差分・取り込み（フェーズ3）を追加 (2026-07-18)
 
-`develop` を `addon-ai-tag` へマージした後、`npm test`（vitest 4.1.0）で `tests/data.roleplay-prompts.test.js` が **suite ごと `SyntaxError: Invalid or unexpected token`** で落ちていた（`0 test`）。原因はアサーションではなく **`tools/build-roleplay-prompts.mjs` 先頭のシェバン `#!/usr/bin/env node`**。CLI 直接実行では node が剥がすため無害だが、テストから `generatePrompt` 等を import すると **vitest のモジュールランナーがコードを関数ラップして評価する**過程で先頭でなくなった `#` を V8 が不正トークンと解釈し、suite の読み込み時点で失敗していた（別ローカルで実装した際の旧 vitest では顕在化せず、マージで 4.1.0 に揃って表面化）。
+同日先行のロールプレイプロンプト自動生成（`tools/build-roleplay-prompts.mjs`）に、既存ファイルのマージ更新と手書き実運用プロンプトの取り込みを追加した。生成物はマーカー無しのクリーンな Markdown のまま、**見出し文字列をアンカー**にセクションを識別する（マーカー方式は User フィードバックで撤去済み）。
 
-- **修正**: `tools/build-roleplay-prompts.mjs` の 1 行目シェバンを削除（差分 1 行のみ）。npm scripts（`roleplay:plan` / `:write` / `:check`）は全て `node tools/…` 経由のためシェバンは実運用で不要。`node tools/build-roleplay-prompts.mjs` の直接実行・CLI 動作は従来どおり（entry guard は `import.meta.url` 判定なので不変）。
-- **再現確認**: `.cache` にシェバン除去コピーを作り、シェバン付き import → 同一 `SyntaxError` / 除去版 import → 成功、で原因を切り分け（一時ファイルは削除済み）。
-- **後続（未実施・別担当）**: CLI エントリと再利用ライブラリ（`generatePrompt` / `hasFilledConversationPattern` / `computeOutputPath` 等）の分離（`tools/roleplay/` 配下へ移設）は、同ファイルを**現在進行形で更新中の別ローカル**とのマージ衝突を避けるため保留。ロールプレイ更新が落ち着いてから担当を分けて実施する。同じくシェバンを持つ `tools/extract-enum-lists-to-dictionaries.mjs` は現状テスト未 import のため無害だが、将来テストから import する場合は同様の分離対象。
-- **影響範囲**: `tools/build-roleplay-prompts.mjs`（1 行削除）。
-- 確認: `npm test` — 48 ファイル / 652 件すべて成功（`addon-ai-tag`）。
+- **見出しアンカー方式マージ（`tools/roleplay/sections.mjs` 新規・純関数）**: `splitSections`（前文＋セクション分解・コードフェンス内の `#` は無視）/ `mergeByHeadings`（テンプレ由来見出しは DB 最新で上書き・手書き独自見出しは直前の管理見出しをアンカーに位置保全・独自見出しが無ければ生成物をそのまま返し完全冪等）/ `diffSections`（added/updated/unchanged/removed）。旧 `tools/roleplay/markers.mjs`（マーカー方式の下地）は撤去。
+- **build のマージ配線**: 既存ファイルの再生成を「`exists && !force` → 保護スキップ」から**マージ更新**へ差し替え。テンプレ由来節のみ DB 最新へ、手書き独自節は保全。書き込みは一時 → rename でアトミック化し、上書き前の内容を `.cache/roleplay-backups/` へ退避。`--force` は構造非依存の丸ごと再生成（脱出口）。
+- **フェーズ3 `--reconcile` / `--adopt`**: `.private/roleplay-prompt-<id>.md`（手書き実運用プロンプト）と DB 生成物を扱う。`--reconcile` はドリフト差分の表示のみ（読み取り専用）、`--adopt` は「DB 由来＝最新化／手書き独自＝保全」した管理版を生成場所へ書き出す（既定 dry-run、`--adopt --write` で実書き込み）。**原本 `.private/` はいずれのモードでも不変**。恒久的に残したい手書きは「テンプレに無い独自見出し」に置く運用。
+- **既知の非対称**: テンプレは性格を「概要」へ畳み込むため、手書きが `## 性格` を独立節に持つと adopt 後に概要（畳込）＋性格（保全）で内容が重複しうる（ツールは創作本文を書き換えないため User が手動整理）。
+- **影響範囲**: `tools/roleplay/sections.mjs`（新）/ `tools/roleplay/markers.mjs`（削除）/ `tools/build-roleplay-prompts.mjs`（マージ・reconcile・adopt・アトミック書き込みの配線、`--reconcile` 追加）/ `tests/roleplay-sections.test.js`（新）/ `tests/data.roleplay-prompts.test.js`（マージ回帰追加）/ `docs/roleplay-prompt-generation.md`。
+- 確認: `npm test` — 41 ファイル / 546 件すべて成功（`develop`）。`--reconcile` / `--adopt` を `NumberTales/Primary/57` で疎通確認（手書き独自4節の位置保全・管理節の DB 最新化・原本 `.private/` 不変）。
+
+### fix: `tools/build-roleplay-prompts.mjs` 先頭のシバンを除去し、vitest 4.1.0 でのテスト suite 読み込み失敗を解消 (2026-07-18)
+
+vitest 4.1.0 はテスト対象モジュールを関数ラップして評価するため、先頭でなくなったシバン `#!/usr/bin/env node` の `#` を V8 が不正トークンと解釈し、同ファイルから `generatePrompt` 等を import する `tests/data.roleplay-prompts.test.js` が suite ごと `SyntaxError` で失敗していた。サブローカル `addon-ai-tag` で先行検出・修正されたが、本ファイルは `develop` が source of truth のコアファイルで逆マージを行わない運用のため、`develop` 側にも同じ 1 行削除を適用する。CLI 起動は npm scripts の `node tools/build-roleplay-prompts.mjs` 経由でシバン非依存、entry guard も `import.meta.url` 判定のため動作は不変。
 
 ### feat: 符号化フィールドのデコードを `lib/basic-renders/` へ集約し、ロールプレイプロンプト自動生成ツールを追加 (2026-07-18)
 

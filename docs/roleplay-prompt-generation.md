@@ -14,20 +14,28 @@
     アイデンティティ文（所属・種族・正式名称）＋性格（`Character_JP`）＋強み弱みで構成しています。
   - 例: 錦野姉妹のように双子の片割れ（歌嫁）が設定上どうしても入るケースも、その記述は User が手動で
     足す前提です。
-- **生成物は叩き台、手書きが正**。既存の実運用プロンプトは生成場所（`RoleplayPrompts/`）で保護され、
-  `--force` 指定（またはフェーズ2 のマージ更新）以外では上書きされません。
+- **生成物は叩き台、手書きが正**。既存ファイルの再生成は見出しアンカー方式のマージ更新で、テンプレ
+  由来見出しのセクションのみ DB 最新へ差し替え、手書き独自見出しのセクションは元の位置のまま保全します
+  （下記「既存ファイルのマージ更新」）。手書き実運用プロンプトは `.private/roleplay-prompt-<id>.md` に
+  分離しており、生成ループは `.private/` に書き込みません（`--reconcile` / `--adopt` で扱う）。
 
 ## CLI
 
 ```
-node tools/build-roleplay-prompts.mjs        # 既定 = plan（dry-run。書き込まない）
+node tools/build-roleplay-prompts.mjs        # 既定 = plan（dry-run。新規列挙＋既存はマージ差分）
 npm run roleplay:plan     # 同上
-npm run roleplay:write    # 生成/上書き（既存ファイルは既定で保護＝スキップ）
-npm run roleplay:check    # CI: 新規生成予定があれば exit 1
+npm run roleplay:write    # 生成/マージ書き込み（新規フル生成・既存は見出しアンカーでマージ）
+npm run roleplay:check    # CI: 差分（新規/マージ更新）があれば exit 1
 ```
 
-主なフラグ: `--write` / `--check` / `--force`（既存上書き）/ `--work=<Name>` / `--db=<Name>` /
-`--id=<Value>` / `--lang=jp|en`（en はフェーズ4）/ `--report=<path>`（既定 `.cache/roleplay-report.json`）。
+主なフラグ: `--write` / `--check` / `--force`（既存を構造非依存で丸ごと再生成）/ `--reconcile`（`.private/<id>`
+と DB 生成のドリフト差分のみ・書き込み無し）/ `--adopt`（`.private/<id>` を管理版として生成場所へ取り込み）/
+`--work=<Name>` / `--db=<Name>` / `--id=<Value>` / `--lang=jp|en`（en はフェーズ4）/ `--report=<path>`
+（既定 `.cache/roleplay-report.json`）。
+
+> CLI はシバン非依存で動きます（`node tools/build-roleplay-prompts.mjs` で起動）。vitest 4.1.0 はテスト
+> 対象モジュールを関数ラップして評価するため、テストから import される本ファイルの先頭にシバン行は置きません
+> （置くと suite 読み込み時に `SyntaxError` になる）。
 
 ## テンプレート仕様（`roleplay-prompt.tpl.md`）
 
@@ -77,8 +85,41 @@ npm run roleplay:check    # CI: 新規生成予定があれば exit 1
 `lib/section-renders/tailsUnit.js` の純関数を side-effect import し、キャラシート UI と同一ロジックで
 解決します（詳細は `docs/schema-meta-processing.md` / `docs/wrapper-summary-registry.md`）。
 
+## 既存ファイルのマージ更新（見出しアンカー方式）
+
+`--write` で既存の生成物を再生成するとき、`tools/roleplay/sections.mjs` が **見出し文字列をアンカー**に
+セクション単位でマージします（マーカーは使いません）。
+
+- **テンプレ由来見出し**（`## 「X」の概要` / `## 「X」の基本情報` / `## 「X」の口調` など、現行 DB の
+  完全生成物に現れる見出し）… 常に DB 最新で上書き。
+- **手書き独自見出し**（テンプレに無い見出し。例 `## セッション開始時の強制ルーティン`）… 直前隣接の
+  管理見出しをアンカーに、元の位置のまま保全。
+- 手書き独自見出しが無い既存ファイルは、生成物と byte 一致なら no-change（冪等）。
+- `--force` は構造を認識できない既存を丸ごと再生成する脱出口です（通常は不要）。
+- 書き込みは一時ファイル → rename でアトミックに行い、上書き前の内容は `.cache/roleplay-backups/` へ
+  退避します（`.cache` は Git 管轄外）。
+
+> **約束事**: テンプレ由来見出しのセクション本文へ手書きした内容は、再生成で DB 最新へ戻ります。恒久的に
+> 残したい手書きは「テンプレに無い独自見出し」の下に置いてください。
+
+## 手書きプロンプトの差分・取り込み（`--reconcile` / `--adopt`）
+
+`.private/roleplay-prompt-<id>.md`（手書き実運用プロンプト）と DB 生成物の関係を扱います。原本 `.private/`
+は**いずれのモードでも書き換えません**。
+
+- `--reconcile` … `.private/<id>` と現行 DB 生成のドリフトをセクション単位で一覧表示するだけ（読み取り
+  専用・書き込み無し）。型番・尻尾ユニット・正式名称などの DB 事実が手書きとズレている箇所を把握できます。
+- `--adopt` … `.private/<id>` を見出しアンカーでマージし、「DB 由来見出し＝最新化／手書き独自見出し＝保全」
+  した**管理版**を生成場所（`DB_<Db>/roleplay-prompt-<id>.md`）へ書き出します。既定は dry-run（差分表示）、
+  `--adopt --write` で実書き込み。`--id` で対象を1件に絞る運用が基本です。
+- **既知の非対称**: テンプレは性格を「概要」へ畳み込むため、手書きが `## 性格` を独立節に持つ場合、adopt 後は
+  「概要（畳込）」＋「性格（保全）」で内容が重複しえます。ツールは創作本文を書き換えないため、重複解消は
+  dry-run 差分を見て User が手動整理してください。
+
 ## テスト
 
 - `tests/roleplay-render.test.js` … テンプレエンジン・フィルタの純関数テスト。
+- `tests/roleplay-sections.test.js` … 見出しアンカー分解／マージ／差分（`splitSections` / `mergeByHeadings` /
+  `diffSections`）の純関数テスト（テンプレ由来節の上書き・手書き独自節の位置保全・冪等）。
 - `tests/data.roleplay-prompts.test.js` … 実データ統合（レンダ成功・未解決なし・冪等性・マーカー非混入・
-  出力パス規約・非充填除外）。
+  出力パス規約・非充填除外・マージの実データ回帰）。
