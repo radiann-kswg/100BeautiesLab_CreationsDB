@@ -65,6 +65,8 @@ export function applyFilter(value, name) {
 	switch (String(name || '').trim()) {
 		case 'nospace': return s.replace(/[\s　]+/g, '');
 		case 'oneline': return (s.split('\n')[0] || '').trim();
+		case 'commas': return s.split('\n').map((x) => x.trim()).filter(Boolean).join('、');
+		case 'bullets': return s.split('\n').map((x) => x.trim()).filter(Boolean).map((x) => `- ${x}`).join('\n');
 		case 'trim': return s.trim();
 		default: return s;
 	}
