@@ -37,6 +37,7 @@
 | AIHints カラーセット デッドロック診断    | [2026-07-13_progress_aihints-palette-deadlock.md](./2026-07-13_progress_aihints-palette-deadlock.md)                                                                | 📝 診断完了。`palette_priority` が 92/92 件 null で固定される原因を特定（上の再同期提案と対で読む）。第0階の修正は `addon-ai-tag` で実装済み |
 | ColorPalette スキーマ + 配色候補抽出     | [2026-07-13_progress_colorpalette-schema.md](./2026-07-13_progress_colorpalette-schema.md)                                                                          | ⚠️ スキーマ・抽出ツール実装済み（`npm test` 325件成功）。実データ入力は `.private/` の下書きを User がレビュー後。AIHints への機械導出は未実装 |
 | AppearanceDetail 参考画像の一括登録      | [2026-07-11_progress_appearancedetail-images.md](./2026-07-11_progress_appearancedetail-images.md)                                                                  | ⚠️ `10`/`10alt` の割当正誤（User確認待ち）・保留4枚の扱い                                        |
+| ロールプレイプロンプト生成               | [2026-07-18_progress_roleplay-prompt-en-phase4.md](./2026-07-18_progress_roleplay-prompt-en-phase4.md)                                                              | 🟢 フェーズ0〜3（JP生成・見出しアンカーマージ・`--reconcile`/`--adopt`）完了（詳細は [generatorログ](./2026-07-18_progress_roleplay-prompt-generator.md)・`npm test` 546件緑）。フェーズ4（EN版）は本ログに着手前調査＋実装計画を集約（未着手・出力先形式は User 確認待ち） |
 
 ### 系列の補足（過去フェーズは `.completed/` 参照）
 
