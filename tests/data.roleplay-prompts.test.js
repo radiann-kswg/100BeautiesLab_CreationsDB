@@ -16,6 +16,7 @@ import {
 	hasFilledConversationPattern,
 	computeOutputPath,
 } from '../tools/build-roleplay-prompts.mjs';
+import { mergeByHeadings } from '../tools/roleplay/sections.mjs';
 // 符号化フィールドのデコードを Node 側で有効化（UI と同一ロジック）
 import '../lib/wrapper-common.js';
 import '../lib/section-wrapper-common.js';
@@ -126,5 +127,31 @@ describe('build-roleplay-prompts 統合（実データ・CP 充填済み）', ()
 			expect(firstBody).toContain('あなたはこれから');
 			expect(firstBody).toContain('として');
 		}
+	});
+});
+
+describe('フェーズ2 マージ更新（実データ・見出しアンカー）', () => {
+	it('生成物全件で merge(rendered, rendered) が byte 一致（マージ冪等）', () => {
+		for (const t of targets) {
+			const rendered = generatePrompt(t.tpl, t.rec, ctxOf(t)).text;
+			expect(mergeByHeadings(rendered, rendered), `${t.workShort}/${t.dbShort} のマージが非冪等`).toBe(rendered);
+		}
+	});
+
+	it('手書き独自見出しは保全し、テンプレ由来節の手書き改変は DB 最新へ戻す', () => {
+		const t = targets[0];
+		const rendered = generatePrompt(t.tpl, t.rec, ctxOf(t)).text;
+		// 既存＝生成物に手書き独自節を挿入し、管理節（命令文）の1行を改変してドリフトを再現
+		const foreign = '## 手書きの追記メモ\n\nこれは保全されるべき手書き内容。\n';
+		const existing = rendered
+			.replace(/\n## /, `\n${foreign}\n## `)
+			.replace('あなたはこれから', 'あなたはこれから（手書き改変）');
+		const merged = mergeByHeadings(existing, rendered);
+		// 手書き独自節は残る
+		expect(merged).toContain('## 手書きの追記メモ');
+		expect(merged).toContain('これは保全されるべき手書き内容。');
+		// 管理節の手書き改変は DB 最新へ戻る（改変痕が消える）
+		expect(merged).not.toContain('あなたはこれから（手書き改変）');
+		expect(merged).toContain('あなたはこれから');
 	});
 });

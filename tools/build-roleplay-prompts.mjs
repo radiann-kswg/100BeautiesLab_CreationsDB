@@ -1,4 +1,3 @@
-#!/usr/bin/env node
 /**
  * [build-roleplay-prompts.mjs] - JSON DB ＋ テンプレートから配布用ロールプレイプロンプト（Markdown）を生成する CLI
  * @description
@@ -10,13 +9,16 @@
  *   lib/section-renders の純関数を side-effect import して人間可読へ展開する（UI と同一デコード）。
  *
  *   出力パスは CreationsDBClient.resolveIndexPathRoles() の宣言的判定に従う（フォルダキー/ファイルキー）。
- *   DB 由来セクションは 100bl:auto マーカーで囲まれ、フェーズ2 のマージ更新の下地になる。
+ *   生成物はマーカー無しのクリーン Markdown。既存ファイルの再生成は sections.mjs の見出しアンカー
+ *   方式でマージ更新し、手書き独自見出しのセクションは元の位置のまま保全する。
  *
  *   CLI:
- *     node tools/build-roleplay-prompts.mjs            # 既定 = plan（dry-run）
- *       --write            実書き込み（既存ファイルは既定で保護＝スキップ）
- *       --check            CI 用: 新規生成予定があれば exit 1（書かない）
- *       --force            既存ファイルを上書き（保護を無効化）
+ *     node tools/build-roleplay-prompts.mjs            # 既定 = plan（dry-run。新規列挙＋既存はマージ差分）
+ *       --write            生成/マージ書き込み（新規フル生成・既存は見出しアンカーでマージ）
+ *       --check            CI 用: 差分（新規/マージ更新）があれば exit 1（書かない）
+ *       --force            既存を構造非依存で丸ごと再生成（脱出口）
+ *       --reconcile        .private/<id> と DB 生成のドリフト差分だけ表示（書き込み無し・フェーズ3）
+ *       --adopt            .private/<id> を管理版として生成場所へ取り込み（フェーズ3）
  *       --work=<Name>      作品を絞り込み（Works_ 省略名。例: NumberTales）
  *       --db=<Name>        DB を絞り込み（DB_ 省略名。例: Primary）
  *       --id=<Value>       ファイルキー値で単一レコードに絞り込み
@@ -32,6 +34,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import CreationsDBClient from '../pkg/nodejs/index.mjs';
 import { renderTemplate, hasUnresolvedPlaceholders } from './roleplay/render.mjs';
+import { mergeByHeadings, diffSections } from './roleplay/sections.mjs';
 // 符号化フィールドのデコードを Node 側でも使えるよう globalThis へ登録（UI と同一ロジック）
 import '../lib/wrapper-common.js';
 import '../lib/section-wrapper-common.js';
@@ -47,15 +50,16 @@ const DEEP_LINK_BASE = 'https://database.numbertales-radiann.net/pages/character
 /**
  * CLI 引数をパースする（外部依存なしの自前実装）。
  * @param {string[]} argv
- * @returns {{write:boolean, check:boolean, force:boolean, adopt:boolean, lang:string, work:string, db:string, id:string, report:string}}
+ * @returns {{write:boolean, check:boolean, force:boolean, adopt:boolean, reconcile:boolean, lang:string, work:string, db:string, id:string, report:string}}
  */
 export function parseArgs(argv) {
-	const args = { write: false, check: false, force: false, adopt: false, lang: 'jp', work: '', db: '', id: '', report: '' };
+	const args = { write: false, check: false, force: false, adopt: false, reconcile: false, lang: 'jp', work: '', db: '', id: '', report: '' };
 	for (const a of argv) {
 		if (a === '--write') args.write = true;
 		else if (a === '--check') args.check = true;
 		else if (a === '--force') args.force = true;
 		else if (a === '--adopt') args.adopt = true;
+		else if (a === '--reconcile') args.reconcile = true;
 		else if (a.startsWith('--work=')) args.work = a.slice('--work='.length);
 		else if (a.startsWith('--db=')) args.db = a.slice('--db='.length);
 		else if (a.startsWith('--id=')) args.id = a.slice('--id='.length);
@@ -63,6 +67,7 @@ export function parseArgs(argv) {
 		else if (a.startsWith('--report=')) args.report = a.slice('--report='.length);
 	}
 	if (args.write && args.check) throw new Error('--write と --check は同時指定できません');
+	if (args.reconcile && args.adopt) throw new Error('--reconcile と --adopt は同時指定できません');
 	return args;
 }
 
@@ -216,7 +221,7 @@ export function buildVars(record, ctx) {
 }
 
 /**
- * レコード 1 件分のプロンプト本文を生成する（テンプレ展開 → マーカースタンプ）。
+ * レコード 1 件分のプロンプト本文を生成する（テンプレ展開のみ。マーカーは付与しない）。
  * @param {string} tpl
  * @param {any} record
  * @param {object} ctx - buildVars と同じ ctx
@@ -226,8 +231,8 @@ export function generatePrompt(tpl, record, ctx) {
 	const { config, body } = extractConfigAndBody(tpl);
 	const vars = buildVars(record, { ...ctx, config });
 	const rendered = renderTemplate(body, { record, vars }, { onMissing: 'drop' });
-	// 生成物はマーカーを含まないクリーンな Markdown とする。フェーズ2 のセクション単位マージ更新は
-	// 見出し（`## 「X」の概要` 等）をアンカーにセクションを識別する方式で行う。
+	// 生成物はマーカーを含まないクリーンな Markdown とする。既存ファイルの再生成は sections.mjs の
+	// 見出し（`## 「X」の概要` 等）をアンカーにしたマージ更新で行う（フェーズ2）。
 	return { text: rendered, unresolved: hasUnresolvedPlaceholders(rendered) };
 }
 
@@ -250,6 +255,26 @@ export function computeOutputPath(outputRoot, dbShort, record, pathRoles) {
 }
 
 /**
+ * 一時ファイルへ書いてから rename でアトミックに置き換える。既存があれば `.cache/roleplay-backups/`
+ * 配下へバックアップを退避してから上書きする（マージ更新の巻き戻し用。`.cache` は Git 管轄外）。
+ * @param {string} outPath
+ * @param {string} text
+ * @param {string} repoRoot
+ */
+export function writeFileAtomic(outPath, text, repoRoot) {
+	fs.mkdirSync(path.dirname(outPath), { recursive: true });
+	if (fs.existsSync(outPath)) {
+		const rel = path.relative(repoRoot, outPath).replace(/\\/g, '/');
+		const backup = path.join(repoRoot, '.cache', 'roleplay-backups', rel);
+		fs.mkdirSync(path.dirname(backup), { recursive: true });
+		fs.copyFileSync(outPath, backup);
+	}
+	const tmp = `${outPath}.tmp`;
+	fs.writeFileSync(tmp, text, 'utf8');
+	fs.renameSync(tmp, outPath);
+}
+
+/**
  * メインエントリ。作品/DB/レコードを走査してプロンプトを生成する。
  * @returns {Promise<void>}
  */
@@ -259,7 +284,16 @@ async function main() {
 	const client = new CreationsDBClient();
 	const globalMeta = await client.getMeta();
 
-	const report = { mode: args.write ? 'write' : (args.check ? 'check' : 'plan'), lang, generated: [], protectedSkip: [], noCpSkip: 0, errors: [] };
+	const mode = args.reconcile
+		? 'reconcile'
+		: args.adopt
+			? (args.write ? 'adopt-write' : 'adopt')
+			: args.write
+				? 'write'
+				: args.check
+					? 'check'
+					: 'plan';
+	const report = { mode, lang, generated: [], unchanged: [], reconciled: [], adopted: [], noPrivate: 0, noCpSkip: 0, errors: [] };
 	let exitCode = 0;
 
 	const worksList = await client.listWorks();
@@ -316,17 +350,60 @@ async function main() {
 					continue;
 				}
 
-				const exists = fs.existsSync(outPath);
-				if (exists && !args.force) {
-					report.protectedSkip.push({ work: workShort, db: dbShort, id: String(idVal), path: relOut });
+				// フェーズ3: .private/<id> の手書き実運用プロンプトを対象にした差分（--reconcile）/
+				// 取り込み（--adopt）。原本 .private は一切書き換えず、adopt は管理版を生成場所へ書き出す。
+				if (args.reconcile || args.adopt) {
+					const privPath = path.join(path.dirname(outPath), '.private', path.basename(outPath));
+					if (!fs.existsSync(privPath)) { report.noPrivate++; continue; }
+					const priv = fs.readFileSync(privPath, 'utf8');
+					const merged = mergeByHeadings(priv, gen.text);
+					const changed = diffSections(priv, merged).filter((d) => d.status !== 'unchanged');
+					const entry = {
+						work: workShort, db: dbShort, id: String(idVal),
+						private: path.relative(REPO_ROOT, privPath).replace(/\\/g, '/'), path: relOut,
+						sections: changed.map((d) => `${d.status}:${d.heading}`),
+					};
+					if (args.reconcile) {
+						report.reconciled.push(entry);
+					} else {
+						if (args.write) writeFileAtomic(outPath, merged, REPO_ROOT);
+						entry.wrote = args.write;
+						report.adopted.push(entry);
+					}
 					continue;
 				}
 
-				if (args.write) {
-					fs.mkdirSync(path.dirname(outPath), { recursive: true });
-					fs.writeFileSync(outPath, gen.text, 'utf8');
+				// 既存があれば見出しアンカーでマージ（テンプレ由来節は DB 最新へ・手書き独自節は保全）。
+				// --force のときだけ構造非依存で丸ごと再生成する（脱出口）。
+				let finalText = gen.text;
+				let action = 'create';
+				let changedSections = null;
+				if (fs.existsSync(outPath)) {
+					const current = fs.readFileSync(outPath, 'utf8');
+					if (args.force) {
+						action = current === finalText ? 'unchanged' : 'overwrite';
+					} else {
+						finalText = mergeByHeadings(current, gen.text);
+						if (finalText === current) {
+							action = 'unchanged';
+						} else {
+							action = 'merge';
+							changedSections = diffSections(current, finalText).filter((d) => d.status !== 'unchanged');
+						}
+					}
 				}
-				report.generated.push({ work: workShort, db: dbShort, id: String(idVal), path: relOut, bytes: gen.text.length, wrote: args.write });
+
+				if (action === 'unchanged') {
+					report.unchanged.push({ work: workShort, db: dbShort, id: String(idVal), path: relOut });
+					continue;
+				}
+
+				if (args.write) writeFileAtomic(outPath, finalText, REPO_ROOT);
+				report.generated.push({
+					work: workShort, db: dbShort, id: String(idVal), path: relOut,
+					bytes: finalText.length, wrote: args.write, action,
+					sections: changedSections ? changedSections.map((d) => `${d.status}:${d.heading}`) : undefined,
+				});
 			}
 		}
 	}
@@ -339,9 +416,26 @@ async function main() {
 	fs.writeFileSync(reportPath, `${JSON.stringify(report, null, 2)}\n`, 'utf8');
 
 	// サマリ出力
-	console.log(`[roleplay] mode=${report.mode} lang=${lang}  generated=${report.generated.length} protected=${report.protectedSkip.length} noCP=${report.noCpSkip} errors=${report.errors.length}`);
-	for (const g of report.generated) console.log(`  ${g.wrote ? 'WROTE  ' : 'PLAN   '} ${g.path} (${g.bytes}B)`);
-	for (const s of report.protectedSkip) console.log(`  PROTECT ${s.path}`);
+	if (args.reconcile) {
+		console.log(`[roleplay] mode=${report.mode} lang=${lang}  reconciled=${report.reconciled.length} noPrivate=${report.noPrivate} noCP=${report.noCpSkip} errors=${report.errors.length}`);
+		for (const r of report.reconciled) {
+			const n = r.sections.length;
+			console.log(`  DRIFT ${r.private}  (${n} 差分)`);
+			if (n) console.log(`         sections: ${r.sections.join(', ')}`);
+		}
+	} else if (args.adopt) {
+		console.log(`[roleplay] mode=${report.mode} lang=${lang}  adopted=${report.adopted.length} noPrivate=${report.noPrivate} noCP=${report.noCpSkip} errors=${report.errors.length}`);
+		for (const a of report.adopted) {
+			console.log(`  ${a.wrote ? 'ADOPT ' : 'PLAN  '} ${a.private} → ${a.path}`);
+			if (a.sections.length) console.log(`         sections: ${a.sections.join(', ')}`);
+		}
+	} else {
+		console.log(`[roleplay] mode=${report.mode} lang=${lang}  changed=${report.generated.length} unchanged=${report.unchanged.length} noCP=${report.noCpSkip} errors=${report.errors.length}`);
+		for (const g of report.generated) {
+			console.log(`  ${g.wrote ? 'WROTE ' : 'PLAN  '}[${g.action}] ${g.path} (${g.bytes}B)`);
+			if (g.sections && g.sections.length) console.log(`         sections: ${g.sections.join(', ')}`);
+		}
+	}
 	for (const e of report.errors) console.log(`  ERROR[${e.type}] ${e.work}/${e.db} ${e.id}: ${e.message || e.path}`);
 	console.log(`  report: ${path.relative(REPO_ROOT, reportPath).replace(/\\/g, '/')}`);
 
