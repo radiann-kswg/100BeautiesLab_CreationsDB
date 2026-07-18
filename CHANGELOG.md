@@ -1,5 +1,23 @@
 # 最新のリファクタリング・仕様変更履歴
 
+### feat: 符号化フィールドのデコードを `lib/basic-renders/` へ集約し、ロールプレイプロンプト自動生成ツールを追加 (2026-07-18)
+
+各創作タイトルの `RoleplayPrompts/` に蓄積してきた配布用ロールプレイプロンプトを、JSON DB の `ConversationPattern` を中心としたキャラ設定フィールド＋作品別テンプレートから半自動生成する機能を追加。あわせて、これまでキャラシート UI（`pages/characters.js`）に閉じていた符号化フィールド（呼称 DSL / GenderType・RaceType / TailsUnit）のデコードを `lib/` の純関数へ集約し、UI / Service Worker / pkg / 生成ツールで共用できるようにした。
+
+- **符号化フィールドのデコードを基本ライブラリ化（横断・回帰なし）**:
+  - `lib/basic-renders/calling-common.js`（新規）… 呼称 DSL（`\n` > `;` > `/` `,`・`*`こそあど・`[※]`/`[*]` 参照）の純パーサ `parseCalling` ＋ 整形 `formatCallingText`。`彼/彼女` は GenderType 非依存（`/` 並列候補）。
+  - `lib/basic-renders/type-common.js`（新規）… `$EnumDef_*` / `#List_*` / `#Dict_*` による enum/辞書ラベル解決（`resolveVarsDefLabel` / `resolveVarsDefLabelPack` / `mergeVarsDefLayers` / `findDictScopeCondition` / `normalizeVarsDefKey`）を `pages/characters.js` から移設。
+  - `lib/section-renders/calling.js` は純パーサ結果を DOM 描画するだけに縮小。`pages/characters.js` の 5 関数は `globalThis.TypeResolver` への薄いラッパへ（呼び出し箇所は不変）。
+  - **キャラシート UI の呼称系表示も刷新**: 呼称系は `$DetailLayout.basicFields` に載るが standalone の calling section renderer は効かないため、`resolveBasicField` に `calling-common` での展開フックを追加（三人称の生 DSL 表示を解消）。
+- **ロールプレイプロンプト自動生成（`tools/build-roleplay-prompts.mjs` 新規）**:
+  - `tools/roleplay/render.mjs`（自前の軽量テンプレエンジン）＋ `CreationsDBClient.resolveIndexPathRoles()`（出力パスの宣言的判定＝`$IndexDef` の `$display.index.link` フラグ）＋ 3 作品テンプレ `roleplay-prompt.tpl.md`。
+  - `ConversationPattern` 充填済みレコードのみ生成。生成物は**マーカー無しのクリーンな Markdown**（フェーズ2 のマージ更新は見出しアンカー方式）。
+  - 複数名（`*Name` の改行区切り）は「または」連結、object 値（`{value,about}`）は value 取り出し、`hideText` マスクは省略、型番はインラインコード表示、口調は「。」文分割＋観点（話題傾向・補足）追加で細分化。
+  - **制約**: LLM を呼ばず既存値を機械的に差し込むだけ。**複数キャラの描写が絡む記述は User の手動入力判断**（生成はキャラ単体で確実な情報のみ）。詳細は `docs/roleplay-prompt-generation.md`。
+- **npm scripts**: `roleplay:plan` / `:write` / `:check`。
+- **影響範囲**: `lib/basic-renders/{calling-common,type-common}.js`（新）/ `lib/section-renders/calling.js` / `lib/{data-common,wrapper-common}.js`（配線）/ `pages/characters.{js,html}` / `pkg/nodejs/index.mjs`（`resolveIndexPathRoles`）/ `tools/{build-roleplay-prompts,roleplay/render,roleplay/markers}.mjs`（新）/ `data/Works_{NumberTales,FLInvestigator78,DestinyFoxRecords}/RoleplayPrompts/roleplay-prompt.tpl.md`（新）/ `tests/{calling-common,type-common,roleplay-render,data.roleplay-prompts}.test.js`（新）/ `package.json` / `docs/roleplay-prompt-generation.md`（新）。
+- 確認: `npm test` — 40 ファイル / 534 件すべて成功（`develop`）。既存キャラシート UI テスト（`pages.characters.ui-output`）も回帰なし。開発環境（`http://127.0.0.1:5500/pages/characters.html`）で呼称系・GenderType・TailsUnit の表示回帰なしを目視確認。
+
 ### feat: `$slotAnchor` を追加し、`$DetailLayout.basicFields` をキー順の宣言面へ昇格 (2026-07-17)
 
 同日先行の `$slot` マーカー整備では `basicFields` を「どれを basic に出すかの選択」に限定し、並び順は `$DefType` 一本へ寄せていた。しかしグローバル `$DefType` に宣言が無い**作品別 typedef のフィールドには「揃えるべき $DefType 上の位置」が存在しない**ため、`basicFields` に載っていても catch-all（`#WorkRest`）で末尾へ流れていた（7 フィールド）。User の `basicFields` / `subFields` 再整備を受け、`basicFields` を作品固有フィールドの位置宣言としても機能させる。

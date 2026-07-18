@@ -920,6 +920,56 @@ export class CreationsDBClient {
     return 'Num';
   }
 
+  /**
+   * 出力パス（RoleplayPrompts 等）用に、インデックスの「フォルダキー」と「ファイルキー」を
+   * `$IndexDef` から宣言的に解決する（実データ走査に依存しない）。
+   * - `$type` が文字列（単一キー）: フォルダキー = ファイルキー = root（例: `Num` / `Generation`）
+   * - `$type` が配列: フォルダキー = 先頭要素、ファイルキー = `$display.index.link:true` を持つ要素
+   *   （link 指定が無ければフォルダキーと同一 = 先頭だけで完結）
+   *
+   * 例:
+   * - NumberTales/Primary（`$type` 文字列）→ `{ folderKey:'Num', fileKey:'Num', splitFolder:false }`
+   * - ShouArRiders/Primary（配列・link 無し）→ `{ folderKey:'BeastType.Beast', fileKey:'BeastType.Beast', splitFolder:false }`
+   * - FLInvestigator78/PrimaryDealer（配列・Num に link）→ `{ folderKey:'Card.Suit', fileKey:'Card.Num', splitFolder:true }`
+   *
+   * @param {string} workId
+   * @param {string} [dbName]
+   * @returns {Promise<{folderKey: string, fileKey: string, splitFolder: boolean}>}
+   *   folderKey/fileKey はドット記法。splitFolder=true でフォルダ分け、false で suffix 完結。
+   */
+  async resolveIndexPathRoles(workId, dbName) {
+    const key = await this._requireVisibleWork(workId);
+    const workType = await this.getWorkType(key);
+    const dbNorm = dbName ? capitalize(stripMetaDbPrefix(dbName)) : '';
+    const scoped = dbNorm ? workType?.[`$IndexDef_${dbNorm}`] : null;
+    const indexDef = isObject(scoped) ? scoped : (isObject(workType?.$IndexDef) ? workType.$IndexDef : null);
+
+    // $IndexDef 未定義: getIndexKey の単一キーにフォールバック
+    if (!isObject(indexDef)) {
+      const k = await this.getIndexKey(workId, dbName);
+      return { folderKey: k, fileKey: k, splitFolder: false };
+    }
+
+    const root = indexDef.hashTag ?? 'Num';
+    const types = indexDef.$type;
+
+    // $type が文字列 → 単一キーで完結
+    if (!Array.isArray(types)) {
+      return { folderKey: root, fileKey: root, splitFolder: false };
+    }
+
+    // $type が配列 → 先頭要素をフォルダキー、link:true 要素をファイルキー
+    const children = types.filter((t) => t && typeof t.hashTag === 'string');
+    if (!children.length) {
+      return { folderKey: root, fileKey: root, splitFolder: false };
+    }
+    const folderKey = `${root}.${children[0].hashTag}`;
+    const linkChild = children.find((t) => t?.$display?.index?.link === true);
+    const fileKey = linkChild ? `${root}.${linkChild.hashTag}` : folderKey;
+
+    return { folderKey, fileKey, splitFolder: fileKey !== folderKey };
+  }
+
   // ── レコード取得系 ──────────────────────────────────────────────────────
 
   /**

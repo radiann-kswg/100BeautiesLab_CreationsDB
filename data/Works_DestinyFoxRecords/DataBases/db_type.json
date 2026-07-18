@@ -14,7 +14,7 @@
   "$DefType": [
     { "hashTag": "Unit", "$type": "#Index", "hashTag_JP": "理学単位次元" },
     {
-      "hashTag": "Unit_FullEN",
+      "hashTag": "Unit_Full",
       "$type": "##String_EN|#Null",
       "hashTag_EN": "Unit Full Name",
       "$slot": "#Index",
