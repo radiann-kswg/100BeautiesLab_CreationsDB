@@ -143,12 +143,23 @@ export function extractConfigAndBody(tpl) {
  */
 export function buildVars(record, ctx) {
 	const { config, workShort, dbShort, pathRoles, workMeta, globalMeta, lang, workTitle } = ctx;
-	const vars = { __lang: lang, WorkTitle_JP: workTitle || '' };
+	// 作品名は複数行を持つことがあるため先頭行のみ採用
+	const vars = { __lang: lang, WorkTitle_JP: String(workTitle || '').split('\n')[0].trim() };
+
+	// FormalName（改行区切りの複数名）は「または」で連結する。DisplayName 用に空白除去版も用意する
+	const orJoin = (s) => String(s || '').split('\n').map((x) => x.trim()).filter(Boolean).join(' または ');
+	vars.FormalName = orJoin(record.FormalName_JP);
+	vars.FormalNameReading = orJoin(record.FormalName_JPReading);
+	vars.FormalNameCompact = String(record.FormalName_JP || '').split('\n').map((x) => x.trim().replace(/[\s　]+/g, '')).filter(Boolean).join(' または ');
 
 	// 設定ブロックの式（displayName → DisplayName 等）を評価
 	for (const [k, expr] of Object.entries(config || {})) {
 		const varName = k.charAt(0).toUpperCase() + k.slice(1);
 		vars[varName] = renderTemplate(expr, { record, vars: { ...vars } }, { finalize: false }).trim();
+	}
+	// DisplayName に改行（複数名）が残る場合は「または」で連結（テンプレ側フィルタ取りこぼしの防御）
+	if (typeof vars.DisplayName === 'string' && vars.DisplayName.includes('\n')) {
+		vars.DisplayName = vars.DisplayName.split('\n').map((x) => x.trim().replace(/[\s　]+/g, '')).filter(Boolean).join(' または ');
 	}
 
 	const CC = globalThis.CallingCommon;
@@ -165,10 +176,18 @@ export function buildVars(record, ctx) {
 	vars.ThirdPerson = decodeCalling('ThirdPersonCalling');
 	vars.ForMaster = decodeCalling('ForMasterCalling');
 
-	// GenderType / RaceType / Belonging（enum/辞書ラベル解決）
-	vars.Gender = TR ? (TR.resolveVarsDefLabel('GenderType', record.GenderType, globalMeta, workMeta) || '') : '';
-	vars.Race = TR ? (TR.resolveVarsDefLabel('RaceType', record.RaceType, globalMeta, workMeta) || '') : '';
-	vars.Belonging = TR ? (TR.resolveVarsDefLabel('Belonging', record.Belonging, globalMeta, workMeta) || '') : '';
+	// object 値（`{ value, about }` 形式）はプリミティブへアンラップする（GenderType/Age 等）
+	const unwrapValue = (v) => (v && typeof v === 'object' && !Array.isArray(v) && 'value' in v) ? v.value : v;
+
+	// GenderType / RaceType / Belonging（enum/辞書ラベル解決）。
+	// 解決不能な object が `[object Object]` へ文字列化された場合は未対応として省略する。
+	const cleanLabel = (s) => (typeof s === 'string' && s && !s.includes('[object Object]')) ? s : '';
+	vars.Gender = cleanLabel(TR ? TR.resolveVarsDefLabel('GenderType', unwrapValue(record.GenderType), globalMeta, workMeta) : '');
+	vars.Race = cleanLabel(TR ? TR.resolveVarsDefLabel('RaceType', unwrapValue(record.RaceType), globalMeta, workMeta) : '');
+	vars.Belonging = cleanLabel(TR ? TR.resolveVarsDefLabel('Belonging', unwrapValue(record.Belonging), globalMeta, workMeta) : '');
+
+	// 年齢は Age（無ければ ConceptAge）を採用し、object 値はアンラップして統一する
+	vars.Age = unwrapValue(record.Age != null ? record.Age : record.ConceptAge);
 
 	// 誕生日（`{ Day: { Month, DayOfMonth } }` 形式）を「M月D日」へ整形
 	vars.BirthDay = (() => {

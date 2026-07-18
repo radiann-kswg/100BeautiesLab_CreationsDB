@@ -51,6 +51,8 @@ export function resolvePath(ctx, path) {
 		if (cur == null || typeof cur !== 'object') return undefined;
 		cur = cur[seg];
 	}
+	// hideText マスク（非公開情報）はプロンプトに出さず省略する（値は解決しない）
+	if (cur && typeof cur === 'object' && !Array.isArray(cur) && typeof cur.hideText === 'string') return undefined;
 	return cur;
 }
 
@@ -67,6 +69,11 @@ export function applyFilter(value, name) {
 		case 'oneline': return (s.split('\n')[0] || '').trim();
 		case 'commas': return s.split('\n').map((x) => x.trim()).filter(Boolean).join('、');
 		case 'bullets': return s.split('\n').map((x) => x.trim()).filter(Boolean).map((x) => `- ${x}`).join('\n');
+		// 改行区切りの複数名を「または」で連結（orjoin=空白維持 / altnames=空白除去し表示名向け）
+		case 'orjoin': return s.split('\n').map((x) => x.trim()).filter(Boolean).join(' または ');
+		case 'altnames': return s.split('\n').map((x) => x.trim().replace(/[\s　]+/g, '')).filter(Boolean).join(' または ');
+		// 「。」区切りの長文を文単位の箇条書きへ細分化する（改行区切りも文の区切りとして扱う）
+		case 'sentences': return s.split(/。|\n/).map((x) => x.trim()).filter(Boolean).map((x) => `- ${x}。`).join('\n');
 		case 'trim': return s.trim();
 		default: return s;
 	}
@@ -177,6 +184,8 @@ export function finalizeText(text) {
 	let out = lines.join('\n');
 	out = out.replace(/[ \t]+$/gm, '');
 	out = out.replace(/\n{3,}/g, '\n\n');
+	// 条件省略の跡で箇条書き行の間に生じた空行を詰める（`- A` と `- B` の間の空行を除去）
+	out = out.replace(/(-[^\n]*)\n\n(?=-)/g, '$1\n');
 	out = out.replace(/\s+$/, '');
 	return `${out}\n`;
 }

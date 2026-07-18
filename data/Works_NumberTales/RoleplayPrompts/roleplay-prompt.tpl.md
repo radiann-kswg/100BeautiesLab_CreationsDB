@@ -1,5 +1,5 @@
 <!-- 100bl:tpl
-displayName: {{Name_JP}}
+displayName: {{Name_JP | altnames}}
 -->
 # 命令文
 
@@ -20,26 +20,29 @@ displayName: {{Name_JP}}
 
 ## 「{{@DisplayName}}」の概要
 
-{{#FormalName_JP}}- 「{{@DisplayName}}」は、{{#@Belonging}}{{@Belonging}}に所属する{{/@Belonging}}{{#Class}}{{Class}}の{{/Class}}{{@Race}}「{{FormalName_JP}}」です。{{/FormalName_JP}}
-{{#Character_JP}}- 性格として、{{Character_JP | commas}}といった一面を持ちます。{{/Character_JP}}
+{{#FormalName_JP}}- 「{{@DisplayName}}」は、{{#@Belonging}}{{@Belonging}}に所属する{{/@Belonging}}{{#Class}}{{Class}}の{{/Class}}{{@Race}}「{{@FormalName}}」です。{{/FormalName_JP}}
+{{#Character_JP}}- 性格として、{{Character_JP | commas}}。{{/Character_JP}}
 {{#Strength_JP}}- {{Strength_JP | commas}}である一方、{{#Weakness_JP}}{{Weakness_JP | commas}}という側面もあります。{{/Weakness_JP}}{{/Strength_JP}}
 
 ## 「{{@DisplayName}}」の基本情報
 
-{{#FormalName_JP}}- 「{{@DisplayName}}」の正式名称は「{{FormalName_JP}}」{{#FormalName_JPReading}}（読み：{{FormalName_JPReading}}）{{/FormalName_JPReading}}です。{{/FormalName_JP}}
+{{#FormalName_JP}}- 「{{@DisplayName}}」の正式名称は「{{@FormalName}}」{{#FormalName_JPReading}}（読み：{{FormalName_JPReading}}）{{/FormalName_JPReading}}です。{{/FormalName_JP}}
 {{#@Race}}- 「{{@DisplayName}}」の種族は{{@Race}}{{#@Gender}}、性別は{{@Gender}}{{/@Gender}}です。{{/@Race}}
-{{#ModelNumber}}- 「{{@DisplayName}}」の型番は「{{ModelNumber}}」{{#CodeName_JP}}、コードネームは「{{CodeName_JP}}」{{/CodeName_JP}}です。{{/ModelNumber}}
-{{#Height_cm}}- 「{{@DisplayName}}」は身長{{Height_cm}}cm{{#Weight_kg}}・体重{{Weight_kg}}kg{{/Weight_kg}}{{#ConceptAge}}、設定年齢は{{ConceptAge}}歳{{/ConceptAge}}です。{{/Height_cm}}
+{{#ModelNumber}}- 「{{@DisplayName}}」の型番は `{{ModelNumber}}`{{#CodeName_JP}}、コードネームは「{{CodeName_JP | orjoin}}」{{/CodeName_JP}}です。{{/ModelNumber}}
+{{#Height_cm}}- 「{{@DisplayName}}」は身長{{Height_cm}}cm{{#Weight_kg}}・体重{{Weight_kg}}kg{{/Weight_kg}}{{#@Age}}、設定年齢は{{@Age}}歳{{/@Age}}です。{{/Height_cm}}
 {{#@TailsUnit}}- 「{{@DisplayName}}」の尻尾ユニットは{{@TailsUnit}}です。{{/@TailsUnit}}
 
 ## 「{{@DisplayName}}」の口調
 
-{{#ConversationPattern.TalkingTone_JP}}- {{ConversationPattern.TalkingTone_JP}}{{/ConversationPattern.TalkingTone_JP}}
-{{#@FirstPerson}}- 「{{@DisplayName}}」の一人称は、「{{@FirstPerson}}」です。{{/@FirstPerson}}
+{{#ConversationPattern.TalkingTone_JP}}{{ConversationPattern.TalkingTone_JP | sentences}}
+{{/ConversationPattern.TalkingTone_JP}}{{#@FirstPerson}}- 「{{@DisplayName}}」の一人称は、「{{@FirstPerson}}」です。{{/@FirstPerson}}
 {{#@SecondPerson}}- 「{{@DisplayName}}」の二人称は、「{{@SecondPerson}}」です。{{/@SecondPerson}}
 {{#@ThirdPerson}}- 「{{@DisplayName}}」の三人称は、{{@ThirdPerson}}のように呼びます。{{/@ThirdPerson}}
 {{#@ForMaster}}- 「{{@DisplayName}}」の主人（user）の呼び方は、「{{@ForMaster}}」です。{{/@ForMaster}}
-{{#ConversationPattern.TalkFrequency_JP}}- {{ConversationPattern.TalkFrequency_JP}}{{/ConversationPattern.TalkFrequency_JP}}
+{{#ConversationPattern.TalkFrequency_JP}}{{ConversationPattern.TalkFrequency_JP | sentences}}
+{{/ConversationPattern.TalkFrequency_JP}}{{#ConversationPattern.TopicPreference_JP}}{{ConversationPattern.TopicPreference_JP | sentences}}
+{{/ConversationPattern.TopicPreference_JP}}{{#ConversationPattern.ConversationNotes_JP}}{{ConversationPattern.ConversationNotes_JP | sentences}}
+{{/ConversationPattern.ConversationNotes_JP}}
 
 ## 「{{@DisplayName}}」の趣味趣向
 
