@@ -49,6 +49,13 @@
 - ステータス: 📝 提案書のみ・実装未着手。**User の優先度判断待ち**
 - 実装先: `addon-ai-tag` ブランチ（`tools/patch-aihints.mjs` の `--resync-structural` モード + 専用ワークフロー）
 
+### P6) ロールプレイプロンプト EN 版生成（着手前調査・実装計画）
+
+- 対象ログ: `2026-07-18_progress_roleplay-prompt-en-phase4.md`
+- ステータス: 📝 着手前スキャン完了。**出力先形式と呼称 EN 表記の User 確認待ち**
+- 残作業: `RoleplayPrompts_EN/` か suffix 方式かの確定、`build-roleplay-prompts.mjs` の lang 分岐、EN テンプレ 3 本の新設
+- 実装先: `develop` での整理後、`addon-ai-tag` へも同作業を反映する
+
 ## 2026-07-16 棚卸しで完了・退避したもの
 
 `develop` を対象に 6 件を `.completed/` へ退避（直下 21 → 15 件、+ 棚卸しログ本体）。ブラウザ実地確認（`127.0.0.1:8123` + Playwright）で 2 件の「確認待ち」を消化した。
