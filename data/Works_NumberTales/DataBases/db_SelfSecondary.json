@@ -735,33 +735,25 @@
   },
   {
     "Num": 223,
-    "Progress": "notProceeded",
-    "sec_Category": null,
+    "Progress": "released(beta)",
+    "SameMPSeries_DBLink": [
+      { "_Work": "NumberTales", "_DB": "SelfSecondary", "Num": "223-jw" }
+    ],
+    "sec_Category": "リクエストナンバー",
     "sec_DesignedBy": ["RadianN"],
-    "Name_JP": "223(フブミ)",
-    "Name_EN": "223(Twitwintrey)",
+    "Name_JP": "223(ツヅサ)",
+    "Name_EN": "223(Twitwenthir)",
+    "Images": { "concept_PNGName": "cr/cnsp_img223" },
     "FormalName_JP": "量産型ナンバーテールズ223番機CRシリーズ(ナンバーテールズ223番機)",
     "FormalName_EN": "NumberTales #223-CR Series Mass Production Version for Sales (NumberTales #223)",
     "CodeName_JP": "二二三",
     "CodeName_EN": "Two-Two-Three",
     "ModelNumber": "APHR-NT [MP]223-CR***",
     "GenderType": "Neutral",
+    "Height_cm": 151,
+    "Weight_kg": 41,
+    "BustSize": "AA",
     "Class": ["デュオトリプル7型", "キャロルズ"],
-    "TailsUnit": [
-      {
-        "TailShapeType": "#TailShapeType_Nekomata",
-        "Count": 2,
-        "Segment": 2,
-        "Note_JP": null,
-        "Note_EN": null
-      },
-      {
-        "TailShapeType": "#TailShapeType_Fox",
-        "Count": 3,
-        "Note_JP": null,
-        "Note_EN": null
-      }
-    ],
     "AnivDay": [
       {
         "Day": { "Month": 2, "DayOfMonth": 24 },
@@ -769,28 +761,6 @@
         "DayAbout_EN": "Development commemoration (in Caroles Class)"
       }
     ],
-    "AppearanceDetail": null
-  },
-  {
-    "Num": "223-jw",
-    "Progress": "released(beta)",
-    "sec_Category": "リクエストナンバー",
-    "sec_DesignedBy": ["RadianN"],
-    "Name_JP": "223(ツヅサ)",
-    "Name_EN": "223(Twitwenthir)",
-    "Images": { "concept_PNGName": "cnsp_img223-jw" },
-    "FormalName_JP": "量産型ナンバーテールズ223番機JWシリーズ(ナンバーテールズ異格223番機)",
-    "FormalName_EN": "NumberTales #223-JW Series Mass Production Version for Sales (NumberTales Isotope-#223)",
-    "CodeName_JP": "二二三",
-    "CodeName_EN": "Two-Two-Three",
-    "SPCodeName_JP": "(令和天皇の誕生日)",
-    "SPCodeName_EN": "(Emperor Reiwa's Birthday in Far-Eastern Calendar)",
-    "ModelNumber": "APHR-NT [MP]223-JW***",
-    "GenderType": "Neutral",
-    "Class": ["デュオトリプル7型", "ワノマチ"],
-    "Height_cm": 151,
-    "Weight_kg": 41,
-    "BustSize": "AA",
     "TailsUnit": [
       {
         "TailShapeType": "#TailShapeType_Scorpion",
@@ -804,14 +774,6 @@
         "Count": 3,
         "Note_JP": null,
         "Note_EN": null
-      }
-    ],
-    "ConceptAge": 15,
-    "AnivDay": [
-      {
-        "Day": { "Month": 2, "DayOfMonth": 23 },
-        "DayAbout_JP": "開発記念(ワノマチ名義)",
-        "DayAbout_EN": "Development commemoration (in Wa-no-Machi Class)"
       }
     ],
     "AppearanceDetail": null,
@@ -877,6 +839,50 @@
         "Note_EN": null
       }
     ]
+  },
+  {
+    "Num": "223-jw",
+    "Progress": "notProceeded",
+    "SameMPSeries_DBLink": [
+      { "_Work": "NumberTales", "_DB": "SelfSecondary", "Num": 223 }
+    ],
+    "sec_Category": null,
+    "sec_DesignedBy": ["RadianN"],
+    "Name_JP": "223(フブミ)",
+    "Name_EN": "223(Twitwintrey)",
+    "FormalName_JP": "量産型ナンバーテールズ223番機JWシリーズ",
+    "FormalName_EN": "NumberTales #223-JW Series Mass Production Version for Sales",
+    "CodeName_JP": "二二三",
+    "CodeName_EN": "Two-Two-Three",
+    "SPCodeName_JP": "(令和天皇の誕生日)",
+    "SPCodeName_EN": "(Emperor Reiwa's Birthday in Far-Eastern Calendar)",
+    "ModelNumber": "APHR-NT [MP]223-JW***",
+    "GenderType": "Neutral",
+    "Class": ["デュオトリプル7型", "ワノマチ"],
+    "TailsUnit": [
+      {
+        "TailShapeType": "#TailShapeType_Nekomata",
+        "Count": 2,
+        "Segment": 2,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "TailShapeType": "#TailShapeType_Fox",
+        "Count": 3,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
+    "ConceptAge": 15,
+    "AnivDay": [
+      {
+        "Day": { "Month": 2, "DayOfMonth": 23 },
+        "DayAbout_JP": "開発記念(ワノマチ名義)",
+        "DayAbout_EN": "Development commemoration (in Wa-no-Machi Class)"
+      }
+    ],
+    "AppearanceDetail": null
   },
   {
     "Num": 227,
@@ -2755,7 +2761,7 @@
     "Name_JP": "753(ナゴミ)",
     "Name_EN": "753(Nagomi)\n753(Sefenvethirs)",
     "Images": {
-      "concept_PNGName": "cnsp_img753",
+      "concept_PNGName": "jw/cnsp_img753",
       "corefolder_PNGPath": ["753/emstk_corefolder753-1"]
     },
     "FormalName_JP": "量産型ナンバーテールズ753番機JWシリーズ(ナンバーテールズ753番機)",
