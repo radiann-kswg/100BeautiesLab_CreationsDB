@@ -162,6 +162,21 @@
     "Class_EN": "Mathematica Constraint",
     "isSecondary": null
   },
+  {
+    "Class": "バイナリーコンストレイント",
+    "Class_EN": "Binary Constraint",
+    "isSecondary": null
+  },
+  {
+    "Class": "レイディアントコンストレイント",
+    "Class_EN": "Radiant Constraint",
+    "isSecondary": null
+  },
+  {
+    "Class": "インターフェイスコンストレイント",
+    "Class_EN": "Interface Constraint",
+    "isSecondary": null
+  },
   { "Class": "ワノマチ", "Class_EN": "Wa-no-Machi", "isSecondary": null },
   {
     "Class": "フェイタルテールズ",

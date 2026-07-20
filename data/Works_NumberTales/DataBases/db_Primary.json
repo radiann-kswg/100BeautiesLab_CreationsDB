@@ -9417,7 +9417,7 @@
     "ModelName_JP": "ナンバーテールズ1+6号機甲(16番機)",
     "ModelName_EN": "NumberTales Unit.1+6.A (Mk.16)",
     "GenderType": "FemaleNeutral",
-    "Class": ["デュアルセブンズ", "バーチャリティテールズ"],
+    "Class": ["デュアルセブンズ", "バイナリーコンストレイント"],
     "Height_cm": 147,
     "Weight_kg": { "hideText": "非公開" },
     "BustSize": "H",
@@ -55535,6 +55535,7 @@
       "未完成個体",
       "開発システム用個体",
       "2号機型",
+      "バイナリーコンストレイント",
       "バーチャリティテールズ"
     ],
     "Height_cm": [{ "value": 150, "about_JP": "想定", "about_EN": "Scenario" }],
