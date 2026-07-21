@@ -1,6 +1,6 @@
 # 現行タスク台帳（起点）
 
-> 作成: 2026-07-03 / **最終更新: 2026-07-18（棚卸しセッションで更新）**
+> 作成: 2026-07-03 / **最終更新: 2026-07-22（棚卸し実施・退避 6 件／赤テスト 3 件を母艦 P4-7 へ登録）**
 
 ## 目的
 
@@ -42,6 +42,11 @@
 - 対象ログ: `2026-07-08_remaining-task.md`（母艦 P4）に集約
 - 主要項目: Workers 側 `_Secondaries` マッチャの乖離（`.completed/2026-07-13_progress_pkg-sync.md`）、
   `ImageProcessor.resolveImagePath()` の既知バグ、`pkg/python`・`pkg/csharp` のテスト不在
+- **✅ `npm test` の赤 3 件は 2026-07-22 の棚卸しで解消済み（母艦 P4-7 クローズ）**。
+  いずれも実装バグではなく DB 更新に対する追従漏れだった。
+  - `data.field-order` ×2 → `npm run data:order:write` で解消（`db_SelfSecondary.json` の 2 レコードのみ・値の変更なし）
+  - `pages.characters.ui-output` ×1 → フィクスチャの掴み先を `Num: "223-jw"` → `Num: 223` へ差し替え
+  - 現在 **41 ファイル / 564 件すべて成功**
 
 ### P5) AIHints 構造的再同期（addon-ai-tag 側の別タスク）
 
@@ -55,6 +60,34 @@
 - ステータス: 📝 着手前スキャン完了。**出力先形式と呼称 EN 表記の User 確認待ち**
 - 残作業: `RoleplayPrompts_EN/` か suffix 方式かの確定、`build-roleplay-prompts.mjs` の lang 分岐、EN テンプレ 3 本の新設
 - 実装先: `develop` での整理後、`addon-ai-tag` へも同作業を反映する
+
+### P7) Issue #13 希望タスク（数秘解説 / スキンシップ反応）
+
+- 対象ログ: `2026-07-22_progress_issue13-numerology-skinship.md`
+- ステータス: 📝 要件整理ログを作成。**フィールド命名・配置・適用範囲は User 判断待ち**
+- 残作業:
+  - `db_type.json($DefType)` の追加方式を確定（`ConversationPattern` 配下か独立フィールドか）
+  - `db_meta.json($DetailLayout)` での表示位置と `$slot` 追従方針を確定
+  - 対象DB（NumberTales / Primary ほか）の段階導入順を確定
+  - 実データ本文（`value_JP` / `about_JP` 等）は User 手動入力で進行
+- 制約: 創作本文は自動生成しない（ロールプレイ制約 / 運用ルール準拠）
+
+## 2026-07-22 棚卸しで完了・退避したもの
+
+`develop` を対象に 6 件を `.completed/` へ退避（直下 24 → 18 件、+ 棚卸しログ本体）。User 提示の開発環境
+（`127.0.0.1:5500`）と本番実 API（`database.numbertales-radiann.net`）で裏取りしてから退避した。
+
+- **複合 Index 直リンク**（`composite-index-locator`）: Playwright で 5 ケースを往復確認。当初報告の不具合
+  2 件は再現せず、旧形式 URL の新形式書き換え・エイリアス Index の root 抜き解決も確認（pageerror 0 / 4xx 0）。
+  残る `#IndexAlt` 宣言化は母艦 P5-4 へ。
+- **ロールプレイプロンプト生成 フェーズ0〜3**（`roleplay-prompt-generator`）: roleplay 系 5 テストが全件緑を再確認。
+  フェーズ4（EN 版）は `2026-07-18_progress_roleplay-prompt-en-phase4.md` で継続（本台帳 P6）。
+- **前回棚卸しログ**（`2026-07-16_progress_wip-tidy.md`）: 申し送りだった `develop` → `addon-ai-tag`
+  一方向マージの完了を git で確認（`develop...addon-ai-tag` = 0/98）。
+- 日次トリアージ 3 件（`07-16` / `07-18` / `07-20`）。現行 triage は `2026-07-22_github-triage.md`。
+
+あわせて本番実 API で母艦 P4-6（Worker `/works` への `OfficialLinks` 明示追加）が**未対応のまま**であることを
+実測確認し、赤テスト 3 件を母艦 P4-7 へ新規登録した。詳細は `2026-07-22_progress_wip-tidy.md` を参照。
 
 ## 2026-07-16 棚卸しで完了・退避したもの
 
@@ -86,5 +119,5 @@
 
 ## 運用メモ
 
-- triage 系は `2026-07-16_github-triage.md` を最新判断の正とする。過去 triage は履歴参照用。
+- triage 系は `2026-07-22_github-triage.md` を最新判断の正とする。過去 triage は履歴参照用。
 - 残タスク母艦は `2026-07-08_remaining-task.md`。本台帳は「いま着手すべきもの」の起点に限定する。

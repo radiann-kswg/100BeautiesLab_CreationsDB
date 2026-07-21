@@ -160,6 +160,17 @@ Num **29 / 58 / 85 / 92**。`common.immutable_traits` の number marking 行が�
 fallback で入る辞書値は AI タグとしては行儀が悪い。中期的には**辞書側へ AI タグ用フィールド
 （例 `Class_AITag`）を足してハードコードを退役**させるのが筋だが、スキーマ変更 + User の創作判断が要るため別議論。
 
+### A9. `tools/extract-enum-lists-to-dictionaries.mjs` のシェバン残存（優先度: 低・`develop` 側課題）
+
+2026-07-22 のマージ棚卸しで、`.completed/2026-07-18_progress_roleplay-shebang-fix.md` から引き継いだ項目。
+
+`tools/build-roleplay-prompts.mjs` のシェバンは vitest 4.1.0 で suite ごと `SyntaxError` にする実害があり
+除去済みだが、**`tools/extract-enum-lists-to-dictionaries.mjs` にはシェバンが残っている**（2026-07-22 実測）。
+現状テストから import されていないため無害だが、将来テストが import すると同じ事故が起きる。
+
+`tools/` は `develop` 所有のため、**本ブランチで触ると逆マージ禁止により永久分岐する**（A7 と同じ理由）。
+`develop` 側で対応すること。
+
 ## 影響範囲（編集ファイル）
 
 - `_work_in_progress/README.md`（コンフリクト解消 + 索引・退避一覧・整理履歴の更新）

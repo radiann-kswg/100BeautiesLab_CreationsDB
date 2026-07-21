@@ -128,6 +128,12 @@ node tools/patch-colorpalette.mjs --work NumberTales --db Primary --records 40 \
 - 画像を持たない 10 件（Num 38/54/59/79/80/82/83/90/91/95）の扱い（手入力するか、対象外とするか）。
 - **UI 表示**: 現状 `$display: { section: 'profile' }` のみで汎用 renderer にフォールバックする。色スウォッチを表示する専用 section renderer（`sectionWrapper: 'colorPaletteSection'`）は別タスク。実データが入ってからブラウザ確認する。
 - **AIHints への機械導出は未実装**（`addon-ai-tag` 側の別タスク）。`ColorPalette` が実データに入ったら、`tools/patch-aihints.mjs` に `--apply-colorpalette`（仮称）を追加し、`palette_priority` を `ColorPalette` から導出する。これが入って初めて「palette が構造由来になる」という本来の狙いが完成する。
+  - > **【`addon-ai-tag` ブランチでの状況・2026-07-22 実測】** 本項は**本ブランチでは完了済み**です
+    > （上の記述は `develop` 側の状態を書いたもので、マージでそのまま持ち込まれています）。
+    > `tools/patch-aihints.mjs` に `--apply-colorpalette` が実装済みで、実データも
+    > **AIHints 保有 92 件中 `palette_priority` 確定 91 件 / `_meta` 付与 92 件**（残り 1 件は
+    > `ColorPalette` を持たないレコード）。`data/Works_NumberTales/DataBases/db_Primary.json` を
+    > 直接集計して確認しました。`develop` では未実装のままで正しい状態です。
 - 他作品（FLInvestigator78 / ShouArRiders 等）への展開は未着手。スキーマはグローバルなので追加作業なしで使えるが、画像規約の差異は要確認。
 
 ## 参考リンク

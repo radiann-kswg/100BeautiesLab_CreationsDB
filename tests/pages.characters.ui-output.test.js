@@ -320,7 +320,9 @@ const numberTalesReferencesTypeDef = loadJson('data/Works_NumberTales/References
 const numberTalesVocabularyRecords = loadJson('data/Works_NumberTales/References/ref_Vocabulary.json');
 const numberTalesReferenceRecords = loadJson('data/Works_NumberTales/References/ref_Reference.json');
 const hexademicalRecord = numberTalesSecondaryRecords.find((record) => record?.Num === '0xA');
-const requestNumberRecord = numberTalesSelfSecondaryRecords.find((record) => record?.Num === '223-jw');
+// 「二次創作情報」セクションの検証には sec_Category を実際に持つレコードが要る。
+// 旧フィクスチャの `223-jw` は sec_Category が null 化され、行が出ないのが正しい状態になった。
+const requestNumberRecord = numberTalesSelfSecondaryRecords.find((record) => String(record?.Num) === '223');
 const numberTalesVocabularyImageRecord = numberTalesVocabularyRecords.find((record) => record?.Term_JP === 'ヒューマノイド形態');
 const numberTalesReferenceRecord = numberTalesReferenceRecords.find((record) => record?.Title_JP === 'ナンバーテールズ');
 const firstNumberTalesPrimaryRecord = numberTalesPrimaryRecords.find((record) => String(record?.Num) === '1');
