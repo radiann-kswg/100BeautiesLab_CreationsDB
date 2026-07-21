@@ -76,19 +76,19 @@
   {
     "RaceType": "HalfWarfox",
     "RaceType_JP": "狐惹き",
-    "RaceType_EN": "HalfWarfox",
+    "RaceType_EN": "Half Warfox",
     "basis": [{ "RaceType": "Human" }, { "RaceType": "Warfox" }]
   },
   {
     "RaceType": "HalfWarfox(Acquired)",
     "RaceType_JP": "狐惹き(後天的)",
-    "RaceType_EN": "HalfWarfox (Acquired)",
+    "RaceType_EN": "Half Warfox (Acquired)",
     "basis": [{ "RaceType": "Human" }, { "RaceType": "HalfWarfox" }]
   },
   {
     "RaceType": "HalfWarfox(ChronoidShifter)",
     "RaceType_JP": "狐惹き(時空遷移により後天的に)",
-    "RaceType_EN": "HalfWarfox (Acquired by ChronoidShift)",
+    "RaceType_EN": "Half Warfox (Acquired by ChronoidShift)",
     "basis": [
       { "RaceType": "Human" },
       { "RaceType": "HalfWarfox" },
@@ -125,12 +125,12 @@
   {
     "RaceType": "HalfNekomata",
     "RaceType_JP": "猫惹き",
-    "RaceType_EN": "HalfNekomata / HalfWarcat"
+    "RaceType_EN": "Half Nekomata / Half Warcat"
   },
   {
     "RaceType": "Nekomata(ChronoidShifter)",
     "RaceType_JP": "猫惹き(時空遷移により後天的に)",
-    "RaceType_EN": "HalfNekomata / HalfWarcat (Acquired by ChronoidShift)",
+    "RaceType_EN": "Half Nekomata / Half Warcat (Acquired by ChronoidShift)",
     "basis": [
       { "RaceType": "Human" },
       { "RaceType": "HalfNekomata" },
@@ -150,13 +150,25 @@
   {
     "RaceType": "LunaWolf",
     "RaceType_JP": "月狼",
-    "RaceType_EN": "LunaWolf/Warwolf"
+    "RaceType_EN": "LunaWolf / Warwolf"
   },
   {
     "RaceType": "LunaWolf(Super-dimentional)",
     "RaceType_JP": "月狼(超次元的)",
     "RaceType_EN": "LunaWolf / Warwolf (Super-dimensional)",
     "basis": [{ "RaceType": "LunaWolf" }, { "RaceType": "ChronoidShifter" }]
+  },
+  {
+    "RaceType": "HalfLunaWolf",
+    "RaceType_JP": "人狼惹き",
+    "RaceType_EN": "Half LunaWolf / Half Warwolf",
+    "basis": [{ "RaceType": "Human" }, { "RaceType": "LunaWolf" }]
+  },
+  {
+    "RaceType": "HalfLunaWolf(Arcanized)",
+    "RaceType_JP": "人狼惹き(アルカナにより後天的に)",
+    "RaceType_EN": "Half LunaWolf / Half Warwolf (Acquired by Arcana)",
+    "basis": [{ "RaceType": "Human" }, { "RaceType": "LunaWolf" }]
   },
   {
     "RaceType": "Dragonian",

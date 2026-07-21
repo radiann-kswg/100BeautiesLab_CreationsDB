@@ -24,7 +24,7 @@
   {
     "Term_JP": "狐惹き",
     "Term_JPReading": "きつねひき",
-    "Term_EN": "HalfWarfox",
+    "Term_EN": "Half Warfox",
     "TermType": null,
     "Category": "Race",
     "Summary_JP": null,
@@ -46,7 +46,7 @@
   {
     "Term_JP": "猫惹き",
     "Term_JPReading": "ねこひき",
-    "Term_EN": "HalfNekomata",
+    "Term_EN": "Half Nekomata",
     "TermType": null,
     "Category": "Race",
     "Summary_JP": null,
@@ -58,6 +58,17 @@
     "Term_JP": "月狼",
     "Term_JPReading": "げつろう",
     "Term_EN": "LunaWolf",
+    "TermType": null,
+    "Category": "Race",
+    "Summary_JP": null,
+    "Summary_EN": null,
+    "Aliases": [],
+    "Links": []
+  },
+  {
+    "Term_JP": "人狼惹き",
+    "Term_JPReading": "じんろうひき",
+    "Term_EN": "Half LunaWolf",
     "TermType": null,
     "Category": "Race",
     "Summary_JP": null,
