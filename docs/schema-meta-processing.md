@@ -380,7 +380,7 @@
 // data/Works_UnauthedLogica/Dictionaries/dict_ModelSeries.json（null キー行の例）
 [
   { "ModelSeries": "AttackerZeroid", "ModelSeries_JP": "人形兵ゼロイド" },
-  { "ModelSeries": null, "ModelSeries_JP": "<系統なしのラベル>" },
+  { "ModelSeries": "notModel", "ModelSeries_JP": "<系統なしのラベル>" },
 ]
 ```
 

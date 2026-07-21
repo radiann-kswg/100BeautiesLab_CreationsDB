@@ -87,7 +87,7 @@
     "LogicspecAbout_JP": { "_Jump": { "hashTag": "NumerospecAbout" } }
   },
   {
-    "Model": { "ModelSeries": null, "Num": "0" },
+    "Model": { "ModelSeries": "notModel", "Num": "0" },
     "Progress": "stillTentative",
     "AnotherRegions_DBLink": [
       { "_Work": "NumberTales", "_DB": "Primary", "Num": "0" },
@@ -111,7 +111,7 @@
     "LogicspecAbout_JP": { "_Jump": { "hashTag": "NumerospecAbout" } }
   },
   {
-    "Model": { "ModelSeries": null, "Num": "00" },
+    "Model": { "ModelSeries": "notModel", "Num": "00" },
     "Progress": "stillTentative",
     "AnotherRegions_DBLink": [
       { "_Work": "NumberTales", "_DB": "Primary", "Num": "00" }
@@ -132,7 +132,7 @@
     "LogicspecAbout_JP": { "_Jump": { "hashTag": "NumerospecAbout" } }
   },
   {
-    "Model": { "ModelSeries": null, "Num": null },
+    "Model": { "ModelSeries": "notModel", "Num": "Q" },
     "Progress": "stillTentative",
     "AnotherRegions_DBLink": [
       { "_Work": "SinisterChangingGirls", "_DB": "Primary", "Drc": "S" }

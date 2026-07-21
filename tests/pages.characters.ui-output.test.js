@@ -507,9 +507,10 @@ describe('pages/characters.js UI output', () => {
 		expect(id.keyPath).toBe('__conditions__');
 		expect(typeof id.value).toBe('string');
 
+		// 複合条件では主Index の root（Letter）を落とす（1レコード1オブジェクトのため情報量が無い）
 		const parsed = JSON.parse(id.value);
-		expect(parsed?.Letter?.Alphabet).toBe('S');
-		expect(parsed?.Letter?.AlphaGen).toBe('1');
+		expect(parsed?.Alphabet).toBe('S');
+		expect(parsed?.AlphaGen).toBe('1');
 	});
 
 	it('groups multi-field index pills per index root in the detail hero', async () => {
@@ -548,9 +549,13 @@ describe('pages/characters.js UI output', () => {
 		expect(logicAltItems[0].startsWith('ロジック系統: 7400シリーズ')).toBe(true);
 		expect(logicAltItems[1]).toBe('ロジック番号: 141');
 
-		// グループピル全体が直リンクになり、主要サブフィールドの keyPath を使う
+		// グループピル全体が直リンクになる。
+		// 主Index（Logic）はカテゴリキー（LogicSeries）起点のレコード識別子、
+		// エイリアスIndex（LogicAlt）は従来どおり主要サブフィールドの keyPath を使う。
+		// この DB では LogicSeries:K1 が単独で一意なので、Num は付かない。
 		expect(logicPill.tagName).toBe('A');
-		expect(parseViewerHref(logicPill.href).idxKey).toBe('Logic.Num');
+		expect(new URL(logicPill.href).searchParams.get('c'))
+			.toBe('UnauthedLogica/PrimaryMobs/Logic.LogicSeries:K1');
 		expect(logicAltPill.tagName).toBe('A');
 		expect(parseViewerHref(logicAltPill.href).idxKey).toBe('LogicAlt.Num');
 	});

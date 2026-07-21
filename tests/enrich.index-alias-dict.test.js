@@ -231,10 +231,13 @@ describe('enrichRecords() 統合（実データ: Works_UnauthedLogica）', () =>
 		expect(zeroid10.Model.ModelSeries).toBe('AttackerZeroid');
 		expect(zeroid10.Model.ModelSeries_JP).toBe('人形兵ゼロイド');
 
-		// ModelSeries: null のレコードは、辞書に null キー行が無い間は素通しされる（例外を投げない）
-		const nullSeries = out.find(r => r?.Model?.ModelSeries === null);
-		expect(nullSeries).toBeTruthy();
-		expect(nullSeries.Model.Model).toBeUndefined();
+		// モデル系統を持たないレコードは `notModel`（辞書のラベルは null）で表現される。
+		// 直リンクのインデックス解決を通すため、null ではなく辞書キーを置く運用へ 2026-07-21 に移行した。
+		const notModel = out.find(r => r?.Model?.ModelSeries === 'notModel');
+		expect(notModel).toBeTruthy();
+		expect(notModel.Model.Model).toBeUndefined();
+		// 辞書ラベルが null の行なので、和名は空のまま補完される（コードが漏れ出さない）
+		expect(String(notModel.Model.ModelSeries_JP ?? '')).toBe('');
 	});
 });
 

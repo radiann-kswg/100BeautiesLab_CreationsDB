@@ -356,11 +356,15 @@ Copilot 自動ロード用の同等仕様は `.github/instructions/roleplay.inst
 - **圧縮ロケータ（正）**: キャラ詳細の直リンクは `c=<作品>[/<DB>[/<インデックス>]]` の 1 パラメータにまとめます。
   - 例: `?c=NumberTales/Primary/Num:57`, `?c=FLInvestigator78/Primary/Card.Num:7`, `?c=NumberTales/Primary&q=狐`
   - 作品IDは `Works_` 接頭辞なしの短縮形（`NumberTales`）です。
-  - `<インデックス>` は `値` または `キーパス:値`（キーパスは `<root>` / `<root>.<child>` 形式。例: `Num`, `Card.Num`, `BeastType.Beast`）。省略時は `$IndexDef` の主要要素として解釈します。
+  - `<インデックス>` は `値` / `キーパス:値` / `キーパス:値,キーパス:値...`（キーパスは `<root>` / `<root>.<child>` 形式。例: `Num`, `Card.Num`, `BeastType.Beast`）。省略時は `$IndexDef` の主要要素として解釈します。
 - **空値を出さない**: `q` / `lang` は値があるときだけ付与し、空パラメータは URL に残しません。
-- **複数要素 Index の直リンク制約**: インデックス指定は単一 key-path 前提です。object 形式の `$IndexDef` で `link:true` を付ける子要素は、単独で識別に使う前提が崩れないか確認してください。
-- **後方互換**: 旧パラメータ（`work` / `db` / `idx` / `idxKey` / `num` の個別キー、`Works_` 接頭辞付き作品ID）は **読み取りのみ**互換維持します。生成側は常に `c` 形式で出力し、旧形式で開かれた URL は表示時に新形式へ書き換わります。
-- **例外**: `_DBLink` の複合条件（JSON ペイロード + `idxKey=__conditions__`）は圧縮ロケータで表現できないため、従来の個別キー形式で出力します。
+- **複合 Index（object 形式 `$IndexDef`）**: カテゴリキー（`#IndexListKey`。`Card.Suit` / `Letter.Alphabet` 等）を常に載せ、一意にならない場合だけ他のサブフィールドをカンマ区切りで追加します（例: `?c=FLInvestigator78/Primary/Suit:Major,SuitNum:16`）。数値サブフィールド単独の直リンクは「どの分類の N 番か」を示せず別レコードと衝突するため生成しません。
+  - 複合条件では主 Index の root（`Card` / `Letter`）を落とします（`$IndexDef` は 1 レコード 1 オブジェクト前提で root に識別情報が無いため）。単一キーは従来どおり root 付き（`Card.Num:7`）。
+  - root を落とすのは `getIndexIdentifierFromRecord()` 側だけです。`_DBLink` 由来のペイロードはサブ Index（`LogicAlt` 等）を指す可能性があるため root 付きのまま出力します。
+  - **root 省略キーの解決順**: 「完全一致 → 主 Index の root 配下 → サブ Index（エイリアス）の root 配下」（`getIndexRootCandidates()`）。単一キー・複合の双方に効き、サブ Index も主 Index と同じく root 抜きで参照できます。同名サブキーが複数 Index にある場合は主 Index が優先され、値まで重複するなら一意になりません（生成側は一意性を検証してから出力するため、その形の URL は作られません）。
+  - 複合トークンは内部的に `idx`（JSON 条件）+ `idxKey=__conditions__` へ正規化され、既存の subset match 経路で解決されます。
+  - 値そのものにカンマを含む等、往復できない条件のときだけ旧形式（個別キー）へ退避します。
+- **後方互換**: 旧パラメータ（`work` / `db` / `idx` / `idxKey` / `num` の個別キー、`Works_` 接頭辞付き作品ID）と、カテゴリキーを含まない旧 URL（例: `Card.SuitNum:16`）は **読み取りのみ**互換維持します。生成側は常に `c` 形式で出力し、旧形式で開かれた URL は表示時に新形式へ書き換わります。
 - **実装の集約先**: URL 文法の実装は `pages/characters.js` の `buildViewerQueryString()` / `parseViewerLocator()` / `parseIdxToken()` に集約します。各所で `new URLSearchParams({...})` を組み立て直さないでください。
 - **運用方針**: 新規の仕様追加・作品追加で直リンク挙動を変える場合は、基本的にコード変更ではなく作品別 typedef（`data/Works_<作品名>/DataBases/db_type.json`）の `$IndexDef` を更新して追従させます。
 

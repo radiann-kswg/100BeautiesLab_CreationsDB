@@ -175,6 +175,10 @@ export function __getIndexIdentifierFromRecordForTest(rec, indexDef, records = n
 	return getIndexIdentifierFromRecord(rec, indexDef, records);
 }
 
+export function __recordMatchesIndexQueryForTest(rec, indexDef, idxValue, idxKeyPath, legacyNum = '') {
+	return recordMatchesIndexQuery(rec, indexDef, idxValue, idxKeyPath, legacyNum);
+}
+
 export function __resolveWorkDirNameForTest(workId) {
 	return resolveWorkDirName(workId);
 }
@@ -670,9 +674,14 @@ async function ensureApiSW() {
  * ビューアの直リンクは「圧縮ロケータ」1本を正とする:
  *   characters.html?c=NumberTales/Primary/57
  *   characters.html?c=FLInvestigator78/Primary/Card.Num:7
+ *   characters.html?c=FLInvestigator78/Primary/Card.Suit:Major,Card.SuitNum:16
  *   characters.html?c=NumberTales/Primary&q=狐
  *
- *   c = <Work>[/<Db>[/<IdxToken>]]      IdxToken = <値> または <キーパス>:<値>
+ *   c = <Work>[/<Db>[/<IdxToken>]]
+ *   IdxToken = <値> | <条件>[,<条件>]*      条件 = <キーパス>:<値>
+ *
+ * 複合Index（オブジェクト型 $IndexDef）は、単一サブフィールドでは別レコードと衝突し得るため、
+ * カテゴリキー（#IndexListKey）＋一意になるまでの要素をカンマ区切りで並べる。
  *
  * 旧形式（`work` / `db` / `idx` / `idxKey` / `num` の個別キー、`Works_` 接頭辞付きの作品ID）は
  * **読み取りのみ**互換維持する。生成側は圧縮ロケータのみを出す。
@@ -689,6 +698,15 @@ const VIEWER_LOCATOR_PARAM = 'c';
 const INDEX_KEY_PATH_RE = /^[A-Za-z_][A-Za-z0-9_]*(?:\.[A-Za-z_][A-Za-z0-9_]*)*$/;
 
 /**
+ * 複合インデックス（`Card.Suit:Major,Card.SuitNum:16`）の条件区切り文字。
+ * `,` はクエリ内では正当な文字（RFC 3986 の sub-delims）なので、生成時に %2C を復元して可読性を保つ。
+ */
+const INDEX_CONDITION_SEPARATOR = ',';
+
+/** 複合条件であることを示す idxKey の予約語（`_DBLink` の JSON ペイロードと共用） */
+const INDEX_CONDITIONS_KEY = '__conditions__';
+
+/**
  * 作品IDを URL 表記（接頭辞なし）へ短縮する
  * @param {string} workKey - '#Works_NumberTales' / 'Works_NumberTales' / 'NumberTales'
  * @returns {string} 'NumberTales'
@@ -700,7 +718,90 @@ function workKeyForURL(workKey) {
 }
 
 /**
- * IdxToken（`57` / `Card.Num:7`）を idx / idxKey へ分解する
+ * ドット区切りキーパスの位置へ値を代入する（`Card.SuitNum` → `{ Card: { SuitNum: 値 } }`）
+ * @param {Object} target - 代入先オブジェクト（破壊的に更新）
+ * @param {string} keyPath - `<root>` / `<root>.<child>` 形式のキーパス
+ * @param {string} value - 代入する値
+ * @returns {boolean} 代入できたか
+ */
+function assignByKeyPath(target, keyPath, value) {
+	const parts = String(keyPath || '').split('.').filter(Boolean);
+	if (!parts.length || !target || typeof target !== 'object') return false;
+
+	let cursor = target;
+	for (let i = 0; i < parts.length; i += 1) {
+		const part = parts[i];
+		if (i === parts.length - 1) {
+			cursor[part] = value;
+		} else {
+			if (!isPlainObject(cursor[part])) cursor[part] = {};
+			cursor = cursor[part];
+		}
+	}
+	return true;
+}
+
+/**
+ * 複合インデックストークン（`Card.Suit:Major,Card.SuitNum:16`）を条件オブジェクトへ変換する
+ *
+ * すべてのパートが `キーパス:値` 形式のときだけ複合として扱う。
+ * こうしないと、値そのものにカンマを含む単一インデックス（例: `Name:9,10`）を壊してしまう。
+ *
+ * @param {string} token - IdxToken 文字列
+ * @returns {Object|null} ネストした条件オブジェクト（複合でなければ null）
+ */
+function parseIndexConditionToken(token) {
+	const raw = String(token || '').trim();
+	if (!raw || raw[0] === '{' || !raw.includes(INDEX_CONDITION_SEPARATOR)) return null;
+
+	const conditions = {};
+	for (const part of raw.split(INDEX_CONDITION_SEPARATOR)) {
+		const piece = part.trim();
+		const sep = piece.indexOf(':');
+		if (sep <= 0) return null;
+		const keyPath = piece.slice(0, sep).trim();
+		const value = piece.slice(sep + 1).trim();
+		if (!value || !INDEX_KEY_PATH_RE.test(keyPath)) return null;
+		if (!assignByKeyPath(conditions, keyPath, value)) return null;
+	}
+	return Object.keys(conditions).length > 0 ? conditions : null;
+}
+
+/**
+ * 条件オブジェクトを `キーパス:値` の組へ平坦化する（複合トークン生成用）
+ *
+ * URL のトークンとして往復できない値（配列・区切り文字を含む文字列・空値）が
+ * 1 つでも混ざっていたら null を返し、呼び出し側で旧形式（JSON ペイロード）へ退避させる。
+ *
+ * @param {Object} conditions - ネストした条件オブジェクト
+ * @param {string} [prefix=''] - キーパスの接頭辞（再帰用）
+ * @returns {Array<{keyPath: string, value: string}>|null}
+ */
+function flattenIndexConditions(conditions, prefix = '') {
+	if (!isPlainObject(conditions)) return null;
+
+	const out = [];
+	for (const [key, raw] of Object.entries(conditions)) {
+		if (!INDEX_KEY_PATH_RE.test(key)) return null;
+		const keyPath = prefix ? `${prefix}.${key}` : key;
+
+		if (isPlainObject(raw)) {
+			const nested = flattenIndexConditions(raw, keyPath);
+			if (!nested) return null;
+			out.push(...nested);
+			continue;
+		}
+		if (raw === null || raw === undefined || typeof raw === 'object') return null;
+
+		const value = String(raw).trim();
+		if (!value || value.includes(INDEX_CONDITION_SEPARATOR)) return null;
+		out.push({ keyPath, value });
+	}
+	return out.length > 0 ? out : null;
+}
+
+/**
+ * IdxToken（`57` / `Card.Num:7` / `Card.Suit:Major,Card.SuitNum:16`）を idx / idxKey へ分解する
  * @param {string} raw - トークン文字列
  * @returns {{idx: string, idxKey: string}}
  */
@@ -709,6 +810,10 @@ function parseIdxToken(raw) {
 	if (!token) return { idx: '', idxKey: '' };
 	// `_DBLink` の複合条件（JSON ペイロード）はコロンを含むため分割しない
 	if (token[0] === '{') return { idx: token, idxKey: '' };
+
+	// 複合インデックスは JSON 条件へ正規化し、既存の `__conditions__`（subset match）経路へ合流させる
+	const conditions = parseIndexConditionToken(token);
+	if (conditions) return { idx: JSON.stringify(conditions), idxKey: INDEX_CONDITIONS_KEY };
 
 	const sep = token.indexOf(':');
 	if (sep > 0) {
@@ -721,14 +826,35 @@ function parseIdxToken(raw) {
 
 /**
  * idx / idxKey から IdxToken を組み立てる
- * @param {string} idx - インデックス値
- * @param {string} idxKey - インデックスのキーパス（任意）
- * @returns {string} IdxToken（値が空なら空文字）
+ *
+ * 複合条件（JSON ペイロード）は `キーパス:値` のカンマ区切りへ戻す。
+ * 往復できない条件（値に区切り文字を含む等）は空文字を返し、呼び出し側で旧形式へ退避させる。
+ *
+ * @param {string} idx - インデックス値（複合条件では JSON ペイロード）
+ * @param {string} idxKey - インデックスのキーパス（複合条件では `__conditions__`）
+ * @returns {string} IdxToken（値が空 / 表現できない場合は空文字）
  */
 function buildIdxToken(idx, idxKey) {
 	const value = String(idx ?? '').trim();
 	if (!value) return '';
 	const key = String(idxKey ?? '').trim();
+
+	if (value[0] === '{') {
+		const conditions = (() => {
+			try {
+				return JSON.parse(value);
+			} catch {
+				return null;
+			}
+		})();
+		// `__conditions__` はレコード直下の条件、それ以外は idxKey フィールド配下の条件
+		const prefix = (!key || key === INDEX_CONDITIONS_KEY) ? '' : key;
+		if (prefix && !INDEX_KEY_PATH_RE.test(prefix)) return '';
+		const pairs = flattenIndexConditions(conditions, prefix);
+		if (!pairs) return '';
+		return pairs.map(pair => `${pair.keyPath}:${pair.value}`).join(INDEX_CONDITION_SEPARATOR);
+	}
+
 	if (!key || !INDEX_KEY_PATH_RE.test(key)) return value;
 	return `${key}:${value}`;
 }
@@ -759,8 +885,9 @@ function parseViewerLocator(raw) {
 /**
  * ビューア用のクエリ文字列を組み立てる（空値のパラメータは出力しない）
  *
- * `_DBLink` の複合条件（JSON ペイロード + `idxKey=__conditions__`）だけは
- * 圧縮ロケータで表現できないため、従来の個別キー形式で出す（手入力対象外のため許容）。
+ * 複合条件（JSON ペイロード + `idxKey=__conditions__`）も `キーパス:値` のカンマ区切りへ
+ * 変換して圧縮ロケータへ載せる。往復できない条件（値に区切り文字を含む等）のときだけ、
+ * 従来の個別キー形式（`work` / `db` / `idx` / `idxKey`）へ退避する。
  *
  * @param {Object} params - work / db / idx / idxKey / q / lang
  * @returns {string} '?c=...' 形式のクエリ（空なら空文字）
@@ -774,32 +901,31 @@ function buildViewerQueryString(params = {}) {
 	const lang = String(params?.lang ?? '').trim();
 
 	const qs = new URLSearchParams();
-	if (idx.startsWith('{')) {
+	const token = buildIdxToken(idx, idxKey);
+	if (idx && !token) {
+		// 圧縮ロケータで表現できない条件のみ旧形式へ退避（手入力対象外のため許容）
 		if (work) qs.set('work', work);
 		if (db) qs.set('db', db);
 		qs.set('idx', idx);
 		if (idxKey) qs.set('idxKey', idxKey);
+	} else if (work) {
+		let locator = work;
+		if (db) locator += `/${db}`;
+		// db が無いと IdxToken の位置が決まらないため、work のみのときは値を載せない
+		if (db && token) locator += `/${token}`;
+		qs.set(VIEWER_LOCATOR_PARAM, locator);
 	} else {
-		const token = buildIdxToken(idx, idxKey);
-		if (work) {
-			let locator = work;
-			if (db) locator += `/${db}`;
-			// db が無いと IdxToken の位置が決まらないため、work のみのときは値を載せない
-			if (db && token) locator += `/${token}`;
-			qs.set(VIEWER_LOCATOR_PARAM, locator);
-		} else {
-			if (db) qs.set('db', db);
-			if (token) qs.set('idx', token);
-		}
+		if (db) qs.set('db', db);
+		if (token) qs.set('idx', token);
 	}
 	if (q) qs.set('q', q);
 	if (lang) qs.set('lang', lang);
 
 	const encoded = qs.toString();
 	if (!encoded) return '';
-	// `/` と `:` はクエリ内では正当な文字（RFC 3986: query = *( pchar / "/" / "?" )）なので、
-	// URLSearchParams が退避した %2F / %3A を戻して可読性を優先する
-	return `?${encoded.replace(/%2F/g, '/').replace(/%3A/g, ':')}`;
+	// `/` `:` `,` はクエリ内では正当な文字（RFC 3986: query = *( pchar / "/" / "?" )）なので、
+	// URLSearchParams が退避した %2F / %3A / %2C を戻して可読性を優先する
+	return `?${encoded.replace(/%2F/g, '/').replace(/%3A/g, ':').replace(/%2C/g, ',')}`;
 }
 
 /**
@@ -2298,7 +2424,73 @@ function collectIndexEntries(source, indexDef, metaForLookup = null, globalDefTy
 }
 
 /**
+ * Index 定義から「カテゴリキー」（`#IndexListKey` 系サブフィールド）のキーパスを列挙する
+ *
+ * `Card.Suit` / `Letter.Alphabet` / `Chronos.Lunar` のような分類キーは、数値サブフィールドの
+ * スコープを決める要素。これを欠いた直リンク（例: `Card.SuitNum:16`）は「どのスートの16番か」を
+ * 示せず、同じ番号を持つ別スートのレコードと衝突する。
+ *
+ * @param {Object|null} indexDef - $IndexDef
+ * @returns {string[]} カテゴリキーのキーパス（例: ['Card.Suit']）
+ */
+function getIndexCategoryKeyPaths(indexDef) {
+	const rootKey = typeof indexDef?.hashTag === 'string' ? indexDef.hashTag.trim() : '';
+	if (!rootKey) return [];
+
+	const subDefs = getIndexSubDefs(indexDef);
+	if (!Array.isArray(subDefs)) return [];
+
+	return subDefs
+		.filter((subDef) => {
+			const subKey = typeof subDef?.hashTag === 'string' ? subDef.hashTag.trim() : '';
+			if (!subKey) return false;
+			const type = subDef?.$type ?? subDef?.$valType;
+			const typeStr = typeof type === 'string' ? type : JSON.stringify(type ?? '');
+			return /#IndexListKey/i.test(typeStr || '');
+		})
+		.map((subDef) => `${rootKey}.${String(subDef.hashTag).trim()}`);
+}
+
+/**
+ * Index エントリの集合から直リンク識別子を組み立てる
+ * - 1 件なら従来どおりの単一キー（`Card.Num` + `80`）
+ * - 2 件以上なら複合条件（`__conditions__` + ネスト JSON）
+ *
+ * 複合条件では主Index の root（`Card` / `Letter`）を落とす。`$IndexDef` は 1 レコード 1 オブジェクトを
+ * 前提とするため root に識別情報が無く、URL が無駄に長くなるだけだから。
+ * ただし root を落とすのは「全条件が主Index の root 配下」のときだけに限る。
+ * エイリアスIndex（`LogicAlt` 等）は root が識別に必要で、落とすと主Index と区別できなくなる。
+ *
+ * @param {Array<Object>} entries - collectIndexEntries() のエントリ
+ * @param {string} [rootKey=''] - 主Index の root（省略時は root を落とさない）
+ * @returns {{keyPath:string,value:string}|null}
+ */
+function buildIndexIdentifier(entries, rootKey = '') {
+	const solid = (Array.isArray(entries) ? entries : []).filter(entry => (
+		String(entry?.keyPath || '').trim() && String(entry?.value || '').trim()
+	));
+	if (!solid.length) return null;
+	if (solid.length === 1) return solid[0];
+
+	const prefix = String(rootKey || '').trim() ? `${String(rootKey).trim()}.` : '';
+	const canDropRoot = !!prefix && solid.every(entry => String(entry.keyPath).trim().startsWith(prefix));
+
+	const conditions = {};
+	for (const entry of solid) {
+		const path = String(entry.keyPath).trim();
+		assignByKeyPath(conditions, canDropRoot ? path.slice(prefix.length) : path, String(entry.value).trim());
+	}
+	if (!Object.keys(conditions).length) return null;
+	return { keyPath: INDEX_CONDITIONS_KEY, value: JSON.stringify(conditions) };
+}
+
+/**
  * レコードと Index 定義から、直リンク用の識別子（keyPath + value）を抽出
+ *
+ * オブジェクト型 Index にカテゴリキー（`#IndexListKey`）がある場合は、それを必ず含めたうえで
+ * 一意になるまで他のサブフィールドを足していく。カテゴリキーが無い（スカラー Index 等）場合は
+ * 従来どおり「単一キーで一意に引けるならそれを使う」方式にフォールバックする。
+ *
  * @param {Object} rec - レコード
  * @param {Object|null} indexDef - $IndexDef
  * @param {Object[]|null} records - 現在表示中レコード（一意判定用）
@@ -2309,47 +2501,68 @@ function getIndexIdentifierFromRecord(rec, indexDef, records = null) {
 	if (!entries.length) return null;
 
 	const linkEntries = entries.filter(entry => entry?.contexts?.link);
-	if (Array.isArray(records) && records.length > 0) {
-		for (const entry of linkEntries) {
-			const matches = records.filter((r) => recordMatchesIndexQuery(
-				r,
-				indexDef,
-				entry.value,
-				entry.keyPath,
-				entry.keyPath === 'Num' ? entry.value : ''
-			));
-			if (matches.length === 1 && matches[0] === rec) return entry;
+	const hasRecords = Array.isArray(records) && records.length > 0;
+
+	/** 識別子が rec だけを指しているか（他レコードと衝突しないか） */
+	const identifiesOnlyThisRecord = (identifier) => {
+		if (!identifier || !hasRecords) return false;
+		const matches = records.filter((r) => recordMatchesIndexQuery(
+			r,
+			indexDef,
+			identifier.value,
+			identifier.keyPath,
+			identifier.keyPath === 'Num' ? identifier.value : ''
+		));
+		return matches.length === 1 && matches[0] === rec;
+	};
+
+	// null キー行・エイリアスは条件に混ぜない（主 Index だけで識別する）
+	const solidEntries = entries.filter(entry => (
+		!entry?.isNullKey && !entry?.isAlias
+		&& String(entry?.keyPath || '').trim() && String(entry?.value || '').trim()
+	));
+
+	const rootKey = typeof indexDef?.hashTag === 'string' ? indexDef.hashTag.trim() : '';
+	const categoryKeyPaths = getIndexCategoryKeyPaths(indexDef);
+	const categoryEntries = solidEntries.filter(entry => categoryKeyPaths.includes(entry.keyPath));
+
+	if (categoryEntries.length > 0) {
+		// カテゴリキーは常に載せ、足りない分だけ link 候補 → 残りの順に追加して一意にする
+		const picked = [...categoryEntries];
+		const rest = solidEntries.filter(entry => !picked.includes(entry));
+		const ordered = [
+			...rest.filter(entry => entry?.contexts?.link),
+			...rest.filter(entry => !entry?.contexts?.link),
+		];
+
+		if (!hasRecords) {
+			// 一意判定ができない場合は「カテゴリキー＋主要 link 要素」を決め打ちで返す
+			const fallback = ordered.find(entry => entry?.contexts?.link);
+			return buildIndexIdentifier(fallback ? [...picked, fallback] : picked, rootKey);
 		}
 
-		const compositeEntries = linkEntries.length > 1 ? linkEntries : entries;
+		let identifier = buildIndexIdentifier(picked, rootKey);
+		for (const entry of ordered) {
+			if (identifiesOnlyThisRecord(identifier)) return identifier;
+			picked.push(entry);
+			identifier = buildIndexIdentifier(picked, rootKey);
+		}
+		// 全要素を足しても一意にならない（インデックス重複レコード）場合も、
+		// 情報量が最大の複合条件を返す（単一キーより誤爆しにくい）
+		return identifier || linkEntries[0] || entries[0] || null;
+	}
+
+	if (hasRecords) {
+		for (const entry of linkEntries) {
+			if (identifiesOnlyThisRecord(entry)) return entry;
+		}
+
+		const compositeEntries = linkEntries.length > 1
+			? solidEntries.filter(entry => entry?.contexts?.link)
+			: solidEntries;
 		if (compositeEntries.length > 1) {
-			const composite = {};
-			for (const entry of compositeEntries) {
-				// null キー行・エイリアスは複合条件に混ぜない（主 Index だけで識別する）
-				if (entry?.isNullKey || entry?.isAlias) continue;
-				const path = String(entry?.keyPath || '').trim();
-				const val = String(entry?.value || '').trim();
-				if (!path || !val) continue;
-				const parts = path.split('.').filter(Boolean);
-				if (!parts.length) continue;
-				let cursor = composite;
-				for (let i = 0; i < parts.length; i += 1) {
-					const part = parts[i];
-					if (i === parts.length - 1) {
-						cursor[part] = val;
-					} else {
-						if (!isPlainObject(cursor[part])) cursor[part] = {};
-						cursor = cursor[part];
-					}
-				}
-			}
-			if (Object.keys(composite).length > 0) {
-				const payload = JSON.stringify(composite);
-				const matches = records.filter((r) => recordMatchesIndexQuery(r, indexDef, payload, '__conditions__'));
-				if (matches.length === 1 && matches[0] === rec) {
-					return { keyPath: '__conditions__', value: payload };
-				}
-			}
+			const identifier = buildIndexIdentifier(compositeEntries, rootKey);
+			if (identifiesOnlyThisRecord(identifier)) return identifier;
 		}
 	}
 
@@ -2376,6 +2589,29 @@ function _dbLinkSubsetMatch(recordVal, filter) {
 }
 
 /**
+ * root を省いた直リンクキーの解決候補ルートを列挙する（主Index → エイリアスIndex の順）
+ *
+ * 圧縮ロケータは複合条件で主Index の root を省くが、エイリアスIndex（`LogicAlt` 等）も
+ * 同じように root 抜きで書けるようにするため、両方を候補として順に試す。
+ * 主Index を先に置くのは、`Logic` / `LogicAlt` のように同名サブキーを持つ場合に
+ * 主Index の解釈を優先するため。
+ *
+ * @param {Object|null} indexDef - $IndexDef
+ * @returns {string[]} ルート名（例: ['Logic', 'LogicAlt']）
+ */
+function getIndexRootCandidates(indexDef) {
+	const roots = [];
+	const rootKey = typeof indexDef?.hashTag === 'string' ? indexDef.hashTag.trim() : '';
+	if (rootKey) roots.push(rootKey);
+
+	for (const aliasDef of getWorkIndexAliasDefs(indexDef)) {
+		const aliasKey = typeof aliasDef?.hashTag === 'string' ? aliasDef.hashTag.trim() : '';
+		if (aliasKey && !roots.includes(aliasKey)) roots.push(aliasKey);
+	}
+	return roots;
+}
+
+/**
  * 直リンククエリ（idx/idxKey/num）に一致するかどうか
  * @param {Object} rec - レコード
  * @param {Object|null} indexDef - $IndexDef
@@ -2394,7 +2630,13 @@ function recordMatchesIndexQuery(rec, indexDef, idxValue, idxKeyPath, legacyNum 
 			if (filter && typeof filter === 'object' && !Array.isArray(filter)) {
 				if (idxKeyPath === '__conditions__') {
 					// 複数フラットキー: レコード直接 subset match
-					return _dbLinkSubsetMatch(rec, filter);
+					if (_dbLinkSubsetMatch(rec, filter)) return true;
+					// 圧縮ロケータの複合インデックスは root を省くため、レコード直下で解決できなければ
+					// Index ルート配下でも照合する（主Index → エイリアスIndex の順）
+					for (const root of getIndexRootCandidates(indexDef)) {
+						if (isPlainObject(rec?.[root]) && _dbLinkSubsetMatch(rec[root], filter)) return true;
+					}
+					return false;
 				}
 				if (idxKeyPath) {
 					// ネストオブジェクト: idxKeyPath フィールドに対して subset match
@@ -2416,10 +2658,20 @@ function recordMatchesIndexQuery(rec, indexDef, idxValue, idxKeyPath, legacyNum 
 		preferKeyPath: idxKeyPath,
 	});
 	if (entries.length) {
-		return entries.some((entry) => {
+		const exactHit = entries.some((entry) => {
 			if (idxKeyPath && entry.keyPath !== idxKeyPath) return false;
 			return String(entry.value) === qVal;
 		});
+		if (exactHit) return true;
+
+		// root を省いたキー指定（`SuitNum:16` / `LogicSeries:K1`）の救済。
+		// 完全一致で解決できなかったときだけ、Index ルートを補って照合する
+		if (idxKeyPath && !idxKeyPath.includes('.')) {
+			const roots = getIndexRootCandidates(indexDef);
+			return entries.some((entry) => String(entry.value) === qVal
+				&& roots.some((root) => entry.keyPath === `${root}.${idxKeyPath}`));
+		}
+		return false;
 	}
 
 	// indexDef が無い場合の最小互換（NumberTales の ?num= など）
@@ -5703,12 +5955,18 @@ async function renderList(records, workId, onOpen, imageFields = null) {
 		if (indexChipItems.length) {
 			const cur = getQS();
 			const db = window?.__CHAR_STATE__?.db || cur.db || 'Primary';
+			// 主Index のチップは「レコードを一意に特定できる識別子」でリンクする。
+			// 複合Index では単一サブフィールド（例: Letter.AlphaGen）だけでは別レコードへ飛ぶため。
+			const recordIdentifier = getIndexIdentifierFromRecord(r, indexDef, records);
+			const mainRootKey = String(indexDef?.hashTag || '').trim();
 			for (const item of indexChipItems) {
+				const isMainRoot = !!mainRootKey && String(item?.rootKey || '') === mainRootKey;
+				const linkTarget = (isMainRoot && recordIdentifier) ? recordIdentifier : item;
 				const href = buildViewerHref({
 					work: workId,
 					db,
-					idx: item.value,
-					idxKey: item.keyPath
+					idx: linkTarget.value,
+					idxKey: linkTarget.keyPath
 				});
 
 				chipEls.push(
@@ -6265,7 +6523,14 @@ export async function renderDetail(workId, rec) {
 					 */
 					const buildIndexGroupPill = (group) => {
 						// 直リンク対象は優先度順（collectIndexEntries のソート結果）で選ぶ
-						const linkItem = group.items.find((item) => item?.contexts?.link) || null;
+						const entryLinkItem = group.items.find((item) => item?.contexts?.link) || null;
+							// 主Index グループは単一サブフィールドだと別レコードと衝突し得るため、
+							// レコード全体の識別子（複合Index ならカテゴリキー込み）でリンクする
+							const isMainIndexGroup = !!entryLinkItem
+								&& String(group.rootKey || '') === String(workIndexDef?.hashTag || '').trim();
+							const linkItem = isMainIndexGroup
+								? (getIndexIdentifierFromRecord(rec, workIndexDef, window?.__CHAR_STATE__?.records) || entryLinkItem)
+								: entryLinkItem;
 						const isSingle = group.items.length === 1;
 						const className = isSingle ? 'pill' : 'pill pill--index-group';
 						const children = isSingle

@@ -1,5 +1,27 @@
 # 最新のリファクタリング・仕様変更履歴
 
+### fix: 複合インデックス（オブジェクト型 `$IndexDef`）を圧縮ロケータで表現できるようにした (2026-07-21)
+
+複数フィールドを持つオブジェクト型 Index の直リンクが壊れていた。User 報告の 2 件はどちらも「圧縮ロケータが複合インデックスを表現できない」ことが原因で、同じ根に行き着く。
+
+- **症状①（`?c=FLInvestigator78/Primary/Card.SuitNum:16`）**: URL から `Suit` が落ちる。`getIndexIdentifierFromRecord()` が「単一キーで一意に引けたら打ち切り」の作りで、Primary は現状 Major しか公開していないため `SuitNum:16` がたまたま一意になっていた。小アルカナ（`db_UnprocessedDealer`・55件）では `SuitNum:1〜14` が 4 スートぶん重複しており、スート抜きでは原理的に特定できない。
+- **症状②（`?work=UnibyteLive&db=Primary&idx={...}&idxKey=__conditions__`）**: `c=` が使われない。`Letter` は `Alphabet` + `AlphaGen` の 2 要素で単独では絶対に一意にならず、必ず複合条件（`__conditions__`）へフォールバックする。`buildViewerQueryString()` は複合条件を「圧縮ロケータで表現できない」として旧形式へ逃がしていたため、**UnibyteLive の 44 レコード全部**が旧形式のままだった（他作品は 0 件）。
+- **URL 文法の拡張**: `IdxToken = <値> | <条件>[,<条件>]*`（条件 = `<キーパス>:<値>`）。複合トークンは `idx`（JSON 条件）+ `idxKey=__conditions__` へ正規化し、既存の subset match 経路へ合流させる（解決ロジックの再実装なし）。`%2C` も `%2F` / `%3A` と同様に復元して可読性を保つ。
+- **複合条件では主 Index の root を省略**（User 判断）: `$IndexDef` は 1 レコード 1 オブジェクトを前提とするため root に識別情報が無い。`Card.Suit:Major,Card.SuitNum:16` → **`Suit:Major,SuitNum:16`**。単一キーは従来どおり root 付き（`Card.Num:7` / `Chronos.Lunar:Mutsuki`）。
+  - root を落とすのは `$IndexDef` を知っている `getIndexIdentifierFromRecord()` 側だけ。`_DBLink` 由来のペイロードはサブ Index（`LogicAlt` 等）を指し得るため root 付きのまま出力する（機械的に剥がすと `LogicAlt` が `Logic` に化ける）。
+- **サブ Index（エイリアス）も root 抜きで参照可能に**（`getIndexRootCandidates()` 新設）: 解決側（`recordMatchesIndexQuery()`）は「完全一致 → 主 Index の root 配下 → サブ Index の root 配下」の順に照合する。単一キー・複合の双方に効くため、`?c=UnauthedLogica/PrimaryMobs/Num:141` が `LogicAlt.Num:141` と同じレコードへ解決する。
+  - 同名サブキーが複数 Index にある場合は主 Index を優先。値まで重複する指定（`LogicSeries:74x`）は一意にならないが、生成側は一意性を検証してから出力するためその形の URL は作られない。
+  - 生成側は不変（サブ Index は root 付きで出力）。root 省略は読み取り側の許容範囲を広げるだけで、URL の見た目は変わらない。
+  - 複合と見なすのは**全パートが `キーパス:値` 形式のとき**だけ。値そのものにカンマを含む単一インデックス（`Name:9,10`）は従来どおり値として扱う。
+  - 往復できない条件（値に区切り文字を含む等）のみ、従来の個別キー形式へ退避する。
+- **識別子生成のポリシー変更（`getIndexIdentifierFromRecord()`）**: カテゴリキー（`#IndexListKey`。`Card.Suit` / `Letter.Alphabet` / `Chronos.Lunar` 等）を常に含め、一意にならない場合だけ link 候補 → 残りの順にサブフィールドを追加する。カテゴリキーを持たない Index（NumberTales の `Num` 等）は従来動作のまま。
+  - 例: `?c=FLInvestigator78/Primary/Suit:Major,SuitNum:16` / `?c=UnibyteLive/Primary/Alphabet:S,AlphaGen:2` / `?c=NumberTales/Primary/Num:57`（不変）。
+  - **2026-07-15 の Dealer 短縮化を一部巻き戻す**形になる（`Card.Num:79` → `Card.Suit:Dealer,Card.Num:79`）。単独キーの短さより「分類キーを落とさない」ことを優先する方針を User が選択。
+- **併せて修正（曖昧リンクの実害）**: 一覧チップ（`renderList`）と詳細ヒーローの Index グループピルが、主Index でも**単一サブフィールドの keyPath でリンクを張っていた**。UnibyteLive では `Letter.AlphaGen:2` となり、踏むと別キャラへ飛ぶ状態だったため、主Index のリンクはレコード識別子を使うようにした（エイリアス Index は従来どおり）。
+- **後方互換**: 旧パラメータ（`work` / `db` / `idx` / `idxKey` / `num`）、旧 `__conditions__` URL、カテゴリキーを含まない旧 URL（`Card.SuitNum:16`）はいずれも**読み取り互換**を維持し、開いた時点で新形式へ書き換わる。
+- **影響範囲**: `pages/characters.js`（URL 文法 / 識別子生成 / チップ・ピルのリンク先 / テストフック追加）/ `pages/characters.html`（`asset-version` → `2026.07.21.1`）/ `tests/pages.characters.url-params.test.js`（複合インデックスの生成・解釈・往復・後方互換へ再構成）/ `tests/pages.characters.ui-output.test.js`（ピル href の期待値）/ `docs/viewer-guide.md` / `CLAUDE.md` / `.github/copilot-instructions.md`。
+- 確認: 実データ 1,254 レコード（オブジェクト型 Index 5 作品 + NumberTales）で「生成 URL → 解釈 → 一致レコード 1 件」の往復を検証。旧形式へ退避したもの **0 件**。`npm test` — 41 ファイル / 554 件成功、失敗 3 件はいずれも本変更前から失敗していた既存分（`data.field-order` の `db_SelfSecondary.json` 2 件、`ui-output` の二次創作メタ 1 件）。
+
 ### feat: ロールプレイプロンプトの見出しアンカー方式マージ更新（フェーズ2）と `.private/` 手書きプロンプトの差分・取り込み（フェーズ3）を追加 (2026-07-18)
 
 同日先行のロールプレイプロンプト自動生成（`tools/build-roleplay-prompts.mjs`）に、既存ファイルのマージ更新と手書き実運用プロンプトの取り込みを追加した。生成物はマーカー無しのクリーンな Markdown のまま、**見出し文字列をアンカー**にセクションを識別する（マーカー方式は User フィードバックで撤去済み）。

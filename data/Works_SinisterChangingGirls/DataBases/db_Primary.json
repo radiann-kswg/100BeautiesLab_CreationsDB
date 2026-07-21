@@ -7,7 +7,7 @@
       {
         "_Work": "UnauthedLogica",
         "_DB": "Primary",
-        "Model": { "ModelSeries": null, "Num": "0" }
+        "Model": { "ModelSeries": "notModel", "Num": "0" }
       }
     ],
     "Name_JP": "零 零",
@@ -195,7 +195,7 @@
       {
         "_Work": "UnauthedLogica",
         "_DB": "Primary",
-        "Model": { "ModelSeries": null, "Num": null }
+        "Model": { "ModelSeries": "notModel", "Num": "Q" }
       }
     ],
     "Name_JP": "六花 雙葉\nクィーン.トゥエルヴ",
