@@ -12,7 +12,7 @@
 - **インライン補完（ゴーストテキスト）**: 補完はカスタム指示ファイルを読み込みません。英訳作業中は本ファイルを隣のタブで開いておくと、近傍文脈として対訳が補完に反映されやすくなります。
 - **正典はあくまで辞書本体**。表に無い語・揺れがある語は `data/**/trans_*.json` 等の辞書と `docs/localization-en-rules.md` を確認してください。最終採否は User 判断です。
 
-- 収録: **176 対訳**（延べ抽出。生成日時: 2026-07-14T06:32:18.293Z）
+- 収録: **177 対訳**（延べ抽出。生成日時: 2026-07-21T08:07:05.112Z）
 
 ## 人名（姓・代理）
 
@@ -156,11 +156,12 @@
 | 化狸 | Raccoonian |
 | 概念 | Immaginaries |
 | 月狼 | LunaWolf |
-| 狐惹き | HalfWarfox |
+| 狐惹き | Half Warfox |
 | 狛犬 | Komainu |
 | 蛇人 | Lamia |
+| 人狼惹き | Half LunaWolf |
 | 超過人間 | OverHuman |
-| 猫惹き | HalfNekomata |
+| 猫惹き | Half Nekomata |
 | 猫又 | Nekomata |
 | 妖狐 | Warfox |
 

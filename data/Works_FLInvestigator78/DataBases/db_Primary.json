@@ -353,15 +353,16 @@
   },
   {
     "Card": { "Suit": "Major", "SuitNum": 16, "Num": 16 },
-    "Progress": "nowCreating",
+    "Progress": "released",
     "ThisArcanaHolder_DBLink": {
       "_DB": "PrimaryDealer",
       "Card": { "Suit": "Major", "SuitNum": 16 }
     },
     "Name_JP": "バベル",
     "Name_EN": "Babel",
-    "FormalName_JP": "倒壊の塔\nクライシア.バベル",
-    "FormalName_EN": "Tower of Collapse\nCrisia.Babel",
+    "Images": { "cardDesign_PNGName": "crddsn_imgFLM16" },
+    "FormalName_JP": "倒壊する塔\nクライシア.バベル",
+    "FormalName_EN": "Tower in Collapsing\nCrisia.Babel",
     "CodeName_JP": "塔",
     "CodeName_EN": "Tower",
     "RaceType": "Terrorinaries",
@@ -369,7 +370,10 @@
     "Class": ["英皇国支部幹部"],
     "ConceptAge": { "hideText": "データ無" },
     "BirthDay": { "hideText": "本人すら把握されていない" },
-    "Summary_JP": "",
+    "Summary_JP": "\"未来消失\"の事件に用いられる悪用技術の研究現場の破壊工作を行っている、異能組織『セブンティエイト特殊探偵団』（通称『運命線探偵』）の第16幹部。\n【倒壊する塔】のアルカナムスペックを行使する彼女は強い現象破壊能力を持ち、状況に破壊的な変化を与えることを得意としていますが、その分極めて強い代償が係るようです。\n本人は『もう二度と破壊工作作戦にはいきたくない』とアルカナの行使に対し消極的までありますが、その危険な能力も含めて自分を認める人を前にすると……",
+    "Summary_EN": "The 16th executive of the special investigations organization 'Team.78(Seventy-Eight) the Special Investigators' (commonly known as the 'FateLine Investigators'), conducting sabotage operations at research sites for the abusive technology used in incidents involving the mysterious disappearance phenomenon known as 'Future Erasure'.\nBrandishing the ArcanumSpec of the [⁠Tower in Collapsing⁠], she possesses a strong phenomenon destruction ability, excelling at bringing about destructive changes to situations, though it seems to come with an extremely heavy cost.\nShe herself is so reluctant to wield her Arcanum that she says, 'I never want to go on another sabotage operation again,' but when faced with someone who accepts her, even that dangerous ability...",
+    "AdditionalDesigned_JP": "カードイラスト：REITO_KYUN♡(https://piku.page/@REITO_KYUN)\nカード背景・CG：喜雨(kiu/xiyue)(https://kiucouch.myportfolio.com/)\n意匠デザイン：ラジアン(柏木主税),散狐アタスト(https://misskey.io/@atast)",
+    "AdditionalDesigned_EN": "Card Illustration：REITO_KYUN♡(https://piku.page/@REITO_KYUN)\nCard Backimage & CG：喜雨(kiu/xiyue)(https://kiucouch.myportfolio.com/)\nCard Frame & Emblem Design：ラジアン(柏木主税),散狐アタスト(https://misskey.io/@atast)",
     "ArcanamspecAbout_JP": "現在の状況を破壊する",
     "ArcanamspecAbout_EN": "Destroys the current situation",
     "ArcanumspecStats": {
@@ -432,6 +436,10 @@
   {
     "Card": { "Suit": "Major", "SuitNum": 18, "Num": 18 },
     "Progress": "released",
+    "ThisArcanaHolder_DBLink": {
+      "_DB": "PrimaryDealer",
+      "Card": { "Suit": "Major", "SuitNum": 18 }
+    },
     "Name_JP": "ルネ",
     "Name_EN": "Lune",
     "Images": { "cardDesign_PNGName": "crddsn_imgFLM18" },
