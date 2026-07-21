@@ -1,1 +1,8 @@
-[{ "ModelSeries": "AttackerZeroid", "ModelSeries_JP": "人形兵ゼロイド" }]
+[
+  {
+    "ModelSeries": "AttackerZeroid",
+    "ModelSeries_JP": "人形兵ゼロイド",
+    "ModelSeries_EN": "AttackerZeroid"
+  },
+  { "ModelSeries": "notModel", "ModelSeries_JP": "", "ModelSeries_EN": "" }
+]

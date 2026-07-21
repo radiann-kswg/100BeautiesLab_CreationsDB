@@ -531,7 +531,7 @@ typedef で `$enrich: true` を宣言した `*_DBLink` suffix フィールド（
 空値のみ穴埋めマージします。
 
 `$Def_DBLinkRef` のインデックス値には null を含められます（例: UnauthedLogica の
-`Model: { "ModelSeries": null, "Num": null }` のような型番未確定インデックス）。
+`Model: { "ModelSeries": "notModel", "Num": "Q" }` のような型番未確定インデックス）。
 
 - クエリ側の null は「参照先レコード側も null/undefined」の明示マッチとして扱います
 - null 入りインデックスは複数レコードに一致し得るため、**1 件一致のみ採用**し、複数一致・0 件はスキップします

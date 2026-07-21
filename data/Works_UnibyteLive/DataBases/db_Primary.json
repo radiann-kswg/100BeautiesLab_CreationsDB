@@ -32,7 +32,7 @@
     ]
   },
   {
-    "Letter": { "Alphabet": "A", "AlphaGen": 1 },
+    "Letter": { "Alphabet": "A", "AlphaGen": 2 },
     "Progress": "notProceeded",
     "Name_JP": "A:エイリ",
     "Name_EN": "A:Accenty",

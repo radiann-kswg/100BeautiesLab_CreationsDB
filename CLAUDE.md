@@ -305,10 +305,13 @@ UI → Service Worker (`/pages/v1/`) → 静的 JSON 読み込み + `_DBLink`/`_
 ### 直リンク（URL クエリ）
 
 - **圧縮ロケータ（正）**: キャラ詳細の直リンクは `c=<作品>[/<DB>[/<インデックス>]]` の 1 パラメータにまとめます（例: `?c=NumberTales/Primary/Num:57`, `?c=FLInvestigator78/Primary/Card.Num:7`）。作品IDは `Works_` 接頭辞なしの短縮形です。
-- **インデックス表記**: `値` または `キーパス:値`（キーパスは `<root>` / `<root>.<child>`。例: `Num`, `Card.Num`, `BeastType.Beast`）。キーパス省略時は `$IndexDef` の主要要素として解釈。単一 key-path 前提です。
+- **インデックス表記**: `値` / `キーパス:値` / `キーパス:値,キーパス:値...`（キーパスは `<root>` / `<root>.<child>`。例: `Num`, `Card.Num`, `BeastType.Beast`）。キーパス省略時は `$IndexDef` の主要要素として解釈。
+- **複合 Index（object 形式 `$IndexDef`）**: カテゴリキー（`#IndexListKey`。`Card.Suit` / `Letter.Alphabet` 等）を常に載せ、一意にならない場合だけ他のサブフィールドをカンマ区切りで追加します（例: `?c=FLInvestigator78/Primary/Suit:Major,SuitNum:16`）。数値サブフィールド単独の直リンクは別レコードと衝突するため生成しません。複合トークンは `idx`（JSON 条件）+ `idxKey=__conditions__` へ正規化され、既存の subset match 経路で解決されます。
+- **複合 Index の root 省略**: 複合条件では主 Index の root（`Card` / `Letter`）を落とします（`$IndexDef` は 1 レコード 1 オブジェクト前提で root に識別情報が無いため）。単一キーは従来どおり root 付き（`Card.Num:7`）。root を落とすのは `getIndexIdentifierFromRecord()` 側だけで、`_DBLink` 由来のペイロード（サブ Index を指す可能性がある）は root 付きのまま出力します。
+- **root 省略キーの解決順**: 解決側は「完全一致 → 主 Index の root 配下 → サブ Index（エイリアス）の root 配下」の順に照合します（`getIndexRootCandidates()`）。単一キー・複合の双方に効き、サブ Index（`LogicAlt` 等）も主 Index と同じく root 抜きで参照できます。同名サブキーが複数 Index にある場合は主 Index が優先され、値まで重複するなら一意にならない（＝生成側は一意性を検証してからその形を出す）。
 - **空値を出さない**: `q` / `lang` は値があるときだけ付与し、空パラメータは URL に残しません。
-- **後方互換**: 旧パラメータ（`work` / `db` / `idx` / `idxKey` / `num` の個別キー、`Works_` 接頭辞付き作品ID）は **読み取りのみ**互換維持。生成側は常に `c` 形式で出力し、旧形式で開かれた URL は表示時に新形式へ書き換わります。
-- **例外**: `_DBLink` の複合条件（JSON ペイロード + `idxKey=__conditions__`）は圧縮ロケータで表現できないため、従来の個別キー形式で出力します。
+- **後方互換**: 旧パラメータ（`work` / `db` / `idx` / `idxKey` / `num` の個別キー、`Works_` 接頭辞付き作品ID）と、カテゴリキーを含まない旧 URL（例: `Card.SuitNum:16`）は **読み取りのみ**互換維持。生成側は常に `c` 形式で出力し、旧形式で開かれた URL は表示時に新形式へ書き換わります。
+- **例外**: 値そのものにカンマを含む等、圧縮ロケータへ往復できない複合条件のみ、従来の個別キー形式で出力します。
 - **運用方針**: 直リンク挙動の変更は、原則コード変更ではなく作品別 typedef の `$IndexDef` を更新して追従させます。URL 文法自体の実装は `pages/characters.js` の `buildViewerQueryString()` / `parseViewerLocator()` に集約します。
 
 ---

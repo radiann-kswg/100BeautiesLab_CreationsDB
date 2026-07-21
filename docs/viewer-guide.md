@@ -54,14 +54,26 @@ characters.html?c=<作品>[/<DB>[/<インデックス>]]
   ?c=NumberTales/Primary/2          # 主要インデックスの値だけ指定
   ?c=NumberTales/Primary/Num:2      # インデックスキーを明示
   ?c=FLInvestigator78/Primary/Card.Num:7
+  ?c=FLInvestigator78/Primary/Suit:Major,SuitNum:16   # 複合インデックス
+  ?c=UnibyteLive/Primary/Alphabet:S,AlphaGen:2
   ?c=NumberTales/Primary&q=狐        # 一覧を開いて検索語を適用
 ```
 
 - `<作品>`: 作品ID（`Works_` 接頭辞は不要。例: `NumberTales`）
 - `<DB>`: DB 種別（例: `Primary`）
-- `<インデックス>`: `値` または `キーパス:値`
+- `<インデックス>`: `値` / `キーパス:値` / `キー:値,キー:値...`
   - キーパスは `<root>` または `<root>.<child>`（例: `Num`、`Card.Num`、`BeastType.Beast`）
   - キーパスを省略した場合は、作品別 typedef の `$IndexDef` の主要要素として解釈します
+  - **複合インデックス**: 運命線探偵78 の `Card`（スート＋番号）やハンカクライブの `Letter`（アルファベット＋世代）のように
+    1 つのインデックスが複数の要素からできている作品では、分類キー（スート／アルファベット等）を必ず含め、
+    それだけで 1 人に絞れない場合は番号などをカンマで続けます
+  - 複合インデックスでは、インデックス名（`Card` / `Letter`）を省いて要素名だけを書きます
+    （1 キャラにつき 1 つのインデックスなので、書いても情報が増えないため）。
+    `Card.Suit:Major,Card.SuitNum:16` のように書いた URL も引き続き開けます
+  - アンオースドロジカの `LogicAlt`（互換ロジック）のようなサブインデックスも、
+    同じように要素名だけで書けます（`?c=UnauthedLogica/PrimaryMobs/Num:141`）。
+    ただし複数のインデックスで要素名も値も重なる場合は 1 人に絞れないので、
+    `LogicAlt.Num:141` のようにインデックス名を添えてください
 
 補助パラメータ（値があるときだけ付きます）:
 
