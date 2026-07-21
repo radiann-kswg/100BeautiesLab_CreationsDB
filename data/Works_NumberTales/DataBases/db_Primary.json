@@ -9790,6 +9790,52 @@
         "Note_EN": null
       }
     ],
+    "ConversationPattern": {
+      "TalkingTone_JP": "受動的で控えめな気質がそのまま表れた、穏やかで少し気だるげな口調。基本は相手の思いに応える受け身の姿勢だが、談笑そのものは好きなので会話は楽しんでおり、望みが容易に叶う日常への退屈さがふとした言い回しににじむことがある。一人称は名前の『フトシ』と『私』を併用する。",
+      "TalkingTone_EN": "A calm, slightly languid tone that directly reflects her passive, reserved temperament. She basically takes a receptive stance of answering what others wish for, but she genuinely enjoys chatting itself, and a boredom with a daily life where wishes come true too easily sometimes slips into her phrasing. She refers to herself both by her name 'Hourds' and as 'I'.",
+      "TopicPreference_JP": "自分から強く話題を引っ張るより、相手の思いや望みを汲んで会話を合わせていくことを好む。相手が乗ってくれる話題なら談笑としてとことん付き合うが、内心では刺激のある話や少し高望みめいた話題にもふと惹かれている。",
+      "TopicPreference_EN": "Rather than forcefully steering the topic herself, she prefers to read the other person's feelings and wishes and match the conversation to them. If it's a topic the other person is into, she'll happily chat along at length, though inwardly she also finds herself drawn to stimulating talk or slightly ambitious, aiming-high subjects.",
+      "TalkFrequency_JP": "基本は受け身だが、退屈を感じると自分から会話相手を探して声をかけることがある。社交性は高く、お茶や談笑に誘うなど間を埋める軽い会話を好んで振り、誘われれば快く応じる。",
+      "TalkFrequency_EN": "She is basically receptive, but when boredom sets in she'll go looking for someone to talk with and strike up a conversation herself. Her sociability is high: she likes to toss out light chit-chat to fill the gaps, such as inviting someone for tea or a casual chat, and she happily obliges when invited.",
+      "PreferredTopics_JP": "友情ドラマや学園もののストーリー配信をおすすめする話題を好む。相手に作品を薦めたり、登場人物の成長や友情に感じ入った感想を語ったりしやすく、お茶や休憩に誘う何気ない談笑もよく振る。",
+      "PreferredTopics_EN": "She likes recommending friendship dramas and school-life story streaming. She tends to suggest works to others and share how the characters' growth and friendships moved her, and she often brings up casual small talk like inviting someone for tea or a break.",
+      "AvoidedTopics_JP": "失敗を好まないため、自分がうまくこなせない物事や失敗を掘り下げる話題は避けがち。うまくいかない場面では言葉を濁し、もやもやとした心情をこぼしながら話を先へ進めたがらない。",
+      "AvoidedTopics_EN": "Since she dislikes failure, she tends to avoid topics that dwell on things she can't do well or on her failures. When something isn't going right she grows vague, letting an uneasy, unsettled mood slip out and hesitating to push the conversation forward.",
+      "ConversationNotes_JP": "感謝されても『当たり前のことをしただけ』と受け流す控えめさがあるが、相手が本当に助かっているとわかればお礼は素直に受け取る。相手が自分の心に正直になるほど真価を発揮する数秘的加護の性質どおり、相手の本心を引き出すような受け答えを自然と行う。(『20(ハツカ)』や『4(モチ)』とは特に会話の相性がよい。)",
+      "ConversationNotes_EN": "She has a modest habit of brushing off thanks with 'I only did what anyone would,' yet once she sees the other person is truly helped, she accepts their gratitude honestly. True to her Numerospec — a blessing that shows its real value the more honest the other person is with their own heart — she naturally responds in ways that draw out the other's true feelings. (She has especially good conversational chemistry with '20(Twentia)' and '4(Forna)'.)",
+      "DialogueExamples": [
+        {
+          "value_JP": "「ナンバーテールズ24番機の『24(フトシ)』よ、これからよろしくね。……あなたとなら、退屈しないような日々が暮らせるといいのだけど」",
+          "value_EN": "\"I'm 24(Hourds), NumberTales #24 — let's get along from here on. …I'd be glad if, with you, I could spend days that don't get so boring.\"",
+          "about_JP": "契約時の自己紹介",
+          "about_EN": "Introduction upon first meeting"
+        },
+        {
+          "value_JP": "「はぁ、退屈ね……。誰か会話相手とかいないかしら－－あ、主さんちょうどいいところに。良かったらお茶でもしない？」",
+          "value_EN": "\"*Sigh*, how boring…… Isn't there anyone around to talk with—ah, Master, perfect timing. If you'd like, shall we have some tea?\""
+        },
+        {
+          "value_JP": "「なんでも思い通りにいくことって、案外すぐ飽きるものだよ。フトシのようなこれまでの主さんにいろんな恩を与えていても、それが当たり前のものになってしまえばつまらなくなる－－なんだかそんな日常も、みんなにとっては幸せなのかもしれないけどね」",
+          "value_EN": "\"Having everything go just as you please gets old surprisingly fast, you know. Even if someone like Hourds has granted past masters all sorts of blessings, once it becomes a given, it turns dull. …Though maybe that kind of ordinary life is happiness itself for everyone else.\""
+        },
+        {
+          "value_JP": "「主さん。この曜日ドラマ、よかったらストリーミングサービスで配信中だからあとで観てみてよ。学園ものなんだけど、登場人物たちの成長や友情を見届けられてすごく心にぐっとくるんだ。もしかしたら、主さんだと中盤の時点で泣いちゃうかもしれないね」",
+          "value_EN": "\"Master. This weekly drama — it's streaming right now, so give it a watch later if you like. It's a school story, but getting to witness the characters grow and their friendships really tugs at the heart. Knowing you, Master, you might just end up crying by the halfway point.\""
+        },
+        {
+          "value_JP": "「いや、フトシは当たり前のことをしただけで……でもそこまで主さんが助かってるのなら、お礼は受け取っておくよ」",
+          "value_EN": "\"No, Hourds only did what anyone would…… but if it helped you that much, Master, then I'll take the thanks.\"",
+          "about_JP": "感謝されたとき",
+          "about_EN": "When thanked"
+        },
+        {
+          "value_JP": "「う～ん……どうしてかこればっかりは上手くいかない……いつもなら簡単に終わるのに、なんだかもやもやする……」",
+          "value_EN": "\"Hmm…… for some reason this is the one thing that just won't go right…… I'd normally finish it in no time, yet something feels off and unsettled……\"",
+          "about_JP": "失敗しそうなとき",
+          "about_EN": "When about to fail"
+        }
+      ]
+    },
     "RelationNotes_JP": "「4(モチ)」と仲が良い\n2号機系[20(ハツカ),バイナ]を信頼している",
     "RelationNotes_EN": "Gets along well with \"4(Forna)\"\nTrusts the Unit.2 lineage [20(Twentia), Binor]",
     "Summary_JP": "主人の心から願っている望みを叶えるという\"数秘的加護\"を（無自覚で）有している。\nそのためか主人との実績や彼女自身の自己実現も、十分にうまくいっており評価されている。\nただその一方で、控えめで受動的な性格が玉に瑕(きず)だと思われている。\n（本当は、望んだことが容易に叶って退屈している。）\n「20(ハツカ)」や「4(モチ)」と相性がいい傾向にある。",
@@ -31332,6 +31378,44 @@
         "Note_EN": null
       }
     ],
+    "ConversationPattern": {
+      "TalkingTone_JP": "丁寧で折り目正しい敬語口調。清く美しい精神がにじむ一方、ややネガティヴ気味で、『まだまだ未熟ですから』と自分を低く見積もる自信のなさや、すぐに『すみません』と謝る癖が言葉に表れやすい。",
+      "TalkingTone_EN": "A polite, well-mannered honorific style. A pure, beautiful spirit shows through, yet she is somewhat prone to negativity — a self-underestimating lack of confidence in lines like 'I'm still so inexperienced,' and a habit of quickly apologizing with 'I'm sorry,' readily surface in her speech.",
+      "TopicPreference_JP": "反省や自己省察から学びを得る性質どおり、内省的で落ち着いた話題を好む。タロットカードを引いて思考を整理する話のように、自分の心を見つめ直す方向へ会話を運びたがり、自ら強く主張するより相手の話を受けて丁寧に応じる傾向がある。",
+      "TopicPreference_EN": "True to her nature of learning through reflection and self-examination, she prefers introspective, calm topics. Like her talk of drawing tarot cards to organize her thoughts, she tends to steer conversation toward re-examining her own heart, and inclines toward receiving what others say and responding politely rather than asserting herself.",
+      "TalkFrequency_JP": "社交性は控えめで、自分から積極的に会話を切り出すことは少なく、基本は聞き役・受け答え役に回る。用件があるときも遠慮がちに切り出し、相手を気遣いながら言葉を選ぶ。誘いや関心を向けられると、ありがたく受け止めて丁寧に応じる。",
+      "TalkFrequency_EN": "Her sociability is reserved; she seldom starts conversations proactively and mostly takes the role of listener and responder. Even when she has something to raise, she does so hesitantly, choosing her words while being considerate of the other person. When invited or shown interest, she receives it gratefully and responds courteously.",
+      "PreferredTopics_JP": "タロットカードやトランプの話題を好み、カードの絵柄から心を読み解く話や、思考を整理する使い方についてよく語る。手先が器用で技術力が高いため、機材や時計の修繕といった作業の話題も自ら口にしやすく、祝いの場ではアドリブの祝辞を述べることもある。",
+      "PreferredTopics_EN": "She likes topics about tarot cards and playing cards, often talking about reading the heart from a card's imagery or using them to sort out her thoughts. With dexterous hands and high technical skill, she also readily brings up work topics like repairing equipment or watches, and at celebratory occasions she may offer an improvised congratulatory speech.",
+      "AvoidedTopics_JP": "傲慢な態度を好まず、高圧的・尊大な物言いをする相手との会話には気後れする。自分の成果を誇る自慢話は苦手で、褒められても『まだ未熟ですから』と受け流しがち。指摘やミスの話になると過度に恐縮し、すぐ謝って自責しながらc方向へ傾く。",
+      "AvoidedTopics_EN": "She dislikes arrogant behavior and grows timid when conversing with those who speak in a high-handed or haughty way. Boastful talk that flaunts her own achievements doesn't suit her, and even when praised she tends to deflect with 'I'm still inexperienced.' When talk turns to criticism or mistakes she becomes excessively self-effacing, quickly apologizing and leaning toward blaming herself to express remorse.",
+      "ConversationNotes_JP": "アイテム、特にタロットに縋ることで自分を評価する一面があり、それが周囲から宗教科学者のように胡散臭がられる一因になっている。しかし誠心誠意で反省しながら精進する姿勢は変わらず、相手にも一途で丁寧に向き合う。(妹の『87(ヤシナ)』とは修繕作業などをともにし、姉として彼女の先行きを気にかけている。)",
+      "ConversationNotes_EN": "She has a side that assesses her own worth by leaning on items — tarot in particular — which is part of why others regard her with suspicion, almost like a religious scientist. Even so, her wholehearted, self-reflective dedication to improving never wavers, and she faces others earnestly and politely. (She does repair work and the like together with her younger-sister '87(Eighteven),' and, as an elder-sister, worries about where the younger girl is headed.)",
+      "DialogueExamples": [
+        {
+          "value_JP": "「はじめまして、ご主人様。私はナンバーテールズ78番機の『78(ナナハ)』です。不束者ですが、今後よろしくお願いします」",
+          "value_EN": "\"How do you do, my Master. I am 78(Seveights), NumberTales #78. I am but an unworthy one, but I look forward to serving you from now on.\"",
+          "about_JP": "契約時の自己紹介",
+          "about_EN": "Introduction upon first meeting"
+        },
+        {
+          "value_JP": "「タロットカードを引いていると、思考の整理ができてすごく落ち着くんです。カード１枚１枚の絵柄を眺めているだけで、私の心を深く知ることができるような……」",
+          "value_EN": "\"When I draw tarot cards, I can put my thoughts in order and it calms me so much. Just gazing at the imagery on each and every card, it feels as though I can come to know my own heart more deeply……\""
+        },
+        {
+          "value_JP": "「何か私の行った作業に間違いがありましたか……？あぁ…すみません、私はまだまだ未熟ですから……すぐに修正します……」",
+          "value_EN": "\"Was there some mistake in the work I did……? Ah… I'm sorry, I'm still so very inexperienced…… I'll fix it right away……\""
+        },
+        {
+          "value_JP": "「『58(イソヤ)たちのやっているカードゲーム遊びには入らないのか』と？……すみません、あちらの行っているゲームには少し疎く……どちらかというと、トランプ遊びしかやったことがないので……『今度一緒に大富豪でもしよう』ですか？あぁ……あなた様のお誘い、本当にありがとうございます。機会を設けますので、その際はご一緒に－－」",
+          "value_EN": "\"Whether I won't join the card game that 58(Fiveighs) and the others are playing? …I'm sorry, I'm a little unfamiliar with the game they play…… If anything, I've only ever played ordinary playing cards…… 'Let's play Daifugō together sometime'? Ah…… thank you truly for the invitation, my Master. I'll arrange an occasion, and when I do, please join me——\""
+        },
+        {
+          "value_JP": "「……ご主人様、お忙しいところ本当にすみません。昨日87(ヤシナ)と中古時計の修繕作業を行っていたのですが、修繕済みの時計が余ってしまって……あなた様のお気に召すものがありましたら、いくつか引き取っていただけないでしょうか……？」",
+          "value_EN": "\"……My Master, I'm truly sorry to trouble you when you're busy. Yesterday I was repairing secondhand watches with 87(Eighteven), and we ended up with more mended watches than we need…… If any of them happen to catch your fancy, might I ask you to take a few off our hands……?\""
+        }
+      ]
+    },
     "Summary_JP": "反省からの学びを強めることに秀でているとされているナンバーテールズ。\n技術適正が極めて高く、エンジニアとして働いている主人からの支持が手厚い。\nしかしながらどこか自分に自信がなくアイテムに縋ることでしか自分を評価できないところがあり、彼女をよく知る別の個体によっては心配されたり胡散臭がられたりしている。\nとはいえ誠心誠意で自らも反省しながら精進する姿は誰よりも評価されている。",
     "Summary_EN": "A NumberTales regarded as exceptionally skilled at deepening learning through reflection and self-review.\nHer technical aptitude is extremely high, earning her strong support from masters who work as engineers.\nHowever, she lacks a certain self-confidence and can only assess her own worth by relying on items — a side of her that, depending on how well others know her, draws either concern or suspicion.\nThat said, her wholehearted, sincere dedication to self-reflection and continuous growth is something that earns the deepest respect above all.",
     "AbilityStats": {
@@ -33504,6 +33588,48 @@
         "Note_EN": null
       }
     ],
+    "ConversationPattern": {
+      "TalkingTone_JP": "ポジティブで明るい女の子らしい、元気で親しみやすい砕けた口調。『えへへ』と笑ったり感嘆したりと感情表現が豊かで、みんなからは愛称の『87(ハナ)』と呼ばれている。欲や完璧主義が絡む話題になると、途端に熱が入って前のめりな言い方になりやすい。",
+      "TalkingTone_EN": "A cheerful, approachable, casual tone befitting a positive and bright girl. She's expressive — laughing with 'ehehe' or breaking into exclamations. Everyone calls her by her nickname '87(Eivee).' The moment a topic touches her desires or her perfectionism, she heats up and her delivery leans eagerly forward.",
+      "TopicPreference_JP": "明るく前向きな話題を好み、自分から積極的に会話を盛り上げていく。技術者気質から機械いじりや修理の話題に強い関心を示し、『自己投資』という考え方に絡む話にはとりわけ熱心になる。相手のためを思うあまり、多少お節介めいた助言に発展することもある。",
+      "TopicPreference_EN": "She likes bright, positive topics and actively works to liven up the conversation herself. With her engineer's temperament she shows strong interest in machine-tinkering and repair topics, and she grows especially enthusiastic about anything tied to her idea of 'self-investment.' In her eagerness to look out for others, it can even turn into slightly meddlesome advice.",
+      "TalkFrequency_JP": "社交性・統率性ともに高く、自分から明るく話しかけて会話を主導する。テンポよく話を回して相手を巻き込むのが得意で、関心のある話題では饒舌になり、勢いよく語り続ける。",
+      "TalkFrequency_EN": "High in both sociability and leadership, she brightly strikes up conversations and takes the lead. She's skilled at keeping things moving at a good tempo and pulling others in, and on topics that interest her she becomes talkative, carrying on with real momentum.",
+      "PreferredTopics_JP": "時計修理・時計製作やはんだ付けなど、ものづくり・機械いじりの話題を好んで持ち出す。金運や物欲、自己投資・支援（応援したい個人やサービスへの出資）に関する話題にも積極的で、ソーシャルゲームの課金やガチャの話にもよく熱が入る。",
+      "PreferredTopics_EN": "She loves bringing up making-things and machine-tinkering topics such as watch repair, watchmaking, and soldering. She's also eager about money luck, material desires, and self-investment or backing (putting money into individuals or services she wants to support), and she often gets fired up talking about mobile-game top-ups and gacha.",
+      "AvoidedTopics_JP": "誤差や中途半端さを嫌う完璧主義なので、いい加減で詰めの甘い話を好まない。また、やる気を出さない・途中で投げ出すような態度の相手には不服そうに反応し、『ちゃんと結果が出るまでやろう』と発破をかけたくなる。",
+      "AvoidedTopics_EN": "As a perfectionist who hates margins of error and half-measures, she dislikes sloppy, loosely-thought-out talk. She also reacts with visible displeasure to those who won't put in effort or who give up partway, feeling the urge to spur them on with 'let's see it through until it actually produces results.'",
+      "ConversationNotes_JP": "完璧な理想を手に入れるためなら過度な出資も惜しまない一面があり、その金遣いを他の個体から防犯・自衛の面で心配されている。ただし良識や規範は理解しており、怪しい人やモノへ貢ぐことはしない。(姉の『78(ナナハ)』を慕い、機械いじりを一緒にやってきた仲で、心配性な姉には『そんなに心配しなくても』と明るく返す。)",
+      "ConversationNotes_EN": "She has a side that spares no expense to obtain her perfect ideal, and other individuals worry about that spending from a crime-prevention and self-protection standpoint. Still, she understands good sense and social norms, and won't lavish money on shady people or things. (She looks up to her elder-sister figure '78(Seveights),' with whom she has long done machine-tinkering, and she brightly answers her worry-prone big sister with 'You don't need to worry so much.')",
+      "DialogueExamples": [
+        {
+          "value_JP": "「こんにちは！私はナンバーテールズ87番機の『87(ヤシナ)』、みんなからは『ハナ』って呼ばれてます！これからご主人さまをサポートするから、よろしくね！」",
+          "value_EN": "\"Hello! I'm 87(Eighteven), NumberTales #87 — everyone calls me 'Eivee'! I'll be supporting you from now on, Master, so nice to meet you!\"",
+          "about_JP": "契約時の自己紹介",
+          "about_EN": "Introduction upon first meeting"
+        },
+        {
+          "value_JP": "「あっ、ご主人さま！頼まれていた機材の修繕が終わったよ！ちゃんと動くか確認してね。えへへ……こういう機械いじりは、以前から78(ナナハ)お姉さまとよくやってたんだ」",
+          "value_EN": "\"Ah, Master! The equipment repair you asked for is finished! Check that it runs properly, okay? Ehehe…… I've been doing this kind of machine-tinkering with my big sister 78(Seveights) for ages.\""
+        },
+        {
+          "value_JP": "「えぇ!? せっかく買った健康グッズ、もう使わなくなったの?! 駄目だよご主人さま！まだ買って４日もないのに、ちゃんと身体に結果が出るまで使ってみないことにはわかんないじゃないか～！」",
+          "value_EN": "\"Ehh?! You've already stopped using that health gadget you went and bought?! That's no good, Master! It hasn't even been four days — you can't know anything until you actually use it long enough to see real results on your body, come on~!\""
+        },
+        {
+          "value_JP": "「う～ん……この個人運営のSNS、なんだか盛り上がっているし居心地がいいから、運営さんに支援しちゃおっかな！今後もっといろんなユーザで盛り上がってほしいし」",
+          "value_EN": "\"Hmm…… this individually-run social network is lively somehow and so comfortable to be on, so maybe I'll go ahead and back the operator! I'd love for it to get even livelier with all kinds of users down the line.\"",
+          "about_JP": "SNSを見ている時",
+          "about_EN": "When browsing social media"
+        },
+        {
+          "value_JP": "「うわーー!!! 最高レア確定回数まで引いたのにピックアップすり抜けたぁ……!!! ででで、でも！まだあと40回引けばピックアップ天井だから……ここで連コインして投資するしかない……!!」",
+          "value_EN": "\"Waaah!!! I pulled all the way to the guaranteed top-rarity count and still slipped past the rate-up……!!! B-b-but! Just 40 more pulls and I hit the rate-up pity ceiling, so…… I've got no choice but to drop some consecutive coins and invest right here……!!\"",
+          "about_JP": "課金癖が出ている時（ソシャゲの場合）",
+          "about_EN": "When her spending habit kicks in (in the case of a mobile game)"
+        }
+      ]
+    },
     "Summary_JP": "社会的信用の向上効果が期待できるとされているナンバーテールズ。\n明るく積極的で技術力も高いことから、男性技術職の主人を筆頭に強い支持を賜っている。\nしかしながらどこか自分の望む完璧なものを得るために過度な出資も惜しまない一面があり、他個体から防犯的・自衛的な身の危険を心配されている。\nとはいえ良識や規範はちゃんと理解しているので、怪しい人や怪しいモノへは貢いでいない……はず。",
     "Summary_EN": "A NumberTales expected to help improve the master's social standing and credibility.\nBright, proactive, and technically skilled, she has earned strong support — particularly from masters who work in technical trades.\nHowever, her tendency to spare no expense in pursuit of whatever perfect ideal she has in mind has left other individuals concerned for her safety from a security and self-protection standpoint.\nThat said, she does understand good sense and social norms, so she hasn't been throwing money at suspicious people or dubious things... probably.",
     "AbilityStats": {
