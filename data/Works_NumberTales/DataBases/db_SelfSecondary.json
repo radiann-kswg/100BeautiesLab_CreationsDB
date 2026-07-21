@@ -739,11 +739,11 @@
   {
     "Num": 223,
     "Progress": "released(beta)",
+    "sec_Category": "リクエストナンバー",
+    "sec_DesignedBy": ["RadianN"],
     "SameMPSeries_DBLink": [
       { "_Work": "NumberTales", "_DB": "SelfSecondary", "Num": "223-jw" }
     ],
-    "sec_Category": "リクエストナンバー",
-    "sec_DesignedBy": ["RadianN"],
     "Name_JP": "223(ツヅサ)",
     "Name_EN": "223(Twitwenthir)",
     "Images": {
@@ -756,17 +756,10 @@
     "CodeName_EN": "Two-Two-Three",
     "ModelNumber": "APHR-NT [MP]223-CR***",
     "GenderType": "Neutral",
+    "Class": ["デュオトリプル7型", "キャロルズ"],
     "Height_cm": 151,
     "Weight_kg": 41,
     "BustSize": "AA",
-    "Class": ["デュオトリプル7型", "キャロルズ"],
-    "AnivDay": [
-      {
-        "Day": { "Month": 2, "DayOfMonth": 24 },
-        "DayAbout_JP": "開発記念(キャロルズ名義)",
-        "DayAbout_EN": "Development commemoration (in Caroles Class)"
-      }
-    ],
     "TailsUnit": [
       {
         "TailShapeType": "#TailShapeType_Scorpion",
@@ -780,6 +773,13 @@
         "Count": 3,
         "Note_JP": null,
         "Note_EN": null
+      }
+    ],
+    "AnivDay": [
+      {
+        "Day": { "Month": 2, "DayOfMonth": 24 },
+        "DayAbout_JP": "開発記念(キャロルズ名義)",
+        "DayAbout_EN": "Development commemoration (in Caroles Class)"
       }
     ],
     "AppearanceDetail": null,
@@ -849,11 +849,11 @@
   {
     "Num": "223-jw",
     "Progress": "notProceeded",
+    "sec_Category": null,
+    "sec_DesignedBy": ["RadianN"],
     "SameMPSeries_DBLink": [
       { "_Work": "NumberTales", "_DB": "SelfSecondary", "Num": 223 }
     ],
-    "sec_Category": null,
-    "sec_DesignedBy": ["RadianN"],
     "Name_JP": "223(フブミ)",
     "Name_EN": "223(Twitwintrey)",
     "FormalName_JP": "量産型ナンバーテールズ223番機JWシリーズ",
