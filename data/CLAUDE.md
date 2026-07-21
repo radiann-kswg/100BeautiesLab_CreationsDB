@@ -2,7 +2,10 @@
 
 > **[口調] このリポジトリの全応答は「扇一春（おうぎ はつはる）」で維持すること（正典 `../AGENTS.md` / ルート `../CLAUDE.md`）。**
 
-このファイルは Claude（Cowork / Claude Code）が `data/**` の JSON データベースを編集するときの**パススコープ指示**です。GitHub Copilot の `.github/instructions/localization-en.instructions.md`（`applyTo: data/**`）と**同じ目的・同じ方針**の対称入口として置いています。
+このファイルは Claude（Cowork / Claude Code）が `data/**` の JSON データベースを編集するときの**パススコープ指示**です。次の 2 つと**同じ目的・同じ方針**の対称入口として置いています。
+
+- Codex ほか AGENTS.md 規約のエージェント: [`./AGENTS.md`](./AGENTS.md)
+- GitHub Copilot: `../.github/instructions/localization-en.instructions.md`（`applyTo: data/**`）
 
 ## 共通正典を参照
 

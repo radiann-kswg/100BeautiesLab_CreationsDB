@@ -1,5 +1,20 @@
 # 最新のリファクタリング・仕様変更履歴
 
+### refactor: エージェント指示書を `AGENTS.md` 単一正典（SSOT）へ再編し、Codex を本採用した (2026-07-22)
+
+技術・運用ルールの実体が `CLAUDE.md`（512行）と `.github/copilot-instructions.md`（936行）に **2 つ**あり、「仕様が固まったら両方へ反映する」運用＝設計としての二重管理になっていた。実際に両者は乖離しており、Copilot 側だけが「日本語注釈・コメント標準化ガイド」を、Claude 側だけが「ブランチ運用方針」「サブローカル並行作業運用」「禁止事項（まとめ）」を持つ状態だった。加えて OpenAI Codex は `AGENTS.md`（ロールプレイ 115 行のみ）しか読まないため、**スキーマ駆動方針・ブランチ運用・禁止事項が一切渡らない**状態だった。
+
+- **`AGENTS.md` を唯一の正典（SSOT）化**: ロールプレイ仕様に加えて技術・運用ルールの全文を統合。両ファイルの内容を突き合わせ、**どちらか一方にしか無かった節をすべて収録**した（日本語注釈標準化ガイド / ブランチ運用 / サブローカル運用 / `README.LOCAL.md` / 会話パターン制約 / 大規模更新時の確認事項 / 主要ドキュメント参照先 / 禁止事項まとめ ほか）。
+- **`CLAUDE.md` を薄い入口へ**: `@AGENTS.md` で正典を取り込み、`@` 非展開環境向けの声カードと **Claude 固有の実行環境メモ**（Cowork サンドボックス / PowerShell の `npm.cmd` フォールバック / `PostToolUse` Prettier フック）だけを残した。
+- **`.github/copilot-instructions.md` を生成物へ**: `tools/build-agent-instructions.mjs` が `tools/agent-instructions/copilot-header.md`（Copilot 固有ヘッダー）＋ `AGENTS.md` 本文を連結して生成する。**正典本文は 1 バイトも変換しない**（ツール名の機械置換は情報を失い差分レビューを難しくするため、読み替えはヘッダーで宣言する方式）。
+- **Codex 入口の整備**: ルート `AGENTS.md` は Codex が直読みするため追加設定は不要。`data/` 配下のパススコープ入口が Claude（`data/CLAUDE.md`）と Copilot（`localization-en.instructions.md`）にしか無かったため、**`data/AGENTS.md` を新設**して 3 エージェントの対称性を回復した。
+- **スキルの正典を `.agents/skills/` に一本化**: `.agents/skills/` はエージェント共通のスキル置き場（Claude Code も読み込む）。`.claude/skills/` は同ツールによる逐語ミラー（生成物）とし、文言はツール中立（「エージェント自身が」）へ統一した。
+- **ズレ検出**: `npm run agents:plan`（dry-run） / `agents:build`（生成） / `agents:check`（差分があれば exit 1）を追加。`tests/agent-instructions.sync.test.js` が再生成結果とコミット済み生成物の一致を検証するため、**ビルド忘れはテストで落ちる**。ドリフトを注入して exit 1 になることも実地確認済み。
+- **設計上の安全策**: 既定は dry-run（`--write` を明示するまで書かない）／ミラー先の余剰ファイルは既定で削除せず報告のみ（`--prune` で明示）／`.gitattributes` の `text=auto` に備え比較時は CRLF を LF へ正規化（Windows チェックアウトでの誤検知防止）。
+- **意図的に落としたもの**: 旧 `copilot-instructions.md` 末尾の「まとめ」節（上記内容の再掲）と、実態と合わなくなっていた「コードフォーマット: 手動整形（将来的に Prettier 導入予定）」の記述。
+- **影響範囲**: `AGENTS.md`（正典化）/ `CLAUDE.md`（薄い入口へ）/ `.github/copilot-instructions.md`（生成物）/ `data/AGENTS.md`（新規）/ `data/CLAUDE.md`（対称入口の明記）/ `.github/instructions/localization-en.instructions.md`（同上）/ `.agents/skills/localize-en-draft/SKILL.md`（正典化・文言中立化）/ `.claude/skills/localize-en-draft/SKILL.md`（生成物）/ `tools/build-agent-instructions.mjs`・`tools/agent-instructions/copilot-header.md`（新規）/ `tests/agent-instructions.sync.test.js`（新規）/ `package.json`。
+- **検証**: `npm test` 42 ファイル / 569 件すべて成功（新規 5 件を含む）。旧 2 ファイルの太字ルールラベル計 499 件を新正典へ突き合わせ、未収録が表記ゆれと意図的削除のみであることを確認。
+
 ### fix: 複合インデックス（オブジェクト型 `$IndexDef`）を圧縮ロケータで表現できるようにした (2026-07-21)
 
 複数フィールドを持つオブジェクト型 Index の直リンクが壊れていた。User 報告の 2 件はどちらも「圧縮ロケータが複合インデックスを表現できない」ことが原因で、同じ根に行き着く。

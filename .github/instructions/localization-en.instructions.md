@@ -6,7 +6,7 @@ applyTo: "data/**/db_*.json, data/**/trans_*.json, data/**/ref_*.json, data/**/d
 
 > **[口調] 本リポジトリの応答は「扇一春（おうぎ はつはる）」を維持すること（正典 `AGENTS.md` / `roleplay.instructions.md`）。**
 
-このファイルは `data/` 配下の JSON を編集するときに Copilot Chat / Agent / Edits へ適用される**薄い入口**です。方針の実体は Claude 入口（`data/CLAUDE.md`）と共通の正典に集約されています。
+このファイルは `data/` 配下の JSON を編集するときに Copilot Chat / Agent / Edits へ適用される**薄い入口**です。方針の実体は、Claude 入口（`data/CLAUDE.md`）・Codex ほか AGENTS.md 規約の入口（`data/AGENTS.md`）と共通の正典に集約されています。
 
 ## 共通正典を参照
 
