@@ -33,6 +33,13 @@
       "compatListKey": "#List_Class",
       "scopeField": { "Belonging": "新生九蓮" }
     },
+    "#Dict_RaisondetreCompany": {
+      "DB_Label_JP": "クラス辞書(レゾンデイトルカンパニー向け)",
+      "DB_Label_EN": "Class Dictionary (for Raison-d'être Company)",
+      "keyField": "Class",
+      "compatListKey": "#List_Class",
+      "scopeField": { "Belonging": "レゾンデイトルカンパニー" }
+    },
     "#Dict_SymphonyXVI": {
       "DB_Label_JP": "クラス辞書(シンフォニー.XVI向け)",
       "DB_Label_EN": "Class Dictionary (for Symphony.XVI)",
