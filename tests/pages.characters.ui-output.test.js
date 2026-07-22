@@ -690,7 +690,7 @@ describe('pages/characters.js UI output', () => {
 		await charactersModule.renderDetail('#Works_NumberTales', dancyActresssilkRecord);
 
 		const classText = getBasicFieldValue('クラス名');
-		expect(classText).toContain('ベヴストザイン課 ヒューマノイド開発部 / Bewusstsein Division, Humanoid Development Department');
+		expect(classText).toContain('ベヴストザイン課 ヒューマノイド開発部 / Bewußtsein Division, Humanoid Development Department');
 	});
 
 	it('renders RelationToPrimary entries as links to the primary db detail view', async () => {
