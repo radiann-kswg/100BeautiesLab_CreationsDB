@@ -1,5 +1,18 @@
 # 最新のリファクタリング・仕様変更履歴
 
+### feat: 誕生日カレンダーで `_DBLinkRef` 参照解決による「同一人物」集約に対応した (2026-07-22)
+
+`tools/build-calendar-ics.mjs`（ICS 生成 + Google カレンダー同期の共通源 `collectEvents`）は従来 `_DBLink` / `_Jump` / `$enrich` を一切解決しておらず、参照でしか誕生日が決まらないキャラ（フェニクス＝恐山ユート、六花ルノ、零零×3作品、桜花信/孝、錦野 舞/歌嫁 のアルカナ名義 ほか）がカレンダーに反映されていなかった。ライブアーティファクト `birthday-anniversary-calendar` も、同一人物が複数レコード（作品跨ぎ）にまたがる場合に別人物として重複表示され得た。
+
+- **同一人物の定義 = `$enrich:true` の `*_DBLink`**: `AnotherRegions_DBLink` / `ThisArcanaHolder_DBLink` / `SameModels_DBLink`（typedef の `$enrich` を走査して判定。フォールバック集合も内蔵）。これらで推移的に結ばれたレコードを Union-Find で 1 グループ化し、**同日・同内容の誕生日/記念日を 1 件へ集約**、代表以外の名前を「別名義」として併記する。
+- **`$enrich:false` は別人物**: `AnotherVersions_DBLink` / `SameMPSeries_DBLink` / `ThisPerformer_DBLink`（例: VTuber↔中の人 PrimaryPerformer）はマージせず、参照先キャラ本人の誕生日として別枠で扱う（参照先は元々独立に走査・出力されるため自然に別枠）。
+- **参照解決 `resolveDayField()`**: `BirthDay`/`AnivDay` を literal・`_Jump`（`hashTag`/`_Search`/`_DBLink`）・`$enrich:true` 継承（自前が空のときのみ穴埋め、`docs/api-sw-spec.md §8` 準拠）に対応。循環は seen セットで防止。非公開DB・`isPrivate` は従来どおり除外し、グルーピングにも参加させない。
+- **ICS へのメタ付与**: 各 VEVENT に `X-PERSON-GROUP`（安定 id = メンバーkeyソート集合の sha1 先頭12桁）と `X-PERSON-ALIASES`（全角 `／` 区切り）を追加。DESCRIPTION にも「同一人物の別名義: …」行を追加（`記念日:` 行は aniv かつ `誕生日` 以外のときのみ）。
+- **決定性・不変条件維持**: Union-Find は辞書順で親を固定、集約後も UID 一意・出力決定的。`tests/calendar.ics.test.js` / `tests/calendar.gcal-sync.test.js` の前提（VEVENT 数一致・COLOR・`Source:`/`Name:` 不使用・2/29 ルール等）を維持（Node で不変条件を実測確認、正式な `npm test` は Windows 側で要実行）。
+- **アーティファクト**: `parseIcs` を現行 DESCRIPTION 形式（作品/DB/英名/出典）へ整合させつつ `X-PERSON-*` を取得（従来の `Name:`/`Source:` 前提で work/db が空になる潜在バグも解消）。読込後に `mergeSamePerson()`（pgid 基準・冪等）で集約し、詳細パネルに別名義を表示。埋め込み SNAPSHOT を新生成器出力（236件・同一人物集約済み）から再生成。
+- **影響範囲**: `tools/build-calendar-ics.mjs` / `calendar/100beautieslab-creations.ics`（再生成）/ ライブアーティファクト `birthday-anniversary-calendar`。イベント総数 237→236（同一人物の重複1件が集約）。
+- **既知の運用メモ**: アーティファクトのライブ主データ源である Drive ミラー（`100beautieslab-creations-events.json`）は外部データのため、別名義を反映するには同 JSON の再生成・再アップロードが必要（本変更で生成器から出力可能）。
+
 ### refactor: エージェント指示書を `AGENTS.md` 単一正典（SSOT）へ再編し、Codex を本採用した (2026-07-22)
 
 技術・運用ルールの実体が `CLAUDE.md`（512行）と `.github/copilot-instructions.md`（936行）に **2 つ**あり、「仕様が固まったら両方へ反映する」運用＝設計としての二重管理になっていた。実際に両者は乖離しており、Copilot 側だけが「日本語注釈・コメント標準化ガイド」を、Claude 側だけが「ブランチ運用方針」「サブローカル並行作業運用」「禁止事項（まとめ）」を持つ状態だった。加えて OpenAI Codex は `AGENTS.md`（ロールプレイ 115 行のみ）しか読まないため、**スキーマ駆動方針・ブランチ運用・禁止事項が一切渡らない**状態だった。
