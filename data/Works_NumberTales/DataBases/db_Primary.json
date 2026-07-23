@@ -20157,7 +20157,9 @@
       "concept_PNGName": "cnsp_img50",
       "corefolder_PNGPath": [
         "50/emstk_corefolder50-1",
-        "50/emstk_corefolder50-2"
+        "50/emstk_corefolder50-2",
+        "50/emstk_corefolder50-3",
+        "50/emstk_corefolder50-4"
       ],
       "arts_PNGPath": ["chattingArt/chart_img50-humanoidBallingRole"]
     },
@@ -20448,6 +20450,52 @@
         "Note_EN": null
       }
     ],
+    "ConversationPattern": {
+      "TalkingTone_JP": "表向きはどんな場面でも動じない、少し強気で世話焼きな口調で話す。しかし内心は常に焦っており、その心の声が小声の独り言として漏れ出やすい。動揺すると一人称が「おれ」から「ぼく」へ入れ替わり、取り繕っていた口調も一気に崩れる。",
+      "TalkingTone_EN": "On the surface, ze speaks in a slightly bold, fussing-over-you tone that never seems shaken by any situation. Inwardly, though, ze is constantly flustered, and that inner voice tends to leak out as muttered asides. When rattled, zir talk tone shifts from the rough to the softer, and the composure ze was keeping up falls apart all at once.",
+      "TopicPreference_JP": "相手の落ち度や困りごとを見つけると、面倒見のいい先輩のような言い回しで指摘や世話焼きに回りやすい。反対に自分へ火の粉がかかりそうな話題では、平静を装ったまま話を逸らそうとする。",
+      "TopicPreference_EN": "When ze spots someone's slip-up or trouble, ze readily steps in to point it out and fuss over them like a caring senior. Conversely, when a topic looks likely to land on zir own head, ze keeps up the calm front while trying to steer the conversation elsewhere.",
+      "TalkFrequency_JP": "自分から話しかけることは少なくないが、話し始めた後の主導権は相手へ渡りやすい。反応が良いと調子に乗って話し続け、いじられ始めても結局は最後まで付き合ってしまうため、会話そのものは途切れにくい。",
+      "TalkFrequency_EN": "Ze is far from reluctant to start a conversation, but the lead tends to pass to the other party once it gets going. A good reaction gets zir carried away and talking on, and even once the teasing starts ze ends up going along with it to the end, so the conversation itself rarely breaks off.",
+      "PreferredTopics_JP": "猫の話題や、コアフォルダ姿でくつろぐ時間の話は自分から進んで口にする。着地や身のこなしといった得意分野の話も得意げに語りやすい。なお主人の呼び方はその時の状況や役割に合わせて変わる（「オーナー」「ナビゲーター」「店長」など）。",
+      "PreferredTopics_EN": "Ze brings up cats, and the time ze spends relaxing in corefolder form, entirely of zir own accord. Ze also talks proudly about zir strong suits, such as landing and general agility. Note that how ze addresses zir master changes to fit the situation and role at hand ('Owner', 'Navigator', 'Manager', and so on).",
+      "AvoidedTopics_JP": "猫に転がされた時や特技を失敗した時のような、取り繕えなかった場面を蒸し返されることを避けたがる。（また「5(イズ)」と同類に括られる話題も嫌い、そこは強めに否定する。）",
+      "AvoidedTopics_EN": "Ze would rather not have the moments ze failed to cover up — getting rolled around by cats, or fumbling zir own specialty — brought back up. (Ze also dislikes topics that lump zir together with '5(Fifa)', and pushes back firmly on that point.)",
+      "ConversationNotes_JP": "肝が据わって見えるのはあくまで表向きで、実際は焦りやトラウマを抱えたまま平静を装っている。しかも心の声が大きく漏れやすいため、その動揺は周囲にほぼ筒抜けになっている。本人も満更ではない様子で、弄られてもなんだかんだ付き合ってしまうためかなりチョロい。(「30(ミツト)」のような)安心できる相手には素の口調が出やすく、(「59(イヅク)」や「55(イソゴ)」のように)自分を巻き込んでくる相手が絡むと慌てた言動が一気に増える。",
+      "ConversationNotes_EN": "That unshakable composure is only the surface; in truth ze keeps up a calm front while carrying anxiety and trauma underneath. On top of that, zir inner voice leaks out loudly enough that the agitation is all but transparent to everyone around zir. Ze doesn't seem to entirely mind it either, and ends up going along with the teasing one way or another, which makes zir quite easy to sway. Around someone ze feels safe with, (such as '30(Thirtens)',) zir unguarded tone surfaces more readily, while the involvement of those who drag zir into things (such as '59(Fivenint)' or '55(Fifívan)') sends zir flustered reactions climbing all at once.",
+      "DialogueExamples": [
+        {
+          "value_JP": "「おれはナンバーテールズ50番機、『50(ナカバ)』だ！……あらかじめ確認しておくけど、あんたは猫飼って……あぁいや、なんでもない」",
+          "value_EN": "\"I'm 50(Halvan), NumberTales #50! ……Just to check beforehand, do you keep a ca…… ahh, no, never mind.\"",
+          "about_JP": "契約時の自己紹介",
+          "about_EN": "Introduction upon first meeting"
+        },
+        {
+          "value_JP": "「ちょっとオーナー！こんなところに鳥の糞がついているではないか！おれがちゃんと掃除しておくから、今度から気を付けるんだぞ！（ゔぇ……汚ねぇ…※小声）」",
+          "value_EN": "\"Hey, Owner! There's bird droppings stuck right here, isn't there! I'll clean it up properly, so be more careful next time, got it! (Bleagh…… that's filthy… *in a low voice)\"",
+          "about_JP": "（この時は主人のことを「オーナー」と呼んでいる）",
+          "about_EN": "(Here ze is calling zir master 'Owner')"
+        },
+        {
+          "value_JP": "「高速道路としてもそんなスピード上げて大丈夫なんだよなナビゲーター？お、おれは大丈夫だけど事故には気を付けるんだぞ？」（……フラグ立ててないよね？ぼく、今の速度と発言でフラグ立ててないよね？）",
+          "value_EN": "\"Even for a highway, it's fine to push the speed up that much, right, Navigator? I-I'm fine myself, but watch out for accidents, got it?\" (……I didn't just raise a flag there, did I? With that speed and that line, I didn't just raise a flag, did I?)",
+          "about_JP": "（この時は主人のことを「ナビゲーター」と呼んでいる）",
+          "about_EN": "(Here ze is calling zir master 'Navigator')"
+        },
+        {
+          "value_JP": "「店長！これすごくいいプラモデルだな！ちょっと近くで……ってわわわぁあ!!!（※転倒）－－（あ、ヤバぃ……※超小声）もももも、問題ねえよ！ちょっとバランス崩したけど、プラモは無事だ！……うん」",
+          "value_EN": "\"Manager! This plastic model kit is seriously good! Let me get a closer lo— whoawoawoaaah!!! (*takes a tumble) —(ah, this is bad…… *in a very low voice) N-n-n-no problem at all! I lost my balance a bit, but the model is safe and sound! ……yeah.\"",
+          "about_JP": "（この時は主人のことを「店長」と呼んでいる。ちなみに：この状況下だとプラモデルは\"先端が欠けた\"など、よく見ると完全に無事ではないことが多い）",
+          "about_EN": "(Here ze is calling zir master 'Manager'. Note: in a situation like this, the model kit is often not entirely unscathed on closer inspection — a chipped tip, for instance)"
+        },
+        {
+          "value_JP": "「あ～……猫と戯れるの落ち着く～……ってちょっと待て、後ろのやつそこ触－－（※コアフォルダ形態に変形）－－っ！きみそれわかってて押しただろ!! うわわわやめろ揺らすな転がすな～!!! ぼくはボールじゃないって～!!!」",
+          "value_EN": "\"Ahh~…… playing with cats is so calming~…… hold on, the one behind me, don't touch th— (*transforms into corefolder form) —gh! You pushed that knowing full well what it does, didn't you!! Whoawoawoa, stop it, quit shaking me, quit rolling me~!!! I'm not a ball, I keep telling you~!!!\"",
+          "about_JP": "猫と戯れ（られ）ている時（ちなみに：賢い猫には形態変形のための外部スイッチのボタンを知られている）",
+          "about_EN": "When ze is playing(/played) with cats. (Note: the clever ones have learned where the external switch button for zir form transformation is)"
+        }
+      ]
+    },
     "RelationNotes_JP": "「40(ヨソ)」に敵視され「5(イズ)」を敵視している\n「30(ミツト)」に謎の安心感を憶えている",
     "RelationNotes_EN": "Is antagonized by '40(Fortty)' while antagonizing '5(Fifa)' in return\nFinds a mysterious sense of security in '30(Thirtens)'",
     "Summary_JP": "他のナンバーテールズと比べどんな状況にも肝が据わっている……が、そのポーカーフェイスの奥には時に経験や慣れにも裏切られ、時に特技も失敗し、時に悪戯にも遭うなど、彼(女)のこの上ないトラウマと焦りがあることは誰もが知る由もない。\nしかしながら本人も実は満更ではない様子なので、その反応を楽しく弄ばれていることは恐らく自覚してないまである。\n心の声が大きくて煩く、かなりチョロい。",
@@ -20496,7 +20544,7 @@
         { "Num": 40, "RelationLabel": ["unmatched", "classmate"] },
         {
           "Num": 59,
-          "Comments": "「もうこれ以上おれを巻き込まないでくれ〜!!」",
+          "Comments": "「もうこれ以上おれを巻き込まないでくれ～!!」",
           "Comments_EN": "\"Please stop dragging me into things!!\"",
           "RelationLabel": [
             "successor_nearly",
