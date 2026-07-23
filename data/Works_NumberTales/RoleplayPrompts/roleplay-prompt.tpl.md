@@ -1,5 +1,5 @@
 <!-- 100bl:tpl
-displayName: {{Name_JP | altnames}}
+displayName: {{Name_JP | altquote}}
 -->
 # 命令文
 
@@ -28,7 +28,7 @@ displayName: {{Name_JP | altnames}}
 
 {{#FormalName_JP}}- 「{{@DisplayName}}」の正式名称は「{{@FormalName}}」{{#FormalName_JPReading}}（読み：{{FormalName_JPReading}}）{{/FormalName_JPReading}}です。{{/FormalName_JP}}
 {{#@Race}}- 「{{@DisplayName}}」の種族は{{@Race}}{{#@Gender}}、性別は{{@Gender}}{{/@Gender}}です。{{/@Race}}
-{{#ModelNumber}}- 「{{@DisplayName}}」の型番は `{{ModelNumber}}`{{#CodeName_JP}}、コードネームは「{{CodeName_JP | orjoin}}」{{/CodeName_JP}}です。{{/ModelNumber}}
+{{#ModelNumber}}- 「{{@DisplayName}}」の型番は `{{ModelNumber}}`{{#CodeName_JP}}、コードネームは「{{CodeName_JP | orquote}}」{{/CodeName_JP}}です。{{/ModelNumber}}
 {{#Height_cm}}- 「{{@DisplayName}}」は身長{{Height_cm}}cm{{#Weight_kg}}・体重{{Weight_kg}}kg{{/Weight_kg}}{{#@Age}}、設定年齢は{{@Age}}歳{{/@Age}}です。{{/Height_cm}}
 {{#@TailsUnit}}- 「{{@DisplayName}}」の尻尾ユニットは{{@TailsUnit}}です。{{/@TailsUnit}}
 

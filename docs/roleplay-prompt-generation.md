@@ -46,13 +46,16 @@ npm run roleplay:check    # CI: 差分（新規/マージ更新）があれば e
   - `{{Field | filter}}` … フィルタ:
     - `nospace`（空白除去）/ `oneline`（先頭行）/ `trim`
     - `commas`（改行→「、」）/ `bullets`（改行→「- 」箇条書き）
-    - `orjoin`（改行→「 または 」）/ `altnames`（空白除去＋「 または 」。表示名向け）
-    - `sentences`（「。」と改行で文単位に分割し「- …。」の箇条書き化）
+    - `orjoin`（改行→「 または 」）/ `altnames`（空白除去＋「 または 」）
+    - `orquote` / `altquote`（改行→「」または「。**名前系はこちらを使う**）
+    - `sentences`（文単位に分割し「- …。」の箇条書き化）
   - `{{#Field}}…{{/Field}}` / `{{^Field}}…{{/Field}}` … 条件（空なら行/ブロック除去）。
   - `{{#each Path}}…{{/each}}` … 配列反復（`DialogueExamples` 用に整形済み `@dialogue` を提供）。
 - 合成変数（build が計算）:
-  - `@DisplayName` / `@FormalName` / `@FormalNameReading` / `@FormalNameCompact` … `*Name` 系の複数名
-    （改行区切り）は「または」で連結。`DisplayName` は改行が残っても build 側で必ず「または」化（防御）。
+  - `@DisplayName` / `@FormalName` / `@FormalNameCompact` … `*Name` 系の複数名（改行区切り）は
+    **1 名ずつ鉤括弧で括る形**（`「87(ヤシナ)」または「87(ハナ)」`）で連結。`DisplayName` は改行が
+    残っても build 側で必ずこの形へ寄せる（防御）。
+  - `@FormalNameReading` … 読みは `（読み：…）` の中に置かれ鉤括弧で括られないため「 または 」連結。
   - `@WorkTitle_JP` … 作品名（複数行は先頭行のみ）。
   - `@FirstPerson` / `@SecondPerson` / `@ThirdPerson` / `@ForMaster` … 呼称 DSL を `calling-common` で展開。
   - `@Gender` / `@Race` / `@Belonging` … enum/辞書ラベル解決（`type-common`）。object 値は `value` を取り出す。
@@ -60,6 +63,37 @@ npm run roleplay:check    # CI: 差分（新規/マージ更新）があれば e
   - `@TailsUnit`（`tailsUnit.js` のサマリー）/ `@DeepLink`（`?c=<Work>/<Db>/<Index>:<値>`）。
 - `hideText`（非公開マスク）は `resolvePath` で省略され、プロンプトには出ません。
 - 型番（`ModelNumber` 等の英数字コード）は Markdown インラインコード（`` `…` ``）で表示します。
+
+### 名前の並列表記（`「A」または「B」`）
+
+`Name_JP` / `FormalName_JP` が改行区切りの複数名を持つ場合、**1 名ずつ鉤括弧で括って**並べます
+（`「87(ヤシナ)」または「87(ハナ)」`）。外側の `「` `」` は**テンプレ側が持つ**約束で、フィルタ
+（`orquote` / `altquote`）は名の**間**だけを `」または「` で繋ぎます。単一名ならフィルタは素通しで、
+テンプレの `「` `」` がそのまま付くだけです。
+
+> このため `{{@DisplayName}}` / `{{@FormalName}}` / `{{CodeName_JP | orquote}}` は、テンプレ上で必ず
+> `「` `」` の内側に置いてください。鉤括弧の外で使うと `」または「` がむき出しになります。読み
+> （`@FormalNameReading`）は鉤括弧で括らないため従来どおり `orjoin`（「 または 」）です。
+
+### 文分割（`sentences`）の境界
+
+`sentences` は「。」で文を切り「- …。」の箇条書きにしますが、**括弧内の「。」では切りません**
+（`splitSentences()` が括弧の深度を数える）。`(姉の『78(ナナハ)』を慕い、…と明るく返す。)` のように
+括弧内で完結する補足文が、閉じ括弧だけ次の行へ落ちて `- )。` になるのを防ぐためです。
+
+- 閉じ括弧そのものは文末とみなしません（`（補足）続き。` を割らないため）。
+- 分割後の文が既に句点・閉じ括弧・終止記号で閉じている場合、「。」を重ねて付けません。
+
+### 改行コード（CRLF）の扱い
+
+テンプレ・既存生成物・DB 値は、入口で必ず LF へ正規化してから処理します（`normalizeEol()`）。
+Windows のワークツリーは `.gitattributes` の `* text=auto` ＋ `core.autocrlf=true` で `.md` が CRLF に
+なるため、正規化しないと次の 2 つが壊れます。
+
+- `finalizeText()` の空行畳み込み（`\n{3,}` 等）が一致せず、**セクション間に空行が余分に残る**。
+- `diffSections()` / マージの比較が改行コード差だけで全節 `updated` になり、**毎回「更新あり」**になる。
+
+書き出しは常に LF です。既存が CRLF でも内容が同じなら `unchanged` と判定し、書き込みません。
 - 生成物は**マーカー無しのクリーンな Markdown**（フェーズ2 のセクション単位マージ更新は、`## 「…」の概要`
   などの見出しをアンカーにする方式で行う）。
 

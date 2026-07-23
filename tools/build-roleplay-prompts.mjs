@@ -33,7 +33,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import CreationsDBClient from '../pkg/nodejs/index.mjs';
-import { renderTemplate, hasUnresolvedPlaceholders } from './roleplay/render.mjs';
+import { renderTemplate, hasUnresolvedPlaceholders, applyFilter, normalizeEol } from './roleplay/render.mjs';
 import { mergeByHeadings, diffSections } from './roleplay/sections.mjs';
 // 符号化フィールドのデコードを Node 側でも使えるよう globalThis へ登録（UI と同一ロジック）
 import '../lib/wrapper-common.js';
@@ -151,20 +151,21 @@ export function buildVars(record, ctx) {
 	// 作品名は複数行を持つことがあるため先頭行のみ採用
 	const vars = { __lang: lang, WorkTitle_JP: String(workTitle || '').split('\n')[0].trim() };
 
-	// FormalName（改行区切りの複数名）は「または」で連結する。DisplayName 用に空白除去版も用意する
-	const orJoin = (s) => String(s || '').split('\n').map((x) => x.trim()).filter(Boolean).join(' または ');
-	vars.FormalName = orJoin(record.FormalName_JP);
-	vars.FormalNameReading = orJoin(record.FormalName_JPReading);
-	vars.FormalNameCompact = String(record.FormalName_JP || '').split('\n').map((x) => x.trim().replace(/[\s　]+/g, '')).filter(Boolean).join(' または ');
+	// 名前系（改行区切りの複数名）は 1 名ずつ鉤括弧で括る形（`「A」または「B」`）へ連結する。
+	// 外側の `「` `」` はテンプレが持つため、ここでは名の間だけを `」または「` で繋ぐ（orquote/altquote）。
+	// 読み（FormalNameReading）は `（読み：…）` の中に置かれ鉤括弧で括られないため従来の「または」連結。
+	vars.FormalName = applyFilter(record.FormalName_JP, 'orquote');
+	vars.FormalNameReading = applyFilter(record.FormalName_JPReading, 'orjoin');
+	vars.FormalNameCompact = applyFilter(record.FormalName_JP, 'altquote');
 
 	// 設定ブロックの式（displayName → DisplayName 等）を評価
 	for (const [k, expr] of Object.entries(config || {})) {
 		const varName = k.charAt(0).toUpperCase() + k.slice(1);
 		vars[varName] = renderTemplate(expr, { record, vars: { ...vars } }, { finalize: false }).trim();
 	}
-	// DisplayName に改行（複数名）が残る場合は「または」で連結（テンプレ側フィルタ取りこぼしの防御）
+	// DisplayName に改行（複数名）が残る場合も鉤括弧連結へ（テンプレ側フィルタ取りこぼしの防御）
 	if (typeof vars.DisplayName === 'string' && vars.DisplayName.includes('\n')) {
-		vars.DisplayName = vars.DisplayName.split('\n').map((x) => x.trim().replace(/[\s　]+/g, '')).filter(Boolean).join(' または ');
+		vars.DisplayName = applyFilter(vars.DisplayName, 'altquote');
 	}
 
 	const CC = globalThis.CallingCommon;
@@ -380,11 +381,14 @@ async function main() {
 				let changedSections = null;
 				if (fs.existsSync(outPath)) {
 					const current = fs.readFileSync(outPath, 'utf8');
+					// 既存は Windows のワークツリーで CRLF になる。改行コード差だけで毎回「更新あり」に
+					// ならないよう、変更判定は LF へ揃えてから行う（書き込む内容は生成物＝LF のまま）。
+					const same = (a, b) => normalizeEol(a) === normalizeEol(b);
 					if (args.force) {
-						action = current === finalText ? 'unchanged' : 'overwrite';
+						action = same(current, finalText) ? 'unchanged' : 'overwrite';
 					} else {
 						finalText = mergeByHeadings(current, gen.text);
-						if (finalText === current) {
+						if (same(finalText, current)) {
 							action = 'unchanged';
 						} else {
 							action = 'merge';

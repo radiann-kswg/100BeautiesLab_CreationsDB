@@ -135,3 +135,23 @@ describe('diffSections', () => {
 		expect(diff.find((d) => d.heading === '## 消える').status).toBe('removed');
 	});
 });
+
+describe('CRLF 耐性（Windows ワークツリー）', () => {
+	const lf = ['# 命令文', '', '本文A', '', '## 「X」の概要', '', '- 概要1', ''].join('\n');
+	const crlf = lf.replace(/\n/g, '\r\n');
+
+	it('改行コードだけが違う既存は unchanged 扱い（毎回 updated にしない）', () => {
+		const diff = diffSections(crlf, lf);
+		expect(diff.every((d) => d.status === 'unchanged')).toBe(true);
+	});
+
+	it('CRLF の既存へマージしても LF の生成物をそのまま返す', () => {
+		expect(mergeByHeadings(crlf, lf)).toBe(lf);
+	});
+
+	it('CRLF でも見出し分解は LF と同じ結果になる', () => {
+		expect(splitSections(crlf).sections.map((s) => s.heading))
+			.toEqual(splitSections(lf).sections.map((s) => s.heading));
+		expect(splitSections(crlf).sections[0].body).not.toContain('\r');
+	});
+});
