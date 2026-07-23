@@ -1,5 +1,17 @@
 # 最新のリファクタリング・仕様変更履歴
 
+### fix: ロールプレイプロンプト生成の余分な改行を解消し、複数名を「A」または「B」形式で並べるようにした (2026-07-24)
+
+生成済みプロンプト（24 / 50 / 78 / 87 ほか）に、セクション間の余分な空行・`- )。` という壊れた箇条書き行・省略フィールドの跡の空行が混入していた。原因は 1 つではなく 3 つで、いずれも `tools/roleplay/` 側の取りこぼしだった。あわせて複数名エイリアスの表記を User 要望どおり `「87(ヤシナ)」または「87(ハナ)」` へ改めた。
+
+- **改行コード（CRLF）非対応の解消**: `.gitattributes` の `* text=auto` ＋ `core.autocrlf=true` により、Windows のワークツリーでは `.md` が CRLF でチェックアウトされる。`finalizeText()` の畳み込み（`\n{3,}` → `\n\n` 等）は LF 前提の正規表現のため CRLF テンプレ／既存ファイルでは一致せず、**空行が畳まれないまま出力**されていた。`normalizeEol()` を新設し、`renderTemplate()` / `finalizeText()` / `splitSections()` / `normalizeBlock()` の入口で LF へ正規化する。
+- **副次的な効果（差分検知の正常化）**: 既存（CRLF）と生成物（LF）の比較が改行コード差だけで全セクション `updated` になっていた。正規化により差分は実質的な変更のみになり（`plan` で 5 件全節 updated → 10 件の必要な節のみ）、`--check` が改行コードだけで落ちることもなくなった。変更判定も LF へ揃えてから行うため、CRLF に戻ったワークツリーでも `unchanged` になる。
+- **括弧内の句点で文が割れる問題**: `sentences` フィルタが `split('。')` だったため、`(姉の『78(ナナハ)』を慕い、…と明るく返す。)` のような括弧内で完結する補足文が、**閉じ括弧だけ次の文へ落ちて `- )。` という行**になっていた。括弧の深度を数える `splitSentences()` を新設し、括弧内の句点・「。）」では切らない。閉じ括弧そのものは文末とみなさない（`（補足）続き。` を割らないため）。既に句点・閉じ括弧で閉じている文へ「。」を重ねない。
+- **複数名エイリアスの表記**: `87(ヤシナ) または 87(ハナ)` → **`「87(ヤシナ)」または「87(ハナ)」`**。フィルタ `orquote` / `altquote` を追加し、外側の `「` `」` はテンプレが持つ約束のまま、名の**間**だけを `」または「` で繋ぐ（単一名なら素通しで従来と同一出力）。`@DisplayName` / `@FormalName` / `@FormalNameCompact` と NumberTales テンプレの `CodeName_JP` を切り替え。読み（`@FormalNameReading`）は鉤括弧で括られないため `orjoin` のまま。
+- **生成物の再生成**: 複数名 6 件（NumberTales 35 / 61 / 85 / 87 / 3x11、DestinyFoxRecords Proxy 3）は見出し文字列が変わりマージのアンカーが外れるため、手書き独自見出しが無いことを確認のうえ `--force` で再生成。残りは通常の `--write`。再実行で `changed=0`（冪等）を確認。
+- **影響範囲**: `tools/roleplay/render.mjs` / `tools/roleplay/sections.mjs` / `tools/build-roleplay-prompts.mjs` / `data/Works_NumberTales/RoleplayPrompts/roleplay-prompt.tpl.md` / 生成物 10 ファイル / `tests/roleplay-render.test.js`・`tests/roleplay-sections.test.js`（CRLF・括弧分割・鉤括弧連結のテストを追加）/ `docs/roleplay-prompt-generation.md`。
+- **検証**: `npm test` 42 ファイル / 582 件すべて成功。
+
 ### feat: 誕生日カレンダーで `_DBLinkRef` 参照解決による「同一人物」集約に対応した (2026-07-22)
 
 `tools/build-calendar-ics.mjs`（ICS 生成 + Google カレンダー同期の共通源 `collectEvents`）は従来 `_DBLink` / `_Jump` / `$enrich` を一切解決しておらず、参照でしか誕生日が決まらないキャラ（フェニクス＝恐山ユート、六花ルノ、零零×3作品、桜花信/孝、錦野 舞/歌嫁 のアルカナ名義 ほか）がカレンダーに反映されていなかった。ライブアーティファクト `birthday-anniversary-calendar` も、同一人物が複数レコード（作品跨ぎ）にまたがる場合に別人物として重複表示され得た。

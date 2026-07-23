@@ -10,10 +10,14 @@
  *   - mergeByHeadings(a, b)        … 既存 a に、生成 b の管理見出しを権威として合流
  *   - diffSections(a, b)           … セクション別 added/updated/unchanged/removed サマリ
  *
+ *   入力は必ず LF へ正規化してから扱う。既存ファイルは Windows のワークツリーで CRLF に
+ *   なるため、正規化しないと生成物（LF）との比較が改行コード差だけで全節 updated になる。
+ *
  * @author 100BeautiesLab.
- * @version 1.0.0
- * @dependencies なし（Node.js >= 18・標準機能のみ）
+ * @version 1.1.0
+ * @dependencies tools/roleplay/render.mjs（normalizeEol のみ）
  */
+import { normalizeEol } from './render.mjs';
 
 /**
  * Markdown を「前文（最初の見出しより前）＋セクション列」へ分解する。
@@ -23,7 +27,7 @@
  * @returns {{ preamble: string, sections: Array<{heading:string, level:number, body:string, raw:string}> }}
  */
 export function splitSections(md) {
-	const text = String(md == null ? '' : md);
+	const text = normalizeEol(md);
 	const lines = text.split('\n');
 	const heads = [];
 	let inFence = false;
@@ -81,7 +85,7 @@ function joinBlocks(blocks) {
  * @returns {string}
  */
 function normalizeBlock(s) {
-	return String(s == null ? '' : s)
+	return normalizeEol(s)
 		.replace(/[ \t]+$/gm, '')
 		.replace(/^\n+/, '')
 		.replace(/\n+$/, '');
@@ -104,7 +108,7 @@ export function mergeByHeadings(existing, rendered) {
 	const renderedHeadings = new Set(R.sections.map((s) => s.heading));
 	const foreign = E.sections.filter((s) => !renderedHeadings.has(s.heading));
 	// 手書き独自見出しが無ければ、生成物が完全な正（冪等・そのまま返す）
-	if (foreign.length === 0) return String(rendered == null ? '' : rendered);
+	if (foreign.length === 0) return normalizeEol(rendered);
 
 	// 手書き独自セクションを「直前に現れた管理見出し」ごとのバケットへ振り分ける。
 	// 先頭（管理見出しより前）に置かれた独自セクションは topForeign へ。

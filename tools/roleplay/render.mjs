@@ -12,10 +12,27 @@
  *   - `{{^Field}} … {{/Field}}`      … 反転条件（空で出力）
  *   - `{{#each Path}} … {{/each}}`   … 配列反復（要素を record に、整形済み `@dialogue` を提供）
  *
+ *   改行コード: 入力（テンプレ・DB 値）に CRLF が混ざっても内部処理は LF に正規化する。
+ *   CRLF のまま整形すると `finalizeText` の畳み込み（`\n{3,}` 等）が素通りして空行が余分に残るため。
+ *
  * @author 100BeautiesLab.
- * @version 1.0.0
+ * @version 1.1.0
  * @dependencies なし（Node.js >= 18・標準機能のみ）
  */
+
+/**
+ * 改行コードを LF へ正規化する（CRLF / CR → LF）。
+ *
+ * @description
+ *   Windows のワークツリー（`core.autocrlf=true` ＋ `.gitattributes` の `* text=auto`）では、
+ *   チェックアウト時に `.md` が CRLF になる。CRLF のまま整形処理へ流すと改行系の正規表現が
+ *   一致せず、空行の畳み込みが効かなくなる。入口で必ずこの関数を通すこと。
+ * @param {any} text
+ * @returns {string} LF へ揃えたテキスト
+ */
+export function normalizeEol(text) {
+	return String(text == null ? '' : text).replace(/\r\n?/g, '\n');
+}
 
 /**
  * 値が「空」か判定する（null/undefined/空文字/空白のみ/空配列/空オブジェクト）。
@@ -56,6 +73,46 @@ export function resolvePath(ctx, path) {
 	return cur;
 }
 
+/** 文分割時に深度を数える開き括弧（半角/全角/鉤括弧/隅付き括弧） */
+const SENTENCE_OPENERS = '(（「『【〈《［[｛{';
+/** 文分割時に深度を戻す閉じ括弧（`SENTENCE_OPENERS` と同順の対） */
+const SENTENCE_CLOSERS = ')）」』】〉》］]｝}';
+/** 文末に「。」を補わない末尾文字（既に句点/閉じ括弧/終止記号で閉じているもの） */
+const SENTENCE_TERMINALS = /[。．！？!?…‥、]$|[)）」』】〉》］\]｝}]$/;
+
+/**
+ * 日本語テキストを「。」で文へ分割する（括弧内の「。」では切らない）。
+ *
+ * @description
+ *   `ConversationNotes_JP` のような補足文には `(… と明るく返す。)` のように括弧内で完結する
+ *   文が混ざる。単純な `split('。')` では閉じ括弧だけが次の文へ落ちて `- )。` という壊れた行に
+ *   なるため、括弧の深度を数えて括弧内の句点を文末とみなさない。閉じ括弧が過剰な壊れた入力でも
+ *   深度は 0 未満へ落とさず、最悪でも「分割しすぎない」側へ倒す。
+ * @param {any} text - 分割対象（改行を含まない 1 段落を想定）
+ * @returns {string[]} 句点を保持したままの文配列（前後空白は除去・空要素は除外）
+ * @example
+ * splitSentences('しない。(慕い、返す。)') // => ['しない。', '(慕い、返す。)']
+ */
+export function splitSentences(text) {
+	const s = normalizeEol(text);
+	const out = [];
+	let buf = '';
+	let depth = 0;
+	for (let i = 0; i < s.length; i++) {
+		const ch = s[i];
+		buf += ch;
+		if (SENTENCE_OPENERS.includes(ch)) { depth++; continue; }
+		if (SENTENCE_CLOSERS.includes(ch)) { depth = Math.max(0, depth - 1); continue; }
+		if (ch !== '。') continue;
+		if (depth > 0) continue; // 括弧内の句点は文末ではない
+		if (SENTENCE_CLOSERS.includes(s[i + 1] || '')) continue; // 「。）」は閉じ括弧まで 1 文
+		out.push(buf);
+		buf = '';
+	}
+	if (buf) out.push(buf);
+	return out.map((x) => x.trim()).filter(Boolean);
+}
+
 /**
  * 文字列フィルタを適用する。
  * @param {any} value
@@ -63,7 +120,7 @@ export function resolvePath(ctx, path) {
  * @returns {string}
  */
 export function applyFilter(value, name) {
-	const s = value == null ? '' : String(value);
+	const s = normalizeEol(value);
 	switch (String(name || '').trim()) {
 		case 'nospace': return s.replace(/[\s　]+/g, '');
 		case 'oneline': return (s.split('\n')[0] || '').trim();
@@ -72,8 +129,17 @@ export function applyFilter(value, name) {
 		// 改行区切りの複数名を「または」で連結（orjoin=空白維持 / altnames=空白除去し表示名向け）
 		case 'orjoin': return s.split('\n').map((x) => x.trim()).filter(Boolean).join(' または ');
 		case 'altnames': return s.split('\n').map((x) => x.trim().replace(/[\s　]+/g, '')).filter(Boolean).join(' または ');
-		// 「。」区切りの長文を文単位の箇条書きへ細分化する（改行区切りも文の区切りとして扱う）
-		case 'sentences': return s.split(/。|\n/).map((x) => x.trim()).filter(Boolean).map((x) => `- ${x}。`).join('\n');
+		// 名前の並列を 1 名ずつ鉤括弧で括る形へ（`「A」または「B」`）。外側の `「` `」` はテンプレ側が
+		// 持つため、ここでは名の間だけを `」または「` で繋ぐ（orquote=空白維持 / altquote=空白除去）
+		case 'orquote': return s.split('\n').map((x) => x.trim()).filter(Boolean).join('」または「');
+		case 'altquote': return s.split('\n').map((x) => x.trim().replace(/[\s　]+/g, '')).filter(Boolean).join('」または「');
+		// 長文を文単位の箇条書きへ細分化する（改行も段落の区切りとして扱う）
+		case 'sentences': return s.split('\n')
+			.map((x) => x.trim())
+			.filter(Boolean)
+			.flatMap((para) => splitSentences(para))
+			.map((x) => (SENTENCE_TERMINALS.test(x) ? `- ${x}` : `- ${x}。`))
+			.join('\n');
 		case 'trim': return s.trim();
 		default: return s;
 	}
@@ -178,7 +244,8 @@ function expandInterpolations(tpl, ctx, opts) {
  * @returns {string}
  */
 export function finalizeText(text) {
-	const lines = String(text == null ? '' : text)
+	// CRLF のままだと以降の畳み込み（`\n{3,}` 等）が一致せず空行が残るため、まず LF へ揃える
+	const lines = normalizeEol(text)
 		.split('\n')
 		.filter((line) => !/^[ \t]*[-*]\s*$/.test(line));
 	let out = lines.join('\n');
@@ -209,7 +276,8 @@ export function hasUnresolvedPlaceholders(text) {
  */
 export function renderTemplate(tpl, ctx, opts = {}) {
 	const finalize = opts.finalize !== false;
-	let out = String(tpl == null ? '' : tpl);
+	// テンプレが CRLF でチェックアウトされていても展開・整形が同じ結果になるよう入口で揃える
+	let out = normalizeEol(tpl);
 	out = expandEach(out, ctx, opts);
 	out = expandConditionals(out, ctx);
 	out = expandInterpolations(out, ctx, opts);

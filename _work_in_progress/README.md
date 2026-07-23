@@ -49,6 +49,7 @@
 | Issue #13 希望タスク（数秘/反応）     | [2026-07-22_progress_issue13-numerology-skinship.md](./2026-07-22_progress_issue13-numerology-skinship.md)                 | 📝 要件整理ログを新規作成。フィールド命名・配置・適用範囲は User 判断待ち。                                                                                                                                                                                                 |
 | ICS 同一人物・別名義集約             | [calendar-same-person-dblink.md](./calendar-same-person-dblink.md)                                                         | 🟡 Claude Desktop 側の未コミット実装を確認。全569テスト成功・ICS 236件生成。Drive ミラー再アップロードとライブアーティファクト側の実地確認が残。                                                                                                                           |
 | ロールプレイプロンプト生成            | [2026-07-18_progress_roleplay-prompt-en-phase4.md](./2026-07-18_progress_roleplay-prompt-en-phase4.md)                     | 🟢 フェーズ0〜3（JP生成・見出しアンカーマージ・`--reconcile`/`--adopt`）完了（詳細は `.completed/2026-07-18_progress_roleplay-prompt-generator.md`）。フェーズ4（EN版）は本ログに着手前調査＋実装計画を集約（未着手・出力先形式は User 確認待ち）                             |
+| ロールプレイプロンプト 体裁修正       | [2026-07-24_progress_roleplay-prompt-formatting.md](./2026-07-24_progress_roleplay-prompt-formatting.md)                   | 🟢 余分な改行（CRLF 非対応）・`- )。` の壊れ・複数名の `「A」または「B」` 表記を修正し生成物 10 件を再生成（`npm test` 582 件全緑）。句点の二重化 / `Weakness_JP` 欠落時の文断裂 / `[object Object]` の 3 件は User 判断待ちで未着手                                        |
 
 ### 系列の補足（過去フェーズは `.completed/` 参照）
 

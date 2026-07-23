@@ -13,6 +13,8 @@ import {
 	finalizeText,
 	hasUnresolvedPlaceholders,
 	renderTemplate,
+	normalizeEol,
+	splitSentences,
 } from '../tools/roleplay/render.mjs';
 
 describe('isEmpty', () => {
@@ -63,8 +65,47 @@ describe('applyFilter', () => {
 		expect(applyFilter('扇 一春\n扇 二春', 'orjoin')).toBe('扇 一春 または 扇 二春');
 		expect(applyFilter('扇 四春\n扇 五春', 'altnames')).toBe('扇四春 または 扇五春');
 	});
+	it('orquote / altquote は複数名を 1 名ずつ鉤括弧で括る形へ連結する', () => {
+		// 外側の 「 」 はテンプレ側が持つため、名の間だけを `」または「` で繋ぐ
+		expect(`「${applyFilter('87(ヤシナ)\n87(ハナ)', 'altquote')}」`).toBe('「87(ヤシナ)」または「87(ハナ)」');
+		expect(`「${applyFilter('扇 一春\n扇 二春', 'orquote')}」`).toBe('「扇 一春」または「扇 二春」');
+	});
+	it('orquote / altquote は単一名なら素通し（テンプレの 「 」 だけが付く）', () => {
+		expect(applyFilter('24(フトシ)', 'altquote')).toBe('24(フトシ)');
+		expect(applyFilter('錦野 舞', 'orquote')).toBe('錦野 舞');
+	});
 	it('sentences は「。」と改行で文分割して箇条書き化する', () => {
 		expect(applyFilter('あ。い。', 'sentences')).toBe('- あ。\n- い。');
+	});
+	it('sentences は括弧内の「。」で文を割らない（`- )。` を作らない）', () => {
+		const src = '貢ぐことはしない。(姉の『78(ナナハ)』を慕い、明るく返す。)';
+		expect(applyFilter(src, 'sentences'))
+			.toBe('- 貢ぐことはしない。\n- (姉の『78(ナナハ)』を慕い、明るく返す。)');
+	});
+	it('sentences は CRLF 混在でも段落を余計に分けない', () => {
+		expect(applyFilter('あ。\r\nい。', 'sentences')).toBe('- あ。\n- い。');
+	});
+});
+
+describe('normalizeEol / splitSentences', () => {
+	it('normalizeEol は CRLF / CR を LF へ揃える', () => {
+		expect(normalizeEol('a\r\nb\rc\nd')).toBe('a\nb\nc\nd');
+		expect(normalizeEol(null)).toBe('');
+	});
+	it('splitSentences は句点を保持したまま文へ分割する', () => {
+		expect(splitSentences('あ。い。')).toEqual(['あ。', 'い。']);
+		expect(splitSentences('句点なし')).toEqual(['句点なし']);
+	});
+	it('splitSentences は括弧内の句点・「。）」を文末とみなさない', () => {
+		expect(splitSentences('外。(内1。内2。)')).toEqual(['外。', '(内1。内2。)']);
+		expect(splitSentences('外。（内。）')).toEqual(['外。', '（内。）']);
+	});
+	it('splitSentences は閉じ括弧自体では切らない（`（補足）続き。` を割らない）', () => {
+		expect(splitSentences('（補足）続き。')).toEqual(['（補足）続き。']);
+		expect(splitSentences('外。（内。）後。')).toEqual(['外。', '（内。）後。']);
+	});
+	it('splitSentences は閉じ括弧が過剰でも分割しすぎない', () => {
+		expect(splitSentences('壊れ)た。次。')).toEqual(['壊れ)た。', '次。']);
 	});
 });
 
@@ -140,6 +181,10 @@ describe('finalizeText / hasUnresolvedPlaceholders', () => {
 	it('空箇条書き行を除去し連続空行を畳み込む', () => {
 		const out = finalizeText('A\n- \n\n\n\nB');
 		expect(out).toBe('A\n\nB\n');
+	});
+	it('CRLF 入力でも空行の畳み込みが効く（LF で返す）', () => {
+		expect(finalizeText('A\r\n- \r\n\r\n\r\n\r\nB')).toBe('A\n\nB\n');
+		expect(finalizeText('- A\r\n\r\n- B')).toBe('- A\n- B\n');
 	});
 	it('未解決プレースホルダを検出する', () => {
 		expect(hasUnresolvedPlaceholders('a {{X}} b')).toBe(true);
