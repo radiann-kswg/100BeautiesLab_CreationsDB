@@ -1,5 +1,17 @@
 # 最新のリファクタリング・仕様変更履歴
 
+### feat: キャラシートの画像表示順を typedef(`$DefType`) の `Images.$type` 宣言順へ統一し、データのキー順も整列した (2026-07-25)
+
+キャラシートの画像ギャラリーが、画像フィールドを **category ベースの固定 `priority`**（`concept`=1 / `design`=2 / `arts`=3 …）で並べていたため、typedef の宣言順を反映していなかった。例えば ShouArRiders で `Images.$type` の先頭に足した `newYear_PNGPath`（年賀絵）が `other`(priority 6) 扱いになり、卯刻ハネゝカで `designAlt` より後ろへ回っていた。表示順の正はローカル typedef の宣言順であるべき、という User 方針に合わせた。
+
+- **`order`（宣言順インデックス）の導入**: `extractImageFields()` が各画像フィールド spec に、typedef を traverse した push 順 = `Images.$type` 宣言順の `order` を付与する。`priority` はカテゴリ分類・サムネ代表選択のために従来どおり残置する。
+- **ギャラリー表示順を `order` 基準へ**: `extractImageFields()` 末尾の基本ソートと `buildImageGallery()` のソートを、`priority` 比較から `order` 比較（未宣言は末尾）へ変更。これで詳細ページの画像は `newYear → concept → designAlt → arts` のように typedef 順で並ぶ。field 名のハードコードは足していない（作品別 typedef の `Images.$type` を更新すれば追従する）。
+- **サムネ代表選択も `order` 基準へ**: `resolveImageFromFields()`（一覧カード等の代表画像を 1 枚選ぶ経路）も `priority` 順から `order` 順へ統一。値を持つ最初のフィールド＝ typedef 先頭を代表画像にする（ShouArRiders なら `newYear` が一覧サムネになる）。詳細ギャラリーと代表サムネの並び基準がこれで一致する。
+- **データのキー順も整列**: 全作品の各レコードの `Images` 子キー順を、作品別 typedef の `mergeDefTypes` 正準順へ整列（`DestinyFoxRecords/db_Primary`・`db_Proxy`、`NumberTales/db_Primary` の計 3 ファイル 8 レコード）。`normalize-field-order.mjs` と同じ書式非破壊手法（テキスト片の入れ替えのみ・値は非再生成）で実施。他作品は既に正順だった。
+- **既知メモ**: `NumberTales/db_Secondary.json` に typedef 未宣言の子キー `conceptAlt_PNGPath`（typedef 側は `conceptAlt_PNGName`）が残存。綴り揺れの可能性があり、宣言追加/修正は創作判断のため User に委ねる（今回は非改変）。
+- **影響範囲**: `pages/characters.js`（`extractImageFields` に `order` 付与・2 箇所のギャラリーソートを `order` 基準へ）/ `pages/characters.html`（`asset-version` を `2026.07.25.1` へ）/ `data/Works_DestinyFoxRecords/DataBases/db_Primary.json`・`db_Proxy.json` / `data/Works_NumberTales/DataBases/db_Primary.json`。
+- **検証**: `npm test` 42 ファイル / 582 件すべて成功。詳細ページの表示順はローカル HTTP サーバーでの目視確認を推奨。
+
 ### fix: ロールプレイプロンプト生成の余分な改行を解消し、複数名を「A」または「B」形式で並べるようにした (2026-07-24)
 
 生成済みプロンプト（24 / 50 / 78 / 87 ほか）に、セクション間の余分な空行・`- )。` という壊れた箇条書き行・省略フィールドの跡の空行が混入していた。原因は 1 つではなく 3 つで、いずれも `tools/roleplay/` 側の取りこぼしだった。あわせて複数名エイリアスの表記を User 要望どおり `「87(ヤシナ)」または「87(ハナ)」` へ改めた。

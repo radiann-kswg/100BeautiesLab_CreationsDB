@@ -87,7 +87,7 @@
     "Name_JPReading": "うのこくハネネカ",
     "Name_EN": "Boundy Rabbitimes",
     "Images": {
-      "arts_PNGPath": ["newYear/art_imgEZ4-newyear2023"],
+      "newYear_PNGPath": ["art_imgEZ4-newyear2023"],
       "designAlt_PNGPath": ["chattingArt/chart_imgEZ4-private"]
     },
     "GenderType": "Female",
@@ -125,7 +125,7 @@
     "Name_JP": "辰刻リウロン",
     "Name_JPReading": "たつのこくリウロン",
     "Name_EN": "Liú-lóng Dragotimes",
-    "Images": { "arts_PNGPath": ["newYear/art_imgEZ5-2024"] },
+    "Images": { "newYear_PNGPath": ["art_imgEZ5-2024"] },
     "FormalName_JP": "劉.元画",
     "FormalName_JPReading": "リウ.ユァンファ",
     "FormalName_EN": "Liú.YuánHuà",
@@ -165,10 +165,7 @@
     "Name_JPReading": "みのこくカミツ",
     "Name_EN": "Ciderin Snaketimes",
     "Images": {
-      "arts_PNGPath": [
-        "newYear/art_imgEZ6-newyear2025A",
-        "newYear/art_imgEZ6-newyear2025B"
-      ]
+      "newYear_PNGPath": ["art_imgEZ6-newyear2025A", "art_imgEZ6-newyear2025B"]
     },
     "FormalName_JP": "花.花琳",
     "FormalName_JPReading": "ホゥア.フアリン",
@@ -213,7 +210,7 @@
     "Name_JP": "午刻ハヤテ",
     "Name_JPReading": "うまのこくハヤテ",
     "Name_EN": "Windrush Horsetimes",
-    "Images": { "arts_PNGPath": ["newYear/art_imgEZ7-newyear2026"] },
+    "Images": { "newYear_PNGPath": ["art_imgEZ7-newyear2026"] },
     "FormalName_JP": "ルドルフ.コーナー",
     "FormalName_EN": "Rudolf.Korner",
     "GenderType": "Male",
@@ -251,9 +248,9 @@
     "Name_JPReading": "とらのこくネネコ",
     "Name_EN": "Meowcats Tigertimes",
     "Images": {
+      "newYear_PNGPath": ["art_imgEZ13-meowsday2023"],
       "concept_PNGName": "cnsp_imgEZ13",
       "arts_PNGPath": [
-        "art_imgEZ13-meowsday2023",
         "sphericateDay/art_imgEZ13-sphericateDay202309A",
         "sphericateDay/art_imgEZ13-sphericateDay202309B",
         "sphericateDay/art_imgEZ13-sphericateDay202309C"

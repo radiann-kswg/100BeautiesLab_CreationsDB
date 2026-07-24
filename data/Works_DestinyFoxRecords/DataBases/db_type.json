@@ -30,12 +30,6 @@
       "hashTag": "Images",
       "$type": [
         {
-          "hashTag": "concept_PNGName",
-          "$type": "#PNGFileName",
-          "hashTag_JP": "設定原画",
-          "hashTag_EN": "Concept Figure"
-        },
-        {
           "hashTag": "design_PNGName",
           "$type": "#PNGFileName",
           "hashTag_JP": "設定原画",
@@ -46,6 +40,12 @@
           "$type": "#PNGFileName[]",
           "hashTag_JP": "設定原画差分",
           "hashTag_EN": "Concept Art Variations"
+        },
+        {
+          "hashTag": "concept_PNGName",
+          "$type": "#PNGFileName",
+          "hashTag_JP": "設定原画",
+          "hashTag_EN": "Concept Figure"
         },
         {
           "hashTag": "weakening_PNGPath",

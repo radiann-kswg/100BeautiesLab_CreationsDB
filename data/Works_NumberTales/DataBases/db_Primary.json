@@ -26236,13 +26236,13 @@
     "Images": {
       "concept_PNGName": "cnsp_img44",
       "corefolder_PNGPath": ["44/emstk_corefolder44-1"],
-      "arts_PNGPath": [
-        "humanoids/2024/art-wip_img44-humanoid",
-        "corefolders/sphericateDay/art_sphericateDay202310"
-      ],
       "designAlt_PNGPath": [
         "eventArt/art_sphericateDay-halloween2023A",
         "eventArt/art_sphericateDay-halloween2023B"
+      ],
+      "arts_PNGPath": [
+        "humanoids/2024/art-wip_img44-humanoid",
+        "corefolders/sphericateDay/art_sphericateDay202310"
       ]
     },
     "FormalName_JP": "ナンバーテールズ44番機",
@@ -35569,19 +35569,19 @@
     "Name_EN": "61(Síxone)\n61(Síon)",
     "Images": {
       "concept_PNGName": "cnsp_img61",
-      "conceptAlt_PNGName": ["cnsp_img61-B"],
       "catalog_PNGName": "chr-dsgn_catalog61",
+      "conceptAlt_PNGName": ["cnsp_img61-B"],
       "corefolder_PNGPath": [
         "61/emstk_corefolder61-1",
         "61/emstk_corefolder61-idol1",
         "61/emstk_corefolder61-idol2"
       ],
+      "designAlt_PNGPath": ["catalog/chr-dsgn-alt_wip61-idol"],
       "arts_PNGPath": [
         "corefolders/sphericateDay/art_sphericateDay202209r1A",
         "corefolders/sphericateDay/art_sphericateDay202209r1B",
         "humanoids/2023/art_img61-humanoid"
-      ],
-      "designAlt_PNGPath": ["catalog/chr-dsgn-alt_wip61-idol"]
+      ]
     },
     "FormalName_JP": "ナンバーテールズ61番機",
     "FormalName_EN": "NumberTales #61",
@@ -38661,14 +38661,14 @@
       "concept_PNGName": "cnsp_img66",
       "conceptAlt_PNGName": ["cnsp_img66-B"],
       "corefolder_PNGPath": ["66/emstk_corefolder66-1"],
-      "arts_PNGPath": [
-        "humanoids/2023/art_img66-humanoid",
-        "corefolders/sphericateDay/art_sphericateDay202310"
-      ],
       "designAlt_PNGPath": [
         "eventArt/art_sphericateDay-halloween2023A",
         "eventArt/art_sphericateDay-halloween2023B",
         "chattingArt/chart_img66-corefolderHalloween"
+      ],
+      "arts_PNGPath": [
+        "humanoids/2023/art_img66-humanoid",
+        "corefolders/sphericateDay/art_sphericateDay202310"
       ]
     },
     "FormalName_JP": "ナンバーテールズ66番機",
@@ -40152,11 +40152,11 @@
     "Images": {
       "concept_PNGName": "cnsp_img68",
       "corefolder_PNGPath": ["68/emstk_corefolder68-1"],
+      "designAlt_PNGPath": ["arts/art_img68-humanoidOnWorkSuit"],
       "arts_PNGPath": [
         "corefolders/sphericateDay/art_sphericateDay202301r2",
         "corefolders/2023/art_img68-corefolder"
-      ],
-      "designAlt_PNGPath": ["arts/art_img68-humanoidOnWorkSuit"]
+      ]
     },
     "FormalName_JP": "ナンバーテールズ68番機",
     "FormalName_EN": "NumberTales #68",
@@ -48150,13 +48150,13 @@
         "85/emstk_corefolder85-1",
         "85/emstk_corefolder85-2"
       ],
-      "arts_PNGPath": [
-        "corefolders/2023/art_img85-corefolder",
-        "corefolders/sphericateDay/art_sphericateDay202310"
-      ],
       "designAlt_PNGPath": [
         "eventArt/art_sphericateDay-halloween2023A",
         "eventArt/art_sphericateDay-halloween2023B"
+      ],
+      "arts_PNGPath": [
+        "corefolders/2023/art_img85-corefolder",
+        "corefolders/sphericateDay/art_sphericateDay202310"
       ]
     },
     "FormalName_JP": "ナンバーテールズ85番機",
