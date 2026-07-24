@@ -2787,6 +2787,8 @@ function extractImageFields(workTypeDef, globalTypeDef = {}) {
 								: inferImageFolderHint(child.hashTag),
 							category,
 							priority,
+							// typedef($DefType) の宣言順を保持する push インデックス（画像表示順の正）
+							order: imageFields.length,
 							source
 						};
 						imageFields.push(fieldSpec);
@@ -2812,6 +2814,8 @@ function extractImageFields(workTypeDef, globalTypeDef = {}) {
 						: inferImageFolderHint(item.hashTag),
 					category,
 					priority,
+					// typedef($DefType) の宣言順を保持する push インデックス（画像表示順の正）
+					order: imageFields.length,
 					source
 				};
 				imageFields.push(fieldSpec);
@@ -2846,9 +2850,12 @@ function extractImageFields(workTypeDef, globalTypeDef = {}) {
 		traverse(workTypeDef.$DefType, [], 'work');
 	}
 
-	// Sort by priority and category for better organization
+	// 画像の表示順は typedef($DefType) の Images.$type 宣言順（order）を正とする。
+	// priority はカテゴリ分類・サムネ代表選択のために各 fieldSpec へ残す。
 	imageFields.sort((a, b) => {
-		if (a.priority !== b.priority) return a.priority - b.priority;
+		const oa = Number.isFinite(a.order) ? a.order : Number.POSITIVE_INFINITY;
+		const ob = Number.isFinite(b.order) ? b.order : Number.POSITIVE_INFINITY;
+		if (oa !== ob) return oa - ob;
 		return a.field.localeCompare(b.field);
 	});
 
@@ -4976,9 +4983,11 @@ async function buildImageGallery(workId, record, imageFields, dbName = 'Primary'
 		imgData
 	});
 
-	// Sort image fields by priority for consistent ordering
+	// ギャラリー表示順は typedef($DefType) の Images.$type 宣言順（order）に従う
 	const sortedFields = [...imageFields].sort((a, b) => {
-		if (a.priority !== b.priority) return a.priority - b.priority;
+		const oa = Number.isFinite(a.order) ? a.order : Number.POSITIVE_INFINITY;
+		const ob = Number.isFinite(b.order) ? b.order : Number.POSITIVE_INFINITY;
+		if (oa !== ob) return oa - ob;
 		return a.field.localeCompare(b.field);
 	});
 
@@ -5410,8 +5419,13 @@ async function imageFromRecord(workId, rec, dbName = 'Primary', imageFields = nu
 async function resolveImageFromFields(workId, rec, dbName, imageFields, layer = '') {
 	const img = getRecordImages(rec);
 
-	// Sort image fields by priority for thumbnail selection
-	const sortedFields = [...imageFields].sort((a, b) => a.priority - b.priority);
+	// サムネ代表画像も typedef($DefType) の Images.$type 宣言順（order）の先頭を優先する
+	const sortedFields = [...imageFields].sort((a, b) => {
+		const oa = Number.isFinite(a.order) ? a.order : Number.POSITIVE_INFINITY;
+		const ob = Number.isFinite(b.order) ? b.order : Number.POSITIVE_INFINITY;
+		if (oa !== ob) return oa - ob;
+		return a.field.localeCompare(b.field);
+	});
 
 	for (const field of sortedFields) {
 		const fieldValue = img[field.field];
