@@ -26,6 +26,12 @@
       "hashTag": "Images",
       "$type": [
         {
+          "hashTag": "newYear_PNGPath",
+          "$type": "#PNGFilePath[]",
+          "hashTag_JP": "年賀絵原画",
+          "hashTag_EN": "New-Year Concept Art"
+        },
+        {
           "hashTag": "concept_PNGName",
           "$type": "#PNGFileName",
           "hashTag_JP": "設定原画",
