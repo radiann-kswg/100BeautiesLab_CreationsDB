@@ -7,6 +7,7 @@
     "Name_EN": "RadianN (2nd Gen.)",
     "Images": {
       "design_PNGName": "dsgn_imgRN2",
+      "weakening_PNGPath": ["emstk_weakeningRN2-1"],
       "arts_PNGPath": [
         "regular-birthday/arts_birthday2023",
         "regular-birthday/arts_birthday2025-1",
@@ -20,8 +21,7 @@
             "_IsoPath": "arts/fullpower/arts_destinyFoxRec-2022-recruit"
           }
         }
-      ],
-      "weakening_PNGPath": ["emstk_weakeningRN2-1"]
+      ]
     },
     "FormalName_JP": "扇 二春",
     "FormalName_JPReading": "おうぎ つぐはる",
@@ -65,13 +65,13 @@
     "Images": {
       "design_PNGName": "dsgn_imgRN3",
       "designAlt_PNGPath": ["dsgn_imgRN3-onCostume"],
+      "weakening_PNGPath": ["emstk_weakeningRN3-1", "emstk_weakeningRN3-2"],
       "arts_PNGPath": [
         "orbify-birthday/arts_birthday2024",
         "regular-birthday/arts_birthday2025-1",
         "regular-birthday/arts_birthday2025-2",
         "weakening-birthday/arts_birthday2026"
-      ],
-      "weakening_PNGPath": ["emstk_weakeningRN3-1", "emstk_weakeningRN3-2"]
+      ]
     },
     "FormalName_JP": "扇 四春.オーバーロール\n扇 四春.オーダーロール",
     "FormalName_JPReading": "おうぎ よつはる.オーバーロール\nおうぎ よつはる.オーダーロール",

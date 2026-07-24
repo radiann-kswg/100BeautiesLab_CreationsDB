@@ -48,8 +48,8 @@
     "Name_JP": "メトレ",
     "Name_EN": "Metre_SI-L",
     "Images": {
-      "concept_PNGName": "cnsp_imgPhysU-m",
-      "design_PNGName": "design_imgPhysU-m"
+      "design_PNGName": "design_imgPhysU-m",
+      "concept_PNGName": "cnsp_imgPhysU-m"
     },
     "FormalName_JP": "リール ∛竏.絶対尺度",
     "FormalName_JPReading": "リール キュービックキロリッター.アンチヤードポンド",

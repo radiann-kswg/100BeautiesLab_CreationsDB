@@ -1284,7 +1284,7 @@
     "Name_EN": "(Illustration of NumberizeTales Project)",
     "Images": {
       "concept_PNGName": "numberize/cnsp_img115-numberize",
-      "conceptAlt_PNGPath": ["numberize/cnsp_img115-numberize-image"]
+      "conceptAlt_PNGName": ["numberize/cnsp_img115-numberize-image"]
     },
     "Class": ["ナンバーテールズ化"],
     "TailsUnit": [

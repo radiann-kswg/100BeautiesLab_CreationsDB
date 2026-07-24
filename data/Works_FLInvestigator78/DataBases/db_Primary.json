@@ -8,7 +8,10 @@
     },
     "Name_JP": "フェニクス",
     "Name_EN": "Phoenix",
-    "Images": { "cardDesign_PNGName": "crddsn_imgFLM0" },
+    "Images": {
+      "cardDesign_PNGName": "crddsn_imgFLM0",
+      "concept_PNGName": "cnsp_imgFLM0"
+    },
     "FormalName_JP": "愚かな旅人\nフェニクス.ゼロウス",
     "FormalName_EN": "Foolish Tripper\nPhoenix.0th",
     "CodeName_JP": "愚者",
@@ -360,7 +363,10 @@
     },
     "Name_JP": "バベル",
     "Name_EN": "Babel",
-    "Images": { "cardDesign_PNGName": "crddsn_imgFLM16" },
+    "Images": {
+      "cardDesign_PNGName": "crddsn_imgFLM16",
+      "concept_PNGName": "cnsp_imgFLM16"
+    },
     "FormalName_JP": "倒壊する塔\nクライシア.バベル",
     "FormalName_EN": "Tower in Collapsing\nCrisia.Babel",
     "CodeName_JP": "塔",
