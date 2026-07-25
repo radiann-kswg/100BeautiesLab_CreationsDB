@@ -45,7 +45,7 @@ npm run roleplay:check    # CI: 差分（新規/マージ更新）があれば e
   - `{{Path.To.Field}}` … record → 合成変数の順で解決。`@Name` は合成変数。
   - `{{Field | filter}}` … フィルタ:
     - `nospace`（空白除去）/ `oneline`（先頭行）/ `trim`
-    - `commas`（改行→「、」）/ `bullets`（改行→「- 」箇条書き）
+    - `commas`（改行→「、」。**各行末の「。」は落とす**）/ `bullets`（改行→「- 」箇条書き）
     - `orjoin`（改行→「 または 」）/ `altnames`（空白除去＋「 または 」）
     - `orquote` / `altquote`（改行→「」または「。**名前系はこちらを使う**）
     - `sentences`（文単位に分割し「- …。」の箇条書き化）
@@ -58,11 +58,49 @@ npm run roleplay:check    # CI: 差分（新規/マージ更新）があれば e
   - `@FormalNameReading` … 読みは `（読み：…）` の中に置かれ鉤括弧で括られないため「 または 」連結。
   - `@WorkTitle_JP` … 作品名（複数行は先頭行のみ）。
   - `@FirstPerson` / `@SecondPerson` / `@ThirdPerson` / `@ForMaster` … 呼称 DSL を `calling-common` で展開。
-  - `@Gender` / `@Race` / `@Belonging` … enum/辞書ラベル解決（`type-common`）。object 値は `value` を取り出す。
-  - `@Age`（`Age`→無ければ `ConceptAge`。object は value）/ `@BirthDay`（`{Day:{Month,DayOfMonth}}`→「M月D日」）。
+  - `@Gender` / `@Race` / `@Belonging` … enum/辞書ラベル解決（`type-common`）。object 値は `unwrapValueLike` で解く。
+  - `@Age`（`Age`→無ければ `ConceptAge`）/ `@BirthDay`（`{Day:{Month,DayOfMonth}}`→「M月D日」）。
+  - **`@HeightText` / `@WeightText` / `@AgeText`** … 単位（cm / kg / 歳）付きの表示テキスト（後述）。
   - `@TailsUnit`（`tailsUnit.js` のサマリー）/ `@DeepLink`（`?c=<Work>/<Db>/<Index>:<値>`）。
 - `hideText`（非公開マスク）は `resolvePath` で省略され、プロンプトには出ません。
 - 型番（`ModelNumber` 等の英数字コード）は Markdown インラインコード（`` `…` ``）で表示します。
+
+### `{ value, about }` 形式の値と、単位付きテキスト
+
+`Height_cm` / `Weight_kg` / `ConceptAge` / `GenderType` などは、素の数値のほかに
+**`{ value, about_JP, about_EN }`（およびその配列）** を取りうります。テンプレから素で参照すると
+`String(obj)` が `[object Object]` になるため、表示経路では必ず `unwrapValueLike()`（`render.mjs`）を通します。
+
+解決規則（**value 優先・無ければ補足**）:
+
+| 入力 | 結果 |
+| --- | --- |
+| `{ hideText: '非公開' }` | 出力しない（意図的マスク） |
+| `{ value: 43, about_JP: '推定' }` | `43`（`0` も有効値として扱う） |
+| `{ about_JP: '不詳' }` | `不詳`（`value` が無ければ補足を採用） |
+| `{ about_JP: '可変\n(35～72cm)' }` | `可変(35～72cm)`（改行は 1 行へ畳む） |
+
+**単位は build 側が付けます。** テンプレに `{{Height_cm}}cm` のように単位を固定で書くと、補足だけを持つ値が
+「不詳歳」という壊れた文になるためです。`formatMeasure()` が `@HeightText` / `@WeightText` / `@AgeText` を
+組み立て、テンプレは変数を差し込むだけにします。
+
+- `value` を持つ要素 … `<value><単位>`（例: `43kg` / `0kg`）
+- `value` が無く補足だけ … 補足をそのまま（**単位を付けない**。例: `不詳`）
+- 複数要素は `・` で連結（例: 本体 42kg ＋ 安全装置 4kg → `42kg・4kg`）
+
+```
+{{#@HeightText}}- 「{{@DisplayName}}」は身長{{@HeightText}}{{#@WeightText}}・体重{{@WeightText}}{{/@WeightText}}{{#@AgeText}}、設定年齢は{{@AgeText}}{{/@AgeText}}です。{{/@HeightText}}
+```
+
+### 接続語を条件ブロックの内側へ置く
+
+`{{#Strength_JP}}- {{Strength_JP | commas}}である一方、{{#Weakness_JP}}…{{/Weakness_JP}}{{/Strength_JP}}` のように
+**接続語を外側に置くと、内側が空のとき `- …である一方、` で文が途切れます**。接続語は内側へ入れ、
+`{{^Weakness_JP}}` で言い切る分岐を用意してください。
+
+```
+{{#Strength_JP}}- {{Strength_JP | commas}}{{#Weakness_JP}}である一方、{{Weakness_JP | commas}}という側面もあります。{{/Weakness_JP}}{{^Weakness_JP}}が長所です。{{/Weakness_JP}}{{/Strength_JP}}
+```
 
 ### 名前の並列表記（`「A」または「B」`）
 

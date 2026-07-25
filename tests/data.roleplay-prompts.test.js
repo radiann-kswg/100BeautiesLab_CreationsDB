@@ -155,3 +155,53 @@ describe('フェーズ2 マージ更新（実データ・見出しアンカー�
 		expect(merged).toContain('あなたはこれから');
 	});
 });
+
+describe('生成物の体裁（2026-07-25 回帰: 配布物に出ていた 3 件）', () => {
+	// 生成ロジックではなく「コミット済みの生成物」を直接検査する。
+	// 生成物は配布物であり、テンプレ側の不備がそのまま外部へ渡るため、実ファイルで固定する。
+	/** 各作品の `RoleplayPrompts` 配下から生成済み Markdown を全件集める（テンプレ・`.private` は除く） */
+	const collectGeneratedPrompts = () => {
+		const out = [];
+		const dataDir = path.join(REPO_ROOT, 'data');
+		for (const work of fs.readdirSync(dataDir).filter((d) => d.startsWith('Works_'))) {
+			const root = path.join(dataDir, work, PROMPTS_DIR);
+			if (!fs.existsSync(root)) continue;
+			const walk = (dir) => {
+				for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
+					const full = path.join(dir, entry.name);
+					// `.private/` は User 手元の下書き置き場のため検査対象外
+					if (entry.isDirectory()) {
+						if (entry.name !== '.private') walk(full);
+						continue;
+					}
+					if (!/^roleplay-prompt-.+\.md$/.test(entry.name)) continue;
+					out.push({
+						rel: path.relative(REPO_ROOT, full).split(path.sep).join('/'),
+						text: fs.readFileSync(full, 'utf8'),
+					});
+				}
+			};
+			walk(root);
+		}
+		return out;
+	};
+
+	it('生成物が 1 件以上ある（収集ロジックの空振り検知）', () => {
+		expect(collectGeneratedPrompts().length).toBeGreaterThan(0);
+	});
+
+	it('`[object Object]` を含まない（`{value, about}` 形式のアンラップ漏れ）', () => {
+		const bad = collectGeneratedPrompts().filter((f) => f.text.includes('[object Object]'));
+		expect(bad.map((f) => f.rel)).toEqual([]);
+	});
+
+	it('句点が二重化していない（値末尾の「。」とテンプレの「。」の重なり）', () => {
+		const bad = collectGeneratedPrompts().filter((f) => /。。/.test(f.text));
+		expect(bad.map((f) => f.rel)).toEqual([]);
+	});
+
+	it('接続語で文が途切れていない（Weakness 欠落時の「である一方、」）', () => {
+		const bad = collectGeneratedPrompts().filter((f) => /(?:である一方、|ながらも)[ \t]*$/m.test(f.text));
+		expect(bad.map((f) => f.rel)).toEqual([]);
+	});
+});

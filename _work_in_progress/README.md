@@ -17,43 +17,32 @@
 
 ---
 
-## いま進行中のファイル（トピック別索引）
+## 進行中タスクと進捗ログの索引
 
-同じトピックでも複数ログが並ぶとどれが最新か分かりづらくなるため、**トピック単位**でまとめています。
-各トピックの「現行ログ」が最新の状態を追える起点です。過去の実装フェーズの詳細ログは `.completed/` にあります。
+**残タスクと進捗ログの索引は [2026-07-25_remaining-task.md](./2026-07-25_remaining-task.md) に一本化しました。**
 
-> **本ブランチ（`addon-ai-tag`）の索引です。** `**addon-ai-tag**` 印の行は本ブランチ固有で、`develop` には存在しません。
-> `develop` 側で退避済みのログ（`addon-ai-tag 逆マージ事故記録` / `AIHints 構造的再同期 設計提案` / `AIHints カラーセット デッドロック診断`）は、
-> 本ブランチでは 2026-07-14 の棚卸しで先に退避済みのため本表に載りません。
+- 「いま何が残っているか」は同ファイルの**タスク一覧**（`T-xx`）を見てください。
+  複数の進捗ログに内容が跨っていたタスクは 1 エントリへ束ね、「関連ログ」欄に跨り先を列挙しています。
+- 「どのログがどのタスクの情報源か」は同ファイルの**進捗ログ索引**にまとまっています。
+- 本 README は、フォルダの**運用ルール**・**系列の補足**・**退避の履歴**を扱います
+  （索引を二重に持つとズレるため、トピック別索引は母艦へ移設しました）。
 
-| トピック                              | 現行ログ                                                                                                                   | 状態                                                                                                                                                                                                                                                                        |
-| ------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| タスク管理・起点                      | [2026-07-03_current-task-ledger.md](./2026-07-03_current-task-ledger.md)                                                   | 進行中タスクの一覧（P1〜P7）                                                                                                                                                                                                                                                |
-| **addon-ai-tag**: マージ + 棚卸し（現行） | [2026-07-22_progress_addon-ai-tag-merge.md](./2026-07-22_progress_addon-ai-tag-merge.md)                               | 🟢 2026-07-22 の `develop` 取り込みマージ（`dfe2273` / `2b30754`）と本ブランチ棚卸し。AIHints ルールを `AGENTS.md` へ移送してから生成物を再生成。成果は未コミット                                                                                                            |
-| 棚卸し（develop パス）                | [2026-07-22_progress_wip-tidy.md](./2026-07-22_progress_wip-tidy.md)                                                       | 🟢 2026-07-22 実施。6 件退避・赤テスト 3 件を解消（`npm test` 564 件全緑）                                                                                                                                                                                                  |
-| エージェント指示書の SSOT 化          | [2026-07-22_progress_agents-ssot.md](./2026-07-22_progress_agents-ssot.md)                                                 | 🟢 `AGENTS.md` を唯一の正典化・Copilot 版を生成物へ・Codex 本採用（`data/AGENTS.md` 新設）。**本ブランチでは AIHints 専用節を追加**                                                                                                                                         |
-| タスク管理・母艦                      | [2026-07-08_remaining-task.md](./2026-07-08_remaining-task.md)                                                             | 未完了タスクの統合版（旧 `2026-06-01` / `2026-06-13` は `.completed/` へ退避）                                                                                                                                                                                              |
-| GitHub Issue/PR トリアージ            | [2026-07-22_github-triage.md](./2026-07-22_github-triage.md)                                                               | 🟡 Issue #13（希望タスク）を新規検知。AIHints再同期失敗は原因仮説あり（要確認）。Cloudflare API同期失敗は既知の一過性として鎮静化。                                                                                                                                         |
-| **addon-ai-tag**: AIHints 残課題台帳  | [2026-07-14_progress_addon-ai-tag-log-inventory.md](./2026-07-14_progress_addon-ai-tag-log-inventory.md)                   | ⚠️ AIHints 系ログを退避し、残課題（**A1〜A9**）を集約（本ブランチ固有。母艦は develop と共有のため衝突回避で分離）                                                                                                                                                          |
-| **addon-ai-tag**: AIHints 対象拡張（SemiPrimary / SelfSecondary） | [2026-07-17_progress_aihints-scope-semiprimary-selfsecondary.md](./2026-07-17_progress_aihints-scope-semiprimary-selfsecondary.md) | ⚠️ 基盤整備は完了（`_Secondaries` opt-out バグ修正・`AI_Optout` を権利軸へ純化・Class 辞書合流）。**seed は `AppearanceDetail` の入力待ち**                                                                                          |
-| ConversationPattern 引き継ぎ          | [2026-06-28_progress_conversationpattern-handoff.md](./2026-06-28_progress_conversationpattern-handoff.md)                 | ⚠️ sub2側後処理 + DialogueExamples先行方式での仮入力（Num 92/94/95/98/99/2/10）が残                                                                                                                                                                                         |
-| 英訳ルール基準書                      | [2026-06-12_progress_translation-style-unified.md](./2026-06-12_progress_translation-style-unified.md)                     | 継続参照用（ルール本体・バッチ作業ログ）                                                                                                                                                                                                                                    |
-| Localization DB（`trans_*.json`）     | [2026-06-24_progress_localization-db.md](./2026-06-24_progress_localization-db.md)                                         | ⚠️ enum解決の合流・原作者確認・項目追加継続中                                                                                                                                                                                                                               |
-| Localization Summary 入力             | [2026-06-25_progress_localization-summary-inputs.md](./2026-06-25_progress_localization-summary-inputs.md)                 | ⚠️ 入力チェックリスト（残7件、User手動）                                                                                                                                                                                                                                    |
-| 英訳ルール追補・calling.js            | [2026-06-24_progress_localization-rules-audit.md](./2026-06-24_progress_localization-rules-audit.md)                       | ⚠️ calling.js のユニットテスト/UI確認が残（後続の `fix_calling-schema-duplication` は 2026-07-14 に完了・退避済み）                                                                                                                                                         |
-| ADR-0002（Google Cloud 画像生成）     | [2026-06-21_progress_cloudflare-api-adr2-gcloud.md](./2026-06-21_progress_cloudflare-api-adr2-gcloud.md)                   | Draft・設計検討中                                                                                                                                                                                                                                                           |
-| UnibyteLive アルベッツ苗字命名        | [2026-07-06_progress_unibytelive-formalname-draft.md](./2026-07-06_progress_unibytelive-formalname-draft.md)               | ⚠️ 下書き入力24件・User最終レビュー待ち                                                                                                                                                                                                                                     |
-| ColorPalette スキーマ + カラーチップ抽出 | [2026-07-13_progress_colorpalette-schema.md](./2026-07-13_progress_colorpalette-schema.md)                               | ✅ 設定画のカラーチップから 94 件へ配色を投入済み（全件 5 色以上）。⚠️ 色名・Role は User レビュー待ち。**本ブランチでは AIHints への機械導出（`--apply-colorpalette`）も完了済み**（2026-07-22 実測: `palette_priority` 確定 91/92 件）                                     |
-| AppearanceDetail 参考画像の一括登録   | [2026-07-11_progress_appearancedetail-images.md](./2026-07-11_progress_appearancedetail-images.md)                         | ⚠️ `10`/`10alt` の割当正誤（User確認待ち）・保留4枚の扱い                                                                                                                                                                                                                   |
-| フィールド順整列（typedef + `$slot`） | [2026-07-17_progress_field-order-typedef.md](./2026-07-17_progress_field-order-typedef.md)                                 | ⚠️ トップレベル整列は完了。実機目視・ネスト整列（Phase 4）・UI/SW統一（Phase 6）が未着手。                                                                                                                                                                                  |
-| Issue #13 希望タスク（数秘/反応）     | [2026-07-22_progress_issue13-numerology-skinship.md](./2026-07-22_progress_issue13-numerology-skinship.md)                 | 📝 要件整理ログを新規作成。フィールド命名・配置・適用範囲は User 判断待ち。                                                                                                                                                                                                 |
-| ICS 同一人物・別名義集約             | [calendar-same-person-dblink.md](./calendar-same-person-dblink.md)                                                         | 🟡 Claude Desktop 側の未コミット実装を確認。全569テスト成功・ICS 236件生成。Drive ミラー再アップロードとライブアーティファクト側の実地確認が残。                                                                                                                           |
-| ロールプレイプロンプト生成            | [2026-07-18_progress_roleplay-prompt-en-phase4.md](./2026-07-18_progress_roleplay-prompt-en-phase4.md)                     | 🟢 フェーズ0〜3（JP生成・見出しアンカーマージ・`--reconcile`/`--adopt`）完了（詳細は `.completed/2026-07-18_progress_roleplay-prompt-generator.md`）。フェーズ4（EN版）は本ログに着手前調査＋実装計画を集約（未着手・出力先形式は User 確認待ち）                             |
-| ロールプレイプロンプト 体裁修正       | [2026-07-24_progress_roleplay-prompt-formatting.md](./2026-07-24_progress_roleplay-prompt-formatting.md)                   | 🟢 余分な改行（CRLF 非対応）・`- )。` の壊れ・複数名の `「A」または「B」` 表記を修正し生成物 10 件を再生成（`npm test` 582 件全緑）。句点の二重化 / `Weakness_JP` 欠落時の文断裂 / `[object Object]` の 3 件は User 判断待ちで未着手                                        |
+> 旧 `2026-07-03_current-task-ledger.md`（台帳）と `2026-07-08_remaining-task.md`（母艦）は
+> 統合のうえ `.completed/` へ退避済みです。
+
+### 本ブランチ（`addon-ai-tag`）固有の進捗ログ
+
+統合母艦は `develop` 由来のため、**AIHints 関連の固有ログは母艦の索引に載りません**。本節が索引を兼ねます。
+
+| ログ | 主題 | 状態 |
+| --- | --- | --- |
+| [2026-07-22_progress_addon-ai-tag-merge.md](./2026-07-22_progress_addon-ai-tag-merge.md) | `develop` → `addon-ai-tag` の一方向マージ記録 | 🟢 履歴 |
+| [2026-07-17_progress_aihints-scope-semiprimary-selfsecondary.md](./2026-07-17_progress_aihints-scope-semiprimary-selfsecondary.md) | AIHints の適用範囲（SemiPrimary / SelfSecondary） | ⚠️ 継続 |
+| [2026-07-14_progress_addon-ai-tag-log-inventory.md](./2026-07-14_progress_addon-ai-tag-log-inventory.md) | 本ブランチのログ棚卸し記録 | 🟢 履歴 |
 
 ### 系列の補足（過去フェーズは `.completed/` 参照）
 
-- **AppearanceDetail系**: `design-part-schema` → `appearance-attrs-typed-schema` → `appearance-detail-merge-integration` / `runbook` → `appearance-detail-cleanup`（`Costume` フィールド新設・BodyPart enum 拡張を含む P1 最終対応）→ `remove-nummark-identitymotif` はいずれも実装・確認完了につき `.completed/` へ退避済み。データ入力側の継続作業のみ `appearancedetail-images` で管理。addon-ai-tag 側の AIHints 追従（`--apply-identitymotif` 撤去）も `addon-ai-tag-identitymotif-removal` で完了済み。
+- **AppearanceDetail系**: `design-part-schema` → `appearance-attrs-typed-schema` → `appearance-detail-merge-integration` / `runbook` → `appearance-detail-cleanup` → `remove-nummark-identitymotif` はいずれも実装・確認完了につき `.completed/` へ退避済み。データ入力側の継続作業のみ `appearancedetail-images` で管理。
 - **TailsUnit系**: `tailsunit-appearancedetail-migration` → `tailsunit-dedicated-type` → `tailsunit-layoutdirection` → `tailsunit-image-reference` は 2026-07-13 のブラウザ目視確認をもって全て完了・退避済み。
 - **`*_DBLink` / 画像横断参照系**: `dblink-enrich` / `dblink-renderer` / `crosswork-dblink-audit` / `dbcrosslinkpath` は実データ稼働＋ブラウザ・SW API 確認まで完了につき退避済み。
 - **Cloudflare 実API系**: `global-references`（共通資料の疑似作品化）と `r2-sync-outage`（R2 未同期障害）は 2026-07-13 に本番実 API で疎通・是正を確認し退避済み。運用の残課題は `pkg-sync` 側で管理。
@@ -62,14 +51,10 @@
 - **Calling 表示系**: `fix_calling-schema-duplication` は 2026-07-14 にブラウザ実地確認 + 回帰テスト追加で完了・退避済み。作品別 typedef に残る `ForMasterCalling_JP`/`_EN` の suffix 宣言は、renderer 側の base 統合により**表示バグを起こさない**ことを確認済み（スキーマ整理は任意）。ローカライズ観点の残作業は `localization-rules-audit` 側で管理。
 - **pkg/ 追従系**: `pkg-sync` は 2026-07-13 の実装・検証で完了。残る技術負債（Workers 側 `_Secondaries` マッチャの乖離ほか）は母艦 `2026-07-08_remaining-task.md` の P4 へ引き継ぎ済み。
 - **アンオースドロジカ Index 系**: `unauthedlogica-index-alias` は実装・テスト・ブラウザ確認完了、コミットも `develop` へ着地済み（`f3c18ae`）。残る辞書ラベル（創作文言）は母艦 P3 へ引き継ぎ済み。
-- **キャラシート URL / 辞書解決系**: `url-params`（圧縮ロケータ `?c=`・`a36ba32`）と `global-dict-resolution-fix`（`fetchGlobalDefType()` の妥当性判定をスキーマ形状ベースへ・`f78cfdb`）は 2026-07-16 の棚卸しで完了・退避済み。前者は錦野姉妹（Dealer カード）対応まで、後者は辞書和英併記の復旧をブラウザ実地確認済み。両コミットとも本ブランチにも取込済み（`develop` → `addon-ai-tag` 一方向マージ、2026-07-16 マージで確定）。
-- **公式サイトリンク系**: `official-links`（作品情報欄への公式 HP 導線・スキーマ駆動・`6646d50`）は実装・テスト（373件）・ブラウザ実地確認まで完了し退避済み。2026-07-16 マージで本ブランチにも取込済み。Worker 側 `/works` レスポンスへの明示追加のみ次フェーズ（母艦 P4-6。**2026-07-22 に本番 `/api/v1/works` を実測し、公開キーが `key / Title / Title_EN / Works_Summary / OldTitles` の 5 種のみで `OfficialLinks` 未露出＝未対応であることを再確認**）。
-- **addon-ai-tag / AIHints系**（本ブランチ固有）: `aihints-from-identitymotif` → `corefolder-nld-template-and-silhouette-structure` → `appearancedetail-aihints-mode`（`AppearanceDetail` を正源とする並行モード追加・NumberTales/Primary 92件へ実データ適用済み）、`addon-ai-tag-api-separation`（`/api/ai/*` 分離・Bearer認証実装）、`db-images-phase2`（Images整備）は実装・適用が完了しており `.completed/` へ退避済み。`addon-ai-tag-merge-conflict-and-log-cleanup` / `addon-ai-tag-revert-cascade-recovery` / `addon-ai-tag-reverse-merge-incident` / `addon-ai-tag-log-inventory` の一連のマージ事故対応・ログ棚卸し系も是正完了につき退避済み（詳細は各ログ参照。`reverse-merge-incident` は develop 側では進行中ログとして残るが、本ブランチでは後日談追記まで完了し退避済み）。GitHub Issues機能・Calling 表示系はこのブランチにも波及しているが、いずれも develop 側の `issue-feature` / `fix_calling-schema-duplication` として 2026-07-14 に完了・退避済み。
-- **AIHints 再ビルド基盤（第0〜2階）**（本ブランチ固有）: `aihints-palette-deadlock`（第0階: `palette_priority` の `null` ハンドリング）→ `aihints-structural-resync-proposal`（第1階: `_meta` provenance + `--resync-structural` + CI）→ `develop` の `ColorPalette` + `--apply-colorpalette`（第2階: 配色の機械導出）で**3 階すべて完了**。2026-07-14 の棚卸しで、実データ 92/92 件への `_meta` 付与・`palette_priority` 確定 91 件・誤タグ 0 件を実測して裏取りし、4 件を `.completed/` へ退避した（ログ側の「未着手」記載が実装に追いついていなかった）。残課題は `2026-07-14_progress_addon-ai-tag-log-inventory.md` の「AIHints 残課題台帳」へ集約。
-- **AIHints 対象拡張（SemiPrimary / SelfSecondary）**（本ブランチ固有）: `aihints-scope-semiprimary-selfsecondary`（2026-07-17）で**基盤整備のみ完了**。調査の結果、パイプライン（migrate / worker / CI / D1 スキーマ）とスキーマは既に両 DB を射程に収めており、実体は既存バグの修正だった（`_Secondaries` の opt-out 判定が `sec_SeriesTitle` 単独キーで opt-in を巻き込んでいた／Class 辞書未合流で日本語が `identity_tags` へ漏れていた／Num ソートが NaN）。あわせて `AI_Optout` を**権利軸へ純化**し、「キャラデザ未着手の除外」は `Progress: notProceeded` ゲート（新設・soft skip）と既存の画像ゲートへ移譲した。**AIHints の実データ投入（seed）は `AppearanceDetail` の入力待ちで未実施**。`db_Primary.json` は 1 バイトも変更していない。
-- **キャラシート直リンク（Index 解決）系**: `url-params`（圧縮ロケータ `?c=`）→ `unauthedlogica-index-alias` → `composite-index-locator`（オブジェクト型 `$IndexDef` の複合条件対応）で一連の URL 文法整備が完結。最後の `composite-index-locator` は 2026-07-22 の develop 側棚卸しで開発環境（`127.0.0.1:5500`）実地確認まで済ませて退避。残る `#IndexAlt` によるエイリアス Index の宣言化のみ母艦 P5 へ引き継ぎ。本ブランチへは 2026-07-22 のマージで反映。
-- **ロールプレイプロンプト生成系**: `roleplay-prompt-generator`（フェーズ0〜3: 符号化フィールドの `lib/` 化・生成ツール本体・見出しアンカーマージ・`--reconcile`/`--adopt`）は実装・テスト完了につき退避済み。フェーズ4（EN 版）は `roleplay-prompt-en-phase4` が現行ログ。本ブランチ固有だった `roleplay-shebang-fix` も、lib 分離の完了を 2026-07-22 に実地確認して退避済み（残る `extract-enum-lists-to-dictionaries.mjs` のシェバンは AIHints 台帳 A9 へ）。
-- **エージェント指示書 / SSOT 系**（2026-07-22 develop 由来）: `agents-ssot` で `AGENTS.md` を唯一の正典化し、`.github/copilot-instructions.md` を生成物へ、`data/AGENTS.md` を新設して Codex を本採用。**本ブランチでは AIHints 運用ルール 6 項目を `AGENTS.md` の「AIHints 運用ルール（`addon-ai-tag` ブランチ限定）」節へ移送**してあり、この節は develop に存在しない（逆マージ禁止）。今後 `AGENTS.md` が衝突した場合、**当該節は本ブランチ側を残す**のが正。
+- **キャラシート URL / 辞書解決系**: `url-params`（圧縮ロケータ `?c=`・`a36ba32`）と `global-dict-resolution-fix`（`fetchGlobalDefType()` の妥当性判定をスキーマ形状ベースへ・`f78cfdb`）は 2026-07-16 の棚卸しで完了・退避済み。前者は錦野姉妹（Dealer カード）対応まで、後者は辞書和英併記の復旧をブラウザ実地確認済み。`global-dict-resolution-fix` の `addon-ai-tag` への一方向マージは本棚卸しの `addon-ai-tag` パスで実施する。
+- **公式サイトリンク系**: `official-links`（作品情報欄への公式 HP 導線・スキーマ駆動・`6646d50`）は実装・テスト（373件）・ブラウザ実地確認まで完了し退避済み。Worker 側 `/works` レスポンスへの明示追加のみ次フェーズ（母艦 P4-6。**2026-07-22 に本番 `/api/v1/works` を実測し、公開キーが `key / Title / Title_EN / Works_Summary / OldTitles` の 5 種のみで `OfficialLinks` 未露出＝未対応であることを再確認**）。
+- **キャラシート直リンク（Index 解決）系**: `url-params`（圧縮ロケータ `?c=`）→ `unauthedlogica-index-alias` → `composite-index-locator`（オブジェクト型 `$IndexDef` の複合条件対応）で一連の URL 文法整備が完結。最後の `composite-index-locator` は 2026-07-22 の棚卸しで開発環境（`127.0.0.1:5500`）実地確認まで済ませて退避。残る `#IndexAlt` によるエイリアス Index の宣言化のみ母艦 P5 へ引き継ぎ。
+- **ロールプレイプロンプト生成系**: `roleplay-prompt-generator`（フェーズ0〜3: 符号化フィールドの `lib/` 化・生成ツール本体・見出しアンカーマージ・`--reconcile`/`--adopt`）は実装・テスト完了につき退避済み。フェーズ4（EN 版）は `roleplay-prompt-en-phase4` が現行ログ。
 
 ---
 
@@ -77,14 +62,36 @@
 
 以下のファイルは実装・検証が完了し、`_work_in_progress/.completed/` へ移動済みです（Git 管轄外）。
 
-### 2026-07-22 addon-ai-tag 棚卸しで追加退避（2件・本ブランチ固有）
+### 2026-07-25 タスク統合で追加退避（6件）
 
-`develop` 取り込みマージ（`dfe2273` / `2b30754`）とあわせて本ブランチ側のログを棚卸し。直下 21 件 → 19 件。
+残タスクを **1 タスク = 1 エントリ**へ概略化した統合母艦
+[2026-07-25_remaining-task.md](./2026-07-25_remaining-task.md) を新設し、役割が移ったもの・
+同日に完了したものを退避。**直下 22 件 → 16 件（+ 母艦 1 件・+README）**。
 
-- `2026-07-16_progress_addon-ai-tag-merge.md`（前回のマージ + 棚卸し作業ログ本体。未完了タスクなし。本ログへ世代交代）
-- `2026-07-18_progress_roleplay-shebang-fix.md`（**申し送りを実地確認で消化**: 「lib 分離（option 2 本体）」は develop 側フェーズ1〜2 で `tools/roleplay/{render,sections}.mjs` へ移設済みであることを確認。`build-roleplay-prompts.mjs` のシェバン除去も維持されていた。残る `extract-enum-lists-to-dictionaries.mjs` のシェバンは実測で残存しており、`develop` 所有ファイルのため **A9** として `addon-ai-tag-log-inventory` へ引き継ぎ）
+- `2026-07-03_current-task-ledger.md`（**統合母艦へ役割移管**。進行中タスク台帳）
+- `2026-07-08_remaining-task.md`（**統合母艦へ役割移管**。残タスク母艦。P1〜P7 は `T-xx` へ再編）
+- `2026-07-25_progress_wip-tidy.md`（棚卸し完了。着手順の決定と対応方針は母艦へ移設）
+- `2026-07-25_progress_priority-tasks.md`（着手順 1〜6 の対応完了。新規発見は母艦 T-03 へ登録）
+- `2026-07-24_progress_roleplay-prompt-formatting.md`（**残 3 件を同日に解消**。`[object Object]` 10 件 /
+  句点二重化 / 文断裂がいずれも 0 件に）
+- `2026-07-25_progress_aihints-resync-ci-failure.md`（CI 失敗の原因特定と復旧が完了。
+  運用上の注意〈全体 `npm test` 依存〉は母艦 T-09 へ登録）
 
-### 2026-07-22 develop 側棚卸しで追加退避（6件・develop 由来）
+### 2026-07-25 棚卸しで追加退避（4件）
+
+書面の「未コミット」「要確認」を鵜呑みにせず、**git / `gh run list` / 生成物の実測で裏取りしてから**退避。
+直下 24 件 → 20 件（+README）。**3 件は「未コミット」と書かれていたが、すべて既に着地済み**だった。
+
+- `2026-07-22_progress_wip-tidy.md`（**「成果は未コミット」→ `dfe2273` で着地済み**を確認。申し送りだった
+  未追跡の `.agents/` も追跡済みで、`npm run agents:check` = `0/2 件が要更新`。赤テストの再燃もなし）
+- `2026-07-22_progress_agents-ssot.md`（**「成果は未コミット」→ `2b30754` で着地済み**。申し送りの
+  `addon-ai-tag` 波及も `79cafd1` のマージで完了済みを確認）
+- `calendar-same-person-dblink.md`（**「Claude Desktop 側の未コミット実装」→ `a20fb7b` で着地済み**。
+  残る Drive ミラー再アップロードとライブアーティファクト確認は母艦 P4-14 へ引き継ぎ）
+- `2026-07-22_github-triage.md`（`2026-07-25_github-triage.md` へ世代交代。**§3 の `AI_Optout` 仮説が誤り**
+  だった旨と、§4 Pages 失敗の解消〈run `30143189878` success〉を追記してから退避）
+
+### 2026-07-22 棚卸しで追加退避（6件）
 
 前回同様、書面の「完了/未実施」を鵜呑みにせず、**User の開発環境（`http://127.0.0.1:5500`）と本番実 API
 （`https://database.numbertales-radiann.net`）で裏取りしてから**退避。直下 24 件 → 18 件（+README）。
@@ -161,8 +168,6 @@
 - `2026-07-04_progress_calendar-color-leap-jp.md`（作品色分け・2/29対応・和文統一。commit `dc38112` 既push済み・Actions run 28722297754 で `追加=0 更新=187 削除=0` 確認・ローカル `npm test` 22files/178tests 成功確認）
 - `2026-07-06_progress_dict-triples-consolidation.md`（dict_Triples.json 30クラス再編成。`777.Jackpot`のClass欠落解消済みを確認し、新クラス名30件をUserが正式採用済み）
 - `2026-06-30_progress_appearance-detail-cleanup.md`（P1最優先タスク完了。Costumeフィールド新設・BodyPart enum拡張・Num8/16/18/23/32/34/35/53/60/61/71/81/99のデータ修正。詳細は「整理履歴」参照）
-
-`.completed/` の中身自体はローカル環境ごとに異なる場合があります（下記は「実装・検証は完了した」という記録であり、物理ファイルの所在を保証するものではありません）。
 
 ### 2026-07-04 棚卸しで追加退避（develop由来・22件）
 
@@ -274,6 +279,38 @@
 
 ## 整理履歴
 
+- **2026-07-25、残タスクを統合母艦 `2026-07-25_remaining-task.md` へ一本化しました。**
+  User 依頼により、**複数の進捗ログに内容が跨っていたタスクと、単一ログにのみ記録されていたタスクを
+  等しく「1 タスク = 1 エントリ」へ概略化**し、あわせて進捗ログ全体の索引を同ファイルへ持たせました。
+  跨りの代表例は **T-02（AIHints への配色導出）** で、`aihints-structural-resync-proposal` /
+  `aihints-palette-deadlock` / `colorpalette-schema` の 3 ログに散っていた内容を 1 エントリへ束ね、
+  「第0〜2階は実装済みで、繋ぐ 1 本だけが欠けている」という現在地を 1 か所で読めるようにしています。
+  タスクは `T-xx` の ID を持ち、A（Claude 側で着手可）/ B（User 判断待ち）/ C（長期保留）に層別。
+  役割が移った旧台帳・旧母艦と、同日に完了した 4 件をあわせて 6 件退避し、**直下 22 件 → 16 件（+ 母艦・+README）**。
+  索引の二重管理を避けるため、README のトピック別索引は母艦へのポインタへ置き換えました。
+- **2026-07-25、上記棚卸しで定めた着手順 1〜6 のうち 5 件を同日中に消化しました（`58aed8f` ほか）。**
+  一春（Claude）が 1・2 を、GitHub Copilot が 3・5・6 を分担。担当範囲が `tools/roleplay/`＋`docs/` と
+  `pages/`＋`pkg/cloudflare/` に分かれていたため衝突は発生していません。(1) 配布用ロールプレイプロンプトの
+  `[object Object]` **10 件**・句点二重化・文断裂を解消（生成物 66 件で再走査していずれも 0 件・`npm test` 597 件全緑）。
+  (2) `docs/readme.en.md` を約 3 か月ぶりに更新し、二層 API・圧縮ロケータ `?c=`・`$Def_DBLinkRef` 形式を反映
+  （記載は実 API を curl で実測して裏取り）。(3)(5)(6) Copilot 分はコードレビューに加え、User の開発環境
+  （`127.0.0.1:5500`）+ Playwright で**実機裏取り**を実施し、人称呼称群の表示・`Generation` の先頭化・
+  `BeastspecName` の subFields 移動・画像順の typedef 準拠（`年賀絵原画` が先頭）を確認（pageerror 0 / 4xx 0）。
+  これにより 2026-07-17 から未検証だった母艦 P4-10 の「実機目視」も同時にクローズしました。
+  なお `Works_OfficialLinks` は**コードのみ完了・未デプロイ**（本番の公開キーは 5 種のまま）で、
+  実 API が `?q=*` で 500 を返す新規課題を母艦 P4-15 へ登録しています。
+  詳細は `2026-07-25_progress_priority-tasks.md` を参照。
+- **2026-07-25 の棚卸しで、4件 を `.completed/` へ退避し、直下を 24件 → 20件（+README）に整理しました。**
+  今回は仕分けよりも**「放置されている重大タスクが無いか」の洗い出し**に重心を置き、20 件すべての未完了節を
+  読み合わせたうえで、母艦へ 7 項目（P4-8〜P4-14）と新設 P7（AIHints 系）を登録、台帳へ**着手順の推奨**を明文化しました。
+  裏取りで判明した主な事実は 3 つ。(1) README が「成果は未コミット」と記していた 3 件は**すべて着地済み**
+  （`dfe2273` / `2b30754` / `a20fb7b`）で、書面と実態がズレていた。(2) `2026-07-24` のログが
+  「`@Age` は `buildVars()` 側でアンラップ済み」と書いていたのは**実データで否定**され、配布用ロールプレイ
+  プロンプト 66 件中 **10 件**に `[object Object]` が実在（体重7 / **年齢3** / 身長1）＝**配布物に出ている実害**
+  として母艦 P4-8 へ格上げ。(3) 当日の自動トリアージ `2026-07-25_github-triage.md` §1 が、退避済み 07-22 triage と
+  **同じ誤った仮説**（`AI_Optout` による exit 2）を再掲していたため訂正注記を追加し、「対応案は適用しない」ことを明記。
+  あわせて `gh run list` で AIHints / Cloudflare / Pages の直近 run がすべて success であることを実測し、
+  **現時点で未解決の CI 失敗が無い**ことを確定させました。詳細は `2026-07-25_progress_wip-tidy.md` を参照。
 - 2026-04-18 に旧進捗ログを整理し、未完了事項は `2026-03-31_remaining-task.md` へ集約しました。
 - 2026-04-21 に、4/18 と 4/19 の完了済み progress ログを `.completed` へ整理しました。
 - 2026-04-21 に、`_Secondaries` の fallback 優先順位整理ログも完了扱いとして `.completed` へ退避しました。

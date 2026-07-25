@@ -3183,12 +3183,30 @@ function buildMetaTypeFieldContext(globalTypeDef = {}, metaTypeKey = '') {
 function extractTopLevelSchemaFields(workTypeDef, globalTypeDef = {}, options = {}) {
 	const out = [];
 	const seen = new Set();
+	const typeUtils = globalThis?.TypeDefUtils ?? null;
 
 	const isSecondary = (() => {
 		if (typeof options?.isSecondary === 'boolean') return options.isSecondary;
 		if (typeof options?.dbName === 'string') return isSecondaryDbName(options.dbName);
 		return null;
 	})();
+	const collectKeySet = (def) => {
+		const keys = new Set();
+		const arr = Array.isArray(def)
+			? def
+			: (Array.isArray(def?.$DefType)
+				? def.$DefType
+				: (Array.isArray(def?.typedef?.$DefType)
+					? def.typedef.$DefType
+					: (Array.isArray(def?.global) ? def.global : [])));
+		for (const item of arr) {
+			const key = item?.hashTag;
+			if (typeof key === 'string' && key) keys.add(key);
+		}
+		return keys;
+	};
+	const workKeys = collectKeySet(workTypeDef);
+	const globalKeys = collectKeySet(globalTypeDef);
 
 	const pickDefArray = (def) => {
 		if (!def) return null;
@@ -3198,6 +3216,37 @@ function extractTopLevelSchemaFields(workTypeDef, globalTypeDef = {}, options = 
 		if (Array.isArray(def?.global)) return def.global;
 		return null;
 	};
+
+	if (typeUtils?.mergeDefTypes) {
+		const merged = typeUtils.mergeDefTypes(globalTypeDef, workTypeDef, { detailLayout: options?.detailLayout ?? null });
+		for (const item of merged) {
+			if (!item || typeof item !== 'object') continue;
+			const key = item.hashTag;
+			if (!key || typeof key !== 'string') continue;
+			if (key === 'Images') continue;
+			if (seen.has(key)) continue;
+
+			// 二次創作向けフィールドの表示切替（isForSecondary）
+			// - undefined は「共通扱い」で常に表示
+			// - Secondary 文脈: true/undefined を表示、false は非表示
+			// - Primary 等の文脈: false/undefined を表示、true は非表示
+			if (isSecondary !== null && typeof item.isForSecondary === 'boolean') {
+				if (isSecondary && item.isForSecondary === false) continue;
+				if (!isSecondary && item.isForSecondary === true) continue;
+			}
+
+			const label = item.hashTag_JP || item.hashtag_JP || item.hashTag_EN || item.hashtag_EN || key;
+			out.push({
+				key,
+				label,
+				type: item.$type,
+				display: item.$display ?? null,
+				source: workKeys.has(key) ? 'work' : (globalKeys.has(key) ? 'global' : 'work')
+			});
+			seen.add(key);
+		}
+		return out;
+	}
 
 	const addFrom = (def, source) => {
 		const arr = pickDefArray(def);
@@ -7197,7 +7246,7 @@ export async function renderDetail(workId, rec) {
 		})();
 
 		// db_type.json 由来の表示順（トップレベル）
-		const schemaFields = extractTopLevelSchemaFields(workTypeDef, globalTypeDef, { dbName });
+		const schemaFields = extractTopLevelSchemaFields(workTypeDef, globalTypeDef, { dbName, detailLayout });
 		const schemaKeySet = new Set(schemaFields.map(f => f.key));
 
 		// スキーマから #Summary（長文）系を抽出し、プロフィールセクションに回す

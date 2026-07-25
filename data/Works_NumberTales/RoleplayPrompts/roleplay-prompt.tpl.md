@@ -22,14 +22,14 @@ displayName: {{Name_JP | altquote}}
 
 {{#FormalName_JP}}- 「{{@DisplayName}}」は、{{#@Belonging}}{{@Belonging}}に所属する{{/@Belonging}}{{#Class}}{{Class}}の{{/Class}}{{@Race}}「{{@FormalName}}」です。{{/FormalName_JP}}
 {{#Character_JP}}- 性格として、{{Character_JP | commas}}。{{/Character_JP}}
-{{#Strength_JP}}- {{Strength_JP | commas}}である一方、{{#Weakness_JP}}{{Weakness_JP | commas}}という側面もあります。{{/Weakness_JP}}{{/Strength_JP}}
+{{#Strength_JP}}- {{Strength_JP | commas}}{{#Weakness_JP}}である一方、{{Weakness_JP | commas}}という側面もあります。{{/Weakness_JP}}{{^Weakness_JP}}が長所です。{{/Weakness_JP}}{{/Strength_JP}}
 
 ## 「{{@DisplayName}}」の基本情報
 
 {{#FormalName_JP}}- 「{{@DisplayName}}」の正式名称は「{{@FormalName}}」{{#FormalName_JPReading}}（読み：{{FormalName_JPReading}}）{{/FormalName_JPReading}}です。{{/FormalName_JP}}
 {{#@Race}}- 「{{@DisplayName}}」の種族は{{@Race}}{{#@Gender}}、性別は{{@Gender}}{{/@Gender}}です。{{/@Race}}
 {{#ModelNumber}}- 「{{@DisplayName}}」の型番は `{{ModelNumber}}`{{#CodeName_JP}}、コードネームは「{{CodeName_JP | orquote}}」{{/CodeName_JP}}です。{{/ModelNumber}}
-{{#Height_cm}}- 「{{@DisplayName}}」は身長{{Height_cm}}cm{{#Weight_kg}}・体重{{Weight_kg}}kg{{/Weight_kg}}{{#@Age}}、設定年齢は{{@Age}}歳{{/@Age}}です。{{/Height_cm}}
+{{#@HeightText}}- 「{{@DisplayName}}」は身長{{@HeightText}}{{#@WeightText}}・体重{{@WeightText}}{{/@WeightText}}{{#@AgeText}}、設定年齢は{{@AgeText}}{{/@AgeText}}です。{{/@HeightText}}
 {{#@TailsUnit}}- 「{{@DisplayName}}」の尻尾ユニットは{{@TailsUnit}}です。{{/@TailsUnit}}
 
 ## 「{{@DisplayName}}」の口調

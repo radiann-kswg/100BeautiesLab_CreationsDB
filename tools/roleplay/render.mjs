@@ -73,6 +73,44 @@ export function resolvePath(ctx, path) {
 	return cur;
 }
 
+/**
+ * `{ value, about_JP, about_EN }` 形式のオブジェクト値を、表示用のプリミティブへ解きほぐす。
+ *
+ * @description
+ *   `Height_cm` / `Weight_kg` / `ConceptAge` / `GenderType` などは、素の数値のほかに
+ *   「値＋補足」を持つオブジェクト形式を取りうる。テンプレから素で参照すると `String(obj)` が
+ *   `[object Object]` になるため、表示経路では必ずこの関数を通す。
+ *
+ *   解決規則（**value 優先・無ければ補足**）:
+ *   1. `hideText` を持つものは意図的マスクなので `undefined`（＝出力しない）
+ *   2. `value` を持てばそれを返す（`0` も有効値として扱う）
+ *   3. `value` が無ければ `about_JP` / `about_EN`（lang に応じて）を返す。
+ *      補足は改行を含みうる（例:「可変\n(球体化姿時は…)」）ため 1 行へ畳む
+ *   4. いずれも無ければ `undefined`
+ *
+ *   オブジェクト以外（数値・文字列・配列）はそのまま返す。配列要素の解決は呼び出し側で行う。
+ * @param {any} v - 解決対象の値
+ * @param {string} [lang] - 'jp'（既定）| 'en'
+ * @returns {any} プリミティブ値、または解決不能なら undefined
+ * @example
+ * unwrapValueLike({ value: 43, about_JP: '推定' })      // => 43
+ * unwrapValueLike({ about_JP: '不詳' })                  // => '不詳'
+ * unwrapValueLike({ hideText: '非公開' })                // => undefined
+ * unwrapValueLike(158)                                   // => 158
+ */
+export function unwrapValueLike(v, lang = 'jp') {
+	if (v == null || typeof v !== 'object' || Array.isArray(v)) return v;
+	if (typeof v.hideText === 'string') return undefined;
+	if ('value' in v && v.value != null && v.value !== '') return v.value;
+	const isEn = String(lang).toLowerCase() === 'en';
+	const about = isEn
+		? (v.about_EN ?? v.about ?? v.about_JP)
+		: (v.about_JP ?? v.about ?? v.about_EN);
+	if (about == null || String(about).trim() === '') return undefined;
+	// 補足の改行は 1 行へ畳む（プロンプトは 1 項目 1 行を前提にしているため）
+	return normalizeEol(about).split('\n').map((x) => x.trim()).filter(Boolean).join('');
+}
+
 /** 文分割時に深度を数える開き括弧（半角/全角/鉤括弧/隅付き括弧） */
 const SENTENCE_OPENERS = '(（「『【〈《［[｛{';
 /** 文分割時に深度を戻す閉じ括弧（`SENTENCE_OPENERS` と同順の対） */
@@ -124,7 +162,9 @@ export function applyFilter(value, name) {
 	switch (String(name || '').trim()) {
 		case 'nospace': return s.replace(/[\s　]+/g, '');
 		case 'oneline': return (s.split('\n')[0] || '').trim();
-		case 'commas': return s.split('\n').map((x) => x.trim()).filter(Boolean).join('、');
+		// 改行区切りを読点で連結。各行末の句点は落とす（テンプレ側が「。」「である一方、」等を
+		// 続けるため、残すと `…接しやすい。。` のように句点が二重化する）
+		case 'commas': return s.split('\n').map((x) => x.trim().replace(/。+$/, '')).filter(Boolean).join('、');
 		case 'bullets': return s.split('\n').map((x) => x.trim()).filter(Boolean).map((x) => `- ${x}`).join('\n');
 		// 改行区切りの複数名を「または」で連結（orjoin=空白維持 / altnames=空白除去し表示名向け）
 		case 'orjoin': return s.split('\n').map((x) => x.trim()).filter(Boolean).join(' または ');
@@ -230,9 +270,13 @@ function expandInterpolations(tpl, ctx, opts) {
 			if (onMissing === 'error') throw new Error(`未解決プレースホルダ: {{${expr}}}`);
 			return '';
 		}
+		// `{ value, about }` 形式は表示前に必ず解きほぐす（素で String() すると `[object Object]`）。
+		// 単位付きの整形が要る項目（身長/体重/年齢）は build 側が合成変数を用意するが、
+		// ここは全プレースホルダに効く最後の防波堤として置く。
+		const lang = ctx?.vars?.__lang || 'jp';
 		let s = Array.isArray(val)
-			? val.filter((x) => !isEmpty(x)).map((x) => String(x)).join(', ')
-			: String(val);
+			? val.map((x) => unwrapValueLike(x, lang)).filter((x) => !isEmpty(x)).map((x) => String(x)).join(', ')
+			: String(unwrapValueLike(val, lang) ?? '');
 		if (filterName) s = applyFilter(s, filterName);
 		return s;
 	});

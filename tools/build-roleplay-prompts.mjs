@@ -33,7 +33,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import CreationsDBClient from '../pkg/nodejs/index.mjs';
-import { renderTemplate, hasUnresolvedPlaceholders, applyFilter, normalizeEol } from './roleplay/render.mjs';
+import { renderTemplate, hasUnresolvedPlaceholders, applyFilter, normalizeEol, unwrapValueLike } from './roleplay/render.mjs';
 import { mergeByHeadings, diffSections } from './roleplay/sections.mjs';
 // 符号化フィールドのデコードを Node 側でも使えるよう globalThis へ登録（UI と同一ロジック）
 import '../lib/wrapper-common.js';
@@ -182,8 +182,42 @@ export function buildVars(record, ctx) {
 	vars.ThirdPerson = decodeCalling('ThirdPersonCalling');
 	vars.ForMaster = decodeCalling('ForMasterCalling');
 
-	// object 値（`{ value, about }` 形式）はプリミティブへアンラップする（GenderType/Age 等）
-	const unwrapValue = (v) => (v && typeof v === 'object' && !Array.isArray(v) && 'value' in v) ? v.value : v;
+	// object 値（`{ value, about }` 形式）はプリミティブへアンラップする（GenderType/Age 等）。
+	// 判定規則は render.mjs の共通実装に寄せる（`value` 無しで `about` だけを持つ値も拾えるようにするため。
+	// 旧実装は `'value' in v` を条件にしていたため `{ about_JP: '不詳' }` を素通しし `[object Object]` になっていた）
+	const unwrapValue = (v) => unwrapValueLike(v, lang);
+
+	/**
+	 * 数値系フィールド（身長・体重・年齢）を、単位付きの表示テキストへ整形する。
+	 *
+	 * @description
+	 *   これらのフィールドは「素の数値」「`{ value, about }`」「その配列」「`{ hideText }`」を取りうる。
+	 *   単位（cm / kg / 歳）をテンプレ側に固定で置くと、補足だけを持つ値（例: 年齢 `{ about_JP: '不詳' }`）が
+	 *   「不詳歳」という壊れた文になる。そこで単位の付け外しをここで受け持ち、テンプレは変数を差し込むだけにする。
+	 *
+	 *   - `value` を持つ要素 … `<value><unit>`（`0` も有効値。例: `0kg`）
+	 *   - `value` が無く補足だけ … 補足をそのまま（**単位は付けない**。例: `不詳` / `可変(球体化姿時は…)`）
+	 *   - `hideText` … 出力しない（意図的マスク）
+	 *   - 複数要素は `・` で連結（例: 本体 42kg ＋ 安全装置 4kg → `42kg・4kg`）
+	 * @param {any} raw - レコードの生値
+	 * @param {string} unit - 付与する単位（'cm' / 'kg' / '歳'）
+	 * @returns {string} 表示テキスト（該当なしなら空文字）
+	 */
+	const formatMeasure = (raw, unit) => {
+		if (raw == null) return '';
+		return (Array.isArray(raw) ? raw : [raw])
+			.map((item) => {
+				// 素の数値・文字列はそのまま単位を付ける
+				if (item == null || typeof item !== 'object') return item == null ? '' : `${item}${unit}`;
+				if (typeof item.hideText === 'string') return '';
+				if ('value' in item && item.value != null && item.value !== '') return `${item.value}${unit}`;
+				// 補足だけの値は単位を付けない（「不詳歳」を避ける）
+				const about = unwrapValueLike(item, lang);
+				return about == null ? '' : String(about);
+			})
+			.filter((s) => s !== '')
+			.join('・');
+	};
 
 	// GenderType / RaceType / Belonging（enum/辞書ラベル解決）。
 	// 解決不能な object が `[object Object]` へ文字列化された場合は未対応として省略する。
@@ -193,7 +227,13 @@ export function buildVars(record, ctx) {
 	vars.Belonging = cleanLabel(TR ? TR.resolveVarsDefLabel('Belonging', unwrapValue(record.Belonging), globalMeta, workMeta) : '');
 
 	// 年齢は Age（無ければ ConceptAge）を採用し、object 値はアンラップして統一する
-	vars.Age = unwrapValue(record.Age != null ? record.Age : record.ConceptAge);
+	const ageRaw = record.Age != null ? record.Age : record.ConceptAge;
+	vars.Age = unwrapValue(ageRaw);
+
+	// 単位付きの表示テキスト（テンプレは単位を持たず、これらを差し込むだけにする）
+	vars.HeightText = formatMeasure(record.Height_cm, 'cm');
+	vars.WeightText = formatMeasure(record.Weight_kg, 'kg');
+	vars.AgeText = formatMeasure(ageRaw, '歳');
 
 	// 誕生日（`{ Day: { Month, DayOfMonth } }` 形式）を「M月D日」へ整形
 	vars.BirthDay = (() => {

@@ -1,5 +1,27 @@
 # 最新のリファクタリング・仕様変更履歴
 
+### fix: ロールプレイプロンプト生成物の `[object Object]` / 句点二重化 / 文断裂を解消した (2026-07-25)
+
+配布用のロールプレイプロンプト **66 件中 10 件**に `[object Object]` が出力されていた。`Height_cm` / `Weight_kg` / `ConceptAge` は「素の数値」だけでなく `{ value, about_JP, about_EN }` 形式やその配列を取りうるが、テンプレから素で参照していたため `String(obj)` がそのまま文字列化されていた。あわせて、2026-07-24 のログで「User 判断待ち」として据え置かれていた体裁くずれ 2 件も解消した。
+
+- **`unwrapValueLike()` を新設（`tools/roleplay/render.mjs`）**: `{ value, about }` 形式を表示用プリミティブへ解きほぐす共通実装。解決規則は **`hideText` は出力しない → `value` があればそれ（`0` も有効値）→ 無ければ `about`（改行は 1 行へ畳む）→ どちらも無ければ未定義**。`expandInterpolations()` の文字列化経路へ組み込み、全プレースホルダに効く防波堤とした。
+- **旧アンラップの取りこぼしを修正**: `build-roleplay-prompts.mjs` の `unwrapValue` は `'value' in v` を条件にしていたため、**`{ about_JP: '不詳' }` のように `value` を持たない値を素通し**していた（`@Age` が `[object Object]` になっていた直接原因）。共通実装へ寄せて解消。
+- **単位付き合成変数 `@HeightText` / `@WeightText` / `@AgeText` を追加**: 単位（cm / kg / 歳）をテンプレ固定にすると、補足だけを持つ値が「不詳歳」という壊れた文になる。単位の付け外しを `formatMeasure()` が受け持ち、テンプレは変数を差し込むだけにした。複数要素は `・` 連結（例: 本体 42kg ＋ 安全装置 4kg → `42kg・4kg`）、補足だけの値は単位を付けない（`不詳` / `可変(球体化姿時は…)`）。
+- **句点の二重化を解消**: `commas` フィルタが各行末の「。」を残していたため、テンプレ側の `{{Character_JP | commas}}。` と重なり `…接しやすい。。` になっていた。フィルタ側で末尾句点を落とす（`！？` 等の終止記号は文意に関わるため残す）。
+- **`Weakness_JP` 欠落時の文断裂を解消**: `- …である一方、` で文が終わっていた。テンプレの接続語を `{{#Weakness_JP}}` の内側へ移し、`{{^Weakness_JP}}が長所です。{{/Weakness_JP}}` で言い切る形にした（3 作品のテンプレ共通）。
+- **影響範囲**: `tools/roleplay/render.mjs` / `tools/build-roleplay-prompts.mjs` / テンプレ 3 本（NumberTales / FLInvestigator78 / DestinyFoxRecords）/ 生成物 11 ファイル / `tests/roleplay-render.test.js`・`tests/data.roleplay-prompts.test.js`。
+- **検証**: 再生成は `changed=11 unchanged=46`（想定どおり該当ファイルのみ）→ 再実行で `changed=0`（冪等）。生成物全 66 件で `[object Object]` / `。。` / 接続語での行末をいずれも **0 件**に。`npm test` 42 ファイル / **597 件**すべて成功（新規 15 件）。
+
+### feat: top-level schema の順序合流を canonical 化し、Cloudflare Worker の `/api/v1/works` に公式リンク配列を明示追加 (2026-07-25)
+
+`pages/characters.js` の `extractTopLevelSchemaFields()` が work-first の独自順序でトップレベル schema を組み立てていたため、`lib/data-common.js` の `TypeDefUtils.mergeDefTypes()` と UI/SW の並びがずれていた。`mergeDefTypes(global, work, { detailLayout })` を優先し、`$slotOrder` / `$slotAnchor` を含む共通の順序規則へ寄せた。
+
+- **UI / SW の順序正を統一**: `extractTopLevelSchemaFields()` を canonical な `mergeDefTypes(globalTypeDef, workTypeDef, { detailLayout })` 経路へ寄せ、work-only / global-only / slot / anchor の扱いを `lib/data-common.js` と一致させた。`detailLayout` も呼び出し側から渡すようにして、`$slotOrder` / `$slotAnchor` が detail 表示と同じ前提で解決される。
+- **Cloudflare Worker `/api/v1/works` の応答を追従**: `pkg/cloudflare/worker.js` の `works` 返却に `Works_OfficialLinks[]` を追加し、`lib/sw-common.js` / `pages` 側と同じカタログ項目へ揃えた。既存データに無い作品は `[]` フォールバック。
+- **仕様書更新**: `docs/api-sw-spec.md` の `/api/v1/works` 説明へ `Works_OfficialLinks[]` を追記。
+- **検証メモ**: 変更後はキャラシートの詳細画面で basicFields / subFields の順序確認を実ブラウザで行い、Worker 側はテスト基盤が無いためコード差分とドキュメント整合で追従確認する。
+
+
 ### feat: キャラシートの画像表示順を typedef(`$DefType`) の `Images.$type` 宣言順へ統一し、データのキー順も整列した (2026-07-25)
 
 キャラシートの画像ギャラリーが、画像フィールドを **category ベースの固定 `priority`**（`concept`=1 / `design`=2 / `arts`=3 …）で並べていたため、typedef の宣言順を反映していなかった。例えば ShouArRiders で `Images.$type` の先頭に足した `newYear_PNGPath`（年賀絵）が `other`(priority 6) 扱いになり、卯刻ハネゝカで `designAlt` より後ろへ回っていた。表示順の正はローカル typedef の宣言順であるべき、という User 方針に合わせた。

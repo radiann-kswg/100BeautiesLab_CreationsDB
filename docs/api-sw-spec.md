@@ -31,18 +31,18 @@
 
 ### Cloudflare Workers 実 API エンドポイント
 
-| メソッド | パス                             | データソース | 説明                                                      |
-| -------- | -------------------------------- | ------------ | --------------------------------------------------------- |
-| GET      | `/api/v1/meta`                   | R2           | グローバルメタ (`data/db_meta.json`)                      |
-| GET      | `/api/v1/works`                  | D1 `works`   | 作品一覧（`Works_Hidden=true` 除外）                      |
-| GET      | `/api/v1/:work/meta`             | R2           | 作品別メタ (`data/Works_*/DataBases/db_meta.json`)        |
-| GET      | `/api/v1/:work/dbs`              | D1 `dbs`     | DB 一覧（`DB_Hidden=true` 除外）                          |
-| GET      | `/api/v1/:work/:db/records`      | D1 `records` | レコード一覧（`isPrivate=0`・`_Commons` 適用）            |
-| GET      | `/api/v1/:work/:db/records/:idx` | D1 `records` | 1 件取得（`?idxKey=X` でフィールド指定）                  |
-| GET      | `/api/v1/:work/:db/search?q=`    | D1 FTS5      | DB 内全文検索                                             |
-| GET      | `/api/v1/:work/search?q=`        | D1 FTS5      | 作品横断全文検索                                          |
-| GET      | `/api/ai/:work/:db/aihints`      | D1 `aihints` | AIHints 一覧（addon-ai-tag / 要 Bearer 認証）             |
-| GET      | `/api/ai/:work/:db/aihints/:idx` | D1 `aihints` | 1件取得（`?form=<form>` で形態絞り込み / 要 Bearer 認証） |
+| メソッド | パス                             | データソース | 説明                                                              |
+| -------- | -------------------------------- | ------------ | ----------------------------------------------------------------- |
+| GET      | `/api/v1/meta`                   | R2           | グローバルメタ (`data/db_meta.json`)                              |
+| GET      | `/api/v1/works`                  | D1 `works`   | 作品一覧（`Works_Hidden=true` 除外、`Works_OfficialLinks[]` 含む） |
+| GET      | `/api/v1/:work/meta`             | R2           | 作品別メタ (`data/Works_*/DataBases/db_meta.json`)                |
+| GET      | `/api/v1/:work/dbs`              | D1 `dbs`     | DB 一覧（`DB_Hidden=true` 除外）                                  |
+| GET      | `/api/v1/:work/:db/records`      | D1 `records` | レコード一覧（`isPrivate=0`・`_Commons` 適用）                    |
+| GET      | `/api/v1/:work/:db/records/:idx` | D1 `records` | 1 件取得（`?idxKey=X` でフィールド指定）                          |
+| GET      | `/api/v1/:work/:db/search?q=`    | D1 FTS5      | DB 内全文検索                                                     |
+| GET      | `/api/v1/:work/search?q=`        | D1 FTS5      | 作品横断全文検索                                                  |
+| GET      | `/api/ai/:work/:db/aihints`      | D1 `aihints` | AIHints 一覧（addon-ai-tag / 要 Bearer 認証）                     |
+| GET      | `/api/ai/:work/:db/aihints/:idx` | D1 `aihints` | 1件取得（`?form=<form>` で形態絞り込み / 要 Bearer 認証）         |
 
 ### D1 スキーマ概要
 
