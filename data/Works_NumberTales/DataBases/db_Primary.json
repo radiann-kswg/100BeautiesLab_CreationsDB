@@ -41862,7 +41862,7 @@
       "alt_modes": null,
       "concept_contains_forms": ["humanoid"],
       "_meta": {
-        "structuralSourceHash": "sha256:691ed983058fea79bc8b44198a558f0c5c8cf248c009e2e1725e5ab6052151c0",
+        "structuralSourceHash": "sha256:a34788e284ebd88aa5e261a0a3f100015a820c68673163ade3d79250bcd393bd",
         "structuralEntries": {
           "common.identity_tags": ["Fox", "purple hair", "dark blue eyes"],
           "common.silhouette_features": [
@@ -41915,7 +41915,7 @@
             "light blue armwear with white lines and purple accents"
           ]
         },
-        "lastStructuralResync": "2026-07-13"
+        "lastStructuralResync": "2026-07-25"
       }
     }
   },
