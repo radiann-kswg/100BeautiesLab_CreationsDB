@@ -26,6 +26,27 @@ import { loadMergedClassDictEN } from '../tools/patch-aihints.mjs';
 const repoRoot = dirname(dirname(fileURLToPath(import.meta.url)));
 
 /**
+ * グローバル辞書（`data/Dictionaries/dict_SymphonyXVI.json`）の全エントリを返す
+ *
+ * @description
+ *   「グローバル側も合流できているか」を検証するための fixture。この辞書は
+ *   `scopeField.Belonging` が `シンフォニー.XVI(ゼクズィン)` のため作品ローカル
+ *   （`data/Works_NumberTales/Dictionaries/`）には存在せず、ここのエントリが
+ *   引ければグローバルディレクトリを読めている証拠になる。
+ *
+ *   ★ キーと英訳をテストへハードコードしない理由:
+ *     2026-07 の辞書構造整備で `Class` が短縮キー化（表示名は `Class_JP` へ分離）され、
+ *     英訳の綴りも変わった（`Bewusstsein` → `Bewußtsein`）。期待値を固定していたため
+ *     AIHints 構造的再同期ワークフローの `npm test` が落ち、PR 作成が止まった。
+ *     創作側の改名だけで CI を止めないよう、期待値は実データから解決する。
+ * @returns {Array<{ Class: string, Class_EN: string }>}
+ */
+function globalClassEntries() {
+    const arr = JSON.parse(readFileSync(join(repoRoot, 'data/Dictionaries/dict_SymphonyXVI.json'), 'utf-8'));
+    return arr.filter((e) => e?.Class && e?.Class_EN);
+}
+
+/**
  * DB ファイルから distinct な Class 名を集める
  * @param {string} dbFile
  * @returns {Set<string>}
@@ -49,14 +70,18 @@ describe('loadMergedClassDictEN', () => {
         // 作品ローカル（dict_Triples.json）
         expect(dict.get('百倍番(ハンドレッズデジッツ)')).toBe('Hundrets-Digits');
         // ★ グローバル（data/Dictionaries/dict_SymphonyXVI.json）— ローカルには無い
-        expect(dict.get('ベヴストザイン課 ヒューマノイド開発部')).toBe('Bewusstsein Division, Humanoid Development Department');
+        const globals = globalClassEntries();
+        expect(globals.length).toBeGreaterThan(0);
+        for (const e of globals) expect(dict.get(e.Class)).toBe(e.Class_EN);
     });
 
     it('存在しない作品でも例外を投げずグローバル分だけ返す（欠損耐性）', () => {
         const dict = loadMergedClassDictEN('NoSuchWorkXYZ');
         expect(dict).toBeInstanceOf(Map);
-        // グローバル辞書は読めている
-        expect(dict.get('ベヴストザイン課 ヒューマノイド開発部')).toBeTruthy();
+        // グローバル辞書は読めている。
+        // 作品ローカルを一切読んでいないこの状態で引けることが、上の合流テストの
+        // グローバル分が「ローカル由来ではない」ことの証明にもなっている。
+        for (const e of globalClassEntries()) expect(dict.get(e.Class)).toBe(e.Class_EN);
     });
 
     it('同一 work の再呼び出しでキャッシュが効く（同一インスタンスを返す）', () => {
