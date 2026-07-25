@@ -1101,6 +1101,7 @@ async function handleRequest(request, env) {
           Title_EN:      r.title_en       ?? "",
           Works_Summary: r.summary        ?? "",
           OldTitles:     info.OldTitles   ?? [],
+          Works_OfficialLinks: info.Works_OfficialLinks ?? [],
         };
       });
       return jsonResponse(works);

@@ -29,7 +29,7 @@
 | メソッド | パス                             | データソース | 説明                                               |
 | -------- | -------------------------------- | ------------ | -------------------------------------------------- |
 | GET      | `/api/v1/meta`                   | R2           | グローバルメタ (`data/db_meta.json`)               |
-| GET      | `/api/v1/works`                  | D1 `works`   | 作品一覧（`Works_Hidden=true` 除外）               |
+| GET      | `/api/v1/works`                  | D1 `works`   | 作品一覧（`Works_Hidden=true` 除外、`Works_OfficialLinks[]` 含む） |
 | GET      | `/api/v1/:work/meta`             | R2           | 作品別メタ (`data/Works_*/DataBases/db_meta.json`) |
 | GET      | `/api/v1/:work/dbs`              | D1 `dbs`     | DB 一覧（`DB_Hidden=true` 除外）                   |
 | GET      | `/api/v1/:work/:db/records`      | D1 `records` | レコード一覧（`isPrivate=0`・`_Commons` 適用）     |

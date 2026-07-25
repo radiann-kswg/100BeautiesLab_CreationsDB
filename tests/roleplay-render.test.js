@@ -15,6 +15,7 @@ import {
 	renderTemplate,
 	normalizeEol,
 	splitSentences,
+	unwrapValueLike,
 } from '../tools/roleplay/render.mjs';
 
 describe('isEmpty', () => {
@@ -60,6 +61,13 @@ describe('applyFilter', () => {
 	it('commas / bullets は改行を連結・箇条書き化する', () => {
 		expect(applyFilter('A\nB', 'commas')).toBe('A、B');
 		expect(applyFilter('A\nB', 'bullets')).toBe('- A\n- B');
+	});
+	it('commas は各行末の句点を落とす（テンプレ側の「。」との二重化を防ぐ）', () => {
+		// テンプレは `{{Character_JP | commas}}。` のように句点を続けるため、値側の句点は残さない
+		expect(applyFilter('先輩思いで接しやすい。', 'commas')).toBe('先輩思いで接しやすい');
+		expect(applyFilter('A。\nB。', 'commas')).toBe('A、B');
+		// 句点以外の終止記号（！？…）は文意に関わるため落とさない
+		expect(applyFilter('やったー！', 'commas')).toBe('やったー！');
 	});
 	it('orjoin / altnames は複数名を「または」で連結する', () => {
 		expect(applyFilter('扇 一春\n扇 二春', 'orjoin')).toBe('扇 一春 または 扇 二春');
@@ -189,5 +197,57 @@ describe('finalizeText / hasUnresolvedPlaceholders', () => {
 	it('未解決プレースホルダを検出する', () => {
 		expect(hasUnresolvedPlaceholders('a {{X}} b')).toBe(true);
 		expect(hasUnresolvedPlaceholders('a b')).toBe(false);
+	});
+});
+
+describe('unwrapValueLike', () => {
+	it('プリミティブ・配列はそのまま返す', () => {
+		expect(unwrapValueLike(158)).toBe(158);
+		expect(unwrapValueLike('x')).toBe('x');
+		expect(unwrapValueLike(null)).toBe(null);
+		expect(unwrapValueLike([1, 2])).toEqual([1, 2]);
+	});
+	it('value を持てばそれを返す（0 も有効値）', () => {
+		expect(unwrapValueLike({ value: 43, about_JP: '推定' })).toBe(43);
+		expect(unwrapValueLike({ value: 0, about_JP: '重量' })).toBe(0);
+	});
+	it('value が無ければ補足を返す（lang で JP/EN を切替）', () => {
+		expect(unwrapValueLike({ about_JP: '不詳', about_EN: 'Unknown' })).toBe('不詳');
+		expect(unwrapValueLike({ about_JP: '不詳', about_EN: 'Unknown' }, 'en')).toBe('Unknown');
+	});
+	it('補足の改行は 1 行へ畳む（プロンプトは 1 項目 1 行のため）', () => {
+		expect(unwrapValueLike({ about_JP: '可変\n(35～72cm)' })).toBe('可変(35～72cm)');
+	});
+	it('hideText は意図的マスクなので undefined（出力しない）', () => {
+		expect(unwrapValueLike({ hideText: '非公開' })).toBeUndefined();
+	});
+	it('value も補足も無ければ undefined', () => {
+		expect(unwrapValueLike({})).toBeUndefined();
+		expect(unwrapValueLike({ about_JP: '   ' })).toBeUndefined();
+	});
+});
+
+describe('object 値のテンプレ展開（[object Object] 回帰）', () => {
+	// 2026-07-25: 配布用プロンプト 66 件中 10 件に `[object Object]` が出ていた不具合の回帰テスト。
+	// `{value, about}` 形式が String() でそのまま文字列化されていたのが原因。
+	it('単一の object 値が [object Object] にならない', () => {
+		const ctx = { record: { Age: { value: 24, about_JP: '自称' } }, vars: {} };
+		expect(renderTemplate('{{Age}}', ctx).trim()).toBe('24');
+	});
+	it('object 値の配列が [object Object] にならない', () => {
+		const ctx = { record: { Weight_kg: [{ value: 42 }, { value: 4, about_JP: '安全装置' }] }, vars: {} };
+		expect(renderTemplate('{{Weight_kg}}', ctx).trim()).toBe('42, 4');
+	});
+	it('value を持たない補足だけの値も文字列化されない', () => {
+		const ctx = { record: { ConceptAge: { about_JP: '不詳' } }, vars: {} };
+		expect(renderTemplate('{{ConceptAge}}', ctx).trim()).toBe('不詳');
+	});
+	it('どの経路でも [object Object] を出力しない', () => {
+		const ctx = {
+			record: { A: { value: 1 }, B: { about_JP: 'x' }, C: [{ value: 2 }], D: { hideText: '非公開' } },
+			vars: {},
+		};
+		const out = renderTemplate('{{A}}/{{B}}/{{C}}/{{D}}', ctx);
+		expect(out).not.toContain('[object Object]');
 	});
 });

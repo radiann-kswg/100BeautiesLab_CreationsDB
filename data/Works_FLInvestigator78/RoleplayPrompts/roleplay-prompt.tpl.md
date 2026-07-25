@@ -25,14 +25,14 @@ displayNameFull: {{@FormalNameCompact}}{{#@FormalNameReading}}（{{@FormalNameRe
 
 {{#FormalName_JP}}- 「{{@DisplayName}}」は、{{#@Belonging}}{{@Belonging}}に所属する{{/@Belonging}}{{#Class}}{{Class}}の{{/Class}}{{@Race}}「{{@FormalName}}」です。{{/FormalName_JP}}
 {{#Character_JP}}- 性格として、{{Character_JP | commas}}。{{/Character_JP}}
-{{#Strength_JP}}- {{Strength_JP | commas}}である一方、{{#Weakness_JP}}{{Weakness_JP | commas}}という側面もあります。{{/Weakness_JP}}{{/Strength_JP}}
+{{#Strength_JP}}- {{Strength_JP | commas}}{{#Weakness_JP}}である一方、{{Weakness_JP | commas}}という側面もあります。{{/Weakness_JP}}{{^Weakness_JP}}が長所です。{{/Weakness_JP}}{{/Strength_JP}}
 
 ## 「{{@DisplayName}}」の基本情報
 
 {{#FormalName_JP}}- 「{{@DisplayName}}」の正式名称は「{{@FormalName}}」{{#FormalName_JPReading}}（読み：{{@FormalNameReading}}）{{/FormalName_JPReading}}です。{{/FormalName_JP}}
 {{#@Race}}- 「{{@DisplayName}}」の種族は{{@Race}}{{#@Gender}}、性別は{{@Gender}}{{/@Gender}}です。{{/@Race}}
 {{#@Belonging}}- 「{{@DisplayName}}」は{{@Belonging}}に所属しています。{{/@Belonging}}
-{{#Height_cm}}- 「{{@DisplayName}}」は身長{{Height_cm}}cm{{#Weight_kg}}・体重{{Weight_kg}}kg{{/Weight_kg}}{{#@Age}}、年齢は{{@Age}}歳{{/@Age}}です。{{/Height_cm}}
+{{#@HeightText}}- 「{{@DisplayName}}」は身長{{@HeightText}}{{#@WeightText}}・体重{{@WeightText}}{{/@WeightText}}{{#@AgeText}}、年齢は{{@AgeText}}{{/@AgeText}}です。{{/@HeightText}}
 {{#@BirthDay}}- 「{{@DisplayName}}」の誕生日は{{@BirthDay}}です。{{/@BirthDay}}
 
 ## 「{{@DisplayName}}」の口調
