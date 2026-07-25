@@ -15,34 +15,18 @@
 
 ---
 
-## いま進行中のファイル（トピック別索引）
+## 進行中タスクと進捗ログの索引
 
-同じトピックでも複数ログが並ぶとどれが最新か分かりづらくなるため、**トピック単位**でまとめています。
-各トピックの「現行ログ」が最新の状態を追える起点です。過去の実装フェーズの詳細ログは `.completed/` にあります。
+**残タスクと進捗ログの索引は [2026-07-25_remaining-task.md](./2026-07-25_remaining-task.md) に一本化しました。**
 
-| トピック                              | 現行ログ                                                                                                                   | 状態                                                                                                                                                                                                                                              |
-| ------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| タスク管理・起点                      | [2026-07-03_current-task-ledger.md](./2026-07-03_current-task-ledger.md)                                                   | 進行中タスクの一覧（P1〜P7）＋**着手順の推奨**（2026-07-25 追加）                                                                                                                                                                                 |
-| 棚卸し（現行）                        | [2026-07-25_progress_wip-tidy.md](./2026-07-25_progress_wip-tidy.md)                                                       | 🟢 2026-07-25 実施。4 件退避＋**放置タスクの洗い出しと今後の対応方針を明文化**。書面の「未コミット」3 件はすべて着地済みと判明（`npm test` 582 件全緑）                                                                                           |
-| タスク管理・母艦                      | [2026-07-08_remaining-task.md](./2026-07-08_remaining-task.md)                                                             | 未完了タスクの統合版。**2026-07-25 に P4 を 7 項目拡張（→ P4-14）＋ P7（AIHints 系）を新設**                                                                                                                                                      |
-| GitHub Issue/PR トリアージ            | [2026-07-25_github-triage.md](./2026-07-25_github-triage.md)                                                               | 🟢 **現時点で未解決の CI 失敗なし**（AIHints / Cloudflare / Pages とも直近 run の成功を実測）。§1 の `AI_Optout` 仮説は誤りのため**対応案は適用しない**。残るは Issue #13 のみ                                                                    |
-| AIHints 再同期 CI 失敗と復旧          | [2026-07-25_progress_aihints-resync-ci-failure.md](./2026-07-25_progress_aihints-resync-ci-failure.md)                     | 🟢 原因（辞書構造変更へのテスト追従漏れ）を特定し `addon-ai-tag` で修正・本番 Actions で緑を確認（`dde4484` / PR #14）。**申し送り①（全体 `npm test` 依存）は母艦 P4-12 へ登録**                                                                  |
-| ConversationPattern 引き継ぎ          | [2026-06-28_progress_conversationpattern-handoff.md](./2026-06-28_progress_conversationpattern-handoff.md)                 | ⚠️ sub2側後処理 + DialogueExamples先行方式での仮入力（Num 92/94/95/98/99/2/10）が残                                                                                                                                                               |
-| 英訳ルール基準書                      | [2026-06-12_progress_translation-style-unified.md](./2026-06-12_progress_translation-style-unified.md)                     | 継続参照用（ルール本体・バッチ作業ログ）                                                                                                                                                                                                          |
-| Localization DB（`trans_*.json`）     | [2026-06-24_progress_localization-db.md](./2026-06-24_progress_localization-db.md)                                         | ⚠️ enum解決の合流・原作者確認・項目追加継続中                                                                                                                                                                                                     |
-| Localization Summary 入力             | [2026-06-25_progress_localization-summary-inputs.md](./2026-06-25_progress_localization-summary-inputs.md)                 | ⚠️ 入力チェックリスト（残7件、User手動）                                                                                                                                                                                                          |
-| 英訳ルール追補・calling.js            | [2026-06-24_progress_localization-rules-audit.md](./2026-06-24_progress_localization-rules-audit.md)                       | ⚠️ calling.js のユニットテスト/UI確認が残（後続の `fix_calling-schema-duplication` は 2026-07-14 に完了・退避済み）                                                                                                                               |
-| ADR-0002（Google Cloud 画像生成）     | [2026-06-21_progress_cloudflare-api-adr2-gcloud.md](./2026-06-21_progress_cloudflare-api-adr2-gcloud.md)                   | Draft・設計検討中                                                                                                                                                                                                                                 |
-| addon-ai-tag 逆マージ事故記録         | [2026-07-02_progress_addon-ai-tag-reverse-merge-incident.md](./2026-07-02_progress_addon-ai-tag-reverse-merge-incident.md) | ⚠️ addon-ai-tag側ログへの後日談追記が保留中                                                                                                                                                                                                       |
-| UnibyteLive アルベッツ苗字命名        | [2026-07-06_progress_unibytelive-formalname-draft.md](./2026-07-06_progress_unibytelive-formalname-draft.md)               | ⚠️ 下書き入力24件・User最終レビュー待ち                                                                                                                                                                                                           |
-| AIHints 構造的再同期 設計提案         | [2026-07-08_progress_aihints-structural-resync-proposal.md](./2026-07-08_progress_aihints-structural-resync-proposal.md)   | 🟢 **提案は実装・稼働済み**（`--resync-structural` + CI ワークフロー。2026-07-25 に本番で PR 自動作成 → no-op まで確認）。本ログは設計背景の参照用                                                                                                |
-| AIHints カラーセット デッドロック診断 | [2026-07-13_progress_aihints-palette-deadlock.md](./2026-07-13_progress_aihints-palette-deadlock.md)                       | ⚠️ 第0階（null ハンドリング）・第1階（provenance）・第2階（抽出）は実装済み。**残るは `ColorPalette` → `palette_priority` の導出 1 本のみ**（母艦 P7-1）。現状 `palette_priority` は 92/92 件 null のまま                                         |
-| ColorPalette スキーマ + 配色候補抽出  | [2026-07-13_progress_colorpalette-schema.md](./2026-07-13_progress_colorpalette-schema.md)                                 | ⚠️ スキーマ・抽出ツール実装済み、実データ **94 件**投入済み（全件 5 色以上）。**AIHints への機械導出が未実装のため成果が回収できていない**（母艦 P7-1）。`Role` の妥当性と `ColorName_*` 等は User 入力待ち                                       |
-| AppearanceDetail 参考画像の一括登録   | [2026-07-11_progress_appearancedetail-images.md](./2026-07-11_progress_appearancedetail-images.md)                         | ⚠️ `10`/`10alt` の割当正誤（User確認待ち）・保留4枚の扱い                                                                                                                                                                                         |
-| フィールド順整列（typedef + `$slot`） | [2026-07-17_progress_field-order-typedef.md](./2026-07-17_progress_field-order-typedef.md)                                 | ⚠️ トップレベル整列は完了。**実機目視・ネスト整列（Phase 4）・UI/SW 統一（Phase 6）が 2026-07-17 から未着手** → 母艦 P4-10 へ登録                                                                                                                 |
-| Issue #13 希望タスク（数秘/反応）     | [2026-07-22_progress_issue13-numerology-skinship.md](./2026-07-22_progress_issue13-numerology-skinship.md)                 | 📝 要件整理ログを新規作成。フィールド命名・配置・適用範囲は User 判断待ち。                                                                                                                                                                       |
-| ロールプレイプロンプト生成            | [2026-07-18_progress_roleplay-prompt-en-phase4.md](./2026-07-18_progress_roleplay-prompt-en-phase4.md)                     | 🟢 フェーズ0〜3（JP生成・見出しアンカーマージ・`--reconcile`/`--adopt`）完了（詳細は `.completed/2026-07-18_progress_roleplay-prompt-generator.md`）。フェーズ4（EN版）は本ログに着手前調査＋実装計画を集約（未着手・出力先形式は User 確認待ち） |
-| ロールプレイプロンプト 体裁修正       | [2026-07-24_progress_roleplay-prompt-formatting.md](./2026-07-24_progress_roleplay-prompt-formatting.md)                   | 🟢 CRLF 非対応・`- )。` の壊れ・複数名の鉤括弧表記を修正し生成物 10 件を再生成（`npm test` 582 件全緑）。⚠️ **残 3 件は配布物に実害あり**: `[object Object]` が 66 件中 10 件（体重7/年齢3/身長1）→ 母艦 P4-8 へ格上げ                            |
+- 「いま何が残っているか」は同ファイルの**タスク一覧**（`T-xx`）を見てください。
+  複数の進捗ログに内容が跨っていたタスクは 1 エントリへ束ね、「関連ログ」欄に跨り先を列挙しています。
+- 「どのログがどのタスクの情報源か」は同ファイルの**進捗ログ索引**にまとまっています。
+- 本 README は、フォルダの**運用ルール**・**系列の補足**・**退避の履歴**を扱います
+  （索引を二重に持つとズレるため、トピック別索引は母艦へ移設しました）。
+
+> 旧 `2026-07-03_current-task-ledger.md`（台帳）と `2026-07-08_remaining-task.md`（母艦）は
+> 統合のうえ `.completed/` へ退避済みです。
 
 ### 系列の補足（過去フェーズは `.completed/` 参照）
 
@@ -65,6 +49,21 @@
 ## 完了（.completed へ退避済み）
 
 以下のファイルは実装・検証が完了し、`_work_in_progress/.completed/` へ移動済みです（Git 管轄外）。
+
+### 2026-07-25 タスク統合で追加退避（6件）
+
+残タスクを **1 タスク = 1 エントリ**へ概略化した統合母艦
+[2026-07-25_remaining-task.md](./2026-07-25_remaining-task.md) を新設し、役割が移ったもの・
+同日に完了したものを退避。**直下 22 件 → 16 件（+ 母艦 1 件・+README）**。
+
+- `2026-07-03_current-task-ledger.md`（**統合母艦へ役割移管**。進行中タスク台帳）
+- `2026-07-08_remaining-task.md`（**統合母艦へ役割移管**。残タスク母艦。P1〜P7 は `T-xx` へ再編）
+- `2026-07-25_progress_wip-tidy.md`（棚卸し完了。着手順の決定と対応方針は母艦へ移設）
+- `2026-07-25_progress_priority-tasks.md`（着手順 1〜6 の対応完了。新規発見は母艦 T-03 へ登録）
+- `2026-07-24_progress_roleplay-prompt-formatting.md`（**残 3 件を同日に解消**。`[object Object]` 10 件 /
+  句点二重化 / 文断裂がいずれも 0 件に）
+- `2026-07-25_progress_aihints-resync-ci-failure.md`（CI 失敗の原因特定と復旧が完了。
+  運用上の注意〈全体 `npm test` 依存〉は母艦 T-09 へ登録）
 
 ### 2026-07-25 棚卸しで追加退避（4件）
 
@@ -229,6 +228,27 @@
 
 ## 整理履歴
 
+- **2026-07-25、残タスクを統合母艦 `2026-07-25_remaining-task.md` へ一本化しました。**
+  User 依頼により、**複数の進捗ログに内容が跨っていたタスクと、単一ログにのみ記録されていたタスクを
+  等しく「1 タスク = 1 エントリ」へ概略化**し、あわせて進捗ログ全体の索引を同ファイルへ持たせました。
+  跨りの代表例は **T-02（AIHints への配色導出）** で、`aihints-structural-resync-proposal` /
+  `aihints-palette-deadlock` / `colorpalette-schema` の 3 ログに散っていた内容を 1 エントリへ束ね、
+  「第0〜2階は実装済みで、繋ぐ 1 本だけが欠けている」という現在地を 1 か所で読めるようにしています。
+  タスクは `T-xx` の ID を持ち、A（Claude 側で着手可）/ B（User 判断待ち）/ C（長期保留）に層別。
+  役割が移った旧台帳・旧母艦と、同日に完了した 4 件をあわせて 6 件退避し、**直下 22 件 → 16 件（+ 母艦・+README）**。
+  索引の二重管理を避けるため、README のトピック別索引は母艦へのポインタへ置き換えました。
+- **2026-07-25、上記棚卸しで定めた着手順 1〜6 のうち 5 件を同日中に消化しました（`58aed8f` ほか）。**
+  一春（Claude）が 1・2 を、GitHub Copilot が 3・5・6 を分担。担当範囲が `tools/roleplay/`＋`docs/` と
+  `pages/`＋`pkg/cloudflare/` に分かれていたため衝突は発生していません。(1) 配布用ロールプレイプロンプトの
+  `[object Object]` **10 件**・句点二重化・文断裂を解消（生成物 66 件で再走査していずれも 0 件・`npm test` 597 件全緑）。
+  (2) `docs/readme.en.md` を約 3 か月ぶりに更新し、二層 API・圧縮ロケータ `?c=`・`$Def_DBLinkRef` 形式を反映
+  （記載は実 API を curl で実測して裏取り）。(3)(5)(6) Copilot 分はコードレビューに加え、User の開発環境
+  （`127.0.0.1:5500`）+ Playwright で**実機裏取り**を実施し、人称呼称群の表示・`Generation` の先頭化・
+  `BeastspecName` の subFields 移動・画像順の typedef 準拠（`年賀絵原画` が先頭）を確認（pageerror 0 / 4xx 0）。
+  これにより 2026-07-17 から未検証だった母艦 P4-10 の「実機目視」も同時にクローズしました。
+  なお `Works_OfficialLinks` は**コードのみ完了・未デプロイ**（本番の公開キーは 5 種のまま）で、
+  実 API が `?q=*` で 500 を返す新規課題を母艦 P4-15 へ登録しています。
+  詳細は `2026-07-25_progress_priority-tasks.md` を参照。
 - **2026-07-25 の棚卸しで、4件 を `.completed/` へ退避し、直下を 24件 → 20件（+README）に整理しました。**
   今回は仕分けよりも**「放置されている重大タスクが無いか」の洗い出し**に重心を置き、20 件すべての未完了節を
   読み合わせたうえで、母艦へ 7 項目（P4-8〜P4-14）と新設 P7（AIHints 系）を登録、台帳へ**着手順の推奨**を明文化しました。

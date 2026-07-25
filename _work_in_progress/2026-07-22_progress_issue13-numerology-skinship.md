@@ -45,6 +45,6 @@ Issue #13 の要望を、既存のスキーマ駆動方針と運用制約に沿�
 
 ## 参考
 
-- `_work_in_progress/2026-07-03_current-task-ledger.md`
-- `_work_in_progress/2026-07-08_remaining-task.md`
+- `_work_in_progress/2026-07-25_remaining-task.md`（**T-25**。旧 `2026-07-03_current-task-ledger.md` /
+  `2026-07-08_remaining-task.md` は 2026-07-25 に統合・退避済み）
 - `_work_in_progress/2026-07-22_github-triage.md`

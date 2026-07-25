@@ -18,7 +18,9 @@
 > 緑 → PR #14 作成 → マージ後の 2 周目が no-op で停止するところまで確認済み。
 >
 > **したがって、下記の「提案」は適用しないでください。** ワークフロー側のエラーハンドリング追加は不要です。
-> 詳細は [2026-07-25_progress_aihints-resync-ci-failure.md](./2026-07-25_progress_aihints-resync-ci-failure.md) を参照。
+> 詳細は `.completed/2026-07-25_progress_aihints-resync-ci-failure.md`（2026-07-25 に完了・退避）を参照。
+> 運用上の注意（このワークフローが全体の `npm test` に依存する点）は
+> [2026-07-25_remaining-task.md](./2026-07-25_remaining-task.md) の **T-09** に登録済み。
 
 状態: ~~**未解決の可能性あり（要人手確認）**~~ → **解決済み（原因は上記のとおり別物）**。
 
