@@ -228,6 +228,17 @@
 
 ## 整理履歴
 
+- **2026-07-25、`addon-ai-tag` への一方向マージ（`6f68df3`）の結果を `develop` 側へ反映しました。**
+  マージ作業中に **統合母艦の T-02（AIHints への配色導出）が「未実装」と誤記されている**ことが判明したため、
+  `develop` 側で訂正しています。実際は `addon-ai-tag` で `--apply-colorpalette` が実装・適用済みで、
+  `palette_priority` は**確定 91 件**（残り 1 件は `ColorPalette` を持たないレコードで null が正しい）、
+  dry-run も差分ゼロでした。母艦 T-02 を ✅ 完了へ、T-20 の「T-02 の前提」という位置づけを解除し、
+  関連ログ 2 本（`aihints-palette-deadlock` / `colorpalette-schema`）にも同内容を追記。
+  **誤記の原因は「AIHints のコード・スキーマを `develop` に含めない」運用上、`develop` 側のログが
+  実装状況に対して構造的に遅れること**で、再発防止として「状態を書くときは `addon-ai-tag` で実データを見る」
+  旨を T-02 の節に明記しました。あわせて `addon-ai-tag` 側の残課題台帳から **`develop` 所有ファイルの課題 3 件**
+  （`_Secondaries` マッチャの三重化 / `extract-enum-lists-to-dictionaries.mjs` のシェバン残存 /
+  `CLASS_NAMES_EN` のレジスタ乖離）を母艦 T-08 へ取り込みました。
 - **2026-07-25、残タスクを統合母艦 `2026-07-25_remaining-task.md` へ一本化しました。**
   User 依頼により、**複数の進捗ログに内容が跨っていたタスクと、単一ログにのみ記録されていたタスクを
   等しく「1 タスク = 1 エントリ」へ概略化**し、あわせて進捗ログ全体の索引を同ファイルへ持たせました。

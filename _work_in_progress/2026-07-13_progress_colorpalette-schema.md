@@ -127,8 +127,38 @@ node tools/patch-colorpalette.mjs --work NumberTales --db Primary --records 40 \
 - **同系色ばかりが並ぶケースへの対処**。髪と衣装が同系色のキャラ（例: Num 1）では Primary / Secondary / Accent の 3 色がいずれも近い色相になる。占有率順という定義上は正しいが、配色として意味を持たせるなら色相の多様性を考慮した選び方（または User による差し替え）が要る。
 - 画像を持たない 10 件（Num 38/54/59/79/80/82/83/90/91/95）の扱い（手入力するか、対象外とするか）。
 - **UI 表示**: 現状 `$display: { section: 'profile' }` のみで汎用 renderer にフォールバックする。色スウォッチを表示する専用 section renderer（`sectionWrapper: 'colorPaletteSection'`）は別タスク。実データが入ってからブラウザ確認する。
-- **AIHints への機械導出は未実装**（`addon-ai-tag` 側の別タスク）。`ColorPalette` が実データに入ったら、`tools/patch-aihints.mjs` に `--apply-colorpalette`（仮称）を追加し、`palette_priority` を `ColorPalette` から導出する。これが入って初めて「palette が構造由来になる」という本来の狙いが完成する。
+- ~~**AIHints への機械導出は未実装**（`addon-ai-tag` 側の別タスク）。`ColorPalette` が実データに入ったら、`tools/patch-aihints.mjs` に `--apply-colorpalette`（仮称）を追加し、`palette_priority` を `ColorPalette` から導出する。これが入って初めて「palette が構造由来になる」という本来の狙いが完成する。~~
+  → **✅ 2026-07-25 に完了を確認**（下記「追記」参照）。
 - 他作品（FLInvestigator78 / ShouArRiders 等）への展開は未着手。スキーマはグローバルなので追加作業なしで使えるが、画像規約の差異は要確認。
+
+---
+
+## 追記（2026-07-25）: AIHints への機械導出は `addon-ai-tag` で完了済み
+
+> **本ログは `develop` 側のため、`addon-ai-tag` で進んだ実装が反映されていませんでした。**
+> 2026-07-25 の `develop` → `addon-ai-tag` マージ作業中に、実データとコードで裏取りしています。
+
+| 項目 | 実測（`addon-ai-tag` / 2026-07-25） |
+| --- | --- |
+| `--apply-colorpalette` | ✅ 実装済み（`tools/patch-aihints.mjs` / `applyColorPaletteToAihints()`） |
+| 確定値の保護 | ✅ `--force-palette` を明示しない限り既存の確定値を上書きしない |
+| ドキュメント | ✅ `docs/ai-hints-usage.md` §9.11 |
+| `palette_priority` 確定 | **91 件**（AIHints 保有 92 件中） |
+| `palette_priority` が `null` | **1 件**（Num `10-alt` = `ColorPalette` を持たないレコード。**ソースが無いため null が正しい**） |
+| dry-run | **`No changes to write.`**（適用済みかつ冪等） |
+
+これにより「`palette_priority` が構造由来になる」という本ログ冒頭の狙いは**達成済み**です。
+
+**残る関連事項**:
+
+- 本ログの `Role` レビュー（未完了タスク欄）で値を変えた場合は、`addon-ai-tag` 側で
+  **`--apply-colorpalette --force-palette` を再実行**して AIHints へ反映すること。
+- SemiPrimary / SelfSecondary / Secondary は **AIHints が未 seed**（0 件）。`ColorPalette` は投入済み
+  （8 / 7 / 11 件）なので、seed 後に `--apply-colorpalette` を続けて実行すれば同じ経路で埋まる。
+
+**注意（再発防止）**: AIHints のコード・スキーマは `develop` に含めない運用のため、
+**`develop` 側のログだけを読むと AIHints の実装状況を必ず古く見積もる**。状態を書くときは
+`addon-ai-tag` をチェックアウトして実データを見ること。
 
 ## 参考リンク
 
