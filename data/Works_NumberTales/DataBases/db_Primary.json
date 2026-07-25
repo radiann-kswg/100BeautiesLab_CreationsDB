@@ -2552,7 +2552,9 @@
         "5/emstk_corefolder5-1",
         "5/emstk_corefolder5-2",
         "5/emstk_corefolder5-3"
-      ]
+      ],
+      "arts_PNGPath": ["humanoids/art_pm5game"],
+      "designAlt_PNGPath": ["chattingArt/chart_img25,5-humanoidCoolerSeason"]
     },
     "FormalName_JP": "ナンバーテールズ5番機",
     "FormalName_EN": "NumberTales #5",
@@ -14193,7 +14195,8 @@
       ],
       "arts_PNGPath": [
         "corefolders/sphericateDay/art_sphericateDay202302r1",
-        "humanoids/2023/art_img24-humanoid"
+        "humanoids/2023/art_img24-humanoid",
+        "corefolders/arts_img24-corefolderMakingSample"
       ]
     },
     "FormalName_JP": "ナンバーテールズ24番機",
@@ -14798,7 +14801,8 @@
             "_IsoPath": "birthday/arts_birthday2023"
           }
         }
-      ]
+      ],
+      "designAlt_PNGPath": ["chattingArt/chart_img25,5-humanoidCoolerSeason"]
     },
     "FormalName_JP": "ナンバーテールズ25番機",
     "FormalName_EN": "NumberTales #25",
@@ -50571,7 +50575,8 @@
       "corefolder_PNGPath": [
         "89/emstk_corefolder89-1",
         "89/emstk_corefolder89-2"
-      ]
+      ],
+      "arts_PNGPath": ["chattingArt/chart_img89-corefolder"]
     },
     "FormalName_JP": "ナンバーテールズ89番機",
     "FormalName_EN": "NumberTales #89",
