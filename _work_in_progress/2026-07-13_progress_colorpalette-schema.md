@@ -44,11 +44,11 @@ User の判断により、`.private/` の下書きを経由せず **実データ
 
 **ツールが書き込んだ項目（機械的に決まるもの）**:
 
-| フィールド | 埋め方 |
-| --- | --- |
-| `Role` | 占有率の降順で Primary / Secondary / Accent を仮割当（**要 User 確認**） |
-| `Hex` | 画像から抽出した代表色（既存画像の機械計測値であり、創作物の転記にあたる） |
-| `AppliesTo` | 抽出色と色語が一致した `AppearanceDetail` の `BodyPart` を**転記** |
+| フィールド  | 埋め方                                                                     |
+| ----------- | -------------------------------------------------------------------------- |
+| `Role`      | 占有率の降順で Primary / Secondary / Accent を仮割当（**要 User 確認**）   |
+| `Hex`       | 画像から抽出した代表色（既存画像の機械計測値であり、創作物の転記にあたる） |
+| `AppliesTo` | 抽出色と色語が一致した `AppearanceDetail` の `BodyPart` を**転記**         |
 
 **ツールが書き込んでいない項目（創作内容のため User が入力）**: `ColorName_JP` / `ColorName_EN` / `Formation` / `Note_JP` / `Note_EN` はすべて `null`。
 
@@ -88,12 +88,12 @@ User の判断により、`.private/` の下書きを経由せず **実データ
 
 ### 検出を阻んでいた 4 つの原因（すべて User の指摘が起点）
 
-| 症状 | 原因 | 対処 |
-| --- | --- | --- |
-| チップが 1 個に融合（Num 48） | 重なって描かれており「有色の連結成分」が全部つながる | 色が変わる境界で成分を切る（同色の平坦領域） |
-| 小さいチップが消える（Num 75 の青は半径 3.7px） | 大小が不揃いで、収縮による足切りに耐えられない | 領域内では面積下限を大きく下げて救済 |
-| 黒に近いチップが消える（Num 19 の `#423F3F`） | 前処理で「暗色＝線画」に分類されていた | 領域内では色による足切りをやめる |
-| 淡いチップが消える（Num 12/21 の `#FEF3D9`） | (a) 「ほぼ白＝背景」に分類 / (b) 統合しきい値 12 が別チップ（距離 11.75）を潰していた | 純白のみ紙面として除外。統合しきい値を 6 へ |
+| 症状                                            | 原因                                                                                  | 対処                                         |
+| ----------------------------------------------- | ------------------------------------------------------------------------------------- | -------------------------------------------- |
+| チップが 1 個に融合（Num 48）                   | 重なって描かれており「有色の連結成分」が全部つながる                                  | 色が変わる境界で成分を切る（同色の平坦領域） |
+| 小さいチップが消える（Num 75 の青は半径 3.7px） | 大小が不揃いで、収縮による足切りに耐えられない                                        | 領域内では面積下限を大きく下げて救済         |
+| 黒に近いチップが消える（Num 19 の `#423F3F`）   | 前処理で「暗色＝線画」に分類されていた                                                | 領域内では色による足切りをやめる             |
+| 淡いチップが消える（Num 12/21 の `#FEF3D9`）    | (a) 「ほぼ白＝背景」に分類 / (b) 統合しきい値 12 が別チップ（距離 11.75）を潰していた | 純白のみ紙面として除外。統合しきい値を 6 へ  |
 
 ### 手入力チップの受け口（`--chips`）
 
@@ -127,7 +127,8 @@ node tools/patch-colorpalette.mjs --work NumberTales --db Primary --records 40 \
 - **同系色ばかりが並ぶケースへの対処**。髪と衣装が同系色のキャラ（例: Num 1）では Primary / Secondary / Accent の 3 色がいずれも近い色相になる。占有率順という定義上は正しいが、配色として意味を持たせるなら色相の多様性を考慮した選び方（または User による差し替え）が要る。
 - 画像を持たない 10 件（Num 38/54/59/79/80/82/83/90/91/95）の扱い（手入力するか、対象外とするか）。
 - **UI 表示**: 現状 `$display: { section: 'profile' }` のみで汎用 renderer にフォールバックする。色スウォッチを表示する専用 section renderer（`sectionWrapper: 'colorPaletteSection'`）は別タスク。実データが入ってからブラウザ確認する。
-- **AIHints への機械導出は未実装**（`addon-ai-tag` 側の別タスク）。`ColorPalette` が実データに入ったら、`tools/patch-aihints.mjs` に `--apply-colorpalette`（仮称）を追加し、`palette_priority` を `ColorPalette` から導出する。これが入って初めて「palette が構造由来になる」という本来の狙いが完成する。
+- ~~**AIHints への機械導出は未実装**（`addon-ai-tag` 側の別タスク）。`ColorPalette` が実データに入ったら、`tools/patch-aihints.mjs` に `--apply-colorpalette`（仮称）を追加し、`palette_priority` を `ColorPalette` から導出する。これが入って初めて「palette が構造由来になる」という本来の狙いが完成する。~~
+  → **✅ 2026-07-25 に完了を確認**（下記「追記」参照）。
   - > **【`addon-ai-tag` ブランチでの状況・2026-07-22 実測】** 本項は**本ブランチでは完了済み**です
     > （上の記述は `develop` 側の状態を書いたもので、マージでそのまま持ち込まれています）。
     > `tools/patch-aihints.mjs` に `--apply-colorpalette` が実装済みで、実データも
@@ -135,6 +136,35 @@ node tools/patch-colorpalette.mjs --work NumberTales --db Primary --records 40 \
     > `ColorPalette` を持たないレコード）。`data/Works_NumberTales/DataBases/db_Primary.json` を
     > 直接集計して確認しました。`develop` では未実装のままで正しい状態です。
 - 他作品（FLInvestigator78 / ShouArRiders 等）への展開は未着手。スキーマはグローバルなので追加作業なしで使えるが、画像規約の差異は要確認。
+
+---
+
+## 追記（2026-07-25）: AIHints への機械導出は `addon-ai-tag` で完了済み
+
+> **本ログは `develop` 側のため、`addon-ai-tag` で進んだ実装が反映されていませんでした。**
+> 2026-07-25 の `develop` → `addon-ai-tag` マージ作業中に、実データとコードで裏取りしています。
+
+| 項目                         | 実測（`addon-ai-tag` / 2026-07-25）                                                              |
+| ---------------------------- | ------------------------------------------------------------------------------------------------ |
+| `--apply-colorpalette`       | ✅ 実装済み（`tools/patch-aihints.mjs` / `applyColorPaletteToAihints()`）                        |
+| 確定値の保護                 | ✅ `--force-palette` を明示しない限り既存の確定値を上書きしない                                  |
+| ドキュメント                 | ✅ `docs/ai-hints-usage.md` §9.11                                                                |
+| `palette_priority` 確定      | **91 件**（AIHints 保有 92 件中）                                                                |
+| `palette_priority` が `null` | **1 件**（Num `10-alt` = `ColorPalette` を持たないレコード。**ソースが無いため null が正しい**） |
+| dry-run                      | **`No changes to write.`**（適用済みかつ冪等）                                                   |
+
+これにより「`palette_priority` が構造由来になる」という本ログ冒頭の狙いは**達成済み**です。
+
+**残る関連事項**:
+
+- 本ログの `Role` レビュー（未完了タスク欄）で値を変えた場合は、`addon-ai-tag` 側で
+  **`--apply-colorpalette --force-palette` を再実行**して AIHints へ反映すること。
+- SemiPrimary / SelfSecondary / Secondary は **AIHints が未 seed**（0 件）。`ColorPalette` は投入済み
+  （8 / 7 / 11 件）なので、seed 後に `--apply-colorpalette` を続けて実行すれば同じ経路で埋まる。
+
+**注意（再発防止）**: AIHints のコード・スキーマは `develop` に含めない運用のため、
+**`develop` 側のログだけを読むと AIHints の実装状況を必ず古く見積もる**。状態を書くときは
+`addon-ai-tag` をチェックアウトして実データを見ること。
 
 ## 参考リンク
 

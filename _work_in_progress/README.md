@@ -34,11 +34,11 @@
 
 統合母艦は `develop` 由来のため、**AIHints 関連の固有ログは母艦の索引に載りません**。本節が索引を兼ねます。
 
-| ログ | 主題 | 状態 |
-| --- | --- | --- |
-| [2026-07-25_progress_addon-ai-tag-merge.md](./2026-07-25_progress_addon-ai-tag-merge.md) | `develop` 取り込みマージ（`6f68df3`）＋ 着手順4番の状態確認 | 🟢 現行 |
-| [2026-07-17_progress_aihints-scope-semiprimary-selfsecondary.md](./2026-07-17_progress_aihints-scope-semiprimary-selfsecondary.md) | AIHints の適用範囲（SemiPrimary / SelfSecondary）| ⚠️ seed 本体ほか 4 件が継続 |
-| [2026-07-14_progress_addon-ai-tag-log-inventory.md](./2026-07-14_progress_addon-ai-tag-log-inventory.md) | 本ブランチのログ棚卸し記録＋**AIHints 残課題台帳（A1〜A10）** | 🟢 台帳（AIHints の残課題はここ） |
+| ログ                                                                                                                               | 主題                                                          | 状態                              |
+| ---------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------- | --------------------------------- |
+| [2026-07-25_progress_addon-ai-tag-merge.md](./2026-07-25_progress_addon-ai-tag-merge.md)                                           | `develop` 取り込みマージ（`6f68df3`）＋ 着手順4番の状態確認   | 🟢 現行                           |
+| [2026-07-17_progress_aihints-scope-semiprimary-selfsecondary.md](./2026-07-17_progress_aihints-scope-semiprimary-selfsecondary.md) | AIHints の適用範囲（SemiPrimary / SelfSecondary）             | ⚠️ seed 本体ほか 4 件が継続       |
+| [2026-07-14_progress_addon-ai-tag-log-inventory.md](./2026-07-14_progress_addon-ai-tag-log-inventory.md)                           | 本ブランチのログ棚卸し記録＋**AIHints 残課題台帳（A1〜A10）** | 🟢 台帳（AIHints の残課題はここ） |
 
 > **AIHints の残課題は統合母艦ではなく `2026-07-14_progress_addon-ai-tag-log-inventory.md` の
 > 「AIHints 残課題台帳」に集約**しています。母艦は `develop` と共通のファイルであり、AIHints 固有の項目を
@@ -50,11 +50,11 @@
 3 件含まれます（いずれも本ブランチでは 2026-07-14 の棚卸しで先に `.completed/` へ退避済み）。
 母艦からのリンクは本ブランチではリンク切れになります。
 
-| 母艦の索引にある行 | 本ブランチでの扱い |
-| --- | --- |
-| `2026-07-08_progress_aihints-structural-resync-proposal.md` | 退避済み（第1階は実装・稼働まで完了を裏取り） |
-| `2026-07-13_progress_aihints-palette-deadlock.md` | 退避済み（第0〜2階すべて完了） |
-| `2026-07-02_progress_addon-ai-tag-reverse-merge-incident.md` | 退避済み |
+| 母艦の索引にある行                                           | 本ブランチでの扱い                            |
+| ------------------------------------------------------------ | --------------------------------------------- |
+| `2026-07-08_progress_aihints-structural-resync-proposal.md`  | 退避済み（第1階は実装・稼働まで完了を裏取り） |
+| `2026-07-13_progress_aihints-palette-deadlock.md`            | 退避済み（第0〜2階すべて完了）                |
+| `2026-07-02_progress_addon-ai-tag-reverse-merge-incident.md` | 退避済み                                      |
 
 ### 系列の補足（過去フェーズは `.completed/` 参照）
 
@@ -300,6 +300,17 @@
 
 ## 整理履歴
 
+- **2026-07-25、`addon-ai-tag` への一方向マージ（`6f68df3`）の結果を `develop` 側へ反映しました。**
+  マージ作業中に **統合母艦の T-02（AIHints への配色導出）が「未実装」と誤記されている**ことが判明したため、
+  `develop` 側で訂正しています。実際は `addon-ai-tag` で `--apply-colorpalette` が実装・適用済みで、
+  `palette_priority` は**確定 91 件**（残り 1 件は `ColorPalette` を持たないレコードで null が正しい）、
+  dry-run も差分ゼロでした。母艦 T-02 を ✅ 完了へ、T-20 の「T-02 の前提」という位置づけを解除し、
+  関連ログ 2 本（`aihints-palette-deadlock` / `colorpalette-schema`）にも同内容を追記。
+  **誤記の原因は「AIHints のコード・スキーマを `develop` に含めない」運用上、`develop` 側のログが
+  実装状況に対して構造的に遅れること**で、再発防止として「状態を書くときは `addon-ai-tag` で実データを見る」
+  旨を T-02 の節に明記しました。あわせて `addon-ai-tag` 側の残課題台帳から **`develop` 所有ファイルの課題 3 件**
+  （`_Secondaries` マッチャの三重化 / `extract-enum-lists-to-dictionaries.mjs` のシェバン残存 /
+  `CLASS_NAMES_EN` のレジスタ乖離）を母艦 T-08 へ取り込みました。
 - **2026-07-25 の addon-ai-tag 取り込みマージ（`6f68df3`）で、`develop` の 5 コミットを一方向マージしました。**
   コンフリクトは `docs/api-sw-spec.md` と `_work_in_progress/README.md` の 2 ファイル。**着手時点では
   前者が develop 側・後者が addon-ai-tag 側で片側採用されており、どちらも情報が落ちていた**ため、

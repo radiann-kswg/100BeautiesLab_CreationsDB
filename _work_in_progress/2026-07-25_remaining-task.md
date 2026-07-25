@@ -38,24 +38,56 @@
 - **完了条件**: 本番 `/api/v1/works` に `Works_OfficialLinks` が現れること。
   **デプロイ後、`docs/readme.en.md` の「次のデプロイで現れる」注記を外す**
 
-### T-02 🔴 AIHints への配色導出（`--apply-colorpalette`）— **3 ログに跨るタスク**
+### T-02 ✅ AIHints への配色導出（`--apply-colorpalette`）— **完了**（2026-07-25 確認）
+
+> **本エントリは当初「繋ぐ 1 本が未実装・92/92 件 `null` のまま」と記載していましたが、これは誤りでした。**
+> `addon-ai-tag` ブランチで**実装・適用ともに完了済み**であることを、2026-07-25 のマージ作業中に
+> 実データとコードで裏取りしました（下記）。次の棚卸しで本エントリごと削除します。
 
 - **関連ログ**（3 本）:
   - `2026-07-08_progress_aihints-structural-resync-proposal.md`（構造的再同期の設計提案）
   - `2026-07-13_progress_aihints-palette-deadlock.md`（`palette_priority` が埋まらない原因の診断・3 階建て設計）
   - `2026-07-13_progress_colorpalette-schema.md`（`ColorPalette` スキーマと抽出ツールの実装）
-- **状態**: **前提はすべて揃い、繋ぐ 1 本だけが未実装**
+  - （`addon-ai-tag` 側）`2026-07-25_progress_addon-ai-tag-merge.md` §2 … **確認の一次情報源**
+- **状態**: **3 階すべて完了**
   - ✅ 第0階（`palette_priority` の `null` ハンドリング）… `addon-ai-tag` で実装済み
   - ✅ 第1階（`_meta` provenance + `--resync-structural` + CI）… **稼働済み**。2026-07-25 に本番 Actions で
     PR 自動作成 → マージ後 no-op まで確認（PR #14 / `6bf1e50`）
   - ✅ 第2階（`tools/extract-palette.mjs`）… `develop` で実装済み。`ColorPalette` を **94 件**投入済み（全件 5 色以上）
-  - ❌ **`ColorPalette` → `palette_priority` の導出モードが無い**
-- **なぜ効くか**: これが入って初めて `palette_priority` が「構造由来」になり、再ビルドで巻き戻らなくなる。
-  現状は本体 DB に色があるのに AIHints からは見えず、**92/92 件 `null` のまま**
-- **実装先**: `addon-ai-tag` の `tools/patch-aihints.mjs`
-- **前提**: T-20（`Role` のレビュー）が済んでいると手戻りが減る
-- **積み残しの判断事項**: `AIHints` を持たない 13 件・画像を持たない 10 件の扱い、
-  `concept` 画像（赤ペン注釈あり）を抽出ソースへ含めるか
+  - ✅ **導出モード `--apply-colorpalette` … `addon-ai-tag` に実装済み**
+    （`applyColorPaletteToAihints()` / 確定値を守る `--force-palette` / `docs/ai-hints-usage.md` §9.11）
+
+**実データでの裏取り（NumberTales / Primary・2026-07-25 実測）**
+
+| 項目 | 件数 |
+| --- | --- |
+| `AIHints` あり | 92 |
+| **`palette_priority` 確定** | **91** |
+| `palette_priority` が `null` | **1**（Num `10-alt`） |
+| `_meta`（provenance）あり | 92 / 92 |
+
+`10-alt`（ディケ）は設定画が無く `ColorPalette` 自体を持たないレコードで、**ソースが無いため `null` が正しい**
+（`--apply-colorpalette` の dry-run でも `palette-no-colorpalette` として正しくスキップされる）。
+dry-run 全体は **`No changes to write.`** ＝ 適用済みかつ冪等。
+
+**なぜ誤記したか（再発防止）**: 本エントリの根拠にした `develop` 側 2 ログは **2026-07-13 時点の記述のまま**で、
+その後 `addon-ai-tag` で実装が進んだことが `develop` からは見えなかったため。
+**AIHints のコード・スキーマは `develop` に含めない運用**なので、`develop` 側のログだけを読むと
+構造的にこの誤解が起きる。→ 下記「AIHints の状態を書くときの注意」を参照。
+
+**残る積み残し**（T-02 本体ではなく、`addon-ai-tag` 側の台帳 A3 で管理）:
+
+- `AIHints` を持たない 13 件の扱い（対象外とするか scaffold するか）
+- SemiPrimary / SelfSecondary / Secondary は **AIHints が未 seed**（0 件）。ただし `ColorPalette` は投入済み
+  （8 / 7 / 11 件）なので、**seed 後に `--apply-colorpalette` を続けて実行すれば同じ経路で埋まる**
+
+#### AIHints の状態を書くときの注意（本タスクからの教訓）
+
+**`develop` 側のログだけで AIHints の実装状況を判断しないこと。** AIHints のコード・ツール・テストは
+`addon-ai-tag` にしか存在せず、`develop` 側のログは実装状況に対して構造的に遅れる。
+状態を書く必要があるときは `addon-ai-tag` をチェックアウトして実データ・実コードを見てから書く。
+`addon-ai-tag` 側の残課題は同ブランチの
+`2026-07-14_progress_addon-ai-tag-log-inventory.md`「AIHints 残課題台帳（A1〜A10）」に集約されている。
 
 ### T-03 🔴 実 API の検索が不正クエリで 500 を返す
 
@@ -106,15 +138,28 @@
 
 ### T-08 🔴 既知の技術負債（まとめ）
 
-- **関連ログ**: 各所の `.completed/` から引き継ぎ（`pkg-sync` / `dbcrosslinkpath` ほか）
+- **関連ログ**: 各所の `.completed/` から引き継ぎ（`pkg-sync` / `dbcrosslinkpath` ほか）＋
+  `addon-ai-tag` の残課題台帳（A7 / A9 → 下記 6・7。**`develop` 所有ファイルのため `develop` でしか直せない**）
 - 個々は小さく、単独で着手できる。
-  1. **Workers 側 `_Secondaries` マッチャの乖離**: `pkg/cloudflare/worker.js` は `sec_SeriesTitle` の完全一致のみの
-     簡略版で、`lib/sw-common.js` / `pkg/` FS クライアント（スコアリング方式）と食い違う。現行データでは実害なし
+  1. **`_Secondaries` マッチャの三重化**: 同一ロジックが 3 箇所に存在し、**正は `lib/sw-common.js`**。
+     - `pkg/cloudflare/worker.js` … `sec_SeriesTitle` の完全一致のみの簡略版（現行データでは実害なし）
+     - `pkg/nodejs/index.mjs:335` … `applyCommonsToRecords` 内のクロージャ・未 export。
+       **`_Commons` だけを返し `AI_Optout` を捨てている**点が既に乖離（`addon-ai-tag` 台帳 A7）
+     - `tools/patch-aihints.mjs` `findSecondaryDef()`（`addon-ai-tag` 限定）… 定義そのものを返す
+     - 統合するなら `develop` 側で行う（`addon-ai-tag` で触ると逆マージ禁止により永久分岐する）
   2. **`ImageProcessor.resolveImagePath()`**: 値にスラッシュを含む場合 `folderHint` を付与しない（SW/enrich 側）。
      UI は独自経路のため実害は出ていない
   3. **`ref_Reference.json` の `../../` 相対パス 1 件**（`catalog_PNGName`）: `_DBCrossLinkPath` への移行候補だが保留中
   4. **`pkg/python` / `pkg/csharp` に自動テストが無い**（Vitest 管轄外。同一 API サーフェスの担保は手動追従に依存）
   5. **Cloudflare Workers 版の `_DBLink` / `_Jump` 参照解決 enrich は未対応**（次フェーズ）
+  6. **`tools/extract-enum-lists-to-dictionaries.mjs` にシェバンが残存**（`addon-ai-tag` 台帳 A9）。
+     `tools/build-roleplay-prompts.mjs` のシェバンは **vitest 4.1.0 で suite ごと `SyntaxError` にする実害**があり
+     除去済みだが、本ファイルには残っている（2026-07-25 実測。`tools/*.mjs` で唯一）。
+     現状テストから import されていないため無害だが、**将来テストが import すると同じ事故が起きる**
+  7. **`CLASS_NAMES_EN` と Class 辞書のレジスタ乖離**（`addon-ai-tag` 台帳 A8・**要 User 判断**）:
+     AI タグ用のハードコード（`'uni-digits class'`）と辞書の表示名（`"Uni-Digits"`）はレジスタが異なり、
+     29 件中 28 件で値が違う。辞書側へ AI タグ用フィールド（例 `Class_AITag`）を足してハードコードを
+     退役させるのが筋だが、スキーマ変更 + 創作判断が要る
 
 ### T-09 🔴 AIHints 再同期がリポジトリ全体の `npm test` に依存する
 
@@ -159,7 +204,11 @@
 「滞留」は 2026-07-25 時点で当該ログが動いていない日数。**放置しても壊れないが、長いものは
 「進めるか畳むか」の判断が要る**ものです。
 
-### T-20 🟡 ColorPalette のレビューと色名入力 — **T-02 の前提**
+### T-20 🟡 ColorPalette のレビューと色名入力
+
+> **T-02 は完了済み**（当初「T-02 の前提」と位置づけていたが、導出はすでに稼働している）。
+> ただし `Role` は AIHints の `palette_priority` へ**そのまま導出される**ため、レビューで値を変えた場合は
+> `addon-ai-tag` 側で `--apply-colorpalette --force-palette` を再実行して反映すること。
 
 - **関連ログ**: `2026-07-13_progress_colorpalette-schema.md`（単一）／滞留 12 日
 - **待ち項目**:
@@ -277,9 +326,9 @@
 | [2026-07-25_github-triage.md](./2026-07-25_github-triage.md) | GitHub 未解決問題の日次トリアージ | — | 🟢 現行（未解決の CI 失敗なし。§1 の `AI_Optout` 仮説は誤りのため**対応案は適用しない**） |
 | [2026-07-18_progress_roleplay-prompt-en-phase4.md](./2026-07-18_progress_roleplay-prompt-en-phase4.md) | ロールプレイプロンプト EN 版の着手前調査 | **T-06** | 📝 着手条件は User 確認 2 件 |
 | [2026-07-17_progress_field-order-typedef.md](./2026-07-17_progress_field-order-typedef.md) | フィールドキー順の typedef 整列 | **T-04 / T-05 / T-28** | 🟢 Phase 4 以外は完了 |
-| [2026-07-13_progress_colorpalette-schema.md](./2026-07-13_progress_colorpalette-schema.md) | `ColorPalette` スキーマ・配色抽出 | **T-02 / T-20** | ⚠️ 実装済み・User レビュー待ち |
-| [2026-07-13_progress_aihints-palette-deadlock.md](./2026-07-13_progress_aihints-palette-deadlock.md) | `palette_priority` デッドロックの診断 | **T-02** | 📝 第0〜2階は実装済み |
-| [2026-07-08_progress_aihints-structural-resync-proposal.md](./2026-07-08_progress_aihints-structural-resync-proposal.md) | AIHints 構造的再同期の設計提案 | **T-02** | 🟢 提案は実装・稼働済み（設計背景の参照用） |
+| [2026-07-13_progress_colorpalette-schema.md](./2026-07-13_progress_colorpalette-schema.md) | `ColorPalette` スキーマ・配色抽出 | **T-20** | ⚠️ 実装済み・User レビュー待ち（AIHints への導出は完了） |
+| [2026-07-13_progress_aihints-palette-deadlock.md](./2026-07-13_progress_aihints-palette-deadlock.md) | `palette_priority` デッドロックの診断 | — | 🟢 **第0〜2階すべて完了**（`addon-ai-tag` で適用済み）。設計背景の参照用 |
+| [2026-07-08_progress_aihints-structural-resync-proposal.md](./2026-07-08_progress_aihints-structural-resync-proposal.md) | AIHints 構造的再同期の設計提案 | — | 🟢 提案は実装・稼働済み（設計背景の参照用） |
 | [2026-07-22_progress_issue13-numerology-skinship.md](./2026-07-22_progress_issue13-numerology-skinship.md) | Issue #13 の要件整理 | **T-25** | 📝 設計判断待ち |
 | [2026-07-11_progress_appearancedetail-images.md](./2026-07-11_progress_appearancedetail-images.md) | AppearanceDetail 参考画像の一括登録 | **T-23** | ⚠️ 割当確認待ち |
 | [2026-07-06_progress_unibytelive-formalname-draft.md](./2026-07-06_progress_unibytelive-formalname-draft.md) | アルベッツの苗字・コードネーム下書き | **T-22** | ⚠️ User レビュー中 |
@@ -319,6 +368,23 @@ gh issue list --state open                                      # 未解決 Issu
 ---
 
 ## 2026-07-25 に完了・退避したもの
+
+### 追記: `addon-ai-tag` マージ後の反映（同日）
+
+`develop` → `addon-ai-tag` の一方向マージ（`6f68df3`）を行った際、**本ファイルの記載に誤りが 1 件見つかり**、
+また `addon-ai-tag` 側の台帳から `develop` 所有の課題 2 件を引き取りました。
+
+| 対象 | 内容 |
+| --- | --- |
+| **T-02** | ❌ 「繋ぐ 1 本が未実装・92/92 件 `null`」→ ✅ **完了済み**へ訂正。`addon-ai-tag` で `--apply-colorpalette` が実装・適用済み（確定 **91 件** / dry-run 差分ゼロ）。関連ログ 2 本（`aihints-palette-deadlock` / `colorpalette-schema`）にも同内容を追記 |
+| **T-20** | 「T-02 の前提」という位置づけを解除。`Role` を変更した場合は `--apply-colorpalette --force-palette` の再実行が要る旨へ差し替え |
+| **T-08** | `addon-ai-tag` 台帳 **A7 / A8 / A9** のうち `develop` 所有ファイルの課題を項目 1・6・7 として取り込み（`_Secondaries` マッチャの三重化 / `extract-enum-lists-to-dictionaries.mjs` のシェバン残存 / `CLASS_NAMES_EN` のレジスタ乖離） |
+
+**誤記の原因と再発防止**: 根拠にした `develop` 側 2 ログが 2026-07-13 時点の記述のままで、その後
+`addon-ai-tag` で実装が進んだことが `develop` からは見えなかったため。**AIHints のコード・スキーマは
+`develop` に含めない運用**なので、状態を書くときは `addon-ai-tag` で実データを見ること（T-02 の節に明記）。
+
+---
 
 本ファイルの新設にあわせて 6 件を `.completed/` へ退避しました（直下 22 → 16 件 + 本ファイル）。
 
