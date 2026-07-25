@@ -41384,7 +41384,10 @@
     "Progress": "released",
     "Name_JP": "70(ナナト)",
     "Name_EN": "70(Seventia)",
-    "Images": { "concept_PNGName": "cnsp_img70" },
+    "Images": {
+      "concept_PNGName": "cnsp_img70",
+      "corefolder_PNGPath": ["70/emstk_corefolder70-1"]
+    },
     "FormalName_JP": "ナンバーテールズ70番機",
     "FormalName_EN": "NumberTales #70",
     "CodeName_JP": "七〇",
@@ -41426,10 +41429,10 @@
     "Character_EN": "Appears laid-back yet displays what seems to be a spiritual(?) talent\nActually very diligent beneath it all",
     "Hobby_JP": "占い、祭事",
     "Hobby_EN": "Divination, festivals and ritual events",
-    "SpecialSkill_JP": "水晶占い",
-    "SpecialSkill_EN": "Crystal ball divination",
-    "Favor_JP": "タロットカード、オラクルカード",
-    "Favor_EN": "Tarot cards, oracle cards",
+    "SpecialSkill_JP": "風水、水晶占い、厄除け",
+    "SpecialSkill_EN": "Feng shui, crystal ball divination, warding off evil",
+    "Favor_JP": "タロットカード、オラクルカード、龍体文字",
+    "Favor_EN": "Tarot cards, oracle cards, dragon script",
     "Unlike_JP": "演出の激しいパーティルーム",
     "Unlike_EN": "Party rooms with over-the-top effects",
     "AppearanceDetail": [
@@ -41455,7 +41458,7 @@
             "value_EN": "Arabic numeral '70'"
           }
         ],
-        "img_PNGName": null,
+        "img_PNGName": "attr_numberMark70",
         "Note_JP": null,
         "Note_EN": null
       },
@@ -41481,7 +41484,7 @@
             "value_EN": "Arabic numeral '70'"
           }
         ],
-        "img_PNGName": null,
+        "img_PNGName": "attr_numberMark70",
         "Note_JP": null,
         "Note_EN": null
       },
