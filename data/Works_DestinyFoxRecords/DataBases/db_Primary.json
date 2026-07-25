@@ -7,7 +7,7 @@
     "Progress": "stillTentative",
     "Name_JP": "セコンド",
     "Name_EN": "Second_SI-T",
-    "Images": { "design_PNGName": "design_imgPhysU-sec" },
+    "Images": { "design_PNGName": "design_imgSITec" },
     "FormalName_JP": "銫133:=9192631770刻",
     "FormalName_JPReading": { "about": "読み方は誰にも知られていない" },
     "FormalName_EN": "Cesium133:=9192631770clocks (* no one knows how to read)",
@@ -48,8 +48,8 @@
     "Name_JP": "メトレ",
     "Name_EN": "Metre_SI-L",
     "Images": {
-      "design_PNGName": "design_imgPhysU-m",
-      "concept_PNGName": "cnsp_imgPhysU-m"
+      "design_PNGName": "design_imgSIL",
+      "concept_PNGName": "cnsp_imgSIL"
     },
     "FormalName_JP": "リール ∛竏.絶対尺度",
     "FormalName_JPReading": "リール キュービックキロリッター.アンチヤードポンド",
@@ -90,7 +90,7 @@
     "Progress": "stillTentative",
     "Name_JP": "キログラ",
     "Name_EN": "Kilogra_SI-M",
-    "Images": { "design_PNGName": "design_imgPhysU-kg" },
+    "Images": { "design_PNGName": "design_imgSIM" },
     "FormalName_JP": "瓩=砲丸 リキ吉",
     "FormalName_JPReading": "せんがわら=ショットシェルズ りきち",
     "FormalName_EN": "Pow'kid Thousandweight=Shotshells",
@@ -130,7 +130,7 @@
     "Progress": "stillTentative",
     "Name_JP": "カンデラ",
     "Name_EN": "Candela_SI-J",
-    "Images": { "design_PNGName": "design_imgPhysU-cd" },
+    "Images": { "design_PNGName": "design_imgSIJ" },
     "FormalName_JP": "燈 希灯 ブライトゲイン\n橙 希灯 ブライトゲイン",
     "FormalName_JPReading": "あかりの ネオン ブライトゲイン\nあかりの ネオン ブライトゲイン",
     "FormalName_EN": "ChéngLight Neons Brightgainess",
@@ -170,7 +170,7 @@
     "Progress": "stillTentative",
     "Name_JP": "ケルビン",
     "Name_EN": "Kelvin_SI-Θ",
-    "Images": { "design_PNGName": "design_imgPhysU-K" },
+    "Images": { "design_PNGName": "design_imgSITh" },
     "FormalName_JP": "熱 ウルスネムリ",
     "FormalName_JPReading": "ほとぼり ウルスネムリ",
     "FormalName_EN": "Wooldoses Warmer",
@@ -210,7 +210,10 @@
     "Progress": "stillTentative",
     "Name_JP": "アンプ",
     "Name_EN": "Amp'_SI-I",
-    "Images": { "design_PNGName": "design_imgPhysU-A" },
+    "Images": {
+      "design_PNGName": "design_imgSII",
+      "designAlt_PNGPath": ["chattingArt/chart_imgSII-regularIllness"]
+    },
     "FormalName_JP": "電 カレン=ソー",
     "FormalName_JPReading": "いなずま カレン=ソー",
     "FormalName_EN": "Carren=Thor Thunderic",
@@ -250,7 +253,7 @@
     "Progress": "stillTentative",
     "Name_JP": "モル",
     "Name_EN": "Mol_SI-N",
-    "Images": { "design_PNGName": "design_imgPhysU-mol" },
+    "Images": { "design_PNGName": "design_imgSIN" },
     "FormalName_JP": "掌 大気",
     "FormalName_JPReading": "たなごころ えあ",
     "FormalName_EN": "Airs Parmglob",
@@ -292,7 +295,7 @@
     "Name_JP": "ラジアン",
     "Name_EN": "RadianN",
     "Images": {
-      "design_PNGName": "design_imgPhysU-rad",
+      "design_PNGName": "design_imgRN2",
       "designAlt_PNGPath": [
         "arts/weakening/arts_destinyFoxRec-2021-0031",
         "arts/regular/arts_destinyFoxRec-2021-graduateA",
@@ -353,10 +356,10 @@
     "Name_JP": "ステラ",
     "Name_EN": "Srera'N",
     "Images": {
-      "design_PNGName": "design_imgPhysU-sr",
+      "design_PNGName": "design_imgSRN",
       "designAlt_PNGPath": [
-        "dsgn_imgSTRN",
-        "arts/regular/art_imgSTRN-meowsday2022",
+        "dsgn_imgSRN",
+        "arts/regular/art_imgSRN-meowsday2022",
         "arts/weakening/arts_destinyFoxRec-2021-0031"
       ]
     },
