@@ -9,10 +9,7 @@
       "design_PNGName": "dsgn_imgRN2",
       "weakening_PNGPath": ["emstk_weakeningRN2-1"],
       "arts_PNGPath": [
-        "regular-birthday/arts_birthday2023",
-        "regular-birthday/arts_birthday2025-1",
-        "regular-birthday/arts_birthday2025-2",
-        "weakening-birthday/arts_birthday2026",
+        "birthday/arts_birthday2023",
         "fullpower/arts_fullpowerRN2-fullpowerEngage",
         {
           "_DBCrossLinkPath": {
@@ -20,7 +17,10 @@
             "_Field": "designAlt_PNGPath",
             "_IsoPath": "arts/fullpower/arts_destinyFoxRec-2022-recruit"
           }
-        }
+        },
+        "birthday/arts_birthday2025-1",
+        "birthday/arts_birthday2025-2",
+        "birthday/arts_birthday2026"
       ]
     },
     "FormalName_JP": "扇 二春",
@@ -67,10 +67,12 @@
       "designAlt_PNGPath": ["dsgn_imgRN3-onCostume"],
       "weakening_PNGPath": ["emstk_weakeningRN3-1", "emstk_weakeningRN3-2"],
       "arts_PNGPath": [
-        "orbify-birthday/arts_birthday2024",
-        "regular-birthday/arts_birthday2025-1",
-        "regular-birthday/arts_birthday2025-2",
-        "weakening-birthday/arts_birthday2026"
+        "chattingArt/chart_imgRN3-regularTooManyTasks",
+        "chattingArt/chart_imgRN3-orbify",
+        "birthday/arts_birthday2024",
+        "birthday/arts_birthday2025-1",
+        "birthday/arts_birthday2025-2",
+        "birthday/arts_birthday2026"
       ]
     },
     "FormalName_JP": "扇 四春.オーバーロール\n扇 四春.オーダーロール",

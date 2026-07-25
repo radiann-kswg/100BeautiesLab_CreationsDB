@@ -9930,7 +9930,7 @@
             "_DB": "Proxy",
             "_Work": "DestinyFoxRecords",
             "_Field": "arts_PNGPath",
-            "_IsoPath": "regular-birthday/arts_birthday2023"
+            "_IsoPath": "birthday/arts_birthday2023"
           }
         }
       ]
@@ -10421,7 +10421,7 @@
             "_DB": "Proxy",
             "_Work": "DestinyFoxRecords",
             "_Field": "arts_PNGPath",
-            "_IsoPath": "orbify-birthday/arts_birthday2024"
+            "_IsoPath": "birthday/arts_birthday2024"
           }
         }
       ]
@@ -10819,7 +10819,7 @@
             "_DB": "Proxy",
             "_Work": "DestinyFoxRecords",
             "_Field": "arts_PNGPath",
-            "_IsoPath": "regular-birthday/arts_birthday2025-1"
+            "_IsoPath": "birthday/arts_birthday2025-1"
           }
         },
         {
@@ -10827,7 +10827,7 @@
             "_DB": "Proxy",
             "_Work": "DestinyFoxRecords",
             "_Field": "arts_PNGPath",
-            "_IsoPath": "regular-birthday/arts_birthday2025-2"
+            "_IsoPath": "birthday/arts_birthday2025-2"
           }
         }
       ]
@@ -11268,7 +11268,7 @@
             "_DB": "Proxy",
             "_Work": "DestinyFoxRecords",
             "_Field": "arts_PNGPath",
-            "_IsoPath": "weakening-birthday/arts_birthday2026"
+            "_IsoPath": "birthday/arts_birthday2026"
           }
         }
       ]
