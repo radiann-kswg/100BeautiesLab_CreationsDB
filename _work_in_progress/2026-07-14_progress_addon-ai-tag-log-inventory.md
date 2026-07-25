@@ -118,6 +118,15 @@ Num **29 / 58 / 85 / 92**。`common.immutable_traits` の number marking 行が�
 - `AIHints` なし: 13 件（対象外とするか、scaffold するかの方針判断が要る）
 - `palette_priority` が `null`: 1 件（`10-alt`。`ColorPalette` を持たないため導出不可）
 
+> **2026-07-25 の再実測**: 状況は変わらず（AIHints 92 件 / `palette_priority` 確定 **91 件** / `_meta` 92 件）。
+> `--apply-colorpalette` の dry-run は `No changes to write.`＝**適用済みかつ冪等**であることを確認した。
+> `10-alt` は `palette-no-colorpalette` として正しくスキップされており、**導出漏れではない**。
+>
+> あわせて他 DB を実測: `SemiPrimary` / `SelfSecondary` / `Secondary` はいずれも **AIHints 0 件**（seed 待ち）だが、
+> **`ColorPalette` は投入済み**（8 / 7 / 11 件）。**seed 時に `--apply-colorpalette` を続けて実行すれば
+> 同じ経路で palette も埋まる**ため、`2026-07-17_progress_aihints-scope-semiprimary-selfsecondary.md` の
+> seed 手順にこの一手を含めること。
+
 ### A4. CI の自動 PR 作成が未実証（優先度: 低・監視のみ）
 
 `.github/workflows/aihints-structural-resync.yml` は push で起動・成功するが、構造ソース無変更のため
@@ -170,6 +179,29 @@ fallback で入る辞書値は AI タグとしては行儀が悪い。中期的�
 
 `tools/` は `develop` 所有のため、**本ブランチで触ると逆マージ禁止により永久分岐する**（A7 と同じ理由）。
 `develop` 側で対応すること。
+
+### A10. `develop` 側の統合母艦 T-02 が「未実装」と誤記されている（優先度: 中・`develop` 側課題）
+
+2026-07-25 のマージ棚卸しで発見。`develop` で新設された統合母艦
+`2026-07-25_remaining-task.md` の **T-02（AIHints への配色導出）** に、次の誤った記載がある。
+
+> ❌ **`ColorPalette` → `palette_priority` の導出モードが無い**
+> 現状は本体 DB に色があるのに AIHints からは見えず、**92/92 件 `null` のまま**
+
+**実際は実装・適用ともに完了済み**（`--apply-colorpalette` / `applyColorPaletteToAihints()` /
+`palette_priority` 確定 **91 件** / dry-run で差分ゼロ）。
+
+**原因**: `develop` 側の 2 ログ（`aihints-palette-deadlock` / `colorpalette-schema`）が 2026-07-13 時点の記述のままで、
+その後の本ブランチでの実装が `develop` からは見えないため。**`develop` 側のログだけを読むと構造的にこの誤解が起きる。**
+
+**対処（`develop` 側で行うこと）**:
+
+1. 母艦 `2026-07-25_remaining-task.md` の T-02 を「✅ 完了」へ訂正する
+2. `2026-07-13_progress_aihints-palette-deadlock.md` / `2026-07-13_progress_colorpalette-schema.md` へ
+   「本ブランチ（`addon-ai-tag`）では適用済み・確定 91 件」の注記を入れる
+
+母艦は `develop` と共通のファイルのため、**本ブランチで書き換えるとマージのたびに衝突する**。
+本項は「`develop` 側でやるべきこと」の申し送りとして台帳に置く（A7 / A9 と同じ扱い）。
 
 ## 影響範囲（編集ファイル）
 

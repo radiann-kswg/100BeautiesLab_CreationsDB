@@ -36,9 +36,25 @@
 
 | ログ | 主題 | 状態 |
 | --- | --- | --- |
-| [2026-07-22_progress_addon-ai-tag-merge.md](./2026-07-22_progress_addon-ai-tag-merge.md) | `develop` → `addon-ai-tag` の一方向マージ記録 | 🟢 履歴 |
-| [2026-07-17_progress_aihints-scope-semiprimary-selfsecondary.md](./2026-07-17_progress_aihints-scope-semiprimary-selfsecondary.md) | AIHints の適用範囲（SemiPrimary / SelfSecondary） | ⚠️ 継続 |
-| [2026-07-14_progress_addon-ai-tag-log-inventory.md](./2026-07-14_progress_addon-ai-tag-log-inventory.md) | 本ブランチのログ棚卸し記録 | 🟢 履歴 |
+| [2026-07-25_progress_addon-ai-tag-merge.md](./2026-07-25_progress_addon-ai-tag-merge.md) | `develop` 取り込みマージ（`6f68df3`）＋ 着手順4番の状態確認 | 🟢 現行 |
+| [2026-07-17_progress_aihints-scope-semiprimary-selfsecondary.md](./2026-07-17_progress_aihints-scope-semiprimary-selfsecondary.md) | AIHints の適用範囲（SemiPrimary / SelfSecondary）| ⚠️ seed 本体ほか 4 件が継続 |
+| [2026-07-14_progress_addon-ai-tag-log-inventory.md](./2026-07-14_progress_addon-ai-tag-log-inventory.md) | 本ブランチのログ棚卸し記録＋**AIHints 残課題台帳（A1〜A10）** | 🟢 台帳（AIHints の残課題はここ） |
+
+> **AIHints の残課題は統合母艦ではなく `2026-07-14_progress_addon-ai-tag-log-inventory.md` の
+> 「AIHints 残課題台帳」に集約**しています。母艦は `develop` と共通のファイルであり、AIHints 固有の項目を
+> 書き込むと取り込みマージのたびに衝突するためです。
+
+#### 母艦の索引との差異（本ブランチでは実ファイルが無い 3 件）
+
+統合母艦 `2026-07-25_remaining-task.md` の「進捗ログ索引」には、**本ブランチには存在しないログ**が
+3 件含まれます（いずれも本ブランチでは 2026-07-14 の棚卸しで先に `.completed/` へ退避済み）。
+母艦からのリンクは本ブランチではリンク切れになります。
+
+| 母艦の索引にある行 | 本ブランチでの扱い |
+| --- | --- |
+| `2026-07-08_progress_aihints-structural-resync-proposal.md` | 退避済み（第1階は実装・稼働まで完了を裏取り） |
+| `2026-07-13_progress_aihints-palette-deadlock.md` | 退避済み（第0〜2階すべて完了） |
+| `2026-07-02_progress_addon-ai-tag-reverse-merge-incident.md` | 退避済み |
 
 ### 系列の補足（過去フェーズは `.completed/` 参照）
 
@@ -61,6 +77,11 @@
 ## 完了（.completed へ退避済み）
 
 以下のファイルは実装・検証が完了し、`_work_in_progress/.completed/` へ移動済みです（Git 管轄外）。
+
+### 2026-07-25 addon-ai-tag マージ棚卸しで追加退避（1件・本ブランチ固有）
+
+- `2026-07-22_progress_addon-ai-tag-merge.md`（前回のマージ + 棚卸し作業ログ本体。唯一の未完了だった
+  「本マージ結果は未コミット」は `237b194` ほかで着地済み。`2026-07-25_progress_addon-ai-tag-merge.md` へ世代交代）
 
 ### 2026-07-25 タスク統合で追加退避（6件）
 
@@ -279,6 +300,16 @@
 
 ## 整理履歴
 
+- **2026-07-25 の addon-ai-tag 取り込みマージ（`6f68df3`）で、`develop` の 5 コミットを一方向マージしました。**
+  コンフリクトは `docs/api-sw-spec.md` と `_work_in_progress/README.md` の 2 ファイル。**着手時点では
+  前者が develop 側・後者が addon-ai-tag 側で片側採用されており、どちらも情報が落ちていた**ため、
+  両方を**両取り**で解消し直しました（前者は AIHints エンドポイント 2 行と `Works_OfficialLinks[]` の併記、
+  後者は develop の新構成を土台に本ブランチ固有の退避履歴 3 節・整理履歴 9 件・ブランチ注記を移植）。
+  あわせて**着手順 4 番（統合母艦 T-02: AIHints への配色導出）を消化**しましたが、実データとコードで裏取りした結果
+  **すでに実装・適用済み**（`--apply-colorpalette` 実装済み / `palette_priority` 確定 91 件 / dry-run 差分ゼロ）と判明し、
+  新規実装は不要でした。**母艦の「未実装」記載は `develop` 側のログが 2026-07-13 で止まっていたことによる誤り**で、
+  訂正は `develop` 側で行う必要があるため残課題台帳の **A10** へ登録しています。
+  本ブランチの棚卸しでは 1 件を退避（直下 19 件 → 18 件）。詳細は `2026-07-25_progress_addon-ai-tag-merge.md` を参照。
 - **2026-07-25、残タスクを統合母艦 `2026-07-25_remaining-task.md` へ一本化しました。**
   User 依頼により、**複数の進捗ログに内容が跨っていたタスクと、単一ログにのみ記録されていたタスクを
   等しく「1 タスク = 1 エントリ」へ概略化**し、あわせて進捗ログ全体の索引を同ファイルへ持たせました。
