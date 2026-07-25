@@ -64,8 +64,42 @@ CRLF になるのは `.gitattributes` の `* text=auto` ＋ `core.autocrlf=true`
    言い切る形にするか、テンプレ構造を見直すか。
 3. **`{value, about}` 形式が `[object Object]` になる**: `Height_cm` / `Weight_kg` が object 値のとき、
    テンプレから `{{Height_cm}}` で直接参照しているためアンラップされない（例: DestinyFoxRecords Proxy `3` の
-   `身長[object Object]cm・体重[object Object]kg`）。`@Age` は `buildVars()` 側でアンラップ済み。
+   `身長[object Object]cm・体重[object Object]kg`）。~~`@Age` は `buildVars()` 側でアンラップ済み。~~
    `resolvePath()` に共通のアンラップを入れるのが筋だが、全フィールドへ効くため影響確認が要る。
    **本件は今回の変更以前から存在**（差分でも `[object Object]` は変わっていない）。
 
 いずれも創作本文には踏み込まない機械的な整形の話だが、文面が変わるため User 確認のうえで着手する。
+
+---
+
+## 追記（2026-07-25 棚卸し）: 生成物の実測と、記述の訂正
+
+棚卸しにあたり「User 判断待ち」3 件が**実際に生成物へ出ているか**を全 66 件で走査した。
+
+### 3.（`[object Object]`）— 影響は想定より広く、記述に誤りがあった
+
+| 項目 | 実測 |
+| --- | --- |
+| `[object Object]` を含む生成物 | **66 件中 10 件**（約 15%） |
+| 内訳 | `体重[object Object]` **7 件** / `年齢は[object Object]` **3 件** / `身長[object Object]` **1 件** |
+| 該当ファイル | NumberTales `8` / `15` / `25` / `37` / `52` / `56` / `61` / `96` / `97`、DestinyFoxRecords Proxy `3` |
+
+**訂正**: 本ログは「`@Age` は `buildVars()` 側でアンラップ済み」と書いていたが、**これは誤り**。
+`61` / `96` / `97` の 3 件は `設定年齢は[object Object]歳です。` になっており、`@Age` も同じ症状が出ている。
+`15` は `体重[object Object], [object Object]kg` と配列 × object の二重化まで起きている。
+
+**影響度の見直し**: `RoleplayPrompts/` の生成物は**配布用の成果物**であり、体裁くずれがそのまま外部へ渡る。
+「User 判断待ち」の据え置きではなく、**修正を優先すべき項目**として母艦 P4-9 へ登録した。
+（文面が変わるため、着手時に User 確認を取る点は変わらない。）
+
+### 1. / 2.（句点の二重化・文断裂）— 現存を確認、影響は 1 ファイル
+
+- 実測: いずれも `data/Works_NumberTales/RoleplayPrompts/DB_SemiPrimary/roleplay-prompt-100.md` の
+  21 行目・22 行目に**現存**（`…接しやすい。。` / `…決して見放さないことである一方、`）。
+- 他 65 件では再現せず、現時点の影響は**この 1 ファイルのみ**。
+- 本ログ本文の「例: NumberTales `100`」は `DB_Primary` ではなく **`DB_SemiPrimary`** 配下（探すときの注意点）。
+
+### 補足
+
+- `node tools/build-roleplay-prompts.mjs --check` は `changed=0 unchanged=57` の冪等状態を維持しており、
+  上記 3 件は**再生成では直らない**（テンプレ／`render.mjs` 側の修正が要る）。
