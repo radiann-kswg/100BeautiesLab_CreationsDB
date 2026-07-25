@@ -1015,7 +1015,8 @@
       "corefolder_PNGPath": [
         "222/emstk_corefolder222-2a",
         "222/emstk_corefolder222-1"
-      ]
+      ],
+      "designAlt_PNGPath": ["chattingArt/chart_img222-humanoidWBed"]
     },
     "FormalName_JP": "ナンバーテールズ222番機(開発用オリジナル版3倍型2号機)",
     "FormalName_EN": "NumberTales #222 (Original version for development of EXtended By.3 Type Unit.2)",
@@ -1333,7 +1334,8 @@
       "corefolder_PNGPath": [
         "222/emstk_corefolder222-2b",
         "222/emstk_corefolder222-1"
-      ]
+      ],
+      "designAlt_PNGPath": ["chattingArt/chart_img222-humanoidWBed"]
     },
     "FormalName_JP": "ナンバーテールズ222番機(開発用オリジナル版1+11号2倍機)",
     "FormalName_EN": "NumberTales #222 (Original version for development of Unit.1+11 EXtended By.2)",
