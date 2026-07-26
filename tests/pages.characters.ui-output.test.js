@@ -198,6 +198,27 @@ function getBasicFieldValue(label) {
 	return row?.querySelector('td')?.textContent?.trim() || '';
 }
 
+/**
+ * 基本情報テーブルの JP/EN 2列表示（bilingual-lines-grid）を列ごとの行配列で取り出す
+ *
+ * @description 和英いずれかに改行を含む値は 1 セル内で左右 2 列へ分かれるため、
+ * textContent を連結した `getBasicFieldValue()` では行の境界が潰れてしまう。
+ * 2 列表示の検証にはこちらを使う。
+ * @param {string} label - 行見出し（th）のラベル
+ * @returns {{jp: string[], en: string[]}|null} 2列表示でない場合は null
+ */
+function getBasicFieldBilingualLines(label) {
+	const rows = Array.from(document.querySelectorAll('.kv-table tr'));
+	const row = rows.find((tr) => tr.querySelector('th')?.textContent?.trim() === label);
+	const grid = row?.querySelector('.bilingual-lines-grid');
+	if (!grid) return null;
+	const readColumn = (langClass) => Array.from(
+		grid.querySelectorAll(`.bilingual-lines--${langClass} .bilingual-lines__line`)
+	).map((node) => node.textContent?.trim() || '');
+
+	return { jp: readColumn('jp'), en: readColumn('en') };
+}
+
 function getSectionText(title) {
 	const section = Array.from(document.querySelectorAll('.section'))
 		.find((node) => node.querySelector('h3')?.textContent?.trim() === title);
@@ -382,7 +403,13 @@ describe('pages/characters.js UI output', () => {
 	it('renders dictionary-backed basic fields in detail view', async () => {
 		await charactersModule.renderDetail('#Works_PastDivers', yayoiRecord);
 
-		expect(getBasicFieldValue('正式名称')).toBe('桜花 訫 / Trustia Cherrybroom');
+		// FormalName_EN が別名義併記（複数行）になったため、正式名称は
+		// 「JP / EN」連結ではなく JP/EN 左右 2 列の bilingual 表示へ切り替わる
+		expect(getBasicFieldBilingualLines('正式名称')).toEqual({
+			jp: ['桜花 訫'],
+			en: ['Trustia Cherrybroom', 'Sakura Shinrie']
+		});
+		// 単一行の和英ペアは従来どおり「JP / EN」連結のまま
 		expect(getBasicFieldValue('所属')).toBe('夜月機関 / Yadzuki Organization');
 
 		const classText = getBasicFieldValue('クラス名');
