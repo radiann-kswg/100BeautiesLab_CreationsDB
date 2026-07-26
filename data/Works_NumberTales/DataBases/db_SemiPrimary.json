@@ -3797,12 +3797,6 @@
     "Class": ["開発者", "ヒューマノイド開発部(シンフォニー.XVI)"],
     "BustSize": "B",
     "Age": 24,
-    "AnivDay": [
-      {
-        "_Jump": { "hashTag": "BirthDay" },
-        "_Search": [{ "hashTag": "DayAbout", "key": "誕生日" }]
-      }
-    ],
     "ForMasterCalling_JP": "クライアントさん",
     "ForMasterCalling_EN": "Client-san",
     "RelationNotes_JP": "ナンバーテールズ開発者である零(カズナイ)姉弟の後輩。妹:歌嫁は同じくしてかつ百花繚乱研究所のアシスタントを行なっている。",
@@ -3843,12 +3837,6 @@
     "Class": ["ゼミアシスタント"],
     "BustSize": "B",
     "Age": 24,
-    "AnivDay": [
-      {
-        "_Jump": { "hashTag": "BirthDay" },
-        "_Search": [{ "hashTag": "DayAbout", "key": "誕生日" }]
-      }
-    ],
     "ForMasterCalling_JP": "クライアントさん",
     "ForMasterCalling_EN": "Client-san",
     "RelationNotes_JP": "ナンバーテールズ開発者である零(カズナイ)姉弟の後輩。姉:舞は同じくしてシンフォニー.XVI(ゼクズィン)に所属し黒薔薇国へ単身赴任している",

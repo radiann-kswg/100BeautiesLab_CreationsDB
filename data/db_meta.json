@@ -347,20 +347,76 @@
   "General": {
     "$VarsDef": {
       "#List_hideText": [
-        { "hideText": "？？？", "hideText_EN": "????" },
-        { "hideText": "データ無", "hideText_EN": "No Data" },
-        { "hideText": "公開不能", "hideText_EN": "Openly Not" },
-        { "hideText": "判定不能", "hideText_EN": "Unjudgeble" },
-        { "hideText": "判定失敗", "hideText_EN": "Judgement Failed" },
-        { "hideText": "検証中", "hideText_EN": "Now Researching" },
-        { "hideText": "極秘事項", "hideText_EN": "Confidential" },
-        { "hideText": "非公開希望", "hideText_EN": "Non-Public at Pleasure" },
-        { "hideText": "非公開", "hideText_EN": "Non-Public" },
-        { "hideText": "条件による", "hideText_EN": "Depending on Conditions" },
-        { "hideText": "定義不能", "hideText_EN": "Undefineble" },
-        { "hideText": "本人すら把握されていない", "hideText_EN": "Not Aware" },
-        { "hideText": "不定", "hideText_EN": "Indefinite" },
-        { "hideText": "削除済み", "hideText_EN": "Archived or Deleted" }
+        {
+          "hideText": "？？？",
+          "hideText_JP": "？？？",
+          "hideText_EN": "????"
+        },
+        {
+          "hideText": "データ無",
+          "hideText_JP": "データ無",
+          "hideText_EN": "No Data"
+        },
+        {
+          "hideText": "公開不能",
+          "hideText_JP": "公開不能",
+          "hideText_EN": "Openly Not"
+        },
+        {
+          "hideText": "判定不能",
+          "hideText_JP": "判定不能",
+          "hideText_EN": "Unjudgeble"
+        },
+        {
+          "hideText": "判定失敗",
+          "hideText_JP": "判定失敗",
+          "hideText_EN": "Judgement Failed"
+        },
+        {
+          "hideText": "検証中",
+          "hideText_JP": "検証中",
+          "hideText_EN": "Now Researching"
+        },
+        {
+          "hideText": "極秘事項",
+          "hideText_JP": "極秘事項",
+          "hideText_EN": "Confidential"
+        },
+        {
+          "hideText": "非公開希望",
+          "hideText_JP": "非公開希望",
+          "hideText_EN": "Non-Public at Pleasure"
+        },
+        {
+          "hideText": "非公開",
+          "hideText_JP": "非公開",
+          "hideText_EN": "Non-Public"
+        },
+        {
+          "hideText": "条件による",
+          "hideText_JP": "条件による",
+          "hideText_EN": "Depending on Conditions"
+        },
+        {
+          "hideText": "定義不能",
+          "hideText_JP": "定義不能",
+          "hideText_EN": "Undefineble"
+        },
+        {
+          "hideText": "本人すら把握されていない",
+          "hideText_JP": "本人すら把握されていない",
+          "hideText_EN": "Not Aware"
+        },
+        {
+          "hideText": "不定",
+          "hideText_JP": "不定",
+          "hideText_EN": "Indefinite"
+        },
+        {
+          "hideText": "削除済み",
+          "hideText_JP": "削除済み",
+          "hideText_EN": "Archived or Deleted"
+        }
       ],
       "$Def_Day": {
         "$display": { "wrapper": "daySummary", "sectionWrapper": "daySection" },

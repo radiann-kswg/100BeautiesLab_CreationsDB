@@ -20,8 +20,8 @@
         { "Virtues": "義", "Virtues_EN": "Righteousness" },
         { "Virtues": "礼", "Virtues_EN": "Propriety" },
         { "Virtues": "智", "Virtues_EN": "Wisdom" },
-        { "Virtues": "信", "Virtues_EN": "Trustworthiness" },
         { "Virtues": "忠", "Virtues_EN": "Loyalty" },
+        { "Virtues": "信", "Virtues_EN": "Trustworthiness" },
         { "Virtues": "孝", "Virtues_EN": "Filial Piety" },
         { "Virtues": "悌", "Virtues_EN": "Brotherly Love" }
       ]

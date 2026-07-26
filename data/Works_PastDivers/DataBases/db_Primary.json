@@ -135,7 +135,7 @@
     "Images": { "concept_PNGName": "cnsp_imgCL3G3" },
     "FormalName_JP": "桜花 訫",
     "FormalName_JPReading": "おうか とき",
-    "FormalName_EN": "Trustia Cherrybroom",
+    "FormalName_EN": "Trustia Cherrybroom\nSakura Shinrie",
     "RaceType": "Human",
     "GenderType": "Female",
     "Height_cm": 159,
@@ -767,5 +767,39 @@
     },
     "Career_JP": "先代「如月」により開発され、試験的実験の結果から自律行動性能が１年前に認められ、「第13の幹部」として正式に配属。",
     "Career_EN": "Developed by the 'Februarius' (previous 'Kisaragi') executive, her autonomous action capabilities were recognized one year ago following the results of experimental trials, and she was officially assigned as 'the 13th executive'."
+  },
+  {
+    "Chronos": { "Lunar": "Zeroth" },
+    "AnotherRegions_DBLink": [
+      { "_Work": "SinisterChangingGirls", "_DB": "Primary", "Drc": "W" }
+    ],
+    "Name_JP": "神夜崎 ユノ",
+    "Name_JPReading": "かみやざき ゆの",
+    "Name_EN": "Juno Theolessnight",
+    "GenderType": "Female",
+    "Belonging": ["夜月機関", "白の六芒星"],
+    "Height_cm": [
+      { "about_JP": "推定", "about_EN": "Presumption", "value": 143 }
+    ],
+    "Weight_kg": [{ "about_JP": "不詳", "about_EN": "Unknown or Undefined" }],
+    "BustSize": { "value": "A", "about_JP": "推定", "about_EN": "Presumption" },
+    "ChronospecStats": {
+      "ChronoizedProgress": {
+        "ChronoizedDecave": { "hideText": "判定不能" },
+        "ChronoizedPurity": "*ERROR*",
+        "ChronoizedAbout_JP": "（※ERROR:410 書類が削除されています※）",
+        "ChronoizedAbout_EN": "(* ERROR:410 THE_DOCUMENTS_HAVE_BEEN_DELETED *)"
+      },
+      "EffectStats": {
+        "Physical": { "hideText": "判定失敗" },
+        "Acceleration": { "hideText": "判定失敗" },
+        "Enforcing": { "hideText": "判定失敗" },
+        "Healing": { "hideText": "判定失敗" },
+        "Rewriting": { "hideText": "判定不能" }
+      },
+      "SafetyLevel": { "hideText": "判定不能" }
+    },
+    "Career_JP": { "hideText_JP": "極秘事項" },
+    "Career_EN": { "hideText_EN": "Confidential" }
   }
 ]
