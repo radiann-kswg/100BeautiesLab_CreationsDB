@@ -21,12 +21,6 @@
     "CodeName_EN": "Lust o'clock in Midnight",
     "Belonging": ["百花繚乱研究所"],
     "Age": 25,
-    "BirthDay": {
-      "_Jump": {
-        "hashTag": "AnivDay",
-        "_Search": [{ "hashTag": "DayAbout", "key": "誕生日" }]
-      }
-    },
     "Character_JP": "素面(シラフ)時：仲間思いの姉御肌。お調子者なムードメーカ\n泥酔時：甘えん坊極まりなく、成人としての限度を超えてしまうほどの破廉恥（※弟談）",
     "Character_EN": "When sober: a caring, big-sisterly mood-maker\nWhen dead drunk: outrageously clingy and indecent to an extent exceeding adult limits (per younger sibling's account)",
     "Hobby_JP": "数秘術占い、ROS(ロボット向けソフトウェア)開発、創作",
@@ -282,17 +276,25 @@
     "CodeName_EN": "Original Sin o'clock in Sunsetting",
     "RaceType": "HalfWarfox(ChronoidShifter)",
     "GenderType": "Female",
-    "Belonging": ["夜月機関"],
+    "Belonging": ["白の六芒星", "夜月機関"],
+    "Class": ["保護対象"],
     "Height_cm": [
       { "about_JP": "推定", "about_EN": "Presumption", "value": 143 }
     ],
     "Weight_kg": [{ "about_JP": "不詳", "about_EN": "Unknown or Undefined" }],
     "BustSize": { "value": "A", "about_JP": "推定", "about_EN": "Presumption" },
-    "Age": {
-      "value": 17,
-      "about_JP": "行方不明となった時点での年齢または享年",
-      "about_EN": "At the time of disappearance or death"
-    },
+    "ConceptAge": [
+      {
+        "value": 17,
+        "about_JP": "認知可能な状態での身体年齢",
+        "about_EN": "Recognizable physical age"
+      },
+      {
+        "value": 24,
+        "about_JP": "行方不明となった時点での年齢または享年",
+        "about_EN": "At the time of disappearance or death"
+      }
+    ],
     "BirthDay": { "Day": { "Month": 10, "DayOfMonth": 20 } },
     "FirstPersonCalling_JP": "",
     "SecondPersonCalling_JP": "",

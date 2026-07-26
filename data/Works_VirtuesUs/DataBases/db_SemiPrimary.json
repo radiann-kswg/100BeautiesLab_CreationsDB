@@ -6,9 +6,9 @@
     "Name_EN": "Benevoly Cherrybroom",
     "FormalName_JP": "桜花 仁",
     "FormalName_JPReading": "おうか じん",
-    "FormalName_EN": "Benevoly Cherrybroom",
+    "FormalName_EN": "Benevoly Cherrybroom\nSakura Jin",
     "GenderType": "Male",
-    "Belonging": ["九蓮国皇族"],
+    "Belonging": ["九蓮国皇族", "夜月機関"],
     "Height_cm": 163,
     "Weight_kg": { "hideText": "非公開希望" },
     "Age": 31,
@@ -32,7 +32,27 @@
   },
   {
     "Virtues": "礼",
-    "isPrivate": true
+    "AnotherRegions_DBLink": [
+      {
+        "_Work": "PastDivers",
+        "_DB": "SemiPrimary",
+        "Chronos": { "Lunar": "Martius.II" }
+      }
+    ],
+    "Name_JP": "桜花 礼",
+    "Name_JPReading": "おうか あきら",
+    "Name_EN": "Propriet Cherrybroom",
+    "FormalName_JP": "桜花 禮",
+    "FormalName_JPReading": "おうか あきら",
+    "FormalName_EN": "Propriet Cherrybroom\nSakura Akira",
+    "GenderType": "Female",
+    "Belonging": ["白の六芒星", "夜月機関"],
+    "Class": ["保護対象"],
+    "Age": {
+      "value": 27,
+      "about_JP": "仮に生存していた場合の年齢",
+      "about_EN": "Age if she were alive"
+    }
   },
   {
     "Virtues": "智",
@@ -47,9 +67,25 @@
     "Height_cm": 162,
     "Weight_kg": { "hideText": "非公開希望" },
     "BustSize": "C",
-    "Age": 25
+    "Age": 25,
+    "BirthDay": { "Day": { "Month": 1, "DayOfMonth": 30 } }
   },
-
+  {
+    "Virtues": "忠",
+    "Name_JP": "桜花 忠",
+    "Name_JPReading": "おうか ただし",
+    "Name_EN": "Loyat Cherrybroom",
+    "FormalName_JP": "桜花 忠\nトレース.フォン.キルシュブルーテン=レーゲンス",
+    "FormalName_JPReading": "おうか ただし\nトレース.フォン.キルシュブルーテン=レーゲンス",
+    "FormalName_EN": "Benevoly Cherrybroom\nTreuß.von.Kirschblüten=Regens",
+    "GenderType": "Male",
+    "Belonging": ["シンフォニー.XVI(ゼクズィン)"],
+    "Class": ["左遷・逆行研究部"],
+    "Height_cm": 158,
+    "Weight_kg": { "hideText": "本人すら把握されていない" },
+    "Age": 22,
+    "BirthDay": { "Day": { "Month": 8, "DayOfMonth": 28 } }
+  },
   {
     "Virtues": "信",
     "AnotherRegions_DBLink": [
@@ -64,16 +100,11 @@
     "Name_EN": "Trustia Cherrybroom",
     "FormalName_JP": "桜花 訫",
     "FormalName_JPReading": "おうか とき",
-    "FormalName_EN": "Trustia Cherrybroom",
+    "FormalName_EN": "Trustia Cherrybroom\nSakura Shinrie",
     "GenderType": "Female",
     "Belonging": ["夜月機関"],
     "BustSize": "B",
-    "Age": 21,
-    "BirthDay": { "_Jump": { "hashTag": "BirthDay" } }
-  },
-  {
-    "Virtues": "忠",
-    "isPrivate": true
+    "Age": 21
   },
   {
     "Virtues": "孝",
@@ -92,8 +123,7 @@
     "FormalName_EN": "Filia.Pieter Cherrybroom\nFilia.Pieter Virtuengrace=Springer",
     "GenderType": "Female",
     "Belonging": ["スターダスト・テクノロジー"],
-    "Age": 20,
-    "BirthDay": { "_Jump": { "hashTag": "BirthDay" } }
+    "Age": 20
   },
   {
     "Virtues": "悌",

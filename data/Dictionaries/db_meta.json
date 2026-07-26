@@ -26,6 +26,13 @@
       "keyField": "GenderType",
       "compatListKey": "#List_GenderType"
     },
+    "#Dict_WhiteHexagram": {
+      "DB_Label_JP": "クラス辞書(白の六芒星向け)",
+      "DB_Label_EN": "Class Dictionary (for WhiteHexagram)",
+      "keyField": "Class",
+      "compatListKey": "#List_Class",
+      "scopeField": { "Belonging": "白の六芒星" }
+    },
     "#Dict_NeoLotusNinean": {
       "DB_Label_JP": "クラス辞書(新生九蓮向け)",
       "DB_Label_EN": "Class Dictionary (for Neo.LotusNinean)",

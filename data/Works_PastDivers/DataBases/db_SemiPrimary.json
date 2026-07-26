@@ -1,5 +1,23 @@
 [
   {
+    "Chronos": { "Lunar": "Martius.II" },
+    "AnotherRegions_DBLink": [
+      { "_Work": "VirtuesUs", "_DB": "SemiPrimary", "Virtues": "礼" }
+    ],
+    "Name_JP": "桜花 礼",
+    "Name_JPReading": "おうか あきら",
+    "Name_EN": "Propriet Cherrybroom",
+    "FormalName_JP": "桜花 禮",
+    "FormalName_JPReading": "おうか あきら",
+    "FormalName_EN": "Propriet Cherrybroom\nSakura Akira",
+    "GenderType": "Female",
+    "Height_cm": 160,
+    "Weight_kg": { "hideText": "非公開希望" },
+    "BustSize": "C",
+    "Age": 22,
+    "BirthDay": { "Day": { "Month": 9, "DayOfMonth": 18 } }
+  },
+  {
     "Chronos": { "Lunar": "Junius.II" },
     "Progress": "notProceeded",
     "AnotherRegions_DBLink": [
@@ -16,16 +34,6 @@
     "Weight_kg": { "hideText": "非公開" },
     "BustSize": "E",
     "Age": 20,
-    "BirthDay": {
-      "_Jump": {
-        "hashTag": "BirthDay",
-        "_DBLink": {
-          "_Work": "SinisterChangingGirls",
-          "_DB": "Primary",
-          "Drc": "E"
-        }
-      }
-    },
     "Summary_JP": "",
     "Summary_EN": "",
     "ChronoholderName_JP": "時空天恵\n時空霹靂",
@@ -53,5 +61,25 @@
     },
     "Career_JP": "先代幹部「水無瀬 青雲」の推薦により幹部に昇進予定だったが、ある日先代幹部の殉職を研修中に目撃したことを受け、幹部着任が未承認のまま現在に至る。なお、独立による脱退申請を行っているとのこと。",
     "Career_EN": "She was scheduled to be promoted to executive by the recommendation of the previous executive 'Navisky Afterains', but after witnessing the previous executive's death during training, her executive appointment remains unapproved to this day. It is said that she has submitted a resignation request due to independence."
+  },
+  {
+    "Chronos": { "Lunar": "Junius" },
+    "Name_JP": "水無瀬 青雲",
+    "Name_JPReading": "みなせ せいうん",
+    "Name_EN": "Navisky Afterains",
+    "FormalName_JP": "水無瀬 青雲",
+    "FormalName_JPReading": "みなせ せいうん",
+    "FormalName_EN": "Navisky Afterains",
+    "GenderType": "Male",
+    "Height_cm": 188,
+    "Weight_kg": 70,
+    "Age": { "value": 72, "about_JP": "享年", "about_EN": "Age at death" },
+    "AnivDay": [
+      {
+        "Day": { "Month": 6, "DayOfMonth": 16 },
+        "DayAbout_JP": "初代水無月殉職事故事件",
+        "DayAbout_EN": "Strictly Incident with First Junius Death"
+      }
+    ]
   }
 ]
