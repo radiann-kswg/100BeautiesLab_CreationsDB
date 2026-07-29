@@ -98,8 +98,28 @@
 
 ## AIHints 残課題台帳（退避ログから引き継ぎ）
 
-> 共有の母艦（`2026-07-08_remaining-task.md`）は `develop` と共通のファイルであり、AIHints 固有の項目を
-> 書き込むと取り込みマージのたびに衝突しやすい。そのため **AIHints の残課題は本ログに集約**する。
+> 共有の母艦（`2026-07-08_remaining-task.md` → 現在は `2026-07-25_remaining-task.md`）は `develop` と
+> 共通のファイルであり、AIHints 固有の項目を書き込むと取り込みマージのたびに衝突しやすい。
+> そのため **AIHints の残課題は本ログに集約**する。
+
+**状態一覧（2026-07-29 更新）**
+
+| 項目 | 状態 | 備考 |
+| --- | --- | --- |
+| A1 `natural_language_description` が全件 `null` | 🔴 継続 | 別経路で埋める設計が要る |
+| A2 `TODO: marking placement` 4 件 | 🔴 継続 | Num 29 / 58 / 85 / 92 |
+| A3 `AIHints` 未保持 13 件 / `ColorPalette` 未保持 1 件 | 🔴 継続 | 2026-07-29 も実測不変 |
+| A4 CI の自動 PR 作成が未実証 | ✅ **クローズ** | PR #14 で実証（2026-07-25） |
+| A5 `--suggest --force` の運用 | 🟢 運用ルールとして確定 | `docs/ai-hints-usage.md` §9.9 / §9.10 |
+| A6 `migrate-aihints.mjs` の per-record opt-out | 🔴 継続（latent） | `#DB_Secondary` へ seed する前に必須 |
+| A7 `_Secondaries` マッチャの三重化 | 🔴 継続 | **`develop` 側 T-08 項目 1** として登録済み |
+| A8 `CLASS_NAMES_EN` のレジスタ乖離 | 🟡 User 判断待ち | **`develop` 側 T-08 項目 7** として登録済み |
+| A9 `extract-enum-lists-to-dictionaries.mjs` のシェバン残存 | 🔴 継続 | **`develop` 側 T-08 項目 6** として登録済み |
+| A10 母艦 T-02 の誤記 | ✅ **クローズ** | `develop` 側で訂正 → 2026-07-29 に T-02 ごと畳まれた |
+| A11 検索テストの API プレフィックス分岐 | 🟡 本ブランチは対処済み | **`develop` 側でも同じ修正が要る**（下記） |
+
+> **`develop` 所有ファイルの課題（A7 / A9 / A11）は本ブランチで直さないこと。**
+> 逆マージ禁止のため、本ブランチで触ると永久分岐します（A8 は加えて創作判断が要る）。
 
 ### A1. `common.natural_language_description` が 92/92 件 `null`（優先度: 中）
 
@@ -126,12 +146,24 @@ Num **29 / 58 / 85 / 92**。`common.immutable_traits` の number marking 行が�
 > **`ColorPalette` は投入済み**（8 / 7 / 11 件）。**seed 時に `--apply-colorpalette` を続けて実行すれば
 > 同じ経路で palette も埋まる**ため、`2026-07-17_progress_aihints-scope-semiprimary-selfsecondary.md` の
 > seed 手順にこの一手を含めること。
+>
+> **2026-07-29 の再実測（取り込みマージ直後）**: AIHints **92 件** / `_meta` **92 件** /
+> `palette_priority` 確定 **91 件** / `null` **1 件**（`10-alt`）で **前回から不変**。
+> `--resync-structural` と `--apply-colorpalette` の dry-run はいずれも **`No changes to write.`**。
+> 今回のマージは `dict_Faction.json` の構造（`Belonging` → `Faction` 一本化）を含むが、
+> `STRUCTURAL_SOURCE_FIELDS`（`Num` / `GenderType` / `ConceptAge` / `Height_cm` / `TailsUnit` /
+> `AppearanceDetail` / `ColorPalette`）に `Belonging` は入っていないため **AIHints への波及はゼロ**。
 
-### A4. CI の自動 PR 作成が未実証（優先度: 低・監視のみ）
+### A4. ✅ CI の自動 PR 作成が未実証（優先度: 低・監視のみ）— **2026-07-25 に実証・クローズ**
 
 `.github/workflows/aihints-structural-resync.yml` は push で起動・成功するが、構造ソース無変更のため
 **no-op で停止した状態しか確認できていない**。PR 作成そのものは、構造ソースが変わる次回 push で初めて実証される。
 `workflow_dispatch`（手動実行）はワークフローがデフォルトブランチに無いため利用できない。
+
+> **クローズ（2026-07-25 実証 / 2026-07-29 に台帳へ反映）**: 本番 Actions で
+> **PR #14「AIHints: 構造的再同期（自動生成）」が自動作成 → マージ（`6bf1e50`）→ 以降 no-op** まで確認済み。
+> PR 作成経路は実証されたため本項はクローズする。残る監視観点は **T-09**（このワークフローが
+> リポジトリ全体の `npm test` に依存し、無関係な赤で静かに止まる）へ一本化。
 
 ### A5. `--suggest --force` の運用（優先度: 低・運用ルール）
 
@@ -180,7 +212,15 @@ fallback で入る辞書値は AI タグとしては行儀が悪い。中期的�
 `tools/` は `develop` 所有のため、**本ブランチで触ると逆マージ禁止により永久分岐する**（A7 と同じ理由）。
 `develop` 側で対応すること。
 
-### A10. `develop` 側の統合母艦 T-02 が「未実装」と誤記されている（優先度: 中・`develop` 側課題）
+### A10. ✅ `develop` 側の統合母艦 T-02 が「未実装」と誤記されている（優先度: 中・`develop` 側課題）— **2026-07-29 にクローズ**
+
+> **クローズ（2026-07-29 の取り込みマージで確認）**: 下記「対処」の 1・2 とも `develop` 側で完了済み。
+> さらに 2026-07-29 の `develop` 棚卸しで **T-02 のエントリ自体が完了として畳まれ**、根拠となっていた
+> 2 ログ（`aihints-palette-deadlock` / `aihints-structural-resync-proposal`）も `develop` 側で `.completed/` へ
+> 退避された（本ブランチでは 2026-07-14 に先行退避済みだったため、**これで両ブランチの状態が揃った**）。
+> 母艦の「運用ルール」にも「AIHints の状態は `develop` 側のログだけで判断しない」旨が明文化されている。
+
+<details><summary>当時の記録（2026-07-25 発見時）</summary>
 
 2026-07-25 のマージ棚卸しで発見。`develop` で新設された統合母艦
 `2026-07-25_remaining-task.md` の **T-02（AIHints への配色導出）** に、次の誤った記載がある。
@@ -202,6 +242,25 @@ fallback で入る辞書値は AI タグとしては行儀が悪い。中期的�
 
 母艦は `develop` と共通のファイルのため、**本ブランチで書き換えるとマージのたびに衝突する**。
 本項は「`develop` 側でやるべきこと」の申し送りとして台帳に置く（A7 / A9 と同じ扱い）。
+
+</details>
+
+### A11. `tests/cloudflare-search-errors.test.js` の API プレフィックス分岐（優先度: 中・`develop` 側課題）
+
+2026-07-29 の取り込みマージで発見。`develop` で新設された同テストは
+`/api/v1/:work/search?q=*` を**ハードコード**で叩くが、本ブランチの Worker は
+`pathname.match(/^\/api\/ai(\/.*)?$/)` で **`/api/ai` しかルーティングしない**（`pkg/cloudflare/worker.js`）。
+そのため `develop` では通るテストが、本ブランチでは **404 を返して必ず落ちる**（実測: 1 failed / 745）。
+
+**これは T-09 の実例**（AIHints と無関係な赤が 1 件でも残ると、構造的再同期の自動 PR が静かに止まる）。
+
+**本ブランチでの対処（2026-07-29 実施済み）**: テスト側で `/api/v1` → `/api/ai` の順に `/works` を叩き、
+**404 以外を返したプレフィックスを採用**する `resolveApiPrefix()` を追加した。これで同一ファイルが
+両ブランチで成立する（マージ後 `npm test` 54 ファイル / **745 件全緑**）。
+
+**対処（`develop` 側で行うこと）**: `develop` の同ファイルにも**同じ prefix 検出版を入れる**。
+入れないと、同名ファイルが両ブランチで別内容のまま分岐し続ける（A7 / A9 と同じ構造の負債）。
+`develop` 側は現状 `/api/v1` 固定でも緑のままなので**急を要さないが、次に同ファイルを触るときは必ず揃える**こと。
 
 ## 影響範囲（編集ファイル）
 

@@ -36,25 +36,28 @@
 
 | ログ                                                                                                                               | 主題                                                          | 状態                              |
 | ---------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------- | --------------------------------- |
-| [2026-07-25_progress_addon-ai-tag-merge.md](./2026-07-25_progress_addon-ai-tag-merge.md)                                           | `develop` 取り込みマージ（`6f68df3`）＋ 着手順4番の状態確認   | 🟢 現行                           |
+| [2026-07-29_progress_addon-ai-tag-merge.md](./2026-07-29_progress_addon-ai-tag-merge.md)                                           | `develop` 取り込みマージ（`46a3845`）＋ 本ブランチの棚卸し     | 🟢 現行                           |
 | [2026-07-17_progress_aihints-scope-semiprimary-selfsecondary.md](./2026-07-17_progress_aihints-scope-semiprimary-selfsecondary.md) | AIHints の適用範囲（SemiPrimary / SelfSecondary）             | ⚠️ seed 本体ほか 4 件が継続       |
-| [2026-07-14_progress_addon-ai-tag-log-inventory.md](./2026-07-14_progress_addon-ai-tag-log-inventory.md)                           | 本ブランチのログ棚卸し記録＋**AIHints 残課題台帳（A1〜A10）** | 🟢 台帳（AIHints の残課題はここ） |
+| [2026-07-14_progress_addon-ai-tag-log-inventory.md](./2026-07-14_progress_addon-ai-tag-log-inventory.md)                           | 本ブランチのログ棚卸し記録＋**AIHints 残課題台帳（A1〜A11）** | 🟢 台帳（AIHints の残課題はここ） |
 
 > **AIHints の残課題は統合母艦ではなく `2026-07-14_progress_addon-ai-tag-log-inventory.md` の
 > 「AIHints 残課題台帳」に集約**しています。母艦は `develop` と共通のファイルであり、AIHints 固有の項目を
 > 書き込むと取り込みマージのたびに衝突するためです。
 
-#### 母艦の索引との差異（本ブランチでは実ファイルが無い 3 件）
+#### 母艦の索引との差異（本ブランチでは実ファイルが無い 1 件）
 
 統合母艦 `2026-07-25_remaining-task.md` の「進捗ログ索引」には、**本ブランチには存在しないログ**が
-3 件含まれます（いずれも本ブランチでは 2026-07-14 の棚卸しで先に `.completed/` へ退避済み）。
+含まれることがあります（本ブランチが先に `.completed/` へ退避しているため）。
 母艦からのリンクは本ブランチではリンク切れになります。
 
-| 母艦の索引にある行                                           | 本ブランチでの扱い                            |
-| ------------------------------------------------------------ | --------------------------------------------- |
-| `2026-07-08_progress_aihints-structural-resync-proposal.md`  | 退避済み（第1階は実装・稼働まで完了を裏取り） |
-| `2026-07-13_progress_aihints-palette-deadlock.md`            | 退避済み（第0〜2階すべて完了）                |
-| `2026-07-02_progress_addon-ai-tag-reverse-merge-incident.md` | 退避済み                                      |
+| 母艦の索引にある行                                           | 本ブランチでの扱い |
+| ------------------------------------------------------------ | ------------------ |
+| `2026-07-02_progress_addon-ai-tag-reverse-merge-incident.md` | 退避済み           |
+
+> **2026-07-29 で差異が 3 件 → 1 件へ縮みました。** かつて差異だった
+> `2026-07-08_progress_aihints-structural-resync-proposal.md` と `2026-07-13_progress_aihints-palette-deadlock.md`
+> は、2026-07-29 の `develop` 側棚卸しで **`develop` でも `.completed/` へ退避**され、母艦の索引からも
+> 外れました（＝両ブランチの状態が揃い、リンク切れも解消）。
 
 ### 系列の補足（過去フェーズは `.completed/` 参照）
 
@@ -78,6 +81,12 @@
 ## 完了（.completed へ退避済み）
 
 以下のファイルは実装・検証が完了し、`_work_in_progress/.completed/` へ移動済みです（Git 管轄外）。
+
+### 2026-07-29 addon-ai-tag マージ棚卸しで追加退避（1件・本ブランチ固有）
+
+- `2026-07-25_progress_addon-ai-tag-merge.md`（前回のマージ + 棚卸し作業ログ本体。未完了だった
+  「本棚卸しの成果は未コミット」は着地済み、最重要の申し送り「`develop` 側で母艦 T-02 を訂正」も
+  **`develop` 側で完了**して台帳 A10 がクローズ。`2026-07-29_progress_addon-ai-tag-merge.md` へ世代交代）
 
 ### 2026-07-29 棚卸しで追加退避（4件・`develop` 由来）
 
@@ -323,6 +332,18 @@
 
 ## 整理履歴
 
+- **2026-07-29、`develop`（`a4ee3c9`）を本ブランチへ取り込みマージし（`46a3845`）、1件 を `.completed/` へ退避しました。**
+  コンフリクトは **5 ファイル**（`db_meta.json` ×3 / `docs/api-sw-spec.md` / 本 README）で、いずれも**両取り**で解消。
+  データ 3 件は「`develop` の `_Commons` 更新（`Belonging` の構造化・`FromArea`・`_ListLinkIf_Suit`）」と
+  「本ブランチの `AI_Optout: true`」が**同じ `#DB_*` ブロックの隣接行**で衝突したもので、両方を保持しています。
+  **マージ後の `npm test` で 1 件が赤**になり（`tests/cloudflare-search-errors.test.js`）、原因は
+  develop 側テストが `/api/v1` を**ハードコード**で叩く一方、本ブランチの Worker は `/api/ai` しか
+  ルーティングしないためと特定。テスト側にプレフィックス自動検出を入れて**両ブランチで成立する形**へ直し、
+  **54 ファイル / 745 件全緑**へ回復させました（台帳 **A11**・`develop` 側にも同じ修正が要ります）。
+  あわせて今回のマージが含む `dict_Faction.json` の構造変更が AIHints に波及しないことを、
+  `--resync-structural` / `--apply-colorpalette` の dry-run（**いずれも `No changes to write.`**）と
+  実データ（AIHints 92 / `palette_priority` 確定 91・不変）で裏取り。台帳は **A4 / A10 をクローズ**し、
+  状態一覧の表（A1〜A11）を新設しました。詳細は `2026-07-29_progress_addon-ai-tag-merge.md` を参照。
 - **2026-07-29 の棚卸しで、4件 を `.completed/` へ退避し、直下を 17件 → 13件（+ 母艦・+README）に整理しました。**
   今回は定点観測（`npm test` 46 files / **627 件全緑** ・`agents:check` 0/2 ・`data:order:check` 0/1287 ・
   `roleplay:check` changed=0）に加えて、**本番実 API を curl で叩いてデプロイ状態まで裏取り**しています。
