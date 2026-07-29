@@ -89,14 +89,17 @@ dry-run 全体は **`No changes to write.`** ＝ 適用済みかつ冪等。
 `addon-ai-tag` 側の残課題は同ブランチの
 `2026-07-14_progress_addon-ai-tag-log-inventory.md`「AIHints 残課題台帳（A1〜A10）」に集約されている。
 
-### T-03 🔴 実 API の検索が不正クエリで 500 を返す
+### T-03 ✅ 実 API の検索が不正クエリで 500 を返す — **完了**（2026-07-29）
 
 - **関連ログ**: `.completed/2026-07-25_progress_priority-tasks.md`（単一・2026-07-25 に実測で発見）
-- **事象**: `GET /api/v1/:work/:db/search?q=*` が `{"error":"Internal server error","status":500}`。
-  FTS5 の特殊構文がそのままクエリへ渡り、例外がハンドリングされていないとみられる
-- **正常な範囲**: 通常の検索は動作する（`?q=Fivens` / `?q=イズナ`〈要 URL エンコード〉で Num 57 が返る）
-- **あるべき挙動**: 不正クエリは 500 ではなく **400**
-- **実装先**: `pkg/cloudflare/worker.js`（FTS5 クエリのサニタイズ／try-catch）
+- **対応内容**:
+  - `pkg/cloudflare/worker.js` に検索クエリ正規化 (`normalizeSearchQuery`) を追加し、`*` / `?` を含む不正クエリを `ApiError(400, "Invalid search query")` で早期拒否
+  - DB 単位検索 (`searchRecordsInD1`)・作品横断検索 (`searchAllRecordsInD1`) の D1 実行を try-catch 化し、FTS5 由来の例外を 500 ではなく 400 へ正規化
+  - 回帰テスト `tests/cloudflare-search-errors.test.js` を追加し、`GET /api/v1/:work/search?q=*` が 400 + `Invalid search query` を返すことを固定
+- **検証結果**:
+  - `npm test -- --run tests/cloudflare-search-errors.test.js` → 1/1 pass
+  - `npm test` → 46 files / 627 tests pass
+- **備考**: 通常検索（例: `q=Fivens` / `q=イズナ`）の既存挙動は維持
 
 ### T-04 🔴 フィールド順整列 Phase 4（ネスト整列のツール化）
 
@@ -128,11 +131,14 @@ dry-run 全体は **`No changes to write.`** ＝ 適用済みかつ冪等。
   テンプレ選択と出力先の lang 分離、EN テンプレ 3 本の新設
 - **制約**: **LLM で創作本文を訳出・生成しない**。`_EN` 欠落はその節を空のまま出す
 
-### T-07 🔴 `calling.js` のユニットテスト・UI 動作確認
+### T-07 ✅ `calling.js` のユニットテスト・UI 動作確認 — **完了**（2026-07-29）
 
 - **関連ログ**: `2026-06-24_progress_localization-rules-audit.md`（単一）
-- **状態**: `lib/section-renders/calling.js` の実装は完了しているが、**ユニットテストが未追加**で、
-  ローカル HTTP サーバー上での表示確認も未実施（2026-06-24 から継続）
+- **状態**: 2026-07-29 に以下を実施して完了。
+  - `tests/section-renders.calling.test.js` を新規追加（callingSection の登録 / JP トークン描画 / 言語未解決フォールバック）
+  - `runTests` で `tests/section-renders.calling.test.js` + `tests/calling-common.test.js` が **全16件成功**
+  - ローカル UI（`pages/characters.html?c=SinisterChangingGirls/Primary/Drc:SW&lang=jp`）で
+    Calling セクション描画を確認（`一人称/二人称/三人称` 見出し、`.calling-value` 3件、`.calling-tok` 7件、`.calling-tok--ref` 2件）
 - **補足**: 後続の `fix_calling-schema-duplication` は 2026-07-14 に完了・退避済み。
   作品別 typedef に残る `ForMasterCalling_JP`/`_EN` の suffix 宣言は表示バグを起こさないことを確認済み
 
@@ -260,6 +266,12 @@ dry-run 全体は **`No changes to write.`** ＝ 適用済みかつ冪等。
 ### T-25 🟡 Issue #13（数秘解説 / スキンシップ反応フィールドの追加）
 
 - **関連ログ**: `2026-07-22_progress_issue13-numerology-skinship.md`（単一）／2026-07-21 起票・**OPEN 継続**
+- **実行チェックリスト（着手時の入口）**:
+  1. まず [2026-07-22_progress_issue13-numerology-skinship.md](./2026-07-22_progress_issue13-numerology-skinship.md) の
+     「導入方針」「想定スコープ」「未完了タスク」を確認する
+  2. 次に本項の 4 つの設計判断（命名 / 配置 / 表示系接続 / 対象範囲）を順に確定する
+  3. 確定後、`schema` → `meta` → `DB` の順で非破壊追加の実装に進める
+  4. 内容本文（`value_JP` / `about_JP`）は User 監修・手動入力として扱い、AI 側で自動生成しない
 - **待ち項目（設計判断）**:
   1. フィールド命名（`NumerologyExamples` / `SkinshipReactions` を採用するか）
   2. 配置（`ConversationPattern` 配下か、トップレベル独立か）
@@ -336,7 +348,7 @@ dry-run 全体は **`No changes to write.`** ＝ 適用済みかつ冪等。
 | [2026-06-28_progress_conversationpattern-handoff.md](./2026-06-28_progress_conversationpattern-handoff.md) | ConversationPattern 補完の引き継ぎ | **T-21** | ⚠️ User 入力待ち |
 | [2026-06-25_progress_localization-summary-inputs.md](./2026-06-25_progress_localization-summary-inputs.md) | Localization Summary の入力チェックリスト | **T-24** | ⚠️ 残 7 件 |
 | [2026-06-24_progress_localization-db.md](./2026-06-24_progress_localization-db.md) | Localization レイヤーの実装 | **T-24** | ⚠️ 原作者確認・項目追加が継続 |
-| [2026-06-24_progress_localization-rules-audit.md](./2026-06-24_progress_localization-rules-audit.md) | 英訳ルールの追補・`calling.js` 実装 | **T-07** | ⚠️ テスト/UI 確認が残 |
+| [2026-06-24_progress_localization-rules-audit.md](./2026-06-24_progress_localization-rules-audit.md) | 英訳ルールの追補・`calling.js` 実装 | **T-07** | ✅ 2026-07-29 テスト/UI 確認完了 |
 | [2026-06-21_progress_cloudflare-api-adr2-gcloud.md](./2026-06-21_progress_cloudflare-api-adr2-gcloud.md) | ADR-0002（Google Cloud） | **T-30** | 🔵 Draft |
 | [2026-06-12_progress_translation-style-unified.md](./2026-06-12_progress_translation-style-unified.md) | 英訳ルール基準書・バッチ作業ログ | — | 📖 **参照専用**（ルール本体） |
 

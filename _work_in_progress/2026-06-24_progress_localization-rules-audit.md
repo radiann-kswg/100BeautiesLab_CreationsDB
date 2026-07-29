@@ -80,5 +80,8 @@
 ## 未完了 / 申し送り
 - `docs/readme.en.md` は別件で内容が旧い（Cloudflare Workers 実 API 未記載・`_DBLink` 旧形式）。英訳フィールドルールとは別レイヤーのため本作業では未対応。
 - 上記「要手動確認」6 件は User による内容精査・修正が必要
-- `calling.js` のユニットテスト・UI 動作確認（ローカル HTTP サーバー上での表示テスト）は User 側で実施要
+- `calling.js` のユニットテスト・UI 動作確認は 2026-07-29 に完了（以下）。
+	- `tests/section-renders.calling.test.js` を追加（登録・JP描画・フォールバック）
+	- `tests/section-renders.calling.test.js` + `tests/calling-common.test.js` 実行結果: 16 件成功
+	- ローカル UI 実測: `pages/characters.html?c=SinisterChangingGirls/Primary/Drc:SW&lang=jp` で Calling 描画確認
 - 注: Windows マウントの書き込み遅延により編集が一時 495 行で切れたが、再結合・再書き込みで復旧済み。
