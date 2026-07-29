@@ -31,6 +31,7 @@
           "RaceType",
           "GenderType",
           "Belonging",
+          "FromArea",
           "Class",
           "Height_cm",
           "Weight_kg",
@@ -135,6 +136,7 @@
           "RaceType",
           "GenderType",
           "Belonging",
+          "FromArea",
           "Class",
           "Height_cm",
           "Weight_kg",
@@ -197,6 +199,7 @@
           "RaceType",
           "GenderType",
           "Belonging",
+          "FromArea",
           "Class",
           "Height_cm",
           "Weight_kg",
@@ -223,6 +226,7 @@
           "RaceType",
           "GenderType",
           "Belonging",
+          "FromArea",
           "Class",
           "Height_cm",
           "Weight_kg",
@@ -283,6 +287,7 @@
           "RaceType",
           "GenderType",
           "Belonging",
+          "FromArea",
           "Class",
           "Height_cm",
           "Weight_kg",
@@ -462,6 +467,7 @@
         ]
       },
       "$Def_BaseArea": {
+        "$display": { "wrapper": "baseAreaSummary" },
         "$DefType": [
           {
             "hashTag": "Area",
@@ -482,6 +488,33 @@
         ],
         "hashTag_JP": "活動地域",
         "hashTag_EN": "Base Area"
+      },
+      "$Def_Faction": {
+        "$DefType": [
+          {
+            "hashTag": "Faction",
+            "$type": "#DictIndex",
+            "$dict": "Faction",
+            "hashTag_JP": "所属先",
+            "hashTag_EN": "Faction",
+            "$display": { "role": "factionCode" }
+          },
+          {
+            "hashTag": "FactionsBaseArea",
+            "$type": "$Def_BaseArea",
+            "$dictRef": { "from": "Faction", "field": "FactionsBaseArea" },
+            "hashTag_JP": "活動地域",
+            "hashTag_EN": "Base Area",
+            "$display": { "role": "factionArea" }
+          }
+        ],
+        "$shorthand": "Faction",
+        "$display": {
+          "wrapper": "factionSummary",
+          "arrayLayout": "multiline"
+        },
+        "hashTag_JP": "所属陣営",
+        "hashTag_EN": "Belonging Faction"
       },
       "#List_BustSize": [
         { "BustSize": "AA" },

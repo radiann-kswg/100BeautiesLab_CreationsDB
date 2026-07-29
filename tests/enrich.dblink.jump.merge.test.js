@@ -107,22 +107,22 @@ describe('_DBLink / _Jump merge (in-process)', () => {
     });
   });
 
-  it('Belonging の辞書項目に BelongingArea があっても、top-level へは補助展開しない', async () => {
-    class BelongingAreaDataFetcher extends TestDataFetcher {
+  it('Belonging の辞書項目に FactionsBaseArea があっても、top-level へは補助展開しない', async () => {
+    class FactionsBaseAreaDataFetcher extends TestDataFetcher {
       async readGeneralVarsDefGlobal() {
         return {
           '#List_Belonging': [
             {
               Belonging: '百花繚乱研究所',
               Belonging_EN: 'HundredBeauties Laboratory',
-              BelongingArea: { Area: '九蓮国' }
+              FactionsBaseArea: { Area: '九蓮国' }
             }
           ]
         };
       }
     }
 
-    const dataFetcher = new BelongingAreaDataFetcher();
+    const dataFetcher = new FactionsBaseAreaDataFetcher();
     const proc = new globalThis.EnrichmentProcessor(dataFetcher, testConfig);
 
     const rec = {
@@ -133,8 +133,8 @@ describe('_DBLink / _Jump merge (in-process)', () => {
     const out = await proc.enrichRecords([rec], '#Works_Test', 'Primary');
     const e = out[0];
 
-    expect(e.BelongingArea).toBeUndefined();
-    expect(e._enrichment?.derivedBelongingAreas).toBeUndefined();
+    expect(e.FactionsBaseArea).toBeUndefined();
+    expect(e._enrichment?.derivedFactionsBaseAreas).toBeUndefined();
   });
 
   it('ルート（旧形式）_DBLink を足場に BirthDay._Jump を参照先の実値へ置換できる', async () => {

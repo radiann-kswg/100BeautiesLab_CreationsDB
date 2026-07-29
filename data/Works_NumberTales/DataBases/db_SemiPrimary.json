@@ -15,7 +15,10 @@
     "ModelName_JP": "ナンバーテールズ試作正規型10号機改(100番機/キャレ-ディス)",
     "ModelName_EN": "NumberTales' Proto-Standard: NumberTales Unit.10 Refactored (Mk.100 / Unit.Carré-10)",
     "GenderType": "FemaleNeutral",
-    "Belonging": ["百花繚乱研究所", "レゾンデイトルカンパニー"],
+    "Belonging": [
+      { "Faction": "百花繚乱研究所" },
+      { "Faction": "レゾンデイトルカンパニー" }
+    ],
     "Class": [
       "百倍番(ハンドレッズデジッツ)",
       "デシベルモデレーターズ",
@@ -887,7 +890,10 @@
     "SPCodeName_EN": "Eleven Elevens",
     "ModelNumber": "APHR-NT SQ.XI",
     "GenderType": "Neutral",
-    "Belonging": ["百花繚乱研究所", "レゾンデイトルカンパニー"],
+    "Belonging": [
+      { "Faction": "百花繚乱研究所" },
+      { "Faction": "レゾンデイトルカンパニー" }
+    ],
     "Class": ["デュオトリプル4型", "キャレ型ハイナンバーズ"]
   },
   {
@@ -902,7 +908,10 @@
     "CodeName_EN": "One-Two-Five, Five Cubed",
     "ModelNumber": "APHR-NT Kz.V",
     "GenderType": "Neutral",
-    "Belonging": ["百花繚乱研究所", "シンフォニー.XVI(ゼクズィン)"],
+    "Belonging": [
+      { "Faction": "百花繚乱研究所" },
+      { "Faction": "シンフォニー.XVI(ゼクズィン)" }
+    ],
     "Class": ["キュビクザール型ハイナンバーズ"]
   },
   {
@@ -919,7 +928,10 @@
     "SPCodeName_EN": "Gross",
     "ModelNumber": "APHR-NT SQ.XII",
     "GenderType": "Neutral",
-    "Belonging": ["百花繚乱研究所", "レゾンデイトルカンパニー"],
+    "Belonging": [
+      { "Faction": "百花繚乱研究所" },
+      { "Faction": "レゾンデイトルカンパニー" }
+    ],
     "Class": [
       "デュオトリプル9型",
       "マスマティカコンストレイント",
@@ -934,7 +946,10 @@
     "FormalName_EN": "NumberTales Unit.Carré-13 (Isotope of Mk.169)",
     "ModelNumber": "APHR-NT SQ.XIII",
     "GenderType": "Neutral",
-    "Belonging": ["百花繚乱研究所", "レゾンデイトルカンパニー"],
+    "Belonging": [
+      { "Faction": "百花繚乱研究所" },
+      { "Faction": "レゾンデイトルカンパニー" }
+    ],
     "Class": ["キャレ型ハイナンバーズ"]
   },
   {
@@ -945,7 +960,10 @@
     "FormalName_EN": "NumberTales Unit.Carré-14 (Isotope of Mk.196)",
     "ModelNumber": "APHR-NT SQ.XIV",
     "GenderType": "Neutral",
-    "Belonging": ["百花繚乱研究所", "レゾンデイトルカンパニー"],
+    "Belonging": [
+      { "Faction": "百花繚乱研究所" },
+      { "Faction": "レゾンデイトルカンパニー" }
+    ],
     "Class": ["キャレ型ハイナンバーズ"]
   },
   {
@@ -990,7 +1008,10 @@
     "CodeName_EN": "Two-One-Six, Six Cubed",
     "ModelNumber": "APHR-NT Kz.VI",
     "GenderType": "Neutral",
-    "Belonging": ["百花繚乱研究所", "シンフォニー.XVI(ゼクズィン)"],
+    "Belonging": [
+      { "Faction": "百花繚乱研究所" },
+      { "Faction": "シンフォニー.XVI(ゼクズィン)" }
+    ],
     "Class": [
       "トリプルナインズ",
       "バーチャリティテールズ",
@@ -1625,7 +1646,10 @@
     "FormalName_EN": "NumberTales Unit.Carré-15 (Isotope of Mk.225)",
     "ModelNumber": "APHR-NT SQ.XV",
     "GenderType": "Neutral",
-    "Belonging": ["百花繚乱研究所", "レゾンデイトルカンパニー"],
+    "Belonging": [
+      { "Faction": "百花繚乱研究所" },
+      { "Faction": "レゾンデイトルカンパニー" }
+    ],
     "Class": ["キャレ型ハイナンバーズ"]
   },
   {
@@ -1642,7 +1666,10 @@
     "SPCodeName_EN": "One Byte",
     "ModelNumber": "APHR-NT SQ.XVI",
     "GenderType": "Neutral",
-    "Belonging": ["百花繚乱研究所", "レゾンデイトルカンパニー"],
+    "Belonging": [
+      { "Faction": "百花繚乱研究所" },
+      { "Faction": "レゾンデイトルカンパニー" }
+    ],
     "Class": [
       "トリプルフォーズ",
       "バイナリーコンストレイント",
@@ -1660,7 +1687,10 @@
     "FormalName_EN": "NumberTales Unit.Carré-17 (Isotope of Mk.289)",
     "ModelNumber": "APHR-NT SQ.XVII",
     "GenderType": "Neutral",
-    "Belonging": ["百花繚乱研究所", "レゾンデイトルカンパニー"],
+    "Belonging": [
+      { "Faction": "百花繚乱研究所" },
+      { "Faction": "レゾンデイトルカンパニー" }
+    ],
     "Class": ["キャレ型ハイナンバーズ"]
   },
   {
@@ -1671,7 +1701,10 @@
     "FormalName_EN": "NumberTales Unit.Carré-18 (Isotope of Mk.324)",
     "ModelNumber": "APHR-NT SQ.XVIII",
     "GenderType": "Neutral",
-    "Belonging": ["百花繚乱研究所", "レゾンデイトルカンパニー"],
+    "Belonging": [
+      { "Faction": "百花繚乱研究所" },
+      { "Faction": "レゾンデイトルカンパニー" }
+    ],
     "Class": ["キャレ型ハイナンバーズ"]
   },
   {
@@ -1707,7 +1740,10 @@
     "CodeName_EN": "Three-Four-Three, Seven Cubed",
     "ModelNumber": "APHR-NT Kz.VII",
     "GenderType": "Neutral",
-    "Belonging": ["百花繚乱研究所", "シンフォニー.XVI(ゼクズィン)"],
+    "Belonging": [
+      { "Faction": "百花繚乱研究所" },
+      { "Faction": "シンフォニー.XVI(ゼクズィン)" }
+    ],
     "Class": ["キュビクザール型ハイナンバーズ"]
   },
   {
@@ -1720,7 +1756,10 @@
     "CodeName_EN": "Three-Six-One",
     "ModelNumber": "APHR-NT SQ.XIX",
     "GenderType": "Neutral",
-    "Belonging": ["百花繚乱研究所", "レゾンデイトルカンパニー"],
+    "Belonging": [
+      { "Faction": "百花繚乱研究所" },
+      { "Faction": "レゾンデイトルカンパニー" }
+    ],
     "Class": ["キャレ型ハイナンバーズ"]
   },
   {
@@ -1740,7 +1779,10 @@
     "SPCodeName_EN": "Twenty Twenties",
     "ModelNumber": "APHR-NT SQ.XX",
     "GenderType": "Neutral",
-    "Belonging": ["百花繚乱研究所", "レゾンデイトルカンパニー"],
+    "Belonging": [
+      { "Faction": "百花繚乱研究所" },
+      { "Faction": "レゾンデイトルカンパニー" }
+    ],
     "Class": ["百倍番(ハンドレッズデジッツ)", "キャレ型ハイナンバーズ"]
   },
   {
@@ -2223,7 +2265,10 @@
     "SPCodeName_EN": "Half kiB(Kilo Binary)",
     "ModelNumber": "APHR-NT Kz.VIII",
     "GenderType": "Neutral",
-    "Belonging": ["百花繚乱研究所", "シンフォニー.XVI(ゼクズィン)"],
+    "Belonging": [
+      { "Faction": "百花繚乱研究所" },
+      { "Faction": "シンフォニー.XVI(ゼクズィン)" }
+    ],
     "Class": ["キュビクザール型ハイナンバーズ", "バーチャリティテールズ"]
   },
   {
@@ -2607,7 +2652,10 @@
     "CodeName_EN": "Seven-Two-Nine",
     "ModelNumber": "APHR-NT SXP.III",
     "GenderType": "Neutral",
-    "Belonging": ["百花繚乱研究所", "国際ヒューマノイド技術学会"],
+    "Belonging": [
+      { "Faction": "百花繚乱研究所" },
+      { "Faction": "国際ヒューマノイド技術学会" }
+    ],
     "Class": ["キャレ型ハイナンバーズ", "キュビクザール型ハイナンバーズ"]
   },
   {
@@ -3726,7 +3774,10 @@
     "SPCodeName_EN": "Six-Four",
     "ModelNumber": "APHR-NT SXP.II",
     "GenderType": "Neutral",
-    "Belonging": ["百花繚乱研究所", "国際ヒューマノイド技術学会"],
+    "Belonging": [
+      { "Faction": "百花繚乱研究所" },
+      { "Faction": "国際ヒューマノイド技術学会" }
+    ],
     "Class": [
       "デュアルキャリーズ",
       "キャレ型ハイナンバーズ",
@@ -3760,7 +3811,10 @@
     "CodeName_EN": "Nine Nines",
     "ModelNumber": "APHR-NT SQ.IX",
     "GenderType": "Neutral",
-    "Belonging": ["百花繚乱研究所", "レゾンデイトルカンパニー"],
+    "Belonging": [
+      { "Faction": "百花繚乱研究所" },
+      { "Faction": "レゾンデイトルカンパニー" }
+    ],
     "Class": [
       "9倍2桁番(ナインズデュアルズ)",
       "キャレ型ハイナンバーズ",
@@ -3793,7 +3847,7 @@
     "Name_JP": "錦野 舞",
     "Name_EN": "Dancy Actressilk",
     "RaceType": "Human",
-    "Belonging": ["シンフォニー.XVI(ゼクズィン)"],
+    "Belonging": [{ "Faction": "シンフォニー.XVI(ゼクズィン)" }],
     "Class": ["開発者", "ヒューマノイド開発部(シンフォニー.XVI)"],
     "BustSize": "B",
     "Age": 24,

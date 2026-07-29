@@ -26,7 +26,8 @@
       },
       "_Commons": {
         "Progress": "notProceeded",
-        "Belonging": ["百花繚乱研究所"],
+        "Belonging": [{ "Faction": "百花繚乱研究所" }],
+        "FromArea": { "Area": "九蓮国" },
         "RaceType": "PortableHumanoid(TaleBeastType)",
         "isTriple": false
       }
@@ -53,7 +54,7 @@
       },
       "_Commons": {
         "Progress": "notProceeded",
-        "Belonging": ["百花繚乱研究所"],
+        "Belonging": [{ "Faction": "百花繚乱研究所" }],
         "RaceType": "PortableHumanoid(TaleBeastType)",
         "isTriple": true
       }
@@ -70,7 +71,7 @@
           "sec_SeriesTitle": null,
           "_Commons": {
             "Progress": "nowCreating",
-            "Belonging": ["百花繚乱研究所"],
+            "Belonging": [{ "Faction": "百花繚乱研究所" }],
             "RaceType": "PortableHumanoid(TaleBeastType)",
             "GenderType": "Neutral",
             "isTriple": true
@@ -82,7 +83,7 @@
           "sec_SeriesTitle": "量産型マスタートリプル",
           "_Commons": {
             "Progress": "nowCreating",
-            "Belonging": ["百花繚乱研究所"],
+            "Belonging": [{ "Faction": "百花繚乱研究所" }],
             "RaceType": "PortableHumanoid(TaleBeastType)",
             "GenderType": "Neutral",
             "isTriple": false
@@ -94,7 +95,7 @@
           "sec_SeriesTitle": null,
           "_Commons": {
             "Progress": "notProceeded",
-            "Belonging": ["百花繚乱研究所"],
+            "Belonging": [{ "Faction": "百花繚乱研究所" }],
             "RaceType": "PortableHumanoid(TaleBeastType)",
             "GenderType": "Neutral",
             "isTriple": true
@@ -124,7 +125,10 @@
           },
           "_Commons": {
             "Progress": "accepted",
-            "Belonging": ["百花繚乱研究所", "エイゼルベットの観測世界"],
+            "Belonging": [
+              { "Faction": "百花繚乱研究所" },
+              { "Faction": "エイゼルベットの観測世界" }
+            ],
             "RaceType": "PortableHumanoid(TaleBeastType,SoftwareBody)",
             "isTriple": false
           }
@@ -165,7 +169,7 @@
           },
           "_Commons": {
             "Progress": "stillTentative",
-            "Belonging": ["シンフォニー.XVI(ゼクズィン)"],
+            "Belonging": [{ "Faction": "シンフォニー.XVI(ゼクズィン)" }],
             "RaceType": "DeviatableHumanoid(TaleBeastType)",
             "isTriple": false,
             "isPrivate": true
@@ -216,7 +220,7 @@
             "sec_SeriesTitle": null,
             "_Commons": {
               "Progress": "notProceeded",
-              "Belonging": ["百花繚乱研究所"],
+              "Belonging": [{ "Faction": "百花繚乱研究所" }],
               "RaceType": "PortableHumanoid(TaleBeastType)",
               "GenderType": "Neutral",
               "isTriple": true

@@ -155,7 +155,7 @@
     },
     {
       "hashTag": "Belonging",
-      "$type": "#DictIndex[]",
+      "$type": "$Def_Faction[]",
       "$dict": "Faction",
       "hashTag_JP": "所属",
       "hashTag_EN": "Belonging",

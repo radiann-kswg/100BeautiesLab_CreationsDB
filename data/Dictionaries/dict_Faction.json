@@ -2,180 +2,141 @@
   {
     "Faction": "百花繚乱研究所",
     "Faction_EN": "HundredBeauties Laboratory",
-    "Belonging": "百花繚乱研究所",
-    "Belonging_EN": "HundredBeauties Laboratory",
-    "BelongingArea": { "Area": "九蓮国" },
+    "FactionsBaseArea": { "Area": "九蓮国" },
     "isForSecondary": false,
     "isMaker": null
   },
   {
     "Faction": "百戦錬磨開発所",
     "Faction_EN": "HundredBattlers Development",
-    "Belonging": "百戦錬磨開発所",
-    "Belonging_EN": "HundredBattlers Development",
-    "BelongingArea": { "Area": "九蓮国" },
+    "FactionsBaseArea": { "Area": "九蓮国" },
     "isForSecondary": false,
     "isMaker": null
   },
   {
     "Faction": "夜月機関",
     "Faction_EN": "Yadzuki Organization",
-    "Belonging": "夜月機関",
-    "Belonging_EN": "Yadzuki Organization",
-    "BelongingArea": { "Area": "九蓮国" },
+    "FactionsBaseArea": { "Area": "九蓮国" },
     "isForSecondary": false,
     "isMaker": null
   },
   {
     "Faction": "九蓮国皇族",
     "Faction_EN": "Royal of LotusNinea(n)",
-    "Belonging": "九蓮国皇族",
-    "Belonging_EN": "Royal of LotusNinea(n)",
-    "BelongingArea": { "Area": "九蓮国" },
+    "FactionsBaseArea": { "Area": "九蓮国" },
     "isForSecondary": false,
     "isMaker": false
   },
   {
     "Faction": "照梅テクノロジー",
     "Faction_EN": "Shôbai Technology",
-    "Belonging": "照梅テクノロジー",
-    "Belonging_EN": "Shôbai Technology",
-    "BelongingArea": { "Area": "九蓮国" },
+    "FactionsBaseArea": { "Area": "九蓮国" },
     "isForSecondary": null,
     "isMaker": true
   },
   {
     "Faction": "N3US大学",
-    "Faction_JP": "N3US(北第三県理科)大学",
+    "Faction_JP": "N3US大学",
     "Faction_EN": "N3US University",
-    "Belonging": "N3US大学",
-    "Belonging_JP": "N3US(北第三県理科)大学",
-    "Belonging_EN": "N3US University",
-    "BelongingArea": { "Area": "九蓮国" },
+    "FactionsBaseArea": { "Area": "九蓮国" },
     "isForSecondary": false,
     "isMaker": false
   },
   {
     "Faction": "夜月機関付属大学",
     "Faction_EN": "Yadzuki Org. Affiliated University",
-    "Belonging": "夜月機関付属大学",
-    "Belonging_EN": "Yadzuki Org. Affiliated University",
-    "BelongingArea": { "Area": "九蓮国" },
+    "FactionsBaseArea": { "Area": "九蓮国" },
     "isForSecondary": false,
     "isMaker": false
   },
   {
     "Faction": "南第三県専門学校",
     "Faction_EN": "S3 Vocational School",
-    "Belonging": "南第三県専門学校",
-    "Belonging_EN": "S3 Vocational School",
-    "BelongingArea": { "Area": "九蓮国" },
+    "FactionsBaseArea": { "Area": "九蓮国" },
     "isForSecondary": false,
     "isMaker": false
   },
   {
     "Faction": "第三県立技巧美術女子高校",
     "Faction_EN": "Prefecture.3 Technical Arts Girls' High School",
-    "Belonging": "第三県立技巧美術女子高校",
-    "Belonging_EN": "Prefecture.3 Technical Arts Girls' High School",
-    "BelongingArea": { "Area": "九蓮国" },
+    "FactionsBaseArea": { "Area": "九蓮国" },
     "isForSecondary": false,
     "isMaker": false
   },
   {
     "Faction": "獣爾騎兵",
     "Faction_EN": "Shou'ar Riders",
-    "Belonging": "獣爾騎兵",
-    "Belonging_EN": "Shou'ar Riders",
-    "BelongingArea": { "Area": "龍天国" },
+    "FactionsBaseArea": { "Area": "龍天国" },
     "isForSecondary": false,
     "isMaker": false
   },
   {
     "Faction": "界座",
     "Faction_EN": "JièZuò",
-    "Belonging": "界座",
-    "Belonging_EN": "JièZuò",
-    "BelongingArea": { "Area": "龍天国" },
+    "FactionsBaseArea": { "Area": "龍天国" },
     "isForSecondary": null,
     "isMaker": true
   },
   {
     "Faction": "セブンティエイト特殊探偵団",
     "Faction_EN": "Team.78(Seventy-Eight) the Special Investigators",
-    "Belonging": "セブンティエイト特殊探偵団",
-    "Belonging_EN": "Team.78(Seventy-Eight) the Special Investigators",
-    "BelongingArea": { "Area": "英皇国" },
+    "FactionsBaseArea": { "Area": "英皇国" },
     "isForSecondary": false,
     "isMaker": false
   },
   {
     "Faction": "スターダスト財団",
     "Faction_EN": "Stardusts Foundation",
-    "Belonging": "スターダスト財団",
-    "Belonging_EN": "Stardusts Foundation",
-    "BelongingArea": { "Area": "雄志結国" },
+    "FactionsBaseArea": { "Area": "雄志結国" },
     "isForSecondary": false,
     "isMaker": false
   },
   {
     "Faction": "スターダスト・テクノロジー",
     "Faction_EN": "Stardust Technology",
-    "Belonging": "スターダスト・テクノロジー",
-    "Belonging_EN": "Stardust Technology",
-    "BelongingArea": { "Area": "雄志結国" },
+    "FactionsBaseArea": { "Area": "雄志結国" },
     "isForSecondary": false,
     "isMaker": true
   },
   {
     "Faction": "ラストラステクニカ-インストゥルメント",
     "Faction_EN": "LustrousTechnica Instrument",
-    "Belonging": "ラストラステクニカ-インストゥルメント",
-    "Belonging_EN": "LustrousTechnica Instrument",
-    "BelongingArea": { "Area": "雄志結国" },
+    "FactionsBaseArea": { "Area": "雄志結国" },
     "isForSecondary": null,
     "isMaker": true
   },
   {
     "Faction": "白の六芒星",
     "Faction_EN": "WhiteHexagram",
-    "Belonging": "白の六芒星",
-    "Belonging_EN": "WhiteHexagram",
-    "BelongingArea": { "Area": "雄志結国" },
+    "FactionsBaseArea": { "Area": "雄志結国" },
     "isForSecondary": false,
     "isMaker": false
   },
   {
     "Faction": "ジャンクガレージ『六花陛下』",
     "Faction_EN": "JunkGarage \"Majesty Rokka\"",
-    "Belonging": "ジャンクガレージ『六花陛下』",
-    "Belonging_EN": "JunkGarage \"Majesty Rokka\"",
-    "BelongingArea": { "Area": "紅雪連邦" },
+    "FactionsBaseArea": { "Area": "紅雪連邦" },
     "isForSecondary": false,
     "isMaker": false
   },
   {
     "Faction": "アルベッツ",
     "Faction_EN": "ALPBETS",
-    "Belonging": "アルベッツ",
-    "Belonging_EN": "ALPBETS",
-    "BelongingArea": { "Area": "九蓮国" },
+    "FactionsBaseArea": { "Area": "九蓮国" },
     "isForSecondary": false,
     "isMaker": null
   },
   {
-    "Belonging": "アルベッツ被害者の会",
-    "Belonging_EN": "Victims Association against ALPBETS",
-    "BelongingArea": { "Area": "九蓮国" },
+    "Faction": "アルベッツ被害者の会",
+    "Faction_EN": "Victims Association against ALPBETS",
+    "FactionsBaseArea": { "Area": "九蓮国" },
     "isForSecondary": false,
     "isMaker": false
   },
   {
     "Faction": "デウスマキナ",
     "Faction_EN": "DeusMakhina",
-    "Belonging": "デウスマキナ",
-    "Belonging_EN": "DeusMakhina",
-    "BelongingArea": {
+    "FactionsBaseArea": {
       "Area": "紅雪連邦",
       "BaseAreaAbout_JP": "名義上の所在地",
       "BaseAreaAbout_EN": "Nominal Location"
@@ -186,18 +147,14 @@
   {
     "Faction": "ロジケスキーロマンティカ産業",
     "Faction_EN": "Logicheskiy Romantika Industry",
-    "Belonging": "ロジケスキーロマンティカ産業",
-    "Belonging_EN": "Logicheskiy Romantika Industry",
-    "BelongingArea": { "Area": "紅雪連邦" },
+    "FactionsBaseArea": { "Area": "紅雪連邦" },
     "isForSecondary": null,
     "isMaker": false
   },
   {
     "Faction": "国際ヒューマノイド技術学会",
     "Faction_EN": "International Humanoid Technology Society",
-    "Belonging": "国際ヒューマノイド技術学会",
-    "Belonging_EN": "International Humanoid Technology Society",
-    "BelongingArea": {
+    "FactionsBaseArea": {
       "Area": "雄志結国",
       "BaseAreaAbout_JP": "本拠地（国際機関のため複数のエリアに所在）",
       "BaseAreaAbout_EN": "Headquarters (Due to being an international organization, it is located in multiple areas)"
@@ -208,36 +165,28 @@
   {
     "Faction": "王家英皇学会",
     "Faction_EN": "IK.Royal Society",
-    "Belonging": "王家英皇学会",
-    "Belonging_EN": "IK.Royal Society",
-    "BelongingArea": { "Area": "英皇国" },
+    "FactionsBaseArea": { "Area": "英皇国" },
     "isForSecondary": false,
     "isMaker": null
   },
   {
     "Faction": "レゾンデイトルカンパニー",
     "Faction_EN": "Raison-d'être Company",
-    "Belonging": "レゾンデイトルカンパニー",
-    "Belonging_EN": "Raison-d'être Company",
-    "BelongingArea": { "Area": "神皇国" },
+    "FactionsBaseArea": { "Area": "神皇国" },
     "isForSecondary": null,
     "isMaker": true
   },
   {
     "Faction": "シンフォニー.XVI(ゼクズィン)",
     "Faction_EN": "Symphony.XVI(Sechzehn)",
-    "Belonging": "シンフォニー.XVI(ゼクズィン)",
-    "Belonging_EN": "Symphony.XVI(Sechzehn)",
-    "BelongingArea": { "Area": "黒薔薇国" },
+    "FactionsBaseArea": { "Area": "黒薔薇国" },
     "isForSecondary": null,
     "isMaker": null
   },
   {
     "Faction": "新生九蓮",
     "Faction_EN": "Neo.LotusNinea(n)",
-    "Belonging": "新生九蓮",
-    "Belonging_EN": "Neo.LotusNinea(n)",
-    "BelongingArea": {
+    "FactionsBaseArea": {
       "Area": "四蓮島",
       "BaseAreaAbout_JP": "名義上の所在地",
       "BaseAreaAbout_EN": "Nominal Location"
@@ -248,9 +197,7 @@
   {
     "Faction": "国際情報広報機関『ミハイル』",
     "Faction_EN": "\"Mikhail\" the International Information & Public Relations Agency",
-    "Belonging": "国際情報広報機関『ミハイル』",
-    "Belonging_EN": "\"Mikhail\" the International Information & Public Relations Agency",
-    "BelongingArea": {
+    "FactionsBaseArea": {
       "Area": "第８界",
       "BaseAreaAbout_JP": "厳密には本拠点を置かない",
       "BaseAreaAbout_EN": "Strictly speaking, it does not have a headquarters"
@@ -261,18 +208,16 @@
   {
     "Faction": "フィジカル9",
     "Faction_EN": "PHYSICAL.9",
-    "Belonging": "フィジカル9",
-    "Belonging_EN": "PHYSICAL.9",
-    "BelongingArea": {
+    "FactionsBaseArea": {
       "Area": "超次元執筆空間(アトリエ)"
     },
     "isForSecondary": false,
     "isMaker": false
   },
   {
-    "Belonging": "超次元執筆空間(アトリエ)の住民",
-    "Belonging_EN": "Residents of #ATELIER: the super-dimensional owners' space",
-    "BelongingArea": {
+    "Faction": "超次元執筆空間(アトリエ)の住民",
+    "Faction_EN": "Residents of #ATELIER: the super-dimensional owners' space",
+    "FactionsBaseArea": {
       "Area": "超次元執筆空間(アトリエ)"
     },
     "isForSecondary": null,
@@ -281,9 +226,7 @@
   {
     "Faction": "管理主",
     "Faction_EN": "Regioministrators",
-    "Belonging": "管理主",
-    "Belonging_EN": "Regioministrators",
-    "BelongingArea": {
+    "FactionsBaseArea": {
       "Area": "超次元執筆空間(アトリエ)",
       "BaseAreaAbout_JP": "第８界の管理を行っている",
       "BaseAreaAbout_EN": "Managing #REGION.8"
@@ -294,9 +237,7 @@
   {
     "Faction": "エイゼルベットの観測世界",
     "Faction_EN": "∀sellbuet's Observational World",
-    "Belonging": "エイゼルベットの観測世界",
-    "Belonging_EN": "∀sellbuet's Observational World",
-    "BelongingArea": {
+    "FactionsBaseArea": {
       "BaseAreaAbout_JP": "別次元の世界",
       "BaseAreaAbout_EN": "A world of another dimension"
     },

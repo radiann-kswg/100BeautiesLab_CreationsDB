@@ -10,7 +10,7 @@
     "ModelNumber": "ACAM-AZR X",
     "ModelName_JP": "人形兵ゼロイド10号機(10番機)",
     "ModelName_EN": "AttackerZeroid Unit.10 (Mk.10)",
-    "Belonging": ["百戦錬磨開発所"],
+    "Belonging": [{ "Faction": "百戦錬磨開発所" }],
     "Height_cm": 164,
     "Weight_kg": { "hideText": "非公開" },
     "AnivDay": [
@@ -35,7 +35,10 @@
     "ModelNumber": "ACAM-AZR I+VI.B",
     "ModelName_JP": "人形兵ゼロイド1+6号機乙(61番機)",
     "ModelName_EN": "AttackerZeroid Unit.1+6.B (Mk.61)",
-    "Belonging": ["百花繚乱研究所", "ジャンクガレージ『六花陛下』"],
+    "Belonging": [
+      { "Faction": "百花繚乱研究所" },
+      { "Faction": "ジャンクガレージ『六花陛下』" }
+    ],
     "InStory_JP": "百戦錬磨開発所に兵役パッチを付与されてしまい暴走してしまったところを偶然 九蓮国に訪れたクィーン-トゥエルヴに救われ、見事に懐いてしまったことから六花雙葉/クィーン-トゥエルヴらジャンクガレージに棲み着いている",
     "InStory_EN": "After being fitted with a military-service patch by HundredBattlers Development and going berserk, it was rescued by chance by Queen.XII, who happened to be visiting LotusNinea — and having taken an immediate liking to her, it now lives in the JunkGarage 'Majesty Rokka' alongside Dozenne Hexacrys / Queen.XII and her crew",
     "LogicspecAbout_JP": { "_Jump": { "hashTag": "NumerospecAbout" } }
@@ -51,7 +54,10 @@
     "ModelNumber": "ACAM-AZR II+VI.B",
     "ModelName_JP": "人形兵ゼロイド2+6号機乙(62番機)",
     "ModelName_EN": "AttackerZeroid Unit.2+6.B (Mk.62)",
-    "Belonging": ["百戦錬磨開発所", "ジャンクガレージ『六花陛下』"],
+    "Belonging": [
+      { "Faction": "百戦錬磨開発所" },
+      { "Faction": "ジャンクガレージ『六花陛下』" }
+    ],
     "InStory_JP": "百戦錬磨開発所として兵役中に遭難してしまっただけでなくパーツエンストを起こしてしまったところを六花雙葉/クィーン-トゥエルヴに拾われ、助けられた御恩に報いるべく（百戦錬磨開発所を裏切ってでも）ジャンクガレージに協力している",
     "InStory_EN": "On active military duty under HundredBattlers Development, it not only ended up stranded but also suffered a parts-failure shutdown — and was taken in by Dozenne Hexacrys / Queen.XII. In gratitude for being rescued, it now cooperates with the JunkGarage (even at the cost of betraying HundredBattlers Development)",
     "LogicspecAbout_JP": { "_Jump": { "hashTag": "NumerospecAbout" } }
@@ -67,7 +73,7 @@
     "ModelNumber": "ACAM-AZR I.FIN",
     "ModelName_JP": "人形兵ゼロイド最終1号機",
     "ModelName_EN": "AttackerZeroid Unit.1 Final",
-    "Belonging": ["デウスマキナ"],
+    "Belonging": [{ "Faction": "デウスマキナ" }],
     "AnivDay": [
       {
         "Day": { "Month": 1, "DayOfMonth": 10 },
@@ -102,7 +108,7 @@
     "CodeName_JP": null,
     "CodeName_EN": null,
     "RaceType": "Human(withAddon)",
-    "Belonging": ["百花繚乱研究所"],
+    "Belonging": [{ "Faction": "百花繚乱研究所" }],
     "Age": 24,
     "ForMasterCalling_JP": "クライアント君",
     "ForMasterCalling_EN": "Client-kun",
@@ -125,7 +131,7 @@
     "CodeName_JP": null,
     "CodeName_EN": null,
     "RaceType": "Human(withAddon)",
-    "Belonging": ["百戦錬磨開発所"],
+    "Belonging": [{ "Faction": "百戦錬磨開発所" }],
     "Age": 24,
     "InStory_JP": "人形兵ゼロイドを姉と開発したが、\"第７の世界破壊\"に伴う素子メーカとの企業戦争の激化による人形兵ゼロイドの兵役個体化に賛同してしまい、ロジケスキーロマンティカ産業に業務結託する形で百戦錬磨開発所として人形兵ゼロイドを用いた軍事開発を行っている",
     "InStory_EN": "Developed AttackerZeroid humanoid infantry together with his older sister, but came to support the militarization of individual units resulting from escalating corporate warfare between component manufacturers in the wake of 'The World Destruction Pandemic VII' — and now conducts military development using AttackerZeroid units under HundredBattlers Development, operating in collusion with Logicheskiy Romantika Industry.",
@@ -145,7 +151,7 @@
     "CodeName_JP": null,
     "CodeName_EN": null,
     "RaceType": "Human(DoubleIdentity)",
-    "Belonging": ["ジャンクガレージ『六花陛下』"],
+    "Belonging": [{ "Faction": "ジャンクガレージ『六花陛下』" }],
     "Height_cm": 155,
     "Weight_kg": { "hideText": "非公開" },
     "BustSize": "AA",

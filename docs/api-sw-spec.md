@@ -26,16 +26,16 @@
 
 ### Cloudflare Workers 実 API エンドポイント
 
-| メソッド | パス                             | データソース | 説明                                               |
-| -------- | -------------------------------- | ------------ | -------------------------------------------------- |
-| GET      | `/api/v1/meta`                   | R2           | グローバルメタ (`data/db_meta.json`)               |
+| メソッド | パス                             | データソース | 説明                                                               |
+| -------- | -------------------------------- | ------------ | ------------------------------------------------------------------ |
+| GET      | `/api/v1/meta`                   | R2           | グローバルメタ (`data/db_meta.json`)                               |
 | GET      | `/api/v1/works`                  | D1 `works`   | 作品一覧（`Works_Hidden=true` 除外、`Works_OfficialLinks[]` 含む） |
-| GET      | `/api/v1/:work/meta`             | R2           | 作品別メタ (`data/Works_*/DataBases/db_meta.json`) |
-| GET      | `/api/v1/:work/dbs`              | D1 `dbs`     | DB 一覧（`DB_Hidden=true` 除外）                   |
-| GET      | `/api/v1/:work/:db/records`      | D1 `records` | レコード一覧（`isPrivate=0`・`_Commons` 適用）     |
-| GET      | `/api/v1/:work/:db/records/:idx` | D1 `records` | 1 件取得（`?idxKey=X` でフィールド指定）           |
-| GET      | `/api/v1/:work/:db/search?q=`    | D1 FTS5      | DB 内全文検索                                      |
-| GET      | `/api/v1/:work/search?q=`        | D1 FTS5      | 作品横断全文検索                                   |
+| GET      | `/api/v1/:work/meta`             | R2           | 作品別メタ (`data/Works_*/DataBases/db_meta.json`)                 |
+| GET      | `/api/v1/:work/dbs`              | D1 `dbs`     | DB 一覧（`DB_Hidden=true` 除外）                                   |
+| GET      | `/api/v1/:work/:db/records`      | D1 `records` | レコード一覧（`isPrivate=0`・`_Commons` 適用）                     |
+| GET      | `/api/v1/:work/:db/records/:idx` | D1 `records` | 1 件取得（`?idxKey=X` でフィールド指定）                           |
+| GET      | `/api/v1/:work/:db/search?q=`    | D1 FTS5      | DB 内全文検索                                                      |
+| GET      | `/api/v1/:work/search?q=`        | D1 FTS5      | 作品横断全文検索                                                   |
 
 ### D1 スキーマ概要
 
@@ -152,7 +152,7 @@ UI と enrich/search は、可能な限りこの `db_type.json($DefType)` に追
   - `Databases.#DB_<DbName>._Commons`: DB 全体の共通穴埋め
   - `Databases.#DB_<DbName>._Secondaries`: `sec_**` 条件に応じた `_Commons` 分岐
     - 全ての `sec_**` 条件が `null` / 空の定義はデフォルト fallback として扱い、`null` 以外の条件を持つ定義が一致した場合はそちらを優先します
-  - `General.$VarsDef.#Dict_Faction[*].BelongingArea`: 陣営辞書に紐づく活動拠点の補助情報。`Belonging.$dict = Faction` のような参照先辞書として使います
+  - `General.$VarsDef.#Dict_Faction[*].FactionsBaseArea`: 陣営辞書に紐づく活動拠点の補助情報。`Belonging.$dict = Faction` のような参照先辞書として使います
   - top-level `Dictionaries`: 辞書 DB カタログ。`data/Dictionaries/` や `data/Works_<work>/Dictionaries/` の `db_meta.json` を runtime で合流したものです
 
 補足:
@@ -387,6 +387,11 @@ DB全体の代表画像（`DB_Image`、§3.3/§5.2参照）も、この疑似作
   - typedef 駆動で抽出した検索用の連結文字列
 - `_enrichment.displaySections`
   - `basic/profile/spec/images/other` へ分類したトップレベルキー一覧
+- `_enrichment.dictRefs`
+  - typedef の `$dictRef` 宣言に従って辞書行から参照解決した値（`{ フィールド名: 解決済み値 }`）
+  - 例: `Belonging: [{ Faction: "百花繚乱研究所" }]` → `dictRefs.Belonging = [{ Faction: "百花繚乱研究所", FactionsBaseArea: { Area: "九蓮国" } }]`
+  - レコード本体（`Belonging`）の形は変えません。参照解決の結果はこのキーにだけ載ります
+  - レコード側が同名の子要素へ実値を持つ場合は上書きせず、その要素は解決対象から外します（`_DBLink` の穴埋めと同じ方針）
 - `_enrichment.altFallbacks`
   - `$alt` によりどの代替キーから穴埋めしたかの provenance
 - `_enrichment.schemaDriven`

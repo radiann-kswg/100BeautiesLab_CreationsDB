@@ -75,7 +75,7 @@ describe('CommonsProcessor secondary series commons', () => {
       console.log('DEBUG case1', result);
     }
 
-    expect(out0.Belonging).toEqual(['百花繚乱研究所', 'エイゼルベットの観測世界']);
+    expect(out0.Belonging).toEqual([{ Faction: '百花繚乱研究所' }, { Faction: 'エイゼルベットの観測世界' }]);
     expect(out0.RaceType).toBe('PortableHumanoid(TaleBeastType,SoftwareBody)');
   });
 
@@ -107,7 +107,7 @@ describe('CommonsProcessor secondary series commons', () => {
 
     expect(out0.sec_Category).toBe('共同二次創作');
     expect(out0.sec_DesignedBy).toEqual(['Atast']);
-    expect(out0.Belonging).toEqual(['百花繚乱研究所', 'エイゼルベットの観測世界']);
+    expect(out0.Belonging).toEqual([{ Faction: '百花繚乱研究所' }, { Faction: 'エイゼルベットの観測世界' }]);
   });
 
   it('does not override non-empty record values', () => {
@@ -269,7 +269,7 @@ describe('CommonsProcessor secondary series commons', () => {
 
     // SelfSecondary の リクエストナンバー 定義から GenderType / Belonging / RaceType が補完される
     expect(out0.GenderType).toBe('Neutral');
-    expect(out0.Belonging).toEqual(['百花繚乱研究所']);
+    expect(out0.Belonging).toEqual([{ Faction: '百花繚乱研究所' }]);
     expect(out0.RaceType).toBe('PortableHumanoid(TaleBeastType)');
   });
 });

@@ -21,7 +21,7 @@
         "StoryEraAbout_EN": "between WDCE.VII.24 to WDCE.VIII.2(Equivalent to between: DC.2044-2046)\n\nThis period is significant for the \"World Development Creation VIII\" "
       },
       "_Commons": {
-        "Belonging": ["セブンティエイト特殊探偵団"],
+        "Belonging": [{ "Faction": "セブンティエイト特殊探偵団" }],
         "_ListLinkIf_Suit": [
           { "Suit": "FireWands", "Class": ["火の棍棒支部"] },
           { "Suit": "WaterCups", "Class": ["水の聖杯支部"] },
@@ -51,7 +51,11 @@
         "StoryEraAbout_JP": "第7創世紀24年〜第8創世紀2年(西暦2044〜2046年相当)\n『第8の世界創造』に関する重要な時期となる",
         "StoryEraAbout_EN": "between WDCE.VII.24 to WDCE.VIII.2(Equivalent to between: DC.2044-2046)\n\nThis period is significant for the \"World Development Creation VIII\" "
       },
-      "_Commons": {}
+      "_Commons": {
+        "_ListLinkIf_Suit": [
+          { "Suit": "Dealer", "FromArea": { "Area": "九蓮国" } }
+        ]
+      }
     },
     "#DB_UnprocessedDealer": {
       "DB_Label_JP": "未整理のアルカナホルダー",

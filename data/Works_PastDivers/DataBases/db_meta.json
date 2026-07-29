@@ -14,7 +14,7 @@
       },
       "_Commons": {
         "Progress": "stillTentative",
-        "Belonging": ["夜月機関"],
+        "Belonging": [{ "Faction": "夜月機関" }],
         "_ListLinkIf_Lunar": [
           {
             "Lunar": "Kamiaridzuki",
@@ -131,7 +131,7 @@
       },
       "_Commons": {
         "Progress": "notProceeded",
-        "Belonging": ["夜月機関"],
+        "Belonging": [{ "Faction": "夜月機関" }],
         "_ListLinkIf_Lunar": [
           {
             "Lunar": "Nullius",

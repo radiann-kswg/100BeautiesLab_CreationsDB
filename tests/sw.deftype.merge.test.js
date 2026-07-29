@@ -134,7 +134,7 @@ describe('ApiEndpointHandlers merges vars defs across meta/type sources', () => 
         { Area: '九蓮国', Area_EN: 'LotusNinea' }
       ],
       '/data/Dictionaries/dict_Faction.json': [
-        { Faction: '百花繚乱研究所', BelongingArea: { Area: '九蓮国' } }
+        { Faction: '百花繚乱研究所', FactionsBaseArea: { Area: '九蓮国' } }
       ]
     };
 
@@ -164,7 +164,7 @@ describe('ApiEndpointHandlers merges vars defs across meta/type sources', () => 
 
     expect(Array.isArray(meta?.General?.$VarsDef?.['#Dict_Area'])).toBe(true);
     expect(Array.isArray(meta?.General?.$VarsDef?.['#List_Area'])).toBe(true);
-    expect(meta?.General?.$VarsDef?.['#Dict_Faction']?.[0]?.BelongingArea?.Area).toBe('九蓮国');
+    expect(meta?.General?.$VarsDef?.['#Dict_Faction']?.[0]?.FactionsBaseArea?.Area).toBe('九蓮国');
     expect(meta?.Dictionaries?.['#Dict_Area']?.file).toBeUndefined();
     expect(meta?.Dictionaries?.['#Dict_Area']?.keyField).toBe('Area');
     expect(meta?.Dictionaries?.['#Dict_Faction']?.keyField).toBe('Faction');

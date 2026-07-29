@@ -10,6 +10,7 @@
     "FormalName_EN": "Malcolm Sunrizer",
     "RaceType": "Human",
     "GenderType": "Male",
+    "FromArea": { "Area": "九蓮国" },
     "Height_cm": 171,
     "Weight_kg": [
       { "value": 55, "about_JP": "自称", "about_EN": "Self-proclaimed" }
@@ -67,6 +68,7 @@
     "FormalName_EN": "Ceena.S.White Snowmaider",
     "RaceType": "Human",
     "GenderType": "Female",
+    "FromArea": { "Area": "神皇国" },
     "Height_cm": 169,
     "Weight_kg": { "hideText": "？？？" },
     "Age": 31,
@@ -201,6 +203,7 @@
     "FormalName_EN": "Flur Flowee",
     "RaceType": "OverHuman(Acquired)",
     "GenderType": "Female",
+    "FromArea": { "Area": "九蓮国" },
     "Height_cm": 161,
     "Weight_kg": 54,
     "Age": 24,
@@ -258,6 +261,7 @@
     "FormalName_EN": "Zen Midoriya\nBene.Edensgreen",
     "RaceType": "Human",
     "GenderType": "Male",
+    "FromArea": { "Area": "英皇国" },
     "Height_cm": 175,
     "Weight_kg": 60,
     "Age": 34,
@@ -314,6 +318,7 @@
     "FormalName_EN": "Aquanne Afterains",
     "RaceType": "HalfWarfox",
     "GenderType": "Female",
+    "FromArea": { "Area": "四蓮島" },
     "Height_cm": 140,
     "Weight_kg": { "hideText": "？？？" },
     "Age": 14,
@@ -377,6 +382,7 @@
     "FormalName_EN": "Entery Lattercross",
     "RaceType": "Human",
     "GenderType": "Female",
+    "FromArea": { "Area": "九蓮国" },
     "Height_cm": 166,
     "Weight_kg": [
       {
@@ -439,6 +445,7 @@
     "FormalName_EN": "Hector.Kilobuster Yasaka",
     "RaceType": "Human(withAddon)",
     "GenderType": "Male",
+    "FromArea": { "Area": "雄志結国" },
     "Height_cm": 190,
     "Weight_kg": 79,
     "Age": 41,
@@ -498,6 +505,11 @@
     "FormalName_EN": "Luis-Noah.Nighteraid Nakatsuki",
     "RaceType": { "hideText": "非公開希望" },
     "GenderType": "Male",
+    "FromArea": {
+      "Area": "黒薔薇国",
+      "BaseAreaAbout_JP": "自称",
+      "BaseAreaAbout_EN": "Self-proclaimed"
+    },
     "Height_cm": 146,
     "Weight_kg": 44,
     "Age": { "hideText": "？？？" },
@@ -552,6 +564,7 @@
     "FormalName_EN": "Decadelune Theolessnight",
     "RaceType": "Human",
     "GenderType": "Male",
+    "FromArea": { "Area": "九蓮国" },
     "Height_cm": 170,
     "Weight_kg": 59,
     "Age": 30,
@@ -604,6 +617,7 @@
     "FormalName_EN": "Knowns Smogger",
     "RaceType": "Human",
     "GenderType": "Male",
+    "FromArea": { "Area": "九蓮国" },
     "Height_cm": 159,
     "Weight_kg": 52,
     "Age": 29,
@@ -656,6 +670,7 @@
     "FormalName_EN": "Catherine=Einzweiss",
     "RaceType": "OverHuman(Acquired)",
     "GenderType": "Female",
+    "FromArea": { "Area": "黒薔薇国" },
     "Height_cm": 158,
     "Weight_kg": 50,
     "Age": 27,
@@ -710,6 +725,7 @@
     "ModelName_EN": "A.C.C.H(Auto Chief Consultant Humanoid) Yadzuki-Leaper Mk.30",
     "RaceType": "Humanoid",
     "GenderType": "Female",
+    "FromArea": { "Area": "九蓮国" },
     "Height_cm": 157,
     "Weight_kg": 60,
     "ConceptAge": 22,
@@ -777,7 +793,7 @@
     "Name_JPReading": "かみやざき ゆの",
     "Name_EN": "Juno Theolessnight",
     "GenderType": "Female",
-    "Belonging": ["夜月機関", "白の六芒星"],
+    "Belonging": [{ "Faction": "夜月機関" }, { "Faction": "白の六芒星" }],
     "Height_cm": [
       { "about_JP": "推定", "about_EN": "Presumption", "value": 143 }
     ],
