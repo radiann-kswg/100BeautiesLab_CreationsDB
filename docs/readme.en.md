@@ -123,9 +123,8 @@ Base URL: `https://database.numbertales-radiann.net/api/v1/`
 | GET    | `/api/v1/:work/:db/search?q=`    | D1 FTS5      | Full-text search within a DB                                      |
 | GET    | `/api/v1/:work/search?q=`        | D1 FTS5      | Full-text search across a work                                    |
 
-As of 2026-07-25 each entry of `/api/v1/works` exposes `key`, `Title`, `Title_EN`, `Works_Summary` and
-`OldTitles`. Official-site links (`Works_OfficialLinks[]`) are implemented in the Worker and will appear
-with the next deployment.
+As of 2026-07-29 each entry of `/api/v1/works` exposes `key`, `Title`, `Title_EN`, `Works_Summary`,
+`OldTitles` and `Works_OfficialLinks[]` (official-site links), all verified against production.
 
 Visibility flags are enforced at the query level: `Works_Hidden` hides a whole work and `DB_Hidden`
 hides a whole DB, both returning 404.

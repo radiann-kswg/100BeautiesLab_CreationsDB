@@ -36,7 +36,8 @@
 - **Cloudflare 実API系**: `global-references`（共通資料の疑似作品化）と `r2-sync-outage`（R2 未同期障害）は 2026-07-13 に本番実 API で疎通・是正を確認し退避済み。運用の残課題は `pkg-sync` 側で管理。
 - **DeepL/ローカライズ運用系**: `deepl-localization` / `deepl-draft-translate` / `deepl-glossary-multiform` / `deepl-py-and-skill` / `deepl-production-run` は、2026-07-03 の本番実行ログ（`deepl-production-run`）で実API疎通・Python版・用語集同期まで確認済みにつき `.completed/` へ退避済み。データ内容そのものの継続作業は `localization-db` / `localization-summary-inputs` 側で管理。
 - **Issue 機能系**: `issue-feature` は 2026-07-14 に、外部ユーザーによる Issue #11 の**テンプレート経由での実起票**をもって本番稼働を確認し退避済み。同時に発見した `data-correction` ラベル未定義も修正済み。
-- **Calling 表示系**: `fix_calling-schema-duplication` は 2026-07-14 にブラウザ実地確認 + 回帰テスト追加で完了・退避済み。作品別 typedef に残る `ForMasterCalling_JP`/`_EN` の suffix 宣言は、renderer 側の base 統合により**表示バグを起こさない**ことを確認済み（スキーマ整理は任意）。ローカライズ観点の残作業は `localization-rules-audit` 側で管理。
+- **Calling 表示系**: `fix_calling-schema-duplication` は 2026-07-14 にブラウザ実地確認 + 回帰テスト追加で完了・退避済み。作品別 typedef に残る `ForMasterCalling_JP`/`_EN` の suffix 宣言は、renderer 側の base 統合により**表示バグを起こさない**ことを確認済み（スキーマ整理は任意）。ローカライズ観点を担っていた `localization-rules-audit` も、2026-07-29 に `calling.js` のユニットテスト追加（`tests/section-renders.calling.test.js`）と UI 実測をもって完了・退避済み。**本系列は完結**し、英訳ルール本体の参照先は `docs/localization-en-rules.md`、データ入力側の継続作業は `localization-db` / `localization-summary-inputs`（母艦 T-24）へ移っています。
+- **所属 / 出身地の構造型化**: `belonging-faction-typedef`（2026-07-29・`aded5e0`）で `Belonging` を `$Def_Faction[]` へ移行し、`dict_Faction.json` の二重管理（`Faction` / `Belonging` の 2 列）を統合。辞書行の参照解決（`$dictRef`）と basicFields wrapper（`factionSummary` / `baseAreaSummary`）まで実装・テスト済みで、**実機目視と Workers 側の `dictRefs` 対応判断のみ**が母艦 **T-33** に残っています。
 - **pkg/ 追従系**: `pkg-sync` は 2026-07-13 の実装・検証で完了。残る技術負債（Workers 側 `_Secondaries` マッチャの乖離ほか）は母艦 `2026-07-08_remaining-task.md` の P4 へ引き継ぎ済み。
 - **アンオースドロジカ Index 系**: `unauthedlogica-index-alias` は実装・テスト・ブラウザ確認完了、コミットも `develop` へ着地済み（`f3c18ae`）。残る辞書ラベル（創作文言）は母艦 P3 へ引き継ぎ済み。
 - **キャラシート URL / 辞書解決系**: `url-params`（圧縮ロケータ `?c=`・`a36ba32`）と `global-dict-resolution-fix`（`fetchGlobalDefType()` の妥当性判定をスキーマ形状ベースへ・`f78cfdb`）は 2026-07-16 の棚卸しで完了・退避済み。前者は錦野姉妹（Dealer カード）対応まで、後者は辞書和英併記の復旧をブラウザ実地確認済み。`global-dict-resolution-fix` の `addon-ai-tag` への一方向マージは本棚卸しの `addon-ai-tag` パスで実施する。
@@ -49,6 +50,24 @@
 ## 完了（.completed へ退避済み）
 
 以下のファイルは実装・検証が完了し、`_work_in_progress/.completed/` へ移動済みです（Git 管轄外）。
+
+### 2026-07-29 棚卸しで追加退避（4件）
+
+`npm test` / `agents:check` / `data:order:check` / `roleplay:check` の定点観測に加え、
+**本番実 API（`https://database.numbertales-radiann.net`）を叩いてデプロイ状態まで裏取り**してから退避。
+直下 17 件 → 13 件（+ 母艦 1 件・+README）。実測値は母艦の「定点観測 → 2026-07-29 実測値」に記録。
+
+- `2026-06-24_progress_localization-rules-audit.md`（**母艦 T-07 完了**。`calling.js` のユニットテスト追加と
+  UI 実測が済み、他の申し送り 2 件〈`docs/readme.en.md` の旧さ / 要手動確認 6 件〉も解消済みを確認）
+- `2026-07-13_progress_aihints-palette-deadlock.md`（**母艦 T-02 完了**に伴い役割終了。残る積み残しは
+  `addon-ai-tag` の残課題台帳 A3 へ移管済み）
+- `2026-07-08_progress_aihints-structural-resync-proposal.md`（提案した構造的再同期が `addon-ai-tag` で
+  実装・稼働済み〈PR #14 の自動作成 → マージ後 no-op を確認〉）
+- `2026-07-25_github-triage.md`（`2026-07-29_github-triage.md` へ世代交代。§1〜§3 は全て解決済みで確定）
+
+> **この回の発見**: 書面と本番のズレが**両方向**に出ました。T-01（`Works_OfficialLinks`）は
+> 「未デプロイ」と書かれていたが**実は反映済み**、T-03（検索の 400 化）は「完了」と書かれていたが
+> **未 push で本番は 500 のまま**。以降は「コード完了」と「本番反映」を分けて書く運用にしています。
 
 ### 2026-07-25 タスク統合で追加退避（6件）
 
@@ -228,6 +247,18 @@
 
 ## 整理履歴
 
+- **2026-07-29 の棚卸しで、4件 を `.completed/` へ退避し、直下を 17件 → 13件（+ 母艦・+README）に整理しました。**
+  今回は定点観測（`npm test` 46 files / **627 件全緑** ・`agents:check` 0/2 ・`data:order:check` 0/1287 ・
+  `roleplay:check` changed=0）に加えて、**本番実 API を curl で叩いてデプロイ状態まで裏取り**しています。
+  その結果、書面と実態のズレが**両方向**に見つかりました。(1) 母艦 **T-01**（`Works_OfficialLinks` の本番反映）は
+  「コードのみ完了・未デプロイ」と書かれていたが、本番 `/api/v1/works` に**すでに露出済み**＝完了。
+  あわせて `docs/readme.en.md` の「次のデプロイで現れる」注記を除去。(2) 逆に **T-03**（実 API の検索を 400 化）は
+  同日 `d42011a` で「完了」と記録されていたが、本番 `?q=*` は**まだ 500**。原因はローカル `develop` が
+  `origin/develop` より **2 コミット先行（未 push）**で、`cf-api-sync.yml` の自動デプロイが走っていないため。
+  T-03 は「本番反映」タスクとして残置しました。退避したのは T-07 完了に伴う `localization-rules-audit`、
+  T-02 完了に伴う AIHints 系 2 本、世代交代した `2026-07-25_github-triage.md` の計 4 件。
+  Copilot が進めた分（`calling.js` のテスト追加・検索 400 化）と、`aded5e0` の `Belonging` 構造型化
+  （新規 **T-33** として登録）も母艦へ取り込み済みです。
 - **2026-07-25、`addon-ai-tag` への一方向マージ（`6f68df3`）の結果を `develop` 側へ反映しました。**
   マージ作業中に **統合母艦の T-02（AIHints への配色導出）が「未実装」と誤記されている**ことが判明したため、
   `develop` 側で訂正しています。実際は `addon-ai-tag` で `--apply-colorpalette` が実装・適用済みで、

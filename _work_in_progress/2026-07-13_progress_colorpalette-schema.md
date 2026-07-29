@@ -2,13 +2,13 @@
 
 ## 目的
 
-AIHints の `palette_priority`（カラーセット）が 92/92 件 `null` のまま埋まらない問題（[デッドロック診断ログ](./2026-07-13_progress_aihints-palette-deadlock.md)）に対し、User から **「色を AIHints に目測で埋めるのではなく、`develop` 側の本体 DB にフィールドとして持たせる」** 方針が示された。本作業はその実装。
+AIHints の `palette_priority`（カラーセット）が 92/92 件 `null` のまま埋まらない問題（[デッドロック診断ログ](./.completed/2026-07-13_progress_aihints-palette-deadlock.md)）に対し、User から **「色を AIHints に目測で埋めるのではなく、`develop` 側の本体 DB にフィールドとして持たせる」** 方針が示された。本作業はその実装。
 
 **なぜこれが根治になるか**: 現状 `palette_priority` が「画像を目測しないと決まらない」のは、色が本体 DB のどこにも構造化されていないためである（`AppearanceDetail` に `#DesignAttr_Color` の**色名**（`"赤"` / `"red"`）はあるが HEX が無い）。色を本体 DB に持たせれば、`palette_priority` は `AppearanceDetail` と同じ **「構造由来」** になり、
 
 - 目測が不要になる（再現性が出る）
 - `--apply-appearancedetail` と同じ経路で **機械導出** できる
-- [構造的再同期提案](./2026-07-08_progress_aihints-structural-resync-proposal.md)（第1階 provenance）の「安全に再生成できる領域」に入り、**再ビルドで巻き戻らなくなる**
+- [構造的再同期提案](./.completed/2026-07-08_progress_aihints-structural-resync-proposal.md)（第1階 provenance）の「安全に再生成できる領域」に入り、**再ビルドで巻き戻らなくなる**
 
 ## 作業ブランチ
 
@@ -162,8 +162,8 @@ node tools/patch-colorpalette.mjs --work NumberTales --db Primary --records 40 \
 
 ## 参考リンク
 
-- [`2026-07-13_progress_aihints-palette-deadlock.md`](./2026-07-13_progress_aihints-palette-deadlock.md) — 本作業の発端（palette が埋まらないデッドロックの診断）
-- [`2026-07-08_progress_aihints-structural-resync-proposal.md`](./2026-07-08_progress_aihints-structural-resync-proposal.md) — 構造的再同期（`ColorPalette` が入ると palette もこの「安全領域」に入る）
+- [`2026-07-13_progress_aihints-palette-deadlock.md`](./.completed/2026-07-13_progress_aihints-palette-deadlock.md) — 本作業の発端（palette が埋まらないデッドロックの診断）
+- [`2026-07-08_progress_aihints-structural-resync-proposal.md`](./.completed/2026-07-08_progress_aihints-structural-resync-proposal.md) — 構造的再同期（`ColorPalette` が入ると palette もこの「安全領域」に入る）
 - `tools/extract-palette.mjs` / `tests/extract-palette.test.js`
 - `data/db_type.json`（`$DefType[hashTag=ColorPalette]` / `$ScalarDef.#Hexcode_Color`）
 - `data/db_meta.json`（`General.$VarsDef.$Def_ColorPalette` / `$EnumDef_ColorRole`）

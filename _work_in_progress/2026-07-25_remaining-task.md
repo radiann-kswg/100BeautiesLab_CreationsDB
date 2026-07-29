@@ -28,77 +28,38 @@
 
 ## A. 技術タスク（Claude 側で着手できる）
 
-### T-01 🔴 Cloudflare Worker のデプロイ（`Works_OfficialLinks` の本番反映）
+### T-01 ✅ Cloudflare Worker のデプロイ（`Works_OfficialLinks` の本番反映）— **完了**（2026-07-29 実測）
 
 - **関連ログ**: `.completed/2026-07-16_progress_official-links.md`（単一）
-- **状態**: **コードは完了・未デプロイ**。`pkg/cloudflare/worker.js` の `/works` 整形へ
-  `Works_OfficialLinks: info.Works_OfficialLinks ?? []` を追加済み（`58aed8f`）
-- **残作業**: `wrangler deploy` のみ。2026-07-25 の実測では本番 `/api/v1/works` の公開キーは
-  `key` / `Title` / `Title_EN` / `Works_Summary` / `OldTitles` の **5 種のまま**
-- **完了条件**: 本番 `/api/v1/works` に `Works_OfficialLinks` が現れること。
-  **デプロイ後、`docs/readme.en.md` の「次のデプロイで現れる」注記を外す**
+- **実測（2026-07-29）**: 本番 `GET /api/v1/works` の `#Works_NumberTales` に
+  `Works_OfficialLinks[]`（`LinkType` / `URL` / `Label_JP` / `Label_EN`）が**露出済み**。
+  2026-07-25 時点の「公開キー 5 種のまま」は解消され、デプロイは着地している
+- **同日の後処理**: `docs/readme.en.md` の「次のデプロイで現れる」注記を除去し、
+  実測ベースの記述（公開キー 6 種）へ更新済み
+- **補足**: デプロイは `.github/workflows/cf-api-sync.yml` が `develop` への push（`pkg/cloudflare/worker.js`
+  変更）で自動実行する。手動 `wrangler deploy` は不要（`workflow_dispatch` の `deploy-only` でも可）
 
-### T-02 ✅ AIHints への配色導出（`--apply-colorpalette`）— **完了**（2026-07-25 確認）
+### T-02 ✅ AIHints への配色導出（`--apply-colorpalette`）— 完了・**2026-07-29 の棚卸しで削除**
 
-> **本エントリは当初「繋ぐ 1 本が未実装・92/92 件 `null` のまま」と記載していましたが、これは誤りでした。**
-> `addon-ai-tag` ブランチで**実装・適用ともに完了済み**であることを、2026-07-25 のマージ作業中に
-> 実データとコードで裏取りしました（下記）。次の棚卸しで本エントリごと削除します。
+> 本エントリは 2026-07-25 に完了確認済みのため、運用ルールどおり本文を削除しました。
+> 経緯は `.completed/2026-07-13_progress_aihints-palette-deadlock.md` の「追記（2026-07-25）」を、
+> 残る積み残し（`AIHints` 未保持 13 件の扱い / SemiPrimary 系の seed）は `addon-ai-tag` 側の
+> 残課題台帳 **A3** を参照してください。教訓は末尾「運用ルール」へ移設済みです。
 
-- **関連ログ**（3 本）:
-  - `2026-07-08_progress_aihints-structural-resync-proposal.md`（構造的再同期の設計提案）
-  - `2026-07-13_progress_aihints-palette-deadlock.md`（`palette_priority` が埋まらない原因の診断・3 階建て設計）
-  - `2026-07-13_progress_colorpalette-schema.md`（`ColorPalette` スキーマと抽出ツールの実装）
-  - （`addon-ai-tag` 側）`2026-07-25_progress_addon-ai-tag-merge.md` §2 … **確認の一次情報源**
-- **状態**: **3 階すべて完了**
-  - ✅ 第0階（`palette_priority` の `null` ハンドリング）… `addon-ai-tag` で実装済み
-  - ✅ 第1階（`_meta` provenance + `--resync-structural` + CI）… **稼働済み**。2026-07-25 に本番 Actions で
-    PR 自動作成 → マージ後 no-op まで確認（PR #14 / `6bf1e50`）
-  - ✅ 第2階（`tools/extract-palette.mjs`）… `develop` で実装済み。`ColorPalette` を **94 件**投入済み（全件 5 色以上）
-  - ✅ **導出モード `--apply-colorpalette` … `addon-ai-tag` に実装済み**
-    （`applyColorPaletteToAihints()` / 確定値を守る `--force-palette` / `docs/ai-hints-usage.md` §9.11）
-
-**実データでの裏取り（NumberTales / Primary・2026-07-25 実測）**
-
-| 項目 | 件数 |
-| --- | --- |
-| `AIHints` あり | 92 |
-| **`palette_priority` 確定** | **91** |
-| `palette_priority` が `null` | **1**（Num `10-alt`） |
-| `_meta`（provenance）あり | 92 / 92 |
-
-`10-alt`（ディケ）は設定画が無く `ColorPalette` 自体を持たないレコードで、**ソースが無いため `null` が正しい**
-（`--apply-colorpalette` の dry-run でも `palette-no-colorpalette` として正しくスキップされる）。
-dry-run 全体は **`No changes to write.`** ＝ 適用済みかつ冪等。
-
-**なぜ誤記したか（再発防止）**: 本エントリの根拠にした `develop` 側 2 ログは **2026-07-13 時点の記述のまま**で、
-その後 `addon-ai-tag` で実装が進んだことが `develop` からは見えなかったため。
-**AIHints のコード・スキーマは `develop` に含めない運用**なので、`develop` 側のログだけを読むと
-構造的にこの誤解が起きる。→ 下記「AIHints の状態を書くときの注意」を参照。
-
-**残る積み残し**（T-02 本体ではなく、`addon-ai-tag` 側の台帳 A3 で管理）:
-
-- `AIHints` を持たない 13 件の扱い（対象外とするか scaffold するか）
-- SemiPrimary / SelfSecondary / Secondary は **AIHints が未 seed**（0 件）。ただし `ColorPalette` は投入済み
-  （8 / 7 / 11 件）なので、**seed 後に `--apply-colorpalette` を続けて実行すれば同じ経路で埋まる**
-
-#### AIHints の状態を書くときの注意（本タスクからの教訓）
-
-**`develop` 側のログだけで AIHints の実装状況を判断しないこと。** AIHints のコード・ツール・テストは
-`addon-ai-tag` にしか存在せず、`develop` 側のログは実装状況に対して構造的に遅れる。
-状態を書く必要があるときは `addon-ai-tag` をチェックアウトして実データ・実コードを見てから書く。
-`addon-ai-tag` 側の残課題は同ブランチの
-`2026-07-14_progress_addon-ai-tag-log-inventory.md`「AIHints 残課題台帳（A1〜A10）」に集約されている。
-
-### T-03 ✅ 実 API の検索が不正クエリで 500 を返す — **完了**（2026-07-29）
+### T-03 🔴 実 API の検索 400 化の**本番反映**（コード対応は完了・未 push）
 
 - **関連ログ**: `.completed/2026-07-25_progress_priority-tasks.md`（単一・2026-07-25 に実測で発見）
-- **対応内容**:
-  - `pkg/cloudflare/worker.js` に検索クエリ正規化 (`normalizeSearchQuery`) を追加し、`*` / `?` を含む不正クエリを `ApiError(400, "Invalid search query")` で早期拒否
-  - DB 単位検索 (`searchRecordsInD1`)・作品横断検索 (`searchAllRecordsInD1`) の D1 実行を try-catch 化し、FTS5 由来の例外を 500 ではなく 400 へ正規化
-  - 回帰テスト `tests/cloudflare-search-errors.test.js` を追加し、`GET /api/v1/:work/search?q=*` が 400 + `Invalid search query` を返すことを固定
-- **検証結果**:
-  - `npm test -- --run tests/cloudflare-search-errors.test.js` → 1/1 pass
-  - `npm test` → 46 files / 627 tests pass
+- **✅ コード対応（2026-07-29・`d42011a`）**:
+  - `pkg/cloudflare/worker.js` に検索クエリ正規化（`normalizeSearchQuery`）を追加し、`*` / `?` を含む
+    不正クエリを `ApiError(400, "Invalid search query")` で早期拒否
+  - DB 単位検索（`searchRecordsInD1`）・作品横断検索（`searchAllRecordsInD1`）の D1 実行を try-catch 化し、
+    FTS5 由来の例外を 500 ではなく 400 へ正規化
+  - 回帰テスト `tests/cloudflare-search-errors.test.js` を追加（`npm test` → 46 files / 627 tests pass）
+- **🔴 残作業（本番未反映）**: 2026-07-29 の実測で本番
+  `GET /api/v1/NumberTales/search?q=*` は **まだ 500** を返す。ローカル `develop` が `origin/develop` より
+  **2 コミット先行（`aded5e0` / `d42011a`）で未 push** のため、Worker が旧版のまま
+- **完了条件**: `develop` を push（`cf-api-sync.yml` が `pkg/cloudflare/worker.js` の変更を検出して
+  自動デプロイ）→ 本番の同 URL が **400 + `Invalid search query`** を返すこと
 - **備考**: 通常検索（例: `q=Fivens` / `q=イズナ`）の既存挙動は維持
 
 ### T-04 🔴 フィールド順整列 Phase 4（ネスト整列のツール化）
@@ -131,16 +92,11 @@ dry-run 全体は **`No changes to write.`** ＝ 適用済みかつ冪等。
   テンプレ選択と出力先の lang 分離、EN テンプレ 3 本の新設
 - **制約**: **LLM で創作本文を訳出・生成しない**。`_EN` 欠落はその節を空のまま出す
 
-### T-07 ✅ `calling.js` のユニットテスト・UI 動作確認 — **完了**（2026-07-29）
+### T-07 ✅ `calling.js` のユニットテスト・UI 動作確認 — 完了（2026-07-29）・**同日の棚卸しで削除**
 
-- **関連ログ**: `2026-06-24_progress_localization-rules-audit.md`（単一）
-- **状態**: 2026-07-29 に以下を実施して完了。
-  - `tests/section-renders.calling.test.js` を新規追加（callingSection の登録 / JP トークン描画 / 言語未解決フォールバック）
-  - `runTests` で `tests/section-renders.calling.test.js` + `tests/calling-common.test.js` が **全16件成功**
-  - ローカル UI（`pages/characters.html?c=SinisterChangingGirls/Primary/Drc:SW&lang=jp`）で
-    Calling セクション描画を確認（`一人称/二人称/三人称` 見出し、`.calling-value` 3件、`.calling-tok` 7件、`.calling-tok--ref` 2件）
-- **補足**: 後続の `fix_calling-schema-duplication` は 2026-07-14 に完了・退避済み。
-  作品別 typedef に残る `ForMasterCalling_JP`/`_EN` の suffix 宣言は表示バグを起こさないことを確認済み
+> `tests/section-renders.calling.test.js` の追加（`calling-common` と合わせ 16 件成功）と、
+> ローカル UI（`?c=SinisterChangingGirls/Primary/Drc:SW&lang=jp`）での Calling 描画確認をもって完了。
+> 詳細は `.completed/2026-06-24_progress_localization-rules-audit.md` を参照してください。
 
 ### T-08 🔴 既知の技術負債（まとめ）
 
@@ -183,6 +139,10 @@ dry-run 全体は **`No changes to write.`** ＝ 適用済みかつ冪等。
 - **関連ログ**: `2026-07-02_progress_addon-ai-tag-reverse-merge-incident.md`（事故記録）
 - **確認コマンド**: `git rev-list --left-right --count develop...origin/addon-ai-tag`
 - **2026-07-25 実測**: **1 / 108**（未取り込みは `b737891`〈進捗ログのみ〉1 件で、コード差分は無い）
+- **2026-07-29 実測**: **8 / 114**。`aded5e0`（`Belonging` の `$Def_Faction[]` 化・schema/lib/data 横断）と
+  `d42011a`（Worker の検索 400 化）を含むため、**今回はコード差分あり**。とくに `aded5e0` は
+  `data/Dictionaries/dict_Faction.json` の構造を変えているので、**マージ後に `addon-ai-tag` 限定のテストが
+  黙って壊れうる**（T-09 参照）。マージ前に `develop` を push しておくこと
 - **注意**: **逆マージは禁止**。棚卸しのたびにこのカウントを確認する
 
 ### T-11 🔴 ICS カレンダーの外部反映
@@ -302,6 +262,18 @@ dry-run 全体は **`No changes to write.`** ＝ 適用済みかつ冪等。
   直前の宣言済みキーへアンカーされて元の位置に留まる
 - **判断が要る理由**: 宣言にはラベル付け（`hashTag_JP`）が伴い、創作内容に踏み込むため
 
+### T-33 🟡 `Belonging` の `$Def_Faction[]` 化の残確認（2026-07-29 実装分）
+
+- **関連ログ**: `2026-07-29_progress_belonging-faction-typedef.md`（単一）
+- **完了済み**: schema / 辞書統合 / レコード一括移行（16 ファイル・83 箇所）/ `$dictRef` 参照解決 /
+  basicFields wrapper（`factionSummary` / `baseAreaSummary`）/ テスト（`npm test` 全緑）/ docs 反映
+- **待ち項目**:
+  - **ブラウザ実機での目視確認**（キャラシート詳細の `所属` / `出身地` 表示、複数所属時の改行）。
+    `tests/pages.characters.ui-output.test.js` で end-to-end 検証は済んでいるが、実画面は未確認
+  - Cloudflare Workers 実 API（`pkg/cloudflare/`）へ `_enrichment.dictRefs` を載せるかの判断
+    （現状は SW 疑似 API 専用。載せない場合は「SW 専用」で確定させる）
+- **補足**: `$Def_Faction` は所属以外へも再利用できる形だが、現時点の適用先は `Belonging` のみ
+
 ---
 
 ## C. 長期保留（着手判断そのものが保留）
@@ -335,20 +307,18 @@ dry-run 全体は **`No changes to write.`** ＝ 適用済みかつ冪等。
 | ログ | 主題 | 関連タスク | 状態 |
 | --- | --- | --- | --- |
 | [2026-07-25_remaining-task.md](./2026-07-25_remaining-task.md) | **本ファイル**（残タスクの起点） | — | 🟢 現行 |
-| [2026-07-25_github-triage.md](./2026-07-25_github-triage.md) | GitHub 未解決問題の日次トリアージ | — | 🟢 現行（未解決の CI 失敗なし。§1 の `AI_Optout` 仮説は誤りのため**対応案は適用しない**） |
+| [2026-07-29_github-triage.md](./2026-07-29_github-triage.md) | GitHub 未解決問題の日次トリアージ | **T-25** | 🟢 現行（未解決は Issue #13 のみ。CI 失敗・Dependabot・PR は全て解決済み） |
+| [2026-07-29_progress_belonging-faction-typedef.md](./2026-07-29_progress_belonging-faction-typedef.md) | `Belonging` の `$Def_Faction[]` 化・`$dictRef` 参照解決 | **T-33** | ⚠️ 実装完了・実機目視と Workers 側判断が残 |
+| [2026-07-22_progress_issue13-numerology-skinship.md](./2026-07-22_progress_issue13-numerology-skinship.md) | Issue #13 の要件整理 | **T-25** | 📝 設計判断待ち |
 | [2026-07-18_progress_roleplay-prompt-en-phase4.md](./2026-07-18_progress_roleplay-prompt-en-phase4.md) | ロールプレイプロンプト EN 版の着手前調査 | **T-06** | 📝 着手条件は User 確認 2 件 |
 | [2026-07-17_progress_field-order-typedef.md](./2026-07-17_progress_field-order-typedef.md) | フィールドキー順の typedef 整列 | **T-04 / T-05 / T-28** | 🟢 Phase 4 以外は完了 |
 | [2026-07-13_progress_colorpalette-schema.md](./2026-07-13_progress_colorpalette-schema.md) | `ColorPalette` スキーマ・配色抽出 | **T-20** | ⚠️ 実装済み・User レビュー待ち（AIHints への導出は完了） |
-| [2026-07-13_progress_aihints-palette-deadlock.md](./2026-07-13_progress_aihints-palette-deadlock.md) | `palette_priority` デッドロックの診断 | — | 🟢 **第0〜2階すべて完了**（`addon-ai-tag` で適用済み）。設計背景の参照用 |
-| [2026-07-08_progress_aihints-structural-resync-proposal.md](./2026-07-08_progress_aihints-structural-resync-proposal.md) | AIHints 構造的再同期の設計提案 | — | 🟢 提案は実装・稼働済み（設計背景の参照用） |
-| [2026-07-22_progress_issue13-numerology-skinship.md](./2026-07-22_progress_issue13-numerology-skinship.md) | Issue #13 の要件整理 | **T-25** | 📝 設計判断待ち |
 | [2026-07-11_progress_appearancedetail-images.md](./2026-07-11_progress_appearancedetail-images.md) | AppearanceDetail 参考画像の一括登録 | **T-23** | ⚠️ 割当確認待ち |
 | [2026-07-06_progress_unibytelive-formalname-draft.md](./2026-07-06_progress_unibytelive-formalname-draft.md) | アルベッツの苗字・コードネーム下書き | **T-22** | ⚠️ User レビュー中 |
 | [2026-07-02_progress_addon-ai-tag-reverse-merge-incident.md](./2026-07-02_progress_addon-ai-tag-reverse-merge-incident.md) | 逆マージ事故の記録と是正 | **T-10 / T-31** | ⚠️ 後日談追記が保留 |
 | [2026-06-28_progress_conversationpattern-handoff.md](./2026-06-28_progress_conversationpattern-handoff.md) | ConversationPattern 補完の引き継ぎ | **T-21** | ⚠️ User 入力待ち |
 | [2026-06-25_progress_localization-summary-inputs.md](./2026-06-25_progress_localization-summary-inputs.md) | Localization Summary の入力チェックリスト | **T-24** | ⚠️ 残 7 件 |
 | [2026-06-24_progress_localization-db.md](./2026-06-24_progress_localization-db.md) | Localization レイヤーの実装 | **T-24** | ⚠️ 原作者確認・項目追加が継続 |
-| [2026-06-24_progress_localization-rules-audit.md](./2026-06-24_progress_localization-rules-audit.md) | 英訳ルールの追補・`calling.js` 実装 | **T-07** | ✅ 2026-07-29 テスト/UI 確認完了 |
 | [2026-06-21_progress_cloudflare-api-adr2-gcloud.md](./2026-06-21_progress_cloudflare-api-adr2-gcloud.md) | ADR-0002（Google Cloud） | **T-30** | 🔵 Draft |
 | [2026-06-12_progress_translation-style-unified.md](./2026-06-12_progress_translation-style-unified.md) | 英訳ルール基準書・バッチ作業ログ | — | 📖 **参照専用**（ルール本体） |
 
@@ -376,6 +346,43 @@ gh issue list --state open                                      # 未解決 Issu
 
 あわせて、**ログに「未コミット」と書かれていたら `git log -- <該当ファイル>` で必ず裏取り**してください。
 2026-07-25 の棚卸しでは、そう書かれていた 3 件がすべて着地済みでした。
+**「実装済み」と書かれていたら、本番 API を叩いてデプロイ済みかも確認**してください（2026-07-29 の棚卸しでは
+T-01 が「未デプロイ」→ 実は反映済み、T-03 が「完了」→ 実は未 push で本番未反映、と**両方向にズレて**いました）。
+
+### 2026-07-29 実測値
+
+| 定点 | 結果 |
+| --- | --- |
+| `npm test` | ✅ 46 files / **627 tests** 全緑 |
+| `npm run agents:check` | ✅ `0/2 件が要更新`（生成物は正典と一致） |
+| `npm run data:order:check` | ✅ `0/1287 レコードを整列`（19 ファイル・キー順の差分なし） |
+| `npm run roleplay:check` | ✅ `changed=0 unchanged=57 noCP=282 errors=0` |
+| `develop...origin/addon-ai-tag` | **8 / 114**（`develop` 側の未マージ 8 件 → T-10） |
+| `develop...origin/develop` | **2 / 0**（`aded5e0` / `d42011a` が**未 push** → T-03 の本番反映が止まっている原因） |
+| 本番 `/api/v1/works` | ✅ `Works_OfficialLinks` 露出済み（T-01 完了） |
+| 本番 `/api/v1/NumberTales/search?q=*` | 🔴 **500**（デプロイ待ち → T-03） |
+
+---
+
+## 2026-07-29 に完了・退避したもの
+
+`develop` 側で 4 件を `.completed/` へ退避しました（直下 17 → 13 件 + 本ファイル + README）。
+
+| ログ | 退避理由 |
+| --- | --- |
+| `2026-06-24_progress_localization-rules-audit.md` | **T-07 完了**（`calling.js` のテスト追加・UI 確認）。他の申し送り 2 件（`docs/readme.en.md` の旧さ / 要手動確認 6 件）も解消済みを確認 |
+| `2026-07-13_progress_aihints-palette-deadlock.md` | **T-02 完了**に伴い役割終了。残る積み残しは `addon-ai-tag` 台帳 A3 へ移管済み |
+| `2026-07-08_progress_aihints-structural-resync-proposal.md` | 提案した第1階（`--resync-structural` + CI）が `addon-ai-tag` で実装・稼働済み（PR #14） |
+| `2026-07-25_github-triage.md` | `2026-07-29_github-triage.md` へ世代交代（§1〜§3 は全て解決済みで確定） |
+
+同日に完了・確認した主なもの:
+
+- **T-01（`Works_OfficialLinks` の本番反映）**: 本番実測で露出を確認し、`docs/readme.en.md` の
+  「次のデプロイで現れる」注記を除去
+- **T-07（`calling.js`）**: `tests/section-renders.calling.test.js` の追加と UI 実測で完了（Copilot 作業分）
+- **T-03（検索 400 化）**: コードとテストは完了。ただし**本番は未反映**のため、エントリは
+  「本番反映」タスクとして残置（未 push 2 コミットの push が完了条件）
+- **T-33 を新規登録**: `Belonging` の `$Def_Faction[]` 化（`aded5e0`）の実機目視確認と Workers 側判断
 
 ---
 
@@ -425,4 +432,10 @@ gh issue list --state open                                      # 未解決 Issu
 - タスクを完了したら、本ファイルの該当エントリへ完了印を付け、関連ログに未完了項目が残っていなければ
   そのログを `.completed/` へ退避する（**`git mv` ではなく `mv` を使う**。`.completed/` は `.gitignore` 対象）。
 - 新しいタスクは末尾の空き番号へ追加する（ID は再利用しない）。
+- **「コードが完了」と「本番へ反映済み」を分けて書く**。Cloudflare Workers 側のタスクは、
+  `develop` への push（`cf-api-sync.yml` の自動デプロイ）まで済んで初めて完了とする（T-01 / T-03 の教訓）。
+- **AIHints の状態は `develop` 側のログだけで判断しない**。AIHints のコード・ツール・テストは
+  `addon-ai-tag` にしか存在せず、`develop` 側のログは実装状況に対して構造的に遅れる。状態を書くときは
+  `addon-ai-tag` をチェックアウトして実データ・実コードを見ること。残課題は同ブランチの
+  `2026-07-14_progress_addon-ai-tag-log-inventory.md`「AIHints 残課題台帳（A1〜A10）」に集約されている。
 - 履歴参照は `.completed/2026-07-03_current-task-ledger.md` と `.completed/2026-07-08_remaining-task.md`。
