@@ -46,21 +46,21 @@
 > 残る積み残し（`AIHints` 未保持 13 件の扱い / SemiPrimary 系の seed）は `addon-ai-tag` 側の
 > 残課題台帳 **A3** を参照してください。教訓は末尾「運用ルール」へ移設済みです。
 
-### T-03 🔴 実 API の検索 400 化の**本番反映**（コード対応は完了・未 push）
+### T-03 ✅ 実 API の検索が不正クエリで 500 を返す — **完了**（2026-07-29・**本番反映まで確認**）
 
 - **関連ログ**: `.completed/2026-07-25_progress_priority-tasks.md`（単一・2026-07-25 に実測で発見）
-- **✅ コード対応（2026-07-29・`d42011a`）**:
+- **コード対応（`d42011a`）**:
   - `pkg/cloudflare/worker.js` に検索クエリ正規化（`normalizeSearchQuery`）を追加し、`*` / `?` を含む
     不正クエリを `ApiError(400, "Invalid search query")` で早期拒否
   - DB 単位検索（`searchRecordsInD1`）・作品横断検索（`searchAllRecordsInD1`）の D1 実行を try-catch 化し、
     FTS5 由来の例外を 500 ではなく 400 へ正規化
   - 回帰テスト `tests/cloudflare-search-errors.test.js` を追加（`npm test` → 46 files / 627 tests pass）
-- **🔴 残作業（本番未反映）**: 2026-07-29 の実測で本番
-  `GET /api/v1/NumberTales/search?q=*` は **まだ 500** を返す。ローカル `develop` が `origin/develop` より
-  **2 コミット先行（`aded5e0` / `d42011a`）で未 push** のため、Worker が旧版のまま
-- **完了条件**: `develop` を push（`cf-api-sync.yml` が `pkg/cloudflare/worker.js` の変更を検出して
-  自動デプロイ）→ 本番の同 URL が **400 + `Invalid search query`** を返すこと
+- **本番反映（同日）**: 棚卸し時点では未 push のため本番が **500** のままだったが、その後 `develop` を
+  push したことで `cf-api-sync.yml` が `pkg/cloudflare/worker.js` の変更を検出して**自動デプロイ**。
+  実測で `GET /api/v1/NumberTales/search?q=*` が **400** を返すことを確認した（`addon-ai-tag` マージ作業中に再確認）
 - **備考**: 通常検索（例: `q=Fivens` / `q=イズナ`）の既存挙動は維持
+- **教訓**: 本タスクは「コード完了」と「本番反映」が同日中に**別々のタイミング**で起きた。
+  Workers 側の変更は push（＝自動デプロイ）まで済んで初めて完了とする（末尾「運用ルール」に明文化済み）
 
 ### T-04 🔴 フィールド順整列 Phase 4（ネスト整列のツール化）
 
@@ -122,6 +122,13 @@
      AI タグ用のハードコード（`'uni-digits class'`）と辞書の表示名（`"Uni-Digits"`）はレジスタが異なり、
      29 件中 28 件で値が違う。辞書側へ AI タグ用フィールド（例 `Class_AITag`）を足してハードコードを
      退役させるのが筋だが、スキーマ変更 + 創作判断が要る
+  8. **`tests/cloudflare-search-errors.test.js` の API プレフィックス分岐**（`addon-ai-tag` 台帳 A11・
+     2026-07-29 のマージで発覚）: 本ファイルは `/api/v1/:work/search` を**ハードコード**で叩くが、
+     `addon-ai-tag` の Worker は **`/api/ai` しかルーティングしない**ため、同じテストが向こうでは
+     404 を返して**必ず落ちる**（T-09 が言う「無関係な赤」の実例。実測 1 failed / 745）。
+     `addon-ai-tag` 側では `/api/v1` → `/api/ai` の順に叩いて 404 以外を採るプレフィックス自動検出
+     （`resolveApiPrefix()`）を入れて解消済み。**`develop` 側も同じ形へ揃えると分岐が消える**。
+     `develop` 単独では現状のままでも緑なので急がないが、**次にこのファイルを触るときは必ず揃える**
 
 ### T-09 🔴 AIHints 再同期がリポジトリ全体の `npm test` に依存する
 
@@ -139,10 +146,14 @@
 - **関連ログ**: `2026-07-02_progress_addon-ai-tag-reverse-merge-incident.md`（事故記録）
 - **確認コマンド**: `git rev-list --left-right --count develop...origin/addon-ai-tag`
 - **2026-07-25 実測**: **1 / 108**（未取り込みは `b737891`〈進捗ログのみ〉1 件で、コード差分は無い）
-- **2026-07-29 実測**: **8 / 114**。`aded5e0`（`Belonging` の `$Def_Faction[]` 化・schema/lib/data 横断）と
-  `d42011a`（Worker の検索 400 化）を含むため、**今回はコード差分あり**。とくに `aded5e0` は
-  `data/Dictionaries/dict_Faction.json` の構造を変えているので、**マージ後に `addon-ai-tag` 限定のテストが
-  黙って壊れうる**（T-09 参照）。マージ前に `develop` を push しておくこと
+- **2026-07-29 実測 → 同日マージ実施で解消**: 着手時 **8 / 114** → マージコミット `46a3845` で **0 / 116**。
+  取り込んだのは `aded5e0`（`Belonging` の `$Def_Faction[]` 化）/ `d42011a`・`a4ee3c9`（検索 400 化・棚卸し）ほか 9 件
+- **このマージで起きたこと**（詳細は `addon-ai-tag` の `2026-07-29_progress_addon-ai-tag-merge.md`）:
+  - 衝突 **5 ファイル**。`db_meta.json` ×3 は「`develop` の `_Commons` 更新」と「`addon-ai-tag` の `AI_Optout`」が
+    隣接行で衝突したもので、**両取り**で解消（片側採用だとどちらかが消える）
+  - **`develop` 由来のテストが `addon-ai-tag` で 1 件赤になった**（下記 T-08 項目 8）。T-09 の実例
+  - `dict_Faction.json` の構造変更は **AIHints へ波及ゼロ**（`--resync-structural` / `--apply-colorpalette` の
+    dry-run がいずれも `No changes to write.`）
 - **注意**: **逆マージは禁止**。棚卸しのたびにこのカウントを確認する
 
 ### T-11 🔴 ICS カレンダーの外部反映
@@ -357,10 +368,10 @@ T-01 が「未デプロイ」→ 実は反映済み、T-03 が「完了」→ �
 | `npm run agents:check` | ✅ `0/2 件が要更新`（生成物は正典と一致） |
 | `npm run data:order:check` | ✅ `0/1287 レコードを整列`（19 ファイル・キー順の差分なし） |
 | `npm run roleplay:check` | ✅ `changed=0 unchanged=57 noCP=282 errors=0` |
-| `develop...origin/addon-ai-tag` | **8 / 114**（`develop` 側の未マージ 8 件 → T-10） |
-| `develop...origin/develop` | **2 / 0**（`aded5e0` / `d42011a` が**未 push** → T-03 の本番反映が止まっている原因） |
+| `develop...origin/addon-ai-tag` | 棚卸し時 **8 / 114** → 同日マージ実施（`46a3845`）で **0 / 116**（T-10 完了） |
+| `develop...origin/develop` | 棚卸し時 **2 / 0**（未 push）→ その後 push して **0 / 0** |
 | 本番 `/api/v1/works` | ✅ `Works_OfficialLinks` 露出済み（T-01 完了） |
-| 本番 `/api/v1/NumberTales/search?q=*` | 🔴 **500**（デプロイ待ち → T-03） |
+| 本番 `/api/v1/NumberTales/search?q=*` | 棚卸し時 🔴 **500** → push による自動デプロイ後 ✅ **400**（T-03 完了） |
 
 ---
 
@@ -380,8 +391,10 @@ T-01 が「未デプロイ」→ 実は反映済み、T-03 が「完了」→ �
 - **T-01（`Works_OfficialLinks` の本番反映）**: 本番実測で露出を確認し、`docs/readme.en.md` の
   「次のデプロイで現れる」注記を除去
 - **T-07（`calling.js`）**: `tests/section-renders.calling.test.js` の追加と UI 実測で完了（Copilot 作業分）
-- **T-03（検索 400 化）**: コードとテストは完了。ただし**本番は未反映**のため、エントリは
-  「本番反映」タスクとして残置（未 push 2 コミットの push が完了条件）
+- **T-03（検索 400 化）**: 棚卸し時点ではコードのみ完了・本番 500 のままだったが、**同日中に push →
+  自動デプロイが走り、本番で 400 を確認**して完了（棚卸しの途中で状態が動いた例）
+- **T-10（一方向マージ）**: 同日中に `develop`（`a4ee3c9`）→ `addon-ai-tag` のマージを実施（`46a3845`）。
+  衝突 5 ファイルを両取りで解消し、`addon-ai-tag` 側の棚卸し（1 件退避・台帳 A4/A10 クローズ・A11 新設）まで完了
 - **T-33 を新規登録**: `Belonging` の `$Def_Faction[]` 化（`aded5e0`）の実機目視確認と Workers 側判断
 
 ---
