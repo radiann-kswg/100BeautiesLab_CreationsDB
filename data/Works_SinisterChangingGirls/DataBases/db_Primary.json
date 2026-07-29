@@ -19,7 +19,8 @@
     "FormalName_EN": "Zeena Thouser",
     "CodeName_JP": "色欲の正子",
     "CodeName_EN": "Lust o'clock in Midnight",
-    "Belonging": ["百花繚乱研究所"],
+    "Belonging": [{ "Faction": "百花繚乱研究所" }],
+    "FromArea": { "Area": "九蓮国" },
     "Age": 25,
     "Character_JP": "素面(シラフ)時：仲間思いの姉御肌。お調子者なムードメーカ\n泥酔時：甘えん坊極まりなく、成人としての限度を超えてしまうほどの破廉恥（※弟談）",
     "Character_EN": "When sober: a caring, big-sisterly mood-maker\nWhen dead drunk: outrageously clingy and indecent to an extent exceeding adult limits (per younger sibling's account)",
@@ -54,7 +55,12 @@
     "CodeName_EN": "Gluttony o'clock in Early",
     "RaceType": "OverHuman",
     "GenderType": "Female",
-    "Belonging": ["国際情報広報機関『ミハイル』"],
+    "Belonging": [{ "Faction": "国際情報広報機関『ミハイル』" }],
+    "FromArea": {
+      "Area": "四蓮島",
+      "BaseAreaAbout_JP": "自称",
+      "BaseAreaAbout_EN": "Self-proclaimed"
+    },
     "Class": ["『創造主』代理人", "国際情報屋"],
     "Height_cm": [
       {
@@ -118,7 +124,12 @@
     "CodeName_EN": "Wrath o'clock in Sunrizing",
     "RaceType": "HalfWarfox",
     "GenderType": "Female",
-    "Belonging": ["白の六芒星", "夜月機関"],
+    "Belonging": [{ "Faction": "白の六芒星" }, { "Faction": "夜月機関" }],
+    "FromArea": {
+      "Area": "四蓮島",
+      "BaseAreaAbout_JP": "残された戸籍情報によるが、事実は定かではない",
+      "BaseAreaAbout_EN": "Based on the remaining family registry information, but the facts are uncertain"
+    },
     "Height_cm": 160,
     "Weight_kg": { "hideText": "非公開" },
     "BustSize": "F",
@@ -156,7 +167,8 @@
     "CodeName_EN": "Slouth o'clock in Morning",
     "RaceType": "HalfNekomata",
     "GenderType": "Female",
-    "Belonging": ["新生九蓮"],
+    "Belonging": [{ "Faction": "新生九蓮" }],
+    "FromArea": { "Area": "四蓮島" },
     "Class": ["新生九蓮 陛下"],
     "Height_cm": 145,
     "Weight_kg": { "hideText": "？？？" },
@@ -203,7 +215,8 @@
     "CodeName_EN": "Greed o'clock in Noon",
     "RaceType": "Human(DoubleIdentity)",
     "GenderType": "Female",
-    "Belonging": ["ジャンクガレージ『六花陛下』"],
+    "Belonging": [{ "Faction": "ジャンクガレージ『六花陛下』" }],
+    "FromArea": { "Area": "紅雪連邦" },
     "Age": 27,
     "BirthDay": { "Day": { "Month": 12, "DayOfMonth": 12 } },
     "Summary_JP": "日中は「六花陛下」という相性で親しまれたスラム街のジャンクガレージで一人ジャンクショップを経営する、お淑やかで静かな看板娘……なのだが、実は二重人格で夜間（もしくは眼鏡が外れた）顔は「強欲」そのものなトレジャーハンター「クィーン.トゥエルヴ」として活動している。\n両人格とも汎用集積素子部品の「72IS」シリーズに対する共通の趣味はあるのだが、廃番で入手困難になった型番の話となると人格が切り替わり傲慢に恫喝されかねないので、くれぐれも彼女を相手にした話題の選択は慎重に。",
@@ -229,9 +242,14 @@
     "RaceType": "Lamia",
     "GenderType": "Female",
     "Belonging": [
-      "国際情報広報機関『ミハイル』",
-      "シンフォニー.XVI(ゼクズィン)"
+      { "Faction": "国際情報広報機関『ミハイル』" },
+      { "Faction": "シンフォニー.XVI(ゼクズィン)" }
     ],
+    "FromArea": {
+      "Area": "龍天国",
+      "BaseAreaAbout_JP": "ここから漂流してきたらしい",
+      "BaseAreaAbout_EN": "Apparently drifted here from this place"
+    },
     "Class": ["国際情報屋 同行者", "新人類研究部"],
     "Height_cm": 159,
     "Weight_kg": { "hideText": "非公開" },
@@ -276,7 +294,12 @@
     "CodeName_EN": "Original Sin o'clock in Sunsetting",
     "RaceType": "HalfWarfox(ChronoidShifter)",
     "GenderType": "Female",
-    "Belonging": ["白の六芒星", "夜月機関"],
+    "Belonging": [{ "Faction": "白の六芒星" }, { "Faction": "夜月機関" }],
+    "FromArea": {
+      "Area": "九蓮国",
+      "BaseAreaAbout_JP": "残された戸籍情報によるが、事実は定かではない",
+      "BaseAreaAbout_EN": "Based on the remaining family registry information, but the facts are uncertain"
+    },
     "Class": ["保護対象"],
     "Height_cm": [
       { "about_JP": "推定", "about_EN": "Presumption", "value": 143 }
@@ -331,6 +354,11 @@
       "about_EN": "Presumption"
     },
     "Belonging": { "hideText": "判定失敗" },
+    "FromArea": {
+      "Area": "英皇国",
+      "BaseAreaAbout_JP": "引退した財前小里が活動していた場所であり、初めて終藤こさとが目撃された場所でもある",
+      "BaseAreaAbout_EN": "The place where the retired Foster Empressor was active, and also the place where Formar Endrof was first sighted"
+    },
     "Class": ["『破壊主』代理人"],
     "Height_cm": 155,
     "Weight_kg": { "hideText": "判定失敗" },

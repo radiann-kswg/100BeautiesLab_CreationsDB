@@ -16,6 +16,7 @@
         "StoryEraAbout_EN": "between WDCE.VII.19-23(Equivalent to between: DC.2039-2043)\nThis Story contains descriptions of the past hereafter WDCE.VI.3(equivalent to DC.1985) as before WDCE.VII and important seens for the \"World Destruction Pandemic VII\""
       },
       "_Commons": {
+        "Belonging": [{ "Faction": "獣爾騎兵" }],
         "_ListLinkIf_Beast": [
           { "Beast": "Mouse", "RaceType": "ClonicMouse" },
           { "Beast": "Ox", "RaceType": "Taurus(Acquired)" },

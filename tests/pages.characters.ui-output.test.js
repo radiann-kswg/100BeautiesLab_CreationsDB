@@ -357,6 +357,7 @@ const branchedTailsUnitRecord = numberTalesSecondaryRecords.find((record) => Str
 const yayoiRecord = {
 	...yayoiRecordBase,
 	Belonging: ['夜月機関'],
+	FromArea: { Area: '九蓮国', BaseAreaAbout_JP: '幼少期のみ' },
 	Class: ['幹部', '弥生研究所(破滅対策本部2課)']
 };
 
@@ -410,7 +411,10 @@ describe('pages/characters.js UI output', () => {
 			en: ['Trustia Cherrybroom', 'Sakura Shinrie']
 		});
 		// 単一行の和英ペアは従来どおり「JP / EN」連結のまま
-		expect(getBasicFieldValue('所属')).toBe('夜月機関 / Yadzuki Organization');
+		// Belonging は `$Def_Faction[]`。辞書行の FactionsBaseArea まで参照解決して併記される
+		expect(getBasicFieldValue('所属')).toBe('夜月機関 / Yadzuki Organization（九蓮国 / LotusNinea）');
+		// FromArea（`$Def_BaseArea`）は baseAreaSummary wrapper が「地域（補足）」へ整形する
+		expect(getBasicFieldValue('出身地')).toBe('九蓮国 / LotusNinea（幼少期のみ）');
 
 		const classText = getBasicFieldValue('クラス名');
 		expect(classText).toContain('幹部 / Executive Director');
@@ -710,7 +714,10 @@ describe('pages/characters.js UI output', () => {
 		// Class の1要素（グローバルの汎用クラス辞書には存在しない値）が
 		// scopeField 付きの #Dict_SymphonyXVI（Belonging一致行）から解決できることを確認する。
 		const dancyActresssilkRaw = structuredClone(numberTalesSemiPrimaryRecords.find((record) => record?.Name_JP === '錦野 舞'));
-		expect(Array.isArray(dancyActresssilkRaw?.Belonging) && dancyActresssilkRaw.Belonging).toContain('シンフォニー.XVI(ゼクズィン)');
+		// Belonging は `$Def_Faction[]`（`{ Faction }` 子要素）なので、scopeField 照合対象の値を取り出して確認する
+		const dancyBelongingFactions = (Array.isArray(dancyActresssilkRaw?.Belonging) ? dancyActresssilkRaw.Belonging : [])
+			.map((item) => (item && typeof item === 'object') ? item.Faction : item);
+		expect(dancyBelongingFactions).toContain('シンフォニー.XVI(ゼクズィン)');
 		// isPrivate チェックを通すためここだけ上書き
 		const dancyActresssilkRecord = { ...dancyActresssilkRaw, isPrivate: false };
 
@@ -718,6 +725,10 @@ describe('pages/characters.js UI output', () => {
 
 		const classText = getBasicFieldValue('クラス名');
 		expect(classText).toContain('ベヴストザイン課 ヒューマノイド開発部 / Bewußtsein Division, Humanoid Development Department');
+
+		// object 形式（`{ Faction }`）でも、辞書行の FactionsBaseArea が併記される（1 所属 1 行）
+		const belongingText = getBasicFieldValue('所属');
+		expect(belongingText).toContain('シンフォニー.XVI(ゼクズィン) / Symphony.XVI(Sechzehn)（黒薔薇国 / SchwarzeRoseland）');
 	});
 
 	it('renders RelationToPrimary entries as links to the primary db detail view', async () => {

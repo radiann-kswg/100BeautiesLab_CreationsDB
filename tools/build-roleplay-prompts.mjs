@@ -219,12 +219,35 @@ export function buildVars(record, ctx) {
 			.join('・');
 	};
 
+	/**
+	 * `$Def_*` 型の構造化値を、辞書ラベル解決へ渡せるコード値へ平坦化する。
+	 *
+	 * @description
+	 *   例: `Belonging: [{ Faction: '百花繚乱研究所' }]` → `['百花繚乱研究所']`。
+	 *   どの子要素をコード値とみなすかは typedef の `$Def_*.$shorthand` 宣言を正とするため、
+	 *   ここに field 名ごとの分岐は持たない（旧形式の文字列配列もそのまま通す）。
+	 * @param {any} raw - レコードの値
+	 * @param {string} defName - `$Def_*` コンテナ名
+	 * @returns {any} 平坦化した値
+	 */
+	const flattenDefShorthand = (raw, defName) => {
+		const container = globalMeta?.General?.$VarsDef?.[defName] ?? workMeta?.General?.$VarsDef?.[defName];
+		const key = typeof container?.$shorthand === 'string' ? container.$shorthand.trim() : '';
+		if (!key) return raw;
+
+		const pick = (item) => (item && typeof item === 'object' && !Array.isArray(item)) ? item[key] : item;
+		if (Array.isArray(raw)) return raw.map(pick).filter((v) => v !== null && v !== undefined && v !== '');
+		return pick(raw);
+	};
+
 	// GenderType / RaceType / Belonging（enum/辞書ラベル解決）。
 	// 解決不能な object が `[object Object]` へ文字列化された場合は未対応として省略する。
 	const cleanLabel = (s) => (typeof s === 'string' && s && !s.includes('[object Object]')) ? s : '';
 	vars.Gender = cleanLabel(TR ? TR.resolveVarsDefLabel('GenderType', unwrapValue(record.GenderType), globalMeta, workMeta) : '');
 	vars.Race = cleanLabel(TR ? TR.resolveVarsDefLabel('RaceType', unwrapValue(record.RaceType), globalMeta, workMeta) : '');
-	vars.Belonging = cleanLabel(TR ? TR.resolveVarsDefLabel('Belonging', unwrapValue(record.Belonging), globalMeta, workMeta) : '');
+	vars.Belonging = cleanLabel(TR
+		? TR.resolveVarsDefLabel('Belonging', flattenDefShorthand(unwrapValue(record.Belonging), '$Def_Faction'), globalMeta, workMeta)
+		: '');
 
 	// 年齢は Age（無ければ ConceptAge）を採用し、object 値はアンラップして統一する
 	const ageRaw = record.Age != null ? record.Age : record.ConceptAge;

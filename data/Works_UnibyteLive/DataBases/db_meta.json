@@ -17,7 +17,7 @@
         "StoryEraAbout_EN": "between WDCE.VIII.2-IX.6(Equivalent to between: DC.2046-2053)"
       },
       "_Commons": {
-        "Belonging": ["アルベッツ"],
+        "Belonging": [{ "Faction": "アルベッツ" }],
         "Class": ["現役アルベッツ"],
         "RaceType": "VirtualAvatar",
         "GenderType": "FemaleNeutral"
@@ -40,7 +40,11 @@
         "StoryEraAbout_JP": "第8創世紀1〜第9創世紀6年(西暦2045〜2053年相当)",
         "StoryEraAbout_EN": "between WDCE.VIII.1-IX.6(Equivalent to between: DC.2045-2053)"
       },
-      "_Commons": { "RaceType": "Human", "GenderType": "Female" },
+      "_Commons": {
+        "RaceType": "Human",
+        "GenderType": "Female",
+        "FromArea": { "Area": "九蓮国" }
+      },
       "AI_Optout": true
     }
   },

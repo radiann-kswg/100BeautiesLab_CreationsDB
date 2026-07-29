@@ -188,12 +188,65 @@ describe('database shapes', () => {
     const nestedArea = baseAreaEntries.find((entry) => entry?.hashTag === 'Area');
 
     expect(areaField).toBeUndefined();
-    expect(belongingField?.$type).toBe('#DictIndex[]');
+    expect(belongingField?.$type).toBe('$Def_Faction[]');
     expect(belongingField?.$dict).toBe('Faction');
     expect(fromAreaField?.$type).toBe('$Def_BaseArea');
     expect(legacyBaseAreaField).toBeUndefined();
     expect(nestedArea?.$type).toBe('#DictIndex');
     expect(nestedArea?.$dict).toBe('Area');
+  });
+
+  it('global belonging typedef nests a Faction dict child and resolves FactionsBaseArea via $dictRef', () => {
+    const dbMeta = load('data/db_meta.json');
+    const belongingDef = dbMeta?.General?.$VarsDef?.$Def_Faction;
+    const entries = Array.isArray(belongingDef?.$DefType) ? belongingDef.$DefType : [];
+    const factionEntry = entries.find((entry) => entry?.hashTag === 'Faction');
+    const areaEntry = entries.find((entry) => entry?.hashTag === 'FactionsBaseArea');
+
+    // 辞書コードを持つ子要素（Faction）と、そこから参照解決する子要素（FactionsBaseArea）の 2 段構成
+    expect(factionEntry?.$type).toBe('#DictIndex');
+    expect(factionEntry?.$dict).toBe('Faction');
+    expect(factionEntry?.$display?.role).toBe('factionCode');
+    expect(areaEntry?.$type).toBe('$Def_BaseArea');
+    expect(areaEntry?.$dictRef).toEqual({ from: 'Faction', field: 'FactionsBaseArea' });
+
+    // 旧形式（文字列配列）を読むための shorthand 宣言と、basicFields 用の描画宣言
+    expect(belongingDef?.$shorthand).toBe('Faction');
+    expect(belongingDef?.$display?.wrapper).toBe('factionSummary');
+    expect(belongingDef?.$display?.arrayLayout).toBe('multiline');
+  });
+
+  it('dict_Faction.json keeps a single Faction column (Belonging duplication removed)', () => {
+    const rows = load('data/Dictionaries/dict_Faction.json');
+    expect(Array.isArray(rows)).toBe(true);
+    expect(rows.length).toBeGreaterThan(0);
+
+    for (const row of rows) {
+      expect(typeof row?.Faction).toBe('string');
+      expect(row?.Faction?.trim()).not.toBe('');
+      // 統合済みなので Belonging 系の列は残っていない
+      expect(Object.keys(row).some((key) => /^Belonging(_JP|_EN)?$/.test(key))).toBe(false);
+    }
+  });
+
+  it('records store Belonging as $Def_Faction objects (no legacy string array)', () => {
+    const targets = [
+      'data/Works_DestinyFoxRecords/DataBases/db_Primary.json',
+      'data/Works_NumberTales/DataBases/db_SemiPrimary.json',
+      'data/Works_UnauthedLogica/DataBases/db_Primary.json',
+    ];
+
+    for (const target of targets) {
+      const records = load(target);
+      for (const record of records) {
+        const belonging = record?.Belonging;
+        if (!Array.isArray(belonging)) continue;
+        for (const item of belonging) {
+          expect(typeof item).toBe('object');
+          expect(typeof item?.Faction).toBe('string');
+        }
+      }
+    }
   });
 
   it('shared references typedef provides references fields and work local references typedef can stay empty', () => {

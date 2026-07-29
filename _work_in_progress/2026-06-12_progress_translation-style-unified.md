@@ -1301,7 +1301,7 @@ Test Files  4 failed | 15 passed (19)
 
 失敗 6 件はすべて既存の不具合（今回変更とは無関係）:
 
-- `data.shape.test.js`: BelongingArea / References 構造検証（既存）
+- `data.shape.test.js`: FactionsBaseArea / References 構造検証（既存）
 - `commons.secondaries.test.js`: NumberTales SelfSecondary commons（既存）
 - `enrich.dblink.jump.merge.test.js`: `_DBLink._Search` / `_Jump` 解決（既存）
 - `pages.characters.ui-output.test.js`: UI 出力回帰テスト 2 件（既存・言語トグル対応時から）

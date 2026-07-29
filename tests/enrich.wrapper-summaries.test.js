@@ -131,7 +131,7 @@ describe('enrichment wrapper summaries', () => {
 					{ hashTag: 'BirthDay', $type: '$Def_Day' },
 					{ hashTag: 'StoryEra', $type: '$Def_StoryEraCatalog|#Null' },
 					{ hashTag: 'FromArea', $type: '$Def_BaseArea' },
-					{ hashTag: 'Belonging', $type: '#DictIndex[]' }
+					{ hashTag: 'Belonging', $type: '$Def_Faction[]', $dict: 'Faction' }
 				]
 			}),
 			readWorkType: async () => ({ $DefType: [] })
@@ -142,7 +142,7 @@ describe('enrichment wrapper summaries', () => {
 				BirthDay: { Day: { Month: 3, DayOfMonth: 14 } },
 				StoryEra: { InEra: [{ byRealYear: 2050 }] },
 				FromArea: { Area: '九蓮国' },
-				Belonging: ['百花繚乱研究所']
+				Belonging: [{ Faction: '百花繚乱研究所' }]
 			}
 		], '#Works_Test', 'Primary');
 

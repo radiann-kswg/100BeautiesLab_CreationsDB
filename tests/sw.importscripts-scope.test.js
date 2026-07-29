@@ -17,7 +17,15 @@ import fs from 'node:fs';
 import path from 'node:path';
 
 // 各 SW が importScripts で同一グローバルへ読み込むファイル一式（SW 本体もトップレベル宣言を持つため含める）
-const SHARED_LIBS = ['lib/wrapper-common.js', 'lib/sw-common.js', 'lib/data-common.js'];
+const SHARED_LIBS = [
+  'lib/wrapper-common.js',
+  'lib/basic-renders/type-common.js',
+  'lib/basic-renders/def-object-common.js',
+  'lib/basic-renders/faction.js',
+  'lib/basic-renders/baseArea.js',
+  'lib/sw-common.js',
+  'lib/data-common.js'
+];
 const SW_SCOPES = [
   { name: 'pages/sw.js', files: [...SHARED_LIBS, 'pages/sw.js'] },
   { name: 'svc/sw.js', files: [...SHARED_LIBS, 'svc/sw.js'] },

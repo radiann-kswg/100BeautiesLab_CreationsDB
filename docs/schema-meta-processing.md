@@ -581,6 +581,37 @@ UI 側は厳密構造より `about_JP` / `about_EN` を優先して整形表示�
 
 - `$Def_AppearanceDetail` — `Formation` / `BodyPart` / `DesignElement` / `Attrs` 等を持つ外見デザイン詳細エントリ
 - `$Def_AppearanceAttr` — `AttrLabel` + 規約駆動フィールド（`vdict_*` / `value_*` / `about_*`）を持つ属性行
+- `$Def_BaseArea` — `Area`（`#DictIndex` / `$dict: "Area"`）+ `BaseAreaAbout_JP/EN` を持つ活動地域エントリ（`$display.wrapper: "baseAreaSummary"`）
+- `$Def_Faction`（2026-07-29 新設）— `Faction`（`#DictIndex` / `$dict: "Faction"`）と、そこから参照解決する `FactionsBaseArea`（`$Def_BaseArea`）を持つ所属エントリ
+
+`$Def_Faction` で導入した宣言（他の `$Def_*` でも同じ意味で使えます）:
+
+- `$dictRef: { from: "<兄弟の子要素名>", field: "<辞書行のキー>" }`
+  - 「`from` の子要素が引く辞書行から `field` の値を持ってくる」宣言。レコードには持たせず、辞書側で一元管理したい値に使う
+  - 解決結果は enrich の `_enrichment.dictRefs` へ載り、UI では `lib/basic-renders/faction.js` が表示へ反映する（レコード本体の形は変えない）
+  - レコード側が同名の子要素に実値を持つ場合はそちらを優先する（辞書値で上書きしない）
+- `$shorthand: "<子要素名>"`
+  - 「生のスカラー値はこの子要素とみなす」後方互換宣言。旧形式 `"Belonging": ["百花繚乱研究所"]` を `{ Faction: "百花繚乱研究所" }` と同じ経路で解釈できる
+- `$display.arrayLayout: "multiline" | "inline"`
+  - 配列値を UI でどう連結するか（既定は宣言どおり、`multiline` なら 1 要素 1 行）
+
+例（`data/db_meta.json`）:
+
+```jsonc
+"$Def_Faction": {
+  "$DefType": [
+    { "hashTag": "Faction", "$type": "#DictIndex", "$dict": "Faction", "$display": { "role": "factionCode" } },
+    {
+      "hashTag": "FactionsBaseArea",
+      "$type": "$Def_BaseArea",
+      "$dictRef": { "from": "Faction", "field": "FactionsBaseArea" },
+      "$display": { "role": "factionArea" }
+    }
+  ],
+  "$shorthand": "Faction",
+  "$display": { "wrapper": "factionSummary", "arrayLayout": "multiline" }
+}
+```
 
 これらは `db_type.json($DefType)` の `$type` 文字列（例: `"$Def_AppearanceDetail[]|#Null"`）から参照されます。UI / SW はこの `$type` 参照を辿って `$DefType` を解決します。
 

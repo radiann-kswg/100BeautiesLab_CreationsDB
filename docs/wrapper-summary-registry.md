@@ -33,6 +33,7 @@
 
 - `lib/wrapper-common.js`
 - `lib/section-wrapper-common.js`
+- `lib/basic-renders/def-object-common.js`（`$Def_*` 構造化フィールドの共通整形。DOM 非依存の純関数）
 
 ここに、shared な特殊整形 handler / subField section renderer を登録します。
 
@@ -42,6 +43,10 @@
 - `eraSummary`
 - `storyEraSummary`
 - `tailsUnitSummary` — `$Def_TailsUnit` 単体を一行サマリー（形状・本数・節数・方向句・分岐内訳）へ整形（`lib/section-renders/tailsUnit.js`）
+- `factionSummary` — `$Def_Faction`（`Belonging` 等の所属系フィールド）を「所属先（活動地域／地域補足）」の 1 行へ整形（`lib/basic-renders/faction.js`）。子要素のどれが辞書コードでどれを辞書行から参照解決するかは schema 宣言（`$display.role: "factionCode"` / `$dictRef`）だけで決まり、field 名依存の分岐を持たない。配列値は `$display.arrayLayout`（既定 `multiline`）に従って 1 要素 1 行で連結する。旧形式の生文字列（`["百花繚乱研究所"]`）は `$shorthand` 宣言により `{ Faction: ... }` と同じ経路で整形される
+- `baseAreaSummary` — `$Def_BaseArea`（`FromArea` 等の地域フィールド）を「地域（補足）」の 1 行へ整形（`lib/basic-renders/baseArea.js`）。2026-07-29 に `pages/characters.js` の `$Def_BaseArea` ハードコード分岐を置き換えたもの。旧分岐は補足を `about_JP` から読んでいたが、typedef 宣言どおり `BaseAreaAbout_JP` / `_EN` を読む（旧キーも後方互換で拾う）
+
+`factionSummary` / `baseAreaSummary` の整形本体は共通部品 `lib/basic-renders/def-object-common.js`（`globalThis.DefObjectRenderer`）にあります。「`$type` が `#DictIndex` / `#ListIndex` の子要素は辞書ラベルへ解決し、キー末尾が `_JP` / `_EN` の子要素は補足として併記する」という汎用ルールだけを持つ純関数群で、新しい `$Def_*` の wrapper を足すときはここへ委譲する薄い IIFE を 1 本増やせば済みます。補足の繋ぎ方は `style` オプションで切り替えます（単体表示は `paren` = `ラベル（補足）`、他の wrapper の括弧内へ入れ子にする場合は `inline` = `ラベル／補足`）。
 
 現時点の built-in section renderer:
 
@@ -77,6 +82,8 @@
 現在の割り当て:
 
 - `$VarsDef.$Def_Day.$display.wrapper = daySummary`
+- `$VarsDef.$Def_Faction.$display = { wrapper: "factionSummary", arrayLayout: "multiline" }`（`data/db_meta.json`）。`$DefType.Belonging.$type = "$Def_Faction[]"`（`data/db_type.json`）。`$Def_Faction` は所属 (`Belonging`) 専用ではなく、「陣営辞書 (`#Dict_Faction`) を引く構造化フィールド」全般で再利用する想定の宣言
+- `$VarsDef.$Def_BaseArea.$display.wrapper = baseAreaSummary`（`data/db_meta.json`）。`$DefType.FromArea.$type = "$Def_BaseArea"`（`data/db_type.json`）。`$Def_Faction.FactionsBaseArea` のように他の `$Def_*` の子要素としても使う
 - `$MetaType.$Def_StoryEra.$display.wrapper = eraSummary`
 - `$MetaType.$Def_StoryEraCatalog.$display.wrapper = storyEraSummary`
 - `$DefType.AppearanceDetail.$display.sectionWrapper = appearanceDetailSection`（`data/db_type.json` — `$Def_AppearanceDetail[]|#Null` 型 / `searchable: false`）

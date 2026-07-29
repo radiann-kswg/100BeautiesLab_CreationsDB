@@ -396,6 +396,22 @@ async function getRecordFromD1(env, workKey, dbName, idxValue, idxKey = "Num") {
 }
 
 /**
+ * FTS5 検索クエリを正規化し、無効な構文を 400 として扱えるようにする。
+ * ここでは FTS5 のワイルドカード構文（`*` / `?`）を明示的に拒否し、
+ * 例外時は API エラーへ変換する。
+ * @param {string} query
+ * @returns {string|null}
+ */
+function normalizeSearchQuery(query) {
+  const normalized = String(query ?? "").trim();
+  if (!normalized) return null;
+  if (/[\*\?]/.test(normalized)) {
+    throw new ApiError(400, "Invalid search query");
+  }
+  return normalized;
+}
+
+/**
  * D1 FTS5 で DB 内キーワード検索
  * @param {object} env
  * @param {string} workKey
@@ -404,15 +420,23 @@ async function getRecordFromD1(env, workKey, dbName, idxValue, idxKey = "Num") {
  * @returns {Promise<object[]>}
  */
 async function searchRecordsInD1(env, workKey, dbName, query) {
-  const rows = await d1Query(
-    env,
-    `SELECT r.data_json FROM records r
-     WHERE r.id IN (SELECT rowid FROM records_fts WHERE searchable_text MATCH ?)
-       AND r.work_key = ? AND r.db_name = ? AND r.is_private = 0
-     LIMIT 200`,
-    [query, workKey, dbName]
-  );
-  return rows.map((r) => JSON.parse(r.data_json));
+  const normalizedQuery = normalizeSearchQuery(query);
+  if (normalizedQuery === null) return [];
+
+  try {
+    const rows = await d1Query(
+      env,
+      `SELECT r.data_json FROM records r
+       WHERE r.id IN (SELECT rowid FROM records_fts WHERE searchable_text MATCH ?)
+         AND r.work_key = ? AND r.db_name = ? AND r.is_private = 0
+       LIMIT 200`,
+      [normalizedQuery, workKey, dbName]
+    );
+    return rows.map((r) => JSON.parse(r.data_json));
+  } catch (err) {
+    if (err instanceof ApiError) throw err;
+    throw new ApiError(400, "Invalid search query");
+  }
 }
 
 /**
@@ -423,15 +447,23 @@ async function searchRecordsInD1(env, workKey, dbName, query) {
  * @returns {Promise<Array<{db: string, record: object}>>}
  */
 async function searchAllRecordsInD1(env, workKey, query) {
-  const rows = await d1Query(
-    env,
-    `SELECT r.db_name, r.data_json FROM records r
-     WHERE r.id IN (SELECT rowid FROM records_fts WHERE searchable_text MATCH ?)
-       AND r.work_key = ? AND r.is_private = 0
-     LIMIT 500`,
-    [query, workKey]
-  );
-  return rows.map((r) => ({ db: r.db_name, record: JSON.parse(r.data_json) }));
+  const normalizedQuery = normalizeSearchQuery(query);
+  if (normalizedQuery === null) return [];
+
+  try {
+    const rows = await d1Query(
+      env,
+      `SELECT r.db_name, r.data_json FROM records r
+       WHERE r.id IN (SELECT rowid FROM records_fts WHERE searchable_text MATCH ?)
+         AND r.work_key = ? AND r.is_private = 0
+       LIMIT 500`,
+      [normalizedQuery, workKey]
+    );
+    return rows.map((r) => ({ db: r.db_name, record: JSON.parse(r.data_json) }));
+  } catch (err) {
+    if (err instanceof ApiError) throw err;
+    throw new ApiError(400, "Invalid search query");
+  }
 }
 
 // ─────────────────────────────────────────────────────────────────────────────

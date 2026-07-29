@@ -27,6 +27,9 @@ import '../lib/wrapper-common.js';
 import '../lib/section-wrapper-common.js';
 import '../lib/basic-renders/calling-common.js';
 import '../lib/basic-renders/type-common.js';
+import '../lib/basic-renders/def-object-common.js';
+import '../lib/basic-renders/faction.js';
+import '../lib/basic-renders/baseArea.js';
 import '../lib/section-renders/appearanceDetail.js';
 import '../lib/section-renders/colorPalette.js';
 import '../lib/section-renders/thisMasters.js';
@@ -4188,8 +4191,58 @@ function formatValueForDisplay(value, labelMap = {}, workMeta = null, globalDefT
 		return c;
 	};
 
+	const wrapperTypeSources = [
+		globalTypeDefCache,
+		window?.__CHAR_STATE__?.globalTypeDef,
+		globalDefType,
+		window?.__CHAR_STATE__?.workTypeDef
+	].filter((source, index, list) => source && list.indexOf(source) === index);
+
+	/**
+	 * `$Def_*` コンテナ（`$DefType` / `$display` / `$shorthand` を持つ宣言）を解決する
+	 * - typedef 側（wrapperTypeSources）に無い宣言は db_meta 側（workMeta / globalDefType）にあるため双方を見る
+	 * @param {string} defName - 例: '$Def_Faction'（末尾の `[]` は無視する）
+	 * @returns {Object|null}
+	 */
+	const resolveDefContainer = (defName) => {
+		const name = String(defName || '').trim().replace(/\[\]$/, '');
+		if (!name.startsWith('$Def_')) return null;
+
+		for (const source of [...wrapperTypeSources, workMeta, globalDefType]) {
+			if (!source || typeof source !== 'object') continue;
+			const candidates = [source?.$MetaType?.[name], source?.General?.$VarsDef?.[name], source?.$VarsDef?.[name]];
+			for (const candidate of candidates) {
+				if (isPlainObject(candidate)) return candidate;
+			}
+		}
+		return null;
+	};
+
+	/**
+	 * schemaType（`$Def_Faction[]|#Null` 等）に含まれる最初の `$Def_*` コンテナを解決する
+	 * @param {any} schemaType
+	 * @returns {Object|null}
+	 */
+	const resolveSchemaDefContainer = (schemaType) => {
+		if (Array.isArray(schemaType)) return null;
+		for (const token of String(schemaType || '').split('|')) {
+			const container = resolveDefContainer(token);
+			if (container) return container;
+		}
+		return null;
+	};
+
 	// $EnumDef_*（Rank/Rarity 等）の場合、プリミティブ値でも参照解決/EnumLink解決を試す
 	if (opt && typeof opt === 'object' && typeof value !== 'object') {
+		// `$Def_*` が `$shorthand` を宣言している型では、生のスカラー値を子要素オブジェクトとして解釈する
+		// - 例: 旧形式 `"Belonging": ["百花繚乱研究所"]` を `{ Faction: '百花繚乱研究所' }` と同じ経路で表示する
+		// - 辞書ラベルだけを返す下の汎用解決より先に判定し、object 形式と同じ整形（参照解決付き）へ寄せる
+		const shorthandKey = String(resolveSchemaDefContainer(opt.schemaType)?.$shorthand || '').trim();
+		if (shorthandKey && value !== null && value !== undefined && value !== '') {
+			const wrapped = formatValueForDisplay({ [shorthandKey]: value }, labelMap, workMeta, globalDefType, opt);
+			if (wrapped) return wrapped;
+		}
+
 		// #Index の場合は、作品の $IndexDef に合わせて整形する
 		const idxText = formatIndexLikeValue(value);
 		if (idxText) return withUnit(idxText);
@@ -4310,13 +4363,6 @@ function formatValueForDisplay(value, labelMap = {}, workMeta = null, globalDefT
 		return target || q || '';
 	};
 
-	const wrapperTypeSources = [
-		globalTypeDefCache,
-		window?.__CHAR_STATE__?.globalTypeDef,
-		globalDefType,
-		window?.__CHAR_STATE__?.workTypeDef
-	].filter((source, index, list) => source && list.indexOf(source) === index);
-
 	const resolveTypeDefEntries = (defName) => {
 		const name = String(defName || '').trim();
 		if (!name) return [];
@@ -4408,6 +4454,8 @@ function formatValueForDisplay(value, labelMap = {}, workMeta = null, globalDefT
 
 	if (typeof value === 'string' || typeof value === 'number' || typeof value === 'boolean') {
 		if (typeof value === 'boolean') return String(value);
+		// NOTE: `$shorthand` によるスカラー→子要素オブジェクト解釈は、辞書ラベル解決より先に
+		//       効かせる必要があるため上流（`opt` ありのスカラー分岐）で処理済み
 		return withUnit(value, value);
 	}
 
@@ -4436,6 +4484,13 @@ function formatValueForDisplay(value, labelMap = {}, workMeta = null, globalDefT
 
 		if (hasArraySchema && schemaTypeIncludes(opt?.schemaType, '$Def_Day')) {
 			return formattedItems.join('\n');
+		}
+
+		// `$Def_*` コンテナが `$display.arrayLayout` を宣言している場合はその連結方法に従う
+		// - 'multiline'（既定の宣言値）: 1 要素 1 行 / 'inline': カンマ連結
+		if (hasArraySchema) {
+			const declaredLayout = String(resolveSchemaDefContainer(opt?.schemaType)?.$display?.arrayLayout || '').trim();
+			if (declaredLayout) return formattedItems.join(declaredLayout === 'inline' ? ', ' : '\n');
 		}
 
 		if (schemaTypeIncludes(opt?.schemaType, '#Summary')) {
@@ -4559,19 +4614,8 @@ function formatValueForDisplay(value, labelMap = {}, workMeta = null, globalDefT
 			if (implicitDayText) return implicitDayText;
 		}
 
-		if (schemaTypeIncludes(opt?.schemaType, '$Def_BaseArea') && Object.prototype.hasOwnProperty.call(value, 'Area')) {
-			const areaLabel = formatValueForDisplay(value.Area, labelMap, workMeta, globalDefType, {
-				...opt,
-				schemaType: '#DictIndex',
-				fieldKey: 'Area'
-			});
-			const aboutValue = _fvLang === 'en' ? (value.about_EN ?? value.about_JP ?? value.about) : (value.about_JP ?? value.about_EN ?? value.about);
-			const about = isPlainObject(aboutValue)
-				? (typeof aboutValue.hideText === 'string' && aboutValue.hideText.trim() ? aboutValue.hideText.trim() : '')
-				: (aboutValue == null ? '' : String(aboutValue).trim());
-			if (areaLabel && about) return `${areaLabel}（${about}）`;
-			return areaLabel;
-		}
+		// NOTE: `$Def_BaseArea`（FromArea 等）の整形は `lib/basic-renders/baseArea.js` の
+		//       `baseAreaSummary` wrapper（上の registry 経由）が担当する。ここに field 固有の分岐は置かない。
 
 		// #ListIndex の「ラッパー（単一キーObject）」を typedef-driven に整形
 		// - 例: DualizePattern: { Pattern: 'Prop.' } を #List_DualizePattern（db_meta.json）で '通常' に

@@ -1,5 +1,20 @@
 # 最新のリファクタリング・仕様変更履歴
 
+### feat: `Belonging` を `$Def_Faction[]` 構造型へ移行し、辞書行からの参照解決（`$dictRef`）と basicFields 用 wrapper を追加した (2026-07-29)
+
+`Belonging` は `#DictIndex[]`（陣営名の文字列配列）で、辞書 `dict_Faction.json` 側も `Faction` と `Belonging` の 2 列が同じ値を二重管理していた。`FromArea`（`$Def_BaseArea`）と同じ流儀の構造型へ寄せ、辞書行が持つ活動地域（`FactionsBaseArea`）を参照解決して表示・API へ載せられるようにした。
+
+- **`$Def_Faction` を新設（`data/db_meta.json` の `General.$VarsDef`）**: 子要素は `Faction`（`#DictIndex` / `$dict: "Faction"` / `$display.role: "factionCode"`）と `FactionsBaseArea`（`$Def_BaseArea`）。`data/db_type.json` の `Belonging.$type` を `$Def_Faction[]` へ変更した。定義名を `$Def_Belonging` ではなく `$Def_Faction` にしたのは、所属以外のフィールドでも陣営辞書を引く構造として再利用するため。
+- **`$dictRef` 宣言の新設**: `$dictRef: { from: "<兄弟の子要素>", field: "<辞書行のキー>" }` で「その子要素は辞書行から参照解決する」ことを宣言する。レコードには持たせず辞書側で一元管理でき、レコードが実値を持つ場合はそちらを優先する（`_DBLink` の穴埋めと同じ方針）。
+- **`$shorthand` / `$display.arrayLayout` の新設**: `$shorthand: "Faction"` は旧形式の生文字列（`["百花繚乱研究所"]`）を `{ Faction: ... }` として解釈する後方互換宣言。`arrayLayout`（既定 `multiline`）は配列値の連結方法（1 要素 1 行 / カンマ）を schema 側で決める。
+- **辞書の列統合**: `data/Dictionaries/dict_Faction.json` の `Belonging` / `Belonging_JP` / `Belonging_EN` を削除し `Faction` 系へ一本化（31 行）。あわせて活動地域の列名を `BelongingArea` → `FactionsBaseArea` へ改名した。
+- **データ移行**: 全作品のレコードと `_Commons` / `_Secondaries[]._Commons` の `Belonging` を `[{ "Faction": "…" }]` 形式へ一括変換（16 ファイル / 83 箇所）。空配列と `{ hideText }` は対象外。整形を壊さないようテキスト置換で行い、prettier で整形した。
+- **basicFields 用 UI レンダラーを追加**: `lib/basic-renders/faction.js`（`factionSummary`）が「所属先（活動地域／地域補足）」の 1 行へ整形する。`lib/basic-renders/baseArea.js`（`baseAreaSummary`）は `FromArea` 等の `$Def_BaseArea` を「地域（補足）」へ整形し、`pages/characters.js` にあった `$Def_BaseArea` のハードコード分岐を置き換えた（旧分岐は補足を `about_JP` から読んでいたが、typedef どおり `BaseAreaAbout_JP/_EN` を読む）。共通整形は `lib/basic-renders/def-object-common.js` に集約し、新しい `$Def_*` wrapper は薄い登録ファイルだけで足せる。
+- **辞書行の解決 API**: `lib/basic-renders/type-common.js` に `resolveDictRow()`（ラベルではなく辞書行そのものを返す）と `collectVarsDefRoots()` を追加。scopeField 照合（`{ Belonging: "白の六芒星" }` 等）は、レコード側が構造化値でも一致するよう object 配下のスカラーまで展開して比較する。
+- **enrich 出力**: `EnrichmentProcessor.buildDictRefResolutions()` を追加し、`$dictRef` の解決結果を `_enrichment.dictRefs` へ載せる（レコード本体の形は変えない）。`TypeDefUtils.looksSearchableType()` に `$Def_Faction` を追加して検索対象を維持した。SW（`pages/api/svc`）の `importScripts` へ `basic-renders` の 4 ファイルを追加している。
+- **影響範囲**: `data/db_meta.json` / `data/db_type.json` / `data/Dictionaries/dict_Faction.json` / 各作品の `db_*.json`・`db_meta.json`（16 ファイル）/ `lib/basic-renders/{type-common,def-object-common,faction,baseArea}.js` / `lib/data-common.js` / `pages/characters.js` / `pages/sw.js`・`api/sw.js`・`svc/sw.js` / `tools/build-roleplay-prompts.mjs` / `docs/{schema-meta-processing,wrapper-summary-registry,api-sw-spec}.md`。
+- **検証**: `npm test` 44 ファイル / **623 件**すべて成功（新規 30 件）。`npm run data:order:check` は 0/1287 レコード整列（差分なし）、`npm run roleplay:check` は `changed=0`（生成物への影響なし）。
+
 ### fix: ロールプレイプロンプト生成物の `[object Object]` / 句点二重化 / 文断裂を解消した (2026-07-25)
 
 配布用のロールプレイプロンプト **66 件中 10 件**に `[object Object]` が出力されていた。`Height_cm` / `Weight_kg` / `ConceptAge` は「素の数値」だけでなく `{ value, about_JP, about_EN }` 形式やその配列を取りうるが、テンプレから素で参照していたため `String(obj)` がそのまま文字列化されていた。あわせて、2026-07-24 のログで「User 判断待ち」として据え置かれていた体裁くずれ 2 件も解消した。
@@ -20,7 +35,6 @@
 - **Cloudflare Worker `/api/v1/works` の応答を追従**: `pkg/cloudflare/worker.js` の `works` 返却に `Works_OfficialLinks[]` を追加し、`lib/sw-common.js` / `pages` 側と同じカタログ項目へ揃えた。既存データに無い作品は `[]` フォールバック。
 - **仕様書更新**: `docs/api-sw-spec.md` の `/api/v1/works` 説明へ `Works_OfficialLinks[]` を追記。
 - **検証メモ**: 変更後はキャラシートの詳細画面で basicFields / subFields の順序確認を実ブラウザで行い、Worker 側はテスト基盤が無いためコード差分とドキュメント整合で追従確認する。
-
 
 ### feat: キャラシートの画像表示順を typedef(`$DefType`) の `Images.$type` 宣言順へ統一し、データのキー順も整列した (2026-07-25)
 
@@ -1511,17 +1525,17 @@ develop 側での `IdentityMotif` フィールド廃止（下記 refactor）を 
 - グローバル辞書用に `data/Dictionaries/` を追加し、`db_meta.json` の辞書カタログと `dict_Area.json` / `dict_Belonging.json` の実体ファイルへ `Area` / `Belonging` 辞書を分離した。
 - 作品別にも `data/Works_*/Dictionaries/` を追加し、作品固有辞書を今後増やせる受け皿として `db_meta.json` / `db_type.json` の空プレースホルダを用意した。
 - `lib/sw-common.js` の `readGlobalMeta()` / `readWorkMeta()` は `Dictionaries/` 側のカタログと各 `dict_*.json` を runtime で読み込み、`General.$VarsDef` へ `#Dict_*` と後方互換の `#List_*` の両方を合流して返すようにした。
-- `pages/characters.js` の direct fetch fallback も `data/Dictionaries/` を読むようにし、Service Worker を経由できない環境でも `BelongingArea` を含む辞書表示が崩れないようにした。
+- `pages/characters.js` の direct fetch fallback も `data/Dictionaries/` を読むようにし、Service Worker を経由できない環境でも `FactionsBaseArea` を含む辞書表示が崩れないようにした。
 - `data/db_meta.json` からは `#List_Area` / `#List_Belonging` の実体配列を削除し、静的実体は辞書 DB 側を正とする構成へ切り替えた。
 - 辞書カタログでは JSON ファイル名を個別指定せず、`#Dict_*` から `dict_{DictName}.json` を推論する方針へ変更した。
 - 回帰確認として `tests/sw.deftype.merge.test.js`、`tests/sw.enrich.basic.test.js`、`tests/pages.characters.syntax.test.js`、`tests/data.shape.test.js`、`tests/enrich.dblink.jump.merge.test.js` を実行し、通過を確認した。
 
-### `Area` / `Belonging` を `#DictIndex` 化し、`BelongingArea` 補助展開を廃止
+### `Area` / `Belonging` を `#DictIndex` 化し、`FactionsBaseArea` 補助展開を廃止
 
 - `data/db_type.json` で `Area` を `#DictIndex`、`Belonging` を `#DictIndex[]` として宣言し、いずれも `$dict` で辞書名を持てるようにした。
-- これにより `BaseArea` は `$Def_BaseArea` という object typedef 名へ役割を限定し、トップレベル実フィールドは `BelongingArea` に統一した。
-- `data/db_meta.json` の `#List_Belonging` でも、所属辞書の補助情報キーを `BaseArea` から `BelongingArea` へ改名した。
-- `lib/data-common.js` では、`#List_Belonging` から top-level `BelongingArea` を自動補助展開する処理を削除し、所属辞書の拠点情報は辞書項目側の情報としてのみ保持するようにした。
+- これにより `BaseArea` は `$Def_BaseArea` という object typedef 名へ役割を限定し、トップレベル実フィールドは `FactionsBaseArea` に統一した。
+- `data/db_meta.json` の `#List_Belonging` でも、所属辞書の補助情報キーを `BaseArea` から `FactionsBaseArea` へ改名した。
+- `lib/data-common.js` では、`#List_Belonging` から top-level `FactionsBaseArea` を自動補助展開する処理を削除し、所属辞書の拠点情報は辞書項目側の情報としてのみ保持するようにした。
 - `pages/characters.js` は `#DictIndex` を `#ListIndex` と同系統の辞書参照型として表示解決できるようにし、将来 `#Dict_*` へ辞書定義を分離する準備を入れた。
 - 回帰防止として `tests/data.shape.test.js` と `tests/enrich.dblink.jump.merge.test.js` を更新し、対象テストと `tests/pages.characters.syntax.test.js` の通過を確認した。
 
@@ -1537,9 +1551,9 @@ develop 側での `IdentityMotif` フィールド廃止（下記 refactor）を 
 - `lib/data-common.js` で `#List_Belonging` の各項目に含まれる `BaseArea` を逆引きできる index を構築し、`Belonging` だけを持つレコードでも enrich 時に `BaseArea` を補助展開できるようにした。
 - `BaseArea` が未設定で、所属から一意に活動拠点を導ける場合のみ top-level `BaseArea` に反映し、複数候補がある場合は `_enrichment.derivedBaseAreas` に保持するようにした。
 - `data/db_type.json` / 作品別 `db_type.json` / `db_meta.json` に残っていた `$TypeDef` を `$DefType` へ統一し、live data 上の旧キー依存を解消した。
-- `data/db_type.json` の `$Def_BaseArea` を `$DefType` ベースへ正規化し、`about` / `about_EN` を含む宣言へ拡張した。`BelongingArea` はこの object typedef を使い、top-level `Area` は `#ListIndex` の独立宣言として分離した。
+- `data/db_type.json` の `$Def_BaseArea` を `$DefType` ベースへ正規化し、`about` / `about_EN` を含む宣言へ拡張した。`FactionsBaseArea` はこの object typedef を使い、top-level `Area` は `#ListIndex` の独立宣言として分離した。
 - `pages/characters.js` では `$Def_BaseArea` の表示整形を `Area + about` 対応へ寄せ、`Area` の補助ハードコードを削減した。
-- 回帰防止として `tests/enrich.dblink.jump.merge.test.js` に `Belonging -> BaseArea -> BelongingArea` の補助展開テストを追加し、通過を確認した。
+- 回帰防止として `tests/enrich.dblink.jump.merge.test.js` に `Belonging -> BaseArea -> FactionsBaseArea` の補助展開テストを追加し、通過を確認した。
 - 追加で `tests/data.sanity.test.js` に「`/data` 配下で `$TypeDef` を使わない」検証を追加し、通過を確認した。
 
 ### `Day` / `StoryEra` の表示を typedef 駆動へ寄せ、basic 補助行ハードコードを削減

@@ -18,7 +18,7 @@
       },
       "_Commons": {
         "Progress": "notProceeded",
-        "Belonging": ["ラストラステクニカ-インストゥルメント"],
+        "Belonging": [{ "Faction": "ラストラステクニカ-インストゥルメント" }],
         "RaceType": "Automaton"
       },
       "AI_Optout": true

@@ -13,7 +13,11 @@
     "FormalName_EN": "Cesium133:=9192631770clocks (* no one knows how to read)",
     "RaceType": "LunaWolf(Super-dimentional)",
     "GenderType": "Unknown",
-    "Belonging": ["フィジカル9", "管理主", "超次元執筆空間(アトリエ)の住民"],
+    "Belonging": [
+      { "Faction": "フィジカル9" },
+      { "Faction": "管理主" },
+      { "Faction": "超次元執筆空間(アトリエ)の住民" }
+    ],
     "Class": ["組織長", "創造主", "第１界担当"],
     "Height_cm": 172,
     "Weight_kg": { "hideText": "？？？" },
@@ -56,7 +60,11 @@
     "FormalName_EN": "Reels ∛kℓ(CubicKiloliter).PerfectScale/AntiYardPounds",
     "RaceType": "Lamia",
     "GenderType": "Female",
-    "Belonging": ["フィジカル9", "管理主", "超次元執筆空間(アトリエ)の住民"],
+    "Belonging": [
+      { "Faction": "フィジカル9" },
+      { "Faction": "管理主" },
+      { "Faction": "超次元執筆空間(アトリエ)の住民" }
+    ],
     "Class": ["第２界担当", "創造主", "大学同期生", "ホテルアルバイター"],
     "Height_cm": 137,
     "Weight_kg": { "hideText": "非公開" },
@@ -96,7 +104,11 @@
     "FormalName_EN": "Pow'kid Thousandweight=Shotshells",
     "RaceType": "Raccoonian",
     "GenderType": "Male",
-    "Belonging": ["フィジカル9", "管理主", "超次元執筆空間(アトリエ)の住民"],
+    "Belonging": [
+      { "Faction": "フィジカル9" },
+      { "Faction": "管理主" },
+      { "Faction": "超次元執筆空間(アトリエ)の住民" }
+    ],
     "Class": ["第３界担当", "創造主"],
     "Height_cm": 169,
     "Weight_kg": { "hideText": "判定不能" },
@@ -136,7 +148,11 @@
     "FormalName_EN": "ChéngLight Neons Brightgainess",
     "RaceType": "Raccoonian",
     "GenderType": "Male",
-    "Belonging": ["フィジカル9", "管理主", "超次元執筆空間(アトリエ)の住民"],
+    "Belonging": [
+      { "Faction": "フィジカル9" },
+      { "Faction": "管理主" },
+      { "Faction": "超次元執筆空間(アトリエ)の住民" }
+    ],
     "Class": ["第４界担当", "創造主", "大学同期生"],
     "Height_cm": 169,
     "Weight_kg": { "hideText": "判定不能" },
@@ -176,7 +192,11 @@
     "FormalName_EN": "Wooldoses Warmer",
     "RaceType": "DreamEater",
     "GenderType": "Female",
-    "Belonging": ["フィジカル9", "管理主", "超次元執筆空間(アトリエ)の住民"],
+    "Belonging": [
+      { "Faction": "フィジカル9" },
+      { "Faction": "管理主" },
+      { "Faction": "超次元執筆空間(アトリエ)の住民" }
+    ],
     "Class": ["第５界担当", "創造主", "大学同期生", "ホテルアルバイター"],
     "Height_cm": 139,
     "Weight_kg": { "hideText": "判定不能" },
@@ -219,7 +239,11 @@
     "FormalName_EN": "Carren=Thor Thunderic",
     "RaceType": "Qilin",
     "GenderType": "FemaleNeutral",
-    "Belonging": ["フィジカル9", "管理主", "超次元執筆空間(アトリエ)の住民"],
+    "Belonging": [
+      { "Faction": "フィジカル9" },
+      { "Faction": "管理主" },
+      { "Faction": "超次元執筆空間(アトリエ)の住民" }
+    ],
     "Class": ["第６界担当", "創造主", "球面神社"],
     "Height_cm": 157,
     "Weight_kg": { "hideText": "非公開" },
@@ -259,7 +283,11 @@
     "FormalName_EN": "Airs Parmglob",
     "RaceType": "Komainu",
     "GenderType": "MaleNeutral",
-    "Belonging": ["フィジカル9", "管理主", "超次元執筆空間(アトリエ)の住民"],
+    "Belonging": [
+      { "Faction": "フィジカル9" },
+      { "Faction": "管理主" },
+      { "Faction": "超次元執筆空間(アトリエ)の住民" }
+    ],
     "Class": ["第７界担当", "創造主"],
     "Height_cm": 158,
     "Weight_kg": { "hideText": "本人すら把握されていない" },
@@ -323,7 +351,11 @@
     "FormalName_EN": "Arch Seconec",
     "RaceType": "Warfox(Acquired)",
     "GenderType": "Arbitrary",
-    "Belonging": ["フィジカル9", "管理主", "超次元執筆空間(アトリエ)の住民"],
+    "Belonging": [
+      { "Faction": "フィジカル9" },
+      { "Faction": "管理主" },
+      { "Faction": "超次元執筆空間(アトリエ)の住民" }
+    ],
     "Class": ["第８界担当", "創造主", "代理"],
     "Height_cm": 163,
     "Weight_kg": { "hideText": "本人すら把握されていない" },
@@ -368,7 +400,10 @@
     "FormalName_EN": "Hikari Orvis.Flashray",
     "RaceType": "Nekomata",
     "GenderType": "Female",
-    "Belonging": ["フィジカル9", "超次元執筆空間(アトリエ)の住民"],
+    "Belonging": [
+      { "Faction": "フィジカル9" },
+      { "Faction": "超次元執筆空間(アトリエ)の住民" }
+    ],
     "Class": ["マネージャー", "第８界担当補佐", "大学同期生"],
     "Height_cm": 151,
     "Weight_kg": { "hideText": "非公開希望" },
