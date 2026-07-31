@@ -166,6 +166,37 @@ node tools/patch-colorpalette.mjs --work NumberTales --db Primary --records 40 \
 **`develop` 側のログだけを読むと AIHints の実装状況を必ず古く見積もる**。状態を書くときは
 `addon-ai-tag` をチェックアウトして実データを見ること。
 
+---
+
+## 追記（2026-07-31）: Num 80 への適用と、`patchColorPalette()` の未定義変数バグ修正
+
+Num 80 の設定画（`concept/cnsp_img80.png`）が追加されたため、本ログ「未完了タスク」欄の
+**「画像を持たない 10 件（Num 38/54/59/79/80/82/83/90/91/95）の扱い」のうち Num 80 が解消**した。
+
+### 見つかった不具合: `patchColorPalette()` が必ず `error` で終わっていた
+
+`tools/patch-colorpalette.mjs` の `patchColorPalette()` 内で、`upsertColorPaletteInRecord()` を
+**未定義の変数 `anchorFields` を第 4 引数に付けて**呼んでいた。同関数は 3 引数しか取らないため、
+呼び出しの時点で `ReferenceError` が発生し、直後の `try`/`catch` に捕まって全レコードが
+`status: 'error'` に落ちる（＝ **`--apply` しても 1 件も書き込まれない**）状態だった。
+
+- 影響範囲: チップ検出まで到達した全レコード。エラーは `catch` に飲まれるため、集計では
+  `error: N 件` としか出ず、原因が読み取れない。
+- 対処: 第 4 引数を削除（`upsertColorPaletteInRecord(text, spans[i], palette)`）。
+- **他作品（FLInvestigator78 等）へ展開する際は、この修正が入った状態から始めること。**
+
+### Num 80 の検出結果
+
+| 項目 | 値 |
+| --- | --- |
+| ソース | `concept/cnsp_img80.png` |
+| 検出チップ | **6 色**（`#FF9048` / `#C48455` / `#EEC694` / `#FFC5A3` / `#FC6932` / `#EF9D46`） |
+| 過検出の有無 | チップ領域を 8 倍に拡大して目視確認。**6 個すべて独立した実在のチップ**（過検出なし） |
+| Role の根拠 | **被覆率の実測ではなく、設定画上のチップ面積順**（`arts` / `corefolder` 画像が未登録のため `rankChipsByCoverage()` がフォールバック経路に入る） |
+| `AppliesTo` | 色語「橙」が複数の `AppearanceDetail` に現れるため、オレンジ系 5 色すべてに同一の BodyPart 集合が転記されている（**要 User レビュー**） |
+
+`corefolder` 画像が登録されたら `--force` で再実行すると、Role が実測被覆率ベースに更新される。
+
 ## 参考リンク
 
 - [`2026-07-13_progress_aihints-palette-deadlock.md`](./.completed/2026-07-13_progress_aihints-palette-deadlock.md) — 本作業の発端（palette が埋まらないデッドロックの診断）

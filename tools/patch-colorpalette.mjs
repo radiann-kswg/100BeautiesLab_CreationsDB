@@ -388,7 +388,7 @@ export function patchColorPalette(opts) {
         const palette = buildColorPaletteValue(ordered, collectColorHints(record));
 
         try {
-            const res = upsertColorPaletteInRecord(text, spans[i], palette, anchorFields);
+            const res = upsertColorPaletteInRecord(text, spans[i], palette);
             text = res.text;
             results.push({
                 num,

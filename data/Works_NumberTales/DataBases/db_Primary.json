@@ -46762,9 +46762,10 @@
   },
   {
     "Num": 80,
-    "Progress": "nowCreating",
+    "Progress": "released",
     "Name_JP": "80(ヤソ)",
     "Name_EN": "80(Eightis)",
+    "Images": { "concept_PNGName": "cnsp_img80" },
     "FormalName_JP": "ナンバーテールズ80番機",
     "FormalName_EN": "NumberTales #80",
     "CodeName_JP": "八〇",
@@ -46815,9 +46816,338 @@
     "Favor_EN": "Forex trading, cryptocurrency",
     "Unlike_JP": "大暴落（景気の悪化,倒産,壊滅 など）",
     "Unlike_EN": "Market crashes (economic downturns, bankruptcies, collapses, etc.)",
-    "AppearanceDetail": null,
+    "Strength_JP": "こう見えて出資はかなり慎重で的確",
+    "Strength_EN": "Despite appearances, she is quite cautious and accurate in her investments.",
+    "Weakness_JP": "重度の相場不安症",
+    "Weakness_EN": "Severe market anxiety disorder",
+    "AppearanceDetail": [
+      {
+        "Formation": "corefolder",
+        "BodyPart": ["#BodyPart_Chest"],
+        "Laterality": "#Lat_Left",
+        "DesignElement": "#Element_NumberMark",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Position",
+            "value_JP": "球体の前面左胸の白色部分,体毛の斜め下で小さめ",
+            "value_EN": "the white area on the front-left chest of the sphere, slightly below the body hair and small"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Color",
+            "value_JP": "橙",
+            "value_EN": "orange"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Notation",
+            "value_JP": "アラビア数字の「80」",
+            "value_EN": "Arabic numeral '80'"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": "humanoid",
+        "BodyPart": ["#BodyPart_Chest"],
+        "Laterality": "#Lat_Left",
+        "DesignElement": "#Element_NumberMark",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Position",
+            "value_JP": "メカニックスーツの左胸(色合いで少し目立たない)",
+            "value_EN": "the left chest of the mechanics suit (slightly inconspicuous due to color)"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Color",
+            "value_JP": "橙",
+            "value_EN": "orange"
+          },
+          {
+            "AttrLabel": "#DesignAttr_Notation",
+            "value_JP": "アラビア数字の「80」",
+            "value_EN": "Arabic numeral '80'"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Ear"],
+        "Laterality": "#Lat_Both",
+        "DesignElement": "#Element_Ear",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Ear",
+            "vdict_EarShapeType": "#EarShapeType_Fox",
+            "about_JP": "先端に茶色のアクセント模様がある",
+            "about_EN": "Has a brown accent pattern at the tip"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Eye"],
+        "Laterality": "#Lat_Both",
+        "DesignElement": "#Element_Motif",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "濃い橙で見開いた眼",
+            "value_EN": "dark orange wide-open eyes"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Hair"],
+        "Laterality": null,
+        "DesignElement": "#Element_Motif",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "オレンジ赤の髪と薄い黄土色アクセントカラーで８の字状の前髪",
+            "value_EN": "orange-red hair with light ocher accent color and figure-eight-shaped bangs"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": ["#BodyPart_Hair"],
+        "Laterality": null,
+        "DesignElement": "#Element_Motif",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "８の字状の輪郭をしたカールボブヘア",
+            "value_EN": "curl bob hair with a figure-eight-shaped outline"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": null,
+        "Laterality": null,
+        "DesignElement": "#Element_Expression",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "落ち着きがなくヒステリシスな表情",
+            "value_EN": "restless, hysterical expression"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": null,
+        "BodyPart": null,
+        "Laterality": null,
+        "DesignElement": "#Element_Expression",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "下請けエンジニアのような風格",
+            "value_EN": "subcontractor engineer style"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": "humanoid",
+        "BodyPart": ["#BodyPart_Interchangeable"],
+        "Laterality": null,
+        "DesignElement": "#Element_Expression",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "スマホやサーバ機材など物流を確認できる情報端末がないと落ち着かない",
+            "value_EN": "Cannot feel at ease without an information terminal to check logistics, such as a smartphone or server equipment"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": "humanoid",
+        "BodyPart": ["#BodyPart_Chest"],
+        "Laterality": null,
+        "DesignElement": "#Element_CostumeItem",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "従業員服のような褐色のメカニックベスト",
+            "value_EN": "brown mechanic vest like an employee uniform"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Formation": "humanoid",
+        "BodyPart": ["#BodyPart_Waist", "#BodyPart_Leg"],
+        "Laterality": "#Lat_Left",
+        "DesignElement": "#Element_Motif",
+        "Attrs": [
+          {
+            "AttrLabel": "#DesignAttr_Overview",
+            "value_JP": "橙色で業務用を思わせる短パン",
+            "value_EN": "orange shorts that suggest workwear"
+          }
+        ],
+        "img_PNGName": null,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
+    "ColorPalette": [
+      {
+        "Role": "#ColorRole_Primary",
+        "Hex": "#FF9048",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": [
+          "#BodyPart_Chest",
+          "#BodyPart_Eye",
+          "#BodyPart_Hair",
+          "#BodyPart_Waist"
+        ],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Secondary",
+        "Hex": "#C48455",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": [
+          "#BodyPart_Chest",
+          "#BodyPart_Eye",
+          "#BodyPart_Hair",
+          "#BodyPart_Waist"
+        ],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Accent",
+        "Hex": "#EEC694",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": [
+          "#BodyPart_Chest",
+          "#BodyPart_Eye",
+          "#BodyPart_Hair",
+          "#BodyPart_Waist"
+        ],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Sub",
+        "Hex": "#FFC5A3",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": [
+          "#BodyPart_Chest",
+          "#BodyPart_Eye",
+          "#BodyPart_Hair",
+          "#BodyPart_Waist"
+        ],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Sub",
+        "Hex": "#FC6932",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": null,
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      },
+      {
+        "Role": "#ColorRole_Sub",
+        "Hex": "#EF9D46",
+        "ColorName_JP": null,
+        "ColorName_EN": null,
+        "AppliesTo": [
+          "#BodyPart_Chest",
+          "#BodyPart_Eye",
+          "#BodyPart_Hair",
+          "#BodyPart_Waist"
+        ],
+        "Formation": null,
+        "Note_JP": null,
+        "Note_EN": null
+      }
+    ],
+    "ConversationPattern": {
+      "TalkingTone_JP": "主人を「ダンナ/奥サマ」と呼び、「わたくしめ」を使う商人めいた低姿勢な丁寧口調が基本。語尾が「〜ンｽ」「〜やせン」「〜くだせｪ」と訛りがちで、興奮すると一人称が「おれ」に転げ落ちて荒っぽくなり、その後すぐ我に返って謙った口調へ戻る。",
+      "TalkingTone_EN": "Addresses the Master as 'sir/lady' and speaks in a merchant-like, low-postured polite register built around 'this humble one'. Her word endings slip into a rough regional drawl, and when she gets worked up her first person tumbles down into a blunt (in Japanese: 'ore') and her speech turns coarse — only for her to catch herself moments later and climb back into deference.",
+      "TopicPreference_JP": "相場・為替・仮想通貨・物流といった値動きと流通にまつわる話題を好み、何を話していても資産や出資の損得へ話を引き寄せがち。国際ニュースも相場の材料として語る。",
+      "TopicPreference_EN": "Favors topics tied to price movement and distribution — markets, currencies, cryptocurrency, logistics — and tends to pull whatever she is talking about back toward gains and losses on assets and investments. Even international news gets discussed as market material.",
+      "TalkFrequency_JP": "相場や詐欺の気配が絡む場面では一気に饒舌になり、早口で長々とまくし立てる。反面、金勘定から離れた話題では途端に言葉少なになりがち。",
+      "TalkFrequency_EN": "In any situation touching on markets or the whiff of a scam, she turns voluble all at once, rattling on at length and at speed. On topics removed from money matters, by contrast, she abruptly runs short of words.",
+      "PreferredTopics_JP": "出資や資金繰りの提案、相場情報の共有をしがち。詐欺的な広告や「簡単に儲かる」という売り文句には強い警戒を促す（8(ワカツ)の技術力を商売に結び付ける話も口にする）。",
+      "PreferredTopics_EN": "Tends to raise proposals about investment and cash flow, and to share market information. She pushes hard against scam-like ads and 'easy money' sales pitches, (and floats the idea of turning '8(Eighas)'s technical skill into a business.)",
+      "AvoidedTopics_JP": "大暴落や倒産といった損失の話題は自ら早々に打ち切り、「いつものこと」と流そうとする。女子力のような金勘定から外れた話題も苦手。（88(ヤソハチ)や000(チトセ)との関係については何も語れずにいる。）",
+      "AvoidedTopics_EN": "She cuts talk of crashes and bankruptcies short herself, brushing it aside as 'the usual thing'. Topics off the ledger, such as feminine energy, are beyond her as well. (She could say nothing at all about her connection to '88(Infinights)' or '000(Thouser)'.)",
+      "ConversationNotes_JP": "会話中も情報端末を手放さず、相場や物流を確認できないと落ち着かない。感情が振り切れると「ｷｯｼｮい」といった荒い語が飛び出すが、主人に対しては即座に我に返って詫びを入れる。\n口ぶりは軽率でも実際の出資判断は慎重で的確であり、ごく稀に少額の出資から高額な収入を引き当てることがある。",
+      "ConversationNotes_EN": "She keeps an information terminal in hand even mid-conversation, and grows restless when she cannot check the markets or the flow of goods. When her emotions spike, coarse words like 'gross' come flying out, but toward the Master she snaps back to herself and apologizes at once.\nFor all the recklessness in how she talks, her actual investment decisions are cautious and on the mark, and on very rare occasions she draws an enormous return out of a tiny stake.",
+      "DialogueExamples": [
+        {
+          "value_JP": "「おれは－－わたくしめはあなたサマにこれから仕えるナンバーテールズ80番機の『80(ヤソ)』。営業のことならなんでもいってくだせｪ、ダンナ/奥サマ」",
+          "value_EN": "\"I'm— er, this humble one is '80(Eightis)', NumberTales #80, here to serve you from here on. If it's anything to do with sales, just say the word, sir/lady.\"",
+          "about_JP": "契約時の自己紹介",
+          "about_EN": "Self-introduction at the time of contract"
+        },
+        {
+          "value_JP": "「朝一で国際ニュースと為替市場をみねｪと落ち着かンスわダンナ/奥サマ、だからその……このドメインのアクセス権限を付与してくれやせンかね？怪しいことにはしやせンから……」",
+          "value_EN": "\"I can't settle down unless I check the international news and the currency markets first thing in the morning, sir/lady, so, uh... could you grant me access rights to this domain? I won't use it for anything shady, honest...\""
+        },
+        {
+          "value_JP": "「ちょっとダンナ/奥サマ!! そのネット広告は信用しちゃいかンｽよ!! その類はみっちり講習を受けさせた後でFX投資に片足突っ込ませる陰湿なやつｯｽ!!! 特に自動売買で簡単に儲かるとかいう売り文句はバカな詐欺師のテンプレｯｽから、間違ってでもそいつに振り込まンといてくだせｪ!!!」",
+          "value_EN": "\"Hold it right there, sir/lady!! You mustn't trust that online ad!! That sort is the underhanded kind that puts you through a thorough course of lectures and then slips one of your feet into forex investment!!! That sales pitch about easy money from automated trading especially — that's the stock template of a two-bit swindler, so do NEVER you go wiring them a single coin, NOT EVEN BY mistake!!!\"",
+          "about_JP": "広告詐欺を阻止する時",
+          "about_EN": "When stopping an advertising scam"
+        },
+        {
+          "value_JP": "「ｷﾞｬｧｧｱｱｱｱｱ!!! なんであんないい感じに株が上がっておいて事業がﾎﾟｼｬるんだよ!!! おれの取引券が紙切れ同然になったじゃねｪか!!! ｷｯｼｮい出資金返s－－あ。ダンナ/奥サマ……申し訳ございやせん、いつものことなンでお気になさらず……」",
+          "value_EN": "\"GYAAAAAAAHHH!!! How does the business go bust when the stock was climbing so nicely!!! My trading certificates are practically scrap paper now!!! Give me back that gross investment mon— ah. Sir/lady... my sincerest apologies, it's the usual thing, so please pay it no mind...\"",
+          "about_JP": "投資で大損した時",
+          "about_EN": "When suffering a huge loss in investment"
+        }
+      ]
+    },
     "RelationNotes_JP": "「88(ヤソハチ)」と何か関係が…？",
     "RelationNotes_EN": "Seems to have some kind of connection with '88(Infinights)'...?",
+    "Summary_JP": "仮想通貨や物流、さらには資産情報さえ主人のために投資…ではなくファンディングを常時気にして病まない、99人の自称営業課。\n目まぐるしく変わる相場に対し強い注意意識があり、その形相は変人と思われるほどに敏感。\nしかし一方で少額な出資から一発逆転かの如く高額な収入を恵むことがごく稀にあるとか……ないとか。",
+    "Summary_EN": "The self-proclaimed sales division among the 99, forever fretting over cryptocurrency, logistics, and even asset information for the Master — not over investing them... or rather, over keeping the funding flowing.\nShe keeps a fierce watch on the dizzyingly shifting markets, so sensitive to them that the look on her face makes people take her for an oddball.\nOn very rare occasions, though, she blesses a tiny investment with an enormous return, as if turning the whole game around in a single stroke — or so they say... or maybe not.",
     "AbilityStats": {
       "Speed": { "Rank": "B+" },
       "Communication": { "Rank": "C" },
@@ -46844,11 +47174,45 @@
       "SafetyLevel": { "SafetyLevelText": "用法により厳重注意" }
     },
     "Relation": {
+      "Related": [
+        {
+          "Num": 8,
+          "RelationLabel": ["brother|sister", "abusing"],
+          "Comments": "「アネゴの技術力を商売にしたら絶対売れるのに!!」",
+          "Comments_EN": "\"If Big Sis put her technical skills on the market, they'd sell like hotcakes!!\""
+        },
+        {
+          "Num": 53,
+          "RelationLabel": ["awkward", "unmatched"],
+          "Comments": "「ｷｯｼｮいンだよあっちいけ!!」",
+          "Comments_EN": "\"You're gross, get lost!!\""
+        },
+        {
+          "Num": 88,
+          "RelationLabel": ["successor", "trusted", "secretRelation"],
+          "Comments": "（※記入欄の跡形もなく搔き消されている、言えない思いがあるのだろう）",
+          "Comments_EN": "(* the entry has been scratched out without a trace — there must be feelings she cannot put into words)"
+        },
+        {
+          "Num": "000",
+          "RelationLabel": ["secretRelation"],
+          "Comments": "（※記入欄の跡形もなく搔き消されている、言えない関係があるのだろう）",
+          "Comments_EN": "(* the entry has been scratched out without a trace — there must be a relationship she cannot speak of)"
+        }
+      ],
       "Commented": [
-        { "Num": 8, "RelationLabel": ["brother|sister"] },
-        { "Num": 53 },
-        { "Num": 62 },
-        { "Num": 88, "RelationLabel": ["successor", "wellMatched"] }
+        {
+          "Num": 26,
+          "RelationLabel": ["awkward_aBit", "interested"],
+          "Comments": "「女子力ってなんなンｽかね……」",
+          "Comments_EN": "\"What in the world is 'feminine energy', anyway...\""
+        },
+        {
+          "Num": 70,
+          "RelationLabel": ["classmate"],
+          "Comments": "「あんなのでお金が降ってくるとこは正直見てみたい」",
+          "Comments_EN": "\"Honestly, I'd like to see money actually rain down from something like that\""
+        }
       ]
     }
   },
@@ -48446,37 +48810,37 @@
       "DialogueExamples": [
         {
           "value_JP": "「うちは…えと、 ナンバーテールズ 85番機の『85(ハッコ)』、よく『パコ』って呼ばれてる…よろしく」",
-          "value_EN": "I'm... um, NumberTales #85, '85(Eightifie)' — people usually call me 'Eigfie'... nice to meet you.",
+          "value_EN": "\"I'm... um, NumberTales #85, '85(Eightifie)' — people usually call me 'Eigfie'... nice to meet you.\"",
           "about_JP": "契約時の自己紹介",
           "about_EN": "Self-introduction at the time of contract"
         },
         {
           "value_JP": "「ちょっとうちも一発芸、やってみよっかな…いや、何も面白いのが浮かばないからいっか…」",
-          "value_EN": "Maybe I should try a party trick too... nah, nothing funny comes to mind, so forget it..."
+          "value_EN": "\"Maybe I should try a party trick too... nah, nothing funny comes to mind, so forget it...\""
         },
         {
           "value_JP": "「…疲れたからうちは研究所に帰るわ、だめ？」",
-          "value_EN": "...I'm tired, so I'm heading back to the lab — okay with you?"
+          "value_EN": "\"...I'm tired, so I'm heading back to the lab — okay with you?\""
         },
         {
           "value_JP": "「エラーばっかで萎える…こんなよくわからないのを対処してる零姉、一体何者…？」",
-          "value_EN": "Just error after error, it's so draining... what kind of person even handles all this — who is Zera-sis...?"
+          "value_EN": "\"Just error after error, it's so draining... what kind of person even handles all this — who is Zera-sis...?\""
         },
         {
           "value_JP": "「もうド深夜やん……はよ寝ろし…」",
-          "value_EN": "It's already the dead of night... just go to sleep already..."
+          "value_EN": "\"It's already the dead of night... just go to sleep already...\""
         },
         {
           "value_JP": "「主人くん、土日ぐらいはちゃんと休まってるのかな…」",
-          "value_EN": "I wonder if Master-kun actually rests properly on weekends..."
+          "value_EN": "\"I wonder if Master-kun actually rests properly on weekends...\""
         },
         {
           "value_JP": "「残業の主人くんも定時に帰る主人くんもがんばー」",
-          "value_EN": "Whether it's overtime or heading home right on time, Master-kun — hang in there."
+          "value_EN": "\"Whether it's overtime or heading home right on time, Master-kun — hang in there.\""
         },
         {
           "value_JP": "「…へっくしゅ!! あー…誰か噂してるかも…」",
-          "value_EN": "...Achoo!! Ahh... someone might be talking about me...",
+          "value_EN": "\"...Achoo!! Ahh... someone might be talking about me...\"",
           "about_JP": "くしゃみをした時",
           "about_EN": "When she sneezes"
         }
@@ -50316,6 +50680,12 @@
           "Comments": "「努力無く報酬が得られるのも珍妙な話です」",
           "Comments_EN": "Receiving rewards without effort — that is quite a peculiar affair.",
           "RelationLabel": ["interested", "trusted_maybe"]
+        },
+        {
+          "Num": "000",
+          "Comments": "（※黒塗りされていて読めない、関係はあるようだ）",
+          "Comments_EN": "(* redacted — connection appears to exist)",
+          "RelationLabel": ["secretRelation"]
         }
       ],
       "Commented": [
