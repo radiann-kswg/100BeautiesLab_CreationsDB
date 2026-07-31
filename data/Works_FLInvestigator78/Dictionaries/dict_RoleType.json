@@ -7,5 +7,6 @@
   { "RoleType": "Heal", "RoleType_JP": "癒" },
   { "RoleType": "Fear", "RoleType_JP": "妨" },
   { "RoleType": "Repair", "RoleType_JP": "修" },
+  { "RoleType": "Passion", "RoleType_JP": "情" },
   { "RoleType": "Archive", "RoleType_JP": "終" }
 ]

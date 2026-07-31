@@ -50,6 +50,17 @@
     "Links": []
   },
   {
+    "Term_JP": "基底岐路",
+    "Term_JPReading": "カーネルブランチ",
+    "Term_EN": "KERNEL-BRANCH",
+    "TermType": null,
+    "Category": "OtherPropers",
+    "Summary_JP": "「未来消失」による異変対象から乖離された、78特殊探偵団が調査・管理する移動型の特殊な\"岐路(ブランチ)\"であり、78枚のアルカナムスペックのすべてが共存可能な活動拠点でもある。",
+    "Summary_EN": "A special 'FL_BRANCH' that is mobile and is investigated and managed by the 78 Special Investigators, which has been separated from the anomaly target due to 'Future Erasure', and is also a base of operations where all 78 Arcanamspecs can coexist.",
+    "Aliases": [],
+    "Links": []
+  },
+  {
     "Term_JP": "輪廻の境界",
     "Term_JPReading": "リインカーネートボーダー",
     "Term_EN": "Reincarnate Border",
@@ -170,7 +181,7 @@
   },
   {
     "Term_JP": "火の棍棒支部",
-    "Term_JPReading": "ひのこんぼうしぶ/ファイアワンズ",
+    "Term_JPReading": "ひのこんぼうしぶ/ファイアワンズしぶ",
     "Term_EN": "FireWands Branch",
     "TermType": null,
     "Category": "Role",
@@ -182,7 +193,7 @@
   {
     "Term_JP": "水の聖杯支部",
     "Term_EN": "WaterCups Branch",
-    "Term_JPReading": "みずのせいはいしぶ/ウォーターカップス",
+    "Term_JPReading": "みずのせいはいしぶ/ウォーターカップスしぶ",
     "TermType": null,
     "Category": "Role",
     "Summary_JP": null,
@@ -193,7 +204,7 @@
   {
     "Term_JP": "風の刀剣支部",
     "Term_EN": "SlashSwords Branch",
-    "Term_JPReading": "かぜのとうけんしぶ/スラッシュソード",
+    "Term_JPReading": "かぜのとうけんしぶ/スラッシュソードしぶ",
     "TermType": null,
     "Category": "Role",
     "Summary_JP": null,
@@ -204,7 +215,7 @@
   {
     "Term_JP": "金の硬貨支部",
     "Term_EN": "PentacleObjects Branch",
-    "Term_JPReading": "きんのこうかしぶ/ペンタクルオブジェクツ",
+    "Term_JPReading": "きんのこうかしぶ/ペンタクルオブジェクツしぶ",
     "TermType": null,
     "Category": "Role",
     "Summary_JP": null,

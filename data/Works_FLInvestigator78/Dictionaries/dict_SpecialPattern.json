@@ -29,6 +29,10 @@
     "SpecialPattern_EN": "Ptn.M(Mental Manipulation)"
   },
   {
+    "SpecialPattern": "Ptn.P(熱意操作)",
+    "SpecialPattern_EN": "Ptn.P(Passion Manipulation)"
+  },
+  {
     "SpecialPattern": "Ptn.S(感度操作)",
     "SpecialPattern_EN": "Ptn.S(Sensitivity Manipulation)"
   },
