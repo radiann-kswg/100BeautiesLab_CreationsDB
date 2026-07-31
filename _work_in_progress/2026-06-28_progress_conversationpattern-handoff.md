@@ -65,6 +65,33 @@
 - 試験運用: Num97(ココナ) — ユーザが`DialogueExamples`5件を先行入力 → Claudeが上記手順で6項目を仮入力（未コミット、要レビュー）。
 - 残タスク（Num 92/94/95/98/99/2/10）も、ユーザが各`DialogueExamples`を入力した後にこの手順で対応する。
 
+## 適用実績(2026-07-31): Num 80(ヤソ) — 本体ローカル / `develop`
+
+User の依頼により、**本体ローカル**（`develop`）で新方式（DialogueExamples先行方式）を適用した。
+sub2 での作業分だったが、本体側で Num 80 の英訳・ColorPalette 対応と同一セッション内で処理している。
+
+- **前提充足**: `DialogueExamples` 4件は User が先行入力済み（手順1を満たす）。`DialogueExamples` 自体は
+  未改変で、`value_EN` ×4 / `about_EN` ×1 の翻訳補助のみ追記（手順3の範囲内）。
+- **根拠にした既存フィールドのみ**: `Character` / `Hobby` / `SpecialSkill` / `Favor` / `Unlike` /
+  `Strength` / `Weakness` / `Summary` / `NumerospecAbout` / `AppearanceDetail` /
+  `*PersonCalling` / `ForMasterCalling` / `Relation.Comments` / `AbilityStats`。
+  ソースに無い設定は書いていない（手順4）。
+- **6項目すべて仮入力（下書き）**。コミット前に User が自然な言い回しへ手直しする前提（手順5）。
+- 検証: `npx prettier --check` パス / `npm run data:order:check` 差分なし / `npm test` 46ファイル・627件成功。
+
+**要レビュー観点**:
+
+- `TalkFrequency_JP` の「金勘定から離れた話題では言葉少なになりがち」は、`Relation.Commented` の
+  26(ニロク) 宛コメント（`awkward_aBit` + 「女子力ってなんなンｽかね……」）からの推定。
+  `AbilityStats.Communication: C` は補強材料に留めた（C は 15 件あり、単独では「不得手」と断定できないため）。
+- `AvoidedTopics` に 88(ヤソハチ) / 000(チトセ) との関係を「何も語らない」として含めた。
+  `Relation.Comments` が両方とも「搔き消されている」ことに基づく事実記述だが、
+  秘匿関係の扱いは創作判断に触れるため User の確認が望ましい。
+
+> **注意（二重編集）**: sub2 側に `db_Primary.json` の未コミット変更が残っている場合、本体側の本変更と
+> 衝突する。sub2 で `git status` を確認し、残っていれば取り下げるか先に取り込むこと（`AGENTS.md`
+> 「サブローカル並行作業運用 → 安全則」）。
+
 ## 参考
 
 - 復元元コミット: 84348d2「DeepLによるローカライズ機能実装 続き」
