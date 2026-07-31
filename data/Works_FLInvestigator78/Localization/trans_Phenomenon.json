@@ -4,6 +4,15 @@
     "Term_EN": "Future Erasure",
     "TransPolicy": "#TP_SemanticTranslate",
     "Scope": ["Works_FLInvestigator78"],
+    "TransNote_JP": "`Ref_Reference`を参照",
+    "TransNote_EN": "See `Ref_Reference`"
+  },
+  {
+    "Term_JP": "基底岐路",
+    "Term_JPReading": "カーネルブランチ",
+    "Term_EN": "KERNEL-BRANCH",
+    "TransPolicy": "#TP_LocalizeName",
+    "Scope": ["Works_FLInvestigator78"],
     "TransNote_JP": "`Ref_Vocabulary`を参照",
     "TransNote_EN": "See `Ref_Vocabulary`"
   }

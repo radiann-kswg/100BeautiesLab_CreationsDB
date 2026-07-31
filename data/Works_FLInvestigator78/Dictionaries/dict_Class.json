@@ -8,6 +8,9 @@
   { "Class": "最高幹部", "Class_EN": "Top Executive" },
   { "Class": "国際幹部", "Class_EN": "International Executive" },
   { "Class": "国境幹部", "Class_EN": "Border Executive" },
+  { "Class": "補助幹部", "Class_EN": "Assistant Executive" },
   { "Class": "九蓮国支部幹部", "Class_EN": "RN.Branch Executive" },
-  { "Class": "英皇国支部幹部", "Class_EN": "IK.Branch Executive" }
+  { "Class": "英皇国支部幹部", "Class_EN": "IK.Branch Executive" },
+  { "Class": "基底岐路管理秘書", "Class_EN": "KERNEL-BRANCH Secretary" },
+  { "Class": "基底岐路管理官", "Class_EN": "KERNEL-BRANCH Administrator" }
 ]
