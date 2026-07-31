@@ -393,6 +393,50 @@
     }
   },
   {
+    "Card": { "Suit": "Major", "SuitNum": 19 },
+    "Progress": "notProceeded",
+    "ArcanaHolding_DBLink": {
+      "_DB": "Primary",
+      "Card": { "Suit": "Major", "SuitNum": 19 }
+    },
+    "FormalName_JP": "日南田 ユーリ",
+    "FormalName_EN": "Ū'pia Hinanta",
+    "RaceType": "OverHuman",
+    "GenderType": "Female",
+    "Height_cm": 119,
+    "Weight_kg": 29,
+    "Age": 8,
+    "BirthDay": { "Day": { "Month": 8, "DayOfMonth": 2 } },
+    "FirstPersonCalling_JP": "ユーリ ※名前呼び",
+    "FirstPersonCalling_EN": "Ū'pia (*by name)",
+    "SecondPersonCalling_JP": "きみ",
+    "SecondPersonCalling_EN": "you",
+    "ThirdPersonCalling_JP": "~くん/ちゃん",
+    "ThirdPersonCalling_EN": " [*by name] (-kun/-chan)",
+    "For79thDealerCalling_JP": "まいちゃん",
+    "For79thDealerCalling_EN": "Dancy",
+    "For80thDealerCalling_JP": "うたかちゃん",
+    "For80thDealerCalling_EN": "Phonia",
+    "Character_JP": "純粋無垢で明るく健気\n晴れ女な一面も",
+    "Character_EN": "Pure and bright, with a strong sense of duty\n also has a sunny disposition",
+    "Hobby_JP": "晴れ間の散歩",
+    "Hobby_EN": "Walking in clear weather",
+    "SpecialSkill_JP": "前世(先代アルカナホルダー)の記憶を憶えている",
+    "SpecialSkill_EN": "Remembers memories of her past life (as the previous ArcanaHolder)",
+    "Favor_JP": "ひまわり畑,夏空",
+    "Favor_EN": "Sunflower fields, summer sky",
+    "Unlike_JP": "曇り空",
+    "Unlike_EN": "Cloudy sky",
+    "AbilityStats": {
+      "Speed": { "Rank": "B" },
+      "Communication": { "Rank": "B" },
+      "Leading": { "Rank": "B" },
+      "Precision": { "Rank": "C" },
+      "Technic": { "Rank": "E" },
+      "Actuation": { "Rank": "B+" }
+    }
+  },
+  {
     "Card": { "Suit": "Dealer", "Num": 79 },
     "Progress": "released(beta)",
     "ArcanaHolding_DBLink": {

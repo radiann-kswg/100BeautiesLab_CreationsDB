@@ -482,6 +482,43 @@
     }
   },
   {
+    "Card": { "Suit": "Major", "SuitNum": 19, "Num": 19 },
+    "Progress": "nowCreating",
+    "Name_JP": "ソラ",
+    "Name_EN": "Sola",
+    "FormalName_JP": "高揚する太陽\nフェニクス・ソル=パッショーネ",
+    "FormalName_EN": "Sun Feeling Elated\nPhoenix.Sol=Passione",
+    "CodeName_JP": "太陽",
+    "CodeName_EN": "Sun",
+    "RaceType": "OverHuman",
+    "GenderType": "FemaleNeutral",
+    "Class": ["補助幹部"],
+    "Summary_JP": "\"未来消失\"の事件捜査には直接関与しないものの、異能組織『セブンティエイト特殊探偵団』（通称『運命線探偵』）の補助幹部として保護されているアルカナホルダー。\n【高揚する太陽】のアルカナムスペックを行使する彼女は、日中の快晴時にしか発動できないものの、高揚感や熱意を操作し幹部の能力を引き立てる力を有しています。\nしかしアルカナムスペックの特性上、幼少なアルカナホルダーにしか適性が付与されずアルカナホルダーの引き継ぎが頻回に必要であるそうで……",
+    "Summary_EN": "Although not directly involved in the investigation of incidents involving the mysterious disappearance phenomenon known as 'Future Erasure', she is an ArcanaHolder protected as an Assistant Executive of the special investigations organization 'Team.78(Seventy-Eight) the Special Investigators' (commonly known as the 'FateLine Investigators').\nBrandishing the ArcanumSpec of the [⁠Sun Feeling Elated⁠], while it can only be activated during clear daytime skies, she possesses the power to manipulate exhilaration and passion, enhancing the abilities of executives.\nHowever, due to the nature of this ArcanumSpec, it seems that only young ArcanaHolders are granted aptitude, necessitating frequent succession of ArcanaHolders...",
+    "AdditionalDesigned_JP": "",
+    "AdditionalDesigned_EN": "",
+    "ArcanamspecAbout_JP": "情熱を降り注ぐ\n高揚感を操作する",
+    "ArcanamspecAbout_EN": "Pours down passion\nManipulates exhilaration",
+    "ArcanumspecStats": {
+      "SpecType": {
+        "Material": [{ "Material": "Fire" }],
+        "KinematicOrStatic": "Pre-Static",
+        "RoleType": "Passion",
+        "DualizePattern": { "Pattern": "Prop." }
+      },
+      "EffectStats": {
+        "Physical": { "EffectText": "効果無" },
+        "Magical": { "EffectText": "絶大" },
+        "Healing": { "EffectText": "絶大" },
+        "Violent": { "EffectText": "希薄" },
+        "Rewriting": { "EffectText": "普通" }
+      },
+      "SpecialPattern": ["Ptn.P(熱意操作)", "Ptn.M(精神操作)"],
+      "SafetyLevel": { "SafetyLevelText": "安全" },
+      "SpecLevel": { "Rank": "A" }
+    }
+  },
+  {
     "Card": { "Suit": "FireWands", "SuitNum": 1, "Num": 23 },
     "Progress": "notProceeded",
     "ThisArcanaHolder_DBLink": {
